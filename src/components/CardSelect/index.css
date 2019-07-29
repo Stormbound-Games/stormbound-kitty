@@ -1,0 +1,13 @@
+.CardSelect {
+}
+
+.CardSelect__control {
+  background-color: transparent !important;
+  border-color: rgba(222, 215, 164, 0.5) !important;
+  color: white !important;
+}
+
+.CardSelect__input,
+.CardSelect__single-value {
+  color: white !important;
+}

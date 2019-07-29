@@ -1,0 +1,40 @@
+.Mana {
+  width: 2em;
+  text-align: center;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.Mana::before {
+  content: '';
+  padding-top: 80%;
+  display: block;
+}
+
+.Mana--disabled {
+  filter: grayscale(1);
+}
+
+/**
+ * 1. Absolute centering with in parent
+ */
+.Mana__image {
+  position: absolute; /* 1 */
+  top: 50%; /* 1 */
+  left: 50%; /* 1 */
+  transform: translate(-50%, -50%); /* 1 */
+  max-width: 100%;
+  display: block;
+}
+
+/**
+ * 1. Absolute centering with in parent based on background
+ */
+.Mana__value {
+  color: white;
+  font-size: 110%;
+  position: absolute; /* 1 */
+  top: 50%; /* 1 */
+  left: 50%; /* 1 */
+  transform: translate(-50%, -50%) translateY(-10%); /* 1 */
+}

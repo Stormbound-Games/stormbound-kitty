@@ -1,0 +1,29 @@
+.BSAppDesktop {
+  position: relative;
+}
+
+.BSAppDesktop__settings {
+  margin-top: 2em;
+}
+
+.BSAppDesktop__puzzle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  text-align: right;
+  padding: 1em;
+  width: calc(100% / 3);
+  background-image: linear-gradient(
+    -194deg,
+    transparent 60%,
+    rgba(0, 0, 0, 0.5)
+  );
+}
+
+.BSAppDesktop__deck {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 1em;
+  width: 25%;
+}

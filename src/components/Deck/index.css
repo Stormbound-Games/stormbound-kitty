@@ -1,0 +1,208 @@
+.Deck--horizontal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.Deck--horizontal::before {
+  content: '';
+  display: block;
+  padding-top: 50%;
+}
+
+.Deck--vertical {
+  margin-bottom: 2em;
+}
+
+.Deck__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.Deck--horizontal .Deck__list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  bottom: 0;
+}
+
+.Deck--vertical .Deck__list {
+  margin-left: 1em;
+}
+
+.Deck__card {
+  background-color: rgb(78, 86, 89);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.2em;
+  position: relative;
+  transition: 250ms;
+}
+
+.Deck__card--empty {
+  min-height: 2.5em;
+  background-color: transparent;
+  border: 2px dotted rgba(255, 255, 255, 0.3);
+  opacity: 0.5;
+}
+
+.Deck--horizontal .Deck__card {
+  margin: 0 0.15em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  flex: 1 1 calc(100% / 12);
+}
+
+.Deck--vertical .Deck__card {
+  padding: 0.25em 1em;
+  display: flex;
+  align-items: center;
+  margin: 0.25em 0;
+}
+
+.Deck__card--spell {
+  background-color: rgb(137, 140, 149);
+}
+
+.Deck__card--structure {
+  background-color: rgb(55, 63, 67);
+}
+
+.Deck__card--legendary {
+  background-color: rgb(25, 25, 25);
+}
+
+.Deck__card--swarm {
+  background-color: var(--swarm);
+}
+
+.Deck__card--swarm.Deck__card--spell {
+  background-color: rgb(157, 125, 95);
+}
+
+.Deck__card--swarm.Deck__card--structure {
+  background-color: rgb(60, 45, 28);
+}
+
+.Deck__card--swarm.Deck__card--legendary {
+  background-color: rgb(34, 27, 4);
+}
+
+.Deck__card--ironclad {
+  background-color: var(--ironclad);
+}
+
+.Deck__card--ironclad.Deck__card--spell {
+  background-color: rgb(179, 111, 120);
+}
+
+.Deck__card--ironclad.Deck__card--structure {
+  background-color: rgb(91, 51, 50);
+}
+
+.Deck__card--ironclad.Deck__card--legendary {
+  background-color: rgb(48, 27, 32);
+}
+
+.Deck__card--shadowfen {
+  background-color: var(--shadowfen);
+}
+
+.Deck__card--shadowfen.Deck__card--spell {
+  background-color: rgb(91, 152, 143);
+}
+
+.Deck__card--shadowfen.Deck__card--structure {
+  background-color: rgb(28, 65, 60);
+}
+
+.Deck__card--shadowfen.Deck__card--legendary {
+  background-color: rgb(11, 33, 29);
+}
+
+.Deck__card--winter {
+  background-color: var(--winter);
+}
+
+.Deck__card--winter.Deck__card--spell {
+  background-color: rgb(81, 95, 128);
+}
+
+.Deck__card--winter.Deck__card--structure {
+  background-color: rgb(32, 40, 60);
+}
+
+.Deck__card--winter.Deck__card--legendary {
+  background-color: rgb(9, 25, 42);
+}
+
+.Deck__card--excluded {
+  opacity: 0.6;
+}
+
+.Deck--vertical .Deck__mana {
+  transform: scale(1.2);
+  left: -2em;
+}
+
+.Deck--horizontal .Deck__mana {
+  font-size: 80%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -0.7em;
+}
+
+.Deck__name {
+  text-transform: uppercase;
+}
+
+.Deck--vertical .Deck__image {
+  max-width: 1.5em;
+  margin-right: 1em;
+  margin-left: auto;
+}
+
+.Deck--horizontal .Deck__image {
+  width: 100%;
+  margin: auto auto 0.25em;
+}
+
+.Deck--horizontal .Deck__name {
+  transform-origin: top left;
+  transform: rotate(90deg) translateY(-50%);
+  white-space: nowrap;
+  position: absolute;
+  left: 50%;
+  top: 1.5em;
+  max-width: 500%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 85%;
+}
+
+.Deck__button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  transition: background-color 250ms;
+  z-index: 2;
+}
+
+.Deck__button:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+}

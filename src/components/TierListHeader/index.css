@@ -1,0 +1,56 @@
+.TierListHeader {
+  display: flex;
+  margin: 0 -0.5em 1em;
+  align-items: flex-end;
+}
+
+.TierListHeader .TierListHeader__name {
+  color: var(--beige);
+  padding-top: 0.55em;
+  padding-bottom: 0.55em;
+}
+
+.TierListHeader__label {
+  display: block;
+  margin-bottom: 0.25em;
+}
+
+.TierListHeader__item {
+  flex: 1 1 100%;
+  padding: 0 0.5em;
+}
+
+.TierListHeader__item:last-child {
+  display: none;
+}
+
+.TierListHeader__move {
+  padding: 0.55em;
+  border-radius: 0.3em;
+  background-color: transparent;
+  border: 1px solid rgba(222, 215, 164, 0.5);
+  color: white;
+  border-radius: 0.25em;
+  height: 100%;
+  cursor: pointer;
+}
+
+.TierListHeader__move[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.TierListHeader__move + .TierListHeader__move {
+  margin-left: 0.5em;
+}
+
+@media (min-width: 700px) {
+  .TierListHeader__item {
+    flex-basis: auto;
+  }
+
+  .TierListHeader__item:last-child {
+    flex-grow: 0;
+    display: block;
+  }
+}

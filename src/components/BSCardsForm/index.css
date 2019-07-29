@@ -1,0 +1,49 @@
+.BSCardsForm {
+}
+
+.BSCardsForm > legend {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.BSCardsForm--deck {
+  margin-top: 0.5em;
+}
+
+.BSCardsForm__row {
+  margin-bottom: 0.25em;
+}
+
+.BSCardsForm__row .Row {
+  margin-bottom: 0;
+}
+
+.BSCardsForm__hand-button {
+  padding: 0;
+  border: 1px solid rgba(222, 215, 164, 0.5);
+  border-radius: 0.15em;
+  background-color: transparent;
+  color: var(--beige);
+  font: inherit;
+  text-transform: uppercase;
+  text-align: center;
+  height: 100%;
+  font-size: 150%;
+  transition: 250ms;
+}
+
+.BSCardsForm__hand-button:not(:disabled):hover,
+.BSCardsForm__hand-button[aria-pressed='true'] {
+  cursor: pointer;
+  background-color: var(--beige);
+  color: var(--black);
+}
+
+.BSCardsForm__hand-button:disabled {
+  opacity: 0.5;
+}
+
+.BSCardsForm__expand-button {
+  margin-left: 1em;
+}

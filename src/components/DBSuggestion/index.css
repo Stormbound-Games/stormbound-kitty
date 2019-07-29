@@ -1,0 +1,8 @@
+.DBSuggestion {
+  margin-bottom: 2em;
+}
+
+.DBSuggestion__name {
+  font-size: 120%;
+  display: block;
+}

@@ -1,0 +1,7 @@
+.CBShareDialog__checkbox {
+  margin-bottom: 1em;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

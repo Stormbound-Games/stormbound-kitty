@@ -1,0 +1,64 @@
+.Guide {
+  font-size: 120%;
+  max-width: 100%;
+  margin: 0 auto 1.5em;
+  width: 60ch;
+}
+
+.Guide > h1.Title {
+  font-size: 120%;
+  margin-top: 0;
+}
+
+.Guide__author {
+  font-style: italic;
+  margin-bottom: 2em;
+}
+
+.Guide .Title {
+  margin-top: 4em;
+}
+
+.Guide h3 {
+  color: var(--beige);
+  margin-top: 2em;
+}
+
+.Guide p:not(.Card__ability) > strong,
+.Guide li > strong {
+  color: var(--beige);
+}
+
+.Guide__cards {
+  margin-top: 2.5em;
+}
+
+.Guide h1 ~ ol ul {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+
+.Guide ol,
+.Guide ul {
+  padding: 0;
+  list-style-position: inside;
+  margin-bottom: 2em;
+}
+
+.Guide li {
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+  margin-bottom: 0.5em;
+}
+
+.Guide ol li {
+  padding-left: 1.2em;
+  text-indent: -1.2em;
+}
+
+.Guide img {
+  margin: 2em auto;
+  display: block;
+  height: auto;
+  max-width: 100%;
+}

@@ -1,0 +1,210 @@
+[
+  {
+    "intro": "Deck Builder",
+    "description": "The deck builder now providers a (smart) random deck generator."
+  },
+  {
+    "intro": "Tier Lists",
+    "description": "It is now possible to create tier lists of cards with the new tier list builder!"
+  },
+  {
+    "intro": "Stormbound News",
+    "description": "Discover the new feline card exclusively on Stormbound Kitty! 🐱"
+  },
+  {
+    "intro": "Guides",
+    "description": "Many thanks to MooreFunn for authoring a guide to play pirates!"
+  },
+  {
+    "intro": "Card Contest",
+    "description": "The winner of the weekly card contest will receive a random epic card in game!"
+  },
+  {
+    "intro": "Stormbound Kitty",
+    "description": "All 5 new feline cards have been added to the site."
+  },
+  {
+    "intro": "Card Contest",
+    "description": "The Card Contest page now displays the Hall of Fame of previous winning cards."
+  },
+  {
+    "intro": "Stories",
+    "description": "Stories are now first-class citizens and replace the quest builder in the top navigation."
+  },
+  {
+    "intro": "Stormbound Kitty",
+    "description": "All changes from the May update are now published: new cards, existing cards’ update, new upgrade costs, new copies requirements."
+  },
+  {
+    "intro": "Card Collection",
+    "description": "The CSV file should now look decent when opened in a third-party software such as Excel."
+  },
+  {
+    "intro": "Card Builder",
+    "description": "Some existing cards now display community-authored stories in the card builder."
+  },
+  {
+    "intro": "Card Collection",
+    "description": "The filters for the collection view are now more suited for it (faction, status and level)."
+  },
+  {
+    "intro": "Deck Builder",
+    "description": "The 5 new cards from the upcoming update are now available."
+  },
+  {
+    "intro": "Stormbound Kitty",
+    "description": "The complete Stormbound guide by Arikrat is now available on the site!"
+  },
+  {
+    "intro": "Deck builder",
+    "description": "Decks can now be exported as images to be shared more easily."
+  },
+  {
+    "intro": "Card Collection",
+    "description": "It is now possible to import and export cards collections."
+  },
+  {
+    "intro": "Deck dry-runner",
+    "description": "Cards can now be selected with keys 1 to 4, played with “P”, cycled with “C” and the turn can be ended with “E”."
+  },
+  {
+    "intro": "Card builder",
+    "description": "The card builder now has a display mode to hide the editing interface."
+  },
+  {
+    "intro": "Battle sim",
+    "description": "The desktop version of the simulator will now load a random background."
+  },
+  {
+    "intro": "Stormbound Kitty",
+    "description": "The site’s footer has been redesigned to provide more information and offer a way to make a small donation."
+  },
+  {
+    "intro": "Deck dry-runner",
+    "description": "It is now possible to dry-run equal decks by clicking “Reset game” and checking “Reset in equal levels”."
+  },
+  {
+    "intro": "Deck builder",
+    "description": "Updating the level of a card in the deck can be done by re-adding the card with a different level."
+  },
+  {
+    "intro": "Stormbound Kitty",
+    "description": "The footer now includes a link to the outstanding Stormbound Guide from Arikrat."
+  },
+  {
+    "intro": "Deck dry-runner",
+    "description": "Collector Mirz now spawns tokens of all races, and their chances of draw work as intended."
+  },
+  {
+    "intro": "Deck suggestions",
+    "description": "It is now possible to filter decks based on whether they include a certain card."
+  },
+  {
+    "intro": "Deck builder",
+    "description": "Clicking/tapping on a card in the deck detail view will now enlarge the card."
+  },
+  {
+    "intro": "Card builder",
+    "description": "Cards can now be defined across 5 levels. All formerly created cards will still work."
+  },
+  {
+    "intro": "Deck dry-runner",
+    "description": "Dawnsparks now have a RNG setting to define whether they will live and hit or die."
+  },
+  {
+    "intro": "Deck dry-runner",
+    "description": "It is now possible to display the draw chances of all cards in the dry-runner."
+  },
+  {
+    "intro": "Deck advice",
+    "description": "Beasts of Terror is now considered to be an AoE (Area Of Effect) card."
+  },
+  {
+    "intro": "Deck suggestions",
+    "description": "The deck suggestions are now paginated to avoid a costly initial paint of the entire list."
+  },
+  {
+    "intro": "Deck builder",
+    "description": "The cards’ level can be quickly switched with keyboard keys 1 to 5."
+  },
+  {
+    "intro": "Deck suggestions",
+    "description": "The suggested decks are now divided in 3 different categories: regular, Diamond 1 and tournament."
+  },
+  {
+    "intro": "Stormbound Kitty",
+    "description": "The site is officially renamed as “Stormbound Kitty” and has its own domain."
+  },
+  {
+    "intro": "Card builder",
+    "description": "The weekly card contest now has a proper dedicated page to promote it."
+  },
+  {
+    "intro": "Battle sim",
+    "description": "The layout of the desktop version has been entirely refined to better showcase the game background."
+  },
+  {
+    "intro": "Stormbound Kitty",
+    "description": " In the (hopefully) rare cases where the application would crash, there is now an error page that explains what happened and what to do from there."
+  },
+  {
+    "intro": "Card builder",
+    "description": "The card is automatically saved in the URL at every update, just like for the battle sim or the deck builder."
+  },
+  {
+    "intro": "Quest builder",
+    "description": "The quest is automatically saved in the URL at every update, just like for the battle sim or the deck builder."
+  },
+  {
+    "intro": "Battle sim",
+    "description": "The players’ faction are now inferred by the units placed on the board."
+  },
+  {
+    "intro": "Sharing",
+    "description": "When supported by the phone, sharing will go through the OS sharing hub instead of the clipboard."
+  },
+  {
+    "intro": "Card builder",
+    "description": "The card ability now supports bold text with Markdown-style syntax (*bold*)."
+  },
+  {
+    "intro": "Deck suggestions",
+    "description": "There is now a lot of Diamond 1 decks to choose from."
+  },
+  {
+    "intro": "Deck suggestions",
+    "description": "Clicking/tapping a card from a deck suggestion will enlarge that card like in the game."
+  },
+  {
+    "intro": "Stormbound Kitty",
+    "description": "Finally have a proper home page, which doesn’t look like a Sharpfist Exile’s turd."
+  },
+  {
+    "intro": "Deck builder",
+    "description": "Cards in decks are now tinted according to their type (unit, spell or structure), as well as their rarity for legendary cards—just like in the game."
+  },
+  {
+    "intro": "Deck dry-runner",
+    "description": "The bug where Collector Mirz’ token cards would never be drawn in dry-run due to them sharing a unique ID is now fixed."
+  },
+  {
+    "intro": "Stormbound Kitty",
+    "description": "The header and navigation on mobile should be a bit more convenient now and will no longer take half the screen on all pages."
+  },
+  {
+    "intro": "Deck suggestions",
+    "description": "There is now an entire section dedicated to ready-to-use decks, with filtering for specific criteria (diamond 1, beginner-friendly, etc.)."
+  },
+  {
+    "intro": "Battle sim",
+    "description": "Switching between the editor and the display mode of the battle simulator is now easier than ever from the sub menu."
+  },
+  {
+    "intro": "Stormbound Kitty",
+    "description": "All pop-ups aimed at confirming a reset of the current state (across tools) now use the Execution image to reinforce the idea that reset is permanent."
+  },
+  {
+    "intro": "Battle sim",
+    "description": "In case of puzzles, the battle simulator will display the puzzle details on the right side (right panel on mobile) so it’s easier to play."
+  }
+]

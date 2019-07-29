@@ -1,0 +1,127 @@
+/**
+ * 1. Initialise counters for rows and columns markers
+ */
+.BSGrid {
+  counter-reset: row column; /* 1 */
+}
+
+/**
+ * 1. Position context for cell content
+ */
+.BSGrid__cell {
+  flex: 1 0 auto;
+  position: relative; /* 1 */
+}
+
+/**
+ * 1. Ensure proper cell ratio based on background
+ */
+.BSGrid__cell::before {
+  content: ''; /* 1 */
+  display: block; /* 1 */
+  padding-top: 85%; /* 1 */
+}
+
+/**
+ * 1. Full size container for actual content
+ */
+.BSGrid__cell-content {
+  position: absolute; /* 1 */
+  top: 0; /* 1 */
+  left: 0; /* 1 */
+  right: 0; /* 1 */
+  bottom: 0; /* 1 */
+}
+
+/**
+ * 1. Every cell of the first row should increment the column counter
+ */
+.BSRow:first-child .BSGrid__cell {
+  counter-increment: column; /* 1 */
+}
+
+/**
+ * Shared styles for columns and rows markers
+ */
+.BSGrid__cell:first-child::after,
+.BSRow:first-child .BSGrid__cell-content::after {
+  position: absolute;
+  font-size: 150%;
+  opacity: 0.3;
+  animation: appear-markers 0.4s both;
+}
+
+@media (max-width: 699px) {
+  .BSGrid__cell:first-child::after,
+  .BSRow:first-child .BSGrid__cell-content::after {
+    font-size: 5vw;
+  }
+}
+
+/**
+ * 1. Vertical centering of the marker in the row
+ * 2. Spacing of the marker from the row’s left edge
+ */
+.BSGrid__cell:first-child::after {
+  color: var(--black);
+  top: 50%; /* 1 */
+  transform: translateY(-50%); /* 1 */
+  right: 100%; /* 2 */
+  margin-right: 1.5ch; /* 2 */
+  text-align: right;
+}
+/**
+ * 1. Horizontal centering of the marker in the column
+ * 2. Spacing of the marker from the column’s top edge
+ */
+.BSRow:first-child .BSGrid__cell-content::after {
+  left: 50%; /* 1 */
+  transform: translateX(-50%); /* 1 */
+  text-align: center; /* 1 */
+  bottom: 110%; /* 2 */
+  color: white;
+}
+
+/**
+ * 1. Readjust the horizontal centering of the column marker in the cell
+ */
+.BSRow:first-child .BSGrid__cell:nth-child(3) .BSGrid__cell-content::after {
+  transform: translateX(-50%) translateX(10%); /* 1 */
+}
+
+/**
+ * 1. Readjust the horizontal centering of the column marker in the cell
+ */
+.BSRow:first-child .BSGrid__cell:nth-child(4) .BSGrid__cell-content::after {
+  transform: translateX(-50%) translateX(20%); /* 1 */
+}
+
+/**
+ * 1. Only display the column markers when enabled
+ */
+.BSGrid--markers .BSRow:first-child .BSGrid__cell-content::after {
+  content: counter(column); /* 1 */
+}
+
+/**
+ * 1. Only display the row markers when enabled
+ */
+.BSGrid--markers .BSGrid__cell:first-child::after {
+  content: counter(row, upper-alpha); /* 1 */
+}
+
+/**
+ * 1. Horizontal align the letter “D” with other markers
+ */
+.BSRow:nth-child(4) .BSGrid__cell:first-child::after {
+  transform: translateX(15%) translateY(-50%); /* 1 */
+}
+
+@keyframes appear-markers {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.4;
+  }
+}

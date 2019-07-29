@@ -1,0 +1,14 @@
+.EmptySearch {
+  margin: 3em auto;
+  max-width: min-content;
+  text-align: center;
+}
+
+.EmptySearch .CTA {
+  min-width: 150px;
+  margin-top: 1em;
+}
+
+.EmptySearch__title {
+  font-size: 200%;
+}

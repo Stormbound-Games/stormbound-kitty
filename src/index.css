@@ -1,0 +1,184 @@
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Nunito Bold'), local('Nunito-Bold'),
+    url('/assets/fonts/nunito-v10-latin-700.woff2') format('woff2'),
+    url('/assets/fonts/nunito-v10-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: local('Nunito Black'), local('Nunito-Black'),
+    url('/assets/fonts/nunito-v10-latin-900.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('/assets/fonts/nunito-v10-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+:root {
+  --red: rgb(203, 43, 67);
+  --blue: rgb(25, 93, 156);
+  --beige: rgb(222, 215, 164);
+  --black: rgb(16, 31, 38);
+  --swarm: rgb(96, 72, 48);
+  --ironclad: rgb(130, 70, 72);
+  --shadowfen: rgb(48, 101, 93);
+  --winter: rgb(64, 84, 119);
+}
+
+* {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url('/assets/images/background.png') repeat var(--black);
+  color: rgb(250, 250, 250);
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  min-height: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+a {
+  color: currentColor;
+}
+
+.link-link,
+a:not([class]) {
+  transition: 250ms;
+}
+
+.link-link:active,
+.link-link:hover,
+a:not([class]):active,
+a:not([class]):hover {
+  color: pink;
+}
+
+/**
+ * This will hide the focus indicator if the element receives focus via the mouse,
+ * but it will still show up on keyboard focus.
+ */
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+hr {
+  width: 50%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--beige), transparent);
+  border: 0;
+  margin: 3em auto;
+}
+
+input[type='text'],
+input[type='search'],
+input[type='url'],
+input[type='number'],
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  padding: 0.65em;
+  border-radius: 0.3em;
+  background-color: transparent;
+  border: 1px solid rgba(222, 215, 164, 0.5);
+  color: white;
+}
+
+input[type='radio'] {
+  width: 1.8em;
+  height: 1.8em;
+  transform: translateY(4px);
+}
+
+input[type='search']:disabled,
+input[type='text']:disabled,
+input[type='url']:disabled,
+input[type='number']:disabled,
+select:disabled {
+  opacity: 0.5;
+}
+
+option {
+  color: black;
+  color: var(--black);
+}
+
+label,
+legend {
+  text-transform: uppercase;
+  font-size: 90%;
+  color: var(--beige);
+  margin-bottom: 0.25em;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.visually-hidden {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+.ButtonAsLink {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-transform: uppercase;
+  display: inline-block;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  transition: 250ms;
+}
+
+.ButtonAsLink:hover {
+  color: white;
+  border-bottom-color: currentColor;
+}

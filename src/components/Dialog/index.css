@@ -1,0 +1,102 @@
+.Dialog__hidden,
+.Dialog[aria-hidden='true'] {
+  display: none;
+}
+
+.Dialog {
+  font-size: 80%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  perspective: 1000;
+}
+
+.Dialog__overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.Dialog__image {
+  position: absolute;
+  bottom: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  z-index: -1;
+}
+
+.Dialog__content {
+  margin: auto;
+  width: 350px;
+  max-width: 85%;
+  position: relative;
+  background-color: rgb(25, 53, 64);
+  padding: 0;
+  border: 1px solid var(--beige);
+  border-radius: 0.3em;
+  animation: dialog-appear 750ms ease-out both;
+}
+
+.Dialog__header {
+  padding: 1em;
+  background-color: rgb(39, 86, 102);
+  border-radius: 0.3em 0.3em 0 0;
+  color: white;
+}
+
+.Dialog__title {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.Dialog__body {
+  background-color: rgb(25, 53, 64);
+  padding: 1em;
+  color: white;
+  border-radius: 0 0 0.3em 0.3em;
+  text-align: center;
+}
+
+.Dialog__body--with-cta {
+  padding-bottom: 2em;
+}
+
+.Dialog__body a {
+  color: inherit;
+}
+
+.Dialog__button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.Dialog__CTA {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+
+@keyframes dialog-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-10%) rotateX(20deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}

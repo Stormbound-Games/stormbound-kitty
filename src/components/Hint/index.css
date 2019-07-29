@@ -1,0 +1,9 @@
+.Hint a {
+  color: var(--beige);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.Hint a:hover {
+  border-bottom-color: currentColor;
+}

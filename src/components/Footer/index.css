@@ -1,0 +1,55 @@
+.Footer {
+  color: white;
+  padding: 1em;
+  margin-top: auto;
+  background: linear-gradient(to top, transparent, rgba(222, 215, 164, 0.08));
+  position: relative;
+}
+
+.Footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--beige), transparent);
+}
+
+.Footer__inner {
+  margin: 0 auto;
+  padding: 2em 0 1em;
+  width: 1100px;
+  max-width: 100%;
+}
+
+.Footer__info {
+  margin-top: 0;
+  max-width: 40ch;
+}
+
+.Footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.Footer__heading {
+  color: var(--beige);
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}
+
+.Footer__item {
+  margin: 0.25em 0;
+}
+
+.Footer__list a {
+  text-decoration: none;
+}
+
+@media (max-width: 699px) {
+  .Footer .Row--desktop > .Column ~ .Column {
+    display: none;
+  }
+}

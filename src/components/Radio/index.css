@@ -1,0 +1,54 @@
+.Radio {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 2.5em;
+  margin: 0.5em 0;
+}
+
+.Radio__icon {
+  width: 1.25em;
+  height: 1.25em;
+  border: 1px solid rgba(222, 215, 164, 0.5);
+  transform: translate(25%, 40%) rotate(45deg);
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.Radio__input:checked + .Radio__icon::before {
+  content: '';
+  position: absolute;
+  background-color: var(--beige);
+  top: 20%;
+  right: 20%;
+  bottom: 20%;
+  left: 20%;
+}
+
+.Radio__input:focus + .Radio__icon {
+  outline: auto 2px Highlight;
+  outline: auto 5px -webkit-focus-ring-color;
+}
+
+.Radio__input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+
+.Radio__input:disabled {
+  cursor: not-allowed;
+}
+
+.Radio__input:disabled ~ .Radio__label {
+  opacity: 0.5;
+}

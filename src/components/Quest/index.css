@@ -1,0 +1,106 @@
+.Quest {
+  background-color: var(--black);
+  border: 1px solid var(--beige);
+  max-width: 400px;
+  position: relative;
+  width: 100%;
+  background: linear-gradient(45deg, rgb(25, 54, 64) 50%, rgb(39, 87, 101) 50%);
+  margin-bottom: 2em;
+}
+
+.Quest::before {
+  content: '';
+  padding-top: calc(112 / 264 * 100%);
+  display: block;
+}
+
+.Quest__inner {
+  position: absolute;
+  top: 0.1em;
+  left: 0.1em;
+  right: 0.1em;
+  bottom: 0.1em;
+  padding: 1em;
+  display: flex;
+  border: inherit;
+}
+
+.Quest__difficulty {
+  position: absolute;
+  display: flex;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%) translateY(-2px);
+}
+
+.Quest__difficulty--1 .Quest__difficulty-diamond {
+  background-color: rgb(37, 106, 156);
+}
+
+.Quest__difficulty--2 .Quest__difficulty-diamond {
+  background-color: rgb(133, 41, 154);
+}
+
+.Quest__difficulty--3 .Quest__difficulty-diamond {
+  background-color: rgb(231, 147, 18);
+}
+
+.Quest__difficulty-diamond {
+  border: 1px solid var(--beige);
+  width: 1em;
+  transform: rotate(45deg);
+  margin: 0 0.3em;
+}
+
+.Quest__difficulty-diamond::before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+
+.Quest__content {
+  flex: 0 0 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.Quest__name {
+  text-transform: uppercase;
+  font-size: 130%;
+}
+
+.Quest__description {
+  color: var(--beige);
+  margin: 0;
+  word-break: break-word;
+}
+
+.Quest__reward {
+  flex: 1 0 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Quest__amount {
+  display: inline-block;
+  text-align: center;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.Quest__currency-image {
+  max-width: 100%;
+  display: block;
+  height: auto;
+  margin: 0 auto;
+}
+
+.Quest__number {
+  font-size: 150%;
+}
+
+.Quest__currency {
+  font-size: 70%;
+}

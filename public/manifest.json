@@ -1,0 +1,15 @@
+{
+  "short_name": "Stormbound Tools",
+  "name": "Stormbound Tools",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#101F26",
+  "background_color": "#101F26"
+}

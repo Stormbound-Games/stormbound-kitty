@@ -1,0 +1,38 @@
+.CardTable {
+  border-collapse: collapse;
+  margin-bottom: 2em;
+}
+
+.CardTable thead {
+  border-bottom: 1px solid var(--beige);
+}
+
+.CardTable tbody tr:first-child * {
+  padding-top: 1em;
+}
+
+.CardTable th,
+.CardTable td {
+  text-align: left;
+  padding: 0.5em;
+}
+
+.CardTable th:first-child {
+  padding-left: 0;
+}
+
+.CardTable td {
+  padding-right: 0;
+}
+
+.CardTable strong,
+.CardTable th {
+  font-weight: 900;
+}
+
+.CardTable img {
+  max-width: 1em;
+  max-height: 1.5em;
+  vertical-align: middle;
+  margin-right: 1ch;
+}

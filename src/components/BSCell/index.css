@@ -1,0 +1,386 @@
+/**
+ * 1. Reset <button> default styling
+ */
+.BSCell {
+  border: 0; /* 1 */
+  background-color: transparent; /* 1 */
+  padding: 0; /* 1 */
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  transition: background-color 0.25s;
+  cursor: pointer;
+}
+
+.BSCell--dragging {
+  cursor: move;
+}
+
+.BSCell--display {
+  cursor: default;
+}
+
+/**
+ * 1. Position context for active state pseudo-element
+ * 2. Perspect context for active state pseudo-element
+ */
+.BSCell[aria-pressed='true'] {
+  position: relative; /* 1 */
+  perspective: 1000px; /* 2 */
+}
+
+.BSCell:not([disabled]):not(.BSCell--display):hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/**
+ * 1. Ensure 1:1 ratio based on width
+ * 2. Center in parent, scale down, rotate for perspective, then rotate for diamond shape
+ * 3. Absolute centering in parent
+ * 4. Ensure it appears below image and strength marker
+ * 5. Fade-in animation
+ */
+.BSCell[aria-pressed='true']::before {
+  content: '';
+  color: var(--black);
+  outline: 0;
+  width: 100%; /* 1 */
+  padding-top: 100%; /* 1 */
+  border: 2px solid;
+  transform: translate(-50%, -50%) scale(0.66) rotateX(30deg) rotate(45deg); /* 2 */
+  position: absolute; /* 3 */
+  top: 50%; /* 3 */
+  left: 50%; /* 3 */
+  z-index: -1; /* 4 */
+  animation: appear 0.4s both; /* 5 */
+  clip-path: polygon(
+    0% 0%,
+    0% 100%,
+    10% 100%,
+    10% 50%,
+    10% 50%,
+    10.3% 45%,
+    11.3% 40.1%,
+    12.8% 35.3%,
+    14.9% 30.7%,
+    17.6% 37.5%,
+    20.8% 22.6%,
+    24.5% 19.2%,
+    28.6% 16.2%,
+    33% 13.8%,
+    37.6% 12%,
+    42.5% 10.7%,
+    47.5% 10%,
+    52.5% 10%,
+    57.5% 10.7%,
+    62.4% 12%,
+    67% 13.8%,
+    71.4% 16.2%,
+    75.5% 19.2%,
+    79.2% 22.6%,
+    82.4% 26.5%,
+    80.1% 30.7%,
+    87.2% 35.3%,
+    88.7% 40.1%,
+    89.7% 45%,
+    90% 50%,
+    89.7% 55%,
+    88.7% 59.9%,
+    87.2% 64.7%,
+    85.1% 69.3%,
+    82.4% 73.5%,
+    79.2% 77.4%,
+    75.5% 80.8%,
+    71.4% 83.8%,
+    67% 86.2%,
+    62.4% 88%,
+    57.5% 89.3%,
+    52.5% 89.9%,
+    47.5% 89.9%,
+    42.5% 89.3%,
+    37.6% 88%,
+    33% 86.2%,
+    28.6% 83.8%,
+    24.5% 80.8%,
+    20.8% 77.4%,
+    17.6% 73.5%,
+    14.9% 69.3%,
+    12.8% 64.7%,
+    11.3% 59.9%,
+    10.3% 55%,
+    10% 50%,
+    10% 100%,
+    100% 100%,
+    100% 0%,
+    100% 0%
+  );
+  background: linear-gradient(
+      to bottom right,
+      transparent calc(50% - 1px),
+      currentcolor calc(50% - 1px),
+      currentcolor calc(50% + 1px),
+      transparent calc(50% + 1px)
+    ),
+    linear-gradient(
+      to bottom left,
+      transparent calc(50% - 1px),
+      currentcolor calc(50% - 1px),
+      currentcolor calc(50% + 1px),
+      transparent calc(50% + 1px)
+    );
+}
+
+.BSCell--RED[aria-pressed='true']::before {
+  color: var(--red);
+}
+
+.BSCell--BLUE[aria-pressed='true']::before {
+  color: var(--blue);
+}
+
+/**
+ * 1. Ensure the strength marker appears on top of image
+ */
+.BSCell__strength {
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  width: 25%;
+  font-size: 80%;
+  color: white;
+  z-index: 2; /* 1 */
+}
+
+.BSCell__strength::before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+
+/**
+ * 1. Ensure the strength marker background appear under text
+ * 2. Absolute centering in parent
+ */
+.BSCell__strength::after {
+  content: '';
+  z-index: -1; /* 1 */
+  width: 100%;
+  height: 100%;
+  position: absolute; /* 2 */
+  left: 50%; /* 2 */
+  top: 50%; /* 2 */
+  transform: translate(-50%, -50%) rotate(45deg); /* 2 */
+  border: 1px solid var(--black);
+}
+
+.BSCell__strength--RED::after {
+  background-color: var(--red);
+}
+
+.BSCell__strength--BLUE::after {
+  background-color: var(--blue);
+}
+
+/**
+ * 1. Absolute centering in parent
+ */
+.BSCell__strength-content {
+  position: absolute; /* 1 */
+  top: 50%; /* 1 */
+  left: 50%; /* 1 */
+  transform: translate(-50%, -50%); /* 1 */
+}
+
+@media (max-width: 699px) {
+  /**
+   * 1. On mobile where it takes the full available width, scale the font size
+   *    based on the viewport width
+   */
+  .BSCell__strength-content {
+    font-size: 2.5vw; /* 1 */
+  }
+}
+
+.BSCell__image {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  transition: filter 1s;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.BSCell--frozen {
+  perspective: 1000px;
+  background-image: radial-gradient(
+    closest-side,
+    rgb(96, 173, 199),
+    transparent
+  );
+}
+
+.BSCell__frozen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  border-radius: 0.25em;
+  filter: blur(1px);
+  z-index: 2;
+  padding-top: 100%;
+  transform: translate(-50%, -50%) scale(0.66) rotateX(30deg) rotate(45deg);
+}
+
+.BSCell__frozen::before,
+.BSCell__frozen::after {
+  content: '';
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  position: absolute;
+  box-shadow: inset 0 0 1em white;
+  animation: frozen 5000ms infinite both;
+}
+
+.BSCell__frozen::after {
+  animation-direction: reverse;
+  animation-delay: 500ms;
+  animation-duration: 4000ms;
+}
+
+@keyframes frozen {
+  from,
+  to {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.BSCell__dots {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.BSCell__dot {
+  position: absolute;
+  width: 0.6em;
+  height: 0.6em;
+  display: block;
+  animation: 3500ms poison both alternate-reverse infinite;
+  z-index: 2;
+}
+
+.BSCell__dot:nth-child(1) {
+  animation-delay: 250ms;
+  left: 50%;
+  top: 40%;
+}
+.BSCell__dot:nth-child(2) {
+  animation-delay: -1300ms;
+  left: 45%;
+  top: 61%;
+}
+.BSCell__dot:nth-child(3) {
+  animation-delay: 780ms;
+  left: 55%;
+  top: 27%;
+}
+.BSCell__dot:nth-child(4) {
+  animation-delay: 2250ms;
+  left: 60%;
+  top: 20%;
+}
+.BSCell__dot:nth-child(5) {
+  animation-delay: -450ms;
+  left: 25%;
+  top: 14%;
+}
+.BSCell__dot:nth-child(6) {
+  animation-delay: 1340ms;
+  left: 33%;
+  top: 18%;
+}
+.BSCell__dot:nth-child(7) {
+  animation-delay: 450ms;
+  left: 20%;
+  top: 60%;
+}
+.BSCell__dot:nth-child(8) {
+  animation-delay: 2000ms;
+  left: 74%;
+  top: 32%;
+}
+.BSCell__dot:nth-child(9) {
+  animation-delay: 150ms;
+  left: 58%;
+  top: 27%;
+}
+.BSCell__dot:nth-child(10) {
+  animation-delay: 580ms;
+  left: 46%;
+  top: 50%;
+}
+
+@keyframes poison {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(0) rotate(45deg);
+  }
+
+  25% {
+    opacity: 0.5;
+    transform: scale(0.5) translateY(100%) rotate(45deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1) translateY(-100%) rotate(45deg);
+  }
+
+  55% {
+    opacity: 0;
+    transform: scale(0.75) translateY(-100%) rotate(45deg);
+  }
+
+  60%,
+  100% {
+    opacity: 0;
+    transform: scale(0) translateY(0) rotate(45deg);
+  }
+}
+
+.BSCell__dots--confused .BSCell__dot {
+  background-color: orange;
+  border-radius: 50%;
+  animation-direction: alternate;
+}
+
+.BSCell__dots--poisoned .BSCell__dot {
+  background-color: rgb(112, 4, 112);
+}
+
+.BSCell__dots--poisoned .BSCell__dot--bubble {
+  background-color: greenyellow;
+  border-radius: 50%;
+  width: 0.4em;
+  height: 0.4em;
+}

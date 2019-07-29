@@ -1,0 +1,21 @@
+.Row {
+  display: flex;
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+  margin-bottom: 1em;
+}
+
+.Row--wide {
+  margin-left: -1.25em;
+  margin-right: -1.25em;
+}
+
+/* If the row is “desktop only”, it should be treated as a column on mobile */
+@media (max-width: 699px) {
+  .Row--desktop {
+    flex-direction: column;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+}

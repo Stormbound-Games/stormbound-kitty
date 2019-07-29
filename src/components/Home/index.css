@@ -1,0 +1,144 @@
+.Home {
+  font-size: 130%;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+}
+
+.Home__news-image {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.Home__news-box {
+  position: relative;
+  background: url('/assets/images/background.png') repeat var(--black);
+  border: 1px solid var(--beige);
+  padding: 1em;
+  box-shadow: 0 0 2em 1em rgba(0, 0, 0, 0.2);
+  margin-bottom: 2em;
+  margin-top: -10em;
+}
+
+.Home__news-box::after,
+.Home__news-box::before {
+  content: '';
+  position: absolute;
+  left: 0.5em;
+  height: 0.5em;
+  right: 0.5em;
+  border: inherit;
+  border-bottom: 0;
+  bottom: 100%;
+  background-color: inherit;
+}
+
+.Home__news-box::after {
+  top: 100%;
+  border: inherit;
+  border-top: 0;
+}
+
+.Home__section {
+  margin-left: -1em;
+  margin-right: -1em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.Home__section {
+  background: linear-gradient(60deg, var(--color), transparent);
+}
+
+.Home__section-inner {
+  padding: 1em;
+}
+
+.Home__section h2 {
+  font-size: 180%;
+  margin-bottom: 0em;
+}
+
+.Home__buttons {
+  font-size: 80%;
+}
+
+.Home__buttons > * {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+@media (min-width: 700px) {
+  .Home__news {
+    position: absolute;
+    left: 0;
+    width: 40%;
+    top: 11em;
+    z-index: 2;
+  }
+
+  .Home__section {
+    overflow: hidden;
+  }
+
+  .Home__section::after {
+    content: '';
+    position: absolute;
+    padding-top: 50%;
+    width: 50%;
+    transform: translate(-20%, -50%) rotate(45deg);
+    left: 0;
+    top: 50%;
+    mask-image: linear-gradient(35deg, var(--black), transparent);
+    background: repeating-linear-gradient(
+      80deg,
+      var(--color),
+      var(--color) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+  }
+
+  .Home__news-image {
+    width: 100%;
+    position: absolute;
+    bottom: 100%;
+    z-index: -1;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+  .Home__news-box {
+    margin-top: 0;
+  }
+
+  .Home__section {
+    width: 100vw;
+    position: relative;
+    margin: 1em -50vw;
+    left: 50%;
+    right: 50%;
+  }
+
+  .Home__section-inner {
+    width: 1100px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 2em;
+    text-align: right;
+  }
+
+  .Home__content {
+    padding-left: 50%;
+  }
+
+  .Home__buttons {
+    margin: 1.5em -1em 0;
+  }
+
+  .Home__buttons > * {
+    width: auto;
+    min-width: 150px;
+    margin: 0 1em;
+  }
+}

@@ -1,0 +1,185 @@
+[
+  {
+    "name": "A Different Exam",
+    "type": "LETHAL",
+    "difficulty": 1,
+    "restrictions": ["ANTI_RNG", "LEVEL_5"],
+    "author": "Ayanami",
+    "board": "LCwsLCwsLCwxUzhSNSwsLCwsNk40UjUsLCwxMk4zUjUsLCw7UjEyUy1CMTBTOzE4TTE7LDVTMTYsNVM2LDVTOSw1UzEsNVMxOSwsLCwsLDs=",
+    "image": "/assets/images/puzzles/a_different_exam.png"
+  },
+  {
+    "name": "Broken Movement",
+    "type": "BOARDCLEAR",
+    "difficulty": 1,
+    "restrictions": ["LEVEL_5"],
+    "author": "Ayanami",
+    "board": "LCwsLDZONFI1LCwxOFcxNlI1LDZXM1I1LDExVzdSNSwsLDZXM1I1LCwsLCwsLDZOMTZSNSw2VzEyUjU7UjIwVy1CMjBXOzI1TTE7NVcxNSw1VzE3LDVONTgsNVcyMiwsLCwsLCwsO1cxNSxXMTcsTjU4LFcyMg==",
+    "image": "/assets/images/puzzles/broken_movement.png"
+  },
+  {
+    "name": "VIP — Frozen Core",
+    "type": "VIP",
+    "difficulty": 1,
+    "restrictions": ["LEVEL_5"],
+    "author": "Ayanami",
+    "board": "Nk40NVI1LCwsNkkxOVI1LDhJOFI1LCwsLDE5STIxUjUsLCwsOE4xM0I1LCwsNFc5QjUsLCw3TjQ3UjUsO1IxNUktQjE5Vzs5TTE7NVcxOSw1TjExLDVONTgsNU4zNywsLCwsLCwsO1cxOSxONTgsTjM3LE4xMQ==",
+    "image": "/assets/images/puzzles/vip_frozen_core.png",
+    "description": "Protect the Frozen Core until next turn. The opponent just ended their turn and have no cards in their hand."
+  },
+  {
+    "name": "Hammer’s Wrath",
+    "type": "SURVIVE",
+    "difficulty": 1,
+    "restrictions": ["LEVEL_1"],
+    "author": "Ayanami",
+    "board": "LCwsNFMxOFIxLCwzUzdSMSwsNFMxOFIxLCw1UzIxUjEsLCw0TjEzQjEsLCwsM1MzUjEsM1MzUjEsLDtSOFMtQjFXOzE4TTE7MVcyMywxVzEyLDFXNCwxVzYsLCwsLCwsLDtXMjMsVzEyLFc0LFc2",
+    "image": "/assets/images/puzzles/hammers_wrath.png"
+  },
+  {
+    "name": "Devastating Keepers",
+    "type": "LETHAL",
+    "difficulty": 3,
+    "restrictions": ["LEVEL_1", "ANTI_RNG"],
+    "author": "Ayanami",
+    "board": "LCwsLDRTMThSMSwsLCwsLDJTMTNSMSwxTjZCMSwsLDNTMlIxLDFTMlIxLCwxUzVSMSwsO1I5SS1CMlM7MTZNMTsxUzQsMVMxMSwxUzYsMVMyMCwsLCwsLCwsO1M2LFMyMCxTMTEsUzQ=",
+    "image": "/assets/images/puzzles/devastating_keepers.png"
+  },
+  {
+    "name": "Lord of Flight",
+    "type": "LETHAL",
+    "difficulty": 3,
+    "restrictions": ["LEVEL_1", "ANTI_RNG"],
+    "author": "Ayanami",
+    "board": "LCwsLCwsNE4zNFIxLCwsLCwsN0kyMVIxLCwsNEkxUjEsLCw0SThSMSw7UjVJLUIyUzsxOU0xOzFTMTYsMVMxOSwxUzYsMVMyMCwsLCwsLCwsO1MxOSxTNixTMTYsUzIw",
+    "image": "/assets/images/puzzles/lord_of_flight.png"
+  },
+  {
+    "name": "Plentiful Harvest",
+    "type": "LETHAL",
+    "difficulty": 2,
+    "restrictions": ["LEVEL_1", "ANTI_RNG"],
+    "author": "Ayanami",
+    "board": "MVMyUjEsLCwsLDFTMlIxLDFTMlIxLCwsLDFTMVIxLDROMTNSMSwxUzJSMSwsMVQ3UjEsMVMyUjEsMVMyUjEsLCwxUzJSMTtSNlMtQjEwUzsyME0xOzFTMjEsMVMxMiwxUzE1LDFTMTYsLCwsLCwsLDtTMTIsUzE1LFMxNixTMjE=",
+    "image": "/assets/images/puzzles/plentiful_harvest.png"
+  },
+  {
+    "name": "Lasting Advice",
+    "type": "LETHAL",
+    "difficulty": 3,
+    "restrictions": ["LEVEL_5", "RNG_FRIENDLY"],
+    "author": "Ayanami",
+    "board": "LCwsOFc1UjUsLDhXOVI1LCwsLCwsOFc4UjUsOE4xM1I1LCwsLDVOM1I1LDFONlI1LDVOMVI1LDtSMjBXLUIyMFM7MjRNMDs1UzIzLDVTMyw1UzEsNVMyMiwsLCwsLCwsO1MyMyxTMyxTMSxTMjI=",
+    "image": "/assets/images/puzzles/lasting_advice.png"
+  },
+  {
+    "name": "Sneaky Outcasts",
+    "type": "LETHAL",
+    "difficulty": 2,
+    "restrictions": ["ANTI_RNG"],
+    "author": "Ayanami",
+    "board": "LCwsLCwsLCw1TjNSNSw4RjZSNSwzRjNSNSwsMlQ1UjUsLDhGMTRSNSw5RjE4UjUsLCwsO1IxMk4tQjhOOzE2TTE7NVMyLDVTMTMsNU41Miw1UzgsLCwsLCwsLDtTMTMsTjUyLFM4LFMy",
+    "image": "/assets/images/puzzles/sneaky_outcasts.png"
+  },
+  {
+    "name": "Alternate Solution",
+    "type": "LETHAL",
+    "difficulty": 2,
+    "restrictions": ["LEVEL_1", "ANTI_RNG"],
+    "author": "Ayanami",
+    "board": "LDRGNlIxLCwsMU4zUjEsLCwyRjFSMSwsLDVGMTRSMSwsLDROMTNSMSwsMVQ4UjEsLCwsMVQ4UjE7UjZOLUIyTjsxOU0xOzFOMzAsMVMyMywxUzExLDFTNiwsLCwsLCwsO04zMCxTMjMsUzExLFM2",
+    "image": "/assets/images/puzzles/alternate_solution.png"
+  },
+  {
+    "name": "Traitorous Knights",
+    "type": "TARGET",
+    "difficulty": 3,
+    "restrictions": ["DETAILED", "ANTI_RNG"],
+    "author": "Ayanami",
+    "board": "MUkxMlI1LCwsLCwsMUkxMlI1LDhOMTNSNSwxRjVSNSwsLCwsMjVONTRCNSwsLCwsLDtSMjBGLUIyMEk7MjdNMTs1STksMUkxLDVOMzEsNEkyMw%3D%3D",
+    "image": "/assets/images/puzzles/traitorous_knights.png",
+    "description": "Destroy the ‘Veterans of War’ in D2."
+  },
+  {
+    "name": "The Doctor’s Degree",
+    "type": "LETHAL",
+    "difficulty": 3,
+    "restrictions": ["DETAILED", "ANTI_RNG"],
+    "author": "Ayanami",
+    "board": "MkkxOVI1LCwsLCwsLCwsLCwsMTBXMTNSNSwsLCw4TjEzUjUsOEk4UjUsLDNJNlI1O1IxNEktQjFGOzE2TTE7NU4zNiw1TjMxLDVGMTQsNUYz",
+    "image": "/assets/images/puzzles/the_doctors_degree.png"
+  },
+  {
+    "name": "Feeble Resistance",
+    "type": "SURVIVE",
+    "difficulty": 3,
+    "restrictions": ["LEVEL_5", "ANTI_RNG"],
+    "author": "Ayanami",
+    "board": "MkkxOVI1LCwsLCwsLCwsLCwsMTBXMTNSNSwsLCw4TjEzUjUsOEk4UjUsLDNJNlI1O1IxNEktQjFGOzE2TTE7NU4zNiw1TjMxLDVGMTQsNUYz",
+    "image": "/assets/images/puzzles/feeble_resistance.png"
+  },
+  {
+    "name": "False Alarm",
+    "type": "LETHAL",
+    "difficulty": 2,
+    "restrictions": ["LEVEL_5", "ANTI_RNG"],
+    "author": "Ayanami",
+    "board": "Nk4xUjUsLCwxUzJSNSwsLCwsNkYzUjUsLDhTMThSNSwsLCwsLDZJMTlCNSwsLDtSNlMtQjRJOzExTTE7NUk3LDJJMiw1STUsM0kxMg%3D%3D",
+    "image": "/assets/images/puzzles/false_alarm.png"
+  },
+  {
+    "name": "Devastated Decimation",
+    "type": "LETHAL",
+    "difficulty": 2,
+    "restrictions": ["LEVEL_5", "ANTI_RNG"],
+    "author": "PRÖJÊČT ÛŃFÕRGÏVĒÑ",
+    "board": "LCwsMU4xUjUsMUY1UjUsLCwsNUYzUjUsNkYxM1I1LCwsLCwsLCwsLDM0TjQ2UjU7UjEwTi1CMTBOOzk5TTA7NU40MSw1UzEwLDVTMjAsNVMxMSwsLCwsLCwsO040MSxTMTAsUzIwLFMxMQ==",
+    "image": "/assets/images/puzzles/devastated_decimation.png"
+  },
+  {
+    "name": "Terrific Ebonblock",
+    "type": "LETHAL",
+    "difficulty": 2,
+    "restrictions": ["LEVEL_5", "RNG_FRIENDLY"],
+    "author": "PRÖJÊČT ÛŃFÕRGÏVĒÑ",
+    "board": "LDZUMTFSNSw1STdSNSw1TjEwUjUsOE4xM1I1LDhOMTNSNSw4TjEzUjUsLCwsLCw1TjQ5UjUsLDdJMjJSNSwsLDk5TjUxUjUsLDtSMTBOLUIxME47OTlNMDs1TjI3LDVOMTQsNU4zLDVOMzYsLCwsLCwsLDtOMjcsTjE0LE4zLE4zNg==",
+    "image": "/assets/images/puzzles/terrific_ebonblock.png",
+    "note": "Freebooters draw into Execution and Xuri, Lord of Life."
+  },
+  {
+    "name": "Toad Revolution",
+    "type": "LETHAL",
+    "difficulty": 2,
+    "restrictions": [],
+    "author": "Zethes",
+    "board": "NEYxM1IzLDNUOFIxLDNUOFIxLDJGMTNSMywzVDhSMSw0TjEzQjQsLDNUOFIxLCwsMTFGMTVSNSwzVDhSMSwzVDhSMSwzVDhSMSwsNlQ4UjEsLCwsMTVONTRSNDtSN0YtQjdJOzMwTTA7NU40NSwyTjU0LDFJMiwySTE5",
+    "image": "/assets/images/puzzles/toad_revolution.png"
+  },
+  {
+    "name": "Unhelpful Cards",
+    "type": "LETHAL",
+    "difficulty": 2,
+    "restrictions": ["LEVEL_1"],
+    "author": "Frozen Earth",
+    "board": "LCwsM1M3UjEsLDVOMTlSMSwsNE4xM0IxLDNTMlIxLDFTMVIxLCwsLDFUN1IxLCw0VDdSMSwsLDdTOVIxLDtSMlMtQjNJOzEyTTE7MUk0LDFOMzEsMUkxNSwxTjI4",
+    "image": "/assets/images/puzzles/unhelpful_cards.png"
+  },
+  {
+    "name": "Area Denial",
+    "type": "LETHAL",
+    "difficulty": 3,
+    "restrictions": [],
+    "author": "FierySalient",
+    "board": "NE4xNFIzLDJOMVIzLDFUNUIzLDFJMTlSMywsNkkyMVIzLCwySTZSMywsLDJUMVIzLDJUMVIzLCwsLCwsLCw7UjRJLUIxNEY7MTFNMDszRjUsM04xMiwzTjE3LDNGNCwsLCwsLCwsO0Y1LE4xMixOMTcsRjQ=",
+    "image": "/assets/images/puzzles/unnamed_puzzle_2.png"
+  },
+  {
+    "name": "Impending Doom",
+    "type": "LETHAL",
+    "difficulty": 1,
+    "restrictions": [],
+    "author": "FierySalient",
+    "board": "OFMxOFI0LDJTMlIzLDZTM1I0LCwsMlMxNFI0LCwsMkYyQjQsMTJTMTNSNCwsLCwyUzJCMyw4TjQ5UjQsLDE0UzlSNCwsNE4zUjQsO1I2Uy1CMUY7MTZNMDs0RjE0LDROMzAsNE4zNyw0TjEwLCwsLCwsLCw7TjEwLEYxNCxOMzcsTjMw",
+    "image": "/assets/images/puzzles/impending_doom.png"
+  }
+]

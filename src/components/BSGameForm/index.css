@@ -1,0 +1,23 @@
+.BSGameForm {
+  flex: 1 1 100%;
+}
+
+.BSGameForm__buttons {
+  margin-top: 2em;
+}
+
+.BSGameForm__radio {
+  margin-right: 0.25em;
+}
+
+.BSGameForm__label {
+  margin-right: 1em;
+}
+
+.BSGameForm__reset {
+  margin-top: auto;
+}
+
+.BSGameForm__grid-markers {
+  margin-top: 0.75em;
+}

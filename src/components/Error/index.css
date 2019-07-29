@@ -1,0 +1,21 @@
+.Error {
+  margin: 3em auto;
+  max-width: 350px;
+  text-align: center;
+}
+
+.Error__title {
+  font-size: 150%;
+}
+
+.Error__image {
+  display: block;
+  height: auto;
+  margin: 1em auto;
+}
+
+.Error__pre {
+  font: inherit;
+  white-space: pre-line;
+  color: var(--beige);
+}

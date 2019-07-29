@@ -1,0 +1,33 @@
+.News {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: -1.5em;
+}
+
+.News__item {
+  position: relative;
+  padding: 1.25em 0;
+}
+
+.News__item strong {
+  color: var(--beige);
+}
+
+.News__item p {
+  display: inline;
+  margin: 0;
+}
+
+.News__item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 0.3em;
+  height: 0.3em;
+  border: 1px solid var(--black);
+  background-color: var(--beige);
+  box-shadow: 0 0 0 1px var(--beige);
+}

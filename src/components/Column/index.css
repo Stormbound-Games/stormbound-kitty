@@ -1,0 +1,42 @@
+.Column {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 50%;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  transition: 250ms;
+}
+
+.Column--wide {
+  padding-left: 1.25em;
+  padding-right: 1.25em;
+}
+
+.Column--75 {
+  flex: 1 1 75%;
+}
+
+.Column--25 {
+  flex: 1 1 25%;
+}
+
+.Column--20 {
+  flex: 1 1 20%;
+}
+
+.Column--66 {
+  flex: 1 1 calc(100% / 3 * 2);
+}
+
+.Column--33 {
+  flex: 1 1 calc(100% / 3);
+}
+
+@media (max-width: 699px) {
+  .Column--desktop {
+    flex: 1 1 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 1em;
+  }
+}
