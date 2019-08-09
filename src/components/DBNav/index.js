@@ -3,16 +3,9 @@ import { Link } from '@reach/router'
 import { deserialiseDeck } from '../../helpers/deserialise'
 import { getStrictActiveLink } from '../../helpers/getActiveLink'
 
-const isDeckBigEnough = id => {
-  try {
-    return deserialiseDeck(id).length >= 9
-  } catch (error) {
-    return false
-  }
-}
-
 const DBNav = props => {
-  const hasBigEnoughDeck = isDeckBigEnough(props.deckId)
+  const deck = deserialiseDeck(props.deckId)
+  const hasBigEnoughDeck = deck.length === 12
 
   return (
     <nav className="Header__nav">
@@ -36,7 +29,7 @@ const DBNav = props => {
           ) : (
             <span
               className="Header__link Header__link--disabled"
-              title="Have at least 9 cards in your deck"
+              title="Your deck is not complete"
             >
               Detail
             </span>
@@ -53,12 +46,39 @@ const DBNav = props => {
           ) : (
             <span
               className="Header__link Header__link--disabled"
-              title="Have at least 9 cards in your deck"
+              title="Your deck is not complete"
             >
               Dry-run
             </span>
           )}
         </li>
+        <li className="Header__item">
+          {hasBigEnoughDeck ? (
+            deck.map(card => card.id).includes('N38') ? (
+              <span
+                className="Header__link Header__link--disabled"
+                title="Harvesters of Souls are not supported in the tracker"
+              >
+                Tracker
+              </span>
+            ) : (
+              <Link
+                getProps={getStrictActiveLink}
+                to={`/deck/${props.deckId}/tracker`}
+              >
+                Tracker
+              </Link>
+            )
+          ) : (
+            <span
+              className="Header__link Header__link--disabled"
+              title="Your deck is not complete"
+            >
+              Tracker
+            </span>
+          )}
+        </li>
+
         <li className="Header__item">
           <Link getProps={getStrictActiveLink} to="/deck/collection">
             Collection

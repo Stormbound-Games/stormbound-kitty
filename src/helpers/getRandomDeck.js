@@ -20,11 +20,6 @@ const getRandomCard = (cards, deck, options) => {
     deck.filter(card => +card.mana >= 5).length >= 4
   const hasCardAlready = deck.find(c => c.id === card.id)
 
-  console.log({
-    hasEnoughNeutrals,
-    minFactionCards: options.minFactionCards
-  })
-
   if (
     hasCardAlready ||
     (+card.mana >= 5 && hasEnoughExpensiveCards) ||
@@ -110,7 +105,6 @@ const getRandomCard = (cards, deck, options) => {
 }
 
 const getRandomDeck = options => {
-  console.log(options)
   const deck = []
   const availableCards = options.availableCards
     .filter(

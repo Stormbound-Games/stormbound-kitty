@@ -14,14 +14,16 @@ export default class DBShareButton extends React.Component {
 
     import('html2canvas')
       .then(({ default: html2canvas }) => {
-        return html2canvas(deck, { backgroundColor: null })
+        return html2canvas(deck, {
+          backgroundColor: null,
+          ignoreElements: element => element.id === 'dialog-root'
+        })
       })
       .then(canvas =>
         download({
           content: canvas.toDataURL(),
           fileName: 'deck.png',
           mimeType: 'image/png',
-          ignoreElements: element => element.id === 'dialog-root',
           blob: false
         })
       )

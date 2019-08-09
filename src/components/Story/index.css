@@ -28,6 +28,10 @@
   padding-left: 3px;
 }
 
+.Story__paragraph strong {
+  color: var(--beige);
+}
+
 .Story__author {
   font-style: italic;
   color: var(--beige);

@@ -579,5 +579,17 @@ export default [
     So who’s with me?`,
     author: 'Zyries',
     cardId: 'W16'
+  },
+  {
+    title: 'Visions of the Grove',
+    content: `*January 18:* I never expected myself to travel into the dwarves homelands. It reaches blistering colds in the winter and lacks food, water and shelter. But alas, Lord Mirz pays quite well and we set off on the 16th of January. Mirz has tasked us with finding another lost expedition that had not returned from their scouting. He said that he’d pay for a report on the expeditionary force’s current situation. I know not of what has happened to them but I can only hope that they are still alive.
+
+    *January 19:* Our runners found what was left of them. They were a few miles west of the campsite. There was but one survivor. The other men had died in rather odd circumstances. They had looked like they’ve been starved for weeks, their skin was wrapped tightly around their bones, so much so that their rib cages were easily visible. The one survivor was reportedly kneeling down and crying with tears visibly frozen to his face. We brought him back to camp and fed and watered him. He looked barely alive. He had an odd glassy look in his eyes and looked like the dead men from earlier. I cannot imagine the horrors he had faced. The runners also reported seeing robed figures in their periphery.
+
+    *January 20:* The sodding bastard ran away. When we woke up he had left camp. Our runners started following the footprints but the blizzard had strengthened and we could not afford to lose more men. All I found was a scrap of paper on his cot, in which I shall attach to this page.
+    Oh it was magnificent! The blasted men wouldn’t believe me! That’s why they fell. I remember being transported to a lush grove. A little girl took me by the hand and led me through the beautiful place! She pulled an apple from a tree that was as golden as a king’s crown and sweeter than the finest honey! Oh how I long to be back in that amazing place. The grove is out there. I need to find it. The grove. The grove. The grove.
+    —The remainder of the page is filled with “the grove”`,
+    author: 'Xcircle',
+    cardId: 'W21'
   }
 ]

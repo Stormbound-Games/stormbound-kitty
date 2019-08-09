@@ -2,13 +2,20 @@
  * 1. Position context for actual grid
  */
 .BSBoardMobile {
-  background-image: url('/assets/images/bg-swarm.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   position: relative; /* 1 */
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+html:not(.webp) .BSBoardMobile {
+  background-image: url('/assets/images/bg-swarm.png');
+}
+
+.webp .BSBoardMobile {
+  background-image: url('/assets/images/bg-swarm.webp');
 }
 
 @media (min-width: 700px) and (max-width: 799px) {

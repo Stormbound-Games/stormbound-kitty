@@ -27,7 +27,6 @@ export default class DBRandomDeckButton extends React.Component {
   }
 
   generateDeck = () => {
-    console.log(this.state)
     const faction =
       this.state.faction === '*' ? this.getRandomFaction() : this.state.faction
     const maxLegendaryCards =

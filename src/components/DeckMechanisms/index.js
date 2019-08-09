@@ -23,7 +23,8 @@ export default class DeckMechanisms extends React.Component {
       specifics: { activeFrozenCores: 0, liveDawnsparks: false },
       turn: props.turn,
       mana: DEFAULT_MANA + (props.turn - 1),
-      deck: resolveDeckWeight(props.deck)
+      deck: resolveDeckWeight(props.deck),
+      playerOrder: 'FIRST'
     }
   }
 
@@ -32,20 +33,21 @@ export default class DeckMechanisms extends React.Component {
   }
 
   drawHand = () => {
+    if (this.props.mode === 'MANUAL') return
+
     this.draw()
     this.draw()
     this.draw()
     this.draw()
   }
 
-  draw = () => {
+  draw = specificCardId => {
     // If the hand is full, skip draw.
     if (this.state.hand.length >= 4) {
       return false
     }
 
     this.setState(state => {
-      const deckIds = state.deck.map(card => card.id)
       const newState = clone(state)
 
       // The available cards for draw are all the ones that are not currently
@@ -54,7 +56,7 @@ export default class DeckMechanisms extends React.Component {
       const availableCards = state.deck.filter(isAvailableForDraw)
 
       // Draw a random card while taking weight into account.
-      const pick = rwc(availableCards)
+      const pick = specificCardId || rwc(availableCards)
 
       // Put the new card into the hand.
       newState.hand.push(pick)
@@ -62,11 +64,9 @@ export default class DeckMechanisms extends React.Component {
       // After having drawn a new card, we need to readjust the weight of all
       // cards that are not in the hand, as well as the card that has just been
       // drawn (reseted to 0).
-      availableCards.forEach(card => {
-        const index = deckIds.indexOf(card.id)
-        const weight = card.id === pick ? 0 : increaseCardWeight(card.weight)
-
-        newState.deck[index].weight = weight
+      newState.deck = this.getIncreasedDeckWeight({
+        state: newState,
+        reset: [pick]
       })
 
       return newState
@@ -80,7 +80,6 @@ export default class DeckMechanisms extends React.Component {
     }
 
     this.setState(state => {
-      const deckIds = state.deck.map(card => card.id)
       const newState = clone(state)
 
       // Remove the cycled card from the hand.
@@ -99,14 +98,12 @@ export default class DeckMechanisms extends React.Component {
       // After having drawn a new card, we need to readjust the weight of all
       // cards that are not in the hand, as well as the one that has just been
       // drawn (reseted to 0).
-      availableCards.forEach(card => {
-        const index = deckIds.indexOf(card.id)
-        const weight = card.id === pick ? 0 : increaseCardWeight(card.weight)
-
-        newState.deck[index].weight = weight
+      newState.deck = this.getIncreasedDeckWeight({
+        state: newState,
+        reset: [id, pick]
       })
 
-      newState.hasCycledThisTurn = true
+      newState.hasCycledThisTurn = id !== 'N22' // Ignore Goldgrubbers cycling
 
       return newState
     })
@@ -159,7 +156,7 @@ export default class DeckMechanisms extends React.Component {
       case 'N14': {
         const hand = this.state.hand.length
 
-        if (hand < 4) {
+        if (this.props.mode !== 'MANUAL' && hand < 4) {
           this.draw()
 
           if (card.level >= 4 && hand < 3) {
@@ -187,7 +184,7 @@ export default class DeckMechanisms extends React.Component {
 
       // Snake Eyes
       case 'N33': {
-        if (this.state.hand.length === 3) {
+        if (this.props.mode !== 'MANUAL' && this.state.hand.length === 3) {
           this.state.hand.forEach(this.cycle)
 
           if (card.level >= 4) {
@@ -211,7 +208,7 @@ export default class DeckMechanisms extends React.Component {
           return cardInDeck.type === 'spell'
         })
 
-        if (spells.length > 0) {
+        if (this.props.mode !== 'MANUAL' && spells.length > 0) {
           this.play(spells[0], { free: true })
 
           if (card.level >= 4 && spells.length > 1) {
@@ -246,7 +243,7 @@ export default class DeckMechanisms extends React.Component {
           return cardInDeck.race !== 'pirate'
         })
 
-        if (nonPirates.length > 0) {
+        if (this.props.mode !== 'MANUAL' && nonPirates.length > 0) {
           this.play(arrayRandom(nonPirates), { discard: true })
         }
         break
@@ -260,7 +257,7 @@ export default class DeckMechanisms extends React.Component {
           return cardInDeck.race !== 'pirate'
         })
 
-        if (nonPirates.length > 0) {
+        if (this.props.mode !== 'MANUAL' && nonPirates.length > 0) {
           this.cycle(arrayRandom(nonPirates))
         }
         break
@@ -281,7 +278,6 @@ export default class DeckMechanisms extends React.Component {
       case 'S21': {
         const deck = [...this.state.deck]
         const inDrawPile = card => !this.state.hand.includes(card.id)
-        const deckIds = deck.map(card => card.id)
         const satyrs = deck
           .filter(inDrawPile)
           .filter(card => card.race === 'satyr')
@@ -289,7 +285,7 @@ export default class DeckMechanisms extends React.Component {
 
         // If Queen of Herds is played without any satyr in the remaining cards
         // from the deck, there is nothing more to.
-        if (satyrs.length === 0) {
+        if (this.props.mode === 'MANUAL' || satyrs.length === 0) {
           break
         }
 
@@ -313,15 +309,7 @@ export default class DeckMechanisms extends React.Component {
 
         // For some reason (?), recompute the weight of the entire deck except
         // for the cards in hand and reset the played satyr(s)’ weight to 0.
-        deck.filter(inDrawPile).forEach(card => {
-          const index = deckIds.indexOf(card.id)
-          const weight =
-            card.id === satyr1 || card.id === satyr2
-              ? 0
-              : increaseCardWeight(card.weight)
-
-          deck[index].weight = weight
-        })
+        this.increaseDeckWeight({ reset: [satyr1, satyr2] })
 
         break
       }
@@ -330,6 +318,23 @@ export default class DeckMechanisms extends React.Component {
         return
     }
   }
+
+  getIncreasedDeckWeight = ({ state = this.state, reset }) => {
+    return state.deck.map(card => {
+      if (state.hand.includes(card.id) && !reset.includes(card.id)) return card
+
+      const weight = reset.includes(card.id)
+        ? 0
+        : increaseCardWeight(card.weight)
+
+      return { ...card, weight }
+    })
+  }
+
+  increaseDeckWeight = ({ reset }) =>
+    this.setState(state => ({
+      deck: this.getIncreasedDeckWeight({ state, reset })
+    }))
 
   endTurn = () => {
     this.setState(state => {
@@ -373,6 +378,8 @@ export default class DeckMechanisms extends React.Component {
       return newState
     })
 
+    if (this.props.mode === 'MANUAL') return
+
     if (this.state.hand.length === 3) {
       this.draw()
     } else if (this.state.hand.length === 2) {
@@ -409,10 +416,21 @@ export default class DeckMechanisms extends React.Component {
         specifics: { activeFrozenCores: 0, liveDawnsparks: false },
         turn: this.props.turn,
         mana: DEFAULT_MANA + (this.props.turn - 1),
-        deck: resolveDeckWeight(this.props.deck)
+        deck: resolveDeckWeight(this.props.deck),
+        playerOrder: 'FIRST'
       },
       this.drawHand
     )
+  }
+
+  setPlayerOrder = playerOrder => {
+    const turn = playerOrder === 'SECOND' ? 2 : 1
+
+    this.setState({
+      playerOrder,
+      turn,
+      mana: DEFAULT_MANA + (turn - 1)
+    })
   }
 
   render() {
@@ -423,12 +441,15 @@ export default class DeckMechanisms extends React.Component {
       turn: this.state.turn,
       RNG: this.state.RNG,
       hasCycledThisTurn: this.state.hasCycledThisTurn,
-
+      playerOrder: this.state.playerOrder,
       canCardBePlayed: this.canCardBePlayed,
+      setPlayerOrder: this.setPlayerOrder,
       play: this.play,
+      draw: this.draw,
       cycle: this.cycle,
       reset: this.reset,
       endTurn: this.endTurn,
+      increaseDeckWeight: this.increaseDeckWeight,
       setRNG: RNG => this.setState({ RNG })
     })
   }

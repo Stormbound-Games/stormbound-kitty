@@ -1,0 +1,9 @@
+.Loader {
+  margin: 6em auto;
+}
+
+.Loader__svg {
+  display: block;
+  margin: 0 auto 2.5em;
+  transform: scale(1.5);
+}

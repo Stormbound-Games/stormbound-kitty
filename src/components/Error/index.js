@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import PageMeta from '../PageMeta'
 import Title from '../Title'
+import CTA from '../CTA'
 import './index.css'
 
 const Error = props => (
@@ -32,6 +33,8 @@ const Error = props => (
       </p>
 
       <pre className="Error__pre">{props.error}</pre>
+
+      {props.retry && <CTA onClick={props.retry}>Retry</CTA>}
     </div>
 
     <PageMeta

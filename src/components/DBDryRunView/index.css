@@ -43,17 +43,18 @@
 }
 
 @media (max-width: 699px) {
-  .DBDryRunView__board {
+  .DBDryRunView__board > .Row {
     flex-wrap: wrap;
   }
 
-  .DBDryRunView__board > :nth-child(1) {
+  .DBDryRunView__board > .Row > :nth-child(1) {
     flex: 1 1 100%;
   }
 
-  .DBDryRunView__board > :nth-child(2),
-  .DBDryRunView__board > :nth-child(3) {
+  .DBDryRunView__board > .Row > :nth-child(2),
+  .DBDryRunView__board > .Row > :nth-child(3) {
     width: 50%;
+    flex-grow: 1;
   }
 }
 

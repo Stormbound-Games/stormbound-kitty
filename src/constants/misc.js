@@ -164,6 +164,32 @@ export const WEEKLY_CARD_CONTEST = [
   {
     week: 30,
     name: 'Speed',
-    submitURL: 'https://forms.gle/VizcR4em1BDfgJML6'
+    submitURL: 'https://forms.gle/VizcR4em1BDfgJML6',
+    winner: {
+      id:
+        'TjtQO1U7TDs5OzM7OC8xMS8xMi8xNC8xNjtJc29sYXRlZCUyMGNhcHRhaW47aHR0cHMlM0ElMkYlMkZpLmltZ3VyLmNvbSUyRkZWejJxU20ucG5nO09uJTIwcGxheSUyQyUyMGRpc2NhcmQlMjAxJTJGMSUyRjIlMkYyJTJGYWxsJTIwcGlyYXRlJTIwY2FyZCUyMCUyMGZyb20lMjAlMjB5b3VyJTIwaGFuZCUyMGFuZCUyMGxvc2UlMjAxJTIwc3BlZWQlMjBmb3IlMjBldmVyeSUyMG90aGVyJTIwY2FyZCUyMG9uJTIwdGhlJTIwJTIweW91ciUyMGhhbmQuOw==',
+      author: 'l3l'
+    }
+  },
+  {
+    week: 31,
+    name: 'Love/Hate',
+    description:
+      'Submit 2 cards: one of them will support a certain playstyle, and the other will try to counter that style.',
+    submitURL: 'https://forms.gle/EkGSFfRho4S2bH5P6',
+    winner: {
+      author: 'MooreFunn',
+      id:
+        'Tjs7VTtFOzM7MTsxLzIvMy80LzU7Q29tcGVsbGluZyUyMFNsYWNrZXI7aHR0cHMlM0ElMkYlMkZpLmltZ3VyLmNvbSUyRm5OVldWeVIucG5nO0JlZm9yZSUyMGF0dGFja2luZyUyMGElMjB1bml0JTJDJTIwcmVtb3ZlJTIwaXRzJTIwb24lMjBkZWF0aCUyMG9yJTIwb24lMjBhdHRhY2slMjBhYmlsaXRpZXM7',
+      id2:
+        'Tjs7QztDOzQ7OztEaXNvcmRlcmx5JTIwVHlyb3M7TjI7KlRlYWNoKiUyMGElMjByYW5kb20lMjBmcmllbmRseSUyMHVuaXQlMjAlMjJvbiUyMGRlYXRoJTIwcmFuZG9tbHklMjAqc3VtbW9uKiUyMGElMjA2JTJGNyUyRjglMkY5JTJGMTElMjBzdHJlbmd0aCUyMGtuaWdodCUyMiUyMDs='
+    }
+  },
+  {
+    week: 32,
+    name: 'A Hero’s Tool',
+    description:
+      'Create a card inspired and related to a Stormbound Hero (legendary card), like Hunter’s Vengeance is to Ubass the Hunter.',
+    submitURL: 'https://forms.gle/EkGSFfRho4S2bH5P6'
   }
 ]

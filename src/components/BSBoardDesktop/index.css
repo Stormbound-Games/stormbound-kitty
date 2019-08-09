@@ -2,7 +2,6 @@
  * 1. Position context for actual grid
  */
 .BSBoardDesktop {
-  background-image: url('/assets/images/bg-swarm-desktop.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -12,17 +11,29 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.BSBoardDesktop--swarm {
+html:not(.webp) .BSBoardDesktop--swarm {
   background-image: url('/assets/images/bg-swarm-desktop.png');
 }
-.BSBoardDesktop--ironclad {
+.webp .BSBoardDesktop--swarm {
+  background-image: url('/assets/images/bg-swarm-desktop.webp');
+}
+html:not(.webp) .BSBoardDesktop--ironclad {
   background-image: url('/assets/images/bg-ironclad-desktop.png');
 }
-.BSBoardDesktop--winter {
+.webp .BSBoardDesktop--ironclad {
+  background-image: url('/assets/images/bg-ironclad-desktop.webp');
+}
+html:not(.webp) .BSBoardDesktop--winter {
   background-image: url('/assets/images/bg-winter-desktop.png');
 }
-.BSBoardDesktop--shadowfen {
+.webp .BSBoardDesktop--winter {
+  background-image: url('/assets/images/bg-winter-desktop.webp');
+}
+html:not(.webp) .BSBoardDesktop--shadowfen {
   background-image: url('/assets/images/bg-shadowfen-desktop.png');
+}
+.webp .BSBoardDesktop--shadowfen {
+  background-image: url('/assets/images/bg-shadowfen-desktop.webp');
 }
 
 /**

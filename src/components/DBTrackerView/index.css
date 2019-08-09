@@ -1,0 +1,117 @@
+.DBTrackerView__hand .Column {
+  flex-grow: 0;
+}
+
+.DBTrackerView__hand {
+  padding: 0 1.5em;
+}
+
+.DBTrackerView__card-button {
+  background-color: transparent;
+  padding: 0;
+  border: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.DBTrackerView__buttons {
+  margin-top: 2em;
+}
+
+.DBTrackerView__card-wrapper {
+  transition: 250ms;
+  position: relative;
+}
+
+.DBTrackerView__card-wrapper--active {
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+.DBTrackerView__card-wrapper--inactive {
+  opacity: 0.7;
+  filter: grayscale(0.3);
+}
+
+.DBTrackerView__board {
+  margin-bottom: 3em;
+}
+
+.DBTrackerView__mana {
+  flex-direction: column;
+  font-size: 125%;
+  margin-bottom: 1em;
+  display: flex;
+}
+
+.DBTrackerView__mana > div {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.DBTrackerView__mana .Mana {
+  margin-left: 1em;
+}
+
+.DBTrackerView__mana .Checkbox {
+  font-size: 60%;
+}
+
+.DBTrackerView__info {
+  margin-top: 3em;
+}
+
+.DBTrackerView__info p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.DBTrackerView__reset-checkbox {
+  text-align: center;
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: center;
+}
+
+.DBTrackerView__list {
+  padding-left: 0;
+  list-style-position: inside;
+  margin-top: -0.5em;
+}
+
+.DBTrackerView__list li {
+  text-indent: -1.15em;
+  padding-left: 1.15em;
+}
+
+.DBTrackerView__hint {
+  margin-top: 2em;
+  text-align: center;
+  font-size: 120%;
+}
+
+@media (max-width: 699px) {
+  .DBTrackerView__board > .Row {
+    flex-wrap: wrap;
+  }
+
+  .DBTrackerView__board > .Row > :nth-child(1) {
+    flex: 1 1 100%;
+  }
+
+  .DBTrackerView__board > .Row > :nth-child(2),
+  .DBTrackerView__board > .Row > :nth-child(3) {
+    width: 50%;
+    flex-grow: 1;
+  }
+
+  .DBTrackerView__mana {
+    align-items: center;
+  }
+}

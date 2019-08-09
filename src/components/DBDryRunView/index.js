@@ -170,7 +170,7 @@ class DBDryRunView extends React.Component {
           })`
         : card.name
 
-      return { ...card, name, id: card.id.split(':')[0] }
+      return { ...card, name }
     })
   }
 

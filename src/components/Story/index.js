@@ -9,6 +9,7 @@ import Error from '../Error'
 import stories from '../../data/stories'
 import './index.css'
 import getRawCardData from '../../helpers/getRawCardData'
+import microMarkdown from '../../helpers/microMarkdown'
 import getExcerpt from '../../helpers/getExcerpt'
 
 const Story = props => {
@@ -40,7 +41,7 @@ const Story = props => {
             <article>
               {story.content.split('\n').map((paragraph, index) => (
                 <p key={index} className="Story__paragraph">
-                  {paragraph}
+                  {microMarkdown(paragraph)}
                 </p>
               ))}
             </article>

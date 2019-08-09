@@ -1,30 +1,121 @@
 import React from 'react'
+import Loadable from 'react-loadable'
 import { Router, Redirect } from '@reach/router'
-import Home from '../Home'
-import FAQ from '../FAQ'
-import CardBuilder from '../CBRoot'
-import CardContest from '../CBContest'
-import CardDisplay from '../CBDisplay'
-import DeckBuilder from '../DBRoot'
-import QuestBuilder from '../QBRoot'
-import Puzzles from '../BSPuzzles'
-import BattleSim from '../BSRoot'
-import BattleDisplay from '../BSDisplay'
-import Editor from '../DBEditorView'
-import Collection from '../DBCollection'
-import DeckGuide from '../DeckGuide'
-import CompleteGuide from '../CompleteGuide'
-import WinterGuide from '../WinterGuide'
-import PirateGuide from '../PirateGuide'
-import Guides from '../Guides'
-import Suggestions from '../DBSuggestions'
-import Detail from '../DBDetailView'
-import DryRun from '../DBDryRunView'
-import Lexicon from '../Lexicon'
-import Stories from '../Stories'
-import Story from '../Story'
-import TierList from '../TLBEditorView'
-import TierDisplay from '../TLBDisplayView'
+import PageLoading from '../PageLoading'
+
+const Home = Loadable({
+  loader: () => import('../Home' /* webpackChunkName: "Home" */),
+  loading: PageLoading
+})
+const FAQ = Loadable({
+  loader: () => import('../FAQ' /* webpackChunkName: "FAQ" */),
+  loading: PageLoading
+})
+const CardBuilder = Loadable({
+  loader: () => import('../CBRoot' /* webpackChunkName: "CBRoot" */),
+  loading: PageLoading
+})
+const CardContest = Loadable({
+  loader: () => import('../CBContest' /* webpackChunkName: "CBContest" */),
+  loading: PageLoading
+})
+const CardDisplay = Loadable({
+  loader: () => import('../CBDisplay' /* webpackChunkName: "CBDisplay" */),
+  loading: PageLoading
+})
+const DeckBuilder = Loadable({
+  loader: () => import('../DBRoot' /* webpackChunkName: "DBRoot" */),
+  loading: PageLoading
+})
+const QuestBuilder = Loadable({
+  loader: () => import('../QBRoot' /* webpackChunkName: "QBRoot" */),
+  loading: PageLoading
+})
+const Puzzles = Loadable({
+  loader: () => import('../BSPuzzles' /* webpackChunkName: "BSPuzzles" */),
+  loading: PageLoading
+})
+const BattleSim = Loadable({
+  loader: () => import('../BSRoot' /* webpackChunkName: "BSRoot" */),
+  loading: PageLoading
+})
+const BattleDisplay = Loadable({
+  loader: () => import('../BSDisplay' /* webpackChunkName: "BSDisplay" */),
+  loading: PageLoading
+})
+const Editor = Loadable({
+  loader: () =>
+    import('../DBEditorView' /* webpackChunkName: "DBEditorView" */),
+  loading: PageLoading
+})
+const Collection = Loadable({
+  loader: () =>
+    import('../DBCollection' /* webpackChunkName: "DBCollection" */),
+  loading: PageLoading
+})
+const DeckGuide = Loadable({
+  loader: () => import('../DeckGuide' /* webpackChunkName: "DeckGuide" */),
+  loading: PageLoading
+})
+const CompleteGuide = Loadable({
+  loader: () =>
+    import('../CompleteGuide' /* webpackChunkName: "CompleteGuide" */),
+  loading: PageLoading
+})
+const WinterGuide = Loadable({
+  loader: () => import('../WinterGuide' /* webpackChunkName: "WinterGuide" */),
+  loading: PageLoading
+})
+const PirateGuide = Loadable({
+  loader: () => import('../PirateGuide' /* webpackChunkName: "PirateGuide" */),
+  loading: PageLoading
+})
+const Guides = Loadable({
+  loader: () => import('../Guides' /* webpackChunkName: "Guides" */),
+  loading: PageLoading
+})
+const Suggestions = Loadable({
+  loader: () =>
+    import('../DBSuggestions' /* webpackChunkName: "DBSuggestions" */),
+  loading: PageLoading
+})
+const Detail = Loadable({
+  loader: () =>
+    import('../DBDetailView' /* webpackChunkName: "DBDetailView" */),
+  loading: PageLoading
+})
+const DryRun = Loadable({
+  loader: () =>
+    import('../DBDryRunView' /* webpackChunkName: "DBDryRunView" */),
+  loading: PageLoading
+})
+const Tracker = Loadable({
+  loader: () =>
+    import('../DBTrackerView' /* webpackChunkName: "DBTrackerView" */),
+  loading: PageLoading
+})
+const Lexicon = Loadable({
+  loader: () => import('../Lexicon' /* webpackChunkName: "Lexicon" */),
+  loading: PageLoading
+})
+const Stories = Loadable({
+  loader: () => import('../Stories' /* webpackChunkName: "Stories" */),
+  loading: PageLoading
+})
+const Story = Loadable({
+  loader: () => import('../Story' /* webpackChunkName: "Story" */),
+  loading: PageLoading
+})
+const TierList = Loadable({
+  loader: () =>
+    import('../TLBEditorView' /* webpackChunkName: "TLBEditorView" */),
+  loading: PageLoading
+})
+const TierDisplay = Loadable({
+  loader: () =>
+    import('../TLBDisplayView' /* webpackChunkName: "TLBDisplayView" */),
+  loading: PageLoading
+})
 
 const AppRouter = props => (
   <Router primary={false}>
@@ -52,6 +143,7 @@ const AppRouter = props => (
       <Editor path="/" />
       <Detail path="/detail" />
       <DryRun path="/dry-run" />
+      <Tracker path="/tracker" />
     </DeckBuilder>
 
     <QuestBuilder path="/quest" />

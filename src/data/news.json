@@ -1,5 +1,9 @@
 [
   {
+    "intro": "Deck Tracker",
+    "description": "There now is a deck tracker to get accurate drawing chances during an actual game."
+  },
+  {
     "intro": "Deck Builder",
     "description": "The deck builder now providers a (smart) random deck generator."
   },

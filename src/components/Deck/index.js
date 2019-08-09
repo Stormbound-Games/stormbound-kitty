@@ -6,7 +6,9 @@ import Mana from '../Mana'
 import './index.css'
 
 const Deck = props => {
-  const slots = props.deck.map(resolveCardForLevel).sort(sortByMana)
+  const slots = props.deck
+    .map(resolveCardForLevel)
+    .sort(props.sort || sortByMana)
   const highlightedCards = props.highlightedCards || []
   const { fontSize, ref } = useFluidSizing(0.03683665247)
 
@@ -45,6 +47,9 @@ const Deck = props => {
                   type="button"
                   className="Deck__button"
                   onClick={() => props.onClick(card)}
+                  disabled={
+                    props.isCardDisabled ? props.isCardDisabled(card) : false
+                  }
                 >
                   <span className="visually-hidden">{props.onClickLabel}</span>
                 </button>

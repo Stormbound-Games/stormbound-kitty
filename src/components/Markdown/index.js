@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { Link } from '@reach/router'
-import Error from '../Error'
+import remark from 'remark'
+import remarkReact from 'remark-react'
 import Title from '../Title'
 import Hint from '../Hint'
 import WikiLink from '../WikiLink'
@@ -27,95 +28,63 @@ const TOKEN_RE = new RegExp(
 const tokenizeCardsNames = string =>
   string.replace(TOKEN_RE, word => TOKENS[word])
 
-class Markdown extends React.Component {
-  state = {
-    status: 'PRISTINE',
-    error: false
-  }
+const generateId = content =>
+  content
+    .toLowerCase()
+    .replace(/['’,]/g, '')
+    .replace(/[\s/]+/g, '-')
 
-  componentDidMount() {
-    this.setState({ status: 'LOADING' })
+const h1 = props => <Title element="h1">{props.children}</Title>
+const h2 = props => (
+  <Title element="h2" id={generateId(props.children[0])}>
+    {props.children}
+  </Title>
+)
+const h3 = props => <h3 id={generateId(props.children[0])}>{props.children}</h3>
+const p = props =>
+  typeof props.children[0] === 'string' &&
+  props.children[0].startsWith('Hint: ') ? (
+    <Hint>
+      {props.children[0].replace('Hint: ', '')}
+      {props.children.slice(1)}
+    </Hint>
+  ) : (
+    <p>
+      {props.children.map(child =>
+        typeof child === 'string'
+          ? template(tokenizeCardsNames(child), REPLACEMENTS)
+          : child
+      )}
+    </p>
+  )
+const li = props => (
+  <li>
+    {props.children.map(child =>
+      typeof child === 'string'
+        ? template(tokenizeCardsNames(child), REPLACEMENTS)
+        : child
+    )}
+  </li>
+)
+const a = props =>
+  props.href.startsWith('/') ? (
+    <Link to={props.href}>{props.children}</Link>
+  ) : (
+    <a href={props.href}>{props.children}</a>
+  )
 
-    Promise.all([import('remark'), import('remark-react')])
-      .catch(error => {
-        this.setState({ status: 'FAILURE', error })
-      })
-      .then(([remark, remarkReact]) => {
-        this.remark = remark.default
-        this.remarkReact = remarkReact.default
-        this.setState({ status: 'SUCCESS' })
-      })
-  }
-
-  render() {
-    if (this.state.status === 'FAILURE') {
-      return <Error error={this.state.error} />
-    }
-
-    if (this.state.status !== 'SUCCESS') {
-      return null
-    }
-
-    const content = this.props.source
-    const generateId = content =>
-      content
-        .toLowerCase()
-        .replace(/['’,]/g, '')
-        .replace(/[\s/]+/g, '-')
-
-    return (
-      <Fragment>
-        {
-          this.remark()
-            .use(this.remarkReact, {
-              remarkReactComponents: {
-                h1: props => <Title element="h1">{props.children}</Title>,
-                h2: props => (
-                  <Title element="h2" id={generateId(props.children[0])}>
-                    {props.children}
-                  </Title>
-                ),
-                h3: props => (
-                  <h3 id={generateId(props.children[0])}>{props.children}</h3>
-                ),
-                p: props =>
-                  typeof props.children[0] === 'string' &&
-                  props.children[0].startsWith('Hint: ') ? (
-                    <Hint>
-                      {props.children[0].replace('Hint: ', '')}
-                      {props.children.slice(1)}
-                    </Hint>
-                  ) : (
-                    <p>
-                      {props.children.map(child =>
-                        typeof child === 'string'
-                          ? template(tokenizeCardsNames(child), REPLACEMENTS)
-                          : child
-                      )}
-                    </p>
-                  ),
-                li: props => (
-                  <li>
-                    {props.children.map(child =>
-                      typeof child === 'string'
-                        ? template(tokenizeCardsNames(child), REPLACEMENTS)
-                        : child
-                    )}
-                  </li>
-                ),
-                a: props =>
-                  props.href.startsWith('/') ? (
-                    <Link to={props.href}>{props.children}</Link>
-                  ) : (
-                    <a href={props.href}>{props.children}</a>
-                  )
-              }
-            })
-            .processSync(content).contents
-        }
-      </Fragment>
-    )
-  }
+const Markdown = props => {
+  return (
+    <Fragment>
+      {
+        remark()
+          .use(remarkReact, {
+            remarkReactComponents: { h1, h2, h3, p, li, a }
+          })
+          .processSync(props.source).contents
+      }
+    </Fragment>
+  )
 }
 
 export default Markdown
