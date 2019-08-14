@@ -168,15 +168,6 @@ const Footer = props => (
                     Stormbound Fan
                   </a>
                 </li>
-                <li className="Footer__item">
-                  <a
-                    href="https://www.docdroid.net/Y7GGM7v/stormbound-guidelines.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Stormbound Guide
-                  </a>
-                </li>
 
                 <li className="Footer__item">
                   <a
@@ -185,6 +176,16 @@ const Footer = props => (
                     rel="noopener noreferrer"
                   >
                     Kongregate
+                  </a>
+                </li>
+
+                <li className="Footer__item">
+                  <a
+                    href="https://github.com/KittySparkles/stormbound-kitty"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
                   </a>
                 </li>
               </ul>
