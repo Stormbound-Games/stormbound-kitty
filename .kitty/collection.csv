@@ -1,29 +1,29 @@
 id,name,level,copies
-I1,Destructobots,3,17
+I1,Destructobots,3,18
 I2,Doctor Mia,2,1
-I3,Fortification Tonic,3,12
+I3,Fortification Tonic,3,13
 I4,Ozone Purifiers,3,36
-I5,Unstable Build,2,15
-I6,Finite Loopers,3,37
-I7,Greengale Serpents,3,25
+I5,Unstable Build,2,18
+I6,Finite Loopers,3,39
+I7,Greengale Serpents,3,26
 I8,Linked Golems,3,3
 I9,Sound Drivers,2,8
 I10,Upgrade Point,3,4
-I11,Boosting Elixir,3,13
+I11,Boosting Elixir,3,15
 I12,Chaotic Pupil,3,39
 I13,Embers of Chaos,2,3
 I14,Mech Workshop,3,42
-I15,Overchargers,3,27
+I15,Overchargers,3,28
 I16,Debug Loggers,3,4
 I17,Eloth the Ignited,1,0
-I18,Flaming Stream,3,34
+I18,Flaming Stream,3,36
 I19,Siege Assembly,2,30
-I20,Windmakers,3,21
-I21,Delegators,3,40
+I20,Windmakers,3,22
+I21,Delegators,3,41
 I22,Project PH03-NIX,2,0
 I23,Armed Schemers,2,6
 I24,Mechanical Workers,2,7
-N1,Green Prototypes,4,11
+N1,Green Prototypes,4,13
 N2,Summon Militia,5,0
 N3,Gifted Recruits,5,0
 N4,Lawless Herd,5,0
@@ -35,111 +35,111 @@ N9,Confinement,4,30
 N10,Conflicted Drakes,2,21
 N11,Felflares,4,31
 N12,First Mutineer,4,24
-N13,Fort of Ebonrock,4,22
-N14,Freebooters,4,31
+N13,Fort of Ebonrock,4,23
+N14,Freebooters,4,32
 N15,Potion of Growth,5,0
 N16,Westwind Sailors,5,0
 N17,Wetland Deceivers,2,4
 N18,Beasts of Terror,3,4
 N19,Cabin Girls,5,0
 N20,Emerald Towers,2,19
-N21,Execution,4,26
+N21,Execution,4,28
 N22,Goldgrubbers,3,3
 N23,Hunter’s Vengeance,2,3
-N24,Personal Servers,3,40
-N25,Siegebreakers,2,21
+N24,Personal Servers,3,41
+N25,Siegebreakers,2,22
 N26,Snowmasons,2,19
 N27,Terrific Slayers,2,22
 N28,Warfront Runners,5,0
 N29,Bladestorm,3,40
 N30,Bluesail Raiders,5,0
 N31,Flooding the Gates,2,29
-N32,Heroic Soldiers,4,28
+N32,Heroic Soldiers,4,31
 N33,Snake Eyes,3,0
 N34,Trueshot Post,3,6
 N35,Ubass the Hunter,2,1
-N36,Voidsurgers,2,22
+N36,Voidsurgers,2,23
 N37,Boomstick Officers,2,17
 N38,Harvesters of Souls,4,2
 N39,Hearthguards,2,2
 N40,Kindred’s Grace,3,6
 N41,Lich Summoners,2,10
-N42,Lucky Charmers,4,4
+N42,Lucky Charmers,4,5
 N43,Ludic Matriarch,2,2
-N44,Needle Blast,4,4
+N44,Needle Blast,4,5
 N45,Powder Tower,2,4
 N46,Tegor the Vengeful,1,0
-N47,Victors of the Melee,4,11
+N47,Victors of the Melee,4,12
 N48,Archdruid Earyn,0,0
 N49,Avian Stalkers,2,11
 N50,Call for Aid,2,26
 N51,Dangerous Suitors,3,17
-N52,Salty Outcasts,4,26
-N53,Sharpfist Exiles,2,20
+N52,Salty Outcasts,4,27
+N53,Sharpfist Exiles,2,22
 N54,Veterans of War,5,0
 N55,Joust Champions,2,31
 N56,Temple Guardians,2,6
 N57,Crazy Bombers,2,3
 N58,Siren of the Seas,0,0
 N59,Edrik the Fierce,1,0
-N60,Fluffy Badboxers,2,1
-N61,Hair-raising Cats,2,8
-N62,Sweetcap Kittens,2,1
+N60,Fluffy Badboxers,2,2
+N61,Hair-raising Cats,2,11
+N62,Sweetcap Kittens,2,3
 N63,Unhealthy Hysteria,2,5
 N64,Melodious Sisters,1,0
-N65,Razor-sharp Lynxes,1,3
-N66,Bigthrust Tigers,1,3
+N65,Razor-sharp Lynxes,2,1
+N66,Bigthrust Tigers,2,2
 N67,Wild Saberpaws,0,0
-N68,Twilight Prowlers,1,0
+N68,Twilight Prowlers,1,1
 N69,Laurus King in Exile,0,0
 F1,Brood Sages,3,3
 F2,Copperskin Ranger,3,40
-F3,Dubious Hags,4,26
-F4,Toxic Sacrifice,4,33
+F3,Dubious Hags,4,27
+F4,Toxic Sacrifice,4,34
 F5,Crimson Sentry,3,38
 F6,Harpies of the Hunt,3,35
 F7,Heliotroopers,2,8
 F8,Rain of Frogs,0,0
-F9,Wandering Wyrms,3,22
+F9,Wandering Wyrms,3,23
 F10,Azure Hatcher,4,11
 F11,Marked as Prey,3,17
 F12,Tode the Elevated,1,0
 F13,Venomfall Spire,3,23
-F14,Witches of the Wild,4,25
-F15,Amberhides,4,32
+F14,Witches of the Wild,4,27
+F15,Amberhides,4,34
 F16,Feral Shamans,2,26
 F17,Obsidian Butchers,2,23
 F18,Soulcrushers,2,6
 F19,Sunbeam Serpents,2,3
 F20,Blood Ministers,2,4
 F21,Broodmother Qordia,1,0
-F22,Curse of Strings,3,9
+F22,Curse of Strings,3,10
 F23,High Priestess Klaxi,0,0
-F24,Clerics with Cords,2,0
+F24,Clerics with Cords,2,1
 S1,Doppelbocks,3,41
 S2,Restless Goats,2,3
 S3,Counselor Ahmi,0,0
-S4,Dreadful Keepers,2,1
-S5,Faun Companions,2,21
-S6,Forgotten Souls,2,14
-S7,Moonlit Aerie,3,34
+S4,Dreadful Keepers,2,2
+S5,Faun Companions,2,23
+S6,Forgotten Souls,2,16
+S7,Moonlit Aerie,3,37
 S8,Shady Ghoul,3,19
-S9,Swarmcallers,2,27
+S9,Swarmcallers,2,28
 S10,Broken Truce,2,18
 S11,Devastators,2,3
-S12,Draconic Roamers,3,12
-S13,Mischiefs,3,29
+S12,Draconic Roamers,3,13
+S13,Mischiefs,3,31
 S14,Pan Heralds,3,43
 S15,Dark Harvest,2,19
 S16,Dreadfauns,3,34
-S17,Grim Couriers,3,35
+S17,Grim Couriers,3,36
 S18,Pillars of Doom,2,4
 S19,Xuri Lord of Life,0,0
 S20,Herald’s Hymn,3,29
 S21,Queen of Herds,1,0
-S22,Vindicators,1,0
+S22,Vindicators,1,1
 S23,Lasting Remains,3,8
-S24,Head Start,2,3
+S24,Head Start,2,5
 W1,Icicle Burst,4,32
 W2,Frosthexers,5,0
 W3,The Hearth,4,34
@@ -157,9 +157,9 @@ W14,Blessed with Brawn,3,5
 W15,Broken Earth Drakes,4,10
 W16,Dawnsparks,3,2
 W17,Wolfcloaks,4,6
-W18,Fleshmenders,2,3
+W18,Fleshmenders,3,0
 W19,Gift of the Wise,2,1
-W20,Calming Spirits,3,33
+W20,Calming Spirits,3,34
 W21,Visions of the Grove,4,13
 W22,Chillbeards,4,26
 W23,Olf the Hammer,0,0
