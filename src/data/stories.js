@@ -591,5 +591,14 @@ export default [
     —The remainder of the page is filled with “the grove”`,
     author: 'Xcircle',
     cardId: 'W21'
+  },
+  {
+    title: 'Bladestorm',
+    content: `"In records of old, tales tell of a weapon not seen since the days of the Gray Legion's dominion. Hidden within one of their ancient citadels, a trove of finely crafted daggers hibernates beneath the rubble, humming with an energy untouched for millennia. They called it, The Arsenal, and it is was this arsenal that gave the Gray Legion the power to assume control over the Central Archipelago. 
+    A few accounts detail the usage of this weapon. Through sheer force of will, one can cast the blades into a mighty storm that rains down upon your foes in a violent downpour of steel. With a little finesse, the blades become an assassin's best friend, flying through the air with deadly grace to deliver a swift and precise execution.
+    I have sold few relics in my time, but those were mere pebbles at the shallow end of the pond. What secrets lie below those forgotten fortresses dates back to an era shrouded in mystery, untouched by the Storm's ruin and free from the strife of the factions. It is my duty to discover those secrets before the world does, for who knows what cataclysm they will bring about with such cursed knowledge."
+    -Final journal entry of Palin Smauw, Relic Hunter`,
+    author: 'DoppleFock',
+    cardId: 'N29'
   }
 ]
