@@ -14,7 +14,7 @@ const WikiLink = props => {
 
   const wikiURL = 'https://stormboundkingdomwars.gamepedia.com/'
   const slug = encodeURIComponent(
-    cardData.name.replace(' ', '_').replace('’', "'")
+    cardData.name.replace(/\s/g, '_').replace(/’/g, "'")
   )
 
   if (viewportWidth < 700 || props.noTooltip) {
