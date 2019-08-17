@@ -24,7 +24,7 @@ class DBFiltering extends React.Component {
 
   setFaction = faction => this.setState({ faction })
   setText = text =>
-    this.setState({
+    text === '' ? this.setState({ text }) : this.setState({
       text,
       faction: '*',
       type: '*',
