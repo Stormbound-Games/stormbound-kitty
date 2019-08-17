@@ -1,5 +1,9 @@
 [
   {
+    "intro": "Stormbound Kitty",
+    "description": "The site’s code is now available on GitHub (under GPL-3.0)."
+  },
+  {
     "intro": "Deck Tracker",
     "description": "There now is a deck tracker to get accurate drawing chances during an actual game."
   },
