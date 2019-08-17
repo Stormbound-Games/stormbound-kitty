@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from '@reach/router'
 import { getStrictActiveLink } from '../../helpers/getActiveLink'
+import { SHADES_LIST } from '../../constants/list'
 
 const TLBNav = props => (
   <nav className="Header__nav">
@@ -24,6 +25,12 @@ const TLBNav = props => (
           </Link>
         </li>
       )}
+
+      <li className="Header__item Header__item--right">
+        <Link getProps={getStrictActiveLink} to={`/list/${SHADES_LIST}`}>
+          Equals Tier List
+        </Link>
+      </li>
     </ul>
   </nav>
 )

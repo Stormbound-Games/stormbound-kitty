@@ -12,7 +12,12 @@ import PageMeta from '../PageMeta'
 import { serialiseList } from '../../helpers/serialise'
 import getInitialListData from '../../helpers/getInitialListData'
 import reorder from '../../helpers/reorder'
-import { TIER_COLORS, DEFAULT_LIST, DEFAULT_TIER } from '../../constants/list'
+import {
+  SHADES_LIST,
+  TIER_COLORS,
+  DEFAULT_LIST,
+  DEFAULT_TIER
+} from '../../constants/list'
 import './index.css'
 
 class TLBEditorView extends React.Component {
@@ -36,6 +41,14 @@ class TLBEditorView extends React.Component {
 
     if (hasAnyTierChanged) {
       navigate('/list/' + serialiseList(this.state.tiers), { replace: true })
+    }
+
+    if (prevProps.listId !== this.props.listId) {
+      if (this.props.listId) {
+        this.setState({ tiers: getInitialListData(this.props.listId) })
+      } else {
+        this.reset()
+      }
     }
   }
 
@@ -162,6 +175,13 @@ class TLBEditorView extends React.Component {
               of cards. It is currently very much in active development so make
               sure to report any bug, oddity or desired features.
             </p>
+
+            {this.props.listId === SHADES_LIST && (
+              <p>
+                The current list is Shades’ take at ranking cards by efficiency
+                in Equals mode.
+              </p>
+            )}
 
             <CTA
               onClick={this.addTier}
