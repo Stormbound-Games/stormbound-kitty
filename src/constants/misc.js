@@ -190,6 +190,18 @@ export const WEEKLY_CARD_CONTEST = [
     name: 'A Hero’s Tool',
     description:
       'Create a card inspired and related to a Stormbound Hero (legendary card), like Hunter’s Vengeance is to Ubass the Hunter.',
+    submitURL: 'https://forms.gle/EkGSFfRho4S2bH5P6',
+    winner: {
+      id:
+        'Vzs7QztDOzMvMy8zLzIvMjs7O3NwZWxsYmluZGVyJ3MlMjB0cmFwO2h0dHBzJTNBJTJGJTJGaS5pbWd1ci5jb20lMkZuOVc2SktOLnBuZzsqRnJlZXplKiUyMGFsbCUyMGVuZW15JTIwdW5pdHMlMjBpbiUyMHRoZSUyMHRhcmdldCUyMHVuaXQncyUyMGNvbHVtbiUyQyUyMCpkZWFsJTIwMiUyRjIlMkYzJTJGMyUyRjQqJTIwZGFtYWdlJTIwdG8lMjBhbGwlMjB1bml0cyUyMHdpdGglMjAqNiUyRjUlMkY1JTJGNSUyRjUlMjBvciUyMG1vcmUlMjBzdHJlbmd0aC4qOw==',
+      author: 'OscarTodam'
+    }
+  },
+  {
+    week: 34,
+    name: 'Special Condition',
+    description:
+      'Create a card that has an ability which requires a deck to be built in a certain way to activate a powerful effect.',
     submitURL: 'https://forms.gle/EkGSFfRho4S2bH5P6'
   }
 ]
