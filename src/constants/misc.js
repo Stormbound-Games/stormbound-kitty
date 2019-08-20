@@ -51,8 +51,6 @@ export const WEEKLY_CARD_CONTEST = [
   {
     week: 20,
     name: 'Tit for Tat',
-    judgeURL: 'https://forms.gle/C1fCGXdXa9a5fdeq9',
-    submitURL: 'https://forms.gle/M4SoA1eyZUmJZVa37',
     winner: {
       author: 'JotaDiez',
       id:
@@ -64,8 +62,6 @@ export const WEEKLY_CARD_CONTEST = [
     name: 'Crossover',
     description:
       'We’re inviting everyone to the Stormbound party, so bring in your favorite characters from your favorite shows, books, movies, games, etc.',
-    judgeURL: 'https://forms.gle/C1fCGXdXa9a5fdeq9',
-    submitURL: 'https://forms.gle/M4SoA1eyZUmJZVa37',
     winner: {
       author: 'Blastoise',
       id:
@@ -76,7 +72,6 @@ export const WEEKLY_CARD_CONTEST = [
     week: 22,
     name: 'Magicality',
     description: 'No spells, but spell-related in some way.',
-    submitURL: 'https://forms.gle/s16A4LKyumnixJus9',
     winner: {
       author: 'FrozenEarth',
       id:
@@ -88,7 +83,6 @@ export const WEEKLY_CARD_CONTEST = [
     name: 'Heavy Hitters',
     description:
       'Units or structures that are 6+ mana. Bigger units are able to have more interesting effects because of their high price without necessarily needing lots of strength.',
-    submitURL: 'https://forms.gle/kjgGjVy61DoZa89x7',
     winner: {
       author: 'FrozenEarth',
       id:
@@ -100,7 +94,6 @@ export const WEEKLY_CARD_CONTEST = [
     name: 'Theme Throwback',
     description:
       'Choose your favorite past theme (any but “Heavy Hitters” and “Shadowfen”) and make a card with its rules!',
-    submitURL: 'https://forms.gle/rrtuCjpJEauW4Ugi8',
     winner: {
       author: 'Zethes',
       id:
@@ -110,7 +103,6 @@ export const WEEKLY_CARD_CONTEST = [
   {
     week: 25,
     name: 'Death and Decay',
-    submitURL: 'https://forms.gle/so7TwimEjvAdrA4T9',
     winner: {
       author: 'Zyries',
       id:
@@ -120,7 +112,6 @@ export const WEEKLY_CARD_CONTEST = [
   {
     week: 26,
     name: 'Felines',
-    submitURL: 'https://forms.gle/bnVHy9vdKTCa6iWe6',
     winner: {
       author: 'FrozenEarth',
       id:
@@ -132,7 +123,6 @@ export const WEEKLY_CARD_CONTEST = [
     name: 'Knights vs Pirates',
     description:
       'Create a card that supports Knights or Pirates. Whichever has more soldiers (the most created cards) will win the battle. No reward for the winning side, it’s just a plain popularity contest.',
-    submitURL: 'https://forms.gle/nv8UjRp36a4aJqKh9',
     winner: {
       author: 'Blastoise',
       id:
@@ -142,7 +132,6 @@ export const WEEKLY_CARD_CONTEST = [
   {
     week: 28,
     name: 'Finishing Blow',
-    submitURL: 'https://forms.gle/J84ZKx9MbZLFV8A48',
     winner: {
       author: 'StompyTom',
       id:
@@ -152,7 +141,6 @@ export const WEEKLY_CARD_CONTEST = [
   {
     week: 29,
     name: 'Speciality',
-    submitURL: 'https://forms.gle/F5sL2HrKZjU4eHfD8',
     description:
       'Each faction has their own unique gimmicks that make them tough opponents to face off agains. Use these specialties in this week’s entries!',
     winner: {
@@ -164,7 +152,6 @@ export const WEEKLY_CARD_CONTEST = [
   {
     week: 30,
     name: 'Speed',
-    submitURL: 'https://forms.gle/VizcR4em1BDfgJML6',
     winner: {
       id:
         'TjtQO1U7TDs5OzM7OC8xMS8xMi8xNC8xNjtJc29sYXRlZCUyMGNhcHRhaW47aHR0cHMlM0ElMkYlMkZpLmltZ3VyLmNvbSUyRkZWejJxU20ucG5nO09uJTIwcGxheSUyQyUyMGRpc2NhcmQlMjAxJTJGMSUyRjIlMkYyJTJGYWxsJTIwcGlyYXRlJTIwY2FyZCUyMCUyMGZyb20lMjAlMjB5b3VyJTIwaGFuZCUyMGFuZCUyMGxvc2UlMjAxJTIwc3BlZWQlMjBmb3IlMjBldmVyeSUyMG90aGVyJTIwY2FyZCUyMG9uJTIwdGhlJTIwJTIweW91ciUyMGhhbmQuOw==',
@@ -176,7 +163,6 @@ export const WEEKLY_CARD_CONTEST = [
     name: 'Love/Hate',
     description:
       'Submit 2 cards: one of them will support a certain playstyle, and the other will try to counter that style.',
-    submitURL: 'https://forms.gle/EkGSFfRho4S2bH5P6',
     winner: {
       author: 'MooreFunn',
       id:
@@ -190,7 +176,6 @@ export const WEEKLY_CARD_CONTEST = [
     name: 'A Hero’s Tool',
     description:
       'Create a card inspired and related to a Stormbound Hero (legendary card), like Hunter’s Vengeance is to Ubass the Hunter.',
-    submitURL: 'https://forms.gle/EkGSFfRho4S2bH5P6',
     winner: {
       id:
         'Vzs7QztDOzMvMy8zLzIvMjs7O3NwZWxsYmluZGVyJ3MlMjB0cmFwO2h0dHBzJTNBJTJGJTJGaS5pbWd1ci5jb20lMkZuOVc2SktOLnBuZzsqRnJlZXplKiUyMGFsbCUyMGVuZW15JTIwdW5pdHMlMjBpbiUyMHRoZSUyMHRhcmdldCUyMHVuaXQncyUyMGNvbHVtbiUyQyUyMCpkZWFsJTIwMiUyRjIlMkYzJTJGMyUyRjQqJTIwZGFtYWdlJTIwdG8lMjBhbGwlMjB1bml0cyUyMHdpdGglMjAqNiUyRjUlMkY1JTJGNSUyRjUlMjBvciUyMG1vcmUlMjBzdHJlbmd0aC4qOw==',
