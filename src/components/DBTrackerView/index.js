@@ -137,7 +137,8 @@ class DBTrackerView extends React.Component {
         }),
         () => {
           if (
-            this.state.status === STATUSES.PLAYING_ARCHDRUID_EARYN &&
+            (this.state.status === STATUSES.PLAYING_ARCHDRUID_EARYN ||
+              this.state.status === STATUSES.PLAYING_FIRST_MUTINEER) &&
             !this.state.removeAllowance
           ) {
             this.setState({ status: STATUSES.PLAYING })
@@ -427,7 +428,7 @@ class DBTrackerView extends React.Component {
       case STATUSES.PLAYING_SNAKE_EYES:
         return 'You just played Snake Eyes: select the new cards you drew.'
       case STATUSES.PLAYING_FIRST_MUTINEER:
-        return 'You just played First Mutineer: select which card got removed and which card got added.'
+        return 'You just played First Mutineer: select which card got removed.'
       case STATUSES.PLAYING_GOLDGRUBBERS_REMOVING:
         return 'You just played Goldgrubbers with more than a single non-pirate in hand: select which card got removed.'
       case STATUSES.PLAYING_GOLDGRUBBERS_DRAWING:
