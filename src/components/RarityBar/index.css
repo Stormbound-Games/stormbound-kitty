@@ -1,0 +1,42 @@
+.RarityBar {
+  height: 0.5em;
+  display: flex;
+}
+
+.RarityBar__slice {
+  width: calc(100% / 12 * var(--count));
+  background-color: var(--color);
+  height: 100%;
+  position: relative;
+}
+
+.RarityBar__slice:first-child {
+  border-radius: 0.25em 0 0 0.25em;
+}
+
+.RarityBar__slice:last-child {
+  border-radius: 0 0.25em 0.25em 0;
+}
+
+.RarityBar__count {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: 200ms ease-out;
+  background: transparent;
+  font-size: 90%;
+  opacity: 0;
+}
+
+.RarityBar__count::before {
+  content: attr(title);
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  -webkit-text-stroke: 2px var(--black);
+}
+
+.RarityBar:hover .RarityBar__count {
+  opacity: 1;
+}
