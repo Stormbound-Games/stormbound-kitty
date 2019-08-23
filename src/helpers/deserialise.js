@@ -188,7 +188,7 @@ export const deserialiseCard = hash => {
   // If the card is a unit and movement is defined, return it
   card.movement =
     card.type === 'unit' && !isNaN(parseInt(chunks[5]))
-      ? Number(chunks[5])
+      ? parseInt(chunks[5])
       : null
 
   // If the serialised image data is the ID of an existing card, set the ID in
