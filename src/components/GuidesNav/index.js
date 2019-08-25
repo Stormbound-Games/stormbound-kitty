@@ -7,12 +7,12 @@ const GuidesNav = props => (
     <ul className="Header__list Header__list--sub">
       <li className="Header__item">
         <Link getProps={getStrictActiveLink} to="/guides/complete">
-          Complete guide
+          Complete Guide
         </Link>
       </li>
       <li className="Header__item">
         <Link getProps={getStrictActiveLink} to="/guides/deck">
-          Deck building guide
+          Deck Building Guide
         </Link>
       </li>
       <li className="Header__item">
