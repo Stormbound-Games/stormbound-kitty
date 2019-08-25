@@ -102,6 +102,11 @@ const Stories = Loadable({
   loader: () => import('../Stories' /* webpackChunkName: "Stories" */),
   loading: PageLoading
 })
+const StoriesCategory = Loadable({
+  loader: () =>
+    import('../StoriesCategory' /* webpackChunkName: "StoriesCategory" */),
+  loading: PageLoading
+})
 const Story = Loadable({
   loader: () => import('../Story' /* webpackChunkName: "Story" */),
   loading: PageLoading
@@ -150,6 +155,11 @@ const AppRouter = props => (
     <QuestBuilder path="/quest/:questId" />
 
     <Stories path="/stories" />
+    <StoriesCategory path="/stories/neutral" category="neutral" />
+    <StoriesCategory path="/stories/ironclad" category="ironclad" />
+    <StoriesCategory path="/stories/winter" category="winter" />
+    <StoriesCategory path="/stories/shadowfen" category="shadowfen" />
+    <StoriesCategory path="/stories/swarm" category="swarm" />
     <Story path="/stories/:storyId" />
 
     <Guides path="/guides" />

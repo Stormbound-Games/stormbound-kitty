@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react'
 import { Link, Match } from '@reach/router'
+import { FACTIONS } from '../../constants/game'
 import BattleSimNav from '../BSNav'
 import DeckBuilderNav from '../DBNav'
 import CardBuilderNav from '../CBNav'
 import ListBuilderNav from '../TLBNav'
 import GuidesNav from '../GuidesNav'
+import StoriesNav from '../StoriesNav'
 import TogglableContent from '../TogglableContent'
 import useViewportWidth from '../../helpers/useViewportWidth'
 import {
@@ -135,6 +137,17 @@ const Header = props => {
             if (!match) return null
 
             return match && <GuidesNav />
+          }}
+        </Match>
+
+        <Match path="/stories/*">
+          {({ match }) => {
+            if (!match) return null
+
+            const [id] = match['*'].split('/')
+            const isStaticPage = Object.keys(FACTIONS).includes(id)
+
+            return match && <StoriesNav storyId={isStaticPage ? '' : id} />
           }}
         </Match>
       </TogglableContent>
