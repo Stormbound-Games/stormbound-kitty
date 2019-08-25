@@ -147,6 +147,7 @@ export default class DBSuggestions extends React.Component {
               updateAuthor={this.updateAuthor}
               updateName={this.debouncedUpdateName}
               updateIncluding={this.updateIncluding}
+              resetFilters={this.resetFilters}
               formRef={this.formRef}
             />
           </Column>

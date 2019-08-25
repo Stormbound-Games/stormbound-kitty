@@ -1,6 +1,7 @@
 import React from 'react'
 import { CATEGORIES } from '../../constants/decks'
 import CardSelect from '../CardSelect'
+import CTA from '../CTA'
 import Row from '../Row'
 import Column from '../Column'
 import FactionSelect from '../FactionSelect'
@@ -104,7 +105,9 @@ const DBSuggestionsFilters = props => {
             ))}
           </select>
         </Column>
-        <Column />
+        <Column style={{ alignSelf: 'flex-end' }}>
+          <CTA onClick={props.resetFilters}>Reset</CTA>
+        </Column>
       </Row>
     </form>
   )
