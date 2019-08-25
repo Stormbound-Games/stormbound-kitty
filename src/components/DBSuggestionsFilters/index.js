@@ -4,10 +4,28 @@ import CardSelect from '../CardSelect'
 import Row from '../Row'
 import Column from '../Column'
 import FactionSelect from '../FactionSelect'
+import decks from '../../data/decks'
 import './index.css'
+
+const getAuthors = () => {
+  const authors = []
+
+  decks.forEach(deck => {
+    if (!authors.includes(deck.author)) authors.push(deck.author)
+  })
+
+  return authors.sort((a, b) =>
+    a.toLowerCase() < b.toLowerCase()
+      ? -1
+      : a.toLowerCase() > b.toLowerCase()
+      ? +1
+      : 0
+  )
+}
 
 const DBSuggestionsFilters = props => {
   const [name, updateName] = React.useState(props.name)
+  const authors = React.useMemo(getAuthors)
 
   return (
     <form
@@ -67,6 +85,26 @@ const DBSuggestionsFilters = props => {
             withSpells={true}
           />
         </Column>
+      </Row>
+
+      <Row>
+        <Column>
+          <label htmlFor="author">Author</label>
+          <select
+            id="author"
+            name="author"
+            value={props.author}
+            onChange={event => props.updateAuthor(event.target.value)}
+          >
+            <option value="*">Any</option>
+            {authors.map(author => (
+              <option value={author} key={author}>
+                {author}
+              </option>
+            ))}
+          </select>
+        </Column>
+        <Column />
       </Row>
     </form>
   )

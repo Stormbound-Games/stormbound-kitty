@@ -33,6 +33,7 @@ export default class DBSuggestions extends React.Component {
     return {
       category: parameters.get('category') || '*',
       faction: parameters.get('faction') || '*',
+      author: parameters.get('author') || '*',
       including: parameters.get('including') || null
     }
   }
@@ -46,6 +47,9 @@ export default class DBSuggestions extends React.Component {
     if (this.state.faction === '*') parameters.delete('faction')
     else parameters.set('faction', this.state.faction)
 
+    if (this.state.author === '*') parameters.delete('author')
+    else parameters.set('author', this.state.author)
+
     if (this.state.including === null) parameters.delete('including')
     else parameters.set('including', this.state.including)
 
@@ -56,12 +60,15 @@ export default class DBSuggestions extends React.Component {
     this.setState({ category, activePage: 0 }, this.updateURLParameters)
   updateFaction = faction =>
     this.setState({ faction, activePage: 0 }, this.updateURLParameters)
+  updateAuthor = author =>
+    this.setState({ author, activePage: 0 }, this.updateURLParameters)
   updateName = name =>
     this.setState(
       {
         name,
         category: '*',
         faction: '*',
+        author: '*',
         including: null,
         activePage: 0
       },
@@ -81,6 +88,8 @@ export default class DBSuggestions extends React.Component {
     this.state.faction === '*' || deck.faction === this.state.faction
   matchesCategory = deck =>
     this.state.category === '*' || deck.category === this.state.category
+  matchesAuthor = deck =>
+    this.state.author === '*' || deck.author === this.state.author
   matchesIncluding = deck =>
     !this.state.including ||
     deserialiseDeck(deck.id)
@@ -90,6 +99,7 @@ export default class DBSuggestions extends React.Component {
     decks
       .filter(this.matchesFaction)
       .filter(this.matchesCategory)
+      .filter(this.matchesAuthor)
       .filter(this.matchesName)
       .filter(this.matchesIncluding)
       .sort((a, b) => {
@@ -104,6 +114,7 @@ export default class DBSuggestions extends React.Component {
     this.setState({
       faction: '*',
       category: '*',
+      author: '*',
       name: '',
       including: null,
       zoomed: null,
@@ -127,6 +138,7 @@ export default class DBSuggestions extends React.Component {
               {...this.state}
               updateCategory={this.updateCategory}
               updateFaction={this.updateFaction}
+              updateAuthor={this.updateAuthor}
               updateName={this.debouncedUpdateName}
               updateIncluding={this.updateIncluding}
               formRef={this.formRef}
