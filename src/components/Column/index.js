@@ -11,6 +11,7 @@ const Column = props => (
     ]
       .filter(Boolean)
       .join(' ')}
+    style={props.style}
   >
     {props.children}
   </div>
