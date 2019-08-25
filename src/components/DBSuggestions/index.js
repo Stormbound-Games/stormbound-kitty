@@ -27,6 +27,12 @@ export default class DBSuggestions extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.location.href !== this.props.location.href) {
+      this.setState(this.getURLParameters())
+    }
+  }
+
   getURLParameters = () => {
     const parameters = new URLSearchParams(window.location.search)
 

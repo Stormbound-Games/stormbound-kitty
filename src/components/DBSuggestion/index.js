@@ -25,7 +25,13 @@ const DBSuggestion = props => {
         <Link to={`/deck/${props.id}`}>{props.name}</Link>
       </span>
       <span className="DBSuggestion__author">
-        {CATEGORIES[props.category]} deck by {props.author}
+        <Link to={`/deck/suggestions?category=${props.category}`}>
+          {CATEGORIES[props.category]}
+        </Link>{' '}
+        deck by{' '}
+        <Link to={`/deck/suggestions?author=${props.author}`}>
+          {props.author}
+        </Link>
       </span>
     </div>
   )
