@@ -7,7 +7,6 @@ import useViewportWidth from '../../helpers/useViewportWidth'
 import PageMeta from '../PageMeta'
 import Title from '../Title'
 import Deck from '../Deck'
-import Tags from '../Tags'
 import Row from '../Row'
 import Column from '../Column'
 import DBFiltering from '../DBFiltering'
@@ -140,12 +139,7 @@ class DBEditorView extends React.Component {
             {matchedDeck ? (
               <p>
                 This deck is named “{matchedDeck.name}” and has been made by{' '}
-                {matchedDeck.author}.{' '}
-                {matchedDeck.tags.length > 0 && (
-                  <Fragment>
-                    It is tagged as <Tags tags={matchedDeck.tags} />.
-                  </Fragment>
-                )}
+                {matchedDeck.author}.
               </p>
             ) : (
               <Fragment>

@@ -22,7 +22,6 @@ export default class DBSuggestions extends React.Component {
     this.state = {
       ...this.getURLParameters(),
       name: '',
-      tags: [],
       zoomed: null,
       activePage: 0
     }
@@ -63,13 +62,11 @@ export default class DBSuggestions extends React.Component {
         name,
         category: '*',
         faction: '*',
-        tags: [],
         including: null,
         activePage: 0
       },
       this.updateURLParameters
     )
-  updateTags = tags => this.setState({ tags, activePage: 0 })
   updateIncluding = including =>
     this.setState({ including, activePage: 0 }, this.updateURLParameters)
   debouncedUpdateName = debounce(this.updateName, 500)
@@ -84,9 +81,6 @@ export default class DBSuggestions extends React.Component {
     this.state.faction === '*' || deck.faction === this.state.faction
   matchesCategory = deck =>
     this.state.category === '*' || deck.category === this.state.category
-  matchesTags = deck =>
-    this.state.tags.length === 0 ||
-    this.state.tags.every(tag => deck.tags.includes(tag))
   matchesIncluding = deck =>
     !this.state.including ||
     deserialiseDeck(deck.id)
@@ -97,7 +91,6 @@ export default class DBSuggestions extends React.Component {
       .filter(this.matchesFaction)
       .filter(this.matchesCategory)
       .filter(this.matchesName)
-      .filter(this.matchesTags)
       .filter(this.matchesIncluding)
       .sort((a, b) => {
         if (a.faction > b.faction) return +1
@@ -112,7 +105,6 @@ export default class DBSuggestions extends React.Component {
       faction: '*',
       category: '*',
       name: '',
-      tags: [],
       including: null,
       zoomed: null,
       activePage: 0
@@ -136,7 +128,6 @@ export default class DBSuggestions extends React.Component {
               updateCategory={this.updateCategory}
               updateFaction={this.updateFaction}
               updateName={this.debouncedUpdateName}
-              updateTags={this.updateTags}
               updateIncluding={this.updateIncluding}
               formRef={this.formRef}
             />

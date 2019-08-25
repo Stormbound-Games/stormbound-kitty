@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from '@reach/router'
 import Deck from '../Deck'
-import Tags from '../Tags'
 import RarityBar from '../RarityBar'
 import { CATEGORIES } from '../../constants/decks'
 import { deserialiseDeck } from '../../helpers/deserialise'
@@ -27,10 +26,6 @@ const DBSuggestion = props => {
       </span>
       <span className="DBSuggestion__author">
         {CATEGORIES[props.category]} deck by {props.author}
-      </span>
-      <span className="DBSuggestion__tags">
-        {props.tags.length > 0 && ' · '}
-        <Tags tags={props.tags} />
       </span>
     </div>
   )

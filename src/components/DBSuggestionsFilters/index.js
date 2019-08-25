@@ -1,7 +1,5 @@
 import React from 'react'
-import { TAGS, CATEGORIES } from '../../constants/decks'
-import Checkbox from '../Checkbox'
-import TogglableContent from '../TogglableContent'
+import { CATEGORIES } from '../../constants/decks'
 import CardSelect from '../CardSelect'
 import Row from '../Row'
 import Column from '../Column'
@@ -9,7 +7,6 @@ import FactionSelect from '../FactionSelect'
 import './index.css'
 
 const DBSuggestionsFilters = props => {
-  const [areFiltersExpanded, expandFilters] = React.useState(false)
   const [name, updateName] = React.useState(props.name)
 
   return (
@@ -69,51 +66,6 @@ const DBSuggestionsFilters = props => {
             }}
             withSpells={true}
           />
-        </Column>
-      </Row>
-
-      <Row>
-        <Column>
-          <fieldset>
-            <TogglableContent
-              isExpanded={areFiltersExpanded}
-              id="suggestions-filters"
-              renderToggle={toggleProps => (
-                <legend>
-                  <button
-                    {...toggleProps}
-                    type="button"
-                    className="DBSuggestionsFilters__toggle"
-                    onClick={() => expandFilters(s => !s)}
-                  >
-                    {areFiltersExpanded ? '- Hide tags' : '+ Show tags'}
-                  </button>
-                </legend>
-              )}
-            >
-              {Object.keys(TAGS).map(tag => (
-                <Checkbox
-                  key={tag}
-                  id={tag}
-                  value={tag}
-                  name="tags"
-                  checked={props.tags.includes(tag)}
-                  onChange={event => {
-                    if (props.tags.includes(event.target.value)) {
-                      props.updateTags(props.tags.filter(r => r !== tag))
-                    } else {
-                      props.updateTags([...props.tags, tag])
-                    }
-                  }}
-                >
-                  {TAGS[tag].name}
-                  <span className="DBSuggestionsFilters__info">
-                    {TAGS[tag].description}
-                  </span>
-                </Checkbox>
-              ))}
-            </TogglableContent>
-          </fieldset>
         </Column>
       </Row>
     </form>
