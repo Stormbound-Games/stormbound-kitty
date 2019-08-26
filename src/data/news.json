@@ -1,5 +1,13 @@
 [
   {
+    "intro": "Deck Suggestions",
+    "description": "The deck suggestions no longer have tags, but a new filter by author feature is available."
+  },
+  {
+    "intro": "Stories",
+    "description": "The Stories section has been divided in sub-sections per categories."
+  },
+  {
     "intro": "Stormbound Kitty",
     "description": "The site’s code is now available on GitHub (under GPL-3.0)."
   },
@@ -104,7 +112,7 @@
     "description": "Collector Mirz now spawns tokens of all races, and their chances of draw work as intended."
   },
   {
-    "intro": "Deck suggestions",
+    "intro": "Deck Suggestions",
     "description": "It is now possible to filter decks based on whether they include a certain card."
   },
   {
@@ -128,7 +136,7 @@
     "description": "Beasts of Terror is now considered to be an AoE (Area Of Effect) card."
   },
   {
-    "intro": "Deck suggestions",
+    "intro": "Deck Suggestions",
     "description": "The deck suggestions are now paginated to avoid a costly initial paint of the entire list."
   },
   {
@@ -136,7 +144,7 @@
     "description": "The cards’ level can be quickly switched with keyboard keys 1 to 5."
   },
   {
-    "intro": "Deck suggestions",
+    "intro": "Deck Suggestions",
     "description": "The suggested decks are now divided in 3 different categories: regular, Diamond 1 and tournament."
   },
   {
@@ -176,11 +184,11 @@
     "description": "The card ability now supports bold text with Markdown-style syntax (*bold*)."
   },
   {
-    "intro": "Deck suggestions",
+    "intro": "Deck Suggestions",
     "description": "There is now a lot of Diamond 1 decks to choose from."
   },
   {
-    "intro": "Deck suggestions",
+    "intro": "Deck Suggestions",
     "description": "Clicking/tapping a card from a deck suggestion will enlarge that card like in the game."
   },
   {
@@ -200,7 +208,7 @@
     "description": "The header and navigation on mobile should be a bit more convenient now and will no longer take half the screen on all pages."
   },
   {
-    "intro": "Deck suggestions",
+    "intro": "Deck Suggestions",
     "description": "There is now an entire section dedicated to ready-to-use decks, with filtering for specific criteria (diamond 1, beginner-friendly, etc.)."
   },
   {
