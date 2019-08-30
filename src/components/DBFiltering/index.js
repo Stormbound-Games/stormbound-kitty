@@ -24,18 +24,20 @@ class DBFiltering extends React.Component {
 
   setFaction = faction => this.setState({ faction })
   setText = text =>
-    text === '' ? this.setState({ text }) : this.setState({
-      text,
-      faction: '*',
-      type: '*',
-      race: '*',
-      mana: '*',
-      movement: '*',
-      rarity: '*',
-      level: '*',
-      status: '*',
-      ability: '*'
-    })
+    text === ''
+      ? this.setState({ text })
+      : this.setState({
+          text,
+          faction: '*',
+          type: '*',
+          race: '*',
+          mana: '*',
+          movement: '*',
+          rarity: '*',
+          level: '*',
+          status: '*',
+          ability: '*'
+        })
   setType = type =>
     this.setState({
       type,
@@ -109,6 +111,8 @@ class DBFiltering extends React.Component {
       (this.state.ability === 'POISON' && /poison/i.test(card.ability || '')) ||
       (this.state.ability === 'CONFUSION' &&
         /confus/i.test(card.ability || '')) ||
+      (this.state.ability === 'SURVIVING' &&
+        /surviv/i.test(card.ability || '')) ||
       (this.state.ability === 'PUSH_PULL' &&
         /push|pull/i.test(card.ability || '')) ||
       (this.state.ability === 'FREEZE' && /freeze/i.test(card.ability || '')) ||

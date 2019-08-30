@@ -130,6 +130,7 @@ const DBEditorFilters = props => (
               <option value="PUSH_PULL">Push/Pull</option>
               <option value="COMMAND">Command</option>
               <option value="CONFUSION">Confusion</option>
+              <option value="SURVIVING">Surviving</option>
             </select>
           </Column>
 
