@@ -259,7 +259,10 @@ class DBCollection extends React.Component {
                       onPageChange={() => this.setState({ activeCard: null })}
                     />
                   ) : (
-                    <EmptySearch title="No cards found" reset={resetFilters} />
+                    <EmptySearch
+                      title="No cards found"
+                      resetFilters={resetFilters}
+                    />
                   )}
                 </Fragment>
               )}
