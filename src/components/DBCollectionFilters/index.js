@@ -33,6 +33,7 @@ const DBCollectionFilters = props => (
           <option value="*">Any</option>
           <option value="MISSING">Missing</option>
           <option value="UPGRADABLE">Upgradable</option>
+          <option value="EXCESS">Excess</option>
         </select>
       </Column>
 

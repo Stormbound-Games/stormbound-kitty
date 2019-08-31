@@ -3,6 +3,7 @@ import sortCards from '../../helpers/sortCards'
 import hookIntoProps from '../../helpers/hookIntoProps'
 import useViewportWidth from '../../helpers/useViewportWidth'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
+import getExtraAfterMax from '../../helpers/getExtraAfterMax'
 
 class DBFiltering extends React.Component {
   constructor(props) {
@@ -100,7 +101,8 @@ class DBFiltering extends React.Component {
     return (
       this.state.status === '*' ||
       (this.state.status === 'MISSING' && card.missing) ||
-      (this.state.status === 'UPGRADABLE' && isCardUpgradable(card))
+      (this.state.status === 'UPGRADABLE' && isCardUpgradable(card)) ||
+      (this.state.status === 'EXCESS' && getExtraAfterMax(card).stones > 0)
     )
   }
   matchesLevel = card =>
