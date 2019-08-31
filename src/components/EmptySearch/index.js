@@ -4,11 +4,15 @@ import './index.css'
 
 const EmptySearch = props => (
   <div className="EmptySearch">
-    <img src="/assets/images/cards/faun_companions.png" alt="Faun Companions" />
+    <img
+      className="EmptySearch__image"
+      src="/assets/images/cards/faun_companions.png"
+      alt="Faun Companions"
+    />
     <span className="EmptySearch__title">
       {props.title || 'No results found'}
     </span>
-    <p>
+    <p className="EmptySearch__copy">
       It looks like there are no results for your search… Try adjusting your
       search parameters, or reset all filters and try again.
     </p>

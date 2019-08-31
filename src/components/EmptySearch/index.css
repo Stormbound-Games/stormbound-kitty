@@ -1,6 +1,5 @@
 .EmptySearch {
   margin: 3em auto;
-  max-width: min-content;
   text-align: center;
 }
 
@@ -11,4 +10,13 @@
 
 .EmptySearch__title {
   font-size: 200%;
+}
+
+.EmptySearch__image {
+  display: block;
+  margin: 0 auto;
+}
+
+.EmptySearch__copy {
+  max-width: 50ch;
 }
