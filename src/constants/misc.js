@@ -199,6 +199,17 @@ export const WEEKLY_CARD_CONTEST = [
     name: 'Structure Focus',
     description:
       'Create a card that interacts with structures, but is not be a structure itself.',
+    winner: {
+      id:
+        'Tjs7QztFOzcvNy83LzYvNjs7O0FsbCUyMEhhbmRzJTIwb24lMjBEZWNrO041MDtTcGF3biUyMGElMjAxJTJGMiUyRjMlMkYzJTJGNCUyMHN0cmVuZ3RoJTIwUGlyYXRlJTIwdG9rZW4lMjBib3JkZXJpbmclMjBlYWNoJTIwZnJpZW5kbHklMjBQaXJhdGUuJTIwRm9yJTIwZWFjaCUyMFBpcmF0ZSUyMGluJTIweW91ciUyMGhhbmQlMkMlMjB0aG9zZSUyMHRva2VucyUyMGdldCUyMCUyQjElMkYlMkIxJTJGJTJCMSUyRiUyQjElMkYlMkIyJTIwc3RyZW5ndGglMjA7',
+      author: 'Zemeu'
+    }
+  },
+  {
+    week: 36,
+    name: 'Ambassador',
+    description:
+      'Create a card (no neutral, no dragon) that combines the effects from two kingdoms into one (e.g. a Satyr ambassador that’s working alongside the rodents).',
     submitURL: 'https://forms.gle/EkGSFfRho4S2bH5P6'
   }
 ]
