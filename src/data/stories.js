@@ -594,11 +594,53 @@ export default [
   },
   {
     title: 'Bladestorm',
-    content: `"In records of old, tales tell of a weapon not seen since the days of the Gray Legion's dominion. Hidden within one of their ancient citadels, a trove of finely crafted daggers hibernates beneath the rubble, humming with an energy untouched for millennia. They called it, The Arsenal, and it is was this arsenal that gave the Gray Legion the power to assume control over the Central Archipelago. 
+    content: `“In records of old, tales tell of a weapon not seen since the days of the Gray Legion's dominion. Hidden within one of their ancient citadels, a trove of finely crafted daggers hibernates beneath the rubble, humming with an energy untouched for millennia. They called it, The Arsenal, and it is was this arsenal that gave the Gray Legion the power to assume control over the Central Archipelago.
     A few accounts detail the usage of this weapon. Through sheer force of will, one can cast the blades into a mighty storm that rains down upon your foes in a violent downpour of steel. With a little finesse, the blades become an assassin's best friend, flying through the air with deadly grace to deliver a swift and precise execution.
-    I have sold few relics in my time, but those were mere pebbles at the shallow end of the pond. What secrets lie below those forgotten fortresses dates back to an era shrouded in mystery, untouched by the Storm's ruin and free from the strife of the factions. It is my duty to discover those secrets before the world does, for who knows what cataclysm they will bring about with such cursed knowledge."
+    I have sold few relics in my time, but those were mere pebbles at the shallow end of the pond. What secrets lie below those forgotten fortresses dates back to an era shrouded in mystery, untouched by the Storm's ruin and free from the strife of the factions. It is my duty to discover those secrets before the world does, for who knows what cataclysm they will bring about with such cursed knowledge.”
     -Final journal entry of Palin Smauw, Relic Hunter`,
     author: 'DoppleFock',
     cardId: 'N29'
+  },
+  {
+    title: 'Icicle Burst',
+    content: `Do you understand? Yes, I understand.
+    26 days. 26 days until the attack. I knew I could trust her as much as the others. That Ironclad skirmish a week ago was pitiful. Only a fool would go after such a Lady. There’s only one other way to be a more incompetent imbecile, and that’s attempting to rise an army, a revolution, a likemind against her likeness. Lucky for me, I’ll never stray from her path. I’ll always know who is correct and who is incorrect, crystal clear.
+    The plan is simple: a blitzkrieg on a Tribe. Their poison wouldn’t be enough to defeat us when we move quicker than it to our cores. It’s quite humorous, really, how they call themselves “Tribes”, while they very well know how much power they truly hold. That amount of concentrated mana in those many toads… mmm, cannon fodder is one of my favorite meals.
+    18 more days. We line the streets, each unknowing of what will come of us in the end of this war. We watch the proper Frosthexers float down the Commons, hear the clean-shaven Rockworkers cheer with each other in near pubs.
+    I wonder how freedom feels…
+    “Hm?” Looking to the left and right quickly, confused to where the voice came from. I shake my head. Probably the cold getting to my core again.
+    11 more days. Our preparations are ready. We train with our sparkrods. We do not hold back because we know how easily we can refund each other’s mana. We laugh in the face of the beaked training dummies, snapping off their tarred feathers. “Avimposters”, we call them.
+    Do we have a say against it?
+    I whip around, only to find my next opponent flinging a cheap shot at my face.
+    3 more days. We are a nomadic army. We float over the islands, traveling to our goal. The spires luminesce in the distance.
+    We are here.
+    We round the back. Our sparkrods at our sides.
+    “READY.”
+    We breathe deep.
+    “VORWÄRTS!”
+    Her cry forces us all forwards. Speeding across the battlefield as a unified mind, small toads line up for us. We mow them down like small pebbles. They fear us, running from us-
+    wait
+    this
+    is
+    too
+    easy
+    The strings invade me instantly.
+    I must protect the La- Defeat the Lady, she is- dy I have to help- the biggest threat destroy her completely- Her do not attack her no she is-
+    The poison is in.
+    Destroy Rime.
+    I must destroy Rime.
+    My limbs jerking like a puppet, lurching forwards like a zombie
+    I must destroy Rime.
+    She stands there, witnessing the chaos, my utter strength
+    I must destroy Rime.
+    She draws a crystal, it shatters, chilling winds slowing me
+    I must destroy Rime.
+    She throws a shard into the air, the ice forms a prison around me
+    I must destroy Rime.
+    I wonder how freedom feels…
+    I see the ice around me, the dagger hurtling towards the ice, about to shatter
+    I must destroy Ri`,
+    author: 'Zyries',
+    cardId: 'W1'
   }
 ]
