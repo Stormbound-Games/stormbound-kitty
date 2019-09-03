@@ -509,5 +509,19 @@
     "faction": "winter",
     "author": "Whipstache",
     "category": "DIAMOND_1"
+  },
+  {
+    "name": "Cheap and Dirty",
+    "id": "NU4xLDVOMiw1UzEsNU4zLDVONCw1TjUsNVMyLDVTMTAsNU4xMiw1UzgsNU4yOCw1UzE1",
+    "faction": "swarm",
+    "author": "BluePhoenix",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "All Your Base Are Belong To Us",
+    "id": "NU4xLDVOMiw1STEsNU4zLDVONCw1TjUsNUk1LDVOMTIsNUk3LDVOMTgsNU4yOCw1STIw",
+    "faction": "ironclad",
+    "author": "BluePhoenix",
+    "category": "DIAMOND_1"
   }
 ]
