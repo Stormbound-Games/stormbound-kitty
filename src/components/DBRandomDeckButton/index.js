@@ -5,6 +5,7 @@ import Row from '../Row'
 import Column from '../Column'
 import FactionSelect from '../FactionSelect'
 import getRandomDeck from '../../helpers/getRandomDeck'
+import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import { FACTIONS } from '../../constants/game'
 import './index.css'
 import arrayRandom from '../../helpers/arrayRandom'
@@ -37,7 +38,7 @@ export default class DBRandomDeckButton extends React.Component {
       typeof this.state.maxEpicCards === 'number'
         ? this.state.maxEpicCards
         : Infinity
-    const availableCards = this.props.collection
+    const availableCards = this.props.collection.map(resolveCardForLevel)
     const minFactionCards = this.state.minFactionCards
     const deck = getRandomDeck({
       faction,
