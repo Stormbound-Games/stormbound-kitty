@@ -187,6 +187,18 @@ export const WEEKLY_CARD_CONTEST = [
     name: 'Special Condition',
     description:
       'Create a card that has an ability which requires a deck to be built in a certain way to activate a powerful effect.',
+    submitURL: 'https://forms.gle/EkGSFfRho4S2bH5P6',
+    winner: {
+      id:
+        'STtQO1U7Ujs0OzE7My80LzUvNi83O0ZsZWV0Q2FsbGVycztOMjI7T24lMjBhdHRhY2slMkMlMjBwdWxsJTIwdW5pdHMlMjB0byUyMHRoaXMlMkMlMjBmb3IlMjBldmVyeSUyMGJvcmRlcmluZyUyMHVuaXQlMkMlMjAqZHJhdyolMjAxJTIwcGlyYXRlLjs=',
+      author: 'Lord Dracqi'
+    }
+  },
+  {
+    week: 35,
+    name: 'Structure Focus',
+    description:
+      'Create a card that interacts with structures, but is not be a structure itself.',
     submitURL: 'https://forms.gle/EkGSFfRho4S2bH5P6'
   }
 ]
