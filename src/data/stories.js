@@ -642,5 +642,60 @@ export default [
     I must destroy Ri`,
     author: 'Zyries',
     cardId: 'W1'
+  },
+  {
+    title: 'Gifted Recruits',
+    content: `I remember it as clear as yesterday. The smell, the taste, the sound, the blood. I stand alone. Face smeared with ash. I smell smoke. I taste the coppery flavor of the blood. Explosions and screaming deafen me. That was long ago. The iron legion keeps trying to take the fort. They fail every time. But with every attack, we lose more good men and women. The general said we would get reinforcements. We did. Just not the ones we had hoped for. They were like me those many years ago. Excited, brave, bold and stupid. They came in the giant doors of the keep, smiles on their faces. They thought that they were ready. Fresh suits of steel. Polished lances. They wanted to hunt an awful enemy. They didn’t know how brutal the enemy truly was. A small group was given to me. Just 12 soldiers, ready for combat. I sent 7 on a patrol. Just a simple patrol. How hard could that be? You just walk around looking out for shady business. Only two came back. It was 3 days before they spoke a word. 5 to say anything coherent. I asked about the rest. Storn? “Decapitated” Oldren? “Left behind after a construct took out his leg.” Zythol? “Shrapnel.” Ernst? They stopped speaking. They looked at the floor. They didn’t stop. The bodies were as bad as they described. But the blood, death and  decay wasn’t the worst part. It was the notes. Addressed to loved ones. Detailing their adventure. You can’t even look at their desecrated corpses after reading those. The next time they passed through the doors, they did not wear smiles, they wore nothing. It was a miracle that the two survived. It was an ambush. The rats laid dynamite on the road, and set it off when they passed. The constructs made quick work of the ones still standing. A week later more reinforcements arrived. They wore the same happy smiles as the ones before. And just like before, they’d fall.`,
+    author: 'Xcircle',
+    cardId: 'N3'
+  },
+  {
+    title: 'Delegators',
+    content: `PROCESSING…
+
+    [DATA LOGS FOUND]
+
+    [INCIDENT REPORT #8256 HAS BEEN SELECTED]
+
+    4-6-••••
+    *OFFENSES:* Resisting detainment, Failure to show ID, Assault of a USC, possessing illegal weapons.
+
+    *7:23 A.M* USC-32 and USC-25 were dispatched to the meeting of 12th Street and 13th Street after reports of a suspicious-looking rodent.
+    *7:28 A.M* USC-32 and USC-25 arrive on scene and make contact with the rodent.
+    *7:29 A.M* The rodent fails to present ID (see offenses)
+    *7:30 A.M* The rodent has been identified as Subject #4561. -This guy? Again? Seriously?-
+    Subject #4561 then revealed sticks of dynamite (see offenses) and USC-32 and USC-25 activate termination protocol Sigma-A and begin pursuing Subject #4561 (see offenses)
+    *7:35 A.M* Subject #4561 throws a stick of dynamite at USC-25 resulting in damage to the legs and several motors (see offenses)
+    *7:36 A.M* USC-32 activates offense protocol Alpha-J and attacks Subject #4561 in an attempt to subdue him
+    *7:37 A.M* Subject #4561 throws another stick of dynamite at USC-32 and subsequently damages the navigational processor of USC-32, rendering it immobile (see offenses)
+    *7:39 A.M* USC-32 and USC-25 lose line of sight with subject #4561 and USC-14 is dispatched to the scene
+    *7:46 A.M* USC-14 arrives on scene. Subject #4561 cannot be located. USC-14 begins search protocol
+    *8:25 A.M* Search protocol has ended. Incident concluded
+
+    Termination of subject y/*[n]*
+    Injury of subject *[y]*/n
+    Termination of civilian y/*[n]*
+    Injury of civilian y/*[n]*
+    Termination of USC y/*[n]*
+    Damage to USC *[y]*/n
+    Capture of subject y/*[n]*`,
+    author: 'Xcircle',
+    cardId: 'I21'
+  },
+  {
+    title: 'Greengale Serpents',
+    content: `PROCESSING…
+
+    [DATA LOGS FOUND]
+
+    [FILE 3103 HAS BEEN SELECTED]
+
+    2-23-••••
+    It was long ago when the dragons arrived. They were awoken from their slumber deep beneath the world. First it was terror. Horrid scenes of destroyed outposts, towns, caravans and most of all, people. But then… it was something else that the leaders saw in the dragons. Ferocious, cunning, bold and deadly. It seemed like a sound solution. The first few were horrible failures. Some might call them abominations. A few exploded under the intense power of construct conduits. The project was to create a specimen that perfectly represented the rodents. Intelligence was a big factor in the manipulation of their genome. When Specimen A-1 was created, the board was ecstatic. All it took was a couple months of experimenting and they were “field ready” as Doctor Mia put it. The first few combat dragons were brutal. Upon observation, it was discovered that they grow increasingly stronger when attacking. The green fire bellowed out of the hungry mouths with such intensity that it melted solid steel. Their angered yelps caused nearby dragons to attack with ferocity previously unheard. Some of which rivaled the toads. But the creatures are only a stepping stone in biological manipulation.
+
+    4-5-••••
+    Apparently there’s been a “big project” that just came into light. One to make dragons even more powerful. I remain doubtful. Only incredibly powerful dragons can even attempt to be merged with Union technology. Look at incident report 56-2. That was a messy day.`,
+    author: 'Xcircle',
+    cardId: 'I7'
   }
 ]
