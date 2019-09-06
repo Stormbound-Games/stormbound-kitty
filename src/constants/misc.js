@@ -190,26 +190,26 @@ export const WEEKLY_CARD_CONTEST = [
     submitURL: 'https://forms.gle/EkGSFfRho4S2bH5P6',
     winner: {
       id:
-        'STtQO1U7Ujs0OzE7My80LzUvNi83O0ZsZWV0Q2FsbGVycztOMjI7T24lMjBhdHRhY2slMkMlMjBwdWxsJTIwdW5pdHMlMjB0byUyMHRoaXMlMkMlMjBmb3IlMjBldmVyeSUyMGJvcmRlcmluZyUyMHVuaXQlMkMlMjAqZHJhdyolMjAxJTIwcGlyYXRlLjs=',
-      author: 'Lord Dracqi'
-    }
-  },
-  {
-    week: 35,
-    name: 'Structure Focus',
-    description:
-      'Create a card that interacts with structures, but is not be a structure itself.',
-    winner: {
-      id:
         'Tjs7QztFOzcvNy83LzYvNjs7O0FsbCUyMEhhbmRzJTIwb24lMjBEZWNrO041MDtTcGF3biUyMGElMjAxJTJGMiUyRjMlMkYzJTJGNCUyMHN0cmVuZ3RoJTIwUGlyYXRlJTIwdG9rZW4lMjBib3JkZXJpbmclMjBlYWNoJTIwZnJpZW5kbHklMjBQaXJhdGUuJTIwRm9yJTIwZWFjaCUyMFBpcmF0ZSUyMGluJTIweW91ciUyMGhhbmQlMkMlMjB0aG9zZSUyMHRva2VucyUyMGdldCUyMCUyQjElMkYlMkIxJTJGJTJCMSUyRiUyQjElMkYlMkIyJTIwc3RyZW5ndGglMjA7',
       author: 'Zemeu'
     }
   },
   {
-    week: 36,
+    week: 35,
     name: 'Ambassador',
     description:
       'Create a card (no neutral, no dragon) that combines the effects from two kingdoms into one (e.g. a Satyr ambassador that’s working alongside the rodents).',
+    winner: {
+      id:
+        'STtQO1U7Ujs0OzE7My80LzUvNi83O0ZsZWV0Q2FsbGVycztOMjI7T24lMjBhdHRhY2slMkMlMjBwdWxsJTIwdW5pdHMlMjB0byUyMHRoaXMlMkMlMjBmb3IlMjBldmVyeSUyMGJvcmRlcmluZyUyMHVuaXQlMkMlMjAqZHJhdyolMjAxJTIwcGlyYXRlLjs=',
+      author: 'Lord Dracqi'
+    }
+  },
+  {
+    week: 36,
+    name: 'Structure Focus',
+    description:
+      'Create a card that interacts with structures, but is not a structure itself.',
     submitURL: 'https://forms.gle/EkGSFfRho4S2bH5P6'
   }
 ]
