@@ -437,7 +437,7 @@
     "rarity": "rare",
     "image": "/assets/images/cards/conflicted_drakes.png",
     "mana": 3,
-    "strength": "2/3/3/4/5",
+    "strength": "2/3/3/4/4",
     "movement": 0,
     "ability": "On play, deal *1/1/2/2/3 damage* to all non-Dragon units in front"
   },
