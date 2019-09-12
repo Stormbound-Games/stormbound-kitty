@@ -183,7 +183,7 @@ export const WEEKLY_CARD_CONTEST = [
     }
   },
   {
-    week: 34,
+    week: 35,
     name: 'Special Condition',
     description:
       'Create a card that has an ability which requires a deck to be built in a certain way to activate a powerful effect.',
@@ -195,7 +195,7 @@ export const WEEKLY_CARD_CONTEST = [
     }
   },
   {
-    week: 35,
+    week: 36,
     name: 'Ambassador',
     description:
       'Create a card (no neutral, no dragon) that combines the effects from two kingdoms into one (e.g. a Satyr ambassador that’s working alongside the rodents).',
@@ -206,7 +206,7 @@ export const WEEKLY_CARD_CONTEST = [
     }
   },
   {
-    week: 36,
+    week: 37,
     name: 'Structure Focus',
     description:
       'Create a card that interacts with structures, but is not a structure itself.',
