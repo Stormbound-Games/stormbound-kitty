@@ -94,9 +94,7 @@ const CBCardForm = props => {
               disabled={props.type !== 'unit'}
               onChange={event => props.setRace(event.target.value)}
             >
-              <option value="" disabled>
-                Race
-              </option>
+              <option value="">Race</option>
               {Object.keys(RACES).map(race => (
                 <option value={race} key={race}>
                   {capitalise(race)}
