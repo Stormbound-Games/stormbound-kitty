@@ -403,8 +403,7 @@ export default [
 
   {
     title: 'Edrik the Fierce',
-    content: `(chanted by a dwarven bard at the celebration of Edric’s appointment to commander of the knights radiant)
-    He was born amid chaos and destruction sown by the Everstorm, the terrible tempest that shattered our world into the isles and to this day rages with unbridled fury on the edges of our kingdoms.
+    content: `He was born amid chaos and destruction sown by the Everstorm, the terrible tempest that shattered our world into the isles and to this day rages with unbridled fury on the edges of our kingdoms.
     Edric knew not the touch of a loving mother, or the warmth of a blazing family hearth.
     He was suckeled by a dragon, a great monstrous beast. Pale as the moon, the fell brute glittered with amethyst gemstones.
     He learned of heat when he was blasted by a torrent of fire from the maw of a savage serpent.
@@ -413,7 +412,8 @@ export default [
     And finally, he learned of the light. The force that combats destruction and misery, and bathes the truthful in its radiant glow.
     Eric joined a wandering order of knights, who were displaced from their homeland by the everstorm. They searched for their families and farmsteads, longing to return to what they once called home, only to find a shattered, barren, wasteland.
     With heavy hearts, they immersed themselves in the rebuilding of their once mighty order, the knights radiant.
-    Here, our hero learned the vows of the knights, and took it upon himself to live his life fulfilling them.`,
+    Here, our hero learned the vows of the knights, and took it upon himself to live his life fulfilling them.
+    —Chanted by a dwarven bard at the celebration of Edric’s appointment to commander of the knights radiant`,
     author: 'HobbitBoi',
     cardId: 'N59'
   },
@@ -697,5 +697,270 @@ export default [
     Apparently there’s been a “big project” that just came into light. One to make dragons even more powerful. I remain doubtful. Only incredibly powerful dragons can even attempt to be merged with Union technology. Look at incident report 56-2. That was a messy day.`,
     author: 'Xcircle',
     cardId: 'I7'
+  },
+  {
+    title: 'Obsidian Butchers',
+    content: `
+    Four.
+    Four strength in me.
+    Five.
+    That’s how many days until that quadrupedal life force decays completely.
+    The Wilds are a brutal troop. You have to sap off each other to survive, which the ravens are quite fond of doing to the toads.
+    Which is why I’ve learned their tricks.
+    When you want to steal a weakling’s energy, mana, body, you have to show yourself and it that you’re claiming it.
+    Draining its power and using it as steroids.
+    I learned that I had to be strong to survive when I was nearly blinded by my raven captor. I was used as a lumberjack, chopping at small, brittle trees. Day in, day out, all I had to eat was bark and bugs.
+    One day I realized some information: whenever the raven drained toadlings to keep its aging body going, it reverted back in just a few days. It might have something to keep itself alive, but what if I were to take it from them?
+    And so I did. I hid the toadlings away, out of reach and scent of the raven. An old log rotting away, one that I attempted hiding in to escape. The raven scrambled around the next few days. Almost heart wrenching to see its muscles wither away.
+    And on the last day, I wanted the last words it heard would be mine.
+    “The weak become weaker.”
+    Its vocal cords were too weak to vibrate as I turned its bones into meal.
+    It felt so damn good to observe
+    Taste
+    Become
+    Its carrion.
+    The absent, hallow, shriveled powerless husk simply turned gaseous as it rose to the ceiling.
+    … sniff, sniff…
+    Hey, excuse me, warden.
+    Remember that phrase I said?
+    Seems like you’re becoming weak.
+    And the weak become we—
+    Ah, that was quick.
+    These bars’ll bend easy to me now.`,
+    author: 'Zyries',
+    cardId: 'F17'
+  },
+  {
+    title: 'Broodmother Qordia',
+    content: `Long ago, in our misty green swamps, the earth split open and released beasts of unknown power. Some of which, being us. Well, that story has been told plenty of times. But here’s one of our great green goddess. On one harsh summer day, a small outposts of toads was savagely attacked by mysterious creatures. One of the toads described them as vicious and green as the swamps. We ravens thought that it was just a tribe of feral toads that needed to be converted into our great clan, but they were not. You see, they were actually ancient beasts who lay dormant beneath the world. We gathered the rest of the toads and marched into the swamp with our soultrap puppets in hand. In the summer, the stagnant water would heat and evaporate into stinking vapor that choked the lungs of outsiders. It was why we thought they were toads in the first place. After about 6 hours we found it. A great sanctuary filled to the brim with rubble, trees and pulsating blue eggs, the likes of which didn’t resemble any toad or raven eggs. They were at least 4 toads tall. Just as we approached, a thunderous crack interrupted our search for the culprits. It was the breaking of trees. As we looked up we saw a great serpent rise from the brush. With a screech the eggs broke and revealed more green serpents. The poor toads fought valiantly, even if it was fruitless. We tried our puppets to no avail. We were surrounded. We were at the mercy of the dragons. And with a sharp, raspy voice, the great dragon boomed;
+    “WHO DARES TO DISTURB MY NESTS”.
+    “It was I. Your dragons have attacked one of our outposts.”
+    “MY YOUNGLINGS SHALL GO WHERE THEY PLEASE. YOU WASTE YOUR TIME AND YOUR LIVES BY COMING HERE”
+    “Wait! Please! Spare us!”
+    “FOR WHAT REASON SHALL I ALLOW YOU TO CONTINUE YOUR PATHETIC LIVES?”
+    “If you kill us now, our leaders will wonder what has happened. They will send more and more scouts until they find the truth. Then, when they do, your nests will be destroyed. You will have nowhere to raise your young.”
+    “hmm. You pose a fair point. But I cannot let you live without some sort of repayment for destroying some of the eggs and disturbing my slumber.”
+    “I shall spare you if, you are willing to talk to your leaders about my presence. Oh and one thing. You have seen what has happened to your pathetic “outpost”. If you fail. I will let my legions of dragons hunt you down.”
+    At that moment, hundreds of green serpents surround us. Their hungry eyes show no remorse.
+    So we talked to our great priestess Klaxi for some payment to the new dragon. Whilst the priestess loathes to show weakness, she could not afford another costly war. We devised a new solution. We would construct a new sacrificial totem near the nest. During the sacrifice, we would make sure that some toads got lost in the swamps. The dragons would eat the stray toads. After the sacrifices we told the toads that the bodies would be taken to a great tomb built in the heart of the swamp. But it was not a tomb. It was the nest. And sometimes when the blood price was paid, she would appear on the battlefield and lay waste to all of our enemies, for if they were to defeat us, there would be less toads to be used as nourishment. We made a great alliance. And, we had plenty of toads to spare.`,
+    author: 'Xcircle',
+    cardId: 'F21'
+  },
+  {
+    title: 'Snake Eyes',
+    content: `The pirates I roam with love to gamble. It’s everywhere. Everything from menial chores, to attacks.
+    … Want something someone else has? “I’ll roll you for it.”
+    … Don’t want to wash the decks of the ship? “I’ll roll you for it.”
+    … Someone’s outta line? “Roll well, and you keep your head.”
+
+    I didn’t want any of this. Smuggling didn’t seem to hurt anyone except rival gangs of pirates. I just wanted a better life. I didn’t want to be some two-bit thief who lives in sewers or some peasant working for a lord who doesn’t pay them enough to eat. I wanted enough money to get the hell out of here.
+    The higher-ups can guess well. They can tell if someone is feeling “off-kilter”. Then they call in Snake Eyes. Snake Eyes was a brutish man of about 35-40. If there was anyone in the world who loved gambling the most it was Snake Eyes. Snake eyes would always be found in the cafeteria, playing cards, dice or any other game he could get his hands on. Snake Eyes hosted this little game he liked to call “The Lottery of Blood” in which every crew member would be assigned a unique 4-digit number. Snake Eyes would then roll 4 dice. The member who had the closest number, would lead the next raid. The next closest numbers were the rest of the raid party. The addition of members only stopped when the captain felt they had enough men and women for the raid. “It’s fair” Snake Eyes once said. Sure, but only considering that Snake Eyes would remove his name from the pot and sometimes use special red weighted die. If you account for that, by all means it was fair.
+    Pirates never played fair. It’s not in their nature. It’s why people become pirates. They don’t want to live by rules. They want to be free. It just so happens that being free comes with a cost. I’m planning to leave. I need to get out of this wretched place. I need t-
+
+    ---
+
+    A door creaks open
+    Uh, yes?
+    “Cmon, it’s the Lottery of Blood. You don’t wanna miss that do you? Tell you what, I’ll roll you for not going.”
+    Oh god it’s captain. The cheater always uses weighted dice
+    No no, I’ll go.
+    “That’s the spirit! This is gonna be a good one. I can feel it.”
+    Everyone’s gathered in the cafeteria. Snake Eyes sits atop one of the tables.
+    My numbers, 2, 5, 3, 1.
+    Snakes eyes cracks a smile
+    “It is here in this glorious day that we celebrate our Lady Luck. Who lives? Who dies? Only time will tell lads!”
+    he rolls a 1, swarm.
+    “Ah the hot deserts of the east! I hope you fine men and women don’t get tired of sand!”
+    I hate sand
+    “Now we roll for the raid leader! The one who will lead the glorious charge and bring us to victory”
+    He begins rolling the dice
+    “Two!”
+    That’s fine there are three more spots
+    “Five!”
+    I’m sweating why am I sweating
+    Three!
+    Please dear god please I don’t want this
+    “And, for our last number!”
+    Not like this anything but this
+    I see the red glint of the last die
+    No. it’s not possible
+    “One!”
+    I can’t speak. I can’t breathe. I can’t think.
+    “So who is our lucky winner?”
+    “I believe it is this one!”
+    The captain raises my hand into the air.
+    “So it’s decided then! Drink up! We have a fight tomorrow!” Snake Eyes says.
+    I wipe my tears and choke back a sob.
+    No. No. I can’t.
+    I need t-. I’m already gone. This is it. It’s the end. Goodbye.`,
+    author: 'Xcircle',
+    cardId: 'N33'
+  },
+  {
+    title: 'Queen of Herds',
+    content: `Once upon a time lived a princess.
+    This princess loved to twirl her scythes.
+    She loved to help her parents with the daily harvest.
+    But most of all, the princess loved to dance with her older brother.
+    As the herald’s hymn played, the music commandeered their feet in melody. Notes twirling around the harp strings, a harp she built herself, they went onto another side, the other side of reality.
+    And they were happy.
+    But happiness always comes with a price, it seems.
+    They needed more to add to the Herds. They got greedy. Necromancer’s Dichotomy, they were calling it. The mother endorsed it. The father, however, did not. He believed the dead were meant to rest. To have served in our war and then rest forever. But the mother wouldn’t listen to his pleads. She was obsessed with power, the brother was wrangled by her, and the princess? Too naïve to have known what was coming.
+    The mathematics were incorrect. Instead of a focused blast, the spell spread throughout the kingdom. The oldest to ash, the youngest to bones. I heard it was sanity rending, the pain.
+    The princess woke up.
+    “Brother? Where are you?”
+    Her body felt frail, weak. She hoisted herself up, looked to her side where her brother once sat…
+    … regicide by dust.
+    She tried crying.
+    No sobs, but a rattling wail came out.
+    It stayed like that, for quite some time. Until she realized what she must do.
+    Checked on the people.
+    Gathered the Herd.
+    And told them a story.
+    She led them into battle, empowered under the Lord, summoning the horned soldiers to battle aside her.
+    Some say that she still tells the youngest Herds the same story she did to the first Herd.
+    And some say that they lived happily ever in the afterlife.`,
+    author: 'Zyries',
+    cardId: 'S21'
+  },
+  {
+    title: 'Boomstick Officers',
+    content: `
+    My black coat flapped in the wind, not dissimilar from my own. Short in stature, I looked more like a bulky child than a threat. But, unfortunately, I was still targeted.
+    It all happened around 7 in the morning. Looking behind me to make sure I wasn’t being tailed, I continued through the wind. Maybe they overdid it to stop the pollution. The parsels shake slightly on my sides, carrying the… goods. The wind always seems to-
+    Clunk. Clunk. Clunk.
+    Well, fu-
+    Hello citizen. We require your ID verification on the basis of multiple reports received.
+    Their disgusting metallic voices clunked without wavering. Why in the hell did these apathetic scrap piles get our jobs?
+    “Hello gentlemen. I’m just going for a nice morning stroll, you see? Sleep hasn’t been the kindest to me the past few days, and it’s been the first day I’ve been able to go-“
+    We require your ID verification. Present it or you will have to come with us.
+    Sigh. These guys aren’t going to go easily, will they? Maybe this is the reason I brought extra supplies.
+    Red bars come out as I rip my hands out from my parcels. They instantly know what’s happening. So peeeeerfeeect, huh?
+    *ACTIVATE PROTOCOL SIGMA-A.*
+    Uh oh. I gotta…
+    I break into a sprint, the clunks trailing me in their rusty cadence. I can’t let them catch up. It’s honestly the most terrifying experience to know death has legs.
+    I light the fuse of one of the dynamite, lobbing the stick at the left Delegator. Cracking cement exploded into a pillar of dust around it. The bot collapses on the ground, a small red circle with an x in the center appearing under its helm. One down.
+    Didn’t seem like the other one liked that, though. A large bolt comes flying at the back of my head. Didn’t even know they could use themselves as projectiles, but it definitely hurt. Blood flowed slowly out, distorienting me. I couldn’t let myself get caught…
+    I lit the second stick quickly and tossed it back, lodging itself in between a bolt on its shoulder and its head. Ssss….
+    *BOOM!*
+    The bot was knocked over to the side, but not off its feet. I looked back at it, and it… it wasn’t moving? I stood up slowly and looked into its visor.
+    *NAVPROCESSER DAMAGED. SEND REINFORCEMENTS PURSUING SUBJECT #4561.*
+    I can’t stay around. It’s still connected to the hub. I got up and continued running. The destination was in sight, but just out of sight of the bots…
+    I lit my entire belt and ripped it off, tossing it behind me. An airship just leaving the bay as well, I leaped into it, rolling under a tarp over a box.
+    Darkness.
+    Silence.
+    And.
+    Fireworks.
+    I couldn’t see it, but I could hear the factory crumble. The metal bits falling off the edges, the steel beams’ rending screeches. A cacophony oddly beautiful.
+    And the bots were gone.
+    But now what? I failed the plan. I got myself stuck on this small chunk of land. Unless you’ve got an idea?
+    ...hm. Maybe I really am crazy if I’m talking to a reflection.`,
+    author: 'Zyries',
+    cardId: 'N37'
+  },
+  {
+    title: 'Soulcrushers',
+    content: `“Yes men! We are ready for the fight! We march today! For glory! To defeat the enemy! Is it not what you have trained to do! Now who’s with me!”
+    Been waiting to hear that for years. Captain Ryezis is fearless. It’s all I ever wanted to do. Kill savage toads and vile ravens. Their kind makes me sick. They cannot form anything good in this world. They have only destroyed. 12 years. 12 years of raids. 12 years of despair. 12 years of “mum would have been proud”. Now I get to have my revenge. It’s my turn to slaughter.
+    I see it. The flying creature.
+    C’mon! I’m gonna rip out your throat!
+    I lunge, it dodged.
+    Is that all you’ve got?
+    Its dead silent
+    Magic bursts from the wand
+    Block with shield, riposte.
+    You’re done for ma-
+    Pointless
+    Void
+    What the hell am I doing here. I’m going to die
+    God has abandoned us
+    The captain has sent me here to die
+    -te
+    Feathers fly. Green light explodes from the wand
+    Blood, I’m hit
+    Y-you. Y-you hit m-me.
+    Can’t feel fingers
+    Fuzzy
+    Everything’s fuzzy
+    This is it
+    It’s the end
+    There is no light
+    B-but w-why?
+    I-don’t want to go. I c-can’t.
+    *Only black.*`,
+    author: 'Xcircle',
+    cardId: 'F18'
+  },
+  {
+    title: 'Wandering Wyrms',
+    content: `“There is a certain magic that permeates through the mires of Shadowfen. A dreadful miasma that lingers in the air no matter how much the wind decides to stir. When first entering the swamps, one would attribute the moist, fungal stench to corpses lurking just beneath the water's murky surface. Victims of war and sacrifice left to rot at the bottom of the lakebed for eternity, their stories forever silenced by Death's cold, ominous whisper. Alas, some stories refuse to die, forever shambling on as husks of a memory best left forgotten. Searching for a soul with whom they can share their story with, before crumbling to ash.”
+    —Translated version of an old Raven's tale, recovered from a sunken tome.`,
+    author: 'DoppleFock',
+    cardId: 'F9'
+  },
+  {
+    title: 'Edrik the Fierce',
+    content: `Dear Sir Edrik,
+    I have been preparing for your speech to the new  recruits, and I even added in important information about cleanliness and personal hygiene. (the veterans don't set the best of examples in those regards.)
+
+    -------------------
+
+    As for your questions concerning modes of transport, I do have some information for you, however you must understand that under no circumstances can we let this information leak. There is a reason that we never speak on it.
+    -----
+    You likely already know that, our units (or what's left of our units) travel via heat powered airships.
+    These airships are very effective; we can travel to any of the nearest islands within 10 days. Although the airships can travel long distances without much fuel, we do tend to require anywhere from 3-6 mana to get us to our destination, but that is mana well spent compared to the alternatives.
+    -----
+    Now before I continue, I need remind you that this is for you only, your words inspire the soldiers, but some information will do the opposite.
+    -----
+    The Iornclad Union has a history of powerful flying machines. The technology that we use was actually an old blueprint smuggled from an Iornclad factory. Take special notice of the word old. The Union has always been bent on progress, and although some of it can hardly be seen as anything more than communism, they have made genuine progress when it comes to airships. We suspect they have figured out how to harness the wind, making their airships very strong. Most are capable of carrying large forces of constructs.
+    -----
+    As you've probably noticed, the satyrs and undeads of the east don't fly in on large machines. Although we have no clear answer, we suspect that they use a form of summoning magic. (Likely similar to the magic they use to raise the dead.) This, of course, is why they seem to appear out of nowhere, swarming the battlefield before we've even made a move.
+    -----
+    Now, we come to the winter pact. More specifically: the frostlings. Now, from what I've been told, the frostlings are made of mana…? (One with mana…?) All the information I have is from our spies and professors, and although I don't really understand it, I think they basically said: "blah blah blah, together, blah blah, mana, blah blah, control magic" (or something like that.) Really, all we know is they use mana to transport themselves and their fellow dwarves to where they need to be.
+    -----
+    Now, Sir Edrik, the tribes of Shadowfen are often seen leaving their natural habitat by way of flight. The Ravens carry themselves and their toads to the battlefield, although as I'm sure you've noticed, the Ravens tend to drop the toads before making a full landing. The ravens do have decent flight power, but it doesn't rival the powerful flight of the dragons.
+
+    -------------------
+
+    I do, Master Edrik, hope that you have found this information satisfactory. I will continue to do my best in training our newest recruits, they sure are a handful, but with my expertise, they will be skilled warriors in no time.
+    Sincerely,
+
+    Your loyal servent`,
+    author: 'MooreFunn',
+    cardId: 'N59'
+  },
+  {
+    title: 'Powder Tower',
+    content: `Just before the battle. Men coming off boats.
+    Clattering metal.
+    The battle has started
+    Musket, shot, BANG
+    Knights fall one by one
+    Cannons, grapeshot, BOOM
+    A man beside me is ripped in half
+    speed, blitz, rush
+    Pirates join the fray
+    Swords, armor, shields
+    Ready for the fight
+    fortress, emplacement, defense
+    A tower sits upon the hill
+    Stone, brick, mortar
+    Men smash the gates
+    ticking, silence, nothing
+    The trap has been sprung
+    KRAKOOOOOOM!
+    The once gray sky is orange
+    fire, explosions, heat
+    Incineration ensues
+    run, hide, retreat
+    Shattered, broken and defeated.`,
+    author: 'Xcircle',
+    cardId: 'N45'
+  },
+  {
+    title: 'Toxic Sacrifice',
+    content: `As the village doctor I find myself in all types of situations. A brick dropped on a foot, some sort of infection, telling some of the farmers that coughing isn’t caused by demons, the list goes on. But it was a certain day that we had a small raiding party try to destroy a grain silo. Luckily our guard was quick to sound the bell and the toads were swiftly dispatched. But it was not the fighting that worried me, it was the end. A small group of toads (about 7-9) was surrounded by 5 members of the village guard. The toads then began to shake violently. Their skin turned a deep purple. Their skin churned and bubbled like water in a cauldron. Then, they burst. Purple blood, guts and viscera covered the guards. First it was disgust but then it turned into relieved laughter. All seemed fine. Everyone went back to their lives. It was two days after the attack when I was regularly visited by the members of the guard. They all reported the same symptoms. Slight fever and an odd purple rash, the likes of which I had never seen before. They said that the rash “tingled”. I didn’t think anything of it. Probably just some form of the cold. I gave them each an ointment used to treat forms of Poison Ivy. But it escalated. It was not just a faint tingling. It was sharp, painful, crawling. Some of their limbs that were exposed to the entrails were now completely purple. Some poor soul’s face turned purple. Clearly it was now a situation worth investigating. A day later the victims reported paralysis in affected limbs. The man with the purple face could no longer speak, eat, drink or move his head in any way. The next it became extreme nausea and intense vomiting. The vomit was a deep purple now. When they bled, they bled purple. The whites of their eyes were faint purple. Their skin was tinged purple. Then, they died. The bodies were quickly burned in fear of the spreading of this new plague. It seemed that even in death, the violence of toads knew no bounds.`,
+    author: 'Xcircle',
+    cardId: 'F4'
   }
 ]
