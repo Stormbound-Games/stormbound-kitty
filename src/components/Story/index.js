@@ -12,6 +12,9 @@ import getRawCardData from '../../helpers/getRawCardData'
 import microMarkdown from '../../helpers/microMarkdown'
 import getExcerpt from '../../helpers/getExcerpt'
 
+const getStoriesFromAuthor = author =>
+  stories.filter(story => story.author === author)
+
 const Story = props => {
   let story = null
   let storiesByAuthor = []
@@ -19,7 +22,7 @@ const Story = props => {
   try {
     const decoded = decodeURIComponent(window.atob(props.storyId))
     const [title, author] = decoded.split('-')
-    storiesByAuthor = stories.filter(story => story.author === author)
+    storiesByAuthor = getStoriesFromAuthor(author)
     story = storiesByAuthor.find(story => story.title === title)
 
     if (!story) throw new Error('STORY_NOT_FOUND')
@@ -61,18 +64,20 @@ const Story = props => {
           {storiesByAuthor.length > 1 && (
             <p>
               You might enjoy these other stories from the same author:{' '}
-              {storiesByAuthor.map((story, index) => {
-                const id = window.btoa(
-                  encodeURIComponent(story.title + '-' + story.author)
-                )
-                if (id === props.storyId) return null
-                return (
-                  <Fragment key={id}>
-                    <Link to={'/stories/' + id}>{story.title}</Link>
-                    {index !== storiesByAuthor.length - 1 ? ', ' : ''}
-                  </Fragment>
-                )
-              })}
+              {storiesByAuthor
+                .filter(s => story.title !== s.title)
+                .map((story, index) => {
+                  const id = window.btoa(
+                    encodeURIComponent(story.title + '-' + story.author)
+                  )
+
+                  return (
+                    <Fragment key={id}>
+                      <Link to={'/stories/' + id}>{story.title}</Link>
+                      {index !== storiesByAuthor.length - 2 ? ', ' : ''}
+                    </Fragment>
+                  )
+                })}
               .
             </p>
           )}
