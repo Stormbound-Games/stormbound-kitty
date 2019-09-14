@@ -6,6 +6,7 @@ import getRawCardData from '../../helpers/getRawCardData'
 import { FACTIONS } from '../../constants/game'
 
 const ILLUSTATION = {
+  lore: getRawCardData('N46'),
   neutral: getRawCardData('N59'),
   winter: getRawCardData('W8'),
   ironclad: getRawCardData('I17'),
@@ -17,6 +18,22 @@ const Stories = props => (
   <>
     <div className="Stories">
       <h1 className="visually-hidden">Stories</h1>
+
+      <Banner
+        faction="lore"
+        title={`Lore stories`}
+        copy={`Discover the amazing tales from the community about the lore and embark on a mythical journey through myths and legends.`}
+        cta={{
+          'aria-label': 'Read stories about the lore',
+          to: '/stories/lore',
+          children: (
+            <>
+              Read <span className="visually-hidden">lore</span> stories
+            </>
+          )
+        }}
+        image={ILLUSTATION.lore.image}
+      />
 
       {Object.keys(FACTIONS).map(faction => (
         <Banner

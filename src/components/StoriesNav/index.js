@@ -12,6 +12,11 @@ const StoriesNav = props => (
           Home
         </Link>
       </li>
+      <li className="Header__item">
+        <Link getProps={getStrictActiveLink} to={`/stories/lore`}>
+          Lore
+        </Link>
+      </li>
       {Object.keys(FACTIONS).map(faction => (
         <li className="Header__item" key={faction}>
           <Link getProps={getStrictActiveLink} to={`/stories/${faction}`}>

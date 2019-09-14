@@ -160,6 +160,7 @@ const AppRouter = props => (
     <StoriesCategory path="/stories/winter" category="winter" />
     <StoriesCategory path="/stories/shadowfen" category="shadowfen" />
     <StoriesCategory path="/stories/swarm" category="swarm" />
+    <StoriesCategory path="/stories/lore" category="lore" />
     <Story path="/stories/:storyId" />
 
     <Guides path="/guides" />

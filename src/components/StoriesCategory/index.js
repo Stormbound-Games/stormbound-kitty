@@ -10,7 +10,7 @@ import capitalise from '../../helpers/capitalise'
 const StoriesCategory = props => {
   const categoryName = capitalise(props.category)
   const categoryStories = stories.filter(
-    story => getRawCardData(story.cardId).faction === props.category
+    story => story.category === props.category
   )
   const sortCardsInCategory = (a, b) =>
     sortCards()(getRawCardData(a.cardId), getRawCardData(b.cardId))
