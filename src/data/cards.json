@@ -166,7 +166,7 @@
     "mana": 4,
     "strength": 1,
     "movement": 1,
-    "ability": "When this dies bordering the enemy base, randomly *spawn* a *5/6/7/8/10* strength Dragon at the enemy base"
+    "ability": "When this dies bordering the enemy base, randomly *spawn* a *6/7/8/9/11* strength Dragon at the enemy base"
   },
   {
     "name": "Mech Workshop",
@@ -281,9 +281,9 @@
     "rarity": "legendary",
     "image": "/assets/images/cards/project_ph03-nix.png",
     "mana": 6,
-    "strength": "4/5/6/7/8",
+    "strength": "5/6/7/8/9",
     "movement": 1,
-    "ability": "When this dies not bordering any base, randomly *respawn* at your base with *4/5/6/7/8* strength"
+    "ability": "When this dies not bordering any base, randomly *respawn* at your base with *5/6/7/8/9* strength"
   },
   {
     "name": "Armed Schemers",
@@ -736,7 +736,7 @@
     "rarity": "epic",
     "image": "/assets/images/cards/snake_eyes.png",
     "mana": 5,
-    "strength": "5/6/8/8/10",
+    "strength": "6/7/9/9/11",
     "movement": 0,
     "ability": "When played with a full hand, *discard all* cards and *draw 3/3/3/4/4* new cards"
   },
@@ -751,7 +751,7 @@
     "mana": 5,
     "strength": "4/5/6/7/8",
     "movement": null,
-    "ability": "At the start of your turn, deal *3/4/5/6/7 damage* to a random enemy unit"
+    "ability": "At the start of your turn, randomly deal *4/5/6/7/8 damage* to the *most forward* enemy unit or structure"
   },
   {
     "name": "Ubass the Hunter",
@@ -790,7 +790,7 @@
     "mana": 6,
     "strength": "5/6/7/8/10",
     "movement": 1,
-    "ability": "On play, deal *3/4/5/6/7 damage* to a random enemy unit behind"
+    "ability": "On play, deal *3/4/5/6/7 damage* to a random enemy behind"
   },
   {
     "name": "Harvesters of Souls",
@@ -944,9 +944,9 @@
     "rarity": "epic",
     "image": "/assets/images/cards/avian_stalkers.png",
     "mana": 7,
-    "strength": "6/7/8/9/10",
+    "strength": "5/6/7/8/10",
     "movement": 0,
-    "ability": "On death, *spawn 3/4/5/6/7* strength Ravens on all tiles behind"
+    "ability": "On death, *destroy* all units in front with *3/4/5/6/7* strength or less and *spawn 3/4/5/6/7* strength Ravens on all tiles behind"
   },
   {
     "name": "Call for Aid",
@@ -1086,10 +1086,10 @@
     "race": "feline",
     "rarity": "rare",
     "image": "/assets/images/cards/fluffy_badboxers.png",
-    "mana": 6,
-    "strength": "6/7/8/10/12",
+    "mana": 5,
+    "strength": "4/5/6/8/10",
     "movement": 1,
-    "ability": "After attacking a weaker enemy, *confuse all enemy units surrounding it*"
+    "ability": "After attacking, *confuse all weaker* enemy units"
   },
   {
     "name": "Hair-raising Cats",
@@ -1113,9 +1113,9 @@
     "rarity": "common",
     "image": "/assets/images/cards/sweetcap_kittens.png",
     "mana": 2,
-    "strength": "1/2/3/3/4",
+    "strength": "1/2/3/4/5",
     "movement": 0,
-    "ability": "On play, *confuse random/random/random/all/all enemy unit/unit/unit/units/units* in front"
+    "ability": "On play, *confuse all enemy units* in front"
   },
   {
     "name": "Unhealthy Hysteria",
@@ -1661,7 +1661,7 @@
     "mana": 4,
     "strength": "3/4/4/5/6",
     "movement": 1,
-    "ability": "When attacking the base, deal *3/3/4/5/6 additional damage* to it"
+    "ability": "When attacking the base or a structure, deal *3/3/4/5/6 additional damage* to it"
   },
   {
     "name": "Draconic Roamers",
@@ -1674,7 +1674,7 @@
     "mana": 4,
     "strength": "2/3/3/4/4",
     "movement": 2,
-    "ability": "When attacking a unit, *spawn* a *2/2/3/3/4* strength Dragon on a random tile bordering that unit"
+    "ability": "When attacking a unit, *spawn* a *1/1/2/2/3* strength Dragon on a random tile bordering that unit"
   },
   {
     "name": "Mischiefs",
@@ -1763,9 +1763,9 @@
     "rarity": "legendary",
     "image": "/assets/images/cards/xuri_lord_of_life.png",
     "mana": 5,
-    "strength": "4/5/5/7/8",
+    "strength": "3/4/4/6/7",
     "movement": 0,
-    "ability": "On play, *fly* to the first empty tile in front. *Give 2/2/3/3/4* strength to all friendly units passed"
+    "ability": "On play, *fly* to the first empty tile in front. *Give 3/3/4/4/5* strength to all friendly units passed"
   },
   {
     "name": "Herald’s Hymn",
@@ -2025,7 +2025,7 @@
     "mana": 1,
     "strength": null,
     "movement": null,
-    "ability": "*Destroy* a target frozen enemy with *8/10/12/15/18 or less strength*"
+    "ability": "Deal *8/10/12/15/18* damage to a target *frozen* enemy"
   },
   {
     "name": "Frosthexers",
@@ -2064,7 +2064,7 @@
     "mana": 3,
     "strength": "1/2/3/4/5",
     "movement": 1,
-    "ability": "Before attacking a frozen enemy, deal *5/6/7/8/10 damage* to all surrounding frozen enemies"
+    "ability": "Before attacking a frozen enemy, deal *4/5/6/7/8 damage* to all surrounding frozen enemies"
   },
   {
     "name": "Yowling Weavers",
@@ -2087,7 +2087,7 @@
     "race": null,
     "rarity": "rare",
     "image": "/assets/images/cards/moments_peace.png",
-    "mana": 4,
+    "mana": 5,
     "strength": null,
     "movement": null,
     "ability": "*Give 4/5/6/7/8* strength to a target friendly unit or structure. *Freeze* all surrounding enemy units"
@@ -2116,7 +2116,7 @@
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": 0,
-    "ability": "On play, *destroy* all frozen enemies in front with *3/4/5/6/7 or less strength*. Gain *4 mana* for each unit destroyed"
+    "ability": "On play, *destroy* all frozen enemies in front with *4/5/6/7/8 or less strength*. Gain *4 mana* for each unit destroyed"
   },
   {
     "name": "Frozen Core",
@@ -2139,10 +2139,10 @@
     "race": "frostling",
     "rarity": "legendary",
     "image": "/assets/images/cards/lady_rime.png",
-    "mana": 5,
+    "mana": 6,
     "strength": "5/7/7/10/10",
-    "movement": 0,
-    "ability": "On play, *spend* your remaining mana and *gain 2/2/3/3/4* strength for each"
+    "movement": 1,
+    "ability": "On play, *spend* your remaining mana and *gain 2/2/3/4/5* strength for each"
   },
   {
     "name": "Midwinter Chaos",
@@ -2152,10 +2152,10 @@
     "race": null,
     "rarity": "rare",
     "image": "/assets/images/cards/midwinter_chaos.png",
-    "mana": 5,
+    "mana": 4,
     "strength": null,
     "movement": null,
-    "ability": "*Freeze* all enemy units. Deal *5/6/7/8/10 damage* to those that were already frozen."
+    "ability": "*Freeze* all enemy units with *4/5/6/7/8* or less strength. Destroy those that were already frozen."
   },
   {
     "name": "Rimelings",
@@ -2204,7 +2204,7 @@
     "race": "dragon",
     "rarity": "rare",
     "image": "/assets/images/cards/broken_earth_drakes.png",
-    "mana": 6,
+    "mana": 7,
     "strength": 3,
     "movement": 1,
     "ability": "When this dies not bordering any base, deal *3/4/5/6/7 damage* to all non-Dragon units"
@@ -2269,7 +2269,7 @@
     "race": "frostling",
     "rarity": "common",
     "image": "/assets/images/cards/calming_spirits.png",
-    "mana": 8,
+    "mana": 7,
     "strength": "10/13/16/20/24",
     "movement": 0,
     "ability": null
@@ -2283,8 +2283,8 @@
     "rarity": "rare",
     "image": "/assets/images/cards/visions_of_the_grove.png",
     "mana": 8,
-    "strength": "8/10/11/14/16",
-    "movement": 1,
+    "strength": "8/10/12/15/18",
+    "movement": 0,
     "ability": "On play, for every *4/4/3/3/2 remaining mana* deal *1 damage* to all enemies in front"
   },
   {
