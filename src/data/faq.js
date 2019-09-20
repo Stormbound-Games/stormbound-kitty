@@ -189,7 +189,7 @@ export default [
             It is based on the rarity and the amount of copies you have of each
             card. It also take into account the initial crafting cost of all
             cards, which is why an entire collection of cards level 1 with no
-            extra copies is worth about 2250 stones.
+            extra copies is worth about 2490 stones.
           </Fragment>
         )
       }
