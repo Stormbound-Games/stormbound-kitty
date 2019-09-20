@@ -23,7 +23,8 @@
     "mana": 2,
     "strength": "2/3/3/4/5",
     "movement": 0,
-    "ability": "On play, *trigger* the ability of *bordering/bordering/surrounding/surrounding/all* friendly structures"
+    "ability": "On play, *trigger* the ability of *bordering/bordering/surrounding/surrounding/all* friendly structures",
+    "hero": true
   },
   {
     "name": "Fortification Tonic",
@@ -218,7 +219,8 @@
     "mana": 5,
     "strength": "5/6/7/8/10",
     "movement": 0,
-    "ability": "On play, *fly* to the first enemy unit in front. *Push* this enemy away and deal *3/4/5/6/7 damage* to it"
+    "ability": "On play, *fly* to the first enemy unit in front. *Push* this enemy away and deal *3/4/5/6/7 damage* to it",
+    "hero": true
   },
   {
     "name": "Flaming Stream",
@@ -283,7 +285,8 @@
     "mana": 6,
     "strength": "5/6/7/8/9",
     "movement": 1,
-    "ability": "When this dies not bordering any base, randomly *respawn* at your base with *5/6/7/8/9* strength"
+    "ability": "When this dies not bordering any base, randomly *respawn* at your base with *5/6/7/8/9* strength",
+    "hero": true
   },
   {
     "name": "Armed Schemers",
@@ -413,7 +416,8 @@
     "mana": 3,
     "strength": "1/1/2/2/3",
     "movement": 1,
-    "ability": "On play, *create* a *0* cost unit with *5/6/6/8/10 strength* and add it to your deck"
+    "ability": "On play, *create* a *0* cost unit with *5/6/6/8/10 strength* and add it to your deck",
+    "hero": true
   },
   {
     "name": "Confinement",
@@ -764,7 +768,8 @@
     "mana": 5,
     "strength": "5/6/6/8/10",
     "movement": 0,
-    "ability": "On play, deal *1/1/2/2/3 damage* to a random enemy for each surrounding *unit type*"
+    "ability": "On play, deal *1/1/2/2/3 damage* to a random enemy for each surrounding *unit type*",
+    "hero": true
   },
   {
     "name": "Voidsurgers",
@@ -907,7 +912,8 @@
     "mana": 6,
     "strength": "4/5/6/7/8",
     "movement": 2,
-    "ability": "On death, do a random effect: *give 6/7/8/10/12* strength, deal *5/6/7/8/10 damage* or *spawn* a *4/5/6/7/8* strength unit"
+    "ability": "On death, do a random effect: *give 6/7/8/10/12* strength, deal *5/6/7/8/10 damage* or *spawn* a *4/5/6/7/8* strength unit",
+    "hero": true
   },
   {
     "name": "Victors of the Melee",
@@ -933,7 +939,8 @@
     "mana": 7,
     "strength": "7/9/11/12/15",
     "movement": 0,
-    "ability": "On play, randomly *play* up to *1/1/1/2/2* spell card/card/card/cards/cards from your hand"
+    "ability": "On play, randomly *play* up to *1/1/1/2/2* spell card/card/card/cards/cards from your hand",
+    "hero": true
   },
   {
     "name": "Avian Stalkers",
@@ -1063,7 +1070,8 @@
     "mana": 9,
     "strength": "6/7/8/10/12",
     "movement": 3,
-    "ability": "Before attacking a unit, *reduce* its strength to *3*"
+    "ability": "Before attacking a unit, *reduce* its strength to *3*",
+    "hero": true
   },
   {
     "name": "Edrik the Fierce",
@@ -1076,7 +1084,8 @@
     "mana": 4,
     "strength": "4/5/5/7/8",
     "movement": 0,
-    "ability": "On play, *spawn 2/2/3/4/5* strength Knights in front of all surrounding enemy units"
+    "ability": "On play, *spawn 2/2/3/4/5* strength Knights in front of all surrounding enemy units",
+    "hero": true
   },
   {
     "name": "Fluffy Badboxers",
@@ -1206,7 +1215,8 @@
     "mana": 5,
     "strength": "4/5/6/7/8",
     "movement": 1,
-    "ability": "Before attacking an enemy unit *force all enemy units* bordering it with 3/4/5/6/7 or lower strength *to attack* it"
+    "ability": "Before attacking an enemy unit *force all enemy units* bordering it with 3/4/5/6/7 or lower strength *to attack* it",
+    "hero": true
   },
   {
     "name": "Aged Duskbringers",
@@ -1376,7 +1386,8 @@
     "mana": 4,
     "strength": "3/3/4/5/6",
     "movement": 1,
-    "ability": "After attacking, *jump* in front of a random enemy unit or structure and *gain 3/4/4/5/6* strength"
+    "ability": "After attacking, *jump* in front of a random enemy unit or structure and *gain 3/4/4/5/6* strength",
+    "hero": true
   },
   {
     "name": "Venomfall Spire",
@@ -1493,7 +1504,8 @@
     "mana": 7,
     "strength": "5/6/7/8/10",
     "movement": 1,
-    "ability": "On play, *spawn 3* Nests on random surrounding tiles which will *hatch 3/4/5/6/7* strength Dragons"
+    "ability": "On play, *spawn 3* Nests on random surrounding tiles which will *hatch 3/4/5/6/7* strength Dragons",
+    "hero": true
   },
   {
     "name": "Curse of Strings",
@@ -1519,7 +1531,8 @@
     "mana": 8,
     "strength": "5/6/7/8/10",
     "movement": 0,
-    "ability": "On play, *destroy* all units with the lowest strength and *spawn 5/6/7/8/10* strength Ravens there"
+    "ability": "On play, *destroy* all units with the lowest strength and *spawn 5/6/7/8/10* strength Ravens there",
+    "hero": true
   },
   {
     "name": "Clerics with Cords",
@@ -1571,7 +1584,8 @@
     "mana": 3,
     "strength": "2/3/4/5/6",
     "movement": 1,
-    "ability": "If played with no bordering enemies, return the copy of this card to your hand"
+    "ability": "If played with no bordering enemies, return the copy of this card to your hand",
+    "hero": true
   },
   {
     "name": "Dreadful Keepers",
@@ -1779,7 +1793,8 @@
     "mana": 5,
     "strength": "3/4/4/6/7",
     "movement": 0,
-    "ability": "On play, *fly* to the first empty tile in front. *Give 3/3/4/4/5* strength to all friendly units passed"
+    "ability": "On play, *fly* to the first empty tile in front. *Give 3/3/4/4/5* strength to all friendly units passed",
+    "hero": true
   },
   {
     "name": "Herald’s Hymn",
@@ -1805,7 +1820,8 @@
     "mana": 6,
     "strength": "6/8/10/10/12",
     "movement": 0,
-    "ability": "On play, randomly *play* up to *1/1/1/2/2* Satyr/Satyr/Satyr/Satyrs/Satyrs from your deck on a tile in its row"
+    "ability": "On play, randomly *play* up to *1/1/1/2/2* Satyr/Satyr/Satyr/Satyrs/Satyrs from your deck on a tile in its row",
+    "hero": true
   },
   {
     "name": "Vindicators",
@@ -2130,7 +2146,8 @@
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": 0,
-    "ability": "On play, *destroy* all frozen enemies in front with *4/5/6/7/8 or less strength*. Gain *4 mana* for each unit destroyed"
+    "ability": "On play, *destroy* all frozen enemies in front with *4/5/6/7/8 or less strength*. Gain *4 mana* for each unit destroyed",
+    "hero": true
   },
   {
     "name": "Frozen Core",
@@ -2156,7 +2173,8 @@
     "mana": 6,
     "strength": "5/7/7/10/10",
     "movement": 1,
-    "ability": "On play, *spend* your remaining mana and *gain 2/2/3/4/5* strength for each"
+    "ability": "On play, *spend* your remaining mana and *gain 2/2/3/4/5* strength for each",
+    "hero": true
   },
   {
     "name": "Midwinter Chaos",
@@ -2325,7 +2343,8 @@
     "mana": 9,
     "strength": "6/7/8/10/12",
     "movement": 2,
-    "ability": "When played bordering your base, *give* it *3/3/4/5/6* strength"
+    "ability": "When played bordering your base, *give* it *3/3/4/5/6* strength",
+    "hero": true
   },
   {
     "name": "Underground Spring",
