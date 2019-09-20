@@ -1,5 +1,13 @@
 [
   {
+    "intro": "Card Collection",
+    "description": "The collection now informs how much coins would the excess copies bring after the Brawl update."
+  },
+  {
+    "intro": "Stormbound Kitty",
+    "description": "The Elders and the Brawl update balance changes are here!"
+  },
+  {
     "intro": "Deck Suggestions",
     "description": "The deck suggestions no longer have tags, but a new filter by author feature is available."
   },
