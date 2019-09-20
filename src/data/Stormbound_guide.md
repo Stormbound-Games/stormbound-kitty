@@ -23,8 +23,6 @@
    - [Units](#units)
    - [Ways of winning](#ways-of-winner)
 6. [Economy advice](#economy-advice)
-   - [Free to play advice](#free-to-play-advice)
-   - [Best way to use your resources](#best-way-to-use-your-resources)
    - [Quests](#quests)
 7. [Contact me](#contact-me)
 
@@ -319,29 +317,6 @@ For example, Level 5 Gifted Recruits is 5+2 for 2 mana, Linked Golems at level 3
 This way, I can make rationalized choices for my deck. Of course, you also have to take into consideration all the previous point about synergies and coherence.
 
 ## Economy advice
-
-### Free to play advice
-
-Ads are a pain but it’s necessary to always watch them when you open a Splendid Book. If you want to optimize your gold gain, the best way is to play on PC where you don’t need to watch an ad to gain 10 gold per victory and buy on your phone/tablet the Spendid Book for 100 gold (instead of 120 gold on PC).
-
-### Best way to use your resources
-
-What about the daily cards sold in the shop: they are excessively expensive. Buy them only if it is the last card you need to upgrade a key card of your deck. And never buy more than one. You have to consider the long term: buying a 100 gold Splendid Book is so much more value than a 70 gold common.
-
-Here is a summary of what I think of all the shop offers:
-
-- **Splendid Book** (100 gold for 4 cards or 25 gold/card for 5% chance Epic or Legendary). The gold standard of the game economy. Everything will be compared to it.
-- **Terror’s Loot** (15 rubies gold for 1 Rare/Epic/Legendry card). I will never buy this. Only buy if you are desperate for a dragon deck and even then, it’s bad.
-- **Glorious Book** (25 rubies for 10 cards or 2.5 rubies/card). Not a bad deal but not interesting enough. I wouldn’t buy it.
-- **Heroic Book** (50 rubies for 7 cards or 7.14 rubies/card for 63% chance Rare, 34% chance Epic. That is a bad deal considering you get 31% chance of getting a rare in a splendid book. If you buy it for the Epic cards, it is less interesting than a Mythic Book.
-- **Mythic Book** (75 rubies for 3 Epic cards and 1 Legendary card or 18.75 rubies/card). Better probability to get an Epic/ruby than the Heroic Book and a guaranteed Legendary: it is the go-to for an end-game player to spend their rubies. Better wait for a discount (60 rubies book during some holidays).
-- **Gold Bundle 1** (15 rubies for 4.8 cards or 3.125 rubies/card). Quite an expensive ratio, so probably not.
-- **Gold Bundle 2** (75 rubies for 30 cards or 2.5 rubies/card). You have to ask yourself where you are in this point: commons aren’t level 5 => buy gold. Commons are level 5 => buy Mythic Book.
-- **Gold Bundle 3** (250 rubies for 120 cards or 2.08 rubies/card). Not as interesting as it seems, but good option to have a lot of cards.
-
-(\*) You have to consider the long run. The most important thing is not quality but quantity in this game. Often a level 5 common is better than a level 4 rare in term of game value. In addition, I find the Splendid Books to be even more interesting on the long run: when you have level 5 commons each copy you will get after that is a transformed into fusion stones, and a 25 gold for 1 fusion stone is a good deal.
-
-**What I did and still do: buy Splendid Book with gold, save your rubies for a discount on Mythic Book.**
 
 ### Quests
 
