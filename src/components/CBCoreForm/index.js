@@ -154,18 +154,39 @@ const CBCardForm = props => {
             />
           </Column>
         </Row>
-        <Row>
+        <Row desktopOnly>
           <Column>
-            <Checkbox
-              name="elder"
-              id="elder"
-              checked={props.elder}
-              onChange={event => props.setElder(event.target.checked)}
-              disabled={props.type !== 'unit'}
-            >
-              Elder (unit only)
-            </Checkbox>
+            <fieldset>
+              <legend>Unit-specific modifiers</legend>
+              <Row>
+                <Column>
+                  <Checkbox
+                    className="CBCoreForm__checkbox"
+                    name="elder"
+                    id="elder"
+                    checked={props.elder}
+                    onChange={event => props.setElder(event.target.checked)}
+                    disabled={props.type !== 'unit'}
+                  >
+                    Elder
+                  </Checkbox>
+                </Column>
+                <Column>
+                  <Checkbox
+                    className="CBCoreForm__checkbox"
+                    name="hero"
+                    id="hero"
+                    checked={props.hero}
+                    onChange={event => props.setHero(event.target.checked)}
+                    disabled={props.type !== 'unit'}
+                  >
+                    Hero
+                  </Checkbox>
+                </Column>
+              </Row>
+            </fieldset>
           </Column>
+          <Column />
         </Row>
       </form>
     </Fragment>

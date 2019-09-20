@@ -212,7 +212,8 @@ export const deserialiseCard = hash => {
     /* Strength */ !chunks[6].includes('/') &&
     /* Ability */ !chunks[9].includes('/')
 
-  card.elder = chunks[11] === 'E'
+  card.elder = (chunks[11] || '').includes('E')
+  card.hero = (chunks[11] || '').includes('H')
 
   return card
 }
