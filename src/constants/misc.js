@@ -210,6 +210,15 @@ export const WEEKLY_CARD_CONTEST = [
     name: 'Structure Focus',
     description:
       'Create a card that interacts with structures, but is not a structure itself.',
+    winner: {
+      id:
+        'TjtLO1U7TDs2OzE7NS82LzYvNy85O0NPTk4lMjBEUlVJRCUyMFdBUlJJT1I7aHR0cHMlM0ElMkYlMkZpLmltZ3VyLmNvbSUyRm5FSThkeGsuanBnO09uJTIwcGxheSUyQyUyMGNyZWF0ZSUyMGElMjAyJTJGMiUyRjIlMkYxJTJGMSUyME1hbmElMjBjb3N0JTIwU3BlbGwlMjB0byUyMHlvdXIlMjBoYW5kJTIwd2l0aCUyMHRoaXMlMjBlZmZlY3QlM0ElMjAlMjJHaXZlJTIwMiUyRjIlMkYzJTJGMyUyRjQlMjBzdHJlbmd0aCUyMHRvJTIwYWxsJTIwZnJpZW5kbHklMjB1bml0cyUyMi47',
+      author: 'Sarabanda'
+    }
+  },
+  {
+    week: 38,
+    name: 'Ironclad',
     submitURL: 'https://forms.gle/EkGSFfRho4S2bH5P6'
   }
 ]
