@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import CardSelect from '../CardSelect'
 import Row from '../Row'
 import Column from '../Column'
+import Checkbox from '../Checkbox'
 import FactionSelect from '../FactionSelect'
 import { RARITIES, TYPES, RACES } from '../../constants/game'
 import capitalise from '../../helpers/capitalise'
@@ -151,6 +152,19 @@ const CBCardForm = props => {
               onFocus={() => setImageFocusedColumn('imageURL')}
               onBlur={() => setImageFocusedColumn(null)}
             />
+          </Column>
+        </Row>
+        <Row>
+          <Column>
+            <Checkbox
+              name="elder"
+              id="elder"
+              checked={props.elder}
+              onChange={event => props.setElder(event.target.checked)}
+              disabled={props.type !== 'unit'}
+            >
+              Elder (unit only)
+            </Checkbox>
           </Column>
         </Row>
       </form>

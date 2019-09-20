@@ -19,6 +19,7 @@ const INITIAL_STATE = {
   rarity: 'common',
   faction: 'neutral',
   race: null,
+  elder: false,
   type: 'unit',
   movement: null,
   mana: formatLevelProp(null),
@@ -52,6 +53,7 @@ export default class CBRoot extends React.Component {
       this.state.rarity !== prevState.rarity ||
       this.state.faction !== prevState.faction ||
       this.state.race !== prevState.race ||
+      this.state.elder !== prevState.elder ||
       this.state.type !== prevState.type ||
       this.state.movement !== prevState.movement ||
       this.state.mana.display !== prevState.mana.display ||
@@ -110,22 +112,24 @@ export default class CBRoot extends React.Component {
   setFaction = faction => this.setState({ faction })
 
   setType = type => {
-    // If the new type is a spell, disable movement, strength and race
+    // If the new type is a spell, disable movement, strength, race and elder
     if (type === 'spell') {
       this.setState({
         type,
         race: null,
+        elder: false,
         movement: null,
         strength: formatLevelProp(null)
       })
     }
 
-    // If the new type is a structure, disable movement and race, and if the
-    // current type is a spell, enable strength
+    // If the new type is a structure, disable movement, race and elder, and if
+    // the current type is a spell, enable strength
     else if (type === 'structure') {
       this.setState({
         type,
         race: null,
+        elder: false,
         movement: null,
         strength:
           this.state.type === 'spell'
@@ -148,6 +152,7 @@ export default class CBRoot extends React.Component {
   }
 
   setRace = race => this.setState({ race })
+  setElder = elder => this.setState({ elder })
 
   setAbility = ability => this.setState({ ability: resolveAbility(ability) })
 
@@ -180,6 +185,7 @@ export default class CBRoot extends React.Component {
           setFaction={this.setFaction}
           setType={this.setType}
           setRace={this.setRace}
+          setElder={this.setElder}
           setMovement={this.setMovement}
           setStrength={this.setStrength}
           setAbility={this.setAbility}

@@ -41,7 +41,7 @@ const Card = props => {
           </span>
 
           <span className="Card__race">
-            {props.race}{' '}
+            {props.race} {props.elder && 'elder'}
             {props.rarity === 'legendary' && props.type === 'unit'
               ? 'hero'
               : ''}

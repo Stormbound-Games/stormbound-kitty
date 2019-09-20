@@ -65,7 +65,8 @@ export const serialiseCard = formState =>
         formState.imageCardId ||
         encodeURIComponent(formState.imageURL || ''),
       encodeURIComponent(formState.ability || ''),
-      formState.level
+      formState.level,
+      formState.elder ? 'E' : ''
     ].join(';')
   )
 
