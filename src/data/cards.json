@@ -1209,6 +1209,20 @@
     "ability": "Before attacking an enemy unit *force all enemy units* bordering it with 3/4/5/6/7 or lower strength *to attack* it"
   },
   {
+    "name": "Aged Duskbringers",
+    "id": "N70",
+    "type": "unit",
+    "faction": "neutral",
+    "race": null,
+    "rarity": "rare",
+    "image": "/assets/images/cards/aged_duskbringers.png",
+    "mana": 7,
+    "strength": "5/6/7/8/10",
+    "movement": 1,
+    "ability": "After surviving damage, randomly *give 5/6/7/8/10* strength to another friendly unit",
+    "elder": true
+  },
+  {
     "name": "Brood Sages",
     "id": "F1",
     "type": "unit",
