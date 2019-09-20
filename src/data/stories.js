@@ -1020,5 +1020,34 @@ export default [
     author: 'Xcircle',
     cardId: 'F4',
     category: 'shadowfen'
+  },
+  {
+    title: 'Herald’s Hymn',
+    content: `
+    Hark! The herald song booms
+    Undead lurch from underground tombs
+    From the curse of death, life reborn
+    Beings cast from bone, soul and horn
+    As the goatmen charge and the queen weeps
+    Our skeletal army begins to reap
+    Scythes, Spears and battlecries
+    Meet to create an untimely demise
+    Decay ceases
+    Bloodshed increases
+    A final charge
+    Deathtoll large
+    A finishing strike
+    Flesh meeting pike
+    For all who meet their untimely doom
+    Will soon awake to an undead fate
+    Where the dark and the gloom
+    Forge an unrivaled hate
+    For this is the message
+    There is victory in undying
+    Death is not the end
+    It is merely the beginning`,
+    author: 'Xcircle',
+    cardId: 'S20',
+    category: 'swarm'
   }
 ]
