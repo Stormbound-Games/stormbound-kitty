@@ -6,7 +6,7 @@ const cardsTerms = cards
   .filter(card => !card.token)
   .reduce((acc, card) => {
     const short = card.name
-      .split(/[\s,]/g)
+      .split(/[\s,-]/g)
       .map(word => word.slice(0, 1))
       .join('')
     if (short.length === 1) return acc
