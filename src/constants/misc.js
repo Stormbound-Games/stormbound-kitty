@@ -217,8 +217,10 @@ export const WEEKLY_CARD_CONTEST = [
     }
   },
   {
-    week: 38,
-    name: 'Ironclad',
-    submitURL: 'https://forms.gle/EkGSFfRho4S2bH5P6'
+    week: 39,
+    name: 'Wipeout',
+    description:
+      'Create a card that is able to take out several units or structures at once and save your base.',
+    submitURL: 'https://forms.gle/vnd8RzrphVLVBMCo9'
   }
 ]
