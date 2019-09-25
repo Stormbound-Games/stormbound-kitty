@@ -45,11 +45,7 @@ const CardUpgradeStats = props => {
         <p>
           Upgrading that card level 5 and exchanging the {extraAfterMax.copies}{' '}
           extra {extraAfterMax.copies > 1 ? 'copies' : 'copy'} would give you{' '}
-          {extraAfterMax.stones} fusion{' '}
-          {extraAfterMax.stones > 1 ? 'stones' : 'stone'} before the Brawl
-          update. <br />
-          After the update, it would give you {extraAfterMax.coins} coins,
-          effectively reducing the upgrade cost to{' '}
+          {extraAfterMax.coins} coins, effectively reducing the upgrade cost to{' '}
           {Math.max(getCostForLevel(5)(card).coins - extraAfterMax.coins, 0)}{' '}
           coins.
         </p>
