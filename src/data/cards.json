@@ -167,7 +167,7 @@
     "mana": 4,
     "strength": 1,
     "movement": 1,
-    "ability": "When this dies bordering the enemy base, randomly *spawn* a *6/7/8/9/11* strength Dragon at the enemy base"
+    "ability": "When this dies bordering the enemy base, randomly *spawn* a *6/7/8/10/12* strength Dragon at the enemy base"
   },
   {
     "name": "Mech Workshop",
@@ -313,6 +313,32 @@
     "strength": "3/4/5/6/7",
     "movement": 1,
     "ability": "On play, on the tile behind *build* a *3/3/4/5/6* strength workshop which *spawn 2/3/4/5/6* strength Constructs each turn"
+  },
+  {
+    "name": "Agents in Charge",
+    "id": "I25",
+    "type": "unit",
+    "faction": "ironclad",
+    "race": "rodent",
+    "rarity": "common",
+    "image": "/assets/images/cards/token_rodent.png",
+    "mana": 5,
+    "strength": "3/4/5/6/7",
+    "movement": 3,
+    "ability": null
+  },
+  {
+    "name": "Operators",
+    "id": "I26",
+    "type": "unit",
+    "faction": "ironclad",
+    "race": "construct",
+    "rarity": "common",
+    "image": "/assets/images/cards/token_construct.png",
+    "mana": 8,
+    "strength": "10/13/16/20/24",
+    "movement": 1,
+    "ability": null
   },
   {
     "name": "Green Prototypes",
@@ -740,7 +766,7 @@
     "rarity": "epic",
     "image": "/assets/images/cards/snake_eyes.png",
     "mana": 5,
-    "strength": "6/7/9/9/11",
+    "strength": "6/7/8/10/12",
     "movement": 0,
     "ability": "When played with a full hand, *discard all* cards and *draw 3/3/3/4/4* new cards"
   },
@@ -1096,7 +1122,7 @@
     "rarity": "rare",
     "image": "/assets/images/cards/fluffy_badboxers.png",
     "mana": 5,
-    "strength": "4/5/6/8/10",
+    "strength": "4/5/6/7/8",
     "movement": 1,
     "ability": "After attacking, *confuse all weaker* enemy units"
   },
@@ -1231,6 +1257,32 @@
     "movement": 1,
     "ability": "After surviving damage, randomly *give 5/6/7/8/10* strength to another friendly unit",
     "elder": true
+  },
+  {
+    "name": "Rapid Mousers",
+    "id": "N71",
+    "type": "unit",
+    "faction": "neutral",
+    "race": "feline",
+    "rarity": "common",
+    "image": "/assets/images/cards/token_feline.png",
+    "mana": 4,
+    "strength": "1/2/3/4/5",
+    "movement": 3,
+    "ability": null
+  },
+  {
+    "name": "Seasick Bouncers",
+    "id": "N72",
+    "type": "unit",
+    "faction": "neutral",
+    "race": "pirate",
+    "rarity": "common",
+    "image": "/assets/images/cards/token_pirate.png",
+    "mana": 6,
+    "strength": "8/10/12/15/18",
+    "movement": 0,
+    "ability": null
   },
   {
     "name": "Brood Sages",
@@ -1548,6 +1600,32 @@
     "ability": "On play, *convert* a random bordering enemy unit with *1/2/3/4/5 /or/or/or/or /lower/lower/lower/lower strength* to fight for you"
   },
   {
+    "name": "Limelimbs",
+    "id": "F25",
+    "type": "unit",
+    "faction": "shadowfen",
+    "race": "toad",
+    "rarity": "common",
+    "image": "/assets/images/cards/token_toad.png",
+    "mana": 3,
+    "strength": "1/2/3/4/5",
+    "movement": 2,
+    "ability": null
+  },
+  {
+    "name": "Untamed Cultists",
+    "id": "F26",
+    "type": "unit",
+    "faction": "shadowfen",
+    "race": "raven",
+    "rarity": "common",
+    "image": "/assets/images/cards/token_raven.png",
+    "mana": 7,
+    "strength": "10/13/16/20/24",
+    "movement": 0,
+    "ability": null
+  },
+  {
     "name": "Doppelbocks",
     "id": "S1",
     "type": "unit",
@@ -1676,7 +1754,7 @@
     "mana": "4/4/4/3/3",
     "strength": null,
     "movement": null,
-    "ability": "*Destroy* a target unit or structure. Deal *5/4/3/3/2 damage* to your base"
+    "ability": "*Destroy* a target unit or structure with *8/10/12/15/18 or less strength*. Deal *3 damage* to your base"
   },
   {
     "name": "Devastators",
@@ -1689,7 +1767,7 @@
     "mana": 4,
     "strength": "3/4/4/5/6",
     "movement": 1,
-    "ability": "When attacking the base or a structure, deal *3/3/4/5/6 additional damage* to it"
+    "ability": "When attacking a structure or base, deal *3/3/4/5/6 additional damage* to it"
   },
   {
     "name": "Draconic Roamers",
@@ -1793,7 +1871,7 @@
     "mana": 5,
     "strength": "3/4/4/6/7",
     "movement": 0,
-    "ability": "On play, *fly* to the first empty tile in front. *Give 3/3/4/4/5* strength to all friendly units passed",
+    "ability": "On play, *fly* to the first empty tile in front. *Give 3/4/5/6/7* strength to all friendly units passed",
     "hero": true
   },
   {
@@ -1861,6 +1939,32 @@
     "strength": null,
     "movement": null,
     "ability": "*Spawn* a *3/4/5/6/7* strength Satyr on a random tile in your furthest row"
+  },
+  {
+    "name": "Mindless Horde",
+    "id": "S25",
+    "type": "unit",
+    "faction": "swarm",
+    "race": "satyr",
+    "rarity": "common",
+    "image": "/assets/images/cards/token_satyr.png",
+    "mana": 3,
+    "strength": "4/5/6/7/8",
+    "movement": 0,
+    "ability": null
+  },
+  {
+    "name": "Obliterators",
+    "id": "S26",
+    "type": "unit",
+    "faction": "swarm",
+    "race": "undead",
+    "rarity": "common",
+    "image": "/assets/images/cards/token_undead.png",
+    "mana": 6,
+    "strength": "4/5/6/7/8",
+    "movement": 2,
+    "ability": null
   },
   {
     "name": "Token Construct",
@@ -2358,5 +2462,31 @@
     "strength": "3/4/5/6/7",
     "movement": null,
     "ability": "At the start of your turn, remove *1 strength* from itself and *give it* to your base"
+  },
+  {
+    "name": "Iced Droplings",
+    "id": "W25",
+    "type": "unit",
+    "faction": "winter",
+    "race": "frostling",
+    "rarity": "common",
+    "image": "/assets/images/cards/token_frostling.png",
+    "mana": 6,
+    "strength": "7/8/10/12/15",
+    "movement": 1,
+    "ability": null
+  },
+  {
+    "name": "Sleetstompers",
+    "id": "W26",
+    "type": "unit",
+    "faction": "winter",
+    "race": "dwark",
+    "rarity": "common",
+    "image": "/assets/images/cards/token_dwarf.png",
+    "mana": 8,
+    "strength": "6/7/8/10/12",
+    "movement": 2,
+    "ability": null
   }
 ]
