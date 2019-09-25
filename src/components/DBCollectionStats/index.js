@@ -30,9 +30,9 @@ const getLevelStats = (cards, totalKnownCards) =>
       ''
     )
 
-const getAvailableStones = collection =>
+const getAvailableCoins = collection =>
   collection
-    .map(card => getExtraAfterMax(resolveCardForLevel(card)).stones)
+    .map(card => getExtraAfterMax(resolveCardForLevel(card)).coins)
     .reduce(sum, 0)
 
 const DBCollectionStats = props => {
@@ -59,7 +59,7 @@ const DBCollectionStats = props => {
   )
 
   const extraAfterMax = React.useMemo(
-    () => getAvailableStones(props.collection),
+    () => getAvailableCoins(props.collection),
     [props.collection]
   )
   const collectionCost = React.useMemo(
@@ -89,7 +89,7 @@ const DBCollectionStats = props => {
           </span>
         </li>
         <li>
-          Fusion stones after exchange:{' '}
+          Coins after exchange:{' '}
           <span className="DBCollectionStats__item">{extraAfterMax}</span>
         </li>
         <li>
