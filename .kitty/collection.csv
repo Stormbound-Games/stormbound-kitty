@@ -1,12 +1,12 @@
 id,name,level,copies
 I1,Destructobots,3,22
-I2,Doctor Mia,2,1
+I2,Doctor Mia,3,0
 I3,Fortification Tonic,3,15
 I4,Ozone Purifiers,3,41
 I5,Unstable Build,2,23
 I6,Finite Loopers,3,41
 I7,Greengale Serpents,3,28
-I8,Linked Golems,3,4
+I8,Linked Golems,3,5
 I9,Sound Drivers,2,14
 I10,Upgrade Point,3,6
 I11,Boosting Elixir,3,19
@@ -23,6 +23,8 @@ I21,Delegators,3,47
 I22,Project PH03-NIX,2,1
 I23,Armed Schemers,3,4
 I24,Mechanical Workers,2,10
+I25,Agents in Charge,0,0
+I26,Operators,0,0
 N1,Green Prototypes,4,20
 N2,Summon Militia,5,0
 N3,Gifted Recruits,5,0
@@ -57,20 +59,20 @@ N31,Flooding the Gates,2,34
 N32,Heroic Soldiers,4,37
 N33,Snake Eyes,3,0
 N34,Trueshot Post,3,6
-N35,Ubass the Hunter,2,1
+N35,Ubass the Hunter,3,0
 N36,Voidsurgers,2,27
 N37,Boomstick Officers,2,23
 N38,Harvesters of Souls,4,2
-N39,Hearthguards,3,1
+N39,Hearthguards,3,2
 N40,Kindred’s Grace,3,6
 N41,Lich Summoners,2,10
 N42,Lucky Charmers,4,9
 N43,Ludic Matriarch,2,2
 N44,Needle Blast,4,6
 N45,Powder Tower,2,5
-N46,Tegor the Vengeful,1,0
+N46,Tegor the Vengeful,2,0
 N47,Victors of the Melee,4,15
-N48,Archdruid Earyn,1,0
+N48,Archdruid Earyn,2,0
 N49,Avian Stalkers,2,11
 N50,Call for Aid,2,29
 N51,Dangerous Suitors,3,21
@@ -81,7 +83,7 @@ N55,Joust Champions,2,37
 N56,Temple Guardians,2,6
 N57,Crazy Bombers,2,4
 N58,Siren of the Seas,0,0
-N59,Edrik the Fierce,1,0
+N59,Edrik the Fierce,2,0
 N60,Fluffy Badboxers,2,7
 N61,Hair-raising Cats,2,21
 N62,Sweetcap Kittens,2,8
@@ -91,14 +93,17 @@ N65,Razor-sharp Lynxes,2,9
 N66,Bigthrust Tigers,2,4
 N67,Wild Saberpaws,1,0
 N68,Twilight Prowlers,2,9
-N69,Laurus King in Exile,2,0
+N69,Laurus King in Exile,2,1
+N70,Aged Duskbringers,0,0
+N71,Rapid Mousers,0,0
+N72,Seasick Bouncers,0,0
 F1,Brood Sages,3,4
 F2,Copperskin Ranger,3,46
 F3,Dubious Hags,4,38
 F4,Toxic Sacrifice,4,38
 F5,Crimson Sentry,3,40
 F6,Harpies of the Hunt,3,39
-F7,Heliotroopers,2,14
+F7,Heliotroopers,2,15
 F8,Rain of Frogs,0,0
 F9,Wandering Wyrms,3,27
 F10,Azure Hatcher,4,13
@@ -107,32 +112,34 @@ F12,Tode the Elevated,1,0
 F13,Venomfall Spire,3,27
 F14,Witches of the Wild,4,34
 F15,Amberhides,5,0
-F16,Feral Shamans,2,27
+F16,Feral Shamans,2,28
 F17,Obsidian Butchers,2,24
 F18,Soulcrushers,3,5
 F19,Sunbeam Serpents,2,4
-F20,Blood Ministers,3,2
+F20,Blood Ministers,3,3
 F21,Broodmother Qordia,1,0
 F22,Curse of Strings,3,14
-F23,High Priestess Klaxi,0,0
+F23,High Priestess Klaxi,1,0
 F24,Clerics with Cords,2,3
+F25,Limelimbs,0,0
+F26,Untamed Cultists,0,0
 S1,Doppelbocks,3,47
-S2,Restless Goats,2,3
-S3,Counselor Ahmi,0,0
-S4,Dreadful Keepers,2,3
+S2,Restless Goats,2,5
+S3,Counselor Ahmi,1,0
+S4,Dreadful Keepers,2,4
 S5,Faun Companions,2,32
 S6,Forgotten Souls,2,19
 S7,Moonlit Aerie,3,43
 S8,Shady Ghoul,3,22
 S9,Swarmcallers,2,31
 S10,Broken Truce,2,23
-S11,Devastators,2,6
+S11,Devastators,2,7
 S12,Draconic Roamers,3,18
 S13,Mischiefs,3,38
 S14,Pan Heralds,3,48
 S15,Dark Harvest,2,23
 S16,Dreadfauns,3,41
-S17,Grim Couriers,3,40
+S17,Grim Couriers,3,41
 S18,Pillars of Doom,2,5
 S19,Xuri Lord of Life,1,0
 S20,Herald’s Hymn,3,44
@@ -140,13 +147,15 @@ S21,Queen of Herds,2,0
 S22,Vindicators,2,2
 S23,Lasting Remains,3,16
 S24,Head Start,2,9
+S25,Mindless Horde,0,0
+S26,Obliterators,0,0
 W1,Icicle Burst,4,35
 W2,Frosthexers,5,0
 W3,The Hearth,4,37
 W4,Wisp Cloud,4,12
-W5,Yowling Weavers,3,0
+W5,Yowling Weavers,3,1
 W6,Moment’s Peace,4,16
-W7,Mystwives,3,2
+W7,Mystwives,3,3
 W8,Spellbinder Zhevana,2,2
 W9,Frozen Core,4,0
 W10,Lady Rime,1,0
@@ -157,10 +166,12 @@ W14,Blessed with Brawn,3,11
 W15,Broken Earth Drakes,4,13
 W16,Dawnsparks,3,2
 W17,Wolfcloaks,4,9
-W18,Fleshmenders,3,3
+W18,Fleshmenders,3,4
 W19,Gift of the Wise,2,1
 W20,Calming Spirits,3,38
 W21,Visions of the Grove,4,17
 W22,Chillbeards,4,28
 W23,Olf the Hammer,0,0
 W24,Underground Spring,2,5
+W25,Iced Droplings,0,0
+W26,Sleetstompers,0,0
