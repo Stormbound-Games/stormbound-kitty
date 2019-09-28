@@ -1285,6 +1285,20 @@
     "ability": null
   },
   {
+    "name": "Trekking Aldermen",
+    "id": "N73",
+    "type": "unit",
+    "faction": "neutral",
+    "race": null,
+    "rarity": "rare",
+    "image": "/assets/images/cards/trekking_aldermen.png",
+    "mana": 3,
+    "strength": "3/4/4/5/6",
+    "movement": 0,
+    "ability": "After surviving damage, deal *2/2/3/3/4 damage* spread randomly among enemy units on the board.",
+    "elder": true
+  },
+  {
     "name": "Brood Sages",
     "id": "F1",
     "type": "unit",
