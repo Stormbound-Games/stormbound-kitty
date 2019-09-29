@@ -2495,7 +2495,7 @@
     "id": "W26",
     "type": "unit",
     "faction": "winter",
-    "race": "dwark",
+    "race": "dwarf",
     "rarity": "common",
     "image": "/assets/images/cards/token_dwarf.png",
     "mana": 8,
