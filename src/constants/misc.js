@@ -221,6 +221,17 @@ export const WEEKLY_CARD_CONTEST = [
     name: 'Wipeout',
     description:
       'Create a card that is able to take out several units or structures at once and save your base.',
+    winner: {
+      id:
+        'Tjs7QztFOzU7Ozt0aGUlMjBzdXJ2aXZvcnM7aHR0cHMlM0ElMkYlMkZpLmltZ3VyLmNvbSUyRm5MdGRmQWcucG5nOypGb3JjZSolMjBhbGwlMjB1bml0cyUyMHRvJTIwYXR0YWNrJTIwYSUyMHJhbmRvbSUyMGJvcmRlcmluZyUyMHVuaXQlMkMlMjAqZ2l2ZSUyMDIlMkYzJTJGNCUyRjUlMkY2KiUyMHN0cmVuZ3RoJTIwdG8lMjBhbGwlMjB1bml0cyUyMHdobyUyMHN1cnZpdmVkJTIwZGFtYWdlLjs7',
+      author: 'OscarTodam'
+    }
+  },
+  {
+    week: 40,
+    name: 'Resourceful',
+    description:
+      'Create a card that sacrifices some of your alternate resources (anything fluctuating during a match, such as cards, health…), and do something with them. The card should cost more than just mana.',
     submitURL: 'https://forms.gle/vnd8RzrphVLVBMCo9'
   }
 ]
