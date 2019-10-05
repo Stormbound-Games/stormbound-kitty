@@ -11,10 +11,13 @@ export default state => {
   const strength =
     state.type !== 'spell' ? `${state.strength.display} strength` : ''
   const movement = state.type === 'unit' ? `${state.movement} movement` : ''
+  const modifiers = [state.elder ? 'Elder' : '', state.hero ? 'Hero' : '']
+    .filter(Boolean)
+    .join(' ')
 
   return [
     `${faction} ${type}: **${name}**`,
-    `${rarity}${race ? ` · ${race}` : ''}`,
+    `${rarity}${race ? ` · ${race} ` : ' '}${modifiers}`,
     state.level && `At level ${state.level}:`,
     [mana, strength, movement].filter(Boolean).join(' · '),
     ability
