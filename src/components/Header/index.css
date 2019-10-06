@@ -106,3 +106,11 @@
     top: auto;
   }
 }
+
+.Header .icon {
+  font-size: 80%;
+  margin-right: 0.25em;
+  vertical-align: baseline;
+  position: relative;
+  top: 1px;
+}

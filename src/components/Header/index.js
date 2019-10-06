@@ -7,6 +7,7 @@ import CardBuilderNav from '../CBNav'
 import ListBuilderNav from '../TLBNav'
 import GuidesNav from '../GuidesNav'
 import StoriesNav from '../StoriesNav'
+import Icon from '../Icon'
 import TogglableContent from '../TogglableContent'
 import useViewportWidth from '../../helpers/useViewportWidth'
 import {
@@ -48,37 +49,37 @@ const Header = props => {
           <ul className="Header__list">
             <li className="Header__item Header__item--desktop">
               <Link getProps={getStrictActiveLink} to="/">
-                Home
+                <Icon icon="home" /> Home
               </Link>
             </li>
             <li className="Header__item">
               <Link getProps={getLooseActiveLink} to="/sim">
-                Battle Sim
+                <Icon icon="sword" /> Battle Sim
               </Link>
             </li>
             <li className="Header__item">
               <Link getProps={getLooseActiveLink} to="/deck">
-                Deck builder
+                <Icon icon="stack" /> Deck builder
               </Link>
             </li>
             <li className="Header__item">
               <Link getProps={getLooseActiveLink} to="/card">
-                Card builder
+                <Icon icon="wand" /> Card builder
               </Link>
             </li>
             <li className="Header__item">
               <Link getProps={getLooseActiveLink} to="/list">
-                List Builder
+                <Icon icon="template" /> List Builder
               </Link>
             </li>
             <li className="Header__item">
               <Link getProps={getLooseActiveLink} to="/stories">
-                Stories
+                <Icon icon="quill" /> Stories
               </Link>
             </li>
             <li className="Header__item">
               <Link getProps={getLooseActiveLink} to="/guides">
-                Guides
+                <Icon icon="compass" /> Guides
               </Link>
             </li>
           </ul>

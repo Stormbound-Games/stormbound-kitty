@@ -26,7 +26,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "cypress run",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "icons": "spritesh --input public/assets/icons --output sprite.svg --prefix 'icon-'"
   },
   "eslintConfig": {
     "extends": "react-app",
@@ -46,6 +47,7 @@
   "devDependencies": {
     "cypress": "^3.4.1",
     "imagemin": "^6.1.0",
-    "imagemin-webp": "^5.1.0"
+    "imagemin-webp": "^5.1.0",
+    "spritesh": "^1.2.1"
   }
 }
