@@ -1295,7 +1295,7 @@
     "mana": 3,
     "strength": "3/4/4/5/6",
     "movement": 0,
-    "ability": "After surviving damage, deal *2/2/3/3/4 damage* spread randomly among enemy units on the board.",
+    "ability": "After surviving damage, deal *2/2/3/3/4 damage* spread randomly among enemy units on the board",
     "elder": true
   },
   {
@@ -1640,6 +1640,20 @@
     "ability": null
   },
   {
+    "name": "Faithless Prophets",
+    "id": "F27",
+    "type": "unit",
+    "faction": "shadowfen",
+    "race": "raven",
+    "rarity": "rare",
+    "image": "/assets/images/cards/faithless_prophets.png",
+    "mana": 3,
+    "strength": "5/6/7/8/10",
+    "movement": 1,
+    "ability": "After surviving damage, convert itself to fight for the enemy",
+    "elder": true
+  },
+  {
     "name": "Doppelbocks",
     "id": "S1",
     "type": "unit",
@@ -1981,6 +1995,20 @@
     "ability": null
   },
   {
+    "name": "Petrified Fossils",
+    "id": "S27",
+    "type": "unit",
+    "faction": "swarm",
+    "race": "undead",
+    "rarity": "rare",
+    "image": "/assets/images/cards/petrified_fossils.png",
+    "mana": 5,
+    "strength": "4/5/6/7/8",
+    "movement": 1,
+    "ability": "After surviving damage, randomly command all weaker friendly units to move forward",
+    "elder": true
+  },
+  {
     "name": "Token Construct",
     "id": "T1",
     "token": true,
@@ -2161,6 +2189,21 @@
     "strength": 1,
     "movement": 1,
     "ability": null
+  },
+  {
+    "name": "Token Elder",
+    "id": "T14",
+    "token": true,
+    "type": "unit",
+    "faction": "neutral",
+    "race": null,
+    "rarity": "common",
+    "image": "/assets/images/cards/token_elder.png",
+    "mana": 0,
+    "strength": 1,
+    "movement": 1,
+    "ability": null,
+    "elder": true
   },
   {
     "name": "Icicle Burst",
