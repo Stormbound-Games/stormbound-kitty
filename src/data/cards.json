@@ -1779,7 +1779,7 @@
     "race": null,
     "rarity": "rare",
     "image": "/assets/images/cards/broken_truce.png",
-    "mana": "4/4/4/3/3",
+    "mana": 3,
     "strength": null,
     "movement": null,
     "ability": "*Destroy* a target unit or structure with *8/10/12/15/18 or less strength*. Deal *3 damage* to your base"
