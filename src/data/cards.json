@@ -2559,5 +2559,19 @@
     "strength": "6/7/8/10/12",
     "movement": 2,
     "ability": null
+  },
+  {
+    "name": "Earthfathers",
+    "id": "W27",
+    "type": "unit",
+    "faction": "winter",
+    "race": "dwarf",
+    "rarity": "rare",
+    "image": "/assets/images/cards/earthfathers.png",
+    "mana": 7,
+    "strength": "6/7/8/10/12",
+    "movement": 1,
+    "ability": "After surviving damage, gain 3/3/4/5/6 strength.",
+    "elder": true
   }
 ]
