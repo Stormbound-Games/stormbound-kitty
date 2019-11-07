@@ -2346,7 +2346,7 @@
     "rarity": "legendary",
     "image": "/assets/images/cards/lady_rime.png",
     "mana": 6,
-    "strength": "5/7/7/10/10",
+    "strength": "5/7/7/8/10",
     "movement": 1,
     "ability": "On play, *spend* your remaining mana and *gain 2/2/3/4/5* strength for each",
     "hero": true
