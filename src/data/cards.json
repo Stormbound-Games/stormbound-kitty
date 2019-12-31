@@ -355,6 +355,19 @@
     "elder": true
   },
   {
+    "name": "Booming Professors",
+    "id": "I28",
+    "type": "unit",
+    "faction": "ironclad",
+    "race": "rodent",
+    "rarity": "epic",
+    "image": "/assets/images/cards/booming_professors.png",
+    "mana": 6,
+    "strength": "5/6/7/8/10",
+    "movement": 0,
+    "ability": "After surviving damage, deal up to *3/3/4/5/6 of its remaining strength as damage* to the first enemy in front"
+  },
+  {
     "name": "Green Prototypes",
     "id": "N1",
     "type": "unit",
@@ -1341,6 +1354,21 @@
     "elder": true
   },
   {
+    "name": "Prime Oracle Bradga",
+    "id": "N76",
+    "type": "unit",
+    "faction": "neutral",
+    "race": null,
+    "rarity": "legendary",
+    "image": "/assets/images/cards/prime_oracle_bragda.png",
+    "mana": 6,
+    "strength": "6/7/8/10/12",
+    "movement": 1,
+    "ability": "After surviving damage, increase the strength of all weaker friendly units to be equal to this",
+    "hero": true,
+    "elder": true
+  },
+  {
     "name": "Brood Sages",
     "id": "F1",
     "type": "unit",
@@ -1696,6 +1724,20 @@
     "elder": true
   },
   {
+    "name": "Hairy Chestnuts",
+    "id": "F28",
+    "type": "unit",
+    "faction": "shadowfen",
+    "race": "toad",
+    "rarity": "epic",
+    "image": "/assets/images/cards/hairy_chestnuts.png",
+    "mana": 6,
+    "strength": "7/8/10/12/15",
+    "movement": 0,
+    "ability": "After surviving damage, *drain up to 1/1/2/2/3* of the damage received from the enemy base",
+    "elder": true
+  },
+  {
     "name": "Doppelbocks",
     "id": "S1",
     "type": "unit",
@@ -2048,6 +2090,20 @@
     "strength": "4/5/6/7/8",
     "movement": 1,
     "ability": "After surviving damage, randomly command all weaker friendly units to move forward",
+    "elder": true
+  },
+  {
+    "name": "Bucks of Wasteland",
+    "id": "S28",
+    "type": "unit",
+    "faction": "swarm",
+    "race": "satyr",
+    "rarity": "epic",
+    "image": "/assets/images/cards/bucks_of_wasteland.png",
+    "mana": 6,
+    "strength": "7/8/10/12/15",
+    "movement": 0,
+    "ability": "After surviving damage, randomly *give strength to 2* other friendly units equal to the damage received",
     "elder": true
   },
   {
@@ -2600,6 +2656,20 @@
     "strength": "6/7/8/10/12",
     "movement": 1,
     "ability": "After surviving damage, gain 3/3/4/5/6 strength.",
+    "elder": true
+  },
+  {
+    "name": "Chilled Stonedames",
+    "id": "W28",
+    "type": "unit",
+    "faction": "winter",
+    "race": "frostlind",
+    "rarity": "epic",
+    "image": "/assets/images/cards/chilled_stonedames.png",
+    "mana": 4,
+    "strength": "4/5/6/7/8",
+    "movement": 1,
+    "ability": "After surviving damage, *destroy* all weaker enemy units in front",
     "elder": true
   }
 ]
