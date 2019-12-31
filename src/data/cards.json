@@ -1654,7 +1654,7 @@
     "mana": 7,
     "strength": null,
     "movement": null,
-    "ability": "*Convert* a target enemy unit with *8/9/11/13/16 or less strength* to fight for you"
+    "ability": "*Convert* a target enemy unit with *8/10/12/15/18 or less strength* to fight for you"
   },
   {
     "name": "High Priestess Klaxi",
