@@ -5,6 +5,12 @@ export default string => {
     return string
   }
 
+  // Assume hyphens are used to author numeric ranges, and therefore prevent
+  // line-breaks from happening before/after the hyphen by using a non-breaking
+  // hyphen.
+  // See: https://unicode-table.com/en/2011/
+  string = string.replace(/-/g, '‑')
+
   const bolds = string.match(/\*[^*]+\*/g)
   let result = []
   let currentIndex = 0
