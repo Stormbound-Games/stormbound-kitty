@@ -1347,7 +1347,7 @@
     "race": null,
     "rarity": "epic",
     "image": "/assets/images/cards/greenwood_ancients.png",
-    "mana": 3,
+    "mana": 4,
     "strength": "3/4/4/5/6",
     "movement": 1,
     "ability": "After surviving damage, *gain 1/1/2/2/3* strength for each stronger enemy unit on the board.",
