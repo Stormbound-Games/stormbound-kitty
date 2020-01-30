@@ -2663,7 +2663,7 @@
     "id": "W28",
     "type": "unit",
     "faction": "winter",
-    "race": "frostlind",
+    "race": "frostling",
     "rarity": "epic",
     "image": "/assets/images/cards/chilled_stonedames.png",
     "mana": 4,
