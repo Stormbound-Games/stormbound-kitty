@@ -5,40 +5,33 @@ import useViewportWidth from '../../helpers/useViewportWidth'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
 
+const DEFAULT_FILTERS = {
+  faction: '*',
+  race: '*',
+  type: '*',
+  mana: '*',
+  movement: '*',
+  rarity: '*',
+  text: '',
+  status: '*',
+  level: '*',
+  ability: '*',
+  hero: false,
+  elder: false
+}
+
 class DBFiltering extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      faction: '*',
-      race: '*',
-      type: '*',
-      mana: '*',
-      movement: '*',
-      rarity: '*',
-      text: '',
-      status: '*',
-      level: '*',
-      ability: '*'
-    }
+    this.state = { ...DEFAULT_FILTERS }
   }
 
   setFaction = faction => this.setState({ faction })
   setText = text =>
     text === ''
       ? this.setState({ text })
-      : this.setState({
-          text,
-          faction: '*',
-          type: '*',
-          race: '*',
-          mana: '*',
-          movement: '*',
-          rarity: '*',
-          level: '*',
-          status: '*',
-          ability: '*'
-        })
+      : this.setState({ ...DEFAULT_FILTERS, text })
   setType = type =>
     this.setState({
       type,
@@ -55,21 +48,10 @@ class DBFiltering extends React.Component {
   setStatus = status => this.setState({ status })
   setLevel = level => this.setState({ level: +level || level })
   setAbility = ability => this.setState({ ability })
+  setHero = hero => this.setState({ hero })
+  setElder = elder => this.setState({ elder })
 
-  resetFilters = () => {
-    this.setState({
-      faction: '*',
-      race: '*',
-      type: '*',
-      mana: '*',
-      movement: '*',
-      rarity: '*',
-      text: '',
-      level: '*',
-      status: '*',
-      ability: '*'
-    })
-  }
+  resetFilters = () => this.setState({ ...DEFAULT_FILTERS })
 
   matchesText = card =>
     this.state.text === '' ||
@@ -121,6 +103,8 @@ class DBFiltering extends React.Component {
       (this.state.ability === 'COMMAND' && /command/i.test(card.ability || ''))
     )
   }
+  matchesHero = card => Boolean(card.hero) === this.state.hero
+  matchesElder = card => Boolean(card.elder) === this.state.elder
 
   getCollection = cards => {
     return cards
@@ -136,6 +120,8 @@ class DBFiltering extends React.Component {
         if (!this.matchesStatus(card)) return false
         if (!this.matchesLevel(card)) return false
         if (!this.matchesAbility(card)) return false
+        if (!this.matchesHero(card)) return false
+        if (!this.matchesElder(card)) return false
         return true
       })
       .sort(sortCards())
@@ -155,7 +141,9 @@ class DBFiltering extends React.Component {
       setText: this.setText,
       setStatus: this.setStatus,
       setLevel: this.setLevel,
-      setAbility: this.setAbility
+      setAbility: this.setAbility,
+      setHero: this.setHero,
+      setElder: this.setElder
     }
 
     return this.props.children({

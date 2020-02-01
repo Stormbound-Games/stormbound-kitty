@@ -2,6 +2,7 @@ import React from 'react'
 import CTA from '../CTA'
 import Row from '../Row'
 import Column from '../Column'
+import Checkbox from '../Checkbox'
 import FactionSelect from '../FactionSelect'
 import { TYPES, RACES, RARITIES } from '../../constants/game'
 import capitalise from '../../helpers/capitalise'
@@ -144,6 +145,38 @@ const DBEditorFilters = props => (
               onChange={event => props.setText(event.target.value)}
               placeholder="e.g. Faun"
             />
+          </Column>
+        </Row>
+      </Column>
+    </Row>
+
+    <Row desktopOnly>
+      <Column>
+        <Row>
+          <Column>
+            <Checkbox
+              id="elder"
+              checked={props.elder}
+              onChange={event => props.setElder(event.target.checked)}
+            >
+              Elder
+            </Checkbox>
+          </Column>
+          <Column>
+            <Checkbox
+              id="hero"
+              checked={props.hero}
+              onChange={event => props.setHero(event.target.checked)}
+            >
+              Hero
+            </Checkbox>
+          </Column>
+        </Row>
+      </Column>
+      <Column>
+        <Row>
+          <Column />
+          <Column>
             <CTA
               onClick={props.resetFilters}
               type="button"
