@@ -114,7 +114,7 @@ export default class DeckMechanisms extends React.Component {
 
     // If it’s not a discard move and the card costs more mana than the current
     // round, skip play.
-    if (!options.discard && (!options.free && card.mana > this.state.mana)) {
+    if (!options.discard && !options.free && card.mana > this.state.mana) {
       return false
     }
 
@@ -290,15 +290,15 @@ export default class DeckMechanisms extends React.Component {
         }
 
         // Pick a satyr from the remaining cards from a deck with a weighted
-        // random, play it for free, and reset its weight now that it has been
-        // picked.
+        // random and play it for free.
+        // Note: it seems that QoH spawns do not cause a weighing of the deck.
+        // See: https://discordapp.com/channels/293674725069029377/564840207875178502/676580198057246730
         satyr1 = rwc(satyrs)
         this.play(satyr1, { free: true })
 
         // If Queen of Herds is level 4 or 5 and there were more than single
         // satyr in the remaining cards from the deck, a second one can be
-        // picked with a weighted random, played for free, and have its weight
-        // resetted.
+        // picked with a weighted random and played for free.
         if (satyrs.length > 1 && card.level >= 4) {
           satyr2 = rwc(satyrs.filter(satyr => satyr.id !== satyr1))
 
@@ -306,10 +306,6 @@ export default class DeckMechanisms extends React.Component {
             this.play(satyr2, { free: true })
           }
         }
-
-        // For some reason (?), recompute the weight of the entire deck except
-        // for the cards in hand and reset the played satyr(s)’ weight to 0.
-        this.increaseDeckWeight({ reset: [satyr1, satyr2] })
 
         break
       }
