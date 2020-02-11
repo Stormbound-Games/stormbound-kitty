@@ -289,18 +289,21 @@ export default class DeckMechanisms extends React.Component {
           break
         }
 
-        // Pick a satyr from the remaining cards from a deck with a weighted
-        // random and play it for free.
+        // Pick a satyr from the remaining cards from a deck at random and play
+        // it for free.
+        // Note: it seems that QoH does not draw satyrs based on their weight,
+        // hence the use of `arrayRandom` instead of `rwc`.
+        // See: https://discordapp.com/channels/293674725069029377/564840207875178502/676580933180325920
         // Note: it seems that QoH spawns do not cause a weighing of the deck.
         // See: https://discordapp.com/channels/293674725069029377/564840207875178502/676580198057246730
-        satyr1 = rwc(satyrs)
+        satyr1 = arrayRandom(satyrs)
         this.play(satyr1, { free: true })
 
         // If Queen of Herds is level 4 or 5 and there were more than single
         // satyr in the remaining cards from the deck, a second one can be
-        // picked with a weighted random and played for free.
+        // picked at random and played for free.
         if (satyrs.length > 1 && card.level >= 4) {
-          satyr2 = rwc(satyrs.filter(satyr => satyr.id !== satyr1))
+          satyr2 = arrayRandom(satyrs.filter(satyr => satyr.id !== satyr1))
 
           if (satyr2) {
             this.play(satyr2, { free: true })
