@@ -103,8 +103,10 @@ class DBFiltering extends React.Component {
       (this.state.ability === 'COMMAND' && /command/i.test(card.ability || ''))
     )
   }
-  matchesHero = card => Boolean(card.hero) === this.state.hero
-  matchesElder = card => Boolean(card.elder) === this.state.elder
+  matchesHero = card =>
+    !this.state.hero || Boolean(card.hero) === this.state.hero
+  matchesElder = card =>
+    !this.state.elder || Boolean(card.elder) === this.state.elder
 
   getCollection = cards => {
     return cards
