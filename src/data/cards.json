@@ -1681,7 +1681,7 @@
     "mana": 4,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On play, *convert* a random bordering enemy unit with *1/3/3/5/7 /or/or/or/or /lower/lower/lower/lower strength* to fight for you"
+    "ability": "On play, *convert* a random bordering enemy unit with *2/3/4/5/6 /or/or/or/or /lower/lower/lower/lower strength* to fight for you"
   },
   {
     "name": "Limelimbs",
