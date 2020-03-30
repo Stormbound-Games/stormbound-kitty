@@ -1049,5 +1049,29 @@ export default [
     author: 'Xcircle',
     cardId: 'S20',
     category: 'swarm'
+  },
+  {
+    title: 'About the Unbound',
+    content: `Dear Sir Edrik,
+
+    The new recruits have been trained and are ready to see first combat. I have confidence in these few, they seem rather gifted.
+    ---
+    Although your speech went in depth about personal hygiene, the veterans have been refusing to fight while the daily bath mandate is in place. I think we might be able to satisfy their demands if we change the restriction to weekly.
+    ---
+    Now, I have gone out of my way to find answers to your questions concerning the “unbound”. Our research has brought about very few answers, however new discoveries are always possible so I will keep a portion of my team studying the matter.
+    I guess I should clarify who I’m talking about in case you don’t remember your previous letter, I know you are a busy man. I am using the term “unbound” to refer to the commanders seemingly not of this world. The ones that appear out of nowhere and disappear just the same.
+    The first question we sought to answer was that of motivation. Of course, you are aware that they don't demand payment for their assistance, even though they use masterful tactics to assist our keeping of order and territory battles. We have, however, noticed that after every battle, the winner claims a portion of money, although we don’t know if this money comes from the enemy commander.
+    We suspect that the unbound are motivated by prestige. Although we don’t know what they do with the money, we have noticed a correlation between each commander’s experience, and the troops abilities on the battlefield. I’m sure you have experienced this boost of power as well.
+    The next place we searched for information was that of physical appearance. The unbound don’t seem to make small talk, even though they wear their titles proudly. They do however, as we have noticed, make gestures specifically targeted at the enemy commanders. Sometimes they seem friendly, sometimes formal, occasionally unpleasant.
+    Concerning the names of the unbound, we have noticed that some commanders fight each other more frequently, sometimes even battling without their full power. This brings up motivation again, as it seems that they view full-scale battles as mear duels. To them, our territory disputes are games.
+    Finally, we believe that the unbound have the power to talk to the “devs”, the ancient beings thought to control all of Stormbound. This is only theory though, we do not have solid evidence to back this up.
+    ---
+    With all this information, I ask of you Edrick, please train the unbound that are inexperienced in this world. I feel that our chances of bringing the world back to order are more reasonable when there are powerful leaders on all sides. Hopefully someday, the other kingdoms will see the pointlessness of our petty battles.
+    Sincerely,
+    
+    Your loyal servent`,
+    author: 'MooreFunn',
+    cardId: 'N59',
+    category: 'lore'
   }
 ]
