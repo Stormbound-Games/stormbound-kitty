@@ -13,7 +13,7 @@ const getAverageSpeed = cards =>
 const getAverageLevel = cards =>
   (cards.map(c => c.level).reduce(sum, 0) / cards.length).toFixed(2)
 const getPlayableCardsFirst = cards =>
-  cards.filter(c => c.mana <= 3 && !['W1', 'I3', 'F4', 'N15'].includes(c.id))
+  cards.filter(c => c.mana <= 3 && !['W1', 'I3', 'F4', 'N15', 'N63'].includes(c.id))
 const getRaces = cards => [...new Set(cards.map(c => c.race))]
 
 const DBStats = props => {
