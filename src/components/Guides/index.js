@@ -49,7 +49,7 @@ const Guides = props => (
       faction="neutral"
       title="Pirate Guide"
       subline="By MooreFunn"
-      copy="In this comprehensive guide, MooreFunn tells us how to conquer the seas with pirate cards! From composing an efficient deck to countering specific situations , you should learn everything you need to know to master pirate gameplay."
+      copy="In this comprehensive guide, MooreFunn tells us how to conquer the seas with pirate cards! From composing an efficient deck to countering specific situations, you should learn everything you need to know to master pirate gameplay."
       cta={{
         'aria-label': 'Read pirate guide by MooreFunn',
         to: '/guides/pirate',
