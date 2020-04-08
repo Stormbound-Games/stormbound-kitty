@@ -15,7 +15,7 @@ export default collection => {
         card.level === 3 && copies[1] * stonesForMissing,
         card.level === 4 && copies[2] * stonesForMissing,
         card.level === 5 && copies[3] * stonesForMissing,
-        card.copies
+        card.copies * stonesForMissing
       ]
         .filter(Boolean)
         .reduce(sum, 0)
