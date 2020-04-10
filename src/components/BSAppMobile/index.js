@@ -17,7 +17,7 @@ export default class BSAppMobile extends React.Component {
   static MODES = {
     GAME: 'GAME',
     SETTINGS: 'SETTINGS',
-    CELL: 'CELL'
+    CELL: 'CELL',
   }
 
   state = { mode: BSAppMobile.MODES.GAME }
@@ -142,29 +142,27 @@ export default class BSAppMobile extends React.Component {
       <div className={`BSAppMobile BSAppMobile--${this.state.mode}`}>
         {this.props.shouldRenderLeftPanel && (
           <div
-            className={`BSAppMobile__panel BSAppMobile__panel--${
-              BSAppMobile.MODES.SETTINGS
-            }`}
+            className={`BSAppMobile__panel BSAppMobile__panel--${BSAppMobile.MODES.SETTINGS}`}
           >
             {this.props.mode === 'EDITOR' ? (
               <Panel
-                side="left"
-                title="Game and turn settings"
+                side='left'
+                title='Game and turn settings'
                 isMobile={true}
                 isPanelOpen={this.state.mode === BSAppMobile.MODES.SETTINGS}
                 closePanel={() =>
                   this.setState({ mode: BSAppMobile.MODES.GAME })
                 }
-                data-testid="settings-panel"
+                data-testid='settings-panel'
               >
                 <PlayerForm
-                  player="RED"
-                  displayName="🔴 Red player (opponent)"
+                  player='RED'
+                  displayName='🔴 Red player (opponent)'
                   {...this.props.players.RED}
                 />
                 <PlayerForm
-                  player="BLUE"
-                  displayName="🔵 Blue player (you)"
+                  player='BLUE'
+                  displayName='🔵 Blue player (you)'
                   {...this.props.players.BLUE}
                 />
                 <CardsForm {...this.props} />
@@ -172,25 +170,25 @@ export default class BSAppMobile extends React.Component {
               </Panel>
             ) : (
               <Panel
-                side="left"
-                title="Your deck"
+                side='left'
+                title='Your deck'
                 isMobile={true}
                 isPanelOpen={this.state.mode === BSAppMobile.MODES.SETTINGS}
                 closePanel={() =>
                   this.setState({ mode: BSAppMobile.MODES.GAME })
                 }
-                data-testid="deck-panel"
+                data-testid='deck-panel'
               >
                 <Deck
                   deck={this.props.cards}
                   onClick={this.props.zoom}
-                  onClickLabel="Enlarge card"
+                  onClickLabel='Enlarge card'
                 />
                 <Hint>
                   <a
                     href={`/deck/` + serialiseDeck(this.props.cards)}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target='_blank'
+                    rel='noopener noreferrer'
                   >
                     Open deck
                   </a>{' '}
@@ -201,7 +199,7 @@ export default class BSAppMobile extends React.Component {
           </div>
         )}
 
-        <div className="BSAppMobile__board">
+        <div className='BSAppMobile__board'>
           <Board
             {...this.props}
             openCellPanel={() =>
@@ -213,12 +211,12 @@ export default class BSAppMobile extends React.Component {
           {this.props.shouldRenderLeftPanel &&
             this.state.mode !== BSAppMobile.MODES.SETTINGS && (
               <ButtonIcon
-                className="BSAppMobile__panel-button BSAppMobile__panel-button--left"
+                className='BSAppMobile__panel-button BSAppMobile__panel-button--left'
                 onClick={() =>
                   this.setState({ mode: BSAppMobile.MODES.SETTINGS })
                 }
-                aria-label="Open settings panel"
-                data-testid="settings-panel-btn"
+                aria-label='Open settings panel'
+                data-testid='settings-panel-btn'
               >
                 ←
               </ButtonIcon>
@@ -227,10 +225,10 @@ export default class BSAppMobile extends React.Component {
           {shouldRenderRightPanel &&
             this.state.mode !== BSAppMobile.MODES.CELL && (
               <ButtonIcon
-                className="BSAppMobile__panel-button BSAppMobile__panel-button--right"
+                className='BSAppMobile__panel-button BSAppMobile__panel-button--right'
                 onClick={() => this.setState({ mode: BSAppMobile.MODES.CELL })}
-                aria-label="Open cell panel"
-                data-testid="cell-panel-btn"
+                aria-label='Open cell panel'
+                data-testid='cell-panel-btn'
               >
                 →
               </ButtonIcon>
@@ -239,20 +237,18 @@ export default class BSAppMobile extends React.Component {
 
         {shouldRenderRightPanel && (
           <div
-            className={`BSAppMobile__panel BSAppMobile__panel--${
-              BSAppMobile.MODES.CELL
-            }`}
+            className={`BSAppMobile__panel BSAppMobile__panel--${BSAppMobile.MODES.CELL}`}
           >
             {this.props.mode === 'EDITOR' ? (
               <Panel
-                side="right"
-                title="Active cell"
+                side='right'
+                title='Active cell'
                 isMobile={true}
                 isPanelOpen={this.state.mode === BSAppMobile.MODES.CELL}
                 closePanel={() =>
                   this.setState({ mode: BSAppMobile.MODES.GAME })
                 }
-                data-testid="cell-panel"
+                data-testid='cell-panel'
               >
                 {!!this.props.activePlayer && !!this.props.activeCell && (
                   <CellForm
@@ -268,8 +264,8 @@ export default class BSAppMobile extends React.Component {
               </Panel>
             ) : (
               <Panel
-                title="Puzzle"
-                side="right"
+                title='Puzzle'
+                side='right'
                 isMobile
                 closePanel={() =>
                   this.setState({ mode: BSAppMobile.MODES.GAME })

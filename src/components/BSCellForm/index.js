@@ -60,20 +60,20 @@ const BSCellForm = props => {
 
   return (
     <form
-      className="BSCellForm"
+      className='BSCellForm'
       onSubmit={props.onUnitSubmit}
-      data-testid="cell-form"
+      data-testid='cell-form'
     >
-      <div className="BSCellForm__row">
+      <div className='BSCellForm__row'>
         <Row>
           <Column width={75}>
-            <label className="label" htmlFor="card">
+            <label className='label' htmlFor='card'>
               Card
             </label>
 
             <CardSelect
-              name="card"
-              id="card"
+              name='card'
+              id='card'
               required
               current={card}
               onChange={option => {
@@ -90,73 +90,73 @@ const BSCellForm = props => {
             />
           </Column>
           <Column width={25}>
-            <label htmlFor="level">Level</label>
+            <label htmlFor='level'>Level</label>
             <select
               disabled={card.id && card.id.startsWith('T')}
-              name="level"
-              id="level"
+              name='level'
+              id='level'
               value={level}
               onChange={event => {
                 setLevel(+event.target.value)
                 updateStrengthField(card, +event.target.value)
               }}
               required
-              data-testid="cell-level-select"
+              data-testid='cell-level-select'
             >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+              <option value='3'>3</option>
+              <option value='4'>4</option>
+              <option value='5'>5</option>
             </select>
           </Column>
         </Row>
       </div>
 
-      <div className="BSCellForm__row">
+      <div className='BSCellForm__row'>
         <Row>
           <Column>
-            <label className="label" htmlFor="strength">
+            <label className='label' htmlFor='strength'>
               Strength
             </label>
             <input
-              type="number"
-              name="strength"
-              id="strength"
+              type='number'
+              name='strength'
+              id='strength'
               required
               min={1}
               max={99}
               value={strength}
               onChange={event => setStrength(event.target.value)}
-              data-testid="cell-strength-input"
+              data-testid='cell-strength-input'
             />
           </Column>
           <Column>
             <fieldset>
               <legend>Active player</legend>
-              <div className="BSCellForm__radios">
+              <div className='BSCellForm__radios'>
                 <Radio
-                  className="GameForm__radio"
-                  id="activePlayerBlue"
-                  name="activePlayer"
-                  value="BLUE"
+                  className='GameForm__radio'
+                  id='activePlayerBlue'
+                  name='activePlayer'
+                  value='BLUE'
                   checked={props.activePlayer === 'BLUE'}
                   onChange={event => props.setActivePlayer(event.target.value)}
-                  data-testid="cell-player-BLUE-radio"
+                  data-testid='cell-player-BLUE-radio'
                   required
                 >
                   Blue
                 </Radio>
 
                 <Radio
-                  className="GameForm__radio"
-                  type="radio"
-                  id="activePlayerRed"
-                  name="activePlayer"
-                  value="RED"
+                  className='GameForm__radio'
+                  type='radio'
+                  id='activePlayerRed'
+                  name='activePlayer'
+                  value='RED'
                   checked={props.activePlayer === 'RED'}
                   onChange={event => props.setActivePlayer(event.target.value)}
-                  data-testid="cell-player-RED-radio"
+                  data-testid='cell-player-RED-radio'
                   required
                 >
                   Red
@@ -169,40 +169,40 @@ const BSCellForm = props => {
 
       <fieldset>
         <legend>Penalties</legend>
-        <div className="BSCellForm__row">
+        <div className='BSCellForm__row'>
           <Row>
             <Column width={33}>
               <Checkbox
-                name="poisoned"
-                id="poisoned"
+                name='poisoned'
+                id='poisoned'
                 disabled={getRawCardData(card).type === 'structure'}
                 checked={poisoned}
                 onChange={event => setPoisoned(event.target.checked)}
-                data-testid="cell-poisoned-checkbox"
+                data-testid='cell-poisoned-checkbox'
               >
                 Poisoned
               </Checkbox>
             </Column>
             <Column width={33}>
               <Checkbox
-                name="frozen"
-                id="frozen"
+                name='frozen'
+                id='frozen'
                 disabled={getRawCardData(card).type === 'structure'}
                 checked={frozen}
                 onChange={event => setFrozen(event.target.checked)}
-                data-testid="cell-frozen-checkbox"
+                data-testid='cell-frozen-checkbox'
               >
                 Frozen
               </Checkbox>
             </Column>
             <Column width={33}>
               <Checkbox
-                name="confused"
-                id="confused"
+                name='confused'
+                id='confused'
                 disabled={getRawCardData(card).type === 'structure'}
                 checked={confused}
                 onChange={event => setConfused(event.target.checked)}
-                data-testid="cell-confused-checkbox"
+                data-testid='cell-confused-checkbox'
               >
                 Confused
               </Checkbox>
@@ -221,10 +221,10 @@ const BSCellForm = props => {
           activeCellCard.confused !== confused ||
           activeCellCard.player !== props.activePlayer ? (
             <CTA
-              type="submit"
-              className="BSCellForm__button"
+              type='submit'
+              className='BSCellForm__button'
               disabled={!card}
-              data-testid="cell-form-btn"
+              data-testid='cell-form-btn'
             >
               {activeCellCard.card.id
                 ? 'Update ' + activeCellCard.card.type
@@ -235,11 +235,11 @@ const BSCellForm = props => {
         <Column>
           {!!activeCellCard.card.id ? (
             <CTA
-              type="button"
-              className="BSCellForm__button"
+              type='button'
+              className='BSCellForm__button'
               disabled={!card}
               onClick={props.emptyActiveCell}
-              data-testid="cell-form-remove-btn"
+              data-testid='cell-form-remove-btn'
             >
               Remove {activeCellCard.card.type}
             </CTA>

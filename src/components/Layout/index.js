@@ -4,10 +4,10 @@ import Footer from '../Footer'
 import './index.css'
 
 const Layout = props => (
-  <div className="Layout">
+  <div className='Layout'>
     <Header {...props} />
 
-    <main className="Layout__body">{props.children}</main>
+    <main className='Layout__body'>{props.children}</main>
 
     <Footer />
   </div>

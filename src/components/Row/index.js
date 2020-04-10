@@ -6,7 +6,7 @@ const Row = props => (
     className={[
       'Row',
       props.desktopOnly && 'Row--desktop',
-      props.wideGutter && 'Row--wide'
+      props.wideGutter && 'Row--wide',
     ]
       .filter(Boolean)
       .join(' ')}
@@ -16,7 +16,7 @@ const Row = props => (
         ? null
         : React.cloneElement(child, {
             desktopOnly: props.desktopOnly,
-            wideGutter: props.wideGutter
+            wideGutter: props.wideGutter,
           })
     )}
   </div>

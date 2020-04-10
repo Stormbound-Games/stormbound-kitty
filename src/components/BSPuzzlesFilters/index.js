@@ -16,35 +16,35 @@ const BSPuzzlesFilters = props => {
   return (
     <form
       onSubmit={event => event.preventDefault()}
-      className="BSPuzzlesFilters"
+      className='BSPuzzlesFilters'
     >
       <Row>
         <Column>
-          <label htmlFor="difficulty">Difficulty</label>
+          <label htmlFor='difficulty'>Difficulty</label>
           <select
-            id="difficulty"
-            name="difficulty"
+            id='difficulty'
+            name='difficulty'
             value={props.difficulty}
             onChange={event => updateDifficulty(event.target.value)}
           >
-            <option value="*">Any</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+            <option value='*'>Any</option>
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
           </select>
         </Column>
 
         <Column>
-          <label htmlFor="type">Type</label>
+          <label htmlFor='type'>Type</label>
           <select
-            id="type"
-            name="type"
+            id='type'
+            name='type'
             value={props.type}
             onChange={event => updateType(event.target.value)}
           >
-            <option value="*">Any</option>
+            <option value='*'>Any</option>
             {Object.keys(TYPES).map(type => (
               <option value={type} key={type}>
                 {type.slice(0, 1) + type.toLowerCase().slice(1)}
@@ -56,14 +56,14 @@ const BSPuzzlesFilters = props => {
 
       <Row>
         <Column>
-          <label htmlFor="name">Name</label>
+          <label htmlFor='name'>Name</label>
           <input
-            type="search"
-            name="name"
-            id="name"
+            type='search'
+            name='name'
+            id='name'
             value={props.name}
             onChange={event => updateName(event.target.value)}
-            placeholder="e.g. Sneaky Outcasts"
+            placeholder='e.g. Sneaky Outcasts'
           />
         </Column>
       </Row>
@@ -73,13 +73,13 @@ const BSPuzzlesFilters = props => {
           <fieldset>
             <TogglableContent
               isExpanded={areFiltersExpanded}
-              id="puzzles-filters"
+              id='puzzles-filters'
               renderToggle={toggleProps => (
                 <legend>
                   <button
                     {...toggleProps}
-                    type="button"
-                    className="BSPuzzlesFilters__toggle"
+                    type='button'
+                    className='BSPuzzlesFilters__toggle'
                     onClick={() => expandFilters(s => !s)}
                   >
                     {areFiltersExpanded
@@ -94,7 +94,7 @@ const BSPuzzlesFilters = props => {
                   key={restriction}
                   id={restriction}
                   value={restriction}
-                  name="restrictions"
+                  name='restrictions'
                   checked={props.restrictions.includes(restriction)}
                   onChange={event => {
                     if (props.restrictions.includes(event.target.value)) {
@@ -107,7 +107,7 @@ const BSPuzzlesFilters = props => {
                   }}
                 >
                   {RESTRICTIONS[restriction].name}
-                  <span className="BSPuzzlesFilters__info">
+                  <span className='BSPuzzlesFilters__info'>
                     {RESTRICTIONS[restriction].description}
                   </span>
                 </Checkbox>

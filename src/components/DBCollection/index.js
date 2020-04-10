@@ -25,7 +25,7 @@ class DBCollection extends React.Component {
     this.state = {
       collection: this.normaliseCollection(cards),
       activeCard: null,
-      hasImported: null
+      hasImported: null,
     }
 
     this.levelField = React.createRef()
@@ -49,7 +49,7 @@ class DBCollection extends React.Component {
   setActiveCard = id => {
     this.setState(
       state => ({
-        activeCard: state.activeCard === id ? null : id
+        activeCard: state.activeCard === id ? null : id,
       }),
       () => {
         if (this.state.activeCard) {
@@ -77,7 +77,7 @@ class DBCollection extends React.Component {
         id: card.id,
         level: +card.level || 1,
         missing: !!card.missing,
-        copies: typeof card.copies === 'undefined' ? 0 : +card.copies
+        copies: typeof card.copies === 'undefined' ? 0 : +card.copies,
       }))
   }
 
@@ -87,7 +87,7 @@ class DBCollection extends React.Component {
         collection: data
           ? this.normaliseCollection(data)
           : this.state.collection,
-        hasImported: !!data
+        hasImported: !!data,
       },
       () => {
         setTimeout(() => this.setState({ hasImported: null }), 3000)
@@ -107,8 +107,8 @@ class DBCollection extends React.Component {
         // For people to open the CSV file in Excel, it’s better if it contains
         // *all* cards; missing ones are marked as level 0
         card.missing ? 0 : card.level,
-        card.copies || 0
-      ])
+        card.copies || 0,
+      ]),
     ].join('\n')
 
     return data
@@ -118,7 +118,7 @@ class DBCollection extends React.Component {
     download({
       content: this.formatCollectionAsCSV(this.state.collection),
       fileName: 'collection.csv',
-      mimeType: 'text/csv;encoding:utf-8'
+      mimeType: 'text/csv;encoding:utf-8',
     })
 
   updateActiveCardInCollection = (key, value) => {
@@ -133,8 +133,8 @@ class DBCollection extends React.Component {
         collection: [
           ...state.collection.slice(0, index),
           newCard,
-          ...state.collection.slice(index + 1)
-        ]
+          ...state.collection.slice(index + 1),
+        ],
       }
     })
   }
@@ -157,7 +157,7 @@ class DBCollection extends React.Component {
       activeCard &&
       resolveCardForLevel({
         id: this.state.activeCard,
-        level: activeCard.level
+        level: activeCard.level,
       })
     )
   }
@@ -176,11 +176,11 @@ class DBCollection extends React.Component {
 
     return (
       <Fragment>
-        <h1 className="visually-hidden">Card Collection</h1>
+        <h1 className='visually-hidden'>Card Collection</h1>
 
         <Row desktopOnly wideGutter>
           <Column width={33}>
-            <div className="DBCollection__info">
+            <div className='DBCollection__info'>
               <Title>What’s this</Title>
 
               <p>
@@ -199,7 +199,7 @@ class DBCollection extends React.Component {
                   <ImportCollection onChange={this.uploadCSV} />
                 </Column>
                 <Column>
-                  <CTA type="button" onClick={this.download}>
+                  <CTA type='button' onClick={this.download}>
                     Export collection
                   </CTA>
                 </Column>
@@ -238,7 +238,7 @@ class DBCollection extends React.Component {
                 filtersSetters,
                 collection,
                 resetFilters,
-                cardsPerPage
+                cardsPerPage,
               }) => (
                 <Fragment>
                   <Filters
@@ -260,7 +260,7 @@ class DBCollection extends React.Component {
                     />
                   ) : (
                     <EmptySearch
-                      title="No cards found"
+                      title='No cards found'
                       resetFilters={resetFilters}
                     />
                   )}
@@ -271,8 +271,8 @@ class DBCollection extends React.Component {
         </Row>
 
         <PageMeta
-          title="Cards Collection"
-          description="Import and export your own card collection."
+          title='Cards Collection'
+          description='Import and export your own card collection.'
         />
       </Fragment>
     )

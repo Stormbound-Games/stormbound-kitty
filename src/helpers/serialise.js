@@ -3,7 +3,7 @@ import {
   getShortRace,
   getShortRarity,
   getShortType,
-  getShortCurrency
+  getShortCurrency,
 } from './encoding'
 import getRawCardData from './getRawCardData'
 
@@ -20,7 +20,7 @@ const serialiseBoard = board =>
                 cell.level,
                 cell.poisoned ? 'P' : '',
                 cell.frozen ? 'F' : '',
-                cell.confused ? 'C' : ''
+                cell.confused ? 'C' : '',
               ].join('')
             : ''
         )
@@ -46,7 +46,7 @@ export const serialiseBattle = (board, players, settings, { cards, hand }) =>
       serialisePlayers(players),
       serialiseSettings(settings),
       serialiseCards(cards),
-      hand.join(',')
+      hand.join(','),
     ].join(';')
   )
 
@@ -66,7 +66,7 @@ export const serialiseCard = formState =>
         encodeURIComponent(formState.imageURL || ''),
       encodeURIComponent(formState.ability || ''),
       formState.level,
-      (formState.elder ? 'E' : '') + (formState.hero ? 'H' : '')
+      (formState.elder ? 'E' : '') + (formState.hero ? 'H' : ''),
     ].join(';')
   )
 
@@ -77,7 +77,7 @@ export const serialiseQuest = formState =>
       formState.amount,
       getShortCurrency(formState.currency),
       formState.difficulty,
-      encodeURIComponent(formState.description)
+      encodeURIComponent(formState.description),
     ].join(';')
   )
 

@@ -17,7 +17,7 @@ const StoriesCategory = props => {
 
   return (
     <>
-      <h1 className="visually-hidden">{categoryName} stories</h1>
+      <h1 className='visually-hidden'>{categoryName} stories</h1>
 
       {categoryStories.sort(sortCardsInCategory).map(story => {
         const card = getRawCardData(story.cardId)
@@ -36,7 +36,7 @@ const StoriesCategory = props => {
             cta={{
               'aria-label': 'Read story about ' + card.name,
               to: '/stories/' + id,
-              children: 'Read story'
+              children: 'Read story',
             }}
             image={card.image}
           />

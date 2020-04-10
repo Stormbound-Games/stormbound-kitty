@@ -7,7 +7,7 @@ const Column = props => (
       'Column',
       props.desktopOnly && 'Column--desktop',
       props.wideGutter && 'Column--wide',
-      !!props.width && `Column--${props.width}`
+      !!props.width && `Column--${props.width}`,
     ]
       .filter(Boolean)
       .join(' ')}

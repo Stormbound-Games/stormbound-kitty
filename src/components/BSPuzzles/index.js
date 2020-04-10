@@ -14,7 +14,7 @@ export default class BSPuzzles extends React.Component {
     difficulty: '*',
     type: '*',
     restrictions: [],
-    name: ''
+    name: '',
   }
 
   resetFilters = () =>
@@ -22,7 +22,7 @@ export default class BSPuzzles extends React.Component {
       difficulty: '*',
       type: '*',
       restrictions: [],
-      name: ''
+      name: '',
     })
 
   updateFilter = name => value => this.setState({ [name]: value })
@@ -56,7 +56,7 @@ export default class BSPuzzles extends React.Component {
 
     return (
       <Fragment>
-        <h1 className="visually-hidden">Puzzles</h1>
+        <h1 className='visually-hidden'>Puzzles</h1>
 
         <Row desktopOnly wideGutter>
           <Column width={33}>
@@ -67,16 +67,16 @@ export default class BSPuzzles extends React.Component {
             <Title>Puzzles</Title>
 
             {puzzles.length > 0 ? (
-              <ul className="BSPuzzles__list">
+              <ul className='BSPuzzles__list'>
                 {puzzles.map(puzzle => (
-                  <li className="BSPuzzles__item" key={puzzle.name}>
+                  <li className='BSPuzzles__item' key={puzzle.name}>
                     <Puzzle {...puzzle} key={puzzle.name} />
                   </li>
                 ))}
               </ul>
             ) : (
               <EmptySearch
-                title="No puzzles found"
+                title='No puzzles found'
                 resetFilters={this.resetFilters}
               />
             )}
@@ -84,8 +84,8 @@ export default class BSPuzzles extends React.Component {
         </Row>
 
         <PageMeta
-          title="Puzzles"
-          description="Stormbound puzzles made by the community."
+          title='Puzzles'
+          description='Stormbound puzzles made by the community.'
         />
       </Fragment>
     )

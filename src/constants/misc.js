@@ -5,8 +5,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       author: 'MooreFunn',
       id:
-        'RjtUO1U7UjsyOzA7MTtBdXhpbGlhcnklMjBFdm9rZXM7aHR0cHMlM0ElMkYlMkZ2aWduZXR0ZS53aWtpYS5ub2Nvb2tpZS5uZXQlMkZhZHZlbnR1cmV0aW1ld2l0aGZpbm5hbmRqYWtlJTJGaW1hZ2VzJTJGMyUyRjNiJTJGQlVGTy5wbmclMkZyZXZpc2lvbiUyRmxhdGVzdCUzRmNiJTNEMjAxMDA0MjUwMjAwMzU7QmVmb3JlJTIwYXR0YWNraW5nJTIwYSUyMHVuaXQlMkMlMjBzdW1tb24lMjA1JTIwcG9pc29uZWQlMjB0b2FkcyUyMHdpdGglMjAxJTIwc3RyZW5ndGglMjBzdXJyb3VuZGluZyUyMHRoYXQlMjB1bml0OzE'
-    }
+        'RjtUO1U7UjsyOzA7MTtBdXhpbGlhcnklMjBFdm9rZXM7aHR0cHMlM0ElMkYlMkZ2aWduZXR0ZS53aWtpYS5ub2Nvb2tpZS5uZXQlMkZhZHZlbnR1cmV0aW1ld2l0aGZpbm5hbmRqYWtlJTJGaW1hZ2VzJTJGMyUyRjNiJTJGQlVGTy5wbmclMkZyZXZpc2lvbiUyRmxhdGVzdCUzRmNiJTNEMjAxMDA0MjUwMjAwMzU7QmVmb3JlJTIwYXR0YWNraW5nJTIwYSUyMHVuaXQlMkMlMjBzdW1tb24lMjA1JTIwcG9pc29uZWQlMjB0b2FkcyUyMHdpdGglMjAxJTIwc3RyZW5ndGglMjBzdXJyb3VuZGluZyUyMHRoYXQlMjB1bml0OzE',
+    },
   },
   {
     week: 16,
@@ -14,8 +14,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       author: 'JotaDiez',
       id:
-        'TjtQO1U7TDsyOzA7MTtTaXgtc2lkZWQlMjBpbXBvc3RvcnM7TjMzO09uJTIwcGxheSUyQyUyMGFkZCUyMHRvJTIweW91ciUyMGhhbmQlMjAxJTIwcmFuZG9tJTIwY2FyZCUyMGZyb20lMjB5b3VyJTIwb3Bwb25lbnQncyUyMERlY2slMkMlMjB0aGVuJTIwZGVzdHJveSUyMHRoaXMlMjBjYXJkOzE='
-    }
+        'TjtQO1U7TDsyOzA7MTtTaXgtc2lkZWQlMjBpbXBvc3RvcnM7TjMzO09uJTIwcGxheSUyQyUyMGFkZCUyMHRvJTIweW91ciUyMGhhbmQlMjAxJTIwcmFuZG9tJTIwY2FyZCUyMGZyb20lMjB5b3VyJTIwb3Bwb25lbnQncyUyMERlY2slMkMlMjB0aGVuJTIwZGVzdHJveSUyMHRoaXMlMjBjYXJkOzE=',
+    },
   },
   {
     week: 17,
@@ -27,8 +27,8 @@ export const WEEKLY_CARD_CONTEST = [
       id:
         'UztVO1U7UjszOzE7MTtIYXVudGluZyUyMERlYWQ7UzEzO1doZW4lMjBjb21tYW5kZWQlMjBmb3J3YXJkJTJDJTIwZ2FpbiUyMDIlMkYzJTJGNCUyRjUlMkY3JTIwc3RyZW5ndGg7',
       id2:
-        'UztVO1U7RTs0OzA7Mi8yLzMvMy81O1RoZSUyMGZhbGxlbiUyMGZyb250bGluZTtTODtDb21tYW5kJTIwYWxsJTIwMSUyRjEtMiUyRjEtMiUyRjEtMyUyRjEtMyUyMHN0cmVuZ3RoJTIwZnJpZW5kbHklMjB1bml0cyUyMGZvcndhcmQlMjA7'
-    }
+        'UztVO1U7RTs0OzA7Mi8yLzMvMy81O1RoZSUyMGZhbGxlbiUyMGZyb250bGluZTtTODtDb21tYW5kJTIwYWxsJTIwMSUyRjEtMiUyRjEtMiUyRjEtMyUyRjEtMyUyMHN0cmVuZ3RoJTIwZnJpZW5kbHklMjB1bml0cyUyMGZvcndhcmQlMjA7',
+    },
   },
   {
     week: 18,
@@ -36,8 +36,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       author: 'alphanaut',
       id:
-        'RjtUO1U7Ujs2OzA7My80LzUvNS82O0FjaWRpYyUyMEFtcGhpYmlhbnM7VDg7T24lMjBwbGF5JTJDJTIwKnBvaXNvbiolMjBhbGwlMjB1bml0cyUyMG9uJTIwdGhlJTIwYm9hcmQuJTIwSWYlMjB0aGV5JTIwYXJlJTIwYWxyZWFkeSUyMHBvaXNvbmVkJTJDJTIwKmRyYWluJTIwMiUyRjIlMkYyJTJGMyUyRjMqJTIwc3RyZW5ndGglMjBmcm9tJTIwdGhlbTs='
-    }
+        'RjtUO1U7Ujs2OzA7My80LzUvNS82O0FjaWRpYyUyMEFtcGhpYmlhbnM7VDg7T24lMjBwbGF5JTJDJTIwKnBvaXNvbiolMjBhbGwlMjB1bml0cyUyMG9uJTIwdGhlJTIwYm9hcmQuJTIwSWYlMjB0aGV5JTIwYXJlJTIwYWxyZWFkeSUyMHBvaXNvbmVkJTJDJTIwKmRyYWluJTIwMiUyRjIlMkYyJTJGMyUyRjMqJTIwc3RyZW5ndGglMjBmcm9tJTIwdGhlbTs=',
+    },
   },
   {
     week: 19,
@@ -45,8 +45,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       author: 'JotaDiez',
       id:
-        'RjtSO1U7RTszOzE7MS8yLzMvNC81O0pvdGFEaWV6O2h0dHBzJTNBJTJGJTJGaS5pbWd1ci5jb20lMkZSTTF1OFJPLnBuZztCZWZvcmUlMjBhdHRhY2tpbmclMjBhJTIwdW5pdCUyMHdpdGglMjAxJTJGMiUyRjMlMkY0JTJGNSUyMG9yJTIwbGVzcyUyMHN0cmVuZ3RoJTJDJTIwKmNvbnZlcnQqJTIwaXQlMjB0byUyMGZpZ2h0JTIwZm9yJTIweW91Ow=='
-    }
+        'RjtSO1U7RTszOzE7MS8yLzMvNC81O0pvdGFEaWV6O2h0dHBzJTNBJTJGJTJGaS5pbWd1ci5jb20lMkZSTTF1OFJPLnBuZztCZWZvcmUlMjBhdHRhY2tpbmclMjBhJTIwdW5pdCUyMHdpdGglMjAxJTJGMiUyRjMlMkY0JTJGNSUyMG9yJTIwbGVzcyUyMHN0cmVuZ3RoJTJDJTIwKmNvbnZlcnQqJTIwaXQlMjB0byUyMGZpZ2h0JTIwZm9yJTIweW91Ow==',
+    },
   },
   {
     week: 20,
@@ -54,8 +54,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       author: 'JotaDiez',
       id:
-        'RjtSO1U7Qzs2OzE7OC8xMC8xMi8xNC8xNjtSZWZvcm1lZCUyMFNpbm5lcnM7aHR0cHMlM0ElMkYlMkZpLmltZ3VyLmNvbSUyRldmMFhaWkUucG5nO09uJTIwcGxheSUyQyUyMCpjb252ZXJ0KiUyMHlvdXIlMjB3ZWFrZXN0JTIwZnJpZW5kbHklMjB1bml0JTIwdG8lMjBmaWdodCUyMGZvciUyMHRoZSUyMGVuZW15Ow=='
-    }
+        'RjtSO1U7Qzs2OzE7OC8xMC8xMi8xNC8xNjtSZWZvcm1lZCUyMFNpbm5lcnM7aHR0cHMlM0ElMkYlMkZpLmltZ3VyLmNvbSUyRldmMFhaWkUucG5nO09uJTIwcGxheSUyQyUyMCpjb252ZXJ0KiUyMHlvdXIlMjB3ZWFrZXN0JTIwZnJpZW5kbHklMjB1bml0JTIwdG8lMjBmaWdodCUyMGZvciUyMHRoZSUyMGVuZW15Ow==',
+    },
   },
   {
     week: 21,
@@ -65,8 +65,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       author: 'Blastoise',
       id:
-        'Tjs7VTtMOzc7MDszLzQvNS82Lzc7Qm9tYmVybWFuO2h0dHBzJTNBJTJGJTJGaS5pbWd1ci5jb20lMkY0VHdjckpwLnBuZztPbiUyMHBsYXklMkMlMjAqc3Bhd24lMjAzKiUyMEJvbWJzJTIwb24lMjByYW5kb20lMjBzdXJyb3VuZGluZyUyMHRpbGVzJTIwd2ljaCUyMHdpbGwlMjAqZXhwbG9kZSolMjBkZWFsaW5nJTIwKjMlMkY0JTJGNSUyRjYlMkY3JTIwZGFtYWdlKiUyMHRvJTIwYWxsJTIwYm9yZGVyaW5nJTIwZW5lbWllcyUyMGF0JTIwdGhlJTIwc3RhcnQlMjBvZiUyMHlvdXIlMjB0dXJuOw=='
-    }
+        'Tjs7VTtMOzc7MDszLzQvNS82Lzc7Qm9tYmVybWFuO2h0dHBzJTNBJTJGJTJGaS5pbWd1ci5jb20lMkY0VHdjckpwLnBuZztPbiUyMHBsYXklMkMlMjAqc3Bhd24lMjAzKiUyMEJvbWJzJTIwb24lMjByYW5kb20lMjBzdXJyb3VuZGluZyUyMHRpbGVzJTIwd2ljaCUyMHdpbGwlMjAqZXhwbG9kZSolMjBkZWFsaW5nJTIwKjMlMkY0JTJGNSUyRjYlMkY3JTIwZGFtYWdlKiUyMHRvJTIwYWxsJTIwYm9yZGVyaW5nJTIwZW5lbWllcyUyMGF0JTIwdGhlJTIwc3RhcnQlMjBvZiUyMHlvdXIlMjB0dXJuOw==',
+    },
   },
   {
     week: 22,
@@ -75,8 +75,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       author: 'FrozenEarth',
       id:
-        'TjtQO1U7Ujs1OzE7NC81LzYvNy84O1dvbmRyb3VzJTIwU211Z2dsZXJzO1Q0O09uJTIwcGxheSUyQyUyMGRpc2NhcmQlMjBhbGwlMjBjYXJkcyUyMGFuZCUyMGRyYXclMjBhJTIwc3BlbGwuOw=='
-    }
+        'TjtQO1U7Ujs1OzE7NC81LzYvNy84O1dvbmRyb3VzJTIwU211Z2dsZXJzO1Q0O09uJTIwcGxheSUyQyUyMGRpc2NhcmQlMjBhbGwlMjBjYXJkcyUyMGFuZCUyMGRyYXclMjBhJTIwc3BlbGwuOw==',
+    },
   },
   {
     week: 23,
@@ -86,8 +86,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       author: 'FrozenEarth',
       id:
-        'STtPO1U7Qzs4OzA7Ny84LzEwLzEyLzE1O1N5c3RlbSUyMExhdW5jaGVycztUNjtPbiUyMHBsYXklMkMlMjAqcHVzaGVzKiUyMGl0c2VsZiUyMGZvcndhcmQuOw=='
-    }
+        'STtPO1U7Qzs4OzA7Ny84LzEwLzEyLzE1O1N5c3RlbSUyMExhdW5jaGVycztUNjtPbiUyMHBsYXklMkMlMjAqcHVzaGVzKiUyMGl0c2VsZiUyMGZvcndhcmQuOw==',
+    },
   },
   {
     week: 24,
@@ -97,8 +97,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       author: 'Zethes',
       id:
-        'RjtSO1U7Ujs0OzE7NS82LzcvOC85O01hZGppcXVlO0YyNDtBZnRlciUyMGF0dGFja2luZyUyQyUyMGNvbnZlcnQlMjB0aGlzJTIwdW5pdCUyMHRvJTIwdGhlJTIwZW5lbXklMjBzaWRlLjs='
-    }
+        'RjtSO1U7Ujs0OzE7NS82LzcvOC85O01hZGppcXVlO0YyNDtBZnRlciUyMGF0dGFja2luZyUyQyUyMGNvbnZlcnQlMjB0aGlzJTIwdW5pdCUyMHRvJTIwdGhlJTIwZW5lbXklMjBzaWRlLjs=',
+    },
   },
   {
     week: 25,
@@ -106,8 +106,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       author: 'Zyries',
       id:
-        'Tjs7VTtMOzg7MTszLzQvNC81LzU7RGF5bmUlMjB0aGUlMjBVbmRlcnRha2VyO2h0dHBzJTNBJTJGJTJGaS5pbWd1ci5jb20lMkZWaUVlV2czLnBuZztPbiUyMHBsYXklMkMlMjAqYnVpbGQqJTIwYSUyMDMlMkYzJTJGNCUyRjQlMkY1JTIwc3RyZW5ndGglMjBUb21ic3RvbmUlMjBib3JkZXJpbmclMjBldmVyeSUyMGZyaWVuZGx5JTIwdW5pdCUyMHdpdGglMjBhbiUyMCUyMk9uJTIwRGVhdGglMjIlMjBlZmZlY3QlMjB3aGljaCUyMHNwYXduJTIwMyUyRjQlMkY0JTJGNSUyRjUlMjBzdHJlbmd0aCUyMFVuZGVhZHM7'
-    }
+        'Tjs7VTtMOzg7MTszLzQvNC81LzU7RGF5bmUlMjB0aGUlMjBVbmRlcnRha2VyO2h0dHBzJTNBJTJGJTJGaS5pbWd1ci5jb20lMkZWaUVlV2czLnBuZztPbiUyMHBsYXklMkMlMjAqYnVpbGQqJTIwYSUyMDMlMkYzJTJGNCUyRjQlMkY1JTIwc3RyZW5ndGglMjBUb21ic3RvbmUlMjBib3JkZXJpbmclMjBldmVyeSUyMGZyaWVuZGx5JTIwdW5pdCUyMHdpdGglMjBhbiUyMCUyMk9uJTIwRGVhdGglMjIlMjBlZmZlY3QlMjB3aGljaCUyMHNwYXduJTIwMyUyRjQlMkY0JTJGNSUyRjUlMjBzdHJlbmd0aCUyMFVuZGVhZHM7',
+    },
   },
   {
     week: 26,
@@ -115,8 +115,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       author: 'FrozenEarth',
       id:
-        'TjtFO1U7RTs3OzI7My80LzUvNi83O1J1ZmZsZXNjdWZmZXJzO1QxMztCZWZvcmUlMjBhdHRhY2tpbmclMjBhJTIwdW5pdCUyQyUyMCpmb3JjZSolMjBhbGwlMjBlbmVteSUyMHVuaXRzJTIwYm9yZGVyaW5nJTIwaXQlMjB0byUyMGF0dGFjayUyMGl0Ljs='
-    }
+        'TjtFO1U7RTs3OzI7My80LzUvNi83O1J1ZmZsZXNjdWZmZXJzO1QxMztCZWZvcmUlMjBhdHRhY2tpbmclMjBhJTIwdW5pdCUyQyUyMCpmb3JjZSolMjBhbGwlMjBlbmVteSUyMHVuaXRzJTIwYm9yZGVyaW5nJTIwaXQlMjB0byUyMGF0dGFjayUyMGl0Ljs=',
+    },
   },
   {
     week: 27,
@@ -126,8 +126,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       author: 'Blastoise',
       id:
-        'TjtLO1U7RTs2OzE7NC81LzYvNy84O1J1c3RlZCUyMHBpZXJjZXJzO2h0dHBzJTNBJTJGJTJGaS5pbWd1ci5jb20lMkY1aUhneVFBLnBuZztCZWZvcmUlMjBhdHRhY2tpbmclMjBhbiUyMGVuZW15JTJDJTIwZGVhbCUyMDIlMkYyJTJGMyUyRjMlMkY0JTIwZGFtYWdlJTIwdG8lMjBhbGwlMjBlbmVteSUyMHVuaXRzJTIwYmVoaW5kJTIwaXQ7'
-    }
+        'TjtLO1U7RTs2OzE7NC81LzYvNy84O1J1c3RlZCUyMHBpZXJjZXJzO2h0dHBzJTNBJTJGJTJGaS5pbWd1ci5jb20lMkY1aUhneVFBLnBuZztCZWZvcmUlMjBhdHRhY2tpbmclMjBhbiUyMGVuZW15JTJDJTIwZGVhbCUyMDIlMkYyJTJGMyUyRjMlMkY0JTIwZGFtYWdlJTIwdG8lMjBhbGwlMjBlbmVteSUyMHVuaXRzJTIwYmVoaW5kJTIwaXQ7',
+    },
   },
   {
     week: 28,
@@ -135,8 +135,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       author: 'StompyTom',
       id:
-        'Tjs7VTtDOzY7Mjs1LzYvNy84LzEwO0Jvb3RzdHJhcCUyMEJvbWJlcnM7TjM3O09uJTIwcGxheSUyQyUyMHJlbW92ZSUyMHRoaXMlMjBjYXJkJTIwZnJvbSUyMHlvdXIlMjBkZWNrJTIwYW5kJTIwaW5zZXJ0JTIwaXQlMjBpbnRvJTIweW91ciUyMG9wcG9uZW50J3MuOw=='
-    }
+        'Tjs7VTtDOzY7Mjs1LzYvNy84LzEwO0Jvb3RzdHJhcCUyMEJvbWJlcnM7TjM3O09uJTIwcGxheSUyQyUyMHJlbW92ZSUyMHRoaXMlMjBjYXJkJTIwZnJvbSUyMHlvdXIlMjBkZWNrJTIwYW5kJTIwaW5zZXJ0JTIwaXQlMjBpbnRvJTIweW91ciUyMG9wcG9uZW50J3MuOw==',
+    },
   },
   {
     week: 29,
@@ -146,8 +146,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       id:
         'STtPO1U7RTs1OzE7NC81LzYvNy84LztDcmFzaCUyMGtpY2tlcnM7aHR0cHMlM0ElMkYlMkZpLmltZ3VyLmNvbSUyRjBSVklnR0wucG5nO0JlZm9yZSUyMGF0dGFja2luZyUyMGElMjB3ZWFrZXIlMjB1bml0JTJDcHVzaCUyMGl0JTIwYXdheSUyMGFuZCUyMERvJTIwZGFtYWdlJTIwb2YlMjB0aGUlMjBhbW91bnQlMjBvZiUyMHRpbGVzJTIwbW92ZWQlMjB0byUyMHRoZSUyMGl0JTIwYW5kJTIwYWxsJTIwc3Vycm91bmRpbmclMjBlbmVtaWVzLjs=',
-      author: 'l3l'
-    }
+      author: 'l3l',
+    },
   },
   {
     week: 30,
@@ -155,8 +155,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       id:
         'TjtQO1U7TDs5OzM7OC8xMS8xMi8xNC8xNjtJc29sYXRlZCUyMGNhcHRhaW47aHR0cHMlM0ElMkYlMkZpLmltZ3VyLmNvbSUyRkZWejJxU20ucG5nO09uJTIwcGxheSUyQyUyMGRpc2NhcmQlMjAxJTJGMSUyRjIlMkYyJTJGYWxsJTIwcGlyYXRlJTIwY2FyZCUyMCUyMGZyb20lMjAlMjB5b3VyJTIwaGFuZCUyMGFuZCUyMGxvc2UlMjAxJTIwc3BlZWQlMjBmb3IlMjBldmVyeSUyMG90aGVyJTIwY2FyZCUyMG9uJTIwdGhlJTIwJTIweW91ciUyMGhhbmQuOw==',
-      author: 'l3l'
-    }
+      author: 'l3l',
+    },
   },
   {
     week: 31,
@@ -168,8 +168,8 @@ export const WEEKLY_CARD_CONTEST = [
       id:
         'Tjs7VTtFOzM7MTsxLzIvMy80LzU7Q29tcGVsbGluZyUyMFNsYWNrZXI7aHR0cHMlM0ElMkYlMkZpLmltZ3VyLmNvbSUyRm5OVldWeVIucG5nO0JlZm9yZSUyMGF0dGFja2luZyUyMGElMjB1bml0JTJDJTIwcmVtb3ZlJTIwaXRzJTIwb24lMjBkZWF0aCUyMG9yJTIwb24lMjBhdHRhY2slMjBhYmlsaXRpZXM7',
       id2:
-        'Tjs7QztDOzQ7OztEaXNvcmRlcmx5JTIwVHlyb3M7TjI7KlRlYWNoKiUyMGElMjByYW5kb20lMjBmcmllbmRseSUyMHVuaXQlMjAlMjJvbiUyMGRlYXRoJTIwcmFuZG9tbHklMjAqc3VtbW9uKiUyMGElMjA2JTJGNyUyRjglMkY5JTJGMTElMjBzdHJlbmd0aCUyMGtuaWdodCUyMiUyMDs='
-    }
+        'Tjs7QztDOzQ7OztEaXNvcmRlcmx5JTIwVHlyb3M7TjI7KlRlYWNoKiUyMGElMjByYW5kb20lMjBmcmllbmRseSUyMHVuaXQlMjAlMjJvbiUyMGRlYXRoJTIwcmFuZG9tbHklMjAqc3VtbW9uKiUyMGElMjA2JTJGNyUyRjglMkY5JTJGMTElMjBzdHJlbmd0aCUyMGtuaWdodCUyMiUyMDs=',
+    },
   },
   {
     week: 32,
@@ -179,8 +179,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       id:
         'Vzs7QztDOzMvMy8zLzIvMjs7O3NwZWxsYmluZGVyJ3MlMjB0cmFwO2h0dHBzJTNBJTJGJTJGaS5pbWd1ci5jb20lMkZuOVc2SktOLnBuZzsqRnJlZXplKiUyMGFsbCUyMGVuZW15JTIwdW5pdHMlMjBpbiUyMHRoZSUyMHRhcmdldCUyMHVuaXQncyUyMGNvbHVtbiUyQyUyMCpkZWFsJTIwMiUyRjIlMkYzJTJGMyUyRjQqJTIwZGFtYWdlJTIwdG8lMjBhbGwlMjB1bml0cyUyMHdpdGglMjAqNiUyRjUlMkY1JTJGNSUyRjUlMjBvciUyMG1vcmUlMjBzdHJlbmd0aC4qOw==',
-      author: 'OscarTodam'
-    }
+      author: 'OscarTodam',
+    },
   },
   {
     week: 35,
@@ -191,8 +191,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       id:
         'Tjs7QztFOzcvNy83LzYvNjs7O0FsbCUyMEhhbmRzJTIwb24lMjBEZWNrO041MDtTcGF3biUyMGElMjAxJTJGMiUyRjMlMkYzJTJGNCUyMHN0cmVuZ3RoJTIwUGlyYXRlJTIwdG9rZW4lMjBib3JkZXJpbmclMjBlYWNoJTIwZnJpZW5kbHklMjBQaXJhdGUuJTIwRm9yJTIwZWFjaCUyMFBpcmF0ZSUyMGluJTIweW91ciUyMGhhbmQlMkMlMjB0aG9zZSUyMHRva2VucyUyMGdldCUyMCUyQjElMkYlMkIxJTJGJTJCMSUyRiUyQjElMkYlMkIyJTIwc3RyZW5ndGglMjA7',
-      author: 'Zemeu'
-    }
+      author: 'Zemeu',
+    },
   },
   {
     week: 36,
@@ -202,8 +202,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       id:
         'STtQO1U7Ujs0OzE7My80LzUvNi83O0ZsZWV0Q2FsbGVycztOMjI7T24lMjBhdHRhY2slMkMlMjBwdWxsJTIwdW5pdHMlMjB0byUyMHRoaXMlMkMlMjBmb3IlMjBldmVyeSUyMGJvcmRlcmluZyUyMHVuaXQlMkMlMjAqZHJhdyolMjAxJTIwcGlyYXRlLjs=',
-      author: 'Lord Dracqi'
-    }
+      author: 'Lord Dracqi',
+    },
   },
   {
     week: 37,
@@ -213,8 +213,8 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       id:
         'TjtLO1U7TDs2OzE7NS82LzYvNy85O0NPTk4lMjBEUlVJRCUyMFdBUlJJT1I7aHR0cHMlM0ElMkYlMkZpLmltZ3VyLmNvbSUyRm5FSThkeGsuanBnO09uJTIwcGxheSUyQyUyMGNyZWF0ZSUyMGElMjAyJTJGMiUyRjIlMkYxJTJGMSUyME1hbmElMjBjb3N0JTIwU3BlbGwlMjB0byUyMHlvdXIlMjBoYW5kJTIwd2l0aCUyMHRoaXMlMjBlZmZlY3QlM0ElMjAlMjJHaXZlJTIwMiUyRjIlMkYzJTJGMyUyRjQlMjBzdHJlbmd0aCUyMHRvJTIwYWxsJTIwZnJpZW5kbHklMjB1bml0cyUyMi47',
-      author: 'Sarabanda'
-    }
+      author: 'Sarabanda',
+    },
   },
   {
     week: 39,
@@ -224,14 +224,14 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       id:
         'Tjs7QztFOzU7Ozt0aGUlMjBzdXJ2aXZvcnM7aHR0cHMlM0ElMkYlMkZpLmltZ3VyLmNvbSUyRm5MdGRmQWcucG5nOypGb3JjZSolMjBhbGwlMjB1bml0cyUyMHRvJTIwYXR0YWNrJTIwYSUyMHJhbmRvbSUyMGJvcmRlcmluZyUyMHVuaXQlMkMlMjAqZ2l2ZSUyMDIlMkYzJTJGNCUyRjUlMkY2KiUyMHN0cmVuZ3RoJTIwdG8lMjBhbGwlMjB1bml0cyUyMHdobyUyMHN1cnZpdmVkJTIwZGFtYWdlLjs7',
-      author: 'OscarTodam'
-    }
+      author: 'OscarTodam',
+    },
   },
   {
     week: 40,
     name: 'Resourceful',
     description:
       'Create a card that sacrifices some of your alternate resources (anything fluctuating during a match, such as cards, health…), and do something with them. The card should cost more than just mana.',
-    submitURL: 'https://forms.gle/vnd8RzrphVLVBMCo9'
-  }
+    submitURL: 'https://forms.gle/vnd8RzrphVLVBMCo9',
+  },
 ]

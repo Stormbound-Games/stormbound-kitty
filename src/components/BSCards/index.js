@@ -10,7 +10,7 @@ const BSCards = props => {
   return (
     <Fragment>
       {cycleMode && (
-        <div className="BSCards__overlay" onClick={() => setCycleMode(false)} />
+        <div className='BSCards__overlay' onClick={() => setCycleMode(false)} />
       )}
 
       <div
@@ -20,9 +20,9 @@ const BSCards = props => {
       >
         {props.canCycleCard && (
           <CTA
-            type="button"
+            type='button'
             onClick={() => setCycleMode(m => !m)}
-            className="BSCards__cycle-button"
+            className='BSCards__cycle-button'
             aria-pressed={cycleMode}
           >
             Cycle card
@@ -43,17 +43,17 @@ const BSCards = props => {
 
           return (
             <div
-              className="BSCards__slot"
+              className='BSCards__slot'
               key={index}
               data-testid={`card-slot-${index}`}
             >
               {!card && !props.canDrawCard ? null : (
                 <button
-                  type="button"
-                  data-testid="card-slot-button"
+                  type='button'
+                  data-testid='card-slot-button'
                   className={[
                     'BSCards__button',
-                    !card && 'BSCards__button--empty'
+                    !card && 'BSCards__button--empty',
                   ]
                     .filter(Boolean)
                     .join(' ')}
@@ -70,11 +70,11 @@ const BSCards = props => {
                     }
                   }}
                 >
-                  <span className="visually-hidden">{buttonLabel}</span>
+                  <span className='visually-hidden'>{buttonLabel}</span>
                 </button>
               )}
 
-              <div className="BSCards__slot-content">
+              <div className='BSCards__slot-content'>
                 {card && card.id ? (
                   <Card {...card} affordable={card.mana <= props.mana} />
                 ) : null}

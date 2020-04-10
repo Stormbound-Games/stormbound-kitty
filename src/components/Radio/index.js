@@ -4,17 +4,17 @@ import './index.css'
 const Radio = props => (
   <label className={`Radio ${props.className || ''}`} htmlFor={props.id}>
     <input
-      type="radio"
+      type='radio'
       {...props}
       children={undefined}
-      className="Radio__input"
+      className='Radio__input'
     />
     <span
       className={['Radio__icon', props.checked && 'Radio__icon--checked']
         .filter(Boolean)
         .join(' ')}
     />
-    <span className="Radio__label">{props.children}</span>
+    <span className='Radio__label'>{props.children}</span>
   </label>
 )
 

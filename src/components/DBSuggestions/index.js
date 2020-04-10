@@ -23,7 +23,7 @@ export default class DBSuggestions extends React.Component {
       ...this.getURLParameters(),
       name: '',
       zoomed: null,
-      activePage: 0
+      activePage: 0,
     }
   }
 
@@ -40,7 +40,7 @@ export default class DBSuggestions extends React.Component {
       category: parameters.get('category') || '*',
       faction: parameters.get('faction') || '*',
       author: parameters.get('author') || '*',
-      including: parameters.get('including') || null
+      including: parameters.get('including') || null,
     }
   }
 
@@ -76,7 +76,7 @@ export default class DBSuggestions extends React.Component {
         faction: '*',
         author: '*',
         including: null,
-        activePage: 0
+        activePage: 0,
       },
       this.updateURLParameters
     )
@@ -124,7 +124,7 @@ export default class DBSuggestions extends React.Component {
       name: '',
       including: null,
       zoomed: null,
-      activePage: 0
+      activePage: 0,
     })
 
   render() {
@@ -134,7 +134,7 @@ export default class DBSuggestions extends React.Component {
 
     return (
       <Fragment>
-        <h1 className="visually-hidden">Deck Suggestions</h1>
+        <h1 className='visually-hidden'>Deck Suggestions</h1>
 
         <Row desktopOnly wideGutter>
           <Column width={33}>
@@ -174,7 +174,7 @@ export default class DBSuggestions extends React.Component {
               ))
             ) : (
               <EmptySearch
-                title="No Decks found"
+                title='No Decks found'
                 resetFilters={this.resetFilters}
               />
             )}
@@ -194,8 +194,8 @@ export default class DBSuggestions extends React.Component {
         </Row>
 
         <PageMeta
-          title="Deck Suggestions"
-          description="Decks suggested by the Stormbound community."
+          title='Deck Suggestions'
+          description='Decks suggested by the Stormbound community.'
         />
       </Fragment>
     )

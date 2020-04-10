@@ -9,7 +9,7 @@ import { serialiseCard } from '../../helpers/serialise'
 
 const formatLevelProp = value => ({
   values: [null, null, null, null, null].fill(value),
-  display: value
+  display: value,
 })
 
 const INITIAL_STATE = {
@@ -25,7 +25,7 @@ const INITIAL_STATE = {
   movement: null,
   mana: formatLevelProp(null),
   strength: formatLevelProp(null),
-  ability: formatLevelProp(null)
+  ability: formatLevelProp(null),
 }
 
 export default class CBRoot extends React.Component {
@@ -34,7 +34,7 @@ export default class CBRoot extends React.Component {
 
     this.state = {
       ...INITIAL_STATE,
-      ...getInitialCardData(props.cardId)
+      ...getInitialCardData(props.cardId),
     }
   }
 
@@ -69,7 +69,7 @@ export default class CBRoot extends React.Component {
             ...this.state,
             strength: this.state.strength.display,
             mana: this.state.mana.display,
-            ability: this.state.ability.display
+            ability: this.state.ability.display,
           }),
         { replace: true }
       )
@@ -123,7 +123,7 @@ export default class CBRoot extends React.Component {
         elder: false,
         hero: false,
         movement: null,
-        strength: formatLevelProp(null)
+        strength: formatLevelProp(null),
       })
     }
 
@@ -139,7 +139,7 @@ export default class CBRoot extends React.Component {
         strength:
           this.state.type === 'spell'
             ? formatLevelProp(null)
-            : this.state.strength
+            : this.state.strength,
       })
     }
 
@@ -151,7 +151,7 @@ export default class CBRoot extends React.Component {
         strength:
           this.state.type === 'spell'
             ? formatLevelProp(null)
-            : this.state.strength
+            : this.state.strength,
       })
     }
   }
@@ -165,7 +165,7 @@ export default class CBRoot extends React.Component {
   setImageCardId = id =>
     this.setState({
       imageCardId: id,
-      imageURL: id ? '' : this.state.imageURL
+      imageURL: id ? '' : this.state.imageURL,
     })
 
   setImageURL = imageURL => this.setState({ imageURL, imageCardId: null })
@@ -179,7 +179,7 @@ export default class CBRoot extends React.Component {
   render() {
     return (
       <Fragment>
-        <h1 className="visually-hidden">Card Builder</h1>
+        <h1 className='visually-hidden'>Card Builder</h1>
 
         <App
           {...this.state}
@@ -199,12 +199,12 @@ export default class CBRoot extends React.Component {
           onImagePaste={this.onImagePaste}
           reset={this.reset}
           imageErrorDialogRef={dialog => (this.imageErrorDialog = dialog)}
-          mode="EDITOR"
+          mode='EDITOR'
         />
 
         <PageMeta
-          title="Card Builder"
-          description="Create your own Stormbound card."
+          title='Card Builder'
+          description='Create your own Stormbound card.'
         />
       </Fragment>
     )

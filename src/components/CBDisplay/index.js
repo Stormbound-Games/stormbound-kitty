@@ -8,9 +8,9 @@ const CBDisplay = props => {
 
   return (
     <Fragment>
-      <h1 className="visually-hidden">Card builder</h1>
+      <h1 className='visually-hidden'>Card builder</h1>
 
-      <App {...cardData} cardId={props.cardId} mode="DISPLAY" />
+      <App {...cardData} cardId={props.cardId} mode='DISPLAY' />
 
       <PageMeta title={cardData.name || 'Card display'} />
     </Fragment>

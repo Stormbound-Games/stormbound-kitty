@@ -20,7 +20,7 @@ export default props => {
     : props.deck
 
   return (
-    <DeckMechanisms deck={deck} mode="MANUAL">
+    <DeckMechanisms deck={deck} mode='MANUAL'>
       {state => (
         <DBTrackerView
           {...props}
@@ -43,7 +43,7 @@ const STATUSES = {
   PLAYING_FIRST_MUTINEER: 'PLAYING_FIRST_MUTINEER',
   PLAYING_QUEEN_OF_HERDS: 'PLAYING_QUEEN_OF_HERDS',
   CYCLING: 'CYCLING',
-  REFILLING: 'REFILLING'
+  REFILLING: 'REFILLING',
 }
 
 class DBTrackerView extends React.Component {
@@ -60,7 +60,7 @@ class DBTrackerView extends React.Component {
       // There is not really such thing as “cycling” given it cannot be random,
       // so this need to be maintained manually in this component as the one
       // coming from `DeckMechanisms` is always falsy.
-      cycledCard: null
+      cycledCard: null,
     }
   }
 
@@ -89,7 +89,7 @@ class DBTrackerView extends React.Component {
 
         return this.state.status === STATUSES.PLAYING
           ? this.setState(state => ({
-              activeCard: state.activeCard === card ? null : card
+              activeCard: state.activeCard === card ? null : card,
             }))
           : undefined
       }
@@ -102,7 +102,7 @@ class DBTrackerView extends React.Component {
 
         return this.state.status === STATUSES.PLAYING
           ? this.setState(state => ({
-              activeCard: state.activeCard === card ? null : card
+              activeCard: state.activeCard === card ? null : card,
             }))
           : undefined
       }
@@ -133,7 +133,7 @@ class DBTrackerView extends React.Component {
       this.touchCard(id)
       this.setState(
         state => ({
-          removeAllowance: state.removeAllowance - 1 || null
+          removeAllowance: state.removeAllowance - 1 || null,
         }),
         () => {
           if (
@@ -149,13 +149,13 @@ class DBTrackerView extends React.Component {
       if (this.state.status === STATUSES.PLAYING_GOLDGRUBBERS_REMOVING) {
         this.setState({
           status: STATUSES.PLAYING_GOLDGRUBBERS_DRAWING,
-          refillAllowance: 1
+          refillAllowance: 1,
         })
       }
     } else {
       // If not in allowance mode, toggle the active state for the card
       this.setState(state => ({
-        activeCard: state.activeCard === id ? null : id
+        activeCard: state.activeCard === id ? null : id,
       }))
     }
   }
@@ -166,7 +166,7 @@ class DBTrackerView extends React.Component {
     this.setState({
       status: STATUSES.CYCLING,
       activeCard: null,
-      cycledCard: this.state.activeCard
+      cycledCard: this.state.activeCard,
     })
   }
 
@@ -174,7 +174,7 @@ class DBTrackerView extends React.Component {
     if (!this.state.untouchedCards.includes(id)) return
 
     this.setState(state => ({
-      untouchedCards: state.untouchedCards.filter(cardId => cardId !== id)
+      untouchedCards: state.untouchedCards.filter(cardId => cardId !== id),
     }))
   }
 
@@ -201,7 +201,7 @@ class DBTrackerView extends React.Component {
 
       return this.setState({
         refillAllowance: level >= 4 ? 4 : 3,
-        status: STATUSES.PLAYING_SNAKE_EYES
+        status: STATUSES.PLAYING_SNAKE_EYES,
       })
     }
 
@@ -210,7 +210,7 @@ class DBTrackerView extends React.Component {
     if (activeCard === 'N14' /* Freebooters */) {
       return this.setState({
         refillAllowance: level >= 4 && this.props.hand.length <= 3 ? 2 : 1,
-        status: STATUSES.PLAYING_FREEBOOTERS
+        status: STATUSES.PLAYING_FREEBOOTERS,
       })
     }
 
@@ -230,7 +230,7 @@ class DBTrackerView extends React.Component {
 
         return this.setState({
           removeAllowance: 1,
-          status: STATUSES.PLAYING_FIRST_MUTINEER
+          status: STATUSES.PLAYING_FIRST_MUTINEER,
         })
       }
     }
@@ -248,13 +248,13 @@ class DBTrackerView extends React.Component {
 
           return this.setState({
             refillAllowance: 1,
-            status: STATUSES.PLAYING_GOLDGRUBBERS_DRAWING
+            status: STATUSES.PLAYING_GOLDGRUBBERS_DRAWING,
           })
         }
 
         return this.setState({
           removeAllowance: 1,
-          status: STATUSES.PLAYING_GOLDGRUBBERS_REMOVING
+          status: STATUSES.PLAYING_GOLDGRUBBERS_REMOVING,
         })
       }
     }
@@ -282,7 +282,7 @@ class DBTrackerView extends React.Component {
 
         this.setState({
           playAllowance: level >= 4 ? 2 : 1,
-          status: STATUSES.PLAYING_QUEEN_OF_HERDS
+          status: STATUSES.PLAYING_QUEEN_OF_HERDS,
         })
       }
     }
@@ -310,7 +310,7 @@ class DBTrackerView extends React.Component {
 
         return this.setState({
           removeAllowance: level >= 4 ? 2 : 1,
-          status: STATUSES.PLAYING_ARCHDRUID_EARYN
+          status: STATUSES.PLAYING_ARCHDRUID_EARYN,
         })
       }
     }
@@ -321,7 +321,7 @@ class DBTrackerView extends React.Component {
     this.setState({
       activeCard: null,
       status: STATUSES.PICKING_HAND,
-      untouchedCards: this.props.deck.map(card => card.id)
+      untouchedCards: this.props.deck.map(card => card.id),
     })
   }
 
@@ -407,7 +407,7 @@ class DBTrackerView extends React.Component {
 
     this.setState({
       activeCard: null,
-      cycledCard: null
+      cycledCard: null,
     })
   }
 
@@ -473,7 +473,7 @@ class DBTrackerView extends React.Component {
           state => ({
             playAllowance: state.playAllowance - 1 || null,
             status:
-              state.playAllowance - 1 === 0 ? STATUSES.PLAYING : state.status
+              state.playAllowance - 1 === 0 ? STATUSES.PLAYING : state.status,
           }),
           () => {
             if (this.state.status === STATUSES.PLAYING) {
@@ -490,7 +490,7 @@ class DBTrackerView extends React.Component {
       case STATUSES.CYCLING: {
         this.props.draw(card.id)
         this.props.increaseDeckWeight({
-          reset: [this.state.cycledCard, card.id]
+          reset: [this.state.cycledCard, card.id],
         })
         return this.setState({ status: STATUSES.PLAYING })
       }
@@ -504,7 +504,7 @@ class DBTrackerView extends React.Component {
             status:
               state.refillAllowance - 1 === 0 || this.props.hand.length === 4
                 ? STATUSES.PLAYING
-                : state.status
+                : state.status,
           }))
         }
       }
@@ -522,7 +522,7 @@ class DBTrackerView extends React.Component {
   render() {
     return (
       <Fragment>
-        <h1 className="visually-hidden">Deck Tracker</h1>
+        <h1 className='visually-hidden'>Deck Tracker</h1>
 
         <Row desktopOnly wideGutter>
           <Column width={33}>
@@ -543,7 +543,7 @@ class DBTrackerView extends React.Component {
               has been played/cycled at least once.
             </p>
 
-            <ol className="DBTrackerView__list">
+            <ol className='DBTrackerView__list'>
               <li>Define your starting hand when the game begins.</li>
               <li>Play cards and/or cycle and refill your hand every turn.</li>
               <li>Check the drawing chances in the deck.</li>
@@ -556,7 +556,7 @@ class DBTrackerView extends React.Component {
           </Column>
 
           <Column width={66}>
-            <div className="DBTrackerView__hand">
+            <div className='DBTrackerView__hand'>
               <Title>
                 {(() => {
                   switch (this.state.status) {
@@ -585,10 +585,10 @@ class DBTrackerView extends React.Component {
                 })()}
               </Title>
 
-              <div className="DBTrackerView__board">
+              <div className='DBTrackerView__board'>
                 <Row>
                   <Column width={33}>
-                    <span className="DBTrackerView__mana">
+                    <span className='DBTrackerView__mana'>
                       <div>
                         Current mana:{' '}
                         <Mana
@@ -599,8 +599,8 @@ class DBTrackerView extends React.Component {
                         />
                       </div>
                       <Checkbox
-                        name="second-player"
-                        id="second-player"
+                        name='second-player'
+                        id='second-player'
                         checked={this.props.playerOrder === 'SECOND'}
                         disabled={this.state.untouchedCards.length !== 12}
                         onChange={() =>
@@ -618,14 +618,14 @@ class DBTrackerView extends React.Component {
 
                   <Column width={33}>
                     <ResetButton
-                      label="Reset game"
-                      confirm="Are you sure you want to reset the game? Don’t worry, you’ll keep your deck."
+                      label='Reset game'
+                      confirm='Are you sure you want to reset the game? Don’t worry, you’ll keep your deck.'
                       reset={this.resetGame}
                     >
-                      <div className="DBTrackerView__reset-checkbox">
+                      <div className='DBTrackerView__reset-checkbox'>
                         <Checkbox
-                          name="equals-mode"
-                          id="equals-mode"
+                          name='equals-mode'
+                          id='equals-mode'
                           checked={this.props.equalsMode}
                           onChange={() => this.props.setEqualsMode(s => !s)}
                         >
@@ -637,7 +637,7 @@ class DBTrackerView extends React.Component {
 
                   <Column width={33}>
                     <CTA
-                      type="button"
+                      type='button'
                       onClick={this.endTurn}
                       disabled={this.state.status !== STATUSES.PLAYING}
                     >
@@ -655,7 +655,7 @@ class DBTrackerView extends React.Component {
 
                   return (
                     <Column key={cardId} width={25}>
-                      <div className="DBTrackerView__column">
+                      <div className='DBTrackerView__column'>
                         <div
                           className={[
                             'DBTrackerView__card-wrapper',
@@ -663,20 +663,20 @@ class DBTrackerView extends React.Component {
                               'DBTrackerView__card-wrapper--active',
                             !!this.state.activeCard &&
                               this.state.activeCard !== cardId &&
-                              'DBTrackerView__card-wrapper--inactive'
+                              'DBTrackerView__card-wrapper--inactive',
                           ]
                             .filter(Boolean)
                             .join(' ')}
                         >
                           <button
-                            className="DBTrackerView__card-button"
-                            type="button"
+                            className='DBTrackerView__card-button'
+                            type='button'
                             disabled={
                               ![
                                 STATUSES.PLAYING,
                                 STATUSES.PLAYING_FIRST_MUTINEER,
                                 STATUSES.PLAYING_GOLDGRUBBERS_REMOVING,
-                                STATUSES.PLAYING_ARCHDRUID_EARYN
+                                STATUSES.PLAYING_ARCHDRUID_EARYN,
                               ].includes(this.state.status) ||
                               (this.state.status ===
                                 STATUSES.PLAYING_FIRST_MUTINEER &&
@@ -690,7 +690,7 @@ class DBTrackerView extends React.Component {
                             }
                             onClick={() => this.selectCard(cardId)}
                           >
-                            <span className="visually-hidden">
+                            <span className='visually-hidden'>
                               {this.state.activeCard === cardId
                                 ? 'Unselect card'
                                 : 'Select card'}
@@ -710,16 +710,16 @@ class DBTrackerView extends React.Component {
                 })}
               </Row>
 
-              <div className="DBTrackerView__hint">
+              <div className='DBTrackerView__hint'>
                 <Hint>{this.getHint()}</Hint>
               </div>
 
               {this.state.activeCard && (
-                <div className="DBTrackerView__buttons">
+                <div className='DBTrackerView__buttons'>
                   <Row>
                     <Column>
                       <CTA
-                        type="button"
+                        type='button'
                         onClick={this.cycleCard}
                         disabled={
                           this.state.status !== STATUSES.PLAYING ||
@@ -732,7 +732,7 @@ class DBTrackerView extends React.Component {
                     </Column>
                     <Column>
                       <CTA
-                        type="button"
+                        type='button'
                         onClick={this.playCard}
                         disabled={
                           this.state.status !== STATUSES.PLAYING ||
@@ -751,8 +751,8 @@ class DBTrackerView extends React.Component {
         </Row>
 
         <PageMeta
-          title="Deck tracker"
-          description="Track your deck as you play to maximise your chances of winning."
+          title='Deck tracker'
+          description='Track your deck as you play to maximise your chances of winning.'
         />
       </Fragment>
     )

@@ -37,17 +37,17 @@ const getAvailableCoins = collection =>
 
 const DBCollectionStats = props => {
   const ownedCards = React.useMemo(() => getNonMissingCards(props.collection), [
-    props.collection
+    props.collection,
   ])
   const averageLevel = React.useMemo(() => getAverageLevel(ownedCards), [
-    props.collection
+    props.collection,
   ])
   const upgradableCards = React.useMemo(
     () => getUpgradableCards(props.collection),
     [props.collection]
   )
   const missingCards = React.useMemo(() => getMissingCards(props.collection), [
-    props.collection
+    props.collection,
   ])
   const levelStats = React.useMemo(
     () =>
@@ -70,31 +70,31 @@ const DBCollectionStats = props => {
   return (
     <Fragment>
       <Title>Collection stats</Title>
-      <ul className="DBCollectionStats__list">
+      <ul className='DBCollectionStats__list'>
         <li>
           Total value:{' '}
-          <span className="DBCollectionStats__item">{collectionCost}</span>{' '}
+          <span className='DBCollectionStats__item'>{collectionCost}</span>{' '}
           stones
         </li>
         <li>
           Average card level:{' '}
-          <span className="DBCollectionStats__item" title={levelStats.slice(1)}>
+          <span className='DBCollectionStats__item' title={levelStats.slice(1)}>
             {averageLevel.toFixed(2)}
           </span>
         </li>
         <li>
           Upgradable cards:{' '}
-          <span className="DBCollectionStats__item">
+          <span className='DBCollectionStats__item'>
             {upgradableCards.length}
           </span>
         </li>
         <li>
           Coins after exchange:{' '}
-          <span className="DBCollectionStats__item">{extraAfterMax}</span>
+          <span className='DBCollectionStats__item'>{extraAfterMax}</span>
         </li>
         <li>
           Missing cards:{' '}
-          <span className="DBCollectionStats__item">{missingCards.length}</span>
+          <span className='DBCollectionStats__item'>{missingCards.length}</span>
         </li>
       </ul>
     </Fragment>

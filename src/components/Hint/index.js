@@ -3,7 +3,7 @@ import './index.css'
 
 const Hint = props => (
   <p className={['Hint', props.className].filter(Boolean).join(' ')}>
-    <span role="img" aria-label="info">
+    <span role='img' aria-label='info'>
       ❔
     </span>{' '}
     {props.children}

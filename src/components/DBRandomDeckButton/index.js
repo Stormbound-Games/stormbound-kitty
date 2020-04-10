@@ -15,7 +15,7 @@ export default class DBRandomDeckButton extends React.Component {
     faction: '*',
     minFactionCards: 0,
     maxLegendaryCards: '',
-    maxEpicCards: ''
+    maxEpicCards: '',
   }
 
   open = () => this.dialog.show()
@@ -45,7 +45,7 @@ export default class DBRandomDeckButton extends React.Component {
       minFactionCards,
       maxLegendaryCards,
       maxEpicCards,
-      availableCards
+      availableCards,
     })
 
     this.props.defineDeck(deck)
@@ -55,19 +55,19 @@ export default class DBRandomDeckButton extends React.Component {
   render() {
     return (
       <Fragment>
-        <CTA onClick={this.open} type="button">
+        <CTA onClick={this.open} type='button'>
           {this.props.label || 'Random deck'}
         </CTA>
         <Dialog
-          id="random-deck-dialog"
-          title="Generate random deck"
+          id='random-deck-dialog'
+          title='Generate random deck'
           dialogRef={dialog => (this.dialog = dialog)}
-          image="/assets/images/cards/archdruid_earyn.png"
+          image='/assets/images/cards/archdruid_earyn.png'
           close={this.close}
           ctaProps={{
             onClick: this.generateDeck,
             type: 'button',
-            children: 'Generate'
+            children: 'Generate',
           }}
         >
           <Row>
@@ -81,10 +81,10 @@ export default class DBRandomDeckButton extends React.Component {
               />
             </Column>
             <Column>
-              <label htmlFor="factionCards">Min faction cards</label>
+              <label htmlFor='factionCards'>Min faction cards</label>
               <select
-                name="factionCards"
-                id="factionCards"
+                name='factionCards'
+                id='factionCards'
                 value={this.state.minFactionCards}
                 onChange={event =>
                   this.setState({ minFactionCards: +event.target.value })
@@ -99,19 +99,19 @@ export default class DBRandomDeckButton extends React.Component {
           </Row>
           <Row>
             <Column>
-              <label htmlFor="maxEpicCards">Max epic cards</label>
+              <label htmlFor='maxEpicCards'>Max epic cards</label>
               <select
-                name="maxEpicCards"
-                id="maxEpicCards"
+                name='maxEpicCards'
+                id='maxEpicCards'
                 value={this.state.maxEpicCards}
                 onChange={event =>
                   this.setState({
                     maxEpicCards:
-                      event.target.value === '' ? '' : +event.target.value
+                      event.target.value === '' ? '' : +event.target.value,
                   })
                 }
               >
-                <option value="">Any</option>
+                <option value=''>Any</option>
                 <option value={0}>0</option>
                 <option value={1}>1</option>
                 <option value={2}>2</option>
@@ -119,19 +119,19 @@ export default class DBRandomDeckButton extends React.Component {
               </select>
             </Column>
             <Column>
-              <label htmlFor="maxLegendaryCards">Max legendary cards</label>
+              <label htmlFor='maxLegendaryCards'>Max legendary cards</label>
               <select
-                name="maxLegendaryCards"
-                id="maxLegendaryCards"
+                name='maxLegendaryCards'
+                id='maxLegendaryCards'
                 value={this.state.maxLegendaryCards}
                 onChange={event =>
                   this.setState({
                     maxLegendaryCards:
-                      event.target.value === '' ? '' : +event.target.value
+                      event.target.value === '' ? '' : +event.target.value,
                   })
                 }
               >
-                <option value="">Any</option>
+                <option value=''>Any</option>
                 <option value={0}>0</option>
                 <option value={1}>1</option>
                 <option value={2}>2</option>

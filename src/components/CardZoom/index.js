@@ -17,10 +17,13 @@ const CardZoom = props => {
   }, [props.cardId])
 
   return props.cardId ? (
-    <div className="CardZoom__overlay" onClick={props.close} data-testid="zoom">
-      <div className="CardZoom__wrapper">
+    <div className='CardZoom__overlay' onClick={props.close} data-testid='zoom'>
+      <div className='CardZoom__wrapper'>
         <Card
-          {...resolveCardForLevel({ id: props.cardId, level: props.level || 1 })}
+          {...resolveCardForLevel({
+            id: props.cardId,
+            level: props.level || 1,
+          })}
           player={props.player}
         />
       </div>

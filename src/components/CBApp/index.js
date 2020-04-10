@@ -18,7 +18,7 @@ const CBApp = props => (
 
     <CardDisplay {...props} />
 
-    <div className="CBApp__notice">
+    <div className='CBApp__notice'>
       {props.hasSingleLevel ? (
         <Hint>
           This card was created before it was possible to define all 5 levels,
@@ -27,7 +27,7 @@ const CBApp = props => (
         </Hint>
       ) : (
         <Hint>
-          Discover the <Link to="/stories">amazing back stories</Link> the
+          Discover the <Link to='/stories'>amazing back stories</Link> the
           community came up with about some cards!
         </Hint>
       )}
@@ -38,7 +38,7 @@ const CBApp = props => (
     )}
 
     {props.mode === 'EDITOR' ? (
-      <div className="CBApp__bottom">
+      <div className='CBApp__bottom'>
         <Row desktopOnly wideGutter>
           <Column>
             <Title>Core attributes</Title>

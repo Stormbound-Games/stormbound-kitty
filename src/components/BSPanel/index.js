@@ -15,10 +15,10 @@ const BSPanel = props => {
 
       {props.isMobile && props.isPanelOpen && (
         <ButtonIcon
-          className="BSPanel__board-button"
+          className='BSPanel__board-button'
           onClick={props.closePanel}
-          aria-label="Go to board"
-          data-testid="panel-close-btn"
+          aria-label='Go to board'
+          data-testid='panel-close-btn'
         >
           {props.side === 'left' ? '→' : '←'}
         </ButtonIcon>

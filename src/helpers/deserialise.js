@@ -7,7 +7,7 @@ import {
   getLongRace,
   getLongRarity,
   getLongType,
-  getLongCurrency
+  getLongCurrency,
 } from './encoding'
 
 const MATCH_FALLBACK = [void 0, 10, null]
@@ -21,7 +21,7 @@ const deserialisePlayers = string => {
 
   return {
     RED: { health: +redHealth, faction: getLongFaction(redFaction) },
-    BLUE: { health: +blueHealth, faction: getLongFaction(blueFaction) }
+    BLUE: { health: +blueHealth, faction: getLongFaction(blueFaction) },
   }
 }
 
@@ -38,7 +38,7 @@ const resolveCell = item => {
     level = 1,
     poisoned = '',
     frozen = '',
-    confused = ''
+    confused = '',
   ] = item.match(/^(\d+)(\w+)([RB])([1-5])?(P)?(F)?(C)?$/)
 
   return {
@@ -48,7 +48,7 @@ const resolveCell = item => {
     player: player === 'R' ? 'RED' : 'BLUE',
     poisoned: poisoned === 'P',
     frozen: frozen === 'F',
-    confused: confused === 'C'
+    confused: confused === 'C',
   }
 }
 
@@ -114,10 +114,7 @@ const deserialiseHand = (handString, cardsString) => {
       .map(card => card.id)
   }
 
-  return handString
-    .split(',')
-    .slice(0, 4)
-    .filter(Boolean)
+  return handString.split(',').slice(0, 4).filter(Boolean)
 }
 
 export const deserialiseBattle = hash => {
@@ -127,7 +124,7 @@ export const deserialiseBattle = hash => {
     players = '',
     settings = '',
     cards = '',
-    hand /* Explicitly no fallback here */
+    hand /* Explicitly no fallback here */,
   ] = string.split(';')
 
   return {
@@ -135,7 +132,7 @@ export const deserialiseBattle = hash => {
     players: deserialisePlayers(players),
     cards: deserialiseCards(cards, 12),
     hand: deserialiseHand(hand, cards),
-    ...deserialiseSettings(settings)
+    ...deserialiseSettings(settings),
   }
 }
 
@@ -145,7 +142,7 @@ const resolveMana = value => {
   if (chunks.length === 1) {
     return {
       values: [null, null, null, null, null].fill(chunks[0]),
-      display: chunks[0]
+      display: chunks[0],
     }
   }
 
@@ -158,14 +155,14 @@ const resolveStrength = (value, cardType) => {
   if (cardType === 'spell' || chunks[0] === '') {
     return {
       values: [null, null, null, null, null],
-      display: null
+      display: null,
     }
   }
 
   if (chunks.length === 1) {
     return {
       values: [null, null, null, null, null].fill(chunks[0]),
-      display: chunks[0]
+      display: chunks[0],
     }
   }
 
@@ -240,7 +237,7 @@ const QUEST_PROPERTIES = [
   { name: 'amount', resolve: value => +value },
   { name: 'currency', resolve: value => getLongCurrency(value) },
   { name: 'difficulty', resolve: value => +value },
-  { name: 'description', resolve: value => decodeURIComponent(value) }
+  { name: 'description', resolve: value => decodeURIComponent(value) },
 ]
 
 export const deserialiseQuest = hash =>
@@ -263,6 +260,6 @@ export const deserialiseList = hash =>
 
       return {
         name: decodeURIComponent(name),
-        cards: cards.match(/[NWIFS]\d+/g) || []
+        cards: cards.match(/[NWIFS]\d+/g) || [],
       }
     })

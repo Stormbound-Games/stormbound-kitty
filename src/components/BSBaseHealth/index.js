@@ -3,9 +3,9 @@ import './index.css'
 
 const BSBaseHealth = props => {
   return (
-    <div className="BSBaseHealth">
+    <div className='BSBaseHealth'>
       <span
-        className="BSBaseHealth__value"
+        className='BSBaseHealth__value'
         data-testid={`${props.player}-health`}
       >
         {props.health}

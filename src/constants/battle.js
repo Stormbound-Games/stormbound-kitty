@@ -6,7 +6,7 @@ export const DEFAULT_CELL = {
   level: 1,
   poisoned: false,
   frozen: false,
-  confused: false
+  confused: false,
 }
 export const DEFAULT_MANA = 3
 export const DEFAULT_CARD = { id: null, level: 1 }
@@ -15,30 +15,30 @@ export const DEFAULT_BOARD = [
     { ...DEFAULT_CELL },
     { ...DEFAULT_CELL },
     { ...DEFAULT_CELL },
-    { ...DEFAULT_CELL }
+    { ...DEFAULT_CELL },
   ],
   [
     { ...DEFAULT_CELL },
     { ...DEFAULT_CELL },
     { ...DEFAULT_CELL },
-    { ...DEFAULT_CELL }
+    { ...DEFAULT_CELL },
   ],
   [
     { ...DEFAULT_CELL },
     { ...DEFAULT_CELL },
     { ...DEFAULT_CELL },
-    { ...DEFAULT_CELL }
+    { ...DEFAULT_CELL },
   ],
   [
     { ...DEFAULT_CELL },
     { ...DEFAULT_CELL },
     { ...DEFAULT_CELL },
-    { ...DEFAULT_CELL }
+    { ...DEFAULT_CELL },
   ],
   [
     { ...DEFAULT_CELL },
     { ...DEFAULT_CELL },
     { ...DEFAULT_CELL },
-    { ...DEFAULT_CELL }
-  ]
+    { ...DEFAULT_CELL },
+  ],
 ]

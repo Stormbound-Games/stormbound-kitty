@@ -3,9 +3,9 @@ import { Link } from '@reach/router'
 import { getStrictActiveLink } from '../../helpers/getActiveLink'
 
 const BSNav = props => (
-  <nav className="Header__nav">
-    <ul className="Header__list Header__list--sub">
-      <li className="Header__item">
+  <nav className='Header__nav'>
+    <ul className='Header__list Header__list--sub'>
+      <li className='Header__item'>
         <Link
           getProps={getStrictActiveLink}
           to={props.simId ? `/sim/${props.simId}` : '/sim'}
@@ -15,7 +15,7 @@ const BSNav = props => (
       </li>
 
       {props.simId && (
-        <li className="Header__item">
+        <li className='Header__item'>
           <Link
             getProps={getStrictActiveLink}
             to={`/sim/${props.simId}/display`}
@@ -25,8 +25,8 @@ const BSNav = props => (
         </li>
       )}
 
-      <li className="Header__item  Header__item--right">
-        <Link getProps={getStrictActiveLink} to="/sim/puzzles">
+      <li className='Header__item  Header__item--right'>
+        <Link getProps={getStrictActiveLink} to='/sim/puzzles'>
           Puzzles
         </Link>
       </li>

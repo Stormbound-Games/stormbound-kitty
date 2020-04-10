@@ -8,7 +8,7 @@ const OFFSET = 8
 const centered = (triggerRect, tooltipRect) => {
   const styles = {
     left: `${triggerRect.left + window.scrollX}px`,
-    top: `${triggerRect.top + triggerRect.height + window.scrollY}px`
+    top: `${triggerRect.top + triggerRect.height + window.scrollY}px`,
   }
 
   const collisions = {
@@ -16,7 +16,7 @@ const centered = (triggerRect, tooltipRect) => {
     right: window.innerWidth < triggerRect.left + tooltipRect.width,
     bottom:
       window.innerHeight < triggerRect.bottom + tooltipRect.height + OFFSET,
-    left: triggerRect.left - tooltipRect.width < 0
+    left: triggerRect.left - tooltipRect.width < 0,
   }
 
   const directionUp = collisions.bottom && !collisions.top
@@ -29,7 +29,7 @@ const centered = (triggerRect, tooltipRect) => {
     left: Math.min(Math.max(2, left), maxLeft) + window.scrollX,
     top: directionUp
       ? `${triggerRect.top - OFFSET - tooltipRect.height + window.scrollY}px`
-      : `${triggerRect.top + OFFSET + triggerRect.height + window.scrollY}px`
+      : `${triggerRect.top + OFFSET + triggerRect.height + window.scrollY}px`,
   }
 }
 

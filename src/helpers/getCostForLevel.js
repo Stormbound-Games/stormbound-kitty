@@ -8,7 +8,7 @@ const getCostForLevel = target => ({ rarity, level, copies }) => {
       coins: 0,
       stones: conf.stonesForMissing,
       copies: 1,
-      extraCopies: 0
+      extraCopies: 0,
     }
 
   if (level === 5) return { coins: 0, stones: 0, copies: 0, extraCopies: 0 }

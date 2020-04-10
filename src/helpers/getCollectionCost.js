@@ -11,7 +11,7 @@ export default collection => {
         copies: levelCopies,
         stonesForMissing: craftingCost,
         stonesPerMissingCopy: stonesPerCopy,
-        stonesPerExtraCopy
+        stonesPerExtraCopy,
       } = RARITY_COPIES[rarity]
 
       // If the card is missing, it has no value.
@@ -28,12 +28,20 @@ export default collection => {
         case 2:
         case 3:
         case 4:
-          return craftingCost + levelCopies[card.level - 2] * stonesPerCopy + card.copies * stonesPerCopy
+          return (
+            craftingCost +
+            levelCopies[card.level - 2] * stonesPerCopy +
+            card.copies * stonesPerCopy
+          )
         // If the card is level 5, its total value is its crafting cost + the
         // amount of copies to get to level 5 times the value of a copy + the
         // amount of extra copies times the value of an extra copy past level 5.
         case 5:
-          return craftingCost + levelCopies[3] * stonesPerCopy + card.copies * stonesPerExtraCopy
+          return (
+            craftingCost +
+            levelCopies[3] * stonesPerCopy +
+            card.copies * stonesPerExtraCopy
+          )
         default:
           return 0
       }

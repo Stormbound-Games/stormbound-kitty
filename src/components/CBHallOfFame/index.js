@@ -14,7 +14,7 @@ const COLORS = {
   ironclad: 'var(--ironclad)',
   shadowfen: 'var(--shadowfen)',
   winter: 'var(--winter)',
-  swarm: 'var(--swarm)'
+  swarm: 'var(--swarm)',
 }
 
 const getCardData = id => {
@@ -30,7 +30,7 @@ const getCardData = id => {
 const CBHallOfFame = props => {
   const weeks = WEEKLY_CARD_CONTEST.filter(contest => !!contest.winner)
   return (
-    <div className="CBHallOfFame">
+    <div className='CBHallOfFame'>
       <Title>Hall of Fame</Title>
 
       {weeks.reverse().map((contest, index) => {
@@ -38,17 +38,17 @@ const CBHallOfFame = props => {
         return (
           <div
             key={contest.winner.id}
-            className="CBHallOfFame__week"
+            className='CBHallOfFame__week'
             style={{ '--color': COLORS[cardData.faction || COLORS.neutral] }}
           >
-            <div className="CBHallOfFame__inner">
+            <div className='CBHallOfFame__inner'>
               <Row desktopOnly wideGutter>
                 <Column>
                   <Row desktopOnly>
                     <Column>
                       <Link
                         to={`/card/${contest.winner.id}`}
-                        className="CBHallOfFame__card"
+                        className='CBHallOfFame__card'
                       >
                         <Card {...cardData} />
                       </Link>
@@ -57,7 +57,7 @@ const CBHallOfFame = props => {
                       <Column>
                         <Link
                           to={`/card/${contest.winner.id2}`}
-                          className="CBHallOfFame__card"
+                          className='CBHallOfFame__card'
                         >
                           <Card {...getCardData(contest.winner.id2)} />
                         </Link>
@@ -66,20 +66,20 @@ const CBHallOfFame = props => {
                   </Row>
                 </Column>
                 <Column>
-                  <div className="CBHallOfFame__content">
-                    <span className="CBHallOfFame__weekIndex">
+                  <div className='CBHallOfFame__content'>
+                    <span className='CBHallOfFame__weekIndex'>
                       Week #{weeks.length - index}:{' '}
-                      <span className="CBHallOfFame__contestName">
+                      <span className='CBHallOfFame__contestName'>
                         {contest.name}
                       </span>
                     </span>
                     <Link
                       to={`/card/${contest.winner.id}`}
-                      className="CBHallOfFame__name"
+                      className='CBHallOfFame__name'
                     >
                       {cardData.name}
                     </Link>
-                    <span className="CBHallOfFame__winner">
+                    <span className='CBHallOfFame__winner'>
                       by {contest.winner.author}
                     </span>
                   </div>

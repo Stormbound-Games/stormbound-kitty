@@ -14,22 +14,22 @@ const DBDetailView = props => {
 
   return (
     <Fragment>
-      <h1 className="visually-hidden">Deck Detail</h1>
+      <h1 className='visually-hidden'>Deck Detail</h1>
 
       <Row desktopOnly wideGutter>
         <Column width={33}>
           <Title>Your deck</Title>
           <Deck
-            id="deck"
+            id='deck'
             deck={props.deck}
             highlightedCards={props.highlightedCards}
             onClick={zoom}
-            onClickLabel="Enlarge card"
+            onClickLabel='Enlarge card'
           />
 
           <Row>
             <Column>
-              <ShareButton label="Share deck" />
+              <ShareButton label='Share deck' />
             </Column>
           </Row>
         </Column>
@@ -50,8 +50,8 @@ const DBDetailView = props => {
       />
 
       <PageMeta
-        title="Deck Detail"
-        description="Details and advice about the deck."
+        title='Deck Detail'
+        description='Details and advice about the deck.'
       />
     </Fragment>
   )

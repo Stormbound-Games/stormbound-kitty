@@ -13,8 +13,8 @@ const BSGrid = props => (
     {props.board.map((row, x) => (
       <Row index={x} board={props.board} key={x}>
         {row.map((cell, y) => (
-          <div key={'col-' + y} className="BSGrid__cell">
-            <div className="BSGrid__cell-content">
+          <div key={'col-' + y} className='BSGrid__cell'>
+            <div className='BSGrid__cell-content'>
               <Cell
                 {...cell}
                 data-testid={`cell-${'ABCDE'[x]}${'1234'[y]}`}
@@ -22,7 +22,8 @@ const BSGrid = props => (
                 activePlayer={props.activePlayer}
                 isActive={
                   props.activeCell &&
-                  (x === props.activeCell[0] && y === props.activeCell[1])
+                  x === props.activeCell[0] &&
+                  y === props.activeCell[1]
                 }
                 {...props.dndProps(x, y)}
                 onClick={props.onCellClick(x, y)}

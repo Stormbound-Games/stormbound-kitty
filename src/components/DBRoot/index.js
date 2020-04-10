@@ -11,7 +11,7 @@ export default class DBRoot extends React.Component {
 
     this.state = {
       highlightedCards: [],
-      deck: getInitialDeckData(props.deckId)
+      deck: getInitialDeckData(props.deckId),
     }
   }
 
@@ -40,7 +40,7 @@ export default class DBRoot extends React.Component {
     if (isInDeck) {
       if (isInDeck.level === level) return
       return this.setState(state => ({
-        deck: state.deck.map(c => (c.id === id ? { id, level } : c))
+        deck: state.deck.map(c => (c.id === id ? { id, level } : c)),
       }))
     }
 
@@ -49,19 +49,19 @@ export default class DBRoot extends React.Component {
     }
 
     this.setState({
-      deck: [...this.state.deck, { id, level }].sort(sortByMana)
+      deck: [...this.state.deck, { id, level }].sort(sortByMana),
     })
   }
 
   removeCardFromDeck = ({ id }) => {
     this.setState(state => ({
-      deck: state.deck.filter(card => card.id !== id)
+      deck: state.deck.filter(card => card.id !== id),
     }))
   }
 
   highlight = cards =>
     this.setState({
-      highlightedCards: cards.map(c => c.id || c)
+      highlightedCards: cards.map(c => c.id || c),
     })
 
   render() {
@@ -77,10 +77,10 @@ export default class DBRoot extends React.Component {
             defineDeck: this.defineDeck,
             removeCardFromDeck: this.removeCardFromDeck,
             highlight: this.highlight,
-            highlightedCards: this.state.highlightedCards
+            highlightedCards: this.state.highlightedCards,
           })
         }
-      )
+      ),
     })
   }
 }

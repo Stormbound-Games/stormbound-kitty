@@ -5,12 +5,12 @@ import { DEFAULT_MANA } from '../../constants/battle'
 import arrayRandom from '../../helpers/arrayRandom'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import resolveDeckWeight, {
-  increaseCardWeight
+  increaseCardWeight,
 } from '../../helpers/resolveDeckWeight'
 
 export default class DeckMechanisms extends React.Component {
   static defaultProps = {
-    turn: 1
+    turn: 1,
   }
 
   constructor(props) {
@@ -24,7 +24,7 @@ export default class DeckMechanisms extends React.Component {
       turn: props.turn,
       mana: DEFAULT_MANA + (props.turn - 1),
       deck: resolveDeckWeight(props.deck),
-      playerOrder: 'FIRST'
+      playerOrder: 'FIRST',
     }
   }
 
@@ -66,7 +66,7 @@ export default class DeckMechanisms extends React.Component {
       // drawn (reseted to 0).
       newState.deck = this.getIncreasedDeckWeight({
         state: newState,
-        reset: [pick]
+        reset: [pick],
       })
 
       return newState
@@ -100,7 +100,7 @@ export default class DeckMechanisms extends React.Component {
       // drawn (reseted to 0).
       newState.deck = this.getIncreasedDeckWeight({
         state: newState,
-        reset: [id, pick]
+        reset: [id, pick],
       })
 
       newState.hasCycledThisTurn = id !== 'N22' // Ignore Goldgrubbers cycling
@@ -224,12 +224,7 @@ export default class DeckMechanisms extends React.Component {
         const token = resolveCardForLevel({ id })
         token.level = [5, 6, 6, 8, 10][card.level - 1]
         token.weight = 0
-        token.id =
-          id +
-          ':' +
-          Math.random()
-            .toString(36)
-            .substring(7)
+        token.id = id + ':' + Math.random().toString(36).substring(7)
 
         this.setState(state => ({ deck: [...state.deck, token] }))
         break
@@ -332,7 +327,7 @@ export default class DeckMechanisms extends React.Component {
 
   increaseDeckWeight = ({ reset }) =>
     this.setState(state => ({
-      deck: this.getIncreasedDeckWeight({ state, reset })
+      deck: this.getIncreasedDeckWeight({ state, reset }),
     }))
 
   endTurn = () => {
@@ -416,7 +411,7 @@ export default class DeckMechanisms extends React.Component {
         turn: this.props.turn,
         mana: DEFAULT_MANA + (this.props.turn - 1),
         deck: resolveDeckWeight(this.props.deck),
-        playerOrder: 'FIRST'
+        playerOrder: 'FIRST',
       },
       this.drawHand
     )
@@ -428,7 +423,7 @@ export default class DeckMechanisms extends React.Component {
     this.setState({
       playerOrder,
       turn,
-      mana: DEFAULT_MANA + (turn - 1)
+      mana: DEFAULT_MANA + (turn - 1),
     })
   }
 
@@ -449,7 +444,7 @@ export default class DeckMechanisms extends React.Component {
       reset: this.reset,
       endTurn: this.endTurn,
       increaseDeckWeight: this.increaseDeckWeight,
-      setRNG: RNG => this.setState({ RNG })
+      setRNG: RNG => this.setState({ RNG }),
     })
   }
 }

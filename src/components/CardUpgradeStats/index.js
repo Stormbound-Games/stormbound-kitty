@@ -15,7 +15,7 @@ const CardUpgradeStats = props => {
     <Fragment>
       {card.missing ? (
         <p>
-          <span className="CardUpgradeStats__mark">Crafting cost:</span>{' '}
+          <span className='CardUpgradeStats__mark'>Crafting cost:</span>{' '}
           {getCostForLevel(1)(card).stones} fusion stones.
         </p>
       ) : (
@@ -23,11 +23,11 @@ const CardUpgradeStats = props => {
           .filter(level => card.level < level)
           .map(level => ({
             nextLevelCost: getCostForLevel(level)(card),
-            level
+            level,
           }))
           .map(({ nextLevelCost, level }, index) => (
             <p key={level}>
-              <span className="CardUpgradeStats__mark">
+              <span className='CardUpgradeStats__mark'>
                 Upgrading cost for level {level}
                 {index > 0 ? ' (including previous levels)' : ''}:{' '}
               </span>

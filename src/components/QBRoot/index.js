@@ -18,7 +18,7 @@ export default class QBRoot extends React.Component {
       name: '',
       description: '',
       difficulty: 1,
-      ...getInitialQuestData(props.questId)
+      ...getInitialQuestData(props.questId),
     }
   }
 
@@ -28,7 +28,7 @@ export default class QBRoot extends React.Component {
       'amount',
       'name',
       'description',
-      'difficulty'
+      'difficulty',
     ].some(prop => this.state[prop] !== prevState[prop])
 
     if (hasAnyPropChanged) {
@@ -49,7 +49,7 @@ export default class QBRoot extends React.Component {
         amount: 0,
         name: '',
         description: '',
-        difficulty: 1
+        difficulty: 1,
       },
       () => navigate('/quest')
     )
@@ -58,8 +58,8 @@ export default class QBRoot extends React.Component {
   render() {
     return (
       <Fragment>
-        <div className="QB">
-          <Title element="h1">Build your quest</Title>
+        <div className='QB'>
+          <Title element='h1'>Build your quest</Title>
           <Quest {...this.state} />
           <Form
             {...this.state}
@@ -73,8 +73,8 @@ export default class QBRoot extends React.Component {
         </div>
 
         <PageMeta
-          title="Quest Builder"
-          description="Create your own Stormbound quest."
+          title='Quest Builder'
+          description='Create your own Stormbound quest.'
         />
       </Fragment>
     )

@@ -6,8 +6,8 @@ const Icon = props => {
     <svg
       className={`icon icon-${props.icon}`}
       aria-hidden
-      focusable="false"
-      viewBox="0 0 32 32"
+      focusable='false'
+      viewBox='0 0 32 32'
     >
       <use xlinkHref={`#icon-${props.icon}`} />
     </svg>

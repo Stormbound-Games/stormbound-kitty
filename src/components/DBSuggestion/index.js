@@ -11,20 +11,20 @@ const DBSuggestion = props => {
   const deck = deserialiseDeck(props.id)
 
   return (
-    <div className="DBSuggestion">
+    <div className='DBSuggestion'>
       <Deck
         deck={deck}
-        orientation="horizontal"
+        orientation='horizontal'
         onClick={props.zoom}
-        onClickLabel="Display card"
+        onClickLabel='Display card'
       />
-      <div className="DBSuggestion__rarity-bar">
+      <div className='DBSuggestion__rarity-bar'>
         <RarityBar deck={deck.map(({ id }) => getRawCardData(id))} />
       </div>
-      <span className="DBSuggestion__name">
+      <span className='DBSuggestion__name'>
         <Link to={`/deck/${props.id}`}>{props.name}</Link>
       </span>
-      <span className="DBSuggestion__author">
+      <span className='DBSuggestion__author'>
         <Link to={`/deck/suggestions?category=${props.category}`}>
           {CATEGORIES[props.category]}
         </Link>{' '}

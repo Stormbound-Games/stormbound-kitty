@@ -8,10 +8,7 @@ const getCardFromSlug = slug =>
   )
 
 const slugify = name =>
-  name
-    .replace(/\s/g, '_')
-    .replace(/’',/g, '')
-    .toLowerCase()
+  name.replace(/\s/g, '_').replace(/’',/g, '').toLowerCase()
 
 export default card => {
   if (!card) {

@@ -6,8 +6,8 @@ import './index.css'
 const BSCellFormDialog = props => {
   return (
     <Dialog
-      id="cell-form-dialog"
-      title="Current cell"
+      id='cell-form-dialog'
+      title='Current cell'
       dialogRef={props.dialogRef}
       close={props.close}
       image={null}

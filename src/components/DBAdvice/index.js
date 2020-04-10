@@ -66,73 +66,63 @@ const getSuggestions = cards => {
   return [
     factions.length > 1 && {
       name: 'Multi-factions',
-      description: `This deck counts ${
-        factions.length
-      } factions, which is not technically permitted in Stormbound. This deck cannot be played in game.`
+      description: `This deck counts ${factions.length} factions, which is not technically permitted in Stormbound. This deck cannot be played in game.`,
     },
 
     averageManaCost > 5.5 && {
       name: 'Heavy deck',
-      description: `This deck has an average mana cost of ${averageManaCost}, which might be a little high. Consider including some cheaper cards so the mana flow gets smoother.`
+      description: `This deck has an average mana cost of ${averageManaCost}, which might be a little high. Consider including some cheaper cards so the mana flow gets smoother.`,
     },
 
     averageManaCost < 3 && {
       name: 'Light deck',
       description: `This deck has an average mana cost of ${averageManaCost}, which might be a little low. Consider including one or two more expensive cards to be able to power through long games.`,
-      highlight: () => cards.filter(c => c.mana < averageManaCost)
+      highlight: () => cards.filter(c => c.mana < averageManaCost),
     },
 
     staticCards.length > 6 && {
       name: 'Slow deck',
-      description: `This deck has ${
-        staticCards.length
-      } cards that don’t initially move, which makes it more likely to struggle against aggressive and rush decks. Consider swapping some static cards for some movers.`,
-      highlight: () => staticCards
+      description: `This deck has ${staticCards.length} cards that don’t initially move, which makes it more likely to struggle against aggressive and rush decks. Consider swapping some static cards for some movers.`,
+      highlight: () => staticCards,
     },
 
     spells.length > 2 && {
       name: 'Many spells',
-      description: `This deck has ${
-        spells.length
-      } spells which might be unusually high. Consider swapping a spell for a unit or structure to be less situational.`
+      description: `This deck has ${spells.length} spells which might be unusually high. Consider swapping a spell for a unit or structure to be less situational.`,
     },
 
     hasArchdruidEaryn &&
       spells.length < 2 && {
         name: 'Undervalued Archdruid Earyn',
-        description: `This deck includes Archdruid Earyn but has only ${
-          spells.length
-        } spell, which is unusually low. Consider adding an extra spell to get the most out of Archdruid Earyn.`,
-        highlight: () => ['N48', ...spells]
+        description: `This deck includes Archdruid Earyn but has only ${spells.length} spell, which is unusually low. Consider adding an extra spell to get the most out of Archdruid Earyn.`,
+        highlight: () => ['N48', ...spells],
       },
 
     lacksAoE(cards) && {
       name: 'Lack of AoE',
       description:
-        'It doesn’t look like this deck includes any way to deal damage to multiple units at once. Consider bringing a card or card combo which can clean several units.'
+        'It doesn’t look like this deck includes any way to deal damage to multiple units at once. Consider bringing a card or card combo which can clean several units.',
     },
 
     hasUbassTheHunter &&
       races.length < 4 && {
         name: 'Undervalued Ubass the Hunter',
-        description: `This deck includes Ubass the Hunter but has only ${
-          races.length
-        } races which is unusually low. Consider bring more races to get the most out of Ubass the Hunter.`,
-        highlight: () => ['N35']
+        description: `This deck includes Ubass the Hunter but has only ${races.length} races which is unusually low. Consider bring more races to get the most out of Ubass the Hunter.`,
+        highlight: () => ['N35'],
       },
 
     evenManaCards.length >= 9 && {
       name: 'Even-mana cost',
       description:
         'This deck has most cards costing an even amount of mana, therefore reducing the amount of cards that can be played on odd turns. Consider balancing the mana cost a bit more.',
-      highlight: () => evenManaCards
+      highlight: () => evenManaCards,
     },
 
     oddManaCards.length >= 9 && {
       name: 'Odd-mana cost',
       description:
         'This deck has most cards costing an odd amount of mana, therefore reducing the amount of cards that can be played on even turns. Consider balancing the mana cost a bit more.',
-      highlight: () => oddManaCards
+      highlight: () => oddManaCards,
     },
 
     hasDoctorMia &&
@@ -140,8 +130,8 @@ const getSuggestions = cards => {
         name: 'Undervalued Doctor Mia',
         description:
           'This deck includes Doctor Mia but doesn’t include any structures that have a good synergy with her. Consider including structures such as Upgrade Point, or Siege Assembly.',
-        highlight: () => ['I2', ...structures]
-      }
+        highlight: () => ['I2', ...structures],
+      },
   ].filter(Boolean)
 }
 
@@ -154,7 +144,7 @@ const DBAdvice = props => {
   }
 
   return (
-    <div className="DBAdvice">
+    <div className='DBAdvice'>
       <Title>Suggestions</Title>
 
       {suggestions.map(suggestion => (
@@ -167,7 +157,7 @@ const DBAdvice = props => {
           }
           onMouseOut={() => props.highlight([])}
         >
-          <strong className="DBAdvice__name">{suggestion.name}:</strong>{' '}
+          <strong className='DBAdvice__name'>{suggestion.name}:</strong>{' '}
           {suggestion.description}
         </p>
       ))}

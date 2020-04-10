@@ -16,21 +16,21 @@ const TLBDisplayView = props => {
     <Fragment>
       <Row wideGutter desktopOnly>
         <Column width={33}>
-          <Title element="h2">Settings</Title>
+          <Title element='h2'>Settings</Title>
 
-          <p className="TLBApp__intro">
+          <p className='TLBApp__intro'>
             This tier list editor makes it possible to create up to 10 tiers of
             cards. It is currently very much in active development so make sure
             to report any bug, oddity or desired features.
           </p>
 
-          <div className="TLBApp__buttons">
+          <div className='TLBApp__buttons'>
             <Row>
               <Column>
                 <CTA to={`/list/${props.listId}`}>Edit list</CTA>
               </Column>
               <Column>
-                <ShareButton title="Share tier list" />
+                <ShareButton title='Share tier list' />
               </Column>
             </Row>
           </div>
@@ -50,7 +50,7 @@ const TLBDisplayView = props => {
         </Column>
       </Row>
 
-      <PageMeta title="Tier List Display" />
+      <PageMeta title='Tier List Display' />
     </Fragment>
   )
 }

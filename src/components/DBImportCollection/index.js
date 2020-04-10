@@ -64,17 +64,17 @@ const parseCSVData = data => {
 }
 
 const DBImportCollection = props => (
-  <div className="DBImportCollection">
-    <label htmlFor="import" className="CTA DBImportCollection__button">
-      <span className="CTA__content">Import collection</span>
+  <div className='DBImportCollection'>
+    <label htmlFor='import' className='CTA DBImportCollection__button'>
+      <span className='CTA__content'>Import collection</span>
     </label>
     <input
-      id="import"
-      name="import"
-      type="file"
-      accept=".csv"
+      id='import'
+      name='import'
+      type='file'
+      accept='.csv'
       onChange={onFileUpload(props.onChange)}
-      className="DBImportCollection__file"
+      className='DBImportCollection__file'
     />
   </div>
 )

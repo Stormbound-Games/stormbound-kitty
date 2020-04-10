@@ -7,12 +7,12 @@ export default (a, b) => {
   const cardA = resolveCardForLevel({
     token: a.token,
     id: a.id,
-    level: a.level
+    level: a.level,
   })
   const cardB = resolveCardForLevel({
     token: b.token,
     id: b.id,
-    level: b.level
+    level: b.level,
   })
 
   if (+cardA.mana > +cardB.mana) return +1

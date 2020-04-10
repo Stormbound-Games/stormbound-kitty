@@ -5,23 +5,23 @@ import './index.css'
 
 const BSPlayerBanner = props => {
   return (
-    <div className="BSPlayerBanner">
+    <div className='BSPlayerBanner'>
       <Mana mana={props.mana} disabled={props.disabled} />
-      <div className="BSPlayerBanner__meta">
-        <span className="BSPlayerBanner__name">{props.player}</span>
+      <div className='BSPlayerBanner__meta'>
+        <span className='BSPlayerBanner__name'>{props.player}</span>
         <span
-          className="BSPlayerBanner__faction"
+          className='BSPlayerBanner__faction'
           data-testid={`${props.player}-faction`}
         >
           <Image
-            className="BSPlayerBanner__faction-icon"
+            className='BSPlayerBanner__faction-icon'
             src={
               process.env.PUBLIC_URL +
               '/assets/images/icon_' +
               (props.faction || 'neutral') +
               '.png'
             }
-            alt=""
+            alt=''
           />
 
           {props.faction || 'Neutral'}

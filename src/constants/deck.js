@@ -12,5 +12,5 @@ export const DEFAULT_DECK = [
   { ...DEFAULT_CARD },
   { ...DEFAULT_CARD },
   { ...DEFAULT_CARD },
-  { ...DEFAULT_CARD }
+  { ...DEFAULT_CARD },
 ]

@@ -33,17 +33,17 @@ const Story = props => {
   const card = getRawCardData(story.cardId)
 
   return (
-    <div className="Story">
+    <div className='Story'>
       <Row desktopOnly wideGutter>
         <Column width={66}>
-          <div className="Story__content">
-            <Title element="h1" className="Story__title">
+          <div className='Story__content'>
+            <Title element='h1' className='Story__title'>
               {story.title}
             </Title>
 
             <article>
               {story.content.split('\n').map((paragraph, index) => (
-                <p key={index} className="Story__paragraph">
+                <p key={index} className='Story__paragraph'>
                   {microMarkdown(paragraph)}
                 </p>
               ))}
@@ -59,7 +59,7 @@ const Story = props => {
             </Fragment>
           )}
 
-          <p className="Story__author">Story by {story.author}</p>
+          <p className='Story__author'>Story by {story.author}</p>
 
           {storiesByAuthor.length > 1 && (
             <p>
@@ -84,7 +84,7 @@ const Story = props => {
 
           <Row desktopOnly>
             <Column>
-              <CTA to="/stories">Back to stories</CTA>
+              <CTA to='/stories'>Back to stories</CTA>
             </Column>
             <Column />
           </Row>

@@ -18,25 +18,25 @@ const Home = props => {
 
   return (
     <Fragment>
-      <h1 className="visually-hidden">Stormbound Kitty</h1>
+      <h1 className='visually-hidden'>Stormbound Kitty</h1>
 
-      <div className="Home">
-        <aside className="Home__news">
+      <div className='Home'>
+        <aside className='Home__news'>
           <Image
-            className="Home__news-image"
-            src="/assets/images/cards/lady_rime.png"
-            alt="Lady Rime"
+            className='Home__news-image'
+            src='/assets/images/cards/lady_rime.png'
+            alt='Lady Rime'
           />
-          <div className="Home__news-box">
+          <div className='Home__news-box'>
             <Title>News</Title>
             <News />
           </div>
         </aside>
         <section
-          className="Home__section"
+          className='Home__section'
           style={{ '--color': 'var(--swarm)' }}
         >
-          <div className="Home__section-inner">
+          <div className='Home__section-inner'>
             <Row desktopOnly>
               <Column />
               <Column>
@@ -46,19 +46,19 @@ const Home = props => {
                   academic purposes such as guides and bug reports, or to create
                   tricky situations for other players to resolve!
                 </p>
-                <div className="Home__buttons">
-                  <CTA to="/sim">Simulator</CTA>
-                  <CTA to="/sim/puzzles">Puzzles</CTA>
+                <div className='Home__buttons'>
+                  <CTA to='/sim'>Simulator</CTA>
+                  <CTA to='/sim/puzzles'>Puzzles</CTA>
                 </div>
               </Column>
             </Row>
           </div>
         </section>
         <section
-          className="Home__section"
+          className='Home__section'
           style={{ '--color': 'var(--shadowfen)' }}
         >
-          <div className="Home__section-inner">
+          <div className='Home__section-inner'>
             <Row desktopOnly>
               <Column />
               <Column>
@@ -68,20 +68,20 @@ const Home = props => {
                   suggestions from the deck builder and its dry-runner, or try
                   one of the many ready-to-go decks from the community.
                 </p>
-                <div className="Home__buttons">
-                  <CTA to="/deck">Deck builder</CTA>
-                  <CTA to="/deck/guide">Guide</CTA>
-                  <CTA to="/deck/suggestions">Ready decks</CTA>
+                <div className='Home__buttons'>
+                  <CTA to='/deck'>Deck builder</CTA>
+                  <CTA to='/deck/guide'>Guide</CTA>
+                  <CTA to='/deck/suggestions'>Ready decks</CTA>
                 </div>
               </Column>
             </Row>
           </div>
         </section>
         <section
-          className="Home__section"
+          className='Home__section'
           style={{ '--color': 'var(--winter)' }}
         >
-          <div className="Home__section-inner">
+          <div className='Home__section-inner'>
             <Row desktopOnly>
               <Column />
               <Column>
@@ -91,18 +91,18 @@ const Home = props => {
                   invent the first legendary spell? A new type of structure?
                   Create your very own cards in the card builder.
                 </p>
-                <div className="Home__buttons">
-                  <CTA to="/card">Card builder</CTA>
+                <div className='Home__buttons'>
+                  <CTA to='/card'>Card builder</CTA>
                 </div>
               </Column>
             </Row>
           </div>
         </section>
         <section
-          className="Home__section"
+          className='Home__section'
           style={{ '--color': 'var(--ironclad)' }}
         >
-          <div className="Home__section-inner">
+          <div className='Home__section-inner'>
             <Row desktopOnly>
               <Column />
               <Column>
@@ -111,15 +111,15 @@ const Home = props => {
                   Bring some creativity and a fresh wind to Stormbound quests by
                   designing your own, and come up with new concepts.
                 </p>
-                <div className="Home__buttons">
-                  <CTA to="/quest">Quest builder</CTA>
+                <div className='Home__buttons'>
+                  <CTA to='/quest'>Quest builder</CTA>
                 </div>
               </Column>
             </Row>
           </div>
         </section>
-        <section className="Home__section" style={{ '--color': 'var(--blue)' }}>
-          <div className="Home__section-inner">
+        <section className='Home__section' style={{ '--color': 'var(--blue)' }}>
+          <div className='Home__section-inner'>
             <Row desktopOnly>
               <Column />
               <Column>
@@ -129,10 +129,10 @@ const Home = props => {
                   you’ll learn everything you need to know in the guides made by
                   members of the community.
                 </p>
-                <div className="Home__buttons">
-                  <CTA to="/guides/winter">Winter Guide</CTA>
-                  <CTA to="/guides/complete">Complete Guide</CTA>
-                  <CTA to="/guides/deck">Deck building</CTA>
+                <div className='Home__buttons'>
+                  <CTA to='/guides/winter'>Winter Guide</CTA>
+                  <CTA to='/guides/complete'>Complete Guide</CTA>
+                  <CTA to='/guides/deck'>Deck building</CTA>
                 </div>
               </Column>
             </Row>
@@ -141,8 +141,8 @@ const Home = props => {
       </div>
 
       <PageMeta
-        title="Stormbound Kitty"
-        description="Stormbound Kitty aims at providing tools and information about Paladin Studios’ greatest hit, and extending its players’ experience outside the game."
+        title='Stormbound Kitty'
+        description='Stormbound Kitty aims at providing tools and information about Paladin Studios’ greatest hit, and extending its players’ experience outside the game.'
       />
     </Fragment>
   )

@@ -16,7 +16,7 @@ import {
   SHADES_LIST,
   TIER_COLORS,
   DEFAULT_LIST,
-  DEFAULT_TIER
+  DEFAULT_TIER,
 } from '../../constants/list'
 import './index.css'
 
@@ -30,7 +30,7 @@ class TLBEditorView extends React.Component {
       dndSource: null,
       dndTarget: null,
       dndDirection: null,
-      preventRemoval: false
+      preventRemoval: false,
     }
   }
 
@@ -68,7 +68,7 @@ class TLBEditorView extends React.Component {
     if (!cardId) return
 
     this.onTierUpdate(index)({
-      cards: [...this.state.tiers[index].cards, cardId]
+      cards: [...this.state.tiers[index].cards, cardId],
     })
   }
 
@@ -76,7 +76,7 @@ class TLBEditorView extends React.Component {
     if (this.state.preventRemoval) return
 
     this.onTierUpdate(index)({
-      cards: this.state.tiers[index].cards.filter(card => card !== cardId)
+      cards: this.state.tiers[index].cards.filter(card => card !== cardId),
     })
   }
 
@@ -118,7 +118,7 @@ class TLBEditorView extends React.Component {
     this.setState({
       preventRemoval: false,
       dndTierIndex: tierIndex,
-      dndSource: cardIndex
+      dndSource: cardIndex,
     })
   }
 
@@ -137,7 +137,7 @@ class TLBEditorView extends React.Component {
         ? state.dndDirection * -1
         : state.dndTarget > cardIndex
         ? -1
-        : +1
+        : +1,
     }))
   }
 
@@ -149,7 +149,7 @@ class TLBEditorView extends React.Component {
       dndSource: null,
       dndTarget: null,
       dndDirection: null,
-      preventRemoval: dndSource === dndTarget
+      preventRemoval: dndSource === dndTarget,
     })
 
     if (dndSource !== null && dndTarget !== null && dndSource !== dndTarget) {
@@ -168,9 +168,9 @@ class TLBEditorView extends React.Component {
       <Fragment>
         <Row wideGutter desktopOnly>
           <Column width={33}>
-            <Title element="h2">Settings</Title>
+            <Title element='h2'>Settings</Title>
 
-            <p className="TLBEditorView__intro">
+            <p className='TLBEditorView__intro'>
               This tier list editor makes it possible to create up to 10 tiers
               of cards. It is currently very much in active development so make
               sure to report any bug, oddity or desired features.
@@ -186,22 +186,22 @@ class TLBEditorView extends React.Component {
             <CTA
               onClick={this.addTier}
               disabled={this.state.tiers.length === 10}
-              className="TLBEditorView__add-button"
+              className='TLBEditorView__add-button'
             >
               Add a new tier
             </CTA>
 
-            <div className="TLBApp__buttons">
+            <div className='TLBApp__buttons'>
               <Row>
                 <Column>
                   <ResetButton
-                    label="Reset list"
-                    confirm="Are you sure you want to reset the list to its initial state?"
+                    label='Reset list'
+                    confirm='Are you sure you want to reset the list to its initial state?'
                     reset={this.reset}
                   />
                 </Column>
                 <Column>
-                  <ShareButton title="Share tier list" />
+                  <ShareButton title='Share tier list' />
                 </Column>
               </Row>
             </div>
@@ -237,8 +237,8 @@ class TLBEditorView extends React.Component {
         </Row>
 
         <PageMeta
-          title="Tier List Builder"
-          description="Compose your own tier lists."
+          title='Tier List Builder'
+          description='Compose your own tier lists.'
         />
       </Fragment>
     )

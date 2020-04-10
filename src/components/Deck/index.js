@@ -25,7 +25,7 @@ const Deck = props => {
       ref={ref}
       id={props.id}
     >
-      <ul className="Deck__list">
+      <ul className='Deck__list'>
         {slots.map((card, index) =>
           card ? (
             <li
@@ -36,7 +36,7 @@ const Deck = props => {
                 card.rarity === 'legendary' && `Deck__card--legendary`,
                 highlightedCards.length > 0 &&
                   !highlightedCards.includes(card.id) &&
-                  'Deck__card--excluded'
+                  'Deck__card--excluded',
               ]
                 .filter(Boolean)
                 .join(' ')}
@@ -44,26 +44,26 @@ const Deck = props => {
             >
               {props.onClick && (
                 <button
-                  type="button"
-                  className="Deck__button"
+                  type='button'
+                  className='Deck__button'
                   onClick={() => props.onClick(card)}
                   disabled={
                     props.isCardDisabled ? props.isCardDisabled(card) : false
                   }
                 >
-                  <span className="visually-hidden">{props.onClickLabel}</span>
+                  <span className='visually-hidden'>{props.onClickLabel}</span>
                 </button>
               )}
 
-              <Mana className="Deck__mana" mana={card.mana} />
-              <span className="Deck__name">{card.name}</span>
-              <img className="Deck__image" src={card.image} alt={card.name} />
-              <span className="Deck__level">{card.level}</span>
+              <Mana className='Deck__mana' mana={card.mana} />
+              <span className='Deck__name'>{card.name}</span>
+              <img className='Deck__image' src={card.image} alt={card.name} />
+              <span className='Deck__level'>{card.level}</span>
             </li>
           ) : props.showEmptySlots ? (
             <li className={`Deck__card Deck__card--empty`} key={index}>
-              <Mana className="Deck__mana" mana="" />
-              <span className="visually-hidden">Empty slot</span>
+              <Mana className='Deck__mana' mana='' />
+              <span className='visually-hidden'>Empty slot</span>
             </li>
           ) : null
         )}
@@ -73,7 +73,7 @@ const Deck = props => {
 }
 
 Deck.defaultProps = {
-  showEmptySlots: true
+  showEmptySlots: true,
 }
 
 export default Deck

@@ -48,6 +48,7 @@
     "cypress": "^4.3.0",
     "imagemin": "^7.0.1",
     "imagemin-webp": "^5.1.0",
+    "prettier": "^2.0.4",
     "spritesh": "^1.2.1"
   }
 }

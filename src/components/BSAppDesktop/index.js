@@ -14,7 +14,7 @@ import './index.css'
 
 export default class BSAppDesktop extends React.Component {
   state = {
-    coords: {}
+    coords: {},
   }
 
   open = () => this.dialog.show()
@@ -24,8 +24,9 @@ export default class BSAppDesktop extends React.Component {
     if (!isEqual(prevProps.activeCell, this.props.activeCell)) {
       if (this.props.activeCell) {
         const node = document.querySelector(
-          `.BSRow:nth-child(${this.props.activeCell[0] + 1}) > :nth-child(${this
-            .props.activeCell[1] + 1})`
+          `.BSRow:nth-child(${this.props.activeCell[0] + 1}) > :nth-child(${
+            this.props.activeCell[1] + 1
+          })`
         )
         const coords = node.getBoundingClientRect()
 
@@ -74,12 +75,12 @@ export default class BSAppDesktop extends React.Component {
           onMouseDown: this.onMouseDown(x, y),
           onMouseOver: this.onMouseOver(x, y),
           onMouseUp: this.onMouseUp(x, y),
-          isDragging: this.props.isDragging
+          isDragging: this.props.isDragging,
         }
 
   render() {
     return (
-      <div className="BSAppDesktop">
+      <div className='BSAppDesktop'>
         <Board {...this.props} dndProps={this.dndProps} />
 
         <CellFormDialog
@@ -90,24 +91,24 @@ export default class BSAppDesktop extends React.Component {
         />
 
         {this.props.mode === 'DISPLAY' && !!this.props.puzzle && (
-          <div className="BSAppDesktop__puzzle">
+          <div className='BSAppDesktop__puzzle'>
             <Puzzle {...this.props.puzzle} noImage />
           </div>
         )}
 
         {this.props.mode === 'DISPLAY' && (
-          <div className="BSAppDesktop__deck">
+          <div className='BSAppDesktop__deck'>
             <Deck
               deck={this.props.cards}
               onClick={this.props.zoom}
-              onClickLabel="Enlarge card"
+              onClickLabel='Enlarge card'
               showEmptySlots={false}
             />
           </div>
         )}
 
         {this.props.mode === 'EDITOR' && (
-          <div className="BSAppDesktop__settings">
+          <div className='BSAppDesktop__settings'>
             <Row wideGutter>
               <Column width={33}>
                 <Title>Game settings</Title>
@@ -117,13 +118,13 @@ export default class BSAppDesktop extends React.Component {
               <Column width={33}>
                 <Title>Player settings</Title>
                 <PlayerForm
-                  player="RED"
-                  displayName="🔴 Red player (opponent)"
+                  player='RED'
+                  displayName='🔴 Red player (opponent)'
                   {...this.props.players.RED}
                 />
                 <PlayerForm
-                  player="BLUE"
-                  displayName="🔵 Blue player (you)"
+                  player='BLUE'
+                  displayName='🔵 Blue player (you)'
                   {...this.props.players.BLUE}
                 />
               </Column>

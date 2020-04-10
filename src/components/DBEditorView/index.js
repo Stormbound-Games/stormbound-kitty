@@ -29,7 +29,7 @@ class DBEditorView extends React.Component {
       cardLevel: 1,
       withCustomCollection: false,
       collection: cards,
-      hasImported: null
+      hasImported: null,
     }
   }
 
@@ -74,7 +74,7 @@ class DBEditorView extends React.Component {
       {
         collection: collection || this.state.collection,
         hasImported: !!collection,
-        withCustomCollection: true
+        withCustomCollection: true,
       },
       () => {
         setTimeout(() => this.setState({ hasImported: null }), 3000)
@@ -99,23 +99,23 @@ class DBEditorView extends React.Component {
         ...card,
         level: this.state.withCustomCollection
           ? card.level
-          : this.state.cardLevel
+          : this.state.cardLevel,
       })
     )
 
     return (
       <Fragment>
-        <h1 className="visually-hidden">Deck Builder</h1>
+        <h1 className='visually-hidden'>Deck Builder</h1>
 
         <Row desktopOnly wideGutter>
           <Column width={33}>
             <Title>Your deck</Title>
 
             <Deck
-              id="deck"
+              id='deck'
               deck={this.props.deck}
               onClick={this.props.removeCardFromDeck}
-              onClickLabel="Remove card from deck"
+              onClickLabel='Remove card from deck'
               highlightedCards={this.props.highlightedCards}
             />
 
@@ -124,8 +124,8 @@ class DBEditorView extends React.Component {
                 <Row>
                   <Column>
                     <ResetButton
-                      label="Reset deck"
-                      confirm="Are you sure you want to reset your deck?"
+                      label='Reset deck'
+                      confirm='Are you sure you want to reset your deck?'
                       reset={this.props.reset}
                     />
                   </Column>
@@ -145,9 +145,9 @@ class DBEditorView extends React.Component {
               <Fragment>
                 <p>
                   If you do not know where to start,{' '}
-                  <Link to="/deck/guide">read the guide</Link> to learn how to
+                  <Link to='/deck/guide'>read the guide</Link> to learn how to
                   make a viable deck, or try one of the{' '}
-                  <Link to="/deck/suggestions">
+                  <Link to='/deck/suggestions'>
                     ready-to-go suggested decks
                   </Link>
                   .
@@ -165,7 +165,7 @@ class DBEditorView extends React.Component {
                 <Fragment>
                   <p>
                     If you have already{' '}
-                    <Link to="/deck/collection">created your collection</Link>,
+                    <Link to='/deck/collection'>created your collection</Link>,
                     you can import it directly in the deck builder to compose
                     decks that you can make in-game.
                   </p>
@@ -184,7 +184,7 @@ class DBEditorView extends React.Component {
           </Column>
 
           <Column width={66}>
-            <div className="DB__collection">
+            <div className='DB__collection'>
               <Title>Cards collection</Title>
 
               <DBFiltering cards={cardCollection}>
@@ -193,7 +193,7 @@ class DBEditorView extends React.Component {
                   filtersSetters,
                   collection,
                   resetFilters,
-                  cardsPerPage
+                  cardsPerPage,
                 }) => (
                   <Fragment>
                     <Filters
@@ -223,7 +223,7 @@ class DBEditorView extends React.Component {
                       />
                     ) : (
                       <EmptySearch
-                        title="No cards found"
+                        title='No cards found'
                         resetFilters={resetFilters}
                       />
                     )}
@@ -234,7 +234,7 @@ class DBEditorView extends React.Component {
           </Column>
         </Row>
 
-        <PageMeta title="Deck Builder" description="Compose your own deck." />
+        <PageMeta title='Deck Builder' description='Compose your own deck.' />
       </Fragment>
     )
   }

@@ -16,22 +16,22 @@ const News = props => {
 
   return (
     <Fragment>
-      <ul className="News">
+      <ul className='News'>
         {pages[activePage].map((news, index) => (
-          <li className="News__item" key={index}>
+          <li className='News__item' key={index}>
             <strong>{news.intro}:</strong> {news.description}
           </li>
         ))}
       </ul>
       <Row desktopOnly>
         <Column>
-          <CTA type="button" onClick={loadNext} disabled={activePage === 0}>
+          <CTA type='button' onClick={loadNext} disabled={activePage === 0}>
             Recent news
           </CTA>
         </Column>
         <Column>
           <CTA
-            type="button"
+            type='button'
             onClick={loadPrev}
             disabled={activePage === pages.length - 1}
           >

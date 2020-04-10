@@ -8,7 +8,7 @@ export default [
     Thus, they were used for more than your average farming tools. By repurposing them for a greater cause, they quickly became a driving force in the war for Mana Crystals. They are a stronghold of power, begging to be used.`,
     author: 'Zethes',
     cardId: 'N1',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Gifted Recruits',
@@ -20,7 +20,7 @@ export default [
     When the storm came, these little guys had nobody to turn to but themselves. He and his recruits hid out together with the rest of the independent neutrals. They now hone their abilities and prowess to the skilled art of battle. They truly are a huge asset to the team.`,
     author: 'Zethes',
     cardId: 'N3',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Lawless Herd',
@@ -34,7 +34,7 @@ export default [
     While being a weak creature, they were easy to summon. A single mana crystal was all that needed to be used for the initiation of the Herd. They became known as one of the most easy creatures to summon, fighting for its place in the eye of the storm.`,
     author: 'Zethes',
     cardId: 'N4',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'First Mutineer',
@@ -50,7 +50,7 @@ export default [
     Mutineers is a creature that works beautifully in cohesion with other creatures, especially high cost and ineffective creatures. Their power makes up for all loss. However, the curse of the captain will always and forever be upon them.`,
     author: 'Zethes',
     cardId: 'N12',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Snowmasons',
@@ -66,7 +66,7 @@ export default [
     When the storm came, they sacrificed themselves so their mana crystals could be converted into strength. They bravely allowed many others to survive as the lightning fell on the ground. They are a force to be appreciated, and a team creature on the field of battle.`,
     author: 'Zethes',
     cardId: 'N26',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Ubass the Hunter',
@@ -80,7 +80,7 @@ export default [
     Ubass is a Hero whos power is so immense, many Chosen Ones resent him. They run when they see him on the battlefield. Others decide to use his power for good. He leads the way even when the times are tough. His strength is beyond comprehension.`,
     author: 'Zethes',
     cardId: 'N35',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Blood Ministers',
@@ -92,7 +92,7 @@ export default [
     And so it was done. The Ministers would provide an excellent force for Shadowfen for days to come. And the Ministers would be able to collect whatever they wanted now…`,
     author: 'Zethes',
     cardId: 'F20',
-    category: 'shadowfen'
+    category: 'shadowfen',
   },
   {
     title: 'Temple Guardians',
@@ -128,7 +128,7 @@ export default [
     …He told us to be.`,
     author: 'Zyries',
     cardId: 'N56',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Wetland Deceivers',
@@ -166,7 +166,7 @@ export default [
     Now, can you pardon me that I didn’t shake your hand, Stalker?`,
     author: 'Zyries',
     cardId: 'N17',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Voidsurgers',
@@ -180,7 +180,7 @@ export default [
     I have a knack for some skirmishin’.`,
     author: 'Zyries',
     cardId: 'N36',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Voidsurgers',
@@ -195,7 +195,7 @@ export default [
     —A page from Grand Archivist, Miran's personal saga.`,
     author: 'DoppleFock',
     cardId: 'N36',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Felflares',
@@ -205,7 +205,7 @@ export default [
     –A page from a Pact deserter’s personal “saga”`,
     author: 'DoppleFock',
     cardId: 'N11',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Dark Harvest',
@@ -214,7 +214,7 @@ export default [
     —Journal excerpt by Andrus Vaen, Swarm mercenary`,
     author: 'DoppleFock',
     cardId: 'S15',
-    category: 'swarm'
+    category: 'swarm',
   },
   {
     title: 'Visions of the Grove',
@@ -224,7 +224,7 @@ export default [
     It could take days or weeks, months or years but those who got granted their vision would never forget…`,
     author: 'Visions',
     cardId: 'W21',
-    category: 'winter'
+    category: 'winter',
   },
   {
     title: 'Chaotic Pupil',
@@ -235,7 +235,7 @@ export default [
     And so, the pupil trained harder than ever for the chance to confront the renegade in the battlefield.`,
     author: 'Minethetekit',
     cardId: 'I12',
-    category: 'ironclad'
+    category: 'ironclad',
   },
   {
     title: 'Crazy Bombers',
@@ -247,7 +247,7 @@ export default [
     He abandoned the Union after that. He wanted to find the answer,and what better way than too become a mercenary,fighting for and against all the kingdoms?`,
     author: 'Minethetekit',
     cardId: 'N57',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Personal Servers',
@@ -255,21 +255,21 @@ export default [
     The union was running out of funding for the war, fast. They needed to come up with something to continue the fight. In order to stay in the game, they put the personal servers on the international market. The other factions seemed to love the servers. They cleansed feathers and fur, cleared the roads of thick sheets of ice, and removed viscera from the battlefields. The battlefields! The Union realized the potential of the servers and took them off of the international market. The damage was already done. In time, the servers would be ripping apart their creators and ironclad brothers.`,
     author: 'SBucket',
     cardId: 'N24',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Trueshot Post',
     content: `The trueshot posts are monumental defensive posts, shaped in memory of an unknown knight of veritable legend, who roamed the frontier and islands with his great warbow, shooting down the biggest game the storm could possibly offer, creatures of legend — dragons. Word spread of this legend like the snow on a midwinter night. Edrik’s high command caught wind of this legend, and devised this defensive post to take the heat off the nightwatch and to remind knights out in the field that the marksman of legend watches over them in their finest hours.`,
     author: 'HurgusBurgus',
     cardId: 'N34',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Summon Militia',
     content: `When Edrik needs a temporary defense circuit, or perhaps a small police force, this is his answer. Most fielding knights will be placed in the Militia at some point, but most members of this less-than-esteemed force are citizens of the islands, looking for glory or wages. They’re cheap and easy to train, they’re plentiful, bordering expendable, but as a force by themselves, they’re rather weak. Take after Edrik. The militia is great for small problems, but they won’t last you forever.`,
     author: 'HurgusBurgus',
     cardId: 'N2',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Eloth the Ignited',
@@ -278,7 +278,7 @@ export default [
     Shaking, the ingeneer put the last metal plate gently on the dragon's scaled skin. The machine turned on, buzzed, and a faint light emitted from the screen. "My Brillancy, it works! The giant can communicate with us now trough his thoughts!" "Perfect. So, why have you called me?" The screen turned red, and as the might dragon closed his eyes focusing, his thoughts cleared: flames, clouds, magic, dragons. Newborn from the storm, the dragons scattered across the lands, feasting and looking for a land to call home. Many just looked for survival, but others were smarter, and knew they will need allies to thrive. North, East, South, the mightiest dragons went to form pacts and alliances with the Queens and Priestesses that rules over the land. Now it was time for this might dragon to find his ally, and ally that would make him better, and ally that would understand his power. An ally like Mia and the Ironclad Union.`,
     author: 'Kepp',
     cardId: 'I17',
-    category: 'ironclad'
+    category: 'ironclad',
   },
   {
     title: 'Eloth the Ignited',
@@ -298,7 +298,7 @@ export default [
     "Please, call me Mia." Mia told him.`,
     author: 'Minethetekit',
     cardId: 'I17',
-    category: 'ironclad'
+    category: 'ironclad',
   },
 
   {
@@ -312,21 +312,21 @@ export default [
     That night, a great big dragon stormed the camps of the Swarm and when it proved victorious, asserted itself as the new Lord of the Swarm.`,
     author: 'Minethetekit',
     cardId: 'S19',
-    category: 'swarm'
+    category: 'swarm',
   },
   {
     title: 'Head Start',
     content: `The satyrs, for all their simplicity and flaws, are some of the best runners outside of the storm, second only to the undead. The fastest of satyrs are enlisted by Ahmi to quickly reform the lines and add to the frontal hordes the swarm so very much rely on to win their battles.`,
     author: 'HurgusBurgus',
     cardId: 'S24',
-    category: 'swarm'
+    category: 'swarm',
   },
   {
     title: 'Grim Couriers',
     content: `The undead are a gifted species in this world, bound by the storm. Theirs is a body lacking in muscle. Because of this, they're light and unrelenting, fatiguing only in the most hellish of circumstances. The couriers transcend this, never stopping to rest, allowing them to travel a month's journey in mere days. The greatest recorded incident, a two month trek to the wintery tundra performed in three days and nights. Few undead ever join the couriers in battle, and they'll always be one step ahead; or a thousand.`,
     author: 'HurgusBurgus',
     cardId: 'S17',
-    category: 'swarm'
+    category: 'swarm',
   },
   {
     title: 'Heliotroopers',
@@ -342,21 +342,21 @@ export default [
     Now drink up.`,
     author: 'Zyries',
     cardId: 'F7',
-    category: 'shadowfen'
+    category: 'shadowfen',
   },
   {
     title: 'Warfront Runners',
     content: `After seeing the endurance and speed of the grim couriers, Edrik thought to himself how a division of scouts woule supplement his knights on the warfront. Lightly armed, these rangers of steel are deployed mostly for recon duty or first response, but will never back down. Cardio? Hard? Get over yourselves.`,
     author: 'HurgusBurgus',
     cardId: 'N28',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Harvesters of Souls',
     content: `Theirs is a magic considered an atrocity, by the traditions of the Swarm, duplication of ones physical form and individuality by way of extracting the soul and striking down the body. Cast out from the ranks of the Swarm, these undead magi remain open to all kingdoms in hopes of redemption.`,
     author: 'HurgusBurgus',
     cardId: 'N38',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Salty Outcasts',
@@ -365,7 +365,7 @@ export default [
     Under the cover of darkness they broke down the gate that made the ravens feel so safe. Huts were set ablaze and religious sites were destroyed. Every raven found was executed. They massacred their rulers. When a patrol rolled through at dawn, they found smoldering huts, brutalized bodies and no trace of the culprits. Now that the ones who had abandoned them were slain, they had nothing to do but search for a new, stronger leader. Their brutality helped them achieve this. Nobody questioned the violence of the toads now.`,
     author: 'Xcircle',
     cardId: 'N52',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Lady Rime',
@@ -373,7 +373,7 @@ export default [
     The warriors were tracking the dragon by following the traces of mana in the wind and the frozen corpses, but the tracks stopped.Suddenly, they were all frozen and then immediately died.All but her.`,
     author: 'Minethetekit',
     cardId: 'W10',
-    category: 'winter'
+    category: 'winter',
   },
   {
     title: 'Spellbinder Zhevana',
@@ -397,7 +397,7 @@ export default [
     — My name is Rime. Rime told her.`,
     author: 'Minethetekit',
     cardId: 'W8',
-    category: 'winter'
+    category: 'winter',
   },
 
   {
@@ -408,7 +408,7 @@ export default [
     She then saw a cliff nearby, and a great golden dragon was overlooking it. It then flew to her. The dragon then said in a majestic tone “Greetings, my queen. a new age has come. And you will help me restore the empire.” She was still awed but managed to regain her composure and said “And who are you, dragon?” The dragon bowed his head and said “Xuri, my queen. Lord of Life.” He then turned to the vast expanse of desert and said to her “Come, my queen. For we have much to do” it was silent for a moment, then the goatman in robes asked her what she should be called by her people. She thought for a moment then said “I shall be called… the queen of herds.”`,
     author: 'Seth',
     cardId: 'S21',
-    category: 'swarm'
+    category: 'swarm',
   },
 
   {
@@ -417,7 +417,7 @@ export default [
     And though not suited for combat, they are also trained in the arts of spearmanship like all satyrs, meaning they can also fight alongside their allies in the frontline.`,
     author: 'Seth',
     cardId: 'S14',
-    category: 'swarm'
+    category: 'swarm',
   },
 
   {
@@ -431,7 +431,7 @@ export default [
     —Excerpt from an observation of armies and kingdoms`,
     author: 'Seth',
     cardId: 'S23',
-    category: 'swarm'
+    category: 'swarm',
   },
 
   {
@@ -449,7 +449,7 @@ export default [
     —Chanted by a dwarven bard at the celebration of Edric’s appointment to commander of the knights radiant`,
     author: 'HobbitBoi',
     cardId: 'N59',
-    category: 'neutral'
+    category: 'neutral',
   },
 
   {
@@ -463,7 +463,7 @@ export default [
     —A page from former Ironclad Educator, Lilith Morini’s personal journal`,
     author: 'DoppleFock',
     cardId: 'I2',
-    category: 'ironclad'
+    category: 'ironclad',
   },
 
   {
@@ -474,7 +474,7 @@ export default [
     —Excerpt from and observation of armies and kingdoms`,
     author: 'Seth',
     cardId: 'S5',
-    category: 'swarm'
+    category: 'swarm',
   },
 
   {
@@ -488,21 +488,21 @@ export default [
     This is what they are, tortured souls, longing to forget.`,
     author: 'MooreFunn',
     cardId: 'N25',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Dreadfauns',
     content: `The Dreadfauns of the swarm are a plentiful division. Rather than forming a single force, these satyrs split up their contintent into smaller herds. This formation was surprisingly smart, allowing them to reinforce both the front and back of their horde, and making grazing more manageable.`,
     author: 'HurgusBurgus',
     cardId: 'S16',
-    category: 'swarm'
+    category: 'swarm',
   },
   {
     title: 'Doppelbocks',
     content: `A surprisingly smart satyr formation, the "Dopplebocks" formation consists of two contingents of satyrs forming a column, with the second rushing forward to make a wall around the first. This formation reinforces the frontline, ensuring that even when the frontal force scatters or dies, the rear will still remain up to the task.`,
     author: 'HurgusBurgus',
     cardId: 'S1',
-    category: 'swarm'
+    category: 'swarm',
   },
   {
     title: 'Amberhides',
@@ -519,7 +519,7 @@ export default [
     Tonight, we would feast.`,
     author: 'Primal',
     cardId: 'F15',
-    category: 'shadowfen'
+    category: 'shadowfen',
   },
   {
     title: 'Destructobots',
@@ -528,7 +528,7 @@ export default [
      In the distance, the Officer ran towards the construct in an effort to retrieve it, and direct it back to its formation. The Officer shouting, again ordered the construct to fall back within the ranks. However, he was met with defiance, and the mechanical clicking and whirring of the machine. He shouted orders a final time. But as if being provoked, the machine swiveled around, and struck the Officer down into the reeds. There, the Officer lay dead. The machine then returned to its previous location. And There it stood in the marsh, in plain sight, its reticle glowing red in the dark. Blood did not differ from the coloration of its metal plates.`,
     author: 'YoungestMammal',
     cardId: 'I1',
-    category: 'ironclad'
+    category: 'ironclad',
   },
   {
     title: 'Dawnsparks',
@@ -620,7 +620,7 @@ export default [
     So who’s with me?`,
     author: 'Zyries',
     cardId: 'W16',
-    category: 'winter'
+    category: 'winter',
   },
   {
     title: 'Visions of the Grove',
@@ -633,7 +633,7 @@ export default [
     —The remainder of the page is filled with “the grove”`,
     author: 'Xcircle',
     cardId: 'W21',
-    category: 'winter'
+    category: 'winter',
   },
   {
     title: 'Bladestorm',
@@ -643,7 +643,7 @@ export default [
     -Final journal entry of Palin Smauw, Relic Hunter`,
     author: 'DoppleFock',
     cardId: 'N29',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Icicle Burst',
@@ -686,14 +686,14 @@ export default [
     I must destroy Ri`,
     author: 'Zyries',
     cardId: 'W1',
-    category: 'winter'
+    category: 'winter',
   },
   {
     title: 'Gifted Recruits',
     content: `I remember it as clear as yesterday. The smell, the taste, the sound, the blood. I stand alone. Face smeared with ash. I smell smoke. I taste the coppery flavor of the blood. Explosions and screaming deafen me. That was long ago. The iron legion keeps trying to take the fort. They fail every time. But with every attack, we lose more good men and women. The general said we would get reinforcements. We did. Just not the ones we had hoped for. They were like me those many years ago. Excited, brave, bold and stupid. They came in the giant doors of the keep, smiles on their faces. They thought that they were ready. Fresh suits of steel. Polished lances. They wanted to hunt an awful enemy. They didn’t know how brutal the enemy truly was. A small group was given to me. Just 12 soldiers, ready for combat. I sent 7 on a patrol. Just a simple patrol. How hard could that be? You just walk around looking out for shady business. Only two came back. It was 3 days before they spoke a word. 5 to say anything coherent. I asked about the rest. Storn? “Decapitated” Oldren? “Left behind after a construct took out his leg.” Zythol? “Shrapnel.” Ernst? They stopped speaking. They looked at the floor. They didn’t stop. The bodies were as bad as they described. But the blood, death and  decay wasn’t the worst part. It was the notes. Addressed to loved ones. Detailing their adventure. You can’t even look at their desecrated corpses after reading those. The next time they passed through the doors, they did not wear smiles, they wore nothing. It was a miracle that the two survived. It was an ambush. The rats laid dynamite on the road, and set it off when they passed. The constructs made quick work of the ones still standing. A week later more reinforcements arrived. They wore the same happy smiles as the ones before. And just like before, they’d fall.`,
     author: 'Xcircle',
     cardId: 'N3',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Delegators',
@@ -727,7 +727,7 @@ export default [
     Capture of subject y/*[n]*`,
     author: 'Xcircle',
     cardId: 'I21',
-    category: 'ironclad'
+    category: 'ironclad',
   },
   {
     title: 'Greengale Serpents',
@@ -744,7 +744,7 @@ export default [
     Apparently there’s been a “big project” that just came into light. One to make dragons even more powerful. I remain doubtful. Only incredibly powerful dragons can even attempt to be merged with Union technology. Look at incident report 56-2. That was a messy day.`,
     author: 'Xcircle',
     cardId: 'I7',
-    category: 'ironclad'
+    category: 'ironclad',
   },
   {
     title: 'Obsidian Butchers',
@@ -777,7 +777,7 @@ export default [
     These bars’ll bend easy to me now.`,
     author: 'Zyries',
     cardId: 'F17',
-    category: 'shadowfen'
+    category: 'shadowfen',
   },
   {
     title: 'Broodmother Qordia',
@@ -794,7 +794,7 @@ export default [
     So we talked to our great priestess Klaxi for some payment to the new dragon. Whilst the priestess loathes to show weakness, she could not afford another costly war. We devised a new solution. We would construct a new sacrificial totem near the nest. During the sacrifice, we would make sure that some toads got lost in the swamps. The dragons would eat the stray toads. After the sacrifices we told the toads that the bodies would be taken to a great tomb built in the heart of the swamp. But it was not a tomb. It was the nest. And sometimes when the blood price was paid, she would appear on the battlefield and lay waste to all of our enemies, for if they were to defeat us, there would be less toads to be used as nourishment. We made a great alliance. And, we had plenty of toads to spare.`,
     author: 'Xcircle',
     cardId: 'F21',
-    category: 'shadowfen'
+    category: 'shadowfen',
   },
   {
     title: 'Snake Eyes',
@@ -845,7 +845,7 @@ export default [
     I need t-. I’m already gone. This is it. It’s the end. Goodbye.`,
     author: 'Xcircle',
     cardId: 'N33',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Queen of Herds',
@@ -873,7 +873,7 @@ export default [
     And some say that they lived happily ever in the afterlife.`,
     author: 'Zyries',
     cardId: 'S21',
-    category: 'swarm'
+    category: 'swarm',
   },
   {
     title: 'Boomstick Officers',
@@ -909,7 +909,7 @@ export default [
     ...hm. Maybe I really am crazy if I’m talking to a reflection.`,
     author: 'Zyries',
     cardId: 'N37',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Soulcrushers',
@@ -943,7 +943,7 @@ export default [
     *Only black.*`,
     author: 'Xcircle',
     cardId: 'F18',
-    category: 'shadowfen'
+    category: 'shadowfen',
   },
   {
     title: 'Wandering Wyrms',
@@ -951,7 +951,7 @@ export default [
     —Translated version of an old Raven's tale, recovered from a sunken tome.`,
     author: 'DoppleFock',
     cardId: 'F9',
-    category: 'shadowfen'
+    category: 'shadowfen',
   },
   {
     title: 'Transportation',
@@ -983,7 +983,7 @@ export default [
     Your loyal servent`,
     author: 'MooreFunn',
     cardId: 'N59',
-    category: 'lore'
+    category: 'lore',
   },
   {
     title: 'Powder Tower',
@@ -1012,14 +1012,14 @@ export default [
     Shattered, broken and defeated.`,
     author: 'Xcircle',
     cardId: 'N45',
-    category: 'neutral'
+    category: 'neutral',
   },
   {
     title: 'Toxic Sacrifice',
     content: `As the village doctor I find myself in all types of situations. A brick dropped on a foot, some sort of infection, telling some of the farmers that coughing isn’t caused by demons, the list goes on. But it was a certain day that we had a small raiding party try to destroy a grain silo. Luckily our guard was quick to sound the bell and the toads were swiftly dispatched. But it was not the fighting that worried me, it was the end. A small group of toads (about 7-9) was surrounded by 5 members of the village guard. The toads then began to shake violently. Their skin turned a deep purple. Their skin churned and bubbled like water in a cauldron. Then, they burst. Purple blood, guts and viscera covered the guards. First it was disgust but then it turned into relieved laughter. All seemed fine. Everyone went back to their lives. It was two days after the attack when I was regularly visited by the members of the guard. They all reported the same symptoms. Slight fever and an odd purple rash, the likes of which I had never seen before. They said that the rash “tingled”. I didn’t think anything of it. Probably just some form of the cold. I gave them each an ointment used to treat forms of Poison Ivy. But it escalated. It was not just a faint tingling. It was sharp, painful, crawling. Some of their limbs that were exposed to the entrails were now completely purple. Some poor soul’s face turned purple. Clearly it was now a situation worth investigating. A day later the victims reported paralysis in affected limbs. The man with the purple face could no longer speak, eat, drink or move his head in any way. The next it became extreme nausea and intense vomiting. The vomit was a deep purple now. When they bled, they bled purple. The whites of their eyes were faint purple. Their skin was tinged purple. Then, they died. The bodies were quickly burned in fear of the spreading of this new plague. It seemed that even in death, the violence of toads knew no bounds.`,
     author: 'Xcircle',
     cardId: 'F4',
-    category: 'shadowfen'
+    category: 'shadowfen',
   },
   {
     title: 'Herald’s Hymn',
@@ -1048,7 +1048,7 @@ export default [
     It is merely the beginning`,
     author: 'Xcircle',
     cardId: 'S20',
-    category: 'swarm'
+    category: 'swarm',
   },
   {
     title: 'About the Unbound',
@@ -1072,6 +1072,6 @@ export default [
     Your loyal servent`,
     author: 'MooreFunn',
     cardId: 'N59',
-    category: 'lore'
-  }
+    category: 'lore',
+  },
 ]

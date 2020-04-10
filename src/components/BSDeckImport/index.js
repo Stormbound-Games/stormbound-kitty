@@ -10,7 +10,7 @@ export default class BSDeckImport extends React.Component {
     deckURL: '',
     deck: [],
     hand: [],
-    error: null
+    error: null,
   }
 
   open = () => this.dialog.show()
@@ -25,7 +25,7 @@ export default class BSDeckImport extends React.Component {
           deckURL: '',
           deck: [],
           hand: [],
-          error: null
+          error: null,
         })
       })
     }
@@ -43,7 +43,7 @@ export default class BSDeckImport extends React.Component {
         this.setState({ deck: deserialiseDeck(id), error: '' })
       } catch (error) {
         this.setState({
-          error: 'Unfortunately this deck could not be imported.'
+          error: 'Unfortunately this deck could not be imported.',
         })
       }
     })
@@ -65,19 +65,19 @@ export default class BSDeckImport extends React.Component {
   render() {
     return (
       <Fragment>
-        <CTA type="CTA" onClick={this.open} className="BSDeckImport__button">
+        <CTA type='CTA' onClick={this.open} className='BSDeckImport__button'>
           Import deck
         </CTA>
         <Dialog
-          id="battle-sim-deck-import"
-          title="Import a deck"
+          id='battle-sim-deck-import'
+          title='Import a deck'
           dialogRef={this.registerDialog}
-          image="/assets/images/cards/olf_the_hammer.png"
+          image='/assets/images/cards/olf_the_hammer.png'
           close={this.close}
           ctaProps={{
             onClick: this.importDeck,
             children: 'Import deck',
-            disabled: this.state.deck.length === 0
+            disabled: this.state.deck.length === 0,
           }}
         >
           <p>
@@ -86,26 +86,26 @@ export default class BSDeckImport extends React.Component {
             can select up to 4 cards to put in your hand.
           </p>
 
-          <label htmlFor="deck">Deck URL</label>
+          <label htmlFor='deck'>Deck URL</label>
           <input
-            type="url"
-            name="deck"
-            id="deck"
+            type='url'
+            name='deck'
+            id='deck'
             required
-            placeholder="e.g. https://stormbound-kitty.com/deck/NE4xLDRJMSw0TjMsNEk2LDRJOCw0STExLDRJMTUsNEkxMiw0TjI4LDRJMjAsNEkxOSw0STIx"
+            placeholder='e.g. https://stormbound-kitty.com/deck/NE4xLDRJMSw0TjMsNEk2LDRJOCw0STExLDRJMTUsNEkxMiw0TjI4LDRJMjAsNEkxOSw0STIx'
             onChange={this.setDeck}
             value={this.state.deckURL}
-            aria-describedby="deck-import-errors"
+            aria-describedby='deck-import-errors'
           />
-          <p id="deck-import-errors">{this.state.error}</p>
+          <p id='deck-import-errors'>{this.state.error}</p>
 
           {this.state.deck.length > 0 && (
             <Deck
-              orientation="horizontal"
+              orientation='horizontal'
               deck={this.state.deck}
               highlightedCards={this.state.hand}
               onClick={this.addToHand}
-              onClickLabel="Put card in hand"
+              onClickLabel='Put card in hand'
             />
           )}
         </Dialog>

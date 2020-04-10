@@ -7,7 +7,7 @@ import {
   DEFAULT_MANA,
   DEFAULT_CELL,
   DEFAULT_PLAYER,
-  DEFAULT_BOARD
+  DEFAULT_BOARD,
 } from '../../constants/battle'
 import { DEFAULT_DECK } from '../../constants/deck'
 import getRawCardData from '../../helpers/getRawCardData'
@@ -34,7 +34,7 @@ export default class BSState extends React.Component {
       // Drag and drop related state
       isDragging: false,
       dndSource: null,
-      dndTarget: null
+      dndTarget: null,
     }
   }
 
@@ -75,7 +75,7 @@ export default class BSState extends React.Component {
         return this.setState({
           ...getInitialBattleData(last),
           history,
-          undo: true
+          undo: true,
         })
       }
 
@@ -103,7 +103,7 @@ export default class BSState extends React.Component {
 
         return this.setState({
           board: newBoard,
-          activePlayer: copiedCard.player
+          activePlayer: copiedCard.player,
         })
       }
 
@@ -203,7 +203,7 @@ export default class BSState extends React.Component {
         activeCell: null,
         dndSource: null,
         dndTarget: null,
-        board: newBoard
+        board: newBoard,
       })
     }
 
@@ -252,7 +252,7 @@ export default class BSState extends React.Component {
         this.setState({
           activeCell: null,
           activePlayer: null,
-          cardSelectValue: null
+          cardSelectValue: null,
         })
       }
     }
@@ -275,7 +275,7 @@ export default class BSState extends React.Component {
     card,
     poisoned,
     frozen,
-    confused
+    confused,
   }) => {
     const newBoard = clone(this.state.board)
     const cell = newBoard[this.state.activeCell[0]][this.state.activeCell[1]]
@@ -291,7 +291,7 @@ export default class BSState extends React.Component {
     this.setState({
       cardSelectValue: '',
       board: newBoard,
-      activeCell: null
+      activeCell: null,
     })
   }
 
@@ -308,7 +308,7 @@ export default class BSState extends React.Component {
       card: card,
       poisoned: !!formData.poisoned,
       frozen: !!formData.frozen,
-      confused: !!formData.confused
+      confused: !!formData.confused,
     })
 
     const activePlayer = this.state.players[this.state.activePlayer]
@@ -319,9 +319,9 @@ export default class BSState extends React.Component {
           ...state.players,
           [state.activePlayer]: {
             ...state.players[state.activePlayer],
-            faction: card.faction
-          }
-        }
+            faction: card.faction,
+          },
+        },
       }))
     }
   }
@@ -338,7 +338,7 @@ export default class BSState extends React.Component {
       activeCell: null,
       activePlayer: null,
       gridMarkers: false,
-      copiedCard: null
+      copiedCard: null,
     })
   }
 
@@ -349,9 +349,9 @@ export default class BSState extends React.Component {
         {
           id: typeof id !== 'undefined' ? id : prevState.cards[index].id,
           level:
-            typeof level !== 'undefined' ? level : prevState.cards[index].level
+            typeof level !== 'undefined' ? level : prevState.cards[index].level,
         },
-        ...prevState.cards.slice(index + 1)
+        ...prevState.cards.slice(index + 1),
       ]
 
       // Make sure not to keep in hand cards that have been updated
@@ -379,12 +379,13 @@ export default class BSState extends React.Component {
     const cell = this.state.board[x][y]
     const isActiveCell =
       this.state.activeCell &&
-      (x === this.state.activeCell[0] && y === this.state.activeCell[1])
+      x === this.state.activeCell[0] &&
+      y === this.state.activeCell[1]
 
     if (this.props.mode === 'DISPLAY') {
       if (cell.card.id) {
         this.setState({
-          zoomed: { id: cell.card.id, level: cell.level, player: cell.player }
+          zoomed: { id: cell.card.id, level: cell.level, player: cell.player },
         })
       }
 
@@ -403,11 +404,11 @@ export default class BSState extends React.Component {
 
   updateRedPlayer = redPlayer =>
     this.setState(state => ({
-      players: { RED: redPlayer, BLUE: state.players.BLUE }
+      players: { RED: redPlayer, BLUE: state.players.BLUE },
     }))
   updateBluePlayer = bluePlayer =>
     this.setState(state => ({
-      players: { BLUE: bluePlayer, RED: state.players.RED }
+      players: { BLUE: bluePlayer, RED: state.players.RED },
     }))
   setActivePlayer = activePlayer => this.setState({ activePlayer })
   setActiveCell = activeCell => this.setState({ activeCell })
@@ -463,7 +464,7 @@ export default class BSState extends React.Component {
 
       players: {
         RED: { ...this.state.players.RED, update: this.updateRedPlayer },
-        BLUE: { ...this.state.players.BLUE, update: this.updateBluePlayer }
+        BLUE: { ...this.state.players.BLUE, update: this.updateBluePlayer },
       },
 
       resetBoard: this.resetBoard,
@@ -486,7 +487,7 @@ export default class BSState extends React.Component {
       cycleCard: this.cycleCard,
       drawCard: this.drawCard,
       canDrawCard: this.canDrawCard(),
-      canCycleCard: this.canCycleCard()
+      canCycleCard: this.canCycleCard(),
     })
   }
 }

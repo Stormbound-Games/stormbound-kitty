@@ -5,15 +5,15 @@ import PageMeta from '../PageMeta'
 
 const BSRoot = props => (
   <Fragment>
-    <h1 className="visually-hidden">Battle Simulator</h1>
+    <h1 className='visually-hidden'>Battle Simulator</h1>
 
-    <State simId={props.simId} mode="EDITOR">
-      {state => <App mode="EDITOR" simId={props.simId} {...state} />}
+    <State simId={props.simId} mode='EDITOR'>
+      {state => <App mode='EDITOR' simId={props.simId} {...state} />}
     </State>
 
     <PageMeta
-      title="Battle Simulator"
-      description="Create your own Stormbound battles."
+      title='Battle Simulator'
+      description='Create your own Stormbound battles.'
     />
   </Fragment>
 )

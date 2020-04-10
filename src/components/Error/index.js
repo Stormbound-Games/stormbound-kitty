@@ -6,14 +6,14 @@ import './index.css'
 
 const Error = props => (
   <Fragment>
-    <div className="Error">
-      <Title element="h1" className="Error__title">
+    <div className='Error'>
+      <Title element='h1' className='Error__title'>
         An error occurred
       </Title>
 
       <img
-        src="/assets/images/cards/faun_companions.png"
-        alt="Faun Companions"
+        src='/assets/images/cards/faun_companions.png'
+        alt='Faun Companions'
       />
 
       <p>
@@ -23,23 +23,23 @@ const Error = props => (
       <p>
         What you can do is report it to Kitty#1909 on the{' '}
         <a
-          href="https://discord.gg/stormbound"
-          target="_blank"
-          rel="noopener noreferrer"
+          href='https://discord.gg/stormbound'
+          target='_blank'
+          rel='noopener noreferrer'
         >
           Stormbound Discord
         </a>
         , along with the URL of this page and the following error:
       </p>
 
-      <pre className="Error__pre">{props.error}</pre>
+      <pre className='Error__pre'>{props.error}</pre>
 
       {props.retry && <CTA onClick={props.retry}>Retry</CTA>}
     </div>
 
     <PageMeta
-      title="Error"
-      description="An error occurred, sorry about this!"
+      title='Error'
+      description='An error occurred, sorry about this!'
       noIndex
     />
   </Fragment>

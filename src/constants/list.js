@@ -8,7 +8,7 @@ export const TIER_COLORS = [
   'olivedrab',
   'darkolivegreen',
   'darkslategray',
-  'dimgray'
+  'dimgray',
 ]
 
 export const DEFAULT_TIER = { name: '', cards: [] }

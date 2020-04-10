@@ -8,7 +8,7 @@ export default ({ id, level, copies, missing }) => {
   const costForNextLevel = getCostForLevel(missing ? 1 : level + 1)({
     rarity,
     level,
-    copies
+    copies,
   })
 
   return costForNextLevel.stones === 0

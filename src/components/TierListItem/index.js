@@ -8,14 +8,14 @@ const TierListItem = props => {
     return (
       <Link
         to={'/card/' + serialiseCardFromCollection(props.card.id) + '/display'}
-        className="TierListItem"
+        className='TierListItem'
         style={{ '--color': `var(--${props.card.faction})` }}
         title={props.card.name}
       >
         <img
           src={props.card.image}
           alt={props.card.name}
-          className="TierListItem__image"
+          className='TierListItem__image'
         />
       </Link>
     )
@@ -43,11 +43,11 @@ const TierListItem = props => {
   return (
     <Fragment>
       {shouldDisplayPlaceholderBefore && (
-        <span className="TierListItem TierListItem--placeholder">
+        <span className='TierListItem TierListItem--placeholder'>
           <img
             src={props.cards[props.dndSource].image}
             alt={props.card.name}
-            className="TierListItem__image"
+            className='TierListItem__image'
           />
         </span>
       )}
@@ -56,14 +56,15 @@ const TierListItem = props => {
         onMouseDown={() => props.onMouseDown(props.index)}
         onMouseOver={() => props.onMouseOver(props.index)}
         onMouseUp={() => props.onMouseUp(props.index)}
-        type="button"
+        type='button'
         onClick={() => props.removeCard(props.card.id)}
         className={[
           'TierListItem',
           props.isDragging &&
             props.dndSource === props.index &&
-            (props.dndTarget !== null && props.dndTarget !== props.index) &&
-            'TierListItem--dragging'
+            props.dndTarget !== null &&
+            props.dndTarget !== props.index &&
+            'TierListItem--dragging',
         ]
           .filter(Boolean)
           .join(' ')}
@@ -73,16 +74,16 @@ const TierListItem = props => {
         <img
           src={props.card.image}
           alt={props.card.name}
-          className="TierListItem__image"
+          className='TierListItem__image'
         />
       </button>
 
       {shouldDisplayPlaceholderAfter && (
-        <span className="TierListItem TierListItem--placeholder">
+        <span className='TierListItem TierListItem--placeholder'>
           <img
             src={props.cards[props.dndSource].image}
             alt={props.card.name}
-            className="TierListItem__image"
+            className='TierListItem__image'
           />
         </span>
       )}

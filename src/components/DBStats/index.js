@@ -13,7 +13,9 @@ const getAverageSpeed = cards =>
 const getAverageLevel = cards =>
   (cards.map(c => c.level).reduce(sum, 0) / cards.length).toFixed(2)
 const getPlayableCardsFirst = cards =>
-  cards.filter(c => c.mana <= 3 && !['W1', 'I3', 'F4', 'N9', 'N15', 'N63'].includes(c.id))
+  cards.filter(
+    c => c.mana <= 3 && !['W1', 'I3', 'F4', 'N9', 'N15', 'N63'].includes(c.id)
+  )
 const getRaces = cards => [...new Set(cards.map(c => c.race))]
 
 const DBStats = props => {
@@ -31,7 +33,7 @@ const DBStats = props => {
   const movingCards2 = playableCards2.filter(c => c.movement > 0)
 
   return (
-    <div className="DBStats">
+    <div className='DBStats'>
       <Title>Deck stats</Title>
 
       <Row>
@@ -39,7 +41,7 @@ const DBStats = props => {
           <p>
             This deck (level ~{averageLevel}) is made of {cards.length} cards:{' '}
             <span
-              className="DBStats__trigger"
+              className='DBStats__trigger'
               onMouseOver={() => props.highlight(units)}
               onMouseOut={() => props.highlight([])}
             >
@@ -47,7 +49,7 @@ const DBStats = props => {
             </span>{' '}
             {units.length > 1 ? 'units' : 'unit'},{' '}
             <span
-              className="DBStats__trigger"
+              className='DBStats__trigger'
               onMouseOver={() => props.highlight(structures)}
               onMouseOut={() => props.highlight([])}
             >
@@ -55,7 +57,7 @@ const DBStats = props => {
             </span>{' '}
             {structures.length > 1 ? 'structures' : 'structure'}, and{' '}
             <span
-              className="DBStats__trigger"
+              className='DBStats__trigger'
               onMouseOver={() => props.highlight(spells)}
               onMouseOut={() => props.highlight([])}
             >
@@ -69,7 +71,7 @@ const DBStats = props => {
             Its average speed is <strong>{averageSpeed}</strong> cell on play.
             Its average mana cost is <strong>{averageMana}</strong>.{' '}
             <strong
-              className="DBStats__trigger"
+              className='DBStats__trigger'
               onMouseOver={() => props.highlight(playableCards1)}
               onMouseOut={() => props.highlight([])}
             >
@@ -77,7 +79,7 @@ const DBStats = props => {
             </strong>{' '}
             cards can be played as the first player (
             <strong
-              className="DBStats__trigger"
+              className='DBStats__trigger'
               onMouseOver={() => props.highlight(movingCards1)}
               onMouseOut={() => props.highlight([])}
             >
@@ -85,7 +87,7 @@ const DBStats = props => {
             </strong>{' '}
             of them moving the front line),{' '}
             <strong
-              className="DBStats__trigger"
+              className='DBStats__trigger'
               onMouseOver={() => props.highlight(playableCards2)}
               onMouseOut={() => props.highlight([])}
             >
@@ -93,7 +95,7 @@ const DBStats = props => {
             </strong>{' '}
             as the second player (
             <strong
-              className="DBStats__trigger"
+              className='DBStats__trigger'
               onMouseOver={() => props.highlight(movingCards2)}
               onMouseOut={() => props.highlight([])}
             >

@@ -10,9 +10,9 @@ import './index.css'
 
 const CBContest = props => (
   <Fragment>
-    <h1 className="visually-hidden">Weekly Card Contest</h1>
+    <h1 className='visually-hidden'>Weekly Card Contest</h1>
 
-    <Title element="h1" className="CBContest__headline">
+    <Title element='h1' className='CBContest__headline'>
       Weekly Card Contest
     </Title>
 
@@ -20,7 +20,7 @@ const CBContest = props => (
 
     <Row desktopOnly wideGutter>
       <Column>
-        <Title className="CBContest__title">Introduction</Title>
+        <Title className='CBContest__title'>Introduction</Title>
 
         <p>
           The following is a collection of all of the information to participate
@@ -29,9 +29,9 @@ const CBContest = props => (
           <strong style={{ color: 'var(--beige)' }}>want to be a judge</strong>,
           feel free to message @Taco_G_#0373 on the{' '}
           <a
-            href="https://discord.gg/stormbound"
-            target="_blank"
-            rel="noopener noreferrer"
+            href='https://discord.gg/stormbound'
+            target='_blank'
+            rel='noopener noreferrer'
           >
             Stormbound Discord
           </a>
@@ -39,7 +39,7 @@ const CBContest = props => (
         </p>
         <p>
           Submissions should be in the form of a link to the{' '}
-          <Link to="/card">card builder</Link> or to an image of your card on a
+          <Link to='/card'>card builder</Link> or to an image of your card on a
           hosting service such as imgur.
         </p>
         <p>
@@ -59,8 +59,8 @@ const CBContest = props => (
       </Column>
 
       <Column>
-        <Title className="CBContest__title">Rules</Title>
-        <ul className="CBContest__rules">
+        <Title className='CBContest__title'>Rules</Title>
+        <ul className='CBContest__rules'>
           <li>Card submissions must be made by Friday 11:59 pm (23:59) CDT.</li>
 
           <li>
@@ -105,8 +105,8 @@ const CBContest = props => (
     <HallOfFame />
 
     <PageMeta
-      title="Weekly Card Contest"
-      description="All the information to participate and/or vote in the Stormbound weekly card competitions."
+      title='Weekly Card Contest'
+      description='All the information to participate and/or vote in the Stormbound weekly card competitions.'
     />
   </Fragment>
 )

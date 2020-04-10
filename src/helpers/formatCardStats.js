@@ -20,7 +20,7 @@ export default state => {
     `${rarity}${race ? ` · ${race} ` : ' '}${modifiers}`,
     state.level && `At level ${state.level}:`,
     [mana, strength, movement].filter(Boolean).join(' · '),
-    ability
+    ability,
   ]
     .filter(Boolean)
     .join('\n')

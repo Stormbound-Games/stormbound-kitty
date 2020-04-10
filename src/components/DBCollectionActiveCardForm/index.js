@@ -14,30 +14,30 @@ const DBCollectionActiveCardForm = props => (
     <form onSubmit={props.onActiveCardFormSubmit}>
       <Row>
         <Column>
-          <label htmlFor="level">Card level</label>
+          <label htmlFor='level'>Card level</label>
           <select
-            id="level"
-            name="level"
+            id='level'
+            name='level'
             required
             value={props.activeCard.missing ? '1' : props.activeCard.level}
             onChange={props.setActiveCardLevel}
             ref={props.levelFieldRef}
             disabled={props.activeCard.missing}
           >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
           </select>
         </Column>
 
         <Column>
-          <label htmlFor="copies">Copies</label>
+          <label htmlFor='copies'>Copies</label>
           <input
-            type="number"
-            id="copies"
-            name="copies"
+            type='number'
+            id='copies'
+            name='copies'
             required
             value={
               props.activeCard.level === 5 || props.activeCard.missing
@@ -54,8 +54,8 @@ const DBCollectionActiveCardForm = props => (
       <Row>
         <Column>
           <Checkbox
-            name="missing"
-            id="missing"
+            name='missing'
+            id='missing'
             checked={props.activeCard.missing}
             onChange={props.setActiveCardMissing}
           >
@@ -67,8 +67,8 @@ const DBCollectionActiveCardForm = props => (
             href={`/card/${serialiseCardFromCollection(
               props.activeCard.id
             )}/display`}
-            target="_blank"
-            rel="noopener noreferrer"
+            target='_blank'
+            rel='noopener noreferrer'
           >
             Card detail
           </CTA>

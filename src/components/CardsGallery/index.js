@@ -23,8 +23,8 @@ const CardsGallery = props => {
   React.useEffect(() => changePage(0), Object.values(props.filters || {}))
 
   return (
-    <div className="CardsGallery">
-      <ul className="CardsGallery__list">
+    <div className='CardsGallery'>
+      <ul className='CardsGallery__list'>
         {page.map((card, index) => (
           <li
             className={[
@@ -34,7 +34,7 @@ const CardsGallery = props => {
                 'CardsGallery__item--missing',
               props.isCardInDeck &&
                 props.isCardInDeck(card.id) &&
-                'CardsGallery__item--in-deck'
+                'CardsGallery__item--in-deck',
             ]
               .filter(Boolean)
               .join(' ')}
@@ -43,11 +43,11 @@ const CardsGallery = props => {
           >
             {props.onCardClick && (
               <button
-                className="CardsGallery__button"
-                type="button"
+                className='CardsGallery__button'
+                type='button'
                 onClick={() => props.onCardClick(card.id)}
               >
-                <span className="visually-hidden">Add card to deck</span>
+                <span className='visually-hidden'>Add card to deck</span>
               </button>
             )}
 
@@ -64,10 +64,10 @@ const CardsGallery = props => {
         ))}
       </ul>
 
-      <div className="CardsGallery__nav">
+      <div className='CardsGallery__nav'>
         <CTA
-          type="button"
-          className="CardsGallery__nav-button"
+          type='button'
+          className='CardsGallery__nav-button'
           onClick={() => changePage(p => p - 1)}
           disabled={activePage === 0}
         >
@@ -77,8 +77,8 @@ const CardsGallery = props => {
         {props.navChildren || null}
 
         <CTA
-          type="button"
-          className="CardsGallery__nav-button"
+          type='button'
+          className='CardsGallery__nav-button'
           onClick={() => changePage(p => p + 1)}
           disabled={pages.length === 0 || activePage === pages.length - 1}
         >

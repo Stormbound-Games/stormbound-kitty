@@ -11,16 +11,16 @@ const ILLUSTATION = {
   winter: getRawCardData('W8'),
   ironclad: getRawCardData('I17'),
   shadowfen: getRawCardData('F21'),
-  swarm: getRawCardData('S19')
+  swarm: getRawCardData('S19'),
 }
 
 const Stories = props => (
   <>
-    <div className="Stories">
-      <h1 className="visually-hidden">Stories</h1>
+    <div className='Stories'>
+      <h1 className='visually-hidden'>Stories</h1>
 
       <Banner
-        faction="lore"
+        faction='lore'
         title={`Lore stories`}
         copy={`Discover the amazing tales from the community about the lore and embark on a mythical journey through myths and legends.`}
         cta={{
@@ -28,9 +28,9 @@ const Stories = props => (
           to: '/stories/lore',
           children: (
             <>
-              Read <span className="visually-hidden">lore</span> stories
+              Read <span className='visually-hidden'>lore</span> stories
             </>
-          )
+          ),
         }}
         image={ILLUSTATION.lore.image}
       />
@@ -48,9 +48,9 @@ const Stories = props => (
             to: '/stories/' + faction,
             children: (
               <>
-                Read <span className="visually-hidden">{faction}</span> stories
+                Read <span className='visually-hidden'>{faction}</span> stories
               </>
-            )
+            ),
           }}
           image={ILLUSTATION[faction].image}
         />
@@ -58,8 +58,8 @@ const Stories = props => (
     </div>
 
     <PageMeta
-      title="Stories"
-      description="Stories from the community about Stormbound cards"
+      title='Stories'
+      description='Stories from the community about Stormbound cards'
     />
   </>
 )

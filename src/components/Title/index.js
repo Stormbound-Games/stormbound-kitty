@@ -11,8 +11,8 @@ const Title = props => {
       id={props.id}
       aria-hidden={props['aria-hidden']}
     >
-      <span className="Title__inner">
-        <span className="Title__content">{props.children}</span>
+      <span className='Title__inner'>
+        <span className='Title__content'>{props.children}</span>
       </span>
     </Element>
   )

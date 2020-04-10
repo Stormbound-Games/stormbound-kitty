@@ -7,13 +7,13 @@ import getCalendarWeek from '../../helpers/getCalendarWeek'
 const DATE_OPTIONS = {
   weekday: 'long',
   month: 'long',
-  day: 'numeric'
+  day: 'numeric',
 }
 
 const DATE_TIME_OPTIONS = {
   ...DATE_OPTIONS,
   hour: 'numeric',
-  minute: 'numeric'
+  minute: 'numeric',
 }
 
 const CBContestStatus = props => {
@@ -28,7 +28,7 @@ const CBContestStatus = props => {
   // a message to ask the visitor to come back later
   if (isWeekEnd || !contest) {
     return (
-      <p className="CBContestStatus">
+      <p className='CBContestStatus'>
         This week’s contest is now over. Come back on{' '}
         {getNextWeekDay('MONDAY').toLocaleDateString('en', DATE_OPTIONS)} to
         know who won and to discover next week’s contest!
@@ -38,24 +38,24 @@ const CBContestStatus = props => {
 
   return (
     <Fragment>
-      <p className="CBContestStatus">
+      <p className='CBContestStatus'>
         This week’s theme is{' '}
-        <span className="CBContestStatus__theme">{contest.name}</span>! You have
+        <span className='CBContestStatus__theme'>{contest.name}</span>! You have
         until{' '}
-        <span className="CBContestStatus__date">
+        <span className='CBContestStatus__date'>
           {getNextWeekDay('FRIDAY', true).toLocaleDateString(
             'en',
             DATE_TIME_OPTIONS
           )}
         </span>{' '}
         CDT to{' '}
-        <a href={contest.submitURL} target="_blank" rel="noopener noreferrer">
+        <a href={contest.submitURL} target='_blank' rel='noopener noreferrer'>
           submit your entry
         </a>
         !
       </p>
       {contest.description && (
-        <p className="CBContestStatus CBContestStatus--info">
+        <p className='CBContestStatus CBContestStatus--info'>
           {contest.description}
         </p>
       )}

@@ -8,13 +8,13 @@ const TierList = props => {
   const cards = props.cards.map(getRawCardData)
 
   return (
-    <div className="TierList" style={{ '--color': props.color }}>
+    <div className='TierList' style={{ '--color': props.color }}>
       <TierListHeader {...props} cards={cards} />
 
       <div
         className={[
           'TierList__body',
-          props.isDragging && 'TierList__body--dragging'
+          props.isDragging && 'TierList__body--dragging',
         ]
           .filter(Boolean)
           .join(' ')}
@@ -39,7 +39,7 @@ const TierList = props => {
             />
           ))
         ) : (
-          <p className="TierList__empty">
+          <p className='TierList__empty'>
             There are currently no cards in this tier.{' '}
             {props.isEditable &&
               'Try adding a card to it to have it displayed here.'}

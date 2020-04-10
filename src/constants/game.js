@@ -3,7 +3,7 @@ export const FACTIONS = {
   winter: 'W',
   ironclad: 'I',
   shadowfen: 'F',
-  swarm: 'S'
+  swarm: 'S',
 }
 
 export const TYPES = { unit: 'U', structure: 'S', spell: 'C' }
@@ -22,13 +22,13 @@ export const RACES = {
   rodent: 'O',
   satyr: 'S',
   toad: 'T',
-  undead: 'U'
+  undead: 'U',
 }
 
 export const CURRENCIES = {
   coins: 'C',
   rubies: 'R',
-  stones: 'S'
+  stones: 'S',
 }
 
 export const UPGRADE_COST = [50, 100, 300, 1000]
@@ -38,27 +38,27 @@ export const RARITY_COPIES = {
     stonesPerMissingCopy: 3,
     stonesForMissing: 5,
     stonesPerExtraCopy: 1,
-    coinsPerExtraCopy: 15
+    coinsPerExtraCopy: 15,
   },
   rare: {
     copies: [2, 4, 10, 24],
     stonesPerMissingCopy: 7,
     stonesForMissing: 12,
     stonesPerExtraCopy: 2,
-    coinsPerExtraCopy: 30
+    coinsPerExtraCopy: 30,
   },
   epic: {
     copies: [1, 3, 7, 18],
     stonesPerMissingCopy: 15,
     stonesForMissing: 25,
     stonesPerExtraCopy: 5,
-    coinsPerExtraCopy: 70
+    coinsPerExtraCopy: 70,
   },
   legendary: {
     copies: [1, 2, 5, 12],
     stonesPerMissingCopy: 30,
     stonesForMissing: 50,
     stonesPerExtraCopy: 10,
-    coinsPerExtraCopy: 150
-  }
+    coinsPerExtraCopy: 150,
+  },
 }

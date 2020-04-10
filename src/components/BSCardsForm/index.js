@@ -8,10 +8,10 @@ import DeckImport from '../BSDeckImport'
 import './index.css'
 
 const CardsFormRow = ({ index, ...props }) => (
-  <div className="BSCardsForm__row" hidden={!props.expanded && index >= 4}>
+  <div className='BSCardsForm__row' hidden={!props.expanded && index >= 4}>
     <Row>
       <Column width={66}>
-        <label className="visually-hidden" htmlFor={`card-${index}`}>
+        <label className='visually-hidden' htmlFor={`card-${index}`}>
           Slot #{index + 1}’s card
         </label>
         <CardSelect
@@ -23,7 +23,7 @@ const CardsFormRow = ({ index, ...props }) => (
               ? props.setCard(index)({ ...DEFAULT_CARD })
               : props.setCard(index)({
                   id: option.value,
-                  level: Math.min(props.cards[index].level, 5)
+                  level: Math.min(props.cards[index].level, 5),
                 })
           }}
           withSpells={true}
@@ -41,7 +41,7 @@ const CardsFormRow = ({ index, ...props }) => (
             </label>
             {getRawCardData(props.cards[index].id).token ? (
               <input
-                type="number"
+                type='number'
                 name={`card-${index}-level`}
                 id={`card-${index}-level`}
                 required
@@ -54,7 +54,7 @@ const CardsFormRow = ({ index, ...props }) => (
               />
             ) : (
               <select
-                className="BSCardsForm__level"
+                className='BSCardsForm__level'
                 disabled={getRawCardData(props.cards[index].id).token}
                 name={`card-${index}-level`}
                 id={`card-${index}-level`}
@@ -75,8 +75,8 @@ const CardsFormRow = ({ index, ...props }) => (
           </Column>
           <Column>
             <button
-              type="button"
-              className="BSCardsForm__hand-button"
+              type='button'
+              className='BSCardsForm__hand-button'
               aria-pressed={props.hand.includes(props.cards[index].id)}
               disabled={
                 !props.cards[index].id ||
@@ -111,13 +111,13 @@ const BSCardsForm = props => {
 
   return (
     <Fragment>
-      <fieldset className="BSCardsForm" data-testid="cards-form">
+      <fieldset className='BSCardsForm' data-testid='cards-form'>
         <legend>
           Cards
           <button
-            type="button"
+            type='button'
             onClick={() => setExpanded(e => !e)}
-            className="ButtonAsLink BSCardsForm__expand-button"
+            className='ButtonAsLink BSCardsForm__expand-button'
           >
             {expanded ? 'Collapse deck' : 'Expand deck'}
           </button>

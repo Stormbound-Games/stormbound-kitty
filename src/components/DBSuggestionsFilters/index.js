@@ -31,7 +31,7 @@ const DBSuggestionsFilters = props => {
   return (
     <form
       onSubmit={event => event.preventDefault()}
-      className="DBSuggestionsFilters"
+      className='DBSuggestionsFilters'
     >
       <Row>
         <Column>
@@ -42,14 +42,14 @@ const DBSuggestionsFilters = props => {
           />
         </Column>
         <Column>
-          <label htmlFor="category">Category</label>
+          <label htmlFor='category'>Category</label>
           <select
-            id="category"
-            name="category"
+            id='category'
+            name='category'
             value={props.category}
             onChange={event => props.updateCategory(event.target.value)}
           >
-            <option value="*">Any</option>
+            <option value='*'>Any</option>
             {Object.keys(CATEGORIES).map(category => (
               <option value={category} key={category}>
                 {CATEGORIES[category]}
@@ -61,24 +61,24 @@ const DBSuggestionsFilters = props => {
 
       <Row>
         <Column>
-          <label htmlFor="name">Name</label>
+          <label htmlFor='name'>Name</label>
           <input
-            type="search"
-            name="name"
-            id="name"
+            type='search'
+            name='name'
+            id='name'
             value={name}
             onChange={event => {
               updateName(event.target.value)
               props.updateName(event.target.value)
             }}
-            placeholder="e.g. Let It Go"
+            placeholder='e.g. Let It Go'
           />
         </Column>
         <Column>
-          <label htmlFor="including">Including card</label>
+          <label htmlFor='including'>Including card</label>
           <CardSelect
-            name="including"
-            id="including"
+            name='including'
+            id='including'
             current={props.including}
             onChange={option => {
               props.updateIncluding(option ? option.value : null)
@@ -90,14 +90,14 @@ const DBSuggestionsFilters = props => {
 
       <Row>
         <Column>
-          <label htmlFor="author">Author</label>
+          <label htmlFor='author'>Author</label>
           <select
-            id="author"
-            name="author"
+            id='author'
+            name='author'
             value={props.author}
             onChange={event => props.updateAuthor(event.target.value)}
           >
-            <option value="*">Any</option>
+            <option value='*'>Any</option>
             {authors.map(author => (
               <option value={author} key={author}>
                 {author}

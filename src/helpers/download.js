@@ -2,7 +2,7 @@ export default ({
   content,
   fileName,
   mimeType = 'application/octet-stream',
-  blob = true
+  blob = true,
 }) => {
   const a = document.createElement('a')
 

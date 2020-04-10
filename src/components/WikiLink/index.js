@@ -19,7 +19,7 @@ const WikiLink = props => {
 
   if (viewportWidth < 700 || props.noTooltip) {
     return (
-      <a href={wikiURL + slug} target="_blank" rel="noopener noreferrer">
+      <a href={wikiURL + slug} target='_blank' rel='noopener noreferrer'>
         {props.children || cardData.name}
       </a>
     )
@@ -34,10 +34,10 @@ const WikiLink = props => {
         border: 0,
         whiteSpace: 'normal',
         animation: 'appear 300ms 500ms both',
-        boxShadow: '0 0 2em 1em rgba(0, 0, 0, 0.2)'
+        boxShadow: '0 0 2em 1em rgba(0, 0, 0, 0.2)',
       }}
     >
-      <a href={wikiURL + slug} target="_blank" rel="noopener noreferrer">
+      <a href={wikiURL + slug} target='_blank' rel='noopener noreferrer'>
         {props.children || cardData.name}
       </a>
     </Tooltip>

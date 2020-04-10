@@ -2,7 +2,7 @@ import { deserialiseBattle } from './deserialise'
 import {
   DEFAULT_PLAYER,
   DEFAULT_BOARD,
-  DEFAULT_MANA
+  DEFAULT_MANA,
 } from '../constants/battle'
 import { DEFAULT_DECK } from '../constants/deck'
 
@@ -15,8 +15,8 @@ export default sim => {
       hand: [],
       players: {
         RED: { ...DEFAULT_PLAYER },
-        BLUE: { ...DEFAULT_PLAYER }
-      }
+        BLUE: { ...DEFAULT_PLAYER },
+      },
     }
   }
 

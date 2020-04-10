@@ -4,11 +4,11 @@ import minifyUrl from '../../helpers/minifyUrl'
 
 export default class Share extends React.Component {
   static defaultProps = {
-    shortenURL: false
+    shortenURL: false,
   }
 
   state = {
-    hasCopied: false
+    hasCopied: false,
   }
 
   canUseShareAPI = () => {
@@ -46,7 +46,7 @@ export default class Share extends React.Component {
       const payload = {
         url: await this.getURL(),
         title: this.props.title,
-        text: this.props.content
+        text: this.props.content,
       }
 
       await navigator.share(payload)
@@ -63,7 +63,7 @@ export default class Share extends React.Component {
     return this.props.children({
       share: this.share,
       canUseShareAPI: this.canUseShareAPI(),
-      hasCopied: this.state.hasCopied
+      hasCopied: this.state.hasCopied,
     })
   }
 }

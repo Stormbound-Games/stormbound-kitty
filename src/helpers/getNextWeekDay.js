@@ -5,7 +5,7 @@ const WEEK_DAYS = [
   'WEDNESDAY',
   'THURSDAY',
   'FRIDAY',
-  'SATURDAY'
+  'SATURDAY',
 ]
 
 export default (day, endOfDay) => {

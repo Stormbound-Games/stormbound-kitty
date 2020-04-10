@@ -26,11 +26,11 @@ const BSCell = props => (
       props.mode === 'DISPLAY' && 'BSCell--display',
       props.poisoned && 'BSCell--poisoned',
       props.frozen && 'BSCell--frozen',
-      props.confused && 'BSCell--confused'
+      props.confused && 'BSCell--confused',
     ]
       .filter(Boolean)
       .join(' ')}
-    type="button"
+    type='button'
     aria-pressed={props.isActive}
     onClick={props.onClick}
     onMouseDown={props.onMouseDown}
@@ -41,67 +41,67 @@ const BSCell = props => (
   >
     {props.strength > 0 && (
       <span
-        data-testid="cell-strength"
+        data-testid='cell-strength'
         className={[
           'BSCell__strength',
-          props.player && `BSCell__strength--${props.player}`
+          props.player && `BSCell__strength--${props.player}`,
         ]
           .filter(Boolean)
           .join(' ')}
       >
-        <span className="BSCell__strength-content">{props.strength}</span>
+        <span className='BSCell__strength-content'>{props.strength}</span>
       </span>
     )}
 
     {props.card.id ? (
       <img
-        className="BSCell__image"
+        className='BSCell__image'
         src={props.card.image}
         alt={props.card.name}
-        data-testid="cell-image"
+        data-testid='cell-image'
       />
     ) : (
-      <span className="visually-hidden">Select cell</span>
+      <span className='visually-hidden'>Select cell</span>
     )}
 
     {!!props.poisoned && (
       <div
-        className="BSCell__dots BSCell__dots--poisoned"
-        data-testid="cell-poisoned"
+        className='BSCell__dots BSCell__dots--poisoned'
+        data-testid='cell-poisoned'
       >
-        <span className="BSCell__dot BSCell__dot--bubble" />
-        <span className="BSCell__dot" />
-        <span className="BSCell__dot" />
-        <span className="BSCell__dot BSCell__dot--bubble" />
-        <span className="BSCell__dot" />
-        <span className="BSCell__dot" />
-        <span className="BSCell__dot BSCell__dot--bubble" />
-        <span className="BSCell__dot" />
-        <span className="BSCell__dot" />
-        <span className="BSCell__dot BSCell__dot--bubble" />
+        <span className='BSCell__dot BSCell__dot--bubble' />
+        <span className='BSCell__dot' />
+        <span className='BSCell__dot' />
+        <span className='BSCell__dot BSCell__dot--bubble' />
+        <span className='BSCell__dot' />
+        <span className='BSCell__dot' />
+        <span className='BSCell__dot BSCell__dot--bubble' />
+        <span className='BSCell__dot' />
+        <span className='BSCell__dot' />
+        <span className='BSCell__dot BSCell__dot--bubble' />
       </div>
     )}
 
     {!!props.confused && (
       <div
-        className="BSCell__dots BSCell__dots--confused"
-        data-testid="cell-confused"
+        className='BSCell__dots BSCell__dots--confused'
+        data-testid='cell-confused'
       >
-        <span className="BSCell__dot" />
-        <span className="BSCell__dot" />
-        <span className="BSCell__dot" />
-        <span className="BSCell__dot" />
-        <span className="BSCell__dot" />
-        <span className="BSCell__dot" />
-        <span className="BSCell__dot" />
-        <span className="BSCell__dot" />
-        <span className="BSCell__dot" />
-        <span className="BSCell__dot" />
+        <span className='BSCell__dot' />
+        <span className='BSCell__dot' />
+        <span className='BSCell__dot' />
+        <span className='BSCell__dot' />
+        <span className='BSCell__dot' />
+        <span className='BSCell__dot' />
+        <span className='BSCell__dot' />
+        <span className='BSCell__dot' />
+        <span className='BSCell__dot' />
+        <span className='BSCell__dot' />
       </div>
     )}
 
     {!!props.frozen && (
-      <span className="BSCell__frozen" data-testid="cell-frozen" />
+      <span className='BSCell__frozen' data-testid='cell-frozen' />
     )}
   </button>
 )

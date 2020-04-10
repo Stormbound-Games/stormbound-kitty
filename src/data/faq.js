@@ -17,15 +17,15 @@ export default [
             find, and suggest features to me on Discord (Kitty#1909). Finally,
             consider{' '}
             <a
-              href="https://gum.co/stormbound-kitty"
-              target="_blank"
-              rel="noopener noreferrer"
+              href='https://gum.co/stormbound-kitty'
+              target='_blank'
+              rel='noopener noreferrer'
             >
               buying me a coffee
             </a>
             !
           </Fragment>
-        )
+        ),
       },
       {
         id: 'chrome-cards-rendering',
@@ -45,9 +45,9 @@ export default [
               everything should look good!
             </p>
           </Fragment>
-        )
-      }
-    ]
+        ),
+      },
+    ],
   },
 
   {
@@ -67,7 +67,7 @@ export default [
             custom cards in the battle sim, the encoded data would have to
             contain all the custom cards as well. That’s unpractical.
           </Fragment>
-        )
+        ),
       },
       {
         id: 'mobile-drag-and-drop',
@@ -79,7 +79,7 @@ export default [
             unfortunately it gets even trickier on mobile due to the presence of
             scroll and swipe gestures.
           </Fragment>
-        )
+        ),
       },
       {
         id: 'multi-faction-cards',
@@ -89,7 +89,7 @@ export default [
           <Fragment>
             <p>
               Technically, all cards can be played regardless of faction thanks
-              to <WikiLink id="N38" /> and Shadowfen conversion mechanics.
+              to <WikiLink id='N38' /> and Shadowfen conversion mechanics.
             </p>
             <p>
               Moveover, the battle sim is used a lot for creating puzzles, which
@@ -97,9 +97,9 @@ export default [
               possible to have cards from multiple factions.
             </p>
           </Fragment>
-        )
-      }
-    ]
+        ),
+      },
+    ],
   },
   {
     id: 'card-builder',
@@ -125,9 +125,9 @@ export default [
               the actual URL.
             </p>
           </Fragment>
-        )
-      }
-    ]
+        ),
+      },
+    ],
   },
   {
     id: 'deck-builder',
@@ -144,7 +144,7 @@ export default [
             and they definitely are not based on real game data. They are only
             generic suggestions from experimented players.
           </Fragment>
-        )
+        ),
       },
       {
         id: 'personal-card-collection',
@@ -153,13 +153,13 @@ export default [
         answer: (
           <Fragment>
             If you took the time to recreate your{' '}
-            <Link to="/deck/collection">card collection</Link>, then you can use
+            <Link to='/deck/collection'>card collection</Link>, then you can use
             it in the deck builder! Unfortunately the initial process of
             importing your collection is a little tedious given Paladin Studios
             does not provide a public API for Stormbound which enables us to
             query players’ data.
           </Fragment>
-        )
+        ),
       },
       {
         id: 'cross-faction-decks',
@@ -172,9 +172,9 @@ export default [
             concepts and take part in the game’s community. Cross-faction decks
             can be fun to imagine.
           </Fragment>
-        )
-      }
-    ]
+        ),
+      },
+    ],
   },
   {
     id: 'deck-dry-runner',
@@ -191,9 +191,9 @@ export default [
             cards, which is why an entire collection of cards level 1 with no
             extra copies is worth about 2490 stones.
           </Fragment>
-        )
-      }
-    ]
+        ),
+      },
+    ],
   },
   {
     id: 'cards-collection',
@@ -208,7 +208,7 @@ export default [
             mechanics to offer a way to try a deck outside of a game. It can be
             useful to evaluate card cycling, combo efficiency and mana flow.
           </Fragment>
-        )
+        ),
       },
       {
         id: 'drawing-algorithm',
@@ -235,8 +235,8 @@ export default [
               Queen of Herds.
             </p>
           </Fragment>
-        )
-      }
-    ]
-  }
+        ),
+      },
+    ],
+  },
 ]

@@ -13,15 +13,15 @@ const faction = arrayRandom(Object.keys(FACTIONS).filter(f => f !== 'neutral'))
 const BSBoardDesktop = props => (
   <div
     className={['BSBoardDesktop', `BSBoardDesktop--${faction}`].join(' ')}
-    data-testid="board"
+    data-testid='board'
   >
-    <div className="BSBoardDesktop__health BSBoardDesktop__health--RED">
-      <BaseHealth player="RED" health={props.players.RED.health} />
+    <div className='BSBoardDesktop__health BSBoardDesktop__health--RED'>
+      <BaseHealth player='RED' health={props.players.RED.health} />
     </div>
 
-    <div className="BSBoardDesktop__player BSBoardDesktop__player--RED">
+    <div className='BSBoardDesktop__player BSBoardDesktop__player--RED'>
       <PlayerBanner
-        player="RED"
+        player='RED'
         faction={props.players.RED.faction}
         mana={props.mana}
         disabled
@@ -35,23 +35,23 @@ const BSBoardDesktop = props => (
       close={props.unzoom}
     />
 
-    <div className="BSBoardDesktop__grid ">
+    <div className='BSBoardDesktop__grid '>
       <Grid {...props} />
     </div>
 
-    <div className="BSBoardDesktop__health BSBoardDesktop__health--BLUE">
-      <BaseHealth player="BLUE" health={props.players.BLUE.health} />
+    <div className='BSBoardDesktop__health BSBoardDesktop__health--BLUE'>
+      <BaseHealth player='BLUE' health={props.players.BLUE.health} />
     </div>
 
-    <div className="BSBoardDesktop__player BSBoardDesktop__player--BLUE">
+    <div className='BSBoardDesktop__player BSBoardDesktop__player--BLUE'>
       <PlayerBanner
-        player="BLUE"
+        player='BLUE'
         faction={props.players.BLUE.faction}
         mana={props.mana}
       />
     </div>
 
-    <div className="BSBoardDesktop__cards">
+    <div className='BSBoardDesktop__cards'>
       <Cards
         hand={props.hand}
         cards={props.cards}

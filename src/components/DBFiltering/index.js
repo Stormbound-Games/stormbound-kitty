@@ -17,7 +17,7 @@ const DEFAULT_FILTERS = {
   level: '*',
   ability: '*',
   hero: false,
-  elder: false
+  elder: false,
 }
 
 class DBFiltering extends React.Component {
@@ -35,14 +35,14 @@ class DBFiltering extends React.Component {
   setType = type =>
     this.setState({
       type,
-      movement: type !== 'unit' ? '*' : this.state.movement
+      movement: type !== 'unit' ? '*' : this.state.movement,
     })
   setRace = race => this.setState({ race })
   setMana = mana => this.setState({ mana })
   setMovement = movement =>
     this.setState({
       movement,
-      type: movement !== '*' ? 'unit' : this.state.type
+      type: movement !== '*' ? 'unit' : this.state.type,
     })
   setRarity = rarity => this.setState({ rarity })
   setStatus = status => this.setState({ status })
@@ -145,7 +145,7 @@ class DBFiltering extends React.Component {
       setLevel: this.setLevel,
       setAbility: this.setAbility,
       setHero: this.setHero,
-      setElder: this.setElder
+      setElder: this.setElder,
     }
 
     return this.props.children({
@@ -153,7 +153,7 @@ class DBFiltering extends React.Component {
       filtersSetters,
       resetFilters: this.resetFilters,
       collection: this.getCollection(this.props.cards),
-      cardsPerPage: this.props.viewportWidth < 1100 ? 6 : 8
+      cardsPerPage: this.props.viewportWidth < 1100 ? 6 : 8,
     })
   }
 }

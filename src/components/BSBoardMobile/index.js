@@ -7,14 +7,14 @@ import PlayerBanner from '../BSPlayerBanner'
 import './index.css'
 
 const BSBoardMobile = props => (
-  <div className="BSBoardMobile" data-testid="board">
-    <div className="BSBoardMobile__health BSBoardMobile__health--RED">
-      <BaseHealth player="RED" health={props.players.RED.health} />
+  <div className='BSBoardMobile' data-testid='board'>
+    <div className='BSBoardMobile__health BSBoardMobile__health--RED'>
+      <BaseHealth player='RED' health={props.players.RED.health} />
     </div>
 
-    <div className="BSBoardMobile__player BSBoardMobile__player--RED">
+    <div className='BSBoardMobile__player BSBoardMobile__player--RED'>
       <PlayerBanner
-        player="RED"
+        player='RED'
         faction={props.players.RED.faction}
         mana={props.mana}
         disabled
@@ -28,23 +28,23 @@ const BSBoardMobile = props => (
       close={props.unzoom}
     />
 
-    <div className="BSBoardMobile__grid ">
+    <div className='BSBoardMobile__grid '>
       <Grid {...props} />
     </div>
 
-    <div className="BSBoardMobile__health BSBoardMobile__health--BLUE">
-      <BaseHealth player="BLUE" health={props.players.BLUE.health} />
+    <div className='BSBoardMobile__health BSBoardMobile__health--BLUE'>
+      <BaseHealth player='BLUE' health={props.players.BLUE.health} />
     </div>
 
-    <div className="BSBoardMobile__player BSBoardMobile__player--BLUE">
+    <div className='BSBoardMobile__player BSBoardMobile__player--BLUE'>
       <PlayerBanner
-        player="BLUE"
+        player='BLUE'
         faction={props.players.BLUE.faction}
         mana={props.mana}
       />
     </div>
 
-    <div className="BSBoardMobile__cards">
+    <div className='BSBoardMobile__cards'>
       <Cards
         hand={props.hand}
         cards={props.cards}

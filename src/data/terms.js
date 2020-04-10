@@ -19,5 +19,5 @@ export default {
   BH: 'Base Health',
   HP: 'Health Point(s)',
   ...cardsTerms,
-  FS: 'Fusion Stones'
+  FS: 'Fusion Stones',
 }
