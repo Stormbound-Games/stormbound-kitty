@@ -21,10 +21,11 @@ const CBCardDisplay = props => {
                 'CBApp__card',
                 props.hasSingleLevel &&
                   props.level !== level + 1 &&
-                  'CBApp__card--irrelevant'
+                  'CBApp__card--irrelevant',
               ]
                 .filter(Boolean)
                 .join(' ')}
+              data-testid={`card-preview-${level}`}
             >
               <Card
                 {...props}
@@ -55,18 +56,18 @@ const CBCardDisplay = props => {
       />
 
       {!props.hasSingleLevel && (
-        <div className="CBCardDisplay__buttons">
+        <div className='CBCardDisplay__buttons'>
           <Row>
             <Column>
               {activeLevel > 1 && (
-                <CTA type="button" onClick={() => setActiveLevel(l => l - 1)}>
+                <CTA type='button' onClick={() => setActiveLevel(l => l - 1)}>
                   Level {activeLevel - 1}
                 </CTA>
               )}
             </Column>
             <Column>
               {activeLevel < 5 && (
-                <CTA type="button" onClick={() => setActiveLevel(l => l + 1)}>
+                <CTA type='button' onClick={() => setActiveLevel(l => l + 1)}>
                   Level {activeLevel + 1}
                 </CTA>
               )}

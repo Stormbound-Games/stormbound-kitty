@@ -16,12 +16,12 @@ const CardSelect = props => (
     isClearable={true}
     value={{
       id: props.current,
-      label: getRawCardData(props.current).name || 'Pick a card'
+      label: getRawCardData(props.current).name || 'Pick a card',
     }}
     onChange={props.onChange}
     onFocus={props.onFocus}
     onBlur={props.onBlur}
-    placeholder="Pick a card"
+    placeholder='Pick a card'
     styles={{
       menu: provided => ({ ...provided, zIndex: 10 }),
       option: (provided, { data, isFocused, isDisabled }) => ({
@@ -34,11 +34,11 @@ const CardSelect = props => (
         } no-repeat center left 1em`,
         opacity: isDisabled ? 0.5 : 1,
         backgroundSize: '0.75em',
-        paddingLeft: '2.5em'
-      })
+        paddingLeft: '2.5em',
+      }),
     }}
-    className="CardSelect"
-    classNamePrefix="CardSelect"
+    className='CardSelect'
+    classNamePrefix='CardSelect'
     isOptionDisabled={option => option.disabled}
     options={Object.keys(cardsByFaction)
       .sort((a, b) => (ORDER.indexOf(a) > ORDER.indexOf(b) ? 1 : -1))
@@ -49,8 +49,8 @@ const CardSelect = props => (
           .map(card => ({
             value: card.id,
             label: card.name,
-            disabled: (props.disabledOptions || []).includes(card.id)
-          }))
+            disabled: (props.disabledOptions || []).includes(card.id),
+          })),
       }))}
   />
 )
