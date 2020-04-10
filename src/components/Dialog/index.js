@@ -6,16 +6,9 @@ import Image from '../Image'
 import CTA from '../CTA'
 import './index.css'
 
-export default class Dialog extends React.Component {
-  static defaultProps = {
-    ctaProps: {},
-    image: '/assets/images/cards/lady_rime.png',
-    hideHeader: false,
-    allowScroll: false
-  }
-
-  registerDialog = ref => {
-    if (ref && !this.props.allowScroll) {
+const Dialog = props => {
+  const registerDialog = ref => {
+    if (ref && !props.allowScroll) {
       ref
         .on('show', () => {
           document.documentElement.style.overflowY = 'hidden'
@@ -25,70 +18,71 @@ export default class Dialog extends React.Component {
         })
     }
 
-    this.props.dialogRef(ref)
+    props.dialogRef(ref)
   }
 
-  render() {
-    const hasCTA = Object.keys(this.props.ctaProps).length > 0
+  const hasCTA = Object.keys(props.ctaProps).length > 0
 
-    return (
-      <A11yDialog
-        id={this.props.id}
-        appRoot="#root"
-        dialogRoot="#dialog-root"
-        dialogRef={this.registerDialog}
-        title={this.props.title}
-        useDialog={false}
-        classNames={{
-          base: 'Dialog',
-          overlay: 'Dialog__overlay',
-          element: `Dialog__content`,
-          document: 'Dialog__document',
-          title: 'Dialog__hidden',
-          closeButton: 'Dialog__hidden'
-        }}
+  return (
+    <A11yDialog
+      id={props.id}
+      appRoot='#root'
+      dialogRoot='#dialog-root'
+      dialogRef={registerDialog}
+      title={props.title}
+      useDialog={false}
+      classNames={{
+        base: 'Dialog',
+        overlay: 'Dialog__overlay',
+        element: `Dialog__content`,
+        document: 'Dialog__document',
+        title: 'Dialog__hidden',
+        closeButton: 'Dialog__hidden',
+      }}
+    >
+      <ButtonIcon
+        type='button'
+        onClick={props.close}
+        title='Close dialog'
+        aria-label='Close dialog'
+        className='Dialog__button'
+        data-testid={`${props.id}-close`}
       >
-        <ButtonIcon
-          type="button"
-          onClick={this.props.close}
-          title="Close dialog"
-          aria-label="Close dialog"
-          className="Dialog__button"
-          data-testid={`${this.props.id}-close`}
-        >
-          &times;
-        </ButtonIcon>
+        &times;
+      </ButtonIcon>
 
-        <header
-          className={[
-            'Dialog__header',
-            this.props.hideHeader && 'visually-hidden'
-          ]
-            .filter(Boolean)
-            .join(' ')}
-        >
-          <Title
-            className="Dialog__title"
-            data-testid={`${this.props.id}-title`}
-          >
-            {this.props.title}
-          </Title>
-        </header>
+      <header
+        className={['Dialog__header', props.hideHeader && 'visually-hidden']
+          .filter(Boolean)
+          .join(' ')}
+      >
+        <Title className='Dialog__title' data-testid={`${props.id}-title`}>
+          {props.title}
+        </Title>
+      </header>
 
-        <div
-          className={[`Dialog__body`, hasCTA && 'Dialog__body--with-cta']
-            .filter(Boolean)
-            .join(' ')}
-        >
-          {this.props.image !== null && (
-            <Image className="Dialog__image" src={this.props.image} alt="" />
-          )}
+      <div
+        className={[`Dialog__body`, hasCTA && 'Dialog__body--with-cta']
+          .filter(Boolean)
+          .join(' ')}
+      >
+        {props.image !== null && (
+          <Image className='Dialog__image' src={props.image} alt='' />
+        )}
 
-          {this.props.children}
+        {props.children}
 
-          {hasCTA && <CTA {...this.props.ctaProps} className="Dialog__CTA" />}
-        </div>
-      </A11yDialog>
-    )
-  }
+        {hasCTA && <CTA {...props.ctaProps} className='Dialog__CTA' />}
+      </div>
+    </A11yDialog>
+  )
 }
+
+Dialog.defaultProps = {
+  ctaProps: {},
+  image: '/assets/images/cards/lady_rime.png',
+  hideHeader: false,
+  allowScroll: false,
+}
+
+export default Dialog

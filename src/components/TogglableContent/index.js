@@ -1,39 +1,29 @@
 import React, { Fragment } from 'react'
 import './index.css'
 
-export default class TogglableContent extends React.Component {
-  constructor(props) {
-    super(props)
+const TogglableContent = props => {
+  const [isExpanded, setIsExpanded] = React.useState(props.isExpanded)
 
-    this.state = {
-      isExpanded: props.isExpanded
-    }
-  }
+  React.useEffect(() => setIsExpanded(props.isExpanded), [props.isExpanded])
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.isExpanded !== this.props.isExpanded) {
-      this.setState({ isExpanded: this.props.isExpanded })
-    }
-  }
+  return (
+    <Fragment>
+      {props.renderToggle({
+        id: props.id,
+        'aria-controls': props.id + '-target',
+        'aria-expanded': isExpanded,
+      })}
 
-  render() {
-    return (
-      <Fragment>
-        {this.props.renderToggle({
-          id: this.props.id,
-          'aria-controls': this.props.id + '-target',
-          'aria-expanded': this.state.isExpanded
-        })}
-
-        <div
-          className="TogglableContent__target"
-          id={this.props.id + '-target'}
-          aria-labelledby={this.props.id}
-          aria-hidden={!this.state.isExpanded}
-        >
-          {this.props.children}
-        </div>
-      </Fragment>
-    )
-  }
+      <div
+        className='TogglableContent__target'
+        id={props.id + '-target'}
+        aria-labelledby={props.id}
+        aria-hidden={!isExpanded}
+      >
+        {props.children}
+      </div>
+    </Fragment>
+  )
 }
+
+export default TogglableContent

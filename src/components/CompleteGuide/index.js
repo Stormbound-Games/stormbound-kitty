@@ -4,27 +4,25 @@ import Guide from '../Guide'
 import guide from '../../data/Stormbound_guide.md'
 import './index.css'
 
-class CompleteGuide extends React.Component {
-  state = { content: null }
+const CompleteGuide = props => {
+  const [content, setContent] = React.useState(null)
 
-  componentDidMount() {
+  React.useEffect(() => {
     fetch(guide)
       .then(response => response.text())
-      .then(content => this.setState({ content }))
-  }
+      .then(setContent)
+  }, [])
 
-  render() {
-    return this.state.content ? (
-      <Guide
-        title="Stormbound Guide"
-        description="A complete Stormbound Guide by Arikrat"
-        author="Arikrat"
-        className="CompleteGuide"
-      >
-        <Markdown source={this.state.content} />
-      </Guide>
-    ) : null
-  }
+  return content ? (
+    <Guide
+      title='Stormbound Guide'
+      description='A complete Stormbound Guide by Arikrat'
+      author='Arikrat'
+      className='CompleteGuide'
+    >
+      <Markdown source={content} />
+    </Guide>
+  ) : null
 }
 
 export default CompleteGuide
