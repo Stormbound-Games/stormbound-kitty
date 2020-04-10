@@ -1,6 +1,6 @@
 import s from './selectors'
 
-describe('The mana setting', () => {
+describe('Battle Sim — Mana', () => {
   before(() => {
     cy.visit('/sim')
   })

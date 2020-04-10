@@ -1,6 +1,6 @@
 import s from './selectors'
 
-describe('Layout', () => {
+describe('Battle Sim — Layout', () => {
   beforeEach(() => {
     cy.visit('/sim').viewport('iphone-6').wait(1000)
   })

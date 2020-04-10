@@ -1,6 +1,6 @@
 import s from './selectors'
 
-describe('Front lines', () => {
+describe('Battle Sim — Front lines', () => {
   before(() => {
     cy.visit('/sim')
   })

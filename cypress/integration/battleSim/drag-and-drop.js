@@ -1,6 +1,6 @@
 import s from './selectors'
 
-describe('Drag and drop', () => {
+describe('Battle Sim — Drag and drop', () => {
   before(() => {
     cy.visit('/sim')
   })

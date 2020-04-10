@@ -1,6 +1,6 @@
 import s from './selectors'
 
-describe('The grid marker settings', () => {
+describe('Battle Sim — Grid Markers', () => {
   before(() => {
     cy.visit('/sim')
   })

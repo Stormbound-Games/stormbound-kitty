@@ -1,6 +1,6 @@
 import s from './selectors'
 
-describe('Cells', () => {
+describe('Battle Sim — Cells', () => {
   before(() => {
     cy.visit('/sim')
   })

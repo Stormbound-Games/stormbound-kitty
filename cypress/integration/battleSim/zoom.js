@@ -1,6 +1,6 @@
 import s from './selectors'
 
-describe('Zoom', () => {
+describe('Battle Sim — Zoom', () => {
   before(() => {
     cy.visit('/sim')
       .fill('A1', { card: 'Zhev' })

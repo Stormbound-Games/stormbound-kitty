@@ -1,6 +1,6 @@
 import s from './selectors'
 
-describe('The reset board button', () => {
+describe('Battle Sim — Reset', () => {
   before(() => {
     cy.visit('/sim')
   })
