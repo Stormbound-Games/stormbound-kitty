@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Link } from '@reach/router'
 import remark from 'remark'
 import remarkReact from 'remark-react'
@@ -34,9 +34,9 @@ const generateId = content =>
     .replace(/['’,]/g, '')
     .replace(/[\s/]+/g, '-')
 
-const h1 = props => <Title element="h1">{props.children}</Title>
+const h1 = props => <Title element='h1'>{props.children}</Title>
 const h2 = props => (
-  <Title element="h2" id={generateId(props.children[0])}>
+  <Title element='h2' id={generateId(props.children[0])}>
     {props.children}
   </Title>
 )
@@ -74,17 +74,11 @@ const a = props =>
   )
 
 const Markdown = props => {
-  return (
-    <Fragment>
-      {
-        remark()
-          .use(remarkReact, {
-            remarkReactComponents: { h1, h2, h3, p, li, a }
-          })
-          .processSync(props.source).contents
-      }
-    </Fragment>
-  )
+  const options = { remarkReactComponents: { h1, h2, h3, p, li, a } }
+  const processor = remark().use(remarkReact, options)
+  const output = processor.processSync(props.source)
+
+  return output.result
 }
 
 export default Markdown
