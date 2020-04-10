@@ -6,9 +6,7 @@ describe('Cells', () => {
   })
 
   it('should be possible to select an empty cell', () => {
-    cy.get(s.CELL_A1)
-      .click()
-      .should('have.attr', 'aria-pressed', 'true')
+    cy.get(s.CELL_A1).click().should('have.attr', 'aria-pressed', 'true')
   })
 
   it('should be possible to unselect a selected cell', () => {
@@ -20,10 +18,7 @@ describe('Cells', () => {
   })
 
   it('should enable the cell settings', () => {
-    cy.get(s.CELL_A1)
-      .click()
-      .get(s.CELL_FORM)
-      .should('be.visible')
+    cy.get(s.CELL_A1).click().get(s.CELL_FORM).should('be.visible')
   })
 
   it('should default player to BLUE', () => {
@@ -159,7 +154,7 @@ describe('Cells', () => {
       strength: 5,
       player: 'BLUE',
       poisoned: true,
-      frozen: true
+      frozen: true,
     })
       .reload()
       .get(s.CELL_B1)

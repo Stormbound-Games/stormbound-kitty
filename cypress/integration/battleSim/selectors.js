@@ -18,19 +18,19 @@ export default {
   ABOUT_TITLE: '[data-testid="about-dialog-title"]',
 
   CARDS_FORM_SELECT_1:
-    '[data-testid="cards-form"] .row:nth-of-type(1) .CardSelect__input input',
+    '[data-testid="cards-form"] .BSCardsForm__row:nth-of-type(1) .CardSelect__input input',
   CARDS_FORM_DISPLAY_1:
-    '[data-testid="cards-form"] .row:nth-of-type(1)  .CardSelect__single-value',
+    '[data-testid="cards-form"] .BSCardsForm__row:nth-of-type(1)  .CardSelect__single-value',
   CARDS_FORM_LEVEL_1: '[data-testid="cards-form-level-0"]',
   CARDS_FORM_SELECT_2:
-    '[data-testid="cards-form"] .row:nth-of-type(2) .CardSelect__input input',
+    '[data-testid="cards-form"] .BSCardsForm__row:nth-of-type(2) .CardSelect__input input',
   CARDS_FORM_DISPLAY_2:
-    '[data-testid="cards-form"] .row:nth-of-type(2)  .CardSelect__single-value',
+    '[data-testid="cards-form"] .BSCardsForm__row:nth-of-type(2)  .CardSelect__single-value',
   CARDS_FORM_LEVEL_2: '[data-testid="cards-form-level-1"]',
   CARDS_FORM_SELECT_3:
-    '[data-testid="cards-form"] .row:nth-of-type(3) .CardSelect__input input',
+    '[data-testid="cards-form"] .BSCardsForm__row:nth-of-type(3) .CardSelect__input input',
   CARDS_FORM_DISPLAY_3:
-    '[data-testid="cards-form"] .row:nth-of-type(3)  .CardSelect__single-value',
+    '[data-testid="cards-form"] .BSCardsForm__row:nth-of-type(3)  .CardSelect__single-value',
   CARDS_FORM_LEVEL_3: '[data-testid="cards-form-level-2"]',
   CARDS_FORM_STRENGTH_3: '[data-testid="cards-form-strength-2"]',
 
@@ -82,5 +82,5 @@ export default {
   RESET_BOARD_BTN: '[data-testid="reset-btn"]',
   RESET_BOARD_CONFIRM_BTN: '[data-testid="reset-confirm-btn"]',
 
-  ZOOM: '[data-testid="zoom"]'
+  ZOOM: '[data-testid="zoom"]',
 }

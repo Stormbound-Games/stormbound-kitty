@@ -12,8 +12,9 @@ const FactionSelect = props => {
         required={props.required}
         value={props.value}
         onChange={props.onChange}
+        data-testid={props['data-testid']}
       >
-        {props.withAny && <option value="*">Any</option>}
+        {props.withAny && <option value='*'>Any</option>}
         {Object.keys(FACTIONS)
           .filter(faction => props.withNeutral || faction !== 'neutral')
           .map(faction => (

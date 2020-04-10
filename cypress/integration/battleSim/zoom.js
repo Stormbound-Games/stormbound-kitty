@@ -17,9 +17,6 @@ describe('Zoom', () => {
   })
 
   it('should not be possible to zoom a cell', () => {
-    cy.get(s.CELL_A1)
-      .click()
-      .get(s.ZOOM)
-      .should('not.exist')
+    cy.get(s.CELL_A1).click().get(s.ZOOM).should('not.exist')
   })
 })

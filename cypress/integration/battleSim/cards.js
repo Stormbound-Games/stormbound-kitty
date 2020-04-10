@@ -6,9 +6,7 @@ describe('Cards', () => {
   })
 
   it('should be possible to add a card in hand', () => {
-    cy.draw({ slot: 1, card: 'Zhev' })
-      .get(s.CARD_SLOT_1)
-      .should('not.be.empty')
+    cy.draw({ slot: 1, card: 'Zhev' }).get(s.CARD_SLOT_1).should('not.be.empty')
   })
 
   it('should be possible to update the level of a card in hand', () => {
