@@ -12,15 +12,18 @@ const CardsGallery = props => {
     [...props.cards].map(resolveCardForLevel).sort(sortCards()),
     props.cardsPerPage
   )
+  const filters = Object.values(props.filters || {})
   const page = pages[activePage] || pages[0]
-  const changePage = page => {
-    setActivePage(page)
-    if (typeof props.onPageChange === 'function') {
-      props.onPageChange(page)
-    }
-  }
+  const { onPageChange } = props
+  const changePage = React.useCallback(
+    page => {
+      setActivePage(page)
+      if (typeof onPageChange === 'function') onPageChange(page)
+    },
+    [onPageChange]
+  )
 
-  React.useEffect(() => changePage(0), Object.values(props.filters || {}))
+  React.useEffect(() => changePage(0), [changePage, filters])
 
   return (
     <div className='CardsGallery'>

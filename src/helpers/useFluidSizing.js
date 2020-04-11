@@ -8,7 +8,7 @@ export default ratio => {
 
   React.useEffect(() => {
     setFontSize(ref.current.offsetWidth * ratio + 'px')
-  }, [ref.current, viewportWidth])
+  }, [ratio, ref, viewportWidth])
 
   return { fontSize, ref }
 }

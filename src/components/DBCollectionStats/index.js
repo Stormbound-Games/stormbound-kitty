@@ -40,7 +40,7 @@ const DBCollectionStats = props => {
     props.collection,
   ])
   const averageLevel = React.useMemo(() => getAverageLevel(ownedCards), [
-    props.collection,
+    ownedCards,
   ])
   const upgradableCards = React.useMemo(
     () => getUpgradableCards(props.collection),
@@ -55,7 +55,7 @@ const DBCollectionStats = props => {
         props.collection,
         props.collection.length - missingCards.length
       ),
-    [props.collection]
+    [missingCards.length, props.collection]
   )
 
   const extraAfterMax = React.useMemo(

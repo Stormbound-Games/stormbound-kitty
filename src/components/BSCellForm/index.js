@@ -15,6 +15,7 @@ const getActiveCellCard = ({ board, activeCell }) =>
 
 const BSCellForm = props => {
   const activeCellCard = getActiveCellCard(props)
+  const { setCardSelectValue } = props
   const [strength, setStrength] = React.useState(activeCellCard.strength || 1)
   const [level, setLevel] = React.useState(activeCellCard.level || 1)
   const [poisoned, setPoisoned] = React.useState(
@@ -29,7 +30,10 @@ const BSCellForm = props => {
   const [card, setCard] = React.useState(activeCellCard.card.id || '')
 
   React.useEffect(() => {
-    const activeCellCard = getActiveCellCard(props)
+    const activeCellCard = getActiveCellCard({
+      board: props.board,
+      activeCell: props.activeCell,
+    })
     const isStructure = activeCellCard.card.type !== 'structure'
 
     setStrength(activeCellCard.strength || 1)
@@ -38,8 +42,8 @@ const BSCellForm = props => {
     setConfused(isStructure ? activeCellCard.confused : false)
     setLevel(activeCellCard.level || 1)
     setCard(activeCellCard.card.id || '')
-    props.setCardSelectValue(activeCellCard.card.id || '')
-  }, [props.activeCell, activeCellCard.card.id])
+    setCardSelectValue(activeCellCard.card.id || '')
+  }, [props.activeCell, props.board, setCardSelectValue])
 
   React.useEffect(() => {
     // When changing the value of the card select, unset poisoned and frozen
