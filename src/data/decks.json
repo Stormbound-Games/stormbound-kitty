@@ -42,13 +42,6 @@
     "category": "REGULAR"
   },
   {
-    "name": "Counselor Of Life",
-    "id": "NU4xLDVOMiw1UzEsNU4zLDVONCw1UzIsNVMxMCw1UzMsNVM5LDVTMTQsNVMxOSw1UzIw",
-    "faction": "swarm",
-    "author": "DuyNguyen",
-    "category": "DIAMOND_1"
-  },
-  {
     "name": "Chaotic Mess",
     "id": "NU4xLDVOMiw1STEsNU4zLDVONSw1STYsNU4xMiw1STgsNUkxMSw1STEyLDVJMTUsNU40NA==",
     "faction": "ironclad",
@@ -322,13 +315,6 @@
     "category": "DIAMOND_1"
   },
   {
-    "name": "It’s Gonna Be Legen…",
-    "id": "NU4xLDVTMSw1TjMsNU40LDVTMiw1UzEwLDVONyw1UzMsNVM2LDVTOSw1UzE1LDVTMTk=",
-    "faction": "swarm",
-    "author": "DuyNguyen",
-    "category": "DIAMOND_1"
-  },
-  {
     "name": "Nuts And Bolts Collector",
     "id": "NU4xLDVOMiw1STEsNU4zLDVONCw1TjUsNU44LDVJNiw1TjEyLDVJOCw1STEwLDVJMTI=",
     "faction": "ironclad",
@@ -420,13 +406,6 @@
     "category": "DIAMOND_1"
   },
   {
-    "name": "Dark Xuri",
-    "id": "NU4xLDVTMSw1UzI0LDVONCw1UzIsNU42LDVTMTAsNU4xMCw1TjE4LDVTMTIsNVMxNSw1UzE5",
-    "faction": "swarm",
-    "author": "DuyNguyen",
-    "category": "DIAMOND_1"
-  },
-  {
     "name": "Chipasauruswrex",
     "id": "NVcxLDVXMiw1TjMsNU4xMiw1TjE0LDVXMyw1TjIyLDVXNiw1VzEyLDVOMzgsNU40NSw1VzE5",
     "faction": "winter",
@@ -473,20 +452,6 @@
     "id": "NE4xLDROMiw0UzEsNE4zLDRONCw0UzIsNFM1LDROMTUsNE4xNiw0UzE0LDRTMTcsNFMyMA==",
     "faction": "swarm",
     "author": "Skylard",
-    "category": "REGULAR"
-  },
-  {
-    "name": "Winterfell",
-    "id": "NE4zLDROMTEsNE4xMiw0TjE2LDJXNSwyTjE4LDROMjgsNFcxMiw0VzEzLDNXMTUsMlcxOSwzVzIx",
-    "faction": "winter",
-    "author": "WinterBoii",
-    "category": "REGULAR"
-  },
-  {
-    "name": "L8 Visions",
-    "id": "NE4zLDROMTEsNE4xMyw0VzMsNE4xNiwyVzUsMk4xOCw0VzEyLDRXMTMsNFcxNSwyVzE5LDRXMjE=",
-    "faction": "winter",
-    "author": "WinterBoii",
     "category": "REGULAR"
   },
   {
