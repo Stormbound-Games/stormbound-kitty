@@ -43,6 +43,21 @@ export default class CBRoot extends React.Component {
     // instead of proper routes.
     if (window.location.hash) {
       navigate('/card/' + window.location.hash.slice(2), { replace: true })
+      // To avoid having a change of route and loss of focus between `/card` and
+      // `/card/:cardId` at the first update (e.g. first character of the card
+      // name), we can redirect to `/card/:cardId` right away by doing an
+      // initial serialisation.
+    } else if (!this.props.cardId) {
+      navigate(
+        '/card/' +
+          serialiseCard({
+            ...this.state,
+            strength: this.state.strength.display,
+            mana: this.state.mana.display,
+            ability: this.state.ability.display,
+          }),
+        { replace: true }
+      )
     }
   }
 
