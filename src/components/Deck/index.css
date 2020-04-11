@@ -166,12 +166,15 @@
 
 .Deck--vertical .Deck__image {
   max-width: 1.5em;
+  max-height: 1.6em;
   margin-right: 1em;
   margin-left: auto;
 }
 
 .Deck--horizontal .Deck__image {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
+  max-height: 1.75em;
   margin: auto auto 0.25em;
 }
 
