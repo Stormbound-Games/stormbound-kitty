@@ -1,0 +1,21 @@
+.DeckBuilderStats {
+}
+
+.DeckBuilderStats__trigger {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.1em 0.25em;
+  border-radius: 0.15em;
+  cursor: help;
+}
+
+.DeckBuilderStats p {
+  margin-top: 0;
+}
+
+@media (max-width: 699px) {
+  .DeckBuilderStats {
+    padding: 0;
+    margin-top: 1em;
+  }
+}

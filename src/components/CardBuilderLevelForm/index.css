@@ -1,0 +1,16 @@
+.CardBuilderLevelForm__row-label {
+  color: var(--beige);
+  text-transform: uppercase;
+}
+
+.CardBuilderLevelForm__label-col {
+  justify-content: center;
+}
+
+.CardBuilderLevelForm__label-col + * > .Row {
+  margin-bottom: 0;
+}
+
+.CardBuilderCoreForm__buttons {
+  margin-top: 2em;
+}

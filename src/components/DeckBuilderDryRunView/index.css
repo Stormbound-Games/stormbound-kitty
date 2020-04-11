@@ -1,0 +1,87 @@
+.DeckBuilderDryRunView__hand .Column {
+  flex-grow: 0;
+}
+
+.DeckBuilderDryRunView__hand {
+  padding: 0 1.5em;
+}
+
+.DeckBuilderDryRunView__card-button {
+  background-color: transparent;
+  padding: 0;
+  border: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.DeckBuilderDryRunView__buttons {
+  margin-top: 2em;
+}
+
+.DeckBuilderDryRunView__card-wrapper {
+  transition: 250ms;
+  position: relative;
+}
+
+.DeckBuilderDryRunView__card-wrapper--active {
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+.DeckBuilderDryRunView__card-wrapper--inactive {
+  opacity: 0.7;
+  filter: grayscale(0.3);
+}
+
+.DeckBuilderDryRunView__board {
+  margin-bottom: 3em;
+}
+
+@media (max-width: 699px) {
+  .DeckBuilderDryRunView__board > .Row {
+    flex-wrap: wrap;
+  }
+
+  .DeckBuilderDryRunView__board > .Row > :nth-child(1) {
+    flex: 1 1 100%;
+  }
+
+  .DeckBuilderDryRunView__board > .Row > :nth-child(2),
+  .DeckBuilderDryRunView__board > .Row > :nth-child(3) {
+    width: 50%;
+    flex-grow: 1;
+  }
+}
+
+.DeckBuilderDryRunView__mana {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 125%;
+  margin-bottom: 1em;
+}
+
+.DeckBuilderDryRunView__mana .Mana {
+  margin-left: 1em;
+}
+
+.DeckBuilderDryRunView__info {
+  margin-top: 3em;
+}
+
+.DeckBuilderDryRunView__info p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.DeckBuilderDryRunView__reset-checkbox {
+  text-align: center;
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: center;
+}

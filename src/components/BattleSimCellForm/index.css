@@ -1,0 +1,14 @@
+.BattleSimCellForm__row {
+  margin-bottom: 1em;
+}
+
+.BattleSimCellForm__button {
+  margin-top: auto;
+}
+
+.BattleSimCellForm__radios {
+  display: flex;
+  margin-top: 0.25em;
+  justify-content: space-between;
+  padding-right: 1em;
+}

@@ -6,20 +6,44 @@ import Layout from '../Layout'
 
 const options = { fallback: <Loader /> }
 const FAQ = loadable(() => import('../FAQ'), options)
-const BSDisplay = loadable(() => import('../BSDisplay'), options)
-const BSPuzzles = loadable(() => import('../BSPuzzles'), options)
-const BSRoot = loadable(() => import('../BSRoot'), options)
-const CBContest = loadable(() => import('../CBContest'), options)
-const CBRoot = loadable(() => import('../CBRoot'), options)
-const CBDisplay = loadable(() => import('../CBDisplay'), options)
-const DBSuggestions = loadable(() => import('../DBSuggestions'), options)
-const DBCollection = loadable(() => import('../DBCollection'), options)
-const DBRoot = loadable(() => import('../DBRoot'), options)
-const DBDetailView = loadable(() => import('../DBDetailView'), options)
-const DBDryRunView = loadable(() => import('../DBDryRunView'), options)
-const DBTrackerView = loadable(() => import('../DBTrackerView'), options)
-const DBEditorView = loadable(() => import('../DBEditorView'), options)
-const QBRoot = loadable(() => import('../QBRoot'), options)
+const BattleSimDisplay = loadable(() => import('../BattleSimDisplay'), options)
+const BattleSimPuzzles = loadable(() => import('../BattleSimPuzzles'), options)
+const BattleSimRoot = loadable(() => import('../BattleSimRoot'), options)
+const CardBuilderContest = loadable(
+  () => import('../CardBuilderContest'),
+  options
+)
+const CardBuilderRoot = loadable(() => import('../CardBuilderRoot'), options)
+const CardBuilderDisplay = loadable(
+  () => import('../CardBuilderDisplay'),
+  options
+)
+const DeckBuilderSuggestions = loadable(
+  () => import('../DeckBuilderSuggestions'),
+  options
+)
+const DeckBuilderCollection = loadable(
+  () => import('../DeckBuilderCollection'),
+  options
+)
+const DeckBuilderRoot = loadable(() => import('../DeckBuilderRoot'), options)
+const DeckBuilderDetailView = loadable(
+  () => import('../DeckBuilderDetailView'),
+  options
+)
+const DeckBuilderDryRunView = loadable(
+  () => import('../DeckBuilderDryRunView'),
+  options
+)
+const DeckBuilderTrackerView = loadable(
+  () => import('../DeckBuilderTrackerView'),
+  options
+)
+const DeckBuilderEditorView = loadable(
+  () => import('../DeckBuilderEditorView'),
+  options
+)
+const QuestBuilderRoot = loadable(() => import('../QuestBuilderRoot'), options)
 const StoriesCategory = loadable(() => import('../StoriesCategory'), options)
 const Story = loadable(() => import('../Story'), options)
 const Stories = loadable(() => import('../Stories'), options)
@@ -29,8 +53,14 @@ const WinterGuide = loadable(() => import('../WinterGuide'), options)
 const PirateGuide = loadable(() => import('../PirateGuide'), options)
 const Lexicon = loadable(() => import('../Lexicon'), options)
 const Guides = loadable(() => import('../Guides'), options)
-const TLBDisplayView = loadable(() => import('../TLBDisplayView'), options)
-const TLBEditorView = loadable(() => import('../TLBEditorView'), options)
+const ListBuilderDisplayView = loadable(
+  () => import('../ListBuilderDisplayView'),
+  options
+)
+const ListBuilderEditorView = loadable(
+  () => import('../ListBuilderEditorView'),
+  options
+)
 const Home = loadable(() => import('../Home'), options)
 
 const Page = ({ children, active, ...props }) => (
@@ -47,58 +77,68 @@ const Router = props => (
       </Page>
 
       <Page path='/sim/:simId/display' active='BATTLE_SIM'>
-        <BSDisplay />
+        <BattleSimDisplay />
       </Page>
       <Page path='/sim/puzzles' active='BATTLE_SIM'>
-        <BSPuzzles />
+        <BattleSimPuzzles />
       </Page>
       <Page path='/sim/:simId' active='BATTLE_SIM'>
-        <BSRoot />
+        <BattleSimRoot />
       </Page>
       <Page path='/sim' active='BATTLE_SIM'>
-        <BSRoot />
+        <BattleSimRoot />
       </Page>
 
       <Page path='/card/contest' active='CARD_BUILDER'>
-        <CBContest />
+        <CardBuilderContest />
       </Page>
       <Page path='/card/:cardId/display' active='CARD_BUILDER'>
-        <CBDisplay />
+        <CardBuilderDisplay />
       </Page>
       <Page path='/card/:cardId' active='CARD_BUILDER'>
-        <CBRoot />
+        <CardBuilderRoot />
       </Page>
       <Page path='/card' active='CARD_BUILDER'>
-        <CBRoot />
+        <CardBuilderRoot />
       </Page>
 
       <Page path='/deck/suggestions' active='DECK_BUILDER'>
-        <DBSuggestions />
+        <DeckBuilderSuggestions />
       </Page>
       <Page path='/deck/collection' active='DECK_BUILDER'>
-        <DBCollection />
+        <DeckBuilderCollection />
       </Page>
       <Page path='/deck/:deckId/detail' active='DECK_BUILDER'>
-        <DBRoot>{state => <DBDetailView {...state} />}</DBRoot>
+        <DeckBuilderRoot>
+          {state => <DeckBuilderDetailView {...state} />}
+        </DeckBuilderRoot>
       </Page>
       <Page path='/deck/:deckId/dry-run' active='DECK_BUILDER'>
-        <DBRoot>{state => <DBDryRunView {...state} />}</DBRoot>
+        <DeckBuilderRoot>
+          {state => <DeckBuilderDryRunView {...state} />}
+        </DeckBuilderRoot>
       </Page>
       <Page path='/deck/:deckId/tracker' active='DECK_BUILDER'>
-        <DBRoot>{state => <DBTrackerView {...state} />}</DBRoot>
+        <DeckBuilderRoot>
+          {state => <DeckBuilderTrackerView {...state} />}
+        </DeckBuilderRoot>
       </Page>
       <Page path='/deck/:deckId' active='DECK_BUILDER'>
-        <DBRoot>{state => <DBEditorView {...state} />}</DBRoot>
+        <DeckBuilderRoot>
+          {state => <DeckBuilderEditorView {...state} />}
+        </DeckBuilderRoot>
       </Page>
       <Page path='/deck' active='DECK_BUILDER'>
-        <DBRoot>{state => <DBEditorView {...state} />}</DBRoot>
+        <DeckBuilderRoot>
+          {state => <DeckBuilderEditorView {...state} />}
+        </DeckBuilderRoot>
       </Page>
 
       <Page path='/quest/:questId'>
-        <QBRoot />
+        <QuestBuilderRoot />
       </Page>
       <Page path='/quest'>
-        <QBRoot />
+        <QuestBuilderRoot />
       </Page>
 
       <Page path='/stories/neutral' active='STORIES'>
@@ -146,13 +186,13 @@ const Router = props => (
       </Page>
 
       <Page path='/list/:listId/display' active='LIST_BUILDER'>
-        <TLBDisplayView />
+        <ListBuilderDisplayView />
       </Page>
       <Page path='/list/:listId' active='LIST_BUILDER'>
-        <TLBEditorView />
+        <ListBuilderEditorView />
       </Page>
       <Page path='/list' active='LIST_BUILDER'>
-        <TLBEditorView />
+        <ListBuilderEditorView />
       </Page>
 
       <Page path='/'>

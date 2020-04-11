@@ -1,0 +1,17 @@
+.BattleSimPanel {
+  padding: 1em;
+  position: relative;
+  flex: 1 1 auto;
+}
+
+.BattleSimPanel__board-button {
+  position: absolute;
+  top: 0.5em;
+}
+
+.BattleSimPanel--left .BattleSimPanel__board-button {
+  right: 0.5em;
+}
+.BattleSimPanel--right .BattleSimPanel__board-button {
+  left: 0.5em;
+}

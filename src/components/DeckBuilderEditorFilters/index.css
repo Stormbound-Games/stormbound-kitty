@@ -1,0 +1,24 @@
+.DeckBuilderEditorFilters {
+  margin-bottom: 1em;
+}
+
+.DeckBuilderEditorFilters .Row {
+  margin-bottom: 0.5em;
+}
+
+.DeckBuilderEditorFilters
+  > .Row:last-child
+  .Column:last-child
+  .Column:last-child {
+  align-self: flex-end;
+}
+
+.DeckBuilderEditorFilters__reset {
+  min-width: 150px;
+}
+
+@media (max-width: 699px) {
+  .DeckBuilderEditorFilters .Row {
+    margin-bottom: 0;
+  }
+}

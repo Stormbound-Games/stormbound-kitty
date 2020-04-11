@@ -1,0 +1,108 @@
+/**
+ * 1. Position context for actual grid
+ */
+.BattleSimBoardMobile {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative; /* 1 */
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+html:not(.webp) .BattleSimBoardMobile {
+  background-image: url('/assets/images/bg-swarm.png');
+}
+
+.webp .BattleSimBoardMobile {
+  background-image: url('/assets/images/bg-swarm.webp');
+}
+
+@media (min-width: 700px) and (max-width: 799px) {
+  .BattleSimBoardMobile {
+    width: 325px;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 899px) {
+  .BattleSimBoardMobile {
+    width: 350px;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 999px) {
+  .BattleSimBoardMobile {
+    width: 375px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .BattleSimBoardMobile {
+    width: 400px;
+  }
+}
+
+/**
+ * 1. Ensure proper ratio based on background size
+ */
+.BattleSimBoardMobile::before {
+  content: ''; /* 1 */
+  display: block; /* 1 */
+  padding-top: 200%; /* 1 */
+}
+
+.BattleSimBoardMobile__health {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.BattleSimBoardMobile__health--RED {
+  top: 8%;
+  transform: translateX(-50%) translateX(15%);
+}
+
+.BattleSimBoardMobile__health--BLUE {
+  top: 70%;
+  transform: translate(-50%) translateX(-30%);
+}
+
+.BattleSimBoardMobile__player {
+  width: 65%;
+  position: absolute;
+  left: -1.75em;
+}
+
+/**
+ * 1. Absolute positioning based on background
+ */
+.BattleSimBoardMobile__player--RED {
+  top: 8%; /* 1 */
+}
+
+/**
+ * 1. Absolute positioning based on background
+ */
+.BattleSimBoardMobile__player--BLUE {
+  top: 70%; /* 1 */
+}
+
+/**
+ * 1. Horizontal centering
+ * 2. Hard-coded values based on background
+ */
+.BattleSimBoardMobile__grid {
+  position: absolute; /* 1 */
+  left: 50%; /* 1 */
+  transform: translateX(-50%); /* 1 */
+  width: 73.75%; /* 2 */
+  top: 24%; /* 2 */
+}
+
+.BattleSimBoardMobile__cards {
+  position: absolute;
+  bottom: 1em;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 100%;
+}

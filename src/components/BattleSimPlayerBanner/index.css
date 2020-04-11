@@ -1,0 +1,55 @@
+/**
+ * 1. Vertical align mana with content
+ */
+.BattleSimPlayerBanner {
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0)
+  );
+  padding: 0.3em 2.25em;
+  display: flex; /* 1 */
+  align-items: center; /* 1 */
+  min-width: 200px;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+}
+
+.BattleSimPlayerBanner__meta {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0.75em;
+  text-transform: uppercase;
+}
+
+.BattleSimPlayerBanner__faction {
+  margin-top: 0.15em;
+  font-size: 70%;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+
+.BattleSimPlayerBanner__faction-icon {
+  width: 1.25em;
+  height: 1.25em;
+  margin: 0 0.4em;
+}
+
+@media (max-width: 699px) {
+  /**
+   * 1. On mobile where it takes the full available width, scale the font size
+   *    based on the viewport width
+   */
+  .BattleSimPlayerBanner {
+    font-size: 4vw; /* 1 */
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+
+  .BattleSimPlayerBanner__faction {
+    flex-direction: row;
+  }
+}

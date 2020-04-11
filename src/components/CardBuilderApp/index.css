@@ -1,0 +1,18 @@
+.CardBuilderApp__card {
+  margin-bottom: 2em;
+}
+
+.CardBuilderApp__card--irrelevant {
+  opacity: 0.5;
+  filter: grayscale(1);
+}
+
+.CardBuilderApp__bottom {
+  margin-top: 3em;
+}
+
+.CardBuilderApp__notice {
+  text-align: center;
+  font-size: 110%;
+  margin-top: 1.5em;
+}

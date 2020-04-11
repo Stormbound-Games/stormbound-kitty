@@ -1,0 +1,25 @@
+.DeckBuilderSuggestionsFilters__item {
+  padding: 0 0.5em;
+  margin-bottom: 1em;
+}
+
+.DeckBuilderSuggestionsFilters__info {
+  color: white;
+  display: block;
+  font-size: 90%;
+  max-width: 40ch;
+}
+
+.DeckBuilderSuggestionsFilters__toggle {
+  background-color: transparent;
+  border: 0;
+  color: var(--beige);
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+}
+
+.DeckBuilderSuggestionsFilters__toggle:hover {
+  border-bottom-color: currentColor;
+}

@@ -67,14 +67,14 @@ describe('Battle Sim — Cells', () => {
   it('should be possible to update the player of a filled cell', () => {
     cy.get(s.CELL_A1)
       .find(s.CELL_STRENGTH)
-      .should('have.class', 'BSCell__strength--BLUE')
+      .should('have.class', 'BattleSimCell__strength--BLUE')
       .get(s.CELL_FORM_RED_RADIO)
       .click({ force: true })
       .get(s.CELL_FORM_BTN)
       .click()
       .get(s.CELL_A1)
       .find(s.CELL_STRENGTH)
-      .should('have.class', 'BSCell__strength--RED')
+      .should('have.class', 'BattleSimCell__strength--RED')
   })
 
   it('should be possible to update the poison status of a filled cell', () => {
