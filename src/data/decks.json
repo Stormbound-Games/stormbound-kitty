@@ -558,5 +558,12 @@
     "faction": "swarm",
     "author": "MooreFunn",
     "category": "REGULAR"
+  },
+  {
+    "name": "Reckless Rush",
+    "id": "M04xLDNTMSwzTjMsM040LDNTMiwzTjYzLDNONjcsM044LDNTNiwzTjE1LDNTOCwzUzEx",
+    "faction": "swarm",
+    "author": "Unknown",
+    "category": "REGULAR"
   }
 ]
