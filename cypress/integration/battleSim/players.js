@@ -7,18 +7,22 @@ describe('Battle Sim — Players', () => {
 
   it('should be possible to update RED’s health', () => {
     cy.get(s.RED_HEALTH_INPUT)
-      .clear()
-      .type('20')
+      // Cypress struggles calling `.clear()` on a `number` input
+      // See: https://github.com/cypress-io/cypress/issues/2650
+      .focus()
+      .type('{selectall}9')
       .get(s.RED_HEALTH)
-      .then($health => expect($health).to.have.text('20'))
+      .should('have.text', '9')
   })
 
   it('should be possible to update BLUE’s health', () => {
     cy.get(s.BLUE_HEALTH_INPUT)
-      .clear()
-      .type('5')
+      // Cypress struggles calling `.clear()` on a `number` input
+      // See: https://github.com/cypress-io/cypress/issues/2650
+      .focus()
+      .type('{selectall}8')
       .get(s.BLUE_HEALTH)
-      .then($health => expect($health).to.have.text('5'))
+      .should('have.text', '8')
   })
 
   it('should be possible to update RED’s faction', () => {
@@ -38,12 +42,12 @@ describe('Battle Sim — Players', () => {
   it('should be preserved upon reload', () => {
     cy.reload()
       .get(s.RED_HEALTH)
-      .then($health => expect($health).to.have.text('20'))
+      .should('have.text', '9')
       .get(s.BLUE_HEALTH)
-      .then($health => expect($health).to.have.text('5'))
+      .should('have.text', '8')
       .get(s.RED_FACTION)
-      .then($faction => expect($faction).to.have.text('swarm'))
+      .should('have.text', 'swarm')
       .get(s.BLUE_FACTION)
-      .then($faction => expect($faction).to.have.text('ironclad'))
+      .should('have.text', 'ironclad')
   })
 })

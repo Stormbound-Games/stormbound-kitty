@@ -7,20 +7,19 @@ describe('Battle Sim — Mana', () => {
 
   it('should be possible to update current mana', () => {
     cy.get(s.MANA_INPUT)
-      .clear()
-      .type('20')
+      // Cypress struggles calling `.clear()` on a `number` input
+      // See: https://github.com/cypress-io/cypress/issues/2650
+      .focus()
+      .type('{selectall}9')
       .get(s.MANA)
       .eq(0)
-      .then($mana => expect($mana).to.have.text('20'))
+      .should('have.text', '9')
       .get(s.MANA)
       .eq(1)
-      .then($mana => expect($mana).to.have.text('20'))
+      .should('have.text', '9')
   })
 
   it('should be preserved upon reload', () => {
-    cy.reload()
-      .get(s.MANA)
-      .eq(0)
-      .then($mana => expect($mana).to.have.text('20'))
+    cy.reload().get(s.MANA).eq(0).should('have.text', '9')
   })
 })
