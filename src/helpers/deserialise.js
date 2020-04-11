@@ -98,7 +98,9 @@ const deserialiseCards = (string, size) => {
 }
 
 const deserialiseSettings = string => {
-  const [, mana, gridMarkers] = string.match(/^(\d+)(?:M([01]))?$/)
+  // Technically mana needs to be defined, however, when clearing the field, it
+  // can be undefined hence the wildcard (`*`) instead of plus (`+`).
+  const [, mana, gridMarkers] = string.match(/^(\d*)(?:M([01]))?$/)
 
   return { mana: +mana, gridMarkers: !!+gridMarkers }
 }
