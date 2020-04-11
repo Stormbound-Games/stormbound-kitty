@@ -1,38 +1,33 @@
 import React from 'react'
-import { Link } from '@reach/router'
-import { getStrictActiveLink } from '../../helpers/getActiveLink'
+import { useRouteMatch } from 'react-router-dom'
 import { SHADES_LIST } from '../../constants/list'
+import NavLink from '../NavLink'
 
-const TLBNav = props => (
-  <nav className='Header__nav'>
-    <ul className='Header__list Header__list--sub'>
-      <li className='Header__item'>
-        <Link
-          getProps={getStrictActiveLink}
-          to={props.listId ? `/list/${props.listId}` : '/list'}
-        >
-          Editor
-        </Link>
-      </li>
+const TLBNav = props => {
+  const match = useRouteMatch()
+  const id = match.params.listId
 
-      {props.listId && (
+  return (
+    <nav className='Header__nav'>
+      <ul className='Header__list Header__list--sub'>
         <li className='Header__item'>
-          <Link
-            getProps={getStrictActiveLink}
-            to={`/list/${props.listId}/display`}
-          >
-            Display mode
-          </Link>
+          <NavLink exact to={id ? `/list/${id}` : '/list'}>
+            Editor
+          </NavLink>
         </li>
-      )}
 
-      <li className='Header__item Header__item--right'>
-        <Link getProps={getStrictActiveLink} to={`/list/${SHADES_LIST}`}>
-          Equals Tier List
-        </Link>
-      </li>
-    </ul>
-  </nav>
-)
+        {id && (
+          <li className='Header__item'>
+            <NavLink to={`/list/${id}/display`}>Display mode</NavLink>
+          </li>
+        )}
+
+        <li className='Header__item Header__item--right'>
+          <NavLink to={`/list/${SHADES_LIST}`}>Equals Tier List</NavLink>
+        </li>
+      </ul>
+    </nav>
+  )
+}
 
 export default TLBNav

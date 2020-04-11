@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Link } from '@reach/router'
+import { Link } from 'react-router-dom'
 import { serialiseCardFromCollection } from '../../helpers/serialise'
 import './index.css'
 

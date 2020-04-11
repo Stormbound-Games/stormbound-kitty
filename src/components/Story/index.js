@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Link } from '@reach/router'
+import { Link, useRouteMatch } from 'react-router-dom'
 import Title from '../Title'
 import CTA from '../CTA'
 import PageMeta from '../PageMeta'
@@ -16,18 +16,21 @@ const getStoriesFromAuthor = author =>
   stories.filter(story => story.author === author)
 
 const Story = props => {
+  const match = useRouteMatch()
+  const id = match.params.storyId
+
   let story = null
   let storiesByAuthor = []
 
   try {
-    const decoded = decodeURIComponent(window.atob(props.storyId))
+    const decoded = decodeURIComponent(window.atob(id))
     const [title, author] = decoded.split('-')
     storiesByAuthor = getStoriesFromAuthor(author)
     story = storiesByAuthor.find(story => story.title === title)
 
     if (!story) throw new Error('STORY_NOT_FOUND')
   } catch (error) {
-    return <Error error={'Story ' + props.storyId + ' not found'} />
+    return <Error error={'Story ' + id + ' not found'} />
   }
 
   const card = getRawCardData(story.cardId)

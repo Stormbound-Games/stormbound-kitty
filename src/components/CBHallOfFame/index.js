@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from '@reach/router'
+import { Link } from 'react-router-dom'
 import { WEEKLY_CARD_CONTEST } from '../../constants/misc'
 import Row from '../Row'
 import Title from '../Title'

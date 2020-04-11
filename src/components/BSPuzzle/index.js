@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Link } from '@reach/router'
+import { Link } from 'react-router-dom'
 import { RESTRICTIONS, TYPES } from '../../constants/puzzles'
 import Image from '../Image'
 import './index.css'
@@ -18,7 +18,7 @@ const BSPuzzle = props => {
       )}
       <div className='BSPuzzle__content'>
         <span className='BSPuzzle__name'>
-          <Link to={`../${props.board}/display`}>{props.name}</Link>
+          <Link to={`/sim/${props.board}/display`}>{props.name}</Link>
         </span>
         <span className='BSPuzzle__author'>by {props.author}</span>
         <span className='BSPuzzle__type'>

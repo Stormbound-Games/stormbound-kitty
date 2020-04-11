@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from '@reach/router'
+import { Link } from 'react-router-dom'
 import remark from 'remark'
 import remarkReact from 'remark-react'
 import Title from '../Title'

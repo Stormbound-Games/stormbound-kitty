@@ -1,11 +1,12 @@
 import React from 'react'
-import { navigate } from '@reach/router'
+import { useHistory, useRouteMatch } from 'react-router-dom'
+import hookIntoProps from 'hook-into-props'
 import isEqual from 'lodash.isequal'
 import getInitialDeckData from '../../helpers/getInitialDeckData'
 import { serialiseDeck } from '../../helpers/serialise'
 import sortByMana from '../../helpers/sortByMana'
 
-export default class DBRoot extends React.Component {
+class DBRoot extends React.Component {
   constructor(props) {
     super(props)
 
@@ -17,9 +18,8 @@ export default class DBRoot extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (!isEqual(prevState.deck, this.state.deck)) {
-      navigate(
-        '/deck/' + serialiseDeck(this.state.deck) + window.location.search,
-        { replace: true }
+      this.props.history.replace(
+        '/deck/' + serialiseDeck(this.state.deck) + window.location.search
       )
     }
 
@@ -65,22 +65,20 @@ export default class DBRoot extends React.Component {
     })
 
   render() {
-    return React.cloneElement(this.props.children, {
-      children: React.Children.map(
-        this.props.children.props.children,
-        child => {
-          return React.cloneElement(child, {
-            deck: this.state.deck,
-            deckId: this.props.deckId,
-            reset: this.reset,
-            addCardToDeck: this.addCardToDeck,
-            defineDeck: this.defineDeck,
-            removeCardFromDeck: this.removeCardFromDeck,
-            highlight: this.highlight,
-            highlightedCards: this.state.highlightedCards,
-          })
-        }
-      ),
+    return this.props.children({
+      deck: this.state.deck,
+      deckId: this.props.deckId,
+      reset: this.reset,
+      addCardToDeck: this.addCardToDeck,
+      defineDeck: this.defineDeck,
+      removeCardFromDeck: this.removeCardFromDeck,
+      highlight: this.highlight,
+      highlightedCards: this.state.highlightedCards,
     })
   }
 }
+
+export default hookIntoProps(() => ({
+  history: useHistory(),
+  deckId: useRouteMatch().params.deckId,
+}))(DBRoot)

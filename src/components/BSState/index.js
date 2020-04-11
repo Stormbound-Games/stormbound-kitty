@@ -1,5 +1,6 @@
 import React from 'react'
-import { navigate } from '@reach/router'
+import { useHistory, useRouteMatch } from 'react-router-dom'
+import hookIntoProps from 'hook-into-props'
 import clone from 'lodash.clonedeep'
 import isEqual from 'lodash.isequal'
 import serialize from 'form-serialize'
@@ -15,7 +16,7 @@ import getInitialBattleData from '../../helpers/getInitialBattleData'
 import { serialiseBattle } from '../../helpers/serialise'
 import arrayRandom from '../../helpers/arrayRandom'
 
-export default class BSState extends React.Component {
+class BSState extends React.Component {
   constructor(props) {
     super(props)
 
@@ -43,7 +44,7 @@ export default class BSState extends React.Component {
       this.props.mode === 'EDITOR' &&
       window.location.href.includes('?ro=1')
     ) {
-      navigate('/sim/' + this.props.simId + '/display')
+      this.props.history.push('/sim/' + this.props.simId + '/display')
     }
 
     document.addEventListener('keydown', this.registerShortcuts)
@@ -232,7 +233,7 @@ export default class BSState extends React.Component {
         { cards: this.state.cards, hand: this.state.hand }
       )
 
-      navigate('/sim/' + id, { replace: true })
+      this.props.history.replace('/sim/' + id)
 
       // If the update was caused by an undo, do not add a new entry into the
       // history and simply mark undo as `false` for the next state update
@@ -467,6 +468,8 @@ export default class BSState extends React.Component {
         BLUE: { ...this.state.players.BLUE, update: this.updateBluePlayer },
       },
 
+      mode: this.props.mode,
+      simId: this.props.simId,
       resetBoard: this.resetBoard,
       setActivePlayer: this.setActivePlayer,
       setActiveCell: this.setActiveCell,
@@ -491,3 +494,8 @@ export default class BSState extends React.Component {
     })
   }
 }
+
+export default hookIntoProps(() => ({
+  history: useHistory(),
+  simId: useRouteMatch().params.simId,
+}))(BSState)

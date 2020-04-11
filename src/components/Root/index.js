@@ -1,7 +1,6 @@
 import React from 'react'
 import ErrorBoundary from '../ErrorBoundary'
 import Router from '../Router'
-import Layout from '../Layout'
 import supportsWebp from '../../helpers/supportsWebp'
 
 const Root = props => {
@@ -13,9 +12,7 @@ const Root = props => {
 
   return (
     <ErrorBoundary>
-      <Layout>
-        <Router />
-      </Layout>
+      <Router />
     </ErrorBoundary>
   )
 }

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Link } from '@reach/router'
+import { Link } from 'react-router-dom'
 import Title from '../Title'
 import Hint from '../Hint'
 import CoreForm from '../CBCoreForm'

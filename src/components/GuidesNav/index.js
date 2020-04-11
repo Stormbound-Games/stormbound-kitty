@@ -1,34 +1,23 @@
 import React from 'react'
-import { Link } from '@reach/router'
-import { getStrictActiveLink } from '../../helpers/getActiveLink'
+import NavLink from '../NavLink'
 
 const GuidesNav = props => (
   <nav className='Header__nav'>
     <ul className='Header__list Header__list--sub'>
       <li className='Header__item'>
-        <Link getProps={getStrictActiveLink} to='/guides/complete'>
-          Complete Guide
-        </Link>
+        <NavLink to='/guides/complete'>Complete Guide</NavLink>
       </li>
       <li className='Header__item'>
-        <Link getProps={getStrictActiveLink} to='/guides/deck'>
-          Deck Building Guide
-        </Link>
+        <NavLink to='/guides/deck'>Deck Building Guide</NavLink>
       </li>
       <li className='Header__item'>
-        <Link getProps={getStrictActiveLink} to='/guides/winter'>
-          Winter Guide
-        </Link>
+        <NavLink to='/guides/winter'>Winter Guide</NavLink>
       </li>
       <li className='Header__item'>
-        <Link getProps={getStrictActiveLink} to='/guides/pirate'>
-          Pirate Guide
-        </Link>
+        <NavLink to='/guides/pirate'>Pirate Guide</NavLink>
       </li>
       <li className='Header__item Header__item--right'>
-        <Link getProps={getStrictActiveLink} to='/guides/lexicon'>
-          Lexicon
-        </Link>
+        <NavLink to='/guides/lexicon'>Lexicon</NavLink>
       </li>
     </ul>
   </nav>

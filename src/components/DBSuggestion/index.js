@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from '@reach/router'
+import { Link } from 'react-router-dom'
 import Deck from '../Deck'
 import RarityBar from '../RarityBar'
 import { CATEGORIES } from '../../constants/decks'

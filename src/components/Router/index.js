@@ -1,81 +1,165 @@
 import React from 'react'
 import loadable from '@loadable/component'
-import { Router, Redirect } from '@reach/router'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Loader from '../Loader'
+import Layout from '../Layout'
 
-const Page = loadable(props => import(`../${props.Component}`), {
-  fallback: <Loader />,
-})
+const options = { fallback: <Loader /> }
+const FAQ = loadable(() => import('../FAQ'), options)
+const BSDisplay = loadable(() => import('../BSDisplay'), options)
+const BSPuzzles = loadable(() => import('../BSPuzzles'), options)
+const BSRoot = loadable(() => import('../BSRoot'), options)
+const CBContest = loadable(() => import('../CBContest'), options)
+const CBRoot = loadable(() => import('../CBRoot'), options)
+const CBDisplay = loadable(() => import('../CBDisplay'), options)
+const DBSuggestions = loadable(() => import('../DBSuggestions'), options)
+const DBCollection = loadable(() => import('../DBCollection'), options)
+const DBRoot = loadable(() => import('../DBRoot'), options)
+const DBDetailView = loadable(() => import('../DBDetailView'), options)
+const DBDryRunView = loadable(() => import('../DBDryRunView'), options)
+const DBTrackerView = loadable(() => import('../DBTrackerView'), options)
+const DBEditorView = loadable(() => import('../DBEditorView'), options)
+const QBRoot = loadable(() => import('../QBRoot'), options)
+const StoriesCategory = loadable(() => import('../StoriesCategory'), options)
+const Story = loadable(() => import('../Story'), options)
+const Stories = loadable(() => import('../Stories'), options)
+const CompleteGuide = loadable(() => import('../CompleteGuide'), options)
+const DeckGuide = loadable(() => import('../DeckGuide'), options)
+const WinterGuide = loadable(() => import('../WinterGuide'), options)
+const PirateGuide = loadable(() => import('../PirateGuide'), options)
+const Lexicon = loadable(() => import('../Lexicon'), options)
+const Guides = loadable(() => import('../Guides'), options)
+const TLBDisplayView = loadable(() => import('../TLBDisplayView'), options)
+const TLBEditorView = loadable(() => import('../TLBEditorView'), options)
+const Home = loadable(() => import('../Home'), options)
 
-const AppRouter = props => (
-  <Router primary={false}>
-    <Page Component='Home' path='/' />
-    <Page Component='FAQ' path='/faq' />
-
-    <Page Component='BSRoot' path='/sim' />
-    <Page Component='BSPuzzles' path='/sim/puzzles' />
-    <Page Component='BSRoot' path='/sim/:simId' />
-    <Page Component='BSDisplay' path='/sim/:simId/display' />
-
-    <Page Component='CBRoot' path='/card' />
-    <Page Component='CBContest' path='/card/contest' />
-    <Page Component='CBRoot' path='/card/:cardId' />
-    <Page Component='CBDisplay' path='/card/:cardId/display' />
-
-    <Page Component='DBRoot' path='/deck'>
-      <Page Component='DBEditorView' path='/' />
-    </Page>
-    <Page Component='DBSuggestions' path='/deck/suggestions' />
-    <Page Component='DBCollection' path='/deck/collection' />
-
-    <Redirect noThrow from='/deck/:deckId/stats' to='/deck/:deckId/detail' />
-    <Page Component='DBRoot' path='/deck/:deckId'>
-      <Page Component='DBEditorView' path='/' />
-      <Page Component='DBDetailView' path='/detail' />
-      <Page Component='DBDryRunView' path='/dry-run' />
-      <Page Component='DBTrackerView' path='/tracker' />
-    </Page>
-
-    <Page Component='QBRoot' path='/quest' />
-    <Page Component='QBRoot' path='/quest/:questId' />
-
-    <Page Component='Stories' path='/stories' />
-    <Page
-      Component='StoriesCategory'
-      path='/stories/neutral'
-      category='neutral'
-    />
-    <Page
-      Component='StoriesCategory'
-      path='/stories/ironclad'
-      category='ironclad'
-    />
-    <Page
-      Component='StoriesCategory'
-      path='/stories/winter'
-      category='winter'
-    />
-    <Page
-      Component='StoriesCategory'
-      path='/stories/shadowfen'
-      category='shadowfen'
-    />
-    <Page Component='StoriesCategory' path='/stories/swarm' category='swarm' />
-    <Page Component='StoriesCategory' path='/stories/lore' category='lore' />
-    <Page Component='Story' path='/stories/:storyId' />
-
-    <Page Component='Guides' path='/guides' />
-    <Page Component='CompleteGuide' path='/guides/complete' />
-    <Page Component='DeckGuide' path='/guides/deck' />
-    <Page Component='WinterGuide' path='/guides/winter' />
-    <Page Component='PirateGuide' path='/guides/pirate' />
-    <Page Component='Lexicon' path='/guides/lexicon' />
-    <Redirect noThrow from='/deck/guide' to='/guides/deck' />
-
-    <Page Component='TLBEditorView' path='/list' />
-    <Page Component='TLBEditorView' path='/list/:listId' />
-    <Page Component='TLBDisplayView' path='/list/:listId/display' />
-  </Router>
+const Page = ({ children, active, ...props }) => (
+  <Route {...props}>
+    <Layout active={active}>{children}</Layout>
+  </Route>
 )
 
-export default AppRouter
+const Router = props => (
+  <BrowserRouter>
+    <Switch>
+      <Page path='/faq'>
+        <FAQ />
+      </Page>
+
+      <Page path='/sim/:simId/display' active='BATTLE_SIM'>
+        <BSDisplay />
+      </Page>
+      <Page path='/sim/puzzles' active='BATTLE_SIM'>
+        <BSPuzzles />
+      </Page>
+      <Page path='/sim/:simId' active='BATTLE_SIM'>
+        <BSRoot />
+      </Page>
+      <Page path='/sim' active='BATTLE_SIM'>
+        <BSRoot />
+      </Page>
+
+      <Page path='/card/contest' active='CARD_BUILDER'>
+        <CBContest />
+      </Page>
+      <Page path='/card/:cardId/display' active='CARD_BUILDER'>
+        <CBDisplay />
+      </Page>
+      <Page path='/card/:cardId' active='CARD_BUILDER'>
+        <CBRoot />
+      </Page>
+      <Page path='/card' active='CARD_BUILDER'>
+        <CBRoot />
+      </Page>
+
+      <Page path='/deck/suggestions' active='DECK_BUILDER'>
+        <DBSuggestions />
+      </Page>
+      <Page path='/deck/collection' active='DECK_BUILDER'>
+        <DBCollection />
+      </Page>
+      <Page path='/deck/:deckId/detail' active='DECK_BUILDER'>
+        <DBRoot>{state => <DBDetailView {...state} />}</DBRoot>
+      </Page>
+      <Page path='/deck/:deckId/dry-run' active='DECK_BUILDER'>
+        <DBRoot>{state => <DBDryRunView {...state} />}</DBRoot>
+      </Page>
+      <Page path='/deck/:deckId/tracker' active='DECK_BUILDER'>
+        <DBRoot>{state => <DBTrackerView {...state} />}</DBRoot>
+      </Page>
+      <Page path='/deck/:deckId' active='DECK_BUILDER'>
+        <DBRoot>{state => <DBEditorView {...state} />}</DBRoot>
+      </Page>
+      <Page path='/deck' active='DECK_BUILDER'>
+        <DBRoot>{state => <DBEditorView {...state} />}</DBRoot>
+      </Page>
+
+      <Page path='/quest/:questId'>
+        <QBRoot />
+      </Page>
+      <Page path='/quest'>
+        <QBRoot />
+      </Page>
+
+      <Page path='/stories/neutral' active='STORIES'>
+        <StoriesCategory category='neutral' />
+      </Page>
+      <Page path='/stories/ironclad' active='STORIES'>
+        <StoriesCategory category='ironclad' />
+      </Page>
+      <Page path='/stories/swarm' active='STORIES'>
+        <StoriesCategory category='swarm' />
+      </Page>
+      <Page path='/stories/winter' active='STORIES'>
+        <StoriesCategory category='winter' />
+      </Page>
+      <Page path='/stories/shadowfen' active='STORIES'>
+        <StoriesCategory category='shadowfen' />
+      </Page>
+      <Page path='/stories/lore' active='STORIES'>
+        <StoriesCategory category='lore' />
+      </Page>
+      <Page path='/stories/:storyId' active='STORIES'>
+        <Story />
+      </Page>
+      <Page path='/stories' active='STORIES'>
+        <Stories />
+      </Page>
+
+      <Page path='/guides/complete' active='GUIDES'>
+        <CompleteGuide />
+      </Page>
+      <Page path='/guides/deck' active='GUIDES'>
+        <DeckGuide />
+      </Page>
+      <Page path='/guides/winter' active='GUIDES'>
+        <WinterGuide />
+      </Page>
+      <Page path='/guides/pirate' active='GUIDES'>
+        <PirateGuide />
+      </Page>
+      <Page path='/guides/lexicon' active='GUIDES'>
+        <Lexicon />
+      </Page>
+      <Page path='/guides' active='GUIDES'>
+        <Guides />
+      </Page>
+
+      <Page path='/list/:listId/display' active='LIST_BUILDER'>
+        <TLBDisplayView />
+      </Page>
+      <Page path='/list/:listId' active='LIST_BUILDER'>
+        <TLBEditorView />
+      </Page>
+      <Page path='/list' active='LIST_BUILDER'>
+        <TLBEditorView />
+      </Page>
+
+      <Page path='/'>
+        <Home />
+      </Page>
+    </Switch>
+  </BrowserRouter>
+)
+
+export default Router

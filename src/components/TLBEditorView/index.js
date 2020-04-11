@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
-import { navigate } from '@reach/router'
+import { useHistory, useRouteMatch } from 'react-router-dom'
+import hookIntoProps from 'hook-into-props'
 import isEqual from 'lodash.isequal'
 import Title from '../Title'
 import Row from '../Row'
@@ -40,7 +41,7 @@ class TLBEditorView extends React.Component {
     )
 
     if (hasAnyTierChanged) {
-      navigate('/list/' + serialiseList(this.state.tiers), { replace: true })
+      this.props.history.replace('/list/' + serialiseList(this.state.tiers))
     }
 
     if (prevProps.listId !== this.props.listId) {
@@ -245,4 +246,7 @@ class TLBEditorView extends React.Component {
   }
 }
 
-export default TLBEditorView
+export default hookIntoProps(() => ({
+  history: useHistory(),
+  listId: useRouteMatch().params.listId,
+}))(TLBEditorView)

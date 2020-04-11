@@ -5,7 +5,7 @@ import './index.css'
 
 const Layout = props => (
   <div className='Layout'>
-    <Header {...props} />
+    <Header {...props} active={props.active} />
 
     <main className='Layout__body'>{props.children}</main>
 

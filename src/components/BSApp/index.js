@@ -2,11 +2,11 @@ import React from 'react'
 import puzzles from '../../data/puzzles'
 import AppDesktop from '../BSAppDesktop'
 import AppMobile from '../BSAppMobile'
+import State from '../BSState'
 import useViewportWidth from '../../helpers/useViewportWidth'
 
 const BSApp = props => {
   const viewportWidth = useViewportWidth()
-
   const puzzle = puzzles.find(puzzle => puzzle.board === props.simId)
   const shouldRenderLeftPanel =
     props.mode === 'EDITOR' ||
@@ -41,4 +41,6 @@ const BSApp = props => {
   )
 }
 
-export default BSApp
+export default props => (
+  <State mode={props.mode}>{state => <BSApp {...state} />}</State>
+)

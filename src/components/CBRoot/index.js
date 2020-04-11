@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
-import { navigate } from '@reach/router'
+import { useHistory, useRouteMatch } from 'react-router-dom'
+import hookIntoProps from 'hook-into-props'
 import App from '../CBApp'
 import PageMeta from '../PageMeta'
 import getInitialCardData from '../../helpers/getInitialCardData'
@@ -28,36 +29,13 @@ const INITIAL_STATE = {
   ability: formatLevelProp(null),
 }
 
-export default class CBRoot extends React.Component {
+class CBRoot extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
       ...INITIAL_STATE,
       ...getInitialCardData(props.cardId),
-    }
-  }
-
-  componentDidMount() {
-    // Maintain backward compatibility with very old version that used hashbangs
-    // instead of proper routes.
-    if (window.location.hash) {
-      navigate('/card/' + window.location.hash.slice(2), { replace: true })
-      // To avoid having a change of route and loss of focus between `/card` and
-      // `/card/:cardId` at the first update (e.g. first character of the card
-      // name), we can redirect to `/card/:cardId` right away by doing an
-      // initial serialisation.
-    } else if (!this.props.cardId) {
-      navigate(
-        '/card/' +
-          serialiseCard({
-            ...this.state,
-            strength: this.state.strength.display,
-            mana: this.state.mana.display,
-            ability: this.state.ability.display,
-          }),
-        { replace: true }
-      )
     }
   }
 
@@ -78,15 +56,14 @@ export default class CBRoot extends React.Component {
       this.state.ability.display !== prevState.ability.display
 
     if (hasAnyPropChanged) {
-      navigate(
+      this.props.history.replace(
         '/card/' +
           serialiseCard({
             ...this.state,
             strength: this.state.strength.display,
             mana: this.state.mana.display,
             ability: this.state.ability.display,
-          }),
-        { replace: true }
+          })
       )
     } else if (prevProps.cardId !== this.props.cardId) {
       if (this.props.cardId) {
@@ -98,7 +75,7 @@ export default class CBRoot extends React.Component {
   }
 
   reset = () => {
-    this.setState({ ...INITIAL_STATE }, () => navigate('/card'))
+    this.setState({ ...INITIAL_STATE }, () => this.props.history.push('/card'))
   }
 
   resolveLevels = (value = '') => {
@@ -225,3 +202,8 @@ export default class CBRoot extends React.Component {
     )
   }
 }
+
+export default hookIntoProps(() => ({
+  history: useHistory(),
+  cardId: useRouteMatch().params.cardId,
+}))(CBRoot)

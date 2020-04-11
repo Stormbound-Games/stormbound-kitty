@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Link } from '@reach/router'
+import { Link, useRouteMatch } from 'react-router-dom'
 import cards from '../../data/cards'
 import decks from '../../data/decks'
 import hookIntoProps from '../../helpers/hookIntoProps'
@@ -240,6 +240,7 @@ class DBEditorView extends React.Component {
   }
 }
 
-export default hookIntoProps(() => ({ viewportWidth: useViewportWidth() }))(
-  DBEditorView
-)
+export default hookIntoProps(() => ({
+  viewportWidth: useViewportWidth(),
+  deckId: useRouteMatch().params.deckId,
+}))(props => <DBEditorView {...props} />)

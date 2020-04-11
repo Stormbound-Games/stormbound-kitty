@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
-import { navigate } from '@reach/router'
+import { useHistory, useRouteMatch } from 'react-router-dom'
+import hookIntoProps from 'hook-into-props'
 import Quest from '../Quest'
 import PageMeta from '../PageMeta'
 import Title from '../Title'
@@ -8,7 +9,7 @@ import getInitialQuestData from '../../helpers/getInitialQuestData'
 import './index.css'
 import { serialiseQuest } from '../../helpers/serialise'
 
-export default class QBRoot extends React.Component {
+class QBRoot extends React.Component {
   constructor(props) {
     super(props)
 
@@ -32,7 +33,7 @@ export default class QBRoot extends React.Component {
     ].some(prop => this.state[prop] !== prevState[prop])
 
     if (hasAnyPropChanged) {
-      navigate('/quest/' + serialiseQuest(this.state), { replace: true })
+      this.props.history.replace('/quest/' + serialiseQuest(this.state))
     } else if (prevProps.questId !== this.props.questId) {
       if (this.props.questId) {
         this.setState({ ...getInitialQuestData(this.props.questId) })
@@ -51,7 +52,7 @@ export default class QBRoot extends React.Component {
         description: '',
         difficulty: 1,
       },
-      () => navigate('/quest')
+      () => this.props.history.push('/quest')
     )
   }
 
@@ -80,3 +81,8 @@ export default class QBRoot extends React.Component {
     )
   }
 }
+
+export default hookIntoProps(() => ({
+  history: useHistory(),
+  questId: useRouteMatch().params.questId,
+}))(QBRoot)

@@ -1,31 +1,25 @@
 import React from 'react'
-import { Link } from '@reach/router'
+import { useRouteMatch } from 'react-router-dom'
 import { deserialiseDeck } from '../../helpers/deserialise'
-import { getStrictActiveLink } from '../../helpers/getActiveLink'
+import NavLink from '../NavLink'
 
 const DBNav = props => {
-  const deck = deserialiseDeck(props.deckId)
+  const match = useRouteMatch()
+  const id = match.params.deckId
+  const deck = id ? deserialiseDeck(id) : []
   const hasBigEnoughDeck = deck.length === 12
 
   return (
     <nav className='Header__nav'>
       <ul className='Header__list Header__list--sub'>
         <li className='Header__item'>
-          <Link
-            getProps={getStrictActiveLink}
-            to={props.deckId ? `/deck/${props.deckId}` : '/deck'}
-          >
+          <NavLink exact to={id ? `/deck/${id}` : '/deck'}>
             Editor
-          </Link>
+          </NavLink>
         </li>
         <li className='Header__item'>
           {hasBigEnoughDeck ? (
-            <Link
-              getProps={getStrictActiveLink}
-              to={`/deck/${props.deckId}/detail`}
-            >
-              Detail
-            </Link>
+            <NavLink to={`/deck/${id}/detail`}>Detail</NavLink>
           ) : (
             <span
               className='Header__link Header__link--disabled'
@@ -37,12 +31,7 @@ const DBNav = props => {
         </li>
         <li className='Header__item'>
           {hasBigEnoughDeck ? (
-            <Link
-              getProps={getStrictActiveLink}
-              to={`/deck/${props.deckId}/dry-run`}
-            >
-              Dry-run
-            </Link>
+            <NavLink to={`/deck/${id}/dry-run`}>Dry-run</NavLink>
           ) : (
             <span
               className='Header__link Header__link--disabled'
@@ -62,12 +51,7 @@ const DBNav = props => {
                 Tracker
               </span>
             ) : (
-              <Link
-                getProps={getStrictActiveLink}
-                to={`/deck/${props.deckId}/tracker`}
-              >
-                Tracker
-              </Link>
+              <NavLink to={`/deck/${id}/tracker`}>Tracker</NavLink>
             )
           ) : (
             <span
@@ -80,21 +64,15 @@ const DBNav = props => {
         </li>
 
         <li className='Header__item'>
-          <Link getProps={getStrictActiveLink} to='/deck/collection'>
-            Collection
-          </Link>
+          <NavLink to='/deck/collection'>Collection</NavLink>
         </li>
 
         <li className='Header__item Header__item--right'>
-          <Link getProps={getStrictActiveLink} to='/deck/suggestions'>
-            Ready decks
-          </Link>
+          <NavLink to='/deck/suggestions'>Ready decks</NavLink>
         </li>
 
         <li className='Header__item'>
-          <Link getProps={getStrictActiveLink} to='/guides/deck'>
-            Guide
-          </Link>
+          <NavLink to='/guides/deck'>Guide</NavLink>
         </li>
       </ul>
     </nav>

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
-import { navigate } from '@reach/router'
+import { useHistory } from 'react-router-dom'
+import hookIntoProps from 'hook-into-props'
 import debounce from 'lodash.debounce'
 import PageMeta from '../PageMeta'
 import Title from '../Title'
@@ -15,7 +16,7 @@ import { deserialiseDeck } from '../../helpers/deserialise'
 import decks from '../../data/decks'
 import './index.css'
 
-export default class DBSuggestions extends React.Component {
+class DBSuggestions extends React.Component {
   constructor(props) {
     super(props)
 
@@ -59,7 +60,7 @@ export default class DBSuggestions extends React.Component {
     if (this.state.including === null) parameters.delete('including')
     else parameters.set('including', this.state.including)
 
-    navigate('?' + parameters.toString(), { replace: true })
+    this.props.history.replace('?' + parameters.toString())
   }
 
   updateCategory = category =>
@@ -201,3 +202,7 @@ export default class DBSuggestions extends React.Component {
     )
   }
 }
+
+export default hookIntoProps(() => ({
+  history: useHistory(),
+}))(DBSuggestions)

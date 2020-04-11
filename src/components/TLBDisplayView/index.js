@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { useRouteMatch } from 'react-router-dom'
 import TierList from '../TierList'
 import Title from '../Title'
 import Row from '../Row'
@@ -10,7 +11,9 @@ import { TIER_COLORS } from '../../constants/list'
 import getInitialListData from '../../helpers/getInitialListData'
 
 const TLBDisplayView = props => {
-  const tiers = getInitialListData(props.listId)
+  const match = useRouteMatch()
+  const id = match.params.listId
+  const tiers = getInitialListData(id)
 
   return (
     <Fragment>
@@ -27,7 +30,7 @@ const TLBDisplayView = props => {
           <div className='TLBApp__buttons'>
             <Row>
               <Column>
-                <CTA to={`/list/${props.listId}`}>Edit list</CTA>
+                <CTA to={`/list/${id}`}>Edit list</CTA>
               </Column>
               <Column>
                 <ShareButton title='Share tier list' />
