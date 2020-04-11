@@ -565,5 +565,12 @@
     "faction": "swarm",
     "author": "Unknown",
     "category": "REGULAR"
+  },
+  {
+    "name": "Swift Demise",
+    "id": "NU4xLDVTMSw1TjMsNU42Nyw1UzYsNVM4LDVTMTEsNVMxMyw1TjM1LDVTMjgsNVMyMSw1UzIy",
+    "faction": "swarm",
+    "author": "Frostkhan",
+    "category": "BRAWL"
   }
 ]
