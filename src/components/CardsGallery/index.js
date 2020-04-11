@@ -23,7 +23,8 @@ const CardsGallery = props => {
     [onPageChange]
   )
 
-  React.useEffect(() => changePage(0), [changePage, filters])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  React.useEffect(() => changePage(0), filters)
 
   return (
     <div className='CardsGallery'>
