@@ -1145,4 +1145,40 @@ export default [
     cardId: 'N75',
     category: 'neutral',
   },
+  {
+    title: 'Siren of the Seas',
+    content: `
+    What was love? Is it something that you have, something you can hold? The siren did not know, for she did not know love.
+
+    She has heard so many tales of love, and it truly sounded like such a wonderful thing. Since she was a child, she’s been practicing playing the harp, in hopes that someone would love her, not for her looks,but for herself.
+
+    After her first performance in front of a crowd, she found that her musical skills were good. Very good actually, good enough that the men who heard her play instantly fell in love with her and made themselves vulnerable to her.
+
+    This was what she wanted, no? So why was that all she felt for these people were distaste? They may have loved her, but she didn’t love them. This was her tragedy.
+
+    One day, a woman approached her after stories of her musical skill spread, wanting to recruit her into the Neutrality, a group of mercenaries. On a whim, she decided to join. There, she met the love of her life — Edrik the Fierce. However, Edrik’s will was strong. No matter how much she played, he never once showed any affection towards her. He truly mesmerised her. In hopes of catching his attention,she decided to do her best in the battlefield.`,
+    author: 'Minethetekit',
+    cardId: 'N58',
+    category: 'neutral',
+  },
+  {
+    title: 'Project PH03NIX',
+    content: `Today marked the 122nd day of the war between the Ironclad Union and the Winter Pact. The union was trying to destroy a fortress where a majority of the dwarf and frostling troops were held.
+
+    Dried blood stained the grounds and a mix of rodent, dwarf and frostling corpses strewn on ground.The more bodies that fell, the angrier each side got, fueling their desire to win this war.
+    Amidst the battlefield was a giant dwarf, the biggest the rodents had ever seen. He wielded 2 giant hammers, and it seemed that he was the one fixing the fortress every time it was damaged. They knew they needed to take him down, but for each hit they got on him, it felt like he was magically restored to full strength once more, no doubt the work of the famed arcane arts that the frostlings used.
+
+    They were losing and they knew it. Slowly but surely they were being pushed back by smaller fortresses the dwarves were building and the giant dwarf that just kept getting stronger and stronger as the battle went on.
+
+    That day, Queen Mia ordered the union’s troops to retreat and called off the war.
+
+    In her throne room, a conversation between Queen Mia and General Raticus was held.
+    “Forgive me, your majesty. They outnumbered us and we couldn’t take down the legendary Olf.”
+    “Stand up,general. There is no need to kneel or to apologise,for we have won this war.”
+    “Excuse me, your majesty?”
+    “You see, the true purpose of this war was to extract the mana within the frostlings’ corpses for my greatest invention yet. A construct that rebuilds itself each time it is destroyed. I call it, the Prolonged Hero.”`,
+    author: 'Minethetekit',
+    cardId: 'I22',
+    category: 'ironclad',
+  },
 ]
