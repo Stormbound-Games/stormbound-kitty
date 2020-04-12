@@ -346,7 +346,7 @@ export default [
   },
   {
     title: 'Warfront Runners',
-    content: `After seeing the endurance and speed of the grim couriers, Edrik thought to himself how a division of scouts woule supplement his knights on the warfront. Lightly armed, these rangers of steel are deployed mostly for recon duty or first response, but will never back down. Cardio? Hard? Get over yourselves.`,
+    content: `After seeing the endurance and speed of the grim couriers, Edrik thought to himself how a division of scouts would supplement his knights on the warfront. Lightly armed, these rangers of steel are deployed mostly for recon duty or first response, but will never back down. Cardio? Hard? Get over yourselves.`,
     author: 'HurgusBurgus',
     cardId: 'N28',
     category: 'neutral',
@@ -492,14 +492,14 @@ export default [
   },
   {
     title: 'Dreadfauns',
-    content: `The Dreadfauns of the swarm are a plentiful division. Rather than forming a single force, these satyrs split up their contintent into smaller herds. This formation was surprisingly smart, allowing them to reinforce both the front and back of their horde, and making grazing more manageable.`,
+    content: `The Dreadfauns of the swarm are a plentiful division. Rather than forming a single force, these satyrs split up their contingent into smaller herds. This formation was surprisingly smart, allowing them to reinforce both the front and back of their horde, and making grazing more manageable.`,
     author: 'HurgusBurgus',
     cardId: 'S16',
     category: 'swarm',
   },
   {
     title: 'Doppelbocks',
-    content: `A surprisingly smart satyr formation, the "Dopplebocks" formation consists of two contingents of satyrs forming a column, with the second rushing forward to make a wall around the first. This formation reinforces the frontline, ensuring that even when the frontal force scatters or dies, the rear will still remain up to the task.`,
+    content: `A surprisingly smart satyr formation, the “Dopplebocks” formation consists of two contingents of satyrs forming a column, with the second rushing forward to make a wall around the first. This formation reinforces the frontline, ensuring that even when the frontal force scatters or dies, the rear will still remain up to the task.`,
     author: 'HurgusBurgus',
     cardId: 'S1',
     category: 'swarm',
