@@ -5,6 +5,11 @@ const GuidesNav = props => (
   <nav className='Header__nav'>
     <ul className='Header__list Header__list--sub'>
       <li className='Header__item'>
+        <NavLink exact to='/guides'>
+          All guides
+        </NavLink>
+      </li>
+      <li className='Header__item'>
         <NavLink to='/guides/complete'>Complete Guide</NavLink>
       </li>
       <li className='Header__item'>
