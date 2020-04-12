@@ -10,8 +10,6 @@ import './index.css'
 
 const CardBuilderContest = props => (
   <Fragment>
-    <h1 className='visually-hidden'>Weekly Card Contest</h1>
-
     <Title element='h1' className='CardBuilderContest__headline'>
       Weekly Card Contest
     </Title>

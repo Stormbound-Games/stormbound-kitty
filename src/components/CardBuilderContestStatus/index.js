@@ -16,6 +16,8 @@ const DATE_TIME_OPTIONS = {
   minute: 'numeric',
 }
 
+const IS_CONTEST_RUNNING = false
+
 const CardBuilderContestStatus = props => {
   const calendarWeek = getCalendarWeek()
   const contest = WEEKLY_CARD_CONTEST.find(
@@ -23,6 +25,14 @@ const CardBuilderContestStatus = props => {
   )
   const weekDay = new Date().getDay()
   const isWeekEnd = weekDay === 7 || weekDay === 0
+
+  if (!IS_CONTEST_RUNNING) {
+    return (
+      <p className='CardBuilderContestStatus'>
+        The Weekly Card Contest is no longer running.
+      </p>
+    )
+  }
 
   // If Saturday, Sunday, or Monday before the new contest is announced, display
   // a message to ask the visitor to come back later
