@@ -100,6 +100,17 @@
     background-color: var(--beige);
   }
 
+  /**
+   * The active pseudo-element in the top-level navigation should be centered
+   * below the word without taking the icon width + spacing into account (which
+   * only exist in the top-level navigation). The icon has a width of 1em and a
+   * right margin of 0.25em, but a font-size of 80% — all of which needs to be
+   * divided by 2 to have the proper offset.
+   */
+  .Header__list:not(.Header__list--sub) .Header__link--active::before {
+    left: calc(50% + 1.25em * 0.8 / 2);
+  }
+
   .Header__list--sub .Header__link--active::before {
     transform: translate(-50%, 50%) rotate(45deg);
     bottom: 100%;
