@@ -102,34 +102,6 @@ export default [
     ],
   },
   {
-    id: 'card-builder',
-    title: 'Card Builder',
-    entries: [
-      {
-        id: 'card-image-error',
-        question:
-          'I tried importing an image in the card builder but it failed. Why doesn’t my image work?',
-        answer: (
-          <Fragment>
-            <p>
-              There are a couple of reasons why your image could not be loaded.
-              One of them is that the website you link it from doesn’t allow it,
-              in which case it could be reuploaded somewhere else, or replaced
-              with another image.
-            </p>
-
-            <p>
-              The other possibility is that what you’re linking is not an image
-              but a web page containing an image. Make sure to right click on
-              the image, then click on something like “Copy image address” to
-              the actual URL.
-            </p>
-          </Fragment>
-        ),
-      },
-    ],
-  },
-  {
     id: 'deck-builder',
     title: 'Deck Builder',
     entries: [
@@ -189,7 +161,7 @@ export default [
             It is based on the rarity and the amount of copies you have of each
             card. It also take into account the initial crafting cost of all
             cards, which is why an entire collection of cards level 1 with no
-            extra copies is worth about 2490 stones.
+            extra copies is worth about 3000 stones.
           </Fragment>
         ),
       },
@@ -233,6 +205,90 @@ export default [
               All the other cards in the deck see their weight increase by
               w=f(w)*1.6 (rounded). Some cards have awkward mechanics such as
               Queen of Herds.
+            </p>
+          </Fragment>
+        ),
+      },
+    ],
+  },
+  {
+    id: 'card-builder',
+    title: 'Card Builder',
+    entries: [
+      {
+        id: 'card-image-error',
+        question:
+          'I tried importing an image in the card builder but it failed. Why doesn’t my image work?',
+        answer: (
+          <Fragment>
+            <p>
+              There are a couple of reasons why your image could not be loaded.
+              One of them is that the website you link it from doesn’t allow it,
+              in which case it could be reuploaded somewhere else, or replaced
+              with another image.
+            </p>
+
+            <p>
+              The other possibility is that what you’re linking is not an image
+              but a web page containing an image. Make sure to right click on
+              the image, then click on something like “Copy image address” to
+              the actual URL.
+            </p>
+          </Fragment>
+        ),
+      },
+    ],
+  },
+  {
+    id: 'stories',
+    title: 'Stories',
+    entries: [
+      {
+        id: 'adding-a-story',
+        question: 'How can I get my own story published?',
+        answer: (
+          <Fragment>
+            <p>
+              If you would like to contribute to writing the Stormbound lore and
+              have your stories published on the site, you can contact me on
+              Discord (Kitty#1909).
+            </p>
+            <p>
+              Alternatively, if you happen to have basic knowledge of web
+              development and have a GitHub account, you can{' '}
+              <a
+                href='https://github.com/KittySparkles/stormbound-kitty/blob/master/docs/ADDING_A_STORY.md'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                follow the guide
+              </a>{' '}
+              and do it yourself.
+            </p>
+          </Fragment>
+        ),
+      },
+    ],
+  },
+  {
+    id: 'guides',
+    title: 'Guides',
+    entries: [
+      {
+        id: 'adding-a-guide',
+        question: 'Could I write a guide and have it published?',
+        answer: (
+          <Fragment>
+            <p>
+              Guides are very handy for beginners to learn more about the game
+              and get better, so if you’d like to write a guide, that’s
+              fantastic! Get in touch with me on Discord (Kitty#1909) so we can
+              discuss feasibility.
+            </p>
+            <p>
+              On a similar note, if you happen to find incorrect, misleading or
+              outdated information in an existing guide, please let me know so
+              we can fix it together.
             </p>
           </Fragment>
         ),
