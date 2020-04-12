@@ -3,15 +3,11 @@ import Card from '../Card'
 import CTA from '../CTA'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import chunk from '../../helpers/chunk'
-import sortCards from '../../helpers/sortCards'
 import './index.css'
 
 const CardsGallery = props => {
   const [activePage, setActivePage] = React.useState(0)
-  const pages = chunk(
-    [...props.cards].map(resolveCardForLevel).sort(sortCards()),
-    props.cardsPerPage
-  )
+  const pages = chunk(props.cards.map(resolveCardForLevel), props.cardsPerPage)
   const filters = Object.values(props.filters || {})
   const page = pages[activePage] || pages[0]
   const { onPageChange } = props
