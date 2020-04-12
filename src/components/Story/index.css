@@ -4,11 +4,15 @@
 
 .Story__title {
   margin-bottom: 2em;
+  max-width: 65ch;
+}
+
+.Story__title > * {
   font-size: 120%;
 }
 
 .Story__content {
-  font-size: 110%;
+  font-size: 115%;
 }
 
 .Story__paragraph {
@@ -32,8 +36,17 @@
   color: var(--beige);
 }
 
+.Story__aside {
+  text-align: center;
+}
+
 .Story__author {
   font-style: italic;
   color: var(--beige);
+  margin-top: 2em;
   margin-bottom: 0;
+}
+
+.Story__back {
+  width: 200px;
 }

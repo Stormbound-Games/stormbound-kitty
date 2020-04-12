@@ -45,52 +45,52 @@ const Story = props => {
             </Title>
 
             <article>
-              {story.content.split('\n').map((paragraph, index) => (
-                <p key={index} className='Story__paragraph'>
-                  {microMarkdown(paragraph)}
-                </p>
-              ))}
+              {story.content.split('\n').map((paragraph, index) => {
+                if (paragraph.trim().length === 0) return null
+                if (paragraph.trim() === '---') return <hr key={index} />
+
+                return (
+                  <p key={index} className='Story__paragraph'>
+                    {microMarkdown(paragraph)}
+                  </p>
+                )
+              })}
             </article>
           </div>
         </Column>
 
         <Column width={33}>
-          {!!card.image && (
-            <Fragment>
-              <img src={card.image} alt={card.name} />
-              <hr />
-            </Fragment>
-          )}
+          <div className='Story__aside'>
+            {!!card.image && <img src={card.image} alt={card.name} />}
 
-          <p className='Story__author'>Story by {story.author}</p>
+            <p className='Story__author'>Story by {story.author}</p>
 
-          {storiesByAuthor.length > 1 && (
-            <p>
-              You might enjoy these other stories from the same author:{' '}
-              {storiesByAuthor
-                .filter(s => story.title !== s.title)
-                .map((story, index) => {
-                  const id = window.btoa(
-                    encodeURIComponent(story.title + '-' + story.author)
-                  )
+            {storiesByAuthor.length > 1 && (
+              <p>
+                You might enjoy these other stories from the same author:{' '}
+                {storiesByAuthor
+                  .filter(s => story.title !== s.title)
+                  .map((story, index) => {
+                    const id = window.btoa(
+                      encodeURIComponent(story.title + '-' + story.author)
+                    )
 
-                  return (
-                    <Fragment key={id}>
-                      <Link to={'/stories/' + id}>{story.title}</Link>
-                      {index !== storiesByAuthor.length - 2 ? ', ' : ''}
-                    </Fragment>
-                  )
-                })}
-              .
-            </p>
-          )}
+                    return (
+                      <Fragment key={id}>
+                        <Link to={'/stories/' + id}>{story.title}</Link>
+                        {index !== storiesByAuthor.length - 2 ? ', ' : ''}
+                      </Fragment>
+                    )
+                  })}
+                .
+              </p>
+            )}
+            <hr />
 
-          <Row desktopOnly>
-            <Column>
-              <CTA to='/stories'>Back to stories</CTA>
-            </Column>
-            <Column />
-          </Row>
+            <CTA className='Story__back' to='/stories'>
+              Back to stories
+            </CTA>
+          </div>
         </Column>
       </Row>
 

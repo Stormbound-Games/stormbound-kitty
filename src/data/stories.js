@@ -192,7 +192,7 @@ export default [
     It never came.
     As his enemies drew near, the frostling roared with unbridled fury as a bolt of lightning struck down from the sky and annihilated all that stood before him in a flash of primal light.
     I awoke minutes later, the scent of smoke filled the air as what was left of the building around me smoldered. Dazed, I saw the rogue frostling in the distance. Untouched. Unharmed. He turned to look at me. Nothing stirred behind those frozen eyes.
-    —A page from Grand Archivist, Miran's personal saga.`,
+    — A page from Grand Archivist, Miran's personal saga.`,
     author: 'DoppleFock',
     cardId: 'N36',
     category: 'neutral',
@@ -202,7 +202,7 @@ export default [
     content: `Ever since abandoning the Pact, I became but stray snow in the wind, drifting to and fro until settling down to waste away in a land I’ve never known. Sorrows aside, though I’ve sacrificed my immortality, my decision has bestowed me with freedom far greater than anything the Pact has to offer. In my travels, I witnessed both the beauty and peril of this broken world, and felt the forbidden binds of emotion that drive a mortal’s ambitions. Alas, my actions were not without consequence. The majority of fellow frostlings now regard me like slush in a dirty puddle. Even those in my inner circle no longer respond to my letters… Oh, how I miss the crisp embrace of Winter. Alas, I cannot return to snow just yet, as there is more to our world than snow and ice.
     In recent years, I’ve made myself a diplomat for Erninheim, a stronghold of a city who’s allegiances are more westward than northern. Though I am no Wisp, I can still channel the Tempest with ease, and with a little help, can reduce armies to ashes in a flash of frigid lightning.
 
-    –A page from a Pact deserter’s personal “saga”`,
+    – A page from a Pact deserter’s personal “saga”`,
     author: 'DoppleFock',
     cardId: 'N11',
     category: 'neutral',
@@ -471,7 +471,7 @@ export default [
     content: `Sadly, war takes its toll on everyone Even, children. The faun companions are the children and teenagers of satyrs, turned into a squire like type of soldier. Though they are not suited for combat, its not rare to see them on the frontlines, aiding in combat and the maintenence of the entire army's equipment.
     The presence of the faun companions are also part of a strategy to even more empower the satyrs zeal by their undead overlords. Their instinct of defending the young makes satyrs even more willing to give all their might and lives to protect them and kill the offenders.
     Though sadly most companions dont return from the frontlines, the ones that do return to the swarm camps and cities are trained as a more combat capable and elite unit.
-    —Excerpt from and observation of armies and kingdoms`,
+    — Excerpt from and observation of armies and kingdoms`,
     author: 'Seth',
     cardId: 'S5',
     category: 'swarm',
@@ -630,7 +630,7 @@ export default [
 
     *January 20:* The sodding bastard ran away. When we woke up he had left camp. Our runners started following the footprints but the blizzard had strengthened and we could not afford to lose more men. All I found was a scrap of paper on his cot, in which I shall attach to this page.
     Oh it was magnificent! The blasted men wouldn’t believe me! That’s why they fell. I remember being transported to a lush grove. A little girl took me by the hand and led me through the beautiful place! She pulled an apple from a tree that was as golden as a king’s crown and sweeter than the finest honey! Oh how I long to be back in that amazing place. The grove is out there. I need to find it. The grove. The grove. The grove.
-    —The remainder of the page is filled with “the grove”`,
+    — The remainder of the page is filled with “the grove”`,
     author: 'Xcircle',
     cardId: 'W21',
     category: 'winter',
@@ -640,7 +640,7 @@ export default [
     content: `“In records of old, tales tell of a weapon not seen since the days of the Gray Legion's dominion. Hidden within one of their ancient citadels, a trove of finely crafted daggers hibernates beneath the rubble, humming with an energy untouched for millennia. They called it, The Arsenal, and it is was this arsenal that gave the Gray Legion the power to assume control over the Central Archipelago.
     A few accounts detail the usage of this weapon. Through sheer force of will, one can cast the blades into a mighty storm that rains down upon your foes in a violent downpour of steel. With a little finesse, the blades become an assassin's best friend, flying through the air with deadly grace to deliver a swift and precise execution.
     I have sold few relics in my time, but those were mere pebbles at the shallow end of the pond. What secrets lie below those forgotten fortresses dates back to an era shrouded in mystery, untouched by the Storm's ruin and free from the strife of the factions. It is my duty to discover those secrets before the world does, for who knows what cataclysm they will bring about with such cursed knowledge.”
-    -Final journal entry of Palin Smauw, Relic Hunter`,
+    — Final journal entry of Palin Smauw, Relic Hunter`,
     author: 'DoppleFock',
     cardId: 'N29',
     category: 'neutral',
@@ -948,7 +948,7 @@ export default [
   {
     title: 'Wandering Wyrms',
     content: `“There is a certain magic that permeates through the mires of Shadowfen. A dreadful miasma that lingers in the air no matter how much the wind decides to stir. When first entering the swamps, one would attribute the moist, fungal stench to corpses lurking just beneath the water's murky surface. Victims of war and sacrifice left to rot at the bottom of the lakebed for eternity, their stories forever silenced by Death's cold, ominous whisper. Alas, some stories refuse to die, forever shambling on as husks of a memory best left forgotten. Searching for a soul with whom they can share their story with, before crumbling to ash.”
-    —Translated version of an old Raven's tale, recovered from a sunken tome.`,
+    — Translated version of an old Raven's tale, recovered from a sunken tome.`,
     author: 'DoppleFock',
     cardId: 'F9',
     category: 'shadowfen',
@@ -958,29 +958,41 @@ export default [
     content: `Dear Sir Edrik,
     I have been preparing for your speech to the new  recruits, and I even added in important information about cleanliness and personal hygiene. (the veterans don't set the best of examples in those regards.)
 
-    -----
+    ---
 
     As for your questions concerning modes of transport, I do have some information for you, however you must understand that under no circumstances can we let this information leak. There is a reason that we never speak on it.
-    -----
+
+    ---
+
     You likely already know that, our units (or what's left of our units) travel via heat powered airships.
     These airships are very effective; we can travel to any of the nearest islands within 10 days. Although the airships can travel long distances without much fuel, we do tend to require anywhere from 3-6 mana to get us to our destination, but that is mana well spent compared to the alternatives.
-    -----
+
+    ---
+
     Now before I continue, I need remind you that this is for you only, your words inspire the soldiers, but some information will do the opposite.
-    -----
+
+    ---
+
     The Iornclad Union has a history of powerful flying machines. The technology that we use was actually an old blueprint smuggled from an Iornclad factory. Take special notice of the word old. The Union has always been bent on progress, and although some of it can hardly be seen as anything more than communism, they have made genuine progress when it comes to airships. We suspect they have figured out how to harness the wind, making their airships very strong. Most are capable of carrying large forces of constructs.
-    -----
+
+    ---
+
     As you've probably noticed, the satyrs and undeads of the east don't fly in on large machines. Although we have no clear answer, we suspect that they use a form of summoning magic. (Likely similar to the magic they use to raise the dead.) This, of course, is why they seem to appear out of nowhere, swarming the battlefield before we've even made a move.
-    -----
+
+    ---
+
     Now, we come to the winter pact. More specifically: the frostlings. Now, from what I've been told, the frostlings are made of mana…? (One with mana…?) All the information I have is from our spies and professors, and although I don't really understand it, I think they basically said: "blah blah blah, together, blah blah, mana, blah blah, control magic" (or something like that.) Really, all we know is they use mana to transport themselves and their fellow dwarves to where they need to be.
-    -----
+
+    ---
+
     Now, Sir Edrik, the tribes of Shadowfen are often seen leaving their natural habitat by way of flight. The Ravens carry themselves and their toads to the battlefield, although as I'm sure you've noticed, the Ravens tend to drop the toads before making a full landing. The ravens do have decent flight power, but it doesn't rival the powerful flight of the dragons.
 
-    -----
+    ---
 
     I do, Master Edrik, hope that you have found this information satisfactory. I will continue to do my best in training our newest recruits, they sure are a handful, but with my expertise, they will be skilled warriors in no time.
     Sincerely,
 
-    Your loyal servent`,
+    — Your loyal servent`,
     author: 'MooreFunn',
     cardId: 'N59',
     category: 'lore',
@@ -1068,8 +1080,8 @@ export default [
     ---
     With all this information, I ask of you Edrick, please train the unbound that are inexperienced in this world. I feel that our chances of bringing the world back to order are more reasonable when there are powerful leaders on all sides. Hopefully someday, the other kingdoms will see the pointlessness of our petty battles.
     Sincerely,
-    
-    Your loyal servent`,
+
+    — Your loyal servent`,
     author: 'MooreFunn',
     cardId: 'N59',
     category: 'lore',
