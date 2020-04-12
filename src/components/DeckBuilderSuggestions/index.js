@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import debounce from 'lodash.debounce'
 import PageMeta from '../PageMeta'
@@ -205,4 +205,5 @@ class DeckBuilderSuggestions extends React.Component {
 
 export default hookIntoProps(() => ({
   history: useHistory(),
+  location: useLocation(),
 }))(DeckBuilderSuggestions)
