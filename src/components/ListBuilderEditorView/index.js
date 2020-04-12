@@ -167,6 +167,8 @@ class ListBuilderEditorView extends React.Component {
   render() {
     return (
       <Fragment>
+        <h1 className='visually-hidden'>List Builder</h1>
+
         <Row wideGutter desktopOnly>
           <Column width={33}>
             <Title element='h2'>Settings</Title>
