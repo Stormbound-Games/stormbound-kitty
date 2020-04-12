@@ -7,20 +7,16 @@ describe('Battle Sim — Players', () => {
 
   it('should be possible to update RED’s health', () => {
     cy.get(s.RED_HEALTH_INPUT)
-      // Cypress struggles calling `.clear()` on a `number` input
-      // See: https://github.com/cypress-io/cypress/issues/2650
-      .focus()
-      .type('{selectall}9')
+      .clear()
+      .type('9')
       .get(s.RED_HEALTH)
       .should('have.text', '9')
   })
 
   it('should be possible to update BLUE’s health', () => {
     cy.get(s.BLUE_HEALTH_INPUT)
-      // Cypress struggles calling `.clear()` on a `number` input
-      // See: https://github.com/cypress-io/cypress/issues/2650
-      .focus()
-      .type('{selectall}8')
+      .clear()
+      .type('8')
       .get(s.BLUE_HEALTH)
       .should('have.text', '8')
   })

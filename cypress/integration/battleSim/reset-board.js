@@ -7,10 +7,8 @@ describe('Battle Sim — Reset', () => {
 
   it('should reset all info', () => {
     cy.get(s.RED_HEALTH_INPUT)
-      // Cypress struggles calling `.clear()` on a `number` input
-      // See: https://github.com/cypress-io/cypress/issues/2650
-      .focus()
-      .type('{selectall}9')
+      .clear()
+      .type('9')
       .get(s.BLUE_FACTION_SELECT)
       .select('ironclad')
       .get(s.GRID_MARKERS_CHECKBOX)
