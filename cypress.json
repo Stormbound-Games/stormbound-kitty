@@ -1,5 +1,6 @@
 {
   "baseUrl": "http://localhost:3000",
   "video": false,
-  "ignoreTestFiles": "selectors.js"
+  "ignoreTestFiles": "selectors.js",
+  "projectId": "h321g2"
 }
