@@ -1,6 +1,10 @@
 [
   {
     "intro": "Card Collection",
+    "description": "It is now possible to sort the card collection by card value."
+  },
+  {
+    "intro": "Card Collection",
     "description": "The collection now informs how much coins would the excess copies bring after the Brawl update."
   },
   {

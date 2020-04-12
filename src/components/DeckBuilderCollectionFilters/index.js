@@ -84,7 +84,18 @@ const DeckBuilderCollectionFilters = props => (
           placeholder='e.g. Faun'
         />
       </Column>
-      <Column width={25} />
+      <Column width={25}>
+        <label htmlFor='order'>Order</label>
+        <select
+          name='order'
+          id='order'
+          value={props.order}
+          onChange={event => props.setOrder(event.target.value)}
+        >
+          <option value='NATURAL'>Natural</option>
+          <option value='VALUE'>Value</option>
+        </select>
+      </Column>
       <Column width={25} />
       <Column width={25}>
         <CTA

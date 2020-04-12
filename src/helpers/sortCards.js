@@ -1,8 +1,19 @@
 import unfoldValue from './unfoldValue'
+import { getCardCost } from './getCollectionCost'
 
 const FACTIONS_ORDER = ['neutral', 'winter', 'ironclad', 'shadowfen', 'swarm']
 
-export default (level = 0) => (a, b) => {
+export const sortByValue = (a, b) => {
+  const costA = getCardCost(a)
+  const costB = getCardCost(b)
+
+  if (costA > costB) return -1
+  if (costA < costB) return +1
+
+  return sortNaturally()(a, b)
+}
+
+const sortNaturally = (level = 0) => (a, b) => {
   const factionIndexA = FACTIONS_ORDER.indexOf(a.faction)
   const factionIndexB = FACTIONS_ORDER.indexOf(b.faction)
 
@@ -17,3 +28,5 @@ export default (level = 0) => (a, b) => {
 
   return a.name > b.name ? +1 : -1
 }
+
+export default sortNaturally

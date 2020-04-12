@@ -1,5 +1,6 @@
 import React from 'react'
-import sortCards from '../../helpers/sortCards'
+import memoize from 'lodash.memoize'
+import sortCards, { sortByValue } from '../../helpers/sortCards'
 import hookIntoProps from '../../helpers/hookIntoProps'
 import useViewportWidth from '../../helpers/useViewportWidth'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
@@ -18,6 +19,7 @@ const DEFAULT_FILTERS = {
   ability: '*',
   hero: false,
   elder: false,
+  order: 'NATURAL',
 }
 
 class DeckBuilderFiltering extends React.Component {
@@ -50,6 +52,7 @@ class DeckBuilderFiltering extends React.Component {
   setAbility = ability => this.setState({ ability })
   setHero = hero => this.setState({ hero })
   setElder = elder => this.setState({ elder })
+  setOrder = order => this.setState({ order })
 
   resetFilters = () => this.setState({ ...DEFAULT_FILTERS })
 
@@ -108,7 +111,7 @@ class DeckBuilderFiltering extends React.Component {
   matchesElder = card =>
     !this.state.elder || Boolean(card.elder) === this.state.elder
 
-  getCollection = cards => {
+  getCollection = memoize(cards => {
     return cards
       .filter(card => {
         if (card.token) return false
@@ -126,8 +129,8 @@ class DeckBuilderFiltering extends React.Component {
         if (!this.matchesElder(card)) return false
         return true
       })
-      .sort(sortCards())
-  }
+      .sort(this.state.order === 'VALUE' ? sortByValue : sortCards())
+  })
 
   getCardsPerPage = () => (this.props.viewportWidth < 1100 ? 6 : 8)
 
@@ -146,6 +149,7 @@ class DeckBuilderFiltering extends React.Component {
       setAbility: this.setAbility,
       setHero: this.setHero,
       setElder: this.setElder,
+      setOrder: this.setOrder,
     }
 
     return this.props.children({
