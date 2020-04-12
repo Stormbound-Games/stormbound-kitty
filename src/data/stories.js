@@ -184,7 +184,7 @@ export default [
   },
   {
     title: 'Voidsurgers',
-    content: `As one the Pact's oldest librarians, I have had plenty of time to mull over the vast histories of our nation. The countless battles.The grandest celebrations. All memories tucked away like the thousands of winter sagas that line the shelves of the this vast archive. Yet out of all these memories, both fond and feared, there is one that refuses to join its brothers and sisters in the past...
+    content: `As one the Pact's oldest librarians, I have had plenty of time to mull over the vast histories of our nation. The countless battles.The grandest celebrations. All memories tucked away like the thousands of winter sagas that line the shelves of the this vast archive. Yet out of all these memories, both fond and feared, there is one that refuses to join its brothers and sisters in the past…
     It was in Autumn’s equinox the day the renegades attacked, only a mere decades after the Pact's signing. A younger me, only several hundred years old, fled to the safety of the Archive walls. Alas, the walls could only hold for so long as a ball of hellfire fell from the sky and destroyed our last line of defense. As the wall fell, my fellow refugees fled deeper into the Archive, while I stood in place, frozen with fear.
     Due to my frequent visits of the library, I've learned many things about the land that lay beyond the Tempest, most intriguing being the ferocious Dragons that lived in the corners of this world. Yet, what emerged from the hole was not a Dragon, but another frostling. At first, I was relieved, but his reddish complexion cut my moment of peace short. As Frostlings, the path to the Grove lay in stillness. "Calm amidst a raging storm" were the words our mentors taught us, yet, I never really pondered what would happen if we were to defy them. At that moment, I finally knew.
     I looked into the eyes of my fellow frostling. His eyes were cold, but a raging inferno burned behind them. Instead of the familiar chill of a frostling's presence, an unsettling void filled the air. Before long, a group of Hexers emerged from the Archives behind me, restoring the air to its natural crispness. Simultaneously, a company of local knights has gathered in the street outside. This was an ambush.
@@ -273,7 +273,7 @@ export default [
   },
   {
     title: 'Eloth the Ignited',
-    content: `The little rodent, panting and sweating looked up. After his big runs to deliver the explosive, he always liked to look up at the clouds, it was peaceful and almost silent, a big change from the furious skittering that was always on in the city. Yes, the smog clouds were calm, slow... but something was different... something dark was coming, looming over the clouds of smoke and steam that escaped the living city. The bronze pipes, shining with use and mist droplets reflected the shadow that slowly came near. It was huge, as big as a MC-314 gear (the ones from the upgrade stations) and it was about to emerge.  The little mouse gulped and froze with fear.
+    content: `The little rodent, panting and sweating looked up. After his big runs to deliver the explosive, he always liked to look up at the clouds, it was peaceful and almost silent, a big change from the furious skittering that was always on in the city. Yes, the smog clouds were calm, slow… but something was different… something dark was coming, looming over the clouds of smoke and steam that escaped the living city. The bronze pipes, shining with use and mist droplets reflected the shadow that slowly came near. It was huge, as big as a MC-314 gear (the ones from the upgrade stations) and it was about to emerge.  The little mouse gulped and froze with fear.
     A mighty dragon came roaring down, its cry shaking the buildings, and as the beast soared, terrible flames spew out of his large mouth, blowing away anything in its path. He  flew and flew around the city with his bellowing flames and then sat on the old clocktower, and as it creaked under his might weight, the rodents gave away into panic, crying and shambling to find a weapon, an explosive of some kind, or just shelter. The dragon roared again with a hint of pain in his voice as the mice started to lauch their makeshift explosives at him. Then, a scream came from the speakers scattered aorund the city: "STOP!!" it was her voice, Mia. There she was, on her (almost) indistructible giant, coming down from her tower. She squinted at the titan. "Bring me the prototype." she commanded, smirking "let's see if it works on bigger vermin". From her tower she had seen the dragon and she knew what he had done: with his terrible distruction he drew the royal M on her city, melting the rooftops and crushing the workshops. He had called her, he wasn't there to destroy, he was there to talk. Losing a couple of factories was worth such a powerful ally.
     Shaking, the ingeneer put the last metal plate gently on the dragon's scaled skin. The machine turned on, buzzed, and a faint light emitted from the screen. "My Brillancy, it works! The giant can communicate with us now trough his thoughts!" "Perfect. So, why have you called me?" The screen turned red, and as the might dragon closed his eyes focusing, his thoughts cleared: flames, clouds, magic, dragons. Newborn from the storm, the dragons scattered across the lands, feasting and looking for a land to call home. Many just looked for survival, but others were smarter, and knew they will need allies to thrive. North, East, South, the mightiest dragons went to form pacts and alliances with the Queens and Priestesses that rules over the land. Now it was time for this might dragon to find his ally, and ally that would make him better, and ally that would understand his power. An ally like Mia and the Ironclad Union.`,
     author: 'Kepp',
@@ -571,7 +571,7 @@ export default [
     From what I can recall, no one else has ever said those words to me, cared about my wellbeing.
     How are you.
     I…
-    ...“I don’t know.”
+    …“I don’t know.”
     She looked… perplexed. “What do you mean?”
     “I just… I don’t know. I don’t know how I am. I’ve only felt one straight mindset for most of the time: numb. Stuck. Until I met you, like an infection… wait, what’s that look for?”
     She looked surprised, almost mad. “She told me that you were treated right, given emotions…”
@@ -906,7 +906,7 @@ export default [
     I couldn’t see it, but I could hear the factory crumble. The metal bits falling off the edges, the steel beams’ rending screeches. A cacophony oddly beautiful.
     And the bots were gone.
     But now what? I failed the plan. I got myself stuck on this small chunk of land. Unless you’ve got an idea?
-    ...hm. Maybe I really am crazy if I’m talking to a reflection.`,
+    …hm. Maybe I really am crazy if I’m talking to a reflection.`,
     author: 'Zyries',
     cardId: 'N37',
     category: 'neutral',
@@ -1085,5 +1085,64 @@ export default [
     author: 'MooreFunn',
     cardId: 'N59',
     category: 'lore',
+  },
+  {
+    title: 'Chloerós Floiós',
+    content: `A fancy way to say it.
+    Experiment: 156.
+
+    I don't even need to say the name for you to remember what it was, hm?
+
+    Maybe you'll learn.
+
+    …
+
+    "… And the next award goes to…"
+    "Fendricos Musendi!"
+    Even though they cheered, they all expected it.
+    It was only the 26th time, anyways.
+    "Thank you, sir. It is a great pleasure…"
+    I turn to the masses. Deja vu.
+    "… To be here in front of our people, once again…"
+    I turn back to him. He has aged.
+    "… Making our world a better place."
+
+    But you weren't there. I'm sorry.
+
+    Shh, shh. You will understand soon.
+
+    …
+
+    Where did I leave off?
+
+    Oh yes, thank you.
+
+    Experiment: 156.
+
+    This is how I've stayed here. My back aches, my shoulders are weighed down by stolen valor.
+    They bought it. They thought it would be for the better.
+
+    I have lived for so long, and I have finally gotten you back.
+
+    Even if your skin is no longer skin, your eyes are no longer blue…
+
+    Do not fret, the strong fuel us both.
+
+    We can find somewhere else to live. We can finally be free, now that I have you back.
+
+    Botany has lost its intrigue.
+
+    …
+
+    Yes? You get it?
+
+    Oh, hoho, I'm proud.
+
+    We are eternal.
+
+    As long as we survive, son.`,
+    author: 'Zyries',
+    cardId: 'N75',
+    category: 'neutral',
   },
 ]
