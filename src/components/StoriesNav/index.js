@@ -8,7 +8,7 @@ const StoriesNav = props => (
     <ul className='Header__list Header__list--sub'>
       <li className='Header__item'>
         <NavLink exact to='/stories'>
-          Home
+          All stories
         </NavLink>
       </li>
       <li className='Header__item'>
