@@ -15,11 +15,18 @@ const BattleSimNav = props => {
           </NavLink>
         </li>
 
-        {id && (
-          <li className='Header__item'>
+        <li className='Header__item'>
+          {id ? (
             <NavLink to={`/sim/${id}/display`}>Display mode</NavLink>
-          </li>
-        )}
+          ) : (
+            <span
+              className='Header__link Header__link--disabled'
+              title='Your sim is not complete'
+            >
+              Display mode
+            </span>
+          )}
+        </li>
 
         <li className='Header__item  Header__item--right'>
           <NavLink to='/sim/puzzles'>Puzzles</NavLink>

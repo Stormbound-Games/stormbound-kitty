@@ -63,16 +63,12 @@ const DeckBuilderNav = props => {
           )}
         </li>
 
-        <li className='Header__item'>
-          <NavLink to='/deck/collection'>Collection</NavLink>
-        </li>
-
         <li className='Header__item Header__item--right'>
           <NavLink to='/deck/suggestions'>Ready decks</NavLink>
         </li>
 
         <li className='Header__item'>
-          <NavLink to='/guides/deck'>Guide</NavLink>
+          <NavLink to='/deck/collection'>Collection</NavLink>
         </li>
       </ul>
     </nav>

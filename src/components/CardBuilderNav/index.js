@@ -15,11 +15,18 @@ const CardBuilderNav = props => {
           </NavLink>
         </li>
 
-        {id && (
-          <li className='Header__item'>
-            <NavLink to={`/card/${id}/display`}>Display mode</NavLink>
-          </li>
-        )}
+        <li className='Header__item'>
+          {id ? (
+            <NavLink to={`/card/${id}/display`}>Tracker</NavLink>
+          ) : (
+            <span
+              className='Header__link Header__link--disabled'
+              title='Your card is empty'
+            >
+              Display mode
+            </span>
+          )}
+        </li>
 
         <li className='Header__item Header__item--right'>
           <NavLink to='/card/contest'>Card Contest</NavLink>

@@ -16,11 +16,18 @@ const ListBuilderNav = props => {
           </NavLink>
         </li>
 
-        {id && (
-          <li className='Header__item'>
-            <NavLink to={`/list/${id}/display`}>Display mode</NavLink>
-          </li>
-        )}
+        <li className='Header__item'>
+          {id ? (
+            <NavLink to={`/list/${id}/display`}>Tracker</NavLink>
+          ) : (
+            <span
+              className='Header__link Header__link--disabled'
+              title='Your list is empty'
+            >
+              Display mode
+            </span>
+          )}
+        </li>
 
         <li className='Header__item Header__item--right'>
           <NavLink to={`/list/${SHADES_LIST}`}>Equals Tier List</NavLink>
