@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Checkbox from '../Checkbox'
 import CTA from '../CTA'
 import Dialog from '../Dialog'
@@ -26,7 +26,7 @@ const CardBuilderShareButton = props => {
   const close = () => dialog.current.hide()
 
   return (
-    <Fragment>
+    <>
       <CTA onClick={open} type='button'>
         Share card
       </CTA>
@@ -77,7 +77,7 @@ const CardBuilderShareButton = props => {
           </Checkbox>
         </div>
       </Dialog>
-    </Fragment>
+    </>
   )
 }
 

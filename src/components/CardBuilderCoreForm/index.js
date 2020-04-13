@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { RARITIES, TYPES, RACES } from '../../constants/game'
 import CardSelect from '../CardSelect'
 import Checkbox from '../Checkbox'
@@ -12,7 +12,7 @@ const CardBuilderCardForm = props => {
   const [imageFocusedColumn, setImageFocusedColumn] = React.useState(null)
 
   return (
-    <Fragment>
+    <>
       <form onSubmit={event => event.preventDefault()}>
         <Row>
           <Column>
@@ -204,7 +204,7 @@ const CardBuilderCardForm = props => {
           <Column />
         </Row>
       </form>
-    </Fragment>
+    </>
   )
 }
 

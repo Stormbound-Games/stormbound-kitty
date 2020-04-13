@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import { TIER_COLORS } from '../../constants/list'
 import Column from '../Column'
@@ -16,7 +16,7 @@ const ListBuilderDisplayView = props => {
   const tiers = getInitialListData(id)
 
   return (
-    <Fragment>
+    <>
       <h1 className='visually-hidden'>List Builder</h1>
       <Row wideGutter desktopOnly>
         <Column width={33}>
@@ -55,7 +55,7 @@ const ListBuilderDisplayView = props => {
       </Row>
 
       <PageMeta title='Tier List Display' />
-    </Fragment>
+    </>
   )
 }
 

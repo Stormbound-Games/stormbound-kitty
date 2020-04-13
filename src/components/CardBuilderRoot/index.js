@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import App from '../CardBuilderApp'
@@ -170,7 +170,7 @@ class CardBuilderRoot extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <>
         <h1 className='visually-hidden'>Card Builder</h1>
 
         <App
@@ -198,7 +198,7 @@ class CardBuilderRoot extends React.Component {
           title='Card Builder'
           description='Create your own Stormbound card.'
         />
-      </Fragment>
+      </>
     )
   }
 }

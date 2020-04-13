@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import cards from '../../data/cards'
 import ActiveCardForm from '../DeckBuilderCollectionActiveCardForm'
 import CardsGallery from '../CardsGallery'
@@ -175,7 +175,7 @@ class DeckBuilderCollection extends React.Component {
     const resolvedActiveCard = this.getActiveCardData()
 
     return (
-      <Fragment>
+      <>
         <h1 className='visually-hidden'>Card Collection</h1>
 
         <Row desktopOnly wideGutter>
@@ -240,7 +240,7 @@ class DeckBuilderCollection extends React.Component {
                 resetFilters,
                 cardsPerPage,
               }) => (
-                <Fragment>
+                <>
                   <Filters
                     {...filters}
                     {...filtersSetters}
@@ -264,7 +264,7 @@ class DeckBuilderCollection extends React.Component {
                       resetFilters={resetFilters}
                     />
                   )}
-                </Fragment>
+                </>
               )}
             </Filtering>
           </Column>
@@ -274,7 +274,7 @@ class DeckBuilderCollection extends React.Component {
           title='Cards Collection'
           description='Import and export your own card collection.'
         />
-      </Fragment>
+      </>
     )
   }
 }

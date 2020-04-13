@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { serialiseCardFromCollection } from '../../helpers/serialise'
 import './index.css'
@@ -41,7 +41,7 @@ const TierListItem = props => {
     props.dndTarget + props.dndDirection !== props.dndSource
 
   return (
-    <Fragment>
+    <>
       {shouldDisplayPlaceholderBefore && (
         <span className='TierListItem TierListItem--placeholder'>
           <img
@@ -87,7 +87,7 @@ const TierListItem = props => {
           />
         </span>
       )}
-    </Fragment>
+    </>
   )
 }
 

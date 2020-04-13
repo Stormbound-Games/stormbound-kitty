@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import CTA from '../CTA'
 import PageMeta from '../PageMeta'
 import Title from '../Title'
 import './index.css'
 
 const Error = props => (
-  <Fragment>
+  <>
     <div className='Error'>
       <Title element='h1' className='Error__title'>
         An error occurred
@@ -42,7 +42,7 @@ const Error = props => (
       description='An error occurred, sorry about this!'
       noIndex
     />
-  </Fragment>
+  </>
 )
 
 export default Error

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import CardDisplay from '../CardBuilderCardDisplay'
 import Column from '../Column'
 import CoreForm from '../CardBuilderCoreForm'
@@ -10,7 +10,7 @@ import Title from '../Title'
 import './index.css'
 
 const CardBuilderApp = props => (
-  <Fragment>
+  <>
     <Title>
       {props.mode === 'EDITOR' ? 'Create your card' : props.name || 'Your card'}
     </Title>
@@ -45,7 +45,7 @@ const CardBuilderApp = props => (
         </Row>
       </div>
     ) : null}
-  </Fragment>
+  </>
 )
 
 export default CardBuilderApp

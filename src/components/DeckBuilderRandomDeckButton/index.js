@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { FACTIONS } from '../../constants/game'
 import Column from '../Column'
 import CTA from '../CTA'
@@ -54,7 +54,7 @@ export default class DeckBuilderRandomDeckButton extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <>
         <CTA onClick={this.open} type='button'>
           {this.props.label || 'Random deck'}
         </CTA>
@@ -139,7 +139,7 @@ export default class DeckBuilderRandomDeckButton extends React.Component {
             </Column>
           </Row>
         </Dialog>
-      </Fragment>
+      </>
     )
   }
 }

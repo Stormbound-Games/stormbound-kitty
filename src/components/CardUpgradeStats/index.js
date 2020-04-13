@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import getCostForLevel from '../../helpers/getCostForLevel'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
@@ -12,7 +12,7 @@ const CardUpgradeStats = props => {
   const extraAfterMax = getExtraAfterMax(card)
 
   return (
-    <Fragment>
+    <>
       {card.missing ? (
         <p>
           <span className='CardUpgradeStats__mark'>Crafting cost:</span>{' '}
@@ -50,7 +50,7 @@ const CardUpgradeStats = props => {
           coins.
         </p>
       )}
-    </Fragment>
+    </>
   )
 }
 

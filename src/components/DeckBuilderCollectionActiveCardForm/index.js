@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import CardUpgradeStats from '../CardUpgradeStats'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
@@ -8,7 +8,7 @@ import Title from '../Title'
 import { serialiseCardFromCollection } from '../../helpers/serialise'
 
 const DeckBuilderCollectionActiveCardForm = props => (
-  <Fragment>
+  <>
     <Title>{props.resolvedActiveCard.name}</Title>
 
     <form onSubmit={props.onActiveCardFormSubmit}>
@@ -77,7 +77,7 @@ const DeckBuilderCollectionActiveCardForm = props => (
 
       <CardUpgradeStats {...props.activeCard} />
     </form>
-  </Fragment>
+  </>
 )
 
 export default DeckBuilderCollectionActiveCardForm

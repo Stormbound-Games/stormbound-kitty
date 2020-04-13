@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { RESTRICTIONS, TYPES } from '../../constants/puzzles'
 import Image from '../Image'
@@ -31,7 +31,7 @@ const BattleSimPuzzle = props => (
         Restrictions:{' '}
         {props.restrictions.length > 0
           ? [...props.restrictions].sort().map((restriction, index) => (
-              <Fragment key={restriction}>
+              <>
                 <span
                   title={RESTRICTIONS[restriction].description}
                   className='BattleSimPuzzle__restriction'
@@ -39,7 +39,7 @@ const BattleSimPuzzle = props => (
                   {RESTRICTIONS[restriction].name}
                 </span>
                 {index !== props.restrictions.length - 1 && ', '}
-              </Fragment>
+              </>
             ))
           : 'none'}
       </span>

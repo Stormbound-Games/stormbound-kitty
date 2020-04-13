@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Column from '../Column'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
@@ -7,7 +7,7 @@ import categories from '../../data/faq'
 import './index.css'
 
 const FAQEntry = props => (
-  <Fragment>
+  <>
     <dt className='FAQ__question' id={props.id}>
       <a
         className='FAQ__link'
@@ -18,7 +18,7 @@ const FAQEntry = props => (
       </a>
     </dt>
     <dd>{props.answer}</dd>
-  </Fragment>
+  </>
 )
 
 const FAQSection = props => (

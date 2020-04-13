@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Card from '../Card'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
@@ -415,11 +415,11 @@ class DeckBuilderTrackerView extends React.Component {
     switch (this.state.status) {
       case STATUSES.PICKING_HAND:
         return (
-          <Fragment>
+          <>
             Select the 4 cards that constitute your initial hand.
             {this.props.playerOrder === 'FIRST' &&
               'If you are the second player, check the “Second player” checkbox above.'}
-          </Fragment>
+          </>
         )
       case STATUSES.REFILLING:
         return 'You just ended your turn: select which card you drew.'
@@ -521,7 +521,7 @@ class DeckBuilderTrackerView extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <>
         <h1 className='visually-hidden'>Deck Tracker</h1>
 
         <Row desktopOnly wideGutter>
@@ -754,7 +754,7 @@ class DeckBuilderTrackerView extends React.Component {
           title='Deck tracker'
           description='Track your deck as you play to maximise your chances of winning.'
         />
-      </Fragment>
+      </>
     )
   }
 }

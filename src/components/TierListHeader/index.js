@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import CardSelect from '../CardSelect'
 import './index.css'
 
@@ -7,7 +7,7 @@ const TierListHeader = props => {
     <header className='TierListHeader'>
       <div className='TierListHeader__item'>
         {props.isEditable ? (
-          <Fragment>
+          <>
             <label className='TierListHeader__label' htmlFor='listName'>
               Tier name
             </label>
@@ -21,7 +21,7 @@ const TierListHeader = props => {
               maxLength={30}
               placeholder='Unnamed tier'
             />
-          </Fragment>
+          </>
         ) : (
           <span className='TierListHeader__name'>{props.name}</span>
         )}
@@ -29,7 +29,7 @@ const TierListHeader = props => {
 
       <div className='TierListHeader__item'>
         {props.isEditable ? (
-          <Fragment>
+          <>
             <label className='TierListHeader__label' htmlFor='newCard'>
               Add card to tier
             </label>
@@ -41,7 +41,7 @@ const TierListHeader = props => {
               disabledOptions={props.cards.map(card => card.id)}
               withSpells={true}
             />
-          </Fragment>
+          </>
         ) : null}
       </div>
 

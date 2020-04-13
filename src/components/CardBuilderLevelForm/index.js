@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Column from '../Column'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
@@ -7,7 +7,7 @@ import formatCardStats from '../../helpers/formatCardStats'
 import './index.css'
 
 const CardBuilderCardForm = props => (
-  <Fragment>
+  <>
     <form onSubmit={event => event.preventDefault()}>
       <p>
         Attributes leveling can be expressed using slashes (<code>/</code>) to
@@ -78,7 +78,7 @@ const CardBuilderCardForm = props => (
         </Row>
       </div>
     </form>
-  </Fragment>
+  </>
 )
 
 export default CardBuilderCardForm

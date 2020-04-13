@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Title from '../Title'
 import getCollectionCost from '../../helpers/getCollectionCost'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
@@ -68,7 +68,7 @@ const DeckBuilderCollectionStats = props => {
   )
 
   return (
-    <Fragment>
+    <>
       <Title>Collection stats</Title>
       <ul className='DeckBuilderCollectionStats__list'>
         <li>
@@ -106,7 +106,7 @@ const DeckBuilderCollectionStats = props => {
           </span>
         </li>
       </ul>
-    </Fragment>
+    </>
   )
 }
 

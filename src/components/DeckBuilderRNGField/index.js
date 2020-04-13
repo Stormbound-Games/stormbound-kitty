@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Radio from '../Radio'
 import WikiLink from '../WikiLink'
 import './index.css'
@@ -6,38 +6,38 @@ import './index.css'
 const RNG_SENSITIVE_CARDS = {
   W9: {
     FRIENDLY: () => (
-      <Fragment>
+      <>
         <WikiLink id='W9' /> stays
-      </Fragment>
+      </>
     ),
     UNFRIENDLY: () => (
-      <Fragment>
+      <>
         <WikiLink id='W9' /> gets destroyed
-      </Fragment>
+      </>
     ),
   },
   S3: {
     FRIENDLY: () => (
-      <Fragment>
+      <>
         <WikiLink id='S3' /> comes back in hand
-      </Fragment>
+      </>
     ),
     UNFRIENDLY: () => (
-      <Fragment>
+      <>
         <WikiLink id='S3' /> doesn’t come back to hand
-      </Fragment>
+      </>
     ),
   },
   W16: {
     FRIENDLY: () => (
-      <Fragment>
+      <>
         <WikiLink id='W16' /> hits
-      </Fragment>
+      </>
     ),
     UNFRIENDLY: () => (
-      <Fragment>
+      <>
         <WikiLink id='W16' /> dies
-      </Fragment>
+      </>
     ),
   },
 }
@@ -97,19 +97,19 @@ const DeckBuilderRNGField = props => {
         Regular{' '}
         <span className='DeckBuilderRNGField__radio-info'>
           {RNGSensitiveCards.length === 1 ? (
-            <Fragment>
+            <>
               50% chance per turn that{' '}
               {RNG_SENSITIVE_CARDS[RNGSensitiveCards[0]].FRIENDLY()}
-            </Fragment>
+            </>
           ) : (
-            <Fragment>
+            <>
               50% chance per turn that:
               {RNGSensitiveCards.map(cardId => (
                 <span key={cardId}>
                   {RNG_SENSITIVE_CARDS[cardId].FRIENDLY()}
                 </span>
               ))}
-            </Fragment>
+            </>
           )}
         </span>
       </Radio>

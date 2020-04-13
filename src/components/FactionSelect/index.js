@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { FACTIONS } from '../../constants/game'
 import capitalise from '../../helpers/capitalise'
 
 const FactionSelect = props => {
   return (
-    <Fragment>
+    <>
       <label htmlFor={props.id || 'faction'}>Faction</label>
       <select
         name={props.name || 'faction'}
@@ -23,7 +23,7 @@ const FactionSelect = props => {
             </option>
           ))}
       </select>
-    </Fragment>
+    </>
   )
 }
 

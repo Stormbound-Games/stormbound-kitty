@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import CTA from '../CTA'
 import Dialog from '../Dialog'
 import useShare from '../../hooks/useShare'
@@ -10,7 +10,7 @@ const QuestBuilderShareButton = props => {
   const { share, hasCopied, canUseShareAPI } = useShare()
 
   return (
-    <Fragment>
+    <>
       <CTA onClick={open} type='button'>
         Share quest
       </CTA>
@@ -42,7 +42,7 @@ const QuestBuilderShareButton = props => {
           so with the button below.
         </p>
       </Dialog>
-    </Fragment>
+    </>
   )
 }
 

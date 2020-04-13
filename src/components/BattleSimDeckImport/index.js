@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import CTA from '../CTA'
 import Deck from '../Deck'
 import Dialog from '../Dialog'
@@ -64,7 +64,7 @@ export default class BattleSimDeckImport extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <>
         <CTA
           type='CTA'
           onClick={this.open}
@@ -113,7 +113,7 @@ export default class BattleSimDeckImport extends React.Component {
             />
           )}
         </Dialog>
-      </Fragment>
+      </>
     )
   }
 }

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
 import cards from '../../data/cards'
 import decks from '../../data/decks'
@@ -104,7 +104,7 @@ class DeckBuilderEditorView extends React.Component {
     )
 
     return (
-      <Fragment>
+      <>
         <h1 className='visually-hidden'>Deck Builder</h1>
 
         <Row desktopOnly wideGutter>
@@ -120,7 +120,7 @@ class DeckBuilderEditorView extends React.Component {
             />
 
             {this.props.deck.length > 0 && (
-              <Fragment>
+              <>
                 <Row>
                   <Column>
                     <ResetButton
@@ -133,7 +133,7 @@ class DeckBuilderEditorView extends React.Component {
                     <ShareButton />
                   </Column>
                 </Row>
-              </Fragment>
+              </>
             )}
 
             {matchedDeck ? (
@@ -142,7 +142,7 @@ class DeckBuilderEditorView extends React.Component {
                 {matchedDeck.author}.
               </p>
             ) : (
-              <Fragment>
+              <>
                 <p>
                   If you do not know where to start,{' '}
                   <Link to='/deck/guide'>read the guide</Link> to learn how to
@@ -152,7 +152,7 @@ class DeckBuilderEditorView extends React.Component {
                   </Link>
                   .
                 </p>
-              </Fragment>
+              </>
             )}
 
             <RandomDeckButton
@@ -160,9 +160,9 @@ class DeckBuilderEditorView extends React.Component {
               collection={this.state.collection}
             />
 
-            <Fragment>
+            <>
               {!this.state.withCustomCollection && (
-                <Fragment>
+                <>
                   <p>
                     If you have already{' '}
                     <Link to='/deck/collection'>created your collection</Link>,
@@ -170,7 +170,7 @@ class DeckBuilderEditorView extends React.Component {
                     decks that you can make in-game.
                   </p>
                   <ImportCollection onChange={this.onCollectionImport} />
-                </Fragment>
+                </>
               )}
 
               {this.state.hasImported !== null && (
@@ -180,7 +180,7 @@ class DeckBuilderEditorView extends React.Component {
                     : '✘ Unfortunately their was an error importing your collection.'}
                 </p>
               )}
-            </Fragment>
+            </>
           </Column>
 
           <Column width={66}>
@@ -195,7 +195,7 @@ class DeckBuilderEditorView extends React.Component {
                   resetFilters,
                   cardsPerPage,
                 }) => (
-                  <Fragment>
+                  <>
                     <Filters
                       {...filters}
                       {...filtersSetters}
@@ -227,7 +227,7 @@ class DeckBuilderEditorView extends React.Component {
                         resetFilters={resetFilters}
                       />
                     )}
-                  </Fragment>
+                  </>
                 )}
               </Filtering>
             </div>
@@ -235,7 +235,7 @@ class DeckBuilderEditorView extends React.Component {
         </Row>
 
         <PageMeta title='Deck Builder' description='Compose your own deck.' />
-      </Fragment>
+      </>
     )
   }
 }

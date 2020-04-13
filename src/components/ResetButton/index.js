@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import CTA from '../CTA'
 import Dialog from '../Dialog'
 
@@ -12,7 +12,7 @@ const ResetButton = props => {
   }
 
   return (
-    <Fragment>
+    <>
       <CTA
         className='ResetButton'
         type='button'
@@ -38,7 +38,7 @@ const ResetButton = props => {
         <p>{props.confirm}</p>
         {props.children}
       </Dialog>
-    </Fragment>
+    </>
   )
 }
 

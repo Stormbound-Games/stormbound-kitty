@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import './index.css'
 
 const TogglableContent = props => {
@@ -7,7 +7,7 @@ const TogglableContent = props => {
   React.useEffect(() => setIsExpanded(props.isExpanded), [props.isExpanded])
 
   return (
-    <Fragment>
+    <>
       {props.renderToggle({
         id: props.id,
         'aria-controls': props.id + '-target',
@@ -22,7 +22,7 @@ const TogglableContent = props => {
       >
         {props.children}
       </div>
-    </Fragment>
+    </>
   )
 }
 

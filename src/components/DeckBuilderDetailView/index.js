@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Advice from '../DeckBuilderAdvice'
 import CardZoom from '../CardZoom'
 import Column from '../Column'
@@ -13,7 +13,7 @@ const DeckBuilderDetailView = props => {
   const [zoomed, zoom] = React.useState(null)
 
   return (
-    <Fragment>
+    <>
       <h1 className='visually-hidden'>Deck Detail</h1>
 
       <Row desktopOnly wideGutter>
@@ -53,7 +53,7 @@ const DeckBuilderDetailView = props => {
         title='Deck Detail'
         description='Details and advice about the deck.'
       />
-    </Fragment>
+    </>
   )
 }
 

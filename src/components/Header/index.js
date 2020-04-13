@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import BattleSimNav from '../BattleSimNav'
 import CardBuilderNav from '../CardBuilderNav'
@@ -42,7 +42,7 @@ const Header = props => {
         isExpanded={viewportWidth > 700 ? true : isExpanded}
         renderToggle={toggleProps =>
           viewportWidth > 700 ? null : (
-            <Fragment>
+            <>
               <button
                 {...toggleProps}
                 type='button'
@@ -56,7 +56,7 @@ const Header = props => {
               <Link to='/' className='Header__title'>
                 Stormbound Kitty
               </Link>
-            </Fragment>
+            </>
           )
         }
       >

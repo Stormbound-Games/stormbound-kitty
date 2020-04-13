@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import puzzles from '../../data/puzzles'
 import Column from '../Column'
 import EmptySearch from '../EmptySearch'
@@ -55,7 +55,7 @@ export default class BattleSimPuzzles extends React.Component {
     const puzzles = this.getPuzzles()
 
     return (
-      <Fragment>
+      <>
         <h1 className='visually-hidden'>Puzzles</h1>
 
         <Row desktopOnly wideGutter>
@@ -87,7 +87,7 @@ export default class BattleSimPuzzles extends React.Component {
           title='Puzzles'
           description='Stormbound puzzles made by the community.'
         />
-      </Fragment>
+      </>
     )
   }
 }

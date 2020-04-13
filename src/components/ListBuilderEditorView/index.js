@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import isEqual from 'lodash.isequal'
@@ -166,7 +166,7 @@ class ListBuilderEditorView extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <>
         <h1 className='visually-hidden'>List Builder</h1>
 
         <Row wideGutter desktopOnly>
@@ -243,7 +243,7 @@ class ListBuilderEditorView extends React.Component {
           title='Tier List Builder'
           description='Compose your own tier lists.'
         />
-      </Fragment>
+      </>
     )
   }
 }

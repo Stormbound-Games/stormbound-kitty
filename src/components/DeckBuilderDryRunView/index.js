@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Card from '../Card'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
@@ -176,7 +176,7 @@ class DeckBuilderDryRunView extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <>
         <h1 className='visually-hidden'>Deck Dry-run</h1>
 
         <Row desktopOnly wideGutter>
@@ -373,7 +373,7 @@ class DeckBuilderDryRunView extends React.Component {
                         next turn.
                       </p>
                     ) : (
-                      <Fragment>
+                      <>
                         <p>
                           It has been {this.props.turn} turns, during which
                           you’ve played {this.state.totalCardsPlayed} cards
@@ -397,7 +397,7 @@ class DeckBuilderDryRunView extends React.Component {
                             : 'turns'}
                           .
                         </p>
-                      </Fragment>
+                      </>
                     )}
                   </Column>
                 </Row>
@@ -410,7 +410,7 @@ class DeckBuilderDryRunView extends React.Component {
           title='Deck Dry-Run'
           description='Try your deck with actual in-game mechanisms to test mana flow.'
         />
-      </Fragment>
+      </>
     )
   }
 }

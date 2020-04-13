@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Card from '../Card'
 import CTA from '../CTA'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
@@ -8,7 +8,7 @@ const BattleSimCards = props => {
   const [cycleMode, setCycleMode] = React.useState(false)
 
   return (
-    <Fragment>
+    <>
       {cycleMode && (
         <div
           className='BattleSimCards__overlay'
@@ -86,7 +86,7 @@ const BattleSimCards = props => {
           )
         })}
       </div>
-    </Fragment>
+    </>
   )
 }
 

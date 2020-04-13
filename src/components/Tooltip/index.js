@@ -1,4 +1,4 @@
-import React, { cloneElement, Fragment } from 'react'
+import React, { cloneElement } from 'react'
 import { useTooltip, TooltipPopup } from '@reach/tooltip'
 import '@reach/tooltip/styles.css'
 
@@ -37,11 +37,11 @@ function TriangleTooltip({ children, ...rest }) {
   const [trigger, tooltip] = useTooltip()
 
   return (
-    <Fragment>
+    <>
       {cloneElement(children, trigger)}
 
       <TooltipPopup {...tooltip} {...rest} position={centered} />
-    </Fragment>
+    </>
   )
 }
 

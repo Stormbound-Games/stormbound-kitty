@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import Form from '../QuestBuilderForm'
@@ -58,7 +58,7 @@ class QuestBuilderRoot extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <>
         <div className='QuestBuilder'>
           <Title element='h1'>Build your quest</Title>
           <Quest {...this.state} />
@@ -77,7 +77,7 @@ class QuestBuilderRoot extends React.Component {
           title='Quest Builder'
           description='Create your own Stormbound quest.'
         />
-      </Fragment>
+      </>
     )
   }
 }

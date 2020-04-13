@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Column from '../Column'
 import CTA from '../CTA'
 import Image from '../Image'
@@ -9,7 +9,7 @@ import Title from '../Title'
 import './index.css'
 
 const Home = props => (
-  <Fragment>
+  <>
     <h1 className='visually-hidden'>Stormbound Kitty</h1>
 
     <div className='Home'>
@@ -130,7 +130,7 @@ const Home = props => (
       title='Stormbound Kitty'
       description='Stormbound Kitty aims at providing tools and information about Paladin Studios’ greatest hit, and extending its players’ experience outside the game.'
     />
-  </Fragment>
+  </>
 )
 
 export default Home

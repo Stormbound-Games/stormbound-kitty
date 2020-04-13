@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import news from '../../data/news'
 import Column from '../Column'
 import CTA from '../CTA'
@@ -15,7 +15,7 @@ const News = props => {
   const loadNext = () => setActivePage(page => page - 1)
 
   return (
-    <Fragment>
+    <>
       <ul className='News'>
         {pages[activePage].map((news, index) => (
           <li className='News__item' key={index}>
@@ -39,7 +39,7 @@ const News = props => {
           </CTA>
         </Column>
       </Row>
-    </Fragment>
+    </>
   )
 }
 

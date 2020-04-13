@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import Column from '../Column'
 import ContestStatus from '../CardBuilderContestStatus'
@@ -9,7 +9,7 @@ import Title from '../Title'
 import './index.css'
 
 const CardBuilderContest = props => (
-  <Fragment>
+  <>
     <Title element='h1' className='CardBuilderContest__headline'>
       Weekly Card Contest
     </Title>
@@ -106,7 +106,7 @@ const CardBuilderContest = props => (
       title='Weekly Card Contest'
       description='All the information to participate and/or vote in the Stormbound weekly card competitions.'
     />
-  </Fragment>
+  </>
 )
 
 export default CardBuilderContest

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import CTA from '../CTA'
 import Dialog from '../Dialog'
 import useShare from '../../hooks/useShare'
@@ -33,7 +33,7 @@ const DeckBuilderShareButton = props => {
   const { share, hasCopied, canUseShareAPI } = useShare()
 
   return (
-    <Fragment>
+    <>
       <CTA onClick={open} type='button'>
         {props.label || 'Share deck'}
       </CTA>
@@ -73,7 +73,7 @@ const DeckBuilderShareButton = props => {
           Download as image
         </CTA>
       </Dialog>
-    </Fragment>
+    </>
   )
 }
 

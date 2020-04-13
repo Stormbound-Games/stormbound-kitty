@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { WEEKLY_CARD_CONTEST } from '../../constants/misc'
 import getCalendarWeek from '../../helpers/getCalendarWeek'
 import getNextWeekDay from '../../helpers/getNextWeekDay'
@@ -47,7 +47,7 @@ const CardBuilderContestStatus = props => {
   }
 
   return (
-    <Fragment>
+    <>
       <p className='CardBuilderContestStatus'>
         This week’s theme is{' '}
         <span className='CardBuilderContestStatus__theme'>{contest.name}</span>!
@@ -69,7 +69,7 @@ const CardBuilderContestStatus = props => {
           {contest.description}
         </p>
       )}
-    </Fragment>
+    </>
   )
 }
 

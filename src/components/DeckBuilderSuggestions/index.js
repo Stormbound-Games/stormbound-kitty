@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import debounce from 'lodash.debounce'
@@ -134,7 +134,7 @@ class DeckBuilderSuggestions extends React.Component {
     const page = pages[this.state.activePage] || pages[0]
 
     return (
-      <Fragment>
+      <>
         <h1 className='visually-hidden'>Deck Suggestions</h1>
 
         <Row desktopOnly wideGutter>
@@ -198,7 +198,7 @@ class DeckBuilderSuggestions extends React.Component {
           title='Deck Suggestions'
           description='Decks suggested by the Stormbound community.'
         />
-      </Fragment>
+      </>
     )
   }
 }

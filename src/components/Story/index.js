@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
 import stories from '../../data/stories'
 import Column from '../Column'
@@ -76,10 +76,10 @@ const Story = props => {
                     )
 
                     return (
-                      <Fragment key={id}>
+                      <>
                         <Link to={'/stories/' + id}>{story.title}</Link>
                         {index !== storiesByAuthor.length - 2 ? ', ' : ''}
-                      </Fragment>
+                      </>
                     )
                   })}
                 .

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { DEFAULT_CARD } from '../../constants/battle'
 import CardSelect from '../CardSelect'
 import Column from '../Column'
@@ -113,7 +113,7 @@ const BattleSimCardsForm = props => {
   const [expanded, setExpanded] = React.useState(false)
 
   return (
-    <Fragment>
+    <>
       <fieldset className='BattleSimCardsForm' data-testid='cards-form'>
         <legend>
           Cards
@@ -136,7 +136,7 @@ const BattleSimCardsForm = props => {
         ))}
       </fieldset>
       <DeckImport importDeck={props.importDeck} />
-    </Fragment>
+    </>
   )
 }
 

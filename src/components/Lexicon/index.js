@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import terms from '../../data/terms'
 import Column from '../Column'
 import PageMeta from '../PageMeta'
@@ -19,7 +19,7 @@ const Terms = props => (
 
 const Lexicon = props => {
   return (
-    <Fragment>
+    <>
       <Title element='h1' className='Lexicon__heading'>
         Lexicon
       </Title>
@@ -91,7 +91,7 @@ const Lexicon = props => {
         title='Lexicon'
         description='List of terms and abbreviations for Stormbound.'
       />
-    </Fragment>
+    </>
   )
 }
 
