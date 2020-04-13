@@ -1,5 +1,4 @@
 import React from 'react'
-import memoize from 'lodash.memoize'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
 import hookIntoProps from '../../helpers/hookIntoProps'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
@@ -111,7 +110,7 @@ class DeckBuilderFiltering extends React.Component {
   matchesElder = card =>
     !this.state.elder || Boolean(card.elder) === this.state.elder
 
-  getCollection = memoize(cards => {
+  getCollection = cards => {
     return cards
       .filter(card => {
         if (card.token) return false
@@ -130,7 +129,7 @@ class DeckBuilderFiltering extends React.Component {
         return true
       })
       .sort(this.state.order === 'VALUE' ? sortByValue : sortCards())
-  })
+  }
 
   getCardsPerPage = () => (this.props.viewportWidth < 1100 ? 6 : 8)
 
