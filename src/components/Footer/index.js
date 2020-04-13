@@ -161,16 +161,6 @@ const Footer = props => (
 
                 <li className='Footer__item'>
                   <a
-                    href='https://stormboundfan.com'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
-                    Stormbound Fan
-                  </a>
-                </li>
-
-                <li className='Footer__item'>
-                  <a
                     href='https://www.kongregate.com/forums/1001068-stormbound'
                     target='_blank'
                     rel='noopener noreferrer'
@@ -186,6 +176,16 @@ const Footer = props => (
                     rel='noopener noreferrer'
                   >
                     GitHub
+                  </a>
+                </li>
+
+                <li className='Footer__item'>
+                  <a
+                    href='https://dashboard.cypress.io/projects/h321g2/runs'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    Status
                   </a>
                 </li>
               </ul>
