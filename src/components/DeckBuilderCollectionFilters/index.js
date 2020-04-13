@@ -19,6 +19,7 @@ const DeckBuilderCollectionFilters = props => (
           onChange={event => props.setFaction(event.target.value)}
           withNeutral
           withAny
+          data-testid='faction-select'
         />
       </Column>
 
@@ -29,6 +30,7 @@ const DeckBuilderCollectionFilters = props => (
           id='status'
           value={props.status}
           onChange={event => props.setStatus(event.target.value)}
+          data-testid='status-select'
         >
           <option value='*'>Any</option>
           <option value='MISSING'>Missing</option>
@@ -44,6 +46,7 @@ const DeckBuilderCollectionFilters = props => (
           id='level'
           value={props.level}
           onChange={event => props.setLevel(event.target.value)}
+          data-testid='level-select'
         >
           <option value='*'>Any</option>
           <option value='1'>1</option>
@@ -61,6 +64,7 @@ const DeckBuilderCollectionFilters = props => (
           id='rarity'
           value={props.rarity}
           onChange={event => props.setRarity(event.target.value)}
+          data-testid='rarity-select'
         >
           <option value='*'>Any</option>
           {Object.keys(RARITIES).map(rarity => (
@@ -82,6 +86,7 @@ const DeckBuilderCollectionFilters = props => (
           value={props.text}
           onChange={event => props.setText(event.target.value)}
           placeholder='e.g. Faun'
+          data-testid='name-input'
         />
       </Column>
       <Column width={25}>
@@ -91,6 +96,7 @@ const DeckBuilderCollectionFilters = props => (
           id='order'
           value={props.order}
           onChange={event => props.setOrder(event.target.value)}
+          data-testid='order-select'
         >
           <option value='NATURAL'>Natural</option>
           <option value='VALUE'>Value</option>
