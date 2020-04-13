@@ -22,6 +22,7 @@ const DeckBuilderEditorFilters = props => (
               onChange={event => props.setFaction(event.target.value)}
               withNeutral
               withAny
+              data-testid='faction-select'
             />
           </Column>
 
@@ -32,6 +33,7 @@ const DeckBuilderEditorFilters = props => (
               id='type'
               value={props.type}
               onChange={event => props.setType(event.target.value)}
+              data-testid='type-select'
             >
               <option value='*'>Any</option>
               {Object.keys(TYPES).map(type => (
@@ -52,6 +54,7 @@ const DeckBuilderEditorFilters = props => (
               id='mana'
               value={props.mana}
               onChange={event => props.setMana(event.target.value)}
+              data-testid='mana-select'
             >
               <option value='*'>Any</option>
               <option value='1-3'>1, 2 or 3</option>
@@ -68,6 +71,7 @@ const DeckBuilderEditorFilters = props => (
               id='movement'
               value={props.movement}
               onChange={event => props.setMovement(event.target.value)}
+              data-testid='movement-select'
             >
               <option value='*'>Any</option>
               <option value='0'>0</option>
@@ -90,6 +94,7 @@ const DeckBuilderEditorFilters = props => (
               id='rarity'
               value={props.rarity}
               onChange={event => props.setRarity(event.target.value)}
+              data-testid='rarity-select'
             >
               <option value='*'>Any</option>
               {Object.keys(RARITIES).map(rarity => (
@@ -107,6 +112,7 @@ const DeckBuilderEditorFilters = props => (
               id='race'
               value={props.race}
               onChange={event => props.setRace(event.target.value)}
+              data-testid='race-select'
             >
               <option value='*'>Any</option>
               {Object.keys(RACES).map(race => (
@@ -127,6 +133,7 @@ const DeckBuilderEditorFilters = props => (
               id='ability'
               value={props.ability}
               onChange={event => props.setAbility(event.target.value)}
+              data-testid='ability-select'
             >
               <option value='*'>Any</option>
               <option value='POISON'>Poison</option>
@@ -147,6 +154,7 @@ const DeckBuilderEditorFilters = props => (
               value={props.text}
               onChange={event => props.setText(event.target.value)}
               placeholder='e.g. Faun'
+              data-testid='name-input'
             />
           </Column>
         </Row>
