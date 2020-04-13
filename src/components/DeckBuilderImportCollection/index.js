@@ -1,6 +1,6 @@
 import React from 'react'
-import chunk from '../../helpers/chunk'
 import cards from '../../data/cards'
+import chunk from '../../helpers/chunk'
 import './index.css'
 
 const onFileUpload = onChange => event => {

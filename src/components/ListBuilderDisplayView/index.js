@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
 import { useRouteMatch } from 'react-router-dom'
-import TierList from '../TierList'
-import Title from '../Title'
-import Row from '../Row'
+import { TIER_COLORS } from '../../constants/list'
 import Column from '../Column'
 import CTA from '../CTA'
-import ShareButton from '../ListBuilderShareButton'
 import PageMeta from '../PageMeta'
-import { TIER_COLORS } from '../../constants/list'
+import Row from '../Row'
+import ShareButton from '../ListBuilderShareButton'
+import TierList from '../TierList'
+import Title from '../Title'
 import getInitialListData from '../../helpers/getInitialListData'
 
 const ListBuilderDisplayView = props => {

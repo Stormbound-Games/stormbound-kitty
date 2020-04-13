@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
-import PageMeta from '../PageMeta'
+import Advice from '../DeckBuilderAdvice'
+import CardZoom from '../CardZoom'
+import Column from '../Column'
 import Deck from '../Deck'
+import PageMeta from '../PageMeta'
+import Row from '../Row'
 import ShareButton from '../DeckBuilderShareButton'
 import Stats from '../DeckBuilderStats'
-import Advice from '../DeckBuilderAdvice'
 import Title from '../Title'
-import Row from '../Row'
-import Column from '../Column'
-import CardZoom from '../CardZoom'
 
 const DeckBuilderDetailView = props => {
   const [zoomed, zoom] = React.useState(null)

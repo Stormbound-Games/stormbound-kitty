@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Row from '../Row'
 import Column from '../Column'
+import Row from '../Row'
 import './index.css'
 
 const Footer = props => (

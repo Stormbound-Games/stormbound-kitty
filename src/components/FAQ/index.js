@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
-import PageMeta from '../PageMeta'
-import Title from '../Title'
-import Row from '../Row'
 import Column from '../Column'
+import PageMeta from '../PageMeta'
+import Row from '../Row'
+import Title from '../Title'
 import categories from '../../data/faq'
 import './index.css'
 

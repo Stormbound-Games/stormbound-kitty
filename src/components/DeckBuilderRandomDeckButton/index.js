@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react'
+import { FACTIONS } from '../../constants/game'
+import Column from '../Column'
 import CTA from '../CTA'
 import Dialog from '../Dialog'
-import Row from '../Row'
-import Column from '../Column'
 import FactionSelect from '../FactionSelect'
+import Row from '../Row'
 import getRandomDeck from '../../helpers/getRandomDeck'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
-import { FACTIONS } from '../../constants/game'
-import './index.css'
 import arrayRandom from '../../helpers/arrayRandom'
+import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import './index.css'
 
 export default class DeckBuilderRandomDeckButton extends React.Component {
   state = {

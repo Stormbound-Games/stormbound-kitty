@@ -1,6 +1,6 @@
 import React from 'react'
-import Mana from '../Mana'
 import Image from '../Image'
+import Mana from '../Mana'
 import './index.css'
 
 const BattleSimPlayerBanner = props => (

@@ -1,8 +1,8 @@
 import React from 'react'
 import loadable from '@loadable/component'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Loader from '../Loader'
 import Layout from '../Layout'
+import Loader from '../Loader'
 
 const options = { fallback: <Loader /> }
 const FAQ = loadable(() => import('../FAQ'), options)

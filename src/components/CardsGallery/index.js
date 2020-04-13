@@ -1,8 +1,8 @@
 import React from 'react'
 import Card from '../Card'
 import CTA from '../CTA'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import chunk from '../../helpers/chunk'
+import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import './index.css'
 
 const CardsGallery = props => {

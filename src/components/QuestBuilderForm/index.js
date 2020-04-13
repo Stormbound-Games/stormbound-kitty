@@ -1,8 +1,8 @@
 import React from 'react'
-import ShareButton from '../QuestBuilderShareButton'
+import Column from '../Column'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
-import Column from '../Column'
+import ShareButton from '../QuestBuilderShareButton'
 import './index.css'
 
 const QuestBuilderForm = props => (

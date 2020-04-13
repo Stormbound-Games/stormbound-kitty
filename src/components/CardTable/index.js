@@ -1,7 +1,7 @@
 import React from 'react'
-import microMarkdown from '../../helpers/microMarkdown'
-import capitalise from '../../helpers/capitalise'
 import { getRarityImage } from '../../helpers/getRarity'
+import capitalise from '../../helpers/capitalise'
+import microMarkdown from '../../helpers/microMarkdown'
 import './index.css'
 
 const CardTable = props => (

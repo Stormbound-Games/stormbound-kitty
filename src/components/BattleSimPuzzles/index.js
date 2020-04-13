@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
 import puzzles from '../../data/puzzles'
+import Column from '../Column'
+import EmptySearch from '../EmptySearch'
 import PageMeta from '../PageMeta'
 import Puzzle from '../BattleSimPuzzle'
 import PuzzlesFilters from '../BattleSimPuzzlesFilters'
-import EmptySearch from '../EmptySearch'
-import Title from '../Title'
 import Row from '../Row'
-import Column from '../Column'
+import Title from '../Title'
 import './index.css'
 
 export default class BattleSimPuzzles extends React.Component {

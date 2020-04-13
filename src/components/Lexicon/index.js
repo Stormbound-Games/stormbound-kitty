@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
-import Row from '../Row'
-import Column from '../Column'
-import Title from '../Title'
-import PageMeta from '../PageMeta'
 import terms from '../../data/terms'
+import Column from '../Column'
+import PageMeta from '../PageMeta'
+import Row from '../Row'
+import Title from '../Title'
 import getTermsForLetter from '../../helpers/getTermsForLetter'
 import './index.css'
 

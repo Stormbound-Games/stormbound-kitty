@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
-import PageMeta from '../PageMeta'
-import News from '../News'
-import CTA from '../CTA'
-import Title from '../Title'
-import Row from '../Row'
 import Column from '../Column'
+import CTA from '../CTA'
 import Image from '../Image'
+import News from '../News'
+import PageMeta from '../PageMeta'
+import Row from '../Row'
+import Title from '../Title'
 import './index.css'
 
 const Home = props => (

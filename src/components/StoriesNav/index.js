@@ -1,7 +1,7 @@
 import React from 'react'
-import capitalise from '../../helpers/capitalise'
 import { FACTIONS } from '../../constants/game'
 import NavLink from '../NavLink'
+import capitalise from '../../helpers/capitalise'
 
 const StoriesNav = props => (
   <nav className='Header__nav'>

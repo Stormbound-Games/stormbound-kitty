@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
-import { deserialiseDeck } from '../../helpers/deserialise'
 import NavLink from '../NavLink'
+import { deserialiseDeck } from '../../helpers/deserialise'
 
 const DeckBuilderNav = props => {
   const match = useRouteMatch()

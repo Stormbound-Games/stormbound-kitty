@@ -1,6 +1,6 @@
 import React from 'react'
-import Row from '../BattleSimRow'
 import Cell from '../BattleSimCell'
+import Row from '../BattleSimRow'
 import './index.css'
 
 const BattleSimGrid = props => (

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import getCostForLevel from '../../helpers/getCostForLevel'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
+import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import './index.css'
 
 const CardUpgradeStats = props => {

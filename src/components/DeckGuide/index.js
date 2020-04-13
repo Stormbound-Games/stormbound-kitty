@@ -1,10 +1,10 @@
 import React from 'react'
-import Title from '../Title'
-import Guide from '../Guide'
 import Card from '../Card'
-import WikiLink from '../WikiLink'
-import Row from '../Row'
 import Column from '../Column'
+import Guide from '../Guide'
+import Row from '../Row'
+import Title from '../Title'
+import WikiLink from '../WikiLink'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 
 const DeckGuide = props => (

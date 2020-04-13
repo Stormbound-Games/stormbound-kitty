@@ -1,7 +1,7 @@
 import React from 'react'
-import Markdown from '../Markdown'
-import Guide from '../Guide'
 import guide from '../../data/Winter_guide.md'
+import Guide from '../Guide'
+import Markdown from '../Markdown'
 
 const WinterGuide = props => {
   const [content, setContent] = React.useState(null)

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
+import CTA from '../CTA'
 import PageMeta from '../PageMeta'
 import Title from '../Title'
-import CTA from '../CTA'
 import './index.css'
 
 const Error = props => (

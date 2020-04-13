@@ -1,6 +1,6 @@
 import React from 'react'
-import Dialog from '../Dialog'
 import CellForm from '../BattleSimCellForm'
+import Dialog from '../Dialog'
 import './index.css'
 
 const BattleSimCellFormDialog = props => (

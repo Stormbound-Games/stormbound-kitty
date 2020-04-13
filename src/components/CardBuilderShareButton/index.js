@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
-import Dialog from '../Dialog'
 import Checkbox from '../Checkbox'
 import CTA from '../CTA'
+import Dialog from '../Dialog'
 import Share from '../Share'
 import './index.css'
 

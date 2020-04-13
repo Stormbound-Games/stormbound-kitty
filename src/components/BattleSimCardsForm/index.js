@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
-import getRawCardData from '../../helpers/getRawCardData'
 import { DEFAULT_CARD } from '../../constants/battle'
 import CardSelect from '../CardSelect'
-import Row from '../Row'
 import Column from '../Column'
 import DeckImport from '../BattleSimDeckImport'
+import Row from '../Row'
+import getRawCardData from '../../helpers/getRawCardData'
 import './index.css'
 
 const CardsFormRow = ({ index, ...props }) => (

@@ -1,11 +1,11 @@
 import React from 'react'
 import { CATEGORIES } from '../../constants/decks'
-import CardSelect from '../CardSelect'
-import CTA from '../CTA'
-import Row from '../Row'
-import Column from '../Column'
-import FactionSelect from '../FactionSelect'
 import decks from '../../data/decks'
+import CardSelect from '../CardSelect'
+import Column from '../Column'
+import CTA from '../CTA'
+import FactionSelect from '../FactionSelect'
+import Row from '../Row'
 import './index.css'
 
 const getAuthors = () => {

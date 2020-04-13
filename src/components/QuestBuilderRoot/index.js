@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
-import Quest from '../Quest'
-import PageMeta from '../PageMeta'
-import Title from '../Title'
 import Form from '../QuestBuilderForm'
+import PageMeta from '../PageMeta'
+import Quest from '../Quest'
+import Title from '../Title'
+import { serialiseQuest } from '../../helpers/serialise'
 import getInitialQuestData from '../../helpers/getInitialQuestData'
 import './index.css'
-import { serialiseQuest } from '../../helpers/serialise'
 
 class QuestBuilderRoot extends React.Component {
   constructor(props) {

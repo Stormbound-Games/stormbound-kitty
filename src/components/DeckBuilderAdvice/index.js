@@ -1,6 +1,6 @@
 import React from 'react'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import Title from '../Title'
+import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import './index.css'
 
 const getRaces = cards => [...new Set(cards.map(c => c.race))]

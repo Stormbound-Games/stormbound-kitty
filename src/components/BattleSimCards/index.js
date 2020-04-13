@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import Card from '../Card'
 import CTA from '../CTA'
+import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import './index.css'
 
 const BattleSimCards = props => {

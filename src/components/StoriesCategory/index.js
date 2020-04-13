@@ -1,11 +1,11 @@
 import React from 'react'
+import stories from '../../data/stories'
 import Banner from '../Banner'
 import PageMeta from '../PageMeta'
-import stories from '../../data/stories'
-import getRawCardData from '../../helpers/getRawCardData'
-import getExcerpt from '../../helpers/getExcerpt'
-import sortCards from '../../helpers/sortCards'
 import capitalise from '../../helpers/capitalise'
+import getExcerpt from '../../helpers/getExcerpt'
+import getRawCardData from '../../helpers/getRawCardData'
+import sortCards from '../../helpers/sortCards'
 
 const StoriesCategory = props => {
   const categoryName = capitalise(props.category)

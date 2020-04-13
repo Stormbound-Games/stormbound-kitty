@@ -1,7 +1,7 @@
 import React from 'react'
-import Title from '../Title'
-import Row from '../Row'
 import Column from '../Column'
+import Row from '../Row'
+import Title from '../Title'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import './index.css'
 

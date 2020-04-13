@@ -2,8 +2,8 @@ import React from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import isEqual from 'lodash.isequal'
-import getInitialDeckData from '../../helpers/getInitialDeckData'
 import { serialiseDeck } from '../../helpers/serialise'
+import getInitialDeckData from '../../helpers/getInitialDeckData'
 import sortByMana from '../../helpers/sortByMana'
 
 class DeckBuilderRoot extends React.Component {

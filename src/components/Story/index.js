@@ -1,16 +1,16 @@
 import React, { Fragment } from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
-import Title from '../Title'
+import stories from '../../data/stories'
+import Column from '../Column'
 import CTA from '../CTA'
+import Error from '../Error'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
-import Column from '../Column'
-import Error from '../Error'
-import stories from '../../data/stories'
-import './index.css'
+import Title from '../Title'
 import getRawCardData from '../../helpers/getRawCardData'
 import microMarkdown from '../../helpers/microMarkdown'
 import getExcerpt from '../../helpers/getExcerpt'
+import './index.css'
 
 const getStoriesFromAuthor = author =>
   stories.filter(story => story.author === author)

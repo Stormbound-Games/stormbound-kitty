@@ -1,9 +1,9 @@
 import React from 'react'
 import { RESTRICTIONS, TYPES } from '../../constants/puzzles'
 import Checkbox from '../Checkbox'
-import TogglableContent from '../TogglableContent'
-import Row from '../Row'
 import Column from '../Column'
+import Row from '../Row'
+import TogglableContent from '../TogglableContent'
 import './index.css'
 
 const BattleSimPuzzlesFilters = props => {

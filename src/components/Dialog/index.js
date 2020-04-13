@@ -1,9 +1,9 @@
 import React from 'react'
 import A11yDialog from 'react-a11y-dialog'
 import ButtonIcon from '../ButtonIcon'
-import Title from '../Title'
-import Image from '../Image'
 import CTA from '../CTA'
+import Image from '../Image'
+import Title from '../Title'
 import './index.css'
 
 const Dialog = props => {

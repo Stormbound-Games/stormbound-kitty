@@ -1,9 +1,9 @@
 import React from 'react'
 import Checkbox from '../Checkbox'
-import ShareButton from '../BattleSimShareButton'
+import Column from '../Column'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
-import Column from '../Column'
+import ShareButton from '../BattleSimShareButton'
 import './index.css'
 
 const BattleSimGameForm = props => (

@@ -1,6 +1,6 @@
 import React from 'react'
-import Markdown from '../Markdown'
 import Guide from '../Guide'
+import Markdown from '../Markdown'
 import guide from '../../data/Stormbound_guide.md'
 import './index.css'
 

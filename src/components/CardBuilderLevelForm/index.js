@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
-import Row from '../Row'
 import Column from '../Column'
 import ResetButton from '../ResetButton'
+import Row from '../Row'
 import ShareButton from '../CardBuilderShareButton'
 import formatCardStats from '../../helpers/formatCardStats'
 import './index.css'

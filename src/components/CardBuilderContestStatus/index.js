@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { WEEKLY_CARD_CONTEST } from '../../constants/misc'
+import getCalendarWeek from '../../helpers/getCalendarWeek'
 import getNextWeekDay from '../../helpers/getNextWeekDay'
 import './index.css'
-import getCalendarWeek from '../../helpers/getCalendarWeek'
 
 const DATE_OPTIONS = {
   weekday: 'long',

@@ -1,6 +1,6 @@
 import React from 'react'
-import Title from '../Title'
 import PageMeta from '../PageMeta'
+import Title from '../Title'
 import './index.css'
 
 const Guide = props => {

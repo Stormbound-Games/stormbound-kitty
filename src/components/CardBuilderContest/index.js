@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import PageMeta from '../PageMeta'
-import Title from '../Title'
-import Row from '../Row'
 import Column from '../Column'
-import HallOfFame from '../CardBuilderHallOfFame'
 import ContestStatus from '../CardBuilderContestStatus'
+import HallOfFame from '../CardBuilderHallOfFame'
+import PageMeta from '../PageMeta'
+import Row from '../Row'
+import Title from '../Title'
 import './index.css'
 
 const CardBuilderContest = props => (

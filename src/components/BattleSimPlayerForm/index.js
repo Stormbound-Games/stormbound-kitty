@@ -1,7 +1,7 @@
 import React from 'react'
-import Row from '../Row'
 import Column from '../Column'
 import FactionSelect from '../FactionSelect'
+import Row from '../Row'
 
 const BattleSimPlayerForm = props => (
   <div className='BattleSimPlayerForm'>

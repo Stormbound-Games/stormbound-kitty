@@ -2,11 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import remark from 'remark'
 import remarkReact from 'remark-react'
-import Title from '../Title'
+import cards from '../../data/cards'
 import Hint from '../Hint'
+import Title from '../Title'
 import WikiLink from '../WikiLink'
 import template from '../../helpers/template'
-import cards from '../../data/cards'
 
 const REPLACEMENTS = cards.reduce((acc, card, index) => {
   acc[card.name] = <WikiLink id={card.id} key={card.id} />

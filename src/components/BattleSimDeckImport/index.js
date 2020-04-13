@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
-import Dialog from '../Dialog'
-import Deck from '../Deck'
 import CTA from '../CTA'
+import Deck from '../Deck'
+import Dialog from '../Dialog'
 import { deserialiseDeck } from '../../helpers/deserialise'
 import './index.css'
 

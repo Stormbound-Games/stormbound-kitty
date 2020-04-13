@@ -2,23 +2,23 @@ import React, { Fragment } from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import isEqual from 'lodash.isequal'
-import Title from '../Title'
-import Row from '../Row'
-import Column from '../Column'
-import CTA from '../CTA'
-import ResetButton from '../ResetButton'
-import ShareButton from '../ListBuilderShareButton'
-import TierList from '../TierList'
-import PageMeta from '../PageMeta'
-import { serialiseList } from '../../helpers/serialise'
-import getInitialListData from '../../helpers/getInitialListData'
-import reorder from '../../helpers/reorder'
 import {
   SHADES_LIST,
   TIER_COLORS,
   DEFAULT_LIST,
   DEFAULT_TIER,
 } from '../../constants/list'
+import Column from '../Column'
+import CTA from '../CTA'
+import PageMeta from '../PageMeta'
+import ResetButton from '../ResetButton'
+import Row from '../Row'
+import ShareButton from '../ListBuilderShareButton'
+import TierList from '../TierList'
+import Title from '../Title'
+import { serialiseList } from '../../helpers/serialise'
+import getInitialListData from '../../helpers/getInitialListData'
+import reorder from '../../helpers/reorder'
 import './index.css'
 
 class ListBuilderEditorView extends React.Component {

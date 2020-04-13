@@ -1,8 +1,8 @@
 import React from 'react'
 import Select from 'react-select'
-import getRawCardData from '../../helpers/getRawCardData'
 import { getRarityImage } from '../../helpers/getRarity'
 import getCardsByFaction from '../../helpers/getCardsByFaction'
+import getRawCardData from '../../helpers/getRawCardData'
 import './index.css'
 
 const ORDER = ['swarm', 'winter', 'ironclad', 'shadowfen', 'neutral']

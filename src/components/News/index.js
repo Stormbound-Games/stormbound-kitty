@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
+import news from '../../data/news'
+import Column from '../Column'
 import CTA from '../CTA'
 import Row from '../Row'
-import Column from '../Column'
-import news from '../../data/news'
 import chunk from '../../helpers/chunk'
 import './index.css'
 

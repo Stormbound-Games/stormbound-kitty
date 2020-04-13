@@ -1,10 +1,10 @@
 import React from 'react'
 import memoize from 'lodash.memoize'
-import sortCards, { sortByValue } from '../../helpers/sortCards'
-import hookIntoProps from '../../helpers/hookIntoProps'
-import useViewportWidth from '../../helpers/useViewportWidth'
-import isCardUpgradable from '../../helpers/isCardUpgradable'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
+import hookIntoProps from '../../helpers/hookIntoProps'
+import isCardUpgradable from '../../helpers/isCardUpgradable'
+import sortCards, { sortByValue } from '../../helpers/sortCards'
+import useViewportWidth from '../../helpers/useViewportWidth'
 
 const DEFAULT_FILTERS = {
   faction: '*',

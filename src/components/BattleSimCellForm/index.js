@@ -1,13 +1,13 @@
 import React from 'react'
-import getRawCardData from '../../helpers/getRawCardData'
-import unfoldValue from '../../helpers/unfoldValue'
 import { DEFAULT_CELL } from '../../constants/battle'
-import CTA from '../CTA'
 import CardSelect from '../CardSelect'
 import Checkbox from '../Checkbox'
+import Column from '../Column'
+import CTA from '../CTA'
 import Radio from '../Radio'
 import Row from '../Row'
-import Column from '../Column'
+import getRawCardData from '../../helpers/getRawCardData'
+import unfoldValue from '../../helpers/unfoldValue'
 import './index.css'
 
 const getActiveCellCard = ({ board, activeCell }) =>

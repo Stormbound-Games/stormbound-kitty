@@ -1,6 +1,6 @@
 import React from 'react'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import Card from '../Card'
+import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import './index.css'
 
 const CardZoom = props => {

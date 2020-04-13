@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
-import Share from '../Share'
 import CTA from '../CTA'
 import Dialog from '../Dialog'
+import Share from '../Share'
 
 const QuestBuilderShareButton = props => {
   const dialog = React.useRef(null)

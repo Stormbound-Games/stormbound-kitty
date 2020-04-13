@@ -1,9 +1,9 @@
 import React from 'react'
+import { FACTIONS } from '../../constants/game'
 import Banner from '../Banner'
 import PageMeta from '../PageMeta'
 import capitalise from '../../helpers/capitalise'
 import getRawCardData from '../../helpers/getRawCardData'
-import { FACTIONS } from '../../constants/game'
 
 const ILLUSTATION = {
   lore: getRawCardData('N46'),

@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
+import Title from '../Title'
+import getCollectionCost from '../../helpers/getCollectionCost'
+import getExtraAfterMax from '../../helpers/getExtraAfterMax'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
-import getExtraAfterMax from '../../helpers/getExtraAfterMax'
-import getCollectionCost from '../../helpers/getCollectionCost'
-import Title from '../Title'
 import './index.css'
 
 const sum = (a, b) => a + b

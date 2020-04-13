@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
-import Title from '../Title'
-import CTA from '../CTA'
-import Checkbox from '../Checkbox'
-import Row from '../Row'
-import Column from '../Column'
 import CardUpgradeStats from '../CardUpgradeStats'
+import Checkbox from '../Checkbox'
+import Column from '../Column'
+import CTA from '../CTA'
+import Row from '../Row'
+import Title from '../Title'
 import { serialiseCardFromCollection } from '../../helpers/serialise'
 
 const DeckBuilderCollectionActiveCardForm = props => (

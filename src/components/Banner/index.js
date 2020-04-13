@@ -1,7 +1,7 @@
 import React from 'react'
-import Row from '../Row'
 import Column from '../Column'
 import CTA from '../CTA'
+import Row from '../Row'
 import './index.css'
 
 const Banner = props => (

@@ -3,10 +3,10 @@ import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import App from '../CardBuilderApp'
 import PageMeta from '../PageMeta'
+import { serialiseCard } from '../../helpers/serialise'
+import areAllValuesEqual from '../../helpers/areAllValuesEqual'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import resolveAbility from '../../helpers/resolveAbility'
-import areAllValuesEqual from '../../helpers/areAllValuesEqual'
-import { serialiseCard } from '../../helpers/serialise'
 
 const formatLevelProp = value => ({
   values: [null, null, null, null, null].fill(value),

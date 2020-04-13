@@ -1,9 +1,9 @@
 import React from 'react'
-import Row from '../Row'
+import { RARITIES } from '../../constants/game'
 import Column from '../Column'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
-import { RARITIES } from '../../constants/game'
+import Row from '../Row'
 import capitalise from '../../helpers/capitalise'
 import './index.css'
 
