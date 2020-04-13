@@ -84,4 +84,26 @@ describe('Deck Builder — Search', () => {
       .get(s.CARD)
       .should('have.length', 1)
   })
+
+  it('should be able to filter by hero', () => {
+    cy.visit('/deck')
+      .get(s.HERO_CHECKBOX)
+      .check()
+      .get(s.CARD)
+      .find(s.CARD_RACE)
+      .each($node => {
+        expect($node.text()).to.contain('hero')
+      })
+  })
+
+  it('should be able to filter by elder', () => {
+    cy.visit('/deck')
+      .get(s.ELDER_CHECKBOX)
+      .check()
+      .get(s.CARD)
+      .find(s.CARD_RACE)
+      .each($node => {
+        expect($node.text()).to.contain('elder')
+      })
+  })
 })

@@ -169,6 +169,7 @@ const DeckBuilderEditorFilters = props => (
               id='elder'
               checked={props.elder}
               onChange={event => props.setElder(event.target.checked)}
+              data-testid='elder-checkbox'
             >
               Elder
             </Checkbox>
@@ -178,6 +179,7 @@ const DeckBuilderEditorFilters = props => (
               id='hero'
               checked={props.hero}
               onChange={event => props.setHero(event.target.checked)}
+              data-testid='hero-checkbox'
             >
               Hero
             </Checkbox>
