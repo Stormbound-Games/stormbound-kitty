@@ -9,8 +9,8 @@
 .BattleSimPuzzlesFilters__info {
   color: white;
   display: block;
-  font-size: 90%;
   max-width: 40ch;
+  text-transform: initial;
 }
 
 .BattleSimPuzzlesFilters__toggle {

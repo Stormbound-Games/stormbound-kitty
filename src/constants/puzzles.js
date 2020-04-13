@@ -14,7 +14,7 @@ export const RESTRICTIONS = {
   ANTI_RNG: {
     name: 'Anti-RNG',
     description:
-      'Nothing goes right without {100%} precision! Leave no room for chance.',
+      'Nothing goes right without 100% precision! Leave no room for chance.',
   },
   PRESET: {
     name: 'Preset',
