@@ -3,6 +3,7 @@ import loadable from '@loadable/component'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Layout from '../Layout'
 import Loader from '../Loader'
+import Error from '../Error'
 
 const options = { fallback: <Loader /> }
 const FAQ = loadable(() => import('../FAQ'), options)
@@ -200,8 +201,12 @@ const Router = props => (
         <BooksCalculator />
       </Page>
 
-      <Page path='/'>
+      <Page exact path='/'>
         <Home />
+      </Page>
+
+      <Page path='*'>
+        <Error error='HTTP 404 — Not Found' />
       </Page>
     </Switch>
   </BrowserRouter>
