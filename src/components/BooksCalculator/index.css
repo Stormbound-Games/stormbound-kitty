@@ -1,3 +1,10 @@
 .BookCalculator__outcome {
   font-size: 120%;
 }
+
+.BookCalculator__image {
+  height: auto;
+  margin-right: 1em;
+  float: left;
+  max-height: 3em;
+}
