@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
 import CardDisplay from '../CardBuilderCardDisplay'
 import Column from '../Column'
 import CoreForm from '../CardBuilderCoreForm'
@@ -18,20 +17,15 @@ const CardBuilderApp = props => (
 
     <CardDisplay {...props} />
 
-    <div className='CardBuilderApp__notice'>
-      {props.hasSingleLevel ? (
+    {props.hasSingleLevel && (
+      <div className='CardBuilderApp__notice'>
         <Hint>
           This card was created before it was possible to define all 5 levels,
           or without consideration for leveling, therefore only the level{' '}
           {props.level} is relevant.
         </Hint>
-      ) : (
-        <Hint>
-          Discover the <Link to='/stories'>amazing back stories</Link> the
-          community came up with about some cards!
-        </Hint>
-      )}
-    </div>
+      </div>
+    )}
 
     {props.mode === 'EDITOR' && (
       <ImageErrorDialog dialogRef={props.imageErrorDialogRef} />
