@@ -50,8 +50,7 @@ If you have doubts about which cards to use, skip to [How to use](#how-to-use) >
 
 Here are some examples of successful decks.
 
-[![Winter Runners deck](/assets/images/winter_runners.png)](/deck/NU4xLDVOMyw1TjEzLDVOMTYsNVc1LDVOMjgsNVcxMiw1VzEzLDVXMTUsNU4zOSw1VzE3LDVXMTk=)
-[![Winter Stepfort deck](/assets/images/winter_stepfort.png)](/deck/NU4xLDVOMyw1TjQsNU4xMyw1TjE2LDVXNSw1VzEwLDVXMTMsNVcxNSw1TjM5LDVXMTksNVcyMw==)
+[![Winter Runners deck](/assets/images/winter_runners.png)](/deck/NU4xLDVOMyw1TjEzLDVOMTYsNVc1LDVOMjgsNVcxMiw1VzEzLDVXMTUsNU4zOSw1VzE3LDVXMTk=) [![Winter Stepfort deck](/assets/images/winter_stepfort.png)](/deck/NU4xLDVOMyw1TjQsNU4xMyw1TjE2LDVXNSw1VzEwLDVXMTMsNVcxNSw1TjM5LDVXMTksNVcyMw==)
 
 And finally, my Winterfell deck which took me and some other players to high Platinum/low Diamond with level 4 cards. So don’t worry, you don’t need max cards to actually get high!
 
