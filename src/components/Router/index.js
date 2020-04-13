@@ -61,6 +61,7 @@ const ListBuilderEditorView = loadable(
   () => import('../ListBuilderEditorView'),
   options
 )
+const BooksCalculator = loadable(() => import('../BooksCalculator'), options)
 const Home = loadable(() => import('../Home'), options)
 
 const Page = ({ children, active, ...props }) => (
@@ -193,6 +194,10 @@ const Router = props => (
       </Page>
       <Page path='/list' active='LIST_BUILDER'>
         <ListBuilderEditorView />
+      </Page>
+
+      <Page path='/books'>
+        <BooksCalculator />
       </Page>
 
       <Page path='/'>
