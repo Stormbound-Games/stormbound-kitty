@@ -26,7 +26,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI=false react-scripts build",
     "test": "cypress run",
     "eject": "react-scripts eject",
     "icons": "spritesh --input public/assets/icons --output sprite.svg --prefix 'icon-'"
