@@ -7,4 +7,5 @@ export default {
   LEVEL_SELECT: '[data-testid="level-select"]',
   RARITY_SELECT: '[data-testid="rarity-select"]',
   NAME_INPUT: '[data-testid="name-input"]',
+  RESET_BTN: '[data-testid="reset-btn"]',
 }

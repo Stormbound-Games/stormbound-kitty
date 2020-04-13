@@ -14,4 +14,5 @@ export default {
   NAME_INPUT: '[data-testid="name-input"]',
   ELDER_CHECKBOX: '[data-testid="elder-checkbox"]',
   HERO_CHECKBOX: '[data-testid="hero-checkbox"]',
+  RESET_BTN: '[data-testid="reset-btn"]',
 }

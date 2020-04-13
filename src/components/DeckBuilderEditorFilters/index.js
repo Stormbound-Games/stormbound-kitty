@@ -194,6 +194,7 @@ const DeckBuilderEditorFilters = props => (
               onClick={props.resetFilters}
               type='button'
               className='DeckBuilderEditorFilters__reset'
+              data-testid='reset-btn'
             >
               Reset filters
             </CTA>

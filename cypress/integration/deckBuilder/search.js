@@ -1,17 +1,23 @@
 import s from './selectors'
 
 describe('Deck Builder — Search', () => {
-  it('should be able to filter by faction', () => {
+  before(() => {
     cy.visit('/deck')
-      .get(s.FACTION_SELECT)
+  })
+
+  beforeEach(() => {
+    cy.get(s.RESET_BTN).click()
+  })
+
+  it('should be able to filter by faction', () => {
+    cy.get(s.FACTION_SELECT)
       .select('ironclad')
       .get(s.CARD)
       .should('have.class', 'Card--ironclad')
   })
 
   it('should be able to filter by type', () => {
-    cy.visit('/deck')
-      .get(s.TYPE_SELECT)
+    cy.get(s.TYPE_SELECT)
       .select('spell')
       .get(s.CARD)
       .find('.Card__content')
@@ -21,8 +27,7 @@ describe('Deck Builder — Search', () => {
   })
 
   it('should be able to filter by mana', () => {
-    cy.visit('/deck')
-      .get(s.MANA_SELECT)
+    cy.get(s.MANA_SELECT)
       .select('6-7')
       .get(s.CARD)
       .find('.Card__mana-content')
@@ -34,8 +39,7 @@ describe('Deck Builder — Search', () => {
   })
 
   it('should be able to filter by movement', () => {
-    cy.visit('/deck')
-      .get(s.MOVEMENT_SELECT)
+    cy.get(s.MOVEMENT_SELECT)
       .select('2')
       .get(s.CARD)
       .find('.Card__movement-content')
@@ -45,8 +49,7 @@ describe('Deck Builder — Search', () => {
   })
 
   it('should be able to filter by rarity', () => {
-    cy.visit('/deck')
-      .get(s.RARITY_SELECT)
+    cy.get(s.RARITY_SELECT)
       .select('epic')
       .get(s.CARD)
       .find(s.CARD_RARITY)
@@ -56,8 +59,7 @@ describe('Deck Builder — Search', () => {
   })
 
   it('should be able to filter by race', () => {
-    cy.visit('/deck')
-      .get(s.RACE_SELECT)
+    cy.get(s.RACE_SELECT)
       .select('rodent')
       .get(s.CARD)
       .find(s.CARD_RACE)
@@ -67,8 +69,7 @@ describe('Deck Builder — Search', () => {
   })
 
   it('should be able to filter by ability', () => {
-    cy.visit('/deck')
-      .get(s.ABILITY_SELECT)
+    cy.get(s.ABILITY_SELECT)
       .select('FREEZE')
       .get(s.CARD)
       .find(s.CARD_ABILITY)
@@ -78,16 +79,11 @@ describe('Deck Builder — Search', () => {
   })
 
   it('should be able to filter by name', () => {
-    cy.visit('/deck')
-      .get(s.NAME_INPUT)
-      .type('Kitten')
-      .get(s.CARD)
-      .should('have.length', 1)
+    cy.get(s.NAME_INPUT).type('Kitten').get(s.CARD).should('have.length', 1)
   })
 
   it('should be able to filter by hero', () => {
-    cy.visit('/deck')
-      .get(s.HERO_CHECKBOX)
+    cy.get(s.HERO_CHECKBOX)
       .check()
       .get(s.CARD)
       .find(s.CARD_RACE)
@@ -97,8 +93,7 @@ describe('Deck Builder — Search', () => {
   })
 
   it('should be able to filter by elder', () => {
-    cy.visit('/deck')
-      .get(s.ELDER_CHECKBOX)
+    cy.get(s.ELDER_CHECKBOX)
       .check()
       .get(s.CARD)
       .find(s.CARD_RACE)
