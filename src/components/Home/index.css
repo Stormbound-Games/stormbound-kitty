@@ -124,8 +124,14 @@
     width: 1100px;
     max-width: 100%;
     margin: 0 auto;
-    padding: 2em;
     text-align: right;
+    padding: 2em;
+  }
+
+  .Home__section-image {
+    display: block;
+    margin-right: auto;
+    max-height: 15em;
   }
 
   .Home__content {

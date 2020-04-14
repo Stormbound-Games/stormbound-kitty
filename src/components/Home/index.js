@@ -90,15 +90,23 @@ const Home = props => (
       >
         <div className='Home__section-inner'>
           <Row desktopOnly>
-            <Column />
             <Column>
-              <h2>Embark on an adventure</h2>
+              <Image
+                className='Home__section-image'
+                src='/assets/images/cards/collector_mirz.png'
+                alt='Collector Mirz'
+              />
+            </Column>
+            <Column>
+              <h2>Keep track of your riches</h2>
               <p>
-                Bring some creativity and a fresh wind to Stormbound quests by
-                designing your own, and come up with new concepts.
+                Maintain an accurate record of all your riches in the collection
+                hallway, pinning your cards on the wall of fame. No one will
+                match your collection.
               </p>
               <div className='Home__buttons'>
-                <CTA to='/quest'>Quest builder</CTA>
+                <CTA to='/collection/books'>Books calculator</CTA>
+                <CTA to='/collection'>Collection</CTA>
               </div>
             </Column>
           </Row>
@@ -107,7 +115,13 @@ const Home = props => (
       <section className='Home__section' style={{ '--color': 'var(--swarm)' }}>
         <div className='Home__section-inner'>
           <Row desktopOnly>
-            <Column />
+            <Column>
+              <Image
+                className='Home__section-image'
+                src='/assets/images/cards/ubass_the_hunter.png'
+                alt='Ubass the Hunter'
+              />
+            </Column>
             <Column>
               <h2>Learn from the warlords</h2>
               <p>
@@ -119,6 +133,33 @@ const Home = props => (
                 <CTA to='/guides/winter'>Winter Guide</CTA>
                 <CTA to='/guides/complete'>Complete Guide</CTA>
                 <CTA to='/guides/pirate'>Pirate Guide</CTA>
+              </div>
+            </Column>
+          </Row>
+        </div>
+      </section>
+      <section
+        className='Home__section'
+        style={{ '--color': 'var(--shadowfen)' }}
+      >
+        <div className='Home__section-inner'>
+          <Row desktopOnly>
+            <Column>
+              <Image
+                className='Home__section-image'
+                src='/assets/images/cards/prime_oracle_bragda.png'
+                alt='Prime Oracle Bragda'
+              />
+            </Column>
+            <Column>
+              <h2>Listen to tales of the Elders</h2>
+              <p>
+                Whether you’re curious about the Storm, interested in the long
+                history of the everlasting factions or want to contribute to the
+                rich lore of the land, sitting with the Elders is the way to go.
+              </p>
+              <div className='Home__buttons'>
+                <CTA to='/stories'>Read stories</CTA>
               </div>
             </Column>
           </Row>
