@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Title from '../Title'
 import getCollectionCost from '../../helpers/getCollectionCost'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
@@ -70,6 +71,9 @@ const DeckBuilderCollectionStats = props => {
   return (
     <>
       <Title>Collection stats</Title>
+      <p className='DeckBuilderCollectionStats__intro'>
+        Find below some helperful metrics about your card collection:
+      </p>
       <ul className='DeckBuilderCollectionStats__list'>
         <li>
           Total value:{' '}
@@ -106,6 +110,10 @@ const DeckBuilderCollectionStats = props => {
           </span>
         </li>
       </ul>
+      <p>
+        To know about the odds of finding a specific card in a certain book, be
+        sure to check the <Link to='/books'>books calculator</Link>.
+      </p>
     </>
   )
 }

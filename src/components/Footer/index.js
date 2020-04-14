@@ -104,7 +104,7 @@ const Footer = props => (
                   <Link to='/faq'>FAQ</Link>
                 </li>
                 <li className='Footer__item'>
-                  <Link to='/sim/puzzles'>Puzzles</Link>
+                  <Link to='/books'>Books Calculator</Link>
                 </li>
                 <li className='Footer__item'>
                   <Link to='/quest'>Quest Builder</Link>
