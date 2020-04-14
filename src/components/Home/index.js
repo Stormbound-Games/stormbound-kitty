@@ -59,7 +59,7 @@ const Home = props => (
               </p>
               <div className='Home__buttons'>
                 <CTA to='/deck'>Deck builder</CTA>
-                <CTA to='/deck/guide'>Guide</CTA>
+                <CTA to='/guides/deck'>Guide</CTA>
                 <CTA to='/deck/suggestions'>Ready decks</CTA>
               </div>
             </Column>

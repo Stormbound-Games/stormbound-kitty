@@ -145,7 +145,7 @@ class DeckBuilderEditorView extends React.Component {
               <>
                 <p>
                   If you do not know where to start,{' '}
-                  <Link to='/deck/guide'>read the guide</Link> to learn how to
+                  <Link to='/guides/deck'>read the guide</Link> to learn how to
                   make a viable deck, or try one of the{' '}
                   <Link to='/deck/suggestions'>
                     ready-to-go suggested decks
