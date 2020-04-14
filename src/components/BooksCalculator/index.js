@@ -25,6 +25,27 @@ const BOOKS = {
   HUMBLE: { percentiles: [70, 25, 4, 1], draws: 1 },
 }
 
+const BookExplanation = ({ book }) => {
+  const { percentiles, draws } = BOOKS[book]
+  return (
+    <div>
+      <p>
+        A {capitalise(book.toLowerCase())} book contains {draws} cards. It can
+        contain fusion stones and cannot contain more than a single copy of a
+        single card.
+      </p>
+      <p>The chances to draw are as follow:</p>
+      <ul>
+        {Object.keys(RARITIES).map((rarity, index) => (
+          <li key={rarity}>
+            {percentiles[index]}% chance of pulling a {rarity} card
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
 const isExpectedCard = (bookType, target) => {
   const { percentiles, draws } = BOOKS[bookType]
   const expectedRarity = Object.keys(RARITIES).indexOf(target.toLowerCase())
@@ -99,8 +120,24 @@ const BooksCalculator = props => {
 
       <Row desktopOnly wideGutter>
         <Column width={33}>
+          <Title element='h2'>What is this?</Title>
+          <p>
+            This is a book opening simulator. It simulates opening{' '}
+            {amount.toLocaleString()} books (or whatever number you choose) to
+            determine the probability of pulling a certain card or fusion
+            stones. This is not a theoretical approach based on a formula but a
+            practical one of computing the odds.
+          </p>
+          <p>
+            Feel free to adjust the amount of opened books to increase the
+            accuracy of the outcome, but remember that it might become too janky
+            at some point. Something between 1000 and 10000 books should be
+            enough to have a accurate enough results.
+          </p>
+        </Column>
+        <Column width={33}>
           <Title element='h2'>Configuration</Title>
-          <form>
+          <form className='BooksCalculator__form'>
             <Row>
               <Column>
                 <label htmlFor='book'>Book type</label>
@@ -111,7 +148,7 @@ const BooksCalculator = props => {
                   onChange={event => setBook(event.target.value)}
                 >
                   {Object.keys(BOOKS).map(book => (
-                    <option value={book}>
+                    <option key={book} value={book}>
                       {capitalise(book.toLowerCase())}
                     </option>
                   ))}
@@ -151,8 +188,10 @@ const BooksCalculator = props => {
             </Row>
           </form>
         </Column>
-        <Column width={66}>
+        <Column width={33}>
           <Title element='h2'>Outcome</Title>
+
+          <BookExplanation book={book} />
 
           {!amount ? (
             <p className='BookCalculator__outcome'>
@@ -163,16 +202,16 @@ const BooksCalculator = props => {
               {Number(chances) === 0 ? (
                 <p className='BookCalculator__outcome'>
                   <Image target={target} />
-                  Given {amount} book openings, it is unlikely to find{' '}
-                  <strong>{options[target].toLowerCase()}</strong> at all —
-                  either because this rarity does not appear in this type of
-                  book, or because it’s simply is too low to be significant.
+                  Given {amount.toLocaleString()} book openings, it is unlikely
+                  to find <strong>{options[target].toLowerCase()}</strong> at
+                  all — either because this rarity does not appear in this type
+                  of book, or because it’s simply is too low to be significant.
                 </p>
               ) : (
                 <p className='BookCalculator__outcome'>
                   <Image target={target} />
-                  Given {amount} book openings, the estimated chances to find{' '}
-                  <strong>{options[target]}</strong> in a{' '}
+                  Given {amount.toLocaleString()} book openings, the estimated
+                  chances to find <strong>{options[target]}</strong> in a{' '}
                   {capitalise(book.toLowerCase())} book are about {chances}%.
                   Good luck!
                 </p>
