@@ -2,6 +2,7 @@ import React from 'react'
 import cards from '../../data/cards'
 import { RARITIES } from '../../constants/game'
 import Column from '../Column'
+import Image from '../Image'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
@@ -30,6 +31,11 @@ const BookExplanation = ({ book }) => {
   return (
     <div>
       <p>
+        <Image
+          src={'/assets/images/book-' + book.toLowerCase() + '.png'}
+          className='BooksCalculator__image'
+          alt={capitalise(book.toLowerCase()) + ' book'}
+        />
         A {capitalise(book.toLowerCase())} book contains {draws} cards. It can
         contain fusion stones and cannot contain more than a single copy of a
         single card.
@@ -79,22 +85,6 @@ const getDrawingChances = (bookType, target, amount) => {
     found += Number(isExpectedCard(bookType, target))
 
   return ((found / amount) * 100).toFixed(2)
-}
-
-const Image = props => {
-  return props.target === 'FUSION_STONES' ? (
-    <img
-      className='BookCalculator__image'
-      src='/assets/images/stones.png'
-      alt='Fusion Stones'
-    />
-  ) : (
-    <img
-      className='BookCalculator__image'
-      src={getRarityImage(props.target.toLowerCase())}
-      alt={props.target.toLowerCase()}
-    />
-  )
 }
 
 const BooksCalculator = props => {
@@ -199,23 +189,33 @@ const BooksCalculator = props => {
             </p>
           ) : (
             <>
-              {Number(chances) === 0 ? (
-                <p className='BookCalculator__outcome'>
-                  <Image target={target} />
-                  Given {amount.toLocaleString()} book openings, it is unlikely
-                  to find <strong>{options[target].toLowerCase()}</strong> at
-                  all — either because this rarity does not appear in this type
-                  of book, or because it’s simply is too low to be significant.
-                </p>
-              ) : (
-                <p className='BookCalculator__outcome'>
-                  <Image target={target} />
-                  Given {amount.toLocaleString()} book openings, the estimated
-                  chances to find <strong>{options[target]}</strong> in a{' '}
-                  {capitalise(book.toLowerCase())} book are about {chances}%.
-                  Good luck!
-                </p>
-              )}
+              <p className='BookCalculator__outcome'>
+                <Image
+                  src={
+                    target === 'FUSION_STONES'
+                      ? '/assets/images/stones.png'
+                      : getRarityImage(target.toLowerCase())
+                  }
+                  className='BooksCalculator__image'
+                  alt=''
+                />
+                {Number(chances) === 0 ? (
+                  <>
+                    Given {amount.toLocaleString()} book openings, it is
+                    unlikely to find{' '}
+                    <strong>{options[target].toLowerCase()}</strong> at all —
+                    either because this rarity does not appear in this type of
+                    book, or because it’s simply is too low to be significant.
+                  </>
+                ) : (
+                  <>
+                    Given {amount.toLocaleString()} book openings, the estimated
+                    chances to find <strong>{options[target]}</strong> in a{' '}
+                    {capitalise(book.toLowerCase())} book are about {chances}%.
+                    Good luck!
+                  </>
+                )}
+              </p>
             </>
           )}
         </Column>

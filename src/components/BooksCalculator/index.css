@@ -2,9 +2,10 @@
   margin-top: 1em;
 }
 
-.BookCalculator__image {
+.BooksCalculator__image {
   height: auto;
+  margin-top: 0.25em;
   margin-right: 1em;
   float: left;
-  max-height: 3em;
+  max-height: 3.5em;
 }
