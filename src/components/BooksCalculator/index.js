@@ -16,14 +16,13 @@ const CARD_COUNTS = Object.keys(RARITIES).map(
   rarity => cards.filter(card => card.rarity === rarity).length
 )
 
-console.log(CARD_COUNTS)
-
 const BOOKS = {
+  MYTHIC: { percentiles: [0, 0, 70, 30], draws: 6 },
+  HEROIC: { percentiles: [0, 70, 25, 5], draws: 6 },
+  CLASSIC: { percentiles: [70, 25, 4, 1], draws: 6 },
   NOBLE: { percentiles: [70, 25, 4, 1], draws: 3 },
   ELDER: { percentiles: [0, 67, 30, 3], draws: 1 },
-  CLASSIC: { percentiles: [70, 25, 4, 1], draws: 6 },
-  HEROIC: { percentiles: [0, 70, 25, 5], draws: 6 },
-  MYTHIC: { percentiles: [0, 0, 70, 30], draws: 6 },
+  HUMBLE: { percentiles: [70, 25, 4, 1], draws: 1 },
 }
 
 const isExpectedCard = (bookType, target) => {
@@ -58,7 +57,7 @@ const getDrawingChances = (bookType, target, amount) => {
   for (let i = 0; i < amount; i++)
     found += Number(isExpectedCard(bookType, target))
 
-  return (found / amount).toFixed(4)
+  return ((found / amount) * 100).toFixed(2)
 }
 
 const Image = props => {
@@ -111,11 +110,11 @@ const BooksCalculator = props => {
                   value={book}
                   onChange={event => setBook(event.target.value)}
                 >
-                  <option value='MYTHIC'>Mythic</option>
-                  <option value='HEROIC'>Heroic</option>
-                  <option value='CLASSIC'>Classic</option>
-                  <option value='NOBLE'>Noble</option>
-                  <option value='ELDER'>Elder</option>
+                  {Object.keys(BOOKS).map(book => (
+                    <option value={book}>
+                      {capitalise(book.toLowerCase())}
+                    </option>
+                  ))}
                 </select>
               </Column>
               <Column>
@@ -175,7 +174,7 @@ const BooksCalculator = props => {
                   Given {amount} book openings, the estimated chances to find{' '}
                   <strong>{options[target]}</strong> in a{' '}
                   {capitalise(book.toLowerCase())} book are about {chances}%.
-                  That is, not a lot. Good luck.
+                  Good luck!
                 </p>
               )}
             </>
