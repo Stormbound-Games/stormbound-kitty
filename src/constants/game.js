@@ -62,3 +62,12 @@ export const RARITY_COPIES = {
     coinsPerExtraCopy: 150,
   },
 }
+
+export const BOOKS = {
+  MYTHIC: { percentiles: [0, 0, 70, 30], draws: 6 },
+  HEROIC: { percentiles: [0, 70, 25, 5], draws: 6 },
+  CLASSIC: { percentiles: [70, 25, 4, 1], draws: 6 },
+  NOBLE: { percentiles: [70, 25, 4, 1], draws: 3 },
+  ELDER: { percentiles: [0, 67, 30, 3], draws: 1 },
+  HUMBLE: { percentiles: [70, 25, 4, 1], draws: 1 },
+}

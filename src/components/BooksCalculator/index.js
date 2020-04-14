@@ -1,14 +1,12 @@
 import React from 'react'
-import { RARITIES } from '../../constants/game'
+import { RARITIES, BOOKS } from '../../constants/game'
 import Column from '../Column'
 import Image from '../Image'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
 import capitalise from '../../helpers/capitalise'
-import getDrawingProbability, {
-  BOOKS,
-} from '../../helpers/getDrawingProbability'
+import getDrawingProbability from '../../helpers/getDrawingProbability'
 import { getRarityImage } from '../../helpers/getRarity'
 import './index.css'
 
