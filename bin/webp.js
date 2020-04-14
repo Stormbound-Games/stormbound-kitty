@@ -1,24 +1,15 @@
 const imagemin = require('imagemin')
 const imageminWebp = require('imagemin-webp')
 
-Promise.all([
-  imagemin(['public/assets/images/*.{jpg,png}'], 'public/assets/images', {
-    use: [imageminWebp({ quality: 50 })]
-  }),
-  imagemin(
-    ['public/assets/images/cards/*.{jpg,png}'],
-    'public/assets/images/cards',
-    {
-      use: [imageminWebp({ quality: 50 })]
-    }
-  ),
-  imagemin(
-    ['public/assets/images/puzzles/*.{jpg,png}'],
-    'public/assets/images/puzzles',
-    {
-      use: [imageminWebp({ quality: 50 })]
-    }
+const webp = imageminWebp({ quality: 50 })
+const paths = [
+  'public/assets/images',
+  'public/assets/images/cards',
+  'public/assets/images/puzzles',
+]
+
+Promise.all(
+  paths.map(path =>
+    imagemin([`${path}/*.{jpg,png}`], { destination: path, plugins: [webp] })
   )
-]).then(() => {
-  console.log('Images optimized')
-})
+).then(() => console.log('Images optimized'))
