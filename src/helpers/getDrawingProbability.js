@@ -67,7 +67,7 @@ const getDrawingProbability = (bookType, target) => {
   const probabilities = sequences.map(getCardProbability)
   const total = probabilities.reduce(sum, 0)
 
-  return (1 - total) * 100
+  return 1 - total
 }
 
 export default getDrawingProbability

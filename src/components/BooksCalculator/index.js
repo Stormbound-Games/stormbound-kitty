@@ -1,5 +1,6 @@
 import React from 'react'
-import { RARITIES, BOOKS } from '../../constants/game'
+import { BOOKS } from '../../constants/game'
+import BookExplanation from '../BookExplanation'
 import Column from '../Column'
 import Image from '../Image'
 import PageMeta from '../PageMeta'
@@ -9,28 +10,6 @@ import capitalise from '../../helpers/capitalise'
 import getDrawingProbability from '../../helpers/getDrawingProbability'
 import { getRarityImage } from '../../helpers/getRarity'
 import './index.css'
-
-const BookExplanation = ({ book }) => {
-  const { percentiles, draws } = BOOKS[book]
-
-  return (
-    <div>
-      <p>
-        A {capitalise(book.toLowerCase())} book contains {draws}{' '}
-        {draws > 1 ? 'cards' : 'card'}. It can contain fusion stones and cannot
-        contain more than a single copy of a single card.
-      </p>
-      <p>The chances to draw are as follow:</p>
-      <ul>
-        {Object.keys(RARITIES).map((rarity, index) => (
-          <li key={rarity}>
-            {percentiles[index]}% chance of pulling a {rarity} card
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
-}
 
 const BooksCalculator = props => {
   const [book, setBook] = React.useState('MYTHIC')
@@ -115,7 +94,7 @@ const BooksCalculator = props => {
                 {capitalise(book.toLowerCase())} book about after the{' '}
                 {BOOKS[book].draws} draws are:{' '}
                 <Title as='span' className='BooksCalculator__result'>
-                  {chances.toFixed(2)}%
+                  {(chances * 100).toFixed(2)}%
                 </Title>
               </>
             )}

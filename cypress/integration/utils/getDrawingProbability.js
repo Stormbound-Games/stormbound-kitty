@@ -2,12 +2,12 @@ import getDrawingProbability from '../../../src/helpers/getDrawingProbability'
 
 describe('The `getDrawingProbability` helper', () => {
   const FUSION_STONES = {
-    MYTHIC: 17.85714285714294,
-    HEROIC: 11.451338599956063,
-    CLASSIC: 8.302129947958125,
-    NOBLE: 4.198831015640114,
-    ELDER: 1.937788018433173,
-    HUMBLE: 1.4102804801729651,
+    MYTHIC: 0.17857142857142938,
+    HEROIC: 0.11451338599956063,
+    CLASSIC: 0.08302129947958125,
+    NOBLE: 0.04198831015640114,
+    ELDER: 0.01937788018433173,
+    HUMBLE: 0.014102804801729651,
   }
 
   Object.keys(FUSION_STONES).forEach(bookType => {
