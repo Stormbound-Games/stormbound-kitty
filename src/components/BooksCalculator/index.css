@@ -3,9 +3,28 @@
 }
 
 .BooksCalculator__image {
-  height: auto;
-  margin-top: 0.25em;
-  margin-right: 1em;
-  float: left;
-  max-height: 3.5em;
+}
+
+.BooksCalculator__book {
+  display: block;
+  max-width: 60%;
+  margin: 2em auto;
+}
+
+.BooksCalculator__wrap {
+  position: relative;
+}
+
+.BooksCalculator__image {
+  position: absolute;
+  width: 20%;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) translateX(-10%) translateY(5%);
+}
+
+.BooksCalculator__result {
+  font-size: 200%;
+  margin-top: 0.75em;
 }
