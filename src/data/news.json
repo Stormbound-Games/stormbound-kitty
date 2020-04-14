@@ -1,5 +1,9 @@
 [
   {
+    "intro": "Books Calculator",
+    "description": "It is now possible to find the odds of pulling a certain card from a book with the books calculator."
+  },
+  {
     "intro": "Card Collection",
     "description": "It is now possible to sort the card collection by card value."
   },
