@@ -7,9 +7,9 @@ import CardsGallery from '../CardsGallery'
 import Column from '../Column'
 import Deck from '../Deck'
 import EmptySearch from '../EmptySearch'
-import Filtering from '../DeckBuilderFiltering'
+import CardsFiltering from '../CardsFiltering'
 import Filters from '../DeckBuilderEditorFilters'
-import ImportCollection from '../DeckBuilderImportCollection'
+import ImportCollection from '../ImportCollection'
 import PageMeta from '../PageMeta'
 import RandomDeckButton from '../DeckBuilderRandomDeckButton'
 import ResetButton from '../ResetButton'
@@ -165,9 +165,9 @@ class DeckBuilderEditorView extends React.Component {
                 <>
                   <p>
                     If you have already{' '}
-                    <Link to='/deck/collection'>created your collection</Link>,
-                    you can import it directly in the deck builder to compose
-                    decks that you can make in-game.
+                    <Link to='/collection'>created your collection</Link>, you
+                    can import it directly in the deck builder to compose decks
+                    that you can make in-game.
                   </p>
                   <ImportCollection onChange={this.onCollectionImport} />
                 </>
@@ -187,7 +187,7 @@ class DeckBuilderEditorView extends React.Component {
             <div className='DB__collection'>
               <Title>Cards collection</Title>
 
-              <Filtering cards={cardCollection}>
+              <CardsFiltering cards={cardCollection}>
                 {({
                   filters,
                   filtersSetters,
@@ -229,7 +229,7 @@ class DeckBuilderEditorView extends React.Component {
                     )}
                   </>
                 )}
-              </Filtering>
+              </CardsFiltering>
             </div>
           </Column>
         </Row>

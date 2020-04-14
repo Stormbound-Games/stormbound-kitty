@@ -1,6 +1,6 @@
 import React from 'react'
 import loadable from '@loadable/component'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import Layout from '../Layout'
 import Loader from '../Loader'
 import Error from '../Error'
@@ -23,10 +23,7 @@ const DeckBuilderSuggestions = loadable(
   () => import('../DeckBuilderSuggestions'),
   options
 )
-const DeckBuilderCollection = loadable(
-  () => import('../DeckBuilderCollection'),
-  options
-)
+const Collection = loadable(() => import('../Collection'), options)
 const DeckBuilderRoot = loadable(() => import('../DeckBuilderRoot'), options)
 const DeckBuilderDetailView = loadable(
   () => import('../DeckBuilderDetailView'),
@@ -108,7 +105,7 @@ const Router = props => (
         <DeckBuilderSuggestions />
       </Page>
       <Page path='/deck/collection' active='DECK_BUILDER'>
-        <DeckBuilderCollection />
+        <Redirect to='/collection' />
       </Page>
       <Page path='/deck/:deckId/detail' active='DECK_BUILDER'>
         <DeckBuilderRoot>
@@ -134,6 +131,16 @@ const Router = props => (
         <DeckBuilderRoot>
           {state => <DeckBuilderEditorView {...state} />}
         </DeckBuilderRoot>
+      </Page>
+
+      <Page exact path='/collection' active='COLLECTION'>
+        <Collection />
+      </Page>
+      <Page path='/collection/books' active='COLLECTION'>
+        <BooksCalculator />
+      </Page>
+      <Page path='/books' active='COLLECTION'>
+        <Redirect to='/collection/books' />
       </Page>
 
       <Page path='/quest/:questId'>
@@ -195,10 +202,6 @@ const Router = props => (
       </Page>
       <Page path='/list' active='LIST_BUILDER'>
         <ListBuilderEditorView />
-      </Page>
-
-      <Page path='/books'>
-        <BooksCalculator />
       </Page>
 
       <Page exact path='/'>

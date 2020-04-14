@@ -63,9 +63,9 @@ const parseCSVData = data => {
     })
 }
 
-const DeckBuilderImportCollection = props => (
-  <div className='DeckBuilderImportCollection'>
-    <label htmlFor='import' className='CTA DeckBuilderImportCollection__button'>
+const ImportCollection = props => (
+  <div className='ImportCollection'>
+    <label htmlFor='import' className='CTA ImportCollection__button'>
       <span className='CTA__content'>Import collection</span>
     </label>
     <input
@@ -74,9 +74,9 @@ const DeckBuilderImportCollection = props => (
       type='file'
       accept='.csv'
       onChange={onFileUpload(props.onChange)}
-      className='DeckBuilderImportCollection__file'
+      className='ImportCollection__file'
     />
   </div>
 )
 
-export default DeckBuilderImportCollection
+export default ImportCollection

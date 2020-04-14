@@ -104,7 +104,7 @@ const Home = props => (
           </Row>
         </div>
       </section>
-      <section className='Home__section' style={{ '--color': 'var(--blue)' }}>
+      <section className='Home__section' style={{ '--color': 'var(--swarm)' }}>
         <div className='Home__section-inner'>
           <Row desktopOnly>
             <Column />
@@ -118,7 +118,7 @@ const Home = props => (
               <div className='Home__buttons'>
                 <CTA to='/guides/winter'>Winter Guide</CTA>
                 <CTA to='/guides/complete'>Complete Guide</CTA>
-                <CTA to='/guides/deck'>Deck building</CTA>
+                <CTA to='/guides/pirate'>Pirate Guide</CTA>
               </div>
             </Column>
           </Row>

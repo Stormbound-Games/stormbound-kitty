@@ -2,7 +2,7 @@ import s from './selectors'
 
 describe('Collection — Search', () => {
   before(() => {
-    cy.visit('/deck/collection')
+    cy.visit('/collection')
   })
 
   beforeEach(() => {

@@ -1,14 +1,14 @@
 import React from 'react'
 import cards from '../../data/cards'
-import ActiveCardForm from '../DeckBuilderCollectionActiveCardForm'
+import ActiveCardForm from '../CollectionActiveCardForm'
 import CardsGallery from '../CardsGallery'
-import CollectionStats from '../DeckBuilderCollectionStats'
+import CollectionStats from '../CollectionStats'
 import Column from '../Column'
 import CTA from '../CTA'
 import EmptySearch from '../EmptySearch'
-import Filtering from '../DeckBuilderFiltering'
-import Filters from '../DeckBuilderCollectionFilters'
-import ImportCollection from '../DeckBuilderImportCollection'
+import CardsFiltering from '../CardsFiltering'
+import Filters from '../CollectionFilters'
+import ImportCollection from '../ImportCollection'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
@@ -18,7 +18,7 @@ import isCardUpgradable from '../../helpers/isCardUpgradable'
 import getRawCardData from '../../helpers/getRawCardData'
 import './index.css'
 
-class DeckBuilderCollection extends React.Component {
+class Collection extends React.Component {
   constructor(props) {
     super(props)
 
@@ -180,7 +180,7 @@ class DeckBuilderCollection extends React.Component {
 
         <Row desktopOnly wideGutter>
           <Column width={33}>
-            <div className='DeckBuilderCollection__info'>
+            <div className='Collection__info'>
               <Title>What’s this</Title>
 
               <p>
@@ -232,7 +232,9 @@ class DeckBuilderCollection extends React.Component {
           <Column width={66}>
             <Title>Cards Collection</Title>
 
-            <Filtering cards={this.state.collection.map(resolveCardForLevel)}>
+            <CardsFiltering
+              cards={this.state.collection.map(resolveCardForLevel)}
+            >
               {({
                 filters,
                 filtersSetters,
@@ -266,7 +268,7 @@ class DeckBuilderCollection extends React.Component {
                   )}
                 </>
               )}
-            </Filtering>
+            </CardsFiltering>
           </Column>
         </Row>
 
@@ -279,4 +281,4 @@ class DeckBuilderCollection extends React.Component {
   }
 }
 
-export default DeckBuilderCollection
+export default Collection

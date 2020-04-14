@@ -7,9 +7,9 @@ import Row from '../Row'
 import capitalise from '../../helpers/capitalise'
 import './index.css'
 
-const DeckBuilderCollectionFilters = props => (
+const CollectionFilters = props => (
   <form
-    className='DeckBuilderCollectionFilters'
+    className='CollectionFilters'
     onSubmit={event => event.preventDefault()}
   >
     <Row desktopOnly>
@@ -107,7 +107,7 @@ const DeckBuilderCollectionFilters = props => (
         <CTA
           onClick={props.resetFilters}
           type='button'
-          className='DeckBuilderCollectionFilters__reset'
+          className='CollectionFilters__reset'
           data-testid='reset-btn'
         >
           Reset filters
@@ -117,4 +117,4 @@ const DeckBuilderCollectionFilters = props => (
   </form>
 )
 
-export default DeckBuilderCollectionFilters
+export default CollectionFilters

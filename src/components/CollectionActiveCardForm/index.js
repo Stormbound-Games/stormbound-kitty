@@ -7,7 +7,7 @@ import Row from '../Row'
 import Title from '../Title'
 import { serialiseCardFromCollection } from '../../helpers/serialise'
 
-const DeckBuilderCollectionActiveCardForm = props => (
+const CollectionActiveCardForm = props => (
   <>
     <Title>{props.resolvedActiveCard.name}</Title>
 
@@ -80,4 +80,4 @@ const DeckBuilderCollectionActiveCardForm = props => (
   </>
 )
 
-export default DeckBuilderCollectionActiveCardForm
+export default CollectionActiveCardForm

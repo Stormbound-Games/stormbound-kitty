@@ -36,7 +36,7 @@ const getAvailableCoins = collection =>
     .map(card => getExtraAfterMax(resolveCardForLevel(card)).coins)
     .reduce(sum, 0)
 
-const DeckBuilderCollectionStats = props => {
+const CollectionStats = props => {
   const ownedCards = React.useMemo(() => getNonMissingCards(props.collection), [
     props.collection,
   ])
@@ -71,51 +71,41 @@ const DeckBuilderCollectionStats = props => {
   return (
     <>
       <Title>Collection stats</Title>
-      <p className='DeckBuilderCollectionStats__intro'>
+      <p className='CollectionStats__intro'>
         Find below some helperful metrics about your card collection:
       </p>
-      <ul className='DeckBuilderCollectionStats__list'>
+      <ul className='CollectionStats__list'>
         <li>
           Total value:{' '}
-          <span className='DeckBuilderCollectionStats__item'>
-            {collectionCost}
-          </span>{' '}
-          stones
+          <span className='CollectionStats__item'>{collectionCost}</span> stones
         </li>
         <li>
           Average card level:{' '}
-          <span
-            className='DeckBuilderCollectionStats__item'
-            title={levelStats.slice(1)}
-          >
+          <span className='CollectionStats__item' title={levelStats.slice(1)}>
             {averageLevel.toFixed(2)}
           </span>
         </li>
         <li>
           Upgradable cards:{' '}
-          <span className='DeckBuilderCollectionStats__item'>
+          <span className='CollectionStats__item'>
             {upgradableCards.length}
           </span>
         </li>
         <li>
           Coins after exchange:{' '}
-          <span className='DeckBuilderCollectionStats__item'>
-            {extraAfterMax}
-          </span>
+          <span className='CollectionStats__item'>{extraAfterMax}</span>
         </li>
         <li>
           Missing cards:{' '}
-          <span className='DeckBuilderCollectionStats__item'>
-            {missingCards.length}
-          </span>
+          <span className='CollectionStats__item'>{missingCards.length}</span>
         </li>
       </ul>
       <p>
         To know about the odds of finding a specific card in a certain book, be
-        sure to check the <Link to='/books'>books calculator</Link>.
+        sure to check the <Link to='/collection/books'>books calculator</Link>.
       </p>
     </>
   )
 }
 
-export default DeckBuilderCollectionStats
+export default CollectionStats

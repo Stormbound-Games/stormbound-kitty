@@ -21,7 +21,7 @@ const DEFAULT_FILTERS = {
   order: 'NATURAL',
 }
 
-class DeckBuilderFiltering extends React.Component {
+class CardsFiltering extends React.Component {
   constructor(props) {
     super(props)
 
@@ -162,5 +162,5 @@ class DeckBuilderFiltering extends React.Component {
 }
 
 export default hookIntoProps(() => ({ viewportWidth: useViewportWidth() }))(
-  DeckBuilderFiltering
+  CardsFiltering
 )

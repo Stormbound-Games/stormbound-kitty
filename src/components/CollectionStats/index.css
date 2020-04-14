@@ -1,0 +1,11 @@
+.CollectionStats__item {
+  color: var(--beige);
+}
+
+.CollectionStats__list {
+  margin: 0;
+}
+
+.CollectionStats__intro {
+  margin-top: 0;
+}

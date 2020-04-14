@@ -1,4 +1,4 @@
-.DeckBuilderImportCollection__file {
+.ImportCollection__file {
   position: absolute;
   top: 0;
   opacity: 0;
@@ -6,10 +6,10 @@
   height: 0;
 }
 
-.DeckBuilderImportCollection {
+.ImportCollection {
   position: relative;
 }
 
-.DeckBuilderImportCollection__button {
+.ImportCollection__button {
   width: 100%;
 }

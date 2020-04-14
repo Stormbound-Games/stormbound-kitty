@@ -125,11 +125,11 @@ export default [
         answer: (
           <>
             If you took the time to recreate your{' '}
-            <Link to='/deck/collection'>card collection</Link>, then you can use
-            it in the deck builder! Unfortunately the initial process of
-            importing your collection is a little tedious given Paladin Studios
-            does not provide a public API for Stormbound which enables us to
-            query players’ data.
+            <Link to='/collection'>card collection</Link>, then you can use it
+            in the deck builder! Unfortunately the initial process of importing
+            your collection is a little tedious given Paladin Studios does not
+            provide a public API for Stormbound which enables us to query
+            players’ data.
           </>
         ),
       },

@@ -8,6 +8,7 @@ import Icon from '../Icon'
 import ListBuilderNav from '../ListBuilderNav'
 import NavLink from '../NavLink'
 import StoriesNav from '../StoriesNav'
+import CollectionNav from '../CollectionNav'
 import TogglableContent from '../TogglableContent'
 import useViewportWidth from '../../helpers/useViewportWidth'
 import './index.css'
@@ -26,6 +27,8 @@ const SubNav = props => {
       return <GuidesNav />
     case 'STORIES':
       return <StoriesNav />
+    case 'COLLECTION':
+      return <CollectionNav />
     default:
       return null
   }
@@ -75,6 +78,11 @@ const Header = props => {
             <li className='Header__item'>
               <NavLink to='/deck'>
                 <Icon icon='stack' /> Deck builder
+              </NavLink>
+            </li>
+            <li className='Header__item'>
+              <NavLink to='/collection'>
+                <Icon icon='books' /> Collection
               </NavLink>
             </li>
             <li className='Header__item'>
