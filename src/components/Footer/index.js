@@ -32,6 +32,14 @@ const Footer = props => (
               rel='noopener noreferrer'
             >
               Paladin Studios
+            </a>{' '}
+            and{' '}
+            <a
+              href='https://www.sheepyard.pl/'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Sheepyard
             </a>
             .
           </p>
