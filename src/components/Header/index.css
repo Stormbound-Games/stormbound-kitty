@@ -91,7 +91,7 @@
 @media (min-width: 700px) {
   .Header__list {
     flex-wrap: nowrap;
-    overflow: auto;
+    overflow-x: auto;
   }
 
   .Header__item {
