@@ -91,7 +91,7 @@ const BooksCalculator = props => {
             ) : (
               <>
                 The odds to find {options[target]} in a{' '}
-                {capitalise(book.toLowerCase())} book about after the{' '}
+                {capitalise(book.toLowerCase())} book after the{' '}
                 {BOOKS[book].draws} draws are:{' '}
                 <Title as='span' className='BooksCalculator__result'>
                   {(chances * 100).toFixed(2)}%
