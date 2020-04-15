@@ -142,45 +142,48 @@ class DeckBuilderEditorView extends React.Component {
                 {matchedDeck.author}.
               </p>
             ) : (
-              <>
+              <div>
                 <p>
                   If you do not know where to start,{' '}
-                  <Link to='/guides/deck'>read the guide</Link> to learn how to
-                  make a viable deck, or try one of the{' '}
+                  <Link to='/guides/deck'>read the deck-building guide</Link> to
+                  learn how to make a viable deck, or try one of the{' '}
                   <Link to='/deck/suggestions'>
                     ready-to-go suggested decks
                   </Link>
                   .
                 </p>
-              </>
-            )}
-
-            <RandomDeckButton
-              defineDeck={this.props.defineDeck}
-              collection={this.state.collection}
-            />
-
-            <>
-              {!this.state.withCustomCollection && (
-                <>
+                {!this.state.withCustomCollection && (
                   <p>
                     If you have already{' '}
                     <Link to='/collection'>created your collection</Link>, you
                     can import it directly in the deck builder to compose decks
                     that you can make in-game.
                   </p>
-                  <ImportCollection onChange={this.onCollectionImport} />
-                </>
-              )}
+                )}
+              </div>
+            )}
 
-              {this.state.hasImported !== null && (
-                <p>
-                  {this.state.hasImported
-                    ? '✓ Your collection has been successfully imported!'
-                    : '✘ Unfortunately their was an error importing your collection.'}
-                </p>
-              )}
-            </>
+            <Row>
+              <Column>
+                <RandomDeckButton
+                  defineDeck={this.props.defineDeck}
+                  collection={this.state.collection}
+                />
+              </Column>
+              <Column>
+                {!this.state.withCustomCollection && (
+                  <ImportCollection onChange={this.onCollectionImport} />
+                )}
+              </Column>
+            </Row>
+
+            {this.state.hasImported !== null && (
+              <p>
+                {this.state.hasImported
+                  ? '✓ Your collection has been successfully imported!'
+                  : '✘ Unfortunately their was an error importing your collection.'}
+              </p>
+            )}
           </Column>
 
           <Column width={66}>
