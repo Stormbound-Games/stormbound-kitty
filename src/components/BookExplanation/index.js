@@ -12,7 +12,7 @@ const BookExplanation = ({ book }) => {
       <p>
         A {capitalise(book.toLowerCase())} book contains {draws}{' '}
         {draws > 1 ? 'cards' : 'card'}. It contains an average of{' '}
-        <strong>
+        <strong data-testid='average-stones'>
           {getAverageStonesPerBook(book).toFixed(2)} Fusion stones
         </strong>{' '}
         and cannot contain more than a single copy of a single card.

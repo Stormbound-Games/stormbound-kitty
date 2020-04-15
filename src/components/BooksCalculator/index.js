@@ -49,6 +49,7 @@ const BooksCalculator = props => {
                   name='book'
                   value={book}
                   onChange={event => setBook(event.target.value)}
+                  data-testid='book-select'
                 >
                   {Object.keys(BOOKS).map(book => (
                     <option key={book} value={book}>
@@ -65,6 +66,7 @@ const BooksCalculator = props => {
                   name='target'
                   value={target}
                   onChange={event => setTarget(event.target.value)}
+                  data-testid='target-select'
                 >
                   {Object.keys(options).map(option => (
                     <option key={option} value={option}>
@@ -93,7 +95,11 @@ const BooksCalculator = props => {
                 The odds to find {options[target]} in a{' '}
                 {capitalise(book.toLowerCase())} book after the{' '}
                 {BOOKS[book].draws} draws are:{' '}
-                <Title as='span' className='BooksCalculator__result'>
+                <Title
+                  as='span'
+                  className='BooksCalculator__result'
+                  data-testid='odds-result'
+                >
                   {(chances * 100).toFixed(2)}%
                 </Title>
               </>

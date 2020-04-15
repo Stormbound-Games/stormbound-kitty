@@ -8,4 +8,9 @@ export default {
   RARITY_SELECT: '[data-testid="rarity-select"]',
   NAME_INPUT: '[data-testid="name-input"]',
   RESET_BTN: '[data-testid="reset-btn"]',
+
+  BOOK_SELECT: '[data-testid="book-select"]',
+  TARGET_SELECT: '[data-testid="target-select"]',
+  ODDS_RESULT: '[data-testid="odds-result"]',
+  AVERAGE_STONES: '[data-testid="average-stones"]',
 }
