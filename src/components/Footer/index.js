@@ -118,10 +118,10 @@ const Footer = props => (
                   <Link to='/quest'>Quest Builder</Link>
                 </li>
                 <li className='Footer__item'>
-                  <Link to='/deck/suggestions'>Suggested decks</Link>
+                  <Link to='/deck/suggestions'>Suggested Decks</Link>
                 </li>
                 <li className='Footer__item'>
-                  <Link to='/card/contest'>Card contest</Link>
+                  <Link to='/sim/puzzles'>Puzzles</Link>
                 </li>
                 <li className='Footer__item'>
                   <a
