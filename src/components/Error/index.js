@@ -12,7 +12,7 @@ const Error = props => (
       </Title>
 
       <img
-        src='/assets/images/cards/faun_companions.png'
+        src='/assets/images/cards/sweetcap_kittens.png'
         alt='Faun Companions'
       />
 
