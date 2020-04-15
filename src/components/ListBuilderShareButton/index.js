@@ -26,7 +26,7 @@ const ListBuilderShareButton = props => {
 
   return (
     <>
-      <CTA onClick={open} type='button'>
+      <CTA onClick={open} type='button' disabled={props.disabled}>
         Share list
       </CTA>
       <Dialog

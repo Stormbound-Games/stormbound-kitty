@@ -201,10 +201,14 @@ class ListBuilderEditorView extends React.Component {
                     label='Reset list'
                     confirm='Are you sure you want to reset the list to its initial state?'
                     reset={this.reset}
+                    disabled={!this.props.listId}
                   />
                 </Column>
                 <Column>
-                  <ShareButton title='Share tier list' />
+                  <ShareButton
+                    title='Share tier list'
+                    disabled={!this.props.listId}
+                  />
                 </Column>
               </Row>
             </div>

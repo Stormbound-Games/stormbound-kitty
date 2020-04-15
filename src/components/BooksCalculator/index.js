@@ -43,7 +43,7 @@ const BooksCalculator = props => {
 
       <Row desktopOnly wideGutter>
         <Column width={33}>
-          <Title element='h2'>What is this?</Title>
+          <Title element='h2'>What is this</Title>
           <p>
             This is a calculator to estimate the odds of getting fusion stones
             or a specific card when opening a certain book. Huge thanks to

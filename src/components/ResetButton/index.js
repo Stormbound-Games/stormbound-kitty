@@ -18,6 +18,7 @@ const ResetButton = props => {
         type='button'
         onClick={open}
         data-testid='reset-btn'
+        disabled={props.disabled}
       >
         {props.label}
       </CTA>

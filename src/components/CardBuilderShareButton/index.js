@@ -27,7 +27,7 @@ const CardBuilderShareButton = props => {
 
   return (
     <>
-      <CTA onClick={open} type='button'>
+      <CTA onClick={open} type='button' disabled={props.disabled}>
         Share card
       </CTA>
       <Dialog
