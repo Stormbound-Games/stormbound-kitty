@@ -181,7 +181,7 @@ class Collection extends React.Component {
         <Row desktopOnly wideGutter>
           <Column width={33}>
             <div className='Collection__info'>
-              <Title>What’s this</Title>
+              <Title>What is this</Title>
 
               <p>
                 If you take the time to mark the level of all your cards, as

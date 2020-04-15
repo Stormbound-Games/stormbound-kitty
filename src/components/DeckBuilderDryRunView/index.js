@@ -330,7 +330,7 @@ class DeckBuilderDryRunView extends React.Component {
               <div className='DeckBuilderDryRunView__info'>
                 <Row desktopOnly>
                   <Column>
-                    <Title>What’s this?</Title>
+                    <Title>What is this</Title>
                     <p>
                       This simulator has same drawing/cycling mechanics as the
                       game and should be an accurate representation of mana flow
