@@ -72,7 +72,7 @@ const CollectionStats = props => {
     <>
       <Title>Collection stats</Title>
       <p className='CollectionStats__intro'>
-        Find below some helperful metrics about your card collection:
+        Find below some helpful metrics about your card collection:
       </p>
       <ul className='CollectionStats__list'>
         <li>
