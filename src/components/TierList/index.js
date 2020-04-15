@@ -18,7 +18,7 @@ const TierList = props => {
         ]
           .filter(Boolean)
           .join(' ')}
-        onMouseUp={() => props.onMouseUp()}
+        onMouseUp={props.onMouseUp}
       >
         {cards.length ? (
           cards.map((card, index) => (
