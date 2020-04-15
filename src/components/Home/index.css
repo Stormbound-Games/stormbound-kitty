@@ -145,6 +145,6 @@
   .Home__buttons > * {
     width: auto;
     min-width: 150px;
-    margin: 0 1em;
+    margin: 0 0.5em 1em;
   }
 }
