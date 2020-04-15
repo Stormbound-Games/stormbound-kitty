@@ -89,6 +89,15 @@
 }
 
 @media (min-width: 700px) {
+  .Header__list {
+    flex-wrap: nowrap;
+    overflow: auto;
+  }
+
+  .Header__item {
+    white-space: nowrap;
+  }
+
   .Header__link--active::before {
     content: '';
     width: 1em;
