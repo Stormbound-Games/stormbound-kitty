@@ -17,7 +17,7 @@ const CardBuilderNav = props => {
 
         <li className='Header__item'>
           {id ? (
-            <NavLink to={`/card/${id}/display`}>Tracker</NavLink>
+            <NavLink to={`/card/${id}/display`}>Display mode</NavLink>
           ) : (
             <span
               className='Header__link Header__link--disabled'
