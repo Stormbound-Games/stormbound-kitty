@@ -32,7 +32,7 @@ describe('Collection — Books', () => {
       .invoke('text')
       .then(result => {
         cy.get(s.TARGET_SELECT)
-          .select('LEGENDARY')
+          .select('SPECIFIC_LEGENDARY')
 
           .get(s.ODDS_RESULT)
           .invoke('text')

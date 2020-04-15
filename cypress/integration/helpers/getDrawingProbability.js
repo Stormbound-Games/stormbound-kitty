@@ -12,22 +12,22 @@ describe('The `getDrawingProbability` helper', () => {
 
   Object.keys(FUSION_STONES).forEach(bookType => {
     it(`should return ${FUSION_STONES[bookType]}% for a ${bookType} book`, () => {
-      expect(getDrawingProbability(bookType, 'FUSION_STONES')).to.equal(
+      expect(getDrawingProbability(bookType, [1, 1, 1, 1])).to.equal(
         FUSION_STONES[bookType]
       )
     })
   })
 
   it('should return 0 for a specific common card in a MYTHIC book', () => {
-    expect(getDrawingProbability('MYTHIC', 'COMMON')).to.equal(0)
+    expect(getDrawingProbability('MYTHIC', [1, 0, 0, 0])).to.equal(0)
   })
   it('should return 0 for a specific common card in a HEROIC book', () => {
-    expect(getDrawingProbability('HEROIC', 'COMMON')).to.equal(0)
+    expect(getDrawingProbability('HEROIC', [1, 0, 0, 0])).to.equal(0)
   })
   it('should return 0 for a specific common card in a ELDER book', () => {
-    expect(getDrawingProbability('ELDER', 'COMMON')).to.equal(0)
+    expect(getDrawingProbability('ELDER', [1, 0, 0, 0])).to.equal(0)
   })
   it('should return 0 for a specific rare card in a MYTHIC book', () => {
-    expect(getDrawingProbability('MYTHIC', 'RARE')).to.equal(0)
+    expect(getDrawingProbability('MYTHIC', [0, 1, 0, 0])).to.equal(0)
   })
 })

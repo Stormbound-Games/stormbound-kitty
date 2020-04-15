@@ -21,7 +21,7 @@ const BookExplanation = ({ book }) => {
       <ul>
         {Object.keys(RARITIES).map((rarity, index) => (
           <li key={rarity}>
-            {percentiles[index]}% chance of pulling a {rarity} card
+            {percentiles[index] * 100}% chance of pulling a {rarity} card
           </li>
         ))}
       </ul>

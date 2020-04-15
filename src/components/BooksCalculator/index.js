@@ -1,30 +1,36 @@
 import React from 'react'
-import { BOOKS } from '../../constants/game'
+import { BOOKS, PRE_MADE_EXPECTATIONS } from '../../constants/game'
 import BookExplanation from '../BookExplanation'
+import BookOdds from '../BookOdds'
 import Column from '../Column'
 import Image from '../Image'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
+import TogglableContent from '../TogglableContent'
+import WikiLink from '../WikiLink'
 import capitalise from '../../helpers/capitalise'
-import getDrawingProbability from '../../helpers/getDrawingProbability'
-import { getRarityImage } from '../../helpers/getRarity'
+import countCardsForRarity from '../../helpers/countCardsForRarity'
 import './index.css'
 
 const BooksCalculator = props => {
+  const [isAdvancedMode, setIsAdvancedMode] = React.useState(false)
   const [book, setBook] = React.useState('MYTHIC')
   const [target, setTarget] = React.useState('FUSION_STONES')
-  const chances = React.useMemo(() => getDrawingProbability(book, target), [
-    book,
-    target,
-  ])
-  const options = {
-    FUSION_STONES: 'Fusion stones',
-    COMMON: 'A specific common card',
-    RARE: 'A specific rare card',
-    EPIC: 'A specific epic card',
-    LEGENDARY: 'A specific legendary card',
-  }
+  const [expectations, setExpectations] = React.useState([0, 0, 0, 0])
+
+  // Reset the default state of each mode when toggling between the 2
+  React.useEffect(() => {
+    if (isAdvancedMode) setTarget('FUSION_STONES')
+    else setExpectation([0, 0, 0, 0])
+  }, [isAdvancedMode])
+
+  const setExpectation = index => value =>
+    setExpectations(expectations => [
+      ...expectations.slice(0, index),
+      Number(value),
+      ...expectations.slice(index + 1),
+    ])
 
   return (
     <>
@@ -67,15 +73,97 @@ const BooksCalculator = props => {
                   value={target}
                   onChange={event => setTarget(event.target.value)}
                   data-testid='target-select'
+                  disabled={isAdvancedMode}
                 >
-                  {Object.keys(options).map(option => (
+                  {Object.keys(PRE_MADE_EXPECTATIONS).map(option => (
                     <option key={option} value={option}>
-                      {options[option]}
+                      {PRE_MADE_EXPECTATIONS[option].label}
                     </option>
                   ))}
                 </select>
               </Column>
             </Row>
+
+            <TogglableContent
+              isExpanded={isAdvancedMode}
+              id='advanced-mode'
+              renderToggle={toggleProps => (
+                <button
+                  {...toggleProps}
+                  type='button'
+                  className='ButtonAsLink BooksCalculator__toggle'
+                  onClick={() => setIsAdvancedMode(mode => !mode)}
+                >
+                  {isAdvancedMode
+                    ? '- Collapse advanced mode'
+                    : '+ Expand advanced mode'}
+                </button>
+              )}
+            >
+              <p>
+                Define how many different cards of any rarity you are looking
+                for to know the odds of finding at least some of them when
+                opening a {capitalise(book.toLowerCase())} book.
+              </p>
+              <p>
+                For instance, if you’re looking for a copy of{' '}
+                <WikiLink id='N2' />, a copy of <WikiLink id='I4' /> and a copy
+                of <WikiLink id='N8' />, set 2 for “Common cards” and 1 for
+                “Legendary cards”.
+              </p>
+              <Row>
+                <Column>
+                  <label htmlFor='target-common'>Common cards</label>
+                  <input
+                    type='number'
+                    min={0}
+                    max={countCardsForRarity('common')}
+                    name='target-common'
+                    id='target-common'
+                    onChange={event => setExpectation(0)(event.target.value)}
+                    value={expectations[0]}
+                  />
+                </Column>
+                <Column>
+                  <label htmlFor='target-rare'>Rare cards</label>
+                  <input
+                    type='number'
+                    min={0}
+                    max={countCardsForRarity('rare')}
+                    name='target-rare'
+                    id='target-rare'
+                    onChange={event => setExpectation(1)(event.target.value)}
+                    value={expectations[1]}
+                  />
+                </Column>
+              </Row>
+              <Row>
+                <Column>
+                  <label htmlFor='target-epic'>Epic cards</label>
+                  <input
+                    type='number'
+                    min={0}
+                    max={countCardsForRarity('epic')}
+                    name='target-epic'
+                    id='target-epic'
+                    onChange={event => setExpectation(2)(event.target.value)}
+                    value={expectations[2]}
+                  />
+                </Column>
+                <Column>
+                  <label htmlFor='target-legendary'>Legendary cards</label>
+                  <input
+                    type='number'
+                    min={0}
+                    max={countCardsForRarity('legendary')}
+                    name='target-legendary'
+                    id='target-legendary'
+                    onChange={event => setExpectation(3)(event.target.value)}
+                    value={expectations[3]}
+                  />
+                </Column>
+              </Row>
+            </TogglableContent>
           </form>
         </Column>
 
@@ -83,28 +171,12 @@ const BooksCalculator = props => {
           <Title element='h2'>Outcome</Title>
 
           <BookExplanation book={book} />
-
-          <p className='BookCalculator__outcome'>
-            {Number(chances) === 0 ? (
-              <>
-                It is not possible to pull {options[target].toLowerCase()}{' '}
-                because this rarity does not appear in this type of book.
-              </>
-            ) : (
-              <>
-                The odds to find {options[target]} in a{' '}
-                {capitalise(book.toLowerCase())} book after the{' '}
-                {BOOKS[book].draws} draws are:{' '}
-                <Title
-                  as='span'
-                  className='BooksCalculator__result'
-                  data-testid='odds-result'
-                >
-                  {(chances * 100).toFixed(2)}%
-                </Title>
-              </>
-            )}
-          </p>
+          <BookOdds
+            book={book}
+            target={target}
+            isAdvancedMode={isAdvancedMode}
+            expectations={expectations}
+          />
         </Column>
 
         <Column width={33}>
@@ -113,15 +185,6 @@ const BooksCalculator = props => {
               src={'/assets/images/book-' + book.toLowerCase() + '.png'}
               className='BooksCalculator__book'
               alt={capitalise(book.toLowerCase()) + ' book'}
-            />
-            <Image
-              src={
-                target === 'FUSION_STONES'
-                  ? '/assets/images/stones.png'
-                  : getRarityImage(target.toLowerCase())
-              }
-              className='BooksCalculator__image'
-              alt=''
             />
           </div>
         </Column>

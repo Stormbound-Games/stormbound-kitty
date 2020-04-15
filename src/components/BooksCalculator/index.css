@@ -27,4 +27,9 @@
 .BooksCalculator__result {
   font-size: 200%;
   margin-top: 0.75em;
+  display: block;
+}
+
+.BooksCalculator__toggle {
+  color: var(--beige);
 }

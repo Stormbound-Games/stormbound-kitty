@@ -1,3 +1,5 @@
+import countCardsForRarity from '../helpers/countCardsForRarity'
+
 export const FACTIONS = {
   neutral: 'N',
   winter: 'W',
@@ -64,10 +66,40 @@ export const RARITY_COPIES = {
 }
 
 export const BOOKS = {
-  MYTHIC: { percentiles: [0, 0, 70, 30], draws: 6 },
-  HEROIC: { percentiles: [0, 70, 25, 5], draws: 6 },
-  CLASSIC: { percentiles: [70, 25, 4, 1], draws: 6 },
-  NOBLE: { percentiles: [70, 25, 4, 1], draws: 3 },
-  ELDER: { percentiles: [0, 67, 30, 3], draws: 1 },
-  HUMBLE: { percentiles: [70, 25, 4, 1], draws: 1 },
+  MYTHIC: { percentiles: [0, 0, 0.7, 0.3], draws: 6 },
+  HEROIC: { percentiles: [0, 0.7, 0.25, 0.05], draws: 6 },
+  CLASSIC: { percentiles: [0.7, 0.25, 0.04, 0.01], draws: 6 },
+  NOBLE: { percentiles: [0.7, 0.25, 0.04, 0.01], draws: 3 },
+  ELDER: { percentiles: [0, 0.67, 0.3, 0.03], draws: 1 },
+  HUMBLE: { percentiles: [0.7, 0.25, 0.04, 0.01], draws: 1 },
+}
+
+export const PRE_MADE_EXPECTATIONS = {
+  FUSION_STONES: { label: 'Fusion stones', expectations: [1, 1, 1, 1] },
+  SPECIFIC_COMMON: {
+    label: 'a specific common card',
+    expectations: [1, 0, 0, 0],
+  },
+  SPECIFIC_RARE: { label: 'a specific rare card', expectations: [0, 1, 0, 0] },
+  SPECIFIC_EPIC: { label: 'a specific epic card', expectations: [0, 0, 1, 0] },
+  SPECIFIC_LEGENDARY: {
+    label: 'a specific legendary card',
+    expectations: [0, 0, 0, 1],
+  },
+  ANY_COMMON: {
+    label: 'any common card',
+    expectations: [countCardsForRarity('common'), 0, 0, 0],
+  },
+  ANY_RARE: {
+    label: 'any rare card',
+    expectations: [0, countCardsForRarity('rare'), 0, 0],
+  },
+  ANY_EPIC: {
+    label: 'any epic card',
+    expectations: [0, 0, countCardsForRarity('epic'), 0],
+  },
+  ANY_LEGENDARY: {
+    label: 'any legendary card',
+    expectations: [0, 0, 0, countCardsForRarity('legendary')],
+  },
 }
