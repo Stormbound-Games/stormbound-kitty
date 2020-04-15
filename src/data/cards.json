@@ -1135,9 +1135,9 @@
     "rarity": "legendary",
     "image": "/assets/images/cards/edrik_the_fierce.png",
     "mana": 4,
-    "strength": "3/4/4/6/7",
+    "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On play, *spawn 3/3/4/5/6* strength Knights in front of all surrounding enemy units",
+    "ability": "On play, *spawn 3/4/5/6/7* strength Knights in front of all surrounding enemy units",
     "hero": true
   },
   {
