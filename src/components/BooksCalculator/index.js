@@ -1,5 +1,5 @@
 import React from 'react'
-import { BOOKS, PRE_MADE_EXPECTATIONS } from '../../constants/game'
+import { RARITIES, BOOKS, PRE_MADE_EXPECTATIONS } from '../../constants/game'
 import BookExplanation from '../BookExplanation'
 import BookOdds from '../BookOdds'
 import Column from '../Column'
@@ -13,6 +13,7 @@ import capitalise from '../../helpers/capitalise'
 import countCardsForRarity from '../../helpers/countCardsForRarity'
 import './index.css'
 
+const clamp = (min, value, max) => Math.min(Math.max(Number(value), 0), max)
 const BooksCalculator = props => {
   const [isAdvancedMode, setIsAdvancedMode] = React.useState(false)
   const [book, setBook] = React.useState('MYTHIC')
@@ -28,7 +29,11 @@ const BooksCalculator = props => {
   const setExpectation = index => value =>
     setExpectations(expectations => [
       ...expectations.slice(0, index),
-      Number(value),
+      clamp(
+        0,
+        Number(value),
+        countCardsForRarity(Object.keys(RARITIES)[index])
+      ),
       ...expectations.slice(index + 1),
     ])
 
