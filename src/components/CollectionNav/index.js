@@ -10,6 +10,9 @@ const CollectionNav = props => (
         </NavLink>
       </li>
       <li className='Header__item'>
+        <NavLink to='/collection/stats'>Stats</NavLink>
+      </li>
+      <li className='Header__item--right'>
         <NavLink to='/collection/books'>Books Calculator</NavLink>
       </li>
     </ul>
