@@ -3,7 +3,7 @@ import { RARITIES, BOOKS } from '../constants/game'
 
 const RARITY_NAMES = Object.keys(RARITIES).map(rarity => rarity.toUpperCase())
 const CARD_COUNTS = Object.keys(RARITIES).map(
-  rarity => cards.filter(card => card.rarity === rarity).length
+  rarity => cards.filter(card => card.rarity === rarity).length + 1
 )
 
 /**
@@ -33,7 +33,7 @@ const getProbability = (bookType, target) => sequence => {
     // stones exist in all rarities; otherwise, only update the probability if
     // the drawn card’s rarity matches the rarity of the expected card
     if (target === 'FUSION_STONES' || RARITY_NAMES.indexOf(target) === rarity) {
-      probability *= pools[rarity] / (pools[rarity] + 1)
+      probability *= (pools[rarity] - 1) / pools[rarity]
     }
 
     pools[rarity] -= 1
