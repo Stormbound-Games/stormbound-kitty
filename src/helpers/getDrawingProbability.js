@@ -1,15 +1,63 @@
 import cards from '../data/cards'
-import { RARITIES, BOOKS } from '../constants/game'
+import { RARITIES as RARITY_MAP, BOOKS } from '../constants/game'
 
-const RARITY_NAMES = Object.keys(RARITIES).map(rarity => rarity.toUpperCase())
-const CARD_COUNTS = Object.keys(RARITIES).map(
-  rarity => cards.filter(card => card.rarity === rarity).length + 1
-)
+const RARITIES = Object.keys(RARITY_MAP).map(rarity => rarity.toUpperCase())
 
 /**
+ * Return the amount of cards of the specified rarity, plus one for the fusion
+ * stones slot which exists in every rarity.``
+ * @param {String} rarity - One of the four rarities (uppercase)
+ * @return {Number}
+ */
+const countCardsForRarity = rarity =>
+  cards.filter(card => card.rarity === rarity).length + 1 /* Fusion Stones */
+
+/**
+ * Add 2 numbers and return their sum
+ * @param {Number} a - First number
+ * @param {Number} b - Second number
+ * @return {Number} Sum of a and b
+ */
+const sum = (a, b) => a + b
+
+/**
+ *
+ */
+const base = index =>
+  index < RARITIES.length
+    ? [index]
+    : base(Math.floor(index / RARITIES.length)).concat(index % RARITIES.length)
+
+/**
+ * Pad given array up to a certain length with a certain padding value
+ * @param {Array} array - Array to pad
+ * @param {Number} length - Desired array length
+ * @param {*} padding - Padding value
+ * @return Array of expected length
+ */
+const arrayPad = (array, length, padding) =>
+  array.join('').padStart(length, padding).split('').map(Number)
+
+/**
+ * Generate a drawing sequence of length `draws` for given index
+ * @param {Number} index - Index
+ * @param {Number} draws - Amount of draws in a book
+ * @return {Number[]} Drawing sequence
+ */
+const getSequence = (index, draws) => arrayPad(base(index), draws, '0')
+
+/**
+ * Array of amount of cards (including fusion stones) for each rarity from
+ * common up to legendary
+ */
+const CARD_COUNTS = Object.keys(RARITY_MAP).map(countCardsForRarity)
+
+/**
+ * Get the probability of pulling the given sequence
  * @param {String} bookType - Type of book (e.g. `MYTHIC`)
  * @param {String} target - `FUSION_STONES` or a rarity (e.g. `LEGENDARY`)
  * @param {Number[]} sequence - Sequence
+ * @return {Float} Probability between 0 and 1
  */
 const getProbability = (bookType, target) => sequence => {
   // `draws` is the number of cards in a book (1, 3 or 6)
@@ -32,7 +80,7 @@ const getProbability = (bookType, target) => sequence => {
     // If looking for fusion stones, any rarity does the trick are fusion
     // stones exist in all rarities; otherwise, only update the probability if
     // the drawn card’s rarity matches the rarity of the expected card
-    if (target === 'FUSION_STONES' || RARITY_NAMES.indexOf(target) === rarity) {
+    if (target === 'FUSION_STONES' || RARITIES.indexOf(target) === rarity) {
       probability *= (pools[rarity] - 1) / pools[rarity]
     }
 
@@ -42,32 +90,28 @@ const getProbability = (bookType, target) => sequence => {
   return probability
 }
 
-const sum = (a, b) => a + b
-
-const base = n => (n < 4 ? [n] : [...base(Math.floor(n / 4)), n % 4])
-
-const convert = (n, length) =>
-  base(n).join('').padStart(length, '0').split('').map(Number)
-
+/**
+ * Get the drawing probability of the given target in the given book type
+ * @param {String} bookType - Type of book (e.g. `MYTHIC`)
+ * @param {String} target - Expected outcome (e.g. `FUSION_STONES` or `EPIC`)
+ * @return {Float} Probability between 0 and 1
+ */
 const getDrawingProbability = (bookType, target) => {
-  if (typeof BOOKS[bookType] === 'undefined') {
-    throw new Error('Unknown book type: ' + bookType)
-  }
-
   const { draws, percentiles } = BOOKS[bookType]
 
-  if (percentiles[RARITY_NAMES.indexOf(target)] === 0) {
+  // If the expected rarity cannot be found in the given book type, return a
+  // probability of `0`.
+  if (percentiles[RARITIES.indexOf(target)] === 0) {
     return 0
   }
 
-  const getCardProbability = getProbability(bookType, target)
-  const sequences = Array.from({ length: 4 ** draws }, (_, index) =>
-    convert(index, draws)
-  )
-  const probabilities = sequences.map(getCardProbability)
-  const total = probabilities.reduce(sum, 0)
+  // Generate `length` possible drawing sequences where `length` is the amount
+  // of rarities (4) times the number of draws (based on book type).
+  const length = RARITIES.length ** draws
+  const getSequenceProbability = getProbability(bookType, target)
+  const sequences = Array.from({ length }, (_, i) => getSequence(i, draws))
 
-  return 1 - total
+  return 1 - sequences.map(getSequenceProbability).reduce(sum, 0)
 }
 
 export default getDrawingProbability
