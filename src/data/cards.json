@@ -2107,7 +2107,7 @@
     "elder": true
   },
   {
-    "name": "Token Construct",
+    "name": "Token Constructs",
     "id": "T1",
     "token": true,
     "type": "unit",
@@ -2121,7 +2121,7 @@
     "ability": null
   },
   {
-    "name": "Token Frostling",
+    "name": "Token Frostlings",
     "id": "T2",
     "token": true,
     "type": "unit",
@@ -2135,7 +2135,7 @@
     "ability": null
   },
   {
-    "name": "Token Knight",
+    "name": "Token Knights",
     "id": "T3",
     "token": true,
     "type": "unit",
@@ -2149,7 +2149,7 @@
     "ability": null
   },
   {
-    "name": "Token Pirate",
+    "name": "Token Pirates",
     "id": "T4",
     "token": true,
     "type": "unit",
@@ -2163,7 +2163,7 @@
     "ability": null
   },
   {
-    "name": "Token Raven",
+    "name": "Token Ravens",
     "id": "T5",
     "token": true,
     "type": "unit",
@@ -2177,7 +2177,7 @@
     "ability": null
   },
   {
-    "name": "Token Rodent",
+    "name": "Token Rodents",
     "id": "T6",
     "token": true,
     "type": "unit",
@@ -2191,7 +2191,7 @@
     "ability": null
   },
   {
-    "name": "Token Satyr",
+    "name": "Token Satyrs",
     "id": "T7",
     "token": true,
     "type": "unit",
@@ -2205,7 +2205,7 @@
     "ability": null
   },
   {
-    "name": "Token Toad",
+    "name": "Token Toads",
     "id": "T8",
     "token": true,
     "type": "unit",
@@ -2233,7 +2233,7 @@
     "ability": null
   },
   {
-    "name": "Token Dwarf",
+    "name": "Token Dwarves",
     "id": "T10",
     "token": true,
     "type": "unit",
@@ -2247,7 +2247,7 @@
     "ability": null
   },
   {
-    "name": "Token Dragon",
+    "name": "Token Dragons",
     "id": "T11",
     "token": true,
     "type": "unit",
@@ -2275,7 +2275,7 @@
     "ability": null
   },
   {
-    "name": "Token Feline",
+    "name": "Token Felines",
     "id": "T13",
     "token": true,
     "type": "unit",
@@ -2289,7 +2289,7 @@
     "ability": null
   },
   {
-    "name": "Token Elder",
+    "name": "Token Elders",
     "id": "T14",
     "token": true,
     "type": "unit",
