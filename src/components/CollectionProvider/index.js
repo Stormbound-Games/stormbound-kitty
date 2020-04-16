@@ -1,4 +1,5 @@
 import React from 'react'
+import { NotificationContext } from '../NotificationProvider'
 import cards from '../../data/cards'
 
 export const CollectionContext = React.createContext([])
@@ -18,13 +19,22 @@ const STORAGE_KEY = 'sk.collection'
 
 const CollectionProvider = props => {
   const [collection, setCollection] = React.useState(DEFAULT_COLLECTION)
+  const { notify: sendNotification } = React.useContext(NotificationContext)
+
+  const notify = React.useCallback(
+    message => sendNotification({ icon: 'books', children: message }),
+    [sendNotification]
+  )
 
   React.useEffect(() => {
     try {
       const savedCollection = JSON.parse(localStorage.getItem(STORAGE_KEY))
-      if (savedCollection.length > 0) setCollection(savedCollection)
+      if (savedCollection.length > 0) {
+        setCollection(savedCollection)
+        notify('Locally saved collection found and loaded.')
+      }
     } catch (error) {}
-  }, [])
+  }, [notify])
 
   React.useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(collection))
@@ -36,6 +46,7 @@ const CollectionProvider = props => {
         'Are you sure you want to clear your collection? It cannot be undone, so make sure you have exported it to CSV beforehand.'
       )
     ) {
+      notify('Local collection cleared and reseted to the default one.')
       localStorage.removeItem(STORAGE_KEY)
       setCollection(DEFAULT_COLLECTION)
     }

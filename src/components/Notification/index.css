@@ -1,0 +1,30 @@
+.Notification {
+  width: 18em;
+  position: fixed;
+  background-color: var(--black);
+  border: 1px double var(--beige);
+  right: 1.5em;
+  bottom: 1.5em;
+  padding: 1em;
+  border-radius: 4px;
+  box-shadow: 0 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+
+.Notification .icon {
+  transform: translateY(2px);
+}
+
+@media (max-width: 699px) {
+  .Notification {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 0;
+    border-top: 1px solid var(--beige);
+    width: 100%;
+    font-size: 90%;
+    border-radius: 0;
+    box-shadow: 0 -0.2em 0 0.25em rgba(0, 0, 0, 0.1);
+  }
+}

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
 import decks from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
+import { NotificationContext } from '../NotificationProvider'
 import CollectionClearHint from '../CollectionClearHint'
 import CardLevelField from '../DeckBuilderCardLevelField'
 import CardsGallery from '../CardsGallery'
@@ -23,7 +24,7 @@ import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import './index.css'
 
 class DeckBuilderEditorView extends React.Component {
-  state = { cardLevel: 1, hasImported: null }
+  state = { cardLevel: 1 }
 
   componentDidMount() {
     document.addEventListener('keydown', this.captureKeyboardEvents)
@@ -65,19 +66,20 @@ class DeckBuilderEditorView extends React.Component {
     if (!collection) return
 
     this.props.updateCollection(collection)
-    this.setState({ hasImported: true }, () => {
-      setTimeout(() => this.setState({ hasImported: null }), 3000)
-      this.props.deck.forEach(cardInDeck => {
-        const cardInCollection = collection.find(
-          cardInCollection => cardInCollection.id === cardInDeck.id
-        )
+    this.props.notify({
+      icon: 'books',
+      children: 'Your collection has been successfully imported.',
+    })
+    this.props.deck.forEach(cardInDeck => {
+      const cardInCollection = collection.find(
+        cardInCollection => cardInCollection.id === cardInDeck.id
+      )
 
-        if (cardInCollection.missing) {
-          this.props.removeCardFromDeck({ id: cardInDeck.id })
-        } else if (cardInCollection.level !== cardInDeck.level) {
-          this.addCardToDeck(cardInDeck.id)
-        }
-      })
+      if (cardInCollection.missing) {
+        this.props.removeCardFromDeck({ id: cardInDeck.id })
+      } else if (cardInCollection.level !== cardInDeck.level) {
+        this.addCardToDeck(cardInDeck.id)
+      }
     })
   }
 
@@ -168,14 +170,6 @@ class DeckBuilderEditorView extends React.Component {
                 )}
               </Column>
             </Row>
-
-            {this.state.hasImported !== null && (
-              <p>
-                {this.state.hasImported
-                  ? '✓ Your collection has been successfully imported!'
-                  : '✘ Unfortunately their was an error importing your collection.'}
-              </p>
-            )}
           </Column>
 
           <Column width={66}>
@@ -237,6 +231,7 @@ class DeckBuilderEditorView extends React.Component {
 
 export default hookIntoProps(() => ({
   ...React.useContext(CollectionContext),
+  ...React.useContext(NotificationContext),
   viewportWidth: useViewportWidth(),
   deckId: useRouteMatch().params.deckId,
 }))(props => <DeckBuilderEditorView {...props} />)

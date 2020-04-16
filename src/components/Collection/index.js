@@ -12,6 +12,7 @@ import CardsFiltering from '../CardsFiltering'
 import Filters from '../CollectionFilters'
 import ImportCollection from '../ImportCollection'
 import PageMeta from '../PageMeta'
+import { NotificationContext } from '../NotificationProvider'
 import Row from '../Row'
 import Title from '../Title'
 import download from '../../helpers/download'
@@ -24,7 +25,7 @@ class Collection extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { activeCard: null, hasImported: null }
+    this.state = { activeCard: null }
 
     this.levelField = React.createRef()
   }
@@ -56,8 +57,9 @@ class Collection extends React.Component {
   uploadCSV = data => {
     if (data) {
       this.props.updateCollection(data)
-      this.setState({ hasImported: true }, () => {
-        setTimeout(() => this.setState({ hasImported: null }), 3000)
+      this.props.notify({
+        icon: 'books',
+        children: 'Your collection has been successfully imported.',
       })
     }
   }
@@ -81,12 +83,17 @@ class Collection extends React.Component {
     return data
   }
 
-  download = () =>
+  download = () => {
     download({
       content: this.formatCollectionAsCSV(this.props.collection),
       fileName: 'collection.csv',
       mimeType: 'text/csv;encoding:utf-8',
     })
+    this.props.notify({
+      icon: 'books',
+      children: 'Your collection has been successfully exported.',
+    })
+  }
 
   updateActiveCardInCollection = (key, value) => {
     this.props.updateCollection(collection => {
@@ -174,14 +181,6 @@ class Collection extends React.Component {
                   </CTA>
                 </Column>
               </Row>
-
-              {this.state.hasImported !== null && (
-                <span>
-                  {this.state.hasImported
-                    ? '✓ Your collection has been successfully imported!'
-                    : '✘ Unfortunately their was an error importing your collection.'}
-                </span>
-              )}
             </div>
 
             {this.state.activeCard ? (
@@ -251,6 +250,7 @@ class Collection extends React.Component {
   }
 }
 
-export default hookIntoProps(() => React.useContext(CollectionContext))(
-  Collection
-)
+export default hookIntoProps(() => ({
+  ...React.useContext(CollectionContext),
+  ...React.useContext(NotificationContext),
+}))(Collection)

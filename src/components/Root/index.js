@@ -1,6 +1,7 @@
 import React from 'react'
 import CollectionProvider from '../CollectionProvider'
 import ErrorBoundary from '../ErrorBoundary'
+import NotificationProvider from '../NotificationProvider'
 import Router from '../Router'
 import supportsWebp from '../../helpers/supportsWebp'
 
@@ -13,9 +14,11 @@ const Root = props => {
 
   return (
     <ErrorBoundary>
-      <CollectionProvider>
-        <Router />
-      </CollectionProvider>
+      <NotificationProvider>
+        <CollectionProvider>
+          <Router />
+        </CollectionProvider>
+      </NotificationProvider>
     </ErrorBoundary>
   )
 }
