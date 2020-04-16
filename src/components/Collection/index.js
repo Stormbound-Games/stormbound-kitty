@@ -4,7 +4,6 @@ import ActiveCardForm from '../CollectionActiveCardForm'
 import CardsGallery from '../CardsGallery'
 import { CollectionContext } from '../CollectionProvider'
 import CollectionClearHint from '../CollectionClearHint'
-import CollectionStats from '../CollectionStats'
 import Column from '../Column'
 import CTA from '../CTA'
 import EmptySearch from '../EmptySearch'
@@ -173,7 +172,7 @@ class Collection extends React.Component {
               </Row>
             </div>
 
-            {this.state.activeCard ? (
+            {this.state.activeCard && (
               <ActiveCardForm
                 activeCard={activeCard}
                 resolvedActiveCard={resolvedActiveCard}
@@ -183,8 +182,6 @@ class Collection extends React.Component {
                 setActiveCardMissing={this.setActiveCardMissing}
                 levelFieldRef={this.levelField}
               />
-            ) : (
-              <CollectionStats collection={this.props.collection} />
             )}
           </Column>
 

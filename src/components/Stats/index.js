@@ -9,6 +9,7 @@ import {
 } from 'recharts'
 import { CollectionContext } from '../CollectionProvider'
 import Checkbox from '../Checkbox'
+import CollectionStats from '../CollectionStats'
 import Column from '../Column'
 import ImportCollection from '../ImportCollection'
 import PageMeta from '../PageMeta'
@@ -149,6 +150,7 @@ const Stats = props => {
               <Column />
             </Row>
           )}
+          <CollectionStats collection={collection} />
         </Column>
         <Column width={66}>
           <Row desktopOnly>
