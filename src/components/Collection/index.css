@@ -5,3 +5,7 @@
 .Collection__info p {
   margin-top: 0;
 }
+
+.Collection__info p:last-of-type {
+  margin-bottom: 2em;
+}

@@ -1,7 +1,9 @@
 import React from 'react'
-import cards from '../../data/cards'
+import hookIntoProps from 'hook-into-props'
 import ActiveCardForm from '../CollectionActiveCardForm'
 import CardsGallery from '../CardsGallery'
+import { CollectionContext } from '../CollectionProvider'
+import CollectionClearHint from '../CollectionClearHint'
 import CollectionStats from '../CollectionStats'
 import Column from '../Column'
 import CTA from '../CTA'
@@ -22,28 +24,9 @@ class Collection extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      collection: this.normaliseCollection(cards),
-      activeCard: null,
-      hasImported: null,
-    }
+    this.state = { activeCard: null, hasImported: null }
 
     this.levelField = React.createRef()
-  }
-
-  componentDidMount() {
-    window.addEventListener('beforeunload', this.warnBeforeUnload)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('beforeunload', this.warnBeforeUnload)
-  }
-
-  warnBeforeUnload = event => {
-    const message = 'Make sure you’ve exported your collection before quitting.'
-    event.preventDefault()
-    event.returnValue = message
-    return message
   }
 
   setActiveCard = id => {
@@ -70,29 +53,13 @@ class Collection extends React.Component {
     })
   }
 
-  normaliseCollection = cards => {
-    return cards
-      .filter(card => !card.token)
-      .map(card => ({
-        id: card.id,
-        level: +card.level || 1,
-        missing: !!card.missing,
-        copies: typeof card.copies === 'undefined' ? 0 : +card.copies,
-      }))
-  }
-
   uploadCSV = data => {
-    this.setState(
-      {
-        collection: data
-          ? this.normaliseCollection(data)
-          : this.state.collection,
-        hasImported: !!data,
-      },
-      () => {
+    if (data) {
+      this.props.updateCollection(data)
+      this.setState({ hasImported: true }, () => {
         setTimeout(() => this.setState({ hasImported: null }), 3000)
-      }
-    )
+      })
+    }
   }
 
   formatCollectionAsCSV = cards => {
@@ -116,26 +83,24 @@ class Collection extends React.Component {
 
   download = () =>
     download({
-      content: this.formatCollectionAsCSV(this.state.collection),
+      content: this.formatCollectionAsCSV(this.props.collection),
       fileName: 'collection.csv',
       mimeType: 'text/csv;encoding:utf-8',
     })
 
   updateActiveCardInCollection = (key, value) => {
-    this.setState(state => {
+    this.props.updateCollection(collection => {
       const { activeCard } = this.state
-      const ids = state.collection.map(card => card.id)
+      const ids = collection.map(card => card.id)
       const index = ids.indexOf(activeCard)
-      const card = this.state.collection.find(card => card.id === activeCard)
+      const card = collection.find(card => card.id === activeCard)
       const newCard = { ...card, [key]: value }
 
-      return {
-        collection: [
-          ...state.collection.slice(0, index),
-          newCard,
-          ...state.collection.slice(index + 1),
-        ],
-      }
+      return [
+        ...collection.slice(0, index),
+        newCard,
+        ...collection.slice(index + 1),
+      ]
     })
   }
 
@@ -149,7 +114,7 @@ class Collection extends React.Component {
     this.updateActiveCardInCollection('missing', event.target.checked)
 
   getActiveCardData = () => {
-    const activeCard = this.state.collection.find(
+    const activeCard = this.props.collection.find(
       card => card.id === this.state.activeCard
     )
 
@@ -163,13 +128,13 @@ class Collection extends React.Component {
   }
 
   isCardUpgradable = id =>
-    isCardUpgradable(this.state.collection.find(card => card.id === id))
+    isCardUpgradable(this.props.collection.find(card => card.id === id))
 
   isCardMissing = id =>
-    this.state.collection.find(card => card.id === id).missing
+    this.props.collection.find(card => card.id === id).missing
 
   render() {
-    const activeCard = this.state.collection.find(
+    const activeCard = this.props.collection.find(
       card => card.id === this.state.activeCard
     )
     const resolvedActiveCard = this.getActiveCardData()
@@ -185,14 +150,19 @@ class Collection extends React.Component {
 
               <p>
                 If you take the time to mark the level of all your cards, as
-                well as the amount of copies you have for each, you can then
-                import and export your collection at will (CSV format).
+                well as the amount of copies you have for each, you can get
+                handy stats such as the amount of fusion stones or gold you need
+                to upgrade your cards.
               </p>
 
               <p>
-                It will give you handy stats such as the amount of fusion stones
-                or gold you need to upgrade your cards.
+                The collection is locally saved in your browser as you update it
+                so you can safely leave or refresh the page. If you want to save
+                it more permanently and synchronise it between device, you can
+                export it as a CSV.
               </p>
+
+              <CollectionClearHint />
 
               <Row>
                 <Column>
@@ -206,11 +176,11 @@ class Collection extends React.Component {
               </Row>
 
               {this.state.hasImported !== null && (
-                <p>
+                <span>
                   {this.state.hasImported
                     ? '✓ Your collection has been successfully imported!'
                     : '✘ Unfortunately their was an error importing your collection.'}
-                </p>
+                </span>
               )}
             </div>
 
@@ -225,7 +195,7 @@ class Collection extends React.Component {
                 levelFieldRef={this.levelField}
               />
             ) : (
-              <CollectionStats collection={this.state.collection} />
+              <CollectionStats collection={this.props.collection} />
             )}
           </Column>
 
@@ -233,7 +203,7 @@ class Collection extends React.Component {
             <Title>Cards Collection</Title>
 
             <CardsFiltering
-              cards={this.state.collection.map(resolveCardForLevel)}
+              cards={this.props.collection.map(resolveCardForLevel)}
             >
               {({
                 filters,
@@ -281,4 +251,6 @@ class Collection extends React.Component {
   }
 }
 
-export default Collection
+export default hookIntoProps(() => React.useContext(CollectionContext))(
+  Collection
+)

@@ -1,4 +1,5 @@
 import React from 'react'
+import CollectionProvider from '../CollectionProvider'
 import ErrorBoundary from '../ErrorBoundary'
 import Router from '../Router'
 import supportsWebp from '../../helpers/supportsWebp'
@@ -12,7 +13,9 @@ const Root = props => {
 
   return (
     <ErrorBoundary>
-      <Router />
+      <CollectionProvider>
+        <Router />
+      </CollectionProvider>
     </ErrorBoundary>
   )
 }

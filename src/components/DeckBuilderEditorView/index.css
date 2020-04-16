@@ -1,3 +1,7 @@
 .DeckBuilderEditorView__help {
   margin-bottom: 2em;
 }
+
+.DeckBuilderEditorView__info p:last-of-type {
+  margin-bottom: 2em;
+}

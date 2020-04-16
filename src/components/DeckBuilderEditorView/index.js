@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
-import cards from '../../data/cards'
 import decks from '../../data/decks'
+import { CollectionContext } from '../CollectionProvider'
+import CollectionClearHint from '../CollectionClearHint'
 import CardLevelField from '../DeckBuilderCardLevelField'
 import CardsGallery from '../CardsGallery'
 import Column from '../Column'
@@ -22,16 +23,7 @@ import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import './index.css'
 
 class DeckBuilderEditorView extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      cardLevel: 1,
-      withCustomCollection: false,
-      collection: cards,
-      hasImported: null,
-    }
-  }
+  state = { cardLevel: 1, hasImported: null }
 
   componentDidMount() {
     document.addEventListener('keydown', this.captureKeyboardEvents)
@@ -59,45 +51,42 @@ class DeckBuilderEditorView extends React.Component {
       return
     }
 
-    const level = this.state.withCustomCollection
-      ? this.state.collection.find(card => card.id === id).level
+    const level = !this.props.hasDefaultCollection
+      ? this.props.collection.find(card => card.id === id).level
       : this.state.cardLevel
 
     this.props.addCardToDeck({ id, level })
   }
 
   isCardMissing = id =>
-    this.state.collection.find(card => card.id === id).missing
+    this.props.collection.find(card => card.id === id).missing
 
-  onCollectionImport = collection =>
-    this.setState(
-      {
-        collection: collection || this.state.collection,
-        hasImported: !!collection,
-        withCustomCollection: true,
-      },
-      () => {
-        setTimeout(() => this.setState({ hasImported: null }), 3000)
-        this.props.deck.forEach(cardInDeck => {
-          const cardInCollection = collection.find(
-            cardInCollection => cardInCollection.id === cardInDeck.id
-          )
+  onCollectionImport = collection => {
+    if (!collection) return
 
-          if (cardInCollection.missing) {
-            this.props.removeCardFromDeck({ id: cardInDeck.id })
-          } else if (cardInCollection.level !== cardInDeck.level) {
-            this.addCardToDeck(cardInDeck.id)
-          }
-        })
-      }
-    )
+    this.props.updateCollection(collection)
+    this.setState({ hasImported: true }, () => {
+      setTimeout(() => this.setState({ hasImported: null }), 3000)
+      this.props.deck.forEach(cardInDeck => {
+        const cardInCollection = collection.find(
+          cardInCollection => cardInCollection.id === cardInDeck.id
+        )
+
+        if (cardInCollection.missing) {
+          this.props.removeCardFromDeck({ id: cardInDeck.id })
+        } else if (cardInCollection.level !== cardInDeck.level) {
+          this.addCardToDeck(cardInDeck.id)
+        }
+      })
+    })
+  }
 
   render() {
     const matchedDeck = decks.find(deck => deck.id === this.props.deckId)
-    const cardCollection = this.state.collection.map(card =>
+    const cardCollection = this.props.collection.map(card =>
       resolveCardForLevel({
         ...card,
-        level: this.state.withCustomCollection
+        level: !this.props.hasDefaultCollection
           ? card.level
           : this.state.cardLevel,
       })
@@ -142,7 +131,7 @@ class DeckBuilderEditorView extends React.Component {
                 {matchedDeck.author}.
               </p>
             ) : (
-              <div>
+              <div className='DeckBuilderEditorView__info'>
                 <p>
                   If you do not know where to start,{' '}
                   <Link to='/guides/deck'>read the deck-building guide</Link> to
@@ -152,7 +141,10 @@ class DeckBuilderEditorView extends React.Component {
                   </Link>
                   .
                 </p>
-                {!this.state.withCustomCollection && (
+
+                <CollectionClearHint />
+
+                {this.props.hasDefaultCollection && (
                   <p>
                     If you have already{' '}
                     <Link to='/collection'>created your collection</Link>, you
@@ -167,11 +159,11 @@ class DeckBuilderEditorView extends React.Component {
               <Column>
                 <RandomDeckButton
                   defineDeck={this.props.defineDeck}
-                  collection={this.state.collection}
+                  collection={this.props.collection}
                 />
               </Column>
               <Column>
-                {!this.state.withCustomCollection && (
+                {this.props.hasDefaultCollection && (
                   <ImportCollection onChange={this.onCollectionImport} />
                 )}
               </Column>
@@ -216,7 +208,7 @@ class DeckBuilderEditorView extends React.Component {
                         }
                         isCardMissing={this.isCardMissing}
                         navChildren={
-                          this.state.withCustomCollection ? null : (
+                          !this.props.hasDefaultCollection ? null : (
                             <CardLevelField
                               cardLevel={this.state.cardLevel}
                               setCardLevel={this.setCardLevel}
@@ -244,6 +236,7 @@ class DeckBuilderEditorView extends React.Component {
 }
 
 export default hookIntoProps(() => ({
+  ...React.useContext(CollectionContext),
   viewportWidth: useViewportWidth(),
   deckId: useRouteMatch().params.deckId,
 }))(props => <DeckBuilderEditorView {...props} />)
