@@ -916,13 +916,13 @@
     "ability": "On play, *gain 3/3/4/5/6* strength for each Pirate in your hand"
   },
   {
-    "name": "Ludic Matriarch",
+    "name": "Ludic Matriarchs",
     "id": "N43",
     "type": "unit",
     "faction": "neutral",
     "race": "dragon",
     "rarity": "epic",
-    "image": "/assets/images/cards/ludic_matriarch.png",
+    "image": "/assets/images/cards/ludic_matriarchs.png",
     "mana": 6,
     "strength": "5/7/7/9/10",
     "movement": 0,
