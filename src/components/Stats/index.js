@@ -141,12 +141,14 @@ const Stats = props => {
               before the next level.
             </p>
           </div>
-          <Row desktopOnly>
-            <Column>
-              <ImportCollection />
-            </Column>
-            <Column />
-          </Row>
+          {hasDefaultCollection && (
+            <Row desktopOnly>
+              <Column>
+                <ImportCollection />
+              </Column>
+              <Column />
+            </Row>
+          )}
         </Column>
         <Column width={66}>
           <Row desktopOnly>
