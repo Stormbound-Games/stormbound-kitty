@@ -65,11 +65,6 @@ class DeckBuilderEditorView extends React.Component {
   onCollectionImport = collection => {
     if (!collection) return
 
-    this.props.updateCollection(collection)
-    this.props.notify({
-      icon: 'books',
-      children: 'Your collection has been successfully imported.',
-    })
     this.props.deck.forEach(cardInDeck => {
       const cardInCollection = collection.find(
         cardInCollection => cardInCollection.id === cardInDeck.id

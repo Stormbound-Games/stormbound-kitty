@@ -54,16 +54,6 @@ class Collection extends React.Component {
     })
   }
 
-  uploadCSV = data => {
-    if (data) {
-      this.props.updateCollection(data)
-      this.props.notify({
-        icon: 'books',
-        children: 'Your collection has been successfully imported.',
-      })
-    }
-  }
-
   formatCollectionAsCSV = cards => {
     const headers = ['id', 'name', 'level', 'copies']
     const data = [
@@ -173,7 +163,7 @@ class Collection extends React.Component {
 
               <Row>
                 <Column>
-                  <ImportCollection onChange={this.uploadCSV} />
+                  <ImportCollection />
                 </Column>
                 <Column>
                   <CTA type='button' onClick={this.download}>

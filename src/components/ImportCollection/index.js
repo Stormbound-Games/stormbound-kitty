@@ -1,26 +1,39 @@
 import React from 'react'
+import { CollectionContext } from '../CollectionProvider'
+import { NotificationContext } from '../NotificationProvider'
 import cards from '../../data/cards'
 import chunk from '../../helpers/chunk'
 import './index.css'
 
-const onFileUpload = onChange => event => {
-  const file = event.target.files[0]
+const useFileUpload = onChange => {
+  const { updateCollection } = React.useContext(CollectionContext)
+  const { notify } = React.useContext(NotificationContext)
 
-  if (!file) return
+  return event => {
+    const file = event.target.files[0]
 
-  const reader = new FileReader()
+    if (!file) return
 
-  try {
-    reader.readAsText(file)
-  } catch (error) {
-    onChange(null)
-  }
+    const reader = new FileReader()
 
-  reader.onload = event => {
     try {
-      onChange(parseCSVData(event.target.result))
+      reader.readAsText(file)
     } catch (error) {
-      onChange(null)
+      if (onChange) onChange(null)
+    }
+
+    reader.onload = event => {
+      try {
+        const data = parseCSVData(event.target.result)
+        updateCollection(data)
+        notify({
+          icon: 'books',
+          children: 'Your collection has been successfully imported.',
+        })
+        if (onChange) onChange(data)
+      } catch (error) {
+        if (onChange) onChange(null)
+      }
     }
   }
 }
@@ -63,20 +76,24 @@ const parseCSVData = data => {
     })
 }
 
-const ImportCollection = props => (
-  <div className='ImportCollection'>
-    <label htmlFor='import' className='CTA ImportCollection__button'>
-      <span className='CTA__content'>Import collection</span>
-    </label>
-    <input
-      id='import'
-      name='import'
-      type='file'
-      accept='.csv'
-      onChange={onFileUpload(props.onChange)}
-      className='ImportCollection__file'
-    />
-  </div>
-)
+const ImportCollection = props => {
+  const onFileUpload = useFileUpload(props.onChange)
+
+  return (
+    <div className='ImportCollection'>
+      <label htmlFor='import' className='CTA ImportCollection__button'>
+        <span className='CTA__content'>Import collection</span>
+      </label>
+      <input
+        id='import'
+        name='import'
+        type='file'
+        accept='.csv'
+        onChange={onFileUpload}
+        className='ImportCollection__file'
+      />
+    </div>
+  )
+}
 
 export default ImportCollection
