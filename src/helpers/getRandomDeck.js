@@ -123,7 +123,7 @@ const getRandomDeck = options => {
     }
   }
 
-  return deck.map(card => ({ id: card.id, level: 1 }))
+  return deck.map(card => ({ id: card.id, level: card.level || 1 }))
 }
 
 export default getRandomDeck

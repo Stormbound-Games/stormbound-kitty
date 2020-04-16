@@ -154,10 +154,7 @@ class DeckBuilderEditorView extends React.Component {
 
             <Row>
               <Column>
-                <RandomDeckButton
-                  defineDeck={this.props.defineDeck}
-                  collection={this.props.collection}
-                />
+                <RandomDeckButton defineDeck={this.props.defineDeck} />
               </Column>
               <Column>
                 {this.props.hasDefaultCollection && (

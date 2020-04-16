@@ -1,5 +1,7 @@
 import React from 'react'
+import hookIntoProps from 'hook-into-props'
 import { FACTIONS } from '../../constants/game'
+import { CollectionContext } from '../CollectionProvider'
 import Column from '../Column'
 import CTA from '../CTA'
 import Dialog from '../Dialog'
@@ -10,7 +12,7 @@ import arrayRandom from '../../helpers/arrayRandom'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import './index.css'
 
-export default class DeckBuilderRandomDeckButton extends React.Component {
+class DeckBuilderRandomDeckButton extends React.Component {
   state = {
     faction: '*',
     minFactionCards: 0,
@@ -143,3 +145,7 @@ export default class DeckBuilderRandomDeckButton extends React.Component {
     )
   }
 }
+
+export default hookIntoProps(() => ({
+  ...React.useContext(CollectionContext),
+}))(DeckBuilderRandomDeckButton)
