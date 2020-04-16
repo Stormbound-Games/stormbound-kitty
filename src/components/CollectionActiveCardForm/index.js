@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import CardUpgradeStats from '../CardUpgradeStats'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
@@ -65,25 +64,16 @@ const CollectionActiveCardForm = props => (
         </Column>
         <Column>
           <CTA
-            href={`/card/${serialiseCardFromCollection(
+            to={`/card/${serialiseCardFromCollection(
               props.activeCard.id
             )}/display`}
-            target='_blank'
-            rel='noopener noreferrer'
           >
-            Card detail
+            Card details
           </CTA>
         </Column>
       </Row>
 
       <CardUpgradeStats {...props.activeCard} />
-
-      <p>
-        <Link to={`/card/${props.resolvedActiveCard.id}/display`}>
-          Open {props.resolvedActiveCard.name} in the card builder
-        </Link>
-        .
-      </p>
     </form>
   </>
 )
