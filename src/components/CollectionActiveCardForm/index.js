@@ -5,7 +5,6 @@ import Column from '../Column'
 import CTA from '../CTA'
 import Row from '../Row'
 import Title from '../Title'
-import { serialiseCardFromCollection } from '../../helpers/serialise'
 
 const CollectionActiveCardForm = props => (
   <>
@@ -63,13 +62,7 @@ const CollectionActiveCardForm = props => (
           </Checkbox>
         </Column>
         <Column>
-          <CTA
-            to={`/card/${serialiseCardFromCollection(
-              props.activeCard.id
-            )}/display`}
-          >
-            Card details
-          </CTA>
+          <CTA to={`/card/${props.activeCard.id}/display`}>Card details</CTA>
         </Column>
       </Row>
 
