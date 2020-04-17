@@ -11,5 +11,5 @@ ReactDOM.render(<Root />, document.getElementById('root'))
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister({
   onUpdate: () => console.log('Service worker updated.'),
-  onSuccess: () => console.log('Service worker installed.')
+  onSuccess: () => console.log('Service worker installed.'),
 })

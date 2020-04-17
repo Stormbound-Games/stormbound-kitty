@@ -66,8 +66,7 @@ For example, consider the following situation:
 
 Units 1 to 9 all possess Death Triggered Effect (DTE) and all have 1 strength. You then use Toxic Sacrifice on Unit 5. All the other units take X damage.
 
-The first unit to trigger its effect will be unit 5 because it dies first (cost of the spell). Then the remaining units will all die at the same time (i.e. they will not be affected by the DTE of the others).
-Now comes the question of resolution of the DTE. They will resolve on the same order as an attack pattern of the non-active player (i.e. from right to left then front to back if it is your turn and vice versa, if it’s the enemy turn).
+The first unit to trigger its effect will be unit 5 because it dies first (cost of the spell). Then the remaining units will all die at the same time (i.e. they will not be affected by the DTE of the others). Now comes the question of resolution of the DTE. They will resolve on the same order as an attack pattern of the non-active player (i.e. from right to left then front to back if it is your turn and vice versa, if it’s the enemy turn).
 
 In the case where YOU play Toxic Sacrifice, the DTE will resolve in this order: 5, 9, 8, 7, 6, 4, 3, 2, 1. If the opponent plays Toxic Sacrifice: 5, 1, 2, 3, 4, 6, 7, 8, 9.
 
@@ -135,8 +134,7 @@ Being able to keep your line closest to the enemy base is the essence of this ga
 
 The real question you have to ask yourself before playing a unit is, **“do I prefer Board Presence or Board Control?”**
 
-Board Presence is having units on the board, Board Control is not having enemy units on the board. Control decks will need to prioritize Board Control where aggro decks will prioritize Board Presence. Medium decks will have to do both if they want to be effective. Good cards for that are Witches of the Wild, Amberhides, high level Victors of the Melee, Blood Ministers, Rockworkers, Armed Schemers…
-That is why I think playing a medium deck is hard. You have to make more decision like this. What you can do to help you chose is to know what your opponent is playing.
+Board Presence is having units on the board, Board Control is not having enemy units on the board. Control decks will need to prioritize Board Control where aggro decks will prioritize Board Presence. Medium decks will have to do both if they want to be effective. Good cards for that are Witches of the Wild, Amberhides, high level Victors of the Melee, Blood Ministers, Rockworkers, Armed Schemers… That is why I think playing a medium deck is hard. You have to make more decision like this. What you can do to help you chose is to know what your opponent is playing.
 
 If your opponent is playing Control, do not do their job for them: prioritize Board Presence. On the opposite, if the opponent is playing Board Presence, prefer Board Control.
 
@@ -312,9 +310,7 @@ Always try to find good combination of cards in your deck. Those are what make y
 
 ### How to evaluate a card
 
-To compare cards I often do as follow: I look how much strength it brought to the board and add 2 for a 1-speed unit and 3 for a 2-speed unit, and then I compare it with same-cost cards. I also subtract the strength it gives to the enemy or take from my side. I try not to compare cards with different costs.
-For example, Level 5 Gifted Recruits is 5+2 for 2 mana, Linked Golems at level 3 is 3(+6) +2 for 3 mana.
-This way, I can make rationalized choices for my deck. Of course, you also have to take into consideration all the previous point about synergies and coherence.
+To compare cards I often do as follow: I look how much strength it brought to the board and add 2 for a 1-speed unit and 3 for a 2-speed unit, and then I compare it with same-cost cards. I also subtract the strength it gives to the enemy or take from my side. I try not to compare cards with different costs. For example, Level 5 Gifted Recruits is 5+2 for 2 mana, Linked Golems at level 3 is 3(+6) +2 for 3 mana. This way, I can make rationalized choices for my deck. Of course, you also have to take into consideration all the previous point about synergies and coherence.
 
 ## Economy advice
 
@@ -326,7 +322,4 @@ I do not recommend going for the max gold/day for new players, as it is not as r
 
 ## Contact me
 
-I go to the subreddit (r/stormbound) daily and always try to respond to the people asking for some advice. I’m always open to discussion.
-I’m also active on the official Discord Server of the game.
-Feel free to contact me (u/Arikrat) or to add me ingame (ID 1001572357).
-Thank you for your time reading this.
+I go to the subreddit (r/stormbound) daily and always try to respond to the people asking for some advice. I’m always open to discussion. I’m also active on the official Discord Server of the game. Feel free to contact me (u/Arikrat) or to add me ingame (ID 1001572357). Thank you for your time reading this.

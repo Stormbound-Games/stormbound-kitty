@@ -1,0 +1,14 @@
+{
+  "extends": ["react-app"],
+  "overrides": [
+    {
+      "files": ["cypress/**/*.js"],
+      "globals": {
+        "cy": "readonly",
+        "Cypress": "readonly",
+        "before": "readonly",
+        "beforeEach": "readonly"
+      }
+    }
+  ]
+}
