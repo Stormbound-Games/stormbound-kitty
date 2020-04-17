@@ -1,30 +1,6 @@
 import { RARITIES, BOOKS } from '../constants/game'
 import countCardsForRarity from '../helpers/countCardsForRarity'
-
-const rarities = Object.keys(RARITIES).length
-
-const base = index =>
-  index < rarities
-    ? [index]
-    : base(Math.floor(index / rarities)).concat(index % rarities)
-
-/**
- * Pad given array up to a certain length with a certain padding value
- * @param {Array} array - Array to pad
- * @param {Number} length - Desired array length
- * @param {*} padding - Padding value
- * @return Array of expected length
- */
-const arrayPad = (array, length, padding) =>
-  array.join('').padStart(length, padding).split('').map(Number)
-
-/**
- * Generate a drawing sequence of length `draws` for given index
- * @param {Number} index - Index
- * @param {Number} draws - Amount of draws in a book
- * @return {Number[]} Drawing sequence
- */
-const getSequence = (index, draws) => arrayPad(base(index), draws, '0')
+import getDrawingSequences from '../helpers/getDrawingSequences'
 
 /**
  * Get the probability of pulling the given sequence
@@ -83,14 +59,8 @@ const getDrawingProbability = (bookType, expectations) => {
     return 0
   }
 
-  // If the expected rarity cannot be found in the given book type, return a
-  // probability of `0`.
-
-  // Generate `length` possible drawing sequences where `length` is the amount
-  // of rarities (4) times the number of draws (based on book type).
-  const length = rarities ** draws
   const getSequenceProbability = getProbability(bookType, expectations)
-  const sequences = Array.from({ length }, (_, i) => getSequence(i, draws))
+  const sequences = getDrawingSequences(draws)
 
   return 1 - sequences.map(getSequenceProbability).reduce((a, b) => a + b, 0)
 }

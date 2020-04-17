@@ -1,7 +1,7 @@
 import React from 'react'
 import { RARITIES, BOOKS, PRE_MADE_EXPECTATIONS } from '../../constants/game'
 import BookExplanation from '../BookExplanation'
-import BookOdds from '../BookOdds'
+import BookOutcome from '../BookOutcome'
 import Column from '../Column'
 import Image from '../Image'
 import PageMeta from '../PageMeta'
@@ -46,7 +46,8 @@ const BooksCalculator = props => {
           <Title element='h2'>What is this</Title>
           <p>
             This is a calculator to estimate the odds of getting fusion stones
-            or a specific card when opening a certain book. Huge thanks to
+            or a specific card when opening a certain book, as well as the
+            average amount of coins based on your collection. Huge thanks to
             Neicigam (Neicigam#0095 on Discord) for helping with the math and
             the logic making this simulator possible.
           </p>
@@ -176,7 +177,7 @@ const BooksCalculator = props => {
           <Title element='h2'>Outcome</Title>
 
           <BookExplanation book={book} />
-          <BookOdds
+          <BookOutcome
             book={book}
             target={target}
             isAdvancedMode={isAdvancedMode}

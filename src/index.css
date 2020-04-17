@@ -179,3 +179,7 @@ fieldset {
   color: white;
   border-bottom-color: currentColor;
 }
+
+.Highlight {
+  color: var(--beige);
+}
