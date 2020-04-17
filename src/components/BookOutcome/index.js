@@ -69,12 +69,14 @@ const BookOutcome = props => {
       </p>
       <ul>
         <li>
-          <strong className='Highlight'>{(chances * 100).toFixed(2)}%</strong>{' '}
+          <strong className='Highlight' data-testid='odds-result'>
+            {(chances * 100).toFixed(2)}%
+          </strong>{' '}
           chances to draw {subject}
         </li>
         <li>
           An average of{' '}
-          <strong className='Highlight'>
+          <strong className='Highlight' data-testid='average-stones'>
             {getAverageStonesPerBook(props.book).toFixed(2)} Fusion stones
           </strong>
         </li>
