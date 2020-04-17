@@ -5,3 +5,10 @@
 .DeckBuilderEditorView__info p:last-of-type {
   margin-bottom: 2em;
 }
+
+.DeckBuilderEditorView__subtitle {
+  text-align: center;
+  margin-bottom: 2em;
+  margin-top: -2em;
+  color: var(--beige);
+}

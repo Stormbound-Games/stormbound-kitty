@@ -21,6 +21,7 @@ import Title from '../Title'
 import hookIntoProps from '../../helpers/hookIntoProps'
 import useViewportWidth from '../../helpers/useViewportWidth'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import { deserialiseDeck } from '../../helpers/deserialise'
 import './index.css'
 
 class DeckBuilderEditorView extends React.Component {
@@ -28,10 +29,28 @@ class DeckBuilderEditorView extends React.Component {
 
   componentDidMount() {
     document.addEventListener('keydown', this.captureKeyboardEvents)
+
+    if (this.props.deckId && !this.props.hasDefaultCollection) {
+      this.adjustDeckToCollection(this.props.collection)
+    }
   }
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.captureKeyboardEvents)
+  }
+
+  adjustDeckToCollection(collection) {
+    this.props.deck.forEach(cardInDeck => {
+      const cardInCollection = collection.find(
+        cardInCollection => cardInCollection.id === cardInDeck.id
+      )
+
+      if (cardInCollection.missing) {
+        this.props.removeCardFromDeck({ id: cardInDeck.id })
+      } else if (cardInCollection.level !== cardInDeck.level) {
+        this.addCardToDeck(cardInDeck.id)
+      }
+    })
   }
 
   captureKeyboardEvents = event => {
@@ -65,21 +84,19 @@ class DeckBuilderEditorView extends React.Component {
   onCollectionImport = collection => {
     if (!collection) return
 
-    this.props.deck.forEach(cardInDeck => {
-      const cardInCollection = collection.find(
-        cardInCollection => cardInCollection.id === cardInDeck.id
-      )
+    this.adjustDeckToCollection(collection)
+  }
 
-      if (cardInCollection.missing) {
-        this.props.removeCardFromDeck({ id: cardInDeck.id })
-      } else if (cardInCollection.level !== cardInDeck.level) {
-        this.addCardToDeck(cardInDeck.id)
-      }
+  isSuggestedDeck = () => {
+    const deckCards = this.props.deck.map(card => card.id)
+
+    return decks.find(deck => {
+      return deserialiseDeck(deck.id).every(card => deckCards.includes(card.id))
     })
   }
 
   render() {
-    const matchedDeck = decks.find(deck => deck.id === this.props.deckId)
+    const matchedDeck = this.isSuggestedDeck()
     const cardCollection = this.props.collection.map(card =>
       resolveCardForLevel({
         ...card,
@@ -95,7 +112,12 @@ class DeckBuilderEditorView extends React.Component {
 
         <Row desktopOnly wideGutter>
           <Column width={33}>
-            <Title>Your deck</Title>
+            <Title>{matchedDeck ? matchedDeck.name : 'Your deck'}</Title>
+            {matchedDeck && (
+              <span className='DeckBuilderEditorView__subtitle'>
+                (by {matchedDeck.author})
+              </span>
+            )}
 
             <Deck
               id='deck'
@@ -122,12 +144,7 @@ class DeckBuilderEditorView extends React.Component {
               </>
             )}
 
-            {matchedDeck ? (
-              <p>
-                This deck is named “{matchedDeck.name}” and has been made by{' '}
-                {matchedDeck.author}.
-              </p>
-            ) : (
+            {!this.state.matchedDeck && (
               <div className='DeckBuilderEditorView__info'>
                 <p>
                   If you do not know where to start,{' '}
@@ -152,16 +169,22 @@ class DeckBuilderEditorView extends React.Component {
               </div>
             )}
 
-            <Row>
-              <Column>
-                <RandomDeckButton defineDeck={this.props.defineDeck} />
-              </Column>
-              <Column>
-                {this.props.hasDefaultCollection && (
-                  <ImportCollection onChange={this.onCollectionImport} />
-                )}
-              </Column>
-            </Row>
+            {(!matchedDeck || this.props.hasDefaultCollection) && (
+              <Row>
+                <Column>
+                  {!matchedDeck ? (
+                    <RandomDeckButton defineDeck={this.props.defineDeck} />
+                  ) : (
+                    <ImportCollection onChange={this.onCollectionImport} />
+                  )}
+                </Column>
+                <Column>
+                  {!matchedDeck && this.props.hasDefaultCollection && (
+                    <ImportCollection onChange={this.onCollectionImport} />
+                  )}
+                </Column>
+              </Row>
+            )}
           </Column>
 
           <Column width={66}>
