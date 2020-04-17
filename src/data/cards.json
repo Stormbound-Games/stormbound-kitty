@@ -23,7 +23,7 @@
     "mana": 2,
     "strength": "2/3/3/4/5",
     "movement": 0,
-    "ability": "On play, *trigger* the ability of *bordering/bordering/surrounding/surrounding/all* friendly structures",
+    "ability": "On play, *trigger* the ability of all *bordering/bordering/surrounding/surrounding/ * friendly structures",
     "hero": true
   },
   {
@@ -100,7 +100,7 @@
     "rarity": "epic",
     "image": "/assets/images/cards/linked_golems.png",
     "mana": 3,
-    "strength": "1/2/2/3/3",
+    "strength": "1/1/2/2/3",
     "movement": 1,
     "ability": "When played bordering a friendly Construct, *both gain 2/3/3/4/5* strength"
   },
@@ -141,7 +141,7 @@
     "mana": 4,
     "strength": null,
     "movement": null,
-    "ability": "*Give 3/4/5/5/6* strength to a target friendly unit and a random friendly unit *bordering* it"
+    "ability": "*Give 3/4/5/5/6* strength to a target friendly unit and a random friendly unit *bordering/bordering/bordering/surrounding/surrounding* it"
   },
   {
     "name": "Chaotic Pupil",
@@ -283,9 +283,9 @@
     "rarity": "legendary",
     "image": "/assets/images/cards/project_ph03-nix.png",
     "mana": 6,
-    "strength": "5/6/7/8/9",
+    "strength": "5/6/7/8/10",
     "movement": 1,
-    "ability": "When this dies not bordering any base, randomly *respawn* at your base with *5/6/7/8/9* strength",
+    "ability": "When this dies not bordering any base, randomly *respawn* at your base with *5/6/7/8/10* strength",
     "hero": true
   },
   {
@@ -769,7 +769,7 @@
     "mana": 5,
     "strength": null,
     "movement": null,
-    "ability": "Deal *5/6/7/8/9 damage* to all units bordering your base"
+    "ability": "Deal *5/6/7/8/10 damage* to all units bordering your base"
   },
   {
     "name": "Heroic Soldiers",
@@ -1149,7 +1149,7 @@
     "rarity": "rare",
     "image": "/assets/images/cards/fluffy_badboxers.png",
     "mana": 6,
-    "strength": "6/7/8/9/10",
+    "strength": "6/7/8/10/12",
     "movement": 1,
     "ability": "After attacking, *confuse all weaker* enemy units"
   },
@@ -1162,7 +1162,7 @@
     "rarity": "common",
     "image": "/assets/images/cards/hair_raising_cats.png",
     "mana": 3,
-    "strength": "3/4/5/6/8",
+    "strength": "3/4/5/6/7",
     "movement": 0,
     "ability": "On play, randomly *force a bordering confused enemy unit to attack* a bordering enemy"
   },
@@ -1266,7 +1266,7 @@
     "rarity": "legendary",
     "image": "/assets/images/cards/laurus_king_in_exile.png",
     "mana": 5,
-    "strength": "5/6/7/8/9",
+    "strength": "5/6/7/8/10",
     "movement": 1,
     "ability": "Before attacking an enemy unit *force all enemy units* bordering it with 3/4/5/6/7 or lower strength *to attack* it",
     "hero": true
@@ -1470,7 +1470,7 @@
     "mana": "3/3/2/2/1",
     "strength": null,
     "movement": null,
-    "ability": "*Spawn* a *1* strength Toad on *4/5/6/6/7* random tiles"
+    "ability": "*Spawn* a *1* strength Toad on *4/5/5/6/6* random tiles"
   },
   {
     "name": "Wandering Wyrms",
@@ -1534,7 +1534,7 @@
     "rarity": "rare",
     "image": "/assets/images/cards/venomfall_spire.png",
     "mana": 4,
-    "strength": "3/4/5/6/7",
+    "strength": "3/4/4/6/7",
     "movement": null,
     "ability": "At the start of your turn, *poison 1/1/2/2/3* random enemy unit/unit/units/units/units"
   },
@@ -1681,7 +1681,7 @@
     "mana": 4,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On play, *convert* a random bordering enemy unit with *2/3/4/5/6 /or/or/or/or /lower/lower/lower/lower strength* to fight for you"
+    "ability": "On play, *convert* a random bordering enemy unit with *2/3/4/5/6 /or/or/or/or /less/less/less/less strength* to fight for you"
   },
   {
     "name": "Limelimbs",
@@ -1851,7 +1851,7 @@
     "rarity": "rare",
     "image": "/assets/images/cards/swarmcallers.png",
     "mana": 4,
-    "strength": "1/2/2/4/4",
+    "strength": "2/3/3/5/5",
     "movement": 1,
     "ability": "On play, *gain 2/2/3/3/4* strength for each bordering friendly Satyr"
   },
@@ -1981,7 +1981,7 @@
     "rarity": "legendary",
     "image": "/assets/images/cards/xuri_lord_of_life.png",
     "mana": 5,
-    "strength": "3/4/4/6/7",
+    "strength": "3/4/5/6/7",
     "movement": 0,
     "ability": "On play, *fly* to the first empty tile in front. *Give 3/4/5/6/7* strength to all friendly units passed",
     "hero": true
