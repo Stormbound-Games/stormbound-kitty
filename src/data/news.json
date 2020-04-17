@@ -1,6 +1,14 @@
 [
   {
     "intro": "Books Calculator",
+    "description": "It is now possible to find the odds of pulling fustion stones and coins from books."
+  },
+  {
+    "intro": "Card Collection",
+    "description": "The card collection now offers handy stats and data visualisation about your cards."
+  },
+  {
+    "intro": "Books Calculator",
     "description": "It is now possible to find the odds of pulling a certain card from a book with the books calculator."
   },
   {
