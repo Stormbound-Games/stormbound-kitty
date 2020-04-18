@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { FACTIONS } from '../../constants/game'
 import Banner from '../Banner'
+import InfoHint from '../InfoHint'
 import PageMeta from '../PageMeta'
 import capitalise from '../../helpers/capitalise'
 import getRawCardData from '../../helpers/getRawCardData'
@@ -56,6 +58,11 @@ const Stories = props => (
         />
       ))}
     </div>
+
+    <InfoHint icon='quill'>
+      Looking to contribute to the Stormbound lore?{' '}
+      <Link to='/faq#adding-a-story'>Have your own story published</Link>.
+    </InfoHint>
 
     <PageMeta
       title='Stories'
