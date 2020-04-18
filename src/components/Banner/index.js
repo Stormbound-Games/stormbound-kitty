@@ -1,6 +1,7 @@
 import React from 'react'
 import Column from '../Column'
 import CTA from '../CTA'
+import Only from '../Only'
 import Row from '../Row'
 import './index.css'
 
@@ -19,9 +20,11 @@ const Banner = props => (
           <p className='Banner__copy'>{props.copy}</p>
           <CTA className='Banner__CTA' {...props.cta} />
         </Column>
-        <Column width={33}>
-          <img src={props.image} alt='' className='Banner__image' />
-        </Column>
+        <Only.Desktop>
+          <Column width={33}>
+            <img src={props.image} alt='' className='Banner__image' />
+          </Column>
+        </Only.Desktop>
       </Row>
     </div>
   </div>

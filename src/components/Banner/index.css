@@ -9,11 +9,6 @@
 
 .Banner__CTA {
   min-width: 150px;
-  margin-top: 2em;
-}
-
-.Banner__image {
-  display: none;
 }
 
 .Banner__subline {
@@ -90,5 +85,9 @@
     height: auto;
     object-fit: contain;
     display: block;
+  }
+
+  .Banner__CTA {
+    margin-top: 2em;
   }
 }
