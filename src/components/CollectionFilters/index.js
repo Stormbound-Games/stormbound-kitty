@@ -120,6 +120,14 @@ const CollectionFilters = props => (
               type='button'
               className='CollectionFilters__reset'
               data-testid='reset-btn'
+              disabled={
+                props.faction === '*' &&
+                props.status === '*' &&
+                props.level === '*' &&
+                props.rarity === '*' &&
+                !props.name &&
+                props.order === 'NATURAL'
+              }
             >
               Reset filters
             </CTA>
