@@ -1,0 +1,10 @@
+.InfoHint {
+  text-align: center;
+  font-size: 115%;
+  margin-top: 3em;
+}
+
+.InfoHint .icon {
+  transform: translateY(2px);
+  margin-right: 0.25em;
+}
