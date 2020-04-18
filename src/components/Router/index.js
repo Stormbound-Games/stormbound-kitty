@@ -73,10 +73,6 @@ const Page = ({ children, active, ...props }) => (
 const Router = props => (
   <BrowserRouter>
     <Switch>
-      <Page path='/faq'>
-        <FAQ />
-      </Page>
-
       <Page path='/sim/:simId/display' active='BATTLE_SIM'>
         <BattleSimDisplay />
       </Page>
@@ -211,6 +207,10 @@ const Router = props => (
 
       <Page path='/brawl' active='HOME'>
         <Brawl />
+      </Page>
+
+      <Page path='/faq' active='HOME'>
+        <FAQ />
       </Page>
 
       <Page exact path='/' active='HOME'>

@@ -14,6 +14,10 @@ const HomeNav = props => {
         <li className='Header__item'>
           <NavLink to='/brawl'>Brawl</NavLink>
         </li>
+
+        <li className='Header__item Header__item--right'>
+          <NavLink to='/faq'>FAQ</NavLink>
+        </li>
       </ul>
     </nav>
   )

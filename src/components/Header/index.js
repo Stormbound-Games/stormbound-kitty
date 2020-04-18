@@ -74,7 +74,9 @@ const Header = props => {
                 exact
                 to='/'
                 className={
-                  pathname === '/brawl' ? 'Header__link--active' : undefined
+                  ['/brawl', '/faq'].includes(pathname)
+                    ? 'Header__link--active'
+                    : undefined
                 }
               >
                 <Icon icon='home' /> Home
