@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Image = props => (
-  <picture className={props.wrapperClassName}>
+const Image = React.forwardRef((props, ref) => (
+  <picture className={props.wrapperClassName} ref={ref}>
     {props.src.startsWith('/assets') && (
       <source srcSet={props.src.replace('.png', '.webp')} type='image/webp' />
     )}
@@ -13,6 +13,6 @@ const Image = props => (
       data-testid={props['data-testid']}
     />
   </picture>
-)
+))
 
 export default Image
