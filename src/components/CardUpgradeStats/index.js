@@ -53,11 +53,8 @@ const CardUpgradeStats = props => {
           extra {extraAfterMax.copies > 1 ? 'copies' : 'copy'} would give you{' '}
           <ResourceIcon resource='COIN' /> {extraAfterMax.coins} coins,
           effectively reducing the upgrade cost to{' '}
-          <ResourceIcon resource='COIN' />
-          {Math.max(
-            getCostForLevel(5)(card).coins - extraAfterMax.coins,
-            0
-          )}{' '}
+          <ResourceIcon resource='COIN' />{' '}
+          {Math.max(getCostForLevel(5)(card).coins - extraAfterMax.coins, 0)}{' '}
           coins.
         </p>
       )}
