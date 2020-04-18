@@ -2,14 +2,15 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import BattleSimNav from '../BattleSimNav'
 import CardBuilderNav from '../CardBuilderNav'
+import CollectionNav from '../CollectionNav'
 import DeckBuilderNav from '../DeckBuilderNav'
 import GuidesNav from '../GuidesNav'
 import HomeNav from '../HomeNav'
 import Icon from '../Icon'
 import ListBuilderNav from '../ListBuilderNav'
 import NavLink from '../NavLink'
+import Only from '../Only'
 import StoriesNav from '../StoriesNav'
-import CollectionNav from '../CollectionNav'
 import TogglableContent from '../TogglableContent'
 import useViewportWidth from '../../helpers/useViewportWidth'
 import './index.css'
@@ -69,19 +70,21 @@ const Header = props => {
       >
         <nav className='Header__nav'>
           <ul className='Header__list'>
-            <li className='Header__item Header__item--desktop'>
-              <NavLink
-                exact
-                to='/'
-                className={
-                  ['/brawl', '/faq'].includes(pathname)
-                    ? 'Header__link--active'
-                    : undefined
-                }
-              >
-                <Icon icon='home' /> Home
-              </NavLink>
-            </li>
+            <Only.Desktop>
+              <li className='Header__item'>
+                <NavLink
+                  exact
+                  to='/'
+                  className={
+                    ['/brawl', '/faq'].includes(pathname)
+                      ? 'Header__link--active'
+                      : undefined
+                  }
+                >
+                  <Icon icon='home' /> Home
+                </NavLink>
+              </li>
+            </Only.Desktop>
             <li className='Header__item'>
               <NavLink to='/sim'>
                 <Icon icon='sword' /> Battle Sim

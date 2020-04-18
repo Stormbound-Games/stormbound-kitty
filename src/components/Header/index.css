@@ -74,10 +74,6 @@
     margin: 0.5em 0;
   }
 
-  .Header__item--desktop {
-    display: none;
-  }
-
   .Header__item {
     flex: 1 1 100%;
   }
