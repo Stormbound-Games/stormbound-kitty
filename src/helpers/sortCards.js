@@ -1,15 +1,36 @@
 import unfoldValue from './unfoldValue'
+import { RARITIES } from '../constants/game'
 import { getCardCost } from './getCollectionCost'
 
 const FACTIONS_ORDER = ['neutral', 'winter', 'ironclad', 'shadowfen', 'swarm']
+const factions = FACTIONS_ORDER
+const rarities = Object.keys(RARITIES)
 
 export const sortByValue = (a, b) => {
   const costA = getCardCost(a)
   const costB = getCardCost(b)
 
-  if (costA > costB) return -1
-  if (costA < costB) return +1
+  // Put the missing cards at the end of the collection
+  if (a.missing && !b.missing) return +1
+  if (!a.missing && b.missing) return -1
 
+  // Then order cards per level, 5 to 1
+  if (a.level < b.level) return +1
+  if (a.level > b.level) return -1
+
+  // Then order cards per rarity, legendary to common
+  if (rarities.indexOf(a.rarity) < rarities.indexOf(b.rarity)) return +1
+  if (rarities.indexOf(a.rarity) > rarities.indexOf(b.rarity)) return -1
+
+  // Then order cards per faction, neutral first
+  if (factions.indexOf(a.faction) < factions.indexOf(b.faction)) return -1
+  if (factions.indexOf(a.faction) > factions.indexOf(b.faction)) return +1
+
+  // Then order cards per value (copies), highest to lowest
+  if (costA < costB) return +1
+  if (costA > costB) return -1
+
+  // Finally sort cards alphabetically
   return sortNaturally()(a, b)
 }
 
