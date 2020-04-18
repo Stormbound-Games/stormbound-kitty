@@ -77,8 +77,8 @@ const FAQ = props => {
                     >
                       (
                       {expanded.includes(category.id)
-                        ? '- Collapse'
-                        : '+ Expand'}
+                        ? '- collapse'
+                        : '+ expand'}
                       )
                     </button>
                   )}
