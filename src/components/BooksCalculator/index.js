@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { RARITIES, BOOKS, PRE_MADE_EXPECTATIONS } from '../../constants/game'
 import BookExplanation from '../BookExplanation'
 import BookOutcome from '../BookOutcome'
@@ -49,7 +50,10 @@ const BooksCalculator = props => {
             or a specific card when opening a certain book, as well as the
             average amount of coins based on your collection. Huge thanks to
             Neicigam (Neicigam#0095 on Discord) for helping with the math and
-            the logic making this simulator possible.
+            the logic making this simulator possible.{' '}
+            <Link to='/faq#books-calculator'>
+              Learn more about how it works.
+            </Link>
           </p>
 
           <form className='BooksCalculator__form'>
