@@ -43,6 +43,8 @@ const Header = props => {
   const { pathname } = useLocation()
   const [isExpanded, expand] = React.useState(false)
 
+  React.useEffect(() => expand(false), [pathname])
+
   return (
     <header role='banner' className='Header'>
       <TogglableContent
