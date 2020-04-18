@@ -106,7 +106,18 @@ const DeckBuilderSuggestionsFilters = props => {
           </select>
         </Column>
         <Column style={{ alignSelf: 'flex-end' }}>
-          <CTA onClick={props.resetFilters}>Reset</CTA>
+          <CTA
+            disabled={
+              props.author === '*' &&
+              props.category === '*' &&
+              props.faction === '*' &&
+              !props.including &&
+              !props.name
+            }
+            onClick={props.resetFilters}
+          >
+            Reset
+          </CTA>
         </Column>
       </Row>
     </form>
