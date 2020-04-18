@@ -4,6 +4,12 @@
   color: white !important;
 }
 
+.CardSelect__control.CardSelect__control--is-focused {
+  outline: auto 2px Highlight !important;
+  outline: auto 5px -webkit-focus-ring-color !important;
+  box-shadow: none !important;
+}
+
 .CardSelect__input,
 .CardSelect__single-value {
   color: white !important;
