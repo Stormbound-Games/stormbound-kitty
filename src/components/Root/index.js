@@ -10,6 +10,10 @@ const Root = props => {
     supportsWebp().then(supports => {
       supports && document.documentElement.classList.add('webp')
     })
+
+    if (!window.Cypress) {
+      window.document.documentElement.style.scrollBehavior = 'smooth'
+    }
   }, [])
 
   return (

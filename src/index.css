@@ -20,7 +20,6 @@
 }
 
 :root {
-  scroll-behavior: smooth;
   scroll-padding-top: 2em;
   --red: rgb(203, 43, 67);
   --blue: rgb(25, 93, 156);
