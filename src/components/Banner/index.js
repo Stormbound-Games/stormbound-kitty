@@ -6,7 +6,7 @@ import './index.css'
 
 const Banner = props => (
   <div
-    className='Banner'
+    className={`Banner ${props.className || ''}`}
     style={{
       '--color': `var(--${props.faction}, rgba(222, 215, 164, 0.5))`,
     }}
