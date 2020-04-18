@@ -61,6 +61,7 @@ const ListBuilderEditorView = loadable(
 )
 const BooksCalculator = loadable(() => import('../BooksCalculator'), options)
 const Stats = loadable(() => import('../Stats'), options)
+const Brawl = loadable(() => import('../Brawl'), options)
 const Home = loadable(() => import('../Home'), options)
 
 const Page = ({ children, active, ...props }) => (
@@ -208,7 +209,11 @@ const Router = props => (
         <ListBuilderEditorView />
       </Page>
 
-      <Page exact path='/'>
+      <Page path='/brawl' active='HOME'>
+        <Brawl />
+      </Page>
+
+      <Page exact path='/' active='HOME'>
         <Home />
       </Page>
 

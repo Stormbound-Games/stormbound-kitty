@@ -4,6 +4,7 @@ import BattleSimNav from '../BattleSimNav'
 import CardBuilderNav from '../CardBuilderNav'
 import DeckBuilderNav from '../DeckBuilderNav'
 import GuidesNav from '../GuidesNav'
+import HomeNav from '../HomeNav'
 import Icon from '../Icon'
 import ListBuilderNav from '../ListBuilderNav'
 import NavLink from '../NavLink'
@@ -15,6 +16,8 @@ import './index.css'
 
 const SubNav = props => {
   switch (props.active) {
+    case 'HOME':
+      return <HomeNav />
     case 'BATTLE_SIM':
       return <BattleSimNav />
     case 'DECK_BUILDER':
