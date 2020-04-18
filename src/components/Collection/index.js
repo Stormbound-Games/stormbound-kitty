@@ -160,7 +160,7 @@ class Collection extends React.Component {
 
               <CollectionClearHint />
 
-              <Row>
+              <Row desktopOnly>
                 <Column>
                   <ImportCollection />
                 </Column>
