@@ -12,6 +12,7 @@ import Checkbox from '../Checkbox'
 import CollectionStats from '../CollectionStats'
 import Column from '../Column'
 import ImportCollection from '../ImportCollection'
+import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
@@ -104,9 +105,7 @@ const getStatusData = collection => {
 }
 
 const Stats = props => {
-  const { collection, hasDefaultCollection } = React.useContext(
-    CollectionContext
-  )
+  const { collection } = React.useContext(CollectionContext)
   const [ignoreNeutral, setIgnoreNeutral] = React.useState(false)
   const levelData = React.useMemo(() => getLevelData(collection), [collection])
   const rarityData = React.useMemo(() => getRarityData(collection), [
@@ -127,30 +126,41 @@ const Stats = props => {
     <>
       <Row desktopOnly>
         <Column width={33}>
-          <Title>What is this</Title>
-          <div className='Stats__info'>
-            <p>
-              On this page, you can find some data visualisation for your card
-              collection.{' '}
-              {hasDefaultCollection &&
-                'Start by importing your card collection. In the mean time, the visualised collection contains all cards in the game at level 1.'}
-            </p>
-            <p>
-              All charts titled with “(Stones)” rely on the cost of each card. A
-              card cost is computed based on its current level in your
-              collection and the amount of extra copies you have of that card
-              before the next level.
-            </p>
-          </div>
-          {hasDefaultCollection && (
-            <Row desktopOnly>
-              <Column>
-                <ImportCollection />
-              </Column>
-              <Column />
-            </Row>
-          )}
-          <CollectionStats collection={collection} />
+          <Row desktopOnly>
+            <Column>
+              <Title>What is this</Title>
+              <div className='Stats__info'>
+                <p>
+                  On this page, you can find some data visualisation for your
+                  card collection.{' '}
+                  <Only.DefaultCollection>
+                    Start by importing your card collection. In the mean time,
+                    the visualised collection contains all cards in the game at
+                    level 1.
+                  </Only.DefaultCollection>
+                </p>
+                <p>
+                  All charts titled with “(Stones)” rely on the cost of each
+                  card. A card cost is computed based on its current level in
+                  your collection and the amount of extra copies you have of
+                  that card before the next level.
+                </p>
+              </div>
+              <Only.DefaultCollection>
+                <Row desktopOnly>
+                  <Column>
+                    <ImportCollection />
+                  </Column>
+                  <Column />
+                </Row>
+              </Only.DefaultCollection>
+            </Column>
+          </Row>
+          <Row desktopOnly>
+            <Column>
+              <CollectionStats collection={collection} />
+            </Column>
+          </Row>
         </Column>
         <Column width={66}>
           <Row desktopOnly>

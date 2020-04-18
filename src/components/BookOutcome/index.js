@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { PRE_MADE_EXPECTATIONS } from '../../constants/game'
 import { CollectionContext } from '../CollectionProvider'
+import Only from '../Only'
 import ResourceIcon from '../ResourceIcon'
 import getDrawingProbability from '../../helpers/getDrawingProbability'
 import capitalise from '../../helpers/capitalise'
@@ -30,7 +31,6 @@ const useExpectedCoins = book => {
 }
 
 const BookOutcome = props => {
-  const { hasDefaultCollection } = React.useContext(CollectionContext)
   const bookName = capitalise(props.book.toLowerCase())
   const expectedCoins = useExpectedCoins(props.book)
   const subject = props.isAdvancedMode
@@ -80,12 +80,13 @@ const BookOutcome = props => {
             {getAverageStonesPerBook(props.book).toFixed(2)} Fusion stones
           </strong>
         </li>
-        {hasDefaultCollection ? (
+        <Only.DefaultCollection>
           <li>
             Potentially some coins depending on{' '}
             <Link to='/collection'>your collection</Link>
           </li>
-        ) : (
+        </Only.DefaultCollection>
+        <Only.CustomCollection>
           <li>
             {expectedCoins > 0 ? (
               <>
@@ -98,7 +99,7 @@ const BookOutcome = props => {
               'No coins, because you cannot get copies for cards above level 5'
             )}
           </li>
-        )}
+        </Only.CustomCollection>
       </ul>
     </div>
   )

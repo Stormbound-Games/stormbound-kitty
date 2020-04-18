@@ -12,6 +12,7 @@ import EmptySearch from '../EmptySearch'
 import CardsFiltering from '../CardsFiltering'
 import Filters from '../DeckBuilderEditorFilters'
 import ImportCollection from '../ImportCollection'
+import Only from '../Only'
 import PageMeta from '../PageMeta'
 import RandomDeckButton from '../DeckBuilderRandomDeckButton'
 import ResetButton from '../ResetButton'
@@ -162,14 +163,14 @@ class DeckBuilderEditorView extends React.Component {
 
                 <CollectionClearHint />
 
-                {this.props.hasDefaultCollection && (
+                <Only.DefaultCollection>
                   <p>
                     If you have already{' '}
                     <Link to='/collection'>created your collection</Link>, you
                     can import it directly in the deck builder to compose decks
                     that you can make in-game.
                   </p>
-                )}
+                </Only.DefaultCollection>
               </div>
             )}
 
@@ -183,9 +184,11 @@ class DeckBuilderEditorView extends React.Component {
                   )}
                 </Column>
                 <Column>
-                  {!matchedDeck && this.props.hasDefaultCollection && (
-                    <ImportCollection onChange={this.onCollectionImport} />
-                  )}
+                  <Only.DefaultCollection>
+                    {!matchedDeck && (
+                      <ImportCollection onChange={this.onCollectionImport} />
+                    )}
+                  </Only.DefaultCollection>
                 </Column>
               </Row>
             )}
@@ -221,12 +224,12 @@ class DeckBuilderEditorView extends React.Component {
                         }
                         isCardMissing={this.isCardMissing}
                         navChildren={
-                          !this.props.hasDefaultCollection ? null : (
+                          <Only.DefaultCollection>
                             <CardLevelField
                               cardLevel={this.state.cardLevel}
                               setCardLevel={this.setCardLevel}
                             />
-                          )
+                          </Only.DefaultCollection>
                         }
                       />
                     ) : (
