@@ -35,9 +35,6 @@
   color: var(--beige);
 }
 
-.BattleSimPuzzle__difficulty {
-}
-
 .BattleSimPuzzle__restrictions {
   display: block;
 }
