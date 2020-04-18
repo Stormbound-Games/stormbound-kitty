@@ -246,8 +246,8 @@ const Stories = props => (
     </div>
 
     <PageMeta
-      title='Stories'
-      description='Stories from the community about Stormbound cards'
+      title='Brawl'
+      description='All the Brawls from Stormbound and their ideal decks'
     />
   </>
 )
