@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import LearnMoreIcon from '../LearnMoreIcon'
+import ResourceIcon from '../ResourceIcon'
 import Title from '../Title'
 import getCollectionCost from '../../helpers/getCollectionCost'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
@@ -81,8 +82,8 @@ const CollectionStats = props => {
           <LearnMoreIcon anchor='#collection-value'>
             What is the collection value
           </LearnMoreIcon>
-          : <span className='CollectionStats__item'>{collectionCost}</span>{' '}
-          stones
+          : <ResourceIcon resource='STONE' />{' '}
+          <span className='CollectionStats__item'>{collectionCost} stones</span>
         </li>
         <li>
           Average card level:{' '}
@@ -97,8 +98,8 @@ const CollectionStats = props => {
           </span>
         </li>
         <li>
-          Coins after exchange:{' '}
-          <span className='CollectionStats__item'>{extraAfterMax}</span>
+          Coins after exchange: <ResourceIcon resource='COIN' />{' '}
+          <span className='CollectionStats__item'>{extraAfterMax} coins</span>
         </li>
         <li>
           Missing cards:{' '}

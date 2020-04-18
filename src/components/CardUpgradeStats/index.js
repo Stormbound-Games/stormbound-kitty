@@ -1,4 +1,5 @@
 import React from 'react'
+import ResourceIcon from '../ResourceIcon'
 import getCostForLevel from '../../helpers/getCostForLevel'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
@@ -16,7 +17,8 @@ const CardUpgradeStats = props => {
       {card.missing ? (
         <p>
           <span className='CardUpgradeStats__mark'>Crafting cost:</span>{' '}
-          {getCostForLevel(1)(card).stones} fusion stones.
+          <ResourceIcon resource='STONE' /> {getCostForLevel(1)(card).stones}{' '}
+          fusion stones.
         </p>
       ) : (
         [2, 3, 4, 5]
@@ -31,11 +33,15 @@ const CardUpgradeStats = props => {
                 Upgrading cost for level {level}
                 {index > 0 ? ' (including previous levels)' : ''}:{' '}
               </span>
-              {nextLevelCost.coins} coins
-              {nextLevelCost.stones > 0 &&
-                ` and ${nextLevelCost.stones} fusion stones for ${
-                  nextLevelCost.copies
-                } missing ${nextLevelCost.copies > 1 ? 'copies' : 'copy'}`}
+              <ResourceIcon resource='COIN' /> {nextLevelCost.coins} coins
+              {nextLevelCost.stones > 0 && (
+                <>
+                  {' '}
+                  and <ResourceIcon resource='STONE' /> {nextLevelCost.stones}{' '}
+                  fusion stones for {nextLevelCost.copies} missing{' '}
+                  {nextLevelCost.copies > 1 ? 'copies' : 'copy'}
+                </>
+              )}
               .
             </p>
           ))
@@ -45,8 +51,13 @@ const CardUpgradeStats = props => {
         <p>
           Upgrading that card level 5 and exchanging the {extraAfterMax.copies}{' '}
           extra {extraAfterMax.copies > 1 ? 'copies' : 'copy'} would give you{' '}
-          {extraAfterMax.coins} coins, effectively reducing the upgrade cost to{' '}
-          {Math.max(getCostForLevel(5)(card).coins - extraAfterMax.coins, 0)}{' '}
+          <ResourceIcon resource='COIN' /> {extraAfterMax.coins} coins,
+          effectively reducing the upgrade cost to{' '}
+          <ResourceIcon resource='COIN' />
+          {Math.max(
+            getCostForLevel(5)(card).coins - extraAfterMax.coins,
+            0
+          )}{' '}
           coins.
         </p>
       )}
