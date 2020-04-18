@@ -263,7 +263,7 @@ export default [
               Legendary, Epic, Legendary) is a valid and likely sequence for a
               Mythic book. So at the core, it is a function that takes a drawing
               sequence and returns the probability of getting this sequence, and
-              no Fusion Stones out of a book.
+              no fusion stones out of a book.
             </p>
             <p>
               To do this, the calculator stores the non-FS cards left in the
@@ -272,13 +272,13 @@ export default [
               first card is an Epic card, with a probability of 0.7 (70%), the
               probability of it not being an Epic card is 41/42 or the amount of
               Epic cards left divided by the total amount of Epic cards
-              available minus the Fusion Stones slot. It substracts 1 from the
+              available minus the fusion stones slot. It substracts 1 from the
               Epic cards count and goes to the next card. The second card is an
               Epic one too, with a probability of 0.7 * 40/41 since identical
               cards cannot be redrawn. It then iterates over the whole sequence
               and returns the resulting probability. Then sums over the
               different sequences to get the total probability of not getting
-              Fusion Stones out of a Mythic book.
+              fusion stones out of a Mythic book.
             </p>
             <p>
               Again, all the other computations such as the odds of getting any
