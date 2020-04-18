@@ -17,7 +17,7 @@ const Home = props => (
         <Image
           className='Home__news-image'
           src='/assets/images/cards/sweetcap_kittens.png'
-          alt='Lady Rime'
+          alt=''
         />
         <div className='Home__news-box'>
           <Title>News</Title>
