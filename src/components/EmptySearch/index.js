@@ -6,7 +6,7 @@ const EmptySearch = props => (
   <div className='EmptySearch'>
     <img
       className='EmptySearch__image'
-      src='/assets/images/cards/faun_companions.png'
+      src='/assets/images/cards/sweetcap_kittens.png'
       alt='Faun Companions'
     />
     <span className='EmptySearch__title'>
