@@ -165,7 +165,11 @@ class Collection extends React.Component {
                   <ImportCollection />
                 </Column>
                 <Column>
-                  <CTA type='button' onClick={this.download}>
+                  <CTA
+                    type='button'
+                    onClick={this.download}
+                    disabled={this.props.hasDefaultCollection}
+                  >
                     Export collection
                   </CTA>
                 </Column>
