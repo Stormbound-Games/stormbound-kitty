@@ -3,10 +3,19 @@ import Image from '../Image'
 import { getRarityImage, getRarityColor } from '../../helpers/getRarity'
 import useFluidSizing from '../../helpers/useFluidSizing'
 import microMarkdown from '../../helpers/microMarkdown'
+import random from '../../helpers/random'
 import './index.css'
 
 const Card = props => {
   const { fontSize, ref } = useFluidSizing(0.03902439024)
+  const imageWrapperRef = React.useRef()
+
+  React.useEffect(() => {
+    if (props.hero && imageWrapperRef.current) {
+      imageWrapperRef.current.style.animationDelay = random(-10000, 0) + 'ms'
+    }
+  }, [props.hero])
+
   return (
     <article
       className={[
@@ -49,6 +58,7 @@ const Card = props => {
 
         {props.image && (
           <Image
+            ref={imageWrapperRef}
             alt=''
             src={props.image}
             wrapperClassName={[
