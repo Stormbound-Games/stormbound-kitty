@@ -37,7 +37,7 @@ const CollectionFilters = props => (
               <option value='*'>Any</option>
               <option value='MISSING'>Missing</option>
               <option value='UPGRADABLE'>Upgradable</option>
-              <option value='EXCESS'>Excess</option>
+              <option value='EXCESS'>Excess copies</option>
             </select>
           </Column>
         </Row>
