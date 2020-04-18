@@ -115,7 +115,11 @@ class DeckBuilderEditorView extends React.Component {
             <Title>{matchedDeck ? matchedDeck.name : 'Your deck'}</Title>
             {matchedDeck && (
               <span className='DeckBuilderEditorView__subtitle'>
-                (by {matchedDeck.author})
+                (by{' '}
+                <Link to={`/deck/suggestions?author=${matchedDeck.author}`}>
+                  {matchedDeck.author}
+                </Link>
+                )
               </span>
             )}
 
