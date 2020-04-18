@@ -1,5 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Banner from '../Banner'
+import InfoHint from '../InfoHint'
 import PageMeta from '../PageMeta'
 
 const Guides = props => (
@@ -65,6 +67,11 @@ const Guides = props => (
       cta={{ to: '/guides/lexicon', children: 'Read lexicon' }}
       image='/assets/images/cards/lawless_herd.png'
     />
+
+    <InfoHint icon='compass'>
+      Looking to teach others and guide them towards glorious battles?{' '}
+      <Link to='/faq#adding-a-guide'>Have your own guide published</Link>.
+    </InfoHint>
 
     <PageMeta
       title='Guides'
