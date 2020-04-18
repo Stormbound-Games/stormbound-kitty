@@ -16,33 +16,36 @@ const BattleSimPuzzle = props => (
       </div>
     )}
     <div className='BattleSimPuzzle__content'>
-      <span className='BattleSimPuzzle__name'>
+      <h3 className='BattleSimPuzzle__name'>
         <Link to={`/sim/${props.board}/display`}>{props.name}</Link>
-      </span>
-      <span className='BattleSimPuzzle__author'>by {props.author}</span>
-      <span className='BattleSimPuzzle__type'>
-        <span>{props.type.toLowerCase()}: </span>
-        {props.description || TYPES[props.type]} {props.note}
-      </span>
-      <span className='BattleSimPuzzle__difficulty'>
-        Difficulty: {props.difficulty}/3
-      </span>
-      <span className='BattleSimPuzzle__restrictions'>
-        Restrictions:{' '}
-        {props.restrictions.length > 0
-          ? [...props.restrictions].sort().map((restriction, index) => (
-              <>
-                <span
-                  title={RESTRICTIONS[restriction].description}
-                  className='BattleSimPuzzle__restriction'
-                >
-                  {RESTRICTIONS[restriction].name}
-                </span>
-                {index !== props.restrictions.length - 1 && ', '}
-              </>
-            ))
-          : 'none'}
-      </span>
+      </h3>
+      <p className='BattleSimPuzzle__author'>by {props.author}</p>
+      <dl className='BattleSimPuzzle__details'>
+        <dt>{props.type.toLowerCase()}:</dt>
+        <dd>
+          {props.description || TYPES[props.type]} {props.note}
+        </dd>
+
+        <dt>Difficulty:</dt>
+        <dd>{props.difficulty}/3</dd>
+
+        <dt>Restrictions:</dt>
+        <dd>
+          {props.restrictions.length > 0
+            ? [...props.restrictions].sort().map((restriction, index) => (
+                <>
+                  <span
+                    title={RESTRICTIONS[restriction].description}
+                    className='BattleSimPuzzle__restriction'
+                  >
+                    {RESTRICTIONS[restriction].name}
+                  </span>
+                  {index !== props.restrictions.length - 1 && ', '}
+                </>
+              ))
+            : 'none'}
+        </dd>
+      </dl>
     </div>
   </div>
 )
