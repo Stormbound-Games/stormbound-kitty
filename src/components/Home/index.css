@@ -132,6 +132,8 @@
     display: block;
     margin-right: auto;
     max-height: 15em;
+    z-index: 2;
+    position: relative;
   }
 
   .Home__content {
