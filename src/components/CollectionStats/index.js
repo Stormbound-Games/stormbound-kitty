@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import LearnMoreIcon from '../LearnMoreIcon'
 import Title from '../Title'
 import getCollectionCost from '../../helpers/getCollectionCost'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
@@ -76,8 +77,12 @@ const CollectionStats = props => {
       </p>
       <ul className='CollectionStats__list'>
         <li>
-          Total value:{' '}
-          <span className='CollectionStats__item'>{collectionCost}</span> stones
+          Total value
+          <LearnMoreIcon anchor='#collection-value'>
+            What is the collection value
+          </LearnMoreIcon>
+          : <span className='CollectionStats__item'>{collectionCost}</span>{' '}
+          stones
         </li>
         <li>
           Average card level:{' '}
