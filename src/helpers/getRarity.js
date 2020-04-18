@@ -1,9 +1,9 @@
 export const getRarityColor = rarity =>
   ({
-    common: 'rgb(215, 216, 215)',
-    rare: 'rgb(112, 189, 207)',
-    epic: 'rgb(195, 153, 198)',
-    legendary: 'rgb(208, 172, 137)',
+    common: 'rgb(245, 241, 229)',
+    rare: 'rgb(149, 215, 249)',
+    epic: 'rgb(219, 168, 245)',
+    legendary: 'rgb(245, 199, 159)',
   }[rarity])
 
 export const getRarityImage = rarity =>

@@ -208,8 +208,9 @@
 
 .Card__level {
   text-transform: uppercase;
-  font-size: 120%;
+  font-size: 140%;
   display: block;
+  transform: translateY(-1px);
 }
 
 .Card * {
