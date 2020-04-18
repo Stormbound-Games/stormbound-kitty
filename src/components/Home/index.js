@@ -16,7 +16,7 @@ const Home = props => (
       <aside className='Home__news'>
         <Image
           className='Home__news-image'
-          src='/assets/images/cards/lady_rime.png'
+          src='/assets/images/cards/sweetcap_kittens.png'
           alt='Lady Rime'
         />
         <div className='Home__news-box'>

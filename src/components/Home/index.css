@@ -17,7 +17,7 @@
   padding: 1em;
   box-shadow: 0 0 2em 1em rgba(0, 0, 0, 0.2);
   margin-bottom: 2em;
-  margin-top: -10em;
+  margin-top: -7em;
 }
 
 .Home__news-box::after,
@@ -100,12 +100,12 @@
   }
 
   .Home__news-image {
-    width: 100%;
+    width: 75%;
     position: absolute;
     bottom: 100%;
     z-index: -1;
     left: 50%;
-    transform: translate(-50%, 50%);
+    transform: translate(-50%, 35%);
   }
 
   .Home__news-box {
