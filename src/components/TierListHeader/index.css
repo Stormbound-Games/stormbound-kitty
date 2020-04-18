@@ -20,10 +20,6 @@
   padding: 0 0.5em;
 }
 
-.TierListHeader__item:last-child {
-  display: none;
-}
-
 .TierListHeader__move {
   padding: 0.55em;
   border-radius: 0.3em;

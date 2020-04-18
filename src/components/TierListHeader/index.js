@@ -1,5 +1,6 @@
 import React from 'react'
 import CardSelect from '../CardSelect'
+import Only from '../Only'
 import './index.css'
 
 const TierListHeader = props => {
@@ -46,29 +47,31 @@ const TierListHeader = props => {
       </div>
 
       {props.isEditable && (
-        <div className='TierListHeader__item'>
-          <button
-            type='button'
-            onClick={props.moveUp}
-            title='Move tier up'
-            aria-label='Move tier up'
-            className='TierListHeader__move'
-            disabled={!props.isEditable || !props.canMoveUp}
-          >
-            ↑
-          </button>
+        <Only.Desktop>
+          <div className='TierListHeader__item'>
+            <button
+              type='button'
+              onClick={props.moveUp}
+              title='Move tier up'
+              aria-label='Move tier up'
+              className='TierListHeader__move'
+              disabled={!props.isEditable || !props.canMoveUp}
+            >
+              ↑
+            </button>
 
-          <button
-            type='button'
-            onClick={props.moveDown}
-            title='Move tier down'
-            aria-label='Move tier down'
-            className='TierListHeader__move'
-            disabled={!props.isEditable || !props.canMoveDown}
-          >
-            ↓
-          </button>
-        </div>
+            <button
+              type='button'
+              onClick={props.moveDown}
+              title='Move tier down'
+              aria-label='Move tier down'
+              className='TierListHeader__move'
+              disabled={!props.isEditable || !props.canMoveDown}
+            >
+              ↓
+            </button>
+          </div>
+        </Only.Desktop>
       )}
     </header>
   )
