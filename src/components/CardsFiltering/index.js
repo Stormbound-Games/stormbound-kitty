@@ -2,7 +2,10 @@ import React from 'react'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
 import hookIntoProps from '../../helpers/hookIntoProps'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
-import sortCards, { sortByValue } from '../../helpers/sortCards'
+import sortCards, {
+  sortByValue,
+  sortByLockedCoins,
+} from '../../helpers/sortCards'
 import useViewportWidth from '../../helpers/useViewportWidth'
 
 const DEFAULT_FILTERS = {
@@ -128,7 +131,13 @@ class CardsFiltering extends React.Component {
         if (!this.matchesElder(card)) return false
         return true
       })
-      .sort(this.state.order === 'VALUE' ? sortByValue : sortCards())
+      .sort(
+        this.state.status === 'EXCESS'
+          ? sortByLockedCoins
+          : this.state.order === 'VALUE'
+          ? sortByValue
+          : sortCards()
+      )
   }
 
   getCardsPerPage = () => (this.props.viewportWidth < 1100 ? 6 : 8)

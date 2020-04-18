@@ -105,6 +105,7 @@ const CollectionFilters = props => (
               value={props.order}
               onChange={event => props.setOrder(event.target.value)}
               data-testid='order-select'
+              disabled={props.status === 'EXCESS'}
             >
               <option value='NATURAL'>Natural</option>
               <option value='VALUE'>Value</option>

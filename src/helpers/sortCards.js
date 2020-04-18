@@ -1,10 +1,21 @@
 import unfoldValue from './unfoldValue'
 import { RARITIES } from '../constants/game'
 import { getCardCost } from './getCollectionCost'
+import getExtraAfterMax from './getExtraAfterMax'
 
 const FACTIONS_ORDER = ['neutral', 'winter', 'ironclad', 'shadowfen', 'swarm']
 const factions = FACTIONS_ORDER
 const rarities = Object.keys(RARITIES)
+
+export const sortByLockedCoins = (a, b) => {
+  const { coins: extraA } = getExtraAfterMax(a)
+  const { coins: extraB } = getExtraAfterMax(b)
+
+  if (extraA > extraB) return -1
+  if (extraA < extraB) return +1
+
+  return sortNaturally()(a, b)
+}
 
 export const sortByValue = (a, b) => {
   const costA = getCardCost(a)
