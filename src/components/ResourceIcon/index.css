@@ -1,0 +1,6 @@
+.ResourceIcon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  transform: translateY(2px);
+}
