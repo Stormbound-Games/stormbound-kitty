@@ -13,3 +13,9 @@
   max-width: 100%;
   margin: 0 auto;
 }
+
+@media (max-width: 700px) {
+  .Layout__body {
+    padding-bottom: 2em;
+  }
+}
