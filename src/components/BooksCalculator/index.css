@@ -8,10 +8,6 @@
   margin: 2em auto;
 }
 
-.BooksCalculator__wrap {
-  position: relative;
-}
-
 .BooksCalculator__image {
   position: absolute;
   width: 20%;

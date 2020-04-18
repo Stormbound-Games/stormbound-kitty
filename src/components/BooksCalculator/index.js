@@ -5,6 +5,7 @@ import BookExplanation from '../BookExplanation'
 import BookOutcome from '../BookOutcome'
 import Column from '../Column'
 import Image from '../Image'
+import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
@@ -189,15 +190,15 @@ const BooksCalculator = props => {
           />
         </Column>
 
-        <Column width={33}>
-          <div className='BooksCalculator__wrap'>
+        <Only.Desktop>
+          <Column width={33}>
             <Image
               src={'/assets/images/book-' + book.toLowerCase() + '.png'}
               className='BooksCalculator__book'
               alt={capitalise(book.toLowerCase()) + ' book'}
             />
-          </div>
-        </Column>
+          </Column>
+        </Only.Desktop>
       </Row>
 
       <PageMeta
