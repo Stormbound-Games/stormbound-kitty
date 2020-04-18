@@ -3,6 +3,7 @@ import { RARITIES } from '../../constants/game'
 import Column from '../Column'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
+import Only from '../Only'
 import Row from '../Row'
 import capitalise from '../../helpers/capitalise'
 import './index.css'
@@ -113,7 +114,9 @@ const CollectionFilters = props => (
       </Column>
       <Column>
         <Row>
-          <Column />
+          <Only.Desktop>
+            <Column />
+          </Only.Desktop>
           <Column>
             <CTA
               onClick={props.resetFilters}
