@@ -195,6 +195,18 @@ const DeckBuilderEditorFilters = props => (
               type='button'
               className='DeckBuilderEditorFilters__reset'
               data-testid='reset-btn'
+              disabled={
+                props.faction === '*' &&
+                props.type === '*' &&
+                props.mana === '*' &&
+                props.movement === '*' &&
+                props.rarity === '*' &&
+                props.race === '*' &&
+                props.ability === '*' &&
+                !props.name &&
+                !props.elder &&
+                !props.hero
+              }
             >
               Reset filters
             </CTA>
