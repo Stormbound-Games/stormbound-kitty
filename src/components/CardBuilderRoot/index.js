@@ -164,8 +164,9 @@ class CardBuilderRoot extends React.Component {
 
   onImagePaste = event => {
     const image = new Image()
-    image.src = event.clipboardData.getData('text')
-    image.onerror = () => this.imageErrorDialog.show()
+    const data = event.clipboardData.getData('text')
+    image.src = data
+    image.onerror = () => this.imageErrorDialog.show(data)
   }
 
   render() {
