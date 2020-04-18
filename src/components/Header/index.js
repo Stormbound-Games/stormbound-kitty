@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import BattleSimNav from '../BattleSimNav'
 import CardBuilderNav from '../CardBuilderNav'
 import DeckBuilderNav from '../DeckBuilderNav'
@@ -39,6 +39,7 @@ const SubNav = props => {
 
 const Header = props => {
   const viewportWidth = useViewportWidth()
+  const { pathname } = useLocation()
   const [isExpanded, expand] = React.useState(false)
 
   return (
@@ -69,7 +70,13 @@ const Header = props => {
         <nav className='Header__nav'>
           <ul className='Header__list'>
             <li className='Header__item Header__item--desktop'>
-              <NavLink exact to='/'>
+              <NavLink
+                exact
+                to='/'
+                className={
+                  pathname === '/brawl' ? 'Header__link--active' : undefined
+                }
+              >
                 <Icon icon='home' /> Home
               </NavLink>
             </li>
