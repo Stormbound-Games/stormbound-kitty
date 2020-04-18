@@ -19,17 +19,12 @@
 
 .Checkbox__input:checked + .Checkbox__icon::before {
   content: '';
-  width: 100%;
-  height: 50%;
   position: absolute;
-  color: var(--beige);
-  border-left: 2px solid;
-  border-bottom: 2px solid;
-  transform: translateX(-50%) rotate(-90deg) translate(40%, -10%);
-  border-radius: 0 0 0 0.1em;
-  pointer-events: none;
-  bottom: 0;
-  left: 50%;
+  background-color: var(--beige);
+  top: 20%;
+  right: 20%;
+  bottom: 20%;
+  left: 20%;
 }
 
 .Checkbox__input:focus + .Checkbox__icon {
@@ -54,6 +49,8 @@
   cursor: not-allowed;
 }
 
-.Checkbox__input:disabled ~ .Checkbox__label {
+.Checkbox__input:disabled ~ .Checkbox__label,
+.Checkbox__input:disabled ~ .Checkbox__icon {
+  cursor: not-allowed;
   opacity: 0.5;
 }
