@@ -23,7 +23,7 @@ export default [
             >
               buying me a coffee
             </a>
-            !
+            ! Any small contribution counts. 💖
           </>
         ),
       },
@@ -99,6 +99,36 @@ export default [
           </>
         ),
       },
+      {
+        id: 'adding-a-puzzle',
+        question: 'Is it possible to add new puzzles?',
+        answer: (
+          <>
+            <p>
+              Puzzles are made by the community, so if you would like to design
+              your own and have them added, just get in touch with me on Discord
+              (Kitty#1909). The only constraint is that your puzzle need to
+              respect the rules in place. It needs to be one of{' '}
+              <a
+                target='_blank'
+                rel='noopener noreferrer'
+                href='https://github.com/KittySparkles/stormbound-kitty/blob/master/src/constants/puzzles.js#L39-L47'
+              >
+                these types
+              </a>{' '}
+              and can include any of{' '}
+              <a
+                target='_blank'
+                rel='noopener noreferrer'
+                href='https://github.com/KittySparkles/stormbound-kitty/blob/master/src/constants/puzzles.js#L1-L37'
+              >
+                these restrictions
+              </a>{' '}
+              (or none).
+            </p>
+          </>
+        ),
+      },
     ],
   },
   {
@@ -146,31 +176,19 @@ export default [
           </>
         ),
       },
-    ],
-  },
-  {
-    id: 'deck-dry-runner',
-    title: 'Deck Dry-Runner',
-    entries: [
       {
-        id: 'collection-value',
-        question: 'What is the total value of the collection?',
+        id: 'random-deck',
+        question: 'How are random decks generated?',
         answer: (
           <>
-            It is an arbitrary number to measure the value of a card collection.
-            It is based on the rarity and the amount of copies you have of each
-            card. It also take into account the initial crafting cost of all
-            cards, which is why an entire collection of cards level 1 with no
-            extra copies is worth about 3000 stones.
+            The random deck generator is not 100% random, in the sense that it
+            doesn’t just pick 12 cards at random. It makes sure the deck doesn’t
+            contain too many spells or too many structures, that the mana curve
+            is not too steep, and that combos can still work (freeze, poison…).
+            Any deck generated like this should be playable, if not competitive.
           </>
         ),
       },
-    ],
-  },
-  {
-    id: 'cards-collection',
-    title: 'Cards Collection',
-    entries: [
       {
         id: 'dry-runner-works',
         question: 'How does the dry-runner work?',
@@ -182,6 +200,7 @@ export default [
           </>
         ),
       },
+
       {
         id: 'drawing-algorithm',
         question: 'What is the drawing algorithm?',
@@ -205,6 +224,67 @@ export default [
               All the other cards in the deck see their weight increase by
               w=f(w)*1.6 (rounded). Some cards have awkward mechanics such as
               Queen of Herds.
+            </p>
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    id: 'collection',
+    title: 'Collection',
+    entries: [
+      {
+        id: 'collection-value',
+        question: 'What is the total value of the collection?',
+        answer: (
+          <>
+            It is an arbitrary number to measure the value of a{' '}
+            <Link to='/collection'>card collection</Link>. It is based on the
+            rarity and the amount of copies you have of each card. It also take
+            into account the initial crafting cost of all cards, which is why an
+            entire collection of cards level 1 with no extra copies is worth
+            about 3000 stones.
+          </>
+        ),
+      },
+      {
+        id: 'books-calculator',
+        question: 'How does the book calculator work?',
+        answer: (
+          <>
+            <p>
+              The idea is to calculate the probability of not getting Fusion
+              stones in a book — other calculations are just small variations of
+              this one. To do that, we lay down all the different “drawing
+              sequences”; 64 in a Mythic book (2 different rarities to the power
+              of 6 draws), 4096 is a Classic book (4 different rarities to the
+              power of 6 draws). For example, ‘EEELEL’ (Epic, Epic, Epic,
+              Legendary, Epic, Legendary) is a valid and likely sequence for a
+              Mythic book. So at the core, it is a function that takes a drawing
+              sequence and returns the probability of getting this sequence, and
+              no Fusion Stones out of a book.
+            </p>
+            <p>
+              To do this, the calculator stores the non-FS cards left in the
+              pool it draws from (Epic and Legendary for a Mythic book) and
+              iterate over the sequence cards. Say the sequence is ‘EEELEL’. The
+              first card is an Epic card, with a probability of 0.7 (70%), the
+              probability of it not being an Epic card is 41/42 or the amount of
+              Epic cards left divided by the total amount of Epic cards
+              available minus the Fusion Stones slot. It substracts 1 from the
+              Epic cards count and goes to the next card. The second card is an
+              Epic one too, with a probability of 0.7 * 40/41 since identical
+              cards cannot be redrawn. It then iterates over the whole sequence
+              and returns the resulting probability. Then sums over the
+              different sequences to get the total probability of not getting
+              Fusion Stones out of a Mythic book.
+            </p>
+            <p>
+              Again, all the other computations such as the odds of getting any
+              Epic card out of a Classic book are all variations of this initial
+              algorithm. Of course this is correct only under the assumption
+              that book draws work this way
             </p>
           </>
         ),
@@ -249,9 +329,9 @@ export default [
         answer: (
           <>
             <p>
-              If you would like to contribute to writing the Stormbound lore and
-              have your stories published on the site, you can contact me on
-              Discord (Kitty#1909).
+              If you would like to contribute to writing the{' '}
+              <Link to='/stories'>Stormbound lore</Link> and have your stories
+              published on the site, you can contact me on Discord (Kitty#1909).
             </p>
             <p>
               Alternatively, if you happen to have basic knowledge of web
@@ -280,10 +360,10 @@ export default [
         answer: (
           <>
             <p>
-              Guides are very handy for beginners to learn more about the game
-              and get better, so if you’d like to write a guide, that’s
-              fantastic! Get in touch with me on Discord (Kitty#1909) so we can
-              discuss feasibility.
+              <Link to='/guides'>Guides</Link> are very handy for beginners to
+              learn more about the game and get better, so if you’d like to
+              write a guide, that’s fantastic! Get in touch with me on Discord
+              (Kitty#1909) so we can discuss feasibility.
             </p>
             <p>
               On a similar note, if you happen to find incorrect, misleading or

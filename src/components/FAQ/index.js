@@ -1,8 +1,10 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import Column from '../Column'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
+import TogglableContent from '../TogglableContent'
 import categories from '../../data/faq'
 import './index.css'
 
@@ -33,6 +35,26 @@ const FAQSection = props => (
 )
 
 const FAQ = props => {
+  const { hash } = useLocation()
+  const [expanded, setExpanded] = React.useState([])
+  const toggle = id =>
+    expanded.includes(id)
+      ? setExpanded(ids => ids.filter(i => i !== id))
+      : setExpanded(ids => [...ids, id])
+
+  React.useEffect(() => {
+    if (!hash) return
+    const node = document.querySelector(hash)
+    if (node) node.scrollIntoView()
+    const category = categories.find(
+      cat => !!cat.entries.find(entry => entry.id === hash.slice(1))
+    )
+    if (!expanded.includes(category.id)) {
+      setExpanded(ids => [...ids, category.id])
+    }
+    //eslint-disable-next-line
+  }, [hash])
+
   return (
     <div className='FAQ'>
       <h1 className='visually-hidden'>Frequently Asked Questions</h1>
@@ -45,6 +67,30 @@ const FAQ = props => {
             {categories.map(category => (
               <li key={category.id}>
                 <a href={'#' + category.id}>{category.title}</a>
+                <TogglableContent
+                  isExpanded={expanded.includes(category.id)}
+                  id={category.id + '-questions'}
+                  renderToggle={toggleProps => (
+                    <button
+                      className='ButtonAsLink FAQ__toggle'
+                      onClick={() => toggle(category.id)}
+                    >
+                      (
+                      {expanded.includes(category.id)
+                        ? '- Collapse'
+                        : '+ Expand'}
+                      )
+                    </button>
+                  )}
+                >
+                  <ul className='FAQ__toc-list'>
+                    {category.entries.map(entry => (
+                      <li key={entry.id}>
+                        <a href={'#' + entry.id}>{entry.question}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </TogglableContent>
               </li>
             ))}
           </ul>
