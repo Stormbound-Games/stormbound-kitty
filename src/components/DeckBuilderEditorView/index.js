@@ -193,7 +193,7 @@ class DeckBuilderEditorView extends React.Component {
 
           <Column width={66}>
             <div className='DB__collection'>
-              <Title>Cards collection</Title>
+              <Title>Cards</Title>
 
               <CardsFiltering cards={cardCollection}>
                 {({
