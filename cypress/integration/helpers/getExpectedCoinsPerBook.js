@@ -7,6 +7,12 @@ const LEVEL_5_COLLECTION = cards.map(card => ({
   rarity: card.rarity,
 }))
 
+const LEVEL_1_COLLECTION = cards.map(card => ({
+  id: card.id,
+  level: 1,
+  rarity: card.rarity,
+}))
+
 describe('The `getExpectedCoinsPerBook` helper', () => {
   const COINS = {
     MYTHIC: 544.1428571428569,
@@ -21,6 +27,12 @@ describe('The `getExpectedCoinsPerBook` helper', () => {
       expect(getExpectedCoinsPerBook(LEVEL_5_COLLECTION, bookType)).to.equal(
         COINS[bookType]
       )
+    })
+  })
+
+  Object.keys(COINS).forEach(bookType => {
+    it(`should return 0 coins for a ${bookType} book with a level 1 collection`, () => {
+      expect(getExpectedCoinsPerBook(LEVEL_1_COLLECTION, bookType)).to.equal(0)
     })
   })
 })
