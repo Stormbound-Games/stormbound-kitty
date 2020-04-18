@@ -544,5 +544,75 @@
     "faction": "swarm",
     "author": "Reckless Rush",
     "category": "REGULAR"
+  },
+  {
+    "name": "Lucrative Project",
+    "id": "NU4xLDVOMiw1STEsNE4zLDRONCw1STUsNUk3LDVJOCw1STI3LDVJMjAsNUkxNiw1STIx",
+    "faction": "ironclad",
+    "author": "Frostkhan",
+    "category": "BRAWL"
+  },
+  {
+    "name": "Freedom Fight",
+    "id": "NU4xLDVGOCw1TjksNUY1LDVGNyw1RjEwLDVGMTIsNUYxNSw1RjE3LDVGMjgsNU41Miw1TjUz",
+    "faction": "shadowfen",
+    "author": "Frostkhan",
+    "category": "BRAWL"
+  },
+  {
+    "name": "Eye Tempest",
+    "id": "NU4xLDVOMiw1TjIzLDROMTQsNVc1LDVOMTgsNU4yOSw1TjQ0LDVONDgsNVcxOSw1VzIxLDVXMjM=",
+    "faction": "winter",
+    "author": "Frostkhan",
+    "category": "BRAWL"
+  },
+  {
+    "name": "Self Control",
+    "id": "NU4xLDVOMiw1UzEsNU4zLDVTMjQsNU40LDVTMyw1TjE4LDVTOSw1UzI4LDVTMjAsNVMyMQ==",
+    "faction": "swarm",
+    "author": "Frostkhan",
+    "category": "BRAWL"
+  },
+  {
+    "name": "Aftershock",
+    "id": "NU4xLDVOMiw1STEsNUkyLDVJMyw1TjksNUkxMCw1STE0LDVJMTUsNUkxOSw1TjM0LDVONDU=",
+    "faction": "ironclad",
+    "author": "Frostkhan",
+    "category": "BRAWL"
+  },
+  {
+    "name": "Scavengers",
+    "id": "NU4xLDVOMiw1RjQsNUYzLDVOMyw1RjI3LDVGNiw1RjI1LDVGMTQsNUYxOCw1RjI4LDVGMjI=",
+    "faction": "shadowfen",
+    "author": "Frostkhan",
+    "category": "BRAWL"
+  },
+  {
+    "name": "Unleashed Fury",
+    "id": "NU4xLDVJMSw1STMsNU42LDVJNSw1TjEwLDVJNyw1STgsNUkxMyw1STI3LDVJMTcsNU41MQ==",
+    "faction": "ironclad",
+    "author": "Frostkhan",
+    "category": "BRAWL"
+  },
+  {
+    "name": "Small Plague",
+    "id": "NU4xLDVOMiw1STEsNUkyLDVJNCw1STUsNU4xMiw1STksNUkxNSw1STIwLDVJMTIsNUkxOQ==",
+    "faction": "ironclad",
+    "author": "Frostkhan",
+    "category": "BRAWL"
+  },
+  {
+    "name": "Goddness Boon",
+    "id": "NU4xLDVXMiw1TjMsNU45LDVOMTEsNVc0LDVXOSw1VzEyLDVOMzYsNVcxMCw1VzE5LDVONTg=",
+    "faction": "winter",
+    "author": "Frostkhan",
+    "category": "BRAWL"
+  },
+  {
+    "name": "Heroic Deeds",
+    "id": "NUY4LDVGNCw1RjIsNUYzLDVOMyw1TjgsNU41OSw1RjEyLDVONjksNU4zNSw1RjIzLDVONTg=",
+    "faction": "shadowfen",
+    "author": "Frostkhan",
+    "category": "BRAWL"
   }
 ]
