@@ -4,25 +4,23 @@
   color: white;
   border-radius: 2.25em;
   filter: drop-shadow(0 1em 0.75em rgba(0, 0, 0, 0.25));
-  transition: box-shadow 250ms;
+  transition: box-shadow 250ms, transform 250ms;
 }
 
 .Card--affordable {
-  box-shadow: 0 0 0 0.8em rgb(11, 217, 142),
-    0 0 4em 0.8em rgba(11, 217, 142, 0.5);
+  box-shadow: 0 0 0 0.8em rgb(107, 231, 156);
 }
 
 .Card--affordable .Card__mana {
-  filter: drop-shadow(0 -0.8em rgb(11, 217, 142))
-    drop-shadow(0 0 4em rgba(11, 217, 142, 0.5));
+  filter: drop-shadow(0 -0.8em rgb(107, 231, 156));
 }
 
 .Card--upgradable {
-  box-shadow: 0 0 0 0.8em gold, 0 0 4em 0.8em rgba(255, 215, 0, 0.5);
+  box-shadow: 0 0 0 0.8em rgb(231, 209, 70);
 }
 
 .Card--upgradable .Card__mana {
-  filter: drop-shadow(0 -0.8em gold) drop-shadow(0 0 4em rgba(255, 215, 0, 0.5));
+  filter: drop-shadow(0 -0.8em rgb(231, 209, 70));
 }
 
 .Card--RED {

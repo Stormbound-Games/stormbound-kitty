@@ -14,7 +14,7 @@
 
 .CardsGallery__item {
   flex: 0 1 25%;
-  padding: 1.25em 0.5em;
+  padding: 1.25em 0.75em;
   position: relative;
   perspective: 1000px;
 }
@@ -55,13 +55,7 @@
 }
 
 .CardsGallery__button:hover + .Card {
-  box-shadow: 0 0 0 0.8em rgb(11, 217, 142),
-    0 0 4em 0.8em rgba(11, 217, 142, 0.5);
-}
-
-.CardsGallery__button:hover + .Card .Card__mana {
-  filter: drop-shadow(0 -0.8em rgb(11, 217, 142))
-    drop-shadow(0 0 4em rgba(11, 217, 142, 0.5));
+  transform: scale(1.08);
 }
 
 .CardsGallery__nav {
