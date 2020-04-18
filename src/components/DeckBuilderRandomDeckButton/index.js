@@ -6,6 +6,7 @@ import Column from '../Column'
 import CTA from '../CTA'
 import Dialog from '../Dialog'
 import FactionSelect from '../FactionSelect'
+import LearnMoreIcon from '../LearnMoreIcon'
 import Row from '../Row'
 import getRandomDeck from '../../helpers/getRandomDeck'
 import arrayRandom from '../../helpers/arrayRandom'
@@ -62,7 +63,14 @@ class DeckBuilderRandomDeckButton extends React.Component {
         </CTA>
         <Dialog
           id='random-deck-dialog'
-          title='Generate random deck'
+          title={
+            <>
+              Generate random deck{' '}
+              <LearnMoreIcon anchor='#random-deck'>
+                Learn more about random decks
+              </LearnMoreIcon>
+            </>
+          }
           dialogRef={dialog => (this.dialog = dialog)}
           image='/assets/images/cards/archdruid_earyn.png'
           close={this.close}
