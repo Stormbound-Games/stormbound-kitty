@@ -175,7 +175,7 @@ const BRAWLS = [
     faction: 'shadowfen',
   },
   {
-    name: 'Snow White Ain’t Be Sleepin’ For Long',
+    name: 'Natural Sprint',
     description: (
       <>
         All <span className='Highlight'>Dwarf</span> units cost{' '}
