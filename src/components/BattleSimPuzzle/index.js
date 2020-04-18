@@ -2,18 +2,21 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { RESTRICTIONS, TYPES } from '../../constants/puzzles'
 import Image from '../Image'
+import Only from '../Only'
 import './index.css'
 
 const BattleSimPuzzle = props => (
   <div className='BattleSimPuzzle'>
     {!props.noImage && (
-      <div className='BattleSimPuzzle__image-wrapper'>
-        <Image
-          className='BattleSimPuzzle__image'
-          src={props.image}
-          alt={props.name}
-        />
-      </div>
+      <Only.Desktop>
+        <div className='BattleSimPuzzle__image-wrapper'>
+          <Image
+            className='BattleSimPuzzle__image'
+            src={props.image}
+            alt={props.name}
+          />
+        </div>
+      </Only.Desktop>
     )}
     <div className='BattleSimPuzzle__content'>
       <h3 className='BattleSimPuzzle__name'>
