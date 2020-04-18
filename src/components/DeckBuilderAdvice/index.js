@@ -1,4 +1,5 @@
 import React from 'react'
+import LearnMoreIcon from '../LearnMoreIcon'
 import Title from '../Title'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import './index.css'
@@ -145,7 +146,9 @@ const DeckBuilderAdvice = props => {
 
   return (
     <div className='DeckBuilderAdvice'>
-      <Title>Suggestions</Title>
+      <Title>
+        Suggestions <LearnMoreIcon anchor='#incorrect-deck-suggestions' />
+      </Title>
 
       {suggestions.map(suggestion => (
         <p
