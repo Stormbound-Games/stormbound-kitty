@@ -45,7 +45,7 @@ const Footer = props => (
           </p>
         </Column>
         <Column>
-          <Row>
+          <Row desktopOnly>
             <Column width={33}>
               <span className='Footer__heading'>Stormbound</span>
               <ul className='Footer__list'>

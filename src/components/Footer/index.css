@@ -49,7 +49,8 @@
 }
 
 @media (max-width: 699px) {
-  .Footer .Row--desktop > .Column ~ .Column {
-    display: none;
+  .Footer .Row--desktop .Row--desktop .Column {
+    flex-basis: 50%;
+    flex-grow: 0;
   }
 }
