@@ -77,6 +77,10 @@
 
 @media (max-width: 1099px) {
   .CardsGallery__item {
-    flex: 0 1 calc(100% / 3);
+    padding: 1em 0.5em;
+  }
+
+  .CardsGallery__item {
+    flex: 0 1 calc(100% / 2);
   }
 }

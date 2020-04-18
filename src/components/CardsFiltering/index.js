@@ -156,7 +156,7 @@ class CardsFiltering extends React.Component {
       filtersSetters,
       resetFilters: this.resetFilters,
       collection: this.getCollection(this.props.cards),
-      cardsPerPage: this.props.viewportWidth < 1100 ? 6 : 8,
+      cardsPerPage: this.props.viewportWidth < 1100 ? 4 : 8,
     })
   }
 }
