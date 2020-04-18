@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Card from '../Card'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
@@ -348,6 +349,18 @@ class DeckBuilderDryRunView extends React.Component {
                       cards than cannot actually be played in the first turn
                       (e.g. <WikiLink id='F4' />, <WikiLink id='W1' />
                       …).
+                    </p>
+
+                    <p>
+                      Learn more about{' '}
+                      <Link to='/faq#dry-runner-works'>
+                        how the dry-runner works
+                      </Link>{' '}
+                      and{' '}
+                      <Link to='/faq#drawing-algorithm'>
+                        what is the drawing algorithm
+                      </Link>
+                      .
                     </p>
 
                     {this.props.hand.includes('N38') && (
