@@ -74,7 +74,10 @@
 }
 
 .FAQ__toggle {
-  text-transform: initial;
   margin-left: 1ch;
   color: var(--beige);
+}
+
+.FAQ__toggle:hover {
+  color: white;
 }

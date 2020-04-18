@@ -74,16 +74,13 @@ a {
   color: currentColor;
 }
 
-.link-link,
 a:not([class]) {
   transition: 250ms;
 }
 
-.link-link:active,
-.link-link:hover,
 a:not([class]):active,
 a:not([class]):hover {
-  color: pink;
+  color: var(--beige);
 }
 
 /**
@@ -132,7 +129,6 @@ select:disabled {
 }
 
 option {
-  color: black;
   color: var(--black);
 }
 
@@ -169,16 +165,14 @@ fieldset {
   padding: 0;
   color: inherit;
   font: inherit;
-  text-transform: uppercase;
-  display: inline-block;
-  border-bottom: 1px solid transparent;
+  display: inline;
+  text-decoration: underline;
   cursor: pointer;
   transition: 250ms;
 }
 
 .ButtonAsLink:hover {
-  color: white;
-  border-bottom-color: currentColor;
+  color: var(--beige);
 }
 
 .Highlight {

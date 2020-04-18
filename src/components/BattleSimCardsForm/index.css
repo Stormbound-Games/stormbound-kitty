@@ -43,4 +43,5 @@
 
 .BattleSimCardsForm__expand-button {
   margin-left: 1em;
+  text-transform: uppercase;
 }
