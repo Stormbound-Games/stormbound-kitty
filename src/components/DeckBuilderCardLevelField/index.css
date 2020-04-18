@@ -21,9 +21,3 @@
   font-size: 80%;
   display: block;
 }
-
-@media (max-width: 700px) {
-  .DeckBuilderCardLevelField__hint {
-    display: none;
-  }
-}

@@ -1,11 +1,14 @@
 import React from 'react'
+import Only from '../Only'
 import './index.css'
 
 const DeckBuilderCardLevelField = props => (
   <div className='DeckBuilderCardLevelField'>
     <label htmlFor='level' className='DeckBuilderCardLevelField__label'>
       Cards level
-      <span className='DeckBuilderCardLevelField__hint'>(keyboard 1-5)</span>
+      <Only.Desktop>
+        <span className='DeckBuilderCardLevelField__hint'>(keyboard 1-5)</span>
+      </Only.Desktop>
     </label>
     <select
       name='level'
