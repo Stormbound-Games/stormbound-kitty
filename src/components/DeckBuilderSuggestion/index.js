@@ -44,7 +44,9 @@ const DeckBuilderSuggestion = props => {
         missing: resolvedCollection[card.id].missing,
       }))
   const id = serialiseDeck(deck)
-  const distance = getDeckDistanceToMax(resolvedCollection)({ id })
+  const distance = hasDefaultCollection
+    ? null
+    : getDeckDistanceToMax(resolvedCollection)({ id })
 
   return (
     <div className='DeckBuilderSuggestion'>
