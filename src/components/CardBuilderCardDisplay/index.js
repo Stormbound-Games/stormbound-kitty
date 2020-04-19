@@ -32,7 +32,8 @@ const CardBuilderCardDisplay = props => {
                   props.hasSingleLevel &&
                     props.level !== level + 1 &&
                     'CardBuilderApp__card--irrelevant',
-                  level + 1 > cardInCollection.level &&
+                  (cardInCollection.missing ||
+                    level + 1 > cardInCollection.level) &&
                     'CardBuilderApp__card--missing',
                   level + 1 === cardInCollection.level &&
                     'CardBuilderApp__card--current',

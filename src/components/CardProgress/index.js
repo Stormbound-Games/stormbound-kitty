@@ -13,8 +13,11 @@ const CardProgress = props => {
   }
 
   const { rarity, level, copies } = card
-  const max = RARITY_COPIES[rarity].copies[level - 1]
-  const current = copies
+  const { stonesForMissing } = RARITY_COPIES[rarity]
+  const max = card.missing
+    ? stonesForMissing
+    : RARITY_COPIES[rarity].copies[level - 1]
+  const current = card.missing ? 0 : copies
 
   // If the card is already level 5, there is no concept of progress
   if (level === 5) {
@@ -24,9 +27,18 @@ const CardProgress = props => {
   return (
     <div className='CardProgress'>
       <img
-        src='/assets/images/cards.png'
+        src={
+          card.missing
+            ? '/assets/images/stones.png'
+            : '/assets/images/cards.png'
+        }
         alt=''
-        className='CardProgress__image'
+        className={[
+          'CardProgress__image',
+          card.missing && 'CardProgress__image--stone',
+        ]
+          .filter(Boolean)
+          .join(' ')}
       />
       <ProgressBar value={current} min={0} max={max} />
       <span className='CardProgress__label'>{current + '/' + max}</span>

@@ -1,6 +1,6 @@
 .CardProgress {
   position: relative;
-  margin: 2em auto 0;
+  margin: 2.25em auto 0;
 }
 
 .CardProgress__label {
@@ -16,4 +16,8 @@
   top: 0;
   transform: translate(-50%, -25%);
   z-index: 2;
+}
+
+.CardProgress__image--stone {
+  transform: translate(-50%, -35%) scale(0.9);
 }
