@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import QuestionMark from '../QuestionMark'
 import './index.css'
 
 const LearnMoreIcon = props => (
@@ -7,7 +8,7 @@ const LearnMoreIcon = props => (
     <span className='visually-hidden'>
       {props.children || 'Learn more in the FAQ'}
     </span>
-    <span className='LearnMoreIcon__mark'>?</span>
+    <QuestionMark />
   </Link>
 )
 
