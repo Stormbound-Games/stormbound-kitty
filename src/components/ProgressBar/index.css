@@ -5,7 +5,7 @@
   padding: 3px;
   border: 1px solid var(--beige);
   border-radius: 0 1px 1px 0;
-  background-color: rgb(54, 120, 109);
+  background-color: var(--green);
   background-clip: content-box;
   border-right: 0;
   position: relative;
@@ -28,7 +28,7 @@
 
 .ProgressBar__inner {
   height: 100%;
-  background-color: rgb(208, 184, 76);
+  background-color: var(--yellow);
 }
 
 .ProgressBar__inner::after {
@@ -41,7 +41,7 @@
   height: 12.020815280171307px;
   transform: translateX(-3px) translate(50%, -50%) rotate(45deg)
     translate(-0.4px, -0.4px);
-  background-color: rgb(54, 120, 109);
+  background-color: var(--green);
 }
 
 .ProgressBar__inner[aria-valuenow='100']::after {

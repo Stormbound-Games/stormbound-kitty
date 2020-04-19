@@ -79,7 +79,6 @@
   transform: translateX(-50%); /* 1 */
   text-align: center; /* 1 */
   bottom: 110%; /* 2 */
-  color: white;
 }
 
 /**

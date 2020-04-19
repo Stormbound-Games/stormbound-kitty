@@ -79,5 +79,5 @@
 }
 
 .FAQ__toggle:hover {
-  color: white;
+  color: var(--white);
 }

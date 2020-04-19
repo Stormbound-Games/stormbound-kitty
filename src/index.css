@@ -21,14 +21,33 @@
 
 :root {
   scroll-padding-top: 2em;
-  --red: rgb(203, 43, 67);
-  --blue: rgb(25, 93, 156);
-  --beige: rgb(222, 215, 164);
+
+  /* Game colors */
+  --beige: rgb(226, 215, 175);
+  --dark-beige: rgb(155, 142, 112);
+  --light-blue: rgb(46, 86, 98);
+  --dark-blue: rgb(32, 53, 63);
+  --green: rgb(54, 120, 109);
   --black: rgb(16, 31, 38);
+  --white: rgb(245, 242, 229);
+  --yellow: rgb(208, 184, 76);
+
+  /* Faction colors */
   --swarm: rgb(96, 72, 48);
   --ironclad: rgb(130, 70, 72);
   --shadowfen: rgb(48, 101, 93);
   --winter: rgb(64, 84, 119);
+
+  /* Card colors */
+  --affordable: rgb(107, 231, 156);
+  --upgradable: rgb(231, 209, 70);
+
+  /* Battle sim colors */
+  --player-red: rgb(203, 43, 67);
+  --player-blue: rgb(25, 93, 156);
+  --poison: rgb(112, 4, 112);
+  --freeze: rgb(96, 173, 199);
+  --confused: orange;
 }
 
 * {
@@ -43,7 +62,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: url('/assets/images/background.png') repeat var(--black);
-  color: rgb(250, 250, 250);
+  color: var(--white);
 }
 
 input,
@@ -116,7 +135,7 @@ select {
   border-radius: 0.3em;
   background-color: transparent;
   border: 1px solid rgba(222, 215, 164, 0.5);
-  color: white;
+  color: var(--white);
 }
 
 input[type='radio'] {

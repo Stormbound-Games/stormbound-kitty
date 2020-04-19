@@ -1,6 +1,7 @@
 .DeckBuilderRNGField__radio-info {
-  color: white;
+  color: var(--white);
   display: block;
+  text-transform: initial;
 }
 
 .DeckBuilderRNGField__radio-info > span {

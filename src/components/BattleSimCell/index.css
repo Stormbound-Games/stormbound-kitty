@@ -131,11 +131,11 @@
 }
 
 .BattleSimCell--RED[aria-pressed='true']::before {
-  color: var(--red);
+  color: var(--player-red);
 }
 
 .BattleSimCell--BLUE[aria-pressed='true']::before {
-  color: var(--blue);
+  color: var(--player-blue);
 }
 
 /**
@@ -147,7 +147,7 @@
   left: 10%;
   width: 25%;
   font-size: 80%;
-  color: white;
+  color: var(--white);
   z-index: 2; /* 1 */
 }
 
@@ -174,11 +174,11 @@
 }
 
 .BattleSimCell__strength--RED::after {
-  background-color: var(--red);
+  background-color: var(--player-red);
 }
 
 .BattleSimCell__strength--BLUE::after {
-  background-color: var(--blue);
+  background-color: var(--player-blue);
 }
 
 /**
@@ -221,11 +221,7 @@
 
 .BattleSimCell--frozen {
   perspective: 1000px;
-  background-image: radial-gradient(
-    closest-side,
-    rgb(96, 173, 199),
-    transparent
-  );
+  background-image: radial-gradient(closest-side, var(--freeze), transparent);
 }
 
 .BattleSimCell__frozen {
@@ -369,13 +365,13 @@
 }
 
 .BattleSimCell__dots--confused .BattleSimCell__dot {
-  background-color: orange;
+  background-color: var(--confused);
   border-radius: 50%;
   animation-direction: alternate;
 }
 
 .BattleSimCell__dots--poisoned .BattleSimCell__dot {
-  background-color: rgb(112, 4, 112);
+  background-color: var(--poison);
 }
 
 .BattleSimCell__dots--poisoned .BattleSimCell__dot--bubble {

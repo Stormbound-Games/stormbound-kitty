@@ -7,11 +7,11 @@
   transform: translateX(-50%);
   animation-name: cell-form-dialog-appear;
   animation-duration: 400ms;
-  box-shadow: 0 0 2em 1em rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 3px var(--dark-blue), 0 0 2em 1em rgba(0, 0, 0, 0.2);
 }
 
 #cell-form-dialog .Dialog__body {
-  text-align: left;
+  text-align: initial;
 }
 
 #cell-form-dialog .Dialog__overlay {

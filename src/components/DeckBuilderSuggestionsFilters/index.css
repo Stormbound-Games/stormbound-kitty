@@ -3,13 +3,6 @@
   margin-bottom: 1em;
 }
 
-.DeckBuilderSuggestionsFilters__info {
-  color: white;
-  display: block;
-  font-size: 90%;
-  max-width: 40ch;
-}
-
 .DeckBuilderSuggestionsFilters__toggle {
   background-color: transparent;
   border: 0;

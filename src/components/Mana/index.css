@@ -31,7 +31,6 @@
  * 1. Absolute centering with in parent based on background
  */
 .Mana__value {
-  color: white;
   font-size: 110%;
   position: absolute; /* 1 */
   top: 50%; /* 1 */

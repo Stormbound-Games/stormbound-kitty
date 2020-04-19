@@ -1,7 +1,7 @@
 .CardSelect__control {
   background-color: transparent !important;
   border-color: rgba(222, 215, 164, 0.5) !important;
-  color: white !important;
+  color: var(--white) !important;
 }
 
 .CardSelect__control.CardSelect__control--is-focused {
@@ -12,5 +12,5 @@
 
 .CardSelect__input,
 .CardSelect__single-value {
-  color: white !important;
+  color: var(--white) !important;
 }

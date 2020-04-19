@@ -1,4 +1,5 @@
 import React from 'react'
+import { getRarityColor } from '../../helpers/getRarity'
 import './index.css'
 
 const RarityBar = props => {
@@ -15,7 +16,7 @@ const RarityBar = props => {
         <div
           className='RarityBar__slice'
           style={{
-            '--color': 'rgb(151, 146, 123)',
+            '--color': getRarityColor('common', 'bright'),
             '--count': commons,
           }}
         >
@@ -28,7 +29,7 @@ const RarityBar = props => {
         <div
           className='RarityBar__slice'
           style={{
-            '--color': 'rgb(31, 174, 224)',
+            '--color': getRarityColor('rare', 'bright'),
             '--count': rares,
           }}
         >
@@ -41,7 +42,7 @@ const RarityBar = props => {
         <div
           className='RarityBar__slice'
           style={{
-            '--color': 'rgb(196, 93, 230)',
+            '--color': getRarityColor('epic', 'bright'),
             '--count': epics,
           }}
         >
@@ -54,7 +55,7 @@ const RarityBar = props => {
         <div
           className='RarityBar__slice'
           style={{
-            '--color': 'rgb(232, 137, 49)',
+            '--color': getRarityColor('legendary', 'bright'),
             '--count': legendaries,
           }}
         >

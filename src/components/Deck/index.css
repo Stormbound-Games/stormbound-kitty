@@ -35,7 +35,7 @@
 }
 
 .Deck__card {
-  color: rgb(255, 255, 255);
+  color: var(--white);
   background-color: rgb(78, 86, 89);
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.2em;

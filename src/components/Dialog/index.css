@@ -40,18 +40,19 @@
   width: 350px;
   max-width: 85%;
   position: relative;
-  background-color: rgb(25, 53, 64);
+  background-color: var(--dark-blue);
   padding: 0;
-  border: 1px solid var(--beige);
+  border: 1px solid var(--dark-beige);
   border-radius: 0.3em;
   animation: dialog-appear 750ms ease-out both;
+  box-shadow: 0 0 0 3px var(--dark-blue);
 }
 
 .Dialog__header {
   padding: 1em;
-  background-color: rgb(39, 86, 102);
+  background-color: var(--light-blue);
   border-radius: 0.3em 0.3em 0 0;
-  color: white;
+  position: relative;
 }
 
 .Dialog__title {
@@ -60,9 +61,8 @@
 }
 
 .Dialog__body {
-  background-color: rgb(25, 53, 64);
+  background-color: inherit;
   padding: 1em;
-  color: white;
   border-radius: 0 0 0.3em 0.3em;
   text-align: center;
 }
@@ -80,6 +80,7 @@
   top: 0;
   right: 0;
   transform: translate(50%, -50%);
+  color: var(--dark-blue);
 }
 
 .Dialog__CTA {

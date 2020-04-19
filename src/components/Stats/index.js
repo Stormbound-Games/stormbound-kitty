@@ -19,6 +19,7 @@ import Title from '../Title'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import { getCardCost } from '../../helpers/getCollectionCost'
+import { getRarityColor } from '../../helpers/getRarity'
 import './index.css'
 
 const COLORS = [
@@ -67,10 +68,10 @@ const getFactionData = collection => {
 
 const getRarityData = collection => {
   const data = {
-    common: { name: 'Common', color: 'rgb(215, 216, 215)', value: 0 },
-    rare: { name: 'Rare', color: 'rgb(112, 189, 207)', value: 0 },
-    epic: { name: 'Epic', color: 'rgb(195, 153, 198)', value: 0 },
-    legendary: { name: 'Legendary', color: 'rgb(208, 172, 137)', value: 0 },
+    common: { name: 'Common', value: 0 },
+    rare: { name: 'Rare', value: 0 },
+    epic: { name: 'Epic', value: 0 },
+    legendary: { name: 'Legendary', value: 0 },
   }
 
   collection.forEach(card => {
@@ -84,7 +85,7 @@ const getRarityData = collection => {
 
 const getStatusData = collection => {
   const data = {
-    upgradable: { name: 'Upgradable', color: 'rgb(170, 150, 35)', value: 0 },
+    upgradable: { name: 'Upgradable', color: 'var(--upgradable)', value: 0 },
     notUpgradable: {
       name: 'Not upgradable',
       color: 'rgb(162, 185, 182)',
@@ -244,7 +245,13 @@ const Stats = props => {
                       label
                     >
                       {rarityData.map(rarity => (
-                        <Cell key={`cell-${rarity}`} fill={rarity.color} />
+                        <Cell
+                          key={`cell-${rarity}`}
+                          fill={getRarityColor(
+                            rarity.name.toLowerCase(),
+                            'light'
+                          )}
+                        />
                       ))}
                     </Pie>
                   </PieChart>

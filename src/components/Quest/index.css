@@ -4,7 +4,11 @@
   max-width: 400px;
   position: relative;
   width: 100%;
-  background: linear-gradient(45deg, rgb(25, 54, 64) 50%, rgb(39, 87, 101) 50%);
+  background: linear-gradient(
+    45deg,
+    var(--dark-blue) 50%,
+    var(--light-blue) 50%
+  );
   margin-bottom: 2em;
 }
 

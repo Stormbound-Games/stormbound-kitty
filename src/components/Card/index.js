@@ -105,7 +105,7 @@ const Card = props => {
           {!props.token && (
             <span
               className='Card__level'
-              style={{ color: getRarityColor(props.rarity) }}
+              style={{ color: getRarityColor(props.rarity, 'light') }}
               data-testid='card-level'
             >
               Level {props.level}

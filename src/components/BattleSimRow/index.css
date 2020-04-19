@@ -21,12 +21,12 @@
 }
 
 .BattleSimRow--RED::before {
-  background-color: var(--red);
+  background-color: var(--player-red);
   top: 100%;
 }
 
 .BattleSimRow--BLUE::before {
-  background-color: var(--blue);
+  background-color: var(--player-blue);
   bottom: 100%;
 }
 
@@ -77,7 +77,7 @@
 
 .BattleSimRow--BLUE::after {
   left: calc(100% - 1px);
-  color: var(--blue);
+  color: var(--player-blue);
   border-top: 1px solid;
   border-left: 1px solid;
   transform-origin: bottom left;
@@ -85,7 +85,7 @@
 
 .BattleSimRow--RED::after {
   right: calc(100% - 1px);
-  color: var(--red);
+  color: var(--player-red);
   border-bottom: 1px solid;
   border-right: 1px solid;
   transform-origin: top right;

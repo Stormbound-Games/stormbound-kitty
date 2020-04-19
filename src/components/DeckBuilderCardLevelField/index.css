@@ -17,7 +17,7 @@
 }
 
 .DeckBuilderCardLevelField__hint {
-  color: white;
+  color: var(--white);
   font-size: 80%;
   display: block;
 }

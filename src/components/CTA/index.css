@@ -61,5 +61,5 @@
 
 .CTA--new .CTA__content::after {
   content: ' (New)';
-  color: rgb(130, 70, 72);
+  color: var(--ironclad);
 }

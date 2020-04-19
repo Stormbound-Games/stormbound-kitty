@@ -4,7 +4,7 @@
 }
 
 .BattleSimPuzzlesFilters__info {
-  color: white;
+  color: var(--white);
   display: block;
   max-width: 40ch;
   text-transform: initial;
