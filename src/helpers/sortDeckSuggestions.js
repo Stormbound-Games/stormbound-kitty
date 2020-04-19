@@ -1,14 +1,6 @@
-import { deserialiseDeck } from './deserialise'
+import getDeckDistanceToMax from './getDeckDistanceToMax'
 import resolveCollection from './resolveCollection'
 
-const getCollectionDistance = collection => deck => {
-  const cards = deserialiseDeck(deck.id)
-  const findInCollection = card => collection[card.id]
-  const computeDistance = (distance, card) =>
-    card.missing ? Infinity : distance + (card.maxCost - card.cost)
-
-  return cards.map(findInCollection).reduce(computeDistance, 0)
-}
 const sortDeckSuggestions = ({ hasDefaultCollection, collection }) => {
   const resolvedCollection = !hasDefaultCollection
     ? resolveCollection(collection)
@@ -16,8 +8,8 @@ const sortDeckSuggestions = ({ hasDefaultCollection, collection }) => {
 
   return (a, b) => {
     if (!hasDefaultCollection) {
-      const distanceA = getCollectionDistance(resolvedCollection)(a)
-      const distanceB = getCollectionDistance(resolvedCollection)(b)
+      const distanceA = getDeckDistanceToMax(resolvedCollection)(a)
+      const distanceB = getDeckDistanceToMax(resolvedCollection)(b)
 
       if (distanceA < distanceB) return -1
       if (distanceA > distanceB) return +1
