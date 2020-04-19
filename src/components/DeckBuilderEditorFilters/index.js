@@ -203,7 +203,7 @@ const DeckBuilderEditorFilters = props => (
                 props.rarity === '*' &&
                 props.race === '*' &&
                 props.ability === '*' &&
-                !props.name &&
+                !props.text &&
                 !props.elder &&
                 !props.hero
               }

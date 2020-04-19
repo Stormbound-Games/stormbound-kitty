@@ -6,7 +6,9 @@ describe('Deck Builder — Search', () => {
   })
 
   beforeEach(() => {
-    cy.get(s.RESET_BTN).click()
+    cy.get(s.RESET_BTN).then($button => {
+      if (!$button.is(':disabled')) cy.wrap($button).click()
+    })
   })
 
   it('should be able to filter by faction', () => {
