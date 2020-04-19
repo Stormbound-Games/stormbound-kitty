@@ -1,6 +1,6 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import Advice from '../DeckBuilderAdvice'
-import CardZoom from '../CardZoom'
 import Column from '../Column'
 import Deck from '../Deck'
 import PageMeta from '../PageMeta'
@@ -10,7 +10,7 @@ import Stats from '../DeckBuilderStats'
 import Title from '../Title'
 
 const DeckBuilderDetailView = props => {
-  const [zoomed, zoom] = React.useState(null)
+  const history = useHistory()
 
   return (
     <>
@@ -23,7 +23,7 @@ const DeckBuilderDetailView = props => {
             id='deck'
             deck={props.deck}
             highlightedCards={props.highlightedCards}
-            onClick={zoom}
+            onClick={card => history.push('/card/' + card.id + '/display')}
             onClickLabel='Enlarge card'
           />
 
@@ -42,12 +42,6 @@ const DeckBuilderDetailView = props => {
           <Advice deck={props.deck} highlight={props.highlight} />
         </Column>
       </Row>
-
-      <CardZoom
-        cardId={zoomed ? zoomed.id : null}
-        level={zoomed ? zoomed.level : null}
-        close={() => zoom(null)}
-      />
 
       <PageMeta
         title='Deck Detail'

@@ -3,7 +3,6 @@ import { useHistory, useLocation } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import debounce from 'lodash.debounce'
 import decks from '../../data/decks'
-import CardZoom from '../CardZoom'
 import Column from '../Column'
 import EmptySearch from '../EmptySearch'
 import PageMeta from '../PageMeta'
@@ -23,7 +22,6 @@ class DeckBuilderSuggestions extends React.Component {
     this.state = {
       ...this.getURLParameters(),
       name: '',
-      zoomed: null,
       activePage: 0,
     }
   }
@@ -124,7 +122,6 @@ class DeckBuilderSuggestions extends React.Component {
       author: '*',
       name: '',
       including: null,
-      zoomed: null,
       activePage: 0,
     })
 
@@ -160,14 +157,20 @@ class DeckBuilderSuggestions extends React.Component {
                   <Column>
                     <Suggestion
                       {...a}
-                      zoom={zoomed => this.setState({ zoomed })}
+                      onClick={card =>
+                        this.props.history.push('/card/' + card.id + '/display')
+                      }
                     />
                   </Column>
                   <Column>
                     {b ? (
                       <Suggestion
                         {...b}
-                        zoom={zoomed => this.setState({ zoomed })}
+                        onClick={card =>
+                          this.props.history.push(
+                            '/card/' + card.id + '/display'
+                          )
+                        }
                       />
                     ) : null}
                   </Column>
@@ -186,12 +189,6 @@ class DeckBuilderSuggestions extends React.Component {
               activePage={this.state.activePage}
             />
           </Column>
-
-          <CardZoom
-            cardId={this.state.zoomed ? this.state.zoomed.id : null}
-            level={this.state.zoomed ? this.state.zoomed.level : null}
-            close={() => this.setState({ zoomed: null })}
-          />
         </Row>
 
         <PageMeta

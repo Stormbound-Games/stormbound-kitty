@@ -15,7 +15,7 @@ const DeckBuilderSuggestion = props => {
       <Deck
         deck={deck}
         orientation='horizontal'
-        onClick={props.zoom}
+        onClick={props.onClick}
         onClickLabel='Display card'
       />
       <div className='DeckBuilderSuggestion__rarity-bar'>
