@@ -49,29 +49,8 @@
     "category": "DIAMOND_1"
   },
   {
-    "name": "Let It Go",
-    "id": "MlcyLDJOMywyTjExLDJXNCwyTjE2LDJXNiwyVzksMlcxMywyVzEyLDJXMTEsMk40NywyTjU0",
-    "faction": "winter",
-    "author": "WinterBoii",
-    "category": "REGULAR"
-  },
-  {
     "name": "Big Summer Blowout",
     "id": "NFcyLDROMyw0TjE2LDROMTQsNFc0LDRXNiw0TjE4LDRXMTMsNFcxMSw0VzEyLDRXOSw0VzIx",
-    "faction": "winter",
-    "author": "WinterBoii",
-    "category": "REGULAR"
-  },
-  {
-    "name": "T’was A Cold Knight",
-    "id": "Mk4zLDJXMiwyTjExLDJXMywyTjE2LDJOMjYsMlc2LDJOMjEsMlcxMiwyVzEzLDJONDcsMk41NA==",
-    "faction": "winter",
-    "author": "WinterBoii",
-    "category": "REGULAR"
-  },
-  {
-    "name": "Curaçao",
-    "id": "NE4zLDROMTQsNE4xMSw0TjE4LDROMjgsNFc3LDROMjEsNFcxMyw0VzEyLDRXOSw0VzE5LDRXMjE=",
     "faction": "winter",
     "author": "WinterBoii",
     "category": "REGULAR"
@@ -91,13 +70,6 @@
     "category": "REGULAR"
   },
   {
-    "name": "Blood Factory",
-    "id": "MkkxLDJOMywySTYsMk4yMSwySTE1LDJJMTEsMkkxNCwyTjI2LDJJMTgsMkkyMCwySTE5LDJJMjE=",
-    "faction": "ironclad",
-    "author": "WinterBoii",
-    "category": "REGULAR"
-  },
-  {
     "name": "Cyberpunk",
     "id": "NEkxLDROMyw0STYsNEk4LDROMTgsNEkxNSw0STExLDRJMTgsNEkyMCw0STE5LDRJMTYsNEkyMQ==",
     "faction": "ironclad",
@@ -105,22 +77,8 @@
     "category": "REGULAR"
   },
   {
-    "name": "This Girl Is Poison",
-    "id": "Mk4zLDJGNCwyRjIsMkYzLDJGNSwyRjExLDJGMTQsMkYxMywyRjEwLDJGMTUsMkYxNiwyRjIy",
-    "faction": "shadowfen",
-    "author": "WinterBoii",
-    "category": "REGULAR"
-  },
-  {
     "name": "Britney Spears",
     "id": "NE4zLDRGNCw0RjIsNEYxLDRGMyw0RjUsNEYxNCw0RjEwLDRGMTEsNEYxNiw0RjE1LDRGMjA=",
-    "faction": "shadowfen",
-    "author": "WinterBoii",
-    "category": "REGULAR"
-  },
-  {
-    "name": "Venomous Sailor Moon",
-    "id": "MkYyLDJGMywyTjMsMk4xMiwyRjUsMk4xNiwyRjEwLDJGMTQsMk4zMCwyRjE1LDJGMTcsMkYxNg==",
     "faction": "shadowfen",
     "author": "WinterBoii",
     "category": "REGULAR"
@@ -319,13 +277,6 @@
     "id": "NU4xLDVOMiw1STEsNU4zLDVONCw1TjUsNU44LDVJNiw1TjEyLDVJOCw1STEwLDVJMTI=",
     "faction": "ironclad",
     "author": "Leminh0510",
-    "category": "DIAMOND_1"
-  },
-  {
-    "name": "Toxic Blood",
-    "id": "NU4xLDVOMiw1TjMsNU40LDVONSw1RjQsNU4xMiw1TjE2LDVGMTAsNUYxNCw1TjMwLDVGMjA=",
-    "faction": "shadowfen",
-    "author": "iReckU",
     "category": "DIAMOND_1"
   },
   {
