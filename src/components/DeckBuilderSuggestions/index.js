@@ -1,11 +1,12 @@
 import React from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import debounce from 'lodash.debounce'
 import decks from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
 import Column from '../Column'
 import EmptySearch from '../EmptySearch'
+import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Suggestion from '../DeckBuilderSuggestion'
@@ -13,6 +14,7 @@ import SuggestionsFilters from '../DeckBuilderSuggestionsFilters'
 import SuggestionsNav from '../DeckBuilderSuggestionsNav'
 import Title from '../Title'
 import chunk from '../../helpers/chunk'
+import sortDeckSuggestions from '../../helpers/sortDeckSuggestions'
 import { deserialiseDeck } from '../../helpers/deserialise'
 import './index.css'
 
@@ -108,13 +110,7 @@ class DeckBuilderSuggestions extends React.Component {
       .filter(this.matchesAuthor)
       .filter(this.matchesName)
       .filter(this.matchesIncluding)
-      .sort((a, b) => {
-        if (a.faction > b.faction) return +1
-        if (a.faction < b.faction) return -1
-        if (a.name > b.name) return +1
-        if (a.name < b.name) return -1
-        return 0
-      })
+      .sort(sortDeckSuggestions(this.props))
   }
 
   resetFilters = () =>
@@ -150,6 +146,22 @@ class DeckBuilderSuggestions extends React.Component {
               resetFilters={this.resetFilters}
               formRef={this.formRef}
             />
+            <p className='DeckBuilderSuggestions__order'>
+              <Only.CustomCollection>
+                Decks are ordered based on the cards in{' '}
+                <span className='Highlight'>your collection</span>. That means
+                decks you can make with your highest cards are at the top of the
+                list and decks containing cards you do not possess are
+                downranked.
+              </Only.CustomCollection>
+              <Only.DefaultCollection>
+                If you have already{' '}
+                <Link to='/collection'>created your collection</Link>, you can
+                import it so decks are ordered based on whether or not you can
+                compose them, and how well they perform based on the level of
+                your cards.
+              </Only.DefaultCollection>
+            </p>
           </Column>
           <Column width={66}>
             <Title>Decks</Title>
@@ -205,4 +217,5 @@ class DeckBuilderSuggestions extends React.Component {
 export default hookIntoProps(() => ({
   history: useHistory(),
   location: useLocation(),
+  ...React.useContext(CollectionContext),
 }))(DeckBuilderSuggestions)
