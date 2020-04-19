@@ -1,0 +1,49 @@
+.ProgressBar {
+  height: 25px;
+  width: 15em;
+  max-width: 100%;
+  padding: 3px;
+  border: 1px solid var(--beige);
+  border-radius: 0 1px 1px 0;
+  background-color: rgb(54, 120, 109);
+  background-clip: content-box;
+  border-right: 0;
+  position: relative;
+}
+
+.ProgressBar::after {
+  box-sizing: border-box;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 17.67766952966369px; /* Math.sqrt(25 * 25 / 2) */
+  height: 17.67766952966369px; /* Math.sqrt(25 * 25 / 2) */
+  border-right: 1px solid var(--beige);
+  border-top: 1px solid var(--beige);
+  border-radius: 1px 0 1px 0;
+  transform: translateY(-0.75px) translateX(-0.5px) translate(50%, -50%)
+    rotate(45deg);
+}
+
+.ProgressBar__inner {
+  height: 100%;
+  background-color: rgb(208, 184, 76);
+}
+
+.ProgressBar__inner::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 12.020815280171307px;
+  height: 12.020815280171307px;
+  transform: translateX(-3px) translate(50%, -50%) rotate(45deg)
+    translate(-0.4px, -0.4px);
+  background-color: rgb(54, 120, 109);
+}
+
+.ProgressBar__inner[aria-valuenow='100']::after {
+  background-color: inherit;
+}

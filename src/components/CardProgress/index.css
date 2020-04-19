@@ -1,0 +1,19 @@
+.CardProgress {
+  position: relative;
+  margin: 2em auto 0;
+}
+
+.CardProgress__label {
+  text-align: center;
+  font-size: 135%;
+  display: block;
+  margin-top: 0.5em;
+}
+
+.CardProgress__image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -25%);
+  z-index: 2;
+}

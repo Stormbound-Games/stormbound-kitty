@@ -1,3 +1,20 @@
 .CardBuilderCardDisplay__buttons {
   margin-top: 2.5em;
 }
+
+.CardBuilderApp__card--missing {
+  opacity: 0.3;
+  filter: grayscale(1) contrast(200%);
+  position: relative;
+}
+
+.CardBuilderApp__card--missing::before {
+  content: '';
+  position: absolute;
+  top: 1em;
+  right: 0;
+  bottom: 1em;
+  left: 0;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 30%, transparent);
+  z-index: 2;
+}
