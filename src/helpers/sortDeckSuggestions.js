@@ -1,6 +1,5 @@
 import { deserialiseDeck } from './deserialise'
-import resolveCardForLevel from './resolveCardForLevel'
-import { getCardCost } from './getCollectionCost'
+import resolveCollection from './resolveCollection'
 
 const getCollectionDistance = collection => deck => {
   const cards = deserialiseDeck(deck.id)
@@ -10,17 +9,6 @@ const getCollectionDistance = collection => deck => {
 
   return cards.map(findInCollection).reduce(computeDistance, 0)
 }
-
-const resolveCollection = collection => {
-  return collection.reduce((acc, card) => {
-    acc[card.id] = resolveCardForLevel(card)
-    acc[card.id].maxCost = getCardCost({ ...card, level: 5 })
-    acc[card.id].cost = getCardCost(card)
-
-    return acc
-  }, {})
-}
-
 const sortDeckSuggestions = ({ hasDefaultCollection, collection }) => {
   const resolvedCollection = !hasDefaultCollection
     ? resolveCollection(collection)
