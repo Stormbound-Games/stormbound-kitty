@@ -1,5 +1,17 @@
 [
   {
+    "intro": "Deck Suggestions",
+    "description": "Deck suggestions show card levels from your collection and are ordered accordingly."
+  },
+  {
+    "intro": "Card Builder",
+    "description": "Opening official cards in the card builder with a loaded collection display the upgrade progres bar like in game."
+  },
+  {
+    "intro": "Card Collection",
+    "description": "When filtering collection by excess copies, cards will be ordered by most locked coins to least."
+  },
+  {
     "intro": "Books Calculator",
     "description": "It is now possible to find the odds of pulling fustion stones and coins from books."
   },
@@ -138,113 +150,5 @@
   {
     "intro": "Deck Suggestions",
     "description": "It is now possible to filter decks based on whether they include a certain card."
-  },
-  {
-    "intro": "Deck builder",
-    "description": "Clicking/tapping on a card in the deck detail view will now enlarge the card."
-  },
-  {
-    "intro": "Card builder",
-    "description": "Cards can now be defined across 5 levels. All formerly created cards will still work."
-  },
-  {
-    "intro": "Deck dry-runner",
-    "description": "Dawnsparks now have a RNG setting to define whether they will live and hit or die."
-  },
-  {
-    "intro": "Deck dry-runner",
-    "description": "It is now possible to display the draw chances of all cards in the dry-runner."
-  },
-  {
-    "intro": "Deck advice",
-    "description": "Beasts of Terror is now considered to be an AoE (Area Of Effect) card."
-  },
-  {
-    "intro": "Deck Suggestions",
-    "description": "The deck suggestions are now paginated to avoid a costly initial paint of the entire list."
-  },
-  {
-    "intro": "Deck builder",
-    "description": "The cards’ level can be quickly switched with keyboard keys 1 to 5."
-  },
-  {
-    "intro": "Deck Suggestions",
-    "description": "The suggested decks are now divided in 3 different categories: regular, Diamond 1 and tournament."
-  },
-  {
-    "intro": "Stormbound Kitty",
-    "description": "The site is officially renamed as “Stormbound Kitty” and has its own domain."
-  },
-  {
-    "intro": "Card builder",
-    "description": "The weekly card contest now has a proper dedicated page to promote it."
-  },
-  {
-    "intro": "Battle sim",
-    "description": "The layout of the desktop version has been entirely refined to better showcase the game background."
-  },
-  {
-    "intro": "Stormbound Kitty",
-    "description": " In the (hopefully) rare cases where the application would crash, there is now an error page that explains what happened and what to do from there."
-  },
-  {
-    "intro": "Card builder",
-    "description": "The card is automatically saved in the URL at every update, just like for the battle sim or the deck builder."
-  },
-  {
-    "intro": "Quest builder",
-    "description": "The quest is automatically saved in the URL at every update, just like for the battle sim or the deck builder."
-  },
-  {
-    "intro": "Battle sim",
-    "description": "The players’ faction are now inferred by the units placed on the board."
-  },
-  {
-    "intro": "Sharing",
-    "description": "When supported by the phone, sharing will go through the OS sharing hub instead of the clipboard."
-  },
-  {
-    "intro": "Card builder",
-    "description": "The card ability now supports bold text with Markdown-style syntax (*bold*)."
-  },
-  {
-    "intro": "Deck Suggestions",
-    "description": "There is now a lot of Diamond 1 decks to choose from."
-  },
-  {
-    "intro": "Deck Suggestions",
-    "description": "Clicking/tapping a card from a deck suggestion will enlarge that card like in the game."
-  },
-  {
-    "intro": "Stormbound Kitty",
-    "description": "Finally have a proper home page, which doesn’t look like a Sharpfist Exile’s turd."
-  },
-  {
-    "intro": "Deck builder",
-    "description": "Cards in decks are now tinted according to their type (unit, spell or structure), as well as their rarity for legendary cards—just like in the game."
-  },
-  {
-    "intro": "Deck dry-runner",
-    "description": "The bug where Collector Mirz’ token cards would never be drawn in dry-run due to them sharing a unique ID is now fixed."
-  },
-  {
-    "intro": "Stormbound Kitty",
-    "description": "The header and navigation on mobile should be a bit more convenient now and will no longer take half the screen on all pages."
-  },
-  {
-    "intro": "Deck Suggestions",
-    "description": "There is now an entire section dedicated to ready-to-use decks, with filtering for specific criteria (diamond 1, beginner-friendly, etc.)."
-  },
-  {
-    "intro": "Battle sim",
-    "description": "Switching between the editor and the display mode of the battle simulator is now easier than ever from the sub menu."
-  },
-  {
-    "intro": "Stormbound Kitty",
-    "description": "All pop-ups aimed at confirming a reset of the current state (across tools) now use the Execution image to reinforce the idea that reset is permanent."
-  },
-  {
-    "intro": "Battle sim",
-    "description": "In case of puzzles, the battle simulator will display the puzzle details on the right side (right panel on mobile) so it’s easier to play."
   }
 ]
