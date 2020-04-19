@@ -169,7 +169,7 @@ const Footer = props => (
 
                 <li className='Footer__item'>
                   <a
-                    href='https://www.kongregate.com/forums/1001068-stormbound'
+                    href='https://www.kongregate.com/forums/941638-stormbound-kingdom-wars'
                     target='_blank'
                     rel='noopener noreferrer'
                   >
