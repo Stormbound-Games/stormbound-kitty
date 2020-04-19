@@ -37,6 +37,7 @@ const Deck = props => {
                 highlightedCards.length > 0 &&
                   !highlightedCards.includes(card.id) &&
                   'Deck__card--excluded',
+                card.missing && 'Deck__card--missing',
               ]
                 .filter(Boolean)
                 .join(' ')}

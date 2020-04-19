@@ -147,6 +147,11 @@
   opacity: 0.6;
 }
 
+.Deck__card--missing {
+  opacity: 0.3;
+  filter: grayscale(1) contrast(200%);
+}
+
 .Deck--vertical .Deck__mana {
   transform: scale(1.2);
   left: -2em;
