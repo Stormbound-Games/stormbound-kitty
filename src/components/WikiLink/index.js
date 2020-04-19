@@ -37,9 +37,16 @@ const WikiLink = props => {
         boxShadow: '0 0 2em 1em rgba(0, 0, 0, 0.2)',
       }}
     >
-      <a href={wikiURL + slug} target='_blank' rel='noopener noreferrer'>
-        {props.children || cardData.name}
-      </a>
+      {trigger => (
+        <a
+          {...trigger}
+          href={wikiURL + slug}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          {props.children || cardData.name}
+        </a>
+      )}
     </Tooltip>
   )
 }

@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react'
+import React from 'react'
 import { useTooltip, TooltipPopup } from '@reach/tooltip'
 import '@reach/tooltip/styles.css'
 
@@ -33,16 +33,15 @@ const centered = (triggerRect, tooltipRect) => {
   }
 }
 
-function TriangleTooltip({ children, ...rest }) {
+const Tooltip = ({ children, ...props }) => {
   const [trigger, tooltip] = useTooltip()
 
   return (
     <>
-      {cloneElement(children, trigger)}
-
-      <TooltipPopup {...tooltip} {...rest} position={centered} />
+      {children(trigger)}
+      <TooltipPopup {...tooltip} {...props} position={centered} />
     </>
   )
 }
 
-export default TriangleTooltip
+export default Tooltip
