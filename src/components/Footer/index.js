@@ -43,6 +43,17 @@ const Footer = props => (
             </a>
             .
           </p>
+          <p>
+            This site is powered by{' '}
+            <a
+              href='https://www.netlify.com'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Netlify
+            </a>
+            .
+          </p>
         </Column>
         <Column>
           <Row desktopOnly>
