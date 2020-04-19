@@ -2,7 +2,7 @@ import React from 'react'
 import Mana from '../Mana'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import sortByMana from '../../helpers/sortByMana'
-import useFluidSizing from '../../helpers/useFluidSizing'
+import useFluidSizing from '../../hooks/useFluidSizing'
 import './index.css'
 
 const Deck = props => {

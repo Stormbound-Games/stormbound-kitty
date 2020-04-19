@@ -3,6 +3,7 @@ import { useHistory, useLocation } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import debounce from 'lodash.debounce'
 import decks from '../../data/decks'
+import { CollectionContext } from '../CollectionProvider'
 import Column from '../Column'
 import EmptySearch from '../EmptySearch'
 import PageMeta from '../PageMeta'
@@ -100,8 +101,8 @@ class DeckBuilderSuggestions extends React.Component {
     deserialiseDeck(deck.id)
       .map(card => card.id)
       .includes(this.state.including)
-  getDecks = () =>
-    decks
+  getDecks = () => {
+    return decks
       .filter(this.matchesFaction)
       .filter(this.matchesCategory)
       .filter(this.matchesAuthor)
@@ -114,6 +115,7 @@ class DeckBuilderSuggestions extends React.Component {
         if (a.name < b.name) return -1
         return 0
       })
+  }
 
   resetFilters = () =>
     this.setState({

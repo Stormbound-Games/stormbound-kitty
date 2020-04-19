@@ -1,5 +1,5 @@
 import React from 'react'
-import getViewportWidth from './getViewportWidth'
+import getViewportWidth from '../helpers/getViewportWidth'
 
 const useViewportWidth = () => {
   const [viewportWidth, setViewportWidth] = React.useState(getViewportWidth())

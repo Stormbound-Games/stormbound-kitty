@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
+import hookIntoProps from 'hook-into-props'
 import decks from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
 import { NotificationContext } from '../NotificationProvider'
@@ -19,10 +20,9 @@ import ResetButton from '../ResetButton'
 import Row from '../Row'
 import ShareButton from '../DeckBuilderShareButton'
 import Title from '../Title'
-import hookIntoProps from '../../helpers/hookIntoProps'
-import useViewportWidth from '../../helpers/useViewportWidth'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import { deserialiseDeck } from '../../helpers/deserialise'
+import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
 
 class DeckBuilderEditorView extends React.Component {

@@ -12,7 +12,7 @@ import NavLink from '../NavLink'
 import Only from '../Only'
 import StoriesNav from '../StoriesNav'
 import TogglableContent from '../TogglableContent'
-import useViewportWidth from '../../helpers/useViewportWidth'
+import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
 
 const SubNav = props => {

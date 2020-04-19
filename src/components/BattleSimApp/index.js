@@ -3,7 +3,7 @@ import puzzles from '../../data/puzzles'
 import AppDesktop from '../BattleSimAppDesktop'
 import AppMobile from '../BattleSimAppMobile'
 import State from '../BattleSimState'
-import useViewportWidth from '../../helpers/useViewportWidth'
+import useViewportWidth from '../../hooks/useViewportWidth'
 
 const App = props => {
   const viewportWidth = useViewportWidth()

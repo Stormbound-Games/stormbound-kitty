@@ -1,6 +1,6 @@
 import React from 'react'
-import useViewportWidth from '../../helpers/useViewportWidth'
-import { CollectionContext } from '../../components/CollectionProvider'
+import { CollectionContext } from '../CollectionProvider'
+import useViewportWidth from '../../hooks/useViewportWidth'
 
 const Only = props => {
   const viewportWidth = useViewportWidth()

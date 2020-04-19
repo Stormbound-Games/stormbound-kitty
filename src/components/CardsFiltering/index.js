@@ -1,12 +1,12 @@
 import React from 'react'
+import hookIntoProps from 'hook-into-props'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
-import hookIntoProps from '../../helpers/hookIntoProps'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import sortCards, {
   sortByValue,
   sortByLockedCoins,
 } from '../../helpers/sortCards'
-import useViewportWidth from '../../helpers/useViewportWidth'
+import useViewportWidth from '../../hooks/useViewportWidth'
 
 const DEFAULT_FILTERS = {
   faction: '*',

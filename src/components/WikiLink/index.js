@@ -2,7 +2,7 @@ import React from 'react'
 import Card from '../Card'
 import Tooltip from '../Tooltip'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
-import useViewportWidth from '../../helpers/useViewportWidth'
+import useViewportWidth from '../../hooks/useViewportWidth'
 
 const WikiLink = props => {
   const viewportWidth = useViewportWidth()

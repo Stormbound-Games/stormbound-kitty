@@ -1,8 +1,8 @@
 import React from 'react'
 import CTA from '../CTA'
 import Dialog from '../Dialog'
-import useShare from '../../hooks/useShare'
 import download from '../../helpers/download'
+import useShare from '../../hooks/useShare'
 import './index.css'
 
 const DeckBuilderShareButton = props => {

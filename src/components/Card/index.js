@@ -1,9 +1,9 @@
 import React from 'react'
 import Image from '../Image'
 import { getRarityImage, getRarityColor } from '../../helpers/getRarity'
-import useFluidSizing from '../../helpers/useFluidSizing'
 import microMarkdown from '../../helpers/microMarkdown'
 import random from '../../helpers/random'
+import useFluidSizing from '../../hooks/useFluidSizing'
 import './index.css'
 
 const Card = props => {
