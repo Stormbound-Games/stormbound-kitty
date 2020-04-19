@@ -1,5 +1,5 @@
 import React from 'react'
-import ResourceIcon from '../ResourceIcon'
+import { Coins, Stones } from '../Resource'
 import getCostForLevel from '../../helpers/getCostForLevel'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
@@ -17,8 +17,7 @@ const CardUpgradeStats = props => {
       {card.missing ? (
         <p>
           <span className='CardUpgradeStats__mark'>Crafting cost:</span>{' '}
-          <ResourceIcon resource='STONE' /> {getCostForLevel(1)(card).stones}{' '}
-          fusion stones.
+          <Stones amount={getCostForLevel(1)(card).stones} />
         </p>
       ) : (
         [2, 3, 4, 5]
@@ -33,12 +32,12 @@ const CardUpgradeStats = props => {
                 Upgrading cost for level {level}
                 {index > 0 ? ' (including previous levels)' : ''}:{' '}
               </span>
-              <ResourceIcon resource='COIN' /> {nextLevelCost.coins} coins
+              <Coins amount={nextLevelCost.coins} />
               {nextLevelCost.stones > 0 && (
                 <>
                   {' '}
-                  and <ResourceIcon resource='STONE' /> {nextLevelCost.stones}{' '}
-                  fusion stones for {nextLevelCost.copies} missing{' '}
+                  and <Stones amount={nextLevelCost.stones} /> fusion stones for{' '}
+                  {nextLevelCost.copies} missing{' '}
                   {nextLevelCost.copies > 1 ? 'copies' : 'copy'}
                 </>
               )}
@@ -51,11 +50,15 @@ const CardUpgradeStats = props => {
         <p>
           Upgrading that card level 5 and exchanging the {extraAfterMax.copies}{' '}
           extra {extraAfterMax.copies > 1 ? 'copies' : 'copy'} would give you{' '}
-          <ResourceIcon resource='COIN' /> {extraAfterMax.coins} coins,
-          effectively reducing the upgrade cost to{' '}
-          <ResourceIcon resource='COIN' />{' '}
-          {Math.max(getCostForLevel(5)(card).coins - extraAfterMax.coins, 0)}{' '}
-          coins.
+          <Coins amount={extraAfterMax.coins} />, effectively reducing the
+          upgrade cost to{' '}
+          <Coins
+            amount={Math.max(
+              getCostForLevel(5)(card).coins - extraAfterMax.coins,
+              0
+            )}
+          />
+          .
         </p>
       )}
     </>

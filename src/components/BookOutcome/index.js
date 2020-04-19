@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { PRE_MADE_EXPECTATIONS } from '../../constants/game'
 import { CollectionContext } from '../CollectionProvider'
 import Only from '../Only'
-import ResourceIcon from '../ResourceIcon'
+import { Coins, Stones } from '../Resource'
 import getDrawingProbability from '../../helpers/getDrawingProbability'
 import capitalise from '../../helpers/capitalise'
 import getAverageStonesPerBook from '../../helpers/getAverageStonesPerBook'
@@ -75,9 +75,9 @@ const BookOutcome = props => {
           chances to draw {subject}
         </li>
         <li>
-          An average of <ResourceIcon resource='STONE' />{' '}
+          An average of{' '}
           <strong className='Highlight' data-testid='average-stones'>
-            {getAverageStonesPerBook(props.book).toFixed(2)} Fusion stones
+            <Stones amount={getAverageStonesPerBook(props.book).toFixed(2)} />
           </strong>
         </li>
         <Only.DefaultCollection>
@@ -90,9 +90,9 @@ const BookOutcome = props => {
           <li>
             {expectedCoins > 0 ? (
               <>
-                An average of <ResourceIcon resource='COIN' />{' '}
+                An average of{' '}
                 <strong className='Highlight'>
-                  {expectedCoins.toFixed(2)} coins
+                  <Coins amount={expectedCoins.toFixed(2)} />
                 </strong>
               </>
             ) : (

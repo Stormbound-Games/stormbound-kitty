@@ -6,7 +6,7 @@ import Deck from '../Deck'
 import QuestionMark from '../QuestionMark'
 import Only from '../Only'
 import RarityBar from '../RarityBar'
-import ResourceIcon from '../ResourceIcon'
+import { Stones } from '../Resource'
 import Tooltip from '../Tooltip'
 import { deserialiseDeck } from '../../helpers/deserialise'
 import { serialiseDeck } from '../../helpers/serialise'
@@ -68,8 +68,7 @@ const DeckBuilderSuggestion = props => {
                   'You are missing some cards from this deck'
                 ) : (
                   <>
-                    Distance to maxed out deck:{' '}
-                    <ResourceIcon resource='STONE' /> {distance} fusion stones
+                    Distance to maxed out deck: <Stones amount={distance} />
                   </>
                 )
               }
