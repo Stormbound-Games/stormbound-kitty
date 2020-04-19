@@ -26,7 +26,7 @@ const CardDisplayControls = props => {
       <Row>
         <Column width={20} style={{ justifyContent: 'center' }}>
           {previousCard && (
-            <CTA to={`/card/${previousCard.id}/display`}>Previous</CTA>
+            <CTA to={`/card/${previousCard.id}/display`}>Previous card</CTA>
           )}
         </Column>
         <Column width={20} />
@@ -35,7 +35,7 @@ const CardDisplayControls = props => {
         </Column>
         <Column width={20} />
         <Column width={20} style={{ justifyContent: 'center' }}>
-          {nextCard && <CTA to={`/card/${nextCard.id}/display`}>Next</CTA>}
+          {nextCard && <CTA to={`/card/${nextCard.id}/display`}>Next card</CTA>}
         </Column>
       </Row>
     </Only.Desktop>
