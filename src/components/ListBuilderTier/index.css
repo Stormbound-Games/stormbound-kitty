@@ -1,14 +1,14 @@
-.TierList {
+.ListBuilderTier {
   margin-bottom: 3em;
 }
 
-.TierList__body {
+.ListBuilderTier__body {
   overflow: hidden;
   position: relative;
   margin: 0 -0.25em;
 }
 
-.TierList__body::after {
+.ListBuilderTier__body::after {
   position: absolute;
   padding-top: 50%;
   width: 50%;
@@ -27,21 +27,21 @@
   z-index: -1;
 }
 
-.TierList__body--dragging {
+.ListBuilderTier__body--dragging {
   cursor: move;
 }
 
-.TierList__empty {
+.ListBuilderTier__empty {
   color: var(--beige);
   margin: 0;
 }
 
 @media (min-width: 700px) {
-  .TierList__body::after {
+  .ListBuilderTier__body::after {
     content: '';
   }
 
-  .TierList__body {
+  .ListBuilderTier__body {
     margin: 0.5em 0;
     padding: 1em;
   }

@@ -1,20 +1,20 @@
 import React from 'react'
-import TierListHeader from '../TierListHeader'
-import TierListItem from '../TierListItem'
+import ListBuilderTierHeader from '../ListBuilderTierHeader'
+import ListBuilderTierItem from '../ListBuilderTierItem'
 import getRawCardData from '../../helpers/getRawCardData'
 import './index.css'
 
-const TierList = props => {
+const ListBuilderTier = props => {
   const cards = props.cards.map(getRawCardData)
 
   return (
-    <div className='TierList' style={{ '--color': props.color }}>
-      <TierListHeader {...props} cards={cards} />
+    <div className='ListBuilderTier' style={{ '--color': props.color }}>
+      <ListBuilderTierHeader {...props} cards={cards} />
 
       <div
         className={[
-          'TierList__body',
-          props.isDragging && 'TierList__body--dragging',
+          'ListBuilderTier__body',
+          props.isDragging && 'ListBuilderTier__body--dragging',
         ]
           .filter(Boolean)
           .join(' ')}
@@ -22,7 +22,7 @@ const TierList = props => {
       >
         {cards.length ? (
           cards.map((card, index) => (
-            <TierListItem
+            <ListBuilderTierItem
               isEditable={props.isEditable}
               onMouseDown={props.onMouseDown}
               onMouseOver={props.onMouseOver}
@@ -39,7 +39,7 @@ const TierList = props => {
             />
           ))
         ) : (
-          <p className='TierList__empty'>
+          <p className='ListBuilderTier__empty'>
             There are currently no cards in this tier.{' '}
             {props.isEditable &&
               'Try adding a card to it to have it displayed here.'}
@@ -50,4 +50,4 @@ const TierList = props => {
   )
 }
 
-export default TierList
+export default ListBuilderTier

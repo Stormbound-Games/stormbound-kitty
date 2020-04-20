@@ -6,7 +6,7 @@ import CTA from '../CTA'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import ShareButton from '../ListBuilderShareButton'
-import TierList from '../TierList'
+import ListBuilderTier from '../ListBuilderTier'
 import Title from '../Title'
 import getInitialListData from '../../helpers/getInitialListData'
 
@@ -43,7 +43,7 @@ const ListBuilderDisplayView = props => {
           <Title>Tier list</Title>
 
           {tiers.map((tier, index) => (
-            <TierList
+            <ListBuilderTier
               {...tier}
               color={TIER_COLORS[index]}
               key={index}
