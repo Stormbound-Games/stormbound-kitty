@@ -65,6 +65,7 @@ const BooksCalculator = loadable(() => import('../BooksCalculator'), options)
 const Stats = loadable(() => import('../Stats'), options)
 const Brawl = loadable(() => import('../Brawl'), options)
 const Home = loadable(() => import('../Home'), options)
+const Member = loadable(() => import('../Member'), options)
 
 const Page = ({ children, active, ...props }) => (
   <Route {...props}>
@@ -223,6 +224,10 @@ const Router = props => (
 
       <Page exact path='/' active='HOME'>
         <Home />
+      </Page>
+
+      <Page path='/member/:memberId'>
+        <Member />
       </Page>
 
       <Page path='*'>

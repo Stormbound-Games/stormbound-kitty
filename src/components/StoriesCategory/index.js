@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import stories from '../../data/stories'
 import Banner from '../Banner'
 import PageMeta from '../PageMeta'
@@ -31,7 +32,11 @@ const StoriesCategory = props => {
             key={id}
             faction={card.faction}
             title={title}
-            subline={`By ${story.author}`}
+            subline={
+              <>
+                By <Link to={'/member/' + story.author}>{story.author}</Link>
+              </>
+            }
             copy={getExcerpt(story.content || '', 200)}
             cta={{
               'aria-label': 'Read story about ' + card.name,

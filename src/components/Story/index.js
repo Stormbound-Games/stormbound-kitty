@@ -63,7 +63,10 @@ const Story = props => {
           <div className='Story__aside'>
             {!!card.image && <img src={card.image} alt={card.name} />}
 
-            <p className='Story__author'>Story by {story.author}</p>
+            <p className='Story__author'>
+              Story by{' '}
+              <Link to={'/member/' + story.author}>{story.author}</Link>
+            </p>
 
             {storiesByAuthor.length > 1 && (
               <p>

@@ -83,15 +83,6 @@
     padding: 2em;
   }
 
-  .Banner__imagery {
-    z-index: 2;
-  }
-
-  .Banner__inner > *,
-  .Banner__imagery > .Deck {
-    margin-bottom: 0;
-  }
-
   .Banner__image {
     z-index: 2;
     max-width: 100%;
