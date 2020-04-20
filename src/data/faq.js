@@ -254,37 +254,31 @@ export default [
         answer: (
           <>
             <p>
-              The idea is to calculate the probability of not getting Fusion
-              stones in a book — other calculations are just small variations of
-              this one. To do that, we lay down all the different “drawing
-              sequences”; 64 in a Mythic book (2 different rarities to the power
-              of 6 draws), 4096 is a Classic book (4 different rarities to the
-              power of 6 draws). For example, ‘EEELEL’ (Epic, Epic, Epic,
-              Legendary, Epic, Legendary) is a valid and likely sequence for a
-              Mythic book. So at the core, it is a function that takes a drawing
-              sequence and returns the probability of getting this sequence, and
-              no fusion stones out of a book.
+              The book calculator calculates the probability of not getting
+              Fusion Stones (FS) out of a book (other calculations are just
+              small variations of this one). To do that, we lay down all the
+              different “drawing sequences”: For example, ‘EEELEL’ (Epic, Epic,
+              Epic, Legendary, Epic, Legendary) is a valid and likely sequence
+              for a Mythic book. So at the core, it is a function that takes a
+              drawing sequence and returns the probability of getting this
+              sequence and no fusion stones out of a book.
             </p>
             <p>
               To do this, the calculator stores the non-FS cards left in the
               pool it draws from (Epic and Legendary for a Mythic book) and
-              iterate over the sequence cards. Say the sequence is ‘EEELEL’. The
+              iterates over the sequence cards. With the ‘EEELEL’ sequence: The
               first card is an Epic card, with a probability of 0.7 (70%), the
-              probability of it not being an Epic card is 41/42 or the amount of
-              Epic cards left divided by the total amount of Epic cards
-              available minus the fusion stones slot. It substracts 1 from the
-              Epic cards count and goes to the next card. The second card is an
-              Epic one too, with a probability of 0.7 * 40/41 since identical
-              cards cannot be redrawn. It then iterates over the whole sequence
-              and returns the resulting probability. Then sums over the
-              different sequences to get the total probability of not getting
-              fusion stones out of a Mythic book.
+              probability of it not being the FS epic card is 41/42. It
+              substracts 1 from the Epic cards count and goes to the next card.
+              The second card is an Epic one too, with a probability of 0.7 *
+              40/41 since identical cards cannot be redrawn. It then iterates
+              over the whole sequence, returns the resulting probability and
+              sums over the different sequences to get the total probability of
+              not getting Fusion Stones out of a Mythic book.
             </p>
             <p>
-              Again, all the other computations such as the odds of getting any
-              Epic card out of a Classic book are all variations of this initial
-              algorithm. Of course this is correct only under the assumption
-              that book draws work this way
+              Of course this is correct only under the assumption that book
+              draws work this way.
             </p>
           </>
         ),
