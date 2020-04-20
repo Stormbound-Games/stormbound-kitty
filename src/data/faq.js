@@ -256,7 +256,7 @@ export default [
             <p>
               The book calculator calculates the probability of not getting
               Fusion Stones (FS) out of a book (other calculations are just
-              small variations of this one). To do that, we lay down all the
+              small variations of this one). To do that, it lays down all the
               different “drawing sequences”: For example, ‘EEELEL’ (Epic, Epic,
               Epic, Legendary, Epic, Legendary) is a valid and likely sequence
               for a Mythic book. So at the core, it is a function that takes a
