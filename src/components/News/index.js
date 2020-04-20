@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import news from '../../data/news'
 import Column from '../Column'
 import CTA from '../CTA'
@@ -19,7 +20,14 @@ const News = props => {
       <ul className='News'>
         {pages[activePage].map((news, index) => (
           <li className='News__item' key={index}>
-            <strong>{news.intro}:</strong> {news.description}
+            {news.link ? (
+              <Link to={news.link}>
+                <strong>{news.intro}:</strong>
+              </Link>
+            ) : (
+              <strong>{news.intro}:</strong>
+            )}{' '}
+            {news.description}
           </li>
         ))}
       </ul>
