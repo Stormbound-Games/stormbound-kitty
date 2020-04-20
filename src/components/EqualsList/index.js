@@ -1,5 +1,5 @@
 import React from 'react'
-import { SHADES_LIST, TIER_COLORS } from '../../constants/list'
+import { EQUALS_TIER_LIST, TIER_COLORS } from '../../constants/list'
 import Column from '../Column'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
@@ -8,7 +8,7 @@ import Title from '../Title'
 import getInitialListData from '../../helpers/getInitialListData'
 
 const ListBuilderDisplayView = props => {
-  const id = SHADES_LIST
+  const id = EQUALS_TIER_LIST
   const tiers = getInitialListData(id)
 
   return (
@@ -19,8 +19,8 @@ const ListBuilderDisplayView = props => {
           <Title element='h2'>Info</Title>
 
           <p>
-            This tier list was made by Shades, a multiple-times winner of
-            equal-levels tournaments. It is his take at ranking cards by
+            This tier list was made by HanooSt, a multiple-times winner of
+            equal-levels tournaments. It is their take at ranking cards by
             efficiency in Equals mode. Your mileage may vary.
           </p>
         </Column>

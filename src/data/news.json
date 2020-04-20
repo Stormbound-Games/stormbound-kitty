@@ -1,5 +1,10 @@
 [
   {
+    "intro": "List Builder",
+    "description": "The Equals Tier List has been updated by HanooSt.",
+    "link": "/list/equals/display"
+  },
+  {
     "intro": "Deck Suggestions",
     "description": "Deck suggestions show card levels from your collection and are ordered accordingly.",
     "link": "/deck/suggestions"
