@@ -14,3 +14,8 @@
 .CardBuilderCoreForm__buttons {
   margin-top: 2em;
 }
+
+.CardBuilderCoreForm__buttons .CTA {
+  width: 100%;
+  max-width: none;
+}

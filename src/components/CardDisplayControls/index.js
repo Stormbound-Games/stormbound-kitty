@@ -24,7 +24,10 @@ const CardDisplayControls = props => {
   return (
     <Only.Desktop>
       <Row>
-        <Column width={20} style={{ justifyContent: 'center' }}>
+        <Column
+          width={20}
+          style={{ justifyContent: 'center', alignItems: 'center' }}
+        >
           {previousCard && (
             <CTA to={`/card/${previousCard.id}/display`}>Previous card</CTA>
           )}
@@ -34,7 +37,10 @@ const CardDisplayControls = props => {
           <CardProgress card={cardInCollection} />
         </Column>
         <Column width={20} />
-        <Column width={20} style={{ justifyContent: 'center' }}>
+        <Column
+          width={20}
+          style={{ justifyContent: 'center', alignItems: 'center' }}
+        >
           {nextCard && <CTA to={`/card/${nextCard.id}/display`}>Next card</CTA>}
         </Column>
       </Row>

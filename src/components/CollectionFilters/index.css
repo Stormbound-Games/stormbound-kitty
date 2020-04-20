@@ -7,8 +7,7 @@
 }
 
 .CollectionFilters__reset {
-  min-width: 150px;
-  margin-top: 1.5em;
+  margin: 0.5em auto 0;
 }
 
 @media (min-width: 700px) {
