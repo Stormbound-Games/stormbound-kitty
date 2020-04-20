@@ -98,18 +98,20 @@ const CollectionFilters = props => (
             />
           </Column>
           <Column>
-            <label htmlFor='order'>Order</label>
-            <select
-              name='order'
-              id='order'
-              value={props.order}
-              onChange={event => props.setOrder(event.target.value)}
-              data-testid='order-select'
-              disabled={props.status === 'EXCESS'}
-            >
-              <option value='NATURAL'>Natural</option>
-              <option value='VALUE'>Value</option>
-            </select>
+            <Only.CustomCollection>
+              <label htmlFor='order'>Order</label>
+              <select
+                name='order'
+                id='order'
+                value={props.order}
+                onChange={event => props.setOrder(event.target.value)}
+                data-testid='order-select'
+                disabled={props.status === 'EXCESS'}
+              >
+                <option value='NATURAL'>Natural</option>
+                <option value='VALUE'>Value</option>
+              </select>
+            </Only.CustomCollection>
           </Column>
         </Row>
       </Column>
