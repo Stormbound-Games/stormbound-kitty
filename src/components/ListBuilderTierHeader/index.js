@@ -3,13 +3,13 @@ import CardSelect from '../CardSelect'
 import Only from '../Only'
 import './index.css'
 
-const TierListHeader = props => {
+const ListBuilderTierHeader = props => {
   return (
-    <header className='TierListHeader'>
-      <div className='TierListHeader__item'>
+    <header className='ListBuilderTierHeader'>
+      <div className='ListBuilderTierHeader__item'>
         {props.isEditable ? (
           <>
-            <label className='TierListHeader__label' htmlFor='listName'>
+            <label className='ListBuilderTierHeader__label' htmlFor='listName'>
               Tier name
             </label>
             <input
@@ -17,21 +17,21 @@ const TierListHeader = props => {
               id={`${props.prefix}listName`}
               type='text'
               value={props.name}
-              className='TierListHeader__name'
+              className='ListBuilderTierHeader__name'
               onChange={event => props.onNameChange(event.target.value)}
               maxLength={30}
               placeholder='Unnamed tier'
             />
           </>
         ) : (
-          <span className='TierListHeader__name'>{props.name}</span>
+          <span className='ListBuilderTierHeader__name'>{props.name}</span>
         )}
       </div>
 
-      <div className='TierListHeader__item'>
+      <div className='ListBuilderTierHeader__item'>
         {props.isEditable ? (
           <>
-            <label className='TierListHeader__label' htmlFor='newCard'>
+            <label className='ListBuilderTierHeader__label' htmlFor='newCard'>
               Add card to tier
             </label>
             <CardSelect
@@ -48,13 +48,13 @@ const TierListHeader = props => {
 
       {props.isEditable && (
         <Only.Desktop>
-          <div className='TierListHeader__item'>
+          <div className='ListBuilderTierHeader__item'>
             <button
               type='button'
               onClick={props.moveUp}
               title='Move tier up'
               aria-label='Move tier up'
-              className='TierListHeader__move'
+              className='ListBuilderTierHeader__move'
               disabled={!props.isEditable || !props.canMoveUp}
             >
               ↑
@@ -65,7 +65,7 @@ const TierListHeader = props => {
               onClick={props.moveDown}
               title='Move tier down'
               aria-label='Move tier down'
-              className='TierListHeader__move'
+              className='ListBuilderTierHeader__move'
               disabled={!props.isEditable || !props.canMoveDown}
             >
               ↓
@@ -77,4 +77,4 @@ const TierListHeader = props => {
   )
 }
 
-export default TierListHeader
+export default ListBuilderTierHeader

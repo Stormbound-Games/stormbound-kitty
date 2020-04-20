@@ -59,6 +59,8 @@ const ListBuilderEditorView = loadable(
   () => import('../ListBuilderEditorView'),
   options
 )
+const RankedList = loadable(() => import('../RankedList'), options)
+const EqualsList = loadable(() => import('../EqualsList'), options)
 const BooksCalculator = loadable(() => import('../BooksCalculator'), options)
 const Stats = loadable(() => import('../Stats'), options)
 const Brawl = loadable(() => import('../Brawl'), options)
@@ -195,6 +197,12 @@ const Router = props => (
         <Guides />
       </Page>
 
+      <Page path='/list/ranked' active='LIST_BUILDER'>
+        <RankedList />
+      </Page>
+      <Page path='/list/equals' active='LIST_BUILDER'>
+        <EqualsList />
+      </Page>
       <Page path='/list/:listId/display' active='LIST_BUILDER'>
         <ListBuilderDisplayView />
       </Page>

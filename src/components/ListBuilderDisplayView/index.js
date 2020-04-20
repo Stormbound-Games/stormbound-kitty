@@ -1,21 +1,19 @@
 import React from 'react'
-import { Link, useRouteMatch } from 'react-router-dom'
+import { useRouteMatch } from 'react-router-dom'
 import { TIER_COLORS } from '../../constants/list'
 import Column from '../Column'
 import CTA from '../CTA'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import ShareButton from '../ListBuilderShareButton'
-import TierList from '../TierList'
+import ListBuilderTier from '../ListBuilderTier'
 import Title from '../Title'
 import getInitialListData from '../../helpers/getInitialListData'
-import getLiveTierList from '../../helpers/getLiveTierList'
 
 const ListBuilderDisplayView = props => {
   const match = useRouteMatch()
   const id = match.params.listId
   const tiers = getInitialListData(id)
-  const liveList = React.useMemo(() => getLiveTierList(), [])
 
   return (
     <>
@@ -29,14 +27,6 @@ const ListBuilderDisplayView = props => {
             cards. It is currently very much in active development so make sure
             to report any bug, oddity or desired features.
           </p>
-
-          {id === liveList && (
-            <p>
-              This list is computed from the{' '}
-              <Link to='/deck/suggestions'>deck suggestions</Link>. It orders
-              cards based on how frequently they appear in top-ranking decks.
-            </p>
-          )}
 
           <div className='ListBuilderApp__buttons'>
             <Row>
@@ -53,7 +43,7 @@ const ListBuilderDisplayView = props => {
           <Title>Tier list</Title>
 
           {tiers.map((tier, index) => (
-            <TierList
+            <ListBuilderTier
               {...tier}
               color={TIER_COLORS[index]}
               key={index}

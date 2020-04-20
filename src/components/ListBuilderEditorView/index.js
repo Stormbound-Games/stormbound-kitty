@@ -1,24 +1,18 @@
 import React from 'react'
-import { Link, useHistory, useRouteMatch } from 'react-router-dom'
+import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import isEqual from 'lodash.isequal'
-import {
-  SHADES_LIST,
-  TIER_COLORS,
-  DEFAULT_LIST,
-  DEFAULT_TIER,
-} from '../../constants/list'
+import { TIER_COLORS, DEFAULT_LIST, DEFAULT_TIER } from '../../constants/list'
 import Column from '../Column'
 import CTA from '../CTA'
 import PageMeta from '../PageMeta'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
 import ShareButton from '../ListBuilderShareButton'
-import TierList from '../TierList'
+import ListBuilderTier from '../ListBuilderTier'
 import Title from '../Title'
 import { serialiseList } from '../../helpers/serialise'
 import getInitialListData from '../../helpers/getInitialListData'
-import getLiveTierList from '../../helpers/getLiveTierList'
 import reorder from '../../helpers/reorder'
 import './index.css'
 
@@ -180,21 +174,6 @@ class ListBuilderEditorView extends React.Component {
               sure to report any bug, oddity or desired features.
             </p>
 
-            {this.props.listId === SHADES_LIST && (
-              <p>
-                The current list is Shades’ take at ranking cards by efficiency
-                in Equals mode.
-              </p>
-            )}
-
-            {this.props.listId === getLiveTierList() && (
-              <p>
-                This list is computed from the{' '}
-                <Link to='/deck/suggestions'>deck suggestions</Link>. It orders
-                cards based on how frequently they appear in top-ranking decks.
-              </p>
-            )}
-
             <CTA
               onClick={this.addTier}
               disabled={this.state.tiers.length === 10}
@@ -226,7 +205,7 @@ class ListBuilderEditorView extends React.Component {
             <Title>Tier list</Title>
 
             {this.state.tiers.map((tier, index) => (
-              <TierList
+              <ListBuilderTier
                 {...this.state}
                 {...tier}
                 key={index}

@@ -1,4 +1,4 @@
-.TierListItem {
+.ListBuilderTierItem {
   display: inline-block;
   width: calc(20% - 0.5em);
   border: 1px solid var(--color, rgba(255, 255, 255, 0.3));
@@ -9,19 +9,19 @@
   padding: 0;
 }
 
-.TierListItem::before {
+.ListBuilderTierItem::before {
   content: '';
   display: block;
   padding-top: 100%;
 }
 
-.TierListItem--placeholder {
+.ListBuilderTierItem--placeholder {
   border-style: dashed;
   border-color: rgba(255, 255, 255, 0.3);
   opacity: 0.7;
 }
 
-.TierListItem__image {
+.ListBuilderTierItem__image {
   max-width: 90%;
   max-height: 90%;
   object-fit: contain;
@@ -33,7 +33,7 @@
 }
 
 @media (min-width: 700px) {
-  .TierListItem {
+  .ListBuilderTierItem {
     width: 4.66em;
     height: 4.66em;
   }
