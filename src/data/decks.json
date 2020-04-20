@@ -565,5 +565,152 @@
     "faction": "shadowfen",
     "author": "Frostkhan",
     "category": "BRAWL"
+  },
+  {
+    "name": "Bait & Flood",
+    "id": "NU4xLDVOMiw1UzEsNU4zLDVOMjMsNU42Myw1UzEwLDVOOCw1TjksNU4xOCw1TjMxLDVTMTg=",
+    "faction": "swarm",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Kindred's Rush",
+    "id": "NU4xLDVGOCw1TjIsNUY0LDVGMSw1RjIsNUYzLDVGNyw1RjEwLDVGMTQsNUYyOCw1TjQw",
+    "faction": "shadowfen",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Indirect Attack",
+    "id": "NU4xLDVGOCw1RjQsNUYzLDVOMjMsNU42Nyw1TjEwLDVGNSw1RjE0LDVOMzUsNUYyOCw1TjQ0",
+    "faction": "shadowfen",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Fly, Xuri!",
+    "id": "NU4xLDVTMSw1TjMsNVMyNCw1UzIsNU42Nyw1UzEwLDVTNiw1TjE1LDVTMTIsNVMxOSw1UzIy",
+    "faction": "swarm",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Pray for Lady Rime",
+    "id": "NU4xLDVXMiw1TjMsNU42Nyw1TjE2LDVXOCw1VzksNVc2LDVXMTIsNVcxNiw1VzEwLDVXMTk",
+    "faction": "winter",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Klaxi Rush",
+    "id": "NU4xLDVGOCw1TjIsNUY0LDVGMSw1RjIsNUYzLDVOOSw1RjcsNUYxNCw1RjE3LDVGMjM",
+    "faction": "shadowfen",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Frost Winter",
+    "id": "NU4xLDVXMSw1VzIsNU4zLDVXNCw1VzUsNVcxMSw1VzksNVc2LDVXMTMsNVcxOSw1VzIx",
+    "faction": "winter",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Colossal Rush",
+    "id": "NU4xLDVOMiw1STEsNUkzLDVOMyw1STUsNU42Nyw1TjEyLDVJNyw1STgsNUkxMCw1STI3",
+    "faction": "ironclad",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Frozen Rush",
+    "id": "NU4xLDVOMiw1VzIsNU4zLDVONjcsNU4xMyw1VzUsNVc2LDVXMTIsNVcxMyw1TjM5LDVXMTk",
+    "faction": "winter",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Brutal Rush",
+    "id": "NU4xLDVGOCw1TjIsNUY0LDVGMSw1RjIsNUYzLDVOMyw1TjY3LDVGMjUsNUYxNCw1RjE3",
+    "faction": "shadowfen",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Flaming Dragons",
+    "id": "NU4xLDVJMSw1STMsNU4zLDVONiw1STUsNU45LDVOMTAsNUk3LDVJMTMsNUkyMCw1STE3",
+    "faction": "ironclad",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Stormy Doom",
+    "id": "NU4yMyw1TjYzLDVTMTAsNU44LDVOMTEsNU4xOCw1UzEzLDVOMjksNVMxOCw1TjQ0LDVTMjIsNU40OA",
+    "faction": "swarm",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Edrik Harvest",
+    "id": "NU4xLDVOMiw1UzEsNU4zLDVONjcsNU44LDVOOSw1TjEyLDVOMTgsNVMxMiw1TjU5LDVTMTU",
+    "faction": "swarm",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Puzzle maker",
+    "id": "NU4xLDVOMiw1STEsNUkzLDVJNCw1TjYsNU42Myw1STUsNUk3LDVJOSw1STEzLDVJMjA",
+    "faction": "ironclad",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Booming Professors",
+    "id": "NU4xLDVJMSw1STMsNU4yMyw1STQsNUk1LDVOMTAsNUk4LDVJMTEsNUkyNyw1STIwLDVJMjg",
+    "faction": "ironclad",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Massive Swarm",
+    "id": "NU4xLDVOMiw1TjMsNVMyNCw1UzEwLDVTNiw1UzgsNU4xNiw1UzE0LDVTMjgsNVMyMCw1UzIx",
+    "faction": "swarm",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Runners' Starting Point",
+    "id": "NU4xLDVOMiw1VzIsNU4zLDVONjcsNU4xNCw1VzMsNVc3LDVXMTIsNVcxMyw1TjM5LDVXMTk",
+    "faction": "winter",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Bragda & Chestnuts",
+    "id": "NU4xLDVGOCw1RjQsNUYxLDVGMiw1RjMsNUY1LDVGNyw1RjE0LDVGMTcsNUYyOCw1Tjc2",
+    "faction": "shadowfen",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Winter Earyn",
+    "id": "NU4xLDVOMyw1TjIzLDVOMTMsNU4xNyw1VzUsNVc5LDVONDQsNU40OCw1VzE5LDVXMjMsNU41OA",
+    "faction": "winter",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Bragda Rush",
+    "id": "NU4xLDVGOCw1TjIsNUY0LDVGMSw1RjIsNUYzLDVGNyw1TjE4LDVGMTQsNUYxNyw1Tjc2",
+    "faction": "shadowfen",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Ironclad Dragons",
+    "id": "NU4xLDVJMSw1TjMsNU42LDVJNSw1TjksNUk3LDVJOCw1TjE4LDVJMjAsNUkxNyw1TjM5",
+    "faction": "ironclad",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
   }
 ]
