@@ -19,7 +19,10 @@ const News = props => {
       <ul className='News'>
         {pages[activePage].map((news, index) => (
           <li className='News__item' key={index}>
-            <strong>{news.intro}:</strong> {news.description}
+            <a href={news.link}>
+              <strong>{news.intro}:</strong>
+            </a>{' '}
+            {news.description}
           </li>
         ))}
       </ul>

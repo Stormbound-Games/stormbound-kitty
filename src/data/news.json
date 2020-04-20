@@ -1,7 +1,8 @@
 [
   {
     "intro": "Deck Suggestions",
-    "description": "Deck suggestions show card levels from your collection and are ordered accordingly."
+    "description": "Deck suggestions show card levels from your collection and are ordered accordingly.",
+    "link": "deck/suggestions"
   },
   {
     "intro": "Card Builder",
@@ -9,27 +10,33 @@
   },
   {
     "intro": "Card Collection",
-    "description": "When filtering collection by excess copies, cards will be ordered by most locked coins to least."
+    "description": "When filtering collection by excess copies, cards will be ordered by most locked coins to least.",
+    "link": "collection"
   },
   {
     "intro": "Books Calculator",
-    "description": "It is now possible to find the odds of pulling fustion stones and coins from books."
+    "description": "It is now possible to find the odds of pulling fustion stones and coins from books.",
+    "link": "collection/books"
   },
   {
     "intro": "Card Collection",
-    "description": "The card collection now offers handy stats and data visualisation about your cards."
+    "description": "The card collection now offers handy stats and data visualisation about your cards.",
+    "link": "collection"
   },
   {
     "intro": "Books Calculator",
-    "description": "It is now possible to find the odds of pulling a certain card from a book with the books calculator."
+    "description": "It is now possible to find the odds of pulling a certain card from a book with the books calculator.",
+    "link": "collection/books"
   },
   {
     "intro": "Card Collection",
-    "description": "It is now possible to sort the card collection by card value."
+    "description": "It is now possible to sort the card collection by card value.",
+    "link": "collection"
   },
   {
     "intro": "Card Collection",
-    "description": "The collection now informs how much coins would the excess copies bring after the Brawl update."
+    "description": "The collection now informs how much coins would the excess copies bring after the Brawl update.",
+    "link": "collection"
   },
   {
     "intro": "Stormbound Kitty",
@@ -37,11 +44,13 @@
   },
   {
     "intro": "Deck Suggestions",
-    "description": "The deck suggestions no longer have tags, but a new filter by author feature is available."
+    "description": "The deck suggestions no longer have tags, but a new filter by author feature is available.",
+    "link": "deck/suggestions"
   },
   {
     "intro": "Stories",
-    "description": "The Stories section has been divided in sub-sections per categories."
+    "description": "The Stories section has been divided in sub-sections per categories.",
+    "link": "stories"
   },
   {
     "intro": "Stormbound Kitty",
@@ -53,11 +62,13 @@
   },
   {
     "intro": "Deck Builder",
-    "description": "The deck builder now providers a (smart) random deck generator."
+    "description": "The deck builder now providers a (smart) random deck generator.",
+    "link": "deck"
   },
   {
     "intro": "Tier Lists",
-    "description": "It is now possible to create tier lists of cards with the new tier list builder!"
+    "description": "It is now possible to create tier lists of cards with the new tier list builder!",
+    "link": "list"
   },
   {
     "intro": "Stormbound News",
@@ -65,11 +76,13 @@
   },
   {
     "intro": "Guides",
-    "description": "Many thanks to MooreFunn for authoring a guide to play pirates!"
+    "description": "Many thanks to MooreFunn for authoring a guide to play pirates!",
+    "link": "guides"
   },
   {
     "intro": "Card Contest",
-    "description": "The winner of the weekly card contest will receive a random epic card in game!"
+    "description": "The winner of the weekly card contest will receive a random epic card in game!",
+    "link": "card/contest"
   },
   {
     "intro": "Stormbound Kitty",
@@ -77,11 +90,13 @@
   },
   {
     "intro": "Card Contest",
-    "description": "The Card Contest page now displays the Hall of Fame of previous winning cards."
+    "description": "The Card Contest page now displays the Hall of Fame of previous winning cards.",
+    "link": "card/contest"
   },
   {
     "intro": "Stories",
-    "description": "Stories are now first-class citizens and replace the quest builder in the top navigation."
+    "description": "Stories are now first-class citizens and replace the quest builder in the top navigation.",
+    "link": "stories"
   },
   {
     "intro": "Stormbound Kitty",
@@ -89,7 +104,8 @@
   },
   {
     "intro": "Card Collection",
-    "description": "The CSV file should now look decent when opened in a third-party software such as Excel."
+    "description": "The CSV file should now look decent when opened in a third-party software such as Excel.",
+    "link": "collection"
   },
   {
     "intro": "Card Builder",
@@ -97,23 +113,28 @@
   },
   {
     "intro": "Card Collection",
-    "description": "The filters for the collection view are now more suited for it (faction, status and level)."
+    "description": "The filters for the collection view are now more suited for it (faction, status and level).",
+    "link": "collection"
   },
   {
     "intro": "Deck Builder",
-    "description": "The 5 new cards from the upcoming update are now available."
+    "description": "The 5 new cards from the upcoming update are now available.",
+    "link": "deck"
   },
   {
     "intro": "Stormbound Kitty",
-    "description": "The complete Stormbound guide by Arikrat is now available on the site!"
+    "description": "The complete Stormbound guide by Arikrat is now available on the site!",
+    "link": "guides"
   },
   {
     "intro": "Deck builder",
-    "description": "Decks can now be exported as images to be shared more easily."
+    "description": "Decks can now be exported as images to be shared more easily.",
+    "link": "deck"
   },
   {
     "intro": "Card Collection",
-    "description": "It is now possible to import and export cards collections."
+    "description": "It is now possible to import and export cards collections.",
+    "link": "collection"
   },
   {
     "intro": "Deck dry-runner",
@@ -125,7 +146,8 @@
   },
   {
     "intro": "Battle sim",
-    "description": "The desktop version of the simulator will now load a random background."
+    "description": "The desktop version of the simulator will now load a random background.",
+    "link": "sim"
   },
   {
     "intro": "Stormbound Kitty",
@@ -137,7 +159,8 @@
   },
   {
     "intro": "Deck builder",
-    "description": "Updating the level of a card in the deck can be done by re-adding the card with a different level."
+    "description": "Updating the level of a card in the deck can be done by re-adding the card with a different level.",
+    "link": "deck"
   },
   {
     "intro": "Stormbound Kitty",
@@ -149,6 +172,7 @@
   },
   {
     "intro": "Deck Suggestions",
-    "description": "It is now possible to filter decks based on whether they include a certain card."
+    "description": "It is now possible to filter decks based on whether they include a certain card.",
+    "link": "deck/suggestions"
   }
 ]
