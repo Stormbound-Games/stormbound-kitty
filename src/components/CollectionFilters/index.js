@@ -131,7 +131,7 @@ const CollectionFilters = props => (
                 props.status === '*' &&
                 props.level === '*' &&
                 props.rarity === '*' &&
-                !props.name &&
+                !props.text &&
                 props.order === 'NATURAL'
               }
             >
