@@ -168,19 +168,11 @@ class ListBuilderEditorView extends React.Component {
           <Column width={33}>
             <Title element='h2'>Settings</Title>
 
-            <p className='ListBuilderEditorView__intro'>
+            <p>
               This tier list editor makes it possible to create up to 10 tiers
               of cards. It is currently very much in active development so make
               sure to report any bug, oddity or desired features.
             </p>
-
-            <CTA
-              onClick={this.addTier}
-              disabled={this.state.tiers.length === 10}
-              className='ListBuilderEditorView__add-button'
-            >
-              Add a new tier
-            </CTA>
 
             <div className='ListBuilderApp__buttons'>
               <Row>
@@ -228,6 +220,14 @@ class ListBuilderEditorView extends React.Component {
                 onMouseUp={this.onMouseUp}
               />
             ))}
+            <hr />
+            <CTA
+              onClick={this.addTier}
+              disabled={this.state.tiers.length === 10}
+              className='ListBuilderEditorView__CTA'
+            >
+              Add a new tier
+            </CTA>
           </Column>
         </Row>
 
