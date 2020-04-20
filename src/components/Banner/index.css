@@ -1,6 +1,7 @@
 .Banner__title {
   font-size: 200%;
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 .Banner__copy {
@@ -16,7 +17,7 @@
   font-style: italic;
   color: var(--beige);
   margin-top: 0;
-  margin-bottom: 0.5em;
+  margin-bottom: 1.5em;
 }
 
 @media (min-width: 700px) {
@@ -63,6 +64,10 @@
     flex-direction: row-reverse;
   }
 
+  .Banner .Column {
+    justify-content: center;
+  }
+
   .Banner:nth-child(even) .Column:first-child {
     align-items: flex-end;
   }
@@ -76,6 +81,15 @@
     max-width: 100%;
     margin: 0 auto;
     padding: 2em;
+  }
+
+  .Banner__imagery {
+    z-index: 2;
+  }
+
+  .Banner__inner > *,
+  .Banner__imagery > .Deck {
+    margin-bottom: 0;
   }
 
   .Banner__image {
