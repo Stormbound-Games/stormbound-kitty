@@ -15,6 +15,14 @@ describe('Routes — Card Builder', () => {
       .should('exist')
   })
 
+  it('it should render official cards from their ID', () => {
+    cy.visit('/card/N1').get('main h1').should('exist')
+  })
+
+  it('it should render official cards from their name', () => {
+    cy.visit('/card/green_prototypes').get('main h1').should('exist')
+  })
+
   it('it should render the display mode', () => {
     cy.visit('/card/' + WEEKLY_CARD_CONTEST[0].winner.id + '/display')
       .get('main h1')

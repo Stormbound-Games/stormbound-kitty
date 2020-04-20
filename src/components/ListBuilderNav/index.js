@@ -1,6 +1,5 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
-import { SHADES_LIST } from '../../constants/list'
 import NavLink from '../NavLink'
 
 const ListBuilderNav = props => {
@@ -30,7 +29,11 @@ const ListBuilderNav = props => {
         </li>
 
         <li className='Header__item Header__item--right'>
-          <NavLink to={`/list/${SHADES_LIST}`}>Equals Tier List</NavLink>
+          <NavLink to='/list/ranked/display'>Ranked Tier List</NavLink>
+        </li>
+
+        <li className='Header__item'>
+          <NavLink to='/list/equals/display'>Equals Tier List</NavLink>
         </li>
       </ul>
     </nav>

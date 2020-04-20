@@ -1,26 +1,26 @@
-.TierListHeader {
+.ListBuilderTierHeader {
   display: flex;
   margin: 0 -0.5em 1em;
   align-items: flex-end;
 }
 
-.TierListHeader .TierListHeader__name {
+.ListBuilderTierHeader .ListBuilderTierHeader__name {
   color: var(--beige);
   padding-top: 0.55em;
   padding-bottom: 0.55em;
 }
 
-.TierListHeader__label {
+.ListBuilderTierHeader__label {
   display: block;
   margin-bottom: 0.25em;
 }
 
-.TierListHeader__item {
+.ListBuilderTierHeader__item {
   flex: 1 1 100%;
   padding: 0 0.5em;
 }
 
-.TierListHeader__move {
+.ListBuilderTierHeader__move {
   padding: 0.55em;
   border-radius: 0.3em;
   background-color: transparent;
@@ -31,21 +31,21 @@
   cursor: pointer;
 }
 
-.TierListHeader__move[disabled] {
+.ListBuilderTierHeader__move[disabled] {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.TierListHeader__move + .TierListHeader__move {
+.ListBuilderTierHeader__move + .ListBuilderTierHeader__move {
   margin-left: 0.5em;
 }
 
 @media (min-width: 700px) {
-  .TierListHeader__item {
+  .ListBuilderTierHeader__item {
     flex-basis: auto;
   }
 
-  .TierListHeader__item:last-child {
+  .ListBuilderTierHeader__item:last-child {
     flex-grow: 0;
     display: block;
   }

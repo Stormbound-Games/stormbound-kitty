@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom'
 import { serialiseCardFromCollection } from '../../helpers/serialise'
 import './index.css'
 
-const TierListItem = props => {
+const ListBuilderTierItem = props => {
   if (!props.isEditable) {
     return (
       <Link
         to={'/card/' + serialiseCardFromCollection(props.card.id) + '/display'}
-        className='TierListItem'
+        className='ListBuilderTierItem'
         style={{ '--color': `var(--${props.card.faction})` }}
         title={props.card.name}
       >
         <img
           src={props.card.image}
           alt={props.card.name}
-          className='TierListItem__image'
+          className='ListBuilderTierItem__image'
         />
       </Link>
     )
@@ -43,11 +43,11 @@ const TierListItem = props => {
   return (
     <>
       {shouldDisplayPlaceholderBefore && (
-        <span className='TierListItem TierListItem--placeholder'>
+        <span className='ListBuilderTierItem ListBuilderTierItem--placeholder'>
           <img
             src={props.cards[props.dndSource].image}
             alt={props.card.name}
-            className='TierListItem__image'
+            className='ListBuilderTierItem__image'
           />
         </span>
       )}
@@ -59,12 +59,12 @@ const TierListItem = props => {
         type='button'
         onClick={() => props.removeCard(props.card.id)}
         className={[
-          'TierListItem',
+          'ListBuilderTierItem',
           props.isDragging &&
             props.dndSource === props.index &&
             props.dndTarget !== null &&
             props.dndTarget !== props.index &&
-            'TierListItem--dragging',
+            'ListBuilderTierItem--dragging',
         ]
           .filter(Boolean)
           .join(' ')}
@@ -74,16 +74,16 @@ const TierListItem = props => {
         <img
           src={props.card.image}
           alt={props.card.name}
-          className='TierListItem__image'
+          className='ListBuilderTierItem__image'
         />
       </button>
 
       {shouldDisplayPlaceholderAfter && (
-        <span className='TierListItem TierListItem--placeholder'>
+        <span className='ListBuilderTierItem ListBuilderTierItem--placeholder'>
           <img
             src={props.cards[props.dndSource].image}
             alt={props.card.name}
-            className='TierListItem__image'
+            className='ListBuilderTierItem__image'
           />
         </span>
       )}
@@ -91,4 +91,4 @@ const TierListItem = props => {
   )
 }
 
-export default TierListItem
+export default ListBuilderTierItem
