@@ -21,7 +21,7 @@ const MemberDecks = props => {
         const slot3 = c
 
         return (
-          <Row>
+          <Row desktopOnly>
             <Column width={33}>{slot1 && <Suggestion {...slot1} />}</Column>
             <Column width={33}>{slot2 && <Suggestion {...slot2} />}</Column>
             <Column width={33}>{slot3 && <Suggestion {...slot3} />}</Column>
