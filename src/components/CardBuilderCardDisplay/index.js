@@ -58,7 +58,7 @@ const CardBuilderCardDisplay = props => {
         </Row>
       </Only.Desktop>
       <Only.Mobile>
-        <div>
+        <div className='CardBuilderApp__single-card'>
           <Card
             {...props}
             mana={props.mana.values[activeLevel - 1]}

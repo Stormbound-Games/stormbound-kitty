@@ -34,14 +34,16 @@ const CardBuilderApp = props => (
     {props.mode === 'EDITOR' ? (
       <div className='CardBuilderApp__bottom'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Column width={10} />
+          <Column width={40}>
             <Title>Core attributes</Title>
             <CoreForm {...props} />
           </Column>
-          <Column>
+          <Column width={40}>
             <Title>Level-specific attributes</Title>
             <LevelForm {...props} />
           </Column>
+          <Column width={10} />
         </Row>
       </div>
     ) : null}

@@ -1,3 +1,7 @@
+.CardBuilderApp__single-card {
+  margin: 1em 1em 0;
+}
+
 .CardBuilderCardDisplay__buttons {
   margin-top: 2.5em;
 }
