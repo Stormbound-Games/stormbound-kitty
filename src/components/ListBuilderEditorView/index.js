@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory, useRouteMatch } from 'react-router-dom'
+import { Link, useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import isEqual from 'lodash.isequal'
 import {
@@ -18,6 +18,7 @@ import TierList from '../TierList'
 import Title from '../Title'
 import { serialiseList } from '../../helpers/serialise'
 import getInitialListData from '../../helpers/getInitialListData'
+import getLiveTierList from '../../helpers/getLiveTierList'
 import reorder from '../../helpers/reorder'
 import './index.css'
 
@@ -183,6 +184,14 @@ class ListBuilderEditorView extends React.Component {
               <p>
                 The current list is Shades’ take at ranking cards by efficiency
                 in Equals mode.
+              </p>
+            )}
+
+            {this.props.listId === getLiveTierList() && (
+              <p>
+                This list is computed from the{' '}
+                <Link to='/deck/suggestions'>deck suggestions</Link>. It orders
+                cards based on how frequently they appear in top-ranking decks.
               </p>
             )}
 
