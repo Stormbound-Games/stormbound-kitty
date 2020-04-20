@@ -6,7 +6,7 @@ const MemberContestVictories = props => {
   if (props.victories.length === 0) return null
 
   return (
-    <MemberSection title={<>Card contest victories by {props.displayName}</>}>
+    <MemberSection title={<>Contest victories by {props.displayName}</>}>
       {props.victories.map((contest, index) => (
         <CardContestEntry key={index} {...contest} index={index} />
       ))}

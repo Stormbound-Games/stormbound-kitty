@@ -3,6 +3,7 @@ import Banner from '../Banner'
 import MemberSection from '../MemberSection'
 import getExcerpt from '../../helpers/getExcerpt'
 import getRawCardData from '../../helpers/getRawCardData'
+import './index.css'
 
 const MemberStories = props => {
   if (props.stories.length === 0) return null
@@ -18,6 +19,7 @@ const MemberStories = props => {
 
         return (
           <Banner
+            className='MemberStories__story'
             key={id}
             faction={card.faction}
             title={title}

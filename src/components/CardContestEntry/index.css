@@ -1,4 +1,4 @@
-.CardContestEntry {
+.CardContestEntry:not(:last-child) {
   margin-bottom: 5em;
 }
 
@@ -105,6 +105,6 @@
   }
 
   .CardContestEntry__card {
-    width: 250px;
+    width: 200px;
   }
 }
