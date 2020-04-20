@@ -712,5 +712,19 @@
     "faction": "ironclad",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
+  },
+  {
+    "name": "Khan’s Wild Runners",
+    "id": "NU4xLDVOMyw1TjIzLDVONjcsNU4xMyw1VzUsNU4yOCw1VzksNU4zOSw1VzE3LDVXMTksNU41OA",
+    "faction": "winter",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Quadrant Dragonclad",
+    "id": "MU4xLDFJMSwxSTIsMU42LDFOOCwxTjExLDFJNywxSTIwLDFJMTcsMUkxOSwxTjQ2LDFONDc=",
+    "faction": "ironclad",
+    "author": "Helios",
+    "category": "EQUALS"
   }
 ]
