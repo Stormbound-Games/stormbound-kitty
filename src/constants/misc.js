@@ -236,7 +236,7 @@ export const WEEKLY_CARD_CONTEST = [
     winner: {
       id:
         'Rjs7UztFOzY7OzQvNS82LzcvODtDYXRhY2x5c21pYyUyMFNocmluZTtGMTM7QXQlMjB0aGUlMjBzdGFydCUyMG9mJTIweW91ciUyMHR1cm4lMkMlMjAqZGVzdHJveSolMjBldmVyeXRoaW5nJTIwYm9yZGVyaW5nJTIweW91ciUyMGJhc2UlMjAqd2l0aCUyMDclMkY4JTJGMTAlMkYxMiUyRjE1JTIwb3IlMjBsZXNzJTIwc3RyZW5ndGgqOzs=',
-      author: '22cire’s',
+      author: '22cires',
     },
   },
 ]
