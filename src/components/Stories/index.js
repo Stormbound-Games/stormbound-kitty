@@ -28,11 +28,7 @@ const Stories = props => (
         cta={{
           'aria-label': 'Read stories about the lore',
           to: '/stories/lore',
-          children: (
-            <>
-              Read <span className='visually-hidden'>lore</span> stories
-            </>
-          ),
+          children: 'Lore stories',
         }}
         image={ILLUSTATION.lore.image}
       />
@@ -48,11 +44,7 @@ const Stories = props => (
           cta={{
             'aria-label': 'Read stories about ' + faction,
             to: '/stories/' + faction,
-            children: (
-              <>
-                Read <span className='visually-hidden'>{faction}</span> stories
-              </>
-            ),
+            children: `${faction} stories`,
           }}
           image={ILLUSTATION[faction].image}
         />
