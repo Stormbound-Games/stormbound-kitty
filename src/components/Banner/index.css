@@ -1,15 +1,12 @@
+.Banner {
+  margin-bottom: 3em;
+  text-align: center;
+}
+
 .Banner__title {
   font-size: 200%;
   margin-bottom: 0;
   margin-top: 0;
-}
-
-.Banner__copy {
-  max-width: 60ch;
-}
-
-.Banner__CTA {
-  min-width: 150px;
 }
 
 .Banner__subline {
@@ -17,7 +14,18 @@
   font-style: italic;
   color: var(--beige);
   margin-top: 0;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
+}
+
+.Banner__copy {
+  max-width: 60ch;
+  margin-bottom: 1em;
+}
+
+.Banner__CTA {
+  width: 100%;
+  min-width: 150px;
+  margin: auto;
 }
 
 @media (min-width: 700px) {
@@ -28,6 +36,7 @@
     left: 50%;
     right: 50%;
     overflow: hidden;
+    text-align: initial;
     --color: var(--beige);
   }
 
@@ -93,6 +102,7 @@
   }
 
   .Banner__CTA {
-    margin-top: 2em;
+    margin: 2em 0 0;
+    width: auto;
   }
 }
