@@ -11,7 +11,8 @@
   },
   {
     "intro": "Card Builder",
-    "description": "Opening official cards in the card builder with a loaded collection display the upgrade progres bar like in game."
+    "description": "Opening official cards in the card builder with a loaded collection display the upgrade progres bar like in game.",
+    "link": "/card"
   },
   {
     "intro": "Card Collection",
@@ -45,7 +46,8 @@
   },
   {
     "intro": "Stormbound Kitty",
-    "description": "The Elders and the Brawl update balance changes are here!"
+    "description": "The Elders and the Brawl update balance changes are here!",
+    "link": "/brawl"
   },
   {
     "intro": "Deck Suggestions",
@@ -63,7 +65,8 @@
   },
   {
     "intro": "Deck Tracker",
-    "description": "There now is a deck tracker to get accurate drawing chances during an actual game."
+    "description": "There now is a deck tracker to get accurate drawing chances during an actual game.",
+    "link": "/deck"
   },
   {
     "intro": "Deck Builder",
@@ -114,7 +117,8 @@
   },
   {
     "intro": "Card Builder",
-    "description": "Some existing cards now display community-authored stories in the card builder."
+    "description": "Some existing cards now display community-authored stories in the card builder.",
+    "link": "/card"
   },
   {
     "intro": "Card Collection",
@@ -143,11 +147,13 @@
   },
   {
     "intro": "Deck dry-runner",
-    "description": "Cards can now be selected with keys 1 to 4, played with “P”, cycled with “C” and the turn can be ended with “E”."
+    "description": "Cards can now be selected with keys 1 to 4, played with “P”, cycled with “C” and the turn can be ended with “E”.",
+    "link": "/deck"
   },
   {
     "intro": "Card builder",
-    "description": "The card builder now has a display mode to hide the editing interface."
+    "description": "The card builder now has a display mode to hide the editing interface.",
+    "link": "/deck"
   },
   {
     "intro": "Battle sim",
@@ -160,24 +166,12 @@
   },
   {
     "intro": "Deck dry-runner",
-    "description": "It is now possible to dry-run equal decks by clicking “Reset game” and checking “Reset in equal levels”."
+    "description": "It is now possible to dry-run equal decks by clicking “Reset game” and checking “Reset in equal levels”.",
+    "link": "/deck"
   },
   {
     "intro": "Deck builder",
     "description": "Updating the level of a card in the deck can be done by re-adding the card with a different level.",
     "link": "/deck"
-  },
-  {
-    "intro": "Stormbound Kitty",
-    "description": "The footer now includes a link to the outstanding Stormbound Guide from Arikrat."
-  },
-  {
-    "intro": "Deck dry-runner",
-    "description": "Collector Mirz now spawns tokens of all races, and their chances of draw work as intended."
-  },
-  {
-    "intro": "Deck Suggestions",
-    "description": "It is now possible to filter decks based on whether they include a certain card.",
-    "link": "/deck/suggestions"
   }
 ]
