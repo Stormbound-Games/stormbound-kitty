@@ -6,6 +6,7 @@ import Loader from '../Loader'
 import Error from '../Error'
 import RouterGuides from '../RouterGuides'
 import RouterListBuilder from '../RouterListBuilder'
+import RouterQuestBuilder from '../RouterQuestBuilder'
 import RouterStories from '../RouterStories'
 
 const options = { fallback: <Loader /> }
@@ -44,7 +45,6 @@ const DeckBuilderEditorView = loadable(
   () => import('../DeckBuilderEditorView'),
   options
 )
-const QuestBuilderRoot = loadable(() => import('../QuestBuilderRoot'), options)
 
 const BooksCalculator = loadable(() => import('../BooksCalculator'), options)
 const Stats = loadable(() => import('../Stats'), options)
@@ -126,12 +126,9 @@ const Router = props => (
         <Redirect to='/collection/books' />
       </Page>
 
-      <Page path='/quest/:questId'>
-        <QuestBuilderRoot />
-      </Page>
-      <Page path='/quest'>
-        <QuestBuilderRoot />
-      </Page>
+      <Route path='/quest'>
+        <RouterQuestBuilder />
+      </Route>
 
       <Route path='/stories'>
         <RouterStories />
