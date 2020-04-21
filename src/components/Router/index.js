@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Page from '../Page'
 import Loader from '../Loader'
 import Error from '../Error'
+import RouterBattleSim from '../RouterBattleSim'
 import RouterCardBuilder from '../RouterCardBuilder'
 import RouterCollection from '../RouterCollection'
 import RouterDeckBuilder from '../RouterDeckBuilder'
@@ -14,9 +15,6 @@ import RouterStories from '../RouterStories'
 
 const options = { fallback: <Loader /> }
 const FAQ = loadable(() => import('../FAQ'), options)
-const BattleSimDisplay = loadable(() => import('../BattleSimDisplay'), options)
-const BattleSimPuzzles = loadable(() => import('../BattleSimPuzzles'), options)
-const BattleSimRoot = loadable(() => import('../BattleSimRoot'), options)
 
 const Brawl = loadable(() => import('../Brawl'), options)
 const Home = loadable(() => import('../Home'), options)
@@ -25,18 +23,9 @@ const Member = loadable(() => import('../Member'), options)
 const Router = props => (
   <BrowserRouter>
     <Switch>
-      <Page path='/sim/:simId/display' active='BATTLE_SIM'>
-        <BattleSimDisplay />
-      </Page>
-      <Page path='/sim/puzzles' active='BATTLE_SIM'>
-        <BattleSimPuzzles />
-      </Page>
-      <Page path='/sim/:simId' active='BATTLE_SIM'>
-        <BattleSimRoot />
-      </Page>
-      <Page path='/sim' active='BATTLE_SIM'>
-        <BattleSimRoot />
-      </Page>
+      <Route path='/sim'>
+        <RouterBattleSim />
+      </Route>
 
       <Route path='/card'>
         <RouterCardBuilder />
