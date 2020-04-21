@@ -15,6 +15,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  cursor: pointer;
 }
 
 .Checkbox__input:checked + .Checkbox__icon::before {
