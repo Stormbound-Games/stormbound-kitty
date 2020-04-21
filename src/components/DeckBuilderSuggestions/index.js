@@ -9,7 +9,7 @@ import EmptySearch from '../EmptySearch'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
-import Suggestion from '../DeckBuilderSuggestion'
+import FeaturedDeck from '../FeaturedDeck'
 import SuggestionsFilters from '../DeckBuilderSuggestionsFilters'
 import SuggestionsNav from '../DeckBuilderSuggestionsNav'
 import Title from '../Title'
@@ -30,7 +30,7 @@ class DeckBuilderSuggestions extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.location.href !== this.props.location.href) {
+    if (prevProps.location.search !== this.props.location.search) {
       this.setState(this.getURLParameters())
     }
   }
@@ -169,7 +169,7 @@ class DeckBuilderSuggestions extends React.Component {
               chunk(page, 2).map(([a, b]) => (
                 <Row desktopOnly key={a.id}>
                   <Column>
-                    <Suggestion
+                    <FeaturedDeck
                       {...a}
                       onClick={card =>
                         this.props.history.push('/card/' + card.id + '/display')
@@ -178,7 +178,7 @@ class DeckBuilderSuggestions extends React.Component {
                   </Column>
                   <Column>
                     {b ? (
-                      <Suggestion
+                      <FeaturedDeck
                         {...b}
                         onClick={card =>
                           this.props.history.push(

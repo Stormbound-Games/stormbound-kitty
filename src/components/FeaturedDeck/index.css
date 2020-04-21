@@ -1,13 +1,13 @@
-.DeckBuilderSuggestion {
+.FeaturedDeck {
   margin-bottom: 2em;
 }
 
-.DeckBuilderSuggestion__name {
+.FeaturedDeck__name {
   font-size: 120%;
   display: block;
 }
 
-.DeckBuilderSuggestion__rarity-bar {
+.FeaturedDeck__rarity-bar {
   margin-bottom: 0.5em;
   margin-top: -0.5em;
 }

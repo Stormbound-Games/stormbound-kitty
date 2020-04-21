@@ -25,7 +25,7 @@ const tooltipStyles = {
   whiteSpace: 'normal',
 }
 
-const DeckBuilderSuggestion = props => {
+const FeaturedDeck = props => {
   const { hasDefaultCollection, collection } = React.useContext(
     CollectionContext
   )
@@ -49,17 +49,17 @@ const DeckBuilderSuggestion = props => {
     : getDeckDistanceToMax(resolvedCollection)({ id })
 
   return (
-    <div className='DeckBuilderSuggestion'>
+    <div className='FeaturedDeck'>
       <Deck
         deck={deck}
         orientation='horizontal'
         onClick={props.onClick}
         onClickLabel='Display card'
       />
-      <div className='DeckBuilderSuggestion__rarity-bar'>
+      <div className='FeaturedDeck__rarity-bar'>
         <RarityBar deck={deck.map(({ id }) => getRawCardData(id))} />
       </div>
-      <span className='DeckBuilderSuggestion__name'>
+      <span className='FeaturedDeck__name'>
         <Link to={`/deck/${id}`}>{props.name}</Link>
         <Only.CustomCollection>
           <Only.Desktop>
@@ -80,12 +80,22 @@ const DeckBuilderSuggestion = props => {
           </Only.Desktop>
         </Only.CustomCollection>
       </span>
-      <span className='DeckBuilderSuggestion__author'>
-        <Link to={`/deck/suggestions?category=${props.category}`}>
+      <span className='FeaturedDeck__author'>
+        <Link
+          to={{
+            pathname: '/deck/suggestions',
+            search: `?category=${props.category}`,
+          }}
+        >
           {CATEGORIES[props.category]}
         </Link>{' '}
         deck by{' '}
-        <Link to={`/deck/suggestions?author=${props.author}`}>
+        <Link
+          to={{
+            pathname: '/deck/suggestions',
+            search: `?author=${props.author}`,
+          }}
+        >
           {props.author}
         </Link>
       </span>
@@ -93,4 +103,4 @@ const DeckBuilderSuggestion = props => {
   )
 }
 
-export default DeckBuilderSuggestion
+export default FeaturedDeck

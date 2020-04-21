@@ -2,7 +2,7 @@ import React from 'react'
 import { CollectionContext } from '../CollectionProvider'
 import Row from '../Row'
 import Column from '../Column'
-import Suggestion from '../DeckBuilderSuggestion'
+import FeaturedDeck from '../FeaturedDeck'
 import MemberSection from '../MemberSection'
 import sortDeckSuggestions from '../../helpers/sortDeckSuggestions'
 import chunk from '../../helpers/chunk'
@@ -22,9 +22,9 @@ const MemberDecks = props => {
 
         return (
           <Row desktopOnly>
-            <Column width={33}>{slot1 && <Suggestion {...slot1} />}</Column>
-            <Column width={33}>{slot2 && <Suggestion {...slot2} />}</Column>
-            <Column width={33}>{slot3 && <Suggestion {...slot3} />}</Column>
+            <Column width={33}>{slot1 && <FeaturedDeck {...slot1} />}</Column>
+            <Column width={33}>{slot2 && <FeaturedDeck {...slot2} />}</Column>
+            <Column width={33}>{slot3 && <FeaturedDeck {...slot3} />}</Column>
           </Row>
         )
       })}
