@@ -74,9 +74,7 @@ class DeckBuilderDryRunView extends React.Component {
         const index = numKeys.indexOf(event.which)
         const card = this.props.hand[index]
 
-        return this.setState(state => ({
-          activeCard: state.activeCard === card ? null : card,
-        }))
+        return this.selectCard(card)
       }
       case 97:
       case 98:
@@ -85,9 +83,7 @@ class DeckBuilderDryRunView extends React.Component {
         const index = padKeys.indexOf(event.which)
         const card = this.props.hand[index]
 
-        return this.setState(state => ({
-          activeCard: state.activeCard === card ? null : card,
-        }))
+        return this.selectCard(card)
       }
       case P_KEY: {
         return this.state.activeCard &&
@@ -190,7 +186,7 @@ class DeckBuilderDryRunView extends React.Component {
                 <Checkbox
                   name='display-chance'
                   id='display-chance'
-                  checked={this.state.disabled}
+                  checked={this.state.displayChance}
                   onChange={() =>
                     this.setState(state => ({
                       displayChance: !state.displayChance,
@@ -363,7 +359,7 @@ class DeckBuilderDryRunView extends React.Component {
                       .
                     </p>
 
-                    {this.props.hand.includes('N38') && (
+                    {this.props.deck.map(card => card.id).includes('N38') && (
                       <Hint>
                         Due to the lack of opponent’s deck, Harvester of Souls’
                         ability has not been implemented.
@@ -399,8 +395,11 @@ class DeckBuilderDryRunView extends React.Component {
                         <p>
                           Of these turns, {this.state.turnsWithLeftOverMana} of
                           them left you with some unused mana, for a total of{' '}
-                          {this.state.totalUnspentMana} unspent mana point in
-                          the game.{' '}
+                          {this.state.totalUnspentMana} unspent mana{' '}
+                          {this.state.totalUnspentMana === 1
+                            ? 'point'
+                            : 'points'}{' '}
+                          in the game.
                         </p>
                         <p>
                           You’ve willingly not cycled a card on{' '}

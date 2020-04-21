@@ -63,7 +63,7 @@ export default class DeckMechanisms extends React.Component {
 
       // After having drawn a new card, we need to readjust the weight of all
       // cards that are not in the hand, as well as the card that has just been
-      // drawn (reseted to 0).
+      // drawn (reset to 0).
       newState.deck = this.getIncreasedDeckWeight({
         state: newState,
         reset: [pick],
@@ -73,7 +73,7 @@ export default class DeckMechanisms extends React.Component {
     })
   }
 
-  cycle = id => {
+  cycle = (id, countAsCycled = true) => {
     // If the cycled card is not actually in the hand, skip cycle.
     if (!this.state.hand.includes(id)) {
       return false
@@ -89,21 +89,21 @@ export default class DeckMechanisms extends React.Component {
       // in the hand, and that are not the one that has been cycled. From there,
       // we can draw a random card while taking weight into account, then push
       // the new card into the hand.
-      const availableCards = state.deck
-        .filter(card => !state.hand.includes(card.id))
-        .filter(card => card.id !== id)
+      const availableCards = state.deck.filter(
+        card => !state.hand.includes(card.id)
+      )
       const pick = rwc(availableCards)
       newState.hand.push(pick)
 
       // After having drawn a new card, we need to readjust the weight of all
       // cards that are not in the hand, as well as the one that has just been
-      // drawn (reseted to 0).
+      // drawn (reset to 0).
       newState.deck = this.getIncreasedDeckWeight({
         state: newState,
         reset: [id, pick],
       })
 
-      newState.hasCycledThisTurn = id !== 'N22' // Ignore Goldgrubbers cycling
+      newState.hasCycledThisTurn = countAsCycled
 
       return newState
     })
@@ -120,7 +120,6 @@ export default class DeckMechanisms extends React.Component {
 
     this.setState(
       state => {
-        const deckIds = state.deck.map(card => card.id)
         const newState = clone(state)
 
         // Remove the played card from the hand.
@@ -139,18 +138,16 @@ export default class DeckMechanisms extends React.Component {
         // Unless the play is actually free or a discard, decrease the amount
         // of available mana by the cost the card
         if (!(options.free || options.discard)) {
-          newState.mana -= state.deck[deckIds.indexOf(id)].mana
+          newState.mana -= card.mana
         }
 
         return newState
       },
-      () => this.handleCardEffect(id)
+      () => this.handleCardEffect(card)
     )
   }
 
-  handleCardEffect = id => {
-    const card = this.state.deck.find(card => card.id === id)
-
+  handleCardEffect = card => {
     switch (card.id) {
       // Freebooters
       case 'N14': {
@@ -185,7 +182,7 @@ export default class DeckMechanisms extends React.Component {
       // Snake Eyes
       case 'N33': {
         if (this.props.mode !== 'MANUAL' && this.state.hand.length === 3) {
-          this.state.hand.forEach(this.cycle)
+          this.state.hand.forEach(this.cycle, false)
 
           if (card.level >= 4) {
             this.draw()
@@ -253,7 +250,7 @@ export default class DeckMechanisms extends React.Component {
         })
 
         if (this.props.mode !== 'MANUAL' && nonPirates.length > 0) {
-          this.cycle(arrayRandom(nonPirates))
+          this.cycle(arrayRandom(nonPirates), false)
         }
         break
       }
@@ -279,7 +276,7 @@ export default class DeckMechanisms extends React.Component {
         let satyr1, satyr2
 
         // If Queen of Herds is played without any satyr in the remaining cards
-        // from the deck, there is nothing more to.
+        // from the deck, there is nothing more to do.
         if (this.props.mode === 'MANUAL' || satyrs.length === 0) {
           break
         }
@@ -291,14 +288,14 @@ export default class DeckMechanisms extends React.Component {
         // See: https://discordapp.com/channels/293674725069029377/564840207875178502/676580933180325920
         // Note: it seems that QoH spawns do not cause a weighing of the deck.
         // See: https://discordapp.com/channels/293674725069029377/564840207875178502/676580198057246730
-        satyr1 = arrayRandom(satyrs)
+        satyr1 = arrayRandom(satyrs).id
         this.play(satyr1, { free: true })
 
         // If Queen of Herds is level 4 or 5 and there were more than single
         // satyr in the remaining cards from the deck, a second one can be
         // picked at random and played for free.
         if (satyrs.length > 1 && card.level >= 4) {
-          satyr2 = arrayRandom(satyrs.filter(satyr => satyr.id !== satyr1))
+          satyr2 = arrayRandom(satyrs.filter(satyr => satyr.id !== satyr1)).id
 
           if (satyr2) {
             this.play(satyr2, { free: true })
@@ -395,7 +392,7 @@ export default class DeckMechanisms extends React.Component {
     const card = this.state.deck.find(card => card.id === id)
     const isAffordable = card.mana <= this.state.mana
     const canBePlayed = !(
-      this.state.turn === 1 && ['W1', 'I3', 'F4', 'N15'].includes(id)
+      this.state.turn === 1 && ['W1', 'S10', 'F4', 'N15'].includes(id)
     )
 
     return isAffordable && canBePlayed
@@ -423,7 +420,7 @@ export default class DeckMechanisms extends React.Component {
     this.setState({
       playerOrder,
       turn,
-      mana: DEFAULT_MANA + (turn - 1),
+      mana: DEFAULT_MANA + turn,
     })
   }
 
