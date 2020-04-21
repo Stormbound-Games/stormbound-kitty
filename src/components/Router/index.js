@@ -1,10 +1,11 @@
 import React from 'react'
 import loadable from '@loadable/component'
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Page from '../Page'
 import Loader from '../Loader'
 import Error from '../Error'
 import RouterCollection from '../RouterCollection'
+import RouterDeckBuilder from '../RouterDeckBuilder'
 import RouterGuides from '../RouterGuides'
 import RouterListBuilder from '../RouterListBuilder'
 import RouterQuestBuilder from '../RouterQuestBuilder'
@@ -22,28 +23,6 @@ const CardBuilderContest = loadable(
 const CardBuilderRoot = loadable(() => import('../CardBuilderRoot'), options)
 const CardBuilderDisplay = loadable(
   () => import('../CardBuilderDisplay'),
-  options
-)
-const DeckBuilderSuggestions = loadable(
-  () => import('../DeckBuilderSuggestions'),
-  options
-)
-
-const DeckBuilderRoot = loadable(() => import('../DeckBuilderRoot'), options)
-const DeckBuilderDetailView = loadable(
-  () => import('../DeckBuilderDetailView'),
-  options
-)
-const DeckBuilderDryRunView = loadable(
-  () => import('../DeckBuilderDryRunView'),
-  options
-)
-const DeckBuilderTrackerView = loadable(
-  () => import('../DeckBuilderTrackerView'),
-  options
-)
-const DeckBuilderEditorView = loadable(
-  () => import('../DeckBuilderEditorView'),
   options
 )
 
@@ -80,37 +59,9 @@ const Router = props => (
         <CardBuilderRoot />
       </Page>
 
-      <Page path='/deck/suggestions' active='DECK_BUILDER'>
-        <DeckBuilderSuggestions />
-      </Page>
-      <Page path='/deck/collection' active='DECK_BUILDER'>
-        <Redirect to='/collection' />
-      </Page>
-      <Page path='/deck/:deckId/detail' active='DECK_BUILDER'>
-        <DeckBuilderRoot>
-          {state => <DeckBuilderDetailView {...state} />}
-        </DeckBuilderRoot>
-      </Page>
-      <Page path='/deck/:deckId/dry-run' active='DECK_BUILDER'>
-        <DeckBuilderRoot>
-          {state => <DeckBuilderDryRunView {...state} />}
-        </DeckBuilderRoot>
-      </Page>
-      <Page path='/deck/:deckId/tracker' active='DECK_BUILDER'>
-        <DeckBuilderRoot>
-          {state => <DeckBuilderTrackerView {...state} />}
-        </DeckBuilderRoot>
-      </Page>
-      <Page path='/deck/:deckId' active='DECK_BUILDER'>
-        <DeckBuilderRoot>
-          {state => <DeckBuilderEditorView {...state} />}
-        </DeckBuilderRoot>
-      </Page>
-      <Page path='/deck' active='DECK_BUILDER'>
-        <DeckBuilderRoot>
-          {state => <DeckBuilderEditorView {...state} />}
-        </DeckBuilderRoot>
-      </Page>
+      <Route path='/deck'>
+        <RouterDeckBuilder />
+      </Route>
 
       <Route path='/collection'>
         <RouterCollection />
