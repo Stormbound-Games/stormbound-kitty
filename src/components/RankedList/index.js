@@ -15,7 +15,7 @@ const ListBuilderDisplayView = props => {
 
   return (
     <>
-      <h1 className='visually-hidden'>Ranked Tier List</h1>
+      <h1 className='VisuallyHidden'>Ranked Tier List</h1>
       <Row wideGutter desktopOnly>
         <Column width={33}>
           <Title element='h2'>Info</Title>

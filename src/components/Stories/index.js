@@ -18,7 +18,7 @@ const ILLUSTATION = {
 const Stories = props => (
   <>
     <div className='Stories'>
-      <h1 className='visually-hidden'>Stories</h1>
+      <h1 className='VisuallyHidden'>Stories</h1>
 
       <Banner
         title='Lore stories'

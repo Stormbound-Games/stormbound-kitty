@@ -52,7 +52,7 @@ const Dialog = props => {
       </ButtonIcon>
 
       <header
-        className={['Dialog__header', props.hideHeader && 'visually-hidden']
+        className={['Dialog__header', props.hideHeader && 'VisuallyHidden']
           .filter(Boolean)
           .join(' ')}
       >

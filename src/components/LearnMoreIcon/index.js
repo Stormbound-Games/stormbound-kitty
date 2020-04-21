@@ -5,7 +5,7 @@ import './index.css'
 
 const LearnMoreIcon = props => (
   <Link to={'/faq' + (props.anchor || '')} className='LearnMoreIcon'>
-    <span className='visually-hidden'>
+    <span className='VisuallyHidden'>
       {props.children || 'Learn more in the FAQ'}
     </span>
     <QuestionMark />

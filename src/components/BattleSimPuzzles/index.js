@@ -58,7 +58,7 @@ export default class BattleSimPuzzles extends React.Component {
 
     return (
       <>
-        <h1 className='visually-hidden'>Puzzles</h1>
+        <h1 className='VisuallyHidden'>Puzzles</h1>
 
         <Row desktopOnly wideGutter>
           <Column width={33}>

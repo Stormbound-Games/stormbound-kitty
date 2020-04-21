@@ -130,7 +130,7 @@ class DeckBuilderSuggestions extends React.Component {
 
     return (
       <>
-        <h1 className='visually-hidden'>Deck Suggestions</h1>
+        <h1 className='VisuallyHidden'>Deck Suggestions</h1>
 
         <Row desktopOnly wideGutter>
           <Column width={33}>

@@ -10,7 +10,7 @@ import './index.css'
 
 const Home = props => (
   <>
-    <h1 className='visually-hidden'>Stormbound Kitty</h1>
+    <h1 className='VisuallyHidden'>Stormbound Kitty</h1>
 
     <div className='Home'>
       <aside className='Home__news'>

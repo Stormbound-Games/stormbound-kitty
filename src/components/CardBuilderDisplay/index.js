@@ -12,7 +12,7 @@ const CardBuilderDisplay = props => {
 
   return (
     <>
-      <h1 className='visually-hidden'>Card builder</h1>
+      <h1 className='VisuallyHidden'>Card builder</h1>
 
       <App {...cardData} cardId={id} mode='DISPLAY' />
       <CardDisplayControls />

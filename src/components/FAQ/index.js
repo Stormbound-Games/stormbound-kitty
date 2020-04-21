@@ -32,7 +32,7 @@ const FAQ = props => {
 
   return (
     <div className='FAQ'>
-      <h1 className='visually-hidden'>Frequently Asked Questions</h1>
+      <h1 className='VisuallyHidden'>Frequently Asked Questions</h1>
 
       <Row desktopOnly wideGutter>
         <Column width={33}>

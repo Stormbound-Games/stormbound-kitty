@@ -125,7 +125,7 @@ const Stats = props => {
 
   return (
     <>
-      <h1 className='visually-hidden'>Stats</h1>
+      <h1 className='VisuallyHidden'>Stats</h1>
       <Row desktopOnly>
         <Column width={33}>
           <Row desktopOnly>

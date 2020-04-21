@@ -39,7 +39,7 @@ const BattleSimGameForm = props => {
               data-testid='grid-markers'
               className='BattleSimGameForm__grid-markers'
             >
-              Enable <span className='visually-hidden'>grid markers</span>
+              Enable <span className='VisuallyHidden'>grid markers</span>
             </Checkbox>
           </fieldset>
         </Column>

@@ -41,7 +41,7 @@ const BooksCalculator = props => {
 
   return (
     <>
-      <h1 className='visually-hidden'>Books Calculator</h1>
+      <h1 className='VisuallyHidden'>Books Calculator</h1>
 
       <Row desktopOnly wideGutter>
         <Column width={33}>

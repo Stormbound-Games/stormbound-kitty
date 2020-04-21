@@ -178,7 +178,7 @@ class DeckBuilderDryRunView extends React.Component {
   render() {
     return (
       <>
-        <h1 className='visually-hidden'>Deck Dry-run</h1>
+        <h1 className='VisuallyHidden'>Deck Dry-run</h1>
 
         <Row desktopOnly wideGutter>
           <Column width={33}>
@@ -281,7 +281,7 @@ class DeckBuilderDryRunView extends React.Component {
                             type='button'
                             onClick={() => this.selectCard(cardId)}
                           >
-                            <span className='visually-hidden'>
+                            <span className='VisuallyHidden'>
                               {this.state.activeCard === cardId
                                 ? 'Unselect card'
                                 : 'Select card'}
