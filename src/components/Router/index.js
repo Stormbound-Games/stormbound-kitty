@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Page from '../Page'
 import Loader from '../Loader'
 import Error from '../Error'
+import RouterCardBuilder from '../RouterCardBuilder'
 import RouterCollection from '../RouterCollection'
 import RouterDeckBuilder from '../RouterDeckBuilder'
 import RouterGuides from '../RouterGuides'
@@ -16,15 +17,6 @@ const FAQ = loadable(() => import('../FAQ'), options)
 const BattleSimDisplay = loadable(() => import('../BattleSimDisplay'), options)
 const BattleSimPuzzles = loadable(() => import('../BattleSimPuzzles'), options)
 const BattleSimRoot = loadable(() => import('../BattleSimRoot'), options)
-const CardBuilderContest = loadable(
-  () => import('../CardBuilderContest'),
-  options
-)
-const CardBuilderRoot = loadable(() => import('../CardBuilderRoot'), options)
-const CardBuilderDisplay = loadable(
-  () => import('../CardBuilderDisplay'),
-  options
-)
 
 const Brawl = loadable(() => import('../Brawl'), options)
 const Home = loadable(() => import('../Home'), options)
@@ -46,18 +38,9 @@ const Router = props => (
         <BattleSimRoot />
       </Page>
 
-      <Page path='/card/contest' active='CARD_BUILDER'>
-        <CardBuilderContest />
-      </Page>
-      <Page path='/card/:cardId/display' active='CARD_BUILDER'>
-        <CardBuilderDisplay />
-      </Page>
-      <Page path='/card/:cardId' active='CARD_BUILDER'>
-        <CardBuilderRoot />
-      </Page>
-      <Page path='/card' active='CARD_BUILDER'>
-        <CardBuilderRoot />
-      </Page>
+      <Route path='/card'>
+        <RouterCardBuilder />
+      </Route>
 
       <Route path='/deck'>
         <RouterDeckBuilder />
