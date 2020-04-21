@@ -5,15 +5,14 @@ import Banner from '../Banner'
 import InfoHint from '../InfoHint'
 import PageMeta from '../PageMeta'
 import capitalise from '../../helpers/capitalise'
-import getRawCardData from '../../helpers/getRawCardData'
 
 const ILLUSTATION = {
-  lore: getRawCardData('N46'),
-  neutral: getRawCardData('N59'),
-  winter: getRawCardData('W8'),
-  ironclad: getRawCardData('I17'),
-  shadowfen: getRawCardData('F21'),
-  swarm: getRawCardData('S19'),
+  lore: '/assets/images/cards/tegor_the_vengeful.png',
+  neutral: '/assets/images/cards/edrik_the_fierce.png',
+  winter: '/assets/images/cards/spellbinder_zhevana.png',
+  ironclad: '/assets/images/cards/eloth_the_ignited.png',
+  shadowfen: '/assets/images/cards/broodmother_qordia.png',
+  swarm: '/assets/images/cards/xuri_lord_of_life.png',
 }
 
 const Stories = props => (
@@ -22,15 +21,14 @@ const Stories = props => (
       <h1 className='visually-hidden'>Stories</h1>
 
       <Banner
-        faction='lore'
-        title={`Lore stories`}
-        copy={`Discover the amazing tales from the community about the lore and embark on a mythical journey through myths and legends.`}
+        title='Lore stories'
+        copy='Discover the amazing tales from the community about the lore and embark on a mythical journey through myths and legends.'
         cta={{
           'aria-label': 'Read stories about the lore',
           to: '/stories/lore',
           children: 'Lore stories',
         }}
-        image={ILLUSTATION.lore.image}
+        image={ILLUSTATION.lore}
       />
 
       {Object.keys(FACTIONS).map(faction => (
@@ -46,7 +44,7 @@ const Stories = props => (
             to: '/stories/' + faction,
             children: `${faction} stories`,
           }}
-          image={ILLUSTATION[faction].image}
+          image={ILLUSTATION[faction]}
         />
       ))}
     </div>
