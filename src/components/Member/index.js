@@ -53,11 +53,16 @@ const Member = props => {
   return (
     <>
       <MemberStories stories={userStories} displayName={displayName} />
+      {userStories.length && <hr />}
       <MemberContestVictories
         victories={userVictories}
         displayName={displayName}
       />
+      {userVictories.length && <hr />}
+
       <MemberGuides guides={userGuides} displayName={displayName} />
+      {userGuides.length && <hr />}
+
       <MemberDecks decks={userDecks} displayName={displayName} />
 
       <PageMeta title={displayName} />
