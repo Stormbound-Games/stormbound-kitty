@@ -24,21 +24,6 @@
   filter: hue-rotate(35deg) contrast(200%);
 }
 
-.CardsGallery__item--missing {
-  opacity: 0.3;
-  filter: grayscale(1) contrast(200%);
-}
-
-.CardsGallery__item--missing::before {
-  content: '';
-  position: absolute;
-  top: 1em;
-  right: 0;
-  bottom: 1em;
-  left: 0;
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.3) 30%, transparent);
-}
-
 .CardsGallery__button {
   position: absolute;
   top: 0;

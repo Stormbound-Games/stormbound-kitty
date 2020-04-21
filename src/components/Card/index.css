@@ -43,6 +43,52 @@
     drop-shadow(0 0 10px rgba(25, 93, 156, 0.3));
 }
 
+/**
+ * 1. Static background color for missing cards.
+ * 2. Mimick rounded corners normally coming from background image.
+ */
+.Card--missing .Card__content {
+  background-color: rgb(23, 38, 48); /* 1 */
+  border-radius: 2.15em; /* 2 */
+}
+
+/**
+ * 1. Reduce opacity of individual card components.
+ */
+.Card--missing .Card__name,
+.Card--missing .Card__race,
+.Card--missing .Card__ability,
+.Card--missing .Card__rarity,
+.Card--missing .Card__level {
+  opacity: 0.5; /* 1 */
+}
+
+/**
+ * 1. Random magic to make the iconography less prominent.
+ */
+.Card--missing .Card__mana,
+.Card--missing .Card__strength,
+.Card--missing .Card__movement {
+  opacity: 0.75;
+  filter: contrast(200%) saturate(0.5) grayscale(0.5); /* 1 */
+}
+
+/**
+ * 1. Color used through the mask, effectively being the color of the image.
+ * 2. The element has no content, therefore needs a height.
+ * 3. Not quite the same as the image itself, but somewhat works.
+ */
+.Card__missing {
+  background-color: rgb(14, 24, 31); /* 1 */
+  display: block;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+  flex-grow: 1; /* 2 */
+  width: 70%; /* 3 */
+  margin: auto;
+}
+
 .Card::before {
   content: '';
   display: block;

@@ -29,9 +29,6 @@ const CardsGallery = props => {
           <li
             className={[
               'CardsGallery__item',
-              props.isCardMissing &&
-                props.isCardMissing(card.id) &&
-                'CardsGallery__item--missing',
               props.isCardInDeck &&
                 props.isCardInDeck(card.id) &&
                 'CardsGallery__item--in-deck',
@@ -53,6 +50,7 @@ const CardsGallery = props => {
 
             <Card
               {...card}
+              missing={props.isCardMissing && props.isCardMissing(card.id)}
               affordable={
                 props.isCardAffordable ? props.isCardAffordable(card.id) : false
               }

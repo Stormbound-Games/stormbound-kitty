@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from '../Image'
+import { WebpContext } from '../WebpProvider'
 import { getRarityImage, getRarityColor } from '../../helpers/getRarity'
 import microMarkdown from '../../helpers/microMarkdown'
 import random from '../../helpers/random'
@@ -7,8 +8,10 @@ import useFluidSizing from '../../hooks/useFluidSizing'
 import './index.css'
 
 const Card = props => {
+  const supportsWebp = React.useContext(WebpContext)
   const { fontSize, ref } = useFluidSizing(0.03902439024)
   const imageWrapperRef = React.useRef()
+  const ext = supportsWebp ? 'webp' : 'png'
 
   React.useEffect(() => {
     if (props.hero && imageWrapperRef.current) {
@@ -23,6 +26,7 @@ const Card = props => {
         `Card--${props.faction}`,
         props.affordable && 'Card--affordable',
         props.upgradable && 'Card--upgradable',
+        props.missing && 'Card--missing',
         props.player === 'RED' && 'Card--RED',
         props.player === 'BLUE' && 'Card--BLUE',
       ]
@@ -35,10 +39,13 @@ const Card = props => {
       <div
         className='Card__content'
         style={{
-          backgroundImage:
-            props.rarity === 'legendary'
-              ? `url("/assets/images/${props.faction}-hero.png")`
-              : `url("/assets/images/${props.faction}-${props.type}.png")`,
+          backgroundImage: props.missing
+            ? props.rarity === 'legendary'
+              ? `url("/assets/images/missing-hero.${ext}")`
+              : `url("/assets/images/missing-${props.type}.${ext}")`
+            : props.rarity === 'legendary'
+            ? `url("/assets/images/${props.faction}-hero.${ext}")`
+            : `url("/assets/images/${props.faction}-${props.type}.${ext}")`,
         }}
       >
         <header className='Card__header'>
@@ -56,7 +63,7 @@ const Card = props => {
           </span>
         </header>
 
-        {props.image && (
+        {!props.missing ? (
           <Image
             ref={imageWrapperRef}
             alt=''
@@ -69,6 +76,14 @@ const Card = props => {
               .join(' ')}
             className='Card__image'
             data-testid='card-image'
+          />
+        ) : (
+          <span
+            className='Card__missing'
+            style={{
+              maskImage: `url(${props.image.replace('.png', '.' + ext)})`,
+              WebkitMaskImage: `url(${props.image.replace('.png', '.' + ext)})`,
+            }}
           />
         )}
 

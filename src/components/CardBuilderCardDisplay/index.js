@@ -32,9 +32,6 @@ const CardBuilderCardDisplay = props => {
                   props.hasSingleLevel &&
                     props.level !== level + 1 &&
                     'CardBuilderApp__card--irrelevant',
-                  (cardInCollection.missing ||
-                    level + 1 > cardInCollection.level) &&
-                    'CardBuilderApp__card--missing',
                   level + 1 === cardInCollection.level &&
                     'CardBuilderApp__card--current',
                 ]
@@ -49,6 +46,10 @@ const CardBuilderCardDisplay = props => {
                   ability={props.ability.values[level]}
                   image={
                     getRawCardData(props.imageCardId).image || props.imageURL
+                  }
+                  missing={
+                    cardInCollection.missing ||
+                    level + 1 > cardInCollection.level
                   }
                   level={level + 1}
                 />
