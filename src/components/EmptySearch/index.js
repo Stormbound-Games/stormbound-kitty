@@ -7,7 +7,7 @@ const EmptySearch = props => (
     <img
       className='EmptySearch__image'
       src='/assets/images/cards/sweetcap_kittens.png'
-      alt='Faun Companions'
+      alt=''
     />
     <span className='EmptySearch__title'>
       {props.title || 'No results found'}
