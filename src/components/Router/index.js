@@ -1,9 +1,10 @@
 import React from 'react'
 import loadable from '@loadable/component'
-import { BrowserRouter, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Page from '../Page'
 import Loader from '../Loader'
 import Error from '../Error'
+import RouterGuides from '../RouterGuides'
 
 const options = { fallback: <Loader /> }
 const FAQ = loadable(() => import('../FAQ'), options)
@@ -45,12 +46,7 @@ const QuestBuilderRoot = loadable(() => import('../QuestBuilderRoot'), options)
 const StoriesCategory = loadable(() => import('../StoriesCategory'), options)
 const Story = loadable(() => import('../Story'), options)
 const Stories = loadable(() => import('../Stories'), options)
-const GuideComplete = loadable(() => import('../GuideComplete'), options)
-const GuideDeck = loadable(() => import('../GuideDeck'), options)
-const GuideWinter = loadable(() => import('../GuideWinter'), options)
-const GuidePirate = loadable(() => import('../GuidePirate'), options)
-const Lexicon = loadable(() => import('../Lexicon'), options)
-const Guides = loadable(() => import('../Guides'), options)
+
 const ListBuilderDisplayView = loadable(
   () => import('../ListBuilderDisplayView'),
   options
@@ -173,24 +169,9 @@ const Router = props => (
         <Stories />
       </Page>
 
-      <Page path='/guides/complete' active='GUIDES'>
-        <GuideComplete />
-      </Page>
-      <Page path='/guides/deck' active='GUIDES'>
-        <GuideDeck />
-      </Page>
-      <Page path='/guides/winter' active='GUIDES'>
-        <GuideWinter />
-      </Page>
-      <Page path='/guides/pirate' active='GUIDES'>
-        <GuidePirate />
-      </Page>
-      <Page path='/guides/lexicon' active='GUIDES'>
-        <Lexicon />
-      </Page>
-      <Page path='/guides' active='GUIDES'>
-        <Guides />
-      </Page>
+      <Route path='/guides'>
+        <RouterGuides />
+      </Route>
 
       <Page path='/list/ranked' active='LIST_BUILDER'>
         <RankedList />
