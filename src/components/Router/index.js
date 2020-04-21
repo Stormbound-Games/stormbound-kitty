@@ -5,6 +5,7 @@ import Page from '../Page'
 import Loader from '../Loader'
 import Error from '../Error'
 import RouterGuides from '../RouterGuides'
+import RouterListBuilder from '../RouterListBuilder'
 import RouterStories from '../RouterStories'
 
 const options = { fallback: <Loader /> }
@@ -45,16 +46,6 @@ const DeckBuilderEditorView = loadable(
 )
 const QuestBuilderRoot = loadable(() => import('../QuestBuilderRoot'), options)
 
-const ListBuilderDisplayView = loadable(
-  () => import('../ListBuilderDisplayView'),
-  options
-)
-const ListBuilderEditorView = loadable(
-  () => import('../ListBuilderEditorView'),
-  options
-)
-const RankedList = loadable(() => import('../RankedList'), options)
-const EqualsList = loadable(() => import('../EqualsList'), options)
 const BooksCalculator = loadable(() => import('../BooksCalculator'), options)
 const Stats = loadable(() => import('../Stats'), options)
 const Brawl = loadable(() => import('../Brawl'), options)
@@ -150,21 +141,9 @@ const Router = props => (
         <RouterGuides />
       </Route>
 
-      <Page path='/list/ranked' active='LIST_BUILDER'>
-        <RankedList />
-      </Page>
-      <Page path='/list/equals' active='LIST_BUILDER'>
-        <EqualsList />
-      </Page>
-      <Page path='/list/:listId/display' active='LIST_BUILDER'>
-        <ListBuilderDisplayView />
-      </Page>
-      <Page path='/list/:listId' active='LIST_BUILDER'>
-        <ListBuilderEditorView />
-      </Page>
-      <Page path='/list' active='LIST_BUILDER'>
-        <ListBuilderEditorView />
-      </Page>
+      <Route path='/list'>
+        <RouterListBuilder />
+      </Route>
 
       <Page path='/brawl' active='HOME'>
         <Brawl />
