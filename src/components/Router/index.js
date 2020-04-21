@@ -45,10 +45,10 @@ const QuestBuilderRoot = loadable(() => import('../QuestBuilderRoot'), options)
 const StoriesCategory = loadable(() => import('../StoriesCategory'), options)
 const Story = loadable(() => import('../Story'), options)
 const Stories = loadable(() => import('../Stories'), options)
-const CompleteGuide = loadable(() => import('../CompleteGuide'), options)
-const DeckGuide = loadable(() => import('../DeckGuide'), options)
-const WinterGuide = loadable(() => import('../WinterGuide'), options)
-const PirateGuide = loadable(() => import('../PirateGuide'), options)
+const GuideComplete = loadable(() => import('../GuideComplete'), options)
+const GuideDeck = loadable(() => import('../GuideDeck'), options)
+const GuideWinter = loadable(() => import('../GuideWinter'), options)
+const GuidePirate = loadable(() => import('../GuidePirate'), options)
 const Lexicon = loadable(() => import('../Lexicon'), options)
 const Guides = loadable(() => import('../Guides'), options)
 const ListBuilderDisplayView = loadable(
@@ -180,16 +180,16 @@ const Router = props => (
       </Page>
 
       <Page path='/guides/complete' active='GUIDES'>
-        <CompleteGuide />
+        <GuideComplete />
       </Page>
       <Page path='/guides/deck' active='GUIDES'>
-        <DeckGuide />
+        <GuideDeck />
       </Page>
       <Page path='/guides/winter' active='GUIDES'>
-        <WinterGuide />
+        <GuideWinter />
       </Page>
       <Page path='/guides/pirate' active='GUIDES'>
-        <PirateGuide />
+        <GuidePirate />
       </Page>
       <Page path='/guides/lexicon' active='GUIDES'>
         <Lexicon />

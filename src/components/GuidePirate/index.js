@@ -1,10 +1,9 @@
 import React from 'react'
+import guide from '../../data/Pirate_guide.md'
 import Guide from '../Guide'
 import Markdown from '../Markdown'
-import guide from '../../data/Stormbound_guide.md'
-import './index.css'
 
-const CompleteGuide = props => {
+const GuidePirate = props => {
   const [content, setContent] = React.useState(null)
 
   React.useEffect(() => {
@@ -15,14 +14,13 @@ const CompleteGuide = props => {
 
   return content ? (
     <Guide
-      title='Stormbound Guide'
-      description='A complete Stormbound Guide by Arikrat'
-      author='Arikrat'
-      className='CompleteGuide'
+      title='Pirate Guide'
+      description='A Stormbound guide to learn how to play Pirate decks'
+      author='MooreFunn'
     >
       <Markdown source={content} />
     </Guide>
   ) : null
 }
 
-export default CompleteGuide
+export default GuidePirate

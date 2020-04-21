@@ -1,9 +1,10 @@
 import React from 'react'
-import guide from '../../data/Winter_guide.md'
 import Guide from '../Guide'
 import Markdown from '../Markdown'
+import guide from '../../data/Stormbound_guide.md'
+import './index.css'
 
-const WinterGuide = props => {
+const GuideComplete = props => {
   const [content, setContent] = React.useState(null)
 
   React.useEffect(() => {
@@ -14,13 +15,14 @@ const WinterGuide = props => {
 
   return content ? (
     <Guide
-      title='Winter Guide'
-      description='A Stormbound guide to learn how to play Winter Pact'
-      author='WinterBoii'
+      title='Stormbound Guide'
+      description='A complete Stormbound Guide by Arikrat'
+      author='Arikrat'
+      className='GuideComplete'
     >
       <Markdown source={content} />
     </Guide>
   ) : null
 }
 
-export default WinterGuide
+export default GuideComplete

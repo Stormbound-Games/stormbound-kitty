@@ -7,7 +7,7 @@ import Title from '../Title'
 import WikiLink from '../WikiLink'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 
-const DeckGuide = props => (
+const GuideDeck = props => (
   <Guide
     title='Deck Building Guide'
     description='This guide has been written by Zemeu on Reddit and is published here with their consent.'
@@ -346,4 +346,4 @@ const DeckGuide = props => (
   </Guide>
 )
 
-export default DeckGuide
+export default GuideDeck
