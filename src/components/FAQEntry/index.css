@@ -1,0 +1,43 @@
+.FAQEntry {
+  color: var(--beige);
+  margin-bottom: 0.5em;
+  font-size: 120%;
+  position: relative;
+}
+
+.FAQEntry:target::after {
+  content: '';
+  width: 0.4em;
+  height: 0.4em;
+  position: absolute;
+  top: 0.35em;
+  right: 100%;
+  margin-right: 0.75em;
+  border: 1px solid;
+  transform: rotate(45deg);
+  animation: pulse 5000ms infinite;
+}
+
+.FAQEntry__link {
+  text-decoration: none;
+}
+
+.FAQEntry__link:hover {
+  border-bottom: 1px solid;
+}
+
+@keyframes pulse {
+  from {
+    box-shadow: none;
+  }
+  50% {
+    box-shadow: 0 0 0 1px var(--black), 0 0 0 2px var(--beige);
+  }
+  to {
+    box-shadow: 0 0 0 1px var(--black), 0 0 0 2px rgba(222, 215, 164, 0);
+  }
+}
+
+.FAQEntry__answer {
+  margin: 0 0 2.5em;
+}

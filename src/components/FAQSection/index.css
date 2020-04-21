@@ -1,0 +1,7 @@
+.FAQSection {
+  margin-bottom: 2em;
+}
+
+.FAQSection__list dd {
+  margin: 0 0 2.5em;
+}

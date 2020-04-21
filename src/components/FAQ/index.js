@@ -1,38 +1,13 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import Column from '../Column'
+import FAQSection from '../FAQSection'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
 import TogglableContent from '../TogglableContent'
 import categories from '../../data/faq'
 import './index.css'
-
-const FAQEntry = props => (
-  <>
-    <dt className='FAQ__question' id={props.id}>
-      <a
-        className='FAQ__link'
-        href={'#' + props.id}
-        title={`Link to ‘${props.question}’`}
-      >
-        {props.question}
-      </a>
-    </dt>
-    <dd>{props.answer}</dd>
-  </>
-)
-
-const FAQSection = props => (
-  <section className='FAQ__section' id={props.id}>
-    <Title>{props.title}</Title>
-    <dl className='FAQ__list'>
-      {props.entries.map(entry => (
-        <FAQEntry key={entry.id} {...entry} />
-      ))}
-    </dl>
-  </section>
-)
 
 const FAQ = props => {
   const { hash } = useLocation()
