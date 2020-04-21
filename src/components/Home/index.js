@@ -3,6 +3,7 @@ import Column from '../Column'
 import CTA from '../CTA'
 import Image from '../Image'
 import News from '../News'
+import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
@@ -20,7 +21,7 @@ const Home = props => (
           alt=''
         />
         <div className='Home__news-box'>
-          <Title>News</Title>
+          <Title className='Home__news-title'>News</Title>
           <News />
         </div>
       </aside>
@@ -91,11 +92,13 @@ const Home = props => (
         <div className='Home__section-inner'>
           <Row desktopOnly>
             <Column>
-              <Image
-                className='Home__section-image'
-                src='/assets/images/cards/collector_mirz.png'
-                alt='Collector Mirz'
-              />
+              <Only.Desktop>
+                <Image
+                  className='Home__section-image'
+                  src='/assets/images/cards/collector_mirz.png'
+                  alt='Collector Mirz'
+                />
+              </Only.Desktop>
             </Column>
             <Column>
               <h2>Keep track of your riches</h2>
@@ -116,11 +119,13 @@ const Home = props => (
         <div className='Home__section-inner'>
           <Row desktopOnly>
             <Column>
-              <Image
-                className='Home__section-image'
-                src='/assets/images/cards/ubass_the_hunter.png'
-                alt='Ubass the Hunter'
-              />
+              <Only.Desktop>
+                <Image
+                  className='Home__section-image'
+                  src='/assets/images/cards/ubass_the_hunter.png'
+                  alt='Ubass the Hunter'
+                />
+              </Only.Desktop>
             </Column>
             <Column>
               <h2>Learn from the warlords</h2>
@@ -145,11 +150,13 @@ const Home = props => (
         <div className='Home__section-inner'>
           <Row desktopOnly>
             <Column>
-              <Image
-                className='Home__section-image'
-                src='/assets/images/cards/prime_oracle_bragda.png'
-                alt='Prime Oracle Bragda'
-              />
+              <Only.Desktop>
+                <Image
+                  className='Home__section-image'
+                  src='/assets/images/cards/prime_oracle_bragda.png'
+                  alt='Prime Oracle Bragda'
+                />
+              </Only.Desktop>
             </Column>
             <Column>
               <h2>Listen to tales of the Elders</h2>

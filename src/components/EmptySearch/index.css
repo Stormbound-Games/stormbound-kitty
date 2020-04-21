@@ -3,21 +3,19 @@
   text-align: center;
 }
 
-.EmptySearch .CTA {
-  min-width: 150px;
-  margin-top: 1em;
-}
-
 .EmptySearch__title {
   font-size: 200%;
+  display: block;
+  margin-bottom: 0.25em;
 }
 
 .EmptySearch__image {
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 1em;
+  max-width: 250px;
 }
 
 .EmptySearch__copy {
   max-width: 50ch;
-  margin: 0 auto;
+  margin: 0 auto 2em;
 }

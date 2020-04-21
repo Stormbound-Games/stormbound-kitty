@@ -1,19 +1,20 @@
 .Lexicon__heading {
   font-size: 120%;
-  margin-top: 0;
+  margin-bottom: 2em;
+}
+
+.Lexicon__title {
+  margin-bottom: 0;
+  color: var(--beige);
 }
 
 .Terms {
   list-style-type: none;
   padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 1.5em;
 }
 
 .Terms > li {
   margin: 0.5em 0;
-}
-
-.Lexicon__title {
-  margin-top: 1.5em;
-  margin-bottom: 0;
-  color: var(--beige);
 }

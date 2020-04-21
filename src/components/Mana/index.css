@@ -1,13 +1,20 @@
+/**
+ * 1. Prevent the mana pool from being distorded when rendered in a flex
+ *    container.
+ */
 .Mana {
   width: 2em;
   text-align: center;
   position: relative;
-  flex: 0 0 auto;
+  flex: 0 0 auto; /* 1 */
 }
 
+/**
+ * 1. Force a specific aspect ratio regardless of the actual width.
+ */
 .Mana::before {
   content: '';
-  padding-top: 80%;
+  padding-top: 80%; /* 1 */
   display: block;
 }
 
@@ -16,7 +23,7 @@
 }
 
 /**
- * 1. Absolute centering with in parent
+ * 1. Absolute centering within its parent.
  */
 .Mana__image {
   position: absolute; /* 1 */
@@ -28,7 +35,7 @@
 }
 
 /**
- * 1. Absolute centering with in parent based on background
+ * 1. Absolute centering within its parent based on background.
  */
 .Mana__value {
   font-size: 110%;

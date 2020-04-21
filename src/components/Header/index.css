@@ -3,8 +3,8 @@
 }
 
 .Header__nav {
-  border-bottom: 1px solid var(--beige);
   margin: 0 1em;
+  border-bottom: 1px solid var(--beige);
 }
 
 .Header__nav + .Header__nav {
@@ -20,7 +20,6 @@
   padding: 0;
   margin: 0;
   display: flex;
-  flex-wrap: wrap;
   overflow: hidden;
 }
 
@@ -29,7 +28,10 @@
   position: relative;
 }
 
-.Header__link:not(.Header__link--disabled):hover {
+/**
+ * Prevent hover state on non-link items.
+ */
+a.Header__link:hover {
   color: var(--beige);
 }
 
@@ -45,7 +47,6 @@
 .Header__link {
   display: inline-block;
   padding: 1em;
-  color: inherit;
   text-decoration: none;
 }
 
@@ -67,35 +68,49 @@
 @media (max-width: 699px) {
   .Header {
     text-align: center;
-    position: relative;
   }
 
   .Header__list {
-    margin: 0.5em 0;
+    margin: 1em 0;
+    flex-wrap: wrap;
   }
 
+  /**
+   * 1. Display navigation items in 2 columns.
+   */
   .Header__item {
-    flex: 1 1 100%;
+    flex: 0 1 50%; /* 1 */
+  }
+
+  .Header__item--right {
+    margin-left: 0;
   }
 
   .Header__link {
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
   }
 }
 
 @media (min-width: 700px) {
+  /**
+   * 1. Make the navigation horizontally scrollable in case it’s too wide to be
+   *    displayed in full.
+   */
   .Header__list {
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    overflow-x: auto; /* 1 */
+    flex-wrap: nowrap; /* 1 */
   }
 
   .Header__item {
     white-space: nowrap;
   }
 
+  /**
+   * 1. Half-diamond display below/under the active item.
+   */
   .Header__link--active::before {
-    content: '';
+    content: ''; /* 1 */
     width: 1em;
     height: 1em;
     position: absolute;
@@ -107,14 +122,14 @@
   }
 
   /**
-   * The active pseudo-element in the top-level navigation should be centered
-   * below the word without taking the icon width + spacing into account (which
-   * only exist in the top-level navigation). The icon has a width of 1em and a
-   * right margin of 0.25em, but a font-size of 80% — all of which needs to be
-   * divided by 2 to have the proper offset.
+   * 1. The active pseudo-element in the top-level navigation should be centered
+   *    below the word without taking the icon width + spacing into account
+   *    (which only exist in the top-level navigation). The icon has a width of
+   *    1em and a right margin of 0.25em, but a font-size of 80% — all of which
+   *    needs to be divided by 2 to have the proper offset.
    */
   .Header__list:not(.Header__list--sub) .Header__link--active::before {
-    left: calc(50% + 1.25em * 0.8 / 2);
+    left: calc(50% + 1.25em * 0.8 / 2); /* 1 */
   }
 
   .Header__list--sub .Header__link--active::before {

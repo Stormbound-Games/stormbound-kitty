@@ -1,8 +1,7 @@
 import React from 'react'
-import './index.css'
 
 const Hint = props => (
-  <p className={['Hint', props.className].filter(Boolean).join(' ')}>
+  <p className={props.className}>
     <span role='img' aria-label='info'>
       ❔
     </span>{' '}

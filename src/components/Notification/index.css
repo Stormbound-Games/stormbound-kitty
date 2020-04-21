@@ -1,5 +1,8 @@
+/**
+ * 1. Arbitrary width for the notifications on desktop.
+ */
 .Notification {
-  width: 18em;
+  width: 18em; /* 1 */
   position: fixed;
   background-color: var(--black);
   border: 1px double var(--beige);
@@ -11,8 +14,11 @@
   margin: 0;
 }
 
+/**
+ * 1. Vertically align the icon with the text.
+ */
 .Notification .icon {
-  transform: translateY(2px);
+  transform: translateY(2px); /* 1 */
 }
 
 @media (max-width: 699px) {

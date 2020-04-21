@@ -41,18 +41,17 @@
   max-width: 85%;
   position: relative;
   background-color: var(--dark-blue);
-  padding: 0;
   border: 1px solid var(--dark-beige);
   border-radius: 0.3em;
   animation: dialog-appear 750ms ease-out both;
   box-shadow: 0 0 0 3px var(--dark-blue);
+  text-align: center;
 }
 
 .Dialog__header {
   padding: 1em;
   background-color: var(--light-blue);
   border-radius: 0.3em 0.3em 0 0;
-  position: relative;
 }
 
 .Dialog__title {
@@ -61,18 +60,11 @@
 }
 
 .Dialog__body {
-  background-color: inherit;
   padding: 1em;
-  border-radius: 0 0 0.3em 0.3em;
-  text-align: center;
 }
 
 .Dialog__body--with-cta {
   padding-bottom: 2em;
-}
-
-.Dialog__body a {
-  color: inherit;
 }
 
 .Dialog__button {

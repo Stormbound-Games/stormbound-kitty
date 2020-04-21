@@ -1,5 +1,8 @@
+/**
+ * 1. Arbitrary width that looks alright for the quest builder layout.
+ */
 .QuestBuilder {
   max-width: 100%;
-  width: 350px;
+  width: 350px; /* 1 */
   margin: 0 auto;
 }

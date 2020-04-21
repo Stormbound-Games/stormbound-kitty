@@ -8,12 +8,6 @@
   font-size: 150%;
 }
 
-.Error__image {
-  display: block;
-  height: auto;
-  margin: 1em auto;
-}
-
 .Error__pre {
   font: inherit;
   white-space: pre-line;
