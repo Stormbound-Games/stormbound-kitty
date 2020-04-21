@@ -1,7 +1,7 @@
 import React from 'react'
 import loadable from '@loadable/component'
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
-import Layout from '../Layout'
+import { BrowserRouter, Switch, Redirect } from 'react-router-dom'
+import Page from '../Page'
 import Loader from '../Loader'
 import Error from '../Error'
 
@@ -66,12 +66,6 @@ const Stats = loadable(() => import('../Stats'), options)
 const Brawl = loadable(() => import('../Brawl'), options)
 const Home = loadable(() => import('../Home'), options)
 const Member = loadable(() => import('../Member'), options)
-
-const Page = ({ children, active, ...props }) => (
-  <Route {...props}>
-    <Layout active={active}>{children}</Layout>
-  </Route>
-)
 
 const Router = props => (
   <BrowserRouter>
