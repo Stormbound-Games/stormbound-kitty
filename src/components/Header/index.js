@@ -1,16 +1,16 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import BattleSimNav from '../BattleSimNav'
-import CardBuilderNav from '../CardBuilderNav'
-import CollectionNav from '../CollectionNav'
-import DeckBuilderNav from '../DeckBuilderNav'
-import GuidesNav from '../GuidesNav'
-import HomeNav from '../HomeNav'
+import NavBattleSim from '../NavBattleSim'
+import NavCardBuilder from '../NavCardBuilder'
+import NavCollection from '../NavCollection'
+import NavDeckBuilder from '../NavDeckBuilder'
+import NavGuides from '../NavGuides'
+import NavHome from '../NavHome'
 import Icon from '../Icon'
-import ListBuilderNav from '../ListBuilderNav'
+import NavListBuilder from '../NavListBuilder'
 import NavLink from '../NavLink'
 import Only from '../Only'
-import StoriesNav from '../StoriesNav'
+import NavStories from '../NavStories'
 import TogglableContent from '../TogglableContent'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
@@ -18,21 +18,21 @@ import './index.css'
 const SubNav = props => {
   switch (props.active) {
     case 'HOME':
-      return <HomeNav />
+      return <NavHome />
     case 'BATTLE_SIM':
-      return <BattleSimNav />
+      return <NavBattleSim />
     case 'DECK_BUILDER':
-      return <DeckBuilderNav />
+      return <NavDeckBuilder />
     case 'CARD_BUILDER':
-      return <CardBuilderNav />
+      return <NavCardBuilder />
     case 'LIST_BUILDER':
-      return <ListBuilderNav />
+      return <NavListBuilder />
     case 'GUIDES':
-      return <GuidesNav />
+      return <NavGuides />
     case 'STORIES':
-      return <StoriesNav />
+      return <NavStories />
     case 'COLLECTION':
-      return <CollectionNav />
+      return <NavCollection />
     default:
       return null
   }

@@ -1,7 +1,7 @@
 import React from 'react'
 import NavLink from '../NavLink'
 
-const CollectionNav = props => (
+const NavCollection = props => (
   <nav className='Header__nav'>
     <ul className='Header__list Header__list--sub'>
       <li className='Header__item'>
@@ -19,4 +19,4 @@ const CollectionNav = props => (
   </nav>
 )
 
-export default CollectionNav
+export default NavCollection

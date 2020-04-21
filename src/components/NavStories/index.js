@@ -3,7 +3,7 @@ import { FACTIONS } from '../../constants/game'
 import NavLink from '../NavLink'
 import capitalise from '../../helpers/capitalise'
 
-const StoriesNav = props => (
+const NavStories = props => (
   <nav className='Header__nav'>
     <ul className='Header__list Header__list--sub'>
       <li className='Header__item'>
@@ -23,4 +23,4 @@ const StoriesNav = props => (
   </nav>
 )
 
-export default StoriesNav
+export default NavStories

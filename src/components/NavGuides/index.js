@@ -1,7 +1,7 @@
 import React from 'react'
 import NavLink from '../NavLink'
 
-const GuidesNav = props => (
+const NavGuides = props => (
   <nav className='Header__nav'>
     <ul className='Header__list Header__list--sub'>
       <li className='Header__item'>
@@ -28,4 +28,4 @@ const GuidesNav = props => (
   </nav>
 )
 
-export default GuidesNav
+export default NavGuides

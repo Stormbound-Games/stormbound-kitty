@@ -1,7 +1,7 @@
 import React from 'react'
 import NavLink from '../NavLink'
 
-const HomeNav = props => {
+const NavHome = props => {
   return (
     <nav className='Header__nav'>
       <ul className='Header__list Header__list--sub'>
@@ -23,4 +23,4 @@ const HomeNav = props => {
   )
 }
 
-export default HomeNav
+export default NavHome

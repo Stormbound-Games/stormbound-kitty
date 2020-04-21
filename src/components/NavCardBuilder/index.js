@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import NavLink from '../NavLink'
 
-const CardBuilderNav = props => {
+const NavCardBuilder = props => {
   const match = useRouteMatch()
   const id = match.params.cardId
 
@@ -35,4 +35,4 @@ const CardBuilderNav = props => {
     </nav>
   )
 }
-export default CardBuilderNav
+export default NavCardBuilder

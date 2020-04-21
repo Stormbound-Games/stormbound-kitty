@@ -3,7 +3,7 @@ import { useRouteMatch } from 'react-router-dom'
 import NavLink from '../NavLink'
 import { deserialiseDeck } from '../../helpers/deserialise'
 
-const DeckBuilderNav = props => {
+const NavDeckBuilder = props => {
   const match = useRouteMatch()
   const id = match.params.deckId
   const deck = id ? deserialiseDeck(id) : []
@@ -71,4 +71,4 @@ const DeckBuilderNav = props => {
   )
 }
 
-export default DeckBuilderNav
+export default NavDeckBuilder

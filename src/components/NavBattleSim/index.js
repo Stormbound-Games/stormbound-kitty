@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import NavLink from '../NavLink'
 
-const BattleSimNav = props => {
+const NavBattleSim = props => {
   const match = useRouteMatch()
   const id = match.params.simId
 
@@ -36,4 +36,4 @@ const BattleSimNav = props => {
   )
 }
 
-export default BattleSimNav
+export default NavBattleSim
