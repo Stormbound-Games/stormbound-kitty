@@ -1,6 +1,7 @@
 import React from 'react'
 import Column from '../Column'
 import CTA from '../CTA'
+import Image from '../Image'
 import Only from '../Only'
 import Row from '../Row'
 import './index.css'
@@ -22,7 +23,7 @@ const Banner = props => (
         </Column>
         <Only.Desktop>
           <Column width={33}>
-            <img src={props.image} alt='' className='Banner__image' />
+            <Image src={props.image} alt='' wrapperClassName='Banner__image' />
           </Column>
         </Only.Desktop>
       </Row>

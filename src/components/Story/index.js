@@ -4,6 +4,7 @@ import stories from '../../data/stories'
 import Column from '../Column'
 import CTA from '../CTA'
 import Error from '../Error'
+import Image from '../Image'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
@@ -61,7 +62,7 @@ const Story = props => {
 
         <Column width={33}>
           <div className='Story__aside'>
-            {!!card.image && <img src={card.image} alt={card.name} />}
+            {!!card.image && <Image src={card.image} alt={card.name} />}
 
             <p className='Story__author'>
               Story by{' '}

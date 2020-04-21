@@ -1,5 +1,6 @@
 import React from 'react'
 import CTA from '../CTA'
+import Image from '../Image'
 import PageMeta from '../PageMeta'
 import Title from '../Title'
 import './index.css'
@@ -11,7 +12,7 @@ const Error = props => (
         An error occurred
       </Title>
 
-      <img src='/assets/images/cards/sweetcap_kittens.png' alt='' />
+      <Image src='/assets/images/cards/sweetcap_kittens.png' alt='' />
 
       <p>
         It looks like something went wrong… It’s definitely not your fault

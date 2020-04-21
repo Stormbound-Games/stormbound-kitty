@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Image from '../Image'
 import { serialiseCardFromCollection } from '../../helpers/serialise'
 import './index.css'
 
@@ -12,7 +13,7 @@ const ListBuilderTierItem = props => {
         style={{ '--color': `var(--${props.card.faction})` }}
         title={props.card.name}
       >
-        <img
+        <Image
           src={props.card.image}
           alt={props.card.name}
           className='ListBuilderTierItem__image'
@@ -44,7 +45,7 @@ const ListBuilderTierItem = props => {
     <>
       {shouldDisplayPlaceholderBefore && (
         <span className='ListBuilderTierItem ListBuilderTierItem--placeholder'>
-          <img
+          <Image
             src={props.cards[props.dndSource].image}
             alt={props.card.name}
             className='ListBuilderTierItem__image'
@@ -71,7 +72,7 @@ const ListBuilderTierItem = props => {
         style={{ '--color': `var(--${props.card.faction})` }}
         title={'Remove ' + props.card.name + ' from list'}
       >
-        <img
+        <Image
           src={props.card.image}
           alt={props.card.name}
           className='ListBuilderTierItem__image'
@@ -80,7 +81,7 @@ const ListBuilderTierItem = props => {
 
       {shouldDisplayPlaceholderAfter && (
         <span className='ListBuilderTierItem ListBuilderTierItem--placeholder'>
-          <img
+          <Image
             src={props.cards[props.dndSource].image}
             alt={props.card.name}
             className='ListBuilderTierItem__image'

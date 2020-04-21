@@ -1,10 +1,11 @@
 import React from 'react'
 import CTA from '../CTA'
+import Image from '../Image'
 import './index.css'
 
 const EmptySearch = props => (
   <div className='EmptySearch'>
-    <img
+    <Image
       className='EmptySearch__image'
       src='/assets/images/cards/sweetcap_kittens.png'
       alt=''

@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from '../Image'
 import ProgressBar from '../ProgressBar'
 import { RARITY_COPIES } from '../../constants/game'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
@@ -26,7 +27,7 @@ const CardProgress = props => {
 
   return (
     <div className='CardProgress'>
-      <img
+      <Image
         src={
           card.missing
             ? '/assets/images/stones.png'
