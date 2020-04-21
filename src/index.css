@@ -4,7 +4,7 @@
   font-weight: 700;
   font-display: swap;
   src: local('Nunito Bold'), local('Nunito-Bold'),
-    url('/assets/fonts/nunito-v10-latin-700.woff2') format('woff2');
+    url('/assets/fonts/nunito-700.woff2') format('woff2');
 }
 
 @font-face {
@@ -13,7 +13,7 @@
   font-weight: 900;
   font-display: swap;
   src: local('Nunito Black'), local('Nunito-Black'),
-    url('/assets/fonts/nunito-v10-latin-900.woff2') format('woff2');
+    url('/assets/fonts/nunito-900.woff2') format('woff2');
 }
 
 :root {
