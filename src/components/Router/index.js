@@ -15,7 +15,6 @@ import RouterStories from '../RouterStories'
 
 const options = { fallback: <Loader /> }
 const FAQ = loadable(() => import('../FAQ'), options)
-
 const Brawl = loadable(() => import('../Brawl'), options)
 const Home = loadable(() => import('../Home'), options)
 const Member = loadable(() => import('../Member'), options)

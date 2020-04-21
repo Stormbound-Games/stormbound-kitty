@@ -1,6 +1,7 @@
 import React from 'react'
 import loadable from '@loadable/component'
 import { Switch, useRouteMatch } from 'react-router-dom'
+import Error from '../Error'
 import Loader from '../Loader'
 import Page from '../Page'
 
@@ -35,6 +36,9 @@ const RouterGuides = props => {
       </Page>
       <Page exact path={path} active={active}>
         <Guides />
+      </Page>
+      <Page path='*'>
+        <Error error='HTTP 404 — Not Found' />
       </Page>
     </Switch>
   )
