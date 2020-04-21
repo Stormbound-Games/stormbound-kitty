@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Page from '../Page'
 import Loader from '../Loader'
 import Error from '../Error'
+import RouterCollection from '../RouterCollection'
 import RouterGuides from '../RouterGuides'
 import RouterListBuilder from '../RouterListBuilder'
 import RouterQuestBuilder from '../RouterQuestBuilder'
@@ -27,7 +28,7 @@ const DeckBuilderSuggestions = loadable(
   () => import('../DeckBuilderSuggestions'),
   options
 )
-const Collection = loadable(() => import('../Collection'), options)
+
 const DeckBuilderRoot = loadable(() => import('../DeckBuilderRoot'), options)
 const DeckBuilderDetailView = loadable(
   () => import('../DeckBuilderDetailView'),
@@ -46,8 +47,6 @@ const DeckBuilderEditorView = loadable(
   options
 )
 
-const BooksCalculator = loadable(() => import('../BooksCalculator'), options)
-const Stats = loadable(() => import('../Stats'), options)
 const Brawl = loadable(() => import('../Brawl'), options)
 const Home = loadable(() => import('../Home'), options)
 const Member = loadable(() => import('../Member'), options)
@@ -113,18 +112,9 @@ const Router = props => (
         </DeckBuilderRoot>
       </Page>
 
-      <Page exact path='/collection' active='COLLECTION'>
-        <Collection />
-      </Page>
-      <Page path='/collection/books' active='COLLECTION'>
-        <BooksCalculator />
-      </Page>
-      <Page path='/collection/stats' active='COLLECTION'>
-        <Stats />
-      </Page>
-      <Page path='/books' active='COLLECTION'>
-        <Redirect to='/collection/books' />
-      </Page>
+      <Route path='/collection'>
+        <RouterCollection />
+      </Route>
 
       <Route path='/quest'>
         <RouterQuestBuilder />
