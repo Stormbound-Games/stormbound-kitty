@@ -5,6 +5,7 @@ import Page from '../Page'
 import Loader from '../Loader'
 import Error from '../Error'
 import RouterGuides from '../RouterGuides'
+import RouterStories from '../RouterStories'
 
 const options = { fallback: <Loader /> }
 const FAQ = loadable(() => import('../FAQ'), options)
@@ -43,9 +44,6 @@ const DeckBuilderEditorView = loadable(
   options
 )
 const QuestBuilderRoot = loadable(() => import('../QuestBuilderRoot'), options)
-const StoriesCategory = loadable(() => import('../StoriesCategory'), options)
-const Story = loadable(() => import('../Story'), options)
-const Stories = loadable(() => import('../Stories'), options)
 
 const ListBuilderDisplayView = loadable(
   () => import('../ListBuilderDisplayView'),
@@ -144,30 +142,9 @@ const Router = props => (
         <QuestBuilderRoot />
       </Page>
 
-      <Page path='/stories/neutral' active='STORIES'>
-        <StoriesCategory category='neutral' />
-      </Page>
-      <Page path='/stories/ironclad' active='STORIES'>
-        <StoriesCategory category='ironclad' />
-      </Page>
-      <Page path='/stories/swarm' active='STORIES'>
-        <StoriesCategory category='swarm' />
-      </Page>
-      <Page path='/stories/winter' active='STORIES'>
-        <StoriesCategory category='winter' />
-      </Page>
-      <Page path='/stories/shadowfen' active='STORIES'>
-        <StoriesCategory category='shadowfen' />
-      </Page>
-      <Page path='/stories/lore' active='STORIES'>
-        <StoriesCategory category='lore' />
-      </Page>
-      <Page path='/stories/:storyId' active='STORIES'>
-        <Story />
-      </Page>
-      <Page path='/stories' active='STORIES'>
-        <Stories />
-      </Page>
+      <Route path='/stories'>
+        <RouterStories />
+      </Route>
 
       <Route path='/guides'>
         <RouterGuides />
