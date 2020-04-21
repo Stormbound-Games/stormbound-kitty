@@ -1,11 +1,12 @@
 import React from 'react'
+import Image from '../Image'
 import './index.css'
 
 const ResourceIcon = props => {
   switch (props.resource) {
     case 'COIN':
       return (
-        <img
+        <Image
           className='ResourceIcon'
           src='/assets/images/coin.png'
           alt='coin'
@@ -13,7 +14,7 @@ const ResourceIcon = props => {
       )
     case 'STONE':
       return (
-        <img
+        <Image
           className='ResourceIcon'
           src='/assets/images/stones.png'
           alt='fusion stone'
