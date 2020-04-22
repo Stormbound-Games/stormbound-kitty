@@ -20,10 +20,10 @@ export default class DeckMechanisms extends React.Component {
       hand: [],
       RNG: 'REGULAR',
       hasCycledThisTurn: false,
-      noUnitsOnFirstTurn: true,
       specifics: {
         activeFrozenCores: 0,
         liveDawnsparks: false,
+        noUnitsOnFirstTurn: true,
         potentialFrozenEnemies: false,
       },
       turn: props.turn,
@@ -439,10 +439,10 @@ export default class DeckMechanisms extends React.Component {
         hand: [],
         RNG: 'REGULAR',
         hasCycledThisTurn: false,
-        noUnitsOnFirstTurn: true,
         specifics: {
           activeFrozenCores: 0,
           liveDawnsparks: false,
+          noUnitsOnFirstTurn: true,
           potentialFrozenEnemies: false,
         },
         turn: this.props.turn,
