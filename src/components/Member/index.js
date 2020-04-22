@@ -53,15 +53,15 @@ const Member = props => {
   return (
     <>
       <MemberStories stories={userStories} displayName={displayName} />
-      {userStories.length && <hr />}
+      {userStories.length ? <hr /> : null}
       <MemberContestVictories
         victories={userVictories}
         displayName={displayName}
       />
-      {userVictories.length && <hr />}
+      {userVictories.length ? <hr /> : null}
 
       <MemberGuides guides={userGuides} displayName={displayName} />
-      {userGuides.length && <hr />}
+      {userGuides.length ? <hr /> : null}
 
       <MemberDecks decks={userDecks} displayName={displayName} />
 
