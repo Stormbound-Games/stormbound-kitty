@@ -1,8 +1,6 @@
 import React from 'react'
-import loadable from '@loadable/component'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Page from '../Page'
-import Loader from '../Loader'
 import Error from '../Error'
 import RouterBattleSim from '../RouterBattleSim'
 import RouterCardBuilder from '../RouterCardBuilder'
@@ -12,12 +10,12 @@ import RouterGuides from '../RouterGuides'
 import RouterListBuilder from '../RouterListBuilder'
 import RouterQuestBuilder from '../RouterQuestBuilder'
 import RouterStories from '../RouterStories'
+import load from '../../helpers/load'
 
-const options = { fallback: <Loader /> }
-const FAQ = loadable(() => import('../FAQ'), options)
-const Brawl = loadable(() => import('../Brawl'), options)
-const Home = loadable(() => import('../Home'), options)
-const Member = loadable(() => import('../Member'), options)
+const FAQ = load('FAQ')
+const Brawl = load('Brawl')
+const Home = load('Home')
+const Member = load('Member')
 
 const Router = props => (
   <BrowserRouter>
