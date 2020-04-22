@@ -31,7 +31,7 @@ const ListBuilderDisplayView = props => {
           <p>
             The name of each tier corresponds to the inclusion ratio. For
             instance, <span className='Highlight'>0.9 — 1.0</span> contains
-            cards that are including in over 90% of decks that can include them.
+            cards that are included in over 90% of decks that can include them.
           </p>
         </Column>
 
