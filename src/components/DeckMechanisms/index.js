@@ -182,7 +182,7 @@ export default class DeckMechanisms extends React.Component {
       // Snake Eyes
       case 'N33': {
         if (this.props.mode !== 'MANUAL' && this.state.hand.length === 3) {
-          this.state.hand.forEach(this.cycle, false)
+          this.state.hand.forEach(cardId => this.cycle(cardId, false))
 
           if (card.level >= 4) {
             this.draw()
