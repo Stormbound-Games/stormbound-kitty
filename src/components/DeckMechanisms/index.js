@@ -446,6 +446,7 @@ export default class DeckMechanisms extends React.Component {
       turn: this.state.turn,
       RNG: this.state.RNG,
       hasCycledThisTurn: this.state.hasCycledThisTurn,
+      noUnitsOnFirstTurn: this.noUnitsOnFirstTurn,
       playerOrder: this.state.playerOrder,
       canCardBePlayed: this.canCardBePlayed,
       setPlayerOrder: this.setPlayerOrder,
