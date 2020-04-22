@@ -24,7 +24,7 @@ export default class DeckMechanisms extends React.Component {
       specifics: {
         activeFrozenCores: 0,
         liveDawnsparks: false,
-        potentialFrozenEnemiesInAColumn: 0,
+        potentialFrozenEnemies: false,
       },
       turn: props.turn,
       mana: DEFAULT_MANA + (props.turn - 1),
@@ -140,16 +140,10 @@ export default class DeckMechanisms extends React.Component {
             newState.specifics.liveDawnsparks = true
             break
           case 'W2':
-            // Frosthexers
-            newState.specifics.potentialFrozenEnemiesInAColumn += 2
-            break
           case 'W6':
-            // Moment's Peace
-            newState.specifics.potentialFrozenEnemiesInAColumn += 3
-            break
           case 'W11':
-            // Midwinter Chaos
-            newState.specifics.potentialFrozenEnemiesInAColumn += 4
+            // Frosthexers, Moment's Peace, Midwinter Chaos
+            newState.specifics.potentialFrozenEnemies = true
             break
           default:
             break
@@ -384,9 +378,7 @@ export default class DeckMechanisms extends React.Component {
       }
 
       // If there are some active Frozen Cores, increment the new available mana
-      if (newState.specifics.activeFrozenCores > 0) {
-        newState.mana += newState.specifics.activeFrozenCores * 3
-      }
+      newState.mana += newState.specifics.activeFrozenCores * 3
 
       if (newState.specifics.liveDawnsparks) {
         newState.mana +=
@@ -396,9 +388,9 @@ export default class DeckMechanisms extends React.Component {
             : 0
         newState.specifics.liveDawnsparks = false
       }
-      if (newState.specifics.potentialFrozenEnemiesInAColumn) {
-        newState.specifics.potentialFrozenEnemiesInAColumn = 0
-      }
+
+      newState.specifics.potentialFrozenEnemies = false
+
       return newState
     })
 
@@ -425,10 +417,7 @@ export default class DeckMechanisms extends React.Component {
     const card = this.state.deck.find(card => card.id === id)
     const isAffordable = card.mana <= this.state.mana
 
-    if (
-      id === 'W1' &&
-      this.state.specifics.potentialFrozenEnemiesInAColumn === 0
-    ) {
+    if (id === 'W1' && !this.state.specifics.potentialFrozenEnemies) {
       return false
     }
 
@@ -454,7 +443,7 @@ export default class DeckMechanisms extends React.Component {
         specifics: {
           activeFrozenCores: 0,
           liveDawnsparks: false,
-          potentialFrozenEnemiesInAColumn: 0,
+          potentialFrozenEnemies: false,
         },
         turn: this.props.turn,
         mana: DEFAULT_MANA + (this.props.turn - 1),
