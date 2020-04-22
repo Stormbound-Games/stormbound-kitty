@@ -1,13 +1,11 @@
 import React from 'react'
-import loadable from '@loadable/component'
 import { Switch, useRouteMatch } from 'react-router-dom'
-import Loader from '../Loader'
 import Page from '../Page'
+import load from '../../helpers/load'
 
-const options = { fallback: <Loader /> }
-const Collection = loadable(() => import('../Collection'), options)
-const BooksCalculator = loadable(() => import('../BooksCalculator'), options)
-const Stats = loadable(() => import('../Stats'), options)
+const Collection = load('Collection')
+const BooksCalculator = load('BooksCalculator')
+const Stats = load('Stats')
 
 const RouterCollection = props => {
   const { path } = useRouteMatch()

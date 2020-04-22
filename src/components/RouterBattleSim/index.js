@@ -1,13 +1,11 @@
 import React from 'react'
-import loadable from '@loadable/component'
 import { Switch, useRouteMatch } from 'react-router-dom'
-import Loader from '../Loader'
 import Page from '../Page'
+import load from '../../helpers/load'
 
-const options = { fallback: <Loader /> }
-const BattleSimDisplay = loadable(() => import('../BattleSimDisplay'), options)
-const BattleSimPuzzles = loadable(() => import('../BattleSimPuzzles'), options)
-const BattleSimRoot = loadable(() => import('../BattleSimRoot'), options)
+const BattleSimDisplay = load('BattleSimDisplay')
+const BattleSimPuzzles = load('BattleSimPuzzles')
+const BattleSimRoot = load('BattleSimRoot')
 
 const RouterBattleSim = props => {
   const { path } = useRouteMatch()

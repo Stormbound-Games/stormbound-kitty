@@ -1,19 +1,11 @@
 import React from 'react'
-import loadable from '@loadable/component'
 import { Switch, useRouteMatch } from 'react-router-dom'
-import Loader from '../Loader'
 import Page from '../Page'
+import load from '../../helpers/load'
 
-const options = { fallback: <Loader /> }
-const CardBuilderContest = loadable(
-  () => import('../CardBuilderContest'),
-  options
-)
-const CardBuilderRoot = loadable(() => import('../CardBuilderRoot'), options)
-const CardBuilderDisplay = loadable(
-  () => import('../CardBuilderDisplay'),
-  options
-)
+const CardBuilderContest = load('CardBuilderContest')
+const CardBuilderRoot = load('CardBuilderRoot')
+const CardBuilderDisplay = load('CardBuilderDisplay')
 
 const RouterCardBuilder = props => {
   const { path } = useRouteMatch()

@@ -1,11 +1,9 @@
 import React from 'react'
-import loadable from '@loadable/component'
 import { Switch, useRouteMatch } from 'react-router-dom'
-import Loader from '../Loader'
 import Page from '../Page'
+import load from '../../helpers/load'
 
-const options = { fallback: <Loader /> }
-const QuestBuilderRoot = loadable(() => import('../QuestBuilderRoot'), options)
+const QuestBuilderRoot = load('QuestBuilderRoot')
 
 const RouterQuestBuilder = props => {
   const { path } = useRouteMatch()

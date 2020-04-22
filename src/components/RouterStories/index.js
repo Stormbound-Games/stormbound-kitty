@@ -1,13 +1,11 @@
 import React from 'react'
-import loadable from '@loadable/component'
 import { Switch, useRouteMatch } from 'react-router-dom'
-import Loader from '../Loader'
 import Page from '../Page'
+import load from '../../helpers/load'
 
-const options = { fallback: <Loader /> }
-const StoriesCategory = loadable(() => import('../StoriesCategory'), options)
-const Story = loadable(() => import('../Story'), options)
-const Stories = loadable(() => import('../Stories'), options)
+const StoriesCategory = load('StoriesCategory')
+const Story = load('Story')
+const Stories = load('Stories')
 
 const RouterStories = props => {
   const { path } = useRouteMatch()

@@ -1,20 +1,12 @@
 import React from 'react'
-import loadable from '@loadable/component'
 import { Switch, useRouteMatch } from 'react-router-dom'
-import Loader from '../Loader'
 import Page from '../Page'
+import load from '../../helpers/load'
 
-const options = { fallback: <Loader /> }
-const ListBuilderDisplayView = loadable(
-  () => import('../ListBuilderDisplayView'),
-  options
-)
-const ListBuilderEditorView = loadable(
-  () => import('../ListBuilderEditorView'),
-  options
-)
-const RankedList = loadable(() => import('../RankedList'), options)
-const EqualsList = loadable(() => import('../EqualsList'), options)
+const ListBuilderDisplayView = load('ListBuilderDisplayView')
+const ListBuilderEditorView = load('ListBuilderEditorView')
+const RankedList = load('RankedList')
+const EqualsList = load('EqualsList')
 
 const RouterListBuilder = props => {
   const { path } = useRouteMatch()

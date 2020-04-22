@@ -1,17 +1,15 @@
 import React from 'react'
-import loadable from '@loadable/component'
 import { Switch, useRouteMatch } from 'react-router-dom'
 import Error from '../Error'
-import Loader from '../Loader'
 import Page from '../Page'
+import load from '../../helpers/load'
 
-const options = { fallback: <Loader /> }
-const GuideComplete = loadable(() => import('../GuideComplete'), options)
-const GuideDeck = loadable(() => import('../GuideDeck'), options)
-const GuidePirate = loadable(() => import('../GuidePirate'), options)
-const Guides = loadable(() => import('../Guides'), options)
-const GuideWinter = loadable(() => import('../GuideWinter'), options)
-const Lexicon = loadable(() => import('../Lexicon'), options)
+const GuideComplete = load('GuideComplete')
+const GuideDeck = load('GuideDeck')
+const GuidePirate = load('GuidePirate')
+const Guides = load('Guides')
+const GuideWinter = load('GuideWinter')
+const Lexicon = load('Lexicon')
 
 const RouterGuides = props => {
   const { path } = useRouteMatch()

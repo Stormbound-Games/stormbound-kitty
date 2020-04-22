@@ -1,32 +1,14 @@
 import React from 'react'
-import loadable from '@loadable/component'
 import { Switch, useRouteMatch } from 'react-router-dom'
-import Loader from '../Loader'
 import Page from '../Page'
+import load from '../../helpers/load'
 
-const options = { fallback: <Loader /> }
-const DeckBuilderSuggestions = loadable(
-  () => import('../DeckBuilderSuggestions'),
-  options
-)
-
-const DeckBuilderRoot = loadable(() => import('../DeckBuilderRoot'), options)
-const DeckBuilderDetailView = loadable(
-  () => import('../DeckBuilderDetailView'),
-  options
-)
-const DeckBuilderDryRunView = loadable(
-  () => import('../DeckBuilderDryRunView'),
-  options
-)
-const DeckBuilderTrackerView = loadable(
-  () => import('../DeckBuilderTrackerView'),
-  options
-)
-const DeckBuilderEditorView = loadable(
-  () => import('../DeckBuilderEditorView'),
-  options
-)
+const DeckBuilderSuggestions = load('DeckBuilderSuggestions')
+const DeckBuilderRoot = load('DeckBuilderRoot')
+const DeckBuilderDetailView = load('DeckBuilderDetailView')
+const DeckBuilderDryRunView = load('DeckBuilderDryRunView')
+const DeckBuilderTrackerView = load('DeckBuilderTrackerView')
+const DeckBuilderEditorView = load('DeckBuilderEditorView')
 
 const RouterDeckBuilder = props => {
   const { path } = useRouteMatch()
