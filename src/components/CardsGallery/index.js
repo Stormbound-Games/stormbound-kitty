@@ -27,14 +27,7 @@ const CardsGallery = props => {
       <ul className='CardsGallery__list'>
         {page.map((card, index) => (
           <li
-            className={[
-              'CardsGallery__item',
-              props.isCardInDeck &&
-                props.isCardInDeck(card.id) &&
-                'CardsGallery__item--in-deck',
-            ]
-              .filter(Boolean)
-              .join(' ')}
+            className='CardsGallery__item'
             id={'card-' + card.id}
             key={card.id}
           >
@@ -48,9 +41,16 @@ const CardsGallery = props => {
               </button>
             )}
 
+            {props.isCardInDeck && props.isCardInDeck(card.id) && (
+              <span className='CardsGallery__in-deck'>In deck</span>
+            )}
+
             <Card
               {...card}
-              missing={props.isCardMissing && props.isCardMissing(card.id)}
+              missing={
+                (props.isCardMissing && props.isCardMissing(card.id)) ||
+                (props.isCardInDeck && props.isCardInDeck(card.id))
+              }
               affordable={
                 props.isCardAffordable ? props.isCardAffordable(card.id) : false
               }

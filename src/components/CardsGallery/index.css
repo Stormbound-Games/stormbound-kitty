@@ -14,14 +14,32 @@
 
 .CardsGallery__item {
   flex: 0 1 25%;
-  padding: 1.25em 0.75em;
+  padding: 1.25em 0.5em;
   position: relative;
-  perspective: 1000px;
 }
 
-.CardsGallery__item--in-deck {
-  opacity: 0.5;
-  filter: hue-rotate(35deg) contrast(200%);
+/**
+ * 1. Simulate a reflection with a sharp split gradient.
+ * 2. Same horizontal spacing as the gallery item’s padding (taking into account
+ *    the 150% font-size).
+ * 3. Arbitrary position to cover the ability.
+ */
+.CardsGallery__in-deck {
+  background-image: linear-gradient(
+    45deg,
+    rgb(210, 195, 141) 50%,
+    rgb(226, 215, 175) 50%
+  ); /* 1 */
+  position: absolute;
+  left: calc(0.5em * 100 / 150); /* 2 */
+  right: calc(0.5em * 100 / 150); /* 2 */
+  padding: 0.15em 0.5em;
+  bottom: 20%; /* 3 */
+  z-index: 2;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 150%;
+  color: var(--black);
 }
 
 .CardsGallery__button {
@@ -61,10 +79,6 @@
 }
 
 @media (max-width: 1099px) {
-  .CardsGallery__item {
-    padding: 1em 0.5em;
-  }
-
   .CardsGallery__item {
     flex: 0 1 calc(100% / 3);
   }
