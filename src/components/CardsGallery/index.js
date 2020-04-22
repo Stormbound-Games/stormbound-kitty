@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import Card from '../Card'
 import CTA from '../CTA'
 import chunk from '../../helpers/chunk'
@@ -26,10 +27,18 @@ const CardsGallery = props => {
     <div className='CardsGallery'>
       <ul className='CardsGallery__list'>
         {page.map((card, index) => (
-          <li
+          <motion.li
             className='CardsGallery__item'
             id={'card-' + card.id}
             key={card.id}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{
+              ease: 'easeOut',
+              duration: 0.3,
+              delay: index * 0.075,
+            }}
           >
             {props.onCardClick && (
               <button
@@ -58,7 +67,7 @@ const CardsGallery = props => {
                 props.isCardUpgradable ? props.isCardUpgradable(card.id) : false
               }
             />
-          </li>
+          </motion.li>
         ))}
       </ul>
 
