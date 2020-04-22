@@ -212,7 +212,7 @@ const Stories = ({ setActive }) => {
           <Banner
             className='Brawl__section'
             key={brawl.name}
-            faction={'swarm'}
+            faction={brawl.faction}
             title={brawl.name}
             copy={
               <>
@@ -227,7 +227,7 @@ const Stories = ({ setActive }) => {
                     is likely the way to go when trying to reach higher ranks.
                   </>
                 ) : (
-                  ' Most factions are likely to compete in that Brawl, where there no clear winner.'
+                  ' Most factions are likely to compete in that Brawl, where there is no clear winner.'
                 )}
               </>
             }
