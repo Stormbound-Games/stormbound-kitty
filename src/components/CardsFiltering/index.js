@@ -93,7 +93,8 @@ class CardsFiltering extends React.Component {
     )
   }
   matchesLevel = card =>
-    this.state.level === '*' || card.level === this.state.level
+    this.state.level === '*' ||
+    (card.level === this.state.level && !card.missing)
   matchesAbility = card => {
     return (
       this.state.ability === '*' ||
