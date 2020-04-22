@@ -1,18 +1,20 @@
 import React from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
+import LazyLoad from 'react-lazyload'
 import hookIntoProps from 'hook-into-props'
 import debounce from 'lodash.debounce'
 import decks from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
 import Column from '../Column'
 import EmptySearch from '../EmptySearch'
+import Loader from '../Loader'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import FeaturedDeck from '../FeaturedDeck'
 import SuggestionsFilters from '../DeckBuilderSuggestionsFilters'
-import SuggestionsNav from '../DeckBuilderSuggestionsNav'
 import Title from '../Title'
+import useViewportWidth from '../../hooks/useViewportWidth'
 import chunk from '../../helpers/chunk'
 import sortDeckSuggestions from '../../helpers/sortDeckSuggestions'
 import { deserialiseDeck } from '../../helpers/deserialise'
@@ -25,7 +27,6 @@ class DeckBuilderSuggestions extends React.Component {
     this.state = {
       ...this.getURLParameters(),
       name: '',
-      activePage: 0,
     }
   }
 
@@ -65,11 +66,10 @@ class DeckBuilderSuggestions extends React.Component {
   }
 
   updateCategory = category =>
-    this.setState({ category, activePage: 0 }, this.updateURLParameters)
+    this.setState({ category }, this.updateURLParameters)
   updateFaction = faction =>
-    this.setState({ faction, activePage: 0 }, this.updateURLParameters)
-  updateAuthor = author =>
-    this.setState({ author, activePage: 0 }, this.updateURLParameters)
+    this.setState({ faction }, this.updateURLParameters)
+  updateAuthor = author => this.setState({ author }, this.updateURLParameters)
   updateName = name =>
     this.setState(
       {
@@ -78,12 +78,11 @@ class DeckBuilderSuggestions extends React.Component {
         faction: '*',
         author: '*',
         including: null,
-        activePage: 0,
       },
       this.updateURLParameters
     )
   updateIncluding = including =>
-    this.setState({ including, activePage: 0 }, this.updateURLParameters)
+    this.setState({ including }, this.updateURLParameters)
   debouncedUpdateName = debounce(this.updateName, 500)
 
   matchesName = deck =>
@@ -120,13 +119,10 @@ class DeckBuilderSuggestions extends React.Component {
       author: '*',
       name: '',
       including: null,
-      activePage: 0,
     })
 
   render() {
     const decks = this.getDecks()
-    const pages = chunk(decks, 10)
-    const page = pages[this.state.activePage] || pages[0]
 
     return (
       <>
@@ -165,30 +161,40 @@ class DeckBuilderSuggestions extends React.Component {
           </Column>
           <Column width={66}>
             <Title>Decks</Title>
-            {page ? (
-              chunk(page, 2).map(([a, b]) => (
-                <Row desktopOnly key={a.id}>
-                  <Column>
-                    <FeaturedDeck
-                      {...a}
-                      onClick={card =>
-                        this.props.history.push('/card/' + card.id + '/display')
-                      }
-                    />
-                  </Column>
-                  <Column>
-                    {b ? (
+            {decks.length > 0 ? (
+              chunk(decks, 2).map(([a, b]) => (
+                <LazyLoad
+                  offset={100}
+                  resize
+                  placeholder={<Loader hideLabel />}
+                  height={this.props.viewportWidth > 700 ? 280 : 560}
+                  key={a.id}
+                >
+                  <Row desktopOnly key={a.id}>
+                    <Column>
                       <FeaturedDeck
-                        {...b}
+                        {...a}
                         onClick={card =>
                           this.props.history.push(
                             '/card/' + card.id + '/display'
                           )
                         }
                       />
-                    ) : null}
-                  </Column>
-                </Row>
+                    </Column>
+                    <Column>
+                      {b ? (
+                        <FeaturedDeck
+                          {...b}
+                          onClick={card =>
+                            this.props.history.push(
+                              '/card/' + card.id + '/display'
+                            )
+                          }
+                        />
+                      ) : null}
+                    </Column>
+                  </Row>
+                </LazyLoad>
               ))
             ) : (
               <EmptySearch
@@ -196,12 +202,6 @@ class DeckBuilderSuggestions extends React.Component {
                 resetFilters={this.resetFilters}
               />
             )}
-
-            <SuggestionsNav
-              pages={pages}
-              setActivePage={activePage => this.setState({ activePage })}
-              activePage={this.state.activePage}
-            />
           </Column>
         </Row>
 
@@ -215,6 +215,7 @@ class DeckBuilderSuggestions extends React.Component {
 }
 
 export default hookIntoProps(() => ({
+  viewportWidth: useViewportWidth(),
   history: useHistory(),
   location: useLocation(),
   ...React.useContext(CollectionContext),
