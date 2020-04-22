@@ -12,7 +12,6 @@ import PageMeta from '../PageMeta'
 import ResetButton from '../ResetButton'
 import RNGField from '../DeckBuilderRNGField'
 import Row from '../Row'
-import ShareButton from '../DeckBuilderShareButton'
 import Title from '../Title'
 import WikiLink from '../WikiLink'
 import './index.css'
@@ -198,12 +197,6 @@ class DeckBuilderDryRunView extends React.Component {
                 </Checkbox>
               </Column>
             </Row>
-
-            <Row>
-              <Column>
-                <ShareButton label='Share deck' />
-              </Column>
-            </Row>
           </Column>
 
           <Column width={66}>
@@ -308,7 +301,7 @@ class DeckBuilderDryRunView extends React.Component {
                         <u>C</u>ycle card
                       </CTA>
                     </Column>
-                    <Column>
+                    <Column style={{ alignItems: 'flex-end' }}>
                       <CTA
                         type='button'
                         onClick={this.playCard}
