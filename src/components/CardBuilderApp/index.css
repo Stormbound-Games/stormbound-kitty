@@ -2,6 +2,10 @@
   margin-bottom: 2em;
 }
 
+.CardBuilderApp__title {
+  margin-bottom: 3em;
+}
+
 .CardBuilderApp__card--irrelevant {
   opacity: 0.5;
   filter: grayscale(1);

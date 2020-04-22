@@ -11,7 +11,7 @@ import './index.css'
 
 const CardBuilderApp = props => (
   <>
-    <Title>
+    <Title className='CardBuilderApp__title'>
       {props.mode === 'EDITOR' ? 'Create your card' : props.name || 'Your card'}
     </Title>
 
