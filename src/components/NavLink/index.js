@@ -3,10 +3,11 @@ import { Link, useLocation } from 'react-router-dom'
 
 const NavLink = ({ exact, ...props }) => {
   const location = useLocation()
-  const classNames = [props.className, 'Header__link'].filter(Boolean)
-  const re = new RegExp(props.to + '(/|$)')
+  const classNames = ['Header__link']
+  const re = new RegExp('^' + props.to + '(/|$)')
 
   if (
+    props.active ||
     (!exact && location.pathname.match(re)) ||
     (exact && location.pathname === props.to)
   ) {

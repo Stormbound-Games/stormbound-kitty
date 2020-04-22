@@ -74,51 +74,43 @@ const Header = props => {
           <ul className='Header__list'>
             <Only.Desktop>
               <li className='Header__item'>
-                <NavLink
-                  exact
-                  to='/'
-                  className={
-                    ['/brawl', '/faq'].includes(pathname)
-                      ? 'Header__link--active'
-                      : undefined
-                  }
-                >
+                <NavLink to='/' active={props.active === 'HOME'}>
                   <Icon icon='home' /> Home
                 </NavLink>
               </li>
             </Only.Desktop>
             <li className='Header__item'>
-              <NavLink to='/sim'>
+              <NavLink to='/sim' active={props.active === 'BATTLE_SIM'}>
                 <Icon icon='sword' /> Battle Sim
               </NavLink>
             </li>
             <li className='Header__item'>
-              <NavLink to='/deck'>
+              <NavLink to='/deck' active={props.active === 'DECK_BUILDER'}>
                 <Icon icon='stack' /> Deck builder
               </NavLink>
             </li>
             <li className='Header__item'>
-              <NavLink to='/collection'>
+              <NavLink to='/collection' active={props.active === 'COLLECTION'}>
                 <Icon icon='books' /> Collection
               </NavLink>
             </li>
             <li className='Header__item'>
-              <NavLink to='/card'>
+              <NavLink to='/card' active={props.active === 'CARD_BUILDER'}>
                 <Icon icon='wand' /> Card builder
               </NavLink>
             </li>
             <li className='Header__item'>
-              <NavLink to='/list'>
+              <NavLink to='/list' active={props.active === 'LIST_BUILDER'}>
                 <Icon icon='template' /> List Builder
               </NavLink>
             </li>
             <li className='Header__item'>
-              <NavLink to='/stories'>
+              <NavLink to='/stories' active={props.active === 'STORIES'}>
                 <Icon icon='quill' /> Stories
               </NavLink>
             </li>
             <li className='Header__item'>
-              <NavLink to='/guides'>
+              <NavLink to='/guides' active={props.active === 'GUIDES'}>
                 <Icon icon='compass' /> Guides
               </NavLink>
             </li>

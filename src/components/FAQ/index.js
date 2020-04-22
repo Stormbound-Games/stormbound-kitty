@@ -9,13 +9,15 @@ import TogglableContent from '../TogglableContent'
 import categories from '../../data/faq'
 import './index.css'
 
-const FAQ = props => {
+const FAQ = ({ setActive }) => {
   const { hash } = useLocation()
   const [expanded, setExpanded] = React.useState([])
   const toggle = id =>
     expanded.includes(id)
       ? setExpanded(ids => ids.filter(i => i !== id))
       : setExpanded(ids => [...ids, id])
+
+  React.useEffect(() => setActive('HOME'), [setActive])
 
   React.useEffect(() => {
     if (!hash) return

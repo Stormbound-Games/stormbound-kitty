@@ -17,70 +17,74 @@ const Brawl = load('Brawl')
 const Home = load('Home')
 const Member = load('Member')
 
-const Router = props => (
-  <BrowserRouter>
-    <Switch>
-      <Route path='/sim'>
-        <RouterBattleSim />
-      </Route>
+const NotFound = ({ setActive }) => {
+  React.useEffect(() => setActive(null), [setActive])
 
-      <Route path='/card'>
-        <RouterCardBuilder />
-      </Route>
+  return <Error error='HTTP 404 — Not Found' />
+}
 
-      <Route path='/deck'>
-        <RouterDeckBuilder />
-      </Route>
+const Router = props => {
+  const [active, setActive] = React.useState(null)
 
-      <Route path='/collection'>
-        <RouterCollection />
-      </Route>
+  return (
+    <BrowserRouter>
+      <Layout active={active}>
+        <Switch>
+          <Route path='/sim'>
+            <RouterBattleSim setActive={setActive} />
+          </Route>
 
-      <Route path='/quest'>
-        <RouterQuestBuilder />
-      </Route>
+          <Route path='/card'>
+            <RouterCardBuilder setActive={setActive} />
+          </Route>
 
-      <Route path='/stories'>
-        <RouterStories />
-      </Route>
+          <Route path='/deck'>
+            <RouterDeckBuilder setActive={setActive} />
+          </Route>
 
-      <Route path='/guides'>
-        <RouterGuides />
-      </Route>
+          <Route path='/collection'>
+            <RouterCollection setActive={setActive} />
+          </Route>
 
-      <Route path='/list'>
-        <RouterListBuilder />
-      </Route>
+          <Route path='/quest'>
+            <RouterQuestBuilder setActive={setActive} />
+          </Route>
 
-      <Route path='/member/:memberId'>
-        <Layout>
-          <Member />
-        </Layout>
-      </Route>
+          <Route path='/stories'>
+            <RouterStories setActive={setActive} />
+          </Route>
 
-      <Route path='/brawl'>
-        <Layout active='HOME'>
-          <Brawl />
-        </Layout>
-      </Route>
+          <Route path='/guides'>
+            <RouterGuides setActive={setActive} />
+          </Route>
 
-      <Route path='/faq'>
-        <Layout active='HOME'>
-          <FAQ />
-        </Layout>
-      </Route>
+          <Route path='/list'>
+            <RouterListBuilder setActive={setActive} />
+          </Route>
 
-      <Route exact path='/'>
-        <Layout active='HOME'>
-          <Home />
-        </Layout>
-      </Route>
+          <Route path='/member/:memberId'>
+            <Member setActive={setActive} />
+          </Route>
 
-      <Route path='*'>
-        <Error error='HTTP 404 — Not Found' />
-      </Route>
-    </Switch>
-  </BrowserRouter>
-)
+          <Route path='/brawl'>
+            <Brawl setActive={setActive} />
+          </Route>
+
+          <Route path='/faq'>
+            <FAQ setActive={setActive} />
+          </Route>
+
+          <Route exact path='/'>
+            <Home setActive={setActive} />
+          </Route>
+
+          <Route path='*'>
+            <NotFound setActive={setActive} />
+          </Route>
+        </Switch>
+      </Layout>
+    </BrowserRouter>
+  )
+}
 
 export default Router

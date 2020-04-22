@@ -200,55 +200,60 @@ const BRAWLS = [
   },
 ]
 
-const Stories = props => (
-  <>
-    <div className='Brawl'>
-      <h1 className='VisuallyHidden'>Brawl</h1>
+const Stories = ({ setActive }) => {
+  React.useEffect(() => setActive('HOME'), [setActive])
 
-      {BRAWLS.map(brawl => (
-        <Banner
-          className='Brawl__section'
-          key={brawl.name}
-          faction={'swarm'}
-          title={brawl.name}
-          copy={
-            <>
-              {brawl.description}
-              {brawl.faction ? (
-                <>
-                  {' '}
-                  In this Brawl,{' '}
-                  <span className='Highlight'>
-                    {capitalise(brawl.faction)}
-                  </span>{' '}
-                  is likely the way to go when trying to reach higher ranks.
-                </>
-              ) : (
-                ' Most factions are likely to compete in that Brawl, where there no clear winner.'
-              )}
-            </>
-          }
-          cta={{
-            'aria-label': 'Browse decks for ' + brawl.name,
-            to:
-              '/deck/suggestions?category=BRAWL' +
-              (brawl.faction ? `&faction=${brawl.faction}` : ''),
-            children: (
+  return (
+    <>
+      <div className='Brawl'>
+        <h1 className='VisuallyHidden'>Brawl</h1>
+
+        {BRAWLS.map(brawl => (
+          <Banner
+            className='Brawl__section'
+            key={brawl.name}
+            faction={'swarm'}
+            title={brawl.name}
+            copy={
               <>
-                Check <span className='VisuallyHidden'>{brawl.name}</span> Decks
+                {brawl.description}
+                {brawl.faction ? (
+                  <>
+                    {' '}
+                    In this Brawl,{' '}
+                    <span className='Highlight'>
+                      {capitalise(brawl.faction)}
+                    </span>{' '}
+                    is likely the way to go when trying to reach higher ranks.
+                  </>
+                ) : (
+                  ' Most factions are likely to compete in that Brawl, where there no clear winner.'
+                )}
               </>
-            ),
-          }}
-          image={getRawCardData(brawl.image).image}
-        />
-      ))}
-    </div>
+            }
+            cta={{
+              'aria-label': 'Browse decks for ' + brawl.name,
+              to:
+                '/deck/suggestions?category=BRAWL' +
+                (brawl.faction ? `&faction=${brawl.faction}` : ''),
+              children: (
+                <>
+                  Check <span className='VisuallyHidden'>{brawl.name}</span>{' '}
+                  Decks
+                </>
+              ),
+            }}
+            image={getRawCardData(brawl.image).image}
+          />
+        ))}
+      </div>
 
-    <PageMeta
-      title='Brawl'
-      description='All the Brawls from Stormbound and their ideal decks'
-    />
-  </>
-)
+      <PageMeta
+        title='Brawl'
+        description='All the Brawls from Stormbound and their ideal decks'
+      />
+    </>
+  )
+}
 
 export default Stories
