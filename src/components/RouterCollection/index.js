@@ -1,27 +1,26 @@
 import React from 'react'
-import { Route, Switch, useRouteMatch } from 'react-router-dom'
+import { Switch, useRouteMatch } from 'react-router-dom'
+import Page from '../Page'
 import load from '../../helpers/load'
 
 const Collection = load('Collection')
 const BooksCalculator = load('BooksCalculator')
-const Stats = load('Stats')
+const CollectionStats = load('CollectionStats')
 
-const RouterCollection = ({ setActive }) => {
+const RouterCollection = () => {
   const { path } = useRouteMatch()
-
-  React.useEffect(() => setActive('COLLECTION'), [setActive])
 
   return (
     <Switch>
-      <Route path={`${path}/books`}>
+      <Page path={`${path}/books`} active='COLLECTION'>
         <BooksCalculator />
-      </Route>
-      <Route path={`${path}/stats`}>
-        <Stats />
-      </Route>
-      <Route exact path={path}>
+      </Page>
+      <Page path={`${path}/stats`} active='COLLECTION'>
+        <CollectionStats />
+      </Page>
+      <Page exact path={path} active='COLLECTION'>
         <Collection />
-      </Route>
+      </Page>
     </Switch>
   )
 }

@@ -1,5 +1,6 @@
 import React from 'react'
-import { Route, Switch, useRouteMatch } from 'react-router-dom'
+import { Switch, useRouteMatch } from 'react-router-dom'
+import Page from '../Page'
 import Error from '../Error'
 import load from '../../helpers/load'
 
@@ -10,34 +11,32 @@ const Guides = load('Guides')
 const GuideWinter = load('GuideWinter')
 const Lexicon = load('Lexicon')
 
-const RouterGuides = ({ setActive }) => {
+const RouterGuides = () => {
   const { path } = useRouteMatch()
-
-  React.useEffect(() => setActive('GUIDES'), [setActive])
 
   return (
     <Switch>
-      <Route path={`${path}/complete`}>
+      <Page path={`${path}/complete`} active='GUIDES'>
         <GuideComplete />
-      </Route>
-      <Route path={`${path}/deck`}>
+      </Page>
+      <Page path={`${path}/deck`} active='GUIDES'>
         <GuideDeck />
-      </Route>
-      <Route path={`${path}/winter`}>
+      </Page>
+      <Page path={`${path}/winter`} active='GUIDES'>
         <GuideWinter />
-      </Route>
-      <Route path={`${path}/pirate`}>
+      </Page>
+      <Page path={`${path}/pirate`} active='GUIDES'>
         <GuidePirate />
-      </Route>
-      <Route path={`${path}/lexicon`}>
+      </Page>
+      <Page path={`${path}/lexicon`} active='GUIDES'>
         <Lexicon />
-      </Route>
-      <Route exact path={path}>
+      </Page>
+      <Page exact path={path} active='GUIDES'>
         <Guides />
-      </Route>
-      <Route path='*'>
+      </Page>
+      <Page path='*' active='GUIDES'>
         <Error error='HTTP 404 — Not Found' />
-      </Route>
+      </Page>
     </Switch>
   )
 }

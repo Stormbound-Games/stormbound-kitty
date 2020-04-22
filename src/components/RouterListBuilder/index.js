@@ -1,5 +1,6 @@
 import React from 'react'
-import { Route, Switch, useRouteMatch } from 'react-router-dom'
+import { Switch, useRouteMatch } from 'react-router-dom'
+import Page from '../Page'
 import load from '../../helpers/load'
 
 const ListBuilderDisplayView = load('ListBuilderDisplayView')
@@ -7,28 +8,26 @@ const ListBuilderEditorView = load('ListBuilderEditorView')
 const RankedList = load('RankedList')
 const EqualsList = load('EqualsList')
 
-const RouterListBuilder = ({ setActive }) => {
+const RouterListBuilder = () => {
   const { path } = useRouteMatch()
-
-  React.useEffect(() => setActive('LIST_BUILDER'), [setActive])
 
   return (
     <Switch>
-      <Route path={`${path}/ranked`}>
+      <Page path={`${path}/ranked`} active='LIST_BUILDER'>
         <RankedList />
-      </Route>
-      <Route path={`${path}/equals`}>
+      </Page>
+      <Page path={`${path}/equals`} active='LIST_BUILDER'>
         <EqualsList />
-      </Route>
-      <Route path={`${path}/:listId/display`}>
+      </Page>
+      <Page path={`${path}/:listId/display`} active='LIST_BUILDER'>
         <ListBuilderDisplayView />
-      </Route>
-      <Route path={`${path}/:listId`}>
+      </Page>
+      <Page path={`${path}/:listId`} active='LIST_BUILDER'>
         <ListBuilderEditorView />
-      </Route>
-      <Route path={path}>
+      </Page>
+      <Page path={path} active='LIST_BUILDER'>
         <ListBuilderEditorView />
-      </Route>
+      </Page>
     </Switch>
   )
 }
