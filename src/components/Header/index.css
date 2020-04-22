@@ -70,6 +70,27 @@ a.Header__link:hover {
     text-align: center;
   }
 
+  .Header__nav {
+    border-bottom: 0;
+    position: relative;
+  }
+
+  .Header__nav:first-of-type::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--beige),
+      transparent
+    );
+  }
+
   .Header__list {
     margin: 1em 0;
     flex-wrap: wrap;
