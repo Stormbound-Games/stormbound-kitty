@@ -4,7 +4,7 @@ import load from '../../helpers/load'
 
 const Collection = load('Collection')
 const BooksCalculator = load('BooksCalculator')
-const Stats = load('Stats')
+const CollectionStats = load('CollectionStats')
 
 const RouterCollection = ({ setActive }) => {
   const { path } = useRouteMatch()
@@ -17,7 +17,7 @@ const RouterCollection = ({ setActive }) => {
         <BooksCalculator />
       </Route>
       <Route path={`${path}/stats`}>
-        <Stats />
+        <CollectionStats />
       </Route>
       <Route exact path={path}>
         <Collection />
