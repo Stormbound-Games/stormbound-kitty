@@ -1,30 +1,29 @@
 import React from 'react'
-import { Route, Switch, useRouteMatch } from 'react-router-dom'
+import { Switch, useRouteMatch } from 'react-router-dom'
+import Page from '../Page'
 import load from '../../helpers/load'
 
 const BattleSimDisplay = load('BattleSimDisplay')
 const BattleSimPuzzles = load('BattleSimPuzzles')
 const BattleSimRoot = load('BattleSimRoot')
 
-const RouterBattleSim = ({ setActive }) => {
+const RouterBattleSim = () => {
   const { path } = useRouteMatch()
-
-  React.useEffect(() => setActive('BATTLE_SIM'), [setActive])
 
   return (
     <Switch>
-      <Route path={`${path}/:simId/display`}>
+      <Page path={`${path}/:simId/display`} active='BATTLE_SIM'>
         <BattleSimDisplay />
-      </Route>
-      <Route path={`${path}/puzzles`}>
+      </Page>
+      <Page path={`${path}/puzzles`} active='BATTLE_SIM'>
         <BattleSimPuzzles />
-      </Route>
-      <Route path={`${path}/:simId`}>
+      </Page>
+      <Page path={`${path}/:simId`} active='BATTLE_SIM'>
         <BattleSimRoot />
-      </Route>
-      <Route path={path}>
+      </Page>
+      <Page path={path} active='BATTLE_SIM'>
         <BattleSimRoot />
-      </Route>
+      </Page>
     </Switch>
   )
 }
