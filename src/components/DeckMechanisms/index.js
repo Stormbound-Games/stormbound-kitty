@@ -20,6 +20,7 @@ export default class DeckMechanisms extends React.Component {
       hand: [],
       RNG: 'REGULAR',
       hasCycledThisTurn: false,
+      noUnitsOnFirstTurn: true,
       specifics: {
         activeFrozenCores: 0,
         liveDawnsparks: false,
@@ -160,6 +161,16 @@ export default class DeckMechanisms extends React.Component {
           newState.mana -= card.mana
         }
 
+        if (state.turn === 1) {
+          // Check if this card spawns units on the board, this is used to check if
+          // Toxic Sacrifice can be played on this turn
+          const unitSpawningSpells = ['N2', 'S24', 'F8']
+          // Summon Militia, Head Start (can't occur in the game) and Rain of Frogs
+
+          if (card.type === 'unit' || unitSpawningSpells.includes(id)) {
+            newState.noUnitsOnFirstTurn = false
+          }
+        }
         return newState
       },
       () => this.handleCardEffect(card)
@@ -439,6 +450,7 @@ export default class DeckMechanisms extends React.Component {
         hand: [],
         RNG: 'REGULAR',
         hasCycledThisTurn: false,
+        noUnitsOnFirstTurn: true,
         specifics: {
           activeFrozenCores: 0,
           liveDawnsparks: false,
