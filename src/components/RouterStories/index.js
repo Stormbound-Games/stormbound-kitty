@@ -1,42 +1,41 @@
 import React from 'react'
-import { Route, Switch, useRouteMatch } from 'react-router-dom'
+import { Switch, useRouteMatch } from 'react-router-dom'
+import Page from '../Page'
 import load from '../../helpers/load'
 
 const StoriesCategory = load('StoriesCategory')
 const Story = load('Story')
 const Stories = load('Stories')
 
-const RouterStories = ({ setActive }) => {
+const RouterStories = () => {
   const { path } = useRouteMatch()
-
-  React.useEffect(() => setActive('STORIES'), [setActive])
 
   return (
     <Switch>
-      <Route path={`${path}/neutral`}>
+      <Page path={`${path}/neutral`} active='STORIES'>
         <StoriesCategory category='neutral' />
-      </Route>
-      <Route path={`${path}/ironclad`}>
+      </Page>
+      <Page path={`${path}/ironclad`} active='STORIES'>
         <StoriesCategory category='ironclad' />
-      </Route>
-      <Route path={`${path}/swarm`}>
+      </Page>
+      <Page path={`${path}/swarm`} active='STORIES'>
         <StoriesCategory category='swarm' />
-      </Route>
-      <Route path={`${path}/winter`}>
+      </Page>
+      <Page path={`${path}/winter`} active='STORIES'>
         <StoriesCategory category='winter' />
-      </Route>
-      <Route path={`${path}/shadowfen`}>
+      </Page>
+      <Page path={`${path}/shadowfen`} active='STORIES'>
         <StoriesCategory category='shadowfen' />
-      </Route>
-      <Route path={`${path}/lore`}>
+      </Page>
+      <Page path={`${path}/lore`} active='STORIES'>
         <StoriesCategory category='lore' />
-      </Route>
-      <Route path={`${path}/:storyId`}>
+      </Page>
+      <Page path={`${path}/:storyId`} active='STORIES'>
         <Story />
-      </Route>
-      <Route path={path}>
+      </Page>
+      <Page path={path} active='STORIES'>
         <Stories />
-      </Route>
+      </Page>
     </Switch>
   )
 }

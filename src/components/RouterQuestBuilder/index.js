@@ -1,22 +1,21 @@
 import React from 'react'
-import { Route, Switch, useRouteMatch } from 'react-router-dom'
+import { Switch, useRouteMatch } from 'react-router-dom'
+import Page from '../Page'
 import load from '../../helpers/load'
 
 const QuestBuilderRoot = load('QuestBuilderRoot')
 
-const RouterQuestBuilder = ({ setActive }) => {
+const RouterQuestBuilder = () => {
   const { path } = useRouteMatch()
-
-  React.useEffect(() => setActive(null), [setActive])
 
   return (
     <Switch>
-      <Route path={`${path}/:questId`}>
+      <Page path={`${path}/:questId`}>
         <QuestBuilderRoot />
-      </Route>
-      <Route path={path}>
+      </Page>
+      <Page path={path}>
         <QuestBuilderRoot />
-      </Route>
+      </Page>
     </Switch>
   )
 }

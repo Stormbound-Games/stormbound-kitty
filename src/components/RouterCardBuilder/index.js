@@ -1,30 +1,29 @@
 import React from 'react'
-import { Route, Switch, useRouteMatch } from 'react-router-dom'
+import { Switch, useRouteMatch } from 'react-router-dom'
+import Page from '../Page'
 import load from '../../helpers/load'
 
 const CardBuilderContest = load('CardBuilderContest')
 const CardBuilderRoot = load('CardBuilderRoot')
 const CardBuilderDisplay = load('CardBuilderDisplay')
 
-const RouterCardBuilder = ({ setActive }) => {
+const RouterCardBuilder = () => {
   const { path } = useRouteMatch()
-
-  React.useEffect(() => setActive('CARD_BUILDER'), [setActive])
 
   return (
     <Switch>
-      <Route path={`${path}/contest`}>
+      <Page path={`${path}/contest`} active='CARD_BUILDER'>
         <CardBuilderContest />
-      </Route>
-      <Route path={`${path}/:cardId/display`}>
+      </Page>
+      <Page path={`${path}/:cardId/display`} active='CARD_BUILDER'>
         <CardBuilderDisplay />
-      </Route>
-      <Route path={`${path}/:cardId`}>
+      </Page>
+      <Page path={`${path}/:cardId`} active='CARD_BUILDER'>
         <CardBuilderRoot />
-      </Route>
-      <Route path={path}>
+      </Page>
+      <Page path={path} active='CARD_BUILDER'>
         <CardBuilderRoot />
-      </Route>
+      </Page>
     </Switch>
   )
 }
