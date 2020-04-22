@@ -14,7 +14,7 @@ const DeckBuilderDetailView = props => {
 
   return (
     <>
-      <h1 className='visually-hidden'>Deck Detail</h1>
+      <h1 className='VisuallyHidden'>Deck Detail</h1>
 
       <Row desktopOnly wideGutter>
         <Column width={33}>

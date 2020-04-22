@@ -172,7 +172,7 @@ class CardBuilderRoot extends React.Component {
   render() {
     return (
       <>
-        <h1 className='visually-hidden'>Card Builder</h1>
+        <h1 className='VisuallyHidden'>Card Builder</h1>
 
         <App
           {...this.state}

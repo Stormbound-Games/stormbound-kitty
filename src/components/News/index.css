@@ -2,23 +2,21 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-top: -1.5em;
 }
 
+/**
+ * 1. Give some vertical spacing for the visual artifact between news.
+ */
 .News__item {
   position: relative;
-  padding: 1.25em 0;
+  padding: 1.25em 0; /* 1 */
 }
 
-.News__item strong {
-  color: var(--beige);
-}
-
-.News__item p {
-  display: inline;
-  margin: 0;
-}
-
+/**
+ * 1. Visual artifact to separate news from each other with style.
+ * 2. Prevent background color from leaking behind the padding, which is
+ *    necessary to have that gap between the filling and the border.
+ */
 .News__item:not(:last-child)::after {
   content: '';
   position: absolute;
@@ -27,7 +25,8 @@
   transform: translate(-50%, -50%) rotate(45deg);
   width: 0.3em;
   height: 0.3em;
-  border: 1px solid var(--black);
-  background-color: var(--beige);
-  box-shadow: 0 0 0 1px var(--beige);
+  border: 1px solid var(--beige);
+  background-color: var(--beige); /* 2 */
+  background-clip: content-box; /* 2 */
+  padding: 1px; /* 2 */
 }

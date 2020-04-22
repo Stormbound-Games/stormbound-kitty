@@ -52,7 +52,7 @@ const Deck = props => {
                     props.isCardDisabled ? props.isCardDisabled(card) : false
                   }
                 >
-                  <span className='visually-hidden'>{props.onClickLabel}</span>
+                  <span className='VisuallyHidden'>{props.onClickLabel}</span>
                 </button>
               )}
 
@@ -64,7 +64,7 @@ const Deck = props => {
           ) : props.showEmptySlots ? (
             <li className={`Deck__card Deck__card--empty`} key={index}>
               <Mana className='Deck__mana' mana='' />
-              <span className='visually-hidden'>Empty slot</span>
+              <span className='VisuallyHidden'>Empty slot</span>
             </li>
           ) : null
         )}

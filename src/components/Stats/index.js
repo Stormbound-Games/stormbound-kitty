@@ -125,7 +125,7 @@ const Stats = props => {
 
   return (
     <>
-      <h1 className='visually-hidden'>Stats</h1>
+      <h1 className='VisuallyHidden'>Stats</h1>
       <Row desktopOnly>
         <Column width={33}>
           <Row desktopOnly>
@@ -168,7 +168,7 @@ const Stats = props => {
           <Row desktopOnly>
             <Column>
               <div className='Stats__chart'>
-                <Title>Level data</Title>
+                <Title className='Stats__title'>Level data</Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
                     <Tooltip />
@@ -194,7 +194,7 @@ const Stats = props => {
             </Column>
             <Column>
               <div className='Stats__chart'>
-                <Title>Faction data (stones)</Title>
+                <Title className='Stats__title'>Faction data (stones)</Title>
 
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
@@ -231,7 +231,7 @@ const Stats = props => {
           <Row desktopOnly>
             <Column>
               <div className='Stats__chart'>
-                <Title>Rarity data (stones)</Title>
+                <Title className='Stats__title'>Rarity data (stones)</Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
                     <Tooltip />
@@ -261,7 +261,7 @@ const Stats = props => {
             </Column>
             <Column>
               <div className='Stats__chart'>
-                <Title>Status data</Title>
+                <Title className='Stats__title'>Status data</Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
                     <Tooltip />

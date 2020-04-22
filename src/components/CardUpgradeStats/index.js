@@ -36,7 +36,7 @@ const CardUpgradeStats = props => {
               {nextLevelCost.stones > 0 && (
                 <>
                   {' '}
-                  and <Stones amount={nextLevelCost.stones} /> fusion stones for{' '}
+                  and <Stones amount={nextLevelCost.stones} /> for{' '}
                   {nextLevelCost.copies} missing{' '}
                   {nextLevelCost.copies > 1 ? 'copies' : 'copy'}
                 </>

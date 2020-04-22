@@ -17,7 +17,7 @@ const ListBuilderDisplayView = props => {
 
   return (
     <>
-      <h1 className='visually-hidden'>List Builder</h1>
+      <h1 className='VisuallyHidden'>List Builder</h1>
       <Row wideGutter desktopOnly>
         <Column width={33}>
           <Title element='h2'>Settings</Title>

@@ -1,5 +1,4 @@
 .FAQEntry {
-  color: var(--beige);
   margin-bottom: 0.5em;
   font-size: 120%;
   position: relative;
@@ -19,6 +18,7 @@
 }
 
 .FAQEntry__link {
+  color: var(--beige);
   text-decoration: none;
 }
 

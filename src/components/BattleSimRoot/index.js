@@ -4,7 +4,7 @@ import PageMeta from '../PageMeta'
 
 const BattleSimRoot = props => (
   <>
-    <h1 className='visually-hidden'>Battle Simulator</h1>
+    <h1 className='VisuallyHidden'>Battle Simulator</h1>
 
     <App mode='EDITOR' />
 

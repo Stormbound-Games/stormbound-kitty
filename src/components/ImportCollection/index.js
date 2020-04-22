@@ -81,7 +81,7 @@ const ImportCollection = props => {
 
   return (
     <div className='ImportCollection'>
-      <label htmlFor='import' className='CTA ImportCollection__button'>
+      <label htmlFor='import' className='CTA'>
         <span className='CTA__content'>Import collection</span>
       </label>
       <input

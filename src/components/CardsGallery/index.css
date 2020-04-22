@@ -66,6 +66,12 @@
   }
 
   .CardsGallery__item {
+    flex: 0 1 calc(100% / 3);
+  }
+}
+
+@media (max-width: 850px) {
+  .CardsGallery__item {
     flex: 0 1 calc(100% / 2);
   }
 }

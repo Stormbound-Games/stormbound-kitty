@@ -203,7 +203,7 @@ const BRAWLS = [
 const Stories = props => (
   <>
     <div className='Brawl'>
-      <h1 className='visually-hidden'>Brawl</h1>
+      <h1 className='VisuallyHidden'>Brawl</h1>
 
       {BRAWLS.map(brawl => (
         <Banner
@@ -235,8 +235,7 @@ const Stories = props => (
               (brawl.faction ? `&faction=${brawl.faction}` : ''),
             children: (
               <>
-                Check <span className='visually-hidden'>{brawl.name}</span>{' '}
-                Decks
+                Check <span className='VisuallyHidden'>{brawl.name}</span> Decks
               </>
             ),
           }}

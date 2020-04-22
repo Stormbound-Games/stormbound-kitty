@@ -44,7 +44,7 @@ const CardsGallery = props => {
                 type='button'
                 onClick={() => props.onCardClick(card.id)}
               >
-                <span className='visually-hidden'>Add card to deck</span>
+                <span className='VisuallyHidden'>Add card to deck</span>
               </button>
             )}
 

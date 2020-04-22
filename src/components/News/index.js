@@ -22,10 +22,10 @@ const News = props => {
           <li className='News__item' key={index}>
             {news.link ? (
               <Link to={news.link}>
-                <strong>{news.intro}:</strong>
+                <strong className='Highlight'>{news.intro}:</strong>
               </Link>
             ) : (
-              <strong>{news.intro}:</strong>
+              <strong className='Highlight'>{news.intro}:</strong>
             )}{' '}
             {news.description}
           </li>

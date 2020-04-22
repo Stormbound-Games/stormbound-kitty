@@ -1,6 +1,5 @@
 .Footer {
   padding: 1em;
-  margin-top: auto;
   background: linear-gradient(to top, transparent, rgba(222, 215, 164, 0.08));
   position: relative;
 }
@@ -23,7 +22,6 @@
 }
 
 .Footer__info {
-  margin-top: 0;
   max-width: 40ch;
 }
 
@@ -45,11 +43,4 @@
 
 .Footer__list a {
   text-decoration: none;
-}
-
-@media (max-width: 699px) {
-  .Footer .Row--desktop .Row--desktop .Column {
-    flex-basis: 50%;
-    flex-grow: 0;
-  }
 }

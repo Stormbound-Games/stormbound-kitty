@@ -3,20 +3,19 @@
 }
 
 .Story__title {
-  margin-bottom: 2em;
-  max-width: 65ch;
+  margin-bottom: 3em;
 }
 
+/**
+ * 1. Font size applied to the title child so the value of `ch` and `em` is not
+ *    modified on the title itself.
+ */
 .Story__title > * {
-  font-size: 120%;
-}
-
-.Story__content {
-  font-size: 115%;
+  font-size: 125%; /* 1 */
 }
 
 .Story__paragraph {
-  margin-top: 0;
+  font-size: 115%;
   max-width: 65ch;
   hyphens: auto;
 }
@@ -44,8 +43,4 @@
   color: var(--beige);
   margin-top: 1.5em;
   margin-bottom: 0.75em;
-}
-
-.Story__back {
-  width: 200px;
 }

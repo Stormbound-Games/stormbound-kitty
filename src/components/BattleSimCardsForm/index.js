@@ -14,7 +14,7 @@ const CardsFormRow = ({ index, ...props }) => (
   >
     <Row>
       <Column width={66}>
-        <label className='visually-hidden' htmlFor={`card-${index}`}>
+        <label className='VisuallyHidden' htmlFor={`card-${index}`}>
           Slot #{index + 1}’s card
         </label>
         <CardSelect
@@ -36,10 +36,7 @@ const CardsFormRow = ({ index, ...props }) => (
       <Column width={33}>
         <Row>
           <Column>
-            <label
-              className={'visually-hidden'}
-              htmlFor={`card-${index}-level`}
-            >
+            <label className={'VisuallyHidden'} htmlFor={`card-${index}-level`}>
               Slot #{index + 1}’s level
             </label>
             {getRawCardData(props.cards[index].id).token ? (

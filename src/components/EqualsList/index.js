@@ -13,7 +13,7 @@ const ListBuilderDisplayView = props => {
 
   return (
     <>
-      <h1 className='visually-hidden'>Equals Tier List</h1>
+      <h1 className='VisuallyHidden'>Equals Tier List</h1>
       <Row wideGutter desktopOnly>
         <Column width={33}>
           <Title element='h2'>Info</Title>

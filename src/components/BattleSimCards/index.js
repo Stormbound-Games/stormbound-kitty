@@ -73,7 +73,7 @@ const BattleSimCards = props => {
                     }
                   }}
                 >
-                  <span className='visually-hidden'>{buttonLabel}</span>
+                  <span className='VisuallyHidden'>{buttonLabel}</span>
                 </button>
               )}
 

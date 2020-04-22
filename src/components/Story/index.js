@@ -40,24 +40,21 @@ const Story = props => {
     <div className='Story'>
       <Row desktopOnly wideGutter>
         <Column width={66}>
-          <div className='Story__content'>
+          <article>
             <Title element='h1' className='Story__title'>
               {story.title}
             </Title>
+            {story.content.split('\n').map((paragraph, index) => {
+              if (paragraph.trim().length === 0) return null
+              if (paragraph.trim() === '---') return <hr key={index} />
 
-            <article>
-              {story.content.split('\n').map((paragraph, index) => {
-                if (paragraph.trim().length === 0) return null
-                if (paragraph.trim() === '---') return <hr key={index} />
-
-                return (
-                  <p key={index} className='Story__paragraph'>
-                    {microMarkdown(paragraph)}
-                  </p>
-                )
-              })}
-            </article>
-          </div>
+              return (
+                <p key={index} className='Story__paragraph'>
+                  {microMarkdown(paragraph)}
+                </p>
+              )
+            })}
+          </article>
         </Column>
 
         <Column width={33}>

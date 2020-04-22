@@ -9,10 +9,14 @@
   margin-bottom: 3em;
 }
 
-.Stats__chart > h2 {
-  margin-bottom: 0;
+/**
+ * 1. The diagram themselves have quite some spacing, so the margin below the
+ *    title is unnecessary.
+ */
+.Stats__title {
+  margin-bottom: 0; /* 1 */
 }
 
-.Stats__info p:last-of-type {
-  margin-bottom: 2em;
+.Stats__info {
+  margin-bottom: 1em;
 }

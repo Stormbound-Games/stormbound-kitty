@@ -274,7 +274,7 @@ export default [
               40/41 since identical cards cannot be redrawn. It then iterates
               over the whole sequence, returns the resulting probability and
               sums over the different sequences to get the total probability of
-              not getting Fusion Stones out of a Mythic book.
+              not getting fusion stones out of a Mythic book.
             </p>
             <p>
               Of course this is correct only under the assumption that book

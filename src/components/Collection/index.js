@@ -137,7 +137,7 @@ class Collection extends React.Component {
 
     return (
       <>
-        <h1 className='visually-hidden'>Card Collection</h1>
+        <h1 className='VisuallyHidden'>Card Collection</h1>
 
         <Row desktopOnly wideGutter>
           <Column width={33}>

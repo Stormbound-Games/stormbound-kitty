@@ -63,7 +63,7 @@ const BattleSimCell = props => (
         data-testid='cell-image'
       />
     ) : (
-      <span className='visually-hidden'>Select cell</span>
+      <span className='VisuallyHidden'>Select cell</span>
     )}
 
     {!!props.poisoned && (

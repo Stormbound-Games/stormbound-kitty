@@ -7,7 +7,7 @@ import guides from '../../data/guides'
 
 const Guides = props => (
   <>
-    <h1 className='visually-hidden'>Guides</h1>
+    <h1 className='VisuallyHidden'>Guides</h1>
 
     {guides.map(guide => (
       <Banner

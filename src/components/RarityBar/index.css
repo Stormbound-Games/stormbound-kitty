@@ -3,8 +3,11 @@
   display: flex;
 }
 
+/**
+ * 1. `12` is the amount of cards in a deck.
+ */
 .RarityBar__slice {
-  width: calc(100% / 12 * var(--count));
+  width: calc(100% / 12 * var(--count)); /* 1 */
   background-color: var(--color);
   height: 100%;
   position: relative;
@@ -29,8 +32,13 @@
   opacity: 0;
 }
 
+/**
+ * 1. There is no elegant way to have a proper text stroke, so we have to place
+ *    a pseudo-element behind the text itself, that repeats the same text with
+ *    an actual stroke.
+ */
 .RarityBar__count::before {
-  content: attr(title);
+  content: attr(title); /* 1 */
   position: absolute;
   left: 0;
   z-index: -1;

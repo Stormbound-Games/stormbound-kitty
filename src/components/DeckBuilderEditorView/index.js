@@ -109,7 +109,7 @@ class DeckBuilderEditorView extends React.Component {
 
     return (
       <>
-        <h1 className='visually-hidden'>Deck Builder</h1>
+        <h1 className='VisuallyHidden'>Deck Builder</h1>
 
         <Row desktopOnly wideGutter>
           <Column width={33}>

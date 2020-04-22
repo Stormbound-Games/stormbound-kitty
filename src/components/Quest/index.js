@@ -8,7 +8,7 @@ const Quest = props => (
       <span
         className={`Quest__difficulty Quest__difficulty--${props.difficulty}`}
       >
-        <span className='visually-hidden'>Difficulty {props.difficulty}</span>
+        <span className='VisuallyHidden'>Difficulty {props.difficulty}</span>
         <span className='Quest__difficulty-diamond Quest__difficulty-diamond--1' />
         {props.difficulty > 1 && (
           <span className='Quest__difficulty-diamond Quest__difficulty-diamond--2' />

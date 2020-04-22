@@ -6,11 +6,14 @@
   margin: 0.5em 0;
 }
 
+/**
+ * 1. Arbitrary translate to align the radio icon with its accompanying label.
+ */
 .Radio__icon {
   width: 1.25em;
   height: 1.25em;
-  border: 1px solid rgba(222, 215, 164, 0.5);
-  transform: translate(25%, 40%) rotate(45deg);
+  border: 1px solid var(--dark-beige);
+  transform: translate(25%, 10%) rotate(45deg); /* 1 */
   display: inline-block;
   position: absolute;
   top: 0;
@@ -27,9 +30,13 @@
   left: 20%;
 }
 
+/**
+ * 1. Define the default browser outline on the icon itself so it looks like it
+ *    can be focused.
+ */
 .Radio__input:focus + .Radio__icon {
-  outline: auto 2px Highlight;
-  outline: auto 5px -webkit-focus-ring-color;
+  outline: auto 2px Highlight; /* 1 */
+  outline: auto 5px -webkit-focus-ring-color; /* 1 */
 }
 
 .Radio__input {
@@ -45,7 +52,7 @@
   cursor: pointer;
 }
 
-.Radio__input:disabled {
+.Radio__input:disabled + .Radio__icon {
   cursor: not-allowed;
 }
 

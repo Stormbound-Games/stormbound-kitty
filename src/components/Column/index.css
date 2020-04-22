@@ -20,14 +20,6 @@
   flex: 1 1 25%;
 }
 
-.Column--10 {
-  flex: 1 1 10%;
-}
-
-.Column--40 {
-  flex: 1 1 40%;
-}
-
 .Column--20 {
   flex: 1 1 20%;
 }
