@@ -162,7 +162,7 @@ export default class DeckMechanisms extends React.Component {
           // Summon Militia, Head Start (can't occur in the game) and Rain of Frogs
 
           if (card.type === 'unit' || unitSpawningSpells.includes(id)) {
-            newState.noUnitsOnFirstTurn = false
+            newState.specifics.noUnitsOnFirstTurn = false
           }
         }
         return newState
@@ -423,7 +423,7 @@ export default class DeckMechanisms extends React.Component {
 
     if (this.state.turn === 1) {
       const unplayableSpells = ['W1', 'S10', 'N15']
-      if (this.state.noUnitsOnFirstTurn) {
+      if (this.state.specifics.noUnitsOnFirstTurn) {
         unplayableSpells.push('F4')
       }
 
