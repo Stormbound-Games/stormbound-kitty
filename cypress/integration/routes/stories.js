@@ -13,13 +13,9 @@ describe('Routes — Stories', () => {
     })
   })
 
-  stories.forEach(story => {
-    const id = window.btoa(encodeURIComponent(story.title + '-' + story.author))
-
-    it(`it should render the ${id} story`, () => {
-      cy.visit('/stories/' + id)
-        .get('main h1')
-        .should('exist')
-    })
+  it(`it should a story`, () => {
+    cy.visit('/stories/' + stories[0].id)
+      .get('main h1')
+      .should('exist')
   })
 })
