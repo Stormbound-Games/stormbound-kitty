@@ -12,7 +12,12 @@
 }
 
 .Card--affordable .Card__mana {
-  filter: drop-shadow(0 -0.8em var(--affordable));
+  filter: drop-shadow(0 -0.7em var(--affordable));
+}
+
+.Card--affordable.Card--missing .Card__mana {
+  filter: contrast(200%) saturate(0.5) grayscale(0.5)
+    drop-shadow(0 -0.7em var(--affordable)); /* 1 */
 }
 
 .Card--upgradable {
@@ -20,7 +25,7 @@
 }
 
 .Card--upgradable .Card__mana {
-  filter: drop-shadow(0 -0.8em var(--upgradable));
+  filter: drop-shadow(0 -0.7em var(--upgradable));
 }
 
 .Card--RED {
@@ -69,7 +74,6 @@
 .Card--missing .Card__mana,
 .Card--missing .Card__strength,
 .Card--missing .Card__movement {
-  opacity: 0.75;
   filter: contrast(200%) saturate(0.5) grayscale(0.5); /* 1 */
 }
 
