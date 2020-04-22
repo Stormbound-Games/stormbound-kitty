@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-const NavLink = ({ exact, ...props }) => {
+const NavLink = ({ exact, active, ...props }) => {
   const location = useLocation()
   const classNames = ['Header__link']
   const re = new RegExp('^' + props.to + '(/|$)')
 
   if (
-    props.active ||
+    active ||
     (!exact && location.pathname.match(re)) ||
     (exact && location.pathname === props.to)
   ) {
