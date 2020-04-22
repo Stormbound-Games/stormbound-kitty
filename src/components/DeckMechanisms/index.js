@@ -420,7 +420,7 @@ export default class DeckMechanisms extends React.Component {
     this.setState({
       playerOrder,
       turn,
-      mana: DEFAULT_MANA + turn,
+      mana: DEFAULT_MANA + (turn - 1),
     })
   }
 
