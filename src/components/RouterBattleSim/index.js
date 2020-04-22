@@ -1,6 +1,6 @@
 import React from 'react'
-import { Switch, useRouteMatch } from 'react-router-dom'
-import Page from '../Page'
+import { Route, Switch, useRouteMatch } from 'react-router-dom'
+import Layout from '../Layout'
 import load from '../../helpers/load'
 
 const BattleSimDisplay = load('BattleSimDisplay')
@@ -9,23 +9,24 @@ const BattleSimRoot = load('BattleSimRoot')
 
 const RouterBattleSim = props => {
   const { path } = useRouteMatch()
-  const active = 'BATTLE_SIM'
 
   return (
-    <Switch>
-      <Page path={`${path}/:simId/display`} active={active}>
-        <BattleSimDisplay />
-      </Page>
-      <Page path={`${path}/puzzles`} active={active}>
-        <BattleSimPuzzles />
-      </Page>
-      <Page path={`${path}/:simId`} active={active}>
-        <BattleSimRoot />
-      </Page>
-      <Page path={path} active={active}>
-        <BattleSimRoot />
-      </Page>
-    </Switch>
+    <Layout active='BATTLE_SIM'>
+      <Switch>
+        <Route path={`${path}/:simId/display`}>
+          <BattleSimDisplay />
+        </Route>
+        <Route path={`${path}/puzzles`}>
+          <BattleSimPuzzles />
+        </Route>
+        <Route path={`${path}/:simId`}>
+          <BattleSimRoot />
+        </Route>
+        <Route path={path}>
+          <BattleSimRoot />
+        </Route>
+      </Switch>
+    </Layout>
   )
 }
 

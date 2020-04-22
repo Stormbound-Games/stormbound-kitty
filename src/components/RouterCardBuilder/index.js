@@ -1,6 +1,6 @@
 import React from 'react'
-import { Switch, useRouteMatch } from 'react-router-dom'
-import Page from '../Page'
+import { Route, Switch, useRouteMatch } from 'react-router-dom'
+import Layout from '../Layout'
 import load from '../../helpers/load'
 
 const CardBuilderContest = load('CardBuilderContest')
@@ -9,23 +9,24 @@ const CardBuilderDisplay = load('CardBuilderDisplay')
 
 const RouterCardBuilder = props => {
   const { path } = useRouteMatch()
-  const active = 'CARD_BUILDER'
 
   return (
-    <Switch>
-      <Page path={`${path}/contest`} active={active}>
-        <CardBuilderContest />
-      </Page>
-      <Page path={`${path}/:cardId/display`} active={active}>
-        <CardBuilderDisplay />
-      </Page>
-      <Page path={`${path}/:cardId`} active={active}>
-        <CardBuilderRoot />
-      </Page>
-      <Page path={path} active={active}>
-        <CardBuilderRoot />
-      </Page>
-    </Switch>
+    <Layout active='CARD_BUILDER'>
+      <Switch>
+        <Route path={`${path}/contest`}>
+          <CardBuilderContest />
+        </Route>
+        <Route path={`${path}/:cardId/display`}>
+          <CardBuilderDisplay />
+        </Route>
+        <Route path={`${path}/:cardId`}>
+          <CardBuilderRoot />
+        </Route>
+        <Route path={path}>
+          <CardBuilderRoot />
+        </Route>
+      </Switch>
+    </Layout>
   )
 }
 

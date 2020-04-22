@@ -1,6 +1,6 @@
 import React from 'react'
-import { Switch, useRouteMatch } from 'react-router-dom'
-import Page from '../Page'
+import { Route, Switch, useRouteMatch } from 'react-router-dom'
+import Layout from '../Layout'
 import load from '../../helpers/load'
 
 const Collection = load('Collection')
@@ -9,20 +9,21 @@ const Stats = load('Stats')
 
 const RouterCollection = props => {
   const { path } = useRouteMatch()
-  const active = 'COLLECTION'
 
   return (
-    <Switch>
-      <Page path={`${path}/books`} active={active}>
-        <BooksCalculator />
-      </Page>
-      <Page path={`${path}/stats`} active={active}>
-        <Stats />
-      </Page>
-      <Page exact path={path} active={active}>
-        <Collection />
-      </Page>
-    </Switch>
+    <Layout active='COLLECTION'>
+      <Switch>
+        <Route path={`${path}/books`}>
+          <BooksCalculator />
+        </Route>
+        <Route path={`${path}/stats`}>
+          <Stats />
+        </Route>
+        <Route exact path={path}>
+          <Collection />
+        </Route>
+      </Switch>
+    </Layout>
   )
 }
 

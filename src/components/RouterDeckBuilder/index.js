@@ -1,6 +1,6 @@
 import React from 'react'
-import { Switch, useRouteMatch } from 'react-router-dom'
-import Page from '../Page'
+import { Route, Switch, useRouteMatch } from 'react-router-dom'
+import Layout from '../Layout'
 import load from '../../helpers/load'
 
 const DeckBuilderSuggestions = load('DeckBuilderSuggestions')
@@ -12,39 +12,40 @@ const DeckBuilderEditorView = load('DeckBuilderEditorView')
 
 const RouterDeckBuilder = props => {
   const { path } = useRouteMatch()
-  const active = 'DECK_BUILDER'
 
   return (
-    <Switch>
-      <Page path={`${path}/suggestions`} active={active}>
-        <DeckBuilderSuggestions />
-      </Page>
-      <Page path={`${path}/:deckId/detail`} active={active}>
-        <DeckBuilderRoot>
-          {state => <DeckBuilderDetailView {...state} />}
-        </DeckBuilderRoot>
-      </Page>
-      <Page path={`${path}/:deckId/dry-run`} active={active}>
-        <DeckBuilderRoot>
-          {state => <DeckBuilderDryRunView {...state} />}
-        </DeckBuilderRoot>
-      </Page>
-      <Page path={`${path}/:deckId/tracker`} active={active}>
-        <DeckBuilderRoot>
-          {state => <DeckBuilderTrackerView {...state} />}
-        </DeckBuilderRoot>
-      </Page>
-      <Page path={`${path}/:deckId`} active={active}>
-        <DeckBuilderRoot>
-          {state => <DeckBuilderEditorView {...state} />}
-        </DeckBuilderRoot>
-      </Page>
-      <Page path={`${path}`} active={active}>
-        <DeckBuilderRoot>
-          {state => <DeckBuilderEditorView {...state} />}
-        </DeckBuilderRoot>
-      </Page>
-    </Switch>
+    <Layout active='DECK_BUILDER'>
+      <Switch>
+        <Route path={`${path}/suggestions`}>
+          <DeckBuilderSuggestions />
+        </Route>
+        <Route path={`${path}/:deckId/detail`}>
+          <DeckBuilderRoot>
+            {state => <DeckBuilderDetailView {...state} />}
+          </DeckBuilderRoot>
+        </Route>
+        <Route path={`${path}/:deckId/dry-run`}>
+          <DeckBuilderRoot>
+            {state => <DeckBuilderDryRunView {...state} />}
+          </DeckBuilderRoot>
+        </Route>
+        <Route path={`${path}/:deckId/tracker`}>
+          <DeckBuilderRoot>
+            {state => <DeckBuilderTrackerView {...state} />}
+          </DeckBuilderRoot>
+        </Route>
+        <Route path={`${path}/:deckId`}>
+          <DeckBuilderRoot>
+            {state => <DeckBuilderEditorView {...state} />}
+          </DeckBuilderRoot>
+        </Route>
+        <Route path={`${path}`}>
+          <DeckBuilderRoot>
+            {state => <DeckBuilderEditorView {...state} />}
+          </DeckBuilderRoot>
+        </Route>
+      </Switch>
+    </Layout>
   )
 }
 

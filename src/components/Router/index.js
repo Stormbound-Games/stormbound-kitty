@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import Page from '../Page'
 import Error from '../Error'
+import Layout from '../Layout'
 import RouterBattleSim from '../RouterBattleSim'
 import RouterCardBuilder from '../RouterCardBuilder'
 import RouterCollection from '../RouterCollection'
@@ -52,25 +52,33 @@ const Router = props => (
         <RouterListBuilder />
       </Route>
 
-      <Page path='/brawl' active='HOME'>
-        <Brawl />
-      </Page>
+      <Route path='/member/:memberId'>
+        <Layout>
+          <Member />
+        </Layout>
+      </Route>
 
-      <Page path='/faq' active='HOME'>
-        <FAQ />
-      </Page>
+      <Route path='/brawl'>
+        <Layout active='HOME'>
+          <Brawl />
+        </Layout>
+      </Route>
 
-      <Page exact path='/' active='HOME'>
-        <Home />
-      </Page>
+      <Route path='/faq'>
+        <Layout active='HOME'>
+          <FAQ />
+        </Layout>
+      </Route>
 
-      <Page path='/member/:memberId'>
-        <Member />
-      </Page>
+      <Route exact path='/'>
+        <Layout active='HOME'>
+          <Home />
+        </Layout>
+      </Route>
 
-      <Page path='*'>
+      <Route path='*'>
         <Error error='HTTP 404 — Not Found' />
-      </Page>
+      </Route>
     </Switch>
   </BrowserRouter>
 )
