@@ -59,7 +59,12 @@ const Loader = props => (
         </circle>
       </g>
     </svg>
-    <Title element='p'>Loading content…</Title>
+    <Title
+      element='p'
+      className={props.hideLabel ? 'VisuallyHidden' : undefined}
+    >
+      Loading content…
+    </Title>
   </div>
 )
 
