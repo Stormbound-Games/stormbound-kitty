@@ -402,13 +402,17 @@ export default class DeckMechanisms extends React.Component {
   canCardBePlayed = id => {
     const card = this.state.deck.find(card => card.id === id)
     const isAffordable = card.mana <= this.state.mana
-    const canBePlayed = !(
-      this.state.turn === 1 &&
-      (['W1', 'S10', 'N15'].includes(id) ||
-        (id === 'F4' && this.state.noUnitsOnFirstTurn))
-    )
+    const unplayableSpells = ['W1', 'S10', 'N15']
 
-    return isAffordable && canBePlayed
+    if (this.state.turn === 1) {
+      if (this.state.noUnitsOnFirstTurn) {
+        unplayableSpells.push('F4')
+      }
+
+      if (unplayableSpells.includes(id)) return false
+    }
+
+    return isAffordable
   }
 
   reset = () => {
@@ -440,14 +444,7 @@ export default class DeckMechanisms extends React.Component {
 
   render() {
     return this.props.children({
-      hand: this.state.hand,
-      deck: this.state.deck,
-      mana: this.state.mana,
-      turn: this.state.turn,
-      RNG: this.state.RNG,
-      hasCycledThisTurn: this.state.hasCycledThisTurn,
-      noUnitsOnFirstTurn: this.state.noUnitsOnFirstTurn,
-      playerOrder: this.state.playerOrder,
+      ...this.state,
       canCardBePlayed: this.canCardBePlayed,
       setPlayerOrder: this.setPlayerOrder,
       play: this.play,
