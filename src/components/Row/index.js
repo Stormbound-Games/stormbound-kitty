@@ -10,6 +10,7 @@ const Row = props => (
     ]
       .filter(Boolean)
       .join(' ')}
+    data-testid={props['data-testid']}
   >
     {React.Children.map(props.children, child =>
       child === null
