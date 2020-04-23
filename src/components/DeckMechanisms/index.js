@@ -411,7 +411,7 @@ export default class DeckMechanisms extends React.Component {
       // Reset the mana to 3 + the current turn
       newState.mana = DEFAULT_MANA + state.turn
 
-      // Reset the cycling and freezing state
+      // Reset the cycling state and potential frozen enemies
       newState.hasCycledThisTurn = false
       newState.specifics.potentialFrozenEnemies = false
 
