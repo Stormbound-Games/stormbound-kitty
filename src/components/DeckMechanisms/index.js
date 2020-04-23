@@ -383,22 +383,19 @@ export default class DeckMechanisms extends React.Component {
           activeDawnsparks,
           DAWNSPARKS_STAYS
         )
+
+        state.mana +=
+          getBinomialRandomVariableResult(activeDawnsparks, DAWNSPARKS_HITS) * 4
+
         break
       }
 
+      case 'FRIENDLY':
       default:
+        state.mana += state.specifics.activeFrozenCores * 3
+        state.mana += state.specifics.activeDawnsparks * 4
         break
     }
-
-    const { activeDawnsparks } = state.specifics
-
-    const dawnsparksManagingToGiveMana =
-      this.state.RNG === 'REGULAR'
-        ? getBinomialRandomVariableResult(activeDawnsparks, DAWNSPARKS_HITS)
-        : activeDawnsparks
-
-    state.mana += state.specifics.activeFrozenCores * 3
-    state.mana += dawnsparksManagingToGiveMana * 4
   }
 
   endTurn = () => {
