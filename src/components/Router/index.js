@@ -17,6 +17,7 @@ const FAQ = load('FAQ')
 const Brawl = load('Brawl')
 const Home = load('Home')
 const Member = load('Member')
+const FanKit = load('FanKit')
 
 const Router = props => (
   <AnimatePresence exitBeforeEnter>
@@ -56,6 +57,10 @@ const Router = props => (
 
         <Page path='/member/:memberId'>
           <Member />
+        </Page>
+
+        <Page path='/fan-kit'>
+          <FanKit />
         </Page>
 
         <Page path='/brawl' active={['HOME', 'BRAWL']}>

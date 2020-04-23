@@ -132,7 +132,7 @@ const Footer = props => (
                   <Link to='/deck/suggestions'>Suggested Decks</Link>
                 </li>
                 <li className='Footer__item'>
-                  <Link to='/sim/puzzles'>Puzzles</Link>
+                  <Link to='/fankit'>Fan Kit</Link>
                 </li>
                 <li className='Footer__item'>
                   <a
