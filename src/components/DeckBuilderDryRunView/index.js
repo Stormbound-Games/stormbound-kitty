@@ -210,6 +210,7 @@ class DeckBuilderDryRunView extends React.Component {
                       Current mana:{' '}
                       <Mana
                         mana={this.props.mana}
+                        data-testid='mana-pool'
                         disabled={this.props.hand.every(
                           cardId => !this.props.canCardBePlayed(cardId)
                         )}
@@ -237,14 +238,18 @@ class DeckBuilderDryRunView extends React.Component {
                   </Column>
 
                   <Column width={33}>
-                    <CTA type='button' onClick={this.props.endTurn}>
+                    <CTA
+                      type='button'
+                      data-testid='end-turn-btn'
+                      onClick={this.props.endTurn}
+                    >
                       <u>E</u>nd turn
                     </CTA>
                   </Column>
                 </Row>
               </div>
 
-              <Row>
+              <Row data-testid='hand'>
                 {this.props.hand.map(cardId => {
                   const cardData = this.props.deck.find(
                     card => card.id === cardId
@@ -293,6 +298,7 @@ class DeckBuilderDryRunView extends React.Component {
                     <Column>
                       <CTA
                         type='button'
+                        data-testid='cycle-btn'
                         onClick={this.cycleCard}
                         disabled={
                           !this.state.activeCard || this.props.hasCycledThisTurn
@@ -304,6 +310,7 @@ class DeckBuilderDryRunView extends React.Component {
                     <Column style={{ alignItems: 'flex-end' }}>
                       <CTA
                         type='button'
+                        data-testid='play-btn'
                         onClick={this.playCard}
                         disabled={
                           !this.state.activeCard ||
