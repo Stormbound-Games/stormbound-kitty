@@ -352,11 +352,11 @@ export default class DeckMechanisms extends React.Component {
 
       // Spellbinder Zhevana
       case 'W8': {
-        var enemiesToDestroy = this.state.specifics
-          .potentialFrozenEnemiesInAColumn
-        if (enemiesToDestroy > 4) {
-          enemiesToDestroy = 4
-        }
+        const enemiesToDestroy = Math.min(
+          this.state.specifics.potentialFrozenEnemiesInAColumn,
+          4
+        )
+
         var destroyedEnemies = 0
 
         switch (this.state.RNG) {
