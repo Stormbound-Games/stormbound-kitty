@@ -442,14 +442,10 @@ class DeckBuilderDryRunView extends React.Component {
                           .
                         </p>
                         <p>
-                          {this.props.deck
-                            .map(card => card.id === 'W9')
-                            .filter(Boolean).length
+                          {this.props.deck.map(card => card.id).contains('W9')
                             ? this.getFrozenCoreText()
                             : null}
-                          {this.props.deck
-                            .map(card => card.id === 'W16')
-                            .filter(Boolean).length
+                          {this.props.deck.map(card => card.id).contains('W16')
                             ? this.getDawnsparksText()
                             : null}
                         </p>
