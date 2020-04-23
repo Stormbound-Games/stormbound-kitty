@@ -8,6 +8,17 @@ import resolveDeckWeight, {
   increaseCardWeight,
 } from '../../helpers/resolveDeckWeight'
 
+const DAWNSPARKS_STAYS = 0.71
+const DAWNSPARKS_HIT = 0.71
+const FROZEN_CORE_STAYS = 0.5
+const AHMI_RETURNS = 0.5
+
+export const FRIENDLY_CHANCES = {
+  W9: FROZEN_CORE_STAYS,
+  S3: AHMI_RETURNS,
+  W16: DAWNSPARKS_HIT * DAWNSPARKS_STAYS,
+}
+
 export default class DeckMechanisms extends React.Component {
   static defaultProps = {
     turn: 1,
@@ -285,7 +296,7 @@ export default class DeckMechanisms extends React.Component {
       case 'S3': {
         if (
           this.state.RNG === 'FRIENDLY' ||
-          (this.state.RNG === 'REGULAR' && Math.random() >= 0.5)
+          (this.state.RNG === 'REGULAR' && Math.random() <= AHMI_RETURNS)
         ) {
           this.setState(state => ({ hand: [...state.hand, 'S3'] }))
         }
@@ -354,6 +365,7 @@ export default class DeckMechanisms extends React.Component {
     }))
 
   endTurn = () => {
+    console.log(this.state.specifics.activeDawnsparks)
     this.setState(state => {
       const newState = clone(state)
 
@@ -375,7 +387,7 @@ export default class DeckMechanisms extends React.Component {
 
         newState.specifics.activeFrozenCores = Array.from(
           { length: activeFrozenCores },
-          _ => Math.random() >= 0.5
+          _ => Math.random() <= FROZEN_CORE_STAYS
         ).filter(Boolean).length
       }
 
@@ -388,13 +400,13 @@ export default class DeckMechanisms extends React.Component {
         const { activeDawnsparks } = newState.specifics
         newState.specifics.activeDawnsparks = Array.from(
           { length: activeDawnsparks },
-          _ => state.RNG === 'FRIENDLY' || Math.random() >= 0.5
+          _ => state.RNG === 'FRIENDLY' || Math.random() <= DAWNSPARKS_STAYS
         ).filter(Boolean).length
       }
 
       const dawnsparksManagingToGiveMana = Array.from(
         { length: newState.specifics.activeDawnsparks },
-        _ => state.RNG === 'FRIENDLY' || Math.random() >= 0.5
+        _ => state.RNG === 'FRIENDLY' || Math.random() <= DAWNSPARKS_HIT
       ).filter(Boolean).length
 
       newState.mana += dawnsparksManagingToGiveMana * 4

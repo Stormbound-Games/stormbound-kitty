@@ -1,6 +1,7 @@
 import React from 'react'
 import Radio from '../Radio'
 import WikiLink from '../WikiLink'
+import { FRIENDLY_CHANCES } from '../DeckMechanisms'
 import './index.css'
 
 const RNG_SENSITIVE_CARDS = {
@@ -96,21 +97,14 @@ const DeckBuilderRNGField = props => {
       >
         Regular{' '}
         <span className='DeckBuilderRNGField__radio-info'>
-          {RNGSensitiveCards.length === 1 ? (
-            <>
-              50% chance per turn that{' '}
-              {RNG_SENSITIVE_CARDS[RNGSensitiveCards[0]].FRIENDLY()}
-            </>
-          ) : (
-            <>
-              50% chance per turn that:
-              {RNGSensitiveCards.map(cardId => (
-                <span key={cardId}>
-                  {RNG_SENSITIVE_CARDS[cardId].FRIENDLY()}
-                </span>
-              ))}
-            </>
-          )}
+          <>
+            {RNGSensitiveCards.map(cardId => (
+              <span key={cardId}>
+                {parseInt(FRIENDLY_CHANCES[cardId] * 100)}% chance per turn that{' '}
+                {RNG_SENSITIVE_CARDS[cardId].FRIENDLY()}
+              </span>
+            ))}
+          </>
         </span>
       </Radio>
     </fieldset>
