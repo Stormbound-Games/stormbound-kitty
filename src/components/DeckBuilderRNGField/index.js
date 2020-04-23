@@ -31,7 +31,7 @@ const RNG_SENSITIVE_CARDS = {
   W16: {
     FRIENDLY: () => (
       <>
-        <WikiLink id='W16' /> hits
+        <WikiLink id='W16' /> hits and stays on the board
       </>
     ),
     UNFRIENDLY: () => (
