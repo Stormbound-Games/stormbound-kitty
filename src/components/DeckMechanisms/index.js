@@ -365,7 +365,6 @@ export default class DeckMechanisms extends React.Component {
     }))
 
   endTurn = () => {
-    console.log(this.state.specifics.activeDawnsparks)
     this.setState(state => {
       const newState = clone(state)
 
