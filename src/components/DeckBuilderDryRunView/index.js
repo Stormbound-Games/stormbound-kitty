@@ -171,16 +171,33 @@ class DeckBuilderDryRunView extends React.Component {
   }
 
   getFrozenCoreText = () => {
-    const { activeFrozenCores } = this.props.specifics.activeFrozenCores
+    const { activeFrozenCores } = this.props.specifics
     return (
-      <p>
+      <>
         There {activeFrozenCores === 1 ? 'is' : 'are'}{' '}
         {activeFrozenCores ? activeFrozenCores : 'no'}{' '}
         <WikiLink id='W9'>
           Frozen {activeFrozenCores === 1 ? 'Core' : 'Cores'}
         </WikiLink>{' '}
         on the board.
-      </p>
+      </>
+    )
+  }
+
+  getDawnsparksText = () => {
+    const { activeDawnsparks } = this.props.specifics
+    return (
+      <>
+        There {activeDawnsparks === 1 ? 'is' : 'are'}{' '}
+        {activeDawnsparks ? activeDawnsparks : 'no'}{' '}
+        <WikiLink id='W16'>Dawnsparks</WikiLink>{' '}
+        {activeDawnsparks === 0
+          ? ''
+          : activeDawnsparks === 1
+          ? 'unit '
+          : 'units '}
+        on the board.
+      </>
     )
   }
 
@@ -423,11 +440,19 @@ class DeckBuilderDryRunView extends React.Component {
                             : 'turns'}
                           .
                         </p>
-                        {this.props.deck
-                          .map(card => card.id === 'W9')
-                          .filter(Boolean).length
-                          ? this.getFrozenCoreText()
-                          : null}
+                        <p>
+                          {this.props.deck
+                            .map(card => card.id === 'W9')
+                            .filter(Boolean).length
+                            ? this.getFrozenCoreText()
+                            : null}
+                          <br />
+                          {this.props.deck
+                            .map(card => card.id === 'W16')
+                            .filter(Boolean).length
+                            ? this.getDawnsparksText()
+                            : null}
+                        </p>
                       </>
                     )}
                   </Column>
