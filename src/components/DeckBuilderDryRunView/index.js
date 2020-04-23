@@ -177,7 +177,7 @@ class DeckBuilderDryRunView extends React.Component {
       return { ...card, name }
     })
   }
-  
+
   getFrozenCoreText = () => {
     const { activeFrozenCores } = this.props.specifics
     return (
@@ -467,10 +467,10 @@ class DeckBuilderDryRunView extends React.Component {
                           .
                         </p>
                         <p>
-                          {this.props.deck.map(card => card.id).contains('W9')
+                          {this.props.deck.map(card => card.id).includes('W9')
                             ? this.getFrozenCoreText()
                             : null}
-                          {this.props.deck.map(card => card.id).contains('W16')
+                          {this.props.deck.map(card => card.id).includes('W16')
                             ? this.getDawnsparksText()
                             : null}
                         </p>
