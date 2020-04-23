@@ -59,12 +59,12 @@ const Router = props => (
           <Member />
         </Page>
 
-        <Page path='/fan-kit'>
-          <FanKit />
-        </Page>
-
         <Page path='/brawl' active={['HOME', 'BRAWL']}>
           <Brawl />
+        </Page>
+
+        <Page path='/fan-kit' active={['HOME', 'FAN_KIT']}>
+          <FanKit />
         </Page>
 
         <Page path='/faq' active={['HOME', 'FAQ']}>
