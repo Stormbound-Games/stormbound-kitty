@@ -364,6 +364,47 @@ export default class DeckMechanisms extends React.Component {
       deck: this.getIncreasedDeckWeight({ state, reset }),
     }))
 
+  resolveManaRNG = state => {
+    switch (this.state.RNG) {
+      case 'UNFRIENDLY': {
+        state.specifics.activeFrozenCores = 0
+        state.specifics.activeDawnsparks = 0
+        break
+      }
+
+      case 'REGULAR': {
+        const { activeFrozenCores, activeDawnsparks } = state.specifics
+
+        state.specifics.activeFrozenCores = Array.from(
+          { length: activeFrozenCores },
+          _ => Math.random() <= FROZEN_CORE_STAYS
+        ).filter(Boolean).length
+
+        state.specifics.activeDawnsparks = Array.from(
+          { length: activeDawnsparks },
+          _ => Math.random() <= DAWNSPARKS_STAYS
+        ).filter(Boolean).length
+        break
+      }
+
+      default:
+        break
+    }
+
+    const { activeDawnsparks } = state.specifics
+
+    const dawnsparksManagingToGiveMana =
+      this.state.RNG === 'REGULAR'
+        ? Array.from(
+            { length: activeDawnsparks },
+            _ => Math.random() <= DAWNSPARKS_HIT
+          ).filter(Boolean).length
+        : activeDawnsparks
+
+    state.mana += state.specifics.activeFrozenCores * 3
+    state.mana += dawnsparksManagingToGiveMana * 4
+  }
+
   endTurn = () => {
     this.setState(state => {
       const newState = clone(state)
@@ -374,43 +415,12 @@ export default class DeckMechanisms extends React.Component {
       // Reset the mana to 3 + the current turn
       newState.mana = DEFAULT_MANA + state.turn
 
-      // Reset the cycling state
+      // Reset the cycling and freezing state
       newState.hasCycledThisTurn = false
-
-      // Deal with active Frozen Cores depending on whether RNG is friendly,
-      // unfriendly or regular
-      if (state.RNG === 'UNFRIENDLY') {
-        newState.specifics.activeFrozenCores = 0
-      } else if (state.RNG === 'REGULAR') {
-        const { activeFrozenCores } = newState.specifics
-
-        newState.specifics.activeFrozenCores = Array.from(
-          { length: activeFrozenCores },
-          _ => Math.random() <= FROZEN_CORE_STAYS
-        ).filter(Boolean).length
-      }
-
-      // If there are some active Frozen Cores, increment the new available mana
-      newState.mana += newState.specifics.activeFrozenCores * 3
-
-      if (state.RNG === 'UNFRIENDLY') {
-        newState.specifics.activeDawnsparks = 0
-      } else if (state.RNG === 'REGULAR') {
-        const { activeDawnsparks } = newState.specifics
-        newState.specifics.activeDawnsparks = Array.from(
-          { length: activeDawnsparks },
-          _ => state.RNG === 'FRIENDLY' || Math.random() <= DAWNSPARKS_STAYS
-        ).filter(Boolean).length
-      }
-
-      const dawnsparksManagingToGiveMana = Array.from(
-        { length: newState.specifics.activeDawnsparks },
-        _ => state.RNG === 'FRIENDLY' || Math.random() <= DAWNSPARKS_HIT
-      ).filter(Boolean).length
-
-      newState.mana += dawnsparksManagingToGiveMana * 4
-
       newState.specifics.potentialFrozenEnemies = false
+
+      // Resolve mana from Dawnsparks/Frozen Cores
+      this.resolveManaRNG(newState)
 
       return newState
     })
