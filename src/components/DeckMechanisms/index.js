@@ -449,7 +449,7 @@ export default class DeckMechanisms extends React.Component {
     }
 
     if (this.state.turn === 1) {
-      const unplayableSpells = ['W1', 'S10', 'N15', 'N63']
+      const unplayableSpells = ['W1', 'S10', 'N15']
 
       if (this.state.specifics.noUnitsOnFirstTurn) {
         unplayableSpells.push('F4')
