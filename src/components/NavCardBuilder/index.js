@@ -10,14 +10,22 @@ const NavCardBuilder = props => {
     <nav className='Header__nav'>
       <ul className='Header__list Header__list--sub'>
         <li className='Header__item'>
-          <NavLink exact to={id ? `/card/${id}` : '/card'}>
+          <NavLink
+            to={id ? `/card/${id}` : '/card'}
+            active={props.active === 'EDITOR'}
+          >
             Editor
           </NavLink>
         </li>
 
         <li className='Header__item'>
           {id ? (
-            <NavLink to={`/card/${id}/display`}>Display mode</NavLink>
+            <NavLink
+              to={`/card/${id}/display`}
+              active={props.active === 'DISPLAY'}
+            >
+              Display mode
+            </NavLink>
           ) : (
             <span
               className='Header__link Header__link--disabled'
@@ -29,7 +37,9 @@ const NavCardBuilder = props => {
         </li>
 
         <li className='Header__item Header__item--right'>
-          <NavLink to='/card/contest'>Card Contest</NavLink>
+          <NavLink to='/card/contest' active={props.active === 'CONTEST'}>
+            Card Contest
+          </NavLink>
         </li>
       </ul>
     </nav>

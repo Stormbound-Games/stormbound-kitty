@@ -1,20 +1,13 @@
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-const NavLink = ({ exact, active, ...props }) => {
-  const location = useLocation()
-  const classNames = ['Header__link']
-  const re = new RegExp('^' + props.to + '(/|$)')
-
-  if (
-    active ||
-    (!exact && location.pathname.match(re)) ||
-    (exact && location.pathname === props.to)
-  ) {
-    classNames.push('Header__link--active')
-  }
-
-  return <Link {...props} className={classNames.join(' ')} />
-}
+const NavLink = ({ active, ...props }) => (
+  <Link
+    {...props}
+    className={['Header__link', active && 'Header__link--active']
+      .filter(Boolean)
+      .join(' ')}
+  />
+)
 
 export default NavLink

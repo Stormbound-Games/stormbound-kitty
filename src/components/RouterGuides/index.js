@@ -16,25 +16,25 @@ const RouterGuides = () => {
 
   return (
     <Switch>
-      <Page path={`${path}/complete`} active='GUIDES'>
+      <Page path={`${path}/complete`} active={['GUIDES', 'COMPLETE']}>
         <GuideComplete />
       </Page>
-      <Page path={`${path}/deck`} active='GUIDES'>
+      <Page path={`${path}/deck`} active={['GUIDES', 'DECK']}>
         <GuideDeck />
       </Page>
-      <Page path={`${path}/winter`} active='GUIDES'>
+      <Page path={`${path}/winter`} active={['GUIDES', 'WINTER']}>
         <GuideWinter />
       </Page>
-      <Page path={`${path}/pirate`} active='GUIDES'>
+      <Page path={`${path}/pirate`} active={['GUIDES', 'PIRATE']}>
         <GuidePirate />
       </Page>
-      <Page path={`${path}/lexicon`} active='GUIDES'>
+      <Page path={`${path}/lexicon`} active={['GUIDES', 'LEXICON']}>
         <Lexicon />
       </Page>
-      <Page exact path={path} active='GUIDES'>
+      <Page exact path={path} active={['GUIDES', 'INDEX']}>
         <Guides />
       </Page>
-      <Page path='*' active='GUIDES'>
+      <Page path='*' active={['GUIDES']}>
         <Error error='HTTP 404 — Not Found' />
       </Page>
     </Switch>

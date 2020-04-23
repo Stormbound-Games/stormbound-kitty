@@ -15,30 +15,39 @@ const RouterDeckBuilder = () => {
 
   return (
     <Switch>
-      <Page path={`${path}/suggestions`} active='DECK_BUILDER'>
+      <Page
+        path={`${path}/suggestions`}
+        active={['DECK_BUILDER', 'SUGGESTIONS']}
+      >
         <DeckBuilderSuggestions />
       </Page>
-      <Page path={`${path}/:deckId/detail`} active='DECK_BUILDER'>
+      <Page path={`${path}/:deckId/detail`} active={['DECK_BUILDER', 'DETAIL']}>
         <DeckBuilderRoot>
           {state => <DeckBuilderDetailView {...state} />}
         </DeckBuilderRoot>
       </Page>
-      <Page path={`${path}/:deckId/dry-run`} active='DECK_BUILDER'>
+      <Page
+        path={`${path}/:deckId/dry-run`}
+        active={['DECK_BUILDER', 'DRY_RUN']}
+      >
         <DeckBuilderRoot>
           {state => <DeckBuilderDryRunView {...state} />}
         </DeckBuilderRoot>
       </Page>
-      <Page path={`${path}/:deckId/tracker`} active='DECK_BUILDER'>
+      <Page
+        path={`${path}/:deckId/tracker`}
+        active={['DECK_BUILDER', 'TRACKER']}
+      >
         <DeckBuilderRoot>
           {state => <DeckBuilderTrackerView {...state} />}
         </DeckBuilderRoot>
       </Page>
-      <Page path={`${path}/:deckId`} active='DECK_BUILDER'>
+      <Page path={`${path}/:deckId`} active={['DECK_BUILDER', 'EDITOR']}>
         <DeckBuilderRoot>
           {state => <DeckBuilderEditorView {...state} />}
         </DeckBuilderRoot>
       </Page>
-      <Page path={`${path}`} active='DECK_BUILDER'>
+      <Page path={path} active={['DECK_BUILDER', 'EDITOR']}>
         <DeckBuilderRoot>
           {state => <DeckBuilderEditorView {...state} />}
         </DeckBuilderRoot>

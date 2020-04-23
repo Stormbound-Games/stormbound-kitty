@@ -10,14 +10,22 @@ const NavListBuilder = props => {
     <nav className='Header__nav'>
       <ul className='Header__list Header__list--sub'>
         <li className='Header__item'>
-          <NavLink exact to={id ? `/list/${id}` : '/list'}>
+          <NavLink
+            to={id ? `/list/${id}` : '/list'}
+            active={props.active === 'EDITOR'}
+          >
             Editor
           </NavLink>
         </li>
 
         <li className='Header__item'>
           {id ? (
-            <NavLink to={`/list/${id}/display`}>Display mode</NavLink>
+            <NavLink
+              to={`/list/${id}/display`}
+              active={props.active === 'DISPLAY'}
+            >
+              Display mode
+            </NavLink>
           ) : (
             <span
               className='Header__link Header__link--disabled'
@@ -29,11 +37,21 @@ const NavListBuilder = props => {
         </li>
 
         <li className='Header__item Header__item--right'>
-          <NavLink to='/list/ranked/display'>Ranked Tier List</NavLink>
+          <NavLink
+            to='/list/ranked/display'
+            active={props.active === 'RANKED_LIST'}
+          >
+            Ranked Tier List
+          </NavLink>
         </li>
 
         <li className='Header__item'>
-          <NavLink to='/list/equals/display'>Equals Tier List</NavLink>
+          <NavLink
+            to='/list/equals/display'
+            active={props.active === 'EQUALS_LIST'}
+          >
+            Equals Tier List
+          </NavLink>
         </li>
       </ul>
     </nav>

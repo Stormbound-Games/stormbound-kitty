@@ -13,19 +13,22 @@ const RouterListBuilder = () => {
 
   return (
     <Switch>
-      <Page path={`${path}/ranked`} active='LIST_BUILDER'>
+      <Page path={`${path}/ranked`} active={['LIST_BUILDER', 'RANKED_LIST']}>
         <RankedList />
       </Page>
-      <Page path={`${path}/equals`} active='LIST_BUILDER'>
+      <Page path={`${path}/equals`} active={['LIST_BUILDER', 'EQUALS_LIST']}>
         <EqualsList />
       </Page>
-      <Page path={`${path}/:listId/display`} active='LIST_BUILDER'>
+      <Page
+        path={`${path}/:listId/display`}
+        active={['LIST_BUILDER', 'DISPLAY']}
+      >
         <ListBuilderDisplayView />
       </Page>
-      <Page path={`${path}/:listId`} active='LIST_BUILDER'>
+      <Page path={`${path}/:listId`} active={['LIST_BUILDER', 'EDITOR']}>
         <ListBuilderEditorView />
       </Page>
-      <Page path={path} active='LIST_BUILDER'>
+      <Page path={path} active={['LIST_BUILDER', 'EDITOR']}>
         <ListBuilderEditorView />
       </Page>
     </Switch>

@@ -54,23 +54,23 @@ const Router = props => (
           <RouterListBuilder />
         </Route>
 
-        <Page path='/member/:memberId' active='HOME'>
+        <Page path='/member/:memberId'>
           <Member />
         </Page>
 
-        <Page path='/brawl' active='HOME'>
+        <Page path='/brawl' active={['HOME', 'BRAWL']}>
           <Brawl />
         </Page>
 
-        <Page path='/faq' active='HOME'>
+        <Page path='/faq' active={['HOME', 'FAQ']}>
           <FAQ />
         </Page>
 
-        <Page exact path='/' active='HOME'>
+        <Page exact path='/' active={['HOME', 'NEWS']}>
           <Home />
         </Page>
 
-        <Page path='*' active='HOME'>
+        <Page path='*'>
           <Error error='HTTP 404 — Not Found' />
         </Page>
       </Switch>

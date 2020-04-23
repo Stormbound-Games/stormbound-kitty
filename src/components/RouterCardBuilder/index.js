@@ -12,16 +12,19 @@ const RouterCardBuilder = () => {
 
   return (
     <Switch>
-      <Page path={`${path}/contest`} active='CARD_BUILDER'>
+      <Page path={`${path}/contest`} active={['CARD_BUILDER', 'CONTEST']}>
         <CardBuilderContest />
       </Page>
-      <Page path={`${path}/:cardId/display`} active='CARD_BUILDER'>
+      <Page
+        path={`${path}/:cardId/display`}
+        active={['CARD_BUILDER', 'DISPLAY']}
+      >
         <CardBuilderDisplay />
       </Page>
-      <Page path={`${path}/:cardId`} active='CARD_BUILDER'>
+      <Page path={`${path}/:cardId`} active={['CARD_BUILDER', 'EDITOR']}>
         <CardBuilderRoot />
       </Page>
-      <Page path={path} active='CARD_BUILDER'>
+      <Page path={path} active={['CARD_BUILDER', 'EDITOR']}>
         <CardBuilderRoot />
       </Page>
     </Switch>

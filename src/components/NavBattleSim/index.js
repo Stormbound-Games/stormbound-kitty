@@ -10,14 +10,22 @@ const NavBattleSim = props => {
     <nav className='Header__nav'>
       <ul className='Header__list Header__list--sub'>
         <li className='Header__item'>
-          <NavLink exact to={id ? `/sim/${id}` : '/sim'}>
+          <NavLink
+            to={id ? `/sim/${id}` : '/sim'}
+            active={props.active === 'EDITOR'}
+          >
             Simulator
           </NavLink>
         </li>
 
         <li className='Header__item'>
           {id ? (
-            <NavLink to={`/sim/${id}/display`}>Display mode</NavLink>
+            <NavLink
+              to={`/sim/${id}/display`}
+              active={props.active === 'DISPLAY'}
+            >
+              Display mode
+            </NavLink>
           ) : (
             <span
               className='Header__link Header__link--disabled'
@@ -29,7 +37,9 @@ const NavBattleSim = props => {
         </li>
 
         <li className='Header__item  Header__item--right'>
-          <NavLink to='/sim/puzzles'>Puzzles</NavLink>
+          <NavLink to='/sim/puzzles' active={props.active === 'PUZZLES'}>
+            Puzzles
+          </NavLink>
         </li>
       </ul>
     </nav>

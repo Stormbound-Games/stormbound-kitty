@@ -6,17 +6,21 @@ const NavHome = props => {
     <nav className='Header__nav'>
       <ul className='Header__list Header__list--sub'>
         <li className='Header__item'>
-          <NavLink exact to='/'>
+          <NavLink to='/' active={props.active === 'NEWS'}>
             News
           </NavLink>
         </li>
 
         <li className='Header__item'>
-          <NavLink to='/brawl'>Brawl</NavLink>
+          <NavLink to='/brawl' active={props.active === 'BRAWL'}>
+            Brawl
+          </NavLink>
         </li>
 
         <li className='Header__item Header__item--right'>
-          <NavLink to='/faq'>FAQ</NavLink>
+          <NavLink to='/faq' active={props.active === 'FAQ'}>
+            FAQ
+          </NavLink>
         </li>
       </ul>
     </nav>

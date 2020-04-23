@@ -16,23 +16,25 @@ import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
 
 const SubNav = props => {
-  switch (props.active) {
+  const [topActive, bottomActive] = props.active || []
+
+  switch (topActive) {
     case 'HOME':
-      return <NavHome />
+      return <NavHome active={bottomActive} />
     case 'BATTLE_SIM':
-      return <NavBattleSim />
+      return <NavBattleSim active={bottomActive} />
     case 'DECK_BUILDER':
-      return <NavDeckBuilder />
+      return <NavDeckBuilder active={bottomActive} />
     case 'CARD_BUILDER':
-      return <NavCardBuilder />
+      return <NavCardBuilder active={bottomActive} />
     case 'LIST_BUILDER':
-      return <NavListBuilder />
+      return <NavListBuilder active={bottomActive} />
     case 'GUIDES':
-      return <NavGuides />
+      return <NavGuides active={bottomActive} />
     case 'STORIES':
-      return <NavStories />
+      return <NavStories active={bottomActive} />
     case 'COLLECTION':
-      return <NavCollection />
+      return <NavCollection active={bottomActive} />
     default:
       return null
   }
@@ -73,59 +75,63 @@ const Wrapper = props => {
   )
 }
 
-const Header = props => (
-  <header role='banner' className='Header'>
-    <Wrapper>
-      <nav className='Header__nav'>
-        <ul className='Header__list'>
-          <Only.Desktop>
+const Header = props => {
+  const [topActive] = props.active || []
+
+  return (
+    <header role='banner' className='Header'>
+      <Wrapper>
+        <nav className='Header__nav'>
+          <ul className='Header__list'>
+            <Only.Desktop>
+              <li className='Header__item'>
+                <NavLink to='/' active={topActive === 'HOME'}>
+                  <Icon icon='home' /> Home
+                </NavLink>
+              </li>
+            </Only.Desktop>
             <li className='Header__item'>
-              <NavLink to='/' active={props.active === 'HOME'}>
-                <Icon icon='home' /> Home
+              <NavLink to='/sim' active={topActive === 'BATTLE_SIM'}>
+                <Icon icon='sword' /> Battle Sim
               </NavLink>
             </li>
-          </Only.Desktop>
-          <li className='Header__item'>
-            <NavLink to='/sim' active={props.active === 'BATTLE_SIM'}>
-              <Icon icon='sword' /> Battle Sim
-            </NavLink>
-          </li>
-          <li className='Header__item'>
-            <NavLink to='/deck' active={props.active === 'DECK_BUILDER'}>
-              <Icon icon='stack' /> Deck builder
-            </NavLink>
-          </li>
-          <li className='Header__item'>
-            <NavLink to='/collection' active={props.active === 'COLLECTION'}>
-              <Icon icon='books' /> Collection
-            </NavLink>
-          </li>
-          <li className='Header__item'>
-            <NavLink to='/card' active={props.active === 'CARD_BUILDER'}>
-              <Icon icon='wand' /> Card builder
-            </NavLink>
-          </li>
-          <li className='Header__item'>
-            <NavLink to='/list' active={props.active === 'LIST_BUILDER'}>
-              <Icon icon='template' /> List Builder
-            </NavLink>
-          </li>
-          <li className='Header__item'>
-            <NavLink to='/stories' active={props.active === 'STORIES'}>
-              <Icon icon='quill' /> Stories
-            </NavLink>
-          </li>
-          <li className='Header__item'>
-            <NavLink to='/guides' active={props.active === 'GUIDES'}>
-              <Icon icon='compass' /> Guides
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+            <li className='Header__item'>
+              <NavLink to='/deck' active={topActive === 'DECK_BUILDER'}>
+                <Icon icon='stack' /> Deck builder
+              </NavLink>
+            </li>
+            <li className='Header__item'>
+              <NavLink to='/collection' active={topActive === 'COLLECTION'}>
+                <Icon icon='books' /> Collection
+              </NavLink>
+            </li>
+            <li className='Header__item'>
+              <NavLink to='/card' active={topActive === 'CARD_BUILDER'}>
+                <Icon icon='wand' /> Card builder
+              </NavLink>
+            </li>
+            <li className='Header__item'>
+              <NavLink to='/list' active={topActive === 'LIST_BUILDER'}>
+                <Icon icon='template' /> List Builder
+              </NavLink>
+            </li>
+            <li className='Header__item'>
+              <NavLink to='/stories' active={topActive === 'STORIES'}>
+                <Icon icon='quill' /> Stories
+              </NavLink>
+            </li>
+            <li className='Header__item'>
+              <NavLink to='/guides' active={topActive === 'GUIDES'}>
+                <Icon icon='compass' /> Guides
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
 
-      {Boolean(props.active) && <SubNav active={props.active} />}
-    </Wrapper>
-  </header>
-)
+        {Boolean(topActive) && <SubNav active={props.active} />}
+      </Wrapper>
+    </header>
+  )
+}
 
 export default Header

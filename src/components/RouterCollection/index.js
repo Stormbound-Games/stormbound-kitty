@@ -12,13 +12,13 @@ const RouterCollection = () => {
 
   return (
     <Switch>
-      <Page path={`${path}/books`} active='COLLECTION'>
+      <Page path={`${path}/books`} active={['COLLECTION', 'BOOKS']}>
         <BooksCalculator />
       </Page>
-      <Page path={`${path}/stats`} active='COLLECTION'>
+      <Page path={`${path}/stats`} active={['COLLECTION', 'STATS']}>
         <CollectionStats />
       </Page>
-      <Page exact path={path} active='COLLECTION'>
+      <Page exact path={path} active={['COLLECTION', 'INDEX']}>
         <Collection />
       </Page>
     </Switch>

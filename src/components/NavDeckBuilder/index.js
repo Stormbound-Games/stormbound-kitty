@@ -13,13 +13,21 @@ const NavDeckBuilder = props => {
     <nav className='Header__nav'>
       <ul className='Header__list Header__list--sub'>
         <li className='Header__item'>
-          <NavLink exact to={id ? `/deck/${id}` : '/deck'}>
+          <NavLink
+            to={id ? `/deck/${id}` : '/deck'}
+            active={props.active === 'EDITOR'}
+          >
             Editor
           </NavLink>
         </li>
         <li className='Header__item'>
           {hasBigEnoughDeck ? (
-            <NavLink to={`/deck/${id}/detail`}>Detail</NavLink>
+            <NavLink
+              to={`/deck/${id}/detail`}
+              active={props.active === 'DETAIL'}
+            >
+              Detail
+            </NavLink>
           ) : (
             <span
               className='Header__link Header__link--disabled'
@@ -31,7 +39,12 @@ const NavDeckBuilder = props => {
         </li>
         <li className='Header__item'>
           {hasBigEnoughDeck ? (
-            <NavLink to={`/deck/${id}/dry-run`}>Dry-run</NavLink>
+            <NavLink
+              to={`/deck/${id}/dry-run`}
+              active={props.active === 'DRY_RUN'}
+            >
+              Dry-run
+            </NavLink>
           ) : (
             <span
               className='Header__link Header__link--disabled'
@@ -51,7 +64,12 @@ const NavDeckBuilder = props => {
                 Tracker
               </span>
             ) : (
-              <NavLink to={`/deck/${id}/tracker`}>Tracker</NavLink>
+              <NavLink
+                to={`/deck/${id}/tracker`}
+                active={props.active === 'TRACKER'}
+              >
+                Tracker
+              </NavLink>
             )
           ) : (
             <span
@@ -64,7 +82,12 @@ const NavDeckBuilder = props => {
         </li>
 
         <li className='Header__item Header__item--right'>
-          <NavLink to='/deck/suggestions'>Ready decks</NavLink>
+          <NavLink
+            to='/deck/suggestions'
+            active={props.active === 'SUGGESTIONS'}
+          >
+            Ready decks
+          </NavLink>
         </li>
       </ul>
     </nav>

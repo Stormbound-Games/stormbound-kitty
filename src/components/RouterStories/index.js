@@ -12,28 +12,28 @@ const RouterStories = () => {
 
   return (
     <Switch>
-      <Page path={`${path}/neutral`} active='STORIES'>
+      <Page path={`${path}/neutral`} active={['STORIES', 'NEUTRAL']}>
         <StoriesCategory category='neutral' />
       </Page>
-      <Page path={`${path}/ironclad`} active='STORIES'>
+      <Page path={`${path}/ironclad`} active={['STORIES', 'IRONCLAD']}>
         <StoriesCategory category='ironclad' />
       </Page>
-      <Page path={`${path}/swarm`} active='STORIES'>
+      <Page path={`${path}/swarm`} active={['STORIES', 'SWARM']}>
         <StoriesCategory category='swarm' />
       </Page>
-      <Page path={`${path}/winter`} active='STORIES'>
+      <Page path={`${path}/winter`} active={['STORIES', 'WINTER']}>
         <StoriesCategory category='winter' />
       </Page>
-      <Page path={`${path}/shadowfen`} active='STORIES'>
+      <Page path={`${path}/shadowfen`} active={['STORIES', 'SHADOWFEN']}>
         <StoriesCategory category='shadowfen' />
       </Page>
-      <Page path={`${path}/lore`} active='STORIES'>
+      <Page path={`${path}/lore`} active={['STORIES', 'LORE']}>
         <StoriesCategory category='lore' />
       </Page>
-      <Page path={`${path}/:storyId`} active='STORIES'>
+      <Page path={`${path}/:storyId`} active={['STORIES']}>
         <Story />
       </Page>
-      <Page path={path} active='STORIES'>
+      <Page path={path} active={['STORIES', 'INDEX']}>
         <Stories />
       </Page>
     </Switch>

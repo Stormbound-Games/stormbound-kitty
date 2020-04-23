@@ -7,16 +7,23 @@ const NavStories = props => (
   <nav className='Header__nav'>
     <ul className='Header__list Header__list--sub'>
       <li className='Header__item'>
-        <NavLink exact to='/stories'>
+        <NavLink to='/stories' active={props.active === 'INDEX'}>
           All stories
         </NavLink>
       </li>
       <li className='Header__item'>
-        <NavLink to='/stories/lore'>Lore</NavLink>
+        <NavLink to='/stories/lore' active={props.active === 'LORE'}>
+          Lore
+        </NavLink>
       </li>
       {Object.keys(FACTIONS).map(faction => (
         <li className='Header__item' key={faction}>
-          <NavLink to={`/stories/${faction}`}>{capitalise(faction)}</NavLink>
+          <NavLink
+            to={`/stories/${faction}`}
+            active={props.active === faction.toUpperCase()}
+          >
+            {capitalise(faction)}
+          </NavLink>
         </li>
       ))}
     </ul>
