@@ -18,7 +18,7 @@ export default {
 
   DR_MANA: '[data-testid="mana-pool"]',
   DR_CHANCES_CHECKBOX: '[data-testid="display-chance"]',
-  DR_DECK_CARD: '.Deck__name',
+  DR_DECK_CARD: '.Deck__card',
   DR_CARD: '[data-testid="hand"] [data-testid="card"]',
   DR_CYCLE_BTN: '[data-testid="cycle-btn"]',
   DR_PLAY_BTN: '[data-testid="play-btn"]',

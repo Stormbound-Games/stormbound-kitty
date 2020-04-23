@@ -17,17 +17,25 @@ import WikiLink from '../WikiLink'
 import './index.css'
 
 export default props => {
+  const params = new URLSearchParams(window.location.search)
+  // The mode is theoretically not quite supposed to be changed at run time, but
+  // this is a workaround to be able to pick an initial hand for testing
+  // purposes. The mode is restored to `AUTOMATIC` as soon as the 4th card has
+  // been picked.
+  const [mode, setMode] = React.useState(params.get('mode') || 'AUTOMATIC')
   const [equalsMode, setEqualsMode] = React.useState(false)
   const deck = equalsMode
     ? props.deck.map(card => ({ ...card, level: 1 }))
     : props.deck
 
   return (
-    <DeckMechanisms deck={deck}>
+    <DeckMechanisms deck={deck} mode={mode}>
       {state => (
         <DeckBuilderDryRunView
           {...props}
           {...state}
+          mode={mode}
+          setMode={setMode}
           equalsMode={equalsMode}
           setEqualsMode={setEqualsMode}
         />
@@ -169,7 +177,7 @@ class DeckBuilderDryRunView extends React.Component {
       return { ...card, name }
     })
   }
-
+  
   getFrozenCoreText = () => {
     const { activeFrozenCores } = this.props.specifics
     return (
@@ -201,6 +209,18 @@ class DeckBuilderDryRunView extends React.Component {
       </>
     )
   }
+  onDeckCardClick = card => {
+    this.props.draw(card.id)
+
+    // This here is a workaround to be able to pick the initial hand for testing
+    // purposes; it switches the deck mechanisms back to ‘AUTOMATIC’ as soon as
+    // the hand has been filled.
+    // It checks for 3 cards in the length as the fourth was just drawn on L178
+    // but has not made its way through the hand just yet.
+    if (this.props.hand.length === 3) {
+      this.props.setMode('AUTOMATIC')
+    }
+  }
 
   render() {
     return (
@@ -210,7 +230,12 @@ class DeckBuilderDryRunView extends React.Component {
         <Row desktopOnly wideGutter>
           <Column width={33}>
             <Title>Your deck</Title>
-            <Deck deck={this.getDisplayDeck()} />
+            <Deck
+              deck={this.getDisplayDeck()}
+              onClick={
+                this.props.mode === 'MANUAL' ? this.onDeckCardClick : undefined
+              }
+            />
 
             <Row>
               <Column>
