@@ -127,7 +127,10 @@ describe('Deck Builder — Dry-run', () => {
       }
     )
   })
-  it('should not be possible to play Unhealthy Hysteria on turn 1', () => {
+
+  it('should not be possible to play Unhealthy Hysteria before turn 2', () => {
+    const UNHEALTHY_HYSTERIA_DECK =
+      'NU4xLDVOMiw1TjMsNU4yMyw1TjQsNU41LDVONiw1TjYyLDVONjMsNU42Nyw1TjY2LDVONw'
     const HAND = ['N1', 'N2', 'N3', 'N63']
 
     cy.visit(`/deck/${UNHEALTHY_HYSTERIA_DECK}/dry-run?mode=MANUAL`)
@@ -137,14 +140,6 @@ describe('Deck Builder — Dry-run', () => {
       .drSelect('N63')
       .get(s.DR_PLAY_BTN)
       .should('be.disabled')
-  })
-
-  it('should be possible to play Unhealthy Hysteria on turn 2', () => {
-    const HAND = ['N1', 'N2', 'N3', 'N63']
-
-    cy.visit(`/deck/${UNHEALTHY_HYSTERIA_DECK}/dry-run?mode=MANUAL`)
-
-      .drDrawHand(HAND)
 
       .drEndTurn()
 
@@ -152,7 +147,6 @@ describe('Deck Builder — Dry-run', () => {
       .get(s.DR_PLAY_BTN)
       .should('not.be.disabled')
 
-      .drSelect('N63')
       .drPlay('N63')
   })
 })
