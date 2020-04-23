@@ -42,6 +42,7 @@ const Deck = props => {
                 .filter(Boolean)
                 .join(' ')}
               key={card.id + index}
+              data-testid={card.id}
             >
               {props.onClick && (
                 <button

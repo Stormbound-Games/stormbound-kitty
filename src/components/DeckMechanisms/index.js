@@ -39,6 +39,7 @@ const getDefaultState = props => ({
 export default class DeckMechanisms extends React.Component {
   static defaultProps = {
     turn: 1,
+    mode: 'AUTOMATIC',
   }
 
   constructor(props) {
