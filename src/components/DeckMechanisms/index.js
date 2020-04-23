@@ -20,6 +20,22 @@ export const FRIENDLY_CHANCES = {
   W16: DAWNSPARKS_HITS * DAWNSPARKS_STAYS,
 }
 
+const getDefaultState = props => ({
+  hand: [],
+  RNG: 'REGULAR',
+  hasCycledThisTurn: false,
+  specifics: {
+    activeFrozenCores: 0,
+    activeDawnsparks: 0,
+    noUnitsOnFirstTurn: true,
+    potentialFrozenEnemies: false,
+  },
+  turn: props.turn,
+  mana: DEFAULT_MANA + (props.turn - 1),
+  deck: resolveDeckWeight(props.deck),
+  playerOrder: 'FIRST',
+})
+
 export default class DeckMechanisms extends React.Component {
   static defaultProps = {
     turn: 1,
@@ -27,24 +43,7 @@ export default class DeckMechanisms extends React.Component {
 
   constructor(props) {
     super(props)
-
-    this.DEFAULT_STATE = {
-      hand: [],
-      RNG: 'REGULAR',
-      hasCycledThisTurn: false,
-      specifics: {
-        activeFrozenCores: 0,
-        activeDawnsparks: 0,
-        noUnitsOnFirstTurn: true,
-        potentialFrozenEnemies: false,
-      },
-      turn: props.turn,
-      mana: DEFAULT_MANA + (props.turn - 1),
-      deck: resolveDeckWeight(props.deck),
-      playerOrder: 'FIRST',
-    }
-
-    this.state = this.DEFAULT_STATE
+    this.state = getDefaultState(props)
   }
 
   componentDidMount() {
@@ -463,7 +462,7 @@ export default class DeckMechanisms extends React.Component {
   }
 
   reset = () => {
-    this.setState({ ...this.DEFAULT_STATE }, this.drawHand)
+    this.setState({ ...getDefaultState(this.props) }, this.drawHand)
   }
 
   setPlayerOrder = playerOrder => {
