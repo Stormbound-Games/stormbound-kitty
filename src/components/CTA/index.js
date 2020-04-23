@@ -12,6 +12,7 @@ const CTA = props =>
       target={props.target}
       rel={props.rel}
       aria-label={props['aria-label']}
+      download={props.download}
     >
       <span className='CTA__content'>{props.children}</span>
     </a>
