@@ -24,8 +24,6 @@ describe('Deck Builder — Dry-run', () => {
     'NU4xLDVOMiw1RjMsNU4zLDVONCw0TjUsNE42LDJONjIsMk42NywyTjY2LDVOMTIsNU4xNg=='
   const EXPENSIVE_DECK =
     'Mk42OCw0TjQ3LDNONDgsNE40OSwyTjUwLDNONTEsNE41MiwzTjUzLDVONTQsMk41NSwyTjU2LDNONTc='
-  const UNHEALTHY_HYSTERIA_DECK =
-    'NU4xLDVOMiw1TjMsNU4yMyw1TjQsNU41LDVONiw1TjYyLDVONjMsNU42Nyw1TjY2LDVONw'
 
   before(() => {
     cy.visit(`/deck/${CHEAP_DECK}/dry-run`)
@@ -144,9 +142,6 @@ describe('Deck Builder — Dry-run', () => {
       .drEndTurn()
 
       .drSelect('N63')
-      .get(s.DR_PLAY_BTN)
-      .should('not.be.disabled')
-
       .drPlay('N63')
   })
 })
