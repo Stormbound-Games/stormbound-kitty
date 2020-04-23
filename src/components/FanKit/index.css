@@ -54,3 +54,7 @@
 .FanKit__download:hover::before {
   background-color: var(--beige);
 }
+
+.FanKit__CTA {
+  min-width: 0;
+}

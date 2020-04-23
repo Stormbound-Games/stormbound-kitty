@@ -45,12 +45,16 @@ const DownloadDialog = props => {
           </p>
           <Row>
             <Column>
-              <CTA href={image} download>
+              <CTA href={image} download className='FanKit__CTA'>
                 PNG
               </CTA>
             </Column>
             <Column>
-              <CTA href={image.replace('.png', '.webp')} download>
+              <CTA
+                href={image.replace('.png', '.webp')}
+                download
+                className='FanKit__CTA'
+              >
                 WebP
               </CTA>
             </Column>
