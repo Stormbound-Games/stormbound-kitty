@@ -98,7 +98,10 @@ const FanKit = props => {
         activeCard={activeCard}
         dialogRef={instance => {
           dialogRef.current = instance
-          dialogRef.current.on('hide', () => setActive(null))
+
+          if (dialogRef.current) {
+            dialogRef.current.on('hide', () => setActive(null))
+          }
         }}
         close={() => dialogRef.current.hide()}
       />
