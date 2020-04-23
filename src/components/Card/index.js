@@ -45,11 +45,8 @@ const Card = props => {
               ? `url("/assets/images/missing-hero.${ext}")`
               : `url("/assets/images/missing-${props.type}.${ext}")`
             : props.rarity === 'legendary'
-            ? // For some reason the light reflection in the `webp` version of
-              // these backgrounds looks very blurry, which is not worth the
-              // file size reduction.
-              `url("/assets/images/${props.faction}-hero.png")`
-            : `url("/assets/images/${props.faction}-${props.type}.png")`,
+            ? `url("/assets/images/${props.faction}-hero.${ext}")`
+            : `url("/assets/images/${props.faction}-${props.type}.${ext}")`,
         }}
       >
         <header className='Card__header'>
