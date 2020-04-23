@@ -418,7 +418,7 @@ export default class DeckMechanisms extends React.Component {
 
       // Resolve mana from Dawnsparks/Frozen Cores
       this.resolveManaRNG(newState)
-
+      
       return newState
     })
 
