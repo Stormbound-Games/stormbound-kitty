@@ -4,9 +4,37 @@ import clone from 'lodash.clonedeep'
 import { DEFAULT_MANA } from '../../constants/battle'
 import arrayRandom from '../../helpers/arrayRandom'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getBinomialRandomVariableResult from '../../helpers/getBinomialRandomVariableResult'
 import resolveDeckWeight, {
   increaseCardWeight,
 } from '../../helpers/resolveDeckWeight'
+
+const DAWNSPARKS_STAYS = 0.71
+const DAWNSPARKS_HITS = 0.71
+const FROZEN_CORE_STAYS = 0.5
+const AHMI_RETURNS = 0.5
+
+export const FRIENDLY_CHANCES = {
+  W9: FROZEN_CORE_STAYS,
+  S3: AHMI_RETURNS,
+  W16: DAWNSPARKS_HITS * DAWNSPARKS_STAYS,
+}
+
+const getDefaultState = props => ({
+  hand: [],
+  RNG: 'REGULAR',
+  hasCycledThisTurn: false,
+  specifics: {
+    activeFrozenCores: 0,
+    activeDawnsparks: 0,
+    noUnitsOnFirstTurn: true,
+    potentialFrozenEnemies: false,
+  },
+  turn: props.turn,
+  mana: DEFAULT_MANA + (props.turn - 1),
+  deck: resolveDeckWeight(props.deck),
+  playerOrder: 'FIRST',
+})
 
 export default class DeckMechanisms extends React.Component {
   static defaultProps = {
@@ -16,22 +44,7 @@ export default class DeckMechanisms extends React.Component {
 
   constructor(props) {
     super(props)
-
-    this.state = {
-      hand: [],
-      RNG: 'REGULAR',
-      hasCycledThisTurn: false,
-      specifics: {
-        activeFrozenCores: 0,
-        liveDawnsparks: false,
-        noUnitsOnFirstTurn: true,
-        potentialFrozenEnemies: false,
-      },
-      turn: props.turn,
-      mana: DEFAULT_MANA + (props.turn - 1),
-      deck: resolveDeckWeight(props.deck),
-      playerOrder: 'FIRST',
-    }
+    this.state = getDefaultState(props)
   }
 
   componentDidMount() {
@@ -138,7 +151,7 @@ export default class DeckMechanisms extends React.Component {
             newState.specifics.activeFrozenCores += 1
             break
           case 'W16':
-            newState.specifics.liveDawnsparks = true
+            newState.specifics.activeDawnsparks += 1
             break
           case 'W2':
           case 'W6':
@@ -284,7 +297,7 @@ export default class DeckMechanisms extends React.Component {
       case 'S3': {
         if (
           this.state.RNG === 'FRIENDLY' ||
-          (this.state.RNG === 'REGULAR' && Math.random() >= 0.5)
+          (this.state.RNG === 'REGULAR' && Math.random() <= AHMI_RETURNS)
         ) {
           this.setState(state => ({ hand: [...state.hand, 'S3'] }))
         }
@@ -352,6 +365,43 @@ export default class DeckMechanisms extends React.Component {
       deck: this.getIncreasedDeckWeight({ state, reset }),
     }))
 
+  resolveManaRNG = state => {
+    switch (this.state.RNG) {
+      case 'UNFRIENDLY': {
+        state.specifics.activeFrozenCores = 0
+        state.specifics.activeDawnsparks = 0
+        break
+      }
+
+      case 'REGULAR': {
+        const { activeFrozenCores, activeDawnsparks } = state.specifics
+
+        state.specifics.activeFrozenCores = getBinomialRandomVariableResult(
+          activeFrozenCores,
+          FROZEN_CORE_STAYS
+        )
+        state.specifics.activeDawnsparks = getBinomialRandomVariableResult(
+          activeDawnsparks,
+          DAWNSPARKS_STAYS
+        )
+
+        state.mana += state.specifics.activeFrozenCores * 3
+        state.mana +=
+          getBinomialRandomVariableResult(
+            state.specifics.activeDawnsparks,
+            DAWNSPARKS_HITS
+          ) * 4
+        break
+      }
+
+      case 'FRIENDLY':
+      default:
+        state.mana += state.specifics.activeFrozenCores * 3
+        state.mana += state.specifics.activeDawnsparks * 4
+        break
+    }
+  }
+
   endTurn = () => {
     this.setState(state => {
       const newState = clone(state)
@@ -362,35 +412,12 @@ export default class DeckMechanisms extends React.Component {
       // Reset the mana to 3 + the current turn
       newState.mana = DEFAULT_MANA + state.turn
 
-      // Reset the cycling state
+      // Reset the cycling state and potential frozen enemies
       newState.hasCycledThisTurn = false
-
-      // Deal with active Frozen Cores depending on whether RNG is friendly,
-      // unfriendly or regular
-      if (state.RNG === 'UNFRIENDLY') {
-        newState.specifics.activeFrozenCores -= 1
-      } else if (state.RNG === 'REGULAR') {
-        const { activeFrozenCores } = newState.specifics
-
-        newState.specifics.activeFrozenCores = Array.from(
-          { length: activeFrozenCores },
-          _ => Math.random() >= 0.5
-        ).filter(Boolean).length
-      }
-
-      // If there are some active Frozen Cores, increment the new available mana
-      newState.mana += newState.specifics.activeFrozenCores * 3
-
-      if (newState.specifics.liveDawnsparks) {
-        newState.mana +=
-          state.RNG === 'FRIENDLY' ||
-          (state.RNG === 'REGULAR' && Math.random() >= 0.5)
-            ? 4
-            : 0
-        newState.specifics.liveDawnsparks = false
-      }
-
       newState.specifics.potentialFrozenEnemies = false
+
+      // Resolve mana from Dawnsparks/Frozen Cores
+      this.resolveManaRNG(newState)
 
       return newState
     })
@@ -424,7 +451,7 @@ export default class DeckMechanisms extends React.Component {
 
     if (this.state.turn === 1) {
       const unplayableSpells = ['W1', 'S10', 'N15']
-      
+
       if (this.state.specifics.noUnitsOnFirstTurn) {
         unplayableSpells.push('F4')
       }
@@ -436,24 +463,7 @@ export default class DeckMechanisms extends React.Component {
   }
 
   reset = () => {
-    this.setState(
-      {
-        hand: [],
-        RNG: 'REGULAR',
-        hasCycledThisTurn: false,
-        specifics: {
-          activeFrozenCores: 0,
-          liveDawnsparks: false,
-          noUnitsOnFirstTurn: true,
-          potentialFrozenEnemies: false,
-        },
-        turn: this.props.turn,
-        mana: DEFAULT_MANA + (this.props.turn - 1),
-        deck: resolveDeckWeight(this.props.deck),
-        playerOrder: 'FIRST',
-      },
-      this.drawHand
-    )
+    this.setState({ ...getDefaultState(this.props) }, this.drawHand)
   }
 
   setPlayerOrder = playerOrder => {
