@@ -170,6 +170,20 @@ class DeckBuilderDryRunView extends React.Component {
     })
   }
 
+  getFrozenCoreText = () => {
+    const { activeFrozenCores } = this.props.specifics.activeFrozenCores
+    return (
+      <p>
+        There {activeFrozenCores === 1 ? 'is' : 'are'}{' '}
+        {activeFrozenCores ? activeFrozenCores : 'no'}{' '}
+        <WikiLink id='W9'>
+          Frozen {activeFrozenCores === 1 ? 'Core' : 'Cores'}
+        </WikiLink>{' '}
+        on the board.
+      </p>
+    )
+  }
+
   render() {
     return (
       <>
@@ -409,6 +423,11 @@ class DeckBuilderDryRunView extends React.Component {
                             : 'turns'}
                           .
                         </p>
+                        {this.props.deck
+                          .map(card => card.id === 'W9')
+                          .filter(Boolean).length
+                          ? this.getFrozenCoreText()
+                          : null}
                       </>
                     )}
                   </Column>
