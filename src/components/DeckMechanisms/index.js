@@ -4,19 +4,20 @@ import clone from 'lodash.clonedeep'
 import { DEFAULT_MANA } from '../../constants/battle'
 import arrayRandom from '../../helpers/arrayRandom'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getBinomialRandomVariableResult from '../../helpers/getBinomialRandomVariableResult'
 import resolveDeckWeight, {
   increaseCardWeight,
 } from '../../helpers/resolveDeckWeight'
 
 const DAWNSPARKS_STAYS = 0.71
-const DAWNSPARKS_HIT = 0.71
+const DAWNSPARKS_HITS = 0.71
 const FROZEN_CORE_STAYS = 0.5
 const AHMI_RETURNS = 0.5
 
 export const FRIENDLY_CHANCES = {
   W9: FROZEN_CORE_STAYS,
   S3: AHMI_RETURNS,
-  W16: DAWNSPARKS_HIT * DAWNSPARKS_STAYS,
+  W16: DAWNSPARKS_HITS * DAWNSPARKS_STAYS,
 }
 
 export default class DeckMechanisms extends React.Component {
@@ -375,15 +376,14 @@ export default class DeckMechanisms extends React.Component {
       case 'REGULAR': {
         const { activeFrozenCores, activeDawnsparks } = state.specifics
 
-        state.specifics.activeFrozenCores = Array.from(
-          { length: activeFrozenCores },
-          _ => Math.random() <= FROZEN_CORE_STAYS
-        ).filter(Boolean).length
-
-        state.specifics.activeDawnsparks = Array.from(
-          { length: activeDawnsparks },
-          _ => Math.random() <= DAWNSPARKS_STAYS
-        ).filter(Boolean).length
+        state.specifics.activeFrozenCores = getBinomialRandomVariableResult(
+          activeFrozenCores,
+          FROZEN_CORE_STAYS
+        )
+        state.specifics.activeDawnsparks = getBinomialRandomVariableResult(
+          activeDawnsparks,
+          DAWNSPARKS_STAYS
+        )
         break
       }
 
@@ -395,10 +395,7 @@ export default class DeckMechanisms extends React.Component {
 
     const dawnsparksManagingToGiveMana =
       this.state.RNG === 'REGULAR'
-        ? Array.from(
-            { length: activeDawnsparks },
-            _ => Math.random() <= DAWNSPARKS_HIT
-          ).filter(Boolean).length
+        ? getBinomialRandomVariableResult(activeDawnsparks, DAWNSPARKS_HITS)
         : activeDawnsparks
 
     state.mana += state.specifics.activeFrozenCores * 3
