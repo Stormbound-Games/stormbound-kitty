@@ -397,6 +397,7 @@ export default class DeckMechanisms extends React.Component {
         newState.specifics.activeDawnsparks = 0
       } else if (state.RNG === 'REGULAR') {
         const { activeDawnsparks } = newState.specifics
+
         newState.specifics.activeDawnsparks = Array.from(
           { length: activeDawnsparks },
           _ => state.RNG === 'FRIENDLY' || Math.random() <= DAWNSPARKS_STAYS
