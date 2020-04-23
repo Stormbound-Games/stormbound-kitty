@@ -30,7 +30,7 @@ const getDefaultState = props => ({
     activeFrozenCores: 0,
     activeDawnsparks: 0,
     noUnitsOnFirstTurn: true,
-    potentialFrozenEnemiesInAColumn: 0,
+    potentialFrozenEnemies: 0,
   },
   turn: props.turn,
   mana: DEFAULT_MANA + (props.turn - 1),
@@ -157,15 +157,15 @@ export default class DeckMechanisms extends React.Component {
             break
           case 'W2':
             // Frosthexers
-            newState.specifics.potentialFrozenEnemiesInAColumn += 2
+            newState.specifics.potentialFrozenEnemies += 2
             break
           case 'W6':
             // Moment's Peace
-            newState.specifics.potentialFrozenEnemiesInAColumn += 3
+            newState.specifics.potentialFrozenEnemies += 3
             break
           case 'W11':
             // Midwinter Chaos
-            newState.specifics.potentialFrozenEnemiesInAColumn += 5
+            newState.specifics.potentialFrozenEnemies += 5
             break
           default:
             break
@@ -354,7 +354,7 @@ export default class DeckMechanisms extends React.Component {
       // Spellbinder Zhevana
       case 'W8': {
         const enemiesToDestroy = Math.min(
-          this.state.specifics.potentialFrozenEnemiesInAColumn,
+          this.state.specifics.potentialFrozenEnemies,
           4
         )
 
@@ -379,8 +379,8 @@ export default class DeckMechanisms extends React.Component {
           mana: state.mana + destroyedEnemies * 4,
           specifics: {
             ...state.specifics,
-            potentialFrozenEnemiesInAColumn:
-              state.potentialFrozenEnemiesInAColumn - destroyedEnemies,
+            potentialFrozenEnemies:
+              state.potentialFrozenEnemies - destroyedEnemies,
           },
         }))
 
@@ -458,7 +458,7 @@ export default class DeckMechanisms extends React.Component {
 
       // Reset the cycling state and potential frozen enemies
       newState.hasCycledThisTurn = false
-      newState.specifics.potentialFrozenEnemiesInAColumn = 0
+      newState.specifics.potentialFrozenEnemies = 0
 
       // Resolve mana from Dawnsparks/Frozen Cores
       this.resolveManaRNG(newState)
@@ -489,7 +489,7 @@ export default class DeckMechanisms extends React.Component {
     const card = this.state.deck.find(card => card.id === id)
     const isAffordable = card.mana <= this.state.mana
 
-    if (id === 'W1' && !this.state.specifics.potentialFrozenEnemiesInAColumn) {
+    if (id === 'W1' && !this.state.specifics.potentialFrozenEnemies) {
       return false
     }
 
