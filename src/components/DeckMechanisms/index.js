@@ -13,6 +13,7 @@ const DAWNSPARKS_STAYS = 0.71
 const DAWNSPARKS_HITS = 0.71
 const FROZEN_CORE_STAYS = 0.5
 const AHMI_RETURNS = 0.5
+const ZHEVANA_DESTROYS = 0.5
 
 export const FRIENDLY_CHANCES = {
   W9: FROZEN_CORE_STAYS,
@@ -345,6 +346,42 @@ export default class DeckMechanisms extends React.Component {
             this.play(satyr2, { free: true })
           }
         }
+
+        break
+      }
+
+      // Spellbinder Zhevana
+      case 'W8': {
+        var enemiesToDestroy = this.state.specifics
+          .potentialFrozenEnemiesInAColumn
+        if (enemiesToDestroy > 4) {
+          enemiesToDestroy = 4
+        }
+        var destroyedEnemies = 0
+
+        switch (this.state.RNG) {
+          case 'FRIENDLY':
+            destroyedEnemies = enemiesToDestroy
+            break
+          case 'REGULAR':
+            destroyedEnemies = getBinomialRandomVariableResult(
+              enemiesToDestroy,
+              ZHEVANA_DESTROYS
+            )
+            break
+          case 'UNFRIENDLY':
+          default:
+            break
+        }
+
+        this.setState(state => ({
+          mana: state.mana + destroyedEnemies * 4,
+          specifics: {
+            ...state.specifics,
+            potentialFrozenEnemiesInAColumn:
+              state.potentialFrozenEnemiesInAColumn - destroyedEnemies,
+          },
+        }))
 
         break
       }
