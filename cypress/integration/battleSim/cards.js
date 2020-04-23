@@ -6,7 +6,7 @@ describe('Battle Sim — Cards', () => {
   })
 
   it('should be possible to add a card in hand', () => {
-    cy.battleSimbattleSimDraw({ slot: 1, card: 'Zhev' })
+    cy.battleSimDraw({ slot: 1, card: 'Zhev' })
       .get(s.CARD_SLOT_1)
       .should('not.be.empty')
   })
