@@ -16,7 +16,7 @@ export default class DeckMechanisms extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
+    this.DEFAULT_STATE = {
       hand: [],
       RNG: 'REGULAR',
       hasCycledThisTurn: false,
@@ -31,6 +31,8 @@ export default class DeckMechanisms extends React.Component {
       deck: resolveDeckWeight(props.deck),
       playerOrder: 'FIRST',
     }
+
+    this.state = this.DEFAULT_STATE
   }
 
   componentDidMount() {
@@ -435,24 +437,7 @@ export default class DeckMechanisms extends React.Component {
   }
 
   reset = () => {
-    this.setState(
-      {
-        hand: [],
-        RNG: 'REGULAR',
-        hasCycledThisTurn: false,
-        specifics: {
-          activeFrozenCores: 0,
-          liveDawnsparks: false,
-          noUnitsOnFirstTurn: true,
-          potentialFrozenEnemies: false,
-        },
-        turn: this.props.turn,
-        mana: DEFAULT_MANA + (this.props.turn - 1),
-        deck: resolveDeckWeight(this.props.deck),
-        playerOrder: 'FIRST',
-      },
-      this.drawHand
-    )
+    this.setState(this.DEFAULT_STATE, this.drawHand)
   }
 
   setPlayerOrder = playerOrder => {
