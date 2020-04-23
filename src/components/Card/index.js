@@ -35,6 +35,7 @@ const Card = props => {
       ref={ref}
       style={{ fontSize }}
       data-testid='card'
+      id={props.id}
     >
       <div
         className='Card__content'
