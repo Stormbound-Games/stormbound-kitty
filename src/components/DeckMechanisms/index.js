@@ -19,6 +19,7 @@ export const FRIENDLY_CHANCES = {
   W9: FROZEN_CORE_STAYS,
   S3: AHMI_RETURNS,
   W16: DAWNSPARKS_HITS * DAWNSPARKS_STAYS,
+  W8: ZHEVANA_DESTROYS,
 }
 
 const getDefaultState = props => ({

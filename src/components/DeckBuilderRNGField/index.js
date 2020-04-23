@@ -41,6 +41,31 @@ const RNG_SENSITIVE_CARDS = {
       </>
     ),
   },
+  W8: {
+    FRIENDLY: () => (
+      <>
+        <WikiLink id='W8' /> destroys all the frozen enemies
+      </>
+    ),
+    UNFRIENDLY: () => (
+      <>
+        <WikiLink id='W8' /> never destroys enemies
+      </>
+    ),
+  },
+}
+
+const getRegularText = id => {
+  return id === 'W8'
+    ? [
+        <WikiLink id='W8' />,
+        ' has a ' +
+          parseInt(FRIENDLY_CHANCES[id] * 100) +
+          '% chance to destroy every frozen enemy (of those that can be in a column)',
+      ]
+    : parseInt(FRIENDLY_CHANCES[id] * 100) +
+        '% chance per turn that ' +
+        RNG_SENSITIVE_CARDS[id].FRIENDLY()
 }
 
 const DeckBuilderRNGField = props => {
@@ -99,10 +124,7 @@ const DeckBuilderRNGField = props => {
         <span className='DeckBuilderRNGField__radio-info'>
           <>
             {RNGSensitiveCards.map(cardId => (
-              <span key={cardId}>
-                {parseInt(FRIENDLY_CHANCES[cardId] * 100)}% chance per turn that{' '}
-                {RNG_SENSITIVE_CARDS[cardId].FRIENDLY()}
-              </span>
+              <span key={cardId}>{getRegularText(cardId)}</span>
             ))}
           </>
         </span>
