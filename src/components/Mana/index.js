@@ -7,7 +7,7 @@ const Mana = props => {
       className={['Mana', props.disabled && 'Mana--disabled', props.className]
         .filter(Boolean)
         .join(' ')}
-      data-testid='mana'
+      data-testid={props['data-testid'] || 'mana'}
     >
       <img
         className='Mana__image'
