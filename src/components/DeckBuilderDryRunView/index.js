@@ -114,6 +114,7 @@ class DeckBuilderDryRunView extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.turn < this.props.turn) {
       this.setState(state => ({
+        activeCard: null,
         totalUnspentMana: state.totalUnspentMana + prevProps.mana,
       }))
 

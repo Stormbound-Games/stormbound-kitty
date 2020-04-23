@@ -141,7 +141,6 @@ describe('Deck Builder — Dry-run', () => {
 
       .drEndTurn()
 
-      .drSelect('N63')
       .drPlay('N63')
   })
 })
