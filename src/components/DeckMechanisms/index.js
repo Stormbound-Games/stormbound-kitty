@@ -384,9 +384,12 @@ export default class DeckMechanisms extends React.Component {
           DAWNSPARKS_STAYS
         )
 
+        state.mana += state.specifics.activeFrozenCores * 3
         state.mana +=
-          getBinomialRandomVariableResult(activeDawnsparks, DAWNSPARKS_HITS) * 4
-
+          getBinomialRandomVariableResult(
+            state.specifics.activeDawnsparks,
+            DAWNSPARKS_HITS
+          ) * 4
         break
       }
 
