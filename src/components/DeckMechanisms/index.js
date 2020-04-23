@@ -22,7 +22,7 @@ export default class DeckMechanisms extends React.Component {
       hasCycledThisTurn: false,
       specifics: {
         activeFrozenCores: 0,
-        liveDawnsparks: false,
+        activeDawnsparks: 0,
         noUnitsOnFirstTurn: true,
         potentialFrozenEnemies: false,
       },
@@ -139,7 +139,7 @@ export default class DeckMechanisms extends React.Component {
             newState.specifics.activeFrozenCores += 1
             break
           case 'W16':
-            newState.specifics.liveDawnsparks = true
+            newState.specifics.activeDawnsparks += 1
             break
           case 'W2':
           case 'W6':
@@ -369,7 +369,7 @@ export default class DeckMechanisms extends React.Component {
       // Deal with active Frozen Cores depending on whether RNG is friendly,
       // unfriendly or regular
       if (state.RNG === 'UNFRIENDLY') {
-        newState.specifics.activeFrozenCores -= 1
+        newState.specifics.activeFrozenCores = 0
       } else if (state.RNG === 'REGULAR') {
         const { activeFrozenCores } = newState.specifics
 
@@ -382,14 +382,22 @@ export default class DeckMechanisms extends React.Component {
       // If there are some active Frozen Cores, increment the new available mana
       newState.mana += newState.specifics.activeFrozenCores * 3
 
-      if (newState.specifics.liveDawnsparks) {
-        newState.mana +=
-          state.RNG === 'FRIENDLY' ||
-          (state.RNG === 'REGULAR' && Math.random() >= 0.5)
-            ? 4
-            : 0
-        newState.specifics.liveDawnsparks = false
+      if (state.RNG === 'UNFRIENDLY') {
+        newState.specifics.activeDawnsparks = 0
+      } else if (state.RNG === 'REGULAR') {
+        const { activeDawnsparks } = newState.specifics
+        newState.specifics.activeDawnsparks = Array.from(
+          { length: activeDawnsparks },
+          _ => state.RNG === 'FRIENDLY' || Math.random() >= 0.5
+        ).filter(Boolean).length
       }
+
+      const dawnsparksManagingToGiveMana = Array.from(
+        { length: newState.specifics.activeDawnsparks },
+        _ => state.RNG === 'FRIENDLY' || Math.random() >= 0.5
+      ).filter(Boolean).length
+
+      newState.mana += dawnsparksManagingToGiveMana * 4
 
       newState.specifics.potentialFrozenEnemies = false
 
