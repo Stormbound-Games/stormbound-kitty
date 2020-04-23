@@ -1,4 +1,9 @@
 .FanKit__image {
   display: block;
-  margin: 0 auto;
+  margin: 1em auto;
+  max-width: 100%;
+  width: 300px;
+  max-height: 300px;
+  height: auto;
+  object-fit: contain;
 }
