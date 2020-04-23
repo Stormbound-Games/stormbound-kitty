@@ -20,8 +20,12 @@ export default class DeckMechanisms extends React.Component {
       hand: [],
       RNG: 'REGULAR',
       hasCycledThisTurn: false,
-      noUnitsOnFirstTurn: true,
-      specifics: { activeFrozenCores: 0, liveDawnsparks: false },
+      specifics: {
+        activeFrozenCores: 0,
+        liveDawnsparks: false,
+        noUnitsOnFirstTurn: true,
+        potentialFrozenEnemies: false,
+      },
       turn: props.turn,
       mana: DEFAULT_MANA + (props.turn - 1),
       deck: resolveDeckWeight(props.deck),
@@ -126,14 +130,23 @@ export default class DeckMechanisms extends React.Component {
         // Remove the played card from the hand.
         newState.hand = state.hand.filter(cardId => cardId !== id)
 
-        // If the card played is a Frozen Core, increment the amount of active
-        // Frozen Cores by 1.
-        if (id === 'W9') {
-          newState.specifics.activeFrozenCores += 1
-        }
-
-        if (id === 'W16') {
-          newState.specifics.liveDawnsparks = true
+        switch (id) {
+          case 'W9':
+            // If the card played is a Frozen Core, increment the amount of active
+            // Frozen Cores by 1.
+            newState.specifics.activeFrozenCores += 1
+            break
+          case 'W16':
+            newState.specifics.liveDawnsparks = true
+            break
+          case 'W2':
+          case 'W6':
+          case 'W11':
+            // Frosthexers, Moment's Peace, Midwinter Chaos
+            newState.specifics.potentialFrozenEnemies = true
+            break
+          default:
+            break
         }
 
         // Unless the play is actually free or a discard, decrease the amount
@@ -149,7 +162,7 @@ export default class DeckMechanisms extends React.Component {
           // Summon Militia, Head Start (can't occur in the game) and Rain of Frogs
 
           if (card.type === 'unit' || unitSpawningSpells.includes(id)) {
-            newState.noUnitsOnFirstTurn = false
+            newState.specifics.noUnitsOnFirstTurn = false
           }
         }
         return newState
@@ -365,9 +378,7 @@ export default class DeckMechanisms extends React.Component {
       }
 
       // If there are some active Frozen Cores, increment the new available mana
-      if (newState.specifics.activeFrozenCores > 0) {
-        newState.mana += newState.specifics.activeFrozenCores * 3
-      }
+      newState.mana += newState.specifics.activeFrozenCores * 3
 
       if (newState.specifics.liveDawnsparks) {
         newState.mana +=
@@ -377,6 +388,9 @@ export default class DeckMechanisms extends React.Component {
             : 0
         newState.specifics.liveDawnsparks = false
       }
+
+      newState.specifics.potentialFrozenEnemies = false
+
       return newState
     })
 
@@ -402,10 +416,15 @@ export default class DeckMechanisms extends React.Component {
   canCardBePlayed = id => {
     const card = this.state.deck.find(card => card.id === id)
     const isAffordable = card.mana <= this.state.mana
-    const unplayableSpells = ['W1', 'S10', 'N15']
+
+    if (id === 'W1' && !this.state.specifics.potentialFrozenEnemies) {
+      return false
+    }
 
     if (this.state.turn === 1) {
-      if (this.state.noUnitsOnFirstTurn) {
+      const unplayableSpells = ['W1', 'S10', 'N15']
+      
+      if (this.state.specifics.noUnitsOnFirstTurn) {
         unplayableSpells.push('F4')
       }
 
@@ -421,8 +440,12 @@ export default class DeckMechanisms extends React.Component {
         hand: [],
         RNG: 'REGULAR',
         hasCycledThisTurn: false,
-        noUnitsOnFirstTurn: true,
-        specifics: { activeFrozenCores: 0, liveDawnsparks: false },
+        specifics: {
+          activeFrozenCores: 0,
+          liveDawnsparks: false,
+          noUnitsOnFirstTurn: true,
+          potentialFrozenEnemies: false,
+        },
         turn: this.props.turn,
         mana: DEFAULT_MANA + (this.props.turn - 1),
         deck: resolveDeckWeight(this.props.deck),
