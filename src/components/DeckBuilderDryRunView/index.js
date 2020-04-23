@@ -180,6 +180,7 @@ class DeckBuilderDryRunView extends React.Component {
           Frozen {activeFrozenCores === 1 ? 'Core' : 'Cores'}
         </WikiLink>{' '}
         on the board.
+        <br />
       </>
     )
   }
@@ -446,7 +447,6 @@ class DeckBuilderDryRunView extends React.Component {
                             .filter(Boolean).length
                             ? this.getFrozenCoreText()
                             : null}
-                          <br />
                           {this.props.deck
                             .map(card => card.id === 'W16')
                             .filter(Boolean).length
