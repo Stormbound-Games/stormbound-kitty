@@ -1,5 +1,15 @@
 [
   {
+    "intro": "Changelog",
+    "description": "Stormbound Kitty now provides a changelog of all cards additions and updates, courtesy of the official Wiki.",
+    "link": "/changelog"
+  },
+  {
+    "intro": "Cards Stats",
+    "description": "Stormbound Kitty now provides some data visualisation about the Stormbound cards collection.",
+    "link": "/cards-stats"
+  },
+  {
     "intro": "Fan-kit",
     "description": "Stormbound Kitty now provides a fan-kit with all the images from the game.",
     "link": "/fan-kit"

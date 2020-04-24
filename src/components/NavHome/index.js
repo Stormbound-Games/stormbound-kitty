@@ -29,6 +29,12 @@ const NavHome = props => {
           </NavLink>
         </li>
 
+        <li className='Header__item'>
+          <NavLink to='/changelog' active={props.active === 'CHANGELOG'}>
+            Changelog
+          </NavLink>
+        </li>
+
         <li className='Header__item Header__item--right'>
           <NavLink to='/faq' active={props.active === 'FAQ'}>
             FAQ

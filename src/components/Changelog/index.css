@@ -1,0 +1,19 @@
+.Changelog__section {
+  margin-bottom: 3em;
+}
+
+.Changelog__title {
+  margin-bottom: 1.5em;
+}
+
+.Changelog__list {
+  padding: 0;
+  list-style-position: inside;
+  font-size: 115%;
+}
+
+.Changelog__list > li {
+  margin: 0.25em 0;
+  text-indent: -1.5em;
+  padding-left: 1.5em;
+}

@@ -19,6 +19,7 @@ const Brawl = load('Brawl')
 const Home = load('Home')
 const Member = load('Member')
 const FanKit = load('FanKit')
+const Changelog = load('Changelog')
 
 const Router = props => (
   <AnimatePresence exitBeforeEnter>
@@ -70,6 +71,10 @@ const Router = props => (
 
         <Page path='/cards-stats' active={['HOME', 'CARDS_STATS']}>
           <CardsStats />
+        </Page>
+
+        <Page path='/changelog' active={['HOME', 'CHANGELOG']}>
+          <Changelog />
         </Page>
 
         <Page path='/faq' active={['HOME', 'FAQ']}>
