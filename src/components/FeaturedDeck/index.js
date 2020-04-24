@@ -25,28 +25,29 @@ const tooltipStyles = {
   whiteSpace: 'normal',
 }
 
-const FeaturedDeck = props => {
+const useAdjustedDeck = ({ category, id }) => {
   const { hasDefaultCollection, collection } = React.useContext(
     CollectionContext
   )
 
-  // Recompute the level of the cards in the deck to match the ones from the
-  // collection
-  const deserialisedDeck = deserialiseDeck(props.id)
-  const resolvedCollection = !hasDefaultCollection
-    ? resolveCollection(collection)
-    : null
-  const deck = hasDefaultCollection
-    ? deserialisedDeck
-    : deserialisedDeck.map(card => ({
-        ...card,
-        level: resolvedCollection[card.id].level,
-        missing: resolvedCollection[card.id].missing,
-      }))
-  const id = serialiseDeck(deck)
-  const distance = hasDefaultCollection
-    ? null
-    : getDeckDistanceToMax(resolvedCollection)({ id })
+  if (hasDefaultCollection || category === 'EQUALS') {
+    return { deck: deserialiseDeck(id), id, distance: null }
+  }
+
+  const deserialisedDeck = deserialiseDeck(id)
+  const resolvedCollection = resolveCollection(collection)
+  const deck = deserialisedDeck.map(card => ({
+    ...card,
+    level: resolvedCollection[card.id].level,
+    missing: resolvedCollection[card.id].missing,
+  }))
+  const distance = getDeckDistanceToMax(resolvedCollection)({ id })
+
+  return { deck, id: serialiseDeck(deck), distance }
+}
+
+const FeaturedDeck = props => {
+  const { id, deck, distance } = useAdjustedDeck(props)
 
   return (
     <div className='FeaturedDeck'>
@@ -57,28 +58,30 @@ const FeaturedDeck = props => {
         onClickLabel='Display card'
       />
       <div className='FeaturedDeck__rarity-bar'>
-        <RarityBar deck={deck.map(({ id }) => getRawCardData(id))} />
+        <RarityBar deck={deck.map(card => getRawCardData(card.id))} />
       </div>
       <span className='FeaturedDeck__name'>
         <Link to={`/deck/${id}`}>{props.name}</Link>
-        <Only.CustomCollection>
-          <Only.Desktop>
-            <Tooltip
-              style={tooltipStyles}
-              label={
-                distance === Infinity ? (
-                  'You are missing some cards from this deck'
-                ) : (
-                  <>
-                    Distance to maxed out deck: <Stones amount={distance} />
-                  </>
-                )
-              }
-            >
-              {trigger => <QuestionMark {...trigger} />}
-            </Tooltip>
-          </Only.Desktop>
-        </Only.CustomCollection>
+        {distance && (
+          <Only.CustomCollection>
+            <Only.Desktop>
+              <Tooltip
+                style={tooltipStyles}
+                label={
+                  distance === Infinity ? (
+                    'You are missing some cards from this deck'
+                  ) : (
+                    <>
+                      Distance to maxed out deck: <Stones amount={distance} />
+                    </>
+                  )
+                }
+              >
+                {trigger => <QuestionMark {...trigger} />}
+              </Tooltip>
+            </Only.Desktop>
+          </Only.CustomCollection>
+        )}
       </span>
       <span className='FeaturedDeck__author'>
         <Link
