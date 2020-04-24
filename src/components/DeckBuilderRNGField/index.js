@@ -51,7 +51,7 @@ const DeckBuilderRNGField = props => {
   )
 
   // Check if there is a freeze card in the deck to show RNG settings
-  const freezeCards = ['W1', 'W2', 'W4', 'W6', 'W8', 'W11']
+  const freezeCards = ['W2', 'W6', 'W11']
   const freezeCard = deckIds.find(id => freezeCards.includes(id))
 
   if (RNGSensitiveCards.length === 0 && !freezeCard) {
