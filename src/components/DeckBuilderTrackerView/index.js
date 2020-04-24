@@ -730,7 +730,7 @@ class DeckBuilderTrackerView extends React.Component {
                         <u>C</u>ycle card
                       </CTA>
                     </Column>
-                    <Column>
+                    <Column style={{ alignItems: 'flex-end' }}>
                       <CTA
                         type='button'
                         onClick={this.playCard}
