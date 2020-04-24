@@ -50,7 +50,10 @@ const DeckBuilderRNGField = props => {
     deckIds.includes(cardId)
   )
 
-  if (!RNGSensitiveCards.length > 0) {
+  const freezeCards = ['W1', 'W2', 'W4', 'W6', 'W8', 'W11']
+  const freezeCard = deckIds.find(id => freezeCards.includes(id))
+
+  if (RNGSensitiveCards.length === 0 && !freezeCard) {
     return null
   }
 
@@ -67,6 +70,9 @@ const DeckBuilderRNGField = props => {
       >
         Friendly
         <span className='DeckBuilderRNGField__radio-info'>
+          {freezeCard ? (
+            <span>Freeze cards manage to freeze many enemies</span>
+          ) : null}
           {RNGSensitiveCards.map(cardId => (
             <span key={cardId}>{RNG_SENSITIVE_CARDS[cardId].FRIENDLY()}</span>
           ))}
@@ -82,6 +88,9 @@ const DeckBuilderRNGField = props => {
       >
         Unfriendly
         <span className='DeckBuilderRNGField__radio-info'>
+          {freezeCard ? (
+            <span>Freeze cards do not manage to freeze many enemies</span>
+          ) : null}
           {RNGSensitiveCards.map(cardId => (
             <span key={cardId}>{RNG_SENSITIVE_CARDS[cardId].UNFRIENDLY()}</span>
           ))}
@@ -98,6 +107,9 @@ const DeckBuilderRNGField = props => {
         Regular{' '}
         <span className='DeckBuilderRNGField__radio-info'>
           <>
+            {freezeCard ? (
+              <span>Freeze cards manage to freeze a few enemies</span>
+            ) : null}
             {RNGSensitiveCards.map(cardId => (
               <span key={cardId}>
                 {parseInt(FRIENDLY_CHANCES[cardId] * 100)}% chance per turn that{' '}

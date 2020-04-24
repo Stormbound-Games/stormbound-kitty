@@ -207,9 +207,34 @@ class DeckBuilderDryRunView extends React.Component {
           ? 'unit '
           : 'units '}
         on the board.
+        <br />
       </>
     )
   }
+
+  getFrozenEnemiesText = () => {
+    const { frozenEnemiesLevel } = this.props.specifics
+    const frozenStateDescriptionCount = {
+      0: 'no',
+      2: 'a few',
+      3: 'many',
+    }
+    const frozenStateDescription =
+      frozenEnemiesLevel === 4
+        ? 'The whole board is frozen.'
+        : frozenEnemiesLevel === 1
+        ? 'There is a frozen enemy on the board.'
+        : `There are ${frozenStateDescriptionCount[frozenEnemiesLevel]} frozen enemies on the board.`
+
+    return frozenStateDescription
+  }
+
+  containsFreeze = deck => {
+    const deckIds = deck.map(card => card.id)
+    const freezeCards = ['W1', 'W2', 'W4', 'W6', 'W8', 'W11']
+    return deckIds.some(id => freezeCards.includes(id))
+  }
+
   onDeckCardClick = card => {
     this.props.draw(card.id)
 
@@ -396,12 +421,13 @@ class DeckBuilderDryRunView extends React.Component {
                       It also takes into account <WikiLink id='N8' />,{' '}
                       <WikiLink id='N12' />, <WikiLink id='N14' />,{' '}
                       <WikiLink id='N22' />, <WikiLink id='N33' />,{' '}
-                      <WikiLink id='N48' />, <WikiLink id='W10' />,{' '}
-                      <WikiLink id='W12' />, and <WikiLink id='W19' />{' '}
-                      abilities, RNG for <WikiLink id='S3' />,{' '}
-                      <WikiLink id='W9' /> and <WikiLink id='W16' /> as well as
-                      cards than cannot actually be played in the first turn
-                      (e.g. <WikiLink id='F4' />, <WikiLink id='W1' />
+                      <WikiLink id='N48' />, <WikiLink id='W8' />,{' '}
+                      <WikiLink id='W10' />, <WikiLink id='W12' /> and{' '}
+                      <WikiLink id='W19' /> abilities, RNG for{' '}
+                      <WikiLink id='S3' />, <WikiLink id='W9' /> and{' '}
+                      <WikiLink id='W16' /> as well as cards than cannot
+                      actually be played in the first turn (e.g.{' '}
+                      <WikiLink id='F4' />, <WikiLink id='W1' />
                       …).
                     </p>
 
@@ -473,6 +499,9 @@ class DeckBuilderDryRunView extends React.Component {
                             : null}
                           {this.props.deck.map(card => card.id).includes('W16')
                             ? this.getDawnsparksText()
+                            : null}
+                          {this.containsFreeze(this.props.deck)
+                            ? this.getFrozenEnemiesText()
                             : null}
                         </p>
                       </>
