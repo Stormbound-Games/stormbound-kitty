@@ -9,6 +9,8 @@ import Loader from '../Loader'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import cards from '../../data/cards'
+import { BOOKS } from '../../constants/game'
+import capitalise from '../../helpers/capitalise'
 import chunk from '../../helpers/chunk'
 import sortCards from '../../helpers/sortCards'
 import useViewportWidth from '../../hooks/useViewportWidth'
@@ -67,10 +69,18 @@ const DownloadDialog = props => {
   )
 }
 
+const books = [...Object.keys(BOOKS), 'ELDER'].map(book => ({
+  name: capitalise(book.toLowerCase()) + ' book',
+  id: book,
+  image: '/assets/images/book-' + book.toLowerCase() + '.png',
+}))
+
 const FanKit = props => {
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
-  const activeCard = active ? cards.find(card => card.id === active) : null
+  const activeCard = active
+    ? [...cards, ...books].find(card => card.id === active)
+    : null
   const viewportWidth = useViewportWidth()
   const items = React.useMemo(
     () =>
@@ -78,7 +88,8 @@ const FanKit = props => {
         cards
           .filter(card => !card.token)
           .sort(sortCards())
-          .concat(cards.filter(card => card.token)),
+          .concat(cards.filter(card => card.token))
+          .concat(books),
         4
       ),
     []
