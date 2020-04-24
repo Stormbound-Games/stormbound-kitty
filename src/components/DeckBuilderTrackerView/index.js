@@ -690,7 +690,7 @@ class DeckBuilderTrackerView extends React.Component {
                             }
                             onClick={() => this.selectCard(cardId)}
                           >
-                            <span className='visually-hidden'>
+                            <span className='VisuallyHidden'>
                               {this.state.activeCard === cardId
                                 ? 'Unselect card'
                                 : 'Select card'}
