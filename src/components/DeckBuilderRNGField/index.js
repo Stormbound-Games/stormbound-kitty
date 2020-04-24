@@ -53,7 +53,7 @@ const DeckBuilderRNGField = props => {
   const freezeCards = ['W1', 'W2', 'W4', 'W6', 'W8', 'W11']
   const freezeCard = deckIds.find(id => freezeCards.includes(id))
 
-  if (!(RNGSensitiveCards.length > 0 || freezeCard)) {
+  if (RNGSensitiveCards.length === 0 && !freezeCard) {
     return null
   }
 
