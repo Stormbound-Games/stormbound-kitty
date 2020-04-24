@@ -41,7 +41,6 @@ const getDefaultState = props => ({
     activeFrozenCores: 0,
     activeDawnsparks: 0,
     noUnitsOnFirstTurn: true,
-    freeCellsOnFirstTurn: 4,
     frozenEnemiesLevel: 0,
   },
   turn: props.turn,
@@ -230,7 +229,7 @@ export default class DeckMechanisms extends React.Component {
         }
         return newState
       },
-      () => this.handleCardEffect(card)
+      () => (!options.discard ? this.handleCardEffect(card) : {})
     )
   }
 
