@@ -89,9 +89,7 @@ const DeckBuilderRNGField = props => {
         Unfriendly
         <span className='DeckBuilderRNGField__radio-info'>
           {freezeCard ? (
-            <span key={freezeCard}>
-              Freeze cards don't manage to freeze many enemies
-            </span>
+            <span>Freeze cards do not manage to freeze many enemies</span>
           ) : null}
           {RNGSensitiveCards.map(cardId => (
             <span key={cardId}>{RNG_SENSITIVE_CARDS[cardId].UNFRIENDLY()}</span>
