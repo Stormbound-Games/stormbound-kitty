@@ -41,6 +41,7 @@ const getDefaultState = props => ({
     activeFrozenCores: 0,
     activeDawnsparks: 0,
     noUnitsOnFirstTurn: true,
+    freeCellsOnFirstTurn: 4,
     frozenEnemiesLevel: 0,
   },
   turn: props.turn,
@@ -159,70 +160,72 @@ export default class DeckMechanisms extends React.Component {
         // Remove the played card from the hand.
         newState.hand = state.hand.filter(cardId => cardId !== id)
 
-        switch (id) {
-          case 'W9':
-            // If the card played is a Frozen Core, increment the amount of active
-            // Frozen Cores by 1.
-            newState.specifics.activeFrozenCores += 1
-            break
-          case 'W16':
-            newState.specifics.activeDawnsparks += 1
-            break
-          case 'W2':
-          case 'W6':
-          case 'W11':
-          case 'W4':
-            // Find how many frozen enemies there are on the board
-            // This is not a precise number but gives an approximation
-            // (one, a few, many, all) of this amount
-            // Based on this approximation and the card that has just
-            // been played, store how many frozen enemies stayed on the board
+        if (!options.discard) {
+          switch (id) {
+            case 'W9':
+              // If the card played is a Frozen Core, increment the amount of active
+              // Frozen Cores by 1.
+              newState.specifics.activeFrozenCores += 1
+              break
+            case 'W16':
+              newState.specifics.activeDawnsparks += 1
+              break
+            case 'W2':
+            case 'W6':
+            case 'W11':
+            case 'W4':
+              // Find how many frozen enemies there are on the board
+              // This is not a precise number but gives an approximation
+              // (one, a few, many, all) of this amount
+              // Based on this approximation and the card that has just
+              // been played, store how many frozen enemies stayed on the board
 
-            // For example, playing Midwinter Chaos (W11) will freeze a lot of units,
-            // but if there are already many frozen units on the board, it will generally destroy them
-            const frozenEnemiesNowRegular =
-              FROZEN_ENEMIES_AFTER[id][newState.specifics.frozenEnemiesLevel]
+              // For example, playing Midwinter Chaos (W11) will freeze a lot of units,
+              // but if there are already many frozen units on the board, it will generally destroy them
+              const frozenEnemiesNowRegular =
+                FROZEN_ENEMIES_AFTER[id][newState.specifics.frozenEnemiesLevel]
 
-            // If the RNG is friendly to the user, the enemy units were spawned  in such a way
-            // that an additional unit gets frozen every time a freezing card is played
-            if (this.state.RNG === 'FRIENDLY') {
-              newState.specifics.frozenEnemiesLevel = Math.min(
-                frozenEnemiesNowRegular + 1,
-                4
-              )
+              // If the RNG is friendly to the user, the enemy units were spawned  in such a way
+              // that an additional unit gets frozen every time a freezing card is played
+              if (this.state.RNG === 'FRIENDLY') {
+                newState.specifics.frozenEnemiesLevel = Math.min(
+                  frozenEnemiesNowRegular + 1,
+                  4
+                )
+              }
+              // If the RNG is unfriendly to the user, the opposite happens: Freezing cards are not as
+              // efficient and less enemy units get frozen
+              else if (this.state.RNG === 'UNFRIENDLY') {
+                newState.specifics.frozenEnemiesLevel = Math.max(
+                  frozenEnemiesNowRegular - 1,
+                  0
+                )
+              }
+              // In the regular case, just store the new approximation in the specifics.frozenEnemiesLevel
+              // variable
+              else {
+                newState.specifics.frozenEnemiesLevel = frozenEnemiesNowRegular
+              }
+              break
+            default:
+              break
+          }
+
+          // Unless the play is actually free or a discard, decrease the amount
+          // of available mana by the cost the card
+          if (!options.free) {
+            newState.mana -= card.mana
+          }
+
+          if (state.turn === 1) {
+            // Check if this card spawns units on the board, this is used to check if
+            // Toxic Sacrifice can be played on this turn
+            const unitSpawningSpells = ['N2', 'S24', 'F8']
+            // Summon Militia, Head Start (can't occur in the game) and Rain of Frogs
+
+            if (card.type === 'unit' || unitSpawningSpells.includes(id)) {
+              newState.specifics.noUnitsOnFirstTurn = false
             }
-            // If the RNG is unfriendly to the user, the opposite happens: Freezing cards are not as
-            // efficient and less enemy units get frozen
-            else if (this.state.RNG === 'UNFRIENDLY') {
-              newState.specifics.frozenEnemiesLevel = Math.max(
-                frozenEnemiesNowRegular - 1,
-                0
-              )
-            }
-            // In the regular case, just store the new approximation in the specifics.frozenEnemiesLevel
-            // variable
-            else {
-              newState.specifics.frozenEnemiesLevel = frozenEnemiesNowRegular
-            }
-            break
-          default:
-            break
-        }
-
-        // Unless the play is actually free or a discard, decrease the amount
-        // of available mana by the cost the card
-        if (!(options.free || options.discard)) {
-          newState.mana -= card.mana
-        }
-
-        if (state.turn === 1) {
-          // Check if this card spawns units on the board, this is used to check if
-          // Toxic Sacrifice can be played on this turn
-          const unitSpawningSpells = ['N2', 'S24', 'F8']
-          // Summon Militia, Head Start (can't occur in the game) and Rain of Frogs
-
-          if (card.type === 'unit' || unitSpawningSpells.includes(id)) {
-            newState.specifics.noUnitsOnFirstTurn = false
           }
         }
         return newState
