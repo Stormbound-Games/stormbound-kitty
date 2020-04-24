@@ -21,6 +21,8 @@ export const FRIENDLY_CHANCES = {
 }
 
 const FROZEN_ENEMIES_AFTER = {
+  //Frozen enemies left after a card's ability has been resolved, in regular RNG mode
+
   // Frosthexers
   W2: [1, 2, 3, 3, 4],
   // Moment’s Peace
