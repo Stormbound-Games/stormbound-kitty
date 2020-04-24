@@ -76,7 +76,7 @@ const ChartStrengthMana = props => {
           <XAxis type='number' dataKey='x' name='Mana' unit=' mana' />
           <YAxis type='number' dataKey='y' name='Strength' unit=' str' />
           <ZAxis type='number' dataKey='z' name='cards' range={[50, 500]} />
-          <Tooltip {...TOOLTIP_STYLES} cursor={{ strokeDasharray: '3 3' }} />
+          <Tooltip {...TOOLTIP_STYLES} />
           <Scatter
             name={faction}
             data={getFactionData(faction)}
