@@ -20,6 +20,7 @@ import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import { getCardCost } from '../../helpers/getCollectionCost'
 import { getRarityColor } from '../../helpers/getRarity'
+import { TOOLTIP_STYLES } from '../../constants/stats'
 import './index.css'
 
 const COLORS = [
@@ -171,7 +172,7 @@ const CollectionStats = props => {
                 <Title className='CollectionStats__title'>Level data</Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
-                    <Tooltip />
+                    <Tooltip {...TOOLTIP_STYLES} />
                     <Legend verticalAlign='bottom' />
                     <Pie
                       data={levelData}
@@ -200,7 +201,7 @@ const CollectionStats = props => {
 
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
-                    <Tooltip />
+                    <Tooltip {...TOOLTIP_STYLES} />
                     <Legend verticalAlign='bottom' />
                     <Pie
                       data={factionData}
@@ -238,7 +239,7 @@ const CollectionStats = props => {
                 </Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
-                    <Tooltip />
+                    <Tooltip {...TOOLTIP_STYLES} />
                     <Legend verticalAlign='bottom' />
                     <Pie
                       data={rarityData}
@@ -268,7 +269,7 @@ const CollectionStats = props => {
                 <Title className='CollectionStats__title'>Status data</Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
-                    <Tooltip />
+                    <Tooltip {...TOOLTIP_STYLES} />
                     <Legend verticalAlign='bottom' />
                     <Pie
                       data={statusData}
