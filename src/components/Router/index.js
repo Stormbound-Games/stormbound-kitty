@@ -13,6 +13,7 @@ import RouterQuestBuilder from '../RouterQuestBuilder'
 import RouterStories from '../RouterStories'
 import load from '../../helpers/load'
 
+const CardsStats = load('CardsStats')
 const FAQ = load('FAQ')
 const Brawl = load('Brawl')
 const Home = load('Home')
@@ -65,6 +66,10 @@ const Router = props => (
 
         <Page path='/fan-kit' active={['HOME', 'FAN_KIT']}>
           <FanKit />
+        </Page>
+
+        <Page path='/cards-stats' active={['HOME', 'CARDS_STATS']}>
+          <CardsStats />
         </Page>
 
         <Page path='/faq' active={['HOME', 'FAQ']}>

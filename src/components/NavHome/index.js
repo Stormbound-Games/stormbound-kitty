@@ -23,6 +23,12 @@ const NavHome = props => {
           </NavLink>
         </li>
 
+        <li className='Header__item'>
+          <NavLink to='/cards-stats' active={props.active === 'CARDS_STATS'}>
+            Cards stats
+          </NavLink>
+        </li>
+
         <li className='Header__item Header__item--right'>
           <NavLink to='/faq' active={props.active === 'FAQ'}>
             FAQ

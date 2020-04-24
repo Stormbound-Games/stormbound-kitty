@@ -34,6 +34,10 @@
   --ironclad: rgb(130, 70, 72);
   --shadowfen: rgb(48, 101, 93);
   --winter: rgb(64, 84, 119);
+  --light-swarm: rgb(184, 149, 113);
+  --light-ironclad: rgb(182, 120, 122);
+  --light-shadowfen: rgb(86, 175, 161);
+  --light-winter: rgb(102, 128, 173);
 
   /* Card colors */
   --affordable: rgb(107, 231, 156);
@@ -44,7 +48,7 @@
   --player-blue: rgb(25, 93, 156);
   --poison: rgb(112, 4, 112);
   --freeze: rgb(96, 173, 199);
-  --confused: orange;
+  --confused: rgb(197, 153, 72);
 }
 
 * {
