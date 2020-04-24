@@ -568,7 +568,7 @@ export default class DeckMechanisms extends React.Component {
   }
 
   reset = () => {
-    this.setState({ ...getDefaultState(this.props) }, this.drawHand)
+    this.setState(getDefaultState(this.props), this.drawHand)
   }
 
   setPlayerOrder = playerOrder => {
