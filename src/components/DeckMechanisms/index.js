@@ -181,8 +181,9 @@ export default class DeckMechanisms extends React.Component {
                 frozenEnemiesNowRegular - 1,
                 0
               )
+            } else {
+              newState.specifics.frozenEnemiesLevel = frozenEnemiesNowRegular
             }
-
             break
           default:
             break
