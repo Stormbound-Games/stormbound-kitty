@@ -210,7 +210,7 @@ describe('Deck Builder — Dry-run', () => {
       .drPlay('N63')
   })
   ;[
-    { id: 'N1', name: 'Summon Militia', action: 'spawn' },
+    { id: 'N2', name: 'Summon Militia', action: 'spawn' },
     { id: 'N3', name: 'Gifted Recruits', action: 'play' },
     { id: 'F8', name: 'Rain of Frogs', action: 'spawn' },
   ].forEach(({ id, name, action }) => {
@@ -221,7 +221,7 @@ describe('Deck Builder — Dry-run', () => {
         name +
         ' for example',
       () => {
-        const HAND = ['N1', 'N3', 'F8', 'F4']
+        const HAND = ['N2', 'N3', 'F8', 'F4']
 
         cy.visit(`/deck/${TOXIC_SACRIFICE_DECK}/dry-run?mode=MANUAL`)
 
