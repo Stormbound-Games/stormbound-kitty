@@ -71,9 +71,7 @@ const DeckBuilderRNGField = props => {
         Friendly
         <span className='DeckBuilderRNGField__radio-info'>
           {freezeCard ? (
-            <span key={freezeCard}>
-              Freeze cards manage to freeze many enemies
-            </span>
+            <span>Freeze cards manage to freeze many enemies</span>
           ) : null}
           {RNGSensitiveCards.map(cardId => (
             <span key={cardId}>{RNG_SENSITIVE_CARDS[cardId].FRIENDLY()}</span>
