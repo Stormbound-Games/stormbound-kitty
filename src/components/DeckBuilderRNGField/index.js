@@ -41,31 +41,6 @@ const RNG_SENSITIVE_CARDS = {
       </>
     ),
   },
-  W8: {
-    FRIENDLY: () => (
-      <>
-        <WikiLink id='W8' /> destroys all the frozen enemies
-      </>
-    ),
-    UNFRIENDLY: () => (
-      <>
-        <WikiLink id='W8' /> never destroys enemies
-      </>
-    ),
-  },
-}
-
-const getRegularText = id => {
-  return id === 'W8'
-    ? [
-        <WikiLink id='W8' />,
-        ' has a ' +
-          parseInt(FRIENDLY_CHANCES[id] * 100) +
-          '% chance to destroy every frozen enemy (of those that can be in a column)',
-      ]
-    : parseInt(FRIENDLY_CHANCES[id] * 100) +
-        '% chance per turn that ' +
-        RNG_SENSITIVE_CARDS[id].FRIENDLY()
 }
 
 const DeckBuilderRNGField = props => {
@@ -75,7 +50,10 @@ const DeckBuilderRNGField = props => {
     deckIds.includes(cardId)
   )
 
-  if (!RNGSensitiveCards.length > 0) {
+  const freezeCards = ['W1', 'W2', 'W4', 'W6', 'W8', 'W11']
+  const freezeCard = deckIds.find(id => freezeCards.includes(id))
+
+  if (!(RNGSensitiveCards.length > 0 || freezeCard)) {
     return null
   }
 
@@ -92,6 +70,11 @@ const DeckBuilderRNGField = props => {
       >
         Friendly
         <span className='DeckBuilderRNGField__radio-info'>
+          {freezeCard ? (
+            <span key={freezeCard}>
+              Freeze cards manage to freeze many enemies
+            </span>
+          ) : null}
           {RNGSensitiveCards.map(cardId => (
             <span key={cardId}>{RNG_SENSITIVE_CARDS[cardId].FRIENDLY()}</span>
           ))}
@@ -107,6 +90,11 @@ const DeckBuilderRNGField = props => {
       >
         Unfriendly
         <span className='DeckBuilderRNGField__radio-info'>
+          {freezeCard ? (
+            <span key={freezeCard}>
+              Freeze cards don't manage to freeze many enemies
+            </span>
+          ) : null}
           {RNGSensitiveCards.map(cardId => (
             <span key={cardId}>{RNG_SENSITIVE_CARDS[cardId].UNFRIENDLY()}</span>
           ))}
@@ -123,8 +111,16 @@ const DeckBuilderRNGField = props => {
         Regular{' '}
         <span className='DeckBuilderRNGField__radio-info'>
           <>
+            {freezeCard ? (
+              <span key={freezeCard}>
+                Freeze cards manage to freeze a few enemies
+              </span>
+            ) : null}
             {RNGSensitiveCards.map(cardId => (
-              <span key={cardId}>{getRegularText(cardId)}</span>
+              <span key={cardId}>
+                {parseInt(FRIENDLY_CHANCES[cardId] * 100)}% chance per turn that{' '}
+                {RNG_SENSITIVE_CARDS[cardId].FRIENDLY()}
+              </span>
             ))}
           </>
         </span>

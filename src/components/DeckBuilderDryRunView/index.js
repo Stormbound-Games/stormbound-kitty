@@ -207,9 +207,33 @@ class DeckBuilderDryRunView extends React.Component {
           ? 'unit '
           : 'units '}
         on the board.
+        <br />
       </>
     )
   }
+
+  getFrozenEnemiesText = () => {
+    const { frozenEnemiesLevel } = this.props.specifics
+    const frozenStateDescriptionCount = {
+      0: 'no',
+      2: 'a few',
+      3: 'many',
+    }
+    const frozenStateDescription =
+      frozenEnemiesLevel === 4
+        ? 'The whole board is frozen.'
+        : frozenEnemiesLevel === 1
+        ? 'There is a frozen enemy on the board.'
+        : `There are ${frozenStateDescriptionCount[frozenEnemiesLevel]} frozen enemies on the board.`
+
+    return <>{frozenStateDescription}</>
+  }
+
+  containsFreeze = deckIds => {
+    const freezeCards = ['W1', 'W2', 'W4', 'W6', 'W8', 'W11']
+    return deckIds.some(id => freezeCards.includes(id))
+  }
+
   onDeckCardClick = card => {
     this.props.draw(card.id)
 
@@ -473,6 +497,11 @@ class DeckBuilderDryRunView extends React.Component {
                             : null}
                           {this.props.deck.map(card => card.id).includes('W16')
                             ? this.getDawnsparksText()
+                            : null}
+                          {this.containsFreeze(
+                            this.props.deck.map(card => card.id)
+                          )
+                            ? this.getFrozenEnemiesText()
                             : null}
                         </p>
                       </>

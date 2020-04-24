@@ -13,13 +13,46 @@ const DAWNSPARKS_STAYS = 0.71
 const DAWNSPARKS_HITS = 0.71
 const FROZEN_CORE_STAYS = 0.5
 const AHMI_RETURNS = 0.5
-const ZHEVANA_DESTROYS = 0.5
 
 export const FRIENDLY_CHANCES = {
   W9: FROZEN_CORE_STAYS,
   S3: AHMI_RETURNS,
   W16: DAWNSPARKS_HITS * DAWNSPARKS_STAYS,
-  W8: ZHEVANA_DESTROYS,
+}
+
+const FROZEN_ENEMIES_AFTER = {
+  // Frosthexers
+  W2: {
+    0: 1,
+    1: 2,
+    2: 3,
+    3: 3,
+    4: 4,
+  },
+  // Moment's Peace
+  W6: {
+    0: 3,
+    1: 3,
+    2: 3,
+    3: 4,
+    4: 4,
+  },
+  // Midwinter Chaos
+  W11: {
+    0: 3,
+    1: 3,
+    2: 3,
+    3: 2,
+    4: 1,
+  },
+  // Wisp Cloud
+  W4: {
+    0: 0,
+    1: 0,
+    2: 0,
+    3: 1,
+    4: 1,
+  },
 }
 
 const getDefaultState = props => ({
@@ -30,7 +63,7 @@ const getDefaultState = props => ({
     activeFrozenCores: 0,
     activeDawnsparks: 0,
     noUnitsOnFirstTurn: true,
-    potentialFrozenEnemies: 0,
+    frozenEnemiesLevel: 0,
   },
   turn: props.turn,
   mana: DEFAULT_MANA + (props.turn - 1),
@@ -156,16 +189,17 @@ export default class DeckMechanisms extends React.Component {
             newState.specifics.activeDawnsparks += 1
             break
           case 'W2':
-            // Frosthexers
-            newState.specifics.potentialFrozenEnemies += 2
-            break
           case 'W6':
-            // Moment's Peace
-            newState.specifics.potentialFrozenEnemies += 3
-            break
           case 'W11':
-            // Midwinter Chaos
-            newState.specifics.potentialFrozenEnemies += 5
+          case 'W4':
+            let frozenEnemiesNow =
+              FROZEN_ENEMIES_AFTER[id][newState.specifics.frozenEnemiesLevel]
+            if (this.state.RNG === 'FRIENDLY') {
+              frozenEnemiesNow = Math.min(frozenEnemiesNow + 1, 4)
+            } else if (this.state.RNG === 'UNFRIENDLY') {
+              frozenEnemiesNow = Math.max(frozenEnemiesNow - 1, 0)
+            }
+            newState.specifics.frozenEnemiesLevel = frozenEnemiesNow
             break
           default:
             break
@@ -353,37 +387,17 @@ export default class DeckMechanisms extends React.Component {
 
       // Spellbinder Zhevana
       case 'W8': {
-        const enemiesToDestroy = Math.min(
-          this.state.specifics.potentialFrozenEnemies,
-          4
-        )
-
-        var destroyedEnemies = 0
-
-        switch (this.state.RNG) {
-          case 'FRIENDLY':
-            destroyedEnemies = enemiesToDestroy
-            break
-          case 'REGULAR':
-            destroyedEnemies = getBinomialRandomVariableResult(
-              enemiesToDestroy,
-              ZHEVANA_DESTROYS
-            )
-            break
-          case 'UNFRIENDLY':
-          default:
-            break
+        if (this.props.mode === 'AUTOMATIC') {
+          this.setState(state => ({
+            mana: state.mana + state.specifics.frozenEnemiesLevel * 4,
+            specifics: {
+              ...state.specifics,
+              frozenEnemiesLevel: parseInt(
+                state.specifics.frozenEnemiesLevel / 2
+              ),
+            },
+          }))
         }
-
-        this.setState(state => ({
-          mana: state.mana + destroyedEnemies * 4,
-          specifics: {
-            ...state.specifics,
-            potentialFrozenEnemies:
-              state.potentialFrozenEnemies - destroyedEnemies,
-          },
-        }))
-
         break
       }
 
@@ -458,7 +472,7 @@ export default class DeckMechanisms extends React.Component {
 
       // Reset the cycling state and potential frozen enemies
       newState.hasCycledThisTurn = false
-      newState.specifics.potentialFrozenEnemies = 0
+      newState.specifics.frozenEnemiesLevel = 0
 
       // Resolve mana from Dawnsparks/Frozen Cores
       this.resolveManaRNG(newState)
@@ -489,7 +503,7 @@ export default class DeckMechanisms extends React.Component {
     const card = this.state.deck.find(card => card.id === id)
     const isAffordable = card.mana <= this.state.mana
 
-    if (id === 'W1' && !this.state.specifics.potentialFrozenEnemies) {
+    if (id === 'W1' && !this.state.specifics.frozenEnemiesLevel) {
       return false
     }
 
