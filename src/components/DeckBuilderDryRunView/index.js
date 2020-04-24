@@ -229,7 +229,8 @@ class DeckBuilderDryRunView extends React.Component {
     return <>{frozenStateDescription}</>
   }
 
-  containsFreeze = deckIds => {
+  containsFreeze = deck => {
+    const deckIds = deck.map(card => card.id)
     const freezeCards = ['W1', 'W2', 'W4', 'W6', 'W8', 'W11']
     return deckIds.some(id => freezeCards.includes(id))
   }
@@ -499,9 +500,7 @@ class DeckBuilderDryRunView extends React.Component {
                           {this.props.deck.map(card => card.id).includes('W16')
                             ? this.getDawnsparksText()
                             : null}
-                          {this.containsFreeze(
-                            this.props.deck.map(card => card.id)
-                          )
+                          {this.containsFreeze(this.props.deck)
                             ? this.getFrozenEnemiesText()
                             : null}
                         </p>
