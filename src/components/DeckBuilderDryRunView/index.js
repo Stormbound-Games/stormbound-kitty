@@ -421,7 +421,7 @@ class DeckBuilderDryRunView extends React.Component {
                       <WikiLink id='N12' />, <WikiLink id='N14' />,{' '}
                       <WikiLink id='N22' />, <WikiLink id='N33' />,{' '}
                       <WikiLink id='N48' />, <WikiLink id='W10' />,{' '}
-                      <WikiLink id='W12' />, <WikiLink id='W8' />, and{' '}
+                      <WikiLink id='W12' />, <WikiLink id='W8' /> and{' '}
                       <WikiLink id='W19' /> abilities, RNG for{' '}
                       <WikiLink id='S3' />, <WikiLink id='W9' /> and{' '}
                       <WikiLink id='W16' /> as well as cards than cannot
