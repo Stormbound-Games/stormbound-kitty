@@ -136,6 +136,8 @@ export default class DeckMechanisms extends React.Component {
         reset: [id, pick],
       })
 
+      // Goldgrubbers’ and Snake Eyes’ abilities should not
+      // be counted as cycling, since they only replace the cards
       newState.hasCycledThisTurn = countAsCycled
 
       return newState
@@ -157,7 +159,11 @@ export default class DeckMechanisms extends React.Component {
 
         // Remove the played card from the hand.
         newState.hand = state.hand.filter(cardId => cardId !== id)
-
+        
+        if (options.discard) {
+          return newState
+        }
+        
         // Turn one: Check if board is not full (by Rain of Frogs for example)
         if (newState.turn === 1) {
           const cardData = resolveCardForLevel(card)
@@ -203,7 +209,6 @@ export default class DeckMechanisms extends React.Component {
               // All the other cards don’t have an effect on board filling
               break
           }
-        }
 
         switch (id) {
           case 'W9':
@@ -218,20 +223,36 @@ export default class DeckMechanisms extends React.Component {
           case 'W6':
           case 'W11':
           case 'W4':
+            // Find how many frozen enemies there are on the board
+            // This is not a precise number but gives an approximation
+            // (one, a few, many, all) of this amount
+            // Based on this approximation and the card that has just
+            // been played, store how many frozen enemies stayed on the board
+
+            // For example, playing Midwinter Chaos (W11) will freeze a lot of units,
+            // but if there are already many frozen units on the board, it will generally destroy them
             const frozenEnemiesNowRegular =
               FROZEN_ENEMIES_AFTER[id][newState.specifics.frozenEnemiesLevel]
 
+            // If the RNG is friendly to the user, the enemy units were spawned  in such a way
+            // that an additional unit gets frozen every time a freezing card is played
             if (this.state.RNG === 'FRIENDLY') {
               newState.specifics.frozenEnemiesLevel = Math.min(
                 frozenEnemiesNowRegular + 1,
                 4
               )
-            } else if (this.state.RNG === 'UNFRIENDLY') {
+            }
+            // If the RNG is unfriendly to the user, the opposite happens: Freezing cards are not as
+            // efficient and less enemy units get frozen
+            else if (this.state.RNG === 'UNFRIENDLY') {
               newState.specifics.frozenEnemiesLevel = Math.max(
                 frozenEnemiesNowRegular - 1,
                 0
               )
-            } else {
+            }
+            // In the regular case, just store the new approximation in the specifics.frozenEnemiesLevel
+            // variable
+            else {
               newState.specifics.frozenEnemiesLevel = frozenEnemiesNowRegular
             }
             break
@@ -257,7 +278,7 @@ export default class DeckMechanisms extends React.Component {
         }
         return newState
       },
-      () => this.handleCardEffect(card)
+      options.discard ? undefined : () => this.handleCardEffect(card)
     )
   }
 
@@ -422,6 +443,16 @@ export default class DeckMechanisms extends React.Component {
 
       // Spellbinder Zhevana
       case 'W8': {
+        // Zhevana gains mana depending on the approximation of the number of frozen enemy units
+        // on the board. The RNG appearing in the game - how many units are played in the same
+        // column - is replaced by an RNG variation when units like Frosthexers or Midwinter Chaos
+        // are actually played
+
+        // Zhevana destroys some of the frozen units - the amount of remaining frozen units
+        // was chosen arbitrarily and is set to 50%
+
+        // Note: The frozenEnemiesLevel does still not indicate how many enemy frozen units there are on
+        // the board - it only gives an approximation, from 0 (no) to 4 (almost all)
         this.setState(state => ({
           mana: state.mana + state.specifics.frozenEnemiesLevel * 4,
           specifics: {
@@ -457,6 +488,17 @@ export default class DeckMechanisms extends React.Component {
     }))
 
   resolveManaRNG = state => {
+    // Handle the RNG for Frozen Core and Dawnsparks
+
+    // If the RNG is unfriendly to the user, Frozen Cores and Dawsparks always get destroyed
+
+    // If the RNG is friendly to the user, no Frozen Cores and Dawsparks get destroyed and all
+    // the Dawnsparks units hit an enemy unit, giving 4 mana each
+
+    // If the RNG is set to regular, each Frozen Core has a 50% chance of staying on the board
+    // (given by FROZEN_CORE_STAYS) and Dawnsparks units each have a 71% chance (DAWNSPARKS_STAYS)
+    // of staying on the board, followed by a 71% chance (DAWSPARKS_HITS) of hitting an enemy unit,
+    // giving 4 mana
     switch (this.state.RNG) {
       case 'UNFRIENDLY': {
         state.specifics.activeFrozenCores = 0
@@ -467,16 +509,22 @@ export default class DeckMechanisms extends React.Component {
       case 'REGULAR': {
         const { activeFrozenCores, activeDawnsparks } = state.specifics
 
+        // Choose how many Frozen Cores survive
         state.specifics.activeFrozenCores = getBinomialRandomVariableResult(
           activeFrozenCores,
           FROZEN_CORE_STAYS
         )
+
+        // Choose how many Dawnsparks units survive
         state.specifics.activeDawnsparks = getBinomialRandomVariableResult(
           activeDawnsparks,
           DAWNSPARKS_STAYS
         )
 
+        // Add mana from remaining Frozen Cores
         state.mana += state.specifics.activeFrozenCores * 3
+
+        // Choose how many Dawnspark units hit and add mana to total
         state.mana +=
           getBinomialRandomVariableResult(
             state.specifics.activeDawnsparks,
@@ -536,6 +584,11 @@ export default class DeckMechanisms extends React.Component {
     const card = this.state.deck.find(card => card.id === id)
     const isAffordable = card.mana <= this.state.mana
 
+    // This checks if a unit has been frozen this turn to allow Icicle Burst
+    // to be played
+
+    // Note: The destroying ability of Wisp Cloud is implemented: Freezing with Frosthexers will
+    // make Icicle Burst playable, but playing Wisp Cloud will make it unplayable again
     if (id === 'W1' && !this.state.specifics.frozenEnemiesLevel) {
       return false
     }
@@ -549,8 +602,16 @@ export default class DeckMechanisms extends React.Component {
         return false
       }
 
+      // These spells can’t be played on turn 1 since they require a target
+      // Icicle Burst, Broken Truce, Potion of Growth, Unhealthy Hysteria
+
+      // Note: Checking if there are friendly units on the board to play one of these spells
+      // after turn 1 is and should not be implemented, since the opponent can always play
+      // Dubious Hags + Toxic Sacrifice to spawn a unit on the first turn
       const unplayableSpells = ['W1', 'S10', 'N15', 'N63']
 
+      // Add Toxic Sacrifice to the list of unplayable spells if no unit has been played
+      // or spawned on this first turn
       if (this.state.specifics.noUnitsOnFirstTurn) {
         unplayableSpells.push('F4')
       }
@@ -562,7 +623,7 @@ export default class DeckMechanisms extends React.Component {
   }
 
   reset = () => {
-    this.setState({ ...getDefaultState(this.props) }, this.drawHand)
+    this.setState(getDefaultState(this.props), this.drawHand)
   }
 
   setPlayerOrder = playerOrder => {

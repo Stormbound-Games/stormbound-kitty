@@ -62,7 +62,7 @@ const FeaturedDeck = props => {
       </div>
       <span className='FeaturedDeck__name'>
         <Link to={`/deck/${id}`}>{props.name}</Link>
-        {distance && (
+        {distance ? (
           <Only.CustomCollection>
             <Only.Desktop>
               <Tooltip
@@ -81,7 +81,7 @@ const FeaturedDeck = props => {
               </Tooltip>
             </Only.Desktop>
           </Only.CustomCollection>
-        )}
+        ) : null}
       </span>
       <span className='FeaturedDeck__author'>
         <Link
