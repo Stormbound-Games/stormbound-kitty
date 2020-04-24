@@ -13,13 +13,12 @@ import { TOOLTIP_STYLES } from '../../constants/stats'
 
 const ChartAbility = props => {
   const abilities = {
-    poison: { name: 'Poison', color: 'var(--shadowfen)' },
-    confus: { name: 'Confusion', color: 'var(--confused)' },
-    surviv: { name: 'Surviving', color: 'var(--dark-beige)' },
-    freeze: { name: 'Freeze', color: 'var(--winter)' },
     command: { name: 'Commanding', color: 'var(--swarm)' },
-    push: { name: 'Push/pull', color: 'var(--ironclad)' },
+    confus: { name: 'Confusion', color: 'var(--confused)' },
+    freeze: { name: 'Freeze', color: 'var(--winter)' },
+    poison: { name: 'Poison', color: 'var(--shadowfen)' },
     pull: { name: 'Push/pull', color: 'var(--ironclad)' },
+    push: { name: 'Push/pull', color: 'var(--ironclad)' },
   }
   const regex = new RegExp('(' + Object.keys(abilities).join('|') + ')', 'i')
   const data = Object.values(
