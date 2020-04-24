@@ -28,7 +28,7 @@ const FROZEN_ENEMIES_AFTER = {
   // Midwinter Chaos
   W11: [3, 3, 3, 2, 1],
   // Wisp Cloud
-  W4: [0, 0, 0, 1, 1],
+  W4: [0, 0, 0, 1, 2],
 }
 
 const getDefaultState = props => ({
