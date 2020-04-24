@@ -371,17 +371,15 @@ export default class DeckMechanisms extends React.Component {
 
       // Spellbinder Zhevana
       case 'W8': {
-        if (this.props.mode === 'AUTOMATIC') {
-          this.setState(state => ({
-            mana: state.mana + state.specifics.frozenEnemiesLevel * 4,
-            specifics: {
-              ...state.specifics,
-              frozenEnemiesLevel: parseInt(
-                state.specifics.frozenEnemiesLevel / 2
-              ),
-            },
-          }))
-        }
+        this.setState(state => ({
+          mana: state.mana + state.specifics.frozenEnemiesLevel * 4,
+          specifics: {
+            ...state.specifics,
+            frozenEnemiesLevel: Math.floor(
+              state.specifics.frozenEnemiesLevel / 2
+            ),
+          },
+        }))
         break
       }
 
