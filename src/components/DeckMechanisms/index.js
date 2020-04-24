@@ -168,14 +168,21 @@ export default class DeckMechanisms extends React.Component {
           case 'W6':
           case 'W11':
           case 'W4':
-            let frozenEnemiesNow =
+            const frozenEnemiesNowRegular =
               FROZEN_ENEMIES_AFTER[id][newState.specifics.frozenEnemiesLevel]
+
             if (this.state.RNG === 'FRIENDLY') {
-              frozenEnemiesNow = Math.min(frozenEnemiesNow + 1, 4)
+              newState.specifics.frozenEnemiesLevel = Math.min(
+                frozenEnemiesNowRegular + 1,
+                4
+              )
             } else if (this.state.RNG === 'UNFRIENDLY') {
-              frozenEnemiesNow = Math.max(frozenEnemiesNow - 1, 0)
+              newState.specifics.frozenEnemiesLevel = Math.max(
+                frozenEnemiesNowRegular - 1,
+                0
+              )
             }
-            newState.specifics.frozenEnemiesLevel = frozenEnemiesNow
+
             break
           default:
             break
