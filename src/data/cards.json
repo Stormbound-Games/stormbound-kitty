@@ -1154,7 +1154,7 @@
     "ability": "After attacking, *confuse all weaker* enemy units"
   },
   {
-    "name": "Hair-raising Cats",
+    "name": "Hair-Raising Cats",
     "id": "N61",
     "type": "unit",
     "faction": "neutral",
@@ -1206,7 +1206,7 @@
     "ability": "Before attacking a confused unit, *deal up* to *4/5/6/7/8 of its strength* as damage to all enemies bordering it"
   },
   {
-    "name": "Razor-sharp Lynxes",
+    "name": "Razor-Sharp Lynxes",
     "id": "N65",
     "type": "unit",
     "faction": "neutral",
