@@ -79,7 +79,7 @@ const FanKit = props => {
           .filter(card => !card.token)
           .sort(sortCards())
           .concat(cards.filter(card => card.token)),
-        3
+        4
       ),
     []
   )
@@ -106,7 +106,7 @@ const FanKit = props => {
         close={() => dialogRef.current.hide()}
       />
 
-      {items.map(([a, b, c]) => (
+      {items.map(([a, b, c, d]) => (
         <LazyLoad
           offset={150}
           resize
@@ -115,13 +115,13 @@ const FanKit = props => {
           key={a.id}
         >
           <Row desktopOnly>
-            <Column width={33}>
+            <Column width={25}>
               <div className='FanKit__item'>
                 <Download {...a} setActive={setActive} />
                 <Image src={a.image} alt={a.name} className='FanKit__image' />
               </div>
             </Column>
-            <Column width={33}>
+            <Column width={25}>
               {b && (
                 <div className='FanKit__item'>
                   <Download {...b} setActive={setActive} />
@@ -129,11 +129,19 @@ const FanKit = props => {
                 </div>
               )}
             </Column>
-            <Column width={33}>
+            <Column width={25}>
               {c && (
                 <div className='FanKit__item'>
                   <Download {...c} setActive={setActive} />
                   <Image src={c.image} alt={c.name} className='FanKit__image' />
+                </div>
+              )}
+            </Column>
+            <Column width={25}>
+              {d && (
+                <div className='FanKit__item'>
+                  <Download {...d} setActive={setActive} />
+                  <Image src={d.image} alt={d.name} className='FanKit__image' />
                 </div>
               )}
             </Column>
