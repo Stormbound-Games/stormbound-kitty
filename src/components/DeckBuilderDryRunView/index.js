@@ -226,7 +226,7 @@ class DeckBuilderDryRunView extends React.Component {
         ? 'There is a frozen enemy on the board.'
         : `There are ${frozenStateDescriptionCount[frozenEnemiesLevel]} frozen enemies on the board.`
 
-    return <>{frozenStateDescription}</>
+    return frozenStateDescription
   }
 
   containsFreeze = deck => {
