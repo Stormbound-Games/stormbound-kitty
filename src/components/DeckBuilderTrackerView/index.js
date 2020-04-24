@@ -522,7 +522,7 @@ class DeckBuilderTrackerView extends React.Component {
   render() {
     return (
       <>
-        <h1 className='visually-hidden'>Deck Tracker</h1>
+        <h1 className='VisuallyHidden'>Deck Tracker</h1>
 
         <Row desktopOnly wideGutter>
           <Column width={33}>
