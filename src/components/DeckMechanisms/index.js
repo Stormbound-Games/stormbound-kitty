@@ -255,7 +255,8 @@ export default class DeckMechanisms extends React.Component {
 
       // Collector Mirz
       case 'N8': {
-        const id = 'T' + arrayRandom([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+        const id =
+          'T' + arrayRandom([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14])
         const token = resolveCardForLevel({ id })
         token.level = [5, 6, 6, 8, 10][card.level - 1]
         token.weight = 0
@@ -418,7 +419,7 @@ export default class DeckMechanisms extends React.Component {
 
       // Resolve mana from Dawnsparks/Frozen Cores
       this.resolveManaRNG(newState)
-      
+
       return newState
     })
 
