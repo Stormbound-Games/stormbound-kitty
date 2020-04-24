@@ -157,6 +157,10 @@ export default class DeckMechanisms extends React.Component {
         // Remove the played card from the hand.
         newState.hand = state.hand.filter(cardId => cardId !== id)
 
+        if (options.discard) {
+          return newState
+        }
+
         switch (id) {
           case 'W9':
             // If the card played is a Frozen Core, increment the amount of active
@@ -209,7 +213,7 @@ export default class DeckMechanisms extends React.Component {
         }
         return newState
       },
-      () => this.handleCardEffect(card)
+      options.discard ? undefined : () => this.handleCardEffect(card)
     )
   }
 
