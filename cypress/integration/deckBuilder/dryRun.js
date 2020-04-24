@@ -24,6 +24,8 @@ describe('Deck Builder — Dry-run', () => {
     'NU4xLDVOMiw1RjMsNU4zLDVONCw0TjUsNE42LDJONjIsMk42NywyTjY2LDVONjMsNU4xNg=='
   const EXPENSIVE_DECK =
     'Mk42OCw0TjQ3LDNONDgsNE40OSwyTjUwLDNONTEsNE41MiwzTjUzLDVONTQsMk41NSwyTjU2LDNONTc='
+  const RAIN_OF_FROGS_DECK =
+    'NU4xLDVGOCw1TjIsNUY0LDVOMyw1TjIzLDVONCw1TjUsNU42LDVONjIsNU42Myw1STU'
 
   before(() => {
     cy.visit(`/deck/${CHEAP_DECK}/dry-run`)
@@ -187,5 +189,43 @@ describe('Deck Builder — Dry-run', () => {
       .drEndTurn()
 
       .drPlay('N63')
+  })
+
+  it('should not be possible to play a unit or a structure after Rain of Frogs fills the board', () => {
+    const HAND = ['N2', 'I5', 'N3', 'F8']
+
+    cy.visit(`/deck/${RAIN_OF_FROGS_DECK}/dry-run?mode=MANUAL`)
+
+      .drDrawHand(HAND)
+
+      .drPlay('F8')
+
+      .drSelect('I5')
+      .get(s.DR_PLAY_BTN)
+      .should('be.disabled')
+
+      .drSelect('N3')
+      .get(s.DR_PLAY_BTN)
+      .should('be.disabled')
+
+      .drPlay('N2')
+  })
+
+  it('should only be possible to play Green Prototypes after Rain of Frogs if Toxic Sacrifice was played in-between', () => {
+    const HAND = ['N1', 'N2', 'F4', 'F8']
+
+    cy.visit(`/deck/${RAIN_OF_FROGS_DECK}/dry-run?mode=MANUAL`)
+
+      .drDrawHand(HAND)
+
+      .drPlay('F8')
+
+      .drSelect('N1')
+      .get(s.DR_PLAY_BTN)
+      .should('be.disabled')
+
+      .drPlay('F4')
+
+      .drPlay('N1')
   })
 })
