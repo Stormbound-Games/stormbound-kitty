@@ -114,6 +114,7 @@ class DeckBuilderDryRunView extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.turn < this.props.turn) {
       this.setState(state => ({
+        // Un-select the active card to make the turn transition clearer
         activeCard: null,
         totalUnspentMana: state.totalUnspentMana + prevProps.mana,
       }))
@@ -180,6 +181,7 @@ class DeckBuilderDryRunView extends React.Component {
   }
 
   getFrozenCoreText = () => {
+    // Get the text that should be displayed to indicate how many Frozen Cores there are on the board
     const { activeFrozenCores } = this.props.specifics
     return (
       <>
@@ -195,6 +197,7 @@ class DeckBuilderDryRunView extends React.Component {
   }
 
   getDawnsparksText = () => {
+    // Get the text that should be displayed to indicate how many Dawnsparks there are on the board
     const { activeDawnsparks } = this.props.specifics
     return (
       <>
@@ -213,6 +216,7 @@ class DeckBuilderDryRunView extends React.Component {
   }
 
   getFrozenEnemiesText = () => {
+    // Display the approximation of the count of frozen enemy units on the board
     const { frozenEnemiesLevel } = this.props.specifics
     const frozenStateDescriptionCount = {
       0: 'no',
