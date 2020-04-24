@@ -24,7 +24,7 @@ const FROZEN_ENEMIES_AFTER = {
   // Frosthexers
   W2: [1, 2, 3, 3, 4],
   // Moment's Peace
-  W6: [3, 3, 3, 4, 4],
+  W6: [2, 3, 3, 4, 4],
   // Midwinter Chaos
   W11: [3, 3, 3, 2, 1],
   // Wisp Cloud
