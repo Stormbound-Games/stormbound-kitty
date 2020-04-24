@@ -42,6 +42,7 @@ const getDefaultState = props => ({
     activeDawnsparks: 0,
     noUnitsOnFirstTurn: true,
     frozenEnemiesLevel: 0,
+    emptyCellsIndicator: 4,
   },
   turn: props.turn,
   mana: DEFAULT_MANA + (props.turn - 1),
@@ -156,6 +157,53 @@ export default class DeckMechanisms extends React.Component {
 
         // Remove the played card from the hand.
         newState.hand = state.hand.filter(cardId => cardId !== id)
+
+        // Turn one: Check if board is not full (by Rain of Frogs for example)
+        if (newState.turn === 1) {
+          const cardData = resolveCardForLevel(card)
+          // Any 3 mana card can be played since it would be the only one to be played
+          // and would not fill the board by itself. Collector Mirz creating a 0 mana
+          // token is not an issue for board filling.
+
+          // Any 2 mana card will have to be played together with a 1 mana card. This will cause a board filling
+          // issue only when this card is Rain of Frogs
+
+          // The remaining playable cards are Green Prototypes, Summon Militia, Toxic Sacrifice and Rain of Frogs
+          // In these cases only the emptyCellsIndicator variable represents how many cells are free
+          // In the other cases it is not needed and will never be set to 0
+
+          const { emptyCellsIndicator } = newState.specifics
+
+          switch (id) {
+            case 'N1':
+              // Green Prototypes necessarily advance the frontline (since only the four 1 mana cards are
+              // taken into account)
+              newState.specifics.emptyCellsIndicator = emptyCellsIndicator + 4
+              break
+            case 'N2':
+              // Summon Militia won't cause any board filling issues
+              newState.specifics.emptyCellsIndicator = Math.max(
+                emptyCellsIndicator - 1,
+                0
+              )
+              break
+            case 'F4':
+              //Toxic Sacrifice frees up at least one cell
+              newState.specifics.emptyCellsIndicator = emptyCellsIndicator + 1
+              break
+            case 'F8':
+              // Rain of Frogs
+              const frogs = [4, 5, 5, 6, 6]
+              newState.specifics.emptyCellsIndicator = Math.max(
+                emptyCellsIndicator - frogs[cardData.level - 1],
+                0
+              )
+              break
+            default:
+              // All the other cards don’t have an effect on board filling
+              break
+          }
+        }
 
         switch (id) {
           case 'W9':
@@ -493,6 +541,14 @@ export default class DeckMechanisms extends React.Component {
     }
 
     if (this.state.turn === 1) {
+      // If the board is full no units/structures can be played
+      // Spells that spawn units can still be played, they simply don't spawn anything
+      if (
+        !(this.state.specifics.emptyCellsIndicator || card.type === 'spell')
+      ) {
+        return false
+      }
+
       const unplayableSpells = ['W1', 'S10', 'N15', 'N63']
 
       if (this.state.specifics.noUnitsOnFirstTurn) {
