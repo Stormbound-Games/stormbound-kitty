@@ -126,6 +126,51 @@ describe('Deck Builder — Dry-run', () => {
     )
   })
 
+  it('should be possible to get mana from Spellbinder Zhevana', () => {
+    const ZHEVANA_DECK_ID =
+      'NU4xLDVXMSw1TjIsNVcyLDVOMyw1TjIzLDVONCw1TjUsNVc0LDVXMTEsNVc4LDVXNg'
+    const HAND = ['W1', 'W2', 'W6', 'W8']
+
+    cy.visit(`/deck/${ZHEVANA_DECK_ID}/dry-run?mode=MANUAL`)
+
+      .drDrawHand(HAND)
+
+      .drEndTurn()
+      .drEndTurn()
+      .drEndTurn()
+
+      .drPlay('W2')
+      .drPlay('W8')
+
+      .get(s.DR_MANA)
+      .should('contain', 4)
+  })
+
+  it('should not be possible to play Icicle Burst after clearing the board of frozen enemies', () => {
+    const ZHEVANA_DECK_ID =
+      'NU4xLDVXMSw1TjIsNVcyLDVOMyw1TjIzLDVONCw1TjUsNVc0LDVXMTEsNVc4LDVXNg'
+    const HAND = ['W1', 'W4', 'W6', 'W8']
+
+    cy.visit(`/deck/${ZHEVANA_DECK_ID}/dry-run?mode=MANUAL`)
+
+      .drDrawHand(HAND)
+
+      .drEndTurn()
+      .drEndTurn()
+      .drEndTurn()
+      .drEndTurn()
+      .drEndTurn()
+      .drEndTurn()
+
+      .drPlay('W6')
+      .drPlay('W8')
+      .drPlay('W4')
+
+      .drSelect('W1')
+      .get(s.DR_PLAY_BTN)
+      .should('be.disabled')
+  })
+
   it('should not be possible to play Unhealthy Hysteria before turn 2', () => {
     const UNHEALTHY_HYSTERIA_DECK =
       'NU4xLDVOMiw1TjMsNU4yMyw1TjQsNU41LDVONiw1TjYyLDVONjMsNU42Nyw1TjY2LDVONw'
