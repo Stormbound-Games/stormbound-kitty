@@ -726,5 +726,12 @@
     "faction": "ironclad",
     "author": "Helios",
     "category": "EQUALS"
+  },
+  {
+    "name": "Cancerous Canon",
+    "id": "NUkxLDVJMiw1TjMsNUk0LDVJOCw1STksNUk2LDVJMTUsNUkyMCw1STEyLDVJMTksNUkyOA",
+    "faction": "ironclad",
+    "author": "LightingLords",
+    "category": "DIAMOND_1"
   }
 ]
