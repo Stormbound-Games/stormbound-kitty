@@ -1,4 +1,4 @@
-import s from '../../integration/deckBuilder/selectors'
+import s from '../../integration/dryRunner/selectors'
 
 const drawHand = ids => {
   Cypress.log({
@@ -7,7 +7,7 @@ const drawHand = ids => {
   })
 
   ids.forEach(id => {
-    cy.get(s.DR_DECK_CARD)
+    cy.get(s.DECK_CARD)
       .filter('[data-testid="' + id + '"]')
       .find('button')
       .first()

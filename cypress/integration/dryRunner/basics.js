@@ -50,7 +50,7 @@ describe('Dry-runner — Basics', () => {
     cy.get(s.CARD).each(isMarkedAffordable)
   })
 
-  it.only('should be possible to cycle a single card', () => {
+  it('should be possible to cycle a single card', () => {
     cy.drCycle(0)
 
       .get('@card')

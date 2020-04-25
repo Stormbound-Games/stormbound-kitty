@@ -1,4 +1,4 @@
-import s from '../../integration/deckBuilder/selectors'
+import s from '../../integration/dryRunner/selectors'
 
 const play = id => {
   Cypress.log({
@@ -6,7 +6,7 @@ const play = id => {
     message: `Play card ${id}`,
   })
 
-  cy.drSelect(id).get(s.DR_PLAY_BTN).click()
+  cy.drSelect(id).get(s.PLAY_BTN).click()
 }
 
 export default play
