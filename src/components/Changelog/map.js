@@ -9,31 +9,106 @@ const Mixed = props => (
 
 const END =
   '(?=$|,|;| \\(| and (?:{{)?(?=increased|decreased|lowered|reduced|adjusted|ability changed|changed))'
+
+/**
+ * Join multiple parts together by 0 to many spaces. In theory, it would be
+ * to join by at least a space, or strictly a space, but in practice it’s more
+ * composable this way, and doesn’t make much of a difference.
+ * @param {...String} chunks - Parts to join together
+ * @return {String}
+ * @example
+ * join('a', 'b') -> 'a\\s*b'
+ */
 const join = (...chunks) => chunks.join('\\s*')
+
+/**
+ * Join multiple parts together and mark the result as optional.
+ * @param {...String} chunks - Parts to mark optional
+ * @return {String}
+ * @example
+ * opt('a', 'b') -> '(?:a\\s*b)?'
+ */
 const opt = (...chunks) => `(?:${join(...chunks)})?`
+
+/**
+ * Create a dynamic global case-insensitive regular expression from multiple
+ * parts joined together, scoped until the end of line, a comma, semi-colon, or
+ * the beginning of another segment.
+ * @param {...String} chunks - Parts to mark optional
+ * @return {RegExp}
+ */
 const re = (...chunks) => new RegExp(`(${join(...chunks)})${END}`, 'gi')
+
+/**
+ * Join multiple parts together and mark the result as required one of them
+ * to match.
+ * @param {...String} chunks - Parts to mark optional
+ * @return {String}
+ * @example
+ * oneOf('a', 'b') -> '(?:a|b)'
+ */
 const oneOf = (...chunks) => `(?:${chunks.join('|')})`
+
+/**
+ * Join multiple parts together and wrap the result in parentheses, which will
+ * be escaped as part of the end regular expression.
+ * to match.
+ * @param {...String} chunks - Parts to mark optional
+ * @return {String}
+ * @example
+ * oneOf('a', 'negative') -> '\\(a\\s*negative\\)'
+ */
 const parens = (...chunks) => `\\(${join(...chunks)}\\)`
+
+// All verbs indicating a decrease of any kind. Note that it doesn’t necessarily
+// translate into a nerf though: a mana reduction would be a buff.
 const DECREASED = '(?:Decreased|Lowered|Reduced)'
+
+// All verbs indicating an increase of any kind. Note that it does not
+// necessarily translate into a buff though: a mana increase would be a nerf.
 const INCREASED = '(?:Increased|Doubled)'
+
+// Verb indicating a removal of some sort.
 const REMOVED = 'Removed'
+
+// Verb indicating a fix of some sort.
 const FIXED = 'Fixed'
-const STRENGTH = 'strength'
+
+// Mana is authored in different ways, either “mana”, “cost” or “mana cost”.
 const MANA = oneOf('mana', 'cost', 'mana cost')
+
+// Common terms for changes.
+const STRENGTH = 'strength'
 const ABILITY = 'ability'
 const MOVEMENT = 'movement'
 const DAMAGE = 'damage'
+const REQUIREMENTS = 'requirements?'
+
+// Joints.
 const AND = 'and'
 const FROM = 'from'
-const REQUIREMENTS = 'requirements?'
+
+// The concept of levels is loose and varies depending on the type of change.
+// E.g. “when leveled”, “when leveling”, “leveling”, “at higher levels”, “at
+// lower levels”, “at other levels”, “at max level” or “at level x”.
 const LEVELS = oneOf(
   '(?:when )?level(?:ing|ed)',
   'at (?:higher|lower|other) levels?',
   'at max level',
   'at level \\d'
 )
+
 const BY_INT = 'by \\d+'
 const TO_INT = 'to \\d+'
+
+// Most changes ends with either:
+// - a level indication (see `LEVELS`)
+// - a numeric update (see `BY_INT`)
+// - a level indication then a numeric update (e.g. “at higher levels by 2”)
+// - a numeric update then a level indication (e.g. “by 2 at higher levels”)
+// - none of these
+// Thus it is convenient to group these possible ends in a single constant so it
+// can be reused.
 const LEVELS_AND_OR_BY_INT = oneOf(
   join(opt(LEVELS), BY_INT),
   join(opt(BY_INT), LEVELS),
@@ -41,7 +116,7 @@ const LEVELS_AND_OR_BY_INT = oneOf(
 )
 
 const MOOD_MAP = new Map([
-  // Info
+  // Generic information
   [
     re('Added', oneOf(join(oneOf('to', 'in'), 'Brawl mode'), 'to the game')),
     Info,
