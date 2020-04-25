@@ -1,0 +1,31 @@
+.DryRunnerHeader {
+  margin-bottom: 3em;
+}
+
+@media (max-width: 699px) {
+  .DryRunnerHeader > .Row {
+    flex-wrap: wrap;
+  }
+
+  .DryRunnerHeader > .Row > :nth-child(1) {
+    flex: 1 1 100%;
+  }
+
+  .DryRunnerHeader > .Row > :nth-child(2),
+  .DryRunnerHeader > .Row > :nth-child(3) {
+    width: 50%;
+    flex-grow: 1;
+  }
+}
+
+.DryRunnerHeader__mana {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 125%;
+  margin-bottom: 1em;
+}
+
+.DryRunnerHeader__mana .Mana {
+  margin-left: 1em;
+}

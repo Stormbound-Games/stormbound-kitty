@@ -5,9 +5,10 @@
  * @param {*} padding - Padding value
  * @return Array of expected length
  */
-const arrayPad = (array, length, padding) => {
+const arrayPad = (array, length, padding, direction = -1) => {
   while (array.length < length) {
-    array.unshift(padding)
+    if (direction === -1) array.unshift(padding)
+    else array.push(padding)
   }
 
   return array

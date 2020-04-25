@@ -15,12 +15,4 @@ export default {
   ELDER_CHECKBOX: '[data-testid="elder-checkbox"]',
   HERO_CHECKBOX: '[data-testid="hero-checkbox"]',
   RESET_BTN: '[data-testid="reset-btn"]',
-
-  DR_MANA: '[data-testid="mana-pool"]',
-  DR_CHANCES_CHECKBOX: '[data-testid="display-chance"]',
-  DR_DECK_CARD: '.Deck__card',
-  DR_CARD: '[data-testid="hand"] [data-testid="card"]',
-  DR_CYCLE_BTN: '[data-testid="cycle-btn"]',
-  DR_PLAY_BTN: '[data-testid="play-btn"]',
-  DR_END_TURN_BTN: '[data-testid="end-turn-btn"]',
 }

@@ -26,4 +26,5 @@
 
 .BooksCalculator__toggle {
   color: var(--beige);
+  margin-bottom: 0.5em;
 }
