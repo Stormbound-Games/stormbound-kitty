@@ -30,6 +30,7 @@ const DeckBuilderShareButton = props => {
       label='Share deck'
       disabled={props.disabled}
       image='/assets/images/cards/archdruid_earyn.png'
+      share={{ shortenURL: true }}
     >
       <p>
         Your deck is automatically saved to the URL of the page as you work on
