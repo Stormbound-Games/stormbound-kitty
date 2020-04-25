@@ -21,7 +21,7 @@ const isMarkedAffordable = $card => {
 
 describe('Dry-runner — Basics', () => {
   const CHEAP_DECK =
-    'NU4xLDVOMiw1RjMsNU4zLDVOMjMsNU40LDVONSw1TjYsNU42Miw1TjY3LDVONjYsNU4xNg=='
+    'NU4xLDVOMiw1RjMsNU4zLDVONCw1TjUsNU42LDVONjIsNU42Nyw1TjY2LDFOMTAsNU4xNg=='
   const EXPENSIVE_DECK =
     'Mk42OCw0TjQ3LDNONDgsNE40OSwyTjUwLDNONTEsNE41MiwzTjUzLDVONTQsMk41NSwyTjU2LDNONTc='
 
