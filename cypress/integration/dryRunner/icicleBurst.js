@@ -12,7 +12,8 @@ describe('Dry-runner — Icicle Burst', () => {
     { id: 'W6', name: 'Moment’s Peace' },
   ].forEach(({ id, name }) => {
     it(
-      'should not be possible to play Icicle Burst without playing ' + name,
+      'should not be possible to play Icicle Burst without playing a card like ' +
+        name,
       () => {
         cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
           .drDrawHand(['N1', 'N2', 'W1', id])
@@ -38,6 +39,18 @@ describe('Dry-runner — Icicle Burst', () => {
       .drPlay('W6')
       .drPlay('W8')
       .drPlay('W4')
+
+      .drSelect('W1')
+      .get(s.PLAY_BTN)
+      .should('be.disabled')
+  })
+
+  it('should not be possible to play Icicle Burst on turn 1', () => {
+    const HAND = ['N1', 'N2', 'N3', 'W1']
+
+    cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
+
+      .drDrawHand(HAND)
 
       .drSelect('W1')
       .get(s.PLAY_BTN)
