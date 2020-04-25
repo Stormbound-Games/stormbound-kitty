@@ -18,17 +18,17 @@ describe('Dry-runner — Gain and Spend mana', () => {
 
       .drPlay('W19')
 
-      .get(s.DR_MANA)
+      .get(s.MANA)
       .should('contain', 12)
 
       .drPlay('W12')
 
-      .get(s.DR_MANA)
+      .get(s.MANA)
       .should('contain', 10)
 
       .drPlay('W10')
 
-      .get(s.DR_MANA)
+      .get(s.MANA)
       .should('contain', 0)
   })
 })

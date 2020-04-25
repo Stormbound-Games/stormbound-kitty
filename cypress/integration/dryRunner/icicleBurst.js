@@ -60,7 +60,7 @@ describe('Dry-runner — Icicle Burst', () => {
       .drDrawHand(HAND)
 
       .drSelect('W1')
-      .get(s.DR_PLAY_BTN)
+      .get(s.PLAY_BTN)
       .should('be.disabled')
   })
 })

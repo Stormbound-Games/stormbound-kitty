@@ -23,17 +23,17 @@ describe('Dry-runner — Discard and Draw', () => {
 
       .drPlay('N22')
 
-      .get(s.DR_CARD)
+      .get(s.CARD)
       .should('have.length', 3)
 
       .drPlay('N12')
 
-      .get(s.DR_CARD)
+      .get(s.CARD)
       .should('have.length', 1)
 
       .drPlay('N14')
 
-      .get(s.DR_CARD)
+      .get(s.CARD)
       .should('have.length', 2)
 
       .drCycle(0)
@@ -51,7 +51,7 @@ describe('Dry-runner — Discard and Draw', () => {
 
       .drPlay('N33')
 
-      .get(s.DR_CARD)
+      .get(s.CARD)
       .should('have.length', 4)
   })
 
@@ -71,7 +71,7 @@ describe('Dry-runner — Discard and Draw', () => {
 
       .drPlay('N33')
 
-      .get(s.DR_CARD)
+      .get(s.CARD)
       .should('have.length', 2)
 
       .drPlay('N2')
