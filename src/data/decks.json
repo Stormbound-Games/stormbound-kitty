@@ -726,5 +726,12 @@
     "faction": "ironclad",
     "author": "Helios",
     "category": "EQUALS"
+  },
+  {
+    "name": "Chaotic Puzzle Makers",
+    "id": "NU4xLDVOMiw1STEsNUk0LDVONiw1TjYyLDVONjMsNUk3LDVJOSw1STEzLDVJMjAsNUkxMg",
+    "faction": "ironclad",
+    "author": "Frostkhan"
+    "category": "DIAMOND_1"
   }
 ]
