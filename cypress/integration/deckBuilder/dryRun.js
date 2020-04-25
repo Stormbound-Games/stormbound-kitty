@@ -21,7 +21,7 @@ const isMarkedAffordable = $card => {
 
 describe('Deck Builder — Dry-run', () => {
   const CHEAP_DECK =
-    'NU4xLDVOMiw1RjMsNU4zLDVONCw0TjUsNE42LDJONjIsMk42NywyTjY2LDVONjMsNU4xNg=='
+    'NU4xLDVOMiw1RjMsNU4zLDVOMjMsNU40LDVONSw1TjYsNU42Miw1TjY3LDVONjYsNU4xNg=='
   const EXPENSIVE_DECK =
     'Mk42OCw0TjQ3LDNONDgsNE40OSwyTjUwLDNONTEsNE41MiwzTjUzLDVONTQsMk41NSwyTjU2LDNONTc='
   const FREEZE_DECK =
@@ -271,7 +271,7 @@ describe('Deck Builder — Dry-run', () => {
       .drCycle(0)
   })
 
-  it('should be possible to discard whole hand with Snake Eyes', () => {
+  it('should be possible to discard the whole hand with Snake Eyes', () => {
     const HAND = ['N1', 'N2', 'N3', 'N33']
 
     cy.visit(`/deck/${SNAKE_EYES_DECK}/dry-run?mode=MANUAL`)
@@ -280,8 +280,6 @@ describe('Deck Builder — Dry-run', () => {
 
       .drEndTurn()
       .drEndTurn()
-
-      .drPlay('N1')
 
       .drPlay('N33')
 
@@ -376,7 +374,7 @@ describe('Deck Builder — Dry-run', () => {
       .should('contain', 13)
 
       .get(s.DR_CARD)
-      .shoud('have.length', 1)
+      .should('have.length', 1)
   })
 
   it('should not be possible to play Icicle Burst with Archdruid Earyn with no frozen enemies', () => {
@@ -394,6 +392,7 @@ describe('Deck Builder — Dry-run', () => {
       .drPlay('N48')
 
       .drPlay('W2')
+
       .drPlay('W1')
   })
 })
