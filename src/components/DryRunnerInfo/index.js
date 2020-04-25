@@ -5,7 +5,6 @@ import DryRunnerRNGField from '../DryRunnerRNGField'
 import Hint from '../Hint'
 import Row from '../Row'
 import Title from '../Title'
-import WikiLink from '../WikiLink'
 import './index.css'
 
 const DryRunnerInfo = props => (
@@ -15,25 +14,17 @@ const DryRunnerInfo = props => (
         <Title>What is this</Title>
         <p>
           This simulator has same drawing/cycling mechanics as the game and
-          should be an accurate representation of mana flow for your deck.
+          should be an accurate representation of how playing your deck would
+          feel. It can be useful to evaluate card cycling, mana flow and combo
+          efficiency.
         </p>
 
         <p>
-          It also takes into account <WikiLink id='N8' />, <WikiLink id='N12' />
-          , <WikiLink id='N14' />, <WikiLink id='N22' />, <WikiLink id='N33' />,{' '}
-          <WikiLink id='N48' />, <WikiLink id='W8' />, <WikiLink id='W10' />,{' '}
-          <WikiLink id='W12' /> and <WikiLink id='W19' /> abilities, RNG for{' '}
-          <WikiLink id='S3' />, <WikiLink id='W9' /> and <WikiLink id='W16' />{' '}
-          as well as cards than cannot actually be played in the first turn
-          (e.g. <WikiLink id='F4' />, <WikiLink id='W1' />
-          …).
-        </p>
-
-        <p>
-          Learn more about{' '}
-          <Link to='/faq#dry-runner-works'>how the dry-runner works</Link> and{' '}
-          <Link to='/faq#drawing-algorithm'>what is the drawing algorithm</Link>
-          .
+          Many game mechanics are currently implemented in this simulator. To
+          learn more about which cards abilities are taken into account and how,
+          check out <Link to='/faq#dry-runner-mechanics'>this list</Link>. For
+          an explanation of what the drawing algorithm is, check out{' '}
+          <Link to='/faq#drawing-algorithm'>this explanation</Link>.
         </p>
 
         {props.deck.map(card => card.id).includes('N38') && (

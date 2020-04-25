@@ -9,16 +9,10 @@ import resolveDeckWeight, {
   increaseCardWeight,
 } from '../../helpers/resolveDeckWeight'
 
-const DAWNSPARKS_STAYS = 0.71
-const DAWNSPARKS_HITS = 0.71
-const FROZEN_CORE_STAYS = 0.5
-const AHMI_RETURNS = 0.5
-
-export const FRIENDLY_CHANCES = {
-  W9: FROZEN_CORE_STAYS,
-  S3: AHMI_RETURNS,
-  W16: DAWNSPARKS_HITS * DAWNSPARKS_STAYS,
-}
+export const DAWNSPARKS_STAYS = 0.71
+export const DAWNSPARKS_HITS = 0.71
+export const FROZEN_CORE_STAYS = 0.5
+export const AHMI_RETURNS = 0.5
 
 const FROZEN_ENEMIES_AFTER = {
   //Frozen enemies left after a card's ability has been resolved, in regular RNG mode
