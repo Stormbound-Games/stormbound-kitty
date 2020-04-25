@@ -33,8 +33,8 @@ describe('Dry-runner — Basics', () => {
     cy.get(s.CARD).parent().each(unselectActiveCard)
   })
 
-  it('should have a correct default state', () => {
-    cy.get(s.MANA).should('contain', 3).get(s.CARD).should('have.length', 4)
+  it('should start the game with 4 cards', () => {
+    cy.get(s.CARD).should('have.length', 4)
   })
 
   it('should be possible to display drawing chances', () => {
