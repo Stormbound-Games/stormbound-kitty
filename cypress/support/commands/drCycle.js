@@ -1,4 +1,4 @@
-import s from '../../integration/deckBuilder/selectors'
+import s from '../../integration/dryRunner/selectors'
 
 const cycle = id => {
   Cypress.log({
@@ -6,7 +6,7 @@ const cycle = id => {
     message: `Cycle card ${id}`,
   })
 
-  cy.drSelect(id).get(s.DR_CYCLE_BTN).click()
+  cy.drSelect(id).get(s.CYCLE_BTN).click()
 }
 
 export default cycle
