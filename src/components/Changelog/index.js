@@ -1,4 +1,5 @@
 import React from 'react'
+import ChangelogLegend from '../ChangelogLegend'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
 import PageMeta from '../PageMeta'
@@ -108,6 +109,7 @@ const Changelog = props => {
               >
                 Enabled color-coding (experimental)
               </Checkbox>
+              {colorCoding && <ChangelogLegend />}
             </Column>
           </Row>
 

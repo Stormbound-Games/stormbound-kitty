@@ -97,7 +97,7 @@ const LEVELS = oneOf(
   'at (?:higher|lower|other) levels?',
   'at max level',
   'at level \\d',
-  '(?:on|for) all levels'
+  '(?:on|for|at) all levels'
 )
 
 const BY_INT = 'by \\d+'
@@ -139,7 +139,8 @@ const MOOD_MAP = new Map([
       opt('given'),
       opt('from ability'),
       opt('and that of spawned units'),
-      LEVELS_AND_OR_BY_INT
+      LEVELS_AND_OR_BY_INT,
+      opt(parens(oneOf('down', 'up'), TO_INT))
     ),
     Nerf,
   ],
@@ -183,6 +184,7 @@ const MOOD_MAP = new Map([
     Nerf,
   ],
   [re(INCREASED, MANA, BY_INT, AND, MANA, FROM, ABILITY, BY_INT), Mixed],
+  [re('Gives \\d+', MANA, LEVELS), Mixed],
 
   // Ability
   [
@@ -213,7 +215,8 @@ const MOOD_MAP = new Map([
         join(opt('drain'), ABILITY, opt(STRENGTH), opt(DAMAGE)),
         'all possible abilities'
       ),
-      LEVELS_AND_OR_BY_INT
+      LEVELS_AND_OR_BY_INT,
+      opt(parens(oneOf('down', 'up'), TO_INT))
     ),
     Buff,
   ],
@@ -337,10 +340,9 @@ const MOOD_MAP = new Map([
 
   // Misc
   [re('Reworked'), Mixed],
+  [re('The push effect is executed before the damage'), Mixed],
   [re('changed leveling steps'), Mixed],
   [re(REMOVED, oneOf(DAMAGE, 'card draw')), Nerf],
 ])
-
-console.log(MOOD_MAP.keys())
 
 export default MOOD_MAP
