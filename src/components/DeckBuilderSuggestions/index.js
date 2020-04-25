@@ -164,7 +164,6 @@ class DeckBuilderSuggestions extends React.Component {
             {decks.length > 0 ? (
               chunk(decks, 2).map(([a, b]) => (
                 <LazyLoad
-                  offset={100}
                   resize
                   placeholder={<Loader hideLabel />}
                   height={this.props.viewportWidth > 700 ? 280 : 560}
