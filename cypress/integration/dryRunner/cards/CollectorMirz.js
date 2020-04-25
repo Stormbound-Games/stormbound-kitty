@@ -14,6 +14,6 @@ describe('Dry-runner — Collector Mirz', () => {
       .drPlay('N8')
 
       .get(s.DECK_CARD)
-      .should('have.length', 12)
+      .should('have.length', 13)
   })
 })
