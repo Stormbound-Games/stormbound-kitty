@@ -17,9 +17,7 @@ describe('Dry-runner — Icicle Burst', () => {
         cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
           .drDrawHand(['N1', 'N2', 'W1', id])
 
-          .drEndTurn()
-          .drEndTurn()
-          .drEndTurn()
+          .drEndTurn(3)
 
           .drSelect('W1')
           .get(s.PLAY_BTN)
@@ -35,12 +33,7 @@ describe('Dry-runner — Icicle Burst', () => {
     cy.visit(`/deck/${ZHEVANA_DECK_ID}/dry-run?mode=MANUAL`)
       .drDrawHand(['W1', 'W4', 'W6', 'W8'])
 
-      .drEndTurn()
-      .drEndTurn()
-      .drEndTurn()
-      .drEndTurn()
-      .drEndTurn()
-      .drEndTurn()
+      .drEndTurn(6)
 
       .drPlay('W6')
       .drPlay('W8')

@@ -10,9 +10,7 @@ describe('Dry-runner — Spellbinder Zhevana', () => {
   })
 
   it('should be possible to get mana from Spellbinder Zhevana', () => {
-    cy.drEndTurn()
-      .drEndTurn()
-      .drEndTurn()
+    cy.drEndTurn(3)
 
       .drPlay('W2')
       .drPlay('W8')
