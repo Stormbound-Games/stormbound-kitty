@@ -6,7 +6,7 @@ const showsDrawingChance = value => {
 }
 
 const unselectActiveCard = ($wrapper, index) => {
-  if ($wrapper.hasClass('DeckBuilderDryRunView__card-wrapper--active')) {
+  if ($wrapper.hasClass('DryRunnerHand__wrapper--active')) {
     cy.drSelect(index)
   }
 }
@@ -21,7 +21,7 @@ const isMarkedAffordable = $card => {
 
 describe('Deck Builder — Dry-run', () => {
   const CHEAP_DECK =
-    'NU4xLDVOMiw1RjMsNU4zLDVONCw0TjUsNE42LDJONjIsMk42NywyTjY2LDVONjMsNU4xNg=='
+    'NU4xLDVOMiw1RjMsNU4zLDVONCw0TjUsNE42LDJONjIsMk42NywyTjY2LDNONyw1TjE2'
   const EXPENSIVE_DECK =
     'Mk42OCw0TjQ3LDNONDgsNE40OSwyTjUwLDNONTEsNE41MiwzTjUzLDVONTQsMk41NSwyTjU2LDNONTc='
 

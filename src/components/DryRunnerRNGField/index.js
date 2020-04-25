@@ -43,7 +43,7 @@ const RNG_SENSITIVE_CARDS = {
   },
 }
 
-const DeckBuilderRNGField = props => {
+const DryRunnerRNGField = props => {
   const deckIds = props.deck.map(card => card.id)
   const possibleRNGSensitiveCards = Object.keys(RNG_SENSITIVE_CARDS)
   const RNGSensitiveCards = possibleRNGSensitiveCards.filter(cardId =>
@@ -70,7 +70,7 @@ const DeckBuilderRNGField = props => {
         required
       >
         Friendly
-        <span className='DeckBuilderRNGField__radio-info'>
+        <span className='DryRunnerRNGField__radio-info'>
           {freezeCard ? (
             <span>Freeze cards manage to freeze many enemies</span>
           ) : null}
@@ -88,7 +88,7 @@ const DeckBuilderRNGField = props => {
         required
       >
         Unfriendly
-        <span className='DeckBuilderRNGField__radio-info'>
+        <span className='DryRunnerRNGField__radio-info'>
           {freezeCard ? (
             <span>Freeze cards do not manage to freeze many enemies</span>
           ) : null}
@@ -106,7 +106,7 @@ const DeckBuilderRNGField = props => {
         required
       >
         Regular{' '}
-        <span className='DeckBuilderRNGField__radio-info'>
+        <span className='DryRunnerRNGField__radio-info'>
           <>
             {freezeCard ? (
               <span>Freeze cards manage to freeze a few enemies</span>
@@ -124,4 +124,4 @@ const DeckBuilderRNGField = props => {
   )
 }
 
-export default DeckBuilderRNGField
+export default DryRunnerRNGField

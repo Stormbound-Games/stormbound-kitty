@@ -1,9 +1,9 @@
-.DeckBuilderRNGField__radio-info {
+.DryRunnerRNGField__radio-info {
   color: var(--white);
   display: block;
   text-transform: initial;
 }
 
-.DeckBuilderRNGField__radio-info > span {
+.DryRunnerRNGField__radio-info > span {
   display: block;
 }
