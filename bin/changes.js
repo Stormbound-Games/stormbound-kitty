@@ -28,6 +28,9 @@ const slugify = name =>
 
           return items.map(item => {
             try {
+              const subList = item.querySelector('ul')
+              if (subList) item.remove()
+
               const [date, rest] = item.innerText.split(':')
               const type = rest.includes('Added to the game')
                 ? 'ADDITION'

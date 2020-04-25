@@ -980,7 +980,7 @@
   {
     "date": 1517353200000,
     "type": "UPDATE",
-    "description": "Increased mana by 1, the target of the spell will gain more strength, while all others of the same type will receive less.\nNew ability",
+    "description": "Increased mana by 1, the target of the spell will gain more strength, while all others of the same type will receive less.\n",
     "id": "N40"
   },
   {
@@ -1046,7 +1046,7 @@
   {
     "date": 1510786800000,
     "type": "UPDATE",
-    "description": "Ability changed\nNew ability",
+    "description": "Ability changed\n",
     "id": "N44"
   },
   {
@@ -1118,7 +1118,7 @@
   {
     "date": 1517353200000,
     "type": "UPDATE",
-    "description": "Ability will now hit all surrounding enemies (removed \"other\"), decreased strength by 1\nNew ability",
+    "description": "Ability will now hit all surrounding enemies (removed \"other\"), decreased strength by 1\n",
     "id": "N47"
   },
   {
@@ -1154,7 +1154,7 @@
   {
     "date": 1510786800000,
     "type": "UPDATE",
-    "description": "Plays spells from hand (was from deck)\nNew ability",
+    "description": "Plays spells from hand (was from deck)\n",
     "id": "N48"
   },
   {
@@ -1640,7 +1640,7 @@
   {
     "date": 1517353200000,
     "type": "UPDATE",
-    "description": "Increased mana by 2, surrounding at all levels, damages and poisons all units.\nNew ability",
+    "description": "Increased mana by 2, surrounding at all levels, damages and poisons all units.\n",
     "id": "F4"
   },
   {
@@ -1982,7 +1982,7 @@
   {
     "date": 1502056800000,
     "type": "UPDATE",
-    "description": "Increased mana by 1, increased strength and abiltiy when leveling",
+    "description": "Increased mana by 1, increased strength and ability when leveling",
     "id": "F23"
   },
   {
@@ -2204,7 +2204,7 @@
   {
     "date": 1517353200000,
     "type": "UPDATE",
-    "description": "Increased mana to 4, damage to base and the leveling steps and removed the \"if\" requirement on the base damage.\nNew ability",
+    "description": "Increased mana to 4, damage to base and the leveling steps and removed the \"if\" requirement on the base damage.\n",
     "id": "S10"
   },
   {
@@ -2276,7 +2276,7 @@
   {
     "date": 1517353200000,
     "type": "UPDATE",
-    "description": "Reworked; will now buff all surrounding friendly units (was Satyrs only)\nNew ability",
+    "description": "Reworked; will now buff all surrounding friendly units (was Satyrs only)\n",
     "id": "S14"
   },
   {
@@ -2384,7 +2384,7 @@
   {
     "date": 1510786800000,
     "type": "UPDATE",
-    "description": "Gives strength to a single unit\nNew ability",
+    "description": "Gives strength to a single unit\n",
     "id": "S20"
   },
   {
@@ -2408,7 +2408,7 @@
   {
     "date": 1510786800000,
     "type": "UPDATE",
-    "description": "Plays from deck (was from hand)\nNew ability",
+    "description": "Plays from deck (was from hand)\n",
     "id": "S21"
   },
   {
@@ -2852,7 +2852,7 @@
   {
     "date": 1510786800000,
     "type": "UPDATE",
-    "description": "Removed card draw and changed mana cost\nNew ability",
+    "description": "Removed card draw and changed mana cost\n",
     "id": "W19"
   },
   {

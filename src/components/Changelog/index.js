@@ -39,7 +39,7 @@ const Change = props => {
 
 const Changelog = props => {
   const [sorting, setSorting] = React.useState('DATE')
-  const [colorCoding, setColorCoding] = React.useState(false)
+  const [colorCoding, setColorCoding] = React.useState(true)
   const [type, setType] = React.useState('*')
   const changesByDate = React.useMemo(() => {
     return changelog

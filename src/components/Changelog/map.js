@@ -8,12 +8,16 @@ const Mixed = props => (
 )
 
 const END =
-  '(?=$|,| \\(| and (?:{{)?(?=increased|decreased|lowered|reduced|adjusted|ability changed))' // | and (?:increased|decreased|lowered|reduced|adjusted)
-const opt = (...value) => `(?:${value.join('\\s*')})?`
-const re = (...chunks) => new RegExp(`(${chunks.join('\\s*')})${END}`, 'gi')
+  '(?=$|,|;| \\(| and (?:{{)?(?=increased|decreased|lowered|reduced|adjusted|ability changed|changed))'
+const join = (...chunks) => chunks.join('\\s*')
+const opt = (...chunks) => `(?:${join(...chunks)})?`
+const re = (...chunks) => new RegExp(`(${join(...chunks)})${END}`, 'gi')
 const oneOf = (...chunks) => `(?:${chunks.join('|')})`
+const parens = (...chunks) => `\\(${join(...chunks)}\\)`
 const DECREASED = '(?:Decreased|Lowered|Reduced)'
-const INCREASED = 'Increased'
+const INCREASED = '(?:Increased|Doubled)'
+const REMOVED = 'Removed'
+const FIXED = 'Fixed'
 const STRENGTH = 'strength'
 const MANA = oneOf('mana', 'cost', 'mana cost')
 const ABILITY = 'ability'
@@ -23,152 +27,237 @@ const AND = 'and'
 const FROM = 'from'
 const REQUIREMENTS = 'requirements?'
 const LEVELS = oneOf(
-  'leveling',
-  'when leveling',
-  'when leveled',
+  '(?:when )?level(?:ing|ed)',
+  'at (?:higher|lower|other) levels?',
   'at max level',
-  'at higher levels?',
-  'at lower levels',
-  'at level 5'
+  'at level \\d'
 )
 const BY_INT = 'by \\d+'
 const TO_INT = 'to \\d+'
+const LEVELS_AND_OR_BY_INT = oneOf(
+  join(opt(LEVELS), BY_INT),
+  join(opt(BY_INT), LEVELS),
+  ''
+)
 
 const MOOD_MAP = new Map([
   // Info
-  [re('Added', oneOf('to', 'in'), 'Brawl mode'), Info],
-  [re('Added to the game'), Info],
-  [re('Made available in the Shop'), Info],
-  [re('Made available to be crafted and randomly collected'), Info],
+  [
+    re('Added', oneOf(join(oneOf('to', 'in'), 'Brawl mode'), 'to the game')),
+    Info,
+  ],
+  [
+    re(
+      'Made available',
+      oneOf('in the Shop', 'to be crafted and randomly collected')
+    ),
+    Info,
+  ],
 
   // Strength
-  [re(DECREASED, STRENGTH, opt('given'), opt('from ability'), BY_INT), Nerf],
-  [re(DECREASED, STRENGTH), Nerf],
-  [re(DECREASED, STRENGTH, BY_INT), Nerf],
-  [re(DECREASED, STRENGTH, opt('and that of spawned units'), LEVELS), Nerf],
-  [re(DECREASED, STRENGTH, BY_INT, LEVELS), Nerf],
-  [re(DECREASED, STRENGTH, LEVELS, BY_INT), Nerf],
-  [re(INCREASED, STRENGTH), Buff],
+  [
+    re(
+      DECREASED,
+      STRENGTH,
+      opt('given'),
+      opt('from ability'),
+      opt('and that of spawned units'),
+      LEVELS_AND_OR_BY_INT
+    ),
+    Nerf,
+  ],
   [
     re(
       INCREASED,
+      opt('bonus'),
+      opt('initial'),
       STRENGTH,
-      oneOf('given to others', 'of spawned dragons'),
-      BY_INT,
-      LEVELS
+      opt('given', opt('to others')),
+      opt('from ability'),
+      opt('of(?: the)? spawn(?:ed)?(?: units| dragons)?'),
+      LEVELS_AND_OR_BY_INT
     ),
     Buff,
   ],
-  [re(INCREASED, STRENGTH, 'of the spawned units', BY_INT), Buff],
-  [re(INCREASED, STRENGTH, LEVELS), Buff],
-  [re(INCREASED, STRENGTH, opt('given'), opt('from ability'), BY_INT), Buff],
-  [re(INCREASED, opt('bonus'), STRENGTH, BY_INT), Buff],
-  [re(INCREASED, opt('initial'), STRENGTH, BY_INT), Buff],
-  [re(INCREASED, STRENGTH, LEVELS, BY_INT), Buff],
-  [re(INCREASED, STRENGTH, BY_INT, LEVELS), Buff],
+  [re(FIXED, STRENGTH, LEVELS), Mixed],
 
   // Mana
   [re('costs \\d+ more', LEVELS), Nerf],
   [re(DECREASED, MANA, opt('and spawns'), LEVELS), Mixed],
-  [re(DECREASED, MANA, 'gained', FROM, ABILITY, BY_INT), Nerf],
-  [re(DECREASED, MANA, TO_INT), Buff],
-  [re(DECREASED, MANA, BY_INT), Buff],
-  [re(INCREASED, MANA, BY_INT), Nerf],
-  [re(INCREASED, MANA, BY_INT, AND, MANA, FROM, ABILITY, BY_INT), Mixed],
-
-  // Ability
-  [re(ABILITY, 'increased', LEVELS, AND, 'decreased', LEVELS), Mixed],
-  [re(ABILITY, 'changed'), Mixed],
-  [re(ABILITY, 'also works on friendly units'), Buff],
-  [re(ABILITY, 'only hits friendly units'), Nerf],
-  [re(DECREASED, ABILITY, BY_INT), Nerf],
-  [re(DECREASED, opt('\\(negative)\\'), ABILITY, BY_INT), Buff],
-  [re(DECREASED, ABILITY, LEVELS), Nerf],
-  [re(DECREASED, ABILITY, STRENGTH), Nerf],
-  [re(DECREASED, STRENGTH, FROM, ABILITY), Nerf],
-  [re(INCREASED, ABILITY), Buff],
-  [re(INCREASED, opt('drain'), ABILITY, BY_INT), Buff],
-  [re(INCREASED, ABILITY, BY_INT, LEVELS), Buff],
-  [re(INCREASED, ABILITY, BY_INT, LEVELS), Buff],
-  [re(INCREASED, ABILITY, DAMAGE), Buff],
-  [re(INCREASED, ABILITY, DAMAGE, LEVELS), Buff],
-  [re(INCREASED, ABILITY, DAMAGE, BY_INT), Buff],
-  [re(INCREASED, ABILITY, LEVELS, BY_INT), Buff],
-  [re(INCREASED, ABILITY, LEVELS), Buff],
-  [re(INCREASED, ABILITY, STRENGTH, BY_INT), Buff],
-  [re(INCREASED, 'all possible abilities', BY_INT), Buff],
-
-  // Movement
-  [re(DECREASED, MOVEMENT, BY_INT), Nerf],
-  [re(DECREASED, MOVEMENT, TO_INT), Nerf],
-  [re(INCREASED, MOVEMENT, TO_INT), Buff],
-
-  // Damage
-  [re(DECREASED, opt('maximum'), DAMAGE, BY_INT), Nerf],
-  [re(INCREASED, opt('maximum'), DAMAGE, opt('and spawn'), BY_INT), Buff],
-  [re(INCREASED, opt('maximum'), DAMAGE, opt('done'), BY_INT), Buff],
-  [re(INCREASED, DAMAGE, LEVELS), Buff],
-
-  // Mana and strength
-  [re(DECREASED, MANA, AND, STRENGTH, opt('given'), BY_INT), Mixed],
-  [re(DECREASED, MANA, AND, STRENGTH, LEVELS, BY_INT), Mixed],
-  [re(DECREASED, MANA, BY_INT, AND, STRENGTH, LEVELS, BY_INT), Mixed],
-  [re(DECREASED, STRENGTH, AND, MANA, BY_INT), Mixed],
-  [re(INCREASED, STRENGTH, AND, MANA, BY_INT), Mixed],
-  [re(INCREASED, MANA, opt(BY_INT), AND, STRENGTH, BY_INT), Mixed],
+  [
+    re(
+      DECREASED,
+      MANA,
+      opt('gained', FROM, ABILITY),
+      oneOf(join(BY_INT, opt(parens(TO_INT, MANA))), TO_INT)
+    ),
+    Buff,
+  ],
   [
     re(
       INCREASED,
       MANA,
+      opt('gained', FROM, ABILITY),
+      oneOf(join(BY_INT, opt(parens(TO_INT, MANA))), TO_INT)
+    ),
+    Nerf,
+  ],
+  [re(INCREASED, MANA, BY_INT, AND, MANA, FROM, ABILITY, BY_INT), Mixed],
+
+  // Ability
+  [
+    re(
+      ABILITY,
+      oneOf('increased', 'changed'),
+      opt(LEVELS, AND, 'decreased', LEVELS)
+    ),
+    Mixed,
+  ],
+  [re(ABILITY, 'also works on friendly units'), Buff],
+  [re(ABILITY, 'only hits friendly units'), Nerf],
+  [re(DECREASED, opt(parens('negative')), ABILITY, BY_INT), Buff],
+  [
+    re(
+      DECREASED,
+      opt(STRENGTH, FROM),
+      ABILITY,
+      opt(STRENGTH),
+      LEVELS_AND_OR_BY_INT
+    ),
+    Nerf,
+  ],
+  [
+    re(
+      INCREASED,
+      oneOf(
+        join(opt('drain'), ABILITY, opt(STRENGTH), opt(DAMAGE)),
+        'all possible abilities'
+      ),
+      LEVELS_AND_OR_BY_INT
+    ),
+    Buff,
+  ],
+
+  // Movement
+  [re('Set', MOVEMENT, oneOf(BY_INT, TO_INT)), Mixed],
+  [re(DECREASED, MOVEMENT, oneOf(BY_INT, TO_INT)), Nerf],
+  [re(INCREASED, MOVEMENT, oneOf(BY_INT, TO_INT)), Buff],
+
+  // Damage
+  [
+    re(
+      DECREASED,
+      opt('maximum'),
+      DAMAGE,
+      opt('and spawn'),
+      opt('done'),
+      oneOf(join(opt(LEVELS), BY_INT), join(opt(BY_INT), LEVELS))
+    ),
+    Nerf,
+  ],
+  [
+    re(
+      INCREASED,
+      opt('maximum'),
+      DAMAGE,
+      opt('and spawn'),
+      opt('done'),
+      LEVELS_AND_OR_BY_INT
+    ),
+    Buff,
+  ],
+
+  // Mana, strength and ability
+  [
+    re(oneOf(INCREASED, DECREASED), MANA, ',', STRENGTH, AND, ABILITY, BY_INT),
+    Mixed,
+  ],
+
+  // Mana and strength
+  [
+    re(
+      oneOf(DECREASED, INCREASED),
+      oneOf(
+        join(MANA, opt(BY_INT), AND, STRENGTH),
+        join(STRENGTH, opt(BY_INT), AND, MANA)
+      ),
+      opt('given'),
+      opt('of spawned units'),
+      LEVELS_AND_OR_BY_INT
+    ),
+    Mixed,
+  ],
+
+  // Mana and ability, damage or movement
+  [
+    re(
+      oneOf(DECREASED, INCREASED),
+      MANA,
       opt(BY_INT),
       AND,
-      STRENGTH,
-      opt('of spawned units'),
+      oneOf(
+        join(ABILITY, opt('damage')),
+        join(opt('additional'), DAMAGE),
+        MOVEMENT
+      ),
       BY_INT
     ),
     Mixed,
   ],
 
-  // Mana, strength and ability
-  [re(INCREASED, MANA, ',', STRENGTH, AND, ABILITY, BY_INT), Mixed],
-  [re(DECREASED, MANA, ',', STRENGTH, AND, ABILITY, BY_INT), Mixed],
-
-  // Mana and damage
-  [
-    re(INCREASED, MANA, opt(BY_INT), AND, opt('additional'), DAMAGE, BY_INT),
-    Mixed,
-  ],
-
-  // Mana and movement
-  [re(INCREASED, MANA, AND, MOVEMENT, BY_INT), Mixed],
-
-  // Mana and ability
-  [
-    re(INCREASED, MANA, opt(BY_INT), AND, ABILITY, opt('damage'), BY_INT),
-    Mixed,
-  ],
-  [re(DECREASED, MANA, opt(BY_INT), AND, ABILITY, BY_INT), Mixed],
-
   // Strength requirements
-  [re(DECREASED, STRENGTH, REQUIREMENTS, BY_INT), Buff],
-  [re(DECREASED, MANA, AND, STRENGTH, REQUIREMENTS, BY_INT), Buff],
-  [re(INCREASED, MANA, AND, 'maximum', STRENGTH, REQUIREMENTS, BY_INT), Nerf],
-  [re(INCREASED, opt('max'), STRENGTH, REQUIREMENTS, BY_INT), Nerf],
+  [re(DECREASED, opt(MANA, AND), STRENGTH, REQUIREMENTS, BY_INT), Buff],
+  [
+    re(
+      INCREASED,
+      oneOf(join(MANA, AND, 'maximum'), opt('max')),
+      STRENGTH,
+      REQUIREMENTS,
+      BY_INT
+    ),
+    Nerf,
+  ],
 
   // Strength and ability
-  [re(DECREASED, STRENGTH, AND, '\\(negative\\)', ABILITY, BY_INT), Mixed],
-  [re(DECREASED, STRENGTH, AND, ABILITY), Nerf],
-  [re(DECREASED, STRENGTH, AND, ABILITY, BY_INT), Nerf],
-  [re(DECREASED, STRENGTH, AND, ABILITY, LEVELS), Nerf],
-  [re(DECREASED, STRENGTH, AND, ABILITY, DAMAGE, BY_INT), Nerf],
-  [re(INCREASED, ABILITY, BY_INT, AND, STRENGTH, BY_INT, LEVELS), Buff],
-  [re(INCREASED, STRENGTH, AND, ABILITY, LEVELS), Buff],
-  [re(INCREASED, STRENGTH, AND, ABILITY, BY_INT), Buff],
-  [re(INCREASED, STRENGTH, AND, ABILITY, LEVELS, BY_INT), Buff],
-  [re(INCREASED, STRENGTH, AND, ABILITY, BY_INT, LEVELS), Buff],
+  [
+    re(DECREASED, STRENGTH, AND, opt(parens('negative')), ABILITY, BY_INT),
+    Mixed,
+  ],
+  [
+    re(
+      DECREASED,
+      oneOf(
+        join(ABILITY, opt(BY_INT), AND, STRENGTH),
+        join(STRENGTH, opt(BY_INT), AND, ABILITY)
+      ),
+      opt(DAMAGE),
+      LEVELS_AND_OR_BY_INT
+    ),
+    Nerf,
+  ],
+  [
+    re(
+      INCREASED,
+      oneOf(
+        join(ABILITY, opt(BY_INT), AND, STRENGTH),
+        join(STRENGTH, opt(BY_INT), AND, ABILITY)
+      ),
+      opt(DAMAGE),
+      LEVELS_AND_OR_BY_INT
+    ),
+    Buff,
+  ],
 
   // Strength and damage
-  [re(INCREASED, STRENGTH, AND, DAMAGE, LEVELS, BY_INT), Buff],
+  [
+    re(INCREASED, STRENGTH, opt(LEVELS), AND, DAMAGE, LEVELS, opt(BY_INT)),
+    Buff,
+  ],
+
+  // Misc
+  [re('Reworked'), Mixed],
+  [re('changed leveling steps'), Mixed],
+  [re(REMOVED, oneOf(DAMAGE, 'card draw')), Nerf],
 ])
 
 export default MOOD_MAP
