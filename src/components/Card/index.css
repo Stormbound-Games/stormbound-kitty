@@ -7,6 +7,14 @@
   transition: box-shadow 250ms, transform 250ms;
 }
 
+.Card--upgradable {
+  box-shadow: 0 0 0 0.8em var(--upgradable);
+}
+
+.Card--upgradable .Card__mana {
+  filter: drop-shadow(0 -0.7em var(--upgradable));
+}
+
 .Card--affordable {
   box-shadow: 0 0 0 0.8em var(--affordable);
 }
@@ -18,14 +26,6 @@
 .Card--affordable.Card--missing .Card__mana {
   filter: contrast(200%) saturate(0.5) grayscale(0.5)
     drop-shadow(0 -0.7em var(--affordable)); /* 1 */
-}
-
-.Card--upgradable {
-  box-shadow: 0 0 0 0.8em var(--upgradable);
-}
-
-.Card--upgradable .Card__mana {
-  filter: drop-shadow(0 -0.7em var(--upgradable));
 }
 
 .Card--RED {

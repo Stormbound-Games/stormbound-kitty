@@ -43,7 +43,7 @@ const Footer = props => (
             </a>
             .
           </p>
-          <p>
+          <p className='Footer__info'>
             This site is powered by{' '}
             <a
               href='https://www.netlify.com'
@@ -89,29 +89,20 @@ const Footer = props => (
                 </li>
                 <li className='Footer__item'>
                   <a
+                    href='https://www.instagram.com/stormboundccg/'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    Instagram
+                  </a>
+                </li>
+                <li className='Footer__item'>
+                  <a
                     href='https://store.steampowered.com/app/790600/Stormbound/'
                     target='_blank'
                     rel='noopener noreferrer'
                   >
                     Steam
-                  </a>
-                </li>
-                <li className='Footer__item'>
-                  <a
-                    href='https://play.google.com/store/apps/details?id=com.kongregate.mobile.stormbound.google&hl=en'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
-                    Google Play
-                  </a>
-                </li>
-                <li className='Footer__item'>
-                  <a
-                    href='https://itunes.apple.com/ph/app/stormbound/id1234446615'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
-                    Apple Store
                   </a>
                 </li>
               </ul>
@@ -130,9 +121,6 @@ const Footer = props => (
                 </li>
                 <li className='Footer__item'>
                   <Link to='/deck/suggestions'>Suggested Decks</Link>
-                </li>
-                <li className='Footer__item'>
-                  <Link to='/fan-kit'>Fan-kit</Link>
                 </li>
                 <li className='Footer__item'>
                   <a
@@ -195,16 +183,6 @@ const Footer = props => (
                     rel='noopener noreferrer'
                   >
                     GitHub
-                  </a>
-                </li>
-
-                <li className='Footer__item'>
-                  <a
-                    href='https://dashboard.cypress.io/projects/h321g2/runs'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
-                    Status
                   </a>
                 </li>
               </ul>

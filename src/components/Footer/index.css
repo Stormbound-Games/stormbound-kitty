@@ -23,6 +23,7 @@
 
 .Footer__info {
   max-width: 40ch;
+  margin-bottom: 0.75em;
 }
 
 .Footer__list {
@@ -38,7 +39,7 @@
 }
 
 .Footer__item {
-  margin: 0.25em 0;
+  margin: 0.3em 0;
 }
 
 .Footer__list a {
