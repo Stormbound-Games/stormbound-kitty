@@ -62,17 +62,17 @@ const parens = (...chunks) => `\\(${join(...chunks)}\\)`
 
 // All verbs indicating a decrease of any kind. Note that it doesn’t necessarily
 // translate into a nerf though: a mana reduction would be a buff.
-const DECREASED = '(?:Decreased|Lowered|Reduced)'
+const DECREASED = oneOf('Decreased', 'Lowered', 'Reduced')
 
 // All verbs indicating an increase of any kind. Note that it does not
 // necessarily translate into a buff though: a mana increase would be a nerf.
-const INCREASED = '(?:Increased|Doubled)'
+const INCREASED = oneOf('Increased', 'Doubled')
 
 // Verb indicating a removal of some sort.
 const REMOVED = 'Removed'
 
 // Verb indicating a fix of some sort.
-const FIXED = 'Fixed'
+const FIXED = oneOf('Fixed', 'Set')
 
 // Mana is authored in different ways, either “mana”, “cost” or “mana cost”.
 const MANA = oneOf('mana', 'cost', 'mana cost')
@@ -90,12 +90,14 @@ const FROM = 'from'
 
 // The concept of levels is loose and varies depending on the type of change.
 // E.g. “when leveled”, “when leveling”, “leveling”, “at higher levels”, “at
-// lower levels”, “at other levels”, “at max level” or “at level x”.
+// lower levels”, “at other levels”, “at max level”, “at level x”, “on all
+// levels”, “for all levels”.
 const LEVELS = oneOf(
   '(?:when )?level(?:ing|ed)',
   'at (?:higher|lower|other) levels?',
   'at max level',
-  'at level \\d'
+  'at level \\d',
+  '(?:on|for) all levels'
 )
 
 const BY_INT = 'by \\d+'
@@ -154,7 +156,10 @@ const MOOD_MAP = new Map([
     ),
     Buff,
   ],
-  [re(FIXED, STRENGTH, LEVELS), Mixed],
+  [
+    re(FIXED, STRENGTH, oneOf(join(LEVELS, opt(TO_INT)), join(TO_INT, LEVELS))),
+    Mixed,
+  ],
 
   // Mana
   [re('costs \\d+ more', LEVELS), Nerf],
@@ -212,6 +217,7 @@ const MOOD_MAP = new Map([
     ),
     Buff,
   ],
+  [re(FIXED, ABILITY, TO_INT, LEVELS), Mixed],
 
   // Movement
   [re('Set', MOVEMENT, oneOf(BY_INT, TO_INT)), Mixed],
@@ -334,5 +340,7 @@ const MOOD_MAP = new Map([
   [re('changed leveling steps'), Mixed],
   [re(REMOVED, oneOf(DAMAGE, 'card draw')), Nerf],
 ])
+
+console.log(MOOD_MAP.keys())
 
 export default MOOD_MAP
