@@ -38,7 +38,7 @@
   {
     "date": 1517353200000,
     "type": "UPDATE",
-    "description": "Reduced mana by 3, reduced strength given by 1, and is bordering at lower levels",
+    "description": "Reduced mana by 3, reduced strength given by 1 and is bordering at lower levels",
     "id": "I3"
   },
   {
@@ -116,7 +116,7 @@
   {
     "date": 1540854000000,
     "type": "ADDITION",
-    "description": "Added to the game.",
+    "description": "Added to the game",
     "id": "I9"
   },
   {
@@ -200,7 +200,7 @@
   {
     "date": 1506376800000,
     "type": "UPDATE",
-    "description": "Set strength on all levels to 2.",
+    "description": "Set strength on all levels to 2",
     "id": "I14"
   },
   {
@@ -548,7 +548,7 @@
   {
     "date": 1537221600000,
     "type": "UPDATE",
-    "description": "Increased mana, strength, and ability by 1",
+    "description": "Increased mana, strength and ability by 1",
     "id": "N5"
   },
   {
@@ -710,7 +710,7 @@
   {
     "date": 1550012400000,
     "type": "ADDITION",
-    "description": "Added to the game.",
+    "description": "Added to the game",
     "id": "N23"
   },
   {
@@ -980,7 +980,7 @@
   {
     "date": 1517353200000,
     "type": "UPDATE",
-    "description": "Increased mana by 1, the target of the spell will gain more strength, while all others of the same type will receive less.\nNew ability",
+    "description": "Increased mana by 1, the target of the spell will gain more strength, while all others of the same type will receive less.\n",
     "id": "N40"
   },
   {
@@ -1046,7 +1046,7 @@
   {
     "date": 1510786800000,
     "type": "UPDATE",
-    "description": "Ability changed\nNew ability",
+    "description": "Ability changed\n",
     "id": "N44"
   },
   {
@@ -1118,7 +1118,7 @@
   {
     "date": 1517353200000,
     "type": "UPDATE",
-    "description": "Ability will now hit all surrounding enemies (removed \"other\"), decreased strength by 1\nNew ability",
+    "description": "Ability will now hit all surrounding enemies (removed \"other\"), decreased strength by 1\n",
     "id": "N47"
   },
   {
@@ -1154,7 +1154,7 @@
   {
     "date": 1510786800000,
     "type": "UPDATE",
-    "description": "Plays spells from hand (was from deck)\nNew ability",
+    "description": "Plays spells from hand (was from deck)\n",
     "id": "N48"
   },
   {
@@ -1202,7 +1202,7 @@
   {
     "date": 1504044000000,
     "type": "UPDATE",
-    "description": "Increased mana by 2, and strength of spawned units by 1.",
+    "description": "Increased mana by 2 and strength of spawned units by 1",
     "id": "N50"
   },
   {
@@ -1370,7 +1370,7 @@
   {
     "date": 1569362400000,
     "type": "UPDATE",
-    "description": "Decreased mana by 1, decreased strength by 2, and ability changed",
+    "description": "Decreased mana by 1, decreased strength by 2 and ability changed",
     "id": "N60"
   },
   {
@@ -1568,7 +1568,7 @@
   {
     "date": 1510786800000,
     "type": "UPDATE",
-    "description": "Increased mana, strength, and ability by 1",
+    "description": "Increased mana, strength and ability by 1",
     "id": "F1"
   },
   {
@@ -1640,7 +1640,7 @@
   {
     "date": 1517353200000,
     "type": "UPDATE",
-    "description": "Increased mana by 2, surrounding at all levels, damages and poisons all units.\nNew ability",
+    "description": "Increased mana by 2, surrounding at all levels, damages and poisons all units.\n",
     "id": "F4"
   },
   {
@@ -1670,7 +1670,7 @@
   {
     "date": 1517353200000,
     "type": "UPDATE",
-    "description": "Damages and poisons friendly units too, increased damage, and remains bordering at all levels",
+    "description": "Damages and poisons friendly units too, increased damage and remains bordering at all levels",
     "id": "F5"
   },
   {
@@ -1712,7 +1712,7 @@
   {
     "date": 1524348000000,
     "type": "UPDATE",
-    "description": "Decreased mana, strength, and ability by 1",
+    "description": "Decreased mana, strength and ability by 1",
     "id": "F9"
   },
   {
@@ -1772,7 +1772,7 @@
   {
     "date": 1502316000000,
     "type": "UPDATE",
-    "description": "Increased mana, strength, and ability by 1",
+    "description": "Increased mana, strength and ability by 1",
     "id": "F12"
   },
   {
@@ -1874,7 +1874,7 @@
   {
     "date": 1540854000000,
     "type": "ADDITION",
-    "description": "Added to the game.",
+    "description": "Added to the game",
     "id": "F17"
   },
   {
@@ -1982,7 +1982,7 @@
   {
     "date": 1502056800000,
     "type": "UPDATE",
-    "description": "Increased mana by 1, increased strength and abiltiy when leveling",
+    "description": "Increased mana by 1, increased strength and ability when leveling",
     "id": "F23"
   },
   {
@@ -2144,7 +2144,7 @@
   {
     "date": 1517353200000,
     "type": "UPDATE",
-    "description": "Will command a random bordering unit at levels 1 and 2, all bordering at 3 and 4, all surrounding at 5.",
+    "description": "Will command a random bordering unit at levels 1 and 2, all bordering at 3 and 4, all surrounding at 5",
     "id": "S6"
   },
   {
@@ -2204,7 +2204,7 @@
   {
     "date": 1517353200000,
     "type": "UPDATE",
-    "description": "Increased mana to 4, damage to base and the leveling steps, and removed the \"if\" requirement on the base damage.\nNew ability",
+    "description": "Increased mana to 4, damage to base and the leveling steps and removed the \"if\" requirement on the base damage.\n",
     "id": "S10"
   },
   {
@@ -2276,7 +2276,7 @@
   {
     "date": 1517353200000,
     "type": "UPDATE",
-    "description": "Reworked; will now buff all surrounding friendly units (was Satyrs only)\nNew ability",
+    "description": "Reworked; will now buff all surrounding friendly units (was Satyrs only)\n",
     "id": "S14"
   },
   {
@@ -2384,7 +2384,7 @@
   {
     "date": 1510786800000,
     "type": "UPDATE",
-    "description": "Gives strength to a single unit\nNew ability",
+    "description": "Gives strength to a single unit\n",
     "id": "S20"
   },
   {
@@ -2408,7 +2408,7 @@
   {
     "date": 1510786800000,
     "type": "UPDATE",
-    "description": "Plays from deck (was from hand)\nNew ability",
+    "description": "Plays from deck (was from hand)\n",
     "id": "S21"
   },
   {
@@ -2444,7 +2444,7 @@
   {
     "date": 1540854000000,
     "type": "ADDITION",
-    "description": "Added to the game.",
+    "description": "Added to the game",
     "id": "S23"
   },
   {
@@ -2852,7 +2852,7 @@
   {
     "date": 1510786800000,
     "type": "UPDATE",
-    "description": "Removed card draw and changed mana cost\nNew ability",
+    "description": "Removed card draw and changed mana cost\n",
     "id": "W19"
   },
   {
@@ -2882,7 +2882,7 @@
   {
     "date": 1540854000000,
     "type": "ADDITION",
-    "description": "Added to the game.",
+    "description": "Added to the game",
     "id": "W21"
   },
   {

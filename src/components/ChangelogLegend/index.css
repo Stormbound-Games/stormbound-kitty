@@ -1,0 +1,40 @@
+.ChangelogLegend {
+  list-style: none;
+  padding-left: 2.25em;
+}
+
+.ChangelogLegend__item {
+  position: relative;
+  margin: 0.5em 0;
+}
+
+.ChangelogLegend__item::before {
+  box-sizing: border-box;
+  content: '';
+  width: 1em;
+  height: 1em;
+  transform: translateY(-50%) rotate(45deg);
+  position: absolute;
+  right: 100%;
+  margin-right: 1em;
+  top: 50%;
+  border: 1px solid var(--beige);
+  padding: 2px;
+  background-clip: content-box;
+}
+
+.ChangelogLegend__item--buff::before {
+  background-color: var(--light-shadowfen);
+}
+.ChangelogLegend__item--nerf::before {
+  background-color: var(--light-ironclad);
+}
+.ChangelogLegend__item--mixed::before {
+  background-color: var(--light-swarm);
+}
+.ChangelogLegend__item--game::before {
+  background-color: var(--light-winter);
+}
+.ChangelogLegend__item--unknown::before {
+  background-color: var(--white);
+}
