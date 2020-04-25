@@ -1,4 +1,4 @@
-import s from '../../integration/deckBuilder/selectors'
+import s from '../../integration/dryRunner/selectors'
 
 const select = id => {
   if (typeof id === 'number') {

@@ -334,8 +334,11 @@ export default class DeckMechanisms extends React.Component {
       // Archdruid Earyn
       case 'N48': {
         const spells = this.state.hand.filter(cardId => {
-          const cardInDeck = this.state.deck.find(card => card.id === cardId)
+          if (cardId === 'W1') {
+            return this.state.specifics.frozenEnemiesLevel !== 0
+          }
 
+          const cardInDeck = this.state.deck.find(card => card.id === cardId)
           return cardInDeck.type === 'spell'
         })
 

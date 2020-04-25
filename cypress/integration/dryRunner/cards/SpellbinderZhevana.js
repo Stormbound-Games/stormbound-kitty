@@ -1,4 +1,4 @@
-import s from './selectors'
+import s from '../selectors'
 
 const DECK_ID =
   'NU4xLDVXMSw1TjIsNVcyLDVOMyw1TjIzLDVONCw1TjUsNVc0LDVXMTEsNVc4LDVXNg'
@@ -10,9 +10,7 @@ describe('Dry-runner — Spellbinder Zhevana', () => {
   })
 
   it('should be possible to get mana from Spellbinder Zhevana', () => {
-    cy.drEndTurn()
-      .drEndTurn()
-      .drEndTurn()
+    cy.drEndTurn(3)
 
       .drPlay('W2')
       .drPlay('W8')

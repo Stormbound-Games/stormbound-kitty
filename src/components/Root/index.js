@@ -1,4 +1,5 @@
 import React from 'react'
+import { HelmetProvider } from 'react-helmet-async'
 import CollectionProvider from '../CollectionProvider'
 import ErrorBoundary from '../ErrorBoundary'
 import NotificationProvider from '../NotificationProvider'
@@ -13,15 +14,17 @@ const Root = props => {
   }, [])
 
   return (
-    <ErrorBoundary>
-      <WebpProvider>
-        <NotificationProvider>
-          <CollectionProvider>
-            <Router />
-          </CollectionProvider>
-        </NotificationProvider>
-      </WebpProvider>
-    </ErrorBoundary>
+    <HelmetProvider>
+      <ErrorBoundary>
+        <WebpProvider>
+          <NotificationProvider>
+            <CollectionProvider>
+              <Router />
+            </CollectionProvider>
+          </NotificationProvider>
+        </WebpProvider>
+      </ErrorBoundary>
+    </HelmetProvider>
   )
 }
 

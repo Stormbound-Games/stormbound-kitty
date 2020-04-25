@@ -21,6 +21,10 @@ const DryRunner = props => (
         <Deck
           deck={props.displayDeck}
           onClick={props.mode === 'MANUAL' ? props.onDeckCardClick : undefined}
+          isCardDisabled={card => props.hand.includes(card.id)}
+          highlightedCards={props.displayDeck
+            .filter(card => !props.hand.includes(card.id))
+            .map(card => card.id)}
         />
 
         <Row>

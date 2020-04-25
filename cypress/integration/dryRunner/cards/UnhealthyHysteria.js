@@ -1,4 +1,4 @@
-import s from './selectors'
+import s from '../selectors'
 
 const DECK_ID =
   'NU4xLDVOMiw1TjMsNU4yMyw1TjQsNU41LDVONiw1TjYyLDVONjMsNU42Nyw1TjY2LDVONw'
