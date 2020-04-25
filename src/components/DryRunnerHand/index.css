@@ -8,11 +8,6 @@
   z-index: 2;
 }
 
-.DryRunnerHand__wrapper--inactive {
-  opacity: 0.7;
-  filter: grayscale(0.3);
-}
-
 .DryRunnerHand__button {
   background-color: transparent;
   padding: 0;
