@@ -13,6 +13,7 @@
   background-color: var(--black);
   border: 1px solid var(--dark-beige);
   border-radius: 4px;
+  margin-bottom: 2em;
 }
 
 .DryRunnerCardLog__container > .Row {
