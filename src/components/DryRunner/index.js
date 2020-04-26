@@ -41,9 +41,7 @@ const DryRunner = props => (
             </Checkbox>
           </Column>
         </Row>
-        <Row>
-          <DryRunnerCardLog cards={props.playedCards} />
-        </Row>
+        <DryRunnerCardLog cards={props.playedCards} />
       </Column>
 
       <Column width='2/3'>
