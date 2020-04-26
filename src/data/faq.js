@@ -13,18 +13,24 @@ export default [
         question: 'How can I contribute/help?',
         answer: (
           <>
-            First of all, thank you for using Stormbound Kitty, it means a lot.
-            If you’d like to help, please kindly report any bug or oddity you
-            find, and suggest features to me on Discord (Kitty#1909). Finally,
-            consider{' '}
-            <a
-              href='https://gum.co/stormbound-kitty'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              buying me a coffee
-            </a>
-            ! Any small contribution counts. 💖
+            <p>
+              First of all, thank you for using Stormbound Kitty, it means a
+              lot. If you’d like to help, please kindly report any bug or oddity
+              you find, and suggest features to me on Discord (Kitty#1909).
+              Finally, consider{' '}
+              <a
+                href='https://gum.co/stormbound-kitty'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                buying me a coffee
+              </a>
+              ! Any small contribution counts. 💖
+            </p>
+            <p>
+              Special thanks Neicigam (Neicigam#0095) for his kind and valuable
+              help in various parts of the site, particularly the dry-runner.
+            </p>
           </>
         ),
       },
