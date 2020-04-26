@@ -83,12 +83,14 @@ export default class BattleSimAppDesktop extends React.Component {
       <div className='BattleSimAppDesktop'>
         <Board {...this.props} dndProps={this.dndProps} />
 
-        <CellFormDialog
-          {...this.props}
-          close={this.close}
-          coords={this.state.coords}
-          dialogRef={dialog => (this.dialog = dialog)}
-        />
+        {this.props.mode === 'EDITOR' && (
+          <CellFormDialog
+            {...this.props}
+            close={this.close}
+            coords={this.state.coords}
+            dialogRef={dialog => (this.dialog = dialog)}
+          />
+        )}
 
         {this.props.mode === 'DISPLAY' && !!this.props.puzzle && (
           <div className='BattleSimAppDesktop__puzzle'>
