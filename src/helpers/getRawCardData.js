@@ -1,3 +1,5 @@
 import cards from '../data/cards'
 
-export default id => cards.find(card => card.id === id) || {}
+const reference = cards.reduce((acc, card) => ({ ...acc, [card.id]: card }), {})
+
+export default id => reference[id] || {}
