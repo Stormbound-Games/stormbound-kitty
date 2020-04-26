@@ -10,6 +10,7 @@ import EmptySearch from '../EmptySearch'
 import CardsFiltering from '../CardsFiltering'
 import Filters from '../CollectionFilters'
 import ImportCollection from '../ImportCollection'
+import Only from '../Only'
 import PageMeta from '../PageMeta'
 import { NotificationContext } from '../NotificationProvider'
 import Row from '../Row'
@@ -170,7 +171,7 @@ class Collection extends React.Component {
                     onClick={this.download}
                     disabled={this.props.hasDefaultCollection}
                   >
-                    Export collection
+                    Export<Only.Desktop> collection</Only.Desktop>
                   </CTA>
                 </Column>
               </Row>

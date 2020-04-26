@@ -1,6 +1,7 @@
 import React from 'react'
 import { CollectionContext } from '../CollectionProvider'
 import { NotificationContext } from '../NotificationProvider'
+import Only from '../Only'
 import cards from '../../data/cards'
 import chunk from '../../helpers/chunk'
 import './index.css'
@@ -82,7 +83,9 @@ const ImportCollection = React.memo(props => {
   return (
     <div className='ImportCollection'>
       <label htmlFor='import' className='CTA'>
-        <span className='CTA__content'>Import collection</span>
+        <span className='CTA__content'>
+          Import<Only.Desktop> collection</Only.Desktop>
+        </span>
       </label>
       <input
         id='import'
