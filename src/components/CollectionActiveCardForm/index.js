@@ -1,8 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import CardUpgradeStats from '../CardUpgradeStats'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
-import CTA from '../CTA'
 import Row from '../Row'
 import Title from '../Title'
 
@@ -61,12 +61,16 @@ const CollectionActiveCardForm = props => (
             Missing card
           </Checkbox>
         </Column>
-        <Column>
-          <CTA to={`/card/${props.activeCard.id}/display`}>Card details</CTA>
-        </Column>
       </Row>
 
       <CardUpgradeStats {...props.activeCard} />
+
+      <p>
+        <Link to={`/card/${props.activeCard.id}/display`}>
+          Open this card in the card builder
+        </Link>
+        . You will be able to browse your collection from that page as well.
+      </p>
     </form>
   </>
 )
