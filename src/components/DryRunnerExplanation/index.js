@@ -44,7 +44,7 @@ const CARD_ATTRIBUTES = {
     PROBABILITIES.DAWNSPARKS_HITS * 100
   )}% / 100% chance of giving you mana each turn`,
   W19: 'Gives you between 9 and 13 mana, depending on its level',
-  N8: 'Adds a random token card is added to your deck',
+  N8: 'Adds a random token card to your deck',
   S3: `Comes back to your hand with a 0% / ${parseInt(
     PROBABILITIES.AHMI_RETURNS * 100
   )}% / 100% probability`,
@@ -54,7 +54,7 @@ const CARD_ATTRIBUTES = {
   S10: 'Cannot be played without a target unit/structure',
   N63: 'Cannot be played without an enemy target unit',
   F8:
-    'May fill up the base line on turn one, restricting the cards that can be played after',
+    'May fill up your base line on turn one, restricting the cards you can play after',
 }
 
 const DryRunnerExplanation = () => {
