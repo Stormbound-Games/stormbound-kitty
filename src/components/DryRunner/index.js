@@ -1,4 +1,5 @@
 import React from 'react'
+import CardLog from '../CardLog'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
 import Deck from '../Deck'
@@ -39,6 +40,9 @@ const DryRunner = props => (
               Display draw chance
             </Checkbox>
           </Column>
+        </Row>
+        <Row>
+          <CardLog cards={props.playedCards}></CardLog>
         </Row>
       </Column>
 

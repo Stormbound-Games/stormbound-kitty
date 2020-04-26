@@ -1,0 +1,17 @@
+.CardLog__image {
+    width: 45px;
+    margin: 3px;
+    border: 1.5px solid var(--beige);
+    border-radius: 6px
+}
+
+.CardLog__latest_image {
+    border: 1.5px solid var(--green);
+}
+
+.CardLog__container {
+    display: block;
+    height: 55px;
+    background-color: #000;
+    border: 1.5px solid var(--white);
+}

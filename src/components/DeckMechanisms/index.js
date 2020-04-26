@@ -48,6 +48,7 @@ const getDefaultState = props => ({
   mana: DEFAULT_MANA + (props.turn - 1),
   deck: resolveDeckWeight(props.deck),
   playerOrder: 'FIRST',
+  playedCards: [],
 })
 
 export default class DeckMechanisms extends React.Component {
@@ -163,6 +164,9 @@ export default class DeckMechanisms extends React.Component {
         if (options.discard) {
           return newState
         }
+
+        // Log card being played
+        newState.playedCards = [card, ...state.playedCards]
 
         // Turn one: Check if board is not full (by Rain of Frogs for example)
         if (state.turn === 1) {
