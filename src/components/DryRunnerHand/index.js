@@ -47,11 +47,11 @@ const DryRunnerHand = props => {
   const paddedHand = arrayPad(hand, 4, null, +1)
 
   return (
-    <Row wideGutter data-testid='hand' desktopOnly>
+    <Row data-testid='hand' desktopOnly>
       {chunk(paddedHand, 2).map(([cardA, cardB], index) => {
         return (
           <Column key={cardA || index}>
-            <Row wideGutter>
+            <Row>
               <Column>
                 <DryRunnerCard {...props} card={cardA} />
               </Column>
