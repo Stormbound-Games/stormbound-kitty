@@ -73,6 +73,10 @@
 }
 
 @media (max-width: 699px) {
+  .CardsGallery__nav {
+    justify-content: space-around;
+  }
+
   .CardsGallery__nav-button {
     width: calc(50% - 1em);
   }
