@@ -1,11 +1,10 @@
 .DryRunnerCardLog {
-  width: 350px;
-  height: 55px;
-  padding: 3px;
+  width: 100%;
+  height: 60px;
   display: flex;
   background-color: var(--black);
-  border: 1px solid var(--beige);
-  border-radius: 6px;
+  border: 1px solid var(--dark-beige);
+  border-radius: 4px;
 }
 
 .DryRunnerCardLog > .Row {
@@ -15,11 +14,14 @@
 
 .DryRunnerCardLog__image-wrapper {
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .DryRunnerCardLog__image {
   display: block;
-  height: 100%;
+  height: auto;
+  max-height: 80%;
   max-width: 100%;
-  margin: 0 auto;
+  margin: auto;
 }
