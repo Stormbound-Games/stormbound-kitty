@@ -1,17 +1,17 @@
-.DryRunExplanation__categories {
+.DryRunExplanation {
     list-style-position: inside;
     padding-left: 1em;
     margin-top: 0.5em;
 }
 
-.DryRunExplanation__categories-list {
+.DryRunExplanation-list {
     margin-top: 0.25em;
     margin-bottom: 1em;
     padding-left: 1.5em;
     font-size: 90%;
 }
 
-.DryRunExplanation__categories-list>li {
+.DryRunExplanation-list>li {
     margin-bottom: 0.2em;
     list-style-position: inside;
     padding: 0;

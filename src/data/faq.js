@@ -196,7 +196,7 @@ export default [
           'Which mechanics are currently implemented in the dry-run simulator?',
         answer: (
           <>
-            <DryRunnerExplanation></DryRunnerExplanation>
+            <DryRunnerExplanation />
           </>
         ),
       },

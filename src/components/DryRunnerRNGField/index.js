@@ -1,19 +1,8 @@
 import React from 'react'
 import Radio from '../Radio'
 import WikiLink from '../WikiLink'
-import {
-  DAWNSPARKS_HITS,
-  DAWNSPARKS_STAYS,
-  FROZEN_CORE_STAYS,
-  AHMI_RETURNS,
-} from '../DeckMechanisms'
+import { FRIENDLY_CHANCES } from '../../constants/dryRunner'
 import './index.css'
-
-const FRIENDLY_CHANCES = {
-  W9: FROZEN_CORE_STAYS,
-  S3: AHMI_RETURNS,
-  W16: DAWNSPARKS_HITS * DAWNSPARKS_STAYS,
-}
 
 const RNG_SENSITIVE_CARDS = {
   W9: {
