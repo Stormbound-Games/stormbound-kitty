@@ -5,7 +5,7 @@ import PageMeta from '../PageMeta'
 import Title from '../Title'
 import './index.css'
 
-const Error = props => (
+const Error = React.memo(props => (
   <>
     <div className='Error'>
       <Title element='h1' className='Error__title'>
@@ -41,6 +41,6 @@ const Error = props => (
       noIndex
     />
   </>
-)
+))
 
 export default Error

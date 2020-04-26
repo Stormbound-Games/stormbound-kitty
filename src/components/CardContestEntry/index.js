@@ -26,7 +26,7 @@ const getCardData = id => {
   return data
 }
 
-const CardContestEntry = props => {
+const CardContestEntry = React.memo(props => {
   const cardData = getCardData(props.winner.id)
 
   return (
@@ -85,6 +85,6 @@ const CardContestEntry = props => {
       </div>
     </div>
   )
-}
+})
 
 export default CardContestEntry

@@ -3,7 +3,7 @@ import CellForm from '../BattleSimCellForm'
 import Dialog from '../Dialog'
 import './index.css'
 
-const BattleSimCellFormDialog = props => (
+const BattleSimCellFormDialog = React.memo(props => (
   <Dialog
     id='cell-form-dialog'
     title='Current cell'
@@ -15,6 +15,6 @@ const BattleSimCellFormDialog = props => (
   >
     <CellForm {...props} />
   </Dialog>
-)
+))
 
 export default BattleSimCellFormDialog

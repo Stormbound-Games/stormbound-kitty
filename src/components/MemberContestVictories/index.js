@@ -2,7 +2,7 @@ import React from 'react'
 import CardContestEntry from '../CardContestEntry'
 import MemberSection from '../MemberSection'
 
-const MemberContestVictories = props => {
+const MemberContestVictories = React.memo(props => {
   if (props.victories.length === 0) return null
 
   return (
@@ -12,6 +12,6 @@ const MemberContestVictories = props => {
       ))}
     </MemberSection>
   )
-}
+})
 
 export default MemberContestVictories

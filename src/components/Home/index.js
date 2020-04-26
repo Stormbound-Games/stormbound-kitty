@@ -9,7 +9,7 @@ import Row from '../Row'
 import Title from '../Title'
 import './index.css'
 
-const Home = () => (
+const Home = React.memo(() => (
   <>
     <h1 className='VisuallyHidden'>Stormbound Kitty</h1>
 
@@ -179,6 +179,6 @@ const Home = () => (
       description='Stormbound Kitty aims at providing tools and information about Paladin Studios’ greatest hit, and extending its players’ experience outside the game.'
     />
   </>
-)
+))
 
 export default Home

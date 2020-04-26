@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-const Checkbox = props => (
+const Checkbox = React.memo(props => (
   <label className={`Checkbox ${props.className || ''}`} htmlFor={props.id}>
     <input
       type='checkbox'
@@ -12,6 +12,6 @@ const Checkbox = props => (
     <span className='Checkbox__icon' />
     <span className='Checkbox__label'>{props.children}</span>
   </label>
-)
+))
 
 export default Checkbox

@@ -4,7 +4,7 @@ import ListBuilderTierItem from '../ListBuilderTierItem'
 import getRawCardData from '../../helpers/getRawCardData'
 import './index.css'
 
-const ListBuilderTier = props => {
+const ListBuilderTier = React.memo(props => {
   const cards = props.cards.map(getRawCardData)
 
   return (
@@ -48,6 +48,6 @@ const ListBuilderTier = props => {
       </div>
     </div>
   )
-}
+})
 
 export default ListBuilderTier

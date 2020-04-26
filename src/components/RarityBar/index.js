@@ -2,7 +2,7 @@ import React from 'react'
 import { getRarityColor } from '../../helpers/getRarity'
 import './index.css'
 
-const RarityBar = props => {
+const RarityBar = React.memo(props => {
   const getRarityCount = rarity =>
     props.deck.filter(card => card.rarity === rarity).length
   const commons = getRarityCount('common')
@@ -66,6 +66,6 @@ const RarityBar = props => {
       )}
     </div>
   )
-}
+})
 
 export default RarityBar

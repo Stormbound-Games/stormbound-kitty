@@ -1,5 +1,5 @@
 import s from './selectors'
-import cards from '../../../src/data/cards'
+import resolveCardForLevel from '../../../src/helpers/resolveCardForLevel'
 
 const showsDrawingChance = value => {
   return /\(in hand\)/.test(value) || /\([\d.]+%\)/.test(value)
@@ -13,7 +13,7 @@ const unselectActiveCard = ($wrapper, index) => {
 
 const isMarkedAffordable = $card => {
   const id = $card.attr('id')
-  const { mana } = cards.find(card => card.id === id)
+  const { mana } = resolveCardForLevel({ id })
   const assert = mana <= 3 ? 'have.class' : 'not.have.class'
 
   cy.wrap($card).should(assert, 'Card--affordable')

@@ -5,7 +5,7 @@ import Image from '../Image'
 import Only from '../Only'
 import './index.css'
 
-const BattleSimPuzzle = props => (
+const BattleSimPuzzle = React.memo(props => (
   <div className='BattleSimPuzzle'>
     {!props.noImage && (
       <Only.Desktop>
@@ -36,7 +36,7 @@ const BattleSimPuzzle = props => (
         <dd>
           {props.restrictions.length > 0
             ? [...props.restrictions].sort().map((restriction, index) => (
-                <>
+                <React.Fragment key={index}>
                   <span
                     title={RESTRICTIONS[restriction].description}
                     className='BattleSimPuzzle__restriction'
@@ -44,13 +44,13 @@ const BattleSimPuzzle = props => (
                     {RESTRICTIONS[restriction].name}
                   </span>
                   {index !== props.restrictions.length - 1 && ', '}
-                </>
+                </React.Fragment>
               ))
             : 'none'}
         </dd>
       </dl>
     </div>
   </div>
-)
+))
 
 export default BattleSimPuzzle

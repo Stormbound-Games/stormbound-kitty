@@ -1,8 +1,9 @@
 import React from 'react'
 import './index.css'
 
-const ProgressBar = props => {
+const ProgressBar = React.memo(props => {
   const progress = Math.min((props.value / props.max) * 100, 100)
+
   return (
     <div className='ProgressBar'>
       <div
@@ -16,6 +17,6 @@ const ProgressBar = props => {
       ></div>
     </div>
   )
-}
+})
 
 export default ProgressBar

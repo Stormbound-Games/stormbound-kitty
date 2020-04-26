@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Dialog from '../Dialog'
 import './index.css'
 
-const CardBuilderImageErrorDialog = props => {
+const CardBuilderImageErrorDialog = React.memo(props => {
   const dialog = React.useRef(null)
   const [isImgurPage, setIsImgurPage] = React.useState(false)
   const registerDialog = instance => {
@@ -69,6 +69,6 @@ const CardBuilderImageErrorDialog = props => {
       )}
     </Dialog>
   )
-}
+})
 
 export default CardBuilderImageErrorDialog

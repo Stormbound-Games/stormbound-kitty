@@ -6,7 +6,7 @@ import Only from '../Only'
 import Row from '../Row'
 import './index.css'
 
-const Banner = props => (
+const Banner = React.memo(props => (
   <div
     className={`Banner ${props.className || ''}`}
     style={{
@@ -29,6 +29,6 @@ const Banner = props => (
       </Row>
     </div>
   </div>
-)
+))
 
 export default Banner

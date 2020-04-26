@@ -9,7 +9,7 @@ import './index.css'
 
 const MAX_NEWS = 7
 
-const News = props => {
+const News = React.memo(props => {
   const pages = chunk(news, MAX_NEWS)
   const [activePage, setActivePage] = React.useState(0)
   const loadPrev = () => setActivePage(page => page + 1)
@@ -49,6 +49,6 @@ const News = props => {
       </Row>
     </>
   )
-}
+})
 
 export default News

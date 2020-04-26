@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-const Title = props => {
+const Title = React.memo(props => {
   const Element = props.element || 'h2'
 
   return (
@@ -16,6 +16,6 @@ const Title = props => {
       </span>
     </Element>
   )
-}
+})
 
 export default Title

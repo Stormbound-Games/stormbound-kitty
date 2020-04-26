@@ -2,7 +2,7 @@ import React from 'react'
 import App from '../BattleSimApp'
 import PageMeta from '../PageMeta'
 
-const BattleSimDisplay = props => (
+const BattleSimDisplay = React.memo(props => (
   <>
     <h1 className='VisuallyHidden'>Battle Simulator</h1>
 
@@ -13,6 +13,6 @@ const BattleSimDisplay = props => (
       description='Create your own Stormbound battles.'
     />
   </>
-)
+))
 
 export default BattleSimDisplay

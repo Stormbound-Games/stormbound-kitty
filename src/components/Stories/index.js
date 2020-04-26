@@ -15,7 +15,7 @@ const ILLUSTATION = {
   swarm: '/assets/images/cards/xuri_lord_of_life.png',
 }
 
-const Stories = props => (
+const Stories = React.memo(props => (
   <>
     <div className='Stories'>
       <h1 className='VisuallyHidden'>Stories</h1>
@@ -59,6 +59,6 @@ const Stories = props => (
       description='Stories from the community about Stormbound cards'
     />
   </>
-)
+))
 
 export default Stories

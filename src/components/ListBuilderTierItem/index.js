@@ -4,7 +4,7 @@ import Image from '../Image'
 import { serialiseCardFromCollection } from '../../helpers/serialise'
 import './index.css'
 
-const ListBuilderTierItem = props => {
+const ListBuilderTierItem = React.memo(props => {
   if (!props.isEditable) {
     return (
       <Link
@@ -90,6 +90,6 @@ const ListBuilderTierItem = props => {
       )}
     </>
   )
-}
+})
 
 export default ListBuilderTierItem

@@ -16,7 +16,7 @@ import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import CARDS from '../../data/cards'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 
-const ChartMana = props => {
+const ChartMana = React.memo(props => {
   const [faction, setFaction] = React.useState('*')
   const [level, setLevel] = React.useState(5)
 
@@ -96,6 +96,6 @@ const ChartMana = props => {
       </ResponsiveContainer>
     </>
   )
-}
+})
 
 export default ChartMana

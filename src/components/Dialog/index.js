@@ -6,7 +6,7 @@ import Image from '../Image'
 import Title from '../Title'
 import './index.css'
 
-const Dialog = props => {
+const Dialog = React.memo(props => {
   const registerDialog = ref => {
     if (ref && !props.allowScroll) {
       ref
@@ -76,7 +76,7 @@ const Dialog = props => {
       </div>
     </A11yDialog>
   )
-}
+})
 
 Dialog.defaultProps = {
   ctaProps: {},

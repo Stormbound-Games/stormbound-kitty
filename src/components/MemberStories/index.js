@@ -5,7 +5,7 @@ import getExcerpt from '../../helpers/getExcerpt'
 import getRawCardData from '../../helpers/getRawCardData'
 import './index.css'
 
-const MemberStories = props => {
+const MemberStories = React.memo(props => {
   if (props.stories.length === 0) return null
 
   return (
@@ -36,6 +36,6 @@ const MemberStories = props => {
       })}
     </MemberSection>
   )
-}
+})
 
 export default MemberStories

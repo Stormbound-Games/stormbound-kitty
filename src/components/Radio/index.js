@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-const Radio = props => (
+const Radio = React.memo(props => (
   <label className={`Radio ${props.className || ''}`} htmlFor={props.id}>
     <input
       type='radio'
@@ -16,6 +16,6 @@ const Radio = props => (
     />
     <span className='Radio__label'>{props.children}</span>
   </label>
-)
+))
 
 export default Radio

@@ -3,7 +3,7 @@ import CTA from '../CTA'
 import Image from '../Image'
 import './index.css'
 
-const EmptySearch = props => (
+const EmptySearch = React.memo(props => (
   <div className='EmptySearch'>
     <Image
       className='EmptySearch__image'
@@ -21,6 +21,6 @@ const EmptySearch = props => (
       Reset filters
     </CTA>
   </div>
-)
+))
 
 export default EmptySearch

@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-const Column = props => (
+const Column = React.memo(props => (
   <div
     className={[
       'Column',
@@ -15,6 +15,6 @@ const Column = props => (
   >
     {props.children}
   </div>
-)
+))
 
 export default Column

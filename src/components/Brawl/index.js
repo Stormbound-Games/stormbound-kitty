@@ -200,7 +200,7 @@ const BRAWLS = [
   },
 ]
 
-const Stories = () => (
+const Stories = React.memo(() => (
   <>
     <div className='Brawl'>
       <h1 className='VisuallyHidden'>Brawl</h1>
@@ -249,6 +249,6 @@ const Stories = () => (
       description='All the Brawls from Stormbound and their ideal decks'
     />
   </>
-)
+))
 
 export default Stories

@@ -3,7 +3,7 @@ import CTA from '../CTA'
 import Dialog from '../Dialog'
 import useShare from '../../hooks/useShare'
 
-const ShareDialog = props => {
+const ShareDialog = React.memo(props => {
   const dialog = React.useRef(null)
   const open = () => dialog.current.show()
   const close = () => dialog.current.hide()
@@ -35,6 +35,6 @@ const ShareDialog = props => {
       </Dialog>
     </>
   )
-}
+})
 
 export default ShareDialog

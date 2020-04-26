@@ -30,7 +30,7 @@ const useExpectedCoins = book => {
   return expectedCoins
 }
 
-const BookOutcome = props => {
+const BookOutcome = React.memo(props => {
   const bookName = capitalise(props.book.toLowerCase())
   const expectedCoins = useExpectedCoins(props.book)
   const subject = props.isAdvancedMode
@@ -103,6 +103,6 @@ const BookOutcome = props => {
       </ul>
     </div>
   )
-}
+})
 
 export default BookOutcome

@@ -34,14 +34,16 @@ const generateId = content =>
     .replace(/['’,]/g, '')
     .replace(/[\s/]+/g, '-')
 
-const h1 = props => <Title element='h1'>{props.children}</Title>
-const h2 = props => (
+const h1 = React.memo(props => <Title element='h1'>{props.children}</Title>)
+const h2 = React.memo(props => (
   <Title element='h2' id={generateId(props.children[0])}>
     {props.children}
   </Title>
-)
-const h3 = props => <h3 id={generateId(props.children[0])}>{props.children}</h3>
-const p = props =>
+))
+const h3 = React.memo(props => (
+  <h3 id={generateId(props.children[0])}>{props.children}</h3>
+))
+const p = React.memo(props =>
   typeof props.children[0] === 'string' &&
   props.children[0].startsWith('Hint: ') ? (
     <Hint>
@@ -57,7 +59,8 @@ const p = props =>
       )}
     </p>
   )
-const li = props => (
+)
+const li = React.memo(props => (
   <li>
     {props.children.map(child =>
       typeof child === 'string'
@@ -65,20 +68,21 @@ const li = props => (
         : child
     )}
   </li>
-)
-const a = props =>
+))
+const a = React.memo(props =>
   props.href.startsWith('/') ? (
     <Link to={props.href}>{props.children}</Link>
   ) : (
     <a href={props.href}>{props.children}</a>
   )
+)
 
-const Markdown = props => {
+const Markdown = React.memo(props => {
   const options = { remarkReactComponents: { h1, h2, h3, p, li, a } }
   const processor = remark().use(remarkReact, options)
   const output = processor.processSync(props.source)
 
   return output.result
-}
+})
 
 export default Markdown

@@ -5,10 +5,9 @@ import sortByMana from '../../helpers/sortByMana'
 import useFluidSizing from '../../hooks/useFluidSizing'
 import './index.css'
 
-const Deck = props => {
-  const slots = props.deck
-    .map(resolveCardForLevel)
-    .sort(props.sort || sortByMana)
+const Deck = React.memo(props => {
+  const sort = props.sort || sortByMana
+  const slots = props.deck.map(resolveCardForLevel).sort(sort)
   const highlightedCards = props.highlightedCards || []
   const { fontSize, ref } = useFluidSizing(0.03683665247)
 
@@ -72,7 +71,7 @@ const Deck = props => {
       </ul>
     </div>
   )
-}
+})
 
 Deck.defaultProps = {
   showEmptySlots: true,

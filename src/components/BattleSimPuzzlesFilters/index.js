@@ -6,7 +6,7 @@ import Row from '../Row'
 import TogglableContent from '../TogglableContent'
 import './index.css'
 
-const BattleSimPuzzlesFilters = props => {
+const BattleSimPuzzlesFilters = React.memo(props => {
   const [areFiltersExpanded, expandFilters] = React.useState(false)
   const updateDifficulty = props.updateFilter('difficulty')
   const updateName = props.updateFilter('name')
@@ -118,6 +118,6 @@ const BattleSimPuzzlesFilters = props => {
       </Row>
     </form>
   )
-}
+})
 
 export default BattleSimPuzzlesFilters

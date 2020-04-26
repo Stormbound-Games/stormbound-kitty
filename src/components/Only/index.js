@@ -2,7 +2,7 @@ import React from 'react'
 import { CollectionContext } from '../CollectionProvider'
 import useViewportWidth from '../../hooks/useViewportWidth'
 
-const Only = props => {
+const Only = React.memo(props => {
   const viewportWidth = useViewportWidth()
   const { hasDefaultCollection } = React.useContext(CollectionContext)
 
@@ -18,11 +18,15 @@ const Only = props => {
     default:
       return null
   }
-}
+})
 
 export default {
-  Mobile: props => <Only {...props} when='MOBILE' />,
-  Desktop: props => <Only {...props} when='DESKTOP' />,
-  DefaultCollection: props => <Only {...props} when='DEFAULT_COLLECTION' />,
-  CustomCollection: props => <Only {...props} when='CUSTOM_COLLECTION' />,
+  Mobile: React.memo(props => <Only {...props} when='MOBILE' />),
+  Desktop: React.memo(props => <Only {...props} when='DESKTOP' />),
+  DefaultCollection: React.memo(props => (
+    <Only {...props} when='DEFAULT_COLLECTION' />
+  )),
+  CustomCollection: React.memo(props => (
+    <Only {...props} when='CUSTOM_COLLECTION' />
+  )),
 }

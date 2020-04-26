@@ -9,7 +9,7 @@ import Row from '../Row'
 import Title from '../Title'
 import './index.css'
 
-const CardBuilderApp = props => (
+const CardBuilderApp = React.memo(props => (
   <>
     <Title className='CardBuilderApp__title'>
       {props.mode === 'EDITOR' ? 'Create your card' : props.name || 'Your card'}
@@ -46,6 +46,6 @@ const CardBuilderApp = props => (
       </div>
     ) : null}
   </>
-)
+))
 
 export default CardBuilderApp

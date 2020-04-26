@@ -2,7 +2,7 @@ import React from 'react'
 import Only from '../Only'
 import './index.css'
 
-const DeckBuilderCardLevelField = props => (
+const DeckBuilderCardLevelField = React.memo(props => (
   <div className='DeckBuilderCardLevelField'>
     <label htmlFor='level' className='DeckBuilderCardLevelField__label'>
       Cards level
@@ -24,6 +24,6 @@ const DeckBuilderCardLevelField = props => (
       <option value='5'>5</option>
     </select>
   </div>
-)
+))
 
 export default DeckBuilderCardLevelField

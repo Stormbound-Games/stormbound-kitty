@@ -3,7 +3,7 @@ import { WEEKLY_CARD_CONTEST } from '../../constants/misc'
 import CardContestEntry from '../CardContestEntry'
 import Title from '../Title'
 
-const CardBuilderHallOfFame = props => (
+const CardBuilderHallOfFame = React.memo(props => (
   <div className='CardBuilderHallOfFame'>
     <Title>Hall of Fame</Title>
 
@@ -13,6 +13,6 @@ const CardBuilderHallOfFame = props => (
         <CardContestEntry {...contest} index={index} />
       ))}
   </div>
-)
+))
 
 export default CardBuilderHallOfFame

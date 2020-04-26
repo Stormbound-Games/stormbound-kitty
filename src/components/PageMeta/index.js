@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 
-const PageMeta = props => (
+const PageMeta = React.memo(props => (
   <Helmet titleTemplate='%s — Stormbound Kitty'>
     <title>{props.title}</title>
     <meta property='og:title' content={props.title} />
@@ -12,6 +12,6 @@ const PageMeta = props => (
     <meta property='og:url' content={window.location.href} />
     {props.noIndex && <meta name='robots' content='noindex, nofollow' />}
   </Helmet>
-)
+))
 
 export default PageMeta

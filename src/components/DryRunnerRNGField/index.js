@@ -43,7 +43,7 @@ const RNG_SENSITIVE_CARDS = {
   },
 }
 
-const DryRunnerRNGField = props => {
+const DryRunnerRNGField = React.memo(props => {
   const deckIds = props.deck.map(card => card.id)
   const possibleRNGSensitiveCards = Object.keys(RNG_SENSITIVE_CARDS)
   const RNGSensitiveCards = possibleRNGSensitiveCards.filter(cardId =>
@@ -125,6 +125,6 @@ const DryRunnerRNGField = props => {
       </Radio>
     </fieldset>
   )
-}
+})
 
 export default DryRunnerRNGField

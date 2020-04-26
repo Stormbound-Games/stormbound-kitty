@@ -8,7 +8,7 @@ import Row from '../Row'
 import capitalise from '../../helpers/capitalise'
 import './index.css'
 
-const CollectionFilters = props => (
+const CollectionFilters = React.memo(props => (
   <form
     className='CollectionFilters'
     onSubmit={event => event.preventDefault()}
@@ -142,6 +142,6 @@ const CollectionFilters = props => (
       </Column>
     </Row>
   </form>
-)
+))
 
 export default CollectionFilters

@@ -7,7 +7,7 @@ import Row from '../Row'
 import getRawCardData from '../../helpers/getRawCardData'
 import './index.css'
 
-const CardsFormRow = ({ index, ...props }) => (
+const CardsFormRow = React.memo(({ index, ...props }) => (
   <div
     className='BattleSimCardsForm__row'
     hidden={!props.expanded && index >= 4}
@@ -54,7 +54,6 @@ const CardsFormRow = ({ index, ...props }) => (
               />
             ) : (
               <select
-                className='BattleSimCardsForm__level'
                 disabled={getRawCardData(props.cards[index].id).token}
                 name={`card-${index}-level`}
                 id={`card-${index}-level`}
@@ -104,9 +103,9 @@ const CardsFormRow = ({ index, ...props }) => (
       </Column>
     </Row>
   </div>
-)
+))
 
-const BattleSimCardsForm = props => {
+const BattleSimCardsForm = React.memo(props => {
   const [expanded, setExpanded] = React.useState(false)
 
   return (
@@ -135,6 +134,6 @@ const BattleSimCardsForm = props => {
       <DeckImport importDeck={props.importDeck} />
     </>
   )
-}
+})
 
 export default BattleSimCardsForm

@@ -75,7 +75,7 @@ const Wrapper = props => {
   )
 }
 
-const Header = props => {
+const Header = React.memo(props => {
   const [topActive] = props.active || []
 
   return (
@@ -132,6 +132,6 @@ const Header = props => {
       </Wrapper>
     </header>
   )
-}
+})
 
 export default Header

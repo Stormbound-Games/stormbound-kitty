@@ -5,7 +5,7 @@ import CardDisplayControls from '../CardDisplayControls'
 import PageMeta from '../PageMeta'
 import getInitialCardData from '../../helpers/getInitialCardData'
 
-const CardBuilderDisplay = props => {
+const CardBuilderDisplay = React.memo(props => {
   const match = useRouteMatch()
   const id = match.params.cardId
   const cardData = getInitialCardData(id)
@@ -20,6 +20,6 @@ const CardBuilderDisplay = props => {
       <PageMeta title={cardData.name || 'Card display'} />
     </>
   )
-}
+})
 
 export default CardBuilderDisplay

@@ -2,7 +2,7 @@ import React from 'react'
 import findFrontRow from '../../helpers/findFrontRow'
 import './index.css'
 
-const BattleSimRow = props => (
+const BattleSimRow = React.memo(props => (
   <div
     data-testid='row'
     className={[
@@ -19,6 +19,6 @@ const BattleSimRow = props => (
   >
     {props.children}
   </div>
-)
+))
 
 export default BattleSimRow

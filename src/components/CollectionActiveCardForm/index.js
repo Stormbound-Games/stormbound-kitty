@@ -6,7 +6,7 @@ import Column from '../Column'
 import Row from '../Row'
 import Title from '../Title'
 
-const CollectionActiveCardForm = props => (
+const CollectionActiveCardForm = React.memo(props => (
   <>
     <Title>{props.resolvedActiveCard.name}</Title>
 
@@ -73,6 +73,6 @@ const CollectionActiveCardForm = props => (
       </p>
     </form>
   </>
-)
+))
 
 export default CollectionActiveCardForm

@@ -16,7 +16,7 @@ import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import CARDS from '../../data/cards'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 
-const ChartStrength = props => {
+const ChartStrength = React.memo(props => {
   const [faction, setFaction] = React.useState('*')
   const [level, setLevel] = React.useState(5)
 
@@ -99,6 +99,6 @@ const ChartStrength = props => {
       </ResponsiveContainer>
     </>
   )
-}
+})
 
 export default ChartStrength

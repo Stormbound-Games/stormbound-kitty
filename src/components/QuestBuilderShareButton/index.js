@@ -1,7 +1,7 @@
 import React from 'react'
 import ShareDialog from '../ShareDialog'
 
-const QuestBuilderShareButton = props => (
+const QuestBuilderShareButton = React.memo(props => (
   <ShareDialog
     label='Share quest'
     disabled={props.disabled}
@@ -18,6 +18,6 @@ const QuestBuilderShareButton = props => (
       with the button below.
     </p>
   </ShareDialog>
-)
+))
 
 export default QuestBuilderShareButton

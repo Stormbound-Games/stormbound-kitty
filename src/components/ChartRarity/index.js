@@ -14,7 +14,7 @@ import capitalise from '../../helpers/capitalise'
 import countCardsForRarity from '../../helpers/countCardsForRarity'
 import { getRarityColor } from '../../helpers/getRarity'
 
-const ChartRarity = props => {
+const ChartRarity = React.memo(props => {
   const data = Object.keys(RARITIES).map(rarity => ({
     name: capitalise(rarity),
     value: countCardsForRarity(rarity),
@@ -47,6 +47,6 @@ const ChartRarity = props => {
       </ResponsiveContainer>
     </>
   )
-}
+})
 
 export default ChartRarity
