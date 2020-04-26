@@ -7,13 +7,6 @@ const FREEZE_DECK_ID =
 const HAND = ['W9', 'W16', 'N12', 'S3']
 
 describe('Dry-runner — Set RNG', () => {
-  before(() => {
-    cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`).drDrawHand(HAND)
-  })
-
-  it('should be possible to set RNG mode to FRIENDLY', () => {
-    cy.drSetRNG('FRIENDLY')
-  })
   ;[
     { name: 'Frozen Cores', id: 'W9', mana: 3 },
     { name: 'Dawnsparks', id: 'W16', mana: 4 },
@@ -21,7 +14,6 @@ describe('Dry-runner — Set RNG', () => {
     it(`should only be possible to get mana from ${name} that have not been destroyed yet`, () => {
       cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
         .drDrawHand(HAND)
-
         .drEndTurn(3)
 
         .drSetRNG('FRIENDLY')
@@ -42,7 +34,6 @@ describe('Dry-runner — Set RNG', () => {
   it('should only be possible to get Ahmi back in hand in FRIENDLY mode', () => {
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
       .drDrawHand(HAND)
-
       .drEndTurn(3)
 
       .drSetRNG('FRIENDLY')
@@ -50,6 +41,7 @@ describe('Dry-runner — Set RNG', () => {
 
       .drSetRNG('UNFRIENDLY')
       .drPlay('S3')
+
       .get('S3')
       .should('not.exist')
   })
@@ -57,7 +49,6 @@ describe('Dry-runner — Set RNG', () => {
   it('should not be possible to freeze many units with Frosthexers in UNFRIENDLY mode', () => {
     cy.visit(`/deck/${FREEZE_DECK_ID}/dry-run?mode=MANUAL`)
       .drDrawHand(['W1', 'W2', 'N1', 'N2'])
-
       .drEndTurn()
 
       .drSetRNG('UNFRIENDLY')
