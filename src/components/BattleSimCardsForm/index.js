@@ -54,7 +54,6 @@ const CardsFormRow = ({ index, ...props }) => (
               />
             ) : (
               <select
-                className='BattleSimCardsForm__level'
                 disabled={getRawCardData(props.cards[index].id).token}
                 name={`card-${index}-level`}
                 id={`card-${index}-level`}
