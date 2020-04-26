@@ -26,7 +26,7 @@ const CARD_MECHANICS = {
 const CARD_ATTRIBUTES = {
   N12: 'Discards a random non-Pirate card from your hand',
   N14: 'Draws one or two cards, depending on the level',
-  N22: 'Cycles a random non-Pirate card will be cycled from your hand',
+  N22: 'Cycles a random non-Pirate card from your hand',
   N33: 'Discards and redraws your hand when played as the first card on a turn',
   N48: 'Plays one or two spells from your hand, depending on her level',
   S21: 'Plays one or two satyrs from your deck, depending on her level',
