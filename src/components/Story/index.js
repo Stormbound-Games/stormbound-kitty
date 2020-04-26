@@ -39,7 +39,7 @@ const Story = props => {
   return (
     <div className='Story'>
       <Row desktopOnly wideGutter>
-        <Column width={66}>
+        <Column width='2/3'>
           <article>
             <Title element='h1' className='Story__title'>
               {story.title}
@@ -57,7 +57,7 @@ const Story = props => {
           </article>
         </Column>
 
-        <Column width={33}>
+        <Column width='1/3'>
           <div className='Story__aside'>
             {!!card.image && <Image src={card.image} alt={card.name} />}
 

@@ -129,7 +129,7 @@ class DeckBuilderSuggestions extends React.Component {
         <h1 className='VisuallyHidden'>Deck Suggestions</h1>
 
         <Row desktopOnly wideGutter>
-          <Column width={33}>
+          <Column width='1/3'>
             <Title>Filters</Title>
 
             <SuggestionsFilters
@@ -159,7 +159,7 @@ class DeckBuilderSuggestions extends React.Component {
               </Only.DefaultCollection>
             </p>
           </Column>
-          <Column width={66}>
+          <Column width='2/3'>
             <Title>Decks</Title>
             {decks.length > 0 ? (
               chunk(decks, 2).map(([a, b]) => (

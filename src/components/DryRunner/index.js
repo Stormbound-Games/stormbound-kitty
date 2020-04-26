@@ -17,7 +17,7 @@ const DryRunner = props => (
     <h1 className='VisuallyHidden'>Deck Dry-run</h1>
 
     <Row desktopOnly wideGutter>
-      <Column width={33}>
+      <Column width='1/3'>
         <Title>Your deck</Title>
         <Deck
           deck={props.displayDeck}
@@ -46,7 +46,7 @@ const DryRunner = props => (
         </Row>
       </Column>
 
-      <Column width={66}>
+      <Column width='2/3'>
         <div className='DryRunner__main'>
           <Title>Your hand</Title>
           <DryRunnerHeader {...props} />

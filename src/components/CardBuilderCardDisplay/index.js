@@ -60,7 +60,7 @@ const CardBuilderCardDisplay = props => {
             }
           >
             {[0, 1, 2, 3, 4].map(level => (
-              <Column width={20} key={level}>
+              <Column width='1/5' key={level}>
                 <div
                   className={[
                     'CardBuilderApp__card',

@@ -17,7 +17,7 @@ const DeckBuilderDetailView = props => {
       <h1 className='VisuallyHidden'>Deck Detail</h1>
 
       <Row desktopOnly wideGutter>
-        <Column width={33}>
+        <Column width='1/3'>
           <Title>Your deck</Title>
           <Deck
             id='deck'
@@ -34,11 +34,11 @@ const DeckBuilderDetailView = props => {
           </Row>
         </Column>
 
-        <Column width={33}>
+        <Column width='1/3'>
           <Stats deck={props.deck} highlight={props.highlight} />
         </Column>
 
-        <Column width={33}>
+        <Column width='1/3'>
           <Advice deck={props.deck} highlight={props.highlight} />
         </Column>
       </Row>

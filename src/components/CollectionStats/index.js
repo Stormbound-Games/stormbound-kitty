@@ -128,7 +128,7 @@ const CollectionStats = props => {
     <>
       <h1 className='VisuallyHidden'>Stats</h1>
       <Row desktopOnly>
-        <Column width={33}>
+        <Column width='1/3'>
           <Row desktopOnly>
             <Column>
               <Title>What is this</Title>
@@ -165,7 +165,7 @@ const CollectionStats = props => {
             </Column>
           </Row>
         </Column>
-        <Column width={66}>
+        <Column width='2/3'>
           <Row desktopOnly>
             <Column>
               <div className='CollectionStats__chart'>

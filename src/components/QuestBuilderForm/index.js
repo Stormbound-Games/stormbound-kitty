@@ -23,7 +23,7 @@ const QuestBuilderForm = props => (
     </Row>
 
     <Row>
-      <Column width={33}>
+      <Column width='1/3'>
         <label htmlFor='amount'>Amount</label>
         <input
           type='number'
@@ -37,7 +37,7 @@ const QuestBuilderForm = props => (
         />
       </Column>
 
-      <Column width={33}>
+      <Column width='1/3'>
         <label htmlFor='currency'>Currency</label>
         <select
           name='currency'
@@ -52,7 +52,7 @@ const QuestBuilderForm = props => (
         </select>
       </Column>
 
-      <Column width={33}>
+      <Column width='1/3'>
         <label htmlFor='difficulty'>Difficulty</label>
         <select
           name='difficulty'

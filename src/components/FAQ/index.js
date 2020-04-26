@@ -40,7 +40,7 @@ const FAQ = () => {
       <h1 className='VisuallyHidden'>Frequently Asked Questions</h1>
 
       <Row desktopOnly wideGutter>
-        <Column width={33}>
+        <Column width='1/3'>
           <Title>Topics</Title>
 
           <ul className='FAQ__toc'>
@@ -76,7 +76,7 @@ const FAQ = () => {
           </ul>
         </Column>
 
-        <Column width={66}>
+        <Column width='2/3'>
           {categories.map(category => (
             <FAQSection {...category} key={category.id} />
           ))}

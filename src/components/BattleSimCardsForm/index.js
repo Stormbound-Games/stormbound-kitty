@@ -13,7 +13,7 @@ const CardsFormRow = ({ index, ...props }) => (
     hidden={!props.expanded && index >= 4}
   >
     <Row>
-      <Column width={66}>
+      <Column width='2/3'>
         <label className='VisuallyHidden' htmlFor={`card-${index}`}>
           Slot #{index + 1}’s card
         </label>
@@ -33,7 +33,7 @@ const CardsFormRow = ({ index, ...props }) => (
           disabledOptions={props.cards.map(card => card.id)}
         />
       </Column>
-      <Column width={33}>
+      <Column width='1/3'>
         <Row>
           <Column>
             <label className={'VisuallyHidden'} htmlFor={`card-${index}-level`}>

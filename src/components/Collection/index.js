@@ -140,7 +140,7 @@ class Collection extends React.Component {
         <h1 className='VisuallyHidden'>Card Collection</h1>
 
         <Row desktopOnly wideGutter>
-          <Column width={33}>
+          <Column width='1/3'>
             <div className='Collection__info'>
               <Title>What is this</Title>
 
@@ -189,7 +189,7 @@ class Collection extends React.Component {
             )}
           </Column>
 
-          <Column width={66}>
+          <Column width='2/3'>
             <Title>Cards Collection</Title>
 
             <CardsFiltering

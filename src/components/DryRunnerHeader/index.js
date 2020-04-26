@@ -9,7 +9,7 @@ import './index.css'
 const DryRunnerHeader = props => (
   <div className='DryRunnerHeader'>
     <Row>
-      <Column width={33}>
+      <Column width='1/3'>
         <span className='DryRunnerHeader__mana'>
           Current mana:{' '}
           <Mana
@@ -22,7 +22,7 @@ const DryRunnerHeader = props => (
         </span>
       </Column>
 
-      <Column width={33}>
+      <Column width='1/3'>
         <DryRunnerResetDialog
           reset={props.resetGame}
           equalsMode={props.equalsMode}
@@ -30,7 +30,7 @@ const DryRunnerHeader = props => (
         />
       </Column>
 
-      <Column width={33}>
+      <Column width='1/3'>
         <CTA type='button' data-testid='end-turn-btn' onClick={props.endTurn}>
           <u>E</u>nd turn
         </CTA>

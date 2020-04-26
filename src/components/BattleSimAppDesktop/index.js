@@ -110,12 +110,12 @@ export default class BattleSimAppDesktop extends React.Component {
         {this.props.mode === 'EDITOR' && (
           <div className='BattleSimAppDesktop__settings'>
             <Row wideGutter>
-              <Column width={33}>
+              <Column width='1/3'>
                 <Title>Game settings</Title>
                 <GameForm {...this.props} />
               </Column>
 
-              <Column width={33}>
+              <Column width='1/3'>
                 <Title>Player settings</Title>
                 <PlayerForm
                   player='RED'
@@ -129,7 +129,7 @@ export default class BattleSimAppDesktop extends React.Component {
                 />
               </Column>
 
-              <Column width={33}>
+              <Column width='1/3'>
                 <Title>Cards settings</Title>
                 <CardsForm {...this.props} />
               </Column>
