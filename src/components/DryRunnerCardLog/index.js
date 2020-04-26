@@ -1,27 +1,22 @@
 import React from 'react'
 import Column from '../Column'
-import Row from '../Row'
 import Image from '../Image'
+import Row from '../Row'
 import './index.css'
 
 const DryRunnerCardLog = props => {
   return (
-    <div className='DryRunnerCardLog__container'>
+    <div className='DryRunnerCardLog'>
       <Row>
-        {props.cards.slice(0, 6).map((card, index) => {
-          return (
-            <Column key={card.id + ' #' + index} width={25}>
-              <Image
-                className={
-                  'DryRunnerCardLog__image' +
-                  (index === 0 ? 'DryRunnerCardLog__image--latest' : '')
-                }
-                src={card.image}
-                alt={card.name}
-              />
-            </Column>
-          )
-        })}
+        {props.cards.slice(0, 6).map((card, index) => (
+          <Column width={1 / 6} key={card.id + ' #' + index}>
+            <Image
+              className='DryRunnerCardLog__image'
+              src={card.image}
+              alt={card.name}
+            />
+          </Column>
+        ))}
       </Row>
     </div>
   )

@@ -32,6 +32,10 @@
   flex: 1 1 calc(100% / 3);
 }
 
+.Column--1\/6 {
+  flex: 1 1 calc(100% / 6);
+}
+
 @media (max-width: 699px) {
   .Column--desktop {
     flex: 1 1 100%;

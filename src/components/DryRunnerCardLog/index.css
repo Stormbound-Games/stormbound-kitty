@@ -1,17 +1,18 @@
+.DryRunnerCardLog {
+  width: 350px;
+  height: 55px;
+  padding: 3px;
+  display: flex;
+  background-color: var(--black);
+  border: 1px solid var(--beige);
+  border-radius: 6px;
+}
+
+.DryRunnerCardLog__image:not(:last-child) {
+  margin-right: 5px;
+}
+
 .DryRunnerCardLog__image {
-    width: 45px;
-    margin: 3px;
-    border: 1.5px solid var(--beige);
-    border-radius: 6px
-}
-
-.DryRunnerCardLog__image--latest {
-    border: 1.5px solid var(--green);
-}
-
-.DryRunnerCardLog__container {
-    display: block;
-    height: 55px;
-    background-color: var(--black);
-    border: 1.5px solid var(--white);
+  display: block;
+  height: 100%;
 }
