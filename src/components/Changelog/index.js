@@ -9,12 +9,13 @@ import WikiLink from '../WikiLink'
 import changelog from '../../data/changelog'
 import sortCards from '../../helpers/sortCards'
 import template from '../../helpers/template'
+import getRawCardData from '../../helpers/getRawCardData'
 import cards from '../../data/cards'
 import './index.css'
 import MOOD_MAP from './map'
 
 const CARD_IDS = cards.sort(sortCards()).map(card => card.id)
-const getCardName = id => cards.find(card => card.id === id).name
+const getCardName = id => getRawCardData(id).name
 
 const templateDescription = description => {
   const replacements = {}
