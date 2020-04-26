@@ -4,6 +4,7 @@ const endTurn = (count = 1) => {
   Cypress.log({
     name: `END_TURN`,
     message: `Ending ${count} turn${count === 1 ? '' : 's'}`,
+    consoleProps: () => ({ count }),
   })
 
   for (let i = 0; i < count; i++) {

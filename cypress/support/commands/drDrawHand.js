@@ -7,6 +7,7 @@ const drawHand = ids => {
     message: `Draw cards ${ids
       .map(id => `‘${getRawCardData(id).name}’ (${id})`)
       .join(', ')} as initial hand`,
+    consoleProps: () => ({ ids }),
   })
 
   ids.forEach(id => {
