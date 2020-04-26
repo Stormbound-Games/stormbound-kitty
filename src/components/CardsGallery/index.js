@@ -3,12 +3,14 @@ import { motion } from 'framer-motion'
 import Card from '../Card'
 import CTA from '../CTA'
 import chunk from '../../helpers/chunk'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import './index.css'
 
 const CardsGallery = props => {
   const [activePage, setActivePage] = React.useState(0)
-  const pages = chunk(props.cards.map(resolveCardForLevel), props.cardsPerPage)
+  const pages = React.useMemo(() => chunk(props.cards, props.cardsPerPage), [
+    props.cards,
+    props.cardsPerPage,
+  ])
   const filters = Object.values(props.filters || {})
   const page = pages[activePage] || pages[0]
   const { onPageChange } = props
