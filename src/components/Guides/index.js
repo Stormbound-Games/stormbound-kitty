@@ -11,6 +11,7 @@ const Guides = props => (
 
     {guides.map(guide => (
       <Banner
+        key={guide.name}
         faction={guide.faction}
         title={guide.name}
         subline={
