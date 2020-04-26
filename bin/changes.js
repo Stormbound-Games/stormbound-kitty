@@ -28,11 +28,23 @@ const slugify = name =>
 
           return items.map(item => {
             try {
+              const subList = item.querySelector('ul')
+              if (subList) item.remove()
+
               const [date, rest] = item.innerText.split(':')
               const type = rest.includes('Added to the game')
                 ? 'ADDITION'
                 : 'UPDATE'
-              const description = rest.replace(/:\s+/g, '').trim()
+              const description = rest
+                // Remove the leading `: ` left by the date prefix
+                .replace(/:\s+/g, '')
+                // Remove fullstops for consistency
+                .replace(/\.$/, '')
+                // Remove Oxford commas for consistency
+                .replace(', and', ' and')
+                // Fix typo
+                .replace('abiltiy', 'ability')
+                .trim()
 
               return { date: Date.parse(date), type, description }
             } catch (error) {

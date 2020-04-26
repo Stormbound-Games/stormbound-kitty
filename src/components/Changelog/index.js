@@ -1,4 +1,6 @@
 import React from 'react'
+import ChangelogLegend from '../ChangelogLegend'
+import Checkbox from '../Checkbox'
 import Column from '../Column'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
@@ -6,14 +8,39 @@ import Title from '../Title'
 import WikiLink from '../WikiLink'
 import changelog from '../../data/changelog'
 import sortCards from '../../helpers/sortCards'
+import template from '../../helpers/template'
 import cards from '../../data/cards'
 import './index.css'
+import MOOD_MAP from './map'
 
 const CARD_IDS = cards.sort(sortCards()).map(card => card.id)
 const getCardName = id => cards.find(card => card.id === id).name
 
+const templateDescription = description => {
+  const replacements = {}
+  let output = description
+
+  for (let [regex, Component] of MOOD_MAP) {
+    output = output.replace(regex, match => {
+      replacements[match] = <Component key={match}>{match}</Component>
+      return `{{${match}}}`
+    })
+  }
+
+  return { replacements, description: output }
+}
+
+const Change = props => {
+  if (!props.colorCoding) return props.description
+
+  const { description, replacements } = templateDescription(props.description)
+
+  return template(description, replacements)
+}
+
 const Changelog = props => {
   const [sorting, setSorting] = React.useState('DATE')
+  const [colorCoding, setColorCoding] = React.useState(true)
   const [type, setType] = React.useState('*')
   const changesByDate = React.useMemo(() => {
     return changelog
@@ -72,6 +99,20 @@ const Changelog = props => {
             </Column>
           </Row>
 
+          <Row>
+            <Column>
+              <Checkbox
+                name='color-coding'
+                id='color-coding'
+                checked={colorCoding}
+                onChange={event => setColorCoding(event.target.checked)}
+              >
+                Enabled color-coding (experimental)
+              </Checkbox>
+              {colorCoding && <ChangelogLegend />}
+            </Column>
+          </Row>
+
           <p>
             This data is periodically scrapped from the official{' '}
             <a
@@ -98,7 +139,11 @@ const Changelog = props => {
                     <ul className='Changelog__list'>
                       {changesByDate[date].map(change => (
                         <li key={change.date + change.id + change.description}>
-                          <WikiLink id={change.id} />: {change.description}
+                          <WikiLink id={change.id} />:{' '}
+                          <Change
+                            description={change.description}
+                            colorCoding={colorCoding}
+                          />
                         </li>
                       ))}
                     </ul>
@@ -121,7 +166,11 @@ const Changelog = props => {
                               .slice(1)
                               .join(' ')}
                           </time>
-                          : {change.description}
+                          :{' '}
+                          <Change
+                            description={change.description}
+                            colorCoding={colorCoding}
+                          />
                         </li>
                       ))}
                     </ul>

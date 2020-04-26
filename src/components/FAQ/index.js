@@ -21,10 +21,15 @@ const FAQ = () => {
     if (!hash) return
     const node = document.querySelector(hash)
     if (node) node.scrollIntoView()
+
+    const requestedId = hash.slice(1)
     const category = categories.find(
-      cat => !!cat.entries.find(entry => entry.id === hash.slice(1))
+      cat =>
+        cat.id === requestedId ||
+        cat.entries.find(entry => entry.id === requestedId)
     )
-    if (!expanded.includes(category.id)) {
+
+    if (category && !expanded.includes(category.id)) {
       setExpanded(ids => [...ids, category.id])
     }
     //eslint-disable-next-line
