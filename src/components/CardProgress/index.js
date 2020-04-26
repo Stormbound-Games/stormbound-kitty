@@ -2,23 +2,23 @@ import React from 'react'
 import Image from '../Image'
 import ProgressBar from '../ProgressBar'
 import { RARITY_COPIES } from '../../constants/game'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getRawCardData from '../../helpers/getRawCardData'
 import './index.css'
 
 const CardProgress = props => {
-  const card = resolveCardForLevel(props.card)
+  const { rarity } = getRawCardData(props.card.id)
 
   // If the card is not found, there is no concept of card progress
-  if (!card) {
+  if (!rarity) {
     return null
   }
 
-  const { rarity, level, copies } = card
+  const { level, copies, missing } = props.card
   const { stonesForMissing } = RARITY_COPIES[rarity]
-  const max = card.missing
+  const max = missing
     ? stonesForMissing
     : RARITY_COPIES[rarity].copies[level - 1]
-  const current = card.missing ? 0 : copies
+  const current = missing ? 0 : copies
 
   // If the card is already level 5, there is no concept of progress
   if (level === 5) {
@@ -28,15 +28,11 @@ const CardProgress = props => {
   return (
     <div className='CardProgress'>
       <Image
-        src={
-          card.missing
-            ? '/assets/images/stones.png'
-            : '/assets/images/cards.png'
-        }
+        src={missing ? '/assets/images/stones.png' : '/assets/images/cards.png'}
         alt=''
         className={[
           'CardProgress__image',
-          card.missing && 'CardProgress__image--stone',
+          missing && 'CardProgress__image--stone',
         ]
           .filter(Boolean)
           .join(' ')}

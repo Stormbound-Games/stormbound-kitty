@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import WikiLink from '../components/WikiLink'
+import DryRunnerExplanation from '../components/DryRunnerExplanation'
 
 export default [
   {
@@ -12,18 +13,24 @@ export default [
         question: 'How can I contribute/help?',
         answer: (
           <>
-            First of all, thank you for using Stormbound Kitty, it means a lot.
-            If you’d like to help, please kindly report any bug or oddity you
-            find, and suggest features to me on Discord (Kitty#1909). Finally,
-            consider{' '}
-            <a
-              href='https://gum.co/stormbound-kitty'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              buying me a coffee
-            </a>
-            ! Any small contribution counts. 💖
+            <p>
+              First of all, thank you for using Stormbound Kitty, it means a
+              lot. If you’d like to help, please kindly report any bug or oddity
+              you find, and suggest features to me on Discord (Kitty#1909).
+              Finally, consider{' '}
+              <a
+                href='https://gum.co/stormbound-kitty'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                buying me a coffee
+              </a>
+              ! Any small contribution counts. 💖
+            </p>
+            <p>
+              Special thanks Neicigam (Neicigam#0095) for his kind and valuable
+              help in various parts of the site, particularly the dry-runner.
+            </p>
           </>
         ),
       },
@@ -190,13 +197,12 @@ export default [
         ),
       },
       {
-        id: 'dry-runner-works',
-        question: 'How does the dry-runner work?',
+        id: 'dry-runner-mechanics',
+        question:
+          'Which mechanics are currently implemented in the dry-run simulator?',
         answer: (
           <>
-            The deck dry-runner aims at reproducing in-game drawing and cycling
-            mechanics to offer a way to try a deck outside of a game. It can be
-            useful to evaluate card cycling, combo efficiency and mana flow.
+            <DryRunnerExplanation />
           </>
         ),
       },

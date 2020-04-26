@@ -25,5 +25,6 @@ jobs:
           parallel: true
           group: 'Integration tests'
         env:
+          CYPRESS_CACHE_FOLDER: './node_modules/CypressBinary'
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

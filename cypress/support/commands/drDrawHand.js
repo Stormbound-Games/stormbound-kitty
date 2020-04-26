@@ -1,17 +1,21 @@
 import s from '../../integration/dryRunner/selectors'
+import getRawCardData from '../../../src/helpers/getRawCardData'
 
 const drawHand = ids => {
   Cypress.log({
-    name: `Pick hand`,
-    message: `Select card ${ids.join(', ')} as initial hand`,
+    name: `DRAW_HAND`,
+    message: `Draw cards ${ids
+      .map(id => `‘${getRawCardData(id).name}’ (${id})`)
+      .join(', ')} as initial hand`,
+    consoleProps: () => ({ ids }),
   })
 
   ids.forEach(id => {
-    cy.get(s.DECK_CARD)
-      .filter('[data-testid="' + id + '"]')
-      .find('button')
-      .first()
-      .click()
+    cy.get(s.DECK_CARD, { log: false })
+      .filter('[data-testid="' + id + '"]', { log: false })
+      .find('button', { log: false })
+      .first({ log: false })
+      .click({ log: false })
   })
 }
 

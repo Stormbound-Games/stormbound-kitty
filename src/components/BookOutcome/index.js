@@ -8,7 +8,7 @@ import getDrawingProbability from '../../helpers/getDrawingProbability'
 import capitalise from '../../helpers/capitalise'
 import getAverageStonesPerBook from '../../helpers/getAverageStonesPerBook'
 import getExpectedCoinsPerBook from '../../helpers/getExpectedCoinsPerBook'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getRawCardData from '../../helpers/getRawCardData'
 
 const useExpectedCoins = book => {
   const { hasDefaultCollection, collection } = React.useContext(
@@ -17,7 +17,7 @@ const useExpectedCoins = book => {
   const collectionWithRarity = React.useMemo(
     () =>
       collection.map(card => {
-        card.rarity = resolveCardForLevel(card).rarity
+        card.rarity = getRawCardData(card).rarity
         return card
       }),
     [collection]
