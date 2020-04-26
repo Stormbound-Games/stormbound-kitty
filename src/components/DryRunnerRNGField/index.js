@@ -67,6 +67,7 @@ const DryRunnerRNGField = props => {
         value='FRIENDLY'
         onChange={event => props.setRNG(event.target.value)}
         checked={props.RNG === 'FRIENDLY'}
+        data-testid='RNG-input'
         required
       >
         Friendly
@@ -85,6 +86,7 @@ const DryRunnerRNGField = props => {
         value='UNFRIENDLY'
         onChange={event => props.setRNG(event.target.value)}
         checked={props.RNG === 'UNFRIENDLY'}
+        data-testid='RNG-input'
         required
       >
         Unfriendly
@@ -103,6 +105,7 @@ const DryRunnerRNGField = props => {
         value='REGULAR'
         onChange={event => props.setRNG(event.target.value)}
         checked={props.RNG === 'REGULAR'}
+        data-testid='RNG-input'
         required
       >
         Regular{' '}

@@ -218,6 +218,12 @@ export default class DeckMechanisms extends React.Component {
           case 'W16':
             newState.specifics.activeDawnsparks += 1
             break
+          case 'W1':
+            // Icicle Burst should destroy the frozen enemy unit if there is only one on the board
+            if (state.specifics.frozenEnemiesLevel === 1) {
+              newState.specifics.frozenEnemiesLevel = 0
+            }
+            break
           case 'W2':
           case 'W6':
           case 'W11':
@@ -231,7 +237,7 @@ export default class DeckMechanisms extends React.Component {
             // For example, playing Midwinter Chaos (W11) will freeze a lot of units,
             // but if there are already many frozen units on the board, it will generally destroy them
             const frozenEnemiesNowRegular =
-              FROZEN_ENEMIES_AFTER[id][newState.specifics.frozenEnemiesLevel]
+              FROZEN_ENEMIES_AFTER[id][state.specifics.frozenEnemiesLevel]
 
             // If the RNG is friendly to the user, the enemy units were spawned  in such a way
             // that an additional unit gets frozen every time a freezing card is played
