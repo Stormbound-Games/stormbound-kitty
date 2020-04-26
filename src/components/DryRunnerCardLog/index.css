@@ -8,8 +8,18 @@
   border-radius: 6px;
 }
 
+.DryRunnerCardLog > .Row {
+  width: 100%;
+  margin: 0;
+}
+
+.DryRunnerCardLog__image-wrapper {
+  height: 100%;
+}
+
 .DryRunnerCardLog__image {
   display: block;
   height: 100%;
-  max-width: 100%
+  max-width: 100%;
+  margin: 0 auto;
 }
