@@ -1,15 +1,15 @@
-.CardLog__image {
+.DryRunnerCardLog__image {
     width: 45px;
     margin: 3px;
     border: 1.5px solid var(--beige);
     border-radius: 6px
 }
 
-.CardLog__latest_image {
+.DryRunnerCardLog__image--latest {
     border: 1.5px solid var(--green);
 }
 
-.CardLog__container {
+.DryRunnerCardLog__container {
     display: block;
     height: 55px;
     background-color: #000;

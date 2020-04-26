@@ -1,5 +1,5 @@
 import React from 'react'
-import CardLog from '../CardLog'
+import DryRunnerCardLog from '../DryRunnerCardLog'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
 import Deck from '../Deck'
@@ -42,7 +42,7 @@ const DryRunner = props => (
           </Column>
         </Row>
         <Row>
-          <CardLog cards={props.playedCards}></CardLog>
+          <DryRunnerCardLog cards={props.playedCards} />
         </Row>
       </Column>
 
