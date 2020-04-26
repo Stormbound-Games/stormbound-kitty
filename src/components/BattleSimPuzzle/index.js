@@ -36,7 +36,7 @@ const BattleSimPuzzle = props => (
         <dd>
           {props.restrictions.length > 0
             ? [...props.restrictions].sort().map((restriction, index) => (
-                <>
+                <React.Fragment key={index}>
                   <span
                     title={RESTRICTIONS[restriction].description}
                     className='BattleSimPuzzle__restriction'
@@ -44,7 +44,7 @@ const BattleSimPuzzle = props => (
                     {RESTRICTIONS[restriction].name}
                   </span>
                   {index !== props.restrictions.length - 1 && ', '}
-                </>
+                </React.Fragment>
               ))
             : 'none'}
         </dd>
