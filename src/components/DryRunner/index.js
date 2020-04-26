@@ -42,6 +42,7 @@ const DryRunner = React.memo(props => (
           </Column>
         </Row>
         <DryRunnerCardLog cards={props.playedCards} />
+      </Column>
 
       <Column width='2/3'>
         <div className='DryRunner__main'>
