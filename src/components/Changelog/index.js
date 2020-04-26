@@ -38,6 +38,20 @@ const Change = props => {
   return template(description, replacements)
 }
 
+const formatDate = date => {
+  const formatter = new Intl.DateTimeFormat('en', {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+  })
+  const parts = formatter.formatToParts(date)
+  const month = parts[0].value
+  const day = parts[2].value
+  const year = parts[4].value
+
+  return month + ' ' + day + ', ' + year
+}
+
 const Changelog = props => {
   const [sorting, setSorting] = React.useState('DATE')
   const [colorCoding, setColorCoding] = React.useState(true)
@@ -134,7 +148,7 @@ const Changelog = props => {
                 .map(date => (
                   <section className='Changelog__section' key={date}>
                     <Title className='Changelog__title'>
-                      {new Date(+date).toDateString()}
+                      {formatDate(date)}
                     </Title>
                     <ul className='Changelog__list'>
                       {changesByDate[date].map(change => (
@@ -160,11 +174,7 @@ const Changelog = props => {
                       {changesByCard[id].map(change => (
                         <li key={id + change.date + change.description}>
                           <time className='Highlight'>
-                            {new Date(change.date)
-                              .toDateString()
-                              .split(' ')
-                              .slice(1)
-                              .join(' ')}
+                            {formatDate(change.date)}
                           </time>
                           :{' '}
                           <Change
