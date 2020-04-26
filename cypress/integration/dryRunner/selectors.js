@@ -6,7 +6,4 @@ export default {
   CYCLE_BTN: '[data-testid="cycle-btn"]',
   PLAY_BTN: '[data-testid="play-btn"]',
   END_TURN_BTN: '[data-testid="end-turn-btn"]',
-  REGULAR_RNG_RADIO: '[data-testid="regular-rng"]',
-  FRIENDLY_RNG_RADIO: '[data-testid="friendly-rng"]',
-  UNFRIENDLY_RNG_RADIO: '[data-testid="unfriendly-rng"]',
 }
