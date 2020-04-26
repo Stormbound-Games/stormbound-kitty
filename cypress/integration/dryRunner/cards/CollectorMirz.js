@@ -9,11 +9,16 @@ describe('Dry-runner — Collector Mirz', () => {
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
       .drDrawHand(HAND)
 
-      .drEndTurn()
-
       .drPlay('N8')
 
       .get(s.DECK_CARD)
       .should('have.length', 13)
+      .then($cards => {
+        const tokens = $cards.filter((index, $card) => {
+          const id = $card.dataset.testid
+          return id.slice(0, 1) === 'T' && id.slice(1, 3) !== '12'
+        })
+        expect(tokens).to.have.length(1)
+      })
   })
 })
