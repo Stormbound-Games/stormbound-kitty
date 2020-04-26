@@ -20,7 +20,7 @@ const CardsStats = () => {
     <div className='CardsStats'>
       <h1 className='VisuallyHidden'>Cards Stats</h1>
       <Row desktopOnly>
-        <Column width={33} style={{ flexShrink: 0 }}>
+        <Column width='1/3' style={{ flexShrink: 0 }}>
           <Title>What is this</Title>
           <p>
             This is data visualisation about the current state of the Stormbound

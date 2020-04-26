@@ -25,7 +25,7 @@ const Lexicon = props => {
       </Title>
 
       <Row desktopOnly>
-        <Column width={25}>
+        <Column width='1/4'>
           <h2 className='Lexicon__title'>A</h2>
           <Terms terms={getTermsForLetter('A')} />
           <h2 className='Lexicon__title'>B</h2>
@@ -37,7 +37,7 @@ const Lexicon = props => {
           <h2 className='Lexicon__title'>E</h2>
           <Terms terms={getTermsForLetter('E')} />
         </Column>
-        <Column width={25}>
+        <Column width='1/4'>
           <h2 className='Lexicon__title'>F</h2>
           <Terms terms={getTermsForLetter('F')} />
           <h2 className='Lexicon__title'>G</h2>
@@ -53,7 +53,7 @@ const Lexicon = props => {
           <h2 className='Lexicon__title'>L</h2>
           <Terms terms={getTermsForLetter('L')} />
         </Column>
-        <Column width={25}>
+        <Column width='1/4'>
           <h2 className='Lexicon__title'>M</h2>
           <Terms terms={getTermsForLetter('M')} />
           <h2 className='Lexicon__title'>N</h2>
@@ -69,7 +69,7 @@ const Lexicon = props => {
           <h2 className='Lexicon__title'>S</h2>
           <Terms terms={getTermsForLetter('S')} />
         </Column>
-        <Column width={25}>
+        <Column width='1/4'>
           <h2 className='Lexicon__title'>T</h2>
           <Terms terms={getTermsForLetter('T')} />
           <h2 className='Lexicon__title'>U</h2>

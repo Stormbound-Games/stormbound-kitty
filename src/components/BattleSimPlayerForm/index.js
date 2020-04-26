@@ -6,7 +6,7 @@ import Row from '../Row'
 const BattleSimPlayerForm = props => (
   <div className='BattleSimPlayerForm'>
     <Row>
-      <Column width={66}>
+      <Column width='2/3'>
         <FactionSelect
           name={`faction-${props.player}`}
           id={`faction-${props.player}`}
@@ -22,7 +22,7 @@ const BattleSimPlayerForm = props => (
           withNeutral
         />
       </Column>
-      <Column width={33}>
+      <Column width='1/3'>
         <label
           className='BattleSimPlayerForm__label'
           htmlFor={`health-${props.player}`}

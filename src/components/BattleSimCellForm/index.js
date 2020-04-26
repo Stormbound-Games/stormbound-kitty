@@ -70,7 +70,7 @@ const BattleSimCellForm = props => {
     >
       <div className='BattleSimCellForm__row'>
         <Row>
-          <Column width={75}>
+          <Column width='3/4'>
             <label className='label' htmlFor='card'>
               Card
             </label>
@@ -93,7 +93,7 @@ const BattleSimCellForm = props => {
               withSpells={false}
             />
           </Column>
-          <Column width={25}>
+          <Column width='1/4'>
             <label htmlFor='level'>Level</label>
             <select
               disabled={card.id && card.id.startsWith('T')}
@@ -175,7 +175,7 @@ const BattleSimCellForm = props => {
         <legend>Penalties</legend>
         <div className='BattleSimCellForm__row'>
           <Row>
-            <Column width={33}>
+            <Column width='1/3'>
               <Checkbox
                 name='poisoned'
                 id='poisoned'
@@ -187,7 +187,7 @@ const BattleSimCellForm = props => {
                 Poisoned
               </Checkbox>
             </Column>
-            <Column width={33}>
+            <Column width='1/3'>
               <Checkbox
                 name='frozen'
                 id='frozen'
@@ -199,7 +199,7 @@ const BattleSimCellForm = props => {
                 Frozen
               </Checkbox>
             </Column>
-            <Column width={33}>
+            <Column width='1/3'>
               <Checkbox
                 name='confused'
                 id='confused'

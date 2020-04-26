@@ -57,7 +57,7 @@ const Footer = props => (
         </Column>
         <Column>
           <Row desktopOnly>
-            <Column width={33}>
+            <Column width='1/3'>
               <span className='Footer__heading'>Stormbound</span>
               <ul className='Footer__list'>
                 <li className='Footer__item'>
@@ -107,7 +107,7 @@ const Footer = props => (
                 </li>
               </ul>
             </Column>
-            <Column width={33}>
+            <Column width='1/3'>
               <span className='Footer__heading'>Kitty</span>
               <ul className='Footer__list'>
                 <li className='Footer__item'>
@@ -133,7 +133,7 @@ const Footer = props => (
                 </li>
               </ul>
             </Column>
-            <Column width={33}>
+            <Column width='1/3'>
               <span className='Footer__heading'>Community</span>
               <ul className='Footer__list'>
                 <li className='Footer__item'>

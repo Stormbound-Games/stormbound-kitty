@@ -19,7 +19,7 @@ const ListBuilderDisplayView = props => {
     <>
       <h1 className='VisuallyHidden'>List Builder</h1>
       <Row wideGutter desktopOnly>
-        <Column width={33}>
+        <Column width='1/3'>
           <Title element='h2'>Settings</Title>
 
           <p className='ListBuilderApp__intro'>
@@ -39,7 +39,7 @@ const ListBuilderDisplayView = props => {
             </Row>
           </div>
         </Column>
-        <Column width={66}>
+        <Column width='2/3'>
           <Title>Tier list</Title>
 
           {tiers.map((tier, index) => (

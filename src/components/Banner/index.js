@@ -15,14 +15,14 @@ const Banner = props => (
   >
     <div className='Banner__inner'>
       <Row desktopOnly wideGutter>
-        <Column width={66}>
+        <Column width='2/3'>
           <h2 className='Banner__title'>{props.title}</h2>
           <p className='Banner__subline'>{props.subline}</p>
           <p className='Banner__copy'>{props.copy}</p>
           <CTA className='Banner__CTA' {...props.cta} />
         </Column>
         <Only.Desktop>
-          <Column width={33}>
+          <Column width='1/3'>
             <Image src={props.image} alt='' wrapperClassName='Banner__image' />
           </Column>
         </Only.Desktop>

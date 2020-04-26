@@ -61,11 +61,11 @@ export default class BattleSimPuzzles extends React.Component {
         <h1 className='VisuallyHidden'>Puzzles</h1>
 
         <Row desktopOnly wideGutter>
-          <Column width={33}>
+          <Column width='1/3'>
             <Title>Filters</Title>
             <PuzzlesFilters {...this.state} updateFilter={this.updateFilter} />
           </Column>
-          <Column width={66}>
+          <Column width='2/3'>
             <Title>Puzzles</Title>
 
             {puzzles.length > 0 ? (

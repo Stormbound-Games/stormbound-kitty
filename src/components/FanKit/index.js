@@ -126,13 +126,13 @@ const FanKit = props => {
           key={a.id}
         >
           <Row desktopOnly>
-            <Column width={25}>
+            <Column width='1/4'>
               <div className='FanKit__item'>
                 <Download {...a} setActive={setActive} />
                 <Image src={a.image} alt={a.name} className='FanKit__image' />
               </div>
             </Column>
-            <Column width={25}>
+            <Column width='1/4'>
               {b && (
                 <div className='FanKit__item'>
                   <Download {...b} setActive={setActive} />
@@ -140,7 +140,7 @@ const FanKit = props => {
                 </div>
               )}
             </Column>
-            <Column width={25}>
+            <Column width='1/4'>
               {c && (
                 <div className='FanKit__item'>
                   <Download {...c} setActive={setActive} />
@@ -148,7 +148,7 @@ const FanKit = props => {
                 </div>
               )}
             </Column>
-            <Column width={25}>
+            <Column width='1/4'>
               {d && (
                 <div className='FanKit__item'>
                   <Download {...d} setActive={setActive} />

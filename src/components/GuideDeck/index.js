@@ -82,16 +82,16 @@ const GuideDeck = props => (
 
     <div className='Guide__cards'>
       <Row>
-        <Column width={25}>
+        <Column width='1/4'>
           <Card {...resolveCardForLevel({ id: 'N1', level: 1 })} />
         </Column>
-        <Column width={25}>
+        <Column width='1/4'>
           <Card {...resolveCardForLevel({ id: 'N2', level: 1 })} />
         </Column>
-        <Column width={25}>
+        <Column width='1/4'>
           <Card {...resolveCardForLevel({ id: 'W1', level: 1 })} />
         </Column>
-        <Column width={25}>
+        <Column width='1/4'>
           <Card {...resolveCardForLevel({ id: 'W2', level: 1 })} />
         </Column>
       </Row>
@@ -117,13 +117,13 @@ const GuideDeck = props => (
 
     <div className='Guide__cards'>
       <Row>
-        <Column width={33}>
+        <Column width='1/3'>
           <Card {...resolveCardForLevel({ id: 'S13', level: 5 })} />
         </Column>
-        <Column width={33}>
+        <Column width='1/3'>
           <Card {...resolveCardForLevel({ id: 'N28', level: 5 })} />
         </Column>
-        <Column width={33}>
+        <Column width='1/3'>
           <Card {...resolveCardForLevel({ id: 'N54', level: 5 })} />
         </Column>
       </Row>

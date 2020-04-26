@@ -44,7 +44,7 @@ const BooksCalculator = props => {
       <h1 className='VisuallyHidden'>Books Calculator</h1>
 
       <Row desktopOnly wideGutter>
-        <Column width={33}>
+        <Column width='1/3'>
           <Title element='h2'>What is this</Title>
           <p>
             This is a calculator to estimate the odds of getting fusion stones
@@ -178,7 +178,7 @@ const BooksCalculator = props => {
           </form>
         </Column>
 
-        <Column width={33}>
+        <Column width='1/3'>
           <Title element='h2'>Outcome</Title>
 
           <BookExplanation book={book} />
@@ -191,7 +191,7 @@ const BooksCalculator = props => {
         </Column>
 
         <Only.Desktop>
-          <Column width={33}>
+          <Column width='1/3'>
             <Image
               src={'/assets/images/book-' + book.toLowerCase() + '.png'}
               className='BooksCalculator__book'

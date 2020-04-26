@@ -165,7 +165,7 @@ class ListBuilderEditorView extends React.Component {
         <h1 className='VisuallyHidden'>List Builder</h1>
 
         <Row wideGutter desktopOnly>
-          <Column width={33}>
+          <Column width='1/3'>
             <Title element='h2'>Settings</Title>
 
             <p>
@@ -193,7 +193,7 @@ class ListBuilderEditorView extends React.Component {
               </Row>
             </div>
           </Column>
-          <Column width={66}>
+          <Column width='2/3'>
             <Title>Tier list</Title>
 
             {this.state.tiers.map((tier, index) => (

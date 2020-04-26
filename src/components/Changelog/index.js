@@ -83,7 +83,7 @@ const Changelog = props => {
     <>
       <h1 className='VisuallyHidden'>Changelog</h1>
       <Row desktopOnly wideGutter>
-        <Column width={33}>
+        <Column width='1/3'>
           <Title>Filters</Title>
           <Row>
             <Column>
@@ -140,7 +140,7 @@ const Changelog = props => {
             changes.
           </p>
         </Column>
-        <Column width={66}>
+        <Column width='2/3'>
           {sorting === 'DATE'
             ? Object.keys(changesByDate)
                 .sort()

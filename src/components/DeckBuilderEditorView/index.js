@@ -112,7 +112,7 @@ class DeckBuilderEditorView extends React.Component {
         <h1 className='VisuallyHidden'>Deck Builder</h1>
 
         <Row desktopOnly wideGutter>
-          <Column width={33}>
+          <Column width='1/3'>
             <Title>{matchedDeck ? matchedDeck.name : 'Your deck'}</Title>
             {matchedDeck && (
               <span className='DeckBuilderEditorView__subtitle'>
@@ -194,7 +194,7 @@ class DeckBuilderEditorView extends React.Component {
             )}
           </Column>
 
-          <Column width={66}>
+          <Column width='2/3'>
             <div className='DB__collection'>
               <Title>Cards</Title>
 
