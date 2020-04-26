@@ -12,14 +12,7 @@ const CardLog = props => {
           .filter((_, index) => index < 6)
           .map((i, index) => {
             return (
-              <Column
-                key={
-                  i.id +
-                  ' #' +
-                  props.cards.filter(card => card.id === i.id).length
-                }
-                width={25}
-              >
+              <Column key={i.id + ' #' + index} width={25}>
                 <Image
                   className={
                     'CardLog__image' +

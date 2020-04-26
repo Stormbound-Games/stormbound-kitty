@@ -14,6 +14,12 @@ const DAWNSPARKS_HITS = 0.71
 const FROZEN_CORE_STAYS = 0.5
 const AHMI_RETURNS = 0.5
 
+const END_TURN_CARD = {
+  id: 'END',
+  name: 'End Turn',
+  image: '/assets/images/mana.png',
+}
+
 export const FRIENDLY_CHANCES = {
   W9: FROZEN_CORE_STAYS,
   S3: AHMI_RETURNS,
@@ -553,6 +559,9 @@ export default class DeckMechanisms extends React.Component {
 
       // Increment the current turn by 1
       newState.turn += 1
+
+      // Log the end turn action
+      newState.playedCards = [END_TURN_CARD, ...state.playedCards]
 
       // Reset the mana to 3 + the current turn
       newState.mana = DEFAULT_MANA + state.turn
