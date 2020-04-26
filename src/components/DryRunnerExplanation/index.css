@@ -1,27 +1,27 @@
-.DryRunExplanation {
+.DryRunnerExplanation {
     list-style-position: inside;
     padding-left: 1em;
     margin-top: 0.5em;
 }
 
-.DryRunExplanation-list {
+.DryRunnerExplanation-list {
     margin-top: 0.25em;
     margin-bottom: 1em;
     padding-left: 1.5em;
     font-size: 90%;
 }
 
-.DryRunExplanation-list>li {
+.DryRunnerExplanation-list>li {
     margin-bottom: 0.2em;
     list-style-position: inside;
     padding: 0;
 }
 
-.DryRunExplanation__toggle {
+.DryRunnerExplanation__toggle {
     margin-left: 1ch;
     color: var(--beige);
 }
 
-.DryRunExplanation__toggle:hover {
+.DryRunnerExplanation__toggle:hover {
     color: var(--white);
 }

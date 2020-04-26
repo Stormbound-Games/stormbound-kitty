@@ -29,7 +29,7 @@ const CARD_ATTRIBUTES = {
   N22: 'Cycles a random non-Pirate card from your hand',
   N33: 'Discards and redraws your hand when played as the first card on a turn',
   N48: 'Plays one or two spells from your hand, depending on her level',
-  S21: 'Plays one or two satyrs from your deck, depending on her level',
+  S21: 'Plays one or two Satyrs from your deck, depending on her level',
   W1: 'Can only be played when you have frozen enemy units this turn',
   W8:
     'Destroys frozen enemies and gain mana from them, depending on how many freezing cards were played this turn and your RNG level',
@@ -69,10 +69,10 @@ const DryRunnerExplanation = () => {
   return (
     <>
       <p>
-        The dry-run simulator currently allows you to play cards with these
-        abilities:
+        The dry-run simulator currently correctly supports the follow abilities,
+        while their effect might vary depending on the RNG setting::
       </p>
-      <ul className='DryRunExplanation'>
+      <ul className='DryRunnerExplanation'>
         {Object.keys(CARD_MECHANICS).map(categoryTitle => {
           const category = CARD_MECHANICS[categoryTitle]
           return (
@@ -83,20 +83,22 @@ const DryRunnerExplanation = () => {
                 id={categoryTitle}
                 renderToggle={toggleProps => (
                   <button
-                    className='ButtonAsLink DryRunExplanation__toggle'
+                    className='ButtonAsLink DryRunnerExplanation__toggle'
                     onClick={() => toggle(categoryTitle)}
                   >
+                    (
                     {expanded.includes(categoryTitle)
                       ? '- collapse'
                       : '+ expand'}
+                    )
                   </button>
                 )}
               >
-                <ul className='DryRunExplanation-list'>
+                <ul className='DryRunnerExplanation-list'>
                   {Object.keys(CARD_ATTRIBUTES)
                     .filter(cardId => category.cards.includes(cardId))
                     .map(cardId => (
-                      <li key={cardId}>
+                      <li className='DryRunnerExplanation__item' key={cardId}>
                         <WikiLink id={cardId} />
                         {': '}
                         {CARD_ATTRIBUTES[cardId]}
