@@ -8,11 +8,8 @@
   border-radius: 6px;
 }
 
-.DryRunnerCardLog__image:not(:last-child) {
-  margin-right: 5px;
-}
-
 .DryRunnerCardLog__image {
   display: block;
   height: 100%;
+  max-width: 100%
 }
