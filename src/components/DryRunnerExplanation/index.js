@@ -37,7 +37,7 @@ const CARD_ATTRIBUTES = {
   W10: 'Spends remaining mana to gain strength',
   W9: `Has a 0% / ${parseInt(
     PROBABILITIES.FROZEN_CORE_STAYS * 100
-  )} / 100% chance each turn of staying on the board and giving you mana each turn`,
+  )}% / 100% chance each turn of staying on the board and giving you mana each turn`,
   W16: `Have a 0% / ${parseInt(
     PROBABILITIES.DAWNSPARKS_STAYS * 100
   )}% / 100% chance of staying on the board and a 0% / ${parseInt(
@@ -94,7 +94,7 @@ const DryRunnerExplanation = () => {
                   </button>
                 )}
               >
-                <ul className='DryRunnerExplanation-list'>
+                <ul className='DryRunnerExplanation__list'>
                   {Object.keys(CARD_ATTRIBUTES)
                     .filter(cardId => category.cards.includes(cardId))
                     .map(cardId => (
