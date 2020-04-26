@@ -1,12 +1,17 @@
 import s from '../../integration/dryRunner/selectors'
+import getRawCardData from '../../../src/helpers/getRawCardData'
 
 const play = id => {
+  const { name } = getRawCardData(id)
+
   Cypress.log({
-    name: `Play ${id}`,
-    message: `Play card ${id}`,
+    name: `PLAY`,
+    message: `Play ‘${name}’ (${id})`,
   })
 
-  cy.drSelect(id).get(s.PLAY_BTN).click()
+  cy.drSelect(id, { log: false })
+    .get(s.PLAY_BTN, { log: false })
+    .click({ log: false })
 }
 
 export default play
