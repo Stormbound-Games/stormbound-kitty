@@ -8,7 +8,7 @@ import Row from '../Row'
 import Title from '../Title'
 import './index.css'
 
-const CardBuilderContest = props => (
+const CardBuilderContest = React.memo(props => (
   <>
     <Title element='h1' className='CardBuilderContest__headline'>
       Weekly Card Contest
@@ -107,6 +107,6 @@ const CardBuilderContest = props => (
       description='All the information to participate and/or vote in the Stormbound weekly card competitions.'
     />
   </>
-)
+))
 
 export default CardBuilderContest

@@ -2,7 +2,7 @@ import React from 'react'
 import CTA from '../CTA'
 import Dialog from '../Dialog'
 
-const ResetButton = props => {
+const ResetButton = React.memo(props => {
   const dialog = React.useRef(null)
   const open = () => dialog.current.show()
   const close = () => dialog.current.hide()
@@ -41,7 +41,7 @@ const ResetButton = props => {
       </Dialog>
     </>
   )
-}
+})
 
 ResetButton.defaultProps = {
   label: 'Reset',

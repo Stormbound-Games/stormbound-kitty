@@ -3,7 +3,7 @@ import Cell from '../BattleSimCell'
 import Row from '../BattleSimRow'
 import './index.css'
 
-const BattleSimGrid = props => (
+const BattleSimGrid = React.memo(props => (
   <div
     className={['BattleSimGrid', props.gridMarkers && 'BattleSimGrid--markers']
       .filter(Boolean)
@@ -34,6 +34,6 @@ const BattleSimGrid = props => (
       </Row>
     ))}
   </div>
-)
+))
 
 export default BattleSimGrid

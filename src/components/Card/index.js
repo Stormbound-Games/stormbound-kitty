@@ -3,21 +3,13 @@ import Image from '../Image'
 import { WebpContext } from '../WebpProvider'
 import { getRarityImage, getRarityColor } from '../../helpers/getRarity'
 import microMarkdown from '../../helpers/microMarkdown'
-import random from '../../helpers/random'
 import useFluidSizing from '../../hooks/useFluidSizing'
 import './index.css'
 
-const Card = props => {
+const Card = React.memo(props => {
   const supportsWebp = React.useContext(WebpContext)
   const { fontSize, ref } = useFluidSizing(0.03902439024)
-  const imageWrapperRef = React.useRef()
   const ext = supportsWebp ? 'webp' : 'png'
-
-  React.useEffect(() => {
-    if (props.hero && imageWrapperRef.current) {
-      imageWrapperRef.current.style.animationDelay = random(-10000, 0) + 'ms'
-    }
-  }, [props.hero])
 
   return (
     <article
@@ -66,7 +58,6 @@ const Card = props => {
 
         {!props.missing ? (
           <Image
-            ref={imageWrapperRef}
             alt=''
             src={props.image}
             wrapperClassName={[
@@ -142,6 +133,6 @@ const Card = props => {
       </div>
     </article>
   )
-}
+})
 
 export default Card

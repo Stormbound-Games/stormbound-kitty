@@ -4,7 +4,7 @@ import Markdown from '../Markdown'
 import guide from '../../data/Stormbound_guide.md'
 import './index.css'
 
-const GuideComplete = props => {
+const GuideComplete = React.memo(props => {
   const [content, setContent] = React.useState(null)
 
   React.useEffect(() => {
@@ -23,6 +23,6 @@ const GuideComplete = props => {
       <Markdown source={content} />
     </Guide>
   ) : null
-}
+})
 
 export default GuideComplete

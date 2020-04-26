@@ -2,7 +2,7 @@ import React from 'react'
 import Image from '../Image'
 import './index.css'
 
-const Quest = props => (
+const Quest = React.memo(props => (
   <div className='Quest'>
     <div className='Quest__inner'>
       <span
@@ -36,6 +36,6 @@ const Quest = props => (
       </div>
     </div>
   </div>
-)
+))
 
 export default Quest

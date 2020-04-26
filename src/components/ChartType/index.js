@@ -11,7 +11,7 @@ import Title from '../Title'
 import cards from '../../data/cards'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 
-const ChartType = props => {
+const ChartType = React.memo(props => {
   const types = ['unit', 'spell', 'structure']
   const data = cards
     .filter(card => !card.token)
@@ -53,6 +53,6 @@ const ChartType = props => {
       </ResponsiveContainer>
     </>
   )
-}
+})
 
 export default ChartType

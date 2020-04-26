@@ -6,7 +6,7 @@ import chunk from '../../helpers/chunk'
 import arrayPad from '../../helpers/arrayPad'
 import './index.css'
 
-const DryRunnerCard = props => {
+const DryRunnerCard = React.memo(props => {
   const cardData = props.deck.find(card => card.id === props.card)
 
   if (!cardData) return null
@@ -40,9 +40,9 @@ const DryRunnerCard = props => {
       />
     </div>
   )
-}
+})
 
-const DryRunnerHand = props => {
+const DryRunnerHand = React.memo(props => {
   const hand = props.hand.slice(0)
   const paddedHand = arrayPad(hand, 4, null, +1)
 
@@ -64,6 +64,6 @@ const DryRunnerHand = props => {
       })}
     </Row>
   )
-}
+})
 
 export default DryRunnerHand

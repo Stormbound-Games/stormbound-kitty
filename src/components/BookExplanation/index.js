@@ -3,7 +3,7 @@ import { RARITIES, BOOKS } from '../../constants/game'
 import capitalise from '../../helpers/capitalise'
 import './index.css'
 
-const BookExplanation = ({ book }) => {
+const BookExplanation = React.memo(({ book }) => {
   const { percentiles, draws } = BOOKS[book]
 
   return (
@@ -23,6 +23,6 @@ const BookExplanation = ({ book }) => {
       </ul>
     </div>
   )
-}
+})
 
 export default BookExplanation

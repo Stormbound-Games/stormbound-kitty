@@ -5,7 +5,7 @@ import Image from '../Image'
 import Only from '../Only'
 import './index.css'
 
-const BattleSimPuzzle = props => (
+const BattleSimPuzzle = React.memo(props => (
   <div className='BattleSimPuzzle'>
     {!props.noImage && (
       <Only.Desktop>
@@ -51,6 +51,6 @@ const BattleSimPuzzle = props => (
       </dl>
     </div>
   </div>
-)
+))
 
 export default BattleSimPuzzle

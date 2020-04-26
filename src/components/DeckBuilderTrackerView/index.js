@@ -525,7 +525,7 @@ class DeckBuilderTrackerView extends React.Component {
         <h1 className='VisuallyHidden'>Deck Tracker</h1>
 
         <Row desktopOnly wideGutter>
-          <Column width='1/3'>
+          <Column width={33}>
             <Title>Your deck</Title>
             <Deck
               deck={this.getDisplayDeck()}
@@ -587,7 +587,7 @@ class DeckBuilderTrackerView extends React.Component {
 
               <div className='DeckBuilderTrackerView__board'>
                 <Row>
-                  <Column width='1/3'>
+                  <Column width={33}>
                     <span className='DeckBuilderTrackerView__mana'>
                       <div>
                         Current mana:{' '}
@@ -616,7 +616,7 @@ class DeckBuilderTrackerView extends React.Component {
                     </span>
                   </Column>
 
-                  <Column width='1/3'>
+                  <Column width={33}>
                     <ResetButton
                       label='Reset game'
                       confirm='Are you sure you want to reset the game? Don’t worry, you’ll keep your deck.'
@@ -635,7 +635,7 @@ class DeckBuilderTrackerView extends React.Component {
                     </ResetButton>
                   </Column>
 
-                  <Column width='1/3'>
+                  <Column width={33}>
                     <CTA
                       type='button'
                       onClick={this.endTurn}

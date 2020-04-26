@@ -3,7 +3,7 @@ import ButtonIcon from '../ButtonIcon'
 import Title from '../Title'
 import './index.css'
 
-const BattleSimPanel = props => (
+const BattleSimPanel = React.memo(props => (
   <div
     className={`BattleSimPanel BattleSimPanel--${props.side}`}
     data-testid={props['data-testid']}
@@ -23,6 +23,6 @@ const BattleSimPanel = props => (
       </ButtonIcon>
     )}
   </div>
-)
+))
 
 export default BattleSimPanel

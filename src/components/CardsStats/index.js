@@ -13,7 +13,7 @@ import Row from '../Row'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
 
-const CardsStats = () => {
+const CardsStats = React.memo(() => {
   const viewportWidth = useViewportWidth()
 
   return (
@@ -79,6 +79,6 @@ const CardsStats = () => {
       </Row>
     </div>
   )
-}
+})
 
 export default CardsStats

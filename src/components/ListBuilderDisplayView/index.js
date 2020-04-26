@@ -10,7 +10,7 @@ import ListBuilderTier from '../ListBuilderTier'
 import Title from '../Title'
 import getInitialListData from '../../helpers/getInitialListData'
 
-const ListBuilderDisplayView = props => {
+const ListBuilderDisplayView = React.memo(props => {
   const match = useRouteMatch()
   const id = match.params.listId
   const tiers = getInitialListData(id)
@@ -57,6 +57,6 @@ const ListBuilderDisplayView = props => {
       <PageMeta title='Tier List Display' />
     </>
   )
-}
+})
 
 export default ListBuilderDisplayView

@@ -6,7 +6,7 @@ import Mana from '../Mana'
 import Row from '../Row'
 import './index.css'
 
-const DryRunnerHeader = props => (
+const DryRunnerHeader = React.memo(props => (
   <div className='DryRunnerHeader'>
     <Row>
       <Column width='1/3' style={{ alignItems: 'center' }}>
@@ -37,6 +37,6 @@ const DryRunnerHeader = props => (
       </Column>
     </Row>
   </div>
-)
+))
 
 export default DryRunnerHeader

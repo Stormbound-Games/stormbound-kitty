@@ -2,7 +2,7 @@ import React from 'react'
 import Title from '../Title'
 import './index.css'
 
-const Loader = props => (
+const Loader = React.memo(props => (
   <div className='Loader'>
     <svg
       width='44'
@@ -66,6 +66,6 @@ const Loader = props => (
       Loading content…
     </Title>
   </div>
-)
+))
 
 export default Loader

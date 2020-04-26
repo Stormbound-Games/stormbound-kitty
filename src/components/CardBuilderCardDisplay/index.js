@@ -35,7 +35,7 @@ const isLevelAvailable = (card, level) => {
   return isLevelAvailable[level - 1]
 }
 
-const CardBuilderCardDisplay = props => {
+const CardBuilderCardDisplay = React.memo(props => {
   const match = useRouteMatch()
   const [activeLevel, setActiveLevel] = React.useState(props.level || 1)
   const { hasDefaultCollection, collection } = React.useContext(
@@ -136,6 +136,6 @@ const CardBuilderCardDisplay = props => {
       </Only.Mobile>
     </>
   )
-}
+})
 
 export default CardBuilderCardDisplay

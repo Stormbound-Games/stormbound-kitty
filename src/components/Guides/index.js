@@ -5,7 +5,7 @@ import InfoHint from '../InfoHint'
 import PageMeta from '../PageMeta'
 import guides from '../../data/guides'
 
-const Guides = props => (
+const Guides = React.memo(props => (
   <>
     <h1 className='VisuallyHidden'>Guides</h1>
 
@@ -47,6 +47,6 @@ const Guides = props => (
       description='Guides from the community about Stormbound'
     />
   </>
-)
+))
 
 export default Guides

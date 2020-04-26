@@ -7,7 +7,7 @@ import Row from '../Row'
 import Title from '../Title'
 import './index.css'
 
-const DryRunnerInfo = props => (
+const DryRunnerInfo = React.memo(props => (
   <div className='DryRunnerInfo'>
     <Row desktopOnly>
       <Column>
@@ -82,6 +82,6 @@ const DryRunnerInfo = props => (
       </Column>
     </Row>
   </div>
-)
+))
 
 export default DryRunnerInfo

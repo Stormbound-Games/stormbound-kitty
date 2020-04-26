@@ -7,7 +7,7 @@ import ShareButton from '../CardBuilderShareButton'
 import formatCardStats from '../../helpers/formatCardStats'
 import './index.css'
 
-const CardBuilderCardForm = props => {
+const CardBuilderCardForm = React.memo(props => {
   const match = useRouteMatch()
   const isPristine = !match.params.cardId
   return (
@@ -91,6 +91,6 @@ const CardBuilderCardForm = props => {
       </form>
     </>
   )
-}
+})
 
 export default CardBuilderCardForm

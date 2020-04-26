@@ -1,7 +1,7 @@
 import React from 'react'
 import NavLink from '../NavLink'
 
-const NavCollection = props => (
+const NavCollection = React.memo(props => (
   <nav className='Header__nav'>
     <ul className='Header__list Header__list--sub'>
       <li className='Header__item'>
@@ -21,6 +21,6 @@ const NavCollection = props => (
       </li>
     </ul>
   </nav>
-)
+))
 
 export default NavCollection

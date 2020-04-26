@@ -24,7 +24,7 @@ const getAuthors = () => {
   )
 }
 
-const DeckBuilderSuggestionsFilters = props => {
+const DeckBuilderSuggestionsFilters = React.memo(props => {
   const [name, updateName] = React.useState(props.name)
   const authors = React.useMemo(getAuthors)
 
@@ -122,6 +122,6 @@ const DeckBuilderSuggestionsFilters = props => {
       </Row>
     </form>
   )
-}
+})
 
 export default DeckBuilderSuggestionsFilters

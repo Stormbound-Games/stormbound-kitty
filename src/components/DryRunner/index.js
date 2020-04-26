@@ -11,7 +11,7 @@ import Row from '../Row'
 import Title from '../Title'
 import './index.css'
 
-const DryRunner = props => (
+const DryRunner = React.memo(props => (
   <>
     <h1 className='VisuallyHidden'>Deck Dry-run</h1>
 
@@ -58,6 +58,6 @@ const DryRunner = props => (
       description='Try your deck with actual in-game mechanisms to test mana flow.'
     />
   </>
-)
+))
 
 export default DryRunner

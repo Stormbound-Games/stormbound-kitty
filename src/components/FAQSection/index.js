@@ -3,7 +3,7 @@ import Title from '../Title'
 import FAQEntry from '../FAQEntry'
 import './index.css'
 
-const FAQSection = props => (
+const FAQSection = React.memo(props => (
   <section className='FAQSection' id={props.id}>
     <Title>{props.title}</Title>
     <dl className='FAQSection__list'>
@@ -12,6 +12,6 @@ const FAQSection = props => (
       ))}
     </dl>
   </section>
-)
+))
 
 export default FAQSection

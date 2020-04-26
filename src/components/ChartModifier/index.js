@@ -11,7 +11,7 @@ import Title from '../Title'
 import cards from '../../data/cards'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 
-const ChartModifier = props => {
+const ChartModifier = React.memo(props => {
   const data = cards
     .filter(card => !card.token)
     .reduce(
@@ -56,6 +56,6 @@ const ChartModifier = props => {
       </ResponsiveContainer>
     </>
   )
-}
+})
 
 export default ChartModifier

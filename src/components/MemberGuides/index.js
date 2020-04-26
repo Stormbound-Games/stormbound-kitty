@@ -2,7 +2,7 @@ import React from 'react'
 import Banner from '../Banner'
 import MemberSection from '../MemberSection'
 
-const MemberGuides = props => {
+const MemberGuides = React.memo(props => {
   if (props.guides.length === 0) return null
 
   return (
@@ -25,6 +25,6 @@ const MemberGuides = props => {
       })}
     </MemberSection>
   )
-}
+})
 
 export default MemberGuides

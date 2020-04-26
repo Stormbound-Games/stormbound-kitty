@@ -2,7 +2,7 @@ import React from 'react'
 import { TIER_COLORS } from '../../constants/list'
 import ListBuilderTier from '../ListBuilderTier'
 
-const ListBuilderTierList = props =>
+const ListBuilderTierList = React.memo(props =>
   props.tiers.map((tier, index) => (
     <ListBuilderTier
       {...tier}
@@ -12,5 +12,6 @@ const ListBuilderTierList = props =>
       isEditable={false}
     />
   ))
+)
 
 export default ListBuilderTierList

@@ -5,7 +5,7 @@ import { RARITY_COPIES } from '../../constants/game'
 import getRawCardData from '../../helpers/getRawCardData'
 import './index.css'
 
-const CardProgress = props => {
+const CardProgress = React.memo(props => {
   const { rarity } = getRawCardData(props.card.id)
 
   // If the card is not found, there is no concept of card progress
@@ -41,6 +41,6 @@ const CardProgress = props => {
       <span className='CardProgress__label'>{current + '/' + max}</span>
     </div>
   )
-}
+})
 
 export default CardProgress

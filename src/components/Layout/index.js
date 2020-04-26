@@ -4,7 +4,7 @@ import Footer from '../Footer'
 import Header from '../Header'
 import './index.css'
 
-const Layout = props => (
+const Layout = React.memo(props => (
   <div className='Layout'>
     <Header active={props.active} />
     <main className='Layout__body'>
@@ -20,6 +20,6 @@ const Layout = props => (
     </main>
     <Footer />
   </div>
-)
+))
 
 export default Layout

@@ -5,7 +5,7 @@ import AppMobile from '../BattleSimAppMobile'
 import State from '../BattleSimState'
 import useViewportWidth from '../../hooks/useViewportWidth'
 
-const App = props => {
+const App = React.memo(props => {
   const viewportWidth = useViewportWidth()
   const puzzle = puzzles.find(puzzle => puzzle.board === props.simId)
   const shouldRenderLeftPanel =
@@ -39,7 +39,7 @@ const App = props => {
       setDndTarget={() => void 0}
     />
   )
-}
+})
 
 export default props => (
   <State mode={props.mode}>{state => <App {...state} />}</State>

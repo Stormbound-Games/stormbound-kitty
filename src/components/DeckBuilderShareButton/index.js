@@ -4,27 +4,27 @@ import ShareDialog from '../ShareDialog'
 import download from '../../helpers/download'
 import './index.css'
 
-const DeckBuilderShareButton = props => {
-  const exportAsImage = () => {
-    const deck = document.querySelector('#deck')
+const exportAsImage = () => {
+  const deck = document.querySelector('#deck')
 
-    import('html2canvas')
-      .then(({ default: html2canvas }) => {
-        return html2canvas(deck, {
-          backgroundColor: null,
-          ignoreElements: element => element.id === 'dialog-root',
-        })
+  import('html2canvas')
+    .then(({ default: html2canvas }) => {
+      return html2canvas(deck, {
+        backgroundColor: null,
+        ignoreElements: element => element.id === 'dialog-root',
       })
-      .then(canvas =>
-        download({
-          content: canvas.toDataURL(),
-          fileName: 'deck.png',
-          mimeType: 'image/png',
-          blob: false,
-        })
-      )
-  }
+    })
+    .then(canvas =>
+      download({
+        content: canvas.toDataURL(),
+        fileName: 'deck.png',
+        mimeType: 'image/png',
+        blob: false,
+      })
+    )
+}
 
+const DeckBuilderShareButton = React.memo(props => {
   return (
     <ShareDialog
       label='Share deck'
@@ -52,6 +52,6 @@ const DeckBuilderShareButton = props => {
       </CTA>
     </ShareDialog>
   )
-}
+})
 
 export default DeckBuilderShareButton

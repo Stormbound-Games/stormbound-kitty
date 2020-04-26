@@ -3,7 +3,7 @@ import Card from '../Card'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import './index.css'
 
-const CardZoom = props => {
+const CardZoom = React.memo(props => {
   const { close } = props
   const handleESC = React.useCallback(event => event.which === 27 && close(), [
     close,
@@ -33,6 +33,6 @@ const CardZoom = props => {
       </div>
     </div>
   ) : null
-}
+})
 
 export default CardZoom

@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-const TogglableContent = props => {
+const TogglableContent = React.memo(props => {
   const [isExpanded, setIsExpanded] = React.useState(props.isExpanded)
 
   React.useEffect(() => setIsExpanded(props.isExpanded), [props.isExpanded])
@@ -24,6 +24,6 @@ const TogglableContent = props => {
       </div>
     </>
   )
-}
+})
 
 export default TogglableContent

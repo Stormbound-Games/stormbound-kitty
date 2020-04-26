@@ -3,7 +3,7 @@ import Image from '../Image'
 import Mana from '../Mana'
 import './index.css'
 
-const BattleSimPlayerBanner = props => (
+const BattleSimPlayerBanner = React.memo(props => (
   <div className='BattleSimPlayerBanner'>
     <Mana mana={props.mana} disabled={props.disabled} />
     <div className='BattleSimPlayerBanner__meta'>
@@ -27,6 +27,6 @@ const BattleSimPlayerBanner = props => (
       </span>
     </div>
   </div>
-)
+))
 
 export default BattleSimPlayerBanner

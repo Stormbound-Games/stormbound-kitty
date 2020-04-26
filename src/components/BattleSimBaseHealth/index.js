@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-const BattleSimBaseHealth = props => (
+const BattleSimBaseHealth = React.memo(props => (
   <div className='BattleSimBaseHealth'>
     <span
       className='BattleSimBaseHealth__value'
@@ -10,6 +10,6 @@ const BattleSimBaseHealth = props => (
       {props.health}
     </span>
   </div>
-)
+))
 
 export default BattleSimBaseHealth

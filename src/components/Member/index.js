@@ -11,7 +11,7 @@ import decks from '../../data/decks'
 import guides from '../../data/guides'
 import stories from '../../data/stories'
 
-const Member = props => {
+const Member = React.memo(props => {
   const match = useRouteMatch()
   const id = match.params.memberId.toLowerCase()
   const userDecks = React.useMemo(
@@ -68,6 +68,6 @@ const Member = props => {
       <PageMeta title={displayName} />
     </>
   )
-}
+})
 
 export default Member

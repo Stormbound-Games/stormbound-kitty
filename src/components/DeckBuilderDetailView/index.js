@@ -9,7 +9,7 @@ import ShareButton from '../DeckBuilderShareButton'
 import Stats from '../DeckBuilderStats'
 import Title from '../Title'
 
-const DeckBuilderDetailView = props => {
+const DeckBuilderDetailView = React.memo(props => {
   const history = useHistory()
 
   return (
@@ -49,6 +49,6 @@ const DeckBuilderDetailView = props => {
       />
     </>
   )
-}
+})
 
 export default DeckBuilderDetailView

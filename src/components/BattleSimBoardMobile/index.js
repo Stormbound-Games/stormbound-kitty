@@ -6,7 +6,7 @@ import Grid from '../BattleSimGrid'
 import PlayerBanner from '../BattleSimPlayerBanner'
 import './index.css'
 
-const BattleSimBoardMobile = props => (
+const BattleSimBoardMobile = React.memo(props => (
   <div className='BattleSimBoardMobile' data-testid='board'>
     <div className='BattleSimBoardMobile__health BattleSimBoardMobile__health--RED'>
       <BaseHealth player='RED' health={props.players.RED.health} />
@@ -57,6 +57,6 @@ const BattleSimBoardMobile = props => (
       />
     </div>
   </div>
-)
+))
 
 export default BattleSimBoardMobile

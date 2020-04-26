@@ -7,7 +7,7 @@ import Title from '../Title'
 import WikiLink from '../WikiLink'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 
-const GuideDeck = props => (
+const GuideDeck = React.memo(props => (
   <Guide
     title='Deck Building Guide'
     description='This guide has been written by Zemeu on Reddit and is published here with their consent.'
@@ -344,6 +344,6 @@ const GuideDeck = props => (
       seriously. Just have fun. :)
     </p>
   </Guide>
-)
+))
 
 export default GuideDeck
