@@ -4,7 +4,7 @@ import Column from '../Column'
 import Row from '../Row'
 import './index.css'
 
-const Footer = props => (
+const Footer = React.memo(props => (
   <footer className='Footer' role='contentinfo'>
     <div className='Footer__inner'>
       <Row desktopOnly>
@@ -192,6 +192,6 @@ const Footer = props => (
       </Row>
     </div>
   </footer>
-)
+))
 
 export default Footer
