@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import WikiLink from '../components/WikiLink'
+import DryRunnerExplanation from '../components/DryRunnerExplanation'
 
 export default [
   {
@@ -190,13 +191,12 @@ export default [
         ),
       },
       {
-        id: 'dry-runner-works',
-        question: 'How does the dry-runner work?',
+        id: 'dry-runner-mechanics',
+        question:
+          'Which mechanics are currently implemented in the dry-run simulator?',
         answer: (
           <>
-            The deck dry-runner aims at reproducing in-game drawing and cycling
-            mechanics to offer a way to try a deck outside of a game. It can be
-            useful to evaluate card cycling, combo efficiency and mana flow.
+            <DryRunnerExplanation />
           </>
         ),
       },

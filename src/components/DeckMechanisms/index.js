@@ -2,23 +2,13 @@ import React from 'react'
 import rwc from 'random-weighted-choice'
 import clone from 'lodash.clonedeep'
 import { DEFAULT_MANA } from '../../constants/battle'
+import { PROBABILITIES } from '../../constants/dryRunner'
 import arrayRandom from '../../helpers/arrayRandom'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import getBinomialRandomVariableResult from '../../helpers/getBinomialRandomVariableResult'
 import resolveDeckWeight, {
   increaseCardWeight,
 } from '../../helpers/resolveDeckWeight'
-
-const DAWNSPARKS_STAYS = 0.71
-const DAWNSPARKS_HITS = 0.71
-const FROZEN_CORE_STAYS = 0.5
-const AHMI_RETURNS = 0.5
-
-export const FRIENDLY_CHANCES = {
-  W9: FROZEN_CORE_STAYS,
-  S3: AHMI_RETURNS,
-  W16: DAWNSPARKS_HITS * DAWNSPARKS_STAYS,
-}
 
 const FROZEN_ENEMIES_AFTER = {
   //Frozen enemies left after a card's ability has been resolved, in regular RNG mode
@@ -403,7 +393,8 @@ export default class DeckMechanisms extends React.Component {
       case 'S3': {
         if (
           this.state.RNG === 'FRIENDLY' ||
-          (this.state.RNG === 'REGULAR' && Math.random() <= AHMI_RETURNS)
+          (this.state.RNG === 'REGULAR' &&
+            Math.random() <= PROBABILITIES.AHMI_RETURNS)
         ) {
           this.setState(state => ({ hand: [...state.hand, 'S3'] }))
         }
@@ -520,13 +511,13 @@ export default class DeckMechanisms extends React.Component {
         // Choose how many Frozen Cores survive
         state.specifics.activeFrozenCores = getBinomialRandomVariableResult(
           activeFrozenCores,
-          FROZEN_CORE_STAYS
+          PROBABILITIES.FROZEN_CORE_STAYS
         )
 
         // Choose how many Dawnsparks units survive
         state.specifics.activeDawnsparks = getBinomialRandomVariableResult(
           activeDawnsparks,
-          DAWNSPARKS_STAYS
+          PROBABILITIES.DAWNSPARKS_STAYS
         )
 
         // Add mana from remaining Frozen Cores
@@ -536,7 +527,7 @@ export default class DeckMechanisms extends React.Component {
         state.mana +=
           getBinomialRandomVariableResult(
             state.specifics.activeDawnsparks,
-            DAWNSPARKS_HITS
+            PROBABILITIES.DAWNSPARKS_HITS
           ) * 4
         break
       }

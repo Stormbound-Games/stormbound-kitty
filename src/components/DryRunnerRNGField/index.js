@@ -1,7 +1,7 @@
 import React from 'react'
 import Radio from '../Radio'
 import WikiLink from '../WikiLink'
-import { FRIENDLY_CHANCES } from '../DeckMechanisms'
+import { FRIENDLY_CHANCES } from '../../constants/dryRunner'
 import './index.css'
 
 const RNG_SENSITIVE_CARDS = {
