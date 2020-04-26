@@ -10,12 +10,6 @@ import resolveDeckWeight, {
   increaseCardWeight,
 } from '../../helpers/resolveDeckWeight'
 
-const END_TURN_CARD = {
-  id: 'END',
-  name: 'End Turn',
-  image: '/assets/images/mana.png',
-}
-
 const FROZEN_ENEMIES_AFTER = {
   //Frozen enemies left after a card's ability has been resolved, in regular RNG mode
 
@@ -556,9 +550,6 @@ export default class DeckMechanisms extends React.Component {
 
       // Increment the current turn by 1
       newState.turn += 1
-
-      // Log the end turn action
-      newState.playedCards = [END_TURN_CARD, ...state.playedCards]
 
       // Reset the mana to 3 + the current turn
       newState.mana = DEFAULT_MANA + state.turn

@@ -12,6 +12,6 @@
 .DryRunnerCardLog__container {
     display: block;
     height: 55px;
-    background-color: #000;
+    background-color: var(--black);
     border: 1.5px solid var(--white);
 }
