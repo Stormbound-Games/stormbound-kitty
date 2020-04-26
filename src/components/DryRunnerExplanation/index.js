@@ -25,16 +25,16 @@ const CARD_MECHANICS = {
 
 const CARD_ATTRIBUTES = {
   N12: 'Discards a random non-Pirate card from your hand',
-  N14: 'Will draw one or two cards, depending on the level',
+  N14: 'Draws one or two cards, depending on the level',
   N22: 'Cycles a random non-Pirate card will be cycled from your hand',
   N33: 'Discards and redraws your hand when played as the first card on a turn',
-  N48: 'Will play one or two spells from your hand, depending on her level',
-  S21: 'Will play one or two satyrs from your deck, depending on her level',
+  N48: 'Plays one or two spells from your hand, depending on her level',
+  S21: 'Plays one or two satyrs from your deck, depending on her level',
   W1: 'Can only be played when you have frozen enemy units this turn',
   W8:
-    'Will destroy frozen enemies and gain mana from them, depending on how many freezing cards were played this turn and your RNG level',
-  W12: 'Will give you back 3 mana',
-  W10: 'Will spend your remaining mana to gain strength',
+    'Destroys frozen enemies and gain mana from them, depending on how many freezing cards were played this turn and your RNG level',
+  W12: 'Gives back 3 mana',
+  W10: 'Spends remaining mana to gain strength',
   W9: `Has a 0% / ${parseInt(
     PROBABILITIES.FROZEN_CORE_STAYS * 100
   )} / 100% chance each turn of staying on the board and giving you mana each turn`,
@@ -43,9 +43,9 @@ const CARD_ATTRIBUTES = {
   )}% / 100% chance of staying on the board and a 0% / ${parseInt(
     PROBABILITIES.DAWNSPARKS_HITS * 100
   )}% / 100% chance of giving you mana each turn`,
-  W19: 'Will give you between 9 and 13 mana, depending on its level',
+  W19: 'Gives you between 9 and 13 mana, depending on its level',
   N8: 'Adds a random token card is added to your deck',
-  S3: `Will come back to your hand with a 0% / ${parseInt(
+  S3: `Comes back to your hand with a 0% / ${parseInt(
     PROBABILITIES.AHMI_RETURNS * 100
   )}% / 100% probability`,
   F4:
@@ -54,7 +54,7 @@ const CARD_ATTRIBUTES = {
   S10: 'Cannot be played without a target unit/structure',
   N63: 'Cannot be played without an enemy target unit',
   F8:
-    'May fill up your base line on turn one, restricting the cards you can play after',
+    'May fill up the base line on turn one, restricting the cards that can be played after',
 }
 
 const DryRunnerExplanation = () => {
