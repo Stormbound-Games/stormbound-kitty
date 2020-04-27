@@ -8,9 +8,9 @@ import Title from '../Title'
 import './index.css'
 
 export default React.memo(function DryRunnerInfo(props) {
-  const deckIds = props.deck.map(card => card.id)
-  const containsFrozenCore = deckIds.includes('W9')
-  const containsDawnsparks = deckIds.includes('W16')
+  const deckIdsUnique = props.deck.map(card => card.id.split('#')[0])
+  const containsFrozenCore = deckIdsUnique.includes('W9')
+  const containsDawnsparks = deckIdsUnique.includes('W16')
   const containsFreeze = props.containsFreeze(props.deck)
 
   return (

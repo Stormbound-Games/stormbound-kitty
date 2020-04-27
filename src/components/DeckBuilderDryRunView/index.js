@@ -224,7 +224,7 @@ class DeckBuilderDryRunView extends React.Component {
   containsFreeze = deck => {
     const deckIds = deck.map(card => card.id)
     const freezeCards = ['W1', 'W2', 'W4', 'W6', 'W8', 'W11']
-    return deckIds.some(id => freezeCards.includes(id))
+    return deckIds.some(id => freezeCards.includes(id.split('#')[0]))
   }
 
   onDeckCardClick = card => {

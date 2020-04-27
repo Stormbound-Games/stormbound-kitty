@@ -283,6 +283,7 @@ export default class DeckMechanisms extends React.Component {
   }
 
   handleCardEffect = card => {
+    console.log(card.id.split('#')[0])
     switch (card.id.split('#')[0]) {
       // Freebooters
       case 'N14': {
@@ -362,7 +363,9 @@ export default class DeckMechanisms extends React.Component {
         token.rarity = null
         token.weight = 0
         token.id =
-          id + '#' + this.state.deck.filter(card => card.id === id).length
+          id +
+          '#' +
+          this.state.deck.filter(card => card.id.split('#')[0] === id).length
 
         this.setState(state => ({ deck: [...state.deck, token] }))
         break
@@ -403,7 +406,8 @@ export default class DeckMechanisms extends React.Component {
           (this.state.RNG === 'REGULAR' &&
             Math.random() <= PROBABILITIES.AHMI_RETURNS)
         ) {
-          this.setState(state => ({ hand: [...state.hand, 'S3'] }))
+          console.log('Adding')
+          this.setState(state => ({ hand: [...state.hand, card.id] }))
         }
         break
       }
@@ -472,17 +476,22 @@ export default class DeckMechanisms extends React.Component {
       }
 
       case 'N38': {
-        const id = arrayRandom(
+        const id = arrayRandom([
+          'N14',
+          'S3',
+        ]) /*arrayRandom(
           cards
             .filter(card => card.type === 'unit' && card.id !== 'T12')
             .map(card => card.id)
-        )
+        )*/
         const copiedCard = resolveCardForLevel({ id })
         copiedCard.level = Math.floor(Math.random() * 5) + 1
 
         copiedCard.weight = 0
         copiedCard.id =
-          id + '#' + this.state.deck.filter(card => card.id === id).length
+          id +
+          '#' +
+          this.state.deck.filter(card => card.id.split('#')[0] === id).length
 
         this.setState(state => ({ deck: [...state.deck, copiedCard] }))
         break

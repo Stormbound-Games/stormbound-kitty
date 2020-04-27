@@ -44,11 +44,13 @@ const RNG_SENSITIVE_CARDS = {
 }
 
 export default React.memo(function DryRunnerRNGField(props) {
-  const deckIds = props.deck.map(card => card.id)
+  const deckIds = props.deck.map(card => card.id.split('#')[0])
   const possibleRNGSensitiveCards = Object.keys(RNG_SENSITIVE_CARDS)
-  const RNGSensitiveCards = possibleRNGSensitiveCards.filter(cardId =>
-    deckIds.includes(cardId)
-  )
+  const RNGSensitiveCards = [
+    ...new Set(
+      possibleRNGSensitiveCards.filter(cardId => deckIds.includes(cardId))
+    ),
+  ]
 
   // Check if there is a freeze card in the deck to show RNG settings
   const freezeCards = ['W2', 'W6', 'W11']
