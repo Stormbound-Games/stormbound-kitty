@@ -11,6 +11,7 @@ const Image = React.forwardRef((props, ref) => (
       alt={props.alt}
       className={props.className}
       data-testid={props['data-testid']}
+      onClick={props.onClick}
     />
   </picture>
 ))
