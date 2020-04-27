@@ -28,7 +28,7 @@ describe('Battle Sim — Cells', () => {
   it('should fill the cell once form submitted', () => {
     cy.get(s.CELL_FORM_BTN)
       .should('be.disabled')
-      .fill('A1', { card: 'Zhev', strength: 1 })
+      .bsFill('A1', { card: 'Zhev', strength: 1 })
       .get(s.CELL_A1)
       .find(s.CELL_IMAGE)
       .get(s.CELL_A1)
@@ -139,7 +139,7 @@ describe('Battle Sim — Cells', () => {
   })
 
   it('should save a unit', () => {
-    cy.fill('A1', { card: 'Zhev', strength: 5, player: 'RED' })
+    cy.bsFill('A1', { card: 'Zhev', strength: 5, player: 'RED' })
       .reload()
       .get(s.CELL_A1)
       .should($cell => expect($cell.attr('title')).to.match(/Zhev/))
@@ -149,7 +149,7 @@ describe('Battle Sim — Cells', () => {
   })
 
   it('should save unit penalties', () => {
-    cy.fill('B1', {
+    cy.bsFill('B1', {
       card: 'Ubass',
       strength: 5,
       player: 'BLUE',

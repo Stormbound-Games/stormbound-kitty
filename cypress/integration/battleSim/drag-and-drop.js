@@ -6,7 +6,7 @@ describe('Battle Sim — Drag and drop', () => {
   })
 
   it('should be possible to drag a filled cell on an empty slot', () => {
-    cy.fill('A1', { card: 'Zhev', strength: 1 })
+    cy.bsFill('A1', { card: 'Zhev', strength: 1 })
       .get(s.CELL_A1)
       .trigger('mousedown')
       .get(s.CELL_B1)
@@ -26,7 +26,7 @@ describe('Battle Sim — Drag and drop', () => {
   })
 
   it('should be able to swap to filled cells', () => {
-    cy.fill('A1', { card: 'Ubass', strength: 10 })
+    cy.bsFill('A1', { card: 'Ubass', strength: 10 })
       .get(s.CELL_A1)
       .trigger('mousedown')
       .get(s.CELL_B1)

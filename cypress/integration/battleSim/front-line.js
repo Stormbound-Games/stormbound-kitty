@@ -15,28 +15,28 @@ describe('Battle Sim — Front lines', () => {
   })
 
   it('should move RED front line with units', () => {
-    cy.fill('B1', { card: 'Zhev', player: 'RED' })
+    cy.bsFill('B1', { card: 'Zhev', player: 'RED' })
       .get(s.ROWS)
       .eq(0)
       .should('have.class', 'BattleSimRow--RED-1')
   })
 
   it('should move BLUE front line with units', () => {
-    cy.fill('C1', { card: 'Zhev', player: 'BLUE' })
+    cy.bsFill('C1', { card: 'Zhev', player: 'BLUE' })
       .get(s.ROWS)
       .eq(4)
       .should('have.class', 'BattleSimRow--BLUE-2')
   })
 
   it('should prevent RED front line from going in BLUE base', () => {
-    cy.fill('E1', { card: 'Zhev', player: 'RED' })
+    cy.bsFill('E1', { card: 'Zhev', player: 'RED' })
       .get(s.ROWS)
       .eq(0)
       .should('have.class', 'BattleSimRow--RED-3')
   })
 
   it('should prevent BLUE front line from going in RED base', () => {
-    cy.fill('A1', { card: 'Zhev', player: 'BLUE' })
+    cy.bsFill('A1', { card: 'Zhev', player: 'BLUE' })
       .get(s.ROWS)
       .eq(4)
       .should('have.class', 'BattleSimRow--BLUE-1')
