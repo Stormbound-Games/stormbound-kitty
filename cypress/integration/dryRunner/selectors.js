@@ -6,5 +6,5 @@ export default {
   CYCLE_BTN: '[data-testid="cycle-btn"]',
   PLAY_BTN: '[data-testid="play-btn"]',
   END_TURN_BTN: '[data-testid="end-turn-btn"]',
-  CARD_LOG: '[data-testid="card-log"]',
+  CARD_LOG_IMAGE: '[data-testid="card-log-image"]',
 }

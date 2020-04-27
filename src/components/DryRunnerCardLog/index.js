@@ -21,7 +21,7 @@ const DryRunnerCardLog = React.memo(props => {
       )}
       <h2 className='DryRunnerCardLog__title'>Last played cards</h2>
       <div className='DryRunnerCardLog__container'>
-        <Row data-testid='card-log'>
+        <Row>
           {cards.map((card, index) => (
             <Column
               style={{ opacity: 1 - index / 8 }}
@@ -35,6 +35,7 @@ const DryRunnerCardLog = React.memo(props => {
                   src={card.image}
                   alt={card.name}
                   onClick={() => setZoomedCard(card)}
+                  data-testid='card-log-image'
                 />
               )}
             </Column>

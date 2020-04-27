@@ -4,33 +4,28 @@ const DECK_ID =
 const HAND = ['N1', 'N3', 'I2', 'N10']
 
 describe('Dry-runner — Card Log', () => {
-  beforeEach(() => {
+  before(() => {
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`).drDrawHand(HAND)
   })
 
   it('should log a card when played', () => {
     cy.drPlay('N1')
-      .get(s.CARD_LOG)
-      .get('[class="DryRunnerCardLog__image"]')
+      .get(s.CARD_LOG_IMAGE)
       .first()
       .should('have.attr', 'alt')
       .then(altText => expect(altText).to.eq('Green Prototypes'))
   })
 
   it('should log the second card played as such', () => {
-    cy.drPlay('N1')
-      .drPlay('N3')
-      .get('[class="DryRunnerCardLog__image"]')
+    cy.drPlay('N3')
+      .get(s.CARD_LOG_IMAGE)
       .first()
       .should('have.attr', 'alt')
       .then(altText => expect(altText).to.eq('Gifted Recruits'))
   })
 
   it('should not display more than 6 cards at once', () => {
-    cy.drPlay('N1')
-      .drPlay('N3')
-
-      .drEndTurn()
+    cy.drEndTurn()
       .drPlay(0)
       .drEndTurn()
       .drPlay(0)
@@ -41,7 +36,7 @@ describe('Dry-runner — Card Log', () => {
       .drEndTurn()
       .drPlay(0)
 
-      .get('[class="DryRunnerCardLog__image"]')
+      .get(s.CARD_LOG_IMAGE)
       .should('have.length', 6)
   })
 })

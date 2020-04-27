@@ -1,7 +1,7 @@
 [
   {
-    "intro": "Card log",
-    "description": "The Dry-Runner now provides a log of recently played cards, just like in the game.",
+    "intro": "Deck dry-runner",
+    "description": "The dry-runner now provides a log of recently played cards, just like in the game.",
     "link": "/deck"
   },
   {
