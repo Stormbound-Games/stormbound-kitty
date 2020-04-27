@@ -7,18 +7,6 @@
   margin-bottom: 1em;
 }
 
-.CardBuilderContest__winner {
-  text-align: center;
-  display: block;
-  margin-top: 0.25em;
-  margin-bottom: 1em;
-  font-size: 80%;
-}
-
-.CardBuilderContest__showcase {
-  margin-top: 1em;
-}
-
 .CardBuilderContest__rules {
   padding-left: 0;
   list-style-position: inside;
