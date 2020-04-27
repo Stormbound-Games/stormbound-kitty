@@ -173,7 +173,7 @@ export default class DeckMechanisms extends React.Component {
           // In the other cases it is not needed and will never be set to 0
           const { emptyCellsIndicator } = newState.specifics
 
-          switch (id) {
+          switch (card.id.split('#')[0]) {
             case 'N1':
               // Green Prototypes necessarily advance the frontline (since only the four 1 mana cards are
               // taken into account)
@@ -204,7 +204,7 @@ export default class DeckMechanisms extends React.Component {
           }
         }
 
-        switch (id) {
+        switch (id.split('#')[0]) {
           case 'W9':
             // If the card played is a Frozen Core, increment the amount of active
             // Frozen Cores by 1.
@@ -283,7 +283,7 @@ export default class DeckMechanisms extends React.Component {
   }
 
   handleCardEffect = card => {
-    switch (card.id) {
+    switch (card.id.split('#')[0]) {
       // Freebooters
       case 'N14': {
         const hand = this.state.hand.length
@@ -359,8 +359,10 @@ export default class DeckMechanisms extends React.Component {
           'T' + arrayRandom([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14])
         const token = resolveCardForLevel({ id })
         token.level = [5, 6, 6, 8, 10][card.level - 1]
+        token.rarity = null
         token.weight = 0
-        token.id = id + ':' + Math.random().toString(36).substring(7)
+        token.id =
+          id + '#' + this.state.deck.filter(card => card.id === id).length
 
         this.setState(state => ({ deck: [...state.deck, token] }))
         break
@@ -471,12 +473,16 @@ export default class DeckMechanisms extends React.Component {
 
       case 'N38': {
         const id = arrayRandom(
-          cards.filter(card => card.type === 'unit' && card.id !== 'T12')
+          cards
+            .filter(card => card.type === 'unit' && card.id !== 'T12')
+            .map(card => card.id)
         )
         const copiedCard = resolveCardForLevel({ id })
-        copiedCard.level = arrayRandom([1, 2, 3, 4, 5])
+        copiedCard.level = Math.floor(Math.random() * 5) + 1
+
         copiedCard.weight = 0
-        copiedCard.id = id + ':' + Math.random().toString(36).substring(7)
+        copiedCard.id =
+          id + '#' + this.state.deck.filter(card => card.id === id).length
 
         this.setState(state => ({ deck: [...state.deck, copiedCard] }))
         break
@@ -606,7 +612,7 @@ export default class DeckMechanisms extends React.Component {
 
     // Note: The destroying ability of Wisp Cloud is implemented: Freezing with Frosthexers will
     // make Icicle Burst playable, but playing Wisp Cloud will make it unplayable again
-    if (id === 'W1' && !this.state.specifics.frozenEnemiesLevel) {
+    if (id.split('#')[0] === 'W1' && !this.state.specifics.frozenEnemiesLevel) {
       return false
     }
 
@@ -631,7 +637,7 @@ export default class DeckMechanisms extends React.Component {
         unplayableSpells.push('F4')
       }
 
-      if (unplayableSpells.includes(id)) return false
+      if (unplayableSpells.includes(id.split('#')[0])) return false
     }
 
     return isAffordable

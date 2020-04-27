@@ -11,12 +11,14 @@ export default card => {
     return null
   }
 
-  // In case of a token card, the ID is the card token ID + a unique identifier
-  // in order to differentiate similar card tokens. To be able to display the
-  // card correctly despite have a unique ID which obviously doesn’t exist in
-  // the card database, we define a `displayId` which is used to know which card
-  // to render, regardless of the actual ID.
-  const displayId = card.token ? card.id.split(':')[0] : id
+  // In case the card already exists in the deck, there might be a unique identifier
+  // added to the id, indicating the order in which this card was placed in the deck,
+  // as compared to the other cards with the same base id.
+  // To be able to display the card correctly despite have a unique ID which obviously
+  // doesn’t exist in the card database, we define a `displayId` which is used
+  // to know which card to render, regardless of the actual ID.
+  // Note: #0 is the same as no modifier at all
+  const displayId = card.id.split('#')[0]
 
   // Find the card data from the given id, and return early if it wasn’t found
   const cardData = getRawCardData(displayId || id)
