@@ -4,7 +4,7 @@ const DECK_ID =
 const HAND = ['N1', 'N3', 'I2', 'N10']
 
 describe('Dry-runner — Card Log', () => {
-  before(() => {
+  beforeEach(() => {
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`).drDrawHand(HAND)
   })
 
@@ -15,12 +15,20 @@ describe('Dry-runner — Card Log', () => {
       .first()
       .should('have.attr', 'alt')
       .then(altText => expect(altText).to.eq('Green Prototypes'))
+  })
 
+  it('should log the second card played as such', () => {
+    cy.drPlay('N1')
       .drPlay('N3')
       .get('[class="DryRunnerCardLog__image"]')
       .first()
       .should('have.attr', 'alt')
       .then(altText => expect(altText).to.eq('Gifted Recruits'))
+  })
+
+  it('should not display more than 6 cards at once', () => {
+    cy.drPlay('N1')
+      .drPlay('N3')
 
       .drEndTurn()
       .drPlay(0)
