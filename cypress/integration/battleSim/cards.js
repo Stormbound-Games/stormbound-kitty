@@ -6,7 +6,7 @@ describe('Battle Sim — Cards', () => {
   })
 
   it('should be possible to add a card in hand', () => {
-    cy.battleSimDraw({ slot: 1, card: 'Zhev' })
+    cy.bsDraw({ slot: 1, card: 'Zhev' })
       .get(s.CARD_SLOT_1)
       .should('not.be.empty')
   })
@@ -23,14 +23,14 @@ describe('Battle Sim — Cards', () => {
     cy.get(s.CARD_SLOT_1)
       .find(s.CARD)
       .should('not.have.class', 'Card--affordable')
-      .battleSimDraw({ slot: 2, card: 'Summon' })
+      .bsDraw({ slot: 2, card: 'Summon' })
       .get(s.CARD_SLOT_2)
       .find(s.CARD)
       .should('have.class', 'Card--affordable')
   })
 
   it('should handle token cards differently', () => {
-    cy.battleSimDraw({ slot: 3, card: 'Token' })
+    cy.bsDraw({ slot: 3, card: 'Token' })
       .get(s.CARDS_FORM_LEVEL_3)
       .should('not.exist')
       .get(s.CARDS_FORM_STRENGTH_3)
@@ -50,7 +50,7 @@ describe('Battle Sim — Cards', () => {
       .then($name => {
         const currentName = $name.text()
 
-        cy.battleSimDraw({ slot: 3, card: 'Ubass' })
+        cy.bsDraw({ slot: 3, card: 'Ubass' })
           .get(s.CARD_SLOT_3)
           .find(s.CARD_NAME)
           .invoke('text')

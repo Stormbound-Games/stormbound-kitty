@@ -15,9 +15,9 @@ describe('Battle Sim — Reset', () => {
       .click()
       .bsFill('A1', { card: 'Zhev' })
       .bsFill('E1', { card: 'Sound', level: 3, strength: 10, player: 'RED' })
-      .battleSimDraw({ slot: 1, card: 'Toxic' })
-      .battleSimDraw({ slot: 2, card: 'Crimson' })
-      .battleSimDraw({ slot: 3, card: 'Copper' })
+      .bsDraw({ slot: 1, card: 'Toxic' })
+      .bsDraw({ slot: 2, card: 'Crimson' })
+      .bsDraw({ slot: 3, card: 'Copper' })
 
       .get(s.RESET_BOARD_BTN)
       .click()
