@@ -1,9 +1,8 @@
 import React from 'react'
 import './index.css'
 
-const TrackerInfo = props => (
+const TrackerInfo = React.memo(props => (
   <>
-    {' '}
     <p>
       This tracker can be used alongside an actual game on another device to get
       real-time drawing chances estimation once every card has been
@@ -19,6 +18,6 @@ const TrackerInfo = props => (
       been implemented and might yield falsy results.
     </p>
   </>
-)
+))
 
 export default TrackerInfo

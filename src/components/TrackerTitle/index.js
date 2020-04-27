@@ -28,8 +28,8 @@ const getTitle = status => {
   }
 }
 
-const TrackerTitle = props => {
-  return <Title>{getTitle(props.status)}</Title>
-}
+const TrackerTitle = React.memo(props => (
+  <Title>{getTitle(props.status)}</Title>
+))
 
 export default TrackerTitle

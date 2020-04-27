@@ -38,10 +38,10 @@ const getHint = ({ status, playerOrder }) => {
   }
 }
 
-const TrackerHint = props => (
+const TrackerHint = React.memo(props => (
   <div className='TrackerHint'>
     <Hint>{getHint(props)}</Hint>
   </div>
-)
+))
 
 export default TrackerHint

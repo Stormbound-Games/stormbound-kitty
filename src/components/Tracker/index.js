@@ -12,38 +12,33 @@ import Row from '../Row'
 import Title from '../Title'
 import './index.css'
 
-const Tracker = props => {
-  return (
-    <>
-      <h1 className='VisuallyHidden'>Deck Tracker</h1>
+const Tracker = React.memo(props => (
+  <>
+    <h1 className='VisuallyHidden'>Deck Tracker</h1>
 
-      <Row desktopOnly wideGutter>
-        <Column width='1/3'>
-          <Title>Your deck</Title>
-          <TrackerDeck {...props} />
-          <TrackerInfo />
-        </Column>
+    <Row desktopOnly wideGutter>
+      <Column width='1/3'>
+        <Title>Your deck</Title>
+        <TrackerDeck {...props} />
+        <TrackerInfo />
+      </Column>
 
-        <Column width='2/3'>
-          <div className='Tracker__main'>
-            <TrackerTitle status={props.status} />
-            <TrackerHeader {...props} />
-            <TrackerHand {...props} />
-            <TrackerHint
-              status={props.status}
-              playerOrder={props.playerOrder}
-            />
-            <TrackerActions {...props} />
-          </div>
-        </Column>
-      </Row>
+      <Column width='2/3'>
+        <div className='Tracker__main'>
+          <TrackerTitle status={props.status} />
+          <TrackerHeader {...props} />
+          <TrackerHand {...props} />
+          <TrackerHint status={props.status} playerOrder={props.playerOrder} />
+          <TrackerActions {...props} />
+        </div>
+      </Column>
+    </Row>
 
-      <PageMeta
-        title='Deck tracker'
-        description='Track your deck as you play to maximise your chances of winning.'
-      />
-    </>
-  )
-}
+    <PageMeta
+      title='Deck tracker'
+      description='Track your deck as you play to maximise your chances of winning.'
+    />
+  </>
+))
 
 export default Tracker

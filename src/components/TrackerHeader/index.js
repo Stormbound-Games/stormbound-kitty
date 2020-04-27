@@ -8,7 +8,7 @@ import Row from '../Row'
 import { STATUSES } from '../../constants/tracker'
 import './index.css'
 
-const TrackerHeader = props => (
+const TrackerHeader = React.memo(props => (
   <div className='TrackerHeader'>
     <Row>
       <Column width='1/3' style={{ alignItems: 'center' }}>
@@ -68,6 +68,6 @@ const TrackerHeader = props => (
       </Column>
     </Row>
   </div>
-)
+))
 
 export default TrackerHeader
