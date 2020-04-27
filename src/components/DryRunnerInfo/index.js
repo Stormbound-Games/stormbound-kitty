@@ -7,7 +7,7 @@ import Row from '../Row'
 import Title from '../Title'
 import './index.css'
 
-const DryRunnerInfo = React.memo(props => {
+const DryRunnerInfo = React.memo(function DryRunnerInfo(props) {
   const deckIds = props.deck.map(card => card.id)
   const containsFrozenCore = deckIds.includes('W9')
   const containsDawnsparks = deckIds.includes('W16')

@@ -18,7 +18,9 @@ const DATE_TIME_OPTIONS = {
 
 const IS_CONTEST_RUNNING = false
 
-const CardBuilderContestStatus = React.memo(props => {
+const CardBuilderContestStatus = React.memo(function CardBuilderContestStatus(
+  props
+) {
   const calendarWeek = getCalendarWeek()
   const contest = WEEKLY_CARD_CONTEST.find(
     contest => contest.week === calendarWeek

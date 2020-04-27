@@ -7,7 +7,7 @@ import ShareButton from '../CardBuilderShareButton'
 import formatCardStats from '../../helpers/formatCardStats'
 import './index.css'
 
-const CardBuilderCardForm = React.memo(props => {
+const CardBuilderCardForm = React.memo(function CardBuilderCardForm(props) {
   const match = useRouteMatch()
   const isPristine = !match.params.cardId
   return (

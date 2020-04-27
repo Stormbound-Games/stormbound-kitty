@@ -30,7 +30,7 @@ const useExpectedCoins = book => {
   return expectedCoins
 }
 
-const BookOutcome = React.memo(props => {
+const BookOutcome = React.memo(function BookOutcome(props) {
   const bookName = capitalise(props.book.toLowerCase())
   const expectedCoins = useExpectedCoins(props.book)
   const subject = props.isAdvancedMode

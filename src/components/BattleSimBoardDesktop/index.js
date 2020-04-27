@@ -10,65 +10,67 @@ import './index.css'
 
 const faction = arrayRandom(Object.keys(FACTIONS).filter(f => f !== 'neutral'))
 
-const BattleSimBoardDesktop = React.memo(props => (
-  <div
-    className={[
-      'BattleSimBoardDesktop',
-      `BattleSimBoardDesktop--${faction}`,
-    ].join(' ')}
-    data-testid='board'
-  >
-    <div className='BattleSimBoardDesktop__health BattleSimBoardDesktop__health--RED'>
-      <BaseHealth player='RED' health={props.players.RED.health} />
-    </div>
+const BattleSimBoardDesktop = React.memo(function BattleSimBoardDesktop(props) {
+  return (
+    <div
+      className={[
+        'BattleSimBoardDesktop',
+        `BattleSimBoardDesktop--${faction}`,
+      ].join(' ')}
+      data-testid='board'
+    >
+      <div className='BattleSimBoardDesktop__health BattleSimBoardDesktop__health--RED'>
+        <BaseHealth player='RED' health={props.players.RED.health} />
+      </div>
 
-    <div className='BattleSimBoardDesktop__player BattleSimBoardDesktop__player--RED'>
-      <PlayerBanner
-        player='RED'
-        faction={props.players.RED.faction}
-        mana={props.mana}
-        disabled
-      />
-    </div>
+      <div className='BattleSimBoardDesktop__player BattleSimBoardDesktop__player--RED'>
+        <PlayerBanner
+          player='RED'
+          faction={props.players.RED.faction}
+          mana={props.mana}
+          disabled
+        />
+      </div>
 
-    {props.zoomed && (
-      <CardZoom
-        cardId={props.zoomed.id}
-        level={props.zoomed.level}
-        player={props.zoomed.player}
-        close={props.unzoom}
-      />
-    )}
+      {props.zoomed && (
+        <CardZoom
+          cardId={props.zoomed.id}
+          level={props.zoomed.level}
+          player={props.zoomed.player}
+          close={props.unzoom}
+        />
+      )}
 
-    <div className='BattleSimBoardDesktop__grid '>
-      <Grid {...props} />
-    </div>
+      <div className='BattleSimBoardDesktop__grid '>
+        <Grid {...props} />
+      </div>
 
-    <div className='BattleSimBoardDesktop__health BattleSimBoardDesktop__health--BLUE'>
-      <BaseHealth player='BLUE' health={props.players.BLUE.health} />
-    </div>
+      <div className='BattleSimBoardDesktop__health BattleSimBoardDesktop__health--BLUE'>
+        <BaseHealth player='BLUE' health={props.players.BLUE.health} />
+      </div>
 
-    <div className='BattleSimBoardDesktop__player BattleSimBoardDesktop__player--BLUE'>
-      <PlayerBanner
-        player='BLUE'
-        faction={props.players.BLUE.faction}
-        mana={props.mana}
-      />
-    </div>
+      <div className='BattleSimBoardDesktop__player BattleSimBoardDesktop__player--BLUE'>
+        <PlayerBanner
+          player='BLUE'
+          faction={props.players.BLUE.faction}
+          mana={props.mana}
+        />
+      </div>
 
-    <div className='BattleSimBoardDesktop__cards'>
-      <Cards
-        hand={props.hand}
-        cards={props.cards}
-        zoom={props.zoom}
-        mana={props.mana}
-        drawCard={props.drawCard}
-        canDrawCard={props.canDrawCard}
-        cycleCard={props.cycleCard}
-        canCycleCard={props.canCycleCard}
-      />
+      <div className='BattleSimBoardDesktop__cards'>
+        <Cards
+          hand={props.hand}
+          cards={props.cards}
+          zoom={props.zoom}
+          mana={props.mana}
+          drawCard={props.drawCard}
+          canDrawCard={props.canDrawCard}
+          cycleCard={props.cycleCard}
+          canCycleCard={props.canCycleCard}
+        />
+      </div>
     </div>
-  </div>
-))
+  )
+})
 
 export default BattleSimBoardDesktop

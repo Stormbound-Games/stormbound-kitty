@@ -2,7 +2,9 @@ import React from 'react'
 import CardContestEntry from '../CardContestEntry'
 import MemberSection from '../MemberSection'
 
-const MemberContestVictories = React.memo(props => {
+const MemberContestVictories = React.memo(function MemberContestVictories(
+  props
+) {
   if (props.victories.length === 0) return null
 
   return (

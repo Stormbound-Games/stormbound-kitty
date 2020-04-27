@@ -3,7 +3,7 @@ import guide from '../../data/Pirate_guide.md'
 import Guide from '../Guide'
 import Markdown from '../Markdown'
 
-const GuidePirate = React.memo(props => {
+const GuidePirate = React.memo(function GuidePirate(props) {
   const [content, setContent] = React.useState(null)
 
   React.useEffect(() => {

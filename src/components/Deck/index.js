@@ -5,7 +5,7 @@ import sortByMana from '../../helpers/sortByMana'
 import useFluidSizing from '../../hooks/useFluidSizing'
 import './index.css'
 
-const Deck = React.memo(props => {
+const Deck = React.memo(function Deck(props) {
   const sort = props.sort || sortByMana
   const slots = props.deck.map(resolveCardForLevel).sort(sort)
   const highlightedCards = props.highlightedCards || []

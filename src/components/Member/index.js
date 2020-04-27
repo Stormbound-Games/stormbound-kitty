@@ -11,7 +11,7 @@ import decks from '../../data/decks'
 import guides from '../../data/guides'
 import stories from '../../data/stories'
 
-const Member = React.memo(props => {
+const Member = React.memo(function Member(props) {
   const match = useRouteMatch()
   const id = match.params.memberId.toLowerCase()
   const userDecks = React.useMemo(

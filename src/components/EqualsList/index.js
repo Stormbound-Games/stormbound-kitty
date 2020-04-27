@@ -7,7 +7,9 @@ import ListBuilderTier from '../ListBuilderTier'
 import Title from '../Title'
 import getInitialListData from '../../helpers/getInitialListData'
 
-const ListBuilderDisplayView = React.memo(props => {
+const ListBuilderDisplayView = React.memo(function ListBuilderDisplayView(
+  props
+) {
   const id = EQUALS_TIER_LIST
   const tiers = getInitialListData(id)
 

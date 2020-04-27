@@ -7,7 +7,7 @@ import Row from '../Row'
 import ShareButton from '../BattleSimShareButton'
 import './index.css'
 
-const BattleSimGameForm = React.memo(props => {
+const BattleSimGameForm = React.memo(function BattleSimGameForm(props) {
   const match = useRouteMatch()
   const isPristine = !match.params.simId
 

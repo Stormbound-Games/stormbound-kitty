@@ -16,7 +16,7 @@ import countCardsForRarity from '../../helpers/countCardsForRarity'
 import './index.css'
 
 const clamp = (min, value, max) => Math.min(Math.max(Number(value), 0), max)
-const BooksCalculator = React.memo(props => {
+const BooksCalculator = React.memo(function BooksCalculator(props) {
   const [isAdvancedMode, setIsAdvancedMode] = React.useState(false)
   const [book, setBook] = React.useState('MYTHIC')
   const [target, setTarget] = React.useState('FUSION_STONES')

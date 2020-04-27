@@ -26,7 +26,7 @@ const getCardData = id => {
   return data
 }
 
-const CardContestEntry = React.memo(props => {
+const CardContestEntry = React.memo(function CardContestEntry(props) {
   const cardData = getCardData(props.winner.id)
 
   return (

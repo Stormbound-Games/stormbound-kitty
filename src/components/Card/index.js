@@ -6,7 +6,7 @@ import microMarkdown from '../../helpers/microMarkdown'
 import useFluidSizing from '../../hooks/useFluidSizing'
 import './index.css'
 
-const Card = React.memo(props => {
+const Card = React.memo(function Card(props) {
   const supportsWebp = React.useContext(WebpContext)
   const { fontSize, ref } = useFluidSizing(0.03902439024)
   const ext = supportsWebp ? 'webp' : 'png'

@@ -5,7 +5,7 @@ import TrackerCard from '../TrackerCard'
 import arrayPad from '../../helpers/arrayPad'
 import chunk from '../../helpers/chunk'
 
-const TrackerHand = React.memo(props => {
+const TrackerHand = React.memo(function TrackerHand(props) {
   const hand = props.hand.slice(0)
   const paddedHand = arrayPad(hand, 4, null, +1)
 

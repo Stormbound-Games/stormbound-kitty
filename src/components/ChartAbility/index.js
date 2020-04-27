@@ -11,7 +11,7 @@ import Title from '../Title'
 import cards from '../../data/cards'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 
-const ChartAbility = React.memo(props => {
+const ChartAbility = React.memo(function ChartAbility(props) {
   const abilities = {
     command: { name: 'Commanding', color: 'var(--swarm)' },
     confus: { name: 'Confusion', color: 'var(--confused)' },

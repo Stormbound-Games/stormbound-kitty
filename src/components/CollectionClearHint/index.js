@@ -3,7 +3,7 @@ import { CollectionContext } from '../CollectionProvider'
 import Icon from '../Icon'
 import Only from '../Only'
 
-const CollectionClearHint = React.memo(props => {
+const CollectionClearHint = React.memo(function CollectionClearHint(props) {
   const { resetCollection } = React.useContext(CollectionContext)
 
   return (

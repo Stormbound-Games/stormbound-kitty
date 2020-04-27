@@ -3,7 +3,7 @@ import guide from '../../data/Winter_guide.md'
 import Guide from '../Guide'
 import Markdown from '../Markdown'
 
-const GuideWinter = React.memo(props => {
+const GuideWinter = React.memo(function GuideWinter(props) {
   const [content, setContent] = React.useState(null)
 
   React.useEffect(() => {

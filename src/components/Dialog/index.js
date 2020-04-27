@@ -6,7 +6,7 @@ import Image from '../Image'
 import Title from '../Title'
 import './index.css'
 
-const Dialog = React.memo(props => {
+const Dialog = React.memo(function Dialog(props) {
   const registerDialog = ref => {
     if (ref && !props.allowScroll) {
       ref

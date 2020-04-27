@@ -5,7 +5,7 @@ import CTA from '../CTA'
 import chunk from '../../helpers/chunk'
 import './index.css'
 
-const CardsGallery = React.memo(props => {
+const CardsGallery = React.memo(function CardsGallery(props) {
   const [activePage, setActivePage] = React.useState(0)
   const pages = React.useMemo(() => chunk(props.cards, props.cardsPerPage), [
     props.cards,

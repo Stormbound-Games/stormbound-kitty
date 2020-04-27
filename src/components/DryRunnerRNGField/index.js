@@ -43,7 +43,7 @@ const RNG_SENSITIVE_CARDS = {
   },
 }
 
-const DryRunnerRNGField = React.memo(props => {
+const DryRunnerRNGField = React.memo(function DryRunnerRNGField(props) {
   const deckIds = props.deck.map(card => card.id)
   const possibleRNGSensitiveCards = Object.keys(RNG_SENSITIVE_CARDS)
   const RNGSensitiveCards = possibleRNGSensitiveCards.filter(cardId =>

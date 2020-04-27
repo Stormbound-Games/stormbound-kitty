@@ -9,7 +9,9 @@ import Title from '../Title'
 import getInitialListData from '../../helpers/getInitialListData'
 import getLiveTierList from '../../helpers/getLiveTierList'
 
-const ListBuilderDisplayView = React.memo(props => {
+const ListBuilderDisplayView = React.memo(function ListBuilderDisplayView(
+  props
+) {
   const id = React.useMemo(() => getLiveTierList(), [])
   const tiers = getInitialListData(id)
 

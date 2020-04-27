@@ -5,7 +5,7 @@ import AppMobile from '../BattleSimAppMobile'
 import State from '../BattleSimState'
 import useViewportWidth from '../../hooks/useViewportWidth'
 
-const App = React.memo(props => {
+const App = React.memo(function App(props) {
   const viewportWidth = useViewportWidth()
   const puzzle = puzzles.find(puzzle => puzzle.board === props.simId)
   const shouldRenderLeftPanel =

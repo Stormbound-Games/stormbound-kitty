@@ -75,7 +75,7 @@ const Wrapper = props => {
   )
 }
 
-const Header = React.memo(props => {
+const Header = React.memo(function Header(props) {
   const [topActive] = props.active || []
 
   return (

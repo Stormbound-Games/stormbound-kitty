@@ -7,7 +7,7 @@ import MemberSection from '../MemberSection'
 import sortDeckSuggestions from '../../helpers/sortDeckSuggestions'
 import chunk from '../../helpers/chunk'
 
-const MemberDecks = React.memo(props => {
+const MemberDecks = React.memo(function MemberDecks(props) {
   const collectionContext = React.useContext(CollectionContext)
   const decks = props.decks.sort(sortDeckSuggestions(collectionContext))
 

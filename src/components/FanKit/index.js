@@ -16,17 +16,19 @@ import sortCards from '../../helpers/sortCards'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
 
-const Download = React.memo(props => (
-  <button
-    className='FanKit__download'
-    onClick={() => props.setActive(props.id)}
-    title={'Download asset ' + props.name}
-  >
-    <Icon icon='download' />
-  </button>
-))
+const Download = React.memo(function Download(props) {
+  return (
+    <button
+      className='FanKit__download'
+      onClick={() => props.setActive(props.id)}
+      title={'Download asset ' + props.name}
+    >
+      <Icon icon='download' />
+    </button>
+  )
+})
 
-const DownloadDialog = React.memo(props => {
+const DownloadDialog = React.memo(function DownloadDialog(props) {
   const { name, image } = props.activeCard || {}
 
   return (
@@ -75,7 +77,7 @@ const books = [...Object.keys(BOOKS), 'ELDER'].map(book => ({
   image: '/assets/images/book-' + book.toLowerCase() + '.png',
 }))
 
-const FanKit = React.memo(props => {
+const FanKit = React.memo(function FanKit(props) {
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
   const activeCard = active

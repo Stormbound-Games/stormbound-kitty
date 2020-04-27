@@ -3,7 +3,7 @@ import Checkbox from '../Checkbox'
 import ShareDialog from '../ShareDialog'
 import './index.css'
 
-const BattleSimShareButton = React.memo(props => {
+const BattleSimShareButton = React.memo(function BattleSimShareButton(props) {
   const [hideInterface, setHideInterface] = React.useState(false)
   const url = window.location.href
   const shareUrl = hideInterface ? url + '/display' : url

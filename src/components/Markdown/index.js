@@ -60,6 +60,7 @@ const p = React.memo(props =>
     </p>
   )
 )
+
 const li = React.memo(props => (
   <li>
     {props.children.map(child =>
@@ -69,6 +70,7 @@ const li = React.memo(props => (
     )}
   </li>
 ))
+
 const a = React.memo(props =>
   props.href.startsWith('/') ? (
     <Link to={props.href}>{props.children}</Link>
@@ -77,7 +79,7 @@ const a = React.memo(props =>
   )
 )
 
-const Markdown = React.memo(props => {
+const Markdown = React.memo(function Markdown(props) {
   const options = { remarkReactComponents: { h1, h2, h3, p, li, a } }
   const processor = remark().use(remarkReact, options)
   const output = processor.processSync(props.source)

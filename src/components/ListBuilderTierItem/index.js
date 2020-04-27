@@ -4,7 +4,7 @@ import Image from '../Image'
 import { serialiseCardFromCollection } from '../../helpers/serialise'
 import './index.css'
 
-const ListBuilderTierItem = React.memo(props => {
+const ListBuilderTierItem = React.memo(function ListBuilderTierItem(props) {
   if (!props.isEditable) {
     return (
       <Link

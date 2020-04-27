@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import NavLink from '../NavLink'
 
-const NavListBuilder = React.memo(props => {
+const NavListBuilder = React.memo(function NavListBuilder(props) {
   const match = useRouteMatch()
   const id = match.params.listId
 

@@ -17,7 +17,7 @@ import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import CARDS from '../../data/cards'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 
-const ChartStrengthMana = React.memo(props => {
+const ChartStrengthMana = React.memo(function ChartStrengthMana(props) {
   const [faction, setFaction] = React.useState('neutral')
   const [level, setLevel] = React.useState(5)
   const cards = React.useMemo(

@@ -2,7 +2,7 @@ import React from 'react'
 import Banner from '../Banner'
 import MemberSection from '../MemberSection'
 
-const MemberGuides = React.memo(props => {
+const MemberGuides = React.memo(function MemberGuides(props) {
   if (props.guides.length === 0) return null
 
   return (

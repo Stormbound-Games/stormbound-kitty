@@ -9,7 +9,7 @@ import ShareButton from '../DeckBuilderShareButton'
 import Stats from '../DeckBuilderStats'
 import Title from '../Title'
 
-const DeckBuilderDetailView = React.memo(props => {
+const DeckBuilderDetailView = React.memo(function DeckBuilderDetailView(props) {
   const history = useHistory()
 
   return (
