@@ -14,8 +14,6 @@ export default function WebpProvider(props) {
   }, [])
 
   return (
-    <WebpContext.Provider value={{ webp }}>
-      {props.children}
-    </WebpContext.Provider>
+    <WebpContext.Provider value={webp}>{props.children}</WebpContext.Provider>
   )
 }
