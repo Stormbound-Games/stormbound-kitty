@@ -9,6 +9,7 @@ import getBinomialRandomVariableResult from '../../helpers/getBinomialRandomVari
 import resolveDeckWeight, {
   increaseCardWeight,
 } from '../../helpers/resolveDeckWeight'
+import cards from '../../../src/data/cards'
 
 const FROZEN_ENEMIES_AFTER = {
   //Frozen enemies left after a card's ability has been resolved, in regular RNG mode
@@ -465,6 +466,19 @@ export default class DeckMechanisms extends React.Component {
             ),
           },
         }))
+        break
+      }
+
+      case 'N38': {
+        const id = arrayRandom(
+          cards.filter(card => card.type === 'unit' && card.id !== 'T12')
+        )
+        const copiedCard = resolveCardForLevel({ id })
+        copiedCard.level = arrayRandom([1, 2, 3, 4, 5])
+        copiedCard.weight = 0
+        copiedCard.id = id + ':' + Math.random().toString(36).substring(7)
+
+        this.setState(state => ({ deck: [...state.deck, copiedCard] }))
         break
       }
 
