@@ -1,10 +1,10 @@
 import React from 'react'
 import './index.css'
 
-const QuestionMark = React.forwardRef((props, ref) => (
-  <span ref={ref} {...props} className='QuestionMark'>
-    ?
-  </span>
-))
-
-export default QuestionMark
+export default React.forwardRef(function QuestionMark(props, ref) {
+  return (
+    <span ref={ref} {...props} className='QuestionMark'>
+      ?
+    </span>
+  )
+})

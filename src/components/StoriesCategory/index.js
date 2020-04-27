@@ -8,7 +8,7 @@ import getExcerpt from '../../helpers/getExcerpt'
 import getRawCardData from '../../helpers/getRawCardData'
 import sortCards from '../../helpers/sortCards'
 
-const StoriesCategory = props => {
+export default function StoriesCategory(props) {
   const categoryName = capitalise(props.category)
   const categoryStories = stories.filter(
     story => story.category === props.category
@@ -55,5 +55,3 @@ const StoriesCategory = props => {
     </>
   )
 }
-
-export default StoriesCategory

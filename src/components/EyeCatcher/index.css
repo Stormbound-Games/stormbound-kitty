@@ -1,0 +1,28 @@
+.EyeCatcher {
+  position: relative;
+  background-color: var(--black);
+  text-align: center;
+  padding: 1em;
+  margin-bottom: 0;
+}
+
+.EyeCatcher::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 50%;
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(to right, transparent, hotpink, transparent);
+}
+
+button.EyeCatcher__close {
+  color: var(--beige);
+  margin-left: 1ch;
+  font-size: 80%;
+}
+
+button.EyeCatcher__close:hover {
+  color: var(--white);
+}

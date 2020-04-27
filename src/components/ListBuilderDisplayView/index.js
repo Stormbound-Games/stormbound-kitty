@@ -10,7 +10,7 @@ import ListBuilderTier from '../ListBuilderTier'
 import Title from '../Title'
 import getInitialListData from '../../helpers/getInitialListData'
 
-const ListBuilderDisplayView = React.memo(props => {
+export default React.memo(function ListBuilderDisplayView(props) {
   const match = useRouteMatch()
   const id = match.params.listId
   const tiers = getInitialListData(id)
@@ -58,5 +58,3 @@ const ListBuilderDisplayView = React.memo(props => {
     </>
   )
 })
-
-export default ListBuilderDisplayView

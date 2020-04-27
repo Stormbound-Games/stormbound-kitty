@@ -8,7 +8,7 @@ const ListBuilderEditorView = load('ListBuilderEditorView')
 const RankedList = load('RankedList')
 const EqualsList = load('EqualsList')
 
-const RouterListBuilder = () => {
+export default function RouterListBuilder() {
   const { path } = useRouteMatch()
 
   return (
@@ -34,5 +34,3 @@ const RouterListBuilder = () => {
     </Switch>
   )
 }
-
-export default RouterListBuilder

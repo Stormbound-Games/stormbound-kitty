@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-const Title = React.memo(props => {
+export default React.memo(function Title(props) {
   const Element = props.element || 'h2'
 
   return (
@@ -17,5 +17,3 @@ const Title = React.memo(props => {
     </Element>
   )
 })
-
-export default Title

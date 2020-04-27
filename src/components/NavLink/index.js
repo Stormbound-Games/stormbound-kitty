@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const NavLink = React.memo(({ active, children, to }) => (
+export default React.memo(({ active, children, to }) => (
   <Link
     to={to}
     children={children}
@@ -10,5 +10,3 @@ const NavLink = React.memo(({ active, children, to }) => (
       .join(' ')}
   />
 ))
-
-export default NavLink

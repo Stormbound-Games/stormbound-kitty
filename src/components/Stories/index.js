@@ -15,50 +15,50 @@ const ILLUSTATION = {
   swarm: '/assets/images/cards/xuri_lord_of_life.png',
 }
 
-const Stories = React.memo(props => (
-  <>
-    <div className='Stories'>
-      <h1 className='VisuallyHidden'>Stories</h1>
+export default React.memo(function Stories(props) {
+  return (
+    <>
+      <div className='Stories'>
+        <h1 className='VisuallyHidden'>Stories</h1>
 
-      <Banner
-        title='Lore stories'
-        copy='Discover the amazing tales from the community about the lore and embark on a mythical journey through myths and legends.'
-        cta={{
-          'aria-label': 'Read stories about the lore',
-          to: '/stories/lore',
-          children: 'Lore stories',
-        }}
-        image={ILLUSTATION.lore}
-      />
-
-      {Object.keys(FACTIONS).map(faction => (
         <Banner
-          key={faction}
-          faction={faction}
-          title={`${capitalise(faction)} stories`}
-          copy={`Discover the amazing tales from the community about the ${capitalise(
-            faction
-          )} faction and embark on a mythical journey through myths and legends.`}
+          title='Lore stories'
+          copy='Discover the amazing tales from the community about the lore and embark on a mythical journey through myths and legends.'
           cta={{
-            'aria-label': 'Read stories about ' + faction,
-            to: '/stories/' + faction,
-            children: `${faction} stories`,
+            'aria-label': 'Read stories about the lore',
+            to: '/stories/lore',
+            children: 'Lore stories',
           }}
-          image={ILLUSTATION[faction]}
+          image={ILLUSTATION.lore}
         />
-      ))}
-    </div>
 
-    <InfoHint icon='quill'>
-      Looking to contribute to the Stormbound lore?{' '}
-      <Link to='/faq#adding-a-story'>Have your own story published</Link>.
-    </InfoHint>
+        {Object.keys(FACTIONS).map(faction => (
+          <Banner
+            key={faction}
+            faction={faction}
+            title={`${capitalise(faction)} stories`}
+            copy={`Discover the amazing tales from the community about the ${capitalise(
+              faction
+            )} faction and embark on a mythical journey through myths and legends.`}
+            cta={{
+              'aria-label': 'Read stories about ' + faction,
+              to: '/stories/' + faction,
+              children: `${faction} stories`,
+            }}
+            image={ILLUSTATION[faction]}
+          />
+        ))}
+      </div>
 
-    <PageMeta
-      title='Stories'
-      description='Stories from the community about Stormbound cards'
-    />
-  </>
-))
+      <InfoHint icon='quill'>
+        Looking to contribute to the Stormbound lore?{' '}
+        <Link to='/faq#adding-a-story'>Have your own story published</Link>.
+      </InfoHint>
 
-export default Stories
+      <PageMeta
+        title='Stories'
+        description='Stories from the community about Stormbound cards'
+      />
+    </>
+  )
+})

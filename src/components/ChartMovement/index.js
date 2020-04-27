@@ -11,7 +11,7 @@ import Title from '../Title'
 import cards from '../../data/cards'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 
-const ChartMovement = React.memo(props => {
+export default React.memo(function ChartMovement(props) {
   const data = cards
     .filter(card => !card.token)
     .reduce(
@@ -55,5 +55,3 @@ const ChartMovement = React.memo(props => {
     </>
   )
 })
-
-export default ChartMovement

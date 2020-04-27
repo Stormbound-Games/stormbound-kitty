@@ -57,7 +57,7 @@ const CARD_ATTRIBUTES = {
     'May fill up your base line on turn one, restricting the cards you can play after',
 }
 
-const DryRunnerExplanation = () => {
+export default function DryRunnerExplanation(props) {
   const [expanded, setExpanded] = React.useState([])
 
   const toggle = category => {
@@ -113,5 +113,3 @@ const DryRunnerExplanation = () => {
     </>
   )
 }
-
-export default DryRunnerExplanation

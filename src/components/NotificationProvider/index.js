@@ -32,7 +32,7 @@ const SelfHidingNotification = props => {
   )
 }
 
-const NotificationProvider = props => {
+export default function NotificationProvider(props) {
   const [{ notification, key }, notify] = React.useReducer(reducer, {
     notification: null,
     key: 0,
@@ -49,5 +49,3 @@ const NotificationProvider = props => {
     </>
   )
 }
-
-export default NotificationProvider

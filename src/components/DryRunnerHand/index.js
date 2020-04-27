@@ -6,7 +6,7 @@ import chunk from '../../helpers/chunk'
 import arrayPad from '../../helpers/arrayPad'
 import './index.css'
 
-const DryRunnerHand = React.memo(props => {
+export default React.memo(function DryRunnerHand(props) {
   const hand = props.hand.slice(0)
   const paddedHand = arrayPad(hand, 4, null, +1)
 
@@ -27,5 +27,3 @@ const DryRunnerHand = React.memo(props => {
     </Row>
   )
 })
-
-export default DryRunnerHand

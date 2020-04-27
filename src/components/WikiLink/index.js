@@ -4,7 +4,7 @@ import Tooltip from '../Tooltip'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import useViewportWidth from '../../hooks/useViewportWidth'
 
-const WikiLink = React.memo(props => {
+export default React.memo(function WikiLink(props) {
   const viewportWidth = useViewportWidth()
   const cardData = resolveCardForLevel({ id: props.id, level: 1 })
 
@@ -50,5 +50,3 @@ const WikiLink = React.memo(props => {
     </Tooltip>
   )
 })
-
-export default WikiLink

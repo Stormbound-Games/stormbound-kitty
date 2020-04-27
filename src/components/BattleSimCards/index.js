@@ -4,7 +4,7 @@ import CTA from '../CTA'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import './index.css'
 
-const BattleSimCards = React.memo(props => {
+export default React.memo(function BattleSimCards(props) {
   const [cycleMode, setCycleMode] = React.useState(false)
 
   return (
@@ -89,5 +89,3 @@ const BattleSimCards = React.memo(props => {
     </>
   )
 })
-
-export default BattleSimCards

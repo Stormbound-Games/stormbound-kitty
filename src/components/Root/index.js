@@ -6,7 +6,7 @@ import NotificationProvider from '../NotificationProvider'
 import WebpProvider from '../WebpProvider'
 import Router from '../Router'
 
-const Root = props => {
+export default function Root(props) {
   React.useEffect(() => {
     if (!window.Cypress) {
       window.document.documentElement.style.scrollBehavior = 'smooth'
@@ -27,5 +27,3 @@ const Root = props => {
     </HelmetProvider>
   )
 }
-
-export default Root

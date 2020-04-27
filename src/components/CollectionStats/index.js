@@ -106,7 +106,7 @@ const getStatusData = collection => {
   return Object.keys(data).map(status => data[status])
 }
 
-const CollectionStats = props => {
+export default function CollectionStats(props) {
   const { collection } = React.useContext(CollectionContext)
   const [ignoreNeutral, setIgnoreNeutral] = React.useState(false)
   const levelData = React.useMemo(() => getLevelData(collection), [collection])
@@ -299,5 +299,3 @@ const CollectionStats = props => {
     </>
   )
 }
-
-export default CollectionStats

@@ -5,13 +5,15 @@ import sortByMana from '../../helpers/sortByMana'
 import useFluidSizing from '../../hooks/useFluidSizing'
 import './index.css'
 
-const Deck = React.memo(props => {
+export default React.memo(function Deck(props) {
+  const showEmptySlots =
+    typeof props.showEmptySlots === 'undefined' ? true : props.showEmptySlots
   const sort = props.sort || sortByMana
   const slots = props.deck.map(resolveCardForLevel).sort(sort)
   const highlightedCards = props.highlightedCards || []
   const { fontSize, ref } = useFluidSizing(0.03683665247)
 
-  if (props.showEmptySlots && props.deck.length < 12) {
+  if (showEmptySlots && props.deck.length < 12) {
     const extraSlots = Array.from({ length: 12 - props.deck.length }, _ => null)
 
     slots.push(...extraSlots)
@@ -61,7 +63,7 @@ const Deck = React.memo(props => {
               <img className='Deck__image' src={card.image} alt={card.name} />
               <span className='Deck__level'>{card.level}</span>
             </li>
-          ) : props.showEmptySlots ? (
+          ) : showEmptySlots ? (
             <li className={`Deck__card Deck__card--empty`} key={index}>
               <Mana className='Deck__mana' mana='' />
               <span className='VisuallyHidden'>Empty slot</span>
@@ -72,9 +74,3 @@ const Deck = React.memo(props => {
     </div>
   )
 })
-
-Deck.defaultProps = {
-  showEmptySlots: true,
-}
-
-export default Deck

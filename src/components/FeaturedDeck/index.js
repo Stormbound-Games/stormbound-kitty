@@ -46,7 +46,7 @@ const useAdjustedDeck = ({ category, id }) => {
   return { deck, id: serialiseDeck(deck), distance }
 }
 
-const FeaturedDeck = React.memo(props => {
+export default React.memo(function FeaturedDeck(props) {
   const { id, deck, distance } = useAdjustedDeck(props)
 
   return (
@@ -105,5 +105,3 @@ const FeaturedDeck = React.memo(props => {
     </div>
   )
 })
-
-export default FeaturedDeck

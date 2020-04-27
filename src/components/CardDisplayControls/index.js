@@ -12,7 +12,7 @@ import sortCards from '../../helpers/sortCards'
 const sortCollection = (a, b) =>
   sortCards()(resolveCardForLevel(a), resolveCardForLevel(b))
 
-const CardDisplayControls = React.memo(props => {
+export default React.memo(function CardDisplayControls(props) {
   const match = useRouteMatch()
   const { cardId } = match.params
   const { collection, hasDefaultCollection } = React.useContext(
@@ -52,5 +52,3 @@ const CardDisplayControls = React.memo(props => {
     </Only.Desktop>
   )
 })
-
-export default CardDisplayControls

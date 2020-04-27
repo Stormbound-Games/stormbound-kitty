@@ -5,7 +5,7 @@ import getExtraAfterMax from '../../helpers/getExtraAfterMax'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import './index.css'
 
-const CardUpgradeStats = React.memo(props => {
+export default React.memo(function CardUpgradeStats(props) {
   const card = resolveCardForLevel(props)
 
   if (card.level === 5) return null
@@ -64,5 +64,3 @@ const CardUpgradeStats = React.memo(props => {
     </>
   )
 })
-
-export default CardUpgradeStats

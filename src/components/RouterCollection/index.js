@@ -7,7 +7,7 @@ const Collection = load('Collection')
 const BooksCalculator = load('BooksCalculator')
 const CollectionStats = load('CollectionStats')
 
-const RouterCollection = () => {
+export default function RouterCollection() {
   const { path } = useRouteMatch()
 
   return (
@@ -24,5 +24,3 @@ const RouterCollection = () => {
     </Switch>
   )
 }
-
-export default RouterCollection

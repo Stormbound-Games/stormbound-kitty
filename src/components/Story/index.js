@@ -16,7 +16,7 @@ import './index.css'
 const getStoriesFromAuthor = author =>
   stories.filter(story => story.author === author)
 
-const Story = props => {
+export default function Story(props) {
   const match = useRouteMatch()
   const id = match.params.storyId
 
@@ -102,5 +102,3 @@ const Story = props => {
     </div>
   )
 }
-
-export default Story

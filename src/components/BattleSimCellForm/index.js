@@ -13,7 +13,7 @@ import './index.css'
 const getActiveCellCard = ({ board, activeCell }) =>
   activeCell ? board[activeCell[0]][activeCell[1]] : { ...DEFAULT_CELL }
 
-const BattleSimCellForm = React.memo(props => {
+export default React.memo(function BattleSimCellForm(props) {
   const activeCellCard = getActiveCellCard(props)
   const { setCardSelectValue } = props
   const [strength, setStrength] = React.useState(activeCellCard.strength || 1)
@@ -253,5 +253,3 @@ const BattleSimCellForm = React.memo(props => {
     </form>
   )
 })
-
-export default BattleSimCellForm

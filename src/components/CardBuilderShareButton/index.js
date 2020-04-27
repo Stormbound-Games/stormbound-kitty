@@ -3,7 +3,7 @@ import Checkbox from '../Checkbox'
 import ShareDialog from '../ShareDialog'
 import './index.css'
 
-const CardBuilderShareButton = React.memo(props => {
+export default React.memo(function CardBuilderShareButton(props) {
   const [includeStats, setIncludeStats] = React.useState(false)
   const [hideInterface, setHideInterface] = React.useState(false)
   const url = window.location.href
@@ -57,5 +57,3 @@ const CardBuilderShareButton = React.memo(props => {
     </ShareDialog>
   )
 })
-
-export default CardBuilderShareButton

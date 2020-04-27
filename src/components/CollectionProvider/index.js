@@ -17,7 +17,7 @@ const normaliseCollection = collection =>
 const DEFAULT_COLLECTION = normaliseCollection(cards)
 const STORAGE_KEY = 'sk.collection'
 
-const CollectionProvider = props => {
+export default function CollectionProvider(props) {
   const [collection, setCollection] = React.useState(DEFAULT_COLLECTION)
   const { notify: sendNotification } = React.useContext(NotificationContext)
 
@@ -75,5 +75,3 @@ const CollectionProvider = props => {
     </CollectionContext.Provider>
   )
 }
-
-export default CollectionProvider

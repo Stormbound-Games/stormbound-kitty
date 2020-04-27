@@ -105,7 +105,7 @@ const CardsFormRow = React.memo(({ index, ...props }) => (
   </div>
 ))
 
-const BattleSimCardsForm = React.memo(props => {
+export default React.memo(function BattleSimCardsForm(props) {
   const [expanded, setExpanded] = React.useState(false)
 
   return (
@@ -135,5 +135,3 @@ const BattleSimCardsForm = React.memo(props => {
     </>
   )
 })
-
-export default BattleSimCardsForm

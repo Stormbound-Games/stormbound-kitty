@@ -7,7 +7,7 @@ const StoriesCategory = load('StoriesCategory')
 const Story = load('Story')
 const Stories = load('Stories')
 
-const RouterStories = () => {
+export default function RouterStories() {
   const { path } = useRouteMatch()
 
   return (
@@ -39,5 +39,3 @@ const RouterStories = () => {
     </Switch>
   )
 }
-
-export default RouterStories

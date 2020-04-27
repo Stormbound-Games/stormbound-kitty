@@ -6,9 +6,17 @@ import Image from '../Image'
 import Title from '../Title'
 import './index.css'
 
-const Dialog = React.memo(props => {
+export default React.memo(function Dialog(props) {
+  const ctaProps = props.ctaProps || {}
+  const image =
+    typeof props.image === 'undefined'
+      ? '/assets/images/cards/lady_rime.png'
+      : props.image
+  const hideHeader = false
+  const allowScroll = false
+
   const registerDialog = ref => {
-    if (ref && !props.allowScroll) {
+    if (ref && !allowScroll) {
       ref
         .on('show', () => {
           document.documentElement.style.overflowY = 'hidden'
@@ -21,7 +29,7 @@ const Dialog = React.memo(props => {
     props.dialogRef(ref)
   }
 
-  const hasCTA = Object.keys(props.ctaProps).length > 0
+  const hasCTA = Object.keys(ctaProps).length > 0
 
   return (
     <A11yDialog
@@ -52,7 +60,7 @@ const Dialog = React.memo(props => {
       </ButtonIcon>
 
       <header
-        className={['Dialog__header', props.hideHeader && 'VisuallyHidden']
+        className={['Dialog__header', hideHeader && 'VisuallyHidden']
           .filter(Boolean)
           .join(' ')}
       >
@@ -66,23 +74,14 @@ const Dialog = React.memo(props => {
           .filter(Boolean)
           .join(' ')}
       >
-        {props.image !== null && (
-          <Image className='Dialog__image' src={props.image} alt='' />
+        {image !== null && (
+          <Image className='Dialog__image' src={image} alt='' />
         )}
 
         {props.children}
 
-        {hasCTA && <CTA {...props.ctaProps} className='Dialog__CTA' />}
+        {hasCTA && <CTA {...ctaProps} className='Dialog__CTA' />}
       </div>
     </A11yDialog>
   )
 })
-
-Dialog.defaultProps = {
-  ctaProps: {},
-  image: '/assets/images/cards/lady_rime.png',
-  hideHeader: false,
-  allowScroll: false,
-}
-
-export default Dialog

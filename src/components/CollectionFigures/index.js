@@ -38,7 +38,7 @@ const getAvailableCoins = collection =>
     .map(card => getExtraAfterMax(resolveCardForLevel(card)).coins)
     .reduce(sum, 0)
 
-const CollectionFigures = props => {
+export default function CollectionFigures(props) {
   const ownedCards = React.useMemo(() => getNonMissingCards(props.collection), [
     props.collection,
   ])
@@ -117,5 +117,3 @@ const CollectionFigures = props => {
     </>
   )
 }
-
-export default CollectionFigures

@@ -7,7 +7,7 @@ const BattleSimDisplay = load('BattleSimDisplay')
 const BattleSimPuzzles = load('BattleSimPuzzles')
 const BattleSimRoot = load('BattleSimRoot')
 
-const RouterBattleSim = () => {
+export default function RouterBattleSim() {
   const { path } = useRouteMatch()
 
   return (
@@ -27,5 +27,3 @@ const RouterBattleSim = () => {
     </Switch>
   )
 }
-
-export default RouterBattleSim

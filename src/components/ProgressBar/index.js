@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-const ProgressBar = React.memo(props => {
+export default React.memo(function ProgressBar(props) {
   const progress = Math.min((props.value / props.max) * 100, 100)
 
   return (
@@ -18,5 +18,3 @@ const ProgressBar = React.memo(props => {
     </div>
   )
 })
-
-export default ProgressBar

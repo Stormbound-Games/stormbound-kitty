@@ -200,7 +200,7 @@ const BRAWLS = [
   },
 ]
 
-const Stories = React.memo(() => (
+export default React.memo(() => (
   <>
     <div className='Brawl'>
       <h1 className='VisuallyHidden'>Brawl</h1>
@@ -250,5 +250,3 @@ const Stories = React.memo(() => (
     />
   </>
 ))
-
-export default Stories

@@ -24,7 +24,7 @@ const getAuthors = () => {
   )
 }
 
-const DeckBuilderSuggestionsFilters = React.memo(props => {
+export default React.memo(function DeckBuilderSuggestionsFilters(props) {
   const [name, updateName] = React.useState(props.name)
   const authors = React.useMemo(getAuthors)
 
@@ -123,5 +123,3 @@ const DeckBuilderSuggestionsFilters = React.memo(props => {
     </form>
   )
 })
-
-export default DeckBuilderSuggestionsFilters
