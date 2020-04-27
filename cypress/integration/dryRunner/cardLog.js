@@ -12,16 +12,14 @@ describe('Dry-runner — Card Log', () => {
     cy.drPlay('N1')
       .get(s.CARD_LOG_IMAGE)
       .first()
-      .should('have.attr', 'alt')
-      .then(altText => expect(altText).to.eq('Green Prototypes'))
+      .should('have.attr', 'alt', 'Green Prototypes')
   })
 
   it('should log the second card played as such', () => {
     cy.drPlay('N3')
       .get(s.CARD_LOG_IMAGE)
       .first()
-      .should('have.attr', 'alt')
-      .then(altText => expect(altText).to.eq('Gifted Recruits'))
+      .should('have.attr', 'alt', 'Gifted Recruits')
   })
 
   it('should not display more than 6 cards at once', () => {
