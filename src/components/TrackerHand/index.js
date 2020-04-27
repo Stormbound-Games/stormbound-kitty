@@ -1,12 +1,11 @@
 import React from 'react'
 import Column from '../Column'
-import DryRunnerCard from '../DryRunnerCard'
 import Row from '../Row'
-import chunk from '../../helpers/chunk'
+import TrackerCard from '../TrackerCard'
 import arrayPad from '../../helpers/arrayPad'
-import './index.css'
+import chunk from '../../helpers/chunk'
 
-const DryRunnerHand = React.memo(props => {
+const TrackerHand = React.memo(props => {
   const hand = props.hand.slice(0)
   const paddedHand = arrayPad(hand, 4, null, +1)
 
@@ -16,10 +15,10 @@ const DryRunnerHand = React.memo(props => {
         <Column key={cardA || index}>
           <Row>
             <Column>
-              <DryRunnerCard {...props} card={cardA} />
+              <TrackerCard {...props} card={cardA} />
             </Column>
             <Column>
-              <DryRunnerCard {...props} card={cardB} />
+              <TrackerCard {...props} card={cardB} />
             </Column>
           </Row>
         </Column>
@@ -28,4 +27,4 @@ const DryRunnerHand = React.memo(props => {
   )
 })
 
-export default DryRunnerHand
+export default TrackerHand

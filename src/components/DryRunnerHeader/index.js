@@ -8,7 +8,7 @@ import './index.css'
 
 const DryRunnerHeader = React.memo(props => (
   <div className='DryRunnerHeader'>
-    <Row>
+    <Row desktopOnly>
       <Column width='1/3' style={{ alignItems: 'center' }}>
         <span className='DryRunnerHeader__mana'>
           Current mana:{' '}

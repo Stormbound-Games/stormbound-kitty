@@ -1,17 +1,7 @@
 import React from 'react'
-import Card from '../Card'
-import Checkbox from '../Checkbox'
-import Column from '../Column'
-import CTA from '../CTA'
-import Deck from '../Deck'
 import DeckMechanisms from '../DeckMechanisms'
-import Hint from '../Hint'
-import Mana from '../Mana'
-import PageMeta from '../PageMeta'
-import ResetButton from '../ResetButton'
-import Row from '../Row'
-import Title from '../Title'
-import './index.css'
+import Tracker from '../Tracker'
+import { STATUSES } from '../../constants/tracker'
 
 export default props => {
   const [equalsMode, setEqualsMode] = React.useState(false)
@@ -31,19 +21,6 @@ export default props => {
       )}
     </DeckMechanisms>
   )
-}
-
-const STATUSES = {
-  PICKING_HAND: 'PICKING_HAND',
-  PLAYING: 'PLAYING',
-  PLAYING_FREEBOOTERS: 'PLAYING_FREEBOOTERS',
-  PLAYING_SNAKE_EYES: 'PLAYING_SNAKE_EYES',
-  PLAYING_GOLDGRUBBERS_REMOVING: 'PLAYING_GOLDGRUBBERS_REMOVING',
-  PLAYING_GOLDGRUBBERS_DRAWING: 'PLAYING_GOLDGRUBBERS_DRAWING',
-  PLAYING_FIRST_MUTINEER: 'PLAYING_FIRST_MUTINEER',
-  PLAYING_QUEEN_OF_HERDS: 'PLAYING_QUEEN_OF_HERDS',
-  CYCLING: 'CYCLING',
-  REFILLING: 'REFILLING',
 }
 
 class DeckBuilderTrackerView extends React.Component {
@@ -325,76 +302,6 @@ class DeckBuilderTrackerView extends React.Component {
     })
   }
 
-  getDisplayDeck = () => {
-    const sum = this.props.deck
-      .map(card => card.weight)
-      .reduce((a, b) => a + b, 0)
-
-    return this.props.deck.map(card => {
-      const chance = ((card.weight / sum) * 100).toFixed(2)
-      const name = `${card.name} ${
-        this.props.hand.includes(card.id)
-          ? '(in hand)'
-          : this.state.untouchedCards.includes(card.id)
-          ? '(?)'
-          : `(${chance}%)`
-      }`
-
-      return { ...card, name }
-    })
-  }
-
-  // Display order should be:
-  // 1. Untouched cards in natural order
-  // 2. Probability high to low
-  // 3. Cards from hand in natural order
-  sortDeckByProbability = (a, b) => {
-    const isAInHand = this.props.hand.includes(a.id)
-    const isBInHand = this.props.hand.includes(b.id)
-
-    // If card A isn’t in hand, but card B is, put A first
-    if (!isAInHand && isBInHand) return -1
-
-    // If card A is in hand, but card B isn’t, put B first
-    if (isAInHand && !isBInHand) return +1
-
-    // If both cards are in hand, use usual comparison
-    if (isAInHand && isBInHand) {
-      if (+a.mana > +b.mana) return +1
-      if (+a.mana < +b.mana) return -1
-      if (a.name > b.name) return +1
-      if (a.name < b.name) return -1
-    }
-
-    const hasABeenTouched = !this.state.untouchedCards.includes(a.id)
-    const hasBBeenTouched = !this.state.untouchedCards.includes(b.id)
-
-    // If card A has not been touched yet, but card B has, put B first
-    if (!hasABeenTouched && hasBBeenTouched) return +1
-    // If card A has been touched yet, but card B hasn’t, put A first
-    if (hasABeenTouched && !hasBBeenTouched) return -1
-
-    // If none of the cards have been touched yet, use usual comparison
-    if (!hasABeenTouched && !hasBBeenTouched) {
-      if (+a.mana > +b.mana) return +1
-      if (+a.mana < +b.mana) return -1
-      if (a.name > b.name) return +1
-      if (a.name < b.name) return -1
-    }
-
-    // Otherwise compare by probability
-    const sum = this.props.deck
-      .map(card => card.weight)
-      .reduce((a, b) => a + b, 0)
-    const chanceA = (a.weight / sum) * 100
-    const chanceB = (b.weight / sum) * 100
-
-    if (chanceA > chanceB) return -1
-    if (chanceA < chanceB) return +1
-
-    return 0
-  }
-
   endTurn = () => {
     this.props.endTurn()
 
@@ -409,41 +316,6 @@ class DeckBuilderTrackerView extends React.Component {
       activeCard: null,
       cycledCard: null,
     })
-  }
-
-  getHint = () => {
-    switch (this.state.status) {
-      case STATUSES.PICKING_HAND:
-        return (
-          <>
-            Select the 4 cards that constitute your initial hand.
-            {this.props.playerOrder === 'FIRST' &&
-              'If you are the second player, check the “Second player” checkbox above.'}
-          </>
-        )
-      case STATUSES.REFILLING:
-        return 'You just ended your turn: select which card you drew.'
-      case STATUSES.PLAYING_FREEBOOTERS:
-        return 'You just played Freebooters: select which card(s) you drew.'
-      case STATUSES.PLAYING_SNAKE_EYES:
-        return 'You just played Snake Eyes: select the new cards you drew.'
-      case STATUSES.PLAYING_FIRST_MUTINEER:
-        return 'You just played First Mutineer: select which card got removed.'
-      case STATUSES.PLAYING_GOLDGRUBBERS_REMOVING:
-        return 'You just played Goldgrubbers with more than a single non-pirate in hand: select which card got removed.'
-      case STATUSES.PLAYING_GOLDGRUBBERS_DRAWING:
-        return 'You just played Goldgrubbers: select which card you drew.'
-      case STATUSES.PLAYING_QUEEN_OF_HERDS:
-        return 'You just played Queen of Herds with several satyrs in the deck: select which card(s) got played.'
-      case STATUSES.PLAYING_ARCHDRUID_EARYN:
-        return 'You just played Archdruid Earyn with several spells in your hand: select which card(s) got played.'
-      case STATUSES.CYCLING:
-        return 'You just cycled a card: select which card you drew.'
-      case STATUSES.PLAYING:
-        return 'Play your turn, then press “End turn”.'
-      default:
-        return 'The tracker appears to be in an unknown state. Please report.'
-    }
   }
 
   onDeckCardClick = card => {
@@ -511,250 +383,18 @@ class DeckBuilderTrackerView extends React.Component {
     }
   }
 
-  isDeckCardDisabled = card => {
-    if (this.state.status === STATUSES.PLAYING_QUEEN_OF_HERDS) {
-      return card.race !== 'satyr'
-    }
-
-    return this.props.hand.includes(card.id) || !!this.state.removeAllowance
-  }
-
   render() {
     return (
-      <>
-        <h1 className='VisuallyHidden'>Deck Tracker</h1>
-
-        <Row desktopOnly wideGutter>
-          <Column width={33}>
-            <Title>Your deck</Title>
-            <Deck
-              deck={this.getDisplayDeck()}
-              sort={this.sortDeckByProbability}
-              highlightedCards={this.props.deck
-                .filter(card => !this.props.hand.includes(card.id))
-                .map(card => card.id)}
-              onClick={this.onDeckCardClick}
-              isCardDisabled={this.isDeckCardDisabled}
-            />
-
-            <p>
-              This tracker can be used alongside an actual game on another
-              device to get real-time drawing chances estimation once every card
-              has been played/cycled at least once.
-            </p>
-
-            <ol className='DeckBuilderTrackerView__list'>
-              <li>Define your starting hand when the game begins.</li>
-              <li>Play cards and/or cycle and refill your hand every turn.</li>
-              <li>Check the drawing chances in the deck.</li>
-            </ol>
-
-            <p>
-              Due to the lack of opponent’s deck, Harvester of Souls’ ability
-              has not been implemented and might yield falsy results.
-            </p>
-          </Column>
-
-          <Column width='2/3'>
-            <div className='DeckBuilderTrackerView__hand'>
-              <Title>
-                {(() => {
-                  switch (this.state.status) {
-                    case STATUSES.PICKING_HAND:
-                      return 'Define your starting hand'
-                    case STATUSES.REFILLING:
-                      return 'Refill your hand'
-                    case STATUSES.PLAYING_FREEBOOTERS:
-                      return 'Finish playing Freebooters'
-                    case STATUSES.PLAYING_SNAKE_EYES:
-                      return 'Finish playing Snake Eyes'
-                    case STATUSES.PLAYING_GOLDGRUBBERS_DRAWING:
-                    case STATUSES.PLAYING_GOLDGRUBBERS_REMOVING:
-                      return 'Finish playing Goldgrubbers'
-                    case STATUSES.PLAYING_QUEEN_OF_HERDS:
-                      return 'Finish playing Queen of Herds'
-                    case STATUSES.PLAYING_ARCHDRUID_EARYN:
-                      return 'Finish playing Archdruid Earyn'
-                    case STATUSES.CYCLING:
-                      return 'Finish cycling'
-                    case STATUSES.PLAYING:
-                      return 'Play your turn'
-                    default:
-                      return 'Unknown state'
-                  }
-                })()}
-              </Title>
-
-              <div className='DeckBuilderTrackerView__board'>
-                <Row>
-                  <Column width={33}>
-                    <span className='DeckBuilderTrackerView__mana'>
-                      <div>
-                        Current mana:{' '}
-                        <Mana
-                          mana={this.props.mana}
-                          disabled={this.props.hand.every(
-                            cardId => !this.props.canCardBePlayed(cardId)
-                          )}
-                        />
-                      </div>
-                      <Checkbox
-                        name='second-player'
-                        id='second-player'
-                        checked={this.props.playerOrder === 'SECOND'}
-                        disabled={this.state.untouchedCards.length !== 12}
-                        onChange={() =>
-                          this.props.setPlayerOrder(
-                            this.props.playerOrder === 'FIRST'
-                              ? 'SECOND'
-                              : 'FIRST'
-                          )
-                        }
-                      >
-                        Second player
-                      </Checkbox>
-                    </span>
-                  </Column>
-
-                  <Column width={33}>
-                    <ResetButton
-                      label='Reset game'
-                      confirm='Are you sure you want to reset the game? Don’t worry, you’ll keep your deck.'
-                      reset={this.resetGame}
-                    >
-                      <div className='DeckBuilderTrackerView__reset-checkbox'>
-                        <Checkbox
-                          name='equals-mode'
-                          id='equals-mode'
-                          checked={this.props.equalsMode}
-                          onChange={() => this.props.setEqualsMode(s => !s)}
-                        >
-                          Reset in equal levels
-                        </Checkbox>
-                      </div>
-                    </ResetButton>
-                  </Column>
-
-                  <Column width={33}>
-                    <CTA
-                      type='button'
-                      onClick={this.endTurn}
-                      disabled={this.state.status !== STATUSES.PLAYING}
-                    >
-                      <u>E</u>nd turn
-                    </CTA>
-                  </Column>
-                </Row>
-              </div>
-
-              <Row>
-                {this.props.hand.map(cardId => {
-                  const cardData = this.props.deck.find(
-                    card => card.id === cardId
-                  )
-
-                  return (
-                    <Column key={cardId} width={25}>
-                      <div className='DeckBuilderTrackerView__column'>
-                        <div
-                          className={[
-                            'DeckBuilderTrackerView__card-wrapper',
-                            this.state.activeCard === cardId &&
-                              'DeckBuilderTrackerView__card-wrapper--active',
-                            !!this.state.activeCard &&
-                              this.state.activeCard !== cardId &&
-                              'DeckBuilderTrackerView__card-wrapper--inactive',
-                          ]
-                            .filter(Boolean)
-                            .join(' ')}
-                        >
-                          <button
-                            className='DeckBuilderTrackerView__card-button'
-                            type='button'
-                            disabled={
-                              ![
-                                STATUSES.PLAYING,
-                                STATUSES.PLAYING_FIRST_MUTINEER,
-                                STATUSES.PLAYING_GOLDGRUBBERS_REMOVING,
-                                STATUSES.PLAYING_ARCHDRUID_EARYN,
-                              ].includes(this.state.status) ||
-                              (this.state.status ===
-                                STATUSES.PLAYING_FIRST_MUTINEER &&
-                                cardData.race === 'pirate') ||
-                              (this.state.status ===
-                                STATUSES.PLAYING_GOLDGRUBBERS_REMOVING &&
-                                cardData.race === 'pirate') ||
-                              (this.state.status ===
-                                STATUSES.PLAYING_ARCHDRUID_EARYN &&
-                                cardData.type !== 'spell')
-                            }
-                            onClick={() => this.selectCard(cardId)}
-                          >
-                            <span className='VisuallyHidden'>
-                              {this.state.activeCard === cardId
-                                ? 'Unselect card'
-                                : 'Select card'}
-                            </span>
-                          </button>
-                          <Card
-                            {...cardData}
-                            affordable={
-                              this.state.status === STATUSES.PLAYING &&
-                              this.props.canCardBePlayed(cardId)
-                            }
-                          />
-                        </div>
-                      </div>
-                    </Column>
-                  )
-                })}
-              </Row>
-
-              <div className='DeckBuilderTrackerView__hint'>
-                <Hint>{this.getHint()}</Hint>
-              </div>
-
-              {this.state.activeCard && (
-                <div className='DeckBuilderTrackerView__buttons'>
-                  <Row>
-                    <Column>
-                      <CTA
-                        type='button'
-                        onClick={this.cycleCard}
-                        disabled={
-                          this.state.status !== STATUSES.PLAYING ||
-                          !this.state.activeCard ||
-                          !!this.state.cycledCard
-                        }
-                      >
-                        <u>C</u>ycle card
-                      </CTA>
-                    </Column>
-                    <Column style={{ alignItems: 'flex-end' }}>
-                      <CTA
-                        type='button'
-                        onClick={this.playCard}
-                        disabled={
-                          this.state.status !== STATUSES.PLAYING ||
-                          !this.state.activeCard ||
-                          !this.props.canCardBePlayed(this.state.activeCard)
-                        }
-                      >
-                        <u>P</u>lay card
-                      </CTA>
-                    </Column>
-                  </Row>
-                </div>
-              )}
-            </div>
-          </Column>
-        </Row>
-
-        <PageMeta
-          title='Deck tracker'
-          description='Track your deck as you play to maximise your chances of winning.'
-        />
-      </>
+      <Tracker
+        {...this.props}
+        {...this.state}
+        onDeckCardClick={this.onDeckCardClick}
+        resetGame={this.resetGame}
+        endTurn={this.endTurn}
+        selectCard={this.selectCard}
+        playCard={this.playCard}
+        cycleCard={this.cycleCard}
+      />
     )
   }
 }

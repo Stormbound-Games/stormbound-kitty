@@ -70,7 +70,7 @@ const DryRunnerExplanation = () => {
     <>
       <p>
         The dry-run simulator currently correctly supports the follow abilities,
-        while their effect might vary depending on the RNG setting::
+        while their effect might vary depending on the RNG setting:
       </p>
       <ul className='DryRunnerExplanation'>
         {Object.keys(CARD_MECHANICS).map(categoryTitle => {

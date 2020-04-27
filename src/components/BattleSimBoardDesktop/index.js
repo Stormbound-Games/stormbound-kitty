@@ -31,12 +31,14 @@ const BattleSimBoardDesktop = React.memo(props => (
       />
     </div>
 
-    <CardZoom
-      cardId={props.zoomed ? props.zoomed.id : null}
-      level={props.zoomed ? props.zoomed.level : null}
-      player={props.zoomed ? props.zoomed.player : null}
-      close={props.unzoom}
-    />
+    {props.zoomed && (
+      <CardZoom
+        cardId={props.zoomed.id}
+        level={props.zoomed.level}
+        player={props.zoomed.player}
+        close={props.unzoom}
+      />
+    )}
 
     <div className='BattleSimBoardDesktop__grid '>
       <Grid {...props} />

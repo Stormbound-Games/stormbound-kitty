@@ -13,18 +13,13 @@ const DryRunnerInfo = React.memo(props => (
       <Column>
         <Title>What is this</Title>
         <p>
-          This simulator has same drawing/cycling mechanics as the game and
-          should be an accurate representation of how playing your deck would
-          feel. It can be useful to evaluate card cycling, mana flow and combo
-          efficiency.
-        </p>
-
-        <p>
-          Many game mechanics are currently implemented in this simulator. To
-          learn more about which cards abilities are taken into account and how,
-          check out <Link to='/faq#dry-runner-mechanics'>this list</Link>. For
-          an explanation of what the drawing algorithm is, check out{' '}
-          <Link to='/faq#drawing-algorithm'>this explanation</Link>.
+          This simulator has same{' '}
+          <Link to='/faq#drawing-algorithm'>drawing/cycling mechanics</Link> as
+          the game and should be an accurate representation of how playing your
+          deck would feel. It can be useful to evaluate card cycling, mana flow
+          and combo efficiency. Additionally,{' '}
+          <Link to='/faq#dry-runner-mechanics'>many card abilities</Link> are
+          also implemented in this simulator.
         </p>
 
         {props.deck.map(card => card.id).includes('N38') && (

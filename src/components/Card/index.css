@@ -8,43 +8,43 @@
 }
 
 .Card--upgradable {
-  box-shadow: 0 0 0 0.8em var(--upgradable);
+  box-shadow: 0 0 0 0.5em var(--upgradable);
 }
 
 .Card--upgradable .Card__mana {
-  filter: drop-shadow(0 -0.7em var(--upgradable));
+  filter: drop-shadow(0 -0.4em var(--upgradable));
 }
 
 .Card--affordable {
-  box-shadow: 0 0 0 0.8em var(--affordable);
+  box-shadow: 0 0 0 0.5em var(--affordable);
 }
 
 .Card--affordable .Card__mana {
-  filter: drop-shadow(0 -0.7em var(--affordable));
+  filter: drop-shadow(0 -0.4em var(--affordable));
 }
 
 .Card--affordable.Card--missing .Card__mana {
   filter: contrast(200%) saturate(0.5) grayscale(0.5)
-    drop-shadow(0 -0.7em var(--affordable)); /* 1 */
+    drop-shadow(0 -0.4em var(--affordable)); /* 1 */
 }
 
 .Card--RED {
-  box-shadow: 0 0 0 0.8em var(--player-red),
+  box-shadow: 0 0 0 0.5em var(--player-red),
     0 0 4em 0.8em rgba(203, 43, 67, 0.3);
 }
 
 .Card--RED .Card__mana {
-  filter: drop-shadow(0 -0.7em var(--player-red))
+  filter: drop-shadow(0 -0.4em var(--player-red))
     drop-shadow(0 0 10px rgba(203, 43, 67, 0.3));
 }
 
 .Card--BLUE {
-  box-shadow: 0 0 0 0.8em var(--player-blue),
+  box-shadow: 0 0 0 0.5em var(--player-blue),
     0 0 4em 0.8em rgba(25, 93, 156, 0.3);
 }
 
 .Card--BLUE .Card__mana {
-  filter: drop-shadow(0 -0.7em var(--player-blue))
+  filter: drop-shadow(0 -0.4em var(--player-blue))
     drop-shadow(0 0 10px rgba(25, 93, 156, 0.3));
 }
 

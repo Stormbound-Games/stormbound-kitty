@@ -108,8 +108,7 @@ a.Header__link:hover {
   }
 
   .Header__link {
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    padding: 0.5em 0em;
   }
 }
 

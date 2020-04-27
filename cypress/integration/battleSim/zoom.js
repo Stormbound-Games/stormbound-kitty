@@ -3,8 +3,8 @@ import s from './selectors'
 describe('Battle Sim — Zoom', () => {
   before(() => {
     cy.visit('/sim')
-      .fill('A1', { card: 'Zhev' })
-      .battleSimDraw({ slot: 1, card: 'Zhev' })
+      .bsFill('A1', { card: 'Zhev' })
+      .bsDraw({ slot: 1, card: 'Zhev' })
   })
 
   it('should be possible to zoom a card in hand', () => {
