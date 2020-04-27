@@ -13,6 +13,7 @@ const DryRunnerResetDialog = React.memo(props => (
       <Checkbox
         name='equals-mode'
         id='equals-mode'
+        data-testid='equals-mode'
         checked={props.equalsMode}
         onChange={event => props.setEqualsMode(event.target.checked)}
       >
