@@ -473,6 +473,7 @@ export default class DeckMechanisms extends React.Component {
         break
       }
 
+      // Harvester of Souls
       case 'N38': {
         const id = arrayRandom(
           cards
