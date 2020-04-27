@@ -13,10 +13,9 @@
 }
 
 .FAQ__toc-list {
-  margin-top: 0.25em;
+  margin-top: 0.5em;
   margin-bottom: 1em;
   padding-left: 1.5em;
-  font-size: 90%;
 }
 
 .FAQ__toc-list > li {
