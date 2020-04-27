@@ -283,7 +283,6 @@ export default class DeckMechanisms extends React.Component {
   }
 
   handleCardEffect = card => {
-    console.log(card.id.split('#')[0])
     switch (card.id.split('#')[0]) {
       // Freebooters
       case 'N14': {
@@ -406,7 +405,6 @@ export default class DeckMechanisms extends React.Component {
           (this.state.RNG === 'REGULAR' &&
             Math.random() <= PROBABILITIES.AHMI_RETURNS)
         ) {
-          console.log('Adding')
           this.setState(state => ({ hand: [...state.hand, card.id] }))
         }
         break
@@ -476,14 +474,11 @@ export default class DeckMechanisms extends React.Component {
       }
 
       case 'N38': {
-        const id = arrayRandom([
-          'N14',
-          'S3',
-        ]) /*arrayRandom(
+        const id = arrayRandom(
           cards
             .filter(card => card.type === 'unit' && card.id !== 'T12')
             .map(card => card.id)
-        )*/
+        )
         const copiedCard = resolveCardForLevel({ id })
         copiedCard.level = Math.floor(Math.random() * 5) + 1
 
