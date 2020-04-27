@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Card log",
+    "description": "The Dry-Runner now provides a log of recently played cards, just like in the game.",
+    "link": "/deck"
+  },
+  {
     "intro": "Changelog",
     "description": "Stormbound Kitty now provides a changelog of all cards additions and updates, courtesy of the official Wiki.",
     "link": "/changelog"
