@@ -28,19 +28,16 @@ const DryRunner = React.memo(props => (
             .map(card => card.id)}
         />
 
-        <Row>
-          <Column>
-            <Checkbox
-              name='display-chance'
-              id='display-chance'
-              checked={props.displayChance}
-              onChange={event => props.setDisplayChance(event.target.checked)}
-              data-testid='display-chance'
-            >
-              Display draw chance
-            </Checkbox>
-          </Column>
-        </Row>
+        <Checkbox
+          name='display-chance'
+          id='display-chance'
+          checked={props.displayChance}
+          onChange={event => props.setDisplayChance(event.target.checked)}
+          data-testid='display-chance'
+        >
+          Display draw chance
+        </Checkbox>
+
         <DryRunnerCardLog cards={props.playedCards} />
       </Column>
 
