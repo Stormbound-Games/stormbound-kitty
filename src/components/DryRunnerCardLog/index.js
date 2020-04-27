@@ -17,16 +17,16 @@ const DryRunnerCardLog = React.memo(props => {
           cardId={zoomedCard.id}
           level={zoomedCard.level}
           close={() => setZoomedCard(undefined)}
-        ></CardZoom>
+        />
       )}
       <h2 className='DryRunnerCardLog__title'>Last played cards</h2>
       <div className='DryRunnerCardLog__container'>
-        <Row>
+        <Row data-testid='card-log'>
           {cards.map((card, index) => (
             <Column
               style={{ opacity: 1 - index / 8 }}
               width='1/6'
-              key={(card ? card.id : '') + index}
+              key={(card ? card.id : '') + '#' + index}
             >
               {card && (
                 <Image

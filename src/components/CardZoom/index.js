@@ -17,10 +17,7 @@ const CardZoom = React.memo(props => {
       document.documentElement.style.overflowY = ''
     }
 
-    return () => {
-      document.removeEventListener('keydown', handleESC)
-      document.documentElement.style.overflowY = ''
-    }
+    return () => document.removeEventListener('keydown', handleESC)
   }, [handleESC, props.cardId])
 
   return props.cardId ? (
