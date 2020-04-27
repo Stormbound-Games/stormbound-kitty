@@ -33,7 +33,7 @@ const centered = (triggerRect, tooltipRect) => {
   }
 }
 
-const Tooltip = React.memo(({ children, ...props }) => {
+export default React.memo(function Tooltip({ children, ...props }) {
   const [trigger, tooltip] = useTooltip()
 
   return (
@@ -43,5 +43,3 @@ const Tooltip = React.memo(({ children, ...props }) => {
     </>
   )
 })
-
-export default Tooltip

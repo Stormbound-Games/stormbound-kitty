@@ -2,7 +2,7 @@ import React from 'react'
 import Card from '../Card'
 import './index.css'
 
-const DryRunnerCard = React.memo(function DryRunnerCard(props) {
+export default React.memo(function DryRunnerCard(props) {
   const cardData = props.deck.find(card => card.id === props.card)
 
   if (!cardData) return null
@@ -33,5 +33,3 @@ const DryRunnerCard = React.memo(function DryRunnerCard(props) {
     </div>
   )
 })
-
-export default DryRunnerCard

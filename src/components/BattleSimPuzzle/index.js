@@ -5,7 +5,7 @@ import Image from '../Image'
 import Only from '../Only'
 import './index.css'
 
-const BattleSimPuzzle = React.memo(function BattleSimPuzzle(props) {
+export default React.memo(function BattleSimPuzzle(props) {
   return (
     <div className='BattleSimPuzzle'>
       {!props.noImage && (
@@ -54,5 +54,3 @@ const BattleSimPuzzle = React.memo(function BattleSimPuzzle(props) {
     </div>
   )
 })
-
-export default BattleSimPuzzle

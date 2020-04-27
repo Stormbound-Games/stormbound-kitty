@@ -9,7 +9,7 @@ import TogglableContent from '../TogglableContent'
 import categories from '../../data/faq'
 import './index.css'
 
-const FAQ = React.memo(() => {
+export default React.memo(function FAQ() {
   const { hash } = useLocation()
   const [expanded, setExpanded] = React.useState([])
   const toggle = id =>
@@ -90,5 +90,3 @@ const FAQ = React.memo(() => {
     </div>
   )
 })
-
-export default FAQ

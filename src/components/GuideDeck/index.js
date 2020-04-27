@@ -7,7 +7,7 @@ import Title from '../Title'
 import WikiLink from '../WikiLink'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 
-const GuideDeck = React.memo(function GuideDeck(props) {
+export default React.memo(function GuideDeck(props) {
   return (
     <Guide
       title='Deck Building Guide'
@@ -354,5 +354,3 @@ const GuideDeck = React.memo(function GuideDeck(props) {
     </Guide>
   )
 })
-
-export default GuideDeck

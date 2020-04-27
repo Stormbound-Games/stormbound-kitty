@@ -2,7 +2,7 @@ import React from 'react'
 import App from '../BattleSimApp'
 import PageMeta from '../PageMeta'
 
-const BattleSimDisplay = React.memo(function BattleSimDisplay(props) {
+export default React.memo(function BattleSimDisplay(props) {
   return (
     <>
       <h1 className='VisuallyHidden'>Battle Simulator</h1>
@@ -16,5 +16,3 @@ const BattleSimDisplay = React.memo(function BattleSimDisplay(props) {
     </>
   )
 })
-
-export default BattleSimDisplay

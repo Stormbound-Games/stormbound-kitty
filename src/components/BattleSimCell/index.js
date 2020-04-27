@@ -17,7 +17,7 @@ const getTitle = props => {
   return [name, level, strength, player, poisoned, frozen, confused].join(' ')
 }
 
-const BattleSimCell = React.memo(function BattleSimCell(props) {
+export default React.memo(function BattleSimCell(props) {
   return (
     <button
       className={[
@@ -109,5 +109,3 @@ const BattleSimCell = React.memo(function BattleSimCell(props) {
     </button>
   )
 })
-
-export default BattleSimCell

@@ -10,7 +10,7 @@ const DeckBuilderDryRunView = load('DeckBuilderDryRunView')
 const DeckBuilderTrackerView = load('DeckBuilderTrackerView')
 const DeckBuilderEditorView = load('DeckBuilderEditorView')
 
-const RouterDeckBuilder = () => {
+export default function RouterDeckBuilder() {
   const { path } = useRouteMatch()
 
   return (
@@ -55,5 +55,3 @@ const RouterDeckBuilder = () => {
     </Switch>
   )
 }
-
-export default RouterDeckBuilder

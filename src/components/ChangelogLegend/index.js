@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-const ChangelogLegend = React.memo(function ChangelogLegend(props) {
+export default React.memo(function ChangelogLegend(props) {
   return (
     <ul className='ChangelogLegend'>
       <li className=' ChangelogLegend__item ChangelogLegend__item--buff'>
@@ -22,5 +22,3 @@ const ChangelogLegend = React.memo(function ChangelogLegend(props) {
     </ul>
   )
 })
-
-export default ChangelogLegend

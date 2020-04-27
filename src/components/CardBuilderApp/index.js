@@ -9,7 +9,7 @@ import Row from '../Row'
 import Title from '../Title'
 import './index.css'
 
-const CardBuilderApp = React.memo(function CardBuilderApp(props) {
+export default React.memo(function CardBuilderApp(props) {
   return (
     <>
       <Title className='CardBuilderApp__title'>
@@ -51,5 +51,3 @@ const CardBuilderApp = React.memo(function CardBuilderApp(props) {
     </>
   )
 })
-
-export default CardBuilderApp

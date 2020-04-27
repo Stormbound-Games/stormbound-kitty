@@ -2,7 +2,7 @@ import React from 'react'
 import Banner from '../Banner'
 import MemberSection from '../MemberSection'
 
-const MemberGuides = React.memo(function MemberGuides(props) {
+export default React.memo(function MemberGuides(props) {
   if (props.guides.length === 0) return null
 
   return (
@@ -26,5 +26,3 @@ const MemberGuides = React.memo(function MemberGuides(props) {
     </MemberSection>
   )
 })
-
-export default MemberGuides

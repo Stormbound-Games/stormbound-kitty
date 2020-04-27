@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './index.css'
 
-const CTA = React.memo(props =>
+export default React.memo(props =>
   props.href ? (
     <a
       href={props.href}
@@ -35,5 +35,3 @@ const CTA = React.memo(props =>
     </button>
   )
 )
-
-export default CTA

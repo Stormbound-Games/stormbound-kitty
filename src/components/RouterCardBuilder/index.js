@@ -7,7 +7,7 @@ const CardBuilderContest = load('CardBuilderContest')
 const CardBuilderRoot = load('CardBuilderRoot')
 const CardBuilderDisplay = load('CardBuilderDisplay')
 
-const RouterCardBuilder = () => {
+export default function RouterCardBuilder() {
   const { path } = useRouteMatch()
 
   return (
@@ -30,5 +30,3 @@ const RouterCardBuilder = () => {
     </Switch>
   )
 }
-
-export default RouterCardBuilder

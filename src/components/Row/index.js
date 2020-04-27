@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-const Row = React.memo(function Row(props) {
+export default React.memo(function Row(props) {
   return (
     <div
       className={[
@@ -24,5 +24,3 @@ const Row = React.memo(function Row(props) {
     </div>
   )
 })
-
-export default Row

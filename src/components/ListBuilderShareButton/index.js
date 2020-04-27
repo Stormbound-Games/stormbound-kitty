@@ -3,9 +3,7 @@ import Checkbox from '../Checkbox'
 import ShareDialog from '../ShareDialog'
 import './index.css'
 
-const ListBuilderShareButton = React.memo(function ListBuilderShareButton(
-  props
-) {
+export default React.memo(function ListBuilderShareButton(props) {
   const [hideInterface, setHideInterface] = React.useState(false)
   const url = window.location.href
   const shareUrl = hideInterface
@@ -50,5 +48,3 @@ const ListBuilderShareButton = React.memo(function ListBuilderShareButton(
     </ShareDialog>
   )
 })
-
-export default ListBuilderShareButton

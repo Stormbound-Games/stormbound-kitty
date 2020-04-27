@@ -3,7 +3,7 @@ import CTA from '../CTA'
 import Image from '../Image'
 import './index.css'
 
-const EmptySearch = React.memo(function EmptySearch(props) {
+export default React.memo(function EmptySearch(props) {
   return (
     <div className='EmptySearch'>
       <Image
@@ -24,5 +24,3 @@ const EmptySearch = React.memo(function EmptySearch(props) {
     </div>
   )
 })
-
-export default EmptySearch

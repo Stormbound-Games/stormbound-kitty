@@ -6,7 +6,7 @@ import Only from '../Only'
 import Row from '../Row'
 import './index.css'
 
-const Banner = React.memo(function Banner(props) {
+export default React.memo(function Banner(props) {
   return (
     <div
       className={`Banner ${props.className || ''}`}
@@ -36,5 +36,3 @@ const Banner = React.memo(function Banner(props) {
     </div>
   )
 })
-
-export default Banner

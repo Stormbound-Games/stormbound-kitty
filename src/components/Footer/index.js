@@ -4,7 +4,7 @@ import Column from '../Column'
 import Row from '../Row'
 import './index.css'
 
-const Footer = React.memo(function Footer(props) {
+export default React.memo(function Footer(props) {
   return (
     <footer className='Footer' role='contentinfo'>
       <div className='Footer__inner'>
@@ -195,5 +195,3 @@ const Footer = React.memo(function Footer(props) {
     </footer>
   )
 })
-
-export default Footer

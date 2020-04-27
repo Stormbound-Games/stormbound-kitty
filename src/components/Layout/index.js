@@ -7,7 +7,7 @@ import Header from '../Header'
 import Only from '../Only'
 import './index.css'
 
-const Layout = React.memo(function Layout(props) {
+export default React.memo(function Layout(props) {
   return (
     <div className='Layout'>
       <Only.Desktop>
@@ -35,5 +35,3 @@ const Layout = React.memo(function Layout(props) {
     </div>
   )
 })
-
-export default Layout

@@ -2,7 +2,7 @@ import React from 'react'
 import Deck from '../Deck'
 import { STATUSES } from '../../constants/tracker'
 
-const TrackerDeck = props => {
+export default function TrackerDeck(props) {
   const isDeckCardDisabled = React.useCallback(
     card => {
       if (props.status === STATUSES.PLAYING_QUEEN_OF_HERDS) {
@@ -101,5 +101,3 @@ const TrackerDeck = props => {
     />
   )
 }
-
-export default TrackerDeck

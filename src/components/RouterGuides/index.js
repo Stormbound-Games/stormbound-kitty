@@ -11,7 +11,7 @@ const Guides = load('Guides')
 const GuideWinter = load('GuideWinter')
 const Lexicon = load('Lexicon')
 
-const RouterGuides = () => {
+export default function RouterGuides() {
   const { path } = useRouteMatch()
 
   return (
@@ -40,5 +40,3 @@ const RouterGuides = () => {
     </Switch>
   )
 }
-
-export default RouterGuides

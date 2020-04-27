@@ -11,7 +11,7 @@ import Title from '../Title'
 import cards from '../../data/cards'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 
-const ChartType = React.memo(function ChartType(props) {
+export default React.memo(function ChartType(props) {
   const types = ['unit', 'spell', 'structure']
   const data = cards
     .filter(card => !card.token)
@@ -54,5 +54,3 @@ const ChartType = React.memo(function ChartType(props) {
     </>
   )
 })
-
-export default ChartType

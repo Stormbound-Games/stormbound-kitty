@@ -2,7 +2,7 @@ import React from 'react'
 import Image from '../Image'
 import './index.css'
 
-const ResourceIcon = React.memo(function ResourceIcon(props) {
+export default React.memo(function ResourceIcon(props) {
   switch (props.resource) {
     case 'COIN':
       return (
@@ -24,5 +24,3 @@ const ResourceIcon = React.memo(function ResourceIcon(props) {
       return null
   }
 })
-
-export default ResourceIcon

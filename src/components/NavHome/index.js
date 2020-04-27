@@ -1,7 +1,7 @@
 import React from 'react'
 import NavLink from '../NavLink'
 
-const NavHome = React.memo(function NavHome(props) {
+export default React.memo(function NavHome(props) {
   return (
     <nav className='Header__nav'>
       <ul className='Header__list Header__list--sub'>
@@ -44,5 +44,3 @@ const NavHome = React.memo(function NavHome(props) {
     </nav>
   )
 })
-
-export default NavHome

@@ -3,7 +3,7 @@ import Title from '../Title'
 import FAQEntry from '../FAQEntry'
 import './index.css'
 
-const FAQSection = React.memo(function FAQSection(props) {
+export default React.memo(function FAQSection(props) {
   return (
     <section className='FAQSection' id={props.id}>
       <Title>{props.title}</Title>
@@ -15,5 +15,3 @@ const FAQSection = React.memo(function FAQSection(props) {
     </section>
   )
 })
-
-export default FAQSection

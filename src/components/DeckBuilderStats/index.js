@@ -18,7 +18,7 @@ const getPlayableCardsFirst = cards =>
   )
 const getRaces = cards => [...new Set(cards.map(c => c.race))]
 
-const DeckBuilderStats = props => {
+export default function DeckBuilderStats(props) {
   const cards = props.deck.map(resolveCardForLevel)
   const averageMana = getAverageManaCost(cards)
   const averageSpeed = getAverageSpeed(cards)
@@ -108,5 +108,3 @@ const DeckBuilderStats = props => {
     </div>
   )
 }
-
-export default DeckBuilderStats

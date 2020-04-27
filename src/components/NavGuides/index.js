@@ -1,7 +1,7 @@
 import React from 'react'
 import NavLink from '../NavLink'
 
-const NavGuides = React.memo(function NavGuides(props) {
+export default React.memo(function NavGuides(props) {
   return (
     <nav className='Header__nav'>
       <ul className='Header__list Header__list--sub'>
@@ -39,5 +39,3 @@ const NavGuides = React.memo(function NavGuides(props) {
     </nav>
   )
 })
-
-export default NavGuides

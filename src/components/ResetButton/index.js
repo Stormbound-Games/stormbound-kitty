@@ -2,7 +2,11 @@ import React from 'react'
 import CTA from '../CTA'
 import Dialog from '../Dialog'
 
-const ResetButton = React.memo(function ResetButton(props) {
+export default React.memo(function ResetButton(props) {
+  const label = props.label || 'Reset'
+  const image = props.image || '/assets/images/cards/execution.png'
+  const confirmText = props.confirm || 'Are you sure you would like to reset?'
+
   const dialog = React.useRef(null)
   const open = () => dialog.current.show()
   const close = () => dialog.current.hide()
@@ -20,15 +24,15 @@ const ResetButton = React.memo(function ResetButton(props) {
         data-testid='reset-btn'
         disabled={props.disabled}
       >
-        {props.label}
+        {label}
       </CTA>
 
       <Dialog
         id='reset-dialog'
         dialogRef={instance => (dialog.current = instance)}
-        title={props.label}
+        title={label}
         close={close}
-        image={props.image}
+        image={image}
         ctaProps={{
           type: 'button',
           onClick: confirm,
@@ -36,16 +40,9 @@ const ResetButton = React.memo(function ResetButton(props) {
           children: 'Continue',
         }}
       >
-        <p>{props.confirm}</p>
+        <p>{confirmText}</p>
         {props.children}
       </Dialog>
     </>
   )
 })
-
-ResetButton.defaultProps = {
-  label: 'Reset',
-  image: '/assets/images/cards/execution.png',
-  confirm: 'Are you sure you would like to reset?',
-}
-export default ResetButton

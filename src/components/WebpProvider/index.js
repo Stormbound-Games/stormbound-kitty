@@ -3,7 +3,7 @@ import supportsWebp from '../../helpers/supportsWebp'
 
 export const WebpContext = React.createContext(false)
 
-const WebpProvider = props => {
+export default function WebpProvider(props) {
   const [webp, setWebp] = React.useState(false)
 
   React.useEffect(() => {
@@ -19,5 +19,3 @@ const WebpProvider = props => {
     </WebpContext.Provider>
   )
 }
-
-export default WebpProvider

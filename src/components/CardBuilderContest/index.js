@@ -8,7 +8,7 @@ import Row from '../Row'
 import Title from '../Title'
 import './index.css'
 
-const CardBuilderContest = React.memo(function CardBuilderContest(props) {
+export default React.memo(function CardBuilderContest(props) {
   return (
     <>
       <Title element='h1' className='CardBuilderContest__headline'>
@@ -115,5 +115,3 @@ const CardBuilderContest = React.memo(function CardBuilderContest(props) {
     </>
   )
 })
-
-export default CardBuilderContest

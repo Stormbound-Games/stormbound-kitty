@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-const Mana = React.memo(function Mana(props) {
+export default React.memo(function Mana(props) {
   return (
     <div
       className={['Mana', props.disabled && 'Mana--disabled', props.className]
@@ -18,5 +18,3 @@ const Mana = React.memo(function Mana(props) {
     </div>
   )
 })
-
-export default Mana

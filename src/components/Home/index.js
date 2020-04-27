@@ -9,7 +9,7 @@ import Row from '../Row'
 import Title from '../Title'
 import './index.css'
 
-const Home = React.memo(() => (
+export default React.memo(() => (
   <>
     <h1 className='VisuallyHidden'>Stormbound Kitty</h1>
 
@@ -180,5 +180,3 @@ const Home = React.memo(() => (
     />
   </>
 ))
-
-export default Home

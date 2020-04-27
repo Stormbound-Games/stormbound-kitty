@@ -5,7 +5,7 @@ import getExcerpt from '../../helpers/getExcerpt'
 import getRawCardData from '../../helpers/getRawCardData'
 import './index.css'
 
-const MemberStories = React.memo(function MemberStories(props) {
+export default React.memo(function MemberStories(props) {
   if (props.stories.length === 0) return null
 
   return (
@@ -37,5 +37,3 @@ const MemberStories = React.memo(function MemberStories(props) {
     </MemberSection>
   )
 })
-
-export default MemberStories

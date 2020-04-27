@@ -19,7 +19,7 @@ const Terms = React.memo(function Terms(props) {
   )
 })
 
-const Lexicon = React.memo(function Lexicon(props) {
+export default React.memo(function Lexicon(props) {
   return (
     <>
       <Title element='h1' className='Lexicon__heading'>
@@ -96,5 +96,3 @@ const Lexicon = React.memo(function Lexicon(props) {
     </>
   )
 })
-
-export default Lexicon

@@ -2,7 +2,7 @@ import React from 'react'
 import Image from '../Image'
 import './index.css'
 
-const Quest = React.memo(function Quest(props) {
+export default React.memo(function Quest(props) {
   return (
     <div className='Quest'>
       <div className='Quest__inner'>
@@ -39,5 +39,3 @@ const Quest = React.memo(function Quest(props) {
     </div>
   )
 })
-
-export default Quest

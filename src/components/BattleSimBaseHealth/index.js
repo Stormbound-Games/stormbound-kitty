@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-const BattleSimBaseHealth = React.memo(function BattleSimBaseHealth(props) {
+export default React.memo(function BattleSimBaseHealth(props) {
   return (
     <div className='BattleSimBaseHealth'>
       <span
@@ -13,5 +13,3 @@ const BattleSimBaseHealth = React.memo(function BattleSimBaseHealth(props) {
     </div>
   )
 })
-
-export default BattleSimBaseHealth

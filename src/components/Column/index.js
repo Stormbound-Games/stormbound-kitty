@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-const Column = React.memo(function Column(props) {
+export default React.memo(function Column(props) {
   return (
     <div
       className={[
@@ -18,5 +18,3 @@ const Column = React.memo(function Column(props) {
     </div>
   )
 })
-
-export default Column

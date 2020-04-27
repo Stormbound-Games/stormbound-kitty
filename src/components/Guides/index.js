@@ -5,7 +5,7 @@ import InfoHint from '../InfoHint'
 import PageMeta from '../PageMeta'
 import guides from '../../data/guides'
 
-const Guides = React.memo(function Guides(props) {
+export default React.memo(function Guides(props) {
   return (
     <>
       <h1 className='VisuallyHidden'>Guides</h1>
@@ -50,5 +50,3 @@ const Guides = React.memo(function Guides(props) {
     </>
   )
 })
-
-export default Guides

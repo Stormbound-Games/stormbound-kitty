@@ -79,12 +79,10 @@ const a = React.memo(props =>
   )
 )
 
-const Markdown = React.memo(function Markdown(props) {
+export default React.memo(function Markdown(props) {
   const options = { remarkReactComponents: { h1, h2, h3, p, li, a } }
   const processor = remark().use(remarkReact, options)
   const output = processor.processSync(props.source)
 
   return output.result
 })
-
-export default Markdown

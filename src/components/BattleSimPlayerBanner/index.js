@@ -3,7 +3,7 @@ import Image from '../Image'
 import Mana from '../Mana'
 import './index.css'
 
-const BattleSimPlayerBanner = React.memo(function BattleSimPlayerBanner(props) {
+export default React.memo(function BattleSimPlayerBanner(props) {
   return (
     <div className='BattleSimPlayerBanner'>
       <Mana mana={props.mana} disabled={props.disabled} />
@@ -30,5 +30,3 @@ const BattleSimPlayerBanner = React.memo(function BattleSimPlayerBanner(props) {
     </div>
   )
 })
-
-export default BattleSimPlayerBanner

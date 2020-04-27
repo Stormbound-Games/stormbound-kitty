@@ -6,7 +6,7 @@ import Grid from '../BattleSimGrid'
 import PlayerBanner from '../BattleSimPlayerBanner'
 import './index.css'
 
-const BattleSimBoardMobile = React.memo(function BattleSimBoardMobile(props) {
+export default React.memo(function BattleSimBoardMobile(props) {
   return (
     <div className='BattleSimBoardMobile' data-testid='board'>
       <div className='BattleSimBoardMobile__health BattleSimBoardMobile__health--RED'>
@@ -62,5 +62,3 @@ const BattleSimBoardMobile = React.memo(function BattleSimBoardMobile(props) {
     </div>
   )
 })
-
-export default BattleSimBoardMobile

@@ -9,7 +9,7 @@ const hasBeenShownYet = key => {
   }
 }
 
-const EyeCatcher = props => {
+export default function EyeCatcher(props) {
   const key = 'sb.eye_catcher.' + props.id
   const [isVisible, setIsVisible] = React.useState(!hasBeenShownYet(key))
 
@@ -37,5 +37,3 @@ const EyeCatcher = props => {
     </p>
   )
 }
-
-export default EyeCatcher

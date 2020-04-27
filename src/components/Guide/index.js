@@ -3,7 +3,7 @@ import PageMeta from '../PageMeta'
 import Title from '../Title'
 import './index.css'
 
-const Guide = React.memo(function Guide(props) {
+export default React.memo(function Guide(props) {
   return (
     <div className={`Guide ${props.className}`}>
       <Title element='h1'>{props.title}</Title>
@@ -18,5 +18,3 @@ const Guide = React.memo(function Guide(props) {
     </div>
   )
 })
-
-export default Guide

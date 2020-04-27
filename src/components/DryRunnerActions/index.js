@@ -4,7 +4,7 @@ import CTA from '../CTA'
 import Row from '../Row'
 import './index.css'
 
-const DryRunnerActions = React.memo(function DryRunnerActions(props) {
+export default React.memo(function DryRunnerActions(props) {
   if (!props.activeCard) return null
 
   return (
@@ -34,5 +34,3 @@ const DryRunnerActions = React.memo(function DryRunnerActions(props) {
     </div>
   )
 })
-
-export default DryRunnerActions

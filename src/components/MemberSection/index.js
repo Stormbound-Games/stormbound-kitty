@@ -2,7 +2,7 @@ import React from 'react'
 import Title from '../Title'
 import './index.css'
 
-const MemberSection = React.memo(function MemberSection(props) {
+export default React.memo(function MemberSection(props) {
   return (
     <div className='MemberSection'>
       <Title className='MemberSection__title'>{props.title}</Title>
@@ -10,5 +10,3 @@ const MemberSection = React.memo(function MemberSection(props) {
     </div>
   )
 })
-
-export default MemberSection

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 
-const PageMeta = React.memo(function PageMeta(props) {
+export default React.memo(function PageMeta(props) {
   return (
     <Helmet titleTemplate='%s — Stormbound Kitty'>
       <title>{props.title}</title>
@@ -15,5 +15,3 @@ const PageMeta = React.memo(function PageMeta(props) {
     </Helmet>
   )
 })
-
-export default PageMeta

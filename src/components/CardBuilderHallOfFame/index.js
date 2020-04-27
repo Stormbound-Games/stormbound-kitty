@@ -3,7 +3,7 @@ import { WEEKLY_CARD_CONTEST } from '../../constants/misc'
 import CardContestEntry from '../CardContestEntry'
 import Title from '../Title'
 
-const CardBuilderHallOfFame = React.memo(function CardBuilderHallOfFame(props) {
+export default React.memo(function CardBuilderHallOfFame(props) {
   return (
     <div className='CardBuilderHallOfFame'>
       <Title>Hall of Fame</Title>
@@ -16,5 +16,3 @@ const CardBuilderHallOfFame = React.memo(function CardBuilderHallOfFame(props) {
     </div>
   )
 })
-
-export default CardBuilderHallOfFame

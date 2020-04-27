@@ -136,7 +136,7 @@ const getSuggestions = cards => {
   ].filter(Boolean)
 }
 
-const DeckBuilderAdvice = props => {
+export default function DeckBuilderAdvice(props) {
   const cards = props.deck.map(resolveCardForLevel)
   const suggestions = getSuggestions(cards, props.highlight)
 
@@ -169,5 +169,3 @@ const DeckBuilderAdvice = props => {
     </div>
   )
 }
-
-export default DeckBuilderAdvice

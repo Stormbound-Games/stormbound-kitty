@@ -8,7 +8,7 @@ import Row from '../Row'
 import capitalise from '../../helpers/capitalise'
 import './index.css'
 
-const CardBuilderCardForm = React.memo(function CardBuilderCardForm(props) {
+export default React.memo(function CardBuilderCardForm(props) {
   const [imageFocusedColumn, setImageFocusedColumn] = React.useState(null)
 
   return (
@@ -207,5 +207,3 @@ const CardBuilderCardForm = React.memo(function CardBuilderCardForm(props) {
     </>
   )
 })
-
-export default CardBuilderCardForm

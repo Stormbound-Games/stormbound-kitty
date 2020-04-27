@@ -26,7 +26,7 @@ const getCardData = id => {
   return data
 }
 
-const CardContestEntry = React.memo(function CardContestEntry(props) {
+export default React.memo(function CardContestEntry(props) {
   const cardData = getCardData(props.winner.id)
 
   return (
@@ -86,5 +86,3 @@ const CardContestEntry = React.memo(function CardContestEntry(props) {
     </div>
   )
 })
-
-export default CardContestEntry

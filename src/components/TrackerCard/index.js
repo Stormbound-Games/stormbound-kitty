@@ -3,7 +3,7 @@ import Card from '../Card'
 import { STATUSES } from '../../constants/tracker'
 import './index.css'
 
-const TrackerCard = React.memo(function TrackerCard(props) {
+export default React.memo(function TrackerCard(props) {
   const cardData = props.deck.find(card => card.id === props.card)
 
   if (!cardData) return null
@@ -51,5 +51,3 @@ const TrackerCard = React.memo(function TrackerCard(props) {
     </div>
   )
 })
-
-export default TrackerCard

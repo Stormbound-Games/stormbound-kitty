@@ -24,9 +24,7 @@ const exportAsImage = () => {
     )
 }
 
-const DeckBuilderShareButton = React.memo(function DeckBuilderShareButton(
-  props
-) {
+export default React.memo(function DeckBuilderShareButton(props) {
   return (
     <ShareDialog
       label='Share deck'
@@ -55,5 +53,3 @@ const DeckBuilderShareButton = React.memo(function DeckBuilderShareButton(
     </ShareDialog>
   )
 })
-
-export default DeckBuilderShareButton

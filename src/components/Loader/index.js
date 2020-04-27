@@ -2,7 +2,7 @@ import React from 'react'
 import Title from '../Title'
 import './index.css'
 
-const Loader = React.memo(function Loader(props) {
+export default React.memo(function Loader(props) {
   return (
     <div className='Loader'>
       <svg
@@ -69,5 +69,3 @@ const Loader = React.memo(function Loader(props) {
     </div>
   )
 })
-
-export default Loader

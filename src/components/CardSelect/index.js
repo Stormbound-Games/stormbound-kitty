@@ -8,7 +8,7 @@ import './index.css'
 const ORDER = ['swarm', 'winter', 'ironclad', 'shadowfen', 'neutral']
 const cardsByFaction = getCardsByFaction()
 
-const CardSelect = React.memo(function CardSelect(props) {
+export default React.memo(function CardSelect(props) {
   return (
     <Select
       name={props.name}
@@ -56,5 +56,3 @@ const CardSelect = React.memo(function CardSelect(props) {
     />
   )
 })
-
-export default CardSelect

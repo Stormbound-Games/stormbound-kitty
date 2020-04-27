@@ -15,7 +15,7 @@ const ILLUSTATION = {
   swarm: '/assets/images/cards/xuri_lord_of_life.png',
 }
 
-const Stories = React.memo(function Stories(props) {
+export default React.memo(function Stories(props) {
   return (
     <>
       <div className='Stories'>
@@ -62,5 +62,3 @@ const Stories = React.memo(function Stories(props) {
     </>
   )
 })
-
-export default Stories

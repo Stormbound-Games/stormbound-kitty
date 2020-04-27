@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-const TrackerInfo = React.memo(function TrackerInfo(props) {
+export default React.memo(function TrackerInfo(props) {
   return (
     <>
       <p>
@@ -21,5 +21,3 @@ const TrackerInfo = React.memo(function TrackerInfo(props) {
     </>
   )
 })
-
-export default TrackerInfo

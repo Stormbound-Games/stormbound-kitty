@@ -77,7 +77,7 @@ const parseCSVData = data => {
     })
 }
 
-const ImportCollection = React.memo(function ImportCollection(props) {
+export default React.memo(function ImportCollection(props) {
   const onFileUpload = useFileUpload(props.onChange)
 
   return (
@@ -98,5 +98,3 @@ const ImportCollection = React.memo(function ImportCollection(props) {
     </div>
   )
 })
-
-export default ImportCollection

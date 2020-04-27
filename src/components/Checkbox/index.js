@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-const Checkbox = React.memo(function Checkbox(props) {
+export default React.memo(function Checkbox(props) {
   return (
     <label className={`Checkbox ${props.className || ''}`} htmlFor={props.id}>
       <input
@@ -15,5 +15,3 @@ const Checkbox = React.memo(function Checkbox(props) {
     </label>
   )
 })
-
-export default Checkbox

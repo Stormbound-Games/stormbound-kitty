@@ -11,7 +11,7 @@ import Row from '../Row'
 import Title from '../Title'
 import './index.css'
 
-const DryRunner = React.memo(function DryRunner(props) {
+export default React.memo(function DryRunner(props) {
   return (
     <>
       <h1 className='VisuallyHidden'>Deck Dry-run</h1>
@@ -60,5 +60,3 @@ const DryRunner = React.memo(function DryRunner(props) {
     </>
   )
 })
-
-export default DryRunner

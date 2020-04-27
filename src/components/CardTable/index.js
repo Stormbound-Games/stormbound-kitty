@@ -4,7 +4,7 @@ import capitalise from '../../helpers/capitalise'
 import microMarkdown from '../../helpers/microMarkdown'
 import './index.css'
 
-const CardTable = React.memo(function CardTable(props) {
+export default React.memo(function CardTable(props) {
   return (
     <table className='CardTable'>
       <thead>
@@ -77,5 +77,3 @@ const CardTable = React.memo(function CardTable(props) {
     </table>
   )
 })
-
-export default CardTable

@@ -2,7 +2,7 @@ import React from 'react'
 import { FACTIONS } from '../../constants/game'
 import capitalise from '../../helpers/capitalise'
 
-const FactionSelect = React.memo(function FactionSelect(props) {
+export default React.memo(function FactionSelect(props) {
   return (
     <>
       <label htmlFor={props.id || 'faction'}>Faction</label>
@@ -26,5 +26,3 @@ const FactionSelect = React.memo(function FactionSelect(props) {
     </>
   )
 })
-
-export default FactionSelect

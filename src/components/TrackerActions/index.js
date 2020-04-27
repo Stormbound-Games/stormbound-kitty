@@ -5,7 +5,7 @@ import Row from '../Row'
 import { STATUSES } from '../../constants/tracker'
 import './index.css'
 
-const TrackerActions = React.memo(function TrackerActions(props) {
+export default React.memo(function TrackerActions(props) {
   if (!props.activeCard) return null
 
   return (
@@ -41,5 +41,3 @@ const TrackerActions = React.memo(function TrackerActions(props) {
     </div>
   )
 })
-
-export default TrackerActions

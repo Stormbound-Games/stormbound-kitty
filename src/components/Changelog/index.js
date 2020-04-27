@@ -53,7 +53,7 @@ const formatDate = date => {
   return month + ' ' + day + ', ' + year
 }
 
-const Changelog = props => {
+export default function Changelog(props) {
   const [sorting, setSorting] = React.useState('DATE')
   const [colorCoding, setColorCoding] = React.useState(true)
   const [type, setType] = React.useState('*')
@@ -196,5 +196,3 @@ const Changelog = props => {
     </>
   )
 }
-
-export default Changelog

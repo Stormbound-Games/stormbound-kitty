@@ -8,7 +8,7 @@ import Row from '../Row'
 import capitalise from '../../helpers/capitalise'
 import './index.css'
 
-const CollectionFilters = React.memo(function CollectionFilters(props) {
+export default React.memo(function CollectionFilters(props) {
   return (
     <form
       className='CollectionFilters'
@@ -145,5 +145,3 @@ const CollectionFilters = React.memo(function CollectionFilters(props) {
     </form>
   )
 })
-
-export default CollectionFilters

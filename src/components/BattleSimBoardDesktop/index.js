@@ -10,7 +10,7 @@ import './index.css'
 
 const faction = arrayRandom(Object.keys(FACTIONS).filter(f => f !== 'neutral'))
 
-const BattleSimBoardDesktop = React.memo(function BattleSimBoardDesktop(props) {
+export default React.memo(function BattleSimBoardDesktop(props) {
   return (
     <div
       className={[
@@ -72,5 +72,3 @@ const BattleSimBoardDesktop = React.memo(function BattleSimBoardDesktop(props) {
     </div>
   )
 })
-
-export default BattleSimBoardDesktop

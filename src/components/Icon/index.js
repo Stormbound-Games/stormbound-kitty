@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-const Icon = React.memo(function Icon(props) {
+export default React.memo(function Icon(props) {
   return (
     <svg
       className={`icon icon-${props.icon}`}
@@ -13,5 +13,3 @@ const Icon = React.memo(function Icon(props) {
     </svg>
   )
 })
-
-export default Icon

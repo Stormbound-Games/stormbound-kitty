@@ -5,7 +5,7 @@ import PageMeta from '../PageMeta'
 import Title from '../Title'
 import './index.css'
 
-const Error = React.memo(function Error(props) {
+export default React.memo(function Error(props) {
   return (
     <>
       <div className='Error'>
@@ -44,5 +44,3 @@ const Error = React.memo(function Error(props) {
     </>
   )
 })
-
-export default Error

@@ -77,7 +77,7 @@ const books = [...Object.keys(BOOKS), 'ELDER'].map(book => ({
   image: '/assets/images/book-' + book.toLowerCase() + '.png',
 }))
 
-const FanKit = React.memo(function FanKit(props) {
+export default React.memo(function FanKit(props) {
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
   const activeCard = active
@@ -169,5 +169,3 @@ const FanKit = React.memo(function FanKit(props) {
     </>
   )
 })
-
-export default FanKit

@@ -3,7 +3,7 @@ import Checkbox from '../Checkbox'
 import ResetButton from '../ResetButton'
 import './index.css'
 
-const DryRunnerResetDialog = React.memo(function DryRunnerResetDialog(props) {
+export default React.memo(function DryRunnerResetDialog(props) {
   return (
     <ResetButton
       label='Reset game'
@@ -24,5 +24,3 @@ const DryRunnerResetDialog = React.memo(function DryRunnerResetDialog(props) {
     </ResetButton>
   )
 })
-
-export default DryRunnerResetDialog

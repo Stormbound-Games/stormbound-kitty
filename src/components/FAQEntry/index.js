@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-const FAQEntry = React.memo(function FAQEntry(props) {
+export default React.memo(function FAQEntry(props) {
   return (
     <>
       <dt className='FAQEntry' id={props.id}>
@@ -13,5 +13,3 @@ const FAQEntry = React.memo(function FAQEntry(props) {
     </>
   )
 })
-
-export default FAQEntry

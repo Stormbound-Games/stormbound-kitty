@@ -5,7 +5,7 @@ import Row from '../Row'
 import ShareButton from '../QuestBuilderShareButton'
 import './index.css'
 
-const QuestBuilderForm = React.memo(function QuestBuilderForm(props) {
+export default React.memo(function QuestBuilderForm(props) {
   return (
     <form
       onSubmit={event => event.preventDefault()}
@@ -104,5 +104,3 @@ const QuestBuilderForm = React.memo(function QuestBuilderForm(props) {
     </form>
   )
 })
-
-export default QuestBuilderForm

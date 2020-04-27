@@ -12,7 +12,7 @@ import Row from '../Row'
 import Title from '../Title'
 import './index.css'
 
-const Tracker = React.memo(function Tracker(props) {
+export default React.memo(function Tracker(props) {
   return (
     <>
       <h1 className='VisuallyHidden'>Deck Tracker</h1>
@@ -45,5 +45,3 @@ const Tracker = React.memo(function Tracker(props) {
     </>
   )
 })
-
-export default Tracker

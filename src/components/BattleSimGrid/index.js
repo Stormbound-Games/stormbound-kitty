@@ -3,7 +3,7 @@ import Cell from '../BattleSimCell'
 import Row from '../BattleSimRow'
 import './index.css'
 
-const BattleSimGrid = React.memo(function BattleSimGrid(props) {
+export default React.memo(function BattleSimGrid(props) {
   return (
     <div
       className={[
@@ -40,5 +40,3 @@ const BattleSimGrid = React.memo(function BattleSimGrid(props) {
     </div>
   )
 })
-
-export default BattleSimGrid

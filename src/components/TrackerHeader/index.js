@@ -8,7 +8,7 @@ import Row from '../Row'
 import { STATUSES } from '../../constants/tracker'
 import './index.css'
 
-const TrackerHeader = React.memo(function TrackerHeader(props) {
+export default React.memo(function TrackerHeader(props) {
   return (
     <div className='TrackerHeader'>
       <Row>
@@ -71,5 +71,3 @@ const TrackerHeader = React.memo(function TrackerHeader(props) {
     </div>
   )
 })
-
-export default TrackerHeader

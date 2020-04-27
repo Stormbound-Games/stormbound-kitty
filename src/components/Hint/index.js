@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Hint = React.memo(function Hint(props) {
+export default React.memo(function Hint(props) {
   return (
     <p className={props.className}>
       <span role='img' aria-label='info'>
@@ -10,5 +10,3 @@ const Hint = React.memo(function Hint(props) {
     </p>
   )
 })
-
-export default Hint

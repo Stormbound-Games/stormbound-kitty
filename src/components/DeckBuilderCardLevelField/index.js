@@ -2,9 +2,7 @@ import React from 'react'
 import Only from '../Only'
 import './index.css'
 
-const DeckBuilderCardLevelField = React.memo(function DeckBuilderCardLevelField(
-  props
-) {
+export default React.memo(function DeckBuilderCardLevelField(props) {
   return (
     <div className='DeckBuilderCardLevelField'>
       <label htmlFor='level' className='DeckBuilderCardLevelField__label'>
@@ -31,5 +29,3 @@ const DeckBuilderCardLevelField = React.memo(function DeckBuilderCardLevelField(
     </div>
   )
 })
-
-export default DeckBuilderCardLevelField

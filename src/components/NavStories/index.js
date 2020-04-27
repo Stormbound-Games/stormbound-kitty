@@ -3,7 +3,7 @@ import { FACTIONS } from '../../constants/game'
 import NavLink from '../NavLink'
 import capitalise from '../../helpers/capitalise'
 
-const NavStories = React.memo(function NavStories(props) {
+export default React.memo(function NavStories(props) {
   return (
     <nav className='Header__nav'>
       <ul className='Header__list Header__list--sub'>
@@ -31,5 +31,3 @@ const NavStories = React.memo(function NavStories(props) {
     </nav>
   )
 })
-
-export default NavStories

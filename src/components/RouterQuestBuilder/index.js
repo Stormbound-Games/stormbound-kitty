@@ -5,7 +5,7 @@ import load from '../../helpers/load'
 
 const QuestBuilderRoot = load('QuestBuilderRoot')
 
-const RouterQuestBuilder = () => {
+export default function RouterQuestBuilder() {
   const { path } = useRouteMatch()
 
   return (
@@ -19,5 +19,3 @@ const RouterQuestBuilder = () => {
     </Switch>
   )
 }
-
-export default RouterQuestBuilder

@@ -3,7 +3,7 @@ import CardSelect from '../CardSelect'
 import Only from '../Only'
 import './index.css'
 
-const ListBuilderTierHeader = React.memo(function ListBuilderTierHeader(props) {
+export default React.memo(function ListBuilderTierHeader(props) {
   return (
     <header className='ListBuilderTierHeader'>
       <div className='ListBuilderTierHeader__item'>
@@ -76,5 +76,3 @@ const ListBuilderTierHeader = React.memo(function ListBuilderTierHeader(props) {
     </header>
   )
 })
-
-export default ListBuilderTierHeader

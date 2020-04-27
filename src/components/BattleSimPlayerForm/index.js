@@ -3,7 +3,7 @@ import Column from '../Column'
 import FactionSelect from '../FactionSelect'
 import Row from '../Row'
 
-const BattleSimPlayerForm = React.memo(function BattleSimPlayerForm(props) {
+export default React.memo(function BattleSimPlayerForm(props) {
   return (
     <div className='BattleSimPlayerForm'>
       <Row>
@@ -51,5 +51,3 @@ const BattleSimPlayerForm = React.memo(function BattleSimPlayerForm(props) {
     </div>
   )
 })
-
-export default BattleSimPlayerForm
