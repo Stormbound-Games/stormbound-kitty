@@ -12,6 +12,7 @@ export default React.forwardRef(function Image(props, ref) {
         alt={props.alt}
         className={props.className}
         data-testid={props['data-testid']}
+        onClick={props.onClick}
       />
     </picture>
   )

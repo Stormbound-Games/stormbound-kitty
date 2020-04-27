@@ -1,4 +1,5 @@
 import React from 'react'
+import DryRunnerCardLog from '../DryRunnerCardLog'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
 import Deck from '../Deck'
@@ -40,6 +41,8 @@ export default React.memo(function DryRunner(props) {
           >
             Display draw chance
           </Checkbox>
+
+          <DryRunnerCardLog cards={props.playedCards} />
         </Column>
 
         <Column width='2/3'>
