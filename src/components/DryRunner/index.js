@@ -42,7 +42,10 @@ export default React.memo(function DryRunner(props) {
             Display draw chance
           </Checkbox>
 
-          <DryRunnerCardLog cards={props.playedCards} />
+          <DryRunnerCardLog
+            cards={props.playedCards}
+            cardsThisTurn={props.cardsThisTurn}
+          />
         </Column>
 
         <Column width='2/3'>

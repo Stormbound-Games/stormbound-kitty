@@ -26,6 +26,7 @@ export default props => {
           equalsMode={equalsMode}
           setEqualsMode={setEqualsMode}
           playedCards={state.playedCards}
+          cardsThisTurn={state.cardsThisTurn}
         />
       )}
     </DeckMechanisms>

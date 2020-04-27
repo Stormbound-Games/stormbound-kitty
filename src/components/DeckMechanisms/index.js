@@ -39,6 +39,7 @@ const getDefaultState = props => ({
   deck: resolveDeckWeight(props.deck),
   playerOrder: 'FIRST',
   playedCards: [],
+  cardsThisTurn: 0,
 })
 
 export default class DeckMechanisms extends React.Component {
@@ -157,6 +158,7 @@ export default class DeckMechanisms extends React.Component {
 
         // Log card being played
         newState.playedCards = [card, ...state.playedCards]
+        newState.cardsThisTurn += 1
 
         // Turn one: Check if board is not full (by Rain of Frogs for example)
         if (state.turn === 1) {
@@ -557,6 +559,9 @@ export default class DeckMechanisms extends React.Component {
       // Reset the cycling state and potential frozen enemies
       newState.hasCycledThisTurn = false
       newState.specifics.frozenEnemiesLevel = 0
+
+      // Reset the variable counting how many cards were played this turn
+      newState.cardsThisTurn = 0
 
       // Resolve mana from Dawnsparks/Frozen Cores
       this.resolveManaRNG(newState)
