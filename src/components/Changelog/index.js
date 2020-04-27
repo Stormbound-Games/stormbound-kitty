@@ -104,7 +104,7 @@ export default function Changelog(props) {
               <select
                 id='type'
                 name='type'
-                value={sorting}
+                value={type}
                 onChange={event => setType(event.target.value)}
               >
                 <option value='*'>Any</option>
