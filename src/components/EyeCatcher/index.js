@@ -3,7 +3,6 @@ import './index.css'
 
 const hasBeenShownYet = key => {
   try {
-    console.log(localStorage.getItem(key))
     return JSON.parse(localStorage.getItem(key))
   } catch (error) {
     return false
