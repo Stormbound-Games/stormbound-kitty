@@ -23,31 +23,29 @@ export default React.memo(function DryRunnerCardLog(props) {
       <div className='DryRunnerCardLog__container'>
         <Row>
           {cards.map((card, index) => (
-            <>
-              <Column
-                style={{ opacity: 1 - index / 8 }}
-                width='1/6'
-                key={(card ? card.id : '') + '#' + index}
-              >
-                {card && (
-                  <Image
-                    wrapperClassName={[
-                      'DryRunnerCardLog__image-wrapper',
-                      props.cardsThisTurn === index + 1 &&
-                        index !== 5 &&
-                        'DryRunnerCardLog__image-wrapper--turn',
-                    ]
-                      .filter(Boolean)
-                      .join(' ')}
-                    className={'DryRunnerCardLog__image'}
-                    src={card.image}
-                    alt={card.name}
-                    onClick={() => setZoomedCard(card)}
-                    data-testid='card-log-image'
-                  />
-                )}
-              </Column>
-            </>
+            <Column
+              style={{ opacity: 1 - index / 8 }}
+              width='1/6'
+              key={(card ? card.id : '') + '#' + index}
+            >
+              {card && (
+                <Image
+                  wrapperClassName={[
+                    'DryRunnerCardLog__image-wrapper',
+                    props.cardsThisTurn === index + 1 &&
+                      index !== 5 &&
+                      'DryRunnerCardLog__image-wrapper--turn',
+                  ]
+                    .filter(Boolean)
+                    .join(' ')}
+                  className={'DryRunnerCardLog__image'}
+                  src={card.image}
+                  alt={card.name}
+                  onClick={() => setZoomedCard(card)}
+                  data-testid='card-log-image'
+                />
+              )}
+            </Column>
           ))}
         </Row>
       </div>
