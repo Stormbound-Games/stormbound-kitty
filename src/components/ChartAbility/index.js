@@ -28,7 +28,8 @@ export default React.memo(function ChartAbility(props) {
     cards.reduce((acc, card) => {
       if (!card.ability) return acc
       const match = CHIP_CARDS.includes(card.id)
-        ? [, 'chip']
+        ? // eslint-disable-next-line
+          [, 'chip']
         : card.ability.match(regex)
       if (!match) return acc
       const type = abilities[match[1].toLowerCase()].name
