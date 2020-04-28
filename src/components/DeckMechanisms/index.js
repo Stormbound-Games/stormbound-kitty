@@ -1,27 +1,15 @@
 import React from 'react'
-import rwc from 'random-weighted-choice'
-import clone from 'lodash.clonedeep'
 import { DEFAULT_MANA } from '../../constants/battle'
 import { PROBABILITIES } from '../../constants/dryRunner'
 import arrayRandom from '../../helpers/arrayRandom'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
-import getBinomialRandomVariableResult from '../../helpers/getBinomialRandomVariableResult'
+import draw from './draw'
+import cycle from './cycle'
+import endTurn from './endTurn'
+import play from './play'
 import resolveDeckWeight, {
   increaseCardWeight,
 } from '../../helpers/resolveDeckWeight'
-
-const FROZEN_ENEMIES_AFTER = {
-  //Frozen enemies left after a card's ability has been resolved, in regular RNG mode
-
-  // Frosthexers
-  W2: [1, 2, 3, 3, 4],
-  // Moment’s Peace
-  W6: [2, 3, 3, 4, 4],
-  // Midwinter Chaos
-  W11: [3, 3, 3, 2, 1],
-  // Wisp Cloud
-  W4: [0, 0, 0, 1, 2],
-}
 
 const getDefaultState = props => ({
   hand: [],
@@ -54,12 +42,10 @@ export default class DeckMechanisms extends React.Component {
   }
 
   componentDidMount() {
-    this.drawHand()
+    if (this.props.mode === 'AUTOMATIC') this.drawHand()
   }
 
   drawHand = () => {
-    if (this.props.mode === 'MANUAL') return
-
     this.draw()
     this.draw()
     this.draw()
@@ -67,73 +53,15 @@ export default class DeckMechanisms extends React.Component {
   }
 
   draw = specificCardId => {
-    // If the hand is full, skip draw.
-    if (this.state.hand.length >= 4) {
-      return false
+    if (this.state.hand.length < 4) {
+      this.setState(draw(specificCardId))
     }
-
-    this.setState(state => {
-      const newState = clone(state)
-
-      // The available cards for draw are all the ones that are not currently
-      // in the hand.
-      const isAvailableForDraw = card => !state.hand.includes(card.id)
-      const availableCards = state.deck.filter(isAvailableForDraw)
-
-      // Draw a random card while taking weight into account.
-      const pick = specificCardId || rwc(availableCards)
-
-      // Put the new card into the hand.
-      newState.hand.push(pick)
-
-      // After having drawn a new card, we need to readjust the weight of all
-      // cards that are not in the hand, as well as the card that has just been
-      // drawn (reset to 0).
-      newState.deck = this.getIncreasedDeckWeight({
-        state: newState,
-        reset: [pick],
-      })
-
-      return newState
-    })
   }
 
   cycle = (id, countAsCycled = true) => {
-    // If the cycled card is not actually in the hand, skip cycle.
-    if (!this.state.hand.includes(id)) {
-      return false
+    if (this.state.hand.includes(id)) {
+      this.setState(cycle(id, countAsCycled))
     }
-
-    this.setState(state => {
-      const newState = clone(state)
-
-      // Remove the cycled card from the hand.
-      newState.hand = state.hand.filter(cardId => cardId !== id)
-
-      // The available cards for cycle are all the ones that are not currently
-      // in the hand, and that are not the one that has been cycled. From there,
-      // we can draw a random card while taking weight into account, then push
-      // the new card into the hand.
-      const availableCards = state.deck.filter(
-        card => !state.hand.includes(card.id)
-      )
-      const pick = rwc(availableCards)
-      newState.hand.push(pick)
-
-      // After having drawn a new card, we need to readjust the weight of all
-      // cards that are not in the hand, as well as the one that has just been
-      // drawn (reset to 0).
-      newState.deck = this.getIncreasedDeckWeight({
-        state: newState,
-        reset: [id, pick],
-      })
-
-      // Goldgrubbers’ and Snake Eyes’ abilities should not
-      // be counted as cycling, since they only replace the cards
-      newState.hasCycledThisTurn = countAsCycled
-
-      return newState
-    })
   }
 
   play = (id, options = { free: false, discard: false }) => {
@@ -146,139 +74,7 @@ export default class DeckMechanisms extends React.Component {
     }
 
     this.setState(
-      state => {
-        const newState = clone(state)
-
-        // Remove the played card from the hand.
-        newState.hand = state.hand.filter(cardId => cardId !== id)
-
-        if (options.discard) {
-          return newState
-        }
-
-        // Log card being played
-        newState.playedCards = [card, ...state.playedCards]
-        newState.cardsThisTurn += 1
-
-        // Turn one: Check if board is not full (by Rain of Frogs for example)
-        if (state.turn === 1) {
-          // Any 3 mana card can be played since it would be the only one to be played
-          // and would not fill the board by itself. Collector Mirz creating a 0 mana
-          // token is not an issue for board filling.
-
-          // Any 2 mana card will have to be played together with a 1 mana card. This will cause a board filling
-          // issue only when this card is Rain of Frogs
-
-          // The remaining playable cards are Green Prototypes, Summon Militia, Toxic Sacrifice and Rain of Frogs
-          // In these cases only the emptyCellsIndicator variable represents how many cells are free
-          // In the other cases it is not needed and will never be set to 0
-          const { emptyCellsIndicator } = newState.specifics
-
-          switch (id) {
-            case 'N1':
-              // Green Prototypes necessarily advance the frontline (since only the four 1 mana cards are
-              // taken into account)
-              newState.specifics.emptyCellsIndicator += 4
-              break
-            case 'N2':
-              // Summon Militia won't cause any board filling issues
-              newState.specifics.emptyCellsIndicator = Math.max(
-                emptyCellsIndicator - 1,
-                0
-              )
-              break
-            case 'F4':
-              // Toxic Sacrifice frees up at least one cell
-              newState.specifics.emptyCellsIndicator += 1
-              break
-            case 'F8':
-              // Rain of Frogs
-              const frogs = [4, 5, 5, 6, 6]
-              newState.specifics.emptyCellsIndicator = Math.max(
-                emptyCellsIndicator - frogs[card.level - 1],
-                0
-              )
-              break
-            default:
-              // All the other cards don’t have an effect on board filling
-              break
-          }
-        }
-
-        switch (id) {
-          case 'W9':
-            // If the card played is a Frozen Core, increment the amount of active
-            // Frozen Cores by 1.
-            newState.specifics.activeFrozenCores += 1
-            break
-          case 'W16':
-            newState.specifics.activeDawnsparks += 1
-            break
-          case 'W1':
-            // Icicle Burst should destroy the frozen enemy unit if there is only one on the board
-            if (state.specifics.frozenEnemiesLevel === 1) {
-              newState.specifics.frozenEnemiesLevel = 0
-            }
-            break
-          case 'W2':
-          case 'W6':
-          case 'W11':
-          case 'W4':
-            // Find how many frozen enemies there are on the board
-            // This is not a precise number but gives an approximation
-            // (one, a few, many, all) of this amount
-            // Based on this approximation and the card that has just
-            // been played, store how many frozen enemies stayed on the board
-
-            // For example, playing Midwinter Chaos (W11) will freeze a lot of units,
-            // but if there are already many frozen units on the board, it will generally destroy them
-            const frozenEnemiesNowRegular =
-              FROZEN_ENEMIES_AFTER[id][state.specifics.frozenEnemiesLevel]
-
-            // If the RNG is friendly to the user, the enemy units were spawned  in such a way
-            // that an additional unit gets frozen every time a freezing card is played
-            if (this.state.RNG === 'FRIENDLY') {
-              newState.specifics.frozenEnemiesLevel = Math.min(
-                frozenEnemiesNowRegular + 1,
-                4
-              )
-            }
-            // If the RNG is unfriendly to the user, the opposite happens: Freezing cards are not as
-            // efficient and less enemy units get frozen
-            else if (this.state.RNG === 'UNFRIENDLY') {
-              newState.specifics.frozenEnemiesLevel = Math.max(
-                frozenEnemiesNowRegular - 1,
-                0
-              )
-            }
-            // In the regular case, just store the new approximation in the specifics.frozenEnemiesLevel
-            // variable
-            else {
-              newState.specifics.frozenEnemiesLevel = frozenEnemiesNowRegular
-            }
-            break
-          default:
-            break
-        }
-
-        // Unless the play is actually free or a discard, decrease the amount
-        // of available mana by the cost the card
-        if (!(options.free || options.discard)) {
-          newState.mana -= card.mana
-        }
-
-        if (state.turn === 1) {
-          // Check if this card spawns units on the board, this is used to check if
-          // Toxic Sacrifice can be played on this turn
-          const unitSpawningSpells = ['N2', 'S24', 'F8']
-          // Summon Militia, Head Start (can't occur in the game) and Rain of Frogs
-
-          if (card.type === 'unit' || unitSpawningSpells.includes(id)) {
-            newState.specifics.noUnitsOnFirstTurn = false
-          }
-        }
-        return newState
-      },
+      play(id, options),
       options.discard ? undefined : () => this.handleCardEffect(card)
     )
   }
@@ -492,100 +288,26 @@ export default class DeckMechanisms extends React.Component {
       deck: this.getIncreasedDeckWeight({ state, reset }),
     }))
 
-  resolveManaRNG = state => {
-    // Handle the RNG for Frozen Core and Dawnsparks
-
-    // If the RNG is unfriendly to the user, Frozen Cores and Dawsparks always get destroyed
-
-    // If the RNG is friendly to the user, no Frozen Cores and Dawsparks get destroyed and all
-    // the Dawnsparks units hit an enemy unit, giving 4 mana each
-
-    // If the RNG is set to regular, each Frozen Core has a 50% chance of staying on the board
-    // (given by FROZEN_CORE_STAYS) and Dawnsparks units each have a 71% chance (DAWNSPARKS_STAYS)
-    // of staying on the board, followed by a 71% chance (DAWSPARKS_HITS) of hitting an enemy unit,
-    // giving 4 mana
-    switch (this.state.RNG) {
-      case 'UNFRIENDLY': {
-        state.specifics.activeFrozenCores = 0
-        state.specifics.activeDawnsparks = 0
-        break
-      }
-
-      case 'REGULAR': {
-        const { activeFrozenCores, activeDawnsparks } = state.specifics
-
-        // Choose how many Frozen Cores survive
-        state.specifics.activeFrozenCores = getBinomialRandomVariableResult(
-          activeFrozenCores,
-          PROBABILITIES.FROZEN_CORE_STAYS
-        )
-
-        // Choose how many Dawnsparks units survive
-        state.specifics.activeDawnsparks = getBinomialRandomVariableResult(
-          activeDawnsparks,
-          PROBABILITIES.DAWNSPARKS_STAYS
-        )
-
-        // Add mana from remaining Frozen Cores
-        state.mana += state.specifics.activeFrozenCores * 3
-
-        // Choose how many Dawnspark units hit and add mana to total
-        state.mana +=
-          getBinomialRandomVariableResult(
-            state.specifics.activeDawnsparks,
-            PROBABILITIES.DAWNSPARKS_HITS
-          ) * 4
-        break
-      }
-
-      case 'FRIENDLY':
-      default:
-        state.mana += state.specifics.activeFrozenCores * 3
-        state.mana += state.specifics.activeDawnsparks * 4
-        break
-    }
-  }
-
   endTurn = () => {
-    this.setState(state => {
-      const newState = clone(state)
+    this.setState(endTurn, () => {
+      if (this.props.mode === 'MANUAL') return
 
-      // Increment the current turn by 1
-      newState.turn += 1
-
-      // Reset the mana to 3 + the current turn
-      newState.mana = DEFAULT_MANA + state.turn
-
-      // Reset the cycling state and potential frozen enemies
-      newState.hasCycledThisTurn = false
-      newState.specifics.frozenEnemiesLevel = 0
-
-      // Reset the variable counting how many cards were played this turn
-      newState.cardsThisTurn = 0
-
-      // Resolve mana from Dawnsparks/Frozen Cores
-      this.resolveManaRNG(newState)
-
-      return newState
+      if (this.state.hand.length === 3) {
+        this.draw()
+      } else if (this.state.hand.length === 2) {
+        this.draw()
+        this.draw()
+      } else if (this.state.hand.length === 1) {
+        this.draw()
+        this.draw()
+        this.draw()
+      } else if (this.state.hand.length === 0) {
+        this.draw()
+        this.draw()
+        this.draw()
+        this.draw()
+      }
     })
-
-    if (this.props.mode === 'MANUAL') return
-
-    if (this.state.hand.length === 3) {
-      this.draw()
-    } else if (this.state.hand.length === 2) {
-      this.draw()
-      this.draw()
-    } else if (this.state.hand.length === 1) {
-      this.draw()
-      this.draw()
-      this.draw()
-    } else if (this.state.hand.length === 0) {
-      this.draw()
-      this.draw()
-      this.draw()
-      this.draw()
-    }
   }
 
   canCardBePlayed = id => {
@@ -629,17 +351,16 @@ export default class DeckMechanisms extends React.Component {
   }
 
   reset = () => {
-    this.setState(getDefaultState(this.props), this.drawHand)
+    this.setState(getDefaultState(this.props), () => {
+      if (this.props.mode === 'AUTOMATIC') this.drawHand()
+    })
   }
 
   setPlayerOrder = playerOrder => {
     const turn = playerOrder === 'SECOND' ? 2 : 1
+    const mana = DEFAULT_MANA + (turn - 1)
 
-    this.setState({
-      playerOrder,
-      turn,
-      mana: DEFAULT_MANA + (turn - 1),
-    })
+    this.setState({ playerOrder, turn, mana })
   }
 
   render() {
