@@ -1366,7 +1366,8 @@
     "mana": 6,
     "strength": "5/6/7/8/10",
     "movement": 1,
-    "ability": "After surviving damage, deal up to *3/3/4/5/6 of its remaining strength as damage* to the first enemy in front"
+    "ability": "After surviving damage, deal up to *3/3/4/5/6 of its remaining strength as damage* to the first enemy in front",
+    "elder": true
   },
   {
     "name": "Brood Sages",
