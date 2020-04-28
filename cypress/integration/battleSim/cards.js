@@ -41,7 +41,7 @@ describe('Battle Sim — Cards', () => {
       .should('have.text', '11')
       .get(s.CARD_SLOT_3)
       .find(s.CARD_LEVEL)
-      .should('not.exist')
+      .should('contain', 1)
   })
 
   it('should be possible to update a card in hand', () => {

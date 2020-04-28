@@ -104,20 +104,32 @@ export default React.memo(function Card(props) {
                 className='Card__strength-content'
                 data-testid='card-strength'
               >
-                {props.token ? props.level : props.strength}
+                {
+                  // Token cards carry their strength in their level since their
+                  // strength varies based on context and they technically do
+                  // not have a level.
+                  props.token ? props.level : props.strength
+                }
               </span>
             </div>
           )}
 
-          {!props.token && (
-            <span
-              className='Card__level'
-              style={{ color: getRarityColor(props.rarity, 'light') }}
-              data-testid='card-level'
-            >
-              Level {props.level}
-            </span>
-          )}
+          <span
+            className='Card__level'
+            style={{
+              // Token cards do not have a rarity, but should be displayed as
+              // “common” cards.
+              color: getRarityColor(props.rarity || 'common', 'light'),
+            }}
+            data-testid='card-level'
+          >
+            Level{' '}
+            {
+              // Token cards carry their strength in their level but they should
+              // always be displayed as level 1.
+              props.token ? 1 : props.level
+            }
+          </span>
 
           {props.type === 'unit' && props.movement !== null && (
             <div className='Card__movement'>
