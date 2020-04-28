@@ -2634,7 +2634,7 @@
     "name": "Token Nest (Qordia)",
     "id": "T12",
     "token": true,
-    "type": "unit",
+    "type": "structure",
     "faction": "neutral",
     "race": null,
     "rarity": null,
