@@ -1,20 +1,17 @@
 import React from 'react'
+import { useAnimation } from 'framer-motion'
 import Column from '../Column'
 import CTA from '../CTA'
 import DryRunnerResetDialog from '../DryRunnerResetDialog'
 import Mana from '../Mana'
 import Row from '../Row'
-import { useAnimation } from 'framer-motion'
 import './index.css'
 
 export default React.memo(function DryRunnerHeader(props) {
   const controls = useAnimation()
-  const E_KEY = 69
-
   const endTurn = React.useCallback(() => {
     controls.start({
       scale: [1.4, 1],
-
       transition: { duration: 1, ease: 'easeOut' },
     })
 
@@ -23,9 +20,7 @@ export default React.memo(function DryRunnerHeader(props) {
 
   const registerShortcuts = React.useCallback(
     event => {
-      if (event.which === E_KEY) {
-        endTurn()
-      }
+      if (event.which === 69 /* E */) endTurn()
     },
     [endTurn]
   )
