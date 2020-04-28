@@ -22,6 +22,7 @@
 }
 
 .DryRunnerCardLog__image-wrapper {
+  position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -33,4 +34,20 @@
   max-height: 80%;
   max-width: 100%;
   margin: auto;
+}
+
+.DryRunnerCardLog__image-wrapper--turn::after {
+  content: '';
+  position: absolute;
+  right: -0.5em;
+  height: 80%;
+  top: 50%;
+  width: 1px;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--dark-beige),
+    transparent
+  );
 }

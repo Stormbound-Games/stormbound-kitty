@@ -6,7 +6,7 @@ import Row from '../Row'
 import arrayPad from '../../helpers/arrayPad'
 import './index.css'
 
-const DryRunnerCardLog = React.memo(props => {
+export default React.memo(function DryRunnerCardLog(props) {
   const [zoomedCard, setZoomedCard] = React.useState(null)
   const cards = arrayPad(props.cards.slice(0, 6), 6, null, +1)
 
@@ -23,27 +23,34 @@ const DryRunnerCardLog = React.memo(props => {
       <div className='DryRunnerCardLog__container'>
         <Row>
           {cards.map((card, index) => (
-            <Column
-              style={{ opacity: 1 - index / 8 }}
-              width='1/6'
-              key={(card ? card.id : '') + '#' + index}
-            >
-              {card && (
-                <Image
-                  wrapperClassName='DryRunnerCardLog__image-wrapper'
-                  className='DryRunnerCardLog__image'
-                  src={card.image}
-                  alt={card.name}
-                  onClick={() => setZoomedCard(card)}
-                  data-testid='card-log-image'
-                />
-              )}
-            </Column>
+            <>
+              <Column
+                style={{ opacity: 1 - index / 8 }}
+                width='1/6'
+                key={(card ? card.id : '') + '#' + index}
+              >
+                {card && (
+                  <Image
+                    wrapperClassName={[
+                      'DryRunnerCardLog__image-wrapper',
+                      props.cardsThisTurn === index + 1 &&
+                        index !== 5 &&
+                        'DryRunnerCardLog__image-wrapper--turn',
+                    ]
+                      .filter(Boolean)
+                      .join(' ')}
+                    className={'DryRunnerCardLog__image'}
+                    src={card.image}
+                    alt={card.name}
+                    onClick={() => setZoomedCard(card)}
+                    data-testid='card-log-image'
+                  />
+                )}
+              </Column>
+            </>
           ))}
         </Row>
       </div>
     </>
   )
 })
-
-export default DryRunnerCardLog
