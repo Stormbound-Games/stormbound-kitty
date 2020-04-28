@@ -17,7 +17,7 @@ import { getRarityColor } from '../../helpers/getRarity'
 export default React.memo(function ChartRarity(props) {
   const data = Object.keys(RARITIES).map(rarity => ({
     name: capitalise(rarity),
-    value: countCardsForRarity(rarity),
+    value: countCardsForRarity(rarity) - 1,
     color: getRarityColor(rarity),
   }))
 
