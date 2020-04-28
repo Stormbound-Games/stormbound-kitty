@@ -19,6 +19,7 @@ export default React.memo(function Card(props) {
         props.affordable && 'Card--affordable',
         props.upgradable && 'Card--upgradable',
         props.missing && 'Card--missing',
+        props.created && 'Card--created',
         props.player === 'RED' && 'Card--RED',
         props.player === 'BLUE' && 'Card--BLUE',
       ]
