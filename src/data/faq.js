@@ -143,6 +143,32 @@ export default [
     title: 'Deck Builder',
     entries: [
       {
+        id: 'adding-a-deck',
+        question: 'Can I add my own deck to the suggested ones on the site?',
+        answer: (
+          <>
+            <p>
+              Provided your deck performs competitively, I would be happy to
+              have it featured amongst the suggested decks. Get in touch with me
+              on Discord (Kitty#1909) so we can discuss it.
+            </p>
+
+            <p>
+              Alternatively, if you happen to have basic knowledge of web
+              development and have a GitHub account, you can{' '}
+              <a
+                href='https://github.com/KittySparkles/stormbound-kitty/blob/master/docs/ADDING_A_DECK.md'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                follow the guide
+              </a>{' '}
+              and do it yourself.
+            </p>
+          </>
+        ),
+      },
+      {
         id: 'incorrect-deck-suggestions',
         question:
           'You say my deck should be improved but it works great! Why is that?',
