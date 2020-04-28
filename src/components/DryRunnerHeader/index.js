@@ -7,6 +7,24 @@ import Row from '../Row'
 import './index.css'
 
 export default React.memo(function DryRunnerHeader(props) {
+  const mana = React.useRef()
+
+  React.useEffect(() => {
+    if (mana.current) {
+      mana.current.addEventListener('animationend', () => {
+        mana.current.classList.remove('Mana--pulse')
+      })
+    }
+  }, [])
+
+  const endTurn = React.useCallback(() => {
+    if (mana.current) {
+      mana.current.classList.add('Mana--pulse')
+
+      props.endTurn()
+    }
+  }, [props])
+
   return (
     <div className='DryRunnerHeader'>
       <Row desktopOnly>
@@ -14,6 +32,7 @@ export default React.memo(function DryRunnerHeader(props) {
           <span className='DryRunnerHeader__mana'>
             Current mana:{' '}
             <Mana
+              ref={mana}
               mana={props.mana}
               data-testid='mana-pool'
               disabled={props.hand.every(
@@ -33,7 +52,7 @@ export default React.memo(function DryRunnerHeader(props) {
         </Column>
 
         <Column width='1/3' style={{ alignItems: 'center' }}>
-          <CTA type='button' data-testid='end-turn-btn' onClick={props.endTurn}>
+          <CTA type='button' data-testid='end-turn-btn' onClick={endTurn}>
             <u>E</u>nd turn
           </CTA>
         </Column>
