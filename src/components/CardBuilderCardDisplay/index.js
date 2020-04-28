@@ -28,7 +28,7 @@ const isLevelAvailable = (card, level) => {
   for (let i = card.level; i < 5; i++) {
     let copiesForNextLevel = RARITY_COPIES[rarity].copies[i - 1]
 
-    isLevelAvailable[i] = copies - copiesForNextLevel > 0
+    isLevelAvailable[i] = copies - copiesForNextLevel >= 0
     copies -= copiesForNextLevel
   }
 
