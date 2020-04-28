@@ -1,7 +1,7 @@
 import React from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import CardZoom from '../CardZoom'
 import Column from '../Column'
-import Image from '../Image'
 import Row from '../Row'
 import arrayPad from '../../helpers/arrayPad'
 import './index.css'
@@ -28,23 +28,32 @@ export default React.memo(function DryRunnerCardLog(props) {
               width='1/6'
               key={(card ? card.id : '') + '#' + index}
             >
-              {card && (
-                <Image
-                  wrapperClassName={[
-                    'DryRunnerCardLog__image-wrapper',
-                    props.cardsThisTurn === index + 1 &&
-                      index !== 5 &&
-                      'DryRunnerCardLog__image-wrapper--turn',
-                  ]
-                    .filter(Boolean)
-                    .join(' ')}
-                  className={'DryRunnerCardLog__image'}
-                  src={card.image}
-                  alt={card.name}
-                  onClick={() => setZoomedCard(card)}
-                  data-testid='card-log-image'
-                />
-              )}
+              <AnimatePresence>
+                {card && (
+                  <motion.div
+                    key={card.id}
+                    initial={{ scale: Math.min(index, 1) }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+                    className={[
+                      'DryRunnerCardLog__image-wrapper',
+                      props.cardsThisTurn === index + 1 &&
+                        index !== 5 &&
+                        'DryRunnerCardLog__image-wrapper--turn',
+                    ]
+                      .filter(Boolean)
+                      .join(' ')}
+                  >
+                    <img
+                      className={'DryRunnerCardLog__image'}
+                      src={card.image}
+                      alt={card.name}
+                      onClick={() => setZoomedCard(card)}
+                      data-testid='card-log-image'
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </Column>
           ))}
         </Row>
