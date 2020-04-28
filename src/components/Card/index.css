@@ -205,6 +205,15 @@
   margin: 0 auto 0.75emem;
 }
 
+/**
+ * 1. “Created” cards (tokens created by Collector Mirz or Harvesters of Souls
+ *    should not render the rarity however the card layout should remain
+ *    unchanged, hence why the image is still rendered but visually hidden.
+ */
+.Card--created .Card__rarity {
+  visibility: hidden; /* 1 */
+}
+
 .Card__strength,
 .Card__movement {
   position: absolute;
@@ -261,6 +270,15 @@
   font-size: 140%;
   display: block;
   transform: translateY(-1px);
+}
+
+/**
+ * 1. “Created” cards (tokens created by Collector Mirz or Harvesters of Souls
+ *    should not render the rarity however the card layout should remain
+ *    unchanged, hence why the image is still rendered but visually hidden.
+ */
+.Card--created .Card__level {
+  visibility: hidden; /* 1 */
 }
 
 .Card * {
