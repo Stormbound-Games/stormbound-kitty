@@ -1,9 +1,11 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import './index.css'
 
 export default React.memo(function Mana(props) {
   return (
-    <div
+    <motion.div
+      animate={props.controls}
       className={['Mana', props.disabled && 'Mana--disabled', props.className]
         .filter(Boolean)
         .join(' ')}
@@ -15,6 +17,6 @@ export default React.memo(function Mana(props) {
         alt=''
       />
       <span className='Mana__value'>{props.mana}</span>
-    </div>
+    </motion.div>
   )
 })
