@@ -9,15 +9,32 @@ import './index.css'
 
 export default React.memo(function DryRunnerHeader(props) {
   const controls = useAnimation()
+  const E_KEY = 69
 
   const endTurn = React.useCallback(() => {
     controls.start({
-      scale: [2, 1],
-      transition: { duration: 1 },
+      scale: [1.4, 1],
+
+      transition: { duration: 1, ease: 'easeOut' },
     })
 
     props.endTurn()
   }, [controls, props])
+
+  const registerShortcuts = React.useCallback(
+    event => {
+      if (event.which === E_KEY) {
+        endTurn()
+      }
+    },
+    [endTurn]
+  )
+
+  React.useEffect(() => {
+    document.addEventListener('keydown', registerShortcuts)
+
+    return () => document.removeEventListener('keydown', registerShortcuts)
+  }, [registerShortcuts])
 
   return (
     <div className='DryRunnerHeader'>

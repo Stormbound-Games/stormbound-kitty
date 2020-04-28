@@ -56,7 +56,6 @@ class DeckBuilderDryRunView extends React.Component {
   }
 
   registerShortcuts = event => {
-    const E_KEY = 69
     const C_KEY = 67
     const P_KEY = 80
     const numKeys = [49, 50, 51, 52]
@@ -91,9 +90,6 @@ class DeckBuilderDryRunView extends React.Component {
         return this.state.activeCard && !this.props.hasCycledThisTurn
           ? this.cycleCard()
           : undefined
-      }
-      case E_KEY: {
-        return this.props.endTurn()
       }
       default:
         return
