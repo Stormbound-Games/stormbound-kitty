@@ -28,7 +28,7 @@ export default React.memo(function DryRunnerCard(props) {
       <Card
         {...cardData}
         missing={!!props.activeCard && props.activeCard !== cardData.id}
-        affordable={props.canCardBePlayed(cardData.id)}
+        affordable={props.canCardBePlayed(props.state, cardData.id)}
       />
     </div>
   )

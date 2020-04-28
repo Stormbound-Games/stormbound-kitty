@@ -45,7 +45,7 @@ export default React.memo(function TrackerCard(props) {
         missing={!!props.activeCard && props.activeCard !== cardData.id}
         affordable={
           props.status === STATUSES.PLAYING &&
-          props.canCardBePlayed(cardData.id)
+          props.canCardBePlayed(props.state, cardData.id)
         }
       />
     </div>

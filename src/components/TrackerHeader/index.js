@@ -19,7 +19,7 @@ export default React.memo(function TrackerHeader(props) {
               <Mana
                 mana={props.mana}
                 disabled={props.hand.every(
-                  cardId => !props.canCardBePlayed(cardId)
+                  cardId => !props.canCardBePlayed(props.state, cardId)
                 )}
               />
             </div>

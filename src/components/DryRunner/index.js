@@ -10,6 +10,7 @@ import DryRunnerInfo from '../DryRunnerInfo'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
+import hasInHand from '../../helpers/hasInHand'
 import './index.css'
 
 export default React.memo(function DryRunner(props) {
@@ -27,7 +28,7 @@ export default React.memo(function DryRunner(props) {
             }
             isCardDisabled={card => props.hand.includes(card.id)}
             highlightedCards={props.displayDeck
-              .filter(card => !props.hand.includes(card.id))
+              .filter(card => !hasInHand(card, props.hand))
               .map(card => card.id)}
           />
 

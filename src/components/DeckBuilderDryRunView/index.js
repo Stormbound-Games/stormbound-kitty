@@ -2,6 +2,7 @@ import React from 'react'
 import DryRunner from '../DryRunner'
 import DeckMechanisms from '../DeckMechanisms'
 import WikiLink from '../WikiLink'
+import hasInHand from '../../helpers/hasInHand'
 
 export default props => {
   const params = new URLSearchParams(window.location.search)
@@ -11,9 +12,12 @@ export default props => {
   // been picked.
   const [mode, setMode] = React.useState(params.get('mode') || 'AUTOMATIC')
   const [equalsMode, setEqualsMode] = React.useState(false)
-  const deck = equalsMode
-    ? props.deck.map(card => ({ ...card, level: 1 }))
-    : props.deck
+  const deck = props.deck.map(card => ({
+    ...card,
+    idx: 0,
+    level: equalsMode ? 1 : card.level,
+  }))
+  console.log(deck)
 
   return (
     <DeckMechanisms deck={deck} mode={mode}>
@@ -157,7 +161,7 @@ class DeckBuilderDryRunView extends React.Component {
       const chance = ((card.weight / sum) * 100).toFixed(2)
       const name = this.state.displayChance
         ? `${card.name} (${
-            this.props.hand.includes(card.id) ? 'in hand' : `${chance}%`
+            hasInHand(card, this.props.hand) ? 'in hand' : `${chance}%`
           })`
         : card.name
 
@@ -225,7 +229,7 @@ class DeckBuilderDryRunView extends React.Component {
   }
 
   onDeckCardClick = card => {
-    this.props.draw(card.id)
+    this.props.draw(card)
 
     // This here is a workaround to be able to pick the initial hand for testing
     // purposes; it switches the deck mechanisms back to ‘AUTOMATIC’ as soon as

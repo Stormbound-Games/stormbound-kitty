@@ -1,6 +1,8 @@
 import { PROBABILITIES } from '../../constants/dryRunner'
 import arrayRandom from '../../helpers/arrayRandom'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import findCardDataInDeck from '../../helpers/findCardDataInDeck'
+import hasInHand from '../../helpers/hasInHand'
 import play from './play'
 import cycle from './cycle'
 import draw from './draw'
@@ -177,8 +179,8 @@ const handleCardEffect = (state, card, mode) => {
     // Snake Eyes
     case 'N33': {
       if (mode !== 'MANUAL' && state.hand.length === 3) {
-        state.hand.forEach(cardId =>
-          cycle(state, cardId, { countAsCycled: false })
+        state.hand.forEach(cardInHand =>
+          cycle(state, cardInHand, { countAsCycled: false })
         )
 
         if (card.level >= 4) {
@@ -196,12 +198,12 @@ const handleCardEffect = (state, card, mode) => {
 
     // Archdruid Earyn
     case 'N48': {
-      const spells = state.hand.filter(cardId => {
-        if (cardId === 'W1') {
+      const spells = state.hand.filter(cardInHand => {
+        if (cardInHand.id === 'W1') {
           return state.specifics.frozenEnemiesLevel !== 0
         }
 
-        const cardInDeck = state.deck.find(card => card.id === cardId)
+        const cardInDeck = findCardDataInDeck(cardInHand, state.deck)
         return cardInDeck.type === 'spell'
       })
 
@@ -229,11 +231,10 @@ const handleCardEffect = (state, card, mode) => {
 
     // First Mutineer
     case 'N12': {
-      const nonPirates = state.hand.filter(cardId => {
-        const cardInDeck = state.deck.find(card => card.id === cardId)
-
-        return cardInDeck.race !== 'pirate'
-      })
+      const nonPirates = state.hand.filter(
+        cardInHand =>
+          findCardDataInDeck(cardInHand, state.deck).race !== 'pirate'
+      )
 
       if (mode !== 'MANUAL' && nonPirates.length > 0) {
         const card = arrayRandom(nonPirates)
@@ -244,11 +245,10 @@ const handleCardEffect = (state, card, mode) => {
 
     // Goldgrubbers
     case 'N22': {
-      const nonPirates = state.hand.filter(cardId => {
-        const cardInDeck = state.deck.find(card => card.id === cardId)
-
-        return cardInDeck.race !== 'pirate'
-      })
+      const nonPirates = state.hand.filter(
+        cardInHand =>
+          findCardDataInDeck(cardInHand, state.deck).race !== 'pirate'
+      )
 
       if (mode !== 'MANUAL' && nonPirates.length > 0) {
         cycle(state, arrayRandom(nonPirates), { countAsCycled: false })
@@ -262,7 +262,7 @@ const handleCardEffect = (state, card, mode) => {
         state.RNG === 'FRIENDLY' ||
         (state.RNG === 'REGULAR' && Math.random() <= PROBABILITIES.AHMI_RETURNS)
       ) {
-        state.hand.push('S3')
+        state.hand.push({ id: card.id, idx: card.idx })
       }
       break
     }
@@ -270,7 +270,7 @@ const handleCardEffect = (state, card, mode) => {
     // Queen of Herds
     case 'S21': {
       const satyrs = state.deck.filter(
-        card => !state.hand.includes(card.id) && card.race === 'satyr'
+        card => !hasInHand(card, state.hand) && card.race === 'satyr'
       )
       let satyr1, satyr2
 
@@ -287,14 +287,14 @@ const handleCardEffect = (state, card, mode) => {
       // See: https://discordapp.com/channels/293674725069029377/564840207875178502/676580933180325920
       // Note: it seems that QoH spawns do not cause a weighing of the deck.
       // See: https://discordapp.com/channels/293674725069029377/564840207875178502/676580198057246730
-      satyr1 = arrayRandom(satyrs).id
+      satyr1 = arrayRandom(satyrs)
       play(state, satyr1, { mode, free: true })
 
       // If Queen of Herds is level 4 or 5 and there were more than single
       // satyr in the remaining cards from the deck, a second one can be
       // picked at random and played for free.
       if (satyrs.length > 1 && card.level >= 4) {
-        satyr2 = arrayRandom(satyrs.filter(satyr => satyr.id !== satyr1)).id
+        satyr2 = arrayRandom(satyrs.filter(satyr => satyr.id !== satyr1))
 
         if (satyr2) {
           play(state, satyr2, { mode, free: true })

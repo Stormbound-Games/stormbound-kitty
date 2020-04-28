@@ -1,26 +1,32 @@
+import findCardDataInDeck from '../../helpers/findCardDataInDeck'
+
 /**
  * Return whether a given card can be played in the current state.
  * @param {Object} state - State being mutated
- * @param {String} id - Id of the card
+ * @param {Object} card - Object containing id and idx of the card
  * @return {Boolean} Whether the card can be played
  */
-const canCardBePlayed = (state, id) => {
-  const card = state.deck.find(card => card.id === id)
-  const isAffordable = card.mana <= state.mana
+const canCardBePlayed = (state, card) => {
+  if (!card) {
+    return false
+  }
+  const cardData = findCardDataInDeck(card, state.deck)
+  console.log(card, state.deck)
+  const isAffordable = cardData.mana <= state.mana
 
   // This checks if a unit has been frozen this turn to allow Icicle Burst
   // to be played
 
   // Note: The destroying ability of Wisp Cloud is implemented: Freezing with Frosthexers will
   // make Icicle Burst playable, but playing Wisp Cloud will make it unplayable again
-  if (id === 'W1' && !state.specifics.frozenEnemiesLevel) {
+  if (card.id === 'W1' && !state.specifics.frozenEnemiesLevel) {
     return false
   }
 
   if (state.turn === 1) {
     // If the board is full no units/structures can be played
     // Spells that spawn units can still be played, they simply don't spawn anything
-    if (!state.specifics.emptyCellsIndicator && card.type !== 'spell') {
+    if (!state.specifics.emptyCellsIndicator && cardData.type !== 'spell') {
       return false
     }
 
@@ -38,7 +44,7 @@ const canCardBePlayed = (state, id) => {
       unplayableSpells.push('F4')
     }
 
-    if (unplayableSpells.includes(id)) return false
+    if (unplayableSpells.includes(card.id)) return false
   }
 
   return isAffordable
