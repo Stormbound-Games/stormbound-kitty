@@ -4,7 +4,12 @@ import './index.css'
 export default React.memo(function Mana(props) {
   return (
     <div
-      className={['Mana', props.disabled && 'Mana--disabled', props.className]
+      className={[
+        'Mana',
+        props.disabled && 'Mana--disabled',
+        props.pulse && 'Mana--pulse',
+        props.className,
+      ]
         .filter(Boolean)
         .join(' ')}
       data-testid={props['data-testid'] || 'mana'}

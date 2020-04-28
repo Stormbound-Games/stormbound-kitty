@@ -22,6 +22,10 @@
   filter: grayscale(1);
 }
 
+.Mana--pulse {
+  animation: pulse 1s;
+}
+
 /**
  * 1. Absolute centering within its parent.
  */
@@ -43,4 +47,11 @@
   top: 50%; /* 1 */
   left: 50%; /* 1 */
   transform: translate(-50%, -50%) translateY(-10%); /* 1 */
+}
+
+@keyframes pulse {
+  50% {
+    filter: contrast(2);
+    transform: scale(1.1)
+  }
 }

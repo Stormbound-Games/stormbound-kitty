@@ -40,6 +40,7 @@ const getDefaultState = props => ({
   playerOrder: 'FIRST',
   playedCards: [],
   cardsThisTurn: 0,
+  pulse: false,
 })
 
 export default class DeckMechanisms extends React.Component {
@@ -564,27 +565,33 @@ export default class DeckMechanisms extends React.Component {
   }
 
   endTurn = () => {
-    this.setState(state => {
-      const newState = clone(state)
+    this.setState(
+      state => {
+        const newState = clone(state)
 
-      // Increment the current turn by 1
-      newState.turn += 1
+        // Increment the current turn by 1
+        newState.turn += 1
 
-      // Reset the mana to 3 + the current turn
-      newState.mana = DEFAULT_MANA + state.turn
+        // Reset the mana to 3 + the current turn
+        newState.mana = DEFAULT_MANA + state.turn
 
-      // Reset the cycling state and potential frozen enemies
-      newState.hasCycledThisTurn = false
-      newState.specifics.frozenEnemiesLevel = 0
+        // Reset the cycling state and potential frozen enemies
+        newState.hasCycledThisTurn = false
+        newState.specifics.frozenEnemiesLevel = 0
 
-      // Reset the variable counting how many cards were played this turn
-      newState.cardsThisTurn = 0
+        // Reset the variable counting how many cards were played this turn
+        newState.cardsThisTurn = 0
 
-      // Resolve mana from Dawnsparks/Frozen Cores
-      this.resolveManaRNG(newState)
+        newState.pulse = true
 
-      return newState
-    })
+        // Resolve mana from Dawnsparks/Frozen Cores
+        this.resolveManaRNG(newState)
+
+        return newState
+      },
+      () =>
+        setTimeout(() => this.setState({ ...this.state, pulse: false }), 1000)
+    )
 
     if (this.props.mode === 'MANUAL') return
 

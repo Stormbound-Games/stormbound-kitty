@@ -19,6 +19,7 @@ export default React.memo(function DryRunnerHeader(props) {
               disabled={props.hand.every(
                 cardId => !props.canCardBePlayed(cardId)
               )}
+              pulse={props.pulse}
             />
           </span>
         </Column>
