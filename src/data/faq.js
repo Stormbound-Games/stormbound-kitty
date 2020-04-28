@@ -252,10 +252,10 @@ export default [
             </p>
 
             <p>
-              Every time a card is drawn or cycled, its weight is reseted to 0.
-              All the other cards in the deck see their weight increase by
-              w=f(w)*1.6 (rounded). Some cards have awkward mechanics such as
-              Queen of Herds.
+              Every time a card is drawn or cycled, its weight is reset to 0.
+              All the other cards in the deck see their weight increase to f(w)
+              = 1.6 * w + 1 (rounded), where w is their previous weight. Some
+              cards, such as Queen of Herds, have awkward mechanics.
             </p>
           </>
         ),
