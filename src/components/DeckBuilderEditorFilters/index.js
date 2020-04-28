@@ -137,11 +137,13 @@ export default React.memo(function DeckBuilderEditorFilters(props) {
                 data-testid='ability-select'
               >
                 <option value='*'>Any</option>
-                <option value='POISON'>Poison</option>
-                <option value='FREEZE'>Freeze</option>
-                <option value='PUSH_PULL'>Push/Pull</option>
+                <option value='CHIP'>Chip</option>
                 <option value='COMMAND'>Command</option>
                 <option value='CONFUSION'>Confusion</option>
+                <option value='DRAIN'>Drain</option>
+                <option value='FREEZE'>Freeze</option>
+                <option value='POISON'>Poison</option>
+                <option value='PUSH_PULL'>Push/Pull</option>
                 <option value='SURVIVING'>Surviving</option>
               </select>
             </Column>

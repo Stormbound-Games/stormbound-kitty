@@ -102,3 +102,14 @@ export const PRE_MADE_EXPECTATIONS = {
     expectations: [0, 0, 0, countCardsForRarity('legendary')],
   },
 }
+
+export const CHIP_CARDS = [
+  'I15',
+  'N44',
+  'F28',
+  'S13',
+  'S18',
+  'I19',
+  'N45',
+  'W21',
+]

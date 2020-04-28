@@ -8,6 +8,7 @@ import sortCards, {
   sortByLockedCoins,
 } from '../../helpers/sortCards'
 import useViewportWidth from '../../hooks/useViewportWidth'
+import { CHIP_CARDS } from '../../constants/game'
 
 const DEFAULT_FILTERS = {
   faction: '*',
@@ -100,6 +101,7 @@ class CardsFiltering extends React.Component {
     return (
       this.state.ability === '*' ||
       (this.state.ability === 'POISON' && /poison/i.test(card.ability || '')) ||
+      (this.state.ability === 'DRAIN' && /drain/i.test(card.ability || '')) ||
       (this.state.ability === 'CONFUSION' &&
         /confus/i.test(card.ability || '')) ||
       (this.state.ability === 'SURVIVING' &&
@@ -107,7 +109,9 @@ class CardsFiltering extends React.Component {
       (this.state.ability === 'PUSH_PULL' &&
         /push|pull/i.test(card.ability || '')) ||
       (this.state.ability === 'FREEZE' && /freeze/i.test(card.ability || '')) ||
-      (this.state.ability === 'COMMAND' && /command/i.test(card.ability || ''))
+      (this.state.ability === 'COMMAND' &&
+        /command/i.test(card.ability || '')) ||
+      (this.state.ability === 'CHIP' && CHIP_CARDS.includes(card.id))
     )
   }
   matchesHero = card =>
