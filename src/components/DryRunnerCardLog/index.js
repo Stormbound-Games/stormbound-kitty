@@ -1,5 +1,4 @@
 import React from 'react'
-import CardLogSeparator from '../CardLogSeparator'
 import CardZoom from '../CardZoom'
 import Column from '../Column'
 import Image from '../Image'
@@ -10,7 +9,6 @@ import './index.css'
 export default React.memo(function DryRunnerCardLog(props) {
   const [zoomedCard, setZoomedCard] = React.useState(null)
   const cards = arrayPad(props.cards.slice(0, 6), 6, null, +1)
-  console.log(props.cardsThisTurn)
 
   return (
     <>
@@ -33,7 +31,14 @@ export default React.memo(function DryRunnerCardLog(props) {
               >
                 {card && (
                   <Image
-                    wrapperClassName='DryRunnerCardLog__image-wrapper'
+                    wrapperClassName={[
+                      'DryRunnerCardLog__image-wrapper',
+                      props.cardsThisTurn === index + 1 &&
+                        index !== 5 &&
+                        'DryRunnerCardLog__image-wrapper--turn',
+                    ]
+                      .filter(Boolean)
+                      .join(' ')}
                     className={'DryRunnerCardLog__image'}
                     src={card.image}
                     alt={card.name}
@@ -42,9 +47,6 @@ export default React.memo(function DryRunnerCardLog(props) {
                   />
                 )}
               </Column>
-              {props.cardsThisTurn === index + 1 && index !== 5 && (
-                <CardLogSeparator />
-              )}
             </>
           ))}
         </Row>
