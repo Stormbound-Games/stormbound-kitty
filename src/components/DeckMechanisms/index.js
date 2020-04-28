@@ -489,6 +489,15 @@ export default class DeckMechanisms extends React.Component {
           '#' +
           this.state.deck.filter(card => card.id.split('#')[0] === id).length
 
+        if (copiedCard.token) {
+          if (Math.random() < PROBABILITIES.NO_MOVEMENT_TOKEN) {
+            // Klaxi and Rain of Frogs spawn tokens with no movement
+            copiedCard.movement = 0
+          }
+          copiedCard.level = [5, 6, 6, 8, 10][copiedCard.level - 1]
+          copiedCard.rarity = undefined
+        }
+
         this.setState(state => ({ deck: [...state.deck, copiedCard] }))
         break
       }
