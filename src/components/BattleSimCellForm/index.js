@@ -96,7 +96,7 @@ export default React.memo(function BattleSimCellForm(props) {
           <Column width='1/4'>
             <label htmlFor='level'>Level</label>
             <select
-              disabled={card.id && card.id.startsWith('T')}
+              disabled={(card || '').startsWith('T')}
               name='level'
               id='level'
               value={level}
