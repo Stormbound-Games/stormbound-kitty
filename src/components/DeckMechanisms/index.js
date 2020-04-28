@@ -149,7 +149,7 @@ export default class DeckMechanisms extends React.Component {
       state => {
         const newState = clone(state)
 
-        // Remove the played card from the hand.
+        // Remove the played card from the hand
         newState.hand = state.hand.filter(cardId => cardId !== id)
 
         if (options.discard) {
@@ -160,131 +160,154 @@ export default class DeckMechanisms extends React.Component {
         newState.playedCards = [card, ...state.playedCards]
         newState.cardsThisTurn += 1
 
-        // Turn one: Check if board is not full (by Rain of Frogs for example)
-        if (state.turn === 1) {
-          // Any 3 mana card can be played since it would be the only one to be played
-          // and would not fill the board by itself. Collector Mirz creating a 0 mana
-          // token is not an issue for board filling.
-
-          // Any 2 mana card will have to be played together with a 1 mana card. This will cause a board filling
-          // issue only when this card is Rain of Frogs
-
-          // The remaining playable cards are Green Prototypes, Summon Militia, Toxic Sacrifice and Rain of Frogs
-          // In these cases only the emptyCellsIndicator variable represents how many cells are free
-          // In the other cases it is not needed and will never be set to 0
-          const { emptyCellsIndicator } = newState.specifics
-
-          switch (id) {
-            case 'N1':
-              // Green Prototypes necessarily advance the frontline (since only the four 1 mana cards are
-              // taken into account)
-              newState.specifics.emptyCellsIndicator += 4
-              break
-            case 'N2':
-              // Summon Militia won't cause any board filling issues
-              newState.specifics.emptyCellsIndicator = Math.max(
-                emptyCellsIndicator - 1,
-                0
-              )
-              break
-            case 'F4':
-              // Toxic Sacrifice frees up at least one cell
-              newState.specifics.emptyCellsIndicator += 1
-              break
-            case 'F8':
-              // Rain of Frogs
-              const frogs = [4, 5, 5, 6, 6]
-              newState.specifics.emptyCellsIndicator = Math.max(
-                emptyCellsIndicator - frogs[card.level - 1],
-                0
-              )
-              break
-            default:
-              // All the other cards don’t have an effect on board filling
-              break
-          }
-        }
-
-        switch (id) {
-          case 'W9':
-            // If the card played is a Frozen Core, increment the amount of active
-            // Frozen Cores by 1.
-            newState.specifics.activeFrozenCores += 1
-            break
-          case 'W16':
-            newState.specifics.activeDawnsparks += 1
-            break
-          case 'W1':
-            // Icicle Burst should destroy the frozen enemy unit if there is only one on the board
-            if (state.specifics.frozenEnemiesLevel === 1) {
-              newState.specifics.frozenEnemiesLevel = 0
-            }
-            break
-          case 'W2':
-          case 'W6':
-          case 'W11':
-          case 'W4':
-            // Find how many frozen enemies there are on the board
-            // This is not a precise number but gives an approximation
-            // (one, a few, many, all) of this amount
-            // Based on this approximation and the card that has just
-            // been played, store how many frozen enemies stayed on the board
-
-            // For example, playing Midwinter Chaos (W11) will freeze a lot of units,
-            // but if there are already many frozen units on the board, it will generally destroy them
-            const frozenEnemiesNowRegular =
-              FROZEN_ENEMIES_AFTER[id][state.specifics.frozenEnemiesLevel]
-
-            // If the RNG is friendly to the user, the enemy units were spawned  in such a way
-            // that an additional unit gets frozen every time a freezing card is played
-            if (this.state.RNG === 'FRIENDLY') {
-              newState.specifics.frozenEnemiesLevel = Math.min(
-                frozenEnemiesNowRegular + 1,
-                4
-              )
-            }
-            // If the RNG is unfriendly to the user, the opposite happens: Freezing cards are not as
-            // efficient and less enemy units get frozen
-            else if (this.state.RNG === 'UNFRIENDLY') {
-              newState.specifics.frozenEnemiesLevel = Math.max(
-                frozenEnemiesNowRegular - 1,
-                0
-              )
-            }
-            // In the regular case, just store the new approximation in the specifics.frozenEnemiesLevel
-            // variable
-            else {
-              newState.specifics.frozenEnemiesLevel = frozenEnemiesNowRegular
-            }
-            break
-          default:
-            break
-        }
-
         // Unless the play is actually free or a discard, decrease the amount
         // of available mana by the cost the card
         if (!(options.free || options.discard)) {
           newState.mana -= card.mana
         }
 
-        if (state.turn === 1) {
-          // Check if this card spawns units on the board, this is used to check if
-          // Toxic Sacrifice can be played on this turn
-          const unitSpawningSpells = ['N2', 'S24', 'F8']
-          // Summon Militia, Head Start (can't occur in the game) and Rain of Frogs
-
-          if (card.type === 'unit' || unitSpawningSpells.includes(id)) {
-            newState.specifics.noUnitsOnFirstTurn = false
-          }
+        // Check if this card spawns units on the board, this is used to check
+        // if Toxic Sacrifice can be played on this turn.
+        if (this.state.turn === 1 && card.type === 'unit') {
+          newState.specifics.noUnitsOnFirstTurn = false
         }
+
         return newState
       },
       options.discard ? undefined : () => this.handleCardEffect(card)
     )
   }
 
+  setSpecific = (key, handle) => {
+    this.setState(state => ({
+      specifics: {
+        ...state.specifics,
+        [key]: handle(state.specifics[key]),
+      },
+    }))
+  }
+
   handleCardEffect = card => {
+    // On turn 1, any 3 mana card can be played since it would be the only one
+    // to be played and would not fill the board by itself. Any 2 mana card will
+    // have to be played together with a 1 mana card. This will cause a board
+    // filling issue only when this card is Rain of Frogs.
+    // The remaining playable cards are Green Prototypes, Summon Militia, Toxic
+    // Sacrifice and Rain of Frogs. In these cases, the `emptyCellsIndicator`
+    // variable represents how many cells are free. In the other cases it is not
+    // needed and will never be set to 0.
     switch (card.id) {
+      // Green Prototypes (necessarily advance the frontline since only the
+      // four 1 mana cards are taken into account)
+      case 'N1': {
+        if (this.state.turn === 1) {
+          this.setSpecific('emptyCellsIndicator', value => value + 4)
+        }
+        break
+      }
+
+      // Summon Militia (won’t cause any board filling issues)
+      case 'N2': {
+        if (this.state.turn === 1) {
+          this.setSpecific('noUnitsOnFirstTurn', () => false)
+          this.setSpecific('emptyCellsIndicator', value =>
+            Math.max(value - 1, 0)
+          )
+        }
+        break
+      }
+
+      // Toxic Sacrifice (frees up at least one cell)
+      case 'F4': {
+        if (this.state.turn === 1) {
+          this.setSpecific('emptyCellsIndicator', value => value + 1)
+        }
+        break
+      }
+
+      // Rain of Frogs
+      case 'F8': {
+        const frogs = [4, 5, 5, 6, 6]
+
+        if (this.state.turn === 1) {
+          this.setSpecific('noUnitsOnFirstTurn', () => false)
+          this.setSpecific('emptyCellsIndicator', value =>
+            Math.max(value - frogs[card.level - 1], 0)
+          )
+        }
+        break
+      }
+
+      // Head Start
+      case 'S24': {
+        if (this.state.turn === 1) {
+          this.setSpecific('noUnitsOnFirstTurn', () => false)
+        }
+        break
+      }
+
+      // Icicle Burst
+      case 'W1': {
+        // Icicle Burst should destroy the frozen enemy unit if there is only
+        // one on the board.
+        if (this.state.specifics.frozenEnemiesLevel === 1) {
+          this.setSpecific('frozenEnemiesLevel', () => 0)
+        }
+        break
+      }
+
+      // Frozen Core
+      case 'W9': {
+        this.setSpecific('activeFrozenCores', value => value + 1)
+        break
+      }
+
+      // Find how many frozen enemies there are on the board. This is not a
+      // precise number but gives an approximation (one, a few, many, all) of
+      // this amount. Based on this approximation and the card that has just
+      // been played, store how many frozen enemies stayed on the board.
+      case 'W2':
+      case 'W4':
+      case 'W6':
+      case 'W11': {
+        // For example, playing Midwinter Chaos will freeze a lot of units,
+        // but if there are already many frozen units on the board, it will
+        // generally destroy them.
+        const frozenEnemiesNowRegular =
+          FROZEN_ENEMIES_AFTER[card.id][this.state.specifics.frozenEnemiesLevel]
+
+        console.log(card.id, frozenEnemiesNowRegular)
+
+        // If the RNG is friendly, the enemy units were spawned in such a way
+        // that an additional unit gets frozen every time a freezing card is
+        // played.
+        if (this.state.RNG === 'FRIENDLY') {
+          this.setSpecific('frozenEnemiesLevel', () =>
+            Math.min(frozenEnemiesNowRegular + 1, 4)
+          )
+        }
+
+        // If the RNG is unfriendly to the user, the opposite happens: Freezing cards are not as
+        // efficient and less enemy units get frozen
+        else if (this.state.RNG === 'UNFRIENDLY') {
+          this.setSpecific('frozenEnemiesLevel', () =>
+            Math.max(frozenEnemiesNowRegular - 1, 0)
+          )
+        }
+        // In the regular case, just store the new approximation in the
+        // `frozenEnemiesLevel` specific.
+        else {
+          this.setSpecific('frozenEnemiesLevel', () => frozenEnemiesNowRegular)
+        }
+        break
+      }
+
+      // Dawnsparks
+      case 'W16': {
+        this.setSpecific('activeDawnsparks', value => value + 1)
+        break
+      }
+
       // Freebooters
       case 'N14': {
         const hand = this.state.hand.length
@@ -446,27 +469,21 @@ export default class DeckMechanisms extends React.Component {
         break
       }
 
-      // Spellbinder Zhevana
+      // Spellbinder Zhevana gains mana depending on the approximation of the
+      // number of frozen enemy units on the board. The RNG appearing in the
+      // game — how many units are played in the same column — is replaced by aa
+      // RNG variation when cards like Frosthexers or Midwinter Chaos are
+      // actually played.
       case 'W8': {
-        // Zhevana gains mana depending on the approximation of the number of frozen enemy units
-        // on the board. The RNG appearing in the game - how many units are played in the same
-        // column - is replaced by an RNG variation when units like Frosthexers or Midwinter Chaos
-        // are actually played
-
-        // Zhevana destroys some of the frozen units - the amount of remaining frozen units
-        // was chosen arbitrarily and is set to 50%
-
-        // Note: The frozenEnemiesLevel does still not indicate how many enemy frozen units there are on
-        // the board - it only gives an approximation, from 0 (no) to 4 (almost all)
+        // Zhevana destroys some of the frozen units — the amount of remaining
+        // frozen units was chosen arbitrarily and is set to 50%.
+        // Note: The `frozenEnemiesLevel` does still not indicate how many enemy
+        // frozen units there are on the board — it only gives an approximation,
+        // from 0 (no) to 4 (almost all).
         this.setState(state => ({
           mana: state.mana + state.specifics.frozenEnemiesLevel * 4,
-          specifics: {
-            ...state.specifics,
-            frozenEnemiesLevel: Math.floor(
-              state.specifics.frozenEnemiesLevel / 2
-            ),
-          },
         }))
+        this.setSpecific('frozenEnemiesLevel', value => Math.floor(value / 2))
         break
       }
 
