@@ -304,7 +304,7 @@ class BattleSimState extends React.Component {
 
     this.updateActiveCell({
       strength: +formData.strength,
-      level: +formData.level,
+      level: +(formData.level || 1),
       player: this.state.activePlayer,
       card: card,
       poisoned: !!formData.poisoned,

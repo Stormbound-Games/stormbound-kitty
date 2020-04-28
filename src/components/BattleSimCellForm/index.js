@@ -35,12 +35,13 @@ export default React.memo(function BattleSimCellForm(props) {
       activeCell: props.activeCell,
     })
     const isStructure = activeCellCard.card.type !== 'structure'
+    const isToken = (activeCellCard.card.id || '').startsWith('T')
 
     setStrength(activeCellCard.strength || 1)
     setPoisoned(isStructure ? activeCellCard.poisoned : false)
     setFrozen(isStructure ? activeCellCard.frozen : false)
     setConfused(isStructure ? activeCellCard.confused : false)
-    setLevel(activeCellCard.level || 1)
+    setLevel(isToken ? 1 : activeCellCard.level || 1)
     setCard(activeCellCard.card.id || '')
     setCardSelectValue(activeCellCard.card.id || '')
   }, [props.activeCell, props.board, setCardSelectValue])
