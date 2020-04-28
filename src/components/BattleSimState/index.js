@@ -386,7 +386,11 @@ class BattleSimState extends React.Component {
     if (this.props.mode === 'DISPLAY') {
       if (cell.card.id) {
         this.setState({
-          zoomed: { id: cell.card.id, level: cell.level, player: cell.player },
+          zoomed: {
+            id: cell.card.id,
+            level: cell.card.token ? cell.strength : cell.level,
+            player: cell.player,
+          },
         })
       }
 
