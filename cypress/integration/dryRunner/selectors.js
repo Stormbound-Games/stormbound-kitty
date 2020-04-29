@@ -10,5 +10,6 @@ export default {
   RESET_BTN: '[data-testid="reset-btn"]',
   RESET_CONFIRM_BTN: '[data-testid="reset-confirm-btn"]',
   EQUALS_MODE_CHECKBOX: '[data-testid="equals-mode"]',
+  BRAWL_MODIFIER_SELECT: '[data-testid="brawl-modifier"]',
   CARD_LOG: '[data-testid="card-log"]',
 }
