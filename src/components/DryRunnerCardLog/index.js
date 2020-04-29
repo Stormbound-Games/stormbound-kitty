@@ -20,7 +20,7 @@ export default React.memo(function DryRunnerCardLog(props) {
         />
       )}
       <h2 className='DryRunnerCardLog__title'>Last played cards</h2>
-      <div className='DryRunnerCardLog__container'>
+      <div className='DryRunnerCardLog__container' data-testid='card-log'>
         <Row>
           {cards.map((card, index) => (
             <Column

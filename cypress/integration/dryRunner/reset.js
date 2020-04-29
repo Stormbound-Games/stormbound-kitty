@@ -26,6 +26,9 @@ describe('Dry-runner — Reset', () => {
       .should('contain', 3)
       .get('.DryRunnerHand__wrapper--active')
       .should('not.exist')
+      .get(s.CARD_LOG)
+      .find('img')
+      .should('have.length', 0)
   })
 
   it('should be able to reset a game in equals mode', () => {
