@@ -11,7 +11,12 @@ const useFileUpload = onChange => {
   const { notify } = React.useContext(NotificationContext)
 
   return event => {
-    const file = event.target.files[0]
+    const { nativeEvent } = event
+    const file = nativeEvent.file
+      ? new File([nativeEvent.file.data], nativeEvent.file.name, {
+          type: nativeEvent.file.type,
+        })
+      : event.target.files[0]
 
     if (!file) return
 
@@ -94,6 +99,7 @@ export default React.memo(function ImportCollection(props) {
         accept='.csv'
         onChange={onFileUpload}
         className='ImportCollection__file'
+        data-testid='import-btn'
       />
     </div>
   )

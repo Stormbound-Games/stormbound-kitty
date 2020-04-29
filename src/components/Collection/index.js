@@ -168,6 +168,7 @@ class Collection extends React.Component {
                 <Column>
                   <CTA
                     type='button'
+                    data-testid='export-btn'
                     onClick={this.download}
                     disabled={this.props.hasDefaultCollection}
                   >
