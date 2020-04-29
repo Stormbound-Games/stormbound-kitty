@@ -45,10 +45,9 @@ const Wrapper = props => {
   const viewportWidth = useViewportWidth()
   const [isExpanded, expand] = React.useState(false)
 
-  React.useEffect(() => viewportWidth <= 700 && expand(false), [
-    pathname,
-    viewportWidth,
-  ])
+  React.useEffect(() => {
+    if (viewportWidth <= 700) expand(false)
+  }, [pathname, viewportWidth])
 
   if (viewportWidth > 700) {
     return props.children

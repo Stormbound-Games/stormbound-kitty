@@ -98,9 +98,10 @@ export default React.memo(function FanKit(props) {
   )
 
   React.useEffect(() => {
-    if (!dialogRef.current) return
-    if (active) dialogRef.current.show()
-    else dialogRef.current.hide()
+    if (dialogRef.current) {
+      if (active) dialogRef.current.show()
+      else dialogRef.current.hide()
+    }
   }, [active])
 
   return (
