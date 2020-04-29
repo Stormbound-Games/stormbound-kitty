@@ -23,6 +23,7 @@ export default React.memo(function DryRunnerEqualsMode(props) {
       </Checkbox>
       <Dialog
         id='equals-mode-dialog'
+        data-testid='equals-mode-dialog'
         title='Equals mode'
         dialogRef={instance => (dialogRef.current = instance)}
         image='/assets/images/cards/execution.png'

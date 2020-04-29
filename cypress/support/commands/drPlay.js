@@ -12,7 +12,7 @@ const play = id => {
   const { name } = getRawCardData(id)
 
   Cypress.log({
-    name: `PLAY`,
+    name: 'PLAY',
     message: `Play ‘${name}’ (${id})`,
     consoleProps: () => ({ id, name }),
   })

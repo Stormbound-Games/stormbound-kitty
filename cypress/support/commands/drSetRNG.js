@@ -1,6 +1,6 @@
 const setRNG = mode => {
   Cypress.log({
-    name: `SET_RNG`,
+    name: 'SET_RNG',
     message: `Set RNG mode to ${mode}`,
     consoleProps: () => ({ mode }),
   })
