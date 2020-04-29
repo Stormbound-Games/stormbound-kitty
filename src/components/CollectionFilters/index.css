@@ -6,6 +6,11 @@
   margin-bottom: 0.5em;
 }
 
+.CollectionFilters__toggle {
+  display: block;
+  margin: 0 auto 0.75em;
+}
+
 .CollectionFilters__reset {
   margin: 0.5em auto 0;
 }

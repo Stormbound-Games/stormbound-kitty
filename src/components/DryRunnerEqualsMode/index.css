@@ -1,0 +1,10 @@
+.DryRunnerEqualsMode {
+  margin-bottom: 2em;
+  display: block;
+}
+
+.DryRunnerEqualsMode__info {
+  color: var(--white);
+  display: block;
+  text-transform: initial;
+}

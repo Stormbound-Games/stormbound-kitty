@@ -6,6 +6,11 @@
   margin-bottom: 0.5em;
 }
 
+.DeckBuilderEditorFilters__toggle {
+  display: block;
+  margin: 0 auto 0.75em;
+}
+
 .DeckBuilderEditorFilters
   > .Row:last-child
   .Column:last-child

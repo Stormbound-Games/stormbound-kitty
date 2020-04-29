@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import NavBattleSim from '../NavBattleSim'
 import NavCardBuilder from '../NavCardBuilder'
 import NavCollection from '../NavCollection'
@@ -41,8 +41,13 @@ const SubNav = props => {
 }
 
 const Wrapper = props => {
+  const { pathname } = useLocation()
   const viewportWidth = useViewportWidth()
   const [isExpanded, expand] = React.useState(false)
+
+  React.useEffect(() => {
+    if (viewportWidth <= 700) expand(false)
+  }, [pathname, viewportWidth])
 
   if (viewportWidth > 700) {
     return props.children

@@ -105,6 +105,10 @@ class DeckBuilderDryRunView extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    if (prevProps.equalsMode !== this.props.equalsMode) {
+      this.resetGame()
+    }
+
     if (prevProps.turn < this.props.turn) {
       this.setState(state => ({
         // Un-select the active card to make the turn transition clearer

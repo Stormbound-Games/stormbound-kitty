@@ -25,10 +25,8 @@ export default React.memo(function CardBuilderContest(props) {
             The following is a collection of all of the information to
             participate and/or vote in the weekly card competitions. Would you
             have any questions or{' '}
-            <strong style={{ color: 'var(--beige)' }}>
-              want to be a judge
-            </strong>
-            , feel free to message @Taco_G_#0373 on the{' '}
+            <strong className='Highlight'>want to be a judge</strong>, feel free
+            to message @Taco_G_#0373 on the{' '}
             <a
               href='https://discord.gg/stormbound'
               target='_blank'

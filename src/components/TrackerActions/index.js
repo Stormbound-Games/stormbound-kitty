@@ -10,8 +10,8 @@ export default React.memo(function TrackerActions(props) {
 
   return (
     <div className='TrackerActions'>
-      <Row>
-        <Column>
+      <Row desktopOnly>
+        <Column align='center'>
           <CTA
             type='button'
             onClick={props.cycleCard}
@@ -24,7 +24,7 @@ export default React.memo(function TrackerActions(props) {
             <u>C</u>ycle card
           </CTA>
         </Column>
-        <Column style={{ alignItems: 'flex-end' }}>
+        <Column align='center'>
           <CTA
             type='button'
             onClick={props.playCard}

@@ -32,12 +32,12 @@ export default React.memo(function News(props) {
         ))}
       </ul>
       <Row desktopOnly>
-        <Column>
+        <Column align='center'>
           <CTA type='button' onClick={loadNext} disabled={activePage === 0}>
             Recent news
           </CTA>
         </Column>
-        <Column>
+        <Column align='center'>
           <CTA
             type='button'
             onClick={loadPrev}

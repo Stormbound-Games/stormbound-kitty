@@ -35,7 +35,7 @@ export default React.memo(function CardDisplayControls(props) {
   return (
     <Only.Desktop>
       <Row>
-        <Column width='1/5' style={{ alignItems: 'center' }}>
+        <Column width='1/5' align='center'>
           {previousCard && (
             <CTA to={`/card/${previousCard.id}/display`}>Previous card</CTA>
           )}
@@ -45,7 +45,7 @@ export default React.memo(function CardDisplayControls(props) {
           <CardProgress card={cardInCollection} />
         </Column>
         <Column width='1/5' />
-        <Column width='1/5' style={{ alignItems: 'center' }}>
+        <Column width='1/5' align='center'>
           {nextCard && <CTA to={`/card/${nextCard.id}/display`}>Next card</CTA>}
         </Column>
       </Row>
