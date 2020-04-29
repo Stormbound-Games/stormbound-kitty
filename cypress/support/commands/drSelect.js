@@ -9,12 +9,17 @@ const select = (id, options = { log: true }) => {
       .then($card => cy.drSelect($card.attr('id'), options))
   }
 
+  Cypress.log({ name: 'Cantains', message: id })
+  if (!id.includes('_')) {
+    id = id + '_0'
+  }
+
   const { log } = options
   const { name } = getRawCardData(id)
 
   if (log) {
     Cypress.log({
-      name: `SELECT`,
+      name: 'SELECT',
       message: `Select ‘${name}’ (${id})`,
       consoleProps: () => ({ id, name }),
     })

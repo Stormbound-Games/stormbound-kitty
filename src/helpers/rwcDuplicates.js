@@ -9,9 +9,9 @@ import rwc from 'random-weighted-choice'
  */
 
 export default cards => {
-  const mergeIds = (id, idx) => id + '#' + idx
+  const mergeIds = (id, idx) => id + '_' + idx
   const mergeCardIds = card => ({ ...card, id: mergeIds(card.id, card.idx) })
-  const extractIds = longId => longId.split('#')
+  const extractIds = longId => longId.split('_')
   const extractCardIds = card => {
     const extractedData = extractIds(card.id)
     return { ...card, id: extractedData[0], idx: extractedData[1] }

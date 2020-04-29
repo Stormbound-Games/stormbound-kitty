@@ -2,7 +2,6 @@ import { PROBABILITIES } from '../../constants/dryRunner'
 import arrayRandom from '../../helpers/arrayRandom'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import areCardsEqual from '../../helpers/areCardsEqual'
-import hasInHand from '../../helpers/hasInHand'
 import cards from '../../data/cards.json'
 import play from './play'
 import cycle from './cycle'
@@ -325,7 +324,11 @@ function getNonPiratesInHand(hand, deck) {
 }
 
 function getSatyrs(hand, deck) {
-  return deck.filter(card => !hasInHand(card, hand) && card.race === 'satyr')
+  return deck.filter(
+    card =>
+      !hand.find(cardInHand => areCardsEqual(cardInHand, card)) &&
+      card.race === 'satyr'
+  )
 }
 
 function getPlayableSpells(hand, deck, frozenEnemiesLevel) {

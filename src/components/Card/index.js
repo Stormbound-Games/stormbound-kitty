@@ -28,7 +28,7 @@ export default React.memo(function Card(props) {
       ref={ref}
       style={{ fontSize }}
       data-testid='card'
-      id={props.id + '#' + props.idx}
+      id={props.id + '_' + props.idx}
     >
       <div
         className='Card__content'

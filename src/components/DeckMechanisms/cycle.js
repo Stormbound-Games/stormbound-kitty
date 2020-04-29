@@ -1,6 +1,6 @@
 import getIncreasedDeckWeight from './getIncreasedDeckWeight'
-import hasInHand from '../../helpers/hasInHand'
 import rwcDuplicates from '../../helpers/rwcDuplicates'
+import areCardsEqual from '../../helpers/areCardsEqual'
 
 export const DEFAULT_CYCLE_OPTIONS = { countAsCycled: true }
 
@@ -25,7 +25,8 @@ const cycle = (state, card, options = DEFAULT_CYCLE_OPTIONS) => {
   // the new card into the hand.
   const availableCards = state.deck.filter(
     cardInDeck =>
-      !hasInHand(cardInDeck, state.hand) && !isCycledCard(cardInDeck)
+      !state.hand.find(cardInHand => areCardsEqual(cardInHand, cardInDeck)) &&
+      !isCycledCard(cardInDeck)
   )
 
   const pick = rwcDuplicates(availableCards)

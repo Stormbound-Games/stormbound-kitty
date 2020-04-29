@@ -2,6 +2,7 @@ import React from 'react'
 import Mana from '../Mana'
 import sortByMana from '../../helpers/sortByMana'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import areCardsEqual from '../../helpers/areCardsEqual'
 import useFluidSizing from '../../hooks/useFluidSizing'
 import './index.css'
 
@@ -36,7 +37,9 @@ export default React.memo(function Deck(props) {
                 `Deck__card--${card.type}`,
                 card.rarity === 'legendary' && `Deck__card--legendary`,
                 highlightedCards.length > 0 &&
-                  !highlightedCards.includes(card.id) &&
+                  !highlightedCards.find(highlightedCard =>
+                    areCardsEqual(highlightedCard, card)
+                  ) &&
                   'Deck__card--excluded',
                 card.missing && 'Deck__card--missing',
               ]
