@@ -18,9 +18,7 @@ export default React.memo(function DryRunnerEqualsMode(props) {
       >
         Equal levels
         <span className='DryRunnerEqualsMode__info'>
-          {props.equalsMode
-            ? 'Reset the game with cards in current level'
-            : 'Reset the game with cards level 1'}
+          Set all cards to level 1
         </span>
       </Checkbox>
       <Dialog

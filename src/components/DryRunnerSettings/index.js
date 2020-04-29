@@ -20,9 +20,7 @@ export default React.memo(function DryRunnerSettings(props) {
       >
         Drawing odds
         <span className='DryRunnerSettings__info'>
-          {props.displayChance
-            ? 'Hide drawing odds from the deck'
-            : 'Display drawing odds in the deck'}
+          Display drawing odds in the deck
         </span>
       </Checkbox>
 
