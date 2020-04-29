@@ -1,14 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Image from '../Image'
-import { serialiseCardFromCollection } from '../../helpers/serialise'
 import './index.css'
 
 export default React.memo(function ListBuilderTierItem(props) {
   if (!props.isEditable) {
     return (
       <Link
-        to={'/card/' + serialiseCardFromCollection(props.card.id) + '/display'}
+        to={'/card/' + props.card.id + '/display'}
         className='ListBuilderTierItem'
         style={{ '--color': `var(--${props.card.faction})` }}
         title={props.card.name}
