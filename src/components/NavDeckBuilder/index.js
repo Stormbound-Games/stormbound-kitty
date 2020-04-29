@@ -82,6 +82,10 @@ export default React.memo(function NavDeckBuilder(props) {
         </li>
 
         <li className='Header__item Header__item--right'>
+          <NavLink to='/guides/deck'>Guide</NavLink>
+        </li>
+
+        <li className='Header__item'>
           <NavLink
             to='/deck/suggestions'
             active={props.active === 'SUGGESTIONS'}

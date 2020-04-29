@@ -155,10 +155,7 @@ const handleCardEffect = (state, card, mode) => {
 
       if (mode !== 'MANUAL' && hand.length < 4) {
         draw(state)
-
-        if (card.level >= 4 && hand.length < 3) {
-          draw(state)
-        }
+        if (card.level >= 4 && hand.length < 3) draw(state)
       }
 
       break
@@ -183,9 +180,7 @@ const handleCardEffect = (state, card, mode) => {
           cycle(state, cardInHand, { countAsCycled: false })
         )
 
-        if (card.level >= 4) {
-          draw(state)
-        }
+        if (card.level >= 4) draw(state)
       }
       break
     }
@@ -219,13 +214,7 @@ const handleCardEffect = (state, card, mode) => {
 
     // Collector Mirz
     case 'N8': {
-      const id = 'T' + arrayRandom([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14])
-      const token = resolveCardForLevel({ id })
-      token.level = [5, 6, 6, 8, 10][card.level - 1]
-      token.weight = 0
-      token.id = id + ':' + Math.random().toString(36).substring(7)
-
-      state.deck.push(token)
+      state.deck.push(getCollectorMirzToken(card.level))
       break
     }
 
@@ -237,8 +226,7 @@ const handleCardEffect = (state, card, mode) => {
       )
 
       if (mode !== 'MANUAL' && nonPirates.length > 0) {
-        const card = arrayRandom(nonPirates)
-        play(state, card, { mode, discard: true })
+        play(state, arrayRandom(nonPirates), { mode, discard: true })
       }
       break
     }
@@ -310,15 +298,14 @@ const handleCardEffect = (state, card, mode) => {
     // RNG variation when cards like Frosthexers or Midwinter Chaos are
     // actually played.
     case 'W8': {
+      const { frozenEnemiesLevel } = state.specifics
       // Zhevana destroys some of the frozen units — the amount of remaining
       // frozen units was chosen arbitrarily and is set to 50%.
       // Note: The `frozenEnemiesLevel` does still not indicate how many enemy
       // frozen units there are on the board — it only gives an approximation,
       // from 0 (no) to 4 (almost all).
-      state.mana += state.specifics.frozenEnemiesLevel * 4
-      state.specifics.frozenEnemiesLevel = Math.floor(
-        state.specifics.frozenEnemiesLevel / 2
-      )
+      state.mana += frozenEnemiesLevel * 4
+      state.specifics.frozenEnemiesLevel = Math.floor(frozenEnemiesLevel / 2)
       break
     }
 
@@ -326,6 +313,37 @@ const handleCardEffect = (state, card, mode) => {
   }
 
   return state
+}
+
+function getNonPirates(state) {
+  return cardId => {
+    return state.deck.find(card => card.id === cardId).race !== 'pirate'
+  }
+}
+
+function getSatyrs(state) {
+  return card => !state.hand.includes(card.id) && card.race === 'satyr'
+}
+
+function getPlayableSpells(state) {
+  return cardId => {
+    if (cardId === 'W1') {
+      return state.specifics.frozenEnemiesLevel !== 0
+    }
+
+    const cardInDeck = state.deck.find(card => card.id === cardId)
+
+    return cardInDeck.type === 'spell'
+  }
+}
+
+function getCollectorMirzToken(level) {
+  const id = 'T' + arrayRandom([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14])
+  const token = resolveCardForLevel({ id })
+  token.level = [5, 6, 6, 8, 10][level - 1]
+  token.weight = 0
+  token.id = id + ':' + Math.random().toString(36).substring(7)
+  return token
 }
 
 export default handleCardEffect

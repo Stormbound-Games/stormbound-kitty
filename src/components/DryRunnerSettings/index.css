@@ -1,0 +1,14 @@
+.DryRunnerSettings {
+  margin-bottom: 2em;
+}
+
+.DryRunnerSettings__display-chance {
+  margin-bottom: 1em;
+  display: block;
+}
+
+.DryRunnerSettings__info {
+  color: var(--white);
+  display: block;
+  text-transform: initial;
+}

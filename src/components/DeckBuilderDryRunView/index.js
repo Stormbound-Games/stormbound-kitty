@@ -1,4 +1,5 @@
 import React from 'react'
+import modifyDeck from '../../helpers/modifyDeck'
 import DryRunner from '../DryRunner'
 import DeckMechanisms from '../DeckMechanisms'
 import WikiLink from '../WikiLink'
@@ -11,13 +12,13 @@ export default props => {
   // purposes. The mode is restored to `AUTOMATIC` as soon as the 4th card has
   // been picked.
   const [mode, setMode] = React.useState(params.get('mode') || 'AUTOMATIC')
+  const [modifier, setModifier] = React.useState('NONE')
   const [equalsMode, setEqualsMode] = React.useState(false)
-  const deck = props.deck.map(card => ({
-    ...card,
-    idx: 0,
-    level: equalsMode ? 1 : card.level,
-  }))
-  console.log(deck)
+  const deck = modifyDeck(
+    props.deck.map(card => ({ ...card, idx: 0 })),
+    modifier,
+    equalsMode
+  )
 
   return (
     <DeckMechanisms deck={deck} mode={mode}>
@@ -29,6 +30,8 @@ export default props => {
           setMode={setMode}
           equalsMode={equalsMode}
           setEqualsMode={setEqualsMode}
+          modifier={modifier}
+          setModifier={setModifier}
           playedCards={state.playedCards}
           cardsThisTurn={state.cardsThisTurn}
         />
@@ -101,6 +104,13 @@ class DeckBuilderDryRunView extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    if (
+      prevProps.equalsMode !== this.props.equalsMode ||
+      prevProps.modifier !== this.props.modifier
+    ) {
+      this.resetGame()
+    }
+
     if (prevProps.turn < this.props.turn) {
       this.setState(state => ({
         // Un-select the active card to make the turn transition clearer

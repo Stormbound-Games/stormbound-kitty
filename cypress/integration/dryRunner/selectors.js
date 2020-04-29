@@ -3,6 +3,7 @@ export default {
   CHANCES_CHECKBOX: '[data-testid="display-chance"]',
   DECK_CARD: '.Deck__card',
   CARD: '[data-testid="hand"] [data-testid="card"]',
+  MANA_COST: '.Mana__value',
   CYCLE_BTN: '[data-testid="cycle-btn"]',
   PLAY_BTN: '[data-testid="play-btn"]',
   END_TURN_BTN: '[data-testid="end-turn-btn"]',
@@ -10,4 +11,9 @@ export default {
   RESET_BTN: '[data-testid="reset-btn"]',
   RESET_CONFIRM_BTN: '[data-testid="reset-confirm-btn"]',
   EQUALS_MODE_CHECKBOX: '[data-testid="equals-mode"]',
+  RESET_DIALOG: '#reset-dialog',
+  BRAWL_MODIFIER_DIALOG: '#brawl-modifier-dialog',
+  EQUALS_DIALOG: '#equals-mode-dialog',
+  BRAWL_MODIFIER_SELECT: '[data-testid="brawl-modifier"]',
+  CARD_LOG: '[data-testid="card-log"]',
 }

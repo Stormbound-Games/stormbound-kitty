@@ -12,7 +12,10 @@ export default React.memo(function Column(props) {
       ]
         .filter(Boolean)
         .join(' ')}
-      style={props.style}
+      style={{
+        ...props.style,
+        alignItems: props.align,
+      }}
     >
       {props.children}
     </div>

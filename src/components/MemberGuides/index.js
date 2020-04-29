@@ -10,6 +10,7 @@ export default React.memo(function MemberGuides(props) {
       {props.guides.map(guide => {
         return (
           <Banner
+            key={guide.name}
             faction={guide.faction}
             title={guide.name}
             subline={`By ${guide.author}`}

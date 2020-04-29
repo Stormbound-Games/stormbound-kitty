@@ -21,7 +21,7 @@ export default React.memo(function MemberDecks(props) {
         const slot3 = c
 
         return (
-          <Row desktopOnly>
+          <Row desktopOnly key={a.id}>
             <Column width='1/3'>{slot1 && <FeaturedDeck {...slot1} />}</Column>
             <Column width='1/3'>{slot2 && <FeaturedDeck {...slot2} />}</Column>
             <Column width='1/3'>{slot3 && <FeaturedDeck {...slot3} />}</Column>

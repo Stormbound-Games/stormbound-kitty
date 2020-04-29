@@ -1,20 +1,17 @@
 import React from 'react'
+import { useAnimation } from 'framer-motion'
 import Column from '../Column'
 import CTA from '../CTA'
-import DryRunnerResetDialog from '../DryRunnerResetDialog'
+import ResetButton from '../ResetButton'
 import Mana from '../Mana'
 import Row from '../Row'
-import { useAnimation } from 'framer-motion'
 import './index.css'
 
 export default React.memo(function DryRunnerHeader(props) {
   const controls = useAnimation()
-  const E_KEY = 69
-
   const endTurn = React.useCallback(() => {
     controls.start({
       scale: [1.4, 1],
-
       transition: { duration: 1, ease: 'easeOut' },
     })
 
@@ -23,9 +20,7 @@ export default React.memo(function DryRunnerHeader(props) {
 
   const registerShortcuts = React.useCallback(
     event => {
-      if (event.which === E_KEY) {
-        endTurn()
-      }
+      if (event.which === 69 /* E */) endTurn()
     },
     [endTurn]
   )
@@ -39,7 +34,7 @@ export default React.memo(function DryRunnerHeader(props) {
   return (
     <div className='DryRunnerHeader'>
       <Row desktopOnly>
-        <Column width='1/3' style={{ alignItems: 'center' }}>
+        <Column width='1/3' align='center'>
           <span className='DryRunnerHeader__mana'>
             Current mana:{' '}
             <Mana
@@ -53,15 +48,15 @@ export default React.memo(function DryRunnerHeader(props) {
           </span>
         </Column>
 
-        <Column width='1/3' style={{ alignItems: 'center' }}>
-          <DryRunnerResetDialog
+        <Column width='1/3' align='center'>
+          <ResetButton
+            label='Reset game'
+            confirm='Are you sure you want to reset the game? Don’t worry, you’ll keep your deck.'
             reset={props.resetGame}
-            equalsMode={props.equalsMode}
-            setEqualsMode={props.setEqualsMode}
           />
         </Column>
 
-        <Column width='1/3' style={{ alignItems: 'center' }}>
+        <Column width='1/3' align='center'>
           <CTA type='button' data-testid='end-turn-btn' onClick={endTurn}>
             <u>E</u>nd turn
           </CTA>

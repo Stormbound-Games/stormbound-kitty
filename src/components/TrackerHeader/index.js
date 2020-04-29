@@ -11,8 +11,8 @@ import './index.css'
 export default React.memo(function TrackerHeader(props) {
   return (
     <div className='TrackerHeader'>
-      <Row>
-        <Column width='1/3' style={{ alignItems: 'center' }}>
+      <Row desktopOnly>
+        <Column width='1/3' align='center'>
           <span className='TrackerHeader__mana'>
             <div>
               Current mana:{' '}
@@ -39,7 +39,7 @@ export default React.memo(function TrackerHeader(props) {
           </span>
         </Column>
 
-        <Column width='1/3' style={{ alignItems: 'center' }}>
+        <Column width='1/3' align='center'>
           <ResetButton
             label='Reset game'
             confirm='Are you sure you want to reset the game? Don’t worry, you’ll keep your deck.'
@@ -58,7 +58,7 @@ export default React.memo(function TrackerHeader(props) {
           </ResetButton>
         </Column>
 
-        <Column width='1/3' style={{ alignItems: 'center' }}>
+        <Column width='1/3' align='center'>
           <CTA
             type='button'
             onClick={props.endTurn}

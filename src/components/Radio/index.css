@@ -13,10 +13,10 @@
   width: 1.25em;
   height: 1.25em;
   border: 1px solid var(--dark-beige);
-  transform: translate(25%, 10%) rotate(45deg); /* 1 */
+  transform: translate(25%, -50%) rotate(45deg); /* 1 */
   display: inline-block;
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 0;
 }
 

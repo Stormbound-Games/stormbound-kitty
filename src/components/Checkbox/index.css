@@ -10,10 +10,10 @@
   width: 1.25em;
   height: 1.25em;
   border: 1px solid rgba(222, 215, 164, 0.5);
-  transform: translateX(25%) rotate(45deg);
+  transform: translate(25%, -50%) rotate(45deg);
   display: inline-block;
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 0;
   cursor: pointer;
 }

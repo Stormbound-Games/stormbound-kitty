@@ -1,0 +1,189 @@
+id,name,level,copies
+N1,Green Prototypes,2,0
+N2,Summon Militia,1,0
+N3,Gifted Recruits,1,0
+N4,Lawless Herd,1,0
+N5,Northsea Dog,1,0
+N6,Spare Dragonling,1,0
+N7,Brothers in Arms,1,0
+N8,Collector Mirz,1,0
+N9,Confinement,1,0
+N10,Conflicted Drakes,1,0
+N11,Felflares,1,0
+N12,First Mutineer,1,0
+N13,Fort of Ebonrock,1,0
+N14,Freebooters,1,0
+N15,Potion of Growth,1,0
+N16,Westwind Sailors,1,0
+N17,Wetland Deceivers,1,0
+N18,Beasts of Terror,1,0
+N19,Cabin Girls,1,0
+N20,Emerald Towers,1,0
+N21,Execution,1,0
+N22,Goldgrubbers,1,0
+N23,Hunter’s Vengeance,1,0
+N24,Personal Servers,1,0
+N25,Siegebreakers,1,0
+N26,Snowmasons,1,0
+N27,Terrific Slayers,1,0
+N28,Warfront Runners,1,0
+N29,Bladestorm,1,0
+N30,Bluesail Raiders,1,0
+N31,Flooding the Gates,1,0
+N32,Heroic Soldiers,1,0
+N33,Snake Eyes,1,0
+N34,Trueshot Post,1,0
+N35,Ubass the Hunter,1,0
+N36,Voidsurgers,1,0
+N37,Boomstick Officers,1,0
+N38,Harvesters of Souls,1,0
+N39,Hearthguards,1,0
+N40,Kindred’s Grace,1,0
+N41,Lich Summoners,1,0
+N42,Lucky Charmers,1,0
+N43,Ludic Matriarchs,1,0
+N44,Needle Blast,1,0
+N45,Powder Tower,1,0
+N46,Tegor the Vengeful,1,0
+N47,Victors of the Melee,1,0
+N48,Archdruid Earyn,1,0
+N49,Avian Stalkers,1,0
+N50,Call for Aid,1,0
+N51,Dangerous Suitors,1,0
+N52,Salty Outcasts,1,0
+N53,Sharpfist Exiles,1,0
+N54,Veterans of War,1,0
+N55,Joust Champions,1,0
+N56,Temple Guardians,1,0
+N57,Crazy Bombers,1,0
+N58,Siren of the Seas,1,0
+N59,Edrik the Fierce,1,0
+N60,Fluffy Badboxers,1,0
+N61,Hair-Raising Cats,1,0
+N62,Sweetcap Kittens,1,0
+N63,Unhealthy Hysteria,1,0
+N64,Melodious Sisters,1,0
+N65,Razor-Sharp Lynxes,1,0
+N66,Bigthrust Tigers,1,0
+N67,Wild Saberpaws,1,0
+N68,Twilight Prowlers,1,0
+N69,Laurus King in Exile,1,0
+N70,Aged Duskbringers,1,0
+N71,Rapid Mousers,1,0
+N72,Seasick Bouncers,1,0
+N73,Trekking Aldermen,1,0
+N74,Beards of Crowglyph,1,0
+N75,Greenwood Ancients,1,0
+N76,Prime Oracle Bragda,1,0
+I1,Destructobots,1,0
+I2,Doctor Mia,1,0
+I3,Fortification Tonic,1,0
+I4,Ozone Purifiers,1,0
+I5,Unstable Build,1,0
+I6,Finite Loopers,1,0
+I7,Greengale Serpents,1,0
+I8,Linked Golems,1,0
+I9,Sound Drivers,1,0
+I10,Upgrade Point,1,0
+I11,Boosting Elixir,1,0
+I12,Chaotic Pupil,1,0
+I13,Embers of Chaos,1,0
+I14,Mech Workshop,1,0
+I15,Overchargers,1,0
+I16,Debug Loggers,1,0
+I17,Eloth the Ignited,1,0
+I18,Flaming Stream,1,0
+I19,Siege Assembly,1,0
+I20,Windmakers,1,0
+I21,Delegators,1,0
+I22,Project PH03-NIX,1,0
+I23,Armed Schemers,1,0
+I24,Mechanical Workers,1,0
+I25,Agents in Charge,1,0
+I26,Operators,1,0
+I27,Scrapped Planners,1,0
+I28,Booming Professors,1,0
+F1,Brood Sages,1,0
+F2,Copperskin Ranger,1,0
+F3,Dubious Hags,1,0
+F4,Toxic Sacrifice,1,0
+F5,Crimson Sentry,1,0
+F6,Harpies of the Hunt,1,0
+F7,Heliotroopers,1,0
+F8,Rain of Frogs,1,0
+F9,Wandering Wyrms,1,0
+F10,Azure Hatcher,1,0
+F11,Marked as Prey,1,0
+F12,Tode the Elevated,1,0
+F13,Venomfall Spire,1,0
+F14,Witches of the Wild,1,0
+F15,Amberhides,1,0
+F16,Feral Shamans,1,0
+F17,Obsidian Butchers,1,0
+F18,Soulcrushers,1,0
+F19,Sunbeam Serpents,1,0
+F20,Blood Ministers,1,0
+F21,Broodmother Qordia,1,0
+F22,Curse of Strings,1,0
+F23,High Priestess Klaxi,1,0
+F24,Clerics with Cords,1,0
+F25,Limelimbs,1,0
+F26,Untamed Cultists,1,0
+F27,Faithless Prophets,1,0
+F28,Hairy Chestnuts,1,0
+S1,Doppelbocks,1,0
+S2,Restless Goats,1,0
+S3,Counselor Ahmi,1,0
+S4,Dreadful Keepers,1,0
+S5,Faun Companions,1,0
+S6,Forgotten Souls,1,0
+S7,Moonlit Aerie,1,0
+S8,Shady Ghoul,1,0
+S9,Swarmcallers,1,0
+S10,Broken Truce,1,0
+S11,Devastators,1,0
+S12,Draconic Roamers,1,0
+S13,Mischiefs,1,0
+S14,Pan Heralds,1,0
+S15,Dark Harvest,1,0
+S16,Dreadfauns,1,0
+S17,Grim Couriers,1,0
+S18,Pillars of Doom,1,0
+S19,Xuri Lord of Life,1,0
+S20,Herald’s Hymn,1,0
+S21,Queen of Herds,1,0
+S22,Vindicators,1,0
+S23,Lasting Remains,1,0
+S24,Head Start,1,0
+S25,Mindless Horde,1,0
+S26,Obliterators,1,0
+S27,Petrified Fossils,1,0
+S28,Bucks of Wasteland,1,0
+W1,Icicle Burst,1,0
+W2,Frosthexers,1,0
+W3,The Hearth,1,0
+W4,Wisp Cloud,1,0
+W5,Yowling Weavers,1,0
+W6,Moment’s Peace,1,0
+W7,Mystwives,1,0
+W8,Spellbinder Zhevana,1,0
+W9,Frozen Core,1,0
+W10,Lady Rime,1,0
+W11,Midwinter Chaos,1,0
+W12,Rimelings,1,0
+W13,Rockworkers,1,0
+W14,Blessed with Brawn,1,0
+W15,Broken Earth Drakes,1,0
+W16,Dawnsparks,1,0
+W17,Wolfcloaks,1,0
+W18,Fleshmenders,1,0
+W19,Gift of the Wise,1,0
+W20,Calming Spirits,1,0
+W21,Visions of the Grove,1,0
+W22,Chillbeards,1,0
+W23,Olf the Hammer,1,0
+W24,Underground Spring,1,0
+W25,Iced Droplings,1,0
+W26,Sleetstompers,1,0
+W27,Earthfathers,1,0
+W28,Chilled Stonedames,1,0

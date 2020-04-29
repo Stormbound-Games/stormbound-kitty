@@ -14,11 +14,7 @@ describe('Dry-runner — Reset', () => {
       .drCycle('W10')
       .drEndTurn(3)
 
-      .get(s.RESET_BTN)
-      .click()
-
-      .get(s.RESET_CONFIRM_BTN)
-      .click()
+      .drReset()
 
       .get(s.CARD)
       .should('have.length', 4)
@@ -26,32 +22,30 @@ describe('Dry-runner — Reset', () => {
       .should('contain', 3)
       .get('.DryRunnerHand__wrapper--active')
       .should('not.exist')
+      .get(s.CARD_LOG)
+      .find('img')
+      .should('have.length', 0)
   })
 
   it('should be able to reset a game in equals mode', () => {
-    cy.get(s.RESET_BTN)
-      .click()
-
-      .get(s.EQUALS_MODE_CHECKBOX)
-      .check()
-
-      .get(s.RESET_CONFIRM_BTN)
-      .click()
-
+    cy.drReset({ equals: true })
       .get(s.DECK_CARD)
       .find('.Deck__level')
       .should('contain', 1)
   })
 
+  it('should be able to reset a game with a brawl modifier', () => {
+    cy.drEndTurn()
+      .drReset({ modifier: 'SPELL_MANA' })
+
+      .get(s.MANA)
+      .should('contain', 3)
+  })
+
   it('should not reset the draw chances checkbox', () => {
     cy.get(s.CHANCES_CHECKBOX)
       .check()
-
-      .get(s.RESET_BTN)
-      .click()
-
-      .get(s.RESET_CONFIRM_BTN)
-      .click()
+      .drReset()
 
       .get(s.CHANCES_CHECKBOX)
       .should('be.checked')

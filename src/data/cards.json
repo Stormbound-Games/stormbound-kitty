@@ -17,7 +17,7 @@
     "id": "N2",
     "type": "spell",
     "faction": "neutral",
-    "race": "knight",
+    "race": null,
     "rarity": "common",
     "image": "/assets/images/cards/summon_militia.png",
     "mana": 1,

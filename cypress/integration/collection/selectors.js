@@ -1,6 +1,7 @@
 export default {
-  CARD: '.Card',
+  CARD: '[data-testid="card"]',
   CARD_RARITY: '[data-testid="card-rarity"]',
+  CARD_LEVEL: '[data-testid="card-level"]',
 
   FACTION_SELECT: '[data-testid="faction-select"]',
   STATUS_SELECT: '[data-testid="status-select"]',
@@ -13,4 +14,7 @@ export default {
   TARGET_SELECT: '[data-testid="target-select"]',
   ODDS_RESULT: '[data-testid="odds-result"]',
   AVERAGE_STONES: '[data-testid="average-stones"]',
+
+  IMPORT_BTN: '[data-testid="import-btn"]',
+  EXPORT_BTN: '[data-testid="export-btn"]',
 }

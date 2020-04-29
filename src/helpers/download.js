@@ -14,8 +14,15 @@ export default ({
       : content
     a.setAttribute('download', fileName)
     document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
+
+    // When running in Cypress, do not click and remove the link as the
+    // `exportCollection` command is doing something similar.
+    if (!window.Cypress) {
+      a.click()
+      a.remove()
+    } else {
+      a.setAttribute('data-testid', 'export-blob')
+    }
   } else {
     window.location.href =
       'data:application/octet-stream,' + encodeURIComponent(content)

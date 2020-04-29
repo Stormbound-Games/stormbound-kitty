@@ -1,12 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import DryRunnerCardLog from '../DryRunnerCardLog'
-import Checkbox from '../Checkbox'
 import Column from '../Column'
 import Deck from '../Deck'
 import DryRunnerActions from '../DryRunnerActions'
 import DryRunnerHand from '../DryRunnerHand'
 import DryRunnerHeader from '../DryRunnerHeader'
 import DryRunnerInfo from '../DryRunnerInfo'
+import Hint from '../Hint'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
@@ -32,31 +33,35 @@ export default React.memo(function DryRunner(props) {
               .map(card => card.id)}
           />
 
-          <Checkbox
-            className='DryRunner__display-chance'
-            name='display-chance'
-            id='display-chance'
-            checked={props.displayChance}
-            onChange={event => props.setDisplayChance(event.target.checked)}
-            data-testid='display-chance'
-          >
-            Display draw chance
-          </Checkbox>
-
           <DryRunnerCardLog
             cards={props.playedCards}
             cardsThisTurn={props.cardsThisTurn}
           />
+
+          <p>
+            This simulator has same{' '}
+            <Link to='/faq#drawing-algorithm'>drawing/cycling mechanics</Link>{' '}
+            as the game and should be an accurate representation of how playing
+            your deck would feel. It can be useful to evaluate card cycling,
+            mana flow and combo efficiency. Additionally,{' '}
+            <Link to='/faq#dry-runner-mechanics'>many card abilities</Link> are
+            also implemented in this simulator.
+          </p>
+
+          {props.deck.map(card => card.id).includes('N38') && (
+            <Hint>
+              Due to the lack of opponent’s deck, Harvester of Souls’ ability
+              has not been implemented.
+            </Hint>
+          )}
         </Column>
 
         <Column width='2/3'>
-          <div className='DryRunner__main'>
-            <Title>Your hand</Title>
-            <DryRunnerHeader {...props} />
-            <DryRunnerHand {...props} />
-            <DryRunnerActions {...props} />
-            <DryRunnerInfo {...props} />
-          </div>
+          <Title>Your hand</Title>
+          <DryRunnerHeader {...props} />
+          <DryRunnerHand {...props} />
+          <DryRunnerActions {...props} />
+          <DryRunnerInfo {...props} />
         </Column>
       </Row>
 
