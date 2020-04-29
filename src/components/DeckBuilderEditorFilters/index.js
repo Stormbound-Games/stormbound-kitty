@@ -14,8 +14,8 @@ export default React.memo(function DeckBuilderEditorFilters(props) {
     <MobileTogglableContent
       id='deck-filters'
       withSymbols
-      labelCollapsed='Collapse deck filters'
-      labelExpanded='Expand deck filters'
+      labelCollapsed='Expand deck filters'
+      labelExpanded='Collapse deck filters'
       className='DeckBuilderEditorFilters__toggle'
     >
       <div

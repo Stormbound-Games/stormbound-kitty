@@ -14,8 +14,8 @@ export default React.memo(function CollectionFilters(props) {
     <MobileTogglableContent
       id='collection-filters'
       withSymbols
-      labelCollapsed='Collapse collection filters'
-      labelExpanded='Expand collection filters'
+      labelCollapsed='Expand collection filters'
+      labelExpanded='Collapse collection filters'
       className='CollectionFilters__toggle'
     >
       <form
