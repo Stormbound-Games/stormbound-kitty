@@ -156,7 +156,7 @@ const handleCardEffect = (state, card, mode) => {
 
       if (mode !== 'MANUAL' && hand.length < 4) {
         draw(state)
-        if (card.level >= 4 && hand.length < 3) draw(state)
+        if (card.level >= 4 && hand.length < 4) draw(state)
       }
 
       break
