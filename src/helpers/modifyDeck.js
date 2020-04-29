@@ -1,57 +1,66 @@
 import resolveCardForLevel from './resolveCardForLevel'
 
-const setEqualLevels = deck => deck.map(card => ({ ...card, level: 1 }))
+const setToLevel1 = card => ({ ...card, level: 1 })
 
-export default (deck, modifier, equalLevels) => {
-  const fullDeck = equalLevels
-    ? setEqualLevels(deck.map(card => resolveCardForLevel(card)))
-    : deck.map(card => resolveCardForLevel(card))
+const setStructureManaCost = card => {
+  if (card.type !== 'structure') return card
+  return { ...card, mana: 2, costReduced: card.mana > 2 ? true : false }
+}
+
+const setToadManaCost = card => {
+  if (card.race !== 'toad') return card
+  return { ...card, mana: 2, costReduced: card.mana > 2 ? true : false }
+}
+
+const reduceKnightManaCost = card => {
+  if (card.race !== 'knight') return card
+  return {
+    ...card,
+    mana: Math.max(0, card.mana - 2),
+    costReduced: card.mana > 0 ? true : false,
+  }
+}
+
+const reduceDwarfManaCost = card => {
+  if (card.race !== 'dwarf') return card
+  return {
+    ...card,
+    mana: Math.max(0, card.mana - 2),
+    costReduced: card.mana > 0 ? true : false,
+  }
+}
+
+const reduceSpellManaCost = card => {
+  if (card.type !== 'spell') return card
+  return {
+    ...card,
+    mana: Math.max(0, card.mana - 2),
+    costReduced: card.mana > 0 ? true : false,
+  }
+}
+
+export default (deck, modifier, equalsMode) => {
+  const fullDeck = equalsMode
+    ? deck.map(setToLevel1).map(resolveCardForLevel)
+    : deck.map(resolveCardForLevel)
 
   switch (modifier) {
-    case '1':
-      return fullDeck.map(card =>
-        card.type === 'structure'
-          ? { ...card, mana: 2, costReduced: card.mana > 2 ? true : false }
-          : card
-      )
-    case '2':
-      return fullDeck.map(card =>
-        card.race === 'toad' && card.type === 'unit'
-          ? { ...card, mana: 2, costReduced: card.mana > 2 ? true : false }
-          : card
-      )
-    case '3':
-      // Knights, avoid Summon Militia
-      return fullDeck.map(card =>
-        card.race === 'knight' && card.type === 'unit'
-          ? {
-              ...card,
-              mana: Math.max(0, card.mana - 2),
-              costReduced: card.mana > 0 ? true : false,
-            }
-          : card
-      )
-    case '4':
-      return fullDeck.map(card =>
-        card.race === 'dwarf' && card.type === 'unit'
-          ? {
-              ...card,
-              mana: Math.max(0, card.mana - 2),
-              costReduced: card.mana > 0 ? true : false,
-            }
-          : card
-      )
-    case '5':
-      return fullDeck.map(card =>
-        card.type === 'spell'
-          ? {
-              ...card,
-              mana: Math.max(0, card.mana - 2),
-              costReduced: card.mana > 0 ? true : false,
-            }
-          : card
-      )
-    case '0':
+    case 'STRUCTURE_MANA':
+      return fullDeck.map(setStructureManaCost)
+
+    case 'TOAD_MANA':
+      return fullDeck.map(setToadManaCost)
+
+    case 'KNIGHT_MANA':
+      return fullDeck.map(reduceKnightManaCost)
+
+    case 'DWARF_MANA':
+      return fullDeck.map(reduceDwarfManaCost)
+
+    case 'SPELL_MANA':
+      return fullDeck.map(reduceSpellManaCost)
+
+    case 'NONE':
     default:
       return fullDeck
   }

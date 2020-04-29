@@ -3,38 +3,47 @@ import Dialog from '../Dialog'
 
 export default React.memo(function DryRunnerBrawlModifiers(props) {
   const dialogRef = React.useRef()
-  const modifierRef = React.useRef()
+  const [modifier, setModifier] = React.useState(props.modifier)
+
+  const modifierHeroImage = {
+    NONE: 'execution',
+    STRUCTURE_MANA: 'ubass_the_hunter',
+    TOAD_MANA: 'tode_the_elevated',
+    KNIGHT_MANA: 'edrik_the_fierce',
+    DWARF_MANA: 'olf_the_hammer',
+    SPELL_MANA: 'archdruid_earyn',
+  }
 
   return (
     <>
-      <label htmlFor='modifier'>Reset with modifier</label>
+      <label htmlFor='brawl-modifier'>Reset with modifier</label>
       <select
-        name='modifier'
-        id='modifier'
+        name='brawl-modifier'
+        id='brawl-modifier'
         data-testid='brawl-modifier'
         className='DryRunnerBrawlModifiers'
         value={props.modifier}
         onChange={event => {
-          modifierRef.current = event.target.value
+          setModifier(event.target.value)
           dialogRef.current.show()
         }}
       >
-        <option value='0'>None</option>
-        <option value='1'>Structures = 2 mana</option>
-        <option value='2'>Toads = 2 mana</option>
-        <option value='3'>Knights -2 mana</option>
-        <option value='4'>Dwarves -2 mana</option>
-        <option value='5'>Spells -2 mana</option>
+        <option value='NONE'>None</option>
+        <option value='STRUCTURE_MANA'>Structures = 2 mana</option>
+        <option value='TOAD_MANA'>Toads = 2 mana</option>
+        <option value='KNIGHT_MANA'>Knights -2 mana</option>
+        <option value='DWARF_MANA'>Dwarves -2 mana</option>
+        <option value='SPELL_MANA'>Spells -2 mana</option>
       </select>
       <Dialog
         id='brawl-modifiers-dialog'
         title='Brawl mode'
         dialogRef={instance => (dialogRef.current = instance)}
-        image='/assets/images/cards/execution.png'
+        image={`/assets/images/cards/${modifierHeroImage[modifier]}.png`}
         close={() => dialogRef.current.hide()}
         ctaProps={{
           onClick: () => {
-            props.setModifier(modifierRef.current)
+            props.setModifier(modifier)
             dialogRef.current.hide()
           },
           'data-testid': 'reset-confirm-btn',
