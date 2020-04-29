@@ -10,6 +10,7 @@ export default React.memo(function Card(props) {
   const supportsWebp = React.useContext(WebpContext)
   const { fontSize, ref } = useFluidSizing(0.03902439024)
   const ext = supportsWebp ? 'webp' : 'png'
+
   return (
     <article
       className={[
@@ -27,8 +28,7 @@ export default React.memo(function Card(props) {
       ref={ref}
       style={{ fontSize }}
       data-testid='card'
-      id={props.id}
-      idx={props.idx}
+      id={props.id + '#' + props.idx}
     >
       <div
         className='Card__content'
