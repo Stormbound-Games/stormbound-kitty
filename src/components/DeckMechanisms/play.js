@@ -1,5 +1,5 @@
 import handleCardEffect from './handleCardEffect'
-import findCardDataInDeck from '../../helpers/findCardDataInDeck'
+import areCardsEqual from '../../helpers/areCardsEqual'
 
 export const DEFAULT_PLAY_OPTIONS = {
   mode: 'AUTOMATIC',
@@ -18,7 +18,7 @@ export const DEFAULT_PLAY_OPTIONS = {
  * @return {Object} Mutated state
  */
 const play = (state, card, options = DEFAULT_PLAY_OPTIONS) => {
-  const cardData = findCardDataInDeck(card, state.deck)
+  const cardData = state.deck.find(deckCard => areCardsEqual(card, deckCard))
 
   // Remove the played card from the hand
   state.hand = state.hand.filter(
@@ -27,8 +27,8 @@ const play = (state, card, options = DEFAULT_PLAY_OPTIONS) => {
 
   if (options.discard) return state
 
-  // Log card being played (we only need the card id for the card log)
-  state.playedCards = [card.id, ...state.playedCards]
+  // Log card being played
+  state.playedCards = [cardData, ...state.playedCards]
   state.cardsThisTurn += 1
 
   // Unless the play is actually free or a discard, decrease the amount
@@ -39,7 +39,7 @@ const play = (state, card, options = DEFAULT_PLAY_OPTIONS) => {
 
   // Check if this card spawns units on the board, this is used to check
   // if Toxic Sacrifice can be played on this turn.
-  if (state.turn === 1 && card.type === 'unit') {
+  if (state.turn === 1 && cardData.type === 'unit') {
     state.specifics.noUnitsOnFirstTurn = false
   }
 

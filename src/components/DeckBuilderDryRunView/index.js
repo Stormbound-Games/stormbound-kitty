@@ -14,11 +14,15 @@ export default props => {
   const [mode, setMode] = React.useState(params.get('mode') || 'AUTOMATIC')
   const [modifier, setModifier] = React.useState('NONE')
   const [equalsMode, setEqualsMode] = React.useState(false)
-  const deck = modifyDeck(
-    props.deck.map(card => ({ ...card, idx: 0 })),
+  const addIdx = card => ({ ...card, idx: '0' })
+
+  const modifiedDeck = modifyDeck(
+    props.deck.map(card => ({ ...card, idx: '0' })),
     modifier,
     equalsMode
   )
+
+  const deck = modifiedDeck.map(addIdx)
 
   return (
     <DeckMechanisms deck={deck} mode={mode}>

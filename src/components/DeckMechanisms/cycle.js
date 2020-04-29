@@ -1,6 +1,6 @@
-import rwc from 'random-weighted-choice'
 import getIncreasedDeckWeight from './getIncreasedDeckWeight'
 import hasInHand from '../../helpers/hasInHand'
+import rwcDuplicates from '../../helpers/rwcDuplicates'
 
 export const DEFAULT_CYCLE_OPTIONS = { countAsCycled: true }
 
@@ -28,7 +28,7 @@ const cycle = (state, card, options = DEFAULT_CYCLE_OPTIONS) => {
       !hasInHand(cardInDeck, state.hand) && !isCycledCard(cardInDeck)
   )
 
-  const pick = rwc(availableCards)
+  const pick = rwcDuplicates(availableCards)
   state.hand.push({ id: pick.id, idx: pick.idx })
 
   // After having drawn a new card, we need to readjust the weight of all

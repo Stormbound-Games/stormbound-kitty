@@ -11,7 +11,7 @@ export default React.memo(function CardZoom(props) {
 
   React.useEffect(() => {
     document.addEventListener('keydown', handleESC)
-    if (props.cardId) {
+    if (props.card) {
       document.documentElement.style.overflowY = 'hidden'
     } else {
       document.documentElement.style.overflowY = ''
@@ -21,14 +21,14 @@ export default React.memo(function CardZoom(props) {
       document.removeEventListener('keydown', handleESC)
       document.documentElement.style.overflowY = ''
     }
-  }, [handleESC, props.cardId])
+  }, [handleESC, props.card])
 
-  return props.cardId ? (
+  return props.card ? (
     <div className='CardZoom__overlay' onClick={props.close} data-testid='zoom'>
       <div className='CardZoom__wrapper'>
         <Card
           {...resolveCardForLevel({
-            id: props.cardId,
+            id: props.card.id,
             level: props.level || 1,
           })}
           mana={props.mana}

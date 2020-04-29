@@ -1,9 +1,12 @@
 import React from 'react'
 import Card from '../Card'
+import areCardsEqual from '../../helpers/areCardsEqual'
 import './index.css'
 
 export default React.memo(function DryRunnerCard(props) {
-  const cardData = props.deck.find(card => card.id === props.card)
+  const cardData = props.deck.find(deckCard =>
+    areCardsEqual(props.card, deckCard)
+  )
 
   if (!cardData) return null
 
@@ -11,7 +14,8 @@ export default React.memo(function DryRunnerCard(props) {
     <div
       className={[
         'DryRunnerHand__wrapper',
-        props.activeCard === cardData.id && 'DryRunnerHand__wrapper--active',
+        areCardsEqual(props.activeCard, props.card) &&
+          'DryRunnerHand__wrapper--active',
       ]
         .filter(Boolean)
         .join(' ')}
@@ -19,16 +23,20 @@ export default React.memo(function DryRunnerCard(props) {
       <button
         className='DryRunnerHand__button'
         type='button'
-        onClick={() => props.selectCard(cardData.id)}
+        onClick={() => props.selectCard(props.card)}
       >
         <span className='VisuallyHidden'>
-          {props.activeCard === cardData.id ? 'Unselect card' : 'Select card'}
+          {areCardsEqual(props.activeCard, cardData)
+            ? 'Unselect card'
+            : 'Select card'}
         </span>
       </button>
       <Card
         {...cardData}
-        missing={!!props.activeCard && props.activeCard !== cardData.id}
-        affordable={props.canCardBePlayed(props.state, cardData.id)}
+        missing={
+          !!props.activeCard && !areCardsEqual(props.activeCard, cardData)
+        }
+        affordable={props.canCardBePlayed(props.card)}
       />
     </div>
   )

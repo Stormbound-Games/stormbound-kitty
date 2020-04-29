@@ -1,6 +1,6 @@
-import rwc from 'random-weighted-choice'
 import getIncreasedDeckWeight from './getIncreasedDeckWeight'
 import hasInHand from '../../helpers/hasInHand'
+import rwcDuplicates from '../../helpers/rwcDuplicates'
 
 /**
  * Mutate the given state following a draw.
@@ -14,7 +14,7 @@ const draw = (state, specificCard = null) => {
   const availableCards = state.deck.filter(card => !hasInHand(card, state.hand))
 
   // Draw a random card while taking weight into account.
-  const pick = specificCard || rwc(availableCards)
+  const pick = specificCard || rwcDuplicates(availableCards)
 
   // Put the new card into the hand.
   state.hand.push({ id: pick.id, idx: pick.idx })

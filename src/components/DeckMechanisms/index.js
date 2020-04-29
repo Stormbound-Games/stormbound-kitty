@@ -2,7 +2,7 @@ import React from 'react'
 import clone from 'lodash.clonedeep'
 import { DEFAULT_MANA } from '../../constants/battle'
 import resolveDeckWeight from '../../helpers/resolveDeckWeight'
-import findCardDataInDeck from '../../helpers/findCardDataInDeck'
+import areCardsEqual from '../../helpers/areCardsEqual'
 import canCardBePlayed from './canCardBePlayed'
 import draw from './draw'
 import endTurn from './endTurn'
@@ -81,7 +81,9 @@ export default class DeckMechanisms extends React.Component {
   }
 
   play = (card, options = DEFAULT_PLAY_OPTIONS) => {
-    const cardData = findCardDataInDeck(card, this.state.deck)
+    const cardData = this.state.deck.find(deckCard =>
+      areCardsEqual(card, deckCard)
+    )
     const canAfford = options.free || cardData.mana <= this.state.mana
 
     // If it’s not a discard move and the card costs more mana than the current

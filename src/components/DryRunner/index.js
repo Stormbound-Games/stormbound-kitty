@@ -12,7 +12,6 @@ import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
 import hasInHand from '../../helpers/hasInHand'
-import './index.css'
 
 export default React.memo(function DryRunner(props) {
   return (
@@ -51,7 +50,7 @@ export default React.memo(function DryRunner(props) {
           {props.deck.map(card => card.id).includes('N38') && (
             <Hint>
               Due to the lack of opponent’s deck, Harvester of Souls’ ability
-              has not been implemented.
+              has only been partially implemented.
             </Hint>
           )}
         </Column>
