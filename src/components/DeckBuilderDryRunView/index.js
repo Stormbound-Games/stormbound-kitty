@@ -3,7 +3,6 @@ import modifyDeck from '../../helpers/modifyDeck'
 import DryRunner from '../DryRunner'
 import DeckMechanisms from '../DeckMechanisms'
 import WikiLink from '../WikiLink'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 
 export default props => {
   const params = new URLSearchParams(window.location.search)
@@ -14,12 +13,7 @@ export default props => {
   const [mode, setMode] = React.useState(params.get('mode') || 'AUTOMATIC')
   const [modifier, setModifier] = React.useState('0')
   const [equalsMode, setEqualsMode] = React.useState(false)
-  const fullDeck = props.deck.map(card =>
-    equalsMode
-      ? resolveCardForLevel({ ...card, level: 1 })
-      : resolveCardForLevel(card)
-  )
-  const deck = modifyDeck(fullDeck, modifier)
+  const deck = modifyDeck(props.deck, modifier, equalsMode)
 
   return (
     <DeckMechanisms deck={deck} mode={mode}>
