@@ -34,7 +34,7 @@ export default React.memo(function DryRunnerHeader(props) {
   return (
     <div className='DryRunnerHeader'>
       <Row desktopOnly>
-        <Column width='1/3' style={{ alignItems: 'center' }}>
+        <Column width='1/3' align='center'>
           <span className='DryRunnerHeader__mana'>
             Current mana:{' '}
             <Mana
@@ -48,7 +48,7 @@ export default React.memo(function DryRunnerHeader(props) {
           </span>
         </Column>
 
-        <Column width='1/3' style={{ alignItems: 'center' }}>
+        <Column width='1/3' align='center'>
           <DryRunnerResetDialog
             reset={props.resetGame}
             equalsMode={props.equalsMode}
@@ -56,7 +56,7 @@ export default React.memo(function DryRunnerHeader(props) {
           />
         </Column>
 
-        <Column width='1/3' style={{ alignItems: 'center' }}>
+        <Column width='1/3' align='center'>
           <CTA type='button' data-testid='end-turn-btn' onClick={endTurn}>
             <u>E</u>nd turn
           </CTA>

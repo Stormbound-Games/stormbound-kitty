@@ -9,8 +9,8 @@ export default React.memo(function DryRunnerActions(props) {
 
   return (
     <div className='DryRunnerActions'>
-      <Row>
-        <Column>
+      <Row desktopOnly>
+        <Column align='center'>
           <CTA
             type='button'
             data-testid='cycle-btn'
@@ -20,7 +20,7 @@ export default React.memo(function DryRunnerActions(props) {
             <u>C</u>ycle card
           </CTA>
         </Column>
-        <Column style={{ alignItems: 'flex-end' }}>
+        <Column align='center'>
           <CTA
             type='button'
             data-testid='play-btn'
