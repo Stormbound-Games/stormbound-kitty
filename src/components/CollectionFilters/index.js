@@ -4,47 +4,20 @@ import Column from '../Column'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
 import Only from '../Only'
-import TogglableContent from '../TogglableContent'
+import MobileTogglableContent from '../MobileTogglableContent'
 import Row from '../Row'
 import capitalise from '../../helpers/capitalise'
-import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
-
-const Wrapper = props => {
-  const viewportWidth = useViewportWidth()
-  const [isExpanded, expand] = React.useState(false)
-
-  if (viewportWidth > 700) {
-    return props.children
-  }
-
-  return (
-    <TogglableContent
-      id='deck-filters'
-      isExpanded={isExpanded}
-      renderToggle={toggleProps => (
-        <>
-          <button
-            {...toggleProps}
-            type='button'
-            className='ButtonAsLink CollectionFilters__toggle'
-            onClick={() => expand(s => !s)}
-          >
-            {isExpanded
-              ? '- Collapse collection filters'
-              : '+ Expand collection filters'}
-          </button>
-        </>
-      )}
-    >
-      {props.children}
-    </TogglableContent>
-  )
-}
 
 export default React.memo(function CollectionFilters(props) {
   return (
-    <Wrapper>
+    <MobileTogglableContent
+      id='collection-filters'
+      withSymbols
+      labelCollapsed='Collapse collection filters'
+      labelExpanded='Expand collection filters'
+      className='CollectionFilters__toggle'
+    >
       <form
         className='CollectionFilters'
         onSubmit={event => event.preventDefault()}
@@ -178,6 +151,6 @@ export default React.memo(function CollectionFilters(props) {
           </Column>
         </Row>
       </form>
-    </Wrapper>
+    </MobileTogglableContent>
   )
 })

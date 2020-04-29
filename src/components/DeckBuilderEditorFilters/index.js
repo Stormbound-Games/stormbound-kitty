@@ -5,44 +5,19 @@ import Column from '../Column'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
 import Row from '../Row'
-import TogglableContent from '../TogglableContent'
+import MobileTogglableContent from '../MobileTogglableContent'
 import capitalise from '../../helpers/capitalise'
-import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
-
-const Wrapper = props => {
-  const viewportWidth = useViewportWidth()
-  const [isExpanded, expand] = React.useState(false)
-
-  if (viewportWidth > 700) {
-    return props.children
-  }
-
-  return (
-    <TogglableContent
-      id='deck-filters'
-      isExpanded={isExpanded}
-      renderToggle={toggleProps => (
-        <>
-          <button
-            {...toggleProps}
-            type='button'
-            className='ButtonAsLink DeckBuilderEditorFilters__toggle'
-            onClick={() => expand(s => !s)}
-          >
-            {isExpanded ? '- Collapse deck filters' : '+ Expand deck filters'}
-          </button>
-        </>
-      )}
-    >
-      {props.children}
-    </TogglableContent>
-  )
-}
 
 export default React.memo(function DeckBuilderEditorFilters(props) {
   return (
-    <Wrapper>
+    <MobileTogglableContent
+      id='deck-filters'
+      withSymbols
+      labelCollapsed='Collapse deck filters'
+      labelExpanded='Expand deck filters'
+      className='DeckBuilderEditorFilters__toggle'
+    >
       <div
         className='DeckBuilderEditorFilters'
         onSubmit={event => event.preventDefault()}
@@ -251,6 +226,6 @@ export default React.memo(function DeckBuilderEditorFilters(props) {
           </Column>
         </Row>
       </div>
-    </Wrapper>
+    </MobileTogglableContent>
   )
 })
