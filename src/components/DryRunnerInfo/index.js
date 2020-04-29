@@ -53,23 +53,38 @@ export default React.memo(function DryRunnerInfo(props) {
           ) : (
             <>
               <p>
-                It has been {props.turn} turns, during which you’ve played{' '}
-                {props.totalCardsPlayed} cards (about{' '}
-                {(props.totalCardsPlayed / props.turn).toFixed(2)} cards per
-                turn).
+                It has been{' '}
+                <span className='Highlight'>{props.turn} turns</span>, during
+                which you’ve played{' '}
+                <span className='Highlight'>
+                  {props.totalCardsPlayed} cards
+                </span>{' '}
+                (about{' '}
+                <span className='Highlight'>
+                  {(props.totalCardsPlayed / props.turn).toFixed(2)} cards per
+                  turn
+                </span>
+                ).
               </p>
 
               <p>
-                Of these turns, {props.turnsWithLeftOverMana} of them left you
-                with some unused mana, for a total of {props.totalUnspentMana}{' '}
-                unspent mana {props.totalUnspentMana === 1 ? 'point' : 'points'}{' '}
+                Of these turns,{' '}
+                <span className='Highlight'>{props.turnsWithLeftOverMana}</span>{' '}
+                of them left you with some unused mana, for a total of{' '}
+                <span className='Highlight'>
+                  {props.totalUnspentMana} unspent mana{' '}
+                  {props.totalUnspentMana === 1 ? 'point' : 'points'}
+                </span>{' '}
                 in the game.
               </p>
 
               <p>
                 You’ve willingly not cycled a card on{' '}
-                {props.turnsWithoutCycling}{' '}
-                {props.turnsWithoutCycling === 1 ? 'turn' : 'turns'}.
+                <span className='Highlight'>
+                  {props.turnsWithoutCycling}{' '}
+                  {props.turnsWithoutCycling === 1 ? 'turn' : 'turns'}
+                </span>
+                .
               </p>
 
               {containsFrozenCore ||
