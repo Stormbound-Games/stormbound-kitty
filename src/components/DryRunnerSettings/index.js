@@ -1,6 +1,7 @@
 import React from 'react'
 import Checkbox from '../Checkbox'
 import DryRunnerEqualsMode from '../DryRunnerEqualsMode'
+import DryRunnerBrawlModifiers from '../DryRunnerBrawlModifiers'
 import DryRunnerRNGField from '../DryRunnerRNGField'
 import Title from '../Title'
 import './index.css'
@@ -27,6 +28,11 @@ export default React.memo(function DryRunnerSettings(props) {
       <DryRunnerEqualsMode
         equalsMode={props.equalsMode}
         setEqualsMode={props.setEqualsMode}
+      />
+
+      <DryRunnerBrawlModifiers
+        modifier={props.modifier}
+        setModifier={props.setModifier}
       />
 
       <DryRunnerRNGField

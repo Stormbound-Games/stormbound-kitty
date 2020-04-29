@@ -105,7 +105,10 @@ class DeckBuilderDryRunView extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.equalsMode !== this.props.equalsMode) {
+    if (
+      prevProps.equalsMode !== this.props.equalsMode ||
+      prevProps.modifier !== this.props.modifier
+    ) {
       this.resetGame()
     }
 
