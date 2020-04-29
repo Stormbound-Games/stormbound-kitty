@@ -53,6 +53,8 @@ export default React.memo(function DryRunnerHeader(props) {
             reset={props.resetGame}
             equalsMode={props.equalsMode}
             setEqualsMode={props.setEqualsMode}
+            modifier={props.modifier}
+            setModifier={props.setModifier}
           />
         </Column>
 

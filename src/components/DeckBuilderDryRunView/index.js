@@ -1,7 +1,9 @@
 import React from 'react'
+import modifyDeck from '../../helpers/modifyDeck'
 import DryRunner from '../DryRunner'
 import DeckMechanisms from '../DeckMechanisms'
 import WikiLink from '../WikiLink'
+import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 
 export default props => {
   const params = new URLSearchParams(window.location.search)
@@ -10,10 +12,14 @@ export default props => {
   // purposes. The mode is restored to `AUTOMATIC` as soon as the 4th card has
   // been picked.
   const [mode, setMode] = React.useState(params.get('mode') || 'AUTOMATIC')
+  const [modifier, setModifier] = React.useState('0')
   const [equalsMode, setEqualsMode] = React.useState(false)
-  const deck = equalsMode
-    ? props.deck.map(card => ({ ...card, level: 1 }))
-    : props.deck
+  const fullDeck = props.deck.map(card =>
+    equalsMode
+      ? resolveCardForLevel({ ...card, level: 1 })
+      : resolveCardForLevel(card)
+  )
+  const deck = modifyDeck(fullDeck, modifier)
 
   return (
     <DeckMechanisms deck={deck} mode={mode}>
@@ -25,6 +31,8 @@ export default props => {
           setMode={setMode}
           equalsMode={equalsMode}
           setEqualsMode={setEqualsMode}
+          modifier={modifier}
+          setModifier={setModifier}
           playedCards={state.playedCards}
           cardsThisTurn={state.cardsThisTurn}
         />

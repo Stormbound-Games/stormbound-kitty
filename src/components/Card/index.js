@@ -44,7 +44,15 @@ export default React.memo(function Card(props) {
       >
         <header className='Card__header'>
           <div className='Card__mana'>
-            <span className='Card__mana-content' data-testid='card-mana'>
+            <span
+              className={[
+                'Card__mana-content',
+                props.costReduced && 'Card__mana-content--cost-reduced',
+              ]
+                .filter(Boolean)
+                .join(' ')}
+              data-testid='card-mana'
+            >
               {props.mana}
             </span>
           </div>
