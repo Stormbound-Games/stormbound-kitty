@@ -12,7 +12,7 @@ const cycle = id => {
   const { name } = getRawCardData(id)
 
   Cypress.log({
-    name: `CYCLE`,
+    name: 'CYCLE',
     message: `Cycle ‘${name}’ ${id}`,
     consoleProps: () => ({ id, name }),
   })

@@ -14,7 +14,7 @@ describe('Dry-runner — Reset', () => {
       .drCycle('W10')
       .drEndTurn(3)
 
-      .drReset({})
+      .drReset()
 
       .get(s.CARD)
       .should('have.length', 4)
@@ -45,7 +45,7 @@ describe('Dry-runner — Reset', () => {
   it('should not reset the draw chances checkbox', () => {
     cy.get(s.CHANCES_CHECKBOX)
       .check()
-      .drReset({})
+      .drReset()
 
       .get(s.CHANCES_CHECKBOX)
       .should('be.checked')

@@ -1,11 +1,12 @@
 import s from '../../integration/dryRunner/selectors'
 
-const reset = ({ equals = false, modifier = 'NONE' }) => {
+const reset = ({ equals = false, modifier = 'NONE' } = {}) => {
   Cypress.log({
-    name: `RESET`,
+    name: 'RESET',
     message: `Reset ${
       equals ? 'in equals mode' : ''
     } with modifier ${modifier}`,
+    consoleProps: () => ({ equals, modifier }),
   })
 
   if (equals) {
