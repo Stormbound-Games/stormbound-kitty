@@ -1,5 +1,6 @@
 import React from 'react'
 import Dialog from '../Dialog'
+import './index.css'
 
 export default React.memo(function DryRunnerBrawlModifiers(props) {
   const dialogRef = React.useRef()
@@ -16,7 +17,7 @@ export default React.memo(function DryRunnerBrawlModifiers(props) {
 
   return (
     <>
-      <label htmlFor='brawl-modifier'>Reset with modifier</label>
+      <label htmlFor='brawl-modifier'>Brawl modifier</label>
       <select
         name='brawl-modifier'
         id='brawl-modifier'

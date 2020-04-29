@@ -5,7 +5,7 @@ const KNIGHTS_DECK =
 const STRUCTURES_DECK =
   'MUk1LDFOMTMsMVczLDFJMTAsMU4yMCwxSTE0LDFXMjQsMUYxMywxVzksMUkxOSwxTjM0LDFONDU'
 
-describe('Dry-runner — Reset', () => {
+describe('Dry-runner — Brawl', () => {
   it('should be able to reset a game with knight mana cost modifier', () => {
     cy.visit(`/deck/${KNIGHTS_DECK}/dry-run`)
 

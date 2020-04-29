@@ -11,7 +11,7 @@ export default props => {
   // purposes. The mode is restored to `AUTOMATIC` as soon as the 4th card has
   // been picked.
   const [mode, setMode] = React.useState(params.get('mode') || 'AUTOMATIC')
-  const [modifier, setModifier] = React.useState('0')
+  const [modifier, setModifier] = React.useState('NONE')
   const [equalsMode, setEqualsMode] = React.useState(false)
   const deck = modifyDeck(props.deck, modifier, equalsMode)
 
