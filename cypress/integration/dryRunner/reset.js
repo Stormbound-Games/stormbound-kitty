@@ -17,7 +17,8 @@ describe('Dry-runner — Reset', () => {
       .get(s.RESET_BTN)
       .click()
 
-      .get(s.RESET_CONFIRM_BTN)
+      .get('#reset-dialog')
+      .find(s.RESET_CONFIRM_BTN)
       .click()
 
       .get(s.CARD)
@@ -32,13 +33,11 @@ describe('Dry-runner — Reset', () => {
   })
 
   it('should be able to reset a game in equals mode', () => {
-    cy.get(s.RESET_BTN)
-      .click()
-
-      .get(s.EQUALS_MODE_CHECKBOX)
+    cy.get(s.EQUALS_MODE_CHECKBOX)
       .check()
 
-      .get(s.RESET_CONFIRM_BTN)
+      .get('#equals-mode-dialog')
+      .find(s.RESET_CONFIRM_BTN)
       .click()
 
       .get(s.DECK_CARD)
@@ -53,7 +52,8 @@ describe('Dry-runner — Reset', () => {
       .get(s.RESET_BTN)
       .click()
 
-      .get(s.RESET_CONFIRM_BTN)
+      .get('#reset-dialog')
+      .find(s.RESET_CONFIRM_BTN)
       .click()
 
       .get(s.CHANCES_CHECKBOX)

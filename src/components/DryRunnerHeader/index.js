@@ -2,7 +2,7 @@ import React from 'react'
 import { useAnimation } from 'framer-motion'
 import Column from '../Column'
 import CTA from '../CTA'
-import DryRunnerResetDialog from '../DryRunnerResetDialog'
+import ResetButton from '../ResetButton'
 import Mana from '../Mana'
 import Row from '../Row'
 import './index.css'
@@ -49,10 +49,10 @@ export default React.memo(function DryRunnerHeader(props) {
         </Column>
 
         <Column width='1/3' align='center'>
-          <DryRunnerResetDialog
+          <ResetButton
+            label='Reset game'
+            confirm='Are you sure you want to reset the game? Don’t worry, you’ll keep your deck.'
             reset={props.resetGame}
-            equalsMode={props.equalsMode}
-            setEqualsMode={props.setEqualsMode}
           />
         </Column>
 

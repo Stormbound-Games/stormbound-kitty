@@ -1,8 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Column from '../Column'
-import DryRunnerRNGField from '../DryRunnerRNGField'
-import Hint from '../Hint'
+import DryRunnerSettings from '../DryRunnerSettings'
 import Row from '../Row'
 import Title from '../Title'
 import './index.css'
@@ -17,29 +15,7 @@ export default React.memo(function DryRunnerInfo(props) {
     <div className='DryRunnerInfo'>
       <Row desktopOnly>
         <Column>
-          <Title>What is this</Title>
-          <p>
-            This simulator has same{' '}
-            <Link to='/faq#drawing-algorithm'>drawing/cycling mechanics</Link>{' '}
-            as the game and should be an accurate representation of how playing
-            your deck would feel. It can be useful to evaluate card cycling,
-            mana flow and combo efficiency. Additionally,{' '}
-            <Link to='/faq#dry-runner-mechanics'>many card abilities</Link> are
-            also implemented in this simulator.
-          </p>
-
-          {props.deck.map(card => card.id).includes('N38') && (
-            <Hint>
-              Due to the lack of opponent’s deck, Harvester of Souls’ ability
-              has not been implemented.
-            </Hint>
-          )}
-
-          <DryRunnerRNGField
-            RNG={props.RNG}
-            setRNG={props.setRNG}
-            deck={props.deck}
-          />
+          <DryRunnerSettings {...props} />
         </Column>
 
         <Column>
