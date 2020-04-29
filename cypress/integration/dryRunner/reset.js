@@ -2,11 +2,6 @@ import s from './selectors'
 
 const DECK_ID =
   'NU4xLDVOMiw1TjMsNU4yMyw1TjQsNU41LDVONiw1TjYyLDVOMTQsNVcxMiw1VzEwLDRXMTk'
-const KNIGHTS_DECK =
-  'MU4xLDFOMiwxTjMsMU43LDFONTksMU4yNywxTjI4LDFOMzIsMU40NywxTjU0LDFONTUsMU41Ng'
-
-const STRUCTURES_DECK =
-  'MUk1LDFOMTMsMVczLDFJMTAsMU4yMCwxSTE0LDFXMjQsMUYxMywxVzksMUkxOSwxTjM0LDFONDU'
 const HAND = ['N14', 'W10', 'W12', 'W19']
 
 describe('Dry-runner — Reset', () => {
@@ -22,7 +17,7 @@ describe('Dry-runner — Reset', () => {
       .get(s.RESET_BTN)
       .click()
 
-      .get('#reset-dialog')
+      .get(s.RESET_DIALOG)
       .find(s.RESET_CONFIRM_BTN)
       .click()
 
@@ -41,7 +36,7 @@ describe('Dry-runner — Reset', () => {
     cy.get(s.EQUALS_MODE_CHECKBOX)
       .check()
 
-      .get('#equals-mode-dialog')
+      .get(s.EQUALS_DIALOG)
       .find(s.RESET_CONFIRM_BTN)
       .click()
 
@@ -50,64 +45,17 @@ describe('Dry-runner — Reset', () => {
       .should('contain', 1)
   })
 
-  it('should be able to reset a game with knight mana cost modifier', () => {
-    cy.visit(`/deck/${KNIGHTS_DECK}/dry-run`)
+  it('should be able to reset a game with a brawl modifier', () => {
+    cy.drEndTurn()
+      .get(s.BRAWL_MODIFIER_SELECT)
+      .select('KNIGHT_MANA')
 
-      .get('.Mana__value')
-      .then($cards => {
-        const deckCost = Array.from($cards).reduce(
-          (acc, $card, index) =>
-            index < 12 ? acc + parseInt($card.innerText) : acc,
-          0
-        )
+      .get(s.BRAWL_MODIFIER_DIALOG)
+      .find(s.RESET_CONFIRM_BTN)
+      .click()
 
-        cy.get(s.BRAWL_MODIFIER_SELECT)
-          .select('KNIGHT_MANA')
-
-          .get('#brawl-modifiers-dialog')
-          .find(s.RESET_CONFIRM_BTN)
-          .click()
-
-          .get('.Mana__value')
-          .then($cards => {
-            const newDeckCost = Array.from($cards).reduce(
-              (acc, $card, index) =>
-                index < 12 ? acc + parseInt($card.innerText) : acc,
-              0
-            )
-            expect(newDeckCost).to.eq(deckCost - 20)
-          })
-      })
-  })
-
-  it('should be able to reset a game with structure mana cost modifier', () => {
-    cy.visit(`/deck/${STRUCTURES_DECK}/dry-run`)
-
-      .get('.Mana__value')
-      .then($cards => {
-        const deckCost = Array.from($cards).reduce(
-          (acc, $card, index) =>
-            index < 12 ? acc + parseInt($card.innerText) : acc,
-          0
-        )
-
-        cy.get(s.BRAWL_MODIFIER_SELECT)
-          .select('STRUCTURE_MANA')
-
-          .get('#brawl-modifiers-dialog')
-          .find(s.RESET_CONFIRM_BTN)
-          .click()
-
-          .get('.Mana__value')
-          .then($cards => {
-            const newDeckCost = Array.from($cards).reduce(
-              (acc, $card, index) =>
-                index < 12 ? acc + parseInt($card.innerText) : acc,
-              0
-            )
-            expect(newDeckCost).to.eq(deckCost - 24)
-          })
-      })
+      .get(s.MANA)
+      .should('contain', 3)
   })
 
   it('should not reset the draw chances checkbox', () => {
@@ -117,7 +65,7 @@ describe('Dry-runner — Reset', () => {
       .get(s.RESET_BTN)
       .click()
 
-      .get('#reset-dialog')
+      .get(s.RESET_DIALOG)
       .find(s.RESET_CONFIRM_BTN)
       .click()
 
