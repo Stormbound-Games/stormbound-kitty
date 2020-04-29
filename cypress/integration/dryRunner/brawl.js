@@ -17,12 +17,7 @@ describe('Dry-runner — Reset', () => {
           0
         )
 
-        cy.get(s.BRAWL_MODIFIER_SELECT)
-          .select('KNIGHT_MANA')
-
-          .get(s.BRAWL_MODIFIER_DIALOG)
-          .find(s.RESET_CONFIRM_BTN)
-          .click()
+        cy.drReset({ modifier: 'KNIGHT_MANA' })
 
           .get(s.DECK_CARD)
           .find(s.MANA_COST)
@@ -47,12 +42,7 @@ describe('Dry-runner — Reset', () => {
           0
         )
 
-        cy.get(s.BRAWL_MODIFIER_SELECT)
-          .select('STRUCTURE_MANA')
-
-          .get(s.BRAWL_MODIFIER_DIALOG)
-          .find(s.RESET_CONFIRM_BTN)
-          .click()
+        cy.drReset({ modifier: 'STRUCTURE_MANA' })
 
           .get(s.DECK_CARD)
           .find(s.MANA_COST)

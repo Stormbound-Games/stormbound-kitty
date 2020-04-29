@@ -21,7 +21,7 @@ export default React.memo(function DryRunnerBrawlModifiers(props) {
         name='brawl-modifier'
         id='brawl-modifier'
         data-testid='brawl-modifier'
-        className='DryRunnerBrawlModifiers'
+        className='DryRunnerBrawlModifier'
         value={props.modifier}
         onChange={event => {
           setModifier(event.target.value)
@@ -36,7 +36,7 @@ export default React.memo(function DryRunnerBrawlModifiers(props) {
         <option value='SPELL_MANA'>Spells -2 mana</option>
       </select>
       <Dialog
-        id='brawl-modifiers-dialog'
+        id='brawl-modifier-dialog'
         title='Brawl mode'
         dialogRef={instance => (dialogRef.current = instance)}
         image={`/assets/images/cards/${modifierHeroImage[modifier]}.png`}

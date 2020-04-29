@@ -12,7 +12,7 @@ export default {
   RESET_CONFIRM_BTN: '[data-testid="reset-confirm-btn"]',
   EQUALS_MODE_CHECKBOX: '[data-testid="equals-mode"]',
   RESET_DIALOG: '#reset-dialog',
-  BRAWL_MODIFIER_DIALOG: '#brawl-modifiers-dialog',
+  BRAWL_MODIFIER_DIALOG: '#brawl-modifier-dialog',
   EQUALS_DIALOG: '#equals-mode-dialog',
   BRAWL_MODIFIER_SELECT: '[data-testid="brawl-modifier"]',
   CARD_LOG: '[data-testid="card-log"]',
