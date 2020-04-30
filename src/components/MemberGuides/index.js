@@ -1,12 +1,13 @@
 import React from 'react'
 import Banner from '../Banner'
 import MemberSection from '../MemberSection'
+import getRawCardData from '../../helpers/getRawCardData'
 
 export default React.memo(function MemberGuides(props) {
   if (props.guides.length === 0) return null
 
   return (
-    <MemberSection title={<>Guides by {props.displayName}</>}>
+    <MemberSection>
       {props.guides.map(guide => {
         return (
           <Banner
@@ -20,7 +21,7 @@ export default React.memo(function MemberGuides(props) {
               to: guide.link,
               children: 'Read guide',
             }}
-            image={guide.image}
+            image={getRawCardData(guide.cardId).image}
           />
         )
       })}
