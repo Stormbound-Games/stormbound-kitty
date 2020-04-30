@@ -244,7 +244,7 @@ const handleCardEffect = (state, card, mode) => {
 
     // Queen of Herds
     case 'S21': {
-      const satyrs = state.deck.filter(card => isSatyrInDeck(state, card))
+      const satyrs = state.deck.filter(isSatyrInDeck(state))
       let satyr1, satyr2
 
       // If Queen of Herds is played without any satyr in the remaining cards
@@ -310,9 +310,9 @@ const handleCardEffect = (state, card, mode) => {
 const isNotPirate = state => card =>
   state.deck.find(isCard(card)).race !== 'pirate'
 
-function isSatyrInDeck(state, card) {
-  return !state.hand.find(isCard(card)) && card.race === 'satyr'
-}
+const isSatyrInDeck = state => card =>
+  !state.hand.find(isCard(card)) &&
+  state.deck.find(isCard(card)).race === 'satyr'
 
 function isPlayableSpell(state, card) {
   if (card.id === 'W1') {
@@ -338,9 +338,9 @@ function getHarvesterOfSoulsCopiedCard(deck) {
   const id = arrayRandom(
     cards.filter(card => card.type === 'unit').map(card => card.id)
   )
-
   const level = Math.floor(Math.random() * 5) + 1
   const copiedCard = resolveCardForLevel({ id, level })
+
   copiedCard.weight = 0
   copiedCard.id = id
   copiedCard.idx = deck.filter(card => card.id === id).length.toString()

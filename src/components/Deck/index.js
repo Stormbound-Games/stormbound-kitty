@@ -50,7 +50,7 @@ export default React.memo(function Deck(props) {
                 .filter(Boolean)
                 .join(' ')}
               key={card.id + index}
-              data-testid={[card.id, card.idx].join('_')}
+              data-testid={[card.id, card.idx].filter(Boolean).join('_')}
             >
               {props.onClick && (
                 <button

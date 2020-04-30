@@ -4,7 +4,7 @@ const DECK_ID =
   'NU4xLDVOMyw1TjIzLDVONCw1TjUsNU42LDVONjIsNU42Myw1TjY3LDVONjYsNU43LDVOMzg='
 const HAND = ['N38', 'N1', 'N4', 'N3']
 
-describe('Dry-runner — Harvester of Souls', () => {
+describe('Dry-runner — Harvesters of Souls', () => {
   it('should be possible to add new cards to deck with Harvester of Souls', () => {
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
       .drDrawHand(HAND)

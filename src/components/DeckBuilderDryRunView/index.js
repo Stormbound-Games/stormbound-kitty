@@ -15,7 +15,6 @@ export default props => {
   const [modifier, setModifier] = React.useState('NONE')
   const [equalsMode, setEqualsMode] = React.useState(false)
   const addIdx = card => ({ idx: '0', ...card })
-
   const deck = modifyDeck(props.deck, modifier, equalsMode).map(addIdx)
 
   return (
