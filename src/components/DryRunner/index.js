@@ -49,7 +49,7 @@ export default React.memo(function DryRunner(props) {
 
           {props.deck.map(card => card.id).includes('N38') && (
             <Hint>
-              Due to the lack of opponent’s deck, Harvester of Souls’ ability
+              Due to the lack of opponent’s deck, Harvesters of Souls’ ability
               has only been partially implemented.
             </Hint>
           )}
