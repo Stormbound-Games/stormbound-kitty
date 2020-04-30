@@ -103,6 +103,8 @@ export default React.memo(function Card(props) {
             <div
               className={[
                 'Card__strength',
+                props.strengthIncreased && 'Card__strength--increased',
+                props.strengthDecreased && 'Card__strength--decreased',
                 props.type === 'structure' && 'Card__strength--structure',
                 props.rarity === 'legendary' && 'Card__strength--hero',
               ]

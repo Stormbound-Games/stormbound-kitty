@@ -296,7 +296,7 @@ const handleCardEffect = (state, card, mode) => {
 
     // Harvesters of Souls
     case 'N38': {
-      const copiedCard = getHarvestersOfSoulsCopiedCard(state)
+      const copiedCard = getHarvestersOfSoulsCopiedCard(state, card.level)
       state.deck.push(copiedCard)
       break
     }
@@ -331,20 +331,33 @@ function getCollectorMirzToken(deck, level) {
   token.id = id
   token.idx = deck.filter(card => card.id === id).length.toString()
   token.created = true
+  token.strengthIncreased = true
   return token
 }
 
-function getHarvestersOfSoulsCopiedCard(state) {
+function getHarvestersOfSoulsCopiedCard(state, level) {
   const id = arrayRandom(
     cards.filter(card => card.type === 'unit').map(card => card.id)
   )
-  const level = state.equalsMode ? 1 : Math.floor(Math.random() * 5) + 1
-  const copiedCard = resolveCardForLevel({ id, level })
+  const copiedCardlevel = state.equalsMode
+    ? 1
+    : Math.floor(Math.random() * 5) + 1
+  const copiedCard = resolveCardForLevel({ id, level: copiedCardlevel })
+  const copiedCardStrength = [5, 6, 7, 8, 10][level - 1]
 
   copiedCard.weight = 0
   copiedCard.id = id
   copiedCard.idx = state.deck.filter(card => card.id === id).length.toString()
   copiedCard.created = true
+
+  if (copiedCard.token) {
+    // Unverified behavior
+    copiedCard.strengthIncreased = true
+  } else {
+    copiedCard.strengthIncreased = copiedCardStrength > copiedCard.strength
+    copiedCard.strengthDecreased = copiedCardStrength < copiedCard.strength
+  }
+  copiedCard.strength = copiedCardStrength
 
   if (copiedCard.token) {
     if (Math.random() < PROBABILITIES.NO_MOVEMENT_TOKEN) {
