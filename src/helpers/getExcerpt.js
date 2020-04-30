@@ -1,4 +1,5 @@
 export default (string, length) => {
+  if (string.length <= length) return string
   let excerpt = string.slice(0, length)
 
   while (/[,.?…;\s]$/.test(excerpt)) {
