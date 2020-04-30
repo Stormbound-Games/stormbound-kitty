@@ -3,7 +3,7 @@ import { CollectionContext } from '../CollectionProvider'
 import Mana from '../Mana'
 import sortByMana from '../../helpers/sortByMana'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
-import isCard from '../../helpers/isCard
+import isCard from '../../helpers/isCard'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import useFluidSizing from '../../hooks/useFluidSizing'
 import './index.css'
