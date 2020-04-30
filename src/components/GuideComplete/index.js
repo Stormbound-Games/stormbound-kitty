@@ -1,25 +1,23 @@
 import React from 'react'
 import Guide from '../Guide'
 import Markdown from '../Markdown'
-import guide from '../../data/Stormbound_guide.md'
+import data from '../../data/Stormbound_guide.md'
+import guides from '../../data/guides'
 import './index.css'
+
+const guide = guides.find(g => g.id === 'COMPLETE_GUIDE')
 
 export default React.memo(function GuideComplete(props) {
   const [content, setContent] = React.useState(null)
 
   React.useEffect(() => {
-    fetch(guide)
+    fetch(data)
       .then(response => response.text())
       .then(setContent)
   }, [])
 
   return content ? (
-    <Guide
-      title='Stormbound Guide'
-      description='A complete Stormbound Guide by Arikrat'
-      author='Arikrat'
-      className='GuideComplete'
-    >
+    <Guide {...guide} className='GuideComplete'>
       <Markdown source={content} />
     </Guide>
   ) : null
