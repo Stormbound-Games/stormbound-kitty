@@ -1,19 +1,22 @@
 import React from 'react'
 import Dialog from '../Dialog'
+import getRawCardData from '../../helpers/getRawCardData'
+import { BRAWLS } from '../../constants/brawl'
 import './index.css'
+
+const getDialogImage = modifier => {
+  if (!modifier || modifier === 'NONE') {
+    return '/assets/images/cards/execution.png'
+  }
+
+  const brawl = BRAWLS.find(brawl => brawl.id === modifier)
+
+  return getRawCardData(brawl.cardId).image
+}
 
 export default React.memo(function DryRunnerBrawlModifiers(props) {
   const dialogRef = React.useRef()
   const [modifier, setModifier] = React.useState(props.modifier)
-
-  const modifierHeroImage = {
-    NONE: 'execution',
-    STRUCTURE_MANA: 'ubass_the_hunter',
-    TOAD_MANA: 'tode_the_elevated',
-    KNIGHT_MANA: 'edrik_the_fierce',
-    DWARF_MANA: 'olf_the_hammer',
-    SPELL_MANA: 'archdruid_earyn',
-  }
 
   return (
     <>
@@ -30,17 +33,17 @@ export default React.memo(function DryRunnerBrawlModifiers(props) {
         }}
       >
         <option value='NONE'>None</option>
-        <option value='STRUCTURE_MANA'>Structures = 2 mana</option>
-        <option value='TOAD_MANA'>Toads = 2 mana</option>
-        <option value='KNIGHT_MANA'>Knights -2 mana</option>
-        <option value='DWARF_MANA'>Dwarves -2 mana</option>
-        <option value='SPELL_MANA'>Spells -2 mana</option>
+        {BRAWLS.filter(brawl => brawl.id.includes('MANA')).map(brawl => (
+          <option key={brawl.id} value={brawl.id}>
+            {brawl.label}
+          </option>
+        ))}
       </select>
       <Dialog
         id='brawl-modifier-dialog'
         title='Brawl mode'
         dialogRef={instance => (dialogRef.current = instance)}
-        image={`/assets/images/cards/${modifierHeroImage[modifier]}.png`}
+        image={getDialogImage(modifier)}
         close={() => dialogRef.current.hide()}
         ctaProps={{
           onClick: () => {
