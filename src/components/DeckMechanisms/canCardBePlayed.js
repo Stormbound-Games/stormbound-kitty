@@ -30,7 +30,7 @@ const canCardBePlayed = (state, id) => {
     // Note: Checking if there are friendly units on the board to play one of these spells
     // after turn 1 is and should not be implemented, since the opponent can always play
     // Dubious Hags + Toxic Sacrifice to spawn a unit on the first turn
-    const unplayableSpells = ['W1', 'S10', 'N15', 'N63']
+    const unplayableSpells = ['N9', 'N15', 'N63', 'S10', 'W1']
 
     // Add Toxic Sacrifice to the list of unplayable spells if no unit has been played
     // or spawned on this first turn
