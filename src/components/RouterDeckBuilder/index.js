@@ -34,14 +34,6 @@ export default function RouterDeckBuilder() {
           {state => <DeckBuilderDryRunView {...state} />}
         </DeckBuilderRoot>
       </Page>
-      <Page
-        path={`${path}/:deckId/tracker`}
-        active={['DECK_BUILDER', 'TRACKER']}
-      >
-        <DeckBuilderRoot>
-          {state => <DeckBuilderTrackerView {...state} />}
-        </DeckBuilderRoot>
-      </Page>
       <Page path={`${path}/:deckId`} active={['DECK_BUILDER', 'EDITOR']}>
         <DeckBuilderRoot>
           {state => <DeckBuilderEditorView {...state} />}
