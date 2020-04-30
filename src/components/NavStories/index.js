@@ -8,11 +8,6 @@ export default React.memo(function NavStories(props) {
     <nav className='Header__nav'>
       <ul className='Header__list Header__list--sub'>
         <li className='Header__item'>
-          <NavLink to='/stories' active={props.active === 'INDEX'}>
-            All stories
-          </NavLink>
-        </li>
-        <li className='Header__item'>
           <NavLink to='/stories/lore' active={props.active === 'LORE'}>
             Lore
           </NavLink>

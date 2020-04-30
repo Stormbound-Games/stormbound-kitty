@@ -1,37 +1,27 @@
 import React from 'react'
-import Banner from '../Banner'
+import Column from '../Column'
 import MemberSection from '../MemberSection'
-import getExcerpt from '../../helpers/getExcerpt'
-import getRawCardData from '../../helpers/getRawCardData'
+import Row from '../Row'
+import StoriesHeader from '../StoriesHeader'
+import StoryTeaser from '../StoryTeaser'
+import chunk from '../../helpers/chunk'
 import './index.css'
 
 export default React.memo(function MemberStories(props) {
   if (props.stories.length === 0) return null
 
   return (
-    <MemberSection title={<>Stories by {props.displayName}</>}>
-      {props.stories.map(story => {
-        const card = getRawCardData(story.cardId)
-        const title = story.title || card.name || 'Story'
-        const id = window.btoa(
-          encodeURIComponent(story.title + '-' + story.author)
-        )
-
+    <MemberSection>
+      <StoriesHeader background='/assets/images/environment_neutral.png'>
+        {props.displayName}
+      </StoriesHeader>
+      {chunk(props.stories, 3).map((row, index) => {
         return (
-          <Banner
-            className='MemberStories__story'
-            key={id}
-            faction={card.faction}
-            title={title}
-            subline={`By ${story.author}`}
-            copy={getExcerpt(story.content || '', 200)}
-            cta={{
-              'aria-label': 'Read story about ' + card.name,
-              to: '/stories/' + id,
-              children: 'Read story',
-            }}
-            image={card.image}
-          />
+          <Row key={index} wideGutter desktopOnly>
+            <Column width='1/3'>{row[0] && <StoryTeaser {...row[0]} />}</Column>
+            <Column width='1/3'>{row[1] && <StoryTeaser {...row[1]} />}</Column>
+            <Column width='1/3'>{row[2] && <StoryTeaser {...row[2]} />}</Column>
+          </Row>
         )
       })}
     </MemberSection>
