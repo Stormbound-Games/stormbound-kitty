@@ -31,4 +31,17 @@ describe('Dry-runner — Harvesters of Souls', () => {
           })
       })
   })
+
+  it('should be possible to add new level 1 cards to deck with Harvester of Souls in equals mode', () => {
+    cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
+      .drReset({ equals: true })
+      .drDrawHand(HAND)
+
+      .drEndTurn(3)
+      .drPlay('N38')
+
+      .get(s.DECK_CARD)
+      .find('.Deck__level')
+      .should('contain', 1)
+  })
 })

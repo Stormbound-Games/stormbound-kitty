@@ -15,10 +15,11 @@ export default props => {
   const [modifier, setModifier] = React.useState('NONE')
   const [equalsMode, setEqualsMode] = React.useState(false)
   const addIdx = card => ({ idx: '0', ...card })
+
   const deck = modifyDeck(props.deck, modifier, equalsMode).map(addIdx)
 
   return (
-    <DeckMechanisms deck={deck} mode={mode}>
+    <DeckMechanisms deck={deck} mode={mode} equalsMode={equalsMode}>
       {state => (
         <DeckBuilderDryRunView
           {...props}

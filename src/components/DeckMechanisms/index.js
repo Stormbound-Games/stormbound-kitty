@@ -27,6 +27,7 @@ const getDefaultState = props => ({
   playerOrder: 'FIRST',
   playedCards: [],
   cardsThisTurn: 0,
+  equalsMode: props.equalsMode,
 })
 
 export default class DeckMechanisms extends React.Component {
