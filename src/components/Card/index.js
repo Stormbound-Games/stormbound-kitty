@@ -145,7 +145,13 @@ export default React.memo(function Card(props) {
           {props.type === 'unit' && props.movement !== null && (
             <div className='Card__movement'>
               <span
-                className='Card__movement-content'
+                className={[
+                  'Card__movement-content',
+                  props.movementIncreased && 'Card__movement--increased',
+                  props.movementDecreased && 'Card__movement--decreased',
+                ]
+                  .filter(Boolean)
+                  .join(' ')}
                 data-testid='card-movement'
               >
                 {props.movement}

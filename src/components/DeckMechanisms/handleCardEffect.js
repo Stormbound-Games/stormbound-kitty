@@ -350,20 +350,30 @@ function getHarvestersOfSoulsCopiedCard(state, level) {
   copiedCard.idx = state.deck.filter(card => card.id === id).length.toString()
   copiedCard.created = true
 
-  if (copiedCard.token) {
-    // Unverified behavior
-    copiedCard.strengthIncreased = true
-  } else {
-    copiedCard.strengthIncreased = copiedCardStrength > copiedCard.strength
-    copiedCard.strengthDecreased = copiedCardStrength < copiedCard.strength
-  }
-  copiedCard.strength = copiedCardStrength
+  copiedCard.strengthIncreased = copiedCardStrength > copiedCard.strength
+  copiedCard.strengthDecreased = copiedCardStrength < copiedCard.strength
 
   if (copiedCard.token) {
-    if (Math.random() < PROBABILITIES.NO_MOVEMENT_TOKEN) {
-      // High Priestess Klaxi and Rain of Frogs spawn tokens with no movement
-      copiedCard.movement = 0
+    copiedCard.level = copiedCardStrength
+    if (copiedCard.id === 'T5') {
+      // A Token Raven was created - by Dubious Hags, High Priestess Klaxi,
+      // Marked as Prey, Avian Stalkers or Call for Aid on a Raven
+      if (Math.random() < PROBABILITIES.NO_MOVEMENT_RAVEN_TOKEN) {
+        // High Priestess Klaxi spawns tokens with no movement
+        copiedCard.movement = 0
+        copiedCard.movementDecreased = true
+      }
+    } else if (copiedCard.id === 'T8') {
+      // A Token Toad was created - by Azure Hatchers, Brood Sages,
+      // Rain of Frogs, Call for Aid on a Toad
+      if (Math.random() < PROBABILITIES.NO_MOVEMENT_TOAD_TOKEN) {
+        // Brood Sages and Rain of Frogs spawn tokens with no movement
+        copiedCard.movement = 0
+        copiedCard.movementDecreased = true
+      }
     }
+  } else {
+    copiedCard.strength = copiedCardStrength
   }
   return copiedCard
 }
