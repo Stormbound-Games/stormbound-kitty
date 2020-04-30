@@ -76,7 +76,7 @@ class Collection extends React.Component {
   download = () => {
     download({
       content: this.formatCollectionAsCSV(this.props.collection),
-      fileName: 'collection.csv',
+      fileName: 'stormbound_collection.csv',
       mimeType: 'text/csv;encoding:utf-8',
     })
     this.props.notify({
