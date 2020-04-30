@@ -5,7 +5,7 @@ const DECK_ID =
 const HAND = ['N38', 'N1', 'N4', 'N3']
 
 describe('Dry-runner — Harvesters of Souls', () => {
-  it('should be possible to add new cards to deck with Harvester of Souls', () => {
+  it('should be possible to add new cards to deck with Harvesters of Souls', () => {
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
       .drDrawHand(HAND)
 
@@ -32,7 +32,7 @@ describe('Dry-runner — Harvesters of Souls', () => {
       })
   })
 
-  it('should be possible to add new level 1 cards to deck with Harvester of Souls in equals mode', () => {
+  it('should be possible to add new level 1 cards to deck with Harvesters of Souls in equals mode', () => {
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
       .drReset({ equals: true })
       .drDrawHand(HAND)

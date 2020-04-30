@@ -294,9 +294,9 @@ const handleCardEffect = (state, card, mode) => {
       break
     }
 
-    // Harvester of Souls
+    // Harvesters of Souls
     case 'N38': {
-      const copiedCard = getHarvesterOfSoulsCopiedCard(state)
+      const copiedCard = getHarvestersOfSoulsCopiedCard(state)
       state.deck.push(copiedCard)
       break
     }
@@ -334,7 +334,7 @@ function getCollectorMirzToken(deck, level) {
   return token
 }
 
-function getHarvesterOfSoulsCopiedCard(state) {
+function getHarvestersOfSoulsCopiedCard(state) {
   const id = arrayRandom(
     cards.filter(card => card.type === 'unit').map(card => card.id)
   )
