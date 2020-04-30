@@ -26,15 +26,11 @@ describe('The `isCard` helper', () => {
       result ? '' : 'not'
     } equal`, () => {
       if (result) {
-        // eslint-disable-next-line no-unused-expressions
-        expect(isCard(card1)(card2)).to.be.true
-        // eslint-disable-next-line no-unused-expressions
-        expect(isCard(card2)(card1)).to.be.true
+        expect(isCard(card1)(card2)).to.equal(true)
+        expect(isCard(card2)(card1)).to.equal(true)
       } else {
-        // eslint-disable-next-line no-unused-expressions
-        expect(isCard(card1)(card2)).to.be.false
-        // eslint-disable-next-line no-unused-expressions
-        expect(isCard(card2)(card1)).to.be.false
+        expect(isCard(card1)(card2)).to.equal(false)
+        expect(isCard(card2)(card1)).to.equal(false)
       }
     })
   })

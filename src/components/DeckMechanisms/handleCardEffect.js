@@ -193,7 +193,7 @@ const handleCardEffect = (state, card, mode) => {
 
     // Archdruid Earyn
     case 'N48': {
-      const spells = state.hand.filter(card => isPlayableSpell(state, card))
+      const spells = state.hand.filter(isPlayableSpell(state))
 
       if (mode !== 'MANUAL' && spells.length > 0) {
         play(state, spells[0], { mode, free: true })
@@ -314,7 +314,7 @@ const isSatyrInDeck = state => card =>
   !state.hand.find(isCard(card)) &&
   state.deck.find(isCard(card)).race === 'satyr'
 
-function isPlayableSpell(state, card) {
+const isPlayableSpell = state => card => {
   if (card.id === 'W1') {
     return state.specifics.frozenEnemiesLevel !== 0
   }

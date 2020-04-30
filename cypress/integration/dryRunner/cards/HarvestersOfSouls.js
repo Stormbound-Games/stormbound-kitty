@@ -6,6 +6,9 @@ const HAND = ['N38', 'N1', 'N4', 'N3']
 
 describe('Dry-runner — Harvesters of Souls', () => {
   it('should be possible to add new cards to deck with Harvesters of Souls', () => {
+    const isCard = card1 => card2 =>
+      card1.getAttribute('data-testid') === card2.getAttribute('data-testid')
+
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
       .drDrawHand(HAND)
 
@@ -20,12 +23,7 @@ describe('Dry-runner — Harvesters of Souls', () => {
           .should('have.length', 13)
           .then($newCards => {
             const addedCards = Array.from($newCards).filter(
-              card =>
-                !cards.find(
-                  c =>
-                    c.getAttribute('data-testid') ===
-                    card.getAttribute('data-testid')
-                )
+              card => !cards.find(isCard(card))
             )
             expect(addedCards).to.have.length(1)
           })
