@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Card from '../Card'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
-import getExcerpt from '../../helpers/getExcerpt'
 import './index.css'
 
 export default React.memo(function Teaser(props) {
