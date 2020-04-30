@@ -1,5 +1,4 @@
 import s from '../selectors'
-import isCard from '../../../../src/helpers/isCard'
 
 const DECK_ID =
   'NU4xLDVOMyw1TjIzLDVONCw1TjUsNU42LDVONjIsNU42Myw1TjY3LDVONjYsNU43LDVOMzg='
