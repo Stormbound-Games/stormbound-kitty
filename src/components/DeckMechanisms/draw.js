@@ -5,7 +5,7 @@ import isCard from '../../helpers/isCard'
 /**
  * Mutate the given state following a draw.
  * @param {Object} state - State being mutated
- * @param {DRCard} [card = null] - Drawn card (otherwise random)
+ * @param {DRCard?} [card = null] - Drawn card (otherwise random)
  * @return {Object} Mutated state
  */
 const draw = (state, card = null) => {
