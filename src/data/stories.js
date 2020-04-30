@@ -1181,4 +1181,55 @@ export default [
     cardId: 'I22',
     category: 'ironclad',
   },
+  {
+    title: 'Devastators',
+    content: `
+    *A huge explosion, the structure trembles but the flaming red meteor hits its target*
+
+    Dark
+    Nothing
+
+    I wake up.
+    My head hurts, everything’s blurry… is someone yelling? Everything’s so dusty… what happened?
+    All around me others keep moving forward, there’s sounds of fighting, the dusty battlefield trembles under the cacophony of explosions and clangs of iron against iron. Things start coming back: the deployment, the support from our heralds, the rush to the enemy’s outpost. Then we see them. They have cannons. Huge nasty towers that decimate anything that’s unfortunate enough to cross their path. I was one of those unfortunate soldiers. No, they can’t kill what’s already dead, I am still alive, I’m still here. They shot us point blank as we were running desperately to it, everyone else is dead but me… but me…
+    Other ghouls rush beside me, they are just trying to get to the enemy’s base, they can’t help me, I’m alone. I finally stand up after those few seconds of confusion, and I look at it, I look at the stone walls and iron barrels that tower before me, thinking how many friends those cold objects they killed. Too many, but this ends now.
+    I dash at the heavy steel doors, and I don’t even try to open them, instead I jump from the handles to reach with my scythe the top edge of the door frame and pull myself up with a swift movement. I don’t have much time, but I know I can do this.
+
+    *Far away a white figure sees the survivor, their eyes open in terror, they yell orders to someone behind them.*
+
+    I’m still climbing the tower, I’d be faster if I wasn’t alone and almost dead. There are many paneless windows to grab onto, and the few times there’s someone on the other side, their rodent head ends up rolling on the floor before they can even take out their little guns. I keep climbing, and climbing, and then it’s over. I’m at the top, finally over the last row of round holes and standing on the rounded roof, overlooking the whole battlefield. I see hordes of fauns being blown away by dynamite-wielding mice, only to be replaced by fellow undeads, scythe in hand, ready to vindicate the fallen.
+
+    *The white figure is now on the battlefield, small, holding its gown to walk faster. As it gets close to the artillery, the whirring inside gets louder, and the cogs start spinning on its own*
+
+    Suddenly the huge barrel starts moving, and slowly it places itself directly looking at our base. I don’t have time anymore! Someone must have survived, and they are now going to shoot us! This cannot be happening, I have to destroy this now! As the metal starts glowing hot red, I focus and hold my scythe upright. I close my eyes.
+
+    Remember what the Queen taught you.
+
+    *The white mouse is close enough now*
+
+    Remember the fallen, the ones that now have to live again
+
+    *It hold up its hand, crackles in its finger*
+
+    Remember how they shattered the truce that held the kingdom together
+
+    *The gunpowder is there, the bullet is waiting*
+
+    Remember the pain of dying
+
+    *snap*
+
+    *Too late*
+
+    As I’m raptured in my pain, I tap the back of the scythe on the roof of the structure. Suddenly the stones under my feet are crying for help, suddenly the iron beams can feel my pain, suddenly the foundations realize the weight they have been carrying all this time. The tower shudders in that instant, in a mix of horror and bewilderment, in that instant that it realizes it’s alive. And just as it was alive, it dies, because life was never meant to be forcefully infused in those old bricks, and as it dies everything crumbles, everything runs from itself, in the fear of feeling again, in the fear of fearing, of feeling. All it’s left is dust, dust that will always try to forget that instant, that moment where it could realize what it was.
+
+    And as the dust cloud settles, I am still standing there, my eyes now open, in front of that damned white mouse, and their damned magic fingers, and their damned grin. It’s all their fault, all of this! They will pay! They will!
+    My tired feet get ready to dash then they bump something unusual in the sand. I look down and squint. It’s a bottle filled with green liquid.As I pick it up I wonder: how is this here? Chance? Magic? The Gods?
+    It does not matter now. Nothing matters.
+    The mouse drops their smirk, watching me in horror as I down the liquid in one go.
+    This ends with me, right here, right now.`,
+    author: 'Kepp',
+    cardId: 'S11',
+    category: 'swarm',
+  },
 ]
