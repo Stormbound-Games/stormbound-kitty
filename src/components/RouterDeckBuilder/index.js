@@ -7,7 +7,6 @@ const DeckBuilderSuggestions = load('DeckBuilderSuggestions')
 const DeckBuilderRoot = load('DeckBuilderRoot')
 const DeckBuilderDetailView = load('DeckBuilderDetailView')
 const DeckBuilderDryRunView = load('DeckBuilderDryRunView')
-const DeckBuilderTrackerView = load('DeckBuilderTrackerView')
 const DeckBuilderEditorView = load('DeckBuilderEditorView')
 
 export default function RouterDeckBuilder() {
