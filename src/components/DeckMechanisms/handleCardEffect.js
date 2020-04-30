@@ -1,8 +1,8 @@
 import { PROBABILITIES } from '../../constants/dryRunner'
 import arrayRandom from '../../helpers/arrayRandom'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
-import isCard from '../../helpers/isCard'
-import cards from '../../data/cards.json'
+import isCard, { isNotCard } from '../../helpers/isCard'
+import cards from '../../data/cards'
 import play from './play'
 import cycle from './cycle'
 import draw from './draw'
@@ -213,9 +213,7 @@ const handleCardEffect = (state, card, mode) => {
 
     // First Mutineer
     case 'N12': {
-      const nonPirates = state.hand.filter(card =>
-        isNonPiratesInHand(state, card)
-      )
+      const nonPirates = state.hand.filter(isNotPirate(state))
 
       if (mode !== 'MANUAL' && nonPirates.length > 0) {
         play(state, arrayRandom(nonPirates), { mode, discard: true })
@@ -225,9 +223,7 @@ const handleCardEffect = (state, card, mode) => {
 
     // Goldgrubbers
     case 'N22': {
-      const nonPirates = state.hand.filter(card =>
-        isNonPiratesInHand(state, card)
-      )
+      const nonPirates = state.hand.filter(isNotPirate(state))
 
       if (mode !== 'MANUAL' && nonPirates.length > 0) {
         cycle(state, arrayRandom(nonPirates), { countAsCycled: false })
@@ -271,7 +267,7 @@ const handleCardEffect = (state, card, mode) => {
       // satyr in the remaining cards from the deck, a second one can be
       // picked at random and played for free.
       if (satyrs.length > 1 && card.level >= 4) {
-        satyr2 = arrayRandom(satyrs.filter(satyr => !isCard(satyr1)(satyr)))
+        satyr2 = arrayRandom(satyrs.filter(isNotCard(satyr1)))
 
         if (satyr2) {
           play(state, satyr2, { mode, free: true })
@@ -311,9 +307,8 @@ const handleCardEffect = (state, card, mode) => {
   return state
 }
 
-function isNonPiratesInHand(state, card) {
-  return state.deck.find(isCard(card)).race !== 'pirate'
-}
+const isNotPirate = state => card =>
+  state.deck.find(isCard(card)).race !== 'pirate'
 
 function isSatyrInDeck(state, card) {
   return !state.hand.find(isCard(card)) && card.race === 'satyr'

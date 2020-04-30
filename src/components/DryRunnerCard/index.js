@@ -5,6 +5,7 @@ import './index.css'
 
 export default React.memo(function DryRunnerCard(props) {
   const cardData = props.deck.find(isCard(props.card))
+  const isActive = isCard(props.activeCard)(cardData)
 
   if (!cardData) return null
 
@@ -12,8 +13,7 @@ export default React.memo(function DryRunnerCard(props) {
     <div
       className={[
         'DryRunnerHand__wrapper',
-        isCard(props.activeCard)(props.card) &&
-          'DryRunnerHand__wrapper--active',
+        isActive && 'DryRunnerHand__wrapper--active',
       ]
         .filter(Boolean)
         .join(' ')}
@@ -24,12 +24,12 @@ export default React.memo(function DryRunnerCard(props) {
         onClick={() => props.selectCard(props.card)}
       >
         <span className='VisuallyHidden'>
-          {isCard(props.activeCard)(cardData) ? 'Unselect card' : 'Select card'}
+          {isActive ? 'Unselect card' : 'Select card'}
         </span>
       </button>
       <Card
         {...cardData}
-        missing={!!props.activeCard && !isCard(props.activeCard)(cardData)}
+        missing={!!props.activeCard && !isActive}
         affordable={props.canCardBePlayed(props.card)}
       />
     </div>

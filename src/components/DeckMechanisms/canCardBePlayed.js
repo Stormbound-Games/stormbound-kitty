@@ -3,7 +3,7 @@ import isCard from '../../helpers/isCard'
 /**
  * Return whether a given card can be played in the current state.
  * @param {Object} state - State being mutated
- * @param {Object} card - Object containing id and idx of the card
+ * @param {DRCard} card - Card to assess
  * @return {Boolean} Whether the card can be played
  */
 const canCardBePlayed = (state, card) => {
