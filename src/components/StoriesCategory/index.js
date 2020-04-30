@@ -1,14 +1,11 @@
 import React from 'react'
 import stories from '../../data/stories'
-import Column from '../Column'
 import PageMeta from '../PageMeta'
-import Row from '../Row'
 import StoriesHeader from '../StoriesHeader'
-import StoryTeaser from '../StoryTeaser'
+import Stories from '../Stories'
 import capitalise from '../../helpers/capitalise'
 import getRawCardData from '../../helpers/getRawCardData'
 import sortCards from '../../helpers/sortCards'
-import chunk from '../../helpers/chunk'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import { STORY_CATEGORIES } from '../../constants/stories'
 
@@ -29,15 +26,10 @@ export default function StoriesCategory(props) {
           : `${categoryName} stories`}
       </StoriesHeader>
 
-      {chunk(categoryStories.sort(sortCardsInCategory), 3).map((row, index) => {
-        return (
-          <Row key={index} wideGutter desktopOnly>
-            <Column width='1/3'>{row[0] && <StoryTeaser {...row[0]} />}</Column>
-            <Column width='1/3'>{row[1] && <StoryTeaser {...row[1]} />}</Column>
-            <Column width='1/3'>{row[2] && <StoryTeaser {...row[2]} />}</Column>
-          </Row>
-        )
-      })}
+      <Stories
+        stories={categoryStories.sort(sortCardsInCategory)}
+        columns={3}
+      />
 
       <PageMeta
         title={`${categoryName} stories`}

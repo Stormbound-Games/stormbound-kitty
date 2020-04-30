@@ -1,10 +1,7 @@
 import React from 'react'
-import Column from '../Column'
 import MemberSection from '../MemberSection'
-import Row from '../Row'
 import StoriesHeader from '../StoriesHeader'
-import StoryTeaser from '../StoryTeaser'
-import chunk from '../../helpers/chunk'
+import Stories from '../Stories'
 import './index.css'
 
 export default React.memo(function MemberStories(props) {
@@ -15,15 +12,8 @@ export default React.memo(function MemberStories(props) {
       <StoriesHeader background='/assets/images/environment_neutral.png'>
         {props.displayName}
       </StoriesHeader>
-      {chunk(props.stories, 3).map((row, index) => {
-        return (
-          <Row key={index} wideGutter desktopOnly>
-            <Column width='1/3'>{row[0] && <StoryTeaser {...row[0]} />}</Column>
-            <Column width='1/3'>{row[1] && <StoryTeaser {...row[1]} />}</Column>
-            <Column width='1/3'>{row[2] && <StoryTeaser {...row[2]} />}</Column>
-          </Row>
-        )
-      })}
+
+      <Stories stories={props.stories} columns={3} />
     </MemberSection>
   )
 })

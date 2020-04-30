@@ -5,8 +5,10 @@ import Column from '../Column'
 import CTA from '../CTA'
 import Error from '../Error'
 import Image from '../Image'
+import InfoHint from '../InfoHint'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import Stories from '../Stories'
 import Title from '../Title'
 import getRawCardData from '../../helpers/getRawCardData'
 import microMarkdown from '../../helpers/microMarkdown'
@@ -40,7 +42,7 @@ export default function Story(props) {
     <div className='Story'>
       <Row desktopOnly wideGutter>
         <Column width='2/3'>
-          <article>
+          <article className='Story__content'>
             <Title element='h1' className='Story__title'>
               {story.title}
             </Title>
@@ -55,37 +57,33 @@ export default function Story(props) {
               )
             })}
           </article>
+
+          {storiesByAuthor.length > 1 && (
+            <>
+              <Title>
+                Other stories by{' '}
+                <Link to={`/member/${story.author}`}>{story.author}</Link>
+              </Title>
+              <Stories
+                stories={storiesByAuthor.filter(s => story.title !== s.title)}
+                columns={2}
+              />
+            </>
+          )}
         </Column>
 
         <Column width='1/3'>
           <div className='Story__aside'>
             {!!card.image && <Image src={card.image} alt={card.name} />}
 
-            <p className='Story__author'>
-              Story by{' '}
-              <Link to={'/member/' + story.author}>{story.author}</Link>
-            </p>
+            <InfoHint>
+              Looking to contribute to the Stormbound lore?{' '}
+              <Link to='/faq#adding-a-story'>
+                Have your own story published
+              </Link>
+              .
+            </InfoHint>
 
-            {storiesByAuthor.length > 1 && (
-              <p>
-                You might enjoy these other stories from the same author:{' '}
-                {storiesByAuthor
-                  .filter(s => story.title !== s.title)
-                  .map((story, index) => {
-                    const id = window.btoa(
-                      encodeURIComponent(story.title + '-' + story.author)
-                    )
-
-                    return (
-                      <>
-                        <Link to={'/stories/' + id}>{story.title}</Link>
-                        {index !== storiesByAuthor.length - 2 ? ', ' : ''}
-                      </>
-                    )
-                  })}
-                .
-              </p>
-            )}
             <hr />
 
             <CTA className='Story__back' to='/stories'>
