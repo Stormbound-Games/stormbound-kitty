@@ -1,11 +1,10 @@
 import React from 'react'
-import { Switch, useRouteMatch } from 'react-router-dom'
+import { Redirect, Switch, useRouteMatch } from 'react-router-dom'
 import Page from '../Page'
 import load from '../../helpers/load'
 
 const StoriesCategory = load('StoriesCategory')
 const Story = load('Story')
-const Stories = load('Stories')
 
 export default function RouterStories() {
   const { path } = useRouteMatch()
@@ -33,9 +32,7 @@ export default function RouterStories() {
       <Page path={`${path}/:storyId`} active={['STORIES']}>
         <Story />
       </Page>
-      <Page path={path} active={['STORIES', 'INDEX']}>
-        <Stories />
-      </Page>
+      <Redirect path={path} to='stories/lore' />
     </Switch>
   )
 }

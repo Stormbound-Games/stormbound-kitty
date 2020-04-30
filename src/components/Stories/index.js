@@ -1,64 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { FACTIONS } from '../../constants/game'
-import Banner from '../Banner'
-import InfoHint from '../InfoHint'
-import PageMeta from '../PageMeta'
-import capitalise from '../../helpers/capitalise'
-
-const ILLUSTATION = {
-  lore: '/assets/images/cards/tegor_the_vengeful.png',
-  neutral: '/assets/images/cards/edrik_the_fierce.png',
-  winter: '/assets/images/cards/spellbinder_zhevana.png',
-  ironclad: '/assets/images/cards/eloth_the_ignited.png',
-  shadowfen: '/assets/images/cards/broodmother_qordia.png',
-  swarm: '/assets/images/cards/xuri_lord_of_life.png',
-}
+import Column from '../Column'
+import Row from '../Row'
+import StoryTeaser from '../StoryTeaser'
+import chunk from '../../helpers/chunk'
 
 export default React.memo(function Stories(props) {
-  return (
-    <>
-      <div className='Stories'>
-        <h1 className='VisuallyHidden'>Stories</h1>
-
-        <Banner
-          title='Lore stories'
-          copy='Discover the amazing tales from the community about the lore and embark on a mythical journey through myths and legends.'
-          cta={{
-            'aria-label': 'Read stories about the lore',
-            to: '/stories/lore',
-            children: 'Lore stories',
-          }}
-          image={ILLUSTATION.lore}
-        />
-
-        {Object.keys(FACTIONS).map(faction => (
-          <Banner
-            key={faction}
-            faction={faction}
-            title={`${capitalise(faction)} stories`}
-            copy={`Discover the amazing tales from the community about the ${capitalise(
-              faction
-            )} faction and embark on a mythical journey through myths and legends.`}
-            cta={{
-              'aria-label': 'Read stories about ' + faction,
-              to: '/stories/' + faction,
-              children: `${faction} stories`,
-            }}
-            image={ILLUSTATION[faction]}
-          />
-        ))}
-      </div>
-
-      <InfoHint icon='quill'>
-        Looking to contribute to the Stormbound lore?{' '}
-        <Link to='/faq#adding-a-story'>Have your own story published</Link>.
-      </InfoHint>
-
-      <PageMeta
-        title='Stories'
-        description='Stories from the community about Stormbound cards'
-      />
-    </>
-  )
+  return chunk(props.stories, props.columns).map((row, index) => (
+    <Row key={index} desktopOnly wideGutter>
+      {Array.from({ length: props.columns }, (_, index) => (
+        <Column
+          key={index}
+          width={props.columns === 2 ? undefined : `1/${props.columns}`}
+        >
+          {row[index] && <StoryTeaser {...row[index]} />}
+        </Column>
+      ))}
+    </Row>
+  ))
 })

@@ -1,0 +1,73 @@
+.StoriesHeader {
+  position: relative;
+  background-image: url('/assets/images/environment_neutral.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 5em;
+}
+
+.StoriesHeader::before {
+  content: '';
+  display: block;
+  padding-top: 15%;
+}
+
+.StoriesHeader::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  right: 0;
+  height: 1px;
+  background-image: linear-gradient(to left, var(--beige), transparent);
+  width: 100%;
+  z-index: -1;
+}
+
+.StoriesHeader__title {
+  font-size: 500%;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  line-height: 1;
+  transform: translateY(30%);
+  margin-left: 30px;
+}
+
+/**
+ * 1. There is no elegant way to have a proper text stroke, so we have to place
+ *    a pseudo-element behind the text itself, that repeats the same text with
+ *    an actual stroke.
+ */
+.StoriesHeader__title::before {
+  content: attr(title); /* 1 */
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  -webkit-text-stroke: 3px var(--black);
+}
+
+@media (max-width: 700px) {
+  .StoriesHeader__title {
+    font-size: 225%;
+    left: 50%;
+    transform: translate(-50%, 30%);
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .StoriesHeader::before {
+    padding-top: 30%;
+  }
+
+  .StoriesHeader::after {
+    background-image: linear-gradient(
+      to left,
+      transparent,
+      var(--beige),
+      transparent
+    );
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

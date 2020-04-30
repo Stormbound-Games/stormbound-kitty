@@ -50,6 +50,10 @@
   opacity: 0.5;
 }
 
+.Deck__card--upgradable {
+  border-color: var(--upgradable);
+}
+
 .Deck--horizontal .Deck__card {
   margin: 0 0.15em;
   display: flex;

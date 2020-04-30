@@ -5,7 +5,9 @@ import './index.css'
 export default React.memo(function MemberSection(props) {
   return (
     <div className='MemberSection'>
-      <Title className='MemberSection__title'>{props.title}</Title>
+      {props.title ? (
+        <Title className='MemberSection__title'>{props.title}</Title>
+      ) : null}
       {props.children}
     </div>
   )

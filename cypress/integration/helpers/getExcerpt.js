@@ -10,9 +10,9 @@ describe('The `getExcerpt` helper', () => {
   })
 
   it('should avoid double punctuation at the end', () => {
-    expect(getExcerpt('Foo?', 4)).to.equal('Foo…')
-    expect(getExcerpt('Foo.', 4)).to.equal('Foo…')
-    expect(getExcerpt('Foo…', 4)).to.equal('Foo…')
-    expect(getExcerpt('Foo,', 4)).to.equal('Foo…')
+    expect(getExcerpt('Foo?b', 4)).to.equal('Foo…')
+    expect(getExcerpt('Foo.b', 4)).to.equal('Foo…')
+    expect(getExcerpt('Foo…b', 4)).to.equal('Foo…')
+    expect(getExcerpt('Foo,b', 4)).to.equal('Foo…')
   })
 })
