@@ -2,7 +2,7 @@
   font-size: 120%;
   max-width: 100%;
   margin: 0 auto 1.5em;
-  width: 60ch;
+  width: 65ch;
 }
 
 .Guide > h1.Title {
@@ -16,7 +16,7 @@
 }
 
 .Guide .Title {
-  margin-top: 4em;
+  margin-top: 1em;
 }
 
 .Guide h3 {
