@@ -25,7 +25,7 @@ const canCardBePlayed = (state, id) => {
     }
 
     // These spells can’t be played on turn 1 since they require a target
-    // Confinement, Potion of Growth, Unhealthy Hysteria, Broken Truce, Icicle Burs,
+    // Confinement, Potion of Growth, Unhealthy Hysteria, Broken Truce, Icicle Burst
 
     // Note: Checking if there are friendly units on the board to play one of these spells
     // after turn 1 is and should not be implemented, since the opponent can always play
