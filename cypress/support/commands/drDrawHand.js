@@ -11,6 +11,9 @@ const drawHand = ids => {
   })
 
   ids.forEach(id => {
+    if (!id.includes('_')) {
+      id = id + '_0'
+    }
     cy.get(s.DECK_CARD, { log: false })
       .filter('[data-testid="' + id + '"]', { log: false })
       .find('button', { log: false })
