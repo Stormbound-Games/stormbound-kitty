@@ -5,26 +5,28 @@ import './index.css'
 
 export default React.memo(function CardZoom(props) {
   const { close } = props
+  const [scrollPosition, setScrollPosition] = React.useState(0)
+  const scrollBack = React.useCallback(
+    () => window.scrollTo(0, scrollPosition),
+    [scrollPosition]
+  )
   const handleESC = React.useCallback(event => event.which === 27 && close(), [
     close,
   ])
 
   React.useEffect(() => {
+    setScrollPosition(window.scrollY)
     document.addEventListener('keydown', handleESC)
-    if (props.cardId) {
-      document.documentElement.style.overflowY = 'hidden'
-    } else {
-      document.documentElement.style.overflowY = ''
-    }
+    window.addEventListener('scroll', scrollBack)
 
     return () => {
       document.removeEventListener('keydown', handleESC)
-      document.documentElement.style.overflowY = ''
+      window.removeEventListener('scroll', scrollBack)
     }
-  }, [handleESC, props.cardId])
+  }, [handleESC, scrollBack])
 
   return props.cardId ? (
-    <div className='CardZoom__overlay' onClick={props.close} data-testid='zoom'>
+    <div className='CardZoom__overlay' onClick={close} data-testid='zoom'>
       <div className='CardZoom__wrapper'>
         <Card
           {...resolveCardForLevel({
