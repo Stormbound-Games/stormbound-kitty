@@ -30,11 +30,7 @@ export default React.memo(function Teaser(props) {
             title
           )}
         </h2>
-        <p className='Teaser__excerpt'>
-          {typeof props.excerpt === 'string'
-            ? getExcerpt(props.excerpt, 150)
-            : props.excerpt}
-        </p>
+        <p className='Teaser__excerpt'>{props.excerpt}</p>
       </div>
     </div>
   )
