@@ -729,10 +729,10 @@
   },
   {
     "name": "Cancerous Canon",
-    "id": "NUkxLDVJMiw1TjMsNUk0LDVJOCw1STksNUk2LDVJMTUsNUkyMCw1STEyLDVJMTksNUkyOA",
+    "id": "M0kxLDNJMiwzTjMsM0k0LDNJOCwzSTksM0k2LDNJMTUsM0kyMCwzSTEyLDNJMTksM0kyOA",
     "faction": "ironclad",
     "author": "LightingLords",
-    "category": "DIAMOND_1"
+    "category": "REGULAR"
   },
   {
     "name": "Chaotic Puzzle Makers",
@@ -740,5 +740,26 @@
     "faction": "ironclad",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
+  },
+  {
+    "name": "Dragon Rush",
+    "id": "M04xLDNOMiwzUzEsM04zLDNONiwzTjEwLDNTNCwzUzYsM1MxMiwzTjI4LDNTMTksM1MyMA==",
+    "faction": "swarm",
+    "author": "SirTalFryn",
+    "category": "REGULAR"
+  },
+  {
+    "name": "The Curse",
+    "id": "M04xLDNGMiwzTjMsM042LDNOMTAsM0Y1LDNOMTUsM0Y5LDNGMTQsM0YxNSwzRjE5LDNGMjg=",
+    "faction": "shadowfen",
+    "author": "GreenAlligator",
+    "category": "REGULAR"
+  },
+  {
+    "name": "Swarm 4 Aid",
+    "id": "M1MxLDNOMywzUzI0LDNONCwzUzUsM1MxNCwzUzE1LDNOMzYsM040NiwzTjQ4LDNONTAsM1MyMw==",
+    "faction": "swarm",
+    "author": "TenTex",
+    "category": "REGULAR"
   }
 ]
