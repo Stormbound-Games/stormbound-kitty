@@ -1,13 +1,18 @@
 import React from 'react'
-import Banner from '../Banner'
+import Column from '../Column'
+import HeaderBanner from '../HeaderBanner'
+import Only from '../Only'
 import PageMeta from '../PageMeta'
-import capitalise from '../../helpers/capitalise'
-import getRawCardData from '../../helpers/getRawCardData'
-import './index.css'
+import Row from '../Row'
+import Teaser from '../Teaser'
+import chunk from '../../helpers/chunk'
+import { BRAWLS } from '../../constants/brawl'
 
-const BRAWLS = [
+const getBrawlData = id => BRAWLS.find(brawl => brawl.id === id)
+
+const BRAWL_DATA = [
   {
-    name: 'Let The Bodies Hit The Floor',
+    ...getBrawlData('UNDEAD_STRENGTH'),
     description: (
       <>
         All <span className='Highlight'>Undead</span> units benefit from an
@@ -15,11 +20,9 @@ const BRAWLS = [
         initial strength.
       </>
     ),
-    image: 'S21',
-    faction: 'swarm',
   },
   {
-    name: 'There Be Dragons',
+    ...getBrawlData('DRAGON_MOVEMENT'),
     description: (
       <>
         All <span className='Highlight'>Dragon</span> units benefit from an
@@ -27,11 +30,9 @@ const BRAWLS = [
         initial movement.
       </>
     ),
-    image: 'N46',
-    faction: null,
   },
   {
-    name: 'Knight Knight Sweetie',
+    ...getBrawlData('KNIGHT_MANA'),
     description: (
       <>
         All <span className='Highlight'>Knight</span> units cost{' '}
@@ -39,11 +40,9 @@ const BRAWLS = [
         for a minimum of 0.
       </>
     ),
-    image: 'N59',
-    faction: null,
   },
   {
-    name: 'Rage Against The Machines',
+    ...getBrawlData('CONSTRUCT_MOVEMENT'),
     description: (
       <>
         All <span className='Highlight'>Construct</span> units have{' '}
@@ -51,11 +50,9 @@ const BRAWLS = [
         initial movement.
       </>
     ),
-    image: 'I22',
-    faction: 'ironclad',
   },
   {
-    name: 'Respect Your Elders',
+    ...getBrawlData('ELDER_STRENGTH'),
     description: (
       <>
         All <span className='Highlight'>Elder</span> units benefit from an extra{' '}
@@ -63,11 +60,9 @@ const BRAWLS = [
         strength.
       </>
     ),
-    image: 'N76',
-    faction: null,
   },
   {
-    name: 'Hop Hop Chop Chop',
+    ...getBrawlData('TOAD_MANA'),
     description: (
       <>
         All <span className='Highlight'>Toad</span> units cost{' '}
@@ -75,11 +70,9 @@ const BRAWLS = [
         mana cost.
       </>
     ),
-    image: 'F12',
-    faction: 'shadowfen',
   },
   {
-    name: 'I Got Chills',
+    ...getBrawlData('FROSTLING_STRENGTH'),
     description: (
       <>
         All <span className='Highlight'>Frostling</span> units benefit from an
@@ -87,11 +80,9 @@ const BRAWLS = [
         initial strength.
       </>
     ),
-    image: 'W10',
-    faction: 'winter',
   },
   {
-    name: 'Spellcaster',
+    ...getBrawlData('SPELL_MANA'),
     description: (
       <>
         All <span className='Highlight'>spells</span> cost{' '}
@@ -99,11 +90,9 @@ const BRAWLS = [
         cost, for a minimum of 0.
       </>
     ),
-    image: 'N48',
-    faction: 'winter',
   },
   {
-    name: 'Scream Like A Goat',
+    ...getBrawlData('SATYR_MOVEMENT'),
     description: (
       <>
         All <span className='Highlight'>Satyr</span> units benefit from an extra{' '}
@@ -111,11 +100,9 @@ const BRAWLS = [
         movement.
       </>
     ),
-    image: 'S3',
-    faction: 'swarm',
   },
   {
-    name: 'Soft Kitty, Warm Kitty',
+    ...getBrawlData('FELINE_STRENGTH'),
     description: (
       <>
         All <span className='Highlight'>Feline</span> units benefit from an
@@ -123,11 +110,9 @@ const BRAWLS = [
         initial strength.
       </>
     ),
-    image: 'N69',
-    faction: null,
   },
   {
-    name: 'Yaaahr And A Bottle O’ Rhum',
+    ...getBrawlData('PIRATE_MOVEMENT'),
     description: (
       <>
         All <span className='Highlight'>Pirate</span> units have{' '}
@@ -135,11 +120,9 @@ const BRAWLS = [
         initial movement.
       </>
     ),
-    image: 'N58',
-    faction: null,
   },
   {
-    name: 'Is That A Gaming Mouse',
+    ...getBrawlData('RODENT_STRENGTH'),
     description: (
       <>
         All <span className='Highlight'>Rodent</span> units benefit from an
@@ -147,11 +130,9 @@ const BRAWLS = [
         initial strength.
       </>
     ),
-    image: 'I2',
-    faction: 'ironclad',
   },
   {
-    name: 'All Your Base Are Belong To Us',
+    ...getBrawlData('STRUCTURE_MANA'),
     description: (
       <>
         All <span className='Highlight'>structures</span> have cost{' '}
@@ -159,11 +140,9 @@ const BRAWLS = [
         mana cost.
       </>
     ),
-    image: 'N35',
-    faction: 'ironclad',
   },
   {
-    name: 'Raven’ Got Claws',
+    ...getBrawlData('RAVEN_MOVEMENT'),
     description: (
       <>
         All <span className='Highlight'>Raven</span> units benefit from an extra{' '}
@@ -171,11 +150,9 @@ const BRAWLS = [
         movement.
       </>
     ),
-    image: 'F23',
-    faction: 'shadowfen',
   },
   {
-    name: 'Natural Sprint',
+    ...getBrawlData('DWARF_MANA'),
     description: (
       <>
         All <span className='Highlight'>Dwarf</span> units cost{' '}
@@ -183,11 +160,9 @@ const BRAWLS = [
         a minimum of 0.
       </>
     ),
-    image: 'W23',
-    faction: 'winter',
   },
   {
-    name: 'We Can Be Heroes',
+    ...getBrawlData('HERO_STRENGTH'),
     description: (
       <>
         All <span className='Highlight'>Hero</span> units benefit from an extra{' '}
@@ -195,58 +170,40 @@ const BRAWLS = [
         strength.
       </>
     ),
-    image: 'N8',
-    faction: null,
   },
 ]
 
-export default React.memo(() => (
-  <>
-    <div className='Brawl'>
-      <h1 className='VisuallyHidden'>Brawl</h1>
-
-      {BRAWLS.map(brawl => (
-        <Banner
-          className='Brawl__section'
-          key={brawl.name}
-          faction={brawl.faction}
-          title={brawl.name}
-          copy={
-            <>
-              {brawl.description}
-              {brawl.faction ? (
-                <>
-                  {' '}
-                  In this Brawl,{' '}
-                  <span className='Highlight'>
-                    {capitalise(brawl.faction)}
-                  </span>{' '}
-                  is likely the way to go when trying to reach higher ranks.
-                </>
-              ) : (
-                ' Most factions are likely to compete in that Brawl, where there is no clear winner.'
-              )}
-            </>
-          }
-          cta={{
-            'aria-label': 'Browse decks for ' + brawl.name,
-            to:
-              '/deck/suggestions?category=BRAWL' +
-              (brawl.faction ? `&faction=${brawl.faction}` : ''),
-            children: (
-              <>
-                Check <span className='VisuallyHidden'>{brawl.name}</span> Decks
-              </>
-            ),
-          }}
-          image={getRawCardData(brawl.image).image}
-        />
-      ))}
-    </div>
-
-    <PageMeta
-      title='Brawl'
-      description='All the Brawls from Stormbound and their ideal decks'
+const BrawlTeaser = React.memo(function BrawlTeaser(props) {
+  return (
+    <Teaser
+      meta={props.label}
+      title={props.title}
+      cardId={props.cardId}
+      excerpt={props.description}
+      to={'/deck/suggestions?brawl=' + props.id}
     />
-  </>
-))
+  )
+})
+
+export default React.memo(function Brawl() {
+  return (
+    <>
+      <Only.Desktop>
+        <HeaderBanner title='Welcome to the Brawl' />
+      </Only.Desktop>
+
+      {chunk(BRAWL_DATA, 3).map((row, index) => (
+        <Row key={index} desktopOnly wideGutter>
+          <Column width='1/3'>{row[0] && <BrawlTeaser {...row[0]} />}</Column>
+          <Column width='1/3'>{row[1] && <BrawlTeaser {...row[1]} />}</Column>
+          <Column width='1/3'>{row[2] && <BrawlTeaser {...row[2]} />}</Column>
+        </Row>
+      ))}
+
+      <PageMeta
+        title='Brawl'
+        description='All the Brawls from Stormbound and their ideal decks'
+      />
+    </>
+  )
+})
