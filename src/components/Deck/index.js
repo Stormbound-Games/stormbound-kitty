@@ -1,11 +1,14 @@
 import React from 'react'
+import { CollectionContext } from '../CollectionProvider'
 import Mana from '../Mana'
 import sortByMana from '../../helpers/sortByMana'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import isCardUpgradable from '../../helpers/isCardUpgradable'
 import useFluidSizing from '../../hooks/useFluidSizing'
 import './index.css'
 
 export default React.memo(function Deck(props) {
+  const { collection } = React.useContext(CollectionContext)
   const showEmptySlots =
     typeof props.showEmptySlots === 'undefined' ? true : props.showEmptySlots
   const sort = props.sort || sortByMana
@@ -34,6 +37,9 @@ export default React.memo(function Deck(props) {
                 'Deck__card',
                 `Deck__card--${card.faction}`,
                 `Deck__card--${card.type}`,
+                props.showUpgrades &&
+                  isCardUpgradable(collection.find(c => c.id === card.id)) &&
+                  'Deck__card--upgradable',
                 card.rarity === 'legendary' && `Deck__card--legendary`,
                 highlightedCards.length > 0 &&
                   !highlightedCards.includes(card.id) &&

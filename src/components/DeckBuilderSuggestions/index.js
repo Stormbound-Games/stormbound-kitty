@@ -173,6 +173,7 @@ class DeckBuilderSuggestions extends React.Component {
                     <Column>
                       <FeaturedDeck
                         {...a}
+                        showUpgrades
                         onClick={card =>
                           this.props.history.push(
                             '/card/' + card.id + '/display'
@@ -184,6 +185,7 @@ class DeckBuilderSuggestions extends React.Component {
                       {b ? (
                         <FeaturedDeck
                           {...b}
+                          showUpgrades
                           onClick={card =>
                             this.props.history.push(
                               '/card/' + card.id + '/display'

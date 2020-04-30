@@ -125,6 +125,7 @@ class DeckBuilderEditorView extends React.Component {
             )}
 
             <Deck
+              showUpgrades
               id='deck'
               deck={this.props.deck}
               onClick={this.props.removeCardFromDeck}

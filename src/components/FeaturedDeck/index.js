@@ -52,6 +52,7 @@ export default React.memo(function FeaturedDeck(props) {
   return (
     <div className='FeaturedDeck'>
       <Deck
+        showUpgrades={props.showUpgrades}
         deck={deck}
         orientation='horizontal'
         onClick={props.onClick}
