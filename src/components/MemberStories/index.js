@@ -1,6 +1,6 @@
 import React from 'react'
 import MemberSection from '../MemberSection'
-import StoriesHeader from '../StoriesHeader'
+import HeaderBanner from '../HeaderBanner'
 import Stories from '../Stories'
 import './index.css'
 
@@ -9,9 +9,7 @@ export default React.memo(function MemberStories(props) {
 
   return (
     <MemberSection>
-      <StoriesHeader background='/assets/images/environment_neutral.png'>
-        {props.displayName}
-      </StoriesHeader>
+      <HeaderBanner title={props.displayName} />
 
       <Stories stories={props.stories} columns={3} />
     </MemberSection>

@@ -1,4 +1,4 @@
-.StoriesHeader {
+.HeaderBanner {
   position: relative;
   background-image: url('/assets/images/environment_neutral.png');
   background-repeat: no-repeat;
@@ -7,13 +7,13 @@
   margin-bottom: 5em;
 }
 
-.StoriesHeader::before {
+.HeaderBanner::before {
   content: '';
   display: block;
   padding-top: 15%;
 }
 
-.StoriesHeader::after {
+.HeaderBanner::after {
   content: '';
   position: absolute;
   top: 100%;
@@ -24,7 +24,7 @@
   z-index: -1;
 }
 
-.StoriesHeader__title {
+.HeaderBanner__title {
   font-size: 500%;
   position: absolute;
   bottom: 0;
@@ -39,7 +39,7 @@
  *    a pseudo-element behind the text itself, that repeats the same text with
  *    an actual stroke.
  */
-.StoriesHeader__title::before {
+.HeaderBanner__title::before {
   content: attr(title); /* 1 */
   position: absolute;
   left: 0;
@@ -48,7 +48,7 @@
 }
 
 @media (max-width: 700px) {
-  .StoriesHeader__title {
+  .HeaderBanner__title {
     font-size: 225%;
     left: 50%;
     transform: translate(-50%, 30%);
@@ -56,11 +56,11 @@
     white-space: nowrap;
   }
 
-  .StoriesHeader::before {
+  .HeaderBanner::before {
     padding-top: 30%;
   }
 
-  .StoriesHeader::after {
+  .HeaderBanner::after {
     background-image: linear-gradient(
       to left,
       transparent,

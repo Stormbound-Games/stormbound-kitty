@@ -1,7 +1,7 @@
 import React from 'react'
 import stories from '../../data/stories'
 import PageMeta from '../PageMeta'
-import StoriesHeader from '../StoriesHeader'
+import HeaderBanner from '../HeaderBanner'
 import Stories from '../Stories'
 import capitalise from '../../helpers/capitalise'
 import getRawCardData from '../../helpers/getRawCardData'
@@ -20,11 +20,14 @@ export default function StoriesCategory(props) {
 
   return (
     <>
-      <StoriesHeader background={STORY_CATEGORIES[props.category].background}>
-        {viewportWidth >= 700
-          ? STORY_CATEGORIES[props.category].title
-          : `${categoryName} stories`}
-      </StoriesHeader>
+      <HeaderBanner
+        background={STORY_CATEGORIES[props.category].background}
+        title={
+          viewportWidth >= 700
+            ? STORY_CATEGORIES[props.category].title
+            : `${categoryName} stories`
+        }
+      />
 
       <Stories
         stories={categoryStories.sort(sortCardsInCategory)}
