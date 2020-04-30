@@ -3,7 +3,7 @@ import modifyDeck from '../../helpers/modifyDeck'
 import DryRunner from '../DryRunner'
 import DeckMechanisms from '../DeckMechanisms'
 import WikiLink from '../WikiLink'
-import areCardsEqual from '../../helpers/areCardsEqual'
+import isCard from '../../helpers/isCard'
 
 export default props => {
   const params = new URLSearchParams(window.location.search)
@@ -14,13 +14,9 @@ export default props => {
   const [mode, setMode] = React.useState(params.get('mode') || 'AUTOMATIC')
   const [modifier, setModifier] = React.useState('NONE')
   const [equalsMode, setEqualsMode] = React.useState(false)
-  const addIdx = card => ({ ...card, idx: '0' })
+  const addIdx = card => ({ idx: '0', ...card })
 
-  const modifiedDeck = modifyDeck(
-    props.deck.map(card => ({ ...card, idx: '0' })),
-    modifier,
-    equalsMode
-  )
+  const modifiedDeck = modifyDeck(props.deck, modifier, equalsMode)
 
   const deck = modifiedDeck.map(addIdx)
 
@@ -175,9 +171,7 @@ class DeckBuilderDryRunView extends React.Component {
       const chance = ((card.weight / sum) * 100).toFixed(2)
       const name = this.state.displayChance
         ? `${card.name} (${
-            this.props.hand.find(cardInHand => areCardsEqual(cardInHand, card))
-              ? 'in hand'
-              : `${chance}%`
+            this.props.hand.find(isCard(card)) ? 'in hand' : `${chance}%`
           })`
         : card.name
 

@@ -1,4 +1,4 @@
-import areCardsEqual from '../../helpers/areCardsEqual'
+import isCard from '../../helpers/isCard'
 
 /**
  * Return whether a given card can be played in the current state.
@@ -7,10 +7,10 @@ import areCardsEqual from '../../helpers/areCardsEqual'
  * @return {Boolean} Whether the card can be played
  */
 const canCardBePlayed = (state, card) => {
-  if (!card) {
+  if (!card.id) {
     return false
   }
-  const cardData = state.deck.find(deckCard => areCardsEqual(card, deckCard))
+  const cardData = state.deck.find(isCard(card))
   const isAffordable = cardData.mana <= state.mana
 
   // This checks if a unit has been frozen this turn to allow Icicle Burst

@@ -11,7 +11,7 @@ import Hint from '../Hint'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
-import areCardsEqual from '../../helpers/areCardsEqual'
+import isCard from '../../helpers/isCard'
 
 export default React.memo(function DryRunner(props) {
   return (
@@ -26,12 +26,9 @@ export default React.memo(function DryRunner(props) {
             onClick={
               props.mode === 'MANUAL' ? props.onDeckCardClick : undefined
             }
-            isCardDisabled={card =>
-              props.hand.find(cardInHand => areCardsEqual(cardInHand, card))
-            }
+            isCardDisabled={card => props.hand.find(isCard(card))}
             highlightedCards={props.displayDeck.filter(
-              card =>
-                !props.hand.find(cardInHand => areCardsEqual(cardInHand, card))
+              card => !props.hand.find(isCard(card))
             )}
           />
 

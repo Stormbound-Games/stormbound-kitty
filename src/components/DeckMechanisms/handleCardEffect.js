@@ -1,7 +1,7 @@
 import { PROBABILITIES } from '../../constants/dryRunner'
 import arrayRandom from '../../helpers/arrayRandom'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
-import areCardsEqual from '../../helpers/areCardsEqual'
+import isCard from '../../helpers/isCard'
 import cards from '../../data/cards.json'
 import play from './play'
 import cycle from './cycle'
@@ -193,11 +193,7 @@ const handleCardEffect = (state, card, mode) => {
 
     // Archdruid Earyn
     case 'N48': {
-      const spells = getPlayableSpells(
-        state.hand,
-        state.deck,
-        state.specifics.frozenEnemiesLevel
-      )
+      const spells = state.hand.filter(card => isPlayableSpell(state, card))
 
       if (mode !== 'MANUAL' && spells.length > 0) {
         play(state, spells[0], { mode, free: true })
@@ -217,7 +213,9 @@ const handleCardEffect = (state, card, mode) => {
 
     // First Mutineer
     case 'N12': {
-      const nonPirates = getNonPiratesInHand(state.hand, state.deck)
+      const nonPirates = state.hand.filter(card =>
+        isNonPiratesInHand(state, card)
+      )
 
       if (mode !== 'MANUAL' && nonPirates.length > 0) {
         play(state, arrayRandom(nonPirates), { mode, discard: true })
@@ -227,7 +225,9 @@ const handleCardEffect = (state, card, mode) => {
 
     // Goldgrubbers
     case 'N22': {
-      const nonPirates = getNonPiratesInHand(state.hand, state.deck)
+      const nonPirates = state.hand.filter(card =>
+        isNonPiratesInHand(state, card)
+      )
 
       if (mode !== 'MANUAL' && nonPirates.length > 0) {
         cycle(state, arrayRandom(nonPirates), { countAsCycled: false })
@@ -241,14 +241,14 @@ const handleCardEffect = (state, card, mode) => {
         state.RNG === 'FRIENDLY' ||
         (state.RNG === 'REGULAR' && Math.random() <= PROBABILITIES.AHMI_RETURNS)
       ) {
-        state.hand.push({ id: card.id, idx: card.idx })
+        state.hand.push(card)
       }
       break
     }
 
     // Queen of Herds
     case 'S21': {
-      const satyrs = getSatyrs(state.hand, state.deck)
+      const satyrs = state.deck.filter(card => isSatyrInDeck(state, card))
       let satyr1, satyr2
 
       // If Queen of Herds is played without any satyr in the remaining cards
@@ -271,11 +271,7 @@ const handleCardEffect = (state, card, mode) => {
       // satyr in the remaining cards from the deck, a second one can be
       // picked at random and played for free.
       if (satyrs.length > 1 && card.level >= 4) {
-        satyr2 = arrayRandom(
-          satyrs.filter(
-            satyr => satyr.id !== satyr1.id || satyr.idx !== satyr1.idx
-          )
-        )
+        satyr2 = arrayRandom(satyrs.filter(satyr => !isCard(satyr1)(satyr)))
 
         if (satyr2) {
           play(state, satyr2, { mode, free: true })
@@ -315,33 +311,21 @@ const handleCardEffect = (state, card, mode) => {
   return state
 }
 
-function getNonPiratesInHand(hand, deck) {
-  return hand.filter(
-    cardInHand =>
-      deck.find(deckCard => areCardsEqual(cardInHand, deckCard)).race !==
-      'pirate'
-  )
+function isNonPiratesInHand(state, card) {
+  return state.deck.find(isCard(card)).race !== 'pirate'
 }
 
-function getSatyrs(hand, deck) {
-  return deck.filter(
-    card =>
-      !hand.find(cardInHand => areCardsEqual(cardInHand, card)) &&
-      card.race === 'satyr'
-  )
+function isSatyrInDeck(state, card) {
+  return !state.hand.find(isCard(card)) && card.race === 'satyr'
 }
 
-function getPlayableSpells(hand, deck, frozenEnemiesLevel) {
-  return hand.filter(cardInHand => {
-    if (cardInHand.id === 'W1') {
-      return frozenEnemiesLevel !== 0
-    }
+function isPlayableSpell(state, card) {
+  if (card.id === 'W1') {
+    return state.specifics.frozenEnemiesLevel !== 0
+  }
 
-    const cardInDeck = deck.find(deckCard =>
-      areCardsEqual(cardInHand, deckCard)
-    )
-    return cardInDeck.type === 'spell'
-  })
+  const cardInDeck = state.deck.find(isCard(card))
+  return cardInDeck.type === 'spell'
 }
 
 function getCollectorMirzToken(deck, level) {
@@ -357,9 +341,7 @@ function getCollectorMirzToken(deck, level) {
 
 function getHarvesterOfSoulsCopiedCard(deck) {
   const id = arrayRandom(
-    cards
-      .filter(card => card.type === 'unit' && card.id !== 'T12')
-      .map(card => card.id)
+    cards.filter(card => card.type === 'unit').map(card => card.id)
   )
 
   const level = Math.floor(Math.random() * 5) + 1
@@ -367,12 +349,11 @@ function getHarvesterOfSoulsCopiedCard(deck) {
   copiedCard.weight = 0
   copiedCard.id = id
   copiedCard.idx = deck.filter(card => card.id === id).length.toString()
-
   copiedCard.created = true
 
   if (copiedCard.token) {
     if (Math.random() < PROBABILITIES.NO_MOVEMENT_TOKEN) {
-      // Klaxi and Rain of Frogs spawn tokens with no movement
+      // High Priestess Klaxi and Rain of Frogs spawn tokens with no movement
       copiedCard.movement = 0
     }
   }

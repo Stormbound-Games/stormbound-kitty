@@ -1,6 +1,6 @@
 import getIncreasedDeckWeight from './getIncreasedDeckWeight'
 import rwcDuplicates from '../../helpers/rwcDuplicates'
-import areCardsEqual from '../../helpers/areCardsEqual'
+import isCard from '../../helpers/isCard'
 
 /**
  * Mutate the given state following a draw.
@@ -12,14 +12,14 @@ const draw = (state, specificCard = null) => {
   // The available cards for draw are all the ones that are not currently
   // in the hand.
   const availableCards = state.deck.filter(
-    card => !state.hand.find(cardInHand => areCardsEqual(cardInHand, card))
+    card => !state.hand.find(isCard(card))
   )
 
   // Draw a random card while taking weight into account.
   const pick = specificCard || rwcDuplicates(availableCards)
 
   // Put the new card into the hand.
-  state.hand.push({ id: pick.id, idx: pick.idx })
+  state.hand.push(pick)
 
   // After having drawn a new card, we need to readjust the weight of all
   // cards that are not in the hand, as well as the card that has just been

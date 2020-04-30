@@ -1,5 +1,5 @@
 import handleCardEffect from './handleCardEffect'
-import areCardsEqual from '../../helpers/areCardsEqual'
+import isCard from '../../helpers/isCard'
 
 export const DEFAULT_PLAY_OPTIONS = {
   mode: 'AUTOMATIC',
@@ -10,7 +10,7 @@ export const DEFAULT_PLAY_OPTIONS = {
 /**
  * Mutate the given state following a play.
  * @param {Object} state - State being mutated
- * @param {Object} card - Object containing id and idx of the played card
+ * @param {DRCard} card - Played card (for example {id: 'N1', idx: '0'})
  * @param {Object} options - Play options
  * @param {Boolean} [options.discard = false] - Whether the play is actually a discard
  * @param {Boolean} [options.free = false] - Whether the play is for free
@@ -18,12 +18,12 @@ export const DEFAULT_PLAY_OPTIONS = {
  * @return {Object} Mutated state
  */
 const play = (state, card, options = DEFAULT_PLAY_OPTIONS) => {
-  const cardData = state.deck.find(deckCard => areCardsEqual(card, deckCard))
+  if (!card) return state
+
+  const cardData = state.deck.find(isCard(card))
 
   // Remove the played card from the hand
-  state.hand = state.hand.filter(
-    cardInHand => cardInHand.id !== card.id || cardInHand.idx !== card.idx
-  )
+  state.hand = state.hand.filter(cardInHand => !isCard(card)(cardInHand))
 
   if (options.discard) return state
 

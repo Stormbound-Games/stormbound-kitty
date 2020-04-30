@@ -1,11 +1,11 @@
 import { increaseCardWeight } from '../../helpers/resolveDeckWeight'
-import areCardsEqual from '../../helpers/areCardsEqual'
+import isCard from '../../helpers/isCard'
 
 const getIncreasedDeckWeight = ({ deck, hand, reset }) => {
-  const isReset = card =>
-    reset.find(resetCard => areCardsEqual(resetCard, card))
+  const isReset = card => reset.find(isCard(card))
+
   return deck.map(card => {
-    if (hand.find(cardInHand => areCardsEqual(cardInHand, card)) && !isReset) {
+    if (hand.find(isCard(card)) && !isReset(card)) {
       return card
     }
 

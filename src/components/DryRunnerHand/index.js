@@ -13,7 +13,7 @@ export default React.memo(function DryRunnerHand(props) {
   return (
     <Row data-testid='hand' desktopOnly>
       {chunk(paddedHand, 2).map(([cardA, cardB], index) => (
-        <Column key={cardA ? cardA.id + '#' + cardA.idx : index}>
+        <Column key={cardA ? cardA.id + '_' + cardA.idx : index}>
           <Row>
             <Column>
               <DryRunnerCard {...props} card={cardA} />

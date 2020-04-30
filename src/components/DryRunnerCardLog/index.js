@@ -14,7 +14,8 @@ export default React.memo(function DryRunnerCardLog(props) {
     <>
       {zoomedCard && (
         <CardZoom
-          card={zoomedCard}
+          cardId={zoomedCard.id}
+          created={zoomedCard.created}
           level={zoomedCard.level}
           mana={zoomedCard.mana}
           costReduced={zoomedCard.costReduced}
@@ -28,12 +29,12 @@ export default React.memo(function DryRunnerCardLog(props) {
             <Column
               style={{ opacity: 1 - index / 8 }}
               width='1/6'
-              key={(card ? card.id + '#' + card.idx : '') + '#' + index}
+              key={(card ? card.id + '_' + card.idx : '') + '_' + index}
             >
               <AnimatePresence>
                 {card && (
                   <motion.div
-                    key={card.id + '#' + card.idx}
+                    key={card.id + '_' + card.idx}
                     initial={{ scale: Math.min(index, 1) }}
                     animate={{ scale: 1 }}
                     transition={{ type: 'spring', stiffness: 260, damping: 20 }}

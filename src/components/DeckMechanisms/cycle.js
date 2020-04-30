@@ -1,6 +1,6 @@
 import getIncreasedDeckWeight from './getIncreasedDeckWeight'
 import rwcDuplicates from '../../helpers/rwcDuplicates'
-import areCardsEqual from '../../helpers/areCardsEqual'
+import isCard from '../../helpers/isCard'
 
 export const DEFAULT_CYCLE_OPTIONS = { countAsCycled: true }
 
@@ -13,11 +13,8 @@ export const DEFAULT_CYCLE_OPTIONS = { countAsCycled: true }
  * @return {Object} Mutated state
  */
 const cycle = (state, card, options = DEFAULT_CYCLE_OPTIONS) => {
-  const isCycledCard = candidateCard =>
-    candidateCard.id === card.id && candidateCard.idx === card.idx
-
   // Remove the cycled card from the hand.
-  state.hand = state.hand.filter(cardInHand => !isCycledCard(cardInHand))
+  state.hand = state.hand.filter(cardInHand => !isCard(card)(cardInHand))
 
   // The available cards for cycle are all the ones that are not currently
   // in the hand, and that are not the one that has been cycled. From there,
@@ -25,12 +22,11 @@ const cycle = (state, card, options = DEFAULT_CYCLE_OPTIONS) => {
   // the new card into the hand.
   const availableCards = state.deck.filter(
     cardInDeck =>
-      !state.hand.find(cardInHand => areCardsEqual(cardInHand, cardInDeck)) &&
-      !isCycledCard(cardInDeck)
+      !state.hand.find(isCard(cardInDeck)) && !isCard(card)(cardInDeck)
   )
 
   const pick = rwcDuplicates(availableCards)
-  state.hand.push({ id: pick.id, idx: pick.idx })
+  state.hand.push(pick)
 
   // After having drawn a new card, we need to readjust the weight of all
   // cards that are not in the hand, as well as the one that has just been

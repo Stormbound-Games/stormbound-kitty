@@ -2,7 +2,7 @@ import React from 'react'
 import clone from 'lodash.clonedeep'
 import { DEFAULT_MANA } from '../../constants/battle'
 import resolveDeckWeight from '../../helpers/resolveDeckWeight'
-import areCardsEqual from '../../helpers/areCardsEqual'
+import isCard from '../../helpers/isCard'
 import canCardBePlayed from './canCardBePlayed'
 import draw from './draw'
 import endTurn from './endTurn'
@@ -70,9 +70,9 @@ export default class DeckMechanisms extends React.Component {
     }
   }
 
-  draw = specificCard => {
+  draw = (card = null) => {
     if (this.state.hand.length < 4) {
-      this.setState(state => draw(clone(state), specificCard))
+      this.setState(state => draw(clone(state), card))
     }
   }
 
@@ -81,9 +81,7 @@ export default class DeckMechanisms extends React.Component {
   }
 
   play = (card, options = DEFAULT_PLAY_OPTIONS) => {
-    const cardData = this.state.deck.find(deckCard =>
-      areCardsEqual(card, deckCard)
-    )
+    const cardData = this.state.deck.find(isCard(card))
     const canAfford = options.free || cardData.mana <= this.state.mana
 
     // If it’s not a discard move and the card costs more mana than the current

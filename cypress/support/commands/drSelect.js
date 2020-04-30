@@ -9,7 +9,6 @@ const select = (id, options = { log: true }) => {
       .then($card => cy.drSelect($card.attr('id'), options))
   }
 
-  Cypress.log({ name: 'Cantains', message: id })
   if (!id.includes('_')) {
     id = id + '_0'
   }
