@@ -1,5 +1,6 @@
 import React from 'react'
 import { CATEGORIES } from '../../constants/decks'
+import { BRAWLS } from '../../constants/brawl'
 import decks from '../../data/decks'
 import CardSelect from '../CardSelect'
 import Column from '../Column'
@@ -113,12 +114,33 @@ export default React.memo(function DeckBuilderSuggestionsFilters(props) {
               ))}
             </select>
           </Column>
+          <Column>
+            <label htmlFor='brawl-modifier'>Brawl</label>
+            <select
+              id='brawl-modifier'
+              name='brawl-modifier'
+              value={props.brawl}
+              onChange={event => props.updateBrawl(event.target.value)}
+              disabled={props.category !== 'BRAWL'}
+            >
+              <option value='*'>Any</option>
+              {BRAWLS.map(brawl => (
+                <option value={brawl.id} key={brawl.id}>
+                  {brawl.label}
+                </option>
+              ))}
+            </select>
+          </Column>
+        </Row>
+        <Row>
+          <Column />
           <Column style={{ alignSelf: 'flex-end' }}>
             <CTA
               disabled={
                 props.author === '*' &&
                 props.category === '*' &&
                 props.faction === '*' &&
+                props.brawl === '*' &&
                 !props.including &&
                 !props.name
               }
