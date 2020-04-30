@@ -116,7 +116,6 @@ const getRandomDeck = options => {
     try {
       deck.push(getRandomCard(availableCards, deck, options))
     } catch (error) {
-      console.log(error)
       if (error instanceof RangeError) {
         return getRandomDeck(options.faction)
       }

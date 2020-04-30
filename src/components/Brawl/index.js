@@ -86,8 +86,8 @@ const BRAWL_DATA = [
     description: (
       <>
         All <span className='Highlight'>spells</span> cost{' '}
-        <span className='Highlight'>-2 mana</span> from their initial man a
-        cost, for a minimum of 0.
+        <span className='Highlight'>-2 mana</span> from their initial mana cost,
+        for a minimum of 0.
       </>
     ),
   },
@@ -135,7 +135,7 @@ const BRAWL_DATA = [
     ...getBrawlData('STRUCTURE_MANA'),
     description: (
       <>
-        All <span className='Highlight'>structures</span> have cost{' '}
+        All <span className='Highlight'>structures</span> cost{' '}
         <span className='Highlight'>2 mana</span>, regardless of their initial
         mana cost.
       </>
@@ -156,8 +156,8 @@ const BRAWL_DATA = [
     description: (
       <>
         All <span className='Highlight'>Dwarf</span> units cost{' '}
-        <span className='Highlight'>-2 mana</span> from their initial cost, for
-        a minimum of 0.
+        <span className='Highlight'>-2 mana</span> from their initial mana cost,
+        for a minimum of 0.
       </>
     ),
   },
