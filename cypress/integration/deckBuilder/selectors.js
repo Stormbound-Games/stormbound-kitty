@@ -3,7 +3,9 @@ export default {
   CARD_ABILITY: '[data-testid="card-ability"]',
   CARD_RACE: '[data-testid="card-race"]',
   CARD_RARITY: '[data-testid="card-rarity"]',
+  CARD_LEVEL: '[data-testid="card-level"]',
 
+  LEVEL_SELECT: '[data-testid="level-select"]',
   FACTION_SELECT: '[data-testid="faction-select"]',
   TYPE_SELECT: '[data-testid="type-select"]',
   MANA_SELECT: '[data-testid="mana-select"]',
@@ -24,4 +26,6 @@ export default {
   RANDOM_MAX_LEGENDARY_SELECT: '[data-testid="random-max-legendary-select"]',
   RANDOM_DIALOG_CONFIRM: '[data-testid="random-deck-dialog-confirm-btn"]',
   DECK_CARD: '#deck .Deck__card',
+
+  IMPORT_BTN: '[data-testid="import-btn"]',
 }
