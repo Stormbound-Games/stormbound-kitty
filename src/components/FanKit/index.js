@@ -20,6 +20,7 @@ const Download = React.memo(function Download(props) {
   return (
     <button
       className='FanKit__download'
+      data-testid='fan-kit-download-btn'
       onClick={() => props.setActive(props.id)}
       title={'Download asset ' + props.name}
     >
@@ -33,7 +34,7 @@ const DownloadDialog = React.memo(function DownloadDialog(props) {
 
   return (
     <Dialog
-      id='dialog'
+      id='fan-kit-dialog'
       dialogRef={props.dialogRef}
       close={props.close}
       title={name || 'Download image'}
@@ -49,7 +50,12 @@ const DownloadDialog = React.memo(function DownloadDialog(props) {
           </p>
           <Row>
             <Column>
-              <CTA href={image} download className='FanKit__CTA'>
+              <CTA
+                href={image}
+                download
+                className='FanKit__CTA'
+                data-testid='fan-kit-link'
+              >
                 PNG
               </CTA>
             </Column>
@@ -58,6 +64,7 @@ const DownloadDialog = React.memo(function DownloadDialog(props) {
                 href={image.replace('.png', '.webp')}
                 download
                 className='FanKit__CTA'
+                data-testid='fan-kit-link'
               >
                 WebP
               </CTA>
@@ -130,7 +137,7 @@ export default React.memo(function FanKit(props) {
         >
           <Row desktopOnly>
             <Column width='1/4'>
-              <div className='FanKit__item'>
+              <div className='FanKit__item' data-testid='fan-kit-item'>
                 <Download {...a} setActive={setActive} />
                 <Image src={a.image} alt={a.name} className='FanKit__image' />
               </div>
