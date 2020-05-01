@@ -58,7 +58,7 @@ class DeckBuilderRandomDeckButton extends React.Component {
   render() {
     return (
       <>
-        <CTA onClick={this.open} type='button'>
+        <CTA onClick={this.open} type='button' data-testid='random-deck-btn'>
           {this.props.label || 'Random deck'}
         </CTA>
         <Dialog
@@ -78,11 +78,13 @@ class DeckBuilderRandomDeckButton extends React.Component {
             onClick: this.generateDeck,
             type: 'button',
             children: 'Generate',
+            'data-testid': 'random-deck-dialog-confirm-btn',
           }}
         >
           <Row>
             <Column>
               <FactionSelect
+                data-testid='random-faction-select'
                 value={this.state.faction}
                 onChange={event =>
                   this.setState({ faction: event.target.value })
@@ -93,6 +95,7 @@ class DeckBuilderRandomDeckButton extends React.Component {
             <Column>
               <label htmlFor='factionCards'>Min faction cards</label>
               <select
+                data-testid='random-min-faction-select'
                 name='factionCards'
                 id='factionCards'
                 value={this.state.minFactionCards}
@@ -111,6 +114,7 @@ class DeckBuilderRandomDeckButton extends React.Component {
             <Column>
               <label htmlFor='maxEpicCards'>Max epic cards</label>
               <select
+                data-testid='random-max-epic-select'
                 name='maxEpicCards'
                 id='maxEpicCards'
                 value={this.state.maxEpicCards}
@@ -131,6 +135,7 @@ class DeckBuilderRandomDeckButton extends React.Component {
             <Column>
               <label htmlFor='maxLegendaryCards'>Max legendary cards</label>
               <select
+                data-testid='random-max-legendary-select'
                 name='maxLegendaryCards'
                 id='maxLegendaryCards'
                 value={this.state.maxLegendaryCards}

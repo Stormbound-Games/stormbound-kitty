@@ -15,4 +15,13 @@ export default {
   ELDER_CHECKBOX: '[data-testid="elder-checkbox"]',
   HERO_CHECKBOX: '[data-testid="hero-checkbox"]',
   RESET_BTN: '[data-testid="reset-btn"]',
+
+  RANDOM_BTN: '[data-testid="random-deck-btn"]',
+  RANDOM_DIALOG: '#random-deck-dialog',
+  RANDOM_FACTION_SELECT: '[data-testid="random-faction-select"]',
+  RANDOM_MIN_FACTION_SELECT: '[data-testid="random-min-faction-select"]',
+  RANDOM_MAX_EPIC_SELECT: '[data-testid="random-max-epic-select"]',
+  RANDOM_MAX_LEGENDARY_SELECT: '[data-testid="random-max-legendary-select"]',
+  RANDOM_DIALOG_CONFIRM: '[data-testid="random-deck-dialog-confirm-btn"]',
+  DECK_CARD: '#deck .Deck__card',
 }
