@@ -8,7 +8,7 @@ import './index.css'
 const getReadingTime = content => {
   const words = content.split(/\s+/g).length
 
-  return words < 300 ? '1 minute' : `${Math.floor(words / 150)} minutes`
+  return words < 360 ? '1 minute' : `${Math.floor(words / (360 / 2))} minutes`
 }
 
 export default React.memo(function StoryTeaser(props) {
