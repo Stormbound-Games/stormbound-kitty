@@ -9,11 +9,15 @@ export default React.memo(function Error(props) {
   return (
     <>
       <div className='Error'>
-        <Title element='h1' className='Error__title'>
-          An error occurred
-        </Title>
+        {!props.noTitle && (
+          <Title element='h1' className='Error__title'>
+            An error occurred
+          </Title>
+        )}
 
-        <Image src='/assets/images/cards/sweetcap_kittens.png' alt='' />
+        {!props.noImage && (
+          <Image src='/assets/images/cards/sweetcap_kittens.png' alt='' />
+        )}
 
         {props.error === 'ChunkLoadError' ? (
           <p>
