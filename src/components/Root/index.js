@@ -7,12 +7,6 @@ import WebpProvider from '../WebpProvider'
 import Router from '../Router'
 
 export default function Root(props) {
-  React.useEffect(() => {
-    if (!window.Cypress) {
-      window.document.documentElement.style.scrollBehavior = 'smooth'
-    }
-  }, [])
-
   return (
     <HelmetProvider>
       <ErrorBoundary>
