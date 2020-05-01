@@ -122,7 +122,7 @@ export default function Changelog(props) {
                 checked={colorCoding}
                 onChange={event => setColorCoding(event.target.checked)}
               >
-                Enabled color-coding (experimental)
+                Enable color-coding (experimental)
               </Checkbox>
               {colorCoding && <ChangelogLegend />}
             </Column>
