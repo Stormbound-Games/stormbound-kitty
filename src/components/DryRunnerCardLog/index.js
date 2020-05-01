@@ -19,6 +19,12 @@ export default React.memo(function DryRunnerCardLog(props) {
           level={zoomedCard.level}
           mana={zoomedCard.mana}
           costReduced={zoomedCard.costReduced}
+          strength={zoomedCard.strength}
+          movement={zoomedCard.movement}
+          strengthIncreased={zoomedCard.strengthIncreased}
+          strengthDecreased={zoomedCard.strengthDecreased}
+          movementDecreased={zoomedCard.movementDecreased}
+          movementIncreased={zoomedCard.movementIncreased}
           close={() => setZoomedCard(undefined)}
         />
       )}
