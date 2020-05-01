@@ -11,6 +11,7 @@ import Hint from '../Hint'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
+import isCard from '../../helpers/isCard'
 
 export default React.memo(function DryRunner(props) {
   return (
@@ -25,10 +26,10 @@ export default React.memo(function DryRunner(props) {
             onClick={
               props.mode === 'MANUAL' ? props.onDeckCardClick : undefined
             }
-            isCardDisabled={card => props.hand.includes(card.id)}
-            highlightedCards={props.displayDeck
-              .filter(card => !props.hand.includes(card.id))
-              .map(card => card.id)}
+            isCardDisabled={card => props.hand.find(isCard(card))}
+            highlightedCards={props.displayDeck.filter(
+              card => !props.hand.find(isCard(card))
+            )}
           />
 
           <DryRunnerCardLog
@@ -48,8 +49,8 @@ export default React.memo(function DryRunner(props) {
 
           {props.deck.map(card => card.id).includes('N38') && (
             <Hint>
-              Due to the lack of opponent’s deck, Harvester of Souls’ ability
-              has not been implemented.
+              Due to the lack of opponent’s deck, Harvesters of Souls’ ability
+              has only been partially implemented.
             </Hint>
           )}
         </Column>

@@ -2,6 +2,7 @@ import React from 'react'
 import clone from 'lodash.clonedeep'
 import { DEFAULT_MANA } from '../../constants/battle'
 import resolveDeckWeight from '../../helpers/resolveDeckWeight'
+import isCard from '../../helpers/isCard'
 import canCardBePlayed from './canCardBePlayed'
 import draw from './draw'
 import endTurn from './endTurn'
@@ -26,6 +27,7 @@ const getDefaultState = props => ({
   playerOrder: 'FIRST',
   playedCards: [],
   cardsThisTurn: 0,
+  equalsMode: props.equalsMode,
 })
 
 export default class DeckMechanisms extends React.Component {
@@ -69,25 +71,25 @@ export default class DeckMechanisms extends React.Component {
     }
   }
 
-  draw = specificCardId => {
+  draw = (card = null) => {
     if (this.state.hand.length < 4) {
-      this.setState(state => draw(clone(state), specificCardId))
+      this.setState(state => draw(clone(state), card))
     }
   }
 
-  cycle = (id, options = DEFAULT_CYCLE_OPTIONS) => {
-    if (this.state.hand.includes(id)) {
-      this.setState(state => cycle(clone(state), id, options))
-    }
+  cycle = (card, options = DEFAULT_CYCLE_OPTIONS) => {
+    this.setState(state => cycle(clone(state), card, options))
   }
 
-  play = (id, options = DEFAULT_PLAY_OPTIONS) => {
-    const card = this.state.deck.find(card => card.id === id)
-    const canAfford = options.free || card.mana <= this.state.mana
+  play = (card, options = DEFAULT_PLAY_OPTIONS) => {
+    const cardData = this.state.deck.find(isCard(card))
+    const canAfford = options.free || cardData.mana <= this.state.mana
 
+    // If it’s not a discard move and the card costs more mana than the current
+    // round, skip play.
     if (options.discard || canAfford) {
       this.setState(state =>
-        play(clone(state), id, { ...options, mode: this.props.mode })
+        play(clone(state), card, { ...options, mode: this.props.mode })
       )
     }
   }
@@ -95,8 +97,8 @@ export default class DeckMechanisms extends React.Component {
   increaseDeckWeight = ({ reset }) =>
     this.setState(state => ({
       deck: getIncreasedDeckWeight({
-        hand: state.hand,
         deck: state.deck,
+        hand: state.hand,
         reset,
       }),
     }))
@@ -104,7 +106,7 @@ export default class DeckMechanisms extends React.Component {
   endTurn = () =>
     this.setState(state => endTurn(clone(state)), this.completeHand)
 
-  canCardBePlayed = id => canCardBePlayed(this.state, id)
+  canCardBePlayed = card => canCardBePlayed(this.state, card)
 
   reset = () => this.setState(getDefaultState(this.props), this.completeHand)
 

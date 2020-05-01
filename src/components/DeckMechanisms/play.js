@@ -1,4 +1,5 @@
 import handleCardEffect from './handleCardEffect'
+import isCard, { isNotCard } from '../../helpers/isCard'
 
 export const DEFAULT_PLAY_OPTIONS = {
   mode: 'AUTOMATIC',
@@ -9,45 +10,40 @@ export const DEFAULT_PLAY_OPTIONS = {
 /**
  * Mutate the given state following a play.
  * @param {Object} state - State being mutated
- * @param {String} id - Id of the played card
+ * @param {DRCard} card - Played card
  * @param {Object} options - Play options
  * @param {Boolean} [options.discard = false] - Whether the play is actually a discard
  * @param {Boolean} [options.free = false] - Whether the play is for free
  * @param {String} [options.mode = 'AUTOMATIC'] - Game mode (MANUAL or AUTOMATIC)
  * @return {Object} Mutated state
  */
-const play = (state, id, options = DEFAULT_PLAY_OPTIONS) => {
-  const card = state.deck.find(card => card.id === id)
-  const canAfford = options.free || card.mana <= state.mana
+const play = (state, card, options = DEFAULT_PLAY_OPTIONS) => {
+  if (!card) return state
 
-  // If it’s not a discard move and the card costs more mana than the current
-  // round, skip play.
-  if (!options.discard && !canAfford) {
-    return state
-  }
+  const cardData = state.deck.find(isCard(card))
 
   // Remove the played card from the hand
-  state.hand = state.hand.filter(cardId => cardId !== id)
+  state.hand = state.hand.filter(isNotCard(card))
 
   if (options.discard) return state
 
   // Log card being played
-  state.playedCards = [card, ...state.playedCards]
+  state.playedCards = [cardData, ...state.playedCards]
   state.cardsThisTurn += 1
 
   // Unless the play is actually free or a discard, decrease the amount
   // of available mana by the cost the card
   if (!options.free) {
-    state.mana -= card.mana
+    state.mana -= cardData.mana
   }
 
   // Check if this card spawns units on the board, this is used to check
   // if Toxic Sacrifice can be played on this turn.
-  if (state.turn === 1 && card.type === 'unit') {
+  if (state.turn === 1 && cardData.type === 'unit') {
     state.specifics.noUnitsOnFirstTurn = false
   }
 
-  return handleCardEffect(state, card, options.mode)
+  return handleCardEffect(state, cardData, options.mode)
 }
 
 export default play

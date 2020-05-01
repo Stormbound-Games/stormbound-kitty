@@ -31,6 +31,7 @@ export default React.memo(function CardZoom(props) {
             id: props.cardId,
             level: props.level || 1,
           })}
+          created={props.created}
           mana={props.mana}
           costReduced={props.costReduced}
           player={props.player}

@@ -12,7 +12,7 @@ const unselectActiveCard = ($wrapper, index) => {
 }
 
 const isMarkedAffordable = $card => {
-  const id = $card.attr('id')
+  const id = $card.attr('id').split('_')[0]
   const { mana } = resolveCardForLevel({ id })
   const assert = mana <= 3 ? 'have.class' : 'not.have.class'
 

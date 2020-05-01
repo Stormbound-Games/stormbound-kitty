@@ -3,6 +3,7 @@ import modifyDeck from '../../helpers/modifyDeck'
 import DryRunner from '../DryRunner'
 import DeckMechanisms from '../DeckMechanisms'
 import WikiLink from '../WikiLink'
+import isCard from '../../helpers/isCard'
 
 export default props => {
   const params = new URLSearchParams(window.location.search)
@@ -13,10 +14,11 @@ export default props => {
   const [mode, setMode] = React.useState(params.get('mode') || 'AUTOMATIC')
   const [modifier, setModifier] = React.useState('NONE')
   const [equalsMode, setEqualsMode] = React.useState(false)
-  const deck = modifyDeck(props.deck, modifier, equalsMode)
+  const addIdx = card => ({ idx: '0', ...card })
+  const deck = modifyDeck(props.deck, modifier, equalsMode).map(addIdx)
 
   return (
-    <DeckMechanisms deck={deck} mode={mode}>
+    <DeckMechanisms deck={deck} mode={mode} equalsMode={equalsMode}>
       {state => (
         <DeckBuilderDryRunView
           {...props}
@@ -166,7 +168,7 @@ class DeckBuilderDryRunView extends React.Component {
       const chance = ((card.weight / sum) * 100).toFixed(2)
       const name = this.state.displayChance
         ? `${card.name} (${
-            this.props.hand.includes(card.id) ? 'in hand' : `${chance}%`
+            this.props.hand.find(isCard(card)) ? 'in hand' : `${chance}%`
           })`
         : card.name
 
@@ -234,7 +236,7 @@ class DeckBuilderDryRunView extends React.Component {
   }
 
   onDeckCardClick = card => {
-    this.props.draw(card.id)
+    this.props.draw(card)
 
     // This here is a workaround to be able to pick the initial hand for testing
     // purposes; it switches the deck mechanisms back to ‘AUTOMATIC’ as soon as

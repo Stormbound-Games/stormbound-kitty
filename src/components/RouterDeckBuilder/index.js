@@ -7,7 +7,6 @@ const DeckBuilderSuggestions = load('DeckBuilderSuggestions')
 const DeckBuilderRoot = load('DeckBuilderRoot')
 const DeckBuilderDetailView = load('DeckBuilderDetailView')
 const DeckBuilderDryRunView = load('DeckBuilderDryRunView')
-const DeckBuilderTrackerView = load('DeckBuilderTrackerView')
 const DeckBuilderEditorView = load('DeckBuilderEditorView')
 
 export default function RouterDeckBuilder() {
@@ -32,14 +31,6 @@ export default function RouterDeckBuilder() {
       >
         <DeckBuilderRoot>
           {state => <DeckBuilderDryRunView {...state} />}
-        </DeckBuilderRoot>
-      </Page>
-      <Page
-        path={`${path}/:deckId/tracker`}
-        active={['DECK_BUILDER', 'TRACKER']}
-      >
-        <DeckBuilderRoot>
-          {state => <DeckBuilderTrackerView {...state} />}
         </DeckBuilderRoot>
       </Page>
       <Page path={`${path}/:deckId`} active={['DECK_BUILDER', 'EDITOR']}>

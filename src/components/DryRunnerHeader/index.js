@@ -41,9 +41,7 @@ export default React.memo(function DryRunnerHeader(props) {
               controls={controls}
               mana={props.mana}
               data-testid='mana-pool'
-              disabled={props.hand.every(
-                cardId => !props.canCardBePlayed(cardId)
-              )}
+              disabled={props.hand.every(card => !props.canCardBePlayed(card))}
             />
           </span>
         </Column>

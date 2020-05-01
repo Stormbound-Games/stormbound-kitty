@@ -28,7 +28,7 @@ export default React.memo(function Card(props) {
       ref={ref}
       style={{ fontSize }}
       data-testid='card'
-      id={props.id}
+      id={[props.id, props.idx].filter(Boolean).join('_')}
     >
       <div
         className='Card__content'
@@ -103,6 +103,8 @@ export default React.memo(function Card(props) {
             <div
               className={[
                 'Card__strength',
+                props.strengthIncreased && 'Card__strength--increased',
+                props.strengthDecreased && 'Card__strength--decreased',
                 props.type === 'structure' && 'Card__strength--structure',
                 props.rarity === 'legendary' && 'Card__strength--hero',
               ]
@@ -143,7 +145,13 @@ export default React.memo(function Card(props) {
           {props.type === 'unit' && props.movement !== null && (
             <div className='Card__movement'>
               <span
-                className='Card__movement-content'
+                className={[
+                  'Card__movement-content',
+                  props.movementIncreased && 'Card__movement--increased',
+                  props.movementDecreased && 'Card__movement--decreased',
+                ]
+                  .filter(Boolean)
+                  .join(' ')}
                 data-testid='card-movement'
               >
                 {props.movement}

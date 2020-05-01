@@ -55,30 +55,14 @@ export default React.memo(function NavDeckBuilder(props) {
           )}
         </li>
         <li className='Header__item'>
-          {hasBigEnoughDeck ? (
-            deck.map(card => card.id).includes('N38') ? (
-              <span
-                className='Header__link Header__link--disabled'
-                title='Harvesters of Souls are not supported in the tracker'
-              >
-                Tracker
-              </span>
-            ) : (
-              <NavLink
-                to={`/deck/${id}/tracker`}
-                active={props.active === 'TRACKER'}
-              >
-                Tracker
-              </NavLink>
-            )
-          ) : (
+          {
             <span
               className='Header__link Header__link--disabled'
-              title='Your deck is not complete'
+              title='The tracker is temporarily disabled'
             >
               Tracker
             </span>
-          )}
+          }
         </li>
 
         <li className='Header__item Header__item--right'>

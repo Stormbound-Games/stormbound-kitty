@@ -3,6 +3,7 @@ import { CollectionContext } from '../CollectionProvider'
 import Mana from '../Mana'
 import sortByMana from '../../helpers/sortByMana'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import isCard from '../../helpers/isCard'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import useFluidSizing from '../../hooks/useFluidSizing'
 import './index.css'
@@ -42,14 +43,14 @@ export default React.memo(function Deck(props) {
                   'Deck__card--upgradable',
                 card.rarity === 'legendary' && `Deck__card--legendary`,
                 highlightedCards.length > 0 &&
-                  !highlightedCards.includes(card.id) &&
+                  !highlightedCards.find(isCard(card)) &&
                   'Deck__card--excluded',
                 card.missing && 'Deck__card--missing',
               ]
                 .filter(Boolean)
                 .join(' ')}
               key={card.id + index}
-              data-testid={card.id}
+              data-testid={[card.id, card.idx].filter(Boolean).join('_')}
             >
               {props.onClick && (
                 <button

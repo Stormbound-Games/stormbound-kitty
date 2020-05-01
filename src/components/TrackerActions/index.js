@@ -31,7 +31,7 @@ export default React.memo(function TrackerActions(props) {
             disabled={
               props.status !== STATUSES.PLAYING ||
               !props.activeCard ||
-              !props.canCardBePlayed(props.activeCard)
+              !props.canCardBePlayed(props.state, props.activeCard)
             }
           >
             <u>P</u>lay card

@@ -1,9 +1,11 @@
 import React from 'react'
 import Card from '../Card'
+import isCard from '../../helpers/isCard'
 import './index.css'
 
 export default React.memo(function DryRunnerCard(props) {
-  const cardData = props.deck.find(card => card.id === props.card)
+  const cardData = props.deck.find(isCard(props.card))
+  const isActive = isCard(props.activeCard)(cardData)
 
   if (!cardData) return null
 
@@ -11,7 +13,7 @@ export default React.memo(function DryRunnerCard(props) {
     <div
       className={[
         'DryRunnerHand__wrapper',
-        props.activeCard === cardData.id && 'DryRunnerHand__wrapper--active',
+        isActive && 'DryRunnerHand__wrapper--active',
       ]
         .filter(Boolean)
         .join(' ')}
@@ -19,16 +21,16 @@ export default React.memo(function DryRunnerCard(props) {
       <button
         className='DryRunnerHand__button'
         type='button'
-        onClick={() => props.selectCard(cardData.id)}
+        onClick={() => props.selectCard(props.card)}
       >
         <span className='VisuallyHidden'>
-          {props.activeCard === cardData.id ? 'Unselect card' : 'Select card'}
+          {isActive ? 'Unselect card' : 'Select card'}
         </span>
       </button>
       <Card
         {...cardData}
-        missing={!!props.activeCard && props.activeCard !== cardData.id}
-        affordable={props.canCardBePlayed(cardData.id)}
+        missing={!!props.activeCard && !isActive}
+        affordable={props.canCardBePlayed(props.card)}
       />
     </div>
   )
