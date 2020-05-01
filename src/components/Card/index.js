@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from '../Image'
 import { WebpContext } from '../WebpProvider'
-import { getRarityImage, getRarityColor } from '../../helpers/getRarity'
+import { getRarityColor } from '../../helpers/getRarity'
 import microMarkdown from '../../helpers/microMarkdown'
 import useFluidSizing from '../../hooks/useFluidSizing'
 import './index.css'
@@ -94,7 +94,7 @@ export default React.memo(function Card(props) {
           </p>
           <img
             className='Card__rarity'
-            src={getRarityImage(props.rarity)}
+            src={`/assets/images/rarity-${props.rarity}.${ext}`}
             alt={props.rarity}
             data-testid='card-rarity'
           />
