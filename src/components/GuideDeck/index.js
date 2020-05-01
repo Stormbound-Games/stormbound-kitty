@@ -6,13 +6,15 @@ import Row from '../Row'
 import Title from '../Title'
 import WikiLink from '../WikiLink'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import guides from '../../data/guides'
+
+const guide = guides.find(g => g.id === 'DECK_GUIDE')
 
 export default React.memo(function GuideDeck(props) {
   return (
     <Guide
-      title='Deck Building Guide'
+      {...guide}
       description='This guide has been written by Zemeu on Reddit and is published here with their consent.'
-      author='Zemeu'
     >
       <ol className='Guide__toc'>
         <li>

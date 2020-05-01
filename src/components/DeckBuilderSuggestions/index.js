@@ -38,12 +38,19 @@ class DeckBuilderSuggestions extends React.Component {
 
   getURLParameters = () => {
     const parameters = new URLSearchParams(window.location.search)
+    const brawl = parameters.get('brawl') || '*'
+    // If a specific Brawl is defined in URL parameters, set the category to
+    // `BRAWL`, otherwise read the category from the URL parameters if defined.
+    const category = brawl !== '*' ? 'BRAWL' : parameters.get('category') || '*'
 
     return {
-      category: parameters.get('category') || '*',
+      category,
       faction: parameters.get('faction') || '*',
       author: parameters.get('author') || '*',
       including: parameters.get('including') || null,
+      // If the category is set to Brawl, read the specific Brawl from the URL
+      // parameters if defined, or display all Brawl decks otherwise.
+      brawl: category === 'BRAWL' ? brawl : '*',
     }
   }
 
@@ -62,11 +69,17 @@ class DeckBuilderSuggestions extends React.Component {
     if (this.state.including === null) parameters.delete('including')
     else parameters.set('including', this.state.including)
 
+    if (this.state.brawl === '*') parameters.delete('brawl')
+    else parameters.set('brawl', this.state.brawl)
+
     this.props.history.replace('?' + parameters.toString())
   }
 
   updateCategory = category =>
-    this.setState({ category }, this.updateURLParameters)
+    this.setState(
+      state => ({ category, brawl: category !== 'BRAWL' ? '*' : state.brawl }),
+      this.updateURLParameters
+    )
   updateFaction = faction =>
     this.setState({ faction }, this.updateURLParameters)
   updateAuthor = author => this.setState({ author }, this.updateURLParameters)
@@ -78,11 +91,18 @@ class DeckBuilderSuggestions extends React.Component {
         faction: '*',
         author: '*',
         including: null,
+        brawl: '*',
       },
       this.updateURLParameters
     )
   updateIncluding = including =>
     this.setState({ including }, this.updateURLParameters)
+  updateBrawl = brawl =>
+    this.setState(
+      state => ({ brawl, category: brawl !== '*' ? 'BRAWL' : state.category }),
+      this.updateURLParameters
+    )
+
   debouncedUpdateName = debounce(this.updateName, 500)
 
   matchesName = deck =>
@@ -102,6 +122,9 @@ class DeckBuilderSuggestions extends React.Component {
     deserialiseDeck(deck.id)
       .map(card => card.id)
       .includes(this.state.including)
+  matchesBrawl = deck =>
+    this.state.brawl === '*' || deck.brawl === this.state.brawl
+
   getDecks = () => {
     return decks
       .filter(this.matchesFaction)
@@ -109,6 +132,7 @@ class DeckBuilderSuggestions extends React.Component {
       .filter(this.matchesAuthor)
       .filter(this.matchesName)
       .filter(this.matchesIncluding)
+      .filter(this.matchesBrawl)
       .sort(sortDeckSuggestions(this.props))
   }
 
@@ -117,6 +141,7 @@ class DeckBuilderSuggestions extends React.Component {
       faction: '*',
       category: '*',
       author: '*',
+      brawl: '*',
       name: '',
       including: null,
     })
@@ -139,6 +164,7 @@ class DeckBuilderSuggestions extends React.Component {
               updateAuthor={this.updateAuthor}
               updateName={this.debouncedUpdateName}
               updateIncluding={this.updateIncluding}
+              updateBrawl={this.updateBrawl}
               resetFilters={this.resetFilters}
               formRef={this.formRef}
             />

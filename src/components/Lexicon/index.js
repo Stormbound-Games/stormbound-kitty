@@ -1,9 +1,9 @@
 import React from 'react'
 import terms from '../../data/terms'
 import Column from '../Column'
+import HeaderBanner from '../HeaderBanner'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
-import Title from '../Title'
 import getTermsForLetter from '../../helpers/getTermsForLetter'
 import './index.css'
 
@@ -22,9 +22,10 @@ const Terms = React.memo(function Terms(props) {
 export default React.memo(function Lexicon(props) {
   return (
     <>
-      <Title element='h1' className='Lexicon__heading'>
-        Lexicon
-      </Title>
+      <HeaderBanner
+        title='Lexicon'
+        background='/assets/images/environment_ironclad.png'
+      />
 
       <Row desktopOnly>
         <Column width='1/4'>

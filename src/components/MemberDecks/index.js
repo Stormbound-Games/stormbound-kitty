@@ -14,7 +14,7 @@ export default React.memo(function MemberDecks(props) {
   if (decks.length === 0) return null
 
   return (
-    <MemberSection title={<>Decks by {props.displayName}</>}>
+    <MemberSection>
       {chunk(decks, 3).map(([a, b, c]) => {
         const slot1 = b || c ? a : null
         const slot2 = !(b || c) ? a : b

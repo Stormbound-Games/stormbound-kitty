@@ -9,6 +9,17 @@
         "before": "readonly",
         "beforeEach": "readonly"
       }
+    },
+    {
+      "files": ["**/*.js"],
+      "excludedFiles": ["bin/*"],
+      "rules": {
+        "no-console": "error",
+        "padding-line-between-statements": [
+          "error",
+          { "blankLine": "always", "prev": "var", "next": "return" }
+        ]
+      }
     }
   ]
 }

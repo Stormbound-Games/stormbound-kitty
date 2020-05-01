@@ -1,42 +1,29 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Banner from '../Banner'
+import Column from '../Column'
+import GuideTeaser from '../GuideTeaser'
+import HeaderBanner from '../HeaderBanner'
 import InfoHint from '../InfoHint'
+import Only from '../Only'
 import PageMeta from '../PageMeta'
+import Row from '../Row'
 import guides from '../../data/guides'
+import chunk from '../../helpers/chunk'
 
 export default React.memo(function Guides(props) {
   return (
     <>
-      <h1 className='VisuallyHidden'>Guides</h1>
+      <Only.Desktop>
+        <HeaderBanner title='Guides' />
+      </Only.Desktop>
 
-      {guides.map(guide => (
-        <Banner
-          key={guide.name}
-          faction={guide.faction}
-          title={guide.name}
-          subline={
-            <>
-              By <Link to={'/member/' + guide.author}>{guide.author}</Link>
-            </>
-          }
-          copy={guide.excerpt}
-          cta={{
-            'aria-label': `Read ${guide.name} by ${guide.author}`,
-            to: guide.link,
-            children: 'Read guide',
-          }}
-          image={guide.image}
-        />
+      {chunk(guides, 3).map((row, index) => (
+        <Row key={index} desktopOnly wideGutter>
+          <Column width='1/3'>{row[0] && <GuideTeaser {...row[0]} />}</Column>
+          <Column width='1/3'>{row[1] && <GuideTeaser {...row[1]} />}</Column>
+          <Column width='1/3'>{row[2] && <GuideTeaser {...row[2]} />}</Column>
+        </Row>
       ))}
-
-      <Banner
-        faction='ironclad'
-        title='Lexicon'
-        copy='Stormbound discussions are full of acronyms and shortened names. Tired of not being able to follow what’s going on on Discord and Reddit? This guide is for you.'
-        cta={{ to: '/guides/lexicon', children: 'Read lexicon' }}
-        image='/assets/images/cards/lawless_herd.png'
-      />
 
       <InfoHint icon='compass'>
         Looking to teach others and guide them towards glorious battles?{' '}

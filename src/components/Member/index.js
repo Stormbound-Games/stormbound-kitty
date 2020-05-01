@@ -2,6 +2,7 @@ import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import { WEEKLY_CARD_CONTEST } from '../../constants/misc'
 import Error from '../Error'
+import HeaderBanner from '../HeaderBanner'
 import MemberContestVictories from '../MemberContestVictories'
 import MemberDecks from '../MemberDecks'
 import MemberGuides from '../MemberGuides'
@@ -52,6 +53,7 @@ export default React.memo(function Member(props) {
 
   return (
     <>
+      <HeaderBanner title={displayName} />
       <MemberStories stories={userStories} displayName={displayName} />
       {userStories.length ? <hr /> : null}
       <MemberContestVictories

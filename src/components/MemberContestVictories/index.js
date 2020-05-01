@@ -6,7 +6,7 @@ export default React.memo(function MemberContestVictories(props) {
   if (props.victories.length === 0) return null
 
   return (
-    <MemberSection title={<>Contest victories by {props.displayName}</>}>
+    <MemberSection>
       {props.victories.map((contest, index) => (
         <CardContestEntry key={index} {...contest} index={index} />
       ))}

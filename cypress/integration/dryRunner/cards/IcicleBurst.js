@@ -1,8 +1,6 @@
 import s from '../selectors'
 
 const DECK_ID =
-  'NU4xLDRXMSw1TjIsNVcyLDVOMyw1TjQsNE41LDRONiwyTjYyLDJONjMsM1cxMSw0VzY='
-const ZHEVANA_DECK_ID =
   'NU4xLDVXMSw1TjIsNVcyLDVOMyw1TjIzLDVONCw1TjUsNVc0LDVXMTEsNVc4LDVXNg'
 
 describe('Dry-runner — Icicle Burst', () => {
@@ -26,7 +24,7 @@ describe('Dry-runner — Icicle Burst', () => {
   })
 
   it('should not be possible to play Icicle Burst after clearing the board of frozen enemies', () => {
-    cy.visit(`/deck/${ZHEVANA_DECK_ID}/dry-run?mode=MANUAL`)
+    cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
       .drDrawHand(['W1', 'W4', 'W6', 'W8'])
       .drEndTurn(6)
 
@@ -41,8 +39,9 @@ describe('Dry-runner — Icicle Burst', () => {
 
   it('should not be possible to play Icicle Burst on turn 1', () => {
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
-      .drDrawHand(['N1', 'N2', 'N3', 'W1'])
+      .drDrawHand(['W1', 'W2', 'W6', 'W8'])
 
+      .drPlay('W2')
       .drSelect('W1')
       .get(s.PLAY_BTN)
       .should('be.disabled')

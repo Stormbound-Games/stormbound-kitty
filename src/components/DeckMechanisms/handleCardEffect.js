@@ -3,6 +3,7 @@ import arrayRandom from '../../helpers/arrayRandom'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import isCard, { isNotCard } from '../../helpers/isCard'
 import cards from '../../data/cards'
+import shuffle from '../../helpers/shuffle'
 import play from './play'
 import cycle from './cycle'
 import draw from './draw'
@@ -194,12 +195,13 @@ const handleCardEffect = (state, card, mode) => {
     // Archdruid Earyn
     case 'N48': {
       const spells = state.hand.filter(isPlayableSpell(state))
+      const shuffledSpells = shuffle(spells)
 
       if (mode !== 'MANUAL' && spells.length > 0) {
-        play(state, spells[0], { mode, free: true })
+        play(state, shuffledSpells[0], { mode, free: true })
 
         if (card.level >= 4 && spells.length > 1) {
-          play(state, spells[1], { mode, free: true })
+          play(state, shuffledSpells[1], { mode, free: true })
         }
       }
       break

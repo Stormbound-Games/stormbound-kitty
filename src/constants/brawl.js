@@ -1,0 +1,98 @@
+export const BRAWLS = [
+  {
+    id: 'CONSTRUCT_MOVEMENT',
+    label: 'Construct =2 movement',
+    title: 'Rage Against The Machines',
+    cardId: 'I22',
+  },
+  {
+    id: 'DRAGON_MOVEMENT',
+    label: 'Dragons +1 movement',
+    title: 'There Be Dragons',
+    cardId: 'N46',
+  },
+  {
+    id: 'DWARF_MANA',
+    label: 'Dwarves -2 mana',
+    title: 'Snow White Ain’t Sleepin’',
+    cardId: 'W23',
+  },
+  {
+    id: 'ELDER_STRENGTH',
+    label: 'Elders +3 strength',
+    title: 'Respect Your Elders',
+    cardId: 'N76',
+  },
+  {
+    id: 'FELINE_STRENGTH',
+    label: 'Felines +2 strength',
+    title: 'Soft Kitty, Warm Kitty',
+    cardId: 'N69',
+  },
+  {
+    id: 'FROSTLING_STRENGTH',
+    label: 'Frostlings +4 strength',
+    title: 'I Got Chills',
+    cardId: 'W10',
+  },
+  {
+    id: 'HERO_STRENGTH',
+    label: 'Heroes +3 strength',
+    title: 'We Can Be Heroes',
+    cardId: 'N8',
+  },
+  {
+    id: 'KNIGHT_MANA',
+    label: 'Knights -2 mana',
+    title: 'Knight Knight Sweetie',
+    cardId: 'N59',
+  },
+  {
+    id: 'PIRATE_MOVEMENT',
+    label: 'Pirates =2 movement',
+    title: 'Yaaahr And A Bottle O’ Rhum',
+    cardId: 'N58',
+  },
+  {
+    id: 'RAVEN_MOVEMENT',
+    label: 'Raven +1 movement',
+    title: 'Raven’ Got Claws',
+    cardId: 'F23',
+  },
+  {
+    id: 'RODENT_STRENGTH',
+    label: 'Rodents +3 strength',
+    title: 'Is That A Gaming Mouse',
+    cardId: 'I2',
+  },
+  {
+    id: 'SATYR_MOVEMENT',
+    label: 'Satyrs +1 movement',
+    title: 'Scream Like A Goat',
+    cardId: 'S3',
+  },
+  {
+    id: 'SPELL_MANA',
+    label: 'Spells -2 mana',
+    title: 'Spellcaster',
+    cardId: 'N48',
+  },
+  {
+    id: 'STRUCTURE_MANA',
+    label: 'Structures =2 mana',
+    title: 'All Your Base Are Belong To Us',
+    cardId: 'N35',
+  },
+  {
+    id: 'TOAD_MANA',
+    label: 'Toads =2 mana',
+    title: 'Hop Hop Chop Chop',
+    cardId: 'F12',
+  },
+  {
+    id: 'UNDEAD_STRENGTH',
+    label: 'Undead +2 strength',
+    title: 'Let The Bodies Hit The Floor',
+    cardId: 'S21',
+  },
+]

@@ -19,7 +19,10 @@ const CARD_MECHANICS = {
     cards: ['W12', 'W19', 'W10', 'W9', 'W16', 'W8'],
   },
   RNG: { label: 'RNG-dependent', cards: ['S3', 'W9', 'W16', 'W8'] },
-  FIRST_TURN: { label: 'First turn restrictions', cards: ['W1', 'F4', 'N63'] },
+  FIRST_TURN: {
+    label: 'First turn restrictions',
+    cards: ['W1', 'F4', 'N9', 'N15', 'N63'],
+  },
   OTHERS: { label: 'Others', cards: ['N8', 'F8'] },
 }
 
@@ -52,6 +55,7 @@ const CARD_ATTRIBUTES = {
     'On turn one, can only be played when a friendly unit has previously been played',
   N15: 'Cannot be played without a friendly target unit',
   S10: 'Cannot be played without a target unit/structure',
+  N9: 'Cannot be played without an enemy target unit',
   N63: 'Cannot be played without an enemy target unit',
   F8:
     'May fill up your base line on turn one, restricting the cards you can play after',

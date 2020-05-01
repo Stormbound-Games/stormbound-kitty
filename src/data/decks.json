@@ -480,7 +480,8 @@
     "id": "NU4xLDVTMSw1TjMsNU42Nyw1UzYsNVM4LDVTMTEsNVMxMyw1TjM1LDVTMjgsNVMyMSw1UzIy",
     "faction": "swarm",
     "author": "Frostkhan",
-    "category": "BRAWL"
+    "category": "BRAWL",
+    "brawl": "UNDEAD_STRENGTH"
   },
   {
     "name": "TXC Ascension",
@@ -501,70 +502,80 @@
     "id": "NU4xLDVOMiw1STEsNU4zLDVONCw1STUsNUk3LDVJOCw1STI3LDVJMjAsNUkxNiw1STIx",
     "faction": "ironclad",
     "author": "Frostkhan",
-    "category": "BRAWL"
+    "category": "BRAWL",
+    "brawl": "CONSTRUCT_MOVEMENT"
   },
   {
     "name": "Freedom Fight",
     "id": "NU4xLDVGOCw1TjksNUY1LDVGNyw1RjEwLDVGMTIsNUYxNSw1RjE3LDVGMjgsNU41Miw1TjUz",
     "faction": "shadowfen",
     "author": "Frostkhan",
-    "category": "BRAWL"
+    "category": "BRAWL",
+    "brawl": "TOAD_MANA"
   },
   {
     "name": "Eye Tempest",
     "id": "NU4xLDVOMiw1TjIzLDROMTQsNVc1LDVOMTgsNU4yOSw1TjQ0LDVONDgsNVcxOSw1VzIxLDVXMjM=",
     "faction": "winter",
     "author": "Frostkhan",
-    "category": "BRAWL"
+    "category": "BRAWL",
+    "brawl": "SPELL_MANA"
   },
   {
     "name": "Self Control",
     "id": "NU4xLDVOMiw1UzEsNU4zLDVTMjQsNU40LDVTMyw1TjE4LDVTOSw1UzI4LDVTMjAsNVMyMQ==",
     "faction": "swarm",
     "author": "Frostkhan",
-    "category": "BRAWL"
+    "category": "BRAWL",
+    "brawl": "SATYR_MOVEMENT"
   },
   {
     "name": "Aftershock",
     "id": "NU4xLDVOMiw1STEsNUkyLDVJMyw1TjksNUkxMCw1STE0LDVJMTUsNUkxOSw1TjM0LDVONDU=",
     "faction": "ironclad",
     "author": "Frostkhan",
-    "category": "BRAWL"
+    "category": "BRAWL",
+    "brawl": "STRUCTURE_MANA"
   },
   {
     "name": "Scavengers",
     "id": "NU4xLDVOMiw1RjQsNUYzLDVOMyw1RjI3LDVGNiw1RjI1LDVGMTQsNUYxOCw1RjI4LDVGMjI=",
     "faction": "shadowfen",
     "author": "Frostkhan",
-    "category": "BRAWL"
+    "category": "BRAWL",
+    "brawl": "RAVEN_MOVEMENT"
   },
   {
     "name": "Unleashed Fury",
     "id": "NU4xLDVJMSw1STMsNU42LDVJNSw1TjEwLDVJNyw1STgsNUkxMyw1STI3LDVJMTcsNU41MQ==",
     "faction": "ironclad",
     "author": "Frostkhan",
-    "category": "BRAWL"
+    "category": "BRAWL",
+    "brawl": "DRAGON_MOVEMENT"
   },
   {
     "name": "Small Plague",
     "id": "NU4xLDVOMiw1STEsNUkyLDVJNCw1STUsNU4xMiw1STksNUkxNSw1STIwLDVJMTIsNUkxOQ==",
     "faction": "ironclad",
     "author": "Frostkhan",
-    "category": "BRAWL"
+    "category": "BRAWL",
+    "brawl": "RODENT_STRENGTH"
   },
   {
     "name": "Goddness Boon",
     "id": "NU4xLDVXMiw1TjMsNU45LDVOMTEsNVc0LDVXOSw1VzEyLDVOMzYsNVcxMCw1VzE5LDVONTg=",
     "faction": "winter",
     "author": "Frostkhan",
-    "category": "BRAWL"
+    "category": "BRAWL",
+    "brawl": "FROSTLING_STRENGTH"
   },
   {
     "name": "Heroic Deeds",
     "id": "NUY4LDVGNCw1RjIsNUYzLDVOMyw1TjgsNU41OSw1RjEyLDVONjksNU4zNSw1RjIzLDVONTg=",
     "faction": "shadowfen",
     "author": "Frostkhan",
-    "category": "BRAWL"
+    "category": "BRAWL",
+    "brawl": "HERO_STRENGTH"
   },
   {
     "name": "Bait & Flood",
