@@ -1,6 +1,6 @@
 import React from 'react'
 import WikiLink from '../components/WikiLink'
-import cards from './cards'
+import cards from '../data/cards'
 
 const cardsTerms = cards
   .filter(card => !card.token)
@@ -14,10 +14,10 @@ const cardsTerms = cards
     return acc
   }, {})
 
-export default {
+export default () => ({
   AoE: 'Area of Effect',
   BH: 'Base Health',
   HP: 'Health Point(s)',
   ...cardsTerms,
   FS: 'Fusion Stones',
-}
+})
