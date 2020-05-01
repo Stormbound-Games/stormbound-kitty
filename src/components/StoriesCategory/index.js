@@ -1,7 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import stories from '../../data/stories'
 import PageMeta from '../PageMeta'
 import HeaderBanner from '../HeaderBanner'
+import InfoHint from '../InfoHint'
 import Stories from '../Stories'
 import capitalise from '../../helpers/capitalise'
 import getRawCardData from '../../helpers/getRawCardData'
@@ -33,6 +35,11 @@ export default function StoriesCategory(props) {
         stories={categoryStories.sort(sortCardsInCategory)}
         columns={3}
       />
+
+      <InfoHint icon='quill'>
+        Looking to contribute to the Stormbound lore?{' '}
+        <Link to='/faq#adding-a-story'>Have your own story published</Link>.
+      </InfoHint>
 
       <PageMeta
         title={`${categoryName} stories`}
