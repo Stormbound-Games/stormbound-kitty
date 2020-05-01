@@ -18,7 +18,6 @@ export default React.memo(function Error(props) {
         {!props.noImage && (
           <Image
             src='/assets/images/cards/sweetcap_kittens.png'
-            alt=''
             className='Error__image'
           />
         )}

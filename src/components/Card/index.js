@@ -66,18 +66,21 @@ export default React.memo(function Card(props) {
         </header>
 
         {!props.missing ? (
-          <Image
-            alt=''
-            src={props.image}
-            wrapperClassName={[
+          <div
+            className={[
               'Card__image-wrapper',
               props.rarity === 'legendary' && 'Card__image-wrapper--hero',
             ]
               .filter(Boolean)
               .join(' ')}
-            className='Card__image'
-            data-testid='card-image'
-          />
+          >
+            <Image
+              alt={props.name}
+              src={props.image}
+              className='Card__image'
+              data-testid='card-image'
+            />
+          </div>
         ) : (
           <span
             className='Card__missing'

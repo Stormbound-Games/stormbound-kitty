@@ -24,11 +24,7 @@ export default React.memo(function Banner(props) {
           </Column>
           <Only.Desktop>
             <Column width='1/3'>
-              <Image
-                src={props.image}
-                alt=''
-                wrapperClassName='Banner__image'
-              />
+              <Image src={props.image} />
             </Column>
           </Only.Desktop>
         </Row>

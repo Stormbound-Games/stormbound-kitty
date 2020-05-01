@@ -9,7 +9,6 @@ export default React.memo(function EmptySearch(props) {
       <Image
         className='EmptySearch__image'
         src='/assets/images/cards/sweetcap_kittens.png'
-        alt=''
       />
       <span className='EmptySearch__title'>
         {props.title || 'No results found'}

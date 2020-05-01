@@ -29,7 +29,6 @@ export default React.memo(function CardProgress(props) {
     <div className='CardProgress'>
       <Image
         src={missing ? '/assets/images/stones.png' : '/assets/images/cards.png'}
-        alt=''
         className={[
           'CardProgress__image',
           missing && 'CardProgress__image--stone',

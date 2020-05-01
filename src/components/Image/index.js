@@ -1,19 +1,17 @@
 import React from 'react'
+import { WebpContext } from '../WebpProvider'
 
 export default React.forwardRef(function Image(props, ref) {
+  const supportsWebp = React.useContext(WebpContext)
+  const ext = supportsWebp ? 'webp' : 'png'
+
   return (
-    <picture className={props.wrapperClassName} ref={ref}>
-      {props.src.startsWith('/assets') && (
-        <source srcSet={props.src.replace('.png', '.webp')} type='image/webp' />
-      )}
-      <source srcSet={props.src} type='image/jpeg' />
-      <img
-        src={props.src}
-        alt={props.alt}
-        className={props.className}
-        data-testid={props['data-testid']}
-        onClick={props.onClick}
-      />
-    </picture>
+    <img
+      src={props.src.replace('png', ext)}
+      alt={props.alt || ''}
+      className={props.className}
+      data-testid={props['data-testid']}
+      onClick={props.onClick}
+    />
   )
 })
