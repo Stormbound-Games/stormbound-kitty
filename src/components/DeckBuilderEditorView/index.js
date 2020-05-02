@@ -21,6 +21,8 @@ import Row from '../Row'
 import ShareButton from '../DeckBuilderShareButton'
 import Title from '../Title'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getRawCardData from '../../helpers/getRawCardData'
+import sortByMana from '../../helpers/sortByMana'
 import { deserialiseDeck } from '../../helpers/deserialise'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
@@ -94,6 +96,20 @@ class DeckBuilderEditorView extends React.Component {
     return decks.find(deck => {
       return deserialiseDeck(deck.id).every(card => deckCards.includes(card.id))
     })
+  }
+
+  getDeckDescription = () => {
+    if (this.props.deck.length < 12) {
+      return 'Compose your own deck.'
+    }
+
+    return this.props.deck
+      .slice(0)
+      .sort(sortByMana)
+      .map(card => {
+        return `${getRawCardData(card.id).name} (${card.level})`
+      })
+      .join(', ')
   }
 
   render() {
@@ -246,7 +262,10 @@ class DeckBuilderEditorView extends React.Component {
           </Column>
         </Row>
 
-        <PageMeta title='Deck Builder' description='Compose your own deck.' />
+        <PageMeta
+          title='Deck Builder'
+          description={this.getDeckDescription()}
+        />
       </>
     )
   }
