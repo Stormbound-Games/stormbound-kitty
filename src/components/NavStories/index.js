@@ -22,6 +22,14 @@ export default React.memo(function NavStories(props) {
             </NavLink>
           </li>
         ))}
+        <li className='Header__item'>
+          <NavLink
+            to='/stories/eastern-heat'
+            active={props.active === 'EASTERN_HEAT'}
+          >
+            Eastern Heat
+          </NavLink>
+        </li>
       </ul>
     </nav>
   )

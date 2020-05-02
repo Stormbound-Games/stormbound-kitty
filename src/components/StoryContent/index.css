@@ -1,0 +1,30 @@
+.StoryContent {
+  margin-bottom: 3em;
+}
+
+.StoryContent__title {
+  margin-bottom: 3em;
+  font-size: 125%;
+  max-width: 65ch;
+}
+
+.StoryContent__paragraph {
+  font-size: 115%;
+  max-width: 65ch;
+  hyphens: auto;
+}
+
+.StoryContent__paragraph:first-of-type::first-letter {
+  color: var(--beige);
+  float: left;
+  font-family: Georgia, serif;
+  font-size: 75px;
+  line-height: 60px;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-left: 3px;
+}
+
+.StoryContent__paragraph strong {
+  color: var(--beige);
+}

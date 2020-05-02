@@ -9,9 +9,9 @@ import InfoHint from '../InfoHint'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Stories from '../Stories'
+import StoryContent from '../StoryContent'
 import Title from '../Title'
 import getRawCardData from '../../helpers/getRawCardData'
-import microMarkdown from '../../helpers/microMarkdown'
 import getExcerpt from '../../helpers/getExcerpt'
 import './index.css'
 
@@ -20,7 +20,7 @@ const getStoriesFromAuthor = author =>
 
 export default function Story(props) {
   const match = useRouteMatch()
-  const id = match.params.storyId
+  const { storyId: id } = match.params
 
   let story = null
   let storiesByAuthor = []
@@ -42,21 +42,7 @@ export default function Story(props) {
     <div className='Story'>
       <Row desktopOnly wideGutter>
         <Column width='2/3'>
-          <article className='Story__content'>
-            <Title element='h1' className='Story__title'>
-              {story.title}
-            </Title>
-            {story.content.split('\n').map((paragraph, index) => {
-              if (paragraph.trim().length === 0) return null
-              if (paragraph.trim() === '---') return <hr key={index} />
-
-              return (
-                <p key={index} className='Story__paragraph'>
-                  {microMarkdown(paragraph)}
-                </p>
-              )
-            })}
-          </article>
+          <StoryContent title={story.title} content={story.content} />
 
           {storiesByAuthor.length > 1 && (
             <>

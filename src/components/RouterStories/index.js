@@ -1,16 +1,30 @@
 import React from 'react'
-import { Redirect, Switch, useRouteMatch } from 'react-router-dom'
+import { Redirect, Switch, useLocation, useRouteMatch } from 'react-router-dom'
 import Page from '../Page'
 import load from '../../helpers/load'
 
 const StoriesCategory = load('StoriesCategory')
 const Story = load('Story')
+const StoriesEasternHeat = load('StoriesEasternHeat')
+const StoryEasternHeat = load('StoryEasternHeat')
 
 export default function RouterStories() {
   const { path } = useRouteMatch()
+  const { pathname } = useLocation()
+
+  React.useEffect(() => window.scrollTo(0, 0), [pathname])
 
   return (
     <Switch>
+      <Page
+        path={`${path}/eastern-heat/:chapter`}
+        active={['STORIES', 'EASTERN_HEAT']}
+      >
+        <StoryEasternHeat />
+      </Page>
+      <Page path={`${path}/eastern-heat`} active={['STORIES', 'EASTERN_HEAT']}>
+        <StoriesEasternHeat />
+      </Page>
       <Page path={`${path}/neutral`} active={['STORIES', 'NEUTRAL']}>
         <StoriesCategory category='neutral' />
       </Page>
