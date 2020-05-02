@@ -204,7 +204,7 @@ export default React.memo(function BooksCalculator(props) {
 
       <PageMeta
         title='Books Calculator'
-        description='Calculate draw chances in books.'
+        description='Maximise the use of your resources and calculate the odds of finding a specific Stormbound card or fusion stones in a specific book'
       />
     </>
   )

@@ -33,7 +33,7 @@
   margin-top: 2.5em;
 }
 
-.Guide h1 ~ ol ul {
+.Guide ol ul {
   margin-top: 0.5em;
   margin-bottom: 0;
 }

@@ -94,8 +94,10 @@ export default function Story(props) {
       </Row>
 
       <PageMeta
-        title={story.title || 'Story'}
-        description={getExcerpt(story.content, 200)}
+        title={story.title}
+        author={story.author}
+        image={card.image}
+        description={getExcerpt(story.content.replace('---', ''), 160)}
       />
     </div>
   )

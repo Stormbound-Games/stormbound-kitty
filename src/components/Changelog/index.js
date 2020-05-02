@@ -191,7 +191,7 @@ export default function Changelog(props) {
       </Row>
       <PageMeta
         title='Changelog'
-        description='All cards changes that ever happened on Stormbound.'
+        description='Find all cards changes that ever happened on Stormbound'
       />
     </>
   )

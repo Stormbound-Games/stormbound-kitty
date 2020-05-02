@@ -3,6 +3,7 @@ import HeaderBanner from '../HeaderBanner'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Title from '../Title'
+import getExcerpt from '../../helpers/getExcerpt'
 import './index.css'
 
 export default React.memo(function Guide(props) {
@@ -22,7 +23,12 @@ export default React.memo(function Guide(props) {
 
         {props.children}
 
-        <PageMeta title={props.title} description={props.description} />
+        <PageMeta
+          author={props.author}
+          title={props.name}
+          image={props.background}
+          description={getExcerpt(props.excerpt, 160)}
+        />
       </div>
     </>
   )

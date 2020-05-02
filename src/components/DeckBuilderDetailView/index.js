@@ -45,7 +45,7 @@ export default React.memo(function DeckBuilderDetailView(props) {
 
       <PageMeta
         title='Deck Detail'
-        description='Details and advice about the deck.'
+        description='Get details and advice about your deck in order to improve it'
       />
     </>
   )

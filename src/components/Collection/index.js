@@ -236,7 +236,7 @@ class Collection extends React.Component {
 
         <PageMeta
           title='Cards Collection'
-          description='Import and export your own card collection.'
+          description='Manage your own card collection and keep track of your cards'
         />
       </>
     )

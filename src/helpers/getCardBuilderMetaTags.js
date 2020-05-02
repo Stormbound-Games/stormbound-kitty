@@ -13,7 +13,7 @@ const getCardBuilderMetaTags = state => {
   const cardData = getRawCardData(state.imageCardId)
   const metaTags = {}
 
-  metaTags.title = cardData.name || 'Card Builder'
+  metaTags.title = cardData.name || state.name || 'Card Builder'
 
   if (isIncomplete(state)) {
     metaTags.description = 'Create your own Stormbound card'
@@ -24,7 +24,7 @@ const getCardBuilderMetaTags = state => {
   if (state.imageURL) {
     metaTags.image = state.imageURL
   } else if (cardData) {
-    metaTags.image = 'https://stormbound-kitty.com' + cardData.image
+    metaTags.image = cardData.image
   }
 
   return metaTags

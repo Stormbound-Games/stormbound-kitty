@@ -85,7 +85,7 @@ export default React.memo(function FAQ() {
 
       <PageMeta
         title='Frequently Asked questions'
-        description='Frequently asked questions about Stormbound Kitty.'
+        description='Find answers to the frequently asked questions about Stormbound and Stormbound-Kitty'
       />
     </div>
   )

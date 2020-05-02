@@ -32,7 +32,7 @@ export default React.memo(function Guides(props) {
 
       <PageMeta
         title='Guides'
-        description='Guides from the community about Stormbound'
+        description='Find guides from the community about Stormbound and improve your gameplay and knowledge about the game'
       />
     </>
   )

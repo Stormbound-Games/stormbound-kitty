@@ -202,7 +202,7 @@ export default React.memo(function Brawl() {
 
       <PageMeta
         title='Brawl'
-        description='All the Brawls from Stormbound and their ideal decks'
+        description='Find all the Brawl modes from Stormbound and their ideal decks'
       />
     </>
   )

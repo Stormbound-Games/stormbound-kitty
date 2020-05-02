@@ -94,7 +94,7 @@ export default React.memo(function Lexicon(props) {
 
       <PageMeta
         title='Lexicon'
-        description='List of terms and abbreviations for Stormbound.'
+        description='Find a list of terms and abbreviations for Stormbound'
       />
     </>
   )

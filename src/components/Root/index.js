@@ -1,5 +1,5 @@
 import React from 'react'
-import { HelmetProvider } from 'react-helmet-async'
+import { HelmetProvider, Helmet } from 'react-helmet-async'
 import CollectionProvider from '../CollectionProvider'
 import ErrorBoundary from '../ErrorBoundary'
 import NotificationProvider from '../NotificationProvider'
@@ -14,6 +14,9 @@ export default function Root(props) {
           <NotificationProvider>
             <CollectionProvider>
               <Router />
+              <Helmet>
+                <meta name='author' content='Kitty' />
+              </Helmet>
             </CollectionProvider>
           </NotificationProvider>
         </WebpProvider>

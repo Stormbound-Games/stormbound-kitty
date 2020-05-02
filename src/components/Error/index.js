@@ -54,7 +54,7 @@ export default React.memo(function Error(props) {
 
       <PageMeta
         title='Error'
-        description='An error occurred, sorry about this!'
+        description='Unfortunately, an error occurred, sorry about this!'
         noIndex
       />
     </>

@@ -43,7 +43,7 @@ export default function StoriesCategory(props) {
 
       <PageMeta
         title={`${categoryName} stories`}
-        description={`Stories from the community about ${categoryName} Stormbound cards`}
+        description={`Read immersive stories from the community about ${categoryName} Stormbound cards`}
       />
     </>
   )

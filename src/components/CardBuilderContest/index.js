@@ -108,7 +108,7 @@ export default React.memo(function CardBuilderContest(props) {
 
       <PageMeta
         title='Weekly Card Contest'
-        description='All the information to participate and/or vote in the Stormbound weekly card competitions.'
+        description='All the information to participate and/or vote in the Stormbound weekly card competitions'
       />
     </>
   )

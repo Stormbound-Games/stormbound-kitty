@@ -233,7 +233,7 @@ class ListBuilderEditorView extends React.Component {
 
         <PageMeta
           title='Tier List Builder'
-          description='Compose your own tier lists.'
+          description='Compose your own tier lists from the Stormbound cards, ranking them the way you see fit'
         />
       </>
     )

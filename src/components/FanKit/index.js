@@ -171,8 +171,8 @@ export default React.memo(function FanKit(props) {
       ))}
 
       <PageMeta
-        title='Stormbound Fan Kit'
-        description='All the assets from Stormbound used on Stormbound-Kitty'
+        title='Stormbound Fan-Kit'
+        description='Find all the assets from Stormbound used on Stormbound-Kitty, courtesy of Paladin Studios and Sheepyard'
       />
     </>
   )

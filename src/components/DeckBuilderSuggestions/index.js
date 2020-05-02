@@ -234,7 +234,7 @@ class DeckBuilderSuggestions extends React.Component {
 
         <PageMeta
           title='Deck Suggestions'
-          description='Decks suggested by the Stormbound community.'
+          description='Find a collection of decks suggested by the Stormbound community, for all levels and all play-styles'
         />
       </>
     )
