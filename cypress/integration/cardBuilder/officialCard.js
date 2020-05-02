@@ -19,7 +19,9 @@ describe('Card Builder — Official card', () => {
     cy.visit('/collection')
       .get('[data-testid="import-btn"]')
       .importCollection('collection.import.csv')
+
       .visit('/card/N1/display')
+
       .get('[role="progressbar"]')
       .should('exist')
   })
@@ -28,15 +30,21 @@ describe('Card Builder — Official card', () => {
     cy.visit('/collection')
       .get('[data-testid="import-btn"]')
       .importCollection('collection.import.csv')
+
       .visit('/card/N1/display')
+
       .get(s.PREV_BTN)
       .should('not.exist')
+
       .get(s.NEXT_BTN)
       .click()
+
       .url()
       .should('match', /\/card\/N2\/display/)
+
       .get(s.PREV_BTN)
       .click()
+
       .url()
       .should('match', /\/card\/N1\/display/)
   })
@@ -45,13 +53,17 @@ describe('Card Builder — Official card', () => {
     cy.visit('/collection')
       .get('[data-testid="import-btn"]')
       .importCollection('collection.import.csv')
+
       .visit('/card/N1/display')
+
       .get(s.CARD)
       .eq(2)
       .should('have.class', 'Card--affordable')
+
       .get(s.CARD)
       .eq(3)
       .should('not.have.class', 'Card--affordable')
+
       .get(s.CARD)
       .eq(4)
       .should('not.have.class', 'Card--affordable')
