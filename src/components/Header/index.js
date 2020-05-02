@@ -46,10 +46,6 @@ const Wrapper = props => {
   const [isExpanded, expand] = React.useState(false)
 
   React.useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
-
-  React.useEffect(() => {
     if (viewportWidth <= 700) expand(false)
   }, [pathname, viewportWidth])
 
