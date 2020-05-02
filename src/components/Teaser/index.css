@@ -100,7 +100,7 @@
 .Teaser__header .Card {
   position: absolute;
   width: 60%;
-  top: 0;
+  top: 2%;
   right: 0;
   transform: rotate(-12deg);
   transition-duration: 2000ms;
