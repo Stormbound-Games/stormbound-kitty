@@ -11,6 +11,8 @@ export default React.memo(function PageMeta(props) {
       <meta property='og:description' content={props.description} />
       <meta property='og:site_name' content='Stormbound Kitty' />
       <meta property='og:url' content={window.location.href} />
+      <meta property='og:type' content='website' />
+      {!!props.image && <meta property='og:image' content={props.image} />}
       {props.noIndex && <meta name='robots' content='noindex, nofollow' />}
     </Helmet>
   )
