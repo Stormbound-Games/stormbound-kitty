@@ -7,7 +7,11 @@ export default React.forwardRef(function Image(props, ref) {
 
   return (
     <img
-      src={props.src.replace('png', ext)}
+      src={
+        props.src.startsWith('/assets')
+          ? props.src.replace('png', ext)
+          : props.src
+      }
       alt={props.alt || ''}
       className={props.className}
       data-testid={props['data-testid']}
