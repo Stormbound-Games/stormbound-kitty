@@ -27,6 +27,7 @@
     "remark-react": "^7.0.1"
   },
   "scripts": {
+    "admin": "npx netlify-cms-proxy-server",
     "start": "react-scripts start",
     "build": "CI=false react-scripts build",
     "test": "cypress run",
