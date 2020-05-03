@@ -1,35 +1,24 @@
 import React from 'react'
-import { FACTIONS } from '../../constants/game'
+import { useLocation } from 'react-router-dom'
+import { STORY_CATEGORIES } from '../../constants/stories'
 import NavLink from '../NavLink'
-import capitalise from '../../helpers/capitalise'
 
 export default React.memo(function NavStories(props) {
+  const { pathname } = useLocation()
+
   return (
     <nav className='Header__nav'>
       <ul className='Header__list Header__list--sub'>
-        <li className='Header__item'>
-          <NavLink to='/stories/lore' active={props.active === 'LORE'}>
-            Lore
-          </NavLink>
-        </li>
-        {Object.keys(FACTIONS).map(faction => (
-          <li className='Header__item' key={faction}>
+        {Object.keys(STORY_CATEGORIES).map(category => (
+          <li className='Header__item' key={category}>
             <NavLink
-              to={`/stories/${faction}`}
-              active={props.active === faction.toUpperCase()}
+              to={'/stories/' + category}
+              active={pathname === `/stories/${category}`}
             >
-              {capitalise(faction)}
+              {STORY_CATEGORIES[category].shortName}
             </NavLink>
           </li>
         ))}
-        <li className='Header__item'>
-          <NavLink
-            to='/stories/eastern-heat'
-            active={props.active === 'EASTERN_HEAT'}
-          >
-            Eastern Heat
-          </NavLink>
-        </li>
       </ul>
     </nav>
   )
