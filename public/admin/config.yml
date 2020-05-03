@@ -45,7 +45,6 @@ collections:
           name: 'category',
           required: true,
           widget: select,
-          options:
-            [swarm, ironclad, winter, shadowfen, neutral, lore, eastern_heat],
+          options: [swarm, ironclad, winter, shadowfen, neutral, lore],
         }
       - { label: 'Card ID', name: 'cardId', required: true }
