@@ -21,7 +21,7 @@ export default function RouterStories() {
         <Redirect
           key={story.oldId}
           path={`/stories/${story.oldId}`}
-          to={`/stories/${story.category}/${story.id}`}
+          to={`/stories/${story.id}`}
         />
       ))}
 
