@@ -1,0 +1,51 @@
+backend:
+  # name: github
+  name: git-gateway
+  repo: KittySparkles/stormbound-kitty
+local_backend:
+  url: http://localhost:8081/api/v1
+
+# https://www.netlifycms.org/docs/open-authoring/
+open_authoring: true
+
+# https://www.netlifycms.org/docs/configuration-options/#site-url
+site_url: https://stormbound-kitty.com
+
+# https://www.netlifycms.org/docs/configuration-options/#publish-mode
+publish_mode: editorial_workflow
+
+# https://www.netlifycms.org/docs/configuration-options/#media-and-public-folders
+media_folder: 'public/assets/uploads'
+public_folder: '/assets/uploads'
+
+# https://www.netlifycms.org/docs/configuration-options/#slug-type
+slug:
+  encoding: 'ascii'
+  clean_accents: true
+  sanitize_replacement: '-'
+
+# https://www.netlifycms.org/docs/configuration-options/#collections
+collections:
+  - name: stories
+    label: Stories
+    label_singular: Story
+    identifier_field: title
+    folder: public/stories
+    format: json
+    create: true
+    delete: true
+    preview_path: '/stories/{{slug}}'
+    summary: '{{title}} by {{author}} ({{category}}, {{cardId}})'
+    fields:
+      - { label: 'Title', name: 'title', required: true }
+      - { label: 'Author', name: 'author', required: true }
+      - { label: 'Content', name: 'content', required: true, widget: text }
+      - {
+          label: 'Category',
+          name: 'category',
+          required: true,
+          widget: select,
+          options:
+            [swarm, ironclad, winter, shadowfen, neutral, lore, eastern_heat],
+        }
+      - { label: 'Card ID', name: 'cardId', required: true }
