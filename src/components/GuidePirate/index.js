@@ -4,9 +4,8 @@ import guides from '../../data/guides'
 import Guide from '../Guide'
 import Markdown from '../Markdown'
 
-const guide = guides.find(g => g.id === 'PIRATE_GUIDE')
-
 export default React.memo(function GuidePirate(props) {
+  const guide = guides.find(g => g.id === 'PIRATE_GUIDE')
   const [content, setContent] = React.useState(null)
 
   React.useEffect(() => {

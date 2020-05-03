@@ -1,22 +1,5 @@
-.Guide {
-  font-size: 120%;
-  max-width: 100%;
-  margin: 0 auto 1.5em;
-  width: 65ch;
-}
-
-.Guide > h1.Title {
-  font-size: 120%;
-  margin-top: 0;
-}
-
-.Guide__author {
-  font-style: italic;
-  margin-bottom: 2em;
-}
-
-.Guide .Title {
-  margin-top: 1em;
+.Guide h2 {
+  margin-top: 5em;
 }
 
 .Guide h3 {

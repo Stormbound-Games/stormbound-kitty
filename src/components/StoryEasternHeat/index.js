@@ -1,17 +1,15 @@
 import React from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
 import chapters from '../../data/stories.easternHeat'
-import Column from '../Column'
-import CTA from '../CTA'
-import Image from '../Image'
+import Article from '../Article'
 import InfoHint from '../InfoHint'
+import MicroMarkdown from '../MicroMarkdown'
+import Only from '../Only'
 import PageMeta from '../PageMeta'
-import Row from '../Row'
 import Stories from '../Stories'
-import StoryContent from '../StoryContent'
 import Title from '../Title'
 import getExcerpt from '../../helpers/getExcerpt'
-import '../Story/index.css'
+import getReadingTime from '../../helpers/getReadingTime'
 
 export default React.memo(function StoryEasternHeat(props) {
   const match = useRouteMatch()
@@ -20,31 +18,28 @@ export default React.memo(function StoryEasternHeat(props) {
   const otherChapters = chapters.filter(c => c.title !== story.title)
 
   return (
-    <div className='Story'>
-      <Row desktopOnly wideGutter>
-        <Column width='2/3'>
-          <StoryContent title={story.title} content={story.content} />
-          <Title>Other chapters from Eastern Heat</Title>
-          <Stories stories={otherChapters} columns={2} />
-        </Column>
+    <>
+      <Article
+        title={story.title}
+        author='Zyries'
+        readingTime={getReadingTime(story.content)}
+        backLink={{
+          to: '/stories/eastern-heat',
+          children: 'Back to index',
+        }}
+      >
+        <MicroMarkdown content={story.content} />
+      </Article>
 
-        <Column width='1/3'>
-          <div className='Story__aside'>
-            <Image src={story.card.image} alt={story.card.name} />
-            <InfoHint>
-              Looking to contribute to the Stormbound lore?{' '}
-              <Link to='/faq#adding-a-story'>
-                Have your own story published
-              </Link>
-              .
-            </InfoHint>
-            <hr />
-            <CTA className='Story__back' to='/stories/eastern-heat'>
-              Back to stories
-            </CTA>
-          </div>
-        </Column>
-      </Row>
+      <Title>
+        Other chapters<Only.Desktop> from Eastern Heat</Only.Desktop>
+      </Title>
+      <Stories stories={otherChapters} columns={3} />
+
+      <InfoHint>
+        Looking to contribute to the Stormbound lore?{' '}
+        <Link to='/faq#adding-a-story'>Have your own story published</Link>.
+      </InfoHint>
 
       <PageMeta
         title={story.title}
@@ -52,6 +47,6 @@ export default React.memo(function StoryEasternHeat(props) {
         image={story.card.image}
         description={getExcerpt(story.content, 160)}
       />
-    </div>
+    </>
   )
 })

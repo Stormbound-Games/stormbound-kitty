@@ -1,19 +1,16 @@
 import React from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
 import stories from '../../data/stories'
-import Column from '../Column'
-import CTA from '../CTA'
+import Article from '../Article'
 import Error from '../Error'
-import Image from '../Image'
 import InfoHint from '../InfoHint'
+import MicroMarkdown from '../MicroMarkdown'
 import PageMeta from '../PageMeta'
-import Row from '../Row'
 import Stories from '../Stories'
-import StoryContent from '../StoryContent'
 import Title from '../Title'
 import getRawCardData from '../../helpers/getRawCardData'
 import getExcerpt from '../../helpers/getExcerpt'
-import './index.css'
+import getReadingTime from '../../helpers/getReadingTime'
 
 const getStoriesFromAuthor = author =>
   stories.filter(story => story.author === author)
@@ -40,44 +37,35 @@ export default function Story(props) {
 
   return (
     <div className='Story'>
-      <Row desktopOnly wideGutter>
-        <Column width='2/3'>
-          <StoryContent title={story.title} content={story.content} />
+      <Article
+        title={story.title}
+        author={story.author}
+        readingTime={getReadingTime(story.content)}
+        backLink={{
+          to: '/stories',
+          children: 'Back to stories',
+        }}
+      >
+        <MicroMarkdown content={story.content} />
+      </Article>
 
-          {storiesByAuthor.length > 1 && (
-            <>
-              <Title>
-                Other stories by{' '}
-                <Link to={`/member/${story.author}`}>{story.author}</Link>
-              </Title>
-              <Stories
-                stories={storiesByAuthor.filter(s => story.title !== s.title)}
-                columns={2}
-              />
-            </>
-          )}
-        </Column>
+      {storiesByAuthor.length > 1 && (
+        <>
+          <Title>
+            Other stories by{' '}
+            <Link to={`/member/${story.author}`}>{story.author}</Link>
+          </Title>
+          <Stories
+            stories={storiesByAuthor.filter(s => story.title !== s.title)}
+            columns={3}
+          />
+        </>
+      )}
 
-        <Column width='1/3'>
-          <div className='Story__aside'>
-            {!!card.image && <Image src={card.image} alt={card.name} />}
-
-            <InfoHint>
-              Looking to contribute to the Stormbound lore?{' '}
-              <Link to='/faq#adding-a-story'>
-                Have your own story published
-              </Link>
-              .
-            </InfoHint>
-
-            <hr />
-
-            <CTA className='Story__back' to='/stories'>
-              Back to stories
-            </CTA>
-          </div>
-        </Column>
-      </Row>
+      <InfoHint>
+        Looking to contribute to the Stormbound lore?{' '}
+        <Link to='/faq#adding-a-story'>Have your own story published</Link>.
+      </InfoHint>
 
       <PageMeta
         title={story.title}

@@ -3,11 +3,9 @@ import Guide from '../Guide'
 import Markdown from '../Markdown'
 import data from '../../data/Stormbound_guide.md'
 import guides from '../../data/guides'
-import './index.css'
-
-const guide = guides.find(g => g.id === 'COMPLETE_GUIDE')
 
 export default React.memo(function GuideComplete(props) {
+  const guide = guides.find(g => g.id === 'COMPLETE_GUIDE')
   const [content, setContent] = React.useState(null)
 
   React.useEffect(() => {
@@ -17,7 +15,7 @@ export default React.memo(function GuideComplete(props) {
   }, [])
 
   return content ? (
-    <Guide {...guide} className='GuideComplete'>
+    <Guide {...guide}>
       <Markdown source={content} />
     </Guide>
   ) : null

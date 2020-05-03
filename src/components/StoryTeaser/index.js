@@ -2,13 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Teaser from '../Teaser'
 import getExcerpt from '../../helpers/getExcerpt'
+import getReadingTime from '../../helpers/getReadingTime'
 import './index.css'
-
-const getReadingTime = content => {
-  const words = content.split(/\s+/g).length
-
-  return words < 360 ? '1 minute' : `${Math.floor(words / (360 / 2))} minutes`
-}
 
 const StoryMeta = props => (
   <>
