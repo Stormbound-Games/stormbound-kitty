@@ -54,7 +54,10 @@ export default React.memo(function ListBuilderDisplayView(props) {
         </Column>
       </Row>
 
-      <PageMeta title='Ranked Tier List' />
+      <PageMeta
+        title='Tier List Builder'
+        description='Compose your own tier lists from the Stormbound cards, ranking them the way you see fit'
+      />
     </>
   )
 })
