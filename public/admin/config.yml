@@ -1,9 +1,9 @@
 backend:
-  # name: github
-  name: git-gateway
+  name: github
+  # name: git-gateway
   repo: KittySparkles/stormbound-kitty
-local_backend:
-  url: http://localhost:8081/api/v1
+# local_backend:
+# url: http://localhost:8081/api/v1
 
 # https://www.netlifycms.org/docs/open-authoring/
 open_authoring: true
