@@ -14,7 +14,7 @@ export const getCardCost = card => {
   } = RARITY_COPIES[rarity]
   // If the card is level 3 (for example), it represents copies equal to the
   // current unused copies added to those needed to bring it to level 3,
-  // stored in levelCopies[0] (1 to 2) and levelCopies[1] (3 to 3)
+  // stored in levelCopies[0] (1 to 2) and levelCopies[1] (2 to 3)
   const conditionalSum = (acc, levelCop, index) =>
     index < card.level - 1 ? acc + levelCop : acc
   const copies = card.copies + levelCopies.reduce(conditionalSum, 0)
