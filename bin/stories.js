@@ -1,28 +1,32 @@
 const fs = require('fs')
 const path = require('path')
+const cards = require('../src/data/cards.json')
+
 const btoa = a => Buffer.from(a).toString('base64')
+const getRawCardData = id => cards.find(card => card.id === id)
+const removeJsonExtension = fileName => fileName.replace('.json', '')
+const getOldId = story =>
+  btoa(encodeURIComponent(story.title + '-' + story.author))
 
-const manifest = fs
-  .readdirSync(path.resolve('public/stories'))
-  .map(fileName => {
-    const story = require(path.resolve('public/stories/' + fileName))
-    const oldId = btoa(encodeURIComponent(story.title + '-' + story.author))
+const getFileData = (dir, getId = removeJsonExtension) => fileName => {
+  const story = require(path.resolve(dir + '/' + fileName))
+  const card = { ...getRawCardData(story.cardId), ...story.card }
 
-    return {
-      oldId,
-      id: fileName.replace('.json', ''),
-      title: story.title,
-      author: story.author,
-      content: story.content.slice(0, 150) + '…',
-      category: story.category,
-      cardId: story.cardId,
-    }
-  })
+  return {
+    ...story,
+    card,
+    oldId: getOldId(story),
+    id: story.id || removeJsonExtension(fileName),
+    content: story.content.slice(0, 150) + '…',
+  }
+}
 
-fs.writeFileSync(
-  path.resolve('public/stories.json'),
-  JSON.stringify(manifest, null, 2),
-  'utf8'
-)
+const extract = (dir, out, getId) => {
+  const isJson = fileName => fileName.endsWith('.json')
+  const files = fs.readdirSync(path.resolve(dir)).filter(isJson)
+  const data = files.map(getFileData(dir, getId))
 
-console.log(manifest)
+  fs.writeFileSync(path.resolve(out), JSON.stringify(data, null, 2), 'utf8')
+}
+
+extract('public/stories', 'public/stories.json')

@@ -3,11 +3,10 @@ import { Redirect, Switch, useLocation, useRouteMatch } from 'react-router-dom'
 import Page from '../Page'
 import load from '../../helpers/load'
 import useFetch from '../../hooks/useFetch'
+import { STORY_CATEGORIES } from '../../constants/stories'
 
-const StoriesCategory = load('StoriesCategory')
+const StoryCategory = load('StoryCategory')
 const Story = load('Story')
-const StoriesEasternHeat = load('StoriesEasternHeat')
-const StoryEasternHeat = load('StoryEasternHeat')
 
 export default function RouterStories() {
   const { path } = useRouteMatch()
@@ -18,43 +17,29 @@ export default function RouterStories() {
 
   return (
     <Switch>
-      <Page
-        path={`${path}/eastern-heat/:chapter`}
-        active={['STORIES', 'EASTERN_HEAT']}
-      >
-        <StoryEasternHeat />
-      </Page>
-      <Page path={`${path}/eastern-heat`} active={['STORIES', 'EASTERN_HEAT']}>
-        <StoriesEasternHeat />
-      </Page>
-
       {stories.map(story => (
         <Redirect
+          key={story.oldId}
           path={`/stories/${story.oldId}`}
-          to={`/stories/${story.id}`}
+          to={`/stories/${story.category}/${story.id}`}
         />
       ))}
-      <Page path={`${path}/neutral`} active={['STORIES', 'NEUTRAL']}>
-        <StoriesCategory category='neutral' />
-      </Page>
-      <Page path={`${path}/ironclad`} active={['STORIES', 'IRONCLAD']}>
-        <StoriesCategory category='ironclad' />
-      </Page>
-      <Page path={`${path}/swarm`} active={['STORIES', 'SWARM']}>
-        <StoriesCategory category='swarm' />
-      </Page>
-      <Page path={`${path}/winter`} active={['STORIES', 'WINTER']}>
-        <StoriesCategory category='winter' />
-      </Page>
-      <Page path={`${path}/shadowfen`} active={['STORIES', 'SHADOWFEN']}>
-        <StoriesCategory category='shadowfen' />
-      </Page>
-      <Page path={`${path}/lore`} active={['STORIES', 'LORE']}>
-        <StoriesCategory category='lore' />
-      </Page>
+
+      {Object.keys(STORY_CATEGORIES).map(category => (
+        <Page
+          exact
+          path={`${path}/${category}`}
+          active={['STORIES']}
+          key={category}
+        >
+          <StoryCategory category={category} />
+        </Page>
+      ))}
+
       <Page path={`${path}/:storyId`} active={['STORIES']}>
         <Story />
       </Page>
+
       <Redirect path={path} to='/stories/lore' />
     </Switch>
   )
