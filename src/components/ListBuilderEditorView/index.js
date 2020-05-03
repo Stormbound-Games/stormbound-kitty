@@ -174,24 +174,22 @@ class ListBuilderEditorView extends React.Component {
               sure to report any bug, oddity or desired features.
             </p>
 
-            <div className='ListBuilderApp__buttons'>
-              <Row>
-                <Column>
-                  <ResetButton
-                    label='Reset list'
-                    confirm='Are you sure you want to reset the list to its initial state?'
-                    reset={this.reset}
-                    disabled={!this.props.listId}
-                  />
-                </Column>
-                <Column>
-                  <ShareButton
-                    title='Share tier list'
-                    disabled={!this.props.listId}
-                  />
-                </Column>
-              </Row>
-            </div>
+            <Row>
+              <Column>
+                <ResetButton
+                  label='Reset list'
+                  confirm='Are you sure you want to reset the list to its initial state?'
+                  reset={this.reset}
+                  disabled={!this.props.listId}
+                />
+              </Column>
+              <Column>
+                <ShareButton
+                  title='Share tier list'
+                  disabled={!this.props.listId}
+                />
+              </Column>
+            </Row>
           </Column>
           <Column width='2/3'>
             <Title>Tier list</Title>

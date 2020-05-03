@@ -13,9 +13,9 @@ const getFileData = dir => fileName => {
   const card = { ...getRawCardData(story.cardId), ...story.card }
 
   return {
+    oldId: getOldId(story),
     ...story,
     card,
-    oldId: getOldId(story),
     id: removeJsonExtension(fileName),
     content: story.content.slice(0, 150) + '…',
   }

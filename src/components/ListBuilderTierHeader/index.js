@@ -1,6 +1,7 @@
 import React from 'react'
 import CardSelect from '../CardSelect'
 import Only from '../Only'
+import generateId from '../../helpers/generateId'
 import './index.css'
 
 export default React.memo(function ListBuilderTierHeader(props) {
@@ -24,7 +25,12 @@ export default React.memo(function ListBuilderTierHeader(props) {
             />
           </>
         ) : (
-          <span className='ListBuilderTierHeader__name'>{props.name}</span>
+          <h3
+            className='ListBuilderTierHeader__name'
+            id={generateId(props.name)}
+          >
+            {props.name}
+          </h3>
         )}
       </div>
 

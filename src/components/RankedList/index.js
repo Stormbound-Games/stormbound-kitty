@@ -5,6 +5,7 @@ import Column from '../Column'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import ListBuilderTier from '../ListBuilderTier'
+import ListBuilderToc from '../ListBuilderToc'
 import Title from '../Title'
 import getInitialListData from '../../helpers/getInitialListData'
 import getLiveTierList from '../../helpers/getLiveTierList'
@@ -33,6 +34,8 @@ export default React.memo(function ListBuilderDisplayView(props) {
             instance, <span className='Highlight'>0.9 — 1.0</span> contains
             cards that are included in over 90% of decks that can include them.
           </p>
+
+          <ListBuilderToc tiers={tiers} />
         </Column>
 
         <Column width='2/3'>
