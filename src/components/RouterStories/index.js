@@ -2,6 +2,7 @@ import React from 'react'
 import { Redirect, Switch, useLocation, useRouteMatch } from 'react-router-dom'
 import Page from '../Page'
 import load from '../../helpers/load'
+import useFetch from '../../hooks/useFetch'
 
 const StoriesCategory = load('StoriesCategory')
 const Story = load('Story')
@@ -11,6 +12,7 @@ const StoryEasternHeat = load('StoryEasternHeat')
 export default function RouterStories() {
   const { path } = useRouteMatch()
   const { pathname } = useLocation()
+  const { data: stories = [] } = useFetch('/stories.json')
 
   React.useEffect(() => window.scrollTo(0, 0), [pathname])
 
@@ -25,6 +27,13 @@ export default function RouterStories() {
       <Page path={`${path}/eastern-heat`} active={['STORIES', 'EASTERN_HEAT']}>
         <StoriesEasternHeat />
       </Page>
+
+      {stories.map(story => (
+        <Redirect
+          path={`/stories/${story.oldId}`}
+          to={`/stories/${story.id}`}
+        />
+      ))}
       <Page path={`${path}/neutral`} active={['STORIES', 'NEUTRAL']}>
         <StoriesCategory category='neutral' />
       </Page>

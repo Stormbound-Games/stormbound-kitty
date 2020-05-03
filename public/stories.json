@@ -1,5 +1,6 @@
 [
   {
+    "oldId": "QWJvdXQlMjB0aGUlMjBVbmJvdW5kLU1vb3JlRnVubg==",
     "id": "about-the-unbound",
     "title": "About the Unbound",
     "author": "MooreFunn",
@@ -8,6 +9,7 @@
     "cardId": "N59"
   },
   {
+    "oldId": "QW1iZXJoaWRlcy1QcmltYWw=",
     "id": "amberhides",
     "title": "Amberhides",
     "author": "Primal",
@@ -16,6 +18,7 @@
     "cardId": "F15"
   },
   {
+    "oldId": "QmxhZGVzdG9ybS1Eb3BwbGVGb2Nrcw==",
     "id": "bladestorm",
     "title": "Bladestorm",
     "author": "DoppleFocks",
@@ -24,6 +27,7 @@
     "cardId": "N29"
   },
   {
+    "oldId": "Qmxvb2QlMjBNaW5pc3RlcnMtWmV0aGVz",
     "id": "blood-ministers",
     "title": "Blood Ministers",
     "author": "Zethes",
@@ -32,6 +36,7 @@
     "cardId": "F20"
   },
   {
+    "oldId": "Qm9vbXN0aWNrJTIwT2ZmaWNlcnMtWnlyaWVz",
     "id": "boomstick-officers",
     "title": "Boomstick Officers",
     "author": "Zyries",
@@ -40,6 +45,7 @@
     "cardId": "N37"
   },
   {
+    "oldId": "QnJvb2Rtb3RoZXIlMjBRb3JkaWEtWGNpcmNsZQ==",
     "id": "broodmother-qordia",
     "title": "Broodmother Qordia",
     "author": "Xcircle",
@@ -48,6 +54,7 @@
     "cardId": "F21"
   },
   {
+    "oldId": "Q2hhb3RpYyUyMFB1cGlsLU1pbmV0aGV0ZWtpdA==",
     "id": "chaotic-pupil",
     "title": "Chaotic Pupil",
     "author": "Minethetekit",
@@ -56,6 +63,7 @@
     "cardId": "I12"
   },
   {
+    "oldId": "Q2hsb2VyJUMzJUIzcyUyMEZsb2klQzMlQjNzLVp5cmllcw==",
     "id": "chloeros-floios",
     "title": "Chloerós Floiós",
     "author": "Zyries",
@@ -64,6 +72,7 @@
     "cardId": "N75"
   },
   {
+    "oldId": "Q3JhenklMjBCb21iZXJzLU1pbmV0aGV0ZWtpdA==",
     "id": "crazy-bombers",
     "title": "Crazy Bombers",
     "author": "Minethetekit",
@@ -72,6 +81,7 @@
     "cardId": "N57"
   },
   {
+    "oldId": "RGFyayUyMEhhcnZlc3QtRG9wcGxlRm9jaw==",
     "id": "dark-harvest",
     "title": "Dark Harvest",
     "author": "DoppleFock",
@@ -80,6 +90,7 @@
     "cardId": "S15"
   },
   {
+    "oldId": "RGF3bnNwYXJrcy1aeXJpZXM=",
     "id": "dawnsparks",
     "title": "Dawnsparks",
     "author": "Zyries",
@@ -88,6 +99,7 @@
     "cardId": "W16"
   },
   {
+    "oldId": "RGVsZWdhdG9ycy1YY2lyY2xl",
     "id": "delegators",
     "title": "Delegators",
     "author": "Xcircle",
@@ -96,6 +108,7 @@
     "cardId": "I21"
   },
   {
+    "oldId": "RGVzdHJ1Y3RvYm90cy1Zb3VuZ2VzdE1hbW1hbA==",
     "id": "destructobots",
     "title": "Destructobots",
     "author": "YoungestMammal",
@@ -104,6 +117,7 @@
     "cardId": "I1"
   },
   {
+    "oldId": "RGV2YXN0YXRvcnMtS2VwcA==",
     "id": "devastators",
     "title": "Devastators",
     "author": "Kepp",
@@ -112,6 +126,7 @@
     "cardId": "S11"
   },
   {
+    "oldId": "RG9jdG9yJTIwTWlhLURvcHBsZURvY2s=",
     "id": "doctor-mia",
     "title": "Doctor Mia",
     "author": "DoppleDock",
@@ -120,6 +135,7 @@
     "cardId": "I2"
   },
   {
+    "oldId": "RG9wcGVsYm9ja3MtSHVyZ3VzQnVyZ3Vz",
     "id": "doppelbocks",
     "title": "Doppelbocks",
     "author": "HurgusBurgus",
@@ -128,6 +144,7 @@
     "cardId": "S1"
   },
   {
+    "oldId": "RHJlYWRmYXVucy1IdXJndXNCdW5ndXM=",
     "id": "dreadfauns",
     "title": "Dreadfauns",
     "author": "HurgusBungus",
@@ -136,6 +153,7 @@
     "cardId": "S16"
   },
   {
+    "oldId": "RWRyaWslMjB0aGUlMjBGaWVyY2UtSG9iYml0Qm9p",
     "id": "edrik-the-fierce",
     "title": "Edrik the Fierce",
     "author": "HobbitBoi",
@@ -144,6 +162,7 @@
     "cardId": "N59"
   },
   {
+    "oldId": "RWxvdGglMjB0aGUlMjBJZ25pdGVkLU1pbmV0aGV0ZWtpdA==",
     "id": "eloth-the-ignited-1",
     "title": "Eloth the Ignited",
     "author": "Minethetekit",
@@ -152,6 +171,7 @@
     "cardId": "I17"
   },
   {
+    "oldId": "RWxvdGglMjB0aGUlMjBJZ25pdGVkLUtlcHA=",
     "id": "eloth-the-ignited",
     "title": "Eloth the Ignited",
     "author": "Kepp",
@@ -160,6 +180,7 @@
     "cardId": "I17"
   },
   {
+    "oldId": "RmF1biUyMENvbXBhbmlvbnMtU2V0aA==",
     "id": "faun-companions",
     "title": "Faun Companions",
     "author": "Seth",
@@ -168,6 +189,7 @@
     "cardId": "S5"
   },
   {
+    "oldId": "RmVsZmFyZXMtRG9wcGxlRm9jaw==",
     "id": "felfares",
     "title": "Felfares",
     "author": "DoppleFock",
@@ -176,6 +198,7 @@
     "cardId": "N11"
   },
   {
+    "oldId": "Rmlyc3QlMjBNdXRpbmVlci1aZXRoZXM=",
     "id": "first-mutineer",
     "title": "First Mutineer",
     "author": "Zethes",
@@ -184,6 +207,7 @@
     "cardId": "N12"
   },
   {
+    "oldId": "R2lmdGVkJTIwUmVjcnVpdHMtWGNpcmNsZQ==",
     "id": "gifted-recruits-1",
     "title": "Gifted Recruits",
     "author": "Xcircle",
@@ -192,6 +216,7 @@
     "cardId": "N3"
   },
   {
+    "oldId": "R2lmdGVkJTIwUmVjcnVpdHMtWmV0aGVz",
     "id": "gifted-recruits",
     "title": "Gifted Recruits",
     "author": "Zethes",
@@ -200,6 +225,7 @@
     "cardId": "N3"
   },
   {
+    "oldId": "R3JlZW4lMjBQcm90b3R5cGVzLVpldGhlcw==",
     "id": "green-prototypes",
     "title": "Green Prototypes",
     "author": "Zethes",
@@ -208,6 +234,7 @@
     "cardId": "N1"
   },
   {
+    "oldId": "R3JlZW5nYWxlJTIwU2VycGVudHMtWGNpcmNsZQ==",
     "id": "greengale-serpents",
     "title": "Greengale Serpents",
     "author": "Xcircle",
@@ -216,6 +243,7 @@
     "cardId": "I7"
   },
   {
+    "oldId": "R3JpbSUyMENvdXJpZXJzLUh1cmd1c0J1cmd1cw==",
     "id": "grim-couriers",
     "title": "Grim Couriers",
     "author": "HurgusBurgus",
@@ -224,6 +252,7 @@
     "cardId": "S17"
   },
   {
+    "oldId": "SGFydmVzdGVycyUyMG9mJTIwU291bHMtSHVyZ3VzQnVuZ3Vz",
     "id": "harvesters-of-souls",
     "title": "Harvesters of Souls",
     "author": "HurgusBungus",
@@ -232,6 +261,7 @@
     "cardId": "N38"
   },
   {
+    "oldId": "SGVhZCUyMFN0YXJ0LUh1cmd1c0J1cmd1cw==",
     "id": "head-start",
     "title": "Head Start",
     "author": "HurgusBurgus",
@@ -240,6 +270,7 @@
     "cardId": "S24"
   },
   {
+    "oldId": "SGVsaW90cm9vcGVycy1aeXJpZXM=",
     "id": "heliotroopers",
     "title": "Heliotroopers",
     "author": "Zyries",
@@ -248,6 +279,7 @@
     "cardId": "F7"
   },
   {
+    "oldId": "SGVyYWxkJUUyJTgwJTk5cyUyMEh5bW4tWGNpcmNsZQ==",
     "id": "herald-s-hymn",
     "title": "Herald’s Hymn",
     "author": "Xcircle",
@@ -256,6 +288,7 @@
     "cardId": "S20"
   },
   {
+    "oldId": "SWNpY2xlJTIwQnVyc3QtWnlyaWVz",
     "id": "icicle-burst",
     "title": "Icicle Burst",
     "author": "Zyries",
@@ -264,6 +297,7 @@
     "cardId": "W1"
   },
   {
+    "oldId": "TGFkeSUyMFJpbWUtTWluZXRoZXRla2l0",
     "id": "lady-rime",
     "title": "Lady Rime",
     "author": "Minethetekit",
@@ -272,6 +306,7 @@
     "cardId": "W10"
   },
   {
+    "oldId": "TGFzdGluZyUyMFJlbWFpbnMtWmV0aA==",
     "id": "lasting-remains",
     "title": "Lasting Remains",
     "author": "Zeth",
@@ -280,6 +315,7 @@
     "cardId": "S23"
   },
   {
+    "oldId": "TGF3bGVzcyUyMEhlcmQtWmV0aGVz",
     "id": "lawless-herd",
     "title": "Lawless Herd",
     "author": "Zethes",
@@ -288,6 +324,7 @@
     "cardId": "N4"
   },
   {
+    "oldId": "T2JzaWRpYW4lMjBCdXRjaGVycy1aeXJpZXM=",
     "id": "obsidian-butchers",
     "title": "Obsidian Butchers",
     "author": "Zyries",
@@ -296,6 +333,7 @@
     "cardId": "F17"
   },
   {
+    "oldId": "UGFuJTIwSGVyYWxkcy1TZXRo",
     "id": "pan-heralds",
     "title": "Pan Heralds",
     "author": "Seth",
@@ -304,6 +342,7 @@
     "cardId": "S14"
   },
   {
+    "oldId": "UGVyc29uYWwlMjBTZXJ2ZXJzLUJ1Y2tldA==",
     "id": "personal-servers",
     "title": "Personal Servers",
     "author": "Bucket",
@@ -312,6 +351,7 @@
     "cardId": "N24"
   },
   {
+    "oldId": "UG93ZGVyJTIwVG93ZXItWGNpcmNsZQ==",
     "id": "powder-tower",
     "title": "Powder Tower",
     "author": "Xcircle",
@@ -320,6 +360,7 @@
     "cardId": "N45"
   },
   {
+    "oldId": "UHJvamVjdCUyMFBIMDMtTklYLU1pbmV0aGV0ZWtpdA==",
     "id": "project-ph03-nix",
     "title": "Project PH03-NIX",
     "author": "Minethetekit",
@@ -328,6 +369,7 @@
     "cardId": "I22"
   },
   {
+    "oldId": "UXVlZW4lMjBvZiUyMEhlcmRzLVp5cmllcw==",
     "id": "queen-of-herds-1",
     "title": "Queen of Herds",
     "author": "Zyries",
@@ -336,6 +378,7 @@
     "cardId": "S21"
   },
   {
+    "oldId": "UXVlZW4lMjBvZiUyMEhlcmRzLVNldGg=",
     "id": "queen-of-herds",
     "title": "Queen of Herds",
     "author": "Seth",
@@ -344,6 +387,7 @@
     "cardId": "S21"
   },
   {
+    "oldId": "U2FsdHklMjBPdXRjYXN0cy1YY2lyY2xl",
     "id": "salty-outcasts",
     "title": "Salty Outcasts",
     "author": "Xcircle",
@@ -352,6 +396,7 @@
     "cardId": "N52"
   },
   {
+    "oldId": "U2llZ2UlMjBCcmVha2Vycy1Nb29yRnVubg==",
     "id": "siege-breakers",
     "title": "Siege Breakers",
     "author": "MoorFunn",
@@ -360,6 +405,7 @@
     "cardId": "N25"
   },
   {
+    "oldId": "U2lyZW4lMjBvZiUyMHRoZSUyMFNlYXMtTWluZXRoZXRla2l0",
     "id": "siren-of-the-seas",
     "title": "Siren of the Seas",
     "author": "Minethetekit",
@@ -368,6 +414,7 @@
     "cardId": "N58"
   },
   {
+    "oldId": "U2lzdGVycyUyMFBhY3Qtb3ZlcmtpbGw5OQ==",
     "id": "sisters-pact",
     "title": "Sisters Pact",
     "author": "overkill99",
@@ -376,6 +423,7 @@
     "cardId": "N48"
   },
   {
+    "oldId": "U25ha2UlMjBFeWVzLVhjaXJjbGU=",
     "id": "snake-eyes",
     "title": "Snake Eyes",
     "author": "Xcircle",
@@ -384,6 +432,7 @@
     "cardId": "N33"
   },
   {
+    "oldId": "U25vd21hc29ucy1aZXRoZXM=",
     "id": "snowmasons",
     "title": "Snowmasons",
     "author": "Zethes",
@@ -392,6 +441,7 @@
     "cardId": "N26"
   },
   {
+    "oldId": "U291bGNydXNoZXJzLVhjaXJjbGU=",
     "id": "soulcrushers",
     "title": "Soulcrushers",
     "author": "Xcircle",
@@ -400,6 +450,7 @@
     "cardId": "F18"
   },
   {
+    "oldId": "U3BlbGxiaW5kZXIlMjBaaGV2YW5hLU1pbmV0aGV0ZWtpdA==",
     "id": "spellbinder-zhevana",
     "title": "Spellbinder Zhevana",
     "author": "Minethetekit",
@@ -408,6 +459,7 @@
     "cardId": "W8"
   },
   {
+    "oldId": "U3VtbW9uJTIwTWlsaXRpYS1IdXJndXNCdXJndXM=",
     "id": "summon-militia",
     "title": "Summon Militia",
     "author": "HurgusBurgus",
@@ -416,6 +468,7 @@
     "cardId": "N2"
   },
   {
+    "oldId": "VGVtcGxlJTIwR3VhcmRpYW5zLVp5cmllcw==",
     "id": "temple-guardians",
     "title": "Temple Guardians",
     "author": "Zyries",
@@ -424,6 +477,7 @@
     "cardId": "N56"
   },
   {
+    "oldId": "VG94aWMlMjBTYWNyaWZpY2UtWGNpcmNsZQ==",
     "id": "toxic-sacrifice",
     "title": "Toxic Sacrifice",
     "author": "Xcircle",
@@ -432,6 +486,7 @@
     "cardId": "F4"
   },
   {
+    "oldId": "VHJhbnNwb3J0YXRpb24tTW9vcmVGdW5u",
     "id": "transportation",
     "title": "Transportation",
     "author": "MooreFunn",
@@ -440,6 +495,7 @@
     "cardId": "N59"
   },
   {
+    "oldId": "VHJ1ZXNob3QlMjBQb3N0LUh1cmd1c0J1cmd1cw==",
     "id": "trueshot-post",
     "title": "Trueshot Post",
     "author": "HurgusBurgus",
@@ -448,6 +504,7 @@
     "cardId": "N34"
   },
   {
+    "oldId": "VWJhc3MlMjB0aGUlMjBIdW50ZXItWmV0aGVz",
     "id": "ubass-the-hunter",
     "title": "Ubass the Hunter",
     "author": "Zethes",
@@ -456,6 +513,7 @@
     "cardId": "N35"
   },
   {
+    "oldId": "VmlzaW9ucyUyMG9mJTIwdGhlJTIwR3JvdmUtWGNpcmNsZQ==",
     "id": "visions-of-the-grove-1",
     "title": "Visions of the Grove",
     "author": "Xcircle",
@@ -464,6 +522,7 @@
     "cardId": "W21"
   },
   {
+    "oldId": "VmlzaW9ucyUyMG9mJTIwdGhlJTIwR3JvdmUtVmlzaW9ucw==",
     "id": "visions-of-the-grove",
     "title": "Visions of the Grove",
     "author": "Visions",
@@ -472,6 +531,7 @@
     "cardId": "W21"
   },
   {
+    "oldId": "Vm9pZHN1cmdlcnMtRG9wcGxlRm9jaw==",
     "id": "voidsurgers-1",
     "title": "Voidsurgers",
     "author": "DoppleFock",
@@ -480,6 +540,7 @@
     "cardId": "N36"
   },
   {
+    "oldId": "Vm9pZHN1cmdlcnMtWnlyaWVz",
     "id": "voidsurgers",
     "title": "Voidsurgers",
     "author": "Zyries",
@@ -488,6 +549,7 @@
     "cardId": "N36"
   },
   {
+    "oldId": "V2FuZGVyaW5nJTIwV3lybXMtRG9wcGxlRm9jaw==",
     "id": "wandering-wyrms",
     "title": "Wandering Wyrms",
     "author": "DoppleFock",
@@ -496,6 +558,7 @@
     "cardId": "F9"
   },
   {
+    "oldId": "V2FyZnJvbnQlMjBSdW5uZXJzLUh1cmd1c0J1bmd1cw==",
     "id": "warfront-runners",
     "title": "Warfront Runners",
     "author": "HurgusBungus",
@@ -504,6 +567,7 @@
     "cardId": "N28"
   },
   {
+    "oldId": "V2V0bGFuZCUyMERlY2VpdmVycy1aeXJpZXM=",
     "id": "wetland-deceivers",
     "title": "Wetland Deceivers",
     "author": "Zyries",
@@ -512,6 +576,7 @@
     "cardId": "N17"
   },
   {
+    "oldId": "WHVyaSUyQyUyMExvcmQlMjBvZiUyMExpZmUtTWluZXRoZXRla2l0",
     "id": "xuri-lord-of-life",
     "title": "Xuri, Lord of Life",
     "author": "Minethetekit",
