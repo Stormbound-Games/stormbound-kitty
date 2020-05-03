@@ -26,7 +26,7 @@ const extract = (dir, out) => {
   const files = fs.readdirSync(path.resolve(dir)).filter(isJson)
   const data = files.map(getFileData(dir))
 
-  fs.writeFileSync(path.resolve(out), JSON.stringify(data, null, 2), 'utf8')
+  fs.writeFileSync(path.resolve(out), JSON.stringify(data), 'utf8')
 }
 
 extract('public/stories', 'public/stories.json')
