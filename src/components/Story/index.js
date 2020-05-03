@@ -20,14 +20,16 @@ export default function Story(props) {
   const match = useRouteMatch()
   const { storyId: id } = match.params
   const path = '/stories/' + id + '.json'
-  const { data: story, loading } = useFetch(path)
+  const { data: story, error, loading } = useFetch(path)
   const { data: stories = [] } = useFetch('/stories.json')
   const card = story ? getRawCardData(story.cardId) : {}
   const storiesFromAuthor = getStoriesFromAuthor(stories, story)
 
   return (
     <div className='Story'>
-      {loading ? (
+      {error ? (
+        <Error error='Error fetching story.' />
+      ) : loading ? (
         <Loader />
       ) : story ? (
         <Article
@@ -41,9 +43,7 @@ export default function Story(props) {
         >
           <MicroMarkdown content={story.content} />
         </Article>
-      ) : (
-        <Error error='Error fetching stories.' />
-      )}
+      ) : null}
 
       {storiesFromAuthor.length > 1 && (
         <>
