@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
-import decks from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
 import { NotificationContext } from '../NotificationProvider'
 import CollectionClearHint from '../CollectionClearHint'
@@ -23,7 +22,7 @@ import Title from '../Title'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import getRawCardData from '../../helpers/getRawCardData'
 import sortByMana from '../../helpers/sortByMana'
-import { deserialiseDeck } from '../../helpers/deserialise'
+import isSuggestedDeck from '../../helpers/isSuggestedDeck'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
 
@@ -90,14 +89,6 @@ class DeckBuilderEditorView extends React.Component {
     this.adjustDeckToCollection(collection)
   }
 
-  isSuggestedDeck = () => {
-    const deckCards = this.props.deck.map(card => card.id)
-
-    return decks.find(deck => {
-      return deserialiseDeck(deck.id).every(card => deckCards.includes(card.id))
-    })
-  }
-
   getDeckDescription = () => {
     if (this.props.deck.length < 12) {
       return 'Compose your own deck.'
@@ -113,7 +104,7 @@ class DeckBuilderEditorView extends React.Component {
   }
 
   render() {
-    const matchedDeck = this.isSuggestedDeck()
+    const matchedDeck = isSuggestedDeck(this.props.deck)
     const cardCollection = this.props.collection.map(card =>
       resolveCardForLevel({
         ...card,

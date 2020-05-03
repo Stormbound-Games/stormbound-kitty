@@ -2,8 +2,33 @@ import React from 'react'
 import modifyDeck from '../../helpers/modifyDeck'
 import DryRunner from '../DryRunner'
 import DeckMechanisms from '../DeckMechanisms'
+import { NotificationContext } from '../NotificationProvider'
 import WikiLink from '../WikiLink'
+import { BRAWLS } from '../../constants/brawl'
 import isCard from '../../helpers/isCard'
+import isSuggestedDeck from '../../helpers/isSuggestedDeck'
+
+const getPresetOptions = (deck, sendNotification) => {
+  const suggestedDeck = isSuggestedDeck(deck)
+  const presetOptions = {
+    modifier: 'NONE',
+    equals: false,
+  }
+
+  if (!suggestedDeck) return presetOptions
+  if (suggestedDeck.category === 'BRAWL') {
+    presetOptions.modifier = suggestedDeck.brawl
+    const brawlLabel = BRAWLS.find(brawl => brawl.id === suggestedDeck.brawl)
+      .label
+    sendNotification(`Brawl deck found. Loaded with modifier ${brawlLabel}.`)
+  }
+  if (suggestedDeck.category === 'EQUALS') {
+    presetOptions.equals = true
+    sendNotification('Tournament deck found. Loaded in equals mode.')
+  }
+
+  return presetOptions
+}
 
 export default props => {
   const params = new URLSearchParams(window.location.search)
@@ -11,9 +36,20 @@ export default props => {
   // this is a workaround to be able to pick an initial hand for testing
   // purposes. The mode is restored to `AUTOMATIC` as soon as the 4th card has
   // been picked.
+  const { notify } = React.useContext(NotificationContext)
+  const sendNotification = React.useCallback(
+    message => notify({ icon: 'sword', children: message }),
+    [notify]
+  )
   const [mode, setMode] = React.useState(params.get('mode') || 'AUTOMATIC')
   const [modifier, setModifier] = React.useState('NONE')
   const [equalsMode, setEqualsMode] = React.useState(false)
+  // If the deck is saved as brawl/tournament, load the dry-runner in the correct mode
+  React.useEffect(() => {
+    const presetOptions = getPresetOptions(props.deck, sendNotification)
+    setModifier(presetOptions.modifier)
+    setEqualsMode(presetOptions.equals)
+  }, [sendNotification, props.deck])
   const addIdx = card => ({ idx: '0', ...card })
   const deck = modifyDeck(props.deck, modifier, equalsMode).map(addIdx)
 
