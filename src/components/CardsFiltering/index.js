@@ -91,7 +91,7 @@ class CardsFiltering extends React.Component {
       this.state.status === '*' ||
       (this.state.status === 'MISSING' && card.missing) ||
       (this.state.status === 'UPGRADABLE' && isCardUpgradable(card)) ||
-      (this.state.status === 'EXCESS' && getExtraAfterMax(card).stones > 0)
+      (this.state.status === 'EXCESS' && getExtraAfterMax(card).coins > 0)
     )
   }
   matchesLevel = card =>

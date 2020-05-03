@@ -10,7 +10,6 @@ export default ({ rarity, level, copies }) => {
 
   return {
     copies: costForMax.extraCopies,
-    stones: costForMax.extraCopies * RARITY_COPIES[rarity].stonesPerExtraCopy,
     coins: costForMax.extraCopies * RARITY_COPIES[rarity].coinsPerExtraCopy,
   }
 }

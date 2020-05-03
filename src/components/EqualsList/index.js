@@ -4,6 +4,7 @@ import Column from '../Column'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import ListBuilderTier from '../ListBuilderTier'
+import ListBuilderToc from '../ListBuilderToc'
 import Title from '../Title'
 import getInitialListData from '../../helpers/getInitialListData'
 
@@ -23,6 +24,8 @@ export default React.memo(function ListBuilderDisplayView(props) {
             equal-levels tournaments. It is their take at ranking cards by
             efficiency in Equals mode. Your mileage may vary.
           </p>
+
+          <ListBuilderToc tiers={tiers} />
         </Column>
 
         <Column width='2/3'>
