@@ -41,7 +41,7 @@ export const STORY_CATEGORIES = {
     shortName: 'Neutral',
   },
   'eastern-heat': {
-    background: '/assets/images/environment_swarm.png',
+    background: '/assets/images/dragons.jpg',
     content: 'Something ',
     title: 'Eastern Heat',
     shortName: 'Eastern Heat',
