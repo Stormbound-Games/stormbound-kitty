@@ -7,7 +7,7 @@ import './index.css'
 const exportAsImage = () => {
   const deck = document.querySelector('#deck')
 
-  import('html2canvas')
+  import('html2canvas' /* webpackChunkName: 'html2canvas' */)
     .then(({ default: html2canvas }) => {
       return html2canvas(deck, {
         backgroundColor: null,

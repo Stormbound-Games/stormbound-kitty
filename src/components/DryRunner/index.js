@@ -66,7 +66,7 @@ export default React.memo(function DryRunner(props) {
 
       <PageMeta
         title='Deck Dry-Run'
-        description='Try your deck with actual in-game mechanisms to test mana flow.'
+        description='Try your deck with actual in-game mechanisms to test its mana curve and the likelihood of having cards combos'
       />
     </>
   )

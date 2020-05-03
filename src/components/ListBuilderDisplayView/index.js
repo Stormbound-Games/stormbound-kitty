@@ -54,7 +54,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
         </Column>
       </Row>
 
-      <PageMeta title='Tier List Display' />
+      <PageMeta title='Ranked Tier List' />
     </>
   )
 })

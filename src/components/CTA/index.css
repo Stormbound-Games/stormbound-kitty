@@ -62,11 +62,6 @@
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.CTA--new .CTA__content::after {
-  content: ' (New)';
-  color: var(--ironclad);
-}
-
 @media (max-width: 400px) {
   .CTA {
     min-width: 0;

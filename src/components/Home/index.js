@@ -18,7 +18,6 @@ export default React.memo(() => (
         <Image
           className='Home__news-image'
           src='/assets/images/cards/sweetcap_kittens.png'
-          alt=''
         />
         <div className='Home__news-box'>
           <Title className='Home__news-title'>News</Title>
@@ -96,7 +95,6 @@ export default React.memo(() => (
                 <Image
                   className='Home__section-image'
                   src='/assets/images/cards/collector_mirz.png'
-                  alt='Collector Mirz'
                 />
               </Only.Desktop>
             </Column>
@@ -123,7 +121,6 @@ export default React.memo(() => (
                 <Image
                   className='Home__section-image'
                   src='/assets/images/cards/ubass_the_hunter.png'
-                  alt='Ubass the Hunter'
                 />
               </Only.Desktop>
             </Column>
@@ -154,7 +151,6 @@ export default React.memo(() => (
                 <Image
                   className='Home__section-image'
                   src='/assets/images/cards/prime_oracle_bragda.png'
-                  alt='Prime Oracle Bragda'
                 />
               </Only.Desktop>
             </Column>
@@ -176,7 +172,7 @@ export default React.memo(() => (
 
     <PageMeta
       title='Stormbound Kitty'
-      description='Stormbound Kitty aims at providing tools and information about Paladin Studios’ greatest hit, and extending its players’ experience outside the game.'
+      description='Stormbound Kitty aims at providing tools and information about Paladin Studios’ greatest hit, and extending its players’ experience outside the game'
     />
   </>
 ))

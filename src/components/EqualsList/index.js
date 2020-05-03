@@ -40,7 +40,11 @@ export default React.memo(function ListBuilderDisplayView(props) {
         </Column>
       </Row>
 
-      <PageMeta title='Equals Tier List' />
+      <PageMeta
+        title='Equals Tier List'
+        description='Find a Tier List for ‘Equals Mode’ of all the Stormbound cards, ranked by effectiveness and popularity'
+        author='HanooSt'
+      />
     </>
   )
 })

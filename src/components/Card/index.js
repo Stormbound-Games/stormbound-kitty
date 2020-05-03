@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from '../Image'
 import { WebpContext } from '../WebpProvider'
-import { getRarityImage, getRarityColor } from '../../helpers/getRarity'
+import { getRarityColor } from '../../helpers/getRarity'
 import microMarkdown from '../../helpers/microMarkdown'
 import useFluidSizing from '../../hooks/useFluidSizing'
 import './index.css'
@@ -66,18 +66,21 @@ export default React.memo(function Card(props) {
         </header>
 
         {!props.missing ? (
-          <Image
-            alt=''
-            src={props.image}
-            wrapperClassName={[
+          <div
+            className={[
               'Card__image-wrapper',
               props.rarity === 'legendary' && 'Card__image-wrapper--hero',
             ]
               .filter(Boolean)
               .join(' ')}
-            className='Card__image'
-            data-testid='card-image'
-          />
+          >
+            <Image
+              alt={props.name}
+              src={props.image}
+              className='Card__image'
+              data-testid='card-image'
+            />
+          </div>
         ) : (
           <span
             className='Card__missing'
@@ -94,7 +97,7 @@ export default React.memo(function Card(props) {
           </p>
           <img
             className='Card__rarity'
-            src={getRarityImage(props.rarity)}
+            src={`/assets/images/rarity-${props.rarity}.${ext}`}
             alt={props.rarity}
             data-testid='card-rarity'
           />

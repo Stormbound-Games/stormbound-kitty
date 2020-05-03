@@ -1,7 +1,10 @@
 export default {
+  CARD: '[data-testid="card"]',
+
   CARD_ABILITY: '[data-testid="card-ability"]',
   CARD_FACTION: '[data-testid="card-faction"]',
   CARD_IMAGE: '[data-testid="card-image"]',
+  CARD_LEVEL: '[data-testid="card-level"]',
   CARD_MANA: '[data-testid="card-mana"]',
   CARD_MOVEMENT: '[data-testid="card-movement"]',
   CARD_NAME: '[data-testid="card-name"]',
@@ -26,4 +29,7 @@ export default {
 
   RESET_BTN: '[data-testid="reset-btn"]',
   RESET_CONFIRM_BTN: '[data-testid="reset-confirm-btn"]',
+
+  PREV_BTN: '[data-testid="prev-btn"]',
+  NEXT_BTN: '[data-testid="next-btn"]',
 }

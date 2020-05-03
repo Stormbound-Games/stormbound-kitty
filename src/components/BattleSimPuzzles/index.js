@@ -92,7 +92,7 @@ export default class BattleSimPuzzles extends React.Component {
 
         <PageMeta
           title='Puzzles'
-          description='Stormbound puzzles made by the community.'
+          description='Test your skills and resolve interesting and creative puzzles made by the Stormbound community'
         />
       </>
     )

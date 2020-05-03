@@ -294,7 +294,7 @@ export default function CollectionStats(props) {
 
       <PageMeta
         title='Collection Stats'
-        description='Get insights about your collection and visualise it.'
+        description='Get insights about your own card collection and visualise it'
       />
     </>
   )

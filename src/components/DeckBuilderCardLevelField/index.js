@@ -14,6 +14,7 @@ export default React.memo(function DeckBuilderCardLevelField(props) {
         </Only.Desktop>
       </label>
       <select
+        data-testid='level-select'
         name='level'
         id='level'
         value={props.cardLevel}

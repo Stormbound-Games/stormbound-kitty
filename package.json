@@ -31,6 +31,7 @@
     "build": "CI=false react-scripts build",
     "test": "cypress run",
     "eject": "react-scripts eject",
+    "audit": "NODE_ENV=production node bin/audit.js",
     "icons": "spritesh --input public/assets/icons --output sprite.svg --prefix 'icon-'"
   },
   "browserslist": [
@@ -49,7 +50,8 @@
     "lint-staged": "^10.1.7",
     "prettier": "^2.0.5",
     "puppeteer": "^3.0.1",
-    "spritesh": "^1.2.1"
+    "spritesh": "^1.2.1",
+    "webpack-bundle-analyzer": "^3.7.0"
   },
   "husky": {
     "hooks": {

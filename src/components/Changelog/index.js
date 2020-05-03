@@ -122,7 +122,7 @@ export default function Changelog(props) {
                 checked={colorCoding}
                 onChange={event => setColorCoding(event.target.checked)}
               >
-                Enabled color-coding (experimental)
+                Enable color-coding (experimental)
               </Checkbox>
               {colorCoding && <ChangelogLegend />}
             </Column>
@@ -191,7 +191,7 @@ export default function Changelog(props) {
       </Row>
       <PageMeta
         title='Changelog'
-        description='All cards changes that ever happened on Stormbound.'
+        description='Find all cards changes that ever happened on Stormbound'
       />
     </>
   )

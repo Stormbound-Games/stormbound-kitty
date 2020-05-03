@@ -5,6 +5,7 @@ import './index.css'
 export default React.memo(props =>
   props.href ? (
     <a
+      data-testid={props['data-testid']}
       href={props.href}
       className={['CTA', props.new && 'CTA--new', props.className]
         .filter(Boolean)
@@ -18,6 +19,7 @@ export default React.memo(props =>
     </a>
   ) : props.to ? (
     <Link
+      data-testid={props['data-testid']}
       to={props.to}
       className={['CTA', props.new && 'CTA--new', props.className]
         .filter(Boolean)

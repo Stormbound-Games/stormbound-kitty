@@ -12,10 +12,7 @@ const guide = guides.find(g => g.id === 'DECK_GUIDE')
 
 export default React.memo(function GuideDeck(props) {
   return (
-    <Guide
-      {...guide}
-      description='This guide has been written by Zemeu on Reddit and is published here with their consent.'
-    >
+    <Guide {...guide}>
       <ol className='Guide__toc'>
         <li>
           <a href='#cost'>Cost</a>

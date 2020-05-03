@@ -7,6 +7,7 @@ import { serialiseCard } from '../../helpers/serialise'
 import areAllValuesEqual from '../../helpers/areAllValuesEqual'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import resolveAbility from '../../helpers/resolveAbility'
+import getCardBuilderMetaTags from '../../helpers/getCardBuilderMetaTags'
 
 const formatLevelProp = value => ({
   values: [null, null, null, null, null].fill(value),
@@ -195,10 +196,7 @@ class CardBuilderRoot extends React.Component {
           mode='EDITOR'
         />
 
-        <PageMeta
-          title='Card Builder'
-          description='Create your own Stormbound card.'
-        />
+        <PageMeta {...getCardBuilderMetaTags(this.state)} />
       </>
     )
   }

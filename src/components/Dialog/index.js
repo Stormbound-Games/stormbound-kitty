@@ -74,9 +74,7 @@ export default React.memo(function Dialog(props) {
           .filter(Boolean)
           .join(' ')}
       >
-        {image !== null && (
-          <Image className='Dialog__image' src={image} alt='' />
-        )}
+        {image !== null && <Image className='Dialog__image' src={image} />}
 
         {props.children}
 

@@ -17,7 +17,7 @@ export default React.memo(function News(props) {
 
   return (
     <>
-      <ul className='News'>
+      <ul className='News' data-testid='news'>
         {pages[activePage].map((news, index) => (
           <li className='News__item' key={index}>
             {news.link ? (
@@ -33,13 +33,19 @@ export default React.memo(function News(props) {
       </ul>
       <Row desktopOnly>
         <Column align='center'>
-          <CTA type='button' onClick={loadNext} disabled={activePage === 0}>
+          <CTA
+            type='button'
+            data-testid='news-recent-btn'
+            onClick={loadNext}
+            disabled={activePage === 0}
+          >
             Recent news
           </CTA>
         </Column>
         <Column align='center'>
           <CTA
             type='button'
+            data-testid='news-older-btn'
             onClick={loadPrev}
             disabled={activePage === pages.length - 1}
           >

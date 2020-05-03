@@ -1,6 +1,6 @@
 import React from 'react'
 import Select from 'react-select'
-import { getRarityImage } from '../../helpers/getRarity'
+import { WebpContext } from '../WebpProvider'
 import getCardsByFaction from '../../helpers/getCardsByFaction'
 import getRawCardData from '../../helpers/getRawCardData'
 import './index.css'
@@ -9,6 +9,9 @@ const ORDER = ['swarm', 'winter', 'ironclad', 'shadowfen', 'neutral']
 const cardsByFaction = getCardsByFaction()
 
 export default React.memo(function CardSelect(props) {
+  const supportsWebp = React.useContext(WebpContext)
+  const ext = supportsWebp ? 'webp' : 'png'
+
   return (
     <Select
       name={props.name}
@@ -28,9 +31,9 @@ export default React.memo(function CardSelect(props) {
         option: (provided, { data, isFocused, isDisabled }) => ({
           ...provided,
           color: 'var(--black)',
-          background: `url(${getRarityImage(
+          background: `url("/assets/images/rarity-${
             getRawCardData(data.value).rarity
-          )}) ${
+          }.${ext}") ${
             isFocused ? 'rgba(25, 93, 156, 0.15)' : 'transparent'
           } no-repeat center left 1em`,
           opacity: isDisabled ? 0.5 : 1,

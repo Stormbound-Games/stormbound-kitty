@@ -1,13 +1,15 @@
 import React from 'react'
-import terms from '../../data/terms'
 import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import getTermsForLetter from '../../helpers/getTermsForLetter'
+import getLexiconTerms from '../../helpers/getLexiconTerms'
 import './index.css'
 
 const Terms = React.memo(function Terms(props) {
+  const terms = getLexiconTerms()
+
   return (
     <ul className='Terms'>
       {Object.keys(props.terms).map(term => (
@@ -92,7 +94,7 @@ export default React.memo(function Lexicon(props) {
 
       <PageMeta
         title='Lexicon'
-        description='List of terms and abbreviations for Stormbound.'
+        description='Find a list of terms and abbreviations for Stormbound'
       />
     </>
   )

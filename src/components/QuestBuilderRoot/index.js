@@ -75,7 +75,7 @@ class QuestBuilderRoot extends React.Component {
 
         <PageMeta
           title='Quest Builder'
-          description='Create your own Stormbound quest.'
+          description='Design your very own Stormbound quest'
         />
       </>
     )

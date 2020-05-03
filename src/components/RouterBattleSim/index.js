@@ -3,9 +3,8 @@ import { Switch, useRouteMatch } from 'react-router-dom'
 import Page from '../Page'
 import load from '../../helpers/load'
 
-const BattleSimDisplay = load('BattleSimDisplay')
+const BattleSimApp = load('BattleSimApp')
 const BattleSimPuzzles = load('BattleSimPuzzles')
-const BattleSimRoot = load('BattleSimRoot')
 
 export default function RouterBattleSim() {
   const { path } = useRouteMatch()
@@ -13,16 +12,16 @@ export default function RouterBattleSim() {
   return (
     <Switch>
       <Page path={`${path}/:simId/display`} active={['BATTLE_SIM', 'DISPLAY']}>
-        <BattleSimDisplay />
+        <BattleSimApp mode='DISPLAY' />
       </Page>
       <Page path={`${path}/puzzles`} active={['BATTLE_SIM', 'PUZZLES']}>
         <BattleSimPuzzles />
       </Page>
       <Page path={`${path}/:simId`} active={['BATTLE_SIM', 'EDITOR']}>
-        <BattleSimRoot />
+        <BattleSimApp mode='EDITOR' />
       </Page>
       <Page path={path} active={['BATTLE_SIM', 'EDITOR']}>
-        <BattleSimRoot />
+        <BattleSimApp mode='EDITOR' />
       </Page>
     </Switch>
   )

@@ -5,7 +5,7 @@ import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import './index.css'
 
 export default React.memo(function Teaser(props) {
-  const card = resolveCardForLevel({ level: 5, id: props.cardId })
+  const card = props.card || resolveCardForLevel({ level: 5, id: props.cardId })
   const title = props.title
 
   return (

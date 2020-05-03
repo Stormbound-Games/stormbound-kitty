@@ -50,7 +50,10 @@ export default React.memo(function ListBuilderDisplayView(props) {
         </Column>
       </Row>
 
-      <PageMeta title='Ranked Tier List' />
+      <PageMeta
+        title='Ranked Tier List'
+        description='Find a Tier List for ‘Ranked Mode’ of all the most  effective and popular Stormbound cards'
+      />
     </>
   )
 })

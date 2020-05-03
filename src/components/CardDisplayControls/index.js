@@ -37,7 +37,9 @@ export default React.memo(function CardDisplayControls(props) {
       <Row>
         <Column width='1/5' align='center'>
           {previousCard && (
-            <CTA to={`/card/${previousCard.id}/display`}>Previous card</CTA>
+            <CTA to={`/card/${previousCard.id}/display`} data-testid='prev-btn'>
+              Previous card
+            </CTA>
           )}
         </Column>
         <Column width='1/5' />
@@ -46,7 +48,11 @@ export default React.memo(function CardDisplayControls(props) {
         </Column>
         <Column width='1/5' />
         <Column width='1/5' align='center'>
-          {nextCard && <CTA to={`/card/${nextCard.id}/display`}>Next card</CTA>}
+          {nextCard && (
+            <CTA to={`/card/${nextCard.id}/display`} data-testid='next-btn'>
+              Next card
+            </CTA>
+          )}
         </Column>
       </Row>
     </Only.Desktop>

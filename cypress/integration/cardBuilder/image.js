@@ -32,17 +32,17 @@ describe('Card Builder — Image', () => {
 
   it('should be reflected in all preview', () => {
     for (let i = 0; i < 5; i++)
-      assertCardImage(i, '/assets/images/cards/restless_goats.png')
+      assertCardImage(i, '/assets/images/cards/restless_goats.webp')
   })
 
   it('should be preserved upon reload', () => {
     cy.reload()
     for (let i = 0; i < 5; i++)
-      assertCardImage(i, '/assets/images/cards/restless_goats.png')
+      assertCardImage(i, '/assets/images/cards/restless_goats.webp')
   })
 
   it('should be possible to define a custom image', () => {
-    cy.get(s.IMAGE_INPUT).type('https://i.imgur.com/nLtdfAg.png')
+    cy.get(s.IMAGE_INPUT).type('https://i.imgur.com/nLtdfAg.png', { delay: 0 })
   })
 
   it('should be reflected in all preview', () => {

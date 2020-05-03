@@ -20,7 +20,7 @@ export default React.memo(function FAQ() {
   React.useEffect(() => {
     if (!hash) return
     const node = document.querySelector(hash)
-    if (node) node.scrollIntoView()
+    if (node) setTimeout(() => node.scrollIntoView(true), 300)
 
     const requestedId = hash.slice(1)
     const category = categories.find(
@@ -85,7 +85,7 @@ export default React.memo(function FAQ() {
 
       <PageMeta
         title='Frequently Asked questions'
-        description='Frequently asked questions about Stormbound Kitty.'
+        description='Find answers to the frequently asked questions about Stormbound and Stormbound-Kitty'
       />
     </div>
   )
