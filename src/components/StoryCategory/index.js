@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useRouteMatch } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { STORY_CATEGORIES } from '../../constants/stories'
 import Error from '../Error'
 import HeaderBanner from '../HeaderBanner'
