@@ -17,7 +17,7 @@ const useExpectedCoins = book => {
   const collectionWithRarity = React.useMemo(
     () =>
       collection.map(card => {
-        card.rarity = getRawCardData(card).rarity
+        card.rarity = getRawCardData(card.id).rarity
         return card
       }),
     [collection]
