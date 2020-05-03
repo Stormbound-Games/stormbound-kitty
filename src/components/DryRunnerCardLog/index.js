@@ -15,10 +15,7 @@ export default React.memo(function DryRunnerCardLog(props) {
       {zoomedCard && (
         <CardZoom
           cardId={zoomedCard.id}
-          created={zoomedCard.created}
-          level={zoomedCard.level}
-          mana={zoomedCard.mana}
-          costReduced={zoomedCard.costReduced}
+          {...zoomedCard}
           close={() => setZoomedCard(undefined)}
         />
       )}
