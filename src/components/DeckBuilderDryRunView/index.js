@@ -8,23 +8,25 @@ import { BRAWLS } from '../../constants/brawl'
 import isCard from '../../helpers/isCard'
 import isSuggestedDeck from '../../helpers/isSuggestedDeck'
 
-const getPresetOptions = (suggestedDeck, sendNotification) => {
+const getPresetOptions = (deck, sendNotification) => {
+  const suggestedDeck = isSuggestedDeck(deck)
   const presetOptions = {
     modifier: 'NONE',
     equals: false,
   }
-  if (suggestedDeck) {
-    if (suggestedDeck.category === 'BRAWL') {
-      presetOptions.modifier = suggestedDeck.brawl
-      const brawlLabel = BRAWLS.find(brawl => brawl.id === suggestedDeck.brawl)
-        .label
-      sendNotification(`Brawl deck found. Loaded with modifier ${brawlLabel}.`)
-    }
-    if (suggestedDeck.category === 'EQUALS') {
-      presetOptions.equals = true
-      sendNotification('Tournament deck found. Loaded in equals mode.')
-    }
+
+  if (!suggestedDeck) return presetOptions
+  if (suggestedDeck.category === 'BRAWL') {
+    presetOptions.modifier = suggestedDeck.brawl
+    const brawlLabel = BRAWLS.find(brawl => brawl.id === suggestedDeck.brawl)
+      .label
+    sendNotification(`Brawl deck found. Loaded with modifier ${brawlLabel}.`)
   }
+  if (suggestedDeck.category === 'EQUALS') {
+    presetOptions.equals = true
+    sendNotification('Tournament deck found. Loaded in equals mode.')
+  }
+
   return presetOptions
 }
 
@@ -44,8 +46,7 @@ export default props => {
   const [equalsMode, setEqualsMode] = React.useState(false)
   // If the deck is saved as brawl/tournament, load the dry-runner in the correct mode
   React.useEffect(() => {
-    const suggestedDeck = isSuggestedDeck(props.deck)
-    const presetOptions = getPresetOptions(suggestedDeck, sendNotification)
+    const presetOptions = getPresetOptions(props.deck, sendNotification)
     setModifier(presetOptions.modifier)
     setEqualsMode(presetOptions.equals)
   }, [sendNotification, props.deck])
