@@ -795,5 +795,33 @@
     "faction": "winter",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
+  },
+  {
+    "name": "Shady Queen",
+    "id": "NU4xLDVOMiw1UzEsNU4zLDVTMjQsNU42Nyw1TjksNVMzLDVTOCw1UzI4LDVTMjAsNVMyMQ==",
+    "faction": "swarm",
+    "author": "the_mirc",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Dial 999",
+    "id": "NU4xLDVOMyw1TjY3LDVOMTQsNU4xNiw1VzUsNVc5LDVXMTIsNVcxOSw1TjU3LDVXMjMsNU41OA==",
+    "faction": "winter",
+    "author": "the_mirc",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Beards & Nuts",
+    "id": "NU4xLDVGOCw1RjQsNUYzLDVOMyw1TjY3LDVOOSw1RjI1LDVGMTQsNU43NCw1RjE3LDVGMjg=",
+    "faction": "shadowfen",
+    "author": "the_mirc",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Confined Siege",
+    "id": "NU4xLDVJMSw1STIsNU4zLDVONjcsNU45LDVOMTYsNUkxNSw1STIwLDVJMTksNUkyOCw1TjQ1",
+    "faction": "ironclad",
+    "author": "the_mirc",
+    "category": "DIAMOND_1"
   }
 ]
