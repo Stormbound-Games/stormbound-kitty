@@ -9,7 +9,6 @@ export const getCardCost = card => {
     copies: levelCopies,
     stonesForMissing: craftingCost,
     stonesPerMissingCopy: stonesPerCopy,
-    stonesPerExtraCopy,
   } = RARITY_COPIES[rarity]
 
   // If the card is missing, it has no value.
@@ -57,9 +56,7 @@ export const getCardCost = card => {
       const copies =
         levelCopies[0] + levelCopies[1] + levelCopies[2] + levelCopies[3]
 
-      return (
-        craftingCost + copies * stonesPerCopy + card.copies * stonesPerExtraCopy
-      )
+      return craftingCost + copies * stonesPerCopy + card.copies * stonesPerCopy
     }
 
     default:
