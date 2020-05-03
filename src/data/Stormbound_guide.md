@@ -263,7 +263,7 @@ Again, the most important thing IMHO is to get the biggest collection possible. 
 
 ## Deckbuilding
 
-First, I’ll advise you to read [the guide wrote by Zemeu](/deck/guide) on Reddit. What I’ll say after this is my take on deckbuilding.
+First, I’ll advise you to read [the guide wrote by Zemeu](/guides/deck) on Reddit. What I’ll say after this is my take on deckbuilding.
 
 ### Mana Curve
 
