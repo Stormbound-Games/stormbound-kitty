@@ -13,7 +13,7 @@ const manifest = fs
       id: fileName.replace('.json', ''),
       title: story.title,
       author: story.author,
-      content: story.content.slice(0, 160) + '…',
+      content: story.content.slice(0, 150) + '…',
       category: story.category,
       cardId: story.cardId,
     }
