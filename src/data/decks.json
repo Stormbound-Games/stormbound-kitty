@@ -788,5 +788,12 @@
     "author": "HanooStreet",
     "category": "BRAWL",
     "brawl": "STRUCTURE_MANA"
+  },
+  {
+    "name": "Spear & Shield",
+    "id": "NU4xLDVOMyw1TjIzLDVONjcsNU4xMyw1VzUsNU4xOCw1VzksNU4zOSw1VzE1LDVXMTksNU41OA==",
+    "faction": "winter",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
   }
 ]
