@@ -14,13 +14,13 @@ export default React.memo(function StoryCategory(props) {
   const viewportWidth = useViewportWidth()
   const { data = [], loading, error } = useFetch('/stories.json')
   const stories = data.filter(story => story.category === props.category)
-  const { title, background } = STORY_CATEGORIES[props.category]
+  const { title, background, shortName } = STORY_CATEGORIES[props.category]
 
   return (
     <>
       <HeaderBanner
         background={background}
-        title={viewportWidth >= 700 ? title : `${props.category} stories`}
+        title={viewportWidth >= 700 ? title : shortName}
       />
 
       {error ? (
