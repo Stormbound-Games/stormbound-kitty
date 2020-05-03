@@ -8,7 +8,7 @@ const removeJsonExtension = fileName => fileName.replace('.json', '')
 const getOldId = story =>
   btoa(encodeURIComponent(story.title + '-' + story.author))
 
-const getFileData = (dir, getId = removeJsonExtension) => fileName => {
+const getFileData = dir => fileName => {
   const story = require(path.resolve(dir + '/' + fileName))
   const card = { ...getRawCardData(story.cardId), ...story.card }
 
@@ -16,15 +16,15 @@ const getFileData = (dir, getId = removeJsonExtension) => fileName => {
     ...story,
     card,
     oldId: getOldId(story),
-    id: story.id || removeJsonExtension(fileName),
+    id: removeJsonExtension(fileName),
     content: story.content.slice(0, 150) + '…',
   }
 }
 
-const extract = (dir, out, getId) => {
+const extract = (dir, out) => {
   const isJson = fileName => fileName.endsWith('.json')
   const files = fs.readdirSync(path.resolve(dir)).filter(isJson)
-  const data = files.map(getFileData(dir, getId))
+  const data = files.map(getFileData(dir))
 
   fs.writeFileSync(path.resolve(out), JSON.stringify(data, null, 2), 'utf8')
 }
