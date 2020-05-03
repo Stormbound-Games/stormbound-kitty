@@ -359,18 +359,6 @@ export default [
               <Link to='/stories'>Stormbound lore</Link> and have your stories
               published on the site, you can contact me on Discord (Kitty#1909).
             </p>
-            <p>
-              Alternatively, if you happen to have basic knowledge of web
-              development and have a GitHub account, you can{' '}
-              <a
-                href='https://github.com/KittySparkles/stormbound-kitty/blob/master/docs/ADDING_A_STORY.md'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                follow the guide
-              </a>{' '}
-              and do it yourself.
-            </p>
           </>
         ),
       },
