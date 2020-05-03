@@ -6,6 +6,7 @@ import cards from '../../data/cards'
 import Hint from '../Hint'
 import Title from '../Title'
 import WikiLink from '../WikiLink'
+import generateId from '../../helpers/generateId'
 import template from '../../helpers/template'
 
 const REPLACEMENTS = cards.reduce((acc, card, index) => {
@@ -27,12 +28,6 @@ const TOKEN_RE = new RegExp(
 
 const tokenizeCardsNames = string =>
   string.replace(TOKEN_RE, word => TOKENS[word])
-
-const generateId = content =>
-  content
-    .toLowerCase()
-    .replace(/['’,]/g, '')
-    .replace(/[\s/]+/g, '-')
 
 const h1 = React.memo(props => <Title element='h1'>{props.children}</Title>)
 const h2 = React.memo(props => (

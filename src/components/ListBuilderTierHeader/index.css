@@ -1,13 +1,16 @@
 .ListBuilderTierHeader {
   display: flex;
-  margin: 0 -0.5em 1em;
+  margin: 0 -0.5em 0.5em;
   align-items: flex-end;
 }
 
 .ListBuilderTierHeader .ListBuilderTierHeader__name {
+  text-transform: uppercase;
   color: var(--beige);
   padding-top: 0.55em;
   padding-bottom: 0.55em;
+  margin-bottom: 0;
+  font-size: 100%;
 }
 
 .ListBuilderTierHeader__label {

@@ -7,6 +7,7 @@ import PageMeta from '../PageMeta'
 import Row from '../Row'
 import ShareButton from '../ListBuilderShareButton'
 import ListBuilderTier from '../ListBuilderTier'
+import ListBuilderToc from '../ListBuilderToc'
 import Title from '../Title'
 import getInitialListData from '../../helpers/getInitialListData'
 
@@ -20,24 +21,24 @@ export default React.memo(function ListBuilderDisplayView(props) {
       <h1 className='VisuallyHidden'>List Builder</h1>
       <Row wideGutter desktopOnly>
         <Column width='1/3'>
-          <Title element='h2'>Settings</Title>
+          <Title element='h2'>Information</Title>
 
-          <p className='ListBuilderApp__intro'>
+          <p>
             This tier list editor makes it possible to create up to 10 tiers of
             cards. It is currently very much in active development so make sure
             to report any bug, oddity or desired features.
           </p>
 
-          <div className='ListBuilderApp__buttons'>
-            <Row>
-              <Column>
-                <CTA to={`/list/${id}`}>Edit list</CTA>
-              </Column>
-              <Column>
-                <ShareButton title='Share tier list' />
-              </Column>
-            </Row>
-          </div>
+          <ListBuilderToc tiers={tiers} />
+
+          <Row>
+            <Column>
+              <CTA to={`/list/${id}`}>Edit list</CTA>
+            </Column>
+            <Column>
+              <ShareButton title='Share tier list' />
+            </Column>
+          </Row>
         </Column>
         <Column width='2/3'>
           <Title>Tier list</Title>
