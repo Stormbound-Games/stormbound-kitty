@@ -530,7 +530,7 @@
     "brawl": "SATYR_MOVEMENT"
   },
   {
-    "name": "Aftershock",
+    "name": "Aftershock Siege",
     "id": "NU4xLDVOMiw1STEsNUkyLDVJMyw1TjksNUkxMCw1STE0LDVJMTUsNUkxOSw1TjM0LDVONDU=",
     "faction": "ironclad",
     "author": "Frostkhan",
@@ -772,5 +772,28 @@
     "faction": "swarm",
     "author": "TenTex",
     "category": "REGULAR"
+  },
+  {
+    "name": "Aftershock Doom",
+    "id": "NU4xLDVOMiw1UzEsNVMyLDVOOSw1TjEzLDVOMjEsNVMxMyw1TjI5LDVTMTgsNU4zNCw1TjQ1",
+    "faction": "swarm",
+    "author": "Frostkhan",
+    "category": "BRAWL",
+    "brawl": "STRUCTURE_MANA"
+  },
+  {
+    "name": "Aftershock Core",
+    "id": "NU4xLDVOMiw1VzIsNU4xMiw1TjE2LDVOMjAsNVc5LDVOMzQsNVcxMCw1TjQ1LDVXMjcsNVcxOQ==",
+    "faction": "winter",
+    "author": "HanooStreet",
+    "category": "BRAWL",
+    "brawl": "STRUCTURE_MANA"
+  },
+  {
+    "name": "Spear & Shield",
+    "id": "NU4xLDVOMyw1TjIzLDVONjcsNU4xMyw1VzUsNU4xOCw1VzksNU4zOSw1VzE1LDVXMTksNU41OA==",
+    "faction": "winter",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
   }
 ]
