@@ -9,7 +9,7 @@ backend:
 open_authoring: true
 
 # https://www.netlifycms.org/docs/configuration-options/#site-url
-site_url: https://stormbound-kitty.com
+site_url: http://localhost:3000
 
 # https://www.netlifycms.org/docs/configuration-options/#publish-mode
 publish_mode: editorial_workflow
