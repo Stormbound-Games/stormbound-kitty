@@ -46,7 +46,7 @@ export default function RouterStories() {
       <Page path={`${path}/:storyId`} active={['STORIES']}>
         <Story />
       </Page>
-      <Redirect path={path} to='stories/lore' />
+      <Redirect path={path} to='/stories/lore' />
     </Switch>
   )
 }
