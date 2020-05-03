@@ -8,22 +8,7 @@ import { BRAWLS } from '../../constants/brawl'
 import isCard from '../../helpers/isCard'
 import isSuggestedDeck from '../../helpers/isSuggestedDeck'
 
-export default props => {
-  const params = new URLSearchParams(window.location.search)
-  // The mode is theoretically not quite supposed to be changed at run time, but
-  // this is a workaround to be able to pick an initial hand for testing
-  // purposes. The mode is restored to `AUTOMATIC` as soon as the 4th card has
-  // been picked.
-  const { notify: sendNotification } = React.useContext(NotificationContext)
-  const notify = React.useCallback(
-    message => sendNotification({ icon: 'sword', children: message }),
-    [sendNotification]
-  )
-  // If the deck is saved as brawl/tournament, load the dry-runner in the correct mode
-  const suggestedDeck = React.useCallback(
-    isSuggestedDeck(props.deck.map(card => card.id)),
-    props.deck
-  )
+const getPresetOptions = (suggestedDeck, sendNotification) => {
   const presetOptions = {
     modifier: 'NONE',
     equals: false,
@@ -31,23 +16,39 @@ export default props => {
   if (suggestedDeck) {
     if (suggestedDeck.category === 'BRAWL') {
       presetOptions.modifier = suggestedDeck.brawl
-      React.useEffect(() => {
-        const brawlLabel = BRAWLS.find(
-          brawl => brawl.id === suggestedDeck.brawl
-        ).label
-        notify(`Brawl deck found. Loaded with modifier ${brawlLabel}.`)
-      }, [notify, suggestedDeck])
+      const brawlLabel = BRAWLS.find(brawl => brawl.id === suggestedDeck.brawl)
+        .label
+      sendNotification(`Brawl deck found. Loaded with modifier ${brawlLabel}.`)
     }
     if (suggestedDeck.category === 'EQUALS') {
       presetOptions.equals = true
-      React.useEffect(() => {
-        notify('Tournament deck found. Loaded in equals mode.')
-      }, [notify, suggestedDeck])
+      sendNotification('Tournament deck found. Loaded in equals mode.')
     }
   }
+  return presetOptions
+}
+
+export default props => {
+  const params = new URLSearchParams(window.location.search)
+  // The mode is theoretically not quite supposed to be changed at run time, but
+  // this is a workaround to be able to pick an initial hand for testing
+  // purposes. The mode is restored to `AUTOMATIC` as soon as the 4th card has
+  // been picked.
+  const { notify } = React.useContext(NotificationContext)
+  const sendNotification = React.useCallback(
+    message => notify({ icon: 'sword', children: message }),
+    [notify]
+  )
   const [mode, setMode] = React.useState(params.get('mode') || 'AUTOMATIC')
-  const [modifier, setModifier] = React.useState(presetOptions.modifier)
-  const [equalsMode, setEqualsMode] = React.useState(presetOptions.equals)
+  const [modifier, setModifier] = React.useState('NONE')
+  const [equalsMode, setEqualsMode] = React.useState(false)
+  // If the deck is saved as brawl/tournament, load the dry-runner in the correct mode
+  React.useEffect(() => {
+    const suggestedDeck = isSuggestedDeck(props.deck)
+    const presetOptions = getPresetOptions(suggestedDeck, sendNotification)
+    setModifier(presetOptions.modifier)
+    setEqualsMode(presetOptions.equals)
+  }, [sendNotification, props.deck])
   const addIdx = card => ({ idx: '0', ...card })
   const deck = modifyDeck(props.deck, modifier, equalsMode).map(addIdx)
 

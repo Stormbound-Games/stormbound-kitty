@@ -104,7 +104,7 @@ class DeckBuilderEditorView extends React.Component {
   }
 
   render() {
-    const matchedDeck = isSuggestedDeck(this.props.deck.map(card => card.id))
+    const matchedDeck = isSuggestedDeck(this.props.deck)
     const cardCollection = this.props.collection.map(card =>
       resolveCardForLevel({
         ...card,
