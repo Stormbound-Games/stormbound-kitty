@@ -5,18 +5,6 @@ import { FRIENDLY_CHANCES } from '../../constants/dryRunner'
 import './index.css'
 
 const RNG_SENSITIVE_CARDS = {
-  W9: {
-    FRIENDLY: () => (
-      <>
-        <WikiLink id='W9' /> stays
-      </>
-    ),
-    UNFRIENDLY: () => (
-      <>
-        <WikiLink id='W9' /> gets destroyed
-      </>
-    ),
-  },
   S3: {
     FRIENDLY: () => (
       <>
@@ -26,6 +14,18 @@ const RNG_SENSITIVE_CARDS = {
     UNFRIENDLY: () => (
       <>
         <WikiLink id='S3' /> doesn’t come back to hand
+      </>
+    ),
+  },
+  W9: {
+    FRIENDLY: () => (
+      <>
+        <WikiLink id='W9' /> stays
+      </>
+    ),
+    UNFRIENDLY: () => (
+      <>
+        <WikiLink id='W9' /> gets destroyed
       </>
     ),
   },
@@ -53,8 +53,10 @@ export default React.memo(function DryRunnerRNGField(props) {
   // Check if there is a freeze card in the deck to show RNG settings
   const freezeCards = ['W2', 'W6', 'W11']
   const freezeCard = deckIds.find(id => freezeCards.includes(id))
+  // Check if Harvesters of Souls are in the deck
+  const harvestersInDeck = deckIds.includes('N38')
 
-  if (RNGSensitiveCards.length === 0 && !freezeCard) {
+  if (RNGSensitiveCards.length === 0 && !(freezeCard || harvestersInDeck)) {
     return null
   }
 
@@ -72,6 +74,11 @@ export default React.memo(function DryRunnerRNGField(props) {
       >
         Friendly
         <span className='DryRunnerRNGField__radio-info'>
+          {harvestersInDeck ? (
+            <span>
+              <WikiLink id='N38' /> often create strong copies
+            </span>
+          ) : null}
           {freezeCard ? (
             <span>Freeze cards manage to freeze many enemies</span>
           ) : null}
@@ -91,6 +98,12 @@ export default React.memo(function DryRunnerRNGField(props) {
       >
         Unfriendly
         <span className='DryRunnerRNGField__radio-info'>
+          {harvestersInDeck ? (
+            <span>
+              When <WikiLink id='N38' /> manage to create a copy, it’s generally{' '}
+              weak
+            </span>
+          ) : null}
           {freezeCard ? (
             <span>Freeze cards do not manage to freeze many enemies</span>
           ) : null}
@@ -111,6 +124,11 @@ export default React.memo(function DryRunnerRNGField(props) {
         Regular{' '}
         <span className='DryRunnerRNGField__radio-info'>
           <>
+            {harvestersInDeck ? (
+              <span>
+                <WikiLink id='N38' /> sometimes create an average copy
+              </span>
+            ) : null}
             {freezeCard ? (
               <span>Freeze cards manage to freeze a few enemies</span>
             ) : null}

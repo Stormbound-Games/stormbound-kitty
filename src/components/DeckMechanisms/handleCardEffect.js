@@ -1,4 +1,7 @@
-import { PROBABILITIES } from '../../constants/dryRunner'
+import {
+  PROBABILITIES,
+  HARVESTERS_OF_SOULS_RNG,
+} from '../../constants/dryRunner'
 import arrayRandom from '../../helpers/arrayRandom'
 import resolveCardForLevel from '../../helpers/resolveCardForLevel'
 import isCard, { isNotCard } from '../../helpers/isCard'
@@ -298,8 +301,24 @@ const handleCardEffect = (state, card, mode) => {
 
     // Harvesters of Souls
     case 'N38': {
-      const copiedCard = getHarvestersOfSoulsCopiedCard(state, card.level)
-      state.deck.push(copiedCard)
+      // The RNG for Harvesters of Souls is determined by first choosing a level for the
+      // created copy and then creating the copy if the level is greater than 1 (otherwise
+      // Harvesters weren't able to copy the card)
+      const lowestPossibleLevel =
+        card.level + HARVESTERS_OF_SOULS_RNG.LEVEL_BONUS[state.RNG] - 2
+      const possibleLevelValues = Array.from(
+        { length: 2 * HARVESTERS_OF_SOULS_RNG.MAX_DEVIATION + 1 },
+        (_, i) => lowestPossibleLevel + i
+      )
+      const level = arrayRandom(possibleLevelValues)
+      if (level >= 1) {
+        const copiedCard = getHarvestersOfSoulsCopiedCard(
+          state,
+          card.level,
+          level
+        )
+        state.deck.push(copiedCard)
+      }
       break
     }
 
@@ -337,15 +356,13 @@ function getCollectorMirzToken(deck, level) {
   return token
 }
 
-function getHarvestersOfSoulsCopiedCard(state, level) {
+function getHarvestersOfSoulsCopiedCard(state, harvestersLevel, cardLevel) {
   const id = arrayRandom(
     cards.filter(card => card.type === 'unit').map(card => card.id)
   )
-  const copiedCardlevel = state.equalsMode
-    ? 1
-    : Math.floor(Math.random() * 5) + 1
+  const copiedCardlevel = state.equalsMode ? 1 : cardLevel
   const copiedCard = resolveCardForLevel({ id, level: copiedCardlevel })
-  const copiedCardStrength = [5, 6, 7, 8, 10][level - 1]
+  const copiedCardStrength = [5, 6, 7, 8, 10][harvestersLevel - 1]
 
   copiedCard.weight = 0
   copiedCard.id = id
