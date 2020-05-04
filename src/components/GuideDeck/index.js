@@ -5,7 +5,7 @@ import Guide from '../Guide'
 import Row from '../Row'
 import Title from '../Title'
 import WikiLink from '../WikiLink'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 import guides from '../../data/guides'
 
 const guide = guides.find(g => g.id === 'DECK_GUIDE')
@@ -83,16 +83,16 @@ export default React.memo(function GuideDeck(props) {
       <div className='Guide__cards'>
         <Row>
           <Column width='1/4'>
-            <Card {...resolveCardForLevel({ id: 'N1', level: 1 })} />
+            <Card {...getResolvedCardData({ id: 'N1', level: 1 })} />
           </Column>
           <Column width='1/4'>
-            <Card {...resolveCardForLevel({ id: 'N2', level: 1 })} />
+            <Card {...getResolvedCardData({ id: 'N2', level: 1 })} />
           </Column>
           <Column width='1/4'>
-            <Card {...resolveCardForLevel({ id: 'W1', level: 1 })} />
+            <Card {...getResolvedCardData({ id: 'W1', level: 1 })} />
           </Column>
           <Column width='1/4'>
-            <Card {...resolveCardForLevel({ id: 'W2', level: 1 })} />
+            <Card {...getResolvedCardData({ id: 'W2', level: 1 })} />
           </Column>
         </Row>
       </div>
@@ -118,13 +118,13 @@ export default React.memo(function GuideDeck(props) {
       <div className='Guide__cards'>
         <Row>
           <Column width='1/3'>
-            <Card {...resolveCardForLevel({ id: 'S13', level: 5 })} />
+            <Card {...getResolvedCardData({ id: 'S13', level: 5 })} />
           </Column>
           <Column width='1/3'>
-            <Card {...resolveCardForLevel({ id: 'N28', level: 5 })} />
+            <Card {...getResolvedCardData({ id: 'N28', level: 5 })} />
           </Column>
           <Column width='1/3'>
-            <Card {...resolveCardForLevel({ id: 'N54', level: 5 })} />
+            <Card {...getResolvedCardData({ id: 'N54', level: 5 })} />
           </Column>
         </Row>
       </div>
@@ -183,10 +183,10 @@ export default React.memo(function GuideDeck(props) {
           <Column>
             <Row>
               <Column>
-                <Card {...resolveCardForLevel({ id: 'S1', level: 1 })} />
+                <Card {...getResolvedCardData({ id: 'S1', level: 1 })} />
               </Column>
               <Column>
-                <Card {...resolveCardForLevel({ id: 'S9', level: 1 })} />
+                <Card {...getResolvedCardData({ id: 'S9', level: 1 })} />
               </Column>
             </Row>
           </Column>
@@ -194,10 +194,10 @@ export default React.memo(function GuideDeck(props) {
           <Column>
             <Row>
               <Column>
-                <Card {...resolveCardForLevel({ id: 'I2', level: 1 })} />
+                <Card {...getResolvedCardData({ id: 'I2', level: 1 })} />
               </Column>
               <Column>
-                <Card {...resolveCardForLevel({ id: 'I19', level: 1 })} />
+                <Card {...getResolvedCardData({ id: 'I19', level: 1 })} />
               </Column>
             </Row>
           </Column>
@@ -207,10 +207,10 @@ export default React.memo(function GuideDeck(props) {
           <Column>
             <Row>
               <Column>
-                <Card {...resolveCardForLevel({ id: 'F2', level: 1 })} />
+                <Card {...getResolvedCardData({ id: 'F2', level: 1 })} />
               </Column>
               <Column>
-                <Card {...resolveCardForLevel({ id: 'F11', level: 1 })} />
+                <Card {...getResolvedCardData({ id: 'F11', level: 1 })} />
               </Column>
             </Row>
           </Column>
@@ -218,10 +218,10 @@ export default React.memo(function GuideDeck(props) {
           <Column>
             <Row>
               <Column>
-                <Card {...resolveCardForLevel({ id: 'W2', level: 1 })} />
+                <Card {...getResolvedCardData({ id: 'W2', level: 1 })} />
               </Column>
               <Column>
-                <Card {...resolveCardForLevel({ id: 'W4', level: 1 })} />
+                <Card {...getResolvedCardData({ id: 'W4', level: 1 })} />
               </Column>
             </Row>
           </Column>

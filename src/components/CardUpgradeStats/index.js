@@ -2,11 +2,11 @@ import React from 'react'
 import { Coins, Stones } from '../Resource'
 import getCostForLevel from '../../helpers/getCostForLevel'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 import './index.css'
 
 export default React.memo(function CardUpgradeStats(props) {
-  const card = resolveCardForLevel(props)
+  const card = getResolvedCardData(props)
 
   if (card.level === 5) return null
 

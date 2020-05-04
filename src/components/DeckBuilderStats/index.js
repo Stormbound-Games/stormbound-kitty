@@ -2,7 +2,7 @@ import React from 'react'
 import Column from '../Column'
 import Row from '../Row'
 import Title from '../Title'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 import './index.css'
 
 const sum = (a, b) => a + b
@@ -19,7 +19,7 @@ const getPlayableCardsFirst = cards =>
 const getRaces = cards => [...new Set(cards.map(c => c.race))]
 
 export default function DeckBuilderStats(props) {
-  const cards = props.deck.map(resolveCardForLevel)
+  const cards = props.deck.map(getResolvedCardData)
   const averageMana = getAverageManaCost(cards)
   const averageSpeed = getAverageSpeed(cards)
   const averageLevel = getAverageLevel(cards)

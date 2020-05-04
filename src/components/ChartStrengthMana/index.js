@@ -13,7 +13,7 @@ import Column from '../Column'
 import FactionSelect from '../FactionSelect'
 import Row from '../Row'
 import Title from '../Title'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 import CARDS from '../../data/cards'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 
@@ -24,7 +24,7 @@ export default React.memo(function ChartStrengthMana(props) {
     () =>
       CARDS.filter(
         card => !card.token && card.faction === faction && card.type !== 'spell'
-      ).map(card => resolveCardForLevel({ ...card, level })),
+      ).map(card => getResolvedCardData({ ...card, level })),
     [faction, level]
   )
   const getFactionData = React.useCallback(

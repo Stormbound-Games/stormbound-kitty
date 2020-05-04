@@ -6,7 +6,7 @@ import Title from '../Title'
 import getCollectionCost from '../../helpers/getCollectionCost'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 import './index.css'
 
 const sum = (a, b) => a + b
@@ -35,7 +35,7 @@ const getLevelStats = (cards, totalKnownCards) =>
 
 const getAvailableCoins = collection =>
   collection
-    .map(card => getExtraAfterMax(resolveCardForLevel(card)).coins)
+    .map(card => getExtraAfterMax(getResolvedCardData(card)).coins)
     .reduce(sum, 0)
 
 export default function CollectionFigures(props) {

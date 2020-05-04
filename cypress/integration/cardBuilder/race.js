@@ -46,4 +46,10 @@ describe('Card Builder — Race', () => {
       .find(s.CARD_RACE)
       .should($node => expect($node.text().trim()).to.have.length(0))
   })
+
+  it('should be possible to prefill it from the URL', () => {
+    cy.visit('/card?race=' + race)
+    cy.get(s.RACE_SELECT).should('have.value', race)
+    for (let i = 0; i < 5; i++) assertCardRace(i)
+  })
 })

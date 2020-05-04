@@ -1,16 +1,16 @@
 import modifyDeck from '../../../src/helpers/modifyDeck'
-import resolveCardForLevel from '../../../src/helpers/resolveCardForLevel'
+import getResolvedCardData from '../../../src/helpers/getResolvedCardData'
 
 describe('The `modifyDeck` helper', () => {
   it('should resolve all cards in deck', () => {
     expect(modifyDeck([{ id: 'N1' }])).to.deep.equal([
-      resolveCardForLevel({ id: 'N1' }),
+      getResolvedCardData({ id: 'N1' }),
     ])
   })
 
   it('should set all cards to level 1 in equals mode', () => {
     expect(modifyDeck([{ id: 'N1', level: 2 }], null, true)).to.deep.equal([
-      resolveCardForLevel({ id: 'N1', level: 1 }),
+      getResolvedCardData({ id: 'N1', level: 1 }),
     ])
   })
   ;[

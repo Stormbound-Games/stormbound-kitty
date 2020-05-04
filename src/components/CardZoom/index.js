@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from '../Card'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 import './index.css'
 
 export default React.memo(function CardZoom(props) {
@@ -27,7 +27,7 @@ export default React.memo(function CardZoom(props) {
     <div className='CardZoom__overlay' onClick={props.close} data-testid='zoom'>
       <div className='CardZoom__wrapper'>
         <Card
-          {...resolveCardForLevel({
+          {...getResolvedCardData({
             id: props.cardId,
             level: props.level || 1,
           })}

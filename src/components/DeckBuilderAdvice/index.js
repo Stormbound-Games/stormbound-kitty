@@ -1,7 +1,7 @@
 import React from 'react'
 import LearnMoreIcon from '../LearnMoreIcon'
 import Title from '../Title'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 import './index.css'
 
 const getRaces = cards => [...new Set(cards.map(c => c.race))]
@@ -137,7 +137,7 @@ const getSuggestions = cards => {
 }
 
 export default function DeckBuilderAdvice(props) {
-  const cards = props.deck.map(resolveCardForLevel)
+  const cards = props.deck.map(getResolvedCardData)
   const suggestions = getSuggestions(cards, props.highlight)
 
   if (suggestions.length === 0) {

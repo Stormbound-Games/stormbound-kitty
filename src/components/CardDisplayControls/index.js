@@ -6,11 +6,11 @@ import Column from '../Column'
 import CTA from '../CTA'
 import Only from '../Only'
 import Row from '../Row'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 import sortCards from '../../helpers/sortCards'
 
 const sortCollection = (a, b) =>
-  sortCards()(resolveCardForLevel(a), resolveCardForLevel(b))
+  sortCards()(getResolvedCardData(a), getResolvedCardData(b))
 
 export default React.memo(function CardDisplayControls(props) {
   const match = useRouteMatch()

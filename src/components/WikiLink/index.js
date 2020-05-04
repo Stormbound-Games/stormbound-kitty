@@ -1,12 +1,12 @@
 import React from 'react'
 import Card from '../Card'
 import Tooltip from '../Tooltip'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 import useViewportWidth from '../../hooks/useViewportWidth'
 
 export default React.memo(function WikiLink(props) {
   const viewportWidth = useViewportWidth()
-  const cardData = resolveCardForLevel({ id: props.id, level: 1 })
+  const cardData = getResolvedCardData({ id: props.id, level: 1 })
 
   if (!cardData.id) {
     return props.children || null
