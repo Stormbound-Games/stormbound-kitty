@@ -1,15 +1,15 @@
-import resolveCardForLevel from './resolveCardForLevel'
+import getResolvedCardData from './getResolvedCardData'
 
 export default (a, b) => {
   if (!a) return +1
   if (!b) return -1
 
-  const cardA = resolveCardForLevel({
+  const cardA = getResolvedCardData({
     token: a.token,
     id: a.id,
     level: a.level,
   })
-  const cardB = resolveCardForLevel({
+  const cardB = getResolvedCardData({
     token: b.token,
     id: b.id,
     level: b.level,

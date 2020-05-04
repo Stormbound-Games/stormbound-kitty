@@ -2,7 +2,7 @@ import React from 'react'
 import hookIntoProps from 'hook-into-props'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 import sortCards, {
   sortByValue,
   sortByLockedCoins,
@@ -137,7 +137,7 @@ class CardsFiltering extends React.Component {
         if (!this.matchesElder(card)) return false
         return true
       })
-      .map(resolveCardForLevel)
+      .map(getResolvedCardData)
       .sort(
         this.state.status === 'EXCESS'
           ? sortByLockedCoins

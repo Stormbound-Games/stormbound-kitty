@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Card from '../Card'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 import './index.css'
 
 export default React.memo(function Teaser(props) {
-  const card = props.card || resolveCardForLevel({ level: 5, id: props.cardId })
+  const card = props.card || getResolvedCardData({ level: 5, id: props.cardId })
   const title = props.title
 
   return (

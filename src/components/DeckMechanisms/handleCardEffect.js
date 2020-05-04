@@ -1,6 +1,6 @@
 import { PROBABILITIES } from '../../constants/dryRunner'
 import arrayRandom from '../../helpers/arrayRandom'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isCard, { isNotCard } from '../../helpers/isCard'
 import cards from '../../data/cards'
 import shuffle from '../../helpers/shuffle'
@@ -327,7 +327,7 @@ const isPlayableSpell = state => card => {
 
 function getCollectorMirzToken(deck, level) {
   const id = 'T' + arrayRandom([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14])
-  const token = resolveCardForLevel({ id })
+  const token = getResolvedCardData({ id })
   token.level = [5, 6, 6, 8, 10][level - 1]
   token.weight = 0
   token.id = id
@@ -344,7 +344,7 @@ function getHarvestersOfSoulsCopiedCard(state, level) {
   const copiedCardlevel = state.equalsMode
     ? 1
     : Math.floor(Math.random() * 5) + 1
-  const copiedCard = resolveCardForLevel({ id, level: copiedCardlevel })
+  const copiedCard = getResolvedCardData({ id, level: copiedCardlevel })
   const copiedCardStrength = [5, 6, 7, 8, 10][level - 1]
 
   copiedCard.weight = 0
