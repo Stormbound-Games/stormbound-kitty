@@ -50,6 +50,7 @@ describe('Dry-runner — Harvesters of Souls', () => {
       .drDrawHand(HAND)
 
       .drEndTurn(3)
+      .drSetRNG('FRIENDLY')
       .drPlay('N38')
 
       .get(s.DECK_CARD)
