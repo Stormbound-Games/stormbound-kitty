@@ -48,4 +48,14 @@ describe('Card Builder — Strength', () => {
     cy.get(s.MOVEMENT_INPUT).should('be.empty').and('be.disabled')
     cy.get(s.CARD_PREVIEW).eq(0).find(s.CARD_STRENGTH).should('not.exist')
   })
+
+  it('should be possible to prefill it from the URL', () => {
+    cy.visit('/card?strength=1/2/3/4/5')
+    assertCardStrength(0, '1')
+    assertCardStrength(1, '2')
+    assertCardStrength(2, '3')
+    assertCardStrength(3, '4')
+    assertCardStrength(4, '5')
+    cy.get(s.STRENGTH_INPUT).should('have.value', '1/2/3/4/5')
+  })
 })

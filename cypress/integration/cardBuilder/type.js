@@ -32,4 +32,10 @@ describe('Card Builder — Type', () => {
     cy.get(s.TYPE_SELECT).should('have.value', type)
     for (let i = 0; i < 5; i++) assertCardType(i)
   })
+
+  it('should be possible to prefill it from the URL', () => {
+    cy.visit('/card?type=' + type)
+    cy.get(s.TYPE_SELECT).should('have.value', type)
+    for (let i = 0; i < 5; i++) assertCardType(i)
+  })
 })
