@@ -86,7 +86,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
                       cardInCollection.missing ||
                       level + 1 > cardInCollection.level
                     }
-                    affordable={isLevelAvailable(cardInCollection, level + 1)}
+                    upgradable={isLevelAvailable(cardInCollection, level + 1)}
                     level={level + 1}
                   />
                 </div>

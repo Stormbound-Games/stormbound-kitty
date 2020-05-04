@@ -49,7 +49,7 @@ describe('Card Builder — Official card', () => {
       .should('match', /\/card\/N1\/display/)
   })
 
-  it('should display affordable levels with a loaded collection', () => {
+  it('should display upgradable levels with a loaded collection', () => {
     cy.visit('/collection')
       .get('[data-testid="import-btn"]')
       .importCollection('collection.import.csv')
@@ -58,14 +58,14 @@ describe('Card Builder — Official card', () => {
 
       .get(s.CARD)
       .eq(2)
-      .should('have.class', 'Card--affordable')
+      .should('have.class', 'Card--upgradable')
 
       .get(s.CARD)
       .eq(3)
-      .should('not.have.class', 'Card--affordable')
+      .should('not.have.class', 'Card--upgradable')
 
       .get(s.CARD)
       .eq(4)
-      .should('not.have.class', 'Card--affordable')
+      .should('not.have.class', 'Card--upgradable')
   })
 })
