@@ -352,7 +352,7 @@ function getHarvestersOfSoulsCopiedCard(state, harvestersLevel) {
     { length: 2 * HARVESTERS_OF_SOULS_RNG.MAX_DEVIATION + 1 },
     (_, i) => lowestPossibleLevel + i
   )
-  const level = arrayRandom(possibleLevelValues)
+  const level = Math.min(arrayRandom(possibleLevelValues), 5)
 
   if (level <= 0) return
 
