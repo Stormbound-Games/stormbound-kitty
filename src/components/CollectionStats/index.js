@@ -60,7 +60,6 @@ const getFactionData = collection => {
 
   collection.forEach(card => {
     const resolvedCard = resolveCardForLevel(card)
-    resolvedCard.copies = 0
     data[resolvedCard.faction].value += getCardCost(resolvedCard)
   })
 
@@ -77,7 +76,6 @@ const getRarityData = collection => {
 
   collection.forEach(card => {
     const resolvedCard = resolveCardForLevel(card)
-    resolvedCard.copies = 0
     data[resolvedCard.rarity].value += getCardCost(resolvedCard)
   })
 
