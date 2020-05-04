@@ -16,7 +16,7 @@ import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import { getCardCost } from '../../helpers/getCollectionCost'
 import { getRarityColor } from '../../helpers/getRarity'
@@ -59,7 +59,7 @@ const getFactionData = collection => {
   }
 
   collection.forEach(card => {
-    const resolvedCard = resolveCardForLevel(card)
+    const resolvedCard = getResolvedCardData(card)
     data[resolvedCard.faction].value += getCardCost(resolvedCard)
   })
 
@@ -75,7 +75,7 @@ const getRarityData = collection => {
   }
 
   collection.forEach(card => {
-    const resolvedCard = resolveCardForLevel(card)
+    const resolvedCard = getResolvedCardData(card)
     data[resolvedCard.rarity].value += getCardCost(resolvedCard)
   })
 

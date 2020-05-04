@@ -1,4 +1,4 @@
-import resolveCardForLevel from './resolveCardForLevel'
+import getResolvedCardData from './getResolvedCardData'
 import shuffle from './shuffle'
 
 export const increaseCardWeight = weight => Math.floor(weight * 1.6) + 1
@@ -7,7 +7,7 @@ export default deck => {
   // Store the order of the deck before starting to weight id
   const deckIds = deck.map(card => card.id)
   // Resolve the cards’ data (although that could be done elsewhere)
-  const resolvedDeck = deck.map(resolveCardForLevel)
+  const resolvedDeck = deck.map(getResolvedCardData)
   // Shuffle the deck to avoid having the weight order matching the card order
   const shuffledDeck = shuffle(resolvedDeck)
   // Compute the weight of the cards in sequence

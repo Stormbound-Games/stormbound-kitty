@@ -12,7 +12,7 @@ import FactionSelect from '../FactionSelect'
 import Column from '../Column'
 import Row from '../Row'
 import Title from '../Title'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 import CARDS from '../../data/cards'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 
@@ -24,7 +24,7 @@ export default React.memo(function ChartMana(props) {
     () =>
       CARDS.filter(
         card => !card.token && (faction === '*' || card.faction === faction)
-      ).map(card => resolveCardForLevel({ ...card, level })),
+      ).map(card => getResolvedCardData({ ...card, level })),
     [level, faction]
   )
 

@@ -16,7 +16,7 @@ import { NotificationContext } from '../NotificationProvider'
 import Row from '../Row'
 import Title from '../Title'
 import download from '../../helpers/download'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import getRawCardData from '../../helpers/getRawCardData'
 import './index.css'
@@ -117,7 +117,7 @@ class Collection extends React.Component {
 
     return (
       activeCard &&
-      resolveCardForLevel({
+      getResolvedCardData({
         id: this.state.activeCard,
         level: activeCard.level,
       })
@@ -195,7 +195,7 @@ class Collection extends React.Component {
             <Title>Cards Collection</Title>
 
             <CardsFiltering
-              cards={this.props.collection.map(resolveCardForLevel)}
+              cards={this.props.collection.map(getResolvedCardData)}
             >
               {({
                 filters,

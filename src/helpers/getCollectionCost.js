@@ -1,12 +1,12 @@
 import { RARITY_COPIES } from '../constants/game'
-import resolveCardForLevel from './resolveCardForLevel'
+import getResolvedCardData from './getResolvedCardData'
 
 const sum = (a, b) => a + b
 
 export const getCardCost = card => {
   // If the card is missing, it has no value.
   if (card.missing) return 0
-  const { rarity } = resolveCardForLevel(card)
+  const { rarity } = getResolvedCardData(card)
   const {
     copies: levelCopies,
     stonesForMissing: craftingCost,

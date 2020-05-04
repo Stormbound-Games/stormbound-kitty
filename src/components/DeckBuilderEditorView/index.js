@@ -19,7 +19,7 @@ import ResetButton from '../ResetButton'
 import Row from '../Row'
 import ShareButton from '../DeckBuilderShareButton'
 import Title from '../Title'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 import getRawCardData from '../../helpers/getRawCardData'
 import sortByMana from '../../helpers/sortByMana'
 import isSuggestedDeck from '../../helpers/isSuggestedDeck'
@@ -106,7 +106,7 @@ class DeckBuilderEditorView extends React.Component {
   render() {
     const matchedDeck = isSuggestedDeck(this.props.deck)
     const cardCollection = this.props.collection.map(card =>
-      resolveCardForLevel({
+      getResolvedCardData({
         ...card,
         level: !this.props.hasDefaultCollection
           ? card.level

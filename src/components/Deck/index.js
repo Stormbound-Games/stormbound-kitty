@@ -2,7 +2,7 @@ import React from 'react'
 import { CollectionContext } from '../CollectionProvider'
 import Mana from '../Mana'
 import sortByMana from '../../helpers/sortByMana'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isCard from '../../helpers/isCard'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import useFluidSizing from '../../hooks/useFluidSizing'
@@ -13,7 +13,7 @@ export default React.memo(function Deck(props) {
   const showEmptySlots =
     typeof props.showEmptySlots === 'undefined' ? true : props.showEmptySlots
   const sort = props.sort || sortByMana
-  const slots = props.deck.map(resolveCardForLevel).sort(sort)
+  const slots = props.deck.map(getResolvedCardData).sort(sort)
   const highlightedCards = props.highlightedCards || []
   const { fontSize, ref } = useFluidSizing(0.03683665247)
 

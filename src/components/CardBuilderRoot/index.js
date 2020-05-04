@@ -5,7 +5,9 @@ import App from '../CardBuilderApp'
 import PageMeta from '../PageMeta'
 import { serialiseCard } from '../../helpers/serialise'
 import areAllValuesEqual from '../../helpers/areAllValuesEqual'
-import getInitialCardData from '../../helpers/getInitialCardData'
+import getInitialCardData, {
+  getInitialCardDataFromQuery,
+} from '../../helpers/getInitialCardData'
 import resolveAbility from '../../helpers/resolveAbility'
 import getCardBuilderMetaTags from '../../helpers/getCardBuilderMetaTags'
 import getCardFromSlug from '../../helpers/getCardFromSlug'
@@ -41,8 +43,19 @@ class CardBuilderRoot extends React.Component {
     }
   }
 
+  componentDidMount() {
+    const state = getInitialCardDataFromQuery()
+
+    if (Object.keys(state).length > 0) {
+      this.props.history.replace('/card/' + serialiseCard(state))
+    }
+  }
+
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.cardId !== this.props.cardId) {
+    // Handle initial query parameters
+    if (!prevProps.cardId && this.props.cardId) {
+      this.setState({ ...getInitialCardData(this.props.cardId) })
+    } else if (prevProps.cardId !== this.props.cardId) {
       if (!this.props.cardId) {
         this.reset()
       } else if (getCardFromSlug(this.props.cardId)) {

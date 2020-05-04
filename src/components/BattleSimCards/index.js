@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from '../Card'
 import CTA from '../CTA'
-import resolveCardForLevel from '../../helpers/resolveCardForLevel'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 import './index.css'
 
 export default React.memo(function BattleSimCards(props) {
@@ -34,7 +34,7 @@ export default React.memo(function BattleSimCards(props) {
 
         {[0, 1, 2, 3].map(index => {
           const cardId = props.hand[index]
-          const card = resolveCardForLevel(
+          const card = getResolvedCardData(
             props.cards.find(card => card.id === cardId)
           )
           const buttonLabel =

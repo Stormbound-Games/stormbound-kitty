@@ -1,4 +1,4 @@
-import resolveCardForLevel from './resolveCardForLevel'
+import getResolvedCardData from './getResolvedCardData'
 
 const setToLevel1 = card => ({ ...card, level: 1 })
 
@@ -41,8 +41,8 @@ const reduceSpellManaCost = card => {
 
 export default (deck, modifier, equalsMode) => {
   const fullDeck = equalsMode
-    ? deck.map(setToLevel1).map(resolveCardForLevel)
-    : deck.map(resolveCardForLevel)
+    ? deck.map(setToLevel1).map(getResolvedCardData)
+    : deck.map(getResolvedCardData)
 
   switch (modifier) {
     case 'STRUCTURE_MANA':
