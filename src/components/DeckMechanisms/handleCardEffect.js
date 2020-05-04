@@ -28,9 +28,10 @@ const FROZEN_ENEMIES_AFTER = {
  * @param {Object} state - State being mutated
  * @param {Object} card - Resolved card being played
  * @param {String} mode - Game mode (MANUAL or AUTOMATIC)
+ * @param {Object} harvestersActions - Reference & Method used to show Harvester’s Dialog
  * @return {Object} Mutated state
  */
-const handleCardEffect = (state, card, mode) => {
+const handleCardEffect = (state, card, mode, harvestersActions) => {
   // On turn 1, any 3 mana card can be played since it would be the only one
   // to be played and would not fill the board by itself. Any 2 mana card will
   // have to be played together with a 1 mana card. This will cause a board
@@ -301,9 +302,13 @@ const handleCardEffect = (state, card, mode) => {
 
     // Harvesters of Souls
     case 'N38': {
-      const copiedCard = getHarvestersOfSoulsCopiedCard(state, card.level)
-      if (copiedCard) {
-        state.deck.push(copiedCard)
+      const copiedCards = Array.from(
+        { length: HARVESTERS_OF_SOULS_RNG.POTENTIAL_CARDS[state.RNG] },
+        () => getHarvestersOfSoulsCopiedCard(state, card.level)
+      ).filter(Boolean)
+      if (copiedCards.length) {
+        harvestersActions.setCards(copiedCards)
+        harvestersActions.dialog.current.show()
       }
       break
     }
@@ -342,7 +347,7 @@ function getCollectorMirzToken(deck, level) {
   return token
 }
 
-function getHarvestersOfSoulsCopiedCard(state, harvestersLevel) {
+function getHarvestersOfSoulsCopiedCard(state, harvestersLevel, dialogRef) {
   // The RNG for Harvesters of Souls is determined by first choosing a level for the
   // created copy and then creating the copy if the level is greater than 1 (otherwise
   // Harvesters weren't able to copy the card)

@@ -88,10 +88,23 @@ export default class DeckMechanisms extends React.Component {
     // If it’s not a discard move and the card costs more mana than the current
     // round, skip play.
     if (options.discard || canAfford) {
+      const harvestersActions = {
+        dialog: this.props.harvestersDialogRef,
+        setCards: this.props.setHarvestersCards,
+      }
       this.setState(state =>
-        play(clone(state), card, { ...options, mode: this.props.mode })
+        play(
+          clone(state),
+          card,
+          { ...options, mode: this.props.mode },
+          harvestersActions
+        )
       )
     }
+  }
+
+  addCardToDeck = card => {
+    this.setState(state => ({ ...state, deck: [...state.deck, card] }))
   }
 
   increaseDeckWeight = ({ reset }) =>
@@ -130,6 +143,7 @@ export default class DeckMechanisms extends React.Component {
       cycle: this.cycle,
       reset: this.reset,
       endTurn: this.endTurn,
+      addCardToDeck: this.addCardToDeck,
       increaseDeckWeight: this.increaseDeckWeight,
       setRNG: RNG => this.setState({ RNG }),
     })

@@ -44,6 +44,8 @@ export default props => {
   const [mode, setMode] = React.useState(params.get('mode') || 'AUTOMATIC')
   const [modifier, setModifier] = React.useState('NONE')
   const [equalsMode, setEqualsMode] = React.useState(false)
+  const [harvestersCards, setHarvestersCards] = React.useState([])
+  const harvestersDialogRef = React.useRef()
   // If the deck is saved as brawl/tournament, load the dry-runner in the correct mode
   React.useEffect(() => {
     const presetOptions = getPresetOptions(props.deck, sendNotification)
@@ -54,7 +56,14 @@ export default props => {
   const deck = modifyDeck(props.deck, modifier, equalsMode).map(addIdx)
 
   return (
-    <DeckMechanisms deck={deck} mode={mode} equalsMode={equalsMode}>
+    <DeckMechanisms
+      deck={deck}
+      mode={mode}
+      equalsMode={equalsMode}
+      harvestersCards={harvestersCards}
+      setHarvestersCards={setHarvestersCards}
+      harvestersDialogRef={harvestersDialogRef}
+    >
       {state => (
         <DeckBuilderDryRunView
           {...props}
@@ -67,6 +76,9 @@ export default props => {
           setModifier={setModifier}
           playedCards={state.playedCards}
           cardsThisTurn={state.cardsThisTurn}
+          harvestersCards={harvestersCards}
+          setHarvestersCards={setHarvestersCards}
+          harvestersDialogRef={harvestersDialogRef}
         />
       )}
     </DeckMechanisms>

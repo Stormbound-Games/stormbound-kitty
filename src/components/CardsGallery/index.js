@@ -73,27 +73,29 @@ export default React.memo(function CardsGallery(props) {
         ))}
       </ul>
 
-      <div className='CardsGallery__nav'>
-        <CTA
-          type='button'
-          className='CardsGallery__nav-button'
-          onClick={() => changePage(p => p - 1)}
-          disabled={activePage === 0}
-        >
-          Previous
-        </CTA>
+      {!props.hideNavButtons && (
+        <div className='CardsGallery__nav'>
+          <CTA
+            type='button'
+            className='CardsGallery__nav-button'
+            onClick={() => changePage(p => p - 1)}
+            disabled={activePage === 0}
+          >
+            Previous
+          </CTA>
 
-        {props.navChildren || null}
+          {props.navChildren || null}
 
-        <CTA
-          type='button'
-          className='CardsGallery__nav-button'
-          onClick={() => changePage(p => p + 1)}
-          disabled={pages.length === 0 || activePage === pages.length - 1}
-        >
-          Next
-        </CTA>
-      </div>
+          <CTA
+            type='button'
+            className='CardsGallery__nav-button'
+            onClick={() => changePage(p => p + 1)}
+            disabled={pages.length === 0 || activePage === pages.length - 1}
+          >
+            Next
+          </CTA>
+        </div>
+      )}
     </div>
   )
 })
