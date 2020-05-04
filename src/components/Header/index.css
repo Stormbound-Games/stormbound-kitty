@@ -1,5 +1,6 @@
 .Header {
   padding: 1em;
+  z-index: 2;
 }
 
 .Header__nav {
@@ -20,12 +21,12 @@
   padding: 0;
   margin: 0;
   display: flex;
-  overflow: hidden;
 }
 
 .Header__item {
   text-align: center;
   position: relative;
+  overflow: hidden;
 }
 
 /**
@@ -42,6 +43,13 @@ a.Header__link:hover {
 
 .Header__item--right {
   margin-left: auto;
+}
+
+.Header__item--select {
+  width: 250px;
+  padding: 0.5em 1em;
+  overflow: visible;
+  text-align: left;
 }
 
 .Header__link {
@@ -63,6 +71,14 @@ a.Header__link:hover {
   border: 0;
   cursor: pointer;
   padding: 0.5em;
+}
+
+.Header .icon {
+  font-size: 80%;
+  margin-right: 0.25em;
+  vertical-align: baseline;
+  position: relative;
+  top: 1px;
 }
 
 @media (max-width: 699px) {
@@ -107,19 +123,19 @@ a.Header__link:hover {
     margin-left: 0;
   }
 
+  .Header__item--select {
+    width: 100%;
+    flex-grow: 1;
+  }
+
   .Header__link {
     padding: 0.5em 0em;
   }
 }
 
 @media (min-width: 700px) {
-  /**
-   * 1. Make the navigation horizontally scrollable in case it’s too wide to be
-   *    displayed in full.
-   */
   .Header__list {
-    overflow-x: auto; /* 1 */
-    flex-wrap: nowrap; /* 1 */
+    flex-wrap: nowrap;
   }
 
   .Header__item {
@@ -159,10 +175,8 @@ a.Header__link:hover {
   }
 }
 
-.Header .icon {
-  font-size: 80%;
-  margin-right: 0.25em;
-  vertical-align: baseline;
-  position: relative;
-  top: 1px;
+@media (min-width: 700px) and (max-width: 1000px) {
+  .Header .icon {
+    display: none;
+  }
 }

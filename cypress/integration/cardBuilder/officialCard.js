@@ -1,6 +1,39 @@
 import s from './selectors'
 
 describe('Card Builder — Official card', () => {
+  before(() => cy.visit('/card'))
+
+  it('should be possible to load an official card', () => {
+    cy.get(s.CARD_SELECT)
+      .find('.CardSelect__single-value')
+      .should('have.text', 'Load card')
+      .get(s.CARD_SELECT)
+      .find('input')
+      .first()
+      .click({ force: true })
+      .type('Sweet', { force: true })
+      .type('{enter}', { force: true })
+      .get(s.IMAGE_SELECT)
+      .find('.CardSelect__single-value')
+      .should('contain', 'Sweetcap Kittens')
+
+      .get(s.CARD_NAME)
+      .should('contain', 'Sweetcap Kittens')
+  })
+
+  it('should be possible to unload an official card', () => {
+    cy.get(s.CARD_SELECT)
+      .find('.CardSelect__clear-indicator')
+      .click({ force: true })
+
+      .get(s.CARD_SELECT)
+      .find('.CardSelect__single-value')
+      .should('have.text', 'Load card')
+
+      .get(s.CARD_NAME)
+      .should('be.empty')
+  })
+
   it('should hide the editing interface', () => {
     cy.visit('/card/N1/display')
       .get('form')
