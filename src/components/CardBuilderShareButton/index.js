@@ -6,12 +6,7 @@ import './index.css'
 export default React.memo(function CardBuilderShareButton(props) {
   const [includeStats, setIncludeStats] = React.useState(false)
   const [hideInterface, setHideInterface] = React.useState(false)
-  const url = window.location.href
-  const shareUrl = hideInterface
-    ? url.endsWith('/display')
-      ? url
-      : url + '/display'
-    : url
+  const processURL = url => (hideInterface ? url + '/display' : url)
 
   return (
     <ShareDialog
@@ -19,7 +14,7 @@ export default React.memo(function CardBuilderShareButton(props) {
       disabled={props.disabled}
       image='/assets/images/cards/collector_mirz.png'
       share={{
-        url: shareUrl,
+        processURL,
         shortenURL: true,
         title: includeStats ? props.title : undefined,
         content: includeStats ? props.content : undefined,

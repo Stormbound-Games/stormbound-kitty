@@ -5,15 +5,14 @@ import './index.css'
 
 export default React.memo(function BattleSimShareButton(props) {
   const [hideInterface, setHideInterface] = React.useState(false)
-  const url = window.location.href
-  const shareUrl = hideInterface ? url + '/display' : url
+  const processURL = url => (hideInterface ? url + '/display' : url)
 
   return (
     <ShareDialog
       label='Share board'
       disabled={props.disabled}
       image='/assets/images/cards/olf_the_hammer.png'
-      share={{ url: shareUrl }}
+      share={{ processURL }}
     >
       <p>
         Your board is automatically saved to the URL of the page as you work on

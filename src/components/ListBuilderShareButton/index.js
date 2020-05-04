@@ -5,12 +5,7 @@ import './index.css'
 
 export default React.memo(function ListBuilderShareButton(props) {
   const [hideInterface, setHideInterface] = React.useState(false)
-  const url = window.location.href
-  const shareUrl = hideInterface
-    ? url.endsWith('/display')
-      ? url
-      : url + '/display'
-    : url
+  const processURL = url => (hideInterface ? url + '/display' : url)
 
   return (
     <ShareDialog
@@ -18,7 +13,7 @@ export default React.memo(function ListBuilderShareButton(props) {
       disabled={props.disabled}
       image='/assets/images/cards/project_ph03-nix.png'
       share={{
-        url: shareUrl,
+        processURL,
         title: props.title,
         content: props.content,
         shortenURL: true,
