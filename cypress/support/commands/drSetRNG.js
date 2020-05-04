@@ -8,8 +8,7 @@ const setRNG = mode => {
   return cy
     .get('[data-testid="RNG-input"]', { log: false })
     .filter(`[value="${mode}"]`, { log: false })
-    .parent({ log: false })
-    .click({ log: false })
+    .click({ log: false, force: true })
 }
 
 export default setRNG
