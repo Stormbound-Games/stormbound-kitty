@@ -20,7 +20,8 @@ export default React.memo(function CardSelect(props) {
       isClearable={true}
       value={{
         id: props.current,
-        label: getRawCardData(props.current).name || 'Pick a card',
+        label:
+          getRawCardData(props.current).name || props.label || 'Pick a card',
       }}
       onChange={props.onChange}
       onFocus={props.onFocus}
@@ -49,7 +50,11 @@ export default React.memo(function CardSelect(props) {
         .map(faction => ({
           label: faction,
           options: cardsByFaction[faction]
-            .filter(card => (props.withSpells ? true : card.type !== 'spell'))
+            .filter(card => {
+              if (!props.withSpells && card.type === 'spell') return false
+              if (!props.withTokens && card.token) return false
+              return true
+            })
             .map(card => ({
               value: card.id,
               label: card.name,

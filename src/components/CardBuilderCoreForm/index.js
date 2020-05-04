@@ -136,7 +136,8 @@ export default React.memo(function CardBuilderCardForm(props) {
               }
               onFocus={() => setImageFocusedColumn('imageCardId')}
               onBlur={() => setImageFocusedColumn(null)}
-              withSpells={true}
+              withSpells
+              withTokens
             />
           </Column>
           <Column

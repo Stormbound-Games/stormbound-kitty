@@ -92,7 +92,7 @@ export default React.memo(function DeckBuilderSuggestionsFilters(props) {
               onChange={option => {
                 props.updateIncluding(option ? option.value : null)
               }}
-              withSpells={true}
+              withSpells
             />
           </Column>
         </Row>
