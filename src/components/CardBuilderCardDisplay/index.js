@@ -42,7 +42,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
     CollectionContext
   )
   const cardInCollection =
-    hasDefaultCollection || !match.params.cardId
+    hasDefaultCollection || !match.params.cardId || props.mode === 'EDITOR'
       ? { level: 5 }
       : collection.find(card => card.id === match.params.cardId) || { level: 5 }
 
