@@ -92,6 +92,7 @@ export default React.memo(function BattleSimCellForm(props) {
                 }
               }}
               withSpells={false}
+              withTokens
             />
           </Column>
           <Column width='1/4'>

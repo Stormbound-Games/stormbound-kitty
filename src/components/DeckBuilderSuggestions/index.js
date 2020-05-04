@@ -17,7 +17,11 @@ import Title from '../Title'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import chunk from '../../helpers/chunk'
 import sortDeckSuggestions from '../../helpers/sortDeckSuggestions'
+import getRawCardData from '../../helpers/getRawCardData'
+import capitalise from '../../helpers/capitalise'
 import { deserialiseDeck } from '../../helpers/deserialise'
+import { CATEGORIES } from '../../constants/decks'
+import { BRAWLS } from '../../constants/brawl'
 import './index.css'
 
 class DeckBuilderSuggestions extends React.Component {
@@ -137,14 +141,39 @@ class DeckBuilderSuggestions extends React.Component {
   }
 
   resetFilters = () =>
-    this.setState({
-      faction: '*',
-      category: '*',
-      author: '*',
-      brawl: '*',
-      name: '',
-      including: null,
-    })
+    this.setState(
+      {
+        faction: '*',
+        category: '*',
+        author: '*',
+        brawl: '*',
+        name: '',
+        including: null,
+      },
+      this.updateURLParameters
+    )
+
+  getPageDescription = () => {
+    const cardData = getRawCardData(this.state.including)
+    const brawl = BRAWLS.find(brawl => brawl.id === this.state.brawl)
+
+    return [
+      'Find a collection of',
+      this.state.faction !== '*' ? capitalise(this.state.faction) : '',
+      'decks',
+      this.state.including ? `including ${cardData.name}` : '',
+      this.state.category === '*' || this.state.category === 'REGULAR'
+        ? 'for all levels and all play-styles'
+        : `for ${CATEGORIES[this.state.category]}`,
+      brawl ? `(${brawl.label})` : '',
+      'suggested by',
+      this.state.author !== '*'
+        ? this.state.author
+        : 'the Stormbound community',
+    ]
+      .filter(Boolean)
+      .join(' ')
+  }
 
   render() {
     const decks = this.getDecks()
@@ -234,7 +263,7 @@ class DeckBuilderSuggestions extends React.Component {
 
         <PageMeta
           title='Deck Suggestions'
-          description='Find a collection of decks suggested by the Stormbound community, for all levels and all play-styles'
+          description={this.getPageDescription()}
         />
       </>
     )

@@ -1,5 +1,6 @@
 export default {
   CARD: '[data-testid="card"]',
+  CARD_SELECT: '.Header .CardSelect',
 
   CARD_ABILITY: '[data-testid="card-ability"]',
   CARD_FACTION: '[data-testid="card-faction"]',
@@ -18,7 +19,7 @@ export default {
   FACTION_SELECT: '[data-testid="cb-faction-select"]',
   HERO_CHECKBOX: '[data-testid="cb-hero-checkbox"]',
   IMAGE_INPUT: '[data-testid="cb-image-input"]',
-  IMAGE_SELECT: '.CardSelect',
+  IMAGE_SELECT: 'form .CardSelect',
   MANA_INPUT: '[data-testid="cb-mana-input"]',
   MOVEMENT_INPUT: '[data-testid="cb-movement-input"]',
   NAME_INPUT: '[data-testid="cb-name-input"]',

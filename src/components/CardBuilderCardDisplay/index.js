@@ -42,7 +42,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
     CollectionContext
   )
   const cardInCollection =
-    hasDefaultCollection || !match.params.cardId
+    hasDefaultCollection || !match.params.cardId || props.mode === 'EDITOR'
       ? { level: 5 }
       : collection.find(card => card.id === match.params.cardId) || { level: 5 }
 
@@ -86,7 +86,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
                       cardInCollection.missing ||
                       level + 1 > cardInCollection.level
                     }
-                    affordable={isLevelAvailable(cardInCollection, level + 1)}
+                    upgradable={isLevelAvailable(cardInCollection, level + 1)}
                     level={level + 1}
                   />
                 </div>

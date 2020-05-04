@@ -29,7 +29,8 @@ const CardsFormRow = React.memo(({ index, ...props }) => (
                   level: Math.min(props.cards[index].level, 5),
                 })
           }}
-          withSpells={true}
+          withSpells
+          withTokens
           disabledOptions={props.cards.map(card => card.id)}
         />
       </Column>

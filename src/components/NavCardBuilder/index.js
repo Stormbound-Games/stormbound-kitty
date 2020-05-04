@@ -1,8 +1,11 @@
 import React from 'react'
-import { useRouteMatch } from 'react-router-dom'
+import { useRouteMatch, useHistory } from 'react-router-dom'
+import CardSelect from '../CardSelect'
 import NavLink from '../NavLink'
+import Only from '../Only'
 
 export default React.memo(function NavCardBuilder(props) {
+  const history = useHistory()
   const match = useRouteMatch()
   const id = match.params.cardId
 
@@ -36,11 +39,32 @@ export default React.memo(function NavCardBuilder(props) {
           )}
         </li>
 
-        <li className='Header__item Header__item--right'>
-          <NavLink to='/card/contest' active={props.active === 'CONTEST'}>
-            Card Contest
-          </NavLink>
+        <li className='Header__item Header__item--select'>
+          <CardSelect
+            label='Load card'
+            id='card-select'
+            name='card-select'
+            current={id}
+            onChange={option =>
+              option
+                ? history.push(
+                    '/card/' +
+                      option.value +
+                      (props.active === 'DISPLAY' ? '/display' : '')
+                  )
+                : history.push('/card')
+            }
+            withSpells
+          />
         </li>
+
+        <Only.Desktop>
+          <li className='Header__item Header__item--right'>
+            <NavLink to='/card/contest' active={props.active === 'CONTEST'}>
+              Card Contest
+            </NavLink>
+          </li>
+        </Only.Desktop>
       </ul>
     </nav>
   )

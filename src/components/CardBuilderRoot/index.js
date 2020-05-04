@@ -8,6 +8,7 @@ import areAllValuesEqual from '../../helpers/areAllValuesEqual'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import resolveAbility from '../../helpers/resolveAbility'
 import getCardBuilderMetaTags from '../../helpers/getCardBuilderMetaTags'
+import getCardFromSlug from '../../helpers/getCardFromSlug'
 
 const formatLevelProp = value => ({
   values: [null, null, null, null, null].fill(value),
@@ -41,38 +42,25 @@ class CardBuilderRoot extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const hasAnyPropChanged =
-      this.state.name !== prevState.name ||
-      this.state.imageURL !== prevState.imageURL ||
-      this.state.imageCardId !== prevState.imageCardId ||
-      this.state.rarity !== prevState.rarity ||
-      this.state.faction !== prevState.faction ||
-      this.state.race !== prevState.race ||
-      this.state.elder !== prevState.elder ||
-      this.state.hero !== prevState.hero ||
-      this.state.type !== prevState.type ||
-      this.state.movement !== prevState.movement ||
-      this.state.mana.display !== prevState.mana.display ||
-      this.state.strength.display !== prevState.strength.display ||
-      this.state.ability.display !== prevState.ability.display
-
-    if (hasAnyPropChanged) {
-      this.props.history.replace(
-        '/card/' +
-          serialiseCard({
-            ...this.state,
-            strength: this.state.strength.display,
-            mana: this.state.mana.display,
-            ability: this.state.ability.display,
-          })
-      )
-    } else if (prevProps.cardId !== this.props.cardId) {
-      if (this.props.cardId) {
-        this.setState({ ...getInitialCardData(this.props.cardId) })
-      } else {
+    if (prevProps.cardId !== this.props.cardId) {
+      if (!this.props.cardId) {
         this.reset()
+      } else if (getCardFromSlug(this.props.cardId)) {
+        this.setState({ ...getInitialCardData(this.props.cardId) })
       }
     }
+  }
+
+  updateURL = () => {
+    this.props.history.replace(
+      '/card/' +
+        serialiseCard({
+          ...this.state,
+          strength: this.state.strength.display,
+          mana: this.state.mana.display,
+          ability: this.state.ability.display,
+        })
+    )
   }
 
   reset = () => {
@@ -93,75 +81,90 @@ class CardBuilderRoot extends React.Component {
     return { values, display }
   }
 
-  setName = name => this.setState({ name })
+  setName = name => this.setState({ name }, this.updateURL)
 
-  setRarity = rarity => this.setState({ rarity })
+  setRarity = rarity => this.setState({ rarity }, this.updateURL)
 
-  setMana = mana => this.setState({ mana: this.resolveLevels(mana) })
+  setMana = mana =>
+    this.setState({ mana: this.resolveLevels(mana) }, this.updateURL)
 
-  setMovement = movement => this.setState({ movement })
+  setMovement = movement => this.setState({ movement }, this.updateURL)
 
   setStrength = strength =>
-    this.setState({ strength: this.resolveLevels(strength) })
+    this.setState({ strength: this.resolveLevels(strength) }, this.updateURL)
 
-  setFaction = faction => this.setState({ faction })
+  setFaction = faction => this.setState({ faction }, this.updateURL)
 
   setType = type => {
     // If the new type is a spell, disable movement, strength, race and unit
     // modifiers
     if (type === 'spell') {
-      this.setState({
-        type,
-        race: null,
-        elder: false,
-        hero: false,
-        movement: null,
-        strength: formatLevelProp(null),
-      })
+      this.setState(
+        {
+          type,
+          race: null,
+          elder: false,
+          hero: false,
+          movement: null,
+          strength: formatLevelProp(null),
+        },
+        this.updateURL
+      )
     }
 
     // If the new type is a structure, disable movement, race and unit modifiers
     // and if the current type is a spell, enable strength
     else if (type === 'structure') {
-      this.setState({
-        type,
-        race: null,
-        elder: false,
-        hero: false,
-        movement: null,
-        strength:
-          this.state.type === 'spell'
-            ? formatLevelProp(null)
-            : this.state.strength,
-      })
+      this.setState(
+        {
+          type,
+          race: null,
+          elder: false,
+          hero: false,
+          movement: null,
+          strength:
+            this.state.type === 'spell'
+              ? formatLevelProp(null)
+              : this.state.strength,
+        },
+        this.updateURL
+      )
     }
 
     // If the new type is a unit, enable movement and strength
     else {
-      this.setState({
-        type,
-        movement: this.state.type !== 'unit' ? null : this.state.movement,
-        strength:
-          this.state.type === 'spell'
-            ? formatLevelProp(null)
-            : this.state.strength,
-      })
+      this.setState(
+        {
+          type,
+          movement: this.state.type !== 'unit' ? null : this.state.movement,
+          strength:
+            this.state.type === 'spell'
+              ? formatLevelProp(null)
+              : this.state.strength,
+        },
+        this.updateURL
+      )
     }
   }
 
-  setRace = race => this.setState({ race })
-  setElder = elder => this.setState({ elder })
-  setHero = hero => this.setState({ hero })
+  setRace = race => this.setState({ race }, this.updateURL)
+  setElder = elder => this.setState({ elder }, this.updateURL)
+  setHero = hero => this.setState({ hero }, this.updateURL)
 
-  setAbility = ability => this.setState({ ability: resolveAbility(ability) })
+  setAbility = ability =>
+    this.setState({ ability: resolveAbility(ability) }, this.updateURL)
 
   setImageCardId = id =>
-    this.setState({
-      imageCardId: id,
-      imageURL: id ? '' : this.state.imageURL,
-    })
+    this.setState(
+      {
+        imageCardId: id,
+        imageURL: id ? '' : this.state.imageURL,
+      },
+      this.updateURL
+    )
 
-  setImageURL = imageURL => this.setState({ imageURL, imageCardId: null })
+  setImageURL = imageURL =>
+    this.setState({ imageURL, imageCardId: null }, this.updateURL)
 
   onImagePaste = event => {
     const image = new Image()

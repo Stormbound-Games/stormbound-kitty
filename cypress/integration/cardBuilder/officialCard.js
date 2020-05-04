@@ -1,6 +1,39 @@
 import s from './selectors'
 
 describe('Card Builder — Official card', () => {
+  before(() => cy.visit('/card'))
+
+  it('should be possible to load an official card', () => {
+    cy.get(s.CARD_SELECT)
+      .find('.CardSelect__single-value')
+      .should('have.text', 'Load card')
+      .get(s.CARD_SELECT)
+      .find('input')
+      .first()
+      .click({ force: true })
+      .type('Sweet', { force: true })
+      .type('{enter}', { force: true })
+      .get(s.IMAGE_SELECT)
+      .find('.CardSelect__single-value')
+      .should('contain', 'Sweetcap Kittens')
+
+      .get(s.CARD_NAME)
+      .should('contain', 'Sweetcap Kittens')
+  })
+
+  it('should be possible to unload an official card', () => {
+    cy.get(s.CARD_SELECT)
+      .find('.CardSelect__clear-indicator')
+      .click({ force: true })
+
+      .get(s.CARD_SELECT)
+      .find('.CardSelect__single-value')
+      .should('have.text', 'Load card')
+
+      .get(s.CARD_NAME)
+      .should('be.empty')
+  })
+
   it('should hide the editing interface', () => {
     cy.visit('/card/N1/display')
       .get('form')
@@ -49,7 +82,7 @@ describe('Card Builder — Official card', () => {
       .should('match', /\/card\/N1\/display/)
   })
 
-  it('should display affordable levels with a loaded collection', () => {
+  it('should display upgradable levels with a loaded collection', () => {
     cy.visit('/collection')
       .get('[data-testid="import-btn"]')
       .importCollection('collection.import.csv')
@@ -58,14 +91,14 @@ describe('Card Builder — Official card', () => {
 
       .get(s.CARD)
       .eq(2)
-      .should('have.class', 'Card--affordable')
+      .should('have.class', 'Card--upgradable')
 
       .get(s.CARD)
       .eq(3)
-      .should('not.have.class', 'Card--affordable')
+      .should('not.have.class', 'Card--upgradable')
 
       .get(s.CARD)
       .eq(4)
-      .should('not.have.class', 'Card--affordable')
+      .should('not.have.class', 'Card--upgradable')
   })
 })
