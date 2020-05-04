@@ -347,7 +347,9 @@ function getHarvestersOfSoulsCopiedCard(state, harvestersLevel) {
   // created copy and then creating the copy if the level is greater than 1 (otherwise
   // Harvesters weren't able to copy the card)
   const lowestPossibleLevel =
-    harvestersLevel + HARVESTERS_OF_SOULS_RNG.LEVEL_BONUS[state.RNG] - 2
+    harvestersLevel +
+    HARVESTERS_OF_SOULS_RNG.LEVEL_BONUS[state.RNG] -
+    HARVESTERS_OF_SOULS_RNG.MAX_DEVIATION
   const possibleLevelValues = Array.from(
     { length: 2 * HARVESTERS_OF_SOULS_RNG.MAX_DEVIATION + 1 },
     (_, i) => lowestPossibleLevel + i

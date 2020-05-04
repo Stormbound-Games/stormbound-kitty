@@ -9,8 +9,8 @@ export const PROBABILITIES = {
 
 export const HARVESTERS_OF_SOULS_RNG = {
   LEVEL_BONUS: {
-    FRIENDLY: 1,
-    REGULAR: -1,
+    FRIENDLY: 2,
+    REGULAR: 0,
     UNFRIENDLY: -3,
   },
   MAX_DEVIATION: 2,
