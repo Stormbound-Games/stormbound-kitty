@@ -15,8 +15,11 @@ export default class ErrorBoundary extends React.Component {
     // The `ChunkLoadError` happens when navigating during a deployment. The
     // current chunks have been wiped from the `build` folder and replaced with
     // new ones, yielding a loading error. Only a reload can fix it.
-    if (event.error.name === 'ChunkLoadError') {
-      this.setState({ hasError: true, error: event.error.name })
+    if (
+      event.error.name === 'ChunkLoadError' ||
+      event.error.message.toLowerCase().includes('loading chunk')
+    ) {
+      this.setState({ hasError: true, error: 'ChunkLoadError' })
     }
   }
 
@@ -29,6 +32,7 @@ export default class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, info) {
+    // eslint-disable-next-line
     console.error({ error, info })
   }
 
