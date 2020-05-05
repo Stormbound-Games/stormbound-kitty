@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
 import Article from '../Article'
 import Error from '../Error'
-import InfoHint from '../InfoHint'
+import Notice from '../Notice'
 import Loader from '../Loader'
 import MicroMarkdown from '../MicroMarkdown'
 import PageMeta from '../PageMeta'
@@ -41,10 +41,10 @@ export default function Story(props) {
 
       <StoriesMore {...story} />
 
-      <InfoHint>
+      <Notice>
         Looking to contribute to the Stormbound lore?{' '}
         <Link to='/faq#adding-a-story'>Have your own story published</Link>.
-      </InfoHint>
+      </Notice>
 
       {story && (
         <PageMeta

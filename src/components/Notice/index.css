@@ -2,7 +2,7 @@
  * 1. Artifact of the fact the info hint is usually placed at the bottom of a
  *    page to act as a call to action for the user to interact.
  */
-.InfoHint {
+.Notice {
   text-align: center;
   font-size: 115%;
   margin-top: 3em; /* 1 */
@@ -11,7 +11,7 @@
 /**
  * 1. Vertically align the icon (if any) with the text.
  */
-.InfoHint .icon {
+.Notice .icon {
   transform: translateY(2px); /* 1 */
   margin-right: 0.25em;
 }
