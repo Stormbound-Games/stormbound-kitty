@@ -60,9 +60,12 @@ export default props => {
       deck={deck}
       mode={mode}
       equalsMode={equalsMode}
-      harvestersCards={harvestersCards}
-      setHarvestersCards={setHarvestersCards}
-      harvestersDialogRef={harvestersDialogRef}
+      modifier={modifier}
+      HoS={{
+        cards: harvestersCards,
+        setCards: setHarvestersCards,
+        dialog: harvestersDialogRef,
+      }}
     >
       {state => (
         <DeckBuilderDryRunView
@@ -76,9 +79,11 @@ export default props => {
           setModifier={setModifier}
           playedCards={state.playedCards}
           cardsThisTurn={state.cardsThisTurn}
-          harvestersCards={harvestersCards}
-          setHarvestersCards={setHarvestersCards}
-          harvestersDialogRef={harvestersDialogRef}
+          HoS={{
+            cards: harvestersCards,
+            setCards: setHarvestersCards,
+            dialog: harvestersDialogRef,
+          }}
         />
       )}
     </DeckMechanisms>
@@ -149,6 +154,9 @@ class DeckBuilderDryRunView extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    if (!prevProps.HoS.cards.length && this.props.HoS.cards.length) {
+      this.props.HoS.dialog.current.show()
+    }
     if (
       prevProps.equalsMode !== this.props.equalsMode ||
       prevProps.modifier !== this.props.modifier

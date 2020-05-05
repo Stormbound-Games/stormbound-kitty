@@ -10,6 +10,7 @@ import shuffle from '../../helpers/shuffle'
 import play from './play'
 import cycle from './cycle'
 import draw from './draw'
+import modifyDeck from '../../helpers/modifyDeck'
 
 // Frozen enemies left after a card's ability has been resolved, in regular RNG mode
 const FROZEN_ENEMIES_AFTER = {
@@ -302,13 +303,9 @@ const handleCardEffect = (state, card, mode, harvestersActions) => {
 
     // Harvesters of Souls
     case 'N38': {
-      const copiedCards = Array.from(
-        { length: HARVESTERS_OF_SOULS_RNG.POTENTIAL_CARDS[state.RNG] },
-        () => getHarvestersOfSoulsCopiedCard(state, card.level)
-      ).filter(Boolean)
+      const copiedCards = getHarvestersOfSoulsPossibleCards(state, card.level)
       if (copiedCards.length) {
         harvestersActions.setCards(copiedCards)
-        harvestersActions.dialog.current.show()
       }
       break
     }
@@ -347,7 +344,15 @@ function getCollectorMirzToken(deck, level) {
   return token
 }
 
-function getHarvestersOfSoulsCopiedCard(state, harvestersLevel, dialogRef) {
+function getHarvestersOfSoulsPossibleCards(state, level) {
+  const possibleCards = Array.from(
+    { length: HARVESTERS_OF_SOULS_RNG.POTENTIAL_CARDS[state.RNG] },
+    () => getHarvestersOfSoulsCopiedCard(state, level)
+  ).filter(Boolean)
+  return modifyDeck(possibleCards, state.modifier, state.equalsMode)
+}
+
+function getHarvestersOfSoulsCopiedCard(state, harvestersLevel) {
   // The RNG for Harvesters of Souls is determined by first choosing a level for the
   // created copy and then creating the copy if the level is greater than 1 (otherwise
   // Harvesters weren't able to copy the card)
@@ -364,7 +369,13 @@ function getHarvestersOfSoulsCopiedCard(state, harvestersLevel, dialogRef) {
   if (level <= 0) return
 
   const id = arrayRandom(
-    cards.filter(card => card.type === 'unit').map(card => card.id)
+    cards
+      .filter(
+        card =>
+          card.type === 'unit' &&
+          ['neutral', state.opponentFaction].includes(card.faction)
+      )
+      .map(card => card.id)
   )
   const copiedCardlevel = state.equalsMode ? 1 : level
   const copiedCard = getResolvedCardData({ id, level: copiedCardlevel })

@@ -32,7 +32,7 @@ export default React.memo(function CardsGallery(props) {
           <motion.li
             className='CardsGallery__item'
             id={'card-' + card.id}
-            key={card.id}
+            key={[card.id, card.idx].join('_')}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}

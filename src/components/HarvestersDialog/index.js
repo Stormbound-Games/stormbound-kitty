@@ -1,13 +1,15 @@
 import React from 'react'
 import CardsGallery from '../CardsGallery'
 import Dialog from '../Dialog'
+import './index.css'
 
 export default React.memo(function HarvestersDialog(props) {
   return (
     <Dialog
       id='harvesters-dialog'
-      dialogRef={instance => (props.dialogRef.current = instance)}
-      close={() => {}}
+      className='Dialog__content'
+      role='alertdialog'
+      dialogRef={instance => (props.dialog.current = instance)}
       title='Choose the card to copy'
       image='/assets/images/cards/harvesters_of_souls.png'
     >
@@ -15,13 +17,14 @@ export default React.memo(function HarvestersDialog(props) {
         <CardsGallery
           cards={props.cards}
           cardsPerPage={props.cards.length}
-          hideNavButtons={true}
+          hideNavButtons
           onCardClick={id => {
             const chosenCard = props.cards.find(
               suggestedCard => suggestedCard.id === id
             )
             props.addCardToDeck(chosenCard)
-            props.dialogRef.current.hide()
+            props.setCards([])
+            props.dialog.current.hide()
           }}
         />
       )}

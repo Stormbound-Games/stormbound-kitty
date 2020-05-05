@@ -51,8 +51,7 @@ export default React.memo(function DryRunner(props) {
           {props.deck.map(card => card.id).includes('N38') && (
             <>
               <HarvestersDialog
-                dialogRef={props.harvestersDialogRef}
-                cards={props.harvestersCards}
+                {...props.HoS}
                 addCardToDeck={props.addCardToDeck}
               />
               <Hint>

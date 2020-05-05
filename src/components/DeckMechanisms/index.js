@@ -1,7 +1,9 @@
 import React from 'react'
 import clone from 'lodash.clonedeep'
+import rwc from 'random-weighted-choice'
 import { DEFAULT_MANA } from '../../constants/battle'
 import resolveDeckWeight from '../../helpers/resolveDeckWeight'
+import getFactionWeights from '../../helpers/getFactionWeights'
 import isCard from '../../helpers/isCard'
 import canCardBePlayed from './canCardBePlayed'
 import draw from './draw'
@@ -28,6 +30,8 @@ const getDefaultState = props => ({
   playedCards: [],
   cardsThisTurn: 0,
   equalsMode: props.equalsMode,
+  modifier: props.modifier,
+  opponentFaction: rwc(getFactionWeights(props.modifier)),
 })
 
 export default class DeckMechanisms extends React.Component {
@@ -89,8 +93,7 @@ export default class DeckMechanisms extends React.Component {
     // round, skip play.
     if (options.discard || canAfford) {
       const harvestersActions = {
-        dialog: this.props.harvestersDialogRef,
-        setCards: this.props.setHarvestersCards,
+        ...this.props.HoS,
       }
       this.setState(state =>
         play(
