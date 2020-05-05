@@ -73,13 +73,8 @@ const deserialiseBoard = string => {
   return chunk(resolvedCells, 4)
 }
 
-const deserialiseCards = (string, size) =>
-  arrayPad(
-    deserialiseDeck(window.btoa(string.replace(',', ''))),
-    size,
-    DEFAULT_CARD,
-    +1
-  )
+const deserialiseBattleSimCards = (string, size) =>
+  arrayPad(deserialiseCards(string), size, DEFAULT_CARD, +1)
 
 const deserialiseSettings = string => {
   // Technically mana needs to be defined, however, when clearing the field, it
@@ -95,7 +90,7 @@ const deserialiseHand = (handString, cardsString) => {
   // empty string. In that case, we need to consider the 4 first cards from the
   // deck to be the hand.
   if (handString === undefined) {
-    return deserialiseCards(cardsString)
+    return deserialiseBattleSimCards(cardsString, 4)
       .filter(card => !!card.id)
       .map(card => card.id)
   }
@@ -116,7 +111,7 @@ export const deserialiseBattle = hash => {
   return {
     board: deserialiseBoard(board),
     players: deserialisePlayers(players),
-    cards: deserialiseCards(cards, 12),
+    cards: deserialiseBattleSimCards(cards, 12),
     hand: deserialiseHand(hand, cards),
     ...deserialiseSettings(settings),
   }
@@ -213,11 +208,11 @@ const indexOf = (string, regex, startPosition = 0) => {
   return indexOf >= 0 ? indexOf + startPosition : undefined
 }
 
-export const deserialiseDeck = hash => {
+export const deserialiseCards = string => {
   // If the base64 decoded string contains commas, it was originally encoded
   // with the old serialisation system, and these commas need to be removed
   // for the new system to work.
-  let string = window.atob(hash).replace(/,/g, '')
+  string = string.replace(/,/g, '')
 
   const cards = []
   const factionRegex = /[NSFWIT]/
@@ -246,6 +241,8 @@ export const deserialiseDeck = hash => {
 
   return cards
 }
+
+export const deserialiseDeck = hash => deserialiseCards(window.atob(hash))
 
 const QUEST_PROPERTIES = [
   { name: 'name', resolve: value => decodeURIComponent(value) },

@@ -22,8 +22,8 @@ describe('The `serialiseDeck` helper', () => {
   })
 
   it('should be a btoa wrapper around `serialisedCards`', () => {
-    expect(serialiseDeck([{ level: 1, id: 'N1' }])).to.equal(
-      btoa(serialiseCards([{ level: 1, id: 'N1' }]))
-    )
+    const cards = [{ level: 1, id: 'N1' }]
+
+    expect(serialiseDeck(cards)).to.equal(btoa(serialiseCards(cards)))
   })
 })
