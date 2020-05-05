@@ -267,6 +267,42 @@ export default [
     title: 'Collection',
     entries: [
       {
+        id: 'collection-benefits',
+        question:
+          'What is the point of maintaining my card collection on the site?',
+        answer: (
+          <>
+            <p>
+              While it is understandably cumbersome to initially create one’s
+              collection on the site, it eventually offers quite some
+              interesting benefits:
+            </p>
+            <ul>
+              <li>
+                The <Link to='/deck'>deck builder</Link> will automatically load
+                cards at the correct level.
+              </li>
+              <li>
+                The <Link to='/deck/suggestions'>suggested decks</Link> will
+                order decks by feasibility based on your cards.
+              </li>
+              <li>
+                The <Link to='/collection/books'>book odds calculator</Link>{' '}
+                will display how many coins you can expect per book.
+              </li>
+              <li>
+                The <Link to='/card'>card builder</Link> will offer a nice
+                display with possible upgrades for your cards.
+              </li>
+              <li>
+                The <Link to='/collection/stats'>collection stats</Link> offer
+                handy data visualisation of your collection.
+              </li>
+            </ul>
+          </>
+        ),
+      },
+      {
         id: 'collection-value',
         question: 'What is the total value of the collection?',
         answer: (
