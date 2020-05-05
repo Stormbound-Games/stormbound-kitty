@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import remark from 'remark'
 import remarkReact from 'remark-react'
 import cards from '../../data/cards'
-import Hint from '../Hint'
+import Notice from '../Notice'
 import Title from '../Title'
 import WikiLink from '../WikiLink'
 import generateId from '../../helpers/generateId'
@@ -41,10 +41,10 @@ const h3 = React.memo(props => (
 const p = React.memo(props =>
   typeof props.children[0] === 'string' &&
   props.children[0].startsWith('Hint: ') ? (
-    <Hint>
+    <Notice>
       {props.children[0].replace('Hint: ', '')}
       {props.children.slice(1)}
-    </Hint>
+    </Notice>
   ) : (
     <p>
       {props.children.map(child =>

@@ -2,7 +2,7 @@ import React from 'react'
 import CardDisplay from '../CardBuilderCardDisplay'
 import Column from '../Column'
 import CoreForm from '../CardBuilderCoreForm'
-import Hint from '../Hint'
+import Notice from '../Notice'
 import ImageErrorDialog from '../CardBuilderImageErrorDialog'
 import LevelForm from '../CardBuilderLevelForm'
 import Row from '../Row'
@@ -22,11 +22,11 @@ export default React.memo(function CardBuilderApp(props) {
 
       {props.hasSingleLevel && (
         <div className='CardBuilderApp__notice'>
-          <Hint>
+          <Notice icon='wand'>
             This card was created before it was possible to define all 5 levels,
             or without consideration for leveling, therefore only the level{' '}
             {props.level} is relevant.
-          </Hint>
+          </Notice>
         </div>
       )}
 
