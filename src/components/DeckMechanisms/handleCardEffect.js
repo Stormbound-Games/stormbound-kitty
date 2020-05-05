@@ -377,8 +377,7 @@ function getHarvestersOfSoulsCopiedCard(state, harvestersLevel) {
       )
       .map(card => card.id)
   )
-  const copiedCardlevel = state.equalsMode ? 1 : level
-  const copiedCard = getResolvedCardData({ id, level: copiedCardlevel })
+  const copiedCard = getResolvedCardData({ id, level })
   const copiedCardStrength = [5, 6, 7, 8, 10][harvestersLevel - 1]
 
   copiedCard.weight = 0
