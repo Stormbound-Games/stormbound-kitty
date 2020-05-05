@@ -13,7 +13,7 @@ import getIncreasedDeckWeight from './getIncreasedDeckWeight'
 
 const getDefaultState = props => ({
   hand: [],
-  RNG: 'REGULAR',
+  RNG: props.RNG || 'REGULAR',
   hasCycledThisTurn: false,
   specifics: {
     activeFrozenCores: 0,
@@ -120,7 +120,11 @@ export default class DeckMechanisms extends React.Component {
 
   canCardBePlayed = card => canCardBePlayed(this.state, card)
 
-  reset = () => this.setState(getDefaultState(this.props), this.completeHand)
+  reset = () =>
+    this.setState(
+      getDefaultState({ ...this.props, RNG: this.state.RNG }),
+      this.completeHand
+    )
 
   setPlayerOrder = playerOrder => {
     const turn = playerOrder === 'SECOND' ? 2 : 1

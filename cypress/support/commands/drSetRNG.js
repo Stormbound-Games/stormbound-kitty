@@ -1,3 +1,5 @@
+import s from '../../integration/dryRunner/selectors'
+
 const setRNG = mode => {
   Cypress.log({
     name: 'SET_RNG',
@@ -6,7 +8,7 @@ const setRNG = mode => {
   })
 
   return cy
-    .get('[data-testid="RNG-input"]', { log: false })
+    .get(s.RNG_INPUT, { log: false })
     .filter(`[value="${mode}"]`, { log: false })
     .click({ log: false, force: true })
 }
