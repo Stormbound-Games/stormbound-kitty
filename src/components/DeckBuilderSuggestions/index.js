@@ -31,6 +31,7 @@ class DeckBuilderSuggestions extends React.Component {
     this.state = {
       ...this.getURLParameters(),
       name: '',
+      order: this.props.hasDefaultCollection ? 'DATE' : 'FEASIBILITY',
     }
   }
 
@@ -96,6 +97,7 @@ class DeckBuilderSuggestions extends React.Component {
         author: '*',
         including: null,
         brawl: '*',
+        order: this.props.hasDefaultCollection ? 'DATE' : 'FEASIBILITY',
       },
       this.updateURLParameters
     )
@@ -106,6 +108,7 @@ class DeckBuilderSuggestions extends React.Component {
       state => ({ brawl, category: brawl !== '*' ? 'BRAWL' : state.category }),
       this.updateURLParameters
     )
+  updateOrder = order => this.setState({ order })
 
   debouncedUpdateName = debounce(this.updateName, 500)
 
@@ -130,14 +133,20 @@ class DeckBuilderSuggestions extends React.Component {
     this.state.brawl === '*' || deck.brawl === this.state.brawl
 
   getDecks = () => {
-    return decks
-      .filter(this.matchesFaction)
-      .filter(this.matchesCategory)
-      .filter(this.matchesAuthor)
-      .filter(this.matchesName)
-      .filter(this.matchesIncluding)
-      .filter(this.matchesBrawl)
-      .sort(sortDeckSuggestions(this.props))
+    return (
+      [...decks]
+        // New decks are added at the end of the JSON file, but should be
+        // displayed first, therefore we reverse the array before filtering and
+        // sorting it.
+        .reverse()
+        .filter(this.matchesFaction)
+        .filter(this.matchesCategory)
+        .filter(this.matchesAuthor)
+        .filter(this.matchesName)
+        .filter(this.matchesIncluding)
+        .filter(this.matchesBrawl)
+        .sort(sortDeckSuggestions(this.props, this.state.order))
+    )
   }
 
   resetFilters = () =>
@@ -194,17 +203,20 @@ class DeckBuilderSuggestions extends React.Component {
               updateName={this.debouncedUpdateName}
               updateIncluding={this.updateIncluding}
               updateBrawl={this.updateBrawl}
+              updateOrder={this.updateOrder}
               resetFilters={this.resetFilters}
               formRef={this.formRef}
             />
             <p className='DeckBuilderSuggestions__order'>
-              <Only.CustomCollection>
-                Decks are ordered based on the cards in{' '}
-                <span className='Highlight'>your collection</span>. That means
-                decks you can make with your highest cards are at the top of the
-                list and decks containing cards you do not possess are
-                downranked.
-              </Only.CustomCollection>
+              {this.state.order === 'FEASIBILITY' && (
+                <Only.CustomCollection>
+                  Decks are ordered based on the cards in{' '}
+                  <span className='Highlight'>your collection</span>. That means
+                  decks you can make with your highest cards are at the top of
+                  the list and decks containing cards you do not possess are
+                  downranked.
+                </Only.CustomCollection>
+              )}
               <Only.DefaultCollection>
                 If you have already{' '}
                 <Link to='/collection'>created your collection</Link>, you can
