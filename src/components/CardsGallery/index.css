@@ -13,7 +13,9 @@
 }
 
 .CardsGallery__item {
-  flex: 0 1 25%;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: calc(100% / var(--cards-per-row));
   padding: 1.25em 0.5em;
   position: relative;
 }
@@ -79,17 +81,5 @@
 
   .CardsGallery__nav-button {
     width: calc(50% - 1em);
-  }
-}
-
-@media (max-width: 1099px) {
-  .CardsGallery__item {
-    flex: 0 1 calc(100% / 3);
-  }
-}
-
-@media (max-width: 850px) {
-  .CardsGallery__item {
-    flex: 0 1 calc(100% / 2);
   }
 }

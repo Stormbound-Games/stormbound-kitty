@@ -7,12 +7,12 @@ import './index.css'
 
 export default React.memo(function CardsGallery(props) {
   const [activePage, setActivePage] = React.useState(0)
-  const pages = React.useMemo(() => chunk(props.cards, props.cardsPerPage), [
-    props.cards,
-    props.cardsPerPage,
-  ])
+  const pages = React.useMemo(
+    () => chunk(props.cards || [], props.cardsPerPage),
+    [props.cards, props.cardsPerPage]
+  )
   const filters = Object.values(props.filters || {})
-  const page = pages[activePage] || pages[0]
+  const page = pages[activePage] || pages[0] || []
   const { onPageChange } = props
   const changePage = React.useCallback(
     page => {
@@ -26,7 +26,10 @@ export default React.memo(function CardsGallery(props) {
   React.useEffect(() => changePage(0), filters)
 
   return (
-    <div className='CardsGallery'>
+    <div
+      className='CardsGallery'
+      style={{ '--cards-per-row': props.cardsPerPage / 2 }}
+    >
       <ul className='CardsGallery__list'>
         {page.map((card, index) => {
           const key = [card.id, index].join('_')
