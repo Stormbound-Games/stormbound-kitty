@@ -7,7 +7,7 @@ import DryRunnerActions from '../DryRunnerActions'
 import DryRunnerHand from '../DryRunnerHand'
 import DryRunnerHeader from '../DryRunnerHeader'
 import DryRunnerInfo from '../DryRunnerInfo'
-import Hint from '../Hint'
+import Info from '../Info'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
@@ -37,7 +37,7 @@ export default React.memo(function DryRunner(props) {
             cardsThisTurn={props.cardsThisTurn}
           />
 
-          <p>
+          <Info icon='sword' title='In-game mechanics'>
             This simulator has same{' '}
             <Link to='/faq#drawing-algorithm'>drawing/cycling mechanics</Link>{' '}
             as the game and should be an accurate representation of how playing
@@ -45,13 +45,13 @@ export default React.memo(function DryRunner(props) {
             mana flow and combo efficiency. Additionally,{' '}
             <Link to='/faq#dry-runner-mechanics'>many card abilities</Link> are
             also implemented in this simulator.
-          </p>
+          </Info>
 
           {props.deck.map(card => card.id).includes('N38') && (
-            <Hint>
+            <Info icon='sword' title='Harvesters of Souls'>
               Due to the lack of opponent’s deck, Harvesters of Souls’ ability
               has only been partially implemented.
-            </Hint>
+            </Info>
           )}
         </Column>
 
