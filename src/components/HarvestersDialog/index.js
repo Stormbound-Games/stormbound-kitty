@@ -17,21 +17,19 @@ export default React.memo(function HarvestersDialog(props) {
       title='Choose the card to copy'
       image='/assets/images/cards/harvesters_of_souls.png'
     >
-      {props.cards.length && (
-        <CardsGallery
-          cards={props.cards}
-          cardsPerPage={props.cards.length}
-          hideNavButtons
-          onCardClick={id => {
-            const chosenCard = props.cards.find(
-              suggestedCard => suggestedCard.id === id
-            )
-            props.addCardToDeck(chosenCard)
-            props.setCards([])
-            props.dialog.current.hide()
-          }}
-        />
-      )}
+      <CardsGallery
+        cards={props.cards}
+        cardsPerPage={props.cards.length}
+        hideNavButtons
+        onCardClick={id => {
+          const chosenCard = props.cards.find(
+            suggestedCard => suggestedCard.id === id
+          )
+          props.addCardToDeck(chosenCard)
+          props.setCards([])
+          props.dialog.current.hide()
+        }}
+      />
     </Dialog>
   )
 })
