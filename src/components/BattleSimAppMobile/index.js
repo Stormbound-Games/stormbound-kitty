@@ -6,7 +6,6 @@ import CardsForm from '../BattleSimCardsForm'
 import CellForm from '../BattleSimCellForm'
 import Deck from '../Deck'
 import GameForm from '../BattleSimGameForm'
-import Hint from '../Hint'
 import Panel from '../BattleSimPanel'
 import PlayerForm from '../BattleSimPlayerForm'
 import Puzzle from '../BattleSimPuzzle'
@@ -193,7 +192,7 @@ export default class BattleSimAppMobile extends React.Component {
                   onClick={this.props.zoom}
                   onClickLabel='Enlarge card'
                 />
-                <Hint>
+                <p>
                   <a
                     href={`/deck/` + serialiseDeck(this.props.cards)}
                     target='_blank'
@@ -202,7 +201,7 @@ export default class BattleSimAppMobile extends React.Component {
                     Open deck
                   </a>{' '}
                   in deck builder.
-                </Hint>
+                </p>
               </Panel>
             )}
           </div>
@@ -270,7 +269,7 @@ export default class BattleSimAppMobile extends React.Component {
                   />
                 )}
                 {(!this.props.activePlayer || !this.props.activeCell) && (
-                  <Hint>Select a cell.</Hint>
+                  <p>Select a cell.</p>
                 )}
               </Panel>
             ) : (
