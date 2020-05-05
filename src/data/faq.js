@@ -182,21 +182,6 @@ export default [
         ),
       },
       {
-        id: 'personal-card-collection',
-        question:
-          'Is it possible to import my cards collection inside the deck builder to have the correct levels and all?',
-        answer: (
-          <>
-            If you took the time to recreate your{' '}
-            <Link to='/collection'>card collection</Link>, then you can use it
-            in the deck builder! Unfortunately the initial process of importing
-            your collection is a little tedious given Paladin Studios does not
-            provide a public API for Stormbound which enables us to query
-            players’ data.
-          </>
-        ),
-      },
-      {
         id: 'cross-faction-decks',
         question:
           'Why is it possible to create cross-faction decks since it’s not allowed in the game?',
@@ -226,11 +211,7 @@ export default [
         id: 'dry-runner-mechanics',
         question:
           'Which mechanics are currently implemented in the dry-run simulator?',
-        answer: (
-          <>
-            <DryRunnerExplanation />
-          </>
-        ),
+        answer: <DryRunnerExplanation />,
       },
 
       {
