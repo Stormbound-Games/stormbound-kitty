@@ -45,7 +45,7 @@ export default React.memo(function Footer(props) {
               .
             </p>
             <p className='Footer__info'>
-              This site is powered by{' '}
+              This site is hosted on{' '}
               <a
                 href='https://www.netlify.com'
                 target='_blank'
