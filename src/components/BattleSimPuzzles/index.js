@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import puzzles from '../../data/puzzles'
 import Column from '../Column'
 import EmptySearch from '../EmptySearch'
-import InfoHint from '../InfoHint'
+import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Puzzle from '../BattleSimPuzzle'
 import PuzzlesFilters from '../BattleSimPuzzlesFilters'
@@ -82,11 +82,11 @@ export default class BattleSimPuzzles extends React.Component {
                 resetFilters={this.resetFilters}
               />
             )}
-            <InfoHint icon='sword'>
+            <Notice icon='sword'>
               Design your own puzzles and{' '}
               <Link to='/faq#adding-a-puzzle'>have them added</Link> to the
               list!
-            </InfoHint>
+            </Notice>
           </Column>
         </Row>
 

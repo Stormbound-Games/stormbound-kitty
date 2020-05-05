@@ -73,7 +73,7 @@ a.Header__link:hover {
   padding: 0.5em;
 }
 
-.Header .icon {
+.Header__icon {
   font-size: 80%;
   margin-right: 0.25em;
   vertical-align: baseline;
@@ -176,7 +176,7 @@ a.Header__link:hover {
 }
 
 @media (min-width: 700px) and (max-width: 1000px) {
-  .Header .icon {
+  .Header__icon {
     display: none;
   }
 }

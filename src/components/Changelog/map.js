@@ -1,11 +1,17 @@
 import React from 'react'
 
-const Buff = props => <span className='Changelog__buff'>{props.children}</span>
-const Nerf = props => <span className='Changelog__nerf'>{props.children}</span>
-const Info = props => <span className='Changelog__info'>{props.children}</span>
-const Mixed = props => (
-  <span className='Changelog__mixed'>{props.children}</span>
-)
+const Buff = React.memo(function Buff(props) {
+  return <span className='Changelog__buff'>{props.children}</span>
+})
+const Nerf = React.memo(function Nerf(props) {
+  return <span className='Changelog__nerf'>{props.children}</span>
+})
+const Info = React.memo(function Info(props) {
+  return <span className='Changelog__info'>{props.children}</span>
+})
+const Mixed = React.memo(function Mixed(props) {
+  return <span className='Changelog__mixed'>{props.children}</span>
+})
 
 const END =
   '(?=$|,|;| \\(| and (?:{{)?(?=increased|decreased|lowered|reduced|adjusted|ability changed|changed))'

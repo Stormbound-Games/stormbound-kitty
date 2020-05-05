@@ -5,13 +5,15 @@ import { CollectionContext } from '../CollectionProvider'
 import { NotificationContext } from '../NotificationProvider'
 import CollectionClearHint from '../CollectionClearHint'
 import CardLevelField from '../DeckBuilderCardLevelField'
+import CardsFiltering from '../CardsFiltering'
 import CardsGallery from '../CardsGallery'
 import Column from '../Column'
 import Deck from '../Deck'
 import EmptySearch from '../EmptySearch'
-import CardsFiltering from '../CardsFiltering'
 import Filters from '../DeckBuilderEditorFilters'
 import ImportCollection from '../ImportCollection'
+import Info from '../Info'
+import LearnMoreIcon from '../LearnMoreIcon'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import RandomDeckButton from '../DeckBuilderRandomDeckButton'
@@ -140,8 +142,9 @@ class DeckBuilderEditorView extends React.Component {
               highlightedCards={this.props.highlightedCards}
             />
 
-            {this.props.deck.length > 0 && (
-              <>
+            {this.props.deck.length > 0 ? (
+              <div className='DeckBuilderEditorView__actions'>
+                {' '}
                 <Row>
                   <Column>
                     <ResetButton
@@ -154,52 +157,38 @@ class DeckBuilderEditorView extends React.Component {
                     <ShareButton />
                   </Column>
                 </Row>
-              </>
-            )}
-
-            {!this.state.matchedDeck && (
-              <div className='DeckBuilderEditorView__info'>
-                <p>
-                  If you do not know where to start,{' '}
-                  <Link to='/guides/deck'>read the deck-building guide</Link> to
-                  learn how to make a viable deck, or try one of the{' '}
-                  <Link to='/deck/suggestions'>
-                    ready-to-go suggested decks
-                  </Link>
-                  .
-                </p>
-
-                <CollectionClearHint />
-
-                <Only.DefaultCollection>
-                  <p>
-                    If you have already{' '}
-                    <Link to='/collection'>created your collection</Link>, you
-                    can import it directly in the deck builder to compose decks
-                    that you can make in-game.
-                  </p>
-                </Only.DefaultCollection>
               </div>
+            ) : (
+              <Info
+                icon='stack'
+                title='Getting started'
+                CTA={<RandomDeckButton defineDeck={this.props.defineDeck} />}
+              >
+                If you do not know where to start,{' '}
+                <Link to='/guides/deck'>read the deck-building guide</Link> to
+                learn how to make a viable deck, or try one of the{' '}
+                <Link to='/deck/suggestions'>ready-to-go suggested decks</Link>.
+              </Info>
             )}
 
-            {(!matchedDeck || this.props.hasDefaultCollection) && (
-              <Row>
-                <Column>
-                  {!matchedDeck ? (
-                    <RandomDeckButton defineDeck={this.props.defineDeck} />
-                  ) : (
-                    <ImportCollection onChange={this.onCollectionImport} />
-                  )}
-                </Column>
-                <Column>
-                  <Only.DefaultCollection>
-                    {!matchedDeck && (
-                      <ImportCollection onChange={this.onCollectionImport} />
-                    )}
-                  </Only.DefaultCollection>
-                </Column>
-              </Row>
-            )}
+            <CollectionClearHint />
+
+            <Only.DefaultCollection>
+              <Info
+                icon='books'
+                title={
+                  <>
+                    Your collection
+                    <LearnMoreIcon anchor='#collection-benefits' />
+                  </>
+                }
+                CTA={<ImportCollection onChange={this.onCollectionImport} />}
+              >
+                If you have already created your collection, you can import it
+                directly in the deck builder to compose decks that you can make
+                in-game.
+              </Info>
+            </Only.DefaultCollection>
           </Column>
 
           <Column width='2/3'>

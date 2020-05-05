@@ -1,6 +1,6 @@
 import React from 'react'
 import { CollectionContext } from '../CollectionProvider'
-import Icon from '../Icon'
+import Info from '../Info'
 import Only from '../Only'
 
 export default React.memo(function CollectionClearHint(props) {
@@ -8,9 +8,9 @@ export default React.memo(function CollectionClearHint(props) {
 
   return (
     <Only.CustomCollection>
-      <p className='CollectionClearHint'>
-        <Icon icon='books' /> A locally saved collection was found and loaded.
-        If you would like to remove it and start fresh, you can{' '}
+      <Info icon='books' title='Your collection'>
+        A locally saved collection was found and loaded. If you would like to
+        remove it and start fresh, you can{' '}
         <button
           type='button'
           onClick={resetCollection}
@@ -19,7 +19,7 @@ export default React.memo(function CollectionClearHint(props) {
           clear the local data
         </button>{' '}
         (you will be asked to confirm).
-      </p>
+      </Info>
     </Only.CustomCollection>
   )
 })

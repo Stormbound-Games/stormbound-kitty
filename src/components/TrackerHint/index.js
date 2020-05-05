@@ -1,5 +1,5 @@
 import React from 'react'
-import Hint from '../Hint'
+import Notice from '../Notice'
 import { STATUSES } from '../../constants/tracker'
 import './index.css'
 
@@ -41,7 +41,7 @@ const getHint = ({ status, playerOrder }) => {
 export default React.memo(function TrackerHint(props) {
   return (
     <div className='TrackerHint'>
-      <Hint>{getHint(props)}</Hint>
+      <Notice>{getHint(props)}</Notice>
     </div>
   )
 })

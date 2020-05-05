@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Column from '../Column'
 import GuideTeaser from '../GuideTeaser'
 import HeaderBanner from '../HeaderBanner'
-import InfoHint from '../InfoHint'
+import Notice from '../Notice'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
@@ -25,10 +25,10 @@ export default React.memo(function Guides(props) {
         </Row>
       ))}
 
-      <InfoHint icon='compass'>
+      <Notice icon='compass'>
         Looking to teach others and guide them towards glorious battles?{' '}
         <Link to='/faq#adding-a-guide'>Have your own guide published</Link>.
-      </InfoHint>
+      </Notice>
 
       <PageMeta
         title='Guides'

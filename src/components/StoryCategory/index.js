@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { STORY_CATEGORIES } from '../../constants/stories'
 import Error from '../Error'
 import HeaderBanner from '../HeaderBanner'
-import InfoHint from '../InfoHint'
+import Notice from '../Notice'
 import Loader from '../Loader'
 import PageMeta from '../PageMeta'
 import Stories from '../Stories'
@@ -31,10 +31,10 @@ export default React.memo(function StoryCategory(props) {
         <Stories stories={stories} columns={3} />
       )}
 
-      <InfoHint icon='quill'>
+      <Notice icon='quill'>
         Looking to contribute to the Stormbound lore?{' '}
         <Link to='/faq#adding-a-story'>Have your own story published</Link>.
-      </InfoHint>
+      </Notice>
 
       <PageMeta
         title={`${title} stories`}

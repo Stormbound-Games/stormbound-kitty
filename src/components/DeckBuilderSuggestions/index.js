@@ -7,6 +7,7 @@ import decks from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
 import Column from '../Column'
 import EmptySearch from '../EmptySearch'
+import Info from '../Info'
 import Loader from '../Loader'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
@@ -210,11 +211,13 @@ class DeckBuilderSuggestions extends React.Component {
             <p className='DeckBuilderSuggestions__order'>
               {this.state.order === 'FEASIBILITY' && (
                 <Only.CustomCollection>
-                  Decks are ordered based on the cards in{' '}
-                  <span className='Highlight'>your collection</span>. That means
-                  decks you can make with your highest cards are at the top of
-                  the list and decks containing cards you do not possess are
-                  downranked.
+                  <Info icon='books' title='Your collection'>
+                    Decks are ordered based on the cards in{' '}
+                    <span className='Highlight'>your collection</span>. That
+                    means decks you can make with your highest cards are at the
+                    top of the list and decks containing cards you do not
+                    possess are downranked.
+                  </Info>
                 </Only.CustomCollection>
               )}
               <Only.DefaultCollection>
