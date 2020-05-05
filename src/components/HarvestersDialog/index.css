@@ -1,3 +1,30 @@
+/**
+ * 1. The dialog for Harvesters of Souls’ card pick displays up to 4 cards next
+ *    to each other and therefore needs to be larger than a regular dialog.
+ */
 #harvesters-dialog .Dialog__content {
-  width: 700px;
+  width: 700px; /* 1 */
+}
+
+/**
+ * 1. Because dialog for Harvesters of Souls’ card pick display cards, it needs
+ *    a bit more spacing than for text content to not look too crowded.
+ */
+#harvesters-dialog .Dialog__body {
+  padding: 2em; /* 1 */
+}
+
+/**
+ * 1. Horizontally centers the cards within the dialog.
+ */
+#harvesters-dialog .CardsGallery__list {
+  justify-content: center; /* 1 */
+}
+
+/**
+ * 1. Make sure the cards do not take too much width, otherwise they would
+ *    proportionally grow the dialog’s.
+ */
+#harvesters-dialog .CardsGallery__item {
+  max-width: 200px; /* 1 */
 }
