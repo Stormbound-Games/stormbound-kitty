@@ -3,7 +3,7 @@ import copy from 'copy-to-clipboard'
 import minifyUrl from '../helpers/minifyUrl'
 
 const useShare = ({
-  url = window.location.href,
+  processURL = url => url,
   title = '',
   content = '',
   shortenURL = false,
@@ -17,10 +17,14 @@ const useShare = ({
     return isShareAPISupported && isMobile
   }, [])
 
-  const getURL = React.useCallback(() => (!shortenURL ? url : minifyUrl(url)), [
-    shortenURL,
-    url,
-  ])
+  const getURL = React.useCallback(() => {
+    // If is important `window.location.href` is read when calling `getURL` and
+    // not on mount otherwise the URL might have been updated between reading it
+    // and trying to share it.
+    const url = processURL(window.location.href)
+
+    return !shortenURL ? url : minifyUrl(url)
+  }, [processURL, shortenURL])
 
   const copyToClipboard = React.useCallback(async () => {
     const url = await getURL()
@@ -38,6 +42,7 @@ const useShare = ({
       await navigator.share({ url: await getURL(), title, text: content })
     } catch (error) {
       if (error instanceof DOMException) {
+        // eslint-disable-next-line
         console.error(error.message)
       }
 

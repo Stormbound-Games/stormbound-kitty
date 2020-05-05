@@ -13,7 +13,7 @@ export default React.memo(function ListBuilderToc(props) {
       </p>
       <ol className='ListBuilderToc__list'>
         {props.tiers.map((tier, index) => (
-          <li style={{ '--color': TIER_COLORS[index] }}>
+          <li key={tier.name + index} style={{ '--color': TIER_COLORS[index] }}>
             <a href={'#' + generateId(tier.name)}>{tier.name}</a> (
             {tier.cards.length} card
             {tier.cards.length === 1 ? '' : 's'})

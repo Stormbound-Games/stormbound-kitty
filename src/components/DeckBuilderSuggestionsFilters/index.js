@@ -2,6 +2,7 @@ import React from 'react'
 import { CATEGORIES } from '../../constants/decks'
 import { BRAWLS } from '../../constants/brawl'
 import decks from '../../data/decks'
+import { CollectionContext } from '../CollectionProvider'
 import CardSelect from '../CardSelect'
 import Column from '../Column'
 import CTA from '../CTA'
@@ -27,6 +28,7 @@ const getAuthors = () => {
 }
 
 export default React.memo(function DeckBuilderSuggestionsFilters(props) {
+  const { hasDefaultCollection } = React.useContext(CollectionContext)
   const [name, updateName] = React.useState(props.name)
   const authors = React.useMemo(getAuthors)
 
@@ -133,7 +135,21 @@ export default React.memo(function DeckBuilderSuggestionsFilters(props) {
           </Column>
         </Row>
         <Row>
-          <Column />
+          <Column>
+            <label htmlFor='order'>Order</label>
+            <select
+              id='order'
+              name='order'
+              value={props.order}
+              onChange={event => props.updateOrder(event.target.value)}
+            >
+              <option value='DATE'>Most recent</option>
+              <option value='FACTION'>Faction</option>
+              <option value='FEASIBILITY' disabled={hasDefaultCollection}>
+                Feasibility
+              </option>
+            </select>
+          </Column>
           <Column style={{ alignSelf: 'flex-end' }}>
             <CTA
               disabled={

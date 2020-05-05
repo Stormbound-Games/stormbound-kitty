@@ -823,5 +823,13 @@
     "faction": "ironclad",
     "author": "the_mirc",
     "category": "DIAMOND_1"
+  },
+  {
+    "name": "Aftershock Control",
+    "id": "NU4xLDVOMiw1STEsNUkyLDVJMyw1TjE0LDVJMTAsNU4yMSw1STE0LDVJMTksNU4zNCw1TjQ1",
+    "faction": "ironclad",
+    "author": "Emkaem",
+    "category": "BRAWL",
+    "brawl": "STRUCTURE_MANA"
   }
 ]

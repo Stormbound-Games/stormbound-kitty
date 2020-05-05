@@ -61,6 +61,7 @@
 
 .Dialog__body {
   padding: 1em;
+  background-color: var(--dark-blue);
 }
 
 .Dialog__body--with-cta {

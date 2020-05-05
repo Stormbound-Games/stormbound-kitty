@@ -33,6 +33,7 @@ export default React.memo(function Dialog(props) {
 
   return (
     <A11yDialog
+      role={props.role}
       id={props.id}
       appRoot='#root'
       dialogRoot='#dialog-root'
@@ -69,13 +70,13 @@ export default React.memo(function Dialog(props) {
         </Title>
       </header>
 
+      {image !== null && <Image className='Dialog__image' src={image} />}
+
       <div
         className={[`Dialog__body`, hasCTA && 'Dialog__body--with-cta']
           .filter(Boolean)
           .join(' ')}
       >
-        {image !== null && <Image className='Dialog__image' src={image} />}
-
         {props.children}
 
         {hasCTA && <CTA {...ctaProps} className='Dialog__CTA' />}

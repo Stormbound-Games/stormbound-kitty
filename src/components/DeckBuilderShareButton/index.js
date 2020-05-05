@@ -7,6 +7,10 @@ import './index.css'
 const exportAsImage = () => {
   const deck = document.querySelector('#deck')
 
+  // Scrolling back to the top of the page seems to help with having an accurate
+  // visual representation of the deck.
+  window.scrollTo(0, 0)
+
   import('html2canvas' /* webpackChunkName: 'html2canvas' */)
     .then(({ default: html2canvas }) => {
       return html2canvas(deck, {
