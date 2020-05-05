@@ -1,6 +1,6 @@
 import getResolvedCardData from './getResolvedCardData'
 
-const setToLevel1 = card => ({ ...card, level: 1 })
+const setToLevel1 = card => ({ ...card, level: card.token ? card.level : 1 })
 
 const setStructureManaCost = card => {
   if (card.type !== 'structure') return card

@@ -68,7 +68,12 @@ export default React.memo(function Deck(props) {
               <Mana className='Deck__mana' mana={card.mana} />
               <span className='Deck__name'>{card.name}</span>
               <img className='Deck__image' src={card.image} alt={card.name} />
-              <span className='Deck__level'>{card.level}</span>
+              <span
+                className='Deck__level'
+                data-testid={card.token ? '' : 'Deck__realLevel'}
+              >
+                {card.level}
+              </span>
             </li>
           ) : showEmptySlots ? (
             <li className={`Deck__card Deck__card--empty`} key={index}>

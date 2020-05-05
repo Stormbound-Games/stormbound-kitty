@@ -18,8 +18,12 @@ describe('Dry-runner — Harvesters of Souls', () => {
 
       .then($cards => {
         const cards = Array.from($cards)
+
         cy.drEndTurn(3)
+          .drSetRNG('FRIENDLY')
           .drPlay('N38')
+          .get(s.HOS_FIRST_SUGGESTED)
+          .click()
 
           .get(s.DECK_CARD)
           .should('have.length', 13)
@@ -40,6 +44,9 @@ describe('Dry-runner — Harvesters of Souls', () => {
       .drSetRNG('UNFRIENDLY')
       .drPlay('N38')
 
+      .get(s.HOS_FIRST_SUGGESTED)
+      .should('not.exist')
+
       .get(s.DECK_CARD)
       .should('have.length', 12)
   })
@@ -52,10 +59,12 @@ describe('Dry-runner — Harvesters of Souls', () => {
       .drEndTurn(3)
       .drSetRNG('FRIENDLY')
       .drPlay('N38')
+      .get(s.HOS_FIRST_SUGGESTED)
+      .click()
 
       .get(s.DECK_CARD)
       .should('have.length', 13)
-      .find('.Deck__level')
-      .should('contain', 1)
+      .find(s.REAL_LEVEL)
+      .each($card => expect($card[0].innerText).to.contain(1))
   })
 })
