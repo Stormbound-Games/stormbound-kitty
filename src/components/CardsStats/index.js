@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import ChartAbility from '../ChartAbility'
 import ChartMana from '../ChartMana'
 import ChartModifier from '../ChartModifier'
@@ -8,8 +9,9 @@ import ChartStrength from '../ChartStrength'
 import ChartStrengthMana from '../ChartStrengthMana'
 import ChartType from '../ChartType'
 import Column from '../Column'
-import Title from '../Title'
+import Only from '../Only'
 import Row from '../Row'
+import Title from '../Title'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
 
@@ -28,6 +30,15 @@ export default React.memo(() => {
             representations, please get in touch with me on Discord
             (Kitty#1909).
           </p>
+
+          <Only.CustomCollection>
+            <p>
+              If you happen to be looking for data visualisation on{' '}
+              <strong className='Highlight'>your</strong> card collection, head
+              over to <Link to='/collection/stats'>the collection section</Link>
+              .
+            </p>
+          </Only.CustomCollection>
         </Column>
         <Column
           width={66}
