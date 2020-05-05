@@ -16,7 +16,7 @@ export default {
   NAME_INPUT: '[data-testid="name-input"]',
   ELDER_CHECKBOX: '[data-testid="elder-checkbox"]',
   HERO_CHECKBOX: '[data-testid="hero-checkbox"]',
-  RESET_BTN: '[data-testid="reset-btn"]',
+  RESET_FILTERS_BTN: '[data-testid="reset-filters-btn"]',
 
   RANDOM_BTN: '[data-testid="random-deck-btn"]',
   RANDOM_DIALOG: '#random-deck-dialog',
@@ -28,4 +28,6 @@ export default {
   DECK_CARD: '#deck .Deck__card',
 
   IMPORT_BTN: '[data-testid="import-btn"]',
+  RESET_BTN: '[data-testid="reset-btn"]',
+  RESET_CONFIRM_BTN: '[data-testid="reset-confirm-btn"]',
 }

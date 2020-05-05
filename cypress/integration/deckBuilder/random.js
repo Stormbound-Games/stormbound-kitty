@@ -6,6 +6,10 @@ describe('Deck Builder — Random deck', () => {
     cy.visit('/deck')
   })
 
+  afterEach(() => {
+    cy.dbReset()
+  })
+
   it('should be possible to generate a random deck', () => {
     cy.get(s.RANDOM_BTN)
       .click()
@@ -47,6 +51,8 @@ describe('Deck Builder — Random deck', () => {
       .click()
       .get(s.RANDOM_DIALOG)
       .should('be.visible')
+      .get(s.RANDOM_FACTION_SELECT)
+      .select('winter')
       .get(s.RANDOM_MIN_FACTION_SELECT)
       .select('6')
       .get(s.RANDOM_DIALOG_CONFIRM)

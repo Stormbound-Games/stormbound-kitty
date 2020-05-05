@@ -6,7 +6,7 @@ describe('Deck Builder — Search', () => {
   })
 
   beforeEach(() => {
-    cy.get(s.RESET_BTN).then($button => {
+    cy.get(s.RESET_FILTERS_BTN).then($button => {
       if (!$button.is(':disabled')) cy.wrap($button).click()
     })
   })

@@ -205,7 +205,7 @@ export default React.memo(function DeckBuilderEditorFilters(props) {
                   onClick={props.resetFilters}
                   type='button'
                   className='DeckBuilderEditorFilters__reset'
-                  data-testid='reset-btn'
+                  data-testid='reset-filters-btn'
                   disabled={
                     props.faction === '*' &&
                     props.type === '*' &&

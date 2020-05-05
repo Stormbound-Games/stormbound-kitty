@@ -1,5 +1,6 @@
 import bsDraw from './commands/bsDraw'
 import bsFill from './commands/bsFill'
+import dbReset from './commands/dbReset'
 import drCycle from './commands/drCycle'
 import drDrawHand from './commands/drDrawHand'
 import drEndTurn from './commands/drEndTurn'
@@ -12,6 +13,7 @@ import importCollection from './commands/importCollection'
 
 Cypress.Commands.add('bsDraw', { prevSubject: false }, bsDraw)
 Cypress.Commands.add('bsFill', { prevSubject: 'optional' }, bsFill)
+Cypress.Commands.add('dbReset', { prevSubject: false }, dbReset)
 Cypress.Commands.add('drCycle', { prevSubject: false }, drCycle)
 Cypress.Commands.add('drDrawHand', { prevSubject: false }, drDrawHand)
 Cypress.Commands.add('drEndTurn', { prevSubject: false }, drEndTurn)
