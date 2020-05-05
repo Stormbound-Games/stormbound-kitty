@@ -2,6 +2,7 @@ import chunk from './chunk'
 import { DEFAULT_CELL, DEFAULT_CARD } from '../constants/battle'
 import getRawCardData from './getRawCardData'
 import resolveAbility from './resolveAbility'
+import arrayPad from './arrayPad'
 import {
   getLongFaction,
   getLongRace,
@@ -72,30 +73,13 @@ const deserialiseBoard = string => {
   return chunk(resolvedCells, 4)
 }
 
-const deserialiseCards = (string, size) => {
-  const cards = string.split(',')
-
-  // If for any reason there are too many or not enough cards,
-  // remove extra cards or complete it with empty cards
-  if (cards.length < size) {
-    const missingcards = Array.from({ length: size - cards.length }, _ => '')
-    cards.push(...missingcards)
-  } else if (cards.length > size) {
-    cards.splice(size, cards.length - size)
-  }
-
-  return cards.map(card => {
-    if (!card) {
-      return { ...DEFAULT_CARD }
-    }
-
-    // Use `\d+` instead of `[1-5]` as token cards store their strength as their
-    // level since that’s the only variable they have
-    const [, level, id] = card.match(/(\d+)(\w+)/)
-
-    return { id, level: +level }
-  })
-}
+const deserialiseCards = (string, size) =>
+  arrayPad(
+    deserialiseDeck(window.btoa(string.replace(',', ''))),
+    size,
+    DEFAULT_CARD,
+    +1
+  )
 
 const deserialiseSettings = string => {
   // Technically mana needs to be defined, however, when clearing the field, it
@@ -217,22 +201,51 @@ export const deserialiseCard = hash => {
   return card
 }
 
-export const deserialiseDeck = hash =>
-  window
-    .atob(hash)
-    .split(',')
-    .map(card => {
-      if (!card) {
-        return null
-      }
+// Variant of `String.prototype.indexOf` that can handle a regular expression
+// instead of a static string.
+// @param {String} string - String to inspect (haystack)
+// @param {RegExp} regex - Regular expression (needle)
+// @param {Number} startPosition - Earliest lookup position
+// @return {Number | null}
+const indexOf = (string, regex, startPosition = 0) => {
+  const indexOf = string.substring(startPosition).search(regex)
 
-      // Use `\d+` instead of `[1-5]` as token cards store their strength as
-      // their level since that’s the only variable they have
-      const [, level, id] = card.match(/(\d+)(\w+)/)
+  return indexOf >= 0 ? indexOf + startPosition : undefined
+}
 
-      return { id, level: +level }
-    })
-    .filter(Boolean)
+export const deserialiseDeck = hash => {
+  // If the base64 decoded string contains commas, it was originally encoded
+  // with the old serialisation system, and these commas need to be removed
+  // for the new system to work.
+  let string = window.atob(hash).replace(/,/g, '')
+
+  const cards = []
+  const factionRegex = /[NSFWIT]/
+
+  while (string.length) {
+    // Find the first faction (or token) indicator
+    const indexOfFaction = indexOf(string, factionRegex)
+    // Anything before the faction/token indicator is the level (or strength in
+    // case of a token)
+    const level = string.slice(0, indexOfFaction)
+    // Find the next faction (or token) indicator
+    const nextFaction = indexOf(string, factionRegex, indexOfFaction + 1)
+    // In case of a token, the strength will always be issued as 2 digits (with
+    // a 0 pad if necessary), otherwise the level is stored in a single digit
+    const offset = string[nextFaction] === 'T' ? 2 : 1
+    // Anything from the faction to the next faction minus the level offset is
+    // the card ID
+    const id = string.slice(
+      indexOfFaction,
+      nextFaction ? nextFaction - offset : undefined
+    )
+    // Push the card and slice off the string to start at the new card
+    cards.push({ id, level: +level })
+    string = nextFaction ? string.slice(nextFaction - offset) : ''
+  }
+
+  return cards
+}
 
 const QUEST_PROPERTIES = [
   { name: 'name', resolve: value => decodeURIComponent(value) },
