@@ -7,12 +7,14 @@ import decks from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
 import Column from '../Column'
 import EmptySearch from '../EmptySearch'
+import FeaturedDeck from '../FeaturedDeck'
+import ImportCollection from '../ImportCollection'
 import Info from '../Info'
+import LearnMoreIcon from '../LearnMoreIcon'
 import Loader from '../Loader'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
-import FeaturedDeck from '../FeaturedDeck'
 import SuggestionsFilters from '../DeckBuilderSuggestionsFilters'
 import Title from '../Title'
 import useViewportWidth from '../../hooks/useViewportWidth'
@@ -221,11 +223,20 @@ class DeckBuilderSuggestions extends React.Component {
                 </Only.CustomCollection>
               )}
               <Only.DefaultCollection>
-                If you have already{' '}
-                <Link to='/collection'>created your collection</Link>, you can
-                import it so decks are ordered based on whether or not you can
-                compose them, and how well they perform based on the level of
-                your cards.
+                <Info
+                  icon='books'
+                  title={
+                    <>
+                      Your collection
+                      <LearnMoreIcon anchor='#collection-benefits' />
+                    </>
+                  }
+                  CTA={<ImportCollection />}
+                >
+                  If you have already created your collection, you can import it
+                  so decks are sorted by how well they would perform based on
+                  the level of your cards.
+                </Info>
               </Only.DefaultCollection>
             </p>
           </Column>
