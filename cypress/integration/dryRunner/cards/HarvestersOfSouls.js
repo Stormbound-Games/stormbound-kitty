@@ -64,7 +64,7 @@ describe('Dry-runner — Harvesters of Souls', () => {
 
       .get(s.DECK_CARD)
       .should('have.length', 13)
-      .find(s.REAL_LEVEL)
+      .find(s.DECK_CARD_LEVEL)
       .each($card => expect($card[0].innerText).to.contain(1))
   })
 })

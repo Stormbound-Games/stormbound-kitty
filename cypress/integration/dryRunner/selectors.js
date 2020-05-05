@@ -15,7 +15,7 @@ export default {
   BRAWL_MODIFIER_DIALOG: '#brawl-modifier-dialog',
   EQUALS_DIALOG: '#equals-mode-dialog',
   BRAWL_MODIFIER_SELECT: '[data-testid="brawl-modifier"]',
-  HOS_FIRST_SUGGESTED: '[data-testid="card-0"]',
-  REAL_LEVEL: '[data-testid="Deck__realLevel"]',
+  HOS_FIRST_SUGGESTED: '#harvesters-dialog [data-testid="card-0"]',
+  DECK_CARD_LEVEL: '[data-testid="deck-card-level"]',
   CARD_LOG: '[data-testid="card-log"]',
 }

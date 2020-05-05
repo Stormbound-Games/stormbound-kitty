@@ -70,7 +70,9 @@ export default React.memo(function Deck(props) {
               <img className='Deck__image' src={card.image} alt={card.name} />
               <span
                 className='Deck__level'
-                data-testid={card.token ? '' : 'Deck__realLevel'}
+                data-testid={
+                  card.token ? 'deck-token-level' : 'deck-card-level'
+                }
               >
                 {card.level}
               </span>
