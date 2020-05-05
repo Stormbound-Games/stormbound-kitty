@@ -1,5 +1,20 @@
 [
   {
+    "intro": "Deck Suggestions",
+    "description": "The deck suggestions can now be sorted by most recently added, faction or feasibility.",
+    "link": "/deck/suggestions"
+  },
+  {
+    "intro": "Card Builder",
+    "description": "The card builder now offers a way to quickly load an official card.",
+    "link": "/card"
+  },
+  {
+    "intro": "Stories",
+    "description": "The stories section has been redesigned and showcase the new Eastern Heat saga from Zyries.",
+    "link": "/stories"
+  },
+  {
     "intro": "Deck dry-runner",
     "description": "The dry-runner now provides a log of recently played cards, just like in the game.",
     "link": "/deck"
