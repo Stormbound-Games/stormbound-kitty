@@ -1,8 +1,11 @@
 import { BRAWLS } from '../constants/brawl'
+import { FACTIONS } from '../constants/game'
 import { getLongFaction } from '../helpers/encoding'
 
 export default modifier => {
-  const factions = ['winter', 'ironclad', 'shadowfen', 'swarm']
+  const factions = Object.keys(FACTIONS).filter(
+    faction => faction !== 'neutral'
+  )
 
   if (modifier === 'NONE')
     return factions.map(faction => ({ id: faction, weight: 1 }))

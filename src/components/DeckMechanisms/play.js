@@ -15,15 +15,10 @@ export const DEFAULT_PLAY_OPTIONS = {
  * @param {Boolean} [options.discard = false] - Whether the play is actually a discard
  * @param {Boolean} [options.free = false] - Whether the play is for free
  * @param {String} [options.mode = 'AUTOMATIC'] - Game mode (MANUAL or AUTOMATIC)
- * @param {Object} harvestersActions - Reference & Method used to show Harvester’s Dialog
+ * @param {Object} HoS - Reference & Method used to show Harvester’s Dialog
  * @return {Object} Mutated state
  */
-const play = (
-  state,
-  card,
-  options = DEFAULT_PLAY_OPTIONS,
-  harvestersActions
-) => {
+const play = (state, card, options = DEFAULT_PLAY_OPTIONS, HoS) => {
   if (!card) return state
 
   const cardData = state.deck.find(isCard(card))
@@ -49,7 +44,7 @@ const play = (
     state.specifics.noUnitsOnFirstTurn = false
   }
 
-  return handleCardEffect(state, cardData, options.mode, harvestersActions)
+  return handleCardEffect(state, cardData, options.mode, HoS)
 }
 
 export default play

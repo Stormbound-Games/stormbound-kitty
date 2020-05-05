@@ -1,10 +1,9 @@
 import React from 'react'
 import clone from 'lodash.clonedeep'
-import rwc from 'random-weighted-choice'
 import { DEFAULT_MANA } from '../../constants/battle'
-import resolveDeckWeight from '../../helpers/resolveDeckWeight'
-import getFactionWeights from '../../helpers/getFactionWeights'
 import isCard from '../../helpers/isCard'
+import getOpponentFaction from '../../helpers/getOpponentFaction'
+import resolveDeckWeight from '../../helpers/resolveDeckWeight'
 import canCardBePlayed from './canCardBePlayed'
 import draw from './draw'
 import endTurn from './endTurn'
@@ -31,7 +30,7 @@ const getDefaultState = props => ({
   cardsThisTurn: 0,
   equalsMode: props.equalsMode,
   modifier: props.modifier,
-  opponentFaction: rwc(getFactionWeights(props.modifier)),
+  opponentFaction: getOpponentFaction(props.modifier),
 })
 
 export default class DeckMechanisms extends React.Component {
@@ -92,15 +91,12 @@ export default class DeckMechanisms extends React.Component {
     // If it’s not a discard move and the card costs more mana than the current
     // round, skip play.
     if (options.discard || canAfford) {
-      const harvestersActions = {
-        ...this.props.HoS,
-      }
       this.setState(state =>
         play(
           clone(state),
           card,
           { ...options, mode: this.props.mode },
-          harvestersActions
+          this.props.HoS
         )
       )
     }

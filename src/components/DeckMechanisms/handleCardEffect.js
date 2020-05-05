@@ -29,10 +29,10 @@ const FROZEN_ENEMIES_AFTER = {
  * @param {Object} state - State being mutated
  * @param {Object} card - Resolved card being played
  * @param {String} mode - Game mode (MANUAL or AUTOMATIC)
- * @param {Object} harvestersActions - Reference & Method used to show Harvester’s Dialog
+ * @param {Object} HoS - Reference & Method used to show Harvester’s Dialog
  * @return {Object} Mutated state
  */
-const handleCardEffect = (state, card, mode, harvestersActions) => {
+const handleCardEffect = (state, card, mode, HoS) => {
   // On turn 1, any 3 mana card can be played since it would be the only one
   // to be played and would not fill the board by itself. Any 2 mana card will
   // have to be played together with a 1 mana card. This will cause a board
@@ -305,7 +305,7 @@ const handleCardEffect = (state, card, mode, harvestersActions) => {
     case 'N38': {
       const copiedCards = getHarvestersOfSoulsPossibleCards(state, card.level)
       if (copiedCards.length) {
-        harvestersActions.setCards(copiedCards)
+        HoS.setCards(copiedCards)
       }
       break
     }
