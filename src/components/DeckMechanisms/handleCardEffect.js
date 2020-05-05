@@ -10,6 +10,7 @@ import shuffle from '../../helpers/shuffle'
 import play from './play'
 import cycle from './cycle'
 import draw from './draw'
+import modifyDeck from '../../helpers/modifyDeck'
 
 // Frozen enemies left after a card's ability has been resolved, in regular RNG mode
 const FROZEN_ENEMIES_AFTER = {
@@ -28,9 +29,10 @@ const FROZEN_ENEMIES_AFTER = {
  * @param {Object} state - State being mutated
  * @param {Object} card - Resolved card being played
  * @param {String} mode - Game mode (MANUAL or AUTOMATIC)
+ * @param {Object} HoS - Reference & Method used to show Harvester’s Dialog
  * @return {Object} Mutated state
  */
-const handleCardEffect = (state, card, mode) => {
+const handleCardEffect = (state, card, mode, HoS) => {
   // On turn 1, any 3 mana card can be played since it would be the only one
   // to be played and would not fill the board by itself. Any 2 mana card will
   // have to be played together with a 1 mana card. This will cause a board
@@ -301,9 +303,9 @@ const handleCardEffect = (state, card, mode) => {
 
     // Harvesters of Souls
     case 'N38': {
-      const copiedCard = getHarvestersOfSoulsCopiedCard(state, card.level)
-      if (copiedCard) {
-        state.deck.push(copiedCard)
+      const copiedCards = getHarvestersOfSoulsPossibleCards(state, card.level)
+      if (copiedCards.length) {
+        HoS.setCards(copiedCards)
       }
       break
     }
@@ -342,6 +344,14 @@ function getCollectorMirzToken(deck, level) {
   return token
 }
 
+function getHarvestersOfSoulsPossibleCards(state, level) {
+  const possibleCards = Array.from(
+    { length: HARVESTERS_OF_SOULS_RNG.POTENTIAL_CARDS[state.RNG] },
+    () => getHarvestersOfSoulsCopiedCard(state, level)
+  ).filter(Boolean)
+  return modifyDeck(possibleCards, state.modifier, state.equalsMode)
+}
+
 function getHarvestersOfSoulsCopiedCard(state, harvestersLevel) {
   // The RNG for Harvesters of Souls is determined by first choosing a level for the
   // created copy and then creating the copy if the level is greater than 1 (otherwise
@@ -359,10 +369,15 @@ function getHarvestersOfSoulsCopiedCard(state, harvestersLevel) {
   if (level <= 0) return
 
   const id = arrayRandom(
-    cards.filter(card => card.type === 'unit').map(card => card.id)
+    cards
+      .filter(
+        card =>
+          card.type === 'unit' &&
+          ['neutral', state.opponentFaction].includes(card.faction)
+      )
+      .map(card => card.id)
   )
-  const copiedCardlevel = state.equalsMode ? 1 : level
-  const copiedCard = getResolvedCardData({ id, level: copiedCardlevel })
+  const copiedCard = getResolvedCardData({ id, level })
   const copiedCardStrength = [5, 6, 7, 8, 10][harvestersLevel - 1]
 
   copiedCard.weight = 0

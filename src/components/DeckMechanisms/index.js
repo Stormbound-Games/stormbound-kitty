@@ -1,8 +1,9 @@
 import React from 'react'
 import clone from 'lodash.clonedeep'
 import { DEFAULT_MANA } from '../../constants/battle'
-import resolveDeckWeight from '../../helpers/resolveDeckWeight'
 import isCard from '../../helpers/isCard'
+import getOpponentFaction from '../../helpers/getOpponentFaction'
+import resolveDeckWeight from '../../helpers/resolveDeckWeight'
 import canCardBePlayed from './canCardBePlayed'
 import draw from './draw'
 import endTurn from './endTurn'
@@ -28,6 +29,8 @@ const getDefaultState = props => ({
   playedCards: [],
   cardsThisTurn: 0,
   equalsMode: props.equalsMode,
+  modifier: props.modifier,
+  opponentFaction: getOpponentFaction(props.modifier),
 })
 
 export default class DeckMechanisms extends React.Component {
@@ -89,9 +92,18 @@ export default class DeckMechanisms extends React.Component {
     // round, skip play.
     if (options.discard || canAfford) {
       this.setState(state =>
-        play(clone(state), card, { ...options, mode: this.props.mode })
+        play(
+          clone(state),
+          card,
+          { ...options, mode: this.props.mode },
+          this.props.HoS
+        )
       )
     }
+  }
+
+  addCardToDeck = card => {
+    this.setState(state => ({ ...state, deck: [...state.deck, card] }))
   }
 
   increaseDeckWeight = ({ reset }) =>
@@ -130,6 +142,7 @@ export default class DeckMechanisms extends React.Component {
       cycle: this.cycle,
       reset: this.reset,
       endTurn: this.endTurn,
+      addCardToDeck: this.addCardToDeck,
       increaseDeckWeight: this.increaseDeckWeight,
       setRNG: RNG => this.setState({ RNG }),
     })

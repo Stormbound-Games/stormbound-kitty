@@ -13,6 +13,11 @@ export const HARVESTERS_OF_SOULS_RNG = {
     REGULAR: 0,
     UNFRIENDLY: -3,
   },
+  POTENTIAL_CARDS: {
+    FRIENDLY: 4,
+    REGULAR: 3,
+    UNFRIENDLY: 2,
+  },
   MAX_DEVIATION: 2,
 }
 

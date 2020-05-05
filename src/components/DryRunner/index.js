@@ -7,6 +7,7 @@ import DryRunnerActions from '../DryRunnerActions'
 import DryRunnerHand from '../DryRunnerHand'
 import DryRunnerHeader from '../DryRunnerHeader'
 import DryRunnerInfo from '../DryRunnerInfo'
+import HarvestersDialog from '../HarvestersDialog'
 import Info from '../Info'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
@@ -48,10 +49,16 @@ export default React.memo(function DryRunner(props) {
           </Info>
 
           {props.deck.map(card => card.id).includes('N38') && (
-            <Info icon='sword' title='Harvesters of Souls'>
-              Due to the lack of opponent’s deck, Harvesters of Souls’ ability
-              has only been partially implemented.
-            </Info>
+            <>
+              <HarvestersDialog
+                {...props.HoS}
+                addCardToDeck={props.addCardToDeck}
+              />
+              <Info icon='sword' title='Harvesters of Souls'>
+                Due to the lack of opponent’s deck, Harvesters of Souls’ ability
+                has only been partially implemented.
+              </Info>
+            </>
           )}
         </Column>
 
