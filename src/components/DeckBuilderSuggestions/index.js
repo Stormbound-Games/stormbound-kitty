@@ -22,7 +22,7 @@ import chunk from '../../helpers/chunk'
 import sortDeckSuggestions from '../../helpers/sortDeckSuggestions'
 import getRawCardData from '../../helpers/getRawCardData'
 import capitalise from '../../helpers/capitalise'
-import { deserialiseDeck } from '../../helpers/deserialise'
+import serialisation from '../../helpers/serialisation'
 import { CATEGORIES } from '../../constants/decks'
 import { BRAWLS } from '../../constants/brawl'
 import './index.css'
@@ -129,7 +129,8 @@ class DeckBuilderSuggestions extends React.Component {
     this.state.author === '*' || deck.author === this.state.author
   matchesIncluding = deck =>
     !this.state.including ||
-    deserialiseDeck(deck.id)
+    serialisation.deck
+      .deserialise(deck.id)
       .map(card => card.id)
       .includes(this.state.including)
   matchesBrawl = deck =>

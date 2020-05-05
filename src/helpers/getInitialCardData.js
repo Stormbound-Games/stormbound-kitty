@@ -1,21 +1,25 @@
-import { deserialiseCard } from './deserialise'
-import { serialiseCardFromCollection } from './serialise'
+import serialisation from './serialisation'
 import getCardFromSlug from './getCardFromSlug'
+import getRawCardData from './getRawCardData'
 
 export default card => {
   if (!card) {
     return {}
   }
 
-  const isExistingCard = getCardFromSlug(card)
+  const officialCard = getCardFromSlug(card)
 
-  if (isExistingCard) {
-    return deserialiseCard(serialiseCardFromCollection(isExistingCard.id))
+  if (officialCard) {
+    // Go through the serialisation on the official card data as it deals with
+    // normalisation and resolution of properties like mana, strength and image.
+    return serialisation.card.deserialise(
+      serialisation.card.serialise(getRawCardData(officialCard.id))
+    )
   }
 
   const decodedData = decodeURIComponent(card)
 
-  return deserialiseCard(decodedData)
+  return serialisation.card.deserialise(decodedData)
 }
 
 export const getInitialCardDataFromQuery = () => {

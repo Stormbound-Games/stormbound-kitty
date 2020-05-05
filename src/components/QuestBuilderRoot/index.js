@@ -5,7 +5,7 @@ import Form from '../QuestBuilderForm'
 import PageMeta from '../PageMeta'
 import Quest from '../Quest'
 import Title from '../Title'
-import { serialiseQuest } from '../../helpers/serialise'
+import serialisation from '../../helpers/serialisation'
 import getInitialQuestData from '../../helpers/getInitialQuestData'
 import './index.css'
 
@@ -33,7 +33,9 @@ class QuestBuilderRoot extends React.Component {
     ].some(prop => this.state[prop] !== prevState[prop])
 
     if (hasAnyPropChanged) {
-      this.props.history.replace('/quest/' + serialiseQuest(this.state))
+      this.props.history.replace(
+        '/quest/' + serialisation.quest.serialise(this.state)
+      )
     } else if (prevProps.questId !== this.props.questId) {
       if (this.props.questId) {
         this.setState({ ...getInitialQuestData(this.props.questId) })

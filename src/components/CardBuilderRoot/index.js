@@ -3,7 +3,7 @@ import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import App from '../CardBuilderApp'
 import PageMeta from '../PageMeta'
-import { serialiseCard } from '../../helpers/serialise'
+import serialisation from '../../helpers/serialisation'
 import areAllValuesEqual from '../../helpers/areAllValuesEqual'
 import getInitialCardData, {
   getInitialCardDataFromQuery,
@@ -47,7 +47,7 @@ class CardBuilderRoot extends React.Component {
     const state = getInitialCardDataFromQuery()
 
     if (Object.keys(state).length > 0) {
-      this.props.history.replace('/card/' + serialiseCard(state))
+      this.props.history.replace('/card/' + serialisation.card.serialise(state))
     }
   }
 
@@ -67,7 +67,7 @@ class CardBuilderRoot extends React.Component {
   updateURL = () => {
     this.props.history.replace(
       '/card/' +
-        serialiseCard({
+        serialisation.card.serialise({
           ...this.state,
           strength: this.state.strength.display,
           mana: this.state.mana.display,

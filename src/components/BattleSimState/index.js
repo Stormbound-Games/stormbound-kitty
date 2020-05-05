@@ -13,7 +13,7 @@ import {
 import { DEFAULT_DECK } from '../../constants/deck'
 import getRawCardData from '../../helpers/getRawCardData'
 import getInitialBattleData from '../../helpers/getInitialBattleData'
-import { serialiseBattle } from '../../helpers/serialise'
+import serialisation from '../../helpers/serialisation'
 import arrayRandom from '../../helpers/arrayRandom'
 
 class BattleSimState extends React.Component {
@@ -226,7 +226,7 @@ class BattleSimState extends React.Component {
       hasHandChange ||
       havePlayersChanged
     ) {
-      const id = serialiseBattle(
+      const id = serialisation.battle.serialise(
         this.state.board,
         this.state.players,
         { mana: this.state.mana, gridMarkers: this.state.gridMarkers },
