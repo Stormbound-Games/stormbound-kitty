@@ -91,43 +91,43 @@ export default React.memo(function Header(props) {
             <Only.Desktop>
               <li className='Header__item'>
                 <NavLink to='/' active={topActive === 'HOME'}>
-                  <Icon icon='home' /> Home
+                  <Icon className='Header__icon' icon='home' /> Home
                 </NavLink>
               </li>
             </Only.Desktop>
             <li className='Header__item'>
               <NavLink to='/sim' active={topActive === 'BATTLE_SIM'}>
-                <Icon icon='sword' /> Battle Sim
+                <Icon className='Header__icon' icon='sword' /> Battle Sim
               </NavLink>
             </li>
             <li className='Header__item'>
               <NavLink to='/deck' active={topActive === 'DECK_BUILDER'}>
-                <Icon icon='stack' /> Deck builder
+                <Icon className='Header__icon' icon='stack' /> Deck builder
               </NavLink>
             </li>
             <li className='Header__item'>
               <NavLink to='/collection' active={topActive === 'COLLECTION'}>
-                <Icon icon='books' /> Collection
+                <Icon className='Header__icon' icon='books' /> Collection
               </NavLink>
             </li>
             <li className='Header__item'>
               <NavLink to='/card' active={topActive === 'CARD_BUILDER'}>
-                <Icon icon='wand' /> Card builder
+                <Icon className='Header__icon' icon='wand' /> Card builder
               </NavLink>
             </li>
             <li className='Header__item'>
               <NavLink to='/list' active={topActive === 'LIST_BUILDER'}>
-                <Icon icon='template' /> List Builder
+                <Icon className='Header__icon' icon='template' /> List Builder
               </NavLink>
             </li>
             <li className='Header__item'>
               <NavLink to='/stories' active={topActive === 'STORIES'}>
-                <Icon icon='quill' /> Stories
+                <Icon className='Header__icon' icon='quill' /> Stories
               </NavLink>
             </li>
             <li className='Header__item'>
               <NavLink to='/guides' active={topActive === 'GUIDES'}>
-                <Icon icon='compass' /> Guides
+                <Icon className='Header__icon' icon='compass' /> Guides
               </NavLink>
             </li>
           </ul>

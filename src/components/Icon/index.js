@@ -4,7 +4,7 @@ import './index.css'
 export default React.memo(function Icon(props) {
   return (
     <svg
-      className={['icon', `icon-${props.icon}`, props.className]
+      className={['Icon', `Icon--${props.icon}`, props.className]
         .filter(Boolean)
         .join(' ')}
       aria-hidden

@@ -8,10 +8,8 @@
   margin-top: 3em; /* 1 */
 }
 
-/**
- * 1. Vertically align the icon (if any) with the text.
- */
-.Notice .icon {
-  transform: translateY(2px); /* 1 */
-  margin-right: 0.25em;
+.Notice__icon {
+  margin-right: 0.5em;
+  position: relative;
+  top: 1.5px;
 }

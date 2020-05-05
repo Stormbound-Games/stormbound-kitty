@@ -25,6 +25,8 @@
 
 .Info__icon {
   margin-right: 0.25em;
+  position: relative;
+  top: 1.5px;
 }
 
 .Info__CTA {
