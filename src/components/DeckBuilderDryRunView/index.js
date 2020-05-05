@@ -153,6 +153,10 @@ class DeckBuilderDryRunView extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (!prevProps.HoS.cards.length && this.props.HoS.cards.length) {
       this.props.HoS.dialog.current.show()
+      document.removeEventListener('keydown', this.registerShortcuts)
+    } else if (prevProps.HoS.cards.length && !this.props.HoS.cards.length) {
+      this.props.HoS.dialog.current.hide()
+      document.addEventListener('keydown', this.registerShortcuts)
     }
     if (
       prevProps.equalsMode !== this.props.equalsMode ||
