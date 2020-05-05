@@ -15,7 +15,7 @@ import TogglableContent from '../TogglableContent'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
 
-const SubNav = props => {
+const SubNav = React.memo(function (props) {
   const [topActive, bottomActive] = props.active || []
 
   switch (topActive) {
@@ -38,9 +38,9 @@ const SubNav = props => {
     default:
       return null
   }
-}
+})
 
-const Wrapper = props => {
+const Wrapper = React.memo(function (props) {
   const { pathname } = useLocation()
   const viewportWidth = useViewportWidth()
   const [isExpanded, expand] = React.useState(false)
@@ -78,7 +78,7 @@ const Wrapper = props => {
       {props.children}
     </TogglableContent>
   )
-}
+})
 
 export default React.memo(function Header(props) {
   const [topActive] = props.active || []

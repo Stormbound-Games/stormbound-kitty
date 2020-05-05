@@ -2,7 +2,7 @@ import React from 'react'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import TogglableContent from '../TogglableContent'
 
-const MobileTogglableContent = props => {
+export default React.memo(function (props) {
   const viewportWidth = useViewportWidth()
   const [isExpanded, expand] = React.useState(false)
   const labelExpanded = (props.withSymbols ? '+ ' : '') + props.labelExpanded
@@ -34,6 +34,4 @@ const MobileTogglableContent = props => {
       {props.children}
     </TogglableContent>
   )
-}
-
-export default MobileTogglableContent
+})

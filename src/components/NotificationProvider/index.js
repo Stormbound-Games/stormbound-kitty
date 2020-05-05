@@ -21,7 +21,9 @@ const useNotificationVisibility = () => {
   return { showNotification, isVisible }
 }
 
-const SelfHidingNotification = props => {
+const SelfHidingNotification = React.memo(function SelfHidingNotification(
+  props
+) {
   const { showNotification, isVisible } = useNotificationVisibility()
 
   React.useEffect(() => showNotification(), [showNotification])
@@ -30,7 +32,7 @@ const SelfHidingNotification = props => {
     <Notification {...props} isVisible={isVisible} />,
     document.querySelector('#notification-root')
   )
-}
+})
 
 export default function NotificationProvider(props) {
   const [{ notification, key }, notify] = React.useReducer(reducer, {

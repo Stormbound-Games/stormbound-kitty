@@ -31,13 +31,13 @@ const templateDescription = description => {
   return { replacements, description: output }
 }
 
-const Change = props => {
+const Change = React.memo(function Change(props) {
   if (!props.colorCoding) return props.description
 
   const { description, replacements } = templateDescription(props.description)
 
   return template(description, replacements)
-}
+})
 
 const formatDate = date => {
   const formatter = new Intl.DateTimeFormat('en', {
