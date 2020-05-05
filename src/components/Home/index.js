@@ -171,7 +171,7 @@ export default React.memo(() => (
     </div>
 
     <PageMeta
-      title='Stormbound Kitty'
+      title='Home'
       description='Stormbound Kitty aims at providing tools and information about Paladin Studios’ greatest hit, and extending its players’ experience outside the game'
     />
   </>
