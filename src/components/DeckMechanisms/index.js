@@ -2,7 +2,7 @@ import React from 'react'
 import clone from 'lodash.clonedeep'
 import { DEFAULT_MANA } from '../../constants/battle'
 import isCard from '../../helpers/isCard'
-import getOpponentFaction from '../../helpers/getOpponentFaction'
+import getOpponentDeck from '../../helpers/getOpponentDeck'
 import resolveDeckWeight from '../../helpers/resolveDeckWeight'
 import canCardBePlayed from './canCardBePlayed'
 import draw from './draw'
@@ -30,7 +30,7 @@ const getDefaultState = props => ({
   cardsThisTurn: 0,
   equalsMode: props.equalsMode,
   modifier: props.modifier,
-  opponentFaction: getOpponentFaction(props.modifier),
+  opponentDeck: getOpponentDeck(props.modifier),
 })
 
 export default class DeckMechanisms extends React.Component {

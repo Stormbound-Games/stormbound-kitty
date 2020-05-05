@@ -3,7 +3,7 @@
  *    to each other and therefore needs to be larger than a regular dialog.
  */
 #harvesters-dialog .Dialog__content {
-  width: 700px; /* 1 */
+  width: 750px; /* 1 */
 }
 
 /**
@@ -26,5 +26,5 @@
  *    proportionally grow the dialog’s.
  */
 #harvesters-dialog .CardsGallery__item {
-  max-width: 200px; /* 1 */
+  max-width: 160px; /* 1 */
 }

@@ -5,7 +5,6 @@ import {
 import arrayRandom from '../../helpers/arrayRandom'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isCard, { isNotCard } from '../../helpers/isCard'
-import cards from '../../data/cards'
 import shuffle from '../../helpers/shuffle'
 import play from './play'
 import cycle from './cycle'
@@ -365,18 +364,13 @@ function getHarvestersOfSoulsCopiedCard(state, harvestersLevel) {
     (_, i) => lowestPossibleLevel + i
   )
   const level = Math.min(arrayRandom(possibleLevelValues), 5)
-
-  if (level <= 0) return
-
-  const id = arrayRandom(
-    cards
-      .filter(
-        card =>
-          card.type === 'unit' &&
-          ['neutral', state.opponentFaction].includes(card.faction)
-      )
-      .map(card => card.id)
+  const enemyUnits = state.opponentDeck.filter(
+    cardInDeck => cardInDeck.type === 'unit'
   )
+
+  if (level <= 0 || enemyUnits.length === 0) return
+
+  const id = arrayRandom(enemyUnits).id
   const copiedCard = getResolvedCardData({ id, level })
   const copiedCardStrength = [5, 6, 7, 8, 10][harvestersLevel - 1]
 
