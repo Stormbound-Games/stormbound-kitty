@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useHistory, useLocation } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import LazyLoad from 'react-lazyload'
 import hookIntoProps from 'hook-into-props'
 import debounce from 'lodash.debounce'
