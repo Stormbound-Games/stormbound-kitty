@@ -9,6 +9,10 @@ export default React.memo(function HarvestersDialog(props) {
       id='harvesters-dialog'
       className='Dialog__content'
       role='alertdialog'
+      close={() => {
+        props.dialog.current.hide()
+        props.setCards([])
+      }}
       dialogRef={instance => (props.dialog.current = instance)}
       title='Choose the card to copy'
       image='/assets/images/cards/harvesters_of_souls.png'
