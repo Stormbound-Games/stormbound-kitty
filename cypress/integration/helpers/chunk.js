@@ -5,8 +5,8 @@ describe('The `chunk` helper', () => {
     expect(chunk([], 2)).to.deep.equal([])
   })
 
-  it('should leave the array untouched if the size is 1', () => {
-    expect(chunk([0, 1, 2, 3], 1)).to.deep.equal([0, 1, 2, 3])
+  it('should return an empty array if size is below 1', () => {
+    expect(chunk([], 2)).to.deep.equal([])
   })
 
   it('should split array in chunks', () => {

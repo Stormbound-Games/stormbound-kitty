@@ -1,7 +1,7 @@
 export default (array = [], size = 1) => {
   const clone = [...array]
 
-  if (array.length === 0 || size === 1) return array
+  if (size < 1) return []
 
   return new Array(Math.ceil(clone.length / size))
     .fill()
