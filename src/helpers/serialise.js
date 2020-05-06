@@ -36,8 +36,17 @@ const serialisePlayers = ({ RED, BLUE }) =>
 const serialiseSettings = ({ mana, gridMarkers }) =>
   mana + (gridMarkers ? 'M1' : 'M0')
 
-const serialiseCards = cards =>
-  cards.map(card => `${card.id ? card.level : ''}${card.id || ''}`).join(',')
+export const serialiseCards = cards =>
+  cards
+    .filter(card => card && card.id)
+    .map(
+      card =>
+        // Because the serialised cards are joined together without commas,
+        // because tokens carry their strength in their level, we need a
+        // deterministic approach to deserialise them later on.
+        String(card.level).padStart(card.token ? 2 : 1, '0') + card.id
+    )
+    .join('')
 
 export const serialiseBattle = (board, players, settings, { cards, hand }) =>
   window.btoa(
