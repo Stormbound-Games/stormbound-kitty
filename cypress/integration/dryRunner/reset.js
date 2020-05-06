@@ -1,7 +1,7 @@
 import s from './selectors'
 
 const DECK_ID =
-  'NU4xLDVOMiw1TjMsNU4yMyw1TjQsNU41LDVONiw1TjYyLDVOMTQsNVcxMiw1VzEwLDRXMTk'
+  'NU4xLDVOMiw1TjMsNU4yMyw1TjQsNU41LDVONjIsNVMzLDVOMTQsNVcxMiw1VzEwLDRXMTk='
 const HAND = ['N14', 'W10', 'W12', 'W19']
 
 describe('Dry-runner — Reset', () => {
@@ -48,6 +48,15 @@ describe('Dry-runner — Reset', () => {
       .drReset()
 
       .get(s.CHANCES_CHECKBOX)
+      .should('be.checked')
+  })
+
+  it('should not reset the RNG setting', () => {
+    cy.drSetRNG('UNFRIENDLY')
+      .drReset({ modifier: 'SPELL_MANA' })
+
+      .get(s.RNG_INPUT)
+      .filter(`[value="UNFRIENDLY"]`)
       .should('be.checked')
   })
 })

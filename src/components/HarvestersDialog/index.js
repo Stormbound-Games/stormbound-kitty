@@ -10,7 +10,6 @@ export default React.memo(function HarvestersDialog(props) {
       className='Dialog__content'
       role='alertdialog'
       close={() => {
-        props.dialog.current.hide()
         props.setCards([])
       }}
       dialogRef={instance => (props.dialog.current = instance)}
@@ -27,7 +26,6 @@ export default React.memo(function HarvestersDialog(props) {
           )
           props.addCardToDeck(chosenCard)
           props.setCards([])
-          props.dialog.current.hide()
         }}
       />
     </Dialog>

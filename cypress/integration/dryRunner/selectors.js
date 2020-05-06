@@ -18,4 +18,5 @@ export default {
   HOS_FIRST_SUGGESTED: '#harvesters-dialog [data-testid="card-0"]',
   DECK_CARD_LEVEL: '[data-testid="deck-card-level"]',
   CARD_LOG: '[data-testid="card-log"]',
+  RNG_INPUT: '[data-testid="RNG-input"]',
 }
