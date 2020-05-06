@@ -6,3 +6,5 @@ build
 *.log*
 screenshots
 sprite.svg
+.nyc_output
+coverage
