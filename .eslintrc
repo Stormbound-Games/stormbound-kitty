@@ -2,7 +2,7 @@
   "extends": ["react-app"],
   "overrides": [
     {
-      "files": ["cypress/**/*.js"],
+      "files": ["cypress/**/*.js", "spec.js"],
       "globals": {
         "cy": "readonly",
         "Cypress": "readonly",
