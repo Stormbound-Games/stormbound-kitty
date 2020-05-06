@@ -1,4 +1,4 @@
-import { deserialiseDeck } from './deserialise'
+import serialisation from './serialisation'
 
 export default deck => {
   if (!deck) {
@@ -7,5 +7,5 @@ export default deck => {
 
   const decodedData = decodeURIComponent(deck)
 
-  return deserialiseDeck(decodedData)
+  return serialisation.deck.deserialise(decodedData)
 }

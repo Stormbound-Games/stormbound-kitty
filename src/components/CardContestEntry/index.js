@@ -4,7 +4,7 @@ import { WEEKLY_CARD_CONTEST } from '../../constants/misc'
 import Card from '../Card'
 import Column from '../Column'
 import Row from '../Row'
-import { deserialiseCard } from '../../helpers/deserialise'
+import serialisation from '../../helpers/serialisation'
 import getRawCardData from '../../helpers/getRawCardData'
 import './index.css'
 
@@ -17,7 +17,7 @@ const COLORS = {
 }
 
 const getCardData = id => {
-  const data = deserialiseCard(id)
+  const data = serialisation.card.deserialise(id)
   data.image = getRawCardData(data.imageCardId).image || data.imageURL
   data.strength = data.strength.values[0]
   data.mana = data.mana.values[0]

@@ -8,8 +8,7 @@ import Only from '../Only'
 import RarityBar from '../RarityBar'
 import { Stones } from '../Resource'
 import Tooltip from '../Tooltip'
-import { deserialiseDeck } from '../../helpers/deserialise'
-import { serialiseDeck } from '../../helpers/serialise'
+import serialisation from '../../helpers/serialisation'
 import getDeckDistanceToMax from '../../helpers/getDeckDistanceToMax'
 import getRawCardData from '../../helpers/getRawCardData'
 import resolveCollection from '../../helpers/resolveCollection'
@@ -31,10 +30,10 @@ const useAdjustedDeck = ({ category, id }) => {
   )
 
   if (hasDefaultCollection || category === 'EQUALS') {
-    return { deck: deserialiseDeck(id), id, distance: null }
+    return { deck: serialisation.deck.deserialise(id), id, distance: null }
   }
 
-  const deserialisedDeck = deserialiseDeck(id)
+  const deserialisedDeck = serialisation.deck.deserialise(id)
   const resolvedCollection = resolveCollection(collection)
   const deck = deserialisedDeck.map(card => ({
     ...card,
@@ -43,7 +42,7 @@ const useAdjustedDeck = ({ category, id }) => {
   }))
   const distance = getDeckDistanceToMax(resolvedCollection)({ id })
 
-  return { deck, id: serialiseDeck(deck), distance }
+  return { deck, id: serialisation.deck.serialise(deck), distance }
 }
 
 export default React.memo(function FeaturedDeck(props) {

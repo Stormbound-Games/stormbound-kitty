@@ -1,12 +1,12 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import NavLink from '../NavLink'
-import { deserialiseDeck } from '../../helpers/deserialise'
+import serialisation from '../../helpers/serialisation'
 
 export default React.memo(function NavDeckBuilder(props) {
   const match = useRouteMatch()
   const id = match.params.deckId
-  const deck = id ? deserialiseDeck(id) : []
+  const deck = id ? serialisation.deck.deserialise(id) : []
   const hasBigEnoughDeck = deck.length === 12
 
   return (

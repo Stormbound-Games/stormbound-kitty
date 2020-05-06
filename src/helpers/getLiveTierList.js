@@ -1,7 +1,6 @@
 import cards from '../data/cards'
 import decks from '../data/decks'
-import { serialiseList } from './serialise'
-import { deserialiseDeck } from './deserialise'
+import serialisation from './serialisation'
 import { getLongFaction } from './encoding'
 
 const getLiveTierList = () => {
@@ -36,7 +35,7 @@ const getLiveTierList = () => {
     // incorrectly skewing the popularity of cards
     if (category === 'BRAWL' || category === 'TOURNAMENT') return
 
-    const deck = deserialiseDeck(id)
+    const deck = serialisation.deck.deserialise(id)
 
     COUNTS[faction]++
     COUNTS.neutral++
@@ -76,7 +75,7 @@ const getLiveTierList = () => {
   }
 
   // Finally serialise the list
-  return serialiseList(tiers)
+  return serialisation.list.serialise(tiers)
 }
 
 export default getLiveTierList

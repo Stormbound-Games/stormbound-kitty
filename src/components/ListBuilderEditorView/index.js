@@ -11,7 +11,7 @@ import Row from '../Row'
 import ShareButton from '../ListBuilderShareButton'
 import ListBuilderTier from '../ListBuilderTier'
 import Title from '../Title'
-import { serialiseList } from '../../helpers/serialise'
+import serialisation from '../../helpers/serialisation'
 import getInitialListData from '../../helpers/getInitialListData'
 import reorder from '../../helpers/reorder'
 import './index.css'
@@ -36,7 +36,9 @@ class ListBuilderEditorView extends React.Component {
     )
 
     if (hasAnyTierChanged) {
-      this.props.history.replace('/list/' + serialiseList(this.state.tiers))
+      this.props.history.replace(
+        '/list/' + serialisation.list.serialise(this.state.tiers)
+      )
     }
 
     if (prevProps.listId !== this.props.listId) {

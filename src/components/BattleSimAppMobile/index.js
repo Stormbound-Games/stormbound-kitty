@@ -9,7 +9,7 @@ import GameForm from '../BattleSimGameForm'
 import Panel from '../BattleSimPanel'
 import PlayerForm from '../BattleSimPlayerForm'
 import Puzzle from '../BattleSimPuzzle'
-import { serialiseDeck } from '../../helpers/serialise'
+import serialisation from '../../helpers/serialisation'
 import './index.css'
 
 export default class BattleSimAppMobile extends React.Component {
@@ -194,7 +194,9 @@ export default class BattleSimAppMobile extends React.Component {
                 />
                 <p>
                   <a
-                    href={`/deck/` + serialiseDeck(this.props.cards)}
+                    href={
+                      `/deck/` + serialisation.deck.serialise(this.props.cards)
+                    }
                     target='_blank'
                     rel='noopener noreferrer'
                   >

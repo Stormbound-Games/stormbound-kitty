@@ -1,4 +1,4 @@
-import { deserialiseQuest } from './deserialise'
+import serialisation from './serialisation'
 
 export default card => {
   if (!card) {
@@ -7,5 +7,5 @@ export default card => {
 
   const decodedData = decodeURIComponent(card)
 
-  return deserialiseQuest(decodedData)
+  return serialisation.quest.deserialise(decodedData)
 }

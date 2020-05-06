@@ -1,4 +1,4 @@
-import { deserialiseList } from './deserialise'
+import serialisation from './serialisation'
 import { DEFAULT_LIST } from '../constants/list'
 
 export default list => {
@@ -8,5 +8,5 @@ export default list => {
 
   const decodedData = decodeURIComponent(list)
 
-  return deserialiseList(decodedData)
+  return serialisation.list.deserialise(decodedData)
 }

@@ -1,4 +1,4 @@
-import { deserialiseBattle } from './deserialise'
+import serialisation from './serialisation'
 import {
   DEFAULT_PLAYER,
   DEFAULT_BOARD,
@@ -22,5 +22,5 @@ export default sim => {
 
   const decodedData = decodeURIComponent(sim)
 
-  return { ...deserialiseBattle(decodedData) }
+  return { ...serialisation.battle.deserialise(decodedData) }
 }

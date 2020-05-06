@@ -2,7 +2,7 @@ import React from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import isEqual from 'lodash.isequal'
-import { serialiseDeck } from '../../helpers/serialise'
+import serialisation from '../../helpers/serialisation'
 import getInitialDeckData from '../../helpers/getInitialDeckData'
 import sortByMana from '../../helpers/sortByMana'
 
@@ -19,7 +19,9 @@ class DeckBuilderRoot extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (!isEqual(prevState.deck, this.state.deck)) {
       this.props.history.replace(
-        '/deck/' + serialiseDeck(this.state.deck) + window.location.search
+        '/deck/' +
+          serialisation.deck.serialise(this.state.deck) +
+          window.location.search
       )
     }
 

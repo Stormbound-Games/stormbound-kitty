@@ -1,9 +1,11 @@
 import decks from '../data/decks'
-import { deserialiseDeck } from './deserialise'
+import serialisation from './serialisation'
 
 export default deckCards => {
   const deckIds = deckCards.map(card => card.id)
   return decks.find(deck =>
-    deserialiseDeck(deck.id).every(card => deckIds.includes(card.id))
+    serialisation.deck
+      .deserialise(deck.id)
+      .every(card => deckIds.includes(card.id))
   )
 }

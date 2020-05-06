@@ -2,7 +2,7 @@ import React from 'react'
 import CTA from '../CTA'
 import Deck from '../Deck'
 import Dialog from '../Dialog'
-import { deserialiseDeck } from '../../helpers/deserialise'
+import serialisation from '../../helpers/serialisation'
 import './index.css'
 
 export default class BattleSimDeckImport extends React.Component {
@@ -40,7 +40,7 @@ export default class BattleSimDeckImport extends React.Component {
           /\/deck\/([\w=%]+)(?:\/|$|\?)/i
         )
 
-        this.setState({ deck: deserialiseDeck(id), error: '' })
+        this.setState({ deck: serialisation.deck.deserialise(id), error: '' })
       } catch (error) {
         this.setState({
           error: 'Unfortunately this deck could not be imported.',
