@@ -1,7 +1,6 @@
 import s from '../selectors'
 
-const DECK_ID =
-  'NU4xLDVXMSw1TjIsNVcyLDVOMyw1TjIzLDVONCw1TjUsNVc0LDVXMTEsNVc4LDVXNg'
+const DECK_ID = '5n15w15n25w25n35n235n45n55w45w115w85w6'
 
 describe('Dry-runner — Icicle Burst', () => {
   ;[

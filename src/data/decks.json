@@ -1,483 +1,483 @@
 [
   {
     "name": "Summon The Bomb",
-    "id": "NU4xLDVOMiw1RjIsNUYzLDVOMyw1RjUsNU4xMiw1TjE2LDVGMTQsNUYxNSw1TjMwLDVONTc=",
+    "id": "5n15n25f25f35n35f55n125n165f145f155n305n57",
     "faction": "shadowfen",
     "author": "Arikrat",
     "category": "DIAMOND_1"
   },
   {
     "name": "Schattenmoordeck",
-    "id": "NU4xLDVOMiw1RjMsNU4zLDVONCw1TjYsNU4xMCw1RjksNU4xNiw1RjE0LDVONDYsNU41Mg==",
+    "id": "5n15n25f35n35n45n65n105f95n165f145n465n52",
     "faction": "shadowfen",
     "author": "Murmello",
     "category": "DIAMOND_1"
   },
   {
     "name": "Swampirates",
-    "id": "NU4xLDVONSw1RjgsNU45LDVGNSw1TjEyLDVOMTYsNU4yMiw1RjE0LDVOMzAsNU40Miw1TjQ0",
+    "id": "5n15n55f85n95f55n125n165n225f145n305n425n44",
     "faction": "shadowfen",
     "author": "Zemeu",
     "category": "DIAMOND_1"
   },
   {
     "name": "Dark Ritual",
-    "id": "NUYzLDVOMyw1RjgsNU45LDVGNSw1TjEzLDVGNiw1TjIyLDVGMTQsNU4yOSw1TjM4LDVOMzk=",
+    "id": "5f35n35f85n95f55n135f65n225f145n295n385n39",
     "faction": "shadowfen",
     "author": "Zemeu",
     "category": "DIAMOND_1"
   },
   {
     "name": "Rush Toppen",
-    "id": "NU4xLDVOMiw1VzIsNU4zLDVONCw1TjE2LDVXNiw1VzcsNU4yOCw1VzEyLDVXMTksNU41Mg==",
+    "id": "5n15n25w25n35n45n165w65w75n285w125w195n52",
     "faction": "winter",
     "author": "Felcruel",
     "category": "DIAMOND_1"
   },
   {
     "name": "President’s Men",
-    "id": "M04xLDNJMSwzTjMsM042LDNJNiwzSTcsM0k4LDNJMTIsM0kxNSwzTjI4LDNJMTcsM040Nw==",
+    "id": "3n13i13n33n63i63i73i83i123i153n283i173n47",
     "faction": "ironclad",
     "author": "Arikrat",
     "category": "REGULAR"
   },
   {
     "name": "Chaotic Mess",
-    "id": "NU4xLDVOMiw1STEsNU4zLDVONSw1STYsNU4xMiw1STgsNUkxMSw1STEyLDVJMTUsNU40NA==",
+    "id": "5n15n25i15n35n55i65n125i85i115i125i155n44",
     "faction": "ironclad",
     "author": "Pombala",
     "category": "DIAMOND_1"
   },
   {
     "name": "Big Summer Blowout",
-    "id": "M1cyLDNOMywzTjE2LDNOMTQsM1c0LDNXNiwzTjE4LDNXMTMsM1cxMSwzVzEyLDNXOSwzVzIx",
+    "id": "3w23n33n163n143w43w63n183w133w113w123w93w21",
     "faction": "winter",
     "author": "WinterBoii",
     "category": "REGULAR"
   },
   {
     "name": "Rage Against The Machine",
-    "id": "M04yLDNOMywzSTEsM0k2LDNJMTUsM0kxNCwzSTExLDNJMTIsM0kxOCwzSTIwLDNJMTksM0kyMQ==",
+    "id": "3n23n33i13i63i153i143i113i123i183i203i193i21",
     "faction": "ironclad",
     "author": "WinterBoii",
     "category": "REGULAR"
   },
   {
     "name": "I, Robot",
-    "id": "M04xLDNJMSwzTjMsM0k2LDNJOCwzSTExLDNJMTUsM0kxMiwzTjI4LDNJMjAsM0kxOSwzSTIx",
+    "id": "3n13i13n33i63i83i113i153i123n283i203i193i21",
     "faction": "ironclad",
     "author": "WinterBoii",
     "category": "REGULAR"
   },
   {
     "name": "Cyberpunk",
-    "id": "M0kxLDNOMywzSTYsM0k4LDNOMTgsM0kxNSwzSTExLDNJMTgsM0kyMCwzSTE5LDNJMTYsM0kyMQ==",
+    "id": "3i13n33i63i83n183i153i113i183i203i193i163i21",
     "faction": "ironclad",
     "author": "WinterBoii",
     "category": "REGULAR"
   },
   {
     "name": "Britney Spears",
-    "id": "M04zLDNGNCwzRjIsM0YxLDNGMywzRjUsM0YxNCwzRjEwLDNGMTEsM0YxNiwzRjE1LDNGMjA=",
+    "id": "3n33f43f23f13f33f53f143f103f113f163f153f20",
     "faction": "shadowfen",
     "author": "WinterBoii",
     "category": "REGULAR"
   },
   {
     "name": "Bloody Mary",
-    "id": "M04zLDNGOCwzRjIsM0YzLDNGNSwzRjEwLDNGMTQsM0YxNSwzRjE3LDNGMTYsM0YxOCwzRjIw",
+    "id": "3n33f83f23f33f53f103f143f153f173f163f183f20",
     "faction": "shadowfen",
     "author": "WinterBoii",
     "category": "REGULAR"
   },
   {
     "name": "Speedy Gonzales",
-    "id": "M04zLDNTMSwzUzksM1M2LDNTOCwzTjEyLDNOMjgsM1MxMywzUzEyLDNTMTcsM1MxNiwzUzIw",
+    "id": "3n33s13s93s63s83n123n283s133s123s173s163s20",
     "faction": "swarm",
     "author": "WinterBoii",
     "category": "REGULAR"
   },
   {
     "name": "Passive Aggro-ssive",
-    "id": "M04zLDNTMiwzUzEsM1M2LDNTOCwzUzExLDNTMTMsM1MxMiwzUzE2LDNTMTcsM1MyMCwzUzIy",
+    "id": "3n33s23s13s63s83s113s133s123s163s173s203s22",
     "faction": "swarm",
     "author": "WinterBoii",
     "category": "REGULAR"
   },
   {
     "name": "Xavius",
-    "id": "M040LDNTMSwzTjMsM1M1LDNTOSwzUzgsM1M3LDNTMTIsM1MxMywzUzE0LDNTMTcsM1MxNg==",
+    "id": "3n43s13n33s53s93s83s73s123s133s143s173s16",
     "faction": "swarm",
     "author": "WinterBoii",
     "category": "REGULAR"
   },
   {
     "name": "Counting Lambs",
-    "id": "M1MxLDNTMiwzUzEwLDNTOCwzUzcsM1M5LDNTMTQsM1MxMywzUzEyLDNTMTUsM1MxNiwzUzE3",
+    "id": "3s13s23s103s83s73s93s143s133s123s153s163s17",
     "faction": "swarm",
     "author": "WinterBoii",
     "category": "REGULAR"
   },
   {
     "name": "Dr. Unstable",
-    "id": "MU4xLDFJNSwxSTEsMUkyLDFJOCwxSTYsMUkxMCwxSTEzLDFOMTgsMUkyMCwxSTE5LDFONDc",
+    "id": "1n11i51i11i21i81i61i101i131n181i201i191n47",
     "faction": "ironclad",
     "author": "Ggshhh",
     "category": "EQUALS"
   },
   {
     "name": "Bombastic",
-    "id": "MU4xLDFONSwxTjYsMVc1LDFOMTgsMVc2LDFXNywxVzgsMVcxMywxVzE1LDFXMTgsMU41Nw==",
+    "id": "1n11n51n61w51n181w61w71w81w131w151w181n57",
     "faction": "winter",
     "author": "BluePhoenix",
     "category": "EQUALS"
   },
   {
     "name": "Hi I’m Dori",
-    "id": "MU4xLDFJMSwxSTIsMUk1LDFJNiwxSTgsMUkxMCwxTjE4LDFJMTMsMUkxNiwxSTIwLDFOMzk=",
+    "id": "1n11i11i21i51i61i81i101n181i131i161i201n39",
     "faction": "ironclad",
     "author": "TromboneFish",
     "category": "EQUALS"
   },
   {
     "name": "Two Drops Paradise",
-    "id": "NU4xLDVOMiw1RjEsNUYyLDVGMyw1TjMsNU40LDVONSw1RjQsNU4xMiw1TjI4LDVGMTQ=",
+    "id": "5n15n25f15f25f35n35n45n55f45n125n285f14",
     "faction": "shadowfen",
     "author": "BluePhoenix",
     "category": "DIAMOND_1"
   },
   {
     "name": "Herald’s Dance",
-    "id": "NU4xLDVTMSw1TjMsNU40LDVTMiw1UzEwLDVTMyw1UzYsNVM4LDVTOSw1UzE0LDVTMjA=",
+    "id": "5n15s15n35n45s25s105s35s65s85s95s145s20",
     "faction": "swarm",
     "author": "DuyNguyen",
     "category": "DIAMOND_1"
   },
   {
     "name": "Mia In Da House",
-    "id": "NU4xLDVJMSw1STIsNUkzLDVJNSw1STYsNUk3LDVJOCw1STEwLDVOMTYsNUkxMiw1TjM1",
+    "id": "5n15i15i25i35i55i65i75i85i105n165i125n35",
     "faction": "ironclad",
     "author": "Adig",
     "category": "DIAMOND_1"
   },
   {
     "name": "The Unknown Soldier",
-    "id": "NU4yLDVOMyw1TjE0LDVOMTYsNU4yMSw1VzksNVcxMyw1TjQ3LDVXMTksNVcyMSw1VzIzLDVONTg=",
+    "id": "5n25n35n145n165n215w95w135n475w195w215w235n58",
     "faction": "winter",
     "author": "Kohina",
     "category": "DIAMOND_1"
   },
   {
     "name": "DGL Tempoclad",
-    "id": "MU4xLDFJMSwxSTIsMU44LDFJNiwxSTgsMUkxMCwxTjE5LDFJMTYsMUkyMCwxSTIzLDFONTc=",
+    "id": "1n11i11i21n81i61i81i101n191i161i201i231n57",
     "faction": "ironclad",
     "author": "Shades",
     "category": "EQUALS"
   },
   {
     "name": "DGL Obsidian Rush",
-    "id": "MU4xLDFGMywxTjgsMUY1LDFOMTEsMUY4LDFOMjIsMUYxMiwxRjE0LDFGMTcsMUYxOCwxTjU3",
+    "id": "1n11f31n81f51n111f81n221f121f141f171f181n57",
     "faction": "shadowfen",
     "author": "Shades",
     "category": "EQUALS"
   },
   {
     "name": "Ragnarok’n’roll",
-    "id": "NU4xLDVOMiw1STEsNUkyLDVOMyw1TjQsNU45LDVJNiw1STgsNUkxMiw1STE5LDVONDc=",
+    "id": "5n15n25i15i25n35n45n95i65i85i125i195n47",
     "faction": "ironclad",
     "author": "Dordor21",
     "category": "DIAMOND_1"
   },
   {
     "name": "Visions Blast",
-    "id": "NU4zLDVONCw1TjksNU4xMiw1TjE0LDVOMjUsNU4yOCw1VzksNVcxMiw1TjQ0LDVXMTksNVcyMQ==",
+    "id": "5n35n45n95n125n145n255n285w95w125n445w195w21",
     "faction": "winter",
     "author": "Visions",
     "category": "DIAMOND_1"
   },
   {
     "name": "Blessed Hearth",
-    "id": "NU4xNU4yNVcyNU4zNU40NU4xMjVXMzVXNDVXNjVOMjg1VzEyNVcxNA==",
+    "id": "5n15n25w25n35n45n125w35w45w65n285w125w14",
     "faction": "winter",
     "author": "Visions",
     "category": "DIAMOND_1"
   },
   {
     "name": "Mean Metal",
-    "id": "NU4xLDVOMiw1STEsNU4zLDVOOCw1TjEyLDVOMTQsNUk4LDVOMTUsNU4xNiw1STYsNU41NA==",
+    "id": "5n15n25i15n35n85n125n145i85n155n165i65n54",
     "faction": "ironclad",
     "author": "Opticul",
     "category": "DIAMOND_1"
   },
   {
     "name": "Broken Iron",
-    "id": "NU4xLDVOMiw1STEsNUkzLDVOMyw1TjQsNUk1LDVJNiw1TjEzLDVJOCw1STEyLDVOMzk=",
+    "id": "5n15n25i15i35n35n45i55i65n135i85i125n39",
     "faction": "ironclad",
     "author": "Murmello",
     "category": "DIAMOND_1"
   },
   {
     "name": "Bunch O’ A-Holes",
-    "id": "NU4xLDVTMSw1TjMsNU40LDVONSw1UzIsNU4xMiw1UzYsNU4xNSw1UzgsNVM5LDVTMjA=",
+    "id": "5n15s15n35n45n55s25n125s65n155s85s95s20",
     "faction": "swarm",
     "author": "HikingViking",
     "category": "DIAMOND_1"
   },
   {
     "name": "Big Magic Boi",
-    "id": "NVcxLDVOMiw1VzIsNU4zLDVOOSw1TjE0LDVOMTYsNVc3LDVXMTEsNVcxMiw1TjUwLDVXMTk=",
+    "id": "5w15n25w25n35n95n145n165w75w115w125n505w19",
     "faction": "winter",
     "author": "HikingViking",
     "category": "DIAMOND_1"
   },
   {
     "name": "Speed-",
-    "id": "NU4xLDVGMyw1TjMsNU40LDVONSw1RjQsNU4xMiw1TjE2LDVGMTAsNUYxNCw1TjMwLDVGMjA=",
+    "id": "5n15f35n35n45n55f45n125n165f105f145n305f20",
     "faction": "shadowfen",
     "author": "Baimmm",
     "category": "DIAMOND_1"
   },
   {
     "name": "Klaxi’s Frogs",
-    "id": "NU4xLDVOMiw1RjIsNUYzLDVOMyw1RjgsNUY0LDVOMTYsNUYxNCw1RjE1LDVONTIsNUYyMw==",
+    "id": "5n15n25f25f35n35f85f45n165f145f155n525f23",
     "faction": "shadowfen",
     "author": "Murmello",
     "category": "DIAMOND_1"
   },
   {
     "name": "Anti Aggro Try",
-    "id": "NU4yLDVOMyw1TjQsNU4xMSw1TjEyLDVOMTQsNUYxMCw1TjIxLDVGMTQsNU4yOSw1TjQ0LDVONDg=",
+    "id": "5n25n35n45n115n125n145f105n215f145n295n445n48",
     "faction": "shadowfen",
     "author": "KilluaRyuko",
     "category": "DIAMOND_1"
   },
   {
     "name": "How Do You Like Me Now?",
-    "id": "NU4xLDVTMSw1TjMsNU40LDVTMiw1UzEwLDVONyw1UzYsNVM5LDVOMTYsNVMxNCw1UzIw",
+    "id": "5n15s15n35n45s25s105n75s65s95n165s145s20",
     "faction": "swarm",
     "author": "DuyNguyen",
     "category": "DIAMOND_1"
   },
   {
     "name": "How Do You Like Me Now?",
-    "id": "NU4xLDVOMiw1STEsNU4zLDVONCw1TjgsNUk2LDVOMTMsNUk4LDVOMTYsNUkxNSw1TjUy",
+    "id": "5n15n25i15n35n45n85i65n135i85n165i155n52",
     "faction": "ironclad",
     "author": "Leminh0510",
     "category": "DIAMOND_1"
   },
   {
     "name": "Iron Hearthguards",
-    "id": "NU4xLDVOMiw1STEsNUkyLDVOMyw1TjQsNU44LDVJNiw1STgsNUkxMCw1STE1LDVOMzk=",
+    "id": "5n15n25i15i25n35n45n85i65i85i105i155n39",
     "faction": "ironclad",
     "author": "Leminh0510",
     "category": "DIAMOND_1"
   },
   {
     "name": "Nuts And Bolts Collector",
-    "id": "NU4xLDVOMiw1STEsNU4zLDVONCw1TjUsNU44LDVJNiw1TjEyLDVJOCw1STEwLDVJMTI=",
+    "id": "5n15n25i15n35n45n55n85i65n125i85i105i12",
     "faction": "ironclad",
     "author": "Leminh0510",
     "category": "DIAMOND_1"
   },
   {
     "name": "Quick Wins",
-    "id": "NU4xLDVTMSw1TjMsNU40LDVTMiw1UzMsNU4xMiw1UzYsNU4xNSw1UzksNVMxNCw1UzIw",
+    "id": "5n15s15n35n45s25s35n125s65n155s95s145s20",
     "faction": "swarm",
     "author": "Adig",
     "category": "DIAMOND_1"
   },
   {
     "name": "Vindi Rush",
-    "id": "NU4xLDVOMiw1UzEsNU4zLDVONCw1UzIsNU4xMiw1UzksNU4xNiw1UzE0LDVTMjAsNVMyMg==",
+    "id": "5n15n25s15n35n45s25n125s95n165s145s205s22",
     "faction": "swarm",
     "author": "Murmello",
     "category": "DIAMOND_1"
   },
   {
     "name": "Chip And Dirty",
-    "id": "M04yLDNTMSwzTjQsM041LDNTMiwzTjcsM1M1LDNOMTQsM1M4LDNTMTMsM1MxOCwzUzIy",
+    "id": "3n23s13n43n53s23n73s53n143s83s133s183s22",
     "faction": "swarm",
     "author": "Charky",
     "category": "REGULAR"
   },
   {
     "name": "All Hail The Queen",
-    "id": "MU4xNSwxTjE4LDFOMTksMVMxMywxUzE2LDFTMTcsMU4zMiwxUzE4LDFTMjAsMVMyMSwxUzIyLDFONTI=",
+    "id": "1n151n181n191s131s161s171n321s181s201s211s221n52",
     "faction": "swarm",
     "author": "Damdam011",
     "category": "EQUALS"
   },
   {
     "name": "There Be Dragons",
-    "id": "MUYzLDFGOCwxRjksMU4xOCwxTjIyLDFOMjUsMUYxNCwxRjE3LDFGMTgsMU40MywxRjIxLDFONTE=",
+    "id": "1f31f81f91n181n221n251f141f171f181n431f211n51",
     "faction": "shadowfen",
     "author": "Dangold127",
     "category": "EQUALS"
   },
   {
     "name": "Lock’n’Load",
-    "id": "MU4xLDFJMSwxSTIsMUk2LDFJOCwxSTEwLDFOMjUsMUkxNiwxSTE5LDFOMzksMUkyMywxTjU3",
+    "id": "1n11i11i21i61i81i101n251i161i191n391i231n57",
     "faction": "ironclad",
     "author": "Felcruel",
     "category": "EQUALS"
   },
   {
     "name": "Push The Tempo",
-    "id": "MU4xLDFJMSwxSTIsMUk2LDFJOCwxSTksMUkxMCwxTjE4LDFJMTYsMUkxOSwxTjM5LDFJMjM=",
+    "id": "1n11i11i21i61i81i91i101n181i161i191n391i23",
     "faction": "ironclad",
     "author": "Fresh2deafh",
     "category": "EQUALS"
   },
   {
     "name": "Mechanical Rebirth",
-    "id": "MU4xLDFJMSwxSTYsMUk4LDFOMTUsMUkxMSwxSTEzLDFOMjEsMUkxNCwxSTE2LDFJMjEsMUkyMg==",
+    "id": "1n11i11i61i81n151i111i131n211i141i161i211i22",
     "faction": "ironclad",
     "author": "ReAt3x",
     "category": "EQUALS"
   },
   {
     "name": "My Queen",
-    "id": "NU4xLDVOMiw1UzEsNU4zLDVTMjQsNVMyLDVTMTAsNVM5LDVOMTYsNVMxNiw1UzIwLDVTMjE=",
+    "id": "5n15n25s15n35s245s25s105s95n165s165s205s21",
     "faction": "swarm",
     "author": "Murmello",
     "category": "DIAMOND_1"
   },
   {
     "name": "Winter Runners",
-    "id": "NU4xLDVOMyw1TjEzLDVOMTYsNVc1LDVOMjgsNVcxMiw1VzEzLDVXMTUsNU4zOSw1VzE3LDVXMTk=",
+    "id": "5n15n35n135n165w55n285w125w135w155n395w175w19",
     "faction": "winter",
     "author": "BluePhoenix",
     "category": "DIAMOND_1"
   },
   {
     "name": "Earny Swarm",
-    "id": "NU4xLDVTMSw1TjMsNVMyNCw1TjQsNVMyLDVTNiw1TjE1LDVTOSw1UzE1LDVONDQsNU40OA==",
+    "id": "5n15s15n35s245n45s25s65n155s95s155n445n48",
     "faction": "swarm",
     "author": "Murmello",
     "category": "DIAMOND_1"
   },
   {
     "name": "Chipasauruswrex",
-    "id": "NVcxLDVXMiw1TjMsNU4xMiw1TjE0LDVXMyw1TjIyLDVXNiw1VzEyLDVOMzgsNU40NSw1VzE5",
+    "id": "5w15w25n35n125n145w35n225w65w125n385n455w19",
     "faction": "winter",
     "author": "HarrietPhage",
     "category": "DIAMOND_1"
   },
   {
     "name": "Wall-e",
-    "id": "NU4xLDVJMSw1STIsNU4zLDVJOCw1STEwLDVOMTYsNUk2LDVJMTUsNUkyMCw1STE2LDVONDY=",
+    "id": "5n15i15i25n35i85i105n165i65i155i205i165n46",
     "faction": "ironclad",
     "author": "Arikrat",
     "category": "DIAMOND_1"
   },
   {
     "name": "Snowpiercer",
-    "id": "NVcyLDVOMyw1TjE0LDVOMTYsNVc0LDVOMTksNVc2LDVXOSw1VzExLDVXMTIsNVcxOSw1VzIx",
+    "id": "5w25n35n145n165w45n195w65w95w115w125w195w21",
     "faction": "winter",
     "author": "Arikrat",
     "category": "DIAMOND_1"
   },
   {
     "name": "Dragxxi",
-    "id": "NU4xLDVOMyw1TjQsNU41LDVONiw1RjQsNU4xMCw1RjksNUYxMCw1RjE0LDVOMzAsNUYyMw==",
+    "id": "5n15n35n45n55n65f45n105f95f105f145n305f23",
     "faction": "shadowfen",
     "author": "Baimmm",
     "category": "DIAMOND_1"
   },
   {
     "name": "Pif Paf Srututu",
-    "id": "NUYzLDVOMyw1RjgsNUY0LDVOMTIsNU4xNiw1RjEwLDVOMjgsNUYxNCw1RjE3LDVONDQsNUYyMw==",
+    "id": "5f35n35f85f45n125n165f105n285f145f175n445f23",
     "faction": "shadowfen",
     "author": "JezusNoScope",
     "category": "DIAMOND_1"
   },
   {
     "name": "Winter Fortress",
-    "id": "NU4xLDVOMyw1TjEzLDVOMTYsNVc1LDVOMTgsNVcxMCw1VzEzLDVOMzksNU40Nyw1VzE5LDVXMjM=",
+    "id": "5n15n35n135n165w55n185w105w135n395n475w195w23",
     "faction": "winter",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Rushy Bois",
-    "id": "M04xLDNOMiwzUzEsM04zLDNONCwzUzIsM1M1LDNOMTUsM04xNiwzUzE0LDNTMTcsM1MyMA==",
+    "id": "3n13n23s13n33n43s23s53n153n163s143s173s20",
     "faction": "swarm",
     "author": "Skylard",
     "category": "REGULAR"
   },
   {
     "name": "Casino Mia",
-    "id": "NU4xLDVJMSw1STIsNUkzLDVOMyw1STgsNUkxMCw1STYsNUkyMCw1STEyLDVOMzMsNU4zNA==",
+    "id": "5n15i15i25i35n35i85i105i65i205i125n335n34",
     "faction": "ironclad",
     "author": "Zemeu",
     "category": "DIAMOND_1"
   },
   {
     "name": "Khan’s Runners",
-    "id": "NU4xLDVOMyw1TjEyLDVOMTMsNVc1LDVOMjgsNVc5LDVXMTUsNU4zOSw1VzE3LDVXMTksNU41OA==",
+    "id": "5n15n35n125n135w55n285w95w155n395w175w195n58",
     "faction": "winter",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Laurus Sparks",
-    "id": "NVcyLDVOMyw1TjksNU4xMSw1TjE0LDVOMTYsNVc2LDVXOSw1TjY5LDVXMTYsNVcxOSw1VzIx",
+    "id": "5w25n35n95n115n145n165w65w95n695w165w195w21",
     "faction": "winter",
     "author": "Whipstache",
     "category": "DIAMOND_1"
   },
   {
     "name": "4 Runners to Harvest",
-    "id": "NU4xLDVOMiw1UzEsNU4zLDVONCw1TjUsNVMyLDVTMTAsNU4xMiw1UzgsNU4yOCw1UzE1",
+    "id": "5n15n25s15n35n45n55s25s105n125s85n285s15",
     "faction": "swarm",
     "author": "BluePhoenix",
     "category": "DIAMOND_1"
   },
   {
     "name": "All Your Base Are Belong To Us",
-    "id": "NU4xLDVOMiw1STEsNU4zLDVONCw1TjUsNUk1LDVOMTIsNUk3LDVOMTgsNU4yOCw1STIw",
+    "id": "5n15n25i15n35n45n55i55n125i75n185n285i20",
     "faction": "ironclad",
     "author": "BluePhoenix",
     "category": "DIAMOND_1"
   },
   {
     "name": "Chip & Pin",
-    "id": "NU4xLDVJMSw1STIsNU4zLDVOMTAsNUk3LDVJOCw1STEwLDVJMjAsNUkxOSw1TjM1LDVONjg=",
+    "id": "5n15i15i25n35n105i75i85i105i205i195n355n68",
     "faction": "ironclad",
     "author": "OneCurtis",
     "category": "DIAMOND_1"
   },
   {
     "name": "Chip & Clone",
-    "id": "NU4xLDVJMSw1STIsNU4zLDVJNyw1STgsNUkxMCw1STE1LDVJMjAsNUkxOSw1TjM1LDVOMzg=",
+    "id": "5n15i15i25n35i75i85i105i155i205i195n355n38",
     "faction": "ironclad",
     "author": "OneCurtis",
     "category": "DIAMOND_1"
   },
   {
     "name": "Running Mana",
-    "id": "NU4xLDVOMyw1TjQsNU45LDVOMTIsNU4xNCw1TjE2LDVOMjgsNVcxNiw1TjY4LDVXMTksNVcyMw==",
+    "id": "5n15n35n45n95n125n145n165n285w165n685w195w23",
     "faction": "winter",
     "author": "OneCurtis",
     "category": "DIAMOND_1"
   },
   {
     "name": "Building Permit",
-    "id": "NU4xLDVOMyw1TjksNU4xMyw1TjE0LDVOMTYsNVcxMyw1TjM5LDVONDcsNVcxOSw1TjU3LDVXMjM=",
+    "id": "5n15n35n95n135n145n165w135n395n475w195n575w23",
     "faction": "winter",
     "author": "OneCurtis",
     "category": "DIAMOND_1"
   },
   {
     "name": "MakeWay4OurLady",
-    "id": "M04xLDNOMywzTjUsM1MzLDNOMTIsM04xNCwzTjE2LDNOMTksM04yMiwzTjMwLDNOMzMsM040Mg==",
+    "id": "3n13n33n53s33n123n143n163n193n223n303n333n42",
     "faction": "swarm",
     "author": "MooreFunn",
     "category": "REGULAR"
   },
   {
     "name": "Swift Demise",
-    "id": "NU4xLDVTMSw1TjMsNU42Nyw1UzYsNVM4LDVTMTEsNVMxMyw1TjM1LDVTMjgsNVMyMSw1UzIy",
+    "id": "5n15s15n35n675s65s85s115s135n355s285s215s22",
     "faction": "swarm",
     "author": "Frostkhan",
     "category": "BRAWL",
@@ -485,21 +485,21 @@
   },
   {
     "name": "TXC Ascension",
-    "id": "NU4xLDVGOCw1TjIsNUY0LDVGMyw1TjMsNU41LDVONjMsNU42Nyw1RjI3LDVOMTIsNUYyNQ==",
+    "id": "5n15f85n25f45f35n35n55n635n675f275n125f25",
     "faction": "shadowfen",
     "author": "Davideg211",
     "category": "DIAMOND_1"
   },
   {
     "name": "Reckless Rush",
-    "id": "M04xLDNOMiwzUzEsM04zLDNTMjQsM1MyLDNONjMsM042NywzUzYsM04xNSwzUzgsM1MxMQ==",
+    "id": "3n13n23s13n33s243s23n633n673s63n153s83s11",
     "faction": "swarm",
     "author": "Reckless Rush",
     "category": "REGULAR"
   },
   {
     "name": "Lucrative Project",
-    "id": "NU4xLDVOMiw1STEsNU4zLDVONCw1STUsNUk3LDVJOCw1STI3LDVJMjAsNUkxNiw1STIx",
+    "id": "5n15n25i15n35n45i55i75i85i275i205i165i21",
     "faction": "ironclad",
     "author": "Frostkhan",
     "category": "BRAWL",
@@ -507,7 +507,7 @@
   },
   {
     "name": "Freedom Fight",
-    "id": "NU4xLDVGOCw1TjksNUY1LDVGNyw1RjEwLDVGMTIsNUYxNSw1RjE3LDVGMjgsNU41Miw1TjUz",
+    "id": "5n15f85n95f55f75f105f125f155f175f285n525n53",
     "faction": "shadowfen",
     "author": "Frostkhan",
     "category": "BRAWL",
@@ -515,7 +515,7 @@
   },
   {
     "name": "Eye Tempest",
-    "id": "NU4xLDVOMiw1TjIzLDROMTQsNVc1LDVOMTgsNU4yOSw1TjQ0LDVONDgsNVcxOSw1VzIxLDVXMjM=",
+    "id": "5n15n25n234n145w55n185n295n445n485w195w215w23",
     "faction": "winter",
     "author": "Frostkhan",
     "category": "BRAWL",
@@ -523,7 +523,7 @@
   },
   {
     "name": "Self Control",
-    "id": "NU4xLDVOMiw1UzEsNU4zLDVTMjQsNU40LDVTMyw1TjE4LDVTOSw1UzI4LDVTMjAsNVMyMQ==",
+    "id": "5n15n25s15n35s245n45s35n185s95s285s205s21",
     "faction": "swarm",
     "author": "Frostkhan",
     "category": "BRAWL",
@@ -531,7 +531,7 @@
   },
   {
     "name": "Aftershock Siege",
-    "id": "NU4xLDVOMiw1STEsNUkyLDVJMyw1TjksNUkxMCw1STE0LDVJMTUsNUkxOSw1TjM0LDVONDU=",
+    "id": "5n15n25i15i25i35n95i105i145i155i195n345n45",
     "faction": "ironclad",
     "author": "Frostkhan",
     "category": "BRAWL",
@@ -539,7 +539,7 @@
   },
   {
     "name": "Scavengers",
-    "id": "NU4xLDVOMiw1RjQsNUYzLDVOMyw1RjI3LDVGNiw1RjI1LDVGMTQsNUYxOCw1RjI4LDVGMjI=",
+    "id": "5n15n25f45f35n35f275f65f255f145f185f285f22",
     "faction": "shadowfen",
     "author": "Frostkhan",
     "category": "BRAWL",
@@ -547,7 +547,7 @@
   },
   {
     "name": "Unleashed Fury",
-    "id": "NU4xLDVJMSw1STMsNU42LDVJNSw1TjEwLDVJNyw1STgsNUkxMyw1STI3LDVJMTcsNU41MQ==",
+    "id": "5n15i15i35n65i55n105i75i85i135i275i175n51",
     "faction": "ironclad",
     "author": "Frostkhan",
     "category": "BRAWL",
@@ -555,7 +555,7 @@
   },
   {
     "name": "Small Plague",
-    "id": "NU4xLDVOMiw1STEsNUkyLDVJNCw1STUsNU4xMiw1STksNUkxNSw1STIwLDVJMTIsNUkxOQ==",
+    "id": "5n15n25i15i25i45i55n125i95i155i205i125i19",
     "faction": "ironclad",
     "author": "Frostkhan",
     "category": "BRAWL",
@@ -563,7 +563,7 @@
   },
   {
     "name": "Goddness Boon",
-    "id": "NU4xLDVXMiw1TjMsNU45LDVOMTEsNVc0LDVXOSw1VzEyLDVOMzYsNVcxMCw1VzE5LDVONTg=",
+    "id": "5n15w25n35n95n115w45w95w125n365w105w195n58",
     "faction": "winter",
     "author": "Frostkhan",
     "category": "BRAWL",
@@ -571,7 +571,7 @@
   },
   {
     "name": "Heroic Deeds",
-    "id": "NUY4LDVGNCw1RjIsNUYzLDVOMyw1TjgsNU41OSw1RjEyLDVONjksNU4zNSw1RjIzLDVONTg=",
+    "id": "5f85f45f25f35n35n85n595f125n695n355f235n58",
     "faction": "shadowfen",
     "author": "Frostkhan",
     "category": "BRAWL",
@@ -579,203 +579,203 @@
   },
   {
     "name": "Bait & Flood",
-    "id": "NU4xLDVOMiw1UzEsNU4zLDVOMjMsNU42Myw1UzEwLDVOOCw1TjksNU4xOCw1TjMxLDVTMTg=",
+    "id": "5n15n25s15n35n235n635s105n85n95n185n315s18",
     "faction": "swarm",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Kindred's Rush",
-    "id": "NU4xLDVGOCw1TjIsNUY0LDVGMSw1RjIsNUYzLDVGNyw1RjEwLDVGMTQsNUYyOCw1TjQw",
+    "id": "5n15f85n25f45f15f25f35f75f105f145f285n40",
     "faction": "shadowfen",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Indirect Attack",
-    "id": "NU4xLDVGOCw1RjQsNUYzLDVOMjMsNU42Nyw1TjEwLDVGNSw1RjE0LDVOMzUsNUYyOCw1TjQ0",
+    "id": "5n15f85f45f35n235n675n105f55f145n355f285n44",
     "faction": "shadowfen",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Fly, Xuri!",
-    "id": "NU4xLDVTMSw1TjMsNVMyNCw1UzIsNU42Nyw1UzEwLDVTNiw1TjE1LDVTMTIsNVMxOSw1UzIy",
+    "id": "5n15s15n35s245s25n675s105s65n155s125s195s22",
     "faction": "swarm",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Pray for Lady Rime",
-    "id": "NU4xLDVXMiw1TjMsNU42Nyw1TjE2LDVXOCw1VzksNVc2LDVXMTIsNVcxNiw1VzEwLDVXMTk",
+    "id": "5n15w25n35n675n165w85w95w65w125w165w105w19",
     "faction": "winter",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Klaxi Rush",
-    "id": "NU4xLDVGOCw1TjIsNUY0LDVGMSw1RjIsNUYzLDVOOSw1RjcsNUYxNCw1RjE3LDVGMjM",
+    "id": "5n15f85n25f45f15f25f35n95f75f145f175f23",
     "faction": "shadowfen",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Frost Winter",
-    "id": "NU4xLDVXMSw1VzIsNU4zLDVXNCw1VzUsNVcxMSw1VzksNVc2LDVXMTMsNVcxOSw1VzIx",
+    "id": "5n15w15w25n35w45w55w115w95w65w135w195w21",
     "faction": "winter",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Colossal Rush",
-    "id": "NU4xLDVOMiw1STEsNUkzLDVOMyw1STUsNU42Nyw1TjEyLDVJNyw1STgsNUkxMCw1STI3",
+    "id": "5n15n25i15i35n35i55n675n125i75i85i105i27",
     "faction": "ironclad",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Frozen Rush",
-    "id": "NU4xLDVOMiw1VzIsNU4zLDVONjcsNU4xMyw1VzUsNVc2LDVXMTIsNVcxMyw1TjM5LDVXMTk",
+    "id": "5n15n25w25n35n675n135w55w65w125w135n395w19",
     "faction": "winter",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Brutal Rush",
-    "id": "NU4xLDVGOCw1TjIsNUY0LDVGMSw1RjIsNUYzLDVOMyw1TjY3LDVGMjUsNUYxNCw1RjE3",
+    "id": "5n15f85n25f45f15f25f35n35n675f255f145f17",
     "faction": "shadowfen",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Flaming Dragons",
-    "id": "NU4xLDVJMSw1STMsNU4zLDVONiw1STUsNU45LDVOMTAsNUk3LDVJMTMsNUkyMCw1STE3",
+    "id": "5n15i15i35n35n65i55n95n105i75i135i205i17",
     "faction": "ironclad",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Stormy Doom",
-    "id": "NU4yMyw1TjYzLDVTMTAsNU44LDVOMTEsNU4xOCw1UzEzLDVOMjksNVMxOCw1TjQ0LDVTMjIsNU40OA",
+    "id": "5n235n635s105n85n115n185s135n295s185n445s225n48",
     "faction": "swarm",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Edrik Harvest",
-    "id": "NU4xLDVOMiw1UzEsNU4zLDVONjcsNU44LDVOOSw1TjEyLDVOMTgsNVMxMiw1TjU5LDVTMTU",
+    "id": "5n15n25s15n35n675n85n95n125n185s125n595s15",
     "faction": "swarm",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Puzzle maker",
-    "id": "NU4xLDVOMiw1STEsNUkzLDVJNCw1TjYsNU42Myw1STUsNUk3LDVJOSw1STEzLDVJMjA",
+    "id": "5n15n25i15i35i45n65n635i55i75i95i135i20",
     "faction": "ironclad",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Booming Professors",
-    "id": "NU4xLDVJMSw1STMsNU4yMyw1STQsNUk1LDVOMTAsNUk4LDVJMTEsNUkyNyw1STIwLDVJMjg",
+    "id": "5n15i15i35n235i45i55n105i85i115i275i205i28",
     "faction": "ironclad",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Massive Swarm",
-    "id": "NU4xLDVOMiw1TjMsNVMyNCw1UzEwLDVTNiw1UzgsNU4xNiw1UzE0LDVTMjgsNVMyMCw1UzIx",
+    "id": "5n15n25n35s245s105s65s85n165s145s285s205s21",
     "faction": "swarm",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Runners' Starting Point",
-    "id": "NU4xLDVOMiw1VzIsNU4zLDVONjcsNU4xNCw1VzMsNVc3LDVXMTIsNVcxMyw1TjM5LDVXMTk",
+    "id": "5n15n25w25n35n675n145w35w75w125w135n395w19",
     "faction": "winter",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Bragda & Chestnuts",
-    "id": "NU4xLDVGOCw1RjQsNUYxLDVGMiw1RjMsNUY1LDVGNyw1RjE0LDVGMTcsNUYyOCw1Tjc2",
+    "id": "5n15f85f45f15f25f35f55f75f145f175f285n76",
     "faction": "shadowfen",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Winter Earyn",
-    "id": "NU4xLDVOMyw1TjIzLDVOMTMsNU4xNyw1VzUsNVc5LDVONDQsNU40OCw1VzE5LDVXMjMsNU41OA",
+    "id": "5n15n35n235n135n175w55w95n445n485w195w235n58",
     "faction": "winter",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Bragda Rush",
-    "id": "NU4xLDVGOCw1TjIsNUY0LDVGMSw1RjIsNUYzLDVGNyw1TjE4LDVGMTQsNUYxNyw1Tjc2",
+    "id": "5n15f85n25f45f15f25f35f75n185f145f175n76",
     "faction": "shadowfen",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Ironclad Dragons",
-    "id": "NU4xLDVJMSw1TjMsNU42LDVJNSw1TjksNUk3LDVJOCw1TjE4LDVJMjAsNUkxNyw1TjM5",
+    "id": "5n15i15n35n65i55n95i75i85n185i205i175n39",
     "faction": "ironclad",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Khan’s Wild Runners",
-    "id": "NU4xLDVOMyw1TjIzLDVONjcsNU4xMyw1VzUsNU4yOCw1VzksNU4zOSw1VzE3LDVXMTksNU41OA",
+    "id": "5n15n35n235n675n135w55n285w95n395w175w195n58",
     "faction": "winter",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Quadrant Dragonclad",
-    "id": "MU4xLDFJMSwxSTIsMU42LDFOOCwxTjExLDFJNywxSTIwLDFJMTcsMUkxOSwxTjQ2LDFONDc=",
+    "id": "1n11i11i21n61n81n111i71i201i171i191n461n47",
     "faction": "ironclad",
     "author": "Helios",
     "category": "EQUALS"
   },
   {
     "name": "Cancerous Canon",
-    "id": "M0kxLDNJMiwzTjMsM0k0LDNJOCwzSTksM0k2LDNJMTUsM0kyMCwzSTEyLDNJMTksM0kyOA",
+    "id": "3i13i23n33i43i83i93i63i153i203i123i193i28",
     "faction": "ironclad",
     "author": "LightingLords",
     "category": "REGULAR"
   },
   {
     "name": "Chaotic Puzzle Makers",
-    "id": "NU4xLDVOMiw1STEsNUk0LDVONiw1TjYyLDVONjMsNUk3LDVJOSw1STEzLDVJMjAsNUkxMg",
+    "id": "5n15n25i15i45n65n625n635i75i95i135i205i12",
     "faction": "ironclad",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Dragon Rush",
-    "id": "M04xLDNOMiwzUzEsM04zLDNONiwzTjEwLDNTNCwzUzYsM1MxMiwzTjI4LDNTMTksM1MyMA==",
+    "id": "3n13n23s13n33n63n103s43s63s123n283s193s20",
     "faction": "swarm",
     "author": "SirTalFryn",
     "category": "REGULAR"
   },
   {
     "name": "The Curse",
-    "id": "M04xLDNGMiwzTjMsM042LDNOMTAsM0Y1LDNOMTUsM0Y5LDNGMTQsM0YxNSwzRjE5LDNGMjg=",
+    "id": "3n13f23n33n63n103f53n153f93f143f153f193f28",
     "faction": "shadowfen",
     "author": "GreenAlligator",
     "category": "REGULAR"
   },
   {
     "name": "Swarm 4 Aid",
-    "id": "M1MxLDNOMywzUzI0LDNONCwzUzUsM1MxNCwzUzE1LDNOMzYsM040NiwzTjQ4LDNONTAsM1MyMw==",
+    "id": "3s13n33s243n43s53s143s153n363n463n483n503s23",
     "faction": "swarm",
     "author": "TenTex",
     "category": "REGULAR"
   },
   {
     "name": "Aftershock Doom",
-    "id": "NU4xLDVOMiw1UzEsNVMyLDVOOSw1TjEzLDVOMjEsNVMxMyw1TjI5LDVTMTgsNU4zNCw1TjQ1",
+    "id": "5n15n25s15s25n95n135n215s135n295s185n345n45",
     "faction": "swarm",
     "author": "Frostkhan",
     "category": "BRAWL",
@@ -783,7 +783,7 @@
   },
   {
     "name": "Aftershock Core",
-    "id": "NU4xLDVOMiw1VzIsNU4xMiw1TjE2LDVOMjAsNVc5LDVOMzQsNVcxMCw1TjQ1LDVXMjcsNVcxOQ==",
+    "id": "5n15n25w25n125n165n205w95n345w105n455w275w19",
     "faction": "winter",
     "author": "HanooStreet",
     "category": "BRAWL",
@@ -791,42 +791,42 @@
   },
   {
     "name": "Spear & Shield",
-    "id": "NU4xLDVOMyw1TjIzLDVONjcsNU4xMyw1VzUsNU4xOCw1VzksNU4zOSw1VzE1LDVXMTksNU41OA==",
+    "id": "5n15n35n235n675n135w55n185w95n395w155w195n58",
     "faction": "winter",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
   },
   {
     "name": "Shady Queen",
-    "id": "NU4xLDVOMiw1UzEsNU4zLDVTMjQsNU42Nyw1TjksNVMzLDVTOCw1UzI4LDVTMjAsNVMyMQ==",
+    "id": "5n15n25s15n35s245n675n95s35s85s285s205s21",
     "faction": "swarm",
     "author": "the_mirc",
     "category": "DIAMOND_1"
   },
   {
     "name": "Dial 999",
-    "id": "NU4xLDVOMyw1TjY3LDVOMTQsNU4xNiw1VzUsNVc5LDVXMTIsNVcxOSw1TjU3LDVXMjMsNU41OA==",
+    "id": "5n15n35n675n145n165w55w95w125w195n575w235n58",
     "faction": "winter",
     "author": "the_mirc",
     "category": "DIAMOND_1"
   },
   {
     "name": "Beards & Nuts",
-    "id": "NU4xLDVGOCw1RjQsNUYzLDVOMyw1TjY3LDVOOSw1RjI1LDVGMTQsNU43NCw1RjE3LDVGMjg=",
+    "id": "5n15f85f45f35n35n675n95f255f145n745f175f28",
     "faction": "shadowfen",
     "author": "the_mirc",
     "category": "DIAMOND_1"
   },
   {
     "name": "Confined Siege",
-    "id": "NU4xLDVJMSw1STIsNU4zLDVONjcsNU45LDVOMTYsNUkxNSw1STIwLDVJMTksNUkyOCw1TjQ1",
+    "id": "5n15i15i25n35n675n95n165i155i205i195i285n45",
     "faction": "ironclad",
     "author": "the_mirc",
     "category": "DIAMOND_1"
   },
   {
     "name": "Aftershock Control",
-    "id": "NU4xLDVOMiw1STEsNUkyLDVJMyw1TjE0LDVJMTAsNU4yMSw1STE0LDVJMTksNU4zNCw1TjQ1",
+    "id": "5n15n25i15i25i35n145i105n215i145i195n345n45",
     "faction": "ironclad",
     "author": "Emkaem",
     "category": "BRAWL",

@@ -1,9 +1,7 @@
 import s from './selectors'
 
-const DECK_ID =
-  'NU4yLDVOMyw1TjIzLDVONCw1TjYsNU42Miw1UzMsNU4xMiw1TjE0LDVXOSw1VzE2LDVTMjE'
-const FREEZE_DECK_ID =
-  'NU4xLDRXMSw1TjIsNVcyLDVOMyw1TjQsNE41LDRONiwyTjYyLDJONjMsM1cxMSw0VzY='
+const DECK_ID = '5n25n35n235n45n65n625s35n125n145w95w165s21'
+const FREEZE_DECK_ID = '5n14w15n25w25n35n44n54n62n622n633w114w6'
 const HAND = ['W9', 'W16', 'N12', 'S3']
 
 describe('Dry-runner — Set RNG', () => {

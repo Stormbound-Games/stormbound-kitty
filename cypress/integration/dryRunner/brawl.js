@@ -1,9 +1,7 @@
 import s from './selectors'
 
-const KNIGHTS_DECK =
-  'MU4xLDFOMiwxTjMsMU43LDFONTksMU4yNywxTjI4LDFOMzIsMU40NywxTjU0LDFONTUsMU41Ng'
-const STRUCTURES_DECK =
-  'MUk1LDFOMTMsMVczLDFJMTAsMU4yMCwxSTE0LDFXMjQsMUYxMywxVzksMUkxOSwxTjM0LDFONDU'
+const KNIGHTS_DECK = '1n11n21n31n71n591n271n281n321n471n541n551n56'
+const STRUCTURES_DECK = '1i51n131w31i101n201i141w241f131w91i191n341n45'
 
 describe('Dry-runner — Brawl', () => {
   it('should be able to reset a game with knight mana cost modifier', () => {

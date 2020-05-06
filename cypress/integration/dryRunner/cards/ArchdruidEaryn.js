@@ -1,7 +1,6 @@
 import s from '../selectors'
 
-const DECK_ID =
-  'NU4xLDVXMSw1VzIsNU4zLDVONCw1TjUsNU42LDVONjIsNU42Niw1TjQ0LDVONDgsNVcxOQ'
+const DECK_ID = '5n15w15w25n35n45n55n65n625n665n445n485w19'
 
 describe('Dry-runner — Archdruid Earyn', () => {
   beforeEach(() => cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`))

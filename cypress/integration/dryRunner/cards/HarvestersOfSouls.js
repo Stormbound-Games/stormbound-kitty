@@ -1,9 +1,7 @@
 import s from '../selectors'
 
-const DECK_ID =
-  'NU4xLDVOMyw1TjIzLDVONCw1TjUsNU42LDVONjIsNU42Myw1TjY3LDVONjYsNU43LDVOMzg='
-const DECK_HOS_LEVEL_1 =
-  'NU4xLDVOMyw1TjIzLDVONCw1TjUsNU42LDVONjIsNU42Myw1TjY3LDVONjYsNU43LDFOMzg='
+const DECK_ID = '5n15n35n235n45n55n65n625n635n675n665n75n38'
+const DECK_HOS_LEVEL_1 = '5n15n35n235n45n55n65n625n635n675n665n71n38'
 const HAND = ['N38', 'N1', 'N4', 'N3']
 
 describe('Dry-runner — Harvesters of Souls', () => {
