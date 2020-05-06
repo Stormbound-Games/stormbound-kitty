@@ -97,6 +97,8 @@ p {
 
 a {
   color: currentColor;
+  text-decoration-skip: skip;
+  text-decoration-skip-ink: auto;
 }
 
 a:not([class]) {
@@ -192,6 +194,8 @@ fieldset {
   font: inherit;
   display: inline;
   text-decoration: underline;
+  text-decoration-skip: skip;
+  text-decoration-skip-ink: auto;
   cursor: pointer;
   transition: 250ms;
 }
