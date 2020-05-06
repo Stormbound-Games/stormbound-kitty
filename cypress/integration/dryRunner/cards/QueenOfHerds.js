@@ -1,7 +1,6 @@
 import s from '../selectors'
 
-const DECK_ID =
-  'NU4xLDVOMiw1TjMsNU4yMyw1TjQsNU41LDVONiw1TjYyLDVONjMsNU42Nyw1UzMsNVMyMQ=='
+const DECK_ID = '5n15n25n35n235n45n55n65n625n635n675s35s21'
 
 describe('Dry-runner — Queen of Herds', () => {
   it('should be possible to play satyrs with Queen of Herds', () => {

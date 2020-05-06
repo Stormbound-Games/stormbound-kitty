@@ -1,7 +1,6 @@
 import s from '../selectors'
 
-const DECK_ID =
-  'NUY4LDVOMiw1RjQsNU4zLDVOMzksNU40MCw1TjQyLDVONDMsNU40NCw1TjU1LDVONTYsNU41Nw'
+const DECK_ID = '5f85n25f45n35n395n405n425n435n445n555n565n57'
 const HAND = ['N2', 'N3', 'F8', 'F4']
 
 describe('Dry-runner — Toxic Sacrifice', () => {

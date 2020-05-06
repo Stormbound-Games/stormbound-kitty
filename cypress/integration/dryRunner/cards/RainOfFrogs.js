@@ -1,7 +1,6 @@
 import s from '../selectors'
 
-const DECK_ID =
-  'NU4xLDVGOCw1TjIsNUY0LDVOMyw1TjIzLDVONCw1TjUsNU42LDVONjIsNU42Myw1STU'
+const DECK_ID = '5n15f85n25f45n35n235n45n55n65n625n635i5'
 
 describe('Dry-runner — Rain of Frogs', () => {
   it('should not be possible to play a unit or a structure after Rain of Frogs fills the board', () => {

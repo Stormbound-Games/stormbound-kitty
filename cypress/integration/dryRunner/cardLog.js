@@ -1,6 +1,5 @@
 import s from './selectors'
-const DECK_ID =
-  'MU4xLDFOMiwxSTIsMU4zLDFONCwxTjUsMU42LDFONjIsMU42MywxTjgsMU4xMCwxTjEz'
+const DECK_ID = '1n11n21i21n31n41n51n61n621n631n81n101n13'
 const HAND = ['N1', 'N3', 'I2', 'N10']
 
 describe('Dry-runner — Card Log', () => {

@@ -1,9 +1,7 @@
 import s from './selectors'
 
-const DRAW_AND_DISCARD_DECK_ID =
-  'NU4xLDVOMiw1TjMsNU4yMyw1TjQsNU42LDVONjIsNU42Myw1TjY3LDVOMTIsNU4xNCw1TjIy'
-const DECK_ID =
-  'NU41LDVOOCw1TjEyLDVOMTQsNU4xNiw1TjE5LDVOMjIsNU4zMCw1VzksNVcxNiw1TjQyLDVONzI='
+const DRAW_AND_DISCARD_DECK_ID = '5n15n25n35n235n45n65n625n635n675n125n145n22'
+const DECK_ID = '5n55n85n125n145n165n195n225n305w95w165n425n72'
 
 describe('Dry-runner — Draw and Discard', () => {
   it('should be possible to draw/discard cards', () => {

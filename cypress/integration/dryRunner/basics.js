@@ -20,10 +20,8 @@ const isMarkedAffordable = $card => {
 }
 
 describe('Dry-runner — Basics', () => {
-  const CHEAP_DECK =
-    'NU4xLDVOMiw1RjMsNU4zLDVONCw1TjUsNU42LDVONjIsNU42Nyw1TjY2LDFOMTAsNU4xNg=='
-  const EXPENSIVE_DECK =
-    'Mk42OCw0TjQ3LDNONDgsNE40OSwyTjUwLDNONTEsNE41MiwzTjUzLDVONTQsMk41NSwyTjU2LDNONTc='
+  const CHEAP_DECK = '5n15n25f35n35n45n55n65n625n675n661n105n16'
+  const EXPENSIVE_DECK = '2n684n473n484n492n503n514n523n535n542n552n563n57'
 
   before(() => {
     cy.visit(`/deck/${CHEAP_DECK}/dry-run`)
