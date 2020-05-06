@@ -14,7 +14,7 @@ export default React.memo(function Info(props) {
         {props.title}
       </span>
       {props.children}
-      {props.CTA && <span className='Info__CTA'>{props.CTA}</span>}
+      {props.CTA && <div className='Info__CTA'>{props.CTA}</div>}
     </div>
   )
 })
