@@ -1,6 +1,15 @@
 {
+  "experimentalComponentTesting": true,
+  "componentFolder": "src/components",
+  "coverage": false,
   "baseUrl": "http://localhost:3000",
   "video": false,
-  "ignoreTestFiles": "selectors.js",
+  "ignoreTestFiles": [
+    "selectors.js",
+    "index.css",
+    "index.js",
+    "map.js",
+    "**/DeckMechanisms/*.js"
+  ],
   "projectId": "h321g2"
 }
