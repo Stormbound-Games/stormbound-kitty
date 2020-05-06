@@ -3,8 +3,10 @@ import { useRouteMatch, useHistory } from 'react-router-dom'
 import CardSelect from '../CardSelect'
 import NavLink from '../NavLink'
 import Only from '../Only'
+import useViewportWidth from '../../hooks/useViewportWidth'
 
 export default React.memo(function NavCardBuilder(props) {
+  const viewportWidth = useViewportWidth()
   const history = useHistory()
   const match = useRouteMatch()
   const id = match.params.cardId
@@ -41,10 +43,12 @@ export default React.memo(function NavCardBuilder(props) {
 
         <li className='Header__item Header__item--select'>
           <CardSelect
-            label='Load card'
+            label='Load a card'
             id='card-select'
             name='card-select'
+            noBorder={viewportWidth >= 700}
             current={id}
+            disabledOptions={id ? [id] : undefined}
             onChange={option =>
               option
                 ? history.push(
