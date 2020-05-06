@@ -1,0 +1,8 @@
+.BookOutcome {
+  margin-top: 1.5em;
+}
+
+.BookOutcome ul {
+  padding-left: 0.25em;
+  list-style-position: inside;
+}

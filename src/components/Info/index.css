@@ -36,3 +36,7 @@
   transform: translate(-50%, -50%) translateY(3px);
   width: 50%;
 }
+
+.Info > :last-child {
+  margin-bottom: 0;
+}
