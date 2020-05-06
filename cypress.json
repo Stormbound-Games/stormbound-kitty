@@ -1,6 +1,6 @@
 {
   "experimentalComponentTesting": true,
-  "componentFolder": "src/components",
+  "componentFolder": "src",
   "coverage": false,
   "baseUrl": "http://localhost:3000",
   "video": false,
@@ -9,7 +9,12 @@
     "index.css",
     "index.js",
     "map.js",
-    "**/DeckMechanisms/*.js"
+    "**/DeckMechanisms/*.js",
+    "**/serialisation/!(spec).js",
+    "**/constants/*.js",
+    "**/data/*.*",
+    "**/hooks/*.js",
+    "serviceWorker.js"
   ],
   "projectId": "h321g2"
 }
