@@ -4,12 +4,12 @@
   align-items: flex-end;
 }
 
-.ListBuilderTierHeader .ListBuilderTierHeader__name {
+.ListBuilderTierHeader__name {
   text-transform: uppercase;
-  color: var(--beige);
   padding-top: 0.55em;
   padding-bottom: 0.55em;
   margin-bottom: 0;
+  color: var(--beige);
   font-size: 100%;
 }
 
@@ -25,9 +25,8 @@
 
 .ListBuilderTierHeader__move {
   padding: 0.55em;
-  border-radius: 0.3em;
   background-color: transparent;
-  border: 1px solid rgba(222, 215, 164, 0.5);
+  border: 1px solid var(--dark-beige);
   color: var(--white);
   border-radius: 0.25em;
   height: 100%;
@@ -41,6 +40,10 @@
 
 .ListBuilderTierHeader__move + .ListBuilderTierHeader__move {
   margin-left: 0.5em;
+}
+
+.ListBuilderTierHeader__item .CardSelect__control {
+  min-height: 40px;
 }
 
 @media (min-width: 700px) {

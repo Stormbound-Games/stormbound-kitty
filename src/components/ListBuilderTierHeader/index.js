@@ -18,7 +18,6 @@ export default React.memo(function ListBuilderTierHeader(props) {
               id={`${props.prefix}listName`}
               type='text'
               value={props.name}
-              className='ListBuilderTierHeader__name'
               onChange={event => props.onNameChange(event.target.value)}
               maxLength={30}
               placeholder='Unnamed tier'
