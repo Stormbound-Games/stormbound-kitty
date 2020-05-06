@@ -29,11 +29,20 @@
   overflow: hidden;
 }
 
+.Header__link {
+  transition: color 250ms;
+  outline: 0;
+}
+
 /**
  * Prevent hover state on non-link items.
  */
 a.Header__link:hover {
   color: var(--beige);
+}
+
+a.Header__link:focus {
+  color: var(--light-swarm);
 }
 
 .Header__link--disabled {
