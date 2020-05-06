@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Column from '../Column'
+import Icon from '../Icon'
 import Row from '../Row'
 import './index.css'
 
@@ -13,9 +14,7 @@ export default React.memo(function Footer(props) {
             <span className='Footer__heading'>Dedicated to the community</span>
             <p className='Footer__info'>
               Stormbound Kitty is made with{' '}
-              <span aria-label='love' role='img'>
-                💖
-              </span>{' '}
+              <Icon icon='heart' aria-label='love' className='Footer__icon' />{' '}
               by Kitty and the vibrant Stormbound community.{' '}
               <a
                 href='https://gum.co/stormbound-kitty'
