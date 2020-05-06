@@ -5,7 +5,7 @@
 
 .Header__nav {
   margin: 0 1em;
-  border-bottom: 1px solid var(--beige);
+  border-bottom: 1px solid var(--dark-beige);
 }
 
 .Header__nav + .Header__nav {
@@ -111,7 +111,7 @@ a.Header__link:focus {
     background: linear-gradient(
       to right,
       transparent,
-      var(--beige),
+      var(--dark-beige),
       transparent
     );
   }
@@ -162,7 +162,7 @@ a.Header__link:focus {
     transform: translate(-50%, -50%) rotate(45deg);
     top: 100%;
     left: 50%;
-    border: 1px solid var(--beige);
+    border: 1px solid var(--dark-beige);
     z-index: 2;
   }
 
