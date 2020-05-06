@@ -6,6 +6,7 @@ import chunk from '../../helpers/chunk'
 import './index.css'
 
 export default React.memo(function CardsGallery(props) {
+  const container = React.useRef()
   const [activePage, setActivePage] = React.useState(0)
   const pages = React.useMemo(
     () => chunk(props.cards || [], props.cardsPerPage),
@@ -22,15 +23,36 @@ export default React.memo(function CardsGallery(props) {
     [onPageChange]
   )
 
+  const handleDrag = React.useCallback(
+    (event, info) => {
+      const DRAG_THRESHOLD = 100
+      const isNotFirstPage = activePage > 0
+      const isNotLastPage = activePage < pages.length - 1
+
+      if (info.point.x > DRAG_THRESHOLD && isNotFirstPage) {
+        changePage(page => page - 1)
+      } else if (info.point.x < DRAG_THRESHOLD * -1 && isNotLastPage) {
+        changePage(page => page + 1)
+      }
+    },
+    [activePage, changePage, pages.length]
+  )
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(() => changePage(0), filters)
 
   return (
     <div
+      ref={container}
       className='CardsGallery'
       style={{ '--cards-per-row': props.cardsPerPage / 2 }}
     >
-      <ul className='CardsGallery__list'>
+      <motion.ul
+        drag={pages.length > 1 ? 'x' : undefined}
+        dragConstraints={container}
+        onDragEnd={handleDrag}
+        className='CardsGallery__list'
+      >
         {page.map((card, index) => {
           const key = [card.id, index].join('_')
           return (
@@ -82,7 +104,7 @@ export default React.memo(function CardsGallery(props) {
             </motion.li>
           )
         })}
-      </ul>
+      </motion.ul>
 
       {!props.hideNavButtons && (
         <div className='CardsGallery__nav'>
