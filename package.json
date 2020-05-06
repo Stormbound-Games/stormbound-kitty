@@ -27,7 +27,7 @@
     "remark-react": "^7.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "EXTEND_ESLINT=true react-scripts start",
     "build": "CI=false react-scripts build",
     "test": "cypress run",
     "eject": "react-scripts eject",
