@@ -3,7 +3,7 @@ import LazyLoad from 'react-lazyload'
 import Column from '../Column'
 import CTA from '../CTA'
 import Dialog from '../Dialog'
-import Icon from '../Icon'
+import DiamondButton from '../DiamondButton'
 import Image from '../Image'
 import Loader from '../Loader'
 import PageMeta from '../PageMeta'
@@ -18,14 +18,14 @@ import './index.css'
 
 const Download = React.memo(function Download(props) {
   return (
-    <button
-      className='FanKit__download'
-      data-testid='fan-kit-download-btn'
-      onClick={() => props.setActive(props.id)}
-      title={'Download asset ' + props.name}
-    >
-      <Icon icon='download' />
-    </button>
+    <span className='FanKit__download'>
+      <DiamondButton
+        data-testid='fan-kit-download-btn'
+        onClick={() => props.setActive(props.id)}
+        title={'Download asset ' + props.name}
+        icon='download'
+      />
+    </span>
   )
 })
 
