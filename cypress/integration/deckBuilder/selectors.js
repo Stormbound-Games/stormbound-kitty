@@ -30,4 +30,15 @@ export default {
   IMPORT_BTN: '[data-testid="import-btn"]',
   RESET_BTN: '[data-testid="reset-btn"]',
   RESET_CONFIRM_BTN: '[data-testid="reset-confirm-btn"]',
+
+  GHOST_DECK: '[data-testid="ghost-deck"]',
+  EDIT_DECK_BTN: '[data-testid="edit-deck-btn"]',
+  DELETE_DECK_BTN: '[data-testid="delete-deck-btn"]',
+  PERSONAL_DECKS: '[data-testid="personal-deck"]',
+  GHOST_DECK_BTN: '[data-testid="ghost-deck-btn"]',
+  DECK_FORM: '[data-testid="deck-form"]',
+  DECK_ID_INPUT: '[data-testid="deck-id-input"]',
+  DECK_NAME_INPUT: '[data-testid="deck-name-input"]',
+  DECK_CATEGORY_SELECT: '[data-testid="deck-category-select"]',
+  DECK_SUBMIT_BTN: '[data-testid="deck-submit"]',
 }

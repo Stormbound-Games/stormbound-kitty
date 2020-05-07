@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Deck Builder",
+    "description": "You can now manage your decks directly on the site with the deck collection!",
+    "link": "/deck/yours"
+  },
+  {
     "intro": "Deck Suggestions",
     "description": "The deck suggestions can now be sorted by most recently added, faction or feasibility.",
     "link": "/deck/suggestions"

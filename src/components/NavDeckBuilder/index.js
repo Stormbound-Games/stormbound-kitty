@@ -70,6 +70,12 @@ export default React.memo(function NavDeckBuilder(props) {
         </li>
 
         <li className='Header__item'>
+          <NavLink to='/deck/yours' active={props.active === 'YOURS'}>
+            Your decks
+          </NavLink>
+        </li>
+
+        <li className='Header__item'>
           <NavLink
             to='/deck/suggestions'
             active={props.active === 'SUGGESTIONS'}

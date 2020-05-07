@@ -1,6 +1,7 @@
 import React from 'react'
 import { Switch, useRouteMatch } from 'react-router-dom'
 import Page from '../Page'
+import PersonalDecksProvider from '../PersonalDecksProvider'
 import load from '../../helpers/load'
 
 const DeckBuilderSuggestions = load('DeckBuilderSuggestions')
@@ -8,6 +9,7 @@ const DeckBuilderRoot = load('DeckBuilderRoot')
 const DeckBuilderDetailView = load('DeckBuilderDetailView')
 const DeckBuilderDryRunView = load('DeckBuilderDryRunView')
 const DeckBuilderEditorView = load('DeckBuilderEditorView')
+const DeckBuilderYours = load('DeckBuilderYours')
 
 export default function RouterDeckBuilder() {
   const { path } = useRouteMatch()
@@ -19,6 +21,11 @@ export default function RouterDeckBuilder() {
         active={['DECK_BUILDER', 'SUGGESTIONS']}
       >
         <DeckBuilderSuggestions />
+      </Page>
+      <Page path={`${path}/yours`} active={['DECK_BUILDER', 'YOURS']}>
+        <PersonalDecksProvider>
+          <DeckBuilderYours />
+        </PersonalDecksProvider>
       </Page>
       <Page path={`${path}/:deckId/detail`} active={['DECK_BUILDER', 'DETAIL']}>
         <DeckBuilderRoot>
