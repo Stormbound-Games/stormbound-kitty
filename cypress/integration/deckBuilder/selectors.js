@@ -34,6 +34,7 @@ export default {
   GHOST_DECK: '[data-testid="ghost-deck"]',
   EDIT_DECK_BTN: '[data-testid="edit-deck-btn"]',
   DELETE_DECK_BTN: '[data-testid="delete-deck-btn"]',
+  DELETE_DECK_CONFIRM_BTN: '[data-testid="delete-confirm-btn"]',
   PERSONAL_DECKS: '[data-testid="personal-deck"]',
   GHOST_DECK_BTN: '[data-testid="ghost-deck-btn"]',
   DECK_FORM: '[data-testid="deck-form"]',

@@ -72,6 +72,8 @@ describe('Deck Builder - Personal decks', () => {
       .first()
       .find(s.DELETE_DECK_BTN)
       .click()
+      .get(s.DELETE_DECK_CONFIRM_BTN)
+      .click()
       .get(s.PERSONAL_DECKS)
       .should('have.length', 0)
   })

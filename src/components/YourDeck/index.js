@@ -2,20 +2,12 @@ import React from 'react'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import DiamondButton from '../DiamondButton'
 import FeaturedDeck from '../FeaturedDeck'
+import YourDeckDeleteButton from '../YourDeckDeleteButton'
 import YourDeckForm from '../YourDeckForm'
 import './index.css'
 
 export default React.memo(function YourDeck(props) {
   const { removeDeck } = React.useContext(PersonalDecksContext)
-  const handleDelete = React.useCallback(() => {
-    if (
-      window.confirm(
-        'Are you sure you want to delete that deck? It cannot be undone.'
-      )
-    ) {
-      removeDeck(props.id)
-    }
-  }, [props.id, removeDeck])
 
   if (props.isEdited) {
     return (
@@ -42,12 +34,7 @@ export default React.memo(function YourDeck(props) {
           />
         </span>
         <span className='YourDeck__button'>
-          <DiamondButton
-            aria-label='Delete deck'
-            onClick={handleDelete}
-            icon='bin'
-            data-testid='delete-deck-btn'
-          />
+          <YourDeckDeleteButton delete={() => removeDeck(props.id)} />
         </span>
       </div>
     </div>
