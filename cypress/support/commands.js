@@ -10,6 +10,7 @@ import drSelect from './commands/drSelect'
 import drSetRNG from './commands/drSetRNG'
 import exportCollection from './commands/exportCollection'
 import importCollection from './commands/importCollection'
+import { restoreLocalStorage, saveLocalStorage } from './commands/localStorage'
 
 Cypress.Commands.add('bsDraw', { prevSubject: false }, bsDraw)
 Cypress.Commands.add('bsFill', { prevSubject: 'optional' }, bsFill)
@@ -30,4 +31,14 @@ Cypress.Commands.add(
   'importCollection',
   { prevSubject: true },
   importCollection
+)
+Cypress.Commands.add(
+  'restoreLocalStorage',
+  { prevSubject: false },
+  restoreLocalStorage
+)
+Cypress.Commands.add(
+  'saveLocalStorage',
+  { prevSubject: false },
+  saveLocalStorage
 )
