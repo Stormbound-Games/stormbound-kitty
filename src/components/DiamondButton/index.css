@@ -1,0 +1,35 @@
+.DiamondButton {
+  display: block;
+  color: var(--beige);
+  transition: 250ms;
+  width: 1.75em;
+  height: 1.75em;
+  line-height: 1.75em;
+  text-align: center;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+}
+
+.DiamondButton::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--beige);
+  transform: translate(-50%, -55%) rotate(45deg);
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  transition: inherit;
+}
+
+.DiamondButton:hover {
+  color: var(--black);
+}
+
+.DiamondButton:hover::before {
+  background-color: var(--beige);
+}
