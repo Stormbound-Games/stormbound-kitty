@@ -211,7 +211,7 @@ class DeckBuilderSuggestions extends React.Component {
               resetFilters={this.resetFilters}
               formRef={this.formRef}
             />
-            <p className='DeckBuilderSuggestions__order'>
+            <div className='DeckBuilderSuggestions__order'>
               {this.state.order === 'FEASIBILITY' && (
                 <Only.CustomCollection>
                   <Info icon='books' title='Your collection'>
@@ -239,7 +239,7 @@ class DeckBuilderSuggestions extends React.Component {
                   the level of your cards.
                 </Info>
               </Only.DefaultCollection>
-            </p>
+            </div>
           </Column>
           <Column width='2/3'>
             <Title>Decks</Title>

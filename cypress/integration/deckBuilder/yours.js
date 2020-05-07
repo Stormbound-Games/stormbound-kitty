@@ -67,8 +67,7 @@ describe('Deck Builder - Personal decks', () => {
   })
 
   it('should be possible to delete a deck', () => {
-    cy.on('window:confirm', () => true)
-      .get(s.PERSONAL_DECKS)
+    cy.get(s.PERSONAL_DECKS)
       .first()
       .find(s.DELETE_DECK_BTN)
       .click()
@@ -83,5 +82,48 @@ describe('Deck Builder - Personal decks', () => {
       .importFile('decks.import.csv')
       .get(s.PERSONAL_DECKS)
       .should('have.length', 2)
+  })
+
+  it('should be possible to filter decks', () => {
+    cy.reload()
+      .get(s.PERSONAL_DECKS_NAME_INPUT)
+      .should('not.exist')
+      .get(s.PERSONAL_DECKS_FACTION_SELECT)
+      .should('not.exist')
+      .get(s.PERSONAL_DECKS_CATEGORY_SELECT)
+      .should('not.exist')
+
+      .get(s.IMPORT_DECKS_BTN)
+      .importFile('decks.import.csv')
+
+      .get(s.PERSONAL_DECKS_NAME_INPUT)
+      .type('goat')
+
+      .get(s.PERSONAL_DECKS)
+      .should('have.length', 1)
+
+      .get(s.PERSONAL_DECKS_NAME_INPUT)
+      .clear()
+
+      .get(s.PERSONAL_DECKS)
+      .should('have.length', 2)
+
+      .get(s.PERSONAL_DECKS_FACTION_SELECT)
+      .select('winter')
+
+      .get(s.PERSONAL_DECKS)
+      .should('have.length', 1)
+
+      .get(s.PERSONAL_DECKS_FACTION_SELECT)
+      .select('*')
+
+      .get(s.PERSONAL_DECKS)
+      .should('have.length', 2)
+
+      .get(s.PERSONAL_DECKS_CATEGORY_SELECT)
+      .select('BRAWL')
+
+      .get(s.PERSONAL_DECKS)
+      .should('have.length', 1)
   })
 })

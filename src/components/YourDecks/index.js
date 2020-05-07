@@ -9,7 +9,7 @@ import chunk from '../../helpers/chunk'
 import './index.css'
 
 const NewDeck = React.memo(function NewDeck(props) {
-  return props.mode === 'GHOST' || !!props.editedDeck ? (
+  return props.mode === 'INITIAL' || !!props.editedDeck ? (
     <YourDeckGhost onClick={() => props.setMode('FORM')} />
   ) : (
     <YourDeckForm onSubmit={props.addDeck} cancel={props.cancel} />
@@ -17,8 +17,7 @@ const NewDeck = React.memo(function NewDeck(props) {
 })
 
 export default React.memo(function YourDecks(props) {
-  const { decks } = React.useContext(PersonalDecksContext)
-  const rows = chunk(decks, 2)
+  const rows = chunk(props.decks, 2)
 
   return (
     <div className='YourDecks'>
@@ -55,7 +54,7 @@ export default React.memo(function YourDecks(props) {
         </Row>
       ))}
 
-      {decks.length % 2 === 0 && (
+      {props.decks.length % 2 === 0 && (
         <Row desktopOnly>
           <Column>
             <NewDeck

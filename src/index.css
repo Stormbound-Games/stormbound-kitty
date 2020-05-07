@@ -148,6 +148,7 @@ input[type='radio'] {
 }
 
 input[type='search']:disabled,
+input[type='text']:read-only,
 input[type='text']:disabled,
 input[type='url']:disabled,
 input[type='number']:disabled,

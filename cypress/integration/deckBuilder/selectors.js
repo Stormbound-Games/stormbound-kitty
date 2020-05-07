@@ -45,4 +45,8 @@ export default {
 
   IMPORT_DECKS_BTN: '[data-testid="import-decks-btn"]',
   EXPORT_DECKS_BTN: '[data-testid="export-decks-btn"]',
+
+  PERSONAL_DECKS_NAME_INPUT: '[data-testid="decks-name-input"]',
+  PERSONAL_DECKS_FACTION_SELECT: '[data-testid="decks-faction-select"]',
+  PERSONAL_DECKS_CATEGORY_SELECT: '[data-testid="decks-category-select"]',
 }

@@ -9,6 +9,7 @@ import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
 import YourDecks from '../YourDecks'
+import YourDecksFilters from '../YourDecksFilters'
 import './index.css'
 
 const getFactionFromId = id => {
@@ -28,9 +29,40 @@ const getDeckFromForm = form => {
 
 export default React.memo(function DeckBuilderYours(props) {
   const context = React.useContext(PersonalDecksContext)
-  const [mode, setMode] = React.useState('GHOST')
+  const [mode, setMode] = React.useState('INITIAL')
   const [editedDeck, setEditedDeck] = React.useState(null)
+  const [filters, setFilters] = React.useState({
+    name: '',
+    faction: '*',
+    category: '*',
+    order: 'DATE',
+  })
   const { notify: sendNotification } = React.useContext(NotificationContext)
+  const displayedDecks = context.decks
+    .filter(deck => {
+      if (
+        filters.name &&
+        !deck.name.toLowerCase().includes(filters.name.toLowerCase())
+      )
+        return false
+      if (filters.faction !== '*' && deck.faction !== filters.faction)
+        return false
+      if (filters.category !== '*' && deck.category !== filters.category)
+        return false
+      return true
+    })
+    .slice(0)
+    .sort((a, b) => {
+      if (filters.order === 'FACTION') {
+        if (a.faction > b.faction) return +1
+        if (a.faction < b.faction) return -1
+      } else if (filters.order === 'CATEGORY') {
+        if (a.category > b.category) return +1
+        if (a.category < b.category) return -1
+      }
+
+      return 0
+    })
 
   const notify = React.useCallback(
     message => sendNotification({ icon: 'stack', children: message }),
@@ -38,8 +70,13 @@ export default React.memo(function DeckBuilderYours(props) {
   )
 
   const disabledEditor = React.useCallback(() => {
-    setMode('GHOST')
+    setMode('INITIAL')
     setEditedDeck(null)
+  }, [])
+
+  const enableEditor = React.useCallback(id => {
+    setMode('EDITOR')
+    setEditedDeck(id)
   }, [])
 
   React.useEffect(() => {
@@ -79,11 +116,6 @@ export default React.memo(function DeckBuilderYours(props) {
     [context, editedDeck]
   )
 
-  const enableEditor = React.useCallback(id => {
-    setMode('EDITOR')
-    setEditedDeck(id)
-  }, [])
-
   return (
     <>
       <Row desktopOnly wideGutter>
@@ -98,6 +130,9 @@ export default React.memo(function DeckBuilderYours(props) {
             (and import) them as CSV for syncing between devices or more
             permanent backup.
           </p>
+
+          <YourDecksFilters {...filters} setFilters={setFilters} />
+
           <div className='DeckBuilderYours__actions'>
             <Row>
               <Column>
@@ -109,9 +144,11 @@ export default React.memo(function DeckBuilderYours(props) {
             </Row>
           </div>
         </Column>
+
         <Column width='2/3'>
           <Title>Your decks</Title>
           <YourDecks
+            decks={displayedDecks}
             onEdit={id => enableEditor(id)}
             disabledEditor={disabledEditor}
             editedDeck={editedDeck}
