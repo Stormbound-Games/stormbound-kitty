@@ -19,6 +19,7 @@ export default React.memo(function YourDeckForm(props) {
             data-testid='deck-id-input'
             defaultValue={props.id}
             minLength={3 * 12}
+            autoComplete='off'
           />
         </Column>
       </Row>
@@ -33,6 +34,7 @@ export default React.memo(function YourDeckForm(props) {
             data-testid='deck-name-input'
             maxLength={30}
             defaultValue={props.name}
+            autoComplete='off'
           />
         </Column>
         <Column>
