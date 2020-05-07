@@ -51,7 +51,7 @@ describe('Card Builder — Official card', () => {
   it('should display progress with a loaded collection', () => {
     cy.visit('/collection')
       .get('[data-testid="import-btn"]')
-      .importCollection('collection.import.csv')
+      .importFile('collection.import.csv')
 
       .visit('/card/N1/display')
 
@@ -62,7 +62,7 @@ describe('Card Builder — Official card', () => {
   it('should controls with a loaded collection', () => {
     cy.visit('/collection')
       .get('[data-testid="import-btn"]')
-      .importCollection('collection.import.csv')
+      .importFile('collection.import.csv')
 
       .visit('/card/N1/display')
 
@@ -85,7 +85,7 @@ describe('Card Builder — Official card', () => {
   it('should display upgradable levels with a loaded collection', () => {
     cy.visit('/collection')
       .get('[data-testid="import-btn"]')
-      .importCollection('collection.import.csv')
+      .importFile('collection.import.csv')
 
       .visit('/card/N1/display')
 

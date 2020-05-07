@@ -8,8 +8,8 @@ import drPlay from './commands/drPlay'
 import drReset from './commands/drReset'
 import drSelect from './commands/drSelect'
 import drSetRNG from './commands/drSetRNG'
-import exportCollection from './commands/exportCollection'
-import importCollection from './commands/importCollection'
+import exportFile from './commands/exportFile'
+import importFile from './commands/importFile'
 import { restoreLocalStorage, saveLocalStorage } from './commands/localStorage'
 
 Cypress.Commands.add('bsDraw', { prevSubject: false }, bsDraw)
@@ -22,16 +22,8 @@ Cypress.Commands.add('drPlay', { prevSubject: false }, drPlay)
 Cypress.Commands.add('drReset', { prevSubject: false }, drReset)
 Cypress.Commands.add('drSelect', { prevSubject: false }, drSelect)
 Cypress.Commands.add('drSetRNG', { prevSubject: false }, drSetRNG)
-Cypress.Commands.add(
-  'exportCollection',
-  { prevSubject: true },
-  exportCollection
-)
-Cypress.Commands.add(
-  'importCollection',
-  { prevSubject: true },
-  importCollection
-)
+Cypress.Commands.add('exportFile', { prevSubject: true }, exportFile)
+Cypress.Commands.add('importFile', { prevSubject: true }, importFile)
 Cypress.Commands.add(
   'restoreLocalStorage',
   { prevSubject: false },

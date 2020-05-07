@@ -1,7 +1,7 @@
 export default (subject, name) => {
   Cypress.log({
-    name: `LOAD_COLLECTION`,
-    message: 'Load collection',
+    name: `IMPORT_FILE`,
+    message: 'Import file',
     consoleProps: () => ({ name }),
   })
 

@@ -27,7 +27,7 @@ describe('Deck Builder — Levels', () => {
 
   it('should prevent changing level with a card collection', () => {
     cy.get(s.IMPORT_BTN)
-      .importCollection('collection.import.csv')
+      .importFile('collection.import.csv')
       .get(s.LEVEL_SELECT)
       .should('not.exist')
       .get('body')

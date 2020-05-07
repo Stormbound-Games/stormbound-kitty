@@ -1,8 +1,7 @@
-export default (subject, name) => {
+export default subject => {
   Cypress.log({
-    name: `LOAD_COLLECTION`,
-    message: 'Load collection',
-    consoleProps: () => ({ name }),
+    name: `EXPORT_FILE`,
+    message: 'Export file',
   })
 
   cy.wrap(subject, { log: false })

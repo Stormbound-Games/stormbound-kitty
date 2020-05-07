@@ -16,7 +16,7 @@ export default ({
     document.body.appendChild(a)
 
     // When running in Cypress, do not click and remove the link as the
-    // `exportCollection` command is doing something similar.
+    // `exportFile` command is doing something similar.
     if (!window.Cypress) {
       a.click()
       a.remove()
