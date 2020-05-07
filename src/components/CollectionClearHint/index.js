@@ -9,8 +9,8 @@ export default React.memo(function CollectionClearHint(props) {
   return (
     <Only.CustomCollection>
       <Info icon='books' title='Your collection'>
-        A locally saved collection was found and loaded. If you would like to
-        remove it and start fresh, you can{' '}
+        A locally saved card collection was found and loaded. If you would like
+        to remove it and start fresh, you can{' '}
         <button
           type='button'
           onClick={resetCollection}
