@@ -19,7 +19,6 @@ export default React.memo(function YourDeckForm(props) {
             data-testid='deck-id-input'
             defaultValue={props.id}
             minLength={3 * 12}
-            maxLength={'http://stormbound-kitty.com/deck/'.length + 4 * 12}
           />
         </Column>
       </Row>
