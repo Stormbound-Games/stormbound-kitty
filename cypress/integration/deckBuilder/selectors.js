@@ -41,4 +41,7 @@ export default {
   DECK_NAME_INPUT: '[data-testid="deck-name-input"]',
   DECK_CATEGORY_SELECT: '[data-testid="deck-category-select"]',
   DECK_SUBMIT_BTN: '[data-testid="deck-submit"]',
+
+  IMPORT_DECKS_BTN: '[data-testid="import-decks-btn"]',
+  EXPORT_DECKS_BTN: '[data-testid="export-decks-btn"]',
 }

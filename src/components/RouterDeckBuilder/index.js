@@ -9,7 +9,7 @@ const DeckBuilderRoot = load('DeckBuilderRoot')
 const DeckBuilderDetailView = load('DeckBuilderDetailView')
 const DeckBuilderDryRunView = load('DeckBuilderDryRunView')
 const DeckBuilderEditorView = load('DeckBuilderEditorView')
-const DeckBuilderYours = load('DeckBuilderYours')
+const DeckBuilderYourDecks = load('DeckBuilderYourDecks')
 
 export default function RouterDeckBuilder() {
   const { path } = useRouteMatch()
@@ -24,7 +24,7 @@ export default function RouterDeckBuilder() {
       </Page>
       <Page path={`${path}/yours`} active={['DECK_BUILDER', 'YOURS']}>
         <PersonalDecksProvider>
-          <DeckBuilderYours />
+          <DeckBuilderYourDecks />
         </PersonalDecksProvider>
       </Page>
       <Page path={`${path}/:deckId/detail`} active={['DECK_BUILDER', 'DETAIL']}>

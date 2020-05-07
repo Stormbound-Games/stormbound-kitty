@@ -49,9 +49,20 @@ export default React.memo(function YourDeckForm(props) {
           </select>
         </Column>
       </Row>
-      <CTA type='submit' data-testid='deck-submit'>
-        {props.id || props.name || props.category ? 'Update deck' : 'Add deck'}
-      </CTA>
+      <Row>
+        <Column>
+          <CTA type='submit' data-testid='deck-submit'>
+            {props.id || props.name || props.category
+              ? 'Update deck'
+              : 'Add deck'}
+          </CTA>
+        </Column>
+        <Column style={{ justifyContent: 'center' }}>
+          <button type='button' onClick={props.cancel} className='ButtonAsLink'>
+            Nevermind
+          </button>
+        </Column>
+      </Row>
     </form>
   )
 })

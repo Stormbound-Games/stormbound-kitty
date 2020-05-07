@@ -12,7 +12,7 @@ const NewDeck = React.memo(function NewDeck(props) {
   return props.mode === 'GHOST' || !!props.editedDeck ? (
     <YourDeckGhost onClick={() => props.setMode('FORM')} />
   ) : (
-    <YourDeckForm onSubmit={props.addDeck} />
+    <YourDeckForm onSubmit={props.addDeck} cancel={props.cancel} />
   )
 })
 
@@ -23,13 +23,14 @@ export default React.memo(function YourDecks(props) {
   return (
     <div className='YourDecks'>
       {rows.map((row, index) => (
-        <Row desktopOnly wideGutter key={index}>
+        <Row desktopOnly key={index}>
           <Column>
             <YourDeck
               {...row[0]}
               onEdit={() => props.onEdit(row[0].id)}
               isEdited={row[0].id === props.editedDeck}
               handleEdit={props.editDeck}
+              cancelEdit={props.disabledEditor}
             />
           </Column>
           <Column>
@@ -39,6 +40,7 @@ export default React.memo(function YourDecks(props) {
                 onEdit={() => props.onEdit(row[1].id)}
                 isEdited={row[1].id === props.editedDeck}
                 handleEdit={props.editDeck}
+                cancelEdit={props.disabledEditor}
               />
             ) : (
               <NewDeck
@@ -46,19 +48,22 @@ export default React.memo(function YourDecks(props) {
                 mode={props.mode}
                 setMode={props.setMode}
                 addDeck={props.addDeck}
+                cancel={props.disabledEditor}
               />
             )}
           </Column>
         </Row>
       ))}
+
       {decks.length % 2 === 0 && (
-        <Row desktopOnly wideGutter>
+        <Row desktopOnly>
           <Column>
             <NewDeck
               editedDeck={props.editedDeck}
               mode={props.mode}
               setMode={props.setMode}
               addDeck={props.addDeck}
+              cancel={props.disabledEditor}
             />
           </Column>
           <Column></Column>

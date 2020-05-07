@@ -56,9 +56,14 @@ describe('Deck Builder - Personal decks', () => {
     cy.saveLocalStorage()
   })
 
-  it('should be backed up in local storage', () => {
+  it('should be backed up in local storage and offer CSV export', () => {
     cy.restoreLocalStorage()
-    cy.reload().get(s.PERSONAL_DECKS).should('have.length', 1)
+    cy.reload()
+      .get(s.PERSONAL_DECKS)
+      .should('have.length', 1)
+      .get(s.EXPORT_DECKS_BTN)
+      .exportFile()
+      .should('contain', ',Renamed,')
   })
 
   it('should be possible to delete a deck', () => {
@@ -69,5 +74,12 @@ describe('Deck Builder - Personal decks', () => {
       .click()
       .get(s.PERSONAL_DECKS)
       .should('have.length', 0)
+  })
+
+  it('should be possible to import decks', () => {
+    cy.get(s.IMPORT_DECKS_BTN)
+      .importFile('decks.import.csv')
+      .get(s.PERSONAL_DECKS)
+      .should('have.length', 2)
   })
 })

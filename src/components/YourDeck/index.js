@@ -24,6 +24,7 @@ export default React.memo(function YourDeck(props) {
         name={props.name}
         category={props.category}
         id={props.id}
+        cancel={props.cancelEdit}
       />
     )
   }

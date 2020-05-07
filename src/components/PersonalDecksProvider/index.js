@@ -53,6 +53,7 @@ export default function PersonalDecksProvider(props) {
     <PersonalDecksContext.Provider
       value={{
         decks,
+        setDecks,
         resetDecks,
         addDeck,
         updateDeck,
