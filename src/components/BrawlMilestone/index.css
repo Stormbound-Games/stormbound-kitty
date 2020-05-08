@@ -1,0 +1,121 @@
+/**
+ * 1. Arbitrary dimensions looking fine on both modile and desktop.
+ * 2. Usual reflection effect on the box.
+ */
+.BrawlMilestone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 20em; /* 1 */
+  height: 20em; /* 1 */
+  background-image: linear-gradient(
+    45deg,
+    rgb(28, 67, 82) 50%,
+    rgb(30, 72, 88) 50%
+  ); /* 2 */
+  border: 1px solid var(--dark-beige);
+  box-shadow: 0 0 0 5px rgb(28, 67, 82);
+}
+
+.BrawlMilestone--collected {
+  box-shadow: 0 0 0 5px rgba(28, 67, 82, 0.5);
+}
+
+.BrawlMilestone__header {
+  padding: 0.75em;
+  font-size: 120%;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(159, 212, 231);
+  background-color: rgb(54, 92, 112);
+}
+
+/**
+ * 1. Increase bottom spacing as the progress bar is absolutely positioned
+ *    at the bottom.
+ */
+.BrawlMilestone__body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em 1em 2em; /* 2 */
+}
+
+.BrawlMilestone__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/**
+ * 1. Negates the 1px border and 5px box-shadow on the top-level container.
+ */
+.BrawlMilestone__collected {
+  background-image: linear-gradient(
+    45deg,
+    rgb(210, 195, 141) 50%,
+    rgb(226, 215, 175) 50%
+  );
+  position: absolute;
+  left: -6px; /* 1 */
+  right: -6px; /* 1 */
+  padding: 0.5em;
+  top: 50%;
+  z-index: 2;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 150%;
+  color: var(--black);
+  transform: translateY(-50%);
+}
+
+.BrawlMilestone__label {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 130%;
+  margin-top: 0.5em;
+}
+
+.BrawlMilestone__asset {
+  width: 50%;
+}
+
+/**
+ * 1. Reverse engineer the width from the ratio of a card.
+ */
+.BrawlMilestone__asset--LEGENDARY_CARD .Card {
+  width: calc(100% / 168.6 * 100); /* 1 */
+  margin: auto;
+}
+
+/**
+ * 1. Reverse engineer the width from the ratio of a book.
+ */
+.BrawlMilestone__asset--HUMBLE_BOOK img,
+.BrawlMilestone__asset--CLASSIC_TOME img,
+.BrawlMilestone__asset--MYTHIC_TOME img {
+  width: calc(100% / 146.5 * 100); /* 1 */
+  margin: auto;
+  display: block;
+}
+
+.BrawlMilestone__asset--FUSION_STONES img,
+.BrawlMilestone__asset--RUBIES img {
+  height: 100%;
+  margin: auto;
+  display: block;
+}
+
+.BrawlMilestone__footer {
+  position: absolute;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  left: 50%;
+  z-index: 2;
+}
