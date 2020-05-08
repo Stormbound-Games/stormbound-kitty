@@ -16,6 +16,11 @@ import './index.css'
 export default React.memo(function BrawlChart(props) {
   const [faction, setFaction] = React.useState('*')
   const { brawl } = React.useContext(BrawlContext)
+
+  if (brawl.matches.length === 0) {
+    return null
+  }
+
   const data = [
     {
       name: 'Wins',
