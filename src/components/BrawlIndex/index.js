@@ -180,7 +180,7 @@ const BrawlTeaser = React.memo(function BrawlTeaser(props) {
       title={props.title}
       cardId={props.cardId}
       excerpt={props.description}
-      to={'/deck/suggestions?brawl=' + props.id}
+      to={`/brawl/${props.id}`}
     />
   )
 })
