@@ -51,7 +51,7 @@
     "difficulty": 3,
     "restrictions": ["LEVEL_1", "ANTI_RNG"],
     "author": "Ayanami",
-    "board": "LCwsLCwsNE4zNFIxLCwsLCwsN0kyMVIxLCwsNEkxUjEsLCw0SThSMSw7UjVJLUIyUzsxOU0xOzFTMTYsMVMxOSwxUzYsMVMyMCwsLCwsLCwsO1MxOSxTNixTMTYsUzIw",
+    "board": "LCwsLCwsNE4zNFIxLCwsLCwsN0kyMVIxLCwsNEkxUjEsLCw0SThSMSw7UjRJLUIyUzsxOU0xOzFTMTYxUzE5MVM2MVMyMDtTMTksUzYsUzE2LFMyMA==",
     "image": "/assets/images/puzzles/lord_of_flight.png"
   },
   {
@@ -69,7 +69,7 @@
     "difficulty": 3,
     "restrictions": ["LEVEL_5", "RNG_FRIENDLY"],
     "author": "Ayanami",
-    "board": "LCwsOFc1UjUsLDhXOVI1LCwsLCwsOFc4UjUsOE4xM1I1LCwsLDVOM1I1LDFONlI1LDVOMVI1LDtSMjBXLUIyMFM7MjRNMDs1UzIzLDVTMyw1UzEsNVMyMiwsLCwsLCwsO1MyMyxTMyxTMSxTMjI=",
+    "board": "LCwsOFc1UjUsLDhXOVI1LCwsLCwsOFc4UjUsOE4xM1I1LCwsLDVOM1I1LDFONlI1LDVOMVI1LDtSMTlXLUIxOVM7MjRNMTs1UzIzNVMzNVMxNVMyMjtTMjMsUzMsUzEsUzIy",
     "image": "/assets/images/puzzles/lasting_advice.png"
   },
   {
