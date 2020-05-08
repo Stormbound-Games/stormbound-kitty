@@ -4,6 +4,7 @@ import BrawlMatches from '../BrawlMatches'
 import Column from '../Column'
 import BrawlChart from '../BrawlChart'
 import BrawlOutcome from '../BrawlOutcome'
+import BrawlRecommendedDecks from '../BrawlRecommendedDecks'
 import BrawlSetup from '../BrawlSetup'
 import Row from '../Row'
 import Title from '../Title'
@@ -23,6 +24,7 @@ export default React.memo(function BrawlTracker(props) {
         </Column>
         <Column width='2/3'>
           <BrawlMatches />
+          <BrawlRecommendedDecks />
         </Column>
       </Row>
     </>
