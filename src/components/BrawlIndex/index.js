@@ -185,7 +185,7 @@ const BrawlTeaser = React.memo(function BrawlTeaser(props) {
   )
 })
 
-export default React.memo(function Brawl() {
+export default React.memo(function BrawlIndex() {
   return (
     <>
       <Only.Desktop>

@@ -15,7 +15,7 @@ import load from '../../helpers/load'
 
 const CardsStats = load('CardsStats')
 const FAQ = load('FAQ')
-const Brawl = load('Brawl')
+const BrawlIndex = load('BrawlIndex')
 const Home = load('Home')
 const Member = load('Member')
 const FanKit = load('FanKit')
@@ -63,7 +63,7 @@ export default function Router(props) {
           </Page>
 
           <Page path='/brawl' active={['HOME', 'BRAWL']}>
-            <Brawl />
+            <BrawlIndex />
           </Page>
 
           <Page path='/fan-kit' active={['HOME', 'FAN_KIT']}>
