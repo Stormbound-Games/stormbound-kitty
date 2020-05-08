@@ -180,7 +180,7 @@ const BrawlTeaser = React.memo(function BrawlTeaser(props) {
       title={props.title}
       cardId={props.cardId}
       excerpt={props.description}
-      to={`/brawl/${props.id}`}
+      to={`/brawl/${props.id.toLowerCase().replace(/_/g, '-')}`}
     />
   )
 })
