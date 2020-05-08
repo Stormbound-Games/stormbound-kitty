@@ -2,19 +2,19 @@ export const BRAWLS = [
   {
     id: 'CONSTRUCT_MOVEMENT',
     label: 'Construct =2 movement',
-    title: 'Rage Against The Machines',
+    title: 'Lucrative Project',
     cardId: 'I22',
   },
   {
     id: 'DRAGON_MOVEMENT',
     label: 'Dragons +1 movement',
-    title: 'There Be Dragons',
+    title: 'Unleashed Fury',
     cardId: 'N46',
   },
   {
     id: 'DWARF_MANA',
     label: 'Dwarves -2 mana',
-    title: 'Snow White Ain’t Sleepin’',
+    title: 'Natural Sprint',
     cardId: 'W23',
   },
   {
@@ -32,19 +32,19 @@ export const BRAWLS = [
   {
     id: 'FROSTLING_STRENGTH',
     label: 'Frostlings +4 strength',
-    title: 'I Got Chills',
+    title: 'Goddess’ Boon',
     cardId: 'W10',
   },
   {
     id: 'HERO_STRENGTH',
     label: 'Heroes +3 strength',
-    title: 'We Can Be Heroes',
+    title: 'Heroic Deeds',
     cardId: 'N8',
   },
   {
     id: 'KNIGHT_MANA',
     label: 'Knights -2 mana',
-    title: 'Knight Knight Sweetie',
+    title: 'Heavy Metal',
     cardId: 'N59',
   },
   {
@@ -56,43 +56,56 @@ export const BRAWLS = [
   {
     id: 'RAVEN_MOVEMENT',
     label: 'Raven +1 movement',
-    title: 'Raven’ Got Claws',
+    title: 'Scavengers',
     cardId: 'F23',
   },
   {
     id: 'RODENT_STRENGTH',
     label: 'Rodents +3 strength',
-    title: 'Is That A Gaming Mouse',
+    title: 'Small Plague',
     cardId: 'I2',
   },
   {
     id: 'SATYR_MOVEMENT',
     label: 'Satyrs +1 movement',
-    title: 'Scream Like A Goat',
+    title: 'Self-control',
     cardId: 'S3',
   },
   {
     id: 'SPELL_MANA',
     label: 'Spells -2 mana',
-    title: 'Spellcaster',
+    title: 'Eye of the Tempest',
     cardId: 'N48',
   },
   {
     id: 'STRUCTURE_MANA',
     label: 'Structures =2 mana',
-    title: 'All Your Base Are Belong To Us',
+    title: 'Aftershock',
     cardId: 'N35',
   },
   {
     id: 'TOAD_MANA',
     label: 'Toads =2 mana',
-    title: 'Hop Hop Chop Chop',
+    title: 'Freedom Fight',
     cardId: 'F12',
   },
   {
     id: 'UNDEAD_STRENGTH',
     label: 'Undead +2 strength',
-    title: 'Let The Bodies Hit The Floor',
+    title: 'Swift Demise',
     cardId: 'S21',
   },
+]
+
+export const MILESTONES = [
+  { crowns: 10, reward: 'HUMBLE_BOOK', rewardAmount: 1, cost: 0 },
+  { crowns: 20, reward: 'RUBIES', rewardAmount: 5, cost: 25 },
+  { crowns: 35, reward: 'CLASSIC_TOME', rewardAmount: 1, cost: 50 },
+  { crowns: 50, reward: 'FUSION_STONES', rewardAmount: 10, cost: 100 },
+  { crowns: 70, reward: 'MYTHIC_TOME', rewardAmount: 1, cost: 150 },
+  { crowns: 95, reward: 'LEGENDARY_CARD', rewardAmount: 1, cost: 200 },
+  { crowns: 125, reward: 'FUSION_STONES', rewardAmount: 50, cost: 250 },
+  { crowns: 160, reward: 'RUBIES', rewardAmount: 250, cost: 300 },
+  { crowns: 200, reward: 'LEGENDARY_CARD', rewardAmount: 5, cost: 400 },
+  { crowns: 250, reward: 'FUSION_STONES', rewardAmount: 200, cost: 500 },
 ]
