@@ -5,6 +5,7 @@ export default React.memo(function Checkbox(props) {
   return (
     <label className={`Checkbox ${props.className || ''}`} htmlFor={props.id}>
       <input
+        form={props.form}
         type='checkbox'
         {...props}
         children={undefined}
