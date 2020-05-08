@@ -59,7 +59,7 @@ export default React.memo(function BrawlMilestones(props) {
         </motion.div>
       </div>
 
-      <BrawlProgress active={active} />
+      <BrawlProgress active={active} setActive={setActive} />
     </div>
   )
 })
