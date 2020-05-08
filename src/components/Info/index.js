@@ -5,7 +5,7 @@ import './index.css'
 export default React.memo(function Info(props) {
   return (
     <div
-      className={['Info', props.CTA && 'Info--with-cta']
+      className={['Info', props.CTA && 'Info--with-cta', props.className]
         .filter(Boolean)
         .join(' ')}
     >
