@@ -21,7 +21,7 @@ export default React.memo(function BrawlOutcome(props) {
     return brawl.matches.reduce((acc, match) => {
       const gameCost = MILESTONES[currentMilestone].cost
       acc += gameCost
-      crowns += match.status === 'WIN' ? 5 : 1
+      crowns += match.status === 'LOST' ? 1 : 5
       currentMilestone = MILESTONES.findIndex(
         milestone => milestone.crowns > crowns
       )

@@ -59,14 +59,18 @@
 /**
  * 1. Color-code the match outcome green/red for quick read.
  */
-.BrawlMatches__status--WIN {
+.BrawlMatches__status--WON {
   color: var(--light-shadowfen); /* 1 */
+}
+
+.BrawlMatches__status--FORFEIT {
+  color: var(--light-swarm); /* 1 */
 }
 
 /**
  * 1. Color-code the match outcome green/red for quick read.
  */
-.BrawlMatches__status--LOSS {
+.BrawlMatches__status--LOST {
   color: var(--light-ironclad); /* 1 */
 }
 

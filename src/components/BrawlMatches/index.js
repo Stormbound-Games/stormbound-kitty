@@ -19,7 +19,7 @@ export default React.memo(function BrawlMatches(props) {
     addMatch({
       oBH: formData['opponent-health'],
       oFaction: formData['opponent-faction'],
-      status: formData.won === 'on' ? 'WIN' : 'LOSS',
+      status: formData.status,
     })
 
     event.target.reset()
@@ -55,7 +55,11 @@ export default React.memo(function BrawlMatches(props) {
                   `BrawlMatches__status--${match.status}`,
                 ].join(' ')}
               >
-                {match.status === 'WIN' ? 'Won' : 'Loss'}
+                {match.status === 'WON'
+                  ? 'Won'
+                  : match.status === 'LOST'
+                  ? 'Lost'
+                  : 'Won by forfeit'}
               </td>
             </tr>
           ))}

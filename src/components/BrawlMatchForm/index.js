@@ -1,5 +1,4 @@
 import React from 'react'
-import Checkbox from '../Checkbox'
 import FactionSelect from '../FactionSelect'
 import './index.css'
 
@@ -41,9 +40,15 @@ export default React.memo(function BrawlMatchForm(props) {
         />
       </td>
       <td>
-        <Checkbox id='won' name='won' form='add-match-form'>
-          Won
-        </Checkbox>
+        <label htmlFor='status' className='VisuallyHidden'>
+          Status
+        </label>
+        <select id='status' name='status' required>
+          <option value=''>Set game outcome</option>
+          <option value='WON'>Won</option>
+          <option value='FORFEIT'>Won by forfeit</option>
+          <option value='LOST'>Lost</option>
+        </select>
       </td>
     </tr>
   )

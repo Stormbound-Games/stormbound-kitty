@@ -43,7 +43,7 @@ export default function BrawlProvider(props) {
     }))
 
   const crowns = brawl.matches.reduce(
-    (crowns, match) => crowns + (match.status === 'WIN' ? 5 : 1),
+    (crowns, match) => crowns + (match.status === 'LOST' ? 1 : 5),
     0
   )
 

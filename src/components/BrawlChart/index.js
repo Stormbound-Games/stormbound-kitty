@@ -21,16 +21,25 @@ export default React.memo(function BrawlChart(props) {
       name: 'Wins',
       value: brawl.matches.filter(
         match =>
-          match.status === 'WIN' &&
+          match.status === 'WON' &&
           (faction === '*' || match.oFaction === faction)
       ).length,
       color: 'var(--light-shadowfen)',
     },
     {
+      name: 'Wins by forfeit',
+      value: brawl.matches.filter(
+        match =>
+          match.status === 'FORFEIT' &&
+          (faction === '*' || match.oFaction === faction)
+      ).length,
+      color: 'var(--light-swarm)',
+    },
+    {
       name: 'Losses',
       value: brawl.matches.filter(
         match =>
-          match.status === 'LOSS' &&
+          match.status === 'LOST' &&
           (faction === '*' || match.oFaction === faction)
       ).length,
       color: 'var(--light-ironclad)',
