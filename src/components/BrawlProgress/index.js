@@ -4,7 +4,7 @@ import { BrawlContext } from '../BrawlProvider'
 import './index.css'
 
 export default React.memo(function BrawlProgress(props) {
-  const { crowns } = React.useContext(BrawlContext)
+  const { meta } = React.useContext(BrawlContext)
 
   return (
     <ul className='BrawlProgress'>
@@ -14,7 +14,7 @@ export default React.memo(function BrawlProgress(props) {
           className={[
             'BrawlProgress__item',
             props.active === index && 'BrawlProgress__item--active',
-            crowns >= milestone.crowns && 'BrawlProgress__item--passed',
+            meta.crowns >= milestone.crowns && 'BrawlProgress__item--passed',
           ]
             .filter(Boolean)
             .join(' ')}

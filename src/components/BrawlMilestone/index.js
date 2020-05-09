@@ -48,8 +48,8 @@ const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
 })
 
 export default React.memo(function BrawlMilestone(props) {
-  const { crowns } = React.useContext(BrawlContext)
-  const collected = crowns >= props.crowns
+  const { meta } = React.useContext(BrawlContext)
+  const collected = meta.crowns >= props.crowns
 
   return (
     <div
@@ -86,11 +86,11 @@ export default React.memo(function BrawlMilestone(props) {
 
       <div className='BrawlMilestone__footer'>
         <BrawlProgressBar
-          value={crowns}
+          value={meta.crowns}
           max={props.crowns}
           label={
             <>
-              {crowns}/{props.crowns} <ResourceIcon resource='CROWN' />
+              {meta.crowns}/{props.crowns} <ResourceIcon resource='CROWN' />
             </>
           }
         />

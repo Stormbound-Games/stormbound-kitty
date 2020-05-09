@@ -7,12 +7,20 @@ export const BrawlContext = React.createContext([])
 export default function BrawlProvider(props) {
   const STORAGE_KEY = 'sk.brawl.' + props.id
   const now = Date.now()
-  const [brawl, setBrawl] = React.useState({
-    createdAt: now,
-    updatedAt: now,
-    id: props.id,
-    matches: [],
-  })
+  // Every type of Brawl is stored separately as an array. Each entry in that
+  // array constitutes a weekly Brawl of the given type (e.g. construct =2
+  // movement). The last item in the array is the currently displayed Brawl; the
+  // other ones are only maintained to be able to do comparison stats.
+  const [brawls, setBrawls] = React.useState([
+    {
+      createdAt: now,
+      updatedAt: now,
+      id: props.id,
+      matches: [],
+    },
+  ])
+  const brawl = brawls[brawls.length - 1] || {}
+
   const { notify: sendNotification } = React.useContext(NotificationContext)
 
   const notify = React.useCallback(
@@ -22,21 +30,29 @@ export default function BrawlProvider(props) {
 
   React.useEffect(() => {
     try {
-      const savedBrawl = JSON.parse(localStorage.getItem(STORAGE_KEY))
+      const savedBrawls = JSON.parse(localStorage.getItem(STORAGE_KEY))
 
-      if (savedBrawl) {
-        setBrawl(savedBrawl)
-        notify('Locally saved brawl found and loaded.')
+      if (savedBrawls) {
+        setBrawls(savedBrawls)
+        notify('Locally saved Brawl data found and loaded.')
       }
     } catch (error) {}
   }, [STORAGE_KEY, notify])
 
   React.useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(brawl))
-  }, [STORAGE_KEY, brawl])
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(brawls))
+  }, [STORAGE_KEY, brawls])
+
+  // `updateCurrentBrawl` is just a shorthand to manipulate the last item in the
+  // array of Brawls.
+  const updateCurrentBrawl = handler =>
+    setBrawls(brawls => [
+      ...brawls.slice(0, -1),
+      handler(brawls[brawls.length - 1]),
+    ])
 
   const addMatch = match =>
-    setBrawl(brawl => ({
+    updateCurrentBrawl(brawl => ({
       ...brawl,
       updatedAt: Date.now(),
       matches: [...brawl.matches, match],
@@ -53,8 +69,10 @@ export default function BrawlProvider(props) {
         id: props.id,
         brawl,
         addMatch,
-        crowns,
-        milestone: MILESTONES.find(milestone => milestone.crowns >= crowns),
+        meta: {
+          crowns,
+          milestone: MILESTONES.find(milestone => milestone.crowns >= crowns),
+        },
       }}
     >
       {props.children}

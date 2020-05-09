@@ -8,13 +8,17 @@ import './index.css'
 
 export default React.memo(function BrawlMilestones(props) {
   const container = React.useRef()
-  const { id, crowns } = React.useContext(BrawlContext)
-  const index = MILESTONES.findIndex(milestone => milestone.crowns >= crowns)
+  const { id, meta } = React.useContext(BrawlContext)
+  const index = MILESTONES.findIndex(
+    milestone => milestone.crowns >= meta.crowns
+  )
   const [active, setActive] = React.useState(index)
 
   React.useEffect(() => {
-    setActive(MILESTONES.findIndex(milestone => milestone.crowns >= crowns))
-  }, [crowns])
+    setActive(
+      MILESTONES.findIndex(milestone => milestone.crowns >= meta.crowns)
+    )
+  }, [meta.crowns])
 
   const handleDrag = React.useCallback(
     (event, info) => {
