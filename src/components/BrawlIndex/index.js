@@ -46,7 +46,7 @@ export const BRAWL_DATA = [
     description: (
       <>
         All <span className='Highlight'>Construct</span> units have{' '}
-        <span className='Highlight'>=2 movement</span>, regardless of their
+        <span className='Highlight'>2 movement</span>, regardless of their
         initial movement.
       </>
     ),
@@ -116,7 +116,7 @@ export const BRAWL_DATA = [
     description: (
       <>
         All <span className='Highlight'>Pirate</span> units have{' '}
-        <span className='Highlight'>=2 movement</span>, regardless of their
+        <span className='Highlight'>2 movement</span>, regardless of their
         initial movement.
       </>
     ),
