@@ -43,7 +43,7 @@ export default React.memo(function BrawlMatchForm(props) {
         <label htmlFor='status' className='VisuallyHidden'>
           Status
         </label>
-        <select id='status' name='status' required>
+        <select id='status' name='status' required form='add-match-form'>
           <option value=''>Set game outcome</option>
           <option value='WON'>Won</option>
           <option value='FORFEIT'>Won by forfeit</option>

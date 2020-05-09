@@ -1,6 +1,7 @@
 import React from 'react'
 import { MILESTONES } from '../../constants/brawl'
 import { NotificationContext } from '../NotificationProvider'
+import serialisation from '../../helpers/serialisation'
 
 export const BrawlContext = React.createContext([])
 
@@ -30,7 +31,12 @@ export default function BrawlProvider(props) {
 
   React.useEffect(() => {
     try {
-      const savedBrawls = JSON.parse(localStorage.getItem(STORAGE_KEY))
+      const savedBrawls = JSON.parse(localStorage.getItem(STORAGE_KEY)).map(
+        brawl => ({
+          ...brawl,
+          matches: serialisation.brawl.deserialise(brawl.matches),
+        })
+      )
 
       if (savedBrawls) {
         setBrawls(savedBrawls)
@@ -40,7 +46,12 @@ export default function BrawlProvider(props) {
   }, [STORAGE_KEY, notify])
 
   React.useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(brawls))
+    const data = brawls.map(brawl => ({
+      ...brawl,
+      matches: serialisation.brawl.serialise(brawl.matches),
+    }))
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
   }, [STORAGE_KEY, brawls])
 
   // `updateCurrentBrawl` is just a shorthand to manipulate the last item in the

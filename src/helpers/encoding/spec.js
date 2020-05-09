@@ -9,6 +9,8 @@ import {
   getLongRace,
   getShortCurrency,
   getLongCurrency,
+  getShortMatchStatus,
+  getLongMatchStatus,
 } from './'
 
 describe('The `getShortFaction` helper', () => {
@@ -162,5 +164,31 @@ describe('The `getLongCurrency` helper', () => {
   it('should default to coins', () => {
     expect(getLongCurrency()).to.equal('coins')
     expect(getLongCurrency('mldsffkmsd')).to.equal('coins')
+  })
+})
+
+describe('The `getShortMatchStatus` helper', () => {
+  it('should return single-letter currency', () => {
+    expect(getShortMatchStatus('WON')).to.equal('W')
+    expect(getShortMatchStatus('FORFEIT')).to.equal('F')
+    expect(getShortMatchStatus('LOST')).to.equal('L')
+  })
+
+  it('should default to an empty string', () => {
+    expect(getShortMatchStatus()).to.equal('')
+    expect(getShortMatchStatus('mldsffkmsd')).to.equal('')
+  })
+})
+
+describe('The `getLongMatchStatus` helper', () => {
+  it('should return full currency', () => {
+    expect(getLongMatchStatus('W')).to.equal('WON')
+    expect(getLongMatchStatus('F')).to.equal('FORFEIT')
+    expect(getLongMatchStatus('L')).to.equal('LOST')
+  })
+
+  it('should default to an empty string', () => {
+    expect(getLongMatchStatus()).to.equal('')
+    expect(getLongMatchStatus('mldsffkmsd')).to.equal('')
   })
 })

@@ -109,3 +109,9 @@ export const MILESTONES = [
   { crowns: 200, reward: 'LEGENDARY_CARD', rewardAmount: 5, cost: 400 },
   { crowns: 250, reward: 'FUSION_STONES', rewardAmount: 200, cost: 500 },
 ]
+
+export const MATCH_STATUSES = {
+  WON: 'W',
+  FORFEIT: 'F',
+  LOST: 'L',
+}

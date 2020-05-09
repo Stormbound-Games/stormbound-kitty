@@ -17,8 +17,8 @@ export default React.memo(function BrawlMatches(props) {
     const formData = serialize(event.target, { hash: true })
 
     addMatch({
-      oBH: formData['opponent-health'],
-      oFaction: formData['opponent-faction'],
+      opponentHealth: formData['opponent-health'],
+      opponentFaction: formData['opponent-faction'],
       status: formData.status,
     })
 
@@ -47,8 +47,8 @@ export default React.memo(function BrawlMatches(props) {
                 {brawl.matches.length - index}
                 {viewportWidth >= 700 ? '.' : ''}
               </td>
-              <td>{match.oBH} base health</td>
-              <td>{capitalise(match.oFaction)}</td>
+              <td>{match.opponentHealth} base health</td>
+              <td>{capitalise(match.opponentFaction)}</td>
               <td
                 className={[
                   'BrawlMatches__status',
