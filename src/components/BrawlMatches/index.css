@@ -1,3 +1,6 @@
+/**
+ * 1. Align top border with other box placed in the sidebar.
+ */
 .BrawlMatches {
   table-layout: fixed;
   border-collapse: collapse;
@@ -5,6 +8,7 @@
   position: relative;
   color: rgb(159, 212, 231);
   margin-bottom: 4em;
+  margin-top: -3px; /* 1 */
 }
 
 /**

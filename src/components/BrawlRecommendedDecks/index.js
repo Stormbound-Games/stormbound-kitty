@@ -9,19 +9,25 @@ import Title from '../Title'
 
 export default React.memo(function BrawlRecommendedDecks(props) {
   const { id } = React.useContext(BrawlContext)
-
+  const columns = props.columns || 2
   return (
     <>
-      <Title>Recommended decks</Title>
+      <Title>Recommended deck{props.limit === 1 ? '' : 's'}</Title>
       {chunk(
-        decks.filter(deck => deck.brawl === id),
-        2
-      ).map(([a, b]) => (
-        <Row desktopOnly key={a.id}>
-          <Column>
-            <FeaturedDeck {...a} showUpgrades />
-          </Column>
-          <Column>{b ? <FeaturedDeck {...b} showUpgrades /> : null}</Column>
+        decks
+          .filter(deck => deck.brawl === id)
+          .slice(0, props.limit || undefined),
+        columns
+      ).map((row, rowIndex) => (
+        <Row desktopOnly key={rowIndex}>
+          {Array.from({ length: columns }, (_, index) => (
+            <Column
+              key={index}
+              width={columns > 2 ? `1/${columns}` : undefined}
+            >
+              {row[index] && <FeaturedDeck {...row[index]} showUpgrades />}
+            </Column>
+          ))}
         </Row>
       ))}
     </>

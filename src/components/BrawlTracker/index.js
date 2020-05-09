@@ -22,11 +22,11 @@ export default React.memo(function BrawlTracker(props) {
           <BrawlOutcome setup={setup} />
           <BrawlSetup setup={setup} setSetup={setSetup} />
           <BrawlReset />
+          <BrawlRecommendedDecks limit={1} columns={1} />
         </Column>
         <Column width='2/3'>
           <BrawlMatches />
           <BrawlCharts setup={setup} />
-          <BrawlRecommendedDecks />
         </Column>
       </Row>
     </>
