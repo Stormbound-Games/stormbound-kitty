@@ -1,4 +1,7 @@
 .BrawlSetup {
   margin-bottom: 2em;
+}
+
+.BrawlSetup .Radio {
   font-size: 90%;
 }

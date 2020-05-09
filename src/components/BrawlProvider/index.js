@@ -25,7 +25,7 @@ export default function BrawlProvider(props) {
   const { notify: sendNotification } = React.useContext(NotificationContext)
 
   const notify = React.useCallback(
-    message => sendNotification({ icon: 'sword', children: message }),
+    message => sendNotification({ icon: 'crown', children: message }),
     [sendNotification]
   )
 
@@ -104,6 +104,39 @@ export default function BrawlProvider(props) {
     }, 0)
   })()
 
+  const restoreBrawls = items => {
+    // Group all Brawl entries coming from the CSV per ID, to group similar
+    // Brawl together.
+    const groups = items.reduce((groups, item) => {
+      if (typeof groups[item.id] === 'undefined') {
+        groups[item.id] = []
+      }
+      groups[item.id].push(item)
+      return groups
+    }, {})
+
+    // For each Brawl type present in the CSV, sort the entries by date and set
+    // them in the local storage.
+    Object.keys(groups).forEach(id => {
+      const brawls = groups[id]
+        .slice(0)
+        .sort((a, b) => a.createdAt - b.createdAt)
+
+      localStorage.setItem('sk.brawl.' + id, JSON.stringify(brawls))
+    })
+
+    // If there were saved entries from the current Brawl, update the state so
+    // the view re-renders.
+    if (typeof groups[props.id].length) {
+      setBrawls(
+        groups[props.id].map(brawl => ({
+          ...brawl,
+          matches: serialisation.brawl.deserialise(brawl.matches),
+        }))
+      )
+    }
+  }
+
   return (
     <BrawlContext.Provider
       value={{
@@ -111,6 +144,7 @@ export default function BrawlProvider(props) {
         brawl,
         addMatch,
         resetBrawl,
+        restoreBrawls,
         meta: {
           crowns,
           coinsSpent,
