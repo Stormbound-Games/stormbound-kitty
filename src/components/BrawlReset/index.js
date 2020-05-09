@@ -16,6 +16,7 @@ export default React.memo(function BrawlReset(props) {
   return (
     <>
       <Info
+        icon='crown'
         className='BrawlReset'
         title='Reset data'
         CTA={<CTA onClick={open}>Reset Brawl</CTA>}

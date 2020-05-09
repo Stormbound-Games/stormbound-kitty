@@ -11,7 +11,7 @@ export default React.memo(function BrawlOutcome(props) {
     meta.coinsSpent - brawl.matches.length * COIN_MULTIPLIERS[props.setup]
 
   return (
-    <Info className='BrawlOutcome' title='Balance'>
+    <Info icon='crown' className='BrawlOutcome' title='Balance'>
       <p>
         At this stage, this is the current balance for your Brawl performance:
       </p>
