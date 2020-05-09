@@ -74,12 +74,27 @@ export default function BrawlProvider(props) {
     0
   )
 
+  const resetBrawl = discard => {
+    const now = Date.now()
+
+    setBrawls(brawls => [
+      ...brawls.slice(0, discard ? -1 : undefined),
+      {
+        createdAt: now,
+        updatedAt: now,
+        id: props.id,
+        matches: [],
+      },
+    ])
+  }
+
   return (
     <BrawlContext.Provider
       value={{
         id: props.id,
         brawl,
         addMatch,
+        resetBrawl,
         meta: {
           crowns,
           milestone: MILESTONES.find(milestone => milestone.crowns >= crowns),

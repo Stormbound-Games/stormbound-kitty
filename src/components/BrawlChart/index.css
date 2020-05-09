@@ -5,3 +5,7 @@
 .BrawlChart__title {
   margin-bottom: 0; /* 1 */
 }
+
+.BrawlChart {
+  margin-bottom: 2em;
+}

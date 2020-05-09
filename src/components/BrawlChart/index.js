@@ -52,7 +52,7 @@ export default React.memo(function BrawlChart(props) {
   ]
 
   return (
-    <>
+    <div className='BrawlChart'>
       <Title className='BrawlChart__title'>
         Ratio{faction !== '*' && ' against ' + capitalise(faction)}
       </Title>
@@ -84,6 +84,6 @@ export default React.memo(function BrawlChart(props) {
         faction={faction}
         onChange={event => setFaction(event.target.value)}
       />
-    </>
+    </div>
   )
 })
