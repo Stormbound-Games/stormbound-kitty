@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Brawl",
+    "description": "You can now manage your Brawl progress, expenses and performance in the Brawl tracker.",
+    "link": "/brawl"
+  },
+  {
     "intro": "Deck Builder",
     "description": "You can now manage your decks directly on the site with the deck collection!",
     "link": "/deck/yours"
