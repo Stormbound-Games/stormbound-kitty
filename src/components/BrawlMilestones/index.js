@@ -15,9 +15,7 @@ export default React.memo(function BrawlMilestones(props) {
   const [active, setActive] = React.useState(index)
 
   React.useEffect(() => {
-    setActive(
-      MILESTONES.findIndex(milestone => milestone.crowns >= meta.crowns)
-    )
+    setActive(MILESTONES.findIndex(milestone => milestone.crowns > meta.crowns))
   }, [meta.crowns])
 
   const handleDrag = React.useCallback(
