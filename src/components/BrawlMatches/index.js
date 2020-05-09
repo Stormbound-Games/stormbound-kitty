@@ -3,13 +3,14 @@ import serialize from 'form-serialize'
 import { BrawlContext } from '../BrawlProvider'
 import BrawlMatchForm from '../BrawlMatchForm'
 import Title from '../Title'
+import { MILESTONES } from '../../constants/brawl'
 import capitalise from '../../helpers/capitalise'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
 
 export default React.memo(function BrawlMatches(props) {
   const viewportWidth = useViewportWidth()
-  const { brawl, addMatch } = React.useContext(BrawlContext)
+  const { brawl, meta, addMatch } = React.useContext(BrawlContext)
 
   const onSubmit = event => {
     event.preventDefault()
@@ -24,6 +25,10 @@ export default React.memo(function BrawlMatches(props) {
 
     event.target.reset()
   }
+
+  let crowns = meta.crowns
+  const getMilestone = crowns =>
+    MILESTONES.find(milestone => milestone.crowns > crowns) || {}
 
   return (
     <>
@@ -41,28 +46,42 @@ export default React.memo(function BrawlMatches(props) {
         </thead>
         <tbody>
           <BrawlMatchForm onSubmit={onSubmit} />
-          {[...brawl.matches].reverse().map((match, index) => (
-            <tr key={index}>
-              <td>
-                {brawl.matches.length - index}
-                {viewportWidth >= 700 ? '.' : ''}
-              </td>
-              <td>{match.opponentHealth} base health</td>
-              <td>{capitalise(match.opponentFaction)}</td>
-              <td
+          {[...brawl.matches].reverse().map((match, index) => {
+            const currMilestone = getMilestone(crowns)
+            crowns -= match.status === 'LOST' ? 1 : 5
+            const nextMilestone = getMilestone(crowns)
+
+            return (
+              <tr
+                key={index}
                 className={[
-                  'BrawlMatches__status',
-                  `BrawlMatches__status--${match.status}`,
-                ].join(' ')}
+                  currMilestone.crowns !== nextMilestone.crowns &&
+                    'BrawlMatches__milestone',
+                ]
+                  .filter(Boolean)
+                  .join(' ')}
               >
-                {match.status === 'WON'
-                  ? 'Won'
-                  : match.status === 'LOST'
-                  ? 'Lost'
-                  : 'Won by forfeit'}
-              </td>
-            </tr>
-          ))}
+                <td>
+                  {brawl.matches.length - index}
+                  {viewportWidth >= 700 ? '.' : ''}
+                </td>
+                <td>{match.opponentHealth} base health</td>
+                <td>{capitalise(match.opponentFaction)}</td>
+                <td
+                  className={[
+                    'BrawlMatches__status',
+                    `BrawlMatches__status--${match.status}`,
+                  ].join(' ')}
+                >
+                  {match.status === 'WON'
+                    ? 'Won'
+                    : match.status === 'LOST'
+                    ? 'Lost'
+                    : 'Won by forfeit'}
+                </td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
     </>

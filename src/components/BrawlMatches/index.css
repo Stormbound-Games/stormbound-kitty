@@ -6,6 +6,7 @@
   border-collapse: collapse;
   text-align: center;
   position: relative;
+  overflow: hidden;
   color: rgb(159, 212, 231);
   margin-bottom: 4em;
   margin-top: -3px; /* 1 */
@@ -33,10 +34,27 @@
 .BrawlMatches th,
 .BrawlMatches td {
   padding: 0.75em 0.5em;
+  position: relative;
 }
 
 .BrawlMatches th {
   color: var(--beige);
+}
+
+.BrawlMatches__milestone > td::before {
+  content: '';
+  position: absolute;
+  width: 130%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--dark-beige),
+    transparent
+  );
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
 }
 
 /**
