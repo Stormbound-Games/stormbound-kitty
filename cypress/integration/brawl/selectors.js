@@ -2,6 +2,7 @@ export default {
   TEASER: '[data-testid="teaser"]',
   CHART: '[data-testid="chart"]',
   RESET_BTN: '[data-testid="reset-btn"]',
+  RESET_CONFIRM_BTN: '[data-testid="reset-confirm-btn"]',
   MILESTONE: '[data-testid="milestone"]',
   DECK: '.FeaturedDeck',
 

@@ -72,4 +72,15 @@ describe('Brawl — Page', () => {
       .get(s.MATCHES)
       .should('have.length', 5)
   })
+
+  it('should be possible to reset brawl data', () => {
+    cy.get(s.RESET_BTN)
+      .click()
+
+      .get(s.RESET_CONFIRM_BTN)
+      .click()
+
+      .get(s.MATCHES)
+      .should('have.length', 0)
+  })
 })
