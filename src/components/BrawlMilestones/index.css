@@ -8,27 +8,6 @@
   position: relative;
 }
 
-/**
- * 1. Vertical gradient borders of the sides of the container to hide the
- *    overflow.
- */
-.BrawlMilestones::before,
-.BrawlMilestones::after {
-  content: ''; /* 1 */
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    var(--beige),
-    transparent
-  );
-  position: absolute;
-  right: 0;
-  z-index: 3;
-  top: 0;
-}
-
 .BrawlMilestones::before {
   left: 0;
 }
@@ -56,4 +35,27 @@
 
 .BrawlMilestones__item {
   padding: 1.5em;
+}
+
+@media (min-width: 700px) {
+  /**
+ * 1. Vertical gradient borders of the sides of the container to hide the
+ *    overflow.
+ */
+  .BrawlMilestones::before,
+  .BrawlMilestones::after {
+    content: ''; /* 1 */
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--beige),
+      transparent
+    );
+    position: absolute;
+    right: 0;
+    z-index: 3;
+    top: 0;
+  }
 }

@@ -1,19 +1,34 @@
 import React from 'react'
+import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
+import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
 
 export default React.memo(function BrawlMatchForm(props) {
+  const viewportWith = useViewportWidth()
+
   return (
     <tr className='BrawlMatchForm'>
       <td>
-        <button
-          form='add-match-form'
-          type='submit'
-          className='ButtonAsLink BrawlMatchForm__button'
-          data-testid='match-btn'
-        >
-          ✔
-        </button>
+        {viewportWith >= 700 ? (
+          <button
+            form='add-match-form'
+            type='submit'
+            className='ButtonAsLink BrawlMatchForm__button'
+            data-testid='match-btn'
+          >
+            ✔
+          </button>
+        ) : (
+          <CTA
+            form='add-match-form'
+            type='submit'
+            className='BrawlMatchForm__button'
+            data-testid='match-btn'
+          >
+            Record game
+          </CTA>
+        )}
       </td>
       <td>
         <label htmlFor='opponent-health' className='VisuallyHidden'>
