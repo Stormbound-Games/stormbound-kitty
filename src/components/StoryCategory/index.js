@@ -13,7 +13,14 @@ import useViewportWidth from '../../hooks/useViewportWidth'
 export default React.memo(function StoryCategory(props) {
   const viewportWidth = useViewportWidth()
   const { data = [], loading, error } = useFetch('/stories.json')
-  const stories = data.filter(story => story.category === props.category)
+  const stories = data
+    .filter(story => story.category === props.category)
+    .sort((a, b) => {
+      const indexA = parseInt(a.title, 10)
+      const indexB = parseInt(b.title, 10)
+
+      return isNaN(indexA) || isNaN(indexB) ? 0 : indexA - indexB
+    })
   const { title, background, shortName } = STORY_CATEGORIES[props.category]
 
   return (

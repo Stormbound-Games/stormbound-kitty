@@ -9,7 +9,14 @@ export default React.memo(function StoriesMore(props) {
   const isNotCurrent = story => props.title !== story.title
 
   if (props.saga) {
-    const chapters = stories.filter(story => story.saga === props.saga)
+    const chapters = stories
+      .filter(story => story.saga === props.saga)
+      .sort((a, b) => {
+        const indexA = parseInt(a.title, 10)
+        const indexB = parseInt(b.title, 10)
+
+        return isNaN(indexA) || isNaN(indexB) ? 0 : indexA - indexB
+      })
 
     return (
       <>
