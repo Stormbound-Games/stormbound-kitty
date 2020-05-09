@@ -10,7 +10,7 @@ import { BRAWLS } from '../../constants/brawl'
 
 const getBrawlData = id => BRAWLS.find(brawl => brawl.id === id)
 
-const BRAWL_DATA = [
+export const BRAWL_DATA = [
   {
     ...getBrawlData('UNDEAD_STRENGTH'),
     description: (

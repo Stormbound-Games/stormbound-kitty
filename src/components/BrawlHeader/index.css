@@ -1,0 +1,42 @@
+.BrawlHeader__meta {
+  margin-top: -3.5em;
+  text-transform: uppercase;
+  color: var(--beige);
+  font-size: 90%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 4em;
+  text-align: center;
+}
+
+.BrawlHeader__backLink {
+  text-decoration: none;
+  flex: 1 0 100%;
+  margin-top: 0.5em;
+  font-size: 80%;
+}
+
+.BrawlHeader__backLink::before {
+  content: '← ';
+}
+
+.BrawlHeader__backLink:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 700px) {
+  .BrawlHeader__meta {
+    margin-top: -2em;
+    margin-bottom: 3em;
+    display: flex;
+    font-size: 120%;
+  }
+
+  .BrawlHeader__backLink {
+    margin-left: auto;
+    flex: 0 0 auto;
+    margin-top: 0;
+    font-size: 100%;
+  }
+}
