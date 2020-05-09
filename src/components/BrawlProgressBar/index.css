@@ -94,6 +94,10 @@
   );
 }
 
+.BrawlProgressBar__inner[aria-valuenow='0']::before {
+  content: none;
+}
+
 .BrawlProgressBar__inner:not([aria-valuenow='100'])::after {
   content: none;
 }
