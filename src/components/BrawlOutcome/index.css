@@ -1,0 +1,9 @@
+.BrawlOutcome {
+  margin-bottom: 0.5em;
+}
+
+.BrawlOutcome__list {
+  padding-left: 0.25em;
+  list-style-position: inside;
+  margin-top: 0;
+}

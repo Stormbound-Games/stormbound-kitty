@@ -1,0 +1,202 @@
+/**
+ * 1. Align top border with other box placed in the sidebar.
+ */
+.BrawlMatches {
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  color: rgb(159, 212, 231);
+  margin-bottom: 4em;
+  margin-top: -3px; /* 1 */
+}
+
+/**
+ * 1. Border allowing for seeing the zebra rows a few pixels all around the
+ *    table; effectively an inner border.
+ */
+.BrawlMatches::before {
+  content: ''; /* 1 */
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  bottom: 3px;
+  left: 3px;
+  border: 1px solid var(--dark-beige);
+  pointer-events: none;
+}
+
+.BrawlMatches thead {
+  background-color: var(--dark-blue);
+}
+
+.BrawlMatches th,
+.BrawlMatches td {
+  padding: 0.75em 0.5em;
+  position: relative;
+}
+
+.BrawlMatches th {
+  color: var(--beige);
+}
+
+.BrawlMatches__milestone > td::after {
+  content: '';
+  position: absolute;
+  width: 130%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--dark-beige),
+    transparent
+  );
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+}
+
+/**
+ * 1. Zebra table rows for readability.
+ */
+.BrawlMatches tbody tr:nth-child(even) {
+  background-color: rgb(30, 72, 88); /* 1 */
+}
+
+/**
+ * 1. Zebra table rows for readability.
+ */
+.BrawlMatches tbody tr:nth-child(odd) {
+  background-color: var(--light-blue); /* 1 */
+}
+
+/**
+ * 1. The first table cell of each row contains the match number, and should be
+ *    colored differently like in the game.
+ */
+.BrawlMatches td:first-of-type {
+  color: var(--beige); /* 1 */
+}
+
+/**
+ * 1. Color-code the match outcome green/red for quick read.
+ */
+.BrawlMatches__status--WON {
+  color: var(--light-shadowfen); /* 1 */
+}
+
+.BrawlMatches__status--FORFEIT {
+  color: var(--light-swarm); /* 1 */
+}
+
+/**
+ * 1. Color-code the match outcome green/red for quick read.
+ */
+.BrawlMatches__status--LOST {
+  color: var(--light-ironclad); /* 1 */
+}
+
+@media (max-width: 699px) {
+  .BrawlMatches {
+    text-align: left;
+    display: block;
+  }
+
+  /**
+   * 1. Hide the fake border around the table since table rows are using borders
+   *    on mobile.
+   */
+  .BrawlMatches::before {
+    content: none; /* 1 */
+  }
+
+  /**
+   * 1. Reset the table layout to a block layout.
+   */
+  .BrawlMatches thead,
+  .BrawlMatches tbody,
+  .BrawlMatches th,
+  .BrawlMatches td,
+  .BrawlMatches tr {
+    display: block; /* 1 */
+  }
+
+  /**
+   * 1. Hide the table headers.
+   */
+  .BrawlMatches thead {
+    position: absolute; /* 1 */
+    top: -9999px; /* 1 */
+    left: -9999px; /* 1 */
+  }
+
+  .BrawlMatches tr {
+    border: 1px solid var(--dark-beige);
+  }
+
+  /**
+   * 1. Avoid double borders on the top of the table.
+   */
+  .BrawlMatches tr:not(:first-child) {
+    border-top: 0; /* 1 */
+  }
+
+  .BrawlMatches tr {
+    padding: 0.5em 0;
+  }
+
+  .BrawlMatches td {
+    padding: 0.25em 1em;
+  }
+
+  .BrawlMatches td::before {
+    color: var(--beige);
+    width: 50%;
+    display: inline-block;
+  }
+
+  /**
+   * 1. The first row is the row containing the form, and in that case we should
+   *    not display the match number since there is no match.
+   */
+  .BrawlMatches tr:not(:first-child) > td:first-child::before {
+    content: 'Match #'; /* 1 */
+  }
+
+  /**
+   * 1. On desktop, the submit button is replacing the index in the first column
+   *    but on mobile it should be displayed as a proper CTA after the fields,
+   *    which requires flex to enable `order`.
+   */
+  .BrawlMatches tr:first-child {
+    display: flex; /* 1 */
+    flex-direction: column;
+  }
+
+  /**
+   * 1. Place the cell containing the CTA after the other cells containing
+   *    the fields.
+   */
+  .BrawlMatches tr:first-child > td:first-child {
+    order: 1; /* 1 */
+    text-align: center;
+    padding-top: 0.75em;
+  }
+
+  .BrawlMatches td:nth-of-type(2)::before {
+    content: 'Opponent’s health';
+  }
+
+  .BrawlMatches td:nth-of-type(3)::before {
+    content: 'Opponent’s faction';
+  }
+
+  .BrawlMatches td:nth-of-type(4)::before {
+    content: 'Match outcome';
+  }
+
+  .BrawlMatches__milestone > td::after {
+    content: none;
+  }
+}

@@ -1,0 +1,110 @@
+/**
+ * 1. Arbitrary dimensions for the progress bar.
+ * 3. Remove right border to have the pointy edge.
+ * 4. Soften the corners to make the transition between the top/bottom border
+ *    and the pseudo-element smoother.
+ */
+.BrawlProgressBar {
+  height: 34px; /* 1 */
+  width: 15em; /* 1 */
+  max-width: 100%;
+  padding: 3px;
+  background-color: var(--black);
+  border: 1px solid var(--dark-beige);
+  border-right: 0; /* 2 */
+  border-left: 0; /* 2 */
+  border-radius: 0 1px 1px 0; /* 3 */
+  position: relative;
+}
+
+/**
+ * 1. √(34 * 34 / 2) or accurate width and height to have a diagonal exactly
+ *    equal to the height of the progress bar (34px).
+ * 2. Soften the corners to make the transition between the top/bottom border
+ *    and the pseudo-element smoother.
+ */
+.BrawlProgressBar::after,
+.BrawlProgressBar::before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 24.041630560342615px; /* 1 */
+  height: 24.041630560342615px; /* 1 */
+  background: linear-gradient(
+    to bottom left,
+    var(--black) 50%,
+    transparent 50%
+  );
+  border-right: 1px solid var(--dark-beige);
+  border-top: 1px solid var(--dark-beige);
+  border-radius: 1px 0 1px 0; /* 2 */
+  transform: translate(50%, -50%) rotate(45deg);
+}
+
+.BrawlProgressBar::before {
+  left: 0;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  border-radius: 0 1px 0 1px; /* 2 */
+  border-right: 0;
+  border-left: 1px solid var(--dark-beige);
+  background: linear-gradient(
+    to bottom right,
+    var(--black) 50%,
+    transparent 50%
+  );
+}
+
+.BrawlProgressBar__inner {
+  height: 100%;
+  background-color: rgb(141, 178, 44);
+  position: relative;
+}
+
+/**
+ * 1. √(26 * 26 / 2) or accurate width and height to have a diagonal exactly
+ *    equal to the height of the filling (34px - 3px * 2 - 1px * 2).
+ */
+.BrawlProgressBar__inner::after,
+.BrawlProgressBar__inner::before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 18.384776310850235px; /* 1 */
+  height: 18.384776310850235px; /* 1 */
+  transform: translate(50%, -50%) rotate(45deg);
+  background: linear-gradient(
+    to bottom left,
+    rgb(141, 178, 44) 50%,
+    transparent 50%
+  );
+  z-index: 2;
+}
+
+.BrawlProgressBar__inner::before {
+  left: 0;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  background: linear-gradient(
+    to bottom right,
+    rgb(141, 178, 44) 50%,
+    transparent 50%
+  );
+}
+
+.BrawlProgressBar__inner[aria-valuenow='0']::before {
+  content: none;
+}
+
+.BrawlProgressBar__inner:not([aria-valuenow='100'])::after {
+  content: none;
+}
+
+.BrawlProgressBar__label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

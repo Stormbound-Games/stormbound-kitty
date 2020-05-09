@@ -10,7 +10,7 @@ import { BRAWLS } from '../../constants/brawl'
 
 const getBrawlData = id => BRAWLS.find(brawl => brawl.id === id)
 
-const BRAWL_DATA = [
+export const BRAWL_DATA = [
   {
     ...getBrawlData('UNDEAD_STRENGTH'),
     description: (
@@ -176,16 +176,17 @@ const BRAWL_DATA = [
 const BrawlTeaser = React.memo(function BrawlTeaser(props) {
   return (
     <Teaser
+      data-testid='teaser'
       meta={props.label}
       title={props.title}
       cardId={props.cardId}
       excerpt={props.description}
-      to={'/deck/suggestions?brawl=' + props.id}
+      to={`/brawl/${props.id.toLowerCase().replace(/_/g, '-')}`}
     />
   )
 })
 
-export default React.memo(function Brawl() {
+export default React.memo(function BrawlIndex() {
   return (
     <>
       <Only.Desktop>

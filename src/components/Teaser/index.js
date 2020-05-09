@@ -9,7 +9,7 @@ export default React.memo(function Teaser(props) {
   const title = props.title
 
   return (
-    <div className='Teaser'>
+    <div className='Teaser' data-testid={props['data-testid']}>
       <div
         className='Teaser__header'
         style={{
