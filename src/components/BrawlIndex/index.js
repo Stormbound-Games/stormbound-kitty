@@ -176,6 +176,7 @@ export const BRAWL_DATA = [
 const BrawlTeaser = React.memo(function BrawlTeaser(props) {
   return (
     <Teaser
+      data-testid='teaser'
       meta={props.label}
       title={props.title}
       cardId={props.cardId}

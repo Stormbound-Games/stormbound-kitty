@@ -57,6 +57,7 @@ export default React.memo(function BrawlCharts(props) {
 
   return (
     <div
+      data-testid='chart'
       className='BrawlStatusChart'
       style={{
         '--length': (faction === '*' ? 'all factions' : faction).length,

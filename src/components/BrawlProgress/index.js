@@ -22,6 +22,7 @@ export default React.memo(function BrawlProgress(props) {
           <button
             onClick={() => props.setActive(index)}
             className='ButtonAsLink BrawlProgress__button'
+            data-testid='milestone-diamond'
           >
             <span className='VisuallyHidden'>Select milestone {index + 1}</span>
           </button>

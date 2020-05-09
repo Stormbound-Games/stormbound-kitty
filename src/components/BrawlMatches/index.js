@@ -53,6 +53,7 @@ export default React.memo(function BrawlMatches(props) {
 
             return (
               <tr
+                data-testid='match'
                 key={index}
                 className={[
                   currMilestone.crowns !== nextMilestone.crowns &&

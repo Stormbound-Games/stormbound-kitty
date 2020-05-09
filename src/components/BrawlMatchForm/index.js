@@ -10,6 +10,7 @@ export default React.memo(function BrawlMatchForm(props) {
           form='add-match-form'
           type='submit'
           className='ButtonAsLink BrawlMatchForm__button'
+          data-testid='match-btn'
         >
           ✔
         </button>
@@ -25,6 +26,7 @@ export default React.memo(function BrawlMatchForm(props) {
           max={20}
           name='opponent-health'
           id='opponent-health'
+          data-testid='opponent-health'
           required
           placeholder='18'
         />
@@ -35,6 +37,7 @@ export default React.memo(function BrawlMatchForm(props) {
           labelClassName='VisuallyHidden'
           name='opponent-faction'
           id='opponent-faction'
+          data-testid='opponent-faction'
           withEmpty
           required
         />
@@ -43,7 +46,13 @@ export default React.memo(function BrawlMatchForm(props) {
         <label htmlFor='status' className='VisuallyHidden'>
           Status
         </label>
-        <select id='status' name='status' required form='add-match-form'>
+        <select
+          id='status'
+          name='status'
+          required
+          form='add-match-form'
+          data-testid='outcome'
+        >
           <option value=''>Set game outcome</option>
           <option value='WON'>Won</option>
           <option value='FORFEIT'>Won by forfeit</option>

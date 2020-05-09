@@ -21,7 +21,11 @@ export default React.memo(function BrawlReset(props) {
         icon='crown'
         className='BrawlReset'
         title='Reset data'
-        CTA={<CTA onClick={open}>Reset Brawl</CTA>}
+        CTA={
+          <CTA onClick={open} data-testid='reset-btn'>
+            Reset Brawl
+          </CTA>
+        }
       >
         If this data is from a past Brawl or just irrelevant, you can reset it
         to record a brand new Brawl. You will be asked to confirm.

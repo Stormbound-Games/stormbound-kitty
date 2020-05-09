@@ -53,6 +53,7 @@ export default React.memo(function BrawlMilestone(props) {
 
   return (
     <div
+      data-testid='milestone'
       className={['BrawlMilestone', collected && 'BrawlMilestone--collected']
         .filter(Boolean)
         .join(' ')}

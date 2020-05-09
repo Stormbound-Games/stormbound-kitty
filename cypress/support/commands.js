@@ -1,3 +1,4 @@
+import brAddMatch from './commands/brAddMatch'
 import bsDraw from './commands/bsDraw'
 import bsFill from './commands/bsFill'
 import dbReset from './commands/dbReset'
@@ -12,6 +13,7 @@ import exportFile from './commands/exportFile'
 import importFile from './commands/importFile'
 import { restoreLocalStorage, saveLocalStorage } from './commands/localStorage'
 
+Cypress.Commands.add('brAddMatch', { prevSubject: false }, brAddMatch)
 Cypress.Commands.add('bsDraw', { prevSubject: false }, bsDraw)
 Cypress.Commands.add('bsFill', { prevSubject: 'optional' }, bsFill)
 Cypress.Commands.add('dbReset', { prevSubject: false }, dbReset)
