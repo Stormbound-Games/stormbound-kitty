@@ -41,7 +41,7 @@
  *    current milestone is displayed at the center.
  */
 .BrawlMilestones__inner {
-  width: calc((20em + 2em * 2) * var(--count)); /* 1 */
+  width: calc((20em + 1.5em * 2) * var(--count)); /* 1 */
   transition: transform 1000ms;
   position: relative; /* 2 */
   left: 50%; /* 2 */
@@ -55,5 +55,5 @@
 }
 
 .BrawlMilestones__item {
-  padding: 2em;
+  padding: 1.5em;
 }

@@ -38,7 +38,9 @@ export default React.memo(function BrawlMilestones(props) {
         className='BrawlMilestones__inner'
         style={{
           '--count': MILESTONES.length,
-          transform: `translateX(calc(-12em - ${active * MILESTONES.length}%))`,
+          transform: `translateX(calc(-11.5em - ${
+            active * MILESTONES.length
+          }%))`,
         }}
       >
         <motion.div
