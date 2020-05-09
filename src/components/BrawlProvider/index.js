@@ -88,6 +88,22 @@ export default function BrawlProvider(props) {
     ])
   }
 
+  const coinsSpent = (() => {
+    let crowns = 0
+    let currentMilestone = 0
+
+    return brawl.matches.reduce((acc, match) => {
+      const gameCost = MILESTONES[currentMilestone].cost
+      acc += gameCost
+      crowns += match.status === 'LOST' ? 1 : 5
+      currentMilestone = MILESTONES.findIndex(
+        milestone => milestone.crowns > crowns
+      )
+
+      return acc
+    }, 0)
+  })()
+
   return (
     <BrawlContext.Provider
       value={{
@@ -97,6 +113,7 @@ export default function BrawlProvider(props) {
         resetBrawl,
         meta: {
           crowns,
+          coinsSpent,
           milestone: MILESTONES.find(milestone => milestone.crowns >= crowns),
         },
       }}

@@ -1,35 +1,14 @@
 import React from 'react'
-import { MILESTONES } from '../../constants/brawl'
+import { COIN_MULTIPLIERS } from '../../constants/brawl'
 import { BrawlContext } from '../BrawlProvider'
 import Info from '../Info'
 import { Coins } from '../Resource'
 import './index.css'
 
-const MULTIPLIERS = {
-  STEAM: 10,
-  MOBILE_WITH_ADS: 20,
-  MOBILE_WITHOUT_ADS: 5,
-}
-
 export default React.memo(function BrawlOutcome(props) {
-  const { brawl } = React.useContext(BrawlContext)
-
-  const coinsSpent = (() => {
-    let crowns = 0
-    let currentMilestone = 0
-
-    return brawl.matches.reduce((acc, match) => {
-      const gameCost = MILESTONES[currentMilestone].cost
-      acc += gameCost
-      crowns += match.status === 'LOST' ? 1 : 5
-      currentMilestone = MILESTONES.findIndex(
-        milestone => milestone.crowns > crowns
-      )
-
-      return acc
-    }, 0)
-  })()
-  const balance = coinsSpent - brawl.matches.length * MULTIPLIERS[props.setup]
+  const { brawl, meta } = React.useContext(BrawlContext)
+  const balance =
+    meta.coinsSpent - brawl.matches.length * COIN_MULTIPLIERS[props.setup]
 
   return (
     <Info className='BrawlOutcome' title='Balance'>
@@ -41,14 +20,14 @@ export default React.memo(function BrawlOutcome(props) {
           <strong style={{ color: 'var(--light-ironclad)' }}>
             Coins spent:
           </strong>{' '}
-          <Coins amount={'-' + coinsSpent} />
+          <Coins amount={'-' + meta.coinsSpent} />
         </li>
         <li>
           <strong style={{ color: 'var(--light-shadowfen)' }}>
             Coins earned:
           </strong>{' '}
           <Coins
-            amount={'+' + brawl.matches.length * MULTIPLIERS[props.setup]}
+            amount={'+' + brawl.matches.length * COIN_MULTIPLIERS[props.setup]}
           />
         </li>
         <li>

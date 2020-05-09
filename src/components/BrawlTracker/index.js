@@ -2,7 +2,7 @@ import React from 'react'
 import BrawlMilestones from '../BrawlMilestones'
 import BrawlMatches from '../BrawlMatches'
 import Column from '../Column'
-import BrawlChart from '../BrawlChart'
+import BrawlCharts from '../BrawlCharts'
 import BrawlOutcome from '../BrawlOutcome'
 import BrawlRecommendedDecks from '../BrawlRecommendedDecks'
 import BrawlReset from '../BrawlReset'
@@ -21,11 +21,11 @@ export default React.memo(function BrawlTracker(props) {
           <Title>About your Brawl</Title>
           <BrawlOutcome setup={setup} />
           <BrawlSetup setup={setup} setSetup={setSetup} />
-          <BrawlChart />
           <BrawlReset />
         </Column>
         <Column width='2/3'>
           <BrawlMatches />
+          <BrawlCharts setup={setup} />
           <BrawlRecommendedDecks />
         </Column>
       </Row>

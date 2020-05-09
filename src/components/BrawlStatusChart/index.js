@@ -11,15 +11,19 @@ import Title from '../Title'
 import { BrawlContext } from '../BrawlProvider'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 import FactionSelect from '../FactionSelect'
-import capitalise from '../../helpers/capitalise'
 import './index.css'
-export default React.memo(function BrawlChart(props) {
+
+const SELECT_LENGTH_MULTIPLIER = {
+  '*': '1ch',
+  swarm: '1.3ch',
+  shadowfen: '1.25ch',
+  ironclad: '1.1ch',
+  winter: '1.15ch',
+}
+
+export default React.memo(function BrawlCharts(props) {
   const [faction, setFaction] = React.useState('*')
   const { brawl } = React.useContext(BrawlContext)
-
-  if (brawl.matches.length === 0) {
-    return null
-  }
 
   const data = [
     {
@@ -27,7 +31,7 @@ export default React.memo(function BrawlChart(props) {
       value: brawl.matches.filter(
         match =>
           match.status === 'WON' &&
-          (faction === '*' || match.oFaction === faction)
+          (faction === '*' || match.opponentFaction === faction)
       ).length,
       color: 'var(--light-shadowfen)',
     },
@@ -36,7 +40,7 @@ export default React.memo(function BrawlChart(props) {
       value: brawl.matches.filter(
         match =>
           match.status === 'FORFEIT' &&
-          (faction === '*' || match.oFaction === faction)
+          (faction === '*' || match.opponentFaction === faction)
       ).length,
       color: 'var(--light-swarm)',
     },
@@ -45,16 +49,30 @@ export default React.memo(function BrawlChart(props) {
       value: brawl.matches.filter(
         match =>
           match.status === 'LOST' &&
-          (faction === '*' || match.oFaction === faction)
+          (faction === '*' || match.opponentFaction === faction)
       ).length,
       color: 'var(--light-ironclad)',
     },
   ]
 
   return (
-    <div className='BrawlChart'>
-      <Title className='BrawlChart__title'>
-        Ratio{faction !== '*' && ' against ' + capitalise(faction)}
+    <div
+      className='BrawlStatusChart'
+      style={{
+        '--length': (faction === '*' ? 'all factions' : faction).length,
+        '--multiplier': SELECT_LENGTH_MULTIPLIER[faction],
+      }}
+    >
+      <Title className='BrawlStatusChart__title'>
+        Ratio vs.{' '}
+        <FactionSelect
+          labelClassName='VisuallyHidden'
+          anyLabel='all factions'
+          withAny
+          label='Against faction'
+          faction={faction}
+          onChange={event => setFaction(event.target.value)}
+        />
       </Title>
       <ResponsiveContainer width='100%' height={250}>
         <PieChart>
@@ -77,13 +95,6 @@ export default React.memo(function BrawlChart(props) {
           </Pie>
         </PieChart>
       </ResponsiveContainer>
-
-      <FactionSelect
-        withAny
-        label='Against faction'
-        faction={faction}
-        onChange={event => setFaction(event.target.value)}
-      />
     </div>
   )
 })

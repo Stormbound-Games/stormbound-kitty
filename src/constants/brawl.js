@@ -115,3 +115,9 @@ export const MATCH_STATUSES = {
   FORFEIT: 'F',
   LOST: 'L',
 }
+
+export const COIN_MULTIPLIERS = {
+  STEAM: 10,
+  MOBILE_WITH_ADS: 20,
+  MOBILE_WITHOUT_ADS: 5,
+}
