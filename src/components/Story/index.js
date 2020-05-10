@@ -8,6 +8,7 @@ import Loader from '../Loader'
 import MicroMarkdown from '../MicroMarkdown'
 import PageMeta from '../PageMeta'
 import StoriesMore from '../StoriesMore'
+import { STORY_CATEGORIES } from '../../constants/stories'
 import getRawCardData from '../../helpers/getRawCardData'
 import getExcerpt from '../../helpers/getExcerpt'
 import getReadingTime from '../../helpers/getReadingTime'
@@ -20,6 +21,7 @@ export default function Story(props) {
   const path = '/stories/' + id + '.json'
   const { data: story, error, loading } = useFetch(path)
   const card = story ? getRawCardData(story.cardId) : {}
+  const { background } = story ? STORY_CATEGORIES[story.category] : {}
 
   return (
     <div className='Story'>
@@ -31,6 +33,7 @@ export default function Story(props) {
         <Article
           title={story.title}
           author={story.author}
+          background={background}
           readingTime={getReadingTime(story.content)}
           backLink={{
             to: '/stories/' + story.category,
