@@ -1,25 +1,21 @@
 import React from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
-import LazyLoad from 'react-lazyload'
 import hookIntoProps from 'hook-into-props'
 import debounce from 'lodash.debounce'
 import decks from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
-import BookmarkDeckButton from '../BookmarkDeckButton'
 import Column from '../Column'
 import EmptySearch from '../EmptySearch'
-import FeaturedDeck from '../FeaturedDeck'
 import ImportCollection from '../ImportCollection'
 import Info from '../Info'
 import LearnMoreIcon from '../LearnMoreIcon'
-import Loader from '../Loader'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import SuggestedDecks from '../SuggestedDecks'
 import SuggestionsFilters from '../DeckBuilderSuggestionsFilters'
 import Title from '../Title'
 import useViewportWidth from '../../hooks/useViewportWidth'
-import chunk from '../../helpers/chunk'
 import sortDeckSuggestions from '../../helpers/sortDeckSuggestions'
 import getRawCardData from '../../helpers/getRawCardData'
 import capitalise from '../../helpers/capitalise'
@@ -245,45 +241,7 @@ class DeckBuilderSuggestions extends React.Component {
           <Column width='2/3'>
             <Title>Decks</Title>
             {decks.length > 0 ? (
-              chunk(decks, 2).map(([a, b]) => (
-                <LazyLoad
-                  resize
-                  placeholder={<Loader hideLabel />}
-                  height={this.props.viewportWidth > 700 ? 280 : 560}
-                  key={a.id}
-                >
-                  <Row desktopOnly key={a.id}>
-                    <Column>
-                      <FeaturedDeck
-                        {...a}
-                        data-testid='deck-suggestion'
-                        showUpgrades
-                        onClick={card =>
-                          this.props.history.push(
-                            '/card/' + card.id + '/display'
-                          )
-                        }
-                        actions={[<BookmarkDeckButton {...a} />]}
-                      />
-                    </Column>
-                    <Column>
-                      {b ? (
-                        <FeaturedDeck
-                          {...b}
-                          data-testid='deck-suggestion'
-                          showUpgrades
-                          onClick={card =>
-                            this.props.history.push(
-                              '/card/' + card.id + '/display'
-                            )
-                          }
-                          actions={[<BookmarkDeckButton {...b} />]}
-                        />
-                      ) : null}
-                    </Column>
-                  </Row>
-                </LazyLoad>
-              ))
+              <SuggestedDecks decks={decks} />
             ) : (
               <EmptySearch
                 title='No Decks found'
