@@ -20,7 +20,9 @@ export default function RouterDeckBuilder() {
         path={`${path}/suggestions`}
         active={['DECK_BUILDER', 'SUGGESTIONS']}
       >
-        <DeckBuilderSuggestions />
+        <PersonalDecksProvider>
+          <DeckBuilderSuggestions />
+        </PersonalDecksProvider>
       </Page>
       <Page path={`${path}/yours`} active={['DECK_BUILDER', 'YOURS']}>
         <PersonalDecksProvider>

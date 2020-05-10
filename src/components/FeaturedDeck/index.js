@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { CATEGORIES } from '../../constants/decks'
 import { CollectionContext } from '../CollectionProvider'
 import Deck from '../Deck'
+import DiamondButton from '../DiamondButton'
 import QuestionMark from '../QuestionMark'
 import Only from '../Only'
 import RarityBar from '../RarityBar'
@@ -47,9 +48,10 @@ const useAdjustedDeck = ({ category, id }) => {
 
 export default React.memo(function FeaturedDeck(props) {
   const { id, deck, distance } = useAdjustedDeck(props)
+  const actions = props.actions || []
 
   return (
-    <div className='FeaturedDeck'>
+    <div className='FeaturedDeck' data-testid={props['data-testid']}>
       <Deck
         showUpgrades={props.showUpgrades}
         deck={deck}
@@ -108,6 +110,17 @@ export default React.memo(function FeaturedDeck(props) {
           </>
         )}
       </span>
+      {actions.length > 0 && (
+        <div className='FeaturedDeck__actions'>
+          {actions.map((action, index) =>
+            action['$$typeof'] ? (
+              <React.Fragment key={index}>{action}</React.Fragment>
+            ) : (
+              <DiamondButton key={index} {...action} />
+            )
+          )}
+        </div>
+      )}
     </div>
   )
 })

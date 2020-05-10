@@ -5,6 +5,7 @@ import hookIntoProps from 'hook-into-props'
 import debounce from 'lodash.debounce'
 import decks from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
+import BookmarkDeckButton from '../BookmarkDeckButton'
 import Column from '../Column'
 import EmptySearch from '../EmptySearch'
 import FeaturedDeck from '../FeaturedDeck'
@@ -255,24 +256,28 @@ class DeckBuilderSuggestions extends React.Component {
                     <Column>
                       <FeaturedDeck
                         {...a}
+                        data-testid='deck-suggestion'
                         showUpgrades
                         onClick={card =>
                           this.props.history.push(
                             '/card/' + card.id + '/display'
                           )
                         }
+                        actions={[<BookmarkDeckButton {...a} />]}
                       />
                     </Column>
                     <Column>
                       {b ? (
                         <FeaturedDeck
                           {...b}
+                          data-testid='deck-suggestion'
                           showUpgrades
                           onClick={card =>
                             this.props.history.push(
                               '/card/' + card.id + '/display'
                             )
                           }
+                          actions={[<BookmarkDeckButton {...b} />]}
                         />
                       ) : null}
                     </Column>
