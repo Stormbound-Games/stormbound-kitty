@@ -9,7 +9,7 @@ export default React.memo(function NavStories(props) {
   const { pathname } = useLocation()
   const { storyId: id } = match.params
   const path = '/stories/' + id + '.json'
-  const { data: story = {} } = useFetch(path)
+  const { data: story = {} } = useFetch(path, { skip: !id })
   const currentCategory = story.category || pathname.split('/').pop()
 
   return (
