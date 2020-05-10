@@ -51,7 +51,7 @@ export default React.memo(function StoryCategory(props) {
       </Notice>
 
       <PageMeta
-        title={`${title} stories`}
+        title={`${title} Stories`}
         description={`Read immersive stories from the community about ${title}`}
       />
     </>
