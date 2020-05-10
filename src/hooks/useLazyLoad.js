@@ -6,17 +6,18 @@ const useLazyLoad = (collection, itemsPerPage) => {
   const [loading, setLoading] = React.useState(false)
   const [page, setPage] = React.useState(1)
   const loadMore = React.useCallback(() => {
-    if (page * itemsPerPage < collection.length) {
+    if (collection.length && page * itemsPerPage < collection.length) {
       setLoading(true)
       setTimeout(() => {
         setPage(page => page + 1)
         setLoading(false)
       }, 500)
     }
-    // eslint-disable-next-line
-  }, [collection.length, itemsPerPage])
+  }, [collection.length, itemsPerPage, page])
 
-  React.useEffect(() => loadMore(), [inView, loadMore])
+  React.useEffect(() => {
+    if (inView) loadMore()
+  }, [inView, loadMore])
 
   return { loading, items: collection.slice(0, page * itemsPerPage), ref }
 }
