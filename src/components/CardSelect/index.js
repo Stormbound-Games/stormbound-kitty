@@ -1,10 +1,11 @@
 import React from 'react'
 import Select from 'react-select'
 import { WebpContext } from '../WebpProvider'
+import { FACTIONS } from '../../constants/game'
 import getCardsByFaction from '../../helpers/getCardsByFaction'
 import getRawCardData from '../../helpers/getRawCardData'
 
-const ORDER = ['swarm', 'winter', 'ironclad', 'shadowfen', 'neutral']
+const ORDER = Object.keys(FACTIONS)
 const cardsByFaction = getCardsByFaction()
 
 export default React.memo(function CardSelect(props) {
