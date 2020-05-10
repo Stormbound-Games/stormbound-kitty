@@ -14,6 +14,7 @@ export default React.memo(function FactionSelect(props) {
         id={props.id || 'faction'}
         required={props.required}
         value={props.value}
+        defaultValue={props.defaultValue}
         onChange={props.onChange}
         data-testid={props['data-testid']}
       >

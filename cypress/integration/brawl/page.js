@@ -34,7 +34,24 @@ describe('Brawl — Page', () => {
   })
 
   it('should be possible to record a match', () => {
-    cy.brAddMatch('WON')
+    cy.brAddMatch('WON', 20, 'ironclad')
+
+      .get(s.MATCHES)
+      .should('have.length', 1)
+  })
+
+  it('should be possible to edit a match', () => {
+    cy.get(s.MATCHES)
+      .first()
+
+      .find(s.MATCH_EDIT_BTN)
+      .click()
+
+      .get(s.OPPONENT_FACTION_SELECT)
+      .select('winter')
+
+      .get(s.MATCH_SUBMIT_BTN)
+      .click()
 
       .get(s.MATCHES)
       .should('have.length', 1)

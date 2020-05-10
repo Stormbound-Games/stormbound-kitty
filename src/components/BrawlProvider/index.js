@@ -68,6 +68,16 @@ export default function BrawlProvider(props) {
       updatedAt: Date.now(),
       matches: [...brawl.matches, match],
     }))
+  const updateMatch = (index, match) =>
+    updateCurrentBrawl(brawl => ({
+      ...brawl,
+      updatedAt: Date.now(),
+      matches: [
+        ...brawl.matches.slice(0, index),
+        match,
+        ...brawl.matches.slice(index + 1),
+      ],
+    }))
 
   const crowns = brawl.matches.reduce(
     (crowns, match) => crowns + (match.status === 'LOST' ? 1 : 5),
@@ -143,6 +153,7 @@ export default function BrawlProvider(props) {
         id: props.id,
         brawl,
         addMatch,
+        updateMatch,
         resetBrawl,
         restoreBrawls,
         meta: {

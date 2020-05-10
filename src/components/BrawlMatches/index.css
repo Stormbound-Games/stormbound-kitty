@@ -41,6 +41,19 @@
   color: var(--beige);
 }
 
+.BrawlMatches__edit {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.BrawlMatches__edit:hover {
+  color: var(--dark-beige);
+}
+
 .BrawlMatches__milestone > td::after {
   content: '';
   position: absolute;
@@ -160,7 +173,7 @@
    * 1. The first row is the row containing the form, and in that case we should
    *    not display the match number since there is no match.
    */
-  .BrawlMatches tr:not(:first-child) > td:first-child::before {
+  .BrawlMatches tr:not(.BrawlMatchForm) > td:first-child::before {
     content: 'Match #'; /* 1 */
   }
 
@@ -169,7 +182,7 @@
    *    but on mobile it should be displayed as a proper CTA after the fields,
    *    which requires flex to enable `order`.
    */
-  .BrawlMatches tr:first-child {
+  .BrawlMatches tr.BrawlMatchForm {
     display: flex; /* 1 */
     flex-direction: column;
   }
@@ -178,7 +191,7 @@
    * 1. Place the cell containing the CTA after the other cells containing
    *    the fields.
    */
-  .BrawlMatches tr:first-child > td:first-child {
+  .BrawlMatches tr.BrawlMatchForm > td:first-child {
     order: 1; /* 1 */
     text-align: center;
     padding-top: 0.75em;
@@ -198,5 +211,11 @@
 
   .BrawlMatches__milestone > td::after {
     content: none;
+  }
+
+  .BrawlMatches__edit {
+    position: static;
+    transform: none;
+    margin-left: 1em;
   }
 }
