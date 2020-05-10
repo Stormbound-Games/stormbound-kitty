@@ -150,7 +150,6 @@
 }
 
 .Card__name {
-  font-weight: bold;
   font-size: 170%;
   margin-bottom: 0.25em;
   text-transform: uppercase;
@@ -192,10 +191,6 @@
 .Card__ability {
   font-size: 130%;
   padding: 0 2em;
-}
-
-.Card__ability strong {
-  font-weight: 900;
 }
 
 .Card__footer {
