@@ -2,7 +2,6 @@ import React from 'react'
 import LearnMoreIcon from '../LearnMoreIcon'
 import Title from '../Title'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
-import './index.css'
 
 const getRaces = cards => [...new Set(cards.map(c => c.race))]
 const getFactions = cards =>
@@ -160,9 +159,7 @@ export default function DeckBuilderAdvice(props) {
           }
           onMouseOut={() => props.highlight([])}
         >
-          <strong className='DeckBuilderAdvice__name'>
-            {suggestion.name}:
-          </strong>{' '}
+          <strong className='Highlight'>{suggestion.name}:</strong>{' '}
           {suggestion.description}
         </p>
       ))}

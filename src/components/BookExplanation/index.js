@@ -1,7 +1,6 @@
 import React from 'react'
 import { RARITIES, BOOKS } from '../../constants/game'
 import capitalise from '../../helpers/capitalise'
-import './index.css'
 
 export default React.memo(({ book }) => {
   const { percentiles, draws } = BOOKS[book]
