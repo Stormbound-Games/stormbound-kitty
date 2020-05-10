@@ -244,9 +244,10 @@ export default React.memo(function GuideDeck(props) {
       <p>
         When building your deck, try to make sure you have multiple synergies
         available (i.e. <WikiLink id='I8' /> to combo with <WikiLink id='N1' />{' '}
-        & <WikiLink id='I6' />) <strong>and</strong> not just one (i.e. running{' '}
-        <WikiLink id='W1' /> in a deck with only <WikiLink id='W2' /> to freeze,
-        or <WikiLink id='N43' /> with only <WikiLink id='N10' />
+        & <WikiLink id='I6' />) <strong className='Highlight'>and</strong> not
+        just one (i.e. running <WikiLink id='W1' /> in a deck with only{' '}
+        <WikiLink id='W2' /> to freeze, or <WikiLink id='N43' /> with only{' '}
+        <WikiLink id='N10' />
         ).
       </p>
 
@@ -278,9 +279,11 @@ export default React.memo(function GuideDeck(props) {
       </p>
 
       <p>
-        <strong>Your first turn gives you 3 or 4 mana</strong> (depending on who
-        goes first). The number of cards you can play at 3 mana are any which
-        cost 3 or less.
+        <strong className='Highlight'>
+          Your first turn gives you 3 or 4 mana
+        </strong>{' '}
+        (depending on who goes first). The number of cards you can play at 3
+        mana are any which cost 3 or less.
       </p>
 
       <p>

@@ -68,10 +68,12 @@ export default function DeckBuilderStats(props) {
           </p>
 
           <p>
-            Its average speed is <strong>{averageSpeed}</strong> cell on play.
-            Its average mana cost is <strong>{averageMana}</strong>.{' '}
+            Its average speed is{' '}
+            <strong className='Highlight'>{averageSpeed}</strong> cell on play.
+            Its average mana cost is{' '}
+            <strong className='Highlight'>{averageMana}</strong>.{' '}
             <strong
-              className='DeckBuilderStats__trigger'
+              className='Highlight DeckBuilderStats__trigger'
               onMouseOver={() => props.highlight(playableCards1)}
               onMouseOut={() => props.highlight([])}
             >
@@ -79,7 +81,7 @@ export default function DeckBuilderStats(props) {
             </strong>{' '}
             cards can be played as the first player (
             <strong
-              className='DeckBuilderStats__trigger'
+              className='Highlight DeckBuilderStats__trigger'
               onMouseOver={() => props.highlight(movingCards1)}
               onMouseOut={() => props.highlight([])}
             >
@@ -87,7 +89,7 @@ export default function DeckBuilderStats(props) {
             </strong>{' '}
             of them moving the front line),{' '}
             <strong
-              className='DeckBuilderStats__trigger'
+              className='Highlight DeckBuilderStats__trigger'
               onMouseOver={() => props.highlight(playableCards2)}
               onMouseOut={() => props.highlight([])}
             >
@@ -95,7 +97,7 @@ export default function DeckBuilderStats(props) {
             </strong>{' '}
             as the second player (
             <strong
-              className='DeckBuilderStats__trigger'
+              className='Highlight DeckBuilderStats__trigger'
               onMouseOver={() => props.highlight(movingCards2)}
               onMouseOut={() => props.highlight([])}
             >
