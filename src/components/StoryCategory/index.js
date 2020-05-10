@@ -39,7 +39,8 @@ export default React.memo(function StoryCategory(props) {
       )}
 
       <Notice icon='quill'>
-        Looking to contribute to the Stormbound lore?{' '}
+        Looking to contribute to the Stormbound lore?
+        <br />
         <Link to='/faq#adding-a-story'>Have your own story published</Link>.
       </Notice>
 

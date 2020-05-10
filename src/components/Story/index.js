@@ -41,8 +41,9 @@ export default function Story(props) {
 
       <StoriesMore {...story} />
 
-      <Notice>
-        Looking to contribute to the Stormbound lore?{' '}
+      <Notice icon='quill'>
+        Looking to contribute to the Stormbound lore?
+        <br />
         <Link to='/faq#adding-a-story'>Have your own story published</Link>.
       </Notice>
 
