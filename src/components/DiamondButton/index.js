@@ -5,11 +5,11 @@ import './index.css'
 export default React.memo(function DiamondButton(props) {
   return (
     <button
-      className='DiamondButton'
-      data-testid={props['data-testid']}
-      aria-label={props['aria-label']}
-      onClick={props.onClick}
-      title={props.title}
+      {...props}
+      active={undefined}
+      className={['DiamondButton', props.active && 'DiamondButton--active']
+        .filter(Boolean)
+        .join(' ')}
     >
       <Icon icon={props.icon} />
     </button>

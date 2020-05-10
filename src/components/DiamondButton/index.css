@@ -8,9 +8,9 @@
   text-align: center;
   background-color: transparent;
   border: 0;
-  cursor: pointer;
   padding: 0;
   position: relative;
+  cursor: pointer;
 }
 
 .DiamondButton::before {
@@ -26,10 +26,12 @@
   transition: inherit;
 }
 
-.DiamondButton:hover {
+.DiamondButton:hover,
+.DiamondButton--active {
   color: var(--black);
 }
 
-.DiamondButton:hover::before {
+.DiamondButton:hover::before,
+.DiamondButton--active::before {
   background-color: var(--beige);
 }
