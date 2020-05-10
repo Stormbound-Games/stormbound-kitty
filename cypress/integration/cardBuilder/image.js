@@ -32,13 +32,13 @@ describe('Card Builder — Image', () => {
 
   it('should be reflected in all preview', () => {
     for (let i = 0; i < 5; i++)
-      assertCardImage(i, '/assets/images/cards/restless_goats.webp')
+      assertCardImage(i, '/assets/images/cards/restless_goats.png')
   })
 
   it('should be preserved upon reload', () => {
     cy.reload()
     for (let i = 0; i < 5; i++)
-      assertCardImage(i, '/assets/images/cards/restless_goats.webp')
+      assertCardImage(i, '/assets/images/cards/restless_goats.png')
   })
 
   it('should be possible to define a custom image', () => {
