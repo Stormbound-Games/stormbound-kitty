@@ -56,7 +56,10 @@ export default React.memo(function CardSelect(props) {
           ...provided,
           color: 'var(--white)',
           // If there is no chosen value, the clear button can be safely masked.
-          display: !data.selectProps.value.id ? 'none' : provided.display,
+          display:
+            !data.selectProps.value.id || !props.withClear
+              ? 'none'
+              : provided.display,
           cursor: 'pointer',
           ':hover': { color: 'var(--beige)' },
         }),
