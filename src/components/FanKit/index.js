@@ -1,5 +1,4 @@
 import React from 'react'
-import LazyLoad from 'react-lazyload'
 import Column from '../Column'
 import CTA from '../CTA'
 import Dialog from '../Dialog'
@@ -13,7 +12,7 @@ import { BOOKS } from '../../constants/game'
 import capitalise from '../../helpers/capitalise'
 import chunk from '../../helpers/chunk'
 import sortCards from '../../helpers/sortCards'
-import useViewportWidth from '../../hooks/useViewportWidth'
+import useLazyLoad from '../../hooks/useLazyLoad'
 import './index.css'
 
 const Download = React.memo(function Download(props) {
@@ -90,19 +89,13 @@ export default React.memo(function FanKit(props) {
   const activeCard = active
     ? [...cards, ...books].find(card => card.id === active)
     : null
-  const viewportWidth = useViewportWidth()
-  const items = React.useMemo(
-    () =>
-      chunk(
-        cards
-          .filter(card => !card.token)
-          .sort(sortCards())
-          .concat(cards.filter(card => card.token))
-          .concat(books),
-        4
-      ),
-    []
-  )
+  const assets = cards
+    .filter(card => !card.token)
+    .sort(sortCards())
+    .concat(cards.filter(card => card.token))
+    .concat(books)
+  const { loading, items: displayedItems, ref } = useLazyLoad(assets, 4 * 2)
+  const items = chunk(displayedItems, 4)
 
   React.useEffect(() => {
     if (dialogRef.current) {
@@ -127,48 +120,43 @@ export default React.memo(function FanKit(props) {
         close={() => dialogRef.current.hide()}
       />
 
-      {items.map(([a, b, c, d]) => (
-        <LazyLoad
-          offset={150}
-          resize
-          placeholder={<Loader hideLabel />}
-          height={viewportWidth > 700 ? 300 : 900}
-          key={a.id}
-        >
-          <Row desktopOnly>
-            <Column width='1/4'>
-              <div className='FanKit__item' data-testid='fan-kit-item'>
-                <Download {...a} setActive={setActive} />
-                <Image src={a.image} alt={a.name} className='FanKit__image' />
+      {items.map(([a, b, c, d], index) => (
+        <Row desktopOnly key={index}>
+          <Column width='1/4'>
+            <div className='FanKit__item' data-testid='fan-kit-item'>
+              <Download {...a} setActive={setActive} />
+              <Image src={a.image} alt={a.name} className='FanKit__image' />
+            </div>
+          </Column>
+          <Column width='1/4'>
+            {b && (
+              <div className='FanKit__item'>
+                <Download {...b} setActive={setActive} />
+                <Image src={b.image} alt={b.name} className='FanKit__image' />
               </div>
-            </Column>
-            <Column width='1/4'>
-              {b && (
-                <div className='FanKit__item'>
-                  <Download {...b} setActive={setActive} />
-                  <Image src={b.image} alt={b.name} className='FanKit__image' />
-                </div>
-              )}
-            </Column>
-            <Column width='1/4'>
-              {c && (
-                <div className='FanKit__item'>
-                  <Download {...c} setActive={setActive} />
-                  <Image src={c.image} alt={c.name} className='FanKit__image' />
-                </div>
-              )}
-            </Column>
-            <Column width='1/4'>
-              {d && (
-                <div className='FanKit__item'>
-                  <Download {...d} setActive={setActive} />
-                  <Image src={d.image} alt={d.name} className='FanKit__image' />
-                </div>
-              )}
-            </Column>
-          </Row>
-        </LazyLoad>
+            )}
+          </Column>
+          <Column width='1/4'>
+            {c && (
+              <div className='FanKit__item'>
+                <Download {...c} setActive={setActive} />
+                <Image src={c.image} alt={c.name} className='FanKit__image' />
+              </div>
+            )}
+          </Column>
+          <Column width='1/4'>
+            {d && (
+              <div className='FanKit__item'>
+                <Download {...d} setActive={setActive} />
+                <Image src={d.image} alt={d.name} className='FanKit__image' />
+              </div>
+            )}
+          </Column>
+        </Row>
       ))}
+
+      {loading && <Loader />}
+      <div ref={ref} />
 
       <PageMeta
         title='Stormbound Fan-Kit'
