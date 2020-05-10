@@ -8,11 +8,12 @@ import Loader from '../Loader'
 import PageMeta from '../PageMeta'
 import Stories from '../Stories'
 import useFetch from '../../hooks/useFetch'
+import useLazyLoad from '../../hooks/useLazyLoad'
 import useViewportWidth from '../../hooks/useViewportWidth'
 
 export default React.memo(function StoryCategory(props) {
-  const viewportWidth = useViewportWidth()
   const { data = [], loading, error } = useFetch('/stories.json')
+  const viewportWidth = useViewportWidth()
   const stories = data
     .filter(story => story.category === props.category)
     .sort((a, b) => {
@@ -21,6 +22,7 @@ export default React.memo(function StoryCategory(props) {
 
       return isNaN(indexA) || isNaN(indexB) ? 0 : indexA - indexB
     })
+  const { loading: loadingMore, items, ref } = useLazyLoad(stories, 3 * 2)
   const { title, background, shortName } = STORY_CATEGORIES[props.category]
 
   return (
@@ -35,7 +37,11 @@ export default React.memo(function StoryCategory(props) {
       ) : loading ? (
         <Loader />
       ) : (
-        <Stories stories={stories} columns={3} />
+        <>
+          <Stories stories={items} columns={3} />
+          {loadingMore && <Loader />}
+          <div ref={ref} />
+        </>
       )}
 
       <Notice icon='quill'>
