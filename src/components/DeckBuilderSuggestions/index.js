@@ -4,7 +4,9 @@ import hookIntoProps from 'hook-into-props'
 import debounce from 'lodash.debounce'
 import decks from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
+import BookmarkDeckButton from '../BookmarkDeckButton'
 import Column from '../Column'
+import Decks from '../Decks'
 import EmptySearch from '../EmptySearch'
 import ImportCollection from '../ImportCollection'
 import Info from '../Info'
@@ -12,7 +14,6 @@ import LearnMoreIcon from '../LearnMoreIcon'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
-import SuggestedDecks from '../SuggestedDecks'
 import SuggestionsFilters from '../DeckBuilderSuggestionsFilters'
 import Title from '../Title'
 import useViewportWidth from '../../hooks/useViewportWidth'
@@ -241,7 +242,13 @@ class DeckBuilderSuggestions extends React.Component {
           <Column width='2/3'>
             <Title>Decks</Title>
             {decks.length > 0 ? (
-              <SuggestedDecks decks={decks} />
+              <Decks
+                decks={decks}
+                withBookmarking
+                showUpgrades
+                data-testid='deck-suggestion'
+                actions={deck => [<BookmarkDeckButton {...deck} />]}
+              />
             ) : (
               <EmptySearch
                 title='No Decks found'
