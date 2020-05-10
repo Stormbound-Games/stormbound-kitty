@@ -8,7 +8,10 @@ export default React.forwardRef(function Image(props, ref) {
   return (
     <img
       src={
-        props.src.startsWith('/assets')
+        props.src.startsWith('/assets/images') &&
+        // It turns out Webp files are twice as heavy on average for the card
+        // images, so it’s not worth at all.
+        !props.src.startsWith('/assets/images/cards')
           ? props.src.replace('png', ext)
           : props.src
       }

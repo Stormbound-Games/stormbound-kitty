@@ -10,12 +10,12 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-html:not(.webp) .BattleSimBoardMobile {
-  background-image: url('/assets/images/bg-swarm.png');
-}
-
-.webp .BattleSimBoardMobile {
-  background-image: url('/assets/images/bg-swarm.webp');
+/**
+ * 1. Explicitly no Webp background here as the Webp version is way heavier than
+ *    the original PNG.
+ */
+.BattleSimBoardMobile {
+  background-image: url('/assets/images/bg-swarm.png'); /* 1 */
 }
 
 @media (min-width: 700px) and (max-width: 799px) {

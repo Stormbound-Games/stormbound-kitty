@@ -1,6 +1,5 @@
 import React from 'react'
 import Column from '../Column'
-import CTA from '../CTA'
 import Dialog from '../Dialog'
 import DiamondButton from '../DiamondButton'
 import Image from '../Image'
@@ -38,38 +37,25 @@ const DownloadDialog = React.memo(function DownloadDialog(props) {
       close={props.close}
       title={name || 'Download image'}
       image={image}
+      ctaProps={
+        image
+          ? {
+              href: image,
+              download: true,
+              className: 'FanKit__CTA',
+              'data-testid': 'fan-kit-link',
+              children: 'PNG file',
+            }
+          : undefined
+      }
     >
       {image ? (
-        <>
-          <p>
-            <a href={image} target='_blank' rel='noopener noreferrer'>
-              Open image in new tab
-            </a>{' '}
-            or download it as:
-          </p>
-          <Row>
-            <Column>
-              <CTA
-                href={image}
-                download
-                className='FanKit__CTA'
-                data-testid='fan-kit-link'
-              >
-                PNG
-              </CTA>
-            </Column>
-            <Column>
-              <CTA
-                href={image.replace('.png', '.webp')}
-                download
-                className='FanKit__CTA'
-                data-testid='fan-kit-link'
-              >
-                WebP
-              </CTA>
-            </Column>
-          </Row>
-        </>
+        <p>
+          <a href={image} target='_blank' rel='noopener noreferrer'>
+            Open image in new tab
+          </a>{' '}
+          or download it as:
+        </p>
       ) : (
         <p>An error has occurred.</p>
       )}
