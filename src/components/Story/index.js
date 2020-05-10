@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useRouteMatch } from 'react-router-dom'
+import { useInView } from 'react-intersection-observer'
 import Article from '../Article'
 import Error from '../Error'
 import Notice from '../Notice'
@@ -13,6 +14,7 @@ import getReadingTime from '../../helpers/getReadingTime'
 import useFetch from '../../hooks/useFetch'
 
 export default function Story(props) {
+  const [ref, inView] = useInView()
   const match = useRouteMatch()
   const { storyId: id } = match.params
   const path = '/stories/' + id + '.json'
@@ -39,7 +41,7 @@ export default function Story(props) {
         </Article>
       ) : null}
 
-      <StoriesMore {...story} />
+      <div ref={ref}>{inView && <StoriesMore {...story} />}</div>
 
       <Notice icon='quill'>
         Looking to contribute to the Stormbound lore?

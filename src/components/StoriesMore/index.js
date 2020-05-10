@@ -27,7 +27,7 @@ export default React.memo(function StoriesMore(props) {
   }
 
   const storiesFromAuthor = stories.filter(
-    story => story.author === props.author
+    story => story.author === props.author && !story.saga
   )
 
   if (storiesFromAuthor.length > 1) {
