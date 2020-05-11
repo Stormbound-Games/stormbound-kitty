@@ -1,4 +1,5 @@
 import React from 'react'
+import CardSelect from '../CardSelect'
 import Column from '../Column'
 import Dialog from '../Dialog'
 import DiamondButton from '../DiamondButton'
@@ -11,6 +12,7 @@ import { BOOKS } from '../../constants/game'
 import capitalise from '../../helpers/capitalise'
 import chunk from '../../helpers/chunk'
 import sortCards from '../../helpers/sortCards'
+import getRawCardData from '../../helpers/getRawCardData'
 import useLazyLoad from '../../hooks/useLazyLoad'
 import './index.css'
 
@@ -70,17 +72,16 @@ const books = [...Object.keys(BOOKS), 'ELDER'].map(book => ({
 }))
 
 export default React.memo(function FanKit(props) {
+  const [search, setSearch] = React.useState(null)
   const columns = 4
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
   const activeCard = active
     ? [...cards, ...books].find(card => card.id === active)
     : null
-  const assets = cards
-    .filter(card => !card.token)
-    .sort(sortCards())
-    .concat(cards.filter(card => card.token))
-    .concat(books)
+  const assets = search
+    ? [getRawCardData(search)]
+    : cards.sort(sortCards()).concat(books)
   const { loading, items: displayedItems, ref } = useLazyLoad(
     assets,
     columns * 2
@@ -97,6 +98,24 @@ export default React.memo(function FanKit(props) {
   return (
     <>
       <h1 className='VisuallyHidden'>Stormbound Fan-kit</h1>
+
+      <Row desktopOnly wideGutter>
+        <Column width='1/4' />
+        <Column>
+          <CardSelect
+            label='Search for a card'
+            name='card'
+            id='card'
+            required
+            current={search}
+            onChange={option => setSearch(option ? option.value : null)}
+            withSpells={false}
+            withTokens
+            withClear
+          />
+        </Column>
+        <Column width='1/4' />
+      </Row>
 
       <DownloadDialog
         activeCard={activeCard}
