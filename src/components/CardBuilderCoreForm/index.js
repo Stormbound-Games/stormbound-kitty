@@ -138,6 +138,7 @@ export default React.memo(function CardBuilderCardForm(props) {
               onBlur={() => setImageFocusedColumn(null)}
               withSpells
               withTokens
+              withClear
             />
           </Column>
           <Column

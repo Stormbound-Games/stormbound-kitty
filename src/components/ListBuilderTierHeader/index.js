@@ -46,6 +46,7 @@ export default React.memo(function ListBuilderTierHeader(props) {
               onChange={option => props.addCard(option ? option.value : null)}
               disabledOptions={props.cards.map(card => card.id)}
               withSpells
+              withClear
             />
           </>
         ) : null}

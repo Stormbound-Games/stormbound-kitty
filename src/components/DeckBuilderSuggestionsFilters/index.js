@@ -95,6 +95,7 @@ export default React.memo(function DeckBuilderSuggestionsFilters(props) {
                 props.updateIncluding(option ? option.value : null)
               }}
               withSpells
+              withClear
             />
           </Column>
         </Row>
