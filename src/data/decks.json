@@ -831,5 +831,12 @@
     "author": "Emkaem",
     "category": "BRAWL",
     "brawl": "STRUCTURE_MANA"
+  },
+  {
+    "name": "Kitty Vision",
+    "id": "5n35n125n165w55n185w95w125w135n395w155w195w21",
+    "faction": "winter",
+    "author": "MisterMonocle",
+    "category": "DIAMOND_1"
   }
 ]
