@@ -70,6 +70,7 @@ const books = [...Object.keys(BOOKS), 'ELDER'].map(book => ({
 }))
 
 export default React.memo(function FanKit(props) {
+  const columns = 4
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
   const activeCard = active
@@ -80,8 +81,11 @@ export default React.memo(function FanKit(props) {
     .sort(sortCards())
     .concat(cards.filter(card => card.token))
     .concat(books)
-  const { loading, items: displayedItems, ref } = useLazyLoad(assets, 4 * 2)
-  const items = chunk(displayedItems, 4)
+  const { loading, items: displayedItems, ref } = useLazyLoad(
+    assets,
+    columns * 2
+  )
+  const items = chunk(displayedItems, columns)
 
   React.useEffect(() => {
     if (dialogRef.current) {
@@ -106,38 +110,25 @@ export default React.memo(function FanKit(props) {
         close={() => dialogRef.current.hide()}
       />
 
-      {items.map(([a, b, c, d], index) => (
-        <Row desktopOnly key={index}>
-          <Column width='1/4'>
-            <div className='FanKit__item' data-testid='fan-kit-item'>
-              <Download {...a} setActive={setActive} />
-              <Image src={a.image} alt={a.name} className='FanKit__image' />
-            </div>
-          </Column>
-          <Column width='1/4'>
-            {b && (
-              <div className='FanKit__item'>
-                <Download {...b} setActive={setActive} />
-                <Image src={b.image} alt={b.name} className='FanKit__image' />
-              </div>
-            )}
-          </Column>
-          <Column width='1/4'>
-            {c && (
-              <div className='FanKit__item'>
-                <Download {...c} setActive={setActive} />
-                <Image src={c.image} alt={c.name} className='FanKit__image' />
-              </div>
-            )}
-          </Column>
-          <Column width='1/4'>
-            {d && (
-              <div className='FanKit__item'>
-                <Download {...d} setActive={setActive} />
-                <Image src={d.image} alt={d.name} className='FanKit__image' />
-              </div>
-            )}
-          </Column>
+      {items.map((row, rowIndex) => (
+        <Row desktopOnly key={rowIndex}>
+          {Array.from({ length: columns }, (_, index) => (
+            <Column
+              width={'1/' + columns}
+              key={row[index] ? row[index].id : index}
+            >
+              {row[index] && (
+                <div className='FanKit__item' data-testid='fan-kit-item'>
+                  <Download {...row[index]} setActive={setActive} />
+                  <Image
+                    src={row[index].image}
+                    alt={row[index].name}
+                    className='FanKit__image'
+                  />
+                </div>
+              )}
+            </Column>
+          ))}
         </Row>
       ))}
 
