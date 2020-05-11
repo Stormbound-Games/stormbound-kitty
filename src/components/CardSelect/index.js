@@ -5,7 +5,7 @@ import { FACTIONS } from '../../constants/game'
 import getCardsByFaction from '../../helpers/getCardsByFaction'
 import getRawCardData from '../../helpers/getRawCardData'
 
-const ORDER = Object.keys(FACTIONS)
+const ORDER = [...Object.keys(FACTIONS), 'tokens']
 const cardsByFaction = getCardsByFaction()
 
 export default React.memo(function CardSelect(props) {

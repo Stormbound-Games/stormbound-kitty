@@ -3,8 +3,10 @@ import cards from '../../data/cards'
 
 export default () =>
   cards.reduce((acc, card) => {
-    if (typeof acc[card.faction] === 'undefined') {
-      acc[card.faction] = []
+    const group = card.token ? 'tokens' : card.faction
+
+    if (typeof acc[group] === 'undefined') {
+      acc[group] = []
     }
 
     // For some reasons images get bundled if passed into the react-select
@@ -12,8 +14,8 @@ export default () =>
     const copy = { ...card }
     delete copy.image
 
-    acc[card.faction].push(copy)
-    acc[card.faction].sort(sortCards())
+    acc[group].push(copy)
+    acc[group].sort(sortCards())
 
     return acc
   }, {})
