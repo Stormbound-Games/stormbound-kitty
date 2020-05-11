@@ -99,7 +99,7 @@ export const BRAWLS = [
 
 export const MILESTONES = [
   { crowns: 10, reward: 'HUMBLE_BOOK', rewardAmount: 1, cost: 0 },
-  { crowns: 20, reward: 'RUBIES', rewardAmount: 5, cost: 25 },
+  { crowns: 20, reward: 'RUBIES', rewardAmount: 5, cost: 20 },
   { crowns: 35, reward: 'CLASSIC_TOME', rewardAmount: 1, cost: 50 },
   { crowns: 50, reward: 'FUSION_STONES', rewardAmount: 10, cost: 100 },
   { crowns: 70, reward: 'MYTHIC_TOME', rewardAmount: 1, cost: 150 },
