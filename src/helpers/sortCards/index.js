@@ -55,6 +55,9 @@ const sortNaturally = (level = 0) => (a, b) => {
   const manaA = +unfoldValue(a.mana)[level]
   const manaB = +unfoldValue(b.mana)[level]
 
+  if (a.token && !b.token) return +1
+  if (!a.token && b.token) return -1
+
   if (manaA > manaB) return +1
   if (manaA < manaB) return -1
 
