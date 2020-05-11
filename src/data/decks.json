@@ -845,5 +845,12 @@
     "faction": "swarm",
     "author": "Zyries",
     "category": "REGULAR"
+  },
+  {
+    "name": "Mech’n’rats",
+    "id": "3n13i13n33n43i43i73i83n163i113i63i153i12",
+    "faction": "ironclad",
+    "author": "rfreitaz",
+    "category": "REGULAR"
   }
 ]
