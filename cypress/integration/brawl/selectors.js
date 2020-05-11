@@ -1,6 +1,6 @@
 export default {
   TEASER: '[data-testid="teaser"]',
-  CHART: '[data-testid="chart"]',
+  CHARTS: '[data-testid="charts"]',
   RESET_BTN: '[data-testid="reset-btn"]',
   RESET_CONFIRM_BTN: '[data-testid="reset-confirm-btn"]',
   MILESTONE: '[data-testid="milestone"]',

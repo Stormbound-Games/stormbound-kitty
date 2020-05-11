@@ -5,7 +5,7 @@ describe('Brawl — Page', () => {
   afterEach(() => cy.saveLocalStorage())
 
   it('should display only relevant content when no matches are recorded', () => {
-    cy.get(s.CHART)
+    cy.get(s.CHARTS)
       .should('not.exist')
 
       .get(s.RESET_BTN)
@@ -58,7 +58,7 @@ describe('Brawl — Page', () => {
   })
 
   it('should display relevant data when there is at least a match', () => {
-    cy.get(s.CHART)
+    cy.get(s.CHARTS)
       .should('exist')
 
       .get(s.RESET_BTN)

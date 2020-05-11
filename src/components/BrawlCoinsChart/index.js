@@ -29,7 +29,7 @@ export default React.memo(function BrawlCharts(props) {
   ]
 
   return (
-    <div className='BrawlStatusChart' data-testid='chart'>
+    <div className='BrawlStatusChart'>
       <Title className='BrawlStatusChart__title'>Coins</Title>
       <ResponsiveContainer width='100%' height={250}>
         <PieChart>

@@ -1,0 +1,18 @@
+.BrawlWeighedStatusChart {
+  margin-top: 3em;
+}
+
+.BrawlWeighedStatusChart__list {
+  margin-top: 0;
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+.BrawlWeighedStatusChart__list > li {
+  text-indent: -1.5em;
+  padding-left: 1.5em;
+}
+
+.BrawlBaseHealthInput {
+  margin-bottom: 1em;
+}
