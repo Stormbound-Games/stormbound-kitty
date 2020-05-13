@@ -13,7 +13,7 @@ const getCardBuilderMetaTags = state => {
   const cardData = getRawCardData(state.imageCardId)
   const metaTags = {}
 
-  metaTags.title = cardData.name || state.name || 'Card Builder'
+  metaTags.title = state.name || cardData.name || 'Card Builder'
 
   if (isIncomplete(state)) {
     metaTags.description = 'Create your own Stormbound card'
