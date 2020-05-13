@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Image from '../components/Image'
 import WikiLink from '../components/WikiLink'
 import DryRunnerExplanation from '../components/DryRunnerExplanation'
 
@@ -13,6 +14,11 @@ export default [
         question: 'How can I contribute/help?',
         answer: (
           <>
+            <Image
+              src='/assets/images/kitty.png'
+              alt='Kitty Sparkles by Hurricane Sunny'
+              className='FAQ__image'
+            />
             <p>
               First of all, thank you for using Stormbound Kitty, it means a
               lot. If you’d like to help, please kindly report any bug or oddity

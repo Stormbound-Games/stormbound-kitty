@@ -32,3 +32,17 @@
 .FAQ__toggle:hover {
   color: var(--white);
 }
+
+.FAQ__image {
+  display: block;
+  margin: 0 auto 1em;
+  max-width: 100%;
+}
+
+@media (min-width: 1000px) {
+  .FAQ__image {
+    margin: 0 auto;
+    max-width: 50%;
+    float: right;
+  }
+}
