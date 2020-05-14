@@ -26,7 +26,7 @@ export default React.memo(function BrawlSetup(props) {
               onChange={event => props.setSetup(event.target.value)}
             >
               Mobile <br />
-              (w/ ads)
+              (w/o ads)
             </Radio>
           </Column>
           <Column
@@ -43,7 +43,7 @@ export default React.memo(function BrawlSetup(props) {
               onChange={event => props.setSetup(event.target.value)}
             >
               Mobile <br />
-              (w/o ads)
+              (w/ ads)
             </Radio>
           </Column>
           <Column
