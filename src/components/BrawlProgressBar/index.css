@@ -60,6 +60,7 @@
   height: 100%;
   background-color: rgb(141, 178, 44);
   position: relative;
+  transition: 250ms;
 }
 
 /**
