@@ -50,7 +50,7 @@ export const BRAWLS = [
   {
     id: 'PIRATE_MOVEMENT',
     label: 'Pirates =2 movement',
-    title: 'Yaaahr And A Bottle O’ Rhum',
+    title: 'Pirate Mercenaries',
     cardId: 'N58',
   },
   {
