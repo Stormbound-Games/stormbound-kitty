@@ -867,5 +867,13 @@
     "author": "Several",
     "category": "BRAWL",
     "brawl": "PIRATE_MOVEMENT"
+  },
+  {
+    "name": "Pirate Mercenaries",
+    "id": "5n15f85n25f45f35n125n145n165n195n225n335n42",
+    "faction": "shadowfen",
+    "author": "Frostkhan",
+    "category": "BRAWL",
+    "brawl": "PIRATE_MOVEMENT"
   }
 ]
