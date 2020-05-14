@@ -34,7 +34,16 @@ export default React.memo(function Article(props) {
         )}
       </p>
 
-      <div className='Article__content'>{props.children}</div>
+      <div
+        className={[
+          'Article__content',
+          props.noDropCap && 'Article__content--no-drop-cap',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
+        {props.children}
+      </div>
     </article>
   )
 })

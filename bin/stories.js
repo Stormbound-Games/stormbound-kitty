@@ -18,6 +18,7 @@ const getFileData = dir => fileName => {
     card,
     id: removeJsonExtension(fileName),
     content: story.content.slice(0, 150) + '…',
+    type: story.type || 'story',
   }
 }
 

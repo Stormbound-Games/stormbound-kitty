@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Teaser from '../Teaser'
+import capitalise from '../../helpers/capitalise'
 import getExcerpt from '../../helpers/getExcerpt'
 import './index.css'
 
 const StoryAuthor = React.memo(function StoryAuthor(props) {
   return (
     <>
-      Story by{' '}
+      {capitalise(props.type || 'story')} by{' '}
       <Link className='StoryTeaser__author' to={'/member/' + props.author}>
         {props.author}
       </Link>{' '}

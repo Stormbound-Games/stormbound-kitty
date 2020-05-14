@@ -13,6 +13,7 @@ import getRawCardData from '../../helpers/getRawCardData'
 import getExcerpt from '../../helpers/getExcerpt'
 import getReadingTime from '../../helpers/getReadingTime'
 import useFetch from '../../hooks/useFetch'
+import './index.css'
 
 export default function Story(props) {
   const [ref, inView] = useInView()
@@ -22,15 +23,17 @@ export default function Story(props) {
   const { data: story, error, loading } = useFetch(path)
   const card = story ? getRawCardData(story.cardId) : {}
   const { background } = story ? STORY_CATEGORIES[story.category] : {}
+  const type = story ? story.type : undefined
 
   return (
-    <div className='Story'>
+    <div className={['Story', 'Story--' + type].join(' ')}>
       {error ? (
         <Error error='Error fetching story.' />
       ) : loading ? (
         <Loader />
       ) : story ? (
         <Article
+          noDropCap={story.type === 'poem'}
           title={story.title}
           author={story.author}
           background={background}

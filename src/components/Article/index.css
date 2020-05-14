@@ -36,7 +36,8 @@
   margin: auto;
 }
 
-.Article__content > p:first-of-type::first-letter {
+.Article__content:not(.Article__content--no-drop-cap)
+  > p:first-of-type::first-letter {
   color: var(--beige);
   float: left;
   font-family: Georgia, serif;
