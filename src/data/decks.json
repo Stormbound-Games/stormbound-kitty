@@ -859,5 +859,13 @@
     "faction": "swarm",
     "author": "Helios",
     "category": "REGULAR"
+  },
+  {
+    "name": "Yaaahhr",
+    "id": "5n15n25n35n45n55n125n135n145n165n195n425w19",
+    "faction": "winter",
+    "author": "Several",
+    "category": "BRAWL",
+    "brawl": "PIRATE_MOVEMENT"
   }
 ]
