@@ -54,16 +54,6 @@ export default React.memo(function NavDeckBuilder(props) {
             </span>
           )}
         </li>
-        <li className='Header__item'>
-          {
-            <span
-              className='Header__link Header__link--disabled'
-              title='The tracker is temporarily disabled'
-            >
-              Tracker
-            </span>
-          }
-        </li>
 
         <li className='Header__item Header__item--right'>
           <NavLink to='/guides/deck'>Guide</NavLink>
