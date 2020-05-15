@@ -96,11 +96,6 @@ export default React.memo(function Header(props) {
               </li>
             </Only.Desktop>
             <li className='Header__item'>
-              <NavLink to='/sim' active={topActive === 'BATTLE_SIM'}>
-                <Icon className='Header__icon' icon='sword' /> Battle Sim
-              </NavLink>
-            </li>
-            <li className='Header__item'>
               <NavLink
                 to='/deck/suggestions'
                 active={topActive === 'DECK_BUILDER'}
@@ -116,6 +111,11 @@ export default React.memo(function Header(props) {
             <li className='Header__item'>
               <NavLink to='/card' active={topActive === 'CARD_BUILDER'}>
                 <Icon className='Header__icon' icon='wand' /> Card builder
+              </NavLink>
+            </li>
+            <li className='Header__item'>
+              <NavLink to='/sim' active={topActive === 'BATTLE_SIM'}>
+                <Icon className='Header__icon' icon='sword' /> Battle Sim
               </NavLink>
             </li>
             <li className='Header__item'>
