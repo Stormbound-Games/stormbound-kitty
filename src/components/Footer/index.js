@@ -120,16 +120,10 @@ export default React.memo(function Footer(props) {
                     <Link to='/quest'>Quest Builder</Link>
                   </li>
                   <li className='Footer__item'>
-                    <Link to='/deck/suggestions'>Suggested Decks</Link>
+                    <Link to='/list'>List Builder</Link>
                   </li>
                   <li className='Footer__item'>
-                    <a
-                      href='https://gum.co/stormbound-kitty'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Donate
-                    </a>
+                    <Link to='/deck/suggestions'>Suggested Decks</Link>
                   </li>
                 </ul>
               </Column>
@@ -178,11 +172,11 @@ export default React.memo(function Footer(props) {
 
                   <li className='Footer__item'>
                     <a
-                      href='https://github.com/KittySparkles/stormbound-kitty'
+                      href='https://gum.co/stormbound-kitty'
                       target='_blank'
                       rel='noopener noreferrer'
                     >
-                      GitHub
+                      Donate
                     </a>
                   </li>
                 </ul>
