@@ -113,12 +113,12 @@ export default React.memo(function Header(props) {
             </li>
             <li className='Header__item'>
               <NavLink to='/collection' active={topActive === 'COLLECTION'}>
-                <Icon className='Header__icon' icon='books' /> Your collection
+                <Icon className='Header__icon' icon='books' /> Collection
               </NavLink>
             </li>
             <li className='Header__item'>
               <NavLink to='/card' active={topActive === 'CARD_BUILDER'}>
-                <Icon className='Header__icon' icon='wand' /> Card builder
+                <Icon className='Header__icon' icon='wand' /> Card Builder
               </NavLink>
             </li>
             <li className='Header__item'>

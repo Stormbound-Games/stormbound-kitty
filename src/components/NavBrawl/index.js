@@ -33,7 +33,7 @@ export default React.memo(function NavBrawl(props) {
         )}
 
         <li className='Header__item  Header__item--right'>
-          <NavLink to='/deck/suggestions?category=BRAWL'>Brawl decks</NavLink>
+          <NavLink to='/deck/suggestions?category=BRAWL'>Brawl Decks</NavLink>
         </li>
       </ul>
     </nav>

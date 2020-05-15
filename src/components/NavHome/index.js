@@ -19,7 +19,7 @@ export default React.memo(function NavHome(props) {
 
         <li className='Header__item'>
           <NavLink to='/cards-stats' active={props.active === 'CARDS_STATS'}>
-            Cards stats
+            Cards Stats
           </NavLink>
         </li>
 

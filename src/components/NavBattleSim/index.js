@@ -24,14 +24,14 @@ export default React.memo(function NavBattleSim(props) {
               to={`/sim/${id}/display`}
               active={props.active === 'DISPLAY'}
             >
-              Display mode
+              Display Mode
             </NavLink>
           ) : (
             <span
               className='Header__link Header__link--disabled'
               title='Your sim is not complete'
             >
-              Display mode
+              Display Mode
             </span>
           )}
         </li>

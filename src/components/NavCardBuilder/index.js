@@ -30,21 +30,21 @@ export default React.memo(function NavCardBuilder(props) {
               to={`/card/${id}/display`}
               active={props.active === 'DISPLAY'}
             >
-              Display mode
+              Display Mode
             </NavLink>
           ) : (
             <span
               className='Header__link Header__link--disabled'
               title='Your card is empty'
             >
-              Display mode
+              Display Mode
             </span>
           )}
         </li>
 
         <li className='Header__item Header__item--select'>
           <CardSelect
-            label='Load a card'
+            label='Load Card'
             id='card-select'
             name='card-select'
             noBorder={viewportWidth >= 700}

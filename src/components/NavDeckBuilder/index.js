@@ -1,6 +1,7 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import NavLink from '../NavLink'
+import Only from '../Only'
 import serialisation from '../../helpers/serialisation'
 
 export default React.memo(function NavDeckBuilder(props) {
@@ -35,14 +36,14 @@ export default React.memo(function NavDeckBuilder(props) {
               to={`/deck/${id}/detail`}
               active={props.active === 'DETAIL'}
             >
-              Detail
+              Insights
             </NavLink>
           ) : (
             <span
               className='Header__link Header__link--disabled'
               title='Your deck is not complete'
             >
-              Detail
+              Insights
             </span>
           )}
         </li>
@@ -52,14 +53,14 @@ export default React.memo(function NavDeckBuilder(props) {
               to={`/deck/${id}/dry-run`}
               active={props.active === 'DRY_RUN'}
             >
-              Dry-run
+              Practice
             </NavLink>
           ) : (
             <span
               className='Header__link Header__link--disabled'
               title='Your deck is not complete'
             >
-              Dry-run
+              Practice
             </span>
           )}
         </li>
@@ -71,7 +72,9 @@ export default React.memo(function NavDeckBuilder(props) {
         </li>
 
         <li className='Header__item'>
-          <NavLink to='/guides/deck'>Guide</NavLink>
+          <NavLink to='/guides/deck'>
+            <Only.Desktop>Deck Building</Only.Desktop> Guide
+          </NavLink>
         </li>
       </ul>
     </nav>
