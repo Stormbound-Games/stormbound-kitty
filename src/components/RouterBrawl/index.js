@@ -11,7 +11,7 @@ export default function RouterBrawl() {
 
   return (
     <Switch>
-      <Page path='/brawl/:id' active={['BRAWL', 'INDEX']}>
+      <Page path='/brawl/:id' active={['BRAWL', 'TRACKER']}>
         <BrawlPage />
       </Page>
       <Page path={path} active={['BRAWL', 'INDEX']}>
