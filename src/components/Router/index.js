@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion'
 import Error from '../Error'
 import Page from '../Page'
 import RouterBattleSim from '../RouterBattleSim'
+import RouterBrawl from '../RouterBrawl'
 import RouterCardBuilder from '../RouterCardBuilder'
 import RouterCollection from '../RouterCollection'
 import RouterDeckBuilder from '../RouterDeckBuilder'
@@ -15,8 +16,6 @@ import load from '../../helpers/load'
 
 const CardsStats = load('CardsStats')
 const FAQ = load('FAQ')
-const BrawlIndex = load('BrawlIndex')
-const BrawlPage = load('BrawlPage')
 const Home = load('Home')
 const Member = load('Member')
 const FanKit = load('FanKit')
@@ -59,16 +58,12 @@ export default function Router(props) {
             <RouterListBuilder />
           </Route>
 
+          <Route path='/brawl'>
+            <RouterBrawl />
+          </Route>
+
           <Page path='/member/:memberId'>
             <Member />
-          </Page>
-
-          <Page path='/brawl/:id' active={['HOME', 'BRAWL']}>
-            <BrawlPage />
-          </Page>
-
-          <Page path='/brawl' active={['HOME', 'BRAWL']}>
-            <BrawlIndex />
           </Page>
 
           <Page path='/fan-kit' active={['HOME', 'FAN_KIT']}>

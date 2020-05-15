@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import NavBattleSim from '../NavBattleSim'
+import NavBrawl from '../NavBrawl'
 import NavCardBuilder from '../NavCardBuilder'
 import NavCollection from '../NavCollection'
 import NavDeckBuilder from '../NavDeckBuilder'
@@ -23,6 +24,8 @@ const SubNav = React.memo(function (props) {
       return <NavHome active={bottomActive} />
     case 'BATTLE_SIM':
       return <NavBattleSim active={bottomActive} />
+    case 'BRAWL':
+      return <NavBrawl active={bottomActive} />
     case 'DECK_BUILDER':
       return <NavDeckBuilder active={bottomActive} />
     case 'CARD_BUILDER':
@@ -101,6 +104,11 @@ export default React.memo(function Header(props) {
                 active={topActive === 'DECK_BUILDER'}
               >
                 <Icon className='Header__icon' icon='stack' /> Decks
+              </NavLink>
+            </li>
+            <li className='Header__item'>
+              <NavLink to='/brawl' active={topActive === 'BRAWL'}>
+                <Icon className='Header__icon' icon='crown' /> Brawl
               </NavLink>
             </li>
             <li className='Header__item'>
