@@ -14,6 +14,15 @@ export default React.memo(function NavDeckBuilder(props) {
       <ul className='Header__list Header__list--sub'>
         <li className='Header__item'>
           <NavLink
+            to='/deck/suggestions'
+            active={props.active === 'SUGGESTIONS'}
+          >
+            Decks
+          </NavLink>
+        </li>
+
+        <li className='Header__item'>
+          <NavLink
             to={id ? `/deck/${id}` : '/deck'}
             active={props.active === 'EDITOR'}
           >
@@ -56,22 +65,13 @@ export default React.memo(function NavDeckBuilder(props) {
         </li>
 
         <li className='Header__item Header__item--right'>
-          <NavLink to='/guides/deck'>Guide</NavLink>
-        </li>
-
-        <li className='Header__item'>
           <NavLink to='/deck/yours' active={props.active === 'YOURS'}>
             Your decks
           </NavLink>
         </li>
 
         <li className='Header__item'>
-          <NavLink
-            to='/deck/suggestions'
-            active={props.active === 'SUGGESTIONS'}
-          >
-            Ready decks
-          </NavLink>
+          <NavLink to='/guides/deck'>Guide</NavLink>
         </li>
       </ul>
     </nav>

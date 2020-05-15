@@ -101,7 +101,10 @@ export default React.memo(function Header(props) {
               </NavLink>
             </li>
             <li className='Header__item'>
-              <NavLink to='/deck' active={topActive === 'DECK_BUILDER'}>
+              <NavLink
+                to='/deck/suggestions'
+                active={topActive === 'DECK_BUILDER'}
+              >
                 <Icon className='Header__icon' icon='stack' /> Decks
               </NavLink>
             </li>
