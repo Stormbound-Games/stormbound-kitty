@@ -24,7 +24,9 @@ export default React.memo(function Banner(props) {
           </Column>
           <Only.Desktop>
             <Column width='1/3'>
-              <Image src={props.image} />
+              <div>
+                <Image src={props.image} />
+              </div>
             </Column>
           </Only.Desktop>
         </Row>

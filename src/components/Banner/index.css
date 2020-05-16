@@ -86,10 +86,12 @@
   }
 
   .Banner__inner {
-    width: 1100px;
+    width: 1200px;
     max-width: 100%;
     margin: 0 auto;
     padding: 2em;
+    z-index: 2;
+    position: relative;
   }
 
   .Banner__CTA {
