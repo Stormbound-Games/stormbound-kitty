@@ -1,0 +1,23 @@
+.DeckCardLevelField {
+  display: flex;
+  align-items: center;
+}
+
+.DeckCardLevelField__label {
+  margin-right: 1em;
+  flex: 1 0 auto;
+}
+
+@media (max-width: 699px) {
+  .DeckCardLevelField {
+    order: 1;
+    margin-top: 2em;
+    width: 100%;
+  }
+}
+
+.DeckCardLevelField__hint {
+  color: var(--white);
+  font-size: 80%;
+  display: block;
+}

@@ -1,0 +1,9 @@
+.DeckSuggestionsFilters__item {
+  padding: 0 0.5em;
+  margin-bottom: 1em;
+}
+
+.DeckSuggestionsFilters__toggle {
+  display: block;
+  margin: 0 auto 0.75em;
+}

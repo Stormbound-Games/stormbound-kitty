@@ -1,0 +1,22 @@
+.DeckEditorFilters {
+  margin-bottom: 1em;
+}
+
+.DeckEditorFilters .Row {
+  margin-bottom: 0.5em;
+}
+
+.DeckEditorFilters__toggle {
+  display: block;
+  margin: 0 auto 0.75em;
+}
+
+.DeckEditorFilters > .Row:last-child .Column:last-child .Column:last-child {
+  align-self: flex-end;
+}
+
+@media (max-width: 699px) {
+  .DeckEditorFilters .Row {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,17 @@
+.DeckEditorView__help {
+  margin-bottom: 2em;
+}
+
+.DeckEditorView__info p:last-of-type {
+  margin-bottom: 2em;
+}
+
+.DeckEditorView__subtitle {
+  text-align: center;
+  margin-bottom: 2em;
+  margin-top: -1.25em;
+}
+
+.DeckEditorView__actions {
+  margin-bottom: 2em;
+}

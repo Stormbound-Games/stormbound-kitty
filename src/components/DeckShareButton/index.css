@@ -1,0 +1,4 @@
+.DeckShareButton__button {
+  width: calc(50% + 1em);
+  margin-top: 1em;
+}

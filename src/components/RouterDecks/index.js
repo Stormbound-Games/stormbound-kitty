@@ -4,12 +4,12 @@ import Page from '../Page'
 import PersonalDecksProvider from '../PersonalDecksProvider'
 import load from '../../helpers/load'
 
-const DeckBuilderSuggestions = load('DeckBuilderSuggestions')
+const DeckSuggestions = load('DeckSuggestions')
 const DeckBuilderRoot = load('DeckBuilderRoot')
-const DeckBuilderDetailView = load('DeckBuilderDetailView')
-const DeckBuilderDryRunView = load('DeckBuilderDryRunView')
-const DeckBuilderEditorView = load('DeckBuilderEditorView')
-const DeckBuilderYourDecks = load('DeckBuilderYourDecks')
+const DeckDetailView = load('DeckDetailView')
+const DeckDryRunView = load('DeckDryRunView')
+const DeckEditorView = load('DeckEditorView')
+const DeckCollection = load('DeckCollection')
 
 export default function RouterDecks() {
   const { path } = useRouteMatch()
@@ -18,12 +18,12 @@ export default function RouterDecks() {
     <Switch>
       <Page path={`${path}/suggestions`} active={['DECKS', 'SUGGESTIONS']}>
         <PersonalDecksProvider>
-          <DeckBuilderSuggestions />
+          <DeckSuggestions />
         </PersonalDecksProvider>
       </Page>
       <Page path={`${path}/collection`} active={['DECKS', 'COLLECTION']}>
         <PersonalDecksProvider>
-          <DeckBuilderYourDecks />
+          <DeckCollection />
         </PersonalDecksProvider>
       </Page>
 
@@ -32,22 +32,22 @@ export default function RouterDecks() {
 
       <Page path={`${path}/:deckId/detail`} active={['DECKS', 'DETAIL']}>
         <DeckBuilderRoot>
-          {state => <DeckBuilderDetailView {...state} />}
+          {state => <DeckDetailView {...state} />}
         </DeckBuilderRoot>
       </Page>
       <Page path={`${path}/:deckId/dry-run`} active={['DECKS', 'DRY_RUN']}>
         <DeckBuilderRoot>
-          {state => <DeckBuilderDryRunView {...state} />}
+          {state => <DeckDryRunView {...state} />}
         </DeckBuilderRoot>
       </Page>
       <Page path={`${path}/:deckId`} active={['DECKS', 'EDITOR']}>
         <DeckBuilderRoot>
-          {state => <DeckBuilderEditorView {...state} />}
+          {state => <DeckEditorView {...state} />}
         </DeckBuilderRoot>
       </Page>
       <Page path={path} active={['DECKS', 'EDITOR']}>
         <DeckBuilderRoot>
-          {state => <DeckBuilderEditorView {...state} />}
+          {state => <DeckEditorView {...state} />}
         </DeckBuilderRoot>
       </Page>
     </Switch>
