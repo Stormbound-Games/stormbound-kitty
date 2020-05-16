@@ -99,6 +99,11 @@ export default React.memo(function Header(props) {
               </li>
             </Only.Desktop>
             <li className='Header__item'>
+              <NavLink to='/guides' active={topActive === 'GUIDES'}>
+                <Icon className='Header__icon' icon='compass' /> Guides
+              </NavLink>
+            </li>
+            <li className='Header__item'>
               <NavLink to='/deck/suggestions' active={topActive === 'DECKS'}>
                 <Icon className='Header__icon' icon='stack' /> Decks
               </NavLink>
@@ -126,11 +131,6 @@ export default React.memo(function Header(props) {
             <li className='Header__item'>
               <NavLink to='/stories' active={topActive === 'STORIES'}>
                 <Icon className='Header__icon' icon='quill' /> Stories
-              </NavLink>
-            </li>
-            <li className='Header__item'>
-              <NavLink to='/guides' active={topActive === 'GUIDES'}>
-                <Icon className='Header__icon' icon='compass' /> Guides
               </NavLink>
             </li>
           </ul>
