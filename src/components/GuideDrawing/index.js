@@ -98,7 +98,8 @@ export default React.memo(function GuideDrawing(props) {
       <ol>
         <li>
           The card’s weight is reset to 0. A card with a weight of 0 cannot be
-          drawn again in a weighted random system.
+          drawn again in a weighted random system, and thus also not be played
+          twice in one turn.
         </li>
         <li>
           All the other cards from the deck (not from the hand) see their weight
@@ -112,8 +113,8 @@ export default React.memo(function GuideDrawing(props) {
       <Title>Queen of Herds</Title>
 
       <p>
-        Queen of Herds have such awkward and undisclosed mechanics that it
-        deserves having a closer look at how exactly it looks.{' '}
+        Queen of Herds has such an awkward and undisclosed mechanic that it
+        deserves having a closer look at how exactly it works.{' '}
       </p>
 
       <div className='Article__fullwidth'>
