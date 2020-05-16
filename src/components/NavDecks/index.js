@@ -66,7 +66,7 @@ export default React.memo(function NavDecks(props) {
         </li>
 
         <li className='Header__item Header__item--right'>
-          <NavLink to='/deck/yours' active={props.active === 'YOURS'}>
+          <NavLink to='/deck/collection' active={props.active === 'COLLECTION'}>
             Your decks
           </NavLink>
         </li>

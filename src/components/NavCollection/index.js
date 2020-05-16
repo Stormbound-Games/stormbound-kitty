@@ -16,7 +16,7 @@ export default React.memo(function NavCollection(props) {
           </NavLink>
         </li>
         <li className='Header__item Header__item--right'>
-          <NavLink to='/deck/yours'>Your Decks</NavLink>
+          <NavLink to='/deck/collection'>Your Decks</NavLink>
         </li>
         <li className='Header__item'>
           <NavLink to='/collection/books' active={props.active === 'BOOKS'}>

@@ -1,7 +1,7 @@
 import s from './selectors'
 
 describe('Deck Builder - Personal decks', () => {
-  before(() => cy.visit('/deck/yours'))
+  before(() => cy.visit('/deck/collection'))
 
   it('should display no deck and a ghost', () => {
     cy.get(s.PERSONAL_DECKS)
