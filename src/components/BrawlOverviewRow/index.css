@@ -1,0 +1,11 @@
+.BrawlOverviewRow__title {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+
+/**
+ * 1. Scale down the milestone reward while keeping all proportions.
+ */
+.BrawlOverviewRow .BrawlMilestone {
+  font-size: 85%; /* 1 */
+}

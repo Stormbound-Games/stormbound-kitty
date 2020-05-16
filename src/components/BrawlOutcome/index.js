@@ -7,8 +7,9 @@ import './index.css'
 
 export default React.memo(function BrawlOutcome(props) {
   const { brawl, meta } = React.useContext(BrawlContext)
+  const setup = props.setup || 'MOBILE_WITHOUT_ADS'
   const balance =
-    meta.coinsSpent - brawl.matches.length * COIN_MULTIPLIERS[props.setup]
+    meta.coinsSpent - brawl.matches.length * COIN_MULTIPLIERS[setup]
 
   return (
     <Info icon='crown' className='BrawlOutcome' title='Balance'>
@@ -31,7 +32,7 @@ export default React.memo(function BrawlOutcome(props) {
             Coins earned:
           </strong>{' '}
           <Coins
-            amount={'+' + brawl.matches.length * COIN_MULTIPLIERS[props.setup]}
+            amount={'+' + brawl.matches.length * COIN_MULTIPLIERS[setup]}
           />
         </li>
         <li>

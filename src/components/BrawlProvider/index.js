@@ -130,7 +130,7 @@ export default function BrawlProvider(props) {
     Object.keys(groups).forEach(id => {
       const brawls = groups[id]
         .slice(0)
-        .sort((a, b) => a.createdAt - b.createdAt)
+        .sort((a, b) => Number(a.createdAt) - Number(b.createdAt))
 
       localStorage.setItem('sk.brawl.' + id, JSON.stringify(brawls))
     })
