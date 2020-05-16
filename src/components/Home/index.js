@@ -24,6 +24,28 @@ export default React.memo(() => (
           <News />
         </div>
       </aside>
+      <section
+        className='Home__section'
+        style={{ '--color': 'var(--shadowfen)' }}
+      >
+        <div className='Home__section-inner'>
+          <Row desktopOnly>
+            <Column />
+            <Column>
+              <h2>Plan your strategy</h2>
+              <p>
+                Compose your own decks and perfect them with the insightful
+                suggestions from the deck builder and its dry-runner, or try one
+                of the many ready-to-go decks from the community.
+              </p>
+              <div className='Home__buttons'>
+                <CTA to='/guides/deck'>Guide</CTA>
+                <CTA to='/deck/suggestions'>Decks</CTA>
+              </div>
+            </Column>
+          </Row>
+        </div>
+      </section>
       <section className='Home__section' style={{ '--color': 'var(--swarm)' }}>
         <div className='Home__section-inner'>
           <Row desktopOnly>
@@ -43,29 +65,6 @@ export default React.memo(() => (
           </Row>
         </div>
       </section>
-      <section
-        className='Home__section'
-        style={{ '--color': 'var(--shadowfen)' }}
-      >
-        <div className='Home__section-inner'>
-          <Row desktopOnly>
-            <Column />
-            <Column>
-              <h2>Plan your strategy</h2>
-              <p>
-                Compose your own decks and perfect them with the insightful
-                suggestions from the deck builder and its dry-runner, or try one
-                of the many ready-to-go decks from the community.
-              </p>
-              <div className='Home__buttons'>
-                <CTA to='/deck'>Deck builder</CTA>
-                <CTA to='/guides/deck'>Guide</CTA>
-                <CTA to='/deck/suggestions'>Ready decks</CTA>
-              </div>
-            </Column>
-          </Row>
-        </div>
-      </section>
       <section className='Home__section' style={{ '--color': 'var(--winter)' }}>
         <div className='Home__section-inner'>
           <Row desktopOnly>
@@ -78,6 +77,7 @@ export default React.memo(() => (
                 very own cards in the card builder.
               </p>
               <div className='Home__buttons'>
+                <CTA to='/list'>List builder</CTA>
                 <CTA to='/card'>Card builder</CTA>
               </div>
             </Column>
@@ -106,7 +106,7 @@ export default React.memo(() => (
                 match your collection.
               </p>
               <div className='Home__buttons'>
-                <CTA to='/collection/books'>Books calculator</CTA>
+                <CTA to='/collection/books'>Books</CTA>
                 <CTA to='/collection'>Collection</CTA>
               </div>
             </Column>
@@ -134,7 +134,6 @@ export default React.memo(() => (
               <div className='Home__buttons'>
                 <CTA to='/guides/winter'>Winter Guide</CTA>
                 <CTA to='/guides/complete'>Complete Guide</CTA>
-                <CTA to='/guides/pirate'>Pirate Guide</CTA>
               </div>
             </Column>
           </Row>
@@ -162,6 +161,7 @@ export default React.memo(() => (
                 rich lore of the land, sitting with the Elders is the way to go.
               </p>
               <div className='Home__buttons'>
+                <CTA to='/stories/eastern-heat'>Eastern Heat</CTA>
                 <CTA to='/stories'>Read stories</CTA>
               </div>
             </Column>
