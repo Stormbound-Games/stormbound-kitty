@@ -7,7 +7,7 @@ import RouterBattleSim from '../RouterBattleSim'
 import RouterBrawl from '../RouterBrawl'
 import RouterCardBuilder from '../RouterCardBuilder'
 import RouterCollection from '../RouterCollection'
-import RouterDeckBuilder from '../RouterDeckBuilder'
+import RouterDecks from '../RouterDecks'
 import RouterGuides from '../RouterGuides'
 import RouterListBuilder from '../RouterListBuilder'
 import RouterQuestBuilder from '../RouterQuestBuilder'
@@ -35,7 +35,7 @@ export default function Router(props) {
           </Route>
 
           <Route path='/deck'>
-            <RouterDeckBuilder />
+            <RouterDecks />
           </Route>
 
           <Route path='/collection'>

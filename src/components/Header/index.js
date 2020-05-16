@@ -4,7 +4,7 @@ import NavBattleSim from '../NavBattleSim'
 import NavBrawl from '../NavBrawl'
 import NavCardBuilder from '../NavCardBuilder'
 import NavCollection from '../NavCollection'
-import NavDeckBuilder from '../NavDeckBuilder'
+import NavDecks from '../NavDecks'
 import NavGuides from '../NavGuides'
 import NavHome from '../NavHome'
 import Icon from '../Icon'
@@ -26,8 +26,8 @@ const SubNav = React.memo(function (props) {
       return <NavBattleSim active={bottomActive} />
     case 'BRAWL':
       return <NavBrawl active={bottomActive} />
-    case 'DECK_BUILDER':
-      return <NavDeckBuilder active={bottomActive} />
+    case 'DECKS':
+      return <NavDecks active={bottomActive} />
     case 'CARD_BUILDER':
       return <NavCardBuilder active={bottomActive} />
     case 'LIST_BUILDER':
@@ -99,10 +99,7 @@ export default React.memo(function Header(props) {
               </li>
             </Only.Desktop>
             <li className='Header__item'>
-              <NavLink
-                to='/deck/suggestions'
-                active={topActive === 'DECK_BUILDER'}
-              >
+              <NavLink to='/deck/suggestions' active={topActive === 'DECKS'}>
                 <Icon className='Header__icon' icon='stack' /> Decks
               </NavLink>
             </li>

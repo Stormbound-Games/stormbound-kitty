@@ -11,43 +11,37 @@ const DeckBuilderDryRunView = load('DeckBuilderDryRunView')
 const DeckBuilderEditorView = load('DeckBuilderEditorView')
 const DeckBuilderYourDecks = load('DeckBuilderYourDecks')
 
-export default function RouterDeckBuilder() {
+export default function RouterDecks() {
   const { path } = useRouteMatch()
 
   return (
     <Switch>
-      <Page
-        path={`${path}/suggestions`}
-        active={['DECK_BUILDER', 'SUGGESTIONS']}
-      >
+      <Page path={`${path}/suggestions`} active={['DECKS', 'SUGGESTIONS']}>
         <PersonalDecksProvider>
           <DeckBuilderSuggestions />
         </PersonalDecksProvider>
       </Page>
-      <Page path={`${path}/yours`} active={['DECK_BUILDER', 'YOURS']}>
+      <Page path={`${path}/yours`} active={['DECKS', 'YOURS']}>
         <PersonalDecksProvider>
           <DeckBuilderYourDecks />
         </PersonalDecksProvider>
       </Page>
-      <Page path={`${path}/:deckId/detail`} active={['DECK_BUILDER', 'DETAIL']}>
+      <Page path={`${path}/:deckId/detail`} active={['DECKS', 'DETAIL']}>
         <DeckBuilderRoot>
           {state => <DeckBuilderDetailView {...state} />}
         </DeckBuilderRoot>
       </Page>
-      <Page
-        path={`${path}/:deckId/dry-run`}
-        active={['DECK_BUILDER', 'DRY_RUN']}
-      >
+      <Page path={`${path}/:deckId/dry-run`} active={['DECKS', 'DRY_RUN']}>
         <DeckBuilderRoot>
           {state => <DeckBuilderDryRunView {...state} />}
         </DeckBuilderRoot>
       </Page>
-      <Page path={`${path}/:deckId`} active={['DECK_BUILDER', 'EDITOR']}>
+      <Page path={`${path}/:deckId`} active={['DECKS', 'EDITOR']}>
         <DeckBuilderRoot>
           {state => <DeckBuilderEditorView {...state} />}
         </DeckBuilderRoot>
       </Page>
-      <Page path={path} active={['DECK_BUILDER', 'EDITOR']}>
+      <Page path={path} active={['DECKS', 'EDITOR']}>
         <DeckBuilderRoot>
           {state => <DeckBuilderEditorView {...state} />}
         </DeckBuilderRoot>

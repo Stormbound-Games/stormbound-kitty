@@ -4,7 +4,7 @@ import NavLink from '../NavLink'
 import Only from '../Only'
 import serialisation from '../../helpers/serialisation'
 
-export default React.memo(function NavDeckBuilder(props) {
+export default React.memo(function NavDecks(props) {
   const match = useRouteMatch()
   const id = match.params.deckId
   const deck = id ? serialisation.deck.deserialise(id) : []
