@@ -219,34 +219,6 @@ export default [
           'Which mechanics are currently implemented in the dry-run simulator?',
         answer: <DryRunnerExplanation />,
       },
-
-      {
-        id: 'drawing-algorithm',
-        question: 'What is the drawing algorithm?',
-        answer: (
-          <>
-            <p>
-              Stormbound uses a “weighted random”. That means each card in a
-              deck is assigned a certain weight which determines its chances of
-              being drawn.
-            </p>
-
-            <p>
-              At the beginning of the game, an initial routine assigns a weight
-              to all cards in the deck in a (truly this time) random way. From
-              there, 4 cards are drawn with the usual weighted random to compose
-              the initial hand.
-            </p>
-
-            <p>
-              Every time a card is drawn or cycled, its weight is reset to 0.
-              All the other cards in the deck see their weight increase to f(w)
-              = 1.6 * w + 1 (rounded), where w is their previous weight. Some
-              cards, such as Queen of Herds, have awkward mechanics.
-            </p>
-          </>
-        ),
-      },
     ],
   },
   {
