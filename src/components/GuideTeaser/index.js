@@ -8,13 +8,12 @@ export default React.memo(function GuideTeaser(props) {
       cardId={props.cardId}
       title={props.name}
       meta={
-        props.author === 'Kitty' ? (
-          props.author
-        ) : (
+        <>
+          Written by{' '}
           <Link className='StoryTeaser__author' to={'/member/' + props.author}>
             {props.author}
           </Link>
-        )
+        </>
       }
       excerpt={props.excerpt}
       to={props.link}
