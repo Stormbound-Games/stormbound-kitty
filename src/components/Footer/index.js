@@ -122,8 +122,15 @@ export default React.memo(function Footer(props) {
                   <li className='Footer__item'>
                     <Link to='/list'>List Builder</Link>
                   </li>
+
                   <li className='Footer__item'>
-                    <Link to='/deck/suggestions'>Suggested Decks</Link>
+                    <a
+                      href='https://gum.co/stormbound-kitty'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      Donate
+                    </a>
                   </li>
                 </ul>
               </Column>
@@ -172,11 +179,11 @@ export default React.memo(function Footer(props) {
 
                   <li className='Footer__item'>
                     <a
-                      href='https://gum.co/stormbound-kitty'
+                      href='https://www.twitch.tv/stormboundccg'
                       target='_blank'
                       rel='noopener noreferrer'
                     >
-                      Donate
+                      Twitch
                     </a>
                   </li>
                 </ul>
