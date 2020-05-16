@@ -83,8 +83,8 @@ export default React.memo(function GuideDrawing(props) {
         From there, 4 cards are drawn with the weighted random to compose the
         initial hand. That means the cards with the weights 220, 137, 85 and 53
         are most likely to be drawn, but that’s not a guarantee. As explained
-        more in details in the next section, the 4 cards composing the initial
-        hand see their hand reseted to 0.
+        more in detail in the next section, the 4 cards composing the initial
+        hand see their weight reset to 0.
       </p>
 
       <Title>Drawing and cycling</Title>
@@ -97,7 +97,7 @@ export default React.memo(function GuideDrawing(props) {
 
       <ol>
         <li>
-          The card’s weight is reseted to 0. A card with a weight of 0 cannot be
+          The card’s weight is reset to 0. A card with a weight of 0 cannot be
           drawn again in a weighted random system.
         </li>
         <li>
@@ -217,9 +217,9 @@ export default React.memo(function GuideDrawing(props) {
 
       <p>
         When played with no bordering enemies, it comes back in the hand
-        immediately. Since playing a card does not cause its weight to be
-        reseted (as this is done on draw) and since a card in the hand already
-        has a weight to 0, nothing happens to <WikiLink id='S3' />
+        immediately. Since playing a card does not cause its weight to be reset
+        (as this is done on draw) and since a card in the hand already has a
+        weight to 0, nothing happens to <WikiLink id='S3' />
         ’s weight. The deck is not reweighed either.
       </p>
 
