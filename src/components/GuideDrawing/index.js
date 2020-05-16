@@ -32,9 +32,8 @@ export default React.memo(function GuideDrawing(props) {
         Stormbound uses something called a{' '}
         <span className='Highlight'>“weighted random”</span>. That means each
         card in a deck is assigned a certain weight which determines its chances
-        of being drawn. In such system, the higher a card’s weight, the higher
-        the chance it gets drawn. That does not mean the card with the highest
-        weight is necessarily drawn however. This remains somewhat random.
+        of being drawn. In such a system, the higher a card’s weight, the higher
+        the chance it gets drawn.
       </p>
 
       <Info title='Try it out' icon='stack' className='GuideDrawing__Info'>
@@ -69,7 +68,8 @@ export default React.memo(function GuideDrawing(props) {
         </li>
         <li>
           This yields the following weights at the beginning of the game: 0, 1,
-          2, 4, 7, 12, 20, 33, 53, 85, 137, 220.
+          2, 4, 7, 12, 20, 33, 53, 85, 137, 220. These numbers were once
+          confirmed by Arano, a former member of the development team.
         </li>
       </ol>
 
