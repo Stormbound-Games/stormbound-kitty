@@ -28,7 +28,7 @@ describe('Card Builder — Official card', () => {
 
       .get(s.CARD_SELECT)
       .find('.CardSelect__single-value')
-      .should('have.text', 'Load a card')
+      .should('have.text', 'Load Card')
 
       .get(s.CARD_NAME)
       .should('be.empty')
