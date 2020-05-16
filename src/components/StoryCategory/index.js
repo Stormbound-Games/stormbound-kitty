@@ -4,6 +4,7 @@ import { STORY_CATEGORIES } from '../../constants/stories'
 import Error from '../Error'
 import HeaderBanner from '../HeaderBanner'
 import Notice from '../Notice'
+import Only from '../Only'
 import Loader from '../Loader'
 import PageMeta from '../PageMeta'
 import Stories from '../Stories'
@@ -46,7 +47,9 @@ export default React.memo(function StoryCategory(props) {
 
       <Notice icon='quill'>
         Looking to contribute to the Stormbound lore?
-        <br />
+        <Only.Desktop>
+          <br />
+        </Only.Desktop>{' '}
         <Link to='/faq#adding-a-story'>Have your own story published</Link>.
       </Notice>
 

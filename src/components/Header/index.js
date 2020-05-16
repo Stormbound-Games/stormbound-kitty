@@ -43,7 +43,7 @@ const SubNav = React.memo(function (props) {
   }
 })
 
-const Wrapper = React.memo(function (props) {
+const Wrapper = React.memo(function HeaderWrapper(props) {
   const { pathname } = useLocation()
   const viewportWidth = useViewportWidth()
   const [isExpanded, expand] = React.useState(false)

@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer'
 import Article from '../Article'
 import Error from '../Error'
 import Notice from '../Notice'
+import Only from '../Only'
 import Loader from '../Loader'
 import MicroMarkdown from '../MicroMarkdown'
 import PageMeta from '../PageMeta'
@@ -51,7 +52,9 @@ export default function Story(props) {
 
       <Notice icon='quill'>
         Looking to contribute to the Stormbound lore?
-        <br />
+        <Only.Desktop>
+          <br />
+        </Only.Desktop>{' '}
         <Link to='/faq#adding-a-story'>Have your own story published</Link>.
       </Notice>
 
