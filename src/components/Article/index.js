@@ -15,7 +15,7 @@ export default React.memo(function Article(props) {
       </Only.Desktop>
 
       <Only.Mobile>
-        <Title>{props.title}</Title>
+        <Title element='h1'>{props.title}</Title>
       </Only.Mobile>
 
       <p className='Article__meta'>
