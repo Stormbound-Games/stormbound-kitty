@@ -857,7 +857,7 @@
     "name": "Mech’n’rats",
     "id": "3n13i13n33n43i43i73i83n163i113i63i153i12",
     "faction": "ironclad",
-    "author": "rfreitaz",
+    "author": "VultureMadAtTheOx",
     "category": "REGULAR"
   },
   {
@@ -890,5 +890,54 @@
     "author": "OneCurtis",
     "category": "BRAWL",
     "brawl": "PIRATE_MOVEMENT"
+  },
+  {
+    "name": "Hearth-not-guard",
+    "id": "3n13n33n113n133n163w53n183w123w133w143n393w15",
+    "faction": "winter",
+    "author": "Joseliam",
+    "category": "REGULAR"
+  },
+  {
+    "name": "Dandelions",
+    "id": "3f43f13f33f83f53f273f73f253f103f243f173f22",
+    "faction": "shadowfen",
+    "author": "6664646464646222",
+    "category": "REGULAR"
+  },
+  {
+    "name": "Winter Control Lite",
+    "id": "3n13w23n33n93n133n163n183n213n283w93n473w18",
+    "faction": "winter",
+    "author": "WatermelonMannequin",
+    "category": "REGULAR"
+  },
+  {
+    "name": "Salty Gifts",
+    "id": "3n13n23w23n33n43n133n163w73w133n393w193n52",
+    "faction": "shadowfen",
+    "author": "Cuchy92",
+    "category": "REGULAR"
+  },
+  {
+    "name": "Mia Control",
+    "id": "5n15i15i25n35i45n95i85i105i65i205i165i21",
+    "faction": "ironclad",
+    "author": "JonahOfTheHill",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "No Name",
+    "id": "5n15f45f35n35f85n635n675n165f105f145f175f22",
+    "faction": "shadowfen",
+    "author": "mmc31",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Mia’s Horde",
+    "id": "3n13n23i13i23i33n33i43i83i103i63i123n34",
+    "faction": "ironclad",
+    "author": "VultureMadAtTheOx",
+    "category": "REGULAR"
   }
 ]
