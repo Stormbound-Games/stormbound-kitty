@@ -7,13 +7,13 @@
   margin-top: 2em;
 }
 
-.Guide p:not(.Card__ability) > strong,
+.Guide p:not([class]) > strong,
 .Guide li > strong {
   color: var(--beige);
 }
 
-.Guide__cards {
-  margin-top: 2.5em;
+.Guide__embed {
+  margin: 2em auto 2.5em;
 }
 
 .Guide ol ul {
@@ -39,7 +39,7 @@
   text-indent: -1.2em;
 }
 
-.Guide img {
+.Guide img:not([class]) {
   margin: 2em auto;
   display: block;
   height: auto;

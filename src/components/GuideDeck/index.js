@@ -80,7 +80,7 @@ export default React.memo(function GuideDeck(props) {
         than playing a big one.
       </p>
 
-      <div className='Guide__cards'>
+      <div className='Guide__embed'>
         <Row>
           <Column width='1/4'>
             <Card {...getResolvedCardData({ id: 'N1', level: 1 })} />
@@ -115,7 +115,7 @@ export default React.memo(function GuideDeck(props) {
         victory!
       </p>
 
-      <div className='Guide__cards'>
+      <div className='Guide__embed'>
         <Row>
           <Column width='1/3'>
             <Card {...getResolvedCardData({ id: 'S13', level: 5 })} />
@@ -178,7 +178,7 @@ export default React.memo(function GuideDeck(props) {
         <WikiLink id='W4' />…
       </p>
 
-      <div className='Guide__cards'>
+      <div className='Guide__embed'>
         <Row>
           <Column>
             <Row>
