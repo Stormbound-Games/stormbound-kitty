@@ -231,7 +231,7 @@ export default React.memo(function GuideDrawing(props) {
       </p>
 
       <p>
-        Finally <WikiLink id='S3' /> (and <WikiLink id='N38' />) simply add a
+        Finally <WikiLink id='N8' /> (and <WikiLink id='N38' />) simply add a
         card to the deck with a weight of 0, without causing a reweighing of the
         deck.
       </p>
