@@ -14,7 +14,7 @@
       "files": ["**/*.js"],
       "excludedFiles": ["bin/*"],
       "rules": {
-        "no-console": "error",
+        "no-console": "warn",
         "padding-line-between-statements": [
           "error",
           { "blankLine": "always", "prev": "var", "next": "return" }
