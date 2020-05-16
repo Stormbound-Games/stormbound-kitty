@@ -36,6 +36,10 @@
   margin: auto;
 }
 
+.Article__fullwidth {
+  margin: 3em auto;
+}
+
 .Article__content:not(.Article__content--no-drop-cap)
   > p:first-of-type::first-letter {
   color: var(--beige);
@@ -65,5 +69,10 @@
     flex: 0 0 auto;
     margin-top: 0;
     font-size: 100%;
+  }
+
+  .Article__fullwidth {
+    margin: 3em calc(-50vw + 1200px / 2);
+    padding: 0 var(--padding);
   }
 }
