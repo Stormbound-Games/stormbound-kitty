@@ -9,7 +9,7 @@ export default React.memo(function Guide(props) {
     <>
       <Article
         className='Guide'
-        readingTime='30 minutes'
+        readingTime={props.readingTime}
         author={props.author}
         title={props.name}
         background={props.background}

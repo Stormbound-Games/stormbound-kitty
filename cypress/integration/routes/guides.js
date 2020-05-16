@@ -22,4 +22,8 @@ describe('Routes — Guides', () => {
   it('it should render the lexicon', () => {
     cy.visit('/guides/lexicon').get('main h1').should('exist')
   })
+
+  it('it should render the drawing guide', () => {
+    cy.visit('/guides/drawing').get('main h1').should('exist')
+  })
 })

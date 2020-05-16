@@ -1,0 +1,10 @@
+.GuideDrawing__Formula {
+  display: block;
+  max-width: 500px;
+  margin: 3em auto;
+  width: 80%;
+}
+
+.GuideDrawing__Info {
+  margin-top: 2em;
+}

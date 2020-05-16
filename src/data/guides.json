@@ -7,7 +7,8 @@
     "link": "/guides/complete",
     "faction": "neutral",
     "cardId": "I28",
-    "background": "/assets/images/environment_neutral.png"
+    "background": "/assets/images/environment_neutral.png",
+    "readingTime": "45 minutes"
   },
   {
     "id": "DECK_GUIDE",
@@ -17,7 +18,19 @@
     "link": "/guides/deck",
     "faction": "shadowfen",
     "cardId": "N48",
-    "background": "/assets/images/environment_swarm.png"
+    "background": "/assets/images/environment_swarm.png",
+    "readingTime": "13 minutes"
+  },
+  {
+    "id": "DRAWING_GUIDE",
+    "name": "Drawing Guide",
+    "author": "Kitty",
+    "excerpt": "In this short guide by Kitty, learn more about the drawing mechanics of Stormbound as well as their edge cases to make the most out of your matches. Don’t let chance surprise you!",
+    "link": "/guides/drawing",
+    "faction": "neutral",
+    "cardId": "N14",
+    "background": "/assets/images/environment_neutral.png",
+    "readingTime": "10 minutes"
   },
   {
     "id": "WINTER_GUIDE",
@@ -27,7 +40,8 @@
     "link": "/guides/winter",
     "faction": "winter",
     "cardId": "W9",
-    "background": "/assets/images/environment_winter.png"
+    "background": "/assets/images/environment_winter.png",
+    "readingTime": "14 minutes"
   },
   {
     "id": "PIRATE_GUIDE",
@@ -37,7 +51,8 @@
     "link": "/guides/pirate",
     "faction": "neutral",
     "cardId": "N42",
-    "background": "/assets/images/environment_neutral.png"
+    "background": "/assets/images/environment_neutral.png",
+    "readingTime": "10 minutes"
   },
   {
     "id": "LEXICON",

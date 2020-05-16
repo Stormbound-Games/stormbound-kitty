@@ -6,6 +6,7 @@ import load from '../../helpers/load'
 
 const GuideComplete = load('GuideComplete')
 const GuideDeck = load('GuideDeck')
+const GuideDrawing = load('GuideDrawing')
 const GuidePirate = load('GuidePirate')
 const Guides = load('Guides')
 const GuideWinter = load('GuideWinter')
@@ -21,6 +22,9 @@ export default function RouterGuides() {
       </Page>
       <Page path={`${path}/deck`} active={['GUIDES', 'DECK']}>
         <GuideDeck />
+      </Page>
+      <Page path={`${path}/drawing`} active={['GUIDES', 'DRAWING']}>
+        <GuideDrawing />
       </Page>
       <Page path={`${path}/winter`} active={['GUIDES', 'WINTER']}>
         <GuideWinter />

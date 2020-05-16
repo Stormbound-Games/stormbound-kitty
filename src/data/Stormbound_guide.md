@@ -86,7 +86,7 @@ This non-instinctive rule can lead into hard to predict situations. I think unde
 
 When playing or discarding a card, this card will be shuffled back in your deck with a higher probability to be put at the end of it. Because of this, you can “manipulate” your future draws. For example, you want to play the Frosthexers/Midwinter Chaos combo but are short on mana: what you can do is discard Midwinter Chaos just before playing Frosthexers. This way the probability of drawing the two cards back to back in the next turns is higher. You will not have to keep the combo in your hand, hoping not to separate the cards. The probability of drawing a card you just discarded or played exists but is very low.
 
-The exact probabilities are available on the official Discord of the game.
+Learn more about these mechanics in the drawing guide.
 
 ### What and when to discard
 
