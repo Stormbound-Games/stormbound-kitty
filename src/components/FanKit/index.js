@@ -109,7 +109,7 @@ export default React.memo(function FanKit(props) {
             required
             current={search}
             onChange={option => setSearch(option ? option.value : null)}
-            withSpells={false}
+            withSpells
             withTokens
             withClear
           />
