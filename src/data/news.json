@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Drawing Guide",
+    "description": "Learn everything there is to learn about the drawing mechanics in the brand new guide!",
+    "link": "/guides/drawing"
+  },
+  {
     "intro": "Brawl",
     "description": "You can now manage your Brawl progress, expenses and performance in the Brawl tracker.",
     "link": "/brawl"
