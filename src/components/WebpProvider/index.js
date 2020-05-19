@@ -17,7 +17,15 @@ export default function WebpProvider(props) {
   const [webp, setWebp] = React.useState(getStoredWebpSupport())
 
   React.useEffect(() => {
-    if (localStorage.getItem(STORAGE_KEY) === null) {
+    let storedValue = null
+
+    try {
+      // `localStorage` is not defined in some Android webviews and should
+      // always be safeguarded to avoid a runtime JavaScript error.
+      storedValue = localStorage.getItem(STORAGE_KEY)
+    } catch (error) {}
+
+    if (storedValue === null) {
       supportsWebp().then(supports => {
         setWebp(supports)
         if (supports) document.documentElement.classList.add('webp')
