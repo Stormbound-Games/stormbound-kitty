@@ -26,7 +26,7 @@ export const BRAWLS = [
   {
     id: 'FELINE_STRENGTH',
     label: 'Felines +2 strength',
-    title: 'Soft Kitty, Warm Kitty',
+    title: 'Noble Coalition',
     cardId: 'N69',
   },
   {
