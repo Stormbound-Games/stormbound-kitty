@@ -953,5 +953,13 @@
     "faction": "shadowfen",
     "author": "OneCurtis",
     "category": "DIAMOND_1"
+  },
+  {
+    "name": "Noble Coalition",
+    "id": "5n15n235n625n675n135w55n655w95n685w175w195n58",
+    "faction": "winter",
+    "author": "Frostkhan",
+    "category": "BRAWL",
+    "brawl": "FELINE_STRENGTH"
   }
 ]
