@@ -15,6 +15,11 @@ export default React.memo(function BrawlOverviewRow(props) {
 
   if (brawl.matches.length === 0) return null
 
+  const milestone =
+    MILESTONES[meta.milestone].crowns === meta.crowns
+      ? MILESTONES[meta.milestone]
+      : MILESTONES[meta.milestone - 1]
+
   return (
     <div className='BrawlOverviewRow'>
       <Row desktopOnly>
@@ -29,7 +34,7 @@ export default React.memo(function BrawlOverviewRow(props) {
         </Column>
         <Column width='1/3'>
           <BrawlMilestone
-            {...MILESTONES[meta.milestone - 1]}
+            {...milestone}
             cardId={BRAWLS.find(brawl => brawl.id === id).cardId}
           />
         </Column>
