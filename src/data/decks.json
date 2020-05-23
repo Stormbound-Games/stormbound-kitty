@@ -961,5 +961,12 @@
     "author": "Frostkhan",
     "category": "BRAWL",
     "brawl": "FELINE_STRENGTH"
+  },
+    {
+    "name": "Chicken Dinner",
+    "id": "5n15n25s15n35n45s105n85n115s145s175s195s20",
+    "faction": "swarm",
+    "author": "Serqet",
+    "category": "Diamond 1",
   }
 ]
