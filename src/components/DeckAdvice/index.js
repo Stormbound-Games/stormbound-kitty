@@ -26,8 +26,10 @@ const lacksAoE = cards => {
     /* Bladestorm */ ids.includes('N29') ||
     /* Needle Blast */ ids.includes('N44') ||
     /* Powder Tower */ ids.includes('N45') ||
+    /* Joust Champions */ ids.includes('N55') ||
     /* Crazy Bombers */ ids.includes('N57') ||
     /* Sirens of the Seas */ ids.includes('N58') ||
+    /* Trekking Aldermen */ ids.includes('N73') ||
     /* Broken Earth Drake */ ids.includes('W15') ||
     /* Chaotic Pupil */ ids.includes('I12') ||
     /* Flaming Stream */ ids.includes('I18') ||
