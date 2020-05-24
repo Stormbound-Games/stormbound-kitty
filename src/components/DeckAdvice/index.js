@@ -3,6 +3,71 @@ import LearnMoreIcon from '../LearnMoreIcon'
 import Title from '../Title'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 
+const STABLE_FINISHERS = [
+  /* RUNNERS */
+  /* Warfront Runners */ 'N28',
+  /* Bluesail Raiders */ 'N30',
+  /* Hearthguards */ 'N39',
+  /* Tegor the Vengeful */ 'N46',
+  /* Salty Outcasts */ 'N52',
+  /* Joust Champions */ 'N55',
+  /* Siren of the Seas */ 'N58',
+  /* Razor-Sharp Lynxes */ 'N65',
+  /* Chaotic Pupil */ 'I12',
+  /* Agents in Charge */ 'I25',
+  /* Wolfcloaks */ 'W17',
+  /* Fleshmenders */ 'W18',
+  /* Chillbeards */ 'W22',
+  /* Olf The Hammer */ 'W23',
+  /* Sleetstompers */ 'W26',
+  /* Grim Couriers */ 'S17',
+  /* Lasting Remains */ 'S23',
+  /* Obliterators */ 'S26',
+  /* Obsidian Butchers */ 'F17',
+
+  /* CHIP */
+  /* Ubass the Hunter */ 'N35',
+  /* Needle Blast */ 'N44',
+  /* Pillars of Doom */ 'S18',
+  /* Vindicators */ 'S22',
+  /* Dark Harvest */ 'S15',
+  /* Hairy Chestnuts */ 'F28',
+  /* Siege Assembly */ 'I19',
+  /* Booming Professors */ 'I28',
+  /* Visions of the Grove */ 'W21',
+
+  /* MISC */
+  /* Forgotten Souls */ 'S6',
+  /* Herald’s Hymn */ 'S20',
+]
+
+const LOW_LEVEL_FINISHERS = [
+  /* Windmakers */ 'I20',
+  /* Draconic Roamers */ 'S12',
+]
+
+const HIGH_LEVEL_FINISHERS = [
+  /* First Mutineer */ 'N12',
+  /* Rapid Mousers */ 'N71',
+  /* Limelimbs */ 'F25',
+  /* Restless Goats */ 'S2',
+  /* Terrific Slayers */ 'N27',
+  /* Wild Saberpaws */ 'N67',
+]
+
+const DEBATABLE_FINISHERS = [
+  /* Powder Tower */ 'N45',
+  /* Hair-Raising Cats */ 'N61',
+  /* Mischiefs */ 'S13',
+  /* Greengale Serpents */ 'I7',
+  /* Overchargers */ 'I15',
+  /* Dangerous Suiters */ 'N51',
+  /* Lady Rime */ 'W10',
+  /* Lucky Charmers */ 'N42',
+  /* High Priestess Klaxi */ 'F23',
+  /* Petrified Fossils */ 'S27',
+]
+
 const getRaces = cards => [...new Set(cards.map(c => c.race).filter(Boolean))]
 const getFactions = cards =>
   [...new Set(cards.map(c => c.faction))].filter(
@@ -48,6 +113,18 @@ const lacksAoE = cards => {
   return true
 }
 
+const getDebatableFinishers = cards =>
+  cards.filter(card => DEBATABLE_FINISHERS.includes(card.id))
+const getFinishers = cards =>
+  cards.filter(
+    card =>
+      STABLE_FINISHERS.includes(card.id) ||
+      ((card.level === 1 || card.level === 2) &&
+        LOW_LEVEL_FINISHERS.includes(card.id)) ||
+      ((card.level === 4 || card.level === 5) &&
+        HIGH_LEVEL_FINISHERS.includes(card.id))
+  )
+
 const getSuggestions = cards => {
   const averageManaCost = getAverageManaCost(cards)
   const staticCards = getStaticCards(cards)
@@ -63,8 +140,26 @@ const getSuggestions = cards => {
   )
   const oddManaCards = getOddManaCards(cards)
   const evenManaCards = getEvenManaCards(cards)
+  const finishers = getFinishers(cards)
+  const debatableFinishers = getDebatableFinishers(cards)
 
   return [
+    finishers.length === 0 &&
+      (debatableFinishers.length === 0
+        ? {
+            id: 'LACK_OF_FINISHER',
+            name: 'Lacks of finisher',
+            description:
+              'This deck doesn’t have a finisher, also known as a win-condition. Try including one or more runners, heavy strikers or cards doing chip damage to the base.',
+          }
+        : {
+            id: 'LACK_OF_STABLE_FINISHER',
+            name: 'Lacks of finisher',
+            description:
+              'This deck doesnt have a stable finisher, only some potential win-condition under good circumstances.  Try including one or more runners, heavy strikers or cards doing chip damage to the base.',
+            highlight: () => debatableFinishers,
+          }),
+
     factions.length > 1 && {
       id: 'MULTI_FACTIONS',
       name: 'Multi-factions',
