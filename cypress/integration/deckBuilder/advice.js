@@ -65,6 +65,7 @@ describe('Deck Builder — Advice', () => {
     ['Trekking Aldermen', '1n11n21n31n671n71n101n731n201i141n651n271i28'],
     ['Broken Earth Drake', '1n11n21n31n41n621n151w71n241w81w161n381w15'],
     ['Flaming Stream', '1n11n21n31n671n71n101n201i141n651n271i181i28'],
+    ['Windmakers', '1n11n21n31n671n71n101n201i141n651n271i201i28'],
     ['Toxic Sacrifice', '1n21f41f31n31n661f271n591n211n751n641f161n76'],
     ['Crimson Sentry', '1n21f31n31n661f51f271n591n211n751n641f161n76'],
     ['Witches of the Wild', '1n21f31n31n661f271n591n211n751n641f141f161n76'],

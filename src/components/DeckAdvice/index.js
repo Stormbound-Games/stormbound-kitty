@@ -97,6 +97,7 @@ const lacksAoE = cards => {
     /* Trekking Aldermen */ ids.includes('N73') ||
     /* Broken Earth Drake */ ids.includes('W15') ||
     /* Flaming Stream */ ids.includes('I18') ||
+    /* Windmakers */ ids.includes('I20') ||
     /* Toxic Sacrifice */ ids.includes('F4') ||
     /* Crimson Sentry */ ids.includes('F5') ||
     /* Witches of the Wild */ ids.includes('F14') ||
