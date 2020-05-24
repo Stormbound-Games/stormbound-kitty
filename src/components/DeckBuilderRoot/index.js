@@ -61,10 +61,7 @@ class DeckBuilderRoot extends React.Component {
     }))
   }
 
-  highlight = cards =>
-    this.setState({
-      highlightedCards: cards.map(c => c.id || c),
-    })
+  highlight = cards => this.setState({ highlightedCards: cards })
 
   render() {
     return this.props.children({
