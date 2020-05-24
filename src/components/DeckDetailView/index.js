@@ -24,7 +24,7 @@ export default React.memo(function DeckDetailView(props) {
             deck={props.deck}
             highlightedCards={props.highlightedCards}
             onClick={card => history.push('/card/' + card.id + '/display')}
-            onClickLabel='Enlarge card'
+            onClickLabel='Open card in card builder'
           />
 
           <Row>
