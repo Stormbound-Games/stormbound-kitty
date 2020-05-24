@@ -106,7 +106,10 @@ const lacksAoE = cards => {
     /* Frosthexers + Midwinter Chaos */ (ids.includes('W2') &&
       ids.includes('W11')) ||
     /* Midwinter Chaos + Wisp Cloud */ (ids.includes('W11') &&
-      ids.includes('W4'))
+      ids.includes('W4')) ||
+    /* Moment’s Peace + Midwinter Chaos */ (ids.includes('W6') &&
+      ids.includes('W11')) ||
+    /* Moment’s Peace + Wisp Cloud */ (ids.includes('W6') && ids.includes('W4'))
   ) {
     return false
   }
