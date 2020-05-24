@@ -31,7 +31,6 @@ const lacksAoE = cards => {
     /* Sirens of the Seas */ ids.includes('N58') ||
     /* Trekking Aldermen */ ids.includes('N73') ||
     /* Broken Earth Drake */ ids.includes('W15') ||
-    /* Chaotic Pupil */ ids.includes('I12') ||
     /* Flaming Stream */ ids.includes('I18') ||
     /* Toxic Sacrifice */ ids.includes('F4') ||
     /* Crimson Sentry */ ids.includes('F5') ||
