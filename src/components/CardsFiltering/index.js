@@ -101,6 +101,7 @@ class CardsFiltering extends React.Component {
     return (
       this.state.ability === '*' ||
       (this.state.ability === 'POISON' && /poison/i.test(card.ability || '')) ||
+      (this.state.ability === 'SPAWN' && /spawn/i.test(card.ability || '')) ||
       (this.state.ability === 'DRAIN' && /drain/i.test(card.ability || '')) ||
       (this.state.ability === 'CONFUSION' &&
         /confus/i.test(card.ability || '')) ||

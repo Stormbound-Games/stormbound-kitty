@@ -152,6 +152,7 @@ export default React.memo(function DeckEditorFilters(props) {
                   <option value='FREEZE'>Freeze</option>
                   <option value='POISON'>Poison</option>
                   <option value='PUSH_PULL'>Push/Pull</option>
+                  <option value='SPAWN'>Spawn</option>
                   <option value='SURVIVING'>Surviving</option>
                 </select>
               </Column>
