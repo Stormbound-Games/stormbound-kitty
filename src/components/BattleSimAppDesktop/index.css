@@ -12,7 +12,7 @@
   bottom: 0;
   text-align: right;
   padding: 1em;
-  width: calc(100% / 3);
+  width: calc((100% - 40%) / 2);
   background-image: linear-gradient(
     -194deg,
     transparent 60%,
