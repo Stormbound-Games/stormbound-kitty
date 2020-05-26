@@ -33,6 +33,17 @@
     "readingTime": "10 minutes"
   },
   {
+    "id": "RESOURCES_GUIDE",
+    "name": "Resources Guide",
+    "author": "Roman",
+    "excerpt": "In this economy guide to Stormbound, Roman explains what is the best approach when it comes to spending resources efficiently. Make the most out of them stones!",
+    "link": "/guides/resources",
+    "faction": "neutral",
+    "cardId": "W19",
+    "background": "/assets/images/environment_neutral.png",
+    "readingTime": "10 minutes"
+  },
+  {
     "id": "WINTER_GUIDE",
     "name": "Winter Guide",
     "author": "WinterBoii",

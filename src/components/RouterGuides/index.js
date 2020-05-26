@@ -4,11 +4,12 @@ import Page from '../Page'
 import Error from '../Error'
 import load from '../../helpers/load'
 
+const Guides = load('Guides')
 const GuideComplete = load('GuideComplete')
 const GuideDeck = load('GuideDeck')
 const GuideDrawing = load('GuideDrawing')
 const GuidePirate = load('GuidePirate')
-const Guides = load('Guides')
+const GuideResources = load('GuideResources')
 const GuideWinter = load('GuideWinter')
 const Lexicon = load('Lexicon')
 
@@ -17,6 +18,9 @@ export default function RouterGuides() {
 
   return (
     <Switch>
+      <Page path={`${path}/resources`} active={['GUIDES', 'RESOURCES']}>
+        <GuideResources />
+      </Page>
       <Page path={`${path}/complete`} active={['GUIDES', 'COMPLETE']}>
         <GuideComplete />
       </Page>

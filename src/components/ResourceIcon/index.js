@@ -20,6 +20,14 @@ export default React.memo(function ResourceIcon(props) {
           alt='fusion stone'
         />
       )
+    case 'RUBY':
+      return (
+        <Image
+          className='ResourceIcon'
+          src='/assets/images/RUBIES.png'
+          alt='ruby'
+        />
+      )
     case 'CROWN':
       return (
         <Image
