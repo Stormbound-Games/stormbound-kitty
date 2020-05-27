@@ -248,7 +248,7 @@ const getSuggestions = cards => {
       },
 
     hasLinkedGolems &&
-      constructs.length <= 1 && {
+      constructs.length <= 2 && {
         id: 'INEFFICIENT_LINKED_GOLEMS',
         name: 'Undervalued Linked Golems',
         description:
