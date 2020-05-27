@@ -98,15 +98,7 @@ export default React.memo(function FeaturedDeck(props) {
         {props.author && (
           <>
             {' '}
-            by{' '}
-            <Link
-              to={{
-                pathname: '/deck/suggestions',
-                search: `?author=${props.author}`,
-              }}
-            >
-              {props.author}
-            </Link>
+            by <Link to={`/member/${props.author}`}>{props.author}</Link>
           </>
         )}
       </span>
