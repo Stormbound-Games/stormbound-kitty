@@ -47,6 +47,12 @@ describe('Deck Builder — Advice', () => {
       .should('be.visible')
   })
 
+  it('should warn about inefficient Linked Golems', () => {
+    cy.visit('/deck/1i11n51i41n101i81n731n191n281i201n381n701n55/detail')
+      .get('#INEFFICIENT_LINKED_GOLEMS')
+      .should('be.visible')
+  })
+
   it('should warn about lack of AoE', () => {
     cy.visit('/deck/1n11n21n31n671n71n101n201i141n651n271i281n76/detail')
       .get('#LACK_OF_AOE')
