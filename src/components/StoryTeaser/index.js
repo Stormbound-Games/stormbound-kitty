@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Teaser from '../Teaser'
 import capitalise from '../../helpers/capitalise'
 import getExcerpt from '../../helpers/getExcerpt'
+import getRawCardData from '../../helpers/getRawCardData'
 import './index.css'
 
 const StoryAuthor = React.memo(function StoryAuthor(props) {
@@ -24,6 +25,12 @@ export default React.memo(function StoryTeaser(props) {
   const meta = <StoryAuthor {...props} />
 
   return (
-    <Teaser {...props} meta={meta} excerpt={excerpt} to={`/stories/${id}`} />
+    <Teaser
+      {...props}
+      card={{ ...getRawCardData(props.cardId), ...props.card }}
+      meta={meta}
+      excerpt={excerpt}
+      to={`/stories/${id}`}
+    />
   )
 })

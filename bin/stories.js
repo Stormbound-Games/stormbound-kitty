@@ -10,12 +10,10 @@ const getOldId = story =>
 
 const getFileData = dir => fileName => {
   const story = require(path.resolve(dir + '/' + fileName))
-  const card = { ...getRawCardData(story.cardId), ...story.card }
 
   return {
     oldId: getOldId(story),
     ...story,
-    card,
     id: removeJsonExtension(fileName),
     content: story.content.slice(0, 150) + '…',
     type: story.type || 'story',
