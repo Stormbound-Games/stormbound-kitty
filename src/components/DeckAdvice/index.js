@@ -75,6 +75,7 @@ const getFactions = cards =>
   )
 const getSpells = cards =>
   cards.filter(c => c.type === 'spell' && c.id !== 'N2')
+const getConstructs = cards => cards.filter(c => c.race === 'construct')
 const getStructures = cards => cards.filter(c => c.type === 'structure')
 const getStaticCards = cards => cards.filter(c => (c.movement | 0) < 1)
 const getAverageManaCost = cards =>
@@ -142,6 +143,8 @@ const getSuggestions = cards => {
   const miaStructures = structures.filter(
     c => c.id !== 'N13' && c.id !== 'I5' && c.id !== 'I14'
   )
+  const hasLinkedGolems = cards.map(c => c.id).includes('I8')
+  const constructs = getConstructs(cards)
   const oddManaCards = getOddManaCards(cards)
   const evenManaCards = getEvenManaCards(cards)
   const finishers = getFinishers(cards)
@@ -242,6 +245,15 @@ const getSuggestions = cards => {
         description:
           'This deck includes Doctor Mia but doesn’t include any structures that have a good synergy with her. Consider including structures such as Upgrade Point, or Siege Assembly.',
         highlight: () => ['I2', ...structures],
+      },
+
+    hasLinkedGolems &&
+      constructs.length <= 2 && {
+        id: 'INEFFICIENT_LINKED_GOLEMS',
+        name: 'Undervalued Linked Golems',
+        description:
+          'This deck includes Linked Golems but doesn’t include enough constructs to provide good synergy. Consider including more constructs.',
+        highlight: () => constructs,
       },
   ].filter(Boolean)
 }
