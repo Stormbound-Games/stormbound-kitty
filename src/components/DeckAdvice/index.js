@@ -253,7 +253,7 @@ const getSuggestions = cards => {
         name: 'Undervalued Linked Golems',
         description:
           'This deck includes Linked Golems but doesn’t include enough constructs to provide good synergy. Consider including more constructs.',
-        highlight: () => ['I8'],
+        highlight: () => constructs,
       },
   ].filter(Boolean)
 }
