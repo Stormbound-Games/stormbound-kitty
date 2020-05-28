@@ -263,7 +263,7 @@ const getDeckAdvice = cards => {
     hasHighPriestessKlaxi &&
       !hasRainOfFrogs &&
       !hasAzureHatchers && {
-        id: 'INEFFICIENT_HIGH_PRIESTESS_KLAXI',
+        id: 'INEFFICIENT_KLAXI',
         name: 'Undervalued High Priestess Klaxi',
         description:
           'This deck includes High Priestess Klaxi but doesn’t include a way to spawn many units of the same strength. Consider including Rain of Frogs or Azure Hatchers.',
