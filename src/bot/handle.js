@@ -16,10 +16,17 @@ const send = client => (message, content) => {
   }
 }
 
+const formatCommand = command => `${command.icon} **${command.name}** (e.g. \`!${command.command} ${command.example}\`)
+       *${command.description}*`
+
 export default client => message => {
   const [command] = message.content.split(' ')
   const reply = send(client)
   const search = message.content.replace(command, '').trim()
+
+  if (command === '!help') {
+    return reply(message, '\n' + COMMANDS.map(formatCommand).join('\n'))
+  }
 
   if (COMMANDS.map(({ command }) => command).includes(command)) {
     const { default: handler } = require('./commands/' + command)
