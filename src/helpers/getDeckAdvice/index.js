@@ -72,7 +72,10 @@ const getSpells = cards =>
   cards.filter(c => c.type === 'spell' && c.id !== 'N2')
 const getConstructs = cards => cards.filter(c => c.race === 'construct')
 const getStructures = cards => cards.filter(c => c.type === 'structure')
-const getStaticCards = cards => cards.filter(c => (c.movement | 0) < 1)
+const getStaticCards = cards =>
+  cards.filter(
+    c => (c.movement | 0) < 1 && !['N66', 'N67', 'N68'].includes(c.id)
+  )
 const getAverageManaCost = cards =>
   (cards.map(c => c.mana).reduce((a, b) => a + b, 0) / cards.length).toFixed(2)
 const getEvenManaCards = cards => cards.filter(c => c.mana % 2 === 0)
