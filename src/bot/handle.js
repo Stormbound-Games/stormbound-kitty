@@ -1,11 +1,12 @@
 import abbr from './commands/abbr'
 import deckadvice from './commands/deckadvice'
 import cardinfo from './commands/cardinfo'
-import deck from './commands/deck'
+import decks from './commands/decks'
 import help from './commands/help'
 import randomcard from './commands/randomcard'
 import randomdeck from './commands/randomdeck'
 import story from './commands/story'
+import suggestdeck from './commands/suggestdeck'
 
 const send = client => (message, content) => {
   if (!content) return
@@ -34,7 +35,7 @@ export default client => message => {
     case '!cardinfo':
       return reply(message, cardinfo(search))
     case '!decks':
-      return reply(message, deck(search))
+      return reply(message, decks(search))
     case '!deckadvice':
       return reply(message, deckadvice(search))
     case '!help':
@@ -45,6 +46,8 @@ export default client => message => {
       return reply(message, randomdeck(search))
     case '!story':
       return reply(message, story(search))
+    case '!suggestdeck':
+      return reply(message, suggestdeck(search))
     default:
       return
   }
