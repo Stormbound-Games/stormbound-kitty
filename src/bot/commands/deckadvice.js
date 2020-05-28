@@ -15,10 +15,15 @@ export default search => {
 
   try {
     const cards = serialisation.deck.deserialise(id).map(getResolvedCardData)
+    const advice = getDeckAdvice(cards)
+
+    if (advice.length === 0) {
+      return 'Nothing too particular to mention about your deck, it looks alright!'
+    }
 
     return (
       'Some comments and possible suggestions about your deck:\n' +
-      getDeckAdvice(cards)
+      advice
         .map(advice => `- **${advice.name}:** ${advice.description}`)
         .join('\n')
     )
