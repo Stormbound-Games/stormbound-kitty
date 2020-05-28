@@ -38,7 +38,8 @@
     "audit": "NODE_ENV=production node bin/audit.js",
     "icons": "spritesh --input public/assets/icons --output sprite.svg --prefix 'icon-'",
     "bot": "node -r esm bin/bot.js",
-    "bot:dev": "nodemon -x \"node -r esm\" bin/bot.js --watch src"
+    "bot:dev": "nodemon -x \"node -r esm\" bin/bot.js --watch src",
+    "changelog": "npm install puppeteer --no-save && node bin/changes.js"
   },
   "browserslist": [
     ">0.2%",
@@ -57,7 +58,6 @@
     "lint-staged": "^10.2.2",
     "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
-    "puppeteer": "^3.0.4",
     "spritesh": "^1.2.1",
     "webpack-bundle-analyzer": "^3.7.0"
   },
