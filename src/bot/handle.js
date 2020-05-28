@@ -33,7 +33,7 @@ export default client => message => {
       return reply(message, abbr(search))
     case '!cardinfo':
       return reply(message, cardinfo(search))
-    case '!deck':
+    case '!decks':
       return reply(message, deck(search))
     case '!deckadvice':
       return reply(message, deckadvice(search))

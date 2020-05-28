@@ -19,7 +19,7 @@ const RANDOM_DECK = [
 ]
 
 const DECK_SEARCH = [
-  '🔍 **Deck search** (e.g. `!deck ic d1 mia`)',
+  '🔍 **Deck search** (e.g. `!decks ic d1 mia`)',
   '       *Get a link to a deck search matching given search criteria*',
 ]
 
