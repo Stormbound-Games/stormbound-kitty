@@ -51,7 +51,7 @@
     "asyncro": "^3.0.0",
     "cypress": "^4.7.0",
     "cypress-react-unit-test": "^4.3.0",
-    "eslint": "^7.1.0",
+    "eslint": "^6.8.0",
     "husky": "^4.2.5",
     "imagemin": "^7.0.1",
     "imagemin-webp": "^6.0.0",
