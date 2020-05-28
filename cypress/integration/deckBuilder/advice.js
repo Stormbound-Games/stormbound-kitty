@@ -18,7 +18,7 @@ describe('Deck Builder — Advice', () => {
   })
 
   it('should warn about static decks', () => {
-    cy.visit('/deck/1n11n21n31n41n51n61n621n631n671n661n71n8/detail')
+    cy.visit('/deck/4n382s195n131n702n232n625n194n345n32s34s13s14/detail')
       .get('#SLOW_DECK')
       .should('be.visible')
   })
