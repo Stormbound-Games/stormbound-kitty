@@ -968,5 +968,13 @@
     "faction": "winter",
     "author": "HROTCE",
     "category": "DIAMOND_1"
+  },
+  {
+    "name": "Satyrs",
+    "id": "5n15n25s245n45s25n635s35s65n135n155s145s9",
+    "faction": "swarm",
+    "author": "Several",
+    "category": "BRAWL",
+    "brawl": "SATYR_MOVEMENT"
   }
 ]
