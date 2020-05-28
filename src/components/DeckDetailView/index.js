@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import Advice from '../DeckAdvice'
 import Column from '../Column'
 import Deck from '../Deck'
+import DeckStatsChart from '../DeckStatsChart'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import ShareButton from '../DeckShareButton'
@@ -36,6 +37,7 @@ export default React.memo(function DeckDetailView(props) {
 
         <Column width='1/3'>
           <Stats deck={props.deck} highlight={props.highlight} />
+          <DeckStatsChart deck={props.deck} />
         </Column>
 
         <Column width='1/3'>
