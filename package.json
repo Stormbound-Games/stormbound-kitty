@@ -32,7 +32,7 @@
   },
   "scripts": {
     "start": "EXTEND_ESLINT=true react-scripts start",
-    "build": "CI=false react-scripts build",
+    "build:cra": "CI=false react-scripts build",
     "test": "cypress run",
     "eject": "react-scripts eject",
     "audit": "NODE_ENV=production node bin/audit.js",
