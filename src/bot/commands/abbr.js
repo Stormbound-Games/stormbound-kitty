@@ -4,15 +4,11 @@ import { COMMON_ABBREVIATIONS } from '../../constants/misc'
 
 const CARD_ABBREVIATIONS = getCardAbbreviations()
 
-export default content => {
-  const search = content.toLowerCase()
-  const result = CARD_ABBREVIATIONS[search]
+export default search => {
+  const commonMatch = COMMON_ABBREVIATIONS[search.toLowerCase()]
+  const cardMatch = CARD_ABBREVIATIONS[search.toLowerCase()]
+  const suggest = suggestion => `“${search}” might mean “${suggestion}”.`
 
-  if (COMMON_ABBREVIATIONS[search]) {
-    return `“${search}” might mean “${COMMON_ABBREVIATIONS[search]}”.`
-  }
-
-  if (result) {
-    return `“${search}” might mean “${getRawCardData(result).name}”.`
-  }
+  if (commonMatch) return suggest(commonMatch)
+  if (cardMatch) return suggest(getRawCardData(cardMatch).name)
 }

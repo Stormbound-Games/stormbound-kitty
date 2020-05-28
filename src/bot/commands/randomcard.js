@@ -1,6 +1,7 @@
 import cards from '../../data/cards'
 import { FACTIONS, RACES, RARITIES, TYPES } from '../../constants/game'
 import arrayRandom from '../../helpers/arrayRandom'
+import getIgnoredSearch from '../../helpers/getIgnoredSearch'
 
 const linkify = card => 'https://stormbound-kitty.com/card/' + card.id
 
@@ -70,13 +71,7 @@ export default content => {
 
   if (results.length === 0) return
 
-  const adjustSearch = search
-    .split(/\s+/g)
-    .map(search => (ignoredTerms.includes(search) ? `~~${search}~~` : search))
-    .join(' ')
-
-  return (
-    linkify(arrayRandom(results)) +
-    (ignoredTerms.length > 0 ? `\n*Search: ${adjustSearch}*` : '')
-  )
+  return [linkify(arrayRandom(results)), getIgnoredSearch(search, ignoredTerms)]
+    .filter(Boolean)
+    .join('\n')
 }

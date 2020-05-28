@@ -7,11 +7,7 @@ export default search => {
     return 'https://stormbound-kitty.com/stories/' + arrayRandom(stories).id
   }
 
-  const results = getStoriesForSearch(search)
-
-  if (results.length === 0) return
-
-  return results
+  return getStoriesForSearch(search)
     .slice(0, 2)
     .map(story => 'https://stormbound-kitty.com/stories/' + story.id)
     .join('\n')

@@ -3,15 +3,16 @@ import { CATEGORIES } from '../../constants/decks'
 import { searcher } from '../../helpers/getCardsForSearch'
 import decks from '../../data/decks'
 import arrayRandom from '../../helpers/arrayRandom'
-import getRawCardData from '../../helpers/getRawCardData'
 import getCardAbbreviations from '../../helpers/getCardAbbreviations'
+import getIgnoredSearch from '../../helpers/getIgnoredSearch'
+import getRawCardData from '../../helpers/getRawCardData'
 import serialisation from '../../helpers/serialisation'
 
 const CARD_ABBREVIATIONS = getCardAbbreviations()
 
 export default content => {
   const search = content.toLowerCase()
-
+  const ignoredTerms = []
   const searchParams = search.split(/\s+/g).reduce((search, term) => {
     if (Object.keys(FACTIONS).includes(term)) search.faction = term
     else if (Object.keys(CATEGORIES).includes(term)) search.category = term
@@ -58,6 +59,8 @@ export default content => {
             search.including = results[0].id
             break
           }
+
+          ignoredTerms.push(term)
         }
       }
     }
@@ -91,5 +94,10 @@ export default content => {
     return true
   })
 
-  return 'https://stormbound-kitty.com/deck/' + arrayRandom(results).id
+  return [
+    'https://stormbound-kitty.com/deck/' + arrayRandom(results).id,
+    getIgnoredSearch(search, ignoredTerms),
+  ]
+    .filter(Boolean)
+    .join('\n')
 }

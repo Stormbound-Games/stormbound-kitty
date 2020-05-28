@@ -14,6 +14,8 @@ export const searcher = new FuzzySearch(
 const CARD_ABBREVIATIONS = getCardAbbreviations()
 
 export default search => {
+  if (search.length === 0) return []
+
   const cardFromID = getRawCardData(search.toUpperCase())
 
   if (cardFromID.id) return [cardFromID]

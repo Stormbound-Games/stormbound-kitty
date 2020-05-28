@@ -3,6 +3,7 @@ import { FACTIONS } from '../../constants/game'
 import arrayRandom from '../../helpers/arrayRandom'
 import getRandomDeck from '../../helpers/getRandomDeck'
 import serialisation from '../../helpers/serialisation'
+import getIgnoredSearch from '../../helpers/getIgnoredSearch'
 
 const BASE_OPTIONS = {
   maxEpicCards: 4,
@@ -51,14 +52,9 @@ export default search => {
     faction: searchTerms.faction || arrayRandom(Object.keys(FACTIONS)),
   })
 
-  const adjustSearch = search
-    .split(/\s+/g)
-    .map(search => (ignoredTerms.includes(search) ? `~~${search}~~` : search))
-    .join(' ')
-
   return [
     'https://stormbound-kitty.com/deck/' + serialisation.deck.serialise(deck),
-    ignoredTerms.length > 0 ? `*Search: ${adjustSearch}*` : '',
+    getIgnoredSearch(search, ignoredTerms),
   ]
     .filter(Boolean)
     .join('\n')
