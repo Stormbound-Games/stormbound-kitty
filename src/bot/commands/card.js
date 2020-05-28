@@ -7,9 +7,7 @@ export default content => {
 
   const results = getCardsForSearch(search)
 
-  if (results.length === 0) {
-    return 'Meeooow… Sorry, I could not find a card matching this search term. :sob:'
-  }
+  if (results.length === 0) return
 
   return results
     .map(card => 'https://stormbound-kitty.com/card/' + card.id)

@@ -66,9 +66,7 @@ export default content => {
       return true
     })
 
-  if (results.length === 0) {
-    return 'Meeooow… Sorry, I could not find a card matching this search term. :sob:'
-  }
+  if (results.length === 0) return
 
   const adjustSearch = search
     .split(/\s+/g)

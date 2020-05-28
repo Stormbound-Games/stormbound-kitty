@@ -60,9 +60,7 @@ export default content => {
     }
   })
 
-  if (params.toString().length === 0) {
-    return 'Meeooow… Sorry, I could not find a deck search matching this term. :sob:'
-  }
+  if (params.toString().length === 0) return
 
   return 'https://stormbound-kitty.com/deck/suggestions?' + params.toString()
 }

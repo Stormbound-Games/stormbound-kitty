@@ -7,9 +7,7 @@ export default content => {
 
   const results = getStoriesForSearch(search)
 
-  if (results.length === 0) {
-    return 'Meeooow… Sorry, I could not find any story matching this search term. :sob:'
-  }
+  if (results.length === 0) return
 
   return results
     .slice(0, 2)
