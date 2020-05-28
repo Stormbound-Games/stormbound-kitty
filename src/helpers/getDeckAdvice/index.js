@@ -148,6 +148,12 @@ const getDeckAdvice = cards => {
   const hasSpellbinderZhevana = cards.map(c => c.id).includes('W8')
   const hasMidwinterChaos = cards.map(c => c.id).includes('W11')
   const hasMomentsPeace = cards.map(c => c.id).includes('W6')
+  const hasFreezeConsumer =
+    cards.map(c => c.id).includes('W1') || cards.map(c => c.id).includes('W4')
+  const hasFreezeCards =
+    cards.map(c => c.id).includes('W2') ||
+    cards.map(c => c.id).includes('W6') ||
+    cards.map(c => c.id).includes('W11')
   const constructs = getConstructs(cards)
   const oddManaCards = getOddManaCards(cards)
   const evenManaCards = getEvenManaCards(cards)
@@ -278,6 +284,15 @@ const getDeckAdvice = cards => {
         description:
           "This deck includes Spellbinder Zhevana but doesn’t include efficient freeze cards. Consider including Moment's Peace or Midwinter Chaos.",
         highlight: () => ['W8', 'W11', 'W6'],
+      },
+
+    hasFreezeConsumer &&
+      !hasFreezeCards && {
+        id: 'INEFFICIENT_FREEZE_COMBOS',
+        name: 'Inefficient freeze combos',
+        description:
+          "This deck includes Wisp Cloud or Icicle Burst but doesn’t include freeze cards. Consider including Moment's Peace, Frosthexers or Midwinter Chaos.",
+        highlight: () => ['W2', 'W11', 'W6'],
       },
   ].filter(Boolean)
 }
