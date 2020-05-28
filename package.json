@@ -4,13 +4,13 @@
   "private": true,
   "dependencies": {
     "@loadable/component": "^5.12.0",
-    "@reach/tooltip": "^0.10.1",
+    "@reach/tooltip": "^0.10.3",
     "copy-to-clipboard": "^3.3.1",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "esm": "^3.2.25",
     "form-serialize": "^0.7.2",
-    "framer-motion": "^1.10.3",
+    "framer-motion": "^1.11.0",
     "fuzzy-search": "^3.2.1",
     "hook-into-props": "^4.0.1",
     "html2canvas": "^1.0.0-rc.5",
@@ -23,7 +23,7 @@
     "react-dom": "^16.13.1",
     "react-helmet-async": "^1.0.6",
     "react-intersection-observer": "^8.26.2",
-    "react-router-dom": "^5.1.2",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.1",
     "react-select": "^3.1.0",
     "recharts": "^1.8.5",
@@ -49,17 +49,17 @@
   ],
   "devDependencies": {
     "asyncro": "^3.0.0",
-    "cypress": "^4.5.0",
-    "cypress-react-unit-test": "^4.1.5",
-    "eslint": "^6.8.0",
+    "cypress": "^4.7.0",
+    "cypress-react-unit-test": "^4.3.0",
+    "eslint": "^7.1.0",
     "husky": "^4.2.5",
     "imagemin": "^7.0.1",
-    "imagemin-webp": "^5.1.0",
-    "lint-staged": "^10.2.2",
+    "imagemin-webp": "^6.0.0",
+    "lint-staged": "^10.2.6",
     "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
     "spritesh": "^1.2.1",
-    "webpack-bundle-analyzer": "^3.7.0"
+    "webpack-bundle-analyzer": "^3.8.0"
   },
   "husky": {
     "hooks": {
