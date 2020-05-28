@@ -73,7 +73,7 @@ const computeDeckChances = (deck, mana) => {
   // Find all the hand sequences being fully playable within the available mana.
   const sequencesUsingAllCards = sequences
     .map(sum)
-    .filter(manaCost => manaCost < mana)
+    .filter(manaCost => manaCost <= mana)
 
   return {
     usingAllMana: (sequencesUsingAllMana.length / sequences.length) * 100,
