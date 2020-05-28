@@ -2,7 +2,6 @@ import FuzzySearch from 'fuzzy-search'
 import cards from '../../data/cards'
 import getRawCardData from '../getRawCardData'
 import getCardAbbreviations from '../getCardAbbreviations'
-import toArray from '../toArray'
 
 const SEARCH_OPTIONS = { caseSensitive: false, sort: true }
 
@@ -15,12 +14,13 @@ export const searcher = new FuzzySearch(
 const CARD_ABBREVIATIONS = getCardAbbreviations()
 
 export default search => {
-  return toArray(
-    // Handle Stormbound-Kitty IDs — regardless of the case (e.g. `N1`)
-    getRawCardData(search.toUpperCase()) ||
-      // Handle abbreviated names — regardless of the case (e.g. `RoF`)
-      getRawCardData(CARD_ABBREVIATIONS[search.toLowerCase()]) ||
-      // Handle loose names with fuzzy-searching
-      searcher.search(search.trim())
-  )
+  const cardFromID = getRawCardData(search.toUpperCase())
+
+  if (cardFromID.id) return [cardFromID]
+
+  const cardFromAbbr = getRawCardData(CARD_ABBREVIATIONS[search.toLowerCase()])
+
+  if (cardFromAbbr.id) return [cardFromAbbr]
+
+  return searcher.search(search.trim())
 }
