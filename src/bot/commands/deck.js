@@ -7,7 +7,7 @@ import getCardAbbreviations from '../../helpers/getCardAbbreviations'
 const CARD_ABBREVIATIONS = getCardAbbreviations()
 
 export default content => {
-  const search = content.replace('!deck', '').trim().toLowerCase()
+  const search = content.toLowerCase()
   const params = new URLSearchParams()
 
   if (search.length === 0) return

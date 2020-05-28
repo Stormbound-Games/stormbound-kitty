@@ -11,38 +11,40 @@ const BASE_OPTIONS = {
   availableCards: cards.filter(card => !card.token),
 }
 
-export default content => {
-  const search = content.replace('!randomdeck', '').trim()
+export default search => {
   const ignoredTerms = []
-  const searchTerms = search.split(/\s+/g).reduce((search, term) => {
-    if (Object.keys(FACTIONS).includes(term)) search.faction = term
-    else {
-      switch (term) {
-        case 'ic':
-        case 'red':
-          search.faction = 'ironclad'
-          break
-        case 'sf':
-        case 'green':
-          search.faction = 'shadowfen'
-          break
-        case 'w':
-        case 'wp':
-        case 'blue':
-          search.faction = 'winter'
-          break
-        case 'sw':
-        case 'yellow':
-          search.faction = 'swarm'
-          break
-        default:
-          ignoredTerms.push(term)
-          break
+  const searchTerms = search
+    .split(/\s+/g)
+    .filter(Boolean)
+    .reduce((search, term) => {
+      if (Object.keys(FACTIONS).includes(term)) search.faction = term
+      else {
+        switch (term) {
+          case 'ic':
+          case 'red':
+            search.faction = 'ironclad'
+            break
+          case 'sf':
+          case 'green':
+            search.faction = 'shadowfen'
+            break
+          case 'w':
+          case 'wp':
+          case 'blue':
+            search.faction = 'winter'
+            break
+          case 'sw':
+          case 'yellow':
+            search.faction = 'swarm'
+            break
+          default:
+            ignoredTerms.push(term)
+            break
+        }
       }
-    }
 
-    return search
-  }, {})
+      return search
+    }, {})
 
   const deck = getRandomDeck({
     ...BASE_OPTIONS,

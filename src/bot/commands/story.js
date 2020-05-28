@@ -1,9 +1,11 @@
 import getStoriesForSearch from '../../helpers/getStoriesForSearch'
+import arrayRandom from '../../helpers/arrayRandom'
+import stories from '../../../public/stories'
 
-export default content => {
-  const search = content.replace('!story', '').trim()
-
-  if (search.length === 0) return
+export default search => {
+  if (search === 'random' || search === '') {
+    return 'https://stormbound-kitty.com/stories/' + arrayRandom(stories).id
+  }
 
   const results = getStoriesForSearch(search)
 

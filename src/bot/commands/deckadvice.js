@@ -8,8 +8,8 @@ const getIdFromURL = url =>
     .replace('/detail', '')
     .replace('/dry-run', '')
 
-export default content => {
-  const id = getIdFromURL(content.replace('!deckadvice', '').trim())
+export default search => {
+  const id = getIdFromURL(search)
 
   if (id.length === 0) return
 

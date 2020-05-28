@@ -5,9 +5,11 @@ import arrayRandom from '../../helpers/arrayRandom'
 const linkify = card => 'https://stormbound-kitty.com/card/' + card.id
 
 export default content => {
-  const search = content.replace('!randomcard', '').trim().toLowerCase()
+  const search = content.toLowerCase()
 
-  if (search.length === 0) return
+  if (search.length === 0) {
+    return linkify(arrayRandom(cards))
+  }
 
   const ignoredTerms = []
   const searchTerms = search.split(/\s+/g).reduce((search, term) => {

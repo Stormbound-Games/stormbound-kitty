@@ -26,24 +26,25 @@ const send = client => (message, content) => {
 export default client => message => {
   const [command] = message.content.split(' ')
   const reply = send(client)
+  const search = message.content.replace(command, '').trim()
 
   switch (command) {
     case '!abbr':
-      return reply(message, abbr(message.content))
+      return reply(message, abbr(search))
     case '!cardinfo':
-      return reply(message, cardinfo(message.content))
+      return reply(message, cardinfo(search))
     case '!deck':
-      return reply(message, deck(message.content))
+      return reply(message, deck(search))
     case '!deckadvice':
-      return reply(message, deckadvice(message.content))
+      return reply(message, deckadvice(search))
     case '!help':
-      return reply(message, help(message.content))
+      return reply(message, help(search))
     case '!randomcard':
-      return reply(message, randomcard(message.content))
+      return reply(message, randomcard(search))
     case '!randomdeck':
-      return reply(message, randomdeck(message.content))
+      return reply(message, randomdeck(search))
     case '!story':
-      return reply(message, story(message.content))
+      return reply(message, story(search))
     default:
       return
   }
