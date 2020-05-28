@@ -1,9 +1,9 @@
 import abbr from './commands/abbr'
-import advice from './commands/advice'
-import card from './commands/card'
+import deckadvice from './commands/deckadvice'
+import cardinfo from './commands/cardinfo'
 import deck from './commands/deck'
 import help from './commands/help'
-import random from './commands/random'
+import randomcard from './commands/randomcard'
 import story from './commands/story'
 
 const send = client => (message, content) => {
@@ -27,20 +27,20 @@ export default client => message => {
   const reply = send(client)
 
   switch (command) {
-    case '!card':
-      return reply(message, card(message.content))
-    case '!random':
-      return reply(message, random(message.content))
     case '!abbr':
       return reply(message, abbr(message.content))
+    case '!cardinfo':
+      return reply(message, cardinfo(message.content))
     case '!deck':
       return reply(message, deck(message.content))
-    case '!advice':
-      return reply(message, advice(message.content))
-    case '!story':
-      return reply(message, story(message.content))
+    case '!deckadvice':
+      return reply(message, deckadvice(message.content))
     case '!help':
       return reply(message, help(message.content))
+    case '!randomcard':
+      return reply(message, randomcard(message.content))
+    case '!story':
+      return reply(message, story(message.content))
     default:
       return
   }

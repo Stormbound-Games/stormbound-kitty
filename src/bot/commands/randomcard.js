@@ -5,7 +5,7 @@ import arrayRandom from '../../helpers/arrayRandom'
 const linkify = card => 'https://stormbound-kitty.com/card/' + card.id
 
 export default content => {
-  const search = content.replace('!random', '').trim().toLowerCase()
+  const search = content.replace('!randomcard', '').trim().toLowerCase()
 
   if (search.length === 0) return
 

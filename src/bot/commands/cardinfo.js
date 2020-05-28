@@ -1,7 +1,7 @@
 import getCardsForSearch from '../../helpers/getCardsForSearch'
 
 export default content => {
-  const search = content.replace('!card', '').trim()
+  const search = content.replace('!cardinfo', '').trim()
 
   if (search.length === 0) return
 

@@ -1,5 +1,5 @@
 const CARD_SEARCH = [
-  '⚡️ **Card search** (e.g. `!card rof`)',
+  '⚡️ **Card search** (e.g. `!cardinfo rof`)',
   '       *Get information about the card(s) matching given search criteria*',
 ]
 
@@ -9,7 +9,7 @@ const ABBREVIATIONS = [
 ]
 
 const RANDOM_CARD = [
-  '🎲 **Random card** (e.g. `!random ic spell rare`)',
+  '🎲 **Random card** (e.g. `!randomcard ic spell rare`)',
   '       *Get a random card matching given search criteria*',
 ]
 
@@ -19,7 +19,7 @@ const DECK_SEARCH = [
 ]
 
 const DECK_ADVICE = [
-  '💎 **Deck advice** (e.g. `!advice https://stormbound-kitty.com/deck/3n13n23s13n33s243s23n633n673s63n153s83s11`)',
+  '💎 **Deck advice** (e.g. `!deckadvice https://stormbound-kitty.com/deck/3n13n23s13n33s243s23n633n673s63n153s83s11`)',
   '       *Get advice and suggestions for the given deck.*',
 ]
 

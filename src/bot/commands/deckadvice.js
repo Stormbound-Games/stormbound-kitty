@@ -9,7 +9,7 @@ const getIdFromURL = url =>
     .replace('/dry-run', '')
 
 export default content => {
-  const id = getIdFromURL(content.replace('!advice', '').trim())
+  const id = getIdFromURL(content.replace('!deckadvice', '').trim())
 
   if (id.length === 0) return
 
