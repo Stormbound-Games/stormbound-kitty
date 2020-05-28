@@ -6,8 +6,12 @@
     "@loadable/component": "^5.12.0",
     "@reach/tooltip": "^0.10.1",
     "copy-to-clipboard": "^3.3.1",
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
     "form-serialize": "^0.7.2",
     "framer-motion": "^1.10.3",
+    "fuzzy-search": "^3.2.1",
     "hook-into-props": "^4.0.1",
     "html2canvas": "^1.0.0-rc.5",
     "lodash.clonedeep": "^4.5.0",
@@ -32,7 +36,9 @@
     "test": "cypress run",
     "eject": "react-scripts eject",
     "audit": "NODE_ENV=production node bin/audit.js",
-    "icons": "spritesh --input public/assets/icons --output sprite.svg --prefix 'icon-'"
+    "icons": "spritesh --input public/assets/icons --output sprite.svg --prefix 'icon-'",
+    "bot": "node -r esm bin/bot.js",
+    "bot:dev": "nodemon -x \"node -r esm\" bin/bot.js --watch src"
   },
   "browserslist": [
     ">0.2%",
@@ -49,6 +55,7 @@
     "imagemin": "^7.0.1",
     "imagemin-webp": "^5.1.0",
     "lint-staged": "^10.2.2",
+    "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
     "puppeteer": "^3.0.4",
     "spritesh": "^1.2.1",

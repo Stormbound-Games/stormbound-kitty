@@ -240,3 +240,11 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
 ]
+
+export const COMMON_ABBREVIATIONS = {
+  AoE: 'Area of Effect',
+  BH: 'Base Health',
+  HP: 'Health Point(s)',
+  RR: 'Reckless Rush',
+  FS: 'Fusion Stones',
+}

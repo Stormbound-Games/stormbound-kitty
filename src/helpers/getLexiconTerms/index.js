@@ -1,8 +1,9 @@
 import React from 'react'
 import WikiLink from '../../components/WikiLink'
+import { COMMON_ABBREVIATIONS } from '../../constants/misc'
 import cards from '../../data/cards'
 
-const cardsTerms = cards
+const cardTerms = cards
   .filter(card => !card.token)
   .reduce((acc, card) => {
     const short = card.name
@@ -15,9 +16,6 @@ const cardsTerms = cards
   }, {})
 
 export default () => ({
-  AoE: 'Area of Effect',
-  BH: 'Base Health',
-  HP: 'Health Point(s)',
-  ...cardsTerms,
-  FS: 'Fusion Stones',
+  ...cardTerms,
+  ...COMMON_ABBREVIATIONS,
 })
