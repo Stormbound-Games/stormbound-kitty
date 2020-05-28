@@ -20,16 +20,16 @@ const formatCommand = command => `${command.icon} **${command.name}** (e.g. \`!$
        *${command.description}*`
 
 export default client => message => {
-  const [command] = message.content.split(' ')
+  const [command, ...rest] = message.content.split(' ')
   const reply = send(client)
-  const search = message.content.replace(command, '').trim()
+  const search = rest.join(' ').trim()
 
   if (command === '!help') {
     return reply(message, '\n' + COMMANDS.map(formatCommand).join('\n'))
   }
 
-  if (COMMANDS.map(({ command }) => command).includes(command)) {
-    const { default: handler } = require('./commands/' + command)
+  if (COMMANDS.map(({ command }) => command).includes(command.slice(1))) {
+    const { default: handler } = require('./commands/' + command.slice(1))
 
     return reply(message, handler(search))
   }
