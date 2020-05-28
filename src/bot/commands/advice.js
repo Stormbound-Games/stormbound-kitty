@@ -16,8 +16,11 @@ export default content => {
   try {
     const cards = serialisation.deck.deserialise(id).map(getResolvedCardData)
 
-    return getDeckAdvice(cards)
-      .map(advice => `**${advice.name}:** ${advice.description}`)
-      .join('\n')
+    return (
+      'Some comments and possible suggestions about your deck:\n' +
+      getDeckAdvice(cards)
+        .map(advice => `- **${advice.name}:** ${advice.description}`)
+        .join('\n')
+    )
   } catch (error) {}
 }
