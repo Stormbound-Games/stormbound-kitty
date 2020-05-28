@@ -13,11 +13,6 @@ export default content => {
   }
 
   if (result) {
-    const card = getRawCardData(result)
-
-    return [
-      `“${search}” might mean “${card.name}”.`,
-      'https://stormbound-kitty.com/card/' + getRawCardData(result).id,
-    ].join('\n')
+    return `“${search}” might mean “${getRawCardData(result).name}”.`
   }
 }
