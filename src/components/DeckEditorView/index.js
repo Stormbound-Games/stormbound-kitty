@@ -21,9 +21,8 @@ import ResetButton from '../ResetButton'
 import Row from '../Row'
 import ShareButton from '../DeckShareButton'
 import Title from '../Title'
+import getDeckBuilderMetaTags from '../../helpers/getDeckBuilderMetaTags'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
-import getRawCardData from '../../helpers/getRawCardData'
-import sortByMana from '../../helpers/sortByMana'
 import isSuggestedDeck from '../../helpers/isSuggestedDeck'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
@@ -89,20 +88,6 @@ class DeckEditorView extends React.Component {
     if (!collection) return
 
     this.adjustDeckToCollection(collection)
-  }
-
-  getDeckDescription = () => {
-    if (this.props.deck.length < 12) {
-      return 'Compose your own deck.'
-    }
-
-    return this.props.deck
-      .slice(0)
-      .sort(sortByMana)
-      .map(card => {
-        return `${getRawCardData(card.id).name} (${card.level})`
-      })
-      .join(', ')
   }
 
   render() {
@@ -242,10 +227,7 @@ class DeckEditorView extends React.Component {
           </Column>
         </Row>
 
-        <PageMeta
-          title='Deck Builder'
-          description={this.getDeckDescription()}
-        />
+        <PageMeta {...getDeckBuilderMetaTags(this.props.deck, matchedDeck)} />
       </>
     )
   }
