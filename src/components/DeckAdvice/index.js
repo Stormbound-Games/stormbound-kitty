@@ -144,6 +144,9 @@ const getSuggestions = cards => {
     c => c.id !== 'N13' && c.id !== 'I5' && c.id !== 'I14'
   )
   const hasLinkedGolems = cards.map(c => c.id).includes('I8')
+  const hasHighPriestessKlaxi = cards.map(c => c.id).includes('F23')
+  const hasRainOfFrogs = cards.map(c => c.id).includes('F8')
+  const hasAzureHatchers = cards.map(c => c.id).includes('F10')
   const constructs = getConstructs(cards)
   const oddManaCards = getOddManaCards(cards)
   const evenManaCards = getEvenManaCards(cards)
@@ -254,6 +257,16 @@ const getSuggestions = cards => {
         description:
           'This deck includes Linked Golems but doesn’t include enough constructs to provide good synergy. Consider including more constructs.',
         highlight: () => constructs,
+      },
+
+    hasHighPriestessKlaxi &&
+      !hasRainOfFrogs &&
+      !hasAzureHatchers && {
+        id: 'INEFFICIENT_HIGH_PRIESTESS_KLAXI',
+        name: 'Undervalued High Priestess Klaxi',
+        description:
+          'This deck includes High Priestess Klaxi but doesn’t include a way to spawn many units of the same strength. Consider including Rain of Frogs or Azure Hatchers.',
+        highlight: () => ['F23', 'F8', 'F10'],
       },
   ].filter(Boolean)
 }
