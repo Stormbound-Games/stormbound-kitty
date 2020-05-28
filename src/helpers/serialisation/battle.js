@@ -2,6 +2,7 @@ import { DEFAULT_CELL, DEFAULT_CARD } from '../../constants/battle'
 import arrayPad from '../arrayPad'
 import chunk from '../chunk'
 import getRawCardData from '../getRawCardData'
+import { base64Decode, base64Encode } from '../base64'
 import { getShortFaction, getLongFaction } from '../encoding'
 import serialisation from './'
 
@@ -133,6 +134,6 @@ const deserialiseBattle = encodedString => {
 }
 
 export default {
-  serialise: (...chunks) => window.btoa(serialiseBattle(...chunks)),
-  deserialise: hash => deserialiseBattle(window.atob(hash)),
+  serialise: (...chunks) => base64Encode(serialiseBattle(...chunks)),
+  deserialise: hash => deserialiseBattle(base64Decode(hash)),
 }

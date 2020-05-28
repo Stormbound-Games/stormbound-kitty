@@ -10,6 +10,7 @@ import {
   getShortRarity,
   getShortType,
 } from '../encoding'
+import { base64Decode, base64Encode } from '../base64'
 
 const resolveMana = value => {
   const chunks = value.split('/')
@@ -108,6 +109,6 @@ const serialiseCard = formState =>
   ].join(';')
 
 export default {
-  serialise: card => window.btoa(serialiseCard(card)),
-  deserialise: hash => deserialiseCard(window.atob(hash)),
+  serialise: card => base64Encode(serialiseCard(card)),
+  deserialise: hash => deserialiseCard(base64Decode(hash)),
 }

@@ -1,4 +1,5 @@
 import serialisation from './'
+import { base64Decode } from '../base64'
 
 const serialiseDeck = cards => {
   // Do not en/decode to base64 as the hash ends up being longer than the
@@ -14,7 +15,7 @@ const serialiseDeck = cards => {
  */
 const deserialiseDeck = hash => {
   try {
-    const string = window.atob(hash)
+    const string = base64Decode(hash)
 
     // The card serialisation system operates within the base64 range, which
     // means it is technically possible to base64 decode a deck string without

@@ -1,3 +1,5 @@
+import { base64Decode, base64Encode } from '../base64'
+
 export const serialiseList = tiers =>
   tiers
     .filter(tier => tier.cards.length > 0)
@@ -15,6 +17,6 @@ export const deserialiseList = string =>
   })
 
 export default {
-  serialise: card => window.btoa(serialiseList(card)),
-  deserialise: hash => deserialiseList(window.atob(hash)),
+  serialise: card => base64Encode(serialiseList(card)),
+  deserialise: hash => deserialiseList(base64Decode(hash)),
 }

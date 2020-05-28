@@ -15,6 +15,7 @@ export const serialiseCards = cards =>
 
 // Exported for testing purposes
 export const deserialiseCards = string => {
+  let count = 0
   // If the base64 decoded string contains commas, it was originally encoded
   // with the old serialisation system, and these commas need to be removed
   // for the new system to work.
@@ -23,7 +24,7 @@ export const deserialiseCards = string => {
   const cards = []
   const factionRegex = /[NSFWIT]/
 
-  while (string.length) {
+  while (string.length && count++ < 12) {
     // Find the first faction (or token) indicator
     const indexOfFaction = indexOf(string, factionRegex)
     // Anything before the faction/token indicator is the level (or strength in

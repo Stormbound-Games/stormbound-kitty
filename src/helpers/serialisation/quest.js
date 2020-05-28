@@ -1,5 +1,6 @@
 import { getLongCurrency } from '../encoding'
 import { getShortCurrency } from '../encoding'
+import { base64Decode, base64Encode } from '../base64'
 
 const QUEST_PROPERTIES = [
   { name: 'name', resolve: value => decodeURIComponent(value) },
@@ -27,6 +28,6 @@ export const serialiseQuest = formState =>
   ].join(';')
 
 export default {
-  serialise: quest => window.btoa(serialiseQuest(quest)),
-  deserialise: hash => deserialiseQuest(window.atob(hash)),
+  serialise: quest => base64Encode(serialiseQuest(quest)),
+  deserialise: hash => deserialiseQuest(base64Decode(hash)),
 }
