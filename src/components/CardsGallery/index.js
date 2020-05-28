@@ -6,6 +6,19 @@ import chunk from '../../helpers/chunk'
 import './index.css'
 
 export default React.memo(function CardsGallery(props) {
+  const [allowScroll, setAllowScroll] = React.useState(false)
+
+  // See: https://github.com/framer/motion/issues/185#issuecomment-542829562
+  React.useEffect(() => {
+    if (allowScroll) {
+      const handleTouch = event => event.stopPropagation()
+      const html = document.documentElement
+
+      html.addEventListener('touchmove', handleTouch)
+      return () => html.removeEventListener('touchmove', handleTouch)
+    }
+  }, [allowScroll])
+
   const container = React.useRef()
   const [activePage, setActivePage] = React.useState(0)
   const pages = React.useMemo(
@@ -50,6 +63,10 @@ export default React.memo(function CardsGallery(props) {
       <motion.ul
         drag={pages.length > 1 ? 'x' : undefined}
         dragConstraints={container}
+        dragDirectionLock
+        onDragStart={(event, info) => {
+          setAllowScroll(Math.abs(info.delta.y) > Math.abs(info.delta.x))
+        }}
         onDragEnd={handleDrag}
         className='CardsGallery__list'
       >
