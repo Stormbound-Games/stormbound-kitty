@@ -1,12 +1,4 @@
-import abbr from './commands/abbr'
-import deckadvice from './commands/deckadvice'
-import cardinfo from './commands/cardinfo'
-import decks from './commands/decks'
-import help from './commands/help'
-import randomcard from './commands/randomcard'
-import randomdeck from './commands/randomdeck'
-import story from './commands/story'
-import suggestdeck from './commands/suggestdeck'
+import COMMANDS from './commands'
 
 const send = client => (message, content) => {
   if (!content) return
@@ -29,26 +21,9 @@ export default client => message => {
   const reply = send(client)
   const search = message.content.replace(command, '').trim()
 
-  switch (command) {
-    case '!abbr':
-      return reply(message, abbr(search))
-    case '!cardinfo':
-      return reply(message, cardinfo(search))
-    case '!decks':
-      return reply(message, decks(search))
-    case '!deckadvice':
-      return reply(message, deckadvice(search))
-    case '!help':
-      return reply(message, help(search))
-    case '!randomcard':
-      return reply(message, randomcard(search))
-    case '!randomdeck':
-      return reply(message, randomdeck(search))
-    case '!story':
-      return reply(message, story(search))
-    case '!suggestdeck':
-      return reply(message, suggestdeck(search))
-    default:
-      return
+  if (COMMANDS.map(({ command }) => command).includes(command)) {
+    const { default: handler } = require('./commands/' + command)
+
+    return reply(message, handler(search))
   }
 }
