@@ -4,6 +4,7 @@ import cardinfo from './commands/cardinfo'
 import deck from './commands/deck'
 import help from './commands/help'
 import randomcard from './commands/randomcard'
+import randomdeck from './commands/randomdeck'
 import story from './commands/story'
 
 const send = client => (message, content) => {
@@ -39,6 +40,8 @@ export default client => message => {
       return reply(message, help(message.content))
     case '!randomcard':
       return reply(message, randomcard(message.content))
+    case '!randomdeck':
+      return reply(message, randomdeck(message.content))
     case '!story':
       return reply(message, story(message.content))
     default:
