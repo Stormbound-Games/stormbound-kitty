@@ -53,6 +53,12 @@ describe('Deck Builder — Advice', () => {
       .should('be.visible')
   })
 
+  it('should warn about inefficient High Priestess Klaxi', () => {
+    cy.visit('/deck/1f41n81n611n181n91n251f131n311n341n361n381f23')
+      .get('#INEFFICIENT_HIGH_PRIESTESS_KLAXI')
+      .should('be.visible')
+  })
+
   it('should warn about lack of AoE', () => {
     cy.visit('/deck/1n11n21n31n671n71n101n201i141n651n271i281n76/detail')
       .get('#LACK_OF_AOE')
