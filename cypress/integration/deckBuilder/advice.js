@@ -59,6 +59,12 @@ describe('Deck Builder — Advice', () => {
       .should('be.visible')
   })
 
+  it('should warn about inefficient Spellbinder Zhevana', () => {
+    cy.visit('/deck/1n501w191n621w171n701n51n631n141w81w281n151n41/detail')
+      .get('#INEFFICIENT_SPELLBINDER_ZHEVANA')
+      .should('be.visible')
+  })
+
   it('should warn about lack of AoE', () => {
     cy.visit('/deck/1n11n21n31n671n71n101n201i141n651n271i281n76/detail')
       .get('#LACK_OF_AOE')

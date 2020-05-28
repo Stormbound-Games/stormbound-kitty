@@ -145,6 +145,9 @@ const getDeckAdvice = cards => {
   const hasHighPriestessKlaxi = cards.map(c => c.id).includes('F23')
   const hasRainOfFrogs = cards.map(c => c.id).includes('F8')
   const hasAzureHatchers = cards.map(c => c.id).includes('F10')
+  const hasSpellbinderZhevana = cards.map(c => c.id).includes('W8')
+  const hasMidwinterChaos = cards.map(c => c.id).includes('W11')
+  const hasMomentsPeace = cards.map(c => c.id).includes('W6')
   const constructs = getConstructs(cards)
   const oddManaCards = getOddManaCards(cards)
   const evenManaCards = getEvenManaCards(cards)
@@ -265,6 +268,16 @@ const getDeckAdvice = cards => {
         description:
           'This deck includes High Priestess Klaxi but doesn’t include a way to spawn many units of the same strength. Consider including Rain of Frogs or Azure Hatchers.',
         highlight: () => ['F23', 'F8', 'F10'],
+      },
+
+    hasSpellbinderZhevana &&
+      !hasMidwinterChaos &&
+      !hasMomentsPeace && {
+        id: 'INEFFICIENT_SPELLBINDER_ZHEVANA',
+        name: 'Undervalued Spellbinder Zhevana',
+        description:
+          "This deck includes Spellbinder Zhevana but doesn’t include efficient freeze cards. Consider including Moment's Peace or Midwinter Chaos.",
+        highlight: () => ['W8', 'W11', 'W6'],
       },
   ].filter(Boolean)
 }
