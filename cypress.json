@@ -14,7 +14,9 @@
     "**/constants/*.js",
     "**/data/*.*",
     "**/hooks/*.js",
-    "serviceWorker.js"
+    "serviceWorker.js",
+    "**/bot/commands/*.js",
+    "**/bot/*.js"
   ],
   "projectId": "h321g2"
 }

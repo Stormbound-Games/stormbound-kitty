@@ -1,4 +1,15 @@
-const cards = require('./src/data/cards')
+import React from 'react'
+import {
+  Legend,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
+import { TOOLTIP_STYLES } from '../../constants/stats'
 
 const getSequences = () => {
   const sequence = [0, 1, 2, 3]
@@ -27,6 +38,8 @@ const getSequences = () => {
   return sequences
 }
 
+const SEQUENCES = getSequences()
+
 const getManaSequences = ([A, B, C, D]) => [
   A,
   A + B,
@@ -50,7 +63,7 @@ const sum = sequence => sequence.reduce((acc, value) => acc + value, 0)
 const computeDeckChances = (deck, mana) => {
   // Compute all the possible unique hand sequences that can happen for the
   // given deck, and resolve them to host mana instead of card index.
-  const sequences = getSequences().map(sequence =>
+  const sequences = SEQUENCES.map(sequence =>
     sequence.map(index => deck[index].mana)
   )
   // Find all the hand sequences using all the available mana.
@@ -60,7 +73,7 @@ const computeDeckChances = (deck, mana) => {
   // Find all the hand sequences being fully playable within the available mana.
   const sequencesUsingAllCards = sequences
     .map(sum)
-    .filter(manaCost => manaCost < mana)
+    .filter(manaCost => manaCost <= mana)
 
   return {
     usingAllMana: (sequencesUsingAllMana.length / sequences.length) * 100,
@@ -68,7 +81,42 @@ const computeDeckChances = (deck, mana) => {
   }
 }
 
-const mana = 9
-const deck = cards.filter(card => typeof card.mana === 'number').slice(0, 12)
+export default React.memo(function DeckStatsChart(props) {
+  const deck = props.deck.map(getResolvedCardData)
+  const data = Array.from({ length: 15 }, (_, index) => {
+    const mana = index + 3
+    const { usingAllMana, playingAllCards } = computeDeckChances(deck, mana)
 
-console.log(computeDeckChances(deck, mana))
+    return {
+      mana,
+      usingAllMana: +usingAllMana.toFixed(2),
+      playingAllCards: +playingAllCards.toFixed(2),
+    }
+  })
+
+  return (
+    <ResponsiveContainer width='100%' height={300}>
+      <LineChart
+        data={data}
+        margin={{ top: 5, right: 0, left: -28, bottom: 5 }}
+      >
+        <XAxis dataKey='mana' />
+        <YAxis />
+        <Tooltip {...TOOLTIP_STYLES} labelFormatter={mana => 'Mana ' + mana} />
+        <Legend />
+        <Line
+          name='Chances to spend all mana'
+          type='monotone'
+          dataKey='usingAllMana'
+          stroke='#8884d8'
+        />
+        <Line
+          name='Chances to play all cards'
+          type='monotone'
+          dataKey='playingAllCards'
+          stroke='#82ca9d'
+        />
+      </LineChart>
+    </ResponsiveContainer>
+  )
+})

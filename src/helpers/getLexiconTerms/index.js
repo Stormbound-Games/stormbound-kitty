@@ -1,5 +1,6 @@
 import React from 'react'
 import WikiLink from '../../components/WikiLink'
+import { COMMON_ABBREVIATIONS } from '../../constants/misc'
 import cards from '../../data/cards'
 
 const cardsTerms = cards
@@ -15,9 +16,6 @@ const cardsTerms = cards
   }, {})
 
 export default () => ({
-  AoE: 'Area of Effect',
-  BH: 'Base Health',
-  HP: 'Health Point(s)',
   ...cardsTerms,
-  FS: 'Fusion Stones',
+  ...COMMON_ABBREVIATIONS,
 })
