@@ -3,7 +3,7 @@ import WikiLink from '../../components/WikiLink'
 import { COMMON_ABBREVIATIONS } from '../../constants/misc'
 import cards from '../../data/cards'
 
-const cardTerms = cards
+const cardsTerms = cards
   .filter(card => !card.token)
   .reduce((acc, card) => {
     const short = card.name
@@ -16,6 +16,6 @@ const cardTerms = cards
   }, {})
 
 export default () => ({
-  ...cardTerms,
+  ...cardsTerms,
   ...COMMON_ABBREVIATIONS,
 })
