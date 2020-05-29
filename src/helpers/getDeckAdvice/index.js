@@ -167,6 +167,8 @@ const getDeckAdvice = cards => {
   const broodSagesPoisonCards =
     hasPoisonCards || cards.map(c => c.id).includes('F7')
   const hasBroodSages = cards.map(c => c.id).includes('F1')
+  const hasPoisonConsumer =
+    cards.map(c => c.id).includes('F11') || cards.map(c => c.id).includes('F15')
   const constructs = getConstructs(cards)
   const oddManaCards = getOddManaCards(cards)
   const evenManaCards = getEvenManaCards(cards)
@@ -310,6 +312,16 @@ const getDeckAdvice = cards => {
           'This deck includes cards needing freeze effects but doesn’t include cards with freeze capacity. Consider including Moment’s Peace, Frosthexers or Midwinter Chaos.',
         highlight: () => ['W2', 'W11', 'W6'],
       },
+
+    hasPoisonConsumer &&
+      !hasPoisonCards && {
+        id: 'INEFFICIENT_POISON_COMBOS',
+        name: 'Inefficient poison combos',
+        description:
+          'This deck includes cards needing poison effects but doesn’t include cards with poison capacity. Consider including Venomfall Spire, Toxic Sacrifice, Copperskin Rangers, or Crimson Sentry.',
+        highlight: () => ['F11', '15'],
+      },
+    ,
   ].filter(Boolean)
 }
 
