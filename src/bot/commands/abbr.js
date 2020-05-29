@@ -3,6 +3,13 @@ import getCardAbbreviations from '../../helpers/getCardAbbreviations'
 import { COMMON_ABBREVIATIONS } from '../../constants/misc'
 
 const CARD_ABBREVIATIONS = getCardAbbreviations()
+const ABBREVIATIONS = Object.keys(COMMON_ABBREVIATIONS).reduce(
+  (acc, key) => ({
+    ...acc,
+    [key.toLowerCase()]: COMMON_ABBREVIATIONS[key],
+  }),
+  {}
+)
 
 const quotify = value => `“${value}”`
 const sentencify = array => {
@@ -11,7 +18,7 @@ const sentencify = array => {
 }
 
 export default search => {
-  const commonMatch = COMMON_ABBREVIATIONS[search.toUpperCase()]
+  const commonMatch = ABBREVIATIONS[search.toLowerCase()]
   const cardMatch = CARD_ABBREVIATIONS[search.toLowerCase()]
   const matches = [
     commonMatch,
