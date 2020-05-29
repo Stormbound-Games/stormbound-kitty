@@ -163,8 +163,6 @@ const getDeckAdvice = cards => {
   const hasFreezeCards = hasAny(cards, ['W2', 'W6', 'W11'])
   const hasPoisonCards = hasAny(cards, ['F2', 'F4', 'F5', 'F13'])
   const hasPoisonConsumer = hasAny(cards, ['F11', 'F15'])
-  const hasEfficientBroodSages =
-    hasBroodSages && (hasPoisonCards || hasHeliotroopers)
   const constructs = getConstructs(cards)
   const oddManaCards = getOddManaCards(cards)
   const evenManaCards = getEvenManaCards(cards)
@@ -282,7 +280,7 @@ const getDeckAdvice = cards => {
     hasHighPriestessKlaxi &&
       !hasRainOfFrogs &&
       !hasAzureHatchers &&
-      !hasEfficientBroodSages && {
+      !(hasBroodSages && (hasPoisonCards || hasHeliotroopers)) && {
         id: 'INEFFICIENT_KLAXI',
         name: 'Undervalued High Priestess Klaxi',
         description:
@@ -318,13 +316,14 @@ const getDeckAdvice = cards => {
         highlight: () => ['F11', 'F15'],
       },
 
-    !hasEfficientBroodSages && {
-      id: 'INEFFICIENT_BROOD_SAGES',
-      name: 'Undervalued Brood Sages',
-      description:
-        'This deck includes Brood Sages but doesn’t include cards with poison capacity. Consider including Venomfall Spire, Toxic Sacrifice, Copperskin Rangers, Amberhides or Crimson Sentry.',
-      highlight: () => ['F1'],
-    },
+    hasBroodSages &&
+      !(hasPoisonCards || hasHeliotroopers) && {
+        id: 'INEFFICIENT_BROOD_SAGES',
+        name: 'Undervalued Brood Sages',
+        description:
+          'This deck includes Brood Sages but doesn’t include cards with poison capacity. Consider including Venomfall Spire, Toxic Sacrifice, Copperskin Rangers, Amberhides or Crimson Sentry.',
+        highlight: () => ['F1'],
+      },
   ].filter(Boolean)
 }
 
