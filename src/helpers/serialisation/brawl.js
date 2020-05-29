@@ -8,16 +8,18 @@ import {
 const serialiseMatch = match =>
   [
     match.opponentHealth,
-    getShortFaction(match.opponentFaction),
+    getShortFaction(match.opponentFaction), // `N` for unknown faction
     getShortMatchStatus(match.status),
   ].join('')
 
 const deserialiseMatch = string => {
-  const [, health, faction, status] = string.match(/^(\d{1,2})([IFSW])([WFL])$/)
+  const [, health, faction, status] = string.match(
+    /^(\d{1,2})([IFSWN])([WFL])$/
+  )
 
   return {
     opponentHealth: +health,
-    opponentFaction: getLongFaction(faction),
+    opponentFaction: faction === 'N' ? undefined : getLongFaction(faction),
     status: getLongMatchStatus(status),
   }
 }
