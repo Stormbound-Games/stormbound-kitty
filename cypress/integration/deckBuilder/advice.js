@@ -59,6 +59,12 @@ describe('Deck Builder — Advice', () => {
       .should('be.visible')
   })
 
+  it('should warn about inefficient High Priestess Klaxi with Brood Sages', () => {
+    cy.visit('/deck/1n21f11n41n71n731n191n91n211n241n361n701f23/detail')
+      .get('#INEFFICIENT_KLAXI')
+      .should('be.visible')
+  })
+
   it('should warn about inefficient Spellbinder Zhevana', () => {
     cy.visit('/deck/1n501w191n621w171n701n51n631n141w81w281n151n41/detail')
       .get('#INEFFICIENT_SPELLBINDER_ZHEVANA')
@@ -68,6 +74,18 @@ describe('Deck Builder — Advice', () => {
   it('should warn about inefficient Freeze Combos', () => {
     cy.visit('/deck/1n51n621n631n141n151w41w281n411w171n701n501w19/detail')
       .get('#INEFFICIENT_FREEZE_COMBOS')
+      .should('be.visible')
+  })
+
+  it('should warn about inefficient Poison Combos', () => {
+    cy.visit('/deck/1n11n671n71n141f61n161n171f151n331n451n701n55/detail')
+      .get('#INEFFICIENT_POISON_COMBOS')
+      .should('be.visible')
+  })
+
+  it('should warn about inefficient Brood Sages', () => {
+    cy.visit('/deck/1n11f11n41n671n71n141f61n161n331n451n701n55/detail')
+      .get('#INEFFICIENT_BROOD_SAGES')
       .should('be.visible')
   })
 

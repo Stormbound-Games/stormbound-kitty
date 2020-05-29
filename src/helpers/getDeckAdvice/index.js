@@ -159,6 +159,16 @@ const getDeckAdvice = cards => {
     cards.map(c => c.id).includes('W2') ||
     cards.map(c => c.id).includes('W6') ||
     cards.map(c => c.id).includes('W11')
+  const hasPoisonCards =
+    cards.map(c => c.id).includes('F2') ||
+    cards.map(c => c.id).includes('F4') ||
+    cards.map(c => c.id).includes('F5') ||
+    cards.map(c => c.id).includes('F13')
+  const broodSagesPoisonCards =
+    hasPoisonCards || cards.map(c => c.id).includes('F7')
+  const hasBroodSages = cards.map(c => c.id).includes('F1')
+  const hasPoisonConsumer =
+    cards.map(c => c.id).includes('F11') || cards.map(c => c.id).includes('F15')
   const constructs = getConstructs(cards)
   const oddManaCards = getOddManaCards(cards)
   const evenManaCards = getEvenManaCards(cards)
@@ -275,11 +285,12 @@ const getDeckAdvice = cards => {
 
     hasHighPriestessKlaxi &&
       !hasRainOfFrogs &&
-      !hasAzureHatchers && {
+      !hasAzureHatchers &&
+      !(hasBroodSages && broodSagesPoisonCards) && {
         id: 'INEFFICIENT_KLAXI',
         name: 'Undervalued High Priestess Klaxi',
         description:
-          'This deck includes High Priestess Klaxi but doesn’t include a way to spawn many units of the same strength. Consider including Rain of Frogs or Azure Hatchers.',
+          'This deck includes High Priestess Klaxi but doesn’t include a way to spawn many units of the same strength. Consider including Rain of Frogs, Azure Hatchers, or Brood Sages and Poison Cards.',
         highlight: () => ['F23', 'F8', 'F10'],
       },
 
@@ -300,6 +311,24 @@ const getDeckAdvice = cards => {
         description:
           'This deck includes cards needing freeze effects but doesn’t include cards with freeze capacity. Consider including Moment’s Peace, Frosthexers or Midwinter Chaos.',
         highlight: () => ['W2', 'W11', 'W6'],
+      },
+
+    hasPoisonConsumer &&
+      !hasPoisonCards && {
+        id: 'INEFFICIENT_POISON_COMBOS',
+        name: 'Inefficient poison combos',
+        description:
+          'This deck includes cards needing poison effects but doesn’t include cards with poison capacity. Consider including Venomfall Spire, Toxic Sacrifice, Copperskin Rangers, or Crimson Sentry.',
+        highlight: () => ['F11', 'F15'],
+      },
+
+    hasBroodSages &&
+      !broodSagesPoisonCards && {
+        id: 'INEFFICIENT_BROOD_SAGES',
+        name: 'Undervalued Brood Sages',
+        description:
+          'This deck includes Brood Sages but doesn’t include cards with poison capacity. Consider including Venomfall Spire, Toxic Sacrifice, Copperskin Rangers, Amberhides or Crimson Sentry.',
+        highlight: () => ['F1'],
       },
   ].filter(Boolean)
 }
