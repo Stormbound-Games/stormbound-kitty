@@ -65,6 +65,12 @@ describe('Deck Builder — Advice', () => {
       .should('be.visible')
   })
 
+  it('should warn about inefficient Freeze Combos', () => {
+    cy.visit('/deck/1n51n621n631n141n151w41w281n411w171n701n501w19/detail')
+      .get('#INEFFICIENT_FREEZE_COMBOS')
+      .should('be.visible')
+  })
+
   it('should warn about lack of AoE', () => {
     cy.visit('/deck/1n11n21n31n671n71n101n201i141n651n271i281n76/detail')
       .get('#LACK_OF_AOE')
