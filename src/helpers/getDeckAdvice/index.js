@@ -87,11 +87,12 @@ const lacksAoE = cards => {
 
   if (
     /* Beasts of Terror */ ids.includes('N18') ||
-    /* Victors of the Melee */ ids.includes('N47') ||
     /* Hunter’s Vengeance */ ids.includes('N23') ||
     /* Bladestorm */ ids.includes('N29') ||
+    /* Voidsurgers */ ids.includes('N36') ||
     /* Needle Blast */ ids.includes('N44') ||
     /* Powder Tower */ ids.includes('N45') ||
+    /* Victors of the Melee */ ids.includes('N47') ||
     /* Joust Champions */ ids.includes('N55') ||
     /* Crazy Bombers */ ids.includes('N57') ||
     /* Sirens of the Seas */ ids.includes('N58') ||
