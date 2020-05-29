@@ -5,6 +5,7 @@ import PageMeta from '../PageMeta'
 import Row from '../Row'
 import getTermsForLetter from '../../helpers/getTermsForLetter'
 import getLexiconTerms from '../../helpers/getLexiconTerms'
+import toArray from '../../helpers/toArray'
 import './index.css'
 
 const Terms = React.memo(function Terms(props) {
@@ -12,11 +13,13 @@ const Terms = React.memo(function Terms(props) {
 
   return (
     <ul className='Terms'>
-      {Object.keys(props.terms).map(term => (
-        <li key={term}>
-          {term}: {terms[term]}
-        </li>
-      ))}
+      {Object.keys(props.terms).map(term =>
+        toArray(terms[term]).map(definition => (
+          <li key={term + definition}>
+            {term}: {definition}
+          </li>
+        ))
+      )}
     </ul>
   )
 })

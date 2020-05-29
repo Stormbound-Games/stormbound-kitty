@@ -15,7 +15,16 @@ const cardsTerms = cards
     return acc
   }, {})
 
-export default () => ({
-  ...cardsTerms,
-  ...COMMON_ABBREVIATIONS,
-})
+export default () => {
+  const terms = { ...cardsTerms }
+
+  for (const abbr in COMMON_ABBREVIATIONS) {
+    if (terms[abbr]) {
+      terms[abbr] = [terms[abbr], COMMON_ABBREVIATIONS[abbr]]
+    } else {
+      terms[abbr] = COMMON_ABBREVIATIONS[abbr]
+    }
+  }
+
+  return terms
+}
