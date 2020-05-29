@@ -49,16 +49,10 @@ export default React.memo(function DryRunner(props) {
           </Info>
 
           {props.deck.map(card => card.id).includes('N38') && (
-            <>
-              <HarvestersDialog
-                {...props.HoS}
-                addCardToDeck={props.addCardToDeck}
-              />
-              <Info icon='sword' title='Harvesters of Souls'>
-                Due to the lack of opponent’s deck, Harvesters of Souls’ ability
-                has only been partially implemented.
-              </Info>
-            </>
+            <HarvestersDialog
+              {...props.HoS}
+              addCardToDeck={props.addCardToDeck}
+            />
           )}
         </Column>
 
