@@ -18,5 +18,6 @@
     "**/bot/commands/*.js",
     "**/bot/*.js"
   ],
-  "projectId": "h321g2"
+  "projectId": "h321g2",
+  "env": { "coverage": false }
 }
