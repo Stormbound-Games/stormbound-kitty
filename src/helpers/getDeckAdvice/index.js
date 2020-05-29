@@ -159,6 +159,14 @@ const getDeckAdvice = cards => {
     cards.map(c => c.id).includes('W2') ||
     cards.map(c => c.id).includes('W6') ||
     cards.map(c => c.id).includes('W11')
+  const hasPoisonCards =
+    cards.map(c => c.id).includes('F2') ||
+    cards.map(c => c.id).includes('F4') ||
+    cards.map(c => c.id).includes('F5') ||
+    cards.map(c => c.id).includes('F13')
+  const broodSagesPoisonCards =
+    hasPoisonCards || cards.map(c => c.id).includes('F7')
+  const hasBroodSages = cards.map(c => c.id).includes('F1')
   const constructs = getConstructs(cards)
   const oddManaCards = getOddManaCards(cards)
   const evenManaCards = getEvenManaCards(cards)
@@ -275,11 +283,12 @@ const getDeckAdvice = cards => {
 
     hasHighPriestessKlaxi &&
       !hasRainOfFrogs &&
-      !hasAzureHatchers && {
+      !hasAzureHatchers &&
+      !(hasBroodSages && broodSagesPoisonCards) && {
         id: 'INEFFICIENT_KLAXI',
         name: 'Undervalued High Priestess Klaxi',
         description:
-          'This deck includes High Priestess Klaxi but doesn’t include a way to spawn many units of the same strength. Consider including Rain of Frogs or Azure Hatchers.',
+          'This deck includes High Priestess Klaxi but doesn’t include a way to spawn many units of the same strength. Consider including Rain of Frogs, Azure Hatchers, or Brood Sages and Poison Cards.',
         highlight: () => ['F23', 'F8', 'F10'],
       },
 
