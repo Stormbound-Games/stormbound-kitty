@@ -20,7 +20,7 @@ export default React.memo(function GuideDrawing(props) {
         near future. This guide is based on the latest update as of May 2020.
       </p>
 
-      <Title>Resouces</Title>
+      <Title>Resources</Title>
 
       <h3>
         <ResourceIcon resource='COIN' /> Coins
@@ -33,7 +33,8 @@ export default React.memo(function GuideDrawing(props) {
         </li>
         <li>
           Daily victories (5, 10 or 20 depending on whether the game is played
-          on mobile or Steam, with or without ads).
+          on mobile or Steam, with or without ads — for a maximum of 250 a
+          day*).
         </li>
         <li>
           Monthly season chests (150 in Iron, 300 in Bronze, 500 in Silver, 800
@@ -43,7 +44,14 @@ export default React.memo(function GuideDrawing(props) {
           Duplicate copies above level 5 (15, 30, 70 or 150 depending on the
           rarity of the card).
         </li>
+        <li>Shop purchases as part of bundles.</li>
       </ul>
+
+      <Info title='Coins tip'>
+        It is technically possible to earn <Coins amount={265} /> from battles
+        per day despite the coins cap. To do so, reach <Coins amount={240} />{' '}
+        then win another game (with ads), bringing the total to 265.
+      </Info>
 
       <h3>
         <ResourceIcon resource='RUBY' /> Rubies
@@ -68,7 +76,7 @@ export default React.memo(function GuideDrawing(props) {
       <ul>
         <li>Weekly Brawl (10 at Milestone 4, 50 at Milestone 7).</li>
         <li>
-          <Link to='/collection/books'>Sometimes in tomes</Link>.
+          <Link to='/collection/books'>Sometimes in tomes and books</Link>.
         </li>
         <li>Shop purchases as part of bundles.</li>
       </ul>
@@ -86,9 +94,8 @@ export default React.memo(function GuideDrawing(props) {
       <Title>General Tactics</Title>
 
       <p>
-        How to best use your resources depends on your goals and values playing
-        this, or really any, game. In terms of goals, Stormbound can be broken
-        down in a few:
+        How to best use your resources depends on your goals and values. In
+        terms of goals, Stormbound can be broken down into a few:
       </p>
 
       <ul>
@@ -107,8 +114,8 @@ export default React.memo(function GuideDrawing(props) {
         a <abbr title='Free-To-Play'>F2P</abbr> player myself, I’ve run multiple
         calculations and it woud take over 4 years of playing in the current
         state to get to a full collection at level 5. It is very likely the game
-        will change before then, and with that the calculations, so I’ll leave
-        this for now.
+        will change before then, as would the calculations, so I’ll leave this
+        for now.
       </p>
 
       <p>
@@ -141,18 +148,19 @@ export default React.memo(function GuideDrawing(props) {
       <Title>Grinding</Title>
 
       <p>
-        You want to make sure you get the most rewards for the least amount of
-        effort. There are daily missions for Ironclad Bolstering, spells,
-        structures, token units, push units forward, Swarm, freeze, push ’n pull
-        with Ironclad, poison, mana Winter, convert, amongst others so make
-        decks to complete these easily. You can also play with friends to
-        complete these challenges.
+        My main tip is to make your daily grinding as easy as possible. There
+        are daily missions for Ironclad Bolstering, spells, structures, token
+        units, push units forward, Swarm, freeze, push ’n pull with Ironclad,
+        poison, mana Winter, convert, amongst others so make decks to complete
+        these easily. You can also play with friends to complete these
+        challenges.
       </p>
 
       <p>
-        If you don’t have much time to play, your best bet is to build a good
-        rush deck. It takes about an hour to win the 14 games necessary to reach
-        the daily coins cap (3 without ads, 11 with ads for 235 coins).
+        If you don’t have much time to play, prioritise completing your daily
+        challenges. For the daily wins, build a good rush deck. It takes about
+        an hour to win the 14 games necessary to reach the daily coins cap (3
+        without ads, 11 with ads for 235 coins).
       </p>
 
       <Title>Hoarding</Title>
@@ -196,8 +204,9 @@ export default React.memo(function GuideDrawing(props) {
         As with coins, using rubies on specific (high value) cards in the shop
         for use your preferred deck(s) can be more efficient. The Classic Tome
         isn’t worth the value, especially compared with the cost of a Noble
-        Book. Rubies in general get a terrible coin exchange. In the long term
-        it is most efficient to buy Heroic Tomes.
+        Book. Rubies in general get a terrible coin exchange. If your goal is to
+        bring the full collection to level 5, it is most efficient to buy Heroic
+        Tomes.
       </p>
 
       <h3>
@@ -247,7 +256,7 @@ export default React.memo(function GuideDrawing(props) {
 
       <p>
         At the end of the day, you have to figure out what you want from the
-        game to know how best to spend your resources!
+        game to know how to best to spend your resources!
       </p>
     </Guide>
   )
