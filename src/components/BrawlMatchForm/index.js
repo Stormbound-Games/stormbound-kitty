@@ -63,7 +63,6 @@ export default React.memo(function BrawlMatchForm(props) {
             id='opponent-faction'
             data-testid='opponent-faction'
             withEmpty
-            required
             defaultValue={props.opponentFaction}
           />
         </td>
