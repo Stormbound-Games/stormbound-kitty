@@ -247,4 +247,7 @@ export const COMMON_ABBREVIATIONS = {
   HP: 'Health Point(s)',
   RR: 'Reckless Rush',
   FS: 'Fusion Stones',
+  SF: 'Shadowfen',
+  IC: 'Ironclad',
+  WP: 'Winter Pact',
 }
