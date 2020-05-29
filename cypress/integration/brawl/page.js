@@ -48,7 +48,7 @@ describe('Brawl — Page', () => {
       .click()
 
       .get(s.OPPONENT_FACTION_SELECT)
-      .select('winter')
+      .select('')
 
       .get(s.MATCH_SUBMIT_BTN)
       .click()
@@ -80,7 +80,7 @@ describe('Brawl — Page', () => {
       .should('have.length', 2)
       .get(s.EXPORT_BTN)
       .exportFile()
-      .should('contain', '20WW')
+      .should('contain', '20NW')
   })
 
   it('should be possible to import brawl data', () => {

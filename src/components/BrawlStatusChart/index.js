@@ -31,7 +31,9 @@ export default React.memo(function BrawlCharts(props) {
       value: brawl.matches.filter(
         match =>
           match.status === 'WON' &&
-          (faction === '*' || match.opponentFaction === faction)
+          (faction === '*' ||
+            match.opponentFaction === faction ||
+            (!faction && !match.opponentFaction))
       ).length,
       color: 'var(--light-shadowfen)',
     },
@@ -69,6 +71,8 @@ export default React.memo(function BrawlCharts(props) {
           labelClassName='VisuallyHidden'
           anyLabel='all factions'
           withAny
+          withEmpty
+          emptyLabel='Unknown faction'
           label='Against faction'
           faction={faction}
           onChange={event => setFaction(event.target.value)}

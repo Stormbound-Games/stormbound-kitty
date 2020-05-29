@@ -99,7 +99,7 @@ export default React.memo(function BrawlMatches(props) {
                   </button>
                 </td>
                 <td>{match.opponentHealth} base health</td>
-                <td>{capitalise(match.opponentFaction)}</td>
+                <td>{capitalise(match.opponentFaction || 'unspecified')}</td>
                 <td
                   className={[
                     'BrawlMatches__status',
