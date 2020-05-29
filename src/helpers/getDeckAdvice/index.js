@@ -319,9 +319,17 @@ const getDeckAdvice = cards => {
         name: 'Inefficient poison combos',
         description:
           'This deck includes cards needing poison effects but doesn’t include cards with poison capacity. Consider including Venomfall Spire, Toxic Sacrifice, Copperskin Rangers, or Crimson Sentry.',
-        highlight: () => ['F11', '15'],
+        highlight: () => ['F11', 'F15'],
       },
-    ,
+
+    hasBroodSages &&
+      !broodSagesPoisonCards && {
+        id: 'INEFFICIENT_BROOD_SAGES',
+        name: 'Undervalued Brood Sages',
+        description:
+          'This deck includes Brood Sages but doesn’t include cards with poison capacity. Consider including Venomfall Spire, Toxic Sacrifice, Copperskin Rangers, Amberhides or Crimson Sentry.',
+        highlight: () => ['F1'],
+      },
   ].filter(Boolean)
 }
 

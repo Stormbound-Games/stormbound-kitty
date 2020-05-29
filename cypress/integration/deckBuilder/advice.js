@@ -83,6 +83,12 @@ describe('Deck Builder — Advice', () => {
       .should('be.visible')
   })
 
+  it('should warn about inefficient Brood Sages', () => {
+    cy.visit('/deck/1n11f11n41n671n71n141f61n161n331n451n701n55/detail')
+      .get('#INEFFICIENT_BROOD_SAGES')
+      .should('be.visible')
+  })
+
   it('should warn about lack of AoE', () => {
     cy.visit('/deck/1n11n21n31n671n71n101n201i141n651n271i281n76/detail')
       .get('#LACK_OF_AOE')
