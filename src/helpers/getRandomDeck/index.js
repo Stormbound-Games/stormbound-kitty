@@ -105,6 +105,14 @@ const getRandomCard = (cards, deck, options) => {
       if (!hasStructureCards) return getRandomCard(cards, deck, options)
       break
     }
+
+    case 'N48' /* Archdruid Earyn */: {
+      const hasSpellCards =
+        deck.filter(card => card.type === 'spell').length >= 2
+      if (!hasSpellCards) return getRandomCard(cards, deck, options)
+      break
+    }
+
     default:
       return card
   }
