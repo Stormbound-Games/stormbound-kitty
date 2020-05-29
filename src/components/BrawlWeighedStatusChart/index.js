@@ -15,7 +15,10 @@ import { TOOLTIP_STYLES } from '../../constants/stats'
 import './index.css'
 
 const getWeighedScore = baseHealth => match => {
-  switch (baseHealth - match.opponentHealth) {
+  // If the opponent’s health is not provided, consider it equal to base health.
+  const opponentHealth = match.opponentHealth || baseHealth
+
+  switch (baseHealth - opponentHealth) {
     // If the two base health are in a +1/-1 range, count the victory/loss as
     // normal
     case -1:
@@ -39,8 +42,8 @@ const getWeighedScore = baseHealth => match => {
       // If over-leveling the opponent by +4+, downrank a victory and uprank a
       // loss and if under-leveling the opponent by +4+, uprank a victory and
       // downrank a loss
-      return (baseHealth > match.opponentHealth && match.status === 'WON') ||
-        (baseHealth < match.opponentHealth && match.status === 'LOSS')
+      return (baseHealth > opponentHealth && match.status === 'WON') ||
+        (baseHealth < opponentHealth && match.status === 'LOSS')
         ? 0.5
         : 1.5
   }

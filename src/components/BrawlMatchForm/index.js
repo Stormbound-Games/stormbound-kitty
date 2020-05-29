@@ -50,7 +50,6 @@ export default React.memo(function BrawlMatchForm(props) {
             name='opponent-health'
             id='opponent-health'
             data-testid='opponent-health'
-            required
             placeholder='e.g. 18'
             defaultValue={props.opponentHealth}
           />
