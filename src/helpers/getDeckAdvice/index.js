@@ -63,6 +63,7 @@ const DEBATABLE_FINISHERS = [
   /* Petrified Fossils */ 'S27',
 ]
 
+const getHeroes = cards => cards.filter(c => c.hero)
 const getRaces = cards => [...new Set(cards.map(c => c.race).filter(Boolean))]
 const getFactions = cards =>
   [...new Set(cards.map(c => c.faction))].filter(
@@ -134,6 +135,10 @@ const getDeckAdvice = cards => {
   const factions = getFactions(cards)
   const spells = getSpells(cards)
   const races = getRaces(cards)
+  const heroes = getHeroes(cards)
+  // “Hero” counts as a trigger for Ubass’ ability, but not from himself. So as
+  // long as there is another hero in the deck, we can count an extra “race”.
+  const racesForUbass = races.length + Math.min(heroes.length - 1, 1)
   const structures = getStructures(cards)
   const hasArchdruidEaryn = cards.map(c => c.id).includes('N48')
   const hasUbassTheHunter = cards.map(c => c.id).includes('N35')
@@ -225,10 +230,12 @@ const getDeckAdvice = cards => {
     },
 
     hasUbassTheHunter &&
-      races.length < 4 && {
+      racesForUbass < 4 && {
         id: 'INEFFICIENT_UBASS',
         name: 'Undervalued Ubass the Hunter',
-        description: `This deck includes Ubass the Hunter but has only ${races.length} races which is unusually low. Consider bring more races to get the most out of Ubass the Hunter.`,
+        description: `This deck includes Ubass the Hunter but has only ${racesForUbass} race${
+          racesForUbass === 1 ? '' : 's'
+        } which is unusually low. Consider bring more races to get the most out of Ubass the Hunter.`,
         highlight: () => ['N35'],
       },
 
