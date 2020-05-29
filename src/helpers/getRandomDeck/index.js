@@ -113,6 +113,16 @@ const getRandomCard = (cards, deck, options) => {
       break
     }
 
+    case 'F23' /* High Priestess Klaxi */: {
+      const ids = deck.map(c => c.id)
+      const hasRainOfFrogs = ids.includes('F8')
+      const hasAzureHatchers = ids.includes('F10')
+
+      if (!hasRainOfFrogs && !hasAzureHatchers)
+        return getRandomCard(cards, deck, options)
+      break
+    }
+
     default:
       return card
   }
