@@ -976,5 +976,12 @@
     "author": "Several",
     "category": "BRAWL",
     "brawl": "SATYR_MOVEMENT"
+  },
+  {
+    "name": "True Boom",
+    "id": "5n15i15i25n35n675n95i85n165i65i205n345i28",
+    "faction": "ironclad",
+    "author": "the_mirc",
+    "category": "DIAMOND_1"
   }
 ]
