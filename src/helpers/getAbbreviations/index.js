@@ -5,20 +5,22 @@ import { COMMON_ABBREVIATIONS } from '../../constants/misc'
 export default (casing = 'NATURAL') => {
   const abbreviations = {}
 
-  cards.forEach(card => {
-    const abbreviatedName = abbreviate(card.name)
+  cards
+    .filter(card => !card.token)
+    .forEach(card => {
+      const abbreviatedName = abbreviate(card.name)
 
-    if (abbreviatedName.length === 1) return
+      if (abbreviatedName.length === 1) return
 
-    const key =
-      casing === 'NATURAL' ? abbreviatedName : abbreviatedName.toLowerCase()
+      const key =
+        casing === 'NATURAL' ? abbreviatedName : abbreviatedName.toLowerCase()
 
-    if (typeof abbreviations[key] === 'undefined') {
-      abbreviations[key] = []
-    }
+      if (typeof abbreviations[key] === 'undefined') {
+        abbreviations[key] = []
+      }
 
-    abbreviations[key].push(card.name)
-  })
+      abbreviations[key].push(card.name)
+    })
 
   for (const abbreviation in COMMON_ABBREVIATIONS) {
     const key = casing === 'NATURAL' ? abbreviation : abbreviation.toLowerCase()
