@@ -7,7 +7,7 @@ import {
 
 const serialiseMatch = match =>
   [
-    match.opponentHealth,
+    match.opponentHealth || 0, // `undefined` for unknown health
     getShortFaction(match.opponentFaction), // `N` for unknown faction
     getShortMatchStatus(match.status),
   ].join('')
