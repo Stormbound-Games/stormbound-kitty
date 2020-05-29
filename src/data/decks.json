@@ -1004,5 +1004,12 @@
     "faction": "ironclad",
     "author": "the_mirc",
     "category": "DIAMOND_1"
+  },
+  {
+    "name": "Hailstone",
+    "id": "1n11w11w21n51n81n121w281w81w61w161n461n52",
+    "faction": "winter",
+    "author": "Helios",
+    "category": "EQUALS"
   }
 ]
