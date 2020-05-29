@@ -160,8 +160,8 @@ export default React.memo(function GuideDrawing(props) {
       <p>
         If you don’t have much time to play, prioritise completing your daily
         challenges. For the daily wins, build a good rush deck. It takes about
-        an hour to win the 14 games necessary to reach the daily coins cap (3
-        without ads, 11 with ads for 235 coins).
+        an hour to win the 14 games necessary to reach the daily coins cap (13
+        with ads + 1 without for 265 coins).
       </p>
 
       <Title>Hoarding</Title>
