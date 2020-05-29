@@ -10,7 +10,7 @@ export const searcher = new FuzzySearch(
 )
 
 export default search => {
-  if (search.length === 0) return []
+  if (search.length < 2) return []
 
   const results = searcher.search(search)
 

@@ -6,6 +6,10 @@ describe('Bot — !cardinfo', () => {
     expect(cardinfo('  ')).to.equal(undefined)
   })
 
+  it('should return nothing for a single letter term', () => {
+    expect(cardinfo('f')).to.equal(undefined)
+  })
+
   it('should handle a Stormbound-Kitty ID', () => {
     expect(cardinfo('N1')).to.equal('https://stormbound-kitty.com/card/N1')
   })

@@ -16,7 +16,7 @@ export const searcher = new FuzzySearch(
 export default search => {
   const needle = search.trim()
 
-  if (needle.length === 0) return []
+  if (needle.length < 2) return []
 
   const cardFromID = getRawCardData(needle.toUpperCase())
 
