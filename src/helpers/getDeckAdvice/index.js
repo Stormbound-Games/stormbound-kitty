@@ -80,6 +80,8 @@ const getAverageManaCost = cards =>
   (cards.map(c => c.mana).reduce((a, b) => a + b, 0) / cards.length).toFixed(2)
 const getEvenManaCards = cards => cards.filter(c => c.mana % 2 === 0)
 const getOddManaCards = cards => cards.filter(c => c.mana % 2 !== 0)
+const hasAny = (cards, ids) =>
+  ids.some(id => cards.map(card => card.id).includes(id))
 const lacksAoE = cards => {
   const ids = cards.map(c => c.id)
 
@@ -139,36 +141,29 @@ const getDeckAdvice = cards => {
   // long as there is another hero in the deck, we can count an extra “race”.
   const racesForUbass = races.length + Math.min(heroes.length - 1, 1)
   const structures = getStructures(cards)
-  const hasSummonMilitia = cards.map(c => c.id).includes('N2')
-  const hasArchdruidEaryn = cards.map(c => c.id).includes('N48')
-  const hasUbassTheHunter = cards.map(c => c.id).includes('N35')
-  const hasDoctorMia = cards.map(c => c.id).includes('I2')
+  const cardIds = cards.map(card => card.id)
+  const hasSummonMilitia = cardIds.includes('N2')
+  const hasArchdruidEaryn = cardIds.includes('N48')
+  const hasUbassTheHunter = cardIds.includes('N35')
+  const hasDoctorMia = cardIds.includes('I2')
   const miaStructures = structures.filter(
-    c => c.id !== 'N13' && c.id !== 'I5' && c.id !== 'I14'
+    card => !['N13', 'I5', 'I14'].includes(card.id)
   )
-  const hasLinkedGolems = cards.map(c => c.id).includes('I8')
-  const hasHighPriestessKlaxi = cards.map(c => c.id).includes('F23')
-  const hasRainOfFrogs = cards.map(c => c.id).includes('F8')
-  const hasAzureHatchers = cards.map(c => c.id).includes('F10')
-  const hasSpellbinderZhevana = cards.map(c => c.id).includes('W8')
-  const hasMidwinterChaos = cards.map(c => c.id).includes('W11')
-  const hasMomentsPeace = cards.map(c => c.id).includes('W6')
-  const hasFreezeConsumer =
-    cards.map(c => c.id).includes('W1') || cards.map(c => c.id).includes('W4')
-  const hasFreezeCards =
-    cards.map(c => c.id).includes('W2') ||
-    cards.map(c => c.id).includes('W6') ||
-    cards.map(c => c.id).includes('W11')
-  const hasPoisonCards =
-    cards.map(c => c.id).includes('F2') ||
-    cards.map(c => c.id).includes('F4') ||
-    cards.map(c => c.id).includes('F5') ||
-    cards.map(c => c.id).includes('F13')
-  const broodSagesPoisonCards =
-    hasPoisonCards || cards.map(c => c.id).includes('F7')
-  const hasBroodSages = cards.map(c => c.id).includes('F1')
-  const hasPoisonConsumer =
-    cards.map(c => c.id).includes('F11') || cards.map(c => c.id).includes('F15')
+  const hasLinkedGolems = cardIds.includes('I8')
+  const hasHighPriestessKlaxi = cardIds.includes('F23')
+  const hasRainOfFrogs = cardIds.includes('F8')
+  const hasAzureHatchers = cardIds.includes('F10')
+  const hasSpellbinderZhevana = cardIds.includes('W8')
+  const hasMidwinterChaos = cardIds.includes('W11')
+  const hasMomentsPeace = cardIds.includes('W6')
+  const hasFreezeConsumer = cardIds.includes('W1') || cardIds.includes('W4')
+  const hasHeliotroopers = cardIds.includes('F7')
+  const hasBroodSages = cardIds.includes('F1')
+  const hasFreezeCards = hasAny(cards, ['W2', 'W6', 'W11'])
+  const hasPoisonCards = hasAny(cards, ['F2', 'F4', 'F5', 'F13'])
+  const hasPoisonConsumer = hasAny(cards, ['F11', 'F15'])
+  const hasEfficientBroodSages =
+    hasBroodSages && (hasPoisonCards || hasHeliotroopers)
   const constructs = getConstructs(cards)
   const oddManaCards = getOddManaCards(cards)
   const evenManaCards = getEvenManaCards(cards)
@@ -286,7 +281,7 @@ const getDeckAdvice = cards => {
     hasHighPriestessKlaxi &&
       !hasRainOfFrogs &&
       !hasAzureHatchers &&
-      !(hasBroodSages && broodSagesPoisonCards) && {
+      !hasEfficientBroodSages && {
         id: 'INEFFICIENT_KLAXI',
         name: 'Undervalued High Priestess Klaxi',
         description:
@@ -322,14 +317,13 @@ const getDeckAdvice = cards => {
         highlight: () => ['F11', 'F15'],
       },
 
-    hasBroodSages &&
-      !broodSagesPoisonCards && {
-        id: 'INEFFICIENT_BROOD_SAGES',
-        name: 'Undervalued Brood Sages',
-        description:
-          'This deck includes Brood Sages but doesn’t include cards with poison capacity. Consider including Venomfall Spire, Toxic Sacrifice, Copperskin Rangers, Amberhides or Crimson Sentry.',
-        highlight: () => ['F1'],
-      },
+    !hasEfficientBroodSages && {
+      id: 'INEFFICIENT_BROOD_SAGES',
+      name: 'Undervalued Brood Sages',
+      description:
+        'This deck includes Brood Sages but doesn’t include cards with poison capacity. Consider including Venomfall Spire, Toxic Sacrifice, Copperskin Rangers, Amberhides or Crimson Sentry.',
+      highlight: () => ['F1'],
+    },
   ].filter(Boolean)
 }
 
