@@ -983,5 +983,26 @@
     "faction": "ironclad",
     "author": "the_mirc",
     "category": "DIAMOND_1"
+  },
+  {
+    "name": "One See",
+    "id": "5n15n35n675n665n85n145n165n185w95w195n575n58",
+    "faction": "winter",
+    "author": "the_mirc",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Froggy Disaster",
+    "id": "5n15f85f45f35n35n675n95n165f105f175f285n76",
+    "faction": "shadowfen",
+    "author": "the_mirc",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Gently Forward",
+    "id": "5n15n35n675n665n95s35s65n165s165s285s205s21",
+    "faction": "swarm",
+    "author": "the_mirc",
+    "category": "DIAMOND_1"
   }
 ]
