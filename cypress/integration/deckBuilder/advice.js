@@ -59,6 +59,12 @@ describe('Deck Builder — Advice', () => {
       .should('be.visible')
   })
 
+  it('should warn about inefficient High Priestess Klaxi with Brood Sages', () => {
+    cy.visit('/deck/1n21f11n41n71n731n191n91n211n241n361n701f23/detail')
+      .get('#INEFFICIENT_KLAXI')
+      .should('be.visible')
+  })
+
   it('should warn about inefficient Spellbinder Zhevana', () => {
     cy.visit('/deck/1n501w191n621w171n701n51n631n141w81w281n151n41/detail')
       .get('#INEFFICIENT_SPELLBINDER_ZHEVANA')
