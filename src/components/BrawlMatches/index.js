@@ -98,7 +98,11 @@ export default React.memo(function BrawlMatches(props) {
                     <Icon icon='pencil' />
                   </button>
                 </td>
-                <td>{match.opponentHealth} base health</td>
+                <td>
+                  {match.opponentHealth
+                    ? `${match.opponentHealth} base health`
+                    : 'Unspecified'}
+                </td>
                 <td>{capitalise(match.opponentFaction || 'unspecified')}</td>
                 <td
                   className={[
