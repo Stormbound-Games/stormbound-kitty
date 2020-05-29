@@ -50,6 +50,9 @@ describe('Brawl — Page', () => {
       .get(s.OPPONENT_FACTION_SELECT)
       .select('')
 
+      .get(s.OPPONENT_HEALTH_INPUT)
+      .clear()
+
       .get(s.MATCH_SUBMIT_BTN)
       .click()
 
@@ -80,7 +83,7 @@ describe('Brawl — Page', () => {
       .should('have.length', 2)
       .get(s.EXPORT_BTN)
       .exportFile()
-      .should('contain', '20NW')
+      .should('contain', '0NW')
   })
 
   it('should be possible to import brawl data', () => {
