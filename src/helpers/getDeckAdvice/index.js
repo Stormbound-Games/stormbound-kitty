@@ -69,8 +69,7 @@ const getFactions = cards =>
   [...new Set(cards.map(c => c.faction))].filter(
     faction => faction !== 'neutral'
   )
-const getSpells = cards =>
-  cards.filter(c => c.type === 'spell' && c.id !== 'N2')
+const getSpells = cards => cards.filter(c => c.type === 'spell')
 const getConstructs = cards => cards.filter(c => c.race === 'construct')
 const getStructures = cards => cards.filter(c => c.type === 'structure')
 const getStaticCards = cards =>
@@ -140,6 +139,7 @@ const getDeckAdvice = cards => {
   // long as there is another hero in the deck, we can count an extra “race”.
   const racesForUbass = races.length + Math.min(heroes.length - 1, 1)
   const structures = getStructures(cards)
+  const hasSummonMilitia = cards.map(c => c.id).includes('N2')
   const hasArchdruidEaryn = cards.map(c => c.id).includes('N48')
   const hasUbassTheHunter = cards.map(c => c.id).includes('N35')
   const hasDoctorMia = cards.map(c => c.id).includes('I2')
@@ -218,7 +218,7 @@ const getDeckAdvice = cards => {
       highlight: () => staticCards,
     },
 
-    spells.length > 2 && {
+    spells.length > (hasSummonMilitia ? 3 : 2) && {
       id: 'MANY_SPELLS',
       name: 'Many spells',
       description: `This deck has ${spells.length} spells which might be unusually high. Consider swapping a spell for a unit or structure to be less situational.`,
