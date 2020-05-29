@@ -14,15 +14,17 @@ export const searcher = new FuzzySearch(
 const CARD_ABBREVIATIONS = getCardAbbreviations()
 
 export default search => {
-  if (search.length === 0) return []
+  const needle = search.trim()
 
-  const cardFromID = getRawCardData(search.toUpperCase())
+  if (needle.length === 0) return []
+
+  const cardFromID = getRawCardData(needle.toUpperCase())
 
   if (cardFromID.id) return [cardFromID]
 
-  const cardFromAbbr = getRawCardData(CARD_ABBREVIATIONS[search.toLowerCase()])
+  const cardFromAbbr = getRawCardData(CARD_ABBREVIATIONS[needle.toLowerCase()])
 
   if (cardFromAbbr.id) return [cardFromAbbr]
 
-  return searcher.search(search.trim())
+  return searcher.search(needle.trim())
 }

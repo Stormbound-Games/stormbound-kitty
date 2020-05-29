@@ -1,6 +1,6 @@
-import getRawCardData from '../../helpers/getRawCardData'
-import getCardAbbreviations from '../../helpers/getCardAbbreviations'
-import { COMMON_ABBREVIATIONS } from '../../constants/misc'
+import getRawCardData from '../../../helpers/getRawCardData'
+import getCardAbbreviations from '../../../helpers/getCardAbbreviations'
+import { COMMON_ABBREVIATIONS } from '../../../constants/misc'
 
 const CARD_ABBREVIATIONS = getCardAbbreviations()
 const ABBREVIATIONS = Object.keys(COMMON_ABBREVIATIONS).reduce(

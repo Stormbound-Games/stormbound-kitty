@@ -1,9 +1,9 @@
-import cards from '../../data/cards'
-import { FACTIONS } from '../../constants/game'
-import arrayRandom from '../../helpers/arrayRandom'
-import getRandomDeck from '../../helpers/getRandomDeck'
-import serialisation from '../../helpers/serialisation'
-import getIgnoredSearch from '../../helpers/getIgnoredSearch'
+import cards from '../../../data/cards'
+import { FACTIONS } from '../../../constants/game'
+import arrayRandom from '../../../helpers/arrayRandom'
+import getRandomDeck from '../../../helpers/getRandomDeck'
+import serialisation from '../../../helpers/serialisation'
+import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
 
 const BASE_OPTIONS = {
   maxEpicCards: 4,
@@ -49,7 +49,11 @@ export default search => {
 
   const deck = getRandomDeck({
     ...BASE_OPTIONS,
-    faction: searchTerms.faction || arrayRandom(Object.keys(FACTIONS)),
+    faction:
+      searchTerms.faction ||
+      arrayRandom(
+        Object.keys(FACTIONS).filter(faction => faction !== 'neutral')
+      ),
   })
 
   return [

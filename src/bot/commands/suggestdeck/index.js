@@ -1,14 +1,10 @@
-import { FACTIONS } from '../../constants/game'
-import { CATEGORIES } from '../../constants/decks'
-import { searcher } from '../../helpers/getCardsForSearch'
-import decks from '../../data/decks'
-import arrayRandom from '../../helpers/arrayRandom'
-import getCardAbbreviations from '../../helpers/getCardAbbreviations'
-import getIgnoredSearch from '../../helpers/getIgnoredSearch'
-import getRawCardData from '../../helpers/getRawCardData'
-import serialisation from '../../helpers/serialisation'
-
-const CARD_ABBREVIATIONS = getCardAbbreviations()
+import { FACTIONS } from '../../../constants/game'
+import { CATEGORIES } from '../../../constants/decks'
+import decks from '../../../data/decks'
+import arrayRandom from '../../../helpers/arrayRandom'
+import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
+import getCardsForSearch from '../../../helpers/getCardsForSearch'
+import serialisation from '../../../helpers/serialisation'
 
 export default content => {
   const search = content.toLowerCase()
@@ -44,23 +40,13 @@ export default content => {
           search.category = 'EQUALS'
           break
         default: {
-          // If the given search term is a known abbreviation, consider the
-          // matching card as the `including` parameter.
-          const abbreviation = CARD_ABBREVIATIONS[term]
-          if (abbreviation) {
-            search.including = getRawCardData(abbreviation).id
-            break
-          }
+          const [card] = getCardsForSearch(term)
 
-          // If the given search term yields any results with a fuzzy search,
-          // consider the most relevant (first) one as the `including` param.
-          const results = searcher.search(term)
-          if (results.length > 0) {
-            search.including = results[0].id
-            break
+          if (card) {
+            search.including = card.id
+          } else {
+            ignoredTerms.push(term)
           }
-
-          ignoredTerms.push(term)
         }
       }
     }
@@ -94,10 +80,12 @@ export default content => {
     return true
   })
 
-  return [
-    'https://stormbound-kitty.com/deck/' + arrayRandom(results).id,
-    getIgnoredSearch(search, ignoredTerms),
-  ]
-    .filter(Boolean)
-    .join('\n')
+  return results.length > 0
+    ? [
+        'https://stormbound-kitty.com/deck/' + arrayRandom(results).id,
+        getIgnoredSearch(search, ignoredTerms),
+      ]
+        .filter(Boolean)
+        .join('\n')
+    : undefined
 }

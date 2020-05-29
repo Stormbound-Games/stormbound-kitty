@@ -1,6 +1,6 @@
-import getStoriesForSearch from '../../helpers/getStoriesForSearch'
-import arrayRandom from '../../helpers/arrayRandom'
-import stories from '../../../public/stories'
+import getStoriesForSearch from '../../../helpers/getStoriesForSearch'
+import arrayRandom from '../../../helpers/arrayRandom'
+import stories from '../../../../public/stories'
 
 export default search => {
   if (search === 'random' || search === '') {

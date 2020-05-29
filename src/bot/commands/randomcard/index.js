@@ -1,12 +1,12 @@
-import cards from '../../data/cards'
-import { FACTIONS, RACES, RARITIES, TYPES } from '../../constants/game'
-import arrayRandom from '../../helpers/arrayRandom'
-import getIgnoredSearch from '../../helpers/getIgnoredSearch'
+import cards from '../../../data/cards'
+import { FACTIONS, RACES, RARITIES, TYPES } from '../../../constants/game'
+import arrayRandom from '../../../helpers/arrayRandom'
+import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
 
 const linkify = card => 'https://stormbound-kitty.com/card/' + card.id
 
 export default content => {
-  const search = content.toLowerCase()
+  const search = content.toLowerCase().trim()
 
   if (search.length === 0) {
     return linkify(arrayRandom(cards))

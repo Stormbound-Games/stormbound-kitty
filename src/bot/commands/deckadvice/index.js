@@ -1,6 +1,6 @@
-import getDeckAdvice from '../../helpers/getDeckAdvice'
-import getResolvedCardData from '../../helpers/getResolvedCardData'
-import serialisation from '../../helpers/serialisation'
+import getDeckAdvice from '../../../helpers/getDeckAdvice'
+import getResolvedCardData from '../../../helpers/getResolvedCardData'
+import serialisation from '../../../helpers/serialisation'
 
 const getIdFromURL = url =>
   url
