@@ -291,7 +291,7 @@ const getDeckAdvice = cards => {
         id: 'INEFFICIENT_FREEZE_COMBOS',
         name: 'Inefficient freeze combos',
         description:
-          "This deck includes Wisp Cloud or Icicle Burst but doesn’t include freeze cards. Consider including Moment's Peace, Frosthexers or Midwinter Chaos.",
+          'This deck includes cards needing freeze effects but doesn’t include cards with freeze capacity. Consider including Moment’s Peace, Frosthexers or Midwinter Chaos.',
         highlight: () => ['W2', 'W11', 'W6'],
       },
   ].filter(Boolean)
