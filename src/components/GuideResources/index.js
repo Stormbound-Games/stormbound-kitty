@@ -15,9 +15,10 @@ export default React.memo(function GuideDrawing(props) {
   return (
     <Guide {...guide}>
       <p>
-        I would like to give some insights on how to best manage the resources
-        in this game. This is a work-in-progress and will be expanded on in the
-        near future. This guide is based on the latest update as of May 2020.
+        In this guide, I would like to give some insights on how to best manage
+        the resources in this game. This is a work-in-progress and will be
+        expanded on in the near future. This guide is based on the latest update
+        as of May 2020.
       </p>
 
       <Title>Resources</Title>

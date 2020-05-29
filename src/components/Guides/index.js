@@ -17,10 +17,7 @@ export default React.memo(function Guides(props) {
         <HeaderBanner title='Guides' />
       </Only.Desktop>
 
-      {chunk(
-        guides.filter(guide => guide.id !== 'RESOURCES_GUIDE'),
-        3
-      ).map((row, index) => (
+      {chunk(guides, 3).map((row, index) => (
         <Row key={index} desktopOnly wideGutter>
           <Column width='1/3'>{row[0] && <GuideTeaser {...row[0]} />}</Column>
           <Column width='1/3'>{row[1] && <GuideTeaser {...row[1]} />}</Column>

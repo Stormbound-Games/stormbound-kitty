@@ -26,4 +26,8 @@ describe('Routes — Guides', () => {
   it('it should render the drawing guide', () => {
     cy.visit('/guides/drawing').get('main h1').should('exist')
   })
+
+  it('it should render the resources guide', () => {
+    cy.visit('/guides/resources').get('main h1').should('exist')
+  })
 })

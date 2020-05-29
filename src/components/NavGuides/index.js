@@ -26,8 +26,13 @@ export default React.memo(function NavGuides(props) {
           </NavLink>
         </li>
         <li className='Header__item'>
+          <NavLink to='/guides/resources' active={props.active === 'RESOURCES'}>
+            Resources
+          </NavLink>
+        </li>
+        <li className='Header__item'>
           <NavLink to='/guides/winter' active={props.active === 'WINTER'}>
-            Winter Pact
+            Winter
           </NavLink>
         </li>
         <li className='Header__item'>
