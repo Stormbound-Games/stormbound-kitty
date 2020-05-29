@@ -257,7 +257,7 @@ export default React.memo(function GuideDrawing(props) {
 
       <p>
         At the end of the day, you have to figure out what you want from the
-        game to know how to best to spend your resources!
+        game to know how to best spend your resources!
       </p>
     </Guide>
   )
