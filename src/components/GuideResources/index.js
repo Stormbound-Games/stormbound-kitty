@@ -27,7 +27,7 @@ export default React.memo(function GuideDrawing(props) {
         <ResourceIcon resource='COIN' /> Coins
       </h3>
 
-      <p>Coins are available through 4 different means:</p>
+      <p>Coins are available through 5 different means:</p>
       <ul>
         <li>
           Daily missions (50, 80 or 120 depending on the quest difficulty).
@@ -50,7 +50,7 @@ export default React.memo(function GuideDrawing(props) {
 
       <Info title='Coins tip'>
         It is technically possible to earn <Coins amount={265} /> from battles
-        per day despite the coins cap. To do so, reach <Coins amount={240} />{' '}
+        per day despite the coins cap. To do so, reach <Coins amount={245} />{' '}
         then win another game (with ads), bringing the total to 265.
       </Info>
 
