@@ -82,6 +82,13 @@ const getRandomCard = (cards, deck, options) => {
       break
     }
 
+    case 'I8' /* Linked Golems */: {
+      const hasConstructCards =
+        deck.filter(card => card.race === 'construct').length >= 2
+      if (!hasConstructCards) return getRandomCard(cards, deck, options)
+      break
+    }
+
     case 'I3' /* Fortification Tonic */: {
       const hasCheapStructureCard =
         deck
