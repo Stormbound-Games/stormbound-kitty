@@ -13,7 +13,6 @@ jobs:
           build: npm run build:cra
           start: npm start
           wait-on: http://localhost:3000
-          group: 'Integration tests'
         env:
           CYPRESS_CACHE_FOLDER: './node_modules/CypressBinary'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
