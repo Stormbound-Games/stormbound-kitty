@@ -19,7 +19,9 @@ export default React.memo(function FactionSelect(props) {
         data-testid={props['data-testid']}
       >
         {props.withAny && <option value='*'>{props.anyLabel || 'Any'}</option>}
-        {props.withEmpty && <option value=''>Pick a faction</option>}
+        {props.withEmpty && (
+          <option value=''>{props.emptyLabel || 'Pick a faction'}</option>
+        )}
         {Object.keys(FACTIONS)
           .filter(faction => props.withNeutral || faction !== 'neutral')
           .map(faction => (
