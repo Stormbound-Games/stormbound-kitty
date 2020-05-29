@@ -1,8 +1,10 @@
 import FuzzySearch from 'fuzzy-search'
 import cards from '../../data/cards'
+import arrayRandom from '../arrayRandom'
 import getRawCardData from '../getRawCardData'
-import getCardAbbreviations from '../getCardAbbreviations'
+import getAbbreviations from '../getAbbreviations'
 
+const ABBREVIATIONS = getAbbreviations('LOWERCASE')
 const SEARCH_OPTIONS = { caseSensitive: false, sort: true }
 
 export const searcher = new FuzzySearch(
@@ -10,8 +12,6 @@ export const searcher = new FuzzySearch(
   ['name'],
   SEARCH_OPTIONS
 )
-
-const CARD_ABBREVIATIONS = getCardAbbreviations()
 
 export default search => {
   const needle = search.trim()
@@ -22,9 +22,12 @@ export default search => {
 
   if (cardFromID.id) return [cardFromID]
 
-  const cardFromAbbr = getRawCardData(CARD_ABBREVIATIONS[needle.toLowerCase()])
+  const matchAbbr = ABBREVIATIONS[needle.toLowerCase()]
+  const cardFromAbbrs = matchAbbr
+    .map(definition => cards.find(card => card.name === definition))
+    .filter(Boolean)
 
-  if (cardFromAbbr.id) return [cardFromAbbr]
+  if (cardFromAbbrs.length) return cardFromAbbrs
 
   return searcher.search(needle.trim())
 }

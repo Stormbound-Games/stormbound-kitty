@@ -1,15 +1,6 @@
-import getRawCardData from '../../../helpers/getRawCardData'
-import getCardAbbreviations from '../../../helpers/getCardAbbreviations'
-import { COMMON_ABBREVIATIONS } from '../../../constants/misc'
+import getAbbreviations from '../../../helpers/getAbbreviations'
 
-const CARD_ABBREVIATIONS = getCardAbbreviations()
-const ABBREVIATIONS = Object.keys(COMMON_ABBREVIATIONS).reduce(
-  (acc, key) => ({
-    ...acc,
-    [key.toLowerCase()]: COMMON_ABBREVIATIONS[key],
-  }),
-  {}
-)
+const ABBREVIATIONS = getAbbreviations('LOWERCASE')
 
 const quotify = value => `“${value}”`
 const sentencify = array => {
@@ -18,14 +9,8 @@ const sentencify = array => {
 }
 
 export default search => {
-  const commonMatch = ABBREVIATIONS[search.toLowerCase()]
-  const cardMatch = CARD_ABBREVIATIONS[search.toLowerCase()]
-  const matches = [
-    commonMatch,
-    cardMatch && getRawCardData(cardMatch).name,
-  ].filter(Boolean)
+  const matches = ABBREVIATIONS[search.toLowerCase()]
 
-  if (matches.length > 0) {
+  if (matches)
     return `“${search}” might mean ${sentencify(matches.map(quotify))}.`
-  }
 }
