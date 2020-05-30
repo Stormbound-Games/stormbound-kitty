@@ -152,6 +152,7 @@ const getDeckAdvice = cards => {
   )
   const hasLinkedGolems = cardIds.includes('I8')
   const hasHighPriestessKlaxi = cardIds.includes('F23')
+  const hasObsidianButchers = cardIds.includes('F17')
   const hasRainOfFrogs = cardIds.includes('F8')
   const hasAzureHatchers = cardIds.includes('F10')
   const hasSpellbinderZhevana = cardIds.includes('W8')
@@ -336,6 +337,17 @@ const getDeckAdvice = cards => {
         description:
           'This deck includes Upgrade Point but doesn’t include enough constructs to provide good synergy. Consider including more constructs or Mech Workshop.',
         highlight: () => ['I10', 'I14', ...constructs],
+      },
+
+    hasObsidianButchers &&
+      !hasRainOfFrogs &&
+      !hasAzureHatchers &&
+      !(hasBroodSages && (hasPoisonCards || hasHeliotroopers)) && {
+        id: 'INEFFICIENT_OBSIDIAN_BUTCHERS',
+        name: 'Undervalued Obsidian Butchers',
+        description:
+          'This deck includes Obsidian Butchers but doesn’t include a way to spawn many one strength units. Consider including Rain of Frogs, Azure Hatchers, or Brood Sages and Poison Cards.',
+        highlight: () => ['F17', 'F8', 'F10'],
       },
   ].filter(Boolean)
 }
