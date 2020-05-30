@@ -1,17 +1,19 @@
-export const isNotCard = card1 => card2 => !isCard(card1)(card2)
+export const isNotCard = cardA => cardB => !isCard(cardA)(cardB)
 
-const isCard = card1 => card2 => {
-  if (!card1) return !card2
-  if (!card2) return false
-  if (!(card1.id && card2.id && card1.id === card2.id)) return false
+const isCard = cardA => cardB => {
+  if (!cardA) return !cardB
+  if (!cardB) return false
 
-  if (!card1.idx) {
-    return !card2.idx || card2.idx === '0'
-  }
+  // In some cases, `cardA` and `cardB` are just card IDs, not full card objects
+  // such as for the deck highlights.
+  const idA = typeof cardA === 'string' ? cardA : cardA.id
+  const idB = typeof cardB === 'string' ? cardB : cardB.id
 
-  if (!card2.idx) return card1.idx === '0'
+  if (!(idA && idB && idA === idB)) return false
+  if (!cardA.idx) return !cardB.idx || cardB.idx === '0'
+  if (!cardB.idx) return cardA.idx === '0'
 
-  return card1.idx === card2.idx
+  return cardA.idx === cardB.idx
 }
 
 export default isCard

@@ -4,6 +4,8 @@ describe('The `isCard` helper', () => {
   ;[
     { card1: null, card2: null, result: true },
     { card1: null, card2: { id: 'N1' }, result: false },
+    { card1: { id: 'N1' }, card2: 'N1', result: true },
+    { card1: 'N1', card2: { id: 'N1' }, result: true },
     { card1: { id: 'N1' }, card2: { id: 'N1' }, result: true },
     { card1: { id: 'N1' }, card2: { id: 'N2' }, result: false },
     { card1: { id: 'N1', idx: '0' }, card2: null, result: false },
