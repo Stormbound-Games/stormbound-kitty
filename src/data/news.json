@@ -1,5 +1,20 @@
 [
   {
+    "intro": "Deck Advice",
+    "description": "The deck advice page now illustrates the mana curve of a deck visually.",
+    "link": "/deck"
+  },
+  {
+    "intro": "Resources Guide",
+    "description": "Learn everything there is to learn about resources in this new guide by Roman!",
+    "link": "/guides/resources"
+  },
+  {
+    "intro": "Deck Advice",
+    "description": "The deck advice have been improved and should now warn about inefficient cards and lack of finishers.",
+    "link": "/deck"
+  },
+  {
     "intro": "Drawing Guide",
     "description": "Learn everything there is to learn about the drawing mechanics in the brand new guide!",
     "link": "/guides/drawing"
