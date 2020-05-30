@@ -33,9 +33,9 @@ const parseSearch = search => {
       book = term.toUpperCase()
     } else if (Object.keys(RARITIES).includes(term.toLowerCase())) {
       target = term.toUpperCase()
-    } else if (term.toLowerCase() === 'fs') {
+    } else if (term.toLowerCase() === 'fs' || term.toLowerCase() === 'fusion') {
       target = 'FUSION_STONES'
-    } else {
+    } else if (!target) {
       const [card] = getCardsForSearch(term)
       target = card
     }
