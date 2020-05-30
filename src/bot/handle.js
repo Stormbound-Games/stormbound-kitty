@@ -1,3 +1,5 @@
+const DOMAIN = 'https://stormbound-kitty.com'
+
 const send = client => (message, content) => {
   if (!content) return
 
@@ -16,7 +18,13 @@ const send = client => (message, content) => {
 }
 
 export default client => message => {
-  if (!message.content.startsWith('!') || message.author.bot) return
+  const isCommand = message.content.startsWith('!')
+  // If the message comes from a bot (or itself), do not process any further.
+  if (message.author.bot) return
+  // If the message contains the top-level domain, react with joy.
+  if (message.content.includes(DOMAIN) && !isCommand) return message.react('😻')
+  // If the message does not contain any command, do not process any further.
+  if (!isCommand) return
 
   const [commandName, ...rest] = message.content.slice(1).split(' ')
   const reply = send(client)
