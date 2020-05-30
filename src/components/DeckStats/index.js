@@ -18,6 +18,8 @@ const getPlayableCardsFirst = cards =>
       c.mana <= 3 &&
       !['W1', 'I3', 'F4', 'N9', 'N15', 'N63', 'S10'].includes(c.id)
   )
+const getPlayableCardsSecond = cards =>
+  cards.filter(c => c.mana <= 4 && !['I11'].includes(c.id))
 const getRaces = cards => [...new Set(cards.map(c => c.race))]
 
 export default function DeckStats(props) {
@@ -30,7 +32,7 @@ export default function DeckStats(props) {
   const spells = cards.filter(c => c.type === 'spell')
   const races = getRaces(cards)
   const playableCards1 = getPlayableCardsFirst(cards)
-  const playableCards2 = cards.filter(c => c.mana <= 4)
+  const playableCards2 = getPlayableCardsSecond(cards)
   const movingCards1 = playableCards1.filter(c => c.movement > 0)
   const movingCards2 = playableCards2.filter(c => c.movement > 0)
 
