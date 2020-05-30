@@ -33,9 +33,9 @@ export default React.memo(function GuideDrawing(props) {
           Daily missions (50, 80 or 120 depending on the quest difficulty).
         </li>
         <li>
-          Daily victories (5, 10 or 20 depending on whether the game is played
-          on mobile or Steam, with or without ads — for a maximum of 250 a
-          day*).
+          Daily victories (30 extra for the first daily win, as well as 5, 10 or
+          20 depending on whether the game is played on mobile or Steam, with or
+          without ads — for a maximum of 250 a day*).
         </li>
         <li>
           Monthly season chests (150 in Iron, 300 in Bronze, 500 in Silver, 800
