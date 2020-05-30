@@ -980,7 +980,7 @@
   {
     "date": 1517353200000,
     "type": "UPDATE",
-    "description": "Increased mana by 1, the target of the spell will gain more strength, while all others of the same type will receive less.\n",
+    "description": "Increased mana by 1, the target of the spell will gain more strength, while all others of the same type will receive less.",
     "id": "N40"
   },
   {
@@ -1046,7 +1046,7 @@
   {
     "date": 1510786800000,
     "type": "UPDATE",
-    "description": "Ability changed\n",
+    "description": "Ability changed",
     "id": "N44"
   },
   {
@@ -1118,7 +1118,7 @@
   {
     "date": 1517353200000,
     "type": "UPDATE",
-    "description": "Ability will now hit all surrounding enemies (removed \"other\"), decreased strength by 1\n",
+    "description": "Ability will now hit all surrounding enemies (removed \"other\"), decreased strength by 1",
     "id": "N47"
   },
   {
@@ -1154,7 +1154,7 @@
   {
     "date": 1510786800000,
     "type": "UPDATE",
-    "description": "Plays spells from hand (was from deck)\n",
+    "description": "Plays spells from hand (was from deck)",
     "id": "N48"
   },
   {
@@ -1640,7 +1640,7 @@
   {
     "date": 1517353200000,
     "type": "UPDATE",
-    "description": "Increased mana by 2, surrounding at all levels, damages and poisons all units.\n",
+    "description": "Increased mana by 2, surrounding at all levels, damages and poisons all units.",
     "id": "F4"
   },
   {
@@ -2204,7 +2204,7 @@
   {
     "date": 1517353200000,
     "type": "UPDATE",
-    "description": "Increased mana to 4, damage to base and the leveling steps and removed the \"if\" requirement on the base damage.\n",
+    "description": "Increased mana to 4, damage to base and the leveling steps and removed the \"if\" requirement on the base damage.",
     "id": "S10"
   },
   {
@@ -2276,7 +2276,7 @@
   {
     "date": 1517353200000,
     "type": "UPDATE",
-    "description": "Reworked; will now buff all surrounding friendly units (was Satyrs only)\n",
+    "description": "Reworked; will now buff all surrounding friendly units (was Satyrs only)",
     "id": "S14"
   },
   {
@@ -2384,7 +2384,7 @@
   {
     "date": 1510786800000,
     "type": "UPDATE",
-    "description": "Gives strength to a single unit\n",
+    "description": "Gives strength to a single unit",
     "id": "S20"
   },
   {
@@ -2852,7 +2852,7 @@
   {
     "date": 1510786800000,
     "type": "UPDATE",
-    "description": "Removed card draw and changed mana cost\n",
+    "description": "Removed card draw and changed mana cost",
     "id": "W19"
   },
   {

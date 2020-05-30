@@ -34,8 +34,8 @@ const getCardData = page => async (acc, card) => {
           const description = rest
             // Remove the leading `: ` left by the date prefix
             .replace(/:\s+/g, '')
-            // Remove fullstops for consistency
-            .replace(/\.$/, '')
+            // Remove fullstops and trailing line-breaks for consistency
+            .replace(/(\.|\n)$/, '')
             // Remove Oxford commas for consistency
             .replace(', and', ' and')
             // Fix typo
