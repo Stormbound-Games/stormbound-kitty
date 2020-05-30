@@ -1011,5 +1011,12 @@
     "faction": "winter",
     "author": "Helios",
     "category": "EQUALS"
+  },
+  {
+    "name": "Iron Dragons",
+    "id": "5n15n25i15n35n65i55n135i75n185i135i205n39",
+    "faction": "ironclad",
+    "author": "Misha",
+    "category": "DIAMOND_1"
   }
 ]
