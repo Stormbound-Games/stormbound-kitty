@@ -23,7 +23,7 @@ export default function DeckAdvice(props) {
           key={suggestion.name}
           onMouseOver={
             suggestion.highlight
-              ? () => props.highlight(suggestion.highlight(cards))
+              ? () => props.highlight(suggestion.highlight)
               : undefined
           }
           onMouseOut={() => props.highlight([])}

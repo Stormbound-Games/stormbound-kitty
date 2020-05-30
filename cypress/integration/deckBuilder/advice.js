@@ -73,7 +73,7 @@ describe('Deck Builder — Advice', () => {
 
   it('should warn about inefficient Spellbinder Zhevana', () => {
     cy.visit('/deck/1n501w191n621w171n701n51n631n141w81w281n151n41/detail')
-      .get('#INEFFICIENT_SPELLBINDER_ZHEVANA')
+      .get('#INEFFICIENT_ZHEVANA')
       .should('be.visible')
   })
 
