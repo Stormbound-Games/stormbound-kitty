@@ -8,24 +8,32 @@ const getIdFromURL = url =>
     .replace('/detail', '')
     .replace('/dry-run', '')
 
-export default search => {
-  const id = getIdFromURL(search)
+export default {
+  command: 'deckadvice',
+  name: 'Deck advice',
+  example:
+    'https://stormbound-kitty.com/deck/3n13n23s13n33s243s23n633n673s63n153s83s11',
+  description: 'Get advice and suggestions for the given deck',
+  icon: '💎',
+  handler: function (search) {
+    const id = getIdFromURL(search)
 
-  if (id.length === 0) return
+    if (id.length === 0) return
 
-  try {
-    const cards = serialisation.deck.deserialise(id).map(getResolvedCardData)
-    const advice = getDeckAdvice(cards)
+    try {
+      const cards = serialisation.deck.deserialise(id).map(getResolvedCardData)
+      const advice = getDeckAdvice(cards)
 
-    if (advice.length === 0) {
-      return 'Nothing too particular to mention about your deck, it looks alright!'
-    }
+      if (advice.length === 0) {
+        return 'Nothing too particular to mention about your deck, it looks alright!'
+      }
 
-    return (
-      'Some comments and possible suggestions about your deck:\n' +
-      advice
-        .map(advice => `- **${advice.name}:** ${advice.description}`)
-        .join('\n')
-    )
-  } catch (error) {}
+      return (
+        'Some comments and possible suggestions about your deck:\n' +
+        advice
+          .map(advice => `- **${advice.name}:** ${advice.description}`)
+          .join('\n')
+      )
+    } catch (error) {}
+  },
 }

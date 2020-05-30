@@ -1,4 +1,5 @@
-import suggestdeck from './'
+import command from './'
+const suggestdeck = command.handler
 
 const BASE_URL = 'https://stormbound-kitty.com/deck/'
 

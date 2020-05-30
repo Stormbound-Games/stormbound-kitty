@@ -1,4 +1,5 @@
-import cardinfo from './'
+import command from './'
+const cardinfo = command.handler
 
 describe('Bot — !cardinfo', () => {
   it('should return nothing for a missing term', () => {

@@ -1,4 +1,5 @@
-import randomdeck from './'
+import command from './'
+const randomdeck = command.handler
 
 const BASE_URL = 'https://stormbound-kitty.com/deck/'
 

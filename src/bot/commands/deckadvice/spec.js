@@ -1,4 +1,5 @@
-import deckadvice from './'
+import command from './'
+const deckadvice = command.handler
 
 describe('Bot — !deckadvice', () => {
   it('should return nothing for a missing term', () => {

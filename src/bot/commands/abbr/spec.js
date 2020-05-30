@@ -1,4 +1,5 @@
-import abbr from './'
+import command from './'
+const abbr = command.handler
 
 describe('Bot — !abbr', () => {
   it('should return nothing for a missing term', () => {

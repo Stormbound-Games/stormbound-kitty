@@ -1,11 +1,9 @@
 import { FACTIONS, RACES, RARITIES, TYPES } from '../../../constants/game'
-import randomcard from './'
+import command from './'
 import getRawCardData from '../../../helpers/getRawCardData'
+const randomcard = command.handler
 
 const BASE_URL = 'https://stormbound-kitty.com/card/'
-function escapeRegExp(string) {
-  return string.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&') // $& means the whole matched string
-}
 
 describe('Bot — !randomcard', () => {
   it('should return a random card for an empty search', () => {

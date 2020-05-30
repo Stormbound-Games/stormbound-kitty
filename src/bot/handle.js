@@ -1,36 +1,29 @@
-import COMMANDS from './commands'
-
 const send = client => (message, content) => {
   if (!content) return
 
   // If the message is sent anywhere in the Stormbound server, reply in
   // `#kitty-bot` to avoid spamming channels with bot answers.
   if (message.channel.guild.id === '293674725069029377') {
-    if (process.env.NODE_ENV !== 'development') {
+    // Make sure a local bot does not have any impact on the Stormbound server.
+    if (process.env.NODE_ENV === 'production') {
       client.channels.cache
         .get('714880856954503239')
-        .send(message.author.toString() + ' ' + content)
+        .send(`${message.author} ${content}`)
     }
-  } else {
+  } else if (process.env.NODE_ENV === 'development') {
     message.reply(content)
   }
 }
 
-const formatCommand = command => `${command.icon} **${command.name}** (e.g. \`!${command.command} ${command.example}\`)
-       *${command.description}*`
-
 export default client => message => {
-  const [command, ...rest] = message.content.split(' ')
+  if (!message.content.startsWith('!') || message.author.bot) return
+
+  const [commandName, ...rest] = message.content.slice(1).split(' ')
   const reply = send(client)
   const search = rest.join(' ').trim()
 
-  if (command === '!help') {
-    return reply(message, '\n' + COMMANDS.map(formatCommand).join('\n'))
-  }
-
-  if (COMMANDS.map(({ command }) => command).includes(command.slice(1))) {
-    const { default: handler } = require('./commands/' + command.slice(1))
-
-    return reply(message, handler(search))
+  if (client.commands.has(commandName)) {
+    const command = client.commands.get(commandName)
+    reply(message, command.handler(search, client))
   }
 }

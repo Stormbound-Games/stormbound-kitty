@@ -8,9 +8,16 @@ const sentencify = array => {
   return array.slice(0, array.length - 1).join(', ') + ', or ' + array.slice(-1)
 }
 
-export default search => {
-  const matches = ABBREVIATIONS[search.toLowerCase()]
+export default {
+  command: 'abbr',
+  name: 'Abbreviations',
+  example: 'AoE',
+  description: 'Get the meaning of a card or popular abbreviation',
+  icon: '❔',
+  handler: function (search) {
+    const matches = ABBREVIATIONS[search.toLowerCase()]
 
-  if (matches)
-    return `“${search}” might mean ${sentencify(matches.map(quotify))}.`
+    if (matches)
+      return `“${search}” might mean ${sentencify(matches.map(quotify))}.`
+  },
 }

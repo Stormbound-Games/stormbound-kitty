@@ -12,54 +12,62 @@ const BASE_OPTIONS = {
   availableCards: cards.filter(card => !card.token),
 }
 
-export default search => {
-  const ignoredTerms = []
-  const searchTerms = search
-    .split(/\s+/g)
-    .filter(Boolean)
-    .reduce((search, term) => {
-      if (Object.keys(FACTIONS).includes(term)) search.faction = term
-      else {
-        switch (term) {
-          case 'ic':
-          case 'red':
-            search.faction = 'ironclad'
-            break
-          case 'sf':
-          case 'green':
-            search.faction = 'shadowfen'
-            break
-          case 'w':
-          case 'wp':
-          case 'blue':
-            search.faction = 'winter'
-            break
-          case 'sw':
-          case 'yellow':
-            search.faction = 'swarm'
-            break
-          default:
-            ignoredTerms.push(term)
-            break
+export default {
+  command: 'randomdeck',
+  name: 'Random deck',
+  example: 'sf',
+  description:
+    'Get a randomly generated deck (matching the given faction if any)',
+  icon: '🎲',
+  handler: function (search) {
+    const ignoredTerms = []
+    const searchTerms = search
+      .split(/\s+/g)
+      .filter(Boolean)
+      .reduce((search, term) => {
+        if (Object.keys(FACTIONS).includes(term)) search.faction = term
+        else {
+          switch (term) {
+            case 'ic':
+            case 'red':
+              search.faction = 'ironclad'
+              break
+            case 'sf':
+            case 'green':
+              search.faction = 'shadowfen'
+              break
+            case 'w':
+            case 'wp':
+            case 'blue':
+              search.faction = 'winter'
+              break
+            case 'sw':
+            case 'yellow':
+              search.faction = 'swarm'
+              break
+            default:
+              ignoredTerms.push(term)
+              break
+          }
         }
-      }
 
-      return search
-    }, {})
+        return search
+      }, {})
 
-  const deck = getRandomDeck({
-    ...BASE_OPTIONS,
-    faction:
-      searchTerms.faction ||
-      arrayRandom(
-        Object.keys(FACTIONS).filter(faction => faction !== 'neutral')
-      ),
-  })
+    const deck = getRandomDeck({
+      ...BASE_OPTIONS,
+      faction:
+        searchTerms.faction ||
+        arrayRandom(
+          Object.keys(FACTIONS).filter(faction => faction !== 'neutral')
+        ),
+    })
 
-  return [
-    'https://stormbound-kitty.com/deck/' + serialisation.deck.serialise(deck),
-    getIgnoredSearch(search, ignoredTerms),
-  ]
-    .filter(Boolean)
-    .join('\n')
+    return [
+      'https://stormbound-kitty.com/deck/' + serialisation.deck.serialise(deck),
+      getIgnoredSearch(search, ignoredTerms),
+    ]
+      .filter(Boolean)
+      .join('\n')
+  },
 }
