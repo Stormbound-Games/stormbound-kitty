@@ -2,15 +2,14 @@ const DOMAIN = 'https://stormbound-kitty.com'
 
 const send = client => (message, content) => {
   if (!content) return
+  const user = message.mentions.users.first() || message.author
 
   // If the message is sent anywhere in the Stormbound server, reply in
   // `#kitty-bot` to avoid spamming channels with bot answers.
   if (message.channel.guild.id === '293674725069029377') {
     // Make sure a local bot does not have any impact on the Stormbound server.
     if (process.env.NODE_ENV === 'production') {
-      client.channels.cache
-        .get('714880856954503239')
-        .send(`${message.author} ${content}`)
+      client.channels.cache.get('714880856954503239').send(`${user} ${content}`)
     }
   } else if (process.env.NODE_ENV === 'development') {
     message.reply(content)
