@@ -6,6 +6,7 @@
     "@loadable/component": "^5.12.0",
     "@reach/tooltip": "^0.10.3",
     "copy-to-clipboard": "^3.3.1",
+    "dateformat": "^3.0.3",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "esm": "^3.2.25",
