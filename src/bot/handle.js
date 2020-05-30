@@ -27,7 +27,10 @@ export default client => message => {
 
   const [commandName, ...rest] = message.content.slice(1).split(' ')
   const reply = send(client)
-  const search = rest.join(' ').trim()
+  const search = rest
+    .filter(term => !term.startsWith('<@'))
+    .join(' ')
+    .trim()
 
   if (client.commands.has(commandName)) {
     const command = client.commands.get(commandName)
