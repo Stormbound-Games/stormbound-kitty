@@ -19,9 +19,9 @@ const getRarityOdds = book => rarity => {
 
   return `${anyOdds.toFixed(
     2
-  )}% to draw **${anyLabel}**, ${specificOdds.toFixed(
+  )}% chances to draw **${anyLabel}**, ${specificOdds.toFixed(
     2
-  )}% to draw **${specificLabel}**`
+  )}% chances to draw **${specificLabel}**`
 }
 
 const parseSearch = search => {
