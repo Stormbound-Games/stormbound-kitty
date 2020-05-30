@@ -89,6 +89,12 @@ describe('Deck Builder — Advice', () => {
       .should('be.visible')
   })
 
+  it('should warn about inefficient Upgrade Point', () => {
+    cy.visit('/deck/1n11n21i11n31i41n121i101i141i151n301n321n46/detail')
+      .get('#INEFFICIENT_UPGRADE_POINT')
+      .should('be.visible')
+  })
+
   it('should warn about lack of AoE', () => {
     cy.visit('/deck/1n11n21n31n671n71n101n201i141n651n271i281n76/detail')
       .get('#LACK_OF_AOE')

@@ -164,6 +164,10 @@ const getDeckAdvice = cards => {
   const hasPoisonCards = hasAny(cards, ['F2', 'F4', 'F5', 'F13'])
   const hasPoisonConsumer = hasAny(cards, ['F11', 'F15'])
   const constructs = getConstructs(cards)
+  const hasUpgradePoint = cardIds.includes('I10')
+  const upgradePointSynergy = cardIds.includes('I14')
+    ? constructs.length + 1
+    : constructs.length
   const oddManaCards = getOddManaCards(cards)
   const evenManaCards = getEvenManaCards(cards)
   const finishers = getFinishers(cards)
@@ -323,6 +327,15 @@ const getDeckAdvice = cards => {
         description:
           'This deck includes Brood Sages but doesn’t include cards with poison capacity. Consider including Venomfall Spire, Toxic Sacrifice, Copperskin Rangers, Amberhides or Crimson Sentry.',
         highlight: () => ['F1'],
+      },
+
+    hasUpgradePoint &&
+      upgradePointSynergy < 5 && {
+        id: 'INEFFICIENT_UPGRADE_POINT',
+        name: 'Undervalued Upgrade Point',
+        description:
+          'This deck includes Upgrade Point but doesn’t include enough constructs to provide good synergy. Consider including more constructs or Mech Workshop.',
+        highlight: () => ['I10', 'I14', ...constructs],
       },
   ].filter(Boolean)
 }
