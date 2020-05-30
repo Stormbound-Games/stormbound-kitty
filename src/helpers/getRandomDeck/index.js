@@ -129,15 +129,27 @@ const getRandomCard = (cards, deck, options) => {
   return card
 }
 
+/**
+ * Return a random deck (cards not resolved).
+ * @param {Object} options - Randomisation options
+ * @param {String} options.faction - Deck faction
+ * @param {Card[]} options.availableCards - Cards than can be picked
+ * @param {Number} options.maxLegendaryCards - Maximum amount of legendary cards
+ * @param {Number} options.maxEpicCards - Maximum amount of epic cards
+ * @param {Number} options.minFactionCards  - Minimum amount of faction cards
+ * @param {Card[]} options.initialCards  - Cards to force into the deck
+ */
 const getRandomDeck = options => {
-  const deck = []
+  const isMatchingFaction = card =>
+    card.faction === 'neutral' ||
+    (options.faction ? card.faction === options.faction : true)
+  const deck = (options.initialCards || []).filter(isMatchingFaction)
+  const rounds = 12 - deck.length
   const availableCards = options.availableCards
-    .filter(
-      card => card.faction === 'neutral' || card.faction === options.faction
-    )
+    .filter(isMatchingFaction)
     .filter(card => !card.token)
 
-  for (let i = 0; i < 12; i += 1) {
+  for (let i = 0; i < rounds; i += 1) {
     try {
       deck.push(getRandomCard(availableCards, deck, options))
     } catch (error) {

@@ -37,6 +37,12 @@ describe('Bot — !suggestdeck', () => {
     expect(suggestdeck('green').replace(BASE_URL, '')).to.contain('f')
   })
 
+  it('should handle including a card', () => {
+    expect(suggestdeck('N48')).to.contain('n48')
+    expect(suggestdeck('Earyn')).to.contain('n48')
+    expect(suggestdeck('rof')).to.contain('f8')
+  })
+
   it('should handle multi-searches', () => {
     const id = suggestdeck('ic d1').replace(BASE_URL, '')
     const deck = decks.find(deck => deck.id === id)

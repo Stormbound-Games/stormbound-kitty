@@ -33,4 +33,14 @@ describe('Bot — !randomdeck', () => {
     expect(output).to.contain('~~foo~~')
     expect(output).to.contain('~~bar~~')
   })
+
+  it('should handle including a card', () => {
+    expect(randomdeck('N48')).to.contain('1n48')
+    expect(randomdeck('Earyn')).to.contain('1n48')
+    expect(randomdeck('rof')).to.contain('1f8')
+  })
+
+  it('should give card faction prevalence if not matching given faction', () => {
+    expect(randomdeck('ic rof')).to.contain('f')
+  })
 })

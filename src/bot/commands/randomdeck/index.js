@@ -2,10 +2,14 @@ import cards from '../../../data/cards'
 import { FACTIONS } from '../../../constants/game'
 import arrayRandom from '../../../helpers/arrayRandom'
 import getRandomDeck from '../../../helpers/getRandomDeck'
-import handleSearchAlias from '../../../helpers/handleSearchAlias'
+import getRawCardData from '../../../helpers/getRawCardData'
 import serialisation from '../../../helpers/serialisation'
 import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
+import { parseMessage } from '../decks'
 
+const ALLOWED_FACTIONS = Object.keys(FACTIONS).filter(
+  faction => faction !== 'neutral'
+)
 const BASE_OPTIONS = {
   maxEpicCards: 4,
   maxLegendaryCards: 2,
@@ -13,22 +17,17 @@ const BASE_OPTIONS = {
   availableCards: cards.filter(card => !card.token),
 }
 
-const parseMessage = content => {
-  const terms = content.split(/\s+/g)
-  const params = {}
-  const ignored = []
+const getDeckFaction = params => {
+  const card = getRawCardData(params.including)
 
-  terms.forEach(term => {
-    if (Object.keys(FACTIONS).includes(term)) {
-      params.faction = term
-    } else {
-      const [key, value] = handleSearchAlias(term)
-      if (key) params[key] = value
-      else ignored.push(term)
-    }
-  })
-
-  return { params, ignored }
+  // The random deck’s faction should be the faction of the included card if
+  // any and if not neutral, or the given faction if provided, or a random
+  // faction that is not neutral.
+  return (
+    (card.faction === 'neutral' ? null : card.faction) ||
+    params.faction ||
+    arrayRandom(ALLOWED_FACTIONS)
+  )
 }
 
 export default {
@@ -40,14 +39,11 @@ export default {
   icon: '🎲',
   handler: function (message) {
     const { params, ignored } = parseMessage(message.toLowerCase())
-    const deck = getRandomDeck({
-      ...BASE_OPTIONS,
-      faction:
-        params.faction ||
-        arrayRandom(
-          Object.keys(FACTIONS).filter(faction => faction !== 'neutral')
-        ),
-    })
+    const faction = getDeckFaction(params)
+    const initialCards = params.including
+      ? [getRawCardData(params.including)]
+      : undefined
+    const deck = getRandomDeck({ ...BASE_OPTIONS, initialCards, faction })
 
     return [
       'https://stormbound-kitty.com/deck/' + serialisation.deck.serialise(deck),
