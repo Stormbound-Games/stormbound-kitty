@@ -65,6 +65,12 @@ describe('Deck Builder — Advice', () => {
       .should('be.visible')
   })
 
+  it('should warn about inefficient Obsidian Butchers', () => {
+    cy.visit('/deck/1n621n661n101f271n91n591f131n311f171n761f211f22/detail')
+      .get('#INEFFICIENT_OBSIDIAN_BUTCHERS')
+      .should('be.visible')
+  })
+
   it('should warn about inefficient Spellbinder Zhevana', () => {
     cy.visit('/deck/1n501w191n621w171n701n51n631n141w81w281n151n41/detail')
       .get('#INEFFICIENT_SPELLBINDER_ZHEVANA')
