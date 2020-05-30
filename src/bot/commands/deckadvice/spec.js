@@ -4,7 +4,6 @@ const deckadvice = command.handler
 describe('Bot — !deckadvice', () => {
   it('should return nothing for a missing term', () => {
     expect(deckadvice('')).to.equal(undefined)
-    expect(deckadvice('  ')).to.equal(undefined)
   })
 
   it('should handle a Stormbound-Kitty deck ID', () => {

@@ -4,9 +4,6 @@ const decks = command.handler
 describe('Bot — !decks', () => {
   it('should return the suggestions URL for an empty search', () => {
     expect(decks('')).to.equal('https://stormbound-kitty.com/deck/suggestions')
-    expect(decks('  ')).to.equal(
-      'https://stormbound-kitty.com/deck/suggestions'
-    )
   })
 
   it('should handle factions', () => {
@@ -97,8 +94,10 @@ describe('Bot — !decks', () => {
   })
 
   it('should handle multi-searches', () => {
-    expect(decks('ic mia diamond')).to.equal(
-      'https://stormbound-kitty.com/deck/suggestions?faction=ironclad&including=I2&category=DIAMOND_1'
-    )
+    const [, search] = decks('ic mia diamond').split('?')
+    const params = new URLSearchParams(search)
+    expect(params.get('faction')).to.equal('ironclad')
+    expect(params.get('category')).to.equal('DIAMOND_1')
+    expect(params.get('including')).to.equal('I2')
   })
 })

@@ -8,7 +8,6 @@ const BASE_URL = 'https://stormbound-kitty.com/card/'
 describe('Bot — !randomcard', () => {
   it('should return a random card for an empty search', () => {
     expect(randomcard('')).to.contain(BASE_URL)
-    expect(randomcard('  ')).to.contain(BASE_URL)
   })
 
   it('should handle factions', () => {
@@ -61,7 +60,6 @@ describe('Bot — !randomcard', () => {
       { keyword: 'blue', key: 'faction', value: 'winter' },
       { keyword: 'sw', key: 'faction', value: 'swarm' },
       { keyword: 'yellow', key: 'faction', value: 'swarm' },
-      { keyword: 'n', key: 'faction', value: 'neutral' },
     ].forEach(test => {
       const id = randomcard(test.keyword).replace(BASE_URL, '')
       expect(getRawCardData(id)[test.key]).to.equal(test.value)

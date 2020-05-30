@@ -7,6 +7,7 @@ const getIdFromURL = url =>
     .replace('https://stormbound-kitty.com/deck/', '')
     .replace('/detail', '')
     .replace('/dry-run', '')
+    .replace('/tracker', '')
 
 export default {
   command: 'deckadvice',
@@ -15,8 +16,8 @@ export default {
     'https://stormbound-kitty.com/deck/3n13n23s13n33s243s23n633n673s63n153s83s11',
   description: 'Get advice and suggestions for the given deck',
   icon: '💎',
-  handler: function (search) {
-    const id = getIdFromURL(search)
+  handler: function (message) {
+    const id = getIdFromURL(message)
 
     if (id.length === 0) return
 

@@ -24,23 +24,24 @@ const getRarityOdds = book => rarity => {
   )}% chances to draw **${specificLabel}**`
 }
 
-const parseSearch = search => {
-  let book = null
-  let target = null
+const parseMessage = search => {
+  const terms = search.split(/\s+/g)
+  const params = {}
 
-  search.split(/\s+/g).forEach(term => {
+  terms.forEach(term => {
     if (Object.keys(BOOKS).includes(term.toUpperCase())) {
-      book = term.toUpperCase()
+      params.book = term.toUpperCase()
     } else if (Object.keys(RARITIES).includes(term.toLowerCase())) {
-      target = term.toUpperCase()
+      params.target = term.toUpperCase()
     } else if (term.toLowerCase() === 'fs' || term.toLowerCase() === 'fusion') {
-      target = 'FUSION_STONES'
-    } else if (!target) {
+      params.target = 'FUSION_STONES'
+    } else if (!params.target) {
       const [card] = getCardsForSearch(term)
-      target = card
+      params.target = card
     }
   })
-  return { book, target }
+
+  return params
 }
 
 export default {
@@ -50,8 +51,8 @@ export default {
     'Get the odds of a drawing a certain card or Fusion stones from a certain book',
   example: 'mythic rof',
   icon: '📕',
-  handler: function (search) {
-    const { book, target } = parseSearch(search)
+  handler: function (message) {
+    const { book, target } = parseMessage(message)
 
     // The book argument should be mandatory and there is no way to compute
     // anything if it’s not provided.

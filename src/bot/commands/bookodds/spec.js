@@ -4,7 +4,6 @@ const bookodds = command.handler
 describe('Bot — !bookodds', () => {
   it('should return nothing for a missing term', () => {
     expect(bookodds('')).to.equal(undefined)
-    expect(bookodds('  ')).to.equal(undefined)
   })
 
   it('should return nothing for a missing book', () => {

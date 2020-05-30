@@ -14,10 +14,11 @@ export default {
   example: 'AoE',
   description: 'Get the meaning of a card or popular abbreviation',
   icon: '❔',
-  handler: function (search) {
-    const matches = ABBREVIATIONS[search.toLowerCase()]
+  handler: function (message) {
+    const matches = ABBREVIATIONS[message.toLowerCase()]
 
-    if (matches)
-      return `“${search}” might mean ${sentencify(matches.map(quotify))}.`
+    if (matches) {
+      return `“${message}” might mean ${sentencify(matches.map(quotify))}.`
+    }
   },
 }

@@ -4,7 +4,6 @@ const cardinfo = command.handler
 describe('Bot — !cardinfo', () => {
   it('should return nothing for a missing term', () => {
     expect(cardinfo('')).to.equal(undefined)
-    expect(cardinfo('  ')).to.equal(undefined)
   })
 
   it('should return nothing for a single letter term', () => {

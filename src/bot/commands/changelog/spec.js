@@ -4,7 +4,6 @@ const changelog = command.handler
 describe('Bot — !changelog', () => {
   it('should return nothing for a missing term', () => {
     expect(changelog('')).to.equal(undefined)
-    expect(changelog('  ')).to.equal(undefined)
   })
 
   it('should return content for a match', () => {

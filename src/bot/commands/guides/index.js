@@ -5,7 +5,7 @@ export default {
   name: 'Guides',
   description: 'List existing guides from Stormbound-Kitty',
   icon: '🧭',
-  handler: function (search) {
+  handler: function (message) {
     return (
       'Please enjoy the following guides:\n' +
       GUIDES.filter(guide => guide.name !== 'Lexicon')

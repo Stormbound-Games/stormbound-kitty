@@ -8,12 +8,12 @@ export default {
   example: 'mia',
   description: 'Get links to stories matching given search criteria',
   icon: '📝',
-  handler: function (search) {
-    if (search === 'random' || search === '') {
+  handler: function (message) {
+    if (message === 'random' || message === '') {
       return 'https://stormbound-kitty.com/stories/' + arrayRandom(stories).id
     }
 
-    return getStoriesForSearch(search)
+    return getStoriesForSearch(message)
       .slice(0, 2)
       .map(story => 'https://stormbound-kitty.com/stories/' + story.id)
       .join('\n')

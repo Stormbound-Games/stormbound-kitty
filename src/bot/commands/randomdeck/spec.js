@@ -6,7 +6,6 @@ const BASE_URL = 'https://stormbound-kitty.com/deck/'
 describe('Bot — !randomdeck', () => {
   it('should return a random deck for an empty search', () => {
     expect(randomdeck('')).to.contain(BASE_URL)
-    expect(randomdeck('  ')).to.contain(BASE_URL)
   })
 
   it('should handle factions', () => {

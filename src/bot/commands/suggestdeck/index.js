@@ -1,10 +1,8 @@
-import { FACTIONS } from '../../../constants/game'
-import { CATEGORIES } from '../../../constants/decks'
 import decks from '../../../data/decks'
 import arrayRandom from '../../../helpers/arrayRandom'
 import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
-import getCardsForSearch from '../../../helpers/getCardsForSearch'
 import serialisation from '../../../helpers/serialisation'
+import { parseMessage } from '../decks'
 
 export default {
   command: 'suggestdeck',
@@ -12,73 +10,28 @@ export default {
   example: 'sf qordia',
   description: 'Get a deck suggestion matching given search criteria',
   icon: '✅',
-  handler: function (content) {
-    const search = content.toLowerCase()
-    const ignoredTerms = []
-    const searchParams = search.split(/\s+/g).reduce((search, term) => {
-      if (Object.keys(FACTIONS).includes(term)) search.faction = term
-      else if (Object.keys(CATEGORIES).includes(term)) search.category = term
-      else {
-        switch (term) {
-          case 'ic':
-          case 'red':
-            search.faction = 'ironclad'
-            break
-          case 'sf':
-          case 'green':
-            search.faction = 'shadowfen'
-            break
-          case 'w':
-          case 'wp':
-          case 'blue':
-            search.faction = 'winter'
-            break
-          case 'sw':
-          case 'yellow':
-            search.faction = 'swarm'
-            break
-          case 'd1':
-            search.category = 'DIAMOND_1'
-            break
-          case 'equal':
-          case 'tournament':
-          case 'tourney':
-            search.category = 'EQUALS'
-            break
-          default: {
-            const [card] = getCardsForSearch(term)
+  handler: function (message) {
+    const { params, ignored } = parseMessage(message.toLowerCase())
 
-            if (card) {
-              search.including = card.id
-            } else {
-              ignoredTerms.push(term)
-            }
-          }
-        }
-      }
-
-      return search
-    }, {})
-
-    if (Object.keys(searchParams).length === 0) {
+    if (Object.keys(params).length === 0) {
       return 'https://stormbound-kitty.com/deck/' + arrayRandom(decks).id
     }
 
     const results = decks.filter(deck => {
-      if (searchParams.faction && deck.faction !== searchParams.faction) {
+      if (params.faction && deck.faction !== params.faction) {
         return false
       }
 
-      if (searchParams.category && deck.category !== searchParams.category) {
+      if (params.category && deck.category !== params.category) {
         return false
       }
 
       if (
-        searchParams.including &&
+        params.including &&
         !serialisation.deck
           .deserialise(deck.id)
           .map(card => card.id)
-          .includes(searchParams.including)
+          .includes(params.including)
       ) {
         return false
       }
@@ -89,7 +42,7 @@ export default {
     return results.length > 0
       ? [
           'https://stormbound-kitty.com/deck/' + arrayRandom(results).id,
-          getIgnoredSearch(search, ignoredTerms),
+          getIgnoredSearch(message, ignored),
         ]
           .filter(Boolean)
           .join('\n')
