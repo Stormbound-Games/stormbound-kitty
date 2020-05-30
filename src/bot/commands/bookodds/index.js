@@ -7,17 +7,21 @@ const getRarityOdds = book => rarity => {
   const anyKey = 'ANY_' + rarity.toUpperCase()
   const specificKey = 'SPECIFIC_' + rarity.toUpperCase()
   const anyLabel = PRE_MADE_EXPECTATIONS[anyKey].label
-  const anyOdds = getDrawingProbability(
-    book,
-    PRE_MADE_EXPECTATIONS[anyKey].expectations
-  ).toFixed(2)
+  const anyOdds =
+    getDrawingProbability(book, PRE_MADE_EXPECTATIONS[anyKey].expectations) *
+    100
   const specificLabel = PRE_MADE_EXPECTATIONS[specificKey].label
-  const specificOdds = getDrawingProbability(
-    book,
-    PRE_MADE_EXPECTATIONS[specificKey].expectations
-  ).toFixed(2)
+  const specificOdds =
+    getDrawingProbability(
+      book,
+      PRE_MADE_EXPECTATIONS[specificKey].expectations
+    ) * 100
 
-  return `${anyOdds}% to draw **${anyLabel}**, ${specificOdds}% to draw **${specificLabel}**`
+  return `${anyOdds.toFixed(
+    2
+  )}% to draw **${anyLabel}**, ${specificOdds.toFixed(
+    2
+  )}% to draw **${specificLabel}**`
 }
 
 const parseSearch = search => {
@@ -55,10 +59,11 @@ export default {
 
     const bookName = capitalise(book.toLowerCase())
     const intro = `A **${bookName} book** has:`
-    const fsOdds = getDrawingProbability(
-      book,
-      PRE_MADE_EXPECTATIONS.FUSION_STONES.expectations
-    )
+    const fsOdds =
+      getDrawingProbability(
+        book,
+        PRE_MADE_EXPECTATIONS.FUSION_STONES.expectations
+      ) * 100
     const fsLine = `- ${fsOdds.toFixed(2)}% chances to draw **Fusion stones**`
 
     if (target === 'FUSION_STONES') {
@@ -82,11 +87,12 @@ export default {
     // If the target happes to be a card, compute the odds to draw a specific
     // card of the card’s rarity, and provide a custom answer.
     if (target.id) {
-      const odds = getDrawingProbability(
-        book,
-        PRE_MADE_EXPECTATIONS['SPECIFIC_' + target.rarity.toUpperCase()]
-          .expectations
-      )
+      const odds =
+        getDrawingProbability(
+          book,
+          PRE_MADE_EXPECTATIONS['SPECIFIC_' + target.rarity.toUpperCase()]
+            .expectations
+        ) * 100
       return `${intro.slice(0, -1)} ${odds.toFixed(2)}% chances to draw **${
         target.name
       }**.`
