@@ -1,7 +1,7 @@
 import toSentence from '../../toSentence/'
 import getRawCardData from '../../getRawCardData/'
 
-const getSatyrs = cards => cards.filter(c => c.race === 'satyr')
+const getSatyrs = cards => cards.filter(card => card.race === 'satyr')
 const hasAny = (cards, ids) =>
   ids.some(id => cards.map(card => card.id).includes(id))
 
