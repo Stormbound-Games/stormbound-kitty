@@ -6,4 +6,12 @@ describe('The `toSentence` helper', () => {
       'Kitty, Duck, Possum, and Mammoth'
     )
   })
+
+  it('should return an empty string', () => {
+    expect(toSentence([])).to.equal('')
+  })
+
+  it('should return a single word', () => {
+    expect(toSentence(['Kitty'], 'and')).to.equal('Kitty')
+  })
 })
