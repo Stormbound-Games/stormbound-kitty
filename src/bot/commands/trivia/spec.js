@@ -1,8 +1,9 @@
+import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import command from './'
-const trivia = command.handler
+const trivia = command.handler.bind(command)
 
 const client = { channels: { cache: new Map() } }
-const channel = { id: 'channel_id', guild: { id: 'guild_id' } }
+const channel = { id: TRIVIA_CHANNEL, guild: { id: 'guild_id' } }
 const author = { id: 'author_id', username: 'Author' }
 const message = { channel, author }
 
