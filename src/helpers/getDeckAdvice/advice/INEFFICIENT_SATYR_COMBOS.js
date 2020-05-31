@@ -24,10 +24,7 @@ export default cards => {
   return {
     id: 'INEFFICIENT_SATYR_COMBOS',
     name: 'Inefficient Satyr Combos',
-    description:
-      'This deck includes ' +
-      listOfNames +
-      ', but doesn’t include enough satyrs to provide good synergy. Consider including more satyrs.',
+    description: `This deck includes ${listOfNames}, but doesn’t include enough satyrs to provide good synergy. Consider including more satyrs.`,
     highlight: ['S5', 'S7', 'S9', ...satyrs],
   }
 }
