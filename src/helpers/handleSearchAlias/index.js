@@ -15,6 +15,10 @@ export default term => {
     case 'sw':
     case 'yellow':
       return ['faction', 'swarm']
+    case 'n':
+    case 'grey':
+    case 'gray':
+      return ['faction', 'neutral']
     case 'd1':
     case 'diamond':
       return ['category', 'DIAMOND_1']

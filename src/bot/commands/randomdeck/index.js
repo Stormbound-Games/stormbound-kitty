@@ -26,7 +26,7 @@ const getDeckFaction = params => {
   // faction that is not neutral.
   return (
     (card.faction === 'neutral' ? null : card.faction) ||
-    params.faction ||
+    (params.faction === 'neutral' ? null : params.faction) ||
     arrayRandom(ALLOWED_FACTIONS)
   )
 }
