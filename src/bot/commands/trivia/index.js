@@ -6,6 +6,8 @@ import arrayRandom from '../../../helpers/arrayRandom'
 import getCardsForSearch from '../../../helpers/getCardsForSearch'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'
 
+const DEFAULT_DURATION = 90
+
 const trivia = new StateMachine({
   init: 'STOPPED',
 
@@ -13,7 +15,7 @@ const trivia = new StateMachine({
     timers: [],
     card: null,
     initiator: null,
-    duration: 1000 * 90,
+    duration: DEFAULT_DURATION,
     channel: null,
   },
 
@@ -47,17 +49,28 @@ const trivia = new StateMachine({
 
     onStart: function () {
       this.card = arrayRandom(cards.filter(card => !card.token))
-      this.timers.push(setTimeout(this.timeout.bind(this), this.duration))
-      this.timers.push(setTimeout(this.halfTime.bind(this), this.duration / 2))
+      this.timers.push(
+        setTimeout(this.timeout.bind(this), this.duration * 1000)
+      )
+      this.timers.push(
+        setTimeout(this.halfTime.bind(this), (this.duration * 1000) / 2)
+      )
     },
 
-    initialise: function (author) {
+    getDuration: function (message) {
+      const duration = +message.trim()
+      if (isNaN(duration)) return 90
+      if (duration < 20) return 20
+      if (duration > 120) return 120
+      return duration
+    },
+
+    initialise: function (message, author) {
+      this.duration = this.getDuration(message)
       this.initiator = author
       this.start()
 
-      return `🔮 Trivia started! You have ${
-        this.duration / 1000
-      } seconds to guess the card. You can ask questions and issue guesses with \`!trivia is <term>\`, like \`!trivia is pirate\` or \`!trivia is rof\`.`
+      return `🔮 Trivia started! You have ${this.duration} seconds to guess the card. You can ask questions and issue guesses with \`!trivia is <term>\`, like \`!trivia is pirate\` or \`!trivia is rof\`.`
     },
 
     onStop: function () {
@@ -122,17 +135,10 @@ const trivia = new StateMachine({
 
     help: function () {
       return [
-        '- `!trivia start` to start a round (if not already started)',
+        '- `!trivia start <20-120>` to start a round with duration (if not already started)',
         '- `!trivia stop` to stop the round (only for the initiator of the ongoing round)',
         '- `!trivia is <prop|guess>` to ask for a hint or guess the answer',
       ].join('\n')
-    },
-
-    setDuration: function (message) {
-      const duration = +message.replace('duration', '').trim()
-      this.duration = duration
-
-      return `⏱ Trivia duration set to ${duration / 1000} seconds.`
     },
   },
 })
@@ -158,8 +164,8 @@ export default {
       return trivia.help()
     }
 
-    if (trivia.can('start') && message === 'start') {
-      return trivia.initialise(author)
+    if (trivia.can('start') && message.startsWith('start')) {
+      return trivia.initialise(message.replace('start ', '').trim(), author)
     }
 
     if (trivia.can('stop') && message === 'stop') {
@@ -171,14 +177,8 @@ export default {
     }
 
     // Custom commands for Kitty to monitor/control the bot at runtime.
-    if (author.id === KITTY_ID) {
-      if (message.startsWith('duration')) {
-        return trivia.setDuration(message)
-      }
-
-      if (message === 'inspect') {
-        return trivia.inspect()
-      }
+    if (author.id === KITTY_ID && message === 'inspect') {
+      return trivia.inspect()
     }
   },
 }
