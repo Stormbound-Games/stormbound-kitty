@@ -1,4 +1,5 @@
 import dateFormat from 'dateformat'
+import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import changelog from '../../../data/changelog.json'
 import getCardsForSearch from '../../../helpers/getCardsForSearch'
 
@@ -16,6 +17,7 @@ export default {
   description: 'Get information about changes applied to a card over time',
   example: 'qoh',
   icon: '🛠',
+  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
   handler: function (message) {
     const [card] = getCardsForSearch(message)
 

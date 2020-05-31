@@ -1,10 +1,15 @@
+import { TRIVIA_CHANNEL } from '../../../constants/bot'
+
 const formatCommand = ({
+  channel,
+  command,
+  description,
+  example,
   icon,
   name,
-  command,
-  example,
-  description,
-}) => `${icon} **${name}** (e.g. \`!${command}${example ? ` ${example}` : ''}\`)
+}) => `${icon} **${name}** (e.g. \`!${command}${
+  example ? ` ${example}` : ''
+}\`)${channel ? ` *(only in <#${channel}>)*` : ''}
        *${description}*`
 
 export default {
@@ -12,6 +17,7 @@ export default {
   name: 'Help',
   description: 'Get help about KittyBot’s commands',
   icon: '🤖',
+  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
   handler: function (message, client) {
     let reply = ''
 

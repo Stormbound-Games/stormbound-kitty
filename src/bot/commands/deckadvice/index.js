@@ -1,3 +1,4 @@
+import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import getDeckAdvice from '../../../helpers/getDeckAdvice'
 import getResolvedCardData from '../../../helpers/getResolvedCardData'
 import serialisation from '../../../helpers/serialisation'
@@ -16,6 +17,7 @@ export default {
     'https://stormbound-kitty.com/deck/3n13n23s13n33s243s23n633n673s63n153s83s11',
   description: 'Get advice and suggestions for the given deck',
   icon: '💎',
+  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
   handler: function (message) {
     const id = getIdFromURL(message)
 

@@ -1,4 +1,5 @@
 import { RARITIES, BOOKS, PRE_MADE_EXPECTATIONS } from '../../../constants/game'
+import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import capitalise from '../../../helpers/capitalise'
 import getDrawingProbability from '../../../helpers/getDrawingProbability'
 import getCardsForSearch from '../../../helpers/getCardsForSearch'
@@ -51,6 +52,7 @@ export default {
     'Get the odds of a drawing a certain card or Fusion stones from a certain book',
   example: 'mythic rof',
   icon: '📕',
+  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
   handler: function (message) {
     const { book, target } = parseMessage(message)
 

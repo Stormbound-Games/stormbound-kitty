@@ -1,4 +1,5 @@
 import getAbbreviations from '../../../helpers/getAbbreviations'
+import { TRIVIA_CHANNEL } from '../../../constants/bot'
 
 const ABBREVIATIONS = getAbbreviations('LOWERCASE')
 
@@ -14,6 +15,7 @@ export default {
   example: 'AoE',
   description: 'Get the meaning of a card or popular abbreviation',
   icon: '❔',
+  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
   handler: function (message) {
     const matches = ABBREVIATIONS[message.toLowerCase()]
 
