@@ -125,6 +125,13 @@ const trivia = new StateMachine({
         '- `!trivia is <prop|guess>` to ask for a hint or guess the answer',
       ].join('\n')
     },
+
+    setDuration: function (message) {
+      const duration = +message.replace('duration', '').trim()
+      this.duration = duration
+
+      return `⏱ Trivia duration set to ${duration / 1000} seconds.`
+    },
   },
 })
 
@@ -164,10 +171,10 @@ export default {
     // Custom commands for Kitty to monitor/control the bot at runtime.
     if (author.id === KITTY_ID) {
       if (message.startsWith('duration')) {
-        const duration = +message.replace('duration', '').trim()
-        trivia.duration = duration
-        return `⏱ Trivia duration set to ${duration / 1000} seconds.`
-      } else if (message === 'inspect') {
+        return trivia.setDuration(message)
+      }
+
+      if (message === 'inspect') {
         return trivia.inspect()
       }
     }
