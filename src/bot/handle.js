@@ -1,18 +1,37 @@
 const DOMAIN = 'https://stormbound-kitty.com'
+export const STORMBOUND_SERVER = '293674725069029377'
+export const KITTY_BOT_CHANNEL = '714880856954503239'
+export const TRIVIA_CHANNEL = '716595582428512289'
+export const KITTY_ID = '368097495605182483'
 
-const send = client => (message, content) => {
+const getChannelId = (message, commandName) => {
+  const isFromStormboundServer = message.channel.guild.id === STORMBOUND_SERVER
+
+  // The local bot should never answer to messages from the main Stormbound
+  // server to avoid having both the local and the production bots answering
+  // at the same time.
+  if (process.env.NODE_ENV === 'development') {
+    return isFromStormboundServer ? null : message.channel.id
+  }
+
+  return isFromStormboundServer
+    ? commandName === 'trivia'
+      ? TRIVIA_CHANNEL
+      : KITTY_BOT_CHANNEL
+    : null
+}
+
+const send = (client, commandName) => (message, content) => {
   if (!content) return
-  const user = message.mentions.users.first() || message.author
 
-  // If the message is sent anywhere in the Stormbound server, reply in
-  // `#kitty-bot` to avoid spamming channels with bot answers.
-  if (message.channel.guild.id === '293674725069029377') {
-    // Make sure a local bot does not have any impact on the Stormbound server.
-    if (process.env.NODE_ENV === 'production') {
-      client.channels.cache.get('714880856954503239').send(`${user} ${content}`)
-    }
-  } else if (process.env.NODE_ENV === 'development') {
-    message.reply(content)
+  const user = message.mentions.users.first() || message.author
+  // Do not use pings/replies during trivia to keep the channel a little
+  // lighter and avoid constant notifications for participants.
+  const ping = commandName === 'trivia' ? '' : ` ${user} `
+  const channelId = getChannelId(message, commandName)
+
+  if (channelId) {
+    client.channels.cache.get(channelId).send(`${ping}${content}`)
   }
 }
 
@@ -26,7 +45,7 @@ export default client => message => {
   if (!isCommand) return
 
   const [commandName, ...rest] = message.content.slice(1).split(' ')
-  const reply = send(client)
+  const reply = send(client, commandName)
   const search = rest
     .filter(term => !term.startsWith('<@'))
     .join(' ')
@@ -34,6 +53,9 @@ export default client => message => {
 
   if (client.commands.has(commandName)) {
     const command = client.commands.get(commandName)
-    reply(message, command.handler(search, client))
+
+    if (!command.channel || message.channel.name === command.channel) {
+      reply(message, command.handler(search, client, message))
+    }
   }
 }

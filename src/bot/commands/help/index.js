@@ -1,10 +1,13 @@
 const formatCommand = ({
+  channel,
+  command,
+  description,
+  example,
   icon,
   name,
-  command,
-  example,
-  description,
-}) => `${icon} **${name}** (e.g. \`!${command}${example ? ` ${example}` : ''}\`)
+}) => `${icon} **${name}** (e.g. \`!${command}${
+  example ? ` ${example}` : ''
+}\`)${channel ? ` *(only in #${channel})*` : ''}
        *${description}*`
 
 export default {
