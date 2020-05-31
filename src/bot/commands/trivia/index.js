@@ -38,13 +38,17 @@ const trivia = new StateMachine({
     },
 
     halfTime: function (time) {
-      this.channel.send(`⏳ Half the time has run out, hurry up!`)
+      if (this.channel) {
+        this.channel.send(`⏳ Half the time has run out, hurry up!`)
+      }
     },
 
     timeout: function () {
-      this.channel.send(
-        `⌛️ Time’s up! The answer was “**${this.card.name}**”!`
-      )
+      if (this.channel) {
+        this.channel.send(
+          `⌛️ Time’s up! The answer was “**${this.card.name}**”!`
+        )
+      }
       this.stop()
     },
 
@@ -152,18 +156,26 @@ const trivia = new StateMachine({
         return '🏅 No scores yet.'
       }
 
-      const emojis = ['🥇 ', '🥈 ', '🥉 ']
+      const emojis = [' 🥇', ' 🥈', ' 🥉']
+      const scores = Object.keys(this.scores).reduce((acc, id) => {
+        const score = String(this.scores[id])
+
+        return { ...acc, [score]: acc[score] ? [...acc[score], id] : [id] }
+      }, {})
 
       return (
-        '**Current scores:**' +
-        Object.keys(this.scores).reduce((acc, id, index) => {
-          return (
-            acc +
-            `\n- ${emojis[index] || ''}<@${id}>: ${this.scores[id]} point${
-              this.scores[id] === 1 ? '' : 's'
-            }`
-          )
-        }, '')
+        '**Current scores:**\n' +
+        Object.keys(scores)
+          .sort((a, b) => +b - +a)
+          .map((score, index) => {
+            const emoji = emojis[index] || ''
+            const users = scores[score].map(id => `<@${id}>`).join(' ')
+
+            return `-${emoji} **${score} point${
+              +score === 1 ? '' : 's'
+            }** — ${users}`
+          })
+          .join('\n')
       )
     },
   },
@@ -179,12 +191,14 @@ export default {
   isAllowed: channel => channel.id === TRIVIA_CHANNEL,
   handler: function (message, client, messageObject) {
     const { author } = messageObject
+    const channelId = getChannelId(messageObject, this)
     message = message.toLowerCase()
+
+    if (!channelId) return
 
     // It is necessary to store the channel to be able to send messages that are
     // not answers to incoming users’ message, such as the result of a timeout.
     if (!trivia.channel) {
-      const channelId = getChannelId(messageObject, this)
       trivia.channel = client.channels.cache.get(channelId)
     }
 
