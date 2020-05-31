@@ -13,7 +13,7 @@ const trivia = new StateMachine({
     timers: [],
     card: null,
     initiator: null,
-    duration: 1000 * 60 * 2,
+    duration: 1000 * 60,
     channel: null,
   },
 
