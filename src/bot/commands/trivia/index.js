@@ -62,11 +62,11 @@ const machine = new StateMachine({
       return `${username} originally started the trivia, and now they’re ending it. The answer was “**${cardName}**”.`
     },
 
-    success: function () {
+    success: function (author) {
       const cardName = this.card.name
       this.stop()
 
-      return `🎉 Correct! The answer was “**${cardName}**”. Congratulations!`
+      return `🎉 Correct! The answer was “**${cardName}**”. Congratulations ${author}!`
     },
 
     parseGuess: function (message) {
@@ -81,7 +81,7 @@ const machine = new StateMachine({
       return []
     },
 
-    guess: function (message) {
+    guess: function (message, author) {
       const [key, value] = this.parseGuess(message)
 
       if (key) {
@@ -100,7 +100,7 @@ const machine = new StateMachine({
       const [card] = getCardsForSearch(message.replace('is ', ''))
 
       if (card) {
-        if (card.name === this.card.name) return this.success()
+        if (card.name === this.card.name) return this.success(author)
         else return `❌ The card is not “${card.name}”, try again!`
       }
     },
@@ -156,7 +156,7 @@ export default {
     }
 
     if (machine.is('RUNNING') && message.startsWith('is ')) {
-      return machine.guess(message.replace('is ', ''))
+      return machine.guess(message.replace('is ', ''), author)
     }
   },
 }
