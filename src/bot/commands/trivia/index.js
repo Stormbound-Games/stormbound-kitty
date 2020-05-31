@@ -68,9 +68,10 @@ const machine = new StateMachine({
 
     abort: function () {
       const username = this.initiator.username
+      const cardName = this.card.name
       this.stop()
 
-      return `${username} originally started the trivia, and now they’re ending it. Sorry!`
+      return `${username} originally started the trivia, and now they’re ending it. The answer was “**${cardName}**”.`
     },
 
     success: function () {
