@@ -18,7 +18,7 @@ const getChannelId = (message, command) => {
 
   // The production bot should only answer in the main Stormbound server to
   // avoid having duplicate answers when testing the bot locally.
-  return isLocalBot ? message.channel.id : null
+  return isLocalBot ? command.channel || message.channel.id : null
 }
 
 export default getChannelId
