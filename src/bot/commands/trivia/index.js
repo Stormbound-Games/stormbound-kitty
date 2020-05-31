@@ -22,10 +22,6 @@ const trivia = new StateMachine({
   ],
 
   methods: {
-    configure: function (key, value) {
-      this[key] = value
-    },
-
     inspect: function () {
       console.log({
         status: this.state,
@@ -147,7 +143,7 @@ export default {
     // It is necessary to store the client to be able to send messages that are
     // not answers to incoming users’ message, such as the result of a timeout.
     if (!trivia.client) {
-      trivia.configure('client', client)
+      trivia.client = client
     }
 
     if (message === 'help') {
@@ -170,7 +166,7 @@ export default {
     if (author.id === KITTY_ID) {
       if (message.startsWith('duration')) {
         const duration = +message.replace('duration', '').trim()
-        trivia.configure('duration', duration)
+        trivia.duration = duration
         return `⏱ Trivia duration set to ${duration / 1000} seconds.`
       } else if (message === 'inspect') {
         return trivia.inspect()
