@@ -28,6 +28,7 @@ const trivia = new StateMachine({
         card: this.card,
         initiator: this.initiator,
         duration: this.duration,
+        timers: this.timers,
       })
     },
 
