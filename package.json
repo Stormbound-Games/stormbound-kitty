@@ -15,6 +15,7 @@
     "fuzzy-search": "^3.2.1",
     "hook-into-props": "^4.0.1",
     "html2canvas": "^1.0.0-rc.5",
+    "javascript-state-machine": "^3.1.0",
     "lodash.clonedeep": "^4.5.0",
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
