@@ -1,5 +1,6 @@
 import cards from '../../../data/cards'
 import { FACTIONS, RACES, RARITIES, TYPES } from '../../../constants/game'
+import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import arrayRandom from '../../../helpers/arrayRandom'
 import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'
@@ -34,6 +35,7 @@ export default {
   example: 'ic spell rare',
   description: 'Get a random card matching given search criteria',
   icon: '🃏',
+  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
   handler: function (message) {
     if (message.length === 0) {
       return linkify(arrayRandom(cards))

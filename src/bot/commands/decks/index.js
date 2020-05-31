@@ -1,5 +1,6 @@
 import { FACTIONS } from '../../../constants/game'
 import { CATEGORIES } from '../../../constants/decks'
+import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
 import getCardsForSearch from '../../../helpers/getCardsForSearch'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'
@@ -43,6 +44,7 @@ export default {
   example: 'ic d1 mia',
   description: 'Get a link to a deck search matching given search criteria',
   icon: '🔍',
+  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
   handler: function (message) {
     // If no additional parameters were given, reply with the overall deck
     // suggestions page

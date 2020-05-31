@@ -1,3 +1,5 @@
+import { TRIVIA_CHANNEL } from '../../../constants/bot'
+
 const formatCommand = ({
   channel,
   command,
@@ -15,6 +17,7 @@ export default {
   name: 'Help',
   description: 'Get help about KittyBot’s commands',
   icon: '🤖',
+  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
   handler: function (message, client) {
     let reply = ''
 

@@ -137,10 +137,10 @@ export default {
   command: 'trivia',
   name: 'Card trivia',
   example: 'help',
-  description: 'KittyBot picks a card at random and you have to find which!',
-  channel: TRIVIA_CHANNEL,
-  ping: false,
+  description: `KittyBot picks a card at random and you have to find which! (only in <#${TRIVIA_CHANNEL}>)`,
   icon: '🔮',
+  ping: false,
+  isAllowed: channel => channel.id === TRIVIA_CHANNEL,
   handler: function (message, client, { author }) {
     message = message.toLowerCase()
 

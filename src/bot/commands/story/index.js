@@ -1,3 +1,4 @@
+import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import getStoriesForSearch from '../../../helpers/getStoriesForSearch'
 import arrayRandom from '../../../helpers/arrayRandom'
 import stories from '../../../../public/stories'
@@ -8,6 +9,7 @@ export default {
   example: 'mia',
   description: 'Get links to stories matching given search criteria',
   icon: '📝',
+  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
   handler: function (message) {
     if (message === 'random' || message === '') {
       return 'https://stormbound-kitty.com/stories/' + arrayRandom(stories).id

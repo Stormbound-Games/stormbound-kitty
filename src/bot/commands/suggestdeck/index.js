@@ -1,3 +1,4 @@
+import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import decks from '../../../data/decks'
 import arrayRandom from '../../../helpers/arrayRandom'
 import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
@@ -10,6 +11,7 @@ export default {
   example: 'sf qordia',
   description: 'Get a deck suggestion matching given search criteria',
   icon: '✅',
+  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
   handler: function (message) {
     const { params, ignored } = parseMessage(message.toLowerCase())
 

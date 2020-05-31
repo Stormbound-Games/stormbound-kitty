@@ -1,5 +1,6 @@
 import cards from '../../../data/cards'
 import { FACTIONS } from '../../../constants/game'
+import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import arrayRandom from '../../../helpers/arrayRandom'
 import getRandomDeck from '../../../helpers/getRandomDeck'
 import getRawCardData from '../../../helpers/getRawCardData'
@@ -37,6 +38,7 @@ export default {
   description:
     'Get a randomly generated deck (matching the given faction if any)',
   icon: '🎲',
+  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
   handler: function (message) {
     const { params, ignored } = parseMessage(message.toLowerCase())
     const faction = getDeckFaction(params)
