@@ -18,8 +18,19 @@ const getPlayableCardsFirst = cards =>
       c.mana <= 3 &&
       !['W1', 'I3', 'F4', 'N9', 'N15', 'N63', 'S10'].includes(c.id)
   )
-const getPlayableCardsSecond = cards =>
-  cards.filter(c => c.mana <= 4 && !['I11'].includes(c.id))
+const getPlayableCardsSecond = cards => {
+  const oneDrops = cards.filter(card => card.mana <= 1)
+
+  return cards.filter(card => {
+    if (card.mana > 4) return false
+    // Boosting Elixir cannot be played without units.
+    if (['I11'].includes(card.id)) return false
+    // Potion of Growth cannot be played without units.
+    if (card.id === 'N15' && oneDrops.length === 0) return false
+    return true
+  })
+}
+
 const getRaces = cards => [...new Set(cards.map(c => c.race))]
 
 export default function DeckStats(props) {
