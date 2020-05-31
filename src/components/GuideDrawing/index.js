@@ -98,8 +98,8 @@ export default React.memo(function GuideDrawing(props) {
       <ol>
         <li>
           The card’s weight is reset to 0. A card with a weight of 0 cannot be
-          drawn again in a weighted random system, and thus also not be played
-          twice in one turn.
+          drawn again in a weighted random system, and thus cannot be played
+          twice in one turn (see note below for dogmatic accuracy).
         </li>
         <li>
           All the other cards from the deck (not from the hand) see their weight
@@ -109,6 +109,23 @@ export default React.memo(function GuideDrawing(props) {
           deck.”
         </li>
       </ol>
+
+      <Info icon='stack' title='Playing a card more than once in a turn'>
+        <p>
+          It is technically possible for a card to be played more than once
+          within the same turn, under rare circumstances which are interesting
+          to discuss from an academic standpoint but should probably be ignored
+          in a day to day play.
+        </p>
+        <p>
+          For a given card to be played and redrawn in the same turn, an
+          intermediary draw needs to happen. Indeed, when the card is played,
+          its weight is reset to 0. Another draw (whether by cycling or from a
+          card’s ability) will cause a reweighing of the deck, which makes the
+          card’s weight non null. From there, a subsequent draw can cause the
+          card to be drawn (and played) again.
+        </p>
+      </Info>
 
       <Title>Queen of Herds</Title>
 
