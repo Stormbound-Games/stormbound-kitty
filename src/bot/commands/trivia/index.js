@@ -145,13 +145,13 @@ export default {
   icon: '🔮',
   ping: false,
   isAllowed: channel => channel.id === TRIVIA_CHANNEL,
-  handler: function (message, client, { author }) {
+  handler: function (message, client, { channel, author }) {
     message = message.toLowerCase()
 
     // It is necessary to store the channel to be able to send messages that are
     // not answers to incoming users’ message, such as the result of a timeout.
     if (!trivia.channel) {
-      trivia.channel = client.channels.cache.get(TRIVIA_CHANNEL)
+      trivia.channel = channel
     }
 
     if (message === 'help') {
