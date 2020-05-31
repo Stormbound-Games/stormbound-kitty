@@ -26,6 +26,15 @@ const machine = new StateMachine({
       this[key] = value
     },
 
+    inspect: function () {
+      console.log({
+        status: this.state,
+        card: this.card,
+        initiator: this.initiator,
+        duration: this.duration,
+      })
+    },
+
     timeout: function () {
       const cardName = this.card.name
       this.stop()
@@ -136,13 +145,6 @@ export default {
       return machine.help()
     }
 
-    // Make it possible to configure the trivia duration at runtime by Kitty.
-    if (author.id === KITTY_ID && message.startsWith('duration')) {
-      const duration = +message.replace('duration', '').trim()
-      machine.configure('duration', duration)
-      return `Trivia duration set to ${duration / 1000} seconds.`
-    }
-
     if (machine.can('start') && message === 'start') {
       return machine.initialise(author)
     }
@@ -157,6 +159,16 @@ export default {
 
     if (machine.is('RUNNING') && message.startsWith('is ')) {
       return machine.guess(message.replace('is ', ''), author)
+    }
+
+    if (author.id === KITTY_ID) {
+      if (message.startsWith('duration')) {
+        const duration = +message.replace('duration', '').trim()
+        machine.configure('duration', duration)
+        return `Trivia duration set to ${duration / 1000} seconds.`
+      } else if (message === 'inspect') {
+        return machine.inspect()
+      }
     }
   },
 }
