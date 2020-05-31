@@ -111,7 +111,7 @@ const trivia = new StateMachine({
         }
       }
 
-      const [card] = getCardsForSearch(message.replace('is ', ''))
+      const [card] = getCardsForSearch(message)
 
       if (card) {
         if (card.name === this.card.name) return this.success(author)
