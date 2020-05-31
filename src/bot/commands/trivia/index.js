@@ -39,9 +39,10 @@ const trivia = new StateMachine({
     },
 
     timeout: function () {
-      const cardName = this.card.name
+      this.channel.send(
+        `⌛️ Time’s up! The answer was “**${this.card.name}**”!`
+      )
       this.stop()
-      this.channel.send(`⌛️ Time’s up! The answer was “**${cardName}**”!`)
     },
 
     onStart: function () {
