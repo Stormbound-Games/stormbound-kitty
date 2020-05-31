@@ -144,7 +144,7 @@ const trivia = new StateMachine({
 
     help: function () {
       return [
-        '- `!trivia start <20-120>` to start a round with duration (if not already started)',
+        `- \`!trivia start [20-120]\` to start a round — default to ${this.duration} seconds`,
         '- `!trivia stop` to stop the round (only for the initiator of the ongoing round)',
         '- `!trivia scores` to show scores between games (often reset)',
         '- `!trivia is <prop|guess>` to ask for a hint or guess the answer',
