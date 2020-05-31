@@ -11,7 +11,7 @@
     "map.js",
     "**/DeckMechanisms/*.js",
     "**/serialisation/!(spec).js",
-    "**/getDeckAdvice/!(spec).js",
+    "**/getDeckAdvice/**/!(spec).js",
     "**/constants/*.js",
     "**/data/*.*",
     "**/hooks/*.js",
