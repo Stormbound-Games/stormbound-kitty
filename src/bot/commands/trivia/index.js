@@ -63,7 +63,8 @@ const trivia = new StateMachine({
     onStop: function () {
       this.card = null
       this.initiator = null
-      this.timers = this.timers.map(clearTimeout).filter(Boolean)
+      this.timers.forEach(clearTimeout)
+      this.timers = []
     },
 
     abort: function (author) {
