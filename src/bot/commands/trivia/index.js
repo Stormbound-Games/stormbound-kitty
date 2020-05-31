@@ -6,18 +6,6 @@ import arrayRandom from '../../../helpers/arrayRandom'
 import getCardsForSearch from '../../../helpers/getCardsForSearch'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'
 
-const parseGuess = message => {
-  if (message === 'hero') return ['hero', true]
-  if (message === 'elder') return ['elder', true]
-  if (Object.keys(RARITIES).includes(message)) return ['rarity', message]
-  if (Object.keys(FACTIONS).includes(message)) return ['faction', message]
-  if (Object.keys(TYPES).includes(message)) return ['type', message]
-  if (Object.keys(RACES).includes(message)) return ['race', message]
-  const [key, value] = handleSearchAlias(message)
-  if (Object.keys(machine.card).includes(key)) return [key, value]
-  return []
-}
-
 const machine = new StateMachine({
   init: 'STOPPED',
 
@@ -81,8 +69,20 @@ const machine = new StateMachine({
       return `🎉 Correct! The answer was “**${cardName}**”. Congratulations!`
     },
 
+    parseGuess: function (message) {
+      if (message === 'hero') return ['hero', true]
+      if (message === 'elder') return ['elder', true]
+      if (Object.keys(RARITIES).includes(message)) return ['rarity', message]
+      if (Object.keys(FACTIONS).includes(message)) return ['faction', message]
+      if (Object.keys(TYPES).includes(message)) return ['type', message]
+      if (Object.keys(RACES).includes(message)) return ['race', message]
+      const [key, value] = handleSearchAlias(message)
+      if (Object.keys(this.card).includes(key)) return [key, value]
+      return []
+    },
+
     guess: function (message) {
-      const [key, value] = parseGuess(message)
+      const [key, value] = this.parseGuess(message)
 
       if (key) {
         if (value === true) {
