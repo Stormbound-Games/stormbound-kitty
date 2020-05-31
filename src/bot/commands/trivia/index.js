@@ -63,7 +63,9 @@ const trivia = new StateMachine({
       clearTimeout(this.timer)
     },
 
-    abort: function () {
+    abort: function (author) {
+      if (author.id !== this.initiator.id && author.id !== KITTY_ID) return
+
       const username = this.initiator.username
       const cardName = this.card.name
       this.stop()
@@ -149,18 +151,15 @@ export default {
       return trivia.initialise(author)
     }
 
-    if (
-      trivia.can('stop') &&
-      message === 'stop' &&
-      (author.id === trivia.initiator.id || author.id === KITTY_ID)
-    ) {
-      return trivia.abort()
+    if (trivia.can('stop') && message === 'stop') {
+      return trivia.abort(author)
     }
 
     if (trivia.is('RUNNING') && message.startsWith('is ')) {
-      return trivia.guess(message.replace('is ', ''), author)
+      return trivia.guess(message.replace('is ', '').trim(), author)
     }
 
+    // Custom commands for Kitty to monitor/control the bot at runtime.
     if (author.id === KITTY_ID) {
       if (message.startsWith('duration')) {
         const duration = +message.replace('duration', '').trim()
