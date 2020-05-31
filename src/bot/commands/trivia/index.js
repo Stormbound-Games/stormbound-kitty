@@ -6,7 +6,7 @@ import arrayRandom from '../../../helpers/arrayRandom'
 import getCardsForSearch from '../../../helpers/getCardsForSearch'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'
 
-const machine = new StateMachine({
+const trivia = new StateMachine({
   init: 'STOPPED',
 
   data: {
@@ -96,11 +96,11 @@ const machine = new StateMachine({
       if (key) {
         if (value === true) {
           const lead = key === 'elder' ? 'an' : 'a'
-          return machine.card[key] === value
+          return trivia.card[key] === value
             ? `👍 Yes, the card is ${lead} *${key}*.`
             : `👎 No, the card is not ${lead} *${key}*.`
         } else {
-          return machine.card[key] === value
+          return trivia.card[key] === value
             ? `👍 Yes, the card’s *${key}* is indeed “**${value}**”.`
             : `👎 No, the card’s *${key}* is not “${value}”.`
         }
@@ -137,37 +137,37 @@ export default {
 
     // It is necessary to store the client to be able to send messages that are
     // not answers to incoming users’ message, such as the result of a timeout.
-    if (!machine.client) {
-      machine.configure('client', client)
+    if (!trivia.client) {
+      trivia.configure('client', client)
     }
 
     if (message === 'help') {
-      return machine.help()
+      return trivia.help()
     }
 
-    if (machine.can('start') && message === 'start') {
-      return machine.initialise(author)
+    if (trivia.can('start') && message === 'start') {
+      return trivia.initialise(author)
     }
 
     if (
-      machine.can('stop') &&
+      trivia.can('stop') &&
       message === 'stop' &&
-      (author.id === machine.initiator.id || author.id === KITTY_ID)
+      (author.id === trivia.initiator.id || author.id === KITTY_ID)
     ) {
-      return machine.abort()
+      return trivia.abort()
     }
 
-    if (machine.is('RUNNING') && message.startsWith('is ')) {
-      return machine.guess(message.replace('is ', ''), author)
+    if (trivia.is('RUNNING') && message.startsWith('is ')) {
+      return trivia.guess(message.replace('is ', ''), author)
     }
 
     if (author.id === KITTY_ID) {
       if (message.startsWith('duration')) {
         const duration = +message.replace('duration', '').trim()
-        machine.configure('duration', duration)
+        trivia.configure('duration', duration)
         return `Trivia duration set to ${duration / 1000} seconds.`
       } else if (message === 'inspect') {
-        return machine.inspect()
+        return trivia.inspect()
       }
     }
   },
