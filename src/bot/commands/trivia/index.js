@@ -4,6 +4,7 @@ import { KITTY_ID, TRIVIA_CHANNEL } from '../../../constants/bot'
 import cards from '../../../data/cards'
 import arrayRandom from '../../../helpers/arrayRandom'
 import getCardsForSearch from '../../../helpers/getCardsForSearch'
+import getChannelId from '../../../helpers/getChannelId'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'
 
 const DEFAULT_DURATION = 90
@@ -17,6 +18,7 @@ const trivia = new StateMachine({
     initiator: null,
     duration: DEFAULT_DURATION,
     channel: null,
+    scores: {},
   },
 
   transitions: [
@@ -27,12 +29,11 @@ const trivia = new StateMachine({
   methods: {
     inspect: function () {
       console.log({
-        state: this.state,
-        card: this.card,
         initiator: this.initiator,
-        duration: this.duration,
-        timers: this.timers,
         channel: this.channel.id,
+        duration: this.duration,
+        card: this.card,
+        state: this.state,
       })
     },
 
@@ -92,6 +93,10 @@ const trivia = new StateMachine({
 
     success: function (author) {
       const cardName = this.card.name
+
+      // Increment the score for the winner.
+      this.scores[author.id] = (this.scores[author.id] || 0) + 1
+
       this.stop()
 
       return `🎉 Correct! The answer was “**${cardName}**”. Congratulations ${author}!`
@@ -137,8 +142,29 @@ const trivia = new StateMachine({
       return [
         '- `!trivia start <20-120>` to start a round with duration (if not already started)',
         '- `!trivia stop` to stop the round (only for the initiator of the ongoing round)',
+        '- `!trivia scores` to show scores between games (often reset)',
         '- `!trivia is <prop|guess>` to ask for a hint or guess the answer',
       ].join('\n')
+    },
+
+    leaderboard: function () {
+      if (Object.keys(this.scores).length === 0) {
+        return '🏅 No scores yet.'
+      }
+
+      const emojis = ['🥇 ', '🥈 ', '🥉 ']
+
+      return (
+        '**Current scores:**' +
+        Object.keys(this.scores).reduce((acc, id, index) => {
+          return (
+            acc +
+            `\n- ${emojis[index] || ''}<@${id}>: ${this.scores[id]} point${
+              this.scores[id] === 1 ? '' : 's'
+            }`
+          )
+        }, '')
+      )
     },
   },
 })
@@ -151,13 +177,15 @@ export default {
   icon: '🔮',
   ping: false,
   isAllowed: channel => channel.id === TRIVIA_CHANNEL,
-  handler: function (message, client, { channel, author }) {
+  handler: function (message, client, messageObject) {
+    const { author } = messageObject
     message = message.toLowerCase()
 
     // It is necessary to store the channel to be able to send messages that are
     // not answers to incoming users’ message, such as the result of a timeout.
     if (!trivia.channel) {
-      trivia.channel = channel
+      const channelId = getChannelId(messageObject, this)
+      trivia.channel = client.channels.cache.get(channelId)
     }
 
     if (message === 'help') {
@@ -174,6 +202,10 @@ export default {
 
     if (trivia.is('RUNNING') && message.startsWith('is ')) {
       return trivia.guess(message.replace('is ', '').trim(), author)
+    }
+
+    if (trivia.is('STOPPED') && message === 'scores') {
+      return trivia.leaderboard()
     }
 
     // Custom commands for Kitty to monitor/control the bot at runtime.
