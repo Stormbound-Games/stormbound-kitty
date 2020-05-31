@@ -10,7 +10,7 @@ const trivia = new StateMachine({
   init: 'STOPPED',
 
   data: {
-    timer: null,
+    timers: [],
     card: null,
     initiator: null,
     duration: 1000 * 60 * 2,
@@ -35,24 +35,31 @@ const trivia = new StateMachine({
       })
     },
 
+    halfTime: function (time) {
+      this.client.channels.cache
+        .get(TRIVIA_CHANNEL)
+        .send(`⏳ Half the time has run out, hurry up!`)
+    },
+
     timeout: function () {
       const cardName = this.card.name
       this.stop()
       this.client.channels.cache
         .get(TRIVIA_CHANNEL)
-        .send(`Time’s up! The answer was “**${cardName}**”!`)
+        .send(`⌛️ Time’s up! The answer was “**${cardName}**”!`)
     },
 
     onStart: function () {
       this.card = arrayRandom(cards.filter(card => !card.token))
-      this.timer = setTimeout(this.timeout.bind(this), this.duration)
+      this.timers.push(setTimeout(this.timeout.bind(this), this.duration))
+      this.timers.push(setTimeout(this.halfTime.bind(this), this.duration / 2))
     },
 
     initialise: function (author) {
       this.initiator = author
       this.start()
 
-      return `Trivia started! You have ${
+      return `🔮 Trivia started! You have ${
         this.duration / 1000
       } seconds to guess the card. You can ask questions and issue guesses with \`!trivia is <term>\`, like \`!trivia is pirate\` or \`!trivia is rof\`.`
     },
@@ -60,7 +67,7 @@ const trivia = new StateMachine({
     onStop: function () {
       this.card = null
       this.initiator = null
-      clearTimeout(this.timer)
+      this.timers = this.timers.map(clearTimeout).filter(Boolean)
     },
 
     abort: function (author) {
@@ -70,7 +77,7 @@ const trivia = new StateMachine({
       const cardName = this.card.name
       this.stop()
 
-      return `${username} originally started the trivia, and now they’re ending it. The answer was “**${cardName}**”.`
+      return `🔌 ${username} originally started the trivia, and now they’re ending it. The answer was “**${cardName}**”.`
     },
 
     success: function (author) {
@@ -164,7 +171,7 @@ export default {
       if (message.startsWith('duration')) {
         const duration = +message.replace('duration', '').trim()
         trivia.configure('duration', duration)
-        return `Trivia duration set to ${duration / 1000} seconds.`
+        return `⏱ Trivia duration set to ${duration / 1000} seconds.`
       } else if (message === 'inspect') {
         return trivia.inspect()
       }
