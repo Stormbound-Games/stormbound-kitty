@@ -1,10 +1,10 @@
 import StateMachine from 'javascript-state-machine'
 import { FACTIONS, RACES, RARITIES, TYPES } from '../../../constants/game'
+import { KITTY_ID, TRIVIA_CHANNEL } from '../../../constants/bot'
 import cards from '../../../data/cards'
 import arrayRandom from '../../../helpers/arrayRandom'
 import getCardsForSearch from '../../../helpers/getCardsForSearch'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'
-import { KITTY_ID, TRIVIA_CHANNEL, STORMBOUND_SERVER } from '../../handle'
 
 const parseGuess = message => {
   if (message === 'hero') return ['hero', true]
@@ -24,7 +24,6 @@ const machine = new StateMachine({
   data: {
     timer: null,
     card: null,
-    channel: null,
     initiator: null,
     duration: 1000 * 60 * 2,
   },
@@ -43,7 +42,7 @@ const machine = new StateMachine({
       const cardName = this.card.name
       this.stop()
       this.client.channels.cache
-        .get(this.channel)
+        .get(TRIVIA_CHANNEL)
         .send(`Time’s up! The answer was “**${cardName}**”!`)
     },
 
@@ -52,9 +51,8 @@ const machine = new StateMachine({
       this.timer = setTimeout(this.timeout.bind(this), this.duration)
     },
 
-    initialise: function ({ author, channel }) {
+    initialise: function (author) {
       this.initiator = author
-      this.channel = getChannelId(channel)
       this.start()
 
       return `Trivia started! You have ${
@@ -116,20 +114,15 @@ const machine = new StateMachine({
   },
 })
 
-// If the trivia is initiated on the main Stormbound server, reply in the
-// #trivia channel to avoid polluting the #kitty-bot channel with trivia
-// games. Otherwise, reply in the message it was initiated from.
-const getChannelId = channel =>
-  channel.guild.id === STORMBOUND_SERVER ? TRIVIA_CHANNEL : channel.id
-
 export default {
   command: 'trivia',
   name: 'Card trivia',
   example: 'help',
   description: 'KittyBot picks a card at random and you have to find which!',
-  channel: 'trivia',
+  channel: TRIVIA_CHANNEL,
+  ping: false,
   icon: '🔮',
-  handler: function (message, client, { channel, author }) {
+  handler: function (message, client, { author }) {
     message = message.toLowerCase()
 
     // It is necessary to store the client to be able to send messages that are
@@ -150,7 +143,7 @@ export default {
     }
 
     if (machine.can('start') && message === 'start') {
-      return machine.initialise({ author, channel })
+      return machine.initialise(author)
     }
 
     if (
