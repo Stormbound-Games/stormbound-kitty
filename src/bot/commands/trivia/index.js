@@ -14,6 +14,7 @@ const trivia = new StateMachine({
     card: null,
     initiator: null,
     duration: 1000 * 60 * 2,
+    channel: null,
   },
 
   transitions: [
@@ -24,26 +25,23 @@ const trivia = new StateMachine({
   methods: {
     inspect: function () {
       console.log({
-        status: this.state,
+        state: this.state,
         card: this.card,
         initiator: this.initiator,
         duration: this.duration,
         timers: this.timers,
+        channel: this.channel.id,
       })
     },
 
     halfTime: function (time) {
-      this.client.channels.cache
-        .get(TRIVIA_CHANNEL)
-        .send(`⏳ Half the time has run out, hurry up!`)
+      this.channel.send(`⏳ Half the time has run out, hurry up!`)
     },
 
     timeout: function () {
       const cardName = this.card.name
       this.stop()
-      this.client.channels.cache
-        .get(TRIVIA_CHANNEL)
-        .send(`⌛️ Time’s up! The answer was “**${cardName}**”!`)
+      this.channel.send(`⌛️ Time’s up! The answer was “**${cardName}**”!`)
     },
 
     onStart: function () {
@@ -141,10 +139,10 @@ export default {
   handler: function (message, client, { author }) {
     message = message.toLowerCase()
 
-    // It is necessary to store the client to be able to send messages that are
+    // It is necessary to store the channel to be able to send messages that are
     // not answers to incoming users’ message, such as the result of a timeout.
-    if (!trivia.client) {
-      trivia.client = client
+    if (!trivia.channel) {
+      trivia.channel = client.channels.cache.get(TRIVIA_CHANNEL)
     }
 
     if (message === 'help') {
