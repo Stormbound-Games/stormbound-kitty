@@ -5,6 +5,7 @@
    - [Broken Earth Drakes](#broken-earth-drakes)
    - [Yowling Weavers](#yowling-weavers)
    - [Rockworkers](#rockworkers)
+   - [Lady Rime](#lady-rime)
    - [Gift of the Wise](#gift-of-the-wise)
    - [2-tiles moving units](#2-tiles-moving-units)
    - [Cheap units](#cheap-units)
@@ -102,6 +103,20 @@ If you’re placing Yowling Weavers in the enemy’s baseline, place it on the r
 Don’t play them on your baseline unless you’re sure the drop won’t be in the central tiles of your baseline–if the drop is in said spots, you’ll have an unreachable spot between Fort of Ebonrock and the corner. Same thing applies while playing Fort of Ebonrock.
 
 Use other units to direct the Fort of Ebonrock drop in 1+ spots—close off the “bad tiles” where you don’t want the drop to go, and leave only 1 or 2 opened.
+
+### Lady Rime
+
+Lady Rime spends the mana leftover in your turn to gain strength, meaning that mana gain cards like Frozen Core and Gift of the Wise are crucial to making her work.
+
+Cards such as Yowling Weavers, Rockworkers, Mystwives, and Cabin Girls can help maintain board presence until you have at least 7 mana, when you ideally play Gift of the Wise and Lady Rime in an aggressive position.
+
+It’s also important to have a secondary runner such as First Mutineer, Warfront Runners, or Wolfcloaks to finish games in a Lady Rime deck. Ideally, you would have First Mutineer in addition to a more expensive runner.
+
+Other important cards may include Frosthexers for slowing any large-strength enemies, Freebooters to help maximize Gift of the Wise in case Lady Rime isn’t able to be played, and, as always, some cheap neutral cards such as Green Prototypes and Gifted Recruits.
+
+Another option is using Collector Mirz instead of First Mutineer: Mirz’s 0-cost tokens synergize well with Lady Rime as they don’t detract from Lady Rime’s strength when played.
+
+> _Special thanks to Helios#6120 for taking over WinterBoii and writing this section about Lady Rime._
 
 ### Gift of the Wise
 
