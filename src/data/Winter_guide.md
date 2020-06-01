@@ -50,11 +50,13 @@ If you have doubts about which cards to use, skip to [How to use](#how-to-use) >
 
 Here are some examples of successful decks.
 
-[![Winter Runners deck](/assets/images/winter_runners.png)](/deck/NU4xLDVOMyw1TjEzLDVOMTYsNVc1LDVOMjgsNVcxMiw1VzEzLDVXMTUsNU4zOSw1VzE3LDVXMTk=) [![Winter Stepfort deck](/assets/images/winter_stepfort.png)](/deck/NU4xLDVOMyw1TjQsNU4xMyw1TjE2LDVXNSw1VzEwLDVXMTMsNVcxNSw1TjM5LDVXMTksNVcyMw==)
+[deck:5n15n35n135n165w55n285w125w135n395w175w155w19]
+
+[deck:5n15n35n45n135n165w55w135n395w105w155w195w23]
 
 And finally, my Winterfell deck which took me and some other players to high Platinum/low Diamond with level 4 cards. So don’t worry, you don’t need max cards to actually get high!
 
-[![Winterfell deck](/assets/images/winterfell.png)](/deck/NE4zLDROMTEsNE4xMiw0TjE2LDJXNSwyTjE4LDROMjgsNFcxMiw0VzEzLDNXMTUsMlcxOSwzVzIx)
+[deck:3n33n113n123n163w53n183n283w123w133w153w193w21]
 
 Hint: For a more comprehensive deep-dive into building successful and efficient decks, refer to [Zemeu’s guide](/guides/deck).
 

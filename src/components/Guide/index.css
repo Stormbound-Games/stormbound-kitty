@@ -21,14 +21,14 @@
   margin-bottom: 0;
 }
 
-.Guide ol,
-.Guide ul {
+.Guide ol:not([class]),
+.Guide ul:not([class]) {
   padding: 0;
   list-style-position: inside;
   margin-bottom: 2em;
 }
 
-.Guide li {
+.Guide li:not([class]) {
   padding-left: 1.5em;
   text-indent: -1.5em;
   margin-bottom: 0.5em;
@@ -49,4 +49,9 @@
   display: block;
   height: auto;
   max-width: 100%;
+}
+
+.Guide .Deck {
+  max-width: 80%;
+  margin: 2em auto;
 }

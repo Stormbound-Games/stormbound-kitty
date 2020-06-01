@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 import remark from 'remark'
 import remarkReact from 'remark-react'
 import cards from '../../data/cards'
+import Deck from '../Deck'
 import Notice from '../Notice'
 import Title from '../Title'
 import WikiLink from '../WikiLink'
 import generateId from '../../helpers/generateId'
 import template from '../../helpers/template'
+import serialisation from '../../helpers/serialisation'
 
 const REPLACEMENTS = cards.reduce((acc, card, index) => {
   acc[card.name] = <WikiLink id={card.id} key={card.id} />
@@ -38,14 +40,33 @@ const h2 = React.memo(props => (
 const h3 = React.memo(props => (
   <h3 id={generateId(props.children[0])}>{props.children}</h3>
 ))
-const p = React.memo(props =>
-  typeof props.children[0] === 'string' &&
-  props.children[0].startsWith('Hint: ') ? (
-    <Notice>
-      {props.children[0].replace('Hint: ', '')}
-      {props.children.slice(1)}
-    </Notice>
-  ) : (
+const p = React.memo(props => {
+  const isHint =
+    typeof props.children[0] === 'string' &&
+    props.children[0].startsWith('Hint: ')
+  const isDeck =
+    typeof props.children[0] === 'string' &&
+    props.children[0].match(/\[deck:(\w+)\]/)
+
+  if (isDeck) {
+    return (
+      <Deck
+        orientation='horizontal'
+        deck={serialisation.deck.deserialise(isDeck[1])}
+      />
+    )
+  }
+
+  if (isHint) {
+    return (
+      <Notice>
+        {props.children[0].replace('Hint: ', '')}
+        {props.children.slice(1)}
+      </Notice>
+    )
+  }
+
+  return (
     <p>
       {props.children.map(child =>
         typeof child === 'string'
@@ -54,7 +75,7 @@ const p = React.memo(props =>
       )}
     </p>
   )
-)
+})
 
 const li = React.memo(props => (
   <li>
