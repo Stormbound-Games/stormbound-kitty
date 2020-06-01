@@ -267,7 +267,7 @@ const handleCardEffect = (state, card, mode, HoS) => {
       // Note: it seems that QoH spawns do not cause a weighing of the deck.
       // See: https://discordapp.com/channels/293674725069029377/564840207875178502/676580198057246730
       satyr1 = arrayRandom(satyrs)
-      play(state, satyr1, { mode, free: true })
+      play(state, satyr1, { mode, free: true, reweight: false })
 
       // If Queen of Herds is level 4 or 5 and there were more than single
       // satyr in the remaining cards from the deck, a second one can be
@@ -276,7 +276,7 @@ const handleCardEffect = (state, card, mode, HoS) => {
         satyr2 = arrayRandom(satyrs.filter(isNotCard(satyr1)))
 
         if (satyr2) {
-          play(state, satyr2, { mode, free: true })
+          play(state, satyr2, { mode, free: true, reweight: false })
         }
       }
 

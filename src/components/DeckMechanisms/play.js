@@ -6,6 +6,7 @@ export const DEFAULT_PLAY_OPTIONS = {
   mode: 'AUTOMATIC',
   free: false,
   discard: false,
+  reweight: true,
 }
 
 /**
@@ -16,6 +17,7 @@ export const DEFAULT_PLAY_OPTIONS = {
  * @param {Boolean} [opts.discard = false] - Whether the play is actually a discard
  * @param {Boolean} [opts.free = false] - Whether the play is for free
  * @param {String} [opts.mode = 'AUTOMATIC'] - Game mode (MANUAL or AUTOMATIC)
+ * @param {String} [opts.reweight = true] - Whether to reweight the deck
  * @param {Object} HoS - Reference & Method used to show Harvester’s Dialog
  * @return {Object} Mutated state
  */
@@ -50,11 +52,13 @@ const play = (state, card, opts, HoS) => {
   // After having played a card, we need to readjust the weight of all cards
   // that are not in the hand, as well as the card that has just been played
   // (reset to 0).
-  state.deck = getIncreasedDeckWeight({
-    deck: state.deck,
-    hand: state.hand,
-    reset: [card],
-  })
+  if (options.reweight) {
+    state.deck = getIncreasedDeckWeight({
+      deck: state.deck,
+      hand: state.hand,
+      reset: [card],
+    })
+  }
 
   return handleCardEffect(state, cardData, options.mode, HoS)
 }
