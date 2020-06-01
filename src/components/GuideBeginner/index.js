@@ -381,7 +381,7 @@ export default React.memo(function GuideBeginner(props) {
       </p>
       <p>
         This also means they will trigger <WikiLink id='N25' />’ and{' '}
-        <WikiLink id='N39' />’ abilities, and are able to be used with
+        <WikiLink id='N39' />’ abilities, and are able to be used with{' '}
         <WikiLink id='I3' /> (although then again, both cards are not from the
         same faction so Harvesters of Souls would be required).
       </p>
