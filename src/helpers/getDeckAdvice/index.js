@@ -16,6 +16,7 @@ import INEFFICIENT_ZHEVANA from './advice/INEFFICIENT_ZHEVANA'
 import LACK_OF_AOE from './advice/LACK_OF_AOE'
 import LACK_OF_FINISHER from './advice/LACK_OF_FINISHER'
 import LIGHT_DECK from './advice/LIGHT_DECK'
+import HIGH_MANA_CURVE from './advice/HIGH_MANA_CURVE'
 import MANY_SPELLS from './advice/MANY_SPELLS'
 import MULTI_FACTIONS from './advice/MULTI_FACTIONS'
 import ODD_MANA_COST from './advice/ODD_MANA_COST'
@@ -40,6 +41,7 @@ const ADVICE = [
   LACK_OF_AOE,
   LACK_OF_FINISHER,
   LIGHT_DECK,
+  HIGH_MANA_CURVE,
   MANY_SPELLS,
   MULTI_FACTIONS,
   ODD_MANA_COST,

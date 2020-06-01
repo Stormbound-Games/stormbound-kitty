@@ -22,7 +22,7 @@ describe('Bot — !deckadvice', () => {
 
   it('should handle a lack of advice', () => {
     expect(
-      deckadvice('5n35n125n163w54n184w95w125w133n394w153w194w21')
+      deckadvice('5n31n45n121n145n163w54n181n94w95w125w133w19')
     ).to.contain('alright!')
   })
 
