@@ -1,0 +1,13 @@
+.GuideBeginner__image {
+  display: block;
+  max-width: 80%;
+  margin: 0 auto 1.5em;
+}
+
+@media (min-width: 700px) {
+  .GuideBeginner__image {
+    max-width: 150px;
+    float: right;
+    margin-left: 1em;
+  }
+}

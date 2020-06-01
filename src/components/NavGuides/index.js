@@ -11,18 +11,23 @@ export default React.memo(function NavGuides(props) {
           </NavLink>
         </li>
         <li className='Header__item'>
+          <NavLink to='/guides/beginner' active={props.active === 'BEGINNER'}>
+            Beginner
+          </NavLink>
+        </li>
+        <li className='Header__item'>
           <NavLink to='/guides/complete' active={props.active === 'COMPLETE'}>
             Complete
           </NavLink>
         </li>
         <li className='Header__item'>
-          <NavLink to='/guides/drawing' active={props.active === 'DRAWING'}>
-            Drawing
+          <NavLink to='/guides/deck' active={props.active === 'DECK'}>
+            Deck Building
           </NavLink>
         </li>
         <li className='Header__item'>
-          <NavLink to='/guides/deck' active={props.active === 'DECK'}>
-            Deck Building
+          <NavLink to='/guides/drawing' active={props.active === 'DRAWING'}>
+            Drawing
           </NavLink>
         </li>
         <li className='Header__item'>

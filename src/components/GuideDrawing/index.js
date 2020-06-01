@@ -127,7 +127,7 @@ export default React.memo(function GuideDrawing(props) {
         </p>
       </Info>
 
-      <Title>Queen of Herds</Title>
+      <Title id='queen-of-herds'>Queen of Herds</Title>
 
       <p>
         Queen of Herds has such an awkward and undisclosed mechanic that it
@@ -154,7 +154,7 @@ export default React.memo(function GuideDrawing(props) {
         stays high and the card is likely to come back in hand shortly.
       </p>
 
-      <Title>Pirates</Title>
+      <Title id='pirates'>Pirates</Title>
 
       <p>
         Most pirate cards rely on drawing and cycling mechanics. Unlike Queen of

@@ -5,6 +5,7 @@ import Error from '../Error'
 import load from '../../helpers/load'
 
 const Guides = load('Guides')
+const GuideBeginner = load('GuideBeginner')
 const GuideComplete = load('GuideComplete')
 const GuideDeck = load('GuideDeck')
 const GuideDrawing = load('GuideDrawing')
@@ -18,6 +19,9 @@ export default function RouterGuides() {
 
   return (
     <Switch>
+      <Page path={`${path}/beginner`} active={['GUIDES', 'BEGINNER']}>
+        <GuideBeginner />
+      </Page>
       <Page path={`${path}/resources`} active={['GUIDES', 'RESOURCES']}>
         <GuideResources />
       </Page>

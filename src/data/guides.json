@@ -1,5 +1,16 @@
 [
   {
+    "id": "BEGINNER_GUIDE",
+    "name": "Beginner’s Guide",
+    "author": "Buggz",
+    "excerpt": "In this economy guide to Stormbound, Roman explains what is the best approach when it comes to spending resources efficiently. Make the most out of them stones!",
+    "link": "/guides/beginner",
+    "faction": "neutral",
+    "cardId": "N3",
+    "background": "/assets/images/environment_neutral.png",
+    "readingTime": "12 minutes"
+  },
+  {
     "id": "COMPLETE_GUIDE",
     "name": "Complete Guide",
     "author": "Arikrat",
