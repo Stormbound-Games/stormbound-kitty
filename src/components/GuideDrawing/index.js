@@ -150,7 +150,7 @@ export default React.memo(function GuideDrawing(props) {
       <p>
         Additionally, the cards played by Queen of Herds do not cause a
         re-weighing of the deck. This means a card played for free by Queen of
-        Herds preserve its current weight. If it was high to begin with, it
+        Herds preserves its current weight. If it was high to begin with, it
         stays high and the card is likely to come back in hand shortly.
       </p>
 

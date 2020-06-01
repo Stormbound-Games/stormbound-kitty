@@ -49,7 +49,7 @@ export default {
   command: 'bookodds',
   name: 'Book Drawing Odds',
   description:
-    'Get the odds of a drawing a certain card or Fusion stones from a certain book',
+    'Get the odds of drawing a certain card or Fusion stones from a certain book',
   example: 'mythic rof',
   icon: '📕',
   isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
