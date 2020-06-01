@@ -2,8 +2,6 @@ import toSentence from '../../toSentence/'
 import getRawCardData from '../../getRawCardData/'
 
 const getSatyrs = cards => cards.filter(card => card.race === 'satyr')
-const hasAny = (cards, ids) =>
-  ids.some(id => cards.map(card => card.id).includes(id))
 
 export default cards => {
   const hasSatyrSynergist = hasAny(cards, ['S5', 'S7', 'S9'])
@@ -12,6 +10,7 @@ export default cards => {
   if (!hasSatyrSynergist || satyrs.length > 5) return null
 
   const hasCard = id => cards.map(card => card.id).includes(id)
+  const hasAny = ids => ids.some(hasCard)
   const satyrConsumers = ['S5', 'S7', 'S9']
   const listOfNames = toSentence(
     satyrConsumers
