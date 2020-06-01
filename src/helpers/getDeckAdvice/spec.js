@@ -110,12 +110,12 @@ const TESTS = [
     'MATCH',
   ],
   [
-    'LACK_OF_AOE (Voidsurgers)',
+    'LACK_OF_AOE (Bladestorm)',
     '1n11n21n31n671n71n101n201i141n651n271n291i28',
     'MATCH',
   ],
   [
-    'LACK_OF_AOE (Bladestorm)',
+    'LACK_OF_AOE (Voidsurgers)',
     '1n11n21n31n671n71n101n201i141n651n271n361i28',
     'MATCH',
   ],
@@ -142,6 +142,11 @@ const TESTS = [
   [
     'LACK_OF_AOE (Siren of the Seas)',
     '1n11n21n31n671n71n101n201i141n651n271i281n58',
+    'MATCH',
+  ],
+  [
+    'LACK_OF_AOE (Unhealthy Hysterya)',
+    '5n15n25n33n632n673n72n102n204i142n653n272i28',
     'MATCH',
   ],
   [

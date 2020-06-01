@@ -12,6 +12,7 @@ const lacksAoE = cards => {
     /* Joust Champions */ ids.includes('N55') ||
     /* Crazy Bombers */ ids.includes('N57') ||
     /* Sirens of the Seas */ ids.includes('N58') ||
+    /* Unhealthy Hysteria */ ids.includes('N63') ||
     /* Trekking Aldermen */ ids.includes('N73') ||
     /* Broken Earth Drake */ ids.includes('W15') ||
     /* Flaming Stream */ ids.includes('I18') ||
