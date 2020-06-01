@@ -2,8 +2,9 @@ const getSpells = cards => cards.filter(c => c.type === 'spell')
 
 export default cards => {
   const spells = getSpells(cards)
-  const hasSummonMilitia = cards.map(card => card.id).includes('N2')
-  const threshold = hasSummonMilitia ? 3 : 2
+  const cardIds = cards.map(card => card.id)
+  const spawnSpells = ['N2', 'S24'].filter(id => cardIds.includes(id))
+  const threshold = 2 + spawnSpells.length
 
   if (spells.length <= threshold) return null
 
