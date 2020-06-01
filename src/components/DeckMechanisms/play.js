@@ -11,14 +11,16 @@ export const DEFAULT_PLAY_OPTIONS = {
  * Mutate the given state following a play.
  * @param {Object} state - State being mutated
  * @param {DRCard} card - Played card
- * @param {Object} options - Play options
- * @param {Boolean} [options.discard = false] - Whether the play is actually a discard
- * @param {Boolean} [options.free = false] - Whether the play is for free
- * @param {String} [options.mode = 'AUTOMATIC'] - Game mode (MANUAL or AUTOMATIC)
+ * @param {Object} opts - Play options
+ * @param {Boolean} [opts.discard = false] - Whether the play is actually a discard
+ * @param {Boolean} [opts.free = false] - Whether the play is for free
+ * @param {String} [opts.mode = 'AUTOMATIC'] - Game mode (MANUAL or AUTOMATIC)
  * @param {Object} HoS - Reference & Method used to show Harvester’s Dialog
  * @return {Object} Mutated state
  */
-const play = (state, card, options = DEFAULT_PLAY_OPTIONS, HoS) => {
+const play = (state, card, opts, HoS) => {
+  const options = { ...DEFAULT_PLAY_OPTIONS, ...opts }
+
   if (!card) return state
 
   const cardData = state.deck.find(isCard(card))
