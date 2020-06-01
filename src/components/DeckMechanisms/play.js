@@ -1,5 +1,6 @@
 import handleCardEffect from './handleCardEffect'
 import isCard, { isNotCard } from '../../helpers/isCard'
+import getIncreasedDeckWeight from './getIncreasedDeckWeight'
 
 export const DEFAULT_PLAY_OPTIONS = {
   mode: 'AUTOMATIC',
@@ -45,6 +46,15 @@ const play = (state, card, opts, HoS) => {
   if (state.turn === 1 && cardData.type === 'unit') {
     state.specifics.noUnitsOnFirstTurn = false
   }
+
+  // After having played a card, we need to readjust the weight of all cards
+  // that are not in the hand, as well as the card that has just been played
+  // (reset to 0).
+  state.deck = getIncreasedDeckWeight({
+    deck: state.deck,
+    hand: state.hand,
+    reset: [card],
+  })
 
   return handleCardEffect(state, cardData, options.mode, HoS)
 }

@@ -21,15 +21,6 @@ const draw = (state, card = null) => {
   // Put the new card into the hand.
   state.hand.push(pick)
 
-  // After having drawn a new card, we need to readjust the weight of all
-  // cards that are not in the hand, as well as the card that has just been
-  // drawn (reset to 0).
-  state.deck = getIncreasedDeckWeight({
-    deck: state.deck,
-    hand: state.hand,
-    reset: [pick],
-  })
-
   return state
 }
 
