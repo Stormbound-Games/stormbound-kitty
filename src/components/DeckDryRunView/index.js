@@ -218,6 +218,10 @@ class DeckDryRunView extends React.Component {
 
   getDisplayDeck = () => {
     const sum = this.props.deck
+      // The cards in the hand still have their pre-drawn weight until they get
+      // played, but we should not count their weight when computing the odds
+      // because, well, they are already in the hand.
+      .filter(card => !this.props.hand.find(isCard(card)))
       .map(card => card.weight)
       .reduce((a, b) => a + b, 0)
 
