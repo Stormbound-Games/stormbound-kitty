@@ -82,33 +82,33 @@ export default React.memo(function GuideDrawing(props) {
       <p>
         From there, 4 cards are drawn with the weighted random to compose the
         initial hand. That means the cards with the weights 220, 137, 85 and 53
-        are most likely to be drawn, but that’s not a guarantee. As explained
-        more in detail in the next section, the 4 cards composing the initial
-        hand see their weight reset to 0.
+        are most likely to be drawn, but that’s not a guarantee.
       </p>
 
-      <Title>Drawing and cycling</Title>
+      <Title>Drawing and playing</Title>
 
       <p>
-        For the most part, drawing and cycling are considered the same from a
-        weighing standpoint. When a card is either drawn or cycled, two things
-        happen:
+        There are two main concepts to the hand manipulation:{' '}
+        <span className='Highlight'>drawing</span> and{' '}
+        <span className='Highlight'>playing</span>. Cycling is just a
+        combination of both where a card is “played” into the deck (also known
+        as “discarded”) and followed by a card draw.
       </p>
 
-      <ol>
-        <li>
-          The card’s weight is reset to 0. A card with a weight of 0 cannot be
-          drawn again in a weighted random system, and thus cannot be played
-          twice in one turn (see note below for dogmatic accuracy).
-        </li>
-        <li>
-          All the other cards from the deck (not from the hand) see their weight
-          increase following the initial formula: current weight × 1.6 + 1
-          (rounded down). As an example, a card with a weight of 12 would end up
-          with a weight of 20. This is what is called a “reweighing of the
-          deck.”
-        </li>
-      </ol>
+      <p>
+        When a card is drawn, its weight is reset to 0. A card with a weight of
+        0 cannot be drawn again in a weighted random system, and thus cannot be
+        played twice in one turn (see note below for dogmatic accuracy).
+      </p>
+
+      <p style={{ marginBottom: '2em' }}>
+        When a card is played, all the other cards from the deck (not from the
+        hand) see their weight increase following the initial formula: current
+        weight × 1.6 + 1 (rounded down). As an example, a card with a weight of
+        12 would end up with a weight of 20. This is what is called a
+        “reweighing of the deck” and has been confirmed by Kuldotha, a former
+        member of the development team.
+      </p>
 
       <Info icon='stack' title='Playing a card more than once in a turn'>
         <p>
@@ -118,12 +118,13 @@ export default React.memo(function GuideDrawing(props) {
           in a day to day play.
         </p>
         <p>
-          For a given card to be played and redrawn in the same turn, an
-          intermediary draw needs to happen. Indeed, when the card is played,
-          its weight is reset to 0. Another draw (whether by cycling or from a
-          card’s ability) will cause a reweighing of the deck, which makes the
-          card’s weight non null. From there, a subsequent draw can cause the
-          card to be drawn (and played) again.
+          For a given card to be played and drawn again in the same turn, an
+          intermediary play/cycle needs to happen. Indeed, when a card is
+          played, it’s put back into the deck with a weight of 0. Another
+          play/cycle will cause a reweighing of the deck, which makes the card’s
+          weight non null. From there, a subsequent draw (through card ability
+          or cycling) can cause the card to be drawn (and played) again even
+          though the odds are not in favour.
         </p>
       </Info>
 
@@ -143,13 +144,13 @@ export default React.memo(function GuideDrawing(props) {
         respect the cards weight when drawing satyrs from the deck. It uses a
         purely random draw (or two in case of levels 4 and 5). That implies
         playing, say, <WikiLink id='S28' />, then playing Queen of Herds, does
-        not prevent <WikiLink id='S28' /> from being drawn again. It is
-        definitely possible.
+        not prevent <WikiLink id='S28' /> from being drawn again even though
+        there are other satyrs in the deck. It is definitely possible.
       </p>
 
       <p>
         Additionally, the cards played by Queen of Herds do not cause a
-        re-weighing of the deck. This means a card played for free by Queen of
+        reweighing of the deck. This means a card played for free by Queen of
         Herds preserves its current weight. If it was high to begin with, it
         stays high and the card is likely to come back in hand shortly.
       </p>
@@ -159,7 +160,8 @@ export default React.memo(function GuideDrawing(props) {
       <p>
         Most pirate cards rely on drawing and cycling mechanics. Unlike Queen of
         Herds however, they behave as one would expect, just like normal
-        drawing, playing and cycling:
+        drawing, playing and cycling although there remains some (low-impacting)
+        unknowns.
       </p>
 
       <Only.Desktop>
@@ -184,24 +186,27 @@ export default React.memo(function GuideDrawing(props) {
       <ul>
         <li>
           <WikiLink id='N12' /> discards a non-pirate card from the hand and
-          into the deck. Since cards in hand have a weight of 0 because they are
-          the result of a draw, nothing happens to the cards weight.
+          into the deck. Playing the card itself causes a reweighing, and it is
+          assumed (although not confirmed) that the discarded card causes
+          another reweighing as well.
         </li>
         <li>
-          <WikiLink id='N14' /> draws one or two cards following the usual
-          weighted random and causes a re-weighing of the deck.
+          <WikiLink id='N14' /> draws one or two cards (depending on level)
+          following the usual weighted random. A reweighing of the deck occurs
+          when playing the card itself, like for any other play.
         </li>
         <li>
           <WikiLink id='N22' /> discards a non-pirate card from the hand and
-          into the deck, then draws a card following the usual weighted random
-          and causes a reweighing of the deck.
+          into the deck, then draws a card following the usual weighted random.
+          This works similarly to First Mutineer and Freebooters.
         </li>
         <li>
           <WikiLink id='N33' /> — provided it is played as first card of a turn
           — discards the remaining hand and draws 3 or 4 cards following the
-          usual weighted random, causing a reweighing of the deck. It is unclear
-          whether all 3 cards are discarded at once or sequentially, although
-          the difference should be relatively minor (1 reweighing instead of 3).
+          usual weighted random, causing at least 1 reweighing of the deck. It
+          is unclear whether all 3 cards are discarded at once or sequentially,
+          although the difference should be relatively minor (2 reweighing
+          instead of 4).
         </li>
       </ul>
 
@@ -235,23 +240,25 @@ export default React.memo(function GuideDrawing(props) {
 
       <p>
         When played with no bordering enemies, it comes back in the hand
-        immediately. Since playing a card does not cause its weight to be reset
-        (as this is done on draw) and since a card in the hand already has a
-        weight to 0, nothing happens to <WikiLink id='S3' />
-        ’s weight. The deck is not reweighed either.
+        immediately. Playing the card causes a reweighing of the deck as normal
+        and <WikiLink id='S3' />
+        comes back to the hand despite its weight being 0. This is likely
+        implemented by a “forced-draw” mechanism.
       </p>
 
       <p>
         <WikiLink id='N48' /> simply plays one or two spells from the hand.
-        Since cards in the hand already have a weight of 0 and the deck is not
-        reweighed on play, nothing happens. The played spells had a weight of 0
-        to begin with and keep that weight now in the deck.
+        Unlike with Queen of Herds, these plays do cause a reweighing of the
+        deck (or 2 for level 4 and 5). Interestingly enough, the first spell
+        played by <WikiLink id='N48' /> will end up with a non-0 weight after
+        the second spell is played, which mean it could technically be drawn
+        (although unlikely) right away.
       </p>
 
       <p>
         Finally <WikiLink id='N8' /> (and <WikiLink id='N38' />) simply add a
-        card to the deck with a weight of 0, without causing a reweighing of the
-        deck.
+        card to the deck with a weight of 0, without causing an extra reweighing
+        of the deck. Only the regular reweighing due to card play occurs.
       </p>
 
       <Title>Strategy</Title>

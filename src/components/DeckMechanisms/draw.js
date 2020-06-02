@@ -1,4 +1,3 @@
-import getIncreasedDeckWeight from './getIncreasedDeckWeight'
 import rwcDuplicates from '../../helpers/rwcDuplicates'
 import isCard from '../../helpers/isCard'
 
@@ -18,17 +17,9 @@ const draw = (state, card = null) => {
   // Draw a random card while taking weight into account.
   const pick = card || rwcDuplicates(availableCards)
 
-  // Put the new card into the hand.
+  // Put the new card into the hand and reset its weight.
   state.hand.push(pick)
-
-  // After having drawn a new card, we need to readjust the weight of all
-  // cards that are not in the hand, as well as the card that has just been
-  // drawn (reset to 0).
-  state.deck = getIncreasedDeckWeight({
-    deck: state.deck,
-    hand: state.hand,
-    reset: [pick],
-  })
+  state.deck.find(isCard(pick)).weight = 0
 
   return state
 }
