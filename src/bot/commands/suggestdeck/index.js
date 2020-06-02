@@ -16,7 +16,15 @@ export default {
     const { params, ignored } = parseMessage(message.toLowerCase())
 
     if (Object.keys(params).length === 0) {
-      return 'https://stormbound-kitty.com/deck/' + arrayRandom(decks).id
+      return (
+        'https://stormbound-kitty.com/deck/' +
+        arrayRandom(
+          // If the category is not provided, assume the expectation is to have
+          // a deck that works and is competitive under normal circumstances (so
+          // ranking and Diamond) and therefore discard any Brawl/Equals deck.
+          decks.filter(deck => !['BRAWL', 'EQUALS'].includes(deck.category))
+        ).id
+      )
     }
 
     const results = decks.filter(deck => {
@@ -24,8 +32,13 @@ export default {
         return false
       }
 
-      if (params.category && deck.category !== params.category) {
-        return false
+      if (params.category) {
+        if (deck.category !== params.category) return false
+      } else {
+        // If the category is not provided, assume the expectation is to have a
+        // deck that works and is competitive under normal circumstances (so
+        // ranking and Diamond) and therefore discard any Brawl/Equals deck.
+        if (['BRAWL', 'EQUALS'].includes(deck.category)) return false
       }
 
       if (
