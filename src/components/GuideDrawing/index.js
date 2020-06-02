@@ -91,8 +91,8 @@ export default React.memo(function GuideDrawing(props) {
         There are two main concepts to the hand manipulation:{' '}
         <span className='Highlight'>drawing</span> and{' '}
         <span className='Highlight'>playing</span>. Cycling is just a
-        combination of both where a card is “played” into the deck (discarding)
-        and followed by a card draw.
+        combination of both where a card is “played” into the deck (also known
+        as “discarded”) and followed by a card draw.
       </p>
 
       <p>
@@ -106,7 +106,8 @@ export default React.memo(function GuideDrawing(props) {
         hand) see their weight increase following the initial formula: current
         weight × 1.6 + 1 (rounded down). As an example, a card with a weight of
         12 would end up with a weight of 20. This is what is called a
-        “reweighing of the deck.”
+        “reweighing of the deck” and has been confirmed by Kuldotha, a former
+        member of the development team.
       </p>
 
       <Info icon='stack' title='Playing a card more than once in a turn'>
@@ -117,12 +118,13 @@ export default React.memo(function GuideDrawing(props) {
           in a day to day play.
         </p>
         <p>
-          For a given card to be played and redrawn in the same turn, an
-          intermediary play/cycle needs to happen. Indeed, when the card is
-          played, its weight is reset to 0. Another play/cycle will cause a
-          reweighing of the deck, which makes the card’s weight non null. From
-          there, a subsequent draw (through card ability or cycling) can cause
-          the card to be drawn (and played) again.
+          For a given card to be played and drawn again in the same turn, an
+          intermediary play/cycle needs to happen. Indeed, when a card is
+          played, it’s put back into the deck with a weight of 0. Another
+          play/cycle will cause a reweighing of the deck, which makes the card’s
+          weight non null. From there, a subsequent draw (through card ability
+          or cycling) can cause the card to be drawn (and played) again even
+          though the odds are not in favour.
         </p>
       </Info>
 
@@ -142,13 +144,13 @@ export default React.memo(function GuideDrawing(props) {
         respect the cards weight when drawing satyrs from the deck. It uses a
         purely random draw (or two in case of levels 4 and 5). That implies
         playing, say, <WikiLink id='S28' />, then playing Queen of Herds, does
-        not prevent <WikiLink id='S28' /> from being drawn again. It is
-        definitely possible.
+        not prevent <WikiLink id='S28' /> from being drawn again even though
+        there are other satyrs in the deck. It is definitely possible.
       </p>
 
       <p>
         Additionally, the cards played by Queen of Herds do not cause a
-        re-weighing of the deck. This means a card played for free by Queen of
+        reweighing of the deck. This means a card played for free by Queen of
         Herds preserves its current weight. If it was high to begin with, it
         stays high and the card is likely to come back in hand shortly.
       </p>
@@ -158,7 +160,8 @@ export default React.memo(function GuideDrawing(props) {
       <p>
         Most pirate cards rely on drawing and cycling mechanics. Unlike Queen of
         Herds however, they behave as one would expect, just like normal
-        drawing, playing and cycling:
+        drawing, playing and cycling although there remains some (low-impacting)
+        unknowns.
       </p>
 
       <Only.Desktop>
@@ -183,12 +186,14 @@ export default React.memo(function GuideDrawing(props) {
       <ul>
         <li>
           <WikiLink id='N12' /> discards a non-pirate card from the hand and
-          into the deck which causes a reweighing of the deck.
+          into the deck. Playing the card itself causes a reweighing, and it is
+          assumed (although not confirmed) that the discarded card causes
+          another reweighing as well.
         </li>
         <li>
-          <WikiLink id='N14' /> draws one or two cards following the usual
-          weighted random. A reweighing of the deck occures when playing the
-          card itself, but nothing more happens following the draws.
+          <WikiLink id='N14' /> draws one or two cards (depending on level)
+          following the usual weighted random. A reweighing of the deck occurs
+          when playing the card itself, like for any other play.
         </li>
         <li>
           <WikiLink id='N22' /> discards a non-pirate card from the hand and
