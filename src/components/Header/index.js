@@ -124,8 +124,8 @@ export default React.memo(function Header(props) {
               </NavLink>
             </li>
             <li className='Header__item'>
-              <NavLink to='/sim' active={topActive === 'BATTLE_SIM'}>
-                <Icon className='Header__icon' icon='sword' /> Battle Sim
+              <NavLink to='/list' active={topActive === 'LIST_BUILDER'}>
+                <Icon className='Header__icon' icon='sword' /> List Builder
               </NavLink>
             </li>
             <li className='Header__item'>

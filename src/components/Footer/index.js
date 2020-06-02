@@ -120,7 +120,7 @@ export default React.memo(function Footer(props) {
                     <Link to='/quest'>Quest Builder</Link>
                   </li>
                   <li className='Footer__item'>
-                    <Link to='/list'>List Builder</Link>
+                    <Link to='/sim'>Battle sim</Link>
                   </li>
 
                   <li className='Footer__item'>
