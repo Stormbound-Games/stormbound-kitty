@@ -22,9 +22,7 @@
    - [Mana curve](#mana-curve)
    - [Units](#units)
    - [Ways of winning](#ways-of-winner)
-6. [Economy advice](#economy-advice)
-   - [Quests](#quests)
-7. [Contact me](#contact-me)
+6. [Contact me](#contact-me)
 
 ---
 
@@ -312,14 +310,6 @@ Always try to find good combination of cards in your deck. Those are what make y
 ### How to evaluate a card
 
 To compare cards I often do as follow: I look how much strength it brought to the board and add 2 for a 1-speed unit and 3 for a 2-speed unit, and then I compare it with same-cost cards. I also subtract the strength it gives to the enemy or take from my side. I try not to compare cards with different costs. For example, Level 5 Gifted Recruits is 5+2 for 2 mana, Linked Golems at level 3 is 3(+6) +2 for 3 mana. This way, I can make rationalized choices for my deck. Of course, you also have to take into consideration all the previous point about synergies and coherence.
-
-## Economy advice
-
-### Quests
-
-Quest are updated daily. You can either gain 120 gold or 5 rubies with the hardest one. You should always try to complete each quest of course. At first, I always tried to have 5 rubies quest. However, I find myself not rerolling doable 120 gold quest now. The rubies gained with the Season Chest are enough to buy Mythic Books every 2 months and opening Splendid Book is still the best way to improve your collection.
-
-I do not recommend going for the max gold/day for new players, as it is not as rewarding as it seems; you gain 330 gold a day in 4-6 wins and that is enough IMHO. In this game, you do not want to end in a rank where you do not belong. It is not impossible to win against higher-level cards, but way harder than playing in your league.
 
 ## Contact me
 
