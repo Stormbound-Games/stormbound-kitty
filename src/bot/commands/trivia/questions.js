@@ -287,7 +287,7 @@ export default [
     return {
       difficulty: 'EASY',
       question: `Of which card is this an anagram: “${shuffle(
-        randomCard.name.split('')
+        randomCard.name.toLowerCase().split('')
       ).join('')}”?`,
       answer: randomCard.name,
       options: CARD_NAMES,
