@@ -165,7 +165,7 @@ export default [
 
     return {
       difficulty: 'EASY',
-      question: `What is the cost of ${cardData.name} card at level ${level}?`,
+      question: `What is the cost of ${cardData.name} at level ${level}?`,
       answer: cardData.mana,
       options: range(0, 10),
     }
