@@ -37,14 +37,14 @@ const parseTriviaSettings = message => {
     // the difficulty to determine the duration, since the difficulty is
     // already considered in the type of question that is asked.
   } else if (isNaN(params.duration)) {
-    params.duration = 10
+    params.duration = 15
   } else {
     // Finally, if the duration is provided, clamp it based on the game mode
     // so it isn’t too short or too long either.
     if (params.mode === 'CARD') {
       params.duration = clamp(params.duration, 30, 120)
     } else if (params.mode === 'QUESTION') {
-      params.duration = clamp(params.duration, 5, 20)
+      params.duration = clamp(params.duration, 8, 20)
     }
   }
 

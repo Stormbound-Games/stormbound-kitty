@@ -19,10 +19,10 @@ describe('The `parseTriviaSettings` helper', () => {
   })
 
   it('should properly resolve the duration for question mode', () => {
-    expect(parseTriviaSettings('question').duration).to.equal(10)
-    expect(parseTriviaSettings('question 15').duration).to.equal(15)
-    expect(parseTriviaSettings('15 question').duration).to.equal(15)
-    expect(parseTriviaSettings('question 1').duration).to.equal(5)
+    expect(parseTriviaSettings('question').duration).to.equal(15)
+    expect(parseTriviaSettings('question 12').duration).to.equal(12)
+    expect(parseTriviaSettings('12 question').duration).to.equal(12)
+    expect(parseTriviaSettings('question 1').duration).to.equal(8)
     expect(parseTriviaSettings('question 100').duration).to.equal(20)
   })
 
