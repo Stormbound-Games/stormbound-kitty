@@ -18,12 +18,12 @@ import sortCards from '../../../helpers/sortCards'
 
 const SORTED_CARDS = cards.sort(sortCards())
 const CARD_NAMES = cards.filter(card => !card.token).map(card => card.name)
+const unique = (value, index, array) => array.indexOf(value) === index
 const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 const range = (min, max) => [...Array(max - min).keys()].map(n => n + min)
-const randomAuthor = arrayRandom(decks).author
+const randomAuthor = arrayRandom(decks.map(deck => deck.author).filter(unique))
 const randomRace = arrayRandom(Object.keys(RACES))
 const rangeAround = (value, delta) => range(value - delta, value + delta)
-const unique = (value, index, array) => array.indexOf(value) === index
 const NEVER_UPDATED = [
   'N11',
   'N28',
@@ -1070,7 +1070,12 @@ export default [
     options: Array.from({ length: 20 }, () =>
       [
         randomAuthor,
-        arrayRandom(decks.filter(deck => deck.author !== randomAuthor)).author,
+        arrayRandom(
+          decks
+            .map(deck => deck.author)
+            .filter(unique)
+            .filter(deck => deck.author !== randomAuthor)
+        ),
       ].join(' and ')
     ),
   },
