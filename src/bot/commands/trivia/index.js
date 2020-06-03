@@ -1,12 +1,11 @@
 import StateMachine from 'javascript-state-machine'
-import { FACTIONS, RACES, RARITIES, TYPES } from '../../../constants/game'
 import { KITTY_ID, TRIVIA_CHANNEL } from '../../../constants/bot'
 import cards from '../../../data/cards'
 import arrayRandom from '../../../helpers/arrayRandom'
 import shuffle from '../../../helpers/shuffle'
 import getCardsForSearch from '../../../helpers/getCardsForSearch'
 import getChannelId from '../../../helpers/getChannelId'
-import handleSearchAlias from '../../../helpers/handleSearchAlias'
+import parseCardGuess from '../../../helpers/parseCardGuess'
 import questions from './questions'
 
 const LETTERS = 'ABCDE'.split('')
@@ -151,21 +150,9 @@ const trivia = new StateMachine({
       return `🎉 Correct! The answer was “**${answer}**”. Congratulations ${author}!`
     },
 
-    parseGuess: function (message) {
-      if (message === 'hero') return ['hero', true]
-      if (message === 'elder') return ['elder', true]
-      if (Object.keys(RARITIES).includes(message)) return ['rarity', message]
-      if (Object.keys(FACTIONS).includes(message)) return ['faction', message]
-      if (Object.keys(TYPES).includes(message)) return ['type', message]
-      if (Object.keys(RACES).includes(message)) return ['race', message]
-      const [key, value] = handleSearchAlias(message)
-      if (Object.keys(this.answer).includes(key)) return [key, value]
-      return []
-    },
-
     guess: function (message, author) {
       if (this.mode === 'CARD') {
-        const [key, value] = this.parseGuess(message)
+        const [key, value] = parseCardGuess(message)
 
         if (key) {
           if (value === true) {
