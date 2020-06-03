@@ -4,6 +4,7 @@ import {
   RACES,
   CHIP_CARDS,
   RARITY_COPIES,
+  RARITIES,
 } from '../../../constants/game'
 import { BRAWLS } from '../../../constants/brawl'
 import cards from '../../../data/cards'
@@ -23,18 +24,7 @@ const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 const range = (min, max) => [...Array(max - min).keys()].map(n => n + min)
 const randomRace = arrayRandom(Object.keys(RACES))
 const rangeAround = (value, delta) => range(value - delta, value + delta)
-const NEVER_UPDATED = [
-  'N11',
-  'N28',
-  'N32',
-  'N21',
-  'N30',
-  'N22',
-  'N19',
-  'N24',
-  'N16',
-  'S18',
-]
+const NEVER_UPDATED = 'N11,N28,N32,N21,N30,N22,N19,N24,N16,S18'.split(',')
 
 export default [
   {
@@ -80,16 +70,9 @@ export default [
     difficulty: 'EASY',
     question: 'Which tool started Stormbound-Kitty?',
     answer: 'Battle sim',
-    options: [
-      'Deck builder',
-      'Card builder',
-      'List builder',
-      'Collection manager',
-      'Deck dry-runner',
-      'Puzzles',
-      'Stories',
-      'Guides',
-    ],
+    options: 'Deck builder,Card builder,List builder,Collection manager,Deck dry-runner,Puzzles,Stories,Guides'.split(
+      ','
+    ),
   },
 
   {
@@ -166,7 +149,7 @@ export default [
       difficulty: 'EASY',
       question: `What is the cost of ${cardData.name} at level ${level}?`,
       answer: cardData.mana,
-      options: range(0, 10),
+      options: rangeAround(cardData.mana, 3).filter(mana => mana < 0),
     }
   },
 
@@ -179,7 +162,9 @@ export default [
       difficulty: 'EASY',
       question: `What is the strength of ${cardData.name} card at level ${level}?`,
       answer: cardData.strength,
-      options: range(0, 20),
+      options: rangeAround(cardData.strength, 3).filter(
+        strength => strength < 1
+      ),
     }
   },
 
@@ -187,12 +172,9 @@ export default [
     difficulty: 'EASY',
     question: 'What is Olf the Hammer *not* using his hammers for?',
     answer: 'To forge weapons',
-    options: [
-      'To win battles',
-      'To craft armor',
-      'To repair buildings',
-      'As a cushion',
-    ],
+    options: 'To win battles,To craft armor,To repair buildings,As a cushion'.split(
+      ','
+    ),
   },
 
   {
@@ -213,14 +195,9 @@ export default [
     difficulty: 'MEDIUM',
     question: 'What’s the first quest you get when you start out?',
     name: 'Exploring the Storm',
-    options: [
-      'Fighting the Storm',
-      'Answering the Storm',
-      'Preventing the Storm',
-      'Releasing the Storm',
-      'Discovering the Storm',
-      'Taming the Storm',
-    ],
+    options: 'Fighting the Storm,Answering the Storm,Preventing the Storm,Releasing the Storm,Discovering the Storm,Taming the Storm'.split(
+      ','
+    ),
   },
 
   {
@@ -234,13 +211,9 @@ export default [
     difficulty: 'EASY',
     question: 'What is the common symbol of giving strength?',
     answer: 'A green leaf',
-    options: [
-      'A green cross',
-      'A green potion',
-      'A red potion',
-      'A red leaf',
-      'A red cross',
-    ],
+    options: 'A green cross,A green potion,A red potion,A red leaf,A red cross'.split(
+      ','
+    ),
   },
 
   {
@@ -256,14 +229,9 @@ export default [
     difficulty: 'EASY',
     question: 'What did Tegor swallow as a young dragonling?',
     answer: 'An enchanted die',
-    options: [
-      'A rotten raven',
-      'A poisonous toad',
-      'A corrupted knight',
-      'A screaming goat',
-      'A burning sword',
-      'A crusty pecan-pie',
-    ],
+    options: 'A rotten raven,A poisonous toad,A corrupted knight,A screaming goat,A burning sword,A crusty pecan-pie'.split(
+      ','
+    ),
   },
 
   {
@@ -345,64 +313,36 @@ export default [
     difficulty: 'HARD',
     question: 'What is the top symbol on Hunter’s Vengeance artwork?',
     answer: 'A skull',
-    options: [
-      'A toad',
-      'A construct',
-      'A pirate',
-      'A raven',
-      'A rodent',
-      'A frostling',
-      'A club',
-      'A dwarf',
-    ],
+    options: 'A toad,A construct,A pirate,A raven,A rodent,A frostling,A club,A dwarf'.split(
+      ','
+    ),
   },
 
   {
     difficulty: 'HARD',
     question: 'What is the right symbol on Hunter’s Vengeance artwork?',
     answer: 'A toad',
-    options: [
-      'A skull',
-      'A construct',
-      'A pirate',
-      'A raven',
-      'A rodent',
-      'A frostling',
-      'A club',
-      'A dwarf',
-    ],
+    options: 'A skull,A construct,A pirate,A raven,A rodent,A frostling,A club,A dwarf'.split(
+      ','
+    ),
   },
 
   {
     difficulty: 'HARD',
     question: 'What is the bottom symbol on Hunter’s Vengeance artwork?',
     answer: 'A construct',
-    options: [
-      'A skull',
-      'A toad',
-      'A pirate',
-      'A raven',
-      'A rodent',
-      'A frostling',
-      'A club',
-      'A dwarf',
-    ],
+    options: 'A skull,A toad,A pirate,A raven,A rodent,A frostling,A club,A dwarf'.split(
+      ','
+    ),
   },
 
   {
     difficulty: 'HARD',
     question: 'What is the left symbol on Hunter’s Vengeance artwork?',
     answer: 'A pirate',
-    options: [
-      'A skull',
-      'A construct',
-      'A toad',
-      'A raven',
-      'A rodent',
-      'A frostling',
-      'A club',
-      'A dwarf',
-    ],
+    options: 'A skull,A construct,A toad,A raven,A rodent,A frostling,A club,A dwarf'.split(
+      ','
+    ),
   },
 
   {
@@ -637,13 +577,13 @@ export default [
     ],
   },
 
-  {
+  () => ({
     difficulty: 'EASY',
     question: 'Which card cannot do direct damage to the base?',
     answer: arrayRandom(cards.filter(card => !CHIP_CARDS.includes(card.id)))
       .name,
     options: CHIP_CARDS.map(getRawCardData).map(card => card.name),
-  },
+  }),
 
   {
     difficulty: 'EASY',
@@ -884,14 +824,7 @@ export default [
     difficulty: 'EASY',
     question: 'What is the Siren of the Seas looking for?',
     answer: 'True love',
-    options: [
-      'Her harp',
-      'Pirates',
-      'The Captain',
-      'Snakes',
-      'Music',
-      'Inspiration',
-    ],
+    options: 'Her harp,Pirates,The Captain,Snakes,Music,Inspiration'.split(','),
   },
 
   {
@@ -912,11 +845,15 @@ export default [
     ),
   },
 
-  {
-    difficulty: 'EASY',
-    question: 'How many Fusion Stones does it cost to craft an epic card?',
-    answer: 25,
-    options: [12, 18, 20, 22, 30, 35, 50],
+  () => {
+    const rarity = arrayRandom(Object.keys(RARITIES))
+
+    return {
+      difficulty: 'EASY',
+      question: `How many Fusion Stones does it cost to craft a ${rarity} card?`,
+      answer: RARITY_COPIES[rarity].stonesForMissing,
+      options: rangeAround(RARITY_COPIES[rarity].stonesForMissing, 5),
+    }
   },
 
   {
@@ -968,15 +905,15 @@ export default [
     options: range(1, 5),
   },
 
-  {
+  () => ({
     difficulty: 'MEDIUM',
     question:
       'Which one of these cards was updated at least once since released?',
-    answer: cards
-      .filter(card => !card.token && !NEVER_UPDATED.includes(card.id))
-      .map(card => card.name),
+    answer: arrayRandom(
+      cards.filter(card => !card.token && !NEVER_UPDATED.includes(card.id))
+    ).name,
     options: NEVER_UPDATED.map(getRawCardData).map(card => card.name),
-  },
+  }),
 
   {
     difficulty: 'MEDIUM',
@@ -1000,19 +937,9 @@ export default [
     difficulty: 'MEDIUM',
     question: 'Which of these dragons was not named after a player?',
     answer: 'Beasts of Terror',
-    options: [
-      'Broken Earth Drakes',
-      'Broodmother Qordia',
-      'Conflicted Drakes',
-      'Dangerous Suitors',
-      'Draconic Roamer',
-      'Dreadful Keepers',
-      'Greengale Serpents',
-      'Ludic Matriarchs',
-      'Spare Dragonling',
-      'Sunbeam Serpents',
-      'Yowling Weavers',
-    ],
+    options: 'Broken Earth Drakes,Broodmother Qordia,Conflicted Drakes,Dangerous Suitors,Draconic Roamer,Dreadful Keepers,Greengale Serpents,Ludic Matriarchs,Spare Dragonling,Sunbeam Serpents,Yowling Weavers'.split(
+      ','
+    ),
   },
 
   {
@@ -1065,7 +992,8 @@ export default [
 
     return {
       difficulty: 'MEDIUM',
-      question: 'Which of these cards’ ability does not contain a full-stop?',
+      question:
+        'Which of these cards’ ability does not contain a full-stop (`.`)?',
       answer: randomCard.name,
       options: cardsWithFullStop.map(card => card.name),
     }
@@ -1122,19 +1050,19 @@ export default [
 
   () => {
     const authors = decks.map(deck => deck.author).filter(unique)
-    const randomAuthor = arrayRandom(authors)
 
     return {
       difficulty: 'MEDIUM',
       question:
         'Which two people have tied for the most Stormbound championship titles?',
       answer: 'HanooSt and BluePhoenix',
-      options: Array.from({ length: 20 }, () =>
-        [
+      options: Array.from({ length: 20 }, () => {
+        const randomAuthor = arrayRandom(authors)
+        return [
           randomAuthor,
           arrayRandom(authors.filter(deck => deck.author !== randomAuthor)),
         ].join(' and ')
-      ),
+      }),
     }
   },
 
@@ -1197,7 +1125,7 @@ export default [
     difficulty: 'MEDIUM',
     question: 'Which forum member was Spare Dragonlings named after?',
     answer: 'aspareforyou',
-    options: ['asparagus', 'asparemepls'],
+    options: ['asparagus', 'asparemepls', 'asparedr', 'c-asper'],
   },
 
   {
@@ -1211,7 +1139,7 @@ export default [
     difficulty: 'MEDIUM',
     question: 'Which font does Stormbound use?',
     answer: 'Nunito Sans',
-    options: ['Open Sans', 'Comic Sans'],
+    options: ['Open Sans', 'Comic Sans', 'Bound Sans'],
   },
 
   {
@@ -1237,20 +1165,22 @@ export default [
     options: cards.filter(card => card.movement >= 2).map(card => card.name),
   },
 
-  {
+  () => ({
     difficulty: 'MEDIUM',
     question:
       'Which other races were possible to vote for for the community created card Harvesters of Souls?',
     answer: 'Pirate and Raven',
-    options: Array.from({ length: 20 }, () =>
-      [
+    options: Array.from({ length: 20 }, () => {
+      const randomRace = arrayRandom(Object.keys(RACES))
+
+      return [
         randomRace,
         arrayRandom(Object.keys(RACES).filter(race => race !== randomRace)),
       ]
         .map(capitalise)
         .join(' and ')
-    ),
-  },
+    }),
+  }),
 
   {
     difficulty: 'HARD',
@@ -1397,13 +1327,9 @@ export default [
     difficulty: 'MEDIUM',
     question: 'Which platform was *not* used to disclose one of the wild cats?',
     answer: 'Twitter',
-    options: [
-      'Stormbound-Kitty',
-      'Stormbound Wiki',
-      'YouTube',
-      'Discord',
-      'Twitch',
-    ],
+    options: 'Stormbound-Kitty,Stormbound Wiki,YouTube,Discord,Twitch'.split(
+      ','
+    ),
   },
 
   {
