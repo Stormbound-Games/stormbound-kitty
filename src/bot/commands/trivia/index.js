@@ -39,6 +39,7 @@ const trivia = new StateMachine({
         mode: this.mode,
         state: this.state,
         scores: this.scores,
+        stats: questions.length,
       })
     },
 
@@ -50,9 +51,12 @@ const trivia = new StateMachine({
 
     timeout: function () {
       if (this.channel) {
-        this.channel.send(
-          `⌛️ Time’s up! The answer was “**${this.answer.name}**”!`
-        )
+        const answer =
+          this.mode === 'CARD'
+            ? `The answer was “**${this.answer.name}**”!`
+            : ''
+
+        this.channel.send(`⌛️ Time’s up! ${answer}`)
       }
       this.stop()
     },
@@ -70,11 +74,11 @@ const trivia = new StateMachine({
         const options = shuffle(
           question.options.filter(option => option !== question.answer)
         )
-        const wrongChoices = options.slice(0, LETTERS.length - 1)
+        const wrongChoices = options.slice(0, LETTERS.length - 1).map(String)
         const choices = shuffle([...wrongChoices, question.answer])
 
         // Store the answer in a `name` property to align with the `CARD` mode.
-        this.answer = { ...question, choices, name: question.answer }
+        this.answer = { ...question, choices, name: String(question.answer) }
       }
 
       this.timers.push(
@@ -100,7 +104,7 @@ const trivia = new StateMachine({
         return `🔮 Trivia started! You have ${duration} seconds to guess the card. You can ask questions and issue guesses with \`!trivia is <term>\`, like \`!trivia is pirate\` or \`!trivia is rof\`.`
       } else if (mode === 'QUESTION') {
         return (
-          `❔ **${this.answer.question}**\n` +
+          `❔ **${this.answer.question}** (${this.duration} seconds)\n` +
           this.answer.choices
             .map((choice, index) => ' ' + LETTERS[index] + '. ' + choice)
             .join('\n')
