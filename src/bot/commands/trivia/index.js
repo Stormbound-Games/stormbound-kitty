@@ -166,6 +166,7 @@ const trivia = new StateMachine({
           return this.success(author)
         }
 
+        this.scores[author.id] = (this.scores[author.id] || 0) - 1
         this.stop()
 
         return `❌ Unfortunately the answer is not *${guess}*.`
