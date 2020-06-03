@@ -2,14 +2,14 @@ import StateMachine from 'javascript-state-machine'
 import { KITTY_ID, TRIVIA_CHANNEL } from '../../../constants/bot'
 import cards from '../../../data/cards'
 import arrayRandom from '../../../helpers/arrayRandom'
-import shuffle from '../../../helpers/shuffle'
+import getRandomQuestion from '../../../helpers/getRandomQuestion'
 import getCardsForSearch from '../../../helpers/getCardsForSearch'
 import getChannelId from '../../../helpers/getChannelId'
 import parseCardGuess from '../../../helpers/parseCardGuess'
 import parseTriviaSettings from '../../../helpers/parseTriviaSettings'
 import questions from './questions'
 
-const LETTERS = 'ABCDE'.split('')
+export const LETTERS = 'ABCDE'.split('')
 
 const trivia = new StateMachine({
   init: 'STOPPED',
@@ -65,21 +65,7 @@ const trivia = new StateMachine({
       if (this.mode === 'CARD') {
         this.answer = arrayRandom(cards.filter(card => !card.token))
       } else if (this.mode === 'QUESTION') {
-        const matchesDifficulty = question =>
-          !this.difficulty || this.difficulty === question.difficulty
-        const candidates = questions.filter(matchesDifficulty)
-
-        let question = arrayRandom(candidates)
-
-        if (typeof question === 'function') {
-          question = question()
-        }
-
-        const options = shuffle(
-          question.options.filter(option => option !== question.answer)
-        )
-        const wrongChoices = options.slice(0, LETTERS.length - 1).map(String)
-        const choices = shuffle([...wrongChoices, question.answer])
+        const { question, choices } = getRandomQuestion(this.difficulty)
 
         // Store the answer in a `name` property to align with the `CARD` mode.
         this.answer = { ...question, choices, name: String(question.answer) }
