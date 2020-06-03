@@ -3,9 +3,13 @@ import { FACTIONS, RACES, RARITIES, TYPES } from '../../../constants/game'
 import { KITTY_ID, TRIVIA_CHANNEL } from '../../../constants/bot'
 import cards from '../../../data/cards'
 import arrayRandom from '../../../helpers/arrayRandom'
+import shuffle from '../../../helpers/shuffle'
 import getCardsForSearch from '../../../helpers/getCardsForSearch'
 import getChannelId from '../../../helpers/getChannelId'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'
+import questions from './questions'
+
+const LETTERS = 'ABCDE'.split('')
 
 const trivia = new StateMachine({
   init: 'STOPPED',
@@ -56,6 +60,16 @@ const trivia = new StateMachine({
     onStart: function () {
       if (this.mode === 'CARD') {
         this.answer = arrayRandom(cards.filter(card => !card.token))
+      } else if (this.mode === 'QUESTION') {
+        const question = arrayRandom(questions)
+        const options = shuffle(
+          question.options.filter(option => option !== question.answer)
+        )
+        const wrongChoices = options.slice(0, LETTERS.length - 1)
+        const choices = shuffle([...wrongChoices, question.answer])
+
+        // Store the answer in a `name` property to align with the `CARD` mode.
+        this.answer = { ...question, choices, name: question.answer }
       }
 
       this.timers.push(
@@ -67,7 +81,9 @@ const trivia = new StateMachine({
     },
 
     getTriviaSettings: function (message) {
-      const mode = ((message.match(/(card)/i) || [])[1] || '').toUpperCase()
+      const mode = (
+        (message.match(/(card|question)/i) || [])[1] || ''
+      ).toUpperCase()
       const duration = +((message.match(/(\d+)/) || [])[1] || undefined)
 
       if (!mode) return {}
@@ -75,6 +91,10 @@ const trivia = new StateMachine({
         if (isNaN(duration)) return { duration: 90, mode: mode }
         if (duration < 20) return { duration: 20, mode: mode }
         if (duration > 120) return { duration: 120, mode: mode }
+      } else if (mode === 'QUESTION') {
+        if (isNaN(duration)) return { duration: 10, mode: mode }
+        if (duration < 5) return { duration: 5, mode: mode }
+        if (duration > 20) return { duration: 20, mode: mode }
       }
 
       return { duration, mode: mode }
@@ -92,6 +112,13 @@ const trivia = new StateMachine({
 
       if (mode === 'CARD') {
         return `🔮 Trivia started! You have ${duration} seconds to guess the card. You can ask questions and issue guesses with \`!trivia is <term>\`, like \`!trivia is pirate\` or \`!trivia is rof\`.`
+      } else if (mode === 'QUESTION') {
+        return (
+          `❔ **${this.answer.question}**\n` +
+          this.answer.choices
+            .map((choice, index) => ' ' + LETTERS[index] + '. ' + choice)
+            .join('\n')
+        )
       }
     },
 
@@ -137,32 +164,46 @@ const trivia = new StateMachine({
     },
 
     guess: function (message, author) {
-      const [key, value] = this.parseGuess(message)
+      if (this.mode === 'CARD') {
+        const [key, value] = this.parseGuess(message)
 
-      if (key) {
-        if (value === true) {
-          const lead = key === 'elder' ? 'an' : 'a'
-          return this.answer[key] === value
-            ? `👍 Yes, the card is ${lead} *${key}*.`
-            : `👎 No, the card is not ${lead} *${key}*.`
-        } else {
-          return this.answer[key] === value
-            ? `👍 Yes, the card’s *${key}* is indeed “**${value}**”.`
-            : `👎 No, the card’s *${key}* is not “${value}”.`
+        if (key) {
+          if (value === true) {
+            const lead = key === 'elder' ? 'an' : 'a'
+            return this.answer[key] === value
+              ? `👍 Yes, the card is ${lead} *${key}*.`
+              : `👎 No, the card is not ${lead} *${key}*.`
+          } else {
+            return this.answer[key] === value
+              ? `👍 Yes, the card’s *${key}* is indeed “**${value}**”.`
+              : `👎 No, the card’s *${key}* is not “${value}”.`
+          }
         }
-      }
 
-      const [card] = getCardsForSearch(message)
+        const [card] = getCardsForSearch(message)
 
-      if (card) {
-        if (card.name === this.answer.name) return this.success(author)
-        else return `❌ The card is not “${card.name}”, try again!`
+        if (card) {
+          if (card.name === this.answer.name) return this.success(author)
+          else return `❌ The card is not “${card.name}”, try again!`
+        }
+      } else if (this.mode === 'QUESTION') {
+        const correctIndex = this.answer.choices.indexOf(this.answer.answer)
+        const givenIndex = LETTERS.indexOf(message.toUpperCase())
+        const guess = this.answer.choices[givenIndex]
+
+        if (givenIndex === correctIndex) {
+          return this.success(author)
+        }
+
+        this.stop()
+
+        return `❌ Unfortunately the answer is not *${guess}*.`
       }
     },
 
     help: function () {
       return [
-        `- \`!trivia card [20-120]\` to start a round — default to ${this.duration} seconds`,
+        `- \`!trivia card|question [20-120]\` to start a round — default to ${this.duration} seconds`,
         '- `!trivia stop` to stop the round (only for the initiator of the ongoing round)',
         '- `!trivia scores` to show scores between games (often reset)',
         '- `!trivia is <prop|guess>` to ask for a hint or guess the answer',
