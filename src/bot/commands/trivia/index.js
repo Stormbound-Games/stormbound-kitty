@@ -14,7 +14,7 @@ const trivia = new StateMachine({
 
   data: {
     timers: [],
-    card: null,
+    answer: null,
     initiator: null,
     duration: DEFAULT_DURATION,
     channel: null,
@@ -32,7 +32,7 @@ const trivia = new StateMachine({
         initiator: this.initiator,
         channel: this.channel.id,
         duration: this.duration,
-        card: this.card,
+        answer: this.answer,
         state: this.state,
       })
     },
@@ -46,14 +46,14 @@ const trivia = new StateMachine({
     timeout: function () {
       if (this.channel) {
         this.channel.send(
-          `⌛️ Time’s up! The answer was “**${this.card.name}**”!`
+          `⌛️ Time’s up! The answer was “**${this.answer.name}**”!`
         )
       }
       this.stop()
     },
 
     onStart: function () {
-      this.card = arrayRandom(cards.filter(card => !card.token))
+      this.answer = arrayRandom(cards.filter(card => !card.token))
       this.timers.push(
         setTimeout(this.timeout.bind(this), this.duration * 1000)
       )
@@ -79,7 +79,7 @@ const trivia = new StateMachine({
     },
 
     onStop: function () {
-      this.card = null
+      this.answer = null
       this.initiator = null
       this.timers.forEach(clearTimeout)
       this.timers = []
@@ -89,14 +89,14 @@ const trivia = new StateMachine({
       if (author.id !== this.initiator.id && author.id !== KITTY_ID) return
 
       const username = this.initiator.username
-      const cardName = this.card.name
+      const cardName = this.answer.name
       this.stop()
 
       return `🔌 ${username} originally started the trivia, and now they’re ending it. The answer was “**${cardName}**”.`
     },
 
     success: function (author) {
-      const cardName = this.card.name
+      const cardName = this.answer.name
 
       // Increment the score for the winner.
       this.scores[author.id] = (this.scores[author.id] || 0) + 1
@@ -114,7 +114,7 @@ const trivia = new StateMachine({
       if (Object.keys(TYPES).includes(message)) return ['type', message]
       if (Object.keys(RACES).includes(message)) return ['race', message]
       const [key, value] = handleSearchAlias(message)
-      if (Object.keys(this.card).includes(key)) return [key, value]
+      if (Object.keys(this.answer).includes(key)) return [key, value]
       return []
     },
 
@@ -124,11 +124,11 @@ const trivia = new StateMachine({
       if (key) {
         if (value === true) {
           const lead = key === 'elder' ? 'an' : 'a'
-          return trivia.card[key] === value
+          return this.answer[key] === value
             ? `👍 Yes, the card is ${lead} *${key}*.`
             : `👎 No, the card is not ${lead} *${key}*.`
         } else {
-          return trivia.card[key] === value
+          return this.answer[key] === value
             ? `👍 Yes, the card’s *${key}* is indeed “**${value}**”.`
             : `👎 No, the card’s *${key}* is not “${value}”.`
         }
@@ -137,7 +137,7 @@ const trivia = new StateMachine({
       const [card] = getCardsForSearch(message)
 
       if (card) {
-        if (card.name === this.card.name) return this.success(author)
+        if (card.name === this.answer.name) return this.success(author)
         else return `❌ The card is not “${card.name}”, try again!`
       }
     },
