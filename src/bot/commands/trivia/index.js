@@ -7,18 +7,17 @@ import getCardsForSearch from '../../../helpers/getCardsForSearch'
 import getChannelId from '../../../helpers/getChannelId'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'
 
-const DEFAULT_DURATION = 90
-
 const trivia = new StateMachine({
   init: 'STOPPED',
 
   data: {
-    timers: [],
     answer: null,
-    initiator: null,
-    duration: DEFAULT_DURATION,
     channel: null,
+    duration: 60,
+    initiator: null,
+    mode: null,
     scores: {},
+    timers: [],
   },
 
   transitions: [
@@ -29,11 +28,13 @@ const trivia = new StateMachine({
   methods: {
     inspect: function () {
       console.log({
-        initiator: this.initiator,
+        answer: this.answer,
         channel: this.channel.id,
         duration: this.duration,
-        answer: this.answer,
+        initiator: this.initiator,
+        mode: this.mode,
         state: this.state,
+        scores: this.scores,
       })
     },
 
@@ -53,7 +54,10 @@ const trivia = new StateMachine({
     },
 
     onStart: function () {
-      this.answer = arrayRandom(cards.filter(card => !card.token))
+      if (this.mode === 'CARD') {
+        this.answer = arrayRandom(cards.filter(card => !card.token))
+      }
+
       this.timers.push(
         setTimeout(this.timeout.bind(this), this.duration * 1000)
       )
@@ -62,25 +66,40 @@ const trivia = new StateMachine({
       )
     },
 
-    getDuration: function (message) {
-      const duration = +message.trim()
-      if (isNaN(duration)) return 90
-      if (duration < 20) return 20
-      if (duration > 120) return 120
-      return duration
+    getTriviaSettings: function (message) {
+      const mode = ((message.match(/(card)/i) || [])[1] || '').toUpperCase()
+      const duration = +((message.match(/(\d+)/) || [])[1] || undefined)
+
+      if (!mode) return {}
+      if (mode === 'CARD') {
+        if (isNaN(duration)) return { duration: 90, mode: mode }
+        if (duration < 20) return { duration: 20, mode: mode }
+        if (duration > 120) return { duration: 120, mode: mode }
+      }
+
+      return { duration, mode: mode }
     },
 
     initialise: function (message, author) {
-      this.duration = this.getDuration(message)
+      const { mode, duration } = this.getTriviaSettings(message)
+
+      if (!mode) return
+
+      this.duration = duration
       this.initiator = author
+      this.mode = mode
       this.start()
 
-      return `🔮 Trivia started! You have ${this.duration} seconds to guess the card. You can ask questions and issue guesses with \`!trivia is <term>\`, like \`!trivia is pirate\` or \`!trivia is rof\`.`
+      if (mode === 'CARD') {
+        return `🔮 Trivia started! You have ${duration} seconds to guess the card. You can ask questions and issue guesses with \`!trivia is <term>\`, like \`!trivia is pirate\` or \`!trivia is rof\`.`
+      }
     },
 
     onStop: function () {
       this.answer = null
+      this.duration = 60
       this.initiator = null
+      this.mode = null
       this.timers.forEach(clearTimeout)
       this.timers = []
     },
@@ -89,21 +108,20 @@ const trivia = new StateMachine({
       if (author.id !== this.initiator.id && author.id !== KITTY_ID) return
 
       const username = this.initiator.username
-      const cardName = this.answer.name
+      const answer = this.answer.name
+
       this.stop()
 
-      return `🔌 ${username} originally started the trivia, and now they’re ending it. The answer was “**${cardName}**”.`
+      return `🔌 ${username} originally started the trivia, and now they’re ending it. The answer was “**${answer}**”.`
     },
 
     success: function (author) {
-      const cardName = this.answer.name
+      const answer = this.answer.name
 
-      // Increment the score for the winner.
       this.scores[author.id] = (this.scores[author.id] || 0) + 1
-
       this.stop()
 
-      return `🎉 Correct! The answer was “**${cardName}**”. Congratulations ${author}!`
+      return `🎉 Correct! The answer was “**${answer}**”. Congratulations ${author}!`
     },
 
     parseGuess: function (message) {
@@ -206,25 +224,26 @@ export default {
       return trivia.help()
     }
 
-    if (trivia.can('start') && message.startsWith('card')) {
-      return trivia.initialise(message.replace('card', '').trim(), author)
+    // Custom commands for Kitty to monitor/control the bot at runtime. It needs
+    // to be resolved before the init method as the latter swallows messages.
+    if (author.id === KITTY_ID && message === 'inspect') {
+      return trivia.inspect()
+    }
+
+    if (trivia.can('start') && message === 'scores') {
+      return trivia.leaderboard()
+    }
+
+    if (trivia.can('start')) {
+      return trivia.initialise(message, author)
     }
 
     if (trivia.can('stop') && message === 'stop') {
       return trivia.abort(author)
     }
 
-    if (trivia.is('RUNNING') && message.startsWith('is ')) {
+    if (trivia.can('stop') && message.startsWith('is ')) {
       return trivia.guess(message.replace('is ', '').trim(), author)
-    }
-
-    if (trivia.is('STOPPED') && message === 'scores') {
-      return trivia.leaderboard()
-    }
-
-    // Custom commands for Kitty to monitor/control the bot at runtime.
-    if (author.id === KITTY_ID && message === 'inspect') {
-      return trivia.inspect()
     }
   },
 }
