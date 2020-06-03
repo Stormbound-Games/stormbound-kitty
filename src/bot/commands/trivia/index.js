@@ -174,7 +174,7 @@ const trivia = new StateMachine({
 
     help: function () {
       return [
-        `- \`!trivia card|question [20-120]\` to start a round — default to ${this.duration} seconds`,
+        `- \`!trivia card|question [duration]\` to start a round`,
         '- `!trivia stop` to stop the round (only for the initiator of the ongoing round)',
         '- `!trivia scores` to show scores between games (often reset)',
         '- `!trivia <prop|guess>` to ask for a hint or guess the answer',
@@ -215,7 +215,7 @@ export default {
   command: 'trivia',
   name: 'Stormbound trivia',
   example: 'help',
-  description: `KittyBot ask a question or picks a card at random and you have to find which! (only in <#${TRIVIA_CHANNEL}>)`,
+  description: `KittyBot asks a question or picks a card at random and you have to find which! (only in <#${TRIVIA_CHANNEL}>)`,
   icon: '🔮',
   ping: false,
   isAllowed: channel => channel.id === TRIVIA_CHANNEL,
