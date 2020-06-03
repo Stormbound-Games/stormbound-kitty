@@ -203,7 +203,7 @@ const trivia = new StateMachine({
             const users = scores[score].map(id => `<@${id}>`).join(' ')
 
             return `-${emoji} **${score} point${
-              +score === 1 ? '' : 's'
+              +score === 1 || +score === -1 ? '' : 's'
             }** — ${users}`
           })
           .join('\n')
