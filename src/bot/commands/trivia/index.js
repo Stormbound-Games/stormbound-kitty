@@ -6,6 +6,7 @@ import shuffle from '../../../helpers/shuffle'
 import getCardsForSearch from '../../../helpers/getCardsForSearch'
 import getChannelId from '../../../helpers/getChannelId'
 import parseCardGuess from '../../../helpers/parseCardGuess'
+import parseTriviaSettings from '../../../helpers/parseTriviaSettings'
 import questions from './questions'
 
 const LETTERS = 'ABCDE'.split('')
@@ -79,31 +80,12 @@ const trivia = new StateMachine({
       )
     },
 
-    getTriviaSettings: function (message) {
-      const mode = (
-        (message.match(/(card|question)/i) || [])[1] || ''
-      ).toUpperCase()
-      const duration = +((message.match(/(\d+)/) || [])[1] || undefined)
-
-      if (!mode) return {}
-      if (mode === 'CARD') {
-        if (isNaN(duration)) return { duration: 90, mode: mode }
-        if (duration < 20) return { duration: 20, mode: mode }
-        if (duration > 120) return { duration: 120, mode: mode }
-      } else if (mode === 'QUESTION') {
-        if (isNaN(duration)) return { duration: 10, mode: mode }
-        if (duration < 5) return { duration: 5, mode: mode }
-        if (duration > 20) return { duration: 20, mode: mode }
-      }
-
-      return { duration, mode: mode }
-    },
-
     initialise: function (message, author) {
-      const { mode, duration } = this.getTriviaSettings(message)
+      const { mode, duration, difficulty } = parseTriviaSettings(message)
 
       if (!mode) return
 
+      this.difficulty = difficulty
       this.duration = duration
       this.initiator = author
       this.mode = mode
