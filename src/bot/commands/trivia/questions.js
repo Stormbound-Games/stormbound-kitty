@@ -6,7 +6,6 @@ import {
   RARITY_COPIES,
 } from '../../../constants/game'
 import { BRAWLS } from '../../../constants/brawl'
-import stories from '../../../../public/stories'
 import cards from '../../../data/cards'
 import decks from '../../../data/decks'
 import arrayRandom from '../../../helpers/arrayRandom'
@@ -99,7 +98,7 @@ export default [
     question:
       'Who won the first drawing-based contest hosted in the Discord server?',
     answer: 'YoungestMammal',
-    options: stories.map(story => story.author).filter(unique),
+    options: decks.map(story => story.author).filter(unique),
   },
 
   {
