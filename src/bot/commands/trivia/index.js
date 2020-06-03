@@ -183,9 +183,9 @@ const trivia = new StateMachine({
 
 export default {
   command: 'trivia',
-  name: 'Card trivia',
+  name: 'Stormbound trivia',
   example: 'help',
-  description: `KittyBot picks a card at random and you have to find which! (only in <#${TRIVIA_CHANNEL}>)`,
+  description: `KittyBot ask a question or picks a card at random and you have to find which! (only in <#${TRIVIA_CHANNEL}>)`,
   icon: '🔮',
   ping: false,
   isAllowed: channel => channel.id === TRIVIA_CHANNEL,
