@@ -93,11 +93,11 @@ const trivia = new StateMachine({
       const { mode, duration, difficulty } = parseTriviaSettings(message)
 
       if (!mode) return
-
       this.difficulty = difficulty
       this.duration = duration
       this.initiator = author
       this.mode = mode
+
       this.start()
 
       if (mode === 'CARD') {
@@ -125,11 +125,12 @@ const trivia = new StateMachine({
       if (author.id !== this.initiator.id && author.id !== KITTY_ID) return
 
       const username = this.initiator.username
-      const answer = this.answer.name
+      const answer =
+        this.mode === 'CARD' ? `The answer was “**${this.answer.name}**.”` : ''
 
       this.stop()
 
-      return `🔌 ${username} originally started the trivia, and now they’re ending it. The answer was “**${answer}**”.`
+      return `🔌 ${username} originally started the trivia, and now they’re ending it. ${answer}`
     },
 
     success: function (author) {
@@ -169,6 +170,8 @@ const trivia = new StateMachine({
         const givenIndex = LETTERS.indexOf(message.toUpperCase())
         const guess = this.answer.choices[givenIndex]
 
+        if (givenIndex === -1) return
+
         if (givenIndex === correctIndex) {
           return this.success(author)
         }
@@ -184,7 +187,7 @@ const trivia = new StateMachine({
         `- \`!trivia card|question [20-120]\` to start a round — default to ${this.duration} seconds`,
         '- `!trivia stop` to stop the round (only for the initiator of the ongoing round)',
         '- `!trivia scores` to show scores between games (often reset)',
-        '- `!trivia is <prop|guess>` to ask for a hint or guess the answer',
+        '- `!trivia <prop|guess>` to ask for a hint or guess the answer',
       ].join('\n')
     },
 
@@ -261,8 +264,8 @@ export default {
       return trivia.abort(author)
     }
 
-    if (trivia.can('stop') && message.startsWith('is ')) {
-      return trivia.guess(message.replace('is ', '').trim(), author)
+    if (trivia.can('stop')) {
+      return trivia.guess(message.trim(), author)
     }
   },
 }
