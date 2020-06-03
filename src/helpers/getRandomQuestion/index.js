@@ -14,12 +14,13 @@ const getRandomQuestion = difficulty => {
     question = question()
   }
 
-  question.answer = String(question.answer)
-
   const options = shuffle(
     question.options.filter(option => option !== question.answer)
   )
   const wrongChoices = options.slice(0, LETTERS.length - 1).map(String)
+
+  question.answer = String(question.answer)
+
   const choices = shuffle([...wrongChoices, question.answer])
 
   return { question, choices }
