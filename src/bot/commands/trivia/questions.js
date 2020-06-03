@@ -21,7 +21,6 @@ const CARD_NAMES = cards.filter(card => !card.token).map(card => card.name)
 const unique = (value, index, array) => array.indexOf(value) === index
 const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 const range = (min, max) => [...Array(max - min).keys()].map(n => n + min)
-const randomAuthor = arrayRandom(decks.map(deck => deck.author).filter(unique))
 const randomRace = arrayRandom(Object.keys(RACES))
 const rangeAround = (value, delta) => range(value - delta, value + delta)
 const NEVER_UPDATED = [
@@ -564,7 +563,7 @@ export default [
   {
     difficulty: 'EASY',
     question: 'What impact has Doctor Mia’s ability at level 3?',
-    answer: 'Surrouding structures',
+    answer: 'Surrounding structures',
     options: [
       'Bordering structures',
       'All structures',
@@ -776,7 +775,7 @@ export default [
 
   {
     difficulty: 'EASY',
-    question: 'In which field does Mia *not* have a doctorate?',
+    question: 'In which field is Mia *not* a minister?',
     answer: 'Engineering',
     options: ['Science', 'Arts', 'Ministry', 'Education'],
   },
@@ -1027,7 +1026,7 @@ export default [
     difficulty: 'MEDIUM',
     question: 'Which card was first revelaed after a social media voting?',
     answer: 'Unstable Build',
-    choices: [
+    options: [
       'Blessed with Brawn',
       'Unstable build',
       'Heliotroopers',
@@ -1062,22 +1061,22 @@ export default [
     ],
   },
 
-  {
-    difficulty: 'MEDIUM',
-    question:
-      'Which two people have tied for the most Stormbound championship titles?',
-    answer: 'HanooSt and BluePhoenix',
-    options: Array.from({ length: 20 }, () =>
-      [
-        randomAuthor,
-        arrayRandom(
-          decks
-            .map(deck => deck.author)
-            .filter(unique)
-            .filter(deck => deck.author !== randomAuthor)
-        ),
-      ].join(' and ')
-    ),
+  () => {
+    const authors = decks.map(deck => deck.author).filter(unique)
+    const randomAuthor = arrayRandom(authors)
+
+    return {
+      difficulty: 'MEDIUM',
+      question:
+        'Which two people have tied for the most Stormbound championship titles?',
+      answer: 'HanooSt and BluePhoenix',
+      options: Array.from({ length: 20 }, () =>
+        [
+          randomAuthor,
+          arrayRandom(authors.filter(deck => deck.author !== randomAuthor)),
+        ].join(' and ')
+      ),
+    }
   },
 
   {
