@@ -68,7 +68,7 @@ const trivia = new StateMachine({
         const { question, choices } = getRandomQuestion(this.difficulty)
 
         // Store the answer in a `name` property to align with the `CARD` mode.
-        this.answer = { ...question, choices, name: String(question.answer) }
+        this.answer = { ...question, choices, name: question.answer }
       }
 
       this.timers.push(

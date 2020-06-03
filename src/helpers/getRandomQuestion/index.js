@@ -14,6 +14,8 @@ const getRandomQuestion = difficulty => {
     question = question()
   }
 
+  question.answer = String(question.answer)
+
   const options = shuffle(
     question.options.filter(option => option !== question.answer)
   )
