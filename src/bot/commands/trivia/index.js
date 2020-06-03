@@ -65,12 +65,16 @@ const trivia = new StateMachine({
       if (this.mode === 'CARD') {
         this.answer = arrayRandom(cards.filter(card => !card.token))
       } else if (this.mode === 'QUESTION') {
-        const question = arrayRandom(
-          questions.filter(
-            question =>
-              !this.difficulty || this.difficulty === question.difficulty
-          )
-        )
+        const matchesDifficulty = question =>
+          !this.difficulty || this.difficulty === question.difficulty
+        const candidates = questions.filter(matchesDifficulty)
+
+        let question = arrayRandom(candidates)
+
+        if (typeof question === 'function') {
+          question = question()
+        }
+
         const options = shuffle(
           question.options.filter(option => option !== question.answer)
         )

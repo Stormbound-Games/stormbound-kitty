@@ -1,17 +1,66 @@
 import dateFormat from 'dateformat'
-import { FACTIONS, RACES, CHIP_CARDS } from '../../../constants/game'
+import {
+  FACTIONS,
+  RACES,
+  CHIP_CARDS,
+  RARITY_COPIES,
+} from '../../../constants/game'
+import { BRAWLS } from '../../../constants/brawl'
 import cards from '../../../data/cards'
 import decks from '../../../data/decks'
 import arrayRandom from '../../../helpers/arrayRandom'
 import capitalise from '../../../helpers/capitalise'
 import getRawCardData from '../../../helpers/getRawCardData'
+import getResolvedCardData from '../../../helpers/getResolvedCardData'
+import abbreviate from '../../../helpers/abbreviate'
+import shuffle from '../../../helpers/shuffle'
 
 const CARD_NAMES = cards.filter(card => !card.token).map(card => card.name)
 const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 const range = (min, max) => [...Array(max - min).keys()].map(n => n + min)
 const randomAuthor = arrayRandom(decks).author
+const randomRace = arrayRandom(Object.keys(RACES))
+const rangeAround = (value, delta) => range(value - delta, value + delta)
+const unique = (value, index, array) => array.indexOf(value) === index
 
 export default [
+  () => {
+    const randomCard = arrayRandom(cards.filter(card => card.type === 'unit'))
+
+    return {
+      difficulty: 'EASY',
+      question: `What is the race of ${randomCard.name}?`,
+      answer: capitalise(randomCard.race),
+      options: Object.keys(RACES).map(capitalise),
+    }
+  },
+
+  () => {
+    const randomCard = arrayRandom(cards)
+    const level = arrayRandom([1, 2, 3, 4, 5])
+    const cardData = getResolvedCardData({ id: randomCard.id, level })
+
+    return {
+      difficulty: 'EASY',
+      question: `What is the cost of ${cardData.name} card at level ${level}?`,
+      answer: cardData.mana,
+      options: range(0, 10),
+    }
+  },
+
+  () => {
+    const randomCard = arrayRandom(cards.filter(card => card.type !== 'spell'))
+    const level = arrayRandom([1, 2, 3, 4, 5])
+    const cardData = getResolvedCardData({ id: randomCard.id, level })
+
+    return {
+      difficulty: 'EASY',
+      question: `What is the strength of ${cardData.name} card at level ${level}?`,
+      answer: cardData.strength,
+      options: range(0, 20),
+    }
+  },
+
   {
     difficulty: 'EASY',
     question: 'What is Olf the Hammer *not* using his hammers for?',
@@ -26,6 +75,34 @@ export default [
 
   {
     difficulty: 'EASY',
+    question: 'How many quests yielding rubies are there?',
+    answer: 4,
+    options: range(1, 8),
+  },
+
+  {
+    difficulty: 'HARD',
+    question: 'How green jets are displayed below Xuri?',
+    answer: 6,
+    options: range(1, 8),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'What’s the first quest you get when you start out?',
+    name: 'Exploring the Storm',
+    options: [
+      'Fighting the Storm',
+      'Answering the Storm',
+      'Preventing the Storm',
+      'Releasing the Storm',
+      'Discovering the Storm',
+      'Taming the Storm',
+    ],
+  },
+
+  {
+    difficulty: 'EASY',
     question: 'What did Collector Mirz never collect?',
     answer: 'Trophees',
     options: ['Toys', 'Rocks', 'Wealth', 'Warriors'],
@@ -33,9 +110,332 @@ export default [
 
   {
     difficulty: 'EASY',
-    question: 'Are “on death” effects triggered when crossing the base line?',
-    answer: 'Yes',
-    options: ['No', 'It depends', 'Some'],
+    question: 'What is the common symbol of giving strength?',
+    answer: 'A green leaf',
+    options: [
+      'A green cross',
+      'A green potion',
+      'A red potion',
+      'A red leaf',
+      'A red cross',
+    ],
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'What did Spellbinder Zhevana study?',
+    answer: 'Ancient magic',
+    options: 'Arcane,Mana,Winter,Freeze,Frost,Black,Dark'
+      .split(',')
+      .map(name => name + ' magic'),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'What did Tegor swallow as a young dragonling?',
+    answer: 'An enchanted die',
+    options: [
+      'A rotten raven',
+      'A poisonous toad',
+      'A corrupted knight',
+      'A screaming goat',
+      'A burning sword',
+      'A crusty pecan-pie',
+    ],
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'How many hearts are on Sweetcap Kittens’ artwork?',
+    answer: 3,
+    options: range(0, 6),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'Which hero was Edrik’s predecessor on the home menu?',
+    answer: 'Wolfcloaks',
+    options: cards.filter(card => card.hero).map(card => card.name),
+  },
+
+  () => {
+    const randomCard = arrayRandom(cards)
+
+    return {
+      difficulty: 'EASY',
+      question: `Of which card is this an anagram: “${shuffle(
+        randomCard.name.split('')
+      ).join('')}”?`,
+      answer: randomCard.name,
+      options: CARD_NAMES,
+    }
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'How many skulls float around Soulcrushers’ staff?',
+    answer: 3,
+    options: range(0, 6),
+  },
+
+  {
+    difficulty: 'HARD',
+    question: 'How many skulls are on Obsidian Butchers’ artwork?',
+    answer: 6,
+    options: range(0, 10),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'How many toad outlines are on Witches of the Wild’s artwork?',
+    answer: 5,
+    options: range(0, 10),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'How many triangles are visible on Tode’s cape’ embroidery?',
+    answer: 10,
+    options: range(5, 15),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'How many birds are on the Trekking Aldermen’s artwork?',
+    answer: 2,
+    options: range(0, 5),
+  },
+
+  {
+    difficulty: 'HARD',
+    question: 'What are the four symbols on Hunter’s Vengeance artwork?',
+    answer: 'A skull, a toad, a construct and a pirate',
+    options: [
+      'A skull, a raven, a construct and a knight',
+      'A skull, a frostling, a rodent and a pirate',
+      'A skull, a rodent, a dwarf and a toad',
+      'A skull, a construct, a raven and a knight',
+      'A skull, a rodent, a frostling, and a knight',
+    ],
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'How many ravens are visible on Wetland Deceivers’ artwork?',
+    answer: 0,
+    options: range(0, 4),
+  },
+
+  {
+    difficulty: 'EASY',
+    question:
+      'What legendary card does one get from buying the Collector’s Edition bundle in the shop?',
+    answer: 'Collector Mirz',
+    options: cards
+      .filter(card => card.rarity === 'legendary')
+      .map(card => card.name),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question:
+      'How much did the Dragon book use to cost when it first came out?',
+    answer: 200,
+    options: [100, 120, 150, 175, 225, 250, 300],
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'Which type of tokens did Tegor the Vengeful initially spawned?',
+    answer: 'Knight',
+    options: Object.keys(RACES).map(capitalise),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'Which color has *not* been used as a pirate skin color?',
+    answer: 'Orange',
+    options: ['Beige', 'White', 'Blue', 'Brawn', 'Black', 'Yellow', 'Green'],
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'How many rubies did a Kingdom book used to cost?',
+    answer: 200,
+    options: [25, 50, 75, 100, 125, 150, 175],
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'How many medals do Greenwood Ancients have?',
+    answer: 3,
+    options: range(0, 5),
+  },
+
+  {
+    difficulty: 'EASY',
+    question:
+      'How many units are begging for mercy in Flooding the Gates’ artwork?',
+    answer: 3,
+    options: range(0, 5),
+  },
+
+  {
+    difficulty: 'EASY',
+    question:
+      'How many units are begging for mercy in Wetland Deceivers’ artwork?',
+    answer: 4,
+    options: range(0, 5),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'What is the weapon of predilection of knights?',
+    answer: 'Lances',
+    options: ['Swords', 'Clubs', 'Daggers', 'Staffs', 'Spells'],
+  },
+
+  {
+    difficulty: 'HARD',
+    question: 'How many ravens are visible on Marked as Prey’s artwork?',
+    answer: 9,
+    options: range(5, 15),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'How many flying toads are visible on Rain of Frogs’ artwork?',
+    answer: 5,
+    options: range(2, 8),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'What does the Crimson Sentry hold in its right hand?',
+    answer: 'A shield',
+    options: ['An axe', 'A sword', 'A staff', 'A stick', 'A dagger', 'A club'],
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'Which card’s artwork features a fork?',
+    answer: 'Toxic Sacrifice',
+    options: CARD_NAMES,
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'Which of Project PH03-Nix’ arm is a cannon?',
+    answer: 'His right arm',
+    options: ['His left arm'],
+  },
+
+  {
+    difficulty: 'EASY',
+    question:
+      'What are the outlines on the background of Booming Professors’ artwork?',
+    answer: 'Flames',
+    options: ['Constructs', 'Rodents', 'Structures'],
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'How many cards are potions?',
+    answer: 3,
+    options: range(2, 6),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'What is floating on top of The Hearth?',
+    answer: 'A helmet',
+    options: ['A leaf', 'A flame', 'A shadow', 'A sword', 'A shielf'],
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'How many snakes are visible in Siren of the Seas’ hair?',
+    answer: 4,
+    options: range(1, 9),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'How many ravens are flying behind Avian Stalkers?',
+    answer: 3,
+    options: range(1, 6),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'How many cards are floating above Archdruid Earyn?',
+    answer: 6,
+    options: range(4, 10),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'How many dice are Snake Eyes juggling with?',
+    answer: 5,
+    options: range(3, 9),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'How many blades are visible on Bladestorm’s artwork?',
+    answer: 10,
+    options: range(5, 12),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'How to enter the Emerald Towers?',
+    answer: 'A ladder',
+    options: ['Stairs', 'The front door', 'A gate'],
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'What is the maximum amount of spawns for Edrik the Fierce?',
+    answer: 3,
+    options: range(1, 5),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'Of which race are Beards of Crowglyphs showing visual elements?',
+    answer: 'Dragon',
+    options: Object.keys(RACES).map(capitalise),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'What are Seasick Bouncers holding in their right hand?',
+    answer: 'A gun',
+    options: ['A sword', 'A bomb', 'A shield', 'A potion', 'A knife', 'A club'],
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'Which feline was illustrated after internet legend Grumpy Cat?',
+    answer: 'Razor-Sharp Lynxes',
+    options: cards
+      .filter(card => card.race === 'feline')
+      .map(card => card.name),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'How many cards increase the base health?',
+    answer: 2,
+    options: range(1, 5),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'Are “on death” effects triggered when attacking the base?',
+    answer: 'Some',
+    options: ['No', 'Yes'],
   },
 
   {
@@ -63,31 +463,25 @@ export default [
     difficulty: 'EASY',
     question: 'How many Elders are there?',
     answer: cards.filter(card => card.elder).length,
-    options: range(
-      cards.filter(card => card.elder).length - 10,
-      cards.filter(card => card.elder).length + 10
-    ),
+    options: rangeAround(cards.filter(card => card.elder).length, 10),
   },
 
   {
     difficulty: 'EASY',
     question: 'How many Heroes are there?',
     answer: cards.filter(card => card.hero).length,
-    options: range(
-      cards.filter(card => card.hero).length - 10,
-      cards.filter(card => card.hero).length + 10
-    ),
+    options: rangeAround(cards.filter(card => card.hero).length, 10),
   },
 
   {
-    difficulty: 'EASY',
+    difficulty: 'MEDIUM',
     question: 'How many cards per faction are there?',
     answer: cards.filter(card => card.faction === 'winter').length,
     options: range(20, 60),
   },
 
   {
-    difficulty: 'EASY',
+    difficulty: 'MEDIUM',
     question: 'What is the cell resolution order?',
     answer: 'Top-to-bottom, left-to-right',
     options: [
@@ -120,13 +514,13 @@ export default [
   {
     difficulty: 'EASY',
     question: 'Which unit type is Powder Tower built by?',
-    answer: 'pirate',
-    options: Object.keys(RACES),
+    answer: 'Pirate',
+    options: Object.keys(RACES).map(capitalise),
   },
 
   {
     difficulty: 'EASY',
-    question: 'Which card was made from the Create-A-Card event?',
+    question: 'Which card was made from the Create-a-Card competition?',
     answer: 'Harvester of Souls',
     options: CARD_NAMES,
   },
@@ -153,27 +547,27 @@ export default [
 
   {
     difficulty: 'EASY',
-    question: 'How many unit types are there?',
-    answer: 14,
-    options: [9, 10, 11, 12, 13, 15, 16, 17, 18],
+    question: 'How many unit races are there?',
+    answer: Object.keys(RACES).length,
+    options: rangeAround(Object.keys(RACES).length, 5),
   },
 
   {
-    difficulty: 'EASY',
+    difficulty: 'MEDIUM',
     question: 'In the store, how many coins do you get from 50 rubies?',
     answer: 450,
     options: [300, 350, 400, 500, 550, 600],
   },
 
   {
-    difficulty: 'EASY',
+    difficulty: 'MEDIUM',
     question: 'What is the maximum amount of damage a level 5 Ubass can deal?',
     answer: 30,
     options: [15, 18, 21, 24, 27, 33, 36, 39, 42],
   },
 
   {
-    difficulty: 'EASY',
+    difficulty: 'MEDIUM',
     question:
       'What is the correct order of Sharpfist Exiles’ strengths from levels 1-5?',
     answer: '2/4/4/7/7',
@@ -205,6 +599,21 @@ export default [
 
   {
     difficulty: 'EASY',
+    question:
+      'Which of these Discord moderators used to work for Paladin Studios?',
+    answer: 'Kuldotha',
+    options: ['Kahrua', 'Kitty', 'Kepp', 'Brzoza', 'Frozen'],
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'What are the odds of pulling an epic card in a Mythic book?',
+    answer: '70%',
+    options: ['50%', '55%', '60%', '65%', '66.66%', '75%', '80%', '85%'],
+  },
+
+  {
+    difficulty: 'EASY',
     question: 'What is Queen of Herds sometimes doing by accident?',
     answer: 'Burying the living',
     options: [
@@ -230,7 +639,109 @@ export default [
   },
 
   {
+    difficulty: 'EASY',
+    question: 'What is the name of the popular Stormbound saga by Zyries?',
+    answer: 'Eastern Heat',
+    options: 'Easter Heat,Eastern Feet,Eastern Cheat,Eastern Meet,Kepp killed Kitty'.split(
+      ','
+    ),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'What is the name of the Satyr Brawl?',
+    answer: 'Self-control',
+    options: 'Self-sustained,Crazy Goats,Goat2Hell,2Fast2Goat,Self-container'.split(
+      ','
+    ),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'How many Fusion Stones does it cost to craft an epic card?',
+    answer: 25,
+    options: [12, 18, 20, 22, 30, 35, 50],
+  },
+
+  {
     difficulty: 'MEDIUM',
+    question: 'How many neutral spells are there?',
+    answer: cards.filter(
+      card => card.faction === 'neutral' && card.type === 'spell'
+    ).length,
+    options: rangeAround(
+      cards.filter(card => card.faction === 'neutral' && card.type === 'spell')
+        .length,
+      5
+    ),
+  },
+
+  {
+    difficulty: 'HARD',
+    question: 'How many structures are in the game?',
+    answer: cards.filter(card => card.type === 'structure').length,
+    options: rangeAround(
+      cards.filter(card => card.type === 'structure').length,
+      5
+    ),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'How many cards have a drain ability?',
+    answer: cards.filter(card => (card.ability || '').includes('drain')).length,
+    options: rangeAround(
+      cards.filter(card => (card.ability || '').includes('drain')).length,
+      3
+    ),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'Which of these cards was revealed by Kitty on Stormbound-Kitty?',
+    answer: 'Bigthrust Tiger',
+    options: cards
+      .filter(card => card.race === 'feline')
+      .map(card => card.name),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'How many times were Cabin Girls updated?',
+    answer: 0,
+    options: range(1, 5),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'How many cards have “FS” as initials?',
+    answer: cards.filter(card => abbreviate(card.name) === 'FS').length,
+    options: rangeAround(
+      cards.filter(card => abbreviate(card.name) === 'FS').length,
+      2
+    ),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'Which of these dragons was not named after a player?',
+    answer: 'Beasts of Terror',
+    options: [
+      'Draconic Roamer',
+      'Dangerous Suitors',
+      'Conflicted Drakes',
+      'Broken Earth Drakes',
+      'Yowling Weavers',
+      'Dreadful Keepers',
+      'Ludic Matriarchs',
+      'Spare Dragonling',
+      'Sunbeam Serpents',
+      'Broodmother Qordia',
+    ],
+  },
+
+  {
+    difficulty: 'EASY',
     question:
       'Which legendary card was originally fetured in the Stormbound app icon?',
     answer: 'Olf the Hammer',
@@ -257,7 +768,7 @@ export default [
   },
 
   {
-    difficulty: 'MEDIUM',
+    difficulty: 'HARD',
     question: 'How many coins did Fusion Stones use to cost in the daily shop?',
     answer: 50,
     options: '25,30,35,40,45,55,60,65,70,75,80,85,90,95,100,125,150'.split(','),
@@ -271,7 +782,7 @@ export default [
   },
 
   {
-    difficulty: 'MEDIUM',
+    difficulty: 'HARD',
     question: 'What is Counselor Ahmi’s advice?',
     answer: 'Simply do everything I tell you to as fast as possible.',
     options: [
@@ -287,17 +798,17 @@ export default [
     difficulty: 'MEDIUM',
     question:
       'Which two people have tied for the most Stormbound championship titles?',
-    answer: 'HanooSt + BluePhoenix',
+    answer: 'HanooSt and BluePhoenix',
     options: Array.from({ length: 20 }, () =>
       [
         randomAuthor,
         arrayRandom(decks.filter(deck => deck.author !== randomAuthor)).author,
-      ].join(' + ')
+      ].join(' and ')
     ),
   },
 
   {
-    difficulty: 'MEDIUM',
+    difficulty: 'HARD',
     question:
       'What is the maximum amount of strength Sharpfist Exiles can gain at Level 5, not counting its base strength?',
     answer: 76,
@@ -305,7 +816,7 @@ export default [
   },
 
   {
-    difficulty: 'MEDIUM',
+    difficulty: 'HARD',
     question:
       'If you play Needle Blast which brings the opponent to 0, but also hits the opponent’s Booming Professors and brings your base to 0, who would win?',
     answer: 'Opponent',
@@ -369,7 +880,7 @@ export default [
   {
     difficulty: 'MEDIUM',
     question:
-      'Which card idea that was submitted but didn’t win in the Create a Card Competition is implemented in the game?',
+      'Which card idea that was submitted but didn’t win in the Create-a-Card competition is implemented in the game?',
     answer: 'Snake Eyes',
     options: CARD_NAMES,
   },
@@ -392,7 +903,22 @@ export default [
   {
     difficulty: 'MEDIUM',
     question:
-      'Which Shadowfen card can have 24 value in total at Level 5 at max?',
+      'Which other races were possible to vote for for the community created card Harvesters of Souls?',
+    answer: 'Pirate and Raven',
+    options: Array.from({ length: 20 }, () =>
+      [
+        randomRace,
+        arrayRandom(Object.keys(RACES).filter(race => race !== randomRace)),
+      ]
+        .map(capitalise)
+        .join(' and ')
+    ),
+  },
+
+  {
+    difficulty: 'HARD',
+    question:
+      'Which Shadowfen card can have 24 strength value in total at Level 5 at max?',
     answer: 'Amberhides',
     options: cards
       .filter(card => card.faction === 'shadowfen')
@@ -417,11 +943,29 @@ export default [
 
   {
     difficulty: 'MEDIUM',
-    question: 'Which structure is the Kongregate Forum mod named after?',
+    question: 'Which structure is named after the Kongregate forum moderator?',
     answer: 'Trueshot Post',
     options: cards
       .filter(card => card.type === 'structure')
       .map(card => card.name),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'How many different Brawls are there?',
+    answer: BRAWLS.length,
+    options: rangeAround(BRAWLS.length, 5),
+  },
+
+  {
+    different: 'HARD',
+    question:
+      'How many copies of a non-missing rare card are required to bring it level 5?',
+    answer: RARITY_COPIES.rare.copies.reduce((a, b) => a + b, 0),
+    options: rangeAround(
+      RARITY_COPIES.rare.copies.reduce((a, b) => a + b, 0),
+      5
+    ),
   },
 
   {
@@ -431,20 +975,21 @@ export default [
     answer: 'Emkaem',
     options: decks
       .filter(deck => deck.author !== 'Shades')
+      .filter(unique)
       .map(deck => deck.author),
   },
 
   {
     difficulty: 'HARD',
     question: 'What is the formula used to reweigh cards in the deck?',
-    answer: 'f(w)=⌊w×1.6+1',
+    answer: 'f(w) = ⌊ w × 1.6 + 1',
     options: [
-      'f(w)=⌈w×1.6-1',
-      'f(w)=⌊w×1.6-1',
-      'f(w)=⌈w×1.6+1',
-      'f(w)=⌊w×1.6+1',
-      'f(w)=⌈w×0.16+1',
-      'f(w)=⌊w×0.16+1',
+      'f(w) = ⌈ w × 1.6 - 1',
+      'f(w) = ⌊ w × 1.6 - 1',
+      'f(w) = ⌈ w × 1.6 + 1',
+      'f(w) = ⌊ w × 1.6 + 1',
+      'f(w) = ⌈ w × 1.6',
+      'f(w) = ⌊ w × 1.6',
     ],
   },
 
@@ -460,7 +1005,7 @@ export default [
   },
 
   {
-    difficulty: 'HARD',
+    difficulty: 'MEDIUM',
     question: 'How many cards are there?',
     answer: 188,
     options: range(175, 200),
@@ -469,7 +1014,7 @@ export default [
   {
     difficulty: 'HARD',
     question:
-      'Which one of these cards’ abilities were not enhanced to impact structures in a balance change?',
+      'Which one of these cards’ abilities was *not* enhanced to impact structures in a balance change?',
     answer: 'Victors of the Melee',
     options: ['Devastators', 'Trueshot Post', 'Boomstick Officers'],
   },
@@ -502,5 +1047,32 @@ export default [
     options: cards
       .filter(card => !card.token && !(card.ability || '').includes('give'))
       .map(card => card.name),
+  },
+
+  {
+    difficulty: 'HARD',
+    question: 'What are the odds of pulling Fusion Stones from a Mythic book?',
+    answer: '17.86%',
+    options: ['18.76%', '16.78%', '16.87%', '17.68%', '17.86%'],
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'Which platform was *not* used to disclose one of the wild cats?',
+    answer: 'Twitter',
+    options: [
+      'Stormbound-Kitty',
+      'Stormbound Wiki',
+      'YouTube',
+      'Discord',
+      'Twitch',
+    ],
+  },
+
+  {
+    difficulty: 'HARD',
+    question: 'Which was the first Elder to be revealed?',
+    answer: 'Trekking Aldermen',
+    options: cards.filter(card => card.elder).map(card => card.name),
   },
 ]
