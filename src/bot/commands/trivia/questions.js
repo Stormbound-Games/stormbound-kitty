@@ -342,6 +342,70 @@ export default [
   },
 
   {
+    difficulty: 'HARD',
+    question: 'What is the top symbol on Hunter’s Vengeance artwork?',
+    answer: 'A skull',
+    options: [
+      'A toad',
+      'A construct',
+      'A pirate',
+      'A raven',
+      'A rodent',
+      'A frostling',
+      'A club',
+      'A dwarf',
+    ],
+  },
+
+  {
+    difficulty: 'HARD',
+    question: 'What is the right symbol on Hunter’s Vengeance artwork?',
+    answer: 'A toad',
+    options: [
+      'A skull',
+      'A construct',
+      'A pirate',
+      'A raven',
+      'A rodent',
+      'A frostling',
+      'A club',
+      'A dwarf',
+    ],
+  },
+
+  {
+    difficulty: 'HARD',
+    question: 'What is the bottom symbol on Hunter’s Vengeance artwork?',
+    answer: 'A construct',
+    options: [
+      'A skull',
+      'A toad',
+      'A pirate',
+      'A raven',
+      'A rodent',
+      'A frostling',
+      'A club',
+      'A dwarf',
+    ],
+  },
+
+  {
+    difficulty: 'HARD',
+    question: 'What is the left symbol on Hunter’s Vengeance artwork?',
+    answer: 'A pirate',
+    options: [
+      'A skull',
+      'A construct',
+      'A toad',
+      'A raven',
+      'A rodent',
+      'A frostling',
+      'A club',
+      'A dwarf',
+    ],
+  },
+
+  {
     difficulty: 'MEDIUM',
     question: 'How many ravens are visible on Wetland Deceivers’ artwork?',
     answer: 0,
@@ -775,7 +839,7 @@ export default [
 
   {
     difficulty: 'EASY',
-    question: 'In which field is Mia *not* a minister?',
+    question: 'In which field does Mia *not* have a doctorate?',
     answer: 'Engineering',
     options: ['Science', 'Arts', 'Ministry', 'Education'],
   },
@@ -843,7 +907,7 @@ export default [
     difficulty: 'EASY',
     question: 'What is the name of the Satyr Brawl?',
     answer: 'Self-control',
-    options: 'Self-sustained,Crazy Goats,Goat2Hell,2Fast2Goat,Self-container'.split(
+    options: 'Self-sustained,Crazy Goats,Goat2Hell,2Fast2Goat,Self-contained'.split(
       ','
     ),
   },
@@ -891,7 +955,7 @@ export default [
   {
     difficulty: 'MEDIUM',
     question: 'Which of these cards was revealed by Kitty on Stormbound-Kitty?',
-    answer: 'Bigthrust Tiger',
+    answer: 'Bigthrust Tigers',
     options: cards
       .filter(card => card.race === 'feline')
       .map(card => card.name),
@@ -1001,7 +1065,7 @@ export default [
 
     return {
       difficulty: 'MEDIUM',
-      question: 'Which of these cards’ ability does not contain a full stop?',
+      question: 'Which of these cards’ ability does not contain a full-stop?',
       answer: randomCard.name,
       options: cardsWithFullStop.map(card => card.name),
     }
@@ -1108,8 +1172,7 @@ export default [
 
   {
     difficulty: 'MEDIUM',
-    question:
-      'What is the correct spelling of the community member’s name that Ludic Matriarchs is named after?',
+    question: 'Who are Ludic Matriarchs named after?',
     answer: 'Ludo88',
     options: Array.from({ length: 50 }, () => 'Ludo' + random(10, 99)),
   },
