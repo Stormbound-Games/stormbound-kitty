@@ -25,13 +25,4 @@ describe('The `parseTriviaSettings` helper', () => {
     expect(parseTriviaSettings('question 1').duration).to.equal(8)
     expect(parseTriviaSettings('question 100').duration).to.equal(20)
   })
-
-  it('should properly resolve the difficulty', () => {
-    expect(parseTriviaSettings('question easy').difficulty).to.equal('EASY')
-    expect(parseTriviaSettings('question medium').difficulty).to.equal('MEDIUM')
-    expect(parseTriviaSettings('question hard').difficulty).to.equal('HARD')
-    expect(parseTriviaSettings('easy question').difficulty).to.equal('EASY')
-    expect(parseTriviaSettings('medium question').difficulty).to.equal('MEDIUM')
-    expect(parseTriviaSettings('hard question').difficulty).to.equal('HARD')
-  })
 })

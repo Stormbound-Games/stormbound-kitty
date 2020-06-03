@@ -3,14 +3,9 @@ import shuffle from '../shuffle'
 import questions from '../../bot/commands/trivia/questions'
 import { LETTERS } from '../../bot/commands/trivia'
 
-const getRandomQuestion = difficulty => {
-  // Consider all questions matching the current difficulty (if defined).
-  const matchesDifficulty = question =>
-    !difficulty || difficulty === question.difficulty
-  const candidates = questions.filter(matchesDifficulty)
-
+const getRandomQuestion = () => {
   // Pick a question at random.
-  let question = arrayRandom(candidates)
+  let question = arrayRandom(questions)
 
   // If the question is dynamic (function), resolve it.
   if (typeof question === 'function') {

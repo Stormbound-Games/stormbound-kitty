@@ -65,7 +65,7 @@ const trivia = new StateMachine({
       if (this.mode === 'CARD') {
         this.answer = arrayRandom(cards.filter(card => !card.token))
       } else if (this.mode === 'QUESTION') {
-        const { question, choices } = getRandomQuestion(this.difficulty)
+        const { question, choices } = getRandomQuestion()
 
         // Store the answer in a `name` property to align with the `CARD` mode.
         this.answer = { ...question, choices, name: question.answer }
@@ -80,10 +80,9 @@ const trivia = new StateMachine({
     },
 
     initialise: function (message, author) {
-      const { mode, duration, difficulty } = parseTriviaSettings(message)
+      const { mode, duration } = parseTriviaSettings(message)
 
       if (!mode) return
-      this.difficulty = difficulty
       this.duration = duration
       this.initiator = author
       this.mode = mode
