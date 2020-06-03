@@ -17,6 +17,7 @@
     "**/hooks/*.js",
     "serviceWorker.js",
     "**/bot/commands/*.js",
+    "**/bot/commands/trivia/questions.js",
     "**/bot/*.js"
   ],
   "projectId": "h321g2",
