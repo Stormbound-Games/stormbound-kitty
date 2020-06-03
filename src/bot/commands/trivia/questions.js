@@ -6,6 +6,7 @@ import {
   RARITY_COPIES,
 } from '../../../constants/game'
 import { BRAWLS } from '../../../constants/brawl'
+import stories from '../../../../public/stories'
 import cards from '../../../data/cards'
 import decks from '../../../data/decks'
 import arrayRandom from '../../../helpers/arrayRandom'
@@ -14,7 +15,9 @@ import getRawCardData from '../../../helpers/getRawCardData'
 import getResolvedCardData from '../../../helpers/getResolvedCardData'
 import abbreviate from '../../../helpers/abbreviate'
 import shuffle from '../../../helpers/shuffle'
+import sortCards from '../../../helpers/sortCards'
 
+const SORTED_CARDS = cards.sort(sortCards())
 const CARD_NAMES = cards.filter(card => !card.token).map(card => card.name)
 const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 const range = (min, max) => [...Array(max - min).keys()].map(n => n + min)
@@ -22,8 +25,78 @@ const randomAuthor = arrayRandom(decks).author
 const randomRace = arrayRandom(Object.keys(RACES))
 const rangeAround = (value, delta) => range(value - delta, value + delta)
 const unique = (value, index, array) => array.indexOf(value) === index
+const NEVER_UPDATED = [
+  'N11',
+  'N28',
+  'N32',
+  'N21',
+  'N30',
+  'N22',
+  'N19',
+  'N24',
+  'N16',
+  'S18',
+]
 
 export default [
+  {
+    difficulty: 'HARD',
+    question: 'Which was the first prize Kepp ever proposed in his tournament?',
+    answer: 'A Steam game',
+    options: ['Rubies', 'An artwork', 'A Mythic book', 'Nothing'],
+  },
+
+  {
+    difficulty: 'HARD',
+    question:
+      'Which was the first creative contest hosted in the Discord server?',
+    answer: 'Writing contest',
+    options: ['Art contest', 'Poetry contest', 'Drawing contest'],
+  },
+
+  {
+    difficulty: 'HARD',
+    question:
+      'Who won the first drawing-based contest hosted in the Discord server?',
+    answer: 'YoungestMammal',
+    options: stories.map(story => story.author).filter(unique),
+  },
+
+  {
+    difficulty: 'HARD',
+    question: 'With whom did Kepp first started hosting tournaments?',
+    answer: 'Derpyologist',
+    options: decks.map(deck => deck.author).filter(unique),
+  },
+
+  {
+    difficulty: 'HARD',
+    question: 'Which of his own tournaments did Kepp ever attend?',
+    answer: '#1',
+    options: range(2, 6).map(id => '#' + id),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'What is the last neutral card?',
+    answer: SORTED_CARDS.filter(
+      card => !card.token && card.faction === 'neutral'
+    ).pop().name,
+    options: SORTED_CARDS.filter(
+      card => !card.token && card.faction === 'neutral'
+    )
+      .slice(-10)
+      .map(card => card.name),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question:
+      'What was the max strength Unhealthy Hysteria could effect when it was first revealed?',
+    answer: 3,
+    options: range(1, 10),
+  },
+
   () => {
     const randomCard = arrayRandom(cards.filter(card => card.type === 'unit'))
 
@@ -576,8 +649,15 @@ export default [
 
   {
     difficulty: 'EASY',
-    question: 'What is the name of Shadowfen’s premade deck?',
+    question: 'What is the name of the Shadowfen premade deck?',
     answer: 'Counter Deck',
+    options: decks.map(deck => deck.name + ' Deck'),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'What is the name of the Ironclad premade deck?',
+    answer: 'Operator’s Deck',
     options: decks.map(deck => deck.name + ' Deck'),
   },
 
@@ -714,6 +794,24 @@ export default [
 
   {
     difficulty: 'MEDIUM',
+    question:
+      'Which one of these cards was updated at least once since released?',
+    answer: cards
+      .filter(card => !card.token && !NEVER_UPDATED.includes(card.id))
+      .map(card => card.name),
+    options: NEVER_UPDATED.map(getRawCardData).map(card => card.name),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question:
+      'Which faction is the only one with a card that was never updated since the release?',
+    answer: 'Swarm',
+    options: ['Winter', 'Shadowfen', 'Ironclad'],
+  },
+
+  {
+    difficulty: 'MEDIUM',
     question: 'How many cards have “FS” as initials?',
     answer: cards.filter(card => abbreviate(card.name) === 'FS').length,
     options: rangeAround(
@@ -821,6 +919,13 @@ export default [
       'If you play Needle Blast which brings the opponent to 0, but also hits the opponent’s Booming Professors and brings your base to 0, who would win?',
     answer: 'Opponent',
     options: ['You', 'Tie', 'Game crashes'],
+  },
+
+  {
+    difficulty: 'HARD',
+    question: 'How much damage could Needle Blast do when first released?',
+    answer: 10,
+    options: range(5, 12),
   },
 
   {
