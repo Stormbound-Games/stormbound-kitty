@@ -55,6 +55,46 @@ export default [
   },
 
   {
+    difficulty: 'MEDIUM',
+    question: 'Which is the oldest kingdom?',
+    answer: 'Swarm of the East',
+    options: ['Winter Pact', 'Tribes of the Shadowfen', 'Ironclad Union'],
+  },
+
+  {
+    difficulty: 'HARD',
+    question:
+      'Which legendary card was in the deck of the Clash of the Generals tournament’s champion?',
+    answer: 'Doctor Mia',
+    options: cards
+      .filter(card => card.rarity === 'legendary')
+      .map(card => card.name),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'What is the cost of an epic card in the shop?',
+    answer: 20,
+    options: [5, 10, 15, 25, 30],
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'Which tool started Stormbound-Kitty?',
+    answer: 'Battle sim',
+    options: [
+      'Deck builder',
+      'Card builder',
+      'List builder',
+      'Collection manager',
+      'Deck dry-runner',
+      'Puzzles',
+      'Stories',
+      'Guides',
+    ],
+  },
+
+  {
     difficulty: 'HARD',
     question:
       'Who won the first drawing-based contest hosted in the Discord server?',
@@ -105,6 +145,17 @@ export default [
       question: `What is the race of ${randomCard.name}?`,
       answer: capitalise(randomCard.race),
       options: Object.keys(RACES).map(capitalise),
+    }
+  },
+
+  () => {
+    const randomCard = arrayRandom(cards.filter(card => !card.token))
+
+    return {
+      difficulty: 'EASY',
+      question: `What is the faction of ${randomCard.name}?`,
+      answer: capitalise(randomCard.faction),
+      options: Object.keys(FACTIONS).map(capitalise),
     }
   },
 
@@ -634,6 +685,69 @@ export default [
 
   {
     difficulty: 'MEDIUM',
+    question: 'What is the name of the Swarm paid book?',
+    answer: 'Shredded Journal',
+    options: [
+      'Sand Journal',
+      'Journal of Death',
+      'Lost Journal',
+      'Eastern Journal',
+    ],
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'How many different books are there?',
+    answer: 6,
+    options: range(4, 8),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'What are the 4 possibility for fusion stones in books?',
+    answer: '5/12/25/50',
+    options: [
+      '5/10/15/20',
+      '5/15/30/60',
+      '5/10/20/40',
+      '6/12/24/36',
+      '6/12/24/48',
+    ],
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'What is the name of the Shadowfen paid book?',
+    answer: 'Tribal Tome',
+    options: [
+      'Tome of the Tribe',
+      'Shadow Tome',
+      'Shady Tome',
+      'Poisonous Tome',
+    ],
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'What is the name of the Ironclad paid book?',
+    answer: 'Engineer’s Manual',
+    options: [
+      'Rodent’s Manual',
+      'Construct’s Manual',
+      'Manual of Instructions',
+      'Manual of Gears',
+    ],
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'What is the name of the Winter paid book?',
+    answer: 'Icebound Saga',
+    options: ['Frozen Saga', 'Frost Saga', 'Snowflake Saga', 'Icecold Saga'],
+  },
+
+  {
+    difficulty: 'MEDIUM',
     question: 'What is the maximum amount of damage a level 5 Ubass can deal?',
     answer: 30,
     options: [15, 18, 21, 24, 27, 33, 36, 39, 42],
@@ -825,17 +939,74 @@ export default [
     question: 'Which of these dragons was not named after a player?',
     answer: 'Beasts of Terror',
     options: [
-      'Draconic Roamer',
-      'Dangerous Suitors',
-      'Conflicted Drakes',
       'Broken Earth Drakes',
-      'Yowling Weavers',
+      'Broodmother Qordia',
+      'Conflicted Drakes',
+      'Dangerous Suitors',
+      'Draconic Roamer',
       'Dreadful Keepers',
+      'Greengale Serpents',
       'Ludic Matriarchs',
       'Spare Dragonling',
       'Sunbeam Serpents',
-      'Broodmother Qordia',
+      'Yowling Weavers',
     ],
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'Which faction has the most structures?',
+    answer: 'Ironclad',
+    options: ['Swarm', 'Shadowfen', 'Winter'],
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'Which faction has the most 2-movement units?',
+    answer: 'Winter',
+    options: ['Swarm', 'Shadowfen', 'Ironclad'],
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'How many cards can push units?',
+    answer: 5,
+    options: range(3, 7),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question: 'Which of one these names is not an official card’s name?',
+    answer: 'Wardens',
+    options: 'Boatswain,Bravefoot,Corsair,Cult of the Sky,Dead Wanderer,Elite Deathguards,Frenzied Troops,Gunner,Jade Speedster,Lonely Witch,Lost Faun,Makeshifter,Mudgrinders,Plain Helper,Privateer,Rough Patchers,Saplings,Silent Rimes,Sleetrunners,Sparkling,'.split(
+      ','
+    ),
+  },
+
+  {
+    difficulty: 'MEDIUM',
+    question:
+      'What is the lowest base health someone has reached Diamond with?',
+    answer: 13,
+    options: range(10, 20),
+  },
+
+  () => {
+    const cardsWithFullStop = cards
+      .filter(card => card.ability)
+      .filter(card => card.ability.includes('. '))
+    const randomCard = arrayRandom(
+      cards
+        .filter(card => card.ability)
+        .filter(card => !card.ability.includes('. '))
+    )
+
+    return {
+      difficulty: 'MEDIUM',
+      question: 'Which of these cards’ ability does not contain a full stop?',
+      answer: randomCard.name,
+      options: cardsWithFullStop.map(card => card.name),
+    }
   },
 
   {
@@ -1179,5 +1350,37 @@ export default [
     question: 'Which was the first Elder to be revealed?',
     answer: 'Trekking Aldermen',
     options: cards.filter(card => card.elder).map(card => card.name),
+  },
+
+  {
+    difficulty: 'EASY',
+    question: 'Which of these cards has the longest ability?',
+    answer: cards
+      .filter(card => card.ability)
+      .map(card => getResolvedCardData({ id: card.id, level: 5 }))
+      .reduce((a, b) =>
+        a.ability.replace(/\*/g, '').length >
+        b.ability.replace(/\*/g, '').length
+          ? a
+          : b
+      ).name,
+    options: cards.filter(card => card.ability).map(card => card.name),
+  },
+
+  () => {
+    const level = arrayRandom([1, 2, 3, 4, 5])
+    const cardsByStrength = cards
+      .filter(card => card.type !== 'spell')
+      .map(card => getResolvedCardData({ id: card.id, level }))
+      .sort((a, b) =>
+        a.strength > b.strength ? -1 : a.strength < b.strength ? +1 : 0
+      )
+
+    return {
+      difficulty: 'MEDIUM',
+      question: `Which card has the highest strength at level ${level}?`,
+      answer: cardsByStrength[0].name,
+      options: cardsByStrength.slice(0, 10).map(card => card.name),
+    }
   },
 ]
