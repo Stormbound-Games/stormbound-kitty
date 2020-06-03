@@ -12,12 +12,8 @@ describe('Bot — !trivia', () => {
     expect(trivia('', client, message)).to.equal(undefined)
   })
 
-  it('should be possible to start a trivia', () => {
-    expect(trivia('start', client, message)).to.contain('started')
-  })
-
-  it('should not be possible to start a trivia if one started', () => {
-    expect(trivia('start', client, message)).to.equal(undefined)
+  it('should be possible to start a card trivia', () => {
+    expect(trivia('card', client, message)).to.contain('started')
   })
 
   it('should not be possible to stop someone else’s trivia', () => {
@@ -27,12 +23,12 @@ describe('Bot — !trivia', () => {
   })
 
   it('should be possible to ask for hints', () => {
-    expect(trivia('is struct', client, message)).to.contain('type')
-    expect(trivia('is pirate', client, message)).to.contain('race')
-    expect(trivia('is rare', client, message)).to.contain('rarity')
-    expect(trivia('is wp', client, message)).to.contain('faction')
-    expect(trivia('is hero', client, message)).to.contain('hero')
-    expect(trivia('is elder', client, message)).to.contain('elder')
+    expect(trivia('struct', client, message)).to.contain('type')
+    expect(trivia('pirate', client, message)).to.contain('race')
+    expect(trivia('rare', client, message)).to.contain('rarity')
+    expect(trivia('wp', client, message)).to.contain('faction')
+    expect(trivia('hero', client, message)).to.contain('hero')
+    expect(trivia('elder', client, message)).to.contain('elder')
   })
 
   it('should be possible to stop one’s own trivia', () => {
@@ -44,8 +40,9 @@ describe('Bot — !trivia', () => {
   })
 
   it('should be possible to display help', () => {
-    expect(trivia('help', client, message)).to.contain('start')
+    expect(trivia('help', client, message)).to.contain('card')
+    expect(trivia('help', client, message)).to.contain('question')
     expect(trivia('help', client, message)).to.contain('stop')
-    expect(trivia('help', client, message)).to.contain('is')
+    expect(trivia('help', client, message)).to.contain('prop')
   })
 })
