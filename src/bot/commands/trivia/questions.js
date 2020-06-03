@@ -1026,12 +1026,7 @@ export default [
     difficulty: 'MEDIUM',
     question: 'Which card was first revelaed after a social media voting?',
     answer: 'Unstable Build',
-    options: [
-      'Blessed with Brawn',
-      'Unstable build',
-      'Heliotroopers',
-      'Head Start',
-    ],
+    options: ['Blessed with Brawn', 'Heliotroopers', 'Head Start'],
   },
 
   {
