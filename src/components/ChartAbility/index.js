@@ -27,21 +27,37 @@ export default React.memo(function ChartAbility(props) {
   const data = Object.values(
     cards.reduce((acc, card) => {
       if (!card.ability) return acc
-      const match = CHIP_CARDS.includes(card.id)
-        ? // eslint-disable-next-line
-          [, 'chip']
-        : card.ability.match(regex)
-      if (!match) return acc
-      const type = abilities[match[1].toLowerCase()].name
 
-      if (typeof acc[type] === 'undefined') {
-        acc[type] = {
-          name: type,
-          color: abilities[match[1]].color,
-          value: 0,
+      const isChip = CHIP_CARDS.includes(card.id)
+      const match = card.ability.match(regex)
+
+      if (!match && !isChip) return acc
+
+      if (match) {
+        const type = abilities[match[1].toLowerCase()].name
+
+        if (typeof acc[type] === 'undefined') {
+          acc[type] = {
+            name: type,
+            color: abilities[match[1]].color,
+            value: 0,
+          }
         }
+
+        acc[type].value++
       }
-      acc[type].value++
+
+      if (isChip) {
+        if (typeof acc.chip === 'undefined') {
+          acc.chip = {
+            name: 'Chip',
+            color: abilities.chip.color,
+            value: 0,
+          }
+        }
+
+        acc.chip.value++
+      }
       return acc
     }, {})
   )
