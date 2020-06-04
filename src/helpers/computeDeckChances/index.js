@@ -31,7 +31,7 @@ const getEffectiveManaCost = mana => card => {
   // If the card is GotW and it can be played, reduced its mana cost by the
   // amount of mana given by its ability.
   if (card.id === 'W19' && mana >= 7)
-    return 7 - ([9, 10, 11, 12, 13][card.level] - 7)
+    return 7 - [9, 10, 11, 12, 13][card.level - 1]
 
   // If the card is Rimelings and it can be played, reduced its mana cost by
   // the amount of mana given by its ability.
