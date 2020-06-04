@@ -1,4 +1,4 @@
-const getSequences = () => {
+const getUniqueHands = () => {
   const sequence = [0, 1, 2, 3]
   const sequences = []
 
@@ -25,7 +25,7 @@ const getSequences = () => {
   return sequences
 }
 
-const SEQUENCES = getSequences()
+const UNIQUE_HANDS = getUniqueHands()
 
 const getEffectiveManaCost = mana => card => {
   // If the card is GotW and it can be played, reduced its mana cost by the
@@ -40,7 +40,7 @@ const getEffectiveManaCost = mana => card => {
   return card.mana
 }
 
-const getManaSequences = mana => cards => {
+const getPossibleManaSpent = mana => cards => {
   const [A, B, C, D] = cards.map(getEffectiveManaCost(mana))
 
   return [
@@ -67,24 +67,49 @@ const sum = sequence => sequence.reduce((acc, value) => acc + value, 0)
 const computeDeckChances = (deck, mana) => {
   const getCardAtIndex = index => deck[index]
 
-  // Compute all the possible unique hand sequences that can happen for the
-  // given deck, and resolve them to host mana instead of card index.
-  // Find all the hand sequences using all the available mana.
-  const sequencesUsingAllMana = SEQUENCES.map(sequence =>
-    sequence.map(getCardAtIndex)
+  // `UNIQUE_HANDS` are all the combinations of 4 different cards one can have
+  // in their hand based on the 12 cards of their deck. A “hand” is an array of
+  // 4 numbers from 0 to 11 (the index of the card in the deck).
+  const handsUsingAllMana = UNIQUE_HANDS.map(hand =>
+    // For each hand, we resolve the 4 card indices to the actual card
+    // objects so we end up with every hand being an array of 4 cards.
+    hand.map(getCardAtIndex)
   )
-    .map(getManaSequences(mana))
-    .filter(sequence => sequence.includes(mana))
-  // Find all the hand sequences being fully playable within the available mana.
-  const sequencesUsingAllCards = SEQUENCES.map(sequence =>
-    sequence.map(getCardAtIndex).map(getEffectiveManaCost(mana))
+    // Then, we map every hand of 4 cards to an array of “mana amounts”. Mana
+    // amounts are all the mana spending possibilities for that hand within the
+    // currently available mana. So it is an array of mana amounts that can be
+    // spent for that hand and that mana.
+    .map(getPossibleManaSpent(mana))
+    // Then, we keep only the hands which contain a mana amount which exactly
+    // matches the available mana. These are the hands that spent all of the
+    // available mana.
+    .filter(amounts => amounts.includes(mana))
+
+  // `UNIQUE_HANDS` are all the combinations of 4 different cards one can have
+  // in their hand based on the 12 cards of their deck. A “hand” is an array of
+  // 4 numbers from 0 to 11 (the index of the card in the deck).
+  const handsPlayingAllCards = UNIQUE_HANDS.map(hand =>
+    hand
+      // For each hand, we resolve the 4 card indices to the actual card
+      // objects so we end up with every hand being an array of 4 cards.
+      .map(getCardAtIndex)
+      // Then, we resolve the effective mana cost of each card composing the
+      // hand. This is to take into account cards giving mana such as Gift of
+      // the Wise or Rimelings. Their effective mana cost varies from their
+      // official mana cost based on whether or not they can be played within
+      // the available mana.
+      .map(getEffectiveManaCost(mana))
   )
+    // Then, for each hand, we compute its total mana cost by adding the effect-
+    // ive mana cost of every card composing it.
     .map(sum)
-    .filter(manaCost => manaCost <= mana)
+    // Finally, we preserve only the hands with a total cost within the
+    // available mana. These are the hands that can play all cards.
+    .filter(handCost => handCost <= mana)
 
   return {
-    usingAllMana: (sequencesUsingAllMana.length / SEQUENCES.length) * 100,
-    playingAllCards: (sequencesUsingAllCards.length / SEQUENCES.length) * 100,
+    usingAllMana: (handsUsingAllMana.length / UNIQUE_HANDS.length) * 100,
+    playingAllCards: (handsPlayingAllCards.length / UNIQUE_HANDS.length) * 100,
   }
 }
 
