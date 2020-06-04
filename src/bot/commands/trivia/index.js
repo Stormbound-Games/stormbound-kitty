@@ -201,7 +201,9 @@ const trivia = new StateMachine({
       api
         .getScores()
         .then(formatTriviaScores)
-        .then(this.channel.send.bind(this.channel))
+        .then(output =>
+          this.channel.send(output, { allowedMentions: { users: [] } })
+        )
     },
   },
 })
