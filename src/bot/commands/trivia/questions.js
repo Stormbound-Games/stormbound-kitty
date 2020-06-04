@@ -135,7 +135,7 @@ export default [
     return {
       question: `What is the cost of ${cardData.name} at level ${level}?`,
       answer: cardData.mana,
-      options: rangeAround(cardData.mana, 3).filter(mana => mana < 0),
+      options: rangeAround(cardData.mana, 3).filter(mana => mana > 0),
     }
   },
 
@@ -148,7 +148,7 @@ export default [
       question: `What is the strength of ${cardData.name} card at level ${level}?`,
       answer: cardData.strength,
       options: rangeAround(cardData.strength, 3).filter(
-        strength => strength < 1
+        strength => strength > 1
       ),
     }
   },
@@ -462,8 +462,8 @@ export default [
 
   {
     question: 'What is the maximum amount of spawns for Edrik the Fierce?',
-    answer: 3,
-    options: range(1, 5),
+    answer: 5,
+    options: range(1, 6),
   },
 
   {
@@ -519,8 +519,11 @@ export default [
 
   {
     question: 'How many Elders are there?',
-    answer: cards.filter(card => card.elder).length,
-    options: rangeAround(cards.filter(card => card.elder).length, 10),
+    answer: cards.filter(card => !card.token && card.elder).length,
+    options: rangeAround(
+      cards.filter(card => !card.token && card.elder).length,
+      10
+    ),
   },
 
   {
@@ -694,7 +697,7 @@ export default [
   },
 
   {
-    question: 'What was the original name of PH03-nix',
+    question: 'What was the original name of PH03-nix?',
     answer: 'Prolonged Hero 03',
     options: 'Progressing,Persisting,Pervasive,Patient,Peaceful,Passionate,Placid,Personable'
       .split(',')
