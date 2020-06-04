@@ -120,6 +120,7 @@ const trivia = new StateMachine({
     },
 
     abort: function (author) {
+      if (!this.initiator) return
       if (author.id !== this.initiator.id && author.id !== KITTY_ID) return
 
       const username = this.initiator.username
