@@ -21,11 +21,12 @@ export default cards => {
       .map(card => card.name),
     'and'
   )
+  const includeHeadStart = !hasHeadStart ? ' or Head Start' : ''
 
   return {
     id: 'INEFFICIENT_SATYR_COMBOS',
     name: 'Inefficient Satyr Combos',
-    description: `This deck includes ${listOfNames}, but doesn’t include enough satyrs to provide good synergy. Consider including more satyrs or Head Start.`,
+    description: `This deck includes ${listOfNames}, but doesn’t include enough satyrs to provide good synergy. Consider including more satyrs${includeHeadStart}.`,
     highlight: ['S5', 'S7', 'S9', 'S24', ...satyrs],
   }
 }
