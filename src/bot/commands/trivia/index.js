@@ -1,6 +1,8 @@
 import StateMachine from 'javascript-state-machine'
 import { KITTY_ID, TRIVIA_CHANNEL } from '../../../constants/bot'
 import cards from '../../../data/cards'
+import api from '../../../helpers/api'
+import formatTriviaScores from '../../../helpers/formatTriviaScores'
 import arrayRandom from '../../../helpers/arrayRandom'
 import getRandomQuestion from '../../../helpers/getRandomQuestion'
 import getCardsForSearch from '../../../helpers/getCardsForSearch'
@@ -130,7 +132,10 @@ const trivia = new StateMachine({
     success: function (author) {
       const answer = this.answer.name
 
-      this.scores[author.id] = (this.scores[author.id] || 0) + 1
+      api
+        .setScore(author.id, +1)
+        .then(() => console.log('Added 1 point to ' + author.id))
+
       this.stop()
 
       return `🎉 Correct! The answer was “**${answer}**”. Congratulations ${author}!`
@@ -170,7 +175,10 @@ const trivia = new StateMachine({
           return this.success(author)
         }
 
-        this.scores[author.id] = (this.scores[author.id] || 0) - 1
+        api
+          .setScore(author.id, -1)
+          .then(() => console.log('Subtracted 1 point from ' + author.id))
+
         this.stop()
 
         return `❌ Unfortunately the answer is not “*${guess}*”.`
@@ -187,31 +195,10 @@ const trivia = new StateMachine({
     },
 
     leaderboard: function () {
-      if (Object.keys(this.scores).length === 0) {
-        return '🏅 No scores yet.'
-      }
-
-      const emojis = [' 🥇', ' 🥈', ' 🥉']
-      const scores = Object.keys(this.scores).reduce((acc, id) => {
-        const score = String(this.scores[id])
-
-        return { ...acc, [score]: acc[score] ? [...acc[score], id] : [id] }
-      }, {})
-
-      return (
-        '**Current scores:**\n' +
-        Object.keys(scores)
-          .sort((a, b) => +b - +a)
-          .map((score, index) => {
-            const emoji = emojis[index] || ''
-            const users = scores[score].map(id => `<@${id}>`).join(' ')
-
-            return `-${emoji} **${score} point${
-              +score === 1 || +score === -1 ? '' : 's'
-            }** — ${users}`
-          })
-          .join('\n')
-      )
+      api
+        .getScores()
+        .then(formatTriviaScores)
+        .then(this.channel.send.bind(this.channel))
     },
   },
 })
