@@ -26,7 +26,8 @@ const trivia = new StateMachine({
 
   transitions: [
     { name: 'start', from: 'STOPPED', to: 'RUNNING' },
-    { name: 'stop', from: 'RUNNING', to: 'STOPPED' },
+    { name: 'stop', from: 'RUNNING', to: 'FROZEN' },
+    { name: 'unfreeze', from: 'FROZEN', to: 'STOPPED' },
   ],
 
   methods: {
@@ -102,6 +103,10 @@ const trivia = new StateMachine({
     },
 
     onStop: function () {
+      // Freeze the game for 5 seconds after a round has been completed to avoid
+      // chaining them too fast and making the whole thing a little too hectic.
+      setTimeout(() => this.unfreeze(), 5000)
+
       this.answer = null
       this.duration = 60
       this.initiator = null
