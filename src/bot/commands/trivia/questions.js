@@ -22,9 +22,15 @@ const CARD_NAMES = cards.filter(card => !card.token).map(card => card.name)
 const unique = (value, index, array) => array.indexOf(value) === index
 const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 const range = (min, max) => [...Array(max - min).keys()].map(n => n + min)
-const randomRace = arrayRandom(Object.keys(RACES))
 const rangeAround = (value, delta) => range(value - delta, value + delta)
 const NEVER_UPDATED = 'N11,N28,N32,N21,N30,N22,N19,N24,N16,S18'.split(',')
+const racesWithOnDeath = cards
+  .filter(card => (card.ability || '').includes('n death'))
+  .map(card => card.race)
+  .filter(unique)
+const racesWithoutOnDeath = Object.keys(RACES).filter(
+  race => !racesWithOnDeath.includes(race)
+)
 
 export default [
   {
@@ -372,7 +378,57 @@ export default [
   {
     question: 'What is the weapon of predilection of knights?',
     answer: 'Lances',
-    options: ['Swords', 'Clubs', 'Daggers', 'Staffs', 'Spells'],
+    options: 'Swords,Bombs,Clubs,Daggers,Spears,Staffs,Hammers,Spells'.split(
+      ','
+    ),
+  },
+
+  {
+    question: 'What is the weapon of predilection of dwarves?',
+    answer: 'Hammers',
+    options: 'Swords,Bombs,Lances,Clubs,Daggers,Spears,Staffs,Spells,Axes'.split(
+      ','
+    ),
+  },
+
+  {
+    question: 'What is the weapon of predilection of ravens?',
+    answer: 'Staffs',
+    options: 'Swords,Bombs,Lances,Clubs,Daggers,Spears,Hammers,Spells,Scythes,Axes'.split(
+      ','
+    ),
+  },
+
+  {
+    question: 'What is the weapon of predilection of rodents?',
+    answer: 'Bombs',
+    options: 'Swords,Staffs,Lances,Clubs,Daggers,Spears,Hammers,Spells,Scythes,Axes'.split(
+      ','
+    ),
+  },
+
+  {
+    question: 'What is the weapon of predilection of satyrs?',
+    answer: 'Spears',
+    options: 'Swords,Staffs,Lances,Clubs,Daggers,Bombs,Hammers,Spells,Scythes,Axes'.split(
+      ','
+    ),
+  },
+
+  {
+    question: 'What is the weapon of predilection of toads?',
+    answer: 'Axes',
+    options: 'Swords,Staffs,Lances,Clubs,Daggers,Bombs,Hammers,Spells,Scythes,Spears'.split(
+      ','
+    ),
+  },
+
+  {
+    question: 'What is the weapon of predilection of undead?',
+    answer: 'Scythes',
+    options: 'Swords,Staffs,Lances,Clubs,Daggers,Bombs,Hammers,Spells,Axes,Spears'.split(
+      ','
+    ),
   },
 
   {
@@ -527,9 +583,9 @@ export default [
   },
 
   {
-    question: 'How many Heroes are there?',
+    question: 'How many heroes are there?',
     answer: cards.filter(card => card.hero).length,
-    options: rangeAround(cards.filter(card => card.hero).length, 10),
+    options: rangeAround(cards.filter(card => card.hero).length, 5),
   },
 
   {
@@ -712,7 +768,8 @@ export default [
   },
 
   {
-    question: 'What are the odds of pulling an epic card in a Mythic book?',
+    question:
+      'What are the displayed odds of a card from a Mythic book being epic?',
     answer: '70%',
     options: ['50%', '55%', '60%', '65%', '66.66%', '75%', '80%', '85%'],
   },
@@ -830,7 +887,7 @@ export default [
   },
 
   {
-    question: 'Which of these dragons was not named after a player?',
+    question: 'Which of these dragons was *not* named after a player?',
     answer: 'Beasts of Terror',
     options: 'Broken Earth Drakes,Broodmother Qordia,Conflicted Drakes,Dangerous Suitors,Draconic Roamer,Dreadful Keepers,Greengale Serpents,Ludic Matriarchs,Spare Dragonling,Sunbeam Serpents,Yowling Weavers'.split(
       ','
@@ -856,7 +913,7 @@ export default [
   },
 
   {
-    question: 'Which of one these names is not an official card’s name?',
+    question: 'Which of one these names is *not* an official card’s name?',
     answer: 'Wardens',
     options: 'Boatswain,Bravefoot,Corsair,Cult of the Sky,Dead Wanderer,Elite Deathguards,Frenzied Troops,Gunner,Jade Speedster,Lonely Witch,Lost Faun,Makeshifter,Mudgrinders,Plain Helper,Privateer,Rough Patchers,Saplings,Silent Rimes,Sleetrunners,Sparkling,'.split(
       ','
@@ -882,7 +939,7 @@ export default [
 
     return {
       question:
-        'Which of these cards’ ability does not contain a full-stop (`.`)?',
+        'Which of these cards’ ability does *not* contain a full-stop (`.`)?',
       answer: randomCard.name,
       options: cardsWithFullStop.map(card => card.name),
     }
@@ -950,7 +1007,7 @@ export default [
 
   {
     question:
-      'What is the maximum amount of strength Sharpfist Exiles can gain at Level 5, not counting its base strength?',
+      'What is the maximum amount of strength Sharpfist Exiles can gain at Level 5, *not* counting its base strength?',
     answer: 76,
     options: [48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 96],
   },
@@ -1164,7 +1221,7 @@ export default [
 
   {
     question:
-      'Which card’s art features a leaf despite it not giving strength?',
+      'Which card’s art features a leaf despite it *not* giving strength?',
     answer: 'Lich Summoners',
     options: cards
       .filter(card => !card.token && !(card.ability || '').includes('give'))
@@ -1219,5 +1276,87 @@ export default [
       answer: cardsByStrength[0].name,
       options: cardsByStrength.slice(0, 10).map(card => card.name),
     }
+  },
+
+  {
+    question:
+      'What was the name of the book that contained exclusively Feline cards?',
+    answer: 'Guide to Cats',
+    options: [
+      'Furry Diary',
+      'Book of Purrfection',
+      'Encyclopædia of Cats',
+      'Kitty Kit',
+    ],
+  },
+
+  {
+    question:
+      'What is the maximum effective strength of Blood Ministers at level 5 considering their ability?',
+    answer: 66,
+    options: [10, 38, ...rangeAround(66, 5)],
+  },
+
+  {
+    question:
+      'What was the reward given out to all players during the first “Eye of the Tempest“ Brawl?',
+    answer: 'Confinement',
+    options: CARD_NAMES,
+  },
+
+  () => {
+    const rarity = arrayRandom(Object.keys(RARITIES))
+    const count = cards.filter(
+      card => card.faction === 'winter' && card.rarity === rarity
+    ).length
+
+    return {
+      question: `How many ${rarity} cards are there in each faction?`,
+      answer: count,
+      options: rangeAround(count, 3),
+    }
+  },
+
+  () => ({
+    question: 'Which race does *not* have a card with an “on death” effect?',
+    answer: capitalise(arrayRandom(racesWithoutOnDeath)),
+    options: racesWithOnDeath.map(capitalise),
+  }),
+
+  {
+    question:
+      'Which one of these units’ ability does *not* trigger when forced to attack a friendly unit?',
+    answer: 'Laurus, King in Exile',
+    options: ['Haversters of Souls', 'Beasts of Terror', 'Yowling Weavers'],
+  },
+
+  {
+    question: 'Which rodent does *not* have a stick of dynamite?',
+    answer: 'Armed Schemers',
+    options: ['Boomstick Officers', 'Agents in Charge', 'Windmakers'],
+  },
+
+  {
+    question: 'Which dwarf is *not* holding a hammer?',
+    answer: 'Hearthguards',
+    options: 'Snowmasons,Mystwives,Rockworkers,Wolfcloaks,Chillbeards,Fleshmenders,Sleetstompers'.split(
+      ','
+    ),
+  },
+
+  {
+    question: 'Which toad is *not* holder an axe?',
+    answer: 'Sharpfist Exiles',
+    options: 'Salty Outcasts,Brood Sages,Crimson Sentry,Limelimbs,Azure Hatchers,Amberhides,Obsidian Butchers'.split(
+      ','
+    ),
+  },
+
+  {
+    question: 'Which undead does *not* have red horns on their head?',
+    answer: 'Lasting Remains',
+    options: cards
+      .filter(card => card.race === 'undead' && card.id !== 'N38')
+      .map(card => card.name),
   },
 ]
