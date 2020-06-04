@@ -33,7 +33,9 @@ const trivia = new StateMachine({
   ],
 
   methods: {
-    inspect: function () {
+    inspect: function (author) {
+      if (author.id !== KITTY_ID) return
+
       console.log({
         answer: this.answer,
         channel: this.channel.id,
@@ -189,8 +191,8 @@ const trivia = new StateMachine({
       return [
         `- \`!trivia card|question [duration]\` to start a round`,
         '- `!trivia stop` to stop the round (only for the initiator of the ongoing round)',
-        '- `!trivia scores` to show scores between games (often reset)',
         '- `!trivia <prop|guess>` to ask for a hint or guess the answer',
+        '- `!trivia scores` to show scores',
       ].join('\n')
     },
 
@@ -224,30 +226,12 @@ export default {
       trivia.channel = client.channels.cache.get(channelId)
     }
 
-    if (message === 'help') {
-      return trivia.help()
-    }
+    if (message === 'help') return trivia.help()
+    if (message === 'inspect') return trivia.inspect(author)
+    if (message === 'scores') return trivia.leaderboard()
+    if (message === 'stop') return trivia.abort(author)
 
-    // Custom commands for Kitty to monitor/control the bot at runtime. It needs
-    // to be resolved before the init method as the latter swallows messages.
-    if (author.id === KITTY_ID && message === 'inspect') {
-      return trivia.inspect()
-    }
-
-    if (trivia.can('start') && message === 'scores') {
-      return trivia.leaderboard()
-    }
-
-    if (trivia.can('start')) {
-      return trivia.initialise(message, author)
-    }
-
-    if (trivia.can('stop') && message === 'stop') {
-      return trivia.abort(author)
-    }
-
-    if (trivia.can('stop')) {
-      return trivia.guess(message.trim(), author)
-    }
+    if (trivia.can('start')) return trivia.initialise(message, author)
+    if (trivia.can('stop')) return trivia.guess(message.trim(), author)
   },
 }
