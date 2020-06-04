@@ -1039,5 +1039,13 @@
     "faction": "swarm",
     "author": "HanooStreet",
     "category": "DIAMOND_1"
+  },
+  {
+    "name": "Brawl Spell",
+    "id": "5n15f85n25f45f35n35n675n95n155f105n405n76",
+    "faction": "shadowfen",
+    "author": "the_mirc",
+    "category": "BRAWL",
+    "brawl": "SPELL_MANA"
   }
 ]
