@@ -26,11 +26,11 @@ export default cards => {
 
   // The intersection is when it is as much or less likely to spend all the
   // available mana of a turn (with 0 leftover), than to play all cards from the
-  // hand. 13 mana seems to be a decent arbitrary value for most decks.
-  // An intersection above 13 mana might work in some decks, particularly
+  // hand. 12 mana seems to be a decent arbitrary value for most decks.
+  // An intersection above 12 mana might work in some decks, particularly
   // mana-ramp decks since Frozen Core, Dawnsparks and Freebooters are not taken
   // into account — but that’s a solid start for a lot of decks.
-  if (intersection <= 13) return null
+  if (intersection <= 12) return null
 
   return {
     id: 'HIGH_MANA_CURVE',
