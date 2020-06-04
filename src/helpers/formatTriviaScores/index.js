@@ -2,6 +2,7 @@ const EMOJIS = [' 🥇', ' 🥈', ' 🥉']
 
 const groupScoresByPoints = scores => (acc, id) => {
   const score = String(scores[id])
+  if (score === '0') return acc
   if (!acc[score]) acc[score] = []
   acc[score].push(id)
   return acc
