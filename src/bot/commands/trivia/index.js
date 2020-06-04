@@ -11,8 +11,6 @@ import parseCardGuess from '../../../helpers/parseCardGuess'
 import parseTriviaSettings from '../../../helpers/parseTriviaSettings'
 import questions from './questions'
 
-export const LETTERS = 'ABCDE'.split('')
-
 const trivia = new StateMachine({
   init: 'STOPPED',
 
@@ -22,8 +20,8 @@ const trivia = new StateMachine({
     duration: 60,
     initiator: null,
     mode: null,
-    scores: {},
     timers: [],
+    useRandomLetters: true,
   },
 
   transitions: [
@@ -43,9 +41,24 @@ const trivia = new StateMachine({
         initiator: this.initiator,
         mode: this.mode,
         state: this.state,
-        scores: this.scores,
-        stats: questions.length,
+        questions: questions.length,
+        useRandomLetters: this.useRandomLetters,
       })
+    },
+
+    configure: function (message, author) {
+      if (author.id !== KITTY_ID) return
+
+      const [key, value] = message.replace('configure', '').trim().split(/\s+/g)
+
+      try {
+        this[key] = JSON.parse(value)
+        this.channel.send(
+          `<@${KITTY_ID}> Key \`${key}\` set to \`${this[key]}\`.`
+        )
+      } catch (error) {
+        console.error(error)
+      }
     },
 
     halfTime: function (time) {
@@ -70,7 +83,7 @@ const trivia = new StateMachine({
       if (this.mode === 'CARD') {
         this.answer = arrayRandom(cards.filter(card => !card.token))
       } else if (this.mode === 'QUESTION') {
-        const { question, choices } = getRandomQuestion()
+        const { question, choices } = getRandomQuestion(this.useRandomLetters)
 
         // Store the answer in a `name` property to align with the `CARD` mode.
         this.answer = { ...question, choices, name: question.answer }
@@ -99,8 +112,8 @@ const trivia = new StateMachine({
       } else if (mode === 'QUESTION') {
         return (
           `❔ **${this.answer.question}** (${this.duration} seconds)\n` +
-          this.answer.choices
-            .map((choice, index) => ' ' + LETTERS[index] + '. ' + choice)
+          Object.keys(this.answer.choices)
+            .map(letter => ' ' + letter + '. ' + this.answer.choices[letter])
             .join('\n')
         )
       }
@@ -168,13 +181,16 @@ const trivia = new StateMachine({
           else return `❌ The card is not “${card.name}”, try again!`
         }
       } else if (this.mode === 'QUESTION') {
-        const correctIndex = this.answer.choices.indexOf(this.answer.answer)
-        const givenIndex = LETTERS.indexOf(message.toUpperCase())
-        const guess = this.answer.choices[givenIndex]
+        const letter = message.toUpperCase().trim()
+        const guess = this.answer.choices[letter]
 
-        if (givenIndex === -1) return
+        // If the given letter is not amongst the allowed letters for that round
+        // skip processing the guess entirely.
+        if (typeof this.answer.choices[letter] === 'undefined') return
 
-        if (givenIndex === correctIndex) {
+        // If the choice mapped to the given letter is the correct answer,
+        // end the round with a success.
+        if (guess === this.answer.name) {
           return this.success(author)
         }
 
@@ -219,7 +235,6 @@ export default {
   handler: function (message, client, messageObject) {
     const { author } = messageObject
     const channelId = getChannelId(messageObject, this)
-    message = message.toLowerCase()
 
     if (!channelId) return
 
@@ -228,6 +243,12 @@ export default {
     if (!trivia.channel) {
       trivia.channel = client.channels.cache.get(channelId)
     }
+
+    if (trivia.can('start') && message.startsWith('configure')) {
+      return trivia.configure(message, author)
+    }
+
+    message = message.toLowerCase()
 
     if (message === 'help') return trivia.help()
     if (message === 'inspect') return trivia.inspect(author)
