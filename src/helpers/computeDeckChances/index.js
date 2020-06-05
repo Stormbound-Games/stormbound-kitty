@@ -32,8 +32,8 @@ export const getUniqueHands = deck => {
 export const getEffectiveManaCost = availableMana => card => {
   // If the card is GotW and it can be played, reduced its mana cost by the
   // amount of mana given by its ability.
-  if (card.id === 'W19' && availableMana >= 7)
-    return 7 - [9, 10, 11, 12, 13][card.level - 1]
+  if (card.id === 'W19' && availableMana >= card.mana)
+    return card.mana - [9, 10, 11, 12, 13][card.level - 1]
 
   // If the card is Rimelings and it can be played, reduced its mana cost by
   // the amount of mana given by its ability.
