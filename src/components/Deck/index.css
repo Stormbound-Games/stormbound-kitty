@@ -170,6 +170,10 @@
   top: -0.7em;
 }
 
+.Deck__mana--reduced {
+  color: var(--affordable);
+}
+
 .Deck__name {
   text-transform: uppercase;
 }

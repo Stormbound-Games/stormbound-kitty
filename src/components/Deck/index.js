@@ -65,7 +65,15 @@ export default React.memo(function Deck(props) {
                 </button>
               )}
 
-              <Mana className='Deck__mana' mana={card.mana} />
+              <Mana
+                className={[
+                  'Deck__mana',
+                  card.costReduced && 'Deck__mana--reduced',
+                ]
+                  .filter(Boolean)
+                  .join(' ')}
+                mana={card.mana}
+              />
               <span className='Deck__name'>{card.name}</span>
               <img className='Deck__image' src={card.image} alt={card.name} />
               <span
