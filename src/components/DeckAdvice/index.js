@@ -6,7 +6,7 @@ import getDeckAdvice from '../../helpers/getDeckAdvice'
 
 export default function DeckAdvice(props) {
   const cards = props.deck.map(getResolvedCardData)
-  const suggestions = getDeckAdvice(cards, props.highlight)
+  const suggestions = getDeckAdvice(cards, props.modifier)
 
   if (suggestions.length === 0) {
     return null
