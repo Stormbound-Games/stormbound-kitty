@@ -71,7 +71,7 @@ export default React.memo(function DeckDetailView(props) {
         </Column>
 
         <Column width='1/3'>
-          <Advice deck={deck} highlight={props.highlight} />
+          <Advice deck={deck} highlight={props.highlight} modifier={modifier} />
         </Column>
       </Row>
 

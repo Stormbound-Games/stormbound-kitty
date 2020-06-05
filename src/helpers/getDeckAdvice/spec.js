@@ -59,6 +59,11 @@ const TESTS = [
   ['LIGHT_DECK', '1n11n21n31n41n51n61n621n631n671n661n71n8'],
   ['SLOW_DECK', '4n382s195n131n702n232n625n194n345n32s34s13s14'],
   ['MANY_SPELLS', '1w11n21n631n231n151n91n211n291n311n401n441n50'],
+  [
+    'MANY_SPELLS (Brawl Deck)',
+    '5n12f85n25f45f35n32n675n95n154f104n402n76',
+    { modifier: 'SPELL_MANA', disabled: true },
+  ],
   ['INEFFICIENT_KLAXI', '1f41n81n611n181n91n251f131n311n341n361n381f23'],
   [
     'INEFFICIENT_KLAXI (Brood sages)',
@@ -88,7 +93,7 @@ const TESTS = [
   [
     'INEFFICIENT_SATYR_COMBOS',
     '1s11s241s51n611s251s71n191n241n251n351n721n53',
-    'MATCH',
+    { disabled: true },
   ],
   ['INEFFICIENT_BROOD_SAGES', '1n11f11n41n671n71n141f61n161n331n451n701n55'],
   [
@@ -96,115 +101,123 @@ const TESTS = [
     '1n11n21f41n81n611n181n91f131n341n361n381f23',
   ],
   ['INEFFICIENT_UPGRADE_POINT', '1n11n21i11n31i41n121i101i141i151n301n321n46'],
-  ['HIGH_MANA_CURVE', '1n11w11w21n51n81n121w281w81w61w161n461n52', 'MATCH'],
+  [
+    'HIGH_MANA_CURVE',
+    '1n11w11w21n51n81n121w281w81w61w161n461n52',
+    { disabled: true },
+  ],
   ['HIGH_MANA_CURVE', '5n185n195n595n205n215n225n755n415n645n245n715n65'],
   ['LACK_OF_AOE', '1n11n21n31n671n71n101n201i141n651n271i281n76'],
   [
     'LACK_OF_AOE (Beasts of Terror)',
     '1n11n21n31n671n71n101n181n201i141n651n271i28',
-    'MATCH',
+    { disabled: true },
   ],
   [
     'LACK_OF_AOE (Victors of the Melee)',
     '1n11n21n31n671n71n101n201i141n651n271i281n47',
-    'MATCH',
+    { disabled: true },
+    ,
   ],
   [
     'LACK_OF_AOE (Hunter’s Vengeance)',
     '1n11n21n31n671n71n101n231n201i141n651n271i28',
-    'MATCH',
+    { disabled: true },
   ],
   [
     'LACK_OF_AOE (Bladestorm)',
     '1n11n21n31n671n71n101n201i141n651n271n291i28',
-    'MATCH',
+    { disabled: true },
   ],
   [
     'LACK_OF_AOE (Voidsurgers)',
     '1n11n21n31n671n71n101n201i141n651n271n361i28',
-    'MATCH',
+    { disabled: true },
   ],
   [
     'LACK_OF_AOE (Needle Blast)',
     '1n11n21n31n671n71n101n201i141n651n271i281n44',
-    'MATCH',
+    { disabled: true },
   ],
   [
     'LACK_OF_AOE (Powder Tower)',
     '1n11n21n31n671n71n101n201i141n651n271i281n45',
-    'MATCH',
+    { disabled: true },
   ],
   [
     'LACK_OF_AOE (Joust Champions)',
     '1n11n21n31n671n71n101n201i141n651n271i281n55',
-    'MATCH',
+    { disabled: true },
   ],
   [
     'LACK_OF_AOE (Crazy Bombers)',
     '1n11n21n31n671n71n101n201i141n651n271i281n57',
-    'MATCH',
+    { disabled: true },
   ],
   [
     'LACK_OF_AOE (Siren of the Seas)',
     '1n11n21n31n671n71n101n201i141n651n271i281n58',
-    'MATCH',
+    { disabled: true },
   ],
   [
     'LACK_OF_AOE (Unhealthy Hysterya)',
     '5n15n25n33n632n673n72n102n204i142n653n272i28',
-    'MATCH',
+    { disabled: true },
   ],
   [
     'LACK_OF_AOE (Trekking Aldermen)',
     '1n11n21n31n671n71n101n731n201i141n651n271i28',
-    'MATCH',
+    { disabled: true },
   ],
   [
     'LACK_OF_AOE (Broken Earth Drake)',
     '1n11n21n31n41n621n151w71n241w81w161n381w15',
-    'MATCH',
+    { disabled: true },
   ],
   [
     'LACK_OF_AOE (Flaming Stream)',
     '1n11n21n31n671n71n101n201i141n651n271i181i28',
-    'MATCH',
+    { disabled: true },
   ],
   [
     'LACK_OF_AOE (Windmakers)',
     '1n11n21n31n671n71n101n201i141n651n271i201i28',
-    'MATCH',
+    { disabled: true },
   ],
   [
     'LACK_OF_AOE (Toxic Sacrifice)',
     '1n21f41f31n31n661f271n591n211n751n641f161n76',
-    'MATCH',
+    { disabled: true },
   ],
   [
     'LACK_OF_AOE (Crimson Sentry)',
     '1n21f31n31n661f51f271n591n211n751n641f161n76',
-    'MATCH',
+    { disabled: true },
   ],
   [
     'LACK_OF_AOE (Witches of the Wild)',
     '1n21f31n31n661f271n591n211n751n641f141f161n76',
-    'MATCH',
+    { disabled: true },
   ],
   [
     'LACK_OF_AOE (Dark Harvest)',
     '1n631n141s251n191n91s121n241n261s151s191n461n48',
-    'MATCH',
+    { disabled: true },
   ],
 ]
 
 describe('The `getDeckAdvice` helper', () => {
-  TESTS.forEach(([advice, deckId, expectation]) => {
+  TESTS.forEach(([advice, deckId, options = {}]) => {
     const [adviceName] = advice.split(' ')
 
     it('should handle ' + advice, () => {
-      if (expectation === 'MATCH') {
-        expect(ADVICE[adviceName](getCards(deckId))).to.equal(null)
+      const cards = getCards(deckId)
+      const advice = ADVICE[adviceName]
+
+      if (options.disabled) {
+        expect(advice(cards, options.modifier)).to.equal(null)
       } else {
-        expect(ADVICE[adviceName](getCards(deckId))).to.not.equal(null)
+        expect(advice(cards, options.modifier)).to.not.equal(null)
       }
     })
   })

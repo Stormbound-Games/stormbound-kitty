@@ -48,4 +48,5 @@ const ADVICE = [
   SLOW_DECK,
 ]
 
-export default cards => ADVICE.map(advice => advice(cards)).filter(Boolean)
+export default (cards, modifier) =>
+  ADVICE.map(advice => advice(cards, modifier)).filter(Boolean)
