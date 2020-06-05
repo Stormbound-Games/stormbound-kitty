@@ -34,7 +34,7 @@ export default React.memo(function DeckStatsChart(props) {
         <XAxis dataKey='mana' />
         <YAxis />
         <Tooltip {...TOOLTIP_STYLES} labelFormatter={mana => 'Mana ' + mana} />
-        <Legend />
+        <Legend align='left' wrapperStyle={{ paddingLeft: '40px' }} />
         <Line
           name='Chances to spend all mana'
           type='monotone'
