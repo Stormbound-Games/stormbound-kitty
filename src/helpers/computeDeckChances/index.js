@@ -66,9 +66,18 @@ const getPossibleManaSpent = availableMana => cards => {
 
 const getCardToCycle = (availableMana, hand) => {
   const getManaCost = getEffectiveManaCost(availableMana)
+  const isFirstTurn = availableMana === 3
+  const hasUnit = hand.find(
+    card =>
+      (card.type === 'unit' && card.mana <= 3) ||
+      ['N2', 'S24', 'F8'].includes(card.id)
+  )
   const state = {
     mana: availableMana,
-    specifics: { noUnitsOnFirstTurn: true, emptyCellsIndicator: true },
+    specifics: {
+      noUnitsOnFirstTurn: isFirstTurn && !hasUnit,
+      emptyCellsIndicator: true,
+    },
     turn: availableMana - 2,
   }
 
