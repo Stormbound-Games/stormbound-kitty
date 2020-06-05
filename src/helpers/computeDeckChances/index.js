@@ -66,9 +66,17 @@ export const getCycledHands = (deck, hand, availableMana) => {
   const handIds = hand.map(card => card.id)
   const deckCards = deck.filter(card => !handIds.includes(card.id))
   const getManaCost = getEffectiveManaCost(availableMana)
-  const mostExpensiveCard = hand.reduce((a, b) =>
-    getManaCost(a) > getManaCost(b) ? a : b
-  )
+  const mostExpensiveCard = hand.reduce((a, b) => {
+    const costA = getManaCost(a)
+    const costB = getManaCost(b)
+
+    if (availableMana === 6) {
+      if (a.id === 'W19' && costA > costB) return b
+      if (b.id === 'W19' && costB > costA) return a
+    }
+
+    return costA > costB ? a : b
+  })
 
   return deckCards.map(replacement =>
     hand.map(card => (mostExpensiveCard.id === card.id ? replacement : card))
