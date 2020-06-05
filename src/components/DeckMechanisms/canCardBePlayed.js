@@ -45,6 +45,11 @@ const canCardBePlayed = (state, card) => {
       // Potion of Growth is only playable in `SPELL_MANA` Brawl if there is a
       // unit on the board (1- or 2-drop played before).
       unplayableSpells.push('N15')
+      // Moment’s Peace and Boosting Elixir becomes cheap enough to be played on
+      // the first turn in the `SPELL_MANA` Brawl but they require a unit on the
+      // board to be played.
+      unplayableSpells.push('W6')
+      unplayableSpells.push('I11')
     } else if (state.modifier !== 'SPELL_MANA') {
       unplayableSpells.push('N15')
     }
