@@ -13,6 +13,7 @@ import serialisation from '../../helpers/serialisation'
 import getDeckDistanceToMax from '../../helpers/getDeckDistanceToMax'
 import getRawCardData from '../../helpers/getRawCardData'
 import resolveCollection from '../../helpers/resolveCollection'
+import modifyDeck from '../../helpers/modifyDeck'
 import './index.css'
 
 const tooltipStyles = {
@@ -25,18 +26,24 @@ const tooltipStyles = {
   whiteSpace: 'normal',
 }
 
-const useAdjustedDeck = ({ category, id }) => {
+const useAdjustedDeck = ({ brawl, category, id }) => {
   const { hasDefaultCollection, collection } = React.useContext(
     CollectionContext
   )
+  const deserialisedDeck = serialisation.deck.deserialise(id)
+  const modifiedDeck = brawl
+    ? modifyDeck(deserialisedDeck, brawl)
+    : deserialisedDeck
 
   if (hasDefaultCollection || category === 'EQUALS') {
-    return { deck: serialisation.deck.deserialise(id), id, distance: null }
+    // The `id` does not have to be derivated from the `modifiedDeck` since a
+    // deck id only carries the card IDs and levels, but nothing that can be
+    // modified by a Brawl.
+    return { deck: modifiedDeck, id, distance: null }
   }
 
-  const deserialisedDeck = serialisation.deck.deserialise(id)
   const resolvedCollection = resolveCollection(collection)
-  const deck = deserialisedDeck.map(card => ({
+  const deck = modifiedDeck.map(card => ({
     ...card,
     level: resolvedCollection[card.id].level,
     missing: resolvedCollection[card.id].missing,
