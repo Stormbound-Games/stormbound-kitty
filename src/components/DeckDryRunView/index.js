@@ -6,29 +6,7 @@ import { NotificationContext } from '../NotificationProvider'
 import WikiLink from '../WikiLink'
 import { BRAWLS } from '../../constants/brawl'
 import isCard from '../../helpers/isCard'
-import isSuggestedDeck from '../../helpers/isSuggestedDeck'
-
-const getPresetOptions = (deck, sendNotification) => {
-  const suggestedDeck = isSuggestedDeck(deck)
-  const presetOptions = {
-    modifier: 'NONE',
-    equals: false,
-  }
-
-  if (!suggestedDeck) return presetOptions
-  if (suggestedDeck.category === 'BRAWL') {
-    presetOptions.modifier = suggestedDeck.brawl
-    const brawlLabel = BRAWLS.find(brawl => brawl.id === suggestedDeck.brawl)
-      .label
-    sendNotification(`Brawl deck found. Loaded with modifier ${brawlLabel}.`)
-  }
-  if (suggestedDeck.category === 'EQUALS') {
-    presetOptions.equals = true
-    sendNotification('Tournament deck found. Loaded in equals mode.')
-  }
-
-  return presetOptions
-}
+import getDeckPresets from '../../helpers/getDeckPresets'
 
 export default props => {
   const params = new URLSearchParams(window.location.search)
@@ -51,12 +29,23 @@ export default props => {
     setCards: setHarvestersCards,
     dialog: harvestersDialogRef,
   }
+
   // If the deck is saved as brawl/tournament, load the dry-runner in the correct mode
   React.useEffect(() => {
-    const presetOptions = getPresetOptions(props.deck, sendNotification)
-    setModifier(presetOptions.modifier)
-    setEqualsMode(presetOptions.equals)
+    const preset = getDeckPresets(props.deck)
+
+    if (preset.modifier.includes('MANA')) {
+      const brawlLabel = BRAWLS.find(({ id }) => id === preset.modifier).label
+      setModifier(preset.modifier)
+      sendNotification(`Brawl deck found. Loaded with modifier ${brawlLabel}.`)
+    }
+
+    if (preset.equals) {
+      setEqualsMode(preset.equals)
+      sendNotification('Tournament deck found. Loaded in equals mode.')
+    }
   }, [sendNotification, props.deck])
+
   const addIdx = card => ({ idx: '0', ...card })
   const deck = modifyDeck(props.deck, modifier, equalsMode).map(addIdx)
 
