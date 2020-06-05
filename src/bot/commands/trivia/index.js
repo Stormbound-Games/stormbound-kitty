@@ -86,7 +86,7 @@ const trivia = new StateMachine({
         const { question, choices } = getRandomQuestion(this.useRandomLetters)
 
         // Store the answer in a `name` property to align with the `CARD` mode.
-        this.answer = { ...question, choices, name: question.answer }
+        this.answer = { ...question, choices, name: String(question.answer) }
       }
 
       this.timers.push(
@@ -189,7 +189,9 @@ const trivia = new StateMachine({
         if (typeof this.answer.choices[letter] === 'undefined') return
 
         // If the choice mapped to the given letter is the correct answer,
-        // end the round with a success.
+        // end the round with a success. It is important to test against
+        // `this.answer.name` and not `this.answer.question`, because the former
+        // is a string, just like the guess, while the latter might be a number.
         if (guess === this.answer.name) {
           return this.success(author)
         }

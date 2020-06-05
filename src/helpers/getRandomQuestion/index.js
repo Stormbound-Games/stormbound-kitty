@@ -53,9 +53,6 @@ const getRandomQuestion = (useRandomLetters = true) => {
     {}
   )
 
-  // Stringify the answer as well for consistency.
-  question.answer = String(question.answer)
-
   return { question, choices }
 }
 
