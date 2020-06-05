@@ -1359,4 +1359,99 @@ export default [
       .filter(card => card.race === 'undead' && card.id !== 'N38')
       .map(card => card.name),
   },
+
+  {
+    question: 'What book did Noble Tome replace in the shop?',
+    answer: 'Splendid Book',
+    options: 'Superb Book,Savant’s Book,Scholar’s Book,Sacred Book'.split(','),
+  },
+
+  {
+    question: 'Which hero’s loading screen text rhymes?',
+    answer: 'Lady Rime',
+    options: cards.filter(card => card.hero).map(card => card.name),
+  },
+
+  {
+    question: 'Which construct does *not* move on wheels?',
+    answer: 'Finite Loopers',
+    options: 'Personal Servers,Destructobots,Linked Golems,Operators'.split(
+      ','
+    ),
+  },
+
+  {
+    question: 'What was the teaser for the first Feline update?',
+    answer: 'A box',
+    options: 'A watermelon,A heart,A cucumber,A carton of milk,A ball of wool'.split(
+      ','
+    ),
+  },
+
+  {
+    question: 'According to its flavour text, what was Unstable Build?',
+    answer: 'A centre of knowledge',
+    options: 'A Construct factory,A military base,A laboratory,An observatory,A dance-hall'.split(
+      ','
+    ),
+  },
+
+  {
+    question: 'How to summon the Lungus?',
+    answer: ':Lungus:',
+    options: [':lungus:', ':snugul:', ':lung:', ':lngs:', ':LUNGUS:'],
+  },
+
+  () => {
+    const mana = random(1, 9)
+    const level = random(1, 5)
+    const count = cards.filter(
+      card => getResolvedCardData({ id: card.id, level }).mana === mana
+    ).length
+
+    return {
+      question: `How many cards cost ${mana} mana at level ${level}?`,
+      answer: count,
+      options: rangeAround(count, Math.floor(count / 2)),
+    }
+  },
+
+  {
+    question: 'What is on Edrik’s shield?',
+    answer: 'A crown',
+    options: 'A diamond,A circle,Nothing,A snake,A dragon,Spikes'.split(','),
+  },
+
+  {
+    question: 'Which card appears in the “Invalid Deck” dialog box?',
+    answer: 'Dubious Hags',
+    options: CARD_NAMES,
+  },
+
+  {
+    question: 'Which card appears in the “Quit Game” dialog box?',
+    answer: 'Broken Earth Drake',
+    options: CARD_NAMES,
+  },
+
+  {
+    question: 'Which race cannot spawn units?',
+    answer: 'Frostling',
+    options: 'Knight,Raven,Rodent,Undead,Dragon,Toad,Satyr,Construct'.split(
+      ','
+    ),
+  },
+
+  {
+    question:
+      'What is the name of the Brawl that released Prime Oracle Bragda?',
+    answer: 'Heroic Deeds',
+    options: BRAWLS.map(brawl => brawl.title),
+  },
+
+  {
+    question: 'Which card is commonly nicknamed “Hairdryer”?',
+    answer: 'Spellbinder Zhevana',
+    options: CARD_NAMES,
+  },
 ]
