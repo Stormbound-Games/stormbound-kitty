@@ -24,6 +24,7 @@ import Title from '../Title'
 import getDeckBuilderMetaTags from '../../helpers/getDeckBuilderMetaTags'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isSuggestedDeck from '../../helpers/isSuggestedDeck'
+import modifyDeck from '../../helpers/modifyDeck'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
 
@@ -100,6 +101,10 @@ class DeckEditorView extends React.Component {
           : this.state.cardLevel,
       })
     )
+    const deck =
+      matchedDeck && matchedDeck.brawl
+        ? modifyDeck(this.props.deck, matchedDeck.brawl)
+        : this.props.deck
 
     return (
       <>
@@ -121,13 +126,13 @@ class DeckEditorView extends React.Component {
             <Deck
               showUpgrades
               id='deck'
-              deck={this.props.deck}
+              deck={deck}
               onClick={this.props.removeCardFromDeck}
               onClickLabel='Remove card from deck'
               highlightedCards={this.props.highlightedCards}
             />
 
-            {this.props.deck.length > 0 ? (
+            {deck.length > 0 ? (
               <div className='DeckEditorView__actions'>
                 {' '}
                 <Row>
@@ -202,7 +207,7 @@ class DeckEditorView extends React.Component {
                         onCardClick={this.addCardToDeck}
                         cardsPerPage={cardsPerPage}
                         isCardInDeck={id =>
-                          this.props.deck.map(card => card.id).includes(id)
+                          deck.map(card => card.id).includes(id)
                         }
                         isCardMissing={this.isCardMissing}
                         navChildren={
@@ -227,7 +232,7 @@ class DeckEditorView extends React.Component {
           </Column>
         </Row>
 
-        <PageMeta {...getDeckBuilderMetaTags(this.props.deck, matchedDeck)} />
+        <PageMeta {...getDeckBuilderMetaTags(deck, matchedDeck)} />
       </>
     )
   }
