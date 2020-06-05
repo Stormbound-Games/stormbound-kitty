@@ -91,10 +91,10 @@ const getCardToCycle = (availableMana, hand) => {
     const costA = getManaCost(a)
     const costB = getManaCost(b)
 
-    if (availableMana === 6) {
-      if (a.id === 'W19' && costA > costB) return b
-      if (b.id === 'W19' && costB > costA) return a
-    }
+    if (a.id === 'W19' && availableMana === a.mana - 1 && costA > costB)
+      return b
+    if (b.id === 'W19' && availableMana === b.mana - 1 && costB > costA)
+      return a
 
     return costA > costB ? a : b
   })
