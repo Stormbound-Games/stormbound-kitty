@@ -1,4 +1,5 @@
-const getEvenManaCards = cards => cards.filter(c => c.mana % 2 === 0)
+const getEvenManaCards = cards =>
+  cards.filter(c => c.mana > 0 && c.mana % 2 === 0)
 
 export default cards => {
   const evenManaCards = getEvenManaCards(cards)

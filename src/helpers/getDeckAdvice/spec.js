@@ -54,6 +54,11 @@ const getCards = id =>
   serialisation.deck.deserialise(id).map(getResolvedCardData)
 
 const TESTS = [
+  [
+    'EVEN_MANA_COST (Brawl deck)',
+    '5n25f44f13f25f35n35n95n152f84f104f114n40',
+    { modifier: 'SPELL_MANA', disabled: true },
+  ],
   ['MULTI_FACTIONS', '5n15n25n33n633n71n643w114w72i253f172s184n44'],
   ['HEAVY_DECK', '1n701n481n491n501n511n521n531n541n551n561n571n58'],
   ['LIGHT_DECK', '1n11n21n31n41n51n61n621n631n671n661n71n8'],
@@ -117,7 +122,6 @@ const TESTS = [
     'LACK_OF_AOE (Victors of the Melee)',
     '1n11n21n31n671n71n101n201i141n651n271i281n47',
     { disabled: true },
-    ,
   ],
   [
     'LACK_OF_AOE (Hunter’s Vengeance)',
