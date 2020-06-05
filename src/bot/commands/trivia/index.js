@@ -202,7 +202,7 @@ const trivia = new StateMachine({
 
         this.stop()
 
-        return `❌ Unfortunately the answer is not “*${guess}*”.`
+        return `❌ Unfortunately the answer is not *“${guess}”*.`
       }
     },
 
