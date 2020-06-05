@@ -1,3 +1,5 @@
+import canCardBePlayed from '../../components/DeckMechanisms/canCardBePlayed'
+
 export const getUniqueHands = deck => {
   const sequence = [0, 1, 2, 3]
   const sequences = []
@@ -62,11 +64,21 @@ const getPossibleManaSpent = availableMana => cards => {
   ]
 }
 
-export const getCycledHands = (deck, hand, availableMana) => {
-  const handIds = hand.map(card => card.id)
-  const deckCards = deck.filter(card => !handIds.includes(card.id))
+const getCardToCycle = (availableMana, hand) => {
   const getManaCost = getEffectiveManaCost(availableMana)
-  const mostExpensiveCard = hand.reduce((a, b) => {
+  const state = {
+    mana: availableMana,
+    specifics: { noUnitsOnFirstTurn: true, emptyCellsIndicator: true },
+    turn: availableMana - 2,
+  }
+
+  return hand.reduce((a, b) => {
+    const canABePlayed = canCardBePlayed(state, a)
+    const canBBePlayed = canCardBePlayed(state, b)
+
+    if (!canABePlayed && canBBePlayed) return b
+    if (canABePlayed && !canBBePlayed) return a
+
     const costA = getManaCost(a)
     const costB = getManaCost(b)
 
@@ -77,9 +89,15 @@ export const getCycledHands = (deck, hand, availableMana) => {
 
     return costA > costB ? a : b
   })
+}
+
+export const getCycledHands = (deck, hand, availableMana) => {
+  const handIds = hand.map(card => card.id)
+  const deckCards = deck.filter(card => !handIds.includes(card.id))
+  const cycledCard = getCardToCycle(availableMana, hand)
 
   return deckCards.map(replacement =>
-    hand.map(card => (mostExpensiveCard.id === card.id ? replacement : card))
+    hand.map(card => (cycledCard.id === card.id ? replacement : card))
   )
 }
 

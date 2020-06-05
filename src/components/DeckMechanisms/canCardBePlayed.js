@@ -10,7 +10,7 @@ const canCardBePlayed = (state, card) => {
   if (!card.id) {
     return false
   }
-  const cardData = state.deck.find(isCard(card))
+  const cardData = state.deck ? state.deck.find(isCard(card)) : card
   const isAffordable = cardData.mana <= state.mana
 
   // This checks if a unit has been frozen this turn to allow Icicle Burst
