@@ -26,7 +26,7 @@ export default React.memo(function Deck(props) {
   return (
     <div
       className={`Deck Deck--${props.orientation || 'vertical'}`}
-      style={{ fontSize }}
+      style={{ '--font-size': fontSize }}
       ref={ref}
       id={props.id}
     >

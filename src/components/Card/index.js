@@ -26,7 +26,7 @@ export default React.memo(function Card(props) {
         .filter(Boolean)
         .join(' ')}
       ref={ref}
-      style={{ fontSize }}
+      style={{ '--font-size': fontSize }}
       data-testid='card'
       id={[props.id, props.idx].filter(Boolean).join('_')}
     >

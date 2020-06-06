@@ -4,7 +4,7 @@ import useViewportWidth from './useViewportWidth'
 export default ratio => {
   const viewportWidth = useViewportWidth()
   const ref = React.createRef()
-  const [fontSize, setFontSize] = React.useState('100%')
+  const [fontSize, setFontSize] = React.useState(undefined)
 
   React.useEffect(() => {
     setFontSize(ref.current.offsetWidth * ratio + 'px')
