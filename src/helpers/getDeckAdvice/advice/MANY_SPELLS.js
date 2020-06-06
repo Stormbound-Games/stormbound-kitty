@@ -3,8 +3,8 @@ const getSpells = cards => cards.filter(c => c.type === 'spell')
 export default (cards, modifier) => {
   const spells = getSpells(cards)
   const cardIds = cards.map(card => card.id)
-  const spawnSpells = ['N2', 'S24'].filter(id => cardIds.includes(id))
-  const threshold = 2 + spawnSpells.length
+  const skippedSpells = ['N2', 'S24', 'W19'].filter(id => cardIds.includes(id))
+  const threshold = 2 + skippedSpells.length
 
   if (spells.length <= threshold || modifier === 'SPELL_MANA') return null
 

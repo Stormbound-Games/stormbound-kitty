@@ -69,6 +69,11 @@ const TESTS = [
     '5n12f85n25f45f35n32n675n95n154f104n402n76',
     { modifier: 'SPELL_MANA', disabled: true },
   ],
+  [
+    'MANY_SPELLS (Gift of the Wise)',
+    '5w25n35n95n115n145n164w64w93n693w163w194w21',
+    { disabled: true },
+  ],
   ['INEFFICIENT_KLAXI', '1f41n81n611n181n91n251f131n311n341n361n381f23'],
   [
     'INEFFICIENT_KLAXI (Brood sages)',
