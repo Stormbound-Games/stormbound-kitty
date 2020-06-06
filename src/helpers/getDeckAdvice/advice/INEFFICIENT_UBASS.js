@@ -15,14 +15,14 @@ export default cards => {
 
   // For Ubass the Hunter to be considered efficient, it needs a certain amout
   // of races in the deck itself so it can be set up properly.
-  if (!hasUbassTheHunter || racesForUbass >= 4) return null
+  if (!hasUbassTheHunter || racesForUbass >= 5) return null
 
   return {
     id: 'INEFFICIENT_UBASS',
     name: 'Undervalued Ubass the Hunter',
     description: `This deck includes Ubass the Hunter but has only ${racesForUbass} race${
       racesForUbass === 1 ? '' : 's'
-    } which is unusually low. Consider bring more races to get the most out of Ubass the Hunter.`,
+    } (including heroes/elders) which is unusually low. Consider bring more races to get the most out of Ubass the Hunter.`,
     highlight: ['N35'],
   }
 }
