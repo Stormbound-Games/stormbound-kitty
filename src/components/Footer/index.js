@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Column from '../Column'
 import Icon from '../Icon'
+import Only from '../Only'
 import Row from '../Row'
 import './index.css'
 
@@ -58,54 +59,56 @@ export default React.memo(function Footer(props) {
           <Column>
             <Row desktopOnly>
               <Column width='1/3'>
-                <span className='Footer__heading'>Stormbound</span>
-                <ul className='Footer__list'>
-                  <li className='Footer__item'>
-                    <a
-                      href='https://paladinstudios.com/stormbound/'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Official site
-                    </a>
-                  </li>
-                  <li className='Footer__item'>
-                    <a
-                      href='https://twitter.com/stormboundccg'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Twitter
-                    </a>
-                  </li>
-                  <li className='Footer__item'>
-                    <a
-                      href='https://www.facebook.com/stormboundccg'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Facebook
-                    </a>
-                  </li>
-                  <li className='Footer__item'>
-                    <a
-                      href='https://www.instagram.com/stormboundccg/'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Instagram
-                    </a>
-                  </li>
-                  <li className='Footer__item'>
-                    <a
-                      href='https://store.steampowered.com/app/790600/Stormbound/'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Steam
-                    </a>
-                  </li>
-                </ul>
+                <Only.Desktop>
+                  <span className='Footer__heading'>Stormbound</span>
+                  <ul className='Footer__list'>
+                    <li className='Footer__item'>
+                      <a
+                        href='https://paladinstudios.com/stormbound/'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        Official site
+                      </a>
+                    </li>
+                    <li className='Footer__item'>
+                      <a
+                        href='https://twitter.com/stormboundccg'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        Twitter
+                      </a>
+                    </li>
+                    <li className='Footer__item'>
+                      <a
+                        href='https://www.facebook.com/stormboundccg'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        Facebook
+                      </a>
+                    </li>
+                    <li className='Footer__item'>
+                      <a
+                        href='https://www.instagram.com/stormboundccg/'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        Instagram
+                      </a>
+                    </li>
+                    <li className='Footer__item'>
+                      <a
+                        href='https://store.steampowered.com/app/790600/Stormbound/'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        Steam
+                      </a>
+                    </li>
+                  </ul>
+                </Only.Desktop>
               </Column>
               <Column width='1/3'>
                 <span className='Footer__heading'>Kitty</span>
@@ -135,58 +138,60 @@ export default React.memo(function Footer(props) {
                 </ul>
               </Column>
               <Column width='1/3'>
-                <span className='Footer__heading'>Community</span>
-                <ul className='Footer__list'>
-                  <li className='Footer__item'>
-                    <a
-                      href='https://reddit.com/r/stormbound'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Reddit
-                    </a>
-                  </li>
+                <Only.Desktop>
+                  <span className='Footer__heading'>Community</span>
+                  <ul className='Footer__list'>
+                    <li className='Footer__item'>
+                      <a
+                        href='https://reddit.com/r/stormbound'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        Reddit
+                      </a>
+                    </li>
 
-                  <li className='Footer__item'>
-                    <a
-                      href='https://discord.gg/stormbound'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Discord
-                    </a>
-                  </li>
+                    <li className='Footer__item'>
+                      <a
+                        href='https://discord.gg/stormbound'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        Discord
+                      </a>
+                    </li>
 
-                  <li className='Footer__item'>
-                    <a
-                      href='https://stormboundkingdomwars.gamepedia.com/Stormbound:_Kingdom_Wars_Wiki'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Wiki
-                    </a>
-                  </li>
+                    <li className='Footer__item'>
+                      <a
+                        href='https://stormboundkingdomwars.gamepedia.com/Stormbound:_Kingdom_Wars_Wiki'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        Wiki
+                      </a>
+                    </li>
 
-                  <li className='Footer__item'>
-                    <a
-                      href='https://www.kongregate.com/forums/941638-stormbound-kingdom-wars'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Kongregate
-                    </a>
-                  </li>
+                    <li className='Footer__item'>
+                      <a
+                        href='https://www.kongregate.com/forums/941638-stormbound-kingdom-wars'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        Kongregate
+                      </a>
+                    </li>
 
-                  <li className='Footer__item'>
-                    <a
-                      href='https://www.twitch.tv/stormboundccg'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Twitch
-                    </a>
-                  </li>
-                </ul>
+                    <li className='Footer__item'>
+                      <a
+                        href='https://www.twitch.tv/stormboundccg'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        Twitch
+                      </a>
+                    </li>
+                  </ul>
+                </Only.Desktop>
               </Column>
             </Row>
           </Column>
