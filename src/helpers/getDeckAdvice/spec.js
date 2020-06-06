@@ -79,6 +79,11 @@ const TESTS = [
     '5w25n35n95n115n145n164w64w93n693w163w194w21',
     { disabled: true },
   ],
+  [
+    'MANY_SPELLS',
+    '1n15f85f45f15f25f35n35f135f145f155n405n52',
+    { disabled: true },
+  ],
   ['INEFFICIENT_KLAXI', '1f41n81n611n181n91n251f131n311n341n361n381f23'],
   [
     'INEFFICIENT_KLAXI (Brood sages)',
