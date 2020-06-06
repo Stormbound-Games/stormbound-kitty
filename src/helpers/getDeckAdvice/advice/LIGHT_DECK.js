@@ -4,7 +4,7 @@ const getAverageManaCost = cards =>
 export default (cards, modifier = '') => {
   const averageManaCost = getAverageManaCost(cards)
 
-  if (modifier.includes('MANA') || averageManaCost >= 3) return null
+  if (modifier.includes('MANA') || averageManaCost >= 2.8) return null
 
   return {
     id: 'LIGHT_DECK',
