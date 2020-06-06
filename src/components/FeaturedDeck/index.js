@@ -70,7 +70,7 @@ export default React.memo(function FeaturedDeck(props) {
         <RarityBar deck={deck.map(card => getRawCardData(card.id))} />
       </div>
       <span className='FeaturedDeck__name'>
-        <Link to={`/deck/${id}`}>{props.name}</Link>
+        <Link to={`/deck/${id}/detail`}>{props.name}</Link>
         {distance ? (
           <Only.CustomCollection>
             <Only.Desktop>
