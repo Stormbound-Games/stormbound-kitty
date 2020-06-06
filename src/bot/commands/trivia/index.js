@@ -108,7 +108,7 @@ const trivia = new StateMachine({
       this.start()
 
       if (mode === 'CARD') {
-        return `🔮 Trivia started! You have ${duration} seconds to guess the card. You can ask questions and issue guesses with \`!trivia is <term>\`, like \`!trivia is pirate\` or \`!trivia is rof\`.`
+        return `🔮 Trivia started! You have ${duration} seconds to guess the card. You can ask questions and issue guesses with \`!trivia <term>\`, like \`!trivia pirate\` or \`!trivia rof\`.`
       } else if (mode === 'QUESTION') {
         return (
           `❔ **${this.answer.question}** (${this.duration} seconds)\n` +
