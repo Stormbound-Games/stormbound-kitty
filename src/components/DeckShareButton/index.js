@@ -1,5 +1,6 @@
 import React from 'react'
 import CTA from '../CTA'
+import Only from '../Only'
 import ShareDialog from '../ShareDialog'
 import download from '../../helpers/download'
 import './index.css'
@@ -51,7 +52,7 @@ export default React.memo(function DeckShareButton(props) {
         onClick={exportAsImage}
         className='DeckShareButton__button'
       >
-        Download as image
+        <Only.Desktop>Download</Only.Desktop> as image
       </CTA>
     </ShareDialog>
   )
