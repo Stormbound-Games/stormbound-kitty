@@ -229,13 +229,25 @@ export default [
     options: cards.filter(card => card.hero).map(card => card.name),
   },
 
+  {
+    question: 'Which hero is guiding new players?',
+    answer: 'Edrik the Fierce',
+    options: cards.filter(card => card.hero).map(card => card.name),
+  },
+
+  {
+    question: 'How is Head Start commonly referred to in the Discord server?',
+    answer: 'Make Goat',
+    options: ['Rush sheep', 'G.O.A.T airstrike', 'Brr ram', 'Beeeh'],
+  },
+
   () => {
     const randomCard = arrayRandom(cards)
 
     return {
       question: `Of which card is this an anagram: “${shuffle(
-        randomCard.name.toLowerCase().split('')
-      ).join('')}”?`,
+        randomCard.name.toLowerCase().replace(' ', '').split('')
+      ).join('')}” (spaces omitted)?`,
       answer: randomCard.name,
       options: CARD_NAMES,
     }
@@ -571,6 +583,14 @@ export default [
     answer: arrayRandom(cards.filter(card => !CHIP_CARDS.includes(card.id)))
       .name,
     options: CHIP_CARDS.map(getRawCardData).map(card => card.name),
+  }),
+
+  () => ({
+    question: 'Which card can do direct damage to the base?',
+    answer: getRawCardData(arrayRandom(CHIP_CARDS)).name,
+    options: cards
+      .filter(card => !CHIP_CARDS.includes(card.id))
+      .map(card => card.name),
   }),
 
   {
@@ -1134,7 +1154,7 @@ export default [
     question: 'Which structure is named after the Kongregate forum moderator?',
     answer: 'Trueshot Post',
     options: cards
-      .filter(card => card.type === 'structure')
+      .filter(card => card.type === 'structure' && card.id !== 'T12')
       .map(card => card.name),
   },
 
