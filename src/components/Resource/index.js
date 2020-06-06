@@ -7,6 +7,7 @@ const Resource = React.memo(function Resource({ amount, resource }) {
       <ResourceIcon resource={resource} />
       &nbsp;{amount}&nbsp;
       {resource === 'COIN' && (amount === 1 ? 'coin' : 'coins')}
+      {resource === 'RUBY' && (amount === 1 ? 'ruby' : 'rubies')}
       {resource === 'CROWN' && (amount === 1 ? 'crown' : 'crowns')}
       {resource === 'STONE' &&
         (amount === 1 ? 'fusion stone' : 'fusion stones')}
@@ -24,4 +25,8 @@ export const Crowns = React.memo(function Crowns(props) {
 
 export const Stones = React.memo(function Stones(props) {
   return <Resource resource='STONE' {...props} />
+})
+
+export const Rubies = React.memo(function Rubies(props) {
+  return <Resource resource='RUBY' {...props} />
 })
