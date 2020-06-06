@@ -181,7 +181,7 @@ export default [
 
   {
     question: 'What’s the first quest you get when you start out?',
-    name: 'Exploring the Storm',
+    answer: 'Exploring the Storm',
     options: 'Fighting the Storm,Answering the Storm,Preventing the Storm,Releasing the Storm,Discovering the Storm,Taming the Storm'.split(
       ','
     ),
@@ -477,7 +477,7 @@ export default [
   {
     question: 'What is floating on top of The Hearth?',
     answer: 'A helmet',
-    options: ['A leaf', 'A flame', 'A shadow', 'A sword', 'A shielf'],
+    options: ['A leaf', 'A flame', 'A shadow', 'A sword', 'A shield'],
   },
 
   {
@@ -915,7 +915,7 @@ export default [
   {
     question: 'Which of one these names is *not* an official card’s name?',
     answer: 'Wardens',
-    options: 'Boatswain,Bravefoot,Corsair,Cult of the Sky,Dead Wanderer,Elite Deathguards,Frenzied Troops,Gunner,Jade Speedster,Lonely Witch,Lost Faun,Makeshifter,Mudgrinders,Plain Helper,Privateer,Rough Patchers,Saplings,Silent Rimes,Sleetrunners,Sparkling,'.split(
+    options: 'Boatswain,Bravefoot,Corsair,Cult of the Sky,Dead Wanderer,Elite Deathguards,Frenzied Troops,Gunner,Jade Speedster,Lonely Witch,Lost Faun,Makeshifter,Mudgrinders,Plain Helper,Privateer,Rough Patchers,Saplings,Silent Rimes,Sleetrunners,Sparkling'.split(
       ','
     ),
   },
@@ -1265,7 +1265,9 @@ export default [
   () => {
     const level = arrayRandom([1, 2, 3, 4, 5])
     const cardsByStrength = cards
-      .filter(card => card.type !== 'spell')
+      .filter(
+        card => card.id !== 'W20' && card.id !== 'I26' && card.type !== 'spell'
+      )
       .map(card => getResolvedCardData({ id: card.id, level }))
       .sort((a, b) =>
         a.strength > b.strength ? -1 : a.strength < b.strength ? +1 : 0
