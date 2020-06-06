@@ -4,9 +4,10 @@ export default cards => {
   const constructs = getConstructs(cards)
   const cardIds = cards.map(card => card.id)
   const hasUpgradePoint = cardIds.includes('I10')
-  const upgradePointSynergy = cardIds.includes('I14')
-    ? constructs.length + 1
-    : constructs.length
+  const upgradePointSynergy =
+    cardIds.includes('I14') || cardIds.includes('I2')
+      ? constructs.length + 1
+      : constructs.length
 
   if (!hasUpgradePoint || upgradePointSynergy >= 5) return null
 

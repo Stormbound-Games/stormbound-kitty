@@ -122,6 +122,11 @@ const TESTS = [
   ],
   ['INEFFICIENT_UPGRADE_POINT', '1n11n21i11n31i41n121i101i141i151n301n321n46'],
   [
+    'INEFFICIENT_UPGRADE_POINT',
+    '3n13n23i13i23i33n33i43i83i103i63i123n34',
+    { disabled: true },
+  ],
+  [
     'HIGH_MANA_CURVE',
     '1n11w11w21n51n81n121w281w81w61w161n461n52',
     { disabled: true },
