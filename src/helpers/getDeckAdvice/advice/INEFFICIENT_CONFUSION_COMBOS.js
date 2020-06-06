@@ -2,10 +2,13 @@ const hasAny = (cards, ids) =>
   ids.some(id => cards.map(card => card.id).includes(id))
 
 export default cards => {
-  const hasConfusionCards = hasAny(cards, ['N62', 'N60'])
+  const hasConfusionProvider = hasAny(cards, ['N62', 'N60'])
   const hasConfusionConsumer = hasAny(cards, ['N61', 'N64'])
 
-  if (!hasConfusionConsumer || hasConfusionCards) return null
+  // If the deck has cards requiring confusion (consumers), but no cards
+  // confusing enemies (providers), it is considered inefficient. If it does not
+  // have cards requiring confusion however, the advice can be skipped.
+  if (!hasConfusionConsumer || hasConfusionProvider) return null
 
   return {
     id: 'INEFFICIENT_CONFUSION_COMBOS',

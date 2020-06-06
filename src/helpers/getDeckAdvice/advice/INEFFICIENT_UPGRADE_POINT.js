@@ -9,6 +9,10 @@ export default cards => {
       ? constructs.length + 1
       : constructs.length
 
+  // For Upgrade Point to be considered efficient, it needs a certain amount of
+  // constructs in the deck. We increase the construct count (effectively
+  // lowering the threshold) if the deck includes Mech Workshop (which spawns
+  // constructs) or Doctor Mia (which can trigger Upgrade Point on the spot).
   if (!hasUpgradePoint || upgradePointSynergy >= 5) return null
 
   return {

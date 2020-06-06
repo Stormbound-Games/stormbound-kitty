@@ -4,6 +4,11 @@ const getAverageManaCost = cards =>
 export default (cards, modifier = '') => {
   const averageManaCost = getAverageManaCost(cards)
 
+  // `2.8` is an arbitrary threshold. This check really is only there to mark
+  // unusually cheap decks (which are not the cause of a mana-Brawl modifier).
+  // This is not a fantastic advice though, because the current meta highly
+  // favour cheap decks over expensive ones. But extremely cheap decks might
+  // suffer if they don’t finish the game early, so it’s worth an advice still.
   if (modifier.includes('MANA') || averageManaCost >= 2.8) return null
 
   return {

@@ -3,7 +3,8 @@ import computeDeckChances from '../../computeDeckChances'
 const getManaCurveIntersection = deck => {
   // 8 is a decent starting point to avoid unnecessary computations before that.
   // As a benchmark, Reckless Rush which is a notoriously cheap deck, has an
-  // intersection of 9.
+  // intersection of 9. Note that some decks with a mana-Brawl modifier can hit
+  // way lower, such as Eye Tempest which hits 5.
   let mana = 8
   let odds = computeDeckChances(deck, mana)
 

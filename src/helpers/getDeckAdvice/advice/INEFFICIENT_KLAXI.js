@@ -9,12 +9,20 @@ export default cards => {
   const hasBroodSages = cardIds.includes('F1')
   const hasPoisonCards = hasAny(cards, ['F2', 'F4', 'F5', 'F13'])
   const hasHeliotroopers = cardIds.includes('F7')
+  const averageLevel =
+    cards.map(card => card.level).reduce((acc, level) => acc + level, 0) / 12
 
+  // For High Priestess Klaxi to be considered efficient, it needs Rain of Frogs
+  // or Azure Hatchers, or an efficient Brood Sages (although this is less ideal
+  // and could be considered inefficient on its own). Aditionally, so many cards
+  // have only 1 strength at low level that Klaxi could be considered efficient
+  // even if it doesn’t have any of these cards to be paired with.
   if (
     !hasHighPriestessKlaxi ||
     hasRainOfFrogs ||
     hasAzureHatchers ||
-    (hasBroodSages && (hasPoisonCards || hasHeliotroopers))
+    (hasBroodSages && (hasPoisonCards || hasHeliotroopers)) ||
+    averageLevel < 2
   )
     return null
 

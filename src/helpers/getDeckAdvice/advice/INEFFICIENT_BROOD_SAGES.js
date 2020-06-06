@@ -7,6 +7,9 @@ export default cards => {
   const hasPoisonCards = hasAny(cards, ['F2', 'F4', 'F5', 'F13'])
   const hasHeliotroopers = cardIds.includes('F7')
 
+  // For Brood Sages to be considered efficient, it needs either poison cards
+  // (Copperskin Ranger, Toxic Sacrifice, Crimson Sentry or Venomfall Spire) or
+  // Heliotroopers which it can be paired nicely with.
   if (!hasBroodSages || hasPoisonCards || hasHeliotroopers) return null
 
   return {

@@ -80,8 +80,13 @@ export default cards => {
   const debatableFinishers = getDebatableFinishers(cards)
   const advice = { id: 'LACK_OF_FINISHER', name: 'Lacks of finisher' }
 
+  // If the deck containers a stable finisher, the advice can be skipped
+  // entirely.
   if (finishers.length > 0) return null
 
+  // Otherwise, if the deck contains a debatable finisher, we emit an advice
+  // that the deck could work, but it’s not a guarantee because some finishers
+  // might fall a little short or be too situational.
   if (debatableFinishers.length > 0) {
     advice.description =
       'This deck doesnt have a stable finisher, only some potential win-condition under good circumstances.  Try including one or more runners, heavy strikers or cards doing chip damage to the base.'

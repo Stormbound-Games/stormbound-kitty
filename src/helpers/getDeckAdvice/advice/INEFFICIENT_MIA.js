@@ -8,6 +8,9 @@ export default cards => {
     card => !['N13', 'I5', 'I14'].includes(card.id)
   )
 
+  // For Doctor Mia to be considered efficient, she needs adequate structures to
+  // be paired with. We considere all structures to be fine except Fort of
+  // Ebonrock, Unstable Build and Mech Workshop (since it blocks its own spawn).
   if (!hasDoctorMia || miaStructures.length > 0) return null
 
   return {

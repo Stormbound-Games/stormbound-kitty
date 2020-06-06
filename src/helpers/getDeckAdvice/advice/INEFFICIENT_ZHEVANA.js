@@ -4,8 +4,12 @@ export default cards => {
   const hasMidwinterChaos = cardIds.includes('W11')
   const hasMomentsPeace = cardIds.includes('W6')
 
-  if (!hasSpellbinderZhevana || hasMidwinterChaos || hasMomentsPeace)
+  // For Spellbinder Zhevana to be considered efficient, she needs frozen areas
+  // which can be provided by Midwinter Chaos or Moment’s Peace (but not
+  // Frosthexers).
+  if (!hasSpellbinderZhevana || hasMidwinterChaos || hasMomentsPeace) {
     return null
+  }
 
   return {
     id: 'INEFFICIENT_ZHEVANA',

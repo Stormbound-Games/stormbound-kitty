@@ -5,6 +5,10 @@ export default cards => {
   const spells = getSpells(cards)
   const threshold = archdruidEaryn && archdruidEaryn.level >= 4 ? 4 : 3
 
+  // Whether Aeryn is effecient depends on her level. If she can play 2 spells
+  // from the hand, the deck needs quite some many spells to make sure that one
+  // has 2 in hand when playing Aeryn. If she plays only one spell at a time,
+  // the threshold can be a little lower.
   if (!archdruidEaryn || spells.length >= threshold) return null
 
   return {

@@ -8,6 +8,10 @@ export default (cards, modifier) => {
   )
   const threshold = 2 + skippedSpells.length
 
+  // Decks which contain many spells can suffer from lack of units and movement
+  // (except in spell Brawl). Some spells are excluded from the count as they
+  // spawn units (Summon Militia, Head Start and Rain of Frogs). Gift of the
+  // Wise is also excluded because it is essentially a free card.
   if (spells.length <= threshold || modifier === 'SPELL_MANA') return null
 
   return {

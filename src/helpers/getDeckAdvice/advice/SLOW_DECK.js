@@ -6,6 +6,10 @@ const getStaticCards = cards =>
 export default cards => {
   const staticCards = getStaticCards(cards)
 
+  // Slow decks (decks which contain a lot of cards which do not move) can
+  // suffer against early rush decks. The wild cats with no base movement but
+  // which gain movement on play (Bigthrust Tigers, Wild Saberpaws and Twilight
+  // Prowlers) are excluded from this check.
   if (staticCards.length <= 6) return null
 
   return {
