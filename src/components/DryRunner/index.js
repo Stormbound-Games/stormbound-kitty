@@ -9,12 +9,16 @@ import DryRunnerHeader from '../DryRunnerHeader'
 import DryRunnerInfo from '../DryRunnerInfo'
 import HarvestersDialog from '../HarvestersDialog'
 import Info from '../Info'
+import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
 import isCard from '../../helpers/isCard'
+import useViewportWidth from '../../hooks/useViewportWidth'
 
 export default React.memo(function DryRunner(props) {
+  const viewportWidth = useViewportWidth()
+
   return (
     <>
       <h1 className='VisuallyHidden'>Deck Dry-run</h1>
@@ -24,6 +28,7 @@ export default React.memo(function DryRunner(props) {
           <Title>Your deck</Title>
           <Deck
             deck={props.displayDeck}
+            orientation={viewportWidth > 700 ? 'vertical' : 'horizontal'}
             onClick={
               props.mode === 'MANUAL' ? props.onDeckCardClick : undefined
             }
@@ -37,16 +42,17 @@ export default React.memo(function DryRunner(props) {
             cards={props.playedCards}
             cardsThisTurn={props.cardsThisTurn}
           />
-
-          <Info icon='sword' title='In-game mechanics'>
-            This simulator has same{' '}
-            <Link to='/faq#drawing-algorithm'>drawing/cycling mechanics</Link>{' '}
-            as the game and should be an accurate representation of how playing
-            your deck would feel. It can be useful to evaluate card cycling,
-            mana flow and combo efficiency. Additionally,{' '}
-            <Link to='/faq#dry-runner-mechanics'>many card abilities</Link> are
-            also implemented in this simulator.
-          </Info>
+          <Only.Desktop>
+            <Info icon='sword' title='In-game mechanics'>
+              This simulator has same{' '}
+              <Link to='/faq#drawing-algorithm'>drawing/cycling mechanics</Link>{' '}
+              as the game and should be an accurate representation of how
+              playing your deck would feel. It can be useful to evaluate card
+              cycling, mana flow and combo efficiency. Additionally,{' '}
+              <Link to='/faq#dry-runner-mechanics'>many card abilities</Link>{' '}
+              are also implemented in this simulator.
+            </Info>
+          </Only.Desktop>
 
           {props.deck.map(card => card.id).includes('N38') && (
             <HarvestersDialog

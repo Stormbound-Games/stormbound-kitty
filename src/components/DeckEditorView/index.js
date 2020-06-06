@@ -127,6 +127,9 @@ class DeckEditorView extends React.Component {
               showUpgrades
               id='deck'
               deck={deck}
+              orientation={
+                this.props.viewportWidth >= 700 ? 'vertical' : 'horizontal'
+              }
               onClick={this.props.removeCardFromDeck}
               onClickLabel='Remove card from deck'
               highlightedCards={this.props.highlightedCards}
@@ -161,24 +164,26 @@ class DeckEditorView extends React.Component {
               </Info>
             )}
 
-            <CollectionClearHint />
+            <Only.Desktop>
+              <CollectionClearHint />
 
-            <Only.DefaultCollection>
-              <Info
-                icon='books'
-                title={
-                  <>
-                    Your collection
-                    <LearnMoreIcon anchor='#collection-benefits' />
-                  </>
-                }
-                CTA={<ImportCollection onChange={this.onCollectionImport} />}
-              >
-                If you have already created your collection, you can import it
-                directly in the deck builder to compose decks that you can make
-                in-game.
-              </Info>
-            </Only.DefaultCollection>
+              <Only.DefaultCollection>
+                <Info
+                  icon='books'
+                  title={
+                    <>
+                      Your collection
+                      <LearnMoreIcon anchor='#collection-benefits' />
+                    </>
+                  }
+                  CTA={<ImportCollection onChange={this.onCollectionImport} />}
+                >
+                  If you have already created your collection, you can import it
+                  directly in the deck builder to compose decks that you can
+                  make in-game.
+                </Info>
+              </Only.DefaultCollection>
+            </Only.Desktop>
           </Column>
 
           <Column width='2/3'>

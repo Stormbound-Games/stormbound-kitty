@@ -6,13 +6,13 @@ import Deck from '../Deck'
 import DeckStatsChart from '../DeckStatsChart'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
-import ShareButton from '../DeckShareButton'
 import Stats from '../DeckStats'
 import Title from '../Title'
 import { NotificationContext } from '../NotificationProvider'
 import getDeckBuilderMetaTags from '../../helpers/getDeckBuilderMetaTags'
 import modifyDeck from '../../helpers/modifyDeck'
 import getDeckPresets from '../../helpers/getDeckPresets'
+import useViewportWidth from '../../hooks/useViewportWidth'
 import { BRAWLS } from '../../constants/brawl'
 
 const getDefaultBrawlModifier = deck => {
@@ -22,6 +22,7 @@ const getDefaultBrawlModifier = deck => {
 }
 
 export default React.memo(function DeckDetailView(props) {
+  const viewportWidth = useViewportWidth()
   const { notify } = React.useContext(NotificationContext)
   const history = useHistory()
   const defaultModifier = getDefaultBrawlModifier(props.deck)
@@ -49,16 +50,11 @@ export default React.memo(function DeckDetailView(props) {
           <Deck
             id='deck'
             deck={deck}
+            orientation={viewportWidth >= 700 ? 'vertical' : 'horizontal'}
             highlightedCards={props.highlightedCards}
             onClick={card => history.push('/card/' + card.id + '/display')}
             onClickLabel='Open card in card builder'
           />
-
-          <Row>
-            <Column>
-              <ShareButton label='Share deck' />
-            </Column>
-          </Row>
         </Column>
 
         <Column width='1/3'>

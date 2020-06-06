@@ -221,22 +221,24 @@ class DeckSuggestions extends React.Component {
                   </Info>
                 </Only.CustomCollection>
               )}
-              <Only.DefaultCollection>
-                <Info
-                  icon='books'
-                  title={
-                    <>
-                      Your collection
-                      <LearnMoreIcon anchor='#collection-benefits' />
-                    </>
-                  }
-                  CTA={<ImportCollection />}
-                >
-                  If you have already created your collection, you can import it
-                  so decks are sorted by how well they would perform based on
-                  the level of your cards.
-                </Info>
-              </Only.DefaultCollection>
+              <Only.Desktop>
+                <Only.DefaultCollection>
+                  <Info
+                    icon='books'
+                    title={
+                      <>
+                        Your collection
+                        <LearnMoreIcon anchor='#collection-benefits' />
+                      </>
+                    }
+                    CTA={<ImportCollection />}
+                  >
+                    If you have already created your collection, you can import
+                    it so decks are sorted by how well they would perform based
+                    on the level of your cards.
+                  </Info>
+                </Only.DefaultCollection>
+              </Only.Desktop>
             </div>
           </Column>
           <Column width='2/3'>
