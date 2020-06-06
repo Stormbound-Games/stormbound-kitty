@@ -1,10 +1,10 @@
 const getAverageManaCost = cards =>
   cards.map(card => card.mana).reduce((a, b) => a + b, 0) / cards.length
 
-export default cards => {
+export default (cards, modifier = '') => {
   const averageManaCost = getAverageManaCost(cards)
 
-  if (averageManaCost >= 3) return null
+  if (modifier.includes('MANA') || averageManaCost >= 3) return null
 
   return {
     id: 'LIGHT_DECK',
