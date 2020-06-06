@@ -22,7 +22,54 @@ export default React.memo(function GuideDrawing(props) {
         as of May 2020.
       </p>
 
-      <Title>Resources</Title>
+      <ol>
+        <li>
+          <a href='#resources'>
+            Resources
+            <ul>
+              <li>
+                <a href='#coins'>Coins</a>
+              </li>
+              <li>
+                <a href='#rubies'>Rubies</a>
+              </li>
+              <li>
+                <a href='#fusion-stones'>Fusion Stones</a>
+              </li>
+            </ul>
+          </a>
+        </li>
+        <li>
+          <a href='#general-tactics'>General Tactics</a>
+          <ul>
+            <li>
+              <a href='#grinding'>Grinding</a>
+            </li>
+            <li>
+              <a href='#hoarding'>Hoarding</a>
+            </li>
+            <li>
+              <a href='#spending'>Spending</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href='#the-card-shop'>The Card Shop</a>
+          <ul>
+            <li>
+              <a href='#cheap-core-cards'>Cheap Core Cards</a>
+            </li>
+            <li>
+              <a href='#faction-cards'>Faction Cards</a>
+            </li>
+            <li>
+              <a href='#ruby-purchases'>Ruby Purchases</a>
+            </li>
+          </ul>
+        </li>
+      </ol>
+
+      <Title id='resources'>Resources</Title>
 
       <h3>
         <ResourceIcon resource='COIN' /> Coins
@@ -93,7 +140,7 @@ export default React.memo(function GuideDrawing(props) {
         social channels and the Discord server for more information.
       </Info>
 
-      <Title>General Tactics</Title>
+      <Title id='general-tactics'>General Tactics</Title>
 
       <p>
         How to best use your resources depends on your goals and values. In
@@ -147,7 +194,7 @@ export default React.memo(function GuideDrawing(props) {
         advice on how to best use coins, rubies and fusion stones.
       </p>
 
-      <h3>Grinding</h3>
+      <h3 id='grinding'>Grinding</h3>
 
       <p>
         My main tip is to make your daily grinding as easy as possible. There
@@ -165,7 +212,7 @@ export default React.memo(function GuideDrawing(props) {
         with ads + 1 without for 265 coins).
       </p>
 
-      <h3>Hoarding</h3>
+      <h3 id='hoarding'>Hoarding</h3>
 
       <p>
         If you’re planning on playing for a while it is always advisable to set
@@ -175,7 +222,7 @@ export default React.memo(function GuideDrawing(props) {
         good deals.
       </p>
 
-      <h3>Spending</h3>
+      <h3 id='spending'>Spending</h3>
 
       <h4>
         <ResourceIcon resource='COIN' /> Coins
@@ -254,7 +301,7 @@ export default React.memo(function GuideDrawing(props) {
         </li>
       </ul>
 
-      <Title>The Card Shop</Title>
+      <Title id='the-card-shop'>The Card Shop</Title>
 
       <p>
         Buying cards in the shop is a bit less efficient than getting 3 random
@@ -263,7 +310,7 @@ export default React.memo(function GuideDrawing(props) {
         for the Diamond league and even Diamond 1 as early as possible.
       </p>
 
-      <h3>Cheap Core Cards</h3>
+      <h3 id='cheap-core-cards'>Cheap Core Cards</h3>
 
       <blockquote>
         <p>
@@ -320,7 +367,7 @@ export default React.memo(function GuideDrawing(props) {
         </li>
       </ul>
 
-      <h3>Faction Cards</h3>
+      <h3 id='faction-cards'>Faction Cards</h3>
 
       <p>
         Depending on your main faction, you might also want to consider the
@@ -423,7 +470,7 @@ export default React.memo(function GuideDrawing(props) {
         </li>
       </ul>
 
-      <h3>Ruby Purchases</h3>
+      <h3 id='ruby-purchases'>Ruby Purchases</h3>
 
       <p>
         Now, rubies are a lot more rare than coins, so you should think twice
