@@ -1,5 +1,25 @@
 [
   {
+    "intro": "Deck advice",
+    "description": "The mana-curve visualisation now can display mana-Brawl variations as well.",
+    "link": "/deck"
+  },
+  {
+    "intro": "Decks",
+    "description": "Mana-Brawl decks now display the adjusted mana cost of their cards.",
+    "link": "/deck/suggestions"
+  },
+  {
+    "intro": "Deck Advice",
+    "description": "A lot of deck advice have been adjusted to be more realistic and informative.",
+    "link": "/deck"
+  },
+  {
+    "intro": "Resources Guide",
+    "description": "The resource guide now contains an entire section on using the Card Shop.",
+    "link": "/guides/resources"
+  },
+  {
     "intro": "Deck Advice",
     "description": "The deck advice page now illustrates the mana curve of a deck visually.",
     "link": "/deck"
