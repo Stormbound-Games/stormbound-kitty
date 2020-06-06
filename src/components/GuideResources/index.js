@@ -352,8 +352,8 @@ export default React.memo(function GuideDrawing(props) {
 
       <p>
         <span className='Highlight'>Winter</span> on the other hand is very
-        late-game oriented, some rare cards might be worth investing into
-        depending on what strategies you like, including:
+        late-game oriented. Some common and rare cards might be worth investing
+        into depending on what strategies you like, including:
       </p>
       <ul>
         <li>
@@ -528,7 +528,7 @@ export default React.memo(function GuideDrawing(props) {
         </li>
         <li>
           <WikiLink id='F28' /> is the only way for Shadowfen to do chip damage,
-          and can be precisely controlled with self-farm and poisoning.
+          and can be precisely controlled with self-harm and poisoning.
         </li>
       </ul>
 
