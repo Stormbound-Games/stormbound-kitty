@@ -64,7 +64,7 @@ const getPossibleManaSpent = availableMana => cards => {
   ]
 }
 
-const getCardToCycle = (availableMana, hand) => {
+const getCardToCycle = ({ availableMana, hand }) => {
   const getManaCost = getEffectiveManaCost(availableMana)
   const isFirstTurn = availableMana === 3
   const hasUnit = hand.find(
@@ -100,17 +100,17 @@ const getCardToCycle = (availableMana, hand) => {
   })
 }
 
-export const getCycledHands = (deck, hand, availableMana) => {
+export const getCycledHands = ({ availableMana, deck, hand }) => {
   const handIds = hand.map(card => card.id)
   const deckCards = deck.filter(card => !handIds.includes(card.id))
-  const cycledCard = getCardToCycle(availableMana, hand)
+  const cycledCard = getCardToCycle({ availableMana, hand })
 
   return deckCards.map(replacement =>
     hand.map(card => (cycledCard.id === card.id ? replacement : card))
   )
 }
 
-export const canSpendAllMana = (availableMana, hand) => {
+export const canSpendAllMana = ({ availableMana, hand }) => {
   // To know whether the hand can spend all mana, we compute an array of “mana
   // amounts”. They are all the mana spending possibilities for that hand within
   // the currently available mana.
@@ -119,10 +119,10 @@ export const canSpendAllMana = (availableMana, hand) => {
   return possibleSpentAmounts.includes(availableMana)
 }
 
-export const canPlayAllCards = (availableMana, hand) =>
-  getHandCost(availableMana, hand) <= availableMana
+export const canPlayAllCards = ({ availableMana, hand }) =>
+  getHandCost({ availableMana, hand }) <= availableMana
 
-export const getHandCost = (availableMana, hand) =>
+export const getHandCost = ({ availableMana, hand }) =>
   hand
     .map(getEffectiveManaCost(availableMana))
     .reduce((total, mana) => total + mana, 0)
@@ -141,14 +141,14 @@ const computeDeckChances = (deck, availableMana) => {
       // If the hand can spend all of the available mana, we consider it
       // unnecessary to cycle and return `1` (for 1 hand being able to spend all
       // mana).
-      if (canSpendAllMana(availableMana, hand)) return total + 1
+      if (canSpendAllMana({ availableMana, hand })) return total + 1
 
       // If the hand cannot spend all of the available mana, we need to cycle
       // the most expensive card (which is a decent approximation at this stage)
       // which gives 8 news hands.
-      const cycledHands = getCycledHands(deck, hand, availableMana)
+      const cycledHands = getCycledHands({ deck, hand, availableMana })
       const handsSpendingAllMana = cycledHands.filter(hand =>
-        canSpendAllMana(availableMana, hand)
+        canSpendAllMana({ availableMana, hand })
       )
 
       // We check how many of these hands can spend all of the available mana
@@ -166,14 +166,15 @@ const computeDeckChances = (deck, availableMana) => {
       // If the hand can play all 4 cards within the available mana, we consider
       // it unnecessary to cycle and return `1` (for 1 hand being able to play
       // all 4 cards).
-      if (getHandCost(availableMana, hand) <= availableMana) return total + 1
+      if (getHandCost({ availableMana, hand }) <= availableMana)
+        return total + 1
 
       // If the hand cannot play all 4 cards within the available mana, we need
       // to cycle the most expensive card (which is a decent approximation at
       // this stage) which gives 8 news hands.
-      const cycledHands = getCycledHands(deck, hand, availableMana)
+      const cycledHands = getCycledHands({ deck, hand, availableMana })
       const handsPlayingAllCards = cycledHands.filter(hand =>
-        canPlayAllCards(availableMana, hand)
+        canPlayAllCards({ availableMana, hand })
       )
 
       // We check how many of these hands can play all 4 cards within the
