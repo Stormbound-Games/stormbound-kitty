@@ -1,5 +1,5 @@
 import canCardBePlayed from '../../components/DeckMechanisms/canCardBePlayed'
-import getPermutations from '../getPermutations'
+import getCombinations from '../getCombinations'
 
 export const getEffectiveManaCost = availableMana => card => {
   // If the card is GotW and it can be played, reduced its mana cost by the
@@ -103,7 +103,7 @@ export const getHandCost = ({ availableMana, hand }) => {
 const computeDeckChances = (deck, availableMana) => {
   // `hands` are all the combinations of 4 different cards one can have in their
   // hand based on the 12 cards of their deck.
-  const hands = getPermutations(deck, 4)
+  const hands = getCombinations(deck, 4)
 
   // We compute a score between 0 and the amount of hands (495). This ratio
   // represents the chances of spending all the available mana.

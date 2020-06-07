@@ -1,4 +1,4 @@
-const getPermutations = (array, size) => {
+const getCombinations = (array, size) => {
   function push(t, index) {
     if (t.length === size) return result.push(t)
     if (index + 1 > array.length) return
@@ -14,4 +14,4 @@ const getPermutations = (array, size) => {
   return result
 }
 
-export default getPermutations
+export default getCombinations
