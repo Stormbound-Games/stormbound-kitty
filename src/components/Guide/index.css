@@ -29,8 +29,8 @@
 }
 
 .Guide li:not([class]) {
-  padding-left: 1.25em;
-  text-indent: -1.25em;
+  padding-left: 1.4em;
+  text-indent: -1.4em;
   margin-bottom: 0.5em;
 }
 
@@ -49,4 +49,10 @@
 .Guide .Deck {
   max-width: 80%;
   margin: 2em auto;
+}
+
+.Guide .Info,
+.Guide .Row {
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
