@@ -5,6 +5,7 @@ import INEFFICIENT_BROOD_SAGES from './advice/INEFFICIENT_BROOD_SAGES'
 import INEFFICIENT_CONFUSION_COMBOS from './advice/INEFFICIENT_CONFUSION_COMBOS'
 import INEFFICIENT_DRAGON_COMBOS from './advice/INEFFICIENT_DRAGON_COMBOS'
 import INEFFICIENT_EARYN from './advice/INEFFICIENT_EARYN'
+import INEFFICIENT_FORTIFICATION_TONIC from './advice/INEFFICIENT_FORTIFICATION_TONIC'
 import INEFFICIENT_FREEZE_COMBOS from './advice/INEFFICIENT_FREEZE_COMBOS'
 import INEFFICIENT_KLAXI from './advice/INEFFICIENT_KLAXI'
 import INEFFICIENT_LINKED_GOLEMS from './advice/INEFFICIENT_LINKED_GOLEMS'
@@ -34,6 +35,7 @@ const ADVICE = {
   INEFFICIENT_CONFUSION_COMBOS,
   INEFFICIENT_DRAGON_COMBOS,
   INEFFICIENT_EARYN,
+  INEFFICIENT_FORTIFICATION_TONIC,
   INEFFICIENT_FREEZE_COMBOS,
   INEFFICIENT_KLAXI,
   INEFFICIENT_LINKED_GOLEMS,
@@ -122,11 +124,6 @@ const TESTS = [
     label: 'should handle inefficient Klaxi',
   },
   {
-    advice: 'INEFFICIENT_LUCKY_CHARMERS',
-    deck: '1n11n21f41f11n31f91n161n591n221f201n421n56',
-    label: 'should handle inefficient Lucky Charmers',
-  },
-  {
     advice: 'INEFFICIENT_KLAXI',
     deck: '5n25f15n45n75n735n195n95n215n245n365n705f23',
     label: 'inefficient Klaxi with Brood sages',
@@ -145,6 +142,27 @@ const TESTS = [
     advice: 'INEFFICIENT_EARYN',
     deck: '1n15n35n45n115n125n145f105n215f145n295n445n48',
     label: 'should handle inefficient Earyn',
+  },
+  {
+    advice: 'INEFFICIENT_FORTIFICATION_TONIC',
+    deck: '1n21n631i31i61n221n751i151i271n281i171n461n57',
+    label: 'should handle inefficient Fortification Tonic',
+  },
+  {
+    advice: 'INEFFICIENT_FORTIFICATION_TONIC',
+    deck: '1n41n621n71i31n411n281i201n741i241n451n701n52',
+    label: 'should handle inefficient Fortification Tonic (costly structure)',
+  },
+  {
+    advice: 'INEFFICIENT_FORTIFICATION_TONIC',
+    deck: '1n41n621i51n71i31n411n281i201n741i241n701n52',
+    label: 'should handle inefficient Fortification Tonic (cheap structure)',
+    disabled: true,
+  },
+  {
+    advice: 'INEFFICIENT_LUCKY_CHARMERS',
+    deck: '1n11n21f41f11n31f91n161n591n221f201n421n56',
+    label: 'should handle inefficient Lucky Charmers',
   },
   {
     advice: 'INEFFICIENT_UBASS',
