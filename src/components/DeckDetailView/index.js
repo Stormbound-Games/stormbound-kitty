@@ -63,6 +63,8 @@ export default React.memo(function DeckDetailView(props) {
             deck={deck}
             modifier={modifier}
             setModifier={setModifier}
+            withHowTo
+            withModifiers
           />
         </Column>
 
