@@ -2,3 +2,16 @@
   margin-top: 1em;
   margin-bottom: 2em;
 }
+
+.DeckStatsChart__chart {
+  position: relative;
+}
+
+.DeckStatsChart__how-to {
+  position: absolute;
+  bottom: 0.5em;
+  right: 0;
+  width: 25%;
+  text-align: right;
+  font-size: 90%;
+}

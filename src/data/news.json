@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Mana Curve Guide",
+    "description": "There is a new guide on demystifying the mana curve and learning how to read the grap.",
+    "link": "/guides/mana-curve"
+  },
+  {
     "intro": "Deck advice",
     "description": "The mana-curve visualisation now can display mana-Brawl variations as well.",
     "link": "/deck"
