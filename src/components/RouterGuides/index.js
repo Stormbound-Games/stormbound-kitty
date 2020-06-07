@@ -1,51 +1,56 @@
 import React from 'react'
-import { Switch, useRouteMatch } from 'react-router-dom'
+import { Redirect, Switch, useRouteMatch } from 'react-router-dom'
 import Page from '../Page'
 import Error from '../Error'
 import load from '../../helpers/load'
+import guides from '../../data/guides'
+import { CATEGORIES } from '../../constants/guides'
 
 const Guides = load('Guides')
-const GuideBeginner = load('GuideBeginner')
-const GuideComplete = load('GuideComplete')
-const GuideDeck = load('GuideDeck')
-const GuideDrawing = load('GuideDrawing')
-const GuidePirate = load('GuidePirate')
-const GuideResources = load('GuideResources')
-const GuideWinter = load('GuideWinter')
-const Lexicon = load('Lexicon')
+const COMPONENTS = {
+  BEGINNER_GUIDE: load('GuideBeginner'),
+  COMPLETE_GUIDE: load('GuideComplete'),
+  DECK_GUIDE: load('GuideDeck'),
+  DRAWING_GUIDE: load('GuideDrawing'),
+  RESOURCES_GUIDE: load('GuideResources'),
+  MANA_CURVE_GUIDE: load('GuideManaCurve'),
+  WINTER_GUIDE: load('GuideWinter'),
+  PIRATE_GUIDE: load('GuidePirate'),
+  LEXICON: load('Lexicon'),
+}
 
 export default function RouterGuides() {
   const { path } = useRouteMatch()
 
   return (
     <Switch>
-      <Page path={`${path}/beginner`} active={['GUIDES', 'BEGINNER']}>
-        <GuideBeginner />
-      </Page>
-      <Page path={`${path}/resources`} active={['GUIDES', 'RESOURCES']}>
-        <GuideResources />
-      </Page>
-      <Page path={`${path}/complete`} active={['GUIDES', 'COMPLETE']}>
-        <GuideComplete />
-      </Page>
-      <Page path={`${path}/deck`} active={['GUIDES', 'DECK']}>
-        <GuideDeck />
-      </Page>
-      <Page path={`${path}/drawing`} active={['GUIDES', 'DRAWING']}>
-        <GuideDrawing />
-      </Page>
-      <Page path={`${path}/winter`} active={['GUIDES', 'WINTER']}>
-        <GuideWinter />
-      </Page>
-      <Page path={`${path}/pirate`} active={['GUIDES', 'PIRATE']}>
-        <GuidePirate />
-      </Page>
-      <Page path={`${path}/lexicon`} active={['GUIDES', 'LEXICON']}>
-        <Lexicon />
-      </Page>
-      <Page exact path={path} active={['GUIDES', 'INDEX']}>
-        <Guides />
-      </Page>
+      {guides.map(guide => {
+        const Component = COMPONENTS[guide.id]
+
+        return (
+          <Page
+            path={`${path}/${guide.slug}`}
+            active={['GUIDES', guide.id]}
+            key={guide.id}
+          >
+            <Component />
+          </Page>
+        )
+      })}
+
+      {Object.keys(CATEGORIES).map(category => (
+        <Page
+          exact
+          path={`${path}/${CATEGORIES[category].slug}`}
+          active={['GUIDES', category]}
+          key={category}
+        >
+          <Guides category={category} />
+        </Page>
+      ))}
+
+      <Redirect from={path} to='/guides/essentials' />
+
       <Page path='*' active={['GUIDES']}>
         <Error error='HTTP 404 — Not Found' />
       </Page>

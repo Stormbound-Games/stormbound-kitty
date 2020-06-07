@@ -123,11 +123,7 @@ export default {
 
     return [
       'https://stormbound-kitty.com/deck/' + serialisation.deck.serialise(deck),
-      getIgnoredSearch(
-        message.replace(faction.authored, ''),
-        ignored,
-        /\s*,\s*/g
-      ),
+      getIgnoredSearch(message.replace(faction.authored, ''), ignored, 'COMMA'),
     ]
       .filter(Boolean)
       .join('\n')

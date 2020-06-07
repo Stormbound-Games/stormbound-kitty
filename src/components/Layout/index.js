@@ -11,9 +11,10 @@ export default React.memo(function Layout(props) {
   return (
     <div className='Layout'>
       <Only.Desktop>
-        <EyeCatcher id='guides_authors'>
-          Fellow travelers, Stormbound-Kitty is looking for{' '}
-          <Link to='/faq#adding-a-guide'>guides authors</Link>!
+        <EyeCatcher id='mana_curve_guide'>
+          Be sure to read the{' '}
+          <Link to='/guides/mana-curve'>brand new guide</Link> on analysing the
+          mana curve of a deck !
         </EyeCatcher>
       </Only.Desktop>
 

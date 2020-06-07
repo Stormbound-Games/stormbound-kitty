@@ -2,6 +2,7 @@ import React from 'react'
 import Article from '../Article'
 import PageMeta from '../PageMeta'
 import getExcerpt from '../../helpers/getExcerpt'
+import { CATEGORIES } from '../../constants/guides'
 import './index.css'
 
 export default React.memo(function Guide(props) {
@@ -14,7 +15,7 @@ export default React.memo(function Guide(props) {
         title={props.name}
         background={props.background}
         backLink={{
-          to: '/guides',
+          to: '/guides/' + CATEGORIES[props.category].slug,
           children: 'Back to guides',
         }}
       >

@@ -1,6 +1,10 @@
 describe('Routes — Guides', () => {
-  it('it should render the index', () => {
-    cy.visit('/guides').get('h1').should('be.visible')
+  it('it should render the essential guides', () => {
+    cy.visit('/guides/essentials').get('h1').should('be.visible')
+  })
+
+  it('it should render the in-depth guides', () => {
+    cy.visit('/guides/in-depth').get('h1').should('be.visible')
   })
 
   it('it should render the Winter guide', () => {

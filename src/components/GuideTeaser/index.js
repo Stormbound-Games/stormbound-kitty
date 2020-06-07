@@ -16,7 +16,7 @@ export default React.memo(function GuideTeaser(props) {
         </>
       }
       excerpt={props.excerpt}
-      to={props.link}
+      to={'/guides/' + props.slug}
     />
   )
 })

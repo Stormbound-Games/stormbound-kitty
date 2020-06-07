@@ -1476,4 +1476,35 @@ export default [
     answer: 'Spellbinder Zhevana',
     options: CARD_NAMES,
   },
+
+  {
+    question: 'Which unit is not shown in the “Select Campaign” page?',
+    answer: 'Wisp Cloud',
+    options: ['Forgotten Souls', 'Operators', 'Untamed Cultists'],
+  },
+
+  {
+    question: 'Which Dragon does not have wings?',
+    answer: 'Greengale Serpents',
+    options: ['Wandering Wyrms', 'Draconic Roamers', 'Broken Earth Drakes'],
+  },
+
+  {
+    question: 'Which quest rewards 80 coins?',
+    answer: 'Victor',
+    options: ['Student', 'Tournament', 'Heroic Winds'],
+  },
+
+  {
+    question: 'Which faction does *not* have a “sunglasses” emote?',
+    answer: 'Satyr',
+    options: ['Construct', 'Toad', 'Frostling'],
+  },
+
+  {
+    question:
+      'When an Elder attacks Green Prototypes and survives, whose effect will trigger first?',
+    answer: 'Green Prototypes’',
+    options: ['The Elder’s', 'At random', 'None'],
+  },
 ]

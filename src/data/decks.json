@@ -515,7 +515,7 @@
   },
   {
     "name": "Eye Tempest",
-    "id": "5n15n25n234n145w55n185n295n445n485w195w215w23",
+    "id": "5n15n25n235n145w55n185n295n445n485w195w215w23",
     "faction": "winter",
     "author": "Frostkhan",
     "category": "BRAWL",
@@ -1047,5 +1047,19 @@
     "author": "the_mirc",
     "category": "BRAWL",
     "brawl": "SPELL_MANA"
+  },
+  {
+    "name": "Springtime",
+    "id": "3n13n33n673n733w53n183n753w243w133n393n453w19",
+    "faction": "winter",
+    "author": "Helios",
+    "category": "REGULAR"
+  },
+  {
+    "name": "Pathfinder",
+    "id": "5n15f45f15f25f35f255f85f105f115f125f135f17",
+    "faction": "shadowfen",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
   }
 ]

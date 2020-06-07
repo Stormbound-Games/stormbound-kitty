@@ -101,7 +101,7 @@ export default React.memo(function GuideDrawing(props) {
         played twice in one turn (see note below for dogmatic accuracy).
       </p>
 
-      <p style={{ marginBottom: '2em' }}>
+      <p>
         When a card is played, all the other cards from the deck (not from the
         hand) see their weight increase following the initial formula: current
         weight × 1.6 + 1 (rounded down). As an example, a card with a weight of

@@ -11,7 +11,7 @@ export default cards => {
   const hasDragonSynergist = hasAny(dragonSynergists)
 
   // If the deck has cards requiring dragons, but not enough dragons to properly
-  // use combos , it is considered inefficient.
+  // use combos, it is considered inefficient.
   if (!hasDragonSynergist || dragons.length >= 3) return null
 
   const consumerNames = toSentence(
@@ -26,6 +26,6 @@ export default cards => {
     id: 'INEFFICIENT_DRAGON_COMBOS',
     name: 'Inefficient Dragon Combos',
     description: `This deck includes ${consumerNames}, but doesn’t include enough dragons to provide good synergy. Consider including more dragons.`,
-    highlight: [...dragons],
+    highlight: dragons,
   }
 }
