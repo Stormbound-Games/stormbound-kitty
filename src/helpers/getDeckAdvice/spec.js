@@ -149,6 +149,17 @@ const TESTS = [
     label: 'should handle inefficient Fortification Tonic',
   },
   {
+    advice: 'INEFFICIENT_FORTIFICATION_TONIC',
+    deck: '1n41n621n71i31n411n281i201n741i241n451n701n52',
+    label: 'should handle inefficient Fortification Tonic (costly structure)',
+  },
+  {
+    advice: 'INEFFICIENT_FORTIFICATION_TONIC',
+    deck: '1n41n621i51n71i31n411n281i201n741i241n701n52',
+    label: 'should handle inefficient Fortification Tonic (cheap structure)',
+    disabled: true,
+  },
+  {
     advice: 'INEFFICIENT_LUCKY_CHARMERS',
     deck: '1n11n21f41f11n31f91n161n591n221f201n421n56',
     label: 'should handle inefficient Lucky Charmers',
