@@ -164,20 +164,18 @@ const TESTS = [
   {
     advice: 'INEFFICIENT_HEARTHGUARDS',
     deck: '1n11i11i21n671n661n641n651i161i171n341n391n68',
-    label: 'should handle inefficient inefficient Hearthguards',
+    label: 'should handle inefficient Hearthguards',
   },
   {
     advice: 'INEFFICIENT_HEARTHGUARDS',
     deck: '1n11i11i21n671n661n131n641n651i161i171n391n68',
-    label:
-      'should handle inefficient inefficient Hearthguards (cheap structure)',
+    label: 'should handle inefficient Hearthguards (cheap structure)',
     disabled: true,
   },
   {
     advice: 'INEFFICIENT_HEARTHGUARDS',
     deck: '1n11i11i21n671n661n641n651i161i171n341n451n68',
-    label:
-      'should handle inefficient inefficient Hearthguards (several structures)',
+    label: 'should handle inefficient Hearthguards (several structures)',
     disabled: true,
   },
   {
