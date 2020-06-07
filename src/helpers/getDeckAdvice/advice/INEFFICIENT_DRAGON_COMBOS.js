@@ -26,6 +26,6 @@ export default cards => {
     id: 'INEFFICIENT_DRAGON_COMBOS',
     name: 'Inefficient Dragon Combos',
     description: `This deck includes ${consumerNames}, but doesn’t include enough dragons to provide good synergy. Consider including more dragons.`,
-    highlight: [...dragons],
+    highlight: dragons,
   }
 }
