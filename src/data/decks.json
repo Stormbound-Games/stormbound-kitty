@@ -1047,5 +1047,12 @@
     "author": "the_mirc",
     "category": "BRAWL",
     "brawl": "SPELL_MANA"
+  },
+  {
+    "name": "Springtime",
+    "id": "3n13n33n673n733w53n183n753w243w133n393n453w19",
+    "faction": "winter",
+    "author": "Helios",
+    "category": "REGULAR"
   }
 ]
