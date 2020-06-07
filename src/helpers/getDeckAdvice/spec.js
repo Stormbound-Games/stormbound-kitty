@@ -332,34 +332,16 @@ const TESTS = [
 ]
 
 describe('The `getDeckAdvice` helper', () => {
-  TESTS.forEach(adv => {
-    const adviceName = ADVICE[adv.advice]
-    it(adv.label, () => {
-      const cards = getCards(adv.deck)
+  TESTS.forEach(test => {
+    const handler = ADVICE[test.advice]
+    it(test.label, () => {
+      const cards = getCards(test.deck)
 
-      if (adv.disabled) {
-        expect(adviceName(cards, adv.modifier)).to.equal(null)
+      if (test.disabled) {
+        expect(handler(cards, test.modifier)).to.equal(null)
       } else {
-        expect(adviceName(cards, adv.modifier)).to.not.equal(null)
+        expect(handler(cards, test.modifier)).to.not.equal(null)
       }
     })
   })
 })
-
-/*describe('The `getDeckAdvice` helper', () => {
-  TESTS.forEach(([advice, deckId, options = {}]) => {
-    const [adviceName] = advice.split(' ')
-
-    it('should handle ' + advice, () => {
-      const cards = getCards(deckId)
-      const advice = ADVICE[adviceName]
-
-      if (options.disabled) {
-        expect(advice(cards, options.modifier)).to.equal(null)
-      } else {
-        expect(advice(cards, options.modifier)).to.not.equal(null)
-      }
-    })
-  })
-})
-*/
