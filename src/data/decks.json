@@ -1054,5 +1054,12 @@
     "faction": "winter",
     "author": "Helios",
     "category": "REGULAR"
+  },
+  {
+    "name": "Pathfinder",
+    "id": "5n15f45f15f25f35f255f85f105f115f125f135f17",
+    "faction": "shadowfen",
+    "author": "Frostkhan",
+    "category": "DIAMOND_1"
   }
 ]
