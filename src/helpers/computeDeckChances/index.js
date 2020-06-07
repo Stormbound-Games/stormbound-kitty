@@ -122,10 +122,11 @@ export const canSpendAllMana = ({ availableMana, hand }) => {
 export const canPlayAllCards = ({ availableMana, hand }) =>
   getHandCost({ availableMana, hand }) <= availableMana
 
-export const getHandCost = ({ availableMana, hand }) =>
-  hand
-    .map(getEffectiveManaCost(availableMana))
-    .reduce((total, mana) => total + mana, 0)
+export const getHandCost = ({ availableMana, hand }) => {
+  const getManaCost = getEffectiveManaCost(availableMana)
+
+  return hand.map(getManaCost).reduce((total, mana) => total + mana, 0)
+}
 
 const computeDeckChances = (deck, availableMana) => {
   // `hands` are all the combinations of 4 different cards one can have in their
@@ -166,8 +167,7 @@ const computeDeckChances = (deck, availableMana) => {
       // If the hand can play all 4 cards within the available mana, we consider
       // it unnecessary to cycle and return `1` (for 1 hand being able to play
       // all 4 cards).
-      if (getHandCost({ availableMana, hand }) <= availableMana)
-        return total + 1
+      if (canPlayAllCards({ availableMana, hand })) return total + 1
 
       // If the hand cannot play all 4 cards within the available mana, we need
       // to cycle the most expensive card (which is a decent approximation at
