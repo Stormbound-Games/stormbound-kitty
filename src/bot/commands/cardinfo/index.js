@@ -1,4 +1,4 @@
-import getCardsForSearch from '../../../helpers/getCardsForSearch'
+import searchCards from '../../../helpers/searchCards'
 import { TRIVIA_CHANNEL } from '../../../constants/bot'
 
 export default {
@@ -11,7 +11,7 @@ export default {
   isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
   handler: function (message) {
     return (
-      getCardsForSearch(message)
+      searchCards(message)
         .map(card => 'https://stormbound-kitty.com/card/' + card.id)
         .slice(0, 3)
         .join('\n') || undefined

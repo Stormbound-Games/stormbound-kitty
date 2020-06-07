@@ -2,7 +2,7 @@ import { FACTIONS } from '../../../constants/game'
 import { CATEGORIES } from '../../../constants/decks'
 import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
-import getCardsForSearch from '../../../helpers/getCardsForSearch'
+import searchCards from '../../../helpers/searchCards'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'
 
 export const parseMessage = content => {
@@ -25,7 +25,7 @@ export const parseMessage = content => {
 
   // After having gone through all term individually, join the ones that didn’t
   // match anything to perform a card search.
-  const [card] = getCardsForSearch(unmatched.join(' '))
+  const [card] = searchCards(unmatched.join(' '))
 
   // If a card was found with the unmatching terms, store it, otherwise ignore
   // the unmatching terms.

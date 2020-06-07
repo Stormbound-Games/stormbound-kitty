@@ -3,7 +3,7 @@ import { FACTIONS } from '../../../constants/game'
 import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import areAllValuesEqual from '../../../helpers/areAllValuesEqual'
 import arrayRandom from '../../../helpers/arrayRandom'
-import getCardsForSearch from '../../../helpers/getCardsForSearch'
+import searchCards from '../../../helpers/searchCards'
 import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
 import getRandomDeck from '../../../helpers/getRandomDeck'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'
@@ -50,7 +50,7 @@ export const parseMessage = message => {
     // Make sure not to include a card twice. For instance, `herald, herald`
     // should include Pan Heralds and Herald’s Hymn, but not one of them twice.
     // Same goes for other cases, such as `dread, dread`.
-    const card = getCardsForSearch(part).find(
+    const card = searchCards(part).find(
       card => !cards.map(c => c.id).includes(card.id)
     )
     if (card) cards.push(card)

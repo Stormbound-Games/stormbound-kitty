@@ -1,7 +1,7 @@
 import dateFormat from 'dateformat'
 import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import changelog from '../../../data/changelog.json'
-import getCardsForSearch from '../../../helpers/getCardsForSearch'
+import searchCards from '../../../helpers/searchCards'
 
 const groupByDate = (acc, change) => {
   if (typeof acc[change.date] === 'undefined') {
@@ -19,7 +19,7 @@ export default {
   icon: '🛠',
   isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
   handler: function (message) {
-    const [card] = getCardsForSearch(message)
+    const [card] = searchCards(message)
 
     // If no card was found with the given search, look no further.
     if (!card) return

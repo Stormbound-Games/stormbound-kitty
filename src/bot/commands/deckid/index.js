@@ -1,6 +1,6 @@
 import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import serialisation from '../../../helpers/serialisation'
-import getCardsForSearch from '../../../helpers/getCardsForSearch'
+import searchCards from '../../../helpers/searchCards'
 import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
 import clamp from '../../../helpers/clamp'
 
@@ -33,7 +33,7 @@ export default {
       .split(/\s*,\s*/g)
       .map(term => {
         const [level, search] = getLevelOut(term)
-        const [card] = getCardsForSearch(search)
+        const [card] = searchCards(search)
         if (!card) {
           unknown.push(term)
           return null

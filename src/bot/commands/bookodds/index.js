@@ -2,7 +2,7 @@ import { RARITIES, BOOKS, PRE_MADE_EXPECTATIONS } from '../../../constants/game'
 import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import capitalise from '../../../helpers/capitalise'
 import getDrawingProbability from '../../../helpers/getDrawingProbability'
-import getCardsForSearch from '../../../helpers/getCardsForSearch'
+import searchCards from '../../../helpers/searchCards'
 
 const getRarityOdds = book => rarity => {
   const anyKey = 'ANY_' + rarity.toUpperCase()
@@ -37,7 +37,7 @@ const parseMessage = search => {
     } else if (term.toLowerCase() === 'fs' || term.toLowerCase() === 'fusion') {
       params.target = 'FUSION_STONES'
     } else if (!params.target) {
-      const [card] = getCardsForSearch(term)
+      const [card] = searchCards(term)
       params.target = card
     }
   })

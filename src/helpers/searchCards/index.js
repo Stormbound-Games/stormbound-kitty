@@ -1,6 +1,5 @@
 import FuzzySearch from 'fuzzy-search'
 import cards from '../../data/cards'
-import arrayRandom from '../arrayRandom'
 import getRawCardData from '../getRawCardData'
 import getAbbreviations from '../getAbbreviations'
 

@@ -5,7 +5,7 @@ import api from '../../../helpers/api'
 import formatTriviaScores from '../../../helpers/formatTriviaScores'
 import arrayRandom from '../../../helpers/arrayRandom'
 import getRandomQuestion from '../../../helpers/getRandomQuestion'
-import getCardsForSearch from '../../../helpers/getCardsForSearch'
+import searchCards from '../../../helpers/searchCards'
 import getChannelId from '../../../helpers/getChannelId'
 import parseCardGuess from '../../../helpers/parseCardGuess'
 import parseTriviaSettings from '../../../helpers/parseTriviaSettings'
@@ -174,7 +174,7 @@ const trivia = new StateMachine({
           }
         }
 
-        const [card] = getCardsForSearch(message)
+        const [card] = searchCards(message)
 
         if (card) {
           if (card.name === this.answer.name) return this.success(author)
