@@ -1,33 +1,5 @@
 import canCardBePlayed from '../../components/DeckMechanisms/canCardBePlayed'
-
-export const getUniqueHands = deck => {
-  const sequence = [0, 1, 2, 3]
-  const sequences = []
-
-  while (sequence[0] <= 8) {
-    while (sequence[1] <= 9) {
-      while (sequence[2] <= 10) {
-        for (let i = sequence[3]; i <= 11; i++) {
-          sequence[3] = i
-          sequences.push(sequence.slice(0))
-        }
-        sequence[2]++
-        sequence[3] = sequence[2] + 1
-      }
-      sequence[1]++
-      sequence[2] = sequence[1] + 1
-      sequence[3] = sequence[2] + 1
-    }
-    sequence[0]++
-    sequence[1] = sequence[0] + 1
-    sequence[2] = sequence[1] + 1
-    sequence[3] = sequence[2] + 1
-  }
-
-  // Resolve the 4 card indices to the actual card objects so we end up with
-  // every hand being an array of 4 cards.
-  return sequences.map(hand => hand.map(index => deck[index]))
-}
+import getPermutations from '../getPermutations'
 
 export const getEffectiveManaCost = availableMana => card => {
   // If the card is GotW and it can be played, reduced its mana cost by the
@@ -131,7 +103,7 @@ export const getHandCost = ({ availableMana, hand }) => {
 const computeDeckChances = (deck, availableMana) => {
   // `hands` are all the combinations of 4 different cards one can have in their
   // hand based on the 12 cards of their deck.
-  const hands = getUniqueHands(deck)
+  const hands = getPermutations(deck, 4)
 
   // We compute a score between 0 and the amount of hands (495). This ratio
   // represents the chances of spending all the available mana.
