@@ -4,29 +4,9 @@ import {
   getCycledHands,
   getEffectiveManaCost,
   getHandCost,
-  getUniqueHands,
 } from './'
 import serialisation from '../serialisation'
 import getResolvedCardData from '../getResolvedCardData'
-
-describe('The `getUniqueHands` helper', () => {
-  const deck = serialisation.deck.deserialise(
-    '5n15n25w25n35n45n144n185w133w164w153w192n58'
-  )
-
-  it('should return 495 hands', () => {
-    expect(getUniqueHands(deck).length).to.equal(495)
-  })
-
-  it('every hand should be unique', () => {
-    const hands = getUniqueHands(deck).map(hand =>
-      hand.map(card => card.id).join('')
-    )
-    const uniqueHands = [...new Set(hands)]
-
-    expect(hands.length).to.equal(uniqueHands.length)
-  })
-})
 
 describe('The `getEffectiveManaCost` helper', () => {
   it('should handle Gift of the Wise', () => {
