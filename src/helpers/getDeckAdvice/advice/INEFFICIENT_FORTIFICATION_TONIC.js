@@ -1,5 +1,3 @@
-import getRawCardData from '../../getRawCardData/'
-
 const getStructures = cards => cards.filter(c => c.type === 'structure')
 
 export default cards => {
