@@ -7,6 +7,7 @@ import INEFFICIENT_DRAGON_COMBOS from './advice/INEFFICIENT_DRAGON_COMBOS'
 import INEFFICIENT_EARYN from './advice/INEFFICIENT_EARYN'
 import INEFFICIENT_FORTIFICATION_TONIC from './advice/INEFFICIENT_FORTIFICATION_TONIC'
 import INEFFICIENT_FREEZE_COMBOS from './advice/INEFFICIENT_FREEZE_COMBOS'
+import INEFFICIENT_HEARTHGUARDS from './advice/INEFFICIENT_HEARTHGUARDS'
 import INEFFICIENT_KLAXI from './advice/INEFFICIENT_KLAXI'
 import INEFFICIENT_LINKED_GOLEMS from './advice/INEFFICIENT_LINKED_GOLEMS'
 import INEFFICIENT_LUCKY_CHARMERS from './advice/INEFFICIENT_LUCKY_CHARMERS'
@@ -37,6 +38,7 @@ const ADVICE = {
   INEFFICIENT_EARYN,
   INEFFICIENT_FORTIFICATION_TONIC,
   INEFFICIENT_FREEZE_COMBOS,
+  INEFFICIENT_HEARTHGUARDS,
   INEFFICIENT_KLAXI,
   INEFFICIENT_LINKED_GOLEMS,
   INEFFICIENT_LUCKY_CHARMERS,
@@ -157,6 +159,23 @@ const TESTS = [
     advice: 'INEFFICIENT_FORTIFICATION_TONIC',
     deck: '1n41n621i51n71i31n411n281i201n741i241n701n52',
     label: 'should handle inefficient Fortification Tonic (cheap structure)',
+    disabled: true,
+  },
+  {
+    advice: 'INEFFICIENT_HEARTHGUARDS',
+    deck: '1n11i11i21n671n661n641n651i161i171n341n391n68',
+    label: 'should handle inefficient Hearthguards',
+  },
+  {
+    advice: 'INEFFICIENT_HEARTHGUARDS',
+    deck: '1n11i11i21n671n661n131n641n651i161i171n391n68',
+    label: 'should handle inefficient Hearthguards (cheap structure)',
+    disabled: true,
+  },
+  {
+    advice: 'INEFFICIENT_HEARTHGUARDS',
+    deck: '1n11i11i21n671n661n641n651i161i171n341n451n68',
+    label: 'should handle inefficient Hearthguards (several structures)',
     disabled: true,
   },
   {
