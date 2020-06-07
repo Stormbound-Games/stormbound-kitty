@@ -50,12 +50,14 @@ export default React.memo(function DeckStatsChart(props) {
           <LineChart
             data={data}
             margin={{ top: 5, right: 0, left: -23, bottom: 5 }}
+            syncId={props.syncId}
           >
             <XAxis dataKey='mana' />
             <YAxis />
             <Tooltip
               {...TOOLTIP_STYLES}
               labelFormatter={mana => 'Mana ' + mana}
+              formatter={(value, entry, index) => `${value}%`}
             />
             <Legend align='left' wrapperStyle={{ paddingLeft: '40px' }} />
             <Line

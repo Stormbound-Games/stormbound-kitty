@@ -27,7 +27,13 @@ const Graph = props => {
     .map(getResolvedCardData)
   const deck = modifyDeck(cards, props.modifier)
 
-  return <DeckStatsChart deck={deck} modifier={props.modifier} />
+  return (
+    <DeckStatsChart
+      deck={deck}
+      modifier={props.modifier}
+      syncId={props.syncId}
+    />
+  )
 }
 
 export default React.memo(function GuideManaCurve(props) {
@@ -278,6 +284,47 @@ export default React.memo(function GuideManaCurve(props) {
               for the game. That’s why the simulation never cycles Gift of the
               Wise at turn mana 6 if it is in the hand.
             </p>
+          </Column>
+        </Row>
+      </div>
+
+      <hr />
+
+      <p>
+        Both the following graphs are for the{' '}
+        <Link to='/deck/1n31n41n51n111n121n131n161n281n301n321n341n52/detail'>
+          same deck
+        </Link>{' '}
+        (with a{' '}
+        <Link to='/deck/1n31n41n51n111n121n131n161n91n281n301n321n52/detail'>
+          single card change
+        </Link>
+        ).
+      </p>
+      <p>
+        On the first one, we notice a very awkward turn mana 4, with a high
+        chance of wasting mana, which is not ideal that early in the game. This
+        is indicator of having too many cards costing an odd number of mana
+        (namely 3- and 5-drops).{' '}
+      </p>
+      <p>
+        By changing a single 5-drop for a 4-drop, we have greatly smoothened the
+        early mana line making for a less random early game.
+      </p>
+
+      <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+        <Row desktopOnly wideGutter>
+          <Column>
+            <Graph
+              id='1n31n41n51n111n121n131n161n281n301n321n341n52'
+              syncId='comparison'
+            />
+          </Column>
+          <Column>
+            <Graph
+              id='1n31n41n51n111n121n131n161n91n281n301n321n52'
+              syncId='comparison'
+            />
           </Column>
         </Row>
       </div>
