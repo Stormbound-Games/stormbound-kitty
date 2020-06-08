@@ -22,6 +22,7 @@ const trivia = new StateMachine({
     mode: null,
     timers: [],
     useRandomLetters: true,
+    streaks: {},
   },
 
   transitions: [
@@ -41,6 +42,7 @@ const trivia = new StateMachine({
         initiator: this.initiator,
         mode: this.mode,
         state: this.state,
+        streaks: this.streaks,
         questions: questions.length,
         useRandomLetters: this.useRandomLetters,
       })
@@ -196,16 +198,27 @@ const trivia = new StateMachine({
         // `this.answer.name` and not `this.answer.question`, because the former
         // is a string, just like the guess, while the latter might be a number.
         if (guess === this.answer.name) {
+          // Increment the streak here instead of within the `success` method
+          // because we do not want to count streaks for the card trivia.
+          this.streaks[author.id] = (this.streaks[author.id] || 0) + 1
+
           return this.success(author)
         }
+
+        const streak = this.streaks[author.id]
+        const streakMessage =
+          streak > 1
+            ? ` You just ended your streak of ${streak} correct answers in a row, ${author}!`
+            : ''
 
         api
           .setScore(author.id, -1)
           .then(() => console.log('Subtracted 1 point from ' + author.id))
 
+        delete this.streaks[author.id]
         this.stop()
 
-        return `❌ Unfortunately the answer is not *“${guess}”*.`
+        return `❌ Unfortunately the answer is not *“${guess}”*.${streakMessage}`
       }
     },
 
