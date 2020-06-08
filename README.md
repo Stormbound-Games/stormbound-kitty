@@ -10,5 +10,5 @@ Source code for [Stormbound Kitty](https://stormbound-kitty.com/).
 
 ```
 npm install
-npm start
+npm start # `npm run start:window` for Windows
 ```
