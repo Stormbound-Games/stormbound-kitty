@@ -5,11 +5,17 @@ import Title from '../Title'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import './index.css'
 
+const getEffectiveSpeed = card =>
+  // Dreadfauns has an average speed of about 0.5. Out of the 16 slots it
+  // can be played, 2 of them always move the line (corners), 8 of them have
+  // 2 chances out of 3 to move the line (edges), and the 6 remaining ones
+  // have 1 chance out of 2 to move the line (middle).
+  card.id === 'S16' ? 0.625 : card.movement || 0
 const sum = (a, b) => a + b
 const getAverageManaCost = cards =>
   (cards.map(c => c.mana).reduce(sum, 0) / cards.length).toFixed(2)
 const getAverageSpeed = cards =>
-  (cards.map(c => c.movement | 0).reduce(sum, 0) / cards.length).toFixed(2)
+  (cards.map(getEffectiveSpeed).reduce(sum, 0) / cards.length).toFixed(2)
 const getAverageLevel = cards =>
   (cards.map(c => c.level).reduce(sum, 0) / cards.length).toFixed(2)
 const getPlayableCardsFirst = cards =>
@@ -44,8 +50,12 @@ export default function DeckStats(props) {
   const races = getRaces(cards)
   const playableCards1 = getPlayableCardsFirst(cards)
   const playableCards2 = getPlayableCardsSecond(cards)
-  const movingCards1 = playableCards1.filter(c => c.movement > 0)
-  const movingCards2 = playableCards2.filter(c => c.movement > 0)
+  const movingCards1 = playableCards1.filter(
+    card => getEffectiveSpeed(card) > 0
+  )
+  const movingCards2 = playableCards2.filter(
+    card => getEffectiveSpeed(card) > 0
+  )
 
   return (
     <div className='DeckStats'>
