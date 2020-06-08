@@ -1,6 +1,6 @@
 const getStaticCards = cards =>
   cards.filter(
-    card => (card.movement | 0) < 1 && !['N66', 'N67', 'N68'].includes(card.id)
+    card => (card.movement || 0) < 1 && !['N66', 'N67', 'N68'].includes(card.id)
   )
 
 export default cards => {

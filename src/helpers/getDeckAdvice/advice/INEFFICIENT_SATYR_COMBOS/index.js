@@ -1,15 +1,15 @@
-import toSentence from '../../toSentence/'
-import getRawCardData from '../../getRawCardData/'
+import toSentence from '../../../toSentence'
+import getRawCardData from '../../../getRawCardData'
 
 const getSatyrs = cards =>
   cards.filter(card => card.race === 'satyr' || card.id === 'S24')
+export const SATYR_CONSUMERS = ['S5', 'S7', 'S9']
 
 export default cards => {
-  const satyrConsumers = ['S5', 'S7', 'S9']
   const hasCard = id => cards.map(card => card.id).includes(id)
   const hasAny = ids => ids.some(hasCard)
   const satyrs = getSatyrs(cards)
-  const hasSatyrConsumer = hasAny(satyrConsumers)
+  const hasSatyrConsumer = hasAny(SATYR_CONSUMERS)
 
   // If the deck has cards requiring satyrs, but not enough satyrs to properly
   // use combos (including Head Start, which spawns a satyr), it is considered
@@ -17,8 +17,7 @@ export default cards => {
   if (!hasSatyrConsumer || satyrs.length > 4) return null
 
   const consumerNames = toSentence(
-    satyrConsumers
-      .filter(hasCard)
+    SATYR_CONSUMERS.filter(hasCard)
       .map(getRawCardData)
       .map(card => card.name),
     'and'
