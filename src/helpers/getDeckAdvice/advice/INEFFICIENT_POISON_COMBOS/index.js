@@ -5,7 +5,7 @@ const hasAny = (cards, ids) =>
   ids.some(id => cards.map(card => card.id).includes(id))
 
 export const POISON_PROVIDERS = ['F2', 'F4', 'F5', 'F13']
-export const POISON_CONSUMERS = ['F11', 'F15']
+export const POISON_CONSUMERS = ['F1', 'F11', 'F15']
 
 export default cards => {
   const hasPoisonProvider = hasAny(cards, POISON_PROVIDERS)
