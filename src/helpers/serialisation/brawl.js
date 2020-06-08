@@ -14,7 +14,7 @@ const serialiseMatch = match =>
 
 const deserialiseMatch = string => {
   const [, health, faction, status] = string.match(
-    /^(\d{1,2})([IFSWN])([WFL])$/
+    /^(\d{1,2})([IFSWN])([WFLS])$/
   )
 
   return {

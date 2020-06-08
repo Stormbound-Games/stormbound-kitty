@@ -67,7 +67,7 @@ export default React.memo(function BrawlMatches(props) {
 
           {[...brawl.matches].reverse().map((match, index) => {
             const currMilestone = getMilestone(crowns)
-            crowns -= match.status === 'LOST' ? 1 : 5
+            crowns -= ['LOST', 'SURRENDERED'].includes(match.status) ? 1 : 5
             const nextMilestone = getMilestone(crowns)
             const reversedIndex = brawl.matches.length - index - 1
 
@@ -110,11 +110,20 @@ export default React.memo(function BrawlMatches(props) {
                     `BrawlMatches__status--${match.status}`,
                   ].join(' ')}
                 >
-                  {match.status === 'WON'
-                    ? 'Won'
-                    : match.status === 'LOST'
-                    ? 'Lost'
-                    : 'Won by forfeit'}
+                  {(() => {
+                    switch (match.status) {
+                      case 'WON':
+                        return 'Won'
+                      case 'LOST':
+                        return 'Lost'
+                      case 'FORFEIT':
+                        return 'Won by forfeit'
+                      case 'SURRENDERED':
+                        return 'Lost by forfeit'
+                      default:
+                        return 'Unknown'
+                    }
+                  })()}
                 </td>
               </tr>
             )

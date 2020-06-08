@@ -43,7 +43,7 @@ const getWeighedScore = baseHealth => match => {
       // loss and if under-leveling the opponent by +4+, uprank a victory and
       // downrank a loss
       return (baseHealth > opponentHealth && match.status === 'WON') ||
-        (baseHealth < opponentHealth && match.status === 'LOSS')
+        (baseHealth < opponentHealth && match.status === 'LOST')
         ? 0.5
         : 1.5
   }

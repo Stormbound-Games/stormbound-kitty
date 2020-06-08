@@ -114,6 +114,7 @@ export const MATCH_STATUSES = {
   WON: 'W',
   FORFEIT: 'F',
   LOST: 'L',
+  SURRENDERED: 'S',
 }
 
 export const COIN_MULTIPLIERS = {

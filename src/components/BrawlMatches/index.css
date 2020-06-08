@@ -106,8 +106,12 @@
 /**
  * 1. Color-code the match outcome green/red for quick read.
  */
-.BrawlMatches__status--LOST {
+.BrawlMatches__status--SURRENDERED {
   color: var(--light-ironclad); /* 1 */
+}
+
+.BrawlMatches__status--LOST {
+  color: var(--ironclad); /* 1 */
 }
 
 @media (max-width: 699px) {

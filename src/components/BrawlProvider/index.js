@@ -80,7 +80,8 @@ export default function BrawlProvider(props) {
     }))
 
   const crowns = brawl.matches.reduce(
-    (crowns, match) => crowns + (match.status === 'LOST' ? 1 : 5),
+    (crowns, match) =>
+      crowns + (['LOST', 'SURRENDERED'].includes(match.status) ? 1 : 5),
     0
   )
 
@@ -105,7 +106,7 @@ export default function BrawlProvider(props) {
     return brawl.matches.reduce((acc, match) => {
       const gameCost = MILESTONES[currentMilestone].cost
       acc += gameCost
-      crowns += match.status === 'LOST' ? 1 : 5
+      crowns += ['LOST', 'SURRENDERED'].includes(match.status) ? 1 : 5
       currentMilestone = MILESTONES.findIndex(
         milestone => milestone.crowns > crowns
       )

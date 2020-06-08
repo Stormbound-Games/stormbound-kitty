@@ -51,7 +51,7 @@ export default React.memo(function BrawlMatchForm(props) {
             id='opponent-health'
             data-testid='opponent-health'
             placeholder='e.g. 18'
-            defaultValue={props.opponentHealth}
+            defaultValue={props.opponentHealth || ''}
           />
         </td>
         <td>
@@ -80,6 +80,7 @@ export default React.memo(function BrawlMatchForm(props) {
             <option value=''>Set game outcome</option>
             <option value='WON'>Won</option>
             <option value='FORFEIT'>Won by forfeit</option>
+            <option value='SURRENDERED'>Forfeited</option>
             <option value='LOST'>Lost</option>
           </select>
         </td>
