@@ -36,58 +36,9 @@ const getPossibleManaSpent = availableMana => cards => {
   ]
 }
 
-const getCardToCycle = ({ availableMana, hand }) => {
-  const handIds = hand.map(card => card.id)
-  const getManaCost = getEffectiveManaCost(availableMana)
-  const isFirstTurn = availableMana === 3
-  const hasUnit = hand.find(
-    card =>
-      (card.type === 'unit' && card.mana <= 3) ||
-      ['N2', 'S24', 'F8'].includes(card.id)
-  )
-  const state = {
-    mana: availableMana,
-    specifics: {
-      noUnitsOnFirstTurn: isFirstTurn && !hasUnit,
-      emptyCellsIndicator: true,
-    },
-    turn: availableMana - 2,
-  }
-
-  const cycledCard = hand.reduce((a, b) => {
-    const canABePlayed = canCardBePlayed(state, a)
-    const canBBePlayed = canCardBePlayed(state, b)
-
-    if (!canABePlayed && canBBePlayed) return b
-    if (canABePlayed && !canBBePlayed) return a
-
-    const costA = getManaCost(a)
-    const costB = getManaCost(b)
-
-    if (a.id === 'W19' && availableMana === a.mana - 1 && costA > costB)
-      return b
-    if (b.id === 'W19' && availableMana === b.mana - 1 && costB > costA)
-      return a
-
-    return costA > costB ? a : b
-  })
-
-  const hasIcicleBurst = handIds.includes('W1')
-  const hasFreeze = ['W2', 'W6', 'W11'].some(id => handIds.includes(id))
-
-  // If the hand contains Icicle Burst but does not contain a freeze provider,
-  // consider cycling Icicle Burst since it cannot be played anyway.
-  if (hasIcicleBurst && !hasFreeze) {
-    return hand.reduce((a, b) => (b.id === 'W1' ? b : a))
-  }
-
-  return cycledCard
-}
-
-export const getCycledHands = ({ availableMana, deck, hand }) => {
+export const getCycledHands = ({ deck, hand, cycledCard }) => {
   const handIds = hand.map(card => card.id)
   const deckCards = deck.filter(card => !handIds.includes(card.id))
-  const cycledCard = getCardToCycle({ availableMana, hand })
 
   return deckCards.map(replacement =>
     hand.map(card => (cycledCard.id === card.id ? replacement : card))
@@ -112,6 +63,61 @@ export const getHandCost = ({ availableMana, hand }) => {
   return hand.map(getManaCost).reduce((total, mana) => total + mana, 0)
 }
 
+const canUseAllMana = ({ availableMana, hand, deckCards, cycled }) => {
+  const handIds = hand.map(card => card.id)
+
+  // If there is no more available mana, or the hand can spend all the available
+  // mana, or the hand contains a playable Lady Rime, consider the hand to be
+  // able to spend all mana.
+  if (
+    availableMana === 0 ||
+    canSpendAllMana({ availableMana, hand }) ||
+    (availableMana >= 6 && handIds.includes('W10'))
+  ) {
+    return 1
+  }
+
+  // If the hand hasn’t cycled yet, try cycling every card of the hand
+  // individually to get the best outcome.
+  if (!cycled) {
+    return hand
+      .map(card => getCycledHands({ deck: deckCards, hand, cycledCard: card }))
+      .reduce((best, hands) => {
+        const chance = hands.reduce((total, cycledHand) => {
+          const options = {
+            availableMana,
+            hand: cycledHand,
+            deckCards: deckCards.filter(card => !cycledHand.includes(card)),
+            cycled: true,
+          }
+
+          return total + canUseAllMana(options) / hands.length
+        }, 0)
+
+        return Math.max(chance, best)
+      }, 0)
+  }
+
+  if (handIds.includes('N14')) {
+    const chance = deckCards.reduce((total, deckCard) => {
+      const newHand = hand.map(card => (card.id === 'N14' ? deckCard : card))
+      const newMana = availableMana - 3
+      const options = {
+        availableMana: newMana,
+        hand: newHand,
+        deckCards: deckCards.filter(card => !newHand.includes(card)),
+        cycled,
+      }
+
+      return total + canUseAllMana(options) / deckCards.length
+    }, 0)
+
+    return chance >= 0.66 ? chance : 0
+  }
+
+  return 0
+}
+
 const computeDeckChances = (deck, availableMana) => {
   // `hands` are all the combinations of 4 different cards one can have in their
   // hand based on the 12 cards of their deck.
@@ -123,23 +129,10 @@ const computeDeckChances = (deck, availableMana) => {
     // For each hand, we return a float that describes how likely it is to spend
     // all the available mana, cycling possibilities included.
     .reduce((total, hand) => {
-      // If the hand can spend all of the available mana, we consider it
-      // unnecessary to cycle and return `1` (for 1 hand being able to spend all
-      // mana).
-      if (canSpendAllMana({ availableMana, hand })) return total + 1
-
-      // If the hand cannot spend all of the available mana, we need to cycle
-      // the most expensive card (which is a decent approximation at this stage)
-      // which gives 8 news hands.
-      const cycledHands = getCycledHands({ deck, hand, availableMana })
-      const handsSpendingAllMana = cycledHands.filter(hand =>
-        canSpendAllMana({ availableMana, hand })
+      return (
+        total +
+        canUseAllMana({ availableMana, hand, deckCards: deck, cycled: false })
       )
-
-      // We check how many of these hands can spend all of the available mana
-      // and return a number between 0 and 1 (0 means no hand could, 1 means
-      // they all could).
-      return total + handsSpendingAllMana.length / 8
     }, 0)
 
   // We compute a score between 0 and the amount of hands (495). This ratio
@@ -154,17 +147,24 @@ const computeDeckChances = (deck, availableMana) => {
       if (canPlayAllCards({ availableMana, hand })) return total + 1
 
       // If the hand cannot play all 4 cards within the available mana, we need
-      // to cycle the most expensive card (which is a decent approximation at
-      // this stage) which gives 8 news hands.
-      const cycledHands = getCycledHands({ deck, hand, availableMana })
-      const handsPlayingAllCards = cycledHands.filter(hand =>
-        canPlayAllCards({ availableMana, hand })
-      )
+      // to cycle. We try cycling all 4 cards individually and keep the best
+      // option.
+      const cycledHands = hand.map(card => {
+        const deckCards = deck.filter(card => !hand.includes(card))
 
-      // We check how many of these hands can play all 4 cards within the
-      // available mana and return a number between 0 and 1 (0 means no hand
-      // could, 1 means they all could).
-      return total + handsPlayingAllCards.length / 8
+        return getCycledHands({ deck: deckCards, hand, cycledCard: card })
+      })
+
+      return (
+        total +
+        cycledHands.reduce((best, hands) => {
+          const handsPlayingAllCards = hands.filter(hand =>
+            canPlayAllCards({ availableMana, hand })
+          )
+
+          return Math.max(handsPlayingAllCards.length / hands.length, best)
+        }, 0)
+      )
     }, 0)
 
   return {
