@@ -15,20 +15,16 @@ const sortCollection = (a, b) =>
 export default React.memo(function CardDisplayControls(props) {
   const match = useRouteMatch()
   const { cardId } = match.params
-  const { collection, hasDefaultCollection } = React.useContext(
-    CollectionContext
-  )
-  const cardInCollection = collection.find(card => card.id === cardId)
+  const { collection } = React.useContext(CollectionContext)
   const orderedCollection = React.useMemo(
     () => collection.sort(sortCollection),
     [collection]
   )
 
-  if (hasDefaultCollection || !cardInCollection) return null
-
   const indexInCollection = orderedCollection.findIndex(
     card => card.id === cardId
   )
+  const cardInCollection = orderedCollection[indexInCollection]
   const nextCard = orderedCollection[indexInCollection + 1]
   const previousCard = orderedCollection[indexInCollection - 1]
 
@@ -44,7 +40,9 @@ export default React.memo(function CardDisplayControls(props) {
         </Column>
         <Column width='1/5' />
         <Column width='1/5'>
-          <CardProgress card={cardInCollection} />
+          <Only.CustomCollection>
+            <CardProgress card={cardInCollection} />
+          </Only.CustomCollection>
         </Column>
         <Column width='1/5' />
         <Column width='1/5' align='center'>
