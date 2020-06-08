@@ -24,7 +24,6 @@ export default function DeckAdvice(props) {
                 : undefined
             }
             onMouseOut={() => props.highlight([])}
-            id={suggestion.id}
           >
             <strong className='Highlight'>{suggestion.name}:</strong>{' '}
             {suggestion.description}

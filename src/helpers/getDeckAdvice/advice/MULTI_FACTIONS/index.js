@@ -9,7 +9,6 @@ export default cards => {
   if (factions.length <= 1) return null
 
   return {
-    id: 'MULTI_FACTIONS',
     name: 'Multi-factions',
     description: `This deck counts ${factions.length} factions, which is not technically permitted in Stormbound. This deck cannot be played in game.`,
   }
