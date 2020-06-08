@@ -1,4 +1,5 @@
-import canCardBePlayed from '../../components/DeckMechanisms/canCardBePlayed'
+import canCardBePlayed from '../canCardBePlayed'
+import canDeployUnits from '../canDeployUnits'
 import getCombinations from '../getCombinations'
 
 export const getEffectiveManaCost = availableMana => card => {
@@ -40,23 +41,18 @@ const getCardToCycle = ({ availableMana, hand }) => {
   const handIds = hand.map(card => card.id)
   const getManaCost = getEffectiveManaCost(availableMana)
   const isFirstTurn = availableMana === 3
-  const hasUnit = hand.find(
-    card =>
-      (card.type === 'unit' && card.mana <= 3) ||
-      ['N2', 'S24', 'F8'].includes(card.id)
-  )
+  const hasUnit = canDeployUnits(availableMana, hand)
+  const hasFreeze = ['W2', 'W6', 'W11'].some(id => handIds.includes(id))
   const state = {
-    mana: availableMana,
-    specifics: {
-      noUnitsOnFirstTurn: isFirstTurn && !hasUnit,
-      emptyCellsIndicator: true,
-    },
     turn: availableMana - 2,
+    noUnits: isFirstTurn && !hasUnit,
+    frozenEnemies: hasFreeze,
+    emptyCells: true,
   }
 
   const cycledCard = hand.reduce((a, b) => {
-    const canABePlayed = canCardBePlayed(state, a)
-    const canBBePlayed = canCardBePlayed(state, b)
+    const canABePlayed = canCardBePlayed(availableMana, a, state)
+    const canBBePlayed = canCardBePlayed(availableMana, b, state)
 
     if (!canABePlayed && canBBePlayed) return b
     if (canABePlayed && !canBBePlayed) return a
@@ -71,15 +67,6 @@ const getCardToCycle = ({ availableMana, hand }) => {
 
     return costA > costB ? a : b
   })
-
-  const hasIcicleBurst = handIds.includes('W1')
-  const hasFreeze = ['W2', 'W6', 'W11'].some(id => handIds.includes(id))
-
-  // If the hand contains Icicle Burst but does not contain a freeze provider,
-  // consider cycling Icicle Burst since it cannot be played anyway.
-  if (hasIcicleBurst && !hasFreeze) {
-    return hand.reduce((a, b) => (b.id === 'W1' ? b : a))
-  }
 
   return cycledCard
 }

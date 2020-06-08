@@ -3,6 +3,8 @@ import Column from '../Column'
 import Row from '../Row'
 import Title from '../Title'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
+import canCardBePlayed from '../../helpers/canCardBePlayed'
+import canDeployUnits from '../../helpers/canDeployUnits'
 import './index.css'
 
 const getEffectiveSpeed = card =>
@@ -18,24 +20,16 @@ const getAverageSpeed = cards =>
   (cards.map(getEffectiveSpeed).reduce(sum, 0) / cards.length).toFixed(2)
 const getAverageLevel = cards =>
   (cards.map(c => c.level).reduce(sum, 0) / cards.length).toFixed(2)
-const getPlayableCardsFirst = cards =>
-  cards.filter(
-    c =>
-      c.mana <= 3 &&
-      !['W1', 'I3', 'F4', 'N9', 'N15', 'N63', 'S10'].includes(c.id)
-  )
-const getPlayableCardsSecond = cards => {
-  const oneDrops = cards.filter(card => card.mana <= 1)
 
-  return cards.filter(card => {
-    if (card.mana > 4) return false
-    // Boosting Elixir cannot be played without units.
-    if (['I11'].includes(card.id)) return false
-    // Potion of Growth cannot be played without units.
-    if (card.id === 'N15' && oneDrops.length === 0) return false
-    return true
-  })
-}
+const getPlayableCards = (mana, cards) =>
+  cards.filter(card =>
+    canCardBePlayed(mana, card, {
+      turn: 1,
+      emptyCells: true,
+      frozenEnemies: false,
+      noUnits: !canDeployUnits(mana - card.mana, cards),
+    })
+  )
 
 const getRaces = cards => [...new Set(cards.map(c => c.race))]
 
@@ -48,8 +42,8 @@ export default function DeckStats(props) {
   const structures = cards.filter(c => c.type === 'structure')
   const spells = cards.filter(c => c.type === 'spell')
   const races = getRaces(cards)
-  const playableCards1 = getPlayableCardsFirst(cards)
-  const playableCards2 = getPlayableCardsSecond(cards)
+  const playableCards1 = getPlayableCards(3, cards)
+  const playableCards2 = getPlayableCards(4, cards)
   const movingCards1 = playableCards1.filter(
     card => getEffectiveSpeed(card) > 0
   )
