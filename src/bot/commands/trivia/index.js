@@ -122,7 +122,10 @@ const trivia = new StateMachine({
     onStop: function () {
       // Freeze the game for 5 seconds after a round has been completed to avoid
       // chaining them too fast and making the whole thing a little too hectic.
-      setTimeout(() => this.unfreeze(), 5000)
+      setTimeout(
+        () => this.unfreeze(),
+        process.env.NODE_ENV === 'development' ? 0 : 5000
+      )
 
       this.answer = null
       this.duration = 60
