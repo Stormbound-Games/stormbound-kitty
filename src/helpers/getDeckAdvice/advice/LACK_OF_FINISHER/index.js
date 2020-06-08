@@ -1,4 +1,4 @@
-const STABLE_FINISHERS = [
+export const STABLE_FINISHERS = [
   /* RUNNERS */
   /* Warfront Runners */ 'N28',
   /* Bluesail Raiders */ 'N30',
@@ -36,12 +36,12 @@ const STABLE_FINISHERS = [
   /* Herald’s Hymn */ 'S20',
 ]
 
-const LOW_LEVEL_FINISHERS = [
+export const LOW_LEVEL_FINISHERS = [
   /* Windmakers */ 'I20',
   /* Draconic Roamers */ 'S12',
 ]
 
-const HIGH_LEVEL_FINISHERS = [
+export const HIGH_LEVEL_FINISHERS = [
   /* First Mutineer */ 'N12',
   /* Rapid Mousers */ 'N71',
   /* Limelimbs */ 'F25',
@@ -50,7 +50,7 @@ const HIGH_LEVEL_FINISHERS = [
   /* Wild Saberpaws */ 'N67',
 ]
 
-const DEBATABLE_FINISHERS = [
+export const DEBATABLE_FINISHERS = [
   /* Powder Tower */ 'N45',
   /* Hair-Raising Cats */ 'N61',
   /* Mischiefs */ 'S13',

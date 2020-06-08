@@ -1,4 +1,4 @@
-import computeDeckChances from '../../computeDeckChances'
+import computeDeckChances from '../../../computeDeckChances'
 
 const getManaCurveIntersection = deck => {
   // 8 is a decent starting point to avoid unnecessary computations before that.
