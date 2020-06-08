@@ -72,13 +72,12 @@ const getCardToCycle = ({ availableMana, hand }) => {
     return costA > costB ? a : b
   })
 
-  const hasIcicleBurst = handIds.includes('W1')
-  const hasFreeze = ['W2', 'W6', 'W11'].some(id => handIds.includes(id))
-
-  // If the hand contains Icicle Burst but does not contain a freeze provider,
-  // consider cycling Icicle Burst since it cannot be played anyway.
-  if (hasIcicleBurst && !hasFreeze) {
-    return hand.reduce((a, b) => (b.id === 'W1' ? b : a))
+  // If the hand does not contain freeze cards (Frosthexers, Moment’s and
+  // Midwinter Chaos) but contains Icicle Burst or Zhevana, consider cycling
+  // these are they are unplayable or suboptimal.
+  if (!['W2', 'W6', 'W11'].some(id => handIds.includes(id))) {
+    if (handIds.includes('W1')) return hand.find(c => c.id === 'W1')
+    if (handIds.includes('W8')) return hand.find(c => c.id === 'W8')
   }
 
   return cycledCard
