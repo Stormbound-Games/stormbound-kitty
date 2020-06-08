@@ -37,6 +37,7 @@ const getPossibleManaSpent = availableMana => cards => {
 }
 
 const getCardToCycle = ({ availableMana, hand }) => {
+  const handIds = hand.map(card => card.id)
   const getManaCost = getEffectiveManaCost(availableMana)
   const isFirstTurn = availableMana === 3
   const hasUnit = hand.find(
@@ -53,7 +54,7 @@ const getCardToCycle = ({ availableMana, hand }) => {
     turn: availableMana - 2,
   }
 
-  return hand.reduce((a, b) => {
+  const cycledCard = hand.reduce((a, b) => {
     const canABePlayed = canCardBePlayed(state, a)
     const canBBePlayed = canCardBePlayed(state, b)
 
@@ -70,6 +71,17 @@ const getCardToCycle = ({ availableMana, hand }) => {
 
     return costA > costB ? a : b
   })
+
+  const hasIcicleBurst = handIds.includes('W1')
+  const hasFreeze = ['W2', 'W6', 'W11'].some(id => handIds.includes(id))
+
+  // If the hand contains Icicle Burst but does not contain a freeze provider,
+  // consider cycling Icicle Burst since it cannot be played anyway.
+  if (hasIcicleBurst && !hasFreeze) {
+    return hand.reduce((a, b) => (b.id === 'W1' ? b : a))
+  }
+
+  return cycledCard
 }
 
 export const getCycledHands = ({ availableMana, deck, hand }) => {
