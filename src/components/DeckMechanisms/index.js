@@ -2,9 +2,9 @@ import React from 'react'
 import clone from 'lodash.clonedeep'
 import { DEFAULT_MANA } from '../../constants/battle'
 import isCard from '../../helpers/isCard'
+import canCardBePlayed from '../../helpers/canCardBePlayed'
 import getOpponentDeck from '../../helpers/getOpponentDeck'
 import resolveDeckWeight from '../../helpers/resolveDeckWeight'
-import canCardBePlayed from './canCardBePlayed'
 import draw from './draw'
 import endTurn from './endTurn'
 import play, { DEFAULT_PLAY_OPTIONS } from './play'
@@ -118,7 +118,16 @@ export default class DeckMechanisms extends React.Component {
   endTurn = () =>
     this.setState(state => endTurn(clone(state)), this.completeHand)
 
-  canCardBePlayed = card => canCardBePlayed(this.state, card)
+  canCardBePlayed = card => {
+    const cardData = this.state.deck.find(isCard(card))
+
+    return canCardBePlayed(this.state.mana, cardData, {
+      turn: this.state.turn,
+      noUnits: Boolean(this.state.specifics.noUnitsOnFirstTurn),
+      frozenEnemies: Boolean(this.state.specifics.frozenEnemiesLevel),
+      emptyCells: Boolean(this.state.specifics.emptyCellsIndicator),
+    })
+  }
 
   reset = () =>
     this.setState(
