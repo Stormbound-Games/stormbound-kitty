@@ -21,7 +21,10 @@ const computeData = deck => {
 
   // This avoids an edge case where no cards are playable on the first turn
   // (yielding 0% on both lines, and therefore never entering the loop).
-  while (mana === 3 || (odds.usingAllMana > 0 && odds.playingAllCards < 100)) {
+  while (
+    (odds.usingAllMana === 0 && odds.playingAllCards === 0) ||
+    (odds.usingAllMana > 0 && odds.playingAllCards < 100)
+  ) {
     data.push({
       mana,
       usingAllMana: +odds.usingAllMana.toFixed(2),
