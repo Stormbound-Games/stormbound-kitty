@@ -4,6 +4,7 @@ import Column from '../Column'
 import FAQSection from '../FAQSection'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import StructuredData from '../StructuredData'
 import Title from '../Title'
 import TogglableContent from '../TogglableContent'
 import categories from '../../data/faq'
@@ -83,6 +84,7 @@ export default React.memo(function FAQ() {
         </Column>
       </Row>
 
+      <StructuredData type='FAQ' />
       <PageMeta
         title='Frequently Asked questions'
         description='Find answers to the frequently asked questions about Stormbound and Stormbound-Kitty'
