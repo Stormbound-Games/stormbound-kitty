@@ -6,17 +6,12 @@ export default cards => {
   const hasAzureHatchers = cardIds.includes('F10')
   const hasKindredsGrace = cardIds.includes('N40')
   const { faction } = cards.find(card => card.faction !== 'neutral') || {}
-  let deckRaces = {}
-  cards.forEach(card => {
-    if (card.race === null) {
-      return
+  const deckRaces = cards.reduce((raceObj, card) => {
+    if (card.race) {
+      raceObj[card.race] = (raceObj[card.race] || 0) + 1
     }
-    if (!deckRaces[card.race]) {
-      deckRaces[card.race] = 1
-    } else {
-      deckRaces[card.race] += 1
-    }
-  })
+    return raceObj
+  }, {})
   const maxRaceNum = Object.values(deckRaces).reduce(
     (a, b) => Math.max(a, b),
     0
