@@ -12,7 +12,7 @@ export default cards => {
     faction === 'winter' && (hasFrozenCore || hasGiftOfTheWise)
   const averageManaCost = getAverageManaCost(cards)
   const winterMessage =
-    faction === 'winter' ? `, or including Gift of the Wise or Frozen Core` : ''
+    faction === 'winter' ? `, Gift of the Wise or Frozen Core` : ''
 
   // For Northsea Dog to be considered efficient, it requires a low mana average
   // or to include First Mutineer, Gift of the Wise or Frozen Core.
@@ -28,7 +28,7 @@ export default cards => {
     name: 'Inefficient Northsea Dog',
     description: `This deck includes Northsea Dog but has an average mana cost of ${averageManaCost.toFixed(
       2
-    )}, which might be a bit high. Consider using a few more cheap cards${winterMessage}.`,
+    )}, which might be a bit high. Consider using a few more cheap cards, or including First Mutineers${winterMessage}.`,
     highlight: ['N5'],
   }
 }
