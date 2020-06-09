@@ -46,7 +46,7 @@
   max-width: 100%;
 }
 
-.Guide .Deck {
+.Guide .Article__content > .Deck {
   max-width: 80%;
   margin: 2em auto;
 }
