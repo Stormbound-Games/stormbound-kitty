@@ -13,7 +13,7 @@ export default (cards, modifier) => {
   // Decks which contain many spells can suffer from lack of units and movement
   // (except in spell Brawl). Some spells are excluded from the count as they
   // spawn units (Summon Militia, Head Start and Rain of Frogs). Gift of the
-  // Wise is also excluded because it is essentially a free card. If Archdruit
+  // Wise is also excluded because it is essentially a free card. If Archdruid
   // Earyn is present in the deck, more spells are acceptable.
   if (
     spells.length <= threshold ||
