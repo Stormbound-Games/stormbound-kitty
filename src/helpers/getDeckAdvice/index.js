@@ -13,6 +13,7 @@ import LUCKY_CHARMERS from './advice/LUCKY_CHARMERS'
 import MANA_COST_AVERAGE from './advice/MANA_COST_AVERAGE'
 import MANA_COST_BALANCE from './advice/MANA_COST_BALANCE'
 import MANA_CURVE from './advice/MANA_CURVE'
+import NORTHSEA_DOG from './advice/NORTHSEA_DOG'
 import SPELLS from './advice/SPELLS'
 import MULTI_FACTIONS from './advice/MULTI_FACTIONS'
 import OBSIDIAN_BUTCHERS from './advice/OBSIDIAN_BUTCHERS'
@@ -39,6 +40,7 @@ const ADVICE = [
   MANA_COST_AVERAGE,
   MANA_COST_BALANCE,
   MANA_CURVE,
+  NORTHSEA_DOG,
   SPELLS,
   MULTI_FACTIONS,
   OBSIDIAN_BUTCHERS,
