@@ -107,11 +107,11 @@
     "category": "ESSENTIALS"
   },
   {
-    "id": "COMMON_DIAMOND_GUIDE",
-    "name": "Diamond 1 with Commons",
+    "id": "D1_SF_COMMONS_GUIDE",
+    "name": "D1 with SF Commons",
     "author": "Kitty",
     "excerpt": "In this in-depth guide, Kitty goes into a Shadowfen deck that performs in Diamond 1 despite being essentially using common cards.",
-    "slug": "diamond-sf-common",
+    "slug": "d1-with-sf-commons",
     "faction": "neutral",
     "cardId": "F3",
     "background": "/assets/images/environment_shadowfen.png",

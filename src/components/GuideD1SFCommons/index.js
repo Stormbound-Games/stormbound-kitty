@@ -15,7 +15,7 @@ import getResolvedCardData from '../../helpers/getResolvedCardData'
 import serialisation from '../../helpers/serialisation'
 import './index.css'
 
-const guide = guides.find(g => g.id === 'COMMON_DIAMOND_GUIDE')
+const guide = guides.find(g => g.id === 'D1_SF_COMMONS_GUIDE')
 
 const DECK_ID = '5n15n25f45f35n35n95n125n165n285f145n305n52'
 
@@ -31,7 +31,19 @@ const Graph = props => {
   )
 }
 
-export default React.memo(function GuideBeginner(props) {
+export default React.memo(function GuideD1SFCommons(props) {
+  const [cardLevel, setCardLevel] = React.useState(5)
+  const cards = {
+    N12: getResolvedCardData({ id: 'N12', level: cardLevel }),
+    N28: getResolvedCardData({ id: 'N28', level: cardLevel }),
+    N30: getResolvedCardData({ id: 'N30', level: cardLevel }),
+    N52: getResolvedCardData({ id: 'N52', level: cardLevel }),
+  }
+  const combine = (a, b) =>
+    `${cards[a].mana + (b ? cards[b].mana : 0)} mana / ${
+      cards[a].strength + (b ? cards[b].strength : 0)
+    } damage`
+
   return (
     <Guide {...guide}>
       <p>
@@ -150,7 +162,7 @@ export default React.memo(function GuideBeginner(props) {
       <p>
         What is interesting about this configuration is that our runners all
         have a different mana cost (3, 4, 5 and 7), making it possible to use a
-        runner at basically any maan turn in the game.
+        runner at basically any mana turn in the game.
       </p>
 
       <p>
@@ -189,7 +201,7 @@ export default React.memo(function GuideBeginner(props) {
       <p>
         In this deck, spells are mainly here to tempo the game and counter
         aggressive push long enough to maintain the frontline or end the game.
-        They do not aim at being use offensively.
+        They are not really used offensively per se.
       </p>
       <p>
         <WikiLink id='F4' /> is included in this deck because it provides
@@ -216,10 +228,10 @@ export default React.memo(function GuideBeginner(props) {
         while the mana increases.
       </p>
       <p>
-        When the game reaches turn mana 10/11, there starts to be a lot of
-        opportunities for passing two runners in the same turn, or one runner +
-        a move to keep board presence. Knowing what are the damage possibilities
-        by combining 2 runners is equally important:
+        When the game reaches turn mana 10/11, you will start seeing a lot of
+        opportunities for playing two runners in the same turn, or one runner +
+        a move to keep board presence. Knowing the damage possibilities of
+        combining 2 runners is equally important:
       </p>
 
       <Only.Mobile>
@@ -235,10 +247,25 @@ export default React.memo(function GuideBeginner(props) {
 
       <Only.Desktop>
         <div className='Article__fullwidth' style={{ '--padding': '60px' }}>
-          <table className='GuideCommonDiamond__table'>
+          <table className='GuideD1SFCommons__table'>
             <thead>
               <tr>
-                <th></th>
+                <th>
+                  <label htmlFor='level'>Level</label>
+                  <select
+                    id='level'
+                    name='level'
+                    className='GuideD1SFCommons__select'
+                    value={cardLevel}
+                    onChange={event => setCardLevel(event.target.value)}
+                  >
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option>
+                  </select>
+                </th>
                 <th style={{ color: '#a28668' }}>First Mutineer</th>
                 <th style={{ color: '#66b8b0' }}>Warfront Runners</th>
                 <th style={{ color: '#cb2f29' }}>Bluesail Raiders</th>
@@ -248,31 +275,31 @@ export default React.memo(function GuideBeginner(props) {
             <tbody>
               <tr>
                 <th style={{ color: '#a28668' }}>First Mutineer</th>
-                <td>3 mana / 5 damage</td>
-                <td>7 mana / 11 damage</td>
-                <td>8 mana / 12 damage</td>
-                <td>10 mana / 15 damage</td>
+                <td>{combine('N12')}</td>
+                <td>{combine('N12', 'N28')}</td>
+                <td>{combine('N12', 'N30')}</td>
+                <td>{combine('N12', 'N52')}</td>
               </tr>
               <tr>
                 <th style={{ color: '#66b8b0' }}>Warfront Runners</th>
-                <td>7 mana / 11 damage</td>
-                <td>4 mana / 6 damage</td>
-                <td>9 mana / 13 damage</td>
-                <td>11 mana / 16 damage</td>
+                <td>{combine('N28', 'N12')}</td>
+                <td>{combine('N28')}</td>
+                <td>{combine('N28', 'N30')}</td>
+                <td>{combine('N28', 'N52')}</td>
               </tr>
               <tr>
                 <th style={{ color: '#cb2f29' }}>Bluesail Raiders</th>
-                <td>8 mana / 12 damage</td>
-                <td>9 mana / 13 damage</td>
-                <td>5 mana / 7 damage</td>
-                <td>12 mana / 17 damage</td>
+                <td>{combine('N30', 'N12')}</td>
+                <td>{combine('N30', 'N28')}</td>
+                <td>{combine('N30')}</td>
+                <td>{combine('N30', 'N52')}</td>
               </tr>
               <tr>
                 <th style={{ color: '#98c941' }}>Salty Outcasts</th>
-                <td>10 mana / 15 damage</td>
-                <td>11 mana / 16 damage</td>
-                <td>12 mana / 17 damage</td>
-                <td>7 mana / 10 damage</td>
+                <td>{combine('N52', 'N12')}</td>
+                <td>{combine('N52', 'N28')}</td>
+                <td>{combine('N52', 'N30')}</td>
+                <td>{combine('N52')}</td>
               </tr>
             </tbody>
           </table>
@@ -311,14 +338,14 @@ export default React.memo(function GuideBeginner(props) {
       <h3 id='against-winter'>Against Winter Pact</h3>
 
       <p>
-        Most Winter decks tend to be quite heavy, and aim at mid/late game to
-        take full control of the board and eventually push the frontline until
-        lethal. The goal is finish before they get to that point.
+        Most Winter decks tend to be quite heavy, and aim to take full control
+        of the board by mid/late game, eventually pushing the frontline until
+        they have lethal. The goal is to finish before they get to that point.
       </p>
 
       <p>
         It is critical to preserve high board presence at all cost. There is
-        usually no coming back from a board clear passed 7 mana against a Winter
+        usually no coming back from a board clear past 7 mana against a Winter
         deck. We absolutely need to stay up front until turn mana 10/11 where we
         can start passing heavy runners in.
       </p>
@@ -367,9 +394,9 @@ export default React.memo(function GuideBeginner(props) {
       <p>
         When facing a Queen of Herds deck however, things can get more tricky,
         especially when she is paired with a high-level Bucks of Wasteland.
-        Against such deck, what’s important is maintaining the front-line at all
-        time. Confinement is kept especially for Bucks so that Toxic Sacrifice
-        can be used without risking buffing the entire raid.
+        Against such decks, what’s important is maintaining the front-line at
+        all time. Confinement is kept especially for Bucks so that Toxic
+        Sacrifice can be used without risking buffing the entire raid.
       </p>
 
       <h3 id='against-ironclad'>Against Ironclad Union</h3>
@@ -395,6 +422,44 @@ export default React.memo(function GuideBeginner(props) {
         the chances a little, especially if the opponnent does not have a
         particularly cheap deck.
       </p>
+
+      <h3 id='against-ironclad'>Against Tribes of the Shadowen</h3>
+
+      <p>
+        I personally find the Shadowfen mirror matches to be the most difficult.
+        Shadowfen, as we know, have a lot of{' '}
+        <abbr title='Area of Effect'>AoE</abbr> such as Toxic Sacrifice, Crimson
+        Sentry or Witches of the Wild. As a result, it is relatively trivial to
+        clear the line, making it sometimes difficult to come back.
+      </p>
+
+      <p>
+        Be mindful of positioning. Toxic Sacrifice cannot really be avoided
+        given it has a huge area of effect, but the risks of an overvalued
+        Witches of the Wild can and should be controlled.
+      </p>
+
+      <p>
+        In the following situation, Dubious Hags are better played on the
+        opposite side rather than in the top left corner. Otherwise that would
+        be a prime situation for Witches of the Wild, and could even be a full
+        clear if the opponent has Toxic Sacrifice or Green Prototypes.
+      </p>
+
+      <p>
+        Thanks to this placement, clearing both units become more difficult. It
+        is still very possible of course, but with 5 mana, the options are
+        limited. Even Toxic Sacrifice becomes more complex to exploit unless
+        they have a static unit to put in the middle.
+      </p>
+
+      <div className='Article__fullwidth'>
+        <BattleSimApp
+          environment='shadowfen'
+          mode='DISPLAY'
+          simId='LCwsNkYzQjUsLDVOM0I1LCwsLCwsLCwsLCwsLCw7UjIwRi1CMThGOzVNMDs1TjE1TjI1RjQ1RjM1TjM1Tjk1TjEyNU4xNjVOMjg1RjE0NU4zMDVONTI7'
+        />
+      </div>
 
       <hr />
 
