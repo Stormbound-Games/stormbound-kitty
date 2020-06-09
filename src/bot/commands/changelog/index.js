@@ -26,6 +26,11 @@ export default {
 
     const cardChanges = changelog.filter(change => change.id === card.id)
     const changesByDate = cardChanges.reduce(groupByDate, {})
+    const hasChanges = Object.keys(changesByDate).length > 0
+
+    if (!hasChanges) {
+      return `It seems there are no recorded changes for **${card.name}**.`
+    }
 
     return (
       `Changes for **${card.name}**:` +
