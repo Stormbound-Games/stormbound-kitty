@@ -44,7 +44,7 @@ const computeData = deck => {
 }
 
 export default React.memo(function DeckStatsChart(props) {
-  const data = computeData(props.deck)
+  const data = React.useMemo(() => computeData(props.deck), [props.deck])
 
   return (
     <>
