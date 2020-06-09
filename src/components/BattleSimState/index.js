@@ -20,7 +20,6 @@ class BattleSimState extends React.Component {
   constructor(props) {
     super(props)
 
-    console.log(props)
     this.state = {
       // Data from URL
       ...getInitialBattleData(props.simId),

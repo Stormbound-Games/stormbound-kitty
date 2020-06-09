@@ -9,6 +9,7 @@ import { CATEGORIES } from '../../constants/guides'
 const Guides = load('Guides')
 const COMPONENTS = {
   BEGINNER_GUIDE: load('GuideBeginner'),
+  COMMON_DIAMOND_GUIDE: load('GuideCommonDiamond'),
   COMPLETE_GUIDE: load('GuideComplete'),
   DECK_GUIDE: load('GuideDeck'),
   DRAWING_GUIDE: load('GuideDrawing'),
