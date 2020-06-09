@@ -12,6 +12,7 @@ import NavListBuilder from '../NavListBuilder'
 import NavLink from '../NavLink'
 import Only from '../Only'
 import NavStories from '../NavStories'
+import StructuredData from '../StructuredData'
 import TogglableContent from '../TogglableContent'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
@@ -138,6 +139,7 @@ export default React.memo(function Header(props) {
 
         {Boolean(topActive) && <SubNav active={props.active} />}
       </Wrapper>
+      <StructuredData type='LOGO' />
     </header>
   )
 })
