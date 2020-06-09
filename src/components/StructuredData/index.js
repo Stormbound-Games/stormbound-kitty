@@ -66,6 +66,7 @@ export default React.memo(function StructuredData(props) {
         return null
     }
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('StructuredData', error)
     return null
   }

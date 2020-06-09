@@ -1,5 +1,3 @@
-import capitalise from '../../../capitalise'
-
 const getOddManaCards = cards => cards.filter(c => c.mana % 2 !== 0)
 const getEvenManaCards = cards =>
   cards.filter(c => c.mana > 0 && c.mana % 2 === 0)
