@@ -7,13 +7,35 @@ import Title from '../Title'
 import WikiLink from '../WikiLink'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import guides from '../../data/guides'
+import './index.css'
 
 const guide = guides.find(g => g.id === 'DECK_GUIDE')
 
 export default React.memo(function GuideDeck(props) {
   return (
     <Guide {...guide}>
-      <ol className='Guide__toc'>
+      <p>
+        So, you want to build or improve your deck! You came to the right place.
+        In this guide, I will explain everything you need to know to compose
+        solid and competitive decks. First, let’s run a basic breakdown before
+        diving into the topic.
+      </p>
+
+      <ul>
+        <li>A deck has 12 cards in it.</li>
+        <li>
+          Your first turn will be 3 or 4 mana depending on whether you play
+          first or second, then 4 or 5 mana.
+        </li>
+        <li>
+          You draw 4 cards each turn and can (and usually should) cycle one each
+          turn.
+        </li>
+      </ul>
+
+      <hr />
+
+      <ol className='GuideDeck__toc'>
         <li>
           <a href='#cost'>Cost</a>
         </li>
@@ -33,24 +55,6 @@ export default React.memo(function GuideDeck(props) {
           <a href='#redundancies'>Redundancies</a>
         </li>
       </ol>
-
-      <hr />
-      <p>
-        So, you want to build or improve your deck! Let’s run a basic breakdown
-        before diving into the topic.
-      </p>
-
-      <ul>
-        <li>A deck has 12 cards in it.</li>
-        <li>
-          Your first turn will be 3 or 4 mana depending on whether you play
-          first, then 4/5 mana.
-        </li>
-        <li>
-          You draw 4 cards each turn and can (and usually should) cycle one each
-          turn.
-        </li>
-      </ul>
 
       <Title id='cost'>Cost</Title>
 
@@ -80,19 +84,27 @@ export default React.memo(function GuideDeck(props) {
         than playing a big one.
       </p>
 
-      <div className='Guide__embed'>
-        <Row>
-          <Column width='1/4'>
-            <Card {...getResolvedCardData({ id: 'N1', level: 1 })} />
+      <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+        <Row desktopOnly>
+          <Column>
+            <Row>
+              <Column>
+                <Card {...getResolvedCardData({ id: 'N1', level: 1 })} />
+              </Column>
+              <Column>
+                <Card {...getResolvedCardData({ id: 'N2', level: 1 })} />
+              </Column>
+            </Row>
           </Column>
-          <Column width='1/4'>
-            <Card {...getResolvedCardData({ id: 'N2', level: 1 })} />
-          </Column>
-          <Column width='1/4'>
-            <Card {...getResolvedCardData({ id: 'W1', level: 1 })} />
-          </Column>
-          <Column width='1/4'>
-            <Card {...getResolvedCardData({ id: 'W2', level: 1 })} />
+          <Column>
+            <Row>
+              <Column>
+                <Card {...getResolvedCardData({ id: 'W1', level: 1 })} />
+              </Column>
+              <Column>
+                <Card {...getResolvedCardData({ id: 'W2', level: 1 })} />
+              </Column>
+            </Row>
           </Column>
         </Row>
       </div>
@@ -178,8 +190,8 @@ export default React.memo(function GuideDeck(props) {
         <WikiLink id='W4' />…
       </p>
 
-      <div className='Guide__embed'>
-        <Row>
+      <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+        <Row desktopOnly>
           <Column>
             <Row>
               <Column>
@@ -190,7 +202,6 @@ export default React.memo(function GuideDeck(props) {
               </Column>
             </Row>
           </Column>
-
           <Column>
             <Row>
               <Column>
@@ -202,8 +213,7 @@ export default React.memo(function GuideDeck(props) {
             </Row>
           </Column>
         </Row>
-
-        <Row>
+        <Row desktopOnly>
           <Column>
             <Row>
               <Column>
@@ -214,7 +224,6 @@ export default React.memo(function GuideDeck(props) {
               </Column>
             </Row>
           </Column>
-
           <Column>
             <Row>
               <Column>
@@ -351,7 +360,7 @@ export default React.memo(function GuideDeck(props) {
       <p>
         Most important advice for last… Have Fun! This is a game. One we play to
         have fun. One with a pleasing aesthetic and strategy. Don’t take it too
-        seriously. Just have fun. :)
+        seriously. Just have fun.&nbsp;:)
       </p>
     </Guide>
   )
