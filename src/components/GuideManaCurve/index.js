@@ -175,7 +175,7 @@ export default React.memo(function GuideManaCurve(props) {
               However, we see that starting turn mana 8, the likelihood of
               having too much mana is getting greater and greater. This is
               indicative of a{' '}
-              <Link to='/3n13n23s13n33s243s23n633n673s63n153s83s11'>
+              <Link to='/deck/3n13n23s13n33s243s23n633n673s63n153s83s11/detail'>
                 rush deck
               </Link>
               , which will perform increasingly worse as the game progresses.
