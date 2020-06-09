@@ -17,7 +17,7 @@ export default React.memo(function BattleSimBoardDesktop(props) {
     <div
       className={[
         'BattleSimBoardDesktop',
-        `BattleSimBoardDesktop--${faction}`,
+        `BattleSimBoardDesktop--${props.environment || faction}`,
       ].join(' ')}
       data-testid='board'
     >
@@ -66,9 +66,9 @@ export default React.memo(function BattleSimBoardDesktop(props) {
           zoom={props.zoom}
           mana={props.mana}
           drawCard={props.drawCard}
-          canDrawCard={props.canDrawCard}
+          canDrawCard={props.mode !== 'DISPLAY' && props.canDrawCard}
           cycleCard={props.cycleCard}
-          canCycleCard={props.canCycleCard}
+          canCycleCard={props.mode !== 'DISPLAY' && props.canCycleCard}
         />
       </div>
     </div>

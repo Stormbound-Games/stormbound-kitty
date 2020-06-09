@@ -20,6 +20,7 @@ class BattleSimState extends React.Component {
   constructor(props) {
     super(props)
 
+    console.log(props)
     this.state = {
       // Data from URL
       ...getInitialBattleData(props.simId),
@@ -499,7 +500,7 @@ class BattleSimState extends React.Component {
   }
 }
 
-export default hookIntoProps(() => ({
+export default hookIntoProps(props => ({
   history: useHistory(),
-  simId: useRouteMatch().params.simId,
+  simId: props.simId || useRouteMatch().params.simId,
 }))(BattleSimState)

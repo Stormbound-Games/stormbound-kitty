@@ -53,5 +53,7 @@ const App = React.memo(function App(props) {
 })
 
 export default props => (
-  <State mode={props.mode}>{state => <App {...state} />}</State>
+  <State mode={props.mode} simId={props.simId}>
+    {state => <App {...state} environment={props.environment} />}
+  </State>
 )
