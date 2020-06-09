@@ -15,10 +15,7 @@ export default React.memo(() => (
 
     <div className='Home'>
       <aside className='Home__news'>
-        <Image
-          className='Home__news-image'
-          src='/assets/images/cards/sweetcap_kittens.png'
-        />
+        <Image className='Home__news-image' src='/assets/images/kitty.png' />
         <div className='Home__news-box'>
           <Title className='Home__news-title'>News</Title>
           <News />

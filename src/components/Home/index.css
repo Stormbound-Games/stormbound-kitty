@@ -9,8 +9,13 @@
   width: 100%;
 }
 
+/**
+ * 1. The image has quite a lot of spacing at the top which is negated by a
+ *    negative top margin to bring it closer to the header.
+ */
 .Home__news-image {
   max-width: 100%;
+  margin-top: -2em; /* 1 */
 }
 
 .Home__news-title {
@@ -27,7 +32,7 @@
   padding: 1em;
   box-shadow: 0 0 2em 1em rgba(0, 0, 0, 0.2);
   margin-bottom: 2em;
-  margin-top: -7em; /* 1 */
+  margin-top: -2.5em; /* 1 */
 }
 
 /**
@@ -106,16 +111,11 @@
   }
 
   .Home__news-image {
-    width: 75%;
     position: absolute;
     bottom: 100%;
     z-index: -1;
     left: 50%;
-    transform: translate(-50%, 35%);
-  }
-
-  .Home__news-box {
-    margin-top: 0;
+    transform: translate(-50%, 7%);
   }
 
   .Home__section {
