@@ -28,4 +28,9 @@ describe('The `SPELLS` advice', () => {
     const cards = getCards('5w25n35n95n115n145n164w64w93n693w163w194w21')
     expect(advice(cards, 'SPELL_MANA')).to.equal(null)
   })
+
+  it('should not be returned with Archdruid Earyn and 5 spells', () => {
+    const cards = getCards('1n11w11n21n31n41n51n61n621n631n231n151n48')
+    expect(advice(cards, 'SPELL_MANA')).to.equal(null)
+  })
 })
