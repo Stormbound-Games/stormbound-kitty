@@ -1,4 +1,6 @@
 import StateMachine from 'javascript-state-machine'
+import Canvas from 'canvas'
+import Discord from 'discord.js'
 import { KITTY_ID, TRIVIA_CHANNEL } from '../../../constants/bot'
 import cards from '../../../data/cards'
 import api from '../../../helpers/api'
@@ -11,6 +13,11 @@ import parseCardGuess from '../../../helpers/parseCardGuess'
 import parseTriviaSettings from '../../../helpers/parseTriviaSettings'
 import questions from './questions'
 
+const random = (min, max) => min + Math.random() * (max - min)
+const BASE_URL = 'https://stormbound-kitty.com'
+const canvas = Canvas.createCanvas(400, 400)
+const ctx = canvas.getContext('2d')
+
 const trivia = new StateMachine({
   init: 'STOPPED',
 
@@ -18,6 +25,8 @@ const trivia = new StateMachine({
     answer: null,
     channel: null,
     duration: 60,
+    cropCenter: null,
+    cropSize: 50,
     initiator: null,
     mode: null,
     timers: [],
@@ -39,6 +48,8 @@ const trivia = new StateMachine({
         answer: this.answer,
         channel: this.channel.id,
         duration: this.duration,
+        cropCenter: this.cropCenter,
+        cropSize: this.cropSize,
         initiator: this.initiator,
         mode: this.mode,
         state: this.state,
@@ -64,26 +75,85 @@ const trivia = new StateMachine({
     },
 
     halfTime: function (time) {
-      if (this.channel) {
-        this.channel.send(`⏳ Half the time has run out, hurry up!`)
+      const message = `⏳ Half the time has run out, hurry up!`
+
+      if (!this.channel) return
+
+      if (this.mode === 'IMAGE') {
+        Canvas.loadImage(BASE_URL + this.answer.image)
+          .then(image => this.getAttachment(image, 1.75))
+          .then(attachment => this.channel.send(message, attachment))
+      } else {
+        this.channel.send(message)
       }
     },
 
     timeout: function () {
       if (this.channel) {
         const answer =
-          this.mode === 'CARD'
+          this.mode !== 'QUESTION'
             ? `The answer was “**${this.answer.name}**”!`
             : ''
 
         this.channel.send(`⌛️ Time’s up! ${answer}`)
       }
+
       this.stop()
+    },
+
+    getAttachment: function (image, multiplier = 1) {
+      // This is the percentage of the image around the edges we do not want to
+      // crop in to avoid having mostly padding.
+      const boundary = 18
+
+      // The multiplier is used to zoom out at half time if the image has not
+      // been found yet.
+      const cropSize = this.cropSize * multiplier
+
+      // The top-left corner of the image should be computed randomly between
+      // the top-left boundary and the bottom right boundary. For a 300x300
+      // image, it gives a range of 60 to 240 pixels with a 20% boundary. If the
+      // crop center has already been defined however, the top-left corner is
+      // computed from the focal point, minus half the crop size on both axis.
+      const startX = this.cropCenter
+        ? this.cropCenter[0] - cropSize / 2
+        : random(
+            (image.width * boundary) / 100,
+            image.width - (image.width * boundary) / 100 - cropSize
+          )
+      const startY = this.cropCenter
+        ? this.cropCenter[1] - cropSize / 2
+        : random(
+            (image.height * boundary) / 100,
+            image.height - (image.height * boundary) / 100 - cropSize
+          )
+
+      // If there is no image focal point just, define the coordinates of the
+      // center of the crop area so the zoom out can be focused on the exact
+      // same point.
+      if (!this.cropCenter) {
+        this.cropCenter = [startX + cropSize / 2, startY + cropSize / 2]
+      }
+
+      const coords = [startX, startY]
+      const area = [cropSize, cropSize]
+      const dimensions = [canvas.width, canvas.height]
+      const args = [image, ...coords, ...area, 0, 0, ...dimensions]
+
+      ctx.drawImage(...args)
+
+      return new Discord.MessageAttachment(canvas.toBuffer(), 'trivia_img.png')
     },
 
     onStart: function () {
       if (this.mode === 'CARD') {
         this.answer = arrayRandom(cards.filter(card => !card.token))
+      } else if (this.mode === 'IMAGE') {
+        this.answer = arrayRandom(cards.filter(card => !card.token))
+
+        Canvas.loadImage(BASE_URL + this.answer.image)
+          .then(image => this.getAttachment(image))
+          .then(attachment => this.channel.send('', attachment))
       } else if (this.mode === 'QUESTION') {
         const { question, choices } = getRandomQuestion(this.useRandomLetters)
 
@@ -111,6 +181,8 @@ const trivia = new StateMachine({
 
       if (mode === 'CARD') {
         return `🔮 Trivia started! You have ${duration} seconds to guess the card. You can ask questions and issue guesses with \`!trivia <term>\`, like \`!trivia pirate\` or \`!trivia rof\`.`
+      } else if (mode === 'IMAGE') {
+        return `🔮 Trivia started! You have ${duration} seconds to guess the card. You can issue guesses with \`!trivia <card>\`, like \`!trivia rof\`.`
       } else if (mode === 'QUESTION') {
         return (
           `❔ **${this.answer.question}** (${this.duration} seconds)\n` +
@@ -135,6 +207,9 @@ const trivia = new StateMachine({
       this.mode = null
       this.timers.forEach(clearTimeout)
       this.timers = []
+      this.cropCenter = null
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
     },
 
     abort: function (author) {
@@ -143,7 +218,9 @@ const trivia = new StateMachine({
 
       const username = this.initiator.username
       const answer =
-        this.mode === 'CARD' ? `The answer was “**${this.answer.name}**.”` : ''
+        this.mode !== 'QUESTION'
+          ? `The answer was “**${this.answer.name}**.”`
+          : ''
 
       this.stop()
 
@@ -163,10 +240,10 @@ const trivia = new StateMachine({
     },
 
     guess: function (message, author) {
-      if (this.mode === 'CARD') {
+      if (this.mode === 'CARD' || this.mode === 'IMAGE') {
         const [key, value] = parseCardGuess(message)
 
-        if (key) {
+        if (this.mode === 'CARD' && key) {
           if (value === true) {
             const lead = key === 'elder' ? 'an' : 'a'
             return this.answer[key] === value
@@ -224,7 +301,7 @@ const trivia = new StateMachine({
 
     help: function () {
       return [
-        `- \`!trivia card|question [duration]\` to start a round`,
+        `- \`!trivia card|question|image [duration]\` to start a round`,
         '- `!trivia stop` to stop the round (only for the initiator of the ongoing round)',
         '- `!trivia <prop|guess>` to ask for a hint or guess the answer',
         '- `!trivia scores` to show scores',
