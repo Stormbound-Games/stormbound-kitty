@@ -18,6 +18,13 @@ describe('The `parseTriviaSettings` helper', () => {
     expect(parseTriviaSettings('card 300').duration).to.equal(120)
   })
 
+  it('should properly resolve the duration for image mode', () => {
+    expect(parseTriviaSettings('image 60').duration).to.equal(60)
+    expect(parseTriviaSettings('60 image').duration).to.equal(60)
+    expect(parseTriviaSettings('image 10').duration).to.equal(30)
+    expect(parseTriviaSettings('image 300').duration).to.equal(120)
+  })
+
   it('should properly resolve the duration for question mode', () => {
     expect(parseTriviaSettings('question').duration).to.equal(15)
     expect(parseTriviaSettings('question 12').duration).to.equal(12)
