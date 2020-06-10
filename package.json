@@ -5,6 +5,7 @@
   "dependencies": {
     "@loadable/component": "^5.12.0",
     "@reach/tooltip": "^0.10.3",
+    "canvas": "^2.6.1",
     "copy-to-clipboard": "^3.3.1",
     "dateformat": "^3.0.3",
     "discord.js": "^12.2.0",
