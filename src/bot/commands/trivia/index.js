@@ -15,7 +15,7 @@ import questions from './questions'
 
 const random = (min, max) => min + Math.random() * (max - min)
 const BASE_URL = 'https://stormbound-kitty.com'
-const canvas = Canvas.createCanvas(400, 400)
+const canvas = Canvas.createCanvas(150, 150)
 const ctx = canvas.getContext('2d')
 
 const trivia = new StateMachine({
