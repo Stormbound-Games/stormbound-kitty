@@ -140,6 +140,7 @@ const trivia = new StateMachine({
       const dimensions = [canvas.width, canvas.height]
       const args = [image, ...coords, ...area, 0, 0, ...dimensions]
 
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.drawImage(...args)
 
       return new Discord.MessageAttachment(canvas.toBuffer(), 'trivia_img.png')
@@ -208,8 +209,6 @@ const trivia = new StateMachine({
       this.timers.forEach(clearTimeout)
       this.timers = []
       this.cropCenter = null
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
     },
 
     abort: function (author) {
