@@ -79,7 +79,7 @@ export default React.memo(function Card(props) {
           >
             <Image
               alt={props.image ? props.name : ''}
-              src={props.image}
+              src={'/assets/images/cards/' + props.image}
               className='Card__image'
               data-testid='card-image'
             />

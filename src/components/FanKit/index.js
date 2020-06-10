@@ -31,6 +31,9 @@ const Download = React.memo(function Download(props) {
 
 const DownloadDialog = React.memo(function DownloadDialog(props) {
   const { name, image } = props.activeCard || {}
+  const path =
+    image &&
+    (image.startsWith('/assets') ? image : '/assets/images/cards/' + image)
 
   return (
     <Dialog
@@ -38,11 +41,11 @@ const DownloadDialog = React.memo(function DownloadDialog(props) {
       dialogRef={props.dialogRef}
       close={props.close}
       title={name || 'Download image'}
-      image={image}
+      image={path}
       ctaProps={
         image
           ? {
-              href: image,
+              href: path,
               download: true,
               className: 'FanKit__CTA',
               'data-testid': 'fan-kit-link',
@@ -53,7 +56,7 @@ const DownloadDialog = React.memo(function DownloadDialog(props) {
     >
       {image ? (
         <p>
-          <a href={image} target='_blank' rel='noopener noreferrer'>
+          <a href={path} target='_blank' rel='noopener noreferrer'>
             Open image in new tab
           </a>{' '}
           or download it as:
@@ -140,7 +143,11 @@ export default React.memo(function FanKit(props) {
                 <div className='FanKit__item' data-testid='fan-kit-item'>
                   <Download {...row[index]} setActive={setActive} />
                   <Image
-                    src={row[index].image}
+                    src={
+                      row[index].faction
+                        ? '/assets/images/cards/' + row[index].image
+                        : row[index].image
+                    }
                     alt={row[index].name}
                     className='FanKit__image'
                   />

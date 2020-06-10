@@ -46,7 +46,7 @@ export default React.memo(function DryRunnerCardLog(props) {
                   >
                     <img
                       className={'DryRunnerCardLog__image'}
-                      src={card.image}
+                      src={'/assets/images/cards/' + card.image}
                       alt={card.name}
                       onClick={() => setZoomedCard(card)}
                       data-testid='card-log-image'

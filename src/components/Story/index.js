@@ -62,7 +62,7 @@ export default function Story(props) {
         <PageMeta
           title={story.title}
           author={story.author}
-          image={card.image}
+          image={'/assets/images/cards/' + card.image}
           description={getExcerpt(story.content.replace('---', ''), 160)}
         />
       )}

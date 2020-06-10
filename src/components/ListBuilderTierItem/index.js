@@ -13,7 +13,7 @@ export default React.memo(function ListBuilderTierItem(props) {
         title={props.card.name}
       >
         <Image
-          src={props.card.image}
+          src={'/assets/images/cards/' + props.card.image}
           alt={props.card.name}
           className='ListBuilderTierItem__image'
         />
@@ -72,7 +72,7 @@ export default React.memo(function ListBuilderTierItem(props) {
         title={'Remove ' + props.card.name + ' from list'}
       >
         <Image
-          src={props.card.image}
+          src={'/assets/images/cards/' + props.card.image}
           alt={props.card.name}
           className='ListBuilderTierItem__image'
         />

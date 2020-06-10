@@ -59,7 +59,7 @@ export default React.memo(function BattleSimCell(props) {
       {props.card.id ? (
         <img
           className='BattleSimCell__image'
-          src={props.card.image}
+          src={'/assets/images/cards/' + props.card.image}
           alt={props.card.name}
           data-testid='cell-image'
         />

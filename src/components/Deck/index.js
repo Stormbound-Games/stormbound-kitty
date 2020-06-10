@@ -75,7 +75,11 @@ export default React.memo(function Deck(props) {
                 mana={card.mana}
               />
               <span className='Deck__name'>{card.name}</span>
-              <img className='Deck__image' src={card.image} alt={card.name} />
+              <img
+                className='Deck__image'
+                src={'/assets/images/cards/' + card.image}
+                alt={card.name}
+              />
               <span
                 className='Deck__level'
                 data-testid={
