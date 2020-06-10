@@ -27,6 +27,7 @@ const Graph = props => {
       deck={deck}
       modifier={props.modifier}
       syncId={props.syncId}
+      withHowTo
     />
   )
 }
@@ -363,6 +364,14 @@ export default React.memo(function GuideD1SFCommons(props) {
         hag from the on-death trigger to spawn on our baseline and reduce our
         opportunities.
       </p>
+
+      <Info icon='stack' title='Drawing Guide'>
+        <p>
+          For more in-depth information about the drawing algorithms and cycling
+          mechanics, be sure to read the{' '}
+          <Link to='/guides/drawing'>guide on drawing</Link>.
+        </p>
+      </Info>
 
       <h3 id='against-winter'>Against Winter Pact</h3>
 
