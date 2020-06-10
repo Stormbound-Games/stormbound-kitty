@@ -79,7 +79,11 @@ export default React.memo(function Card(props) {
           >
             <Image
               alt={props.image ? props.name : ''}
-              src={'/assets/images/cards/' + props.image}
+              src={
+                (props.image || '').startsWith('http')
+                  ? props.image
+                  : '/assets/images/cards/' + props.image
+              }
               className='Card__image'
               data-testid='card-image'
             />
