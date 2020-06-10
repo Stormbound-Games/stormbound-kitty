@@ -10,7 +10,9 @@ import WikiLink from '../WikiLink'
 import generateId from '../../helpers/generateId'
 import template from '../../helpers/template'
 import serialisation from '../../helpers/serialisation'
+import load from '../../helpers/load'
 
+const BattleSimApp = load('BattleSimApp')
 const REPLACEMENTS = cards.reduce((acc, card, index) => {
   acc[card.name] = <WikiLink id={card.id} key={card.id} />
   return acc
@@ -47,6 +49,9 @@ const p = React.memo(props => {
   const isDeck =
     typeof props.children[0] === 'string' &&
     props.children[0].match(/\[deck:(\w+)\]/)
+  const isSim =
+    typeof props.children[0] === 'string' &&
+    props.children[0].match(/\[sim:([\w=]+)\]/)
 
   if (isDeck) {
     return (
@@ -54,6 +59,14 @@ const p = React.memo(props => {
         orientation='horizontal'
         deck={serialisation.deck.deserialise(isDeck[1])}
       />
+    )
+  }
+
+  if (isSim) {
+    return (
+      <div className='Article__fullwidth'>
+        <BattleSimApp mode='DISPLAY' simId={isSim[1]} />
+      </div>
     )
   }
 

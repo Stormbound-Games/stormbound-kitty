@@ -46,7 +46,7 @@ When a unit being played can attack two different targets, it will choose it in 
 
 A classic attack often looks like this. The numbers indicate the order of the units your opponent will have to kill to get to the next one. As you can see, the sides are harder to defend against than the middle. I like to call the Unit 1 and 2 Baits. Baits do not need to have a high strength: their purpose is just to make the opponent use cards to kill them. Units 3 are the main Attack and should be your stronger units. Think about that before playing something like Potion of Growth.
 
-![Attack pattern](https://i.ibb.co/9W7FNgN/Attack-order.png)
+[sim:M04zMkIxLCwxVDNCMSwzTjMyQjEsLDJOM0IxLCwsLCwsLCwsLCwsLCw7UjEwTi1CMTBOOzNNMDs7]
 
 To be able to make a good push, your biggest units are to be on the sides.
 
@@ -60,7 +60,7 @@ Now comes a tricky situation: how will the units react if multiple units are kil
 
 For example, consider the following situation:
 
-![Toxic sacrifice](https://i.ibb.co/1RxLGKt/Toxic-Sacrifice.png)
+[sim:LCwsLCwxVDhCMSwyVDhCMSwzVDhCMSwsNFQ4QjEsNVQ4QjEsNlQ4QjEsLDdUOEIxLDhUOEIxLDlUOEIxLCwsLDtSMTBOLUIxME47M00wOzs=]
 
 Units 1 to 9 all possess Death Triggered Effect (DTE) and all have 1 strength. You then use Toxic Sacrifice on Unit 5. All the other units take X damage.
 
@@ -172,7 +172,7 @@ The next question is: **“where to play structures?”**
 
 Never ever play a structure on the middle columns next to your base. In addition, always take advantage of an enemy structure on these positions:
 
-![Structure position](https://i.ibb.co/6RCHW4B/Structure-Placement.png)
+[sim:MlQ0QjEsMU4xM1IxLCwsLCwsLCwsLCwsLCwsLCwsO1IxME4tQjEwTjszTTA7Ow==]
 
 If the enemy placed a structure on 1, they will not be able to attack your unit on 2: it gives you board presence and direct damage to the base!
 
