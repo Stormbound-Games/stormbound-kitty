@@ -80,7 +80,7 @@ const trivia = new StateMachine({
       if (!this.channel) return
 
       if (this.mode === 'IMAGE') {
-        Canvas.loadImage(BASE_URL + this.answer.image)
+        Canvas.loadImage(BASE_URL + '/assets/images/cards/' + this.answer.image)
           .then(image => this.getAttachment(image, 1.75))
           .then(attachment => this.channel.send(message, attachment))
       } else {
@@ -152,7 +152,7 @@ const trivia = new StateMachine({
       } else if (this.mode === 'IMAGE') {
         this.answer = arrayRandom(cards.filter(card => !card.token))
 
-        Canvas.loadImage(BASE_URL + this.answer.image)
+        Canvas.loadImage(BASE_URL + '/assets/images/cards/' + this.answer.image)
           .then(image => this.getAttachment(image))
           .then(attachment => this.channel.send('', attachment))
       } else if (this.mode === 'QUESTION') {
