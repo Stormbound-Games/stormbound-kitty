@@ -6,7 +6,7 @@ export default cards => {
 
   // Upgrade Point is considered more efficient than Fort of Ebonrock
   // in Ironclad decks
-  if (faction != 'ironclad' || hasUpgradePoint || !hasEbonrock) return null
+  if (faction !== 'ironclad' || hasUpgradePoint || !hasEbonrock) return null
 
   return {
     name: 'Inefficient Structure',
