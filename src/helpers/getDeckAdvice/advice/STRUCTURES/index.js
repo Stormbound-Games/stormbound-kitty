@@ -10,7 +10,7 @@ export default (cards, modifier) => {
     return null
 
   return {
-    name: 'Too many structures',
+    name: 'Many structures',
     description:
       'This deck includes a lot of structures, which may impeded its mobility. Consider swapping some structures for units or spells.',
     highlight: structures,
