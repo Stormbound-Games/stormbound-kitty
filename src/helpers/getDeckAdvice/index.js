@@ -3,6 +3,7 @@ import ARCHDRUID_EARYN from './advice/ARCHDRUID_EARYN'
 import CONFUSION from './advice/CONFUSION'
 import DOCTOR_MIA from './advice/DOCTOR_MIA'
 import DRAGONS from './advice/DRAGONS'
+import EBONROCK_IRONCLAD from './advice/EBONROCK_IRONCLAD'
 import FINISHER from './advice/FINISHER'
 import FORTIFICATION_TONIC from './advice/FORTIFICATION_TONIC'
 import FREEZE from './advice/FREEZE'
@@ -31,6 +32,7 @@ const ADVICE = [
   CONFUSION,
   DOCTOR_MIA,
   DRAGONS,
+  EBONROCK_IRONCLAD,
   FINISHER,
   FORTIFICATION_TONIC,
   FREEZE,
