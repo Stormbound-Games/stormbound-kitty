@@ -232,6 +232,7 @@ const trivia = new StateMachine({
       api
         .setScore(author.id, +1)
         .then(() => console.log('Added 1 point to ' + author.id))
+        .catch(console.error.bind(console))
 
       this.stop()
 
@@ -290,6 +291,7 @@ const trivia = new StateMachine({
         api
           .setScore(author.id, -1)
           .then(() => console.log('Subtracted 1 point from ' + author.id))
+          .catch(console.error.bind(console))
 
         delete this.streaks[author.id]
         this.stop()
@@ -314,6 +316,9 @@ const trivia = new StateMachine({
         .then(output =>
           this.channel.send(output, { allowedMentions: { users: [] } })
         )
+        .catch(() => {
+          this.channel.send('🏅 Failed to get scores. Try again later.')
+        })
     },
   },
 })
