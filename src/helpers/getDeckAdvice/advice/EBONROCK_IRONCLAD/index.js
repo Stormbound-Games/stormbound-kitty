@@ -5,7 +5,7 @@ export default cards => {
   const { faction } = cards.find(card => card.faction !== 'neutral') || {}
 
   // Upgrade Point is considered more efficient than Fort of Ebonrock
-  // in Ironclad decks
+  // in Ironclad decks.
   if (faction !== 'ironclad' || hasUpgradePoint || !hasEbonrock) return null
 
   return {
