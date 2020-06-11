@@ -11,10 +11,17 @@ export default React.memo(function Layout(props) {
   return (
     <div className='Layout'>
       <Only.Desktop>
-        <EyeCatcher id='mana_curve_guide'>
-          Be sure to read the{' '}
-          <Link to='/guides/mana-curve'>brand new guide</Link> on analysing the
-          mana curve of a deck !
+        <EyeCatcher id='donation-20200611'>
+          Stormbound-Kitty is <span className='Highlight'>100% free</span>: no
+          ads, no tracking, no paywall. If you can,{' '}
+          <a
+            href='https://gum.co/stormbound-kitty'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            consider donating
+          </a>
+          !
         </EyeCatcher>
       </Only.Desktop>
 
