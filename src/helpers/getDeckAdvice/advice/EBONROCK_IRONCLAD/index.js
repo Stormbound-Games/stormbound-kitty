@@ -11,7 +11,7 @@ export default cards => {
   return {
     name: 'Inefficient Structure',
     description:
-      'This deck includes Fort of Ebonrock, which could be considered less efficient than Upgrade Point in Ironclad Decks. Consider replacing it with Upgrade Point.',
+      'This Ironclad deck includes Fort of Ebonrock, which could be considered less efficient than Upgrade Point. Consider replacing it with Upgrade Point.',
     highlight: ['N13'],
   }
 }
