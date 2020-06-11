@@ -9,7 +9,7 @@ export default cards => {
   if (faction !== 'ironclad' || hasUpgradePoint || !hasEbonrock) return null
 
   return {
-    name: 'Inefficient Structure',
+    name: 'Suboptimal Structure',
     description:
       'This Ironclad deck includes Fort of Ebonrock, which could be considered less efficient than Upgrade Point. Consider replacing it with Upgrade Point.',
     highlight: ['N13'],
