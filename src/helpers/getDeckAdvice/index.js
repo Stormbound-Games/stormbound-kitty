@@ -21,6 +21,7 @@ import MULTI_FACTIONS from './advice/MULTI_FACTIONS'
 import OBSIDIAN_BUTCHERS from './advice/OBSIDIAN_BUTCHERS'
 import POISON from './advice/POISON'
 import SATYRS from './advice/SATYRS'
+import STRUCTURES from './advice/STRUCTURES'
 import SLOW_DECK from './advice/SLOW_DECK'
 import SPELLBINDER_ZHEVANA from './advice/SPELLBINDER_ZHEVANA'
 import UBASS_THE_HUNTER from './advice/UBASS_THE_HUNTER'
@@ -52,6 +53,7 @@ const ADVICE = [
   SATYRS,
   SLOW_DECK,
   SPELLBINDER_ZHEVANA,
+  STRUCTURES,
   UBASS_THE_HUNTER,
   UPGRADE_POINT,
 ]
