@@ -1,12 +1,13 @@
 const getStructures = cards => cards.filter(c => c.type === 'structure')
 const STRUCTURE_THRESHOLD = 3
 
-export default cards => {
+export default (cards, modifier) => {
   const structures = getStructures(cards)
 
   // Too many structures in a deck results in a lack of mobility and the possibility of
   // crowding the board.
-  if (structures.length <= STRUCTURE_THRESHOLD) return null
+  if (structures.length <= STRUCTURE_THRESHOLD || modifier === 'STRUCTURE_MANA')
+    return null
 
   return {
     name: 'Too many structures',
