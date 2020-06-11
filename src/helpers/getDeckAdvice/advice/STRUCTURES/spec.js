@@ -8,7 +8,7 @@ const getCards = (id, modifier = 'NONE') =>
     getResolvedCardData
   )
 
-describe('The `UPGRADE_POINT` advice', () => {
+describe('The `STRUCTURE` advice', () => {
   it('should be returned if it contains more than 3 structures', () => {
     const cards = getCards('1n31i51n131n231i101n161n591n221n641n601n451n57')
     expect(advice(cards)).to.not.equal(null)
