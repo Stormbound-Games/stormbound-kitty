@@ -21,6 +21,7 @@ import SPELLS from './advice/SPELLS'
 import MULTI_FACTIONS from './advice/MULTI_FACTIONS'
 import OBSIDIAN_BUTCHERS from './advice/OBSIDIAN_BUTCHERS'
 import POISON from './advice/POISON'
+import QUEEN_OF_HERDS from './advice/QUEEN_OF_HERDS'
 import SATYRS from './advice/SATYRS'
 import STRUCTURES from './advice/STRUCTURES'
 import SLOW_DECK from './advice/SLOW_DECK'
@@ -52,6 +53,7 @@ const ADVICE = [
   MULTI_FACTIONS,
   OBSIDIAN_BUTCHERS,
   POISON,
+  QUEEN_OF_HERDS,
   SATYRS,
   SLOW_DECK,
   SPELLBINDER_ZHEVANA,
