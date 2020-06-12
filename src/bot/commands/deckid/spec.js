@@ -44,6 +44,10 @@ describe('Bot — !deckid', () => {
     ).to.not.contain('5n2')
   })
 
+  it('should prevent duplicates', () => {
+    expect(deckid('salty,5 salty')).to.equal(BASE_URL + '1n52')
+  })
+
   it('should return nothing for a no-match', () => {
     expect(deckid('flksdjf')).to.equal(undefined)
   })

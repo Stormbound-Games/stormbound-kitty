@@ -29,25 +29,21 @@ export default {
 
     const [deckLevel, search] = getLevelOut(message)
     const unknown = []
-    const cards = search
-      .split(/\s*,\s*/g)
-      .map(term => {
-        const [level, search] = getLevelOut(term)
-        const [card] = searchCards(search)
-        if (!card) {
-          unknown.push(term)
-          return null
-        }
-        return { id: card.id, level: level || deckLevel || 1 }
-      })
-      .filter(Boolean)
-      .slice(0, 12)
+    const cards = []
+
+    search.split(/\s*,\s*/g).forEach(term => {
+      const [level, search] = getLevelOut(term)
+      const [card] = searchCards(search)
+      if (!card) return unknown.push(term)
+      if (cards.find(c => c.id === card.id)) return
+      cards.push({ id: card.id, level: level || deckLevel || 1 })
+    })
 
     if (cards.length === 0) return
 
     return [
       'https://stormbound-kitty.com/deck/' +
-        serialisation.deck.serialise(cards),
+        serialisation.deck.serialise(cards.slice(0, 12)),
       getIgnoredSearch(message, unknown, 'COMMA'),
     ]
       .filter(Boolean)
