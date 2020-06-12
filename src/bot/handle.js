@@ -1,6 +1,6 @@
 import getChannelId from '../helpers/getChannelId'
 
-export default client => message => {
+export default client => async message => {
   const isCommand = message.content.startsWith('!')
 
   // If the message comes from a bot (or itself), do not process any further.
@@ -27,7 +27,7 @@ export default client => message => {
     const user = message.mentions.users.first() || message.author
     const ping = command.ping === false ? '' : user
     const channelId = getChannelId(message, command)
-    const answer = command.handler(content, client, message)
+    const answer = await command.handler(content, client, message)
 
     if (answer && channelId) {
       client.channels.cache.get(channelId).send([ping, answer].join(' '))
