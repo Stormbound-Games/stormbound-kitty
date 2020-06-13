@@ -167,7 +167,8 @@
 .Card__image-wrapper {
   width: 80%;
   margin: auto;
-  max-height: 44%;
+  max-height: 45%;
+  display: flex;
 }
 
 .Card__image {
