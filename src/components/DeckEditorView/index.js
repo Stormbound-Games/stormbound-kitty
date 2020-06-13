@@ -237,7 +237,7 @@ class DeckEditorView extends React.Component {
           </Column>
         </Row>
 
-        <PageMeta {...getDeckBuilderMetaTags(deck, matchedDeck)} />
+        <PageMeta {...getDeckBuilderMetaTags(deck)} />
       </>
     )
   }

@@ -1,17 +1,17 @@
+import isSuggestedDeck from '../isSuggestedDeck'
 import getResolvedCardData from '../getResolvedCardData'
 import sortByMana from '../sortByMana'
 
-const getDeckBuilderMetaTags = (deck, matchedDeck) => {
-  const metaTags = {
-    title: 'Deck Builder',
+const getDeckBuilderMetaTags = deck => {
+  const suggestedDeck = isSuggestedDeck(deck)
+  const metaTags = { title: 'Deck' }
+
+  if (suggestedDeck) {
+    metaTags.title = `${suggestedDeck.name} by ${suggestedDeck.author}`
   }
 
-  if (matchedDeck) {
-    metaTags.title = `${matchedDeck.name} by ${matchedDeck.author}`
-  }
-
-  if (deck.length < 12) {
-    metaTags.description = 'Compose your own deck.'
+  if (deck.length === 0) {
+    metaTags.description = 'Compose your own deck on Stormbound-Kitty'
   } else {
     metaTags.description = deck
       .slice(0)
