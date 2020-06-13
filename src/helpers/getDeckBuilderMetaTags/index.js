@@ -1,4 +1,4 @@
-import getRawCardData from '../getRawCardData'
+import getResolvedCardData from '../getResolvedCardData'
 import sortByMana from '../sortByMana'
 
 const getDeckBuilderMetaTags = (deck, matchedDeck) => {
@@ -16,10 +16,9 @@ const getDeckBuilderMetaTags = (deck, matchedDeck) => {
     metaTags.description = deck
       .slice(0)
       .sort(sortByMana)
-      .map(card => {
-        return `${getRawCardData(card.id).name} (${card.level})`
-      })
-      .join(', ')
+      .map(getResolvedCardData)
+      .map(card => `${card.mana} ${card.name} (${card.level})`)
+      .join('\n')
   }
 
   return metaTags
