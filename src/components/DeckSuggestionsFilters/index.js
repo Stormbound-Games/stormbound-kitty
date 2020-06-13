@@ -82,7 +82,7 @@ export default React.memo(function DeckSuggestionsFilters(props) {
                 updateName(event.target.value)
                 props.updateName(event.target.value)
               }}
-              placeholder='e.g. Let It Go'
+              placeholder='e.g. Reckless Rush'
             />
           </Column>
           <Column>

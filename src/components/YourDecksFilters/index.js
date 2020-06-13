@@ -69,7 +69,7 @@ export default React.memo(function YourDecksFilters(props) {
               id='name'
               value={props.name}
               onChange={event => updateName(event.target.value)}
-              placeholder='e.g. Let It Go'
+              placeholder='e.g. Reckless Rush'
               data-testid='decks-name-input'
             />
           </Column>
