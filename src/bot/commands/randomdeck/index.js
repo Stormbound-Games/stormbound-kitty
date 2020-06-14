@@ -11,11 +11,6 @@ import serialisation from '../../../helpers/serialisation'
 const ALLOWED_FACTIONS = Object.keys(FACTIONS).filter(
   faction => faction !== 'neutral'
 )
-const BASE_OPTIONS = {
-  maxEpicCards: 4,
-  maxLegendaryCards: 2,
-  minFactionCards: 4,
-}
 
 const findFaction = message => {
   const terms = message.split(/[\s,]+/g).filter(Boolean)
@@ -112,7 +107,6 @@ export default {
 
     const initialCards = including.length ? including.slice(0, 3) : undefined
     const deck = getRandomDeck({
-      ...BASE_OPTIONS,
       initialCards,
       faction: resolvedFaction,
     })

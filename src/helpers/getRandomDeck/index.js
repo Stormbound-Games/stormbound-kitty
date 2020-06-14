@@ -4,6 +4,14 @@ import getResolvedCardData from '../getResolvedCardData'
 
 const FREEZE_CARDS = ['W2', 'W6', 'W11']
 const POISON_CARDS = ['F2', 'F4', 'F5', 'F13']
+const DEFAULT_OPTIONS = {
+  availableCards: cards,
+  faction: null,
+  initialCards: [],
+  maxEpicCards: 4,
+  maxLegendaryCards: 2,
+  minFactionCards: 3,
+}
 
 const getRandomCard = (cards, deck, options) => {
   const card = arrayRandom(cards)
@@ -144,12 +152,15 @@ const isMatchingFaction = faction => card =>
  * @param {Number} options.minFactionCards  - Minimum amount of faction cards
  * @param {Card[]} options.initialCards  - Cards to force into the deck
  */
-const getRandomDeck = options => {
+const getRandomDeck = (options = {}) => {
+  // Merge the given options with the default options.
+  options = { ...DEFAULT_OPTIONS, ...options }
+
   const isFromExpectedFaction = isMatchingFaction(options.faction)
 
   // The starting deck are the given initial cards (if any), provided they do
   // not conflict with the given faction.
-  const deck = (options.initialCards || []).filter(isFromExpectedFaction)
+  const deck = options.initialCards.filter(isFromExpectedFaction)
 
   // The amount of missing cards is the total length of a deck (12) minus the
   // amount of initial cards (after faction mismatches have been removed).
@@ -158,7 +169,7 @@ const getRandomDeck = options => {
   // The available cards are the provided ones if any, otherwise the default
   // card collection, minus all the cards that don’t match the provided faction,
   // as well as the token cards.
-  const availableCards = (options.availableCards || cards)
+  const availableCards = options.availableCards
     .filter(isFromExpectedFaction)
     .filter(card => !card.token)
     .map(card => getResolvedCardData({ id: card.id, level: card.level || 1 }))

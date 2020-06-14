@@ -34,11 +34,11 @@ class RandomDeckButton extends React.Component {
     const maxLegendaryCards =
       typeof this.state.maxLegendaryCards === 'number'
         ? this.state.maxLegendaryCards
-        : Infinity
+        : undefined
     const maxEpicCards =
       typeof this.state.maxEpicCards === 'number'
         ? this.state.maxEpicCards
-        : Infinity
+        : undefined
     const deck = getRandomDeck({
       availableCards: this.props.collection,
       faction,
