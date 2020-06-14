@@ -1,4 +1,3 @@
-import cards from '../../../data/cards'
 import { FACTIONS } from '../../../constants/game'
 import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import areAllValuesEqual from '../../../helpers/areAllValuesEqual'
@@ -16,7 +15,6 @@ const BASE_OPTIONS = {
   maxEpicCards: 4,
   maxLegendaryCards: 2,
   minFactionCards: 4,
-  availableCards: cards.filter(card => !card.token),
 }
 
 const findFaction = message => {

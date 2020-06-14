@@ -1,4 +1,6 @@
+import cards from '../../data/cards'
 import arrayRandom from '../arrayRandom'
+import getResolvedCardData from '../getResolvedCardData'
 
 const FREEZE_CARDS = ['W2', 'W6', 'W11']
 const POISON_CARDS = ['F2', 'F4', 'F5', 'F13']
@@ -17,12 +19,12 @@ const getRandomCard = (cards, deck, options) => {
     deck.filter(card => card.faction === 'neutral').length >=
     12 - options.minFactionCards
   const hasEnoughExpensiveCards =
-    deck.filter(card => +card.mana >= 5).length >= 4
+    deck.filter(card => card.mana >= 5).length >= 4
   const hasCardAlready = deck.find(c => c.id === card.id)
 
   if (
     hasCardAlready ||
-    (+card.mana >= 5 && hasEnoughExpensiveCards) ||
+    (card.mana >= 5 && hasEnoughExpensiveCards) ||
     (card.rarity === 'epic' && hasEnoughEpics) ||
     (card.rarity === 'legendary' && hasEnoughLegendaries) ||
     (card.faction === 'neutral' && hasEnoughNeutrals) ||
@@ -93,7 +95,7 @@ const getRandomCard = (cards, deck, options) => {
       const hasCheapStructureCard =
         deck
           .filter(card => card.type === 'structure')
-          .filter(card => card.id !== 'I14' && +card.mana <= 4).length >= 1
+          .filter(card => card.id !== 'I14' && card.mana <= 4).length >= 1
       if (!hasCheapStructureCard) return getRandomCard(cards, deck, options)
       break
     }
@@ -145,9 +147,10 @@ const getRandomDeck = options => {
     (options.faction ? card.faction === options.faction : true)
   const deck = (options.initialCards || []).filter(isMatchingFaction)
   const rounds = 12 - deck.length
-  const availableCards = options.availableCards
+  const availableCards = (options.availableCards || cards)
     .filter(isMatchingFaction)
     .filter(card => !card.token)
+    .map(getResolvedCardData)
 
   for (let i = 0; i < rounds; i += 1) {
     try {

@@ -10,7 +10,6 @@ import LearnMoreIcon from '../LearnMoreIcon'
 import Row from '../Row'
 import getRandomDeck from '../../helpers/getRandomDeck'
 import arrayRandom from '../../helpers/arrayRandom'
-import getResolvedCardData from '../../helpers/getResolvedCardData'
 
 class RandomDeckButton extends React.Component {
   state = {
@@ -40,14 +39,12 @@ class RandomDeckButton extends React.Component {
       typeof this.state.maxEpicCards === 'number'
         ? this.state.maxEpicCards
         : Infinity
-    const availableCards = this.props.collection.map(getResolvedCardData)
-    const minFactionCards = this.state.minFactionCards
     const deck = getRandomDeck({
+      availableCards: this.props.collection,
       faction,
-      minFactionCards,
-      maxLegendaryCards,
       maxEpicCards,
-      availableCards,
+      maxLegendaryCards,
+      minFactionCards: this.state.minFactionCards,
     })
 
     this.props.defineDeck(deck)
