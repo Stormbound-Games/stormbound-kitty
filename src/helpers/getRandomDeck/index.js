@@ -170,9 +170,9 @@ const getRandomDeck = (options = {}) => {
   // card collection, minus all the cards that don’t match the provided faction,
   // as well as the token cards.
   const availableCards = options.availableCards
+    .map(card => getResolvedCardData({ id: card.id, level: card.level || 1 }))
     .filter(isFromExpectedFaction)
     .filter(card => !card.token)
-    .map(card => getResolvedCardData({ id: card.id, level: card.level || 1 }))
 
   // For every missing card in the deck, we pick a new card at random and add it
   // to the deck. If it fails due to an infinite loop (which should not happen
