@@ -29,8 +29,7 @@ export default cards => {
     }
 
     if (Object.keys(SPAWNS).includes(card.id)) {
-      const spawnRace = SPAWNS[card.id][0]
-      const spawnNum = SPAWNS[card.id][1]
+      const [spawnRace, spawnNum] = SPAWNS[card.id]
       raceObj[spawnRace] = (raceObj[spawnRace] || 0) + spawnNum
     }
     return raceObj
