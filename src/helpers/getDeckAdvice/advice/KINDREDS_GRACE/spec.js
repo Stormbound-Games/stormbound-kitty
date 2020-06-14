@@ -27,7 +27,7 @@ describe('The `KINDREDS_GRACE` advice', () => {
   })
 
   SPAWNS_ARRAY.forEach(cardId => {
-    const race = spawnCard[1][0]
+    const race = SPAWNS[cardId][0]
     const testDeck = BASE_DECKS[race] + '1' + cardId.toLowerCase()
 
     it(
