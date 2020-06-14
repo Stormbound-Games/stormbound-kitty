@@ -5,7 +5,7 @@ import serialisation from '../../../serialisation'
 import modifyDeck from '../../../modifyDeck'
 import { SPAWNS } from './index'
 
-const SPAWNS_ARRAY = Object.entries(SPAWNS)
+const SPAWNS_ARRAY = Object.keys(SPAWNS)
 const BASE_DECKS = {
   dragon: '4n14n34n43n63n103f273n173n243n254n283n40',
   knight: '4n14n34n43n63n103f273n173n243n254n283n40',
