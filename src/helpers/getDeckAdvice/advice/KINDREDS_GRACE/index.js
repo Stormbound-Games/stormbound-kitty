@@ -16,7 +16,7 @@ export const SPAWNS = {
   N49: ['raven', 2], // Avian Stalkers
   F23: ['raven', 3], // High Priestess Klaxi
   F10: ['toad', 3], // Azure Hatchers
-  F8: ['toad', 4], //Rain of Frogs
+  F8: ['toad', 4], // Rain of Frogs
 }
 
 export default cards => {
