@@ -131,6 +131,9 @@ const getRandomCard = (cards, deck, options) => {
   return card
 }
 
+const isMatchingFaction = faction => card =>
+  card.faction === 'neutral' || (faction ? card.faction === faction : true)
+
 /**
  * Return a random deck (cards not resolved).
  * @param {Object} options - Randomisation options
@@ -142,16 +145,27 @@ const getRandomCard = (cards, deck, options) => {
  * @param {Card[]} options.initialCards  - Cards to force into the deck
  */
 const getRandomDeck = options => {
-  const isMatchingFaction = card =>
-    card.faction === 'neutral' ||
-    (options.faction ? card.faction === options.faction : true)
-  const deck = (options.initialCards || []).filter(isMatchingFaction)
-  const rounds = 12 - deck.length
-  const availableCards = (options.availableCards || cards)
-    .filter(isMatchingFaction)
-    .filter(card => !card.token)
-    .map(getResolvedCardData)
+  const isFromExpectedFaction = isMatchingFaction(options.faction)
 
+  // The starting deck are the given initial cards (if any), provided they do
+  // not conflict with the given faction.
+  const deck = (options.initialCards || []).filter(isFromExpectedFaction)
+
+  // The amount of missing cards is the total length of a deck (12) minus the
+  // amount of initial cards (after faction mismatches have been removed).
+  const rounds = 12 - deck.length
+
+  // The available cards are the provided ones if any, otherwise the default
+  // card collection, minus all the cards that don’t match the provided faction,
+  // as well as the token cards.
+  const availableCards = (options.availableCards || cards)
+    .filter(isFromExpectedFaction)
+    .filter(card => !card.token)
+    .map(card => getResolvedCardData({ id: card.id, level: card.level || 1 }))
+
+  // For every missing card in the deck, we pick a new card at random and add it
+  // to the deck. If it fails due to an infinite loop (which should not happen
+  // but we never know), we retry generating the deck from scratch.
   for (let i = 0; i < rounds; i += 1) {
     try {
       deck.push(getRandomCard(availableCards, deck, options))
@@ -162,7 +176,7 @@ const getRandomDeck = options => {
     }
   }
 
-  return deck.map(card => ({ id: card.id, level: card.level || 1 }))
+  return deck
 }
 
 export default getRandomDeck
