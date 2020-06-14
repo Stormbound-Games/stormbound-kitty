@@ -1,7 +1,15 @@
 import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import capitalise from '../../../helpers/capitalise'
 
-const ROLES = ['Diamond', 'Platinum', 'Gold', 'Silver', 'Bronze']
+const ROLES = [
+  'Diamond',
+  'Platinum',
+  'Gold',
+  'Silver',
+  'Bronze',
+  'Iron',
+  'Starter',
+]
 
 const getExpectedRole = ({ content, guild }) => {
   const message = content.replace('!league', '').trim().toLowerCase()
