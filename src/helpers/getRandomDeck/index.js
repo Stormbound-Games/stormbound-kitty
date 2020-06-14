@@ -154,13 +154,19 @@ const isMatchingFaction = faction => card =>
  */
 const getRandomDeck = (options = {}) => {
   // Merge the given options with the default options.
-  options = { ...DEFAULT_OPTIONS, ...options }
+  for (let option in DEFAULT_OPTIONS) {
+    if (typeof options[option] === 'undefined') {
+      options[option] = DEFAULT_OPTIONS[option]
+    }
+  }
 
   const isFromExpectedFaction = isMatchingFaction(options.faction)
 
   // The starting deck are the given initial cards (if any), provided they do
   // not conflict with the given faction.
-  const deck = options.initialCards.filter(isFromExpectedFaction)
+  const deck = options.initialCards
+    .map(card => getResolvedCardData({ id: card.id, level: card.level || 1 }))
+    .filter(isFromExpectedFaction)
 
   // The amount of missing cards is the total length of a deck (12) minus the
   // amount of initial cards (after faction mismatches have been removed).

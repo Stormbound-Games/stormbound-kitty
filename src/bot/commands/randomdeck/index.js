@@ -106,10 +106,7 @@ export default {
     }
 
     const initialCards = including.length ? including.slice(0, 3) : undefined
-    const deck = getRandomDeck({
-      initialCards,
-      faction: resolvedFaction,
-    })
+    const deck = getRandomDeck({ initialCards, faction: resolvedFaction })
 
     return [
       'https://stormbound-kitty.com/deck/' + serialisation.deck.serialise(deck),
