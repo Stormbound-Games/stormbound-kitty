@@ -26,8 +26,7 @@ describe('The `KINDREDS_GRACE` advice', () => {
     expect(advice(cards)).to.not.equal(null)
   })
 
-  SPAWNS_ARRAY.forEach(spawnCard => {
-    const cardId = spawnCard[0]
+  SPAWNS_ARRAY.forEach(cardId => {
     const race = spawnCard[1][0]
     const testDeck = BASE_DECKS[race] + '1' + cardId.toLowerCase()
 
