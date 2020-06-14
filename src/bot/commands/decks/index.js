@@ -40,11 +40,10 @@ export const parseMessage = content => {
 
 export default {
   command: 'decks',
-  name: 'Deck search',
-  example: 'ic d1 mia',
-  description: 'Get a link to a deck search matching given search criteria',
-  icon: '🔍',
   isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
+  help: function () {
+    return `🔍  **Deck Search:** Get a link to a deck search matching the given search criteria. It optionally accepts a faction, category and card to include (regardless of order and casing). For instance, \`!${this.command} ic\`, \`!${this.command} wp d1\` or \`!${this.command} brawl kg\`.`
+  },
   handler: function (message) {
     // If no additional parameters were given, reply with the overall deck
     // suggestions page

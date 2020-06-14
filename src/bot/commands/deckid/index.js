@@ -18,12 +18,10 @@ const getLevelOut = term => {
 
 export default {
   command: 'deckid',
-  name: 'Deck ID',
-  example: 'gp,sm,dopp,gr,head,rg,uh,wild,souls,pog,sg,dev',
-  description:
-    'List all the cards of a deck and get its link directly from Discord',
-  icon: '⚙️',
   isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
+  help: function () {
+    return `⚙️  **Deck ID:** Get the URL/ID of a deck based on the listed cards (and optional levels). An optional global deck level can be specified at the beginning or the end of the command, and optional individual card levels can be specified alongside each card in the list. For instance, \`!${this.command} 4 gp,sm,…,dopp\` or \`!${this.command} gp 3,sm 2,…,1 dopp\`.`
+  },
   handler: function (message) {
     if (message.length === 0) return
 

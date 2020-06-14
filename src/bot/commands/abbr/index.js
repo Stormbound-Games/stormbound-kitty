@@ -8,11 +8,10 @@ const quotify = value => `“${value}”`
 
 export default {
   command: 'abbr',
-  name: 'Abbreviations',
-  example: 'AoE',
-  description: 'Get the meaning of a card or popular abbreviation',
-  icon: '❔',
   isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
+  help: function () {
+    return `❔  **Abbreviations:** Get the meaning of a card or popular abbreviation (regardless of casing). For instance, \`!${this.command} rof\` or \`!${this.command} AoE\`.`
+  },
   handler: function (message) {
     const matches = ABBREVIATIONS[message.toLowerCase()]
 

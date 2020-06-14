@@ -31,11 +31,10 @@ const parseMessage = content => {
 
 export default {
   command: 'randomcard',
-  name: 'Random card',
-  example: 'ic spell rare',
-  description: 'Get a random card matching given search criteria',
-  icon: '🃏',
   isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
+  help: function () {
+    return `🃏  **Random Card:** Get a random card matching the given search criteria. It optionally accepts a faction, type, race or rarity (regardless of order or casing). For instance, \`!${this.command} elder ic\`, \`!${this.command} spell\` or \`!${this.command} satyr common\`.`
+  },
   handler: function (message) {
     if (message.length === 0) {
       return linkify(arrayRandom(cards))

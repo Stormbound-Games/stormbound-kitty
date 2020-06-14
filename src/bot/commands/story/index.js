@@ -5,11 +5,10 @@ import stories from '../../../../public/stories'
 
 export default {
   command: 'story',
-  name: 'Story search',
-  example: 'mia',
-  description: 'Get links to stories matching given search criteria',
-  icon: '📝',
   isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
+  help: function () {
+    return `📝  **Story Search:** Link a random story published on Stormbound-Kitty. It optionally accepts a card abbreviation, a Stormbound-Kitty ID, or otherwise performs a “fuzzy search” on the card name to find an associated story. For instance, \`!${this.command} mia\`.`
+  },
   handler: function (message) {
     if (message === 'random' || message === '') {
       return 'https://stormbound-kitty.com/stories/' + arrayRandom(stories).id

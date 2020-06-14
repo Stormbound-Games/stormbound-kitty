@@ -12,12 +12,10 @@ const getIdFromURL = url =>
 
 export default {
   command: 'deckadvice',
-  name: 'Deck advice',
-  example:
-    'https://stormbound-kitty.com/deck/3n13n23s13n33s243s23n633n673s63n153s83s11',
-  description: 'Get advice and suggestions for the given deck',
-  icon: '💎',
   isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
+  help: function () {
+    return `💎  **Deck Advice:** Get advice and suggestions for the given deck. It expects a fully qualified Stormbound-Kitty deck URL, or a Stormbound-Kitty deck ID. For instance, \`!${this.command} 3n13n23s13n33s243s23n633n673s63n153s83s11\`. To get the deck URL/ID, either compose it on the site, or use the \`!deckid\` command.`
+  },
   handler: function (message) {
     const id = getIdFromURL(message)
 

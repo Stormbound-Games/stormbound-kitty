@@ -27,7 +27,9 @@ export default client => async message => {
     const user = message.mentions.users.first() || message.author
     const ping = command.ping === false ? '' : user
     const channelId = getChannelId(message, command)
-    const answer = await command.handler(content, client, message)
+    const answer = content.includes('help')
+      ? await command.help(content, client)
+      : await command.handler(content, client, message)
 
     if (answer && channelId) {
       client.channels.cache.get(channelId).send([ping, answer].join(' '))

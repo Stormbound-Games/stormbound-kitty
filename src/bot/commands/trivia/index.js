@@ -300,15 +300,6 @@ const trivia = new StateMachine({
       }
     },
 
-    help: function () {
-      return [
-        `- \`!trivia card|question|image [duration]\` to start a round`,
-        '- `!trivia stop` to stop the round (only for the initiator of the ongoing round)',
-        '- `!trivia <prop|guess>` to ask for a hint or guess the answer',
-        '- `!trivia scores` to show scores',
-      ].join('\n')
-    },
-
     leaderboard: function () {
       api
         .getScores()
@@ -325,12 +316,11 @@ const trivia = new StateMachine({
 
 export default {
   command: 'trivia',
-  name: 'Stormbound trivia',
-  example: 'help',
-  description: `KittyBot asks a question or picks a card at random and you have to find which! (only in <#${TRIVIA_CHANNEL}>)`,
-  icon: '🔮',
   ping: false,
   isAllowed: channel => channel.id === TRIVIA_CHANNEL,
+  help: function () {
+    return `🔮  **Trivia:** Initiate a card, question, or image trivia (only in <#${TRIVIA_CHANNEL}>). It accepts an optional duration in seconds. For instance, \`!${this.command} card\`, \`!${this.command} question\`, \`!${this.command} image 30\`, \`!${this.command} card\`. Scores can be displayed with \`!${this.command} scores\`.`
+  },
   handler: function (message, client, messageObject) {
     const { author } = messageObject
     const channelId = getChannelId(messageObject, this)
@@ -349,7 +339,6 @@ export default {
 
     message = message.toLowerCase()
 
-    if (message === 'help') return trivia.help()
     if (message === 'inspect') return trivia.inspect(author)
     if (message === 'scores') return trivia.leaderboard()
     if (message === 'stop') return trivia.abort(author)

@@ -1,30 +1,31 @@
 import { TRIVIA_CHANNEL } from '../../../constants/bot'
 
-const formatCommand = ({
-  channel,
-  command,
-  description,
-  example,
-  icon,
-  name,
-}) => `${icon} **${name}** (e.g. \`!${command}${
-  example ? ` ${example}` : ''
-}\`)${channel ? ` *(only in <#${channel}>)*` : ''}
-       *${description}*`
-
 export default {
   command: 'help',
-  name: 'Help',
-  description: 'Get help about KittyBot’s commands',
-  icon: '🤖',
   isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
-  handler: function (message, client) {
-    let reply = ''
+  help: function (content, client) {
+    let commands = []
 
-    for (let [, command] of client.commands) {
-      reply += '\n' + formatCommand(command)
+    if (client.commands.has(content) && content !== 'help') {
+      return client.commands.get(content).help(content, client)
     }
 
-    return reply
+    for (let [, command] of client.commands) {
+      if (command.command !== 'help') commands.push(command.command)
+    }
+
+    return `The following commands are allowed: ${commands
+      .map(
+        command =>
+          `\`!${command}\`${
+            command === 'trivia' ? ` (only in <#${TRIVIA_CHANNEL}>)` : ''
+          }`
+      )
+      .join(
+        ', '
+      )}. Use \`!help <command>\` or \`!<command> help\` to get more information about a command and how to use it.`
+  },
+  handler: function (message, client) {
+    return this.help(message, client)
   },
 }

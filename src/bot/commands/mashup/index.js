@@ -22,10 +22,10 @@ const [STARTS, ENDS] = (() => {
 
 export default {
   command: 'mashup',
-  name: 'Random Name Generator',
-  description: 'Generate a random card name from existing ones',
-  icon: '🤪',
   isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
+  help: function () {
+    return `🤪  **Random Name Generator:** Randomly generate a random card name from existing ones.`
+  },
   handler: async function (message, client, messageObject) {
     return arrayRandom(STARTS) + ' ' + arrayRandom(ENDS)
   },

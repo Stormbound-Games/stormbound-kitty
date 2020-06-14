@@ -18,10 +18,10 @@ const getExistingRole = ({ member }) => {
 
 export default {
   command: 'league',
-  name: 'League Role Assignment',
-  description: 'Get assigned your current league as a role',
-  icon: '🌟',
   isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
+  help: function () {
+    return `🌟  **League Role Assignment:** Assign yourself a role named after a Stormbound league (regardless of casing). Use the command again to have the role removed. For instance \`!${this.command} diamond\`.`
+  },
   handler: async function (message, client, messageObject) {
     const newRole = getExpectedRole(messageObject)
     const existingRole = getExistingRole(messageObject)

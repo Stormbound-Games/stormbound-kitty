@@ -3,10 +3,10 @@ import { TRIVIA_CHANNEL } from '../../../constants/bot'
 
 export default {
   command: 'guides',
-  name: 'Guides',
-  description: 'List existing guides from Stormbound-Kitty',
-  icon: '🧭',
   isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
+  help: function () {
+    return `🧭  **Guides:** List all existing guides from Stormbound-Kitty.`
+  },
   handler: function (message) {
     return (
       'Please enjoy the following guides:\n' +
