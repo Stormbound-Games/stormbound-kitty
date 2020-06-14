@@ -38,11 +38,4 @@ describe('Bot — !trivia', () => {
   it('should not be possible to stop a trivia if no trivia started', () => {
     expect(trivia('stop', client, message)).to.equal(undefined)
   })
-
-  it('should be possible to display help', () => {
-    expect(trivia('help', client, message)).to.contain('card')
-    expect(trivia('help', client, message)).to.contain('question')
-    expect(trivia('help', client, message)).to.contain('stop')
-    expect(trivia('help', client, message)).to.contain('prop')
-  })
 })
