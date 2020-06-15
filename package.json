@@ -35,6 +35,7 @@
     "remark-react": "^7.0.1"
   },
   "scripts": {
+    "prebuild:cra": "node -r esm bin/sitemap.js",
     "start": "EXTEND_ESLINT=true react-scripts start",
     "start:windows": "set EXTEND_ESLINT=true && react-scripts start",
     "build:cra": "CI=false react-scripts build",
@@ -63,6 +64,7 @@
     "lint-staged": "^10.2.9",
     "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
+    "sitemap": "^6.1.5",
     "spritesh": "^1.2.1",
     "webpack-bundle-analyzer": "^3.8.0"
   },
