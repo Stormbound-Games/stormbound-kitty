@@ -143,7 +143,28 @@ const trivia = new StateMachine({
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.drawImage(...args)
 
+      if (this.difficulty === 'HARD') {
+        ctx.putImageData(this.grayscale(), 0, 0)
+      }
+
       return new Discord.MessageAttachment(canvas.toBuffer(), 'trivia_img.png')
+    },
+
+    grayscale: function () {
+      const image = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height)
+      const pixels = image.data
+
+      for (var i = 0; i < pixels.length; i += 4) {
+        const lightness = parseInt(
+          (pixels[i] + pixels[i + 1] + pixels[i + 2]) / 3
+        )
+
+        pixels[i] = lightness
+        pixels[i + 1] = lightness
+        pixels[i + 2] = lightness
+      }
+
+      return image
     },
 
     onStart: function () {
@@ -171,9 +192,10 @@ const trivia = new StateMachine({
     },
 
     initialise: function (message, author) {
-      const { mode, duration } = parseTriviaSettings(message)
+      const { mode, duration, difficulty } = parseTriviaSettings(message)
 
       if (!mode) return
+      this.difficulty = difficulty
       this.duration = duration
       this.initiator = author
       this.mode = mode
@@ -203,6 +225,7 @@ const trivia = new StateMachine({
       )
 
       this.answer = null
+      this.difficulty = null
       this.duration = 60
       this.initiator = null
       this.mode = null
@@ -228,10 +251,17 @@ const trivia = new StateMachine({
 
     success: function (author) {
       const answer = this.answer.name
+      const increment = this.difficulty === 'HARD' ? +2 : +1
 
       api
-        .setScore(author.id, +1)
-        .then(() => console.log('Added 1 point to ' + author.id))
+        .setScore(author.id, increment)
+        .then(() =>
+          console.log(
+            `Added ${increment} point${increment === 1 ? '' : 's'} to ${
+              author.id
+            }`
+          )
+        )
         .catch(console.error.bind(console))
 
       this.stop()
@@ -319,7 +349,7 @@ export default {
   ping: false,
   isAllowed: channel => channel.id === TRIVIA_CHANNEL,
   help: function () {
-    return `🔮  **Trivia:** Initiate a card, question, or image trivia (only in <#${TRIVIA_CHANNEL}>). It accepts an optional duration in seconds. For instance, \`!${this.command} card\`, \`!${this.command} question\`, \`!${this.command} image 30\`, \`!${this.command} card\`. Scores can be displayed with \`!${this.command} scores\`.`
+    return `🔮  **Trivia:** Initiate a card, question, or image trivia (only in <#${TRIVIA_CHANNEL}>). It accepts an optional duration in seconds (and the keyword \`hard\` for grayscale image trivia). For instance, \`!${this.command} card\`, \`!${this.command} question\`, \`!${this.command} image 30\`, \`!${this.command} image hard\`. Scores can be displayed with \`!${this.command} scores\`.`
   },
   handler: function (message, client, messageObject) {
     const { author } = messageObject

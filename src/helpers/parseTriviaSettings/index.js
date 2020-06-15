@@ -9,6 +9,10 @@ const parseTriviaSettings = message => {
 
   params.mode = modeMatch[1].toUpperCase()
 
+  if (message.includes('hard')) {
+    params.difficulty = 'HARD'
+  }
+
   if (durationMatch) {
     params.duration = +(durationMatch[1] || undefined)
   }
