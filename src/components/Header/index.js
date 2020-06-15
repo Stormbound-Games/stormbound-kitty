@@ -134,6 +134,15 @@ export default React.memo(function Header(props) {
                 <Icon className='Header__icon' icon='quill' /> Stories
               </NavLink>
             </li>
+            <li className='Header__item Header__item--right'>
+              <NavLink
+                href='https://gum.co/stormbound-kitty'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <Icon className='Header__icon' icon='star' /> Donate
+              </NavLink>
+            </li>
           </ul>
         </nav>
 
