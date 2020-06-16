@@ -34,8 +34,15 @@ class DeckEditorView extends React.Component {
   componentDidMount() {
     document.addEventListener('keydown', this.captureKeyboardEvents)
 
-    if (this.props.deckId && !this.props.hasDefaultCollection) {
-      this.adjustDeckToCollection(this.props.collection)
+    if (this.props.deckId) {
+      const matchedDeck = isSuggestedDeck(this.props.deck)
+
+      if (
+        !this.props.hasDefaultCollection &&
+        (!matchedDeck || matchedDeck.category !== 'EQUALS')
+      ) {
+        this.adjustDeckToCollection(this.props.collection)
+      }
     }
   }
 
