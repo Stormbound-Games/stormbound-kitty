@@ -33,10 +33,12 @@ export default React.memo(function BrawlOverviewRow(props) {
           <BrawlStatusChart />
         </Column>
         <Column width='1/3'>
-          <BrawlMilestone
-            {...milestone}
-            cardId={BRAWLS.find(brawl => brawl.id === id).cardId}
-          />
+          {milestone && (
+            <BrawlMilestone
+              {...milestone}
+              cardId={BRAWLS.find(brawl => brawl.id === id).cardId}
+            />
+          )}
         </Column>
       </Row>
     </div>
