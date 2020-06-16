@@ -130,23 +130,21 @@ export default function CollectionStats(props) {
           <Row desktopOnly>
             <Column>
               <Title>What is this</Title>
-              <div className='CollectionStats__info'>
-                <p>
-                  On this page, you can find some data visualisation for your
-                  card collection.{' '}
-                  <Only.DefaultCollection>
-                    Start by importing your card collection. In the mean time,
-                    the visualised collection contains all cards in the game at
-                    level 1.
-                  </Only.DefaultCollection>
-                </p>
-                <p>
-                  All charts titled with “(Stones)” rely on the cost of each
-                  card. A card cost is computed based on its current level in
-                  your collection and the amount of extra copies you have of
-                  that card before the next level.
-                </p>
-              </div>
+              <p>
+                On this page, you can find some data visualisation for your card
+                collection.{' '}
+                <Only.DefaultCollection>
+                  Start by importing your card collection. In the mean time, the
+                  visualised collection contains all cards in the game at level
+                  1.
+                </Only.DefaultCollection>
+              </p>
+              <p>
+                All charts titled with “(Stones)” rely on the cost of each card.
+                A card cost is computed based on its current level in your
+                collection and the amount of extra copies you have of that card
+                before the next level.
+              </p>
               <Only.DefaultCollection>
                 <Row desktopOnly>
                   <Column>
