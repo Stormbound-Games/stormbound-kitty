@@ -73,7 +73,7 @@ export default React.memo(function DeckDetailView(props) {
         </Column>
       </Row>
 
-      <PageMeta {...getDeckBuilderMetaTags(props.deck)} />
+      <PageMeta {...getDeckBuilderMetaTags(props.deck, 'Deck Insights')} />
     </>
   )
 })

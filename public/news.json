@@ -86,7 +86,7 @@
   },
   {
     "intro": "Cards Stats",
-    "description": "Stormbound Kitty now provides some data visualisation about the Stormbound cards collection.",
+    "description": "Stormbound Kitty now provides some data visualisation about the Stormbound card collection.",
     "link": "/cards-stats"
   },
   {
@@ -237,7 +237,7 @@
   },
   {
     "intro": "Card Collection",
-    "description": "It is now possible to import and export cards collections.",
+    "description": "It is now possible to import and export card collections.",
     "link": "/collection"
   },
   {

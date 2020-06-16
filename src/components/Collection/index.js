@@ -192,7 +192,7 @@ class Collection extends React.Component {
           </Column>
 
           <Column width='2/3'>
-            <Title>Cards Collection</Title>
+            <Title>Card Collection</Title>
 
             <CardsFiltering
               cards={this.props.collection.map(getResolvedCardData)}
@@ -235,7 +235,7 @@ class Collection extends React.Component {
         </Row>
 
         <PageMeta
-          title='Cards Collection'
+          title='Card Collection'
           description='Manage your own card collection and keep track of your cards'
         />
       </>

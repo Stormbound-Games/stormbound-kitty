@@ -2,9 +2,9 @@ import isSuggestedDeck from '../isSuggestedDeck'
 import getResolvedCardData from '../getResolvedCardData'
 import sortByMana from '../sortByMana'
 
-const getDeckBuilderMetaTags = deck => {
+const getDeckBuilderMetaTags = (deck, defaultTitle = 'Deck') => {
   const suggestedDeck = isSuggestedDeck(deck)
-  const metaTags = { title: 'Deck' }
+  const metaTags = { title: defaultTitle }
 
   if (suggestedDeck) {
     metaTags.title = `${suggestedDeck.name} by ${suggestedDeck.author}`

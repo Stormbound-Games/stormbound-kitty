@@ -260,10 +260,7 @@ class DeckSuggestions extends React.Component {
           </Column>
         </Row>
 
-        <PageMeta
-          title='Deck Suggestions'
-          description={this.getPageDescription()}
-        />
+        <PageMeta title='Decks' description={this.getPageDescription()} />
       </>
     )
   }

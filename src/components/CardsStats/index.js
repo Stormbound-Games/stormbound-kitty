@@ -95,7 +95,7 @@ export default React.memo(() => {
 
       <PageMeta
         title='Cards Stats'
-        description='Enjoy insights and statistics about the state of the Stormbound cards collection'
+        description='Enjoy insights and statistics about the state of the Stormbound card collection'
       />
     </>
   )
