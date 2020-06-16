@@ -1,19 +1,40 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import news from '../../data/news'
 import Column from '../Column'
 import CTA from '../CTA'
+import Error from '../Error'
+import Loader from '../Loader'
 import Row from '../Row'
 import chunk from '../../helpers/chunk'
+import useFetch from '../../hooks/useFetch'
 import './index.css'
 
 const MAX_NEWS = 7
 
 export default React.memo(function News(props) {
+  const { loading, error, data: news = [] } = useFetch('/news.json')
   const pages = chunk(news, MAX_NEWS)
   const [activePage, setActivePage] = React.useState(0)
   const loadPrev = () => setActivePage(page => page + 1)
   const loadNext = () => setActivePage(page => page - 1)
+
+  if (loading) {
+    return (
+      <div className='News' data-testid='news'>
+        <Loader hideLabel />
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className='News' data-testid='news'>
+        <Error error='Error fetching latest news.' noTitle noImage />
+      </div>
+    )
+  }
+
+  if (!pages[activePage]) return null
 
   return (
     <>
