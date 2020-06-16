@@ -25,7 +25,7 @@ export default React.memo(function DryRunner(props) {
 
       <Row desktopOnly wideGutter>
         <Column width='1/3'>
-          <Title>Your deck</Title>
+          <Title>Deck</Title>
           <Deck
             deck={props.displayDeck}
             orientation={viewportWidth > 700 ? 'vertical' : 'horizontal'}

@@ -46,7 +46,7 @@ export default React.memo(function DeckDetailView(props) {
 
       <Row desktopOnly wideGutter>
         <Column width='1/3'>
-          <Title>Your deck</Title>
+          <Title>Deck</Title>
           <Deck
             id='deck'
             deck={deck}

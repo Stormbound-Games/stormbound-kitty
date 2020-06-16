@@ -53,7 +53,7 @@ export default function DeckStats(props) {
 
   return (
     <div className='DeckStats'>
-      <Title>Deck stats</Title>
+      <Title>Statistics</Title>
 
       <Row>
         <Column>
