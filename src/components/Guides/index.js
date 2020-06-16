@@ -50,7 +50,7 @@ export default React.memo(function Guides(props) {
       </Notice>
 
       <PageMeta
-        title='Guides'
+        title={CATEGORIES[props.category].name.long}
         description='Find guides from the community about Stormbound and improve your gameplay and knowledge about the game'
       />
     </>
