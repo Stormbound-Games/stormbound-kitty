@@ -3,7 +3,7 @@ import { WebpContext } from '../WebpProvider'
 
 export default React.forwardRef(function Image(props, ref) {
   const supportsWebp = React.useContext(WebpContext)
-  const ext = supportsWebp ? 'webp' : 'png'
+  const ext = supportsWebp && !props.noWepb ? 'webp' : 'png'
 
   return (
     <img
