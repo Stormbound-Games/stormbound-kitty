@@ -158,6 +158,4 @@ That’s because you have too many cards with either an odd or even mana cost—
 
 The causes may be the same ones as why you might [struggle in early game](#the-deck-doesnt-work-in-the-early-game) or you might be misusing Broken Earth Drakes—either way I’d recommend to read again [How to use](#how-to-use).
 
----
-
-For more detailed advices & responses, please check out the Stormbound Discord and we'll be happy to help. Feel free to DM me for any advice regarding the guide. Best of luck in your matches!
+For more detailed advices & responses, please check out the Stormbound Discord and we'll be happy to help. Best of luck in your matches!

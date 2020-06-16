@@ -518,8 +518,6 @@ export default React.memo(function GuideD1SFCommons(props) {
         />
       </div>
 
-      <hr />
-
       <p>
         To wrap up, this deck is a solid rush deck which remains viable in
         mid-game. It has the particularity of being composed almost exclusively

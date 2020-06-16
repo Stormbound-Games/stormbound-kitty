@@ -42,7 +42,10 @@ export default React.memo(function Guides(props) {
       <Category guides={relevantGuides} />
 
       <Notice icon='compass'>
-        Looking to teach others and guide them towards glorious battles?{' '}
+        Looking to teach others and guide them towards glorious battles?
+        <Only.Desktop>
+          <br />
+        </Only.Desktop>{' '}
         <Link to='/faq#adding-a-guide'>Have your own guide published</Link>.
       </Notice>
 

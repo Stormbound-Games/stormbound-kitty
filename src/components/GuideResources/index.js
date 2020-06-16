@@ -578,8 +578,6 @@ export default React.memo(function GuideDrawing(props) {
         </li>
       </ul>
 
-      <hr />
-
       <p>
         At the end of the day, you have to figure out what you want from the
         game to know how to best spend your resources!

@@ -292,8 +292,6 @@ export default React.memo(function GuideDrawing(props) {
         with a weight of 0.
       </p>
 
-      <hr />
-
       <Info title='Try it out' icon='stack'>
         You can try all these mechanics and practive your mana curve in the deck
         dry-runner. Simply open or compose a deck in the{' '}
