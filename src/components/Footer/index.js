@@ -47,6 +47,14 @@ export default React.memo(function Footer(props) {
             <p className='Footer__info'>
               This site is hosted on{' '}
               <a
+                href='https://github.com/KittySparkles/stormbound-kitty'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                GitHub
+              </a>{' '}
+              and{' '}
+              <a
                 href='https://www.netlify.com'
                 target='_blank'
                 rel='noopener noreferrer'
