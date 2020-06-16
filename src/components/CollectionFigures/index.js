@@ -72,10 +72,7 @@ export default function CollectionFigures(props) {
 
   return (
     <>
-      <Title>Collection stats</Title>
-      <p className='CollectionFigures__intro'>
-        Find below some helpful metrics about your card collection:
-      </p>
+      <p>Find below some helpful metrics about your card collection:</p>
       <ul className='CollectionFigures__list'>
         <li>
           Total value
