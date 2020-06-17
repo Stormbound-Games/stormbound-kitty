@@ -4,7 +4,7 @@ import getResolvedCardData from '../getResolvedCardData'
 import hasInefficientConfusion from '../getDeckAdvice/advice/CONFUSION'
 import hasTooManyStructures from '../getDeckAdvice/advice/STRUCTURES'
 import hasTooManySpells from '../getDeckAdvice/advice/SPELLS'
-import hasHighManaCurve from '../getDeckAdvice/advice/MANA_CURVE'
+import hasHighManaAverage from '../getDeckAdvice/advice/MANA_COST_AVERAGE'
 import hasInefficientFreeze from '../getDeckAdvice/advice/FREEZE'
 import hasInefficientPoison from '../getDeckAdvice/advice/POISON'
 import hasInefficientSatyrs from '../getDeckAdvice/advice/SATYRS'
@@ -59,7 +59,7 @@ const getRandomCard = (cards, deck, options) => {
     hasInefficientConfusion(currentDeck) ||
     hasTooManyStructures(currentDeck) ||
     hasTooManySpells(currentDeck) ||
-    hasHighManaCurve(currentDeck) ||
+    hasHighManaAverage(currentDeck) ||
     hasInefficientFreeze(currentDeck) ||
     hasInefficientPoison(currentDeck) ||
     hasInefficientSatyrs(currentDeck) ||
