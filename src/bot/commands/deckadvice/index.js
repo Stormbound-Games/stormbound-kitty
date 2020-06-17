@@ -26,7 +26,7 @@ export default {
       const advice = getDeckAdvice(cards)
 
       if (advice.length === 0) {
-        return 'Nothing too particular to mention about your deck, it looks alright!'
+        return 'No particular suggestions could be found for that deck. It likely means this is a solid and well balanced deck, so kudos and enjoy playing it!'
       }
 
       return (
