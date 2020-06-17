@@ -1,9 +1,31 @@
 import cards from '../../data/cards'
 import arrayRandom from '../arrayRandom'
 import getResolvedCardData from '../getResolvedCardData'
+import CONFUSION from '../getDeckAdvice/advice/CONFUSION'
+import STRUCTURES from '../getDeckAdvice/advice/STRUCTURES'
+import SPELLS from '../getDeckAdvice/advice/SPELLS'
+import MANA_COST_AVERAGE from '../getDeckAdvice/advice/MANA_COST_AVERAGE'
+import FREEZE from '../getDeckAdvice/advice/FREEZE'
+import POISON from '../getDeckAdvice/advice/POISON'
+import SATYRS from '../getDeckAdvice/advice/SATYRS'
+import DRAGONS from '../getDeckAdvice/advice/DRAGONS'
+import LUCKY_CHARMERS from '../getDeckAdvice/advice/LUCKY_CHARMERS'
+import LINKED_GOLEMS from '../getDeckAdvice/advice/LINKED_GOLEMS'
+import FORTIFICATION_TONIC from '../getDeckAdvice/advice/FORTIFICATION_TONIC'
+import HEARTHGUARDS from '../getDeckAdvice/advice/HEARTHGUARDS'
+import HIGH_PRIESTESS_KLAXI from '../getDeckAdvice/advice/HIGH_PRIESTESS_KLAXI'
+import OBSIDIAN_BUTCHERS from '../getDeckAdvice/advice/OBSIDIAN_BUTCHERS'
+import DOCTOR_MIA from '../getDeckAdvice/advice/DOCTOR_MIA'
+import ARCHDRUID_EARYN from '../getDeckAdvice/advice/ARCHDRUID_EARYN'
+import EBONROCK_IRONCLAD from '../getDeckAdvice/advice/EBONROCK_IRONCLAD'
+import KINDREDS_GRACE from '../getDeckAdvice/advice/KINDREDS_GRACE'
+import MANA_CONSUMERS from '../getDeckAdvice/advice/MANA_CONSUMERS'
+import NORTHSEA_DOG from '../getDeckAdvice/advice/NORTHSEA_DOG'
+import QUEEN_OF_HERDS from '../getDeckAdvice/advice/QUEEN_OF_HERDS'
+import SPELLBINDER_ZHEVANA from '../getDeckAdvice/advice/SPELLBINDER_ZHEVANA'
+import UBASS_THE_HUNTER from '../getDeckAdvice/advice/UBASS_THE_HUNTER'
+import SLOW_DECK from '../getDeckAdvice/advice/SLOW_DECK'
 
-const FREEZE_CARDS = ['W2', 'W6', 'W11']
-const POISON_CARDS = ['F2', 'F4', 'F5', 'F13']
 const DEFAULT_OPTIONS = {
   availableCards: cards,
   faction: null,
@@ -13,6 +35,34 @@ const DEFAULT_OPTIONS = {
   minFactionCards: 3,
 }
 
+const isCausingWarning = advice => (deck, card) => {
+  return !advice(deck) && advice([...deck, card])
+}
+const hasInefficientConfusion = isCausingWarning(CONFUSION)
+const hasInefficientFreeze = isCausingWarning(FREEZE)
+const hasInefficientDragons = isCausingWarning(DRAGONS)
+const hasInefficientEaryn = isCausingWarning(ARCHDRUID_EARYN)
+const hasInefficientFortificationTonic = isCausingWarning(FORTIFICATION_TONIC)
+const hasInefficientHearthguards = isCausingWarning(HEARTHGUARDS)
+const hasInefficientKindredsGrace = isCausingWarning(KINDREDS_GRACE)
+const hasInefficientKlaxi = isCausingWarning(HIGH_PRIESTESS_KLAXI)
+const hasInefficientLinkedGolems = isCausingWarning(LINKED_GOLEMS)
+const hasInefficientLuckyCharmers = isCausingWarning(LUCKY_CHARMERS)
+const hasInefficientManaConsumer = isCausingWarning(MANA_CONSUMERS)
+const hasInefficientMia = isCausingWarning(DOCTOR_MIA)
+const hasInefficientNorthseaDog = isCausingWarning(NORTHSEA_DOG)
+const hasInefficientObsidianButchers = isCausingWarning(OBSIDIAN_BUTCHERS)
+const hasInefficientPoison = isCausingWarning(POISON)
+const hasInefficientQueenofHerds = isCausingWarning(QUEEN_OF_HERDS)
+const hasInefficientSatyrs = isCausingWarning(SATYRS)
+const hasInefficientUbass = isCausingWarning(UBASS_THE_HUNTER)
+const hasInefficientZhevana = isCausingWarning(SPELLBINDER_ZHEVANA)
+const hasTooManySpells = isCausingWarning(SPELLS)
+const hasTooManyStructures = isCausingWarning(STRUCTURES)
+const hasHighManaAverage = isCausingWarning(MANA_COST_AVERAGE)
+const hasSlowDeck = isCausingWarning(SLOW_DECK)
+const hasEbonrockIronclad = isCausingWarning(EBONROCK_IRONCLAD)
+
 const getRandomCard = (cards, deck, options) => {
   const card = arrayRandom(cards)
   const hasEnoughLegendaries =
@@ -20,9 +70,6 @@ const getRandomCard = (cards, deck, options) => {
     options.maxLegendaryCards
   const hasEnoughEpics =
     deck.filter(card => card.rarity === 'epic').length >= options.maxEpicCards
-  const hasEnoughSpells = deck.filter(card => card.type === 'spell').length >= 4
-  const hasEnoughStructures =
-    deck.filter(card => card.type === 'structure').length >= 3
   const hasEnoughNeutrals =
     deck.filter(card => card.faction === 'neutral').length >=
     12 - options.minFactionCards
@@ -36,106 +83,34 @@ const getRandomCard = (cards, deck, options) => {
     (card.rarity === 'epic' && hasEnoughEpics) ||
     (card.rarity === 'legendary' && hasEnoughLegendaries) ||
     (card.faction === 'neutral' && hasEnoughNeutrals) ||
-    (card.type === 'structure' && hasEnoughStructures) ||
-    (card.type === 'spell' && hasEnoughSpells)
+    hasInefficientConfusion(deck, card) ||
+    hasTooManyStructures(deck, card) ||
+    hasTooManySpells(deck, card) ||
+    hasHighManaAverage(deck, card) ||
+    hasInefficientFreeze(deck, card) ||
+    hasInefficientPoison(deck, card) ||
+    hasInefficientSatyrs(deck, card) ||
+    hasInefficientDragons(deck, card) ||
+    hasInefficientLuckyCharmers(deck, card) ||
+    hasInefficientLinkedGolems(deck, card) ||
+    hasInefficientFortificationTonic(deck, card) ||
+    hasInefficientHearthguards(deck, card) ||
+    hasInefficientKlaxi(deck, card) ||
+    hasInefficientObsidianButchers(deck, card) ||
+    hasInefficientMia(deck, card) ||
+    hasInefficientEaryn(deck, card) ||
+    hasEbonrockIronclad(deck, card) ||
+    hasInefficientKindredsGrace(deck, card) ||
+    hasInefficientManaConsumer(deck, card) ||
+    hasInefficientNorthseaDog(deck, card) ||
+    hasInefficientQueenofHerds(deck, card) ||
+    hasInefficientZhevana(deck, card) ||
+    hasInefficientUbass(deck, card) ||
+    hasSlowDeck(deck, card)
   ) {
     return getRandomCard(cards, deck, options)
   }
 
-  switch (card.id) {
-    case 'W1' /* Icicle Burst */:
-    case 'W4' /* Wisp Cloud */: {
-      const hasFreezeCards =
-        deck.filter(card => FREEZE_CARDS.includes(card.id)).length >= 2
-      if (!hasFreezeCards) return getRandomCard(cards, deck, options)
-      break
-    }
-
-    case 'F15' /* Amberhides */:
-    case 'F11' /* Marked as Prey */: {
-      const hasPoisonCards =
-        deck.filter(card => POISON_CARDS.includes(card.id)).length >= 2
-      if (!hasPoisonCards) return getRandomCard(cards, deck, options)
-      break
-    }
-
-    case 'S5' /* Faun Companions */:
-    case 'S7' /* MoonLit Aerie */:
-    case 'S9' /* Swarmcallers */: {
-      const hasSatyrCards =
-        deck.filter(card => card.race === 'satyr').length >= 3
-      if (!hasSatyrCards) return getRandomCard(cards, deck, options)
-      break
-    }
-
-    case 'I7' /* Greengale Serpents */:
-    case 'F9' /* Wandering Wyverns */:
-    case 'N43' /* Ludic Matriarchs */:
-    case 'N51' /* Dangerous Suitors */: {
-      const hasDragonCards =
-        deck.filter(card => card.race === 'dragon').length >= 2
-      if (!hasDragonCards) return getRandomCard(cards, deck, options)
-      break
-    }
-
-    case 'N6' /* Spare Dragonling */: {
-      const hasDragonCards =
-        deck.filter(card => card.race === 'dragon').length >= 3
-      if (!hasDragonCards) return getRandomCard(cards, deck, options)
-      break
-    }
-
-    case 'N42' /* Lucky Charmers */: {
-      const hasPirateCards =
-        deck.filter(card => card.race === 'pirate').length >= 3
-      if (!hasPirateCards) return getRandomCard(cards, deck, options)
-      break
-    }
-
-    case 'I8' /* Linked Golems */: {
-      const hasConstructCards =
-        deck.filter(card => card.race === 'construct').length >= 2
-      if (!hasConstructCards) return getRandomCard(cards, deck, options)
-      break
-    }
-
-    case 'I3' /* Fortification Tonic */: {
-      const hasCheapStructureCard =
-        deck
-          .filter(card => card.type === 'structure')
-          .filter(card => card.id !== 'I14' && card.mana <= 4).length >= 1
-      if (!hasCheapStructureCard) return getRandomCard(cards, deck, options)
-      break
-    }
-
-    case 'N39' /* Hearthguards */: {
-      const hasStructureCards =
-        deck.filter(card => card.type === 'structure' || card.id === 'W13')
-          .length >= 1
-      if (!hasStructureCards) return getRandomCard(cards, deck, options)
-      break
-    }
-
-    case 'N48' /* Archdruid Earyn */: {
-      const hasSpellCards =
-        deck.filter(card => card.type === 'spell').length >= 2
-      if (!hasSpellCards) return getRandomCard(cards, deck, options)
-      break
-    }
-
-    case 'F23' /* High Priestess Klaxi */: {
-      const ids = deck.map(c => c.id)
-      const hasRainOfFrogs = ids.includes('F8')
-      const hasAzureHatchers = ids.includes('F10')
-
-      if (!hasRainOfFrogs && !hasAzureHatchers)
-        return getRandomCard(cards, deck, options)
-      break
-    }
-
-    default:
-      return card
-  }
   return card
 }
 
@@ -165,7 +140,12 @@ const getRandomDeck = (options = {}) => {
   // The starting deck are the given initial cards (if any), provided they do
   // not conflict with the given faction.
   const deck = options.initialCards
-    .map(card => getResolvedCardData({ id: card.id, level: card.level || 1 }))
+    .map(card =>
+      getResolvedCardData({
+        id: card.id,
+        level: card.level || 1,
+      })
+    )
     .filter(isFromExpectedFaction)
 
   // The amount of missing cards is the total length of a deck (12) minus the
@@ -176,7 +156,12 @@ const getRandomDeck = (options = {}) => {
   // card collection, minus all the cards that don’t match the provided faction,
   // as well as the token cards.
   const availableCards = options.availableCards
-    .map(card => getResolvedCardData({ id: card.id, level: card.level || 1 }))
+    .map(card =>
+      getResolvedCardData({
+        id: card.id,
+        level: card.level || 1,
+      })
+    )
     .filter(isFromExpectedFaction)
     .filter(card => !card.token)
 
