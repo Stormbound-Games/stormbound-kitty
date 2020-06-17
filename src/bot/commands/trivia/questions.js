@@ -1507,4 +1507,34 @@ export default [
     answer: 'Green Prototypes’',
     options: ['The Elder’s', 'At random', 'None'],
   },
+
+  {
+    question: 'Which Pirate does not have a gun?',
+    answer: 'Snake Eyes',
+    options: 'Northsea Dog,Lucky Charmers,Bluesail Raiders'.split(','),
+  },
+
+  {
+    question: 'Which card cannot be played with an empty board?',
+    answer: 'Flaming Stream',
+    options: 'Hunter’s Vengeance,Fortification Tonic,Dark Harvest'.split(','),
+  },
+
+  {
+    question: 'Which of the following criteria cannot be used to sort cards?',
+    answer: 'Level',
+    options: ['Strength', 'Speed', 'Name'],
+  },
+
+  {
+    question: 'Which cards have the darkest background?',
+    answer: 'Structures',
+    options: ['Units', 'Spells'],
+  },
+
+  {
+    question: 'Which faction has the most units?',
+    answer: 'Shadowfen',
+    options: Object.keys(FACTIONS).map(capitalise),
+  },
 ]
