@@ -17,6 +17,9 @@ export default React.memo(function ListBuilderTierItem(props) {
           alt={props.card.name}
           className='ListBuilderTierItem__image'
         />
+        <span aria-hidden className='ListBuilderTierItem__name'>
+          {props.card.name}
+        </span>
       </Link>
     )
   }
