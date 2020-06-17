@@ -1,30 +1,30 @@
 import cards from '../../data/cards'
 import arrayRandom from '../arrayRandom'
 import getResolvedCardData from '../getResolvedCardData'
-import hasInefficientConfusion from '../getDeckAdvice/advice/CONFUSION'
-import hasTooManyStructures from '../getDeckAdvice/advice/STRUCTURES'
-import hasTooManySpells from '../getDeckAdvice/advice/SPELLS'
-import hasHighManaAverage from '../getDeckAdvice/advice/MANA_COST_AVERAGE'
-import hasInefficientFreeze from '../getDeckAdvice/advice/FREEZE'
-import hasInefficientPoison from '../getDeckAdvice/advice/POISON'
-import hasInefficientSatyrs from '../getDeckAdvice/advice/SATYRS'
-import hasInefficientDragons from '../getDeckAdvice/advice/DRAGONS'
-import hasInefficientLuckyCharmers from '../getDeckAdvice/advice/LUCKY_CHARMERS'
-import hasInefficientLinkedGolems from '../getDeckAdvice/advice/LINKED_GOLEMS'
-import hasInefficientFortificationTonic from '../getDeckAdvice/advice/FORTIFICATION_TONIC'
-import hasInefficientHearthguards from '../getDeckAdvice/advice/HEARTHGUARDS'
-import hasInefficientKlaxi from '../getDeckAdvice/advice/HIGH_PRIESTESS_KLAXI'
-import hasInefficientObsidianButchers from '../getDeckAdvice/advice/OBSIDIAN_BUTCHERS'
-import hasInefficientMia from '../getDeckAdvice/advice/DOCTOR_MIA'
-import hasInefficientEaryn from '../getDeckAdvice/advice/ARCHDRUID_EARYN'
-import hasEbonrockIronclad from '../getDeckAdvice/advice/EBONROCK_IRONCLAD'
-import hasInefficientKindredsGrace from '../getDeckAdvice/advice/KINDREDS_GRACE'
-import hasInefficientManaConsumer from '../getDeckAdvice/advice/MANA_CONSUMERS'
-import hasInefficientNorthseaDog from '../getDeckAdvice/advice/NORTHSEA_DOG'
-import hasInefficientQueenofHerds from '../getDeckAdvice/advice/QUEEN_OF_HERDS'
-import hasInefficientZhevana from '../getDeckAdvice/advice/SPELLBINDER_ZHEVANA'
-import hasInefficientUbass from '../getDeckAdvice/advice/UBASS_THE_HUNTER'
-import hasSlowDeck from '../getDeckAdvice/advice/SLOW_DECK'
+import CONFUSION from '../getDeckAdvice/advice/CONFUSION'
+import STRUCTURES from '../getDeckAdvice/advice/STRUCTURES'
+import SPELLS from '../getDeckAdvice/advice/SPELLS'
+import MANA_COST_AVERAGE from '../getDeckAdvice/advice/MANA_COST_AVERAGE'
+import FREEZE from '../getDeckAdvice/advice/FREEZE'
+import POISON from '../getDeckAdvice/advice/POISON'
+import SATYRS from '../getDeckAdvice/advice/SATYRS'
+import DRAGONS from '../getDeckAdvice/advice/DRAGONS'
+import LUCKY_CHARMERS from '../getDeckAdvice/advice/LUCKY_CHARMERS'
+import LINKED_GOLEMS from '../getDeckAdvice/advice/LINKED_GOLEMS'
+import FORTIFICATION_TONIC from '../getDeckAdvice/advice/FORTIFICATION_TONIC'
+import HEARTHGUARDS from '../getDeckAdvice/advice/HEARTHGUARDS'
+import HIGH_PRIESTESS_KLAXI from '../getDeckAdvice/advice/HIGH_PRIESTESS_KLAXI'
+import OBSIDIAN_BUTCHERS from '../getDeckAdvice/advice/OBSIDIAN_BUTCHERS'
+import DOCTOR_MIA from '../getDeckAdvice/advice/DOCTOR_MIA'
+import ARCHDRUID_EARYN from '../getDeckAdvice/advice/ARCHDRUID_EARYN'
+import EBONROCK_IRONCLAD from '../getDeckAdvice/advice/EBONROCK_IRONCLAD'
+import KINDREDS_GRACE from '../getDeckAdvice/advice/KINDREDS_GRACE'
+import MANA_CONSUMERS from '../getDeckAdvice/advice/MANA_CONSUMERS'
+import NORTHSEA_DOG from '../getDeckAdvice/advice/NORTHSEA_DOG'
+import QUEEN_OF_HERDS from '../getDeckAdvice/advice/QUEEN_OF_HERDS'
+import SPELLBINDER_ZHEVANA from '../getDeckAdvice/advice/SPELLBINDER_ZHEVANA'
+import UBASS_THE_HUNTER from '../getDeckAdvice/advice/UBASS_THE_HUNTER'
+import SLOW_DECK from '../getDeckAdvice/advice/SLOW_DECK'
 
 const DEFAULT_OPTIONS = {
   availableCards: cards,
@@ -34,6 +34,34 @@ const DEFAULT_OPTIONS = {
   maxLegendaryCards: 2,
   minFactionCards: 3,
 }
+
+const isCausingWarning = advice => (deck, card) => {
+  return !advice(deck) && advice([...deck, card])
+}
+const hasInefficientConfusion = isCausingWarning(CONFUSION)
+const hasInefficientFreeze = isCausingWarning(FREEZE)
+const hasInefficientDragons = isCausingWarning(DRAGONS)
+const hasInefficientEaryn = isCausingWarning(ARCHDRUID_EARYN)
+const hasInefficientFortificationTonic = isCausingWarning(FORTIFICATION_TONIC)
+const hasInefficientHearthguards = isCausingWarning(HEARTHGUARDS)
+const hasInefficientKindredsGrace = isCausingWarning(KINDREDS_GRACE)
+const hasInefficientKlaxi = isCausingWarning(HIGH_PRIESTESS_KLAXI)
+const hasInefficientLinkedGolems = isCausingWarning(LINKED_GOLEMS)
+const hasInefficientLuckyCharmers = isCausingWarning(LUCKY_CHARMERS)
+const hasInefficientManaConsumer = isCausingWarning(MANA_CONSUMERS)
+const hasInefficientMia = isCausingWarning(DOCTOR_MIA)
+const hasInefficientNorthseaDog = isCausingWarning(NORTHSEA_DOG)
+const hasInefficientObsidianButchers = isCausingWarning(OBSIDIAN_BUTCHERS)
+const hasInefficientPoison = isCausingWarning(POISON)
+const hasInefficientQueenofHerds = isCausingWarning(QUEEN_OF_HERDS)
+const hasInefficientSatyrs = isCausingWarning(SATYRS)
+const hasInefficientUbass = isCausingWarning(UBASS_THE_HUNTER)
+const hasInefficientZhevana = isCausingWarning(SPELLBINDER_ZHEVANA)
+const hasTooManySpells = isCausingWarning(SPELLS)
+const hasTooManyStructures = isCausingWarning(STRUCTURES)
+const hasHighManaAverage = isCausingWarning(MANA_COST_AVERAGE)
+const hasSlowDeck = isCausingWarning(SLOW_DECK)
+const hasEbonrockIronclad = isCausingWarning(EBONROCK_IRONCLAD)
 
 const getRandomCard = (cards, deck, options) => {
   const card = arrayRandom(cards)
@@ -48,7 +76,6 @@ const getRandomCard = (cards, deck, options) => {
   const hasEnoughExpensiveCards =
     deck.filter(card => card.mana >= 5).length >= 4
   const hasCardAlready = deck.find(c => c.id === card.id)
-  const currentDeck = [...deck, card]
 
   if (
     hasCardAlready ||
@@ -56,30 +83,30 @@ const getRandomCard = (cards, deck, options) => {
     (card.rarity === 'epic' && hasEnoughEpics) ||
     (card.rarity === 'legendary' && hasEnoughLegendaries) ||
     (card.faction === 'neutral' && hasEnoughNeutrals) ||
-    hasInefficientConfusion(currentDeck) ||
-    hasTooManyStructures(currentDeck) ||
-    hasTooManySpells(currentDeck) ||
-    hasHighManaAverage(currentDeck) ||
-    hasInefficientFreeze(currentDeck) ||
-    hasInefficientPoison(currentDeck) ||
-    hasInefficientSatyrs(currentDeck) ||
-    hasInefficientDragons(currentDeck) ||
-    hasInefficientLuckyCharmers(currentDeck) ||
-    hasInefficientLinkedGolems(currentDeck) ||
-    hasInefficientFortificationTonic(currentDeck) ||
-    hasInefficientHearthguards(currentDeck) ||
-    hasInefficientKlaxi(currentDeck) ||
-    hasInefficientObsidianButchers(currentDeck) ||
-    hasInefficientMia(currentDeck) ||
-    hasInefficientEaryn(currentDeck) ||
-    hasEbonrockIronclad(currentDeck) ||
-    hasInefficientKindredsGrace(currentDeck) ||
-    hasInefficientManaConsumer(currentDeck) ||
-    hasInefficientNorthseaDog(currentDeck) ||
-    hasInefficientQueenofHerds(currentDeck) ||
-    hasInefficientZhevana(currentDeck) ||
-    hasInefficientUbass(currentDeck) ||
-    hasSlowDeck(currentDeck)
+    hasInefficientConfusion(deck, card) ||
+    hasTooManyStructures(deck, card) ||
+    hasTooManySpells(deck, card) ||
+    hasHighManaAverage(deck, card) ||
+    hasInefficientFreeze(deck, card) ||
+    hasInefficientPoison(deck, card) ||
+    hasInefficientSatyrs(deck, card) ||
+    hasInefficientDragons(deck, card) ||
+    hasInefficientLuckyCharmers(deck, card) ||
+    hasInefficientLinkedGolems(deck, card) ||
+    hasInefficientFortificationTonic(deck, card) ||
+    hasInefficientHearthguards(deck, card) ||
+    hasInefficientKlaxi(deck, card) ||
+    hasInefficientObsidianButchers(deck, card) ||
+    hasInefficientMia(deck, card) ||
+    hasInefficientEaryn(deck, card) ||
+    hasEbonrockIronclad(deck, card) ||
+    hasInefficientKindredsGrace(deck, card) ||
+    hasInefficientManaConsumer(deck, card) ||
+    hasInefficientNorthseaDog(deck, card) ||
+    hasInefficientQueenofHerds(deck, card) ||
+    hasInefficientZhevana(deck, card) ||
+    hasInefficientUbass(deck, card) ||
+    hasSlowDeck(deck, card)
   ) {
     return getRandomCard(cards, deck, options)
   }
