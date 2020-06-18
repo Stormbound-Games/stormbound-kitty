@@ -32,7 +32,13 @@ export default React.memo(function BrawlOutcome(props) {
             Coins earned:
           </strong>{' '}
           <Coins
-            amount={'+' + brawl.matches.length * COIN_MULTIPLIERS[setup]}
+            amount={
+              '+' +
+              brawl.matches.filter(match =>
+                ['WON', 'FORFEIT'].includes(match.status)
+              ).length *
+                COIN_MULTIPLIERS[setup]
+            }
           />
         </li>
         <li>

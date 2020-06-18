@@ -23,7 +23,9 @@ export default React.memo(function BrawlCharts(props) {
     },
     {
       name: 'Earned',
-      value: brawl.matches.length * COIN_MULTIPLIERS[props.setup],
+      value:
+        brawl.matches.filter(match => ['WON', 'FORFEIT'].includes(match.status))
+          .length * COIN_MULTIPLIERS[props.setup],
       color: 'var(--light-shadowfen)',
     },
   ]
