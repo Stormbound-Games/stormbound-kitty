@@ -16,7 +16,7 @@ export default state => {
     .join(' ')
 
   return [
-    `${faction} ${type}: **${name}**`,
+    `${name}: ${faction} ${type}`,
     `${rarity}${race ? ` · ${race} ` : ' '}${modifiers}`,
     state.level && `At level ${state.level}:`,
     [mana, strength, movement].filter(Boolean).join(' · '),
