@@ -24,7 +24,7 @@ export default {
     try {
       const cards = serialisation.deck.deserialise(id).map(getResolvedCardData)
       const advice = await Promise.all(
-        getDeckAdvice(cards).map(Promise.resolve)
+        getDeckAdvice(cards).map(advice => Promise.resolve(advice))
       )
 
       if (advice.length === 0) {
