@@ -1,22 +1,22 @@
-import computeDeckChances from '../../../computeDeckChances'
+import computeDeckChances from '../../../computeDeckChances/async'
 
-const getManaCurveIntersection = (deck, modifier) => {
+const getManaCurveIntersection = async (deck, modifier) => {
   // 8 is a decent starting point to avoid unnecessary computations before that.
   // As a benchmark, Reckless Rush which is a notoriously cheap deck, has an
   // intersection of 9. Note that some decks with a mana-Brawl modifier can hit
   // way lower, such as Eye Tempest which hits 5.
   let mana = 8
-  let odds = computeDeckChances(deck, mana, modifier)
+  let odds = await computeDeckChances(deck, mana, modifier)
 
   while (odds.usingAllMana >= odds.playingAllCards) {
-    odds = computeDeckChances(deck, ++mana, modifier)
+    odds = await computeDeckChances(deck, ++mana, modifier)
   }
 
   return mana
 }
 
-export default (cards, modifier) => {
-  const intersection = getManaCurveIntersection(cards, modifier)
+export default async (cards, modifier) => {
+  const intersection = await getManaCurveIntersection(cards, modifier)
   const averageLevel =
     cards.map(card => card.level).reduce((acc, level) => acc + level, 0) / 12
 

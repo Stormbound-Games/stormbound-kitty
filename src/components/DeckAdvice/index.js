@@ -1,12 +1,15 @@
 import React from 'react'
+import DeckSingleAdvice from '../DeckSingleAdvice'
 import LearnMoreIcon from '../LearnMoreIcon'
 import Title from '../Title'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import getDeckAdvice from '../../helpers/getDeckAdvice'
 
-export default function DeckAdvice(props) {
-  const cards = props.deck.map(getResolvedCardData)
-  const suggestions = getDeckAdvice(cards, props.modifier)
+export default React.memo(function DeckAdvice(props) {
+  const deckAdvice = React.useMemo(
+    () => getDeckAdvice(props.deck.map(getResolvedCardData), props.modifier),
+    [props.deck, props.modifier]
+  )
 
   return (
     <div className='DeckAdvice'>
@@ -14,20 +17,13 @@ export default function DeckAdvice(props) {
         Suggestions <LearnMoreIcon anchor='#incorrect-deck-suggestions' />
       </Title>
 
-      {suggestions.length > 0 ? (
-        suggestions.map(suggestion => (
-          <p
-            key={suggestion.name}
-            onMouseOver={
-              suggestion.highlight
-                ? () => props.highlight(suggestion.highlight)
-                : undefined
-            }
-            onMouseOut={() => props.highlight([])}
-          >
-            <strong className='Highlight'>{suggestion.name}:</strong>{' '}
-            {suggestion.description}
-          </p>
+      {deckAdvice.length > 0 ? (
+        deckAdvice.map((advice, index) => (
+          <DeckSingleAdvice
+            key={advice.name || index}
+            advice={advice}
+            highlight={props.highlight}
+          />
         ))
       ) : (
         <>
@@ -48,4 +44,4 @@ export default function DeckAdvice(props) {
       )}
     </div>
   )
-}
+})

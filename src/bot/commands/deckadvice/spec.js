@@ -3,36 +3,41 @@ const deckadvice = command.handler
 
 describe('Bot — !deckadvice', () => {
   it('should return nothing for a missing term', () => {
-    expect(deckadvice('')).to.equal(undefined)
+    deckadvice('').then(output => expect(output).to.equal(undefined))
   })
 
   it('should handle a Stormbound-Kitty deck ID', () => {
-    expect(
-      deckadvice('5n35n125n163w54n184w95w125w133n394w153w194w21')
-    ).to.not.equal(undefined)
+    deckadvice('5n35n125n163w54n184w95w125w133n394w153w194w21').then(output =>
+      expect(output).to.not.equal(undefined)
+    )
   })
 
   it('should handle a Stormbound-Kitty deck URL', () => {
     const url =
       'https://stormbound-kitty.com/deck/5n35n125n163w54n184w95w125w133n394w153w194w21'
-    expect(deckadvice(url)).to.not.equal(undefined)
-    expect(deckadvice(url + '/detail')).to.not.equal(undefined)
-    expect(deckadvice(url + '/dry-run')).to.not.equal(undefined)
+
+    deckadvice(url).then(output => expect(output).to.not.equal(undefined))
+    deckadvice(url + '/detail').then(output =>
+      expect(output).to.not.equal(undefined)
+    )
+    deckadvice(url + '/dry-run').then(output =>
+      expect(output).to.not.equal(undefined)
+    )
   })
 
   it('should handle a lack of advice', () => {
-    expect(
-      deckadvice('5n31n45n121n145n163w54n181n94w95w125w133w19')
-    ).to.contain('No particular suggestions')
+    deckadvice('5n31n45n121n145n163w54n181n94w95w125w133w19').then(output =>
+      expect(output).to.contain('No particular suggestions')
+    )
   })
 
   it('should return advice', () => {
-    expect(
-      deckadvice('3n631n703n335n133n415n193n592w102n614n225w23n7')
-    ).to.contain('\n-')
+    deckadvice('3n631n703n335n133n415n193n592w102n614n225w23n7').then(output =>
+      expect(output).to.contain('\n-')
+    )
   })
 
   it('should return nothing for a no-match', () => {
-    expect(deckadvice('flksdjf')).to.equal(undefined)
+    deckadvice('flksdjf').then(output => expect(output).to.equal(undefined))
   })
 })
