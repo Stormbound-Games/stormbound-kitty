@@ -27,7 +27,10 @@ export default React.memo(function DeckDetailView(props) {
   const history = useHistory()
   const defaultModifier = getDefaultBrawlModifier(props.deck)
   const [modifier, setModifier] = React.useState(defaultModifier)
-  const deck = modifyDeck(props.deck, modifier)
+  const deck = React.useMemo(() => modifyDeck(props.deck, modifier), [
+    modifier,
+    props.deck,
+  ])
   const sendNotification = React.useCallback(
     message => notify({ icon: 'stack', children: message }),
     [notify]
