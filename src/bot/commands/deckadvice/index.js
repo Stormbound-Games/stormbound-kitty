@@ -23,9 +23,8 @@ export default {
 
     try {
       const cards = serialisation.deck.deserialise(id).map(getResolvedCardData)
-      const advice = await Promise.all(
-        getDeckAdvice(cards).map(advice => Promise.resolve(advice))
-      )
+      const promises = getDeckAdvice(cards)
+      const advice = (await Promise.all(promises)).filter(Boolean)
 
       if (advice.length === 0) {
         return 'No particular suggestions could be found for that deck. It likely means this is a solid and well balanced deck, so kudos and enjoy playing it!'

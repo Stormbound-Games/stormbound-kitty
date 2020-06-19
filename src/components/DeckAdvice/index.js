@@ -18,10 +18,10 @@ export default React.memo(function DeckAdvice(props) {
       </Title>
 
       {deckAdvice.length > 0 ? (
-        deckAdvice.map((advice, index) => (
+        deckAdvice.map((resolveAdvice, index) => (
           <DeckSingleAdvice
-            key={advice.name || index}
-            advice={advice}
+            key={index}
+            resolve={resolveAdvice}
             highlight={props.highlight}
           />
         ))
