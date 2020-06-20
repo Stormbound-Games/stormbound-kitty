@@ -49,17 +49,17 @@ export default React.memo(function DeckStatsChart(props) {
   const [loading, setLoading] = React.useState(false)
 
   React.useEffect(() => {
-    // Only enable the loading state when there is no data to begin with, but
-    // not when re-rendering the chart, so the visualisation animates from the
-    // current state to the new state without display a spinner in between.
-    if (data.length === 0) setLoading(true)
+    setLoading(true)
 
     computeData(props.deck, props.modifier)
       .then(response => setData(response))
       .finally(() => setLoading(false))
-  }, [data.length, props.deck, props.modifier])
+  }, [props.deck, props.modifier])
 
-  if (loading) return <Loader />
+  // Only enable the loading state when there is no data to begin with, but
+  // not when re-rendering the chart, so the visualisation animates from the
+  // current state to the new state without display a spinner in between.
+  if (loading && data.length === 0) return <Loader />
 
   return (
     <>
