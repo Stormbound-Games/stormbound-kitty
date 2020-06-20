@@ -1,3 +1,4 @@
+import serialisation from '../serialisation'
 import canCardBePlayed from '../canCardBePlayed'
 import canDeployUnits from '../canDeployUnits'
 import getCombinations from '../getCombinations'
@@ -99,7 +100,17 @@ export const getHandCost = ({ availableMana, hand }) => {
   return hand.map(getManaCost).reduce((total, mana) => total + mana, 0)
 }
 
-const computeDeckChances = (deck, availableMana) => {
+const cache = new Map()
+const computeDeckChances = (deck, availableMana, modifier = 'NONE') => {
+  const key = serialisation.deck.serialise(deck) + modifier + availableMana
+
+  // If we already have computed the data for this deck in this modifier for
+  // this amount of mana, read the result from the cache instead of starting
+  // over.
+  if (cache.has(key)) {
+    return cache.get(key)
+  }
+
   // `hands` are all the combinations of 4 different cards one can have in their
   // hand based on the 12 cards of their deck.
   const hands = getCombinations(deck, 4)
@@ -154,10 +165,14 @@ const computeDeckChances = (deck, availableMana) => {
       return total + handsPlayingAllCards.length / 8
     }, 0)
 
-  return {
+  const outcome = {
     usingAllMana: (handsUsingAllMana / hands.length) * 100,
     playingAllCards: (handsPlayingAllCards / hands.length) * 100,
   }
+
+  cache.set(key, outcome)
+
+  return outcome
 }
 
 export default computeDeckChances

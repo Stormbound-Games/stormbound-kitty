@@ -14,10 +14,10 @@ import { TOOLTIP_STYLES } from '../../constants/stats'
 import { BRAWLS } from '../../constants/brawl'
 import './index.css'
 
-const computeData = deck => {
+const computeData = (deck, modifier) => {
   const data = []
   let mana = 3
-  let odds = computeDeckChances(deck, mana)
+  let odds = computeDeckChances(deck, mana, modifier)
 
   // This avoids an edge case where no cards are playable on the first turn
   // (yielding 0% on both lines, and therefore never entering the loop).
@@ -31,7 +31,7 @@ const computeData = deck => {
       playingAllCards: +odds.playingAllCards.toFixed(2),
     })
     mana += 1
-    odds = computeDeckChances(deck, mana)
+    odds = computeDeckChances(deck, mana, modifier)
   }
 
   data.push({
@@ -44,7 +44,10 @@ const computeData = deck => {
 }
 
 export default React.memo(function DeckStatsChart(props) {
-  const data = React.useMemo(() => computeData(props.deck), [props.deck])
+  const data = React.useMemo(() => computeData(props.deck, props.modifier), [
+    props.deck,
+    props.modifier,
+  ])
 
   return (
     <>
