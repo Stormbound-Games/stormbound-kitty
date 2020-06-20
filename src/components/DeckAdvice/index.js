@@ -6,10 +6,17 @@ import getResolvedCardData from '../../helpers/getResolvedCardData'
 import getDeckAdvice from '../../helpers/getDeckAdvice'
 
 export default React.memo(function DeckAdvice(props) {
+  const [isEmpty, setIsEmpty] = React.useState(false)
   const deckAdvice = React.useMemo(
     () => getDeckAdvice(props.deck.map(getResolvedCardData), props.modifier),
     [props.deck, props.modifier]
   )
+
+  React.useEffect(() => {
+    Promise.all(deckAdvice).then(advice => {
+      setIsEmpty(advice.filter(Boolean).length === 0)
+    })
+  }, [deckAdvice])
 
   return (
     <div className='DeckAdvice'>
@@ -17,15 +24,15 @@ export default React.memo(function DeckAdvice(props) {
         Suggestions <LearnMoreIcon anchor='#incorrect-deck-suggestions' />
       </Title>
 
-      {deckAdvice.length > 0 ? (
-        deckAdvice.map((resolveAdvice, index) => (
-          <DeckSingleAdvice
-            key={index}
-            resolve={resolveAdvice}
-            highlight={props.highlight}
-          />
-        ))
-      ) : (
+      {deckAdvice.map((resolveAdvice, index) => (
+        <DeckSingleAdvice
+          key={index}
+          resolve={resolveAdvice}
+          highlight={props.highlight}
+        />
+      ))}
+
+      {isEmpty && (
         <>
           <p>
             No particular suggestions could be found for that deck. It likely
