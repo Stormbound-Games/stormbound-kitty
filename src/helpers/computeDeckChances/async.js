@@ -1,6 +1,6 @@
 import * as Comlink from 'comlink'
 
-let fn = null
+let worker = null
 
 // The Comlink integration works differently when going through Webpack or when
 // run directly from Node.js, so we check whether the window object exists to
@@ -13,21 +13,17 @@ if (typeof window === 'undefined') {
   // eslint-disable-next-line no-eval
   const { Worker } = eval('require')('worker_threads')
   const nodeEndpoint = require('comlink/dist/umd/node-adapter.js')
-  // The full path appears to be necessary when running in Node, since the
-  // process is run from the root of the project.
-  const worker = nodeEndpoint(
-    new Worker('./src/helpers/computeDeckChances/worker.js')
-  )
-
-  fn = Comlink.wrap(worker)
+  // The relative path is not enough when running in Node, since the process is
+  // run from the root of the project.
+  worker = nodeEndpoint(new Worker(__dirname + '/worker.js'))
 } else {
   // This appears to be the way to use Comlink with Webpack.
   // See: https://dev.to/nicolasrannou/web-workers-in-create-react-app-cra-without-unmounting-4865
   // eslint-disable-next-line import/no-webpack-loader-syntax
   const Worker = require('worker-loader!./worker')
-  fn = Comlink.wrap(new Worker())
+  worker = new Worker()
 }
 
 // Export the helper as an asynchronous function that can be executed off the
 // main thread in a dedicated service worker.
-export default fn
+export default Comlink.wrap(worker)
