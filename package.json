@@ -6,6 +6,7 @@
     "@loadable/component": "^5.12.0",
     "@reach/tooltip": "^0.10.3",
     "canvas": "^2.6.1",
+    "comlink": "^4.3.0",
     "copy-to-clipboard": "^3.3.1",
     "dateformat": "^3.0.3",
     "discord.js": "^12.2.0",
@@ -66,7 +67,8 @@
     "prettier": "^2.0.5",
     "sitemap": "^6.1.5",
     "spritesh": "^1.2.1",
-    "webpack-bundle-analyzer": "^3.8.0"
+    "webpack-bundle-analyzer": "^3.8.0",
+    "worker-loader": "^2.0.0"
   },
   "husky": {
     "hooks": {

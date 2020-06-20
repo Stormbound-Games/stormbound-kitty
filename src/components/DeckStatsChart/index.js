@@ -9,15 +9,16 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
-import computeDeckChances from '../../helpers/computeDeckChances'
+import Loader from '../../components/Loader'
+import computeDeckChances from '../../helpers/computeDeckChances/async'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 import { BRAWLS } from '../../constants/brawl'
 import './index.css'
 
-const computeData = (deck, modifier) => {
+const computeData = async (deck, modifier) => {
   const data = []
   let mana = 3
-  let odds = computeDeckChances(deck, mana, modifier)
+  let odds = await computeDeckChances(deck, mana, modifier)
 
   // This avoids an edge case where no cards are playable on the first turn
   // (yielding 0% on both lines, and therefore never entering the loop).
@@ -31,7 +32,7 @@ const computeData = (deck, modifier) => {
       playingAllCards: +odds.playingAllCards.toFixed(2),
     })
     mana += 1
-    odds = computeDeckChances(deck, mana, modifier)
+    odds = await computeDeckChances(deck, mana, modifier)
   }
 
   data.push({
@@ -44,10 +45,21 @@ const computeData = (deck, modifier) => {
 }
 
 export default React.memo(function DeckStatsChart(props) {
-  const data = React.useMemo(() => computeData(props.deck, props.modifier), [
-    props.deck,
-    props.modifier,
-  ])
+  const [data, setData] = React.useState([])
+  const [loading, setLoading] = React.useState(false)
+
+  React.useEffect(() => {
+    setLoading(true)
+
+    computeData(props.deck, props.modifier)
+      .then(response => setData(response))
+      .finally(() => setLoading(false))
+  }, [props.deck, props.modifier])
+
+  // Only enable the loading state when there is no data to begin with, but
+  // not when re-rendering the chart, so the visualisation animates from the
+  // current state to the new state without display a spinner in between.
+  if (loading && data.length === 0) return <Loader />
 
   return (
     <>

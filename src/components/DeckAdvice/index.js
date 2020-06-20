@@ -1,12 +1,22 @@
 import React from 'react'
+import DeckSingleAdvice from '../DeckSingleAdvice'
 import LearnMoreIcon from '../LearnMoreIcon'
 import Title from '../Title'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import getDeckAdvice from '../../helpers/getDeckAdvice'
 
-export default function DeckAdvice(props) {
-  const cards = props.deck.map(getResolvedCardData)
-  const suggestions = getDeckAdvice(cards, props.modifier)
+export default React.memo(function DeckAdvice(props) {
+  const [isEmpty, setIsEmpty] = React.useState(false)
+  const deckAdvice = React.useMemo(
+    () => getDeckAdvice(props.deck.map(getResolvedCardData), props.modifier),
+    [props.deck, props.modifier]
+  )
+
+  React.useEffect(() => {
+    Promise.all(deckAdvice).then(advice => {
+      setIsEmpty(advice.filter(Boolean).length === 0)
+    })
+  }, [deckAdvice])
 
   return (
     <div className='DeckAdvice'>
@@ -14,22 +24,15 @@ export default function DeckAdvice(props) {
         Suggestions <LearnMoreIcon anchor='#incorrect-deck-suggestions' />
       </Title>
 
-      {suggestions.length > 0 ? (
-        suggestions.map(suggestion => (
-          <p
-            key={suggestion.name}
-            onMouseOver={
-              suggestion.highlight
-                ? () => props.highlight(suggestion.highlight)
-                : undefined
-            }
-            onMouseOut={() => props.highlight([])}
-          >
-            <strong className='Highlight'>{suggestion.name}:</strong>{' '}
-            {suggestion.description}
-          </p>
-        ))
-      ) : (
+      {deckAdvice.map((resolveAdvice, index) => (
+        <DeckSingleAdvice
+          key={index}
+          resolve={resolveAdvice}
+          highlight={props.highlight}
+        />
+      ))}
+
+      {isEmpty && (
         <>
           <p>
             No particular suggestions could be found for that deck. It likely
@@ -48,4 +51,4 @@ export default function DeckAdvice(props) {
       )}
     </div>
   )
-}
+})

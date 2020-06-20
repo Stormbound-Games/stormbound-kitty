@@ -62,5 +62,17 @@ const ADVICE = [
   UPGRADE_POINT,
 ]
 
-export default (cards, modifier) =>
-  ADVICE.map(advice => advice(cards, modifier)).filter(Boolean)
+/**
+ * Return an array of (unresolved) deck advice as promises.
+ * @param {Cards[]} deck - Resolved deck of cards
+ * @param {String} modifier - Optional Brawl modifier
+ * @return {Promise[]}
+ */
+const getDeckAdvice = (deck, modifier) => {
+  // Some advice could be asynchronous, so we make them all asynchronous by
+  // wrapping them with `Promise.resolve`.
+  // See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve
+  return ADVICE.map(advice => Promise.resolve(advice(deck, modifier)))
+}
+
+export default getDeckAdvice

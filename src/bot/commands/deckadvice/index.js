@@ -16,14 +16,15 @@ export default {
   help: function () {
     return `💎  **Deck Advice:** Get advice and suggestions for the given deck. It expects a fully qualified Stormbound-Kitty deck URL, or a Stormbound-Kitty deck ID. For instance, \`!${this.command} 3n13n23s13n33s243s23n633n673s63n153s83s11\`. To get the deck URL/ID, either compose it on the site, or use the \`!deckid\` command.`
   },
-  handler: function (message) {
+  handler: async function (message) {
     const id = getIdFromURL(message)
 
     if (id.length === 0) return
 
     try {
       const cards = serialisation.deck.deserialise(id).map(getResolvedCardData)
-      const advice = getDeckAdvice(cards)
+      const promises = getDeckAdvice(cards)
+      const advice = (await Promise.all(promises)).filter(Boolean)
 
       if (advice.length === 0) {
         return 'No particular suggestions could be found for that deck. It likely means this is a solid and well balanced deck, so kudos and enjoy playing it!'
