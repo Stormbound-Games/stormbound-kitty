@@ -136,11 +136,9 @@ class DeckEditorView extends React.Component {
 
               {deck.length === 12 && (
                 <BookmarkDeckButton
-                  id={serialisation.deck.serialise(deck)}
-                  name={matchedDeck ? matchedDeck.name : undefined}
-                  category={matchedDeck ? matchedDeck.category : undefined}
-                  faction={matchedDeck ? matchedDeck.faction : undefined}
                   className='DeckEditorView__bookmark'
+                  id={serialisation.deck.serialise(deck)}
+                  {...matchedDeck}
                 />
               )}
             </div>
