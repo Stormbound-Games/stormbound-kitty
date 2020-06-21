@@ -3,6 +3,7 @@ import { Link, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import { CollectionContext } from '../CollectionProvider'
 import { NotificationContext } from '../NotificationProvider'
+import BookmarkDeckButton from '../BookmarkDeckButton'
 import CollectionClearHint from '../CollectionClearHint'
 import CardLevelField from '../DeckCardLevelField'
 import CardsFiltering from '../CardsFiltering'
@@ -25,6 +26,7 @@ import getDeckBuilderMetaTags from '../../helpers/getDeckBuilderMetaTags'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isSuggestedDeck from '../../helpers/isSuggestedDeck'
 import modifyDeck from '../../helpers/modifyDeck'
+import serialisation from '../../helpers/serialisation'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
 
@@ -119,16 +121,29 @@ class DeckEditorView extends React.Component {
 
         <Row desktopOnly wideGutter>
           <Column width='1/3'>
-            <Title>{matchedDeck ? matchedDeck.name : 'Your deck'}</Title>
-            {matchedDeck && (
-              <span className='DeckEditorView__subtitle'>
-                (by{' '}
-                <Link to={`/member/${matchedDeck.author}`}>
-                  {matchedDeck.author}
-                </Link>
-                )
-              </span>
-            )}
+            <div className='DeckEditorView__header'>
+              <Title>{matchedDeck ? matchedDeck.name : 'Your deck'}</Title>
+
+              {matchedDeck && (
+                <p className='DeckEditorView__subtitle'>
+                  (by{' '}
+                  <Link to={`/member/${matchedDeck.author}`}>
+                    {matchedDeck.author}
+                  </Link>
+                  )
+                </p>
+              )}
+
+              {deck.length === 12 && (
+                <BookmarkDeckButton
+                  id={serialisation.deck.serialise(deck)}
+                  name={matchedDeck ? matchedDeck.name : undefined}
+                  category={matchedDeck ? matchedDeck.category : undefined}
+                  faction={matchedDeck ? matchedDeck.faction : undefined}
+                  className='DeckEditorView__bookmark'
+                />
+              )}
+            </div>
 
             <Deck
               showUpgrades
