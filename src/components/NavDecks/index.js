@@ -1,10 +1,12 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
+import { PersonalDecksContext } from '../PersonalDecksProvider'
 import NavLink from '../NavLink'
 import Only from '../Only'
 import serialisation from '../../helpers/serialisation'
 
 export default React.memo(function NavDecks(props) {
+  const { isUnseen } = React.useContext(PersonalDecksContext)
   const match = useRouteMatch()
   const id = match.params.deckId
   const deck = id ? serialisation.deck.deserialise(id) : []
@@ -65,7 +67,15 @@ export default React.memo(function NavDecks(props) {
           )}
         </li>
 
-        <li className='Header__item Header__item--right'>
+        <li
+          className={[
+            'Header__item',
+            'Header__item--right',
+            isUnseen && 'Header__item--new',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+        >
           <NavLink to='/deck/collection' active={props.active === 'COLLECTION'}>
             Your decks
           </NavLink>
