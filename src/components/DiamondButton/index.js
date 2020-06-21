@@ -7,7 +7,11 @@ export default React.memo(function DiamondButton(props) {
     <button
       {...props}
       active={undefined}
-      className={['DiamondButton', props.active && 'DiamondButton--active']
+      className={[
+        'DiamondButton',
+        props.className,
+        props.active && 'DiamondButton--active',
+      ]
         .filter(Boolean)
         .join(' ')}
     >
