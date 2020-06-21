@@ -7,6 +7,7 @@ const STORAGE_KEY = 'sk.personal_decks'
 
 export default function PersonalDecksProvider(props) {
   const [decks, setDecks] = React.useState([])
+  const [isUnseen, toggleUnseen] = React.useState(false)
   const { notify: sendNotification } = React.useContext(NotificationContext)
 
   const notify = React.useCallback(
@@ -58,6 +59,8 @@ export default function PersonalDecksProvider(props) {
         addDeck,
         updateDeck,
         removeDeck,
+        isUnseen,
+        toggleUnseen,
       }}
     >
       {props.children}
