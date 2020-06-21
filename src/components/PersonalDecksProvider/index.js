@@ -1,9 +1,28 @@
 import React from 'react'
 import { NotificationContext } from '../NotificationProvider'
+import serialisation from '../../helpers/serialisation'
 
 export const PersonalDecksContext = React.createContext([])
 
 const STORAGE_KEY = 'sk.personal_decks'
+
+const getFactionFromId = id => {
+  if (id.includes('i')) return 'ironclad'
+  if (id.includes('s')) return 'swarm'
+  if (id.includes('f')) return 'shadowfen'
+  if (id.includes('w')) return 'winter'
+  return 'neutral'
+}
+
+const getCategoryFromId = id => {
+  const cards = serialisation.deck.deserialise(id)
+  const average =
+    cards.map(card => card.level).reduce((a, b) => a + b, 0) / cards.length
+
+  if (average === 1) return 'EQUALS'
+  if (average >= 4) return 'DIAMOND_1'
+  return 'REGULAR'
+}
 
 export default function PersonalDecksProvider(props) {
   const [decks, setDecks] = React.useState([])
@@ -41,14 +60,37 @@ export default function PersonalDecksProvider(props) {
     }
   }
 
-  const addDeck = deck =>
-    setDecks(decks =>
-      decks.map(deck => deck.id).includes(deck.id) ? decks : [...decks, deck]
-    )
+  const addDeck = deck => {
+    if (decks.map(deck => deck.id).includes(deck.id)) {
+      return decks
+    }
+
+    return setDecks(decks => [
+      ...decks,
+      {
+        id: deck.id,
+        name: deck.name || 'Unnamed deck',
+        faction: deck.faction || getFactionFromId(deck.id),
+        category: deck.category || getCategoryFromId(deck.id),
+      },
+    ])
+  }
+
   const removeDeck = id =>
     setDecks(decks => decks.filter(deck => deck.id !== id))
-  const updateDeck = (id, deck) =>
-    setDecks(decks => decks.map(d => (d.id === id ? deck : d)))
+
+  const updateDeck = (id, updatedDeck) =>
+    setDecks(decks =>
+      decks.map(deck =>
+        deck.id === id
+          ? {
+              ...deck,
+              name: updatedDeck.name || deck.name,
+              category: updatedDeck.category || deck.category,
+            }
+          : deck
+      )
+    )
 
   return (
     <PersonalDecksContext.Provider
