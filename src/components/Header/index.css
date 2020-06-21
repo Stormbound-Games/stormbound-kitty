@@ -61,6 +61,18 @@ a.Header__link:focus {
   text-align: left;
 }
 
+.Header__item--new::after {
+  content: '';
+  position: absolute;
+  top: 0.75em;
+  right: 0.5em;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background-color: rgba(203, 43, 67, 1);
+  animation: new-pulse 2s infinite ease-out;
+}
+
 .Header__link {
   display: inline-block;
   padding: 1em;
@@ -187,5 +199,20 @@ a.Header__link:focus {
 @media (min-width: 700px) and (max-width: 1000px) {
   .Header__icon {
     display: none;
+  }
+}
+
+@keyframes new-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(203, 43, 67, 0.6);
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 0.5em transparent;
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 transparent;
   }
 }
