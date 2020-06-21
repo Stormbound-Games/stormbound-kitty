@@ -29,6 +29,7 @@ const getDeckFromForm = form => {
 
 export default React.memo(function DeckCollection(props) {
   const context = React.useContext(PersonalDecksContext)
+  const { toggleUnseen } = context
   const [mode, setMode] = React.useState('INITIAL')
   const [editedDeck, setEditedDeck] = React.useState(null)
   const [filters, setFilters] = React.useState({
@@ -86,6 +87,8 @@ export default React.memo(function DeckCollection(props) {
 
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [disabledEditor])
+
+  React.useEffect(() => toggleUnseen(false), [toggleUnseen])
 
   // If the collection of decks is updated, it is as the result of an addition,
   // a removal or an edition, which means the editing mode can be cancelled.
