@@ -1,7 +1,6 @@
 import React from 'react'
 import { Redirect, Switch, useRouteMatch } from 'react-router-dom'
 import Page from '../Page'
-import PersonalDecksProvider from '../PersonalDecksProvider'
 import load from '../../helpers/load'
 
 const DeckSuggestions = load('DeckSuggestions')
@@ -17,14 +16,10 @@ export default function RouterDecks() {
   return (
     <Switch>
       <Page path={`${path}/suggestions`} active={['DECKS', 'SUGGESTIONS']}>
-        <PersonalDecksProvider>
-          <DeckSuggestions />
-        </PersonalDecksProvider>
+        <DeckSuggestions />
       </Page>
       <Page path={`${path}/collection`} active={['DECKS', 'COLLECTION']}>
-        <PersonalDecksProvider>
-          <DeckCollection />
-        </PersonalDecksProvider>
+        <DeckCollection />
       </Page>
 
       {/* Maintain old URL for backward compatibility */}
