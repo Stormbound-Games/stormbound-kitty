@@ -22,9 +22,6 @@ export default function RouterDecks() {
         <DeckCollection />
       </Page>
 
-      {/* Maintain old URL for backward compatibility */}
-      <Redirect path={`${path}/yours`} to={`${path}/collection`} />
-
       <Page path={`${path}/:deckId/detail`} active={['DECKS', 'DETAIL']}>
         <DeckBuilderRoot>
           {state => <DeckDetailView {...state} />}
