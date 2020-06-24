@@ -1,10 +1,10 @@
 export default {
   command: 'help',
-  help: function (content, client) {
+  help: function (content, client, messageObject) {
     let commands = []
 
     if (client.commands.has(content) && content !== 'help') {
-      return client.commands.get(content).help(content, client)
+      return client.commands.get(content).help(content, client, messageObject)
     }
 
     for (let [, command] of client.commands) {
