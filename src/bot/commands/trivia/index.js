@@ -250,12 +250,12 @@ const trivia = new StateMachine({
       return `🔌 ${username} originally started the trivia, and now they’re ending it. ${answer}`
     },
 
-    success: function (author) {
+    success: function (author, guildId) {
       const answer = this.answer.name
       const increment = this.difficulty === 'HARD' ? +2 : +1
 
       api
-        .setScore(author.id, increment)
+        .setScore(author.id, guildId, increment)
         .then(() =>
           console.log(
             `Added ${increment} point${increment === 1 ? '' : 's'} to ${
@@ -270,7 +270,7 @@ const trivia = new StateMachine({
       return `🎉 Correct! The answer was “**${answer}**”. Congratulations ${author}!`
     },
 
-    guess: function (message, author) {
+    guess: function (message, author, guildId) {
       if (this.mode === 'CARD' || this.mode === 'IMAGE') {
         const [key, value] = parseCardGuess(message)
 
@@ -290,8 +290,10 @@ const trivia = new StateMachine({
         const [card] = searchCards(message)
 
         if (card) {
-          if (card.name === this.answer.name) return this.success(author)
-          else return `❌ The card is not “${card.name}”, try again!`
+          if (card.name === this.answer.name) {
+            return this.success(author, guildId)
+          }
+          return `❌ The card is not “${card.name}”, try again!`
         }
       } else if (this.mode === 'QUESTION') {
         const letter = message.toUpperCase().trim()
@@ -310,7 +312,7 @@ const trivia = new StateMachine({
           // because we do not want to count streaks for the card trivia.
           this.streaks[author.id] = (this.streaks[author.id] || 0) + 1
 
-          return this.success(author)
+          return this.success(author, guildId)
         }
 
         const streak = this.streaks[author.id]
@@ -320,7 +322,7 @@ const trivia = new StateMachine({
             : ''
 
         api
-          .setScore(author.id, -1)
+          .setScore(author.id, guildId, -1)
           .then(() => console.log('Subtracted 1 point from ' + author.id))
           .catch(console.error.bind(console))
 
@@ -331,9 +333,9 @@ const trivia = new StateMachine({
       }
     },
 
-    leaderboard: function () {
+    leaderboard: function (guildId) {
       api
-        .getScores()
+        .getScores(guildId)
         .then(formatTriviaScores)
         .then(output =>
           this.channel.send(output, { allowedMentions: { users: [] } })
@@ -354,6 +356,7 @@ export default {
   handler: function (message, client, messageObject) {
     const { author } = messageObject
     const channelId = getChannelId(messageObject, this)
+    const guildId = messageObject.channel.guild.id
 
     if (!channelId) return
 
@@ -370,10 +373,10 @@ export default {
     message = message.toLowerCase()
 
     if (message === 'inspect') return trivia.inspect(author)
-    if (message === 'scores') return trivia.leaderboard()
+    if (message === 'scores') return trivia.leaderboard(guildId)
     if (message === 'stop') return trivia.abort(author)
 
     if (trivia.can('start')) return trivia.initialise(message, author)
-    if (trivia.can('stop')) return trivia.guess(message.trim(), author)
+    if (trivia.can('stop')) return trivia.guess(message.trim(), author, guildId)
   },
 }
