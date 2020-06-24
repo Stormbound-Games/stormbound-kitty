@@ -294,10 +294,8 @@ const TriviaMachine = StateMachine.factory({
         const [card] = searchCards(message)
 
         if (card) {
-          if (card.name === this.answer.name) {
-            return this.success(author)
-          }
-          return `❌ The card is not “${card.name}”, try again!`
+          if (card.name === this.answer.name) return this.success(author)
+          else return `❌ The card is not “${card.name}”, try again!`
         }
       } else if (this.mode === 'QUESTION') {
         const letter = message.toUpperCase().trim()
