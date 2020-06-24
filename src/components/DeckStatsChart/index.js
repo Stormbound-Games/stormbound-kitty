@@ -17,29 +17,19 @@ import './index.css'
 
 const computeData = async (deck, modifier) => {
   const data = []
-  let mana = 3
-  let odds = await computeDeckChances(deck, mana, modifier)
+  const odds = await computeDeckChances(deck, modifier)
+  const maxMana = Math.min(
+    odds.usingAllMana.length,
+    odds.playingAllCards.length
+  )
 
-  // This avoids an edge case where no cards are playable on the first turn
-  // (yielding 0% on both lines, and therefore never entering the loop).
-  while (
-    (odds.usingAllMana === 0 && odds.playingAllCards === 0) ||
-    (odds.usingAllMana > 0 && odds.playingAllCards < 100)
-  ) {
+  for (let mana = 3; mana < maxMana; mana++) {
     data.push({
       mana,
-      usingAllMana: +odds.usingAllMana.toFixed(2),
-      playingAllCards: +odds.playingAllCards.toFixed(2),
+      usingAllMana: odds.usingAllMana[mana].toFixed(2),
+      playingAllCards: +odds.playingAllCards[mana].toFixed(2),
     })
-    mana += 1
-    odds = await computeDeckChances(deck, mana, modifier)
   }
-
-  data.push({
-    mana,
-    usingAllMana: +odds.usingAllMana.toFixed(2),
-    playingAllCards: +odds.playingAllCards.toFixed(2),
-  })
 
   return data
 }
