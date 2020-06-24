@@ -3,12 +3,9 @@ const KITTY_SERVER = '714858253531742208'
 const getChannelId = (message, command) => {
   const isLocalBot = process.env.NODE_ENV === 'development'
   const isTest = message.channel.guild.id === KITTY_SERVER
-  const triviaChannel = message.guild.channels.cache.find(
-    channel => channel.name === 'trivia'
-  )
-  const botChannel = message.guild.channels.cache.find(
-    channel => channel.name === 'stormbot'
-  )
+  const channels = message.guild.channels.cache
+  const triviaChannel = channels.find(channel => channel.name === 'trivia')
+  const botChannel = channels.find(channel => channel.name === 'stormbot')
 
   // If the command should not be allowed in the current channel, skip entirely.
   if (!command.isAllowed(message.channel)) return null
