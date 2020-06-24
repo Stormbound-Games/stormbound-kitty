@@ -1,6 +1,5 @@
 import { FACTIONS } from '../../../constants/game'
 import { CATEGORIES } from '../../../constants/decks'
-import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
 import searchCards from '../../../helpers/searchCards'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'
@@ -40,7 +39,6 @@ export const parseMessage = content => {
 
 export default {
   command: 'decks',
-  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
   help: function () {
     return `🔍  **Deck Search:** Get a link to a deck search matching the given search criteria. It optionally accepts a faction, category and card to include (regardless of order and casing). For instance, \`!${this.command} ic\`, \`!${this.command} wp d1\` or \`!${this.command} brawl kg\`.`
   },

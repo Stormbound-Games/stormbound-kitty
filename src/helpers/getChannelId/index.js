@@ -1,33 +1,30 @@
-import {
-  STORMBOUND_SERVER,
-  TRIVIA_CHANNEL,
-  KITTY_BOT_CHANNEL,
-} from '../../constants/bot'
+export const KITTY_SERVER = '714858253531742208'
 
 const getChannelId = (message, command) => {
+  const isTriviaCommand = command.command === 'trivia'
+  const isTriviaChannel = message.channel.name === 'trivia'
   const isLocalBot = process.env.NODE_ENV === 'development'
+  const isTest = message.channel.guild.id === KITTY_SERVER
+  const channels = message.guild.channels.cache
+  const triviaChannel = channels.find(channel => channel.name === 'trivia')
+  const botChannel = channels.find(channel => channel.name === 'stormbot')
 
   // If the command should not be allowed in the current channel, skip entirely.
-  if (!command.isAllowed(message.channel)) return null
+  if (isTriviaCommand && !isTriviaChannel) return null
+  if (!isTriviaCommand && isTriviaChannel) return null
 
-  if (message.channel.guild.id === STORMBOUND_SERVER) {
-    // The local bot should never answer to messages from the main Stormbound
-    // server to avoid having both the local and the production bots answering
-    // at the same time.
-    return isLocalBot
-      ? null
-      : command.command === 'trivia'
-      ? TRIVIA_CHANNEL
-      : KITTY_BOT_CHANNEL
+  // The local bot should only reply when the message issued on the test server,
+  // and non-local bots should not reply on the test server.
+  if (isLocalBot && !isTest) return null
+  if (!isLocalBot && isTest) return null
+
+  // If the command is trivia, reply in the dedicated trivia channel.
+  if (command.command === 'trivia') {
+    return triviaChannel ? triviaChannel.id : null
   }
 
-  // The production bot should only answer in the main Stormbound server to
-  // avoid having duplicate answers when testing the bot locally.
-  return isLocalBot
-    ? command.command === 'trivia'
-      ? TRIVIA_CHANNEL
-      : message.channel.id
-    : null
+  // Otherwise reply in the dedicated bot channel.
+  return botChannel ? botChannel.id : null
 }
 
 export default getChannelId

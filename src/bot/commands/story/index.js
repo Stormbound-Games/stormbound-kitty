@@ -1,11 +1,9 @@
-import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import getStoriesForSearch from '../../../helpers/getStoriesForSearch'
 import arrayRandom from '../../../helpers/arrayRandom'
 import stories from '../../../../public/stories'
 
 export default {
   command: 'story',
-  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
   help: function () {
     return `📝  **Story Search:** Link a random story published on Stormbound-Kitty. It optionally accepts a card abbreviation, a Stormbound-Kitty ID, or otherwise performs a “fuzzy search” on the card name to find an associated story. For instance, \`!${this.command} mia\`.`
   },

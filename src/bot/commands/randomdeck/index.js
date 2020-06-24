@@ -1,5 +1,4 @@
 import { FACTIONS } from '../../../constants/game'
-import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import areAllValuesEqual from '../../../helpers/areAllValuesEqual'
 import arrayRandom from '../../../helpers/arrayRandom'
 import searchCards from '../../../helpers/searchCards'
@@ -92,7 +91,6 @@ export const validateFaction = (faction, including = []) => {
 
 export default {
   command: 'randomdeck',
-  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
   help: function () {
     return `🎲  **Random Deck:** Randomly generate a deck. It optionally accepts a faction and up to 3 cards (separated with commas) to include in the deck (regardless of order or casing). For instance, \`!${this.command} ic\` or \`!${this.command} rof,bragda\`.`
   },

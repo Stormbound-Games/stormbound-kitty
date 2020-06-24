@@ -1,7 +1,6 @@
 import StateMachine from 'javascript-state-machine'
 import Canvas from 'canvas'
 import Discord from 'discord.js'
-import { KITTY_ID, TRIVIA_CHANNEL } from '../../../constants/bot'
 import cards from '../../../data/cards'
 import api from '../../../helpers/api'
 import formatTriviaScores from '../../../helpers/formatTriviaScores'
@@ -13,12 +12,12 @@ import parseCardGuess from '../../../helpers/parseCardGuess'
 import parseTriviaSettings from '../../../helpers/parseTriviaSettings'
 import questions from './questions'
 
+const KITTY_ID = '368097495605182483'
+
 const random = (min, max) => min + Math.random() * (max - min)
 const BASE_URL = 'https://stormbound-kitty.com'
-const canvas = Canvas.createCanvas(150, 150)
-const ctx = canvas.getContext('2d')
 
-const trivia = new StateMachine({
+const TriviaMachine = StateMachine.factory({
   init: 'STOPPED',
 
   data: {
@@ -32,6 +31,7 @@ const trivia = new StateMachine({
     timers: [],
     useRandomLetters: true,
     streaks: {},
+    ctx: Canvas.createCanvas(150, 150).getContext('2d'),
   },
 
   transitions: [
@@ -108,7 +108,7 @@ const trivia = new StateMachine({
 
       // The multiplier is used to zoom out at half time if the image has not
       // been found yet.
-      const cropSize = this.cropSize * multiplier
+      const crop = this.cropSize * multiplier
 
       // The top-left corner of the image should be computed randomly between
       // the top-left boundary and the bottom right boundary. For a 300x300
@@ -116,42 +116,44 @@ const trivia = new StateMachine({
       // crop center has already been defined however, the top-left corner is
       // computed from the focal point, minus half the crop size on both axis.
       const startX = this.cropCenter
-        ? this.cropCenter[0] - cropSize / 2
+        ? this.cropCenter[0] - crop / 2
         : random(
             (image.width * boundary) / 100,
-            image.width - (image.width * boundary) / 100 - cropSize
+            image.width - (image.width * boundary) / 100 - crop
           )
       const startY = this.cropCenter
-        ? this.cropCenter[1] - cropSize / 2
+        ? this.cropCenter[1] - crop / 2
         : random(
             (image.height * boundary) / 100,
-            image.height - (image.height * boundary) / 100 - cropSize
+            image.height - (image.height * boundary) / 100 - crop
           )
 
       // If there is no image focal point just, define the coordinates of the
       // center of the crop area so the zoom out can be focused on the exact
       // same point.
       if (!this.cropCenter) {
-        this.cropCenter = [startX + cropSize / 2, startY + cropSize / 2]
+        this.cropCenter = [startX + crop / 2, startY + crop / 2]
       }
 
-      const coords = [startX, startY]
-      const area = [cropSize, cropSize]
-      const dimensions = [canvas.width, canvas.height]
-      const args = [image, ...coords, ...area, 0, 0, ...dimensions]
+      const { width, height } = this.ctx.canvas
+      const args = [image, startX, startY, crop, crop, 0, 0, width, height]
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      ctx.drawImage(...args)
+      this.ctx.clearRect(0, 0, width, height)
+      this.ctx.drawImage(...args)
 
       if (this.difficulty === 'HARD') {
-        ctx.putImageData(this.grayscale(), 0, 0)
+        this.ctx.putImageData(this.grayscale(), 0, 0)
       }
 
-      return new Discord.MessageAttachment(canvas.toBuffer(), 'trivia_img.png')
+      return new Discord.MessageAttachment(
+        this.ctx.canvas.toBuffer(),
+        'trivia_img.png'
+      )
     },
 
     grayscale: function () {
-      const image = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height)
+      const { width, height } = this.ctx.canvas
+      const image = this.ctx.getImageData(0, 0, width, height)
       const pixels = image.data
 
       for (var i = 0; i < pixels.length; i += 4) {
@@ -254,7 +256,7 @@ const trivia = new StateMachine({
       const increment = this.difficulty === 'HARD' ? +2 : +1
 
       api
-        .setScore(author.id, increment)
+        .setScore(author.id, this.guildId, increment)
         .then(() =>
           console.log(
             `Added ${increment} point${increment === 1 ? '' : 's'} to ${
@@ -319,7 +321,7 @@ const trivia = new StateMachine({
             : ''
 
         api
-          .setScore(author.id, -1)
+          .setScore(author.id, this.guildId, -1)
           .then(() => console.log('Subtracted 1 point from ' + author.id))
           .catch(console.error.bind(console))
 
@@ -332,7 +334,7 @@ const trivia = new StateMachine({
 
     leaderboard: function () {
       api
-        .getScores()
+        .getScores(this.guildId)
         .then(formatTriviaScores)
         .then(output =>
           this.channel.send(output, { allowedMentions: { users: [] } })
@@ -344,24 +346,36 @@ const trivia = new StateMachine({
   },
 })
 
+const CACHE = new Map()
+
 export default {
   command: 'trivia',
   ping: false,
-  isAllowed: channel => channel.id === TRIVIA_CHANNEL,
   help: function () {
-    return `🔮  **Trivia:** Initiate a card, question, or image trivia (only in <#${TRIVIA_CHANNEL}>). It accepts an optional duration in seconds (and the keyword \`hard\` for grayscale image trivia). For instance, \`!${this.command} card\`, \`!${this.command} question\`, \`!${this.command} image 30\`, \`!${this.command} image hard\`. Scores can be displayed with \`!${this.command} scores\`.`
+    return `🔮  **Trivia:** Initiate a card, question, or image trivia (only in <#trivia>). It accepts an optional duration in seconds (and the keyword \`hard\` for grayscale image trivia). For instance, \`!${this.command} card\`, \`!${this.command} question\`, \`!${this.command} image 30\`, \`!${this.command} image hard\`. Scores can be displayed with \`!${this.command} scores\`.`
   },
   handler: function (message, client, messageObject) {
     const { author } = messageObject
     const channelId = getChannelId(messageObject, this)
+    const guildId = messageObject.channel.guild.id
 
     if (!channelId) return
 
-    // It is necessary to store the channel to be able to send messages that are
-    // not answers to incoming users’ message, such as the result of a timeout.
-    if (!trivia.channel) {
+    // If there is not already a trivia state machine for the current server,
+    // create one and cache it.
+    if (!CACHE.has(guildId)) {
+      const trivia = new TriviaMachine()
+      // It is necessary to store the guild ID to be able to get and set trivia
+      // scores for the proper server.
+      trivia.guildId = guildId
+      // It is necessary to store the channel to be able to send messages that are
+      // not answers to incoming users’ message, such as the result of a timeout.
       trivia.channel = client.channels.cache.get(channelId)
+
+      CACHE.set(guildId, trivia)
     }
+
+    const trivia = CACHE.get(guildId)
 
     if (trivia.can('start') && message.startsWith('configure')) {
       return trivia.configure(message, author)
