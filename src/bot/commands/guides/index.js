@@ -1,9 +1,8 @@
 import GUIDES from '../../../data/guides.json'
-import { TRIVIA_CHANNEL } from '../../../constants/bot'
 
 export default {
   command: 'guides',
-  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
+  isAllowed: channel => channel.name !== 'trivia',
   help: function () {
     return `🧭  **Guides:** List all existing guides from Stormbound-Kitty.`
   },

@@ -1,7 +1,6 @@
 import StateMachine from 'javascript-state-machine'
 import Canvas from 'canvas'
 import Discord from 'discord.js'
-import { KITTY_ID, TRIVIA_CHANNEL } from '../../../constants/bot'
 import cards from '../../../data/cards'
 import api from '../../../helpers/api'
 import formatTriviaScores from '../../../helpers/formatTriviaScores'
@@ -12,6 +11,8 @@ import getChannelId from '../../../helpers/getChannelId'
 import parseCardGuess from '../../../helpers/parseCardGuess'
 import parseTriviaSettings from '../../../helpers/parseTriviaSettings'
 import questions from './questions'
+
+const KITTY_ID = '368097495605182483'
 
 const random = (min, max) => min + Math.random() * (max - min)
 const BASE_URL = 'https://stormbound-kitty.com'
@@ -347,9 +348,9 @@ const trivia = new StateMachine({
 export default {
   command: 'trivia',
   ping: false,
-  isAllowed: channel => channel.id === TRIVIA_CHANNEL,
+  isAllowed: channel => channel.name === 'trivia',
   help: function () {
-    return `🔮  **Trivia:** Initiate a card, question, or image trivia (only in <#${TRIVIA_CHANNEL}>). It accepts an optional duration in seconds (and the keyword \`hard\` for grayscale image trivia). For instance, \`!${this.command} card\`, \`!${this.command} question\`, \`!${this.command} image 30\`, \`!${this.command} image hard\`. Scores can be displayed with \`!${this.command} scores\`.`
+    return `🔮  **Trivia:** Initiate a card, question, or image trivia (only in <#trivia>). It accepts an optional duration in seconds (and the keyword \`hard\` for grayscale image trivia). For instance, \`!${this.command} card\`, \`!${this.command} question\`, \`!${this.command} image 30\`, \`!${this.command} image hard\`. Scores can be displayed with \`!${this.command} scores\`.`
   },
   handler: function (message, client, messageObject) {
     const { author } = messageObject

@@ -1,6 +1,5 @@
 import cards from '../../../data/cards'
 import { FACTIONS, RACES, RARITIES, TYPES } from '../../../constants/game'
-import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import arrayRandom from '../../../helpers/arrayRandom'
 import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'
@@ -31,7 +30,7 @@ const parseMessage = content => {
 
 export default {
   command: 'randomcard',
-  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
+  isAllowed: channel => channel.name !== 'trivia',
   help: function () {
     return `🃏  **Random Card:** Get a random card matching the given search criteria. It optionally accepts a faction, type, race or rarity (regardless of order or casing). For instance, \`!${this.command} elder ic\`, \`!${this.command} spell\` or \`!${this.command} satyr common\`.`
   },

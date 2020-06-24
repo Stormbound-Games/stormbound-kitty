@@ -1,4 +1,3 @@
-import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import getDeckAdvice from '../../../helpers/getDeckAdvice'
 import getResolvedCardData from '../../../helpers/getResolvedCardData'
 import serialisation from '../../../helpers/serialisation'
@@ -12,7 +11,7 @@ const getIdFromURL = url =>
 
 export default {
   command: 'deckadvice',
-  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
+  isAllowed: channel => channel.name !== 'trivia',
   help: function () {
     return `💎  **Deck Advice:** Get advice and suggestions for the given deck. It expects a fully qualified Stormbound-Kitty deck URL, or a Stormbound-Kitty deck ID. For instance, \`!${this.command} 3n13n23s13n33s243s23n633n673s63n153s83s11\`. To get the deck URL/ID, either compose it on the site, or use the \`!deckid\` command.`
   },

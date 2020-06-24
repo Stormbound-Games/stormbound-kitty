@@ -1,8 +1,6 @@
-import { TRIVIA_CHANNEL } from '../../../constants/bot'
-
 export default {
   command: 'help',
-  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
+  isAllowed: channel => channel.name !== 'trivia',
   help: function (content, client) {
     let commands = []
 
@@ -17,9 +15,7 @@ export default {
     return `The following commands are allowed: ${commands
       .map(
         command =>
-          `\`!${command}\`${
-            command === 'trivia' ? ` (only in <#${TRIVIA_CHANNEL}>)` : ''
-          }`
+          `\`!${command}\`${command === 'trivia' ? ` (only in <#trivia>)` : ''}`
       )
       .join(
         ', '

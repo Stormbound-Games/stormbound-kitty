@@ -1,4 +1,3 @@
-import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import capitalise from '../../../helpers/capitalise'
 import toSentence from '../../../helpers/toSentence'
 
@@ -33,7 +32,7 @@ const hasRole = (member, role) => {
 
 export default {
   command: 'role',
-  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
+  isAllowed: channel => channel.name !== 'trivia',
   help: function () {
     return `🌟  **Role Assignment:** Assign yourself a decorative role (regardless of casing). Use the command again to have the role removed. Available roles are ${toSentence(
       ROLES,

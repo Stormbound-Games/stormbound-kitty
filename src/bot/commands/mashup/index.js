@@ -1,4 +1,3 @@
-import { TRIVIA_CHANNEL } from '../../../constants/bot'
 import cards from '../../../data/cards'
 import arrayRandom from '../../../helpers/arrayRandom'
 
@@ -22,7 +21,7 @@ const [STARTS, ENDS] = (() => {
 
 export default {
   command: 'mashup',
-  isAllowed: channel => channel.id !== TRIVIA_CHANNEL,
+  isAllowed: channel => channel.name !== 'trivia',
   help: function () {
     return `🤪  **Random Name Generator:** Randomly generate a random card name from existing ones.`
   },

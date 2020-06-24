@@ -1,33 +1,25 @@
-import {
-  STORMBOUND_SERVER,
-  TRIVIA_CHANNEL,
-  KITTY_BOT_CHANNEL,
-} from '../../constants/bot'
+const KITTY_SERVER = '714858253531742208'
 
 const getChannelId = (message, command) => {
   const isLocalBot = process.env.NODE_ENV === 'development'
+  const isTest = message.channel.guild.id === KITTY_SERVER
+  const triviaChannel = message.guild.channels.cache.find(
+    channel => channel.name === 'trivia'
+  )
+  const botChannel = message.guild.channels.cache.find(
+    channel => channel.name === 'stormbot'
+  )
 
   // If the command should not be allowed in the current channel, skip entirely.
   if (!command.isAllowed(message.channel)) return null
 
-  if (message.channel.guild.id === STORMBOUND_SERVER) {
-    // The local bot should never answer to messages from the main Stormbound
-    // server to avoid having both the local and the production bots answering
-    // at the same time.
-    return isLocalBot
-      ? null
-      : command.command === 'trivia'
-      ? TRIVIA_CHANNEL
-      : KITTY_BOT_CHANNEL
-  }
+  // The local bot should only reply when the message issued on the test server,
+  // and non-local bots should not reply on the test server.
+  if ((isLocalBot && !isTest) || (!isLocalBot && isTest)) return null
 
-  // The production bot should only answer in the main Stormbound server to
-  // avoid having duplicate answers when testing the bot locally.
-  return isLocalBot
-    ? command.command === 'trivia'
-      ? TRIVIA_CHANNEL
-      : message.channel.id
-    : null
+  // If the command is trivia, reply in the dedicated trivia channel. Otherwise
+  // reply in the dedicated bot channel.
+  return command.command === 'trivia' ? triviaChannel.id : botChannel.id
 }
 
 export default getChannelId
