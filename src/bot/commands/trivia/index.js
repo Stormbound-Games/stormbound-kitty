@@ -31,7 +31,7 @@ const TriviaMachine = StateMachine.factory({
     timers: [],
     useRandomLetters: true,
     streaks: {},
-    canvas: Canvas.createCanvas(150, 150),
+    ctx: Canvas.createCanvas(150, 150).getContext('2d'),
   },
 
   transitions: [
@@ -108,7 +108,7 @@ const TriviaMachine = StateMachine.factory({
 
       // The multiplier is used to zoom out at half time if the image has not
       // been found yet.
-      const cropSize = this.cropSize * multiplier
+      const crop = this.cropSize * multiplier
 
       // The top-left corner of the image should be computed randomly between
       // the top-left boundary and the bottom right boundary. For a 300x300
@@ -116,47 +116,44 @@ const TriviaMachine = StateMachine.factory({
       // crop center has already been defined however, the top-left corner is
       // computed from the focal point, minus half the crop size on both axis.
       const startX = this.cropCenter
-        ? this.cropCenter[0] - cropSize / 2
+        ? this.cropCenter[0] - crop / 2
         : random(
             (image.width * boundary) / 100,
-            image.width - (image.width * boundary) / 100 - cropSize
+            image.width - (image.width * boundary) / 100 - crop
           )
       const startY = this.cropCenter
-        ? this.cropCenter[1] - cropSize / 2
+        ? this.cropCenter[1] - crop / 2
         : random(
             (image.height * boundary) / 100,
-            image.height - (image.height * boundary) / 100 - cropSize
+            image.height - (image.height * boundary) / 100 - crop
           )
 
       // If there is no image focal point just, define the coordinates of the
       // center of the crop area so the zoom out can be focused on the exact
       // same point.
       if (!this.cropCenter) {
-        this.cropCenter = [startX + cropSize / 2, startY + cropSize / 2]
+        this.cropCenter = [startX + crop / 2, startY + crop / 2]
       }
 
-      const coords = [startX, startY]
-      const area = [cropSize, cropSize]
-      const dimensions = [this.canvas.width, this.canvas.height]
-      const args = [image, ...coords, ...area, 0, 0, ...dimensions]
-      const ctx = this.canvas.getContext('2d')
+      const { width, height } = this.ctx.canvas
+      const args = [image, startX, startY, crop, crop, 0, 0, width, height]
 
-      ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-      ctx.drawImage(...args)
+      this.ctx.clearRect(0, 0, width, height)
+      this.ctx.drawImage(...args)
 
       if (this.difficulty === 'HARD') {
-        ctx.putImageData(this.grayscale(), 0, 0)
+        this.ctx.putImageData(this.grayscale(), 0, 0)
       }
 
       return new Discord.MessageAttachment(
-        this.canvas.toBuffer(),
+        this.ctx.canvas.toBuffer(),
         'trivia_img.png'
       )
     },
 
     grayscale: function () {
-      const ctx = this.canvas.getContext('2d')
-      const image = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height)
+      const { width, height } = this.ctx.canvas
+      const image = this.ctx.getImageData(0, 0, width, height)
       const pixels = image.data
 
       for (var i = 0; i < pixels.length; i += 4) {
