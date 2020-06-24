@@ -1,4 +1,4 @@
-const KITTY_SERVER = '714858253531742208'
+export const KITTY_SERVER = '714858253531742208'
 
 const getChannelId = (message, command) => {
   const isTriviaCommand = command.command === 'trivia'
