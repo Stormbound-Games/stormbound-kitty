@@ -17,9 +17,13 @@ const getChannelId = (message, command) => {
   // and non-local bots should not reply on the test server.
   if ((isLocalBot && !isTest) || (!isLocalBot && isTest)) return null
 
-  // If the command is trivia, reply in the dedicated trivia channel. Otherwise
-  // reply in the dedicated bot channel.
-  return command.command === 'trivia' ? triviaChannel.id : botChannel.id
+  // If the command is trivia, reply in the dedicated trivia channel.
+  if (command.command === 'trivia') {
+    return triviaChannel ? triviaChannel.id : null
+  }
+
+  // Otherwise reply in the dedicated bot channel.
+  return botChannel ? botChannel.id : null
 }
 
 export default getChannelId
