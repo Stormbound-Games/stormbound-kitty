@@ -19,3 +19,4 @@ For the bot to work properly, it requires:
 
 - A #trivia channel for the `!trivia` command.
 - A #stormbot channel for all the other commands.
+- Ideally some of the roles: Diamond, Platinum, Gold, Silver, Bronze, Iron, Starter, Tournamentee and Streambound.
