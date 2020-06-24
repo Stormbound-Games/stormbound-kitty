@@ -542,10 +542,16 @@ const computeDeckChances = (deck, modifier = 'NONE') => {
       if (hand.includes(d)) continue
 
       const shiftedKey = key + (1 << d)
-      const normalise = entry => entry / (deck.length - 4)
 
       tmp1 = addArrayValues(tmp1, CACHE_MANA.get(shiftedKey))
       tmp2 = addArrayValues(tmp2, CACHE_CARD.get(shiftedKey))
+    }
+
+    for (let d = 0; d < deck.length; d++) {
+      if (hand.includes(d)) continue
+
+      const shiftedKey = key + (1 << d)
+      const normalise = entry => entry / (deck.length - 4)
 
       CACHE_MANA_CYCLED.set(
         shiftedKey,
