@@ -2,9 +2,18 @@ import command from './'
 const trivia = command.handler.bind(command)
 
 const client = { channels: { cache: new Map() } }
-const channel = { id: '123456789', name: 'trivia', guild: { id: 'guild_id' } }
+const guild = {
+  id: '714858253531742208',
+  channels: {
+    cache: [
+      { name: 'trivia', id: 'trid' },
+      { name: 'stormbot', id: 'stid' },
+    ],
+  },
+}
+const channel = { id: '123456789', name: 'trivia', guild }
 const author = { id: 'author_id', username: 'Author' }
-const message = { channel, author }
+const message = { channel, author, guild }
 
 describe('Bot — !trivia', () => {
   it('should return nothing for a missing term', () => {
@@ -17,7 +26,7 @@ describe('Bot — !trivia', () => {
 
   it('should not be possible to stop someone else’s trivia', () => {
     const author = { id: 'other_author_id', username: 'Other Author' }
-    const message = { channel, author }
+    const message = { channel, author, guild }
     expect(trivia('stop', client, message)).to.equal(undefined)
   })
 
