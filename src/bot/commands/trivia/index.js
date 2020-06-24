@@ -16,10 +16,8 @@ const KITTY_ID = '368097495605182483'
 
 const random = (min, max) => min + Math.random() * (max - min)
 const BASE_URL = 'https://stormbound-kitty.com'
-const canvas = Canvas.createCanvas(150, 150)
-const ctx = canvas.getContext('2d')
 
-const trivia = new StateMachine({
+const TriviaMachine = StateMachine.factory({
   init: 'STOPPED',
 
   data: {
@@ -33,6 +31,7 @@ const trivia = new StateMachine({
     timers: [],
     useRandomLetters: true,
     streaks: {},
+    canvas: Canvas.createCanvas(150, 150),
   },
 
   transitions: [
@@ -138,20 +137,25 @@ const trivia = new StateMachine({
 
       const coords = [startX, startY]
       const area = [cropSize, cropSize]
-      const dimensions = [canvas.width, canvas.height]
+      const dimensions = [this.canvas.width, this.canvas.height]
       const args = [image, ...coords, ...area, 0, 0, ...dimensions]
+      const ctx = this.canvas.getContext('2d')
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
       ctx.drawImage(...args)
 
       if (this.difficulty === 'HARD') {
         ctx.putImageData(this.grayscale(), 0, 0)
       }
 
-      return new Discord.MessageAttachment(canvas.toBuffer(), 'trivia_img.png')
+      return new Discord.MessageAttachment(
+        this.canvas.toBuffer(),
+        'trivia_img.png'
+      )
     },
 
     grayscale: function () {
+      const ctx = this.canvas.getContext('2d')
       const image = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height)
       const pixels = image.data
 
@@ -250,12 +254,12 @@ const trivia = new StateMachine({
       return `🔌 ${username} originally started the trivia, and now they’re ending it. ${answer}`
     },
 
-    success: function (author, guildId) {
+    success: function (author) {
       const answer = this.answer.name
       const increment = this.difficulty === 'HARD' ? +2 : +1
 
       api
-        .setScore(author.id, guildId, increment)
+        .setScore(author.id, this.guildId, increment)
         .then(() =>
           console.log(
             `Added ${increment} point${increment === 1 ? '' : 's'} to ${
@@ -270,7 +274,7 @@ const trivia = new StateMachine({
       return `🎉 Correct! The answer was “**${answer}**”. Congratulations ${author}!`
     },
 
-    guess: function (message, author, guildId) {
+    guess: function (message, author) {
       if (this.mode === 'CARD' || this.mode === 'IMAGE') {
         const [key, value] = parseCardGuess(message)
 
@@ -291,7 +295,7 @@ const trivia = new StateMachine({
 
         if (card) {
           if (card.name === this.answer.name) {
-            return this.success(author, guildId)
+            return this.success(author)
           }
           return `❌ The card is not “${card.name}”, try again!`
         }
@@ -312,7 +316,7 @@ const trivia = new StateMachine({
           // because we do not want to count streaks for the card trivia.
           this.streaks[author.id] = (this.streaks[author.id] || 0) + 1
 
-          return this.success(author, guildId)
+          return this.success(author)
         }
 
         const streak = this.streaks[author.id]
@@ -322,7 +326,7 @@ const trivia = new StateMachine({
             : ''
 
         api
-          .setScore(author.id, guildId, -1)
+          .setScore(author.id, this.guildId, -1)
           .then(() => console.log('Subtracted 1 point from ' + author.id))
           .catch(console.error.bind(console))
 
@@ -333,9 +337,9 @@ const trivia = new StateMachine({
       }
     },
 
-    leaderboard: function (guildId) {
+    leaderboard: function () {
       api
-        .getScores(guildId)
+        .getScores(this.guildId)
         .then(formatTriviaScores)
         .then(output =>
           this.channel.send(output, { allowedMentions: { users: [] } })
@@ -346,6 +350,8 @@ const trivia = new StateMachine({
     },
   },
 })
+
+const CACHE = new Map()
 
 export default {
   command: 'trivia',
@@ -360,11 +366,21 @@ export default {
 
     if (!channelId) return
 
-    // It is necessary to store the channel to be able to send messages that are
-    // not answers to incoming users’ message, such as the result of a timeout.
-    if (!trivia.channel) {
+    // If there is not already a trivia state machine for the current server,
+    // create one and cache it.
+    if (!CACHE.has(guildId)) {
+      const trivia = new TriviaMachine()
+      // It is necessary to store the guild ID to be able to get and set trivia
+      // scores for the proper server.
+      trivia.guildId = guildId
+      // It is necessary to store the channel to be able to send messages that are
+      // not answers to incoming users’ message, such as the result of a timeout.
       trivia.channel = client.channels.cache.get(channelId)
+
+      CACHE.set(guildId, trivia)
     }
+
+    const trivia = CACHE.get(guildId)
 
     if (trivia.can('start') && message.startsWith('configure')) {
       return trivia.configure(message, author)
@@ -373,10 +389,10 @@ export default {
     message = message.toLowerCase()
 
     if (message === 'inspect') return trivia.inspect(author)
-    if (message === 'scores') return trivia.leaderboard(guildId)
+    if (message === 'scores') return trivia.leaderboard()
     if (message === 'stop') return trivia.abort(author)
 
     if (trivia.can('start')) return trivia.initialise(message, author)
-    if (trivia.can('stop')) return trivia.guess(message.trim(), author, guildId)
+    if (trivia.can('stop')) return trivia.guess(message.trim(), author)
   },
 }
