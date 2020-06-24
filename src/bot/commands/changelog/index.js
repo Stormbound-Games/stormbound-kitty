@@ -12,7 +12,6 @@ const groupByDate = (acc, change) => {
 
 export default {
   command: 'changelog',
-  isAllowed: channel => channel.name !== 'trivia',
   help: function () {
     return `🛠  **Card Changes:** List the changes applied to a card over time. It expects a card abbreviation, a Stormbound-Kitty ID, or otherwise performs a “fuzzy search” on the card name and picks the first result. For instance, \`!${this.command} rof\`, \`!${this.command} N1\` or \`!${this.command} souls\`.`
   },

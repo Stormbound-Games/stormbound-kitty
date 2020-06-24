@@ -7,7 +7,6 @@ const quotify = value => `“${value}”`
 
 export default {
   command: 'abbr',
-  isAllowed: channel => channel.name !== 'trivia',
   help: function () {
     return `❔  **Abbreviations:** Get the meaning of a card or popular abbreviation (regardless of casing). For instance, \`!${this.command} rof\` or \`!${this.command} AoE\`.`
   },

@@ -348,7 +348,6 @@ const trivia = new StateMachine({
 export default {
   command: 'trivia',
   ping: false,
-  isAllowed: channel => channel.name === 'trivia',
   help: function () {
     return `🔮  **Trivia:** Initiate a card, question, or image trivia (only in <#trivia>). It accepts an optional duration in seconds (and the keyword \`hard\` for grayscale image trivia). For instance, \`!${this.command} card\`, \`!${this.command} question\`, \`!${this.command} image 30\`, \`!${this.command} image hard\`. Scores can be displayed with \`!${this.command} scores\`.`
   },

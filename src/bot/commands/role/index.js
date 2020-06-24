@@ -32,7 +32,6 @@ const hasRole = (member, role) => {
 
 export default {
   command: 'role',
-  isAllowed: channel => channel.name !== 'trivia',
   help: function () {
     return `🌟  **Role Assignment:** Assign yourself a decorative role (regardless of casing). Use the command again to have the role removed. Available roles are ${toSentence(
       ROLES,

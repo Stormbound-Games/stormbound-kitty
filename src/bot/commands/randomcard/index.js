@@ -30,7 +30,6 @@ const parseMessage = content => {
 
 export default {
   command: 'randomcard',
-  isAllowed: channel => channel.name !== 'trivia',
   help: function () {
     return `🃏  **Random Card:** Get a random card matching the given search criteria. It optionally accepts a faction, type, race or rarity (regardless of order or casing). For instance, \`!${this.command} elder ic\`, \`!${this.command} spell\` or \`!${this.command} satyr common\`.`
   },

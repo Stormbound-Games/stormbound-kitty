@@ -2,7 +2,6 @@ import searchCards from '../../../helpers/searchCards'
 
 export default {
   command: 'cardinfo',
-  isAllowed: channel => channel.name !== 'trivia',
   help: function () {
     return `⚡️  **Card Info:** Get information about the card(s) matching the given search criteria (up to 3 results). It expects a card abbreviation, a Stormbound-Kitty ID, or otherwise performs a “fuzzy search” on the card name. For instance, \`!${this.command} rof\`, \`!${this.command} N1\` or \`!${this.command} souls\`.`
   },

@@ -21,7 +21,6 @@ const [STARTS, ENDS] = (() => {
 
 export default {
   command: 'mashup',
-  isAllowed: channel => channel.name !== 'trivia',
   help: function () {
     return `🤪  **Random Name Generator:** Randomly generate a random card name from existing ones.`
   },

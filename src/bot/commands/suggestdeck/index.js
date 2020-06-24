@@ -6,7 +6,6 @@ import { parseMessage } from '../decks'
 
 export default {
   command: 'suggestdeck',
-  isAllowed: channel => channel.name !== 'trivia',
   help: function () {
     return `✅  **Deck Suggestion:** Suggest a deck matching the given search criteria. It optionally accepts a faction, category and card to include (regardless of order and casing). For instance, \`!${this.command} ic\`, \`!${this.command} wp d1\` or \`!${this.command} brawl kg\`.`
   },

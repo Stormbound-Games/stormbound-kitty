@@ -1,6 +1,5 @@
 export default {
   command: 'help',
-  isAllowed: channel => channel.name !== 'trivia',
   help: function (content, client) {
     let commands = []
 
@@ -15,7 +14,7 @@ export default {
     return `The following commands are allowed: ${commands
       .map(
         command =>
-          `\`!${command}\`${command === 'trivia' ? ` (only in <#trivia>)` : ''}`
+          `\`!${command}\`${command === 'trivia' ? ` (only in #trivia)` : ''}`
       )
       .join(
         ', '

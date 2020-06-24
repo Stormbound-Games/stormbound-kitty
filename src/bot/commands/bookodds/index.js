@@ -46,7 +46,6 @@ const parseMessage = search => {
 
 export default {
   command: 'bookodds',
-  isAllowed: channel => channel.name !== 'trivia',
   help: function () {
     return `📕  **Book Drawing Odds:** Get the odds of drawing a certain card or Fusion stones from a certain book. It expects a mandatory book name, and an optional expectation such as “fs” or a rarity (both regardless of casing). For instance, \`!${this.command} mythic\`, \`!${this.command} noble epic\`, \`!${this.command} fs\`, \`!${this.command} legendary heroic\`.`
   },

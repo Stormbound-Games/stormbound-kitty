@@ -91,7 +91,6 @@ export const validateFaction = (faction, including = []) => {
 
 export default {
   command: 'randomdeck',
-  isAllowed: channel => channel.name !== 'trivia',
   help: function () {
     return `🎲  **Random Deck:** Randomly generate a deck. It optionally accepts a faction and up to 3 cards (separated with commas) to include in the deck (regardless of order or casing). For instance, \`!${this.command} ic\` or \`!${this.command} rof,bragda\`.`
   },
