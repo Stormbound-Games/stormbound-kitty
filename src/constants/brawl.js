@@ -20,7 +20,7 @@ export const BRAWLS = [
   {
     id: 'ELDER_STRENGTH',
     label: 'Elders +3 strength',
-    title: 'Respect Your Elders',
+    title: 'Elderly Wisdom',
     cardId: 'N76',
   },
   {
