@@ -8,49 +8,70 @@ const linkify = card => 'https://stormbound-kitty.com/card/' + card.id
 
 const parseMessage = content => {
   const terms = content.split(/\s+/g)
-  const params = {}
   const ignored = []
+  const filters = []
 
   terms.forEach(term => {
-    if (term === 'hero') params.hero = true
-    else if (term === 'elder') params.elder = true
-    else if (Object.keys(FACTIONS).includes(term)) params.faction = term
-    else if (Object.keys(RACES).includes(term)) params.race = term
-    else if (Object.keys(RARITIES).includes(term)) params.rarity = term
-    else if (Object.keys(TYPES).includes(term)) params.type = term
-    else {
-      const [key, value] = handleSearchAlias(term)
-      if (key) params[key] = value
-      else ignored.push(term)
+    const filter = {}
+
+    // Determine whether the method is inclusive or exclusive
+    filter.method = term.startsWith('!') ? 'EXC' : 'INC'
+
+    // Remove any leading bang from the search term to match it
+    filter.value = term.replace('!', '')
+
+    if (filter.value === 'hero') {
+      filter.key = 'hero'
+      filter.value = true
+    } else if (filter.value === 'elder') {
+      filter.key = 'elder'
+      filter.value = true
+    } else if (Object.keys(FACTIONS).includes(filter.value)) {
+      filter.key = 'faction'
+    } else if (Object.keys(RACES).includes(filter.value)) {
+      filter.key = 'race'
+    } else if (Object.keys(RARITIES).includes(filter.value)) {
+      filter.key = 'rarity'
+    } else if (Object.keys(TYPES).includes(filter.value)) {
+      filter.key = 'type'
+    } else {
+      const [key, value] = handleSearchAlias(filter.value)
+      if (key) {
+        filter.key = key
+        filter.value = value
+      } else ignored.push(filter.value)
+    }
+
+    if (filter.key) {
+      filters.push(filter)
     }
   })
 
-  return { params, ignored }
+  return { filters, ignored }
 }
 
 export default {
   command: 'randomcard',
   help: function () {
-    return `🃏  **Random Card:** Get a random card matching the given search criteria. It optionally accepts a faction, type, race or rarity (regardless of order or casing). For instance, \`!${this.command} elder ic\`, \`!${this.command} spell\` or \`!${this.command} satyr common\`.`
+    return `🃏  **Random Card:** Get a random card matching the given search criteria. It optionally accepts a unit modifier, faction, type, race or rarity (regardless of order or casing, with or a leading exclamation mark for negative filtering). For instance, \`!${this.command} elder ic\`, \`!${this.command} !spell\` or \`!${this.command} satyr common\`.`
   },
   handler: function (message) {
     if (message.length === 0) {
       return linkify(arrayRandom(cards))
     }
 
-    const { params, ignored } = parseMessage(message.toLowerCase())
+    const { filters, ignored } = parseMessage(message.toLowerCase())
 
-    if (Object.keys(params).length === 0) return
+    if (filters.length === 0) return
 
     const results = cards
       .filter(card => !card.token)
       .filter(card => {
-        if (params.hero && !card.hero) return false
-        if (params.elder && !card.elder) return false
-        if (params.faction && card.faction !== params.faction) return false
-        if (params.type && card.type !== params.type) return false
-        if (params.rarity && card.rarity !== params.rarity) return false
-        if (params.race && card.race !== params.race) return false
+        for (const { key, method, value } of filters) {
+          if (method === 'INC' && card[key] !== value) return false
+          if (method === 'EXC' && card[key] === value) return false
+        }
+
         return true
       })
 
