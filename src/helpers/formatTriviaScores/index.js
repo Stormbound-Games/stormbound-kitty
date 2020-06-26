@@ -36,6 +36,7 @@ const formatTriviaScores = scores => {
     // users with that amount of points.
     ...Object.keys(scoresByPoints)
       .sort((a, b) => +b - +a)
+      .slice(0, 10)
       .map(renderScore(scoresByPoints)),
   ].join('\n')
 }
