@@ -44,10 +44,12 @@ const App = React.memo(function App(props) {
         />
       )}
 
-      <PageMeta
-        title='Battle Simulator'
-        description='Create your own Stormbound battles, reproducing static in-game situations in this simulator'
-      />
+      {props.withMeta && (
+        <PageMeta
+          title='Battle Simulator'
+          description='Create your own Stormbound battles, reproducing static in-game situations in this simulator'
+        />
+      )}
     </>
   )
 })

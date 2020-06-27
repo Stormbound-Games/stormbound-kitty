@@ -12,16 +12,16 @@ export default function RouterBattleSim() {
   return (
     <Switch>
       <Page path={`${path}/:simId/display`} active={['BATTLE_SIM', 'DISPLAY']}>
-        <BattleSimApp mode='DISPLAY' />
+        <BattleSimApp mode='DISPLAY' withMeta />
       </Page>
       <Page path={`${path}/puzzles`} active={['BATTLE_SIM', 'PUZZLES']}>
         <BattleSimPuzzles />
       </Page>
       <Page path={`${path}/:simId`} active={['BATTLE_SIM', 'EDITOR']}>
-        <BattleSimApp mode='EDITOR' />
+        <BattleSimApp mode='EDITOR' withMeta />
       </Page>
       <Page path={path} active={['BATTLE_SIM', 'EDITOR']}>
-        <BattleSimApp mode='EDITOR' />
+        <BattleSimApp mode='EDITOR' withMeta />
       </Page>
     </Switch>
   )
