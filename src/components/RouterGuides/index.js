@@ -18,6 +18,7 @@ const COMPONENTS = {
   WINTER_GUIDE: load('GuideWinter'),
   PIRATE_GUIDE: load('GuidePirate'),
   LEXICON: load('Lexicon'),
+  TRIGGER_GUIDE: load('GuideTriggers'),
 }
 
 export default function RouterGuides() {

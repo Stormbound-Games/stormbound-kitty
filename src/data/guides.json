@@ -72,15 +72,15 @@
     "category": "IN_DEPTH"
   },
   {
-    "id": "WINTER_GUIDE",
-    "name": "Winter Guide",
-    "author": "WinterBoii",
-    "excerpt": "In this deep-dive, WinterBoii tells us how to play, well, Winter Pact. From creating a deck to using niche abilities like Broken Earth Drakes’ and Rockworkers’, you should learn everything you need to know. Snow problem.",
-    "slug": "winter",
-    "faction": "winter",
-    "cardId": "W9",
-    "background": "/assets/images/environment_winter.png",
-    "readingTime": "14 minutes",
+    "id": "TRIGGER_GUIDE",
+    "name": "Triggers Guide",
+    "author": "Kitty & Derk",
+    "excerpt": "In this in-depth guide, Kitty and Derk dive deep into the trigger effects and attempt to demystify their resolution order.",
+    "slug": "triggers",
+    "faction": "shadowfen",
+    "cardId": "F4",
+    "background": "/assets/images/environment_shadowfen.png",
+    "readingTime": "5 minutes",
     "category": "IN_DEPTH"
   },
   {
@@ -116,6 +116,19 @@
     "cardId": "F3",
     "background": "/assets/images/environment_shadowfen.png",
     "readingTime": "17 minutes",
+    "category": "IN_DEPTH"
+  },
+
+  {
+    "id": "WINTER_GUIDE",
+    "name": "Winter Guide",
+    "author": "WinterBoii",
+    "excerpt": "In this deep-dive, WinterBoii tells us how to play, well, Winter Pact. From creating a deck to using niche abilities like Broken Earth Drakes’ and Rockworkers’, you should learn everything you need to know. Snow problem.",
+    "slug": "winter",
+    "faction": "winter",
+    "cardId": "W9",
+    "background": "/assets/images/environment_winter.png",
+    "readingTime": "14 minutes",
     "category": "IN_DEPTH"
   }
 ]
