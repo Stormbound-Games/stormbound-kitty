@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect, Switch, useRouteMatch } from 'react-router-dom'
+import { Switch, useRouteMatch } from 'react-router-dom'
 import Page from '../Page'
 import load from '../../helpers/load'
 
