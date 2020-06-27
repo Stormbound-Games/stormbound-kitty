@@ -1,7 +1,6 @@
 1. [Introduction](#introduction)
 2. [Game Mechanics](#game-mechanics)
    - [Attack pattern](#attack-pattern)
-   - [Death Triggered Effect](#death-triggered-effect)
    - [Discard and draw mechanics](#discard-and-draw-mechanics)
    - [What and when to discard](#what-and-when-to-discard)
 3. [Game strategies](#game-strategies)
@@ -49,36 +48,6 @@ A classic attack often looks like this. The numbers indicate the order of the un
 [sim:M04zMkIxLCwxVDNCMSwzTjMyQjEsLDJOM0IxLCwsLCwsLCwsLCwsLCw7UjEwTi1CMTBOOzNNMDs7]
 
 To be able to make a good push, your biggest units are to be on the sides.
-
-### Death Triggered Effect
-
-When two units with a “Death Triggered Effect” (symbolized by the little skull) fight and both die, the attacked unit will die first and will do its effect first, then the attacker will. For example if you attack a Finite Loopers with a Green Prototypes and both die, the Finite Looper will first spawn a Construct then the Green Prototypes will boost it, if it spawns on a surrounding tile.
-
-Fun fact: if the Construct spawns on the tile where Green Prototypes died, it will not gain strength because it is not technically a “surrounding tile”.
-
-Now comes a tricky situation: how will the units react if multiple units are killed by the same effect? The card that is most concerned about this is Toxic Sacrifice.
-
-For example, consider the following situation:
-
-[sim:LCwsLCwxVDhCMSwyVDhCMSwzVDhCMSwsNFQ4QjEsNVQ4QjEsNlQ4QjEsLDdUOEIxLDhUOEIxLDlUOEIxLCwsLDtSMTBOLUIxME47M00wOzs=]
-
-Units 1 to 9 all possess Death Triggered Effect (DTE) and all have 1 strength. You then use Toxic Sacrifice on Unit 5. All the other units take X damage.
-
-The first unit to trigger its effect will be unit 5 because it dies first (cost of the spell). Then the remaining units will all die at the same time (i.e. they will not be affected by the DTE of the others). Now comes the question of resolution of the DTE. They will resolve on the same order as an attack pattern of the non-active player (i.e. from right to left then front to back if it is your turn and vice versa, if it’s the enemy turn).
-
-In the case where YOU play Toxic Sacrifice, the DTE will resolve in this order: 5, 9, 8, 7, 6, 4, 3, 2, 1. If the opponent plays Toxic Sacrifice: 5, 1, 2, 3, 4, 6, 7, 8, 9.
-
-There is also an even trickier situation: what happens if you sacrifice a unit that deals damage (like Chaotic Pupil or Crimson Sentry)?
-
-The game process as followed:
-
-1. Sacrificed unit’s animation of death.
-2. Spell animation (careful, the damage dealt by the spell aren’t taken into consideration now).
-3. DTE of the sacrificed unit: animation + damage are dealt.
-4. If the damage dealt by the sacrificed unit’s DTE are enough on their own to kill a unit, then the killed unit will trigger its DTE (who resolves in the same process).
-5. Then the damages dealt by Toxic Sacrifice are taken into account and the game follows the pattern described earlier.
-
-This non-instinctive rule can lead into hard to predict situations. I think understanding these technicalities are necessary to truly master Toxic sacrifice.
 
 ### Discard and draw mechanics
 
