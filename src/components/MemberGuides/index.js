@@ -21,7 +21,7 @@ export default React.memo(function MemberGuides(props) {
               to: guide.link,
               children: 'Read guide',
             }}
-            image={getRawCardData(guide.cardId).image}
+            image={'/assets/images/cards/' + getRawCardData(guide.cardId).image}
           />
         )
       })}
