@@ -221,3 +221,9 @@ fieldset {
   color: var(--beige);
   font-weight: normal;
 }
+
+abbr[title] {
+  border-bottom: 1px dotted;
+  text-decoration: none;
+  cursor: help;
+}

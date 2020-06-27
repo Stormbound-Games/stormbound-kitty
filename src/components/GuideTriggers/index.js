@@ -1,10 +1,14 @@
 import React from 'react'
 import BattleSimApp from '../BattleSimApp'
+import Card from '../Card'
+import Column from '../Column'
 import Guide from '../Guide'
 import Info from '../Info'
+import Row from '../Row'
 import Title from '../Title'
 import WikiLink from '../WikiLink'
 import guides from '../../data/guides'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
 
 const guide = guides.find(g => g.id === 'TRIGGER_GUIDE')
 
@@ -12,7 +16,7 @@ export default React.memo(function GuideDrawing(props) {
   return (
     <Guide {...guide}>
       <p>
-        Unlike other extensive card games like Magic: the Gathering, Stormbound
+        Unlike other famous card games like Magic: the Gathering, Stormbound
         does not come with a rulebook explaining in excruciating details how the
         game mechanics work. We make do with the campaign and some practice
         battles, but the survive and death trigger resolution can still be a
@@ -20,14 +24,51 @@ export default React.memo(function GuideDrawing(props) {
         demystify it.
       </p>
 
-      <hr />
+      <Title>Death Trigger Effects</Title>
 
-      <Title>Death Trigger Effect</Title>
+      <p>
+        “Death Trigger Effects” (or{' '}
+        <abbr title='Death Trigger Effect'>DTE</abbr> for short, symbolised by
+        the little skull icon in the game) are abilities that are resolved when
+        the unit dies.
+      </p>
+
+      <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+        <Row desktopOnly>
+          <Column>
+            <Row>
+              <Column>
+                <Card {...getResolvedCardData({ id: 'F5', level: 1 })} />
+              </Column>
+              <Column>
+                <Card {...getResolvedCardData({ id: 'I12', level: 1 })} />
+              </Column>
+            </Row>
+          </Column>
+          <Column>
+            <Row>
+              <Column>
+                <Card {...getResolvedCardData({ id: 'S8', level: 1 })} />
+              </Column>
+              <Column>
+                <Card {...getResolvedCardData({ id: 'N6', level: 1 })} />
+              </Column>
+            </Row>
+          </Column>
+        </Row>
+      </div>
+
+      <Info icon='sword' title='Attacking bases and DTE'>
+        Units attacking a base always die right after the damage is done to the
+        base, which triggers their DTE immediately after, unless they destroy
+        the base in which case the game is obviously over.
+      </Info>
+
+      <h3>Resolution order</h3>
 
       <p>
         The rule of thumb goes as follow: when two units with a “Death Trigger
-        Effect” (<abbr title='Death Trigger Effect'>DTE</abbr> for short,
-        symbolised by the little skull icon) fight and both of them die, the{' '}
+        Effect” fight and both of them die, the{' '}
         <span className='Highlight'>attacked</span> unit will die and resolve
         its effect first, then the <span className='Highlight'>attacking</span>{' '}
         unit will.
@@ -210,13 +251,42 @@ export default React.memo(function GuideDrawing(props) {
         before its damage get resolved).
       </p>
 
-      <Title>Survive Trigger Effect</Title>
+      <Title>Survive Trigger Effects</Title>
 
       <p>
         Elder units have effects happening upon surviving damage (“Survive
         Trigger Effect”, or <abbr title='Survive Trigger Effect'>STE</abbr> for
-        short). For the most part, their resolution pattern is pretty
-        straightforward, but there are things to note:
+        short).
+      </p>
+
+      <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+        <Row desktopOnly>
+          <Column>
+            <Row>
+              <Column>
+                <Card {...getResolvedCardData({ id: 'F28', level: 1 })} />
+              </Column>
+              <Column>
+                <Card {...getResolvedCardData({ id: 'I28', level: 1 })} />
+              </Column>
+            </Row>
+          </Column>
+          <Column>
+            <Row>
+              <Column>
+                <Card {...getResolvedCardData({ id: 'S28', level: 1 })} />
+              </Column>
+              <Column>
+                <Card {...getResolvedCardData({ id: 'W28', level: 1 })} />
+              </Column>
+            </Row>
+          </Column>
+        </Row>
+      </div>
+
+      <p>
+        For the most part, their resolution pattern is pretty straightforward,
+        but there are things to note:
       </p>
 
       <ul>
