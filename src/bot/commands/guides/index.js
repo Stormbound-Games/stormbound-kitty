@@ -11,7 +11,7 @@ export default {
       GUIDES.filter(guide => guide.name !== 'Lexicon')
         .map(
           guide =>
-            `- **${guide.name}** *(by ${guide.author})*: <https://stormbound-kitty.com${guide.link}>`
+            `- **${guide.name}** *(by ${guide.author})*: <https://stormbound-kitty.com/guides/${guide.slug}>`
         )
         .join('\n')
     )
