@@ -243,12 +243,15 @@ export const WEEKLY_CARD_CONTEST = [
 
 export const COMMON_ABBREVIATIONS = {
   AoE: 'Area of Effect',
+  ATE: 'Attack Trigger Effect',
   BH: 'Base Health',
+  DTE: 'Death Trigger Effect',
   FS: 'Fusion Stones',
   HP: 'Health Point(s)',
   IC: 'Ironclad',
   QoL: 'Quality of Life',
   RR: 'Reckless Rush',
   SF: 'Shadowfen',
+  STE: 'Survive Trigger Effect',
   WP: 'Winter Pact',
 }
