@@ -7,7 +7,7 @@ describe('Bot — !guides', () => {
     GUIDES.filter(guide => guide.name !== 'Lexicon').forEach(guide => {
       expect(guides()).to.contain(guide.name)
       expect(guides()).to.contain(guide.author)
-      expect(guides()).to.contain(guide.link)
+      expect(guides()).to.contain(guide.slug)
     })
   })
 
