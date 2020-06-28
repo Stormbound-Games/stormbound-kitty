@@ -168,16 +168,13 @@ const canSpendAllCards = (hand, deck, usedMana, MaxMana) => {
 // @param {Cards[]} hand - Hand of cards
 // @param {Number} availableMana - Available mana
 // @return {Number[]} Possible amounts of mana spent
-const getPossibleManaSpent = usedMana => (hand, availableMana) => {
-  const manaCosts = hand.map(card => card.mana)
-  let result = [usedMana]
-
-  for (let i = 0; i < hand.length; i++) {
-    result = result.concat(result.map(mana => mana + manaCosts[i]))
-  }
-
-  return result.filter(mana => mana < availableMana)
-}
+const getPossibleManaSpent = usedMana => (hand, availableMana) =>
+  hand
+    .reduce(
+      (result, card) => [...result, ...result.map(mana => mana + card.mana)],
+      [usedMana]
+    )
+    .filter(mana => mana < availableMana)
 
 const canSpendAllMana = (hand, deck, usedMana, maxMana) => {
   let Mana = Array(maxMana).fill(0)
