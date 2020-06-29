@@ -1,5 +1,15 @@
 [
   {
+    "intro": "Triggers Guide",
+    "description": "Derk and Kitty joined to write a guide on triggers (death, survive, attack…) and demystify the resolution order.",
+    "link": "/guides/triggers"
+  },
+  {
+    "intro": "Personal Decks",
+    "description": "It is now possible to bookmark a deck directly from the deck builder.",
+    "link": "/deck"
+  },
+  {
     "intro": "D1 with SF Commons Guide",
     "description": "There is a new guide on reaching Diamond 1 with a Shadowfen deck made mostly of common cards.",
     "link": "/guides/d1-with-sf-commons"
