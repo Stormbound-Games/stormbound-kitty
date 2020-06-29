@@ -1,4 +1,5 @@
 import GUIDES from '../../../data/guides.json'
+import toSentence from '../../../helpers/toSentence'
 
 export default {
   command: 'guides',
@@ -11,7 +12,9 @@ export default {
       GUIDES.filter(guide => guide.name !== 'Lexicon')
         .map(
           guide =>
-            `- **${guide.name}** *(by ${guide.author})*: <https://stormbound-kitty.com/guides/${guide.slug}>`
+            `- **${guide.name}** *(by ${toSentence(
+              guide.authors
+            )})*: <https://stormbound-kitty.com/guides/${guide.slug}>`
         )
         .join('\n')
     )

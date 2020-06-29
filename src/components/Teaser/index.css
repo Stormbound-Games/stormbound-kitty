@@ -149,6 +149,14 @@
   margin-bottom: 0;
 }
 
+.Teaser__meta > a {
+  text-decoration: none;
+}
+
+.Teaser__meta > a:hover {
+  color: var(--white);
+}
+
 .Teaser__author {
   text-decoration: none;
 }

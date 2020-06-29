@@ -12,6 +12,14 @@ import decks from '../../data/decks'
 import guides from '../../data/guides'
 import useFetch from '../../hooks/useFetch'
 
+const getDisplayName = ({ decks, stories, victories, guides, id }) => {
+  if (decks.length > 0) return decks[0].author
+  if (stories.length > 0) return stories[0].author
+  if (victories.length > 0) return victories[0].winner.author
+  if (guides.length > 0)
+    return guides[0].authors.find(author => author.toLowerCase() === id)
+}
+
 export default React.memo(function Member(props) {
   const match = useRouteMatch()
   const { data: stories = [] } = useFetch('/stories.json')
@@ -32,25 +40,24 @@ export default React.memo(function Member(props) {
     [id]
   )
   const userGuides = React.useMemo(
-    () => guides.filter(guide => guide.author.toLowerCase() === id),
+    () =>
+      guides.filter(guide =>
+        guide.authors.find(author => author.toLowerCase() === id)
+      ),
     [id]
   )
 
-  if (
-    userDecks.length === 0 &&
-    userStories.length === 0 &&
-    userVictories.length === 0 &&
-    userGuides.length === 0
-  ) {
+  const displayName = getDisplayName({
+    id,
+    decks: userDecks,
+    stories: userStories,
+    victories: userVictories,
+    guides: userGuides,
+  })
+
+  if (!displayName) {
     return <Error error={'User Not Found'} />
   }
-
-  const displayName = (
-    userDecks[0] ||
-    userStories[0] ||
-    userGuides[0] ||
-    userVictories[0].winner
-  ).author
 
   return (
     <>
