@@ -5,6 +5,7 @@ import Notice from '../Notice'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import getExcerpt from '../../helpers/getExcerpt'
+import toSentence from '../../helpers/toSentence'
 import { CATEGORIES } from '../../constants/guides'
 import './index.css'
 
@@ -14,7 +15,7 @@ export default React.memo(function Guide(props) {
       <Article
         className='Guide'
         readingTime={props.readingTime}
-        author={props.author}
+        authors={props.authors}
         title={props.name}
         background={props.background}
         backLink={{
@@ -36,7 +37,7 @@ export default React.memo(function Guide(props) {
       </Notice>
 
       <PageMeta
-        author={props.author}
+        author={toSentence(props.authors)}
         title={props.name}
         image={props.background}
         description={getExcerpt(props.excerpt, 160)}

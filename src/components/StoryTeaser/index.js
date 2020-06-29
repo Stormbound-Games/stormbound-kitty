@@ -4,7 +4,6 @@ import Teaser from '../Teaser'
 import capitalise from '../../helpers/capitalise'
 import getExcerpt from '../../helpers/getExcerpt'
 import getRawCardData from '../../helpers/getRawCardData'
-import './index.css'
 
 const StoryAuthor = React.memo(function StoryAuthor(props) {
   return (

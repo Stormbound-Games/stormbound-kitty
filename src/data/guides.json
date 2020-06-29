@@ -2,7 +2,7 @@
   {
     "id": "BEGINNER_GUIDE",
     "name": "Beginner’s Guide",
-    "author": "Buggz",
+    "authors": ["Buggz"],
     "excerpt": "In this beginner’s guide, Buggz goes through the base mechanics making the game, as well as a lot of tricks and tips that one might need to know to become efficient on the battlefield!",
     "slug": "beginner",
     "faction": "neutral",
@@ -14,7 +14,7 @@
   {
     "id": "COMPLETE_GUIDE",
     "name": "Complete Guide",
-    "author": "Arikrat",
+    "authors": ["Arikrat"],
     "excerpt": "Learn the basics of Stormbound and more with this in-depth guide by Arikrat. From battle placement to upgrade strategies, you’ll learn everything you’ll need to know to make your way towards Diamond!",
     "slug": "complete",
     "faction": "neutral",
@@ -26,7 +26,7 @@
   {
     "id": "DECK_GUIDE",
     "name": "Deck Building Guide",
-    "author": "Zemeu",
+    "authors": ["Zemeu"],
     "excerpt": "In this primer guide to building efficient decks, Zemeu goes through fundamental concepts such as mana curve, need for cheap units, and winning strategies. If you’re looking to making your own deck, you’re at the right place.",
     "slug": "deck",
     "faction": "shadowfen",
@@ -38,7 +38,7 @@
   {
     "id": "DRAWING_GUIDE",
     "name": "Drawing Guide",
-    "author": "Kitty",
+    "authors": ["Kitty"],
     "excerpt": "In this short guide by Kitty, learn more about the drawing mechanics of Stormbound as well as their edge cases to make the most out of your matches. Don’t let chance surprise you!",
     "slug": "drawing",
     "faction": "neutral",
@@ -50,7 +50,7 @@
   {
     "id": "RESOURCES_GUIDE",
     "name": "Resources Guide",
-    "author": "Roman & Oeni",
+    "authors": ["Roman", "Oeni"],
     "excerpt": "In this economy guide to Stormbound, Roman & Oeni explain what is the best approach when it comes to spending resources efficiently. Make the most out of them stones!",
     "slug": "resources",
     "faction": "neutral",
@@ -62,7 +62,7 @@
   {
     "id": "MANA_CURVE_GUIDE",
     "name": "Mana Curve Guide",
-    "author": "Kitty",
+    "authors": ["Kitty"],
     "excerpt": "In this in-depth guide supported by a lot of data visualisation, Kitty explains how to analyse the mana curve of a deck, and how to potentially fix it.",
     "slug": "mana-curve",
     "faction": "winter",
@@ -74,7 +74,7 @@
   {
     "id": "TRIGGER_GUIDE",
     "name": "Triggers Guide",
-    "author": "Kitty & Derk",
+    "authors": ["Kitty", "Derk"],
     "excerpt": "In this in-depth guide, Kitty and Derk dive deep into the trigger effects and attempt to demystify their resolution order.",
     "slug": "triggers",
     "faction": "shadowfen",
@@ -86,7 +86,7 @@
   {
     "id": "PIRATE_GUIDE",
     "name": "Pirate Guide",
-    "author": "MooreFunn",
+    "authors": ["MooreFunn"],
     "excerpt": "In this comprehensive guide, MooreFunn tells us how to conquer the seas with pirate cards! From composing an efficient deck to countering specific situations, you should learn everything you need to know to master pirate gameplay.",
     "slug": "pirate",
     "faction": "neutral",
@@ -98,7 +98,7 @@
   {
     "id": "LEXICON",
     "name": "Lexicon",
-    "author": "Kitty",
+    "authors": ["Kitty"],
     "excerpt": "Stormbound discussions are full of acronyms and shortened names. Tired of not being able to follow what’s going on on Discord and Reddit? This guide is for you.",
     "slug": "lexicon",
     "faction": "neutral",
@@ -109,7 +109,7 @@
   {
     "id": "D1_SF_COMMONS_GUIDE",
     "name": "D1 with SF Commons",
-    "author": "Kitty",
+    "authors": ["Kitty"],
     "excerpt": "In this in-depth guide, Kitty goes into a Shadowfen deck that performs in Diamond 1 despite being essentially using common cards.",
     "slug": "d1-with-sf-commons",
     "faction": "neutral",
@@ -122,7 +122,7 @@
   {
     "id": "WINTER_GUIDE",
     "name": "Winter Guide",
-    "author": "WinterBoii",
+    "authors": ["WinterBoii"],
     "excerpt": "In this deep-dive, WinterBoii tells us how to play, well, Winter Pact. From creating a deck to using niche abilities like Broken Earth Drakes’ and Rockworkers’, you should learn everything you need to know. Snow problem.",
     "slug": "winter",
     "faction": "winter",

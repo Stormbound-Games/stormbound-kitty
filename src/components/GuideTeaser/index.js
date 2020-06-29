@@ -1,20 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Teaser from '../Teaser'
+import { renderAuthorsLinks } from '../Article'
 
 export default React.memo(function GuideTeaser(props) {
+  const authors = props.authors.reduce(renderAuthorsLinks, [])
+
   return (
     <Teaser
       cardId={props.cardId}
       title={props.name}
-      meta={
-        <>
-          Written by{' '}
-          <Link className='StoryTeaser__author' to={'/member/' + props.author}>
-            {props.author}
-          </Link>
-        </>
-      }
+      meta={<>Written by {authors}</>}
       excerpt={props.excerpt}
       to={'/guides/' + props.slug}
     />
