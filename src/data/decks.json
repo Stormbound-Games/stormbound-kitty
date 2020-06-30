@@ -1082,5 +1082,19 @@
     "faction": "ironclad",
     "author": "Strongraycool44",
     "category": "EQUALS"
+  },
+  {
+    "name": "Legs for Days",
+    "id": "5f45f34f83n675f55f74f254f104f245f144f174f23",
+    "faction": "shadowfen",
+    "author": "Jumboduck",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Geriatric Panic",
+    "id": "5f44f15f25f55f72n731n754f115f141n744f283n70",
+    "faction": "shadowfen",
+    "author": "Jumboduck",
+    "category": "EQUALS"
   }
 ]
