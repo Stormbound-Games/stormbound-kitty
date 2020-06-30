@@ -1484,7 +1484,7 @@ export default [
   },
 
   {
-    question: 'Which Dragon does not have wings?',
+    question: 'Which Dragon does not have wings on their back?',
     answer: 'Greengale Serpents',
     options: ['Wandering Wyrms', 'Draconic Roamers', 'Broken Earth Drakes'],
   },
