@@ -1421,7 +1421,7 @@ export default [
   {
     question: 'How to summon the Lungus?',
     answer: ':Lungus:',
-    options: [':lungus:', ':snugul:', ':lung:', ':lngs:', ':LUNGUS:'],
+    options: [':lungus:', ':sugnul:', ':lung:', ':lngs:', ':LUNGUS:'],
   },
 
   () => {
