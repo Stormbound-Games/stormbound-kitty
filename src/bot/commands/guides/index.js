@@ -11,7 +11,9 @@ export default {
       'Please enjoy the following guides:\n' +
       GUIDES.map(
         guide =>
-          `- **${guide.name}** *(by ${guide.author})*: <https://stormbound-kitty.com/guides/${guide.slug}>`
+          `- **${guide.name}** *(by ${toSentence(
+            guide.authors
+          )})*: <https://stormbound-kitty.com/guides/${guide.slug}>`
       ).join('\n')
     )
   },
