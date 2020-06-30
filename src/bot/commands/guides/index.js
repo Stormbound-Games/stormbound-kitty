@@ -9,14 +9,10 @@ export default {
   handler: function (message) {
     return (
       'Please enjoy the following guides:\n' +
-      GUIDES.filter(guide => guide.name !== 'Lexicon')
-        .map(
-          guide =>
-            `- **${guide.name}** *(by ${toSentence(
-              guide.authors
-            )})*: <https://stormbound-kitty.com/guides/${guide.slug}>`
-        )
-        .join('\n')
+      GUIDES.map(
+        guide =>
+          `- **${guide.name}** *(by ${guide.author})*: <https://stormbound-kitty.com/guides/${guide.slug}>`
+      ).join('\n')
     )
   },
 }
