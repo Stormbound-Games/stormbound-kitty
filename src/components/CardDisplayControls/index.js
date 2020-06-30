@@ -40,9 +40,11 @@ export default React.memo(function CardDisplayControls(props) {
         </Column>
         <Column width='1/5' />
         <Column width='1/5'>
-          <Only.CustomCollection>
-            <CardProgress card={cardInCollection} />
-          </Only.CustomCollection>
+          {cardInCollection && (
+            <Only.CustomCollection>
+              <CardProgress card={cardInCollection} />
+            </Only.CustomCollection>
+          )}
         </Column>
         <Column width='1/5' />
         <Column width='1/5' align='center'>
