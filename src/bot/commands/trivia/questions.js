@@ -1140,7 +1140,7 @@ export default [
     question:
       'Which Paladin Studios’ employee was Archdruid Earyn named after?',
     answer: 'Arano',
-    options: ['Emkaem', 'Kuldotha', 'Derk'],
+    options: ['Emkaem', 'Kuldotha', 'Derk', 'CeeSharp'],
   },
 
   {
