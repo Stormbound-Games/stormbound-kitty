@@ -62,7 +62,7 @@ export default [
   },
 
   {
-    question: 'What is the cost of an epic card in the shop?',
+    question: 'What is the ruby cost of an epic card in the shop?',
     answer: 20,
     options: [5, 10, 15, 25, 30],
   },
