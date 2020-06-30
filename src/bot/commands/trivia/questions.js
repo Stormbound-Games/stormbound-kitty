@@ -1367,7 +1367,7 @@ export default [
   },
 
   {
-    question: 'Which toad is *not* holder an axe?',
+    question: 'Which toad is *not* holding an axe?',
     answer: 'Sharpfist Exiles',
     options: 'Salty Outcasts,Brood Sages,Crimson Sentry,Limelimbs,Azure Hatchers,Amberhides,Obsidian Butchers'.split(
       ','
