@@ -50,9 +50,3 @@
   max-width: 80%;
   margin: 2em auto;
 }
-
-.Guide .Info,
-.Guide > div > .Row {
-  margin-top: 3em;
-  margin-bottom: 3em;
-}

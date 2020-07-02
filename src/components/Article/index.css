@@ -75,6 +75,12 @@
   }
 }
 
+.Article .Info,
+.Article > div > .Row {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
 .Article h2 {
   margin-top: 3em;
 }
