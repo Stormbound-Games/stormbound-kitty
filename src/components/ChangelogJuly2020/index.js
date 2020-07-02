@@ -23,19 +23,46 @@ export default React.memo(function ChangelogJuly2020(props) {
     >
       <p>
         Back in April, Paladin Studios announced they would hand over Stormbound
-        to a Polish game development studio called Sheepyard. A few months
-        later, Sheepyard is ready to ship their very first release, after a
-        drought of about 8 months. I am very excited and honoured to be able to
-        announce these changes in exclusivity!
+        to a Polish game development studio called{' '}
+        <a
+          href='https://www.sheepyard.pl/'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Sheepyard
+        </a>
+        . A few months later, Sheepyard is ready to{' '}
+        <u style={{ textDecoration: 'line-through', opacity: 0.5 }}>sheep</u>{' '}
+        ship their very first release, after a drought of about 8 months. I am
+        very excited and honoured to be able to announce these changes in
+        exclusivity!
       </p>
 
-      <Title>Economy update</Title>
+      <ul style={{ columns: '16em' }}>
+        <li>
+          <a href='#economy-update'>Economy update</a>
+        </li>
+        <li>
+          <a href='#new-legendary-card'>New legendary card</a>
+        </li>
+        <li>
+          <a href='#balance-changes'>Balance changes</a>
+        </li>
+        <li>
+          <a href='#ui-improvements'>UI improvements</a>
+        </li>
+        <li>
+          <a href='#matchmaking-tweaks'>Matchmaking tweaks</a>
+        </li>
+      </ul>
+
+      <Title id='economy-update'>Economy update</Title>
 
       <p>
         One thing Sheepyard has been quite adament to tackle is the somewhat
-        awkward in-game economy. Their first attempt at taming the beast has
-        been to revisit quests to restore some balance between the three
-        currencies.
+        awkward in-game economy, particularly the disparity between resources.
+        Their first attempt at taming the beast has been to revisit quests to
+        restore some balance between the three currencies.
       </p>
 
       <ul>
@@ -91,24 +118,31 @@ export default React.memo(function ChangelogJuly2020(props) {
         </p>
       </Info>
 
-      <Title>A new legendary card</Title>
+      <Title id='new-legendary-card'>New legendary card</Title>
 
       <p>
         To celebrate their involvement in Stormbound, the Sheepyard studio
-        wanted to mark the occasion with a brand new card in their effigy: a
-        legendary pirate sheep!
+        wanted to mark the occasion with a brand new card in their effigy:{' '}
+        <span className='Highlight'>Rogue Sheep</span>, a legendary pirate
+        sheep!
       </p>
+
+      <img
+        src='/assets/images/banner_rogue_sheep.png'
+        alt='New Rogue Sheep card'
+      />
 
       <div className='Article__fullwidth'>
         <CardBuilderCardDisplay {...getInitialCardData('N77')} />
       </div>
 
-      <Title>Balance changes</Title>
+      <Title id='balance-changes'>Balance changes</Title>
 
       <p>
-        Sheepyard took a close look at the current state of the “meta” — as the
-        cool kids say — and went nuclear on its main competitors, putting down
-        the nerf hammer on many cards, especially but not limited to elders.
+        Sheepyard took a close look at the current state of the meta and went
+        nuclear on its main assets, putting down the nerf hammer on many cards,
+        especially but not limited to elders. This is a first balance patch,
+        there will be more in the future.
       </p>
 
       <h3>Nerfs</h3>
