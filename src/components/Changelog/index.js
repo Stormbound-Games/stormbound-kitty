@@ -1,7 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import ChangelogLegend from '../ChangelogLegend'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
+import Info from '../Info'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
@@ -142,6 +144,16 @@ export default function Changelog(props) {
           </p>
         </Column>
         <Column width='2/3'>
+          <Info icon='wand' title='Update July 2020'>
+            <p>
+              The first update from Sheepyard is there and contains a lot of
+              things you should know. Be sure to read{' '}
+              <Link to='/changelog/07-2020'>
+                everything there is to know about it
+              </Link>
+              !
+            </p>
+          </Info>
           {sorting === 'DATE'
             ? Object.keys(changesByDate)
                 .sort()
