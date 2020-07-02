@@ -21,6 +21,7 @@ const Home = load('Home')
 const Member = load('Member')
 const FanKit = load('FanKit')
 const Changelog = load('Changelog')
+const ChangelogJuly2020 = load('ChangelogJuly2020')
 
 export default function Router(props) {
   return (
@@ -75,8 +76,12 @@ export default function Router(props) {
             <CardsStats />
           </Page>
 
-          <Page path='/changelog' active={['HOME', 'CHANGELOG']}>
+          <Page path='/changelog' exact active={['HOME', 'CHANGELOG']}>
             <Changelog />
+          </Page>
+
+          <Page path='/changelog/07-2020' active={['HOME', 'CHANGELOG']}>
+            <ChangelogJuly2020 />
           </Page>
 
           <Page path='/faq' active={['HOME', 'FAQ']}>
