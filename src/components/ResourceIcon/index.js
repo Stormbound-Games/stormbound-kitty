@@ -24,7 +24,7 @@ export default React.memo(function ResourceIcon(props) {
       return (
         <Image
           className='ResourceIcon'
-          src='/assets/images/RUBIES.png'
+          src='/assets/images/ruby.png'
           alt='ruby'
         />
       )
