@@ -1,4 +1,4 @@
-import { base64Decode, base64Encode } from '../base64'
+import { base64Decode } from '../base64'
 
 export const serialiseList = tiers =>
   tiers
@@ -6,17 +6,27 @@ export const serialiseList = tiers =>
     .map(tier => [encodeURIComponent(tier.name), tier.cards.join('')].join(','))
     .join(';')
 
-export const deserialiseList = string =>
-  string.split(';').map(value => {
-    const [name = '', cards = ''] = value.split(',')
+export const deserialiseList = hash => {
+  try {
+    // The former format for serialised tier lists used to rely on base64
+    // encoding, which has eventually been removed due to the increase in URL
+    // lengths.
+    const string = base64Decode(hash)
 
-    return {
-      name: decodeURIComponent(name),
-      cards: cards.match(/[NWIFS]\d+/g) || [],
-    }
-  })
+    return deserialiseList(string)
+  } catch (error) {
+    return hash.split(';').map(value => {
+      const [name = '', cards = ''] = value.split(',')
+
+      return {
+        name: decodeURIComponent(name),
+        cards: cards.match(/[NWIFS]\d+/g) || [],
+      }
+    })
+  }
+}
 
 export default {
-  serialise: card => base64Encode(serialiseList(card)),
-  deserialise: hash => deserialiseList(base64Decode(hash)),
+  serialise: card => serialiseList(card),
+  deserialise: hash => deserialiseList(hash),
 }
