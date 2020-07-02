@@ -650,7 +650,7 @@ export default [
 
   {
     question: 'Which card was made from the Create-a-Card competition?',
-    answer: 'Harvester of Souls',
+    answer: 'Harvesters of Souls',
     options: CARD_NAMES,
   },
 
