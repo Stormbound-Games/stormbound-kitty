@@ -1,12 +1,3 @@
-.Guide h2 {
-  margin-top: 5em;
-}
-
-.Guide h3 {
-  color: var(--beige);
-  margin-top: 2em;
-}
-
 .Guide p:not([class]) > strong,
 .Guide li > strong {
   color: var(--beige);

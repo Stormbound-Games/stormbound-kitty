@@ -75,6 +75,15 @@
   }
 }
 
+.Article h2 {
+  margin-top: 5em;
+}
+
+.Article h3 {
+  color: var(--beige);
+  margin-top: 2em;
+}
+
 .Article .Info,
 .Article > div > .Row {
   margin-top: 3em;
