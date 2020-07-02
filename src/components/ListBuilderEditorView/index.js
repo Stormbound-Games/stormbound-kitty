@@ -2,7 +2,12 @@ import React from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import isEqual from 'lodash.isequal'
-import { TIER_COLORS, DEFAULT_LIST, DEFAULT_TIER } from '../../constants/list'
+import {
+  TIER_COLORS,
+  DEFAULT_LIST,
+  DEFAULT_TIER,
+  MAX_TIERS,
+} from '../../constants/list'
 import Column from '../Column'
 import CTA from '../CTA'
 import PageMeta from '../PageMeta'
@@ -171,7 +176,7 @@ class ListBuilderEditorView extends React.Component {
             <Title element='h2'>Settings</Title>
 
             <p>
-              This tier list editor makes it possible to create up to 10 tiers
+              This tier list editor makes it possible to create up to 12 tiers
               of cards. It is currently very much in active development so make
               sure to report any bug, oddity or desired features.
             </p>
@@ -223,7 +228,7 @@ class ListBuilderEditorView extends React.Component {
             <hr />
             <CTA
               onClick={this.addTier}
-              disabled={this.state.tiers.length === 10}
+              disabled={this.state.tiers.length === MAX_TIERS}
               className='ListBuilderEditorView__CTA'
             >
               Add a new tier

@@ -62,16 +62,11 @@ const getLiveTierList = () => {
   // Preserve only tiers that have at least a card
   tiers = tiers.filter(({ cards }) => cards.length > 0)
 
-  // If there are not 10 tiers (which is the maximum), add an extra tier at the
-  // end with all cards that have not been found in any deck
-  if (tiers.length < 10) {
-    const unusedCards = cards
-      .filter(card => !found[card.id])
-      .map(card => card.id)
+  // Add an extra tier at the end with all cards that have not been found in any deck
+  const unusedCards = cards.filter(card => !found[card.id]).map(card => card.id)
 
-    if (unusedCards.length > 0) {
-      tiers.push({ name: 'Unused', cards: unusedCards })
-    }
+  if (unusedCards.length > 0) {
+    tiers.push({ name: 'Unused', cards: unusedCards })
   }
 
   // Finally serialise the list

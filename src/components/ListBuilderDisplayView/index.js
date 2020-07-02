@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
-import { TIER_COLORS } from '../../constants/list'
+import { TIER_COLORS, MAX_TIERS } from '../../constants/list'
 import Column from '../Column'
 import CTA from '../CTA'
 import PageMeta from '../PageMeta'
@@ -24,9 +24,9 @@ export default React.memo(function ListBuilderDisplayView(props) {
           <Title element='h2'>Information</Title>
 
           <p>
-            This tier list editor makes it possible to create up to 10 tiers of
-            cards. It is currently very much in active development so make sure
-            to report any bug, oddity or desired features.
+            This tier list editor makes it possible to create up to {MAX_TIERS}{' '}
+            tiers of cards. It is currently very much in active development so
+            make sure to report any bug, oddity or desired features.
           </p>
 
           <ListBuilderToc tiers={tiers} />
