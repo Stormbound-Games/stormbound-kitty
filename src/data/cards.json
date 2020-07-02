@@ -1001,6 +1001,20 @@
     "elder": true
   },
   {
+    "name": "Rogue Sheep",
+    "id": "N77",
+    "type": "unit",
+    "faction": "neutral",
+    "race": "pirate",
+    "rarity": "legendary",
+    "image": "rogue_sheep.png",
+    "mana": 6,
+    "strength": "6/7/8/10/12",
+    "movement": 1,
+    "ability": "Something about Sheepyard taking over Stormbound",
+    "hero": true
+  },
+  {
     "name": "Destructobots",
     "id": "I1",
     "type": "unit",
