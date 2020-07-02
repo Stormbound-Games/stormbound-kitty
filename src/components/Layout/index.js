@@ -11,10 +11,12 @@ export default React.memo(function Layout(props) {
   return (
     <div className='Layout'>
       <Only.Desktop>
-        <EyeCatcher id='donation-20200611'>
-          Stormbound-Kitty is <span className='Highlight'>100% free</span>: no
-          ads, no tracking, no paywall. If you can,{' '}
-          <Link to='/donate'>consider donating</Link>!
+        <EyeCatcher id='update-07-2020'>
+          The new Sheepyard update is coming, be sure to read{' '}
+          <Link to='/changelog/07-2020'>
+            everything there is to know about it
+          </Link>
+          !
         </EyeCatcher>
       </Only.Desktop>
 
