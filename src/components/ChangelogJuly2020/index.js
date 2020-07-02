@@ -6,9 +6,9 @@ import Info from '../Info'
 import Quest from '../Quest'
 import Row from '../Row'
 import Title from '../Title'
+import WikiLink from '../WikiLink'
 import { Coins, Rubies, Stones } from '../Resource'
 import getInitialCardData from '../../helpers/getInitialCardData'
-import './index.css'
 
 export default React.memo(function ChangelogJuly2020(props) {
   return (
@@ -104,6 +104,86 @@ export default React.memo(function ChangelogJuly2020(props) {
       </div>
 
       <Title>Balance changes</Title>
+
+      <p>
+        Sheepyard took a close look at the current state of the “meta” — as the
+        cool kids say — and went nuclear on its main competitors, putting down
+        the nerf hammer on many cards, especially but not limited to elders.
+      </p>
+
+      <h3>Nerfs</h3>
+
+      <ul>
+        <li>
+          <WikiLink id='N70' /> has its strength and its ability both decreased
+          by 1.
+        </li>
+        <li>
+          <WikiLink id='N74' /> cost 6 mana at all levels (up from 5).
+        </li>
+        <li>
+          <WikiLink id='N76' /> has its strength decreased by 1 at all levels.
+        </li>
+        <li>
+          <WikiLink id='F20' /> have their strengrh decreased by 2 at all
+          levels.
+        </li>
+        <li>
+          <WikiLink id='F28' /> have their strength decreased by 2 at all
+          levels.
+        </li>
+        <li>
+          <WikiLink id='S20' /> costs 7 mana at all levels (up from 6).
+        </li>
+        <li>
+          <WikiLink id='S21' /> costs 7 mana at all levels (up from 6).
+          Additionally, its ability is no longer able to play a card of rarity
+          higher than rare.
+        </li>
+        <li>
+          <WikiLink id='S28' /> have their strength decreased by 1 at all
+          levels.
+        </li>
+        <li>
+          <WikiLink id='W9' /> have their strength and ability described by 1 at
+          all levels.
+        </li>
+        <li>
+          <WikiLink id='W13' /> have their movement decreased by 1 at all
+          levels.
+        </li>
+        <li>
+          <WikiLink id='W19' /> costs 8 mana at all levels (up from 7).
+        </li>
+        <li>
+          <WikiLink id='W27' /> have their strength decreased by 1 at all levels
+          and regenerate 3, 3, 3 (down from 4), 4 (down from 5), 4 (down from
+          6).
+        </li>
+      </ul>
+
+      <h3>Buffs</h3>
+
+      <ul>
+        <li>
+          <WikiLink id='N9' /> costs 3 mana at all levels (down from 4 at level
+          1 to 3) and reduce strength to 5, 4, 3, 2 (down from 3) and 1.
+        </li>
+        <li>
+          <WikiLink id='N21' /> does 1 more damage at all levels.
+        </li>
+        <li>
+          <WikiLink id='N60' /> costs 5 mana at all levels (down from 6).
+        </li>
+      </ul>
+
+      <h3>Confusion</h3>
+
+      <p>
+        On top of making <WikiLink id='N60' /> more accessible by decreasing
+        their mana cost, Sheepyard has revisit the Confusion mechanic to make it
+        more reliable.
+      </p>
     </Article>
   )
 })
