@@ -112,10 +112,10 @@
     "race": null,
     "rarity": "common",
     "image": "confinement.png",
-    "mana": "4/4/4/3/3",
+    "mana": 3,
     "strength": null,
     "movement": null,
-    "ability": "*Reduce* the strength of a target enemy unit to *5/4/3/3/1*"
+    "ability": "*Reduce* the strength of a target enemy unit to *5/4/3/2/1*"
   },
   {
     "name": "Conflicted Drakes",
@@ -271,7 +271,7 @@
     "mana": 4,
     "strength": null,
     "movement": null,
-    "ability": "Deal *3/4/5/6/7 damage* to a target enemy unit or structure"
+    "ability": "Deal *4/5/6/7/8 damage* to a target enemy unit or structure"
   },
   {
     "name": "Goldgrubbers",
@@ -780,7 +780,7 @@
     "race": "feline",
     "rarity": "rare",
     "image": "fluffy_badboxers.png",
-    "mana": 6,
+    "mana": 5,
     "strength": "6/7/8/10/12",
     "movement": 1,
     "ability": "After attacking, *confuse all weaker* enemy units"
@@ -912,9 +912,9 @@
     "rarity": "rare",
     "image": "aged_duskbringers.png",
     "mana": 7,
-    "strength": "5/6/7/8/10",
+    "strength": "4/5/6/7/9",
     "movement": 1,
-    "ability": "After surviving damage, randomly *give 5/6/7/8/10* strength to another friendly unit",
+    "ability": "After surviving damage, randomly *give 4/5/6/7/9* strength to another friendly unit",
     "elder": true
   },
   {
@@ -965,7 +965,7 @@
     "race": null,
     "rarity": "epic",
     "image": "beards_of_crowglyph.png",
-    "mana": 5,
+    "mana": 6,
     "strength": "6/7/8/10/12",
     "movement": 0,
     "ability": "After surviving damage, spawn an Elder with *strength equal to this* on a random bordering tile.",
@@ -994,7 +994,7 @@
     "rarity": "legendary",
     "image": "prime_oracle_bragda.png",
     "mana": 6,
-    "strength": "6/7/8/10/12",
+    "strength": "5/6/7/8/11",
     "movement": 1,
     "ability": "After surviving damage, increase the strength of all weaker friendly units to be equal to this",
     "hero": true,
@@ -1640,7 +1640,7 @@
     "rarity": "epic",
     "image": "blood_ministers.png",
     "mana": 6,
-    "strength": "5/6/7/8/10",
+    "strength": "3/4/5/6/8",
     "movement": 0,
     "ability": "On play, *convert* all bordering enemy units with *3/4/5/6/7 or less strength* to fight for you"
   },
@@ -1747,7 +1747,7 @@
     "rarity": "epic",
     "image": "hairy_chestnuts.png",
     "mana": 6,
-    "strength": "7/8/10/12/15",
+    "strength": "5/6/8/10/13",
     "movement": 0,
     "ability": "After surviving damage, *drain up to 1/1/2/2/3* of the damage received from the enemy base",
     "elder": true
@@ -2009,7 +2009,7 @@
     "race": null,
     "rarity": "common",
     "image": "heralds_hymn.png",
-    "mana": 6,
+    "mana": 7,
     "strength": null,
     "movement": null,
     "ability": "*Give 1/2/3/4/5* strength to a target friendly unit. *Command* all friendly units in its row forward"
@@ -2022,10 +2022,10 @@
     "race": "undead",
     "rarity": "legendary",
     "image": "queen_of_herds.png",
-    "mana": 6,
+    "mana": 7,
     "strength": "6/8/10/10/12",
     "movement": 0,
-    "ability": "On play, randomly *play* up to *1/1/1/2/2* Satyr/Satyr/Satyr/Satyrs/Satyrs from your deck on a tile in its row",
+    "ability": "On play, randomly *play* up to *1/1/1/2/2* common or rare Satyr/Satyr/Satyr/Satyrs/Satyrs from your deck on a tile in its row",
     "hero": true
   },
   {
@@ -2116,7 +2116,7 @@
     "rarity": "epic",
     "image": "bucks_of_wasteland.png",
     "mana": 6,
-    "strength": "7/8/10/12/15",
+    "strength": "6/7/9/11/14",
     "movement": 0,
     "ability": "After surviving damage, randomly *give strength to 2* other friendly units equal to the damage received",
     "elder": true
@@ -2235,9 +2235,9 @@
     "rarity": "rare",
     "image": "frozen_core.png",
     "mana": 5,
-    "strength": "4/5/6/7/8",
+    "strength": "3/4/5/6/7",
     "movement": null,
-    "ability": "At the start of your turn, gain *3 mana*"
+    "ability": "At the start of your turn, gain *2 mana*"
   },
   {
     "name": "Lady Rime",
@@ -2289,7 +2289,7 @@
     "image": "rockworkers.png",
     "mana": 5,
     "strength": "4/5/6/7/8",
-    "movement": 1,
+    "movement": 0,
     "ability": "On play, *build* a *4/5/6/7/8* strength Fort on a random bordering tile"
   },
   {
@@ -2365,7 +2365,7 @@
     "race": null,
     "rarity": "epic",
     "image": "gift_of_the_wise.png",
-    "mana": 7,
+    "mana": 8,
     "strength": null,
     "movement": null,
     "ability": "Gain *9/10/11/12/13 mana*"
@@ -2471,9 +2471,9 @@
     "rarity": "rare",
     "image": "earthfathers.png",
     "mana": 7,
-    "strength": "6/7/8/10/12",
+    "strength": "5/6/7/8/11",
     "movement": 1,
-    "ability": "After surviving damage, gain 3/3/4/5/6 strength.",
+    "ability": "After surviving damage, gain 3/3/3/4/4 strength.",
     "elder": true
   },
   {
