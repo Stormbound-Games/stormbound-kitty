@@ -90,7 +90,8 @@
   margin-bottom: 3em;
 }
 
-.Article img:not([class]) {
+.Article img:not([class]),
+.Article video:not([class]) {
   margin: 2em auto;
   display: block;
   height: auto;

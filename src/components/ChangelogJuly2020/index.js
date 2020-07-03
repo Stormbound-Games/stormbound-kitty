@@ -1,8 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Column from '../Column'
 import Info from '../Info'
+import PageMeta from '../PageMeta'
 import Quest from '../Quest'
 import Row from '../Row'
 import Title from '../Title'
@@ -112,9 +114,9 @@ export default React.memo(function ChangelogJuly2020(props) {
 
       <Info title='Rerolling quests'>
         <p>
-          Quests can still be re-rolled once per day, but a quest tier 1 will
-          always grant coins, a tier 2 quest will always grant rubies and a tier
-          3 quest will always grant fusion stones.
+          Each quest can still be re-rolled once per day, but a quest tier 1
+          will always grant coins, a tier 2 quest will always grant rubies and a
+          tier 3 quest will always grant fusion stones.
         </p>
       </Info>
 
@@ -124,13 +126,38 @@ export default React.memo(function ChangelogJuly2020(props) {
         To celebrate their involvement in Stormbound, the Sheepyard studio
         wanted to mark the occasion with a brand new card in their effigy:{' '}
         <span className='Highlight'>Rogue Sheep</span>, a legendary pirate
-        sheep!
+        sheep! Meanwhile, Siren is crying in the corner seeing her hopes and
+        dreams of becoming a pirate hero crushed.
       </p>
 
-      <img
-        src='/assets/images/banner_rogue_sheep.png'
-        alt='New Rogue Sheep card'
-      />
+      <div className='Article__fullwidth' style={{ '--padding': '0' }}>
+        <Row desktopOnly wideGutter>
+          <Column width='1/2'>
+            <h3>Sketches & illustrations</h3>
+            <img
+              style={{ marginTop: 0 }}
+              src='/assets/images/banner_rogue_sheep.png'
+              alt='New Rogue Sheep card'
+            />
+          </Column>
+          <Column width='1/2'>
+            <h3>In-game 3D model</h3>
+            <video
+              style={{ marginTop: 0 }}
+              src='/assets/videos/sheep_hero.mp4'
+              muted
+              controls
+            ></video>
+          </Column>
+        </Row>
+      </div>
+
+      <p>
+        At this stage, this card is added to the card pool and will be available
+        through crafting and <Link to='/collection/books'>books</Link>.
+        Additionally, it is already available in all tools on the site (battle
+        sim, deck builder, card builder, list builder…).
+      </p>
 
       <div className='Article__fullwidth'>
         <CardBuilderCardDisplay {...getInitialCardData('N77')} />
@@ -218,6 +245,20 @@ export default React.memo(function ChangelogJuly2020(props) {
         their mana cost, Sheepyard has revisit the Confusion mechanic to make it
         more reliable.
       </p>
+
+      <hr />
+
+      <p>
+        That’s it for this update, which is not trivial for the first one from
+        Sheepyard. They already have the next update in the starting blocks.
+        Until then, beeeeeh!
+      </p>
+
+      <PageMeta
+        title='Update 07-2020'
+        description='Discover everything there is to know about the first Stormbound update from the Sheepyard studio!'
+        image='/assets/images/environment_dragon.png'
+      />
     </Article>
   )
 })
