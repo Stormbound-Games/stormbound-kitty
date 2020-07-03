@@ -30,3 +30,7 @@
 .Changelog__info {
   color: var(--light-winter);
 }
+
+.Changelog__disclaimer {
+  margin-bottom: 3em;
+}
