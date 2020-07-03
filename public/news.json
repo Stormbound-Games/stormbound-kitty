@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Update 07-2020",
+    "description": "Discover everything there is to know about the first Stormbound update from the Sheepyard studio!",
+    "link": "/changelog/07-2020"
+  },
+  {
     "intro": "Donate Page",
     "description": "Check out the brand new page if you’d like to help and donate!",
     "link": "/donate"
