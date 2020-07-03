@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
+import BattleSimApp from '../BattleSimApp'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Column from '../Column'
 import Info from '../Info'
@@ -51,11 +52,9 @@ export default React.memo(function ChangelogJuly2020(props) {
           <a href='#balance-changes'>Balance changes</a>
         </li>
         <li>
-          <a href='#ui-improvements'>UI improvements</a>
-        </li>
-        <li>
           <a href='#matchmaking-tweaks'>Matchmaking tweaks</a>
         </li>
+        <li>Minor UI improvements</li>
       </ul>
 
       <Title id='economy-update'>Economy update</Title>
@@ -79,6 +78,13 @@ export default React.memo(function ChangelogJuly2020(props) {
           the quest.
         </li>
       </ul>
+
+      <p>
+        On top of that, and to compensate the fact that quests overall grant
+        less coins than before, the daily coin cap has been increased to{' '}
+        <Coins amount={400} /> (up from <Coins amount={250} />
+        ).
+      </p>
 
       <div className='Article__fullwidth' style={{ '--padding': '0' }}>
         <Row desktopOnly wideGutter>
@@ -152,16 +158,22 @@ export default React.memo(function ChangelogJuly2020(props) {
         </Row>
       </div>
 
-      <p>
-        At this stage, this card is added to the card pool and will be available
-        through crafting and <Link to='/collection/books'>books</Link>.
-        Additionally, it is already available in all tools on the site (battle
-        sim, deck builder, card builder, list builder…).
-      </p>
-
       <div className='Article__fullwidth'>
         <CardBuilderCardDisplay {...getInitialCardData('N77')} />
       </div>
+
+      <p>
+        <WikiLink id='N77' /> is available through crafting and{' '}
+        <Link to='/collection/books'>books</Link>. Additionally, it is possible
+        to buy a $10 limited edition pack containing Rogue Sheep and some
+        resources. This one-time offer will only be available for a few days, so
+        be sure to consider it!
+      </p>
+      <img
+        style={{ marginTop: 0 }}
+        src='https://i.gyazo.com/24207235577c36531a6e5d4af50cf6af.png'
+        alt='Limited offer'
+      />
 
       <Title id='balance-changes'>Balance changes</Title>
 
@@ -223,6 +235,12 @@ export default React.memo(function ChangelogJuly2020(props) {
         </li>
       </ul>
 
+      <p>
+        Like in the past, some compensation in the form of coins or fusion coins
+        will be provided to owners of these nerfed cards, proportional to the
+        amount of owned copies.
+      </p>
+
       <h3>Buffs</h3>
 
       <ul>
@@ -242,8 +260,76 @@ export default React.memo(function ChangelogJuly2020(props) {
 
       <p>
         On top of making <WikiLink id='N60' /> more accessible by decreasing
-        their mana cost, Sheepyard has revisit the Confusion mechanic to make it
-        more reliable.
+        their mana cost, Sheepyard has{' '}
+        <u style={{ textDecoration: 'line-through', opacity: 0.5 }}>
+          revisited
+        </u>{' '}
+        fixed the Confusion mechanic to make it more reliable.
+      </p>
+
+      <p>
+        If confused, a unit has 1 chance out of 3 to move forward, 1 chance out
+        of 3 to move inwards and 1 chance out of 3 to move outwards. If sitting
+        on the edge of the board, the unit has 1 chance out of 3 to move forward
+        and 2 chances out of 3 to move inwards.
+      </p>
+
+      <p>
+        In the following situation, Gifted Recruits — who have been confused by
+        Sweetcap Kittens — have 33% chance to move forward, and 66% chance to
+        move to the right side. That’s because they are sitting on the edge of
+        the board, so the 33% chance to move to the left are effectively
+        redistributed to the right side.
+      </p>
+
+      <div className='Article__fullwidth'>
+        <BattleSimApp
+          mode='DISPLAY'
+          simId='MU42MlIxLCwsLCwsLCwsLCwsMU4zQjFDLCwsLCwsLDtSMTBOLUIxME47M00wOzs='
+        />
+      </div>
+
+      <p>
+        Sheepyard also allowed me to announce that 2 new feline cards will be
+        added to the game in the next update to increase the Confusion synergy
+        even further. Stay tuned for some more kitties!
+      </p>
+
+      <Title>Matchmaking tweaks</Title>
+
+      <p>
+        Stormbound has a long history of awkward matchmaking. In order to make
+        it a little more fair, Sheepyard is introduced a base health upper limit
+        based on the current league a player is in. The caps go as follow:
+      </p>
+
+      <ul>
+        <li>
+          <span style={{ color: '#c8c0df' }}>Diamond</span>: no other cap than
+          the current maximum 20 health limit.
+        </li>
+        <li>
+          <span style={{ color: '#c0e0cf' }}>Platinum</span>: health capped at
+          17.
+        </li>
+        <li>
+          <span style={{ color: '#f1e0be' }}>Gold</span>: health capped at 14.
+        </li>
+        <li>
+          <span style={{ color: '#d6d9e2' }}>Silver</span>: health capped at 12.
+        </li>
+        <li>
+          <span style={{ color: '#e2c3b7' }}>Bronze</span>: health capped at 11.
+        </li>
+        <li>
+          <span style={{ color: '#d3d1cc' }}>Iron</span>: health capped at 10.
+        </li>
+      </ul>
+
+      <p>
+        Note that these upper limits on base health are not applied in Brawl
+        mode whatsoever. Additionally, the CPU health has also been similarly
+        adjusted when facing bots.
       </p>
 
       <hr />
