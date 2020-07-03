@@ -246,6 +246,7 @@ export const COMMON_ABBREVIATIONS = {
   ATE: 'Attack Trigger Effect',
   BH: 'Base Health',
   DTE: 'Death Trigger Effect',
+  FL: 'Fortress Level',
   FS: 'Fusion Stones',
   HP: 'Health Point(s)',
   IC: 'Ironclad',
