@@ -7,29 +7,6 @@
   margin: 2em auto 2.5em;
 }
 
-.Guide ol ul:not([class]) {
-  margin-top: 0.5em;
-  margin-bottom: 0;
-}
-
-.Guide ol:not([class]),
-.Guide ul:not([class]) {
-  padding: 0;
-  list-style-position: inside;
-  margin-bottom: 2em;
-}
-
-.Guide li:not([class]) {
-  padding-left: 1.4em;
-  text-indent: -1.4em;
-  margin-bottom: 0.5em;
-}
-
-.Guide li ul {
-  margin-top: 0.5em;
-  margin-bottom: 0;
-}
-
 .Guide .Article__content > .Deck {
   max-width: 80%;
   margin: 2em auto;
