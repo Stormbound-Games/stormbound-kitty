@@ -54,7 +54,9 @@ export default React.memo(function ChangelogJuly2020(props) {
         <li>
           <a href='#matchmaking-tweaks'>Matchmaking tweaks</a>
         </li>
-        <li>Minor UI improvements</li>
+        <li>
+          <a href='#ui-improvements'>UI improvements</a>
+        </li>
       </ul>
 
       <Title id='economy-update'>Economy update</Title>
@@ -139,7 +141,7 @@ export default React.memo(function ChangelogJuly2020(props) {
       <div className='Article__fullwidth' style={{ '--padding': '0' }}>
         <Row desktopOnly wideGutter>
           <Column width='1/2'>
-            <h3>Sketches & illustrations</h3>
+            <h3 style={{ marginTop: 0 }}>Sketches & illustrations</h3>
             <img
               style={{ marginTop: 0 }}
               src='/assets/images/banner_rogue_sheep.png'
@@ -147,7 +149,7 @@ export default React.memo(function ChangelogJuly2020(props) {
             />
           </Column>
           <Column width='1/2'>
-            <h3>In-game 3D model</h3>
+            <h3 style={{ marginTop: 0 }}>In-game 3D model</h3>
             <video
               style={{ marginTop: 0 }}
               src='/assets/videos/sheep_hero.mp4'
@@ -180,8 +182,12 @@ export default React.memo(function ChangelogJuly2020(props) {
       <p>
         Sheepyard took a close look at the current state of the meta and went
         nuclear on its main assets, putting down the nerf hammer on many cards,
-        especially but not limited to elders. This is a first balance patch,
-        there will be more in the future.
+        especially but not limited to elders.
+      </p>
+      <p>
+        This is only a first balance patch aiming at fixing the meta. It will be
+        followed by over 30 card updates in the next patch to balance things
+        further.
       </p>
 
       <h3>Nerfs</h3>
@@ -331,6 +337,47 @@ export default React.memo(function ChangelogJuly2020(props) {
         mode whatsoever. Additionally, the CPU health has also been similarly
         adjusted when facing bots.
       </p>
+
+      <Title id='ui-improvements'>UI improvements</Title>
+
+      <div className='Article__fullwidth' style={{ '--padding': '0' }}>
+        <Row desktopOnly wideGutter>
+          <Column width='1/3'>
+            <h3>Fortress Level</h3>
+            <p>
+              Sheepyard is starting to refresh the yee-old interface, starting
+              with the one around the base health — which is now named “
+              <span className='Highlight'>Fortress Level</span>”. It comes with
+              a handy dialog box giving more information, as well as the
+              effective progression.
+            </p>
+
+            <p>
+              Still no disclosure of the actual formula determine one’s Fortress
+              Level based on progression, but things are changing fast so who
+              knows?
+            </p>
+
+            <p>
+              Another minor interface change not displayed in the joined images
+              — amongst a lot more improvements across all interfaces — is a new
+              icon for the “Friends” button to replace to current one.
+            </p>
+          </Column>
+          <Column width='1/3'>
+            <img
+              src='/assets/images/base_health_dialog.png'
+              alt='Dialog disclosing information about the current base health'
+            />
+          </Column>
+          <Column width='1/3'>
+            <img
+              src='/assets/images/base_health_level.gif'
+              alt='Animation of the base health increasing'
+            />
+          </Column>
+        </Row>
+      </div>
 
       <hr />
 
