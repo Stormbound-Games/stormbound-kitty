@@ -1008,10 +1008,10 @@
     "race": "pirate",
     "rarity": "legendary",
     "image": "rogue_sheep.png",
-    "mana": 6,
-    "strength": "6/7/8/10/12",
+    "mana": 7,
+    "strength": "2/3/4/5/7",
     "movement": 1,
-    "ability": "Something about Sheepyard taking over Stormbound",
+    "ability": "On death, deal *1/1-2/2/2-3/3 damage* to all enemy units and structures",
     "hero": true
   },
   {
