@@ -59,6 +59,12 @@ export default React.memo(function ChangelogJuly2020(props) {
         </li>
       </ul>
 
+      <Info icon='heart' title='Free rubies'>
+        Anyone logging into the game during the 3 days following the update will
+        be granted <Rubies amount={50} /> as a token of gratitude and to help
+        with the fact that game development has been silent for so long.
+      </Info>
+
       <Title id='economy-update'>Economy update</Title>
 
       <p>
@@ -120,12 +126,10 @@ export default React.memo(function ChangelogJuly2020(props) {
         </Row>
       </div>
 
-      <Info title='Rerolling quests'>
-        <p>
-          Each quest can still be re-rolled once per day, but a quest tier 1
-          will always grant coins, a tier 2 quest will always grant rubies and a
-          tier 3 quest will always grant fusion stones.
-        </p>
+      <Info icon='stack' title='Rerolling quests'>
+        Each quest can still be rerolled once per day, but a tier 1 quest will
+        always grant coins, a tier 2 quest will always grant rubies and a tier 3
+        quest will always grant fusion stones.
       </Info>
 
       <Title id='new-legendary-card'>New legendary card</Title>
@@ -165,7 +169,7 @@ export default React.memo(function ChangelogJuly2020(props) {
       </div>
 
       <p>
-        <WikiLink id='N77' /> is available through crafting and{' '}
+        <WikiLink id='N77' /> is already available through crafting and{' '}
         <Link to='/collection/books'>books</Link>. Additionally, it is possible
         to buy a $10 limited edition pack containing Rogue Sheep and some
         resources. This one-time offer will only be available for a few days, so
@@ -182,12 +186,14 @@ export default React.memo(function ChangelogJuly2020(props) {
       <p>
         Sheepyard took a close look at the current state of the meta and went
         nuclear on its main assets, putting down the nerf hammer on many cards,
-        especially but not limited to elders.
+        especially but not limited to elders. This is only a first balance patch
+        aiming at fixing the meta. It will be followed by over 30 card updates
+        in the next release to balance things further.
       </p>
       <p>
-        This is only a first balance patch aiming at fixing the meta. It will be
-        followed by over 30 card updates in the next patch to balance things
-        further.
+        Overall, the idea appears to be to progressively decouple the meta from
+        aggressively cheap decks, and to favor control over rush. It will
+        probably take a few releases and adjustments before getting there.
       </p>
 
       <h3>Nerfs</h3>
@@ -241,11 +247,11 @@ export default React.memo(function ChangelogJuly2020(props) {
         </li>
       </ul>
 
-      <p>
-        Like in the past, some compensation in the form of coins or fusion coins
-        will be provided to owners of these nerfed cards, proportional to the
-        amount of owned copies.
-      </p>
+      <Info icon='heart' title='Nerf compensation'>
+        Like in the past, some compensation in the form of coins and/or fusion
+        stones will be provided to owners of these nerfed cards, proportional to
+        the amount of owned copies.
+      </Info>
 
       <h3>Buffs</h3>
 
@@ -274,31 +280,50 @@ export default React.memo(function ChangelogJuly2020(props) {
       </p>
 
       <p>
-        If confused, a unit has 1 chance out of 3 to move forward, 1 chance out
-        of 3 to move inwards and 1 chance out of 3 to move outwards. If sitting
-        on the edge of the board, the unit has 1 chance out of 3 to move forward
-        and 2 chances out of 3 to move inwards.
+        <span className='Highlight'>New mechanic</span>: If confused, a unit has
+        ⅓ chance to move forward, ⅓ chance to move inwards and ⅓ chance to move
+        outwards. If sitting on the edge of the board, the unit has ⅓ chance to
+        move forward and ⅔ chance to move inwards.
       </p>
 
+      <Info icon='sword' title='Existing implementation'>
+        <p>
+          While it might sound like it is how Confusion currently works, it
+          turns out that it’s not at all how it worked until now despite popular
+          belief.
+        </p>
+        <p>
+          Currently, a confused unit has {'4\u20449'} chance (you read
+          correctly) to go forward, ⅓ (or {'3\u20449'}) chance to go outwards
+          and {'2\u20449'} chance to go inwards. When on the edge of the board,
+          it has ⅔ chance to go forward and ⅓ chance to go inwards. No wonder we
+          all thought it was broken.
+        </p>
+      </Info>
+
       <p>
-        In the following situation, Gifted Recruits — who have been confused by
-        Sweetcap Kittens — have 33% chance to move forward, and 66% chance to
-        move to the right side. That’s because they are sitting on the edge of
-        the board, so the 33% chance to move to the left are effectively
-        redistributed to the right side.
+        In the following situation, Westwind Sailors will now have a proper ⅓
+        chance to go in any direction (but backwards). Similarly, Gifted
+        Recruits now have ⅓ chance to move forward, and ⅔ chance to move to the
+        right side. That’s because they are sitting on the edge of the board, so
+        the ⅓ chance to move to the left are effectively redistributed to the
+        right side.
       </p>
 
       <div className='Article__fullwidth'>
         <BattleSimApp
           mode='DISPLAY'
-          simId='MU42MlIxLCwsLCwsLCwsLCwsMU4zQjFDLCwsLCwsLDtSMTBOLUIxME47M00wOzs='
+          simId='MU42MlIxLCwsLCwsMU4xNkI1QywsLCwsLDFOM0IxQywsLCwsLCw7UjEwTi1CMTBOOzNNMDs7'
         />
       </div>
 
       <p>
-        Sheepyard also allowed me to announce that 2 new feline cards will be
-        added to the game in the next update to increase the Confusion synergy
-        even further. Stay tuned for some more kitties!
+        Sheepyard also allowed me to announce that the next update will
+        introduce two extra ways to induce confusion. They are planning on
+        making confusion a mechanic to prolong games, essentially shifting the
+        meta away from aggressively cheap decks. Note that the goal is not to
+        make confusion the new freeze. It is only to provide a way to tempo
+        games a little more.
       </p>
 
       <Title>Matchmaking tweaks</Title>
