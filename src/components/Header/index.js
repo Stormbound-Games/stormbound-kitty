@@ -135,11 +135,7 @@ export default React.memo(function Header(props) {
               </NavLink>
             </li>
             <li className='Header__item Header__item--right'>
-              <NavLink
-                href='https://gum.co/stormbound-kitty'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
+              <NavLink to='/donate' active={topActive === 'DONATE'}>
                 <Icon className='Header__icon' icon='star' /> Donate
               </NavLink>
             </li>

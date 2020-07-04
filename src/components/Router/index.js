@@ -15,6 +15,7 @@ import RouterStories from '../RouterStories'
 import load from '../../helpers/load'
 
 const CardsStats = load('CardsStats')
+const Donate = load('Donate')
 const FAQ = load('FAQ')
 const Home = load('Home')
 const Member = load('Member')
@@ -80,6 +81,10 @@ export default function Router(props) {
 
           <Page path='/faq' active={['HOME', 'FAQ']}>
             <FAQ />
+          </Page>
+
+          <Page path='/donate' active={['DONATE']}>
+            <Donate />
           </Page>
 
           <Page exact path='/' active={['HOME', 'NEWS']}>

@@ -1,0 +1,8 @@
+.Donate__container {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.Donate__container a.gumroad-button {
+  color: #777 !important;
+}

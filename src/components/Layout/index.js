@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import EyeCatcher from '../EyeCatcher'
 import Footer from '../Footer'
@@ -13,14 +14,7 @@ export default React.memo(function Layout(props) {
         <EyeCatcher id='donation-20200611'>
           Stormbound-Kitty is <span className='Highlight'>100% free</span>: no
           ads, no tracking, no paywall. If you can,{' '}
-          <a
-            href='https://gum.co/stormbound-kitty'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            consider donating
-          </a>
-          !
+          <Link to='/donate'>consider donating</Link>!
         </EyeCatcher>
       </Only.Desktop>
 

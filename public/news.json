@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Donate Page",
+    "description": "Check out the brand new page if you’d like to help and donate!",
+    "link": "/donate"
+  },
+  {
     "intro": "Triggers Guide",
     "description": "Derk and Kitty joined to write a guide on triggers (death, survive, attack…) and demystify the resolution order.",
     "link": "/guides/triggers"

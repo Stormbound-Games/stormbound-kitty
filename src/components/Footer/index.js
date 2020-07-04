@@ -17,13 +17,7 @@ export default React.memo(function Footer(props) {
               Stormbound Kitty is made with{' '}
               <Icon icon='heart' aria-label='love' className='Footer__icon' />{' '}
               by Kitty and the vibrant Stormbound community.{' '}
-              <a
-                href='https://gum.co/stormbound-kitty'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                Buy me a coffee?
-              </a>
+              <Link to='/donate'>Want to help?</Link>
             </p>
             <p className='Footer__info'>
               Official Stormbound game content courtesy of{' '}
@@ -135,13 +129,7 @@ export default React.memo(function Footer(props) {
                   </li>
 
                   <li className='Footer__item'>
-                    <a
-                      href='https://gum.co/stormbound-kitty'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Donate
-                    </a>
+                    <Link to='/donate'>Donate</Link>
                   </li>
                 </ul>
               </Column>
