@@ -1096,5 +1096,12 @@
     "faction": "shadowfen",
     "author": "Jumboduck",
     "category": "EQUALS"
+  },
+  {
+    "name": "ToadTakeOver",
+    "id": "2n12f32n672f272n112f72n262f142n742f182f282n58",
+    "faction": "shadowfen",
+    "author": "Helios",
+    "category": "STARTER"
   }
 ]
