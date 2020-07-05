@@ -3,6 +3,13 @@ import { RARITY_COPIES, UPGRADE_COST } from '../../constants/game'
 const getCostForLevel = target => ({ rarity, level, copies }) => {
   const conf = RARITY_COPIES[rarity]
 
+  // It is technically possible for the card not to be found in the collection
+  // at all if it was added as a new card in a separate branch, stored in
+  // local storage. Then, checking out a branch without this card in the
+  // database yet would cause the card not to be found in the collection. It
+  // cannot happen in production unless cards ever get removed from the game.
+  if (!conf) return { coins: 0, stones: 0, copies: 0, extraCopies: 0 }
+
   if (target === 1)
     return {
       coins: 0,

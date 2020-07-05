@@ -4,6 +4,7 @@ import LearnMoreIcon from '../LearnMoreIcon'
 import { Coins, Stones } from '../Resource'
 import getCollectionCost from '../../helpers/getCollectionCost'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
+import getRawCardData from '../../helpers/getRawCardData'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import './index.css'
@@ -34,6 +35,12 @@ const getLevelStats = (cards, totalKnownCards) =>
 
 const getAvailableCoins = collection =>
   collection
+    // It is technically possible for the card not to be found in the collection
+    // at all if it was added as a new card in a separate branch, stored in
+    // local storage. Then, checking out a branch without this card in the
+    // database yet would cause the card not to be found in the collection. It
+    // cannot happen in production unless cards ever get removed from the game.
+    .filter(card => getRawCardData(card.id).id)
     .map(card => getExtraAfterMax(getResolvedCardData(card)).coins)
     .reduce(sum, 0)
 

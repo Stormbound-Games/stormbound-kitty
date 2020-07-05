@@ -60,7 +60,15 @@ const getFactionData = collection => {
 
   collection.forEach(card => {
     const resolvedCard = getResolvedCardData(card)
-    data[resolvedCard.faction].value += getCardCost(resolvedCard)
+
+    // It is technically possible for the card not to be found in the collection
+    // at all if it was added as a new card in a separate branch, stored in
+    // local storage. Then, checking out a branch without this card in the
+    // database yet would cause the card not to be found in the collection. It
+    // cannot happen in production unless cards ever get removed from the game.
+    if (resolvedCard) {
+      data[resolvedCard.faction].value += getCardCost(resolvedCard)
+    }
   })
 
   return Object.keys(data).map(faction => data[faction])
@@ -76,7 +84,15 @@ const getRarityData = collection => {
 
   collection.forEach(card => {
     const resolvedCard = getResolvedCardData(card)
-    data[resolvedCard.rarity].value += getCardCost(resolvedCard)
+
+    // It is technically possible for the card not to be found in the collection
+    // at all if it was added as a new card in a separate branch, stored in
+    // local storage. Then, checking out a branch without this card in the
+    // database yet would cause the card not to be found in the collection. It
+    // cannot happen in production unless cards ever get removed from the game.
+    if (resolvedCard) {
+      data[resolvedCard.rarity].value += getCardCost(resolvedCard)
+    }
   })
 
   return Object.keys(data).map(rarity => data[rarity])
