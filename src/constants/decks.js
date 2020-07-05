@@ -3,4 +3,5 @@ export const CATEGORIES = {
   DIAMOND_1: 'Diamond 1',
   EQUALS: 'Equals',
   BRAWL: 'Brawl',
+  STARTER: 'Starter',
 }
