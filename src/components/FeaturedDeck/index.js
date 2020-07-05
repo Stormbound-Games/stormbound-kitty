@@ -43,11 +43,20 @@ const useAdjustedDeck = ({ brawl, category, id }) => {
   }
 
   const resolvedCollection = resolveCollection(collection)
-  const deck = modifiedDeck.map(card => ({
-    ...card,
-    level: resolvedCollection[card.id].level,
-    missing: resolvedCollection[card.id].missing,
-  }))
+  const deck = modifiedDeck.map(card => {
+    // It is technically possible for the card not to be found in the collection
+    // at all if it was added as a new card in a separate branch, stored in
+    // local storage. Then, checking out a branch without this card in the
+    // database yet would cause the card not to be found in the collection. It
+    // cannot happen in production unless cards ever get removed from the game.
+    if (!resolvedCollection[card.id]) return card
+
+    return {
+      ...card,
+      level: resolvedCollection[card.id].level,
+      missing: resolvedCollection[card.id].missing,
+    }
+  })
   const distance = getDeckDistanceToMax(resolvedCollection)({ id })
 
   return { deck, id: serialisation.deck.serialise(deck), distance }
