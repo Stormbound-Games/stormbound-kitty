@@ -273,16 +273,16 @@ export default React.memo(function GuideManaCurve(props) {
             <p>
               In the graph <Only.Desktop>on the left</Only.Desktop>
               <Only.Mobile>above</Only.Mobile>, the cards line is close to null
-              on turn mana 6, and jumps to the 40% mark by turn mana 7 thanks to
+              on turn mana 7, and jumps to the 40% mark by turn mana 8 thanks to
               Gift of the Wise which grants free mana. This makes it more likely
               to be able to play all cards on that turn and the subsequent ones.
             </p>
             <p>
               It increases relatively slowly, as the ability to play all these
               expensive cards truly relies on Gift of the Wise to begin with. In
-              a deck like this, turn mana 7 is decisive and likely make or break
+              a deck like this, turn mana 8 is decisive and likely make or break
               for the game. That’s why the simulation never cycles Gift of the
-              Wise at turn mana 6 if it is in the hand.
+              Wise at turn mana 7 if it is in the hand.
             </p>
           </Column>
         </Row>
@@ -355,10 +355,10 @@ export default React.memo(function GuideManaCurve(props) {
           taken into account in the evaluation of these chances.
         </li>
         <li>
-          Not cycling Gift of the Wise at turn mana 6 to make for high-value
-          combos at turn mana 7. There again, maybe a little reductive as this
+          Not cycling Gift of the Wise at turn mana 7 to make for high-value
+          combos at turn mana 8. There again, maybe a little reductive as this
           is situational, but for heavy/mana-ramp decks, having Gift of the Wise
-          at turn mana 7 is quite critical to come back from an early push and
+          at turn mana 8 is quite critical to come back from an early push and
           take the board back.
         </li>
         <li>
