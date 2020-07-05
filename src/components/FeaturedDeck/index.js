@@ -89,7 +89,7 @@ export default React.memo(function FeaturedDeck(props) {
                     </>
                   )
                 }
-                icon='question'
+                icon='info'
               />
             </Only.Desktop>
           </Only.CustomCollection>

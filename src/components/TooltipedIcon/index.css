@@ -1,7 +1,7 @@
 .TooltipedIcon {
   font-size: 80%;
   position: relative;
-  transform: translateY(10%) scalex(1.1);
+  transform: translateY(10%);
   display: inline-block;
   margin-left: 1ch;
   color: var(--color);
