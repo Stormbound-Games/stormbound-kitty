@@ -4,27 +4,16 @@ import { CATEGORIES } from '../../constants/decks'
 import { CollectionContext } from '../CollectionProvider'
 import Deck from '../Deck'
 import DiamondButton from '../DiamondButton'
-import QuestionMark from '../QuestionMark'
 import Only from '../Only'
 import RarityBar from '../RarityBar'
 import { Stones } from '../Resource'
-import Tooltip from '../Tooltip'
+import TooltipedIcon from '../TooltipedIcon'
 import serialisation from '../../helpers/serialisation'
 import getDeckDistanceToMax from '../../helpers/getDeckDistanceToMax'
 import getRawCardData from '../../helpers/getRawCardData'
 import resolveCollection from '../../helpers/resolveCollection'
 import modifyDeck from '../../helpers/modifyDeck'
 import './index.css'
-
-const tooltipStyles = {
-  backgroundColor: 'var(--dark-blue)',
-  color: 'var(--white)',
-  borderRadius: '2px',
-  border: '1px solid var(--dark-beige)',
-  boxShadow: '0 0 0 2px var(--dark-blue)',
-  maxWidth: '15em',
-  whiteSpace: 'normal',
-}
 
 const useAdjustedDeck = ({ brawl, category, id }) => {
   const { hasDefaultCollection, collection } = React.useContext(
@@ -80,11 +69,17 @@ export default React.memo(function FeaturedDeck(props) {
       </div>
       <span className='FeaturedDeck__name'>
         <Link to={`/deck/${id}/detail`}>{props.name}</Link>
+        {props.nerfed ? (
+          <TooltipedIcon
+            label={`This deck was composed before the balance patch from ${props.nerfed}, therefore it might no longer be competitive.`}
+            icon='warning'
+            color='var(--confused)'
+          />
+        ) : null}
         {distance ? (
           <Only.CustomCollection>
             <Only.Desktop>
-              <Tooltip
-                style={tooltipStyles}
+              <TooltipedIcon
                 label={
                   distance === Infinity ? (
                     'You are missing some cards from this deck'
@@ -94,9 +89,8 @@ export default React.memo(function FeaturedDeck(props) {
                     </>
                   )
                 }
-              >
-                {trigger => <QuestionMark {...trigger} />}
-              </Tooltip>
+                icon='question'
+              />
             </Only.Desktop>
           </Only.CustomCollection>
         ) : null}
