@@ -64,7 +64,9 @@ export default React.memo(function BattleSimCell(props) {
           data-testid='cell-image'
         />
       ) : (
-        <span className='VisuallyHidden'>Select cell</span>
+        <span className='VisuallyHidden'>
+          {props.mode === 'DISPLAY' ? '' : 'Select cell'}
+        </span>
       )}
 
       {!!props.poisoned && (

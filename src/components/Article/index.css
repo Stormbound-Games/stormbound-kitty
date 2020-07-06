@@ -36,6 +36,7 @@
 }
 
 .Article__fullwidth {
+  position: relative;
   margin: 1.5em auto;
 }
 

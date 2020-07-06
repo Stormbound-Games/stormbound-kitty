@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom'
 import Article from '../Article'
 import BattleSimApp from '../BattleSimApp'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
+import Checkbox from '../Checkbox'
 import Column from '../Column'
 import Info from '../Info'
+import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Quest from '../Quest'
 import Row from '../Row'
@@ -12,8 +14,36 @@ import Title from '../Title'
 import WikiLink from '../WikiLink'
 import { Coins, Rubies, Stones } from '../Resource'
 import getInitialCardData from '../../helpers/getInitialCardData'
+import './index.css'
 
 export default React.memo(function ChangelogJuly2020(props) {
+  const [withConfusionFix, setConfusionFix] = React.useState(true)
+
+  React.useEffect(() => {
+    const ODDS = [
+      ['A3', '1\u20443', '4\u20449', 'middle'],
+      ['B2', '1\u20443', '2\u20449', 'middle'],
+      ['B4', '1\u20443', '3\u20449', 'middle'],
+      ['D1', '1\u20443', '2\u20443', 'edge'],
+      ['E2', '2\u20443', '1\u20443', 'edge'],
+    ]
+
+    ODDS.forEach(([cell, newOdd, oldOdd, position]) => {
+      const container = document.querySelector(`[data-testid="cell-${cell}"]`)
+      const odds = container.querySelector('.ChangelogJuly2020__odd')
+
+      if (odds) {
+        odds.innerText = withConfusionFix ? newOdd : oldOdd
+      } else {
+        const odds = document.createElement('span')
+        odds.setAttribute('data-position', position)
+        odds.innerText = withConfusionFix ? newOdd : oldOdd
+        odds.setAttribute('class', 'ChangelogJuly2020__odd')
+        container.appendChild(odds)
+      }
+    })
+  }, [withConfusionFix])
+
   return (
     <Article
       author='Kitty'
@@ -59,6 +89,17 @@ export default React.memo(function ChangelogJuly2020(props) {
         </li>
       </ul>
 
+      <p>
+        Following Paladin Studios’ advice, the update will hit the production
+        servers some time early next week. From there, the new version of the
+        application will be gradually rolled out to app stores and players are
+        encouraged to update the game as soon as possible. A few days later, a
+        forced update will be conducted to migrate the remaining players to the
+        latest version of the app. Only after that will the{' '}
+        <a href='#new-legendary-card'>new card and new pack offer</a> be
+        available.
+      </p>
+
       <Info icon='heart' title='Free rubies'>
         Anyone logging into the game during the 3 days following the update will
         be granted <Rubies amount={50} /> as a token of gratitude and to help
@@ -88,10 +129,9 @@ export default React.memo(function ChangelogJuly2020(props) {
       </ul>
 
       <p>
-        On top of that, and to compensate the fact that quests overall grant
-        less coins than before, the daily coin cap has been increased to{' '}
-        <Coins amount={400} /> (up from <Coins amount={250} />
-        ).
+        Each quest can still be rerolled once per day, but a tier 1 quest will
+        always grant coins, a tier 2 quest will always grant rubies and a tier 3
+        quest will always grant fusion stones.
       </p>
 
       <div className='Article__fullwidth' style={{ '--padding': '0' }}>
@@ -126,10 +166,11 @@ export default React.memo(function ChangelogJuly2020(props) {
         </Row>
       </div>
 
-      <Info icon='stack' title='Rerolling quests'>
-        Each quest can still be rerolled once per day, but a tier 1 quest will
-        always grant coins, a tier 2 quest will always grant rubies and a tier 3
-        quest will always grant fusion stones.
+      <Info title='Daily coin cap'>
+        To compensate the fact that quests overall grant less coins than before,
+        the daily coin cap has been increased to <Coins amount={400} /> (up from{' '}
+        <Coins amount={250} />
+        ).
       </Info>
 
       <Title id='new-legendary-card'>New legendary card</Title>
@@ -169,11 +210,11 @@ export default React.memo(function ChangelogJuly2020(props) {
       </div>
 
       <p>
-        <WikiLink id='N77' /> is already available through crafting and{' '}
-        <Link to='/collection/books'>books</Link>. Additionally, it is possible
-        to buy a $10 limited edition pack containing Rogue Sheep and some
-        resources. This one-time offer will only be available for a few days, so
-        be sure to consider it!
+        <WikiLink id='N77' /> will be available shortly (in the upcoming days)
+        through crafting and <Link to='/collection/books'>books</Link>.
+        Additionally, it will be possible to buy a $10 limited edition pack
+        containing Rogue Sheep and some resources. This one-time offer will only
+        be available for a few days, so be sure to consider it!
       </p>
       <img
         style={{ marginTop: 0 }}
@@ -303,17 +344,27 @@ export default React.memo(function ChangelogJuly2020(props) {
 
       <p>
         In the following situation, Westwind Sailors will now have a proper ⅓
-        chance to go in any direction (but backwards). Similarly, Gifted
-        Recruits now have ⅓ chance to move forward, and ⅔ chance to move to the
-        right side. That’s because they are sitting on the edge of the board, so
-        the ⅓ chance to move to the left are effectively redistributed to the
-        right side.
+        chance to go in any direction (but backwards). Similarly, Green
+        Prototypes now have ⅓ chance to move forward, and ⅔ chance to move to
+        the right side. That’s because they are sitting on the edge of the
+        board, so the ⅓ chance to move to the left are effectively redistributed
+        to the right side.
       </p>
 
       <div className='Article__fullwidth'>
+        <Checkbox
+          checked={withConfusionFix}
+          onChange={event => setConfusionFix(event.target.checked)}
+          name='confusion-fix'
+          id='confusion-fix'
+          className='ChangelogJuly2020__fix'
+        >
+          Apply the confusion fix
+        </Checkbox>
         <BattleSimApp
+          environment='winter'
           mode='DISPLAY'
-          simId='MU42MlIxLCwsLCwsMU4xNkI1QywsLCwsLDFOM0IxQywsLCwsLCw7UjEwTi1CMTBOOzNNMDs7'
+          simId='MU42MlIxLCwsLCwsMU4xNkI1QywsLCwsLCwsLCwxTjFCMUMsLCw7UjEwTi1CMTBOOzNNMDs7'
         />
       </div>
 
@@ -336,8 +387,8 @@ export default React.memo(function ChangelogJuly2020(props) {
 
       <ul>
         <li>
-          <span style={{ color: '#c8c0df' }}>Diamond</span>: no other cap than
-          the current maximum 20 health limit.
+          <span style={{ color: '#c8c0df' }}>Diamond</span>: no cap (besides 20
+          maximum health).
         </li>
         <li>
           <span style={{ color: '#c0e0cf' }}>Platinum</span>: health capped at
@@ -368,10 +419,15 @@ export default React.memo(function ChangelogJuly2020(props) {
       <div className='Article__fullwidth' style={{ '--padding': '0' }}>
         <Row desktopOnly wideGutter>
           <Column width='1/3'>
-            <h3>Fortress Level</h3>
+            <p style={{ marginTop: '2em' }}>
+              Sheepyard has already started to revisit old interfaces and is
+              going to introduce{' '}
+              <span className='Highlight'>many interface improvements</span> in
+              this release, and even more so in the next one.
+            </p>
+
             <p>
-              Sheepyard is starting to refresh the yee-old interface, starting
-              with the one around the base health — which is now named “
+              Here, the base health — which is now named “
               <span className='Highlight'>Fortress Level</span>”. It comes with
               a handy dialog box giving more information, as well as the
               effective progression.
@@ -406,11 +462,10 @@ export default React.memo(function ChangelogJuly2020(props) {
 
       <hr />
 
-      <p>
+      <Notice>
         That’s it for this update, which is not trivial for the first one from
         Sheepyard. They already have the next update in the starting blocks.
-        Until then, beeeeeh!
-      </p>
+      </Notice>
 
       <PageMeta
         title='Update 07-2020'

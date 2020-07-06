@@ -1,0 +1,25 @@
+.ChangelogJuly2020__fix {
+  margin-bottom: 1em;
+}
+
+.ChangelogJuly2020__odd {
+  font-size: 170%;
+}
+
+.ChangelogJuly2020__odd[data-position='edge'] {
+  color: #ac6d4f;
+}
+
+.ChangelogJuly2020__odd[data-position='middle'] {
+  color: #473062;
+  opacity: 0.8;
+}
+
+@media (min-width: 700px) {
+  .ChangelogJuly2020__fix {
+    position: absolute;
+    right: 2em;
+    top: 1em;
+    z-index: 2;
+  }
+}
