@@ -6,7 +6,6 @@ import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
 import Info from '../Info'
-import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Quest from '../Quest'
 import Row from '../Row'
@@ -462,10 +461,23 @@ export default React.memo(function ChangelogJuly2020(props) {
 
       <hr />
 
-      <Notice>
+      <p>
         That’s it for this update, which is not trivial for the first one from
-        Sheepyard. They already have the next update in the starting blocks.
-      </Notice>
+        Sheepyard. They already have the next update in the starting blocks,
+        including but not limited to:
+      </p>
+
+      <ul>
+        <li>
+          As mentioned before, at least two new cards inducing confusion, thus
+          helping making confusion-decks more competitive.
+        </li>
+        <li>
+          A community tab within the game, with links to social media and
+          Stormbound platforms.
+        </li>
+        <li>More options when it comes to friendly matches.</li>
+      </ul>
 
       <PageMeta
         title='Update 07-2020'
