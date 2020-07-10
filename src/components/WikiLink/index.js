@@ -34,7 +34,7 @@ export default React.memo(function WikiLink(props) {
         border: 0,
         whiteSpace: 'normal',
         animation: 'appear 300ms 500ms both',
-        boxShadow: '0 0 2em 1em rgba(0, 0, 0, 0.2)',
+        filter: 'drop-shadow(0 1em 2em rgba(0, 0, 0, 0.2))',
       }}
     >
       {trigger => (
