@@ -2,12 +2,17 @@ import FuzzySearch from 'fuzzy-search'
 import cards from '../../data/cards'
 import getRawCardData from '../getRawCardData'
 import getAbbreviations from '../getAbbreviations'
+import { RELEASE_DATE } from '../../constants/game'
 
 const ABBREVIATIONS = getAbbreviations('LOWERCASE')
 const SEARCH_OPTIONS = { caseSensitive: false, sort: true }
 
 export const searcher = new FuzzySearch(
-  cards.filter(card => !card.token),
+  cards
+    .filter(card => !card.token)
+    .filter(card =>
+      card.id === 'N77' && new Date() < RELEASE_DATE ? false : true
+    ),
   ['name'],
   SEARCH_OPTIONS
 )
