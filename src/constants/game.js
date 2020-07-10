@@ -1,4 +1,5 @@
 import countCardsForRarity from '../helpers/countCardsForRarity'
+import getCETDate from '../helpers/getCETDate'
 
 export const FACTIONS = {
   neutral: 'N',
@@ -109,3 +110,12 @@ export const CHIP_CARDS = [
   'N45',
   'W21',
 ]
+
+// Sat Jul 11 2020 14:00:00 GMT+0200 (Central European Summer Time)
+export const RELEASE_DATE = getCETDate()
+RELEASE_DATE.setDate(11)
+RELEASE_DATE.setMonth(6)
+RELEASE_DATE.setFullYear(2020)
+RELEASE_DATE.setHours(14)
+RELEASE_DATE.setMinutes(0)
+RELEASE_DATE.setSeconds(0)
