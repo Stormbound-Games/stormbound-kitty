@@ -8,6 +8,7 @@ import CollectionClearHint from '../CollectionClearHint'
 import CardLevelField from '../DeckCardLevelField'
 import CardsFiltering from '../CardsFiltering'
 import CardsGallery from '../CardsGallery'
+import Checkbox from '../Checkbox'
 import Column from '../Column'
 import Deck from '../Deck'
 import EmptySearch from '../EmptySearch'
@@ -31,7 +32,7 @@ import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
 
 class DeckEditorView extends React.Component {
-  state = { cardLevel: 1 }
+  state = { cardLevel: 1, cardTooltips: false }
 
   componentDidMount() {
     document.addEventListener('keydown', this.captureKeyboardEvents)
@@ -145,6 +146,7 @@ class DeckEditorView extends React.Component {
 
             <Deck
               showUpgrades
+              showTooltips={this.state.cardTooltips}
               id='deck'
               deck={deck}
               orientation={
@@ -154,6 +156,20 @@ class DeckEditorView extends React.Component {
               onClickLabel='Remove card from deck'
               highlightedCards={this.props.highlightedCards}
             />
+
+            <Only.Desktop>
+              <Checkbox
+                className='DeckEditorView__checkbox'
+                onChange={event =>
+                  this.setState({ cardTooltips: event.target.checked })
+                }
+                name='card-tooltips'
+                id='card-tooltips'
+                checked={this.state.cardTooltips}
+              >
+                Enable card tooltips on hover
+              </Checkbox>
+            </Only.Desktop>
 
             {deck.length > 0 ? (
               <div className='DeckEditorView__actions'>
