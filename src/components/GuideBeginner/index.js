@@ -186,6 +186,12 @@ export default React.memo(function GuideBeginner(props) {
         picks randomly.
       </p>
 
+      <Info icon='sword' title='In-depth triggers'>
+        For more information about the intricacies of triggers, particularly
+        death trigger effects, refer to the extensive{' '}
+        <Link to='/guides/triggers'>guide on trigger effects</Link>.
+      </Info>
+
       <Title>Status Effects</Title>
       <ul>
         <li>
