@@ -4,6 +4,7 @@ import remark from 'remark'
 import remarkReact from 'remark-react'
 import cards from '../../data/cards'
 import Deck from '../Deck'
+import Info from '../Info'
 import Notice from '../Notice'
 import Title from '../Title'
 import WikiLink from '../WikiLink'
@@ -46,6 +47,9 @@ const p = React.memo(props => {
   const isHint =
     typeof props.children[0] === 'string' &&
     props.children[0].startsWith('Hint: ')
+  const isInfo =
+    typeof props.children[0] === 'string' &&
+    props.children[0].startsWith('Info: ')
   const isDeck =
     typeof props.children[0] === 'string' &&
     props.children[0].match(/\[deck:(\w+)\]/)
@@ -76,6 +80,16 @@ const p = React.memo(props => {
         {props.children[0].replace('Hint: ', '')}
         {props.children.slice(1)}
       </Notice>
+    )
+  }
+
+  if (isInfo) {
+    const [title, content, ...rest] = props.children[0].split('::')
+    return (
+      <Info title={title.replace('Info: ', '')}>
+        {content}
+        {rest}
+      </Info>
     )
   }
 
