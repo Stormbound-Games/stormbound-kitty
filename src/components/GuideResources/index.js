@@ -158,7 +158,8 @@ export default React.memo(function GuideDrawing(props) {
 
       <p>
         Some of these goals are a lot harder to achieve. Consider that upgrading
-        your full collection to level 5 costs you <Coins amount='272,600' />,
+        your full collection to level 5 costs you{' '}
+        <Coins amount={cards.filter(card => !card.token).length * 1450} />,
         which would take you at least 500 days to grind with in-game rewards. As
         a <abbr title='Free-To-Play'>F2P</abbr> player myself, I’ve run multiple
         calculations and it woud take over 4 years of playing in the current
