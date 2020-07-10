@@ -1173,13 +1173,15 @@
     "id": "2n12f32n672f272n112f72n262f142n742f182f282n58",
     "faction": "shadowfen",
     "author": "Helios",
-    "category": "STARTER"
+    "category": "STARTER",
+    "nerfed": "07.2020"
   },
   {
     "name": "Fallen Fires",
     "id": "1n11i11n61i51n111i71i131i61i141i201n741i28",
     "faction": "ironclad",
     "author": "Helios",
-    "category": "STARTER"
+    "category": "STARTER",
+    "nerfed": "07.2020"
   }
 ]
