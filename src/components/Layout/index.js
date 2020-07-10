@@ -16,7 +16,7 @@ export default React.memo(function Layout(props) {
       {isUpdatedEnabled && (
         <Only.Desktop>
           <EyeCatcher id='update-07-2020'>
-            The new Sheepyard update is coming, be sure to read{' '}
+            The new Sheepyard update is there, be sure to read{' '}
             <Link to='/changelog/07-2020'>
               everything there is to know about it
             </Link>
