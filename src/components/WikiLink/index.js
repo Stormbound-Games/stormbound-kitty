@@ -33,7 +33,7 @@ export default React.memo(function WikiLink(props) {
         backgroundColor: 'transparent',
         border: 0,
         whiteSpace: 'normal',
-        animation: 'appear 300ms 500ms both',
+        boxShadow: 'none',
         filter: 'drop-shadow(0 1em 2em rgba(0, 0, 0, 0.2))',
       }}
     >
