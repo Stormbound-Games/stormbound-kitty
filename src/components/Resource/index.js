@@ -1,11 +1,13 @@
 import React from 'react'
 import ResourceIcon from '../ResourceIcon'
 
+const THOUSANDS = /\B(?=(\d{3})+(?!\d))/g
+
 const Resource = React.memo(function Resource({ amount, resource }) {
   return (
     <>
       <ResourceIcon resource={resource} />
-      &nbsp;{amount}&nbsp;
+      &nbsp;{amount.toString().replace(THOUSANDS, ',')}&nbsp;
       {resource === 'COIN' && (amount === 1 ? 'coin' : 'coins')}
       {resource === 'RUBY' && (amount === 1 ? 'ruby' : 'rubies')}
       {resource === 'CROWN' && (amount === 1 ? 'crown' : 'crowns')}
