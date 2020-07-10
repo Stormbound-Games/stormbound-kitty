@@ -50,7 +50,7 @@ export default React.memo(function ChangelogJuly2020(props) {
       backLink={{ to: '/changelog', children: 'Back to changelog' }}
       readingTime='10 minutes'
       className='ChangelogJuly2020'
-      background='/assets/images/environment_dragon.png'
+      background='/assets/images/environment_dragon.jpg'
       ratio='50%'
     >
       <p>
