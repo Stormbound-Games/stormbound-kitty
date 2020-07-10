@@ -6,6 +6,7 @@ import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
 import Info from '../Info'
+import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Quest from '../Quest'
 import Row from '../Row'
@@ -90,11 +91,12 @@ export default React.memo(function ChangelogJuly2020(props) {
 
       <p>
         Following Paladin Studios’ advice, the update will hit the production
-        servers some time early next week. From there, the new version of the
-        application will be gradually rolled out to app stores and players are
-        encouraged to update the game as soon as possible. A few days later, a
-        forced update will be conducted to migrate the remaining players to the
-        latest version of the app. Only after that will the{' '}
+        servers some time <span className='Highlight'>during the week</span> of
+        July 13th. From there, the new version of the application will be
+        gradually rolled out to app stores and players are encouraged to update
+        the game as soon as possible. A few days later, a forced update will be
+        conducted to migrate the remaining players to the latest version of the
+        app. Only after that will the{' '}
         <a href='#new-legendary-card'>new card and new pack offer</a> be
         available.
       </p>
@@ -209,11 +211,12 @@ export default React.memo(function ChangelogJuly2020(props) {
       </div>
 
       <p>
-        <WikiLink id='N77' /> will be available shortly (in the upcoming days)
-        through crafting and <Link to='/collection/books'>books</Link>.
-        Additionally, it will be possible to buy a $9.99 limited edition pack
-        containing Rogue Sheep and some resources. This one-time offer will only
-        be available for a few days, so be sure to consider it!
+        <WikiLink id='N77' /> will be available shortly (a few days following
+        the release) through crafting and{' '}
+        <Link to='/collection/books'>books</Link>. Additionally, it will be
+        possible to buy a $9.99 limited edition pack containing Rogue Sheep and
+        some resources. This one-time offer will only be available for a few
+        days, so be sure to consider it!
       </p>
       <img
         src='/assets/images/pack_offer.png'
@@ -239,7 +242,7 @@ export default React.memo(function ChangelogJuly2020(props) {
 
       <ul>
         <li>
-          <WikiLink id='N70' /> has its strength and its ability both decreased
+          <WikiLink id='N70' /> have their strength and ability both decreased
           by 1.
         </li>
         <li>
@@ -249,7 +252,7 @@ export default React.memo(function ChangelogJuly2020(props) {
           <WikiLink id='N76' /> has its strength decreased by 1 at all levels.
         </li>
         <li>
-          <WikiLink id='F20' /> have their strengrh decreased by 2 at all
+          <WikiLink id='F20' /> have their strength decreased by 2 at all
           levels.
         </li>
         <li>
@@ -269,7 +272,7 @@ export default React.memo(function ChangelogJuly2020(props) {
           levels.
         </li>
         <li>
-          <WikiLink id='W9' /> have their strength and ability described by 1 at
+          <WikiLink id='W9' /> has its strength and ability decreased by 1 at
           all levels.
         </li>
         <li>
@@ -287,7 +290,7 @@ export default React.memo(function ChangelogJuly2020(props) {
       </ul>
 
       <Info icon='heart' title='Nerf compensation'>
-        Like in the past, some compensation in the form of coins and/or fusion
+        Like in the past, some compensation in the form of coins and fusion
         stones will be provided to owners of these nerfed cards, proportional to
         the amount of owned copies.
       </Info>
@@ -303,7 +306,7 @@ export default React.memo(function ChangelogJuly2020(props) {
           <WikiLink id='N21' /> does 1 more damage at all levels.
         </li>
         <li>
-          <WikiLink id='N60' /> costs 5 mana at all levels (down from 6).
+          <WikiLink id='N60' /> cost 5 mana at all levels (down from 6).
         </li>
       </ul>
 
@@ -315,7 +318,7 @@ export default React.memo(function ChangelogJuly2020(props) {
         <u style={{ textDecoration: 'line-through', opacity: 0.5 }}>
           revisited
         </u>{' '}
-        fixed the Confusion mechanic to make it more reliable.
+        fixed the confusion mechanic to make it more reliable.
       </p>
 
       <p>
@@ -327,7 +330,7 @@ export default React.memo(function ChangelogJuly2020(props) {
 
       <Info icon='sword' title='Existing implementation'>
         <p>
-          While it might sound like it is how Confusion currently works, it
+          While it might sound like it is how confusion currently works, it
           turns out that it’s not at all how it worked until now despite popular
           belief.
         </p>
@@ -379,8 +382,8 @@ export default React.memo(function ChangelogJuly2020(props) {
 
       <p>
         Stormbound has a long history of awkward matchmaking. In order to make
-        it a little more fair, Sheepyard is introduced a base health upper limit
-        based on the current league a player is in. The caps go as follow:
+        it a little more fair, Sheepyard is introducing a base health upper
+        limit based on the current league a player is in. The caps go as follow:
       </p>
 
       <ul>
@@ -477,6 +480,11 @@ export default React.memo(function ChangelogJuly2020(props) {
         </li>
         <li>More options when it comes to friendly matches.</li>
       </ul>
+
+      <Notice>
+        <span className='Highlight'>Meow</span> and happy fighting, fellow
+        Stormbounders!
+      </Notice>
 
       <PageMeta
         title='Update 07-2020'
