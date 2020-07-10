@@ -438,9 +438,9 @@ export default React.memo(function ChangelogJuly2020(props) {
             </p>
 
             <p>
-              Another minor interface change not displayed in the joined images
-              — amongst a lot more improvements across all interfaces — is a new
-              icon for the “Friends” button to replace to current one.
+              Another minor interface change which can be seen behind the
+              fortress level dialog box in the joined image is the new icon for
+              the “Friends” button to replace to current one.
             </p>
           </Column>
           <Column width='1/3'>
@@ -451,8 +451,8 @@ export default React.memo(function ChangelogJuly2020(props) {
           </Column>
           <Column width='1/3'>
             <img
-              src='/assets/images/base_health_level.gif'
-              alt='Animation of the base health increasing'
+              src='/assets/images/base_health_level.png'
+              alt='Illustration of the base health increasing'
             />
           </Column>
         </Row>
