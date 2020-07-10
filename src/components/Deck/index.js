@@ -22,7 +22,7 @@ const TOOLTIP_STYLES = {
 
 const DeckEmptySlot = React.memo(function DeckEmptySlot(props) {
   return (
-    <li className='Deck__card Deck__card--empty' key={props.index}>
+    <li className='Deck__card Deck__card--empty'>
       <Mana className='Deck__mana' mana='' />
       <span className='VisuallyHidden'>Empty deck slot</span>
     </li>
@@ -31,7 +31,7 @@ const DeckEmptySlot = React.memo(function DeckEmptySlot(props) {
 
 const DeckSlot = React.memo(function DeckSlot(props) {
   if (!props.card) {
-    return props.showEmptySlots ? <DeckEmptySlot index={props.index} /> : null
+    return props.showEmptySlots ? <DeckEmptySlot /> : null
   }
 
   if (!props.showTooltips) {
@@ -73,7 +73,6 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
       ]
         .filter(Boolean)
         .join(' ')}
-      key={card.id + props.index}
       data-testid={[card.id, card.idx].filter(Boolean).join('_')}
     >
       {props.onClick && (
@@ -132,9 +131,9 @@ export default React.memo(function Deck(props) {
       <ul className='Deck__list'>
         {slots.map((card, index) => (
           <DeckSlot
+            key={card ? card.id + index : index}
             {...props}
             showEmptySlots={showEmptySlots}
-            index={index}
             card={card}
           />
         ))}
