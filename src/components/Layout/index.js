@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { UpdateContext } from '../UpdateProvider'
 import EyeCatcher from '../EyeCatcher'
 import Footer from '../Footer'
 import Header from '../Header'
@@ -8,17 +9,21 @@ import Only from '../Only'
 import './index.css'
 
 export default React.memo(function Layout(props) {
+  const isUpdatedEnabled = React.useContext(UpdateContext)
+
   return (
     <div className='Layout'>
-      <Only.Desktop>
-        <EyeCatcher id='update-07-2020'>
-          The new Sheepyard update is coming, be sure to read{' '}
-          <Link to='/changelog/07-2020'>
-            everything there is to know about it
-          </Link>
-          !
-        </EyeCatcher>
-      </Only.Desktop>
+      {isUpdatedEnabled && (
+        <Only.Desktop>
+          <EyeCatcher id='update-07-2020'>
+            The new Sheepyard update is coming, be sure to read{' '}
+            <Link to='/changelog/07-2020'>
+              everything there is to know about it
+            </Link>
+            !
+          </EyeCatcher>
+        </Only.Desktop>
+      )}
 
       <Header active={props.active} />
 
