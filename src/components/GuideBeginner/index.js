@@ -193,30 +193,28 @@ export default React.memo(function GuideBeginner(props) {
       </Info>
 
       <Title>Status Effects</Title>
-      <ul>
-        <li>
-          Structures are effectively immune to all status effects but can still
-          take damage.
-        </li>
-        <li>
-          <strong className='Highlight'>Poison</strong>: units lose 1 health per
-          turn. Lasts until the unit dies.
-        </li>
-        <li>
-          <strong className='Highlight'>Confusion</strong>: units have a 33%
-          chance to move forward, left, or right (50% chance to move forward or
-          left/right if the unit is in an edge column) and will attack friendly
-          units or structures if they’re in the target tile. Lasts until the
-          unit moves or attacks left or right (if it moves forward normally, the
-          unit remains confused).
-        </li>
-        <li>
-          <strong className='Highlight'>Freeze</strong>: units don’t move at the
-          start of their owner’s next turn. Lasts until the owner’s next turn
-          starts, so frozen units can still be commanded forward during the next
-          turn.
-        </li>
-      </ul>
+      <p>
+        Structures are effectively immune to all status effects but can still
+        take damage.
+      </p>
+      <p>
+        <strong className='Highlight'>Poison</strong>: units lose 1 health per
+        turn. Lasts until the unit dies.
+      </p>
+      <p>
+        <strong className='Highlight'>Confusion</strong>: units have a 33%
+        chance to move forward, left, or right (50% chance to move forward or
+        left/right if the unit is in an edge column) and will attack friendly
+        units or structures if they’re in the target tile. Lasts until the unit
+        moves or attacks left or right (if it moves forward normally, the unit
+        remains confused).
+      </p>
+      <p>
+        <strong className='Highlight'>Freeze</strong>: units don’t move at the
+        start of their owner’s next turn. Lasts until the owner’s next turn
+        starts, so frozen units can still be commanded forward during the next
+        turn.
+      </p>
 
       <Title>Special abilities</Title>
 
