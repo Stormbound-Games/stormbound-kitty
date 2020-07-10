@@ -2,28 +2,86 @@ import React from 'react'
 import { useTooltip, TooltipPopup } from '@reach/tooltip'
 import '@reach/tooltip/styles.css'
 
-const OFFSET = 8
-
-// Center the tooltip, but collisions will win
-const centered = (triggerRect, tooltipRect) => {
+const resolvePosition = ({ position, offset, trigger, tooltip }) => {
   const collisions = {
-    top: triggerRect.top - tooltipRect.height < 0,
-    right: window.innerWidth < triggerRect.left + tooltipRect.width,
-    bottom:
-      window.innerHeight < triggerRect.bottom + tooltipRect.height + OFFSET,
-    left: triggerRect.left - tooltipRect.width < 0,
+    top: trigger.top - tooltip.height < 0,
+    right: window.innerWidth < trigger.left + tooltip.width,
+    bottom: window.innerHeight < trigger.bottom + tooltip.height + offset,
+    left: trigger.left - tooltip.width < 0,
   }
 
-  const directionUp = collisions.bottom && !collisions.top
-  const triggerCenter = triggerRect.left + triggerRect.width / 2
-  const left = triggerCenter - tooltipRect.width / 2
-  const maxLeft = window.innerWidth - tooltipRect.width - 2
+  switch (position) {
+    case 'bottom':
+      return collisions.bottom && !collisions.top ? 'top' : 'bottom'
+    case 'top':
+      return collisions.top && !collisions.bottom ? 'bottom' : 'top'
+    case 'left':
+      return collisions.left && !collisions.right ? 'right' : 'left'
+    case 'right':
+      return collisions.right && !collisions.left ? 'left' : 'right'
+    default:
+      return position
+  }
+}
 
-  return {
-    left: Math.min(Math.max(2, left), maxLeft) + window.scrollX,
-    top: directionUp
-      ? `${triggerRect.top - OFFSET - tooltipRect.height + window.scrollY}px`
-      : `${triggerRect.top + OFFSET + triggerRect.height + window.scrollY}px`,
+const getTooltipPosition = ({ offset = 8, position = 'bottom' }) => (
+  trigger,
+  tooltip
+) => {
+  const positionAfterCollisions = resolvePosition({
+    position,
+    offset,
+    trigger,
+    tooltip,
+  })
+
+  switch (positionAfterCollisions) {
+    case 'bottom': {
+      const triggerCenter = trigger.left + trigger.width / 2
+      const left = triggerCenter - tooltip.width / 2
+      const maxLeft = window.innerWidth - tooltip.width - 2
+
+      return {
+        left: Math.min(Math.max(2, left), maxLeft) + window.scrollX,
+        top: `${trigger.top + offset + trigger.height + window.scrollY}px`,
+      }
+    }
+
+    case 'top': {
+      const triggerCenter = trigger.left + trigger.width / 2
+      const left = triggerCenter - tooltip.width / 2
+      const maxLeft = window.innerWidth - tooltip.width - 2
+
+      return {
+        left: Math.min(Math.max(2, left), maxLeft) + window.scrollX,
+        top: `${trigger.top - offset - tooltip.height + window.scrollY}px`,
+      }
+    }
+
+    case 'left': {
+      const triggerCenter = trigger.top + trigger.height / 2
+      const top = triggerCenter - tooltip.height / 2
+      const maxTop = window.innerHeight - tooltip.height - 2
+
+      return {
+        top: Math.min(Math.max(2, top), maxTop) + window.scrollY,
+        left: `${trigger.left - offset - tooltip.width + window.scrollX}px`,
+      }
+    }
+
+    case 'right': {
+      const triggerCenter = trigger.top + trigger.height / 2
+      const top = triggerCenter - tooltip.height / 2
+      const maxTop = window.innerHeight - tooltip.height - 2
+
+      return {
+        top: Math.min(Math.max(2, top), maxTop) + window.scrollY,
+        left: `${trigger.left + offset + trigger.width + window.scrollX}px`,
+      }
+    }
+
+    default:
+      return {}
   }
 }
 
@@ -33,7 +91,11 @@ export default React.memo(function Tooltip({ children, ...props }) {
   return (
     <>
       {children(trigger)}
-      <TooltipPopup {...tooltip} {...props} position={centered} />
+      <TooltipPopup
+        {...tooltip}
+        {...props}
+        position={getTooltipPosition(props)}
+      />
     </>
   )
 })
