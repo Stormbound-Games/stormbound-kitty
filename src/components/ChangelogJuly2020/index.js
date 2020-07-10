@@ -211,14 +211,13 @@ export default React.memo(function ChangelogJuly2020(props) {
       <p>
         <WikiLink id='N77' /> will be available shortly (in the upcoming days)
         through crafting and <Link to='/collection/books'>books</Link>.
-        Additionally, it will be possible to buy a $10 limited edition pack
+        Additionally, it will be possible to buy a $9.99 limited edition pack
         containing Rogue Sheep and some resources. This one-time offer will only
         be available for a few days, so be sure to consider it!
       </p>
       <img
-        style={{ marginTop: 0 }}
-        src='https://i.gyazo.com/24207235577c36531a6e5d4af50cf6af.png'
-        alt='Limited offer'
+        src='/assets/images/pack_offer.png'
+        alt='Limited offer to get Rogue Sheep and some resources'
       />
 
       <Title id='balance-changes'>Balance changes</Title>
