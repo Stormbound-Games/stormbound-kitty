@@ -64,6 +64,9 @@ export default function Changelog(props) {
   const changesByDate = React.useMemo(() => {
     return changelog
       .filter(change => type === '*' || change.type === type)
+      .filter(change =>
+        change.date === 1594425600000 && !isUpdatedEnabled ? false : true
+      )
       .reduce((acc, change) => {
         if (!acc[change.date]) {
           acc[change.date] = []
@@ -71,7 +74,7 @@ export default function Changelog(props) {
         acc[change.date].push(change)
         return acc
       }, {})
-  }, [type])
+  }, [isUpdatedEnabled, type])
   const changesByCard = React.useMemo(() => {
     return changelog
       .filter(change => type === '*' || change.type === type)
