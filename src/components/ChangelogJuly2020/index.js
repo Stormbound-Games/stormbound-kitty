@@ -247,7 +247,7 @@ export default React.memo(function ChangelogJuly2020(props) {
       <ul>
         <li>
           <WikiLink id='N70' /> have their strength and ability both decreased
-          by 1.
+          by 1 at all levels.
         </li>
         <li>
           <WikiLink id='N74' /> cost 6 mana at all levels (up from 5).

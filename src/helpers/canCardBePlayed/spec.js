@@ -50,7 +50,7 @@ describe('The `canCardBePlayed` helper', () => {
       })
     ).to.equal(true)
   })
-  ;['F4', 'N15', 'W6', 'I11', 'N40', 'S20'].forEach(id => {
+  ;['F4', 'N15', 'W6', 'I11', 'N40'].forEach(id => {
     const cardData = getRawCardData(id)
     const card = { ...cardData, mana: cardData.mana - 2 }
 

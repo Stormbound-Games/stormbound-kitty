@@ -36,14 +36,13 @@ const canCardBePlayed = (availableMana, card, state = {}) => {
       // Potion of Growth is only playable in `SPELL_MANA` Brawl if there is a
       // unit on the board (1- or 2-drop played before).
       unplayableSpells.push('N15')
-      // Moment’s Peace, Boosting Elixir, Kindred’s Grace and Herald’s Hymn
-      // become cheap enough to be played on the first turn (some as the 2nd
-      // player) in the `SPELL_MANA` Brawl but they require a friendly unit on
-      // the board to be played.
+      // Moment’s Peace, Boosting Elixir and Kindred’s Grace become cheap enough
+      // to be played on the first turn (some as the 2nd player) in the
+      // `SPELL_MANA` Brawl but they require a friendly unit on the board to be
+      // played.
       unplayableSpells.push('W6')
       unplayableSpells.push('I11')
       unplayableSpells.push('N40')
-      unplayableSpells.push('S20')
     }
 
     if (unplayableSpells.includes(card.id)) return false

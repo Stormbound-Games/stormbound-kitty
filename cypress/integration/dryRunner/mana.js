@@ -13,7 +13,7 @@ describe('Dry-runner — Mana', () => {
   })
 
   it('should be possible to gain/spend mana', () => {
-    cy.drEndTurn(4)
+    cy.drEndTurn(5)
 
       .drPlay('W19')
 

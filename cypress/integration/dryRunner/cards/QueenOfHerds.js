@@ -8,7 +8,7 @@ describe('Dry-runner — Queen of Herds', () => {
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
       .drDrawHand(HAND)
 
-      .drEndTurn(6)
+      .drEndTurn(7)
 
       .drSetRNG('FRIENDLY')
 
@@ -23,7 +23,7 @@ describe('Dry-runner — Queen of Herds', () => {
     const HAND = ['S21', 'N1', 'N2', 'S3']
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)
       .drDrawHand(HAND)
-      .drEndTurn(6)
+      .drEndTurn(7)
       .drSetRNG('FRIENDLY')
 
       .drPlay('S21')
