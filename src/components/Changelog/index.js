@@ -1,7 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { UpdateContext } from '../UpdateProvider'
 import ChangelogLegend from '../ChangelogLegend'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
+import Info from '../Info'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
@@ -54,12 +57,16 @@ const formatDate = date => {
 }
 
 export default function Changelog(props) {
+  const isUpdatedEnabled = React.useContext(UpdateContext)
   const [sorting, setSorting] = React.useState('DATE')
   const [colorCoding, setColorCoding] = React.useState(true)
   const [type, setType] = React.useState('*')
   const changesByDate = React.useMemo(() => {
     return changelog
       .filter(change => type === '*' || change.type === type)
+      .filter(change =>
+        change.date === 1594425600000 && !isUpdatedEnabled ? false : true
+      )
       .reduce((acc, change) => {
         if (!acc[change.date]) {
           acc[change.date] = []
@@ -67,7 +74,7 @@ export default function Changelog(props) {
         acc[change.date].push(change)
         return acc
       }, {})
-  }, [type])
+  }, [isUpdatedEnabled, type])
   const changesByCard = React.useMemo(() => {
     return changelog
       .filter(change => type === '*' || change.type === type)
@@ -128,7 +135,7 @@ export default function Changelog(props) {
             </Column>
           </Row>
 
-          <p>
+          <p className='Changelog__disclaimer'>
             This data is periodically scrapped from the official{' '}
             <a
               href='https://stormboundkingdomwars.gamepedia.com/Stormbound:_Kingdom_Wars_Wiki'
@@ -140,6 +147,19 @@ export default function Changelog(props) {
             . Thank you to Frozen for their work on maintaining the list of
             changes.
           </p>
+
+          {isUpdatedEnabled && (
+            <Info icon='wand' title='Update July 2020'>
+              <p>
+                The first update from Sheepyard is there and contains a lot of
+                things you should know. Be sure to read{' '}
+                <Link to='/changelog/07-2020'>
+                  everything there is to know about it
+                </Link>
+                !
+              </p>
+            </Info>
+          )}
         </Column>
         <Column width='2/3'>
           {sorting === 'DATE'

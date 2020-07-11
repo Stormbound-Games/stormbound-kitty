@@ -2980,5 +2980,113 @@
     "type": "UPDATE",
     "description": "Made available to be crafted and randomly collected",
     "id": "W28"
+  },
+  {
+    "date": 1594425600000,
+    "type": "UPDATE",
+    "description": "Set mana to 3 at all levels",
+    "id": "N9"
+  },
+  {
+    "date": 1594425600000,
+    "type": "UPDATE",
+    "description": "Increased ability by 1",
+    "id": "N21"
+  },
+  {
+    "date": 1594425600000,
+    "type": "UPDATE",
+    "description": "Decreased mana by 1",
+    "id": "N60"
+  },
+  {
+    "date": 1594425600000,
+    "type": "UPDATE",
+    "description": "Decreased strength by 1 and ability by 1",
+    "id": "N70"
+  },
+  {
+    "date": 1594425600000,
+    "type": "UPDATE",
+    "description": "Increased mana by 1",
+    "id": "N74"
+  },
+  {
+    "date": 1594425600000,
+    "type": "UPDATE",
+    "description": "Decreased strength by 1",
+    "id": "N76"
+  },
+  {
+    "date": 1594425600000,
+    "type": "UPDATE",
+    "description": "Decreased strength by 2",
+    "id": "F20"
+  },
+  {
+    "date": 1594425600000,
+    "type": "UPDATE",
+    "description": "Decreased strength by 2",
+    "id": "F28"
+  },
+  {
+    "date": 1594425600000,
+    "type": "UPDATE",
+    "description": "Increased mana by 1",
+    "id": "S20"
+  },
+  {
+    "date": 1594425600000,
+    "type": "UPDATE",
+    "description": "Increased mana by 1",
+    "id": "S21"
+  },
+  {
+    "date": 1594425600000,
+    "type": "UPDATE",
+    "description": "Prevented ability from playing epic cards",
+    "id": "S21"
+  },
+  {
+    "date": 1594425600000,
+    "type": "UPDATE",
+    "description": "Decreased strength by 1",
+    "id": "S28"
+  },
+  {
+    "date": 1594425600000,
+    "type": "UPDATE",
+    "description": "Decreased strength by 1 and ability by 1",
+    "id": "W9"
+  },
+  {
+    "date": 1594425600000,
+    "type": "UPDATE",
+    "description": "Decreased movement by 1",
+    "id": "W13"
+  },
+  {
+    "date": 1594425600000,
+    "type": "UPDATE",
+    "description": "Increased mana by 1",
+    "id": "W19"
+  },
+  {
+    "date": 1594425600000,
+    "type": "UPDATE",
+    "description": "Decreased strength by 1",
+    "id": "W27"
+  },
+  {
+    "date": 1594425600000,
+    "type": "UPDATE",
+    "description": "Decreased ability at higher levels",
+    "id": "W27"
+  },
+  {
+    "date": 1594425600000,
+    "type": "ADDITION",
+    "description": "Added to the game",
+    "id": "N77"
   }
 ]

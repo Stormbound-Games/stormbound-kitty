@@ -12,7 +12,10 @@ export default React.memo(function HeaderBanner(props) {
   return (
     <header
       className='HeaderBanner'
-      style={{ backgroundImage: `url(${background})` }}
+      style={{
+        backgroundImage: `url(${background})`,
+        '--ratio': props.ratio,
+      }}
     >
       <h1 className='HeaderBanner__title' title={props.title}>
         {props.title}

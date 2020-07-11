@@ -10,7 +10,7 @@
 .HeaderBanner::before {
   content: '';
   display: block;
-  padding-top: 15%;
+  padding-top: var(--ratio, 15%);
 }
 
 .HeaderBanner::after {

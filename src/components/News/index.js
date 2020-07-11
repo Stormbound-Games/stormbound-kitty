@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { UpdateContext } from '../UpdateProvider'
 import Column from '../Column'
 import CTA from '../CTA'
 import Error from '../Error'
@@ -12,8 +13,9 @@ import './index.css'
 const MAX_NEWS = 7
 
 export default React.memo(function News(props) {
+  const isUpdatedEnabled = React.useContext(UpdateContext)
   const { loading, error, data: news = [] } = useFetch('/news.json')
-  const pages = chunk(news, MAX_NEWS)
+  const pages = chunk(news.slice(isUpdatedEnabled ? 0 : 1), MAX_NEWS)
   const [activePage, setActivePage] = React.useState(0)
   const loadPrev = () => setActivePage(page => page + 1)
   const loadNext = () => setActivePage(page => page - 1)

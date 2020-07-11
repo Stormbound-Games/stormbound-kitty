@@ -1,10 +1,12 @@
 import React from 'react'
 import Image from '../Image'
+import useFluidSizing from '../../hooks/useFluidSizing'
 import './index.css'
 
 export default React.memo(function Quest(props) {
+  const { fontSize, ref } = useFluidSizing(0.04114285714)
   return (
-    <div className='Quest'>
+    <div className='Quest' style={{ '--font-size': fontSize }} ref={ref}>
       <div className='Quest__inner'>
         <span
           className={`Quest__difficulty Quest__difficulty--${props.difficulty}`}

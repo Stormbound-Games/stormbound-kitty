@@ -4,6 +4,7 @@ import CollectionProvider from '../CollectionProvider'
 import ErrorBoundary from '../ErrorBoundary'
 import NotificationProvider from '../NotificationProvider'
 import PersonalDecksProvider from '../PersonalDecksProvider'
+import UpdateProvider from '../UpdateProvider'
 import WebpProvider from '../WebpProvider'
 import Router from '../Router'
 
@@ -15,10 +16,12 @@ export default function Root(props) {
           <NotificationProvider>
             <CollectionProvider>
               <PersonalDecksProvider>
-                <Router />
-                <Helmet>
-                  <meta name='author' content='Kitty' />
-                </Helmet>
+                <UpdateProvider>
+                  <Router />
+                  <Helmet>
+                    <meta name='author' content='Kitty' />
+                  </Helmet>
+                </UpdateProvider>
               </PersonalDecksProvider>
             </CollectionProvider>
           </NotificationProvider>

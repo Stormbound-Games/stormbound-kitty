@@ -26,6 +26,8 @@ The deck has two different goals:
 
 To do so, certain cards are required—and will be the core of our deck—while others can be swapped depending upon their levels.
 
+Info: July 2020 nerfs :: This guide was written before the July 2020 update which included some consequent nerfs to Frozen Core and Gift of the Wise. The guide remains viable, but some things might have changed a little.
+
 ### Core cards
 
 - Gifted Recruits
@@ -120,7 +122,7 @@ Another option is using Collector Mirz instead of First Mutineer: Mirz’s 0-cos
 
 ### Gift of the Wise
 
-That’s most likely your 7+ mana play at each turn you get it—if you want to swap a card, I’d recommend making sure that you can still play Gift of the Wise afterwards. Example: you have 7 mana left and 3 cards, two cards are Gift of the Wise and Gifted Recruits. If you play Gifted Recruits first, then swap a card, you won’t be able to play Gift of the Wise anymore (as you’ll have only 5 mana left), and may miss the opportunity to play the card you just got.
+That’s most likely your 8+ mana play at each turn you get it — if you want to swap a card, I’d recommend making sure that you can still play Gift of the Wise afterwards. Example: you have 8 mana left and 3 cards, two cards are Gift of the Wise and Gifted Recruits. If you play Gifted Recruits first, then swap a card, you won’t be able to play Gift of the Wise anymore (as you’ll have only 6 mana left), and may miss the opportunity to play the card you just got.
 
 ### 2-Tiles Moving Units (2-TMU)
 

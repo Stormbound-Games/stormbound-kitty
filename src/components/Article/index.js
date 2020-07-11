@@ -25,7 +25,11 @@ export default React.memo(function Article(props) {
 
   return (
     <article className={['Article', props.className].filter(Boolean).join(' ')}>
-      <HeaderBanner title={props.title} background={props.background} />
+      <HeaderBanner
+        title={props.title}
+        background={props.background}
+        ratio={props.ratio}
+      />
 
       <p className='Article__meta'>
         {authors.length > 0 && (
