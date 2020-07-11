@@ -5,6 +5,7 @@ import BattleSimApp from '../BattleSimApp'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
+import FAQSection from '../FAQSection'
 import Info from '../Info'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
@@ -86,6 +87,9 @@ export default React.memo(function ChangelogJuly2020(props) {
         </li>
         <li>
           <a href='#ui-improvements'>UI improvements</a>
+        </li>
+        <li>
+          <a href='#faq'>FAQ</a>
         </li>
       </ul>
 
@@ -461,6 +465,38 @@ export default React.memo(function ChangelogJuly2020(props) {
         </Row>
       </div>
 
+      <FAQSection
+        id='faq'
+        title='FAQ'
+        entries={[
+          {
+            id: 'release-date',
+            question: 'When is the update going to be released?',
+            answer:
+              'The update itself has been completed and sent to the different app stores for approval at the end of June. However because Stormbound has been silent for so long, it currently is deprioritised and quite far down the queue. We are hoping to see it before July 20th, but cannot make any guarantee. This is completely outside of Paladin or Sheepyard’s control and we cannot speed that up.',
+          },
+          {
+            id: 'is-confusion-better',
+            question: 'Is the confusion mechanic really better now?',
+            answer:
+              'Sheepyard has conducted a lot of tests after having patched it and it does feel incredibly more reliable than before. It remains a somewhat random mechanic of course, but it is way better this way. With the upcoming new confusion-inducing cards, it’s likely it will bring this mechanic in the meta.',
+          },
+          {
+            id: 'why-the-nerfs',
+            question: 'What’s with all the nerfs and unsollicited buffs?',
+            answer:
+              'Most of the changes were a long time coming and carefully considered. The current meta relies too heavily on specific cards which makes for repetitive deck building. The goal is to eventually balance cards out so we see more variety in decks at all levels.',
+          },
+          {
+            id: 'health-cap-and-leagues',
+            question:
+              'Does the base health cap means I cannot drop down a league if my health is higher than this league’s cap?',
+            answer:
+              'No. The league influences the maximum health of the base, and not the other way around. This change has no incidence whatsoever on the league itself.',
+          },
+        ]}
+      />
+
       <hr />
 
       <p>
@@ -473,6 +509,10 @@ export default React.memo(function ChangelogJuly2020(props) {
         <li>
           As mentioned before, at least two new cards inducing confusion, thus
           helping making confusion-decks more competitive.
+        </li>
+        <li>
+          Over 30 card tweaks across all factions, hopefully restoring some
+          balance and improving some cards that have long been forgotten.
         </li>
         <li>
           A community tab within the game, with links to social media and
