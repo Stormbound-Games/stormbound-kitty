@@ -1,11 +1,5 @@
 import cards from '../../../data/cards'
-import {
-  FACTIONS,
-  RACES,
-  RARITIES,
-  TYPES,
-  RELEASE_DATE,
-} from '../../../constants/game'
+import { FACTIONS, RACES, RARITIES, TYPES } from '../../../constants/game'
 import arrayRandom from '../../../helpers/arrayRandom'
 import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'
@@ -72,9 +66,6 @@ export default {
 
     const results = cards
       .filter(card => !card.token)
-      .filter(card =>
-        card.id === 'N77' && new Date() < RELEASE_DATE ? false : true
-      )
       .filter(card => {
         for (const { key, method, value } of filters) {
           if (method === 'INC' && card[key] !== value) return false
