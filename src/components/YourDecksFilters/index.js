@@ -7,8 +7,15 @@ import MobileTogglableContent from '../MobileTogglableContent'
 import Row from '../Row'
 import './index.css'
 
+const unique = (value, index, array) => array.indexOf(value) === index
+
 export default React.memo(function YourDecksFilters(props) {
   const { decks } = React.useContext(PersonalDecksContext)
+  const categories = decks
+    // Look up whether a deck is from an existing category so that the category
+    // name is not displayed all uppercase in the filter.
+    .map(deck => CATEGORIES[deck.category] || deck.category)
+    .filter(unique)
 
   const updateCategory = category =>
     props.setFilters(filters => ({ ...filters, category }))
@@ -49,11 +56,12 @@ export default React.memo(function YourDecksFilters(props) {
               value={props.category}
               onChange={event => updateCategory(event.target.value)}
               data-testid='decks-category-select'
+              disabled={categories.length < 1}
             >
               <option value='*'>Any</option>
-              {Object.keys(CATEGORIES).map(category => (
+              {categories.map(category => (
                 <option value={category} key={category}>
-                  {CATEGORIES[category]}
+                  {category}
                 </option>
               ))}
             </select>

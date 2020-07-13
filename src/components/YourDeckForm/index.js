@@ -1,5 +1,4 @@
 import React from 'react'
-import { CATEGORIES } from '../../constants/decks'
 import Column from '../Column'
 import CTA from '../CTA'
 import Row from '../Row'
@@ -39,18 +38,15 @@ export default React.memo(function YourDeckForm(props) {
         </Column>
         <Column>
           <label htmlFor='category'>Deck category</label>
-          <select
+          <input
+            type='text'
             id='category'
             name='category'
             defaultValue={props.category}
-            data-testid='deck-category-select'
-          >
-            {Object.keys(CATEGORIES).map(category => (
-              <option value={category} key={category}>
-                {CATEGORIES[category]}
-              </option>
-            ))}
-          </select>
+            data-testid='deck-category-input'
+            required
+            maxLength={25}
+          />
         </Column>
       </Row>
       <Row>

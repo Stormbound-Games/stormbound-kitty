@@ -2,6 +2,7 @@ import React from 'react'
 import serialize from 'form-serialize'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import { NotificationContext } from '../NotificationProvider'
+import { CATEGORIES } from '../../constants/decks'
 import Column from '../Column'
 import ExportDecks from '../ExportDecks'
 import ImportDecks from '../ImportDecks'
@@ -48,7 +49,13 @@ export default React.memo(function DeckCollection(props) {
         return false
       if (filters.faction !== '*' && deck.faction !== filters.faction)
         return false
-      if (filters.category !== '*' && deck.category !== filters.category)
+      if (
+        filters.category !== '*' &&
+        deck.category !== filters.category &&
+        // Look up for existing categories as well, as the label is used to
+        // avoid rendering all uppercase categories.
+        CATEGORIES[deck.category] !== filters.category
+      )
         return false
       return true
     })

@@ -40,7 +40,7 @@ export default {
   DECK_FORM: '[data-testid="deck-form"]',
   DECK_ID_INPUT: '[data-testid="deck-id-input"]',
   DECK_NAME_INPUT: '[data-testid="deck-name-input"]',
-  DECK_CATEGORY_SELECT: '[data-testid="deck-category-select"]',
+  DECK_CATEGORY_INPUT: '[data-testid="deck-category-input"]',
   DECK_SUBMIT_BTN: '[data-testid="deck-submit"]',
 
   IMPORT_DECKS_BTN: '[data-testid="import-decks-btn"]',
