@@ -138,7 +138,7 @@ describe('Deck Builder - Personal decks', () => {
       .should('have.length', 2)
 
       .get(s.PERSONAL_DECKS_CATEGORY_SELECT)
-      .select('BRAWL')
+      .select('Brawl')
 
       .get(s.PERSONAL_DECKS)
       .should('have.length', 1)
