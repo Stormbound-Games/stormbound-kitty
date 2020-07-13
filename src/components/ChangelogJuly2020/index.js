@@ -95,12 +95,11 @@ export default React.memo(function ChangelogJuly2020(props) {
 
       <p>
         Following Paladin Studios’ advice, the update will hit the production
-        servers some time <span className='Highlight'>during the week</span> of
-        July 13th. From there, the new version of the application will be
-        gradually rolled out to app stores and players are encouraged to update
-        the game as soon as possible. A few days later, a forced update will be
-        conducted to migrate the remaining players to the latest version of the
-        app. Only after that will the{' '}
+        servers some time around July 20th, earliest. From there, the new
+        version of the application will be gradually rolled out to app stores
+        and players are encouraged to update the game as soon as possible. A few
+        days later, a forced update will be conducted to migrate the remaining
+        players to the latest version of the app. Only after that will the{' '}
         <a href='#new-legendary-card'>new card and new pack offer</a> be
         available.
       </p>
