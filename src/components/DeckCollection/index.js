@@ -60,6 +60,9 @@ export default React.memo(function DeckCollection(props) {
       } else if (filters.order === 'CATEGORY') {
         if (a.category > b.category) return +1
         if (a.category < b.category) return -1
+      } else if (filters.order === 'NAME') {
+        if (a.name < b.name) return -1
+        if (a.name > b.name) return +1
       }
 
       return 0

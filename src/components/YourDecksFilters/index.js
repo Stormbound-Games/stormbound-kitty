@@ -84,6 +84,7 @@ export default React.memo(function YourDecksFilters(props) {
               <option value='CATEGORY'>Category</option>
               <option value='DATE'>Chronological</option>
               <option value='FACTION'>Faction</option>
+              <option value='NAME'>Name</option>
             </select>
           </Column>
         </Row>
