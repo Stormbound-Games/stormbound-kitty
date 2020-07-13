@@ -1,5 +1,15 @@
 [
   {
+    "intro": "Changelog",
+    "description": "The changelog has been revisited to be more accurated and more easily searchable.",
+    "link": "/changelog"
+  },
+  {
+    "intro": "Personal Decks",
+    "description": "Personal decks can now be ordered by name, and they can have custom categories.",
+    "link": "/decks/collection"
+  },
+  {
     "intro": "Update 07-2020",
     "description": "Discover everything there is to know about the first Stormbound update from the Sheepyard studio!",
     "link": "/changelog/07-2020"
