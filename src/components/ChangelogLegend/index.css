@@ -35,6 +35,3 @@
 .ChangelogLegend__item--game::before {
   background-color: var(--light-winter);
 }
-.ChangelogLegend__item--unknown::before {
-  background-color: var(--white);
-}

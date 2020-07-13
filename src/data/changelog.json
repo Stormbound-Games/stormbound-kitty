@@ -1,3092 +1,3950 @@
 [
   {
     "date": 1507672800000,
-    "type": "UPDATE",
-    "description": "Increased mana by 1, decreased (negative) ability by 1",
-    "id": "I1"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1, ability only hits friendly units",
-    "id": "I1"
-  },
-  {
-    "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Decreased mana and strength by 1",
-    "id": "I2"
-  },
-  {
-    "date": 1504648800000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1, reduced movement to 0",
-    "id": "I2"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Increased strength at higher levels by 1",
-    "id": "I2"
-  },
-  {
-    "date": 1512860400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "I3"
-  },
-  {
-    "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Reduced mana by 3, reduced strength given by 1 and is bordering at lower levels",
-    "id": "I3"
-  },
-  {
-    "date": 1533592800000,
-    "type": "UPDATE",
-    "description": "Increased strength given by 1",
-    "id": "I3"
-  },
-  {
-    "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "Decreased mana and strength given by 1",
-    "id": "I3"
-  },
-  {
-    "date": 1561586400000,
-    "type": "UPDATE",
-    "description": "Ability is surrounding at all levels, but costs 1 more at lower levels",
-    "id": "I3"
-  },
-  {
-    "date": 1510786800000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "I4"
-  },
-  {
-    "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Removed range from pushback, decreased strength by 1",
-    "id": "I4"
-  },
-  {
-    "date": 1553122800000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "I5"
-  },
-  {
-    "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Increased ability strength by 1",
-    "id": "I6"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Decreased ability by 1",
-    "id": "I6"
-  },
-  {
-    "date": 1557352800000,
-    "type": "UPDATE",
-    "description": "Increased mana by 1 and increased strength by 1",
-    "id": "I6"
-  },
-  {
-    "date": 1521500400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "I7"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Decreased mana by 1",
-    "id": "I8"
-  },
-  {
-    "date": 1557352800000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1 and increased ability by 1 at higher levels",
-    "id": "I8"
-  },
-  {
-    "date": 1540854000000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "I9"
-  },
-  {
-    "date": 1502316000000,
-    "type": "UPDATE",
-    "description": "Reduced strength by 1",
-    "id": "I10"
-  },
-  {
-    "date": 1533592800000,
-    "type": "UPDATE",
-    "description": "Increased ability at higher levels by 1",
-    "id": "I10"
-  },
-  {
-    "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "Increased strength at higher levels by 1",
-    "id": "I10"
-  },
-  {
-    "date": 1561586400000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "I10"
-  },
-  {
-    "date": 1502316000000,
-    "type": "UPDATE",
-    "description": "Decreased mana by 1",
-    "id": "I11"
-  },
-  {
-    "date": 1504044000000,
-    "type": "UPDATE",
-    "description": "Increased cost and ability by 1",
-    "id": "I11"
-  },
-  {
-    "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Ability requires bordering at lower levels, decreased strength at higher levels",
-    "id": "I11"
-  },
-  {
-    "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Decreased mana by 1",
-    "id": "I12"
-  },
-  {
-    "date": 1502661600000,
-    "type": "UPDATE",
     "description": "Increased mana by 1",
-    "id": "I12"
-  },
-  {
-    "date": 1557352800000,
-    "type": "UPDATE",
-    "description": "Increased mana by 1, damage by 1, ability now damages 1 random bordering enemy",
-    "id": "I12"
-  },
-  {
-    "date": 1545001200000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "I13"
-  },
-  {
-    "date": 1569362400000,
-    "type": "UPDATE",
-    "description": "Increased ability by 1",
-    "id": "I13"
-  },
-  {
-    "date": 1504044000000,
-    "type": "UPDATE",
-    "description": "Increased strength at higher levels",
-    "id": "I14"
-  },
-  {
-    "date": 1506376800000,
-    "type": "UPDATE",
-    "description": "Set strength on all levels to 2",
-    "id": "I14"
-  },
-  {
-    "date": 1510786800000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "I14"
-  },
-  {
-    "date": 1524348000000,
-    "type": "UPDATE",
-    "description": "Increased strength at higher levels",
-    "id": "I14"
-  },
-  {
-    "date": 1533592800000,
-    "type": "UPDATE",
-    "description": "Increased strength at higher levels by 1",
-    "id": "I14"
-  },
-  {
-    "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Increased mana by 1 and strength by 2",
-    "id": "I15"
-  },
-  {
-    "date": 1506376800000,
-    "type": "UPDATE",
-    "description": "Increased strength at higher levels, decreased ability at higher levels",
-    "id": "I15"
-  },
-  {
-    "date": 1524348000000,
-    "type": "UPDATE",
-    "description": "Lowered strength and increased ability damage at higher levels",
-    "id": "I15"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1",
-    "id": "I15"
-  },
-  {
-    "date": 1537221600000,
-    "type": "UPDATE",
-    "description": "Increased strength at max level by 1",
-    "id": "I15"
-  },
-  {
-    "date": 1512860400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "I16"
-  },
-  {
-    "date": 1524348000000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "I16"
-  },
-  {
-    "date": 1533592800000,
-    "type": "UPDATE",
-    "description": "Increased ability at higher levels by 1",
-    "id": "I16"
-  },
-  {
-    "date": 1557352800000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1, ability now also gives strength to a random surrounding friendly unit",
-    "id": "I16"
-  },
-  {
-    "date": 1521500400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "I17"
-  },
-  {
-    "date": 1524348000000,
-    "type": "UPDATE",
-    "description": "Decreased mana and strength by 1",
-    "id": "I17"
-  },
-  {
-    "date": 1545001200000,
-    "type": "UPDATE",
-    "description": "Decreased strength at lower levels by 1",
-    "id": "I17"
-  },
-  {
-    "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "The push effect is executed before the damage",
-    "id": "I17"
-  },
-  {
-    "date": 1561586400000,
-    "type": "UPDATE",
-    "description": "Increased strength at lower levels by 1",
-    "id": "I17"
-  },
-  {
-    "date": 1502316000000,
-    "type": "UPDATE",
-    "description": "Decreased mana by 1",
-    "id": "I18"
-  },
-  {
-    "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Removed range from pushback",
-    "id": "I18"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Decreased mana by 1",
-    "id": "I18"
-  },
-  {
-    "date": 1537221600000,
-    "type": "UPDATE",
-    "description": "Increased mana by 1, deals consistent damage (3 at level 1, 7 at level 5)",
-    "id": "I18"
-  },
-  {
-    "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "The push effect is executed before the damage",
-    "id": "I18"
-  },
-  {
-    "date": 1510786800000,
-    "type": "UPDATE",
-    "description": "Increased mana and ability by 1",
-    "id": "I19"
-  },
-  {
-    "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Decreased mana and strength by 1",
-    "id": "I19"
-  },
-  {
-    "date": 1502661600000,
-    "type": "UPDATE",
-    "description": "Increased mana by 1",
-    "id": "I20"
-  },
-  {
-    "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Removed range from pushback",
-    "id": "I20"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Decreased mana by 1",
-    "id": "I20"
-  },
-  {
-    "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "The push effect is executed before the damage",
-    "id": "I20"
-  },
-  {
-    "date": 1557352800000,
-    "type": "UPDATE",
-    "description": "Decreased mana and strength by 1",
-    "id": "I20"
-  },
-  {
-    "date": 1510786800000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "I21"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Increased strength at higher levels by 1",
-    "id": "I21"
-  },
-  {
-    "date": 1569362400000,
-    "type": "UPDATE",
-    "description": "Increased strength and ability by 1",
-    "id": "I22"
-  },
-  {
-    "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Increased mana by 1 and ability damage by 2",
-    "id": "I23"
-  },
-  {
-    "date": 1502661600000,
-    "type": "UPDATE",
-    "description": "Decreased strength and ability damage by 1",
-    "id": "I23"
-  },
-  {
-    "date": 1504044000000,
-    "type": "UPDATE",
-    "description": "Increased strength by 2",
-    "id": "I23"
-  },
-  {
-    "date": 1505685600000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "I23"
+    "id": "I1",
+    "type": "NERF"
   },
   {
     "date": 1507672800000,
-    "type": "UPDATE",
-    "description": "Decreased ability by 1",
-    "id": "I23"
-  },
-  {
-    "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Removed range from pull, decreased strength at higher levels",
-    "id": "I23"
-  },
-  {
-    "date": 1524348000000,
-    "type": "UPDATE",
-    "description": "Increased strength at higher levels",
-    "id": "I23"
+    "description": "Decreased (negative) ability by 1",
+    "id": "I1",
+    "type": "BUFF"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
+    "description": "Decreased strength by 1, ability only hits friendly units",
+    "id": "I1",
+    "type": "NERF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Decreased mana by 1",
+    "id": "I2",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Decreased strength by 1",
+    "id": "I2",
+    "type": "NERF"
+  },
+  {
+    "date": 1504648800000,
+    "description": "Increased strength by 1",
+    "id": "I2",
+    "type": "BUFF"
+  },
+  {
+    "date": 1504648800000,
+    "description": "Reduced movement to 0",
+    "id": "I2",
+    "type": "NERF"
+  },
+  {
+    "date": 1531087200000,
     "description": "Increased strength at higher levels by 1",
-    "id": "I23"
+    "id": "I2",
+    "type": "BUFF"
+  },
+  {
+    "date": 1512860400000,
+    "description": "Added to the game",
+    "id": "I3",
+    "type": "INFO"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Reduced mana by 3",
+    "id": "I3",
+    "type": "BUFF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Reduced strength given by 1",
+    "id": "I3",
+    "type": "NERF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Is bordering at lower levels",
+    "id": "I3",
+    "type": "NERF"
+  },
+  {
+    "date": 1533592800000,
+    "description": "Increased strength given by 1",
+    "id": "I3",
+    "type": "BUFF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Decreased mana by 1",
+    "id": "I3",
+    "type": "BUFF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Decreased strength given by 1",
+    "id": "I3",
+    "type": "NERF"
+  },
+  {
+    "date": 1561586400000,
+    "description": "Ability requires surrounding at all levels",
+    "id": "I3",
+    "type": "BUFF"
+  },
+  {
+    "date": 1561586400000,
+    "description": "Increased mana by 1 at lower levels",
+    "id": "I3",
+    "type": "NERF"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Added to the game",
+    "id": "I4",
+    "type": "INFO"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Removed range from pushback",
+    "id": "I4",
+    "type": "NERF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Decreased strength by 1",
+    "id": "I4",
+    "type": "NERF"
+  },
+  {
+    "date": 1553122800000,
+    "description": "Added to the game",
+    "id": "I5",
+    "type": "INFO"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased ability strength by 1",
+    "id": "I6",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Decreased ability by 1",
+    "id": "I6",
+    "type": "NERF"
   },
   {
     "date": 1557352800000,
-    "type": "ADDITION",
+    "description": "Increased mana by 1",
+    "id": "I6",
+    "type": "NERF"
+  },
+  {
+    "date": 1557352800000,
+    "description": "Increased strength by 1",
+    "id": "I6",
+    "type": "BUFF"
+  },
+  {
+    "date": 1521500400000,
     "description": "Added to the game",
-    "id": "I24"
+    "id": "I7",
+    "type": "INFO"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Decreased mana by 1",
+    "id": "I8",
+    "type": "BUFF"
+  },
+  {
+    "date": 1557352800000,
+    "description": "Decreased strength by 1 at higher levels",
+    "id": "I8",
+    "type": "NERF"
+  },
+  {
+    "date": 1557352800000,
+    "description": "Increased ability by 1 at higher levels",
+    "id": "I8",
+    "type": "BUFF"
+  },
+  {
+    "date": 1540854000000,
+    "description": "Added to the game",
+    "id": "I9",
+    "type": "INFO"
+  },
+  {
+    "date": 1502316000000,
+    "description": "Reduced strength by 1",
+    "id": "I10",
+    "type": "NERF"
+  },
+  {
+    "date": 1533592800000,
+    "description": "Increased ability at higher levels by 1",
+    "id": "I10",
+    "type": "BUFF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Increased strength at higher levels by 1",
+    "id": "I10",
+    "type": "BUFF"
+  },
+  {
+    "date": 1561586400000,
+    "description": "Increased strength by 1",
+    "id": "I10",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502316000000,
+    "description": "Decreased mana by 1",
+    "id": "I11",
+    "type": "BUFF"
+  },
+  {
+    "date": 1504044000000,
+    "description": "Increased mana by 1",
+    "id": "I11",
+    "type": "NERF"
+  },
+  {
+    "date": 1504044000000,
+    "description": "Increased ability by 1",
+    "id": "I11",
+    "type": "BUFF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Ability requires bordering at lower levels",
+    "id": "I11",
+    "type": "NERF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Decreased strength at higher levels",
+    "id": "I11",
+    "type": "NERF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Decreased mana by 1",
+    "id": "I12",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502661600000,
+    "description": "Increased mana by 1",
+    "id": "I12",
+    "type": "NERF"
+  },
+  {
+    "date": 1557352800000,
+    "description": "Increased mana by 1",
+    "id": "I12",
+    "type": "NERF"
+  },
+  {
+    "date": 1557352800000,
+    "description": "Increased damage by 1",
+    "id": "I12",
+    "type": "BUFF"
+  },
+  {
+    "date": 1557352800000,
+    "description": "Ability now damages 1 random bordering enemy",
+    "id": "I12",
+    "type": "BUFF"
+  },
+  {
+    "date": 1545001200000,
+    "description": "Added to the game",
+    "id": "I13",
+    "type": "INFO"
+  },
+  {
+    "date": 1569362400000,
+    "description": "Increased ability by 1",
+    "id": "I13",
+    "type": "BUFF"
+  },
+  {
+    "date": 1504044000000,
+    "description": "Increased strength at higher levels",
+    "id": "I14",
+    "type": "BUFF"
+  },
+  {
+    "date": 1506376800000,
+    "description": "Set strength on all levels to 2",
+    "id": "I14",
+    "type": "MIXED"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Increased strength by 1",
+    "id": "I14",
+    "type": "BUFF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Increased strength at higher levels",
+    "id": "I14",
+    "type": "BUFF"
+  },
+  {
+    "date": 1533592800000,
+    "description": "Increased strength at higher levels by 1",
+    "id": "I14",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased mana by 1",
+    "id": "I15",
+    "type": "NERF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased strength by 2",
+    "id": "I15",
+    "type": "BUFF"
+  },
+  {
+    "date": 1506376800000,
+    "description": "Increased strength at higher levels",
+    "id": "I15",
+    "type": "BUFF"
+  },
+  {
+    "date": 1506376800000,
+    "description": "Decreased ability at higher levels",
+    "id": "I15",
+    "type": "NERF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Decreased strength at higher levels",
+    "id": "I15",
+    "type": "NERF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Increased ability damage at higher levels",
+    "id": "I15",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Decreased strength by 1",
+    "id": "I15",
+    "type": "NERF"
+  },
+  {
+    "date": 1537221600000,
+    "description": "Increased strength at max level by 1",
+    "id": "I15",
+    "type": "BUFF"
+  },
+  {
+    "date": 1512860400000,
+    "description": "Added to the game",
+    "id": "I16",
+    "type": "INFO"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Increased strength by 1",
+    "id": "I16",
+    "type": "BUFF"
+  },
+  {
+    "date": 1533592800000,
+    "description": "Increased ability at higher levels by 1",
+    "id": "I16",
+    "type": "BUFF"
+  },
+  {
+    "date": 1557352800000,
+    "description": "Decreased strength by 1",
+    "id": "I16",
+    "type": "NERF"
+  },
+  {
+    "date": 1557352800000,
+    "description": "Ability now also gives strength to a random surrounding friendly unit",
+    "id": "I16",
+    "type": "BUFF"
+  },
+  {
+    "date": 1521500400000,
+    "description": "Added to the game",
+    "id": "I17",
+    "type": "INFO"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Decreased mana by 1",
+    "id": "I17",
+    "type": "BUFF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Decreased strength by 1",
+    "id": "I17",
+    "type": "NERF"
+  },
+  {
+    "date": 1545001200000,
+    "description": "Decreased strength at lower levels by 1",
+    "id": "I17",
+    "type": "NERF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "The push effect is executed before the damage",
+    "id": "I17",
+    "type": "MIXED"
+  },
+  {
+    "date": 1561586400000,
+    "description": "Increased strength at lower levels by 1",
+    "id": "I17",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502316000000,
+    "description": "Decreased mana by 1",
+    "id": "I18",
+    "type": "BUFF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Removed range from pushback",
+    "id": "I18",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Decreased mana by 1",
+    "id": "I18",
+    "type": "BUFF"
+  },
+  {
+    "date": 1537221600000,
+    "description": "Increased mana by 1",
+    "id": "I18",
+    "type": "NERF"
+  },
+  {
+    "date": 1537221600000,
+    "description": "Deals consistent damage (3 at level 1, 7 at level 5)",
+    "id": "I18",
+    "type": "BUFF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "The push effect is executed before the damage",
+    "id": "I18",
+    "type": "MIXED"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Increased mana and ability by 1",
+    "id": "I19",
+    "type": "BUFF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Decreased mana by 1",
+    "id": "I19",
+    "type": "BUFF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Decreased strength by 1",
+    "id": "I19",
+    "type": "NERF"
+  },
+  {
+    "date": 1502661600000,
+    "description": "Increased mana by 1",
+    "id": "I20",
+    "type": "NERF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Removed range from pushback",
+    "id": "I20",
+    "type": "MIXED"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Decreased mana by 1",
+    "id": "I20",
+    "type": "BUFF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "The push effect is executed before the damage",
+    "id": "I20",
+    "type": "MIXED"
+  },
+  {
+    "date": 1557352800000,
+    "description": "Decreased mana by 1",
+    "id": "I20",
+    "type": "BUFF"
+  },
+  {
+    "date": 1557352800000,
+    "description": "Decreased strength by 1",
+    "id": "I20",
+    "type": "NERF"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Added to the game",
+    "id": "I21",
+    "type": "INFO"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Increased strength at higher levels by 1",
+    "id": "I21",
+    "type": "BUFF"
+  },
+  {
+    "date": 1569362400000,
+    "description": "Increased strength and ability by 1",
+    "id": "I22",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased mana by 1",
+    "id": "I23",
+    "type": "NERF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased ability damage by 2",
+    "id": "I23",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502661600000,
+    "description": "Decreased strength and ability damage by 1",
+    "id": "I23",
+    "type": "NERF"
+  },
+  {
+    "date": 1504044000000,
+    "description": "Increased strength by 2",
+    "id": "I23",
+    "type": "BUFF"
+  },
+  {
+    "date": 1505685600000,
+    "description": "Increased strength by 1",
+    "id": "I23",
+    "type": "BUFF"
+  },
+  {
+    "date": 1507672800000,
+    "description": "Decreased ability by 1",
+    "id": "I23",
+    "type": "NERF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Removed range from pull",
+    "id": "I23",
+    "type": "MIXED"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Decreased strength at higher levels",
+    "id": "I23",
+    "type": "NERF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Increased strength at higher levels",
+    "id": "I23",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Increased strength at higher levels by 1",
+    "id": "I23",
+    "type": "BUFF"
+  },
+  {
+    "date": 1557352800000,
+    "description": "Added to the game",
+    "id": "I24",
+    "type": "INFO"
   },
   {
     "date": 1574722800000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "I24"
+    "id": "I24",
+    "type": "BUFF"
   },
   {
     "date": 1569362400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "I25"
+    "id": "I25",
+    "type": "INFO"
   },
   {
     "date": 1569362400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "I26"
+    "id": "I26",
+    "type": "INFO"
   },
   {
     "date": 1571868000000,
-    "type": "ADDITION",
-    "description": "Added in Brawl Mode",
-    "id": "I27"
+    "description": "Added in Brawl mode",
+    "id": "I27",
+    "type": "INFO"
   },
   {
     "date": 1572994800000,
-    "type": "UPDATE",
     "description": "Made available to be crafted and randomly collected",
-    "id": "I27"
+    "id": "I27",
+    "type": "INFO"
   },
   {
     "date": 1574290800000,
-    "type": "ADDITION",
-    "description": "Added to Brawl Mode",
-    "id": "I28"
+    "description": "Added to Brawl mode",
+    "id": "I28",
+    "type": "INFO"
   },
   {
     "date": 1577055600000,
-    "type": "UPDATE",
     "description": "Made available to be crafted and randomly collected",
-    "id": "I28"
+    "id": "I28",
+    "type": "INFO"
   },
   {
     "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Reduced strength and ability by 1, ability now scales with level",
-    "id": "N1"
+    "description": "Reduced strength and ability by 1",
+    "id": "N1",
+    "type": "NERF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Ability now scales with level",
+    "id": "N1",
+    "type": "BUFF"
   },
   {
     "date": 1550012400000,
-    "type": "UPDATE",
     "description": "Increased range of ability from bordering to surrounding",
-    "id": "N1"
+    "id": "N1",
+    "type": "BUFF"
   },
   {
     "date": 1512860400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "N2"
+    "id": "N2",
+    "type": "INFO"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
     "description": "Decreased strength by 1",
-    "id": "N2"
+    "id": "N2",
+    "type": "NERF"
   },
   {
     "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "Decreased mana by 1 and ability by 2",
-    "id": "N2"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1",
-    "id": "N3"
-  },
-  {
-    "date": 1512860400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N4"
-  },
-  {
-    "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "Increased mana and strength by 1",
-    "id": "N4"
-  },
-  {
-    "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Increased bonus strength by 1",
-    "id": "N5"
-  },
-  {
-    "date": 1537221600000,
-    "type": "UPDATE",
-    "description": "Increased mana, strength and ability by 1",
-    "id": "N5"
-  },
-  {
-    "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1",
-    "id": "N5"
-  },
-  {
-    "date": 1521500400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N6"
-  },
-  {
-    "date": 1533592800000,
-    "type": "UPDATE",
-    "description": "Decreased ability at lower levels",
-    "id": "N6"
-  },
-  {
-    "date": 1561586400000,
-    "type": "UPDATE",
-    "description": "Ability increased at lower levels and decreased at higher levels",
-    "id": "N6"
-  },
-  {
-    "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "Increased strength at higher levels by 1",
-    "id": "N7"
-  },
-  {
-    "date": 1506376800000,
-    "type": "UPDATE",
-    "description": "Lowered strength at higher levels",
-    "id": "N8"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1",
-    "id": "N8"
-  },
-  {
-    "date": 1510786800000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N9"
-  },
-  {
-    "date": 1521500400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N10"
-  },
-  {
-    "date": 1537221600000,
-    "type": "UPDATE",
-    "description": "Increased damage at higher levels",
-    "id": "N10"
-  },
-  {
-    "date": 1545001200000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1",
-    "id": "N10"
-  },
-  {
-    "date": 1561586400000,
-    "type": "UPDATE",
-    "description": "Decreased strength at higher levels by 1",
-    "id": "N10"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Increased mana and strength by 1",
-    "id": "N12"
-  },
-  {
-    "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1, ability only discards non-Pirates",
-    "id": "N12"
-  },
-  {
-    "date": 1504044000000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "N13"
-  },
-  {
-    "date": 1510786800000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1",
-    "id": "N13"
-  },
-  {
-    "date": 1507672800000,
-    "type": "UPDATE",
-    "description": "Increased mana and strength by 1, decreased ability at higher levels",
-    "id": "N14"
-  },
-  {
-    "date": 1524348000000,
-    "type": "UPDATE",
-    "description": "Reduced strength by 1",
-    "id": "N14"
-  },
-  {
-    "date": 1504044000000,
-    "type": "UPDATE",
-    "description": "Increased ability by 1",
-    "id": "N15"
-  },
-  {
-    "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Decreased strength given by 1",
-    "id": "N15"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1",
-    "id": "N16"
-  },
-  {
-    "date": 1550012400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N17"
-  },
-  {
-    "date": 1521500400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N18"
-  },
-  {
-    "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Decreased mana and strength by 1",
-    "id": "N20"
-  },
-  {
-    "date": 1504044000000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "N20"
-  },
-  {
-    "date": 1510786800000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1",
-    "id": "N20"
-  },
-  {
-    "date": 1550012400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N23"
-  },
-  {
-    "date": 1561586400000,
-    "type": "UPDATE",
     "description": "Decreased mana by 1",
-    "id": "N23"
-  },
-  {
-    "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Decreased mana cost by 1",
-    "id": "N25"
-  },
-  {
-    "date": 1506376800000,
-    "type": "UPDATE",
-    "description": "Set strength to 4 for all levels, increased damage at higher levels",
-    "id": "N25"
-  },
-  {
-    "date": 1510786800000,
-    "type": "UPDATE",
-    "description": "Increased ability by 1",
-    "id": "N25"
-  },
-  {
-    "date": 1524348000000,
-    "type": "UPDATE",
-    "description": "Bordering at all levels, gains +1 strength per level",
-    "id": "N25"
-  },
-  {
-    "date": 1502661600000,
-    "type": "UPDATE",
-    "description": "Increased strength from ability by 1",
-    "id": "N26"
-  },
-  {
-    "date": 1510786800000,
-    "type": "UPDATE",
-    "description": "Area of ability restricted to surrounding",
-    "id": "N26"
-  },
-  {
-    "date": 1521500400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N27"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Increased movement to 2, decreased strength by 2, increased ability by 1",
-    "id": "N27"
+    "id": "N2",
+    "type": "BUFF"
   },
   {
     "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "Decreased mana by 1 and strength at lower levels by 1",
-    "id": "N27"
-  },
-  {
-    "date": 1502661600000,
-    "type": "UPDATE",
-    "description": "Decreased maximum damage by 1",
-    "id": "N29"
-  },
-  {
-    "date": 1504648800000,
-    "type": "UPDATE",
-    "description": "Decreased mana by 1",
-    "id": "N29"
-  },
-  {
-    "date": 1545001200000,
-    "type": "UPDATE",
-    "description": "Will deal fixed 2 damage at level 3, 3 damage at level 5",
-    "id": "N29"
-  },
-  {
-    "date": 1510786800000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N31"
-  },
-  {
-    "date": 1537221600000,
-    "type": "UPDATE",
-    "description": "Decreased mana by 1",
-    "id": "N31"
-  },
-  {
-    "date": 1574722800000,
-    "type": "UPDATE",
-    "description": "Increased damage by 2",
-    "id": "N31"
-  },
-  {
-    "date": 1550012400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N33"
-  },
-  {
-    "date": 1569362400000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "N33"
-  },
-  {
-    "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Increased mana and strength by 1",
-    "id": "N34"
-  },
-  {
-    "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Increased damage by 1",
-    "id": "N34"
-  },
-  {
-    "date": 1524348000000,
-    "type": "UPDATE",
-    "description": "Increased strength, strength scales with level",
-    "id": "N34"
-  },
-  {
-    "date": 1569362400000,
-    "type": "UPDATE",
-    "description": "Ability changed",
-    "id": "N34"
-  },
-  {
-    "date": 1502316000000,
-    "type": "UPDATE",
-    "description": "Increased strength and mana by 1",
-    "id": "N35"
-  },
-  {
-    "date": 1502661600000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "N35"
-  },
-  {
-    "date": 1505685600000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "N35"
-  },
-  {
-    "date": 1507672800000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "N35"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Ability triggers only from friendly unit types, increased damage at higher levels (was triggers from all unit types)",
-    "id": "N35"
-  },
-  {
-    "date": 1537221600000,
-    "type": "UPDATE",
-    "description": "Decreased movement to 0",
-    "id": "N35"
-  },
-  {
-    "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "Ability now deals damage for each unit type in an area",
-    "id": "N35"
-  },
-  {
-    "date": 1512860400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N36"
-  },
-  {
-    "date": 1524348000000,
-    "type": "UPDATE",
-    "description": "Requires 2 bordering enemies, reduced damage by 2, set strength to 4 at all levels",
-    "id": "N36"
-  },
-  {
-    "date": 1557352800000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "N36"
-  },
-  {
-    "date": 1574722800000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "N36"
-  },
-  {
-    "date": 1512860400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N37"
-  },
-  {
-    "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Increased strength at level 1 and damage at other levels",
-    "id": "N37"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Increased movement to 1, decreased strength at lower levels by 1",
-    "id": "N37"
-  },
-  {
-    "date": 1569362400000,
-    "type": "UPDATE",
-    "description": "Can also hit a structure behind",
-    "id": "N37"
-  },
-  {
-    "date": 1531087200000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N38"
-  },
-  {
-    "date": 1502661600000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1, reduced strength from ability",
-    "id": "N39"
-  },
-  {
-    "date": 1505685600000,
-    "type": "UPDATE",
-    "description": "Increased ability by 1",
-    "id": "N39"
-  },
-  {
-    "date": 1507672800000,
-    "type": "UPDATE",
-    "description": "Decreased ability by 1",
-    "id": "N39"
-  },
-  {
-    "date": 1524348000000,
-    "type": "UPDATE",
-    "description": "Also works when bordering your base",
-    "id": "N39"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Increased strength and ability at higher levels by 1",
-    "id": "N39"
-  },
-  {
-    "date": 1507672800000,
-    "type": "UPDATE",
-    "description": "Decreased mana by 1",
-    "id": "N40"
-  },
-  {
-    "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Increased mana by 1, the target of the spell will gain more strength, while all others of the same type will receive less.",
-    "id": "N40"
-  },
-  {
-    "date": 1524348000000,
-    "type": "UPDATE",
-    "description": "Increased initial strength by 1",
-    "id": "N40"
-  },
-  {
-    "date": 1574722800000,
-    "type": "UPDATE",
-    "description": "Increased strength given to others by 1 at higher levels",
-    "id": "N40"
-  },
-  {
-    "date": 1507672800000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "N41"
-  },
-  {
-    "date": 1557352800000,
-    "type": "UPDATE",
-    "description": "Decreased mana by 2 (to 4 mana) and decreased strength by 3",
-    "id": "N41"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1 at higher levels",
-    "id": "N42"
-  },
-  {
-    "date": 1533592800000,
-    "type": "UPDATE",
-    "description": "Decreased strength and increased ability by 1",
-    "id": "N42"
-  },
-  {
-    "date": 1521500400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N43"
-  },
-  {
-    "date": 1537221600000,
-    "type": "UPDATE",
-    "description": "Increased strength at higher levels",
-    "id": "N43"
-  },
-  {
-    "date": 1504648800000,
-    "type": "UPDATE",
-    "description": "Increased mana by 1",
-    "id": "N44"
-  },
-  {
-    "date": 1507672800000,
-    "type": "UPDATE",
-    "description": "Increased mana by 1, damage by 1",
-    "id": "N44"
-  },
-  {
-    "date": 1510786800000,
-    "type": "UPDATE",
-    "description": "Ability changed",
-    "id": "N44"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Increased mana by 1",
-    "id": "N44"
-  },
-  {
-    "date": 1550012400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N45"
-  },
-  {
-    "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1",
-    "id": "N46"
-  },
-  {
-    "date": 1502316000000,
-    "type": "UPDATE",
-    "description": "Increased mana by 1",
-    "id": "N46"
-  },
-  {
-    "date": 1502661600000,
-    "type": "UPDATE",
-    "description": "Increased all possible abilities by 1",
-    "id": "N46"
-  },
-  {
-    "date": 1504648800000,
-    "type": "UPDATE",
-    "description": "Decreased mana and strength by 1",
-    "id": "N46"
-  },
-  {
-    "date": 1507672800000,
-    "type": "UPDATE",
-    "description": "Increased ability by 1",
-    "id": "N46"
-  },
-  {
-    "date": 1524348000000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "N46"
-  },
-  {
-    "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Increased mana and strength by 1",
-    "id": "N47"
-  },
-  {
-    "date": 1502661600000,
-    "type": "UPDATE",
-    "description": "Reduced strength by 1",
-    "id": "N47"
-  },
-  {
-    "date": 1504044000000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "N47"
-  },
-  {
-    "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Ability will now hit all surrounding enemies (removed \"other\"), decreased strength by 1",
-    "id": "N47"
-  },
-  {
-    "date": 1524348000000,
-    "type": "UPDATE",
-    "description": "Ability only damages units and structures, increased strength by 1",
-    "id": "N47"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1",
-    "id": "N47"
-  },
-  {
-    "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "N48"
-  },
-  {
-    "date": 1502316000000,
-    "type": "UPDATE",
-    "description": "Decreased strength and mana by 1",
-    "id": "N48"
-  },
-  {
-    "date": 1504648800000,
-    "type": "UPDATE",
-    "description": "Increased mana and strength by 1",
-    "id": "N48"
-  },
-  {
-    "date": 1510786800000,
-    "type": "UPDATE",
-    "description": "Plays spells from hand (was from deck)",
-    "id": "N48"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Increased strength at higher levels by 1",
-    "id": "N48"
-  },
-  {
-    "date": 1504648800000,
-    "type": "UPDATE",
-    "description": "Increased mana and strength by 1",
-    "id": "N49"
-  },
-  {
-    "date": 1507672800000,
-    "type": "UPDATE",
     "description": "Decreased ability by 2",
-    "id": "N49"
-  },
-  {
-    "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "N49"
+    "id": "N2",
+    "type": "NERF"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Increased strength at lower levels by 1",
-    "id": "N49"
-  },
-  {
-    "date": 1533592800000,
-    "type": "UPDATE",
-    "description": "Decreased strength and increased ability at higher levels",
-    "id": "N49"
-  },
-  {
-    "date": 1569362400000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1 and ability changed",
-    "id": "N49"
-  },
-  {
-    "date": 1504044000000,
-    "type": "UPDATE",
-    "description": "Increased mana by 2 and strength of spawned units by 1",
-    "id": "N50"
-  },
-  {
-    "date": 1507672800000,
-    "type": "UPDATE",
-    "description": "Decreased mana by 1",
-    "id": "N50"
-  },
-  {
-    "date": 1521500400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N51"
-  },
-  {
-    "date": 1533592800000,
-    "type": "UPDATE",
-    "description": "Decreased strength at lower levels",
-    "id": "N51"
-  },
-  {
-    "date": 1545001200000,
-    "type": "UPDATE",
-    "description": "Increased mana by 2 and strength by 3",
-    "id": "N51"
-  },
-  {
-    "date": 1561586400000,
-    "type": "UPDATE",
-    "description": "Increased strength at lower levels by 1",
-    "id": "N51"
+    "description": "Decreased strength by 1",
+    "id": "N3",
+    "type": "NERF"
   },
   {
     "date": 1512860400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "N52"
-  },
-  {
-    "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "N52"
-  },
-  {
-    "date": 1504044000000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "N53"
-  },
-  {
-    "date": 1510786800000,
-    "type": "UPDATE",
-    "description": "Ability only works on units, decreased strength at low levels",
-    "id": "N53"
-  },
-  {
-    "date": 1574722800000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "N53"
-  },
-  {
-    "date": 1504044000000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1",
-    "id": "N54"
-  },
-  {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Increased strength at higher levels by 1",
-    "id": "N54"
+    "id": "N4",
+    "type": "INFO"
   },
   {
     "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "Increased strength at higher level by 1",
-    "id": "N54"
-  },
-  {
-    "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Increased mana and additional damage by 1",
-    "id": "N55"
-  },
-  {
-    "date": 1504648800000,
-    "type": "UPDATE",
     "description": "Increased mana by 1",
-    "id": "N55"
+    "id": "N4",
+    "type": "NERF"
   },
   {
-    "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Increased strength and damage at higher levels by 1",
-    "id": "N55"
-  },
-  {
-    "date": 1504044000000,
-    "type": "UPDATE",
-    "description": "Increased strength of the spawned units by 1",
-    "id": "N56"
-  },
-  {
-    "date": 1507672800000,
-    "type": "UPDATE",
-    "description": "Increased ability by 1",
-    "id": "N56"
+    "date": 1550012400000,
+    "description": "Increased strength by 1",
+    "id": "N4",
+    "type": "BUFF"
   },
   {
     "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Set movement to 1 (was a bug)",
-    "id": "N57"
+    "description": "Increased bonus strength by 1",
+    "id": "N5",
+    "type": "BUFF"
   },
   {
-    "date": 1504044000000,
-    "type": "UPDATE",
+    "date": 1537221600000,
+    "description": "Increased mana by 1",
+    "id": "N5",
+    "type": "NERF"
+  },
+  {
+    "date": 1537221600000,
     "description": "Increased strength and ability by 1",
-    "id": "N57"
+    "id": "N5",
+    "type": "BUFF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Decreased strength by 1",
+    "id": "N5",
+    "type": "NERF"
+  },
+  {
+    "date": 1521500400000,
+    "description": "Added to the game",
+    "id": "N6",
+    "type": "INFO"
+  },
+  {
+    "date": 1533592800000,
+    "description": "Decreased ability at lower levels",
+    "id": "N6",
+    "type": "NERF"
+  },
+  {
+    "date": 1561586400000,
+    "description": "Ability increased at lower levels and decreased at higher levels",
+    "id": "N6",
+    "type": "MIXED"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Increased strength at higher levels by 1",
+    "id": "N7",
+    "type": "BUFF"
+  },
+  {
+    "date": 1506376800000,
+    "description": "Lowered strength at higher levels",
+    "id": "N8",
+    "type": "NERF"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Increased strength and damage at higher levels by 1, ability hits random surrounding",
-    "id": "N57"
+    "description": "Decreased strength by 1",
+    "id": "N8",
+    "type": "NERF"
   },
   {
     "date": 1510786800000,
-    "type": "UPDATE",
-    "description": "Set ability to 3 for all levels, increased strength at higher levels",
-    "id": "N58"
-  },
-  {
-    "date": 1557352800000,
-    "type": "UPDATE",
-    "description": "Decreased mana by 1",
-    "id": "N58"
-  },
-  {
-    "date": 1557352800000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "N59"
+    "id": "N9",
+    "type": "INFO"
+  },
+  {
+    "date": 1521500400000,
+    "description": "Added to the game",
+    "id": "N10",
+    "type": "INFO"
+  },
+  {
+    "date": 1537221600000,
+    "description": "Increased damage at higher levels",
+    "id": "N10",
+    "type": "BUFF"
+  },
+  {
+    "date": 1545001200000,
+    "description": "Decreased strength by 1",
+    "id": "N10",
+    "type": "NERF"
   },
   {
     "date": 1561586400000,
-    "type": "UPDATE",
-    "description": "Increased ability by 1 at higher levels",
-    "id": "N59"
+    "description": "Decreased strength at higher levels by 1",
+    "id": "N10",
+    "type": "NERF"
   },
   {
-    "date": 1574722800000,
-    "type": "UPDATE",
-    "description": "Reduced strength by 1, increased ability by 1",
-    "id": "N59"
+    "date": 1531087200000,
+    "description": "Increased mana by 1",
+    "id": "N12",
+    "type": "NERF"
   },
   {
-    "date": 1561586400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N60"
-  },
-  {
-    "date": 1569362400000,
-    "type": "UPDATE",
-    "description": "Decreased mana by 1, decreased strength by 2 and ability changed",
-    "id": "N60"
-  },
-  {
-    "date": 1574722800000,
-    "type": "UPDATE",
-    "description": "Increased mana by 1 and strength by 2",
-    "id": "N60"
-  },
-  {
-    "date": 1561586400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N61"
-  },
-  {
-    "date": 1574722800000,
-    "type": "UPDATE",
-    "description": "Reduced mana and strength by 2",
-    "id": "N61"
-  },
-  {
-    "date": 1561586400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N62"
-  },
-  {
-    "date": 1569362400000,
-    "type": "UPDATE",
-    "description": "Ability affects all in front at all levels, increased strength at higher levels by 1",
-    "id": "N62"
-  },
-  {
-    "date": 1561586400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N63"
-  },
-  {
-    "date": 1574722800000,
-    "type": "UPDATE",
-    "description": "Reduced mana by 1",
-    "id": "N63"
-  },
-  {
-    "date": 1561586400000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N64"
-  },
-  {
-    "date": 1574722800000,
-    "type": "UPDATE",
-    "description": "Increased strength and ability by 1",
-    "id": "N64"
-  },
-  {
-    "date": 1564005600000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N65"
-  },
-  {
-    "date": 1564005600000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N66"
-  },
-  {
-    "date": 1574722800000,
-    "type": "UPDATE",
-    "description": "Decreased mana and strength by 1",
-    "id": "N66"
-  },
-  {
-    "date": 1564005600000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N67"
-  },
-  {
-    "date": 1574722800000,
-    "type": "UPDATE",
-    "description": "Decreased mana and strength by 1",
-    "id": "N67"
-  },
-  {
-    "date": 1564005600000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N68"
-  },
-  {
-    "date": 1564005600000,
-    "type": "ADDITION",
-    "description": "Added to the game",
-    "id": "N69"
-  },
-  {
-    "date": 1574722800000,
-    "type": "UPDATE",
+    "date": 1531087200000,
     "description": "Increased strength by 1",
-    "id": "N69"
+    "id": "N12",
+    "type": "BUFF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Decreased strength by 1",
+    "id": "N12",
+    "type": "NERF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Ability only discards non-Pirates",
+    "id": "N12",
+    "type": "BUFF"
+  },
+  {
+    "date": 1504044000000,
+    "description": "Increased strength by 1",
+    "id": "N13",
+    "type": "BUFF"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Decreased strength by 1",
+    "id": "N13",
+    "type": "NERF"
+  },
+  {
+    "date": 1507672800000,
+    "description": "Increased mana by 1",
+    "id": "N14",
+    "type": "NERF"
+  },
+  {
+    "date": 1507672800000,
+    "description": "Increased strength by 1",
+    "id": "N14",
+    "type": "BUFF"
+  },
+  {
+    "date": 1507672800000,
+    "description": "Decreased ability at higher levels",
+    "id": "N14",
+    "type": "NERF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Decreased strength by 1",
+    "id": "N14",
+    "type": "NERF"
+  },
+  {
+    "date": 1504044000000,
+    "description": "Increased ability by 1",
+    "id": "N15",
+    "type": "BUFF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Decreased strength given by 1",
+    "id": "N15",
+    "type": "NERF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Decreased strength by 1",
+    "id": "N16",
+    "type": "NERF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Added to the game",
+    "id": "N17",
+    "type": "INFO"
+  },
+  {
+    "date": 1521500400000,
+    "description": "Added to the game",
+    "id": "N18",
+    "type": "INFO"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Decreased mana by 1",
+    "id": "N20",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Decreased strength by 1",
+    "id": "N20",
+    "type": "NERF"
+  },
+  {
+    "date": 1504044000000,
+    "description": "Increased strength by 1",
+    "id": "N20",
+    "type": "BUFF"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Decreased strength by 1",
+    "id": "N20",
+    "type": "NERF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Added to the game",
+    "id": "N23",
+    "type": "INFO"
+  },
+  {
+    "date": 1561586400000,
+    "description": "Decreased mana by 1",
+    "id": "N23",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Decreased mana by 1",
+    "id": "N25",
+    "type": "BUFF"
+  },
+  {
+    "date": 1506376800000,
+    "description": "Set strength to 4 for all levels",
+    "id": "N25",
+    "type": "MIXED"
+  },
+  {
+    "date": 1506376800000,
+    "description": "Increased damage at higher levels",
+    "id": "N25",
+    "type": "BUFF"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Increased ability by 1",
+    "id": "N25",
+    "type": "BUFF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Bordering at all levels",
+    "id": "N25",
+    "type": "NERF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Gains +1 strength per level",
+    "id": "N25",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502661600000,
+    "description": "Increased strength from ability by 1",
+    "id": "N26",
+    "type": "BUFF"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Area of ability restricted to surrounding",
+    "id": "N26",
+    "type": "BUFF"
+  },
+  {
+    "date": 1521500400000,
+    "description": "Added to the game",
+    "id": "N27",
+    "type": "INFO"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Increased movement to 2",
+    "id": "N27",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Decreased strength by 2",
+    "id": "N27",
+    "type": "NERF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Increased ability by 1",
+    "id": "N27",
+    "type": "BUFF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Decreased mana by 1",
+    "id": "N27",
+    "type": "BUFF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Decreased strength at lower levels by 1",
+    "id": "N27",
+    "type": "NERF"
+  },
+  {
+    "date": 1502661600000,
+    "description": "Decreased maximum damage by 1",
+    "id": "N29",
+    "type": "NERF"
+  },
+  {
+    "date": 1504648800000,
+    "description": "Decreased mana by 1",
+    "id": "N29",
+    "type": "BUFF"
+  },
+  {
+    "date": 1545001200000,
+    "description": "Deals 2 damage at level 3, 3 damage at level 5",
+    "id": "N29",
+    "type": "MIXED"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Added to the game",
+    "id": "N31",
+    "type": "INFO"
+  },
+  {
+    "date": 1537221600000,
+    "description": "Decreased mana by 1",
+    "id": "N31",
+    "type": "BUFF"
+  },
+  {
+    "date": 1574722800000,
+    "description": "Increased damage by 2",
+    "id": "N31",
+    "type": "BUFF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Added to the game",
+    "id": "N33",
+    "type": "INFO"
+  },
+  {
+    "date": 1569362400000,
+    "description": "Increased strength by 1",
+    "id": "N33",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased mana by 1",
+    "id": "N34",
+    "type": "NERF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased strength by 1",
+    "id": "N34",
+    "type": "BUFF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Increased damage by 1",
+    "id": "N34",
+    "type": "BUFF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Increased strength, strength scales with level",
+    "id": "N34",
+    "type": "BUFF"
+  },
+  {
+    "date": 1569362400000,
+    "description": "Ability changed",
+    "id": "N34",
+    "type": "MIXED"
+  },
+  {
+    "date": 1502316000000,
+    "description": "Increased mana by 1",
+    "id": "N35",
+    "type": "NERF"
+  },
+  {
+    "date": 1502316000000,
+    "description": "Increased strength by 1",
+    "id": "N35",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502661600000,
+    "description": "Increased strength by 1",
+    "id": "N35",
+    "type": "BUFF"
+  },
+  {
+    "date": 1505685600000,
+    "description": "Increased strength by 1",
+    "id": "N35",
+    "type": "BUFF"
+  },
+  {
+    "date": 1507672800000,
+    "description": "Increased strength by 1",
+    "id": "N35",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Ability triggers only from friendly unit types",
+    "id": "N35",
+    "type": "NERF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Increased damage at higher levels",
+    "id": "N35",
+    "type": "BUFF"
+  },
+  {
+    "date": 1537221600000,
+    "description": "Decreased movement to 0",
+    "id": "N35",
+    "type": "NERF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Ability now deals damage for each unit type in an area",
+    "id": "N35",
+    "type": "NERF"
+  },
+  {
+    "date": 1512860400000,
+    "description": "Added to the game",
+    "id": "N36",
+    "type": "INFO"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Requires 2 bordering enemies",
+    "id": "N36",
+    "type": "MIXED"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Reduced damage by 2",
+    "id": "N36",
+    "type": "NERF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Set strength to 4 at all levels",
+    "id": "N36",
+    "type": "MIXED"
+  },
+  {
+    "date": 1557352800000,
+    "description": "Increased strength by 1",
+    "id": "N36",
+    "type": "BUFF"
+  },
+  {
+    "date": 1574722800000,
+    "description": "Increased strength by 1",
+    "id": "N36",
+    "type": "BUFF"
+  },
+  {
+    "date": 1512860400000,
+    "description": "Added to the game",
+    "id": "N37",
+    "type": "INFO"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Increased strength at level 1 and damage at other levels",
+    "id": "N37",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Increased movement to 1",
+    "id": "N37",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Decreased strength at lower levels by 1",
+    "id": "N37",
+    "type": "NERF"
+  },
+  {
+    "date": 1569362400000,
+    "description": "Can also hit a structure behind",
+    "id": "N37",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Added to the game",
+    "id": "N38",
+    "type": "INFO"
+  },
+  {
+    "date": 1502661600000,
+    "description": "Increased strength by 1",
+    "id": "N39",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502661600000,
+    "description": "Decreased strength from ability",
+    "id": "N39",
+    "type": "NERF"
+  },
+  {
+    "date": 1505685600000,
+    "description": "Increased ability by 1",
+    "id": "N39",
+    "type": "BUFF"
+  },
+  {
+    "date": 1507672800000,
+    "description": "Decreased ability by 1",
+    "id": "N39",
+    "type": "NERF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Also works when bordering your base",
+    "id": "N39",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Increased strength and ability at higher levels by 1",
+    "id": "N39",
+    "type": "BUFF"
+  },
+  {
+    "date": 1507672800000,
+    "description": "Decreased mana by 1",
+    "id": "N40",
+    "type": "BUFF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Increased mana by 1",
+    "id": "N40",
+    "type": "NERF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Ability changed",
+    "id": "N40",
+    "type": "MIXED"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Increased initial strength by 1",
+    "id": "N40",
+    "type": "BUFF"
+  },
+  {
+    "date": 1574722800000,
+    "description": "Increased strength given to others by 1 at higher levels",
+    "id": "N40",
+    "type": "BUFF"
+  },
+  {
+    "date": 1507672800000,
+    "description": "Increased strength by 1",
+    "id": "N41",
+    "type": "BUFF"
+  },
+  {
+    "date": 1557352800000,
+    "description": "Decreased mana by 2",
+    "id": "N41",
+    "type": "BUFF"
+  },
+  {
+    "date": 1557352800000,
+    "description": "Decreased strength by 3",
+    "id": "N41",
+    "type": "NERF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Increased strength by 1 at higher levels",
+    "id": "N42",
+    "type": "BUFF"
+  },
+  {
+    "date": 1533592800000,
+    "description": "Decreased strength by 1",
+    "id": "N42",
+    "type": "NERF"
+  },
+  {
+    "date": 1533592800000,
+    "description": "Increased ability by 1",
+    "id": "N42",
+    "type": "BUFF"
+  },
+  {
+    "date": 1521500400000,
+    "description": "Added to the game",
+    "id": "N43",
+    "type": "INFO"
+  },
+  {
+    "date": 1537221600000,
+    "description": "Increased strength at higher levels",
+    "id": "N43",
+    "type": "BUFF"
+  },
+  {
+    "date": 1504648800000,
+    "description": "Increased mana by 1",
+    "id": "N44",
+    "type": "NERF"
+  },
+  {
+    "date": 1507672800000,
+    "description": "Increased mana by 1",
+    "id": "N44",
+    "type": "NERF"
+  },
+  {
+    "date": 1507672800000,
+    "description": "Increased damage by 1",
+    "id": "N44",
+    "type": "BUFF"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Ability changed",
+    "id": "N44",
+    "type": "MIXED"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Increased mana by 1",
+    "id": "N44",
+    "type": "NERF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Added to the game",
+    "id": "N45",
+    "type": "INFO"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Decreased strength by 1",
+    "id": "N46",
+    "type": "NERF"
+  },
+  {
+    "date": 1502316000000,
+    "description": "Increased mana by 1",
+    "id": "N46",
+    "type": "NERF"
+  },
+  {
+    "date": 1502661600000,
+    "description": "Increased all possible abilities by 1",
+    "id": "N46",
+    "type": "BUFF"
+  },
+  {
+    "date": 1504648800000,
+    "description": "Decreased mana by 1",
+    "id": "N46",
+    "type": "BUFF"
+  },
+  {
+    "date": 1504648800000,
+    "description": "Decreased strength by 1",
+    "id": "N46",
+    "type": "NERF"
+  },
+  {
+    "date": 1507672800000,
+    "description": "Increased ability by 1",
+    "id": "N46",
+    "type": "BUFF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Increased strength by 1",
+    "id": "N46",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased mana by 1",
+    "id": "N47",
+    "type": "NERF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased strength by 1",
+    "id": "N47",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502661600000,
+    "description": "Decreased strength by 1",
+    "id": "N47",
+    "type": "NERF"
+  },
+  {
+    "date": 1504044000000,
+    "description": "Increased strength by 1",
+    "id": "N47",
+    "type": "BUFF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Ability will now hit all surrounding enemies (removed “other”)",
+    "id": "N47",
+    "type": "BUFF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Decreased strength by 1",
+    "id": "N47",
+    "type": "NERF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Ability only damages units and structures",
+    "id": "N47",
+    "type": "NERF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Increased strength by 1",
+    "id": "N47",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Decreased strength by 1",
+    "id": "N47",
+    "type": "NERF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased strength by 1",
+    "id": "N48",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502316000000,
+    "description": "Decreased mana by 1",
+    "id": "N48",
+    "type": "NERF"
+  },
+  {
+    "date": 1502316000000,
+    "description": "Decreased strength by 1",
+    "id": "N48",
+    "type": "BUFF"
+  },
+  {
+    "date": 1504648800000,
+    "description": "Increased mana by 1",
+    "id": "N48",
+    "type": "NERF"
+  },
+  {
+    "date": 1504648800000,
+    "description": "Increased strength by 1",
+    "id": "N48",
+    "type": "BUFF"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Plays spells from hand (was from deck)",
+    "id": "N48",
+    "type": "MIXED"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Increased strength at higher levels by 1",
+    "id": "N48",
+    "type": "BUFF"
+  },
+  {
+    "date": 1504648800000,
+    "description": "Increased mana by 1",
+    "id": "N49",
+    "type": "NERF"
+  },
+  {
+    "date": 1504648800000,
+    "description": "Increased strength by 1",
+    "id": "N49",
+    "type": "BUFF"
+  },
+  {
+    "date": 1507672800000,
+    "description": "Decreased ability by 2",
+    "id": "N49",
+    "type": "NERF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Increased strength by 1",
+    "id": "N49",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Increased strength at lower levels by 1",
+    "id": "N49",
+    "type": "BUFF"
+  },
+  {
+    "date": 1533592800000,
+    "description": "Decreased strength at higher levels",
+    "id": "N49",
+    "type": "NERF"
+  },
+  {
+    "date": 1533592800000,
+    "description": "Increased ability at higher levels",
+    "id": "N49",
+    "type": "BUFF"
+  },
+  {
+    "date": 1569362400000,
+    "description": "Decreased strength by 1",
+    "id": "N49",
+    "type": "NERF"
+  },
+  {
+    "date": 1569362400000,
+    "description": "Ability changed",
+    "id": "N49",
+    "type": "MIXED"
+  },
+  {
+    "date": 1504044000000,
+    "description": "Increased mana by 2",
+    "id": "N50",
+    "type": "NERF"
+  },
+  {
+    "date": 1504044000000,
+    "description": "Increased strength of spawned units by 1",
+    "id": "N50",
+    "type": "BUFF"
+  },
+  {
+    "date": 1507672800000,
+    "description": "Decreased mana by 1",
+    "id": "N50",
+    "type": "BUFF"
+  },
+  {
+    "date": 1521500400000,
+    "description": "Added to the game",
+    "id": "N51",
+    "type": "INFO"
+  },
+  {
+    "date": 1533592800000,
+    "description": "Decreased strength at lower levels",
+    "id": "N51",
+    "type": "NERF"
+  },
+  {
+    "date": 1545001200000,
+    "description": "Increased mana by 2",
+    "id": "N51",
+    "type": "NERF"
+  },
+  {
+    "date": 1545001200000,
+    "description": "Increased strength by 3",
+    "id": "N51",
+    "type": "BUFF"
+  },
+  {
+    "date": 1561586400000,
+    "description": "Increased strength at lower levels by 1",
+    "id": "N51",
+    "type": "BUFF"
+  },
+  {
+    "date": 1512860400000,
+    "description": "Added to the game",
+    "id": "N52",
+    "type": "INFO"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Increased strength by 1",
+    "id": "N52",
+    "type": "BUFF"
+  },
+  {
+    "date": 1504044000000,
+    "description": "Increased strength by 1",
+    "id": "N53",
+    "type": "BUFF"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Ability only works on units",
+    "id": "N53",
+    "type": "MIXED"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Decreased strength at low levels",
+    "id": "N53",
+    "type": "NERF"
+  },
+  {
+    "date": 1574722800000,
+    "description": "Increased strength by 1",
+    "id": "N53",
+    "type": "BUFF"
+  },
+  {
+    "date": 1504044000000,
+    "description": "Increased strength by 1",
+    "id": "N54",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Increased strength at higher levels by 1",
+    "id": "N54",
+    "type": "BUFF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Increased strength at higher level by 1",
+    "id": "N54",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased mana by 1",
+    "id": "N55",
+    "type": "NERF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased damage by 1",
+    "id": "N55",
+    "type": "BUFF"
+  },
+  {
+    "date": 1504648800000,
+    "description": "Increased mana by 1",
+    "id": "N55",
+    "type": "NERF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Increased strength and damage at higher levels by 1",
+    "id": "N55",
+    "type": "BUFF"
+  },
+  {
+    "date": 1504044000000,
+    "description": "Increased strength of the spawned units by 1",
+    "id": "N56",
+    "type": "BUFF"
+  },
+  {
+    "date": 1507672800000,
+    "description": "Increased ability by 1",
+    "id": "N56",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Set movement to 1 (bugfix)",
+    "id": "N57",
+    "type": "MIXED"
+  },
+  {
+    "date": 1504044000000,
+    "description": "Increased strength and ability by 1",
+    "id": "N57",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Increased strength at higher levels by 1",
+    "id": "N57",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Increased damage at higher levels by 1",
+    "id": "N57",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Ability hits random surrounding",
+    "id": "N57",
+    "type": "MIXED"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Set ability to 3 for all levels",
+    "id": "N58",
+    "type": "MIXED"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Increased strength at higher levels",
+    "id": "N58",
+    "type": "BUFF"
+  },
+  {
+    "date": 1557352800000,
+    "description": "Decreased mana by 1",
+    "id": "N58",
+    "type": "BUFF"
+  },
+  {
+    "date": 1557352800000,
+    "description": "Added to the game",
+    "id": "N59",
+    "type": "INFO"
+  },
+  {
+    "date": 1561586400000,
+    "description": "Increased ability by 1 at higher levels",
+    "id": "N59",
+    "type": "BUFF"
+  },
+  {
+    "date": 1574722800000,
+    "description": "Decreased strength by 1",
+    "id": "N59",
+    "type": "NERF"
+  },
+  {
+    "date": 1574722800000,
+    "description": "Increased ability by 1",
+    "id": "N59",
+    "type": "BUFF"
+  },
+  {
+    "date": 1561586400000,
+    "description": "Added to the game",
+    "id": "N60",
+    "type": "INFO"
+  },
+  {
+    "date": 1569362400000,
+    "description": "Decreased mana by 1",
+    "id": "N60",
+    "type": "BUFF"
+  },
+  {
+    "date": 1569362400000,
+    "description": "Decreased strength by 2",
+    "id": "N60",
+    "type": "NERF"
+  },
+  {
+    "date": 1569362400000,
+    "description": "Ability changed",
+    "id": "N60",
+    "type": "MIXED"
+  },
+  {
+    "date": 1574722800000,
+    "description": "Increased mana by 1",
+    "id": "N60",
+    "type": "NERF"
+  },
+  {
+    "date": 1574722800000,
+    "description": "Increased strength by 2",
+    "id": "N60",
+    "type": "BUFF"
+  },
+  {
+    "date": 1561586400000,
+    "description": "Added to the game",
+    "id": "N61",
+    "type": "INFO"
+  },
+  {
+    "date": 1574722800000,
+    "description": "Decreased mana by 2",
+    "id": "N61",
+    "type": "BUFF"
+  },
+  {
+    "date": 1574722800000,
+    "description": "Decreased strength by 2",
+    "id": "N61",
+    "type": "NERF"
+  },
+  {
+    "date": 1561586400000,
+    "description": "Added to the game",
+    "id": "N62",
+    "type": "INFO"
+  },
+  {
+    "date": 1569362400000,
+    "description": "Ability affects all in front at all levels",
+    "id": "N62",
+    "type": "BUFF"
+  },
+  {
+    "date": 1569362400000,
+    "description": "Increased strength at higher levels by 1",
+    "id": "N62",
+    "type": "BUFF"
+  },
+  {
+    "date": 1561586400000,
+    "description": "Added to the game",
+    "id": "N63",
+    "type": "INFO"
+  },
+  {
+    "date": 1574722800000,
+    "description": "Decreased mana by 1",
+    "id": "N63",
+    "type": "BUFF"
+  },
+  {
+    "date": 1561586400000,
+    "description": "Added to the game",
+    "id": "N64",
+    "type": "INFO"
+  },
+  {
+    "date": 1574722800000,
+    "description": "Increased strength and ability by 1",
+    "id": "N64",
+    "type": "BUFF"
+  },
+  {
+    "date": 1564005600000,
+    "description": "Added to the game",
+    "id": "N65",
+    "type": "INFO"
+  },
+  {
+    "date": 1564005600000,
+    "description": "Added to the game",
+    "id": "N66",
+    "type": "INFO"
+  },
+  {
+    "date": 1574722800000,
+    "description": "Decreased mana by 1",
+    "id": "N66",
+    "type": "BUFF"
+  },
+  {
+    "date": 1574722800000,
+    "description": "Decreased strength by 1",
+    "id": "N66",
+    "type": "NERF"
+  },
+  {
+    "date": 1564005600000,
+    "description": "Added to the game",
+    "id": "N67",
+    "type": "INFO"
+  },
+  {
+    "date": 1574722800000,
+    "description": "Decreased mana by 1",
+    "id": "N67",
+    "type": "BUFF"
+  },
+  {
+    "date": 1574722800000,
+    "description": "Decreased strength by 1",
+    "id": "N67",
+    "type": "NERF"
+  },
+  {
+    "date": 1564005600000,
+    "description": "Added to the game",
+    "id": "N68",
+    "type": "INFO"
+  },
+  {
+    "date": 1564005600000,
+    "description": "Added to the game",
+    "id": "N69",
+    "type": "INFO"
+  },
+  {
+    "date": 1574722800000,
+    "description": "Increased strength by 1",
+    "id": "N69",
+    "type": "BUFF"
   },
   {
     "date": 1570053600000,
-    "type": "ADDITION",
-    "description": "Added in Brawl Mode",
-    "id": "N70"
+    "description": "Added in Brawl mode",
+    "id": "N70",
+    "type": "INFO"
   },
   {
     "date": 1572994800000,
-    "type": "UPDATE",
     "description": "Made available to be crafted and randomly collected",
-    "id": "N70"
+    "id": "N70",
+    "type": "INFO"
   },
   {
     "date": 1569362400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "N71"
+    "id": "N71",
+    "type": "INFO"
   },
   {
     "date": 1569362400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "N72"
+    "id": "N72",
+    "type": "INFO"
   },
   {
     "date": 1569448800000,
-    "type": "ADDITION",
-    "description": "Added in Brawl Mode",
-    "id": "N73"
+    "description": "Added in Brawl mode",
+    "id": "N73",
+    "type": "INFO"
   },
   {
     "date": 1572994800000,
-    "type": "UPDATE",
     "description": "Made available to be crafted and randomly collected",
-    "id": "N73"
+    "id": "N73",
+    "type": "INFO"
   },
   {
     "date": 1573686000000,
-    "type": "ADDITION",
-    "description": "Added to Brawl Mode",
-    "id": "N74"
+    "description": "Added to Brawl mode",
+    "id": "N74",
+    "type": "INFO"
   },
   {
     "date": 1577055600000,
-    "type": "UPDATE",
     "description": "Made available to be crafted and randomly collected",
-    "id": "N74"
+    "id": "N74",
+    "type": "INFO"
   },
   {
     "date": 1572822000000,
-    "type": "UPDATE",
     "description": "Made available in the Shop",
-    "id": "N75"
+    "id": "N75",
+    "type": "INFO"
   },
   {
     "date": 1573081200000,
-    "type": "ADDITION",
-    "description": "Added to Brawl Mode",
-    "id": "N75"
+    "description": "Added to Brawl mode",
+    "id": "N75",
+    "type": "INFO"
   },
   {
     "date": 1577055600000,
-    "type": "UPDATE",
     "description": "Made available to be crafted and randomly collected",
-    "id": "N75"
+    "id": "N75",
+    "type": "INFO"
   },
   {
     "date": 1576710000000,
-    "type": "ADDITION",
-    "description": "Added to Brawl Mode",
-    "id": "N76"
+    "description": "Added to Brawl mode",
+    "id": "N76",
+    "type": "INFO"
   },
   {
     "date": 1577055600000,
-    "type": "UPDATE",
     "description": "Made available to be crafted and randomly collected",
-    "id": "N76"
+    "id": "N76",
+    "type": "INFO"
   },
   {
     "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Increased strength when leveled, decreased ability strength",
-    "id": "F1"
+    "description": "Increased strength when leveled",
+    "id": "F1",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Decreased ability strength",
+    "id": "F1",
+    "type": "NERF"
   },
   {
     "date": 1506376800000,
-    "type": "UPDATE",
     "description": "Decreased strength and ability at higher levels",
-    "id": "F1"
+    "id": "F1",
+    "type": "NERF"
   },
   {
     "date": 1510786800000,
-    "type": "UPDATE",
-    "description": "Increased mana, strength and ability by 1",
-    "id": "F1"
+    "description": "Increased mana by 1",
+    "id": "F1",
+    "type": "NERF"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Increased strength and ability by 1",
+    "id": "F1",
+    "type": "BUFF"
   },
   {
     "date": 1524348000000,
-    "type": "UPDATE",
     "description": "Ability also works on friendly units",
-    "id": "F1"
+    "id": "F1",
+    "type": "BUFF"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Decreased mana to 2, decreased movement to 0, now spawns multiple 1-strength toads",
-    "id": "F1"
+    "description": "Decreased mana to 2",
+    "id": "F1",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Decreased movement to 0",
+    "id": "F1",
+    "type": "NERF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Spawns multiple 1-strength toads",
+    "id": "F1",
+    "type": "BUFF"
   },
   {
     "date": 1537221600000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "F1"
+    "id": "F1",
+    "type": "BUFF"
   },
   {
     "date": 1550012400000,
-    "type": "UPDATE",
     "description": "Decreased strength by 1",
-    "id": "F1"
+    "id": "F1",
+    "type": "NERF"
   },
   {
     "date": 1561586400000,
-    "type": "UPDATE",
     "description": "Increased ability by 1",
-    "id": "F1"
+    "id": "F1",
+    "type": "BUFF"
   },
   {
     "date": 1510786800000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "F2"
+    "id": "F2",
+    "type": "INFO"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
     "description": "Decreased movement to 0",
-    "id": "F2"
+    "id": "F2",
+    "type": "NERF"
   },
   {
     "date": 1533592800000,
-    "type": "UPDATE",
-    "description": "Increased ability and decreased strength at higher levels by 1",
-    "id": "F2"
+    "description": "Increased ability at higher levels by 1",
+    "id": "F2",
+    "type": "BUFF"
+  },
+  {
+    "date": 1533592800000,
+    "description": "Decreased strength at higher levels by 1",
+    "id": "F2",
+    "type": "NERF"
   },
   {
     "date": 1505685600000,
-    "type": "UPDATE",
-    "description": "Decreased strength and (negative) ability by 1",
-    "id": "F3"
+    "description": "Decreased strength by 1",
+    "id": "F3",
+    "type": "NERF"
+  },
+  {
+    "date": 1505685600000,
+    "description": "Decreased negative ability by 1",
+    "id": "F3",
+    "type": "BUFF"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
     "description": "Decreased strength by 1",
-    "id": "F3"
+    "id": "F3",
+    "type": "NERF"
   },
   {
     "date": 1502316000000,
-    "type": "UPDATE",
     "description": "Decreased mana by 1",
-    "id": "F4"
+    "id": "F4",
+    "type": "BUFF"
   },
   {
     "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Increased mana by 2, surrounding at all levels, damages and poisons all units.",
-    "id": "F4"
+    "description": "Increased mana by 2",
+    "id": "F4",
+    "type": "NERF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Surrounding at all levels, damages and poisons all units",
+    "id": "F4",
+    "type": "MIXED"
   },
   {
     "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "Decreased mana and ability by 1",
-    "id": "F4"
+    "description": "Decreased mana by 1",
+    "id": "F4",
+    "type": "BUFF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Decreased ability by 1",
+    "id": "F4",
+    "type": "NERF"
   },
   {
     "date": 1574722800000,
-    "type": "UPDATE",
     "description": "Decreased mana by 1",
-    "id": "F4"
+    "id": "F4",
+    "type": "BUFF"
   },
   {
     "date": 1502056800000,
-    "type": "UPDATE",
     "description": "Decreased mana by 1",
-    "id": "F5"
+    "id": "F5",
+    "type": "BUFF"
   },
   {
     "date": 1507672800000,
-    "type": "UPDATE",
     "description": "Increased mana by 1",
-    "id": "F5"
+    "id": "F5",
+    "type": "NERF"
   },
   {
     "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Damages and poisons friendly units too, increased damage and remains bordering at all levels",
-    "id": "F5"
+    "description": "Damages and poisons friendly units too",
+    "id": "F5",
+    "type": "NERF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Increased damage",
+    "id": "F5",
+    "type": "BUFF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Remains bordering at all levels",
+    "id": "F5",
+    "type": "NERF"
   },
   {
     "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "Decreased mana and ability by 1",
-    "id": "F5"
+    "description": "Decreased mana by 1",
+    "id": "F5",
+    "type": "BUFF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Decreased ability by 1",
+    "id": "F5",
+    "type": "NERF"
   },
   {
     "date": 1510786800000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "F6"
+    "id": "F6",
+    "type": "INFO"
   },
   {
     "date": 1553122800000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "F7"
+    "id": "F7",
+    "type": "INFO"
   },
   {
     "date": 1504648800000,
-    "type": "UPDATE",
     "description": "Decreased mana by 1",
-    "id": "F8"
+    "id": "F8",
+    "type": "BUFF"
   },
   {
     "date": 1574722800000,
-    "type": "UPDATE",
-    "description": "Decreased mana and spawns at higher levels",
-    "id": "F8"
+    "description": "Decreased mana at higher levels",
+    "id": "F8",
+    "type": "BUFF"
+  },
+  {
+    "date": 1574722800000,
+    "description": "Decreased spawns at higher levels",
+    "id": "F8",
+    "type": "NERF"
   },
   {
     "date": 1521500400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "F9"
+    "id": "F9",
+    "type": "INFO"
   },
   {
     "date": 1524348000000,
-    "type": "UPDATE",
-    "description": "Decreased mana, strength and ability by 1",
-    "id": "F9"
+    "description": "Decreased mana by 1",
+    "id": "F9",
+    "type": "BUFF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Decreased strength and ability by 1",
+    "id": "F9",
+    "type": "NERF"
   },
   {
     "date": 1533592800000,
-    "type": "UPDATE",
     "description": "Set strength to 3 and adjusted ability at all levels",
-    "id": "F9"
+    "id": "F9",
+    "type": "MIXED"
   },
   {
     "date": 1561586400000,
-    "type": "UPDATE",
     "description": "Ability increased at lower levels and decreased at higher levels",
-    "id": "F9"
+    "id": "F9",
+    "type": "MIXED"
   },
   {
     "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Decreased mana and strength by 1",
-    "id": "F10"
+    "description": "Decreased mana by 1",
+    "id": "F10",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Decreased strength by 1",
+    "id": "F10",
+    "type": "NERF"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
     "description": "Decreased ability by 1",
-    "id": "F10"
+    "id": "F10",
+    "type": "NERF"
   },
   {
     "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "Increased mana and ability by 1",
-    "id": "F10"
+    "description": "Increased mana by 1",
+    "id": "F10",
+    "type": "NERF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Increased ability by 1",
+    "id": "F10",
+    "type": "BUFF"
   },
   {
     "date": 1512860400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "F11"
+    "id": "F11",
+    "type": "INFO"
   },
   {
     "date": 1517353200000,
-    "type": "UPDATE",
     "description": "Doubled strength of spawn",
-    "id": "F11"
+    "id": "F11",
+    "type": "BUFF"
   },
   {
     "date": 1524348000000,
-    "type": "UPDATE",
     "description": "Ability also works on friendly units",
-    "id": "F11"
+    "id": "F11",
+    "type": "MIXED"
   },
   {
     "date": 1561586400000,
-    "type": "UPDATE",
     "description": "Increased damage and spawn by 1",
-    "id": "F11"
+    "id": "F11",
+    "type": "BUFF"
   },
   {
     "date": 1502316000000,
-    "type": "UPDATE",
-    "description": "Increased mana, strength and ability by 1",
-    "id": "F12"
+    "description": "Increased mana by 1",
+    "id": "F12",
+    "type": "NERF"
+  },
+  {
+    "date": 1502316000000,
+    "description": "Increased strength and ability by 1",
+    "id": "F12",
+    "type": "BUFF"
   },
   {
     "date": 1505685600000,
-    "type": "UPDATE",
     "description": "Decreased ability by 1",
-    "id": "F12"
+    "id": "F12",
+    "type": "NERF"
   },
   {
     "date": 1524348000000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1, increased ability by 1",
-    "id": "F12"
+    "description": "Decreased strength by 1",
+    "id": "F12",
+    "type": "NERF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Increased ability by 1",
+    "id": "F12",
+    "type": "BUFF"
   },
   {
     "date": 1537221600000,
-    "type": "UPDATE",
-    "description": "Decreased mana and strength by 2",
-    "id": "F12"
+    "description": "Decreased mana by 2",
+    "id": "F12",
+    "type": "BUFF"
+  },
+  {
+    "date": 1537221600000,
+    "description": "Decreased strength by 2",
+    "id": "F12",
+    "type": "NERF"
   },
   {
     "date": 1574722800000,
-    "type": "UPDATE",
     "description": "Increased strength and ability by 1 at higher levels",
-    "id": "F12"
+    "id": "F12",
+    "type": "BUFF"
   },
   {
     "date": 1504044000000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "F13"
+    "id": "F13",
+    "type": "BUFF"
   },
   {
     "date": 1506376800000,
-    "type": "UPDATE",
-    "description": "Increased strength at higher levels, decreased ability at higher levels",
-    "id": "F13"
+    "description": "Increased strength at higher levels",
+    "id": "F13",
+    "type": "BUFF"
+  },
+  {
+    "date": 1506376800000,
+    "description": "Decreased ability at higher levels",
+    "id": "F13",
+    "type": "NERF"
   },
   {
     "date": 1510786800000,
-    "type": "UPDATE",
     "description": "Removed damage, will hit 2 enemies at higher levels",
-    "id": "F13"
+    "id": "F13",
+    "type": "MIXED"
   },
   {
     "date": 1533592800000,
-    "type": "UPDATE",
     "description": "Increased ability at higher levels by 1",
-    "id": "F13"
+    "id": "F13",
+    "type": "BUFF"
   },
   {
     "date": 1574722800000,
-    "type": "UPDATE",
     "description": "Increased strength at higher levels by 1",
-    "id": "F13"
+    "id": "F13",
+    "type": "BUFF"
   },
   {
     "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Increased mana and strength by 1",
-    "id": "F14"
+    "description": "Increased mana by 1",
+    "id": "F14",
+    "type": "NERF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased strength by 1",
+    "id": "F14",
+    "type": "BUFF"
   },
   {
     "date": 1537221600000,
-    "type": "UPDATE",
     "description": "Increased ability at higher levels",
-    "id": "F14"
+    "id": "F14",
+    "type": "BUFF"
   },
   {
     "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Set movement to 1, increased drain ability by 2",
-    "id": "F15"
+    "description": "Set movement to 1",
+    "id": "F15",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased drain ability by 2",
+    "id": "F15",
+    "type": "BUFF"
   },
   {
     "date": 1504044000000,
-    "type": "UPDATE",
     "description": "Increased strength by 2, reduced ability by 1",
-    "id": "F15"
+    "id": "F15",
+    "type": "BUFF"
   },
   {
     "date": 1517353200000,
-    "type": "UPDATE",
     "description": "Can now also drain from a friendly poisoned unit",
-    "id": "F15"
+    "id": "F15",
+    "type": "MIXED"
   },
   {
     "date": 1505685600000,
-    "type": "UPDATE",
     "description": "Decreased ability by 1",
-    "id": "F16"
+    "id": "F16",
+    "type": "NERF"
   },
   {
     "date": 1561586400000,
-    "type": "UPDATE",
-    "description": "Decreased strength at lower levels (down to 1), increased ability at lower levels (up to 3)",
-    "id": "F16"
+    "description": "Decreased strength at lower levels to 1",
+    "id": "F16",
+    "type": "NERF"
+  },
+  {
+    "date": 1561586400000,
+    "description": "Increased ability at lower levels to 3",
+    "id": "F16",
+    "type": "BUFF"
   },
   {
     "date": 1540854000000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "F17"
+    "id": "F17",
+    "type": "INFO"
   },
   {
     "date": 1512860400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "F18"
+    "id": "F18",
+    "type": "INFO"
   },
   {
     "date": 1524348000000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "F18"
+    "id": "F18",
+    "type": "BUFF"
   },
   {
     "date": 1545001200000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "F19"
+    "id": "F19",
+    "type": "INFO"
   },
   {
     "date": 1504044000000,
-    "type": "UPDATE",
     "description": "Increased strength by 2",
-    "id": "F20"
+    "id": "F20",
+    "type": "BUFF"
   },
   {
     "date": 1506376800000,
-    "type": "UPDATE",
     "description": "Decreased ability at higher levels",
-    "id": "F20"
+    "id": "F20",
+    "type": "NERF"
   },
   {
     "date": 1507672800000,
-    "type": "UPDATE",
     "description": "Decreased strength by 1",
-    "id": "F20"
+    "id": "F20",
+    "type": "NERF"
   },
   {
     "date": 1517353200000,
-    "type": "UPDATE",
     "description": "Increased ability at higher levels by 1",
-    "id": "F20"
+    "id": "F20",
+    "type": "BUFF"
   },
   {
     "date": 1557352800000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "F20"
+    "id": "F20",
+    "type": "BUFF"
   },
   {
     "date": 1521500400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "F21"
+    "id": "F21",
+    "type": "INFO"
   },
   {
     "date": 1537221600000,
-    "type": "UPDATE",
     "description": "Increased strength of spawned dragons by 1 at higher levels",
-    "id": "F21"
+    "id": "F21",
+    "type": "BUFF"
   },
   {
     "date": 1545001200000,
-    "type": "UPDATE",
     "description": "Decreased strength at lower levels by 1",
-    "id": "F21"
+    "id": "F21",
+    "type": "NERF"
   },
   {
     "date": 1561586400000,
-    "type": "UPDATE",
     "description": "Increased strength at lower levels by 1",
-    "id": "F21"
+    "id": "F21",
+    "type": "BUFF"
   },
   {
     "date": 1502056800000,
-    "type": "UPDATE",
     "description": "Increased mana and maximum strength requirement by 2",
-    "id": "F22"
+    "id": "F22",
+    "type": "NERF"
   },
   {
     "date": 1517353200000,
-    "type": "UPDATE",
     "description": "Increased max strength requirement by 1",
-    "id": "F22"
+    "id": "F22",
+    "type": "NERF"
   },
   {
     "date": 1524348000000,
-    "type": "UPDATE",
     "description": "Decreased mana and strength requirement by 1",
-    "id": "F22"
+    "id": "F22",
+    "type": "BUFF"
   },
   {
     "date": 1537221600000,
-    "type": "UPDATE",
     "description": "Decreased mana by 1",
-    "id": "F22"
+    "id": "F22",
+    "type": "BUFF"
   },
   {
     "date": 1574722800000,
-    "type": "UPDATE",
     "description": "Increased ability by 1",
-    "id": "F22"
+    "id": "F22",
+    "type": "BUFF"
   },
   {
     "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Increased mana by 1, increased strength and ability when leveling",
-    "id": "F23"
+    "description": "Increased mana by 1",
+    "id": "F23",
+    "type": "NERF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased strength and ability when leveling",
+    "id": "F23",
+    "type": "BUFF"
   },
   {
     "date": 1504044000000,
-    "type": "UPDATE",
     "description": "Increased strength and ability by 1",
-    "id": "F23"
+    "id": "F23",
+    "type": "BUFF"
   },
   {
     "date": 1506376800000,
-    "type": "UPDATE",
     "description": "Decreased strength and ability",
-    "id": "F23"
+    "id": "F23",
+    "type": "NERF"
   },
   {
     "date": 1510786800000,
-    "type": "UPDATE",
     "description": "Increased ability by 1",
-    "id": "F23"
+    "id": "F23",
+    "type": "BUFF"
   },
   {
     "date": 1517353200000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "F23"
+    "id": "F23",
+    "type": "BUFF"
   },
   {
     "date": 1537221600000,
-    "type": "UPDATE",
     "description": "Increased strength",
-    "id": "F23"
+    "id": "F23",
+    "type": "BUFF"
   },
   {
     "date": 1557352800000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 2, ability now destroys all units with the lowest strength and spawns your ravens there",
-    "id": "F23"
+    "description": "Decreased strength by 2",
+    "id": "F23",
+    "type": "NERF"
   },
   {
     "date": 1557352800000,
-    "type": "ADDITION",
+    "description": "Ability changed",
+    "id": "F23",
+    "type": "MIXED"
+  },
+  {
+    "date": 1557352800000,
     "description": "Added to the game",
-    "id": "F24"
+    "id": "F24",
+    "type": "INFO"
   },
   {
     "date": 1574722800000,
-    "type": "UPDATE",
-    "description": "Increased ability by 1 and strength by 1 at higher levels",
-    "id": "F24"
+    "description": "Increased ability and strength by 1 at higher levels",
+    "id": "F24",
+    "type": "BUFF"
   },
   {
     "date": 1569362400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "F25"
+    "id": "F25",
+    "type": "INFO"
   },
   {
     "date": 1569362400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "F26"
+    "id": "F26",
+    "type": "INFO"
   },
   {
     "date": 1570658400000,
-    "type": "ADDITION",
-    "description": "Added in Brawl Mode",
-    "id": "F27"
+    "description": "Added in Brawl mode",
+    "id": "F27",
+    "type": "INFO"
   },
   {
     "date": 1572994800000,
-    "type": "UPDATE",
     "description": "Made available to be crafted and randomly collected",
-    "id": "F27"
+    "id": "F27",
+    "type": "INFO"
   },
   {
     "date": 1575500400000,
-    "type": "ADDITION",
-    "description": "Added to Brawl Mode",
-    "id": "F28"
+    "description": "Added to Brawl mode",
+    "id": "F28",
+    "type": "INFO"
   },
   {
     "date": 1577055600000,
-    "type": "UPDATE",
     "description": "Made available to be crafted and randomly collected",
-    "id": "F28"
+    "id": "F28",
+    "type": "INFO"
   },
   {
     "date": 1510786800000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "S1"
+    "id": "S1",
+    "type": "INFO"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Decreased mana and strength by 1",
-    "id": "S1"
+    "description": "Decreased mana by 1",
+    "id": "S1",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Decreased strength by 1",
+    "id": "S1",
+    "type": "NERF"
   },
   {
     "date": 1507672800000,
-    "type": "UPDATE",
     "description": "Decreased strength by 1",
-    "id": "S2"
+    "id": "S2",
+    "type": "NERF"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
     "description": "Increased ability damage by 1",
-    "id": "S2"
+    "id": "S2",
+    "type": "BUFF"
   },
   {
     "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "Increased mana cost by 1, decreased ability by 1",
-    "id": "S2"
+    "description": "Increased mana by 1",
+    "id": "S2",
+    "type": "NERF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Decreased ability by 1",
+    "id": "S2",
+    "type": "NERF"
   },
   {
     "date": 1574722800000,
-    "type": "UPDATE",
     "description": "Increased ability by 1",
-    "id": "S2"
+    "id": "S2",
+    "type": "BUFF"
   },
   {
     "date": 1506376800000,
-    "type": "UPDATE",
     "description": "Decreased strength at level 5",
-    "id": "S3"
+    "id": "S3",
+    "type": "NERF"
   },
   {
     "date": 1557352800000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1, ability now triggers when not bordering enemies (was not bordering units)",
-    "id": "S3"
+    "description": "Decreased strength by 1",
+    "id": "S3",
+    "type": "NERF"
+  },
+  {
+    "date": 1557352800000,
+    "description": "Ability now triggers when not bordering enemies (was not bordering units)",
+    "id": "S3",
+    "type": "MIXED"
   },
   {
     "date": 1545001200000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "S4"
+    "id": "S4",
+    "type": "INFO"
   },
   {
     "date": 1553122800000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "S5"
+    "id": "S5",
+    "type": "INFO"
   },
   {
     "date": 1507672800000,
-    "type": "UPDATE",
     "description": "Decreased strength by 1 at higher levels",
-    "id": "S6"
+    "id": "S6",
+    "type": "NERF"
   },
   {
     "date": 1510786800000,
-    "type": "UPDATE",
     "description": "Decreased strength by 1",
-    "id": "S6"
+    "id": "S6",
+    "type": "NERF"
   },
   {
     "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Will command a random bordering unit at levels 1 and 2, all bordering at 3 and 4, all surrounding at 5",
-    "id": "S6"
+    "description": "Ability changed",
+    "id": "S6",
+    "type": "MIXED"
   },
   {
     "date": 1502056800000,
-    "type": "UPDATE",
     "description": "Decreased mana by 1",
-    "id": "S7"
+    "id": "S7",
+    "type": "BUFF"
   },
   {
     "date": 1504044000000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "S7"
+    "id": "S7",
+    "type": "BUFF"
   },
   {
     "date": 1524348000000,
-    "type": "UPDATE",
     "description": "Increased strength at max level",
-    "id": "S7"
+    "id": "S7",
+    "type": "BUFF"
   },
   {
     "date": 1557352800000,
-    "type": "UPDATE",
     "description": "Increased ability by 1 at higher levels",
-    "id": "S7"
+    "id": "S7",
+    "type": "BUFF"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
+    "description": "Increased mana by 1",
+    "id": "S8",
+    "type": "NERF"
+  },
+  {
+    "date": 1531087200000,
     "description": "Increased mana and ability by 1",
-    "id": "S8"
+    "id": "S8",
+    "type": "BUFF"
   },
   {
     "date": 1550012400000,
-    "type": "UPDATE",
     "description": "Decreased ability by 1",
-    "id": "S8"
+    "id": "S8",
+    "type": "NERF"
   },
   {
     "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Increased mana and strength by 1",
-    "id": "S9"
+    "description": "Increased mana by 1",
+    "id": "S9",
+    "type": "NERF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased strength by 1",
+    "id": "S9",
+    "type": "BUFF"
   },
   {
     "date": 1517353200000,
-    "type": "UPDATE",
     "description": "Ability now requires Satyr (was friendly units)",
-    "id": "S9"
+    "id": "S9",
+    "type": "NERF"
   },
   {
     "date": 1561586400000,
-    "type": "UPDATE",
-    "description": "Increased mana and strength by 1",
-    "id": "S9"
+    "description": "Increased mana by 1",
+    "id": "S9",
+    "type": "NERF"
+  },
+  {
+    "date": 1561586400000,
+    "description": "Increased strength by 1",
+    "id": "S9",
+    "type": "BUFF"
   },
   {
     "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Increased mana to 4, damage to base and the leveling steps and removed the \"if\" requirement on the base damage.",
-    "id": "S10"
+    "description": "Increased mana to 4",
+    "id": "S10",
+    "type": "NERF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Removed the \"if\" requirement on the base damage",
+    "id": "S10",
+    "type": "BUFF"
   },
   {
     "date": 1569362400000,
-    "type": "UPDATE",
     "description": "3 mana at all levels, ability changed",
-    "id": "S10"
+    "id": "S10",
+    "type": "MIXED"
   },
   {
     "date": 1512860400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "S11"
+    "id": "S11",
+    "type": "INFO"
   },
   {
     "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1, decreased bonus damage by 1",
-    "id": "S11"
+    "description": "Increased strength by 1",
+    "id": "S11",
+    "type": "BUFF"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Decreased bonus damage by 1",
+    "id": "S11",
+    "type": "NERF"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
     "description": "Increased ability damage by 1",
-    "id": "S11"
+    "id": "S11",
+    "type": "BUFF"
   },
   {
     "date": 1569362400000,
-    "type": "UPDATE",
     "description": "Ability also triggers on structures",
-    "id": "S11"
+    "id": "S11",
+    "type": "BUFF"
   },
   {
     "date": 1521500400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "S12"
+    "id": "S12",
+    "type": "INFO"
   },
   {
     "date": 1569362400000,
-    "type": "UPDATE",
     "description": "Decreased ability by 1",
-    "id": "S12"
+    "id": "S12",
+    "type": "NERF"
   },
   {
     "date": 1507672800000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "S13"
+    "id": "S13",
+    "type": "BUFF"
   },
   {
     "date": 1510786800000,
-    "type": "UPDATE",
-    "description": "Increased mana and strength by 1",
-    "id": "S13"
+    "description": "Increased mana by 1",
+    "id": "S13",
+    "type": "NERF"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Increased strength by 1",
+    "id": "S13",
+    "type": "BUFF"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
     "description": "Decreased strength by 1",
-    "id": "S13"
+    "id": "S13",
+    "type": "NERF"
   },
   {
     "date": 1506376800000,
-    "type": "UPDATE",
-    "description": "Set strength on all levels to 3, decreased ability by 1",
-    "id": "S14"
+    "description": "Set strength on all levels to 3",
+    "id": "S14",
+    "type": "MIXED"
+  },
+  {
+    "date": 1506376800000,
+    "description": "Decreased ability by 1",
+    "id": "S14",
+    "type": "NERF"
   },
   {
     "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Reworked; will now buff all surrounding friendly units (was Satyrs only)",
-    "id": "S14"
+    "description": "Now buffs all surrounding friendly units (was Satyrs only)",
+    "id": "S14",
+    "type": "BUFF"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
     "description": "Increased strength at lower levels by 1",
-    "id": "S14"
+    "id": "S14",
+    "type": "BUFF"
   },
   {
     "date": 1533592800000,
-    "type": "UPDATE",
     "description": "Increased ability at higher levels by 1",
-    "id": "S14"
+    "id": "S14",
+    "type": "BUFF"
   },
   {
     "date": 1557352800000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "S14"
+    "id": "S14",
+    "type": "BUFF"
   },
   {
     "date": 1510786800000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "S15"
+    "id": "S15",
+    "type": "INFO"
   },
   {
     "date": 1517353200000,
-    "type": "UPDATE",
-    "description": "Set mana to 5 at all levels, increased damage at higher levels",
-    "id": "S15"
+    "description": "Set mana to 5 at all levels",
+    "id": "S15",
+    "type": "MIXED"
+  },
+  {
+    "date": 1517353200000,
+    "description": "Increased damage at higher levels",
+    "id": "S15",
+    "type": "BUFF"
   },
   {
     "date": 1504044000000,
-    "type": "UPDATE",
     "description": "Reduced strength and that of spawned units at higher levels",
-    "id": "S16"
+    "id": "S16",
+    "type": "NERF"
   },
   {
     "date": 1533592800000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "S16"
+    "id": "S16",
+    "type": "BUFF"
   },
   {
     "date": 1512860400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "S17"
+    "id": "S17",
+    "type": "INFO"
   },
   {
     "date": 1550012400000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "S17"
+    "id": "S17",
+    "type": "BUFF"
   },
   {
     "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Increased mana and strength by 1",
-    "id": "S18"
+    "description": "Increased mana by 1",
+    "id": "S18",
+    "type": "NERF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased strength by 1",
+    "id": "S18",
+    "type": "BUFF"
   },
   {
     "date": 1505685600000,
-    "type": "UPDATE",
     "description": "Fixed strength at level 3",
-    "id": "S18"
+    "id": "S18",
+    "type": "MIXED"
   },
   {
     "date": 1524348000000,
-    "type": "UPDATE",
     "description": "Increased damage done by 1",
-    "id": "S18"
+    "id": "S18",
+    "type": "BUFF"
   },
   {
     "date": 1521500400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "S19"
+    "id": "S19",
+    "type": "INFO"
   },
   {
     "date": 1545001200000,
-    "type": "UPDATE",
     "description": "Decreased strength at lower levels by 1",
-    "id": "S19"
+    "id": "S19",
+    "type": "NERF"
   },
   {
     "date": 1561586400000,
-    "type": "UPDATE",
     "description": "Decreased strength at higher levels by 1",
-    "id": "S19"
+    "id": "S19",
+    "type": "NERF"
   },
   {
     "date": 1569362400000,
-    "type": "UPDATE",
-    "description": "Increased ability by 1 and decreased strength by 1",
-    "id": "S19"
+    "description": "Increased ability by 1",
+    "id": "S19",
+    "type": "BUFF"
+  },
+  {
+    "date": 1569362400000,
+    "description": "Decreased strength by 1",
+    "id": "S19",
+    "type": "NERF"
   },
   {
     "date": 1502661600000,
-    "type": "UPDATE",
-    "description": "Decreased mana and strength at higher levels by 1",
-    "id": "S20"
+    "description": "Decreased mana at higher levels by 1",
+    "id": "S20",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502661600000,
+    "description": "Decreased strength at higher levels by 1",
+    "id": "S20",
+    "type": "NERF"
   },
   {
     "date": 1510786800000,
-    "type": "UPDATE",
     "description": "Gives strength to a single unit",
-    "id": "S20"
+    "id": "S20",
+    "type": "MIXED"
   },
   {
     "date": 1517353200000,
-    "type": "UPDATE",
     "description": "Decreased strength given by 1",
-    "id": "S20"
+    "id": "S20",
+    "type": "NERF"
   },
   {
     "date": 1550012400000,
-    "type": "UPDATE",
     "description": "Costs 6 at all levels, gives strength equal to its level",
-    "id": "S20"
+    "id": "S20",
+    "type": "MIXED"
   },
   {
     "date": 1505685600000,
-    "type": "UPDATE",
-    "description": "Increased mana and strength by 1, changed leveling steps",
-    "id": "S21"
+    "description": "Increased mana by 1",
+    "id": "S21",
+    "type": "NERF"
+  },
+  {
+    "date": 1505685600000,
+    "description": "Increased strength by 1",
+    "id": "S21",
+    "type": "BUFF"
+  },
+  {
+    "date": 1505685600000,
+    "description": "Changed leveling steps",
+    "id": "S21",
+    "type": "MIXED"
   },
   {
     "date": 1510786800000,
-    "type": "UPDATE",
     "description": "Plays from deck (was from hand)",
-    "id": "S21"
+    "id": "S21",
+    "type": "MIXED"
   },
   {
     "date": 1524348000000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "S21"
+    "id": "S21",
+    "type": "BUFF"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
     "description": "Ability plays card randomly on the same row (was plays anywhere behind frontline)",
-    "id": "S21"
+    "id": "S21",
+    "type": "MIXED"
   },
   {
     "date": 1557352800000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "S21"
+    "id": "S21",
+    "type": "BUFF"
   },
   {
     "date": 1506376800000,
-    "type": "UPDATE",
     "description": "Decreased strength at level 5",
-    "id": "S22"
+    "id": "S22",
+    "type": "NERF"
   },
   {
     "date": 1524348000000,
-    "type": "UPDATE",
     "description": "Also triggers when attacking the base itself",
-    "id": "S22"
+    "id": "S22",
+    "type": "BUFF"
   },
   {
     "date": 1540854000000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "S23"
+    "id": "S23",
+    "type": "INFO"
   },
   {
     "date": 1557352800000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "S24"
+    "id": "S24",
+    "type": "INFO"
   },
   {
     "date": 1569362400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "S25"
+    "id": "S25",
+    "type": "INFO"
   },
   {
     "date": 1569362400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "S26"
+    "id": "S26",
+    "type": "INFO"
   },
   {
     "date": 1571263200000,
-    "type": "ADDITION",
-    "description": "Added in Brawl Mode",
-    "id": "S27"
+    "description": "Added in Brawl mode",
+    "id": "S27",
+    "type": "INFO"
   },
   {
     "date": 1572994800000,
-    "type": "UPDATE",
     "description": "Made available to be crafted and randomly collected",
-    "id": "S27"
+    "id": "S27",
+    "type": "INFO"
   },
   {
     "date": 1576105200000,
-    "type": "ADDITION",
-    "description": "Added to Brawl Mode",
-    "id": "S28"
+    "description": "Added to Brawl mode",
+    "id": "S28",
+    "type": "INFO"
   },
   {
     "date": 1577055600000,
-    "type": "UPDATE",
     "description": "Made available to be crafted and randomly collected",
-    "id": "S28"
+    "id": "S28",
+    "type": "INFO"
   },
   {
     "date": 1517353200000,
-    "type": "UPDATE",
     "description": "Increased max strength requirement by 1",
-    "id": "W1"
+    "id": "W1",
+    "type": "NERF"
   },
   {
     "date": 1524348000000,
-    "type": "UPDATE",
-    "description": "Decreased mana and strength requirement by 1",
-    "id": "W1"
+    "description": "Decreased mana by 1",
+    "id": "W1",
+    "type": "BUFF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Decreased strength requirement by 1",
+    "id": "W1",
+    "type": "BUFF"
   },
   {
     "date": 1561586400000,
-    "type": "UPDATE",
     "description": "Increased ability by 1",
-    "id": "W1"
+    "id": "W1",
+    "type": "BUFF"
   },
   {
     "date": 1569362400000,
-    "type": "UPDATE",
     "description": "Ability changed",
-    "id": "W1"
+    "id": "W1",
+    "type": "MIXED"
   },
   {
     "date": 1524348000000,
-    "type": "UPDATE",
     "description": "Increased mana by 1",
-    "id": "W2"
+    "id": "W2",
+    "type": "NERF"
   },
   {
     "date": 1537221600000,
-    "type": "UPDATE",
-    "description": "Ability is all bordering at lower levels, increased strength at higher levels",
-    "id": "W2"
+    "description": "Ability is all bordering at lower levels",
+    "id": "W2",
+    "type": "NERF"
+  },
+  {
+    "date": 1537221600000,
+    "description": "Increased strength at higher levels",
+    "id": "W2",
+    "type": "BUFF"
   },
   {
     "date": 1550012400000,
-    "type": "UPDATE",
     "description": "Replaced increased freeze area with an extra strength gain",
-    "id": "W2"
+    "id": "W2",
+    "type": "MIXED"
   },
   {
     "date": 1510786800000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1, decreased ability by 1",
-    "id": "W3"
+    "description": "Increased strength by 1",
+    "id": "W3",
+    "type": "BUFF"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Decreased ability by 1",
+    "id": "W3",
+    "type": "NERF"
   },
   {
     "date": 1537221600000,
-    "type": "UPDATE",
     "description": "Decreased mana by 1",
-    "id": "W3"
+    "id": "W3",
+    "type": "NERF"
   },
   {
     "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Decreased mana and strength by 1, increased ability damage",
-    "id": "W4"
+    "description": "Decreased mana by 1",
+    "id": "W4",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Decreased strength by 1",
+    "id": "W4",
+    "type": "NERF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased ability damage",
+    "id": "W4",
+    "type": "BUFF"
   },
   {
     "date": 1504044000000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "W4"
+    "id": "W4",
+    "type": "BUFF"
   },
   {
     "date": 1506376800000,
-    "type": "UPDATE",
     "description": "Lowered strength at higher levels",
-    "id": "W4"
+    "id": "W4",
+    "type": "NERF"
   },
   {
     "date": 1507672800000,
-    "type": "UPDATE",
     "description": "Decreased ability by 1",
-    "id": "W4"
+    "id": "W4",
+    "type": "NERF"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
     "description": "Decreased strength by 1",
-    "id": "W4"
+    "id": "W4",
+    "type": "NERF"
   },
   {
     "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "Decreased mana and strength by 1, ability is triggered before attacking and deals 1 more damage",
-    "id": "W4"
+    "description": "Decreased mana by 1",
+    "id": "W4",
+    "type": "BUFF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Decreased strength by 1",
+    "id": "W4",
+    "type": "NERF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Ability is triggered before attacking and deals 1 more damage",
+    "id": "W4",
+    "type": "BUFF"
   },
   {
     "date": 1569362400000,
-    "type": "UPDATE",
     "description": "Decreased ability by 1",
-    "id": "W4"
+    "id": "W4",
+    "type": "NERF"
   },
   {
     "date": 1545001200000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "W5"
+    "id": "W5",
+    "type": "INFO"
   },
   {
     "date": 1510786800000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "W6"
+    "id": "W6",
+    "type": "INFO"
   },
   {
     "date": 1524348000000,
-    "type": "UPDATE",
-    "description": "Increased mana by 1, strength by 2, surrounding at all levels",
-    "id": "W6"
+    "description": "Increased mana by 1",
+    "id": "W6",
+    "type": "NERF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Increased strength by 2",
+    "id": "W6",
+    "type": "BUFF"
+  },
+  {
+    "date": 1524348000000,
+    "description": "Surrounding at all levels",
+    "id": "W6",
+    "type": "BUFF"
   },
   {
     "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "Decreased mana cost and strength given by 2",
-    "id": "W6"
+    "description": "Decreased mana by 2",
+    "id": "W6",
+    "type": "BUFF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Decreased strength given by 2",
+    "id": "W6",
+    "type": "NERF"
   },
   {
     "date": 1569362400000,
-    "type": "UPDATE",
     "description": "Increased mana by 1",
-    "id": "W6"
+    "id": "W6",
+    "type": "NERF"
   },
   {
     "date": 1512860400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "W7"
+    "id": "W7",
+    "type": "INFO"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1, increased ability by 1",
-    "id": "W7"
+    "description": "Decreased strength by 1",
+    "id": "W7",
+    "type": "NERF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Increased ability by 1",
+    "id": "W7",
+    "type": "BUFF"
   },
   {
     "date": 1537221600000,
-    "type": "UPDATE",
     "description": "Set strength to 3 at all levels",
-    "id": "W7"
+    "id": "W7",
+    "type": "MIXED"
   },
   {
     "date": 1521500400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "W8"
+    "id": "W8",
+    "type": "INFO"
   },
   {
     "date": 1545001200000,
-    "type": "UPDATE",
     "description": "Decreased strength requirement by 1",
-    "id": "W8"
+    "id": "W8",
+    "type": "BUFF"
   },
   {
     "date": 1569362400000,
-    "type": "UPDATE",
     "description": "Increased strength requirement by 1",
-    "id": "W8"
+    "id": "W8",
+    "type": "NERF"
   },
   {
     "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Increased mana by 2 and mana from ability by 1, reduced strength by 1",
-    "id": "W9"
+    "description": "Increased mana by 2",
+    "id": "W9",
+    "type": "NERF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased mana from ability by 1",
+    "id": "W9",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Reduced strength by 1",
+    "id": "W9",
+    "type": "NERF"
   },
   {
     "date": 1504044000000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "W9"
+    "id": "W9",
+    "type": "BUFF"
   },
   {
     "date": 1517353200000,
-    "type": "UPDATE",
     "description": "Increased strength by 1 at lower levels",
-    "id": "W9"
+    "id": "W9",
+    "type": "BUFF"
   },
   {
     "date": 1537221600000,
-    "type": "UPDATE",
     "description": "Increased strength at higher levels",
-    "id": "W9"
+    "id": "W9",
+    "type": "BUFF"
   },
   {
     "date": 1557352800000,
-    "type": "UPDATE",
     "description": "Gives 3 mana at all levels",
-    "id": "W9"
+    "id": "W9",
+    "type": "MIXED"
   },
   {
     "date": 1502316000000,
-    "type": "UPDATE",
     "description": "Decreased strength by 1",
-    "id": "W10"
+    "id": "W10",
+    "type": "NERF"
   },
   {
     "date": 1524348000000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "W10"
+    "id": "W10",
+    "type": "BUFF"
   },
   {
     "date": 1569362400000,
-    "type": "UPDATE",
-    "description": "Increased mana and movement by 1, increased ability at higher levels",
-    "id": "W10"
+    "description": "Increased mana by 1",
+    "id": "W10",
+    "type": "NERF"
+  },
+  {
+    "date": 1569362400000,
+    "description": "Increased ability at higher levels",
+    "id": "W10",
+    "type": "BUFF"
+  },
+  {
+    "date": 1569362400000,
+    "description": "Increased movement by 1",
+    "id": "W10",
+    "type": "BUFF"
   },
   {
     "date": 1504044000000,
-    "type": "UPDATE",
     "description": "Increased ability by 1",
-    "id": "W11"
+    "id": "W11",
+    "type": "BUFF"
   },
   {
     "date": 1507672800000,
-    "type": "UPDATE",
     "description": "Increased ability by 1",
-    "id": "W11"
+    "id": "W11",
+    "type": "BUFF"
   },
   {
     "date": 1550012400000,
-    "type": "UPDATE",
-    "description": "Increased mana cost by 2 and damage by 1",
-    "id": "W11"
+    "description": "Increased mana by 2",
+    "id": "W11",
+    "type": "NERF"
+  },
+  {
+    "date": 1550012400000,
+    "description": "Increased damage by 1",
+    "id": "W11",
+    "type": "BUFF"
   },
   {
     "date": 1569362400000,
-    "type": "UPDATE",
-    "description": "Decreased mana by 1, ability changed",
-    "id": "W11"
+    "description": "Decreased mana by 1",
+    "id": "W11",
+    "type": "BUFF"
+  },
+  {
+    "date": 1569362400000,
+    "description": "Ability changed",
+    "id": "W11",
+    "type": "MIXED"
   },
   {
     "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Increased mana cost and ability by 1",
-    "id": "W12"
+    "description": "Increased mana by 1",
+    "id": "W12",
+    "type": "NERF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased ability by 1",
+    "id": "W12",
+    "type": "BUFF"
   },
   {
     "date": 1510786800000,
-    "type": "UPDATE",
-    "description": "Set ability to 3 for all levels, increased strength at higher levels",
-    "id": "W12"
+    "description": "Set ability to 3 for all levels",
+    "id": "W12",
+    "type": "MIXED"
+  },
+  {
+    "date": 1510786800000,
+    "description": "Increased strength at higher levels",
+    "id": "W12",
+    "type": "BUFF"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
     "description": "Decreased strength by 1",
-    "id": "W12"
+    "id": "W12",
+    "type": "NERF"
   },
   {
     "date": 1512860400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "W13"
+    "id": "W13",
+    "type": "INFO"
   },
   {
     "date": 1524348000000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "W13"
+    "id": "W13",
+    "type": "BUFF"
   },
   {
     "date": 1553122800000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "W14"
+    "id": "W14",
+    "type": "INFO"
   },
   {
     "date": 1521500400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "W15"
+    "id": "W15",
+    "type": "INFO"
   },
   {
     "date": 1569362400000,
-    "type": "UPDATE",
     "description": "Increased mana by 1",
-    "id": "W15"
+    "id": "W15",
+    "type": "NERF"
   },
   {
     "date": 1502316000000,
-    "type": "UPDATE",
     "description": "Decreased mana gained from ability by 1",
-    "id": "W16"
+    "id": "W16",
+    "type": "NERF"
   },
   {
     "date": 1507672800000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "W16"
+    "id": "W16",
+    "type": "BUFF"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Gives 4 mana at all levels, increased strength at higher levels by 1",
-    "id": "W16"
+    "description": "Gives 4 mana at all levels",
+    "id": "W16",
+    "type": "MIXED"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Increased strength at higher levels by 1",
+    "id": "W16",
+    "type": "BUFF"
   },
   {
     "date": 1550012400000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "W16"
+    "id": "W16",
+    "type": "BUFF"
   },
   {
     "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Increased mana and strength by 2, strength reduction from ability is now 1 at all levels",
-    "id": "W17"
+    "description": "Increased mana by 2",
+    "id": "W17",
+    "type": "NERF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Increased strength by 2",
+    "id": "W17",
+    "type": "BUFF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Strength reduction from ability is now 1 at all levels",
+    "id": "W17",
+    "type": "MIXED"
   },
   {
     "date": 1505685600000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "W17"
+    "id": "W17",
+    "type": "BUFF"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Decreased mana to 6, increased movement to 2, decreased strength to 6 (level 1) to 12 (level 5)",
-    "id": "W17"
+    "description": "Decreased mana to 6",
+    "id": "W17",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Increased movement to 2",
+    "id": "W17",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Decreased strength to 6 (level 1) and 12 (level 5)",
+    "id": "W17",
+    "type": "NERF"
   },
   {
     "date": 1502056800000,
-    "type": "UPDATE",
-    "description": "Increased mana by 1, decreased strength from ability by 1",
-    "id": "W18"
+    "description": "Increased mana by 1",
+    "id": "W18",
+    "type": "NERF"
+  },
+  {
+    "date": 1502056800000,
+    "description": "Decreased strength from ability by 1",
+    "id": "W18",
+    "type": "NERF"
   },
   {
     "date": 1504044000000,
-    "type": "UPDATE",
-    "description": "Increased strength by 2, reduced ability by 1",
-    "id": "W18"
+    "description": "Increased strength by 2",
+    "id": "W18",
+    "type": "BUFF"
+  },
+  {
+    "date": 1504044000000,
+    "description": "Decreased ability by 1",
+    "id": "W18",
+    "type": "NERF"
   },
   {
     "date": 1505685600000,
-    "type": "UPDATE",
     "description": "Increased ability by 1",
-    "id": "W18"
+    "id": "W18",
+    "type": "BUFF"
   },
   {
     "date": 1517353200000,
-    "type": "UPDATE",
     "description": "Increased strength given by 1",
-    "id": "W18"
+    "id": "W18",
+    "type": "BUFF"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Decreased mana and strength by 1",
-    "id": "W18"
+    "description": "Decreased mana by 1",
+    "id": "W18",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Decreased strength by 1",
+    "id": "W18",
+    "type": "NERF"
   },
   {
     "date": 1533592800000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "W18"
+    "id": "W18",
+    "type": "BUFF"
   },
   {
     "date": 1510786800000,
-    "type": "UPDATE",
-    "description": "Removed card draw and changed mana cost",
-    "id": "W19"
+    "description": "Removed card draw and changed mana",
+    "id": "W19",
+    "type": "MIXED"
   },
   {
     "date": 1537221600000,
-    "type": "UPDATE",
-    "description": "Set mana cost to 7 at all levels, gives +1 mana at each level, at level 4 gains card draw",
-    "id": "W19"
+    "description": "Set mana to 7 at all levels, gives +1 mana at each level, at level 4 gains card draw",
+    "id": "W19",
+    "type": "MIXED"
   },
   {
     "date": 1550012400000,
-    "type": "UPDATE",
     "description": "Replaced card draw with extra mana gain at level 4",
-    "id": "W19"
+    "id": "W19",
+    "type": "MIXED"
   },
   {
     "date": 1510786800000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "W20"
+    "id": "W20",
+    "type": "INFO"
   },
   {
     "date": 1569362400000,
-    "type": "UPDATE",
     "description": "Decreased mana by 1",
-    "id": "W20"
+    "id": "W20",
+    "type": "BUFF"
   },
   {
     "date": 1540854000000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "W21"
+    "id": "W21",
+    "type": "INFO"
   },
   {
     "date": 1569362400000,
-    "type": "UPDATE",
-    "description": "Decreased movement by 1, increased strength leveling",
-    "id": "W21"
+    "description": "Decreased movement by 1",
+    "id": "W21",
+    "type": "NERF"
+  },
+  {
+    "date": 1569362400000,
+    "description": "Increased strength leveling",
+    "id": "W21",
+    "type": "BUFF"
   },
   {
     "date": 1502056800000,
-    "type": "UPDATE",
     "description": "Decreased strength given from ability by 1",
-    "id": "W22"
+    "id": "W22",
+    "type": "NERF"
   },
   {
     "date": 1504648800000,
-    "type": "UPDATE",
-    "description": "Increased mana and ability by 1",
-    "id": "W22"
+    "description": "Increased mana by 1",
+    "id": "W22",
+    "type": "NERF"
+  },
+  {
+    "date": 1504648800000,
+    "description": "Increased ability by 1",
+    "id": "W22",
+    "type": "BUFF"
   },
   {
     "date": 1531087200000,
-    "type": "UPDATE",
-    "description": "Increased strength by 1, decreased ability by 2",
-    "id": "W22"
+    "description": "Increased strength by 1",
+    "id": "W22",
+    "type": "BUFF"
+  },
+  {
+    "date": 1531087200000,
+    "description": "Decreased ability by 2",
+    "id": "W22",
+    "type": "NERF"
   },
   {
     "date": 1537221600000,
-    "type": "UPDATE",
     "description": "Decreased mana by 1",
-    "id": "W22"
+    "id": "W22",
+    "type": "BUFF"
   },
   {
     "date": 1502316000000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "W23"
+    "id": "W23",
+    "type": "BUFF"
   },
   {
     "date": 1504648800000,
-    "type": "UPDATE",
     "description": "Decreased mana by 1",
-    "id": "W23"
+    "id": "W23",
+    "type": "BUFF"
   },
   {
     "date": 1557352800000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "W24"
+    "id": "W24",
+    "type": "INFO"
   },
   {
     "date": 1561586400000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "W24"
+    "id": "W24",
+    "type": "BUFF"
   },
   {
     "date": 1574722800000,
-    "type": "UPDATE",
     "description": "Increased strength by 1",
-    "id": "W24"
+    "id": "W24",
+    "type": "BUFF"
   },
   {
     "date": 1569362400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "W25"
+    "id": "W25",
+    "type": "INFO"
   },
   {
     "date": 1569362400000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "W26"
+    "id": "W26",
+    "type": "INFO"
   },
   {
     "date": 1572476400000,
-    "type": "ADDITION",
-    "description": "Added in Brawl Mode",
-    "id": "W27"
+    "description": "Added in Brawl mode",
+    "id": "W27",
+    "type": "INFO"
   },
   {
     "date": 1572994800000,
-    "type": "UPDATE",
     "description": "Made available to be crafted and randomly collected",
-    "id": "W27"
+    "id": "W27",
+    "type": "INFO"
   },
   {
     "date": 1574895600000,
-    "type": "ADDITION",
-    "description": "Added to Brawl Mode",
-    "id": "W28"
+    "description": "Added to Brawl mode",
+    "id": "W28",
+    "type": "INFO"
   },
   {
     "date": 1577055600000,
-    "type": "UPDATE",
     "description": "Made available to be crafted and randomly collected",
-    "id": "W28"
+    "id": "W28",
+    "type": "INFO"
   },
   {
     "date": 1594425600000,
-    "type": "UPDATE",
     "description": "Set mana to 3 at all levels",
-    "id": "N9"
+    "id": "N9",
+    "type": "BUFF"
   },
   {
     "date": 1594425600000,
-    "type": "UPDATE",
     "description": "Increased ability by 1",
-    "id": "N21"
+    "id": "N21",
+    "type": "BUFF"
   },
   {
     "date": 1594425600000,
-    "type": "UPDATE",
     "description": "Decreased mana by 1",
-    "id": "N60"
+    "id": "N60",
+    "type": "BUFF"
   },
   {
     "date": 1594425600000,
-    "type": "UPDATE",
-    "description": "Decreased strength by 1 and ability by 1",
-    "id": "N70"
+    "description": "Decreased strength and ability by 1",
+    "id": "N70",
+    "type": "NERF"
   },
   {
     "date": 1594425600000,
-    "type": "UPDATE",
     "description": "Increased mana by 1",
-    "id": "N74"
+    "id": "N74",
+    "type": "NERF"
   },
   {
     "date": 1594425600000,
-    "type": "UPDATE",
     "description": "Decreased strength by 1",
-    "id": "N76"
+    "id": "N76",
+    "type": "NERF"
   },
   {
     "date": 1594425600000,
-    "type": "UPDATE",
     "description": "Decreased strength by 2",
-    "id": "F20"
+    "id": "F20",
+    "type": "NERF"
   },
   {
     "date": 1594425600000,
-    "type": "UPDATE",
     "description": "Decreased strength by 2",
-    "id": "F28"
+    "id": "F28",
+    "type": "NERF"
   },
   {
     "date": 1594425600000,
-    "type": "UPDATE",
     "description": "Increased mana by 1",
-    "id": "S20"
+    "id": "S20",
+    "type": "NERF"
   },
   {
     "date": 1594425600000,
-    "type": "UPDATE",
     "description": "Increased mana by 1",
-    "id": "S21"
+    "id": "S21",
+    "type": "NERF"
   },
   {
     "date": 1594425600000,
-    "type": "UPDATE",
     "description": "Prevented ability from playing epic cards",
-    "id": "S21"
+    "id": "S21",
+    "type": "NERF"
   },
   {
     "date": 1594425600000,
-    "type": "UPDATE",
     "description": "Decreased strength by 1",
-    "id": "S28"
+    "id": "S28",
+    "type": "NERF"
   },
   {
     "date": 1594425600000,
-    "type": "UPDATE",
     "description": "Decreased strength by 1 and ability by 1",
-    "id": "W9"
+    "id": "W9",
+    "type": "NERF"
   },
   {
     "date": 1594425600000,
-    "type": "UPDATE",
     "description": "Decreased movement by 1",
-    "id": "W13"
+    "id": "W13",
+    "type": "NERF"
   },
   {
     "date": 1594425600000,
-    "type": "UPDATE",
     "description": "Increased mana by 1",
-    "id": "W19"
+    "id": "W19",
+    "type": "NERF"
   },
   {
     "date": 1594425600000,
-    "type": "UPDATE",
     "description": "Decreased strength by 1",
-    "id": "W27"
+    "id": "W27",
+    "type": "NERF"
   },
   {
     "date": 1594425600000,
-    "type": "UPDATE",
     "description": "Decreased ability at higher levels",
-    "id": "W27"
+    "id": "W27",
+    "type": "NERF"
   },
   {
     "date": 1594425600000,
-    "type": "ADDITION",
     "description": "Added to the game",
-    "id": "N77"
+    "id": "N77",
+    "type": "INFO"
   }
 ]

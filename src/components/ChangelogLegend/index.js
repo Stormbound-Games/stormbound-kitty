@@ -16,9 +16,6 @@ export default React.memo(function ChangelogLegend(props) {
       <li className=' ChangelogLegend__item ChangelogLegend__item--game'>
         Game addition
       </li>
-      <li className=' ChangelogLegend__item ChangelogLegend__item--unknown'>
-        Unknown, non/applicable, undetectable
-      </li>
     </ul>
   )
 })

@@ -76,12 +76,12 @@ export default function Router(props) {
             <CardsStats />
           </Page>
 
-          <Page path='/changelog' exact active={['HOME', 'CHANGELOG']}>
-            <Changelog />
-          </Page>
-
           <Page path='/changelog/07-2020' active={['HOME', 'CHANGELOG']}>
             <ChangelogJuly2020 />
+          </Page>
+
+          <Page path='/changelog' exact active={['HOME', 'CHANGELOG']}>
+            <Changelog />
           </Page>
 
           <Page path='/faq' active={['HOME', 'FAQ']}>

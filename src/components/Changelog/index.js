@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ChangelogLegend from '../ChangelogLegend'
-import Checkbox from '../Checkbox'
 import Column from '../Column'
 import Info from '../Info'
 import PageMeta from '../PageMeta'
@@ -10,35 +9,21 @@ import Title from '../Title'
 import WikiLink from '../WikiLink'
 import changelog from '../../data/changelog'
 import sortCards from '../../helpers/sortCards'
-import template from '../../helpers/template'
 import getRawCardData from '../../helpers/getRawCardData'
 import cards from '../../data/cards'
 import './index.css'
-import MOOD_MAP from './map'
 
 const CARD_IDS = cards.sort(sortCards()).map(card => card.id)
 const getCardName = id => getRawCardData(id).name
 
-const templateDescription = description => {
-  const replacements = {}
-  let output = description
-
-  for (let [regex, Component] of MOOD_MAP) {
-    output = output.replace(regex, match => {
-      replacements[match] = <Component key={match}>{match}</Component>
-      return `{{${match}}}`
-    })
-  }
-
-  return { replacements, description: output }
-}
-
 const Change = React.memo(function Change(props) {
-  if (!props.colorCoding) return props.description
-
-  const { description, replacements } = templateDescription(props.description)
-
-  return template(description, replacements)
+  return props.type ? (
+    <span className={`Changelog__${props.type.toLowerCase()}`}>
+      {props.description}
+    </span>
+  ) : (
+    props.description
+  )
 })
 
 const formatDate = date => {
@@ -57,7 +42,6 @@ const formatDate = date => {
 
 export default function Changelog(props) {
   const [sorting, setSorting] = React.useState('DATE')
-  const [colorCoding, setColorCoding] = React.useState(true)
   const [type, setType] = React.useState('*')
   const changesByDate = React.useMemo(() => {
     return changelog
@@ -110,23 +94,17 @@ export default function Changelog(props) {
                 onChange={event => setType(event.target.value)}
               >
                 <option value='*'>Any</option>
-                <option value='UPDATE'>Update</option>
-                <option value='ADDITION'>Addition</option>
+                <option value='BUFF'>Buff</option>
+                <option value='INFO'>Info</option>
+                <option value='MIXED'>Mixed</option>
+                <option value='NERF'>Nerf</option>
               </select>
             </Column>
           </Row>
 
           <Row>
             <Column>
-              <Checkbox
-                name='color-coding'
-                id='color-coding'
-                checked={colorCoding}
-                onChange={event => setColorCoding(event.target.checked)}
-              >
-                Enable color-coding (experimental)
-              </Checkbox>
-              {colorCoding && <ChangelogLegend />}
+              <ChangelogLegend />
             </Column>
           </Row>
 
@@ -167,11 +145,7 @@ export default function Changelog(props) {
                     <ul className='Changelog__list'>
                       {changesByDate[date].map(change => (
                         <li key={change.date + change.id + change.description}>
-                          <WikiLink id={change.id} />:{' '}
-                          <Change
-                            description={change.description}
-                            colorCoding={colorCoding}
-                          />
+                          <WikiLink id={change.id} />: <Change {...change} />
                         </li>
                       ))}
                     </ul>
@@ -190,11 +164,7 @@ export default function Changelog(props) {
                           <time className='Highlight'>
                             {formatDate(change.date)}
                           </time>
-                          :{' '}
-                          <Change
-                            description={change.description}
-                            colorCoding={colorCoding}
-                          />
+                          : <Change {...change} />
                         </li>
                       ))}
                     </ul>
