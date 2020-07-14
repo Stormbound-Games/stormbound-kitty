@@ -48,10 +48,10 @@ const getWinCoins = setup => {
 }
 
 const {
-  ANY_COMMON,
-  ANY_RARE,
-  ANY_EPIC,
-  ANY_LEGENDARY,
+  SPECIFIC_COMMON,
+  SPECIFIC_RARE,
+  SPECIFIC_EPIC,
+  SPECIFIC_LEGENDARY,
   FUSION_STONES,
 } = PRE_MADE_EXPECTATIONS
 
@@ -66,7 +66,11 @@ const CLIMBING_CARDS = {
 
 const BRAWL_REWARDS = [
   {
-    stones: getDrawingProbability('HUMBLE', FUSION_STONES.expectations),
+    stones:
+      getDrawingProbability('HUMBLE', SPECIFIC_COMMON.expectations) * 5 +
+      getDrawingProbability('HUMBLE', SPECIFIC_RARE.expectations) * 10 +
+      getDrawingProbability('HUMBLE', SPECIFIC_EPIC.expectations) * 25 +
+      getDrawingProbability('HUMBLE', SPECIFIC_LEGENDARY.expectations) * 50,
     cards: [
       BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[0],
       BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[1],
@@ -76,7 +80,11 @@ const BRAWL_REWARDS = [
   },
   { rubies: 5 },
   {
-    stones: getDrawingProbability('CLASSIC', FUSION_STONES.expectations),
+    stones:
+      getDrawingProbability('CLASSIC', SPECIFIC_COMMON.expectations) * 5 +
+      getDrawingProbability('CLASSIC', SPECIFIC_RARE.expectations) * 10 +
+      getDrawingProbability('CLASSIC', SPECIFIC_EPIC.expectations) * 25 +
+      getDrawingProbability('CLASSIC', SPECIFIC_LEGENDARY.expectations) * 50,
     cards: [
       BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[0],
       BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[1],
@@ -86,7 +94,11 @@ const BRAWL_REWARDS = [
   },
   { stones: 10 },
   {
-    stones: getDrawingProbability('MYTHIC', FUSION_STONES.expectations),
+    stones:
+      getDrawingProbability('MYTHIC', SPECIFIC_COMMON.expectations) * 5 +
+      getDrawingProbability('MYTHIC', SPECIFIC_RARE.expectations) * 10 +
+      getDrawingProbability('MYTHIC', SPECIFIC_EPIC.expectations) * 25 +
+      getDrawingProbability('MYTHIC', SPECIFIC_LEGENDARY.expectations) * 50,
     cards: [
       BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[0],
       BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[1],
@@ -100,8 +112,6 @@ const BRAWL_REWARDS = [
   { cards: [0, 0, 0, 5] },
   { stones: 200 },
 ]
-
-console.log(BRAWL_REWARDS)
 
 const getMonthlyChestReward = league => {
   switch (league) {
