@@ -12,6 +12,7 @@ const DONATORS = [
   'Kepp',
   'MisterMonocle',
   'Nobody',
+  'Oeni',
   'Shades',
   'Roman_NFP',
   'SHTE',
