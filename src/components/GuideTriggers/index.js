@@ -71,7 +71,8 @@ export default React.memo(function GuideDrawing(props) {
         Effect” fight and both of them die, the{' '}
         <span className='Highlight'>attacked</span> unit will die and resolve
         its effect first, then the <span className='Highlight'>attacking</span>{' '}
-        unit will.
+        unit will. Same thing goes for{' '}
+        <abbr title='Survive Trigger Effect'>STE</abbr>.
       </p>
 
       <p>
