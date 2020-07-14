@@ -68,6 +68,13 @@ export default React.memo(function GuideDrawing(props) {
         </li>
       </ol>
 
+      <Info icon='wand' title='Income calculator'>
+        Further down this guide, you will find a handy{' '}
+        <a href='#income-calculator'>income calculator</a> to compute how many
+        resources (coins, rubies, fusion stones and cards) you get on a daily,
+        weekly, monthly or yearly basis based on your playstyle.
+      </Info>
+
       <Title id='resources'>Resources</Title>
 
       <h3>
@@ -299,6 +306,14 @@ export default React.memo(function GuideDrawing(props) {
           and buying Heroic Tomes.
         </li>
       </ul>
+
+      <div
+        className='Article__fullwidth'
+        style={{ '--padding': '60px' }}
+        id='income-calculator'
+      >
+        <IncomeCalculator />
+      </div>
 
       <Title id='the-card-shop'>The Card Shop</Title>
 
@@ -582,10 +597,6 @@ export default React.memo(function GuideDrawing(props) {
         At the end of the day, you have to figure out what you want from the
         game to know how to best spend your resources!
       </p>
-
-      <div className='Article__fullwidth' style={{ '--padding': '60px' }}>
-        <IncomeCalculator />
-      </div>
     </Guide>
   )
 })
