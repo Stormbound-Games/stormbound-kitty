@@ -24,20 +24,18 @@ export default React.memo(function GuideDrawing(props) {
 
       <ol>
         <li>
-          <a href='#resources'>
-            Resources
-            <ul>
-              <li>
-                <a href='#coins'>Coins</a>
-              </li>
-              <li>
-                <a href='#rubies'>Rubies</a>
-              </li>
-              <li>
-                <a href='#fusion-stones'>Fusion Stones</a>
-              </li>
-            </ul>
-          </a>
+          <a href='#resources'>Resources</a>
+          <ul>
+            <li>
+              <a href='#coins'>Coins</a>
+            </li>
+            <li>
+              <a href='#rubies'>Rubies</a>
+            </li>
+            <li>
+              <a href='#fusion-stones'>Fusion Stones</a>
+            </li>
+          </ul>
         </li>
         <li>
           <a href='#general-tactics'>General Tactics</a>
