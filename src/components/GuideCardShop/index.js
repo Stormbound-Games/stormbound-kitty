@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Guide from '../Guide'
 import Info from '../Info'
-import { Rubies } from '../Resource'
+import { Coins, Rubies } from '../Resource'
 import Title from '../Title'
 import WikiLink from '../WikiLink'
 import guides from '../../data/guides'
@@ -15,25 +15,28 @@ export default React.memo(function GuideCardShop(props) {
     <Guide {...guide}>
       <p>
         Buying cards in the shop is a bit less efficient than getting 3 random
-        cards from a noble book, but can be a good way to forgo randomness and
-        to get important cards to a higher level faster. This helps to prepare
-        for the Diamond league and even Diamond 1 as early as possible.
+        cards from a Noble book, but can be a good way to forgo randomness and
+        to get important cards to a higher level faster.
       </p>
-
+      <p>
+        This helps to prepare for the Diamond league and even Diamond 1 as early
+        as possible. Just be aware that coins are a lot more precious since the{' '}
+        <Link to='/changelog/07-2020'>July update</Link>, and unless you go for
+        the coin cap on a regular basis, buying more than one copy of a card
+        will take a large bite out of your weekly <Coins amount={700} /> from
+        quests.
+      </p>
       <Info title='About resources'>
         For a complete guide on Stormbound resources, how to get them and how to
         make the most of them, please refer to the{' '}
         <Link to='/guides/resources'>dedicated resources guide</Link> by Roman.
       </Info>
-
       <Title id='cheap-core-cards'>Cheap Core Cards</Title>
-
       <blockquote>
         <p>
           “Not every game has a late game, but every game has an early game.”
         </p>
       </blockquote>
-
       <p>
         This old adage applies to Stormbound as well as anywhere. Your cards
         below 4 mana are your troopers, your opening gambit, the backbone upon
@@ -41,7 +44,6 @@ export default React.memo(function GuideCardShop(props) {
         multiple times, so that 1 more strength can quickly add up over the
         course of a game. Definitely more than upgrading a more expensive unit.
       </p>
-
       <p>
         This is why it is important to level up cheap units as soon as possible.
         Getting cards to level 3 is fairly quick and should be done naturally by
@@ -50,7 +52,6 @@ export default React.memo(function GuideCardShop(props) {
         level 3, buying one or two copies (if possible) is recommended for the
         following cards:
       </p>
-
       <ul>
         <li>
           <WikiLink id='N1' /> is an incredibly cheap mover which is why it is
@@ -81,15 +82,21 @@ export default React.memo(function GuideCardShop(props) {
           blockers, or to send the defending units of your opponent into their
           own base.
         </li>
+        <li>
+          <WikiLink id='N60' /> was buffed from 6 to 5 mana and is now, with a
+          maximum of 12 strength at level 5, one of the strongest 5-mana cards.
+          The confusion ability is just a bonus, but I expect the archetype to
+          become both more viable and popular. I also definitely expect this
+          card to get nerfed down to 10 strength at max level, so take this
+          recommendation with a grain of salt, but for now you definitely want
+          this.
+        </li>
       </ul>
-
       <Title id='faction-cards'>Faction Cards</Title>
-
       <p>
         Depending on your main faction, you might also want to consider the
         following cards.
       </p>
-
       <p>
         <span className='Highlight'>Swarm</span> tends to be used mainly for
         cheap and fast decks, so it only makes sense to invest mainly in these
@@ -114,16 +121,19 @@ export default React.memo(function GuideCardShop(props) {
       </ul>
 
       <p>
-        <span className='Highlight'>Winter</span> on the other hand is very
-        late-game oriented. Some common and rare cards might be worth investing
-        into depending on what strategies you like, including:
+        <span className='Highlight'>Winter</span> on the other hand is quite
+        late-game oriented, despite the aggressive nerfs to mana-oriented cards
+        like <WikiLink id='W9' /> and <WikiLink id='W19' /> in July 2020. Some
+        common and rare cards might be worth investing into depending on what
+        strategies you like. But overall, until Winter either gets early-game
+        cards worth mentioning (besides <WikiLink id='W5' />) or their mana
+        manipulation capabilities back to pre-nerf levels, the list is reduced
+        to:
       </p>
+
       <ul>
         <li>
           <WikiLink id='N14' />
-        </li>
-        <li>
-          <WikiLink id='W9' />
         </li>
         <li>
           <WikiLink id='N13' />
@@ -132,19 +142,12 @@ export default React.memo(function GuideCardShop(props) {
           <WikiLink id='N47' />
         </li>
         <li>
-          <WikiLink id='W27' />
-        </li>
-        <li>
           <WikiLink id='N44' />
         </li>
         <li>
           <WikiLink id='W17' />
         </li>
-        <li>
-          <WikiLink id='W21' />
-        </li>
       </ul>
-
       <p>
         <span className='Highlight'>Shadowfen</span> is very versatile and can
         be played either rush or control, depending on opportunities and
@@ -168,7 +171,6 @@ export default React.memo(function GuideCardShop(props) {
           card in the game at level 5)
         </li>
       </ul>
-
       <p>
         <span className='Highlight'>Ironclad</span> relies a lot on its epic
         cards to shine, so there are not so many cards that are definitely worth
@@ -185,13 +187,14 @@ export default React.memo(function GuideCardShop(props) {
           <WikiLink id='I7' />
         </li>
       </ul>
-
       <Title id='ruby-purchases'>Ruby Purchases</Title>
-
       <p>
-        Now, rubies are a lot more rare than coins, so you should think twice
-        about spending them on the shop where you only get a single epic card
-        for <Rubies amount={20} />.
+        Now, rubies are a little more scarce than coins, so you should think
+        twice about spending them on the shop where you only get a single epic
+        card for <Rubies amount={20} />. That being said, you get{' '}
+        <Rubies amount={5} /> per day from quests, and <Rubies amount={5} />{' '}
+        from an early Brawl milestone per week, amounting to{' '}
+        <Rubies amount={40} /> per week.
       </p>
       <p>
         In most cases, if you want epics, saving up to buy a Heroic or Mythic
@@ -201,7 +204,6 @@ export default React.memo(function GuideCardShop(props) {
         and play-style, and you definitely shouldn’t spread your rubies too thin
         among all of them. Like I said, books are better.
       </p>
-
       <p>
         <span className='Highlight'>Neutral</span>
       </p>
@@ -229,7 +231,6 @@ export default React.memo(function GuideCardShop(props) {
           decks running structures.
         </li>
       </ul>
-
       <p>
         <span className='Highlight'>Swarm</span>
       </p>
@@ -248,21 +249,22 @@ export default React.memo(function GuideCardShop(props) {
           .
         </li>
         <li>
-          <WikiLink id='S28' /> is a very valuable Elder, especially when
-          combined with <WikiLink id='S21' /> for control decks.
+          <WikiLink id='S28' /> is a very valuable Elder, even though it can no
+          longer be spawned by <WikiLink id='S21' />.
         </li>
       </ul>
-
       <p>
         <span className='Highlight'>Winter</span>
       </p>
-      <ul>
-        <li>
-          <WikiLink id='W19' /> is the backbone of a larger number of Winter
-          decks especially control and mana-ramp, literally granting free mana.
-        </li>
-      </ul>
-
+      <p>
+        Winter is in a bit of a bad state after the July nerfs to the only
+        remaining good Winter staples Gift of the Wise and Frozen Core, making
+        it the true neutral faction. It remains to be seen whether a deck
+        focused on confusion under the Winter-Feline alliance finds a place in
+        the meta, where you can stall the game long enough to get access to the
+        powerful Winter late game, but I am very skeptical. The only hope for
+        Winter is some tender care and affection in the next patch.
+      </p>
       <p>
         <span className='Highlight'>Ironclad</span>
       </p>
@@ -278,7 +280,6 @@ export default React.memo(function GuideCardShop(props) {
           game.
         </li>
       </ul>
-
       <p>
         <span className='Highlight'>Shadowfen</span>
       </p>
@@ -294,7 +295,6 @@ export default React.memo(function GuideCardShop(props) {
           and can be precisely controlled with self-harm and poisoning.
         </li>
       </ul>
-
       <p>
         At the end of the day, you have to figure out what you want from the
         game to know how to best spend your resources!
