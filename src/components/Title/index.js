@@ -9,6 +9,7 @@ export default React.memo(function Title(props) {
       className={`Title ${props.className || ''}`}
       data-testid={props['data-testid']}
       id={props.id}
+      style={props.style}
       aria-hidden={props['aria-hidden']}
     >
       <span className='Title__inner'>
