@@ -21,8 +21,8 @@ export default React.memo(function BrawlOutcome(props) {
       </p>
       <ul className='BrawlOutcome__list'>
         <li>
-          <strong className='Highlight'>Milestone reached:</strong>{' '}
-          {meta.milestone + 1}
+          <strong className='Highlight'>Milestone completed:</strong>{' '}
+          {meta.milestone || 'none'}
         </li>
         <li>
           <strong style={{ color: 'var(--light-ironclad)' }}>

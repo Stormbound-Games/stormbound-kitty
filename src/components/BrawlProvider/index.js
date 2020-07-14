@@ -161,7 +161,7 @@ export default function BrawlProvider(props) {
           crowns,
           coinsSpent,
           milestone: MILESTONES.findIndex(
-            milestone => milestone.crowns >= crowns
+            milestone => milestone.crowns > crowns
           ),
         },
       }}
