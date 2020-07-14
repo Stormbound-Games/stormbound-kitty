@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Guide from '../Guide'
+import IncomeCalculator from '../IncomeCalculator'
 import Info from '../Info'
 import ResourceIcon from '../ResourceIcon'
 import { Coins, Rubies } from '../Resource'
@@ -581,6 +582,10 @@ export default React.memo(function GuideDrawing(props) {
         At the end of the day, you have to figure out what you want from the
         game to know how to best spend your resources!
       </p>
+
+      <div className='Article__fullwidth' style={{ '--padding': '60px' }}>
+        <IncomeCalculator />
+      </div>
     </Guide>
   )
 })
