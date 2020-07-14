@@ -14,7 +14,10 @@ export default {
     const matches = ABBREVIATIONS[message.toLowerCase()]
 
     if (matches) {
-      return `“${message}” might mean ${toSentence(matches.map(quotify))}.`
+      return `“${message}” might mean ${toSentence(
+        matches.map(quotify),
+        'or'
+      )}.`
     }
   },
 }

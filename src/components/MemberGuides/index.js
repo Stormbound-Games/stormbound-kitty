@@ -10,7 +10,7 @@ export default React.memo(function MemberGuides(props) {
   return (
     <MemberSection>
       {props.guides.map(guide => {
-        const authors = toSentence(guide.authors)
+        const authors = toSentence(guide.authors, 'and')
 
         return (
           <Banner

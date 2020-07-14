@@ -12,7 +12,8 @@ export default {
       GUIDES.map(
         guide =>
           `- **${guide.name}** *(by ${toSentence(
-            guide.authors
+            guide.authors,
+            'and'
           )})*: <https://stormbound-kitty.com/guides/${guide.slug}>`
       ).join('\n')
     )

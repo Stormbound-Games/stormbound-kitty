@@ -37,7 +37,7 @@ export default React.memo(function Guide(props) {
       </Notice>
 
       <PageMeta
-        author={toSentence(props.authors)}
+        author={toSentence(props.authors, 'and')}
         title={props.name}
         image={props.background}
         description={getExcerpt(props.excerpt, 160)}
