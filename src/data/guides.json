@@ -84,15 +84,15 @@
     "category": "IN_DEPTH"
   },
   {
-    "id": "PIRATE_GUIDE",
-    "name": "Pirate Guide",
-    "authors": ["MooreFunn"],
-    "excerpt": "In this comprehensive guide, MooreFunn tells us how to conquer the seas with pirate cards! From composing an efficient deck to countering specific situations, you should learn everything you need to know to master pirate gameplay.",
-    "slug": "pirate",
+    "id": "CARD_SHOP_GUIDE",
+    "name": "Card Shop Guide",
+    "authors": ["Oeni"],
+    "excerpt": "In this in-depth guide to the Card Shop, Oeni goes into which cards matter most for which faction, and how to get the most out of coins and rubies.",
+    "slug": "card-shop",
     "faction": "neutral",
-    "cardId": "N42",
+    "cardId": "N22",
     "background": "/assets/images/environment_neutral.png",
-    "readingTime": "10 minutes",
+    "readingTime": "8 minutes",
     "category": "IN_DEPTH"
   },
   {
@@ -129,6 +129,19 @@
     "cardId": "W9",
     "background": "/assets/images/environment_winter.png",
     "readingTime": "14 minutes",
+    "category": "IN_DEPTH"
+  },
+
+  {
+    "id": "PIRATE_GUIDE",
+    "name": "Pirate Guide",
+    "authors": ["MooreFunn"],
+    "excerpt": "In this comprehensive guide, MooreFunn tells us how to conquer the seas with pirate cards! From composing an efficient deck to countering specific situations, you should learn everything you need to know to master pirate gameplay.",
+    "slug": "pirate",
+    "faction": "neutral",
+    "cardId": "N42",
+    "background": "/assets/images/environment_neutral.png",
+    "readingTime": "10 minutes",
     "category": "IN_DEPTH"
   }
 ]

@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Card Shop Guide",
+    "description": "The Card Shop section of the guide on resources has been split into its own guide by Oeni.",
+    "link": "/guides/card-shop"
+  },
+  {
     "intro": "Changelog",
     "description": "The changelog has been revisited to be more accurated and more easily searchable.",
     "link": "/changelog"
