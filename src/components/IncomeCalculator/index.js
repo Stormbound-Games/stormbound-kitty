@@ -250,6 +250,12 @@ export default React.memo(function IncomeCalculator(props) {
     }),
     period
   )
+  const maxWins =
+    setup === 'STEAM_OR_WEB' ? 37 : setup === 'MOBILE_WITH_ADS' ? 19 : 74
+
+  React.useEffect(() => {
+    if (wins > maxWins) setWins(maxWins)
+  }, [maxWins, setup, wins])
 
   return (
     <Row desktopOnly wideGutter>
@@ -278,13 +284,7 @@ export default React.memo(function IncomeCalculator(props) {
               value={wins}
               onChange={event => setWins(event.target.value)}
               min={0}
-              max={
-                setup === 'STEAM_OR_WEB'
-                  ? 40
-                  : setup === 'MOBILE_WITH_ADS'
-                  ? 20
-                  : 80
-              }
+              max={maxWins}
             />
           </Column>
         </Row>
