@@ -68,13 +68,11 @@ export default React.memo(function GuideResources(props) {
 
       <p>Coins are available through 5 different means:</p>
       <ul>
-        <li>
-          Daily missions (50, 80 or 120 depending on the quest difficulty).
-        </li>
+        <li>Tier 1 daily missions (100).</li>
         <li>
           Daily victories (30 extra for the first daily win, as well as 5, 10 or
           20 depending on whether the game is played on mobile or Steam, with or
-          without ads — for a maximum of 250 a day*).
+          without ads — for a maximum of 400 a day*).
         </li>
         <li>
           Monthly season chests (150 in Iron, 300 in Bronze, 500 in Silver, 800
@@ -88,9 +86,9 @@ export default React.memo(function GuideResources(props) {
       </ul>
 
       <Info title='Coins tip'>
-        It is technically possible to earn <Coins amount={265} /> from battles
-        per day despite the coins cap. To do so, reach <Coins amount={245} />{' '}
-        then win another game (with ads), bringing the total to 265.
+        It is technically possible to earn <Coins amount={415} /> from battles
+        per day despite the coins cap. To do so, reach <Coins amount={395} />{' '}
+        then win another game (with ads), bringing the total to 415.
       </Info>
 
       <h3>
@@ -99,7 +97,7 @@ export default React.memo(function GuideResources(props) {
 
       <p>Rubies are available through 4 different means:</p>
       <ul>
-        <li>Some daily missions (5).</li>
+        <li>Tier 2 daily missions (5).</li>
         <li>
           Monthly season chests (5 in Bronze, 10 in Silver, 20 in Gold, 30 in
           Platinum, 50 in Diamond).
@@ -114,6 +112,7 @@ export default React.memo(function GuideResources(props) {
 
       <p>Fusion Stones are available through 3 different means:</p>
       <ul>
+        <li>Tier 3 daily missions (1 or 2).</li>
         <li>Weekly Brawl (10 at Milestone 4, 50 at Milestone 7).</li>
         <li>
           <Link to='/collection/books'>Sometimes in tomes and books</Link>.
