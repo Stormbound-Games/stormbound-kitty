@@ -4,29 +4,9 @@ import Card from '../Card'
 import Image from '../Image'
 import BrawlProgressBar from '../BrawlProgressBar'
 import ResourceIcon from '../ResourceIcon'
+import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import './index.css'
-
-const BrawlRewardLabel = React.memo(function BrawlRewardLabel(props) {
-  const amount = props.rewardAmount
-
-  switch (props.reward) {
-    case 'HUMBLE_BOOK':
-      return `${amount} Humble Book${amount === 1 ? '' : 's'}`
-    case 'RUBIES':
-      return `${amount} rub${amount === 1 ? 'y' : 'ies'}`
-    case 'CLASSIC_TOME':
-      return `${amount} Classic Tome${amount === 1 ? '' : 's'}`
-    case 'FUSION_STONES':
-      return `${amount} fusion stone${amount === 1 ? '' : 's'}`
-    case 'MYTHIC_TOME':
-      return `${amount} Mythic Tome${amount === 1 ? '' : 's'}`
-    case 'LEGENDARY_CARD':
-      return `${props.rewardAmount} legendary card${amount === 1 ? '' : 's'}`
-    default:
-      return null
-  }
-})
 
 const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
   switch (props.reward) {
@@ -78,10 +58,7 @@ export default React.memo(function BrawlMilestone(props) {
           <BrawlRewardAsset reward={props.reward} cardId={props.cardId} />
         </div>
         <span className='BrawlMilestone__label'>
-          <BrawlRewardLabel
-            reward={props.reward}
-            rewardAmount={props.rewardAmount}
-          />
+          {getBrawlRewardLabel(props)}
         </span>
       </div>
 

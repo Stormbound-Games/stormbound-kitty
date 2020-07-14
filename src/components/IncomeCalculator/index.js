@@ -8,6 +8,7 @@ import { PRE_MADE_EXPECTATIONS } from '../../constants/game'
 import { Coins, Rubies, Stones } from '../Resource'
 import capitalise from '../../helpers/capitalise'
 import getDrawingProbability from '../../helpers/getDrawingProbability'
+import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
 import './index.css'
 
 const DEFAULT_STATE = { coins: 0, rubies: 0, stones: 0, cards: [0, 0, 0, 0] }
@@ -317,7 +318,7 @@ export default React.memo(function IncomeCalculator(props) {
             >
               {MILESTONES.map((milestone, index) => (
                 <option key={milestone.crowns} value={index}>
-                  {milestone.rewardAmount} {milestone.reward}
+                  {getBrawlRewardLabel(milestone)}
                 </option>
               ))}
             </select>
