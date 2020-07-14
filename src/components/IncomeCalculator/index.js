@@ -4,7 +4,7 @@ import Column from '../Column'
 import Row from '../Row'
 import Title from '../Title'
 import { MILESTONES } from '../../constants/brawl'
-import { PRE_MADE_EXPECTATIONS } from '../../constants/game'
+import { PRE_MADE_EXPECTATIONS, BOOKS } from '../../constants/game'
 import { Coins, Rubies, Stones } from '../Resource'
 import capitalise from '../../helpers/capitalise'
 import getDrawingProbability from '../../helpers/getDrawingProbability'
@@ -68,30 +68,30 @@ const BRAWL_REWARDS = [
   {
     stones: getDrawingProbability('HUMBLE', FUSION_STONES.expectations),
     cards: [
-      getDrawingProbability('HUMBLE', ANY_COMMON.expectations),
-      getDrawingProbability('HUMBLE', ANY_RARE.expectations),
-      getDrawingProbability('HUMBLE', ANY_EPIC.expectations),
-      getDrawingProbability('HUMBLE', ANY_LEGENDARY.expectations),
+      BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[0],
+      BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[1],
+      BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[2],
+      BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[3],
     ],
   },
   { rubies: 5 },
   {
     stones: getDrawingProbability('CLASSIC', FUSION_STONES.expectations),
     cards: [
-      getDrawingProbability('CLASSIC', ANY_COMMON.expectations),
-      getDrawingProbability('CLASSIC', ANY_RARE.expectations),
-      getDrawingProbability('CLASSIC', ANY_EPIC.expectations),
-      getDrawingProbability('CLASSIC', ANY_LEGENDARY.expectations),
+      BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[0],
+      BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[1],
+      BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[2],
+      BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[3],
     ],
   },
   { stones: 10 },
   {
     stones: getDrawingProbability('MYTHIC', FUSION_STONES.expectations),
     cards: [
-      getDrawingProbability('MYTHIC', ANY_COMMON.expectations),
-      getDrawingProbability('MYTHIC', ANY_RARE.expectations),
-      getDrawingProbability('MYTHIC', ANY_EPIC.expectations),
-      getDrawingProbability('MYTHIC', ANY_LEGENDARY.expectations),
+      BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[0],
+      BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[1],
+      BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[2],
+      BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[3],
     ],
   },
   { cards: [0, 0, 0, 1] },
@@ -100,6 +100,8 @@ const BRAWL_REWARDS = [
   { cards: [0, 0, 0, 5] },
   { stones: 200 },
 ]
+
+console.log(BRAWL_REWARDS)
 
 const getMonthlyChestReward = league => {
   switch (league) {
@@ -124,7 +126,7 @@ const getWeeklyBrawlReward = milestone => {
   const rewards = { ...DEFAULT_STATE, cards: [...DEFAULT_STATE.cards] }
 
   for (let i = 0; i <= milestone; i += 1) {
-    const reward = BRAWL_REWARDS[milestone]
+    const reward = BRAWL_REWARDS[i]
 
     if (reward.coins) rewards.coins += reward.coins
     if (reward.rubies) rewards.rubies += reward.rubies
@@ -153,39 +155,41 @@ const getDailyIncome = ({
 }) => {
   const income = { ...DEFAULT_STATE, cards: [...DEFAULT_STATE.cards] }
   const chest = getMonthlyChestReward(league)
-  const brawl = getWeeklyBrawlReward(milestone)
 
   // Recalibrate the monthly chest rewards to daily rewards
   income.coins += chest.coins / getMultiplier('MONTHLY')
   income.rubies += chest.rubies / getMultiplier('MONTHLY')
   income.stones += chest.stones / getMultiplier('MONTHLY')
   chest.cards.forEach((cards, index) => {
-    income.cards[index] = cards / getMultiplier('MONTHLY')
+    income.cards[index] += cards / getMultiplier('MONTHLY')
   })
 
   // Consider the cards earned from climbing on a monthly basis
-  CLIMBING_CARDS[league].slice(0, 5 - rank + 1).forEach(rank => {
-    income.cards[rank] += 1 / getMultiplier('MONTHLY')
-  })
+  if (league && rank) {
+    CLIMBING_CARDS[league].slice(0, 5 - rank + 1).forEach(rank => {
+      income.cards[rank] += 1 / getMultiplier('MONTHLY')
+    })
+  }
 
   // Recalibrate the weekly Brawl rewards to daily rewards
-  income.coins += brawl.coins / getMultiplier('WEEKLY')
-  income.coins -= brawlCost / getMultiplier('WEEKLY')
-  income.rubies += brawl.rubies / getMultiplier('WEEKLY')
-  income.stones += brawl.stones / getMultiplier('WEEKLY')
-  brawl.cards.forEach((cards, index) => {
-    income.cards[index] = cards / getMultiplier('MONTHLY')
-  })
+  if (milestone !== '') {
+    const brawl = getWeeklyBrawlReward(milestone)
+
+    income.coins += brawl.coins / getMultiplier('WEEKLY')
+    income.coins -= brawlCost / getMultiplier('WEEKLY')
+    income.rubies += brawl.rubies / getMultiplier('WEEKLY')
+    income.stones += brawl.stones / getMultiplier('WEEKLY')
+    brawl.cards.forEach((cards, index) => {
+      income.cards[index] += cards / getMultiplier('WEEKLY')
+    })
+  }
 
   if (withDailyHumble) {
     income.stones += getDrawingProbability('HUMBLE', FUSION_STONES.expectations)
-    income.cards[0] += getDrawingProbability('HUMBLE', ANY_COMMON.expectations)
-    income.cards[1] += getDrawingProbability('HUMBLE', ANY_RARE.expectations)
-    income.cards[2] += getDrawingProbability('HUMBLE', ANY_EPIC.expectations)
-    income.cards[3] += getDrawingProbability(
-      'HUMBLE',
-      ANY_LEGENDARY.expectations
-    )
+    income.cards[0] += BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[0]
+    income.cards[1] += BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[1]
+    income.cards[2] += BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[2]
+    income.cards[3] += BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[3]
   }
 
   if (withDailyQuests) {
@@ -217,9 +221,9 @@ export default React.memo(function IncomeCalculator(props) {
   const [period, setPeriod] = React.useState(PERIODS[0])
   const [setup, setSetup] = React.useState('MOBILE_WITHOUT_ADS')
   const [wins, setWins] = React.useState(0)
-  const [league, setLeague] = React.useState('DIAMOND')
-  const [rank, setRank] = React.useState(1)
-  const [milestone, setMilestone] = React.useState(0)
+  const [league, setLeague] = React.useState('')
+  const [rank, setRank] = React.useState('')
+  const [milestone, setMilestone] = React.useState('')
   const [brawlCost, setBrawlCost] = React.useState(0)
   const [withDailyHumble, setWithDailyHumble] = React.useState(false)
   const [withDailyQuests, setWithDailyQuests] = React.useState(false)
@@ -283,6 +287,7 @@ export default React.memo(function IncomeCalculator(props) {
               value={league}
               onChange={event => setLeague(event.target.value)}
             >
+              <option value=''>Select a league</option>
               <option value='DIAMOND'>Diamond</option>
               <option value='PLATINUM'>Platinum</option>
               <option value='GOLD'>Gold</option>
@@ -299,6 +304,7 @@ export default React.memo(function IncomeCalculator(props) {
               value={rank}
               onChange={event => setRank(event.target.value)}
             >
+              <option value=''>Select a rank</option>
               <option value={1}>1</option>
               <option value={2}>2</option>
               <option value={3}>3</option>
@@ -316,6 +322,7 @@ export default React.memo(function IncomeCalculator(props) {
               value={milestone}
               onChange={event => setMilestone(+event.target.value)}
             >
+              <option value=''>Select a milestone</option>
               {MILESTONES.map((milestone, index) => (
                 <option key={milestone.crowns} value={index}>
                   {getBrawlRewardLabel(milestone)}
