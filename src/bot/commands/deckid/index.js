@@ -1,6 +1,8 @@
+import Discord from 'discord.js'
 import serialisation from '../../../helpers/serialisation'
 import searchCards from '../../../helpers/searchCards'
 import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
+import getRawCardData from '../../../helpers/getRawCardData'
 import clamp from '../../../helpers/clamp'
 
 const getLevelOut = term => {
@@ -18,7 +20,17 @@ const getLevelOut = term => {
 export default {
   command: 'deckid',
   help: function () {
-    return `⚙️  **Deck ID:** Get the URL/ID of a deck based on the listed cards (and optional levels). An optional global deck level can be specified at the beginning or the end of the command, and optional individual card levels can be specified alongside each card in the list. For instance, \`!${this.command} 4 gp,sm,…,dopp\` or \`!${this.command} gp 3,sm 2,…,1 dopp\`.`
+    const embed = new Discord.MessageEmbed()
+
+    embed
+      .setColor('#D7598B')
+      .setTitle(`⚙️  Deck ID help`)
+      .setURL('https://stormbound-kitty.com/deck')
+      .setDescription(
+        `Get the URL/ID of a deck based on the listed cards (and optional levels). An optional global deck level can be specified at the beginning or the end of the command, and optional individual card levels can be specified alongside each card in the list. For instance, \`!${this.command} 4 gp,sm,…,dopp\` or \`!${this.command} gp 3,sm 2,…,1 dopp\`.`
+      )
+
+    return embed
   },
   handler: function (message) {
     if (message.length === 0) return
@@ -37,12 +49,33 @@ export default {
 
     if (cards.length === 0) return
 
-    return [
-      'https://stormbound-kitty.com/deck/' +
-        serialisation.deck.serialise(cards.slice(0, 12)),
-      getIgnoredSearch(message, unknown, 'COMMA'),
-    ]
-      .filter(Boolean)
-      .join('\n')
+    const embed = new Discord.MessageEmbed()
+    const id = serialisation.deck.serialise(cards.filter(Boolean).slice(0, 12))
+
+    embed
+      .setColor('#D7598B')
+      .setTitle(`⚙️  Deck ID`)
+      .setURL('https://stormbound-kitty.com/deck/' + id)
+      .setDescription(`This deck’s ID is ${id}.`)
+
+    embed.addFields(
+      ...cards
+        .filter(Boolean)
+        .slice(0, 12)
+        .map(card => ({
+          name: getRawCardData(card.id).name,
+          value: 'Level ' + card.level,
+          inline: true,
+        }))
+    )
+
+    if (unknown.filter(Boolean).length > 0) {
+      embed.addFields({
+        name: 'Ignored terms',
+        value: unknown.filter(Boolean).join(', '),
+      })
+    }
+
+    return embed
   },
 }
