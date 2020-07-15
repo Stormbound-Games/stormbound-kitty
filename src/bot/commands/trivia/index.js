@@ -338,13 +338,13 @@ const TriviaMachine = StateMachine.factory({
         const [key, value] = parseCardGuess(message)
         const embed = getEmbed({ withHeader: false })
 
-        embed.addFields(
-          { name: 'User', value: author.username, inline: true },
-          { name: 'Trait', value: key, inline: true },
-          { name: 'Value', value: value, inline: true }
-        )
-
         if (this.mode === 'CARD' && key) {
+          embed.addFields(
+            { name: 'User', value: author.username, inline: true },
+            { name: 'Property', value: key, inline: true },
+            { name: 'Value', value: value, inline: true }
+          )
+
           if (value === true) {
             const lead = key === 'elder' ? 'an' : 'a'
 
@@ -378,6 +378,11 @@ const TriviaMachine = StateMachine.factory({
             return embed
               .setTitle(`❌ Incorrect answer: ~~${card.name}~~`)
               .setDescription(`The card is not ${card.name}, try again!`)
+              .addFields(
+                { name: 'User', value: author.username, inline: true },
+                { name: 'Guess', value: message, inline: true },
+                { name: 'Found', value: card.name, inline: true }
+              )
           }
         }
       } else if (this.mode === 'QUESTION') {
