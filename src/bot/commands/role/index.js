@@ -1,3 +1,4 @@
+import Discord from 'discord.js'
 import capitalise from '../../../helpers/capitalise'
 import toSentence from '../../../helpers/toSentence'
 
@@ -39,7 +40,11 @@ const hasRole = (member, role) => {
 export default {
   command: 'role',
   help: function (message, client, messageObject) {
-    let help = `🌟  **Role Assignment:** Assign yourself a decorative role (regardless of casing). Use the command again to have the role removed.`
+    const embed = new Discord.MessageEmbed()
+
+    embed.setColor('#D7598B').setTitle(`🌟  Role Assignment help`)
+
+    let help = `Assign yourself a decorative role (regardless of casing). Use the command again to have the role removed.`
 
     const availableRoles = getAvailableRoles(messageObject.guild)
 
@@ -52,7 +57,9 @@ export default {
       help += ' Unfortunately this server does not have any self-assigned role.'
     }
 
-    return help
+    embed.setDescription(help)
+
+    return embed
   },
   handler: async function (message, client, messageObject) {
     const newRole = getExpectedRole(messageObject)
@@ -60,11 +67,17 @@ export default {
     // If the given argument is not an allowed role, abort.
     if (!newRole) return
 
+    const embed = new Discord.MessageEmbed()
+
+    embed.setColor('#D7598B').setTitle(`🌟  Role Assignment: ` + newRole.name)
+
     // If the user already has the expected role, remove it, like a toggle.
     if (hasRole(messageObject.member, newRole)) {
       await messageObject.member.roles.remove(newRole)
 
-      return `“${newRole.name}” role removed.`
+      embed.setDescription(`“${newRole.name}” role removed.`)
+
+      return embed
     }
 
     // If the user already has a league role and wants a new league role, start
@@ -80,10 +93,14 @@ export default {
     await messageObject.member.roles.add(newRole)
 
     // Return what happened.
-    return `“${newRole.name}” role added${
-      wantsLeagueRole && existingLeagueRole
-        ? ` and “${existingLeagueRole.name}” role removed`
-        : ''
-    }.`
+    embed.setDescription(
+      `“${newRole.name}” role added${
+        wantsLeagueRole && existingLeagueRole
+          ? ` and “${existingLeagueRole.name}” role removed`
+          : ''
+      }.`
+    )
+
+    return embed
   },
 }

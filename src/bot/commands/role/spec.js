@@ -49,32 +49,32 @@ describe('Bot — !role', () => {
 
   it('should be possible to add a role', () => {
     return cmd('diamond').then(output => {
-      expect(output).to.contain('“Diamond” role added')
+      expect(output.description).to.contain('“Diamond” role added')
     })
   })
 
   it('should be possible to update one’s role', () => {
     return cmd('platinum').then(output => {
-      expect(output).to.contain('“Diamond” role removed')
-      expect(output).to.contain('“Platinum” role added')
+      expect(output.description).to.contain('“Diamond” role removed')
+      expect(output.description).to.contain('“Platinum” role added')
     })
   })
 
   it('should be possible to remove one’s role', () => {
     return cmd('platinum').then(output =>
-      expect(output).to.contain('“Platinum” role removed')
+      expect(output.description).to.contain('“Platinum” role removed')
     )
   })
 
   it('should be possible to assign tournamentee role', () => {
     return cmd('tournamentee').then(output =>
-      expect(output).to.contain('“Tournamentee” role added')
+      expect(output.description).to.contain('“Tournamentee” role added')
     )
   })
 
   it('should be possible to assign streambound role', () => {
     return cmd('streambound').then(output =>
-      expect(output).to.contain('“Streambound” role added')
+      expect(output.description).to.contain('“Streambound” role added')
     )
   })
 })
