@@ -4,11 +4,11 @@ import Column from '../Column'
 import Row from '../Row'
 import Title from '../Title'
 import { MILESTONES } from '../../constants/brawl'
-import { PRE_MADE_EXPECTATIONS, BOOKS } from '../../constants/game'
+import { BOOKS } from '../../constants/game'
 import { Coins, Rubies, Stones } from '../Resource'
 import capitalise from '../../helpers/capitalise'
-import getDrawingProbability from '../../helpers/getDrawingProbability'
 import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
+import getAverageStonesPerBook from '../../helpers/getAverageStonesPerBook'
 import './index.css'
 
 const DEFAULT_STATE = { coins: 0, rubies: 0, stones: 0, cards: [0, 0, 0, 0] }
@@ -47,14 +47,6 @@ const getWinCoins = setup => {
   }
 }
 
-const {
-  SPECIFIC_COMMON,
-  SPECIFIC_RARE,
-  SPECIFIC_EPIC,
-  SPECIFIC_LEGENDARY,
-  FUSION_STONES,
-} = PRE_MADE_EXPECTATIONS
-
 const CLIMBING_CARDS = {
   DIAMOND: [0, 1, 2, 1, 3],
   PLATINUM: [0, 1, 2, 1, 2],
@@ -66,11 +58,7 @@ const CLIMBING_CARDS = {
 
 const BRAWL_REWARDS = [
   {
-    stones:
-      getDrawingProbability('HUMBLE', SPECIFIC_COMMON.expectations) * 5 +
-      getDrawingProbability('HUMBLE', SPECIFIC_RARE.expectations) * 10 +
-      getDrawingProbability('HUMBLE', SPECIFIC_EPIC.expectations) * 25 +
-      getDrawingProbability('HUMBLE', SPECIFIC_LEGENDARY.expectations) * 50,
+    stones: getAverageStonesPerBook('HUMBLE'),
     cards: [
       BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[0],
       BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[1],
@@ -80,11 +68,7 @@ const BRAWL_REWARDS = [
   },
   { rubies: 5 },
   {
-    stones:
-      getDrawingProbability('CLASSIC', SPECIFIC_COMMON.expectations) * 5 +
-      getDrawingProbability('CLASSIC', SPECIFIC_RARE.expectations) * 10 +
-      getDrawingProbability('CLASSIC', SPECIFIC_EPIC.expectations) * 25 +
-      getDrawingProbability('CLASSIC', SPECIFIC_LEGENDARY.expectations) * 50,
+    stones: getAverageStonesPerBook('CLASSIC'),
     cards: [
       BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[0],
       BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[1],
@@ -94,11 +78,7 @@ const BRAWL_REWARDS = [
   },
   { stones: 10 },
   {
-    stones:
-      getDrawingProbability('MYTHIC', SPECIFIC_COMMON.expectations) * 5 +
-      getDrawingProbability('MYTHIC', SPECIFIC_RARE.expectations) * 10 +
-      getDrawingProbability('MYTHIC', SPECIFIC_EPIC.expectations) * 25 +
-      getDrawingProbability('MYTHIC', SPECIFIC_LEGENDARY.expectations) * 50,
+    stones: getAverageStonesPerBook('MYTHIC'),
     cards: [
       BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[0],
       BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[1],
@@ -195,7 +175,7 @@ const getDailyIncome = ({
   }
 
   if (withDailyHumble) {
-    income.stones += getDrawingProbability('HUMBLE', FUSION_STONES.expectations)
+    income.stones += getAverageStonesPerBook('HUMBLE')
     income.cards[0] += BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[0]
     income.cards[1] += BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[1]
     income.cards[2] += BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[2]
