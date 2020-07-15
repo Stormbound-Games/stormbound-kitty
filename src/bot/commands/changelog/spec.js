@@ -7,12 +7,12 @@ describe('Bot — !changelog', () => {
   })
 
   it('should return content for a match', () => {
-    expect(changelog('qoh')).to.contain('\n- ')
+    expect(changelog('qoh').fields.length > 0).to.equal(true)
   })
 
   it('should format dates', () => {
-    expect(changelog('qoh')).to.contain('Sep')
-    expect(changelog('qoh')).to.contain('Nov')
+    expect(changelog('qoh').fields.reverse()[0].name).to.contain('Sep')
+    expect(changelog('qoh').fields.reverse()[1].name).to.contain('Nov')
   })
 
   it('should return nothing for a no-match', () => {
