@@ -3,6 +3,7 @@ import Canvas from 'canvas'
 import Discord from 'discord.js'
 import cards from '../../../data/cards'
 import api from '../../../helpers/api'
+import capitalise from '../../../helpers/capitalise'
 import formatTriviaScores from '../../../helpers/formatTriviaScores'
 import arrayRandom from '../../../helpers/arrayRandom'
 import getRandomQuestion from '../../../helpers/getRandomQuestion'
@@ -24,6 +25,7 @@ const TriviaMachine = StateMachine.factory({
   data: {
     answer: null,
     channel: null,
+    difficulty: null,
     duration: 60,
     cropCenter: null,
     cropSize: 50,
@@ -67,18 +69,23 @@ const TriviaMachine = StateMachine.factory({
 
       try {
         this[key] = JSON.parse(value)
-        this.channel.send(
-          `<@${KITTY_ID}> Key \`${key}\` set to \`${this[key]}\`.`
-        )
+
+        return getEmbed({ withHeader: false })
+          .setTitle('Configuration')
+          .addFields(
+            { name: 'User', value: `<@${KITTY_ID}> `, inline: true },
+            { name: 'Key', value: key, inline: true },
+            { name: 'Value', value: this[key], inline: true }
+          )
       } catch (error) {
         console.error(error)
       }
     },
 
-    halfTime: function (time) {
-      const embed = getEmbed()
+    halfTime: function () {
+      const embed = getEmbed({ withHeader: false })
         .setTitle('⏳ Half time!')
-        .setDescription(`Half the time has run out, hurry up!`)
+        .setDescription(`Only ${this.duration / 2} seconds left, hurry up!`)
 
       if (!this.channel) return
 
@@ -93,7 +100,7 @@ const TriviaMachine = StateMachine.factory({
 
     timeout: function () {
       if (this.channel) {
-        const embed = getEmbed().setTitle('⌛️ Time’s up!')
+        const embed = getEmbed({ withHeader: false }).setTitle('⌛️ Time’s up!')
 
         if (this.mode !== 'QUESTION') {
           embed.setDescription(`The answer was “**${this.answer.name}**”!`)
@@ -178,10 +185,6 @@ const TriviaMachine = StateMachine.factory({
         this.answer = arrayRandom(cards.filter(card => !card.token))
       } else if (this.mode === 'IMAGE') {
         this.answer = arrayRandom(cards.filter(card => !card.token))
-
-        Canvas.loadImage(BASE_URL + '/assets/images/cards/' + this.answer.image)
-          .then(image => this.getAttachment(image))
-          .then(attachment => this.channel.send('', attachment))
       } else if (this.mode === 'QUESTION') {
         const { question, choices } = getRandomQuestion(this.useRandomLetters)
 
@@ -209,41 +212,60 @@ const TriviaMachine = StateMachine.factory({
       this.start()
 
       if (mode === 'CARD') {
-        const embed = getEmbed()
-          .setTitle('🔮  Card trivia started!')
+        const embed = getEmbed({ withHeader: false })
+          .setTitle('🔮  Card trivia started')
           .setDescription(
             `You can ask questions and issue guesses with \`!trivia <term>\`, like \`!trivia pirate\` or \`!trivia rof\`.`
           )
-          .addFields({ name: 'Duration', value: duration + ' seconds' })
+          .addFields(
+            { name: 'Duration', value: duration + ' seconds', inline: true },
+            { name: 'Initiator', value: author.username, inline: true }
+          )
 
         return embed
       } else if (mode === 'IMAGE') {
-        const embed = getEmbed()
-          .setTitle('🔮  Image trivia started!')
-          .setDescription(
-            `You can issue guesses with \`!trivia <card>\`, like \`!trivia rof\`.`
-          )
-          .addFields({ name: 'Duration', value: duration + ' seconds' })
+        return Canvas.loadImage(
+          BASE_URL + '/assets/images/cards/' + this.answer.image
+        )
+          .then(image => this.getAttachment(image))
+          .then(attachment => {
+            const embed = getEmbed({ withHeader: false })
+              .setTitle('🔮  Image trivia started')
+              .setDescription(
+                `You can issue guesses with \`!trivia <card>\`, like \`!trivia rof\`.`
+              )
+              .addFields(
+                { name: 'Initiator', value: author.username, inline: true },
+                {
+                  name: 'Duration',
+                  value: duration + ' seconds',
+                  inline: true,
+                },
+                {
+                  name: 'Difficulty',
+                  value: capitalise(
+                    (this.difficulty || 'Regular').toLowerCase()
+                  ),
+                  inline: true,
+                }
+              )
 
-        return embed
+            return { files: [attachment], embed }
+          })
       } else if (mode === 'QUESTION') {
-        const embed = getEmbed()
-          .setTitle(this.answer.question)
+        const embed = getEmbed({ withHeader: false })
+          .setTitle('🔮  ' + this.answer.question)
           .setDescription(
             Object.keys(this.answer.choices)
               .map(letter => ' ' + letter + '. ' + this.answer.choices[letter])
               .join('\n')
           )
-          .addFields({ name: 'Duration', value: duration + ' seconds' })
+          .addFields(
+            { name: 'Duration', value: duration + ' seconds', inline: true },
+            { name: 'Initiator', value: author.username, inline: true }
+          )
 
         return embed
-
-        return (
-          `❔ **${this.answer.question}** (${this.duration} seconds)\n` +
-          Object.keys(this.answer.choices)
-            .map(letter => ' ' + letter + '. ' + this.answer.choices[letter])
-            .join('\n')
-        )
       }
     },
 
@@ -269,15 +291,21 @@ const TriviaMachine = StateMachine.factory({
       if (!this.initiator) return
       if (author.id !== this.initiator.id && author.id !== KITTY_ID) return
 
-      const username = this.initiator.username
-      const answer =
-        this.mode !== 'QUESTION'
-          ? `The answer was “**${this.answer.name}**.”`
-          : ''
+      const initiator = this.initiator
+      const answer = this.mode !== 'QUESTION' ? this.answer.name : '***'
 
       this.stop()
 
-      return `🔌 ${username} originally started the trivia, and now they’re ending it. ${answer}`
+      return getEmbed({ withHeader: false })
+        .setTitle('🔌 Trivia stopped')
+        .addFields(
+          {
+            name: 'Answer',
+            value: answer,
+            inline: true,
+          },
+          { name: 'Initiator ', value: initiator.username, inline: true }
+        )
     },
 
     success: function (author) {
@@ -297,23 +325,48 @@ const TriviaMachine = StateMachine.factory({
 
       this.stop()
 
-      return `🎉 Correct! The answer was “**${answer}**”. Congratulations ${author}!`
+      return getEmbed({ withHeader: false })
+        .setTitle('🎉 Correct answer: ' + answer)
+        .addFields(
+          { name: 'Winner', value: author.username, inline: true },
+          { name: 'Points', value: '+' + increment, inline: true }
+        )
     },
 
     guess: function (message, author) {
       if (this.mode === 'CARD' || this.mode === 'IMAGE') {
         const [key, value] = parseCardGuess(message)
+        const embed = getEmbed({ withHeader: false })
+
+        embed.addFields(
+          { name: 'User', value: author.username, inline: true },
+          { name: 'Trait', value: key, inline: true },
+          { name: 'Value', value: value, inline: true }
+        )
 
         if (this.mode === 'CARD' && key) {
           if (value === true) {
             const lead = key === 'elder' ? 'an' : 'a'
-            return this.answer[key] === value
-              ? `👍 Yes, the card is ${lead} *${key}*.`
-              : `👎 No, the card is not ${lead} *${key}*.`
+
+            if (this.answer[key] === value) {
+              return embed
+                .setTitle('👍 Correct guess: ' + key)
+                .setDescription(`The card is indeed ${lead} *${key}*.`)
+            } else {
+              return embed
+                .setTitle(`👎 Incorrect guess: ~~${key}~~`)
+                .setDescription(`The card is not ${lead} *${key}*.`)
+            }
           } else {
-            return this.answer[key] === value
-              ? `👍 Yes, the card’s *${key}* is indeed “**${value}**”.`
-              : `👎 No, the card’s *${key}* is not “${value}”.`
+            if (this.answer[key] === value) {
+              return embed
+                .setTitle('👍 Correct guess: ' + value)
+                .setDescription(`The card’s *${key}* is indeed “**${value}**”.`)
+            } else {
+              return embed
+                .setTitle(`👎 Incorrect guess: ~~${value}~~`)
+                .setDescription(`The card’s *${key}* is not “${value}”.`)
+            }
           }
         }
 
@@ -321,7 +374,11 @@ const TriviaMachine = StateMachine.factory({
 
         if (card) {
           if (card.name === this.answer.name) return this.success(author)
-          else return `❌ The card is not “${card.name}”, try again!`
+          else {
+            return embed
+              .setTitle(`❌ Incorrect answer: ~~${card.name}~~`)
+              .setDescription(`The card is not ${card.name}, try again!`)
+          }
         }
       } else if (this.mode === 'QUESTION') {
         const letter = message.toUpperCase().trim()
@@ -344,11 +401,6 @@ const TriviaMachine = StateMachine.factory({
         }
 
         const streak = this.streaks[author.id]
-        const streakMessage =
-          streak > 1
-            ? ` You just ended your streak of ${streak} correct answers in a row, ${author}!`
-            : ''
-
         api
           .setScore(author.id, this.guildId, -1)
           .then(() => console.log('Subtracted 1 point from ' + author.id))
@@ -357,20 +409,37 @@ const TriviaMachine = StateMachine.factory({
         delete this.streaks[author.id]
         this.stop()
 
-        return `❌ Unfortunately the answer is not *“${guess}”*.${streakMessage}`
+        const embed = getEmbed({ withHeader: false })
+          .setTitle(`❌ Incorrect guess: ~~${guess}~~`)
+          .addFields(
+            { name: 'User', value: author.username, inline: true },
+            { name: 'Points', value: -1, inline: true }
+          )
+
+        if (streak > 1) {
+          embed.setDescription(
+            ` You just ended your streak of ${streak} correct answers in a row, ${author}!`
+          )
+        }
+
+        return embed
       }
     },
 
     leaderboard: function () {
-      api
+      return api
         .getScores(this.guildId)
         .then(formatTriviaScores)
         .then(output =>
-          this.channel.send(output, { allowedMentions: { users: [] } })
+          getEmbed({ withHeader: false })
+            .setTitle('Current trivia scores')
+            .setDescription(output)
         )
-        .catch(() => {
-          this.channel.send('🏅 Failed to get scores. Try again later.')
-        })
+        .catch(() =>
+          getEmbed({ withHeader: false })
+            .setTitle('Current trivia scores')
+            .setDescription('🏅 Failed to get scores. Try again later.')
+        )
     },
   },
 })

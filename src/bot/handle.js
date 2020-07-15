@@ -32,10 +32,19 @@ export default client => async message => {
       : await command.handler(content, client, message)
 
     if (answer && channelId) {
+      const channel = client.channels.cache.get(channelId)
+
       if (typeof answer === 'string') {
-        client.channels.cache.get(channelId).send([ping, answer].join(' '))
+        channel.send([ping, answer].join(' '))
       } else {
-        client.channels.cache.get(channelId).send(ping, answer)
+        // If we receive an object with a `files` key and an `embed` key, it
+        // means it comes with an image and the ping is not supported at all —
+        // which is fine since this is for the image trivia.
+        if (answer.embed && answer.files) {
+          channel.send(answer)
+        } else {
+          channel.send(ping, answer)
+        }
       }
     }
   }

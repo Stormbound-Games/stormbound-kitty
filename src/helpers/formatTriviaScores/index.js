@@ -29,16 +29,13 @@ const formatTriviaScores = scores => {
     {}
   )
 
-  return [
-    '**Current scores:**',
-    // Iterate over the individual scores, sort them from the highest
-    // to the lowest, and render each line individually by listing the
-    // users with that amount of points.
-    ...Object.keys(scoresByPoints)
-      .sort((a, b) => +b - +a)
-      .slice(0, 10)
-      .map(renderScore(scoresByPoints)),
-  ].join('\n')
+  // Iterate over the individual scores, sort them from the highest
+  // to the lowest, and render each line individually by listing the
+  // users with that amount of points.
+  return Object.keys(scoresByPoints)
+    .sort((a, b) => +b - +a)
+    .slice(0, 10)
+    .map(renderScore(scoresByPoints))
 }
 
 export default formatTriviaScores
