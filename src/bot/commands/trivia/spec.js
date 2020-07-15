@@ -31,16 +31,16 @@ describe('Bot — !trivia', () => {
   })
 
   it('should be possible to ask for hints', () => {
-    expect(trivia('struct', client, message)).to.contain('type')
-    expect(trivia('pirate', client, message)).to.contain('race')
-    expect(trivia('rare', client, message)).to.contain('rarity')
-    expect(trivia('wp', client, message)).to.contain('faction')
-    expect(trivia('hero', client, message)).to.contain('hero')
-    expect(trivia('elder', client, message)).to.contain('elder')
+    expect(trivia('struct', client, message).description).to.contain('type')
+    expect(trivia('pirate', client, message).description).to.contain('race')
+    expect(trivia('rare', client, message).description).to.contain('rarity')
+    expect(trivia('wp', client, message).description).to.contain('faction')
+    expect(trivia('hero', client, message).description).to.contain('hero')
+    expect(trivia('elder', client, message).description).to.contain('elder')
   })
 
   it('should be possible to stop one’s own trivia', () => {
-    expect(trivia('stop', client, message)).to.contain('ending')
+    expect(trivia('stop', client, message).title).to.contain('stopped')
   })
 
   it('should not be possible to stop a trivia if no trivia started', () => {
