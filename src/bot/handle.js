@@ -32,7 +32,11 @@ export default client => async message => {
       : await command.handler(content, client, message)
 
     if (answer && channelId) {
-      client.channels.cache.get(channelId).send([ping, answer].join(' '))
+      if (typeof answer === 'string') {
+        client.channels.cache.get(channelId).send([ping, answer].join(' '))
+      } else {
+        client.channels.cache.get(channelId).send(ping, answer)
+      }
     }
   }
 }
