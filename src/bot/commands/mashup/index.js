@@ -1,3 +1,4 @@
+import Discord from 'discord.js'
 import cards from '../../../data/cards'
 import arrayRandom from '../../../helpers/arrayRandom'
 
@@ -22,9 +23,25 @@ const [STARTS, ENDS] = (() => {
 export default {
   command: 'mashup',
   help: function () {
-    return `🤪  **Random Name Generator:** Randomly generate a random card name from existing ones.`
+    const embed = new Discord.MessageEmbed()
+
+    embed
+      .setTitle('🤪  Mashup help')
+      .setURL('https://stormbound-kitty.com')
+      .setDescription(
+        'Randomly generate a random card name from existing ones.'
+      )
+
+    return embed
   },
   handler: async function (message, client, messageObject) {
-    return arrayRandom(STARTS) + ' ' + arrayRandom(ENDS)
+    const embed = new Discord.MessageEmbed()
+
+    embed
+      .setTitle('🤪  Mashup')
+      .setURL('https://stormbound-kitty.com')
+      .setDescription(arrayRandom(STARTS) + ' ' + arrayRandom(ENDS))
+
+    return embed
   },
 }
