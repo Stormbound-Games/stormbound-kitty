@@ -1,27 +1,39 @@
+import Discord from 'discord.js'
 import { RARITIES, BOOKS, PRE_MADE_EXPECTATIONS } from '../../../constants/game'
 import capitalise from '../../../helpers/capitalise'
 import getDrawingProbability from '../../../helpers/getDrawingProbability'
 import searchCards from '../../../helpers/searchCards'
 
-const getRarityOdds = book => rarity => {
-  const anyKey = 'ANY_' + rarity.toUpperCase()
-  const specificKey = 'SPECIFIC_' + rarity.toUpperCase()
-  const anyLabel = PRE_MADE_EXPECTATIONS[anyKey].label
-  const anyOdds =
-    getDrawingProbability(book, PRE_MADE_EXPECTATIONS[anyKey].expectations) *
-    100
-  const specificLabel = PRE_MADE_EXPECTATIONS[specificKey].label
-  const specificOdds =
-    getDrawingProbability(
-      book,
-      PRE_MADE_EXPECTATIONS[specificKey].expectations
-    ) * 100
+const getEmbedFields = book => {
+  const stoneOdds = PRE_MADE_EXPECTATIONS.FUSION_STONES.expectations
+  const fields = []
 
-  return `${anyOdds.toFixed(
-    2
-  )}% chances to draw **${anyLabel}**, ${specificOdds.toFixed(
-    2
-  )}% chances to draw **${specificLabel}**`
+  Object.keys(RARITIES).forEach((rarity, index) => {
+    const anyKey = 'ANY_' + rarity.toUpperCase()
+    const specificKey = 'SPECIFIC_' + rarity.toUpperCase()
+    const anyOdds = PRE_MADE_EXPECTATIONS[anyKey].expectations
+    const specificOdds = PRE_MADE_EXPECTATIONS[specificKey].expectations
+
+    fields.push({
+      name: `Any ${rarity} card`,
+      value: (getDrawingProbability(book, anyOdds) * 100).toFixed(2) + '%',
+      inline: true,
+    })
+
+    fields.push({
+      name: `Specific ${rarity} card`,
+      value: (getDrawingProbability(book, specificOdds) * 100).toFixed(2) + '%',
+      inline: true,
+    })
+  })
+
+  fields.push({
+    name: `Fusion stones`,
+    value: (getDrawingProbability(book, stoneOdds) * 100).toFixed(2) + '%',
+    inline: true,
+  })
+
+  return fields
 }
 
 const parseMessage = search => {
@@ -47,7 +59,17 @@ const parseMessage = search => {
 export default {
   command: 'bookodds',
   help: function () {
-    return `📕  **Book Drawing Odds:** Get the odds of drawing a certain card or Fusion stones from a certain book. It expects a mandatory book name, and an optional expectation such as “fs” or a rarity (both regardless of casing). For instance, \`!${this.command} mythic\`, \`!${this.command} noble epic\`, \`!${this.command} fs\`, \`!${this.command} legendary heroic\`.`
+    const embed = new Discord.MessageEmbed()
+
+    embed
+      .setColor('#D7598B')
+      .setTitle(`📕  Book Drawing Odds help`)
+      .setURL('https://stormbound-kitty.com/collection/books')
+      .setDescription(
+        `Get the odds of drawing a certain card or Fusion stones from a certain book. It expects a mandatory book name, and an optional expectation such as “fs” or a rarity (both regardless of casing). For instance, \`!${this.command} mythic\`, \`!${this.command} noble epic\`, \`!${this.command} fs\`, \`!${this.command} legendary heroic\`.`
+      )
+
+    return embed
   },
   handler: function (message) {
     const { book, target } = parseMessage(message)
@@ -56,7 +78,14 @@ export default {
     // anything if it’s not provided.
     if (!book) return
 
+    const embed = new Discord.MessageEmbed()
     const bookName = capitalise(book.toLowerCase())
+
+    embed
+      .setColor('#D7598B')
+      .setTitle(`📕  Book Drawing Odds: ${bookName}`)
+      .setURL('https://stormbound-kitty.com/collection/books')
+
     const intro = `A **${bookName} book** has:`
     const fsOdds =
       getDrawingProbability(
@@ -66,24 +95,21 @@ export default {
     const fsLine = `- ${fsOdds.toFixed(2)}% chances to draw **Fusion stones**`
 
     if (target === 'FUSION_STONES') {
-      return `${intro.slice(0, -1)}${fsLine.slice(1)}.`
+      embed.setTitle(embed.title + ' · Fusion stones')
+      embed.setDescription(`${intro.slice(0, -1)}${fsLine.slice(1)}.`)
+
+      return embed
     }
 
     // If no specific target is provided, return all the odds for the given book
     // starting with fusion stones, and then going through rarities.
     if (!target) {
-      return (
-        [
-          intro,
-          fsLine,
-          ...Object.keys(RARITIES)
-            .map(getRarityOdds(book))
-            .map(line => '- ' + line),
-        ].join('\n') + '.'
-      )
+      embed.addFields(...getEmbedFields(book))
+
+      return embed
     }
 
-    // If the target happes to be a card, compute the odds to draw a specific
+    // If the target happens to be a card, compute the odds to draw a specific
     // card of the card’s rarity, and provide a custom answer.
     if (target.id) {
       const odds =
@@ -92,11 +118,19 @@ export default {
           PRE_MADE_EXPECTATIONS['SPECIFIC_' + target.rarity.toUpperCase()]
             .expectations
         ) * 100
-      return `${intro.slice(0, -1)} ${odds.toFixed(2)}% chances to draw **${
-        target.name
-      }**.`
+
+      embed.setTitle(embed.title + ' · ' + target.name)
+      embed.setDescription(
+        `${intro.slice(0, -1)} ${odds.toFixed(2)}% chances to draw **${
+          target.name
+        }**.`
+      )
+
+      return embed
     }
 
-    return `${intro.slice(0, -1)} ${getRarityOdds(book)(target)}.`
+    embed.addFields(...getEmbedFields(book))
+
+    return embed
   },
 }
