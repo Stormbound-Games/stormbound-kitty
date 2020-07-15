@@ -1,12 +1,9 @@
-import Discord from 'discord.js'
+import getEmbed from '../../../helpers/getEmbed'
 
 export default {
   command: 'help',
   help: function (content, client, messageObject) {
-    const embed = new Discord.MessageEmbed()
-
-    embed
-      .setColor('#D7598B')
+    const embed = getEmbed()
       .setTitle(`❔  Help`)
       .setURL('https://stormbound-kitty.com')
 

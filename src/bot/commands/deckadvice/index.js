@@ -1,5 +1,5 @@
-import Discord from 'discord.js'
 import getDeckAdvice from '../../../helpers/getDeckAdvice'
+import getEmbed from '../../../helpers/getEmbed'
 import getResolvedCardData from '../../../helpers/getResolvedCardData'
 import serialisation from '../../../helpers/serialisation'
 
@@ -13,28 +13,20 @@ const getIdFromURL = url =>
 export default {
   command: 'deckadvice',
   help: function () {
-    const embed = new Discord.MessageEmbed()
-
-    embed
-      .setColor('#D7598B')
-      .setTitle(`💎  Deck Advice help`)
+    return getEmbed()
+      .setTitle(`💎  Deck Advice: help`)
       .setURL('https://stormbound-kitty.com/deck')
       .setDescription(
         `Get advice and suggestions for the given deck. It expects a fully qualified Stormbound-Kitty deck URL, or a Stormbound-Kitty deck ID. For instance, \`!${this.command} 3n13n23s13n33s243s23n633n673s63n153s83s11\`. To get the deck URL/ID, either compose it on the site, or use the \`!deckid\` command.`
       )
-
-    return embed
   },
   handler: async function (message) {
     const id = getIdFromURL(message)
 
     if (id.length === 0) return
 
-    const embed = new Discord.MessageEmbed()
-
-    embed
-      .setColor('#D7598B')
-      .setTitle(`💎  Deck Advice`)
+    const embed = getEmbed()
+      .setTitle(`💎  Deck Advice: ` + id)
       .setURL('https://stormbound-kitty.com/deck/' + id)
 
     try {

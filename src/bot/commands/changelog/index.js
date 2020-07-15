@@ -1,6 +1,6 @@
-import Discord from 'discord.js'
 import dateFormat from 'dateformat'
 import changelog from '../../../data/changelog.json'
+import getEmbed from '../../../helpers/getEmbed'
 import searchCards from '../../../helpers/searchCards'
 
 const groupByDate = (acc, change) => {
@@ -14,17 +14,12 @@ const groupByDate = (acc, change) => {
 export default {
   command: 'changelog',
   help: function () {
-    const embed = new Discord.MessageEmbed()
-
-    embed
-      .setColor('#D7598B')
-      .setTitle(`🛠  Changelog help`)
+    return getEmbed()
+      .setTitle(`🛠  Changelog: help`)
       .setURL('https://stormbound-kitty.com/changelog')
       .setDescription(
         `List the changes applied to a card over time. It expects a card abbreviation, a Stormbound-Kitty ID, or otherwise performs a “fuzzy search” on the card name and picks the first result. For instance, \`!${this.command} rof\`, \`!${this.command} N1\` or \`!${this.command} souls\`.`
       )
-
-    return embed
   },
   handler: function (message) {
     const [card] = searchCards(message)
@@ -32,11 +27,8 @@ export default {
     // If no card was found with the given search, look no further.
     if (!card) return
 
-    const embed = new Discord.MessageEmbed()
-
-    embed
-      .setColor('#D7598B')
-      .setTitle(`🛠  Changelog · ${card.name}`)
+    const embed = getEmbed()
+      .setTitle(`🛠  Changelog: ${card.name}`)
       .setURL('https://stormbound-kitty.com/changelog')
 
     const cardChanges = changelog.filter(change => change.id === card.id)

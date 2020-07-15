@@ -21,7 +21,7 @@ describe('Bot — !trivia', () => {
   })
 
   it('should be possible to start a card trivia', () => {
-    expect(trivia('card', client, message)).to.contain('started')
+    expect(trivia('card', client, message).title).to.contain('started')
   })
 
   it('should not be possible to stop someone else’s trivia', () => {

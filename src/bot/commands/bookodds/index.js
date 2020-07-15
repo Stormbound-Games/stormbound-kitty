@@ -1,8 +1,8 @@
-import Discord from 'discord.js'
 import { RARITIES, BOOKS, PRE_MADE_EXPECTATIONS } from '../../../constants/game'
 import capitalise from '../../../helpers/capitalise'
 import getDrawingProbability from '../../../helpers/getDrawingProbability'
 import searchCards from '../../../helpers/searchCards'
+import getEmbed from '../../../helpers/getEmbed'
 
 const getEmbedFields = book => {
   const stoneOdds = PRE_MADE_EXPECTATIONS.FUSION_STONES.expectations
@@ -59,17 +59,12 @@ const parseMessage = search => {
 export default {
   command: 'bookodds',
   help: function () {
-    const embed = new Discord.MessageEmbed()
-
-    embed
-      .setColor('#D7598B')
-      .setTitle(`📕  Book Drawing Odds help`)
+    return getEmbed()
+      .setTitle(`📕  Book Drawing Odds: help`)
       .setURL('https://stormbound-kitty.com/collection/books')
       .setDescription(
         `Get the odds of drawing a certain card or Fusion stones from a certain book. It expects a mandatory book name, and an optional expectation such as “fs” or a rarity (both regardless of casing). For instance, \`!${this.command} mythic\`, \`!${this.command} noble epic\`, \`!${this.command} fs\`, \`!${this.command} legendary heroic\`.`
       )
-
-    return embed
   },
   handler: function (message) {
     const { book, target } = parseMessage(message)
@@ -78,11 +73,8 @@ export default {
     // anything if it’s not provided.
     if (!book) return
 
-    const embed = new Discord.MessageEmbed()
     const bookName = capitalise(book.toLowerCase())
-
-    embed
-      .setColor('#D7598B')
+    const embed = getEmbed()
       .setTitle(`📕  Book Drawing Odds: ${bookName}`)
       .setURL('https://stormbound-kitty.com/collection/books')
 

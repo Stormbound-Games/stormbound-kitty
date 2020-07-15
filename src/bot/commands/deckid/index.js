@@ -1,7 +1,6 @@
-import Discord from 'discord.js'
 import serialisation from '../../../helpers/serialisation'
 import searchCards from '../../../helpers/searchCards'
-import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
+import getEmbed from '../../../helpers/getEmbed'
 import getRawCardData from '../../../helpers/getRawCardData'
 import clamp from '../../../helpers/clamp'
 
@@ -20,17 +19,12 @@ const getLevelOut = term => {
 export default {
   command: 'deckid',
   help: function () {
-    const embed = new Discord.MessageEmbed()
-
-    embed
-      .setColor('#D7598B')
-      .setTitle(`⚙️  Deck ID help`)
+    return getEmbed()
+      .setTitle(`⚙️  Deck ID: help`)
       .setURL('https://stormbound-kitty.com/deck')
       .setDescription(
         `Get the URL/ID of a deck based on the listed cards (and optional levels). An optional global deck level can be specified at the beginning or the end of the command, and optional individual card levels can be specified alongside each card in the list. For instance, \`!${this.command} 4 gp,sm,…,dopp\` or \`!${this.command} gp 3,sm 2,…,1 dopp\`.`
       )
-
-    return embed
   },
   handler: function (message) {
     if (message.length === 0) return
@@ -49,11 +43,8 @@ export default {
 
     if (cards.length === 0) return
 
-    const embed = new Discord.MessageEmbed()
     const id = serialisation.deck.serialise(cards.filter(Boolean).slice(0, 12))
-
-    embed
-      .setColor('#D7598B')
+    const embed = getEmbed()
       .setTitle(`⚙️  Deck ID`)
       .setURL('https://stormbound-kitty.com/deck/' + id)
       .setDescription(`This deck’s ID is ${id}.`)

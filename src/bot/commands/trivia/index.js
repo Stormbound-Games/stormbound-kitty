@@ -8,6 +8,7 @@ import arrayRandom from '../../../helpers/arrayRandom'
 import getRandomQuestion from '../../../helpers/getRandomQuestion'
 import searchCards from '../../../helpers/searchCards'
 import getChannelId from '../../../helpers/getChannelId'
+import getEmbed from '../../../helpers/getEmbed'
 import parseCardGuess from '../../../helpers/parseCardGuess'
 import parseTriviaSettings from '../../../helpers/parseTriviaSettings'
 import questions from './questions'
@@ -75,27 +76,30 @@ const TriviaMachine = StateMachine.factory({
     },
 
     halfTime: function (time) {
-      const message = `⏳ Half the time has run out, hurry up!`
+      const embed = getEmbed()
+        .setTitle('⏳ Half time!')
+        .setDescription(`Half the time has run out, hurry up!`)
 
       if (!this.channel) return
 
       if (this.mode === 'IMAGE') {
         Canvas.loadImage(BASE_URL + '/assets/images/cards/' + this.answer.image)
           .then(image => this.getAttachment(image, 1.75))
-          .then(attachment => this.channel.send(message, attachment))
+          .then(attachment => this.channel.send({ files: [attachment], embed }))
       } else {
-        this.channel.send(message)
+        this.channel.send(embed)
       }
     },
 
     timeout: function () {
       if (this.channel) {
-        const answer =
-          this.mode !== 'QUESTION'
-            ? `The answer was “**${this.answer.name}**”!`
-            : ''
+        const embed = getEmbed().setTitle('⌛️ Time’s up!')
 
-        this.channel.send(`⌛️ Time’s up! ${answer}`)
+        if (this.mode !== 'QUESTION') {
+          embed.setDescription(`The answer was “**${this.answer.name}**”!`)
+        }
+
+        this.channel.send(embed)
       }
 
       this.stop()
@@ -205,10 +209,35 @@ const TriviaMachine = StateMachine.factory({
       this.start()
 
       if (mode === 'CARD') {
-        return `🔮 Trivia started! You have ${duration} seconds to guess the card. You can ask questions and issue guesses with \`!trivia <term>\`, like \`!trivia pirate\` or \`!trivia rof\`.`
+        const embed = getEmbed()
+          .setTitle('🔮  Card trivia started!')
+          .setDescription(
+            `You can ask questions and issue guesses with \`!trivia <term>\`, like \`!trivia pirate\` or \`!trivia rof\`.`
+          )
+          .addFields({ name: 'Duration', value: duration + ' seconds' })
+
+        return embed
       } else if (mode === 'IMAGE') {
-        return `🔮 Trivia started! You have ${duration} seconds to guess the card. You can issue guesses with \`!trivia <card>\`, like \`!trivia rof\`.`
+        const embed = getEmbed()
+          .setTitle('🔮  Image trivia started!')
+          .setDescription(
+            `You can issue guesses with \`!trivia <card>\`, like \`!trivia rof\`.`
+          )
+          .addFields({ name: 'Duration', value: duration + ' seconds' })
+
+        return embed
       } else if (mode === 'QUESTION') {
+        const embed = getEmbed()
+          .setTitle(this.answer.question)
+          .setDescription(
+            Object.keys(this.answer.choices)
+              .map(letter => ' ' + letter + '. ' + this.answer.choices[letter])
+              .join('\n')
+          )
+          .addFields({ name: 'Duration', value: duration + ' seconds' })
+
+        return embed
+
         return (
           `❔ **${this.answer.question}** (${this.duration} seconds)\n` +
           Object.keys(this.answer.choices)

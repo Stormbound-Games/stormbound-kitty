@@ -1,24 +1,16 @@
-import Discord from 'discord.js'
 import GUIDES from '../../../data/guides.json'
+import getEmbed from '../../../helpers/getEmbed'
 
 export default {
   command: 'guides',
   help: function () {
-    const embed = new Discord.MessageEmbed()
-
-    embed
-      .setColor('#D7598B')
-      .setTitle(`🧭  Guides help`)
+    return getEmbed()
+      .setTitle(`🧭  Guides: help`)
       .setURL('https://stormbound-kitty.com/guides')
       .setDescription('List all existing guides from Stormbound-Kitty.')
-
-    return embed
   },
   handler: function (message) {
-    const embed = new Discord.MessageEmbed()
-
-    embed
-      .setColor('#D7598B')
+    return getEmbed()
       .setTitle('🧭  Guides')
       .setURL('https://stormbound-kitty.com/guides')
       .addFields(
@@ -30,7 +22,5 @@ export default {
             inline: true,
           }))
       )
-
-    return embed
   },
 }

@@ -1,10 +1,9 @@
-import Discord from 'discord.js'
 import { FACTIONS } from '../../../constants/game'
 import { CATEGORIES } from '../../../constants/decks'
-import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
-import searchCards from '../../../helpers/searchCards'
-import handleSearchAlias from '../../../helpers/handleSearchAlias'
 import getDeckSearchDescription from '../../../helpers/getDeckSearchDescription'
+import getEmbed from '../../../helpers/getEmbed'
+import handleSearchAlias from '../../../helpers/handleSearchAlias'
+import searchCards from '../../../helpers/searchCards'
 
 export const parseMessage = content => {
   const terms = content.split(/\s+/g)
@@ -42,23 +41,15 @@ export const parseMessage = content => {
 export default {
   command: 'decks',
   help: function () {
-    const embed = new Discord.MessageEmbed()
-
-    embed
-      .setColor('#D7598B')
-      .setTitle('🔍  Deck Search help')
+    return getEmbed()
+      .setTitle('🔍  Deck Search: help')
       .setURL('https://stormbound-kitty.com/deck/suggestions')
       .setDescription(
         `Get a link to a deck search matching the given search criteria. It optionally accepts a faction, category and card to include (regardless of order and casing). For instance, \`!${this.command} ic\`, \`!${this.command} wp d1\` or \`!${this.command} brawl kg\`.`
       )
-
-    return embed
   },
   handler: function (message) {
-    const embed = new Discord.MessageEmbed()
-
-    embed
-      .setColor('#D7598B')
+    const embed = getEmbed()
       .setTitle('🔍  Deck Search')
       .setURL('https://stormbound-kitty.com/deck/suggestions')
 
