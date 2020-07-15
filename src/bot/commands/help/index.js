@@ -5,7 +5,7 @@ export default {
   help: function (content, client, messageObject) {
     const embed = getEmbed()
       .setTitle(`❔  Help`)
-      .setURL('https://stormbound-kitty.com')
+      .setURL('https://stormbound-kitty.com/faq')
 
     let commands = []
 
@@ -29,7 +29,7 @@ export default {
 
     return embed
   },
-  handler: function (message, client) {
-    return this.help(message, client)
+  handler: function (message, client, messageObject) {
+    return this.help(message, client, messageObject)
   },
 }
