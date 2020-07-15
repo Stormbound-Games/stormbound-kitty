@@ -27,13 +27,13 @@ describe('Bot — !deckadvice', () => {
 
   it('should handle a lack of advice', () => {
     deckadvice('5n31n45n121n145n163w54n181n94w95w125w133w19').then(output =>
-      expect(output).to.contain('No particular suggestions')
+      expect(output.description).to.contain('No particular suggestions')
     )
   })
 
   it('should return advice', () => {
     deckadvice('3n631n703n335n133n415n193n592w102n614n225w23n7').then(output =>
-      expect(output).to.contain('\n-')
+      expect(output.fields.length > 0).to.equal(true)
     )
   })
 
