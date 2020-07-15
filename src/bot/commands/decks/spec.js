@@ -3,98 +3,100 @@ const decks = command.handler
 
 describe('Bot — !decks', () => {
   it('should return the suggestions URL for an empty search', () => {
-    expect(decks('')).to.equal('https://stormbound-kitty.com/deck/suggestions')
+    expect(decks('').url).to.equal(
+      'https://stormbound-kitty.com/deck/suggestions'
+    )
   })
 
   it('should handle factions', () => {
-    expect(decks('ironclad')).to.equal(
+    expect(decks('ironclad').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?faction=ironclad'
     )
-    expect(decks('shadowfen')).to.equal(
+    expect(decks('shadowfen').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?faction=shadowfen'
     )
-    expect(decks('winter')).to.equal(
+    expect(decks('winter').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?faction=winter'
     )
-    expect(decks('swarm')).to.equal(
+    expect(decks('swarm').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?faction=swarm'
     )
   })
 
   it('should handle categories', () => {
-    expect(decks('diamond_1')).to.equal(
+    expect(decks('diamond_1').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?category=DIAMOND_1'
     )
-    expect(decks('regular')).to.equal(
+    expect(decks('regular').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?category=REGULAR'
     )
-    expect(decks('brawl')).to.equal(
+    expect(decks('brawl').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?category=BRAWL'
     )
-    expect(decks('equals')).to.equal(
+    expect(decks('equals').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?category=EQUALS'
     )
   })
 
   it('should handle aliases', () => {
-    expect(decks('d1')).to.equal(
+    expect(decks('d1').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?category=DIAMOND_1'
     )
-    expect(decks('diamond')).to.equal(
+    expect(decks('diamond').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?category=DIAMOND_1'
     )
-    expect(decks('tournament')).to.equal(
+    expect(decks('tournament').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?category=EQUALS'
     )
-    expect(decks('tourney')).to.equal(
+    expect(decks('tourney').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?category=EQUALS'
     )
-    expect(decks('equal')).to.equal(
+    expect(decks('equal').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?category=EQUALS'
     )
-    expect(decks('ic')).to.equal(
+    expect(decks('ic').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?faction=ironclad'
     )
-    expect(decks('red')).to.equal(
+    expect(decks('red').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?faction=ironclad'
     )
-    expect(decks('sf')).to.equal(
+    expect(decks('sf').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?faction=shadowfen'
     )
-    expect(decks('green')).to.equal(
+    expect(decks('green').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?faction=shadowfen'
     )
-    expect(decks('w')).to.equal(
+    expect(decks('w').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?faction=winter'
     )
-    expect(decks('wp')).to.equal(
+    expect(decks('wp').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?faction=winter'
     )
-    expect(decks('blue')).to.equal(
+    expect(decks('blue').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?faction=winter'
     )
-    expect(decks('sw')).to.equal(
+    expect(decks('sw').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?faction=swarm'
     )
-    expect(decks('yellow')).to.equal(
+    expect(decks('yellow').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?faction=swarm'
     )
   })
 
   it('should handle including cards', () => {
-    expect(decks('I2')).to.equal(
+    expect(decks('I2').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?including=I2'
     )
-    expect(decks('mia')).to.equal(
+    expect(decks('mia').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?including=I2'
     )
-    expect(decks('rof')).to.equal(
+    expect(decks('rof').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?including=F8'
     )
   })
 
   it('should handle multi-searches', () => {
-    const [, search] = decks('ic mia diamond').split('?')
+    const [, search] = decks('ic mia diamond').url.split('?')
     const params = new URLSearchParams(search)
     expect(params.get('faction')).to.equal('ironclad')
     expect(params.get('category')).to.equal('DIAMOND_1')

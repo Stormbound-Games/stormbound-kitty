@@ -18,11 +18,8 @@ import SuggestionsFilters from '../DeckSuggestionsFilters'
 import Title from '../Title'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import sortDeckSuggestions from '../../helpers/sortDeckSuggestions'
-import getRawCardData from '../../helpers/getRawCardData'
-import capitalise from '../../helpers/capitalise'
+import getDeckSearchDescription from '../../helpers/getDeckSearchDescription'
 import serialisation from '../../helpers/serialisation'
-import { CATEGORIES } from '../../constants/decks'
-import { BRAWLS } from '../../constants/brawl'
 import './index.css'
 
 class DeckSuggestions extends React.Component {
@@ -164,28 +161,6 @@ class DeckSuggestions extends React.Component {
       this.updateURLParameters
     )
 
-  getPageDescription = () => {
-    const cardData = getRawCardData(this.state.including)
-    const brawl = BRAWLS.find(brawl => brawl.id === this.state.brawl)
-
-    return [
-      'Find a collection of',
-      this.state.faction !== '*' ? capitalise(this.state.faction) : '',
-      'decks',
-      this.state.including ? `including ${cardData.name}` : '',
-      this.state.category === '*' || this.state.category === 'REGULAR'
-        ? 'for all levels and all play-styles'
-        : `for ${CATEGORIES[this.state.category]}`,
-      brawl ? `(${brawl.label})` : '',
-      'suggested by',
-      this.state.author !== '*'
-        ? this.state.author
-        : 'the Stormbound community',
-    ]
-      .filter(Boolean)
-      .join(' ')
-  }
-
   render() {
     const decks = this.getDecks()
 
@@ -260,7 +235,10 @@ class DeckSuggestions extends React.Component {
           </Column>
         </Row>
 
-        <PageMeta title='Decks' description={this.getPageDescription()} />
+        <PageMeta
+          title='Decks'
+          description={getDeckSearchDescription(this.state)}
+        />
       </>
     )
   }

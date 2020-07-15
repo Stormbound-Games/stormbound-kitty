@@ -1,8 +1,10 @@
+import Discord from 'discord.js'
 import { FACTIONS } from '../../../constants/game'
 import { CATEGORIES } from '../../../constants/decks'
 import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
 import searchCards from '../../../helpers/searchCards'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'
+import getDeckSearchDescription from '../../../helpers/getDeckSearchDescription'
 
 export const parseMessage = content => {
   const terms = content.split(/\s+/g)
@@ -40,13 +42,37 @@ export const parseMessage = content => {
 export default {
   command: 'decks',
   help: function () {
-    return `🔍  **Deck Search:** Get a link to a deck search matching the given search criteria. It optionally accepts a faction, category and card to include (regardless of order and casing). For instance, \`!${this.command} ic\`, \`!${this.command} wp d1\` or \`!${this.command} brawl kg\`.`
+    const embed = new Discord.MessageEmbed()
+
+    embed
+      .setColor('#D7598B')
+      .setTitle('🔍  Deck Search help')
+      .setURL('https://stormbound-kitty.com/deck/suggestions')
+      .setDescription(
+        `Get a link to a deck search matching the given search criteria. It optionally accepts a faction, category and card to include (regardless of order and casing). For instance, \`!${this.command} ic\`, \`!${this.command} wp d1\` or \`!${this.command} brawl kg\`.`
+      )
+
+    return embed
   },
   handler: function (message) {
+    const embed = new Discord.MessageEmbed()
+
+    embed
+      .setColor('#D7598B')
+      .setTitle('🔍  Deck Search')
+      .setURL('https://stormbound-kitty.com/deck/suggestions')
+
     // If no additional parameters were given, reply with the overall deck
     // suggestions page
     if (message.length === 0) {
-      return 'https://stormbound-kitty.com/deck/suggestions'
+      embed.setDescription(
+        getDeckSearchDescription({
+          category: '*',
+          author: '*',
+        })
+      )
+
+      return embed
     }
 
     const { params, ignored } = parseMessage(message.toLowerCase())
@@ -56,13 +82,30 @@ export default {
       searchParams.set(param, params[param])
     }
 
-    return [
+    const url =
       'https://stormbound-kitty.com/deck/suggestions' +
-        (searchParams.toString().length ? '?' : '') +
-        searchParams.toString(),
-      getIgnoredSearch(message, ignored),
-    ]
-      .filter(Boolean)
-      .join('\n')
+      (searchParams.toString().length ? '?' : '') +
+      searchParams.toString()
+
+    embed.setDescription(
+      getDeckSearchDescription({
+        category: '*',
+        author: '*',
+        ...params,
+      }) +
+        '\n' +
+        url
+    )
+
+    embed.setURL(url)
+
+    if (ignored.length > 0) {
+      embed.addFields({
+        name: 'Ignored terms',
+        value: ignored.join(', '),
+      })
+    }
+
+    return embed
   },
 }
