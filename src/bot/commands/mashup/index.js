@@ -26,6 +26,7 @@ export default {
     const embed = new Discord.MessageEmbed()
 
     embed
+      .setColor('#D7598B')
       .setTitle('🤪  Mashup help')
       .setURL('https://stormbound-kitty.com')
       .setDescription(
@@ -38,6 +39,7 @@ export default {
     const embed = new Discord.MessageEmbed()
 
     embed
+      .setColor('#D7598B')
       .setTitle('🤪  Mashup')
       .setURL('https://stormbound-kitty.com')
       .setDescription(arrayRandom(STARTS) + ' ' + arrayRandom(ENDS))

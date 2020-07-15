@@ -7,6 +7,7 @@ export default {
     const embed = new Discord.MessageEmbed()
 
     embed
+      .setColor('#D7598B')
       .setTitle(`🧭  Guides help`)
       .setURL('https://stormbound-kitty.com/guides')
       .setDescription('List all existing guides from Stormbound-Kitty.')
@@ -18,7 +19,7 @@ export default {
 
     embed
       .setColor('#D7598B')
-      .setTitle('Guides')
+      .setTitle('🧭  Guides')
       .setURL('https://stormbound-kitty.com/guides')
       .addFields(
         ...GUIDES.slice(0)

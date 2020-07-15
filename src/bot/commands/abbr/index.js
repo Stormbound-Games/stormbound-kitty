@@ -10,6 +10,7 @@ export default {
   command: 'abbr',
   help: function () {
     const embed = new Discord.MessageEmbed()
+
     embed
       .setColor('#D7598B')
       .setTitle(`❔  Abbreviation help`)
@@ -29,7 +30,7 @@ export default {
 
     embed
       .setColor('#D7598B')
-      .setTitle(`Abbreviation “${message}”`)
+      .setTitle(`❔  Abbreviation “${message}”`)
       .setURL('https://stormbound-kitty.com/guides/lexicon')
       .setDescription(
         `“${message}” might mean ${toSentence(matches.map(quotify), 'or')}.`

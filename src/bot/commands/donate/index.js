@@ -7,6 +7,7 @@ const getEmbed = () => {
   const embed = new Discord.MessageEmbed()
 
   embed
+    .setColor('#D7598B')
     .setTitle(`💸  Donate help`)
     .setURL('https://stormbound-kitty.com/donate')
     .setDescription(BASE_MESSAGE)
@@ -22,7 +23,7 @@ export default {
   handler: function () {
     const embed = getEmbed()
 
-    embed.setTitle('Donate')
+    embed.setTitle('💸  Donate')
 
     return embed
   },
