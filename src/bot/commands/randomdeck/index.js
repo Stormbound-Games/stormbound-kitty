@@ -1,10 +1,11 @@
+import Discord from 'discord.js'
 import { FACTIONS } from '../../../constants/game'
 import areAllValuesEqual from '../../../helpers/areAllValuesEqual'
 import arrayRandom from '../../../helpers/arrayRandom'
 import searchCards from '../../../helpers/searchCards'
-import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
 import getRandomDeck from '../../../helpers/getRandomDeck'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'
+import sortCards from '../../../helpers/sortCards'
 import serialisation from '../../../helpers/serialisation'
 
 const ALLOWED_FACTIONS = Object.keys(FACTIONS).filter(
@@ -92,25 +93,63 @@ export const validateFaction = (faction, including = []) => {
 export default {
   command: 'randomdeck',
   help: function () {
-    return `🎲  **Random Deck:** Randomly generate a deck. It optionally accepts a faction and up to 3 cards (separated with commas) to include in the deck (regardless of order or casing). For instance, \`!${this.command} ic\` or \`!${this.command} rof,bragda\`.`
+    const embed = new Discord.MessageEmbed()
+
+    embed
+      .setColor('#D7598B')
+      .setTitle(`🎲  Random Deck help`)
+      .setURL('https://stormbound-kitty.com/deck')
+      .setDescription(
+        `Randomly generate a deck. It optionally accepts a faction and up to 3 cards (separated with commas) to include in the deck (regardless of order or casing). For instance, \`!${this.command} ic\` or \`!${this.command} rof,bragda\`.`
+      )
+
+    return embed
   },
   handler: function (message) {
     const { faction, including, ignored } = parseMessage(message.toLowerCase())
     const resolvedFaction = validateFaction(faction.resolved, including)
+    const embed = new Discord.MessageEmbed()
+
+    embed
+      .setColor('#D7598B')
+      .setTitle(`🎲  Random Deck`)
+      .setURL('https://stormbound-kitty.com/deck')
 
     // If there was an issue resolving the faction, return early.
     if (!resolvedFaction) {
-      return 'Unfortunately, there was an issue generating a random deck. This might be because of conflicting argument (e.g. `wp rof`, `fc, mia`…).'
+      embed.setDescription(
+        'Unfortunately, there was an issue generating a random deck. This might be because of conflicting argument (e.g. `wp rof`, `fc, mia`…).'
+      )
+
+      return embed
     }
 
     const initialCards = including.length ? including.slice(0, 3) : undefined
     const deck = getRandomDeck({ initialCards, faction: resolvedFaction })
+    const id = serialisation.deck.serialise(deck)
 
-    return [
-      'https://stormbound-kitty.com/deck/' + serialisation.deck.serialise(deck),
-      getIgnoredSearch(message.replace(faction.authored, ''), ignored, 'COMMA'),
-    ]
-      .filter(Boolean)
-      .join('\n')
+    embed.setURL('https://stormbound-kitty.com/deck/' + id)
+    embed.addFields(
+      ...deck.sort(sortCards()).map(card => ({
+        name: card.name,
+        value: [
+          typeof card.mana === 'number' ? card.mana + 'mn' : '',
+          typeof card.strength === 'number' ? card.strength + 'str' : '',
+          typeof card.movement === 'number' ? card.movement + 'mv' : '',
+        ]
+          .filter(Boolean)
+          .join(' '),
+        inline: true,
+      }))
+    )
+
+    if (ignored.length > 0) {
+      embed.addFields({
+        name: 'Ignored terms',
+        value: ignored.join(', '),
+      })
+    }
+
+    return embed
   },
 }
