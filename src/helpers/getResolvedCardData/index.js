@@ -32,7 +32,7 @@ export default card => {
   const unfoldedAbility = resolveAbility(cardData.ability).values
   const mana = +(unfoldedMana[level - 1] || unfoldedMana[0])
   const strength =
-    card.type !== 'spell'
+    cardData.type !== 'spell'
       ? +(unfoldedStrength[level - 1] || unfoldedStrength[0])
       : null
   const ability = unfoldedAbility[level - 1] || unfoldedAbility[0]
