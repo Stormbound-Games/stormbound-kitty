@@ -8,6 +8,7 @@ export default React.memo(function Info(props) {
       className={['Info', props.CTA && 'Info--with-cta', props.className]
         .filter(Boolean)
         .join(' ')}
+      style={props.style}
     >
       <span className='Info__title'>
         {!!props.icon && <Icon className='Info__icon' icon={props.icon} />}{' '}
