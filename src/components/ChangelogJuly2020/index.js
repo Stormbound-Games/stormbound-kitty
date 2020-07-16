@@ -95,7 +95,7 @@ export default React.memo(function ChangelogJuly2020(props) {
 
       <p>
         Following Paladin Studios’ advice, the update will hit the production
-        servers some time around July 20th, earliest. From there, the new
+        servers some time around July 21st, earliest. From there, the new
         version of the application will be gradually rolled out to app stores
         and players are encouraged to update the game as soon as possible. A few
         days later, a forced update will be conducted to migrate the remaining
@@ -481,7 +481,7 @@ export default React.memo(function ChangelogJuly2020(props) {
             id: 'release-date',
             question: 'When is the update going to be released?',
             answer:
-              'The update itself has been completed and sent to the different app stores for approval at the end of June. However because Stormbound has been silent for so long, it currently is deprioritised and quite far down the queue. We are hoping to see it before July 20th, but cannot make any guarantee. This is completely outside of Paladin or Sheepyard’s control and we cannot speed that up.',
+              'The update itself has been completed and sent to the different app stores for approval at the end of June. However because Stormbound has been silent for so long, it currently is deprioritised and quite far down the queue. We are hoping to see it on July 21st, but cannot make any guarantee. This is completely outside of Paladin or Sheepyard’s control and we cannot speed that up.',
           },
           {
             id: 'is-confusion-better',
