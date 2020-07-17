@@ -18,11 +18,18 @@ export default React.memo(function GuideResources(props) {
       <p>
         In this guide, I would like to give some insights on how to best manage
         the resources in this game. This is a work-in-progress and will be
-        expanded on in the near future. This guide is based on the latest update
-        as of May 2020.
+        expanded on in the near future.
+      </p>
+      <p className='Highlight'>
+        This guide has been partially updated for the{' '}
+        <Link to='/changelog/07-2020'>July 2020 release</Link> but is not fully
+        up-to-date. The <a href='#resources'>Resources</a> section is reflecting
+        the new economy changes, but the{' '}
+        <a href='#general-tactics'>General Tactics</a> section has not been
+        updated yet.
       </p>
 
-      <ol>
+      <ol style={{ columns: '16em' }}>
         <li>
           <a href='#resources'>Resources</a>
           <ul>
@@ -55,9 +62,13 @@ export default React.memo(function GuideResources(props) {
 
       <Info icon='wand' title='Income calculator'>
         Further down this guide, you will find a handy{' '}
-        <a href='#income-calculator'>income calculator</a> to compute how many
-        resources (coins, rubies, fusion stones and cards) you get on a daily,
-        weekly, monthly or yearly basis based on your playstyle.
+        <a href='#income-calculator'>income calculator</a> (
+        <span className='Highlight'>
+          up-to-date with the July economy changes
+        </span>
+        ) to compute how many resources (coins, rubies, fusion stones and cards)
+        you get on a daily, weekly, monthly or yearly basis based on your
+        playstyle .
       </Info>
 
       <Title id='resources'>Resources</Title>
