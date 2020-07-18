@@ -455,7 +455,19 @@ export default {
   command: 'trivia',
   ping: false,
   help: function () {
-    return `🔮  **Trivia:** Initiate a card, question, or image trivia (only in <#trivia>). It accepts an optional duration in seconds (and the keyword \`hard\` for grayscale image trivia). For instance, \`!${this.command} card\`, \`!${this.command} question\`, \`!${this.command} image 30\`, \`!${this.command} image hard\`. Scores can be displayed with \`!${this.command} scores\`.`
+    return getEmbed({ withHeader: false })
+      .setTitle(`🔮  Trivia: help`)
+      .setDescription(
+        `Initiate a card, question, or image trivia (only in #trivia). It accepts an optional duration in seconds (and the keyword \`hard\` for grayscale image trivia).`
+      )
+      .addFields(
+        { name: 'Card trivia', value: '`!trivia card`', inline: true },
+        { name: 'Image trivia', value: '`!trivia image`', inline: true },
+        { name: 'Question trivia', value: '`!trivia question`', inline: true },
+        { name: 'Guess', value: '`!trivia <guess>`', inline: true },
+        { name: 'Stop', value: '`!trivia stop`', inline: true },
+        { name: 'Scores', value: '`!trivia scores`', inline: true }
+      )
   },
   handler: function (message, client, messageObject) {
     const { author } = messageObject
