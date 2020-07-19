@@ -37,14 +37,7 @@ export default client => async message => {
       if (typeof answer === 'string') {
         channel.send([ping, answer].join(' '))
       } else {
-        // If we receive an object with a `files` key and an `embed` key, it
-        // means it comes with an image and the ping is not supported at all —
-        // which is fine since this is for the image trivia.
-        if (answer.embed && answer.files) {
-          channel.send(answer)
-        } else {
-          channel.send(ping, answer)
-        }
+        channel.send(ping, answer)
       }
     }
   }

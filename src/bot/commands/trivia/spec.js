@@ -1,49 +1,114 @@
-import command from './'
-const trivia = command.handler.bind(command)
+import Discord from 'discord.js'
+import Trivia from './Trivia'
 
-const client = { channels: { cache: new Map() } }
-const guild = {
-  id: '714858253531742208',
-  channels: {
-    cache: [
-      { name: 'trivia', id: 'trid' },
-      { name: 'stormbot', id: 'stid' },
-    ],
-  },
-}
-const channel = { id: '123456789', name: 'trivia', guild }
-const author = { id: 'author_id', username: 'Author' }
-const message = { channel, author, guild }
+const LETTERS = 'abcdefghijklmnopqrstuvwxyz'.split('')
 
 describe('Bot — !trivia', () => {
-  it('should return nothing for a missing term', () => {
-    expect(trivia('', client, message)).to.equal(undefined)
+  const channelID = Discord.SnowflakeUtil.generate()
+  const client = new Discord.Client()
+  const guild = new Discord.Guild(client)
+  const channel = new Discord.TextChannel(guild, {
+    ...new Discord.GuildChannel(guild, {
+      ...new Discord.Channel(client, { id: channelID }),
+    }),
+  })
+  const user = new Discord.User(client, {
+    id: '368097495605182483',
+    username: 'Kitty ✨',
+    discriminator: 'Kitty#1909',
+    avatar: '<mock>',
+    bot: false,
+  })
+  const trivia = new Trivia({ guildId: 'guildId', channel })
+
+  it('should ignore invalid commands', () => {
+    trivia.start({ author: user, channel, content: '!trivia foo' })
+    expect(trivia.mode).to.equal(null)
   })
 
-  it('should be possible to start a card trivia', () => {
-    expect(trivia('card', client, message).title).to.contain('started')
-  })
-
-  it('should not be possible to stop someone else’s trivia', () => {
-    const author = { id: 'other_author_id', username: 'Other Author' }
-    const message = { channel, author, guild }
-    expect(trivia('stop', client, message)).to.equal(undefined)
+  it('should be possible to start a new card trivia', () => {
+    trivia.start({ author: user, channel, content: '!trivia card' })
+    expect(trivia.mode).to.equal('CARD')
+    expect(trivia.initiator).to.equal(user)
+    expect(trivia.halfTimer).to.not.equal(undefined)
   })
 
   it('should be possible to ask for hints', () => {
-    expect(trivia('struct', client, message).description).to.contain('type')
-    expect(trivia('pirate', client, message).description).to.contain('race')
-    expect(trivia('rare', client, message).description).to.contain('rarity')
-    expect(trivia('wp', client, message).description).to.contain('faction')
-    expect(trivia('hero', client, message).description).to.contain('hero')
-    expect(trivia('elder', client, message).description).to.contain('elder')
+    const output = trivia.guess({ author: user, channel, content: 'pirate' })
+    expect(output.title).to.not.equal(undefined)
+    expect(output.description).to.contain('pirate')
   })
 
-  it('should be possible to stop one’s own trivia', () => {
-    expect(trivia('stop', client, message).title).to.contain('stopped')
+  it('should be possible to emit guesses', () => {
+    const output = trivia.guess({ author: user, channel, content: 'mia' })
+    expect(output.title).to.not.equal(undefined)
+    expect(output.description).to.contain('Doctor Mia')
   })
 
-  it('should not be possible to stop a trivia if no trivia started', () => {
-    expect(trivia('stop', client, message)).to.equal(undefined)
+  it('should be possible to stop an ongoing trivia', () => {
+    trivia.stop('ABORT')
+    expect(trivia.mode).to.equal(null)
+    expect(trivia.initiator).to.equal(null)
+    expect(trivia.halfTimer).to.equal(undefined)
+  })
+
+  it('should be possible to win a card trivia', () => {
+    trivia.start({ author: user, channel, content: '!trivia card' })
+    const output = trivia.guess({
+      author: user,
+      channel,
+      content: trivia.answer.name,
+    })
+    expect(output.title).to.contain('🎉')
+  })
+
+  it('should be possible to start a new question trivia', () => {
+    trivia.start({ author: user, channel, content: '!trivia question' })
+    expect(trivia.mode).to.equal('QUESTION')
+    expect(trivia.initiator).to.equal(user)
+    expect(trivia.halfTimer).to.not.equal(undefined)
+  })
+
+  it('should ignore guesses that are not amongst letters', () => {
+    trivia.start({ author: user, channel, content: '!trivia question' })
+    const guess = LETTERS.find(
+      letter =>
+        !Object.keys(trivia.answer.choices).includes(letter.toUpperCase())
+    )
+    trivia.guess({ author: user, channel, content: guess })
+
+    expect(trivia.mode).to.equal('QUESTION')
+  })
+
+  it('should interrupt question trivia after first incorrect guess', () => {
+    trivia.start({ author: user, channel, content: '!trivia question' })
+    const output = trivia.guess({
+      author: user,
+      channel,
+      content: Object.keys(trivia.answer.choices).find(
+        letter => trivia.answer.choices[letter] !== trivia.answer.name
+      ),
+    })
+
+    expect(output.title).to.contain('Incorrect')
+    expect(trivia.mode).to.equal(null)
+  })
+
+  it('should be possible to win a question trivia', () => {
+    trivia.start({ author: user, channel, content: '!trivia question' })
+    const output = trivia.guess({
+      author: user,
+      channel,
+      content: Object.keys(trivia.answer.choices).find(
+        letter => trivia.answer.choices[letter] === trivia.answer.name
+      ),
+    })
+    expect(output.title).to.contain('🎉')
+  })
+
+  it('should be possible to display scores', () => {
+    trivia.scores().then(output => {
+      expect(output.title).to.contain('scores')
+    })
   })
 })
