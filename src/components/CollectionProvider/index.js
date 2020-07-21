@@ -3,6 +3,7 @@ import { NotificationContext } from '../NotificationProvider'
 import cards from '../../data/cards'
 
 export const CollectionContext = React.createContext([])
+const cardsWithoutTokens = cards.filter(card => !card.token)
 
 const normaliseCard = card => ({
   id: card.id,
@@ -28,8 +29,25 @@ export default function CollectionProvider(props) {
 
   React.useEffect(() => {
     try {
-      const savedCollection = JSON.parse(localStorage.getItem(STORAGE_KEY))
+      let savedCollection = JSON.parse(localStorage.getItem(STORAGE_KEY))
+
       if (savedCollection.length > 0) {
+        // It is possible that the locally saved collection does not contain all
+        // the cards in the game if it was recorded before a card gets added. In
+        // such case, we should update the collection with the missing card(s),
+        // and mark them as missing.
+        if (savedCollection.length !== cardsWithoutTokens.length) {
+          savedCollection = cardsWithoutTokens.map(
+            card =>
+              savedCollection.find(entry => entry.id === card.id) || {
+                id: card.id,
+                level: 1,
+                missing: true,
+                copies: 0,
+              }
+          )
+        }
+
         setCollection(savedCollection)
         notify('Locally saved collection found and loaded.')
       }
