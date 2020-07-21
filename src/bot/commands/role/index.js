@@ -39,8 +39,9 @@ const hasRole = (member, role) => {
 
 export default {
   command: 'role',
+  label: '🌟  Role Assignment',
   help: function (message, client, messageObject) {
-    const embed = getEmbed().setTitle(`🌟  Role Assignment: help`)
+    const embed = getEmbed().setTitle(`${this.label}: help`)
 
     let help = `Assign yourself a decorative role (regardless of casing). Use the command again to have the role removed.`
 
@@ -65,7 +66,7 @@ export default {
     // If the given argument is not an allowed role, abort.
     if (!newRole) return
 
-    const embed = getEmbed().setTitle(`🌟  Role Assignment: ` + newRole.name)
+    const embed = getEmbed().setTitle(`${this.label}: ${newRole.name}`)
 
     // If the user already has the expected role, remove it, like a toggle.
     if (hasRole(messageObject.member, newRole)) {

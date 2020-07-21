@@ -4,9 +4,9 @@ import getRawCardData from '../../../helpers/getRawCardData'
 import arrayRandom from '../../../helpers/arrayRandom'
 import stories from '../../../../public/stories'
 
-const getEmbedForStory = story => {
+const getEmbedForStory = (label, story) => {
   return getEmbed()
-    .setTitle('📝  Story: ' + story.title)
+    .setTitle(`${label}: ${story.title}`)
     .setURL('https://stormbound-kitty.com/stories/' + story.id)
     .addFields(
       { name: 'Author', value: story.author, inline: true },
@@ -17,9 +17,10 @@ const getEmbedForStory = story => {
 
 export default {
   command: 'story',
+  label: '📝  Story',
   help: function () {
     return getEmbed()
-      .setTitle(`📝  Story: help`)
+      .setTitle(`${this.label}: help`)
       .setURL('https://stormbound-kitty.com/stories')
       .setDescription(
         `Link a random story published on Stormbound-Kitty. It optionally accepts a card abbreviation, a Stormbound-Kitty ID, or otherwise performs a “fuzzy search” on the card name to find an associated story. For instance, \`!${this.command} mia\`.`
@@ -27,9 +28,9 @@ export default {
   },
   handler: function (message) {
     if (message === 'random' || message === '') {
-      return getEmbedForStory(arrayRandom(stories))
+      return getEmbedForStory(this.label, arrayRandom(stories))
     }
 
-    return getEmbedForStory(getStoriesForSearch(message)[0])
+    return getEmbedForStory(this.label, getStoriesForSearch(message)[0])
   },
 }

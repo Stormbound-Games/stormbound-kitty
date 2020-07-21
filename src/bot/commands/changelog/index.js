@@ -13,9 +13,10 @@ const groupByDate = (acc, change) => {
 
 export default {
   command: 'changelog',
+  label: '🛠  Card Changelog',
   help: function () {
     return getEmbed()
-      .setTitle(`🛠  Changelog: help`)
+      .setTitle(`${this.label}: help`)
       .setURL('https://stormbound-kitty.com/changelog')
       .setDescription(
         `List the changes applied to a card over time. It expects a card abbreviation, a Stormbound-Kitty ID, or otherwise performs a “fuzzy search” on the card name and picks the first result. For instance, \`!${this.command} rof\`, \`!${this.command} N1\` or \`!${this.command} souls\`.`
@@ -28,7 +29,7 @@ export default {
     if (!card) return
 
     const embed = getEmbed()
-      .setTitle(`🛠  Changelog: ${card.name}`)
+      .setTitle(`${this.label}: ${card.name}`)
       .setURL('https://stormbound-kitty.com/changelog')
 
     const cardChanges = changelog.filter(change => change.id === card.id)

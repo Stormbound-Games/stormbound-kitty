@@ -5,15 +5,16 @@ const BASE_MESSAGE =
 
 export default {
   command: 'donate',
+  label: '💸  Donate',
   help: function () {
     return getEmbed()
-      .setTitle(`💸  Donate: help`)
+      .setTitle(`${this.label}: help`)
       .setURL('https://stormbound-kitty.com/donate')
       .setDescription(BASE_MESSAGE)
   },
   handler: function () {
     return getEmbed()
-      .setTitle(`💸  Donate`)
+      .setTitle(`${this.label}`)
       .setURL('https://stormbound-kitty.com/donate')
       .setDescription(BASE_MESSAGE)
   },

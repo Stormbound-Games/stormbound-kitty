@@ -2,16 +2,16 @@ import decks from '../../../data/decks'
 import arrayRandom from '../../../helpers/arrayRandom'
 import capitalise from '../../../helpers/capitalise'
 import getEmbed from '../../../helpers/getEmbed'
-import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
 import serialisation from '../../../helpers/serialisation'
 import { parseMessage } from '../decks'
 import { CATEGORIES } from '../../../constants/decks'
 
 export default {
   command: 'suggestdeck',
+  label: '✅  Deck Suggestion',
   help: function () {
     return getEmbed()
-      .setTitle(`✅  Deck Suggestion: help`)
+      .setTitle(`${this.label}: help`)
       .setURL('https://stormbound-kitty.com/guides/lexicon')
       .setDescription(
         `Suggest a deck matching the given search criteria. It optionally accepts a faction, category and card to include (regardless of order and casing). For instance, \`!${this.command} ic\`, \`!${this.command} wp d1\` or \`!${this.command} brawl kg\`.`
@@ -20,7 +20,7 @@ export default {
   handler: function (message) {
     const { params, ignored } = parseMessage(message.toLowerCase())
 
-    const embed = getEmbed().setTitle(`✅  Deck Suggestion`)
+    const embed = getEmbed().setTitle(`${this.label}`)
 
     if (Object.keys(params).length === 0) {
       const deck = arrayRandom(

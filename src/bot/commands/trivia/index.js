@@ -6,10 +6,11 @@ const cache = new Map()
 
 export default {
   command: 'trivia',
+  label: '🔮  Trivia',
   ping: false,
   help: function () {
     return getEmbed({ withHeader: false })
-      .setTitle(`🔮  Trivia: help`)
+      .setTitle(`${this.label}: help`)
       .setDescription(
         `Initiate a card, question, or image trivia (only in #trivia). It accepts an optional duration in seconds (and the keyword \`hard\` for grayscale image trivia).`
       )

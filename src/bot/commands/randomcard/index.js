@@ -1,6 +1,7 @@
 import cards from '../../../data/cards'
 import { FACTIONS, RACES, RARITIES, TYPES } from '../../../constants/game'
 import arrayRandom from '../../../helpers/arrayRandom'
+import getEmbed from '../../../helpers/getEmbed'
 import getIgnoredSearch from '../../../helpers/getIgnoredSearch'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'
 
@@ -52,8 +53,14 @@ const parseMessage = content => {
 
 export default {
   command: 'randomcard',
+  label: '🃏  Random Card',
   help: function () {
-    return `🃏  **Random Card:** Get a random card matching the given search criteria. It optionally accepts a unit modifier, faction, type, race or rarity (regardless of order or casing, with or a leading exclamation mark for negative filtering). For instance, \`!${this.command} elder ic\`, \`!${this.command} !spell\` or \`!${this.command} satyr common\`.`
+    return getEmbed()
+      .setTitle(`${this.label}: help`)
+      .setURL('https://stormbound-kitty.com')
+      .setDescription(
+        `Get a random card matching the given search criteria. It optionally accepts a unit modifier, faction, type, race or rarity (regardless of order or casing, with or a leading exclamation mark for negative filtering). For instance, \`!${this.command} elder ic\`, \`!${this.command} !spell\` or \`!${this.command} satyr common\`.`
+      )
   },
   handler: function (message) {
     if (message.length === 0) {

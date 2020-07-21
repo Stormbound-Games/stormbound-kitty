@@ -18,9 +18,10 @@ const getLevelOut = term => {
 
 export default {
   command: 'deckid',
+  label: '⚙️  Deck ID',
   help: function () {
     return getEmbed()
-      .setTitle(`⚙️  Deck ID: help`)
+      .setTitle(`${this.label}: help`)
       .setURL('https://stormbound-kitty.com/deck')
       .setDescription(
         `Get the URL/ID of a deck based on the listed cards (and optional levels). An optional global deck level can be specified at the beginning or the end of the command, and optional individual card levels can be specified alongside each card in the list. For instance, \`!${this.command} 4 gp,sm,…,dopp\` or \`!${this.command} gp 3,sm 2,…,1 dopp\`.`
@@ -45,7 +46,7 @@ export default {
 
     const id = serialisation.deck.serialise(cards.filter(Boolean).slice(0, 12))
     const embed = getEmbed()
-      .setTitle(`⚙️  Deck ID`)
+      .setTitle(`${this.label}`)
       .setURL('https://stormbound-kitty.com/deck/' + id)
       .setDescription(`This deck’s ID is ${id}.`)
 

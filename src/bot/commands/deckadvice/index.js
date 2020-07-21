@@ -12,9 +12,10 @@ const getIdFromURL = url =>
 
 export default {
   command: 'deckadvice',
+  label: '💎  Deck Advice',
   help: function () {
     return getEmbed()
-      .setTitle(`💎  Deck Advice: help`)
+      .setTitle(`${this.label}: help`)
       .setURL('https://stormbound-kitty.com/deck')
       .setDescription(
         `Get advice and suggestions for the given deck. It expects a fully qualified Stormbound-Kitty deck URL, or a Stormbound-Kitty deck ID. For instance, \`!${this.command} 3n13n23s13n33s243s23n633n673s63n153s83s11\`. To get the deck URL/ID, either compose it on the site, or use the \`!deckid\` command.`
@@ -26,7 +27,7 @@ export default {
     if (id.length === 0) return
 
     const embed = getEmbed()
-      .setTitle(`💎  Deck Advice: ` + id)
+      .setTitle(`${this.label}: ` + id)
       .setURL('https://stormbound-kitty.com/deck/' + id)
 
     try {

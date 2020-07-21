@@ -40,9 +40,10 @@ export const parseMessage = content => {
 
 export default {
   command: 'decks',
+  label: '🔍  Deck Search',
   help: function () {
     return getEmbed()
-      .setTitle('🔍  Deck Search: help')
+      .setTitle(`${this.label}: help`)
       .setURL('https://stormbound-kitty.com/deck/suggestions')
       .setDescription(
         `Get a link to a deck search matching the given search criteria. It optionally accepts a faction, category and card to include (regardless of order and casing). For instance, \`!${this.command} ic\`, \`!${this.command} wp d1\` or \`!${this.command} brawl kg\`.`
@@ -50,7 +51,7 @@ export default {
   },
   handler: function (message) {
     const embed = getEmbed()
-      .setTitle('🔍  Deck Search')
+      .setTitle(`${this.label}`)
       .setURL('https://stormbound-kitty.com/deck/suggestions')
 
     // If no additional parameters were given, reply with the overall deck

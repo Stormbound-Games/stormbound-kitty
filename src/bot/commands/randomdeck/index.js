@@ -92,9 +92,10 @@ export const validateFaction = (faction, including = []) => {
 
 export default {
   command: 'randomdeck',
+  label: '🎲  Random Deck',
   help: function () {
     return getEmbed()
-      .setTitle(`🎲  Random Deck: help`)
+      .setTitle(`${this.label}: help`)
       .setURL('https://stormbound-kitty.com/deck')
       .setDescription(
         `Randomly generate a deck. It optionally accepts a faction and up to 3 cards (separated with commas) to include in the deck (regardless of order or casing). For instance, \`!${this.command} ic\` or \`!${this.command} rof,bragda\`.`
@@ -104,7 +105,7 @@ export default {
     const { faction, including, ignored } = parseMessage(message.toLowerCase())
     const resolvedFaction = validateFaction(faction.resolved, including)
     const embed = getEmbed()
-      .setTitle(`🎲  Random Deck`)
+      .setTitle(`${this.label}`)
       .setURL('https://stormbound-kitty.com/deck')
 
     // If there was an issue resolving the faction, return early.

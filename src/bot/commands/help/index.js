@@ -2,30 +2,23 @@ import getEmbed from '../../../helpers/getEmbed'
 
 export default {
   command: 'help',
+  label: '🤖  Help',
   help: function (content, client, messageObject) {
     const embed = getEmbed()
-      .setTitle(`❔  Help`)
+      .setTitle(`${this.label}`)
       .setURL('https://stormbound-kitty.com/faq')
-
-    let commands = []
 
     if (client.commands.has(content) && content !== 'help') {
       return client.commands.get(content).help(content, client, messageObject)
     }
 
     for (let [, command] of client.commands) {
-      if (command.command !== 'help') commands.push(command.command)
+      if (command.command !== 'help') {
+        embed.addField(command.label, `\`!${command.command} help\``, true)
+      }
     }
 
-    embed.setDescription(
-      `The following commands are allowed: ${commands
-        .map(
-          command =>
-            `\`!${command}\`${command === 'trivia' ? ` (only in #trivia)` : ''}`
-        )
-        .join(', ')}.\n\n
-         Use \`!help <command>\` or \`!<command> help\` to get more information about a command and how to use it.`
-    )
+    embed.setDescription(`The following commands are allowed:`)
 
     return embed
   },

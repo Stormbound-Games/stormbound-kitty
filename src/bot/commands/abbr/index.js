@@ -8,9 +8,10 @@ const quotify = value => `“${value}”`
 
 export default {
   command: 'abbr',
+  label: '❔  Abbreviation',
   help: function () {
     return getEmbed()
-      .setTitle(`❔  Abbreviation: help`)
+      .setTitle(`${this.label}: help`)
       .setURL('https://stormbound-kitty.com/guides/lexicon')
       .setDescription(
         `Get the meaning of a card or popular abbreviation (regardless of casing). For instance, \`!${this.command} rof\` or \`!${this.command} AoE\`.`
@@ -24,7 +25,7 @@ export default {
     const embed = getEmbed()
 
     embed
-      .setTitle(`❔  Abbreviation: “${message}”`)
+      .setTitle(`${this.label}: “${message}”`)
       .setURL('https://stormbound-kitty.com/guides/lexicon')
       .setDescription(
         `“${message}” might mean ${toSentence(matches.map(quotify), 'or')}.`

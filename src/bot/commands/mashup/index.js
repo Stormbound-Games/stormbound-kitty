@@ -22,9 +22,10 @@ const [STARTS, ENDS] = (() => {
 
 export default {
   command: 'mashup',
+  label: '🤪  Card Name Mashup',
   help: function () {
     return getEmbed()
-      .setTitle('🤪  Mashup: help')
+      .setTitle(`${this.label}: help`)
       .setURL('https://stormbound-kitty.com')
       .setDescription(
         'Randomly generate a random card name from existing ones.'
@@ -32,7 +33,7 @@ export default {
   },
   handler: async function (message, client, messageObject) {
     return getEmbed()
-      .setTitle('🤪  Mashup')
+      .setTitle(`${this.label}`)
       .setURL('https://stormbound-kitty.com')
       .setDescription(arrayRandom(STARTS) + ' ' + arrayRandom(ENDS))
   },
