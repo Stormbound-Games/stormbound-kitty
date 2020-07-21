@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Guide from '../Guide'
-import IncomeCalculator from '../IncomeCalculator'
 import Info from '../Info'
 import ResourceIcon from '../ResourceIcon'
 import { Coins } from '../Resource'
@@ -61,8 +60,7 @@ export default React.memo(function GuideResources(props) {
       </ol>
 
       <Info icon='wand' title='Income calculator'>
-        Further down this guide, you will find a handy{' '}
-        <a href='#income-calculator'>income calculator</a> (
+        Find a handy <Link to='/income-calculator'>income calculator</Link> (
         <span className='Highlight'>
           up-to-date with the July economy changes
         </span>
@@ -301,14 +299,6 @@ export default React.memo(function GuideResources(props) {
           and buying Heroic Tomes.
         </li>
       </ul>
-
-      <div
-        className='Article__fullwidth'
-        style={{ '--padding': '60px' }}
-        id='income-calculator'
-      >
-        <IncomeCalculator />
-      </div>
     </Guide>
   )
 })

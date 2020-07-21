@@ -1,6 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
+import Info from '../Info'
+import Only from '../Only'
+import PageMeta from '../PageMeta'
+import ResourceIcon from '../ResourceIcon'
 import Row from '../Row'
 import Title from '../Title'
 import { MILESTONES } from '../../constants/brawl'
@@ -253,221 +258,256 @@ export default React.memo(function IncomeCalculator(props) {
   }, [maxWins, setup, wins])
 
   return (
-    <Row desktopOnly wideGutter>
-      <Column>
-        <Title>Configuration</Title>
-        <Row desktopOnly>
-          <Column>
-            <label htmlFor='setup'>Game setup</label>
-            <select
-              name='setup'
-              id='setup'
-              value={setup}
-              onChange={event => setSetup(event.target.value)}
-            >
-              <option value='MOBILE_WITHOUT_ADS'>Mobile without ads</option>
-              <option value='MOBILE_WITH_ADS'>Mobile with ads</option>
-              <option value='STEAM_OR_WEB'>Steam or web version</option>
-            </select>
-          </Column>
-          <Column>
-            <label htmlFor='wins'>Daily wins</label>
-            <input
-              id='wins'
-              name='wins'
-              type='number'
-              value={wins}
-              onChange={event => setWins(event.target.value)}
-              min={0}
-              max={maxWins}
-            />
-          </Column>
-        </Row>
-        <Row desktopOnly>
-          <Column>
-            <label htmlFor='league'>Monthly league</label>
-            <select
-              name='league'
-              id='league'
-              value={league}
-              onChange={event => setLeague(event.target.value)}
-            >
-              <option value=''>Select a league</option>
-              <option value='DIAMOND'>Diamond</option>
-              <option value='PLATINUM'>Platinum</option>
-              <option value='GOLD'>Gold</option>
-              <option value='SILVER'>Silver</option>
-              <option value='BRONZE'>Bronze</option>
-              <option value='IRON'>Iron</option>
-            </select>
-          </Column>
-          <Column>
-            <label htmlFor='rank'>Monthly rank</label>
-            <select
-              name='rank'
-              id='rank'
-              value={rank}
-              onChange={event => setRank(event.target.value)}
-            >
-              <option value=''>Select a rank</option>
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
-              <option value={4}>4</option>
-              <option value={5}>5</option>
-            </select>
-          </Column>
-        </Row>
-        <Row desktopOnly>
-          <Column>
-            <label htmlFor='milestone'>Weekly Brawl milestone</label>
-            <select
-              name='milestone'
-              id='milestone'
-              value={milestone}
-              onChange={event => setMilestone(+event.target.value)}
-            >
-              <option value=''>Select a milestone</option>
-              {MILESTONES.map((milestone, index) => (
-                <option key={milestone.crowns} value={index}>
-                  {getBrawlRewardLabel(milestone)}
-                </option>
-              ))}
-            </select>
-          </Column>
-          <Column>
-            <label htmlFor='brawl-cost'>Brawl avg. cost</label>
-            <input
-              id='brawl-cost'
-              name='brawl-cost'
-              type='number'
-              value={brawlCost}
-              onChange={event => setBrawlCost(+event.target.value)}
-              min={
-                milestone === ''
-                  ? 0
-                  : MILESTONES.slice(0, milestone + 1).reduce(
-                      (max, ms) => max + (ms.cost * ms.crowns) / 5,
-                      0
-                    )
-              }
-              step={10}
-              max={MILESTONES.slice(0, milestone + 1).reduce(
-                (max, ms) => max + ms.cost * ms.crowns,
-                0
-              )}
-            />
-          </Column>
-        </Row>
-        <Checkbox
-          id='with-daily-quests'
-          name='with-daily-quests'
-          checked={withDailyQuests}
-          onChange={event => setWithDailyQuests(event.target.checked)}
-        >
-          Complete daily quests
-        </Checkbox>
-        <Checkbox
-          id='with-daily-humble'
-          name='with-daily-humble'
-          checked={withDailyHumble}
-          onChange={event => setWithDailyHumble(event.target.checked)}
-        >
-          Open daily Humble book
-        </Checkbox>
-        <Checkbox
-          id='with-daily-humble'
-          name='with-daily-humble'
-          checked={rubiesToMythic}
-          onChange={event => setRubiesToMythic(event.target.checked)}
-        >
-          Convert rubies into Mythic books
-        </Checkbox>
-      </Column>
-      <Column>
-        <div>
-          <Title
-            style={{
-              '--length': period.length,
-              '--multiplier': SELECT_LENGTH_MULTIPLIER[period],
-            }}
-          >
-            <label htmlFor='period' className='VisuallyHidden'>
-              Period
-            </label>
-            <select
-              name='period'
-              id='period'
-              value={period}
-              onChange={event => setPeriod(event.target.value)}
-              className='IncomeCalculator__period'
-            >
-              {PERIODS.map(period => (
-                <option key={period} value={period}>
-                  {capitalise(period.toLowerCase())}
-                </option>
-              ))}
-            </select>
-            Income
-          </Title>
+    <>
+      <h1 className='VisuallyHidden'>Income Calculator</h1>
+      <Row desktopOnly wideGutter>
+        <Column width='1/3'>
+          <Title>What is this?</Title>
+          <p>
+            This income calculator helps you figure out how many{' '}
+            <ResourceIcon resource='STONE' /> stones,{' '}
+            <ResourceIcon resource='RUBY' /> rubies,{' '}
+            <ResourceIcon resource='COIN' /> coins and cards you make during a
+            certain time frame based on your play-style.
+          </p>
 
           <p>
-            On a {period.toLowerCase()} basis, and given your current play
-            style, you would collect the following resources:
+            Fill the form <Only.Desktop>on the right</Only.Desktop>
+            <Only.Mobile>below</Only.Mobile>, and change the period by{' '}
+            <Only.Desktop>clicking</Only.Desktop>
+            <Only.Mobile>tapping</Only.Mobile> “Daily” in the outcome section.
           </p>
-          <ul>
-            <li>
-              <Coins amount={parseFloat(income.coins.toFixed(2))} />
-            </li>
-            <li>
-              <Rubies amount={parseFloat(income.rubies.toFixed(2))} />
-            </li>
-            <li>
-              <Stones amount={parseFloat(income.stones.toFixed(2))} />
-            </li>
-          </ul>
 
-          <p>As well as:</p>
-          <ul>
-            <li>
-              <img
-                className='IncomeCalculator__rarity'
-                src={`/assets/images/rarity-common.png`}
-                alt=''
-              />{' '}
-              {income.cards[0].toFixed(2)} common card
-              {income.cards[0] < 2 ? '' : 's'}
-            </li>
-            <li>
-              <img
-                className='IncomeCalculator__rarity'
-                src={`/assets/images/rarity-rare.png`}
-                alt=''
-              />{' '}
-              {income.cards[1].toFixed(2)} rare card
-              {income.cards[1] < 2 ? '' : 's'}
-            </li>
-            <li>
-              <img
-                className='IncomeCalculator__rarity'
-                src={`/assets/images/rarity-epic.png`}
-                alt=''
-              />{' '}
-              {income.cards[2].toFixed(2)} epic card
-              {income.cards[2] < 2 ? '' : 's'}
-            </li>
-            <li>
-              <img
-                className='IncomeCalculator__rarity'
-                src={`/assets/images/rarity-legendary.png`}
-                alt=''
-              />{' '}
-              {income.cards[3].toFixed(2)} legendary card
-              {income.cards[3] < 2 ? '' : 's'}
-            </li>
-          </ul>
-        </div>
-      </Column>
-    </Row>
+          <p style={{ marginBottom: '2em' }}>
+            Special thanks to Oeni (oeni#7266) and Roman (Roman_NFP#6918) for
+            their help in designing and making this simulator possible.
+          </p>
+
+          <Info icon='compass' title='Resources Guide'>
+            To learn about the best way to spend resources based on your
+            play-style, Roman has authored a fantastic{' '}
+            <Link to='/guides/resources'>guides on Stormbound resources</Link>.
+          </Info>
+        </Column>
+        <Column width='1/3'>
+          <Title>Configuration</Title>
+          <Row desktopOnly>
+            <Column>
+              <label htmlFor='setup'>Game setup</label>
+              <select
+                name='setup'
+                id='setup'
+                value={setup}
+                onChange={event => setSetup(event.target.value)}
+              >
+                <option value='MOBILE_WITHOUT_ADS'>Mobile without ads</option>
+                <option value='MOBILE_WITH_ADS'>Mobile with ads</option>
+                <option value='STEAM_OR_WEB'>Steam or web version</option>
+              </select>
+            </Column>
+            <Column>
+              <label htmlFor='wins'>Daily wins</label>
+              <input
+                id='wins'
+                name='wins'
+                type='number'
+                value={wins}
+                onChange={event => setWins(event.target.value)}
+                min={0}
+                max={maxWins}
+              />
+            </Column>
+          </Row>
+          <Row desktopOnly>
+            <Column>
+              <label htmlFor='league'>Monthly league</label>
+              <select
+                name='league'
+                id='league'
+                value={league}
+                onChange={event => setLeague(event.target.value)}
+              >
+                <option value=''>Select a league</option>
+                <option value='DIAMOND'>Diamond</option>
+                <option value='PLATINUM'>Platinum</option>
+                <option value='GOLD'>Gold</option>
+                <option value='SILVER'>Silver</option>
+                <option value='BRONZE'>Bronze</option>
+                <option value='IRON'>Iron</option>
+              </select>
+            </Column>
+            <Column>
+              <label htmlFor='rank'>Monthly rank</label>
+              <select
+                name='rank'
+                id='rank'
+                value={rank}
+                onChange={event => setRank(event.target.value)}
+              >
+                <option value=''>Select a rank</option>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+              </select>
+            </Column>
+          </Row>
+          <Row desktopOnly>
+            <Column>
+              <label htmlFor='milestone'>Weekly milestone</label>
+              <select
+                name='milestone'
+                id='milestone'
+                value={milestone}
+                onChange={event => setMilestone(+event.target.value)}
+              >
+                <option value=''>Select a milestone</option>
+                {MILESTONES.map((milestone, index) => (
+                  <option key={milestone.crowns} value={index}>
+                    {getBrawlRewardLabel(milestone)}
+                  </option>
+                ))}
+              </select>
+            </Column>
+            <Column>
+              <label htmlFor='brawl-cost'>Brawl avg. cost</label>
+              <input
+                id='brawl-cost'
+                name='brawl-cost'
+                type='number'
+                value={brawlCost}
+                onChange={event => setBrawlCost(+event.target.value)}
+                min={
+                  milestone === ''
+                    ? 0
+                    : MILESTONES.slice(0, milestone + 1).reduce(
+                        (max, ms) => max + (ms.cost * ms.crowns) / 5,
+                        0
+                      )
+                }
+                step={10}
+                max={MILESTONES.slice(0, milestone + 1).reduce(
+                  (max, ms) => max + ms.cost * ms.crowns,
+                  0
+                )}
+              />
+            </Column>
+          </Row>
+          <Checkbox
+            id='with-daily-quests'
+            name='with-daily-quests'
+            checked={withDailyQuests}
+            onChange={event => setWithDailyQuests(event.target.checked)}
+          >
+            Complete daily quests
+          </Checkbox>
+          <Checkbox
+            id='with-daily-humble'
+            name='with-daily-humble'
+            checked={withDailyHumble}
+            onChange={event => setWithDailyHumble(event.target.checked)}
+          >
+            Open daily Humble book
+          </Checkbox>
+          <Checkbox
+            id='with-daily-humble'
+            name='with-daily-humble'
+            checked={rubiesToMythic}
+            onChange={event => setRubiesToMythic(event.target.checked)}
+          >
+            Convert rubies into Mythic books
+          </Checkbox>
+        </Column>
+        <Column width='1/3'>
+          <div>
+            <Title
+              style={{
+                '--length': period.length,
+                '--multiplier': SELECT_LENGTH_MULTIPLIER[period],
+              }}
+            >
+              <label htmlFor='period' className='VisuallyHidden'>
+                Period
+              </label>
+              <select
+                name='period'
+                id='period'
+                value={period}
+                onChange={event => setPeriod(event.target.value)}
+                className='IncomeCalculator__period'
+              >
+                {PERIODS.map(period => (
+                  <option key={period} value={period}>
+                    {capitalise(period.toLowerCase())}
+                  </option>
+                ))}
+              </select>
+              Income
+            </Title>
+
+            <p>
+              On a {period.toLowerCase()} basis, and given your current play
+              style, you would collect the following resources:
+            </p>
+            <ul>
+              <li>
+                <Coins amount={parseFloat(income.coins.toFixed(2))} />
+              </li>
+              <li>
+                <Rubies amount={parseFloat(income.rubies.toFixed(2))} />
+              </li>
+              <li>
+                <Stones amount={parseFloat(income.stones.toFixed(2))} />
+              </li>
+            </ul>
+
+            <p>As well as:</p>
+            <ul>
+              <li>
+                <img
+                  className='IncomeCalculator__rarity'
+                  src={`/assets/images/rarity-common.png`}
+                  alt=''
+                />{' '}
+                {income.cards[0].toFixed(2)} common card
+                {income.cards[0] < 2 ? '' : 's'}
+              </li>
+              <li>
+                <img
+                  className='IncomeCalculator__rarity'
+                  src={`/assets/images/rarity-rare.png`}
+                  alt=''
+                />{' '}
+                {income.cards[1].toFixed(2)} rare card
+                {income.cards[1] < 2 ? '' : 's'}
+              </li>
+              <li>
+                <img
+                  className='IncomeCalculator__rarity'
+                  src={`/assets/images/rarity-epic.png`}
+                  alt=''
+                />{' '}
+                {income.cards[2].toFixed(2)} epic card
+                {income.cards[2] < 2 ? '' : 's'}
+              </li>
+              <li>
+                <img
+                  className='IncomeCalculator__rarity'
+                  src={`/assets/images/rarity-legendary.png`}
+                  alt=''
+                />{' '}
+                {income.cards[3].toFixed(2)} legendary card
+                {income.cards[3] < 2 ? '' : 's'}
+              </li>
+            </ul>
+          </div>
+        </Column>
+      </Row>
+      <PageMeta
+        title='Income Calculator'
+        description='Compute how many resources you can get during a certain period of time to get most out of your resources.'
+      />
+    </>
   )
 })

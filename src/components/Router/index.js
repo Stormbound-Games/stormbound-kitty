@@ -17,6 +17,7 @@ import load from '../../helpers/load'
 const Donate = load('Donate')
 const FAQ = load('FAQ')
 const Home = load('Home')
+const IncomeCalculator = load('IncomeCalculator')
 const Member = load('Member')
 const FanKit = load('FanKit')
 const Changelog = load('Changelog')
@@ -69,6 +70,10 @@ export default function Router(props) {
 
           <Page path='/fan-kit' active={['HOME', 'FAN_KIT']}>
             <FanKit />
+          </Page>
+
+          <Page path='/income-calculator' active={['HOME', 'INCOME_CALC']}>
+            <IncomeCalculator />
           </Page>
 
           <Page path='/changelog/07-2020' active={['HOME', '07_2020']}>
