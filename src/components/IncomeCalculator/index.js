@@ -190,7 +190,7 @@ const getDailyIncome = ({
   if (withDailyQuests) {
     income.coins += 100
     income.rubies += 5
-    income.stones += (6 / 9) * 2 + (3 / 9) * 1
+    income.stones += (4 / 9) * 2 + (5 / 9) * 1
   }
 
   if (wins > 0) {
