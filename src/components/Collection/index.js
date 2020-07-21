@@ -10,7 +10,6 @@ import EmptySearch from '../EmptySearch'
 import CardsFiltering from '../CardsFiltering'
 import Filters from '../CollectionFilters'
 import ImportCollection from '../ImportCollection'
-import NerfCompensationInfo from '../NerfCompensationInfo'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import { NotificationContext } from '../NotificationProvider'
@@ -177,10 +176,6 @@ class Collection extends React.Component {
                   </CTA>
                 </Column>
               </Row>
-
-              <Only.CustomCollection>
-                <NerfCompensationInfo />
-              </Only.CustomCollection>
             </div>
 
             {this.state.activeCard && (
