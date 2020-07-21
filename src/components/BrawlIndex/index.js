@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import Only from '../Only'
@@ -6,7 +7,7 @@ import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Teaser from '../Teaser'
 import chunk from '../../helpers/chunk'
-import { BRAWLS } from '../../constants/brawl'
+import { BRAWLS, CYCLE_START } from '../../constants/brawl'
 
 const getBrawlData = id => BRAWLS.find(brawl => brawl.id === id)
 
@@ -176,6 +177,7 @@ export const BRAWL_DATA = [
 const BrawlTeaser = React.memo(function BrawlTeaser(props) {
   return (
     <Teaser
+      large={props.large}
       data-testid='teaser'
       meta={props.label}
       title={props.title}
@@ -186,11 +188,81 @@ const BrawlTeaser = React.memo(function BrawlTeaser(props) {
   )
 })
 
+const NOW = new Date()
+const isBrawlRunning = () => {
+  const dayOfTheWeek = NOW.getDay()
+  const hours = NOW.getHours()
+
+  switch (dayOfTheWeek) {
+    case 1:
+    case 2:
+    case 3:
+      return false
+    case 5:
+    case 6:
+      return true
+    case 4:
+      return hours >= 9
+    case 0:
+      return hours < 10
+    default:
+      return false
+  }
+}
+
+const getDateDisplay = () => {
+  const isRunning = isBrawlRunning()
+  const dayOfTheWeek = NOW.getDay()
+
+  if (!isRunning) {
+    const startDate = dayOfTheWeek === 4 ? 'Starts today' : 'Starts on Thursday'
+
+    return `Upcoming Brawl · ${startDate}`
+  }
+
+  if (dayOfTheWeek === 0) {
+    return `Current Brawl · Ends today`
+  }
+
+  return `Current Brawl · Ends in ${7 - dayOfTheWeek} day${
+    7 - dayOfTheWeek === 1 ? '' : 's'
+  }`
+}
+
+const BrawlBanner = React.memo(function BrawlBanner(props) {
+  return (
+    <BrawlTeaser
+      {...props}
+      label={getDateDisplay()}
+      title={props.title}
+      description={
+        <>
+          <span className='Highlight'>{props.label}</span> · {props.description}{' '}
+          <Link to={`/deck/suggestions?category=BRAWL&brawl=${props.id}`}>
+            Prepare your deck
+          </Link>
+          .
+        </>
+      }
+      large
+    />
+  )
+})
+
+function weeksBetween(d1, d2) {
+  return Math.round((d2 - d1) / (7 * 24 * 60 * 60 * 1000))
+}
+
 export default React.memo(function BrawlIndex() {
+  const weeks = weeksBetween(CYCLE_START, NOW)
+  const brawl = BRAWL_DATA.slice(weeks, weeks !== -1 ? weeks + 1 : undefined)[0]
+
   return (
     <>
       <Only.Desktop>
         <HeaderBanner title='Welcome to the Brawl' />
+        <BrawlBanner {...brawl} />
+        <hr />
       </Only.Desktop>
 
       {chunk(BRAWL_DATA, 3).map((row, index) => (

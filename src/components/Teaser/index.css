@@ -11,6 +11,25 @@
   flex-direction: column; /* 2 */
 }
 
+.Teaser--large {
+  flex-direction: row;
+}
+
+.Teaser--large .Teaser__header {
+  flex: 1 0 calc(100% / 3);
+  border-right: 1px solid var(--dark-beige);
+  border-bottom: 0;
+}
+
+.Teaser--large .Teaser__body {
+  font-size: 150%;
+  padding: 1.5em;
+}
+
+.Teaser--large .Teaser__body::after {
+  content: none;
+}
+
 /**
  * 1. Small pseudo-elements overlayed on top of the story header to give the box
  *    these cutted-out corners like in the game.

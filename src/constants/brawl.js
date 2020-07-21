@@ -122,3 +122,5 @@ export const COIN_MULTIPLIERS = {
   MOBILE_WITH_ADS: 20,
   MOBILE_WITHOUT_ADS: 5,
 }
+
+export const CYCLE_START = new Date(2020, 6, 30)
