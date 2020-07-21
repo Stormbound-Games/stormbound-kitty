@@ -105,9 +105,10 @@ export default React.memo(function ChangelogJuly2020(props) {
       </p>
 
       <Info icon='heart' title='Free rubies'>
-        Anyone logging into the game during the 3 days following the update will
-        be granted <Rubies amount={50} /> as a token of gratitude and to help
-        with the fact that game development has been silent for so long.
+        Anyone logging into the game at least once during the 3 days following
+        the update will be granted <Rubies amount={50} /> as a token of
+        gratitude and to help with the fact that game development has been
+        silent for so long.
       </Info>
 
       <Title id='economy-update'>Economy update</Title>
