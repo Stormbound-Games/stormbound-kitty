@@ -48,7 +48,7 @@ export default React.memo(function ChangelogJuly2020(props) {
   return (
     <Article
       author='Kitty'
-      title='Update July 2020'
+      title='Update 07-2020'
       backLink={{ to: '/changelog', children: 'Back to changelog' }}
       readingTime='10 minutes'
       className='ChangelogJuly2020'

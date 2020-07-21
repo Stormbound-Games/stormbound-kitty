@@ -34,7 +34,7 @@ export default React.memo(function NavHome(props) {
 
         <li className='Header__item'>
           <NavLink to='/changelog/07-2020' active={props.active === '07_2020'}>
-            Update 07.2020
+            Update 07-2020
           </NavLink>
         </li>
 
