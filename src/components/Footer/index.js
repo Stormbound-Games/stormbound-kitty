@@ -169,11 +169,11 @@ export default React.memo(function Footer(props) {
 
                     <li className='Footer__item'>
                       <a
-                        href='https://www.kongregate.com/forums/941638-stormbound-kingdom-wars'
+                        href='https://www.youtube.com/results?search_query=stormbound&sp=CAI%253D'
                         target='_blank'
                         rel='noopener noreferrer'
                       >
-                        Kongregate
+                        Youtube
                       </a>
                     </li>
 
