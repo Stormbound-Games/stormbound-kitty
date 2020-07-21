@@ -71,7 +71,7 @@ export default function Router(props) {
             <FanKit />
           </Page>
 
-          <Page path='/changelog/07-2020' active={['HOME', 'CHANGELOG']}>
+          <Page path='/changelog/07-2020' active={['HOME', '07_2020']}>
             <ChangelogJuly2020 />
           </Page>
 

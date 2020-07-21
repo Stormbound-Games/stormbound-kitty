@@ -23,6 +23,12 @@ export default React.memo(function NavHome(props) {
           </NavLink>
         </li>
 
+        <li className='Header__item'>
+          <NavLink to='/changelog/07-2020' active={props.active === '07_2020'}>
+            Update 07.2020
+          </NavLink>
+        </li>
+
         <li className='Header__item Header__item--right'>
           <NavLink to='/faq' active={props.active === 'FAQ'}>
             FAQ
