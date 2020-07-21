@@ -42,6 +42,12 @@ export default React.memo(function NavCardBuilder(props) {
           )}
         </li>
 
+        <li className='Header__item'>
+          <NavLink to='/card/stats' active={props.active === 'STATS'}>
+            Stats
+          </NavLink>
+        </li>
+
         <li className='Header__item Header__item--select'>
           <CardSelect
             label='Load Card'

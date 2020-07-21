@@ -6,6 +6,7 @@ import load from '../../helpers/load'
 const CardBuilderContest = load('CardBuilderContest')
 const CardBuilderRoot = load('CardBuilderRoot')
 const CardBuilderDisplay = load('CardBuilderDisplay')
+const CardsStats = load('CardsStats')
 
 export default function RouterCardBuilder() {
   const { path } = useRouteMatch()
@@ -14,6 +15,9 @@ export default function RouterCardBuilder() {
     <Switch>
       <Page path={`${path}/contest`} active={['CARD_BUILDER', 'CONTEST']}>
         <CardBuilderContest />
+      </Page>
+      <Page path={`${path}/stats`} active={['CARD_BUILDER', 'STATS']}>
+        <CardsStats />
       </Page>
       <Page
         path={`${path}/:cardId/display`}

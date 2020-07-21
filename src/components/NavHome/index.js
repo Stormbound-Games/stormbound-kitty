@@ -18,12 +18,6 @@ export default React.memo(function NavHome(props) {
         </li>
 
         <li className='Header__item'>
-          <NavLink to='/cards-stats' active={props.active === 'CARDS_STATS'}>
-            Cards Stats
-          </NavLink>
-        </li>
-
-        <li className='Header__item'>
           <NavLink to='/changelog' active={props.active === 'CHANGELOG'}>
             Changelog
           </NavLink>

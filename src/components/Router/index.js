@@ -14,7 +14,6 @@ import RouterQuestBuilder from '../RouterQuestBuilder'
 import RouterStories from '../RouterStories'
 import load from '../../helpers/load'
 
-const CardsStats = load('CardsStats')
 const Donate = load('Donate')
 const FAQ = load('FAQ')
 const Home = load('Home')
@@ -70,10 +69,6 @@ export default function Router(props) {
 
           <Page path='/fan-kit' active={['HOME', 'FAN_KIT']}>
             <FanKit />
-          </Page>
-
-          <Page path='/cards-stats' active={['HOME', 'CARDS_STATS']}>
-            <CardsStats />
           </Page>
 
           <Page path='/changelog/07-2020' active={['HOME', 'CHANGELOG']}>
