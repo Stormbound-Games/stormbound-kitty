@@ -1,5 +1,5 @@
 import command from './'
-const role = command.handler
+const role = command.handler.bind(command)
 
 const guild = { roles: new Map() }
 guild.roles.set('__di', { id: '__di', name: 'Diamond' })

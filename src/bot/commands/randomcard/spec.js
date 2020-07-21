@@ -1,7 +1,7 @@
 import { FACTIONS, RACES, RARITIES, TYPES } from '../../../constants/game'
 import command from './'
 import getRawCardData from '../../../helpers/getRawCardData'
-const randomcard = command.handler
+const randomcard = command.handler.bind(command)
 
 const BASE_URL = 'https://stormbound-kitty.com/card/'
 const ALIASES = [

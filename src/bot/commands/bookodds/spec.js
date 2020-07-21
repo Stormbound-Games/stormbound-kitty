@@ -1,5 +1,5 @@
 import command from './'
-const bookodds = command.handler
+const bookodds = command.handler.bind(command)
 
 describe('Bot — !bookodds', () => {
   it('should return nothing for a missing term', () => {

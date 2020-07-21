@@ -1,5 +1,5 @@
 import command from './'
-const decks = command.handler
+const decks = command.handler.bind(command)
 
 describe('Bot — !decks', () => {
   it('should return the suggestions URL for an empty search', () => {

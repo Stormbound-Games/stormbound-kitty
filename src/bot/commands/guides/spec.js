@@ -1,6 +1,6 @@
 import GUIDES from '../../../data/guides'
 import command from './'
-const guides = command.handler
+const guides = command.handler.bind(command)
 
 describe('Bot — !guides', () => {
   it('should return all guides', () => {

@@ -1,5 +1,5 @@
 import command from './'
-const cardinfo = command.handler
+const cardinfo = command.handler.bind(command)
 
 describe('Bot — !cardinfo', () => {
   it('should return nothing for a missing term', () => {

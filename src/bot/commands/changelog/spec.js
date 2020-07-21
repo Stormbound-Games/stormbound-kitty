@@ -1,5 +1,5 @@
 import command from './'
-const changelog = command.handler
+const changelog = command.handler.bind(command)
 
 describe('Bot — !changelog', () => {
   it('should return nothing for a missing term', () => {

@@ -1,5 +1,5 @@
 import command, { validateFaction, parseMessage } from './'
-const randomdeck = command.handler
+const randomdeck = command.handler.bind(command)
 
 const BASE_URL = 'https://stormbound-kitty.com/deck/'
 

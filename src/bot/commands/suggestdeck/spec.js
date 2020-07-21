@@ -1,7 +1,7 @@
 import decks from '../../../data/decks'
 import { CATEGORIES } from '../../../constants/decks'
 import command from './'
-const suggestdeck = command.handler
+const suggestdeck = command.handler.bind(command)
 
 const BASE_URL = 'https://stormbound-kitty.com/deck/'
 

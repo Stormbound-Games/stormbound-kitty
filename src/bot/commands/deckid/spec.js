@@ -1,5 +1,5 @@
 import command from './'
-const deckid = command.handler
+const deckid = command.handler.bind(command)
 
 const BASE_URL = 'https://stormbound-kitty.com/deck/'
 

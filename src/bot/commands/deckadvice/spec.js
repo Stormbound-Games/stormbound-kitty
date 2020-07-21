@@ -1,5 +1,5 @@
 import command from './'
-const deckadvice = command.handler
+const deckadvice = command.handler.bind(command)
 
 describe('Bot — !deckadvice', () => {
   it('should return nothing for a missing term', () => {
