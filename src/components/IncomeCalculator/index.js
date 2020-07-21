@@ -196,13 +196,26 @@ const getDailyIncome = ({
   return income
 }
 
-const getPeriodIncome = (income, period) => {
+const getPeriodIncome = (income, period, rubiesToMythic) => {
   const multiplier = getMultiplier(period)
 
   income.coins *= multiplier
   income.rubies *= multiplier
   income.stones *= multiplier
   income.cards = income.cards.map(prob => prob * multiplier)
+
+  if (rubiesToMythic) {
+    const books = Math.floor(income.rubies / 80)
+    income.rubies -= books * 80
+
+    for (let i = 0; i < books; i += 1) {
+      income.stones += getAverageStonesPerBook('MYTHIC')
+      income.cards[0] += BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[0]
+      income.cards[1] += BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[1]
+      income.cards[2] += BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[2]
+      income.cards[3] += BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[3]
+    }
+  }
 
   return income
 }
@@ -215,6 +228,7 @@ export default React.memo(function IncomeCalculator(props) {
   const [rank, setRank] = React.useState('')
   const [milestone, setMilestone] = React.useState('')
   const [brawlCost, setBrawlCost] = React.useState(0)
+  const [rubiesToMythic, setRubiesToMythic] = React.useState(false)
   const [withDailyHumble, setWithDailyHumble] = React.useState(false)
   const [withDailyQuests, setWithDailyQuests] = React.useState(false)
   const income = getPeriodIncome(
@@ -228,7 +242,8 @@ export default React.memo(function IncomeCalculator(props) {
       withDailyHumble,
       withDailyQuests,
     }),
-    period
+    period,
+    rubiesToMythic
   )
   const maxWins =
     setup === 'STEAM_OR_WEB' ? 37 : setup === 'MOBILE_WITH_ADS' ? 19 : 74
@@ -328,7 +343,14 @@ export default React.memo(function IncomeCalculator(props) {
               type='number'
               value={brawlCost}
               onChange={event => setBrawlCost(+event.target.value)}
-              min={0}
+              min={
+                milestone === ''
+                  ? 0
+                  : MILESTONES.slice(0, milestone + 1).reduce(
+                      (max, ms) => max + (ms.cost * ms.crowns) / 5,
+                      0
+                    )
+              }
               step={10}
               max={MILESTONES.slice(0, milestone + 1).reduce(
                 (max, ms) => max + ms.cost * ms.crowns,
@@ -352,6 +374,14 @@ export default React.memo(function IncomeCalculator(props) {
           onChange={event => setWithDailyHumble(event.target.checked)}
         >
           Open daily Humble book
+        </Checkbox>
+        <Checkbox
+          id='with-daily-humble'
+          name='with-daily-humble'
+          checked={rubiesToMythic}
+          onChange={event => setRubiesToMythic(event.target.checked)}
+        >
+          Convert rubies into Mythic books
         </Checkbox>
       </Column>
       <Column>
