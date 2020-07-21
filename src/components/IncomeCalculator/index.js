@@ -411,8 +411,8 @@ export default React.memo(function IncomeCalculator(props) {
             Open daily Humble book
           </Checkbox>
           <Checkbox
-            id='with-daily-humble'
-            name='with-daily-humble'
+            id='rubies-to-mythic'
+            name='rubies-to-mythic'
             checked={rubiesToMythic}
             onChange={event => setRubiesToMythic(event.target.checked)}
           >
