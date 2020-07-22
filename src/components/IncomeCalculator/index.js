@@ -141,7 +141,7 @@ const getDailyIncome = ({
   brawlCost,
   league,
   milestone,
-  period,
+  preferTier3Stones,
   rank,
   setup,
   wins,
@@ -188,9 +188,9 @@ const getDailyIncome = ({
   }
 
   if (withDailyQuests) {
-    income.coins += 100
+    income.coins += 100 + ((preferTier3Stones ? 5 : 6) / 9) * 150
     income.rubies += 5
-    income.stones += (4 / 9) * 2 + (5 / 9) * 1
+    income.stones += ((preferTier3Stones ? 4 : 3) / 9) * 2
   }
 
   if (wins > 0) {
@@ -234,6 +234,7 @@ export default React.memo(function IncomeCalculator(props) {
   const [milestone, setMilestone] = React.useState('')
   const [brawlCost, setBrawlCost] = React.useState(0)
   const [rubiesToMythic, setRubiesToMythic] = React.useState(false)
+  const [preferTier3Stones, setPreferTier3Stones] = React.useState(false)
   const [withDailyHumble, setWithDailyHumble] = React.useState(false)
   const [withDailyQuests, setWithDailyQuests] = React.useState(false)
   const income = getPeriodIncome(
@@ -241,6 +242,7 @@ export default React.memo(function IncomeCalculator(props) {
       brawlCost,
       league,
       milestone,
+      preferTier3Stones,
       rank,
       setup,
       wins,
@@ -401,6 +403,14 @@ export default React.memo(function IncomeCalculator(props) {
             onChange={event => setWithDailyQuests(event.target.checked)}
           >
             Complete daily quests
+          </Checkbox>
+          <Checkbox
+            id='prefer-tier3-stones'
+            name='prefer-tier3-stones'
+            checked={preferTier3Stones}
+            onChange={event => setPreferTier3Stones(event.target.checked)}
+          >
+            Prefer tier-3 quest to be fusion stones
           </Checkbox>
           <Checkbox
             id='with-daily-humble'
