@@ -128,15 +128,16 @@ export default React.memo(function ChangelogJuly2020(props) {
           Tier 2 quests will now grant <Rubies amount={5} />.
         </li>
         <li>
-          Tier 3 quests will now grant 1 or <Stones amount={2} />, depending on
-          the quest.
+          Tier 3 quests will now grant <Coins amount={150} /> or{' '}
+          <Stones amount={2} />, depending on the quest.
         </li>
       </ul>
 
       <p>
         Each quest can still be rerolled once per day, but a tier 1 quest will
         always grant coins, a tier 2 quest will always grant rubies and a tier 3
-        quest will always grant fusion stones.
+        quest will either grant coins (6 out of 10 quests) or fusion stones (4
+        out of 10 quests).
       </p>
 
       <div className='Article__fullwidth' style={{ '--padding': '0' }}>
