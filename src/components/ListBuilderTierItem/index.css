@@ -1,7 +1,7 @@
 .ListBuilderTierItem {
   display: inline-block;
   width: calc(20% - 0.5em);
-  border: 1px solid var(--color, rgba(255, 255, 255, 0.3));
+  border: 1px solid var(--faction, rgba(255, 255, 255, 0.3));
   margin: 0.07em 0.25em;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 0.2em;
