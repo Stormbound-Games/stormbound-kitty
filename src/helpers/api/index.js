@@ -23,7 +23,26 @@ const setScore = (id, guildId, update = +1) =>
       })
     })
 
+const setGameId = (guildId, userId, gameId) => {
+  return fetch(API_BASE_URL + '/' + guildId + '/gameids', {
+    method: 'PATCH',
+    headers: { Authorization: 'token ' + API_TOKEN },
+    body: JSON.stringify({ [userId]: gameId }),
+  })
+}
+
+const getGameId = (guildId, userId) => {
+  return fetch(API_BASE_URL + '/' + guildId + '/gameids', {
+    method: 'GET',
+    headers: { Authorization: 'token ' + API_TOKEN },
+  })
+    .then(response => response.json())
+    .then(data => data[userId])
+}
+
 export default {
   getScores,
   setScore,
+  setGameId,
+  getGameId,
 }
