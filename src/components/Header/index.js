@@ -134,11 +134,16 @@ export default React.memo(function Header(props) {
                 <Icon className='Header__icon' icon='quill' /> Stories
               </NavLink>
             </li>
-            <li className='Header__item Header__item--right'>
-              <NavLink to='/donate' active={topActive === 'DONATE'}>
-                <Icon className='Header__icon' icon='star' /> Donate
-              </NavLink>
-            </li>
+            {props.isSearchReady && (
+              <li className='Header__item Header__item--right'>
+                <NavLink
+                  onClick={props.openSearch}
+                  active={topActive === 'SEARCH'}
+                >
+                  <Icon className='Header__icon' icon='search' /> Search
+                </NavLink>
+              </li>
+            )}
           </ul>
         </nav>
 

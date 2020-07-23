@@ -1,0 +1,47 @@
+.SearchDialog__arrow {
+  font-size: 80%;
+  transform: translateY(1px);
+  margin: 0 0.75ch;
+}
+
+.SearchDialog__meta {
+  display: block;
+  opacity: 0.8;
+}
+
+.SearchDialog__wrapper {
+  text-align: left;
+  position: relative;
+}
+.SearchDialog__label {
+}
+.SearchDialog__input-wrapper {
+  width: 100%;
+}
+.SearchDialog__input {
+}
+.SearchDialog__list {
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: var(--dark-blue);
+  border-radius: 4px;
+  top: calc(100% - 0.5em);
+  box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 11px hsla(0, 0%, 0%, 0.1);
+}
+.SearchDialog__item {
+  padding: 0.5em;
+}
+
+.SearchDialog__hint {
+  margin: 1.5em auto 0;
+  max-width: 40ch;
+  font-size: 80%;
+}
+
+#search-dialog .Dialog__body {
+  font-size: 120%;
+}
