@@ -62,10 +62,13 @@ const Option = props => {
 
 export default React.memo(function SearchDialog(props) {
   const [storiesAdded, setStoriesAdded] = React.useState(false)
+  const [inputValue, setInputValue] = React.useState('')
   const history = useHistory()
   const input = React.useRef(null)
   const { setIsSearchReady } = props
   const { data: stories = [] } = useFetch('/stories.json')
+  const metaKeyName =
+    navigator.platform.toUpperCase().indexOf('MAC') >= 0 ? 'CMD' : 'CTRL'
 
   React.useEffect(() => {
     if (storiesAdded || stories.length === 0) return
@@ -90,7 +93,10 @@ export default React.memo(function SearchDialog(props) {
     props.dialogRef.current = instance
 
     if (instance) {
-      instance.on('show', () => input.current.focus())
+      // Push the focus at the end of the event queue to avoid having `/` being
+      // filled inside the field when opening the search dialog with `/`.
+      instance.on('show', () => setTimeout(() => input.current.focus(), 0))
+      instance.on('hide', () => setInputValue(''))
     }
   }
 
@@ -113,6 +119,7 @@ export default React.memo(function SearchDialog(props) {
       image='/assets/images/cards/trekking_aldermen.png'
     >
       <Downshift
+        inputValue={inputValue}
         onChange={handleSearch}
         itemToString={item => (item ? item.label : '')}
       >
@@ -140,14 +147,16 @@ export default React.memo(function SearchDialog(props) {
               {...getRootProps({}, { suppressRefError: true })}
             >
               <input
-                type='text'
-                id='search'
-                name='search'
-                ref={input}
-                className='SearchDialog__input'
-                placeholder='e.g. calculator'
-                value={inputValue}
-                {...getInputProps()}
+                {...getInputProps({
+                  className: 'SearchDialog__input',
+                  placeholder: 'e.g. calculator',
+                  type: 'text',
+                  id: 'search',
+                  name: 'search',
+                  ref: input,
+                  value: inputValue,
+                  onChange: event => setInputValue(event.target.value),
+                })}
               />
             </div>
             <ul {...getMenuProps()} className='SearchDialog__list'>
@@ -184,7 +193,7 @@ export default React.memo(function SearchDialog(props) {
       </Downshift>
 
       <p className='SearchDialog__hint'>
-        Psst! Next time, you can use <kbd>/</kbd> or <kbd>CMD</kbd> +{' '}
+        Psst! Next time, you can use <kbd>/</kbd> or <kbd>{metaKeyName}</kbd> +{' '}
         <kbd>k</kbd> to quickly open the search from anywhere.
       </p>
     </Dialog>
