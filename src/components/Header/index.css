@@ -32,12 +32,18 @@
 .Header__link {
   transition: color 250ms;
   outline: 0;
+  background-color: transparent;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
 }
 
 /**
  * Prevent hover state on non-link items.
  */
-a.Header__link:hover {
+:not(span).Header__link:hover {
   color: var(--beige);
 }
 
