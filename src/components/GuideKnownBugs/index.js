@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Column from '../Column'
 import Guide from '../Guide'
 import Info from '../Info'
@@ -38,7 +37,7 @@ export default React.memo(function GuideKnownBugs(props) {
 
       <ul style={{ columns: '16em' }}>
         <li>
-          <a href='#the-9AM-debug-view'>The 9AM debug view</a>
+          <a href='#displayed-debug-view'>Displayed debug view</a>
         </li>
         <li>
           <a href='#double-animations'>Double animations</a>
@@ -49,9 +48,12 @@ export default React.memo(function GuideKnownBugs(props) {
         <li>
           <a href='#three-cards-in-hand'>Three-cards in hand</a>
         </li>
+        <li>
+          <a href='#misplaced-game-invite'>Misplaced game invite</a>
+        </li>
       </ul>
 
-      <Title id='the-9AM-debug-view'>The 9AM debug view</Title>
+      <Title id='displayed-debug-view'>Displayed debug view</Title>
       <Row wideGutter desktopOnly>
         <Column>
           <img
@@ -63,34 +65,36 @@ export default React.memo(function GuideKnownBugs(props) {
           <div>
             <h3>Problem</h3>
             <p>
-              Every Thursday, the <Link to='/brawl'>Brawl</Link> starts at 9AM
-              sharp. When already in the game when it does, one might be faced
-              with a very odd view:{' '}
+              When already in the game when the Brawl starts on Thursday or the
+              season resets on the 1st of the month at the same time, one might
+              see:{' '}
             </p>
             <ul>
               <li>
-                The player’s in-game name is replaced with “Long Player Namer”.
-              </li>
-              <li>
-                The player’s resources are <Stones amount={999} />,{' '}
+                “Long Player Namer” as a name and <Stones amount={999} />,{' '}
                 <Coins amount={99999} /> and <Rubies amount={9999} />.
               </li>
               <li>
-                The Dragon Brawl is displayed, but the image is a white square
-                instead of Eloth the Ignited.
+                In the case of the Brawl page, the Dragon Brawl is displayed,
+                but the image is a white square instead of Eloth the Ignited and
+                the leaderboard shows an ever-lasting loading state.
               </li>
-              <li>The leaderboard shows an ever-lasting loading state.</li>
+              <li>
+                Some interface elements are glitchy, missing or not properly
+                rendered.
+              </li>
             </ul>
 
             <h3>Workaround</h3>
             <p>
-              This is only a data fetching issue. It has no incidence on a
-              player’s account and will be “resolved” with a simple game
-              restart.
+              This is only a data fetching issue causing the fallback data to be
+              displayed. It has no incidence on a player’s account and will be
+              “resolved” with a simple game restart.
             </p>
           </div>
         </Column>
       </Row>
+
       <Title id='double-animations'>Double animations</Title>
       <Row wideGutter desktopOnly>
         <Column>
@@ -106,8 +110,9 @@ export default React.memo(function GuideKnownBugs(props) {
 
             <p>
               This happens when two players mutually invite themselves at the
-              same time for a friendly match. For some reason, despite a single
-              match being initiated, all animations are played twice.
+              same time for a friendly match. Because of two parts of the
+              server-side code not being aware of each other, all animations are
+              played twice.
             </p>
 
             <h3>Workaround</h3>
@@ -126,6 +131,7 @@ export default React.memo(function GuideKnownBugs(props) {
           />
         </Column>
       </Row>
+
       <Title id='missing-resources'>Missing resources</Title>
       <Row wideGutter desktopOnly>
         <Column>
@@ -148,7 +154,8 @@ export default React.memo(function GuideKnownBugs(props) {
               This is due to the fact that these animations do not cause the
               resource panel to refetch the actual data, therefore it still
               displays the previous numbers. The resources have been
-              successfully credited to the account though.
+              successfully credited to the account though on the server, but are
+              not reflected on the client.
             </p>
 
             <h3>Workaround</h3>
@@ -161,6 +168,7 @@ export default React.memo(function GuideKnownBugs(props) {
           </div>
         </Column>
       </Row>
+
       <Title id='three-cards-in-hand'>Three-cards in hand</Title>
       <Row wideGutter desktopOnly>
         <Column>
@@ -192,6 +200,47 @@ export default React.memo(function GuideKnownBugs(props) {
             src='/assets/images/three_cards_bug.jpg'
             alt='Stormbound hand with only 3 cards despite having cycled'
           />
+        </Column>
+      </Row>
+
+      <Title id='misplaced-game-invite'>Misplaced game invite</Title>
+      <Row wideGutter desktopOnly>
+        <Column>
+          <img
+            src='/assets/images/challenge_in_deck_selection.jpg'
+            alt='Animation when being rewarded with fusion stones'
+          />
+        </Column>
+        <Column>
+          <div>
+            <h3>Problem</h3>
+            <p>
+              It is possible to be invited to a friendly match despite not being
+              in the “Friends” tab of the game, such as the deck builder for
+              instance.
+            </p>
+
+            <p>
+              This happens when quickly entering and exiting the Friends tab,
+              resulting in being marked “Online” for a few seconds despite
+              having left that screen.
+            </p>
+
+            <p>
+              This is likely due to the player’s status update being
+              asynchronous and having to reach the server before being
+              redispatched to online friends.
+            </p>
+
+            <h3>Workaround</h3>
+
+            <p>
+              It is not such a problematic bug per se. The invite can be
+              accepted or declined normally, and the match would work as any
+              other. In case the current deck is incomplete, it falls back with
+              a complete deck from the collection.
+            </p>
+          </div>
         </Column>
       </Row>
     </Guide>
