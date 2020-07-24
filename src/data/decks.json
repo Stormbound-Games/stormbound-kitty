@@ -1183,33 +1183,33 @@
     "author": "Helios",
     "category": "STARTER",
     "nerfed": "07.2020"
-  }
+  },
   {
     "name": "Aspic Offspring",
-    "id": "5n14f45n35f55n115n134n595f144f184n684f214n50",
+    "id": "5n15f45n35f55n115n135n595f145f185n685f215n50",
     "faction": "shadowfen",
     "author": "FrozenEarth",
-    "category": "DIAMOND_1",
+    "category": "DIAMOND_1"
   },
   {
     "name": "Chipsplitter",
-    "id": "5n15s15n35n115n135n184n595s164s185n474s225s23",
+    "id": "5n15s15n35n115n135n185n595s165s185n475s225s23",
     "faction": "swarm",
     "author": "FrozenEarth",
-    "category": "DIAMOND_1",
+    "category": "DIAMOND_1"
   },
   {
     "name": "Blast Ripper",
-    "id": "5n15n34i55i75n184n595i204n604n345n445n454i22",
-    "faction": "swarm",
+    "id": "5n15n35i55i75n185n595i205n605n345n445n455i22",
+    "faction": "ironclad",
     "author": "FrozenEarth",
-    "category": "DIAMOND_1",
+    "category": "DIAMOND_1"
   },
   {
     "name": "Exertion Course",
-    "id": "5n15s15n35n45s65n155n184s114n594s194s285s23",
+    "id": "5n15s15n35n45s65n155n185s115n595s195s285s23",
     "faction": "swarm",
     "author": "FrozenEarth",
-    "category": "DIAMOND_1",
-  },
+    "category": "DIAMOND_1"
+  }
 ]
