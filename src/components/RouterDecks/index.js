@@ -23,22 +23,22 @@ export default function RouterDecks() {
       </Page>
 
       <Page path={`${path}/:deckId/detail`} active={['DECKS', 'DETAIL']}>
-        <DeckBuilderRoot>
+        <DeckBuilderRoot view='DETAIL'>
           {state => <DeckDetailView {...state} />}
         </DeckBuilderRoot>
       </Page>
       <Page path={`${path}/:deckId/dry-run`} active={['DECKS', 'DRY_RUN']}>
-        <DeckBuilderRoot>
+        <DeckBuilderRoot view='DRY_RUN'>
           {state => <DeckDryRunView {...state} />}
         </DeckBuilderRoot>
       </Page>
       <Page path={`${path}/:deckId`} active={['DECKS', 'EDITOR']}>
-        <DeckBuilderRoot>
+        <DeckBuilderRoot view='EDITOR'>
           {state => <DeckEditorView {...state} />}
         </DeckBuilderRoot>
       </Page>
       <Page path={path} active={['DECKS', 'EDITOR']}>
-        <DeckBuilderRoot>
+        <DeckBuilderRoot view='EDITOR'>
           {state => <DeckEditorView {...state} />}
         </DeckBuilderRoot>
       </Page>

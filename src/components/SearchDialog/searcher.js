@@ -1,5 +1,6 @@
 import FuzzySearch from 'fuzzy-search'
 import cards from '../../data/cards'
+import decks from '../../data/decks'
 import guides from '../../data/guides'
 import puzzles from '../../data/puzzles'
 import { BRAWLS } from '../../constants/brawl'
@@ -22,6 +23,14 @@ SEARCH_INDEX.push({
   path: `/card/stats`,
   label: 'Card Statistics',
   breadcrumbs: ['Card Builder', 'Statistics'],
+})
+
+decks.forEach(deck => {
+  SEARCH_INDEX.push({
+    path: `/deck/${deck.id}/detail`,
+    label: `${deck.name} by ${deck.author}`,
+    breadcrumbs: ['Decks', 'Insights'],
+  })
 })
 
 Object.keys(CATEGORIES).forEach(id => {

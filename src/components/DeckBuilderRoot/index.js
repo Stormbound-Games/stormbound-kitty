@@ -18,11 +18,22 @@ class DeckBuilderRoot extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (!isEqual(prevState.deck, this.state.deck)) {
-      this.props.history.replace(
-        '/deck/' +
-          serialisation.deck.serialise(this.state.deck) +
-          window.location.search
-      )
+      const { history, view } = this.props
+      const id = serialisation.deck.serialise(this.state.deck)
+      const { search } = window.location
+
+      switch (view) {
+        case 'DETAIL':
+          history.replace(`/deck/${id}/detail` + search)
+          break
+        case 'DRY_RUN':
+          history.replace(`/deck/${id}/dry-run` + search)
+          break
+        default:
+        case 'EDITOR':
+          history.replace(`/deck/${id}` + search)
+          break
+      }
     }
 
     if (prevProps.deckId !== this.props.deckId) {
