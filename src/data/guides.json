@@ -143,5 +143,17 @@
     "background": "/assets/images/environment_neutral.png",
     "readingTime": "10 minutes",
     "category": "IN_DEPTH"
+  },
+  {
+    "id": "KNOWN_BUGS",
+    "name": "Known Bugs",
+    "authors": ["Kitty"],
+    "excerpt": "Find a list of the (in)famous Stormbound known bugs, their cause (when known) and their workaround or solution. Note that this is not a bug report page.",
+    "slug": "known-bugs",
+    "faction": "ironclad",
+    "cardId": "I16",
+    "background": "/assets/images/environment_ironclad.png",
+    "readingTime": "5 minutes",
+    "category": "IN_DEPTH"
   }
 ]

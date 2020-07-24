@@ -20,6 +20,7 @@ const COMPONENTS = {
   LEXICON: load('Lexicon'),
   TRIGGER_GUIDE: load('GuideTriggers'),
   CARD_SHOP_GUIDE: load('GuideCardShop'),
+  KNOWN_BUGS: load('GuideKnownBugs'),
 }
 
 export default function RouterGuides() {
