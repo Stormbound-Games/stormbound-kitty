@@ -7,10 +7,28 @@ import ListBuilderTier from '../ListBuilderTier'
 import ListBuilderToc from '../ListBuilderToc'
 import Title from '../Title'
 import getInitialListData from '../../helpers/getInitialListData'
+import getRawCardData from '../../helpers/getRawCardData'
 
 export default React.memo(function ListBuilderDisplayView(props) {
   const id = EQUALS_TIER_LIST
+  const [faction, setFaction] = React.useState('*')
   const tiers = getInitialListData(id)
+    .map(tier => ({
+      name: tier.name,
+      cards: tier.cards.filter(id => {
+        const card = getRawCardData(id)
+        if (faction === 'NOT_NEUTRAL' && card.faction === 'neutral')
+          return false
+        if (faction === 'NEUTRAL' && card.faction !== 'neutral') return false
+        if (faction === 'SWARM' && card.faction !== 'swarm') return false
+        if (faction === 'WINTER' && card.faction !== 'winter') return false
+        if (faction === 'IRONCLAD' && card.faction !== 'ironclad') return false
+        if (faction === 'SHADOWFEN' && card.faction !== 'shadowfen')
+          return false
+        return true
+      }),
+    }))
+    .filter(tier => tier.cards.length > 0)
 
   return (
     <>
@@ -26,6 +44,23 @@ export default React.memo(function ListBuilderDisplayView(props) {
           </p>
 
           <ListBuilderToc tiers={tiers} />
+
+          <label htmlFor='factions'>Display factions</label>
+          <select
+            id='factions'
+            name='factions'
+            value={faction}
+            onChange={event => setFaction(event.target.value)}
+            style={{ marginBottom: '1em' }}
+          >
+            <option value='*'>All</option>
+            <option value='NOT_NEUTRAL'>All but neutral</option>
+            <option value='NEUTRAL'>Neutral only</option>
+            <option value='IRONCLAD'>Ironclad only</option>
+            <option value='SHADOWFEN'>Shadowfen only</option>
+            <option value='SWARM'>Swarm only</option>
+            <option value='WINTER'>Winter only</option>
+          </select>
         </Column>
 
         <Column width='2/3'>
