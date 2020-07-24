@@ -32,9 +32,8 @@ export default {
       )
   },
   handler: async function (message, client, messageObject) {
-    return getEmbed()
-      .setTitle(`${this.label}`)
-      .setURL('https://stormbound-kitty.com')
-      .setDescription(arrayRandom(STARTS) + ' ' + arrayRandom(ENDS))
+    return getEmbed().setTitle(
+      this.label + ': ' + arrayRandom(STARTS) + ' ' + arrayRandom(ENDS)
+    )
   },
 }
