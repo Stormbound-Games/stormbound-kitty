@@ -1,5 +1,15 @@
 [
   {
+    "intro": "Known Bugs",
+    "description": "A list of the known bugs and their potential causes and fixes has been released.",
+    "link": "/guides/known-bugs"
+  },
+  {
+    "intro": "Site Search",
+    "description": "It is now possible to search the whole site for content (metakey + k for shortcut).",
+    "link": "/"
+  },
+  {
     "intro": "Income Calculator",
     "description": "There is now a brand new income calculator up-to-date with the July release.",
     "link": "/income-calculator"
