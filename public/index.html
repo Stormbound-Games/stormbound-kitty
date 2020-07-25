@@ -40,7 +40,7 @@
       data-rh="true"
     />
   </head>
-  <body>
+  <body style="margin: 0;">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -178,13 +178,26 @@
         ></path>
       </symbol>
     </svg>
-    <noscript
-      ><h1>Stormbound Kitty</h1>
-      <p>
-        Unfortunately, Stormbound Kitty relies on JavaScript to work. Please
-        kindly enable JavaScript in your browser, or try with a different
-        browser.
-      </p></noscript
+    <noscript>
+      <div
+        style="
+          background: url(/assets/images/background.png);
+          color: white;
+          display: flex;
+          flex-direction: column;
+          height: 100vh;
+          font: 125% / 1.5 sans-serif;
+          text-align: center;
+          justify-content: center;
+        "
+      >
+        <h1 style="margin: 0;">Stormbound Kitty</h1>
+        <p>
+          Unfortunately, Stormbound Kitty relies on JavaScript to work. <br />
+          Please kindly enable JavaScript in your browser, or try with a
+          different browser.
+        </p>
+      </div></noscript
     >
     <div id="root"></div>
     <div id="notification-root" role="status" aria-live="polite"></div>
