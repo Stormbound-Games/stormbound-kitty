@@ -9,9 +9,14 @@ export default React.memo(function PageMeta(props) {
       <title>{props.title}</title>
       <link rel='canonical' href={window.location.href} />
       <meta property='og:title' content={props.title + ' — Stormbound Kitty'} />
+      <meta
+        property='twitter:title'
+        content={props.title + ' — Stormbound Kitty'}
+      />
       <meta name='description' content={props.description} />
       {!!props.author && <meta name='author' content={props.author} />}
       <meta property='og:description' content={props.description} />
+      <meta property='twitter:description' content={props.description} />
       <meta property='og:url' content={window.location.href} />
       {!!props.image ? (
         <meta
