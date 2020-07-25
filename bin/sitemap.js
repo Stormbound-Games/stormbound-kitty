@@ -4,6 +4,7 @@ const { BRAWLS } = require('../src/constants/brawl')
 const { STORY_CATEGORIES } = require('../src/constants/stories')
 const { WEEKLY_CARD_CONTEST } = require('../src/constants/misc')
 const cards = require('../src/data/cards')
+const guides = require('../src/data/guides')
 const puzzles = require('../src/data/puzzles')
 const stories = require('../public/stories')
 
@@ -13,8 +14,9 @@ const links = [
   '/brawl/overview',
   '/card',
   '/card/contest',
-  '/cards-stats',
+  '/card/stats',
   '/changelog',
+  '/changelog/07-2020',
   '/collection',
   '/collection/books',
   '/collection/stats',
@@ -23,18 +25,7 @@ const links = [
   '/deck/suggestions',
   '/fan-kit',
   '/faq',
-  '/guides/beginner',
-  '/guides/complete',
-  '/guides/d1-with-sf-commons',
-  '/guides/deck',
-  '/guides/drawing',
-  '/guides/essentials',
-  '/guides/in-depth',
-  '/guides/lexicon',
-  '/guides/mana-curve',
-  '/guides/pirate',
-  '/guides/resources',
-  '/guides/winter',
+  '/income-calculator',
   '/list',
   '/list/equals',
   '/list/ranked',
@@ -49,6 +40,9 @@ BRAWLS.forEach(brawl => {
 })
 cards.forEach(card => {
   links.push('/card/' + card.id + '/display')
+})
+guides.forEach(guide => {
+  links.push('/guides/' + guide.slug)
 })
 WEEKLY_CARD_CONTEST.forEach(contest => {
   links.push('/card/' + contest.winner.id + '/display')
