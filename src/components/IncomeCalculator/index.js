@@ -367,7 +367,7 @@ export default React.memo(function IncomeCalculator(props) {
                 <option value=''>Select a milestone</option>
                 {MILESTONES.map((milestone, index) => (
                   <option key={milestone.crowns} value={index}>
-                    {getBrawlRewardLabel(milestone)}
+                    {index + 1}. {getBrawlRewardLabel(milestone)}
                   </option>
                 ))}
               </select>
