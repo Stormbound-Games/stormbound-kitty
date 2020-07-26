@@ -731,15 +731,6 @@
     "brawl": "STRUCTURE_MANA"
   },
   {
-    "name": "Aftershock Core",
-    "id": "5n15n25w25n125n165n205w95n345w105n455w275w19",
-    "faction": "winter",
-    "author": "HanooStreet",
-    "category": "BRAWL",
-    "brawl": "STRUCTURE_MANA",
-    "nerfed": "07.2020"
-  },
-  {
     "name": "Spear & Shield",
     "id": "5n15n35n235n675n135w55n185w95n395w155w195n58",
     "faction": "winter",
@@ -933,14 +924,6 @@
     "id": "5n15f85f45f35n35n235n635n675n95f105f175n76",
     "faction": "shadowfen",
     "author": "the_mirc",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
-  },
-  {
-    "name": "Queenungus",
-    "id": "5n15n35s245n65n675s65s85n165s165s285s205s21",
-    "faction": "swarm",
-    "author": "HanooStreet",
     "category": "DIAMOND_1",
     "nerfed": "07.2020"
   },
