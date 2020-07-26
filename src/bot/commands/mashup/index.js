@@ -22,7 +22,7 @@ const [STARTS, ENDS] = (() => {
 
 export default {
   command: 'mashup',
-  label: '🤪  Card Name Mashup',
+  label: '🤪  Card Mashup',
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)
