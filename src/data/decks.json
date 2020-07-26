@@ -203,22 +203,6 @@
     "category": "DIAMOND_1"
   },
   {
-    "name": "Bunch O’ A-Holes",
-    "id": "5n15s15n35n45n55s25n125s65n155s85s95s20",
-    "faction": "swarm",
-    "author": "HikingViking",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
-  },
-  {
-    "name": "Big Magic Boi",
-    "id": "5w15n25w25n35n95n145n165w75w115w125n505w19",
-    "faction": "winter",
-    "author": "HikingViking",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
-  },
-  {
     "name": "Speed-",
     "id": "5n15f35n35n45n55f45n125n165f105f145n305f20",
     "faction": "shadowfen",
@@ -267,14 +251,6 @@
     "faction": "ironclad",
     "author": "Leminh0510",
     "category": "DIAMOND_1"
-  },
-  {
-    "name": "Quick Wins",
-    "id": "5n15s15n35n45s25s35n125s65n155s95s145s20",
-    "faction": "swarm",
-    "author": "Adig",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
   },
   {
     "name": "Chip And Dirty",
@@ -1107,6 +1083,13 @@
     "id": "5n15i15n35n235i45n675n95i75i85i155n355i28",
     "faction": "ironclad",
     "author": "OneC",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Emerald Doctor",
+    "id": "5n15n25i15i25n35n55n85n125i85n205i65n34",
+    "faction": "ironclad",
+    "author": "whipstache",
     "category": "DIAMOND_1"
   }
 ]
