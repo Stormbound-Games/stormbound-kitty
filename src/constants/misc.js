@@ -250,6 +250,7 @@ export const COMMON_ABBREVIATIONS = {
   FS: 'Fusion Stones',
   HP: 'Health Point(s)',
   IC: 'Ironclad',
+  LL: 'Limelimbs',
   QoL: 'Quality of Life',
   RR: 'Reckless Rush',
   SF: 'Shadowfen',
