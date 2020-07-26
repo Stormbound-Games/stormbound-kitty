@@ -51,6 +51,9 @@ export default React.memo(function GuideKnownBugs(props) {
         <li>
           <a href='#misplaced-game-invite'>Misplaced game invite</a>
         </li>
+        <li>
+          <a href='#unwatchable-ads'>Unwatchable ads</a>
+        </li>
       </ul>
 
       <Title id='displayed-debug-view'>Displayed debug view</Title>
@@ -241,6 +244,53 @@ export default React.memo(function GuideKnownBugs(props) {
               a complete deck from the collection.
             </p>
           </div>
+        </Column>
+      </Row>
+
+      <Title id='unwatchable-ads'>Unwatchable ads</Title>
+      <Row wideGutter desktopOnly>
+        <Column>
+          <div>
+            <h3>Problem</h3>
+            <p>
+              From time to time, it might not be possible to watch an ad to
+              increase the reward after having won a game. Something similar
+              might be experienced in the shop where it is not possible to watch
+              an ad to get the daily Humble book.
+            </p>
+            <p>
+              It is not clear why this happens or what causes it, as it seems
+              pretty random all in all.
+            </p>
+
+            <h3>Workaround</h3>
+            <p>
+              Most of the time, restarting the game entirely is enough to
+              resolve the problem.
+            </p>
+            <p>
+              If it persists, reseting the “ads ID” might be necessary. To do
+              so:
+            </p>
+            <ul>
+              <li>
+                On <span className='Highlight'>Android</span>, go to Settings >
+                Privacy > Advanced > Ads >{' '}
+                <span className='Highlight'>Reset advertising ID</span>.
+              </li>
+              <li>
+                On <span className='Highlight'>iOS</span>, go to Settings >
+                Privacy > Advertising >{' '}
+                <span className='Highlight'>Reset Advertising Identifier</span>.
+              </li>
+            </ul>
+          </div>
+        </Column>
+        <Column>
+          <img
+            src='/assets/images/unwatchable_ads.jpg'
+            alt='The reward screen does not allow watching an ad'
+          />
         </Column>
       </Row>
     </Guide>
