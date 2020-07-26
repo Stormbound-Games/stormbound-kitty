@@ -219,8 +219,8 @@ export default React.memo(function GuideKnownBugs(props) {
             <h3>Problem</h3>
             <p>
               It is possible to be invited to a friendly match despite not being
-              in the “Friends” tab of the game, such as the deck builder for
-              instance.
+              in the “Friends” tab of the game or the home screen, such as the
+              deck builder for instance.
             </p>
 
             <p>
