@@ -779,14 +779,6 @@
     "brawl": "STRUCTURE_MANA"
   },
   {
-    "name": "Kitty Vision",
-    "id": "5n35n125n165w55n185w95w125w135n395w155w195w21",
-    "faction": "winter",
-    "author": "MisterMonocle",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
-  },
-  {
     "name": "Null",
     "id": "3n13s13n33s243n43n673s103s53n153n163n193s20",
     "faction": "swarm",
