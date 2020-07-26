@@ -21,19 +21,19 @@ describe('The `isSuggestedDeck` helper', () => {
 
   it('should return suggested deck if found', () => {
     const deck = [
-      { level: 5, id: 'N1' },
-      { level: 5, id: 'N2' },
-      { level: 5, id: 'W2' },
-      { level: 5, id: 'N12' },
-      { level: 5, id: 'N16' },
-      { level: 5, id: 'N20' },
-      { level: 5, id: 'W9' },
-      { level: 5, id: 'N34' },
-      { level: 5, id: 'W10' },
-      { level: 5, id: 'N45' },
-      { level: 5, id: 'W27' },
-      { level: 5, id: 'W19' },
+      { level: 3, id: 'N1' },
+      { level: 3, id: 'N2' },
+      { level: 3, id: 'S1' },
+      { level: 3, id: 'N3' },
+      { level: 3, id: 'S24' },
+      { level: 3, id: 'S2' },
+      { level: 3, id: 'N63' },
+      { level: 3, id: 'N67' },
+      { level: 3, id: 'S6' },
+      { level: 3, id: 'N15' },
+      { level: 3, id: 'S8' },
+      { level: 3, id: 'S11' },
     ]
-    expect(isSuggestedDeck(deck).name).to.equal('Aftershock Core')
+    expect(isSuggestedDeck(deck).name).to.equal('Reckless Rush')
   })
 })
