@@ -114,7 +114,7 @@ export default React.memo(function ChangelogJuly2020(props) {
       <Title id='economy-update'>Economy update</Title>
 
       <p>
-        One thing Sheepyard has been quite adament to tackle is the somewhat
+        One thing Sheepyard has been quite adamant to tackle is the somewhat
         awkward in-game economy, particularly the disparity between resources.
         Their first attempt at taming the beast has been to revisit quests to
         restore some balance between the three currencies.
