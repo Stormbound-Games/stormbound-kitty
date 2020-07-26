@@ -23,7 +23,7 @@ export default class Trivia {
   start({ author, channel, content }) {
     const { mode, difficulty, duration } = parseTriviaSettings(content)
 
-    if (!mode) return
+    if (this.mode || !mode) return
 
     this.mode = mode
     this.difficulty = difficulty
