@@ -117,8 +117,8 @@ export default function Changelog(props) {
             >
               Wiki
             </a>
-            . Thank you to Frozen for their work on maintaining the list of
-            changes.
+            . Thank you to <Link to='/member/FrozenEarth'>FrozenEarth</Link> for
+            their work on maintaining the list of changes.
           </p>
 
           <Info icon='wand' title='Update July 2020'>
