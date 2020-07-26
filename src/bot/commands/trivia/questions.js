@@ -1535,6 +1535,8 @@ export default [
   {
     question: 'Which faction has the most units?',
     answer: 'Shadowfen',
-    options: Object.keys(FACTIONS).map(capitalise),
+    options: Object.keys(FACTIONS)
+      .filter(faction => faction !== 'neutral')
+      .map(capitalise),
   },
 ]
