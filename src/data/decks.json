@@ -937,11 +937,10 @@
   },
   {
     "name": "Springtime",
-    "id": "3n13n33n673n733w53n183n753w243w133n393n453w19",
+    "id": "3n13n33n673n733w53n183n753w243w133w163n393n45",
     "faction": "winter",
     "author": "Helios",
-    "category": "REGULAR",
-    "nerfed": "07.2020"
+    "category": "REGULAR"
   },
   {
     "name": "Pathfinder",
@@ -983,16 +982,14 @@
     "id": "2n12f32n672f272n112f72n262f142n742f182f282n58",
     "faction": "shadowfen",
     "author": "Helios",
-    "category": "STARTER",
-    "nerfed": "07.2020"
+    "category": "STARTER"
   },
   {
     "name": "Fallen Fires",
-    "id": "1n11i11n61i51n111i71i131i61i141i201n741i28",
+    "id": "1n11i11n61i51n671i71i131i61i201i121n601i28",
     "faction": "ironclad",
     "author": "Helios",
-    "category": "STARTER",
-    "nerfed": "07.2020"
+    "category": "STARTER"
   },
   {
     "name": "Aspic Offspring",
