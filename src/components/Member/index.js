@@ -5,16 +5,19 @@ import Error from '../Error'
 import HeaderBanner from '../HeaderBanner'
 import MemberContestVictories from '../MemberContestVictories'
 import MemberDecks from '../MemberDecks'
+import MemberPuzzles from '../MemberPuzzles'
 import MemberGuides from '../MemberGuides'
 import MemberStories from '../MemberStories'
 import PageMeta from '../PageMeta'
 import decks from '../../data/decks'
 import guides from '../../data/guides'
+import puzzles from '../../data/puzzles'
 import useFetch from '../../hooks/useFetch'
 
-const getDisplayName = ({ decks, stories, victories, guides, id }) => {
+const getDisplayName = ({ decks, stories, victories, guides, puzzles, id }) => {
   if (decks.length > 0) return decks[0].author
   if (stories.length > 0) return stories[0].author
+  if (puzzles.length > 0) return puzzles[0].author
   if (victories.length > 0) return victories[0].winner.author
   if (guides.length > 0)
     return guides[0].authors.find(author => author.toLowerCase() === id)
@@ -31,6 +34,10 @@ export default React.memo(function Member(props) {
   const userStories = React.useMemo(
     () => stories.filter(story => story.author.toLowerCase() === id),
     [id, stories]
+  )
+  const userPuzzles = React.useMemo(
+    () => puzzles.filter(puzzle => puzzle.author.toLowerCase() === id),
+    [id]
   )
   const userVictories = React.useMemo(
     () =>
@@ -53,6 +60,7 @@ export default React.memo(function Member(props) {
     stories: userStories,
     victories: userVictories,
     guides: userGuides,
+    puzzles: userPuzzles,
   })
 
   if (!displayName) {
@@ -74,6 +82,9 @@ export default React.memo(function Member(props) {
       {userGuides.length ? <hr /> : null}
 
       <MemberDecks decks={userDecks} displayName={displayName} />
+      {userDecks.length ? <hr /> : null}
+
+      <MemberPuzzles puzzles={userPuzzles} displayName={displayName} />
 
       <PageMeta title={displayName} />
     </>
