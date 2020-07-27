@@ -75,13 +75,23 @@ export default React.memo(function SearchDialog(props) {
 
     stories.forEach(story => {
       const path = `/stories/${story.id}`
-      const isFound = SEARCH_INDEX.find(entry => entry.path === path)
+      const isStoryFound = SEARCH_INDEX.find(entry => entry.path === path)
+      const isMemberFound = SEARCH_INDEX.find(
+        entry => entry.path === '/member/' + story.author
+      )
 
-      if (!isFound) {
+      if (!isStoryFound) {
         SEARCH_INDEX.push({
           path: `/stories/${story.id}`,
           label: story.title + ' by ' + story.author,
           breadcrumbs: ['Stories', capitalise(story.category)],
+        })
+      }
+      if (!isMemberFound) {
+        SEARCH_INDEX.push({
+          path: `/member/${story.member}`,
+          label: story.member,
+          breadcrumbs: ['Home', 'Member'],
         })
       }
     })

@@ -6,8 +6,17 @@ import puzzles from '../../data/puzzles'
 import { BRAWLS } from '../../constants/brawl'
 import { CATEGORIES } from '../../constants/guides'
 import { STORY_CATEGORIES } from '../../constants/stories'
+import { WEEKLY_CARD_CONTEST } from '../../constants/misc'
 
 export const SEARCH_INDEX = []
+const MEMBERS = [
+  ...new Set([
+    ...puzzles.map(puzzle => puzzle.author),
+    ...decks.map(deck => deck.author),
+    ...WEEKLY_CARD_CONTEST.filter(contest => contest.winner.author),
+    ...guides.reduce((authors, guide) => authors.concat(guide.authors), []),
+  ]),
+]
 
 cards
   .filter(card => !card.token)
@@ -168,11 +177,15 @@ Object.keys(STORY_CATEGORIES).forEach(id => {
   })
 })
 
-export default new FuzzySearch(
-  SEARCH_INDEX,
-  ['label', 'breadcrumbs[0]', 'breadcrumbs[1]'],
-  {
-    caseSensitive: false,
-    sort: true,
-  }
-)
+MEMBERS.forEach(member => {
+  SEARCH_INDEX.push({
+    path: `/member/${member}`,
+    label: member,
+    breadcrumbs: ['Home', 'Member'],
+  })
+})
+
+export default new FuzzySearch(SEARCH_INDEX, ['label'], {
+  caseSensitive: false,
+  sort: true,
+})
