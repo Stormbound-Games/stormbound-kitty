@@ -86,7 +86,10 @@ export default React.memo(function Member(props) {
 
       <MemberPuzzles puzzles={userPuzzles} displayName={displayName} />
 
-      <PageMeta title={displayName} />
+      <PageMeta
+        title={displayName}
+        description={`Find all of ${displayName}’s contributions to Stormbound-Kitty such as stories, decks, puzzles or guides.`}
+      />
     </>
   )
 })
