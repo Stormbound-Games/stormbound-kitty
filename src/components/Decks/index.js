@@ -2,6 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import Column from '../Column'
 import FeaturedDeck from '../FeaturedDeck'
+import CTA from '../CTA'
 import Loader from '../Loader'
 import Row from '../Row'
 import chunk from '../../helpers/chunk'
@@ -12,7 +13,11 @@ export default React.memo(function Decks(props) {
   const viewportWidth = useViewportWidth()
   const columns = viewportWidth < 700 ? 1 : props.columns || 2
   const history = useHistory()
-  const { loading, items, ref } = useLazyLoad(props.decks, columns * 2)
+  const { loadMore, loading, items } = useLazyLoad(
+    props.decks,
+    columns * 2,
+    false
+  )
 
   if (props.decks.length === 0) return null
 
@@ -46,7 +51,13 @@ export default React.memo(function Decks(props) {
         </Row>
       ))}
       {loading && <Loader />}
-      <div ref={ref} />
+      <Row>
+        <Column align='center'>
+          <CTA onClick={loadMore} type='button'>
+            Load more
+          </CTA>
+        </Column>
+      </Row>
     </>
   )
 })
