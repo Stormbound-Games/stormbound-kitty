@@ -1,7 +1,7 @@
 import React from 'react'
 import { useInView } from 'react-intersection-observer'
 
-const useLazyLoad = (collection, itemsPerPage) => {
+const useLazyLoad = (collection, itemsPerPage, automatic = true) => {
   const [ref, inView] = useInView()
   const [loading, setLoading] = React.useState(false)
   const [page, setPage] = React.useState(1)
@@ -16,10 +16,15 @@ const useLazyLoad = (collection, itemsPerPage) => {
   }, [collection.length, itemsPerPage, page])
 
   React.useEffect(() => {
-    if (inView) loadMore()
-  }, [inView, loadMore])
+    if (inView && automatic) loadMore()
+  }, [automatic, inView, loadMore])
 
-  return { loading, items: collection.slice(0, page * itemsPerPage), ref }
+  return {
+    items: collection.slice(0, page * itemsPerPage),
+    loading,
+    loadMore,
+    ref,
+  }
 }
 
 export default useLazyLoad
