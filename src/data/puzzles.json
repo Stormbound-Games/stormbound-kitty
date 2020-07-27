@@ -132,7 +132,7 @@
     "type": "LETHAL",
     "difficulty": 2,
     "restrictions": ["LEVEL_5", "ANTI_RNG"],
-    "author": "PRÖJÊČT ÛŃFÕRGÏVĒÑ",
+    "author": "PRÖJÊČTÛŃFÕRGÏVĒÑ",
     "board": "LCwsMU4xUjUsMUY1UjUsLCwsNUYzUjUsNkYxM1I1LCwsLCwsLCwsLDM0TjQ2UjU7UjEwTi1CMTBOOzk5TTA7NU40MSw1UzEwLDVTMjAsNVMxMSwsLCwsLCwsO040MSxTMTAsUzIwLFMxMQ==",
     "image": "/assets/images/puzzles/devastated_decimation.png"
   },
@@ -150,7 +150,7 @@
     "type": "LETHAL",
     "difficulty": 2,
     "restrictions": ["LEVEL_1"],
-    "author": "Frozen Earth",
+    "author": "FrozenEarth",
     "board": "LCwsM1M3UjEsLDVOMTlSMSwsNE4xM0IxLDNTMlIxLDFTMVIxLCwsLDFUN1IxLCw0VDdSMSwsLDdTOVIxLDtSM1MtQjNJOzEyTTE7MUk0MU4zMTFJMTUxTjI4O0k0LE4zMSxJMTUsTjI4",
     "image": "/assets/images/puzzles/unhelpful_cards.png"
   },
