@@ -227,3 +227,7 @@ abbr[title] {
   text-decoration: none;
   cursor: help;
 }
+
+img {
+  aspect-ratio: attr(width) / attr(height);
+}
