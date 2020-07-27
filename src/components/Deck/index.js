@@ -97,6 +97,8 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
         className='Deck__image'
         src={'/assets/images/cards/' + card.image}
         alt={card.name}
+        width={24}
+        height={24}
       />
       <span
         className='Deck__level'
