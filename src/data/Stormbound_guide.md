@@ -53,7 +53,7 @@ To be able to make a good push, your biggest units are to be on the sides.
 
 When playing or discarding a card, this card will be shuffled back in your deck with a higher probability to be put at the end of it. Because of this, you can “manipulate” your future draws. For example, you want to play the Frosthexers/Midwinter Chaos combo but are short on mana: what you can do is discard Midwinter Chaos just before playing Frosthexers. This way the probability of drawing the two cards back to back in the next turns is higher. You will not have to keep the combo in your hand, hoping not to separate the cards. The probability of drawing a card you just discarded or played exists but is very low.
 
-Learn more about these mechanics in the drawing guide.
+Info: Drawing Guide :: You can learn more about the hand manipulation mechanics such as drawing, discarding and cycling in the drawing guide.
 
 ### What and when to discard
 
@@ -125,7 +125,7 @@ I will review all of them considering how few there are.
 - Powder Tower: This card is the real deal… when level 5. It does everything you need it to do: defensive, aggressive and controlling. Your opponent HAS TO kill it. I will definitely play this card when I will have it on level 5. Before that, it is not good enough for 6 mana.
 - Unstable Build: Its low mana and great interaction with Fortification Tonic and Hearthguards make it an interesting card. Plus, it has the best animation of all structures.
 - Mech Workshop: I think this card needs to be reworked a bit. It does not work with Doctor Mia (the new Unit will prevent the spawn next turn) and it’s easily blocked. Still, the card is fun to play and can do things at low level. Past gold the card isn’t good enough.
-- Frozen Core: This is a great card because it is in the best controlling faction of the game. Its effect is great and always useful, and it has enough health to be used in a defensive strategy.
+- Frozen Core: This is a fine card because it is in the best controlling faction of the game. Its effect is great and useful, and it has enough health to sometimes be used in a defensive strategy.
 - Underground Spring: This card gives its own strength to heal your base. It’s a pretty slow card and is therefore not suitable for winter runners or otherwise medium-paced winter control. This is a card you play when you already have a lot of board control, so running clearing cards like Crazy Bombers, Victors of the Melee, or freeze combos like Midwinter Chaos and Wisp Cloud, along with mana gain from sources like Frozen Core and Gift of the Wise, can give you enough tempo to actually play Underground Spring. Buffing Underground Spring with spells such as Moment’s Peace or Blessed with Brawn isn’t recommended because it worsens the tempo of a card that already makes you lose tempo, and exposes you to faster decks like rush.
 - Emerald Towers: Maybe some use in lower league, but after silver this card is just bad. The conditions are excessively hard to have consistently.
 - Pillars of Doom: This card is quite interesting, it is direct damage to the base (which is always nice) but in a faction that do not play well with structures, lacking the control to make them efficient. Definitely something to do in the proper deck but I never saw it played efficiently.
