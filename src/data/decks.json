@@ -32,8 +32,7 @@
     "id": "5n15n25w25n35n45n165w65w75n285w125w195n52",
     "faction": "winter",
     "author": "Felcruel",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
+    "category": "DIAMOND_1"
   },
   {
     "name": "President’s Men",
@@ -75,16 +74,14 @@
     "id": "3n33f43f23f13f33f53f143f103f113f163f153f20",
     "faction": "shadowfen",
     "author": "WinterBoii",
-    "category": "REGULAR",
-    "nerfed": "07.2020"
+    "category": "REGULAR"
   },
   {
     "name": "Bloody Mary",
     "id": "3n33f83f23f33f53f103f143f153f173f163f183f20",
     "faction": "shadowfen",
     "author": "WinterBoii",
-    "category": "REGULAR",
-    "nerfed": "07.2020"
+    "category": "REGULAR"
   },
   {
     "name": "Xavius",
@@ -112,8 +109,7 @@
     "id": "1n11n51n61w51n181w61w71w81w131w151w181n57",
     "faction": "winter",
     "author": "BluePhoenix",
-    "category": "EQUALS",
-    "nerfed": "07.2020"
+    "category": "EQUALS"
   },
   {
     "name": "Hi I’m Dori",
@@ -134,8 +130,7 @@
     "id": "5n15s15n35n45s25s105s35s65s85s95s145s20",
     "faction": "swarm",
     "author": "DuyNguyen",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
+    "category": "DIAMOND_1"
   },
   {
     "name": "Mia In Da House",
@@ -143,14 +138,6 @@
     "faction": "ironclad",
     "author": "Adig",
     "category": "DIAMOND_1"
-  },
-  {
-    "name": "The Unknown Soldier",
-    "id": "5n25n35n145n165n215w95w135n475w195w215w235n58",
-    "faction": "winter",
-    "author": "Kohina",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
   },
   {
     "name": "DGL Tempoclad",
@@ -227,11 +214,10 @@
     "id": "5n15s15n35n45s25s105n75s65s95n165s145s20",
     "faction": "swarm",
     "author": "DuyNguyen",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
+    "category": "DIAMOND_1"
   },
   {
-    "name": "How Do You Like Me Now?",
+    "name": "Salty Mirz",
     "id": "5n15n25i15n35n45n85i65n135i85n165i155n52",
     "faction": "ironclad",
     "author": "Leminh0510",
@@ -314,8 +300,7 @@
     "id": "5w15w25n35n125n145w35n225w65w125n385n455w19",
     "faction": "winter",
     "author": "HarrietPhage",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
+    "category": "DIAMOND_1"
   },
   {
     "name": "Wall-e",
@@ -351,8 +336,7 @@
     "id": "3n13n23s13n33n43s23s53n153n163s143s173s20",
     "faction": "swarm",
     "author": "Skylard",
-    "category": "REGULAR",
-    "nerfed": "07.2020"
+    "category": "REGULAR"
   },
   {
     "name": "Casino Mia",
@@ -441,8 +425,7 @@
     "faction": "shadowfen",
     "author": "Frostkhan",
     "category": "BRAWL",
-    "brawl": "TOAD_MANA",
-    "nerfed": "07.2020"
+    "brawl": "TOAD_MANA"
   },
   {
     "name": "Eye Tempest",
@@ -476,8 +459,7 @@
     "faction": "shadowfen",
     "author": "Frostkhan",
     "category": "BRAWL",
-    "brawl": "RAVEN_MOVEMENT",
-    "nerfed": "07.2020"
+    "brawl": "RAVEN_MOVEMENT"
   },
   {
     "name": "Unleashed Fury",
@@ -524,16 +506,14 @@
     "id": "5n15f85n25f45f15f25f35f75f105f145f285n40",
     "faction": "shadowfen",
     "author": "Frostkhan",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
+    "category": "DIAMOND_1"
   },
   {
     "name": "Indirect Attack",
     "id": "5n15f85f45f35n235n675n105f55f145n355f285n44",
     "faction": "shadowfen",
     "author": "Frostkhan",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
+    "category": "DIAMOND_1"
   },
   {
     "name": "Fly, Xuri!",
@@ -643,8 +623,7 @@
     "id": "5n15f85f45f15f25f35f55f75f145f175f285n76",
     "faction": "shadowfen",
     "author": "Frostkhan",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
+    "category": "DIAMOND_1"
   },
   {
     "name": "Winter Earyn",
@@ -659,8 +638,7 @@
     "id": "5n15f85n25f45f15f25f35f75n185f145f175n76",
     "faction": "shadowfen",
     "author": "Frostkhan",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
+    "category": "DIAMOND_1"
   },
   {
     "name": "Ironclad Dragons",
@@ -703,16 +681,14 @@
     "id": "3n13n23s13n33n63n103s43s63s123n283s193s20",
     "faction": "swarm",
     "author": "SirTalFryn",
-    "category": "REGULAR",
-    "nerfed": "07.2020"
+    "category": "REGULAR"
   },
   {
     "name": "The Curse",
     "id": "3n13f23n33n63n103f53n153f93f143f153f193f28",
     "faction": "shadowfen",
     "author": "GreenAlligator",
-    "category": "REGULAR",
-    "nerfed": "07.2020"
+    "category": "REGULAR"
   },
   {
     "name": "Swarm 4 Aid",
@@ -742,8 +718,7 @@
     "id": "5n15f85f45f35n35n675n95f255f145n745f175f28",
     "faction": "shadowfen",
     "author": "the_mirc",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
+    "category": "DIAMOND_1"
   },
   {
     "name": "Confined Siege",
@@ -803,8 +778,7 @@
     "id": "3n13n33n113n133n163w53n183w123w133w143n393w15",
     "faction": "winter",
     "author": "Joseliam",
-    "category": "REGULAR",
-    "nerfed": "07.2020"
+    "category": "REGULAR"
   },
   {
     "name": "Dandelions",
@@ -894,8 +868,7 @@
     "id": "5n15f85f45f35n35n675n95n165f105f175f285n76",
     "faction": "shadowfen",
     "author": "the_mirc",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
+    "category": "DIAMOND_1"
   },
   {
     "name": "Heart Attack",
@@ -923,8 +896,7 @@
     "id": "5n15f85f45f35n35n235n635n675n95f105f175n76",
     "faction": "shadowfen",
     "author": "the_mirc",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
+    "category": "DIAMOND_1"
   },
   {
     "name": "Brawl Spell",
@@ -932,8 +904,7 @@
     "faction": "shadowfen",
     "author": "the_mirc",
     "category": "BRAWL",
-    "brawl": "SPELL_MANA",
-    "nerfed": "07.2020"
+    "brawl": "SPELL_MANA"
   },
   {
     "name": "Springtime",
