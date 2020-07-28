@@ -27,8 +27,9 @@ export default [
               Any small contribution counts. 💖
             </p>
             <p>
-              Special thanks Neicigam (Neicigam#0095) for his kind and valuable
-              help in various parts of the site, particularly the dry-runner.
+              Special thanks Neicigam (Neicigam#0095) and Jumboduck
+              (Jumboduck#8771) for their kind and valuable help with the
+              dry-runner and the deck advice respectively.
             </p>
           </>
         ),
@@ -69,9 +70,10 @@ export default [
             These tools run inside your browser, there is no database behind
             them. When you share something like a sim or card, the data is
             encoded in the URL. For cards, it’s big because of the free-text
-            nature of the name, the ability and the URL. If we were to allow
-            custom cards in the battle sim, the encoded data would have to
-            contain all the custom cards as well. That’s unpractical.
+            nature of the name, the ability and the image URL (if any). If we
+            were to allow custom cards in the battle sim, the encoded data for a
+            sim would have to contain all the custom cards’ data as well. That’s
+            unpractical.
           </>
         ),
       },
@@ -275,8 +277,8 @@ export default [
           <>
             <p>
               The book calculator calculates the probability of not getting
-              Fusion Stones (FS) out of a book (other calculations are just
-              small variations of this one). To do that, it lays down all the
+              fusion stones out of a book (other calculations are just small
+              variations of this one). To do that, it lays down all the
               different “drawing sequences”: For example, ‘EEELEL’ (Epic, Epic,
               Epic, Legendary, Epic, Legendary) is a valid and likely sequence
               for a Mythic book. So at the core, it is a function that takes a
@@ -312,7 +314,7 @@ export default [
       {
         id: 'card-image-error',
         question:
-          'I tried importing an image in the card builder but it failed. Why doesn’t my image work?',
+          'I tried importing an image in the card builder but it failed. Why isn’t my image working?',
         answer: (
           <>
             <p>
@@ -326,7 +328,7 @@ export default [
               The other possibility is that what you’re linking is not an image
               but a web page containing an image. Make sure to right click on
               the image, then click on something like “Copy image address” to
-              the actual URL.
+              get the actual URL.
             </p>
           </>
         ),

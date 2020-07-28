@@ -73,8 +73,8 @@ export default function DryRunnerExplanation(props) {
   return (
     <>
       <p>
-        The dry-run simulator currently correctly supports the follow abilities,
-        while their effect might vary depending on the RNG setting:
+        The dry-run simulator currently correctly supports the following
+        abilities, while their effect might vary depending on the RNG setting:
       </p>
       <ul className='DryRunnerExplanation'>
         {Object.keys(CARD_MECHANICS).map(categoryTitle => {

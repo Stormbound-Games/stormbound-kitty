@@ -28,15 +28,15 @@ This file you will edit is the one containing all the decks from the site. Techn
 
 At the bottom of the file, add a comma (`,`) after the closing bracket (`}`) of the last deck, then add your deck object there, like it is done for all of them. Look how it’s done, and do the same. It should be relatively straightforward. The main structure of the file should be like this:
 
-```json
-[
+```js
+;[
   {
     // A deck here …
   },
   // … more decks here …
   {
     // … your deck there.
-  }
+  },
 ]
 ```
 
