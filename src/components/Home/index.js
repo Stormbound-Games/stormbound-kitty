@@ -25,6 +25,7 @@ export default React.memo(() => (
           <News />
         </div>
       </aside>
+
       <section
         className='Home__section'
         style={{ '--color': 'var(--shadowfen)' }}
@@ -33,7 +34,7 @@ export default React.memo(() => (
           <Row desktopOnly>
             <Column />
             <Column>
-              <h2>Plan your strategy</h2>
+              <h2>Prepare your decks</h2>
               <p>
                 Compose your own decks and perfect them with the insightful
                 suggestions from the deck builder and its dry-runner, or try one
@@ -41,16 +42,70 @@ export default React.memo(() => (
               </p>
               <div className='Home__buttons'>
                 <CTA to='/guides/deck'>Guide</CTA>
+                <CTA to='/deck'>Builder</CTA>
                 <CTA to='/deck/suggestions'>Decks</CTA>
               </div>
             </Column>
           </Row>
         </div>
       </section>
+
       <section className='Home__section' style={{ '--color': 'var(--swarm)' }}>
         <div className='Home__section-inner'>
           <Row desktopOnly>
             <Column />
+            <Column>
+              <h2>Learn from the warlords</h2>
+              <p>
+                New to the game or looking to perfect your battle strategies,
+                you’ll learn everything you need to know in the guides made by
+                members of the community.
+              </p>
+              <div className='Home__buttons'>
+                <CTA to='/guides/essentials'>Essentials</CTA>
+                <CTA to='/guides/in-depth'>In-depth</CTA>
+                <CTA to='/guides/playstyle'>Playstyle</CTA>
+              </div>
+            </Column>
+          </Row>
+        </div>
+      </section>
+
+      <section
+        className='Home__section'
+        style={{ '--color': 'var(--ironclad)' }}
+      >
+        <div className='Home__section-inner'>
+          <Row desktopOnly>
+            <Column />
+            <Column>
+              <h2>Keep track of your riches</h2>
+              <p>
+                Maintain an accurate record of all your riches in the collection
+                hallway, pinning your cards on the wall of fame. No one will
+                match your collection.
+              </p>
+              <div className='Home__buttons'>
+                <CTA to='/income-calculator'>Income</CTA>
+                <CTA to='/collection/books'>Books</CTA>
+                <CTA to='/collection'>Collection</CTA>
+              </div>
+            </Column>
+          </Row>
+        </div>
+      </section>
+
+      <section className='Home__section' style={{ '--color': 'var(--winter)' }}>
+        <div className='Home__section-inner'>
+          <Row desktopOnly>
+            <Column>
+              <Only.Desktop>
+                <Image
+                  className='Home__section-image'
+                  src='/assets/images/cards/olf_the_hammer.png'
+                />
+              </Only.Desktop>
+            </Column>
             <Column>
               <h2>Battle for glory</h2>
               <p>
@@ -66,10 +121,17 @@ export default React.memo(() => (
           </Row>
         </div>
       </section>
-      <section className='Home__section' style={{ '--color': 'var(--winter)' }}>
+      <section className='Home__section' style={{ '--color': 'var(--swarm)' }}>
         <div className='Home__section-inner'>
           <Row desktopOnly>
-            <Column />
+            <Column>
+              <Only.Desktop>
+                <Image
+                  className='Home__section-image'
+                  src='/assets/images/cards/archdruid_earyn.png'
+                />
+              </Only.Desktop>
+            </Column>
             <Column>
               <h2>Practice your craft</h2>
               <p>
@@ -85,61 +147,7 @@ export default React.memo(() => (
           </Row>
         </div>
       </section>
-      <section
-        className='Home__section'
-        style={{ '--color': 'var(--ironclad)' }}
-      >
-        <div className='Home__section-inner'>
-          <Row desktopOnly>
-            <Column>
-              <Only.Desktop>
-                <Image
-                  className='Home__section-image'
-                  src='/assets/images/cards/collector_mirz.png'
-                />
-              </Only.Desktop>
-            </Column>
-            <Column>
-              <h2>Keep track of your riches</h2>
-              <p>
-                Maintain an accurate record of all your riches in the collection
-                hallway, pinning your cards on the wall of fame. No one will
-                match your collection.
-              </p>
-              <div className='Home__buttons'>
-                <CTA to='/collection/books'>Books</CTA>
-                <CTA to='/collection'>Collection</CTA>
-              </div>
-            </Column>
-          </Row>
-        </div>
-      </section>
-      <section className='Home__section' style={{ '--color': 'var(--swarm)' }}>
-        <div className='Home__section-inner'>
-          <Row desktopOnly>
-            <Column>
-              <Only.Desktop>
-                <Image
-                  className='Home__section-image'
-                  src='/assets/images/cards/ubass_the_hunter.png'
-                />
-              </Only.Desktop>
-            </Column>
-            <Column>
-              <h2>Learn from the warlords</h2>
-              <p>
-                New to the game or looking to perfect your battle strategies,
-                you’ll learn everything you need to know in the guides made by
-                members of the community.
-              </p>
-              <div className='Home__buttons'>
-                <CTA to='/guides/winter'>Winter Guide</CTA>
-                <CTA to='/guides/complete'>Complete Guide</CTA>
-              </div>
-            </Column>
-          </Row>
-        </div>
-      </section>
+
       <section
         className='Home__section'
         style={{ '--color': 'var(--shadowfen)' }}
@@ -163,7 +171,7 @@ export default React.memo(() => (
               </p>
               <div className='Home__buttons'>
                 <CTA to='/stories/eastern-heat'>Eastern Heat</CTA>
-                <CTA to='/stories'>Read stories</CTA>
+                <CTA to='/stories'>All stories</CTA>
               </div>
             </Column>
           </Row>
