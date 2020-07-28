@@ -22,7 +22,7 @@ const useLazyLoad = (collection, itemsPerPage, automatic = true) => {
   return {
     items: collection.slice(0, page * itemsPerPage),
     loading,
-    loadMore,
+    loadMore: page * itemsPerPage < collection.length ? loadMore : undefined,
     ref,
   }
 }

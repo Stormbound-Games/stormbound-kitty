@@ -51,13 +51,15 @@ export default React.memo(function Decks(props) {
         </Row>
       ))}
       {loading && <Loader />}
-      <Row>
-        <Column align='center'>
-          <CTA onClick={loadMore} type='button'>
-            Load more
-          </CTA>
-        </Column>
-      </Row>
+      {loadMore && !loading && (
+        <Row>
+          <Column align='center'>
+            <CTA onClick={loadMore} type='button'>
+              Load more
+            </CTA>
+          </Column>
+        </Row>
+      )}
     </>
   )
 })
