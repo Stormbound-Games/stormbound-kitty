@@ -1032,5 +1032,45 @@
     "faction": "swarm",
     "author": "OneC",
     "category": "DIAMOND_1"
+  },
+  {
+    "name": "Hero Brawl v.1",
+    "id": "5n15f45n35n675n85f85n165f125n355n765n465n58",
+    "faction": "shadowfen",
+    "author": "the_mirc",
+    "category": "BRAWL",
+    "brawl": "HERO_STRENGTH"
+  },
+  {
+    "name": "Hero Brawl v.2",
+    "id": "5n15n35n675n85s35s65n165n595n695n355n465n58",
+    "faction": "swarm",
+    "author": "the_mirc",
+    "category": "BRAWL",
+    "brawl": "HERO_STRENGTH"
+  },
+  {
+    "name": "Black Fang",
+    "id": "5n15s15n35s25n85n95s35n135n595n355n465n58",
+    "faction": "swarm",
+    "author": "Adig",
+    "category": "BRAWL",
+    "brawl": "HERO_STRENGTH"
+  },
+  {
+    "name": "Ahmi Spam",
+    "id": "5n15n25s15n35n45s25n85s35s85n185s205n52",
+    "faction": "swarm",
+    "author": "MooreFunn",
+    "category": "BRAWL",
+    "brawl": "HERO_STRENGTH"
+  },
+  {
+    "name": "Brawlolo",
+    "id": "5n15s15n35n675n85s65n135n155n595n355n465n58",
+    "faction": "swarm",
+    "author": "Novattack",
+    "category": "BRAWL",
+    "brawl": "HERO_STRENGTH"
   }
 ]
