@@ -1011,7 +1011,7 @@
     "mana": 7,
     "strength": "2/3/4/5/7",
     "movement": 1,
-    "ability": "On death, deal *1/1/2/2/2 damage* to all enemy units and structures. Add *0-1/1/1/1/2 damage* for up to 1/1/2/2/3 Pirate in hand",
+    "ability": "On death, deal *1/1/2/2/2 damage* to all enemy units and structures. Add 0-1/1/1/1/2 damage for up to 1/1/2/2/3 Pirate in hand",
     "hero": true
   },
   {
