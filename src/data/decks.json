@@ -105,13 +105,6 @@
     "category": "EQUALS"
   },
   {
-    "name": "Bombastic",
-    "id": "1n11n51n61w51n181w61w71w81w131w151w181n57",
-    "faction": "winter",
-    "author": "BluePhoenix",
-    "category": "EQUALS"
-  },
-  {
     "name": "Hi I’m Dori",
     "id": "1n11i11i21i51i61i81i101n181i131i161i201n39",
     "faction": "ironclad",
@@ -279,14 +272,6 @@
     "faction": "ironclad",
     "author": "ReAt3x",
     "category": "EQUALS"
-  },
-  {
-    "name": "Winter Runners",
-    "id": "5n15n35n135n165w55n285w125w135w155n395w175w19",
-    "faction": "winter",
-    "author": "BluePhoenix",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
   },
   {
     "name": "Earny Swarm",
