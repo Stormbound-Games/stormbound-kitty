@@ -21,6 +21,7 @@ const lacksAoE = cards => {
     /* Crimson Sentry */ ids.includes('F5') ||
     /* Witches of the Wild */ ids.includes('F14') ||
     /* Dark Harvest */ ids.includes('S15') ||
+    /* Lasting Remains */ ids.includes('S23') ||
     /* Frosthexers + Wisp Cloud */ (ids.includes('W2') && ids.includes('W4')) ||
     /* Frosthexers + Midwinter Chaos */ (ids.includes('W2') &&
       ids.includes('W11')) ||

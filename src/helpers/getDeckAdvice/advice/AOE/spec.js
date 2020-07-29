@@ -104,8 +104,13 @@ describe('The `AOE` advice', () => {
     expect(advice(cards)).to.equal(null)
   })
 
-  it('should hand lack of aoe (Dark Harvest)', () => {
+  it('should consider Dark Harvest an AoE', () => {
     const cards = getCards('1n631n141s251n191n91s121n241n261s151s191n461n48')
+    expect(advice(cards)).to.equal(null)
+  })
+
+  it('should consider Lasting Remains an AoE', () => {
+    const cards = getCards('1n631n141s251n191n91s121n241n261s191s231n461n48')
     expect(advice(cards)).to.equal(null)
   })
 })
