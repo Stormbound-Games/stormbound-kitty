@@ -15,7 +15,7 @@ export default React.memo(function Decks(props) {
   const history = useHistory()
   const { loadMore, loading, items } = useLazyLoad(
     props.decks,
-    columns * 2,
+    columns * 3,
     false
   )
 
