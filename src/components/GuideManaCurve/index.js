@@ -407,15 +407,15 @@ export default React.memo(function GuideManaCurve(props) {
               <Link to='/deck/5n15n25n235n145w55n185n295n445n485w195w215w23/detail'>
                 Frostkhan’s Eye Tempest deck
               </Link>{' '}
-              is pretty astonishing, because both lines intersect on turn mana
-              5, which is incredibly early due to Gift of the Wise only costing
-              5 mana in that Brawl.
+              is pretty astonishing, because both lines almost intersect on turn
+              mana 6, which is incredibly early due to Gift of the Wise only
+              costing 6 mana in that Brawl.
             </p>
             <p>
-              This means on turn mana 5 and 6, it is likely to have played all
-              cards <em>and have leftover mana</em>. Other notable point is that
-              it is already possible — although very unlikely — to play all 4
-              cards at turn mana 4.
+              This means on turn mana 6, it is likely to have played all cards{' '}
+              <em>and have leftover mana</em>. Other notable point is that it is
+              already possible — although very unlikely — to play all 4 cards at
+              turn mana 4.
             </p>
           </Column>
         </Row>
