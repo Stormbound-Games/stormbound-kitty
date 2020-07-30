@@ -7,7 +7,9 @@ import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Teaser from '../Teaser'
 import chunk from '../../helpers/chunk'
-import { BRAWLS, CYCLE_START } from '../../constants/brawl'
+import getCurrentBrawl from '../../helpers/getCurrentBrawl'
+import isBrawlRunning from '../../helpers/isBrawlRunning'
+import { BRAWLS } from '../../constants/brawl'
 
 const getBrawlData = id => BRAWLS.find(brawl => brawl.id === id)
 
@@ -188,31 +190,9 @@ const BrawlTeaser = React.memo(function BrawlTeaser(props) {
   )
 })
 
-const NOW = new Date()
-const isBrawlRunning = () => {
-  const dayOfTheWeek = NOW.getDay()
-  const hours = NOW.getHours()
-
-  switch (dayOfTheWeek) {
-    case 1:
-    case 2:
-    case 3:
-      return false
-    case 5:
-    case 6:
-      return true
-    case 4:
-      return hours >= 9
-    case 0:
-      return hours < 10
-    default:
-      return false
-  }
-}
-
 const getDateDisplay = () => {
   const isRunning = isBrawlRunning()
-  const dayOfTheWeek = NOW.getDay()
+  const dayOfTheWeek = new Date().getDay()
 
   if (!isRunning) {
     const startDate = dayOfTheWeek === 4 ? 'Starts today' : 'Starts on Thursday'
@@ -241,7 +221,9 @@ const BrawlBanner = React.memo(function BrawlBanner(props) {
           <Link to={`/deck/suggestions?category=BRAWL&brawl=${props.id}`}>
             Prepare your deck
           </Link>
-          .
+          . <br />
+          <br />
+          New to the Brawl? <Link to='/guides/brawl'>Read the guide</Link>.
         </>
       }
       large
@@ -249,13 +231,8 @@ const BrawlBanner = React.memo(function BrawlBanner(props) {
   )
 })
 
-function weeksBetween(d1, d2) {
-  return Math.round((d2 - d1) / (7 * 24 * 60 * 60 * 1000))
-}
-
 export default React.memo(function BrawlIndex() {
-  const weeks = weeksBetween(CYCLE_START, NOW)
-  const brawl = BRAWL_DATA.slice(weeks, weeks !== -1 ? weeks + 1 : undefined)[0]
+  const brawl = BRAWL_DATA.find(brawl => brawl.id === getCurrentBrawl().id)
 
   return (
     <>
