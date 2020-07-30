@@ -12,7 +12,7 @@ describe('Dry-runner — Archdruid Earyn', () => {
       .drPlay('N48')
 
       .get(s.MANA)
-      .should('contain', 13)
+      .should('contain', 14)
 
       .get(s.CARD)
       .should('have.length', 1)
