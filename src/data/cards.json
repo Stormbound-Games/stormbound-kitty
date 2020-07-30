@@ -1010,8 +1010,8 @@
     "image": "rogue_sheep.png",
     "mana": 7,
     "strength": "2/3/4/5/7",
-    "movement": 1,
-    "ability": "On death, deal *1/1/2/2/2 damage* to all enemy units and structures. Add 0-1/1/1/1/2 damage for up to 1/1/2/2/3 Pirate in hand",
+    "movement": 0,
+    "ability": "On death, deal *1/1/2/2/2 damage* to all enemy units and structures. Add 0-1/1/1/1/2 damage for up to 1/2/2/3/3 Pirate in hand",
     "hero": true
   },
   {
@@ -2235,7 +2235,7 @@
     "rarity": "rare",
     "image": "frozen_core.png",
     "mana": 5,
-    "strength": "3/4/5/6/7",
+    "strength": "4/5/6/7/8",
     "movement": null,
     "ability": "At the start of your turn, gain *2 mana*"
   },
@@ -2368,7 +2368,7 @@
     "mana": 8,
     "strength": null,
     "movement": null,
-    "ability": "Gain *9/10/11/12/13 mana*"
+    "ability": "Gain *10/11/12/13/14 mana*"
   },
   {
     "name": "Calming Spirits",
