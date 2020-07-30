@@ -277,15 +277,15 @@ export default React.memo(function ChangelogJuly2020(props) {
           levels.
         </li>
         <li>
-          <WikiLink id='W9' /> has its strength and ability decreased by 1 at
-          all levels.
+          <WikiLink id='W9' /> has its ability decreased by 1 at all levels.
         </li>
         <li>
           <WikiLink id='W13' /> have their movement decreased by 1 at all
           levels.
         </li>
         <li>
-          <WikiLink id='W19' /> costs 8 mana at all levels (up from 7).
+          <WikiLink id='W19' /> costs 8 mana at all levels (up from 7) and
+          grants one more mana at all levels.
         </li>
         <li>
           <WikiLink id='W27' /> have their strength decreased by 1 at all levels
