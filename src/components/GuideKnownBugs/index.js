@@ -54,6 +54,9 @@ export default React.memo(function GuideKnownBugs(props) {
         <li>
           <a href='#unwatchable-ads'>Unwatchable ads</a>
         </li>
+        <li>
+          <a href='#glitchy-friend-list'>Glitchy friend list</a>
+        </li>
       </ul>
 
       <Title id='displayed-debug-view'>Displayed debug view</Title>
@@ -211,7 +214,7 @@ export default React.memo(function GuideKnownBugs(props) {
         <Column>
           <img
             src='/assets/images/challenge_in_deck_selection.jpg'
-            alt='Animation when being rewarded with fusion stones'
+            alt='Friendly challenge dialog being displayed in the deck view'
           />
         </Column>
         <Column>
@@ -291,6 +294,33 @@ export default React.memo(function GuideKnownBugs(props) {
             src='/assets/images/unwatchable_ads.jpg'
             alt='The reward screen does not allow watching an ad'
           />
+        </Column>
+      </Row>
+
+      <Title id='glitchy-friend-list'>Glitchy friend list</Title>
+      <Row wideGutter desktopOnly>
+        <Column>
+          <img
+            src='/assets/images/friend-list-gaps.jpg'
+            alt='Friend list having odd empty gaps'
+          />
+        </Column>
+        <Column>
+          <div>
+            <h3>Problem</h3>
+            <p>
+              The friend list sometimes display empty slots, and these tend to
+              move back and forth on scroll. It does not seem to be replacing
+              any actual tile though; it feels more like an off-by-one error.
+            </p>
+
+            <h3>Workaround</h3>
+
+            <p>
+              Leaving the friend list view and opening it again is usually
+              enough to restore the proper display.
+            </p>
+          </div>
         </Column>
       </Row>
     </Guide>
