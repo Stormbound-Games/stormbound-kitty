@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Brawl Guide",
+    "description": "A brand new beginner’s guide on the Brawl has been released.",
+    "link": "/guides/brawl"
+  },
+  {
     "intro": "Known Bugs",
     "description": "A list of the known bugs and their potential causes and fixes has been released.",
     "link": "/guides/known-bugs"
