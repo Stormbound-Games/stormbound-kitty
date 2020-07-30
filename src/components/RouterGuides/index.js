@@ -21,6 +21,7 @@ const COMPONENTS = {
   TRIGGER_GUIDE: load('GuideTriggers'),
   CARD_SHOP_GUIDE: load('GuideCardShop'),
   KNOWN_BUGS: load('GuideKnownBugs'),
+  BRAWL_GUIDE: load('GuideBrawl'),
 }
 
 export default function RouterGuides() {

@@ -24,6 +24,18 @@
     "category": "ESSENTIALS"
   },
   {
+    "id": "BRAWL_GUIDE",
+    "name": "Brawl Guide",
+    "authors": ["Kitty"],
+    "excerpt": "In this beginner’s guide, Kitty explains how the Brawl works, why you should care, and what are the common strategies to make the most of your coins.",
+    "slug": "brawl",
+    "faction": "neutral",
+    "cardId": "N76",
+    "background": "/assets/images/environment_neutral.png",
+    "readingTime": "6 minutes",
+    "category": "ESSENTIALS"
+  },
+  {
     "id": "DECK_GUIDE",
     "name": "Deck Building Guide",
     "authors": ["Zemeu"],
