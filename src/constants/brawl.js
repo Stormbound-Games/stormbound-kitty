@@ -1,11 +1,5 @@
 export const BRAWLS = [
   {
-    id: 'HERO_STRENGTH',
-    label: 'Heroes +3 strength',
-    title: 'Heroic Deeds',
-    cardId: 'N8',
-  },
-  {
     id: 'DWARF_MANA',
     label: 'Dwarves -2 mana',
     title: 'Natural Sprint',
@@ -95,6 +89,12 @@ export const BRAWLS = [
     title: 'Swift Demise',
     cardId: 'S21',
   },
+  {
+    id: 'HERO_STRENGTH',
+    label: 'Heroes +3 strength',
+    title: 'Heroic Deeds',
+    cardId: 'N8',
+  },
 ]
 
 export const MILESTONES = [
@@ -123,4 +123,4 @@ export const COIN_MULTIPLIERS = {
   MOBILE_WITHOUT_ADS: 5,
 }
 
-export const CYCLE_START = new Date(2020, 6, 30)
+export const CYCLE_START = new Date(2020, 7, 6)

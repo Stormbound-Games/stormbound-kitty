@@ -13,16 +13,6 @@ const getBrawlData = id => BRAWLS.find(brawl => brawl.id === id)
 
 export const BRAWL_DATA = [
   {
-    ...getBrawlData('HERO_STRENGTH'),
-    description: (
-      <>
-        All <span className='Highlight'>Hero</span> units benefit from an extra{' '}
-        <span className='Highlight'>+3 strength</span> on top of their initial
-        strength.
-      </>
-    ),
-  },
-  {
     ...getBrawlData('DWARF_MANA'),
     description: (
       <>
@@ -169,6 +159,16 @@ export const BRAWL_DATA = [
         All <span className='Highlight'>Undead</span> units benefit from an
         extra <span className='Highlight'>+2 strength</span> on top of their
         initial strength.
+      </>
+    ),
+  },
+  {
+    ...getBrawlData('HERO_STRENGTH'),
+    description: (
+      <>
+        All <span className='Highlight'>Hero</span> units benefit from an extra{' '}
+        <span className='Highlight'>+3 strength</span> on top of their initial
+        strength.
       </>
     ),
   },
