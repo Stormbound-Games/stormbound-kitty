@@ -1011,7 +1011,7 @@
     "mana": 7,
     "strength": "2/3/4/5/7",
     "movement": 0,
-    "ability": "On death, deal *1/1/2/2/2 damage* to all enemy units and structures. Add 0-1/1/1/1/2 damage for up to 1/2/2/3/3 Pirate in hand",
+    "ability": "On death, deal *1/1/2/2/2 damage* to all enemy units and structures. Add 0-1/1/1/1/2 damage for up to 1/2/2/3/3 Pirate in hand.",
     "hero": true
   },
   {
@@ -1234,7 +1234,7 @@
     "mana": 5,
     "strength": "5/6/7/8/10",
     "movement": 0,
-    "ability": "On play, *fly* to the first enemy unit in front. *Push* this enemy away and deal *3/4/5/6/7 damage* to it",
+    "ability": "On play, *fly* to the first enemy unit in front. *Push* this enemy away and deal *3/4/5/6/7 damage* to it.",
     "hero": true
   },
   {
@@ -1314,7 +1314,7 @@
     "mana": 7,
     "strength": "7/8/10/12/15",
     "movement": 0,
-    "ability": "On play, *pull* enemy units to you. Then deal *3/4/5/6/7 damage* to all bordering enemy units"
+    "ability": "On play, *pull* enemy units to you. Then deal *3/4/5/6/7 damage* to all bordering enemy units."
   },
   {
     "name": "Mechanical Workers",
@@ -1433,7 +1433,7 @@
     "mana": 1,
     "strength": null,
     "movement": null,
-    "ability": "*Destroy* a target friendly unit. Deal *1/2/3/4/5 damage* to all surrounding units and *poison* them"
+    "ability": "*Destroy* a target friendly unit. Deal *1/2/3/4/5 damage* to all surrounding units and *poison* them."
   },
   {
     "name": "Crimson Sentry",
@@ -1524,7 +1524,7 @@
     "mana": 4,
     "strength": null,
     "movement": null,
-    "ability": "Deal *5/6/7/8/10 damage* to a target poisoned unit. If that kills it, *spawn* a *5/6/7/8/10* strength Raven there"
+    "ability": "Deal *5/6/7/8/10 damage* to a target poisoned unit. If that kills it, *spawn* a *5/6/7/8/10* strength Raven there."
   },
   {
     "name": "Tode the Elevated",
@@ -1881,7 +1881,7 @@
     "mana": 3,
     "strength": null,
     "movement": null,
-    "ability": "*Destroy* a target unit or structure with *8/10/12/15/18 or less strength*. Deal *3 damage* to your base"
+    "ability": "*Destroy* a target unit or structure with *8/10/12/15/18 or less strength*. Deal *3 damage* to your base."
   },
   {
     "name": "Devastators",
@@ -1998,7 +1998,7 @@
     "mana": 5,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On play, *fly* to the first empty tile in front. *Give 3/4/5/6/7* strength to all friendly units passed",
+    "ability": "On play, *fly* to the first empty tile in front. *Give 3/4/5/6/7* strength to all friendly units passed.",
     "hero": true
   },
   {
@@ -2012,7 +2012,7 @@
     "mana": 7,
     "strength": null,
     "movement": null,
-    "ability": "*Give 1/2/3/4/5* strength to a target friendly unit. *Command* all friendly units in its row forward"
+    "ability": "*Give 1/2/3/4/5* strength to a target friendly unit. *Command* all friendly units in its row forward."
   },
   {
     "name": "Queen of Herds",
@@ -2197,7 +2197,7 @@
     "mana": 5,
     "strength": null,
     "movement": null,
-    "ability": "*Give 4/5/6/7/8* strength to a target friendly unit or structure. *Freeze* all surrounding enemy units"
+    "ability": "*Give 4/5/6/7/8* strength to a target friendly unit or structure. *Freeze* all surrounding enemy units."
   },
   {
     "name": "Mystwives",
@@ -2223,7 +2223,7 @@
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": 0,
-    "ability": "On play, *destroy* all frozen enemies in front with *4/5/6/7/8 or less strength*. Gain *4 mana* for each unit destroyed",
+    "ability": "On play, *destroy* all frozen enemies in front with *4/5/6/7/8 or less strength*. Gain *4 mana* for each unit destroyed.",
     "hero": true
   },
   {
