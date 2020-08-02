@@ -3,6 +3,7 @@ import hookIntoProps from 'hook-into-props'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
+import abbreviate from '../../helpers/abbreviate'
 import sortCards, {
   sortByValue,
   sortByLockedCoins,
@@ -62,10 +63,12 @@ class CardsFiltering extends React.Component {
 
   matchesText = card =>
     this.state.text === '' ||
+    this.state.text.toUpperCase() === abbreviate(card.name).toUpperCase() ||
     card.name
       .toLowerCase()
       .replace('’', "'")
       .includes(this.state.text.toLowerCase())
+
   matchesFaction = card =>
     this.state.faction === '*' || card.faction === this.state.faction
   matchesRace = card => this.state.race === '*' || card.race === this.state.race
