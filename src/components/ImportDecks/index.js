@@ -2,6 +2,7 @@ import React from 'react'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import { NotificationContext } from '../NotificationProvider'
 import Only from '../Only'
+import uuid from '../../helpers/uuid'
 import './index.css'
 
 const useFileUpload = onChange => {
@@ -48,8 +49,8 @@ const parseCSVData = data => {
     .slice(1)
     .filter(Boolean)
     .map(item => {
-      const [id, name, faction, category, uuid] = item.split(',')
-      return { id, name, faction, category, uuid }
+      const [id, name, faction, category] = item.split(',')
+      return { id, name, faction, category, uuid: uuid() }
     })
 }
 
