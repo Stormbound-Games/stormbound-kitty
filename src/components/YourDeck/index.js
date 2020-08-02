@@ -27,11 +27,11 @@ export default React.memo(function YourDeck(props) {
       actions={[
         {
           'aria-label': 'Edit deck',
-          onClick: () => props.onEdit(props.id),
+          onClick: () => props.onEdit(props.uuid),
           icon: 'pencil',
           'data-testid': 'edit-deck-btn',
         },
-        <YourDeckDeleteButton delete={() => removeDeck(props.id)} />,
+        <YourDeckDeleteButton delete={() => removeDeck(props.uuid)} />,
       ]}
     />
   )

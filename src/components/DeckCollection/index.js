@@ -11,6 +11,7 @@ import Row from '../Row'
 import Title from '../Title'
 import YourDecks from '../YourDecks'
 import YourDecksFilters from '../YourDecksFilters'
+import getDeckIDFromURL from '../../helpers/getDeckIDFromURL'
 import './index.css'
 
 const getFactionFromId = id => {
@@ -23,7 +24,7 @@ const getFactionFromId = id => {
 
 const getDeckFromForm = form => {
   const formData = serialize(form, { hash: true })
-  formData.id = formData.id.split('/').pop()
+  formData.id = getDeckIDFromURL(formData.id)
   formData.faction = getFactionFromId(formData.id)
   return formData
 }
@@ -32,7 +33,7 @@ export default React.memo(function DeckCollection(props) {
   const context = React.useContext(PersonalDecksContext)
   const { toggleUnseen } = context
   const [mode, setMode] = React.useState('INITIAL')
-  const [editedDeck, setEditedDeck] = React.useState(null)
+  const [editedDeckUUID, setEditedDeckUUID] = React.useState(null)
   const [filters, setFilters] = React.useState({
     name: '',
     faction: '*',
@@ -82,12 +83,12 @@ export default React.memo(function DeckCollection(props) {
 
   const disabledEditor = React.useCallback(() => {
     setMode('INITIAL')
-    setEditedDeck(null)
+    setEditedDeckUUID(null)
   }, [])
 
-  const enableEditor = React.useCallback(id => {
+  const enableEditor = React.useCallback(uuid => {
     setMode('EDITOR')
-    setEditedDeck(id)
+    setEditedDeckUUID(uuid)
   }, [])
 
   React.useEffect(() => {
@@ -108,6 +109,9 @@ export default React.memo(function DeckCollection(props) {
     event => {
       event.preventDefault()
       const formData = getDeckFromForm(event.target)
+      // This check is effectively performed on the deck ID and not the UUID
+      // because this is about telling the user they have already recorded that
+      // deck and therefore it is not going to be added again.
       const existingDeck = context.decks.find(deck => deck.id === formData.id)
 
       if (existingDeck) {
@@ -124,9 +128,9 @@ export default React.memo(function DeckCollection(props) {
   const editDeck = React.useCallback(
     event => {
       event.preventDefault()
-      context.updateDeck(editedDeck, getDeckFromForm(event.target))
+      context.updateDeck(editedDeckUUID, getDeckFromForm(event.target))
     },
-    [context, editedDeck]
+    [context, editedDeckUUID]
   )
 
   return (
@@ -162,9 +166,9 @@ export default React.memo(function DeckCollection(props) {
           <Title>Your decks</Title>
           <YourDecks
             decks={displayedDecks}
-            onEdit={id => enableEditor(id)}
+            onEdit={uuid => enableEditor(uuid)}
             disabledEditor={disabledEditor}
-            editedDeck={editedDeck}
+            editedDeckUUID={editedDeckUUID}
             editDeck={editDeck}
             mode={mode}
             setMode={setMode}

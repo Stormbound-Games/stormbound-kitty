@@ -2,13 +2,7 @@ import getDeckAdvice from '../../../helpers/getDeckAdvice'
 import getEmbed from '../../../helpers/getEmbed'
 import getResolvedCardData from '../../../helpers/getResolvedCardData'
 import serialisation from '../../../helpers/serialisation'
-
-const getIdFromURL = url =>
-  url
-    .replace('https://stormbound-kitty.com/deck/', '')
-    .replace('/detail', '')
-    .replace('/dry-run', '')
-    .replace('/tracker', '')
+import getDeckIDFromURL from '../../../helpers/getDeckIDFromURL'
 
 export default {
   command: 'deckadvice',
@@ -22,7 +16,7 @@ export default {
       )
   },
   handler: async function (message) {
-    const id = getIdFromURL(message)
+    const id = getDeckIDFromURL(message)
 
     if (id.length === 0) return
 

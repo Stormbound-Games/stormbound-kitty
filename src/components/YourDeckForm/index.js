@@ -2,23 +2,33 @@ import React from 'react'
 import Column from '../Column'
 import CTA from '../CTA'
 import Row from '../Row'
+import serialisation from '../../helpers/serialisation'
+import getRawCardData from '../../helpers/getRawCardData'
+import getDeckIDFromURL from '../../helpers/getDeckIDFromURL'
+
+const isValidCard = card => Boolean(getRawCardData(card.id).id)
+const validateDeckId = id =>
+  id && serialisation.deck.deserialise(getDeckIDFromURL(id)).every(isValidCard)
 
 export default React.memo(function YourDeckForm(props) {
+  const [deckID, setDeckID] = React.useState(props.id)
+  const isIdValid = validateDeckId(deckID)
+
   return (
     <form onSubmit={props.onSubmit} data-testid='deck-form'>
       <Row>
         <Column>
           <label htmlFor='id'>Deck URL or ID</label>
           <input
-            readOnly={!!props.id}
             required
             type='text'
             name='id'
             id='id'
             data-testid='deck-id-input'
-            defaultValue={props.id}
             minLength={3 * 12}
             autoComplete='off'
+            value={deckID}
+            onChange={event => setDeckID(event.target.value)}
           />
         </Column>
       </Row>
@@ -51,7 +61,12 @@ export default React.memo(function YourDeckForm(props) {
       </Row>
       <Row>
         <Column>
-          <CTA type='submit' data-testid='deck-submit'>
+          <CTA
+            type='submit'
+            data-testid='deck-submit'
+            disabled={!isIdValid}
+            title={isIdValid ? undefined : 'This deck ID is invalid'}
+          >
             {props.id || props.name || props.category
               ? 'Update deck'
               : 'Add deck'}

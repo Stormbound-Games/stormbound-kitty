@@ -48,8 +48,8 @@ const parseCSVData = data => {
     .slice(1)
     .filter(Boolean)
     .map(item => {
-      const [id, name, faction, category] = item.split(',')
-      return { id, name, faction, category }
+      const [id, name, faction, category, uuid] = item.split(',')
+      return { id, name, faction, category, uuid }
     })
 }
 
