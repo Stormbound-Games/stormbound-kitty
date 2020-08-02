@@ -189,8 +189,8 @@ export default React.memo(function GuideKnownBugs(props) {
             <p>
               This is unclear why this happens and it is believed the reason it
               has never been fixed is because it is hard to reproduce
-              consistently. This always happen on the first game after opening
-              the game, so probably some missing data.
+              consistently. This seems to happen only on the first game after
+              opening the game or changing decks, so probably some missing data.
             </p>
 
             <h3>Workaround</h3>
