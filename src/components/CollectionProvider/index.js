@@ -25,44 +25,50 @@ const normaliseCollection = collection =>
 const DEFAULT_COLLECTION = normaliseCollection(cards)
 const STORAGE_KEY = 'sk.collection'
 
-export default function CollectionProvider(props) {
-  const [collection, setCollection] = React.useState(DEFAULT_COLLECTION)
-  const { notify: sendNotification } = React.useContext(NotificationContext)
+const getInitialCollectionData = () => {
+  try {
+    const MISSING_CARD_PROPS = { level: 1, missing: true, copies: 0 }
+    const collection = JSON.parse(localStorage.getItem(STORAGE_KEY))
 
+    if (collection.length === cardsWithoutTokens.length) {
+      return collection
+    }
+
+    // It is possible that the locally saved collection does not contain all
+    // the cards in the game if it was recorded before a card gets added. In
+    // such case, we should update the collection with the missing card(s),
+    // and mark them as missing.
+    return cardsWithoutTokens.map(card => {
+      const cardFromCollection = collection.find(entry => entry.id === card.id)
+
+      return cardFromCollection || { ...MISSING_CARD_PROPS, id: card.id }
+    })
+  } catch {
+    return DEFAULT_COLLECTION
+  }
+}
+
+export default function CollectionProvider(props) {
+  // Since there is no server-side rendering, we can read from local storage
+  // to populate the state with the correct value right away. This saves from
+  // having to wait for the mount to update the data, leading to a flash of
+  // unknown data before mounting.
+  const [collection, setCollection] = React.useState(getInitialCollectionData)
+  const { notify: sendNotification } = React.useContext(NotificationContext)
   const notify = React.useCallback(
     message => sendNotification({ icon: 'books', children: message }),
     [sendNotification]
   )
 
   React.useEffect(() => {
-    try {
-      let savedCollection = JSON.parse(localStorage.getItem(STORAGE_KEY))
-
-      // Default collections used to be locally saved but this is no longer the
-      // case so if the collection is a default one, remove it from storage.
-      if (isDefaultCollection(savedCollection)) {
-        localStorage.removeItem(STORAGE_KEY)
-      }
-
-      // It is possible that the locally saved collection does not contain all
-      // the cards in the game if it was recorded before a card gets added. In
-      // such case, we should update the collection with the missing card(s),
-      // and mark them as missing.
-      else if (savedCollection.length !== cardsWithoutTokens.length) {
-        savedCollection = cardsWithoutTokens.map(
-          card =>
-            savedCollection.find(entry => entry.id === card.id) || {
-              id: card.id,
-              level: 1,
-              missing: true,
-              copies: 0,
-            }
-        )
-
-        setCollection(savedCollection)
-        notify('Locally saved collection found and loaded.')
-      }
-    } catch (error) {}
+    if (!isDefaultCollection(collection)) {
+      notify('Locally saved collection found and loaded.')
+    }
+    // We only want to run that once on page load if the collection is not the
+    // default one, so we need to make sure not to pass `collection` as a
+    // dependency, otherwise this is going to run every time the collection gets
+    // updated.
+    // eslint-disable-next-line
   }, [notify])
 
   React.useEffect(() => {
@@ -84,7 +90,6 @@ export default function CollectionProvider(props) {
       )
     ) {
       notify('Local collection cleared and reseted to the default one.')
-      localStorage.removeItem(STORAGE_KEY)
       setCollection(DEFAULT_COLLECTION)
     }
   }
