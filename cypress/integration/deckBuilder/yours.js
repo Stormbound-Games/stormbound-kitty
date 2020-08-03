@@ -51,7 +51,8 @@ describe('Deck Builder - Personal decks', () => {
       .should('be.visible')
 
       .get(s.DECK_ID_INPUT)
-      .should('have.attr', 'readonly')
+      .clear()
+      .type('5n15n35n675n145n165w55w95w125w195n575w235n57')
 
       .get(s.DECK_NAME_INPUT)
       .clear()

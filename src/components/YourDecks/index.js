@@ -8,7 +8,7 @@ import chunk from '../../helpers/chunk'
 import './index.css'
 
 const NewDeck = React.memo(function NewDeck(props) {
-  return props.mode === 'INITIAL' || !!props.editedDeck ? (
+  return props.mode === 'INITIAL' || !!props.editedDeckUUID ? (
     <YourDeckGhost onClick={() => props.setMode('FORM')} />
   ) : (
     <YourDeckForm onSubmit={props.addDeck} cancel={props.cancel} />
@@ -25,8 +25,8 @@ export default React.memo(function YourDecks(props) {
           <Column>
             <YourDeck
               {...row[0]}
-              onEdit={() => props.onEdit(row[0].id)}
-              isEdited={row[0].id === props.editedDeck}
+              onEdit={() => props.onEdit(row[0].uuid)}
+              isEdited={row[0].uuid === props.editedDeckUUID}
               handleEdit={props.editDeck}
               cancelEdit={props.disabledEditor}
             />
@@ -35,14 +35,14 @@ export default React.memo(function YourDecks(props) {
             {row[1] ? (
               <YourDeck
                 {...row[1]}
-                onEdit={() => props.onEdit(row[1].id)}
-                isEdited={row[1].id === props.editedDeck}
+                onEdit={() => props.onEdit(row[1].uuid)}
+                isEdited={row[1].uuid === props.editedDeckUUID}
                 handleEdit={props.editDeck}
                 cancelEdit={props.disabledEditor}
               />
             ) : (
               <NewDeck
-                editedDeck={props.editedDeck}
+                editedDeckUUID={props.editedDeckUUID}
                 mode={props.mode}
                 setMode={props.setMode}
                 addDeck={props.addDeck}
@@ -57,7 +57,7 @@ export default React.memo(function YourDecks(props) {
         <Row desktopOnly>
           <Column>
             <NewDeck
-              editedDeck={props.editedDeck}
+              editedDeckUUID={props.editedDeckUUID}
               mode={props.mode}
               setMode={props.setMode}
               addDeck={props.addDeck}

@@ -1,10 +1,12 @@
 import React from 'react'
 import { NotificationContext } from '../NotificationProvider'
 import serialisation from '../../helpers/serialisation'
+import uuid from '../../helpers/uuid'
 
 export const PersonalDecksContext = React.createContext([])
 
 const STORAGE_KEY = 'sk.personal_decks'
+const ensureUUID = deck => (deck.uuid ? deck : { ...deck, uuid: uuid() })
 
 const getFactionFromId = id => {
   if (id.includes('i')) return 'ironclad'
@@ -26,7 +28,7 @@ const getCategoryFromId = id => {
 
 const getInitialDecks = () => {
   try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY))
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)).map(ensureUUID)
   } catch (error) {
     return []
   }
@@ -71,6 +73,8 @@ export default function PersonalDecksProvider(props) {
   }
 
   const addDeck = deck => {
+    // This check is effectively performed on the deck ID and not the UUID
+    // because this is about preventing the same deck from being added twice.
     if (decks.map(deck => deck.id).includes(deck.id)) {
       return decks
     }
@@ -78,6 +82,7 @@ export default function PersonalDecksProvider(props) {
     return setDecks(decks => [
       ...decks,
       {
+        uuid: deck.uuid || uuid(),
         id: deck.id,
         name: deck.name || 'Unnamed deck',
         faction: deck.faction || getFactionFromId(deck.id),
@@ -86,15 +91,17 @@ export default function PersonalDecksProvider(props) {
     ])
   }
 
-  const removeDeck = id =>
-    setDecks(decks => decks.filter(deck => deck.id !== id))
+  const removeDeck = uuid =>
+    setDecks(decks => decks.filter(deck => deck.uuid !== uuid))
 
-  const updateDeck = (id, updatedDeck) =>
+  const updateDeck = (uuid, updatedDeck) =>
     setDecks(decks =>
       decks.map(deck =>
-        deck.id === id
+        deck.uuid === uuid
           ? {
-              ...deck,
+              uuid: deck.uuid,
+              id: updatedDeck.id || deck.id,
+              faction: getFactionFromId(updatedDeck.id || deck.id),
               name: updatedDeck.name || deck.name,
               category: updatedDeck.category || deck.category,
             }
