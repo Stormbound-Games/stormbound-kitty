@@ -5,6 +5,13 @@ import cards from '../../data/cards'
 export const CollectionContext = React.createContext([])
 const cardsWithoutTokens = cards.filter(card => !card.token)
 
+// Note that it is important not to check the status (whether missing or not) in
+// that condition because due to a bug introduced when Rogue Sheep was added to
+// the game, some locally-stored default collections have all cards level 1,
+// with 0 copies, but with Rogue Sheep marked as missing.
+const isDefaultCollection = collection =>
+  collection.every(card => card.level === 1 && card.copies === 0)
+
 const normaliseCard = card => ({
   id: card.id,
   level: +card.level || 1,
@@ -42,7 +49,10 @@ export default function CollectionProvider(props) {
               savedCollection.find(entry => entry.id === card.id) || {
                 id: card.id,
                 level: 1,
-                missing: true,
+                // In a default collection, missing cards should not be marked
+                // as missing since they are all considered owned and level 1 by
+                // default.
+                missing: !isDefaultCollection(savedCollection),
                 copies: 0,
               }
           )
@@ -55,6 +65,27 @@ export default function CollectionProvider(props) {
   }, [notify])
 
   React.useEffect(() => {
+    const RogueSheep = collection.find(card => card.id === 'N77')
+
+    // When Rogue Sheep came out, I made the mistake of tagging it as missing by
+    // default. This is the desired behaviour for people recording their
+    // collection on the site (since they don’t own the card yet), but is not
+    // expected for a default collection, where all cards are considered owned
+    // and level 1 by default. In turn, this prevents Rogue Sheep from being
+    // used in decks because it is marked as missing from the default
+    // collection. This needs to be fixed by sniffing whether the collection is
+    // the default one with just Rogue Sheep missing (the bug to fix), and if
+    // that’s the case, making Rogue Sheep available. This check can eventually
+    // be removed, hopefully in a couple of weeks, once it is considered fixed
+    // for most people using the default collection.
+    if (isDefaultCollection(collection) && RogueSheep.missing) {
+      setCollection(
+        collection.map(card =>
+          card.id === RogueSheep.id ? { ...card, missing: false } : card
+        )
+      )
+    }
+
     localStorage.setItem(STORAGE_KEY, JSON.stringify(collection))
   }, [collection])
 
@@ -82,9 +113,7 @@ export default function CollectionProvider(props) {
     <CollectionContext.Provider
       value={{
         collection: collection,
-        hasDefaultCollection: collection.every(
-          card => card.level === 1 && card.copies === 0
-        ),
+        hasDefaultCollection: isDefaultCollection(collection),
         resetCollection,
         updateCollection,
       }}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { CollectionContext } from '../CollectionProvider'
 import CardUpgradeStats from '../CardUpgradeStats'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
@@ -7,6 +8,8 @@ import Row from '../Row'
 import Title from '../Title'
 
 export default React.memo(function CollectionActiveCardForm(props) {
+  const { hasDefaultCollection } = React.useContext(CollectionContext)
+
   return (
     <>
       <Title>{props.resolvedActiveCard.name}</Title>
@@ -60,6 +63,16 @@ export default React.memo(function CollectionActiveCardForm(props) {
               id='missing'
               checked={props.activeCard.missing}
               onChange={props.setActiveCardMissing}
+              // This is an artifact of a bug introduced alongside Rogue Sheep
+              // that made it missing from default collection. This is fixed
+              // automatically from the `CollectionProvider` by checking if the
+              // collection is the default one and marking Rogue Sheep as non-
+              // missing. That implies trying to mark Rogue Sheep as missing
+              // from a default collection is not going to work, since it will
+              // immediately uncheck the checkbox as non-missing again. To avoid
+              // this odd behaviour, the checkbox is disabled for that very card
+              // in that very scenario.
+              disabled={props.activeCard.id === 'N77' && hasDefaultCollection}
             >
               Missing card
             </Checkbox>
