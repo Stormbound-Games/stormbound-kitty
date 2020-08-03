@@ -24,28 +24,39 @@ const getCategoryFromId = id => {
   return 'REGULAR'
 }
 
+const getInitialDecks = () => {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY))
+  } catch (error) {
+    return []
+  }
+}
+
 export default function PersonalDecksProvider(props) {
-  const [decks, setDecks] = React.useState([])
+  const [decks, setDecks] = React.useState(getInitialDecks)
   const [isUnseen, toggleUnseen] = React.useState(false)
   const { notify: sendNotification } = React.useContext(NotificationContext)
-
   const notify = React.useCallback(
     message => sendNotification({ icon: 'stack', children: message }),
     [sendNotification]
   )
 
   React.useEffect(() => {
-    try {
-      const savedDecks = JSON.parse(localStorage.getItem(STORAGE_KEY))
-      if (savedDecks.length > 0) {
-        setDecks(savedDecks)
-        notify('Locally saved decks found and loaded.')
-      }
-    } catch (error) {}
+    if (decks.length > 0) {
+      notify('Locally saved decks found and loaded.')
+    }
+    // We only want to run that once on page load if there are decks, so we need
+    // to make sure not to pass `decks` as a dependency, otherwise this is going
+    // to run every time the decks get updated.
+    // eslint-disable-next-line
   }, [notify])
 
   React.useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(decks))
+    if (decks.length === 0) {
+      localStorage.removeItem(STORAGE_KEY)
+    } else {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(decks))
+    }
   }, [decks])
 
   const resetDecks = () => {
@@ -55,7 +66,6 @@ export default function PersonalDecksProvider(props) {
       )
     ) {
       notify('Local collection cleared and reseted to the default one.')
-      localStorage.removeItem(STORAGE_KEY)
       setDecks([])
     }
   }

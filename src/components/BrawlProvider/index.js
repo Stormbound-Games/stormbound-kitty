@@ -5,45 +5,43 @@ import serialisation from '../../helpers/serialisation'
 
 export const BrawlContext = React.createContext([])
 
+const getInitialBrawlData = id => {
+  try {
+    const deserialise = brawl => ({
+      ...brawl,
+      matches: serialisation.brawl.deserialise(brawl.matches),
+    })
+
+    return JSON.parse(localStorage.getItem('sk.brawl.' + id)).map(deserialise)
+  } catch (error) {
+    const now = Date.now()
+    // Every type of Brawl is stored separately as an array. Each entry in that
+    // array constitutes a weekly Brawl of the given type (e.g. construct =2
+    // movement). The last item in the array is the currently displayed Brawl;
+    // the other ones are only maintained to be able to do comparison stats.
+    return [{ createdAt: now, updatedAt: now, id: id, matches: [] }]
+  }
+}
+
 export default function BrawlProvider(props) {
   const STORAGE_KEY = 'sk.brawl.' + props.id
-  const now = Date.now()
-  // Every type of Brawl is stored separately as an array. Each entry in that
-  // array constitutes a weekly Brawl of the given type (e.g. construct =2
-  // movement). The last item in the array is the currently displayed Brawl; the
-  // other ones are only maintained to be able to do comparison stats.
-  const [brawls, setBrawls] = React.useState([
-    {
-      createdAt: now,
-      updatedAt: now,
-      id: props.id,
-      matches: [],
-    },
-  ])
+  const [brawls, setBrawls] = React.useState(getInitialBrawlData(props.id))
   const brawl = brawls[brawls.length - 1] || {}
-
   const { notify: sendNotification } = React.useContext(NotificationContext)
-
   const notify = React.useCallback(
     message => sendNotification({ icon: 'crown', children: message }),
     [sendNotification]
   )
 
   React.useEffect(() => {
-    try {
-      const savedBrawls = JSON.parse(localStorage.getItem(STORAGE_KEY)).map(
-        brawl => ({
-          ...brawl,
-          matches: serialisation.brawl.deserialise(brawl.matches),
-        })
-      )
-
-      if (savedBrawls) {
-        setBrawls(savedBrawls)
-        notify('Locally saved Brawl data found and loaded.')
-      }
-    } catch (error) {}
-  }, [STORAGE_KEY, notify])
+    if (brawls.length > 1) {
+      notify('Locally saved Brawl data found and loaded.')
+    }
+    // We only want to run that once on page load if there were locally saved
+    // Brawls, so we need to make sure not to pass `brawls` as a dependency,
+    // otherwise this is going to run every time the Brawl data gets updated.
+    // eslint-disable-next-line
+  }, [notify])
 
   React.useEffect(() => {
     const data = brawls.map(brawl => ({
