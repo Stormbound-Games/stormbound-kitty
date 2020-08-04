@@ -7,6 +7,9 @@ import getExtraAfterMax from '../../helpers/getExtraAfterMax'
 import getRawCardData from '../../helpers/getRawCardData'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
+import { getRarityColor } from '../../helpers/getRarity'
+import cards from '../../data/cards'
+import { RARITY_COPIES } from '../../constants/game'
 import './index.css'
 
 const sum = (a, b) => a + b
@@ -44,7 +47,62 @@ const getAvailableCoins = collection =>
     .map(card => getExtraAfterMax(getResolvedCardData(card)).coins)
     .reduce(sum, 0)
 
+const getCopiesData = (collection, expectedCardLevel) => {
+  return Object.keys(RARITY_COPIES).map(rarity => {
+    const copiesForCardLevel = RARITY_COPIES[rarity].copies
+      .slice(0, expectedCardLevel - 1)
+      .reduce((a, b) => a + b, 1)
+
+    // Total amount of copies of this rarity needed to reach `cardLevel`
+    const total = cards
+      .filter(card => card.rarity === rarity)
+      .reduce(
+        (acc, card) =>
+          acc +
+          RARITY_COPIES[card.rarity].copies
+            .slice(0, expectedCardLevel - 1)
+            .reduce((a, b) => a + b, 1),
+        0
+      )
+
+    // Total amount of copies of this rarity owned within `cardLevel`
+    const current = collection
+      .filter(card => getRawCardData(card.id).rarity === rarity)
+      .reduce((acc, card) => {
+        // If the card is missing from the collection entirely, it counts
+        // as 0 copy of that rarity
+        if (card.missing) return acc
+
+        // If the card is at the expected card level or higher, it counts
+        // as the amount of copies for a card of that rarity at that level
+        if (card.level >= expectedCardLevel) return acc + copiesForCardLevel
+
+        // Only count copies that fit within the amount of copies required
+        // for the expected card level
+        const copies = Math.min(
+          card.copies,
+          RARITY_COPIES[rarity].copies[expectedCardLevel - 2]
+        )
+
+        // Otherwise, it counts as the amount of copies to get to that
+        // level + the extra copies towards the expected level
+        return (
+          acc +
+          RARITY_COPIES[rarity].copies
+            .slice(0, card.level - 1)
+            .reduce((a, b) => a + b, copies + 1)
+        )
+      }, 0)
+
+    const missing = total - current
+    const cost = missing * RARITY_COPIES[rarity].stonesPerMissingCopy
+
+    return { rarity, current, total, missing, cost }
+  })
+}
+
 export default function CollectionFigures(props) {
+  const [expectedCardLevel, setExpectedCardLevel] = React.useState(5)
   const ownedCards = React.useMemo(() => getNonMissingCards(props.collection), [
     props.collection,
   ])
@@ -74,6 +132,10 @@ export default function CollectionFigures(props) {
   const collectionCost = React.useMemo(
     () => getCollectionCost(props.collection),
     [props.collection]
+  )
+  const copiesData = React.useMemo(
+    () => getCopiesData(props.collection, expectedCardLevel),
+    [expectedCardLevel, props.collection]
   )
 
   return (
@@ -117,6 +179,39 @@ export default function CollectionFigures(props) {
         To know about the odds of finding a specific card in a certain book, be
         sure to check the <Link to='/collection/books'>books calculator</Link>.
       </p>
+      <p>
+        To bring your entire collection to{' '}
+        <select
+          id='level'
+          name='level'
+          className='CollectionFigures__select'
+          value={expectedCardLevel}
+          onChange={event => setExpectedCardLevel(+event.target.value)}
+        >
+          <option value={2}>level 2</option>
+          <option value={3}>level 3</option>
+          <option value={4}>level 4</option>
+          <option value={5}>level 5</option>
+        </select>
+        , you still need:
+      </p>
+      <ul className='CollectionFigures__list'>
+        {copiesData.map(({ rarity, total, current, missing, cost }) => {
+          if (current >= total) {
+            return <li key={rarity}>No more {rarity} copies</li>
+          }
+
+          return (
+            <li key={rarity}>
+              {missing}{' '}
+              <span style={{ color: getRarityColor(rarity) }}>{rarity}</span>{' '}
+              {missing === 1 ? 'copy' : 'copies'} out of {total} (
+              {((current / total) * 100).toFixed(2)}% completed) <br />
+              or <Stones amount={cost} />
+            </li>
+          )
+        })}
+      </ul>
     </>
   )
 }

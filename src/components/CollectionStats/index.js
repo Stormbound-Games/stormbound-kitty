@@ -1,6 +1,10 @@
 import React from 'react'
 import {
   ResponsiveContainer,
+  Bar,
+  BarChart,
+  YAxis,
+  XAxis,
   Legend,
   Cell,
   Tooltip,
@@ -16,10 +20,14 @@ import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
+import cards from '../../data/cards'
+import getRawCardData from '../../helpers/getRawCardData'
+import capitalise from '../../helpers/capitalise'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import { getCardCost } from '../../helpers/getCollectionCost'
 import { getRarityColor } from '../../helpers/getRarity'
+import { RARITIES, RARITY_COPIES } from '../../constants/game'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 import './index.css'
 
@@ -120,6 +128,36 @@ const getStatusData = collection => {
   return Object.keys(data).map(status => data[status])
 }
 
+const getTotalCopiesForCard = card => {
+  if (card.missing) return 0
+  const { rarity } = getRawCardData(card.id)
+  // It might happen that the amount of copies is positive while the card is
+  // level 5, which should not be counted.
+  const copies = card.level === 5 ? 0 : card.copies
+
+  return RARITY_COPIES[rarity].copies.reduce((acc, copies, index) => {
+    return acc + (card.level >= index + 2 ? copies : 0)
+  }, copies + 1)
+}
+
+const getCopiesData = collection => {
+  return Object.keys(RARITIES).map(rarity => {
+    const owned = collection
+      .filter(card => getRawCardData(card.id).rarity === rarity)
+      .reduce((acc, card) => acc + getTotalCopiesForCard(card), 0)
+    const total =
+      cards.filter(card => card.rarity === rarity).length *
+      RARITY_COPIES[rarity].copies.reduce((a, b) => a + b, 1)
+
+    return {
+      name: capitalise(rarity),
+      Owned: owned,
+      Missing: total - owned,
+      total,
+    }
+  })
+}
+
 export default function CollectionStats(props) {
   const { collection } = React.useContext(CollectionContext)
   const [ignoreNeutral, setIgnoreNeutral] = React.useState(false)
@@ -128,6 +166,9 @@ export default function CollectionStats(props) {
     collection,
   ])
   const statusData = React.useMemo(() => getStatusData(collection), [
+    collection,
+  ])
+  const copiesData = React.useMemo(() => getCopiesData(collection), [
     collection,
   ])
   const factionData = React.useMemo(
@@ -181,7 +222,9 @@ export default function CollectionStats(props) {
           <Row desktopOnly>
             <Column>
               <div className='CollectionStats__chart'>
-                <Title className='CollectionStats__title'>Level data</Title>
+                <Title className='CollectionStats__title'>
+                  Level repartition
+                </Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
                     <Tooltip {...TOOLTIP_STYLES} />
@@ -208,7 +251,7 @@ export default function CollectionStats(props) {
             <Column>
               <div className='CollectionStats__chart'>
                 <Title className='CollectionStats__title'>
-                  Faction data (stones)
+                  Faction (stones)
                 </Title>
 
                 <ResponsiveContainer width='100%' height={300}>
@@ -247,7 +290,7 @@ export default function CollectionStats(props) {
             <Column>
               <div className='CollectionStats__chart'>
                 <Title className='CollectionStats__title'>
-                  Rarity data (stones)
+                  Rarity (stones)
                 </Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
@@ -278,7 +321,7 @@ export default function CollectionStats(props) {
             </Column>
             <Column>
               <div className='CollectionStats__chart'>
-                <Title className='CollectionStats__title'>Status data</Title>
+                <Title className='CollectionStats__title'>Statuses</Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
                     <Tooltip {...TOOLTIP_STYLES} />
@@ -300,6 +343,77 @@ export default function CollectionStats(props) {
                 </ResponsiveContainer>
               </div>
             </Column>
+          </Row>
+
+          <Row desktopOnly>
+            <Column>
+              <div className='CollectionStats__chart'>
+                <Title className='CollectionStats__title'>Card copies</Title>
+                <ResponsiveContainer width='100%' height={300}>
+                  <BarChart
+                    width={500}
+                    height={300}
+                    data={copiesData}
+                    margin={{
+                      top: 20,
+                      right: 30,
+                      left: 20,
+                      bottom: 5,
+                    }}
+                  >
+                    <XAxis dataKey='name' />
+                    <YAxis />
+                    <Tooltip
+                      {...TOOLTIP_STYLES}
+                      cursor={{ fill: 'rgba(255, 255, 255, 0.1)' }}
+                      formatter={(value, name, props) =>
+                        `${value} copies (${(
+                          (value / props.payload.total) *
+                          100
+                        ).toFixed(2)}%)`
+                      }
+                    />
+                    <Legend />
+                    <pattern
+                      id='pattern-stripe'
+                      width='8'
+                      height='8'
+                      patternUnits='userSpaceOnUse'
+                      patternTransform='rotate(45)'
+                    >
+                      <rect
+                        width='4'
+                        height='8'
+                        transform='translate(0,0)'
+                        fill='white'
+                      ></rect>
+                    </pattern>
+                    <mask id='mask-stripe'>
+                      <rect
+                        x='0'
+                        y='0'
+                        width='100%'
+                        height='100%'
+                        fill='url(#pattern-stripe)'
+                      />
+                    </mask>
+                    <Bar
+                      dataKey='Owned'
+                      stackId='a'
+                      fill='var(--light-shadowfen)'
+                    />
+                    <Bar
+                      dataKey='Missing'
+                      stackId='a'
+                      fill='var(--light-ironclad)'
+                      fillOpacity='.5'
+                      mask='url(#mask-stripe)'
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </Column>
+            <Column></Column>
           </Row>
         </Column>
       </Row>
