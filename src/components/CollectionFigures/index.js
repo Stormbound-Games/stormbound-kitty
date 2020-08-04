@@ -77,21 +77,12 @@ const getCopiesData = (collection, expectedCardLevel) => {
         // as the amount of copies for a card of that rarity at that level
         if (card.level >= expectedCardLevel) return acc + copiesForCardLevel
 
-        // Only count copies that fit within the amount of copies required
-        // for the expected card level
-        const copies = Math.min(
-          card.copies,
-          RARITY_COPIES[rarity].copies[expectedCardLevel - 2]
+        const levelCopies = RARITY_COPIES[rarity].copies.reduce(
+          (acc, copies, index) => (card.level < index + 2 ? acc : acc + copies),
+          1
         )
 
-        // Otherwise, it counts as the amount of copies to get to that
-        // level + the extra copies towards the expected level
-        return (
-          acc +
-          RARITY_COPIES[rarity].copies
-            .slice(0, card.level - 1)
-            .reduce((a, b) => a + b, copies + 1)
-        )
+        return acc + Math.min(copiesForCardLevel, levelCopies + card.copies)
       }, 0)
 
     const missing = total - current

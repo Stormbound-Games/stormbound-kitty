@@ -130,14 +130,15 @@ const getStatusData = collection => {
 
 const getTotalCopiesForCard = card => {
   if (card.missing) return 0
-  const { rarity } = getRawCardData(card.id)
-  // It might happen that the amount of copies is positive while the card is
-  // level 5, which should not be counted.
-  const copies = card.level === 5 ? 0 : card.copies
 
-  return RARITY_COPIES[rarity].copies.reduce((acc, copies, index) => {
-    return acc + (card.level >= index + 2 ? copies : 0)
-  }, copies + 1)
+  const { rarity } = getRawCardData(card.id)
+  const maxCopies = RARITY_COPIES[rarity].copies.reduce((a, b) => a + b, 1)
+  const levelCopies = RARITY_COPIES[rarity].copies.reduce(
+    (acc, copies, index) => (card.level < index + 2 ? acc : acc + copies),
+    1
+  )
+
+  return Math.min(maxCopies, levelCopies + card.copies)
 }
 
 const getCopiesData = collection => {
