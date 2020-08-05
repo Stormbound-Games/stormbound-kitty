@@ -220,16 +220,27 @@ const getPeriodIncome = (income, period, rubiesConversion) => {
       income.cards[2] += BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[2]
       income.cards[3] += BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[3]
     }
-  } else if (rubiesConversion === 'NOBLE') {
+  } else if (rubiesConversion === 'HEROIC') {
     const books = Math.floor(income.rubies / 40)
     income.rubies -= books * 40
 
     for (let i = 0; i < books; i += 1) {
-      income.stones += getAverageStonesPerBook('NOBLE')
-      income.cards[0] += BOOKS.NOBLE.draws * BOOKS.NOBLE.percentiles[0]
-      income.cards[1] += BOOKS.NOBLE.draws * BOOKS.NOBLE.percentiles[1]
-      income.cards[2] += BOOKS.NOBLE.draws * BOOKS.NOBLE.percentiles[2]
-      income.cards[3] += BOOKS.NOBLE.draws * BOOKS.NOBLE.percentiles[3]
+      income.stones += getAverageStonesPerBook('HEROIC')
+      income.cards[0] += BOOKS.HEROIC.draws * BOOKS.HEROIC.percentiles[0]
+      income.cards[1] += BOOKS.HEROIC.draws * BOOKS.HEROIC.percentiles[1]
+      income.cards[2] += BOOKS.HEROIC.draws * BOOKS.HEROIC.percentiles[2]
+      income.cards[3] += BOOKS.HEROIC.draws * BOOKS.HEROIC.percentiles[3]
+    }
+  } else if (rubiesConversion === 'CLASSIC') {
+    const books = Math.floor(income.rubies / 20)
+    income.rubies -= books * 20
+
+    for (let i = 0; i < books; i += 1) {
+      income.stones += getAverageStonesPerBook('CLASSIC')
+      income.cards[0] += BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[0]
+      income.cards[1] += BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[1]
+      income.cards[2] += BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[2]
+      income.cards[3] += BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[3]
     }
   } else if (rubiesConversion === 'CARD_SHOP') {
     const cards = Math.floor(income.rubies / 20)
@@ -423,7 +434,8 @@ export default React.memo(function IncomeCalculator(props) {
               >
                 <option value='NONE'>Nothing</option>
                 <option value='MYTHIC'>Mythic Tomes</option>
-                <option value='NOBLE'>Noble Tomes</option>
+                <option value='HEROIC'>Heroic Tomes</option>
+                <option value='CLASSIC'>Classic Tomes</option>
                 <option value='CARD_SHOP'>Card Shop Epics</option>
               </select>
             </Column>
