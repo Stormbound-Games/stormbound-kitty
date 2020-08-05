@@ -1,4 +1,5 @@
 import getDeckDistanceToMax from '../getDeckDistanceToMax'
+import getFactionFromDeckID from '../getFactionFromDeckID'
 import resolveCollection from '../resolveCollection'
 
 const sortDeckSuggestions = ({ hasDefaultCollection, collection }, order) => {
@@ -22,8 +23,8 @@ const sortDeckSuggestions = ({ hasDefaultCollection, collection }, order) => {
     default:
     case 'FACTION':
       return (a, b) => {
-        if (a.faction > b.faction) return +1
-        if (a.faction < b.faction) return -1
+        if (getFactionFromDeckID(a.id) > getFactionFromDeckID(b.id)) return +1
+        if (getFactionFromDeckID(a.id) < getFactionFromDeckID(b.id)) return -1
 
         return 0
       }

@@ -2,6 +2,7 @@ import decks from '../../../data/decks'
 import arrayRandom from '../../../helpers/arrayRandom'
 import capitalise from '../../../helpers/capitalise'
 import getEmbed from '../../../helpers/getEmbed'
+import getFactionFromDeckID from '../../../helpers/getFactionFromDeckID'
 import serialisation from '../../../helpers/serialisation'
 import { parseMessage } from '../decks'
 import { CATEGORIES } from '../../../constants/decks'
@@ -34,7 +35,11 @@ export default {
       embed.setURL('https://stormbound-kitty.com/deck/' + deck.id)
       embed.addFields(
         { name: 'Author', value: deck.author, inline: true },
-        { name: 'Faction', value: capitalise(deck.faction), inline: true },
+        {
+          name: 'Faction',
+          value: capitalise(getFactionFromDeckID(deck.id)),
+          inline: true,
+        },
         { name: 'Category', value: CATEGORIES[deck.category], inline: true }
       )
 
@@ -42,7 +47,7 @@ export default {
     }
 
     const results = decks.filter(deck => {
-      if (params.faction && deck.faction !== params.faction) {
+      if (params.faction && getFactionFromDeckID(deck.id) !== params.faction) {
         return false
       }
 
@@ -75,7 +80,11 @@ export default {
       embed.setURL('https://stormbound-kitty.com/deck/' + deck.id)
       embed.addFields(
         { name: 'Author', value: deck.author, inline: true },
-        { name: 'Faction', value: capitalise(deck.faction), inline: true },
+        {
+          name: 'Faction',
+          value: capitalise(getFactionFromDeckID(deck.id)),
+          inline: true,
+        },
         { name: 'Category', value: CATEGORIES[deck.category], inline: true }
       )
 

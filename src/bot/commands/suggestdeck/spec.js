@@ -1,4 +1,5 @@
 import decks from '../../../data/decks'
+import getFactionFromDeckID from '../../../helpers/getFactionFromDeckID'
 import { CATEGORIES } from '../../../constants/decks'
 import command from './'
 const suggestdeck = command.handler.bind(command)
@@ -48,7 +49,7 @@ describe('Bot — !suggestdeck', () => {
     const deck = decks.find(deck => deck.id === id)
 
     expect(deck.category).to.equal('DIAMOND_1')
-    expect(deck.faction).to.equal('ironclad')
+    expect(getFactionFromDeckID(deck.id)).to.equal('ironclad')
   })
 
   it('should ignore unknown terms', () => {
