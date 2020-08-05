@@ -1057,5 +1057,37 @@
     "author": "Novattack",
     "category": "BRAWL",
     "brawl": "HERO_STRENGTH"
+  },
+  {
+    "name": "Dwarf Mana",
+    "id": "5n15n35n675n165w55w75w95w135n395w185w195w23",
+    "faction": "winter",
+    "author": "the_mirc",
+    "category": "BRAWL",
+    "brawl": "DWARF_MANA"
+  },
+  {
+    "name": "Winter Sprinters",
+    "id": "5n15n35n165w55w75n265n285w135n395w175w185w19",
+    "faction": "winter",
+    "author": "Kitty",
+    "category": "BRAWL",
+    "brawl": "DWARF_MANA"
+  },
+  {
+    "name": "Old Runners",
+    "id": "5n15w25n35n45n675n135w75w135n395w175w275w19",
+    "faction": "winter",
+    "author": "neon",
+    "category": "BRAWL",
+    "brawl": "DWARF_MANA"
+  },
+  {
+    "name": "Zoo Run",
+    "id": "5n15n35n45n95n145w75n265w135n395w175w185w19",
+    "faction": "winter",
+    "author": "SeveralPeople",
+    "category": "BRAWL",
+    "brawl": "DWARF_MANA"
   }
 ]
