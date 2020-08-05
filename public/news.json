@@ -1,5 +1,20 @@
 [
   {
+    "intro": "Chillbeards Guide",
+    "description": "Be sure to check the brand new Chillbeards guide by Dracqi.",
+    "link": "/guides/chillbeards"
+  },
+  {
+    "intro": "Income Calculator",
+    "description": "The income calculator now provides an option to convert rubies to Mythic Tomes, Heroic Tomes or Classic Tomes.",
+    "link": "/income-calculator"
+  },
+  {
+    "intro": "Collection Stats",
+    "description": "The collection stats now provides additional information to measure missing card copies per rarity.",
+    "link": "/collection/stats"
+  },
+  {
     "intro": "Brawl Guide",
     "description": "A brand new beginner’s guide on the Brawl has been released.",
     "link": "/guides/brawl"
