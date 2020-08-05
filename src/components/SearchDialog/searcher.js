@@ -59,6 +59,11 @@ guides.forEach(guide => {
 })
 
 SEARCH_INDEX.push({
+  path: `/sim`,
+  label: 'Battle Sim',
+  breadcrumbs: ['Battle Sim', 'Editor'],
+})
+SEARCH_INDEX.push({
   path: '/sim/puzzles',
   label: 'Puzzles',
   breadcrumbs: ['Battle Sim', 'Puzzles'],
