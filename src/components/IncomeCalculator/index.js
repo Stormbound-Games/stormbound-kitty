@@ -201,7 +201,7 @@ const getDailyIncome = ({
   return income
 }
 
-const getPeriodIncome = (income, period, rubiesToMythic) => {
+const getPeriodIncome = (income, period, rubiesConversion) => {
   const multiplier = getMultiplier(period)
 
   income.coins *= multiplier
@@ -209,7 +209,7 @@ const getPeriodIncome = (income, period, rubiesToMythic) => {
   income.stones *= multiplier
   income.cards = income.cards.map(prob => prob * multiplier)
 
-  if (rubiesToMythic) {
+  if (rubiesConversion === 'MYTHIC') {
     const books = Math.floor(income.rubies / 80)
     income.rubies -= books * 80
 
@@ -220,6 +220,21 @@ const getPeriodIncome = (income, period, rubiesToMythic) => {
       income.cards[2] += BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[2]
       income.cards[3] += BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[3]
     }
+  } else if (rubiesConversion === 'NOBLE') {
+    const books = Math.floor(income.rubies / 40)
+    income.rubies -= books * 40
+
+    for (let i = 0; i < books; i += 1) {
+      income.stones += getAverageStonesPerBook('NOBLE')
+      income.cards[0] += BOOKS.NOBLE.draws * BOOKS.NOBLE.percentiles[0]
+      income.cards[1] += BOOKS.NOBLE.draws * BOOKS.NOBLE.percentiles[1]
+      income.cards[2] += BOOKS.NOBLE.draws * BOOKS.NOBLE.percentiles[2]
+      income.cards[3] += BOOKS.NOBLE.draws * BOOKS.NOBLE.percentiles[3]
+    }
+  } else if (rubiesConversion === 'CARD_SHOP') {
+    const cards = Math.floor(income.rubies / 20)
+    income.rubies -= cards * 20
+    income.cards[2] += cards
   }
 
   return income
@@ -233,7 +248,7 @@ export default React.memo(function IncomeCalculator(props) {
   const [rank, setRank] = React.useState('')
   const [milestone, setMilestone] = React.useState('')
   const [brawlCost, setBrawlCost] = React.useState(0)
-  const [rubiesToMythic, setRubiesToMythic] = React.useState(false)
+  const [rubiesConversion, setRubiesConversion] = React.useState('NONE')
   const [preferTier3Stones, setPreferTier3Stones] = React.useState(false)
   const [withDailyHumble, setWithDailyHumble] = React.useState(false)
   const [withDailyQuests, setWithDailyQuests] = React.useState(false)
@@ -250,7 +265,7 @@ export default React.memo(function IncomeCalculator(props) {
       withDailyQuests,
     }),
     period,
-    rubiesToMythic
+    rubiesConversion
   )
   const maxWins =
     setup === 'STEAM_OR_WEB' ? 37 : setup === 'MOBILE_WITH_ADS' ? 19 : 74
@@ -396,6 +411,24 @@ export default React.memo(function IncomeCalculator(props) {
               />
             </Column>
           </Row>
+          <Row desktopOnly>
+            <Column>
+              <label htmlFor='rubies-conversion'>Convert rubies to</label>
+              <select
+                id='rubies-conversion'
+                name='rubies-conversion'
+                type='number'
+                value={rubiesConversion}
+                onChange={event => setRubiesConversion(event.target.value)}
+              >
+                <option value='NONE'>Nothing</option>
+                <option value='MYTHIC'>Mythic Tomes</option>
+                <option value='NOBLE'>Noble Tomes</option>
+                <option value='CARD_SHOP'>Card Shop Epics</option>
+              </select>
+            </Column>
+            <Column></Column>
+          </Row>
           <Checkbox
             id='with-daily-quests'
             name='with-daily-quests'
@@ -419,14 +452,6 @@ export default React.memo(function IncomeCalculator(props) {
             onChange={event => setWithDailyHumble(event.target.checked)}
           >
             Open daily Humble book
-          </Checkbox>
-          <Checkbox
-            id='rubies-to-mythic'
-            name='rubies-to-mythic'
-            checked={rubiesToMythic}
-            onChange={event => setRubiesToMythic(event.target.checked)}
-          >
-            Convert rubies into Mythic books
           </Checkbox>
         </Column>
         <Column width='1/3'>
