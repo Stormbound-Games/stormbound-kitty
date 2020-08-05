@@ -22,6 +22,7 @@ const COMPONENTS = {
   CARD_SHOP_GUIDE: load('GuideCardShop'),
   KNOWN_BUGS: load('GuideKnownBugs'),
   BRAWL_GUIDE: load('GuideBrawl'),
+  CHILLBEARDS_GUIDE: load('GuideChillbeards'),
 }
 
 export default function RouterGuides() {

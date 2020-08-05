@@ -167,5 +167,17 @@
     "background": "/assets/images/environment_ironclad.png",
     "readingTime": "5 minutes",
     "category": "IN_DEPTH"
+  },
+  {
+    "id": "CHILLBEARDS_GUIDE",
+    "name": "Chillbeards",
+    "authors": ["Dracqi"],
+    "excerpt": "In this short and straightforward guide, Dracqi goes through a series of tips to get the most out of Chillbeards, a rather under-appreciated yet powerful card.",
+    "slug": "chillbeards",
+    "faction": "winter",
+    "cardId": "W22",
+    "background": "/assets/images/environment_winter.png",
+    "readingTime": "5 minutes",
+    "category": "PLAYSTYLE"
   }
 ]
