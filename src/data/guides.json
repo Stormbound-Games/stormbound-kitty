@@ -179,5 +179,17 @@
     "background": "/assets/images/environment_winter.png",
     "readingTime": "5 minutes",
     "category": "PLAYSTYLE"
+  },
+  {
+    "id": "TERRIFIC_SLAYERS_GUIDE",
+    "name": "Terrific Slayers",
+    "authors": ["Dracqi"],
+    "excerpt": "In this short and straightforward guide, Dracqi goes through a series of tips to get the most out of Terrific Slayers, a rather under-appreciated yet powerful card.",
+    "slug": "terrific-slayers",
+    "faction": "neutral",
+    "cardId": "N27",
+    "background": "/assets/images/environment_neutral.png",
+    "readingTime": "5 minutes",
+    "category": "PLAYSTYLE"
   }
 ]

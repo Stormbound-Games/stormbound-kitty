@@ -23,6 +23,7 @@ const COMPONENTS = {
   KNOWN_BUGS: load('GuideKnownBugs'),
   BRAWL_GUIDE: load('GuideBrawl'),
   CHILLBEARDS_GUIDE: load('GuideChillbeards'),
+  TERRIFIC_SLAYERS_GUIDE: load('GuideTerrificSlayers'),
 }
 
 export default function RouterGuides() {
