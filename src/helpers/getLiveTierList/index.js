@@ -1,6 +1,7 @@
 import cards from '../../data/cards'
 import decks from '../../data/decks'
 import serialisation from '../serialisation'
+import getFactionFromDeckID from '../getFactionFromDeckID'
 import { getLongFaction } from '../encoding'
 
 const getLiveTierList = () => {
@@ -30,14 +31,14 @@ const getLiveTierList = () => {
 
   // Go through each deck, and for each one increment the amount of decks of
   // this faction by 1 and go through the cards and mark them as found
-  decks.forEach(({ id, faction, category }) => {
+  decks.forEach(({ id, category }) => {
     // Do not take Brawl and Tournament decks into account as they would be
     // incorrectly skewing the popularity of cards
     if (category === 'BRAWL' || category === 'TOURNAMENT') return
 
     const deck = serialisation.deck.deserialise(id)
 
-    COUNTS[faction]++
+    COUNTS[getFactionFromDeckID(id)]++
     COUNTS.neutral++
 
     deck.forEach(card => {
