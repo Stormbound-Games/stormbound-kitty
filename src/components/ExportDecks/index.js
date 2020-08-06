@@ -4,6 +4,7 @@ import Only from '../Only'
 import { NotificationContext } from '../NotificationProvider'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import download from '../../helpers/download'
+import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
 
 export default React.memo(function ExportDecks(props) {
   const { decks } = React.useContext(PersonalDecksContext)
@@ -18,7 +19,12 @@ export default React.memo(function ExportDecks(props) {
     const headers = ['id', 'name', 'faction', 'category']
     const data = [
       headers,
-      ...decks.map(deck => [deck.id, deck.name, deck.faction, deck.category]),
+      ...decks.map(deck => [
+        deck.id,
+        deck.name,
+        getFactionFromDeckID(deck.id),
+        deck.category,
+      ]),
     ].join('\n')
 
     return data

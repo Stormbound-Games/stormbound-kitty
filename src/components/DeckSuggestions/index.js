@@ -19,6 +19,7 @@ import Title from '../Title'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import sortDeckSuggestions from '../../helpers/sortDeckSuggestions'
 import getDeckSearchDescription from '../../helpers/getDeckSearchDescription'
+import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
 import serialisation from '../../helpers/serialisation'
 import './index.css'
 
@@ -117,7 +118,8 @@ class DeckSuggestions extends React.Component {
       .replace('’', "'")
       .includes(this.state.name.toLowerCase())
   matchesFaction = deck =>
-    this.state.faction === '*' || deck.faction === this.state.faction
+    this.state.faction === '*' ||
+    getFactionFromDeckID(deck.id) === this.state.faction
   matchesCategory = deck =>
     this.state.category === '*' || deck.category === this.state.category
   matchesAuthor = deck =>

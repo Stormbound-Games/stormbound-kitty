@@ -8,14 +8,6 @@ export const PersonalDecksContext = React.createContext([])
 const STORAGE_KEY = 'sk.personal_decks'
 const ensureUUID = deck => (deck.uuid ? deck : { ...deck, uuid: uuid() })
 
-const getFactionFromId = id => {
-  if (id.includes('i')) return 'ironclad'
-  if (id.includes('s')) return 'swarm'
-  if (id.includes('f')) return 'shadowfen'
-  if (id.includes('w')) return 'winter'
-  return 'neutral'
-}
-
 const getCategoryFromId = id => {
   const cards = serialisation.deck.deserialise(id)
   const average =
@@ -85,7 +77,6 @@ export default function PersonalDecksProvider(props) {
         uuid: deck.uuid || uuid(),
         id: deck.id,
         name: deck.name || 'Unnamed deck',
-        faction: deck.faction || getFactionFromId(deck.id),
         category: deck.category || getCategoryFromId(deck.id),
       },
     ])
@@ -101,7 +92,6 @@ export default function PersonalDecksProvider(props) {
           ? {
               uuid: deck.uuid,
               id: updatedDeck.id || deck.id,
-              faction: getFactionFromId(updatedDeck.id || deck.id),
               name: updatedDeck.name || deck.name,
               category: updatedDeck.category || deck.category,
             }

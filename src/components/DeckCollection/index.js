@@ -12,20 +12,13 @@ import Title from '../Title'
 import YourDecks from '../YourDecks'
 import YourDecksFilters from '../YourDecksFilters'
 import getDeckIDFromURL from '../../helpers/getDeckIDFromURL'
+import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
 import './index.css'
-
-const getFactionFromId = id => {
-  if (id.includes('i')) return 'ironclad'
-  if (id.includes('s')) return 'swarm'
-  if (id.includes('f')) return 'shadowfen'
-  if (id.includes('w')) return 'winter'
-  return 'neutral'
-}
 
 const getDeckFromForm = form => {
   const formData = serialize(form, { hash: true })
   formData.id = getDeckIDFromURL(formData.id)
-  formData.faction = getFactionFromId(formData.id)
+  formData.faction = getFactionFromDeckID(formData.id)
   return formData
 }
 
@@ -48,7 +41,10 @@ export default React.memo(function DeckCollection(props) {
         !deck.name.toLowerCase().includes(filters.name.toLowerCase())
       )
         return false
-      if (filters.faction !== '*' && deck.faction !== filters.faction)
+      if (
+        filters.faction !== '*' &&
+        getFactionFromDeckID(deck.id) !== filters.faction
+      )
         return false
       if (
         filters.category !== '*' &&
@@ -63,8 +59,8 @@ export default React.memo(function DeckCollection(props) {
     .slice(0)
     .sort((a, b) => {
       if (filters.order === 'FACTION') {
-        if (a.faction > b.faction) return +1
-        if (a.faction < b.faction) return -1
+        if (getFactionFromDeckID(a.id) > getFactionFromDeckID(b.id)) return +1
+        if (getFactionFromDeckID(a.id) < getFactionFromDeckID(b.id)) return -1
       } else if (filters.order === 'CATEGORY') {
         if (a.category > b.category) return +1
         if (a.category < b.category) return -1
