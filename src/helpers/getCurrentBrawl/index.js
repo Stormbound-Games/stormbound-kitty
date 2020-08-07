@@ -6,7 +6,9 @@ function weeksBetween(d1, d2) {
 
 const getCurrentBrawl = () => {
   const weeks = weeksBetween(CYCLE_START, Date.now())
-  return BRAWLS.slice(weeks, weeks !== -1 ? weeks + 1 : undefined)[0]
+  const index = weeks % BRAWLS.length
+
+  return BRAWLS[index] || BRAWLS[0]
 }
 
 export default getCurrentBrawl
