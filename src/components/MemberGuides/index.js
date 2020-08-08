@@ -21,7 +21,7 @@ export default React.memo(function MemberGuides(props) {
             copy={guide.excerpt}
             cta={{
               'aria-label': `Read ${guide.name} by ${authors}`,
-              to: guide.link,
+              to: '/guides/' + guide.slug,
               children: 'Read guide',
             }}
             image={'/assets/images/cards/' + getRawCardData(guide.cardId).image}
