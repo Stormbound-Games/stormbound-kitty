@@ -5,11 +5,21 @@ import Info from '../Info'
 import ResourceIcon from '../ResourceIcon'
 import { Coins, Stones } from '../Resource'
 import Title from '../Title'
+import { RARITY_COPIES } from '../../constants/game'
 import guides from '../../data/guides'
 import cards from '../../data/cards'
 import './index.css'
 
 const guide = guides.find(g => g.id === 'RESOURCES_GUIDE')
+const THOUSANDS = /\B(?=(\d{3})+(?!\d))/g
+
+const countCopiesForRarity = rarity =>
+  (
+    cards.filter(card => card.rarity === rarity).length *
+    RARITY_COPIES[rarity].copies.reduce((a, b) => a + b, 1)
+  )
+    .toString()
+    .replace(THOUSANDS, ',')
 
 export default React.memo(function GuideResources(props) {
   return (
@@ -315,10 +325,10 @@ export default React.memo(function GuideResources(props) {
         following. The amount of cards needed for each rarity tier is:
       </p>
       <ul>
-        <li>Common: 3,300 cards</li>
-        <li>Rare: 2,501 cards</li>
-        <li>Epic: 1,230 cards</li>
-        <li>Legendary: 441 cards</li>
+        <li>Common: {countCopiesForRarity('common')} copies</li>
+        <li>Rare: {countCopiesForRarity('rare')} copies</li>
+        <li>Epic: {countCopiesForRarity('epic')} copies</li>
+        <li>Legendary: {countCopiesForRarity('legendary')} copies</li>
       </ul>
 
       <p>
@@ -345,7 +355,7 @@ export default React.memo(function GuideResources(props) {
         you to buy Heroic Tomes rather than Mythic Tomes (since the way the
         cards are distributed and generally rewarded makes the rare cards the
         hardest to complete). You might find preferring{' '}
-        <ResourceIcon resource='STONE' /> fusion stones missions better than the
+        <ResourceIcon resource='STONE' /> fusion stones missions better than the{' '}
         <ResourceIcon resource='COIN' /> coins missions if you’ve saved up
         enough and looking for final copies.
       </p>
