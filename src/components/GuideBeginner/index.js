@@ -266,7 +266,7 @@ export default React.memo(function GuideBeginner(props) {
         Pact-exclusive mechanic, the card gives its owner a certain amount of
         mana when a condition is met. For <WikiLink id='W12' />, the card is
         played and then the player is given back 3 of the 5 mana. This does not
-        mean the card costs 2 mana as it cannot be played until mana 5.
+        mean the card costs 2 mana as it cannot be played until mana 5.{' '}
         <WikiLink id='W16' /> can be made to attack on an enemy turn (see Force
         Attack below), and when this happens, the mana is given to the owner of
         the card during the enemy’s turn, and is able to be used by the owner
@@ -274,7 +274,7 @@ export default React.memo(function GuideBeginner(props) {
       </p>
 
       <p>
-        <strong className='Highlight'>Commanding forward</strong>: Cards like
+        <strong className='Highlight'>Commanding forward</strong>: Cards like{' '}
         <WikiLink id='S20' /> and <WikiLink id='S6' /> can make friendly units
         move during your turn when they (the commanding cards, not the targets)
         are played.
@@ -292,9 +292,8 @@ export default React.memo(function GuideBeginner(props) {
 
       <p>
         <strong className='Highlight'>Fly forward</strong>:{' '}
-        <WikiLink id='I17' />
-        and <WikiLink id='S19' />, can pass over friendly and enemy units and
-        structures depending on where they’re played.
+        <WikiLink id='I17' /> and <WikiLink id='S19' />, can pass over friendly
+        and enemy units and structures depending on where they’re played.
       </p>
 
       <p>
@@ -311,15 +310,14 @@ export default React.memo(function GuideBeginner(props) {
 
       <p>
         <strong className='Highlight'>Force attack</strong>:{' '}
-        <WikiLink id='N63' />
-        and <WikiLink id='N61' /> force a target unit to attack a random
-        bordering enemy, which can be behind them (and therefore can be the
-        enemy base). <WikiLink id='N69' /> has a similar ability. This triggers
-        any “on attack” abilities the target unit may have.
+        <WikiLink id='N63' /> and <WikiLink id='N61' /> force a target unit to
+        attack a random bordering enemy, which can be behind them (and therefore
+        can be the enemy base). <WikiLink id='N69' /> has a similar ability.
+        This triggers any “on attack” abilities the target unit may have.
       </p>
       <p>
         <strong className='Highlight'>Area of Effect (AoE) damage</strong>:
-        mostly applies to spells like <WikiLink id='I18' />,{' '}
+        Mostly applies to spells like <WikiLink id='I18' />,{' '}
         <WikiLink id='F4' />, <WikiLink id='W11' />, and some units like{' '}
         <WikiLink id='N47' /> and <WikiLink id='F5' />. Damage is done to all
         units at once, so if all the affected units die, certain on-death
@@ -406,7 +404,7 @@ export default React.memo(function GuideBeginner(props) {
       <p>
         If <WikiLink id='F12' /> has no enemies available to jump in front of
         after attacking (or if she is already in front of the only remaining
-        enemy), she will still gain strength after attacking.
+        enemy), he will still gain strength after attacking.
       </p>
 
       <p>
@@ -416,10 +414,10 @@ export default React.memo(function GuideBeginner(props) {
       </p>
 
       <p>
-        Beasts of Terror deals damage to all other enemies with the same unit
-        type when attacking, not including the one it’s attacking. The ability
-        will also trigger when it attacks a friendly unit (through confusion, a
-        feline enemy, or <WikiLink id='N63' />
+        <WikiLink id='N18' /> deals damage to all other enemies with the same
+        unit type when attacking, not including the one it’s attacking. The
+        ability will also trigger when it attacks a friendly unit (through
+        confusion, a feline enemy, or <WikiLink id='N63' />
         ), but the ability will only affect enemies. Similarly,{' '}
         <WikiLink id='N47' /> will damage all friendly units surrounding it
         before attacking a friendly unit.
