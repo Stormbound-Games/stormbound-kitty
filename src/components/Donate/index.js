@@ -11,12 +11,12 @@ const DONATORS = [
   'Hadid',
   'Kepp',
   'MisterMonocle',
-  'Nobody',
   'Oeni',
   'OneCurtis',
   'Shades',
   'Roman_NFP',
   'SHTE',
+  'Stratadox',
   'Sven',
   'the_mirc',
 ].map(donator => ' ⭐️ ' + donator)
