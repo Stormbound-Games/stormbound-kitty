@@ -244,6 +244,7 @@ export const WEEKLY_CARD_CONTEST = [
 export const COMMON_ABBREVIATIONS = {
   AoE: 'Area of Effect',
   ATE: 'Attack Trigger Effect',
+  BS: 'Bladestorm',
   BH: 'Base Health',
   DTE: 'Death Trigger Effect',
   FL: 'Fortress Level',
