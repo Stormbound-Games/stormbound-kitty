@@ -2,6 +2,7 @@ import React from 'react'
 import Column from '../Column'
 import Guide from '../Guide'
 import Info from '../Info'
+import Only from '../Only'
 import Row from '../Row'
 import Title from '../Title'
 import { Stones, Coins, Rubies } from '../Resource'
@@ -56,6 +57,9 @@ export default React.memo(function GuideKnownBugs(props) {
         </li>
         <li>
           <a href='#glitchy-friend-list'>Glitchy friend list</a>
+        </li>
+        <li>
+          <a href='#tegor-ever-lasting-skull'>Tegor’s ever-lasting skull</a>
         </li>
       </ul>
 
@@ -321,6 +325,40 @@ export default React.memo(function GuideKnownBugs(props) {
               enough to restore the proper display.
             </p>
           </div>
+        </Column>
+      </Row>
+
+      <Title id='tegor-ever-lasting-skull'>Tegor’s ever-lasting skull</Title>
+      <Row wideGutter desktopOnly>
+        <Column>
+          <div>
+            <h3>Problem</h3>
+            <p>
+              It may happen that there is an “on-death” floating skull at the
+              bottom left corner of the board. Attempting to{' '}
+              <Only.Desktop>click</Only.Desktop>
+              <Only.Mobile>tap</Only.Mobile> the skull will pop-up the Tegor
+              card.
+            </p>
+            <p>
+              Interestingly enough, the skull appears precisely at coordinates
+              [-1, -1] of the grid. This might be because of the C#{' '}
+              <code>indexOf</code> method returning -1 when an entry is not
+              found in an array.
+            </p>
+
+            <h3>Workaround</h3>
+            <p>
+              The bug being very minor and generally inoffensive, there is no
+              workaround.
+            </p>
+          </div>
+        </Column>
+        <Column>
+          <img
+            src='/assets/images/tegor_ever_lasting_skull.png'
+            alt='Tegor’s on-death skull floating at the bottom left of the board'
+          />
         </Column>
       </Row>
     </Guide>
