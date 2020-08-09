@@ -23,13 +23,19 @@ export default (casing = 'NATURAL') => {
     })
 
   for (const abbreviation in COMMON_ABBREVIATIONS) {
-    const key = casing === 'NATURAL' ? abbreviation : abbreviation.toLowerCase()
+    const value = COMMON_ABBREVIATIONS[abbreviation]
+    const terms = Array.isArray(value) ? value : [value]
 
-    if (typeof abbreviations[key] === 'undefined') {
-      abbreviations[key] = []
-    }
+    terms.forEach(term => {
+      const key =
+        casing === 'NATURAL' ? abbreviation : abbreviation.toLowerCase()
 
-    abbreviations[key].push(COMMON_ABBREVIATIONS[abbreviation])
+      if (typeof abbreviations[key] === 'undefined') {
+        abbreviations[key] = []
+      }
+
+      abbreviations[key].push(term)
+    })
   }
 
   return abbreviations
