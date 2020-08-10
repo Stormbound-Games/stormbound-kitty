@@ -171,5 +171,14 @@
     "author": "FierySalient",
     "board": "OFMxOFI0LDJTMlIzLDZTM1I0LCwsMlMxNFI0LCwsMkYyQjQsMTJTMTNSNCwsLCwyUzJCMyw4TjQ5UjQsLDE0UzlSNCwsNE4zUjQsO1I3Uy1CMUY7MTZNMDs0RjE0NE4zMDROMzc0TjEwO04xMCxGMTQsTjM3LE4zMA==",
     "image": "/assets/images/puzzles/impending_doom.png"
+  },
+  {
+    "name": "Obnoxious Vindicators",
+    "type": "LETHAL",
+    "difficulty": 3,
+    "restrictions": [],
+    "author": "Mathematica",
+    "board": "LCwsM04zNFI1LCwsLCwsNVQxUjEsLCwsLDJJMjBSNSw1STZSNSw1TjNSNSw2STE2UjUsLDtSNUktQjVJOzE0TTA7NVMyMjVOMTM1UzE4NU45O1MyMixOMTMsUzE4LE45",
+    "image": "/assets/images/puzzles/obnoxious_vindicators.png"
   }
 ]
