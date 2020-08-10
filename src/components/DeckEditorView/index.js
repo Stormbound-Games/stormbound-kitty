@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useRouteMatch } from 'react-router-dom'
+import { Link, useRouteMatch, useHistory } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import { CollectionContext } from '../CollectionProvider'
 import { NotificationContext } from '../NotificationProvider'
@@ -32,39 +32,50 @@ import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
 
 class DeckEditorView extends React.Component {
-  state = { cardLevel: 1, cardTooltips: false }
+  state = {
+    cardLevel: 1,
+    cardTooltips: false,
+    adjustCardLevels: false,
+    // The `originalDeckId` contains the deck ID as loaded from the URL before
+    // it gets adjusted to the collection card levels when the user checks the
+    // associated checkbox: this is necessary to be able to restore the original
+    // deck when the user unchecks said checkbox.
+    originalDeckId: null,
+  }
 
   componentDidMount() {
     document.addEventListener('keydown', this.captureKeyboardEvents)
-
-    if (this.props.deckId) {
-      const matchedDeck = isSuggestedDeck(this.props.deck)
-
-      if (
-        !this.props.hasDefaultCollection &&
-        (!matchedDeck || matchedDeck.category !== 'EQUALS')
-      ) {
-        this.adjustDeckToCollection(this.props.collection)
-      }
-    }
   }
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.captureKeyboardEvents)
   }
 
-  adjustDeckToCollection(collection) {
-    this.props.deck.forEach(cardInDeck => {
-      const cardInCollection = collection.find(
-        cardInCollection => cardInCollection.id === cardInDeck.id
+  componentDidUpdate(prevProps, prevState) {
+    if (!prevState.adjustCardLevels && this.state.adjustCardLevels) {
+      this.setState({ originalDeckId: this.props.deckId }, () =>
+        this.props.history.push('/deck/' + this.getAdjustedDeckId())
       )
+    } else if (
+      prevState.adjustCardLevels &&
+      !this.state.adjustCardLevels &&
+      this.state.originalDeckId
+    ) {
+      this.props.history.push('/deck/' + this.state.originalDeckId)
+    }
+  }
 
-      if (cardInCollection.missing) {
-        this.props.removeCardFromDeck({ id: cardInDeck.id })
-      } else if (cardInCollection.level !== cardInDeck.level) {
-        this.addCardToDeck(cardInDeck.id)
-      }
-    })
+  getAdjustedDeckId = (collection = this.props.collection) => {
+    if (this.props.hasDefaultCollection) return this.props.deckId
+
+    const resolveCard = ({ id }) => {
+      const { level, missing } = collection.find(card => card.id === id)
+      return missing ? null : { id, level }
+    }
+
+    return serialisation.deck.serialise(
+      this.props.deck.map(resolveCard).filter(Boolean)
+    )
   }
 
   captureKeyboardEvents = event => {
@@ -98,7 +109,9 @@ class DeckEditorView extends React.Component {
   onCollectionImport = collection => {
     if (!collection) return
 
-    this.adjustDeckToCollection(collection)
+    if (this.state.adjustCardLevels) {
+      this.props.history.push('/deck/' + this.getAdjustedDeckId(collection))
+    }
   }
 
   render() {
@@ -115,6 +128,7 @@ class DeckEditorView extends React.Component {
       matchedDeck && matchedDeck.brawl
         ? modifyDeck(this.props.deck, matchedDeck.brawl)
         : this.props.deck
+    const adjustedDeckId = this.getAdjustedDeckId()
 
     return (
       <>
@@ -158,18 +172,36 @@ class DeckEditorView extends React.Component {
             />
 
             <Only.Desktop>
-              <Checkbox
-                className='DeckEditorView__checkbox'
-                onChange={event =>
-                  this.setState({ cardTooltips: event.target.checked })
-                }
-                name='card-tooltips'
-                id='card-tooltips'
-                checked={this.state.cardTooltips}
-              >
-                Enable card tooltips on hover
-              </Checkbox>
+              {this.props.deckId && (
+                <Checkbox
+                  className='DeckEditorView__checkbox'
+                  onChange={event =>
+                    this.setState({ cardTooltips: event.target.checked })
+                  }
+                  name='card-tooltips'
+                  id='card-tooltips'
+                  checked={this.state.cardTooltips}
+                >
+                  Enable card tooltips on hover
+                </Checkbox>
+              )}
             </Only.Desktop>
+            <Only.CustomCollection>
+              {(this.props.deckId !== adjustedDeckId ||
+                this.state.adjustCardLevels) && (
+                <Checkbox
+                  className='DeckEditorView__checkbox'
+                  onChange={event =>
+                    this.setState({ adjustCardLevels: event.target.checked })
+                  }
+                  name='adjust-card-levels'
+                  id='adjust-card-levels'
+                  checked={this.state.adjustCardLevels}
+                >
+                  Adjust card levels to collection
+                </Checkbox>
+              )}
+            </Only.CustomCollection>
 
             {deck.length > 0 ? (
               <div className='DeckEditorView__actions'>
@@ -284,4 +316,5 @@ export default hookIntoProps(() => ({
   ...React.useContext(NotificationContext),
   viewportWidth: useViewportWidth(),
   deckId: useRouteMatch().params.deckId,
+  history: useHistory(),
 }))(props => <DeckEditorView {...props} />)
