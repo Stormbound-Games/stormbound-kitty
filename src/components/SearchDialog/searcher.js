@@ -13,7 +13,9 @@ const MEMBERS = [
   ...new Set([
     ...puzzles.map(puzzle => puzzle.author),
     ...decks.map(deck => deck.author),
-    ...WEEKLY_CARD_CONTEST.filter(contest => contest.winner.author),
+    ...WEEKLY_CARD_CONTEST.filter(
+      contest => contest.winner && contest.winner.author
+    ),
     ...guides.reduce((authors, guide) => authors.concat(guide.authors), []),
   ]),
 ]

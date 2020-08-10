@@ -44,7 +44,7 @@ cards.forEach(card => {
 guides.forEach(guide => {
   links.push('/guides/' + guide.slug)
 })
-WEEKLY_CARD_CONTEST.forEach(contest => {
+WEEKLY_CARD_CONTEST.filter(contest => !!contest.winner).forEach(contest => {
   links.push('/card/' + contest.winner.id + '/display')
 })
 stories.forEach(story => {

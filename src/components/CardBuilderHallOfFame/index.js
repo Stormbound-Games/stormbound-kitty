@@ -10,8 +10,9 @@ export default React.memo(function CardBuilderHallOfFame(props) {
   const weeks = WEEKLY_CARD_CONTEST.filter(
     contest => !!contest.winner
   ).reverse()
+
   return (
-    <div className='CardBuilderHallOfFame'>
+    <>
       <Title>Hall of Fame</Title>
 
       {chunk(weeks, 3).map((row, index) => (
@@ -45,6 +46,6 @@ export default React.memo(function CardBuilderHallOfFame(props) {
           </Column>
         </Row>
       ))}
-    </div>
+    </>
   )
 })

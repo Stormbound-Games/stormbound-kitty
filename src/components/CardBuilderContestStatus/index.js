@@ -16,23 +16,13 @@ const DATE_TIME_OPTIONS = {
   minute: 'numeric',
 }
 
-const IS_CONTEST_RUNNING = false
-
 export default React.memo(function CardBuilderContestStatus(props) {
   const calendarWeek = getCalendarWeek()
   const contest = WEEKLY_CARD_CONTEST.find(
-    contest => contest.week === calendarWeek
+    contest => !contest.archived && contest.week === calendarWeek
   )
   const weekDay = new Date().getDay()
   const isWeekEnd = weekDay === 7 || weekDay === 0
-
-  if (!IS_CONTEST_RUNNING) {
-    return (
-      <p className='CardBuilderContestStatus'>
-        The Weekly Card Contest is no longer running.
-      </p>
-    )
-  }
 
   // If Saturday, Sunday, or Monday before the new contest is announced, display
   // a message to ask the visitor to come back later
@@ -40,7 +30,7 @@ export default React.memo(function CardBuilderContestStatus(props) {
     return (
       <p className='CardBuilderContestStatus'>
         This week’s contest is now over. Come back on{' '}
-        {getNextWeekDay('MONDAY').toLocaleDateString('en', DATE_OPTIONS)} to
+        {getNextWeekDay('SUNDAY').toLocaleDateString('en', DATE_OPTIONS)} to
         know who won and to discover next week’s contest!
       </p>
     )

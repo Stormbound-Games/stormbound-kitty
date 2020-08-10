@@ -73,12 +73,6 @@ export default React.memo(function CardContestEntry(props) {
               >
                 {cardData.name}
               </Link>
-              <span className='CardContestEntry__winner'>
-                by{' '}
-                <Link to={`/member/${props.winner.author}`}>
-                  {props.winner.author}
-                </Link>
-              </span>
             </div>
           </Column>
         </Row>

@@ -1,5 +1,6 @@
 export const WEEKLY_CARD_CONTEST = [
   {
+    archived: true,
     week: 15,
     name: 'Strength in Numbers',
     winner: {
@@ -9,6 +10,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 16,
     name: 'Card Control',
     winner: {
@@ -18,6 +20,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 17,
     name: 'Duo',
     description:
@@ -31,6 +34,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 18,
     name: 'Shadowfen',
     winner: {
@@ -40,6 +44,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 19,
     name: 'Yourself',
     winner: {
@@ -49,6 +54,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 20,
     name: 'Tit for Tat',
     winner: {
@@ -58,6 +64,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 21,
     name: 'Crossover',
     description:
@@ -69,6 +76,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 22,
     name: 'Magicality',
     description: 'No spells, but spell-related in some way.',
@@ -79,6 +87,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 23,
     name: 'Heavy Hitters',
     description:
@@ -90,6 +99,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 24,
     name: 'Theme Throwback',
     description:
@@ -101,6 +111,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 25,
     name: 'Death and Decay',
     winner: {
@@ -110,6 +121,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 26,
     name: 'Felines',
     winner: {
@@ -119,6 +131,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 27,
     name: 'Knights vs Pirates',
     description:
@@ -130,6 +143,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 28,
     name: 'Finishing Blow',
     winner: {
@@ -139,6 +153,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 29,
     name: 'Speciality',
     description:
@@ -150,6 +165,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 30,
     name: 'Speed',
     winner: {
@@ -159,6 +175,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 31,
     name: 'Love/Hate',
     description:
@@ -172,6 +189,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 32,
     name: 'A Hero’s Tool',
     description:
@@ -183,6 +201,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 35,
     name: 'Special Condition',
     description:
@@ -195,6 +214,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 36,
     name: 'Ambassador',
     description:
@@ -206,6 +226,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 37,
     name: 'Structure Focus',
     description:
@@ -217,6 +238,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 39,
     name: 'Wipeout',
     description:
@@ -228,6 +250,7 @@ export const WEEKLY_CARD_CONTEST = [
     },
   },
   {
+    archived: true,
     week: 40,
     name: 'Resourceful',
     description:
@@ -238,6 +261,12 @@ export const WEEKLY_CARD_CONTEST = [
         'Rjs7UztFOzY7OzQvNS82LzcvODtDYXRhY2x5c21pYyUyMFNocmluZTtGMTM7QXQlMjB0aGUlMjBzdGFydCUyMG9mJTIweW91ciUyMHR1cm4lMkMlMjAqZGVzdHJveSolMjBldmVyeXRoaW5nJTIwYm9yZGVyaW5nJTIweW91ciUyMGJhc2UlMjAqd2l0aCUyMDclMkY4JTJGMTAlMkYxMiUyRjE1JTIwb3IlMjBsZXNzJTIwc3RyZW5ndGgqOzs=',
       author: '22cires',
     },
+  },
+  {
+    week: 33,
+    name: 'Hunt',
+    description: '',
+    submitURL: 'https://forms.gle/oHWRj45WoJc2q8ps5',
   },
 ]
 

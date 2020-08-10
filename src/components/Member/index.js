@@ -42,7 +42,7 @@ export default React.memo(function Member(props) {
   const userVictories = React.useMemo(
     () =>
       WEEKLY_CARD_CONTEST.filter(
-        contest => contest.winner.author.toLowerCase() === id
+        contest => contest.winner && contest.winner.author.toLowerCase() === id
       ),
     [id]
   )
