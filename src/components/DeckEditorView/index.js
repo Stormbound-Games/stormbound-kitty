@@ -32,15 +32,23 @@ import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
 
 class DeckEditorView extends React.Component {
-  state = {
-    cardLevel: 1,
-    cardTooltips: false,
-    adjustCardLevels: false,
-    // The `originalDeckId` contains the deck ID as loaded from the URL before
-    // it gets adjusted to the collection card levels when the user checks the
-    // associated checkbox: this is necessary to be able to restore the original
-    // deck when the user unchecks said checkbox.
-    originalDeckId: null,
+  constructor(props) {
+    super(props)
+    this.state = {
+      // `cardLevel` is set to `0` when the user has a custom collection loaded
+      // and expects the card levels to be the ones of the collection. This is
+      // done to always have a number (0 for custom levels, 1 to 5 for static
+      // levels). Note that this is for the card gallery, and not the cards of
+      // the deck itself.
+      cardLevel: props.hasDefaultCollection ? 1 : 0,
+      cardTooltips: false,
+      adjustCardLevels: false,
+      // The `originalDeckId` contains the deck ID as loaded from the URL before
+      // it gets adjusted to the collection card levels when the user checks the
+      // associated checkbox: this is necessary to be able to restore the
+      // original deck when the user unchecks said checkbox.
+      originalDeckId: null,
+    }
   }
 
   componentDidMount() {
@@ -86,6 +94,8 @@ class DeckEditorView extends React.Component {
     if (keys.includes(key) || padKeys.includes(key)) {
       const level = Math.max(keys.indexOf(key), padKeys.indexOf(key))
       this.setCardLevel(level + 1)
+    } else if ([48, 96].includes(key) && !this.props.hasDefaultCollection) {
+      this.setCardLevel(0)
     }
   }
 
@@ -95,10 +105,10 @@ class DeckEditorView extends React.Component {
     if (this.isCardMissing(id)) {
       return
     }
-
-    const level = !this.props.hasDefaultCollection
-      ? this.props.collection.find(card => card.id === id).level
-      : this.state.cardLevel
+    const level =
+      this.state.cardLevel === 0 && !this.props.hasDefaultCollection
+        ? this.props.collection.find(card => card.id === id).level
+        : +this.state.cardLevel
 
     this.props.addCardToDeck({ id, level })
   }
@@ -109,7 +119,13 @@ class DeckEditorView extends React.Component {
   onCollectionImport = collection => {
     if (!collection) return
 
-    if (this.state.adjustCardLevels) {
+    // When importing a custom collection, set the card levels in the gallery to
+    // the ones from the collection.
+    this.setCardLevel(0)
+
+    // If the ongoing deck should be adjusted to the collection, loading the
+    // collection should reflect that.
+    if (this.props.deckId && this.state.adjustCardLevels) {
       this.props.history.push('/deck/' + this.getAdjustedDeckId(collection))
     }
   }
@@ -119,9 +135,10 @@ class DeckEditorView extends React.Component {
     const cardCollection = this.props.collection.map(card =>
       getResolvedCardData({
         ...card,
-        level: !this.props.hasDefaultCollection
-          ? card.level
-          : this.state.cardLevel,
+        level:
+          this.state.cardLevel === 0 && !this.props.hasDefaultCollection
+            ? card.level
+            : this.state.cardLevel,
       })
     )
     const deck =
@@ -284,12 +301,10 @@ class DeckEditorView extends React.Component {
                         }
                         isCardMissing={this.isCardMissing}
                         navChildren={
-                          <Only.DefaultCollection>
-                            <CardLevelField
-                              cardLevel={this.state.cardLevel}
-                              setCardLevel={this.setCardLevel}
-                            />
-                          </Only.DefaultCollection>
+                          <CardLevelField
+                            cardLevel={this.state.cardLevel}
+                            setCardLevel={this.setCardLevel}
+                          />
                         }
                       />
                     ) : (
