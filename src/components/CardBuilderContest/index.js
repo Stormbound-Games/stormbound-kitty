@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Article from '../Article'
 import ContestStatus from '../CardBuilderContestStatus'
 import HallOfFame from '../CardBuilderHallOfFame'
+import { Rubies } from '../Resource'
 import PageMeta from '../PageMeta'
 import Title from '../Title'
 import './index.css'
@@ -50,8 +51,12 @@ export default React.memo(function CardBuilderContest(props) {
           The following day, the judges will decide on the top 3 cards. After
           the top cards of the week are decided, a community vote will open up
           to decide the ultimate winner. Community voting will begin on Sunday
-          when the next week’s theme is announced and lasts for 24 hours. The
-          winner will be announced on Monday.
+          when the next week’s theme is announced and lasts for 24 hours.
+        </p>
+        <p>
+          The winner will be announced on Monday and will win{' '}
+          <Rubies amount={20} />! The other two persons having made the top 3
+          will get <Rubies amount={5} /> each.
         </p>
 
         <Title className='CardBuilderContest__title'>Rules</Title>
