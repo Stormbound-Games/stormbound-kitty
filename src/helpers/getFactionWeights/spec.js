@@ -30,14 +30,10 @@ describe('The `getFactionWeights` helper', () => {
     }
     const result = getFactionWeights(modifier)
 
-    cy.visit(`/deck/${RANDOM_DECK}/dry-run`)
-      .drReset({ modifier })
-      .then(() =>
-        Object.keys(expectedResults).forEach(faction =>
-          expect(
-            result.find(factionData => factionData.id === faction).weight
-          ).to.equal(expectedResults[faction])
-        )
-      )
+    Object.keys(expectedResults).forEach(faction =>
+      expect(
+        result.find(factionData => factionData.id === faction).weight
+      ).to.equal(expectedResults[faction])
+    )
   })
 })
