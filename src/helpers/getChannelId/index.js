@@ -3,7 +3,7 @@ export const KITTY_SERVER = '714858253531742208'
 const getChannelId = (message, command) => {
   const isTriviaCommand = command.command === 'trivia'
   const isTriviaChannel = message.channel.name === 'trivia'
-  const isLocalBot = process.env.NODE_ENV === 'development'
+  const isLocalBot = process.env.NODE_ENV !== 'production'
   const isTest = message.channel.guild.id === KITTY_SERVER
   const channels = message.guild.channels.cache
   const triviaChannel = channels.find(channel => channel.name === 'trivia')
