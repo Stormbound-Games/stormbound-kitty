@@ -25,15 +25,15 @@ describe('Deck Builder — Levels', () => {
       .should('contain', 3)
   })
 
-  it('should prevent changing level with a card collection', () => {
+  it('should adjust levels in card gallery to collection', () => {
     cy.get(s.IMPORT_BTN)
       .importFile('collection.import.csv')
       .get(s.LEVEL_SELECT)
-      .should('not.exist')
+      .should('have.value', '0')
       .get('body')
       .trigger('keydown', { keyCode: 51, which: 51, force: true })
       .get(s.CARD)
       .find(s.CARD_LEVEL)
-      .should('not.contain', 3)
+      .should('contain', 3)
   })
 })
