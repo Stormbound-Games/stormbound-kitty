@@ -6,6 +6,12 @@ export const BRAWLS = [
     cardId: 'W23',
   },
   {
+    id: 'PIRATE_MANA',
+    label: 'Pirates -2 mana',
+    title: 'Pirate Treasure',
+    cardId: 'N77',
+  },
+  {
     id: 'RAVEN_MOVEMENT',
     label: 'Raven +1 movement',
     title: 'Scavengers',

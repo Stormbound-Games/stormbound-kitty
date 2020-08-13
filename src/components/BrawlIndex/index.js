@@ -25,6 +25,16 @@ export const BRAWL_DATA = [
     ),
   },
   {
+    ...getBrawlData('PIRATE_MANA'),
+    description: (
+      <>
+        All <span className='Highlight'>Pirate</span> units cost{' '}
+        <span className='Highlight'>-2 mana</span> from their initial mana cost,
+        for a minimum of 0.
+      </>
+    ),
+  },
+  {
     ...getBrawlData('RAVEN_MOVEMENT'),
     description: (
       <>
