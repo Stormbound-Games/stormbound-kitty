@@ -947,5 +947,23 @@
     "author": "Kitty",
     "category": "BRAWL",
     "brawl": "PIRATE_MANA"
+  },
+  {
+    "name": "Cats’n’Rats",
+    "id": "5n15i15i45n625n635i55i75n615i85i65i205n52",
+    "author": "Mathematica",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Shooting Stars",
+    "id": "5n15n25n35n235s105n95n115n135n165s135s185s22",
+    "author": "Mathematica",
+    "category": "DIAMOND_1"
+  },
+  {
+    "name": "Dynamic Flow",
+    "id": "5n15n25w25n35n115n145w75w85w65w125w165n52",
+    "author": "Mathematica",
+    "category": "DIAMOND_1"
   }
 ]
