@@ -10,6 +10,7 @@ import WikiLink from '../WikiLink'
 import changelog from '../../data/changelog'
 import sortCards from '../../helpers/sortCards'
 import getRawCardData from '../../helpers/getRawCardData'
+import formatDate from '../../helpers/formatDate'
 import cards from '../../data/cards'
 import './index.css'
 
@@ -25,20 +26,6 @@ const Change = React.memo(function Change(props) {
     props.description
   )
 })
-
-const formatDate = date => {
-  const formatter = new Intl.DateTimeFormat('en', {
-    year: 'numeric',
-    month: 'short',
-    day: '2-digit',
-  })
-  const parts = formatter.formatToParts(date)
-  const month = parts[0].value
-  const day = parts[2].value
-  const year = parts[4].value
-
-  return month + ' ' + day + ', ' + year
-}
 
 export default function Changelog(props) {
   const [sorting, setSorting] = React.useState('DATE')
