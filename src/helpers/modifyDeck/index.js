@@ -17,7 +17,7 @@ const reduceKnightManaCost = card => {
   return {
     ...card,
     mana: Math.max(0, card.mana - 2),
-    costReduced: card.mana > 0 ? true : false,
+    costReduced: card.mana > 0,
   }
 }
 
@@ -26,7 +26,7 @@ const reduceDwarfManaCost = card => {
   return {
     ...card,
     mana: Math.max(0, card.mana - 2),
-    costReduced: card.mana > 0 ? true : false,
+    costReduced: card.mana > 0,
   }
 }
 
@@ -35,7 +35,16 @@ const reduceSpellManaCost = card => {
   return {
     ...card,
     mana: Math.max(0, card.mana - 2),
-    costReduced: card.mana > 0 ? true : false,
+    costReduced: card.mana > 0,
+  }
+}
+
+const reducePirateManaCost = card => {
+  if (card.race !== 'pirate') return card
+  return {
+    ...card,
+    mana: Math.max(0, card.mana - 2),
+    costReduced: card.mana > 0,
   }
 }
 
@@ -59,6 +68,9 @@ export default (deck, modifier, equalsMode) => {
 
     case 'SPELL_MANA':
       return fullDeck.map(reduceSpellManaCost)
+
+    case 'PIRATE_MANA':
+      return fullDeck.map(reducePirateManaCost)
 
     case 'NONE':
     default:
