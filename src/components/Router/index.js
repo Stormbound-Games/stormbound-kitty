@@ -22,6 +22,7 @@ const Member = load('Member')
 const FanKit = load('FanKit')
 const Changelog = load('Changelog')
 const ChangelogJuly2020 = load('ChangelogJuly2020')
+const TournamentOddEven = load('TournamentOddEven')
 
 export default function Router(props) {
   return (
@@ -90,6 +91,13 @@ export default function Router(props) {
 
           <Page path='/donate' active={['DONATE']}>
             <Donate />
+          </Page>
+
+          <Page
+            path='/tournaments/odd-even'
+            active={['TOURNAMENTS', 'ODD_EVEN']}
+          >
+            <TournamentOddEven />
           </Page>
 
           <Page exact path='/' active={['HOME', 'NEWS']}>
