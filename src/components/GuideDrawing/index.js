@@ -110,7 +110,14 @@ export default React.memo(function GuideDrawing(props) {
         member of the development team.
       </p>
 
-      <Info icon='stack' title='Playing a card more than once in a turn'>
+      <Info
+        icon='stack'
+        title={
+          <>
+            Playing a card more than once <Only.Desktop>in a turn</Only.Desktop>
+          </>
+        }
+      >
         <p>
           It is technically possible for a card to be played more than once
           within the same turn, under rare circumstances which are interesting
@@ -241,9 +248,8 @@ export default React.memo(function GuideDrawing(props) {
       <p>
         When played with no bordering enemies, it comes back in the hand
         immediately. Playing the card causes a reweighing of the deck as normal
-        and <WikiLink id='S3' />
-        comes back to the hand despite its weight being 0. This is likely
-        implemented by a “forced-draw” mechanism.
+        and <WikiLink id='S3' /> comes back to the hand despite its weight being
+        0. This is likely implemented by a “forced-draw” mechanism.
       </p>
 
       <p>
