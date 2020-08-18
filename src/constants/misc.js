@@ -267,6 +267,17 @@ export const WEEKLY_CARD_CONTEST = [
     name: 'Hunt',
     description: '',
     submitURL: 'https://forms.gle/oHWRj45WoJc2q8ps5',
+    winner: {
+      id:
+        'Tjs7QztFOzI7OztDYXRjaCUyMEElMjBUcmFpbDtOMjE7Kkh1bnQqJTIwYSUyMHVuaXQlMjB3aXRoJTIwNSUyRjYlMkY3JTJGOCUyRjEwJTIwc3RyZW5ndGglMjBvciUyMGxlc3MuJTIwSXQlMjB3aWxsJTIwYmUlMjBwcmlvcml0aXplZCUyMGJ5JTIwYXR0YWNraW5nJTIwdW5pdHMuJTIwKkRyYXclMjAxKiUyMGNhcmQuOzs=',
+      author: 'FrozenEarth',
+    },
+  },
+  {
+    week: 34,
+    name: 'RNG',
+    description: '',
+    submitURL: 'https://forms.gle/oHWRj45WoJc2q8ps5',
   },
 ]
 
