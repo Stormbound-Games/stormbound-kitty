@@ -22,7 +22,7 @@ const getAvailableRoles = guild => {
 
 const getExpectedRole = ({ content, guild }) => {
   const message = content.replace('!role', '').trim().toLowerCase()
-  const roleName = ROLES.find(role => capitalise(message) === role)
+  const roleName = ROLES.find(role => message === role.toLowerCase())
 
   if (!roleName) return null
 
