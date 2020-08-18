@@ -11,7 +11,7 @@ const LEAGUE_ROLES = [
   'Iron',
   'Starter',
 ]
-const MISC_ROLES = ['Tournamentee', 'Streambound']
+const MISC_ROLES = ['Tournamentee', 'Streambound', 'Quest Helper']
 const ROLES = [...LEAGUE_ROLES, ...MISC_ROLES]
 
 const getAvailableRoles = guild => {
