@@ -1,0 +1,153 @@
+[
+  {
+    "name": "#1 Tournament",
+    "hosts": ["Kepp", "Derpyologist"],
+    "winners": ["TangBoy"],
+    "date": "16/3/18"
+  },
+  {
+    "name": "Easter Tournament",
+    "hosts": ["Kepp"],
+    "winners": ["seriousleet"],
+    "date": "1/4/18"
+  },
+  {
+    "name": "HoS Tournament",
+    "hosts": ["Kepp"],
+    "winners": ["Fezzix"],
+    "date": "13/7/18"
+  },
+  {
+    "name": "Kingdom Wars Tournament",
+    "hosts": ["Kepp"],
+    "winners": ["Swarm team"],
+    "date": "20/9/18"
+  },
+  {
+    "name": "Diamond Tournament",
+    "hosts": ["Kepp"],
+    "winners": ["BluePhoenix"],
+    "date": "21/2/19"
+  },
+  {
+    "name": "Generals Tournament",
+    "hosts": ["Kepp"],
+    "winners": ["ggshhh"],
+    "date": "15/4/19"
+  },
+  {
+    "name": "Current Tournament",
+    "hosts": ["Kepp"],
+    "winners": ["BluePhoenix"],
+    "date": "19/6/19"
+  },
+  {
+    "name": "Sealed Tournament",
+    "hosts": ["Kepp"],
+    "winners": ["SpookaKat"],
+    "date": "20/7/19"
+  },
+  {
+    "name": "Pauper Tournament",
+    "hosts": ["Kepp"],
+    "winners": ["BluePhoenix"],
+    "date": "27/10/19"
+  },
+  {
+    "name": "Small Random Tournament",
+    "hosts": ["Kepp"],
+    "winners": ["BluePhoenix"],
+    "date": "16/1/20"
+  },
+  {
+    "name": "Elders Tournament",
+    "hosts": ["Kepp"],
+    "winners": ["HanooSt"],
+    "date": "26/2/20"
+  },
+  {
+    "name": "Quadrant Tournament 1",
+    "hosts": ["Strongraycool44"],
+    "winners": ["THEDEMXN"]
+  },
+  {
+    "name": "The Ultimate Kingdom",
+    "hosts": ["Strongraycool44"],
+    "winners": ["FrozenEarth"]
+  },
+  {
+    "name": "All or Nothing",
+    "hosts": ["Strongraycool44"],
+    "winners": ["HanooSt"]
+  },
+  {
+    "name": "Anniversary Tournament",
+    "hosts": ["Strongraycool44"],
+    "winners": ["ArthisRoo"]
+  },
+  {
+    "name": "Quadrant Tournament 2",
+    "hosts": ["Strongraycool44"],
+    "winners": ["Helios", "Todam", "Rodeybodey", "Primal"]
+  },
+  {
+    "name": "Ban Tourney 1",
+    "hosts": ["Todam"],
+    "winners": ["HanooSt"],
+    "date": "14/4/20"
+  },
+  {
+    "name": "Stormblind",
+    "hosts": ["JonnMakuru"],
+    "winners": ["HanooSt"],
+    "date": "20/4/20"
+  },
+  {
+    "name": "Designers Tournament",
+    "hosts": ["Kepp", "Strongraycool44"],
+    "winners": ["Emkaem"],
+    "date": "18/5/20"
+  },
+  {
+    "name": "Reckless Draft",
+    "hosts": ["Reckless Rush"],
+    "winners": ["HanooSt", "Derk", "Millo"],
+    "date": "19/5/20"
+  },
+  {
+    "name": "Black Sheep Tournament",
+    "hosts": ["Kepp", "Emkaem"],
+    "winners": ["strongraycool44"],
+    "date": "16/6/20"
+  },
+  {
+    "name": "Faction Wars Season 1",
+    "hosts": ["Helios"],
+    "winners": ["Roman_NFP"],
+    "date": "10/7/20"
+  },
+  {
+    "name": "Renaissance Tournament",
+    "hosts": ["Helios"],
+    "winners": ["derk"],
+    "date": "14/7/20"
+  },
+  {
+    "name": "Battle Week",
+    "hosts": ["Todam"],
+    "winners": ["Helios"],
+    "date": "29/7/20"
+  },
+  {
+    "name": "Snowball Tournament",
+    "hosts": ["Derk", "ArthisRoo"],
+    "winners": ["Helios"],
+    "date": "11/8/20"
+  },
+  {
+    "name": "Faction Wars Season 2",
+    "hosts": ["Helios"],
+    "winners": ["HanooSt", "Roman_NFP", "Dracqi"],
+    "date": "19/8/20"
+  }
+]

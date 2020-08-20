@@ -23,6 +23,7 @@ const FanKit = load('FanKit')
 const Changelog = load('Changelog')
 const ChangelogJuly2020 = load('ChangelogJuly2020')
 const TournamentOddEven = load('TournamentOddEven')
+const TournamentHallOfFame = load('TournamentHallOfFame')
 
 export default function Router(props) {
   return (
@@ -98,6 +99,13 @@ export default function Router(props) {
             active={['TOURNAMENTS', 'ODD_EVEN']}
           >
             <TournamentOddEven />
+          </Page>
+
+          <Page
+            path='/tournaments/hall-of-fame'
+            active={['TOURNAMENTS', 'HALL_OF_FAME']}
+          >
+            <TournamentHallOfFame />
           </Page>
 
           <Page exact path='/' active={['HOME', 'NEWS']}>
