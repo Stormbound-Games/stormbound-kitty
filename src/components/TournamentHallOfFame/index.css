@@ -52,14 +52,6 @@
   background-color: var(--light-blue); /* 1 */
 }
 
-/**
- * 1. The first table cell of each row contains the match number, and should be
- *    colored differently like in the game.
- */
-.TournamentHallOfFame__table td:first-of-type {
-  color: var(--beige); /* 1 */
-}
-
 @media (max-width: 699px) {
   .TournamentHallOfFame__table {
     text-align: left;
@@ -119,23 +111,19 @@
     display: inline-block;
   }
 
-  /**
-   * 1. The first row is the row containing the form, and in that case we should
-   *    not display the match number since there is no match.
-   */
   .TournamentHallOfFame__table td:first-child::before {
-    content: 'Name'; /* 1 */
+    content: 'Date';
   }
 
   .TournamentHallOfFame__table td:nth-of-type(2)::before {
-    content: 'Host(s)';
+    content: 'Name';
   }
 
   .TournamentHallOfFame__table td:nth-of-type(3)::before {
-    content: 'Winner(s)';
+    content: 'Host(s)';
   }
 
   .TournamentHallOfFame__table td:nth-of-type(4)::before {
-    content: 'Date';
+    content: 'Winner(s)';
   }
 }
