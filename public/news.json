@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Tournaments",
+    "description": "There is now a page for the Tournaments hall of fame.",
+    "link": "/tournaments/hall-of-fame"
+  },
+  {
     "intro": "Terrific Slayers Guide",
     "description": "Be sure to check the brand new Terrific Slayers guide by Dracqi.",
     "link": "/guides/terrific-slayers"
