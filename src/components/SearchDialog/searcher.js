@@ -103,6 +103,12 @@ SEARCH_INDEX.push({
 })
 
 SEARCH_INDEX.push({
+  path: '/tournaments/hall-of-fame',
+  label: 'Tournaments',
+  breadcrumbs: ['Home', 'Tournaments'],
+})
+
+SEARCH_INDEX.push({
   path: '/income-calculator',
   label: 'Income Calculator',
   breadcrumbs: ['Home', 'Income Calculator'],
