@@ -28,8 +28,8 @@ const formatDate = date => {
 
 const getDate = string => {
   if (!string) return null
-  const [day, month, year] = string.split('/')
-  return new Date(+(20 + year), +month - 1, +day)
+  const [month, year] = string.split('/')
+  return new Date(+year, +month - 1, 1)
 }
 
 const getHallOfFame = () => {
