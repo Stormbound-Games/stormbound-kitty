@@ -278,6 +278,17 @@ export const WEEKLY_CARD_CONTEST = [
     name: 'RNG',
     description: '',
     submitURL: 'https://forms.gle/oHWRj45WoJc2q8ps5',
+    winner: {
+      id:
+        'Tjs7VTtMOzc7MjsxO1NJQU1FUyUyMHRoZSUyMGFsY2hlbWlzdDtodHRwcyUzQSUyRiUyRmkuaW1ndXIuY29tJTJGWmRmaEp5dC5wbmc7T24lMjBkZWF0aCUyQyUyMGRvJTIwYSUyMHJhbmRvbSUyMGVmZmVjdCUyMCozKiUyMHRpbWVzJTNBJTIwZ2l2ZSUyMColMjAyJTJGMyUyRjQlMkY1JTJGNiolMjBzdHJlbmd0aCUyMHRvJTIwYSUyMHJhbmRvbSUyMGFsbHklMkMlMjBjb25mdXNlJTIwYSUyMHJhbmRvbSUyMGVuZW15JTIwb3IlMjBkZWFsJTIwKjMlMkY0JTJGNSUyRjYlMkY3JTIwZGFtYWdlKiUyMHRvJTIwYSUyMGNvbmZ1c2VkJTIwZW5lbXkuOzs=',
+      author: 'JotaDiez',
+    },
+  },
+  {
+    week: 35,
+    name: 'Aggressive Structures',
+    description: '',
+    submitURL: 'https://forms.gle/oHWRj45WoJc2q8ps5',
   },
 ]
 
