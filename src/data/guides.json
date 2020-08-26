@@ -191,5 +191,17 @@
     "background": "/assets/images/environment_neutral.png",
     "readingTime": "5 minutes",
     "category": "PLAYSTYLE"
+  },
+  {
+    "id": "BROODMOTHER_QORDIA_GUIDE",
+    "name": "Broodmother Qordia",
+    "authors": ["HyperScrub"],
+    "excerpt": "In this short and straightforward guide, HyperScrub goes through a series of tips to get the most out of Broodmother Qordia, the Shadowfen legendary dragon.",
+    "slug": "broodmother-qordia",
+    "faction": "shadowfen",
+    "cardId": "F21",
+    "background": "/assets/images/environment_shadowfen.png",
+    "readingTime": "5 minutes",
+    "category": "PLAYSTYLE"
   }
 ]

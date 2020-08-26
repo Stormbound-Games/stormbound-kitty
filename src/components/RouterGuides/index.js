@@ -24,6 +24,7 @@ const COMPONENTS = {
   BRAWL_GUIDE: load('GuideBrawl'),
   CHILLBEARDS_GUIDE: load('GuideChillbeards'),
   TERRIFIC_SLAYERS_GUIDE: load('GuideTerrificSlayers'),
+  BROODMOTHER_QORDIA_GUIDE: load('GuideBroodmotherQordia'),
 }
 
 export default function RouterGuides() {
