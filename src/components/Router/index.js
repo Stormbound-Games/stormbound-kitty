@@ -41,6 +41,7 @@ const CardBuilderRoot = load('CardBuilderRoot')
 const CardsStats = load('CardsStats')
 const Changelog = load('Changelog')
 const ChangelogJuly2020 = load('ChangelogJuly2020')
+const ChangelogSeptember2020 = load('ChangelogSeptember2020')
 const Collection = load('Collection')
 const CollectionStats = load('CollectionStats')
 const DeckBuilderRoot = load('DeckBuilderRoot')
@@ -289,6 +290,10 @@ export default function Router(props) {
 
           <Page path='/changelog/07-2020' active={['GAME', '07_2020']}>
             <ChangelogJuly2020 />
+          </Page>
+
+          <Page path='/changelog/09-2020' active={['HOME', '09_2020']}>
+            <ChangelogSeptember2020 />
           </Page>
 
           <Page path='/changelog' exact active={['GAME', 'CARD_CHANGES']}>
