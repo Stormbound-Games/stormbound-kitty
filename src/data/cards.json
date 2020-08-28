@@ -256,7 +256,7 @@
     "rarity": "rare",
     "image": "emerald_towers.png",
     "mana": 4,
-    "strength": "3/4/4/5/6",
+    "strength": "4/5/7/8/10",
     "movement": null,
     "ability": "At the start of your turn, *give 2/2/3/3/4* strength to all friendly units in front"
   },
@@ -294,10 +294,10 @@
     "race": null,
     "rarity": "epic",
     "image": "hunters_vengeance.png",
-    "mana": "3/3/3/2/2",
+    "mana": 2,
     "strength": null,
     "movement": null,
-    "ability": "Randomly deal *2/3/4/4/5 damage* to one unit of each *unit type*"
+    "ability": "Randomly deal *2/3/4/5/6 damage* to one unit of each *unit type*"
   },
   {
     "name": "Personal Servers",
@@ -375,7 +375,7 @@
     "mana": 5,
     "strength": null,
     "movement": null,
-    "ability": "Deal *1/1-2/2/2-3/3 damage* to all enemy units and structures"
+    "ability": "Deal *1/2/2-3/3/4 damage* to all enemy units and structures"
   },
   {
     "name": "Bluesail Raiders",
@@ -398,7 +398,7 @@
     "race": null,
     "rarity": "rare",
     "image": "flooding_the_gates.png",
-    "mana": 5,
+    "mana": 4,
     "strength": null,
     "movement": null,
     "ability": "Deal *5/6/7/8/10 damage* to all units bordering your base"
@@ -490,7 +490,7 @@
     "race": "undead",
     "rarity": "epic",
     "image": "harvesters_of_souls.png",
-    "mana": 6,
+    "mana": 5,
     "strength": "5/6/7/8/10",
     "movement": 1,
     "ability": "When attacking a weaker unit, add a *5/6/7/8/10 strength copy* of that card to your deck"
@@ -661,7 +661,7 @@
     "race": "dragon",
     "rarity": "rare",
     "image": "dangerous_suitors.png",
-    "mana": 7,
+    "mana": 6,
     "strength": "5/7/7/10/10",
     "movement": 1,
     "ability": "On play, *gain 2/2/3/3/4* strength for every other Dragon on the board"
@@ -739,10 +739,10 @@
     "race": "rodent",
     "rarity": "epic",
     "image": "crazy_bombers.png",
-    "mana": 9,
+    "mana": 8,
     "strength": "7/8/10/12/15",
     "movement": 1,
-    "ability": "On play, deal *7/8/10/12/15 damage* spread randomly among all surrounding enemies"
+    "ability": "On play, deal *6/7/9/11/13 damage* spread randomly among all surrounding enemies"
   },
   {
     "name": "Siren of the Seas",
@@ -819,10 +819,10 @@
     "race": null,
     "rarity": "rare",
     "image": "unhealthy_hysteria.png",
-    "mana": 2,
+    "mana": 3,
     "strength": null,
     "movement": null,
-    "ability": "*Force the target enemy unit* with 2/3/4/5/6 or less strength to *attack* a random bordering enemy"
+    "ability": "*Force the target enemy unit* with 4/5/6/7/8 or less strength to *attack* a random bordering enemy"
   },
   {
     "name": "Melodious Sisters",
@@ -1049,10 +1049,10 @@
     "race": null,
     "rarity": "rare",
     "image": "fortification_tonic.png",
-    "mana": "3/3/3/2/2",
+    "mana": 2,
     "strength": null,
     "movement": null,
-    "ability": "*Give 2/3/4/4/5* strength to all friendly units *surrounding* a friendly structure"
+    "ability": "*Give 2/3/4/5/6* strength to all friendly units *surrounding* a friendly structure"
   },
   {
     "name": "Ozone Purifiers",
@@ -1076,7 +1076,7 @@
     "rarity": "common",
     "image": "unstable_build.png",
     "mana": 2,
-    "strength": "4/5/6/7/8",
+    "strength": "5/6/7/8/9",
     "movement": null,
     "ability": "At the start of your turn, deal *2 damage* to itself"
   },
@@ -2432,9 +2432,9 @@
     "rarity": "rare",
     "image": "underground_spring.png",
     "mana": 4,
-    "strength": "4/5/6/7/8",
+    "strength": "4/5/7/8/10",
     "movement": null,
-    "ability": "At the start of your turn, remove *1 strength* from itself and *give it* to your base"
+    "ability": "At the start of your turn, remove *1/1-2/1-2/2/2 strength* from itself and *give it* to your base"
   },
   {
     "name": "Iced Droplings",
