@@ -17,10 +17,12 @@ export default React.memo(function Layout(props) {
   return (
     <div className='Layout'>
       <Only.Desktop>
-        <EyeCatcher id='donation-20200721'>
-          Stormbound-Kitty is <span className='Highlight'>100% free</span>: no
-          ads, no tracking, no paywall. If you can,{' '}
-          <Link to='/donate'>consider donating</Link>!
+        <EyeCatcher id='patch-2020-09'>
+          A new minor balance patch is landing early September.{' '}
+          <Link to='/changelog/09-2020'>
+            Learn everything you need to know about it
+          </Link>
+          !
         </EyeCatcher>
       </Only.Desktop>
 
