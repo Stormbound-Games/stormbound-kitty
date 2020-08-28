@@ -3946,5 +3946,107 @@
     "description": "Added to the game",
     "id": "N77",
     "type": "INFO"
+  },
+  {
+    "date": 1598918400000,
+    "description": "Increased strength by 1",
+    "id": "N20",
+    "type": "BUFF"
+  },
+  {
+    "date": 1598918400000,
+    "description": "Increased ability damage at higher levels",
+    "id": "N29",
+    "type": "BUFF"
+  },
+  {
+    "date": 1598918400000,
+    "description": "Decreased mana cost by 1",
+    "id": "N31",
+    "type": "BUFF"
+  },
+  {
+    "date": 1598918400000,
+    "description": "Increased mana cost by 1",
+    "id": "N63",
+    "type": "NERF"
+  },
+  {
+    "date": 1598918400000,
+    "description": "Increased ability by 2",
+    "id": "N63",
+    "type": "BUFF"
+  },
+  {
+    "date": 1598918400000,
+    "description": "Decreased mana cost by 1 at lower levels",
+    "id": "N23",
+    "type": "BUFF"
+  },
+  {
+    "date": 1598918400000,
+    "description": "Increased ability by 1",
+    "id": "N23",
+    "type": "BUFF"
+  },
+  {
+    "date": 1598918400000,
+    "description": "Decreased mana cost by 1",
+    "id": "N57",
+    "type": "BUFF"
+  },
+  {
+    "date": 1598918400000,
+    "description": "Decreased ability damage by 2",
+    "id": "N57",
+    "type": "NERF"
+  },
+  {
+    "date": 1598918400000,
+    "description": "Decreased mana cost by 1",
+    "id": "N38",
+    "type": "BUFF"
+  },
+  {
+    "date": 1598918400000,
+    "description": "Increased strength by 1",
+    "id": "N27",
+    "type": "BUFF"
+  },
+  {
+    "date": 1598918400000,
+    "description": "Decreased mana cost by 1",
+    "id": "N51",
+    "type": "BUFF"
+  },
+  {
+    "date": 1598918400000,
+    "description": "Decreased mana cost by 1 at lower levels",
+    "id": "I3",
+    "type": "BUFF"
+  },
+  {
+    "date": 1598918400000,
+    "description": "Increased ability by 1 at higher levels",
+    "id": "I3",
+    "type": "BUFF"
+  },
+  {
+    "date": 1598918400000,
+    "description": "Increased strength by 1",
+    "id": "I5",
+    "type": "BUFF"
+  },
+  {
+    "date": 1598918400000,
+    "description": "Increased strength at higher levels",
+    "id": "W24",
+    "type": "BUFF"
+  },
+  {
+    "date": 1598918400000,
+    "description": "Increased ability",
+    "id": "W24",
+    "type": "BUFF"
   }
 ]
