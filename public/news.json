@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Buff Patch",
+    "description": "A minor buff patch is landing, so be sure to check it out!",
+    "link": "/changelog/09-2020"
+  },
+  {
     "intro": "New Navigation",
     "description": "The site navigation has been entirely revamped to make finding content more convenient.",
     "link": "/"
