@@ -123,7 +123,7 @@ export default function Changelog(props) {
             <Column>
               <Teaser
                 cardId='N21'
-                title='First Sheepyard Update'
+                title='First Sheepyard update'
                 meta='July 2020'
                 excerpt='The first update from Sheepyard featuring a new card, some balance tweaks, matchmaking improvements, economy updates, and more.'
                 to='/changelog/07-2020'
