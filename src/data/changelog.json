@@ -4021,6 +4021,12 @@
   },
   {
     "date": 1598918400000,
+    "description": "Decreased strength at lower levels",
+    "id": "N51",
+    "type": "NERF"
+  },
+  {
+    "date": 1598918400000,
     "description": "Decreased mana cost by 1 at lower levels",
     "id": "I3",
     "type": "BUFF"

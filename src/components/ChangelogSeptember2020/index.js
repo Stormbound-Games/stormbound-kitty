@@ -72,7 +72,8 @@ export default React.memo(function ChangelogSeptember2020(props) {
       </p>
 
       <p>
-        <WikiLink id='N51' /> now cost 7 mana (instead of 6).
+        <WikiLink id='N51' /> now cost 6 mana (instead of 7) and has 4/5/6/8/10
+        strength (instead of 5/7/7/10/10).
       </p>
 
       <Title>Ironclad</Title>
