@@ -155,7 +155,7 @@ export default React.memo(function TournamentOddEven(props) {
 
       <ListBuilderTier
         name='You cannot use the following cards.'
-        cards={['N8', 'N34', 'I28']}
+        cards={['N8', 'N34', 'N46', 'I28']}
         color='red'
         prefix={`tier-`}
         isEditable={false}
