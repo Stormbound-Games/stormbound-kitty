@@ -80,7 +80,7 @@ export default function Router(props) {
             <BattleSimApp mode='DISPLAY' withMeta />
           </Page>
 
-          <Page path='/sim/puzzles' active={['TOOLS', 'PUZZLES']}>
+          <Page path='/sim/puzzles' active={['COMMUNITY', 'PUZZLES']}>
             <BattleSimPuzzles />
           </Page>
 

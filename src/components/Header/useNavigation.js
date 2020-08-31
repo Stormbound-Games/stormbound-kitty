@@ -47,13 +47,13 @@ export default () => {
               to: '/list/ranked',
               id: 'RANKED_LIST',
             },
+            { label: 'Card Statistics', to: '/card/stats', id: 'CARD_STATS' },
           ],
         },
         {
           title: 'Miscellaneous',
           items: [
             { label: 'Fan-Kit', to: '/fan-kit', id: 'FAN_KIT' },
-            { label: 'Card Statistics', to: '/card/stats', id: 'CARD_STATS' },
             { label: 'Lexicon', to: '/guides/lexicon', id: 'LEXICON' },
           ],
         },

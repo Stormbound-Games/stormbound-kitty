@@ -122,7 +122,7 @@ export default React.memo(function Footer(props) {
                     <Link to='/collection/books'>Books Calculator</Link>
                   </li>
                   <li className='Footer__item'>
-                    <Link to='/quest'>Quest Builder</Link>
+                    <Link to='/income-calculator'>Income Calculator</Link>
                   </li>
                   <li className='Footer__item'>
                     <Link to='/sim'>Battle sim</Link>
