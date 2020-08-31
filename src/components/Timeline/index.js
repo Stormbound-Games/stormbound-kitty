@@ -3,7 +3,7 @@ import formatDate from '../../helpers/formatDate'
 import './index.css'
 
 export default React.memo(function Timeline(props) {
-  const now = new Date(2020, 9, 12)
+  const now = Date.now()
 
   return (
     <ol className='Timeline'>
