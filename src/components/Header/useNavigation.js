@@ -28,6 +28,11 @@ export default () => {
           items: [
             { label: 'Card Changes', to: '/changelog', id: 'CARD_CHANGES' },
             {
+              label: 'September 2020 Update',
+              to: '/changelog/09-2020',
+              id: '09_2020',
+            },
+            {
               label: 'July 2020 Update',
               to: '/changelog/07-2020',
               id: '07_2020',
