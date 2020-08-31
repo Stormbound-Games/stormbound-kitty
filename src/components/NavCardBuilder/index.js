@@ -2,7 +2,6 @@ import React from 'react'
 import { useRouteMatch, useHistory } from 'react-router-dom'
 import CardSelect from '../CardSelect'
 import NavLink from '../NavLink'
-import Only from '../Only'
 import getRawCardData from '../../helpers/getRawCardData'
 import useViewportWidth from '../../hooks/useViewportWidth'
 
@@ -34,18 +33,12 @@ export default React.memo(function NavCardBuilder(props) {
             </NavLink>
           ) : (
             <span
-              className='Header__link Header__link--disabled'
+              className='Header__action Header__action--disabled'
               title='Your card is empty'
             >
               Display Mode
             </span>
           )}
-        </li>
-
-        <li className='Header__item'>
-          <NavLink to='/card/stats' active={props.active === 'STATS'}>
-            Stats
-          </NavLink>
         </li>
 
         <li className='Header__item Header__item--select'>
@@ -69,14 +62,6 @@ export default React.memo(function NavCardBuilder(props) {
             withSpells
           />
         </li>
-
-        <Only.Desktop>
-          <li className='Header__item Header__item--right'>
-            <NavLink to='/card/contest' active={props.active === 'CONTEST'}>
-              Card Contest
-            </NavLink>
-          </li>
-        </Only.Desktop>
       </ul>
     </nav>
   )

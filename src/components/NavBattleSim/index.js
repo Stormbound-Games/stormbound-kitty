@@ -28,18 +28,12 @@ export default React.memo(function NavBattleSim(props) {
             </NavLink>
           ) : (
             <span
-              className='Header__link Header__link--disabled'
+              className='Header__action Header__action--disabled'
               title='Your sim is not complete'
             >
               Display Mode
             </span>
           )}
-        </li>
-
-        <li className='Header__item  Header__item--right'>
-          <NavLink to='/sim/puzzles' active={props.active === 'PUZZLES'}>
-            Puzzles
-          </NavLink>
         </li>
       </ul>
     </nav>

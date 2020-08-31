@@ -1,0 +1,126 @@
+.HeaderMegaMenu {
+  position: absolute;
+  top: 100%;
+  width: 40vw;
+  background-color: var(--black);
+  z-index: 100;
+  border: 1px solid var(--dark-beige);
+  text-align: left;
+  left: -1em;
+  padding: 1.5em 1.5em 0.5em;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: 250ms 150ms;
+  transform: translateY(-10px);
+  box-shadow: 0 1.5em 1em -1em rgba(0, 0, 0, 0.3);
+}
+
+.HeaderMegaMenu--open {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.HeaderMegaMenu::before {
+  content: '';
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(45deg);
+  top: -1px;
+  left: 2.4em;
+  border: 1px solid var(--dark-beige);
+  border-bottom: 0;
+  border-right: 0;
+  background-color: var(--black);
+}
+
+.Header__action--active + .HeaderMegaMenu::before {
+  content: none;
+}
+
+.HeaderMegaMenu__title {
+  font-size: 90%;
+  text-transform: uppercase;
+  color: var(--beige);
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-weight: normal;
+  border-bottom: 1px solid var(--dark-beige);
+  padding-bottom: 0.5em;
+}
+
+.HeaderMegaMenu__title > a {
+  text-decoration: none;
+}
+
+.HeaderMegaMenu__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.HeaderMegaMenu__item {
+  margin: 0.25em 0;
+}
+
+.HeaderMegaMenu__link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.HeaderMegaMenu__link--active {
+  color: var(--beige);
+  border-bottom: 1px solid;
+}
+
+.HeaderMegaMenu__link:hover {
+  border-bottom-color: currentcolor;
+}
+
+.HeaderMegaMenu__link.Header__item--new::after {
+  top: 0;
+  left: calc(100% + 0.5ch);
+}
+
+.HeaderMegaMenu__close {
+  background-color: transparent;
+  padding: 0;
+  border: 0;
+  position: absolute;
+  top: 0.1em;
+  right: 0.25em;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.5em;
+  color: inherit;
+  font: inherit;
+  font-size: 200%;
+}
+
+@media (max-width: 700px) {
+  .Header__item:nth-of-type(even) .HeaderMegaMenu {
+    left: calc(-50vw + 1em);
+  }
+
+  .Header__item:nth-of-type(odd) .HeaderMegaMenu::before {
+    left: 25%;
+  }
+
+  .Header__item:nth-of-type(even) .HeaderMegaMenu::before {
+    left: 75%;
+  }
+
+  .HeaderMegaMenu {
+    width: calc(100vw - 2em);
+    top: calc(100% + 0.5em);
+  }
+
+  .HeaderMegaMenu::before {
+    left: 50%;
+  }
+}

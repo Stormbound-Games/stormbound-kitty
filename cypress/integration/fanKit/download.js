@@ -30,7 +30,7 @@ describe('Fan-kit', () => {
       .click()
       .get(s.DIALOG)
       .should('not.be.visible')
-      .get('.Header__link')
+      .get('.Header__action')
       .first()
       .click()
   })

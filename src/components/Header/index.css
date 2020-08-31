@@ -1,6 +1,6 @@
 .Header {
   padding: 1em;
-  z-index: 2;
+  z-index: 10;
 }
 
 .Header__nav {
@@ -10,10 +10,6 @@
 
 .Header__nav + .Header__nav {
   border-bottom: 0;
-}
-
-.Header__title {
-  text-decoration: none;
 }
 
 .Header__list {
@@ -26,45 +22,11 @@
 .Header__item {
   text-align: center;
   position: relative;
-  overflow: hidden;
-}
-
-.Header__link {
-  transition: color 250ms;
-  outline: 0;
-  background-color: transparent;
-  padding: 0;
-  border: 0;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-}
-
-/**
- * Prevent hover state on non-link items.
- */
-:not(span).Header__link:hover {
-  color: var(--beige);
-}
-
-a.Header__link:focus {
-  color: var(--light-swarm);
-}
-
-.Header__link--disabled {
-  opacity: 0.5;
-  cursor: help;
+  overflow: visible;
 }
 
 .Header__item--right {
   margin-left: auto;
-}
-
-.Header__item--select {
-  width: 250px;
-  padding: 0.5em 1em;
-  overflow: visible;
-  text-align: left;
 }
 
 .Header__item--new::after {
@@ -79,25 +41,37 @@ a.Header__link:focus {
   animation: new-pulse 2s infinite ease-out;
 }
 
-.Header__link {
-  display: inline-block;
-  padding: 1em;
-  text-decoration: none;
+.Header__item--select {
+  width: 250px;
+  padding: 0.5em 1em;
+  overflow: visible;
+  text-align: left;
 }
 
-.Header__link--active {
-  color: var(--beige);
-}
-
-.Header__toggle {
-  color: var(--white);
-  position: absolute;
-  right: 1em;
-  top: 0.5em;
+.Header__action {
   background-color: transparent;
   border: 0;
+  color: inherit;
   cursor: pointer;
-  padding: 0.5em;
+  display: inline-block;
+  font: inherit;
+  outline: 0;
+  padding: 1em;
+  text-decoration: none;
+  transition: color 250ms;
+}
+
+.Header__action:focus {
+  color: var(--light-swarm);
+}
+
+.Header__action--disabled {
+  opacity: 0.5;
+  cursor: help;
+}
+
+.Header__action--active {
+  color: var(--beige);
 }
 
 .Header__icon {
@@ -109,10 +83,6 @@ a.Header__link:focus {
 }
 
 @media (max-width: 699px) {
-  .Header {
-    text-align: center;
-  }
-
   .Header__nav {
     border-bottom: 0;
     position: relative;
@@ -146,17 +116,17 @@ a.Header__link:focus {
     flex: 0 1 50%; /* 1 */
   }
 
-  .Header__item--right {
-    margin-left: 0;
-  }
-
   .Header__item--select {
     width: 100%;
     flex-grow: 1;
   }
 
-  .Header__link {
-    padding: 0.5em 0em;
+  .Header__item--right {
+    margin-left: 0;
+  }
+
+  .Header__action {
+    padding: 0.5em 0;
   }
 }
 
@@ -169,11 +139,8 @@ a.Header__link:focus {
     white-space: nowrap;
   }
 
-  /**
-   * 1. Half-diamond display below/under the active item.
-   */
-  .Header__link--active::before {
-    content: ''; /* 1 */
+  .Header__action--active::after {
+    content: '';
     width: 1em;
     height: 1em;
     position: absolute;
@@ -181,24 +148,18 @@ a.Header__link:focus {
     top: 100%;
     left: 50%;
     border: 1px solid var(--dark-beige);
-    z-index: 2;
+    border-bottom: 0;
+    border-right: 0;
+    background-color: var(--black);
   }
 
-  /**
-   * 1. The active pseudo-element in the top-level navigation should be centered
-   *    below the word without taking the icon width + spacing into account
-   *    (which only exist in the top-level navigation). The icon has a width of
-   *    1em and a right margin of 0.25em, but a font-size of 80% — all of which
-   *    needs to be divided by 2 to have the proper offset.
-   */
-  .Header__list:not(.Header__list--sub) .Header__link--active::before {
-    left: calc(50% + 1.25em * 0.8 / 2); /* 1 */
-  }
-
-  .Header__list--sub .Header__link--active::before {
+  .Header__list--sub .Header__action--active::after {
     transform: translate(-50%, 50%) rotate(45deg);
     bottom: 100%;
     top: auto;
+    border: 1px solid var(--dark-beige);
+    border-top: 0;
+    border-left: 0;
   }
 }
 

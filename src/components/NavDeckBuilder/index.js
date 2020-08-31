@@ -1,12 +1,9 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
-import { PersonalDecksContext } from '../PersonalDecksProvider'
 import NavLink from '../NavLink'
-import Only from '../Only'
 import serialisation from '../../helpers/serialisation'
 
-export default React.memo(function NavDecks(props) {
-  const { isUnseen } = React.useContext(PersonalDecksContext)
+export default React.memo(function NavDeckBuilder(props) {
   const match = useRouteMatch()
   const id = match.params.deckId
   const deck = id ? serialisation.deck.deserialise(id) : []
@@ -15,15 +12,6 @@ export default React.memo(function NavDecks(props) {
   return (
     <nav className='Header__nav'>
       <ul className='Header__list Header__list--sub'>
-        <li className='Header__item'>
-          <NavLink
-            to='/deck/suggestions'
-            active={props.active === 'SUGGESTIONS'}
-          >
-            Decks
-          </NavLink>
-        </li>
-
         <li className='Header__item'>
           <NavLink
             to={id ? `/deck/${id}` : '/deck'}
@@ -42,7 +30,7 @@ export default React.memo(function NavDecks(props) {
             </NavLink>
           ) : (
             <span
-              className='Header__link Header__link--disabled'
+              className='Header__action Header__action--disabled'
               title='Your deck is not complete'
             >
               Insights
@@ -59,32 +47,12 @@ export default React.memo(function NavDecks(props) {
             </NavLink>
           ) : (
             <span
-              className='Header__link Header__link--disabled'
+              className='Header__action Header__action--disabled'
               title='Your deck is not complete'
             >
               Practice
             </span>
           )}
-        </li>
-
-        <li
-          className={[
-            'Header__item',
-            'Header__item--right',
-            isUnseen && 'Header__item--new',
-          ]
-            .filter(Boolean)
-            .join(' ')}
-        >
-          <NavLink to='/deck/collection' active={props.active === 'COLLECTION'}>
-            Your decks
-          </NavLink>
-        </li>
-
-        <li className='Header__item'>
-          <NavLink to='/guides/deck'>
-            <Only.Desktop>Deck Building</Only.Desktop> Guide
-          </NavLink>
         </li>
       </ul>
     </nav>

@@ -27,7 +27,7 @@ export default React.memo(function NavBrawl(props) {
           </li>
         ) : (
           <span
-            className='Header__link Header__link--disabled'
+            className='Header__action Header__action--disabled'
             title='Select a Brawl from the list'
           >
             Tracker
@@ -42,7 +42,7 @@ export default React.memo(function NavBrawl(props) {
           </li>
         ) : (
           <span
-            className='Header__link Header__link--disabled'
+            className='Header__action Header__action--disabled'
             title='You need some recorded Brawl data first'
           >
             Overview

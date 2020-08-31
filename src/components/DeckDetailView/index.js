@@ -2,6 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import Advice from '../DeckAdvice'
 import Column from '../Column'
+import CTA from '../CTA'
 import Deck from '../Deck'
 import DeckStatsChart from '../DeckStatsChart'
 import PageMeta from '../PageMeta'
@@ -58,6 +59,8 @@ export default React.memo(function DeckDetailView(props) {
             onClick={card => history.push('/card/' + card.id + '/display')}
             onClickLabel='Open card in card builder'
           />
+
+          <CTA to={`/deck/${props.deckId}`}>Edit deck</CTA>
         </Column>
 
         <Column width='1/3'>
