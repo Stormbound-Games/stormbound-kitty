@@ -26,6 +26,7 @@
 .HeaderMegaMenu__title {
   font-size: 90%;
   text-transform: uppercase;
+  letter-spacing: 1px;
   color: var(--beige);
   margin-top: 0;
   margin-bottom: 0.5em;
