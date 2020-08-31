@@ -7,13 +7,25 @@
   border: 1px solid var(--dark-beige);
   text-align: left;
   left: -1em;
-  padding: 1.5em 1.5em 0.5em;
+  padding: 1.5em 1.5em 0em;
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
   transition: 250ms 150ms;
   transform: translateY(-10px);
   box-shadow: 0 1.5em 1em -1em rgba(0, 0, 0, 0.3);
+}
+
+.HeaderMegaMenu::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0.5em;
+  right: 0.5em;
+  height: 0.5em;
+  background-color: inherit;
+  border: inherit;
+  border-top: 0;
 }
 
 .HeaderMegaMenu--open {
