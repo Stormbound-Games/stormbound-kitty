@@ -103,6 +103,12 @@ SEARCH_INDEX.push({
 })
 
 SEARCH_INDEX.push({
+  path: '/changelog/09-2020',
+  label: 'Changelog September 2020',
+  breadcrumbs: ['Home', 'Changelog'],
+})
+
+SEARCH_INDEX.push({
   path: '/tournaments/hall-of-fame',
   label: 'Tournaments',
   breadcrumbs: ['Community', 'Tournament Hall of Fame'],
