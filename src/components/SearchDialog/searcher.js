@@ -26,21 +26,21 @@ cards
     SEARCH_INDEX.push({
       path: `/card/${card.id}/display`,
       label: card.name,
-      breadcrumbs: ['Card Builder', 'Display'],
+      breadcrumbs: ['Tools', 'Card Builder', 'Display'],
     })
   })
 
 SEARCH_INDEX.push({
   path: `/card/stats`,
   label: 'Card Statistics',
-  breadcrumbs: ['Card Builder', 'Statistics'],
+  breadcrumbs: ['Game', 'Card Statistics'],
 })
 
 decks.forEach(deck => {
   SEARCH_INDEX.push({
     path: `/deck/${deck.id}/detail`,
     label: `${deck.name} by ${deck.author}`,
-    breadcrumbs: ['Decks', 'Insights'],
+    breadcrumbs: ['Tools', 'Deck Builder', 'Insights'],
   })
 })
 
@@ -63,66 +63,66 @@ guides.forEach(guide => {
 SEARCH_INDEX.push({
   path: `/sim`,
   label: 'Battle Sim',
-  breadcrumbs: ['Battle Sim', 'Editor'],
+  breadcrumbs: ['Tools', 'Battle Sim', 'Editor'],
 })
 SEARCH_INDEX.push({
   path: '/sim/puzzles',
   label: 'Puzzles',
-  breadcrumbs: ['Battle Sim', 'Puzzles'],
+  breadcrumbs: ['Tools', 'Battle Sim', 'Puzzles'],
 })
 puzzles.forEach(puzzle => {
   SEARCH_INDEX.push({
     path: `/sim/${puzzle.board}`,
     label: puzzle.name,
-    breadcrumbs: ['Battle Sim', 'Puzzles'],
+    breadcrumbs: ['Community', 'Puzzles'],
   })
 })
 
 SEARCH_INDEX.push({
   path: '/faq',
   label: 'Frequently Asked Questions',
-  breadcrumbs: ['Home', 'FAQ'],
+  breadcrumbs: ['Community', 'FAQ'],
 })
 
 SEARCH_INDEX.push({
   path: '/fan-kit',
   label: 'Fan-kit',
-  breadcrumbs: ['Home', 'Fan-Kit'],
+  breadcrumbs: ['Game', 'Fan-Kit'],
 })
 
 SEARCH_INDEX.push({
   path: '/changelog',
   label: 'Changelog',
-  breadcrumbs: ['Home', 'Changelog'],
+  breadcrumbs: ['Game', 'Card Changes'],
 })
 
 SEARCH_INDEX.push({
   path: '/changelog/07-2020',
   label: 'Changelog July 2020',
-  breadcrumbs: ['Home', 'Changelog'],
+  breadcrumbs: ['Game', 'July 2020 Update'],
 })
 
 SEARCH_INDEX.push({
   path: '/tournaments/hall-of-fame',
   label: 'Tournaments',
-  breadcrumbs: ['Home', 'Tournaments'],
+  breadcrumbs: ['Community', 'Tournament Hall of Fame'],
 })
 
 SEARCH_INDEX.push({
   path: '/income-calculator',
   label: 'Income Calculator',
-  breadcrumbs: ['Home', 'Income Calculator'],
+  breadcrumbs: ['Tools', 'Income Calculator'],
 })
 
 SEARCH_INDEX.push({
   path: '/list/ranked',
   label: 'Ranked Tier List',
-  breadcrumbs: ['List Builder', 'Ranked'],
+  breadcrumbs: ['Game', 'Ranked Tier List'],
 })
 SEARCH_INDEX.push({
   path: '/list/equals',
   label: 'Equals Tier List',
-  breadcrumbs: ['List Builder', 'Equals'],
+  breadcrumbs: ['Game', 'Equals Tier List'],
 })
 
 // Add all individual brawl pages to the index.
@@ -130,56 +130,56 @@ BRAWLS.forEach(brawl => {
   SEARCH_INDEX.push({
     path: '/brawl/' + brawl.id.toLowerCase().replace(/_/g, '-'),
     label: brawl.label,
-    breadcrumbs: ['Brawl', brawl.title],
+    breadcrumbs: ['Tools', 'Brawl Tracker'],
   })
 })
 
 SEARCH_INDEX.push({
   path: '/collection',
   label: 'Collection',
-  breadcrumbs: ['Collection', 'Index'],
+  breadcrumbs: ['Tools', 'Card Collection'],
 })
 
 SEARCH_INDEX.push({
   path: '/collection/books',
   label: 'Books Drawing Calculator',
-  breadcrumbs: ['Collection', 'Books'],
+  breadcrumbs: ['Tools', 'Books Calculator'],
 })
 
 SEARCH_INDEX.push({
   path: '/collection/stats',
   label: 'Collection Statistics',
-  breadcrumbs: ['Collection', 'Statistics'],
+  breadcrumbs: ['Tools', 'Collection Stats'],
 })
 
 SEARCH_INDEX.push({
   path: '/deck/suggestions',
   label: 'Deck Suggestions',
-  breadcrumbs: ['Decks', 'Suggestions'],
+  breadcrumbs: ['Community', 'Popular Decks'],
 })
 
 SEARCH_INDEX.push({
   path: '/deck',
   label: 'Deck Builder',
-  breadcrumbs: ['Decks', 'Editor'],
+  breadcrumbs: ['Tools', 'Deck Builder', 'Editor'],
 })
 
 SEARCH_INDEX.push({
   path: '/deck/collection',
   label: 'Your Personal Decks',
-  breadcrumbs: ['Decks', 'Collection'],
+  breadcrumbs: ['Tools', 'Personal Decks'],
 })
 
 SEARCH_INDEX.push({
   path: '/quest',
   label: 'Quest Builder',
-  breadcrumbs: ['Home', 'Quest Builder'],
+  breadcrumbs: ['Tools', 'Quest Builder'],
 })
 
 SEARCH_INDEX.push({
   path: '/donate',
   label: 'Donate',
-  breadcrumbs: ['Home', 'Donate'],
+  breadcrumbs: ['Community', 'Donate'],
 })
 
 Object.keys(STORY_CATEGORIES).forEach(id => {
@@ -194,7 +194,7 @@ MEMBERS.forEach(member => {
   SEARCH_INDEX.push({
     path: `/member/${member}`,
     label: member,
-    breadcrumbs: ['Home', 'Member'],
+    breadcrumbs: ['Community', 'Member'],
   })
 })
 

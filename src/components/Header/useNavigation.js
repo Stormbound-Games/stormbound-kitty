@@ -37,8 +37,16 @@ export default () => {
         {
           title: 'Meta',
           items: [
-            { label: 'Equals List', to: '/list/equals', id: 'EQUALS_LIST' },
-            { label: 'Ranked List', to: '/list/ranked', id: 'RANKED_LIST' },
+            {
+              label: 'Equals Tier List',
+              to: '/list/equals',
+              id: 'EQUALS_LIST',
+            },
+            {
+              label: 'Ranked Tier List',
+              to: '/list/ranked',
+              id: 'RANKED_LIST',
+            },
           ],
         },
         {
