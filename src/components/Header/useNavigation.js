@@ -3,7 +3,7 @@ import GUIDES from '../../data/guides'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import { CATEGORIES } from '../../constants/guides'
 import useFetch from '../../hooks/useFetch'
-import shuffle from '../../helpers/shuffle'
+import { STORY_CATEGORIES } from '../../constants/stories'
 
 export default () => {
   const { data: stories = [] } = useFetch('/stories.json')
@@ -193,16 +193,16 @@ export default () => {
             })),
         },
         {
-          title: 'Neutral Stories',
-          to: '/stories/neutral',
-          items: shuffle(stories.filter(story => story.category === 'neutral'))
-            .slice(0, 4)
-            .map(story => ({
-              label: story.title,
-              to: '/stories/' + story.id,
-              id: story.id,
-            }))
-            .concat({ label: 'More stories', to: '/stories' }),
+          title: 'Categories',
+          items: Object.keys(STORY_CATEGORIES)
+            .filter(
+              category => category !== 'lore' && category !== 'eastern-heat'
+            )
+            .map(category => ({
+              label: STORY_CATEGORIES[category].title,
+              to: '/stories/' + category,
+              id: category,
+            })),
         },
         {
           title: 'Eastern Heat',
