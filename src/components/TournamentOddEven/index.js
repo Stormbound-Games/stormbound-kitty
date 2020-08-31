@@ -33,7 +33,19 @@ const TIMELINE = [
   },
   {
     date: new Date(2020, 8, 15),
-    title: 'The group stage starts and participants start battling each other.',
+    title: (
+      <>
+        The{' '}
+        <a
+          href='https://challonge.com/OddTournament'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          group stage
+        </a>{' '}
+        starts and participants start battling each other.
+      </>
+    ),
   },
   {
     date: new Date(2020, 8, 25),
