@@ -1,9 +1,9 @@
 .HeaderMegaMenu {
   position: absolute;
   top: 100%;
-  width: 40vw;
+  width: 700px;
   background-color: var(--black);
-  z-index: 100;
+  z-index: 19;
   border: 1px solid var(--dark-beige);
   text-align: left;
   left: -1em;
@@ -21,24 +21,6 @@
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
-}
-
-.HeaderMegaMenu::before {
-  content: '';
-  width: 1em;
-  height: 1em;
-  position: absolute;
-  transform: translate(-50%, -50%) rotate(45deg);
-  top: -1px;
-  left: 2.4em;
-  border: 1px solid var(--dark-beige);
-  border-bottom: 0;
-  border-right: 0;
-  background-color: var(--black);
-}
-
-.Header__action--active + .HeaderMegaMenu::before {
-  content: none;
 }
 
 .HeaderMegaMenu__title {
@@ -117,7 +99,7 @@
 
   .HeaderMegaMenu {
     width: calc(100vw - 2em);
-    top: calc(100% + 0.5em);
+    top: 100%;
   }
 
   .HeaderMegaMenu::before {

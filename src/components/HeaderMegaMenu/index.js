@@ -15,8 +15,8 @@ const useOutsideAlerter = (props, ref) => {
   )
 
   React.useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
+    document.addEventListener('mouseup', handleClickOutside)
+    return () => document.removeEventListener('mouseup', handleClickOutside)
   }, [handleClickOutside])
 }
 

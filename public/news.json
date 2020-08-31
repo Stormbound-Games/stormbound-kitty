@@ -1,5 +1,10 @@
 [
   {
+    "intro": "New Navigation",
+    "description": "The site navigation has been entirely revamped to make finding content more convenient.",
+    "link": "/"
+  },
+  {
     "intro": "Broodmother Qordia Guide",
     "description": "Be sure to check the brand new Broodmother Qordia guide by HyperScrub.",
     "link": "/guides/broodmother-qordia"

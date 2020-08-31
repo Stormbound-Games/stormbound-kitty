@@ -59,10 +59,12 @@ export default React.memo(function Header(props) {
                 ) : (
                   <button
                     type='button'
+                    aria-expanded={open === item.id}
                     onClick={() => setOpen(open === item.id ? null : item.id)}
                     className={[
                       'Header__action',
                       topActive === item.id && 'Header__action--active',
+                      open === item.id && 'Header__action--open',
                     ]
                       .filter(Boolean)
                       .join(' ')}
