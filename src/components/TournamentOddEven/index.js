@@ -1,5 +1,6 @@
 import React from 'react'
 import Article from '../Article'
+import CTA from '../CTA'
 import ListBuilderTier from '../ListBuilderTier'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
@@ -10,8 +11,19 @@ import { Coins, Stones, Rubies } from '../Resource'
 const TIMELINE = [
   {
     date: new Date(2020, 8, 7),
-    title:
-      'The registration opens and participants get to fill the form to enter the tournament.',
+    title: (
+      <>
+        The{' '}
+        <a
+          href='https://forms.gle/hRo1iUAdBX4hG4tG9'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          registration
+        </a>{' '}
+        opens and participants get to fill the form to enter the tournament.
+      </>
+    ),
   },
   {
     date: new Date(2020, 8, 14),
@@ -58,6 +70,9 @@ export default React.memo(function TournamentOddEven(props) {
           <a href='#code-of-conduct'>Code of Conduct</a>
         </li>
         <li>
+          <a href='#format'>Format</a>
+        </li>
+        <li>
           <a href='#timeline'>Timeline</a>
         </li>
         <li>
@@ -81,9 +96,14 @@ export default React.memo(function TournamentOddEven(props) {
 
       <Title id='introduction'>Introduction</Title>
       <p>
-        The concept of the Odd Tournament relies on using only cards whose mana
-        cost is odd, or only cards whose mana cost is even (token cards
-        excluded). This sole restriction has a few consequences for deck making:
+        The concept of the Odd Tournament relies on{' '}
+        <span className='Highlight'>
+          using only cards whose mana cost is odd
+        </span>
+        , or{' '}
+        <span className='Highlight'>only cards whose mana cost is even</span>{' '}
+        (token cards excluded). This sole restriction has a few consequences for
+        deck making:
       </p>
       <ul>
         <li>
@@ -103,6 +123,16 @@ export default React.memo(function TournamentOddEven(props) {
           and will hopefully lead to some unseen decks.
         </li>
       </ul>
+
+      <div style={{ textAlign: 'center' }}>
+        <CTA
+          href='https://forms.gle/3YhBGpddS5ip2Knk6'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Register
+        </CTA>
+      </div>
 
       <Title id='code-of-conduct'>Code of Conduct</Title>
       <p>
@@ -244,6 +274,13 @@ export default React.memo(function TournamentOddEven(props) {
         counter-deck, only to have their opponent waiting to see the changes to
         perform their own deck update reactionarily.
       </p>
+
+      <hr />
+
+      <Notice icon='heart'>
+        Be kind to one another, and enjoy the tournament!
+      </Notice>
+
       <PageMeta
         title='The Odd Tournament'
         description='Everything you need to know to participate in The Odd Tournament, an upcoming Tournament by Derk & Kitty'
