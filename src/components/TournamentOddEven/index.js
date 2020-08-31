@@ -118,6 +118,33 @@ export default React.memo(function TournamentOddEven(props) {
       </p>
       <p>Participants should be kind and respectful towards one another.</p>
 
+      <Title id='format'>Format</Title>
+      <p>
+        The encounters will be decided as the{' '}
+        <span className='Highlight'>best of 3 equal games</span> (or “Bo3”)
+        except for the very final match which will be best of 5 equal games (or
+        “Bo5”). To respect everyone’s time, the series of 3 matches (or 5 for
+        the finale) should be done in one go as much as possible. Please try to
+        play until reaching an outcome.
+      </p>
+
+      <p>
+        The first match between 2 players will define who goes first. The second
+        match between the same two players should{' '}
+        <span className='Highlight'>
+          make sure to swap the order of players
+        </span>
+        : the former first player becomes second and vice versa. If the game
+        does not do that by chance, the game should be restarted until the order
+        of players has switched. The order for the third match between the same
+        two players (if there is one) is done at random by the game itself.
+      </p>
+      <p>
+        In case a player does not show up or cannot perform their games within
+        the allocated time, the matches they did not do will be counted as
+        defeats.
+      </p>
+
       <Title id='timeline'>Timeline</Title>
       <Timeline items={TIMELINE} />
 
@@ -152,7 +179,6 @@ export default React.memo(function TournamentOddEven(props) {
       </p>
 
       <Title id='banned-cards'>Banned Cards</Title>
-
       <ListBuilderTier
         name='You cannot use the following cards.'
         cards={['N8', 'N34', 'N46', 'I28']}
@@ -162,7 +188,6 @@ export default React.memo(function TournamentOddEven(props) {
       />
 
       <Title id='deck-changes'>Deck Changes</Title>
-
       <p>The basic rules for deck changes are as follow:</p>
 
       <ul>
