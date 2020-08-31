@@ -26,17 +26,18 @@ export default () => {
           title: 'Changelog',
           to: '/changelog',
           items: [
-            { label: 'Card Changes', to: '/changelog', id: 'CARD_CHANGES' },
             {
-              label: 'September 2020 Update',
+              label: 'Update 09-2020',
               to: '/changelog/09-2020',
               id: '09_2020',
+              new: true,
             },
             {
-              label: 'July 2020 Update',
+              label: 'Update 07-2020',
               to: '/changelog/07-2020',
               id: '07_2020',
             },
+            { label: 'Card Changes', to: '/changelog', id: 'CARD_CHANGES' },
           ],
         },
         {
