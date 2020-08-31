@@ -1,5 +1,6 @@
 import React from 'react'
 import Article from '../Article'
+import ListBuilderTier from '../ListBuilderTier'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Timeline from '../Timeline'
@@ -8,34 +9,30 @@ import { Coins, Stones, Rubies } from '../Resource'
 
 const TIMELINE = [
   {
-    date: new Date(2020, 9, 1),
+    date: new Date(2020, 8, 7),
     title:
       'The registration opens and participants get to fill the form to enter the tournament.',
   },
   {
-    date: new Date(2020, 9, 7),
+    date: new Date(2020, 8, 14),
     title:
       'The registration closes and the brackets are being composed by the organisers.',
   },
   {
-    date: new Date(2020, 9, 8),
+    date: new Date(2020, 8, 15),
     title: 'The group stage starts and participants start battling each other.',
   },
   {
-    date: new Date(2020, 9, 15),
+    date: new Date(2020, 8, 25),
     title: 'The group stage ends and the final round is being layed down.',
   },
   {
-    date: new Date(2020, 9, 16),
+    date: new Date(2020, 8, 26),
     title: 'The final stage starts and participants start battling each other.',
   },
   {
-    date: new Date(2020, 9, 22),
+    date: new Date(2020, 9, 6),
     title: 'The final stage ends and the winners are announced.',
-  },
-  {
-    date: new Date(2020, 9, 23),
-    title: 'Tournament ends and rewards are being sent to the winners.',
   },
 ]
 
@@ -156,9 +153,16 @@ export default React.memo(function TournamentOddEven(props) {
 
       <Title id='banned-cards'>Banned Cards</Title>
 
-      <p>To be defined.</p>
+      <ListBuilderTier
+        name='You cannot use the following cards.'
+        cards={['N8', 'N34', 'I28']}
+        color='red'
+        prefix={`tier-`}
+        isEditable={false}
+      />
 
       <Title id='deck-changes'>Deck Changes</Title>
+
       <p>The basic rules for deck changes are as follow:</p>
 
       <ul>
