@@ -70,6 +70,7 @@
 }
 
 .HeaderMegaMenu__close {
+  display: none;
   background-color: transparent;
   padding: 0;
   border: 0;
@@ -104,5 +105,9 @@
 
   .HeaderMegaMenu::before {
     left: 50%;
+  }
+
+  .HeaderMegaMenu__close {
+    display: block;
   }
 }
