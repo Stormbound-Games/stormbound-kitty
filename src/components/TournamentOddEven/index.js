@@ -1,6 +1,7 @@
 import React from 'react'
 import Article from '../Article'
 import CTA from '../CTA'
+import Info from '../Info'
 import ListBuilderTier from '../ListBuilderTier'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
@@ -274,6 +275,20 @@ export default React.memo(function TournamentOddEven(props) {
         counter-deck, only to have their opponent waiting to see the changes to
         perform their own deck update reactionarily.
       </p>
+
+      <Info icon='stack' title='Deck Spreadsheet'>
+        You can have a look at every participant’s current deck (and information
+        such as their timezone and Stormbound ID) at any time during the
+        tournament by visiting the{' '}
+        <a
+          href='https://docs.google.com/spreadsheets/d/1qsqvQyPVlhBCp-kZAOVsIkC-25EHngjbvlLzc7Imz8E/edit#gid=0'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          the deck spreadsheet
+        </a>
+        .
+      </Info>
 
       <hr />
 
