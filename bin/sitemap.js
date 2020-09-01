@@ -17,6 +17,7 @@ const links = [
   '/card/stats',
   '/changelog',
   '/changelog/07-2020',
+  '/changelog/09-2020',
   '/collection',
   '/collection/books',
   '/collection/stats',
