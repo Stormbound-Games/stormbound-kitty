@@ -16,7 +16,7 @@ export default React.memo(function ChangelogSeptember2020(props) {
       background='/assets/images/environment_dragon.jpg'
     >
       <p>
-        During the first week of September, a small balance patch will{' '}
+        On the 1st of September, a small balance patch will{' '}
         <span style={{ color: 'var(--light-shadowfen)' }}>
           buff 12 different cards
         </span>{' '}
