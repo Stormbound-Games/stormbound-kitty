@@ -3997,7 +3997,7 @@
   },
   {
     "date": 1598918400000,
-    "description": "Decreased ability damage by 2",
+    "description": "Decreased strength by 1",
     "id": "N57",
     "type": "NERF"
   },
