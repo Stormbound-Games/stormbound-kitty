@@ -347,7 +347,7 @@
     "rarity": "rare",
     "image": "terrific_slayers.png",
     "mana": 4,
-    "strength": "1/2/3/4/5",
+    "strength": "2/3/4/5/6",
     "movement": 2,
     "ability": "Before attacking a Dragon, deal *5/6/7/8/10 additional damage*"
   },
