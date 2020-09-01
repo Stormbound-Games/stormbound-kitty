@@ -20,7 +20,7 @@ describe('The `MANA_COST_BALANCE` advice', () => {
   })
 
   it('should be returned if there are at least 9 cards costing an even number of mana', () => {
-    const cards = getCards('5n15n25n35n44n54n62n623n632n672n664n185n19')
+    const cards = getCards('5n15n25n31n235n44n54n62n622n672n664n185n19')
     expect(advice(cards)).to.not.equal(null)
   })
 
