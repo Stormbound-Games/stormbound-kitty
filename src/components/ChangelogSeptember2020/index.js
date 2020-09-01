@@ -28,7 +28,7 @@ export default React.memo(function ChangelogSeptember2020(props) {
       <Title>Neutral</Title>
 
       <p>
-        <WikiLink id='N20' /> now have 4/5/5/6/7 strength (instead of
+        <WikiLink id='N20' /> now have 4/5/6/7/8 strength (instead of
         3/4/4/5/6).
       </p>
 

@@ -256,7 +256,7 @@
     "rarity": "rare",
     "image": "emerald_towers.png",
     "mana": 4,
-    "strength": "4/5/7/8/10",
+    "strength": "4/5/6/7/8",
     "movement": null,
     "ability": "At the start of your turn, *give 2/2/3/3/4* strength to all friendly units in front"
   },
