@@ -12,10 +12,18 @@ export default () => {
   return [
     {
       id: 'HOME',
-      to: '/',
       icon: 'home',
       label: 'Home',
-      items: [],
+      items: [
+        {
+          title: 'Stormbound-Kitty',
+          items: [
+            { label: 'News', to: '/', id: 'HOME' },
+            { label: 'Donate', to: '/donate', id: 'DONATE' },
+            { label: 'FAQ', to: '/faq', id: 'FAQ' },
+          ],
+        },
+      ],
     },
     {
       id: 'GAME',
@@ -171,13 +179,6 @@ export default () => {
               id: 'CARD_CONTEST',
             },
             { label: 'Battle Puzzles', to: '/sim/puzzles', id: 'PUZZLES' },
-          ],
-        },
-        {
-          title: 'Kitty',
-          items: [
-            { label: 'Support & Donate', to: '/donate', id: 'DONATE' },
-            { label: 'FAQ', to: '/faq', id: 'FAQ' },
           ],
         },
       ],

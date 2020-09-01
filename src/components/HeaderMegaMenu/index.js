@@ -31,6 +31,7 @@ export default React.memo(function HeaderMegaMenu(props) {
       className={['HeaderMegaMenu', props.open && 'HeaderMegaMenu--open']
         .filter(Boolean)
         .join(' ')}
+      style={{ '--columns': props.columns.length }}
     >
       <Row desktopOnly>
         {props.columns.map((column, index) => (
