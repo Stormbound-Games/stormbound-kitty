@@ -71,8 +71,8 @@ export default React.memo(function TournamentOddEven(props) {
       noDropCap
     >
       <p>
-        The Odd Tournament is organised by Derk (derk#7109) and Kitty
-        (kitty#1909), with help from Arthis (arthisroo#7189).
+        The Odd Tournament is organised by Derk (derk#7109), Arthis
+        (arthisroo#7189) and Kitty (kitty#1909).
       </p>
 
       <ol style={{ columns: '16em' }}>
