@@ -1,7 +1,6 @@
 import React from 'react'
 import Article from '../Article'
 import Notice from '../Notice'
-import Info from '../Info'
 import PageMeta from '../PageMeta'
 import Title from '../Title'
 import WikiLink from '../WikiLink'
@@ -90,11 +89,6 @@ export default React.memo(function ChangelogSeptember2020(props) {
         level 1 to 3) and its ability now grants 2/3/4/5/6 strength (instead of
         2/3/4/4/5).
       </p>
-
-      <Info icon='wand' title='Unintended mana cost'>
-        Fortification Tonic currently costs 1 mana in the game instead of 2 as
-        expected. This is due to a technical issue and will be fixed prompty.
-      </Info>
 
       <Title>Winter</Title>
 
