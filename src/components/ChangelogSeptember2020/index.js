@@ -55,9 +55,9 @@ export default React.memo(function ChangelogSeptember2020(props) {
       </p>
 
       <p>
-        <WikiLink id='N57' /> now cost 8 mana (instead of 9) and their ability
-        now deals 6/7/9/11/13 damage (instead of 7/8/10/12/15). This might mean
-        this card gets to be used outside of mana ramp decks.
+        <WikiLink id='N57' /> now cost 8 mana (instead of 9) and have
+        6/7/9/11/13 strength (instead of 7/8/10/12/15). This might mean this
+        card gets to be used outside of mana ramp decks.
       </p>
 
       <p>

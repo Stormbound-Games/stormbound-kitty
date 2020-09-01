@@ -740,9 +740,9 @@
     "rarity": "epic",
     "image": "crazy_bombers.png",
     "mana": 8,
-    "strength": "7/8/10/12/15",
+    "strength": "6/7/9/11/13",
     "movement": 1,
-    "ability": "On play, deal *6/7/9/11/13 damage* spread randomly among all surrounding enemies"
+    "ability": "On play, deal *7/8/10/12/15 damage* spread randomly among all surrounding enemies"
   },
   {
     "name": "Siren of the Seas",
