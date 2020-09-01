@@ -289,6 +289,17 @@ export const WEEKLY_CARD_CONTEST = [
     name: 'Aggressive Structures',
     description: '',
     submitURL: 'https://forms.gle/oHWRj45WoJc2q8ps5',
+    winner: {
+      id:
+        'Tjs7UztDOzQ7OzMvNC81LzYvNztRdWlja3NsYXNoJTIwT3V0cG9zdDtodHRwcyUzQSUyRiUyRmkuaW1ndXIuY29tJTJGYm83dEtMVy5wbmc7QXQlMjB0aGUlMjBzdGFydCUyMG9mJTIweW91ciUyMHR1cm4lMkMlMjBnaXZlJTIwYWxsJTIwc3Vycm91bmRpbmclMjB1bml0cyUyMDElMjBzcGVlZDs7',
+      author: 'Player_Null_Name',
+    },
+  },
+  {
+    week: 36,
+    name: 'Faction Felines',
+    description: '',
+    submitURL: 'https://forms.gle/oHWRj45WoJc2q8ps5',
   },
 ]
 
