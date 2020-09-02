@@ -51,6 +51,14 @@
   text-decoration: none;
 }
 
+.HeaderMegaMenu__icon {
+  font-size: 90%;
+  margin-right: 1ch;
+  top: 1px;
+  position: relative;
+  stroke: none;
+}
+
 .HeaderMegaMenu__list {
   list-style: none;
   padding: 0;

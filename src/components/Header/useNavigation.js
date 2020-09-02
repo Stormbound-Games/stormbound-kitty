@@ -17,6 +17,7 @@ export default () => {
       items: [
         {
           title: 'Stormbound-Kitty',
+          icon: 'heart',
           items: [
             { label: 'News', to: '/', id: 'HOME' },
             { label: 'Donate', to: '/donate', id: 'DONATE' },
@@ -32,6 +33,7 @@ export default () => {
       items: [
         {
           title: 'Changelog',
+          icon: 'bullhorn',
           items: [
             {
               label: 'Update 09-2020',
@@ -58,6 +60,7 @@ export default () => {
         },
         {
           title: 'Meta',
+          icon: 'star',
           items: [
             {
               label: 'Equals Tier List',
@@ -74,6 +77,7 @@ export default () => {
         },
         {
           title: 'Miscellaneous',
+          icon: 'spades',
           items: [
             { label: 'Fan-Kit', to: '/fan-kit', id: 'FAN_KIT' },
             { label: 'Lexicon', to: '/guides/lexicon', id: 'LEXICON' },
@@ -87,6 +91,7 @@ export default () => {
       label: 'Guides',
       items: Object.keys(CATEGORIES).map(category => ({
         title: CATEGORIES[category].name.long,
+        icon: CATEGORIES[category].icon,
         to: '/guides/' + CATEGORIES[category].slug,
         items: GUIDES.filter(guide => guide.category === category).map(
           guide => ({
@@ -105,6 +110,7 @@ export default () => {
       items: [
         {
           title: 'Builders',
+          icon: 'hammer',
           items: [
             { label: 'Card Builder', to: '/card', id: 'CARD_BUILDER' },
             { label: 'Deck Builder', to: '/deck', id: 'DECK_BUILDER' },
@@ -115,6 +121,7 @@ export default () => {
         },
         {
           title: 'Your Content',
+          icon: 'user',
           items: [
             { label: 'Card Collection', to: '/collection', id: 'COLLECTION' },
             {
@@ -133,6 +140,7 @@ export default () => {
         },
         {
           title: 'Calculators',
+          icon: 'equalizer',
           items: [
             {
               label: 'Income Calculator',
@@ -150,11 +158,12 @@ export default () => {
     },
     {
       id: 'COMMUNITY',
-      icon: 'star',
+      icon: 'users',
       label: 'Community',
       items: [
         {
           title: 'Decks',
+          icon: 'stack',
           items: [
             {
               label: 'Popular Decks',
@@ -175,6 +184,7 @@ export default () => {
         },
         {
           title: 'Contests',
+          icon: 'trophy',
           items: [
             {
               label: 'Tournament Hall of Fame',
@@ -198,6 +208,7 @@ export default () => {
       items: [
         {
           title: 'Lore Stories',
+          icon: 'leaf',
           to: '/stories/lore',
           items: stories
             .filter(story => story.category === 'lore')
@@ -209,6 +220,7 @@ export default () => {
         },
         {
           title: 'Categories',
+          icon: 'folder-open',
           items: Object.keys(STORY_CATEGORIES)
             .filter(
               category => category !== 'lore' && category !== 'eastern-heat'
@@ -221,6 +233,7 @@ export default () => {
         },
         {
           title: 'Eastern Heat',
+          icon: 'fire',
           to: '/stories/eastern-heat',
           items: stories
             .filter(story => story.category === 'eastern-heat')

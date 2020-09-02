@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Column from '../Column'
+import Icon from '../Icon'
 import Row from '../Row'
 import './index.css'
 
@@ -37,6 +38,9 @@ export default React.memo(function HeaderMegaMenu(props) {
         {props.columns.map((column, index) => (
           <Column width={`1/${props.columns.length}`} key={index}>
             <h2 className='HeaderMegaMenu__title'>
+              {column.icon ? (
+                <Icon icon={column.icon} className='HeaderMegaMenu__icon' />
+              ) : null}
               {column.to ? (
                 <Link to={column.to}>{column.title}</Link>
               ) : (
