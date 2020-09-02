@@ -11,6 +11,7 @@ import Only from '../Only'
 import { Crowns, Coins } from '../Resource'
 import ResourceIcon from '../ResourceIcon'
 import Row from '../Row'
+import Table from '../Table'
 import Title from '../Title'
 import guides from '../../data/guides'
 import isBrawlRunning from '../../helpers/isBrawlRunning'
@@ -103,7 +104,7 @@ export default React.memo(function GuideBrawl(props) {
 
       <Only.Desktop>
         <div className='Article__fullwidth' style={{ '--padding': '60px' }}>
-          <table className='GuideBrawl__table'>
+          <Table>
             <thead>
               <tr>
                 <th>Required crowns</th>
@@ -124,7 +125,7 @@ export default React.memo(function GuideBrawl(props) {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </Table>
         </div>
       </Only.Desktop>
 

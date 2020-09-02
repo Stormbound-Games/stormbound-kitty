@@ -1,16 +1,3 @@
-.GuideD1SFCommons__table {
-  table-layout: fixed;
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.GuideD1SFCommons__table th:not(:empty),
-.GuideD1SFCommons__table td:not(:empty) {
-  padding: 0.5em 0.25em;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  text-align: center;
-}
-
 .GuideD1SFCommons__select {
   appearance: none;
   display: inline-block;

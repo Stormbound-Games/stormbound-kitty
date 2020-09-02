@@ -38,7 +38,7 @@ export default React.memo(function BrawlMatchForm(props) {
             </CTA>
           )}
         </td>
-        <td>
+        <td data-label='Opponent’s health'>
           <label htmlFor='opponent-health' className='VisuallyHidden'>
             Opponent’s health
           </label>
@@ -54,7 +54,7 @@ export default React.memo(function BrawlMatchForm(props) {
             defaultValue={props.opponentHealth || ''}
           />
         </td>
-        <td>
+        <td data-label='Opponent’s faction'>
           <FactionSelect
             form='add-match-form'
             labelClassName='VisuallyHidden'
@@ -65,7 +65,7 @@ export default React.memo(function BrawlMatchForm(props) {
             defaultValue={props.opponentFaction}
           />
         </td>
-        <td>
+        <td data-label='Match outcome'>
           <label htmlFor='status' className='VisuallyHidden'>
             Status
           </label>

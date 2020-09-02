@@ -7,6 +7,7 @@ import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Teaser from '../Teaser'
+import Table from '../Table'
 import Title from '../Title'
 import { Rubies } from '../Resource'
 import tournaments from '../../constants/tournaments.json'
@@ -92,7 +93,7 @@ export default React.memo(function TournamentHallOfFame(props) {
 
       <div className='Article__fullwidth'>
         <Title>Tournament History</Title>
-        <table className='TournamentHallOfFame__table'>
+        <Table zebra className='TournamentHallOfFame__table'>
           <thead>
             <tr>
               <th>Completion date</th>
@@ -107,18 +108,22 @@ export default React.memo(function TournamentHallOfFame(props) {
               .reverse()
               .map(tournament => (
                 <tr key={tournament.name}>
-                  <td>
+                  <td data-label='Date'>
                     {tournament.date
                       ? formatDate(getDate(tournament.date))
                       : 'Unknown date'}
                   </td>
-                  <td>{tournament.name}</td>
-                  <td>{toSentence(tournament.hosts, 'and')}</td>
-                  <td>{toSentence(tournament.winners, 'and')}</td>
+                  <td data-label='Name'>{tournament.name}</td>
+                  <td data-label='Host(s)'>
+                    {toSentence(tournament.hosts, 'and')}
+                  </td>
+                  <td data-label='Winner(s)'>
+                    {toSentence(tournament.winners, 'and')}
+                  </td>
                 </tr>
               ))}
           </tbody>
-        </table>
+        </Table>
       </div>
 
       <FAQSection

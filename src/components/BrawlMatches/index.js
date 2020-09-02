@@ -3,6 +3,7 @@ import serialize from 'form-serialize'
 import { BrawlContext } from '../BrawlProvider'
 import BrawlMatchForm from '../BrawlMatchForm'
 import Icon from '../Icon'
+import Table from '../Table'
 import Title from '../Title'
 import { MILESTONES } from '../../constants/brawl'
 import capitalise from '../../helpers/capitalise'
@@ -53,7 +54,7 @@ export default React.memo(function BrawlMatches(props) {
         id='add-match-form'
         onSubmit={editedMatch === null ? handleAdd : handleEdit}
       />
-      <table className='BrawlMatches'>
+      <Table zebra className='BrawlMatches'>
         <thead>
           <tr>
             <th>&nbsp;</th>
@@ -86,7 +87,7 @@ export default React.memo(function BrawlMatches(props) {
                   .filter(Boolean)
                   .join(' ')}
               >
-                <td>
+                <td data-label='Match #'>
                   {brawl.matches.length - index}
                   {viewportWidth >= 700 ? '.' : ''}
                   <button
@@ -98,13 +99,16 @@ export default React.memo(function BrawlMatches(props) {
                     <Icon icon='pencil' />
                   </button>
                 </td>
-                <td>
+                <td data-label='Opponent’s health'>
                   {match.opponentHealth
                     ? `${match.opponentHealth} base health`
                     : 'Unspecified'}
                 </td>
-                <td>{capitalise(match.opponentFaction || 'unspecified')}</td>
+                <td data-label='Opponent’s faction'>
+                  {capitalise(match.opponentFaction || 'unspecified')}
+                </td>
                 <td
+                  data-label='Match outcome'
                   className={[
                     'BrawlMatches__status',
                     `BrawlMatches__status--${match.status}`,
@@ -129,7 +133,7 @@ export default React.memo(function BrawlMatches(props) {
             )
           })}
         </tbody>
-      </table>
+      </Table>
     </>
   )
 })

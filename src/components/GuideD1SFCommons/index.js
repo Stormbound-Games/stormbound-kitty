@@ -8,6 +8,7 @@ import Guide from '../Guide'
 import Info from '../Info'
 import Only from '../Only'
 import Row from '../Row'
+import Table from '../Table'
 import Title from '../Title'
 import WikiLink from '../WikiLink'
 import guides from '../../data/guides'
@@ -253,7 +254,7 @@ export default React.memo(function GuideD1SFCommons(props) {
 
       <Only.Desktop>
         <div className='Article__fullwidth' style={{ '--padding': '60px' }}>
-          <table className='GuideD1SFCommons__table'>
+          <Table>
             <thead>
               <tr>
                 <th>
@@ -308,7 +309,7 @@ export default React.memo(function GuideD1SFCommons(props) {
                 <td>{combine('N52')}</td>
               </tr>
             </tbody>
-          </table>
+          </Table>
         </div>
       </Only.Desktop>
 
