@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 import puzzles from '../../data/puzzles'
 import Column from '../Column'
 import EmptySearch from '../EmptySearch'
+import HeaderBanner from '../HeaderBanner'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Puzzle from '../BattleSimPuzzle'
 import PuzzlesFilters from '../BattleSimPuzzlesFilters'
 import Row from '../Row'
-import Title from '../Title'
 import './index.css'
 
 export default class BattleSimPuzzles extends React.Component {
@@ -58,16 +58,13 @@ export default class BattleSimPuzzles extends React.Component {
 
     return (
       <>
-        <h1 className='VisuallyHidden'>Puzzles</h1>
+        <HeaderBanner title='Puzzles' />
 
         <Row desktopOnly wideGutter>
           <Column width='1/3'>
-            <Title>Filters</Title>
             <PuzzlesFilters {...this.state} updateFilter={this.updateFilter} />
           </Column>
           <Column width='2/3'>
-            <Title>Puzzles</Title>
-
             {puzzles.length > 0 ? (
               <ul className='BattleSimPuzzles__list'>
                 {puzzles.map(puzzle => (
