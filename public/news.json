@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Third Anniversary",
+    "description": "A minor promotional update on the 18th of September to celebrate Stormbound’s 3rd anniversary!",
+    "link": "/changelog/3rd-anniversary"
+  },
+  {
     "intro": "Brewed Sages Podcast",
     "description": "The Brewed Sages podcast by Freeloader and Subaiku now has its own page where you can listen to all episodes!",
     "link": "/brewed-sages"

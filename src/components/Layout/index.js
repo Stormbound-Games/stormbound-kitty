@@ -1,7 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import EyeCatcher from '../EyeCatcher'
 import Footer from '../Footer'
 import Header from '../Header'
+import Only from '../Only'
 import load from '../../helpers/load'
 import './index.css'
 
@@ -13,6 +16,14 @@ export default React.memo(function Layout(props) {
 
   return (
     <div className='Layout'>
+      <Only.Desktop>
+        <EyeCatcher id='patch-2020-09-2'>
+          A new small release is landing to celebrate Stormbound’s 3rd
+          anniversary.{' '}
+          <Link to='/changelog/3rd-anniversary'>Be sure to check it out</Link>!
+        </EyeCatcher>
+      </Only.Desktop>
+
       <Header
         active={props.active}
         isSearchReady={isSearchReady}

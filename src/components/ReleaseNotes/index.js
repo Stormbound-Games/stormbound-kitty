@@ -14,6 +14,15 @@ export default React.memo(function ReleaseNotes(props) {
       <Row desktopOnly>
         <Column width='1/3'>
           <Teaser
+            cardId='N8'
+            title='3rd Anniversary'
+            meta='September 18th, 2020'
+            excerpt='A minor promotional update to celebrate Stormbound’s 3rd anniversary with offers (for paying and non-paying players) and gifts.'
+            to='/changelog/3rd-anniversary'
+          />
+        </Column>
+        <Column width='1/3'>
+          <Teaser
             cardId='N57'
             title='Small buff patch'
             meta='September 1st, 2020'
