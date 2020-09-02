@@ -2,9 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import ChangelogLegend from '../ChangelogLegend'
 import Column from '../Column'
+import HeaderBanner from '../HeaderBanner'
+import Info from '../Info'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
-import Teaser from '../Teaser'
 import Title from '../Title'
 import WikiLink from '../WikiLink'
 import changelog from '../../data/changelog'
@@ -55,7 +56,8 @@ export default function Changelog(props) {
 
   return (
     <>
-      <h1 className='VisuallyHidden'>Changelog</h1>
+      <HeaderBanner title='Card Changes' />
+
       <Row desktopOnly wideGutter>
         <Column width='1/3'>
           <Title>Filters</Title>
@@ -107,30 +109,13 @@ export default function Changelog(props) {
             . Thank you to <Link to='/member/FrozenEarth'>FrozenEarth</Link> for
             their work on maintaining the list of changes.
           </p>
+
+          <Info icon='compass' title='Release notes'>
+            If you are looking for the details of a specific update, check out
+            the <Link to='/changelog/releases'>release notes</Link>.
+          </Info>
         </Column>
         <Column width='2/3'>
-          <Title>Patch notes</Title>
-          <Row desktopOnly>
-            <Column>
-              <Teaser
-                cardId='N57'
-                title='Small buff patch'
-                meta='September 2020'
-                excerpt='A minor balance patch buffing 12 under-appreciated cards: 9 neutral cards, 2 Ironclad cards and 1 Winter card. Nothing for Shadowfen and Swarm.'
-                to='/changelog/09-2020'
-              />
-            </Column>
-            <Column>
-              <Teaser
-                cardId='N21'
-                title='First Sheepyard update'
-                meta='July 2020'
-                excerpt='The first update from Sheepyard featuring a new card, some balance tweaks, matchmaking improvements, economy updates, and more.'
-                to='/changelog/07-2020'
-              />
-            </Column>
-          </Row>
-
           {sorting === 'DATE'
             ? Object.keys(changesByDate)
                 .sort()
@@ -171,7 +156,7 @@ export default function Changelog(props) {
         </Column>
       </Row>
       <PageMeta
-        title='Changelog'
+        title='Card Changes'
         description='Find all cards changes that ever happened on Stormbound'
       />
     </>

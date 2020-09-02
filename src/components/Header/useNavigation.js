@@ -32,7 +32,6 @@ export default () => {
       items: [
         {
           title: 'Changelog',
-          to: '/changelog',
           items: [
             {
               label: 'Update 09-2020',
@@ -45,7 +44,16 @@ export default () => {
               to: '/changelog/07-2020',
               id: '07_2020',
             },
-            { label: 'Card Changes', to: '/changelog', id: 'CARD_CHANGES' },
+            {
+              label: 'Release Notes',
+              to: '/changelog/releases',
+              id: 'RELEASE_NOTES',
+            },
+            {
+              label: 'Card Changes',
+              to: '/changelog/cards',
+              id: 'CARD_CHANGES',
+            },
           ],
         },
         {

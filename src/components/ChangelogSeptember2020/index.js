@@ -10,7 +10,10 @@ export default React.memo(function ChangelogSeptember2020(props) {
     <Article
       author='Kitty'
       title='Update 09-2020'
-      backLink={{ to: '/changelog', children: 'Back to changelog' }}
+      backLink={{
+        to: '/changelog/releases',
+        children: 'Back to release notes',
+      }}
       readingTime='2 minutes'
       className='ChangelogSeptember2020'
       background='/assets/images/environment_dragon.jpg'

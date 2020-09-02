@@ -91,21 +91,27 @@ SEARCH_INDEX.push({
 })
 
 SEARCH_INDEX.push({
-  path: '/changelog',
-  label: 'Changelog',
-  breadcrumbs: ['Game', 'Card Changes'],
+  path: '/changelog/cards',
+  label: 'Card Changes',
+  breadcrumbs: ['Game', 'Changelog'],
+})
+
+SEARCH_INDEX.push({
+  path: '/changelog/releases',
+  label: 'Releases Notes',
+  breadcrumbs: ['Game', 'Changelog'],
 })
 
 SEARCH_INDEX.push({
   path: '/changelog/07-2020',
-  label: 'Changelog July 2020',
-  breadcrumbs: ['Game', 'July 2020 Update'],
+  label: 'July 2020 release',
+  breadcrumbs: ['Game', 'Changelog'],
 })
 
 SEARCH_INDEX.push({
   path: '/changelog/09-2020',
-  label: 'Changelog September 2020',
-  breadcrumbs: ['Game', 'September 2020 Update'],
+  label: 'September 2020 release',
+  breadcrumbs: ['Game', 'Changelog'],
 })
 
 SEARCH_INDEX.push({

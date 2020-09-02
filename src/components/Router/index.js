@@ -62,6 +62,7 @@ const ListBuilderEditorView = load('ListBuilderEditorView')
 const Member = load('Member')
 const QuestBuilderRoot = load('QuestBuilderRoot')
 const RankedList = load('RankedList')
+const ReleaseNotes = load('ReleaseNotes')
 const Story = load('Story')
 const StoryCategory = load('StoryCategory')
 const TournamentHallOfFame = load('TournamentHallOfFame')
@@ -292,11 +293,19 @@ export default function Router(props) {
             <ChangelogJuly2020 />
           </Page>
 
-          <Page path='/changelog/09-2020' active={['HOME', '09_2020']}>
+          <Page path='/changelog/09-2020' active={['GAME', '09_2020']}>
             <ChangelogSeptember2020 />
           </Page>
 
-          <Page path='/changelog' exact active={['GAME', 'CARD_CHANGES']}>
+          <Page
+            path='/changelog/releases'
+            exact
+            active={['GAME', 'RELEASE_NOTES']}
+          >
+            <ReleaseNotes />
+          </Page>
+
+          <Page path='/changelog/cards' exact active={['GAME', 'CARD_CHANGES']}>
             <Changelog />
           </Page>
 
