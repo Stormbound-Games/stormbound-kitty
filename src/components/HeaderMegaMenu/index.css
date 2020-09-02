@@ -120,6 +120,7 @@
   }
 
   .HeaderMegaMenu {
+    min-width: 0;
     width: calc(100vw - 2em);
     top: 100%;
   }
