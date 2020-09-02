@@ -1,7 +1,7 @@
 .HeaderMegaMenu {
   position: absolute;
   top: 100%;
-  width: calc(230px * var(--columns));
+  min-width: calc(230px * var(--columns));
   background-color: var(--black);
   z-index: 19;
   border: 1px solid var(--dark-beige);

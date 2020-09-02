@@ -207,24 +207,10 @@ export default () => {
       label: 'Stories',
       items: [
         {
-          title: 'Lore Stories',
-          icon: 'leaf',
-          to: '/stories/lore',
-          items: stories
-            .filter(story => story.category === 'lore')
-            .map(story => ({
-              label: story.title,
-              to: '/stories/' + story.id,
-              id: story.id,
-            })),
-        },
-        {
           title: 'Categories',
           icon: 'folder-open',
           items: Object.keys(STORY_CATEGORIES)
-            .filter(
-              category => category !== 'lore' && category !== 'eastern-heat'
-            )
+            .filter(category => category !== 'eastern-heat')
             .map(category => ({
               label: STORY_CATEGORIES[category].title,
               to: '/stories/' + category,
@@ -243,7 +229,7 @@ export default () => {
 
               return isNaN(indexA) || isNaN(indexB) ? 0 : indexA - indexB
             })
-            .slice(0, 4)
+            .slice(0, 5)
             .map(story => ({
               label: story.title,
               to: '/stories/' + story.id,
