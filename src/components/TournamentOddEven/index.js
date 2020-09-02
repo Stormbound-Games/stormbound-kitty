@@ -216,10 +216,9 @@ export default React.memo(function TournamentOddEven(props) {
 
       <p>
         Additionally, the top-performing player of each group during the group
-        stage will be rewarded{' '}
-        <span className='Highlight'>Edrik’s pocket money</span>:{' '}
-        <Coins amount='100' />, <Rubies amount='10' /> and <Stones amount='2' />
-        .
+        stage will be rewarded with a random legendary card. In case of a{' '}
+        <span className='Highlight'>flawless victory</span> (all matches won),
+        they get 2 legendary cards.
       </p>
 
       <Title id='banned-cards'>Banned Cards</Title>
