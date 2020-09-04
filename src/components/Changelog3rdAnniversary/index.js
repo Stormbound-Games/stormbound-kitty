@@ -97,8 +97,8 @@ export default React.memo(function Changelog3rdAnniversary(props) {
       <p>
         If you were waiting for an appealing sale to spend all your rubies, now
         is the time. Because between September 17th and September 20th,{' '}
-        <span className='Highlight'>all tomes will contain more cards</span>. As
-        a result:{' '}
+        <span className='Highlight'>all tomes will contain 33% more cards</span>
+        . As a result:{' '}
       </p>
 
       <ul>
