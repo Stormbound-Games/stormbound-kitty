@@ -14,6 +14,7 @@ import cards from '../../data/cards'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import serialisation from '../../helpers/serialisation'
 
+const BANNED_CARDS = ['N8', 'N34', 'N46', 'I28']
 const TIMELINE = [
   {
     date: new Date(2020, 8, 7),
@@ -66,9 +67,12 @@ const TIMELINE = [
   },
 ]
 
-const getList = pool =>
+const getList = (pool, name) =>
   serialisation.list.serialise(
-    Object.keys(pool).map(faction => ({ name: faction, cards: pool[faction] }))
+    Object.keys(pool).map(faction => ({
+      name: name + ' ' + faction,
+      cards: pool[faction],
+    }))
   )
 
 export default React.memo(function TournamentOddEven(props) {
@@ -77,7 +81,7 @@ export default React.memo(function TournamentOddEven(props) {
     () =>
       cards.reduce(
         (acc, card) => {
-          if (card.token) return acc
+          if (card.token || BANNED_CARDS.includes(card.id)) return acc
           const { mana, faction } = getResolvedCardData({
             id: card.id,
             level: 1,
@@ -97,8 +101,8 @@ export default React.memo(function TournamentOddEven(props) {
       ),
     []
   )
-  const oddList = getList(odd)
-  const evenList = getList(even)
+  const oddList = getList(odd, 'Odd – ')
+  const evenList = getList(even, 'Even – ')
 
   return (
     <Article
@@ -267,7 +271,7 @@ export default React.memo(function TournamentOddEven(props) {
       <Title id='banned-cards'>Banned Cards</Title>
       <ListBuilderTier
         name='You cannot use the following cards.'
-        cards={['N8', 'N34', 'N46', 'I28']}
+        cards={BANNED_CARDS}
         color='red'
         prefix={`tier-`}
         isEditable={false}
