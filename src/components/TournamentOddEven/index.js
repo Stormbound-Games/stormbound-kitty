@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CTA from '../CTA'
 import Info from '../Info'
@@ -8,6 +9,10 @@ import PageMeta from '../PageMeta'
 import Timeline from '../Timeline'
 import Title from '../Title'
 import { Coins, Stones, Rubies } from '../Resource'
+import useViewportWidth from '../../hooks/useViewportWidth'
+import cards from '../../data/cards'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
+import serialisation from '../../helpers/serialisation'
 
 const TIMELINE = [
   {
@@ -61,13 +66,45 @@ const TIMELINE = [
   },
 ]
 
+const getList = pool =>
+  serialisation.list.serialise(
+    Object.keys(pool).map(faction => ({ name: faction, cards: pool[faction] }))
+  )
+
 export default React.memo(function TournamentOddEven(props) {
+  const viewportWidth = useViewportWidth()
+  const [odd, even] = React.useMemo(
+    () =>
+      cards.reduce(
+        (acc, card) => {
+          if (card.token) return acc
+          const { mana, faction } = getResolvedCardData({
+            id: card.id,
+            level: 1,
+          })
+          const even = mana % 2 === 0
+          const pool = acc[even ? 1 : 0]
+
+          if (typeof pool[faction] === 'undefined') {
+            pool[faction] = []
+          }
+
+          pool[faction].push(card.id)
+
+          return acc
+        },
+        [{}, {}]
+      ),
+    []
+  )
+  const oddList = getList(odd)
+  const evenList = getList(even)
+
   return (
     <Article
-      title='Odd Tournament'
-      authors={['Kitty', 'Derk']}
+      title={viewportWidth < 700 ? 'Odd & Even' : 'Odd & Even Tournament'}
+      authors={['Kitty', 'Derk', 'Arthis']}
       backLink={{ to: '/', children: 'Home' }}
-      readingTime='In preparation'
       noDropCap
     >
       <p>
@@ -97,24 +134,30 @@ export default React.memo(function TournamentOddEven(props) {
         <li>
           <a href='#deck-changes'>Deck changes</a>
         </li>
+        <li>
+          <a href='#useful-links'>Useful links</a>
+        </li>
       </ol>
 
-      <div style={{ color: 'var(--light-ironclad)' }}>
-        <Notice>
-          If you stumble upon this page before it is officially announced,
-          please keep it for yourself. A lot of work goes into making this
-          tournament nice, and I’d like it not to be spoiled.
-        </Notice>
-      </div>
+      <p
+        className='Highlight'
+        style={{ fontStyle: 'italic', fontSize: '110%', textAlign: 'center' }}
+      >
+        Ever wondered how a deck full of odd-costing cards would perform?
+        <br />
+        Well, the odds of it going well aren’t even that good.
+      </p>
 
       <Title id='introduction'>Introduction</Title>
       <p>
-        The concept of the Odd Tournament relies on{' '}
-        <span className='Highlight'>
-          using only cards whose mana cost is odd
-        </span>
+        The concept of the Odd Tournament relies on using{' '}
+        <Link to={`/list/${oddList}/display`}>
+          only cards whose mana cost is odd
+        </Link>
         , or{' '}
-        <span className='Highlight'>only cards whose mana cost is even</span>{' '}
+        <Link to={`/list/${evenList}/display`}>
+          only cards whose mana cost is even
+        </Link>{' '}
         (token cards excluded). This sole restriction has a few consequences for
         deck making:
       </p>
@@ -132,8 +175,8 @@ export default React.memo(function TournamentOddEven(props) {
           that’s part of the deal.
         </li>
         <li>
-          Deck building skills, like in any tournament, is going to be essential
-          and will hopefully lead to some unseen decks.
+          Deck building skills, like in any tournament, are going to be
+          essential and will hopefully lead to some unseen decks.
         </li>
       </ul>
 
@@ -302,6 +345,48 @@ export default React.memo(function TournamentOddEven(props) {
         .
       </Info>
 
+      <Title id='useful-links'>Useful links</Title>
+
+      <ul>
+        <li>
+          Registration form:{' '}
+          <a
+            href='https://forms.gle/3YhBGpddS5ip2Knk6'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            forms.gle/3YhBGpddS5ip2Knk6
+          </a>
+        </li>
+        <li>
+          Deck spreadsheet:{' '}
+          <a
+            href='https://docs.google.com/spreadsheets/d/1qsqvQyPVlhBCp-kZAOVsIkC-25EHngjbvlLzc7Imz8E'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            docs.google.com/spreadsheets/d/1qsqvQyPVlhBCp-kZAOVsIkC-25EHngjbvlLzc7Imz8E
+          </a>
+        </li>
+        <li>
+          Brackets:{' '}
+          <a
+            href='https://challonge.com/OddTournament'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            challonge.com/OddTournament
+          </a>
+        </li>
+        <li>
+          <Link to={`/list/${oddList}/display`}>Odd-costing cards</Link>
+        </li>
+
+        <li>
+          <Link to={`/list/${evenList}/display`}>Even-costing cards</Link>
+        </li>
+      </ul>
+
       <hr />
 
       <Notice icon='heart'>
@@ -309,8 +394,8 @@ export default React.memo(function TournamentOddEven(props) {
       </Notice>
 
       <PageMeta
-        title='The Odd Tournament'
-        description='Everything you need to know to participate in The Odd Tournament, an upcoming Tournament by Derk & Kitty'
+        title='Odd & Even Tournament'
+        description='Everything you need to know to participate in the Odd & Even Tournament, an upcoming Tournament by Derk, Kitty & ArthisRoo.'
       />
     </Article>
   )

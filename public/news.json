@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Odd & Even Tournament",
+    "description": "The Odd & Even Tournament has started, so be sure to register!",
+    "link": "/tournaments/odd-even"
+  },
+  {
     "intro": "Buff Patch",
     "description": "A minor buff patch is landing, so be sure to check it out!",
     "link": "/changelog/09-2020"
