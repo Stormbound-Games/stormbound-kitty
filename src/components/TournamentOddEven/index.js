@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CTA from '../CTA'
-import Info from '../Info'
 import ListBuilderTier from '../ListBuilderTier'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
@@ -334,20 +333,6 @@ export default React.memo(function TournamentOddEven(props) {
         perform their own deck update reactionarily.
       </p>
 
-      <Info icon='stack' title='Deck Spreadsheet'>
-        You can have a look at every participant’s current deck (and information
-        such as their timezone and Stormbound ID) at any time during the
-        tournament by visiting the{' '}
-        <a
-          href='https://docs.google.com/spreadsheets/d/1qsqvQyPVlhBCp-kZAOVsIkC-25EHngjbvlLzc7Imz8E/edit#gid=0'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          the deck spreadsheet
-        </a>
-        .
-      </Info>
-
       <Title id='useful-links'>Useful links</Title>
 
       <ul>
@@ -359,16 +344,6 @@ export default React.memo(function TournamentOddEven(props) {
             rel='noopener noreferrer'
           >
             forms.gle/3YhBGpddS5ip2Knk6
-          </a>
-        </li>
-        <li>
-          Deck spreadsheet:{' '}
-          <a
-            href='https://docs.google.com/spreadsheets/d/1qsqvQyPVlhBCp-kZAOVsIkC-25EHngjbvlLzc7Imz8E'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            docs.google.com/spreadsheets/d/1qsqvQyPVlhBCp-kZAOVsIkC-25EHngjbvlLzc7Imz8E
           </a>
         </li>
         <li>
