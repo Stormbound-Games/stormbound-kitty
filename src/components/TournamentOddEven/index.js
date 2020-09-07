@@ -270,7 +270,6 @@ export default React.memo(function TournamentOddEven(props) {
 
       <Title id='banned-cards'>Banned Cards</Title>
       <ListBuilderTier
-        name='You cannot use the following cards.'
         cards={BANNED_CARDS}
         color='red'
         prefix={`tier-`}

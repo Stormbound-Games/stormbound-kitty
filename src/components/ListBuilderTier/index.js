@@ -9,7 +9,9 @@ export default React.memo(function ListBuilderTier(props) {
 
   return (
     <div className='ListBuilderTier' style={{ '--color': props.color }}>
-      <ListBuilderTierHeader {...props} cards={cards} />
+      {(props.name || props.isEditable) && (
+        <ListBuilderTierHeader {...props} cards={cards} />
+      )}
 
       <div
         className={[
