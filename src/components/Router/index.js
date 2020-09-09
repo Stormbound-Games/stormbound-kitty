@@ -54,7 +54,7 @@ const Donate = load('Donate')
 const EqualsList = load('EqualsList')
 const FanKitCards = load('FanKitCards')
 const FanKitBooks = load('FanKitBooks')
-const FanKitWallpapers = load('FanKitWallpapers')
+// const FanKitWallpapers = load('FanKitWallpapers')
 const FAQ = load('FAQ')
 const Guides = load('Guides')
 const Home = load('Home')
@@ -290,12 +290,12 @@ export default function Router(props) {
             <FanKitBooks />
           </Page>
 
-          <Page
+          {/*<Page
             path='/fan-kit/wallpapers'
             active={['GAME', 'FAN_KIT', 'WALLPAPERS']}
           >
             <FanKitWallpapers />
-          </Page>
+          </Page>*/}
 
           <Page
             path='/income-calculator'
