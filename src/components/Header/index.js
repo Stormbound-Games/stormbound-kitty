@@ -33,7 +33,7 @@ const SubNav = React.memo(function (props) {
 })
 
 export default React.memo(function Header(props) {
-  const [topActive, midActive] = props.active || []
+  const [topActive] = props.active || []
   const [open, setOpen] = React.useState(null)
   const { pathname } = useLocation()
   const navigation = useNavigation()
