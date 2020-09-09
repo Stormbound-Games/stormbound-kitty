@@ -79,7 +79,21 @@ export default () => {
           title: 'Miscellaneous',
           icon: 'spades',
           items: [
-            { label: 'Fan-Kit', to: '/fan-kit', id: 'FAN_KIT' },
+            {
+              label: 'Cards assets',
+              to: '/fan-kit/cards',
+              id: 'CARDS',
+            },
+            {
+              label: 'Books assets',
+              to: '/fan-kit/books',
+              id: 'BOOKS',
+            },
+            {
+              label: 'Wallpapers',
+              to: '/fan-kit/wallpapers',
+              id: 'WALLPAPERS',
+            },
             { label: 'Lexicon', to: '/guides/lexicon', id: 'LEXICON' },
           ],
         },

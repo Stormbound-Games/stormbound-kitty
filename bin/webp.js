@@ -6,6 +6,7 @@ const paths = [
   'public/assets/images',
   'public/assets/images/cards',
   'public/assets/images/puzzles',
+  'public/assets/images/wallpapers',
 ]
 
 Promise.all(

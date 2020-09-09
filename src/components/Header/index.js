@@ -33,7 +33,7 @@ const SubNav = React.memo(function (props) {
 })
 
 export default React.memo(function Header(props) {
-  const [topActive, subActive] = props.active || []
+  const [topActive, midActive] = props.active || []
   const [open, setOpen] = React.useState(null)
   const { pathname } = useLocation()
   const navigation = useNavigation()
@@ -75,7 +75,7 @@ export default React.memo(function Header(props) {
                 )}
                 {item.items.length > 0 ? (
                   <HeaderMegaMenu
-                    active={subActive}
+                    active={props.active.slice(1)}
                     close={() => setOpen(null)}
                     columns={item.items}
                     open={open === item.id}

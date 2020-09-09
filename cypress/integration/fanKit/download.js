@@ -1,7 +1,7 @@
 import s from './selectors'
 
 describe('Fan-kit', () => {
-  before(() => cy.visit('/fan-kit'))
+  before(() => cy.visit('/fan-kit/cards'))
 
   it('should display images', () => {
     cy.get(s.ITEMS).should('exist')

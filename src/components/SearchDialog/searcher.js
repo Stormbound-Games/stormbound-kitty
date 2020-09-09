@@ -85,9 +85,21 @@ SEARCH_INDEX.push({
 })
 
 SEARCH_INDEX.push({
-  path: '/fan-kit',
-  label: 'Fan-kit',
-  breadcrumbs: ['Game', 'Fan-Kit'],
+  path: '/fan-kit/cards',
+  label: 'Fan-kit — Cards',
+  breadcrumbs: ['Game', 'Fan-Kit', 'Cards'],
+})
+
+SEARCH_INDEX.push({
+  path: '/fan-kit/books',
+  label: 'Fan-kit — Books',
+  breadcrumbs: ['Game', 'Fan-Kit', 'Books'],
+})
+
+SEARCH_INDEX.push({
+  path: '/fan-kit/wallpapers',
+  label: 'Fan-kit — Wallpapers',
+  breadcrumbs: ['Game', 'Fan-Kit', 'Wallpapers'],
 })
 
 SEARCH_INDEX.push({

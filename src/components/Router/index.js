@@ -52,7 +52,9 @@ const DeckEditorView = load('DeckEditorView')
 const DeckSuggestions = load('DeckSuggestions')
 const Donate = load('Donate')
 const EqualsList = load('EqualsList')
-const FanKit = load('FanKit')
+const FanKitCards = load('FanKitCards')
+const FanKitBooks = load('FanKitBooks')
+const FanKitWallpapers = load('FanKitWallpapers')
 const FAQ = load('FAQ')
 const Guides = load('Guides')
 const Home = load('Home')
@@ -278,8 +280,21 @@ export default function Router(props) {
             <Member />
           </Page>
 
-          <Page path='/fan-kit' active={['GAME', 'FAN_KIT']}>
-            <FanKit />
+          <Redirect exact path='/fan-kit' to='/fan-kit/cards' />
+
+          <Page path='/fan-kit/cards' active={['GAME', 'FAN_KIT', 'CARDS']}>
+            <FanKitCards />
+          </Page>
+
+          <Page path='/fan-kit/books' active={['GAME', 'FAN_KIT', 'BOOKS']}>
+            <FanKitBooks />
+          </Page>
+
+          <Page
+            path='/fan-kit/wallpapers'
+            active={['GAME', 'FAN_KIT', 'WALLPAPERS']}
+          >
+            <FanKitWallpapers />
           </Page>
 
           <Page

@@ -54,7 +54,7 @@ export default React.memo(function HeaderMegaMenu(props) {
                     to={item.to}
                     className={[
                       'HeaderMegaMenu__link',
-                      item.id === props.active &&
+                      props.active.includes(item.id) &&
                         'HeaderMegaMenu__link--active',
                       item.new && 'Header__item--new',
                     ]
