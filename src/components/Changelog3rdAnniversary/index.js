@@ -26,7 +26,8 @@ export default React.memo(function Changelog3rdAnniversary(props) {
       }}
       readingTime='2 minutes'
       className='Changelog3rdAnniversary'
-      background='/assets/images/environment_dragon.jpg'
+      background='/assets/images/third-anniversary.png'
+      ratio='50%'
     >
       <p>
         On September 18th, Stormbound is turning 3 years old. That’s incredible
