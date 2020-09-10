@@ -337,6 +337,17 @@ export default React.memo(function TournamentOddEven(props) {
 
       <ul>
         <li>
+          Discord server:{' '}
+          <a
+            href='https://discord.gg/kJ4KFh4'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            discord.gg/kJ4KFh4
+          </a>
+        </li>
+
+        <li>
           Registration form:{' '}
           <a
             href='https://forms.gle/3YhBGpddS5ip2Knk6'
