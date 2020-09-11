@@ -7,7 +7,7 @@
     "slug": "beginner",
     "faction": "neutral",
     "cardId": "N3",
-    "background": "/assets/images/environment_neutral.png",
+    "background": "/assets/images/banners/environment_neutral.png",
     "readingTime": "12 minutes",
     "category": "ESSENTIALS"
   },
@@ -19,7 +19,7 @@
     "slug": "complete",
     "faction": "neutral",
     "cardId": "I28",
-    "background": "/assets/images/environment_neutral.png",
+    "background": "/assets/images/banners/environment_neutral.png",
     "readingTime": "45 minutes",
     "category": "ESSENTIALS"
   },
@@ -31,7 +31,7 @@
     "slug": "brawl",
     "faction": "neutral",
     "cardId": "N76",
-    "background": "/assets/images/environment_neutral.png",
+    "background": "/assets/images/banners/environment_neutral.png",
     "readingTime": "6 minutes",
     "category": "ESSENTIALS"
   },
@@ -43,7 +43,7 @@
     "slug": "deck",
     "faction": "shadowfen",
     "cardId": "N48",
-    "background": "/assets/images/environment_swarm.png",
+    "background": "/assets/images/banners/environment_swarm.png",
     "readingTime": "13 minutes",
     "category": "ESSENTIALS"
   },
@@ -55,7 +55,7 @@
     "slug": "drawing",
     "faction": "neutral",
     "cardId": "N14",
-    "background": "/assets/images/environment_neutral.png",
+    "background": "/assets/images/banners/environment_neutral.png",
     "readingTime": "10 minutes",
     "category": "IN_DEPTH"
   },
@@ -67,7 +67,7 @@
     "slug": "resources",
     "faction": "neutral",
     "cardId": "N8",
-    "background": "/assets/images/environment_neutral.png",
+    "background": "/assets/images/banners/environment_neutral.png",
     "readingTime": "7 minutes",
     "category": "ESSENTIALS"
   },
@@ -79,7 +79,7 @@
     "slug": "mana-curve",
     "faction": "winter",
     "cardId": "W19",
-    "background": "/assets/images/environment_winter.png",
+    "background": "/assets/images/banners/environment_winter.png",
     "readingTime": "10 minutes",
     "category": "IN_DEPTH"
   },
@@ -91,7 +91,7 @@
     "slug": "triggers",
     "faction": "shadowfen",
     "cardId": "F4",
-    "background": "/assets/images/environment_shadowfen.png",
+    "background": "/assets/images/banners/environment_shadowfen.png",
     "readingTime": "5 minutes",
     "category": "IN_DEPTH"
   },
@@ -103,7 +103,7 @@
     "slug": "card-shop",
     "faction": "neutral",
     "cardId": "N22",
-    "background": "/assets/images/environment_neutral.png",
+    "background": "/assets/images/banners/environment_neutral.png",
     "readingTime": "7 minutes",
     "category": "IN_DEPTH"
   },
@@ -115,7 +115,7 @@
     "slug": "lexicon",
     "faction": "neutral",
     "cardId": "F1",
-    "background": "/assets/images/environment_ironclad.png",
+    "background": "/assets/images/banners/environment_ironclad.png",
     "category": "ESSENTIALS"
   },
   {
@@ -126,7 +126,7 @@
     "slug": "d1-with-sf-commons",
     "faction": "neutral",
     "cardId": "F3",
-    "background": "/assets/images/environment_shadowfen.png",
+    "background": "/assets/images/banners/environment_shadowfen.png",
     "readingTime": "17 minutes",
     "category": "PLAYSTYLE"
   },
@@ -139,7 +139,7 @@
     "slug": "winter",
     "faction": "winter",
     "cardId": "W9",
-    "background": "/assets/images/environment_winter.png",
+    "background": "/assets/images/banners/environment_winter.png",
     "readingTime": "14 minutes",
     "category": "PLAYSTYLE"
   },
@@ -152,7 +152,7 @@
     "slug": "pirate",
     "faction": "neutral",
     "cardId": "N42",
-    "background": "/assets/images/environment_neutral.png",
+    "background": "/assets/images/banners/environment_neutral.png",
     "readingTime": "10 minutes",
     "category": "PLAYSTYLE"
   },
@@ -164,7 +164,7 @@
     "slug": "known-bugs",
     "faction": "ironclad",
     "cardId": "I16",
-    "background": "/assets/images/environment_ironclad.png",
+    "background": "/assets/images/banners/environment_ironclad.png",
     "readingTime": "5 minutes",
     "category": "IN_DEPTH"
   },
@@ -176,7 +176,7 @@
     "slug": "chillbeards",
     "faction": "winter",
     "cardId": "W22",
-    "background": "/assets/images/environment_winter.png",
+    "background": "/assets/images/banners/environment_winter.png",
     "readingTime": "5 minutes",
     "category": "PLAYSTYLE"
   },
@@ -188,7 +188,7 @@
     "slug": "terrific-slayers",
     "faction": "neutral",
     "cardId": "N27",
-    "background": "/assets/images/environment_neutral.png",
+    "background": "/assets/images/banners/environment_neutral.png",
     "readingTime": "5 minutes",
     "category": "PLAYSTYLE"
   },
@@ -200,7 +200,7 @@
     "slug": "broodmother-qordia",
     "faction": "shadowfen",
     "cardId": "F21",
-    "background": "/assets/images/environment_shadowfen.png",
+    "background": "/assets/images/banners/environment_shadowfen.png",
     "readingTime": "5 minutes",
     "category": "PLAYSTYLE"
   }

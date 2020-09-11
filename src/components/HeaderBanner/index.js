@@ -6,7 +6,7 @@ export default React.memo(function HeaderBanner(props) {
   const supportsWebp = React.useContext(WebpContext)
   const ext = supportsWebp ? 'webp' : 'png'
   const background = (
-    props.background || '/assets/images/environment_neutral.png'
+    props.background || '/assets/images/banners/environment_neutral.png'
   ).replace('png', ext)
 
   return (

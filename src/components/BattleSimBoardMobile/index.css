@@ -15,7 +15,7 @@
  *    the original PNG.
  */
 .BattleSimBoardMobile {
-  background-image: url('/assets/images/bg-swarm.png'); /* 1 */
+  background-image: url('/assets/images/sim/bg-swarm.png'); /* 1 */
 }
 
 @media (min-width: 700px) and (max-width: 799px) {

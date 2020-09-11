@@ -17,7 +17,7 @@ export default React.memo(function BattleSimPlayerBanner(props) {
             className='BattleSimPlayerBanner__faction-icon'
             src={
               process.env.PUBLIC_URL +
-              '/assets/images/icon_' +
+              '/assets/images/iconography/icon_' +
               (props.faction || 'neutral') +
               '.png'
             }

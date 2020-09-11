@@ -75,7 +75,7 @@ export default React.memo(function GuideDrawing(props) {
 
       <img
         className='GuideDrawing__Formula'
-        src='/assets/images/formula.png'
+        src='/assets/images/guides/formula.png'
         alt='f(w) = floor(w * 1.6) + 1'
       />
 

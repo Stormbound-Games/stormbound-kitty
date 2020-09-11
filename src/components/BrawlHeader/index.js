@@ -15,7 +15,7 @@ export default React.memo(function BrawlHeader(props) {
     <>
       <HeaderBanner
         title={brawlData.title}
-        background={`/assets/images/environment_${faction}.png`}
+        background={`/assets/images/banners/environment_${faction}.png`}
       />
       <p className='BrawlHeader__meta'>
         <span className='BrawlHeader__author'>{brawlData.label}</span>

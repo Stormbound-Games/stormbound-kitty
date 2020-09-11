@@ -55,7 +55,7 @@ export default React.memo(function ChangelogJuly2020(props) {
       }}
       readingTime='10 minutes'
       className='ChangelogJuly2020'
-      background='/assets/images/environment_dragon.jpg'
+      background='/assets/images/banners/environment_dragon.jpg'
       ratio='50%'
     >
       <p>
@@ -198,7 +198,7 @@ export default React.memo(function ChangelogJuly2020(props) {
             <h3 style={{ marginTop: 0 }}>Sketches & illustrations</h3>
             <img
               style={{ marginTop: 0 }}
-              src='/assets/images/banner_rogue_sheep.png'
+              src='/assets/images/releases/banner_rogue_sheep.png'
               alt='New Rogue Sheep card'
             />
           </Column>
@@ -227,7 +227,7 @@ export default React.memo(function ChangelogJuly2020(props) {
         days, so be sure to consider it!
       </p>
       <img
-        src='/assets/images/pack_offer.png'
+        src='/assets/images/releases/pack_offer.png'
         alt='Limited offer to get Rogue Sheep and some resources'
       />
 
@@ -465,13 +465,13 @@ export default React.memo(function ChangelogJuly2020(props) {
           </Column>
           <Column width='1/3'>
             <img
-              src='/assets/images/base_health_dialog.png'
+              src='/assets/images/releases/base_health_dialog.png'
               alt='Dialog disclosing information about the current base health'
             />
           </Column>
           <Column width='1/3'>
             <img
-              src='/assets/images/base_health_level.png'
+              src='/assets/images/releases/base_health_level.png'
               alt='Illustration of the base health increasing'
             />
           </Column>
@@ -542,7 +542,7 @@ export default React.memo(function ChangelogJuly2020(props) {
       <PageMeta
         title='Update 07-2020'
         description='Discover everything there is to know about the first Stormbound update from the Sheepyard studio!'
-        image='/assets/images/environment_dragon.png'
+        image='/assets/images/banners/environment_dragon.png'
       />
     </Article>
   )

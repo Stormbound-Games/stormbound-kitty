@@ -169,7 +169,7 @@ export default React.memo(function GuideBeginner(props) {
 
       <img
         className='GuideBeginner__image'
-        src='/assets/images/guide_ozone_purifiers.png'
+        src='/assets/images/guides/guide_ozone_purifiers.png'
         alt='Ozone Purifiers pushing the front unit instead of the side one which is blocked between Ozone Purifiers and the edge and thus cannot move'
       />
 

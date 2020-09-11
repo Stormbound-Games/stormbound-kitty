@@ -16,7 +16,7 @@ export default React.memo(function ChangelogSeptember2020(props) {
       }}
       readingTime='2 minutes'
       className='ChangelogSeptember2020'
-      background='/assets/images/environment_dragon.jpg'
+      background='/assets/images/banners/environment_dragon.jpg'
     >
       <p>
         On the 1st of September, a small balance patch will{' '}
@@ -109,7 +109,7 @@ export default React.memo(function ChangelogSeptember2020(props) {
       <PageMeta
         title='Update 09-2020'
         description='Discover everything there is to know about the minor Stormbound balance tweaks!'
-        image='/assets/images/environment_dragon.png'
+        image='/assets/images/banners/environment_dragon.png'
       />
     </Article>
   )

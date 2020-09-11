@@ -8,7 +8,7 @@ export default React.memo(function ResourceIcon(props) {
       return (
         <Image
           className='ResourceIcon'
-          src='/assets/images/coin.png'
+          src='/assets/images/iconography/coin.png'
           alt='coin'
         />
       )
@@ -16,7 +16,7 @@ export default React.memo(function ResourceIcon(props) {
       return (
         <Image
           className='ResourceIcon'
-          src='/assets/images/stones.png'
+          src='/assets/images/iconography/stones.png'
           alt='fusion stone'
         />
       )
@@ -24,7 +24,7 @@ export default React.memo(function ResourceIcon(props) {
       return (
         <Image
           className='ResourceIcon'
-          src='/assets/images/ruby.png'
+          src='/assets/images/iconography/ruby.png'
           alt='ruby'
         />
       )
@@ -32,7 +32,7 @@ export default React.memo(function ResourceIcon(props) {
       return (
         <Image
           className='ResourceIcon'
-          src='/assets/images/crown_icon.png'
+          src='/assets/images/iconography/crown_icon.png'
           alt='crown'
         />
       )

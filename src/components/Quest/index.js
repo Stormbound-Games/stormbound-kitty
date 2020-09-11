@@ -27,7 +27,7 @@ export default React.memo(function Quest(props) {
         <div className='Quest__reward'>
           <Image
             className='Quest__currency-image'
-            src={`/assets/images/${props.currency}.png`}
+            src={`/assets/images/iconography/${props.currency}.png`}
             alt={props.currency}
           />
           <span className='Quest__amount'>

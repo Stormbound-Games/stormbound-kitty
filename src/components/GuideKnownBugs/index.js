@@ -67,7 +67,7 @@ export default React.memo(function GuideKnownBugs(props) {
       <Row wideGutter desktopOnly>
         <Column>
           <img
-            src='/assets/images/brawl_debug_view.jpg'
+            src='/assets/images/guides/brawl_debug_view.jpg'
             alt='Debug Brawl view with infinite resources, test name and missing UI elements'
           />
         </Column>
@@ -136,7 +136,7 @@ export default React.memo(function GuideKnownBugs(props) {
         </Column>
         <Column>
           <img
-            src='/assets/images/double_animation_bug.jpg'
+            src='/assets/images/guides/double_animation_bug.jpg'
             alt='All in-game animations are doubled'
           />
         </Column>
@@ -146,7 +146,7 @@ export default React.memo(function GuideKnownBugs(props) {
       <Row wideGutter desktopOnly>
         <Column>
           <img
-            src='/assets/images/fusion_stone_reward.jpeg'
+            src='/assets/images/guides/fusion_stone_reward.jpeg'
             alt='Animation when being rewarded with fusion stones'
           />
         </Column>
@@ -207,7 +207,7 @@ export default React.memo(function GuideKnownBugs(props) {
         </Column>
         <Column>
           <img
-            src='/assets/images/three_cards_bug.jpg'
+            src='/assets/images/guides/three_cards_bug.jpg'
             alt='Stormbound hand with only 3 cards despite having cycled'
           />
         </Column>
@@ -217,7 +217,7 @@ export default React.memo(function GuideKnownBugs(props) {
       <Row wideGutter desktopOnly>
         <Column>
           <img
-            src='/assets/images/challenge_in_deck_selection.jpg'
+            src='/assets/images/guides/challenge_in_deck_selection.jpg'
             alt='Friendly challenge dialog being displayed in the deck view'
           />
         </Column>
@@ -295,7 +295,7 @@ export default React.memo(function GuideKnownBugs(props) {
         </Column>
         <Column>
           <img
-            src='/assets/images/unwatchable_ads.jpg'
+            src='/assets/images/guides/unwatchable_ads.jpg'
             alt='The reward screen does not allow watching an ad'
           />
         </Column>
@@ -305,7 +305,7 @@ export default React.memo(function GuideKnownBugs(props) {
       <Row wideGutter desktopOnly>
         <Column>
           <img
-            src='/assets/images/friend-list-gaps.jpg'
+            src='/assets/images/guides/friend-list-gaps.jpg'
             alt='Friend list having odd empty gaps'
           />
         </Column>
@@ -356,7 +356,7 @@ export default React.memo(function GuideKnownBugs(props) {
         </Column>
         <Column>
           <img
-            src='/assets/images/tegor_ever_lasting_skull.png'
+            src='/assets/images/guides/tegor_ever_lasting_skull.png'
             alt='Tegor’s on-death skull floating at the bottom left of the board'
           />
         </Column>

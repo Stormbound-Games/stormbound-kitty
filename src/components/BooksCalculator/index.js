@@ -194,7 +194,7 @@ export default React.memo(function BooksCalculator(props) {
         <Only.Desktop>
           <Column width='1/3'>
             <Image
-              src={'/assets/images/book-' + book.toLowerCase() + '.png'}
+              src={'/assets/images/books/book-' + book.toLowerCase() + '.png'}
               className='BooksCalculator__book'
               alt={capitalise(book.toLowerCase()) + ' book'}
             />

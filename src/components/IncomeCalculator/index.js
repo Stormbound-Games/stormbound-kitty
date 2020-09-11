@@ -514,7 +514,7 @@ export default React.memo(function IncomeCalculator(props) {
               <li>
                 <img
                   className='IncomeCalculator__rarity'
-                  src={`/assets/images/rarity-common.png`}
+                  src={`/assets/images/iconography/rarity-common.png`}
                   alt=''
                 />{' '}
                 {income.cards[0].toFixed(2)} common card
@@ -523,7 +523,7 @@ export default React.memo(function IncomeCalculator(props) {
               <li>
                 <img
                   className='IncomeCalculator__rarity'
-                  src={`/assets/images/rarity-rare.png`}
+                  src={`/assets/images/iconography/rarity-rare.png`}
                   alt=''
                 />{' '}
                 {income.cards[1].toFixed(2)} rare card
@@ -532,7 +532,7 @@ export default React.memo(function IncomeCalculator(props) {
               <li>
                 <img
                   className='IncomeCalculator__rarity'
-                  src={`/assets/images/rarity-epic.png`}
+                  src={`/assets/images/iconography/rarity-epic.png`}
                   alt=''
                 />{' '}
                 {income.cards[2].toFixed(2)} epic card
@@ -541,7 +541,7 @@ export default React.memo(function IncomeCalculator(props) {
               <li>
                 <img
                   className='IncomeCalculator__rarity'
-                  src={`/assets/images/rarity-legendary.png`}
+                  src={`/assets/images/iconography/rarity-legendary.png`}
                   alt=''
                 />{' '}
                 {income.cards[3].toFixed(2)} legendary card

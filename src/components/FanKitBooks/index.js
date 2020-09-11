@@ -13,7 +13,7 @@ import useLazyLoad from '../../hooks/useLazyLoad'
 const books = [...Object.keys(BOOKS), 'ELDER'].map(book => ({
   name: capitalise(book.toLowerCase()) + ' book',
   id: book,
-  image: '/assets/images/book-' + book.toLowerCase() + '.png',
+  image: '/assets/images/books/book-' + book.toLowerCase() + '.png',
 }))
 
 export default React.memo(function FanKitBooks(props) {
