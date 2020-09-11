@@ -27,7 +27,7 @@ export default React.memo(function Changelog3rdAnniversary(props) {
       readingTime='2 minutes'
       className='Changelog3rdAnniversary'
       background='/assets/images/third-anniversary.png'
-      ratio='50%'
+      ratio='57.5%'
     >
       <p>
         On September 18th, Stormbound is turning 3 years old. That’s incredible
@@ -173,6 +173,21 @@ export default React.memo(function Changelog3rdAnniversary(props) {
         <Rubies amount={170} /> instead of 130. Similarly, the coins pack for{' '}
         <Rubies amount={50} /> will yield <Coins amount={600} /> instead of 450.
       </p>
+
+      <Title id='wallpapers'>Desktop Wallpapers</Title>
+
+      <p>
+        Last but not least, the Sheepyard design team has put up a collection of
+        desktop wallpapers that you can find in exclusivity in the{' '}
+        <Link to='/fan-kit/wallpapers'>wallpapers section</Link>. Enjoy them!
+      </p>
+
+      <div className='Article__fullwidth' style={{ '--padding': '60px' }}>
+        <Image
+          src='/assets/images/wallpapers/wallpaper-3.png'
+          alt='Stormbound Wallpaper'
+        />
+      </div>
 
       <hr />
 

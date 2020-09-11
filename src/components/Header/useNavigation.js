@@ -36,10 +36,15 @@ export default () => {
           icon: 'bullhorn',
           items: [
             {
+              label: 'Update 3rd Anniversary',
+              to: '/changelog/3rd-anniversary',
+              id: '3RD_ANNIVERSARY',
+              new: true,
+            },
+            {
               label: 'Update 09-2020',
               to: '/changelog/09-2020',
               id: '09_2020',
-              new: true,
             },
             {
               label: 'Update 07-2020',
