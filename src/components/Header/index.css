@@ -22,10 +22,6 @@
   display: flex;
 }
 
-.Header__list--sub {
-  overflow: hidden;
-}
-
 /**
  * 1. Position context for the active state pseudo-element.
  */
