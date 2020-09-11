@@ -158,6 +158,33 @@ const getCopiesData = collection => {
     }
   })
 }
+const getProgressData = collection => {
+  return Object.keys(RARITIES)
+    .map(rarity => {
+      return collection
+        .filter(card => getRawCardData(card.id).rarity === rarity)
+        .reduce(
+          (acc, card) => {
+            acc[card.level === 5 ? 0 : 1].value++
+
+            return acc
+          },
+          [
+            {
+              color: getRarityColor(rarity, 'bright'),
+              name: 'Maxed out ' + capitalise(rarity),
+              value: 0,
+            },
+            {
+              color: getRarityColor(rarity, 'light'),
+              name: 'In progress ' + capitalise(rarity),
+              value: 0,
+            },
+          ]
+        )
+    })
+    .flat()
+}
 
 export default function CollectionStats(props) {
   const { collection } = React.useContext(CollectionContext)
@@ -170,6 +197,9 @@ export default function CollectionStats(props) {
     collection,
   ])
   const copiesData = React.useMemo(() => getCopiesData(collection), [
+    collection,
+  ])
+  const progressData = React.useMemo(() => getProgressData(collection), [
     collection,
   ])
   const factionData = React.useMemo(
@@ -414,7 +444,30 @@ export default function CollectionStats(props) {
                 </ResponsiveContainer>
               </div>
             </Column>
-            <Column></Column>
+            <Column>
+              <div className='CollectionStats__chart'>
+                <Title className='CollectionStats__title'>Progress data</Title>
+                <ResponsiveContainer width='100%' height={300}>
+                  <PieChart>
+                    <Tooltip {...TOOLTIP_STYLES} />
+                    <Legend verticalAlign='bottom' />
+                    <Pie
+                      data={progressData}
+                      dataKey='value'
+                      cx='50%'
+                      cy='50%'
+                      innerRadius={50}
+                      outerRadius={80}
+                      label
+                    >
+                      {progressData.map(level => (
+                        <Cell key={`cell-${level}`} fill={level.color} />
+                      ))}
+                    </Pie>
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
+            </Column>
           </Row>
         </Column>
       </Row>
