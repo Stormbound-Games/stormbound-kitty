@@ -99,6 +99,11 @@ export default () => {
               to: '/fan-kit/books',
               id: 'BOOKS',
             },
+            {
+              label: 'Wallpapers',
+              to: '/fan-kit/wallpapers',
+              id: 'WALLPAPERS',
+            },
             { label: 'Lexicon', to: '/guides/lexicon', id: 'LEXICON' },
           ],
         },

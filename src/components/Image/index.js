@@ -19,6 +19,7 @@ export default React.forwardRef(function Image(props, ref) {
       className={props.className}
       data-testid={props['data-testid']}
       onClick={props.onClick}
+      onContextMenu={props.onContextMenu}
     />
   )
 })

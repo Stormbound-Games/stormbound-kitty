@@ -178,13 +178,14 @@ export default React.memo(function Changelog3rdAnniversary(props) {
 
       <p>
         Last but not least, the Sheepyard design team has put up a collection of
-        desktop wallpapers that you can find in exclusivity in the{' '}
-        <Link to='/fan-kit/wallpapers'>wallpapers section</Link>. Enjoy them!
+        desktop and home screen wallpapers that you can find in exclusivity in
+        the <Link to='/fan-kit/wallpapers'>wallpapers section</Link>. Enjoy
+        them!
       </p>
 
       <div className='Article__fullwidth' style={{ '--padding': '60px' }}>
         <Image
-          src='/assets/images/wallpapers/wallpaper-3.png'
+          src='/assets/images/wallpapers/lite/wp-d-3.png'
           alt='Stormbound Wallpaper'
         />
       </div>

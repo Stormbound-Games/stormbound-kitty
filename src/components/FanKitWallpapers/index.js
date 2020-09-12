@@ -1,21 +1,33 @@
 import React from 'react'
+import Column from '../Column'
 import FanKitDownloadDialog from '../FanKitDownloadDialog'
 import FanKitItem from '../FanKitItem'
-import Loader from '../Loader'
+import HeaderBanner from '../HeaderBanner'
 import PageMeta from '../PageMeta'
-import useLazyLoad from '../../hooks/useLazyLoad'
+import Row from '../Row'
+import chunk from '../../helpers/chunk'
 
-const wallpapers = [1, 2, 3, 4, 5, 6, 7].map(index => ({
-  name: 'Stormbound Wallpaper ' + index,
-  id: 'WALLPAPER_' + index,
-  image: '/assets/images/wallpapers/wallpaper-' + index + '.png',
-}))
+const resolveAsset = idPrefix => (wallpaper, index) => ({
+  name: `Stormbound ${idPrefix.toLowerCase()} wallpaper ${index + 1}`,
+  id: idPrefix + '_WALLPAPER_' + index,
+  image: '/assets/images/wallpapers/lite/' + wallpaper + '.png',
+})
+
+const desktopWallpapers = Array.from(
+  { length: 7 },
+  (_, i) => 'wp-d-' + (i + 1)
+).map(resolveAsset('DESKTOP'))
+const mobileWallpapers = Array.from(
+  { length: 7 },
+  (_, i) => 'wp-m-' + (i + 1)
+).map(resolveAsset('MOBILE'))
 
 export default React.memo(function FanKitBooks(props) {
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
-  const activeWallpaper = wallpapers.find(wallpaper => wallpaper.id === active)
-  const { loading, items, ref } = useLazyLoad(wallpapers, 1)
+  const activeWallpaper = [...desktopWallpapers, ...mobileWallpapers].find(
+    wallpaper => wallpaper.id === active
+  )
 
   React.useEffect(() => {
     if (dialogRef.current) {
@@ -26,12 +38,16 @@ export default React.memo(function FanKitBooks(props) {
 
   return (
     <>
-      <h1 className='VisuallyHidden'>Fan-kit — Wallpapers</h1>
+      <HeaderBanner title='Wallpapers' />
 
       <FanKitDownloadDialog
         displayImage={false}
         name={activeWallpaper ? activeWallpaper.name : undefined}
-        image={activeWallpaper ? activeWallpaper.image : undefined}
+        image={
+          activeWallpaper
+            ? activeWallpaper.image.replace('/lite/', '/full/')
+            : undefined
+        }
         dialogRef={instance => {
           dialogRef.current = instance
 
@@ -42,17 +58,30 @@ export default React.memo(function FanKitBooks(props) {
         close={() => dialogRef.current.hide()}
       />
 
-      {items.map(item => (
-        <FanKitItem
-          {...item}
-          key={item.id}
-          setActive={setActive}
-          width='1200px'
-        />
+      {chunk(desktopWallpapers, 2).map((row, index) => (
+        <Row desktopOnly key={index}>
+          <Column>
+            {row[0] && <FanKitItem {...row[0]} setActive={setActive} />}
+          </Column>
+          <Column>
+            {row[1] && <FanKitItem {...row[1]} setActive={setActive} />}
+          </Column>
+        </Row>
       ))}
 
-      {loading && <Loader />}
-      <div ref={ref} />
+      {chunk(mobileWallpapers, 3).map((row, index) => (
+        <Row desktopOnly key={index}>
+          <Column width='1/3'>
+            {row[0] && <FanKitItem {...row[0]} setActive={setActive} />}
+          </Column>
+          <Column width='1/3'>
+            {row[1] && <FanKitItem {...row[1]} setActive={setActive} />}
+          </Column>
+          <Column width='1/3'>
+            {row[2] && <FanKitItem {...row[2]} setActive={setActive} />}
+          </Column>
+        </Row>
+      ))}
 
       <PageMeta
         title='Wallpapers — Fan-Kit'
