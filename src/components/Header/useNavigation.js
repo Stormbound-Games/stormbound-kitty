@@ -218,6 +218,17 @@ export default () => {
             { label: 'Battle Puzzles', to: '/sim/puzzles', id: 'PUZZLES' },
           ],
         },
+        {
+          title: 'Miscellaneous',
+          icon: 'star',
+          items: [
+            {
+              label: 'Brewed Sages Podcast',
+              to: '/brewed-sages',
+              id: 'BREWED_SAGES',
+            },
+          ],
+        },
       ],
     },
     {

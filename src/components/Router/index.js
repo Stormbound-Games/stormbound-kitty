@@ -35,6 +35,7 @@ const BooksCalculator = load('BooksCalculator')
 const BrawlIndex = load('BrawlIndex')
 const BrawlOverview = load('BrawlOverview')
 const BrawlPage = load('BrawlPage')
+const BrewedSages = load('BrewedSages')
 const CardBuilderContest = load('CardBuilderContest')
 const CardBuilderDisplay = load('CardBuilderDisplay')
 const CardBuilderRoot = load('CardBuilderRoot')
@@ -341,6 +342,10 @@ export default function Router(props) {
             active={['COMMUNITY', 'HALL_OF_FAME']}
           >
             <TournamentHallOfFame />
+          </Page>
+
+          <Page path='/brewed-sages' active={['COMMUNITY', 'BREWED_SAGES']}>
+            <BrewedSages />
           </Page>
 
           <Page exact path='/' active={['HOME', 'NEWS']}>
