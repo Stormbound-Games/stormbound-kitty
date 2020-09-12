@@ -170,12 +170,12 @@ export default [
         ),
       },
       {
-        id: 'incorrect-deck-suggestions',
+        id: 'incorrect-deck-advice',
         question:
           'You say my deck should be improved but it works great! Why is that?',
         answer: (
           <>
-            The deck suggestions are determined based on heuristics and educated
+            The deck advice are determined based on heuristics and educated
             guesses. They do not result from a thorough analysis of the decks,
             and they definitely are not based on real game data. They are only
             generic suggestions from experimented players.

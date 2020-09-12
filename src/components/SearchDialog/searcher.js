@@ -184,7 +184,7 @@ SEARCH_INDEX.push({
 
 SEARCH_INDEX.push({
   path: '/deck/suggestions',
-  label: 'Deck Suggestions',
+  label: 'Popular Decks',
   breadcrumbs: ['Community', 'Popular Decks'],
 })
 

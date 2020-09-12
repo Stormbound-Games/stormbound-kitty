@@ -8,6 +8,7 @@ import BookmarkDeckButton from '../BookmarkDeckButton'
 import Column from '../Column'
 import Decks from '../Decks'
 import EmptySearch from '../EmptySearch'
+import HeaderBanner from '../HeaderBanner'
 import ImportCollection from '../ImportCollection'
 import Info from '../Info'
 import LearnMoreIcon from '../LearnMoreIcon'
@@ -168,7 +169,7 @@ class DeckSuggestions extends React.Component {
 
     return (
       <>
-        <h1 className='VisuallyHidden'>Deck Suggestions</h1>
+        <HeaderBanner title='Popular Decks' />
 
         <Row desktopOnly wideGutter>
           <Column width='1/3'>
@@ -238,7 +239,7 @@ class DeckSuggestions extends React.Component {
         </Row>
 
         <PageMeta
-          title='Decks'
+          title='Popular Decks'
           description={getDeckSearchDescription(this.state)}
         />
       </>

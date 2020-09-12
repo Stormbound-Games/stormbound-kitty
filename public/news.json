@@ -160,8 +160,8 @@
     "link": "/deck/collection"
   },
   {
-    "intro": "Deck Suggestions",
-    "description": "The deck suggestions can now be sorted by most recently added, faction or feasibility.",
+    "intro": "Popular Decks",
+    "description": "The popular decks can now be sorted by most recently added, faction or feasibility.",
     "link": "/deck/suggestions"
   },
   {
@@ -200,8 +200,8 @@
     "link": "/list/equals/display"
   },
   {
-    "intro": "Deck Suggestions",
-    "description": "Deck suggestions show card levels from your collection and are ordered accordingly.",
+    "intro": "Popular Decks",
+    "description": "Popular decks show card levels from your collection and are ordered accordingly.",
     "link": "/deck/suggestions"
   },
   {
@@ -245,8 +245,8 @@
     "link": "/brawl"
   },
   {
-    "intro": "Deck Suggestions",
-    "description": "The deck suggestions no longer have tags, but a new filter by author feature is available.",
+    "intro": "Popular Decks",
+    "description": "The popular decks no longer have tags, but a new filter by author feature is available.",
     "link": "/deck/suggestions"
   },
   {

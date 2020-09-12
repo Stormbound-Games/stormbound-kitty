@@ -21,7 +21,7 @@ export default React.memo(function DeckAdvice(props) {
   return (
     <div className='DeckAdvice'>
       <Title>
-        Suggestions <LearnMoreIcon anchor='#incorrect-deck-suggestions' />
+        Suggestions <LearnMoreIcon anchor='#incorrect-deck-advice' />
       </Title>
 
       {deckAdvice.map((resolveAdvice, index) => (
