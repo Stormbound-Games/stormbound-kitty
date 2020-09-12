@@ -63,6 +63,11 @@ export default () => {
           icon: 'star',
           items: [
             {
+              label: 'Popular Decks',
+              to: '/deck/suggestions',
+              id: 'DECK_SUGGESTIONS',
+            },
+            {
               label: 'Equals Tier List',
               to: '/list/equals',
               id: 'EQUALS_LIST',
@@ -181,7 +186,7 @@ export default () => {
             },
             {
               label: 'Reckless Rush',
-              to: '/deck/3n13n23s13n33s243s23n633n673s63n153s83s11',
+              to: '/deck/3n13n23s13n33s243s23n633n673s63n153s83s11/detail',
               id: 'RECKLESS_RUSH',
             },
             {
