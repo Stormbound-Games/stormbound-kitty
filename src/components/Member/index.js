@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
-import { WEEKLY_CARD_CONTEST } from '../../constants/misc'
+import { SWCC_SEASON_1, SWCC_SEASON_2 } from '../../constants/misc'
 import Error from '../Error'
 import HeaderBanner from '../HeaderBanner'
 import MemberContestVictories from '../MemberContestVictories'
@@ -41,7 +41,7 @@ export default React.memo(function Member(props) {
   )
   const userVictories = React.useMemo(
     () =>
-      WEEKLY_CARD_CONTEST.filter(
+      [...SWCC_SEASON_1, ...SWCC_SEASON_2].filter(
         contest => contest.winner && contest.winner.author.toLowerCase() === id
       ),
     [id]

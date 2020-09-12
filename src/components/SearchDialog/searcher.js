@@ -6,14 +6,14 @@ import puzzles from '../../data/puzzles'
 import { BRAWLS } from '../../constants/brawl'
 import { CATEGORIES } from '../../constants/guides'
 import { STORY_CATEGORIES } from '../../constants/stories'
-import { WEEKLY_CARD_CONTEST } from '../../constants/misc'
+import { SWCC_SEASON_1, SWCC_SEASON_2 } from '../../constants/misc'
 
 export const SEARCH_INDEX = []
 const MEMBERS = [
   ...new Set([
     ...puzzles.map(puzzle => puzzle.author),
     ...decks.map(deck => deck.author),
-    ...WEEKLY_CARD_CONTEST.filter(
+    ...[...SWCC_SEASON_1, ...SWCC_SEASON_2].filter(
       contest => contest.winner && contest.winner.author
     ),
     ...guides.reduce((authors, guide) => authors.concat(guide.authors), []),

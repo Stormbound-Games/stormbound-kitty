@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { WEEKLY_CARD_CONTEST } from '../../constants/misc'
 import Card from '../Card'
 import Column from '../Column'
 import Row from '../Row'
@@ -62,7 +61,7 @@ export default React.memo(function CardContestEntry(props) {
           <Column>
             <div className='CardContestEntry__content'>
               <span className='CardContestEntry__weekIndex'>
-                Week #{WEEKLY_CARD_CONTEST.length - props.index}:{' '}
+                Week #{props.number}:{' '}
                 <span className='CardContestEntry__contestName'>
                   {props.name}
                 </span>

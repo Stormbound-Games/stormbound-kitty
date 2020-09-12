@@ -1,4 +1,4 @@
-import { WEEKLY_CARD_CONTEST } from '../../../src/constants/misc'
+import { SWCC_SEASON_1 } from '../../../src/constants/misc'
 
 describe('Routes — Card Builder', () => {
   it('it should render', () => {
@@ -10,7 +10,7 @@ describe('Routes — Card Builder', () => {
   })
 
   it('it should render the editor mode', () => {
-    cy.visit('/card/' + WEEKLY_CARD_CONTEST[0].winner.id)
+    cy.visit('/card/' + SWCC_SEASON_1[0].winner.id)
       .get('main h1')
       .should('exist')
   })
@@ -24,7 +24,7 @@ describe('Routes — Card Builder', () => {
   })
 
   it('it should render the display mode', () => {
-    cy.visit('/card/' + WEEKLY_CARD_CONTEST[0].winner.id + '/display')
+    cy.visit('/card/' + SWCC_SEASON_1[0].winner.id + '/display')
       .get('main h1')
       .should('exist')
   })

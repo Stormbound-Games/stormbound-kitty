@@ -8,7 +8,12 @@ export default React.memo(function MemberContestVictories(props) {
   return (
     <MemberSection>
       {props.victories.map((contest, index) => (
-        <CardContestEntry key={index} {...contest} index={index} />
+        <CardContestEntry
+          key={index}
+          {...contest}
+          index={index}
+          number={contest.week}
+        />
       ))}
     </MemberSection>
   )

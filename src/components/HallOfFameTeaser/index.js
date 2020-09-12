@@ -1,5 +1,4 @@
 import React from 'react'
-import { WEEKLY_CARD_CONTEST } from '../../constants/misc'
 import Teaser from '../Teaser'
 import getRawCardData from '../../helpers/getRawCardData'
 import serialisation from '../../helpers/serialisation'
@@ -14,14 +13,14 @@ const getCardData = id => {
   return data
 }
 
-export default React.memo(function CardContestEntry(props) {
+export default React.memo(function HallOfFameTeaser(props) {
   const cardData = getCardData(props.winner.id)
 
   return (
     <Teaser
       card={cardData}
       title={'Card by ' + props.winner.author}
-      meta={`Week #${WEEKLY_CARD_CONTEST.length - props.index} — ${props.name}`}
+      meta={`Week #${props.number} — ${props.name}`}
       to={`/card/${props.winner.id}`}
       excerpt={
         <>

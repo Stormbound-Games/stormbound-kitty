@@ -1,5 +1,5 @@
 import React from 'react'
-import { WEEKLY_CARD_CONTEST } from '../../constants/misc'
+import { SWCC_SEASON_2 } from '../../constants/misc'
 import getCalendarWeek from '../../helpers/getCalendarWeek'
 import getNextWeekDay from '../../helpers/getNextWeekDay'
 import './index.css'
@@ -18,9 +18,7 @@ const DATE_TIME_OPTIONS = {
 
 export default React.memo(function CardBuilderContestStatus(props) {
   const calendarWeek = getCalendarWeek()
-  const contest = WEEKLY_CARD_CONTEST.find(
-    contest => !contest.archived && contest.week === calendarWeek
-  )
+  const contest = SWCC_SEASON_2.find(contest => contest.week === calendarWeek)
   const weekDay = new Date().getDay()
   const isWeekEnd = weekDay === 7 || weekDay === 0
 

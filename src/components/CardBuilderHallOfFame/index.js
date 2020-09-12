@@ -1,51 +1,56 @@
 import React from 'react'
-import { WEEKLY_CARD_CONTEST } from '../../constants/misc'
+import { SWCC_SEASON_1, SWCC_SEASON_2 } from '../../constants/misc'
 import HallOfFameTeaser from '../HallOfFameTeaser'
 import Column from '../Column'
 import Row from '../Row'
 import Title from '../Title'
 import chunk from '../../helpers/chunk'
 
-export default React.memo(function CardBuilderHallOfFame(props) {
-  const weeks = WEEKLY_CARD_CONTEST.filter(
-    contest => !!contest.winner
-  ).reverse()
+const CardBuilderHallOfFameSeason = React.memo(
+  function CardBuilderHallOfFameSeason(props) {
+    return chunk(props.weeks, 3).map((row, index) => (
+      <Row key={index} desktopOnly wideGutter>
+        <Column width='1/3'>
+          {row[0] && (
+            <HallOfFameTeaser
+              {...row[0]}
+              number={props.weeks.length - index * 3}
+            />
+          )}
+        </Column>
+        <Column width='1/3'>
+          {row[1] && (
+            <HallOfFameTeaser
+              {...row[1]}
+              number={props.weeks.length - index * 3 - 1}
+            />
+          )}
+        </Column>
+        <Column width='1/3'>
+          {row[2] && (
+            <HallOfFameTeaser
+              {...row[2]}
+              number={props.weeks.length - index * 3 - 2}
+            />
+          )}
+        </Column>
+      </Row>
+    ))
+  }
+)
 
+export default React.memo(function CardBuilderHallOfFame(props) {
   return (
     <>
-      <Title>Hall of Fame</Title>
+      <Title>Season 2</Title>
+      <CardBuilderHallOfFameSeason
+        weeks={SWCC_SEASON_2.filter(week => !!week.winner).reverse()}
+      />
 
-      {chunk(weeks, 3).map((row, index) => (
-        <Row key={index} desktopOnly wideGutter>
-          <Column width='1/3'>
-            {row[0] && (
-              <HallOfFameTeaser
-                {...row[0]}
-                index={index * 3 + 0}
-                description={weeks[index * 3 + 0].description}
-              />
-            )}
-          </Column>
-          <Column width='1/3'>
-            {row[1] && (
-              <HallOfFameTeaser
-                {...row[1]}
-                index={index * 3 + 1}
-                description={weeks[index * 3 + 1].description}
-              />
-            )}
-          </Column>
-          <Column width='1/3'>
-            {row[2] && (
-              <HallOfFameTeaser
-                {...row[2]}
-                index={index * 3 + 2}
-                description={weeks[index * 3 + 2].description}
-              />
-            )}
-          </Column>
-        </Row>
-      ))}
+      <Title>Season 1</Title>
+      <CardBuilderHallOfFameSeason
+        weeks={SWCC_SEASON_1.filter(week => !!week.winner).reverse()}
+      />
     </>
   )
 })
