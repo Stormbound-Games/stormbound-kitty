@@ -7,7 +7,7 @@
   text-transform: uppercase;
   color: var(--beige);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 4em;
   text-align: center;
