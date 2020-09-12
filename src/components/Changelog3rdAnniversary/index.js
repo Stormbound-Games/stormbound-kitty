@@ -26,7 +26,7 @@ export default React.memo(function Changelog3rdAnniversary(props) {
       }}
       readingTime='2 minutes'
       className='Changelog3rdAnniversary'
-      background='/assets/images/third-anniversary.png'
+      background='/assets/images/releases/third-anniversary.png'
       ratio='57.5%'
     >
       <p>
@@ -139,13 +139,13 @@ export default React.memo(function Changelog3rdAnniversary(props) {
         <Row desktopOnly wideGutter>
           <Column>
             <Image
-              src='/assets/images/birthday_pack_1.png'
+              src='/assets/images/releases/birthday_pack_1.png'
               alt='$4.99 promotion: 1 Mythic Tome + 100 coins'
             />
           </Column>
           <Column>
             <Image
-              src='/assets/images/birthday_pack_2.png'
+              src='/assets/images/releases/birthday_pack_2.png'
               alt='$10.99 promotion: 4 Mythic Tomes + 4 Heroic Tomes + 500 coins'
             />
           </Column>
@@ -153,13 +153,13 @@ export default React.memo(function Changelog3rdAnniversary(props) {
         <Row desktopOnly wideGutter>
           <Column>
             <Image
-              src='/assets/images/birthday_pack_3.png'
+              src='/assets/images/releases/birthday_pack_3.png'
               alt='$49.99 promotion: 10 Mythic Tomes + 10 Heroic Tomes + 10 Classic Tomes + 1500 coins'
             />
           </Column>
           <Column>
             <Image
-              src='/assets/images/birthday_pack_4.png'
+              src='/assets/images/releases/birthday_pack_4.png'
               alt='$99.99 promotion: 20 Mythic Tomes + 20 Heroic Tomes + 20 Classic Tomes + 5000 coins + 50 fusion stones'
             />
           </Column>
