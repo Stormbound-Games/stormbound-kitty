@@ -6,7 +6,7 @@ import Row from '../Row'
 import Title from '../Title'
 import chunk from '../../helpers/chunk'
 
-const CardBuilderHallOfFameSeason = React.memo(
+export const CardBuilderHallOfFameSeason = React.memo(
   function CardBuilderHallOfFameSeason(props) {
     return chunk(props.weeks, 3).map((row, index) => (
       <Row key={index} desktopOnly wideGutter>

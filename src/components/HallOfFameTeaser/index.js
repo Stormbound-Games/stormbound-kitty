@@ -21,7 +21,7 @@ export default React.memo(function HallOfFameTeaser(props) {
       card={cardData}
       title={'Card by ' + props.winner.author}
       meta={`Week #${props.number} — ${props.name}`}
-      to={`/card/${props.winner.id}`}
+      to={`/card/${props.winner.id}/display`}
       excerpt={
         <>
           <strong className='Highlight'>Ability:</strong> {cardData.ability}

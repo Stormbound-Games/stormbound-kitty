@@ -11,7 +11,7 @@ export default React.memo(function MemberDecks(props) {
   if (decks.length === 0) return null
 
   return (
-    <MemberSection>
+    <MemberSection title='Decks'>
       <Decks decks={decks} columns={3} showUpgrades />
     </MemberSection>
   )

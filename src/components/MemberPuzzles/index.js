@@ -9,7 +9,7 @@ export default React.memo(function MemberPuzzles(props) {
   if (props.puzzles.length === 0) return null
 
   return (
-    <MemberSection>
+    <MemberSection title='Puzzles'>
       {chunk(props.puzzles, 2).map((row, index) => (
         <Row key={index} desktopOnly wideGutter>
           {Array.from({ length: 2 }, (_, index) => (

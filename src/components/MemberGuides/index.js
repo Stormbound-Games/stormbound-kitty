@@ -8,7 +8,7 @@ export default React.memo(function MemberGuides(props) {
   if (props.guides.length === 0) return null
 
   return (
-    <MemberSection>
+    <MemberSection title='Guides'>
       {props.guides.map(guide => {
         const authors = toSentence(guide.authors, 'and')
 
