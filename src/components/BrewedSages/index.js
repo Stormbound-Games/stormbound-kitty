@@ -92,20 +92,55 @@ export default React.memo(function BrewedSages(props) {
         ))}
       </div>
 
-      <Title>Media Player</Title>
-      <p>
-        The podcast is{' '}
-        <a
-          href='https://freeloader.podbean.com/'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          hosted at Podbean
-        </a>{' '}
-        and can be listened to on Podbean (and their native applications), or
-        directly here through the widget below. Alternatively, you can download
-        the episodes as mp3 to consume of them the way you want.
-      </p>
+      <Title>Listening</Title>
+
+      <p>There are many ways for you to listen to Brewed Sages podcast:</p>
+      <ul>
+        <li>
+          On{' '}
+          <a
+            href='https://freeloader.podbean.com/'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Podbean,
+          </a>
+        </li>
+        <li>
+          On{' '}
+          <a
+            href='https://podcasts.apple.com/us/podcast/the-brewed-sages/id1530313986'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Apple Podcasts,
+          </a>
+        </li>
+        <li>
+          On{' '}
+          <a
+            href='https://www.google.com/podcasts?feed=aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL2ZyZWVsb2FkZXIvZmVlZC54bWw%3D'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Google Podcasts,
+          </a>
+        </li>
+        <li>
+          On{' '}
+          <a
+            href='https://tunein.com/podcasts/Media--Entertainment-Podcasts/The-Brewed-Sages-p1363569/?topicId=157030692'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            TuneIn,
+          </a>
+        </li>
+        <li>
+          Or with the player below (from which you can also download the
+          episodes as mp3 to consume them the way you want).
+        </li>
+      </ul>
 
       <iframe
         src='https://www.podbean.com/media/player/multi?playlist=http%3A%2F%2Fplaylist.podbean.com%2F9522621%2Fplaylist_multi.xml&amp;vjs=1&amp;size=430&amp;skin=1&amp;episode_list_bg=%23ffffff&amp;bg_left=%23000000&amp;bg_mid=%230c5056&amp;bg_right=%232a1844&amp;podcast_title_color=%23c4c4c4&amp;episode_title_color=%23ffffff&amp;auto=0&amp;share=1&amp;fonts=Helvetica&amp;download=1&amp;rtl=0&amp;show_playlist_recent_number=10'
