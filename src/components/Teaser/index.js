@@ -30,6 +30,10 @@ export default React.memo(function Teaser(props) {
             <Link className='Teaser__link' to={props.to}>
               {title}
             </Link>
+          ) : props.href ? (
+            <a href={props.href} target='_blank' rel='noopener noreferrer'>
+              {props.title}
+            </a>
           ) : (
             title
           )}
