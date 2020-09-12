@@ -35,7 +35,7 @@ export default React.memo(function Article(props) {
         {authors.length > 0 && (
           <>
             <span className='Article__author'>
-              Written by {authors.reduce(renderAuthorsLinks, [])}
+              By {authors.reduce(renderAuthorsLinks, [])}
             </span>
             {props.readingTime && <>&nbsp;·&nbsp;</>}
           </>
