@@ -255,7 +255,6 @@ export const WEEKLY_CARD_CONTEST = [
     name: 'Resourceful',
     description:
       'Create a card that sacrifices some of your alternate resources (anything fluctuating during a match, such as cards, health…), and do something with them. The card should cost more than just mana.',
-    submitURL: 'https://forms.gle/vnd8RzrphVLVBMCo9',
     winner: {
       id:
         'Rjs7UztFOzY7OzQvNS82LzcvODtDYXRhY2x5c21pYyUyMFNocmluZTtGMTM7QXQlMjB0aGUlMjBzdGFydCUyMG9mJTIweW91ciUyMHR1cm4lMkMlMjAqZGVzdHJveSolMjBldmVyeXRoaW5nJTIwYm9yZGVyaW5nJTIweW91ciUyMGJhc2UlMjAqd2l0aCUyMDclMkY4JTJGMTAlMkYxMiUyRjE1JTIwb3IlMjBsZXNzJTIwc3RyZW5ndGgqOzs=',
@@ -265,8 +264,6 @@ export const WEEKLY_CARD_CONTEST = [
   {
     week: 33,
     name: 'Hunt',
-    description: '',
-    submitURL: 'https://forms.gle/oHWRj45WoJc2q8ps5',
     winner: {
       id:
         'Tjs7QztFOzI7OztDYXRjaCUyMEElMjBUcmFpbDtOMjE7Kkh1bnQqJTIwYSUyMHVuaXQlMjB3aXRoJTIwNSUyRjYlMkY3JTJGOCUyRjEwJTIwc3RyZW5ndGglMjBvciUyMGxlc3MuJTIwSXQlMjB3aWxsJTIwYmUlMjBwcmlvcml0aXplZCUyMGJ5JTIwYXR0YWNraW5nJTIwdW5pdHMuJTIwKkRyYXclMjAxKiUyMGNhcmQuOzs=',
@@ -276,8 +273,6 @@ export const WEEKLY_CARD_CONTEST = [
   {
     week: 34,
     name: 'RNG',
-    description: '',
-    submitURL: 'https://forms.gle/oHWRj45WoJc2q8ps5',
     winner: {
       id:
         'Tjs7VTtMOzc7MjsxO1NJQU1FUyUyMHRoZSUyMGFsY2hlbWlzdDtodHRwcyUzQSUyRiUyRmkuaW1ndXIuY29tJTJGWmRmaEp5dC5wbmc7T24lMjBkZWF0aCUyQyUyMGRvJTIwYSUyMHJhbmRvbSUyMGVmZmVjdCUyMCozKiUyMHRpbWVzJTNBJTIwZ2l2ZSUyMColMjAyJTJGMyUyRjQlMkY1JTJGNiolMjBzdHJlbmd0aCUyMHRvJTIwYSUyMHJhbmRvbSUyMGFsbHklMkMlMjBjb25mdXNlJTIwYSUyMHJhbmRvbSUyMGVuZW15JTIwb3IlMjBkZWFsJTIwKjMlMkY0JTJGNSUyRjYlMkY3JTIwZGFtYWdlKiUyMHRvJTIwYSUyMGNvbmZ1c2VkJTIwZW5lbXkuOzs=',
@@ -287,8 +282,6 @@ export const WEEKLY_CARD_CONTEST = [
   {
     week: 35,
     name: 'Aggressive Structures',
-    description: '',
-    submitURL: 'https://forms.gle/oHWRj45WoJc2q8ps5',
     winner: {
       id:
         'Tjs7UztDOzQ7OzMvNC81LzYvNztRdWlja3NsYXNoJTIwT3V0cG9zdDtodHRwcyUzQSUyRiUyRmkuaW1ndXIuY29tJTJGYm83dEtMVy5wbmc7QXQlMjB0aGUlMjBzdGFydCUyMG9mJTIweW91ciUyMHR1cm4lMkMlMjBnaXZlJTIwYWxsJTIwc3Vycm91bmRpbmclMjB1bml0cyUyMDElMjBzcGVlZDs7',
@@ -298,7 +291,15 @@ export const WEEKLY_CARD_CONTEST = [
   {
     week: 36,
     name: 'Faction Felines',
-    description: '',
+    winner: {
+      id:
+        'RjtFO1U7Ujs0OzA7NC81LzYvNy84O0dyaWV2aW91cyUyMGJvYmNhdDtONjU7T24lMjBwbGF5JTJDJTIwZGVzdHJveSUyMCphbGwlMjBib3JkZXJpbmcqJTIwZnJpZW5kbHklMjB1bml0cyUyQyUyMHRoZW4lMjBnYWluJTIwc3BlZWQlMjBmb3IlMjBlYWNoJTIwZGVzdHJveWVkOzs=',
+      author: 'Ajmm',
+    },
+  },
+  {
+    week: 37,
+    name: 'C-C-Combo',
     submitURL: 'https://forms.gle/oHWRj45WoJc2q8ps5',
   },
 ]
