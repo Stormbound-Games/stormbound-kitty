@@ -15,6 +15,7 @@ import { CollectionContext } from '../CollectionProvider'
 import Checkbox from '../Checkbox'
 import CollectionFigures from '../CollectionFigures'
 import Column from '../Column'
+import HeaderBanner from '../HeaderBanner'
 import ImportCollection from '../ImportCollection'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
@@ -212,7 +213,8 @@ export default function CollectionStats(props) {
 
   return (
     <>
-      <h1 className='VisuallyHidden'>Stats</h1>
+      <HeaderBanner title='Collection Stats' />
+
       <Row desktopOnly>
         <Column width='1/3'>
           <Row desktopOnly>

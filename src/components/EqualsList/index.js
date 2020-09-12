@@ -1,11 +1,11 @@
 import React from 'react'
 import { EQUALS_TIER_LIST, TIER_COLORS } from '../../constants/list'
 import Column from '../Column'
+import HeaderBanner from '../HeaderBanner'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import ListBuilderTier from '../ListBuilderTier'
 import ListBuilderToc from '../ListBuilderToc'
-import Title from '../Title'
 import getInitialListData from '../../helpers/getInitialListData'
 import getRawCardData from '../../helpers/getRawCardData'
 
@@ -32,11 +32,10 @@ export default React.memo(function ListBuilderDisplayView(props) {
 
   return (
     <>
-      <h1 className='VisuallyHidden'>Equals Tier List</h1>
+      <HeaderBanner title='Equals Tier List' />
+
       <Row wideGutter desktopOnly>
         <Column width='1/3'>
-          <Title element='h2'>Info</Title>
-
           <p>
             This tier list was made by HanooSt, a multiple-times winner of
             equal-levels tournaments. It is their take at ranking cards by
@@ -64,8 +63,6 @@ export default React.memo(function ListBuilderDisplayView(props) {
         </Column>
 
         <Column width='2/3'>
-          <Title>Tier list</Title>
-
           {tiers.map((tier, index) => (
             <ListBuilderTier
               {...tier}

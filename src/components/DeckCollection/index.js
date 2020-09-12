@@ -5,6 +5,7 @@ import { NotificationContext } from '../NotificationProvider'
 import { CATEGORIES } from '../../constants/decks'
 import Column from '../Column'
 import ExportDecks from '../ExportDecks'
+import HeaderBanner from '../HeaderBanner'
 import ImportDecks from '../ImportDecks'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
@@ -131,6 +132,8 @@ export default React.memo(function DeckCollection(props) {
 
   return (
     <>
+      <HeaderBanner title='Personal Decks' />
+
       <Row desktopOnly wideGutter>
         <Column width='1/3'>
           <Title>What is this</Title>

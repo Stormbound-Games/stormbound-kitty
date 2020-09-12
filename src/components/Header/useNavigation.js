@@ -77,7 +77,7 @@ export default () => {
               to: '/list/ranked',
               id: 'RANKED_LIST',
             },
-            { label: 'Card Statistics', to: '/card/stats', id: 'CARD_STATS' },
+            { label: 'Cards Statistics', to: '/card/stats', id: 'CARD_STATS' },
           ],
         },
         {

@@ -324,11 +324,11 @@ export default function Router(props) {
             <Changelog />
           </Page>
 
-          <Page path='/faq' active={['COMMUNITY', 'FAQ']}>
+          <Page path='/faq' active={['HOME', 'FAQ']}>
             <FAQ />
           </Page>
 
-          <Page path='/donate' active={['COMMUNITY', 'DONATE']}>
+          <Page path='/donate' active={['HOME', 'DONATE']}>
             <Donate />
           </Page>
 

@@ -6,6 +6,7 @@ import { CollectionContext } from '../CollectionProvider'
 import CollectionClearHint from '../CollectionClearHint'
 import Column from '../Column'
 import CTA from '../CTA'
+import HeaderBanner from '../HeaderBanner'
 import EmptySearch from '../EmptySearch'
 import CardsFiltering from '../CardsFiltering'
 import Filters from '../CollectionFilters'
@@ -138,7 +139,7 @@ class Collection extends React.Component {
 
     return (
       <>
-        <h1 className='VisuallyHidden'>Card Collection</h1>
+        <HeaderBanner title='Card Collection' />
 
         <Row desktopOnly wideGutter>
           <Column width='1/3'>

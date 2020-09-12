@@ -9,6 +9,7 @@ import ChartStrength from '../ChartStrength'
 import ChartStrengthMana from '../ChartStrengthMana'
 import ChartType from '../ChartType'
 import Column from '../Column'
+import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
@@ -23,7 +24,8 @@ export default React.memo(() => {
   return (
     <>
       <div className='CardsStats'>
-        <h1 className='VisuallyHidden'>Cards Stats</h1>
+        <HeaderBanner title='Cards Statistics' />
+
         <Row desktopOnly>
           <Column width='1/3'>
             <Title>What is this</Title>

@@ -2,6 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import Column from '../Column'
 import FAQSection from '../FAQSection'
+import HeaderBanner from '../HeaderBanner'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import StructuredData from '../StructuredData'
@@ -38,7 +39,7 @@ export default React.memo(function FAQ() {
 
   return (
     <div className='FAQ'>
-      <h1 className='VisuallyHidden'>Frequently Asked Questions</h1>
+      <HeaderBanner title='FAQ' />
 
       <Row desktopOnly wideGutter>
         <Column width='1/3'>

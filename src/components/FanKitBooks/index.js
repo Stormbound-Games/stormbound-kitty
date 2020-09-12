@@ -2,6 +2,7 @@ import React from 'react'
 import Column from '../Column'
 import FanKitDownloadDialog from '../FanKitDownloadDialog'
 import FanKitItem from '../FanKitItem'
+import HeaderBanner from '../HeaderBanner'
 import Loader from '../Loader'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
@@ -36,7 +37,7 @@ export default React.memo(function FanKitBooks(props) {
 
   return (
     <>
-      <h1 className='VisuallyHidden'>Fan-kit — Books</h1>
+      <HeaderBanner title='Books Fan-Kit' />
 
       <FanKitDownloadDialog
         displayImage={false}

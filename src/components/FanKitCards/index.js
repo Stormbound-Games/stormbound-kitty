@@ -3,6 +3,7 @@ import CardSelect from '../CardSelect'
 import Column from '../Column'
 import FanKitDownloadDialog from '../FanKitDownloadDialog'
 import FanKitItem from '../FanKitItem'
+import HeaderBanner from '../HeaderBanner'
 import Loader from '../Loader'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
@@ -34,7 +35,7 @@ export default React.memo(function FanKit(props) {
 
   return (
     <>
-      <h1 className='VisuallyHidden'>Fan-kit — Cards</h1>
+      <HeaderBanner title='Cards Fan-Kit' />
 
       <Row desktopOnly wideGutter>
         <Column width='1/4' />

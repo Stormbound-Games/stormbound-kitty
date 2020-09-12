@@ -247,7 +247,7 @@ export default React.memo(function BrawlIndex() {
   return (
     <>
       <Only.Desktop>
-        <HeaderBanner title='Welcome to the Brawl' />
+        <HeaderBanner title='Brawl Tracker' />
         <BrawlBanner {...brawl} />
         <hr />
       </Only.Desktop>

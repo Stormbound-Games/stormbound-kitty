@@ -34,4 +34,8 @@ describe('Routes — Deck Builder', () => {
   it('it should render the ready decks', () => {
     cy.visit('/deck/suggestions').get('main h1').should('exist')
   })
+
+  it('it should render the personal decks', () => {
+    cy.visit('/deck/collection').get('main h1').should('exist')
+  })
 })

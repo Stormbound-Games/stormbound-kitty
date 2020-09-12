@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
+import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
@@ -287,7 +288,8 @@ export default React.memo(function IncomeCalculator(props) {
 
   return (
     <>
-      <h1 className='VisuallyHidden'>Income Calculator</h1>
+      <HeaderBanner title='Income Calculator' />
+
       <Row desktopOnly wideGutter>
         <Column width='1/3'>
           <Title>What is this?</Title>

@@ -4,6 +4,7 @@ import { RARITIES, BOOKS, PRE_MADE_EXPECTATIONS } from '../../constants/game'
 import BookExplanation from '../BookExplanation'
 import BookOutcome from '../BookOutcome'
 import Column from '../Column'
+import HeaderBanner from '../HeaderBanner'
 import Image from '../Image'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
@@ -42,7 +43,7 @@ export default React.memo(function BooksCalculator(props) {
 
   return (
     <>
-      <h1 className='VisuallyHidden'>Books Calculator</h1>
+      <HeaderBanner title='Books Calculator' />
 
       <Row desktopOnly wideGutter>
         <Column width='1/3'>
