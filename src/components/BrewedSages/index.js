@@ -9,7 +9,7 @@ import chunk from '../../helpers/chunk'
 import useViewportWidth from '../../hooks/useViewportWidth'
 
 const CARD = {
-  image: 'brood_sages.png',
+  image: 'brewed_sages.png',
   type: 'unit',
   name: 'Brewed Sages',
   race: 'Podcast',
