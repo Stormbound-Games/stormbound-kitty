@@ -107,7 +107,7 @@ export default React.memo(function CardSelect(props) {
             backgroundColor: isDisabled ? 'transparent' : 'var(--green)',
           },
           color: 'var(--white)',
-          background: `url("/assets/images/iconography/rarity-${
+          background: `url("/assets/images/card/rarity-${
             getRawCardData(data.value).rarity
           }.${ext}") ${
             isFocused ? 'var(--light-blue)' : 'transparent'
