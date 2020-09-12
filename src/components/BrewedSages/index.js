@@ -117,6 +117,7 @@ export default React.memo(function BrewedSages(props) {
       ></iframe>
 
       <PageMeta
+        author='Freeloader, Subaiku'
         title='Brewed Sages Podcast'
         description='The Brewed Sages is the first Stormbound podcast, by Freeloader and
       Subaiku'
