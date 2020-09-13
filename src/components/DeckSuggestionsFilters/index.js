@@ -36,8 +36,8 @@ export default React.memo(function DeckSuggestionsFilters(props) {
     <MobileTogglableContent
       id='deck-suggestions'
       withSymbols
-      labelCollapsed='Expand popular decks'
-      labelExpanded='Collapse popular decks'
+      labelCollapsed='Expand deck filters'
+      labelExpanded='Collapse deck filters'
       className='DeckSuggestionsFilters__toggle'
     >
       <form
