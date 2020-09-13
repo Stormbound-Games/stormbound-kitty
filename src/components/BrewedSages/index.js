@@ -129,6 +129,16 @@ export default React.memo(function BrewedSages(props) {
         <li>
           On{' '}
           <a
+            href='https://open.spotify.com/show/0zPLDrVZesb2Xr8RzVNfmF?nd=1'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Spotify,
+          </a>
+        </li>
+        <li>
+          On{' '}
+          <a
             href='https://tunein.com/podcasts/Media--Entertainment-Podcasts/The-Brewed-Sages-p1363569/?topicId=157030692'
             target='_blank'
             rel='noopener noreferrer'
