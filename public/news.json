@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Brewed Sages Podcast",
+    "description": "The Brewed Sages podcast by Freeloader and Subaiku now has its own page where you can listen to all episodes!",
+    "link": "/brewed-sages"
+  },
+  {
     "intro": "Odd & Even Tournament",
     "description": "The Odd & Even Tournament has started, so be sure to register!",
     "link": "/tournaments/odd-even"
