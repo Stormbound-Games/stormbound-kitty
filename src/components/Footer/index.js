@@ -58,10 +58,10 @@ export default React.memo(function Footer(props) {
               .
             </p>
           </Column>
-          <Column>
-            <Row desktopOnly>
-              <Column width='1/3'>
-                <Only.Desktop>
+          <Only.Desktop>
+            <Column>
+              <Row desktopOnly>
+                <Column width='1/3'>
                   <span className='Footer__heading'>Stormbound</span>
                   <ul className='Footer__list'>
                     <li className='Footer__item'>
@@ -110,31 +110,29 @@ export default React.memo(function Footer(props) {
                       </a>
                     </li>
                   </ul>
-                </Only.Desktop>
-              </Column>
-              <Column width='1/3'>
-                <span className='Footer__heading'>Kitty</span>
-                <ul className='Footer__list'>
-                  <li className='Footer__item'>
-                    <Link to='/faq'>FAQ</Link>
-                  </li>
-                  <li className='Footer__item'>
-                    <Link to='/collection/books'>Books Calculator</Link>
-                  </li>
-                  <li className='Footer__item'>
-                    <Link to='/income-calculator'>Income Calculator</Link>
-                  </li>
-                  <li className='Footer__item'>
-                    <Link to='/sim'>Battle sim</Link>
-                  </li>
+                </Column>
+                <Column width='1/3'>
+                  <span className='Footer__heading'>Kitty</span>
+                  <ul className='Footer__list'>
+                    <li className='Footer__item'>
+                      <Link to='/faq'>FAQ</Link>
+                    </li>
+                    <li className='Footer__item'>
+                      <Link to='/collection/books'>Books Calculator</Link>
+                    </li>
+                    <li className='Footer__item'>
+                      <Link to='/income-calculator'>Income Calculator</Link>
+                    </li>
+                    <li className='Footer__item'>
+                      <Link to='/sim'>Battle sim</Link>
+                    </li>
 
-                  <li className='Footer__item'>
-                    <Link to='/donate'>Donate</Link>
-                  </li>
-                </ul>
-              </Column>
-              <Column width='1/3'>
-                <Only.Desktop>
+                    <li className='Footer__item'>
+                      <Link to='/donate'>Donate</Link>
+                    </li>
+                  </ul>
+                </Column>
+                <Column width='1/3'>
                   <span className='Footer__heading'>Community</span>
                   <ul className='Footer__list'>
                     <li className='Footer__item'>
@@ -187,10 +185,10 @@ export default React.memo(function Footer(props) {
                       </a>
                     </li>
                   </ul>
-                </Only.Desktop>
-              </Column>
-            </Row>
-          </Column>
+                </Column>
+              </Row>
+            </Column>
+          </Only.Desktop>
         </Row>
       </div>
     </footer>
