@@ -7,7 +7,7 @@
   text-transform: uppercase;
   color: var(--beige);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 4em;
   text-align: center;
@@ -67,6 +67,7 @@
     margin-bottom: 6em;
     display: flex;
     font-size: 120%;
+    justify-content: space-between;
   }
 
   .Article__backLink {
