@@ -25,11 +25,6 @@ const TIMELINE = [
   },
   {
     date: new Date(2020, 8, 14),
-    title:
-      'The registration closes and the brackets are being composed by the organisers.',
-  },
-  {
-    date: new Date(2020, 8, 15),
     title: (
       <>
         The{' '}
@@ -45,15 +40,11 @@ const TIMELINE = [
     ),
   },
   {
-    date: new Date(2020, 8, 25),
-    title: 'The group stage ends and the final round is being layed down.',
-  },
-  {
-    date: new Date(2020, 8, 26),
+    date: new Date(2020, 8, 24),
     title: 'The final stage starts and participants start battling each other.',
   },
   {
-    date: new Date(2020, 9, 6),
+    date: new Date(2020, 9, 4),
     title: 'The final stage ends and the winners are announced.',
   },
 ]
