@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
-import CTA from '../CTA'
 import ListBuilderTier from '../ListBuilderTier'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
@@ -19,15 +18,8 @@ const TIMELINE = [
     date: new Date(2020, 8, 7),
     title: (
       <>
-        The{' '}
-        <a
-          href='https://forms.gle/hRo1iUAdBX4hG4tG9'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          registration
-        </a>{' '}
-        opens and participants get to fill the form to enter the tournament.
+        The registration opens and participants get to fill the form to enter
+        the tournament.
       </>
     ),
   },
@@ -183,16 +175,6 @@ export default React.memo(function TournamentOddEven(props) {
         </li>
       </ul>
 
-      <div style={{ textAlign: 'center' }}>
-        <CTA
-          href='https://forms.gle/3YhBGpddS5ip2Knk6'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Register
-        </CTA>
-      </div>
-
       <Title id='code-of-conduct'>Code of Conduct</Title>
       <p>
         In the interest of fostering an open and welcoming environment, we as
@@ -346,15 +328,14 @@ export default React.memo(function TournamentOddEven(props) {
             discord.gg/kJ4KFh4
           </a>
         </li>
-
         <li>
-          Registration form:{' '}
+          Participants spreadsheet:{' '}
           <a
-            href='https://forms.gle/3YhBGpddS5ip2Knk6'
+            href='https://docs.google.com/spreadsheets/d/1qsqvQyPVlhBCp-kZAOVsIkC-25EHngjbvlLzc7Imz8E'
             target='_blank'
             rel='noopener noreferrer'
           >
-            forms.gle/3YhBGpddS5ip2Knk6
+            docs.google.com/spreadsheets/d/1qsqvQyPVlhBCp-kZAOVsIkC-25EHngjbvlLzc7Imz8E
           </a>
         </li>
         <li>
