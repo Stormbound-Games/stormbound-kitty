@@ -112,7 +112,12 @@ export default React.memo(function FeaturedDeck(props) {
         {props.author && (
           <>
             {' '}
-            by <Link to={`/member/${props.author}`}>{props.author}</Link>
+            by{' '}
+            {!props.noAuthorLink ? (
+              <Link to={`/member/${props.author}`}>{props.author}</Link>
+            ) : (
+              props.author
+            )}
           </>
         )}
       </span>

@@ -9,6 +9,11 @@ export const CATEGORIES = {
     name: { short: 'Playstyle', long: 'Playstyle Guides' },
     icon: 'power',
   },
+  BRAWL: {
+    slug: 'brawl',
+    name: { short: 'Brawl', long: 'Brawl Guides' },
+    icon: 'crown',
+  },
   IN_DEPTH: {
     slug: 'in-depth',
     name: { short: 'In Depth', long: 'In-depth Guides' },

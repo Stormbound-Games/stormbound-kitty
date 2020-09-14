@@ -10,6 +10,7 @@ import chunk from '../../helpers/chunk'
 import getCurrentBrawl from '../../helpers/getCurrentBrawl'
 import isBrawlRunning from '../../helpers/isBrawlRunning'
 import { BRAWLS } from '../../constants/brawl'
+import guides from '../../data/guides'
 
 const getBrawlData = id => BRAWLS.find(brawl => brawl.id === id)
 
@@ -220,6 +221,8 @@ const getDateDisplay = () => {
 }
 
 const BrawlBanner = React.memo(function BrawlBanner(props) {
+  const guide = guides.find(guide => guide.name === props.title)
+
   return (
     <BrawlTeaser
       {...props}
@@ -228,9 +231,13 @@ const BrawlBanner = React.memo(function BrawlBanner(props) {
       description={
         <>
           <span className='Highlight'>{props.label}</span> · {props.description}{' '}
-          <Link to={`/deck/suggestions?category=BRAWL&brawl=${props.id}`}>
-            Prepare your deck
-          </Link>
+          {guide ? (
+            <Link to={`/guides/${guide.slug}`}>Read Oeni’s Gazette</Link>
+          ) : (
+            <Link to={`/deck/suggestions?category=BRAWL&brawl=${props.id}`}>
+              Prepare your deck
+            </Link>
+          )}
           . <br />
           <br />
           New to the Brawl? <Link to='/guides/brawl'>Read the guide</Link>.

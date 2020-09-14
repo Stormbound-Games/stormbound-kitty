@@ -24,6 +24,7 @@ const COMPONENTS = {
   CARD_SHOP_GUIDE: load('GuideCardShop'),
   KNOWN_BUGS: load('GuideKnownBugs'),
   BRAWL_GUIDE: load('GuideBrawl'),
+  NOBLE_COALITION_GUIDE: load('GuideNobleCoalition'),
   CHILLBEARDS_GUIDE: load('GuideChillbeards'),
   TERRIFIC_SLAYERS_GUIDE: load('GuideTerrificSlayers'),
   BROODMOTHER_QORDIA_GUIDE: load('GuideBroodmotherQordia'),
