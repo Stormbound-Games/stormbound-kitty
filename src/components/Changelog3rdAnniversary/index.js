@@ -44,7 +44,7 @@ export default React.memo(function Changelog3rdAnniversary(props) {
       <p>
         To begin with, every player will receive a one-time bundle containing{' '}
         <Coins amount={300} />, <Rubies amount={30} /> and <Stones amount={3} />{' '}
-        upon login.
+        as well as one random legendary card upon login.
       </p>
 
       <Title>Brawl</Title>
