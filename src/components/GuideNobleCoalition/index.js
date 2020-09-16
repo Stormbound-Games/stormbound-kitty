@@ -46,7 +46,11 @@ export default React.memo(function GuideNobleCoalition(props) {
           To celebrate Stormbound’s third anniversary, the Brawl cost is going
           to be slashed to a third this week only! As a result, it is the
           perfect week to push further than usual. Find more detail about the
-          Brawl price in the third anniversary release notes.
+          Brawl price in{' '}
+          <Link to='/changelog/3rd-anniversary#brawl'>
+            the third anniversary release notes
+          </Link>
+          .
         </p>
       </Info>
 

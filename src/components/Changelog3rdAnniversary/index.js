@@ -47,7 +47,7 @@ export default React.memo(function Changelog3rdAnniversary(props) {
         as well as one random legendary card upon login.
       </p>
 
-      <Title>Brawl</Title>
+      <Title id='brawl'>Brawl</Title>
 
       <p>
         All matches for the{' '}
