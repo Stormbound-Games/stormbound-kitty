@@ -103,14 +103,20 @@ export default React.memo(function GuideNobleCoalition(props) {
             />
           </Column>
         </Row>
-
-        <Notice>
-          See you on the battlefield!
-          <br />
-          If you have any comment or suggestion, get in touch with Oeni#7266 on
-          Discord.
-        </Notice>
       </div>
+
+      <Info icon='crown' title='Brawl Tracker'>
+        <p>
+          To monitor your progress and keep track of your expenses during the
+          Brawl, be sure to use{' '}
+          <Link to='/brawl/feline-strength'>the brawl tracker</Link>.
+        </p>
+      </Info>
+
+      <Notice>
+        See you on the battlefield! If you have any comment or suggestion, get
+        in touch with Oeni#7266 on Discord.
+      </Notice>
     </Guide>
   )
 })
