@@ -31,6 +31,13 @@ const EPISODES = [
     excerpt:
       'Sheepyard has gifted us some free content to discus. We oblige as only Freeloaders can!',
   },
+  {
+    title: 'OK, Boomers',
+    meta: '41 minutes and 42 seconds',
+    href: 'https://www.podbean.com/media/share/pb-kjsah-ebb8af',
+    excerpt:
+      'Freeloader and Subaiku are discussing some of the strongest elder cards in Stormbound. Who dodged the nerf hammer? Should they be nerfed now? Tune in to find out!',
+  },
 ]
 
 export default React.memo(function BrewedSages(props) {
