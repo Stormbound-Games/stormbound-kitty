@@ -1,12 +1,9 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import HeaderMegaMenu from '../HeaderMegaMenu'
-import NavBattleSim from '../NavBattleSim'
-import NavCardBuilder from '../NavCardBuilder'
-import NavDeckBuilder from '../NavDeckBuilder'
-import NavListBuilder from '../NavListBuilder'
 import NavLink from '../NavLink'
 import Icon from '../Icon'
+import load from '../../helpers/load'
 import useNavigation from './useNavigation'
 import './index.css'
 
@@ -14,18 +11,22 @@ const SubNav = React.memo(function (props) {
   const [topActive, midActive, bottomActive] = props.active || []
 
   if (topActive === 'TOOLS' && midActive === 'CARD_BUILDER') {
+    const NavCardBuilder = load('NavCardBuilder')
     return <NavCardBuilder active={bottomActive} />
   }
 
   if (topActive === 'TOOLS' && midActive === 'BATTLE_SIM') {
+    const NavBattleSim = load('NavBattleSim')
     return <NavBattleSim active={bottomActive} />
   }
 
   if (topActive === 'TOOLS' && midActive === 'LIST_BUILDER') {
+    const NavListBuilder = load('NavListBuilder')
     return <NavListBuilder active={bottomActive} />
   }
 
   if (topActive === 'TOOLS' && midActive === 'DECK_BUILDER') {
+    const NavDeckBuilder = load('NavDeckBuilder')
     return <NavDeckBuilder active={bottomActive} />
   }
 
