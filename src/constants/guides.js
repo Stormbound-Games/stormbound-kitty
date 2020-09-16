@@ -9,7 +9,7 @@ export const CATEGORIES = {
     name: { short: 'Playstyle', long: 'Playstyle Guides' },
     icon: 'power',
   },
-  BRAWL: {
+  BRAWL_MODE: {
     slug: 'brawl-mode',
     name: { short: 'Brawl', long: 'Brawl Guides' },
     icon: 'crown',

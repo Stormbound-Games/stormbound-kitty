@@ -33,7 +33,7 @@
     "cardId": "N76",
     "background": "/assets/images/banners/environment_neutral.png",
     "readingTime": "6 minutes",
-    "category": "BRAWL"
+    "category": "BRAWL_MODE"
   },
   {
     "id": "NOBLE_COALITION_GUIDE",
@@ -45,7 +45,7 @@
     "cardId": "N69",
     "background": "/assets/images/banners/environment_neutral.png",
     "readingTime": "5 minutes",
-    "category": "BRAWL"
+    "category": "BRAWL_MODE"
   },
   {
     "id": "DECK_GUIDE",
