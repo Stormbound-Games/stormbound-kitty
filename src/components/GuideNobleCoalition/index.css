@@ -1,0 +1,9 @@
+.GuideNobleCoalition__table {
+  margin-top: 2em;
+}
+
+@media (max-width: 699px) {
+  .GuideNobleCoalition__table td::before {
+    width: 35%;
+  }
+}
