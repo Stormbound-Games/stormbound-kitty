@@ -92,4 +92,8 @@
     transform: none;
     margin-left: 1em;
   }
+
+  .BrawlMatches__milestone > td::after {
+    content: none;
+  }
 }

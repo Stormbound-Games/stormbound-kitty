@@ -106,6 +106,10 @@
   .Table td {
     padding: 0.25em 1em;
     text-align: left;
+  }
+
+  .Table:not(.Table--zebra) th:not(:empty),
+  .Table:not(.Table--zebra) td:not(:empty) {
     border: none;
   }
 
