@@ -5,6 +5,7 @@ import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
 import Info from '../Info'
 import Notice from '../Notice'
+import Only from '../Only'
 import Row from '../Row'
 import Title from '../Title'
 import WikiLink from '../WikiLink'
@@ -32,7 +33,7 @@ export default React.memo(function GuideNobleCoalition(props) {
       <hr />
 
       <p>
-        Felines are still somewhat new so the last time around, only very few
+        Felines are still somewhat new, so the last time around only very few
         players had the cats at an exceptional level. Most players ran their
         main deck with a small sprinkling of the better cats like{' '}
         <WikiLink id='N67' />. This might still be a viable strategy to
@@ -43,7 +44,7 @@ export default React.memo(function GuideNobleCoalition(props) {
       <Info icon='star' title='Third Anniversary Event'>
         <p>
           To celebrate Stormbound’s third anniversary, the Brawl cost is going
-          to be slashed to a third this week only! As a result, it is the best
+          to be slashed to a third this week only! As a result, it is the
           perfect week to push further than usual. Find more detail about the
           Brawl price in the third anniversary release notes.
         </p>
@@ -85,9 +86,13 @@ export default React.memo(function GuideNobleCoalition(props) {
           <Column>
             <h3 style={{ marginTop: '0.5em' }}>The_Mirc’s Swarm Cat Runners</h3>
             <p>
-              Looks like a solid deck, even besides the fact that it is maxed.
-              Early aggression and eventually finding lethal with lots of cheap
-              runners or <WikiLink id='S6' /> should be easy. This is{' '}
+              Looks like a solid deck
+              <Only.DefaultCollection>
+                {' '}
+                even besides the fact that it is maxed
+              </Only.DefaultCollection>
+              . Early aggression and eventually finding lethal with lots of
+              cheap runners or <WikiLink id='S6' /> should be easy. This is{' '}
               <WikiLink id='N71' />’ time to shine, if you like wasting good
               coins on an otherwise terrible card.
             </p>
