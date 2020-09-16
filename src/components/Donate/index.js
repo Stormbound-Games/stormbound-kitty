@@ -17,6 +17,7 @@ const DONATORS = [
   'Roman_NFP',
   'SHTE',
   'Stratadox',
+  'Subaiku',
   'Sven',
   'the_mirc',
 ].map(donator => ' ⭐️ ' + donator)
