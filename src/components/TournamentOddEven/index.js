@@ -199,7 +199,8 @@ export default React.memo(function TournamentOddEven(props) {
         : the former first player becomes second and vice versa. If the game
         does not do that by chance, the game should be restarted until the order
         of players has switched. The order for the third match between the same
-        two players (if there is one) is done at random by the game itself.
+        two players (if there is one) is done at random by the game itself. This
+        rule can be skipped entirely provided both players agree to it.
       </p>
       <p>
         In case a player does not show up or cannot perform their games within
