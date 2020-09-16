@@ -22,13 +22,22 @@ export default React.memo(function GuideNobleCoalition(props) {
         moving on with this week’s challenge.
       </p>
 
+      <hr />
+      <p
+        style={{ fontSize: '135%', textAlign: 'center', color: 'var(--beige)' }}
+      >
+        This week, all Feline units benefit from an extra +2 strength on top of
+        their initial strength.
+      </p>
+      <hr />
+
       <p>
-        Felines are still somewhat new, so last time only very few players had
-        the cats at an exceptional level. Most players ran their main deck with
-        a small sprinkling of the better cats like <WikiLink id='N67' />. This
-        might still be a viable strategy to deck-building since +2 strength is
-        not a whole lot, especially if cats are at a lower level than the rest
-        of your collection.
+        Felines are still somewhat new so the last time around, only very few
+        players had the cats at an exceptional level. Most players ran their
+        main deck with a small sprinkling of the better cats like{' '}
+        <WikiLink id='N67' />. This might still be a viable strategy to
+        deck-building since +2 strength is not a whole lot, especially if cats
+        are at a lower level than the rest of your collection.
       </p>
 
       <Info icon='star' title='Third Anniversary Event'>
