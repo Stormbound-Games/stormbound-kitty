@@ -154,6 +154,16 @@ export default React.memo(function BrewedSages(props) {
           </a>
         </li>
         <li>
+          On{' '}
+          <a
+            href='https://www.youtube.com/channel/UCTEax9JOxhsvDkY8rP-hqJg'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            YouTube,
+          </a>
+        </li>
+        <li>
           Or with the player below (from which you can also download the
           episodes as mp3 to consume them the way you want).
         </li>
