@@ -19,6 +19,7 @@ const links = [
   '/changelog/releases',
   '/changelog/07-2020',
   '/changelog/09-2020',
+  '/changelog/3rd-anniversary',
   '/collection',
   '/collection/books',
   '/collection/stats',
