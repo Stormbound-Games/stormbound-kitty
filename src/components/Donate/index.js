@@ -8,6 +8,7 @@ import './index.css'
 const DONATORS = [
   'ArthisRoo',
   'Blubby',
+  'Freeloader',
   'Hadid',
   'Kepp',
   'MisterMonocle',
