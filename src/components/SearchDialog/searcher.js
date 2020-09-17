@@ -127,6 +127,12 @@ SEARCH_INDEX.push({
 })
 
 SEARCH_INDEX.push({
+  path: '/changelog/3rd-anniversary',
+  label: 'Third Anniversary release',
+  breadcrumbs: ['Game', 'Changelog'],
+})
+
+SEARCH_INDEX.push({
   path: '/tournaments/hall-of-fame',
   label: 'Tournaments',
   breadcrumbs: ['Community', 'Tournament Hall of Fame'],
