@@ -96,11 +96,11 @@ SEARCH_INDEX.push({
   breadcrumbs: ['Game', 'Fan-Kit', 'Books'],
 })
 
-/*SEARCH_INDEX.push({
+SEARCH_INDEX.push({
   path: '/fan-kit/wallpapers',
   label: 'Fan-kit — Wallpapers',
   breadcrumbs: ['Game', 'Fan-Kit', 'Wallpapers'],
-})*/
+})
 
 SEARCH_INDEX.push({
   path: '/changelog/cards',

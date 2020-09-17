@@ -18,7 +18,15 @@ export default React.memo(function FanKitItem(props) {
           icon='download'
         />
       </span>
-      <Image src={props.image} alt={props.name} className='FanKitItem__image' />
+      <Image
+        src={props.image}
+        alt={props.name}
+        className='FanKitItem__image'
+        onContextMenu={event => {
+          event.preventDefault()
+          props.setActive(props.id)
+        }}
+      />
     </div>
   )
 })

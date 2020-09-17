@@ -12,7 +12,8 @@ const paths = [
   'public/assets/images/puzzles',
   'public/assets/images/releases',
   'public/assets/images/sim',
-  'public/assets/images/wallpapers',
+  'public/assets/images/wallpapers/full',
+  'public/assets/images/wallpapers/lite',
 ]
 
 Promise.all(

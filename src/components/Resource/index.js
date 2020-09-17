@@ -5,15 +5,16 @@ const THOUSANDS = /\B(?=(\d{3})+(?!\d))/g
 
 const Resource = React.memo(function Resource({ amount, resource }) {
   return (
-    <>
+    <span style={{ whiteSpace: 'nowrap' }}>
       <ResourceIcon resource={resource} />
       &nbsp;{amount.toString().replace(THOUSANDS, ',')}&nbsp;
       {resource === 'COIN' && (amount === 1 ? 'coin' : 'coins')}
       {resource === 'RUBY' && (amount === 1 ? 'ruby' : 'rubies')}
       {resource === 'CROWN' && (amount === 1 ? 'crown' : 'crowns')}
+      {resource === 'MYTHIC' && (amount === 1 ? 'Mythic Tome' : 'Mythic Tomes')}
       {resource === 'STONE' &&
         (amount === 1 ? 'fusion stone' : 'fusion stones')}
-    </>
+    </span>
   )
 })
 

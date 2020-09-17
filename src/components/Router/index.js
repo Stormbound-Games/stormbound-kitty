@@ -42,6 +42,7 @@ const CardBuilderDisplay = load('CardBuilderDisplay')
 const CardBuilderRoot = load('CardBuilderRoot')
 const CardsStats = load('CardsStats')
 const Changelog = load('Changelog')
+const Changelog3rdAnniversary = load('Changelog3rdAnniversary')
 const ChangelogJuly2020 = load('ChangelogJuly2020')
 const ChangelogSeptember2020 = load('ChangelogSeptember2020')
 const Collection = load('Collection')
@@ -56,7 +57,7 @@ const Donate = load('Donate')
 const EqualsList = load('EqualsList')
 const FanKitCards = load('FanKitCards')
 const FanKitBooks = load('FanKitBooks')
-// const FanKitWallpapers = load('FanKitWallpapers')
+const FanKitWallpapers = load('FanKitWallpapers')
 const FAQ = load('FAQ')
 const Guides = load('Guides')
 const Home = load('Home')
@@ -292,12 +293,12 @@ export default function Router(props) {
             <FanKitBooks />
           </Page>
 
-          {/*<Page
+          <Page
             path='/fan-kit/wallpapers'
             active={['GAME', 'FAN_KIT', 'WALLPAPERS']}
           >
             <FanKitWallpapers />
-          </Page>*/}
+          </Page>
 
           <Page
             path='/income-calculator'
@@ -312,6 +313,13 @@ export default function Router(props) {
 
           <Page path='/changelog/09-2020' active={['GAME', '09_2020']}>
             <ChangelogSeptember2020 />
+          </Page>
+
+          <Page
+            path='/changelog/3rd-anniversary'
+            active={['GAME', '3RD_ANNIVERSARY']}
+          >
+            <Changelog3rdAnniversary />
           </Page>
 
           <Page

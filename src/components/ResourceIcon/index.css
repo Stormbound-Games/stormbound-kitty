@@ -2,7 +2,7 @@
  * 1. Visually center the icon with the accompanying text.
  */
 .ResourceIcon {
-  width: 1em;
+  max-width: 1em;
   height: 1em;
   display: inline-block;
   transform: translateY(2px); /* 1 */
