@@ -44,7 +44,7 @@ export default React.memo(function Changelog3rdAnniversary(props) {
 
       <p>
         To begin with, every player will receive a one-time bundle containing{' '}
-        <Coins amount={300} />, <Rubies amount={30} /> and <Stones amount={3} />{' '}
+        <Coins amount={330} />, <Rubies amount={30} /> and <Stones amount={3} />{' '}
         as well as one random legendary card upon login.
       </p>
 
