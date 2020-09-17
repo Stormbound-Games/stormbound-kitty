@@ -18,9 +18,11 @@ export default React.memo(function Layout(props) {
     <div className='Layout'>
       <Only.Desktop>
         <EyeCatcher id='patch-2020-09-2'>
-          A new small release is landing to celebrate Stormbound’s 3rd
-          anniversary.{' '}
-          <Link to='/changelog/3rd-anniversary'>Be sure to check it out</Link>!
+          Be sure to check the small{' '}
+          <Link to='/changelog/3rd-anniversary'>
+            event to celebrate Stormbound’s 3rd anniversary
+          </Link>
+          !
         </EyeCatcher>
       </Only.Desktop>
 

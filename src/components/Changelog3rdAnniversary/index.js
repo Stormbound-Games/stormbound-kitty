@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Article from '../Article'
 import Column from '../Column'
 import Image from '../Image'
+import Info from '../Info'
 import Notice from '../Notice'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
@@ -92,6 +93,15 @@ export default React.memo(function Changelog3rdAnniversary(props) {
           </Table>
         </div>
       </Only.Desktop>
+
+      <Info icon='crown' title='Oeni’s Gazette'>
+        <p>
+          Be sure to read{' '}
+          <Link to='/guides/noble-coalition'>Oeni’s Gazette</Link> to learn more
+          about the Noble Coalition brawl, especially in regard to this
+          anniversary event.
+        </p>
+      </Info>
 
       <Title>Boosted Tomes</Title>
 
