@@ -184,7 +184,7 @@ export default React.memo(function Changelog3rdAnniversary(props) {
         <Rubies amount={50} /> will yield <Coins amount={600} /> instead of 450.
       </p>
 
-      <Title id='wallpapers'>Desktop Wallpapers</Title>
+      <Title id='wallpapers'>Wallpapers</Title>
 
       <p>
         Last but not least, the Sheepyard design team has put up a collection of
@@ -209,7 +209,7 @@ export default React.memo(function Changelog3rdAnniversary(props) {
 
       <PageMeta
         title='3rd Anniversary'
-        description='A minor promotional update on the 18th of September to celebrate Stormbound’s 3rd anniversary'
+        description='A minor promotional update on the 17th of September to celebrate Stormbound’s 3rd anniversary'
       />
     </Article>
   )
