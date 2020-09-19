@@ -25,8 +25,9 @@ export default React.memo(function CardDisplayControls(props) {
     card => card.id === cardId
   )
   const cardInCollection = orderedCollection[indexInCollection]
-  const nextCard = orderedCollection[indexInCollection + 1]
-  const previousCard = orderedCollection[indexInCollection - 1]
+  const nextCard = cardInCollection && orderedCollection[indexInCollection + 1]
+  const previousCard =
+    cardInCollection && orderedCollection[indexInCollection - 1]
 
   return (
     <Only.Desktop>
