@@ -280,6 +280,10 @@ export const SWCC_SEASON_2 = [
   {
     week: 37,
     name: 'C-C-Combo',
+  },
+  {
+    week: 38,
+    name: 'Anti-neutral',
     submitURL: 'https://forms.gle/oHWRj45WoJc2q8ps5',
   },
 ]
