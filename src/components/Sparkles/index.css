@@ -1,0 +1,32 @@
+.Sparkles {
+  display: inline-block;
+  position: relative;
+}
+
+.Sparkle {
+  position: absolute;
+  display: block;
+  animation: come-in-out 700ms forwards;
+  pointer-events: none;
+}
+
+.Sparkle__svg {
+  display: block;
+  animation: spin 1000ms linear;
+}
+
+@keyframes come-in-out {
+  from,
+  to {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(0.5turn);
+  }
+}

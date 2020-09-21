@@ -2,6 +2,7 @@ import React from 'react'
 import Article from '../Article'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
+import Sparkles from '../Sparkles'
 import toSentence from '../../helpers/toSentence'
 import './index.css'
 
@@ -24,17 +25,6 @@ const DONATORS = [
 ].map(donator => ' ⭐️ ' + donator)
 
 export default React.memo(function Donate(props) {
-  const [scriptStatus, setScriptStatus] = React.useState('PRISTINE')
-
-  React.useEffect(() => {
-    const script = document.createElement('script')
-    script.src = 'https://gumroad.com/js/gumroad.js'
-    script.async = true
-    script.addEventListener('load', () => setScriptStatus('LOADED'))
-    script.addEventListener('error', () => setScriptStatus('ERRORED'))
-    document.body.appendChild(script)
-  }, [])
-
   return (
     <Article title='Donate'>
       <p>
@@ -89,21 +79,21 @@ export default React.memo(function Donate(props) {
         >
           Gumroad page
         </a>{' '}
-        or click the “Support Stormbound-Kitty” button below.
+        or click the “Support Stormbound-Kitty” link below.
       </p>
 
-      {scriptStatus === 'LOADED' && (
-        <div className='Donate__container'>
+      <div className='Donate__container'>
+        <Sparkles>
           <a
-            className='gumroad-button'
+            className='Donate__CTA'
             href='https://gum.co/stormbound-kitty?wanted=true'
             target='_blank'
             rel='noopener noreferrer'
           >
             Support Stormbound-Kitty
           </a>
-        </div>
-      )}
+        </Sparkles>
+      </div>
 
       <h2>Special thanks</h2>
 
