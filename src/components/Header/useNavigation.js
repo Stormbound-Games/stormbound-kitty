@@ -39,7 +39,6 @@ export default () => {
               label: 'Third Anniversary',
               to: '/changelog/3rd-anniversary',
               id: '3RD_ANNIVERSARY',
-              new: true,
             },
             {
               label: 'Update 09-2020',
