@@ -64,7 +64,7 @@ export default function DeckStats(props) {
 
   return (
     <div className='DeckStats'>
-      <Title>Statistics</Title>
+      <Title style={{ marginTop: 0 }}>Statistics</Title>
 
       <Row>
         <Column>

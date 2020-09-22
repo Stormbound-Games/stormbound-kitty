@@ -20,7 +20,7 @@ export default React.memo(function DeckAdvice(props) {
 
   return (
     <div className='DeckAdvice'>
-      <Title>
+      <Title style={{ marginTop: 0 }}>
         Suggestions <LearnMoreIcon anchor='#incorrect-deck-advice' />
       </Title>
 
