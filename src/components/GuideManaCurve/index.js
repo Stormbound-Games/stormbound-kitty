@@ -97,7 +97,7 @@ export default React.memo(function GuideManaCurve(props) {
 
       <Title id='anatomy-of-the-graph'>Anatomy of the graph</Title>
 
-      <div className='Article__fullwidth' style={{ '--padding': '60px' }}>
+      <Guide.FullWidth padding='60px'>
         <Row desktopOnly wideGutter>
           <Column>
             <Graph id='5n15n25i15n35n65i55n135i75n185i135i205n39' />{' '}
@@ -130,7 +130,7 @@ export default React.memo(function GuideManaCurve(props) {
             </p>
           </Column>
         </Row>
-      </div>
+      </Guide.FullWidth>
 
       <h3>The mana line</h3>
 
@@ -161,7 +161,7 @@ export default React.memo(function GuideManaCurve(props) {
         translates into better board control or speed.
       </p>
 
-      <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+      <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
           <Column>
             <p>
@@ -185,9 +185,9 @@ export default React.memo(function GuideManaCurve(props) {
             <Graph id='3n13n23s13n33s243s23n633n673s63n153s83s11' />
           </Column>
         </Row>
-      </div>
+      </Guide.FullWidth>
 
-      <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+      <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
           <Column>
             <Graph id='1n191n691n441n251f241n411n541n721f21n211n221n62' />
@@ -208,7 +208,7 @@ export default React.memo(function GuideManaCurve(props) {
             </p>
           </Column>
         </Row>
-      </div>
+      </Guide.FullWidth>
 
       <h3>The cards line</h3>
 
@@ -238,7 +238,7 @@ export default React.memo(function GuideManaCurve(props) {
         for board control and speed.
       </p>
 
-      <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+      <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
           <Column>
             <p>
@@ -262,9 +262,9 @@ export default React.memo(function GuideManaCurve(props) {
             <Graph id='3n13s13n33n43n633n132n233s83n163s133n393n46' />
           </Column>
         </Row>
-      </div>
+      </Guide.FullWidth>
 
-      <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+      <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
           <Column>
             <Graph id='5n15n25w25n35n45n145n185w135w165w155w195n58' />
@@ -286,7 +286,7 @@ export default React.memo(function GuideManaCurve(props) {
             </p>
           </Column>
         </Row>
-      </div>
+      </Guide.FullWidth>
 
       <hr />
 
@@ -312,7 +312,7 @@ export default React.memo(function GuideManaCurve(props) {
         early mana line making for a less random early game.
       </p>
 
-      <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+      <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
           <Column>
             <Graph
@@ -327,7 +327,7 @@ export default React.memo(function GuideManaCurve(props) {
             />
           </Column>
         </Row>
-      </div>
+      </Guide.FullWidth>
 
       <Title id='other-considerations'>Other considerations</Title>
 
@@ -392,7 +392,7 @@ export default React.memo(function GuideManaCurve(props) {
         for very interesting graphs which are interesting to look at.
       </p>
 
-      <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+      <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
           <Column>
             <Graph
@@ -419,8 +419,9 @@ export default React.memo(function GuideManaCurve(props) {
             </p>
           </Column>
         </Row>
-      </div>
-      <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+      </Guide.FullWidth>
+
+      <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
           <Column>
             <p>
@@ -446,7 +447,7 @@ export default React.memo(function GuideManaCurve(props) {
             />
           </Column>
         </Row>
-      </div>
+      </Guide.FullWidth>
 
       <Title id='how-it-works'>How it works</Title>
 

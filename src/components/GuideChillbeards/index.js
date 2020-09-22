@@ -112,13 +112,13 @@ export default React.memo(function GuideChillbeards(props) {
         Chillbeards in.
       </p>
 
-      <div className='Article__fullwidth'>
+      <Guide.FullWidth>
         <BattleSimApp
           environment='winter'
           mode='DISPLAY'
           simId='LDJOOEIzLCwsLCw4TjEzQjUsLCwsOFcxM0I1LCwsLCwsLCwsO1IxME4tQjEwVzs4TTA7Ow=='
         />
-      </div>
+      </Guide.FullWidth>
 
       <Title id='cycling'>6. Cycling</Title>
       <p>
@@ -150,13 +150,13 @@ export default React.memo(function GuideChillbeards(props) {
         unit on the baseline for a Chillbeards next turn.
       </p>
 
-      <div className='Article__fullwidth'>
+      <Guide.FullWidth>
         <BattleSimApp
           environment='winter'
           mode='DISPLAY'
           simId='NU4zQjUsLDhGNlI1Riw5VzdCMywsLDVXMkI1LCwsLCwsLCwsLCwsLDtSMjBGLUIyMFc7OE0wOzs='
         />
-      </div>
+      </Guide.FullWidth>
     </Guide>
   )
 })

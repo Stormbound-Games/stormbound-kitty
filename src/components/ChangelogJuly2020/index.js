@@ -143,7 +143,7 @@ export default React.memo(function ChangelogJuly2020(props) {
         out of 10 quests).
       </p>
 
-      <div className='Article__fullwidth' style={{ '--padding': '0' }}>
+      <Article.FullWidth padding='0'>
         <Row desktopOnly wideGutter>
           <Column width='1/3'>
             <Quest
@@ -173,7 +173,7 @@ export default React.memo(function ChangelogJuly2020(props) {
             />
           </Column>
         </Row>
-      </div>
+      </Article.FullWidth>
 
       <Info title='Daily coin cap'>
         To compensate the fact that quests overall grant less coins than before,
@@ -192,7 +192,7 @@ export default React.memo(function ChangelogJuly2020(props) {
         dreams of becoming a pirate hero crushed.
       </p>
 
-      <div className='Article__fullwidth' style={{ '--padding': '0' }}>
+      <Article.FullWidth padding='0'>
         <Row desktopOnly wideGutter>
           <Column width='1/2'>
             <h3 style={{ marginTop: 0 }}>Sketches & illustrations</h3>
@@ -212,11 +212,11 @@ export default React.memo(function ChangelogJuly2020(props) {
             ></video>
           </Column>
         </Row>
-      </div>
+      </Article.FullWidth>
 
-      <div className='Article__fullwidth'>
+      <Article.FullWidth>
         <CardBuilderCardDisplay {...getInitialCardData('N77')} />
-      </div>
+      </Article.FullWidth>
 
       <p>
         <WikiLink id='N77' /> will be available shortly (a few days following
@@ -369,7 +369,7 @@ export default React.memo(function ChangelogJuly2020(props) {
         to the right side.
       </p>
 
-      <div className='Article__fullwidth'>
+      <Article.FullWidth>
         <Checkbox
           checked={withConfusionFix}
           onChange={event => setConfusionFix(event.target.checked)}
@@ -384,7 +384,7 @@ export default React.memo(function ChangelogJuly2020(props) {
           mode='DISPLAY'
           simId='MU42MlIxLCwsLCwsMU4xNkI1QywsLCwsLCwsLCwxTjFCMUMsLCw7UjEwTi1CMTBOOzNNMDs7'
         />
-      </div>
+      </Article.FullWidth>
 
       <p>
         Sheepyard also allowed me to announce that the next update will
@@ -434,7 +434,7 @@ export default React.memo(function ChangelogJuly2020(props) {
 
       <Title id='ui-improvements'>UI improvements</Title>
 
-      <div className='Article__fullwidth' style={{ '--padding': '0' }}>
+      <Article.FullWidth padding='0'>
         <Row desktopOnly wideGutter>
           <Column width='1/3'>
             <p style={{ marginTop: '2em' }}>
@@ -476,7 +476,7 @@ export default React.memo(function ChangelogJuly2020(props) {
             />
           </Column>
         </Row>
-      </div>
+      </Article.FullWidth>
 
       <FAQSection
         id='faq'

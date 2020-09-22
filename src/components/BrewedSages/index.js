@@ -64,7 +64,7 @@ export default React.memo(function BrewedSages(props) {
       </p>
 
       <Title>Episodes</Title>
-      <div className='Article__fullwidth'>
+      <Article.FullWidth>
         {chunk(EPISODES, 3).map((row, index) => (
           <Row desktopOnly key={index}>
             <Column width='1/3'>
@@ -105,7 +105,7 @@ export default React.memo(function BrewedSages(props) {
             </Column>
           </Row>
         ))}
-      </div>
+      </Article.FullWidth>
 
       <Title>Listening</Title>
 

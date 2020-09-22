@@ -9,7 +9,7 @@ import toSentence from '../../helpers/toSentence'
 import { CATEGORIES } from '../../constants/guides'
 import './index.css'
 
-export default React.memo(function Guide(props) {
+const Guide = React.memo(function Guide(props) {
   return (
     <>
       <Article
@@ -45,3 +45,7 @@ export default React.memo(function Guide(props) {
     </>
   )
 })
+
+Guide.FullWidth = Article.FullWidth
+
+export default Guide

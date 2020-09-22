@@ -19,7 +19,7 @@ export const renderAuthorsLinks = (acc, author, index, authors) => {
   return acc
 }
 
-export default React.memo(function Article(props) {
+const Article = React.memo(function Article(props) {
   const backLink = props.backLink || {}
   const authors = (props.authors || [props.author]).filter(Boolean)
 
@@ -61,3 +61,16 @@ export default React.memo(function Article(props) {
     </article>
   )
 })
+
+Article.FullWidth = React.memo(function FullWidth(props) {
+  return (
+    <div
+      className='Article__fullwidth'
+      style={{ ...props.style, '--padding': props.padding }}
+    >
+      {props.children}
+    </div>
+  )
+})
+
+export default Article

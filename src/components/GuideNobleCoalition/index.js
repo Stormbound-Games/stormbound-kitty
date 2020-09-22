@@ -109,7 +109,7 @@ export default React.memo(function GuideNobleCoalition(props) {
 
       <Title>Possible Decks</Title>
 
-      <div className='Article__fullwidth' style={{ '--padding': '60px' }}>
+      <Guide.FullWidth padding='60px'>
         <Row desktopOnly wideGutter>
           <Column>
             <h3 style={{ marginTop: '0.5em' }}>
@@ -174,7 +174,7 @@ export default React.memo(function GuideNobleCoalition(props) {
             />
           </Column>
         </Row>
-      </div>
+      </Guide.FullWidth>
 
       <Info icon='crown' title='Brawl Tracker'>
         <p>

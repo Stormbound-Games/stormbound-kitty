@@ -55,7 +55,7 @@ export default React.memo(function TournamentHallOfFame(props) {
 
   return (
     <Article title='Tournaments'>
-      <div className='Article__fullwidth'>
+      <Article.FullWidth>
         <Title>Hall of Fame</Title>
         <Row desktopOnly>
           {hallOfFame.slice(0, 3).map(([user, tournaments], index) => (
@@ -89,9 +89,9 @@ export default React.memo(function TournamentHallOfFame(props) {
             </Column>
           ))}
         </Row>
-      </div>
+      </Article.FullWidth>
 
-      <div className='Article__fullwidth'>
+      <Article.FullWidth>
         <Title>Tournament History</Title>
         <Table zebra className='TournamentHallOfFame__table'>
           <thead>
@@ -124,7 +124,7 @@ export default React.memo(function TournamentHallOfFame(props) {
               ))}
           </tbody>
         </Table>
-      </div>
+      </Article.FullWidth>
 
       <FAQSection
         id='faq'

@@ -65,7 +65,7 @@ export default React.memo(function Changelog3rdAnniversary(props) {
       </p>
 
       <Only.Desktop>
-        <div className='Article__fullwidth' style={{ '--padding': '60px' }}>
+        <Article.FullWidth padding='60px'>
           <Table>
             <thead>
               <tr>
@@ -91,7 +91,7 @@ export default React.memo(function Changelog3rdAnniversary(props) {
               })}
             </tbody>
           </Table>
-        </div>
+        </Article.FullWidth>
       </Only.Desktop>
 
       <Info icon='crown' title='Oeni’s Gazette'>
@@ -145,7 +145,7 @@ export default React.memo(function Changelog3rdAnniversary(props) {
         </li>
       </ul>
 
-      <div className='Article__fullwidth' style={{ '--padding': '60px' }}>
+      <Article.FullWidth padding='60px'>
         <Row desktopOnly wideGutter>
           <Column>
             <Image
@@ -174,7 +174,7 @@ export default React.memo(function Changelog3rdAnniversary(props) {
             />
           </Column>
         </Row>
-      </div>
+      </Article.FullWidth>
 
       <p>
         Additionally, <ResourceIcon resource='RUBY' /> rubies and{' '}
@@ -193,12 +193,12 @@ export default React.memo(function Changelog3rdAnniversary(props) {
         them!
       </p>
 
-      <div className='Article__fullwidth' style={{ '--padding': '60px' }}>
+      <Article.FullWidth padding='60px'>
         <Image
           src='/assets/images/wallpapers/lite/wp-d-3.png'
           alt='Stormbound Wallpaper'
         />
-      </div>
+      </Article.FullWidth>
 
       <hr />
 

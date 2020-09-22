@@ -77,7 +77,7 @@ export default React.memo(function GuideD1SFCommons(props) {
         another day.
       </p>
 
-      <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+      <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
           <Column>
             <FeaturedDeck
@@ -110,9 +110,9 @@ export default React.memo(function GuideD1SFCommons(props) {
             </ul>
           </Column>
         </Row>
-      </div>
+      </Guide.FullWidth>
 
-      <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+      <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
           <Column>
             <p>
@@ -134,7 +134,7 @@ export default React.memo(function GuideD1SFCommons(props) {
             <Graph id={DECK_ID} />
           </Column>
         </Row>
-      </div>
+      </Guide.FullWidth>
 
       <Title id='the-cards'>The cards</Title>
 
@@ -253,7 +253,7 @@ export default React.memo(function GuideD1SFCommons(props) {
       </Only.Mobile>
 
       <Only.Desktop>
-        <div className='Article__fullwidth' style={{ '--padding': '60px' }}>
+        <Guide.FullWidth padding='60px'>
           <Table>
             <thead>
               <tr>
@@ -310,7 +310,7 @@ export default React.memo(function GuideD1SFCommons(props) {
               </tr>
             </tbody>
           </Table>
-        </div>
+        </Guide.FullWidth>
       </Only.Desktop>
 
       <p>
@@ -335,13 +335,13 @@ export default React.memo(function GuideD1SFCommons(props) {
         Gifted Recruits or Dubious Hags into Summon Militia.
       </p>
 
-      <div className='Article__fullwidth'>
+      <Guide.FullWidth>
         <BattleSimApp
           environment='shadowfen'
           mode='DISPLAY'
           simId='LCwsLCwsLCwsLDZGM0I1LCw1TjFCNSwsLCwsLCw7UjIwUy1CMThGOzBNMDs1TjE1TjI1RjQ1RjM1TjM1Tjk1TjEyNU4xNjVOMjg1RjE0NU4zMDVONTI7TjksTjI4'
         />
-      </div>
+      </Guide.FullWidth>
 
       <p>
         With 4 units costing 4 or more mana and 2 spells targeting enemy units,
@@ -405,13 +405,13 @@ export default React.memo(function GuideD1SFCommons(props) {
         for Salty Outcasts to run it.
       </p>
 
-      <div className='Article__fullwidth'>
+      <Guide.FullWidth>
         <BattleSimApp
           environment='winter'
           mode='DISPLAY'
           simId='NU4zQjVGLDE2VzlSNSwsLCwzVzEzUjUsLDhOMTNSNSwsLCwsLCwsLCwsLDtSMTBXLUIxOEY7OE0wOzVOMTVOMjVGNDVGMzVOMzVOOTVOMTI1TjE2NU4yODVGMTQ1TjMwNU41MjtGNCxONTIsTjI4LE4y'
         />
-      </div>
+      </Guide.FullWidth>
 
       <h3 id='against-swarm'>Against Swarm of the East</h3>
 
@@ -464,13 +464,13 @@ export default React.memo(function GuideD1SFCommons(props) {
         particularly cheap deck.
       </p>
 
-      <div className='Article__fullwidth'>
+      <Guide.FullWidth>
         <BattleSimApp
           environment='ironclad'
           mode='DISPLAY'
           simId='NU4zQjUsLCw2RjNCNSwsLCwsLCwsLCwsLCwsLCw7UjIwSS1CMThGOzVNMDs1TjE1TjI1RjQ1RjM1TjM1Tjk1TjEyNU4xNjVOMjg1RjE0NU4zMDVONTI7'
         />
-      </div>
+      </Guide.FullWidth>
 
       <p>
         When facing a structure deck, it’s important to go upfront and destroy
@@ -511,13 +511,13 @@ export default React.memo(function GuideD1SFCommons(props) {
         they have a static unit to put in the middle.
       </p>
 
-      <div className='Article__fullwidth'>
+      <Guide.FullWidth>
         <BattleSimApp
           environment='shadowfen'
           mode='DISPLAY'
           simId='LCwsNkYzQjUsLDVOM0I1LCwsLCwsLCwsLCwsLCw7UjIwRi1CMThGOzVNMDs1TjE1TjI1RjQ1RjM1TjM1Tjk1TjEyNU4xNjVOMjg1RjE0NU4zMDVONTI7'
         />
-      </div>
+      </Guide.FullWidth>
 
       <p>
         To wrap up, this deck is a solid rush deck which remains viable in

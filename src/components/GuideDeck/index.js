@@ -84,7 +84,7 @@ export default React.memo(function GuideDeck(props) {
         than playing a big one.
       </p>
 
-      <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+      <Guide.FullWidth padding='120px'>
         <Row desktopOnly>
           <Column>
             <Row>
@@ -107,7 +107,7 @@ export default React.memo(function GuideDeck(props) {
             </Row>
           </Column>
         </Row>
-      </div>
+      </Guide.FullWidth>
 
       <Title id='win-conditions'>Win Conditions</Title>
 
@@ -190,7 +190,7 @@ export default React.memo(function GuideDeck(props) {
         <WikiLink id='W4' />…
       </p>
 
-      <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+      <Guide.FullWidth padding='120px'>
         <Row desktopOnly>
           <Column>
             <Row>
@@ -235,7 +235,7 @@ export default React.memo(function GuideDeck(props) {
             </Row>
           </Column>
         </Row>
-      </div>
+      </Guide.FullWidth>
 
       <p>
         Some are less obvious, but still extraordinarily useful: for instance{' '}

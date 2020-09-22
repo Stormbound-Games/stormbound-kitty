@@ -142,9 +142,9 @@ export default React.memo(function GuideDrawing(props) {
         deserves having a closer look at how exactly it works.{' '}
       </p>
 
-      <div className='Article__fullwidth'>
+      <Guide.FullWidth>
         <CardBuilderCardDisplay {...getInitialCardData('S21')} />
-      </div>
+      </Guide.FullWidth>
 
       <p>
         First of all, Queen of Herds <span className='Highlight'>does not</span>{' '}
@@ -172,7 +172,7 @@ export default React.memo(function GuideDrawing(props) {
       </p>
 
       <Only.Desktop>
-        <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+        <Guide.FullWidth padding='120px'>
           <Row>
             <Column width='1/4'>
               <Card {...getResolvedCardData({ id: 'N12', level: 1 })} />
@@ -187,7 +187,7 @@ export default React.memo(function GuideDrawing(props) {
               <Card {...getResolvedCardData({ id: 'N33', level: 5 })} />
             </Column>
           </Row>
-        </div>
+        </Guide.FullWidth>
       </Only.Desktop>
 
       <ul>

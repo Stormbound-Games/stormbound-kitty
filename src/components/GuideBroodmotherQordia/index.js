@@ -24,9 +24,9 @@ export default React.memo(function GuideBroodmotherQordia(props) {
         value.
       </p>
 
-      <div className='Article__fullwidth'>
+      <Guide.FullWidth>
         <CardBuilderCardDisplay {...getInitialCardData('F21')} />
-      </div>
+      </Guide.FullWidth>
 
       <Title id='eggs'>It’s all in the eggs</Title>
 
@@ -85,13 +85,13 @@ export default React.memo(function GuideBroodmotherQordia(props) {
         runners to rush through your baseline and into your base.{' '}
       </p>
 
-      <div className='Article__fullwidth'>
+      <Guide.FullWidth>
         <BattleSimApp
           environment='shadowfen'
           mode='DISPLAY'
           simId='LCwsLCwsLCwsMVQxMkIxLCwsLCw1RjIxQjEsMVQxMkIxLCwxVDEyQjEsLDtSMTBOLUIxMEY7M00wOzs='
         />
-      </div>
+      </Guide.FullWidth>
 
       <Title id='offensive-usage'>Offensive usage</Title>
 
@@ -116,13 +116,13 @@ export default React.memo(function GuideBroodmotherQordia(props) {
         of luck, she lays eggs on the side, and moves forward.
       </p>
 
-      <div className='Article__fullwidth'>
+      <Guide.FullWidth>
         <BattleSimApp
           environment='shadowfen'
           mode='DISPLAY'
           simId='MVQxMkIxLDFUMTJCMSwsLCw1RjIxQjEsLCwxVDEyQjEsLCwsLCwsLCwsLDtSMTBOLUIxMEY7M00wOzs='
         />
-      </div>
+      </Guide.FullWidth>
 
       <Title id='alternative-usage'>Alternative usages</Title>
 
@@ -135,13 +135,13 @@ export default React.memo(function GuideBroodmotherQordia(props) {
         combo.
       </p>
 
-      <div className='Article__fullwidth'>
+      <Guide.FullWidth>
         <BattleSimApp
           environment='shadowfen'
           mode='DISPLAY'
           simId='LCwsLCwsLCwsLDFUMTJCMSwsLCw1RjIxQjEsMVQxMkIxLCwxVDEyQjEsLDNOMjBCMTtSMTBOLUIxMEY7M00wOzs='
         />
-      </div>
+      </Guide.FullWidth>
 
       <p>
         Another interesting use of Broodmother Qordia is when paired with{' '}

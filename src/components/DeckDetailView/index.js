@@ -64,7 +64,7 @@ export default React.memo(function DeckDetailView(props) {
       }
       backLink={{ to: '/deck/' + props.deckId, children: 'Edit deck' }}
     >
-      <div className='Article__fullwidth' style={{ fontSize: '85%' }}>
+      <Article.FullWidth style={{ fontSize: '85%' }}>
         <Row desktopOnly wideGutter>
           <Column width='1/3'>
             <Title style={{ marginTop: 0 }}>Deck</Title>
@@ -99,7 +99,7 @@ export default React.memo(function DeckDetailView(props) {
         </Row>
 
         <PageMeta {...getDeckBuilderMetaTags(props.deck, 'Deck Insights')} />
-      </div>
+      </Article.FullWidth>
     </Article>
   )
 })

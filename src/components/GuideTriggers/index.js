@@ -33,7 +33,7 @@ export default React.memo(function GuideDrawing(props) {
         the unit dies.
       </p>
 
-      <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+      <Guide.FullWidth padding='120px'>
         <Row desktopOnly>
           <Column>
             <Row>
@@ -56,7 +56,7 @@ export default React.memo(function GuideDrawing(props) {
             </Row>
           </Column>
         </Row>
-      </div>
+      </Guide.FullWidth>
 
       <Info icon='sword' title='Attacking bases and DTE'>
         Units attacking a base always die right after the damage is done to the
@@ -105,13 +105,13 @@ export default React.memo(function GuideDrawing(props) {
         as well.
       </p>
 
-      <div className='Article__fullwidth'>
+      <Guide.FullWidth>
         <BattleSimApp
           environment='shadowfen'
           mode='DISPLAY'
           simId='LCwsLCw1STIyUjEsLDRJNlIxLCwzTjI2QjEsMU4zQjEsLCwsMk42QjEsMU4xUjEsLCwsO1IxMEktQjEwRjszTTA7NUY0O0Y0 '
         />
-      </div>
+      </Guide.FullWidth>
 
       <p>
         The DTE are resolved right-to-left, front-to-back for the active player.
@@ -146,13 +146,13 @@ export default React.memo(function GuideDrawing(props) {
         well.
       </p>
 
-      <div className='Article__fullwidth'>
+      <Guide.FullWidth>
         <BattleSimApp
           environment='shadowfen'
           mode='DISPLAY'
           simId='LCwsLCw0STIyUjEsLCwzTjQ2QjEsLDJOMVIxLCwsMU42QjEsLCwsLCw7UjEwSS1CMTBGOzNNMDs1RjU7RjU='
         />
-      </div>
+      </Guide.FullWidth>
 
       <p>The DTE are resolved right-to-left, front-to-back. That means:</p>
       <ol>
@@ -190,13 +190,13 @@ export default React.memo(function GuideDrawing(props) {
         the effective strength as well.
       </p>
 
-      <div className='Article__fullwidth'>
+      <Guide.FullWidth>
         <BattleSimApp
           environment='shadowfen'
           mode='DISPLAY'
           simId='LCwsLCw0TjQ2QjEsLCwzSTIyUjEsMUY1QjMsMk4xUjEsLCwxTjZCMSwsLCwsLDtSMTBJLUIxMEY7M00wOzVGNDtGNA=='
         />
-      </div>
+      </Guide.FullWidth>
 
       <ol>
         <li>
@@ -232,13 +232,13 @@ export default React.memo(function GuideDrawing(props) {
         as well.
       </p>
 
-      <div className='Article__fullwidth'>
+      <Guide.FullWidth>
         <BattleSimApp
           environment='shadowfen'
           mode='DISPLAY'
           simId='LCwsLCwsLCwzUzJSNSwxRjNCMSwyTjFCMSwsLDFONkIxLCwsLCwsO1IxMFMtQjEwRjszTTA7NUY0O0Y0'
         />
-      </div>
+      </Guide.FullWidth>
 
       <p>
         In this example, because the sacrificed unit resolves its DTE first (as
@@ -260,7 +260,7 @@ export default React.memo(function GuideDrawing(props) {
         short).
       </p>
 
-      <div className='Article__fullwidth' style={{ '--padding': '120px' }}>
+      <Guide.FullWidth padding='120px'>
         <Row desktopOnly>
           <Column>
             <Row>
@@ -283,7 +283,7 @@ export default React.memo(function GuideDrawing(props) {
             </Row>
           </Column>
         </Row>
-      </div>
+      </Guide.FullWidth>
 
       <p>
         For the most part, their resolution pattern is pretty straightforward,

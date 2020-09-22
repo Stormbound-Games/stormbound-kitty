@@ -103,7 +103,7 @@ export default React.memo(function GuideBrawl(props) {
       <p>Find below the list of all milestones, their cost and reward.</p>
 
       <Only.Desktop>
-        <div className='Article__fullwidth' style={{ '--padding': '60px' }}>
+        <Guide.FullWidth padding='60px'>
           <Table>
             <thead>
               <tr>
@@ -126,7 +126,7 @@ export default React.memo(function GuideBrawl(props) {
               ))}
             </tbody>
           </Table>
-        </div>
+        </Guide.FullWidth>
       </Only.Desktop>
 
       <Only.Mobile>
