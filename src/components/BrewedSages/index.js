@@ -38,6 +38,14 @@ const EPISODES = [
     excerpt:
       'Freeloader and Subaiku are discussing some of the strongest elder cards in Stormbound. Who dodged the nerf hammer? Should they be nerfed now? Tune in to find out!',
   },
+  {
+    title: 'A New Bloke',
+    meta: '42 minutes and 50 seconds',
+    href:
+      'https://freeloader.podbean.com/e/episode-4-a-new-bloke/?token=ea7fad9550a7b2d47dbcdf0c5212327b',
+    excerpt:
+      'Freeloader and Subaiku welcome a third host. Who will this mystery host be, and are they truly crazy enough to spend an hour each week talking with us?!',
+  },
 ]
 
 export default React.memo(function BrewedSages(props) {
