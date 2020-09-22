@@ -31,6 +31,12 @@ cards
   })
 
 SEARCH_INDEX.push({
+  path: '/card',
+  label: 'Card Builder',
+  breadcrumbs: ['Tools', 'Card Builder'],
+})
+
+SEARCH_INDEX.push({
   path: `/card/stats`,
   label: 'Card Statistics',
   breadcrumbs: ['Game', 'Card Statistics'],
