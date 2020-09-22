@@ -25,7 +25,7 @@ export default React.memo(function Changelog3rdAnniversary(props) {
         to: '/changelog/releases',
         children: 'Back to release notes',
       }}
-      readingTime='2 minutes'
+      meta='2 minutes'
       className='Changelog3rdAnniversary'
       background='/assets/images/releases/third-anniversary.png'
       ratio='57.5%'

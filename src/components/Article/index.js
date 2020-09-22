@@ -37,12 +37,10 @@ const Article = React.memo(function Article(props) {
             <span className='Article__author'>
               By {authors.reduce(renderAuthorsLinks, [])}
             </span>
-            {props.readingTime && <>&nbsp;·&nbsp;</>}
+            {props.meta && <>&nbsp;·&nbsp;</>}
           </>
         )}
-        {props.readingTime && (
-          <span className='Article__readingTime'>{props.readingTime}</span>
-        )}
+        {props.meta && <span>{props.meta}</span>}
         {Object.keys(backLink).length > 0 && (
           <Link {...backLink} className='Article__backLink' />
         )}

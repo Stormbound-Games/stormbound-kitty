@@ -18,7 +18,7 @@ export default React.memo(function CardBuilderContest(props) {
         authors={['Taco_G']}
         backLink={{ to: '/card', children: 'Card builder' }}
         noDropCap
-        readingTime={isWeekEnd ? 'Voting phase' : 'Ongoing'}
+        meta={isWeekEnd ? 'Voting phase' : 'Ongoing'}
       >
         <ContestStatus />
 

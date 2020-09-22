@@ -51,7 +51,7 @@ export default React.memo(function DeckDetailView(props) {
     <Article
       title={suggestedDeck.name || 'Deck details'}
       author={suggestedDeck.author}
-      readingTime={
+      meta={
         suggestedDeck.category
           ? CATEGORIES[suggestedDeck.category] +
             ' deck' +

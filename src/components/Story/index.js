@@ -38,7 +38,7 @@ export default function Story(props) {
           title={story.title}
           author={story.author}
           background={background}
-          readingTime={getReadingTime(story.content)}
+          meta={getReadingTime(story.content)}
           backLink={{
             to: '/stories/' + story.category,
             children: 'Back to stories',

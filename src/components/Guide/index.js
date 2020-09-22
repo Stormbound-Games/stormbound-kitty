@@ -14,7 +14,7 @@ const Guide = React.memo(function Guide(props) {
     <>
       <Article
         className='Guide'
-        readingTime={props.readingTime}
+        meta={props.readingTime}
         authors={props.authors}
         title={props.name}
         background={props.background}

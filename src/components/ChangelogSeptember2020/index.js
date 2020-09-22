@@ -14,7 +14,7 @@ export default React.memo(function ChangelogSeptember2020(props) {
         to: '/changelog/releases',
         children: 'Back to release notes',
       }}
-      readingTime='2 minutes'
+      meta='2 minutes'
       className='ChangelogSeptember2020'
       background='/assets/images/banners/environment_dragon.jpg'
     >
