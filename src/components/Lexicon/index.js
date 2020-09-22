@@ -32,7 +32,7 @@ export default React.memo(function Lexicon(props) {
     <>
       <HeaderBanner
         title='Lexicon'
-        background='/assets/images/banners/environment_ironclad.png'
+        background='/assets/images/wallpapers/lite/wp-d-1.png'
       />
 
       <Row desktopOnly>
