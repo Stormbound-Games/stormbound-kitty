@@ -1015,13 +1015,13 @@
     "hero": true
   },
   {
-    "name": "Skyboots",
+    "name": "Slyboots",
     "id": "N78",
     "type": "unit",
     "faction": "neutral",
     "race": "feline",
     "rarity": "rare",
-    "image": "skyboots.png",
+    "image": "slyboots.png",
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": 1,
