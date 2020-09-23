@@ -133,6 +133,12 @@ SEARCH_INDEX.push({
 })
 
 SEARCH_INDEX.push({
+  path: '/changelog/10-2020',
+  label: 'October 2020 release',
+  breadcrumbs: ['Game', 'Changelog'],
+})
+
+SEARCH_INDEX.push({
   path: '/changelog/3rd-anniversary',
   label: 'Third Anniversary release',
   breadcrumbs: ['Game', 'Changelog'],
