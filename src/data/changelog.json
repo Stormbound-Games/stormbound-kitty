@@ -4138,5 +4138,23 @@
     "description": "Decreased movement by 1",
     "id": "I28",
     "type": "NERF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Added to the game",
+    "id": "N78",
+    "type": "INFO"
+  },
+  {
+    "date": 1602720000000,
+    "description": "Added to the game",
+    "id": "N79",
+    "type": "INFO"
+  },
+  {
+    "date": 1604188800000,
+    "description": "Added to the game",
+    "id": "N80",
+    "type": "INFO"
   }
 ]
