@@ -47,6 +47,7 @@ const Changelog = load('Changelog')
 const Changelog3rdAnniversary = load('Changelog3rdAnniversary')
 const ChangelogJuly2020 = load('ChangelogJuly2020')
 const ChangelogSeptember2020 = load('ChangelogSeptember2020')
+const ChangelogOctober2020 = load('ChangelogOctober2020')
 const Collection = load('Collection')
 const CollectionStats = load('CollectionStats')
 const DeckBuilderRoot = load('DeckBuilderRoot')
@@ -320,6 +321,10 @@ export default function Router(props) {
 
           <Page path='/changelog/09-2020' active={['GAME', '09_2020']}>
             <ChangelogSeptember2020 />
+          </Page>
+
+          <Page path='/changelog/10-2020' active={['GAME', '10_2020']}>
+            <ChangelogOctober2020 />
           </Page>
 
           <Page
