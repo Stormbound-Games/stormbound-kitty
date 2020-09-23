@@ -322,8 +322,8 @@
     "image": "siegebreakers.png",
     "mana": 4,
     "strength": "4/5/6/7/8",
-    "movement": 0,
-    "ability": "On play, deal *4/5/6/7/8 damage* to all bordering enemy structures"
+    "movement": 1,
+    "ability": "On play, deal *4/5/6/7/8 damage* to all surrounding enemy structures"
   },
   {
     "name": "Snowmasons",
@@ -440,7 +440,7 @@
     "mana": 5,
     "strength": "4/5/6/7/8",
     "movement": null,
-    "ability": "At the start of your turn, randomly deal *4/5/6/7/8 damage* to the *most forward* enemy unit or structure"
+    "ability": "At the start of your turn, randomly deal *4/5/6/7/8 damage* to the *most forward* enemy unit or structure. If it kills it, deal half damage to a second target"
   },
   {
     "name": "Ubass the Hunter",
@@ -467,7 +467,7 @@
     "mana": 5,
     "strength": 6,
     "movement": 0,
-    "ability": "When played bordering at least *2* enemies, deal *2/3/4/5/6 damage* to each"
+    "ability": "When played surrouding at least *2* enemies, deal *2/3/4/5/6 damage* to each"
   },
   {
     "name": "Boomstick Officers",
@@ -519,7 +519,7 @@
     "mana": 6,
     "strength": null,
     "movement": null,
-    "ability": "*Give 5/6/6/8/10* strength to a target friendly unit and *2/2/3/4/5* strength to all others of the same *unit type*"
+    "ability": "*Give 6/7/9/9/11* strength to a target friendly unit and *2/2/3/4/5* strength to all others of the same *unit type*"
   },
   {
     "name": "Lich Summoners",
@@ -638,7 +638,7 @@
     "mana": 7,
     "strength": "5/6/7/8/10",
     "movement": 0,
-    "ability": "On death, *destroy* all units in front with *3/4/5/6/7* strength or less and *spawn 3/4/5/6/7* strength Ravens on all tiles behind"
+    "ability": "On death, *destroy* all bordering/bordering/bordering/surrounding/surrounding units with *3/4/5/6/7* strength or less and *spawn 3/4/5/6/7* strength Ravens on all these tiles"
   },
   {
     "name": "Call for Aid",
@@ -796,7 +796,7 @@
     "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On play, randomly *force a bordering confused enemy unit to attack* a bordering enemy"
+    "ability": "On play, randomly *force a surrounding confused enemy unit to attack* a bordering enemy"
   },
   {
     "name": "Sweetcap Kittens",
@@ -858,8 +858,8 @@
     "race": "feline",
     "rarity": "rare",
     "image": "bigthrust_tigers.png",
-    "mana": 3,
-    "strength": "3/4/5/6/7",
+    "mana": 2,
+    "strength": "1/2/3/4/5",
     "movement": 0,
     "ability": "On play, *gain speed* equal to the amount of enemy units in front"
   },
@@ -900,7 +900,7 @@
     "mana": 5,
     "strength": "5/6/7/8/10",
     "movement": 1,
-    "ability": "Before attacking an enemy unit *force all enemy units* bordering it with 3/4/5/6/7 or lower strength *to attack* it",
+    "ability": "Before attacking an enemy unit *force all enemy units* bordering it with 4/5/6/7/8 or lower strength *to attack* it",
     "hero": true
   },
   {
@@ -1038,7 +1038,7 @@
     "mana": 2,
     "strength": "2/3/3/4/5",
     "movement": 0,
-    "ability": "On play, *trigger* the ability of all *bordering/bordering/surrounding/surrounding/ * friendly structures",
+    "ability": "On play, *trigger* the ability of all *bordering/surrounding/surrounding/surrounding/ * friendly structures",
     "hero": true
   },
   {
@@ -1364,7 +1364,7 @@
     "rarity": "rare",
     "image": "scrapped_planners.png",
     "mana": 4,
-    "strength": "3/4/5/6/7",
+    "strength": "4/5/6/7/9",
     "movement": 1,
     "ability": "After surviving damage, set strength to 3/4/5/6/7",
     "elder": true
@@ -1379,7 +1379,7 @@
     "image": "booming_professors.png",
     "mana": 6,
     "strength": "5/6/7/8/10",
-    "movement": 1,
+    "movement": 0,
     "ability": "After surviving damage, deal up to *3/3/4/5/6 of its remaining strength as damage* to the first enemy in front",
     "elder": true
   },
@@ -1946,7 +1946,7 @@
     "mana": 5,
     "strength": null,
     "movement": null,
-    "ability": "Deal *2/3/4/5/6 damage* to all enemies bordering a friendly unit"
+    "ability": "Deal *2/3/4/5/6 damage* to all enemies surrounding a friendly unit"
   },
   {
     "name": "Dreadfauns",
