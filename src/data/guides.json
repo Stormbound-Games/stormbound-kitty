@@ -48,6 +48,18 @@
     "category": "BRAWL_MODE"
   },
   {
+    "id": "SELF_CONTROL_GUIDE",
+    "name": "Self Control",
+    "authors": ["Kitty"],
+    "excerpt": "In this satyr edition of the Brawl Gazette, Kitty goes through everything to know about the Self Control Brawl.",
+    "slug": "self-control",
+    "faction": "swarm",
+    "cardId": "S3",
+    "background": "/assets/images/banners/environment_swarm.png",
+    "readingTime": "5 minutes",
+    "category": "BRAWL_MODE"
+  },
+  {
     "id": "DECK_GUIDE",
     "name": "Deck Building Guide",
     "authors": ["Zemeu"],
