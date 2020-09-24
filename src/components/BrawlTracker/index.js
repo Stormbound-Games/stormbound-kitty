@@ -14,7 +14,7 @@ export default React.memo(function BrawlTracker(props) {
   const [setup, setSetup] = React.useState('MOBILE_WITHOUT_ADS')
 
   return (
-    <>
+    <div>
       <BrawlMilestones />
       <Row desktopOnly wideGutter>
         <Column width='1/3'>
@@ -29,6 +29,6 @@ export default React.memo(function BrawlTracker(props) {
           <BrawlCharts setup={setup} />
         </Column>
       </Row>
-    </>
+    </div>
   )
 })
