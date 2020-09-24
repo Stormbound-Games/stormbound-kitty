@@ -10,6 +10,21 @@ import capitalise from '../../helpers/capitalise'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
 
+const getDefaultFaction = id => {
+  if (id.startsWith('SATYR') || id.startsWith('UNDEAD')) {
+    return 'swarm'
+  }
+  if (id.startsWith('FROSTLING') || id.startsWith('DWARF')) {
+    return 'winter'
+  }
+  if (id.startsWith('TOAD') || id.startsWith('RAVEN')) {
+    return 'shadowfen'
+  }
+  if (id.startsWith('CONSTRUCT') || id.startsWith('RODENT')) {
+    return 'ironclad'
+  }
+}
+
 export default React.memo(function BrawlMatches(props) {
   const viewportWidth = useViewportWidth()
   const [editedMatch, setEditedMatch] = React.useState(null)
@@ -64,7 +79,9 @@ export default React.memo(function BrawlMatches(props) {
           </tr>
         </thead>
         <tbody>
-          {editedMatch === null && <BrawlMatchForm />}
+          {editedMatch === null && (
+            <BrawlMatchForm opponentFaction={getDefaultFaction(brawl.id)} />
+          )}
 
           {[...brawl.matches].reverse().map((match, index) => {
             const currMilestone = getMilestone(crowns)
