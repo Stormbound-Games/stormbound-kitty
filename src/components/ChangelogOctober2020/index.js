@@ -11,7 +11,7 @@ import Title from '../Title'
 import WikiLink from '../WikiLink'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import './index.css'
-
+/*
 const Rarity = ({ rarity, amount }) => (
   <>
     <img
@@ -27,7 +27,7 @@ const Legendary = ({ amount }) => <Rarity rarity='legendary' amount={amount} />
 const Epic = ({ amount }) => <Rarity rarity='epic' amount={amount} />
 const Rare = ({ amount }) => <Rarity rarity='rare' amount={amount} />
 const Common = ({ amount }) => <Rarity rarity='common' amount={amount} />
-
+*/
 export default React.memo(function ChangelogOctober2020(props) {
   return (
     <Article
@@ -43,10 +43,10 @@ export default React.memo(function ChangelogOctober2020(props) {
       ratio='50%'
     >
       <p>
-        The long awaited second update from Sheepyard is finally here, and it
-        brings a lot of new things on the table. As always, I’m feeling very
-        excited and honored to be able to announce the changes in exclusivity on
-        the site.
+        The long awaited “Friendly Matches update” from Sheepyard is finally
+        here, and it brings a lot of new things on the table. As always, I’m
+        feeling very excited and honored to be able to announce the changes in
+        exclusivity on the site.
       </p>
 
       <ul style={{ columns: '16em' }}>
@@ -75,9 +75,9 @@ export default React.memo(function ChangelogOctober2020(props) {
       <p>
         As <Link to='/changelog/07-2020'>announced back in July</Link>, this
         update introduces two new cards aiming at buffing the confusion
-        mechanic: <WikiLink id='N78' /> (which will be available as soon as
-        October 1st) and <WikiLink id='N79' /> (which will only be available
-        later in October).
+        mechanic: <WikiLink id='N78' /> (available as soon as October 1st) and{' '}
+        <WikiLink id='N79' /> (which will only be available from October 15th
+        onwards).
       </p>
 
       <Article.FullWidth>
@@ -90,8 +90,8 @@ export default React.memo(function ChangelogOctober2020(props) {
       <p>
         Additionally, a new card{' '}
         <span className='Highlight'>from a new race</span> makes its entrance:
-        Bisanu, an ancient card bringing a whole new mechanic into the
-        landscape.
+        Bisanu, an ancient card bringing a whole new mechanic into the landscape
+        (which will come out 2 weeks after Excited Mouser).
       </p>
 
       <Article.FullWidth>
@@ -255,9 +255,9 @@ export default React.memo(function ChangelogOctober2020(props) {
           </p>
 
           <p>
-            Every day, every week, and every month, you will be offered one
-            random resource pack and one random card pack (amongst the existing
-            ones listed below).
+            Every day, every week, and every month (client local time 9AM), you
+            will be offered one random resource pack and one random card pack
+            (amongst the existing ones).
           </p>
 
           <p>
@@ -267,13 +267,13 @@ export default React.memo(function ChangelogOctober2020(props) {
           </p>
 
           <p>
-            Find below the exhaustive list of all the daily/weekly/monthly
-            resource and card packs.
+            The exhaustive list of all existing packs will be released at a
+            later stage.
           </p>
         </Column>
       </Row>
 
-      <Article.FullWidth padding='0'>
+      {/*<Article.FullWidth padding='0'>
         <Row desktopOnly>
           <Column width='1/3'>
             <h3 style={{ marginTop: 0 }}>Daily resource packs ($1.99):</h3>
@@ -402,7 +402,7 @@ export default React.memo(function ChangelogOctober2020(props) {
             </ul>
           </Column>
         </Row>
-      </Article.FullWidth>
+      </Article.FullWidth>*/}
 
       <FAQSection
         id='faq'
@@ -420,8 +420,8 @@ export default React.memo(function ChangelogOctober2020(props) {
             answer: (
               <>
                 <WikiLink id='N78' /> will be available as of October 1st,{' '}
-                <WikiLink id='N79' /> will be released some time in October, and{' '}
-                <WikiLink id='N80' /> not before November.
+                <WikiLink id='N79' /> from October 15th onwards, and{' '}
+                <WikiLink id='N80' /> 2 weeks after that.
               </>
             ),
           },
