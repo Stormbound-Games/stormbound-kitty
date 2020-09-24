@@ -221,6 +221,11 @@ export default React.memo(function ChangelogOctober2020(props) {
             grant <Rubies amount={10} /> for each, so <Rubies amount={30} />{' '}
             total. Not bad for just a few taps!
           </p>
+
+          <p className='Highlight'>
+            Additionally, there will be many more UI improvements aiming at
+            making the game overall better.
+          </p>
         </Column>
         <Column>
           <img
