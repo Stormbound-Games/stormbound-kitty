@@ -284,12 +284,16 @@ export const SWCC_SEASON_2 = [
   {
     week: 38,
     name: 'Anti-neutral',
-    submitURL: 'https://forms.gle/oHWRj45WoJc2q8ps5',
     winner: {
       author: 'Ajmm',
       id:
         'Tjs7VTtFOzY7MDs1O0RhaW50eSUyMFNhdnk7TjQyO09uJTIwcGxheSUyQyUyMGRlYWwlMjAzJTJGNCUyRjUlMkY2JTJGNyUyMGRhbWFnZSUyMHRvJTIwYSUyMHJhbmRvbSUyMGVuZW15JTIwdW5pdCUyMG9yJTIwc3RydWN0dXJlJTIwZm9yJTIwZWFjaCUyMGZhY3Rpb24lMjBjYXJkcyUyMGluJTIwaGFuZDs7',
     },
+  },
+  {
+    week: 39,
+    name: 'Symmetry',
+    submitURL: 'https://forms.gle/oHWRj45WoJc2q8ps5',
   },
 ]
 
