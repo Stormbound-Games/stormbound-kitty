@@ -29,6 +29,7 @@ const COMPONENTS = {
   CHILLBEARDS_GUIDE: load('GuideChillbeards'),
   TERRIFIC_SLAYERS_GUIDE: load('GuideTerrificSlayers'),
   BROODMOTHER_QORDIA_GUIDE: load('GuideBroodmotherQordia'),
+  TRIVIA_GUIDE: load('GuideTrivia'),
 }
 
 const BattleSimApp = load('BattleSimApp')

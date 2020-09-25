@@ -227,5 +227,17 @@
     "background": "/assets/images/banners/environment_shadowfen.png",
     "readingTime": "5 minutes",
     "category": "PLAYSTYLE"
+  },
+  {
+    "id": "TRIVIA_GUIDE",
+    "name": "Stormbound Trivia",
+    "authors": ["Kitty"],
+    "excerpt": "In this short write-up, Kitty goes through all the little more or less well-known pieces of knowledge about the Stormbound universe.",
+    "slug": "trivia",
+    "faction": "neutral",
+    "cardId": "N38",
+    "background": "/assets/images/banners/environment_neutral.png",
+    "readingTime": "5 minutes",
+    "category": "IN_DEPTH"
   }
 ]
