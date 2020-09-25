@@ -107,7 +107,7 @@ export default React.memo(function ChangelogJuly2020(props) {
         available.
       </p>
 
-      <Info icon='heart' title='Free rubies'>
+      <Info icon='gift' title='Free rubies'>
         Anyone logging into the game at least once during the 3 days following
         the update will be granted <Rubies amount={50} /> as a token of
         gratitude and to help with the fact that game development has been

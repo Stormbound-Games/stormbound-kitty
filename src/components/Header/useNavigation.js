@@ -28,7 +28,7 @@ export default () => {
     },
     {
       id: 'GAME',
-      icon: 'sword',
+      icon: 'library',
       label: 'Official',
       items: [
         {
@@ -64,7 +64,7 @@ export default () => {
         },
         {
           title: 'Assets',
-          icon: 'spades',
+          icon: 'image',
           items: [
             {
               label: 'Card Images',
@@ -118,13 +118,13 @@ export default () => {
     },
     {
       id: 'TOOLS',
-      icon: 'wand',
+      icon: 'hammer',
       label: 'Tools',
       new: isUnseen,
       items: [
         {
           title: 'Builders',
-          icon: 'hammer',
+          icon: 'wand',
           items: [
             { label: 'Card Builder', to: '/card', id: 'CARD_BUILDER' },
             { label: 'Deck Builder', to: '/deck', id: 'DECK_BUILDER' },
