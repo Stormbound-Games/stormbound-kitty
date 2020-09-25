@@ -240,6 +240,12 @@ MEMBERS.forEach(member => {
   })
 })
 
+SEARCH_INDEX.push({
+  path: '/brewed-sages',
+  label: 'Brewed Sages Podcast',
+  breadcrumbs: ['Community', 'Podcast'],
+})
+
 export default new FuzzySearch(SEARCH_INDEX, ['label'], {
   caseSensitive: false,
   sort: true,
