@@ -146,7 +146,7 @@ export default React.memo(function GuideWinter(props) {
               forward scale, they got an{' '}
               <span className='Highlight'>
                 angle of perspective of 55.48 degrees
-              </span>
+              </span>{' '}
               from the horizontal.
             </p>
           </Column>
