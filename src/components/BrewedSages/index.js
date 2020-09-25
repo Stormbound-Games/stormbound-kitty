@@ -73,7 +73,7 @@ export default React.memo(function BrewedSages(props) {
                   {...row[0]}
                   card={{
                     ...CARD,
-                    mana: (index + 1) * 1,
+                    mana: index * 3 + 1,
                     ability: row[0].excerpt,
                   }}
                 />
@@ -85,7 +85,7 @@ export default React.memo(function BrewedSages(props) {
                   {...row[1]}
                   card={{
                     ...CARD,
-                    mana: (index + 1) * 2,
+                    mana: index * 3 + 2,
                     ability: row[1].excerpt,
                   }}
                 />
@@ -97,7 +97,7 @@ export default React.memo(function BrewedSages(props) {
                   {...row[2]}
                   card={{
                     ...CARD,
-                    mana: (index + 1) * 3,
+                    mana: index * 3 + 3,
                     ability: row[2].excerpt,
                   }}
                 />
