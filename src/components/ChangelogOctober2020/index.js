@@ -160,35 +160,41 @@ export default React.memo(function ChangelogOctober2020(props) {
 
       <Title id='friendly-matches-settings'>Friendly matches settings</Title>
 
+      <p>
+        It has been announced and snapshot a few times on Discord over the last
+        few weeks so it’s no longer a surprise for many of you: advanced
+        friendly matches are coming!
+      </p>
+      <p>
+        When starting a friendly match with an in-game friend, it is now
+        possible to:
+      </p>
+      <ul>
+        <li>cap the level of cards (from 1 to 5)</li>
+        <li>cap the fortress level (from 1 to 20)</li>
+        <li>pick the starting mana (from 1 mana onwards)</li>
+        <li>set up a turn timer</li>
+        <li>apply Brawl modifiers</li>
+      </ul>
+
+      <p>
+        Not all these settings are available to all players. They get unlocked
+        as one progresses throughout the game.
+      </p>
+
       <Article.FullWidth>
         <Row desktopOnly wideGutter>
-          <Column width='1/3'>
-            <p>
-              It has been announced and snapshot a few times on Discord over the
-              last few weeks so it’s no longer a surprise for many of you:
-              advanced friendly matches are coming!
-            </p>
-            <p>
-              When starting a friendly match with an in-game friend, it is now
-              possible to:
-            </p>
-            <ul>
-              <li>cap the level of cards (from 1 to 5)</li>
-              <li>cap the fortress level (from 10 to 20)</li>
-              <li>pick the starting mana (from 3 mana onwards)</li>
-              <li>set up a turn timer</li>
-              <li>apply Brawl modifiers</li>
-            </ul>
-
-            <p>
-              Not all these settings are available to all players. They get
-              unlocked as one progresses throughout the game.
-            </p>
-          </Column>
           <Column width='1/3'>
             <img
               src='/assets/images/releases/friendly_matches_2.png'
               alt='A screenshot of the new advanced friendly matches options for a new player'
+              style={{ marginTop: 0 }}
+            />
+          </Column>
+          <Column width='1/3'>
+            <img
+              src='/assets/images/releases/friendly_matches_3.png'
+              alt='A screenshot of the new advanced friendly matches options for a high-level player'
               style={{ marginTop: 0 }}
             />
           </Column>
