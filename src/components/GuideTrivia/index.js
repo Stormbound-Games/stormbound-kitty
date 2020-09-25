@@ -2,6 +2,7 @@ import React from 'react'
 import guides from '../../data/guides'
 import Column from '../Column'
 import Guide from '../Guide'
+import Notice from '../Notice'
 import Row from '../Row'
 import Title from '../Title'
 import WikiLink from '../WikiLink'
@@ -159,33 +160,30 @@ export default React.memo(function GuideWinter(props) {
         </Row>
       </Guide.FullWidth>
 
-      <Guide.FullWidth padding='120px'>
-        <Row desktopOnly wideGutter>
-          <Column>
-            <img
-              src='/assets/images/guides/toad_fall.gif'
-              alt='The fall of a toad at 0.25x speed'
-              style={{ marginTop: 0 }}
-            />
-          </Column>
-          <Column>
-            <p>
-              Then, they needed to figure out how fast toads from{' '}
-              <WikiLink id='F8' /> fall from a particular height. They could not
-              use the animation of the toad falling since it is already falling
-              at terminal velocity. Instead, they took the animation of the toad
-              bouncing and falling back down. They found the peak height of the
-              toad bounce to be 5.577m vertically, and it took 0.115s to fall
-              that distance from rest.
-            </p>
+      <Row desktopOnly wideGutter>
+        <Column>
+          <img
+            src='/assets/images/guides/toad_fall.gif'
+            alt='The fall of a toad at 0.25x speed'
+            style={{ marginTop: 0 }}
+          />
+        </Column>
+        <Column>
+          <p>
+            Then, they needed to figure out how fast toads from{' '}
+            <WikiLink id='F8' /> fall from a particular height. They could not
+            use the animation of the toad falling since it is already falling at
+            terminal velocity. Instead, they took the animation of the toad
+            bouncing and falling back down. They found the peak height of the
+            toad bounce to be 5.577m vertically, and it took 0.115s to fall that
+            distance from rest.
+          </p>
+        </Column>
+      </Row>
 
-            <p className='Highlight'>
-              The acceleration due to gravity is 843m/s^2 in the Stormbound
-              universe.
-            </p>
-          </Column>
-        </Row>
-      </Guide.FullWidth>
+      <Notice>
+        The acceleration due to gravity is 843m/s^2 in the Stormbound universe.
+      </Notice>
     </Guide>
   )
 })
