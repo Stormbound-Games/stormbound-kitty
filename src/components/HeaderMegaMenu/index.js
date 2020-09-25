@@ -50,19 +50,34 @@ export default React.memo(function HeaderMegaMenu(props) {
             <ul className='HeaderMegaMenu__list'>
               {column.items.map(item => (
                 <li key={item.label} className='HeaderMegaMenu__item'>
-                  <Link
-                    to={item.to}
-                    className={[
-                      'HeaderMegaMenu__link',
-                      props.active.includes(item.id) &&
-                        'HeaderMegaMenu__link--active',
-                      item.new && 'Header__item--new',
-                    ]
-                      .filter(Boolean)
-                      .join(' ')}
-                  >
-                    {item.label}
-                  </Link>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      className='HeaderMegaMenu__link'
+                      rel='noopener noreferrer'
+                      target='_blank'
+                    >
+                      {item.label}
+                      <Icon
+                        icon='arrow-top-right'
+                        className='HeaderMegaMenu__newTab'
+                      />
+                    </a>
+                  ) : (
+                    <Link
+                      to={item.to}
+                      className={[
+                        'HeaderMegaMenu__link',
+                        props.active.includes(item.id) &&
+                          'HeaderMegaMenu__link--active',
+                        item.new && 'Header__item--new',
+                      ]
+                        .filter(Boolean)
+                        .join(' ')}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

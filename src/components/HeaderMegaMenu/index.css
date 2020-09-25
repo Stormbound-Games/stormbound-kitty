@@ -59,6 +59,11 @@
   stroke: none;
 }
 
+.HeaderMegaMenu__newTab {
+  font-size: 80%;
+  margin-left: 0.75ch;
+}
+
 .HeaderMegaMenu__list {
   list-style: none;
   padding: 0;

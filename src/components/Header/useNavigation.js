@@ -29,10 +29,10 @@ export default () => {
     {
       id: 'GAME',
       icon: 'sword',
-      label: 'Game',
+      label: 'Official',
       items: [
         {
-          title: 'Changelog',
+          title: 'Updates',
           icon: 'bullhorn',
           items: [
             {
@@ -56,45 +56,23 @@ export default () => {
               id: 'RELEASE_NOTES',
             },
             {
-              label: 'Card Changes',
+              label: 'Cards History',
               to: '/changelog/cards',
               id: 'CARD_CHANGES',
             },
           ],
         },
         {
-          title: 'Meta',
-          icon: 'star',
-          items: [
-            {
-              label: 'Popular Decks',
-              to: '/deck/suggestions',
-              id: 'DECK_SUGGESTIONS',
-            },
-            {
-              label: 'Equals Tier List',
-              to: '/list/equals',
-              id: 'EQUALS_LIST',
-            },
-            {
-              label: 'Ranked Tier List',
-              to: '/list/ranked',
-              id: 'RANKED_LIST',
-            },
-            { label: 'Cards Statistics', to: '/card/stats', id: 'CARD_STATS' },
-          ],
-        },
-        {
-          title: 'Miscellaneous',
+          title: 'Assets',
           icon: 'spades',
           items: [
             {
-              label: 'Cards assets',
+              label: 'Card Images',
               to: '/fan-kit/cards',
               id: 'CARDS',
             },
             {
-              label: 'Books assets',
+              label: 'Book Images',
               to: '/fan-kit/books',
               id: 'BOOKS',
             },
@@ -103,6 +81,18 @@ export default () => {
               to: '/fan-kit/wallpapers',
               id: 'WALLPAPERS',
             },
+            {
+              label: 'Soundtrack',
+              href: 'https://www.tonyteoli.com/stormbound',
+            },
+          ],
+        },
+        {
+          title: 'Miscellaneous',
+          icon: 'star',
+          items: [
+            { label: 'Known Bugs', to: '/guides/known-bugs', id: 'KNOWN_BUGS' },
+            { label: 'Cards Statistics', to: '/card/stats', id: 'CARD_STATS' },
             { label: 'Lexicon', to: '/guides/lexicon', id: 'LEXICON' },
           ],
         },
@@ -185,7 +175,7 @@ export default () => {
       label: 'Community',
       items: [
         {
-          title: 'Decks',
+          title: 'Meta',
           icon: 'stack',
           items: [
             {
@@ -194,14 +184,19 @@ export default () => {
               id: 'DECK_SUGGESTIONS',
             },
             {
+              label: 'Equals Tier List',
+              to: '/list/equals',
+              id: 'EQUALS_LIST',
+            },
+            {
+              label: 'Ranked Tier List',
+              to: '/list/ranked',
+              id: 'RANKED_LIST',
+            },
+            {
               label: 'Reckless Rush',
               to: '/deck/3n13n23s13n33s243s23n633n673s63n153s83s11/detail',
               id: 'RECKLESS_RUSH',
-            },
-            {
-              label: 'Brawl Decks',
-              to: '/deck/suggestions?category=BRAWL',
-              id: 'BRAWL_DECKS',
             },
           ],
         },
