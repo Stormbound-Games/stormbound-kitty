@@ -440,7 +440,7 @@
     "mana": 5,
     "strength": "4/5/6/7/8",
     "movement": null,
-    "ability": "At the start of your turn, randomly deal *4/5/6/7/8 damage* to the *most forward* enemy unit or structure. If it kills it, deal half damage to a second target"
+    "ability": "At the start of your turn, randomly deal *4/5/6/7/8 damage* to the *most forward* enemy unit or structure"
   },
   {
     "name": "Ubass the Hunter",
@@ -635,10 +635,10 @@
     "race": "raven",
     "rarity": "epic",
     "image": "avian_stalkers.png",
-    "mana": 7,
+    "mana": 6,
     "strength": "5/6/7/8/10",
     "movement": 0,
-    "ability": "On death, *destroy* all bordering/bordering/bordering/surrounding/surrounding units with *3/4/5/6/7* strength or less and *spawn 3/4/5/6/7* strength Ravens on all these tiles"
+    "ability": "On death, *destroy* all units in front with *3/4/5/6/7* strength or less and *spawn 3/4/5/6/7* strength Ravens on all these tiles"
   },
   {
     "name": "Call for Aid",
@@ -1469,10 +1469,10 @@
     "race": null,
     "rarity": "common",
     "image": "toxic_sacrifice.png",
-    "mana": 1,
+    "mana": 2,
     "strength": null,
     "movement": null,
-    "ability": "*Destroy* a target friendly unit. Deal *1/2/3/4/5 damage* to all surrounding units and *poison* them."
+    "ability": "*Destroy* a target friendly unit. Deal *2/3/4/5/6 damage* to all surrounding units and *poison* them."
   },
   {
     "name": "Crimson Sentry",

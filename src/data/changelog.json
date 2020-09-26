@@ -4075,12 +4075,6 @@
   },
   {
     "date": 1601510400000,
-    "description": "Ability changed",
-    "id": "N34",
-    "type": "BUFF"
-  },
-  {
-    "date": 1601510400000,
     "description": "Increased range of ability from bordering to surrounding",
     "id": "N36",
     "type": "BUFF"
@@ -4111,7 +4105,7 @@
   },
   {
     "date": 1601510400000,
-    "description": "Ability changed",
+    "description": "Decreased mana by 1",
     "id": "N49",
     "type": "BUFF"
   },
@@ -4138,6 +4132,18 @@
     "description": "Decreased movement by 1",
     "id": "I28",
     "type": "NERF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Increased mana by 1",
+    "id": "F4",
+    "type": "NERF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Increased ability by 1",
+    "id": "F4",
+    "type": "BUFF"
   },
   {
     "date": 1601510400000,

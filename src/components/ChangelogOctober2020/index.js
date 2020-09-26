@@ -124,10 +124,6 @@ export default React.memo(function ChangelogOctober2020(props) {
           ability affect surrounding structures instead of bordering only.
         </li>
         <li>
-          <WikiLink id='N34' /> now attacks a second enemy for half the damage
-          if its kills the first.
-        </li>
-        <li>
           <WikiLink id='N36' />’ ability now triggers when having at least 2
           surrounding enemies instead of bordering only.
         </li>
@@ -136,8 +132,7 @@ export default React.memo(function ChangelogOctober2020(props) {
           (from 5/6/6/8/10 to 6/7/7/9/11).
         </li>
         <li>
-          <WikiLink id='N49' /> now destroy bordering/surrounding units (based
-          on level) instead of in front. They still spawn behind though.
+          <WikiLink id='N49' />’ mana cost is now 6 (down from 7).
         </li>
         <li>
           <WikiLink id='N61' />’ ability now triggers for a surrounding enemy
@@ -156,6 +151,11 @@ export default React.memo(function ChangelogOctober2020(props) {
           <WikiLink id='S15' /> now affects enemy surrounding a friendly unit
           instead of bordering only.
         </li>
+        <li>
+          <WikiLink id='F4' />
+          ’s mana cost is now 2 (up from 1) but deals one more damage (from
+          1/2/3/4/5 to 2/3/4/5/6).
+        </li>
       </ul>
 
       <Title id='friendly-matches-settings'>Friendly matches settings</Title>
@@ -173,7 +173,7 @@ export default React.memo(function ChangelogOctober2020(props) {
         <li>cap the level of cards (from 1 to 5)</li>
         <li>cap the fortress level (from 1 to 20)</li>
         <li>pick the starting mana (from 1 mana onwards)</li>
-        <li>set up a turn timer</li>
+        <li>set up a turn counter (with possibility of ties)</li>
         <li>apply Brawl modifiers</li>
       </ul>
 
