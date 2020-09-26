@@ -1,6 +1,7 @@
 import React from 'react'
 import Article from '../Article'
 import Column from '../Column'
+import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Teaser from '../Teaser'
@@ -62,6 +63,18 @@ export default React.memo(function BrewedSages(props) {
         Subaiku. They gather around the mic on a regular basis to discuss
         everything Stormbound. Tune in, and enjoy the show!
       </p>
+
+      <Notice icon='quill'>
+        Be sure to follow{' '}
+        <a
+          href='https://twitter.com/BrewedSages'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          @BrewedSages on Twitter
+        </a>{' '}
+        to avoid missing any new episode!
+      </Notice>
 
       <Title>Episodes</Title>
       <Article.FullWidth>
