@@ -1038,7 +1038,7 @@
     "mana": 5,
     "strength": "5/6/7/9/11",
     "movement": 0,
-    "ability": "Confuse the same number of surrounding enemies, as there are surrounding friendly units"
+    "ability": "On play confuse the same number of surrounding enemies, as there are surrounding friendly units"
   },
   {
     "name": "Bisanu",
