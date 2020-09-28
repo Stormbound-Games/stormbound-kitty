@@ -5,7 +5,7 @@ import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Column from '../Column'
 import FAQSection from '../FAQSection'
 import PageMeta from '../PageMeta'
-import { Coins, Rubies, Stones } from '../Resource'
+import { Rubies } from '../Resource'
 import Row from '../Row'
 import Title from '../Title'
 import WikiLink from '../WikiLink'
@@ -430,12 +430,6 @@ export default React.memo(function ChangelogOctober2020(props) {
                 <WikiLink id='N80' /> 2 weeks after that.
               </>
             ),
-          },
-          {
-            id: 'trueshot-post',
-            question: 'Why was Trueshot Post, of all structures, buffed?',
-            answer:
-              'As it turns out, this structure happens to have a relatively low win ratio. Moreover, it’s a neutral card so it will not weigh in a specific faction, and Execution is able to take it down at once.',
           },
         ]}
       />
