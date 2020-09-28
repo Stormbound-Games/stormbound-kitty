@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom'
 import Article from '../Article'
 import Column from '../Column'
 import FAQSection from '../FAQSection'
-import FeaturedDeck from '../FeaturedDeck'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
-import Teaser from '../Teaser'
 import Title from '../Title'
+import TournamentDeck from '../TournamentDeck'
+import TournamentPodium from '../TournamentPodium'
+import TournamentWinners from '../TournamentWinners'
 import { Rubies } from '../Resource'
 import tournaments from '../../constants/tournaments.json'
 import toSentence from '../../helpers/toSentence'
-import getRawCardData from '../../helpers/getRawCardData'
 import './index.css'
 
 const formatDate = date => {
@@ -28,81 +28,16 @@ const formatDate = date => {
   return month + ' ' + year
 }
 
-const getDate = string => {
+export const getDate = string => {
   if (!string) return null
   const [month, year] = string.split('/')
   return new Date(+year, +month - 1, 1)
 }
 
-const getScores = () => {
-  const scores = {}
-
-  tournaments.forEach(tournament => {
-    tournament.podium.forEach((user, index) => {
-      if (typeof scores[user] === 'undefined') {
-        scores[user] = [0, 0, 0]
-      }
-
-      scores[user][index] += 1
-    })
-  })
-
-  return scores
-}
-
-const getPoints = ([gold, silver, bronze]) => gold * 5 + silver * 3 + bronze
-const getOverallPodium = () => {
-  const scores = getScores()
-
-  return Object.keys(scores)
-    .sort((a, b) => getPoints(scores[b]) - getPoints(scores[a]))
-    .map(user => [user, scores[user]])
-    .slice(0, 3)
-}
-
-const Podium = React.memo(function Podium(props) {
-  const podium = getOverallPodium()
-
-  return (
-    <Article.FullWidth>
-      <Title>Hall of Fame</Title>
-      <Row desktopOnly>
-        {podium.map(([user, scores], index) => (
-          <Column width='1/3' key={user}>
-            <Teaser
-              title={index + 1 + '. ' + user}
-              meta={`With ${getPoints(scores)} points`}
-              card={{
-                name: user,
-                faction: ['swarm', 'neutral', 'ironclad'][index],
-                level: index + 1,
-                mana: index + 1,
-                type: 'unit',
-                race: ['Champion', 'Conqueror', 'Runner-up'][index],
-                image: getRawCardData(['N54', 'N32', 'N3'][index]).image,
-              }}
-              excerpt={
-                <>
-                  {user} has won {scores[0]} 🥇 gold medal
-                  {scores[0] === 1 ? '' : 's'} ({scores[0] * 5} points), 🥈{' '}
-                  {scores[1]} silver medal{scores[1] === 1 ? '' : 's'} (
-                  {scores[1] * 3} points) and 🥉 {scores[2]} bronze medal
-                  {scores[2] === 1 ? '' : 's'} ({scores[2]} point
-                  {scores[2] === 1 ? '' : 's'}).
-                </>
-              }
-            />
-          </Column>
-        ))}
-      </Row>
-    </Article.FullWidth>
-  )
-})
-
 export default React.memo(function TournamentHallOfFame(props) {
   return (
     <Article title='Tournaments'>
-      <Podium />
+      <TournamentPodium />
 
       <Title>Tournaments</Title>
       {tournaments
@@ -121,51 +56,10 @@ export default React.memo(function TournamentHallOfFame(props) {
                   {Boolean(tournament.description) && (
                     <p>{tournament.description}</p>
                   )}
-                  <p>
-                    The tournament was won by 🥇{' '}
-                    <span className='Highlight'>{tournament.podium[0]}</span>
-                    {tournament.podium.length > 1 ? (
-                      <>
-                        , with 🥈{' '}
-                        <span className='Highlight'>
-                          {tournament.podium[1]}
-                        </span>{' '}
-                        {tournament.podium.length > 2 ? (
-                          <>
-                            and 🥉{' '}
-                            <span className='Highlight'>
-                              {tournament.podium[2]}
-                            </span>{' '}
-                          </>
-                        ) : null}
-                        as {tournament.podium.length > 2 ? 'respective' : ''}{' '}
-                        runner-up
-                        {tournament.podium.length > 2 ? 's' : ''}
-                      </>
-                    ) : null}
-                    .
-                  </p>
+                  <TournamentWinners podium={tournament.podium} />
                 </Column>
                 <Column>
-                  {tournament.deck ? (
-                    <FeaturedDeck
-                      id={tournament.deck}
-                      name={`${tournament.podium[0]} Winning Deck`}
-                      author={tournament.podium[0]}
-                      category='EQUALS'
-                      nerfed={
-                        getDate(tournament.date) < new Date(2019, 6, 1)
-                          ? '07.2020'
-                          : null
-                      }
-                    />
-                  ) : (
-                    <p>
-                      The winner’s deck is not available. If you happen to know
-                      which deck {tournament.podium[0]} was playing, please
-                      contact me on Discord.
-                    </p>
-                  )}
+                  <TournamentDeck {...tournament} />
                 </Column>
               </Row>
             </section>
