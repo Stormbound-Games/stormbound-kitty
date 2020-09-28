@@ -2,158 +2,189 @@
   {
     "name": "#1 Tournament",
     "hosts": ["Kepp", "Derpyologist"],
-    "winners": ["TangBoy"],
-    "date": "03/2018"
+    "podium": ["TangBoy"],
+    "date": "03/2018",
+    "description": "The first tournament hosted in the Stormbound community, there were no prizes to gain, only honor and fame!"
   },
   {
     "name": "Easter Tournament",
     "hosts": ["Kepp"],
-    "winners": ["seriousleet"],
-    "date": "04/2018"
+    "podium": ["seriousleet"],
+    "date": "04/2018",
+    "description": "A small tournament made in Easter, with a Steam game as prize."
   },
   {
     "name": "HoS Tournament",
     "hosts": ["Kepp"],
-    "winners": ["Fezzix"],
-    "date": "07/2018"
+    "podium": ["Fezzix"],
+    "date": "07/2018",
+    "description": "The new Harvesters of Souls card was added to the game! Built by the community, this tournament was made to show it off, and see its power."
   },
   {
     "name": "Kingdom Wars Tournament",
     "hosts": ["Kepp"],
-    "winners": ["Swarm team"],
-    "date": "09/2018"
+    "podium": ["Swarm team"],
+    "date": "09/2018",
+    "description": "The biggest tournament Stormbound has ever seen! The 4 factions battled against each other round robin style! Each player brought glory to their faction, and the MVP got extra prizes."
   },
   {
     "name": "Diamond Tournament",
     "hosts": ["Kepp"],
-    "winners": ["BluePhoenix"],
-    "date": "02/2019"
+    "podium": ["BluePhoenix", "RubenMG", "Mutant_Ninja"],
+    "date": "02/2019",
+    "description": "Only the top of the top could join! In a battle of wits and high strategy, this tournament was hosted for Diamond players only.",
+    "deck": "5n15n25f45f15f25f35n35n45n55n125n285f14"
   },
   {
     "name": "Generals Tournament",
     "hosts": ["Kepp"],
-    "winners": ["ggshhh"],
-    "date": "04/2019"
+    "podium": ["ggshhh", "BluePhoenix", "TromboneFish"],
+    "date": "04/2019",
+    "description": "Prepare your battalions! A legendary in each deck, acting as a general to guide your battles! The most powerful general across the whole tournament would bring extra prizes to their players.",
+    "deck": "1n11i11i21i51i81i101n181i131i61i201i191n47"
   },
   {
     "name": "Current Tournament",
     "hosts": ["Kepp"],
-    "winners": ["BluePhoenix"],
-    "date": "06/2019"
+    "podium": ["BluePhoenix", "Arikrat", "Yaroslav"],
+    "date": "06/2019",
+    "description": "One of the first tournaments to try out battling at current levels, with each level being divided in groups.",
+    "deck": "5n15n25s15n35n44s25s75n155s144s95s165s20"
   },
   {
     "name": "Sealed Tournament",
     "hosts": ["Kepp"],
-    "winners": ["SpookaKat"],
-    "date": "07/2019"
+    "podium": ["HackaKat", "TromboneFish", "BluePhoenix"],
+    "date": "07/2019",
+    "description": "No deckbuilding required! In this tournament you were given a random deck with which you had to battle your way to the top!",
+    "deck": "1w11w21n31n101w31n171n191n321w61w131n361n54"
   },
   {
     "name": "Pauper Tournament",
     "hosts": ["Kepp"],
-    "winners": ["BluePhoenix"],
-    "date": "10/2019"
+    "podium": ["BluePhoenix", "Konopaku", "ArthisRoo"],
+    "date": "10/2019",
+    "description": "The real royals of a deck are rares and commons! In this tournament decks were made only of those two types of cards.",
+    "deck": "1n11i11n61i51i71i91i201i251n321n681n471n52"
   },
   {
     "name": "Small Random Tournament",
     "hosts": ["Kepp"],
-    "winners": ["BluePhoenix"],
-    "date": "01/2020"
+    "podium": ["BluePhoenix"],
+    "date": "01/2020",
+    "description": "This was a smaller tournament Kepp hosted while he prepared a bigger one, to keep the community entertained using random decks"
   },
   {
     "name": "Elders Tournament",
     "hosts": ["Kepp"],
-    "winners": ["HanooSt"],
-    "date": "02/2020"
+    "podium": ["HanooSt", "strongraycool44", "ArthisRoo"],
+    "date": "02/2020",
+    "description": "The elders just arrived to Stormbound! Players battled using these new cards to prove their power!",
+    "deck": "1n11n61w51w281w71w241w131n341n391w271n571w19"
   },
   {
     "name": "Quadrant Tournament 1",
     "hosts": ["Strongraycool44"],
-    "winners": ["Thedemxn"]
+    "podium": ["Thedemxn"]
   },
   {
     "name": "The Ultimate Kingdom",
     "hosts": ["Strongraycool44"],
-    "winners": ["FrozenEarth"]
+    "podium": ["FrozenEarth"]
   },
   {
     "name": "All or Nothing",
     "hosts": ["Strongraycool44"],
-    "winners": ["HanooSt"]
+    "podium": ["HanooSt"]
   },
   {
     "name": "Anniversary Tournament",
     "hosts": ["Strongraycool44"],
-    "winners": ["ArthisRoo"]
+    "podium": ["ArthisRoo"]
   },
   {
     "name": "Quadrant Tournament 2",
     "hosts": ["Strongraycool44"],
-    "winners": ["Helios", "Todam", "Rodeybodey", "Primal"]
+    "podium": ["Helios", "Todam", "Rodeybodey", "Primal"]
   },
   {
     "name": "Ban Tourney 1",
     "hosts": ["Todam"],
-    "winners": ["HanooSt"],
-    "date": "04/2020"
+    "podium": ["HanooSt"],
+    "date": "04/2020",
+    "description": ""
   },
   {
     "name": "Stormblind",
     "hosts": ["JonnMakuru"],
-    "winners": ["HanooSt"],
-    "date": "04/2020"
+    "podium": ["HanooSt", "Weakray"],
+    "date": "04/2020",
+    "description": ""
   },
   {
     "name": "Infinity Tournament",
     "hosts": ["Zethes"],
-    "winners": ["Helios"],
-    "date": "04/2020"
+    "podium": ["Helios", "HanooSt"],
+    "date": "04/2020",
+    "description": "The Infinity Tournament was played with the concept that winning any game would result in a gain of points, and the contestants with the least amount of points every round would get eliminated."
   },
   {
     "name": "Designers Tournament",
     "hosts": ["Kepp", "Strongraycool44"],
-    "winners": ["Emkaem"],
-    "date": "05/2020"
+    "podium": ["Emkaem", "Derk", "Taco_G"],
+    "date": "05/2020",
+    "description": "The Designers Tournament faced vanilla cards (cards with no ability) against non-vanilla cards to see which were the best.",
+    "deck": "1n11f31n61n101f271f91n181f241f141n741f201n68"
   },
   {
     "name": "Reckless Draft",
     "hosts": ["Reckless Rush"],
-    "winners": ["HanooSt", "Derk", "Millo"],
-    "date": "05/2020"
+    "podium": ["HanooSt", "Derk", "Millo"],
+    "date": "05/2020",
+    "description": ""
   },
   {
     "name": "Black Sheep Tournament",
     "hosts": ["Kepp", "Emkaem"],
-    "winners": ["strongraycool44"],
-    "date": "06/2020"
+    "podium": ["strongraycool44", "Mathematica", "HanooSt"],
+    "date": "06/2020",
+    "description": "The Black Sheep Tournament imposed specific “black sheep” cards which had to be played before a win could be claimed.",
+    "deck": "1n11i11n61n101i81i111i131n711n271i201i281n52"
   },
   {
-    "name": "Faction Wars Season 1",
+    "name": "Faction Wars – Season 1",
     "hosts": ["Helios"],
-    "winners": ["Roman_NFP"],
-    "date": "07/2020"
+    "podium": ["Roman_NFP", "Mathematica", "InternetExplorer"],
+    "date": "07/2020",
+    "description": ""
   },
   {
     "name": "Renaissance Tournament",
     "hosts": ["Helios"],
-    "winners": ["Derk"],
-    "date": "07/2020"
+    "podium": ["Derk", "ArthisRoo", "Stratadox"],
+    "date": "07/2020",
+    "description": "The Renaissance Tournament aimed to bring back veteran players and navigating a set of challenging deck restrictions."
   },
   {
     "name": "Battle Week",
     "hosts": ["Todam"],
-    "winners": ["Helios"],
-    "date": "07/2020"
+    "podium": ["Helios", "Derk", "Ajmm"],
+    "date": "07/2020",
+    "description": ""
   },
   {
     "name": "Snowball Tournament",
     "hosts": ["Derk", "ArthisRoo"],
-    "winners": ["Helios"],
-    "date": "08/2020"
+    "podium": ["Helios", "Roman_NFP", "HanooSt"],
+    "date": "08/2020",
+    "description": "The Snowball tournament relies on not playing any card before 6 mana (7 for the second player). The goal of the tournament was to compose heavy decks, which can start strong right from the opening move.",
+    "deck": "1n61n111n181n641w71n601w91n461n681n481w191n58"
   },
   {
-    "name": "Faction Wars Season 2",
+    "name": "Faction Wars – Season 2",
     "hosts": ["Helios"],
-    "winners": ["HanooSt", "Roman_NFP", "Dracqi"],
-    "date": "08/2020"
+    "podium": ["HanooSt", "Roman_NFP", "Dracqi"],
+    "date": "08/2020",
+    "description": ""
   }
 ]
