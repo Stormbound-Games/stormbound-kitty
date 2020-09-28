@@ -5,7 +5,7 @@ import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Column from '../Column'
 import FAQSection from '../FAQSection'
 import PageMeta from '../PageMeta'
-import { Rubies } from '../Resource'
+import { Coins, Rubies, Stones } from '../Resource'
 import Row from '../Row'
 import Title from '../Title'
 import WikiLink from '../WikiLink'
@@ -83,6 +83,25 @@ export default React.memo(function ChangelogOctober2020(props) {
       <Article.FullWidth>
         <CardBuilderCardDisplay {...getInitialCardData('N78')} />
       </Article.FullWidth>
+
+      <Row desktopOnly>
+        <Column>
+          <img
+            src='/assets/images/releases/slyboots_pack.png'
+            alt='$9.99 pack: 5 copies of Slyboots + 750 coins + 5 fusion stones'
+            style={{ marginTop: 0 }}
+          />
+        </Column>
+        <Column>
+          <p style={{ marginTop: '1em' }}>
+            If you would like to put your hands on this card immediately, a
+            $9.99 one-time limited pack grants 5 copies of Slyboots, making it
+            possible to get it level 2 right away. It also offers{' '}
+            <Coins amount={750} /> and <Stones amount={5} />.
+          </p>
+        </Column>
+      </Row>
+
       <Article.FullWidth>
         <CardBuilderCardDisplay {...getInitialCardData('N79')} />
       </Article.FullWidth>
