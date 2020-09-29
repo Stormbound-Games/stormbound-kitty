@@ -83,8 +83,11 @@ export default React.memo(function Donate(props) {
       <p>
         I have been incredibly lucky to have been supported by wonderful people
         whom I cannot thank enough. My gratitude to, in no particular order,
-        {toSentence(DONATORS.map(donator => ' ⭐️ ' + donator).sort(), 'and')} —
-        for their generous and kind donations.
+        {toSentence(
+          DONATORS.map(donator => ' ⭐️ ' + donator.author).sort(),
+          'and'
+        )}{' '}
+        — for their generous and kind donations.
       </p>
 
       <p style={{ fontStyle: 'italic' }}>
