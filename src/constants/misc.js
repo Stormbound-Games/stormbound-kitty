@@ -362,4 +362,5 @@ export const DONATORS = [
   { author: 'Subaiku', date: '09/2020' },
   { author: 'Sven', date: '06/2020' },
   { author: 'the_mirc', date: '07/2020' },
+  { author: 'Todam', date: '09/2020' },
 ]
