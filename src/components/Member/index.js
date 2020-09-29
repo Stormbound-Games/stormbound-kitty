@@ -125,6 +125,10 @@ export default React.memo(function Member(props) {
                   {userVictories.length === 1 ? 'tournament' : 'tournaments'}
                 </li>
                 <li>
+                  <Icon icon='trophy' /> {userCards.length} won{' '}
+                  {userCards.length === 1 ? 'card contest' : 'card contests'}
+                </li>
+                <li>
                   <Icon icon='image' /> {userArts.length}{' '}
                   {userArts.length === 1 ? 'artwork' : 'artworks'}
                 </li>
