@@ -1,12 +1,5 @@
 [
   {
-    "name": "Summon The Bomb",
-    "id": "5n15n25f25f35n35f55n125n165f145f155n305n57",
-    "author": "Arikrat",
-    "category": "DIAMOND_1",
-    "date": "06/2019"
-  },
-  {
     "name": "Schattenmoordeck",
     "id": "5n15n25f35n35n45n65n105f95n165f145n465n52",
     "author": "Murmello",
@@ -135,7 +128,7 @@
   {
     "name": "Ragnarok’n’roll",
     "id": "5n15n25i15i25n35n45n95i65i85i125i195n47",
-    "author": "Dordor21",
+    "author": "SHTE",
     "category": "DIAMOND_1",
     "date": "06/2019"
   },
@@ -409,12 +402,11 @@
   },
   {
     "name": "Self Control",
-    "id": "5n15n25s15n35s245n45s35n185s95s285s205s21",
-    "author": "Frostkhan",
+    "id": "5n15n25s15n35s245n45s25n675s31n165s145s9",
+    "author": "Kitty",
     "category": "BRAWL",
     "brawl": "SATYR_MOVEMENT",
-    "nerfed": "07/2020",
-    "date": "03/2020"
+    "date": "09/2020"
   },
   {
     "name": "Aftershock Siege",
