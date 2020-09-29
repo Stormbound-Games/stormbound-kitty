@@ -4099,7 +4099,7 @@
   },
   {
     "date": 1601510400000,
-    "description": "Increased strength by 1, and 2 at level 5",
+    "description": "Increased strength by 1",
     "id": "I27",
     "type": "BUFF"
   },

@@ -1403,7 +1403,7 @@
     "rarity": "rare",
     "image": "scrapped_planners.png",
     "mana": 4,
-    "strength": "4/5/6/7/9",
+    "strength": "4/5/6/7/8",
     "movement": 1,
     "ability": "After surviving damage, set strength to 3/4/5/6/7",
     "elder": true

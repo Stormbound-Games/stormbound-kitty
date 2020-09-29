@@ -132,8 +132,8 @@ export default React.memo(function ChangelogOctober2020(props) {
           bordering only.
         </li>
         <li>
-          <WikiLink id='I27' />’ strength is now 4/5/6/7/9 (from 3/4/5/6/7) but
-          their ability remains the same.
+          <WikiLink id='I27' />’ strength is increased by 1 (from 3/4/5/6/7 to
+          4/5/6/7/8) but their ability remains the same.
         </li>
         <li>
           <WikiLink id='I28' /> no longer have initial movement (down from 1).
