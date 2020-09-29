@@ -293,6 +293,15 @@ export const SWCC_SEASON_2 = [
   {
     week: 39,
     name: 'Symmetry',
+    winner: {
+      author: 'Nae',
+      id:
+        'RjtUO1U7RTs1OzA7My80LzUvNi83O0dlbmVyb3VzJTIwVmljdGltcztONTM7QWZ0ZXIlMjBzdXJ2aXZpbmclMjBkYW1hZ2UlMkMlMjAqcG9pc29uKiUyMGV2ZXJ5JTIwdW5pdCUyMHdpdGglMjBlcXVhbCUyMHN0cmVuZ3RoOztF',
+    },
+  },
+  {
+    week: 40,
+    name: 'Art Match',
     submitURL: 'https://forms.gle/oHWRj45WoJc2q8ps5',
   },
 ]
