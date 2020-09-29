@@ -1,10 +1,11 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
-import { SWCC_SEASON_1, SWCC_SEASON_2 } from '../../constants/misc'
+import { SWCC_SEASON_1, SWCC_SEASON_2, DONATORS } from '../../constants/misc'
 import Article from '../Article'
 import Column from '../Column'
 import Icon from '../Icon'
 import Image from '../Image'
+import Info from '../Info'
 import MemberFeedItem from '../MemberFeedItem'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
@@ -13,6 +14,7 @@ import guides from '../../data/guides'
 import tournaments from '../../data/tournaments'
 import art from '../../data/art'
 import puzzles from '../../data/puzzles'
+import capitalise from '../../helpers/capitalise'
 import useFetch from '../../hooks/useFetch'
 import './index.css'
 
@@ -73,6 +75,9 @@ export default React.memo(function Member(props) {
         date: new Date(2020, 0, 1 + (entry.week - 1) * 7),
       }))
     )
+  const userDonations = DONATORS.filter(
+    donation => donation.author.toLowerCase() === id
+  ).map(formatEntryWithDate())
 
   const content = [
     ...userStories.map(addType('STORY')),
@@ -83,6 +88,7 @@ export default React.memo(function Member(props) {
     ...userArts.map(addType('ART')),
     ...userPuzzles.map(addType('PUZZLE')),
     ...userCards.map(addType('CARD')),
+    ...userDonations.map(addType('DONATION')),
   ].sort((a, b) => b.date - a.date)
 
   return (
@@ -125,6 +131,12 @@ export default React.memo(function Member(props) {
                   {userPuzzles.length === 1 ? 'puzzle' : 'puzzles'}
                 </li>
               </ul>
+              {userDonations.length > 0 && (
+                <Info icon='heart' title='Financial contributor'>
+                  {capitalise(id)} is one of the generous contributors who can
+                  make Stormbound-Kitty a reality. Thank you!
+                </Info>
+              )}
             </Column>
             <Column width='2/3'>
               <ul className='Member__feed'>
@@ -152,8 +164,8 @@ export default React.memo(function Member(props) {
       </Article.FullWidth>
 
       <PageMeta
-        title={match.params.memberId}
-        description={`Find all of ${match.params.memberId}’s contributions to Stormbound-Kitty such as stories, decks, puzzles or guides.`}
+        title={id}
+        description={`Find all of ${id}’s contributions to Stormbound-Kitty such as stories, decks, puzzles or guides.`}
       />
     </Article>
   )

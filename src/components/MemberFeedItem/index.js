@@ -11,6 +11,7 @@ import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
 import { CATEGORIES } from '../../constants/guides'
 import { CATEGORIES as DECK_CATEGORIES } from '../../constants/decks'
 import { STORY_CATEGORIES } from '../../constants/stories'
+import { DONATORS } from '../../constants/misc'
 import './index.css'
 
 const formatDate = date => {
@@ -225,6 +226,18 @@ const FeedCardEntry = React.memo(function FeedCardEntry(props) {
   )
 })
 
+const FeedDonationEntry = React.memo(function FeedDonationEntry(props) {
+  const { author: name } = DONATORS.find(
+    entry => entry.author.toLowerCase() === props.user
+  )
+  return (
+    <FeedEntry icon='heart' date={props.date}>
+      {name} has issued a generous{' '}
+      <Link to='/donate'>donation to Stormbound-Kitty</Link>.
+    </FeedEntry>
+  )
+})
+
 export default React.memo(function MemberFeedItem(props) {
   switch (props.type) {
     case 'GUIDE':
@@ -243,6 +256,8 @@ export default React.memo(function MemberFeedItem(props) {
       return <FeedPuzzleEntry {...props} />
     case 'CARD':
       return <FeedCardEntry {...props} />
+    case 'DONATION':
+      return <FeedDonationEntry {...props} />
     default:
       return null
   }

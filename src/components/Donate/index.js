@@ -4,25 +4,8 @@ import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Sparkles from '../Sparkles'
 import toSentence from '../../helpers/toSentence'
+import { DONATORS } from '../../constants/misc'
 import './index.css'
-
-const DONATORS = [
-  'Arthis',
-  'Blubby',
-  'Freeloader',
-  'Hadid',
-  'Kepp',
-  'MisterMonocle',
-  'Oeni',
-  'OneCurtis',
-  'Shades',
-  'Roman_NFP',
-  'SHTE',
-  'Stratadox',
-  'Subaiku',
-  'Sven',
-  'the_mirc',
-].map(donator => ' ⭐️ ' + donator)
 
 export default React.memo(function Donate(props) {
   return (
@@ -100,8 +83,8 @@ export default React.memo(function Donate(props) {
       <p>
         I have been incredibly lucky to have been supported by wonderful people
         whom I cannot thank enough. My gratitude to, in no particular order,
-        {toSentence(DONATORS.sort(), 'and')} — for their generous and kind
-        donations.
+        {toSentence(DONATORS.map(donator => ' ⭐️ ' + donator).sort(), 'and')} —
+        for their generous and kind donations.
       </p>
 
       <p style={{ fontStyle: 'italic' }}>
