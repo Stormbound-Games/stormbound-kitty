@@ -26,6 +26,7 @@ const links = [
   '/deck',
   '/deck/collection',
   '/deck/suggestions',
+  '/fan-art',
   '/fan-kit/cards',
   '/fan-kit/books',
   '/fan-kit/wallpapers',

@@ -57,6 +57,7 @@ const DeckEditorView = load('DeckEditorView')
 const DeckSuggestions = load('DeckSuggestions')
 const Donate = load('Donate')
 const EqualsList = load('EqualsList')
+const FanArt = load('FanArt')
 const FanKitCards = load('FanKitCards')
 const FanKitBooks = load('FanKitBooks')
 const FanKitWallpapers = load('FanKitWallpapers')
@@ -300,6 +301,10 @@ export default function Router(props) {
             active={['GAME', 'FAN_KIT', 'WALLPAPERS']}
           >
             <FanKitWallpapers />
+          </Page>
+
+          <Page path='/fan-art' active={['GAME', 'FAN_ART']}>
+            <FanArt />
           </Page>
 
           <Page

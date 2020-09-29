@@ -228,6 +228,12 @@ export default () => {
           icon: 'star',
           items: [
             {
+              label: 'Fan Art',
+              to: '/fan-art',
+              id: 'FAN_ART',
+              new: true,
+            },
+            {
               label: 'Brewed Sages Podcast',
               to: '/brewed-sages',
               id: 'BREWED_SAGES',

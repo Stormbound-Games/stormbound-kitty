@@ -246,6 +246,12 @@ SEARCH_INDEX.push({
   breadcrumbs: ['Community', 'Podcast'],
 })
 
+SEARCH_INDEX.push({
+  path: '/fan-art',
+  label: 'Fan Art',
+  breadcrumbs: ['Community', 'Fan Art'],
+})
+
 export default new FuzzySearch(SEARCH_INDEX, ['label'], {
   caseSensitive: false,
   sort: true,

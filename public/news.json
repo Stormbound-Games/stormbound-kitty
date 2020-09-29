@@ -1,5 +1,15 @@
 [
   {
+    "intro": "Fan Art",
+    "description": "A new page displaying Stormbound fan art is now available!",
+    "link": "/fan-art"
+  },
+  {
+    "intro": "Tournaments Hall of Fame",
+    "description": "The tournament Hall of Fame has been reworked to provide more information.",
+    "link": "/tournaments/hall-of-fame"
+  },
+  {
     "intro": "Third Anniversary",
     "description": "A minor promotional update on the 17th of September to celebrate Stormbound’s 3rd anniversary!",
     "link": "/changelog/3rd-anniversary"
