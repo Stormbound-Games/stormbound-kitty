@@ -7,7 +7,7 @@ import toSentence from '../../helpers/toSentence'
 import './index.css'
 
 const DONATORS = [
-  'ArthisRoo',
+  'Arthis',
   'Blubby',
   'Freeloader',
   'Hadid',

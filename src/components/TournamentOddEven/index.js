@@ -95,7 +95,7 @@ export default React.memo(function TournamentOddEven(props) {
     >
       <p>
         The Odd Tournament is organised by Derk (derk#7109), Arthis
-        (arthisroo#7189) and Kitty (kitty#1909).
+        (arthis#7189) and Kitty (kitty#1909).
       </p>
 
       <ol style={{ columns: '16em' }}>
@@ -357,7 +357,7 @@ export default React.memo(function TournamentOddEven(props) {
 
       <PageMeta
         title='Odd & Even Tournament'
-        description='Everything you need to know to participate in the Odd & Even Tournament, an upcoming Tournament by Derk, Kitty & ArthisRoo.'
+        description='Everything you need to know to participate in the Odd & Even Tournament, an upcoming Tournament by Derk, Kitty & Arthis.'
       />
     </Article>
   )
