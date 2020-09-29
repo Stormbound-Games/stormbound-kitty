@@ -12,7 +12,7 @@ import TournamentDeck from '../TournamentDeck'
 import TournamentPodium from '../TournamentPodium'
 import TournamentWinners from '../TournamentWinners'
 import { Rubies } from '../Resource'
-import tournaments from '../../constants/tournaments.json'
+import tournaments from '../../data/tournaments.json'
 import toSentence from '../../helpers/toSentence'
 import './index.css'
 

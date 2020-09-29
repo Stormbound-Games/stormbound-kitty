@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { EQUALS_TIER_LIST, TIER_COLORS } from '../../constants/list'
 import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
@@ -37,9 +38,10 @@ export default React.memo(function ListBuilderDisplayView(props) {
       <Row wideGutter desktopOnly>
         <Column width='1/3'>
           <p>
-            This tier list was made by HanooSt, a multiple-times winner of
-            equal-levels tournaments. It is their take at ranking cards by
-            efficiency in Equals mode. Your mileage may vary.
+            This tier list was made by <Link to='/member/HanooSt'>HanooSt</Link>
+            , a multiple-times winner of equal-levels tournaments. It is their
+            take at ranking cards by efficiency in Equals mode. Your mileage may
+            vary.
           </p>
 
           <ListBuilderToc tiers={tiers} />

@@ -9,7 +9,8 @@
     "cardId": "N3",
     "background": "/assets/images/banners/environment_neutral.png",
     "readingTime": "12 minutes",
-    "category": "ESSENTIALS"
+    "category": "ESSENTIALS",
+    "date": "06/2020"
   },
   {
     "id": "COMPLETE_GUIDE",
@@ -21,7 +22,8 @@
     "cardId": "I28",
     "background": "/assets/images/wallpapers/lite/wp-d-4.png",
     "readingTime": "45 minutes",
-    "category": "ESSENTIALS"
+    "category": "ESSENTIALS",
+    "date": "04/2019"
   },
   {
     "id": "BRAWL_GUIDE",
@@ -33,7 +35,8 @@
     "cardId": "N76",
     "background": "/assets/images/wallpapers/lite/wp-d-3.png",
     "readingTime": "6 minutes",
-    "category": "BRAWL_MODE"
+    "category": "BRAWL_MODE",
+    "date": "07/2020"
   },
   {
     "id": "NOBLE_COALITION_GUIDE",
@@ -45,7 +48,8 @@
     "cardId": "N69",
     "background": "/assets/images/banners/environment_neutral.png",
     "readingTime": "5 minutes",
-    "category": "BRAWL_MODE"
+    "category": "BRAWL_MODE",
+    "date": "09/2020"
   },
   {
     "id": "SELF_CONTROL_GUIDE",
@@ -57,7 +61,8 @@
     "cardId": "S3",
     "background": "/assets/images/banners/environment_swarm.png",
     "readingTime": "5 minutes",
-    "category": "BRAWL_MODE"
+    "category": "BRAWL_MODE",
+    "date": "09/2020"
   },
   {
     "id": "DECK_GUIDE",
@@ -69,7 +74,8 @@
     "cardId": "N48",
     "background": "/assets/images/wallpapers/lite/wp-d-6.png",
     "readingTime": "13 minutes",
-    "category": "ESSENTIALS"
+    "category": "ESSENTIALS",
+    "date": "04/2019"
   },
   {
     "id": "DRAWING_GUIDE",
@@ -81,7 +87,8 @@
     "cardId": "N14",
     "background": "/assets/images/wallpapers/lite/wp-d-6.png",
     "readingTime": "10 minutes",
-    "category": "IN_DEPTH"
+    "category": "IN_DEPTH",
+    "date": "05/2020"
   },
   {
     "id": "RESOURCES_GUIDE",
@@ -93,7 +100,8 @@
     "cardId": "N8",
     "background": "/assets/images/wallpapers/lite/wp-d-7.png",
     "readingTime": "7 minutes",
-    "category": "ESSENTIALS"
+    "category": "ESSENTIALS",
+    "date": "05/2020"
   },
   {
     "id": "MANA_CURVE_GUIDE",
@@ -105,7 +113,8 @@
     "cardId": "W19",
     "background": "/assets/images/wallpapers/lite/wp-d-7.png",
     "readingTime": "10 minutes",
-    "category": "IN_DEPTH"
+    "category": "IN_DEPTH",
+    "date": "06/2020"
   },
   {
     "id": "TRIGGER_GUIDE",
@@ -117,7 +126,8 @@
     "cardId": "F4",
     "background": "/assets/images/wallpapers/lite/wp-d-4.png",
     "readingTime": "5 minutes",
-    "category": "IN_DEPTH"
+    "category": "IN_DEPTH",
+    "date": "06/2020"
   },
   {
     "id": "CARD_SHOP_GUIDE",
@@ -129,7 +139,8 @@
     "cardId": "N22",
     "background": "/assets/images/wallpapers/lite/wp-d-6.png",
     "readingTime": "7 minutes",
-    "category": "IN_DEPTH"
+    "category": "IN_DEPTH",
+    "date": "07/2020"
   },
   {
     "id": "LEXICON",
@@ -140,7 +151,8 @@
     "faction": "neutral",
     "cardId": "F1",
     "background": "/assets/images/wallpapers/lite/wp-d-1.png",
-    "category": "ESSENTIALS"
+    "category": "ESSENTIALS",
+    "date": "05/2019"
   },
   {
     "id": "D1_SF_COMMONS_GUIDE",
@@ -152,7 +164,8 @@
     "cardId": "F3",
     "background": "/assets/images/banners/environment_shadowfen.png",
     "readingTime": "17 minutes",
-    "category": "PLAYSTYLE"
+    "category": "PLAYSTYLE",
+    "date": "06/2020"
   },
 
   {
@@ -165,7 +178,8 @@
     "cardId": "W9",
     "background": "/assets/images/banners/environment_winter.png",
     "readingTime": "14 minutes",
-    "category": "PLAYSTYLE"
+    "category": "PLAYSTYLE",
+    "date": "06/2019"
   },
 
   {
@@ -178,7 +192,8 @@
     "cardId": "N42",
     "background": "/assets/images/banners/environment_neutral.png",
     "readingTime": "10 minutes",
-    "category": "PLAYSTYLE"
+    "category": "PLAYSTYLE",
+    "date": "06/2019"
   },
   {
     "id": "KNOWN_BUGS",
@@ -190,7 +205,8 @@
     "cardId": "I16",
     "background": "/assets/images/banners/environment_ironclad.png",
     "readingTime": "5 minutes",
-    "category": "IN_DEPTH"
+    "category": "IN_DEPTH",
+    "date": "07/2020"
   },
   {
     "id": "CHILLBEARDS_GUIDE",
@@ -202,7 +218,8 @@
     "cardId": "W22",
     "background": "/assets/images/banners/environment_winter.png",
     "readingTime": "5 minutes",
-    "category": "PLAYSTYLE"
+    "category": "PLAYSTYLE",
+    "date": "08/2020"
   },
   {
     "id": "TERRIFIC_SLAYERS_GUIDE",
@@ -214,7 +231,8 @@
     "cardId": "N27",
     "background": "/assets/images/banners/environment_neutral.png",
     "readingTime": "5 minutes",
-    "category": "PLAYSTYLE"
+    "category": "PLAYSTYLE",
+    "date": "08/2020"
   },
   {
     "id": "BROODMOTHER_QORDIA_GUIDE",
@@ -226,7 +244,8 @@
     "cardId": "F21",
     "background": "/assets/images/banners/environment_shadowfen.png",
     "readingTime": "5 minutes",
-    "category": "PLAYSTYLE"
+    "category": "PLAYSTYLE",
+    "date": "08/2020"
   },
   {
     "id": "TRIVIA_GUIDE",
@@ -238,6 +257,7 @@
     "cardId": "N38",
     "background": "/assets/images/banners/environment_neutral.png",
     "readingTime": "5 minutes",
-    "category": "IN_DEPTH"
+    "category": "IN_DEPTH",
+    "date": "09/2020"
   }
 ]

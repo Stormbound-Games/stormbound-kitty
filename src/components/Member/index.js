@@ -1,95 +1,160 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import { SWCC_SEASON_1, SWCC_SEASON_2 } from '../../constants/misc'
-import Error from '../Error'
-import HeaderBanner from '../HeaderBanner'
-import MemberContestVictories from '../MemberContestVictories'
-import MemberDecks from '../MemberDecks'
-import MemberPuzzles from '../MemberPuzzles'
-import MemberGuides from '../MemberGuides'
-import MemberStories from '../MemberStories'
+import Article from '../Article'
+import Column from '../Column'
+import Icon from '../Icon'
+import Image from '../Image'
+import MemberFeedItem from '../MemberFeedItem'
 import PageMeta from '../PageMeta'
+import Row from '../Row'
 import decks from '../../data/decks'
 import guides from '../../data/guides'
+import tournaments from '../../data/tournaments'
+import art from '../../data/art'
 import puzzles from '../../data/puzzles'
 import useFetch from '../../hooks/useFetch'
+import './index.css'
 
-const getDisplayName = ({ decks, stories, victories, guides, puzzles, id }) => {
-  if (decks.length > 0) return decks[0].author
-  if (stories.length > 0) return stories[0].author
-  if (puzzles.length > 0) return puzzles[0].author
-  if (victories.length > 0) return victories[0].winner.author
-  if (guides.length > 0)
-    return guides[0].authors.find(author => author.toLowerCase() === id)
+const formatEntryWithDate = (separator = '/', key = 'date') => entry => {
+  if (!entry[key]) return entry
+
+  const [month, year] = entry[key].split(separator)
+
+  return { ...entry, date: new Date(+year, +month - 1, 1) }
 }
 
+const addType = type => entry => ({ ...entry, type })
+
 export default React.memo(function Member(props) {
-  const match = useRouteMatch()
   const { data: stories = [] } = useFetch('/stories.json')
+  const match = useRouteMatch()
   const id = match.params.memberId.toLowerCase()
-  const userDecks = React.useMemo(
-    () => decks.filter(deck => deck.author.toLowerCase() === id),
-    [id]
+  const userStories = stories
+    .filter(story => story.date && story.author.toLowerCase() === id)
+    .map(formatEntryWithDate())
+  const userDecks = decks
+    .filter(deck => deck.author.toLowerCase() === id)
+    .map(formatEntryWithDate())
+  const userGuides = guides
+    .filter(guide => guide.authors.map(host => host.toLowerCase()).includes(id))
+    .map(formatEntryWithDate())
+  const userContests = tournaments
+    .filter(tournament =>
+      tournament.hosts.map(host => host.toLowerCase()).includes(id)
+    )
+    .map(formatEntryWithDate())
+  const userVictories = tournaments
+    .filter(tournament =>
+      tournament.podium
+        .flat()
+        .map(winner => winner.toLowerCase())
+        .includes(id)
+    )
+    .map(formatEntryWithDate())
+  const userArts = art
+    .filter(art => art.author.toLowerCase() === id)
+    .map(formatEntryWithDate())
+  const userPuzzles = puzzles
+    .filter(puzzle => puzzle.author.toLowerCase() === id)
+    .map(formatEntryWithDate())
+  const userCards = SWCC_SEASON_1.filter(
+    contest => contest.winner.author.toLowerCase() === id
   )
-  const userStories = React.useMemo(
-    () => stories.filter(story => story.author.toLowerCase() === id),
-    [id, stories]
-  )
-  const userPuzzles = React.useMemo(
-    () => puzzles.filter(puzzle => puzzle.author.toLowerCase() === id),
-    [id]
-  )
-  const userVictories = React.useMemo(
-    () =>
-      [...SWCC_SEASON_1, ...SWCC_SEASON_2].filter(
+    .map(entry => ({
+      ...entry,
+      date: new Date(2019, 0, 1 + (entry.week - 1) * 7),
+    }))
+    .concat(
+      SWCC_SEASON_2.filter(
         contest => contest.winner && contest.winner.author.toLowerCase() === id
-      ),
-    [id]
-  )
-  const userGuides = React.useMemo(
-    () =>
-      guides.filter(guide =>
-        guide.authors.find(author => author.toLowerCase() === id)
-      ),
-    [id]
-  )
+      ).map(entry => ({
+        ...entry,
+        date: new Date(2020, 0, 1 + (entry.week - 1) * 7),
+      }))
+    )
 
-  const displayName = getDisplayName({
-    id,
-    decks: userDecks,
-    stories: userStories,
-    victories: userVictories,
-    guides: userGuides,
-    puzzles: userPuzzles,
-  })
-
-  if (!displayName) {
-    return <Error error={'User Not Found'} />
-  }
+  const content = [
+    ...userStories.map(addType('STORY')),
+    ...userGuides.map(addType('GUIDE')),
+    ...userDecks.map(addType('DECK')),
+    ...userContests.map(addType('TOURNAMENT_HOST')),
+    ...userVictories.map(addType('TOURNAMENT_WINNER')),
+    ...userArts.map(addType('ART')),
+    ...userPuzzles.map(addType('PUZZLE')),
+    ...userCards.map(addType('CARD')),
+  ].sort((a, b) => b.date - a.date)
 
   return (
-    <>
-      <HeaderBanner title={displayName} />
-      <MemberStories stories={userStories} displayName={displayName} />
-      {userStories.length ? <hr /> : null}
-      <MemberContestVictories
-        victories={userVictories}
-        displayName={displayName}
-      />
-      {userVictories.length ? <hr /> : null}
-
-      <MemberGuides guides={userGuides} displayName={displayName} />
-      {userGuides.length ? <hr /> : null}
-
-      <MemberDecks decks={userDecks} displayName={displayName} />
-      {userDecks.length ? <hr /> : null}
-
-      <MemberPuzzles puzzles={userPuzzles} displayName={displayName} />
+    <Article title={id}>
+      <Article.FullWidth>
+        {content.length > 0 ? (
+          <Row desktopOnly wideGutter>
+            <Column width='1/3'>
+              <p>
+                <span className='Highlight'>{id}</span> is a member of the
+                Stormbound community. Their contribution can be found below.
+              </p>
+              <ul className='Member__toc'>
+                <li>
+                  <Icon icon='quill' /> {userStories.length}{' '}
+                  {userStories.length === 1 ? 'story' : 'stories'}
+                </li>
+                <li>
+                  <Icon icon='compass' /> {userGuides.length}{' '}
+                  {userGuides.length === 1 ? 'guide' : 'guides'}
+                </li>
+                <li>
+                  <Icon icon='stack' /> {userDecks.length}{' '}
+                  {userDecks.length === 1 ? 'deck' : 'decks'}
+                </li>
+                <li>
+                  <Icon icon='users' /> {userContests.length} hosted{' '}
+                  {userContests.length === 1 ? 'tournament' : 'tournaments'}
+                </li>
+                <li>
+                  <Icon icon='trophy' /> {userVictories.length} won{' '}
+                  {userVictories.length === 1 ? 'tournament' : 'tournaments'}
+                </li>
+                <li>
+                  <Icon icon='image' /> {userArts.length}{' '}
+                  {userArts.length === 1 ? 'artwork' : 'artworks'}
+                </li>
+                <li>
+                  <Icon icon='sword' /> {userPuzzles.length}{' '}
+                  {userPuzzles.length === 1 ? 'puzzle' : 'puzzles'}
+                </li>
+              </ul>
+            </Column>
+            <Column width='2/3'>
+              <ul className='Member__feed'>
+                {content.map((entry, index) => (
+                  <li key={index} className='Member__item'>
+                    <MemberFeedItem {...entry} user={id} />
+                  </li>
+                ))}
+              </ul>
+            </Column>
+          </Row>
+        ) : (
+          <div className='Member__empty'>
+            <Image
+              src='/assets/images/cards/sweetcap_kittens.png'
+              className='Error__image'
+            />
+            <p>
+              No ‘{id}’ user could be found, or no content was associated to
+              that user. If you believe this is a bug, please report it to
+              Kitty#1909 on Discord.
+            </p>
+          </div>
+        )}
+      </Article.FullWidth>
 
       <PageMeta
-        title={displayName}
-        description={`Find all of ${displayName}’s contributions to Stormbound-Kitty such as stories, decks, puzzles or guides.`}
+        title={match.params.memberId}
+        description={`Find all of ${match.params.memberId}’s contributions to Stormbound-Kitty such as stories, decks, puzzles or guides.`}
       />
-    </>
+    </Article>
   )
 })

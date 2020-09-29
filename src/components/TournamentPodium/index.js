@@ -1,12 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Article from '../Article'
 import Column from '../Column'
 import Row from '../Row'
 import Teaser from '../Teaser'
 import Title from '../Title'
 import getRawCardData from '../../helpers/getRawCardData'
-import toSentence from '../../helpers/toSentence'
-import tournaments from '../../constants/tournaments.json'
+import tournaments from '../../data/tournaments.json'
 
 const POINT_VALUE = [3, 2, 1]
 
@@ -67,7 +67,11 @@ export default React.memo(function Podium(props) {
         {podium.slice(0, 3).map(([user, medals], index) => (
           <Column width='1/3' key={user}>
             <Teaser
-              title={index + 1 + '. ' + user}
+              title={
+                <>
+                  {index + 1}. <Link to={'/member/' + user}>{user}</Link>
+                </>
+              }
               meta={`With ${getPoints(medals)} points`}
               card={{
                 name: user,
@@ -101,7 +105,21 @@ export default React.memo(function Podium(props) {
           .slice(0, 6)
           .map(points => (
             <li>
-              {toSentence(pointGroups[points], 'and')} ({points} point
+              {pointGroups[points].reduce(
+                (acc, user, index, arr) => (
+                  <>
+                    {acc}
+                    {index === 0
+                      ? ''
+                      : index === arr.length - 1
+                      ? ' and'
+                      : ','}{' '}
+                    <Link to={'/member/' + user}>{user}</Link>
+                  </>
+                ),
+                <></>
+              )}{' '}
+              ({points} point
               {points === 1 ? '' : 's'})
             </li>
           ))}
