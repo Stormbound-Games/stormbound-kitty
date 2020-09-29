@@ -37,9 +37,10 @@ const cycle = (state, card, options = DEFAULT_CYCLE_OPTIONS) => {
     reset: [card, pick],
   })
 
-  // Goldgrubbers’ and Snake Eyes’ abilities should not
-  // be counted as cycling, since they only replace the cards
-  state.hasCycledThisTurn = options.countAsCycled
+  // Goldgrubbers’ and Snake Eyes’ abilities should not be counted as cycling,
+  // since they only replace the cards. The condition is important to avoid
+  // Goldgrubbers and Snake Eyes to allow cycling again after playing them.
+  state.hasCycledThisTurn = state.hasCycledThisTurn || options.countAsCycled
 
   return state
 }
