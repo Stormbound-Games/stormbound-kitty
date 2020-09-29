@@ -134,7 +134,8 @@ export default React.memo(function Member(props) {
               {userDonations.length > 0 && (
                 <Info icon='heart' title='Financial contributor'>
                   {capitalise(id)} is one of the generous contributors who can
-                  make Stormbound-Kitty a reality. Thank you!
+                  make Stormbound-Kitty a reality. Thank you and welcome to the{' '}
+                  <abbr title='Kitty Appreciation Team'>KAT</abbr>!
                 </Info>
               )}
             </Column>
