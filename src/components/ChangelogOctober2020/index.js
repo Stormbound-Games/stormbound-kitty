@@ -46,7 +46,7 @@ export default React.memo(function ChangelogOctober2020(props) {
         The long awaited “Friendly Matches update” from Sheepyard is finally
         here, and it brings a lot of new things on the table. As always, I’m
         feeling very excited and honored to be able to announce the changes in
-        exclusivity on the site.
+        exclusivity.
       </p>
 
       <ul style={{ columns: '16em' }}>
