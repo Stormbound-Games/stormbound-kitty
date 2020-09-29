@@ -192,7 +192,9 @@ export default React.memo(function ChangelogOctober2020(props) {
         <li>cap the level of cards (from 1 to 5)</li>
         <li>cap the fortress level (from 1 to 20)</li>
         <li>pick the starting mana (from 1 mana onwards)</li>
-        <li>set up a turn counter (with possibility of ties)</li>
+        <li>
+          set up a turn counter (with possibility of ties; see video below)
+        </li>
         <li>apply Brawl modifiers</li>
       </ul>
 
@@ -218,11 +220,12 @@ export default React.memo(function ChangelogOctober2020(props) {
             />
           </Column>
           <Column width='1/3'>
-            <img
-              src='/assets/images/releases/friendly_matches_1.png'
-              alt='A screenshot of the new advanced friendly matches options for a high-level player'
+            <video
+              src='/assets/images/releases/draw.mp4'
+              muted
+              controls
               style={{ marginTop: 0 }}
-            />
+            ></video>
           </Column>
         </Row>
       </Article.FullWidth>
