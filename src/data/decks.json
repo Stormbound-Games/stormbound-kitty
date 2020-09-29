@@ -439,24 +439,10 @@
     "category": "DIAMOND_1"
   },
   {
-    "name": "Frost Winter",
-    "id": "5n15w15w25n35w45w55w115w95w65w135w195w21",
-    "author": "Frostkhan",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
-  },
-  {
     "name": "Colossal Rush",
     "id": "5n15n25i15i35n35i55n675n125i75i85i105i27",
     "author": "Frostkhan",
     "category": "DIAMOND_1"
-  },
-  {
-    "name": "Frozen Rush",
-    "id": "5n15n25w25n35n675n135w55w65w125w135n395w19",
-    "author": "Frostkhan",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
   },
   {
     "name": "Brutal Rush",
@@ -497,13 +483,6 @@
   {
     "name": "Massive Swarm",
     "id": "5n15n25n35s245s105s65s85n165s145s285s205s21",
-    "author": "Frostkhan",
-    "category": "DIAMOND_1",
-    "nerfed": "07.2020"
-  },
-  {
-    "name": "Runners' Starting Point",
-    "id": "5n15n25w25n35n675n145w35w75w125w135n395w19",
     "author": "Frostkhan",
     "category": "DIAMOND_1",
     "nerfed": "07.2020"
