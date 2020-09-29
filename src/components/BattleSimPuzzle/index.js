@@ -25,7 +25,9 @@ export default React.memo(function BattleSimPuzzle(props) {
             {props.name}
           </Link>
         </h3>
-        <p className='BattleSimPuzzle__author'>by {props.author}</p>
+        <p className='BattleSimPuzzle__author'>
+          by <Link to={'/member/' + props.author}>{props.author}</Link>
+        </p>
         <dl className='BattleSimPuzzle__details'>
           <dt data-testid='puzzle-type'>{props.type.toLowerCase()}:</dt>
           <dd>

@@ -1,0 +1,24 @@
+.Member__feed {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Member__item {
+  margin-bottom: 2em;
+}
+
+.Member__empty {
+  text-align: center;
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+.Member__toc {
+  list-style: none;
+  padding: 0;
+}
+
+.Member__toc .Icon {
+  margin-right: 1ch;
+}

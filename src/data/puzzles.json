@@ -6,7 +6,8 @@
     "restrictions": ["ANTI_RNG", "LEVEL_5"],
     "author": "Ayanami",
     "board": "LCwsLCwsLCwxUzhSNSwsLCwsNk40UjUsLCwxMk4zUjUsLCw7UjEyUy1CMTBTOzE5TTE7NVMxNjVTNjVTOTVTMTVTMTk7",
-    "image": "/assets/images/puzzles/a_different_exam.png"
+    "image": "/assets/images/puzzles/a_different_exam.png",
+    "date": "04/2019"
   },
   {
     "name": "Broken Movement",
@@ -15,7 +16,8 @@
     "restrictions": ["LEVEL_5"],
     "author": "Ayanami",
     "board": "LCwsLDZONFI1LCwxOFcxNlI1LDZXM1I1LDExVzdSNSwsLDZXM1I1LCwsLCwsLDZOMTZSNSw2VzEyUjU7UjIwVy1CMjBXOzI1TTE7NVcxNSw1VzE3LDVONTgsNVcyMiwsLCwsLCwsO1cxNSxXMTcsTjU4LFcyMg==",
-    "image": "/assets/images/puzzles/broken_movement.png"
+    "image": "/assets/images/puzzles/broken_movement.png",
+    "date": "04/2019"
   },
   {
     "name": "VIP — Frozen Core",
@@ -25,7 +27,8 @@
     "author": "Ayanami",
     "board": "Nk40NVI1LCwsNkkxOVI1LDhJOFI1LCwsLDE5STIxUjUsLCwsOE4xM0I1LCwsNFc5QjUsLCw3TjQ3UjUsO1IxNUktQjE5Vzs5TTE7NVcxOSw1TjExLDVONTgsNU4zNywsLCwsLCwsO1cxOSxONTgsTjM3LE4xMQ==",
     "image": "/assets/images/puzzles/vip_frozen_core.png",
-    "description": "Protect the Frozen Core until next turn. The opponent just ended their turn and have no cards in their hand."
+    "description": "Protect the Frozen Core until next turn. The opponent just ended their turn and have no cards in their hand.",
+    "date": "04/2019"
   },
   {
     "name": "Hammer’s Wrath",
@@ -34,7 +37,8 @@
     "restrictions": ["LEVEL_1"],
     "author": "Ayanami",
     "board": "LCwsNFMxOFIxLCwzUzdSMSwsNFMxOFIxLCw1UzIxUjEsLCw0TjEzQjEsLCwsM1MzUjEsM1MzUjEsLDtSOFMtQjFXOzE5TTE7MVcyMzFXMTIxVzQxVzY7VzIzLFcxMixXNCxXNg==",
-    "image": "/assets/images/puzzles/hammers_wrath.png"
+    "image": "/assets/images/puzzles/hammers_wrath.png",
+    "date": "04/2019"
   },
   {
     "name": "Devastating Keepers",
@@ -43,7 +47,8 @@
     "restrictions": ["LEVEL_1", "ANTI_RNG"],
     "author": "Ayanami",
     "board": "LCwsLDRTMThSMSwsLCwsLDJTMTNSMSwxTjZCMSwsLDNTMlIxLDFTMlIxLCwxUzVSMSwsO1IxMUktQjJTOzE2TTE7MVM0MVMxMTFTNjFTMjA7UzYsUzIwLFMxMSxTNA==",
-    "image": "/assets/images/puzzles/devastating_keepers.png"
+    "image": "/assets/images/puzzles/devastating_keepers.png",
+    "date": "04/2019"
   },
   {
     "name": "Lord of Flight",
@@ -52,7 +57,8 @@
     "restrictions": ["LEVEL_1", "ANTI_RNG"],
     "author": "Ayanami",
     "board": "LCwsLCwsNE4zNFIxLCwsLCwsN0kyMVIxLCwsNEkxUjEsLCw0SThSMSw7UjRJLUIyUzsxOU0xOzFTMTYxUzE5MVM2MVMyMDtTMTksUzYsUzE2LFMyMA==",
-    "image": "/assets/images/puzzles/lord_of_flight.png"
+    "image": "/assets/images/puzzles/lord_of_flight.png",
+    "date": "04/2019"
   },
   {
     "name": "Plentiful Harvest",
@@ -61,7 +67,8 @@
     "restrictions": ["LEVEL_1", "ANTI_RNG"],
     "author": "Ayanami",
     "board": "MVMyUjEsLCwsLDFTMlIxLDFTMlIxLCwsLDFTMVIxLDROMTNSMSwxUzJSMSwsMVQ3UjEsMVMyUjEsMVMyUjEsLCwxUzJSMTtSMTJTLUIxMFM7MjBNMTsxUzIxMVMxMjFTMTUxUzE2O1MxMixTMTUsUzE2LFMyMQ==",
-    "image": "/assets/images/puzzles/plentiful_harvest.png"
+    "image": "/assets/images/puzzles/plentiful_harvest.png",
+    "date": "04/2019"
   },
   {
     "name": "Lasting Advice",
@@ -70,7 +77,8 @@
     "restrictions": ["LEVEL_5", "RNG_FRIENDLY"],
     "author": "Ayanami",
     "board": "LCwsOFc1UjUsLDhXOVI1LCwsLCwsOFc4UjUsOE4xM1I1LCwsLDVOM1I1LDFONlI1LDVOMVI1LDtSMTlXLUIxOVM7MjRNMTs1UzIzNVMzNVMxNVMyMjtTMjMsUzMsUzEsUzIy",
-    "image": "/assets/images/puzzles/lasting_advice.png"
+    "image": "/assets/images/puzzles/lasting_advice.png",
+    "date": "04/2019"
   },
   {
     "name": "Sneaky Outcasts",
@@ -79,7 +87,8 @@
     "restrictions": ["ANTI_RNG"],
     "author": "Ayanami",
     "board": "LCwsLCwsLCw1TjNSNSw4RjZSNSwzRjNSNSwsMlQ1UjUsLDhGMTRSNSw5RjE4UjUsLCwsO1IxMk4tQjhOOzE2TTE7NVMyLDVTMTMsNU41Miw1UzgsLCwsLCwsLDtTMTMsTjUyLFM4LFMy",
-    "image": "/assets/images/puzzles/sneaky_outcasts.png"
+    "image": "/assets/images/puzzles/sneaky_outcasts.png",
+    "date": "04/2019"
   },
   {
     "name": "Alternate Solution",
@@ -88,7 +97,8 @@
     "restrictions": ["LEVEL_1", "ANTI_RNG"],
     "author": "Ayanami",
     "board": "LDRGNlIxLCwsMU4zUjEsLCwyRjFSMSwsLDVGMTRSMSwsLDROMTNSMSwsMVQ4UjEsLCwsMVQ4UjE7UjZOLUIyTjsxOU0xOzFOMzAsMVMyMywxUzExLDFTNiwsLCwsLCwsO04zMCxTMjMsUzExLFM2",
-    "image": "/assets/images/puzzles/alternate_solution.png"
+    "image": "/assets/images/puzzles/alternate_solution.png",
+    "date": "04/2019"
   },
   {
     "name": "Traitorous Knights",
@@ -98,7 +108,8 @@
     "author": "Ayanami",
     "board": "MUkxMlI1LCwsLCwsMUkxMlI1LDhOMTNSNSwxRjVSNSwsLCwsMjVONTRCNSwsLCwsLDtSMjBGLUIyMEk7MjdNMTs1STksMUkxLDVOMzEsNEkyMw%3D%3D",
     "image": "/assets/images/puzzles/traitorous_knights.png",
-    "description": "Destroy the ‘Veterans of War’ in D2."
+    "description": "Destroy the ‘Veterans of War’ in D2.",
+    "date": "04/2019"
   },
   {
     "name": "The Doctor’s Degree",
@@ -107,7 +118,8 @@
     "restrictions": ["DETAILED", "ANTI_RNG"],
     "author": "Ayanami",
     "board": "MkkxOVI1LCwsLCwsLCwsLCwsMTBXMTNSNSwsLCw4TjEzUjUsOEk4UjUsLDNJNlI1O1IxNEktQjFGOzE2TTE7NU4zNiw1TjMxLDVGMTQsNUYz",
-    "image": "/assets/images/puzzles/the_doctors_degree.png"
+    "image": "/assets/images/puzzles/the_doctors_degree.png",
+    "date": "04/2019"
   },
   {
     "name": "Feeble Resistance",
@@ -116,7 +128,8 @@
     "restrictions": ["LEVEL_5", "ANTI_RNG"],
     "author": "Ayanami",
     "board": "MkkxOVI1LCwsLCwsLCwsLCwsMTBXMTNSNSwsLCw4TjEzUjUsOEk4UjUsLDNJNlI1O1IxNEktQjFGOzE2TTE7NU4zNiw1TjMxLDVGMTQsNUYz",
-    "image": "/assets/images/puzzles/feeble_resistance.png"
+    "image": "/assets/images/puzzles/feeble_resistance.png",
+    "date": "04/2019"
   },
   {
     "name": "False Alarm",
@@ -125,7 +138,8 @@
     "restrictions": ["LEVEL_5", "ANTI_RNG"],
     "author": "Ayanami",
     "board": "Nk4xUjUsLCwsLCwsLDZGM1I1LCw4UzE4UjUsLCwsLCw2STE5QjUsLCw7UjZTLUI0STsxMU0xOzVJNzJJMjVJNTNJMTI7STcsSTIsSTUsSTEy",
-    "image": "/assets/images/puzzles/false_alarm.png"
+    "image": "/assets/images/puzzles/false_alarm.png",
+    "date": "04/2019"
   },
   {
     "name": "Devastated Decimation",
@@ -134,7 +148,8 @@
     "restrictions": ["LEVEL_5", "ANTI_RNG"],
     "author": "PRÖJÊČTÛŃFÕRGÏVĒÑ",
     "board": "LCwsMU4xUjUsMUY1UjUsLCwsNUYzUjUsNkYxM1I1LCwsLCwsLCwsLDM0TjQ2UjU7UjEwTi1CMTBOOzk5TTA7NU40MSw1UzEwLDVTMjAsNVMxMSwsLCwsLCwsO040MSxTMTAsUzIwLFMxMQ==",
-    "image": "/assets/images/puzzles/devastated_decimation.png"
+    "image": "/assets/images/puzzles/devastated_decimation.png",
+    "date": "04/2019"
   },
   {
     "name": "Toad Revolution",
@@ -143,7 +158,8 @@
     "restrictions": [],
     "author": "Zethes",
     "board": "NEYxM1IzLDNUOFIxLDNUOFIxLDJGMTNSMywzVDhSMSw0TjEzQjQsLDNUOFIxLCwsMTFGMTVSNSwzVDhSMSwzVDhSMSwzVDhSMSwsNlQ4UjEsLCwsMTVONTRSNDtSN0YtQjdJOzMwTTA7NU40NSwyTjU0LDFJMiwySTE5",
-    "image": "/assets/images/puzzles/toad_revolution.png"
+    "image": "/assets/images/puzzles/toad_revolution.png",
+    "date": "04/2019"
   },
   {
     "name": "Unhelpful Cards",
@@ -152,7 +168,8 @@
     "restrictions": ["LEVEL_1"],
     "author": "FrozenEarth",
     "board": "LCwsM1M3UjEsLDVOMTlSMSwsNE4xM0IxLDNTMlIxLDFTMVIxLCwsLDFUN1IxLCw0VDdSMSwsLDdTOVIxLDtSM1MtQjNJOzEyTTE7MUk0MU4zMTFJMTUxTjI4O0k0LE4zMSxJMTUsTjI4",
-    "image": "/assets/images/puzzles/unhelpful_cards.png"
+    "image": "/assets/images/puzzles/unhelpful_cards.png",
+    "date": "04/2019"
   },
   {
     "name": "Area Denial",
@@ -161,7 +178,8 @@
     "restrictions": [],
     "author": "FierySalient",
     "board": "NE4xNFIzLDJOMVIzLDFUNUIzLDFJMTlSMywsNkkyMVIzLCwySTZSMywsLDJUMVIzLDJUMVIzLCwsLCwsLCw7UjRJLUIxNEY7MTFNMDszRjUsM04xMiwzTjE3LDNGNCwsLCwsLCwsO0Y1LE4xMixOMTcsRjQ=",
-    "image": "/assets/images/puzzles/unnamed_puzzle_2.png"
+    "image": "/assets/images/puzzles/unnamed_puzzle_2.png",
+    "date": "04/2019"
   },
   {
     "name": "Impending Doom",
@@ -170,7 +188,8 @@
     "restrictions": [],
     "author": "FierySalient",
     "board": "OFMxOFI0LDJTMlIzLDZTM1I0LCwsMlMxNFI0LCwsMkYyQjQsMTJTMTNSNCwsLCwyUzJCMyw4TjQ5UjQsLDE0UzlSNCwsNE4zUjQsO1I3Uy1CMUY7MTZNMDs0RjE0NE4zMDROMzc0TjEwO04xMCxGMTQsTjM3LE4zMA==",
-    "image": "/assets/images/puzzles/impending_doom.png"
+    "image": "/assets/images/puzzles/impending_doom.png",
+    "date": "04/2019"
   },
   {
     "name": "Obnoxious Vindicators",
@@ -179,6 +198,7 @@
     "restrictions": [],
     "author": "Mathematica",
     "board": "LCwsM04zNFI1LCwsLCwsNVQxUjEsLCwsLDJJMjBSNSw1STZSNSw1TjNSNSw2STE2UjUsLDtSNUktQjVJOzE0TTA7NVMyMjVOMTM1UzE4NU45O1MyMixOMTMsUzE4LE45",
-    "image": "/assets/images/puzzles/obnoxious_vindicators.png"
+    "image": "/assets/images/puzzles/obnoxious_vindicators.png",
+    "date": "04/2019"
   }
 ]
