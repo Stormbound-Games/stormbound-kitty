@@ -208,7 +208,7 @@ export default React.memo(function ChangelogOctober2020(props) {
       <ul>
         <li>cap the level of cards (from 1 to 5)</li>
         <li>cap the fortress level (from 1 to 20)</li>
-        <li>pick the starting mana (from 1 mana onwards)</li>
+        <li>pick the starting mana (1, 3, 6, 9, 12, 15, 18, 21 or 24)</li>
         <li>
           set up a turn counter (with possibility of ties; see video below)
         </li>
