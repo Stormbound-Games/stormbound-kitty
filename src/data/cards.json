@@ -467,7 +467,7 @@
     "mana": 5,
     "strength": 6,
     "movement": 0,
-    "ability": "When played surrouding at least *2* enemies, deal *2/3/4/5/6 damage* to each"
+    "ability": "When played with at least *2* surrounding enemies, deal *2/3/4/5/6 damage* to each"
   },
   {
     "name": "Boomstick Officers",
