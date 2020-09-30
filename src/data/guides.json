@@ -39,6 +39,19 @@
     "date": "07/2020"
   },
   {
+    "id": "EYE_OF_THE_TEMPEST_GUIDE",
+    "name": "Eye of the Tempest",
+    "authors": ["Oeni"],
+    "excerpt": "In this spell edition of the Brawl Gazette, Oeni goes through everything to know about the Eye of the Tempest Brawl.",
+    "slug": "eye-of-the-tempest",
+    "faction": "neutral",
+    "cardId": "N48",
+    "background": "/assets/images/banners/environment_neutral.png",
+    "readingTime": "3 minutes",
+    "category": "BRAWL_MODE",
+    "date": "09/2020"
+  },
+  {
     "id": "NOBLE_COALITION_GUIDE",
     "name": "Noble Coalition",
     "authors": ["Oeni"],

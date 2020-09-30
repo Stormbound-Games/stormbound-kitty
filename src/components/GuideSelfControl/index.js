@@ -12,7 +12,7 @@ import guides from '../../data/guides'
 
 const guide = guides.find(guide => guide.id === 'SELF_CONTROL_GUIDE')
 
-export default React.memo(function GuideNobleCoalition(props) {
+export default React.memo(function GuideSelfControl(props) {
   return (
     <Guide {...guide}>
       <p>

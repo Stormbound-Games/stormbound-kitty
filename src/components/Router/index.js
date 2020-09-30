@@ -26,6 +26,7 @@ const COMPONENTS = {
   BRAWL_GUIDE: load('GuideBrawl'),
   NOBLE_COALITION_GUIDE: load('GuideNobleCoalition'),
   SELF_CONTROL_GUIDE: load('GuideSelfControl'),
+  EYE_OF_THE_TEMPEST_GUIDE: load('GuideEyeOfTheTempest'),
   CHILLBEARDS_GUIDE: load('GuideChillbeards'),
   TERRIFIC_SLAYERS_GUIDE: load('GuideTerrificSlayers'),
   BROODMOTHER_QORDIA_GUIDE: load('GuideBroodmotherQordia'),
