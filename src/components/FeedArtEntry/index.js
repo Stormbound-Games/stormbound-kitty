@@ -10,7 +10,7 @@ export default React.memo(function FeedArtEntry(props) {
       <details>
         <summary>
           <Only.Desktop>Click</Only.Desktop>
-          <Only.Mobile>Tap</Only.Mobile> to expand
+          <Only.Mobile>Tap</Only.Mobile> to toggle art display
         </summary>
         <img
           src={'/assets/images/art/' + props.image}

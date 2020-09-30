@@ -1,6 +1,10 @@
 import React from 'react'
+import Deck from '../Deck'
 import FeedEntry from '../FeedEntry'
 import MemberList from '../MemberList'
+import Only from '../Only'
+import serialisation from '../../helpers/serialisation'
+import './index.css'
 
 export default React.memo(function FeedPodiumEntry(props) {
   const isAtIndex = index =>
@@ -15,6 +19,7 @@ export default React.memo(function FeedPodiumEntry(props) {
     : props.podium[index]
   const emoji = ['🥇', '🥈', '🥉'][index]
   const label = ['gold', 'silver', 'bronze'][index]
+  const deck = Array.isArray(props.deck) ? props.deck[index] : null
 
   return (
     <FeedEntry icon='trophy' date={props.date}>
@@ -33,6 +38,19 @@ export default React.memo(function FeedPodiumEntry(props) {
         {emoji} {label} medal
       </span>{' '}
       in {props.name}.
+      {deck && (
+        <details open className='FeedPodiumEntry__container'>
+          <summary>
+            <Only.Desktop>Click</Only.Desktop>
+            <Only.Mobile>Tap</Only.Mobile> to toggle deck display
+          </summary>
+          <Deck
+            deck={serialisation.deck.deserialise(deck)}
+            orientation='horizontal'
+            id={deck}
+          />
+        </details>
+      )}
     </FeedEntry>
   )
 })
