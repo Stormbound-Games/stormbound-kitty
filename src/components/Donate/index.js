@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Article from '../Article'
+import MemberList from '../MemberList'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Sparkles from '../Sparkles'
@@ -83,20 +83,8 @@ export default React.memo(function Donate(props) {
       <p>
         I have been incredibly lucky to have been supported by wonderful people
         whom I cannot thank enough. My gratitude to, in no particular order,
-        {DONATORS.map(donation => donation.author).reduce(
-          (acc, author, index, arr) => (
-            <>
-              {acc}
-              {index === 0
-                ? ''
-                : index === arr.length - 1
-                ? ' and'
-                : ','} ⭐️ <Link to={'/member/' + author}>{author}</Link>
-            </>
-          ),
-          <></>
-        )}
-        — for their generous and kind donations.
+        <MemberList members={DONATORS.map(donation => donation.author)} />— for
+        their generous and kind donations.
       </p>
 
       <p style={{ fontStyle: 'italic' }}>
