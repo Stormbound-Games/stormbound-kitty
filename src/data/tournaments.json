@@ -76,7 +76,7 @@
   {
     "name": "Pauper Tournament",
     "hosts": ["Kepp"],
-    "podium": ["BluePhoenix", "Konopaku", "Arthis"],
+    "podium": ["BluePhoenix", "Konopaku", "ArthisRoo"],
     "date": "10/2019",
     "description": "The real royals of a deck are rares and commons! In this tournament decks were made only of those two types of cards.",
     "deck": [
@@ -100,7 +100,7 @@
   {
     "name": "Elders Tournament",
     "hosts": ["Kepp"],
-    "podium": ["HanooSt", "Strongraycool44", "Arthis"],
+    "podium": ["HanooSt", "Strongraycool44", "ArthisRoo"],
     "date": "02/2020",
     "description": "The elders just arrived to Stormbound! Players battled using these new cards to prove their power!",
     "deck": [
@@ -112,7 +112,7 @@
   {
     "name": "Quadrant Tournament 1",
     "hosts": ["Strongraycool44"],
-    "podium": ["Cyberdemon", "Felcruel", "Arthis"],
+    "podium": ["Cyberdemon", "Felcruel", "ArthisRoo"],
     "date": "08/2019"
   },
   {
@@ -143,7 +143,7 @@
     "hosts": ["Strongraycool44"],
     "podium": [
       ["Helios", "Todam", "Primal", "Rodeybodey"],
-      ["FrozenEarth", "Emkaem", "Arthis", "HanooSt"],
+      ["FrozenEarth", "Emkaem", "ArthisRoo", "HanooSt"],
       ["BluePhoenix", "Dracqi", "ErikBust", "Ajmm"]
     ],
     "date": "03/2020",
@@ -152,7 +152,7 @@
   {
     "name": "Anniversary Tournament",
     "hosts": ["Strongraycool44"],
-    "podium": ["Arthis", "Helios", "Strongraycool44"],
+    "podium": ["ArthisRoo", "Helios", "Strongraycool44"],
     "date": "04/2020",
     "deck": [
       "1i21i41n61n81i71i131n641i201n361i281n461i23",
@@ -162,7 +162,7 @@
   {
     "name": "Ban Tourney 1",
     "hosts": ["Todam"],
-    "podium": ["HanooSt", "Arthis", "Derk"],
+    "podium": ["HanooSt", "ArthisRoo", "Derk"],
     "date": "04/2020",
     "description": "The Ban Tourney had a very big list of unbalanced and commonly used cards banned, forcing to get creative.",
     "deck": [
@@ -230,7 +230,7 @@
   {
     "name": "Renaissance Tournament",
     "hosts": ["Helios"],
-    "podium": ["Derk", "Arthis", "Stratadox"],
+    "podium": ["Derk", "ArthisRoo", "Stratadox"],
     "date": "07/2020",
     "description": "The Renaissance Tournament aimed to bring back veteran players and navigating a set of challenging deck restrictions.",
     "deck": [
@@ -248,7 +248,7 @@
   },
   {
     "name": "Snowball Tournament",
-    "hosts": ["Derk", "Arthis"],
+    "hosts": ["Derk", "ArthisRoo"],
     "podium": ["Helios", "Roman_NFP", "HanooSt"],
     "date": "08/2020",
     "description": "The Snowball tournament relies on not playing any card before 6 mana (7 for the second player). The goal of the tournament was to compose heavy decks, which can start strong right from the opening move.",

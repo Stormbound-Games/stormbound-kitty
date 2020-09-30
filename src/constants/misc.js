@@ -347,7 +347,7 @@ export const COMMON_ABBREVIATIONS = {
 }
 
 export const DONATORS = [
-  { author: 'Arthis', date: '06/2020' },
+  { author: 'ArthisRoo', date: '06/2020' },
   { author: 'Blubby', date: '04/2020' },
   { author: 'Freeloader', date: '09/2020' },
   { author: 'Hadid', date: '03/2020' },

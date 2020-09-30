@@ -55,12 +55,12 @@ export default React.memo(function BrewedSages(props) {
   return (
     <Article
       title={viewportWidth < 700 ? 'Brewed Sages' : 'Brewed Sages Podcast'}
-      authors={['Freeloader', 'Subaiku', 'Arthis']}
+      authors={['Freeloader', 'Subaiku', 'ArthisRoo']}
       background='/assets/images/banners/environment_shadowfen.png'
     >
       <p>
         The Brewed Sages is the first Stormbound podcast, by Freeloader, Subaiku
-        and Arthis. They gather around the mic on a regular basis to discuss
+        and ArthisRoo. They gather around the mic on a regular basis to discuss
         everything Stormbound. Tune in, and enjoy the show!
       </p>
 
@@ -200,7 +200,7 @@ export default React.memo(function BrewedSages(props) {
       ></iframe>
 
       <PageMeta
-        author='Freeloader, Subaiku, Arthis'
+        author='Freeloader, Subaiku, ArthisRoo'
         title='Brewed Sages Podcast'
         description='The Brewed Sages is the first Stormbound podcast, by Freeloader and
       Subaiku'

@@ -122,7 +122,7 @@ export default React.memo(function GuideWinter(props) {
       <Title id='gravity-acceleration'>Gravity acceleration</Title>
 
       <p>
-        Arthis and Troxyz from Discord took some time to calculate the
+        ArthisRoo and Troxyz from Discord took some time to calculate the
         acceleration due to gravity in Stormbound (or rather, on Stormbound
         islands).
       </p>
