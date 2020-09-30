@@ -1,4 +1,3 @@
-import capitalise from '../../../helpers/capitalise'
 import getEmbed from '../../../helpers/getEmbed'
 import toSentence from '../../../helpers/toSentence'
 
@@ -11,6 +10,7 @@ const LEAGUE_ROLES = [
   'Iron',
   'Starter',
 ]
+const FACTION_ROLES = ['Swarm', 'Shadowfen', 'Ironclad', 'Winter']
 const MISC_ROLES = ['Tournamentee', 'Streambound', 'Quest Helper', 'SWCC']
 const ROLES = [...LEAGUE_ROLES, ...MISC_ROLES]
 
@@ -31,6 +31,10 @@ const getExpectedRole = ({ content, guild }) => {
 
 const getExistingLeagueRole = ({ member }) => {
   return member.roles.cache.find(role => LEAGUE_ROLES.includes(role.name))
+}
+
+const getExistingFactionRole = ({ member }) => {
+  return member.roles.cache.find(role => FACTION_ROLES.includes(role.name))
 }
 
 const hasRole = (member, role) => {
@@ -78,12 +82,18 @@ export default {
     }
 
     // If the user already has a league role and wants a new league role, start
-    // by removing it the old one.
+    // by removing it the old one. Similar thing for faction roles.
     const existingLeagueRole = getExistingLeagueRole(messageObject)
+    const existingFactionRole = getExistingFactionRole(messageObject)
     const wantsLeagueRole = LEAGUE_ROLES.includes(newRole.name)
+    const wantsFactionRole = FACTION_ROLES.includes(newRole.name)
 
     if (wantsLeagueRole && existingLeagueRole) {
       await messageObject.member.roles.remove(existingLeagueRole)
+    }
+
+    if (wantsFactionRole && existingFactionRole) {
+      await messageObject.member.roles.remove(existingFactionRole)
     }
 
     // Add the new role to the member.
@@ -94,6 +104,8 @@ export default {
       `“${newRole.name}” role added${
         wantsLeagueRole && existingLeagueRole
           ? ` and “${existingLeagueRole.name}” role removed`
+          : wantsFactionRole && existingFactionRole
+          ? ` and “${existingFactionRole.name}” role removed`
           : ''
       }.`
     )
