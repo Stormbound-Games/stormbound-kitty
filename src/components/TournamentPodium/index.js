@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
 import Column from '../Column'
+import MemberList from '../MemberList'
 import Row from '../Row'
 import Teaser from '../Teaser'
 import Title from '../Title'
@@ -105,21 +106,7 @@ export default React.memo(function Podium(props) {
           .slice(0, 6)
           .map(points => (
             <li>
-              {pointGroups[points].reduce(
-                (acc, user, index, arr) => (
-                  <>
-                    {acc}
-                    {index === 0
-                      ? ''
-                      : index === arr.length - 1
-                      ? ' and'
-                      : ','}{' '}
-                    <Link to={'/member/' + user}>{user}</Link>
-                  </>
-                ),
-                <></>
-              )}{' '}
-              ({points} point
+              <MemberList members={pointGroups[points]} /> ({points} point
               {points === 1 ? '' : 's'})
             </li>
           ))}
