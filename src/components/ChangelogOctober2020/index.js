@@ -39,8 +39,8 @@ export default React.memo(function ChangelogOctober2020(props) {
       }}
       meta='2 minutes'
       className='ChangelogOctober2020'
-      background='/assets/images/banners/factions.png'
-      ratio='50%'
+      background='/assets/images/banners/bisanu.png'
+      ratio='25%'
     >
       <p>
         The long awaited “Friendly Matches update” from Sheepyard is finally

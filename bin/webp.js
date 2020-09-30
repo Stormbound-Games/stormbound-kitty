@@ -4,6 +4,7 @@ const imageminWebp = require('imagemin-webp')
 const webp = imageminWebp({ quality: 100 })
 const paths = [
   'public/assets/images',
+  'public/assets/images/banners',
   'public/assets/images/books',
   'public/assets/images/card',
   'public/assets/images/cards',
