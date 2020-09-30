@@ -8,6 +8,7 @@ import Teaser from '../Teaser'
 import Title from '../Title'
 import chunk from '../../helpers/chunk'
 import useViewportWidth from '../../hooks/useViewportWidth'
+import { PODCAST_EPISODES } from '../../constants/misc'
 
 const CARD = {
   image: 'brewed_sages.png',
@@ -16,38 +17,6 @@ const CARD = {
   race: 'Podcast',
   faction: 'shadowfen',
 }
-const EPISODES = [
-  {
-    title: 'The Beginning',
-    meta: '51 minutes and 56 seconds',
-    href:
-      'https://freeloader.podbean.com/e/episode-1-the-beginning-1599101201/',
-    excerpt:
-      'Find out where Freeloader and Subaiku came from, and how they see the fun and challenging game that is Stormbound.',
-  },
-  {
-    title: 'Midsummer Buffs',
-    meta: '51 minutes and 34 seconds',
-    href: 'https://freeloader.podbean.com/e/episode-2-midsummer-buffs/',
-    excerpt:
-      'Sheepyard has gifted us some free content to discus. We oblige as only Freeloaders can!',
-  },
-  {
-    title: 'OK, Boomers',
-    meta: '41 minutes and 42 seconds',
-    href: 'https://www.podbean.com/media/share/pb-kjsah-ebb8af',
-    excerpt:
-      'Freeloader and Subaiku are discussing some of the strongest elder cards in Stormbound. Who dodged the nerf hammer? Should they be nerfed now? Tune in to find out!',
-  },
-  {
-    title: 'A New Bloke',
-    meta: '42 minutes and 50 seconds',
-    href:
-      'https://freeloader.podbean.com/e/episode-4-a-new-bloke/?token=ea7fad9550a7b2d47dbcdf0c5212327b',
-    excerpt:
-      'Freeloader and Subaiku welcome a third host. Who will this mystery host be, and are they truly crazy enough to spend an hour each week talking with us?!',
-  },
-]
 
 export default React.memo(function BrewedSages(props) {
   const viewportWidth = useViewportWidth()
@@ -78,7 +47,7 @@ export default React.memo(function BrewedSages(props) {
 
       <Title>Episodes</Title>
       <Article.FullWidth>
-        {chunk(EPISODES, 3).map((row, index) => (
+        {chunk(PODCAST_EPISODES, 3).map((row, index) => (
           <Row desktopOnly key={index}>
             <Column width='1/3'>
               {row[0] && (
