@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Masonry from 'react-masonry-css'
 import Article from '../Article'
 import Loader from '../Loader'
@@ -40,7 +41,8 @@ export default React.memo(function FanArt(props) {
                 className='FanArt__image'
               />
               <figcaption className='FanArt__caption'>
-                Artwork by {entry.author}
+                Artwork by{' '}
+                <Link to={'/member/' + entry.author}>{entry.author}</Link>
               </figcaption>
             </figure>
           ))}
