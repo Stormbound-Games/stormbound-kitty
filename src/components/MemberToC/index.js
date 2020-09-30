@@ -26,7 +26,7 @@ export default React.memo(function MemberToC(props) {
         {props.podiums.length === 1 ? 'podium' : 'podiums'}
       </li>
       <li>
-        <Icon icon='trophy' /> {props.cards.length} won{' '}
+        <Icon icon='wand' /> {props.cards.length} won{' '}
         {props.cards.length === 1 ? 'card contest' : 'card contests'}
       </li>
       <li>
