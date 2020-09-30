@@ -18,6 +18,12 @@
     "slug": "09-2020"
   },
   {
+    "author": "Taco_G",
+    "date": "08/2020",
+    "type": "SWCC",
+    "season": 2
+  },
+  {
     "author": "Kitty",
     "title": "September update",
     "date": "09/2020",
@@ -54,5 +60,11 @@
     "date": "09/2020",
     "type": "PODCAST",
     "title": "The Beginning"
+  },
+  {
+    "author": "Taco_G",
+    "date": "01/2019",
+    "type": "SWCC",
+    "season": 1
   }
 ]

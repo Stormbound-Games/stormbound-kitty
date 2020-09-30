@@ -14,6 +14,7 @@ const COMPONENTS = {
   PUZZLE: load('FeedPuzzleEntry'),
   RELEASE: load('FeedReleaseEntry'),
   STORY: load('FeedStoryEntry'),
+  SWCC: load('FeedSWCCEntry'),
 }
 
 export default React.memo(function MemberFeedItem(props) {
