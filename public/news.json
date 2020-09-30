@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Member Pages",
+    "description": "The member pages have been reworked to display a feed of information about a player.",
+    "link": "/member/Kitty"
+  },
+  {
     "intro": "Fan Art",
     "description": "A new page displaying Stormbound fan art is now available!",
     "link": "/fan-art"
