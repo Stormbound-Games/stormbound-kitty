@@ -5,5 +5,6 @@
   "cardId": "I13",
   "card": { "name": "Kamen", "mana": 4 },
   "category": "eastern-heat",
-  "saga": "eastern-heat"
+  "saga": "eastern-heat",
+  "date": "04/2020"
 }
