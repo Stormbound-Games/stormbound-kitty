@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import guides from '../../data/guides'
 import Column from '../Column'
 import Guide from '../Guide'
@@ -122,9 +123,10 @@ export default React.memo(function GuideWinter(props) {
       <Title id='gravity-acceleration'>Gravity acceleration</Title>
 
       <p>
-        ArthisRoo and Troxyz from Discord took some time to calculate the
-        acceleration due to gravity in Stormbound (or rather, on Stormbound
-        islands).
+        <Link to='/member/ArthisRoo'>ArthisRoo</Link> and{' '}
+        <Link to='/member/Troxyz'>Troxyz</Link> from Discord took some time to
+        calculate the acceleration due to gravity in Stormbound (or rather, on
+        Stormbound islands).
       </p>
 
       <Guide.FullWidth>

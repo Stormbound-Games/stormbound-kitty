@@ -13,8 +13,8 @@ import TournamentPodium from '../TournamentPodium'
 import TournamentWinners from '../TournamentWinners'
 import { Rubies } from '../Resource'
 import tournaments from '../../data/tournaments.json'
-import toSentence from '../../helpers/toSentence'
 import './index.css'
+import MemberList from '../MemberList'
 
 const formatDate = date => {
   const formatter = new Intl.DateTimeFormat('en', {
@@ -51,7 +51,7 @@ export default React.memo(function TournamentHallOfFame(props) {
                   <h2 className='Tournament__name'>{tournament.name}</h2>
                   <p className='Tournament__meta'>
                     {formatDate(getDate(tournament.date))} · By{' '}
-                    {toSentence(tournament.hosts, 'and')}
+                    <MemberList members={tournament.hosts} />
                   </p>
                   {Boolean(tournament.description) && (
                     <p>{tournament.description}</p>

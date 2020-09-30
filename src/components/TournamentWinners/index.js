@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react'
-import toSentence from '../../helpers/toSentence'
+import { Link } from 'react-router-dom'
+import MemberList from '../MemberList'
 
 export default React.memo(function TournamentWinners(props) {
   const isTeamTournament = props.podium.every(entry => Array.isArray(entry))
@@ -10,15 +11,21 @@ export default React.memo(function TournamentWinners(props) {
     return (
       <p>
         The team tournament was won by 🥇{' '}
-        <span className='Highlight'>{toSentence(gold, 'and')}</span>
+        <span className='Highlight'>
+          <MemberList members={gold} />
+        </span>
         {silver ? (
           <>
             , with 🥈{' '}
-            <span className='Highlight'>{toSentence(silver, 'and')}</span>{' '}
+            <span className='Highlight'>
+              <MemberList members={silver} />
+            </span>{' '}
             {bronze ? (
               <>
                 and 🥉{' '}
-                <span className='Highlight'>{toSentence(bronze, 'and')}</span>{' '}
+                <span className='Highlight'>
+                  <MemberList members={bronze} />
+                </span>{' '}
               </>
             ) : null}
             as {bronze ? 'respective' : ''} runner-up
@@ -33,17 +40,25 @@ export default React.memo(function TournamentWinners(props) {
   return (
     <p>
       The tournament was won by 🥇{' '}
-      <span className='Highlight'>{props.podium[0]}</span>
-      {props.podium.length > 1 ? (
+      <Link to={'/member/' + gold} className='Highlight'>
+        {gold}
+      </Link>
+      {silver ? (
         <>
-          , with 🥈 <span className='Highlight'>{props.podium[1]}</span>{' '}
-          {props.podium.length > 2 ? (
+          , with 🥈{' '}
+          <Link to={'/member/' + silver} className='Highlight'>
+            {silver}
+          </Link>{' '}
+          {bronze ? (
             <>
-              and 🥉 <span className='Highlight'>{props.podium[2]}</span>{' '}
+              and 🥉{' '}
+              <Link to={'/member/' + bronze} className='Highlight'>
+                {bronze}
+              </Link>{' '}
             </>
           ) : null}
-          as {props.podium.length > 2 ? 'respective' : ''} runner-up
-          {props.podium.length > 2 ? 's' : ''}
+          as {bronze ? 'respective' : ''} runner-up
+          {bronze ? 's' : ''}
         </>
       ) : null}
       .
