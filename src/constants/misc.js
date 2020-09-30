@@ -391,9 +391,15 @@ export const PODCAST_EPISODES = [
   {
     title: 'A New Bloke',
     meta: '42 minutes and 50 seconds',
-    href:
-      'https://freeloader.podbean.com/e/episode-4-a-new-bloke/?token=ea7fad9550a7b2d47dbcdf0c5212327b',
+    href: 'https://freeloader.podbean.com/e/episode-4-a-new-bloke/',
     excerpt:
       'Freeloader and Subaiku welcome a third host. Who will this mystery host be, and are they truly crazy enough to spend an hour each week talking with us?!',
+  },
+  {
+    title: 'What’s a Burf?',
+    meta: '52 minutes and 36 seconds',
+    href: 'https://freeloader.podbean.com/e/episode-5-whats-a-burf/',
+    excerpt:
+      'Our hosts are hot on the trail of Stormbound breadcrumbs: an AMA, leaks in the Discord server and an interview with Brzoza help drawing a map of where Sheepyard is taking the game.',
   },
 ]
