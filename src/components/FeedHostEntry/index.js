@@ -16,6 +16,7 @@ export default React.memo(function FeedHostEntry(props) {
         </>
       ) : null}{' '}
       {props.name}.
+      {props.description ? <blockquote>{props.description}</blockquote> : null}
     </FeedEntry>
   )
 })
