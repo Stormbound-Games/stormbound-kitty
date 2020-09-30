@@ -171,6 +171,7 @@ export default React.memo(function Member(props) {
       </Article.FullWidth>
 
       <PageMeta
+        noIndex={content.length === 0}
         title={displayName}
         description={`Find all of ${displayName}’s contributions to Stormbound-Kitty such as stories, decks, puzzles or guides.`}
       />
