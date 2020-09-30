@@ -1,0 +1,10 @@
+.MemberToC {
+  list-style: none;
+  padding: 0 0 0 1em;
+  margin-bottom: 0;
+  border-left: 2px solid var(--dark-beige);
+}
+
+.MemberToC .Icon {
+  margin-right: 1ch;
+}

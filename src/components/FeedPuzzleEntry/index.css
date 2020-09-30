@@ -1,0 +1,9 @@
+.FeedEntryPuzzle__container {
+  position: relative;
+  padding: 1em 0;
+  font-size: 80%;
+}
+
+.FeedEntryPuzzle__container h3 {
+  margin-top: 0;
+}

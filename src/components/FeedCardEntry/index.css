@@ -1,0 +1,8 @@
+.FeedEntryCard__container {
+  max-width: 400px;
+  margin-top: 1em;
+}
+
+.FeedEntryCard__container > * {
+  margin-bottom: 0.5em;
+}

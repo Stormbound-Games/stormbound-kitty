@@ -1,0 +1,58 @@
+[
+  {
+    "authors": ["Freeloader", "Subaiku", "ArthisRoo"],
+    "date": "09/2020",
+    "type": "PODCAST",
+    "title": "What’s a Burf?"
+  },
+  {
+    "author": "HanooSt",
+    "date": "04/2020",
+    "type": "EQUAL_LIST"
+  },
+  {
+    "author": "Kitty",
+    "title": "Third Anniversary update",
+    "date": "09/2020",
+    "type": "RELEASE",
+    "slug": "09-2020"
+  },
+  {
+    "author": "Kitty",
+    "title": "September update",
+    "date": "09/2020",
+    "type": "RELEASE",
+    "slug": "07-2020"
+  },
+  {
+    "author": "Kitty",
+    "title": "July update",
+    "date": "07/2020",
+    "type": "RELEASE",
+    "slug": "07-2020"
+  },
+  {
+    "authors": ["Freeloader", "Subaiku", "ArthisRoo"],
+    "date": "09/2020",
+    "type": "PODCAST",
+    "title": "A New Bloke"
+  },
+  {
+    "authors": ["Freeloader", "Subaiku"],
+    "date": "09/2020",
+    "type": "PODCAST",
+    "title": "OK, Boomers"
+  },
+  {
+    "authors": ["Freeloader", "Subaiku"],
+    "date": "09/2020",
+    "type": "PODCAST",
+    "title": "Midsummer Buffs"
+  },
+  {
+    "authors": ["Freeloader", "Subaiku"],
+    "date": "09/2020",
+    "type": "PODCAST",
+    "title": "The Beginning"
+  }
+]

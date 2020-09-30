@@ -1,0 +1,32 @@
+.FeedEntry {
+  display: flex;
+}
+
+.FeedEntry__left {
+  margin-right: 2ch;
+}
+
+.FeedEntry__icon {
+  position: relative;
+  top: 0.225em;
+  font-size: 200%;
+  opacity: 0.5;
+  color: var(--beige);
+}
+
+.FeedEntry__main {
+  margin-top: 0;
+}
+
+.FeedEntry__date {
+  color: var(--beige);
+  text-transform: uppercase;
+  font-size: 75%;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 700px) {
+  .FeedEntry__left {
+    display: none;
+  }
+}
