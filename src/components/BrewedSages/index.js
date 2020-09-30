@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Article from '../Article'
 import Column from '../Column'
 import Notice from '../Notice'
@@ -28,9 +29,12 @@ export default React.memo(function BrewedSages(props) {
       background='/assets/images/banners/environment_shadowfen.png'
     >
       <p>
-        The Brewed Sages is the first Stormbound podcast, by Freeloader, Subaiku
-        and ArthisRoo. They gather around the mic on a regular basis to discuss
-        everything Stormbound. Tune in, and enjoy the show!
+        The Brewed Sages is the first Stormbound podcast, by{' '}
+        <Link to='/member/Freeloader'>Freeloader</Link>,{' '}
+        <Link to='/member/Subaiku'>Subaiku</Link> and{' '}
+        <Link to='/member/ArthisRoo'>ArthisRoo</Link>. They gather around the
+        mic on a regular basis to discuss everything Stormbound. Tune in, and
+        enjoy the show!
       </p>
 
       <Notice icon='quill'>
