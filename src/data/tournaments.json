@@ -30,6 +30,18 @@
     "deck": "1n21s11n41n51n61n101n111s81n181s121s181s22"
   },
   {
+    "name": "Debut Tournament",
+    "hosts": ["DGL"],
+    "podium": ["Ayanami", "Adig", "Quaker"],
+    "date": "11/2018"
+  },
+  {
+    "name": "CS #1 Finals",
+    "hosts": ["DGL"],
+    "podium": ["Shades", "Emkaem", "Quaker"],
+    "date": "01/2019"
+  },
+  {
     "name": "Diamond Tournament",
     "hosts": ["Kepp"],
     "podium": ["BluePhoenix", "RubenMG", "Mutant_Ninja"],
