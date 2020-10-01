@@ -14,7 +14,7 @@ export default React.memo(function ReleaseNotes(props) {
       <Row desktopOnly>
         <Column width='1/3'>
           <Teaser
-            cardId='N69'
+            cardId='N78'
             title='Second Sheepyard Update'
             meta='October 1st, 2020'
             excerpt='The second Sheepyard update is ready and brings a new bundle of goodness to the game: balance, new cards, new friendly matches settings.'
@@ -43,7 +43,7 @@ export default React.memo(function ReleaseNotes(props) {
       <Row desktopOnly>
         <Column width='1/3'>
           <Teaser
-            cardId='N21'
+            cardId='N77'
             title='First Sheepyard update'
             meta='July 15th, 2020'
             excerpt='The first update from Sheepyard featuring a new card, some balance tweaks, matchmaking improvements, economy updates, and more.'
