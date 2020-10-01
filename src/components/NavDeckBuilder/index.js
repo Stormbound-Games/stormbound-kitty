@@ -6,7 +6,10 @@ import serialisation from '../../helpers/serialisation'
 export default React.memo(function NavDeckBuilder(props) {
   const match = useRouteMatch()
   const id = match.params.deckId
-  const deck = id ? serialisation.deck.deserialise(id) : []
+  const deck = React.useMemo(
+    () => (id ? serialisation.deck.deserialise(id) : []),
+    [id]
+  )
   const hasBigEnoughDeck = deck.length === 12
 
   return (
