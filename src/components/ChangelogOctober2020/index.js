@@ -498,7 +498,7 @@ export default React.memo(function ChangelogOctober2020(props) {
             id: 'extra-coins',
             question: 'How come I received 300 coins?',
             answer:
-              'This is a global compensation for all players to apologise for the multiple hotfixes interrupting the game, and especially the Brawl.',
+              'Anyone logging into the game before October 2nd 11:59pm CET will be awarded 300 coins. This is a global compensation to apologise for the multiple hotfixes interrupting the game on October 1st, particularly Brawl matches.',
           },
           {
             id: 'doctor-mia',
