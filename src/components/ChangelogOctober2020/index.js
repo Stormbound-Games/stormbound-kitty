@@ -457,7 +457,7 @@ export default React.memo(function ChangelogOctober2020(props) {
             id: 'release-date',
             question: 'When is the update going to be released?',
             answer:
-              'The update should be released on October 1st, after which an immediate force update will be conducted so that all players download the new version from the Google Play Store and the App Store.',
+              'The update should be released on October 1st, after which a force update will be conducted so that all players download the new version from the Google Play Store and the App Store.',
           },
           {
             id: 'new-cards',
