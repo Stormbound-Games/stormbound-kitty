@@ -1,5 +1,12 @@
 [
   {
+    "author": "Kitty",
+    "title": "October update",
+    "date": "10/2020",
+    "type": "RELEASE",
+    "slug": "10-2020"
+  },
+  {
     "authors": ["Freeloader", "Subaiku", "ArthisRoo"],
     "date": "09/2020",
     "type": "PODCAST",
