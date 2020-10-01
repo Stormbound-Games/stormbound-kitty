@@ -154,7 +154,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
 
       <Notice>
         See you on the battlefield! If you have any comment or suggestion, get
-        in touch with Oeni#7266 on Discord.
+        in touch with oeni#7266 on Discord.
       </Notice>
     </Guide>
   )
