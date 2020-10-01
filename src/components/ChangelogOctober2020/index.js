@@ -11,6 +11,7 @@ import Row from '../Row'
 import Title from '../Title'
 import WikiLink from '../WikiLink'
 import getInitialCardData from '../../helpers/getInitialCardData'
+import serialisation from '../../helpers/serialisation'
 import './index.css'
 /*
 const Rarity = ({ rarity, amount }) => (
@@ -29,6 +30,23 @@ const Epic = ({ amount }) => <Rarity rarity='epic' amount={amount} />
 const Rare = ({ amount }) => <Rarity rarity='rare' amount={amount} />
 const Common = ({ amount }) => <Rarity rarity='common' amount={amount} />
 */
+
+const BISANU = serialisation.card.deserialise(
+  serialisation.card.serialise({
+    name: 'Bisanu',
+    id: 'N80',
+    type: 'unit',
+    faction: 'neutral',
+    race: 'ancient',
+    rarity: 'epic',
+    image: 'bisanu.png',
+    mana: 0,
+    strength: 0,
+    movement: 0,
+    ability: 'Stats and ability will be revealed when officially launched',
+  })
+)
+
 export default React.memo(function ChangelogOctober2020(props) {
   return (
     <Article
@@ -115,7 +133,11 @@ export default React.memo(function ChangelogOctober2020(props) {
       </p>
 
       <Article.FullWidth>
-        <CardBuilderCardDisplay {...getInitialCardData('N80')} />
+        <CardBuilderCardDisplay
+          {...BISANU}
+          imageURL='bisanu.png'
+          imageCardId={null}
+        />
       </Article.FullWidth>
 
       <Title id='balance-changes'>Balance Changes</Title>
@@ -465,8 +487,8 @@ export default React.memo(function ChangelogOctober2020(props) {
             answer: (
               <>
                 <WikiLink id='N78' /> will be available as of October 1st,{' '}
-                <WikiLink id='N79' /> from October 15th onwards, and{' '}
-                <WikiLink id='N80' /> 2 weeks after that.
+                <WikiLink id='N79' /> from October 15th onwards, and Bisanu 2
+                weeks after that.
               </>
             ),
           },

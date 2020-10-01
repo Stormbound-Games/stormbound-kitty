@@ -1041,19 +1041,6 @@
     "ability": "On play confuse the same number of surrounding enemies, as there are surrounding friendly units"
   },
   {
-    "name": "Bisanu",
-    "id": "N80",
-    "type": "unit",
-    "faction": "neutral",
-    "race": "ancient",
-    "rarity": "epic",
-    "image": "bisanu.png",
-    "mana": 0,
-    "strength": 0,
-    "movement": 0,
-    "ability": "Stats and ability will be revealed when officially launched"
-  },
-  {
     "name": "Destructobots",
     "id": "I1",
     "type": "unit",
