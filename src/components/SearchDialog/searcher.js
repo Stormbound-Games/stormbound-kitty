@@ -6,19 +6,8 @@ import puzzles from '../../data/puzzles'
 import { BRAWLS } from '../../constants/brawl'
 import { CATEGORIES } from '../../constants/guides'
 import { STORY_CATEGORIES } from '../../constants/stories'
-import { SWCC_SEASON_1, SWCC_SEASON_2 } from '../../constants/misc'
 
 export const SEARCH_INDEX = []
-const MEMBERS = [
-  ...new Set([
-    ...puzzles.map(puzzle => puzzle.author),
-    ...decks.map(deck => deck.author),
-    ...[...SWCC_SEASON_1, ...SWCC_SEASON_2].filter(
-      contest => contest.winner && contest.winner.author
-    ),
-    ...guides.reduce((authors, guide) => authors.concat(guide.authors), []),
-  ]),
-]
 
 cards
   .filter(card => !card.token)
@@ -44,6 +33,11 @@ SEARCH_INDEX.push({
 
 decks.forEach(deck => {
   SEARCH_INDEX.push({
+    path: `/member/${deck.author}`,
+    label: deck.author,
+    breadcrumbs: ['Community', 'Member'],
+  })
+  SEARCH_INDEX.push({
     path: `/deck/${deck.id}/detail`,
     label: `${deck.name} by ${deck.author}`,
     breadcrumbs: ['Tools', 'Deck Builder', 'Insights'],
@@ -64,6 +58,14 @@ guides.forEach(guide => {
     label: guide.name,
     breadcrumbs: ['Guides', CATEGORIES[guide.category].name.short],
   })
+
+  guide.authors.forEach(author =>
+    SEARCH_INDEX.push({
+      path: `/member/${author}`,
+      label: author,
+      breadcrumbs: ['Community', 'Member'],
+    })
+  )
 })
 
 SEARCH_INDEX.push({
@@ -71,16 +73,23 @@ SEARCH_INDEX.push({
   label: 'Battle Sim',
   breadcrumbs: ['Tools', 'Battle Sim', 'Editor'],
 })
+
 SEARCH_INDEX.push({
   path: '/sim/puzzles',
   label: 'Puzzles',
   breadcrumbs: ['Tools', 'Battle Sim', 'Puzzles'],
 })
+
 puzzles.forEach(puzzle => {
   SEARCH_INDEX.push({
     path: `/sim/${puzzle.board}`,
     label: puzzle.name,
     breadcrumbs: ['Community', 'Puzzles'],
+  })
+  SEARCH_INDEX.push({
+    path: `/member/${puzzle.author}`,
+    label: puzzle.author,
+    breadcrumbs: ['Community', 'Member'],
   })
 })
 
@@ -167,6 +176,7 @@ SEARCH_INDEX.push({
   label: 'Ranked Tier List',
   breadcrumbs: ['Game', 'Ranked Tier List'],
 })
+
 SEARCH_INDEX.push({
   path: '/list/equals',
   label: 'Equals Tier List',
@@ -235,14 +245,6 @@ Object.keys(STORY_CATEGORIES).forEach(id => {
     path: `/stories/${id}`,
     label: STORY_CATEGORIES[id].title,
     breadcrumbs: ['Stories', STORY_CATEGORIES[id].shortName],
-  })
-})
-
-MEMBERS.forEach(member => {
-  SEARCH_INDEX.push({
-    path: `/member/${member}`,
-    label: member,
-    breadcrumbs: ['Community', 'Member'],
   })
 })
 
