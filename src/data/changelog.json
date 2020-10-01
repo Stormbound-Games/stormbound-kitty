@@ -4054,5 +4054,113 @@
     "description": "Increased ability",
     "id": "W24",
     "type": "BUFF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Increased movement by 1",
+    "id": "N25",
+    "type": "BUFF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Increased range of ability from bordering to surrounding",
+    "id": "N25",
+    "type": "BUFF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Increased range of ability from bordering to surrounding",
+    "id": "S15",
+    "type": "BUFF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Increased range of ability from bordering to surrounding",
+    "id": "N36",
+    "type": "BUFF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Increased range of ability from bordering to surrounding",
+    "id": "N61",
+    "type": "BUFF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Increased ability by 1",
+    "id": "N69",
+    "type": "BUFF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Increased range of ability from bordering to surrounding at level 2",
+    "id": "I2",
+    "type": "BUFF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Increased strength by 1",
+    "id": "I27",
+    "type": "BUFF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Decreased mana by 1",
+    "id": "N49",
+    "type": "BUFF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Decreased mana cost by 1",
+    "id": "N66",
+    "type": "BUFF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Decreased strength by 2",
+    "id": "N66",
+    "type": "NERF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Increased ability by 1",
+    "id": "N40",
+    "type": "BUFF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Decreased movement by 1",
+    "id": "I28",
+    "type": "NERF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Increased mana by 1",
+    "id": "F4",
+    "type": "NERF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Increased ability by 1",
+    "id": "F4",
+    "type": "BUFF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Added to the game",
+    "id": "N78",
+    "type": "INFO"
+  },
+  {
+    "date": 1602720000000,
+    "description": "Added to the game",
+    "id": "N79",
+    "type": "INFO"
+  },
+  {
+    "date": 1604188800000,
+    "description": "Added to the game",
+    "id": "N80",
+    "type": "INFO"
   }
 ]

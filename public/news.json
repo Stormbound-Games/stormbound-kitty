@@ -1,5 +1,10 @@
 [
   {
+    "intro": "October Update",
+    "description": "The second Sheepyard update is here, so be sure to read everything you need to know!",
+    "link": "/changelog/10-2020"
+  },
+  {
     "intro": "Member Pages",
     "description": "The member pages have been reworked to display a feed of information about a player.",
     "link": "/member/Kitty"

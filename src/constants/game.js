@@ -13,6 +13,7 @@ export const TYPES = { unit: 'U', structure: 'S', spell: 'C' }
 export const RARITIES = { common: 'C', rare: 'R', epic: 'E', legendary: 'L' }
 
 export const RACES = {
+  ancient: 'A',
   construct: 'C',
   dragon: 'D',
   dwarf: 'W',

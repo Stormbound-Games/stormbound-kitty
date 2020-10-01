@@ -14,6 +14,15 @@ export default React.memo(function ReleaseNotes(props) {
       <Row desktopOnly>
         <Column width='1/3'>
           <Teaser
+            cardId='N69'
+            title='Second Sheepyard Update'
+            meta='October 1st, 2020'
+            excerpt='The second Sheepyard update is ready and brings a new bundle of goodness to the game: balance, new cards, new friendly matches settings.'
+            to='/changelog/10-2020'
+          />
+        </Column>
+        <Column width='1/3'>
+          <Teaser
             cardId='N8'
             title='3rd Anniversary'
             meta='September 18th, 2020'
@@ -30,6 +39,8 @@ export default React.memo(function ReleaseNotes(props) {
             to='/changelog/09-2020'
           />
         </Column>
+      </Row>
+      <Row desktopOnly>
         <Column width='1/3'>
           <Teaser
             cardId='N21'
@@ -39,6 +50,8 @@ export default React.memo(function ReleaseNotes(props) {
             to='/changelog/07-2020'
           />
         </Column>
+        <Column width='1/3'></Column>
+        <Column width='1/3'></Column>
       </Row>
 
       <Notice icon='compass'>
