@@ -1,7 +1,6 @@
 import React from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
-import isEqual from 'lodash.isequal'
 import serialisation from '../../helpers/serialisation'
 import getInitialDeckData from '../../helpers/getInitialDeckData'
 import sortByMana from '../../helpers/sortByMana'
@@ -17,7 +16,10 @@ class DeckBuilderRoot extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (!isEqual(prevState.deck, this.state.deck)) {
+    const prevStrDeck = prevState.deck.map(c => c.id + c.level).join(',')
+    const currStrDeck = this.state.deck.map(c => c.id + c.level).join(',')
+
+    if (prevStrDeck !== currStrDeck) {
       const { history, view } = this.props
       const id = serialisation.deck.serialise(this.state.deck)
       const { search } = window.location
