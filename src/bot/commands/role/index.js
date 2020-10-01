@@ -10,7 +10,7 @@ const LEAGUE_ROLES = [
   'Iron',
   'Starter',
 ]
-const FACTION_ROLES = ['Swarm', 'Shadowfen', 'Ironclad', 'Winter']
+const FACTION_ROLES = ['Swarm', 'Shadowfen', 'Ironclad', 'Winter', 'Neutral']
 const MISC_ROLES = ['Tournamentee', 'Streambound', 'Quest Helper', 'SWCC']
 const ROLES = [...LEAGUE_ROLES, ...MISC_ROLES]
 
