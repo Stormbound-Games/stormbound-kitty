@@ -229,10 +229,11 @@ export default React.memo(function ChangelogOctober2020(props) {
       </p>
       <ul>
         <li>cap the level of cards (from 1 to 5)</li>
-        <li>cap the fortress level (from 1 to 20)</li>
+        <li>cap the fortress level (1, 3, 6, 9, 10, 11, 12, 14, 17, 20)</li>
         <li>pick the starting mana (1, 3, 6, 9, 12, 15, 18, 21 or 24)</li>
         <li>
-          set up a turn counter (with possibility of ties; see video below)
+          set up a turn counter (10, 20 or 30; with possibility of ties as shown
+          in the video below)
         </li>
         <li>apply Brawl modifiers</li>
       </ul>
@@ -476,12 +477,6 @@ export default React.memo(function ChangelogOctober2020(props) {
         title='FAQ'
         entries={[
           {
-            id: 'release-date',
-            question: 'When is the update going to be released?',
-            answer:
-              'The update should be released on October 1st, after which a force update will be conducted so that all players download the new version from the Google Play Store and the App Store.',
-          },
-          {
             id: 'new-cards',
             question: 'When will the new cards be available in game?',
             answer: (
@@ -491,6 +486,24 @@ export default React.memo(function ChangelogOctober2020(props) {
                 weeks after that.
               </>
             ),
+          },
+          {
+            id: 'milestone-1',
+            question:
+              'Why the first Brawl milestone reward a Classic book and not a Humble book as usual?',
+            answer:
+              'This is a minor bug and will stay like this for this week but will be fixed for the next Brawl.',
+          },
+          {
+            id: 'extra-coins',
+            question: 'How come I received 300 coins?',
+            answer:
+              'This is a global compensation for all players to apologise for the multiple hotfixes interrupting the game, and especially the Brawl.',
+          },
+          {
+            id: 'doctor-mia',
+            question: 'Why are level 2 and level 3 of Doctor Mia the same?',
+            answer: 'This is a known oversight and will be addressed soon..',
           },
         ]}
       />
