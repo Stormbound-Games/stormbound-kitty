@@ -23,7 +23,10 @@ describe('Dry-runner — Rain of Frogs', () => {
       .drPlay('N2')
   })
 
-  it('should only be possible to play Green Prototypes after Rain of Frogs if Toxic Sacrifice was played in-between', () => {
+  // Technically still valid, but with Toxic Sacrifice costing 2 mana instead of
+  // 1, it is no longer possible to play it alongside 2 cards as first turn
+  // (given first turn means 3 mana in the dry-runner).
+  it.skip('should only be possible to play Green Prototypes after Rain of Frogs if Toxic Sacrifice was played in-between', () => {
     const HAND = ['N1', 'N2', 'F4', 'F8']
 
     cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`)

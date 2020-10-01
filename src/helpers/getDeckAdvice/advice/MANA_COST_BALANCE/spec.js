@@ -10,7 +10,7 @@ const getCards = (id, modifier = 'NONE') =>
 
 describe('The `MANA_COST_BALANCE` advice', () => {
   it('should be returned if there are at least 9 cards costing an odd number of mana', () => {
-    const cards = getCards('5n15n25n35n44n52n663n73n85n92n105n115n12')
+    const cards = getCards('5n15n25n35n44n53n73n85n92n105n115n121n13')
     expect(advice(cards)).to.not.equal(null)
   })
 

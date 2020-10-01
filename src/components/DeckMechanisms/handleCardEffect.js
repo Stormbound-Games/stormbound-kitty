@@ -36,10 +36,10 @@ const handleCardEffect = (state, card, mode, HoS) => {
   // to be played and would not fill the board by itself. Any 2 mana card will
   // have to be played together with a 1 mana card. This will cause a board
   // filling issue only when this card is Rain of Frogs.
-  // The remaining playable cards are Green Prototypes, Summon Militia, Toxic
-  // Sacrifice and Rain of Frogs. In these cases, the `emptyCellsIndicator`
-  // variable represents how many cells are free. In the other cases it is not
-  // needed and will never be set to 0.
+  // The remaining playable cards are Green Prototypes, Summon Militia and Rain
+  // of Frogs. In these cases, the `emptyCellsIndicator` variable represents how
+  // many cells are free. In the other cases it is not needed and will never be
+  // set to 0.
   switch (card.id) {
     // Green Prototypes (necessarily advance the frontline since only the
     // four 1 mana cards are taken into account)
@@ -58,14 +58,6 @@ const handleCardEffect = (state, card, mode, HoS) => {
           state.specifics.emptyCellsIndicator - 1,
           0
         )
-      }
-      break
-    }
-
-    // Toxic Sacrifice (frees up at least one cell)
-    case 'F4': {
-      if (state.turn === 1) {
-        state.specifics.emptyCellsIndicator += 1
       }
       break
     }
