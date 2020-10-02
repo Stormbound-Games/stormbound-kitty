@@ -519,7 +519,7 @@
     "mana": 6,
     "strength": null,
     "movement": null,
-    "ability": "*Give 6/7/9/9/11* strength to a target friendly unit and *2/2/3/4/5* strength to all others of the same *unit type*"
+    "ability": "*Give 6/7/7/9/11* strength to a target friendly unit and *2/2/3/4/5* strength to all others of the same *unit type*"
   },
   {
     "name": "Lich Summoners",
@@ -662,7 +662,7 @@
     "rarity": "rare",
     "image": "dangerous_suitors.png",
     "mana": 6,
-    "strength": "5/7/7/10/10",
+    "strength": "5/7/7/8/10",
     "movement": 1,
     "ability": "On play, *gain 2/2/3/3/4* strength for every other Dragon on the board"
   },
