@@ -5,7 +5,10 @@ import './index.css'
 
 export default React.memo(function LearnMoreIcon(props) {
   return (
-    <Link to={'/faq' + (props.anchor || '')} className='LearnMoreIcon'>
+    <Link
+      to={{ pathname: '/faq', hash: props.anchor }}
+      className='LearnMoreIcon'
+    >
       <span className='VisuallyHidden'>
         {props.children || 'Learn more in the FAQ'}
       </span>

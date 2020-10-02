@@ -477,7 +477,7 @@ export default React.memo(function ChangelogOctober2020(props) {
         title='FAQ'
         entries={[
           {
-            id: 'new-cards',
+            id: 'new-cards-date',
             question: 'When will the new cards be available in game?',
             answer: (
               <>

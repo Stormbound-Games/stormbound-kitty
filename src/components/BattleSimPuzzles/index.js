@@ -81,8 +81,15 @@ export default class BattleSimPuzzles extends React.Component {
             )}
             <Notice icon='sword'>
               Design your own puzzles and{' '}
-              <Link to='/faq#adding-a-puzzle'>have them added</Link> to the
-              list!
+              <Link
+                to={{
+                  pathname: '/faq',
+                  hash: '#adding-a-puzzle',
+                }}
+              >
+                have them added
+              </Link>{' '}
+              to the list!
             </Notice>
           </Column>
         </Row>

@@ -50,7 +50,10 @@ export default React.memo(function CardBuilderImageErrorDialog(props) {
             Unfortunately it looks like it is not possible to load that image,
             either because it’s not actually an image format or because the
             website protects it from being linked from other places.{' '}
-            <Link to='/faq#card-image-error'>Learn more in the FAQ</Link>.
+            <Link to={{ pathname: '/faq', hash: '#card-image-error' }}>
+              Learn more in the FAQ
+            </Link>
+            .
           </p>
 
           <p>

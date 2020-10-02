@@ -1,5 +1,4 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
 import Column from '../Column'
 import FAQSection from '../FAQSection'
 import HeaderBanner from '../HeaderBanner'
@@ -12,7 +11,6 @@ import categories from '../../data/faq'
 import './index.css'
 
 export default React.memo(function FAQ() {
-  const { hash } = useLocation()
   const [expanded, setExpanded] = React.useState([])
   const toggle = id =>
     expanded.includes(id)
@@ -20,11 +18,9 @@ export default React.memo(function FAQ() {
       : setExpanded(ids => [...ids, id])
 
   React.useEffect(() => {
-    if (!hash) return
-    const node = document.querySelector(hash)
-    if (node) setTimeout(() => node.scrollIntoView(true), 300)
+    if (!window.location.hash) return
 
-    const requestedId = hash.slice(1)
+    const requestedId = window.location.hash.slice(1)
     const category = categories.find(
       cat =>
         cat.id === requestedId ||
@@ -34,8 +30,8 @@ export default React.memo(function FAQ() {
     if (category && !expanded.includes(category.id)) {
       setExpanded(ids => [...ids, category.id])
     }
-    //eslint-disable-next-line
-  }, [hash])
+    // eslint-disable-next-line
+  }, [])
 
   return (
     <div className='FAQ'>

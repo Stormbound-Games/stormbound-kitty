@@ -54,7 +54,7 @@ export default React.memo(function BooksCalculator(props) {
             average amount of coins based on your collection. Huge thanks to
             Neicigam (Neicigam#0095 on Discord) for helping with the math and
             the logic making this simulator possible.{' '}
-            <Link to='/faq#books-calculator'>
+            <Link to={{ pathname: '/faq', hash: '#books-calculator' }}>
               Learn more about how it works.
             </Link>
           </p>

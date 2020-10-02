@@ -46,7 +46,10 @@ export default React.memo(function Guides(props) {
         <Only.Desktop>
           <br />
         </Only.Desktop>{' '}
-        <Link to='/faq#adding-a-guide'>Have your own guide published</Link>.
+        <Link to={{ pathname: '/faq', hash: '#adding-a-guide' }}>
+          Have your own guide published
+        </Link>
+        .
       </Notice>
 
       <PageMeta

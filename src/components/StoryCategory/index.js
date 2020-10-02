@@ -50,7 +50,10 @@ export default React.memo(function StoryCategory(props) {
         <Only.Desktop>
           <br />
         </Only.Desktop>{' '}
-        <Link to='/faq#adding-a-story'>Have your own story published</Link>.
+        <Link to={{ pathname: '/faq', hash: '#adding-a-story' }}>
+          Have your own story published
+        </Link>
+        .
       </Notice>
 
       <PageMeta
