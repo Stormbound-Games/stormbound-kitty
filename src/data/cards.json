@@ -1062,9 +1062,9 @@
     "rarity": "legendary",
     "image": "doctor_mia.png",
     "mana": 2,
-    "strength": "2/3/3/4/5",
+    "strength": "2/3/4/4/5",
     "movement": 0,
-    "ability": "On play, *trigger* the ability of all *bordering/surrounding/surrounding/surrounding/ * friendly structures",
+    "ability": "On play, *trigger* the ability of all *bordering/surrounding/surrounding// * friendly structures",
     "hero": true
   },
   {
