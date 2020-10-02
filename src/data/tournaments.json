@@ -314,5 +314,16 @@
         "authors": ["Helios", "Emkaem"]
       }
     ]
+  },
+  {
+    "name": "Odd & Even Tournament",
+    "hosts": ["Derk", "ArthisRoo", "Kitty"],
+    "podium": ["HanooSt", "Ajmm"],
+    "date": "09/2020",
+    "description": "The Odd & Even Tournament relied on having only odd or even cards within a single deck, preventing most of the main combos from being played.",
+    "decks": [
+      { "id": "1i11n231n61i51n671n181i131n641i271i201n391n57" },
+      { "id": "1n11f51f271n111n131f71n631n601n381n691n361f22" }
+    ]
   }
 ]
