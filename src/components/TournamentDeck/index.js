@@ -2,15 +2,61 @@ import React from 'react'
 import FeaturedDeck from '../FeaturedDeck'
 import MemberList from '../MemberList'
 import { getDate } from '../TournamentHallOfFame'
+import toSentence from '../../helpers/toSentence'
 
 const toArray = value => (Array.isArray(value) ? value : [value])
 
+const getDeckAuthor = (podium, decks, index) => {
+  const deck = decks[index]
+
+  if (typeof deck.author === 'string') {
+    return deck.author
+  }
+
+  if (Array.isArray(deck.authors)) {
+    return <MemberList members={deck.authors} />
+  }
+
+  if (typeof podium[index] === 'string') {
+    return podium[index]
+  }
+
+  if (Array.isArray(podium[index])) {
+    return <MemberList members={podium[index]} />
+  }
+
+  return 'unknown author'
+}
+
+const getDeckName = (podium, decks, index) => {
+  const deck = decks[index]
+  const author = getDeckAuthor(podium, decks, index)
+  const withS = author => !/[xzs]$/.test(author)
+
+  if (typeof deck.name === 'string') {
+    return deck.name
+  }
+
+  if (typeof author === 'string') {
+    return `${author}’${withS(author) ? 's' : ''} deck`
+  }
+
+  const authors = deck.authors || podium[index]
+
+  return (
+    toSentence(
+      authors.map(author => author + (withS(author) ? '’s' : '’')),
+      'and'
+    ) + ' deck'
+  )
+}
+
 export default React.memo(function TournamentDeck(props) {
   const [index, setIndex] = React.useState(0)
-  const decks = Array.isArray(props.deck) ? props.deck : [props.deck]
-  const winner = props.podium[0]
+  const { decks, podium } = props
+  const winner = podium[0]
 
-  if (!props.deck) {
+  if (!props.decks) {
     return (
       <p>
         The winner’s deck is not available. If you happen to know which deck{' '}
@@ -24,13 +70,9 @@ export default React.memo(function TournamentDeck(props) {
   return (
     <>
       <FeaturedDeck
-        id={decks[index]}
-        name={['1st Deck', '2nd Deck', '3rd Deck'][index]}
-        author={
-          <>
-            <MemberList members={toArray(props.podium[index])} />
-          </>
-        }
+        id={decks[index].id}
+        name={getDeckName(podium, decks, index)}
+        author={getDeckAuthor(podium, decks, index)}
         category='EQUALS'
         nerfed={getDate(props.date) < new Date(2019, 6, 1) ? '07.2020' : null}
         noAuthorLink

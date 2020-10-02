@@ -19,7 +19,11 @@
     "podium": ["Fezzix", "Fishy", "HikingViking"],
     "date": "07/2018",
     "description": "The new Harvesters of Souls card was added to the game! Built by the community, this tournament was made to show it off, and see its power.",
-    "deck": "1n11n21s11n51n61n101n121n131s81s121n411n39"
+    "decks": [
+      {
+        "id": "1n11n21s11n51n61n101n121n131s81s121n411n39"
+      }
+    ]
   },
   {
     "name": "Kingdom Wars Tournament",
@@ -27,7 +31,12 @@
     "podium": [["Emkaem", "Cerberus", "GoldenCrook"]],
     "date": "09/2018",
     "description": "The biggest tournament Stormbound has ever seen! The 4 factions battled against each other round robin style! Each player brought glory to their faction, and the MVP got extra prizes.",
-    "deck": "1n21s11n41n51n61n101n111s81n181s121s181s22"
+    "decks": [
+      {
+        "id": "1n21s11n41n51n61n101n111s81n181s121s181s22",
+        "name": "Winning team’s deck"
+      }
+    ]
   },
   {
     "name": "Debut Tournament",
@@ -47,10 +56,10 @@
     "podium": ["BluePhoenix", "RubenMG", "Mutant_Ninja"],
     "date": "02/2019",
     "description": "Only the top of the top could join! In a battle of wits and high strategy, this tournament was hosted for Diamond players only.",
-    "deck": [
-      "5n15n25f45f15f25f35n35n45n55n125n285f14",
-      "1n11n31n51n61n71n101n121i71n161i111i61i12",
-      "1n11f41f11f21n31f81n161f101n281f141f151n40"
+    "decks": [
+      { "id": "5n15n25f45f15f25f35n35n45n55n125n285f14" },
+      { "id": "1n11n31n51n61n71n101n121i71n161i111i61i12" },
+      { "id": "1n11f41f11f21n31f81n161f101n281f141f151n40" }
     ]
   },
   {
@@ -59,10 +68,10 @@
     "podium": ["ggshhh", "BluePhoenix", "TromboneFish"],
     "date": "04/2019",
     "description": "Prepare your battalions! A legendary in each deck, acting as a general to guide your battles! The most powerful general across the whole tournament would bring extra prizes to their players.",
-    "deck": [
-      "1n11i11i21i51i81i101n181i131i61i201i191n47",
-      "1n11n51n61w51n221w71w81w61w131w151w181n57",
-      "1n11i11i21i51i81i101n181i131i61i201i161n39"
+    "decks": [
+      { "id": "1n11i11i21i51i81i101n181i131i61i201i191n47" },
+      { "id": "1n11n51n61w51n221w71w81w61w131w151w181n57" },
+      { "id": "1n11i11i21i51i81i101n181i131i61i201i161n39" }
     ]
   },
   {
@@ -71,7 +80,7 @@
     "podium": ["BluePhoenix", "Arikrat", "Yaroslav"],
     "date": "06/2019",
     "description": "One of the first tournaments to try out battling at current levels, with each level being divided in groups.",
-    "deck": "5n15n25s15n35n44s25s75n155s144s95s165s20"
+    "decks": [{ "id": "5n15n25s15n35n44s25s75n155s144s95s165s20" }]
   },
   {
     "name": "Sealed Tournament",
@@ -79,10 +88,10 @@
     "podium": ["HackaKat", "TromboneFish", "BluePhoenix"],
     "date": "07/2019",
     "description": "No deckbuilding required! In this tournament you were given a random deck with which you had to battle your way to the top!",
-    "deck": [
-      "1w11w21n31n101w31n171n191n321w61w131n361n54",
-      "1n51i51n71n121i111n191n201i151n251i191i211n57",
-      "1i11n71n171i111n191i61n311i151i201n341n541n55"
+    "decks": [
+      { "id": "1w11w21n31n101w31n171n191n321w61w131n361n54" },
+      { "id": "1n51i51n71n121i111n191n201i151n251i191i211n57" },
+      { "id": "1i11n71n171i111n191i61n311i151i201n341n541n55" }
     ]
   },
   {
@@ -91,10 +100,10 @@
     "podium": ["BluePhoenix", "Konopaku", "ArthisRoo"],
     "date": "10/2019",
     "description": "The real royals of a deck are rares and commons! In this tournament decks were made only of those two types of cards.",
-    "deck": [
-      "1n11i11n61i51i71i91i201i251n321n681n471n52",
-      "1s11s241n41s51s251s71n151n211s131s91s161n68",
-      "1i11n111n131i91n211i61i151i201i121n681n471i26"
+    "decks": [
+      { "id": "1n11i11n61i51i71i91i201i251n321n681n471n52" },
+      { "id": "1s11s241n41s51s251s71n151n211s131s91s161n68" },
+      { "id": "1i11n111n131i91n211i61i151i201i121n681n471i26" }
     ]
   },
   {
@@ -103,10 +112,10 @@
     "podium": ["BluePhoenix", "HanooSt", "Damdam011"],
     "date": "01/2020",
     "description": "This was a smaller tournament Kepp hosted while he prepared a bigger one, to keep the community entertained using random decks",
-    "deck": [
-      "1i41n91n611i111n641i271n271i201n301i121i161n70",
-      "1i11i41i51n71n121i101i61n261i121n451n531n57",
-      "1i11i51i91n171n751i271n261i201n301i181n401n52"
+    "decks": [
+      { "id": "1i41n91n611i111n641i271n271i201n301i121i161n70" },
+      { "id": "1i11i41i51n71n121i101i61n261i121n451n531n57" },
+      { "id": "1i11i51i91n171n751i271n261i201n301i181n401n52" }
     ]
   },
   {
@@ -115,10 +124,10 @@
     "podium": ["HanooSt", "Strongraycool44", "ArthisRoo"],
     "date": "02/2020",
     "description": "The elders just arrived to Stormbound! Players battled using these new cards to prove their power!",
-    "deck": [
-      "1n11n61w51w281w71w241w131n341n391w271n571w19",
-      "1n11i11n61i81i91n181i131i271i201i161i281n52",
-      "1n11f31f271n111f71n221n641f141f181f281n451n68"
+    "decks": [
+      { "id": "1n11n61w51w281w71w241w131n341n391w271n571w19" },
+      { "id": "1n11i11n61i81i91n181i131i271i201i161i281n52" },
+      { "id": "1n11f31f271n111f71n221n641f141f181f281n451n68" }
     ]
   },
   {
@@ -132,10 +141,10 @@
     "hosts": ["Strongraycool44"],
     "podium": ["FrozenEarth", "Felcruel", "Dracqi"],
     "date": "10/2020",
-    "deck": [
-      "1n11i11n81i81i101n191i131n211i61i151n271i21",
-      "1n41n81n111i71i91n161n211i61i201n381i191n33",
-      "1n11n71n111n161w51n191n211n251w91n361w161w10"
+    "decks": [
+      { "id": "1n11i11n81i81i101n191i131n211i61i151n271i21" },
+      { "id": "1n41n81n111i71i91n161n211i61i201n381i191n33" },
+      { "id": "1n11n71n111n161w51n191n211n251w91n361w161w10" }
     ]
   },
   {
@@ -144,10 +153,10 @@
     "podium": ["HanooSt", "Dracqi", "RecklessRush"],
     "date": "12/2019",
     "description": "In All or Nothing, if the game reaches 15 mana and no one has won, it will be counted as a draw and nobody takes that round.",
-    "deck": [
-      "1n11i11i21i81i101n181i61n241i201i161i191n36",
-      "1n11i11i51i71i81i91i101i131i61i151i201i17",
-      "1n11s241n61s41n111s81n631n181s111s181n461n68"
+    "decks": [
+      { "id": "1n11i11i21i81i101n181i61n241i201i161i191n36" },
+      { "id": "1n11i11i51i71i81i91i101i131i61i151i201i17" },
+      { "id": "1n11s241n61s41n111s81n631n181s111s181n461n68" }
     ]
   },
   {
@@ -159,16 +168,16 @@
       ["BluePhoenix", "Dracqi", "ErikBust", "Ajmm"]
     ],
     "date": "03/2020",
-    "deck": "1n11w21n81n111n151w31w51n221w131n461w171w19"
+    "decks": [{ "id": "1n11w21n81n111n151w31w51n221w131n461w171w19" }]
   },
   {
     "name": "Anniversary Tournament",
     "hosts": ["Strongraycool44"],
     "podium": ["ArthisRoo", "Helios", "Strongraycool44"],
     "date": "04/2020",
-    "deck": [
-      "1i21i41n61n81i71i131n641i201n361i281n461i23",
-      "1n21n61n81i71n221n641i151n261n691i281n701n58"
+    "decks": [
+      { "id": "1i21i41n61n81i71i131n641i201n361i281n461i23" },
+      { "id": "1n21n61n81i71n221n641i151n261n691i281n701n58" }
     ]
   },
   {
@@ -177,10 +186,10 @@
     "podium": ["HanooSt", "ArthisRoo", "Derk"],
     "date": "04/2020",
     "description": "The Ban Tourney had a very big list of unbalanced and commonly used cards banned, forcing to get creative.",
-    "deck": [
-      "1n231n61n101f71n151f91n591n261f121f171f191f21",
-      "1n21f31n671f51n111f71n261f121f161f171f181n52",
-      "1n21i11n111i81i101i61n641i161i181i211i231n52"
+    "decks": [
+      { "id": "1n231n61n101f71n151f91n591n261f121f171f191f21" },
+      { "id": "1n21f31n671f51n111f71n261f121f161f171f181n52" },
+      { "id": "1n21i11n111i81i101i61n641i161i181i211i231n52" }
     ]
   },
   {
@@ -203,10 +212,10 @@
     "podium": ["Emkaem", "Derk", "Taco_G"],
     "date": "05/2020",
     "description": "The Designers Tournament faced vanilla cards (cards with no ability) against non-vanilla cards to see which were the best.",
-    "deck": [
-      "1n11f31n61n101f271f91n181f241f141n741f201n68",
-      "1n11i11n61n101i81i131i61n641i271i201n741n68",
-      "1n11i11n671i71i81i131i61i151i271i201i121i28"
+    "decks": [
+      { "id": "1n11f31n61n101f271f91n181f241f141n741f201n68" },
+      { "id": "1n11i11n61n101i81i131i61n641i271i201n741n68" },
+      { "id": "1n11i11n671i71i81i131i61i151i271i201i121i28" }
     ]
   },
   {
@@ -226,10 +235,10 @@
     "podium": ["Strongraycool44", "Mathematica", "HanooSt"],
     "date": "06/2020",
     "description": "The Black Sheep Tournament imposed specific “black sheep” cards which had to be played before a win could be claimed.",
-    "deck": [
-      "1n11i11n61n101i81i111i131n711n271i201i281n52",
-      "1n11i11n121i31i81i101i111i61i201i121i161i28",
-      "1w51w281w71n271w241w91w131n471w201w191n551n57"
+    "decks": [
+      { "id": "1n11i11n61n101i81i111i131n711n271i201i281n52" },
+      { "id": "1n11i11n121i31i81i101i111i61i201i121i161i28" },
+      { "id": "1w51w281w71n271w241w91w131n471w201w191n551n57" }
     ]
   },
   {
@@ -245,10 +254,10 @@
     "podium": ["Derk", "ArthisRoo", "Stratadox"],
     "date": "07/2020",
     "description": "The Renaissance Tournament aimed to bring back veteran players and navigating a set of challenging deck restrictions.",
-    "deck": [
-      "1n11f31n111n131f81n221n411n261f171n451n461n47",
-      "1n11f31n111n131f81n221n411n261f171n451n461n47",
-      "1n71n81n141w31w51w91w131w161n391n461w181w19"
+    "decks": [
+      { "id": "1n11f31n111n131f81n221n411n261f171n451n461n47" },
+      { "id": "1n11f31n111n131f81n221n411n261f171n451n461n47" },
+      { "id": "1n71n81n141w31w51w91w131w161n391n461w181w19" }
     ]
   },
   {
@@ -264,10 +273,10 @@
     "podium": ["Helios", "Roman_NFP", "HanooSt"],
     "date": "08/2020",
     "description": "The Snowball tournament relies on not playing any card before 6 mana (7 for the second player). The goal of the tournament was to compose heavy decks, which can start strong right from the opening move.",
-    "deck": [
-      "1n61n111n181n641w71n601w91n461n681n481w191n58",
-      "1n131n641w71n601w91w131w161n391n461n481w191n58",
-      "1n11s11s241n61n671s61n151s81s111n311s191s28"
+    "decks": [
+      { "id": "1n61n111n181n641w71n601w91n461n681n481w191n58" },
+      { "id": "1n131n641w71n601w91w131w161n391n461n481w191n58" },
+      { "id": "1n11s11s241n61n671s61n151s81s111n311s191s28" }
     ]
   },
   {
@@ -285,6 +294,24 @@
       ["FrozenEarth", "Derk"]
     ],
     "date": "09/2020",
-    "description": "Through the use of a bot, players are presented with 12 separate selections of cards and must choose a card from each set, drafting a 12-card deck to battle against other players."
+    "description": "Through the use of a bot, players are presented with 12 separate selections of cards and must choose a card from each set, drafting a 12-card deck to battle against other players.",
+    "decks": [
+      {
+        "id": "1f21f51f271f71n731f91n411n251f151n381n361f21",
+        "authors": ["Helios", "Emkaem"]
+      },
+      {
+        "id": "1i41n621n81n611n181n211i271i251i161n601i191n36",
+        "authors": ["Helios", "Emkaem"]
+      },
+      {
+        "id": "1w21n61w31n631n211n271n601w91n341w161n721w23",
+        "authors": ["Helios", "Emkaem"]
+      },
+      {
+        "id": "1s251s71n151s121n591n211n221s161n451s231n571n55",
+        "authors": ["Helios", "Emkaem"]
+      }
+    ]
   }
 ]
