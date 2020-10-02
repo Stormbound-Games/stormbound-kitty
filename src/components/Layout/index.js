@@ -9,7 +9,7 @@ import './index.css'
 const SearchDialog = load('SearchDialog')
 
 export default React.memo(function Layout(props) {
-  const { pathname } = useLocation()
+  const { hash } = useLocation()
   const searchDialog = React.useRef(null)
   const [isSearchReady, setIsSearchReady] = React.useState(false)
 
@@ -33,7 +33,7 @@ export default React.memo(function Layout(props) {
         window.scrollTo(0, 0)
       }
     }, 500)
-  }, [pathname])
+  }, [hash])
 
   return (
     <div className='Layout'>
