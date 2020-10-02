@@ -48,7 +48,8 @@
     "name": "CS #1 Finals",
     "hosts": ["DGL"],
     "podium": ["Shades", "Emkaem", "Quaker"],
-    "date": "01/2019"
+    "date": "01/2019",
+    "decks": [{ "id": "1n11i11i21n81i81i101n191i61i201i161i231n57" }]
   },
   {
     "name": "Diamond Tournament",
