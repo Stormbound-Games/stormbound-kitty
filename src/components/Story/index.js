@@ -16,7 +16,7 @@ import getReadingTime from '../../helpers/getReadingTime'
 import useFetch from '../../hooks/useFetch'
 import './index.css'
 
-export default function Story(props) {
+export default React.memo(function Story(props) {
   const [ref, inView] = useInView()
   const match = useRouteMatch()
   const { storyId: id } = match.params
@@ -71,4 +71,4 @@ export default function Story(props) {
       )}
     </div>
   )
-}
+})
