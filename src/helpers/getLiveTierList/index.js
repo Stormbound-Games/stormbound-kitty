@@ -18,13 +18,13 @@ const getLiveTierList = () => {
   const found = {}
 
   // Array of tiers (at most)
-  // 0 -> “0.9 — 1.0”, 1 -> “0.8 — 0.9”, 2 -> “0.7 — 0.8”…
+  // 0 -> “0.9 – 1.0”, 1 -> “0.8 – 0.9”, 2 -> “0.7 – 0.8”…
   let tiers = Array.from({ length: 10 }, (_, index) => {
     const upper = 1 - index * 0.1
     const lower = Math.abs(upper - 0.1)
 
     return {
-      name: lower.toFixed(1) + ' — ' + upper.toFixed(1),
+      name: lower.toFixed(1) + ' – ' + upper.toFixed(1),
       cards: [],
     }
   })

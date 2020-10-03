@@ -77,11 +77,12 @@ export default React.memo(function GuideBeginner(props) {
       <p>
         The bases do not count as structures. That being said, when a card
         ability states “<span className='Highlight'>enemy</span>” without
-        precising “unit” or “structure” — like <WikiLink id='I19' /> or{' '}
-        <WikiLink id='S15' /> — the enemy base counts as an enemy and it enables
-        these cards to do direct damage to the base. This mechanism is heavily
-        used in some decks, preferring damaging the base without actually
-        passing units through (called “chip”).
+        precising “unit” or “structure”—like <WikiLink id='I19' /> or{' '}
+        <WikiLink id='S15' />
+        —the enemy base counts as an enemy and it enables these cards to do
+        direct damage to the base. This mechanism is heavily used in some decks,
+        preferring damaging the base without actually passing units through
+        (called “chip”).
       </p>
 
       <Title>Cards and decks</Title>
@@ -111,10 +112,10 @@ export default React.memo(function GuideBeginner(props) {
         Token units can be identified by their name as it will always start with
         the word “Token”. They have no level, 1 movement, and cost 0 mana. This
         is relevant for cards like <WikiLink id='N38' /> and{' '}
-        <WikiLink id='N8' /> — if Harvesters of Souls attack an enemy token
-        unit, they’ll put one in your deck with 0 mana cost. The strength of
-        token units varies with the level of Harvesters of Souls and Collector
-        Mirz.
+        <WikiLink id='N8' />
+        —if Harvesters of Souls attack an enemy token unit, they’ll put one in
+        your deck with 0 mana cost. The strength of token units varies with the
+        level of Harvesters of Souls and Collector Mirz.
       </p>
 
       <p>
@@ -127,11 +128,11 @@ export default React.memo(function GuideBeginner(props) {
       <p>There are four triggers of unit effects:</p>
       <ul>
         <li>
-          <strong className='Highlight'>On play</strong> — when they’re first
+          <strong className='Highlight'>On play</strong>—when they’re first
           placed down.
         </li>
         <li>
-          <strong className='Highlight'>On attack</strong> — shown by two swords
+          <strong className='Highlight'>On attack</strong>—shown by two swords
           above the unit.
           <ul>
             <li>
@@ -145,14 +146,14 @@ export default React.memo(function GuideBeginner(props) {
           </ul>
         </li>
         <li>
-          <strong className='Highlight'>On death</strong> — shown by a skull
-          above the unit e.g. <WikiLink id='I12' /> deals damage to a random
-          bordering enemy on death — the potential enemies are on tiles
-          bordering the tile where it died. Units that die when attacking die on
-          the previous tile, not the tile they attacked.
+          <strong className='Highlight'>On death</strong>—shown by a skull above
+          the unit e.g. <WikiLink id='I12' /> deals damage to a random bordering
+          enemy on death—the potential enemies are on tiles bordering the tile
+          where it died. Units that die when attacking die on the previous tile,
+          not the tile they attacked.
         </li>
         <li>
-          <strong className='Highlight'>When surviving damage</strong> — only
+          <strong className='Highlight'>When surviving damage</strong>—only
           Elders have these abilities. They can trigger at any time, including
           during your turn, when they take any type of damage without dying.
           This includes during the enemy’s turn either through enemy units

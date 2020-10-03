@@ -370,7 +370,7 @@ export default function Router(props) {
           </Page>
 
           <Page path='*'>
-            <Error error='HTTP 404 — Not Found' />
+            <Error error='HTTP 404 – Not Found' />
           </Page>
         </Switch>
       </BrowserRouter>

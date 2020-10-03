@@ -208,12 +208,12 @@ export default React.memo(function GuideDrawing(props) {
           This works similarly to First Mutineer and Freebooters.
         </li>
         <li>
-          <WikiLink id='N33' /> — provided it is played as first card of a turn
-          — discards the remaining hand and draws 3 or 4 cards following the
-          usual weighted random, causing at least 1 reweighing of the deck. It
-          is unclear whether all 3 cards are discarded at once or sequentially,
-          although the difference should be relatively minor (2 reweighing
-          instead of 4).
+          <WikiLink id='N33' />
+          —provided it is played as first card of a turn—discards the remaining
+          hand and draws 3 or 4 cards following the usual weighted random,
+          causing at least 1 reweighing of the deck. It is unclear whether all 3
+          cards are discarded at once or sequentially, although the difference
+          should be relatively minor (2 reweighing instead of 4).
         </li>
       </ul>
 
@@ -221,7 +221,7 @@ export default React.memo(function GuideDrawing(props) {
 
       <p>
         Finally, let’s have a look at a few last cards with mechanics impacting
-        the hand and the deck — none of which has particularly odd resolution.
+        none of which has particularly odd resolution.
       </p>
 
       <Only.Desktop>
@@ -241,8 +241,9 @@ export default React.memo(function GuideDrawing(props) {
       </Only.Desktop>
 
       <p>
-        <WikiLink id='S3' /> — which oddly has a pirate-like ability despite
-        being in Swarm of the East — is working as one would expect.
+        <WikiLink id='S3' />
+        —which oddly has a pirate-like ability despite being in Swarm of the
+        East—is working as one would expect.
       </p>
 
       <p>

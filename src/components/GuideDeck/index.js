@@ -144,10 +144,10 @@ export default React.memo(function GuideDeck(props) {
       <Title id='capabilities'>Capabilities</Title>
 
       <p>
-        First and foremost, you need some units who can advance the front line —
-        if they don't on play, they will on the next. Structures can’t walk, and
-        take up available space on the board. Advancing the front line gives
-        more space to play more cards.
+        First and foremost, you need some units who can advance the front
+        line—if they don't on play, they will on the next. Structures can’t
+        walk, and take up available space on the board. Advancing the front line
+        gives more space to play more cards.
       </p>
 
       <p>
@@ -160,7 +160,7 @@ export default React.memo(function GuideDeck(props) {
 
       <p>
         Secondly, you need your game winner, as mentioned above. You must have
-        at least one of these in your deck — you cannot expect to reliably stall
+        at least one of these in your deck—you cannot expect to reliably stall
         out and casually pass some units through for the win. Not reliably at
         least.
       </p>
@@ -282,7 +282,7 @@ export default React.memo(function GuideDeck(props) {
         you draw a third of the deck (4 out of 12) into your hand, from turn 1
         you have a 1/3 chance that any given card is among the 4/12 that makes
         your starting hand. Since the game does not allow for multiples
-        occurrences of the same card in a hand at one time — if you do not have
+        occurrences of the same card in a hand at one time—if you do not have
         the card you would like, then the likelihood of getting it when cycling
         is significantly greater.
       </p>
@@ -299,7 +299,7 @@ export default React.memo(function GuideDeck(props) {
         You will be able to play multiple cards only if you are using one of the
         few cards which cost 1 mana, and also have a card which costs 2 in the
         same hand. If you do not have one, you can always cycle any other card.
-        Efficiency chooses those which cost 5 or more — which you cannot play on
+        Efficiency chooses those which cost 5 or more—which you cannot play on
         the following turn.
       </p>
 

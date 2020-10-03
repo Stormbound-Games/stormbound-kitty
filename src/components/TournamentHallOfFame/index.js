@@ -155,7 +155,7 @@ export default React.memo(function TournamentHallOfFame(props) {
       </Notice>
 
       <PageMeta
-        title='Tournaments — Hall of Fame'
+        title='Tournaments – Hall of Fame'
         description='Find the list of all past Stormbound tournaments and the hall of fame.'
       />
     </Article>

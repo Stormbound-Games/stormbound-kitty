@@ -51,8 +51,8 @@ export default React.memo(function Donate(props) {
           rel='noopener noreferrer'
         >
           Gumroad
-        </a>{' '}
-        — a secure platform for online purchases. The amount is totally up to
+        </a>
+        —a secure platform for online purchases. The amount is totally up to
         you, from $4 and up. Don’t ruin yourself, donate as little or as much as
         you feel like or can. You can visit my{' '}
         <a
@@ -83,8 +83,8 @@ export default React.memo(function Donate(props) {
       <p>
         I have been incredibly lucky to have been supported by wonderful people
         whom I cannot thank enough. My gratitude to, in no particular order,
-        <MemberList members={DONATORS.map(donation => donation.author)} />— for
-        their generous and kind donations.
+        <MemberList members={DONATORS.map(donation => donation.author)} />
+        —for their generous and kind donations.
       </p>
 
       <p style={{ fontStyle: 'italic' }}>

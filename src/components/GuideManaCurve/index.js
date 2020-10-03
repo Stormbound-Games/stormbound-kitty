@@ -144,13 +144,13 @@ export default React.memo(function GuideManaCurve(props) {
       </p>
 
       <p>
-        The best — not to mention theoretical — mana line is a horizontal line
-        at the 100% mark. That would mean spending all the available mana on
-        every turn of the game without having any leftover at any turn,
-        regardless of how long the game lasts. The only card in the game making
-        it possible to spend an infinite amount of mana is Lady Rime, and it is
-        a) impossible to have her at every turn and b) not taken into
-        consideration in this simulation.
+        The best—not to mention theoretical—mana line is a horizontal line at
+        the 100% mark. That would mean spending all the available mana on every
+        turn of the game without having any leftover at any turn, regardless of
+        how long the game lasts. The only card in the game making it possible to
+        spend an infinite amount of mana is Lady Rime, and it is a) impossible
+        to have her at every turn and b) not taken into consideration in this
+        simulation.
       </p>
 
       <p>
@@ -247,9 +247,9 @@ export default React.memo(function GuideManaCurve(props) {
               for just a few turns, then starts going up increasingly fast.
             </p>
             <p>
-              By turn mana 7, it becomes possible — albeit unlikely — to play
-              the full hand. Every turn from there makes it more and more likely
-              to be able to do so.
+              By turn mana 7, it becomes possible—albeit unlikely—to play the
+              full hand. Every turn from there makes it more and more likely to
+              be able to do so.
             </p>
             <p>
               From turn mana 10 on, the chances of being able to play all 4
@@ -414,7 +414,7 @@ export default React.memo(function GuideManaCurve(props) {
             <p>
               This means on turn mana 6, it is likely to have played all cards{' '}
               <em>and have leftover mana</em>. Other notable point is that it is
-              already possible — although very unlikely — to play all 4 cards at
+              already possible—although very unlikely—to play all 4 cards at
               turn mana 4.
             </p>
           </Column>

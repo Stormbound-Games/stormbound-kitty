@@ -78,7 +78,7 @@ export default React.memo(function GuideCardShop(props) {
           <WikiLink id='N63' />: this is a really powerful spell for a low cost,
           but there is a caveat because it doesn’t always have a target. For
           this reason it is better in decks that are capable of setting up
-          scenarios where it gets value — for instance in rush decks to clear
+          scenarios where it gets value—for instance in rush decks to clear
           blockers, or to send the defending units of your opponent into their
           own base.
         </li>
@@ -210,7 +210,7 @@ export default React.memo(function GuideCardShop(props) {
       <ul>
         <li>
           <WikiLink id='N67' /> is the cheapest neutral runner in the game and
-          can also be used to stay static which is sometimes needed — making it
+          can also be used to stay static which is sometimes needed—making it
           ideal for rush decks, mainly Swarm or Shadowfen.
         </li>
         <li>

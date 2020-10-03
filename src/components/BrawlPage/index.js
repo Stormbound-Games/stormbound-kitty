@@ -19,7 +19,7 @@ export default React.memo(function BrawlPage(props) {
       </BrawlProvider>
 
       <PageMeta
-        title={'Brawl — ' + brawl.title}
+        title={'Brawl – ' + brawl.title}
         description='Manage your Brawl, track your progress as well as your expenses and rewards'
       />
     </>

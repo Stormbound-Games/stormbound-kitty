@@ -30,7 +30,7 @@ export default async (cards, modifier) => {
   // hand. 12 mana seems to be a decent arbitrary value for most decks.
   // An intersection above 12 mana might work in some decks, particularly
   // mana-ramp decks since Frozen Core, Dawnsparks and Freebooters are not taken
-  // into account — but that’s a solid start for a lot of decks.
+  // into account—but that’s a solid start for a lot of decks.
   if (intersection <= 12) return null
 
   return {

@@ -286,8 +286,8 @@ export default React.memo(function TournamentOddEven(props) {
 
       <p style={{ fontStyle: 'italic' }}>
         For example:{' '}
-        <span style={{ color: 'var(--light-winter)' }}>Charlie</span> — who has
-        already changed their deck once during the tournament — is supposed to
+        <span style={{ color: 'var(--light-winter)' }}>Charlie</span>—who has
+        already changed their deck once during the tournament—is supposed to
         face <span style={{ color: 'var(--light-shadowfen)' }}>Jamie</span>{' '}
         next. <span style={{ color: 'var(--light-shadowfen)' }}>Jamie</span>{' '}
         decides they want to change their deck. Therefore,{' '}

@@ -122,7 +122,7 @@ Another option is using Collector Mirz instead of First Mutineer: Mirz’s 0-cos
 
 ### Gift of the Wise
 
-That’s most likely your 8+ mana play at each turn you get it — if you want to swap a card, I’d recommend making sure that you can still play Gift of the Wise afterwards. Example: you have 8 mana left and 3 cards, two cards are Gift of the Wise and Gifted Recruits. If you play Gifted Recruits first, then swap a card, you won’t be able to play Gift of the Wise anymore (as you’ll have only 6 mana left), and may miss the opportunity to play the card you just got.
+That’s most likely your 8+ mana play at each turn you get it—if you want to swap a card, I’d recommend making sure that you can still play Gift of the Wise afterwards. Example: you have 8 mana left and 3 cards, two cards are Gift of the Wise and Gifted Recruits. If you play Gifted Recruits first, then swap a card, you won’t be able to play Gift of the Wise anymore (as you’ll have only 6 mana left), and may miss the opportunity to play the card you just got.
 
 ### 2-Tiles Moving Units (2-TMU)
 

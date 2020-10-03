@@ -277,15 +277,15 @@ const handleCardEffect = (state, card, mode, HoS) => {
 
     // Spellbinder Zhevana gains mana depending on the approximation of the
     // number of frozen enemy units on the board. The RNG appearing in the
-    // game — how many units are played in the same column — is replaced by aa
-    // RNG variation when cards like Frosthexers or Midwinter Chaos are
-    // actually played.
+    // game—how many units are played in the same column—is replaced by a RNG
+    // variation when cards like Frosthexers or Midwinter Chaos are actually
+    // played.
     case 'W8': {
       const { frozenEnemiesLevel } = state.specifics
-      // Zhevana destroys some of the frozen units — the amount of remaining
+      // Zhevana destroys some of the frozen units—the amount of remaining
       // frozen units was chosen arbitrarily and is set to 50%.
       // Note: The `frozenEnemiesLevel` does still not indicate how many enemy
-      // frozen units there are on the board — it only gives an approximation,
+      // frozen units there are on the board—it only gives an approximation,
       // from 0 (no) to 4 (almost all).
       state.mana += frozenEnemiesLevel * 4
       state.specifics.frozenEnemiesLevel = Math.floor(frozenEnemiesLevel / 2)

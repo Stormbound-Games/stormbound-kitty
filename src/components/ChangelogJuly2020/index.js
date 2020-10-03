@@ -445,7 +445,7 @@ export default React.memo(function ChangelogJuly2020(props) {
             </p>
 
             <p>
-              Here, the base health — which is now named “
+              Here, the base health—which is now named “
               <span className='Highlight'>Fortress Level</span>”. It comes with
               a handy dialog box giving more information, as well as the
               effective progression.

@@ -78,8 +78,8 @@ export default React.memo(function GuideTerrificSlayers(props) {
       <p>
         Ironically enough, Terrific Slayers are pretty interesting in dragon
         decks because it’s a good recipe against card conversion (such as{' '}
-        <WikiLink id='F22' />, <WikiLink id='F20' /> and <WikiLink id='F24' />)
-        — especially in a heavily Shadowfen meta — as well as{' '}
+        <WikiLink id='F22' />, <WikiLink id='F20' /> and <WikiLink id='F24' />
+        )—especially in a heavily Shadowfen meta—as well as{' '}
         <WikiLink id='N38' /> to some extent.
       </p>
 
@@ -88,8 +88,8 @@ export default React.memo(function GuideTerrificSlayers(props) {
         <abbr title='Area of Effeft'>AoE</abbr> and randomised damage (such as{' '}
         <WikiLink id='N23' />) are not recommended as these can weaken your
         target(s) when unwanted. You want to keep nice and juicy dragons for
-        maximum value — <WikiLink id='N18' /> and <WikiLink id='W15' /> being
-        clear exceptions.
+        maximum value—
+        <WikiLink id='N18' /> and <WikiLink id='W15' /> being clear exceptions.
       </p>
 
       <Title id='take-risks-and-bait'>Take risks and bait</Title>

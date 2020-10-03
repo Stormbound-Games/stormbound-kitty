@@ -206,7 +206,7 @@ export default React.memo(function GuideSelfControl(props) {
         </li>
         <li>
           <WikiLink id='N9' /> might help in some situations, but what kills you
-          is rarely not one big unit — especially since there are basically no
+          is rarely not one big unit—especially since there are basically no
           elders. What kills you is usually Counselor Ahmi slamming your base
           for 18 damage at turn 9.
         </li>

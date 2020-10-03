@@ -148,9 +148,9 @@ export default React.memo(function GuideD1SFCommons(props) {
       </p>
       <p>
         Like in any deck, these cards serve two purposes: being able to defend
-        by having cheap units with movement — and being able to push the
-        frontline quickly and reliable in order to allow the runners to do their
-        job. Which leads us to our next main point.
+        by having cheap units with movement—and being able to push the frontline
+        quickly and reliable in order to allow the runners to do their job.
+        Which leads us to our next main point.
       </p>
 
       <h3 id='runners'>Runners</h3>

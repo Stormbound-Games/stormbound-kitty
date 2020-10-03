@@ -14,7 +14,7 @@ const renderScore = scoresByPoints => (score, index) => {
 
   return `-${emoji} **${score} point${
     Math.abs(score) === 1 ? '' : 's'
-  }** — ${users}`
+  }** – ${users}`
 }
 
 const formatTriviaScores = scores => {

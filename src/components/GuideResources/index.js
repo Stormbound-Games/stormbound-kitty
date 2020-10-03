@@ -103,7 +103,7 @@ export default React.memo(function GuideResources(props) {
         <li>
           Daily victories (30 extra for the first daily win, as well as 5, 10 or
           20 depending on whether the game is played on mobile or Steam, with or
-          without ads — for a maximum of 400 a day*).
+          without ads—for a maximum of 400 a day*).
         </li>
         <li>
           Monthly season chests (150 in Iron, 300 in Bronze, 500 in Silver, 800
