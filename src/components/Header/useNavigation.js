@@ -227,7 +227,6 @@ export default () => {
               label: 'Fan Art',
               to: '/fan-art',
               id: 'FAN_ART',
-              new: true,
             },
             {
               label: 'Brewed Sages Podcast',
