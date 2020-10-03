@@ -7,20 +7,21 @@ import serialisation from '../../helpers/serialisation'
 import './index.css'
 
 export default React.memo(function FeedPodiumEntry(props) {
+  const { podium, decks, user } = props
   const isAtIndex = index =>
-    props.podium[index]
-      ? Array.isArray(props.podium[index])
-        ? props.podium[index].map(u => u.toLowerCase()).includes(props.user)
-        : props.podium[index].toLowerCase() === props.user
+    podium[index]
+      ? Array.isArray(podium[index])
+        ? podium[index].map(u => u.toLowerCase()).includes(user)
+        : podium[index].toLowerCase() === user
       : false
   const index = [0, 1, 2].map(isAtIndex).indexOf(true)
-  const name = Array.isArray(props.podium[index])
-    ? props.podium[index].find(u => u.toLowerCase() === props.user)
-    : props.podium[index]
+  const name = Array.isArray(podium[index])
+    ? podium[index].find(u => u.toLowerCase() === user)
+    : podium[index]
   const emoji = ['🥇', '🥈', '🥉'][index]
   const label = ['gold', 'silver', 'bronze'][index]
-  const deck = Array.isArray(props.deck) ? props.deck[index] : null
-
+  const deck =
+    decks && decks[index] && !decks[index].author ? decks[index].id : null
   return (
     <FeedEntry icon='trophy' date={props.date}>
       {name} has won
