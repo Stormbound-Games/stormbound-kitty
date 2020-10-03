@@ -2,9 +2,11 @@ import React from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import Form from '../QuestBuilderForm'
+import Column from '../Column'
+import Row from '../Row'
 import PageMeta from '../PageMeta'
 import Quest from '../Quest'
-import Title from '../Title'
+import HeaderBanner from '../HeaderBanner'
 import serialisation from '../../helpers/serialisation'
 import getInitialQuestData from '../../helpers/getInitialQuestData'
 import './index.css'
@@ -61,18 +63,25 @@ class QuestBuilderRoot extends React.Component {
   render() {
     return (
       <>
+        <HeaderBanner title='Quest Builder' />
+
         <div className='QuestBuilder'>
-          <Title element='h1'>Build your quest</Title>
-          <Quest {...this.state} />
-          <Form
-            {...this.state}
-            setCurrency={currency => this.setState({ currency })}
-            setAmount={amount => this.setState({ amount })}
-            setName={name => this.setState({ name })}
-            setDescription={description => this.setState({ description })}
-            setDifficulty={difficulty => this.setState({ difficulty })}
-            reset={this.reset}
-          />
+          <Row desktopOnly wideGutter>
+            <Column style={{ justifyContent: 'center' }}>
+              <Quest {...this.state} />
+            </Column>
+            <Column>
+              <Form
+                {...this.state}
+                setCurrency={currency => this.setState({ currency })}
+                setAmount={amount => this.setState({ amount })}
+                setName={name => this.setState({ name })}
+                setDescription={description => this.setState({ description })}
+                setDifficulty={difficulty => this.setState({ difficulty })}
+                reset={this.reset}
+              />
+            </Column>
+          </Row>
         </div>
 
         <PageMeta
