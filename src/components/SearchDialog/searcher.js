@@ -160,12 +160,6 @@ SEARCH_INDEX.push({
 })
 
 SEARCH_INDEX.push({
-  path: '/tournaments/odd-even',
-  label: 'Odd & Even Tournament',
-  breadcrumbs: ['Community', 'Odd & Even Tournament'],
-})
-
-SEARCH_INDEX.push({
   path: '/income-calculator',
   label: 'Income Calculator',
   breadcrumbs: ['Tools', 'Income Calculator'],

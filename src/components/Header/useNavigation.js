@@ -212,11 +212,6 @@ export default () => {
               id: 'HALL_OF_FAME',
             },
             {
-              label: 'Odd & Even Tournament',
-              to: '/tournaments/odd-even',
-              id: 'ODD_EVEN',
-            },
-            {
               label: 'Weekly Card Contest',
               to: '/card/contest',
               id: 'CARD_CONTEST',

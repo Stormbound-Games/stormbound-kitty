@@ -318,12 +318,13 @@
   {
     "name": "Odd & Even Tournament",
     "hosts": ["Derk", "ArthisRoo", "Kitty"],
-    "podium": ["HanooSt", "Ajmm"],
+    "podium": ["HanooSt", "Ajmm", "Weakray"],
     "date": "09/2020",
     "description": "The Odd & Even Tournament relied on having only odd or even cards within a single deck, preventing most of the main combos from being played.",
     "decks": [
       { "id": "1i11n231n61i51n671n181i131n641i271i201n391n57" },
-      { "id": "1n11f51f271n111n131f71n631n601n381n691n361f22" }
+      { "id": "1n11f51f271n111n131f71n631n601n381n691n361f22" },
+      { "id": "1n11n21n111w31n171w51n601n381w121w131w181n58" }
     ]
   }
 ]
