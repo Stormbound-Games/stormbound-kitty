@@ -9,6 +9,16 @@ import { STORY_CATEGORIES } from '../../constants/stories'
 
 export const SEARCH_INDEX = []
 
+const recordMember = member => {
+  const exists = SEARCH_INDEX.find(entry => entry.label === member)
+  if (exists) return
+  SEARCH_INDEX.push({
+    path: `/member/${member}`,
+    label: member,
+    breadcrumbs: ['Community', 'Member'],
+  })
+}
+
 cards
   .filter(card => !card.token)
   .forEach(card => {
@@ -32,11 +42,7 @@ SEARCH_INDEX.push({
 })
 
 decks.forEach(deck => {
-  SEARCH_INDEX.push({
-    path: `/member/${deck.author}`,
-    label: deck.author,
-    breadcrumbs: ['Community', 'Member'],
-  })
+  recordMember(deck.author)
   SEARCH_INDEX.push({
     path: `/deck/${deck.id}/detail`,
     label: `${deck.name} by ${deck.author}`,
@@ -59,13 +65,7 @@ guides.forEach(guide => {
     breadcrumbs: ['Guides', CATEGORIES[guide.category].name.short],
   })
 
-  guide.authors.forEach(author =>
-    SEARCH_INDEX.push({
-      path: `/member/${author}`,
-      label: author,
-      breadcrumbs: ['Community', 'Member'],
-    })
-  )
+  guide.authors.forEach(recordMember)
 })
 
 SEARCH_INDEX.push({
@@ -86,11 +86,7 @@ puzzles.forEach(puzzle => {
     label: puzzle.name,
     breadcrumbs: ['Community', 'Puzzles'],
   })
-  SEARCH_INDEX.push({
-    path: `/member/${puzzle.author}`,
-    label: puzzle.author,
-    breadcrumbs: ['Community', 'Member'],
-  })
+  recordMember(puzzle.author)
 })
 
 SEARCH_INDEX.push({
