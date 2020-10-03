@@ -2,32 +2,37 @@ import React from 'react'
 
 const cache = new Map()
 
-const useFetch = (path, options = {}) => {
-  const { format = 'JSON', skip = false } = options
-  const [loading, setLoading] = React.useState(false)
-  const [error, setError] = React.useState(false)
-  const [data, setData] = React.useState(cache.get(path))
+function usePrevious(value) {
+  const ref = React.useRef()
+  React.useEffect(() => {
+    ref.current = value
+  })
+  return ref.current
+}
+
+const DEFAULT_STATE = { data: undefined, error: undefined, loading: false }
+
+const useFetch = path => {
+  const [state, setState] = React.useState(cache.get(path) || DEFAULT_STATE)
+  const previousPath = usePrevious(path)
+  const hasPathChanged = previousPath && previousPath !== path
+  const shouldQuery =
+    !state.loading && !state.error && (!state.data || hasPathChanged)
 
   React.useEffect(() => {
-    if (typeof data === 'undefined' && !skip) {
-      setLoading(true)
-      fetch(path)
-        .then(response =>
-          format === 'JSON' ? response.json() : response.text()
-        )
-        .then(data => {
-          cache.set(path, data)
-          setData(data)
-          setLoading(false)
-        })
-        .catch(error => {
-          setError(true)
-          setLoading(false)
-        })
-    }
-  }, [data, format, skip, path])
+    cache.set(path, state)
+  }, [path, state])
 
-  return { loading, error, data }
+  React.useEffect(() => {
+    if (!shouldQuery) return
+    setState(state => ({ ...state, loading: true }))
+    fetch(path)
+      .then(response => response.json())
+      .then(data => setState({ data, error: undefined, loading: false }))
+      .catch(error => setState({ data: undefined, error, loading: false }))
+  }, [path, shouldQuery])
+
+  return state
 }
 
 export default useFetch
