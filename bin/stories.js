@@ -1,9 +1,7 @@
 const fs = require('fs')
 const path = require('path')
-const cards = require('../src/data/cards.json')
 
 const btoa = a => Buffer.from(a).toString('base64')
-const getRawCardData = id => cards.find(card => card.id === id)
 const removeJsonExtension = fileName => fileName.replace('.json', '')
 const getOldId = story =>
   btoa(encodeURIComponent(story.title + '-' + story.author))
