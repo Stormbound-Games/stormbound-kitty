@@ -245,7 +245,7 @@
   {
     "name": "Faction Wars – Season 1",
     "hosts": ["Helios"],
-    "podium": ["Roman_NFP", "Mathematica", "InternetExplorer"],
+    "podium": ["Roman", "Mathematica", "InternetExplorer"],
     "date": "07/2020",
     "description": "Each season, represent your favorite faction and fight against other factions to score as many points as possible."
   },
@@ -271,7 +271,7 @@
   {
     "name": "Snowball Tournament",
     "hosts": ["Derk", "ArthisRoo"],
-    "podium": ["Helios", "Roman_NFP", "HanooSt"],
+    "podium": ["Helios", "Roman", "HanooSt"],
     "date": "08/2020",
     "description": "The Snowball tournament relies on not playing any card before 6 mana (7 for the second player). The goal of the tournament was to compose heavy decks, which can start strong right from the opening move.",
     "decks": [
@@ -283,7 +283,7 @@
   {
     "name": "Faction Wars – Season 2",
     "hosts": ["Helios"],
-    "podium": ["HanooSt", "Roman_NFP", "Dracqi"],
+    "podium": ["HanooSt", "Roman", "Dracqi"],
     "date": "08/2020",
     "description": "Each season, represent your favorite faction and fight against other factions to score as many points as possible."
   },

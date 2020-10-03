@@ -29,7 +29,8 @@ export default React.memo(function GuideCardShop(props) {
       <Info title='About resources'>
         For a complete guide on Stormbound resources, how to get them and how to
         make the most of them, please refer to the{' '}
-        <Link to='/guides/resources'>dedicated resources guide</Link> by Roman.
+        <Link to='/guides/resources'>dedicated resources guide</Link> by{' '}
+        <Link to='/member/Roman'>Roman</Link>.
       </Info>
       <Title id='cheap-core-cards'>Cheap Core Cards</Title>
       <blockquote>

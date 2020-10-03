@@ -234,7 +234,8 @@ export default React.memo(function GuideBrawl(props) {
       </p>
 
       <Info icon='compass' title='Resources Guide'>
-        The <Link to='/guides/resources'>resources guide</Link> from Roman
+        The <Link to='/guides/resources'>resources guide</Link> from{' '}
+        <Link to='/member/Roman'>Roman</Link>
         expands a bit more into the math behind the Brawl strategy, as well as
         whether or not it is wise to spend coins in the Brawl.
       </Info>

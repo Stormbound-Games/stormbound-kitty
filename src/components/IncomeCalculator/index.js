@@ -309,13 +309,15 @@ export default React.memo(function IncomeCalculator(props) {
           </p>
 
           <p style={{ marginBottom: '2em' }}>
-            Special thanks to Oeni (oeni#7266) and Roman (Roman_NFP#6918) for
-            their help in designing and making this simulator possible.
+            Special thanks to <Link to='/member/Oeni'>Oeni</Link> (oeni#7266)
+            and <Link to='/member/Roman'>Roman</Link> (Roman_NFP#6918) for their
+            help in designing and making this simulator possible.
           </p>
 
           <Info icon='compass' title='Resources Guide'>
             To learn about the best way to spend resources based on your
-            play-style, Roman has authored a fantastic{' '}
+            play-style, <Link to='/member/Roman'>Roman</Link> has authored a
+            fantastic{' '}
             <Link to='/guides/resources'>guides on Stormbound resources</Link>.
           </Info>
         </Column>

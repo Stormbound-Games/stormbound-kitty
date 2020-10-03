@@ -356,7 +356,7 @@ export const DONATORS = [
   { author: 'Oeni', date: '07/2020' },
   { author: 'OneCurtis', date: '07/2020' },
   { author: 'Shades', date: '08/2019' },
-  { author: 'Roman_NFP', date: '05/2020' },
+  { author: 'Roman', date: '05/2020' },
   { author: 'SHTE', date: '07/2020' },
   { author: 'Stratadox', date: '07/2020' },
   { author: 'Subaiku', date: '09/2020' },
