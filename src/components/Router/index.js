@@ -76,7 +76,6 @@ const ReleaseNotes = load('ReleaseNotes')
 const Story = load('Story')
 const StoryCategory = load('StoryCategory')
 const TournamentHallOfFame = load('TournamentHallOfFame')
-const TournamentOddEven = load('TournamentOddEven')
 
 export default function Router(props) {
   const { data: stories = [] } = useFetch('/stories.json')
@@ -353,10 +352,6 @@ export default function Router(props) {
 
           <Page path='/donate' active={['HOME', 'DONATE']}>
             <Donate />
-          </Page>
-
-          <Page path='/tournaments/odd-even' active={['COMMUNITY', 'ODD_EVEN']}>
-            <TournamentOddEven />
           </Page>
 
           <Page
