@@ -8,7 +8,6 @@
     "faction": "neutral",
     "cardId": "N3",
     "background": "/assets/images/banners/environment_neutral.png",
-    "readingTime": "12 minutes",
     "category": "ESSENTIALS",
     "date": "06/2020"
   },
@@ -21,7 +20,6 @@
     "faction": "neutral",
     "cardId": "I28",
     "background": "/assets/images/wallpapers/lite/wp-d-4.png",
-    "readingTime": "45 minutes",
     "category": "ESSENTIALS",
     "date": "04/2019"
   },
@@ -34,7 +32,6 @@
     "faction": "neutral",
     "cardId": "N76",
     "background": "/assets/images/wallpapers/lite/wp-d-3.png",
-    "readingTime": "6 minutes",
     "category": "BRAWL_MODE",
     "date": "07/2020"
   },
@@ -47,7 +44,6 @@
     "faction": "neutral",
     "cardId": "N48",
     "background": "/assets/images/banners/environment_neutral.png",
-    "readingTime": "3 minutes",
     "category": "BRAWL_MODE",
     "date": "09/2020"
   },
@@ -60,7 +56,6 @@
     "faction": "neutral",
     "cardId": "N69",
     "background": "/assets/images/banners/environment_neutral.png",
-    "readingTime": "5 minutes",
     "category": "BRAWL_MODE",
     "date": "09/2020"
   },
@@ -73,7 +68,6 @@
     "faction": "swarm",
     "cardId": "S3",
     "background": "/assets/images/banners/environment_swarm.png",
-    "readingTime": "5 minutes",
     "category": "BRAWL_MODE",
     "date": "09/2020"
   },
@@ -86,7 +80,6 @@
     "faction": "shadowfen",
     "cardId": "N48",
     "background": "/assets/images/wallpapers/lite/wp-d-6.png",
-    "readingTime": "13 minutes",
     "category": "ESSENTIALS",
     "date": "04/2019"
   },
@@ -99,7 +92,6 @@
     "faction": "neutral",
     "cardId": "N14",
     "background": "/assets/images/wallpapers/lite/wp-d-6.png",
-    "readingTime": "10 minutes",
     "category": "IN_DEPTH",
     "date": "05/2020"
   },
@@ -112,7 +104,6 @@
     "faction": "neutral",
     "cardId": "N8",
     "background": "/assets/images/wallpapers/lite/wp-d-7.png",
-    "readingTime": "7 minutes",
     "category": "ESSENTIALS",
     "date": "05/2020"
   },
@@ -125,7 +116,6 @@
     "faction": "winter",
     "cardId": "W19",
     "background": "/assets/images/wallpapers/lite/wp-d-7.png",
-    "readingTime": "10 minutes",
     "category": "IN_DEPTH",
     "date": "06/2020"
   },
@@ -138,7 +128,6 @@
     "faction": "shadowfen",
     "cardId": "F4",
     "background": "/assets/images/wallpapers/lite/wp-d-4.png",
-    "readingTime": "5 minutes",
     "category": "IN_DEPTH",
     "date": "06/2020"
   },
@@ -151,7 +140,6 @@
     "faction": "neutral",
     "cardId": "N22",
     "background": "/assets/images/wallpapers/lite/wp-d-6.png",
-    "readingTime": "7 minutes",
     "category": "IN_DEPTH",
     "date": "07/2020"
   },
@@ -176,7 +164,6 @@
     "faction": "neutral",
     "cardId": "F3",
     "background": "/assets/images/banners/environment_shadowfen.png",
-    "readingTime": "17 minutes",
     "category": "PLAYSTYLE",
     "date": "06/2020"
   },
@@ -190,7 +177,6 @@
     "faction": "winter",
     "cardId": "W9",
     "background": "/assets/images/banners/environment_winter.png",
-    "readingTime": "14 minutes",
     "category": "PLAYSTYLE",
     "date": "06/2019"
   },
@@ -204,7 +190,6 @@
     "faction": "neutral",
     "cardId": "N42",
     "background": "/assets/images/banners/environment_neutral.png",
-    "readingTime": "10 minutes",
     "category": "PLAYSTYLE",
     "date": "06/2019"
   },
@@ -217,7 +202,6 @@
     "faction": "ironclad",
     "cardId": "I16",
     "background": "/assets/images/banners/environment_ironclad.png",
-    "readingTime": "5 minutes",
     "category": "IN_DEPTH",
     "date": "07/2020"
   },
@@ -230,7 +214,6 @@
     "faction": "winter",
     "cardId": "W22",
     "background": "/assets/images/banners/environment_winter.png",
-    "readingTime": "5 minutes",
     "category": "PLAYSTYLE",
     "date": "08/2020"
   },
@@ -243,7 +226,6 @@
     "faction": "neutral",
     "cardId": "N27",
     "background": "/assets/images/banners/environment_neutral.png",
-    "readingTime": "5 minutes",
     "category": "PLAYSTYLE",
     "date": "08/2020"
   },
@@ -256,7 +238,6 @@
     "faction": "shadowfen",
     "cardId": "F21",
     "background": "/assets/images/banners/environment_shadowfen.png",
-    "readingTime": "5 minutes",
     "category": "PLAYSTYLE",
     "date": "08/2020"
   },
@@ -269,7 +250,6 @@
     "faction": "neutral",
     "cardId": "N38",
     "background": "/assets/images/banners/environment_neutral.png",
-    "readingTime": "5 minutes",
     "category": "IN_DEPTH",
     "date": "09/2020"
   }

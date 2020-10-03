@@ -56,7 +56,7 @@ export default React.memo(function ChangelogOctober2020(props) {
         to: '/changelog/releases',
         children: 'Back to release notes',
       }}
-      meta='2 minutes'
+      meta='Official announcement'
       className='ChangelogOctober2020'
       background='/assets/images/banners/bisanu.png'
       ratio='25%'
