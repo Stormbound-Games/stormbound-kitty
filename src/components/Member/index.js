@@ -54,6 +54,7 @@ export default React.memo(function Member(props) {
             <Image
               src='/assets/images/cards/sweetcap_kittens.png'
               className='Error__image'
+              withAvif
             />
             <p>
               No ‘{displayName}’ user could be found, or no content was

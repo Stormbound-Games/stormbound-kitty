@@ -86,6 +86,7 @@ export default React.memo(function Card(props) {
               }
               className='Card__image'
               data-testid='card-image'
+              withAvif
             />
           </div>
         ) : (

@@ -19,6 +19,7 @@ export default React.memo(function Error(props) {
           <Image
             src='/assets/images/cards/sweetcap_kittens.png'
             className='Error__image'
+            withAvif
           />
         )}
 

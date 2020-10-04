@@ -26,6 +26,7 @@ export default React.memo(function FanKitItem(props) {
           event.preventDefault()
           props.setActive(props.id)
         }}
+        withAvif={props.withAvif}
       />
     </div>
   )

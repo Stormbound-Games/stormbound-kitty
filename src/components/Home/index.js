@@ -18,7 +18,7 @@ export default React.memo(() => (
         <Image
           className='Home__news-image'
           src='/assets/images/kitty.png'
-          noWepb
+          withoutWebp
         />
         <div className='Home__news-box'>
           <Title className='Home__news-title'>News</Title>
@@ -103,6 +103,7 @@ export default React.memo(() => (
                 <Image
                   className='Home__section-image'
                   src='/assets/images/cards/olf_the_hammer.png'
+                  withAvif
                 />
               </Only.Desktop>
             </Column>
@@ -129,6 +130,7 @@ export default React.memo(() => (
                 <Image
                   className='Home__section-image'
                   src='/assets/images/cards/archdruid_earyn.png'
+                  withAvif
                 />
               </Only.Desktop>
             </Column>
@@ -159,6 +161,7 @@ export default React.memo(() => (
                 <Image
                   className='Home__section-image'
                   src='/assets/images/cards/prime_oracle_bragda.png'
+                  withAvif
                 />
               </Only.Desktop>
             </Column>

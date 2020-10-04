@@ -16,6 +16,7 @@ export default React.memo(function ListBuilderTierItem(props) {
           src={'/assets/images/cards/' + props.card.image}
           alt={props.card.name}
           className='ListBuilderTierItem__image'
+          withAvif
         />
         <span aria-hidden className='ListBuilderTierItem__name'>
           {props.card.name}
@@ -51,6 +52,7 @@ export default React.memo(function ListBuilderTierItem(props) {
             src={props.cards[props.dndSource].image}
             alt={props.card.name}
             className='ListBuilderTierItem__image'
+            withAvif
           />
         </span>
       )}
@@ -78,6 +80,7 @@ export default React.memo(function ListBuilderTierItem(props) {
           src={'/assets/images/cards/' + props.card.image}
           alt={props.card.name}
           className='ListBuilderTierItem__image'
+          withAvif
         />
       </button>
 
@@ -87,6 +90,7 @@ export default React.memo(function ListBuilderTierItem(props) {
             src={props.cards[props.dndSource].image}
             alt={props.card.name}
             className='ListBuilderTierItem__image'
+            withAvif
           />
         </span>
       )}

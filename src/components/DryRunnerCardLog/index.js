@@ -2,6 +2,7 @@ import React from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import CardZoom from '../CardZoom'
 import Column from '../Column'
+import Image from '../Image'
 import Row from '../Row'
 import arrayPad from '../../helpers/arrayPad'
 import './index.css'
@@ -44,12 +45,13 @@ export default React.memo(function DryRunnerCardLog(props) {
                       .filter(Boolean)
                       .join(' ')}
                   >
-                    <img
-                      className={'DryRunnerCardLog__image'}
+                    <Image
+                      className='DryRunnerCardLog__image'
                       src={'/assets/images/cards/' + card.image}
                       alt={card.name}
                       onClick={() => setZoomedCard(card)}
                       data-testid='card-log-image'
+                      withAvif
                     />
                   </motion.div>
                 )}
