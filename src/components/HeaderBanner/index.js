@@ -1,13 +1,16 @@
 import React from 'react'
-import { WebpContext } from '../WebpProvider'
+import { ImageSupportContext } from '../ImageSupportProvider'
 import './index.css'
 
+const DEFAULT_BANNER = '/assets/images/wallpapers/lite/wp-d-1.png'
+
 export default React.memo(function HeaderBanner(props) {
-  const supportsWebp = React.useContext(WebpContext)
-  const ext = supportsWebp ? 'webp' : 'png'
-  const background = (
-    props.background || '/assets/images/wallpapers/lite/wp-d-1.png'
-  ).replace('png', ext)
+  const { supportsWebp, supportsAvif } = React.useContext(ImageSupportContext)
+  const webpExt = supportsWebp ? 'webp' : 'png'
+  const avifExt = supportsAvif ? 'avif' : webpExt
+  const defaultBg = DEFAULT_BANNER.replace('png', avifExt)
+  const background =
+    (props.background || '').replace('png', webpExt) || defaultBg
 
   return (
     <header

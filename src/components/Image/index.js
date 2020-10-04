@@ -1,8 +1,8 @@
 import React from 'react'
-import { WebpContext } from '../WebpProvider'
+import { ImageSupportContext } from '../ImageSupportProvider'
 
 export default React.forwardRef(function Image(props, ref) {
-  const supportsWebp = React.useContext(WebpContext)
+  const { supportsWebp } = React.useContext(ImageSupportContext)
   const ext = supportsWebp && !props.noWepb ? 'webp' : 'png'
 
   return (

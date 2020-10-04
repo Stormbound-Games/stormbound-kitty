@@ -1,6 +1,6 @@
 import React from 'react'
 import Select from 'react-select'
-import { WebpContext } from '../WebpProvider'
+import { ImageSupportContext } from '../ImageSupportProvider'
 import { FACTIONS } from '../../constants/game'
 import getCardsByFaction from '../../helpers/getCardsByFaction'
 import getRawCardData from '../../helpers/getRawCardData'
@@ -9,7 +9,7 @@ const ORDER = [...Object.keys(FACTIONS), 'tokens']
 const cardsByFaction = getCardsByFaction()
 
 export default React.memo(function CardSelect(props) {
-  const supportsWebp = React.useContext(WebpContext)
+  const { supportsWebp } = React.useContext(ImageSupportContext)
   const ext = supportsWebp ? 'webp' : 'png'
 
   return (

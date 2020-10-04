@@ -1,13 +1,13 @@
 import React from 'react'
 import Image from '../Image'
-import { WebpContext } from '../WebpProvider'
+import { ImageSupportContext } from '../ImageSupportProvider'
 import { getRarityColor } from '../../helpers/getRarity'
 import microMarkdown from '../../helpers/microMarkdown'
 import useFluidSizing from '../../hooks/useFluidSizing'
 import './index.css'
 
 export default React.memo(function Card(props) {
-  const supportsWebp = React.useContext(WebpContext)
+  const { supportsWebp } = React.useContext(ImageSupportContext)
   const { fontSize, ref } = useFluidSizing(0.03902439024)
   const ext = supportsWebp ? 'webp' : 'png'
 
