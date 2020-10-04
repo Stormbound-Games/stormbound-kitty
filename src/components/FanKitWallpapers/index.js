@@ -61,10 +61,14 @@ export default React.memo(function FanKitBooks(props) {
       {chunk(desktopWallpapers, 2).map((row, index) => (
         <Row desktopOnly key={index}>
           <Column>
-            {row[0] && <FanKitItem {...row[0]} setActive={setActive} />}
+            {row[0] && (
+              <FanKitItem {...row[0]} setActive={setActive} withAvif />
+            )}
           </Column>
           <Column>
-            {row[1] && <FanKitItem {...row[1]} setActive={setActive} />}
+            {row[1] && (
+              <FanKitItem {...row[1]} setActive={setActive} withAvif />
+            )}
           </Column>
         </Row>
       ))}
@@ -72,13 +76,19 @@ export default React.memo(function FanKitBooks(props) {
       {chunk(mobileWallpapers, 3).map((row, index) => (
         <Row desktopOnly key={index}>
           <Column width='1/3'>
-            {row[0] && <FanKitItem {...row[0]} setActive={setActive} />}
+            {row[0] && (
+              <FanKitItem {...row[0]} setActive={setActive} withAvif />
+            )}
           </Column>
           <Column width='1/3'>
-            {row[1] && <FanKitItem {...row[1]} setActive={setActive} />}
+            {row[1] && (
+              <FanKitItem {...row[1]} setActive={setActive} withAvif />
+            )}
           </Column>
           <Column width='1/3'>
-            {row[2] && <FanKitItem {...row[2]} setActive={setActive} />}
+            {row[2] && (
+              <FanKitItem {...row[2]} setActive={setActive} withAvif />
+            )}
           </Column>
         </Row>
       ))}
