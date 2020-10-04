@@ -31,6 +31,7 @@ export default React.memo(function StoryCategory(props) {
       <HeaderBanner
         background={background}
         title={viewportWidth >= 700 ? title : shortName}
+        withAvif
       />
 
       {error ? (

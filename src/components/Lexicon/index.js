@@ -30,10 +30,7 @@ const Terms = React.memo(function Terms(props) {
 export default React.memo(function Lexicon(props) {
   return (
     <>
-      <HeaderBanner
-        title='Lexicon'
-        background='/assets/images/wallpapers/lite/wp-d-1.png'
-      />
+      <HeaderBanner title='Lexicon' />
 
       <Row desktopOnly>
         <Column width='1/4'>

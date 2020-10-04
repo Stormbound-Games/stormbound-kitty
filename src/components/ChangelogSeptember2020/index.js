@@ -17,6 +17,7 @@ export default React.memo(function ChangelogSeptember2020(props) {
       meta='Official announcement'
       className='ChangelogSeptember2020'
       background='/assets/images/banners/environment_dragon.jpg'
+      withAvif
     >
       <p>
         On the 1st of September, a small balance patch will{' '}

@@ -29,6 +29,8 @@ const Article = React.memo(function Article(props) {
         title={props.title}
         background={props.background}
         ratio={props.ratio}
+        withAvif={props.withAvif}
+        withoutWebp={props.withoutWebp}
       />
 
       <p className='Article__meta'>

@@ -59,6 +59,7 @@ export default React.memo(function ChangelogOctober2020(props) {
       meta='Official announcement'
       className='ChangelogOctober2020'
       background='/assets/images/banners/bisanu.png'
+      withAvif
       ratio='25%'
     >
       <p>

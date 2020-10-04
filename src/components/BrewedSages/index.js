@@ -27,6 +27,7 @@ export default React.memo(function BrewedSages(props) {
       title={viewportWidth < 700 ? 'Brewed Sages' : 'Brewed Sages Podcast'}
       authors={['Freeloader', 'Subaiku', 'ArthisRoo']}
       background='/assets/images/banners/environment_shadowfen.png'
+      withAvif
     >
       <p>
         The Brewed Sages is the first Stormbound podcast, by{' '}

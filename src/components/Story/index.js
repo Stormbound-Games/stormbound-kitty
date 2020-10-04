@@ -43,6 +43,7 @@ export default React.memo(function Story(props) {
             to: '/stories/' + story.category,
             children: 'Back to stories',
           }}
+          withAvif
         >
           <MicroMarkdown content={story.content} />
         </Article>
