@@ -70,7 +70,9 @@ export default React.memo(function Dialog(props) {
         </Title>
       </header>
 
-      {image !== null && <Image className='Dialog__image' src={image} />}
+      {image !== null && (
+        <Image className='Dialog__image' src={image} alt='' withAvif />
+      )}
 
       <div
         className={[`Dialog__body`, hasCTA && 'Dialog__body--with-cta']

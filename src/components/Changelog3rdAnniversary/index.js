@@ -197,6 +197,7 @@ export default React.memo(function Changelog3rdAnniversary(props) {
         <Image
           src='/assets/images/wallpapers/lite/wp-d-3.png'
           alt='Stormbound Wallpaper'
+          withAvif
         />
       </Article.FullWidth>
 
