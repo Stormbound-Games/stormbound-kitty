@@ -11,29 +11,44 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-html:not(.webp) .BattleSimBoardDesktop--swarm {
+html:not(.webp):not(.avif) .BattleSimBoardDesktop--swarm {
   background-image: url('/assets/images/sim/bg-swarm-desktop.png');
 }
-.webp .BattleSimBoardDesktop--swarm {
+.webp:not(.avif) .BattleSimBoardDesktop--swarm {
   background-image: url('/assets/images/sim/bg-swarm-desktop.webp');
 }
-html:not(.webp) .BattleSimBoardDesktop--ironclad {
+.avif .BattleSimBoardDesktop--swarm {
+  background-image: url('/assets/images/sim/bg-swarm-desktop.avif');
+}
+
+html:not(.webp):not(.avif) .BattleSimBoardDesktop--ironclad {
   background-image: url('/assets/images/sim/bg-ironclad-desktop.png');
 }
-.webp .BattleSimBoardDesktop--ironclad {
+.webp:not(.avif) .BattleSimBoardDesktop--ironclad {
   background-image: url('/assets/images/sim/bg-ironclad-desktop.webp');
 }
-html:not(.webp) .BattleSimBoardDesktop--winter {
+.avif .BattleSimBoardDesktop--ironclad {
+  background-image: url('/assets/images/sim/bg-ironclad-desktop.avif');
+}
+
+html:not(.webp):not(.avif) .BattleSimBoardDesktop--winter {
   background-image: url('/assets/images/sim/bg-winter-desktop.png');
 }
-.webp .BattleSimBoardDesktop--winter {
+.webp:not(.avif) .BattleSimBoardDesktop--winter {
   background-image: url('/assets/images/sim/bg-winter-desktop.webp');
 }
-html:not(.webp) .BattleSimBoardDesktop--shadowfen {
+.avif .BattleSimBoardDesktop--winter {
+  background-image: url('/assets/images/sim/bg-winter-desktop.avif');
+}
+
+html:not(.webp):not(.avif) .BattleSimBoardDesktop--shadowfen {
   background-image: url('/assets/images/sim/bg-shadowfen-desktop.png');
 }
-.webp .BattleSimBoardDesktop--shadowfen {
+.webp:not(.avif) .BattleSimBoardDesktop--shadowfen {
   background-image: url('/assets/images/sim/bg-shadowfen-desktop.webp');
+}
+.avif .BattleSimBoardDesktop--shadowfen {
+  background-image: url('/assets/images/sim/bg-shadowfen-desktop.avif');
 }
 
 /**

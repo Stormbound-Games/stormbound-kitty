@@ -32,6 +32,8 @@ export default function ImageSupportProvider(props) {
         if (supports) document.documentElement.classList.add('webp')
         localStorage.setItem('sk.webp', supports)
       })
+    } else if (storedWebp) {
+      document.documentElement.classList.add('webp')
     }
 
     if (storedAvif === null) {
@@ -40,6 +42,8 @@ export default function ImageSupportProvider(props) {
         if (supports) document.documentElement.classList.add('avif')
         localStorage.setItem('sk.avif', supports)
       })
+    } else if (storedAvif) {
+      document.documentElement.classList.add('avif')
     }
   }, [])
 

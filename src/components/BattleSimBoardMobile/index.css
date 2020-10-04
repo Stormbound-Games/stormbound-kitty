@@ -17,6 +17,12 @@
 .BattleSimBoardMobile {
   background-image: url('/assets/images/sim/bg-swarm.png'); /* 1 */
 }
+.webp:not(.avif) .BattleSimBoardMobile {
+  background-image: url('/assets/images/sim/bg-swarm.webp'); /* 1 */
+}
+.avif .BattleSimBoardMobile {
+  background-image: url('/assets/images/sim/bg-swarm.avif'); /* 1 */
+}
 
 @media (min-width: 700px) and (max-width: 799px) {
   .BattleSimBoardMobile {
