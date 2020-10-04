@@ -12,19 +12,31 @@ const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
   switch (props.reward) {
     case 'HUMBLE_BOOK':
       return (
-        <Image src='/assets/images/books/book-humble.png' alt='Humble book' />
+        <Image
+          src='/assets/images/books/book-humble.png'
+          alt='Humble book'
+          withAvif
+        />
       )
     case 'RUBIES':
       return <Image src='/assets/images/iconography/rubies.png' alt='Rubies' />
     case 'CLASSIC_TOME':
       return (
-        <Image src='/assets/images/books/book-classic.png' alt='Classic tome' />
+        <Image
+          src='/assets/images/books/book-classic.png'
+          alt='Classic tome'
+          withAvif
+        />
       )
     case 'FUSION_STONES':
       return <Image src='/assets/images/iconography/stones.png' alt='Stones' />
     case 'MYTHIC_TOME':
       return (
-        <Image src='/assets/images/books/book-mythic.png' alt='Mythic tome' />
+        <Image
+          src='/assets/images/books/book-mythic.png'
+          alt='Mythic tome'
+          withAvif
+        />
       )
     case 'LEGENDARY_CARD':
       return <Card {...getResolvedCardData({ id: props.cardId })} />

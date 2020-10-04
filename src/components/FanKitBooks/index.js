@@ -67,6 +67,7 @@ export default React.memo(function FanKitBooks(props) {
                   setActive={setActive}
                   width='300px'
                   height='300px'
+                  withAvif
                 />
               )}
             </Column>
