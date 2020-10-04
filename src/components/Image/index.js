@@ -15,7 +15,7 @@ const useFileExtension = ({ withAvif, withoutWebp }) => {
 
 export default React.forwardRef(function Image(props, ref) {
   const ext = useFileExtension({
-    withAvif: props.withAvif,
+    withAvif: props.withAvif && props.src.startsWith('/assets/images'),
     withoutWebp: props.withoutWebp || !props.src.startsWith('/assets/images'),
   })
 
