@@ -4099,6 +4099,18 @@
   },
   {
     "date": 1601510400000,
+    "description": "Increased range of ability from surrounding to all at level 4",
+    "id": "I2",
+    "type": "BUFF"
+  },
+  {
+    "date": 1601510400000,
+    "description": "Increased strength by 1 at level 3",
+    "id": "I2",
+    "type": "BUFF"
+  },
+  {
+    "date": 1601510400000,
     "description": "Increased strength by 1",
     "id": "I27",
     "type": "BUFF"

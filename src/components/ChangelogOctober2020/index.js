@@ -152,7 +152,8 @@ export default React.memo(function ChangelogOctober2020(props) {
         <li>
           <WikiLink id='I2' />
           ’s ability now affects surrounding structures at level 2 instead of
-          bordering only.
+          bordering only, all at level 4 instead of surrounding only, and has +1
+          strength at level 3 and to differentiate level 2 and level 3.
         </li>
         <li>
           <WikiLink id='I27' />’ strength is increased by 1 (from 3/4/5/6/7 to
