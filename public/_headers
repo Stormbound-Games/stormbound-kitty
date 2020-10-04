@@ -8,3 +8,6 @@
   for = "*.webp"
   [headers.values]
     Cache-Control = "public, max-age=86400"
+  for = "*.avif"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
