@@ -124,7 +124,10 @@ export default React.memo(function Videos(props) {
         </section>
       ))}
 
-      <PageMeta />
+      <PageMeta
+        title='Videos'
+        description='Find here a list of popular and active Stormbound video content creators and their YouTube channels.'
+      />
     </Article>
   )
 })

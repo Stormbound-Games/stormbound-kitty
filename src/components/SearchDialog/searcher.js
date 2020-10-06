@@ -36,6 +36,12 @@ SEARCH_INDEX.push({
 })
 
 SEARCH_INDEX.push({
+  path: '/videos',
+  label: 'Videos',
+  breadcrumbs: ['Community', 'Videos'],
+})
+
+SEARCH_INDEX.push({
   path: '/card',
   label: 'Card Builder',
   breadcrumbs: ['Tools', 'Card Builder'],

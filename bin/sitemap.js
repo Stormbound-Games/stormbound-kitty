@@ -40,6 +40,7 @@ const links = [
   '/sim',
   '/sim/puzzles',
   '/stories',
+  '/videos',
 ]
 
 BRAWLS.forEach(brawl => {
