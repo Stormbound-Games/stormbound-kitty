@@ -34,7 +34,7 @@ export const SWCC_SEASON_1 = [
     week: 18,
     name: 'Shadowfen',
     winner: {
-      author: 'alphanaut',
+      author: 'Alphanaut',
       id:
         'RjtUO1U7Ujs2OzA7My80LzUvNS82O0FjaWRpYyUyMEFtcGhpYmlhbnM7VDg7T24lMjBwbGF5JTJDJTIwKnBvaXNvbiolMjBhbGwlMjB1bml0cyUyMG9uJTIwdGhlJTIwYm9hcmQuJTIwSWYlMjB0aGV5JTIwYXJlJTIwYWxyZWFkeSUyMHBvaXNvbmVkJTJDJTIwKmRyYWluJTIwMiUyRjIlMkYyJTJGMyUyRjMqJTIwc3RyZW5ndGglMjBmcm9tJTIwdGhlbTs=',
     },
