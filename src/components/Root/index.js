@@ -5,6 +5,7 @@ import ErrorBoundary from '../ErrorBoundary'
 import NotificationProvider from '../NotificationProvider'
 import PersonalDecksProvider from '../PersonalDecksProvider'
 import ImageSupportProvider from '../ImageSupportProvider'
+import StoriesProvider from '../StoriesProvider'
 import Router from '../Router'
 
 export default function Root(props) {
@@ -15,10 +16,12 @@ export default function Root(props) {
           <NotificationProvider>
             <CollectionProvider>
               <PersonalDecksProvider>
-                <Router />
-                <Helmet>
-                  <meta name='author' content='Kitty' />
-                </Helmet>
+                <StoriesProvider>
+                  <Router />
+                  <Helmet>
+                    <meta name='author' content='Kitty' />
+                  </Helmet>
+                </StoriesProvider>
               </PersonalDecksProvider>
             </CollectionProvider>
           </NotificationProvider>

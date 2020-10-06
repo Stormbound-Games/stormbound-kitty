@@ -2,11 +2,11 @@ import React from 'react'
 import GUIDES from '../../data/guides'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import { CATEGORIES } from '../../constants/guides'
-import useFetch from '../../hooks/useFetch'
 import { STORY_CATEGORIES } from '../../constants/stories'
+import { StoriesContext } from '../StoriesProvider'
 
 export default () => {
-  const { data: stories = [] } = useFetch('/stories.json')
+  const stories = React.useContext(StoriesContext)
   const { isUnseen } = React.useContext(PersonalDecksContext)
 
   return [

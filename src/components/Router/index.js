@@ -3,8 +3,8 @@ import { BrowserRouter, Redirect, Switch } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Error from '../Error'
 import Page from '../Page'
+import { StoriesContext } from '../StoriesProvider'
 import load from '../../helpers/load'
-import useFetch from '../../hooks/useFetch'
 import { STORY_CATEGORIES } from '../../constants/stories'
 import guides from '../../data/guides'
 import { CATEGORIES } from '../../constants/guides'
@@ -78,7 +78,7 @@ const StoryCategory = load('StoryCategory')
 const TournamentHallOfFame = load('TournamentHallOfFame')
 
 export default function Router(props) {
-  const { data: stories = [] } = useFetch('/stories.json')
+  const stories = React.useContext(StoriesContext)
 
   return (
     <AnimatePresence exitBeforeEnter>

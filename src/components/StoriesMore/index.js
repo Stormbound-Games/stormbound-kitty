@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Title from '../Title'
 import Stories from '../Stories'
-import useFetch from '../../hooks/useFetch'
+import { StoriesContext } from '../StoriesProvider'
 
 export default React.memo(function StoriesMore(props) {
-  const { data: stories = [] } = useFetch('/stories.json')
+  const stories = React.useContext(StoriesContext)
   const isNotCurrent = story => props.title !== story.title
 
   if (props.saga) {

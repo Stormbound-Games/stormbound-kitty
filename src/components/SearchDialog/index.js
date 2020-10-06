@@ -1,11 +1,11 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import Downshift from 'downshift'
+import { StoriesContext } from '../StoriesProvider'
 import Dialog from '../Dialog'
 import Icon from '../Icon'
 import searcher, { SEARCH_INDEX } from './searcher'
 import capitalise from '../../helpers/capitalise'
-import useFetch from '../../hooks/useFetch'
 import './index.css'
 
 const isSearchShortcut = event => {
@@ -66,7 +66,7 @@ export default React.memo(function SearchDialog(props) {
   const history = useHistory()
   const input = React.useRef(null)
   const { setIsSearchReady } = props
-  const { data: stories = [] } = useFetch('/stories.json')
+  const stories = React.useContext(StoriesContext)
   const metaKeyName =
     navigator.platform.toUpperCase().indexOf('MAC') >= 0 ? 'CMD' : 'CTRL'
 

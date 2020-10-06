@@ -1,4 +1,5 @@
-import useFetch from './useFetch'
+import React from 'react'
+import { StoriesContext } from '../components/StoriesProvider'
 import decks from '../data/decks'
 import guides from '../data/guides'
 import tournaments from '../data/tournaments'
@@ -17,7 +18,8 @@ const formatEntryWithDate = entry => {
 }
 
 const useUserStories = id => {
-  const { data: stories = [] } = useFetch('/stories.json')
+  const stories = React.useContext(StoriesContext)
+
   return stories
     .filter(story => story.date && story.author.toLowerCase() === id)
     .map(formatEntryWithDate)

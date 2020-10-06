@@ -1,21 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { STORY_CATEGORIES } from '../../constants/stories'
-import Error from '../Error'
 import HeaderBanner from '../HeaderBanner'
 import Notice from '../Notice'
 import Only from '../Only'
 import Loader from '../Loader'
 import PageMeta from '../PageMeta'
 import Stories from '../Stories'
-import useFetch from '../../hooks/useFetch'
 import useLazyLoad from '../../hooks/useLazyLoad'
 import useViewportWidth from '../../hooks/useViewportWidth'
+import { StoriesContext } from '../StoriesProvider'
 
 export default React.memo(function StoryCategory(props) {
-  const { data = [], loading, error } = useFetch('/stories.json')
   const viewportWidth = useViewportWidth()
-  const stories = data
+  const stories = React.useContext(StoriesContext)
     .filter(story => story.category === props.category)
     .sort((a, b) => {
       const indexA = parseInt(a.title, 10)
@@ -34,17 +32,9 @@ export default React.memo(function StoryCategory(props) {
         withAvif
       />
 
-      {error ? (
-        <Error error='Error fetching stories.' />
-      ) : loading ? (
-        <Loader />
-      ) : (
-        <>
-          <Stories stories={items} columns={3} />
-          {loadingMore && <Loader />}
-          <div ref={ref} />
-        </>
-      )}
+      <Stories stories={items} columns={3} />
+      {loadingMore && <Loader />}
+      <div ref={ref} />
 
       <Notice icon='quill'>
         Looking to contribute to the Stormbound lore?
