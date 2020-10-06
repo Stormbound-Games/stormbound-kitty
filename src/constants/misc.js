@@ -302,6 +302,15 @@ export const SWCC_SEASON_2 = [
   {
     week: 40,
     name: 'Art Match',
+    winner: {
+      id:
+        'UztVO1U7RTszOzE7Mi8zLzQvNS82O2xpZmVibG9vZCUyMHJlYXBlcnM7aHR0cHMlM0ElMkYlMkZwcmV2aWV3LnJlZGQuaXQlMkZsbG80N252aTBxcDUxLnBuZyUzRndpZHRoJTNEMjAwMCUyNmZvcm1hdCUzRHBuZyUyNmF1dG8lM0R3ZWJwJTI2cyUzRDhlM2M1MTdjNTBjY2E0ODNkN2ZhNzJjNTYwYTk3M2EzZjZmNGRlMTY7d2hlbmV2ZXIlMjBhJTIwc3Vycm91bmRpbmclMjB1bml0JTIwZGllcyUyQyUyMGRlYWwlMjAxJTIwZGFtYWdlJTIwdG8lMjBhJTIwcmFuZG9tJTIwZW5lbXk7Ow==',
+      author: 'Alialux',
+    },
+  },
+  {
+    week: 41,
+    name: 'Environmental & board effects',
     submitURL: 'https://forms.gle/oHWRj45WoJc2q8ps5',
   },
 ]
