@@ -1,5 +1,6 @@
 import React from 'react'
 import { StoriesContext } from '../components/StoriesProvider'
+import capitalise from '../helpers/capitalise'
 import decks from '../data/decks'
 import guides from '../data/guides'
 import tournaments from '../data/tournaments'
@@ -116,7 +117,25 @@ const useMemberContent = id => {
     ...events,
   ].sort((a, b) => b.date - a.date)
 
+  const findDisplayName = author => author.toLowerCase() === id
+  // This is incredibly ugly, but this is kind of the only way to find the
+  // correct capitalisation since it cannot be retrieved from the URL parameter
+  // unfortunately.
+  const displayName =
+    stories[0]?.author ??
+    decks[0]?.author ??
+    puzzles[0]?.author ??
+    artworks[0]?.author ??
+    donations[0]?.author ??
+    (events[0]?.author || events[0]?.authors.find(findDisplayName)) ??
+    guides[0]?.authors.find(findDisplayName) ??
+    hosts[0]?.hosts.find(findDisplayName) ??
+    podiums[0]?.podium.flat().find(findDisplayName) ??
+    cards[0]?.winner.author ??
+    capitalise(id)
+
   return {
+    displayName,
     content,
     details: {
       stories,
