@@ -35,6 +35,7 @@ const links = [
   '/list',
   '/list/equals',
   '/list/ranked',
+  '/members',
   '/quest',
   '/sim',
   '/sim/puzzles',

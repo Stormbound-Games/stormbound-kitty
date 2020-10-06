@@ -19,7 +19,23 @@ export default React.memo(function Member(props) {
   const { content, details } = useMemberContent(id)
 
   return (
-    <Article title={displayName}>
+    <Article
+      title={displayName}
+      backLink={{ to: '/members', children: 'Back to Members' }}
+      meta={
+        <>
+          {content.length} contribution{content.length === 1 ? '' : 's'}
+          {details.donations.length > 0 ? (
+            <>
+              {' '}
+              · <abbr title='Kitty Appreciation Team'>KAT</abbr> member
+            </>
+          ) : (
+            ''
+          )}
+        </>
+      }
+    >
       <Article.FullWidth>
         {content.length > 0 ? (
           <Row desktopOnly wideGutter>

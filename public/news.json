@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Members",
+    "description": "There is now an index listing all Stormbound-Kitty content creators and contributors!",
+    "link": "/members"
+  },
+  {
     "intro": "October Update",
     "description": "The second Sheepyard update is here, so be sure to read everything you need to know!",
     "link": "/changelog/10-2020"

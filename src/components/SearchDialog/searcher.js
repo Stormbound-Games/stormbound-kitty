@@ -30,6 +30,12 @@ cards
   })
 
 SEARCH_INDEX.push({
+  path: '/members',
+  label: 'Members',
+  breadcrumbs: ['Community', 'Members'],
+})
+
+SEARCH_INDEX.push({
   path: '/card',
   label: 'Card Builder',
   breadcrumbs: ['Tools', 'Card Builder'],

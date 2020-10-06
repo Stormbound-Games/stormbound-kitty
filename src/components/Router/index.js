@@ -70,6 +70,7 @@ const IncomeCalculator = load('IncomeCalculator')
 const ListBuilderDisplayView = load('ListBuilderDisplayView')
 const ListBuilderEditorView = load('ListBuilderEditorView')
 const Member = load('Member')
+const Members = load('Members')
 const QuestBuilderRoot = load('QuestBuilderRoot')
 const RankedList = load('RankedList')
 const ReleaseNotes = load('ReleaseNotes')
@@ -285,6 +286,10 @@ export default function Router(props) {
 
           <Page path='/member/:memberId'>
             <Member />
+          </Page>
+
+          <Page path='/members'>
+            <Members />
           </Page>
 
           <Redirect exact path='/fan-kit' to='/fan-kit/cards' />

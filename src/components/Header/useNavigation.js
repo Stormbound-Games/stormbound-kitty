@@ -224,6 +224,11 @@ export default () => {
           icon: 'star',
           items: [
             {
+              label: 'Members',
+              to: '/members',
+              id: 'MEMBERS',
+            },
+            {
               label: 'Fan Art',
               to: '/fan-art',
               id: 'FAN_ART',

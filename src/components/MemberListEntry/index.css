@@ -1,0 +1,38 @@
+.MemberListEntry {
+  padding: 0.5em 0;
+  font-size: 120%;
+  display: flex;
+}
+
+.MemberListEntry__name {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.MemberListEntry__name:hover {
+  border-bottom-color: currentColor;
+}
+
+.MemberListEntry__toc {
+  padding-left: 1.4em;
+  margin: 0;
+  font-size: 80%;
+}
+
+.MemberListEntry__content {
+  margin-left: 1em;
+}
+
+.MemberListEntry__icon {
+  position: relative;
+  top: 0.1em;
+  font-size: 220%;
+  opacity: 0.5;
+  color: var(--beige);
+}
+
+.MemberListEntry__summary {
+  text-transform: uppercase;
+  color: var(--beige);
+  font-size: 75%;
+}
