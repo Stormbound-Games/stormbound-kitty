@@ -77,6 +77,7 @@ const ReleaseNotes = load('ReleaseNotes')
 const Story = load('Story')
 const StoryCategory = load('StoryCategory')
 const TournamentHallOfFame = load('TournamentHallOfFame')
+const Videos = load('Videos')
 
 export default function Router(props) {
   const stories = React.useContext(StoriesContext)
@@ -368,6 +369,10 @@ export default function Router(props) {
 
           <Page path='/brewed-sages' active={['COMMUNITY', 'BREWED_SAGES']}>
             <BrewedSages />
+          </Page>
+
+          <Page path='/videos' active={['COMMUNITY', 'VIDEOS']}>
+            <Videos />
           </Page>
 
           <Page exact path='/' active={['HOME', 'NEWS']}>

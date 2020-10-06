@@ -238,6 +238,11 @@ export default () => {
               to: '/brewed-sages',
               id: 'BREWED_SAGES',
             },
+            {
+              label: 'Videos',
+              to: '/videos',
+              id: 'VIDEOS',
+            },
           ],
         },
       ],

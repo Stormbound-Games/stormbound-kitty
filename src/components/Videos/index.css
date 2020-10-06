@@ -1,0 +1,40 @@
+.Video {
+  margin-bottom: 3em;
+}
+
+.Article h2.Video__title {
+  margin-top: 0;
+  margin-bottom: 0.25em;
+}
+
+.Video__image {
+  margin: auto;
+  height: auto;
+  display: block;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.Video__link {
+  display: inline-block;
+  color: var(--beige);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.Video__link:hover {
+  border-bottom-color: currentColor;
+}
+
+.Video__icon {
+  position: relative;
+  top: 0.2em;
+  margin-right: 1ch;
+}
+
+@media (max-width: 700px) {
+  .Video__image {
+    max-width: 70%;
+    margin-bottom: 1em;
+  }
+}
