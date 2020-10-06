@@ -62,6 +62,10 @@
   margin-bottom: 1.5em;
 }
 
+.Article .Info + .Info {
+  margin-top: 0;
+}
+
 @media (min-width: 700px) {
   .Article__meta {
     margin-bottom: 6em;
