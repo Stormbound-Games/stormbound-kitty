@@ -58,7 +58,7 @@ export default React.memo(function GuideD1SFCommons(props) {
         originally reached Diamond with a Winter rush deck, and kept playing
         Winter for a long while. Eventually I switched to Shadowfen for a change
         of pace, but did not have a lot of options. So thanks to kind help from
-        the_mirc, I came up with a deck made of 11 common cards and 1 rare card.
+        The_mirc, I came up with a deck made of 11 common cards and 1 rare card.
       </p>
       <p>
         I am still rocking that deck in Diamond 1 today, waiting for my

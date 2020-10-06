@@ -350,7 +350,7 @@ export const DONATORS = [
   { author: 'ArthisRoo', date: '06/2020' },
   { author: 'Blubby', date: '04/2020' },
   { author: 'Freeloader', date: '09/2020' },
-  { author: 'Hadid', date: '03/2020' },
+  { author: 'HikingViking', date: '03/2020' },
   { author: 'Kepp', date: '04/2020' },
   { author: 'MisterMonocle', date: '06/2020' },
   { author: 'Oeni', date: '07/2020' },
@@ -361,7 +361,7 @@ export const DONATORS = [
   { author: 'Stratadox', date: '07/2020' },
   { author: 'Subaiku', date: '09/2020' },
   { author: 'Sven', date: '06/2020' },
-  { author: 'the_mirc', date: '07/2020' },
+  { author: 'The_mirc', date: '07/2020' },
   { author: 'Todam', date: '09/2020' },
 ]
 

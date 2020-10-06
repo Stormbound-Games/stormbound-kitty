@@ -168,7 +168,7 @@ export default React.memo(function GuideNobleCoalition(props) {
             <FeaturedDeck
               id='5n15s15n35s25n675n665n125s65n715n655n695n68'
               name='Swarm Cat Runners'
-              author='the_mirc'
+              author='The_mirc'
               category='BRAWL'
               faction='swarm'
             />

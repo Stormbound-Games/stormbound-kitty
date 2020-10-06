@@ -428,7 +428,7 @@ export default React.memo(function GuideManaCurve(props) {
               In the graph <Only.Desktop>on the right</Only.Desktop>
               <Only.Mobile>below</Only.Mobile> from{' '}
               <Link to='/deck/5n15f85n25f45f35n35n675n95n155f105n405n76/detail'>
-                the_mirc’s spell Brawl deck
+                The_mirc’s spell Brawl deck
               </Link>
               , the cards line does not start at 0, which is particularly
               interesting.
