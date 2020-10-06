@@ -11,7 +11,7 @@ export default React.memo(function FeedPodcastEntry(props) {
   const name = props.authors.find(author => author.toLowerCase() === props.user)
 
   return (
-    <FeedEntry icon='star' date={props.date}>
+    <FeedEntry icon='bubbles' date={props.date}>
       {name} has published
       {props.authors.length > 1 ? (
         <>
