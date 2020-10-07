@@ -15,6 +15,7 @@ const COMPONENTS = {
   RELEASE: load('FeedReleaseEntry'),
   STORY: load('FeedStoryEntry'),
   SWCC: load('FeedSWCCEntry'),
+  YOUTUBE: load('FeedYouTubeEntry'),
 }
 
 export default React.memo(function MemberFeedItem(props) {

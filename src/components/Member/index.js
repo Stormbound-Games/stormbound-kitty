@@ -56,25 +56,15 @@ export default React.memo(function Member(props) {
                 <abbr title='Kitty Appreciation Team'>KAT</abbr>!
               </Info>
             )}
-
-            {channel && (
-              <Info icon='youtube' title='Video creator'>
-                {displayName} is a video content creator. Be sure to check their
-                video on{' '}
-                <a
-                  href={channel.href}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  their YouTube channel
-                </a>
-                .
-              </Info>
-            )}
           </Column>
           <Column width='2/3'>
-            {content.length > 0 ? (
+            {content.length > 0 || channel ? (
               <ul className='Member__feed'>
+                {channel && (
+                  <div className='Member__item'>
+                    <FeedItem {...channel} type='YOUTUBE' />
+                  </div>
+                )}
                 {content.map((entry, index) => (
                   <li key={index} className='Member__item'>
                     <FeedItem {...entry} user={id} />
