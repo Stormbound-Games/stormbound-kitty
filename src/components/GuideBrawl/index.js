@@ -164,14 +164,14 @@ export default React.memo(function GuideBrawl(props) {
       </ul>
 
       <p>
-        One of the main difficulties of the Brawl at this stage is that there is
-        no sandbox to try decks with Brawl modificators. A deck that might work
-        very well when all structures cost 2 mana is not going to work when they
-        have their original mana cost.
+        A good way to practice Brawl and try decks outside of the event itself
+        to avoid spending coins needlessly is to rely on the extended friendly
+        matches. There is a way to do friendly games with Brawl modifiers, and
+        it is a great way to get prepared before the real thing.
       </p>
 
       <p>
-        That being said, it can be interesting to take the Brawl as an
+        All that being said, it can be interesting to take the Brawl as an
         opportunity to level up cards that you would not otherwise play
         (provided your finances allow it), and therefore increasing your
         fortress level. For instance, leveling up some construct cards as a
