@@ -116,7 +116,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
               author='OneC'
               category='BRAWL'
               faction='shadowfen'
-              modifier='SPELL_MANA'
+              brawl='SPELL_MANA'
             />
           </Column>
         </Row>
@@ -146,7 +146,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
               author='Frostkhan'
               category='BRAWL'
               faction='winter'
-              modifier='SPELL_MANA'
+              brawl='SPELL_MANA'
             />
           </Column>
         </Row>
