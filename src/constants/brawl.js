@@ -56,7 +56,7 @@ export const BRAWLS = [
   {
     id: 'FROSTLING_STRENGTH',
     label: 'Frostlings +4 strength',
-    title: 'Goddess’ Boon',
+    title: 'Goddess Boon',
     cardId: 'W10',
   },
   {

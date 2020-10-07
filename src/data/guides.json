@@ -36,6 +36,18 @@
     "date": "07/2020"
   },
   {
+    "id": "GODDESS_BOON_GUIDE",
+    "name": "Goddess Boon",
+    "authors": ["Oeni"],
+    "excerpt": "In this frostling edition of the Brawl Gazette, Oeni goes through everything to know about the Goddess Boon Brawl.",
+    "slug": "goddess-boon",
+    "faction": "winter",
+    "cardId": "W10",
+    "background": "/assets/images/banners/environment_winter.png",
+    "category": "BRAWL_MODE",
+    "date": "10/2020"
+  },
+  {
     "id": "EYE_OF_THE_TEMPEST_GUIDE",
     "name": "Eye of the Tempest",
     "authors": ["Oeni"],
