@@ -411,4 +411,12 @@ export const PODCAST_EPISODES = [
     excerpt:
       'Our hosts are hot on the trail of Stormbound breadcrumbs: an AMA, leaks in the Discord server and an interview with Brzoza help drawing a map of where Sheepyard is taking the game.',
   },
+  {
+    title: 'The Hunt for the Bread in October',
+    meta: '44 minutes and 31 seconds',
+    href:
+      'https://freeloader.podbean.com/e/episode-6-the-hunt-for-the-bread-in-october/',
+    excerpt:
+      'The Brewed Sages are excited for all the balance changes and new cards being introduced to Stormbound... but where are they going to find the resources to play with them?',
+  },
 ]
