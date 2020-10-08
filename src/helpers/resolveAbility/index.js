@@ -1,4 +1,13 @@
-const VARIABLES_RE = /([^*\s/]*)\/([^/]*)\/([^/]*)\/([^/]*)\/([^*\s]*|$)/g
+// Not a star, space or forward slash
+// Followed by a slash
+// Followed by not a slash (possibly empty)
+// Followed by a slash
+// Followed by not a slash (possibly empty)
+// Followed by a slash
+// Followed by not a slash (possibly empty)
+// Followed by a slash
+// Followed by not a star, space or comma (possibly empty), or the end of input
+const VARIABLES_RE = /([^*\s/]*)\/([^/]*)\/([^/]*)\/([^/]*)\/([^*\s,]*|$)/g
 const SLOTS = [null, null, null, null, null]
 
 export default string => {
@@ -9,9 +18,7 @@ export default string => {
   const decoded = decodeURIComponent(string)
   const variables = decoded.match(VARIABLES_RE)
   const values = SLOTS.map((slot, index) => {
-    if (!variables) {
-      return decoded
-    }
+    if (!variables) return decoded
 
     let result = decoded
 
