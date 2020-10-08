@@ -41,8 +41,8 @@ export default React.memo(function CollectionActiveCardForm(props) {
               required
               value={
                 props.activeCard.level === 5 || props.activeCard.missing
-                  ? 0
-                  : props.activeCard.copies
+                  ? '0'
+                  : props.activeCard.copies.toString()
               }
               onChange={props.setActiveCardCopies}
               disabled={
