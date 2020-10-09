@@ -39,7 +39,6 @@ export default () => {
               label: 'Update 10-2020',
               to: '/changelog/10-2020',
               id: '10_2020',
-              new: true,
             },
             {
               label: 'Update 09-2020',
