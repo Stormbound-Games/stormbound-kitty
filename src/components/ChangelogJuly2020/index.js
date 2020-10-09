@@ -144,7 +144,7 @@ export default React.memo(function ChangelogJuly2020(props) {
         out of 10 quests).
       </p>
 
-      <Article.FullWidth padding='0'>
+      <Article.FullWidth>
         <Row desktopOnly wideGutter>
           <Column width='1/3'>
             <Quest
@@ -193,7 +193,7 @@ export default React.memo(function ChangelogJuly2020(props) {
         dreams of becoming a pirate hero crushed.
       </p>
 
-      <Article.FullWidth padding='0'>
+      <Article.FullWidth>
         <Row desktopOnly wideGutter>
           <Column width='1/2'>
             <h3 style={{ marginTop: 0 }}>Sketches & illustrations</h3>
@@ -435,7 +435,7 @@ export default React.memo(function ChangelogJuly2020(props) {
 
       <Title id='ui-improvements'>UI improvements</Title>
 
-      <Article.FullWidth padding='0'>
+      <Article.FullWidth>
         <Row desktopOnly wideGutter>
           <Column width='1/3'>
             <p style={{ marginTop: '2em' }}>

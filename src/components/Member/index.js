@@ -39,7 +39,7 @@ export default React.memo(function Member(props) {
         </>
       }
     >
-      <Article.FullWidth padding='0.625em'>
+      <Article.FullWidth>
         <Row desktopOnly wideGutter>
           <Column width='1/3'>
             <p>
