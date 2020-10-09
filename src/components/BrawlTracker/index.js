@@ -30,7 +30,9 @@ export default React.memo(function BrawlTracker(props) {
           <BrawlSetup setup={setup} setSetup={setSetup} />
           <BrawlReset />
           {guide ? (
-            <GuideTeaser {...guide} />
+            <div>
+              <GuideTeaser {...guide} />
+            </div>
           ) : (
             <BrawlRecommendedDecks limit={1} columns={1} />
           )}
