@@ -88,6 +88,19 @@ export const VIDEOS = [
       </p>
     ),
   },
+  {
+    author: 'LazyLotazo',
+    href:
+      'https://www.youtube.com/playlist?list=PLRZ8OyLIb3tOsqGHvXsGMEEFa4kDoKIsm',
+    thumbnail:
+      'https://yt3.ggpht.com/a/AATXAJyt5PB_hzgoV8QYGG-JZKonctwJANaxYMpBqz4_Mw=s176-c-k-c0x00ffffff-no-rj',
+    description: (
+      <p>
+        LazyLotazo is a popular Stormbound Youtuber regularly creating new
+        videos.
+      </p>
+    ),
+  },
 ]
 
 export default React.memo(function Videos(props) {
