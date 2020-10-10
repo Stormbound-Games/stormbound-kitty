@@ -2,7 +2,8 @@ import getResolvedCardData from '../getResolvedCardData'
 import { RACES } from '../../constants/game'
 import { UNVALUED_CARDS } from '../../constants/misc'
 
-const MAX_MANA = 30
+export const MAX_MANA = 30
+export const MAX_TILES = 10
 const TYPES = Object.keys(RACES).length + 2
 const MOVEMENT = [0.5, 1, 1.5, 1.75, 2]
 
@@ -125,7 +126,10 @@ const getCardValue = (id, level = 1) => {
       ]
     }
     case 'N45': /* Powder Tower */ {
-      return [strength / mana, (strength + parseAbility(ability) * 20) / mana]
+      return [
+        strength / mana,
+        (strength + parseAbility(ability) * MAX_TILES) / mana,
+      ]
     }
     case 'N46': /* Tegor the Vengeful */ {
       const [a, b, c] = ability.match(/(\d+)/g).map(Number)
@@ -399,7 +403,10 @@ const getCardValue = (id, level = 1) => {
       ]
     }
     case 'S7': /* Moonlit Aerie */ {
-      return [strength / mana, (strength + parseAbility(ability) * 19) / mana]
+      return [
+        strength / mana,
+        (strength + parseAbility(ability) * MAX_TILES) / mana,
+      ]
     }
     case 'S10': /* Broken Truce */ {
       const [damage, penalty] = ability.match(/(\d+)/g).map(Number)
@@ -444,7 +451,7 @@ const getCardValue = (id, level = 1) => {
 
       return [
         (strength / mana) * speed,
-        ((strength + 19 * damage) / mana) * speed,
+        ((strength + MAX_TILES * damage) / mana) * speed,
       ]
     }
     case 'N18': /* Beasts of Terror */
@@ -452,27 +459,27 @@ const getCardValue = (id, level = 1) => {
     case 'N51': /* Dangerous Suitors */ {
       return [
         (strength / mana) * speed,
-        ((strength + parseAbility(ability) * 19) / mana) * speed,
+        ((strength + parseAbility(ability) * MAX_TILES) / mana) * speed,
       ]
     }
     case 'N40': /* Kindred’s Grace */ {
       const [primary, secondary] = ability.match(/(\d+)/g).map(Number)
-      return [primary / mana, (primary + secondary * 19) / mana]
+      return [primary / mana, (primary + secondary * MAX_TILES) / mana]
     }
     case 'S15': /* Dark Harvest */ {
       const value = parseAbility(ability)
-      return [value / mana, (value * 17) / mana]
+      return [value / mana, (value * MAX_TILES) / mana]
     }
     case 'N75': /* Greenwood Ancients */ {
       return [
         (strength / mana) * speed,
-        ((strength + parseAbility(ability) * 18) / mana) * speed,
+        ((strength + parseAbility(ability) * MAX_TILES) / mana) * speed,
       ]
     }
     case 'N76': /* Prime Oracle Bragda */ {
       return [
         (strength / mana) * speed,
-        ((strength + (strength - 1) * 18) / mana) * speed,
+        ((strength + (strength - 1) * MAX_TILES) / mana) * speed,
       ]
     }
     case 'F27': /* Faithless Prophets */ {

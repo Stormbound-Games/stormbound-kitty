@@ -344,8 +344,9 @@ export default [
               For sake of simplicity, some corners have been cut. For instance,
               hand manipulations are discounted (e.g. pirates), freeze, poison
               and confusion are ignored, mana is capped at 30 (e.g. Lady Rime
-              and Visions of the Grove) and the strength is capped at 24 (e.g.
-              Confinement and Siren of the Seas).
+              and Visions of the Grove), tiles are capped to 10 (instead of 20)
+              and the strength is capped at 24 (e.g. Confinement and Siren of
+              the Seas).
             </p>
             <p>
               These cards are currently not available in the calculator:{' '}

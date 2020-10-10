@@ -1,5 +1,5 @@
 import { RACES } from '../../constants/game'
-import getCardValue from './'
+import getCardValue, { MAX_TILES, MAX_MANA } from './'
 
 describe('The `getCardValue` helper', () => {
   it('should return value for Green Prototypes', () => {
@@ -159,9 +159,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('N18', 1)
     const value5 = getCardValue('N18', 5)
     expect(value1[0]).to.equal((3 / 4) * 1)
-    expect(value1[1]).to.equal(((3 + 2 * 19) / 4) * 1)
+    expect(value1[1]).to.equal(((3 + 2 * MAX_TILES) / 4) * 1)
     expect(value5[0]).to.equal((6 / 4) * 1)
-    expect(value5[1]).to.equal(((6 + 4 * 19) / 4) * 1)
+    expect(value5[1]).to.equal(((6 + 4 * MAX_TILES) / 4) * 1)
   })
 
   it('should return value for Cabin Girls', () => {
@@ -310,13 +310,12 @@ describe('The `getCardValue` helper', () => {
   })
 
   it('should return value for Ubass the Hunter', () => {
-    const types = Object.keys(RACES).length + 2
     const value1 = getCardValue('N35', 1)
     const value5 = getCardValue('N35', 5)
     expect(value1[0]).to.equal((5 / 5) * 0.5)
-    expect(value1[1]).to.equal(((5 + types * 1) / 5) * 0.5)
+    expect(value1[1]).to.equal(((5 + 10 * 1) / 5) * 0.5)
     expect(value5[0]).to.equal((10 / 5) * 0.5)
-    expect(value5[1]).to.equal(((10 + types * 3) / 5) * 0.5)
+    expect(value5[1]).to.equal(((10 + 10 * 3) / 5) * 0.5)
   })
 
   it('should return value for Voidsurgers', () => {
@@ -359,9 +358,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('N40', 1)
     const value5 = getCardValue('N40', 5)
     expect(value1[0]).to.equal(6 / 6)
-    expect(value1[1]).to.equal((6 + 2 * 19) / 6)
+    expect(value1[1]).to.equal((6 + 2 * MAX_TILES) / 6)
     expect(value5[0]).to.equal(11 / 6)
-    expect(value5[1]).to.equal((11 + 5 * 19) / 6)
+    expect(value5[1]).to.equal((11 + 5 * MAX_TILES) / 6)
   })
 
   it('should return value for Lich Summoners', () => {
@@ -404,9 +403,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('N45', 1)
     const value5 = getCardValue('N45', 5)
     expect(value1[0]).to.equal(3 / 6)
-    expect(value1[1]).to.equal((3 + 20 * 2) / 6)
+    expect(value1[1]).to.equal((3 + MAX_TILES * 2) / 6)
     expect(value5[0]).to.equal(6 / 6)
-    expect(value5[1]).to.equal((6 + 20 * 4) / 6)
+    expect(value5[1]).to.equal((6 + MAX_TILES * 4) / 6)
   })
 
   it('should return value for Tegor the Vengeful', () => {
@@ -460,9 +459,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('N51', 1)
     const value5 = getCardValue('N51', 5)
     expect(value1[0]).to.equal((5 / 6) * 1)
-    expect(value1[1]).to.equal(((5 + 19 * 2) / 6) * 1)
+    expect(value1[1]).to.equal(((5 + MAX_TILES * 2) / 6) * 1)
     expect(value5[0]).to.equal((10 / 6) * 1)
-    expect(value5[1]).to.equal(((10 + 19 * 4) / 6) * 1)
+    expect(value5[1]).to.equal(((10 + MAX_TILES * 4) / 6) * 1)
   })
 
   it('should return value for Salty Outcasts', () => {
@@ -478,9 +477,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('N53', 1)
     const value5 = getCardValue('N53', 5)
     expect(value1[0]).to.equal((2 / 7) * 1)
-    expect(value1[1]).to.equal(((2 + 19 * 2) / 7) * 1)
+    expect(value1[1]).to.equal(((2 + MAX_TILES * 2) / 7) * 1)
     expect(value5[0]).to.equal((7 / 7) * 1)
-    expect(value5[1]).to.equal(((7 + 19 * 4) / 7) * 1)
+    expect(value5[1]).to.equal(((7 + MAX_TILES * 4) / 7) * 1)
   })
 
   it('should return value for Veterans of War', () => {
@@ -676,27 +675,31 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('N75', 1)
     const value5 = getCardValue('N75', 5)
     expect(value1[0]).to.equal((3 / 4) * 1)
-    expect(value1[1]).to.equal(((3 + 18 * 1) / 4) * 1)
+    expect(value1[1]).to.equal(((3 + MAX_TILES * 1) / 4) * 1)
     expect(value5[0]).to.equal((6 / 4) * 1)
-    expect(value5[1]).to.equal(((6 + 18 * 3) / 4) * 1)
+    expect(value5[1]).to.equal(((6 + MAX_TILES * 3) / 4) * 1)
   })
 
   it('should return value for Prime Oracle Bragda', () => {
     const value1 = getCardValue('N76', 1)
     const value5 = getCardValue('N76', 5)
     expect(value1[0]).to.equal((5 / 6) * 1)
-    expect(value1[1]).to.equal(((5 + 18 * 4) / 6) * 1)
+    expect(value1[1]).to.equal(((5 + MAX_TILES * 4) / 6) * 1)
     expect(value5[0]).to.equal((11 / 6) * 1)
-    expect(value5[1]).to.equal(((11 + 18 * 10) / 6) * 1)
+    expect(value5[1]).to.equal(((11 + MAX_TILES * 10) / 6) * 1)
   })
 
   it('should return value for Rogue Sheep', () => {
     const value1 = getCardValue('N77', 1)
     const value5 = getCardValue('N77', 5)
     expect(value1[0]).to.equal((2 / 7) * 0.5)
-    expect(value1[1]).to.equal(((2 + 19 * 1 + 19 * 1 * 1) / 7) * 0.5)
+    expect(value1[1]).to.equal(
+      ((2 + MAX_TILES * 1 + MAX_TILES * 1 * 1) / 7) * 0.5
+    )
     expect(value5[0]).to.equal((7 / 7) * 0.5)
-    expect(value5[1]).to.equal(((7 + 19 * 2 + 19 * 2 * 3) / 7) * 0.5)
+    expect(value5[1]).to.equal(
+      ((7 + MAX_TILES * 2 + MAX_TILES * 2 * 3) / 7) * 0.5
+    )
   })
 
   it('should return value for Slyboots', () => {
@@ -1279,9 +1282,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('S7', 1)
     const value5 = getCardValue('S7', 5)
     expect(value1[0]).to.equal(3 / 3)
-    expect(value1[1]).to.equal((3 + 19 * 1) / 3)
+    expect(value1[1]).to.equal((3 + MAX_TILES * 1) / 3)
     expect(value5[0]).to.equal(6 / 3)
-    expect(value5[1]).to.equal((6 + 19 * 3) / 3)
+    expect(value5[1]).to.equal((6 + MAX_TILES * 3) / 3)
   })
 
   it('should return value for Shady Ghoul', () => {
@@ -1351,9 +1354,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('S15', 1)
     const value5 = getCardValue('S15', 5)
     expect(value1[0]).to.equal(2 / 5)
-    expect(value1[1]).to.equal((2 * 17) / 5)
+    expect(value1[1]).to.equal((2 * MAX_TILES) / 5)
     expect(value5[0]).to.equal(6 / 5)
-    expect(value5[1]).to.equal((6 * 17) / 5)
+    expect(value5[1]).to.equal((6 * MAX_TILES) / 5)
   })
 
   it('should return value for Dreadfauns', () => {
@@ -1558,9 +1561,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('W10', 1)
     const value5 = getCardValue('W10', 5)
     expect(value1[0]).to.equal((5 / 6) * 1)
-    expect(value1[1]).to.equal(((5 + 2 * (30 - 6)) / 30) * 1)
+    expect(value1[1]).to.equal(((5 + 2 * (MAX_MANA - 6)) / MAX_MANA) * 1)
     expect(value5[0]).to.equal((10 / 6) * 1)
-    expect(value5[1]).to.equal(((10 + 5 * (30 - 6)) / 30) * 1)
+    expect(value5[1]).to.equal(((10 + 5 * (MAX_MANA - 6)) / MAX_MANA) * 1)
   })
 
   it.skip('should return value for Midwinter Chaos', () => {
@@ -1657,9 +1660,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('W21', 1)
     const value5 = getCardValue('W21', 5)
     expect(value1[0]).to.equal((8 / 8) * 0.5)
-    expect(value1[1]).to.equal(((8 + 5.5 * 5) / 8) * 0.5)
+    expect(value1[1]).to.equal(((8 + ((MAX_MANA - 8) / 4) * 5) / 8) * 0.5)
     expect(value5[0]).to.equal((18 / 8) * 0.5)
-    expect(value5[1]).to.equal(((18 + 11 * 5) / 8) * 0.5)
+    expect(value5[1]).to.equal(((18 + ((MAX_MANA - 8) / 2) * 5) / 8) * 0.5)
   })
 
   it('should return value for Chillbeards', () => {
