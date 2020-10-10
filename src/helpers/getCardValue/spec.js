@@ -1002,9 +1002,9 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Toxic Sacrifice', () => {
     const value1 = getCardValue('F4', 1)
     const value5 = getCardValue('F4', 5)
-    expect(value1[0]).to.equal(0)
+    expect(value1[0]).to.equal((1 - 10) / 2)
     expect(value1[1]).to.equal((8 * 2 - 1) / 2)
-    expect(value5[0]).to.equal(0)
+    expect(value5[0]).to.equal((1 - 24) / 2)
     expect(value5[1]).to.equal((8 * 6 - 1) / 2)
   })
 

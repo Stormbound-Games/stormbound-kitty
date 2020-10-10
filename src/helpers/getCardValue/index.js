@@ -245,7 +245,7 @@ const getCardValue = (id, level = 1) => {
       ]
     }
     case 'F4': /* Toxic Sacrifice */ {
-      return [0, (parseAbility(ability) * 8 - 1) / mana]
+      return [(1 - MAX_STRENGTH) / mana, (parseAbility(ability) * 8 - 1) / mana]
     }
     case 'F10': /* Azure Hatchers */ {
       const [value, toads] = ability.match(/(\d)/g).map(Number)
