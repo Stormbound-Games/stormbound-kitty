@@ -6,14 +6,10 @@ import Guide from '../Guide'
 import Info from '../Info'
 import Notice from '../Notice'
 import Only from '../Only'
-import { Coins } from '../Resource'
 import Row from '../Row'
-import Table from '../Table'
 import Title from '../Title'
 import WikiLink from '../WikiLink'
-import { MILESTONES } from '../../constants/brawl'
 import guides from '../../data/guides'
-import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
 import './index.css'
 
 const guide = guides.find(guide => guide.id === 'NOBLE_COALITION_GUIDE')
@@ -45,67 +41,6 @@ export default React.memo(function GuideNobleCoalition(props) {
         deck-building since +2 strength is not a whole lot, especially if cats
         are at a lower level than the rest of your collection.
       </p>
-
-      <Title>Third Anniversary Event</Title>
-
-      <p>
-        To celebrate Stormbound’s third anniversary, the Brawl cost is going to
-        be slashed to a third this week only! As a result, it is the perfect
-        week to push further than usual.
-      </p>
-      <p>
-        Find more detail about the Brawl price in{' '}
-        <Link to='/changelog/3rd-anniversary#brawl'>
-          the third anniversary release notes
-        </Link>
-        , and about the extreme outcomes below.
-      </p>
-
-      <Table className='GuideNobleCoalition__table'>
-        <thead>
-          <tr>
-            <th>Milestone</th>
-            <th>100% win</th>
-            <th>100% concede/loss</th>
-          </tr>
-        </thead>
-        <tbody>
-          {MILESTONES.map((milestone, index) => {
-            const milestones = MILESTONES.slice(0, index + 1)
-
-            const getAllWinCost = costFn =>
-              milestones.reduce((total, milestone, index) => {
-                const { crowns: prevCrowns = 0 } =
-                  index > 0 ? MILESTONES[index - 1] : {}
-                const crowns = milestone.crowns - prevCrowns
-
-                return total + (costFn(milestone.cost) * crowns) / 5
-              }, 0)
-
-            const getEventCost = cost =>
-              Math.round(Math.round(cost / 3) / 5) * 5
-
-            const normalAllWinCost = getAllWinCost(cost => cost)
-            const eventAllWinCost = getAllWinCost(getEventCost)
-
-            return (
-              <tr key={index}>
-                <td data-label='Milestone'>
-                  {getBrawlRewardLabel(milestone, true)}
-                </td>
-                <td data-label='100% win'>
-                  <Coins amount={eventAllWinCost} /> (
-                  {-1 * (normalAllWinCost - eventAllWinCost)})
-                </td>
-                <td data-label='100% loss'>
-                  <Coins amount={eventAllWinCost * 5} /> (
-                  {-5 * (normalAllWinCost - eventAllWinCost)})
-                </td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </Table>
 
       <Title>Possible Decks</Title>
 
