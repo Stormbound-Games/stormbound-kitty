@@ -66,7 +66,7 @@ const CardValue = React.memo(function CardValue(props) {
       <thead>
         <tr>
           <th>Min</th>
-          <th>Max</th>
+          <th>Max*</th>
           <th>Avg</th>
         </tr>
       </thead>
@@ -179,6 +179,18 @@ export default React.memo(function ValueCalculator(props) {
               </div>
             </>
           )}
+        </Column>
+      </Row>
+      <Row desktopOnly>
+        <Column width='1/3'></Column>
+        <Column width='2/3'>
+          <p className='ValueCalculator__hint'>
+            * The maximum is not in fact the theoretical maximum as{' '}
+            <Link to='/faq#value-calculator'>some values are capped</Link> for
+            sake of simplicity or realism. Therefore, this is more of a
+            realistic—albeit arbitrary—maximum value to be expected in a normal
+            game.
+          </p>
         </Column>
       </Row>
       <PageMeta

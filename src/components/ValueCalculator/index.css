@@ -36,3 +36,9 @@
   height: auto;
   margin: 1em auto 3em;
 }
+
+@media (min-width: 700px) {
+  .ValueCalculator__hint {
+    text-align: center;
+  }
+}
