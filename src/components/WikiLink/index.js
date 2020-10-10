@@ -6,7 +6,10 @@ import useViewportWidth from '../../hooks/useViewportWidth'
 
 export default React.memo(function WikiLink(props) {
   const viewportWidth = useViewportWidth()
-  const cardData = getResolvedCardData({ id: props.id, level: 1 })
+  const cardData = getResolvedCardData({
+    id: props.id,
+    level: props.level || 1,
+  })
 
   if (!cardData.id) {
     return props.children || null
