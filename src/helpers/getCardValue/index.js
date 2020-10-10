@@ -121,7 +121,7 @@ const getCardValue = (id, level = 1) => {
     case 'N35': /* Ubass the Hunter */ {
       return [
         (strength / mana) * speed,
-        ((strength + parseAbility(ability) * TYPES) / mana) * speed,
+        ((strength + parseAbility(ability) * 10) / mana) * speed,
       ]
     }
     case 'N45': /* Powder Tower */ {
