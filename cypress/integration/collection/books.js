@@ -2,7 +2,7 @@ import s from './selectors'
 
 describe('Collection — Books', () => {
   before(() => {
-    cy.visit('/collection/books')
+    cy.visit('/calculators/books')
   })
 
   it('should display fusion stones in Mythic book as a default value', () => {

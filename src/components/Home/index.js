@@ -86,8 +86,8 @@ export default React.memo(() => (
                 match your collection.
               </p>
               <div className='Home__buttons'>
-                <CTA to='/income-calculator'>Income</CTA>
-                <CTA to='/collection/books'>Books</CTA>
+                <CTA to='/calculators/income'>Income</CTA>
+                <CTA to='/calculators/books'>Books</CTA>
                 <CTA to='/collection'>Collection</CTA>
               </div>
             </Column>

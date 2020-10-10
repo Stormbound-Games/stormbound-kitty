@@ -168,7 +168,7 @@ SEARCH_INDEX.push({
 })
 
 SEARCH_INDEX.push({
-  path: '/income-calculator',
+  path: '/calculators/income',
   label: 'Income Calculator',
   breadcrumbs: ['Tools', 'Income Calculator'],
 })
@@ -201,7 +201,7 @@ SEARCH_INDEX.push({
 })
 
 SEARCH_INDEX.push({
-  path: '/collection/books',
+  path: '/calculators/books',
   label: 'Books Drawing Calculator',
   breadcrumbs: ['Tools', 'Books Calculator'],
 })

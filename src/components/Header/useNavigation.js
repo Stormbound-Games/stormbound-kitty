@@ -158,12 +158,12 @@ export default () => {
           items: [
             {
               label: 'Income Calculator',
-              to: '/income-calculator',
+              to: '/calculators/income',
               id: 'INCOME_CALCULATOR',
             },
             {
               label: 'Books Calculator',
-              to: '/collection/books',
+              to: '/calculators/books',
               id: 'BOOKS_CALCULATOR',
             },
           ],

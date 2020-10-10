@@ -176,10 +176,6 @@ export default function Router(props) {
             </DeckBuilderRoot>
           </Page>
 
-          <Page path='/collection/books' active={['TOOLS', 'BOOKS_CALCULATOR']}>
-            <BooksCalculator />
-          </Page>
-
           <Page path='/collection/stats' active={['TOOLS', 'COLLECTION_STATS']}>
             <CollectionStats />
           </Page>
@@ -315,8 +311,19 @@ export default function Router(props) {
             <FanArt />
           </Page>
 
+          <Redirect from='/collection/books' to='/calculators/books' />
+
           <Page
-            path='/income-calculator'
+            path='/calculators/books'
+            active={['TOOLS', 'BOOKS_CALCULATOR']}
+          >
+            <BooksCalculator />
+          </Page>
+
+          <Redirect from='/income-calculator' to='/calculators/income' />
+
+          <Page
+            path='/calculators/income'
             active={['TOOLS', 'INCOME_CALCULATOR']}
           >
             <IncomeCalculator />

@@ -8,6 +8,6 @@ describe('Routes — Collection', () => {
   })
 
   it('it should render the books page', () => {
-    cy.visit('/collection/books').get('main h1').should('exist')
+    cy.visit('/calculators/books').get('main h1').should('exist')
   })
 })

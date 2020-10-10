@@ -241,7 +241,7 @@ export default [
                 order decks by feasibility based on your cards.
               </li>
               <li>
-                The <Link to='/collection/books'>book odds calculator</Link>{' '}
+                The <Link to='/calculators/books'>book odds calculator</Link>{' '}
                 will display how many coins you can expect per book.
               </li>
               <li>

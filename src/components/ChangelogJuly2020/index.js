@@ -222,7 +222,7 @@ export default React.memo(function ChangelogJuly2020(props) {
       <p>
         <WikiLink id='N77' /> will be available shortly (a few days following
         the release) through crafting and{' '}
-        <Link to='/collection/books'>books</Link>. Additionally, it will be
+        <Link to='/calculators/books'>books</Link>. Additionally, it will be
         possible to buy a $9.99 limited edition pack containing Rogue Sheep and
         some resources. This one-time offer will only be available for a few
         days, so be sure to consider it!

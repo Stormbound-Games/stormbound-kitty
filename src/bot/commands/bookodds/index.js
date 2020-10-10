@@ -62,7 +62,7 @@ export default {
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com/collection/books')
+      .setURL('https://stormbound-kitty.com/calculators/books')
       .setDescription(
         `Get the odds of drawing a certain card or Fusion stones from a certain book. It expects a mandatory book name, and an optional expectation such as “fs” or a rarity (both regardless of casing). For instance, \`!${this.command} mythic\`, \`!${this.command} noble epic\`, \`!${this.command} fs\`, \`!${this.command} legendary heroic\`.`
       )
@@ -77,7 +77,7 @@ export default {
     const bookName = capitalise(book.toLowerCase())
     const embed = getEmbed()
       .setTitle(`${this.label}: ${bookName}`)
-      .setURL('https://stormbound-kitty.com/collection/books')
+      .setURL('https://stormbound-kitty.com/calculators/books')
 
     const intro = `A **${bookName} book** has:`
     const fsOdds =

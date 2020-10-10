@@ -79,7 +79,7 @@ export default React.memo(function GuideResources(props) {
       </ol>
 
       <Info icon='wand' title='Income calculator'>
-        Find a handy <Link to='/income-calculator'>income calculator</Link> (
+        Find a handy <Link to='/calculators/income'>income calculator</Link> (
         <span className='Highlight'>
           up-to-date with the July economy changes
         </span>
@@ -152,7 +152,7 @@ export default React.memo(function GuideResources(props) {
           10).
         </li>
         <li>
-          <Link to='/collection/books'>Sometimes in tomes and books</Link>.
+          <Link to='/calculators/books'>Sometimes in tomes and books</Link>.
         </li>
         <li>Shop purchases as part of bundles.</li>
       </ul>
@@ -163,7 +163,7 @@ export default React.memo(function GuideResources(props) {
 
       <p>
         Have a look at the{' '}
-        <Link to='/income-calculator'>income calculator</Link> to know how your
+        <Link to='/calculators/income'>income calculator</Link> to know how your
         playstyle affects your income. The general advice here is to at least do
         these 2 things:
       </p>
@@ -349,7 +349,7 @@ export default React.memo(function GuideResources(props) {
         However, there are two tools on this website that can greatly help in
         getting you to complete your collection should you want to shoot for it.
         Uploading your <Link to='/collection'>collection</Link>, and using the
-        <Link to='/income-calculator'>income calculator</Link>. With those you
+        <Link to='/calculators/income'>income calculator</Link>. With those you
         can see how many more cards you need of each rarity and how to adjust
         your income to match that. You might find for instance it’s better for
         you to buy Heroic Tomes rather than Mythic Tomes (since the way the
