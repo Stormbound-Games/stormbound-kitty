@@ -104,7 +104,6 @@ export default React.memo(function GuideGoddessBoon(props) {
               author='CriticalPancake'
               category='BRAWL'
               faction='winter'
-              noAuthorLink
             />
           </Column>
         </Row>

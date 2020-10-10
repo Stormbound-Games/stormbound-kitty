@@ -70,7 +70,6 @@ export default React.memo(function GuideNobleCoalition(props) {
               author='Critical Pancake'
               category='BRAWL'
               faction='shadowfen'
-              noAuthorLink
             />
           </Column>
         </Row>

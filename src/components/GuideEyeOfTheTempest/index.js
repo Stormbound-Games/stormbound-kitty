@@ -90,7 +90,6 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
               category='BRAWL'
               faction='shadowfen'
               brawl='SPELL_MANA'
-              noAuthorLink
             />
           </Column>
         </Row>
