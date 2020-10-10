@@ -78,6 +78,7 @@ const ReleaseNotes = load('ReleaseNotes')
 const Story = load('Story')
 const StoryCategory = load('StoryCategory')
 const TournamentHallOfFame = load('TournamentHallOfFame')
+const ValueCalculator = load('ValueCalculator')
 const Videos = load('Videos')
 
 export default function Router(props) {
@@ -327,6 +328,13 @@ export default function Router(props) {
             active={['TOOLS', 'INCOME_CALCULATOR']}
           >
             <IncomeCalculator />
+          </Page>
+
+          <Page
+            path='/calculators/value'
+            active={['TOOLS', 'VALUE_CALCULATOR']}
+          >
+            <ValueCalculator />
           </Page>
 
           <Page path='/changelog/07-2020' active={['GAME', '07_2020']}>
