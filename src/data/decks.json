@@ -1086,5 +1086,45 @@
     "author": "The_Magi",
     "category": "DIAMOND_1",
     "date": "08/2020"
+  },
+  {
+    "name": "Frost Deck",
+    "id": "5w25n35n95n115n145w45w285w95w125w105w195n58",
+    "author": "CriticalPancake",
+    "category": "BRAWL",
+    "date": "10/2020",
+    "brawl": "FROSTLING_STRENGTH"
+  },
+  {
+    "name": "Frosty Feline Dwarf",
+    "id": "5n15w25n35n95n145w45w95w125n685w175w195w23",
+    "author": "Adig",
+    "category": "BRAWL",
+    "date": "10/2020",
+    "brawl": "FROSTLING_STRENGTH"
+  },
+  {
+    "name": "Die Die Die",
+    "id": "5n15n25s15n35s245s25n675s65n145n155s155s20",
+    "author": "CriticalPancake",
+    "category": "BRAWL",
+    "date": "10/2020",
+    "brawl": "SPELL_MANA"
+  },
+  {
+    "name": "Toad Spam",
+    "id": "5n25f45f25f35n35f55f85f105f115f175n405f22",
+    "author": "OneC",
+    "category": "BRAWL",
+    "date": "10/2020",
+    "brawl": "SPELL_MANA"
+  },
+  {
+    "name": "Cat Butcher",
+    "id": "5f44f35n34f84n624n673n664n614f105f144f174f20",
+    "author": "CriticalPancake",
+    "category": "BRAWL",
+    "date": "09/2020",
+    "brawl": "FELINE_STRENGTH"
   }
 ]
