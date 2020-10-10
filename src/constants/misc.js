@@ -421,3 +421,18 @@ export const PODCAST_EPISODES = [
       'The Brewed Sages are excited for all the balance changes and new cards being introduced to Stormbound... but where are they going to find the resources to play with them?',
   },
 ]
+
+export const UNVALUED_CARDS = [
+  'N38',
+  'N48',
+  'I2',
+  'F17',
+  'F19',
+  'S20',
+  'S27',
+  'W8',
+  'W9',
+  'W11',
+  'W19',
+  'W24',
+]

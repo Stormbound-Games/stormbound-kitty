@@ -1,0 +1,513 @@
+import getResolvedCardData from '../getResolvedCardData'
+import { RACES } from '../../constants/game'
+import { UNVALUED_CARDS } from '../../constants/misc'
+
+const MAX_MANA = 30
+const TYPES = Object.keys(RACES).length + 2
+const MOVEMENT = [0.5, 1, 1.5, 1.75, 2]
+
+const parseAbility = (ability, index = 0) =>
+  ability.match(/(\d+)/g).map(Number)[index]
+
+const getCardValue = (id, level = 1) => {
+  const MAX_STRENGTH = getResolvedCardData({ id: 'I26', level }).strength
+  const { strength, mana, ability, type, movement } = getResolvedCardData({
+    id,
+    level,
+  })
+  const speed = MOVEMENT[movement || 0] || 1
+
+  if (UNVALUED_CARDS.includes(id)) {
+    return null
+  }
+
+  switch (id) {
+    case 'N1': /* Green Prototypes */ {
+      return [0, (strength / mana) * speed]
+    }
+    case 'N2': /* Summon Militia */ {
+      const value = parseAbility(ability)
+      return [(value / mana) * speed, (value / mana) * speed]
+    }
+    case 'N5': /* Northsea Dog */
+    case 'N6': /* Spare Dragonling */
+    case 'N7': /* Brothers in Arms */
+    case 'N11': /* Felflares */
+    case 'N24': /* Personal Servers */
+    case 'N26': /* Snowmasons */
+    case 'N37': /* Boomstick Officers */
+    case 'N39': /* Hearthguards */
+    case 'N41': /* Lich Summoners */
+    case 'N57': /* Crazy Bombers */
+    case 'N70': /* Aged Duskbringers */
+    case 'N73': /* Trekking Aldermen */
+    case 'S4': /* Dreadful Keepers */
+    case 'S5': /* Faun Companions */
+    case 'S8': /* Shady Ghoul */
+    case 'S11': /* Devastators */
+    case 'F9': /* Wandering Wyrms */
+    case 'F12': /* Tode the Elevated */
+    case 'I6': /* Finite Loopers */
+    case 'I8': /* Linked Golems */
+    case 'I12': /* Chaotic Pupil */
+    case 'I13': /* Ember of Chaos */
+    case 'I28': /* Booming Professors */
+    case 'W18': /* Fleshmenders */
+    case 'W7': /* Mystwives */
+    case 'N64': /* Melodious Sisters */
+    case 'W22': /* Chillbeards */
+    case 'W27': /* Earthfathers */
+    case 'W23': /* Olf the Hammer */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability)) / mana) * speed,
+      ]
+    }
+    case 'W13': /* Rockworkers */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability)) / mana) * MOVEMENT[1],
+      ]
+    }
+    case 'S16': /* Dreadfauns */ {
+      const [spawns, value] = ability.match(/(\d+)/g).map(Number)
+      return [
+        (strength / mana) * speed,
+        ((strength + spawns * value) / mana) * MOVEMENT[1],
+      ]
+    }
+    case 'N8': /* Collector Mirz */ {
+      const value = parseAbility(ability, 1)
+      return [
+        ((strength + value) / mana) * speed,
+        ((strength + value) / mana) * speed,
+      ]
+    }
+    case 'N9': /* Confinement */ {
+      return [1 / mana, (MAX_STRENGTH - parseAbility(ability)) / mana]
+    }
+    case 'N58': /* Siren of the Seas */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + (MAX_STRENGTH - 3) * 3) / mana) * speed,
+      ]
+    }
+    case 'N61': /* Hair-Raising Cats */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + MAX_STRENGTH * 2) / mana) * speed,
+      ]
+    }
+    case 'N65': /* Razor-Sharp Lynxes */ {
+      const [strengthBuff, speedBuff] = ability.match(/(\d+)/g).map(Number)
+      const buffedStrength = (strength + (strength + strengthBuff)) / 2
+      const buffedSpeed = (speed + MOVEMENT[movement + speedBuff]) / 2
+      return [(strength / mana) * speed, (buffedStrength / mana) * buffedSpeed]
+    }
+    case 'I9': /* Sound Drivers */
+    case 'N66': /* Bigthrust Tigers */ {
+      return [(strength / mana) * speed, (strength / mana) * MOVEMENT[4]]
+    }
+    case 'N67': /* Wild Saberpaws */ {
+      return [(strength / mana) * speed, (strength / mana) * MOVEMENT[2]]
+    }
+    case 'N68': /* Twilight Prowlers */ {
+      return [(strength / mana) * speed, (strength / mana) * MOVEMENT[3]]
+    }
+    case 'N23': /* Hunter’s Vengeance */ {
+      const strength = parseAbility(ability)
+      return [(strength * -1 * TYPES) / mana, (strength * TYPES) / mana]
+    }
+    case 'N35': /* Ubass the Hunter */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability) * TYPES) / mana) * speed,
+      ]
+    }
+    case 'N45': /* Powder Tower */ {
+      return [strength / mana, (strength + parseAbility(ability) * 20) / mana]
+    }
+    case 'N46': /* Tegor the Vengeful */ {
+      const [a, b, c] = ability.match(/(\d+)/g).map(Number)
+
+      return [
+        ((strength + (a + b + c) / 3) / mana) * speed,
+        ((strength + (a + b + c) / 3) / mana) * speed,
+      ]
+    }
+    case 'W1' /* Icicle Burst */:
+    case 'N21': /* Execution */ {
+      return [1 / mana, parseAbility(ability) / mana]
+    }
+    case 'N15': /* Potion of Growth */
+    case 'W14': /* Blessed with Brawn */
+    case 'W6': /* Moment’s Peace */ {
+      const value = parseAbility(ability)
+      return [value / mana, value / mana]
+    }
+    case 'S18': /* Pillar of Dooms */
+    case 'I14': /* Mech Workshop */
+    case 'W3': /* The Hearth */
+    case 'N34': /* Trueshot Post */ {
+      return [strength / mana, (strength + parseAbility(ability)) / mana]
+    }
+    case 'N17': /* Wetland Deceivers */ {
+      const value = parseAbility(ability)
+      return [
+        ((strength - value * 8) / mana) * speed,
+        ((strength + value * 8) / mana) * speed,
+      ]
+    }
+    case 'N50': /* Call for Aid */ {
+      const value = parseAbility(ability)
+      return [value / mana, (value * 4) / mana]
+    }
+    case 'N63': /* Unhealthy Hysteria */ {
+      const value = parseAbility(ability)
+      return [(value * 2) / mana, (value * 2) / mana]
+    }
+    case 'I23': /* Armed Schemers */
+    case 'N56': /* Temple Guardians */
+    case 'N42': /* Lucky Charmers */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability) * 3) / mana) * speed,
+      ]
+    }
+    case 'S9': /* Swarmcallers */
+    case 'F5': /* Crimson Sentry */
+    case 'N10': /* Conflicted Drakes */
+    case 'N49': /* Avian Stalkers */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability) * 4) / mana) * speed,
+      ]
+    }
+    case 'N20': /* Emerald Towers */ {
+      return [strength / mana, (strength + parseAbility(ability) * 4) / mana]
+    }
+    case 'N31': /* Flooding the Gates */ {
+      const value = parseAbility(ability)
+      return [(value * -4) / mana, (value * 4) / mana]
+    }
+    case 'N59': /* Edrik the Fierce */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability) * 5) / mana) * speed,
+      ]
+    }
+    case 'N69': /* Laurus, King in Exile */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability) * 6) / mana) * speed,
+      ]
+    }
+    case 'N43': /* Ludic Matriarchs */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability, 1) * 6) / mana) * speed,
+      ]
+    }
+    case 'F14': /* Witches of the Wild */
+    case 'F20': /* Blood Ministers */
+    case 'S14': /* Pan Heralds */
+    case 'N25': /* Siegebreakers */
+    case 'N47': /* Victors of the Melee */
+    case 'W4': /* Wisp Cloud */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability) * 8) / mana) * speed,
+      ]
+    }
+    case 'I10': /* Upgrade Point */ {
+      return [strength / mana, (strength + parseAbility(ability) * 8) / mana]
+    }
+    case 'I3': /* Fortification Tonic */ {
+      const value = parseAbility(ability)
+      return [(value * 1) / mana, (value * 8) / mana]
+    }
+    case 'I11': /* Boosting Elixir */ {
+      const value = parseAbility(ability)
+      return [(value * 1) / mana, (value * 2) / mana]
+    }
+    case 'F8': /* Rain of Frogs */ {
+      const [value, toads] = ability.match(/(\d)/g).map(Number)
+      return [(toads * value) / mana, (toads * value) / mana]
+    }
+    case 'F1': /* Brood Sages */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + 1 * 10) / mana) * MOVEMENT[1],
+      ]
+    }
+    case 'F4': /* Toxic Sacrifice */ {
+      return [0, (parseAbility(ability) * 8 - 1) / mana]
+    }
+    case 'F10': /* Azure Hatchers */ {
+      const [value, toads] = ability.match(/(\d)/g).map(Number)
+      return [
+        (strength / mana) * speed,
+        ((strength + toads * value) / mana) * speed,
+      ]
+    }
+    case 'F11': /* Marked as Prey */ {
+      const [damage, strength] = ability.match(/(\d+)/g).map(Number)
+      return [(damage - strength) / mana, (damage + strength) / mana]
+    }
+    case 'S13': /* Mischiefs */
+    case 'I15': /* Overchargers */ {
+      const value = parseAbility(ability)
+      return [
+        ((strength + value) / mana) * speed,
+        ((strength + value) / mana) * speed,
+      ]
+    }
+    case 'N29': /* Bladestorm */ {
+      const [min, max = min] = ability
+        .match(/\d(?:-\d)?/g)[0]
+        .split('-')
+        .map(Number)
+      const value = (min + max) / 2
+      return [(value * 1) / mana, (value * 20) / mana]
+    }
+    case 'N36': /* Voidsurgers */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability, 1) * 8) / mana) * speed,
+      ]
+    }
+    case 'N44': /* Needle Blast */ {
+      const [value, times] = ability.match(/(\d)/g).map(Number)
+      return [value / mana, (times * value) / mana]
+    }
+    case 'I17': /* Eloth the Ignited */ {
+      return [
+        (strength / mana) * MOVEMENT[4],
+        ((strength + parseAbility(ability)) / mana) * MOVEMENT[4],
+      ]
+    }
+    case 'I19': /* Siege Assembly */ {
+      const value = parseAbility(ability)
+      return [(strength + value) / mana, (strength + value) / mana]
+    }
+    case 'I18': /* Flaming Stream */ {
+      const value = parseAbility(ability)
+      return [value / mana, (value * 5) / mana]
+    }
+    case 'F24': /* Clerics with Cords */
+    case 'I16': /* Debug Loggers */
+    case 'F16': /* Feral Shamans */
+    case 'F15': /* Amberhides */
+    case 'I20': /* Windmakers */
+    case 'I7': /* Greengale Serpents */
+    case 'S12': /* Draconic Roamers */
+    case 'N27': /* Terrific Slayers */
+    case 'N55': /* Joust Champions */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability) * 2) / mana) * speed,
+      ]
+    }
+    case 'W28': /* Chilled Stonedames */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + (strength - 2) * 4) / mana) * speed,
+      ]
+    }
+    case 'W10': /* Lady Rime */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability) * (MAX_MANA - mana)) / MAX_MANA) *
+          speed,
+      ]
+    }
+    case 'W12': /* Rimelings */ {
+      const value = parseAbility(ability)
+      return [
+        (strength / (mana - value)) * speed,
+        (strength / (mana - value)) * speed,
+      ]
+    }
+    case 'W15': /* Broken Earth Drakes */ {
+      const value = parseAbility(ability)
+      return [
+        ((strength - value * 18) / mana) * speed,
+        ((strength + value * 18) / mana) * speed,
+      ]
+    }
+    case 'W21': /* Visions of the Grove */ {
+      const value = parseAbility(ability)
+      const remainingMana = MAX_MANA - mana
+      const rows = 5
+      return [
+        (strength / mana) * speed,
+        ((strength + (remainingMana / value) * rows) / mana) * speed,
+      ]
+    }
+    case 'F3': /* Dubious Hags */
+    case 'I1': /* Destructobots */ {
+      return [
+        ((strength - parseAbility(ability)) / mana) * speed,
+        (strength / mana) * speed,
+      ]
+    }
+    case 'F21': /* Broodmother Qordia */ {
+      const [eggs, value] = ability.match(/(\d)/g)
+      return [
+        (strength / mana) * speed,
+        ((strength + eggs * value) / mana) * speed,
+      ]
+    }
+    case 'F22': /* Curse of Strings */ {
+      return [(1 * 2) / mana, (parseAbility(ability) * 2) / mana]
+    }
+    case 'F23': /* High-Priestess Klaxi */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + 19 * parseAbility(ability) * 2) / mana) * speed,
+      ]
+    }
+    case 'F28': /* Hairy Chestnuts */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + 2 * parseAbility(ability)) / mana) * speed,
+      ]
+    }
+    case 'S28': /* Bucks of Wasteland */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + (strength - 1) * parseAbility(ability)) / mana) * speed,
+      ]
+    }
+    case 'S23': /* Lasting Remains */ {
+      return [(strength / mana) * speed, (strength / mana) * MOVEMENT[4]]
+    }
+    case 'N74': /* Beards of Crowglyph */
+    case 'F18': /* Soulcrushers */ {
+      return [(strength / mana) * speed, ((strength * 2 - 1) / mana) * speed]
+    }
+    case 'S2': /* Restless Goats */ {
+      return [
+        ((strength - parseAbility(ability)) / mana) * speed,
+        ((strength - parseAbility(ability)) / mana) * speed,
+      ]
+    }
+    case 'S1': /* Doppelbocks */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability)) / mana) * MOVEMENT[1],
+      ]
+    }
+    case 'S7': /* Moonlit Aerie */ {
+      return [strength / mana, (strength + parseAbility(ability) * 19) / mana]
+    }
+    case 'S10': /* Broken Truce */ {
+      const [damage, penalty] = ability.match(/(\d+)/g).map(Number)
+      return [(1 - penalty) / mana, (damage - penalty) / mana]
+    }
+    case 'S19': /* Xuri, Lord of Life */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability) * 3) / mana) * MOVEMENT[4],
+      ]
+    }
+    case 'S21': /* Queen of Herds */ {
+      const PanHeralds = getResolvedCardData({ id: 'S14', level })
+      const buff = parseAbility(PanHeralds.ability)
+      const Dreadfauns = getResolvedCardData({ id: 'S16', level })
+      const [spawns, value] = Dreadfauns.ability.match(/(\d+)/g).map(Number)
+      const limit = parseAbility(ability)
+      const PanHeraldsValue = PanHeralds.strength + 8 * buff
+      const DreadfaunsValue = Dreadfauns.strength + spawns * value
+      const adds = PanHeraldsValue + (limit > 1 ? DreadfaunsValue : 0)
+
+      return [(strength / mana) * speed, ((strength + adds) / mana) * speed]
+    }
+    case 'S22': /* Vindicators */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability) * movement) / mana) * speed,
+      ]
+    }
+    case 'S24': /* Head Start */ {
+      const value = parseAbility(ability)
+      return [(value / mana) * MOVEMENT[0], (value / mana) * MOVEMENT[0]]
+    }
+    case 'W17': /* Wolfcloaks */ {
+      return [(1 / mana) * speed, (strength / mana) * speed]
+    }
+    case 'N77': /* Rogue Sheep */ {
+      const [a, b, c] = ability
+        .match(/(\d(?:-\d)?)/g)
+        .map(match => match.split('-').map(Number))
+      const damage = a[1] || a[0] + (b[1] || b[0]) * c[0]
+
+      return [
+        (strength / mana) * speed,
+        ((strength + 19 * damage) / mana) * speed,
+      ]
+    }
+    case 'N18': /* Beasts of Terror */
+    case 'N53': /* Sharpfist Exiles */
+    case 'N51': /* Dangerous Suitors */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability) * 19) / mana) * speed,
+      ]
+    }
+    case 'N40': /* Kindred’s Grace */ {
+      const [primary, secondary] = ability.match(/(\d+)/g).map(Number)
+      return [primary / mana, (primary + secondary * 19) / mana]
+    }
+    case 'S15': /* Dark Harvest */ {
+      const value = parseAbility(ability)
+      return [value / mana, (value * 17) / mana]
+    }
+    case 'N75': /* Greenwood Ancients */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + parseAbility(ability) * 18) / mana) * speed,
+      ]
+    }
+    case 'N76': /* Prime Oracle Bragda */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + (strength - 1) * 18) / mana) * speed,
+      ]
+    }
+    case 'F27': /* Faithless Prophets */ {
+      return [
+        ((1 - (strength - 1) * 2) / mana) * speed,
+        (strength / mana) * speed,
+      ]
+    }
+    case 'I22': /* Project PH03-NIX */ {
+      return [(strength / mana) * speed, ((strength + strength) / mana) * speed]
+    }
+    case 'I27': /* Scrapped Planners */ {
+      return [
+        (strength / mana) * speed,
+        ((strength - 1 + parseAbility(ability)) / mana) * speed,
+      ]
+    }
+    case 'I24': /* Scrapped Planners */ {
+      const [health, spawn] = ability.match(/(\d)/g).map(Number)
+      return [
+        (strength / mana) * speed,
+        ((strength + health + spawn) / mana) * speed,
+      ]
+    }
+
+    default: {
+      if (type === 'unit') {
+        return [(strength / mana) * speed, (strength / mana) * speed]
+      }
+      if (type === 'structure') {
+        return [strength / mana, strength / mana]
+      }
+      return null
+    }
+  }
+}
+
+export default getCardValue
