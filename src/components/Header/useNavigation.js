@@ -166,6 +166,12 @@ export default () => {
               to: '/calculators/books',
               id: 'BOOKS_CALCULATOR',
             },
+            {
+              label: 'Value Calculator',
+              to: '/calculators/value',
+              id: 'VALUE_CALCULATOR',
+              new: true,
+            },
           ],
         },
       ],
