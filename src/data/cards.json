@@ -968,7 +968,7 @@
     "mana": 6,
     "strength": "6/7/8/10/12",
     "movement": 0,
-    "ability": "After surviving damage, spawn an Elder with *strength equal to this* on a random bordering tile.",
+    "ability": "After surviving damage, spawn an Elder with *strength equal to this* on a random bordering tile",
     "elder": true
   },
   {
@@ -982,7 +982,7 @@
     "mana": 4,
     "strength": "3/4/4/5/6",
     "movement": 1,
-    "ability": "After surviving damage, *gain 1/1/2/2/3* strength for each stronger enemy unit on the board.",
+    "ability": "After surviving damage, *gain 1/1/2/2/3* strength for each stronger enemy unit on the board",
     "elder": true
   },
   {
@@ -1274,7 +1274,7 @@
     "mana": 5,
     "strength": null,
     "movement": null,
-    "ability": "*Push* back all enemy units in a target unit's column and deal *3/4/5/6/7 damage* to them"
+    "ability": "*Push* back all enemy units in a target unit’s column and deal *3/4/5/6/7 damage* to them"
   },
   {
     "name": "Siege Assembly",
@@ -1985,7 +1985,7 @@
     "mana": 5,
     "strength": "3/4/4/5/6",
     "movement": 0,
-    "ability": "On play, *spawn 2/2/2/2/2* Satyrs with *2/2/3/3/4* strength on random bordering tiles"
+    "ability": "On play, *spawn 2* Satyrs with *2/2/3/3/4* strength on random bordering tiles"
   },
   {
     "name": "Grim Couriers",
@@ -2499,7 +2499,7 @@
     "mana": 7,
     "strength": "5/6/7/8/11",
     "movement": 1,
-    "ability": "After surviving damage, gain 3/3/3/4/4 strength.",
+    "ability": "After surviving damage, gain 3/3/3/4/4 strength",
     "elder": true
   },
   {
