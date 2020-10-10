@@ -341,13 +341,26 @@ export default [
               style={{ maxWidth: '200px', display: 'block', margin: '1.5em 0' }}
             />
             <p>
-              For sake of simplicity, some corners have been cut. For instance,
-              hand manipulations are discounted (e.g. pirates), freeze, poison
-              and confusion are ignored, mana is capped at 30 (e.g. Lady Rime
-              and Visions of the Grove), tiles are capped to 10 (instead of 20)
-              and the strength is capped at 24 (e.g. Confinement and Siren of
-              the Seas).
+              For sake of simplicity and/or realism, some liberties have been
+              taken which are relevant when understanding the value output:
             </p>
+            <ul>
+              <li>
+                Spells are played in a sensical way to ensure a meaningful
+                minimum value.
+              </li>
+              <li>
+                Hand manipulations, freeze, poison, confusion are ignored.
+              </li>
+              <li>
+                Mana is capped to 30 (e.g. Lady Rime and Visions of the Grove).
+              </li>
+              <li>Tiles are capped to 10 (instead of 20, for realism).</li>
+              <li>
+                Strength is capped to the maximum vanilla strength (e.g.
+                Confinement and Siren of the Seas).
+              </li>
+            </ul>
             <p>
               These cards are currently not available in the calculator:{' '}
               {UNVALUED_CARDS.map(id => getRawCardData(id).name).join(', ')}.
