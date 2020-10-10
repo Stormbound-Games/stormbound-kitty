@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import Image from '../components/Image'
 import WikiLink from '../components/WikiLink'
 import DryRunnerExplanation from '../components/DryRunnerExplanation'
+import getRawCardData from '../helpers/getRawCardData'
+import { UNVALUED_CARDS } from '../constants/misc'
 
 export default [
   {
@@ -47,9 +49,9 @@ export default [
             </p>
 
             <p>
-              You can deactivate that feature in Chrome’s Settings > Appearance
-              > Customise Fonts > Minimum font size. Set it to “tiny”, and
-              everything should look good!
+              You can deactivate that feature in Chrome’s Settings &lt;
+              Appearance &lt; Customise Fonts &lt; Minimum font size. Set it to
+              “tiny”, and everything should look good!
             </p>
           </>
         ),
@@ -270,20 +272,27 @@ export default [
           </>
         ),
       },
+    ],
+  },
+  {
+    id: 'calculators',
+    title: 'Calculators',
+    entries: [
       {
         id: 'books-calculator',
         question: 'How does the book calculator work?',
         answer: (
           <>
             <p>
-              The book calculator calculates the probability of not getting
-              fusion stones out of a book (other calculations are just small
-              variations of this one). To do that, it lays down all the
-              different “drawing sequences”: For example, ‘EEELEL’ (Epic, Epic,
-              Epic, Legendary, Epic, Legendary) is a valid and likely sequence
-              for a Mythic book. So at the core, it is a function that takes a
-              drawing sequence and returns the probability of getting this
-              sequence and no fusion stones out of a book.
+              The <Link to='/calculators/books'>book calculator</Link>{' '}
+              calculates the probability of not getting fusion stones out of a
+              book (other calculations are just small variations of this one).
+              To do that, it lays down all the different “drawing sequences”:
+              For example, ‘EEELEL’ (Epic, Epic, Epic, Legendary, Epic,
+              Legendary) is a valid and likely sequence for a Mythic book. So at
+              the core, it is a function that takes a drawing sequence and
+              returns the probability of getting this sequence and no fusion
+              stones out of a book.
             </p>
             <p>
               To do this, the calculator stores the non-FS cards left in the
@@ -301,6 +310,46 @@ export default [
             <p>
               Of course this is correct only under the assumption that book
               draws work this way.
+            </p>
+          </>
+        ),
+      },
+      {
+        id: 'value-calculator',
+        question: 'How does the value calculator work?',
+        answer: (
+          <>
+            <p>
+              The <Link to='/calculators/value'>value calculator</Link>, despite
+              efforts from Derk#7109, is not an accurate representation of
+              cards’ value. First of all, they are evaluated in isolation
+              instead of as part of a deck. Additionally, their value is based
+              on a single turn so structures and elders are undervalued.
+              Finally, a lot of cards cannot be statically valued without more
+              information about the state of the game.
+            </p>
+            <p>
+              The basic formula for estimating the value of a card is to take
+              its strength or damage divided by its mana cost time its speed
+              factor, as illustrated below. The speed factor is either 0.5, 1,
+              1.5, 1.75 or 2 depending on the effective movement of a card
+              between 0 and 4.
+            </p>
+            <img
+              src='/assets/images/card_value.png'
+              alt='v(c) = s / m * f'
+              style={{ maxWidth: '200px', display: 'block', margin: '1.5em 0' }}
+            />
+            <p>
+              For sake of simplicity, some corners have been cut. For instance,
+              hand manipulations are discounted (e.g. pirates), freeze, poison
+              and confusion are ignored, mana is capped at 30 (e.g. Lady Rime
+              and Visions of the Grove) and the strength is capped at 24 (e.g.
+              Confinement and Siren of the Seas).
+            </p>
+            <p>
+              These cards are currently not available in the calculator:{' '}
+              {UNVALUED_CARDS.map(id => getRawCardData(id).name).join(', ')}.
             </p>
           </>
         ),
