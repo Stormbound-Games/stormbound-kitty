@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Article from '../Article'
 import MemberList from '../MemberList'
 import Notice from '../Notice'
@@ -29,6 +30,12 @@ export default React.memo(function About(props) {
         Discord server, which is kind of an extension of the site for Discord,
         giving access to most of the tools directly from Discord, as well as a
         Stormbound trivia game.
+      </p>
+
+      <p>
+        As of July 2020, Stormbound-Kitty is also the official platform for{' '}
+        <Link to='/changelog/releases'>release notes</Link> as well as some
+        other Sheepyard-provided support.
       </p>
 
       <h2>Asking for support</h2>
@@ -84,7 +91,8 @@ export default React.memo(function About(props) {
         I have been incredibly lucky to have been supported by wonderful people
         whom I cannot thank enough. My gratitude to, in no particular order,
         <MemberList members={DONATORS.map(donation => donation.author)} />
-        —for their generous and kind donations.
+        —for their generous and kind donations. Welcome to the{' '}
+        <abbr title='Kitty Appreciation Team'>KAT</abbr>. ✨
       </p>
 
       <p style={{ fontStyle: 'italic' }}>
