@@ -107,11 +107,15 @@ export default function Router(props) {
             <BattleSimApp mode='EDITOR' withMeta />
           </Page>
 
-          <Page path='/card/contest' active={['COMMUNITY', 'CARD_CONTEST']}>
+          <Page
+            exact
+            path='/card/contest'
+            active={['COMMUNITY', 'CARD_CONTEST']}
+          >
             <CardBuilderContest />
           </Page>
 
-          <Page path='/card/stats' active={['GAME', 'CARD_STATS']}>
+          <Page exact path='/card/stats' active={['GAME', 'CARD_STATS']}>
             <CardsStats />
           </Page>
 
@@ -134,6 +138,7 @@ export default function Router(props) {
           </Page>
 
           <Page
+            exact
             path='/deck/suggestions'
             active={['COMMUNITY', 'DECK_SUGGESTIONS']}
           >
@@ -177,7 +182,11 @@ export default function Router(props) {
             </DeckBuilderRoot>
           </Page>
 
-          <Page path='/collection/stats' active={['TOOLS', 'COLLECTION_STATS']}>
+          <Page
+            exact
+            path='/collection/stats'
+            active={['TOOLS', 'COLLECTION_STATS']}
+          >
             <CollectionStats />
           </Page>
 
@@ -245,11 +254,11 @@ export default function Router(props) {
 
           <Redirect from='/guides' to='/guides/essentials' />
 
-          <Page path='/list/ranked' active={['GAME', 'RANKED_LIST']}>
+          <Page exact path='/list/ranked' active={['GAME', 'RANKED_LIST']}>
             <RankedList />
           </Page>
 
-          <Page path='/list/equals' active={['GAME', 'EQUALS_LIST']}>
+          <Page exact path='/list/equals' active={['GAME', 'EQUALS_LIST']}>
             <EqualsList />
           </Page>
 
@@ -271,7 +280,11 @@ export default function Router(props) {
             <ListBuilderEditorView />
           </Page>
 
-          <Page path='/brawl/overview' active={['TOOLS', 'BRAWL', 'OVERVIEW']}>
+          <Page
+            exact
+            path='/brawl/overview'
+            active={['TOOLS', 'BRAWL', 'OVERVIEW']}
+          >
             <BrawlOverview />
           </Page>
 
@@ -279,7 +292,7 @@ export default function Router(props) {
             <BrawlPage />
           </Page>
 
-          <Page path='/brawl' active={['TOOLS', 'BRAWL', 'INDEX']}>
+          <Page exact path='/brawl' active={['TOOLS', 'BRAWL', 'INDEX']}>
             <BrawlIndex />
           </Page>
 
@@ -287,34 +300,44 @@ export default function Router(props) {
             <Member />
           </Page>
 
-          <Page path='/members'>
+          <Page exact path='/members'>
             <Members />
           </Page>
 
           <Redirect exact path='/fan-kit' to='/fan-kit/cards' />
 
-          <Page path='/fan-kit/cards' active={['GAME', 'FAN_KIT', 'CARDS']}>
+          <Page
+            exact
+            path='/fan-kit/cards'
+            active={['GAME', 'FAN_KIT', 'CARDS']}
+          >
             <FanKitCards />
           </Page>
 
-          <Page path='/fan-kit/books' active={['GAME', 'FAN_KIT', 'BOOKS']}>
+          <Page
+            exact
+            path='/fan-kit/books'
+            active={['GAME', 'FAN_KIT', 'BOOKS']}
+          >
             <FanKitBooks />
           </Page>
 
           <Page
+            exact
             path='/fan-kit/wallpapers'
             active={['GAME', 'FAN_KIT', 'WALLPAPERS']}
           >
             <FanKitWallpapers />
           </Page>
 
-          <Page path='/fan-art' active={['GAME', 'FAN_ART']}>
+          <Page exact path='/fan-art' active={['GAME', 'FAN_ART']}>
             <FanArt />
           </Page>
 
           <Redirect from='/collection/books' to='/calculators/books' />
 
           <Page
+            exact
             path='/calculators/books'
             active={['TOOLS', 'BOOKS_CALCULATOR']}
           >
@@ -324,6 +347,7 @@ export default function Router(props) {
           <Redirect from='/income-calculator' to='/calculators/income' />
 
           <Page
+            exact
             path='/calculators/income'
             active={['TOOLS', 'INCOME_CALCULATOR']}
           >
@@ -331,25 +355,27 @@ export default function Router(props) {
           </Page>
 
           <Page
+            exact
             path='/calculators/value'
             active={['TOOLS', 'VALUE_CALCULATOR']}
           >
             <ValueCalculator />
           </Page>
 
-          <Page path='/changelog/07-2020' active={['GAME', '07_2020']}>
+          <Page exact path='/changelog/07-2020' active={['GAME', '07_2020']}>
             <ChangelogJuly2020 />
           </Page>
 
-          <Page path='/changelog/09-2020' active={['GAME', '09_2020']}>
+          <Page exact path='/changelog/09-2020' active={['GAME', '09_2020']}>
             <ChangelogSeptember2020 />
           </Page>
 
-          <Page path='/changelog/10-2020' active={['GAME', '10_2020']}>
+          <Page exact path='/changelog/10-2020' active={['GAME', '10_2020']}>
             <ChangelogOctober2020 />
           </Page>
 
           <Page
+            exact
             path='/changelog/3rd-anniversary'
             active={['GAME', '3RD_ANNIVERSARY']}
           >
@@ -357,37 +383,42 @@ export default function Router(props) {
           </Page>
 
           <Page
-            path='/changelog/releases'
             exact
+            path='/changelog/releases'
             active={['GAME', 'RELEASE_NOTES']}
           >
             <ReleaseNotes />
           </Page>
 
-          <Page path='/changelog/cards' exact active={['GAME', 'CARD_CHANGES']}>
+          <Page exact path='/changelog/cards' active={['GAME', 'CARD_CHANGES']}>
             <Changelog />
           </Page>
 
-          <Page path='/faq' active={['HOME', 'FAQ']}>
+          <Page exact path='/faq' active={['HOME', 'FAQ']}>
             <FAQ />
           </Page>
 
-          <Page path='/donate' active={['HOME', 'DONATE']}>
+          <Page exact path='/donate' active={['HOME', 'DONATE']}>
             <Donate />
           </Page>
 
           <Page
+            exact
             path='/tournaments/hall-of-fame'
             active={['COMMUNITY', 'HALL_OF_FAME']}
           >
             <TournamentHallOfFame />
           </Page>
 
-          <Page path='/brewed-sages' active={['COMMUNITY', 'BREWED_SAGES']}>
+          <Page
+            exact
+            path='/brewed-sages'
+            active={['COMMUNITY', 'BREWED_SAGES']}
+          >
             <BrewedSages />
           </Page>
 
-          <Page path='/videos' active={['COMMUNITY', 'VIDEOS']}>
+          <Page path='/videos' exact active={['COMMUNITY', 'VIDEOS']}>
             <Videos />
           </Page>
 
