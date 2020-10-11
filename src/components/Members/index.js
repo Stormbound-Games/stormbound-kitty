@@ -85,7 +85,7 @@ export default React.memo(function Members(props) {
           <p>
             Players marked with a star (<Icon icon='star' />) are{' '}
             <abbr title='Kitty Appreciation Team'>KAT</abbr> members for having
-            generously donated to the site hence making it possible to actively
+            generously supported the site hence making it possible to actively
             keep working on it.
           </p>
           <Row>

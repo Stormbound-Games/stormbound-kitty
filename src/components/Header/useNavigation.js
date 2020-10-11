@@ -19,9 +19,9 @@ export default () => {
           title: 'Stormbound-Kitty',
           icon: 'heart',
           items: [
-            { label: 'News', to: '/', id: 'HOME' },
-            { label: 'Donate', to: '/donate', id: 'DONATE' },
-            { label: 'FAQ', to: '/faq', id: 'FAQ' },
+            { label: 'Kitty News', to: '/', id: 'HOME' },
+            { label: 'Frequently Asked Questions', to: '/faq', id: 'FAQ' },
+            { label: 'About Kitty', to: '/about', id: 'ABOUT' },
           ],
         },
       ],

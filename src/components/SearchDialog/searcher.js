@@ -237,9 +237,9 @@ SEARCH_INDEX.push({
 })
 
 SEARCH_INDEX.push({
-  path: '/donate',
-  label: 'Donate',
-  breadcrumbs: ['Community', 'Donate'],
+  path: '/about',
+  label: 'About',
+  breadcrumbs: ['Home', 'About'],
 })
 
 Object.keys(STORY_CATEGORIES).forEach(id => {

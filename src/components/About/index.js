@@ -7,9 +7,9 @@ import Sparkles from '../Sparkles'
 import { DONATORS } from '../../constants/misc'
 import './index.css'
 
-export default React.memo(function Donate(props) {
+export default React.memo(function About(props) {
   return (
-    <Article title='Donate'>
+    <Article title='About'>
       <p>
         Hey there! My name is Kitty. I created Stormbound-Kitty in March 2019
         (although it did not have a name yet at that point), wanting to do
@@ -65,10 +65,10 @@ export default React.memo(function Donate(props) {
         or click the “Support Stormbound-Kitty” link below.
       </p>
 
-      <div className='Donate__container'>
+      <div className='About__container'>
         <Sparkles>
           <a
-            className='Donate__CTA'
+            className='About__CTA'
             href='https://gum.co/stormbound-kitty?wanted=true'
             target='_blank'
             rel='noopener noreferrer'
@@ -103,7 +103,7 @@ export default React.memo(function Donate(props) {
       </Notice>
 
       <PageMeta
-        title='Donate'
+        title='About'
         description='Stormbound-Kitty is 100% free: no ads, no tracking, no paywall. If you can, consider donating!'
       />
     </Article>

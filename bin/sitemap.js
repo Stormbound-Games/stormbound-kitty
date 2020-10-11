@@ -10,6 +10,7 @@ const stories = require('../public/stories')
 
 const links = [
   '/',
+  '/about',
   '/brawl',
   '/brawl/overview',
   '/calculators/books',

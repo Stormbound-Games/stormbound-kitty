@@ -10,7 +10,7 @@ export default React.memo(function FeedDonationEntry(props) {
   return (
     <FeedEntry icon='heart' date={props.date}>
       {name} has issued a generous{' '}
-      <Link to='/donate'>donation to Stormbound-Kitty</Link>.
+      <Link to='/about'>donation to Stormbound-Kitty</Link>.
     </FeedEntry>
   )
 })

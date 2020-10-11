@@ -58,7 +58,7 @@ const DeckDetailView = load('DeckDetailView')
 const DeckDryRunView = load('DeckDryRunView')
 const DeckEditorView = load('DeckEditorView')
 const DeckSuggestions = load('DeckSuggestions')
-const Donate = load('Donate')
+const About = load('About')
 const EqualsList = load('EqualsList')
 const FanArt = load('FanArt')
 const FanKitCards = load('FanKitCards')
@@ -398,8 +398,10 @@ export default function Router(props) {
             <FAQ />
           </Page>
 
-          <Page exact path='/donate' active={['HOME', 'DONATE']}>
-            <Donate />
+          <Redirect from='/donate' to='/about' />
+
+          <Page exact path='/about' active={['HOME', 'ABOUT']}>
+            <About />
           </Page>
 
           <Page

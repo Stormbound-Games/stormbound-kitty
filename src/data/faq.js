@@ -25,8 +25,8 @@ export default [
               First of all, thank you for using Stormbound Kitty, it means a
               lot. If you’d like to help, please kindly report any bug or oddity
               you find, and suggest features to me on Discord (Kitty#1909).
-              Finally, consider <Link to='/donate'>buying me a coffee</Link>!
-              Any small contribution counts. 💖
+              Finally, consider <Link to='/about'>buying me a coffee</Link>! Any
+              small contribution counts. 💖
             </p>
             <p>
               Special thanks Neicigam (Neicigam#0095) and Jumboduck
