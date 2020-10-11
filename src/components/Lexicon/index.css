@@ -1,3 +1,14 @@
+.Lexicon {
+  display: flex;
+  margin-left: -2em;
+  width: auto;
+}
+
+.Lexicon__column {
+  padding-left: 2em;
+  background-clip: padding-box;
+}
+
 .Lexicon__heading {
   margin-bottom: 2em;
 }
@@ -7,6 +18,14 @@
   color: var(--beige);
 }
 
+.Lexicon__column .Lexicon__title:first-child {
+  margin-top: 0;
+}
+
+.Lexicon__column .Lexicon__title:not(:first-child) {
+  margin-top: 2em;
+}
+
 .Terms {
   list-style-type: none;
   padding-left: 0;
@@ -14,6 +33,6 @@
   margin-bottom: 1.5em;
 }
 
-.Terms > li {
+.Terms__item {
   margin: 0.5em 0;
 }
