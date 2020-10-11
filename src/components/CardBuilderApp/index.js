@@ -1,6 +1,7 @@
 import React from 'react'
 import CardDisplay from '../CardBuilderCardDisplay'
 import Column from '../Column'
+import HeaderBanner from '../HeaderBanner'
 import CoreForm from '../CardBuilderCoreForm'
 import Notice from '../Notice'
 import ImageErrorDialog from '../CardBuilderImageErrorDialog'
@@ -12,11 +13,13 @@ import './index.css'
 export default React.memo(function CardBuilderApp(props) {
   return (
     <>
-      <Title className='CardBuilderApp__title'>
-        {props.mode === 'EDITOR'
-          ? 'Create your card'
-          : props.name || 'Your card'}
-      </Title>
+      <HeaderBanner
+        title={
+          props.mode === 'EDITOR'
+            ? 'Create your card'
+            : props.name || 'Your card'
+        }
+      />
 
       <CardDisplay {...props} />
 
