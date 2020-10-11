@@ -4,7 +4,7 @@ import capitalise from '../helpers/capitalise'
 import decks from '../data/decks'
 import guides from '../data/guides'
 import tournaments from '../data/tournaments'
-import art from '../data/art'
+import artworks from '../data/artworks'
 import puzzles from '../data/puzzles'
 import events from '../data/events'
 
@@ -54,7 +54,9 @@ const useUserPodiums = id =>
     .map(formatEntryWithDate)
 
 const useUserArtworks = id =>
-  art.filter(art => art.author.toLowerCase() === id).map(formatEntryWithDate)
+  artworks
+    .filter(artwork => artwork.author.toLowerCase() === id)
+    .map(formatEntryWithDate)
 
 const useUserPuzzles = id =>
   puzzles

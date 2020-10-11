@@ -4,13 +4,13 @@ import Masonry from 'react-masonry-css'
 import Article from '../Article'
 import Loader from '../Loader'
 import PageMeta from '../PageMeta'
-import art from '../../data/art'
+import artworks from '../../data/artworks'
 import shuffle from '../../helpers/shuffle'
 import useLazyLoad from '../../hooks/useLazyLoad'
 import './index.css'
 
 export default React.memo(function FanArt(props) {
-  const entries = React.useMemo(() => shuffle(art), [])
+  const entries = React.useMemo(() => shuffle(artworks), [])
   const { loading, items, ref } = useLazyLoad(entries, 3)
 
   return (

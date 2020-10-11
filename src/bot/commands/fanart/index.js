@@ -1,6 +1,6 @@
 import getEmbed from '../../../helpers/getEmbed'
 import arrayRandom from '../../../helpers/arrayRandom'
-import artworks from '../../../data/art'
+import artworks from '../../../data/artworks'
 
 export default {
   command: 'fanart',
