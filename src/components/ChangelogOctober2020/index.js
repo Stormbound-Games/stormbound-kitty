@@ -9,7 +9,7 @@ import PageMeta from '../PageMeta'
 import { Coins, Rubies, Stones } from '../Resource'
 import Row from '../Row'
 import Title from '../Title'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import serialisation from '../../helpers/serialisation'
 import './index.css'
@@ -95,8 +95,8 @@ export default React.memo(function ChangelogOctober2020(props) {
       <p>
         As <Link to='/changelog/07-2020'>announced back in July</Link>, this
         update introduces two new cards aiming at buffing the confusion
-        mechanic: <WikiLink id='N78' /> (available as soon as October 1st) and{' '}
-        <WikiLink id='N79' /> (which will only be available from October 15th
+        mechanic: <CardLink id='N78' /> (available as soon as October 1st) and{' '}
+        <CardLink id='N79' /> (which will only be available from October 15th
         onwards).
       </p>
 
@@ -151,52 +151,52 @@ export default React.memo(function ChangelogOctober2020(props) {
 
       <ul>
         <li>
-          <WikiLink id='I2' />
+          <CardLink id='I2' />
           ’s ability now affects surrounding structures at level 2 instead of
           bordering only, all at level 4 instead of surrounding only, and has +1
           strength at level 3 and to differentiate level 2 and level 3.
         </li>
         <li>
-          <WikiLink id='I27' />’ strength is increased by 1 (from 3/4/5/6/7 to
+          <CardLink id='I27' />’ strength is increased by 1 (from 3/4/5/6/7 to
           4/5/6/7/8) but their ability remains the same.
         </li>
         <li>
-          <WikiLink id='I28' /> no longer have initial movement (down from 1).
+          <CardLink id='I28' /> no longer have initial movement (down from 1).
         </li>
         <li>
-          <WikiLink id='N25' /> now have 1 movement (up from 0), and their
+          <CardLink id='N25' /> now have 1 movement (up from 0), and their
           ability affect surrounding structures instead of bordering only.
         </li>
         <li>
-          <WikiLink id='N36' />’ ability now triggers when having at least 2
+          <CardLink id='N36' />’ ability now triggers when having at least 2
           surrounding enemies instead of bordering only.
         </li>
         <li>
-          <WikiLink id='N40' /> now grants more strength to the main target
+          <CardLink id='N40' /> now grants more strength to the main target
           (from 5/6/6/8/10 to 6/7/7/9/11).
         </li>
         <li>
-          <WikiLink id='N49' />’ mana cost is now 6 (down from 7).
+          <CardLink id='N49' />’ mana cost is now 6 (down from 7).
         </li>
         <li>
-          <WikiLink id='N61' />’ ability now triggers for a surrounding enemy
+          <CardLink id='N61' />’ ability now triggers for a surrounding enemy
           instead of bordering only.
         </li>
         <li>
-          <WikiLink id='N66' />’ mana cost is now 2 (down from 3) but their
+          <CardLink id='N66' />’ mana cost is now 2 (down from 3) but their
           strength is now 1/2/3/4/5 (down from 3/4/5/6/7).
         </li>
         <li>
-          <WikiLink id='N69' />
+          <CardLink id='N69' />
           ’s ability strength limit is increased by 1 (from 3/4/5/6/7 to
           4/5/6/7/8).
         </li>
         <li>
-          <WikiLink id='S15' /> now affects enemy surrounding a friendly unit
+          <CardLink id='S15' /> now affects enemy surrounding a friendly unit
           instead of bordering only.
         </li>
         <li>
-          <WikiLink id='F4' />
+          <CardLink id='F4' />
           ’s mana cost is now 2 (up from 1) but deals one more damage (from
           1/2/3/4/5 to 2/3/4/5/6).
         </li>
@@ -483,8 +483,8 @@ export default React.memo(function ChangelogOctober2020(props) {
             question: 'When will the new cards be available in game?',
             answer: (
               <>
-                <WikiLink id='N78' /> will be available as of October 1st,{' '}
-                <WikiLink id='N79' /> from October 15th onwards, and Bisanu 2
+                <CardLink id='N78' /> will be available as of October 1st,{' '}
+                <CardLink id='N79' /> from October 15th onwards, and Bisanu 2
                 weeks after that.
               </>
             ),

@@ -7,7 +7,7 @@ import Deck from '../Deck'
 import Info from '../Info'
 import Notice from '../Notice'
 import Title from '../Title'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import generateId from '../../helpers/generateId'
 import template from '../../helpers/template'
 import serialisation from '../../helpers/serialisation'
@@ -15,7 +15,7 @@ import load from '../../helpers/load'
 
 const BattleSimApp = load('BattleSimApp')
 const REPLACEMENTS = cards.reduce((acc, card, index) => {
-  acc[card.name] = <WikiLink id={card.id} key={card.id} />
+  acc[card.name] = <CardLink id={card.id} key={card.id} />
   return acc
 }, {})
 

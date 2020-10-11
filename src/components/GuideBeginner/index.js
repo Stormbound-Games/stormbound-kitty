@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Info from '../Info'
 import Guide from '../Guide'
 import Title from '../Title'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import guides from '../../data/guides'
 import './index.css'
 
@@ -67,9 +67,9 @@ export default React.memo(function GuideBeginner(props) {
       <p>
         “<span className='Highlight'>In front</span>” of a unit means in the
         same column as the target unit, “most forward” (e.g.{' '}
-        <WikiLink id='N34' />) picks randomly between the enemy units that have
+        <CardLink id='N34' />) picks randomly between the enemy units that have
         been placed or have advanced the furthest (even ahead of the Post
-        itself). For cards like <WikiLink id='F12' /> and <WikiLink id='N59' />{' '}
+        itself). For cards like <CardLink id='F12' /> and <CardLink id='N59' />{' '}
         that refer to the “tile in front” of an enemy unit, that means the tile
         the unit will attack/move into during the enemy’s next turn.
       </p>
@@ -77,8 +77,8 @@ export default React.memo(function GuideBeginner(props) {
       <p>
         The bases do not count as structures. That being said, when a card
         ability states “<span className='Highlight'>enemy</span>” without
-        precising “unit” or “structure”—like <WikiLink id='I19' /> or{' '}
-        <WikiLink id='S15' />
+        precising “unit” or “structure”—like <CardLink id='I19' /> or{' '}
+        <CardLink id='S15' />
         —the enemy base counts as an enemy and it enables these cards to do
         direct damage to the base. This mechanism is heavily used in some decks,
         preferring damaging the base without actually passing units through
@@ -96,13 +96,13 @@ export default React.memo(function GuideBeginner(props) {
       <p>
         Every unit belongs to a <em>race</em> and can also be an Elder or a Hero
         (
-        <WikiLink id='N76' /> is the only Elder Hero but there is an Undead
+        <CardLink id='N76' /> is the only Elder Hero but there is an Undead
         Hero, Frostling Elder, and so on).
       </p>
 
       <p>
         Unit races are relevant in some situations if you plan to use cards like{' '}
-        <WikiLink id='N40' /> or <WikiLink id='N35' />. Note that both Elder and
+        <CardLink id='N40' /> or <CardLink id='N35' />. Note that both Elder and
         Hero count as unit races, so if Ubass the Hunter was to be played next
         to Prime Oracle Bragda, his ability would trigger twice (since Bradga is
         both a Hero and an Elder).
@@ -111,8 +111,8 @@ export default React.memo(function GuideBeginner(props) {
       <p>
         Token units can be identified by their name as it will always start with
         the word “Token”. They have no level, 1 movement, and cost 0 mana. This
-        is relevant for cards like <WikiLink id='N38' /> and{' '}
-        <WikiLink id='N8' />
+        is relevant for cards like <CardLink id='N38' /> and{' '}
+        <CardLink id='N8' />
         —if Harvesters of Souls attack an enemy token unit, they’ll put one in
         your deck with 0 mana cost. The strength of token units varies with the
         level of Harvesters of Souls and Collector Mirz.
@@ -136,18 +136,18 @@ export default React.memo(function GuideBeginner(props) {
           above the unit.
           <ul>
             <li>
-              When attacking: includes cards like <WikiLink id='W5' /> and{' '}
-              <WikiLink id='N18' />, which means the ability triggers before it
+              When attacking: includes cards like <CardLink id='W5' /> and{' '}
+              <CardLink id='N18' />, which means the ability triggers before it
               attacks.
             </li>
             <li>
-              After attacking: cards like <WikiLink id='I16' />.
+              After attacking: cards like <CardLink id='I16' />.
             </li>
           </ul>
         </li>
         <li>
           <strong className='Highlight'>On death</strong>—shown by a skull above
-          the unit e.g. <WikiLink id='I12' /> deals damage to a random bordering
+          the unit e.g. <CardLink id='I12' /> deals damage to a random bordering
           enemy on death—the potential enemies are on tiles bordering the tile
           where it died. Units that die when attacking die on the previous tile,
           not the tile they attacked.
@@ -164,7 +164,7 @@ export default React.memo(function GuideBeginner(props) {
       <p>
         Structure abilities (“at the start of your turn…”) will trigger before
         any units move, and they’ll trigger from back to front and left to right
-        (even if they’re triggered by <WikiLink id='I2' />
+        (even if they’re triggered by <CardLink id='I2' />
         ), and units move in the same order.
       </p>
 
@@ -176,13 +176,13 @@ export default React.memo(function GuideBeginner(props) {
 
       <p>
         Cards always choose from valid options. For instance, in this image, the{' '}
-        <WikiLink id='I4' /> wouldn’t have pushed away the unit in the bottom
+        <CardLink id='I4' /> wouldn’t have pushed away the unit in the bottom
         left since it was unable to be pushed. The only valid option was the
         Satyr in front.
       </p>
 
       <p>
-        When there’s a tie (<WikiLink id='F9' /> deals x damage to the strongest
+        When there’s a tie (<CardLink id='F9' /> deals x damage to the strongest
         enemy unit, and there’s two with the same strength for example) the game
         picks randomly.
       </p>
@@ -231,33 +231,33 @@ export default React.memo(function GuideBeginner(props) {
         moved along a row or column (depending on what is doing the pushing and
         where it was placed) and stops when it hits a base, unit, or structure.
         Damage, if any is done, happens after the unit is pushed (so for
-        example, <WikiLink id='S8' /> will spawn a satyr on a random tile
+        example, <CardLink id='S8' /> will spawn a satyr on a random tile
         bordering its new position, not the old one, when it dies).
       </p>
 
       <p>
         Push back/forward (
-        <WikiLink id='I18' />, <WikiLink id='I9' />) means towards the enemy
-        base. “Push away” (<WikiLink id='I4' />) means away from the unit with
+        <CardLink id='I18' />, <CardLink id='I9' />) means towards the enemy
+        base. “Push away” (<CardLink id='I4' />) means away from the unit with
         the ability (so it can be pushed in any column or row in any direction).
       </p>
 
       <p>
-        Pull (<WikiLink id='I23' />) means towards the unit with the ability, in
+        Pull (<CardLink id='I23' />) means towards the unit with the ability, in
         any direction. Note: Armed Schemers will only pull units in the same row
         or column as itself.
       </p>
 
       <p>
         <strong className='Highlight'>Draining health</strong>: Cards like{' '}
-        <WikiLink id='F16' /> remove x health from the target unit and add x
-        health to themselves. <WikiLink id='F28' /> drains health similarly,
+        <CardLink id='F16' /> remove x health from the target unit and add x
+        health to themselves. <CardLink id='F28' /> drains health similarly,
         from the enemy base.
       </p>
 
       <p>
         <strong className='Highlight'>Destroying units</strong>: Cards like{' '}
-        <WikiLink id='F23' /> and <WikiLink id='N17' /> destroy specific units
+        <CardLink id='F23' /> and <CardLink id='N17' /> destroy specific units
         by doing damage equal to their current health, pretty self-explanatory.
         This of course does not trigger elder abilities as the target units do
         not survive.
@@ -266,10 +266,10 @@ export default React.memo(function GuideBeginner(props) {
       <p>
         <strong className='Highlight'>Gain mana</strong>: A Winter
         Pact-exclusive mechanic, the card gives its owner a certain amount of
-        mana when a condition is met. For <WikiLink id='W12' />, the card is
+        mana when a condition is met. For <CardLink id='W12' />, the card is
         played and then the player is given back 3 of the 5 mana. This does not
         mean the card costs 2 mana as it cannot be played until mana 5.{' '}
-        <WikiLink id='W16' /> can be made to attack on an enemy turn (see Force
+        <CardLink id='W16' /> can be made to attack on an enemy turn (see Force
         Attack below), and when this happens, the mana is given to the owner of
         the card during the enemy’s turn, and is able to be used by the owner
         when their turn begins.
@@ -277,7 +277,7 @@ export default React.memo(function GuideBeginner(props) {
 
       <p>
         <strong className='Highlight'>Commanding forward</strong>: Cards like{' '}
-        <WikiLink id='S20' /> and <WikiLink id='S6' /> can make friendly units
+        <CardLink id='S20' /> and <CardLink id='S6' /> can make friendly units
         move during your turn when they (the commanding cards, not the targets)
         are played.
       </p>
@@ -286,60 +286,60 @@ export default React.memo(function GuideBeginner(props) {
         <strong className='Highlight'>Spawn other units</strong>: Cards that
         “randomly spawn” units or structures and don’t specify a location do so
         only inside your frontline and can’t advance your frontline, like{' '}
-        <WikiLink id='F8' />, <WikiLink id='N2' />, <WikiLink id='N46' />. Other
-        cards can advance it, and these include <WikiLink id='S16' />,{' '}
-        <WikiLink id='S1' />, <WikiLink id='F23' />, <WikiLink id='F11' />, and{' '}
-        <WikiLink id='W13' />.
+        <CardLink id='F8' />, <CardLink id='N2' />, <CardLink id='N46' />. Other
+        cards can advance it, and these include <CardLink id='S16' />,{' '}
+        <CardLink id='S1' />, <CardLink id='F23' />, <CardLink id='F11' />, and{' '}
+        <CardLink id='W13' />.
       </p>
 
       <p>
         <strong className='Highlight'>Fly forward</strong>:{' '}
-        <WikiLink id='I17' /> and <WikiLink id='S19' />, can pass over friendly
+        <CardLink id='I17' /> and <CardLink id='S19' />, can pass over friendly
         and enemy units and structures depending on where they’re played.
       </p>
 
       <p>
         <strong className='Highlight'>Reduce a unit’s strength</strong>:{' '}
-        <WikiLink id='N58' /> and <WikiLink id='N9' /> damage don’t trigger
+        <CardLink id='N58' /> and <CardLink id='N9' /> damage don’t trigger
         elder abilities.
       </p>
 
       <p>
-        <strong className='Highlight'>Jumping</strong>: <WikiLink id='F12' />{' '}
+        <strong className='Highlight'>Jumping</strong>: <CardLink id='F12' />{' '}
         moves to the tile in front of a random enemy unit or structure after
         attacking.
       </p>
 
       <p>
         <strong className='Highlight'>Force attack</strong>:{' '}
-        <WikiLink id='N63' /> and <WikiLink id='N61' /> force a target unit to
+        <CardLink id='N63' /> and <CardLink id='N61' /> force a target unit to
         attack a random bordering enemy, which can be behind them (and therefore
-        can be the enemy base). <WikiLink id='N69' /> has a similar ability.
+        can be the enemy base). <CardLink id='N69' /> has a similar ability.
         This triggers any “on attack” abilities the target unit may have.
       </p>
       <p>
         <strong className='Highlight'>Area of Effect (AoE) damage</strong>:
-        Mostly applies to spells like <WikiLink id='I18' />,{' '}
-        <WikiLink id='F4' />, <WikiLink id='W11' />, and some units like{' '}
-        <WikiLink id='N47' /> and <WikiLink id='F5' />. Damage is done to all
+        Mostly applies to spells like <CardLink id='I18' />,{' '}
+        <CardLink id='F4' />, <CardLink id='W11' />, and some units like{' '}
+        <CardLink id='N47' /> and <CardLink id='F5' />. Damage is done to all
         units at once, so if all the affected units die, certain on-death
-        effects like that of <WikiLink id='N1' /> will not trigger (depending on
+        effects like that of <CardLink id='N1' /> will not trigger (depending on
         the situation).
       </p>
 
       <Title>Card manipulation</Title>
 
       <p>
-        <strong className='Highlight'>Add</strong>: <WikiLink id='N38' /> and{' '}
-        <WikiLink id='N8' /> add cards randomly to your deck, not to your hand,
+        <strong className='Highlight'>Add</strong>: <CardLink id='N38' /> and{' '}
+        <CardLink id='N8' /> add cards randomly to your deck, not to your hand,
         but there is a (really low) chance of playing Harvesters of Souls or
         Mirz, recycling another card in your hand, and then drawing the newly
         added card into your hand.
       </p>
 
       <p>
-        <strong className='Highlight'>Play</strong>: <WikiLink id='S21' /> plays
-        random satyr cards from your deck, and <WikiLink id='N48' /> random
+        <strong className='Highlight'>Play</strong>: <CardLink id='S21' /> plays
+        random satyr cards from your deck, and <CardLink id='N48' /> random
         spells from your hand, and both play them for free.{' '}
         <Link to='/guides/drawing#queen-of-herds'>
           Queen of Herds’ draws aren’t affected by weight
@@ -348,19 +348,19 @@ export default React.memo(function GuideBeginner(props) {
       </p>
 
       <p>
-        <strong className='Highlight'>Discard</strong>: <WikiLink id='N12' />{' '}
+        <strong className='Highlight'>Discard</strong>: <CardLink id='N12' />{' '}
         removes a non-Pirate card randomly from your hand and does not draw a
         new one, limiting your options for that turn unless it’s your last
         played card.
       </p>
 
       <p>
-        <strong className='Highlight'>Replace</strong>: <WikiLink id='N33' />{' '}
-        actually replaces them, as does <WikiLink id='N22' />.
+        <strong className='Highlight'>Replace</strong>: <CardLink id='N33' />{' '}
+        actually replaces them, as does <CardLink id='N22' />.
       </p>
 
       <p style={{ marginBottom: '2.5em' }}>
-        <strong className='Highlight'>Draw</strong>: <WikiLink id='N14' /> draws
+        <strong className='Highlight'>Draw</strong>: <CardLink id='N14' /> draws
         new cards which allows you to play 5 cards (or 6 at higher levels) in
         one turn if Freebooters is one of them.
       </p>
@@ -376,17 +376,17 @@ export default React.memo(function GuideBeginner(props) {
       <Title>Broodmother Qordia’s Eggs</Title>
 
       <p>
-        <WikiLink id='F21' />
+        <CardLink id='F21' />
         ’s eggs are actually structures until they hatch. This can be asserted
         by noticing the structure strength icon on the card. Because of this,
-        they can be hatched by a <WikiLink id='I2' /> (stolen with{' '}
-        <WikiLink id='N38' />
+        they can be hatched by a <CardLink id='I2' /> (stolen with{' '}
+        <CardLink id='N38' />
         ), which hatches them on the same turn they were played on.
       </p>
       <p>
-        This also means they will trigger <WikiLink id='N25' />’ and{' '}
-        <WikiLink id='N39' />’ abilities, and are able to be used with{' '}
-        <WikiLink id='I3' /> (although then again, both cards are not from the
+        This also means they will trigger <CardLink id='N25' />’ and{' '}
+        <CardLink id='N39' />’ abilities, and are able to be used with{' '}
+        <CardLink id='I3' /> (although then again, both cards are not from the
         same faction so Harvesters of Souls would be required).
       </p>
       <p>
@@ -397,36 +397,36 @@ export default React.memo(function GuideBeginner(props) {
 
       <Title>Other info</Title>
       <p>
-        <WikiLink id='N46' />
+        <CardLink id='N46' />
         ’s death effect either gives x strength to a random friendly unit, deals
         x damage to a random enemy unit or spawns an x strength unit within your
         frontline.
       </p>
 
       <p>
-        If <WikiLink id='F12' /> has no enemies available to jump in front of
+        If <CardLink id='F12' /> has no enemies available to jump in front of
         after attacking (or if she is already in front of the only remaining
         enemy), he will still gain strength after attacking.
       </p>
 
       <p>
-        <WikiLink id='I18' /> pushes back all units first, then deals damage to
+        <CardLink id='I18' /> pushes back all units first, then deals damage to
         all. If a unit survives but was in front of a unit that doesn’t survive,
         it’ll be on the second tile from the back after Flaming Stream is used.
       </p>
 
       <p>
-        <WikiLink id='N18' /> deals damage to all other enemies with the same
+        <CardLink id='N18' /> deals damage to all other enemies with the same
         unit type when attacking, not including the one it’s attacking. The
         ability will also trigger when it attacks a friendly unit (through
-        confusion, a feline enemy, or <WikiLink id='N63' />
+        confusion, a feline enemy, or <CardLink id='N63' />
         ), but the ability will only affect enemies. Similarly,{' '}
-        <WikiLink id='N47' /> will damage all friendly units surrounding it
+        <CardLink id='N47' /> will damage all friendly units surrounding it
         before attacking a friendly unit.
       </p>
 
       <p>
-        Units attacked by <WikiLink id='N69' /> will have all bordering units
+        Units attacked by <CardLink id='N69' /> will have all bordering units
         under a certain strength attack them, one at a time, until either the
         target unit dies and then Laurus will move into its tile, or all
         bordering units have attacked it.

@@ -1,31 +1,24 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Card from '../Card'
 import Tooltip from '../Tooltip'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import useViewportWidth from '../../hooks/useViewportWidth'
 
-export default React.memo(function WikiLink(props) {
+export default React.memo(function CardLink(props) {
   const viewportWidth = useViewportWidth()
   const cardData = getResolvedCardData({
     id: props.id,
     level: props.level || 1,
   })
+  const slug = `/card/${props.id}/display`
 
   if (!cardData.id) {
     return props.children || null
   }
 
-  const wikiURL = 'https://stormboundkingdomwars.gamepedia.com/'
-  const slug = encodeURIComponent(
-    cardData.name.replace(/\s/g, '_').replace(/’/g, "'")
-  )
-
   if (viewportWidth < 700 || props.noTooltip) {
-    return (
-      <a href={wikiURL + slug} target='_blank' rel='noopener noreferrer'>
-        {props.children || cardData.name}
-      </a>
-    )
+    return <Link to={slug}>{props.children || cardData.name}</Link>
   }
 
   return (
@@ -41,14 +34,9 @@ export default React.memo(function WikiLink(props) {
       }}
     >
       {trigger => (
-        <a
-          {...trigger}
-          href={wikiURL + slug}
-          target='_blank'
-          rel='noopener noreferrer'
-        >
+        <Link {...trigger} to={slug}>
           {props.children || cardData.name}
-        </a>
+        </Link>
       )}
     </Tooltip>
   )

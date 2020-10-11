@@ -6,7 +6,7 @@ import Guide from '../Guide'
 import Info from '../Info'
 import Row from '../Row'
 import Title from '../Title'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import guides from '../../data/guides'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 
@@ -76,7 +76,7 @@ export default React.memo(function GuideDrawing(props) {
       </p>
 
       <p>
-        For example if <WikiLink id='N1' /> attack <WikiLink id='I6' /> and both
+        For example if <CardLink id='N1' /> attack <CardLink id='I6' /> and both
         die, the latter will first spawn a construct then the Green Prototypes
         will boost it, if it spawns on a surrounding tile.
       </p>
@@ -100,7 +100,7 @@ export default React.memo(function GuideDrawing(props) {
 
       <p>
         Consider the following example in which the player would sacrifice{' '}
-        <WikiLink id='N3' /> with <WikiLink id='F4' />. The numbers are intended
+        <CardLink id='N3' /> with <CardLink id='F4' />. The numbers are intended
         to represent both the order of DTE resolution and the effective strength
         as well.
       </p>
@@ -141,7 +141,7 @@ export default React.memo(function GuideDrawing(props) {
 
       <p>
         Consider the following example in which the player would play{' '}
-        <WikiLink id='F5' /> right in the middle. The numbers are intended to
+        <CardLink id='F5' /> right in the middle. The numbers are intended to
         represent both the order of DTE resolution and the effective strength as
         well.
       </p>
@@ -185,7 +185,7 @@ export default React.memo(function GuideDrawing(props) {
 
       <p>
         Now consider the same example, in which the player would play{' '}
-        <WikiLink id='F4' /> (level 5) on <WikiLink id='F5' /> (level 3). The
+        <CardLink id='F4' /> (level 5) on <CardLink id='F5' /> (level 3). The
         numbers are intended to represent both the order of DTE resolution and
         the effective strength as well.
       </p>
@@ -227,7 +227,7 @@ export default React.memo(function GuideDrawing(props) {
 
       <p>
         Consider the following example, in which the player would play{' '}
-        <WikiLink id='F4' /> on <WikiLink id='F3' />. The numbers are intended
+        <CardLink id='F4' /> on <CardLink id='F3' />. The numbers are intended
         to represent both the order of DTE resolution and the effective strength
         as well.
       </p>
@@ -292,49 +292,49 @@ export default React.memo(function GuideDrawing(props) {
 
       <ul>
         <li>
-          <WikiLink id='N9' /> and <WikiLink id='N58' /> do{' '}
+          <CardLink id='N9' /> and <CardLink id='N58' /> do{' '}
           <span className='Highlight'>not</span> cause a STE. Elders can safely
           be confined without risking triggering their abilities.
         </li>
         <li>
-          Pre-attack life drain from <WikiLink id='F14' />,{' '}
-          <WikiLink id='F15' /> and <WikiLink id='F16' />
+          Pre-attack life drain from <CardLink id='F14' />,{' '}
+          <CardLink id='F15' /> and <CardLink id='F16' />
           ’s cause an initial STE (provided the elder survives the drain). Then
           a second STE might occur if the elder survives the subsequent attack.
         </li>
         <li>
-          <WikiLink id='N47' />, <WikiLink id='N55' />, <WikiLink id='W4' /> and{' '}
-          <WikiLink id='I15' />
+          <CardLink id='N47' />, <CardLink id='N55' />, <CardLink id='W4' /> and{' '}
+          <CardLink id='I15' />
           ’s abilities cause an initial STE (provided the elder survives it).
           Then a second STE might occur if the elder survives the subsequent
           attack.
         </li>
         <li>
-          <WikiLink id='I17' />, <WikiLink id='I20' />, <WikiLink id='I18' />{' '}
-          and <WikiLink id='I23' />
+          <CardLink id='I17' />, <CardLink id='I20' />, <CardLink id='I18' />{' '}
+          and <CardLink id='I23' />
           ’s abilities cause a STE that is resolved{' '}
           <span className='Highlight'>after</span> the push/pull.
         </li>
         <li>
-          <WikiLink id='N57' />
+          <CardLink id='N57' />
           ’s on-play ability causes a single STE per affected elder, and not a
           STE per bomb. Then a second STE might occur if the elder survives the
           subsequent attack.
         </li>
         <li>
-          <WikiLink id='I28' />
+          <CardLink id='I28' />
           ’s STE causes a STE.
         </li>
         <li>
-          <WikiLink id='W15' /> and <WikiLink id='I12' />
+          <CardLink id='W15' /> and <CardLink id='I12' />
           ’s DTE cause a STE.
         </li>
         <li>
-          Forced attacks from <WikiLink id='N61' /> or <WikiLink id='N69' />{' '}
+          Forced attacks from <CardLink id='N61' /> or <CardLink id='N69' />{' '}
           cause a STE.
         </li>
         <li>
-          Poison damage cause a STE. That is what makes <WikiLink id='F28' /> so
+          Poison damage cause a STE. That is what makes <CardLink id='F28' /> so
           efficient.
         </li>
       </ul>

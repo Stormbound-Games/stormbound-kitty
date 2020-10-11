@@ -8,7 +8,7 @@ import Info from '../Info'
 import Only from '../Only'
 import Row from '../Row'
 import Title from '../Title'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import guides from '../../data/guides'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
@@ -150,8 +150,8 @@ export default React.memo(function GuideDrawing(props) {
         First of all, Queen of Herds <span className='Highlight'>does not</span>{' '}
         respect the cards weight when drawing satyrs from the deck. It uses a
         purely random draw (or two in case of levels 4 and 5). That implies
-        playing, say, <WikiLink id='S28' />, then playing Queen of Herds, does
-        not prevent <WikiLink id='S28' /> from being drawn again even though
+        playing, say, <CardLink id='S28' />, then playing Queen of Herds, does
+        not prevent <CardLink id='S28' /> from being drawn again even though
         there are other satyrs in the deck. It is definitely possible.
       </p>
 
@@ -192,23 +192,23 @@ export default React.memo(function GuideDrawing(props) {
 
       <ul>
         <li>
-          <WikiLink id='N12' /> discards a non-pirate card from the hand and
+          <CardLink id='N12' /> discards a non-pirate card from the hand and
           into the deck. Playing the card itself causes a reweighing, and it is
           assumed (although not confirmed) that the discarded card causes
           another reweighing as well.
         </li>
         <li>
-          <WikiLink id='N14' /> draws one or two cards (depending on level)
+          <CardLink id='N14' /> draws one or two cards (depending on level)
           following the usual weighted random. A reweighing of the deck occurs
           when playing the card itself, like for any other play.
         </li>
         <li>
-          <WikiLink id='N22' /> discards a non-pirate card from the hand and
+          <CardLink id='N22' /> discards a non-pirate card from the hand and
           into the deck, then draws a card following the usual weighted random.
           This works similarly to First Mutineer and Freebooters.
         </li>
         <li>
-          <WikiLink id='N33' />
+          <CardLink id='N33' />
           —provided it is played as first card of a turn—discards the remaining
           hand and draws 3 or 4 cards following the usual weighted random,
           causing at least 1 reweighing of the deck. It is unclear whether all 3
@@ -241,7 +241,7 @@ export default React.memo(function GuideDrawing(props) {
       </Only.Desktop>
 
       <p>
-        <WikiLink id='S3' />
+        <CardLink id='S3' />
         —which oddly has a pirate-like ability despite being in Swarm of the
         East—is working as one would expect.
       </p>
@@ -249,21 +249,21 @@ export default React.memo(function GuideDrawing(props) {
       <p>
         When played with no bordering enemies, it comes back in the hand
         immediately. Playing the card causes a reweighing of the deck as normal
-        and <WikiLink id='S3' /> comes back to the hand despite its weight being
+        and <CardLink id='S3' /> comes back to the hand despite its weight being
         0. This is likely implemented by a “forced-draw” mechanism.
       </p>
 
       <p>
-        <WikiLink id='N48' /> simply plays one or two spells from the hand.
+        <CardLink id='N48' /> simply plays one or two spells from the hand.
         Unlike with Queen of Herds, these plays do cause a reweighing of the
         deck (or 2 for level 4 and 5). Interestingly enough, the first spell
-        played by <WikiLink id='N48' /> will end up with a non-0 weight after
+        played by <CardLink id='N48' /> will end up with a non-0 weight after
         the second spell is played, which mean it could technically be drawn
         (although unlikely) right away.
       </p>
 
       <p>
-        Finally <WikiLink id='N8' /> (and <WikiLink id='N38' />) simply add a
+        Finally <CardLink id='N8' /> (and <CardLink id='N38' />) simply add a
         card to the deck with a weight of 0, without causing an extra reweighing
         of the deck. Only the regular reweighing due to card play occurs.
       </p>
@@ -281,7 +281,7 @@ export default React.memo(function GuideDrawing(props) {
       <p>
         Whether you should cycle before or after your play(s) varies. Cycling
         before is preferable because it gives all the information first hand to
-        play the best turn possible. When playing <WikiLink id='N8' /> however,
+        play the best turn possible. When playing <CardLink id='N8' /> however,
         you might want to discard <span className='Highlight'>after</span>{' '}
         having played it so the deck gets reweighed with the new token card in
         it, speeding up its first apparition in your hand.
@@ -290,12 +290,12 @@ export default React.memo(function GuideDrawing(props) {
       <p>
         When it comes to combos (cards that need to be played together to
         excel), it is recommended not to “break them”. Imagine you have both{' '}
-        <WikiLink id='W2' /> and <WikiLink id='W1' /> in your hand, but there
-        are no enemies to freeze with <WikiLink id='W2' />. If you end up
+        <CardLink id='W2' /> and <CardLink id='W1' /> in your hand, but there
+        are no enemies to freeze with <CardLink id='W2' />. If you end up
         playing or cycling one but not the other, their weights are going to be
         desynchronised, which reduces the likelihood of having them together
-        shortly. In such case, it would be wise to cycle <WikiLink id='W1' />{' '}
-        and play <WikiLink id='W2' /> so that both cards end up back in the deck
+        shortly. In such case, it would be wise to cycle <CardLink id='W1' />{' '}
+        and play <CardLink id='W2' /> so that both cards end up back in the deck
         with a weight of 0.
       </p>
 

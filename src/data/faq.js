@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Image from '../components/Image'
-import WikiLink from '../components/WikiLink'
+import CardLink from '../components/CardLink'
 import DryRunnerExplanation from '../components/DryRunnerExplanation'
 import getRawCardData from '../helpers/getRawCardData'
 import { UNVALUED_CARDS } from '../constants/misc'
@@ -99,7 +99,7 @@ export default [
           <>
             <p>
               Technically, all cards can be played regardless of faction thanks
-              to <WikiLink id='N38' /> and Shadowfen conversion mechanics.
+              to <CardLink id='N38' /> and Shadowfen conversion mechanics.
             </p>
             <p>
               Moveover, the battle sim is used a lot for creating puzzles, which

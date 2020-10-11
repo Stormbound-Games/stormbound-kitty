@@ -7,7 +7,7 @@ import Info from '../Info'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import changelog from '../../data/changelog'
 import sortCards from '../../helpers/sortCards'
 import getRawCardData from '../../helpers/getRawCardData'
@@ -128,7 +128,7 @@ export default function Changelog(props) {
                     <ul className='Changelog__list'>
                       {changesByDate[date].map(change => (
                         <li key={change.date + change.id + change.description}>
-                          <WikiLink id={change.id} />: <Change {...change} />
+                          <CardLink id={change.id} />: <Change {...change} />
                         </li>
                       ))}
                     </ul>

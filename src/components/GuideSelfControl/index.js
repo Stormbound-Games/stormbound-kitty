@@ -7,7 +7,7 @@ import Info from '../Info'
 import Notice from '../Notice'
 import Row from '../Row'
 import Title from '../Title'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import guides from '../../data/guides'
 
 const guide = guides.find(guide => guide.id === 'SELF_CONTROL_GUIDE')
@@ -40,7 +40,7 @@ export default React.memo(function GuideSelfControl(props) {
       <p>
         It is important to clear the opponent’s front-line regularly early on
         because it can start steamrolling very quickly. Be especially careful to{' '}
-        <WikiLink id='S3' /> which can easily be brought back into the hand
+        <CardLink id='S3' /> which can easily be brought back into the hand
         given it has 2 movement.
       </p>
 
@@ -81,15 +81,15 @@ export default React.memo(function GuideSelfControl(props) {
             </h3>
             <p>
               CriticalPancake went off-meta with a control Shadowfen deck
-              containing a single satyr (<WikiLink id='N4' />
+              containing a single satyr (<CardLink id='N4' />
               ).
             </p>
             <p>
-              The idea is that toads from <WikiLink id='F8' /> and{' '}
-              <WikiLink id='F10' /> will block runners such as{' '}
-              <WikiLink id='S3' /> and <WikiLink id='S2' />. From there, this is
+              The idea is that toads from <CardLink id='F8' /> and{' '}
+              <CardLink id='F10' /> will block runners such as{' '}
+              <CardLink id='S3' /> and <CardLink id='S2' />. From there, this is
               your typical Shadowfen deck with toad spam and{' '}
-              <WikiLink id='F17' /> as a finisher.
+              <CardLink id='F17' /> as a finisher.
             </p>
             <p>
               If you main Shadowfen and your cards are maxed out, you might be
@@ -119,104 +119,104 @@ export default React.memo(function GuideSelfControl(props) {
 
       <ul>
         <li>
-          <WikiLink id='N1' /> are as good as always. It’s cheap and strong and
+          <CardLink id='N1' /> are as good as always. It’s cheap and strong and
           probably a must have.
         </li>
         <li>
-          <WikiLink id='N2' /> is surprisingly efficient in that Brawl. Not only
+          <CardLink id='N2' /> is surprisingly efficient in that Brawl. Not only
           can it stop runners (or Counselor Ahmi from coming back in hand) but
           it also gives some meat for Pan Heralds.
         </li>
         <li>
-          <WikiLink id='S1' /> is really nice, especially since it can attack
+          <CardLink id='S1' /> is really nice, especially since it can attack
           sideways. Definitely a card to include.
         </li>
         <li>
-          <WikiLink id='N3' /> are also as good as always, although some
+          <CardLink id='N3' /> are also as good as always, although some
           successful decks did not run them, which is interesting.
         </li>
         <li>
-          <WikiLink id='S24' /> is a good card because cheap with a lot of
+          <CardLink id='S24' /> is a good card because cheap with a lot of
           value. It provides good synergy with Swarmcallers, and to some extent
           Pan Heralds.
         </li>
         <li>
-          <WikiLink id='N4' /> is amazing in that Brawl and definitely a
+          <CardLink id='N4' /> is amazing in that Brawl and definitely a
           must-have.
         </li>
         <li>
-          <WikiLink id='N67' /> are always a good call, but might be replaced if
+          <CardLink id='N67' /> are always a good call, but might be replaced if
           it’s not high level enough. In a Brawl where 6+ runners are common, a
           3-strength card is not going to cut it.
         </li>
         <li>
-          <WikiLink id='S2' /> is your line pusher with 3 movement, especially
+          <CardLink id='S2' /> is your line pusher with 3 movement, especially
           at level 4/5 where it can take a bit of damage as well.
         </li>
         <li>
-          <WikiLink id='S3' /> is king in that Brawl, not so much for the stats
+          <CardLink id='S3' /> is king in that Brawl, not so much for the stats
           themselves, but because if you have a path to the opponent’s base, you
           can play 2 or 3 times in a row and this is how most games end.
         </li>
         <li>
-          <WikiLink id='S6' /> is a bit of an odd ball. Everything goes so fast
+          <CardLink id='S6' /> is a bit of an odd ball. Everything goes so fast
           that there is little need for the commanding ability, and Counselor
           Ahmi is almost always a better play at 3 mana. I guess it’s good with
           a control strategy, especially if level 5.
         </li>
         <li>
-          <WikiLink id='S25' />, if you have it level 4 or 5, is a very decent
+          <CardLink id='S25' />, if you have it level 4 or 5, is a very decent
           call because it’s a lot of value on the board with one movement, and
           it becomes hard to clear with Lawless Herd and Counselor Ahmi.
         </li>
         <li>
-          <WikiLink id='S7' /> can be a decent call for control strategies, as
+          <CardLink id='S7' /> can be a decent call for control strategies, as
           it can distracts the opponent a little. It goes a bit against rush
           though, so it might be a tough play.
         </li>
         <li>
-          <WikiLink id='S14' /> is the name of the game. Ideally, open cheap and
+          <CardLink id='S14' /> is the name of the game. Ideally, open cheap and
           close to your own base, and drop Pan Heralds next turn to ensure board
           control. It really is strong.
         </li>
         <li>
-          <WikiLink id='S9' /> is really interesting, not only because it’s a
+          <CardLink id='S9' /> is really interesting, not only because it’s a
           satyr in a satyr Brawl with satyr synergies, but because it gets 2
           movement, and becomes a decent finisher.
         </li>
         <li>
-          <WikiLink id='S16' /> might look like it’s interesting with 1 movement
+          <CardLink id='S16' /> might look like it’s interesting with 1 movement
           for extra satyrs, but 5 mana is a lot in such a fast Brawl, and there
           are better plays than that (usually 2 or 3 cards instead).
         </li>
         <li>
-          <WikiLink id='N18' /> sounds interesting in a Brawl where so many
+          <CardLink id='N18' /> sounds interesting in a Brawl where so many
           satyrs are played but it’s just too expensive. If you have to drop it,
           you’re in trouble, and if you’re in trouble, you can’t really spend 4
           mana on just that.
         </li>
         <li>
-          <WikiLink id='S28' /> are undeniably strong with their 1 movement, but
+          <CardLink id='S28' /> are undeniably strong with their 1 movement, but
           they are very expensive, and it feels like a win-more card at this
           stage. I’m not sure it will help that much.
         </li>
         <li>
-          <WikiLink id='S21' /> and <WikiLink id='S20' /> are just too expensive
+          <CardLink id='S21' /> and <CardLink id='S20' /> are just too expensive
           here, and all in all too little too late.
         </li>
         <li>
-          <WikiLink id='N9' /> might help in some situations, but what kills you
+          <CardLink id='N9' /> might help in some situations, but what kills you
           is rarely not one big unit—especially since there are basically no
           elders. What kills you is usually Counselor Ahmi slamming your base
           for 18 damage at turn 9.
         </li>
         <li>
-          <WikiLink id='N13' /> is definitely worse than Moonlit Aerie and
+          <CardLink id='N13' /> is definitely worse than Moonlit Aerie and
           performs incredibly poorly in that Brawl where everything is cheap and
           everything moves.
         </li>
         <li>
-          <WikiLink id='N63' /> is not necessarily a bad choice, although it
+          <CardLink id='N63' /> is not necessarily a bad choice, although it
           becomes costly at 3 mana when you could drop one or two more units.
           But on paper it should work because you get a lot of units packed
           together for Pan Heralds.

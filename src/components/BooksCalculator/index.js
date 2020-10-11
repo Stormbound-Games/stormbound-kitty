@@ -11,7 +11,7 @@ import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
 import TogglableContent from '../TogglableContent'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import capitalise from '../../helpers/capitalise'
 import countCardsForRarity from '../../helpers/countCardsForRarity'
 import './index.css'
@@ -120,8 +120,8 @@ export default React.memo(function BooksCalculator(props) {
               </p>
               <p>
                 For instance, if you’re looking for a copy of{' '}
-                <WikiLink id='N2' />, a copy of <WikiLink id='I4' /> and a copy
-                of <WikiLink id='N8' />, set 2 for “Common cards” and 1 for
+                <CardLink id='N2' />, a copy of <CardLink id='I4' /> and a copy
+                of <CardLink id='N8' />, set 2 for “Common cards” and 1 for
                 “Legendary cards”.
               </p>
               <Row>

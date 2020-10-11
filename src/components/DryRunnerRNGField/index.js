@@ -1,6 +1,6 @@
 import React from 'react'
 import Radio from '../Radio'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import { FRIENDLY_CHANCES } from '../../constants/dryRunner'
 import './index.css'
 
@@ -8,36 +8,36 @@ const RNG_SENSITIVE_CARDS = {
   S3: {
     FRIENDLY: () => (
       <>
-        <WikiLink id='S3' /> comes back in hand
+        <CardLink id='S3' /> comes back in hand
       </>
     ),
     UNFRIENDLY: () => (
       <>
-        <WikiLink id='S3' /> doesn’t come back to hand
+        <CardLink id='S3' /> doesn’t come back to hand
       </>
     ),
   },
   W9: {
     FRIENDLY: () => (
       <>
-        <WikiLink id='W9' /> stays
+        <CardLink id='W9' /> stays
       </>
     ),
     UNFRIENDLY: () => (
       <>
-        <WikiLink id='W9' /> gets destroyed
+        <CardLink id='W9' /> gets destroyed
       </>
     ),
   },
   W16: {
     FRIENDLY: () => (
       <>
-        <WikiLink id='W16' /> hits and stays on the board
+        <CardLink id='W16' /> hits and stays on the board
       </>
     ),
     UNFRIENDLY: () => (
       <>
-        <WikiLink id='W16' /> dies
+        <CardLink id='W16' /> dies
       </>
     ),
   },
@@ -76,7 +76,7 @@ export default React.memo(function DryRunnerRNGField(props) {
         <span className='DryRunnerRNGField__radio-info'>
           {harvestersInDeck ? (
             <span>
-              <WikiLink id='N38' /> often create strong copies
+              <CardLink id='N38' /> often create strong copies
             </span>
           ) : null}
           {freezeCard ? (
@@ -100,7 +100,7 @@ export default React.memo(function DryRunnerRNGField(props) {
         <span className='DryRunnerRNGField__radio-info'>
           {harvestersInDeck ? (
             <span>
-              When <WikiLink id='N38' /> manage to create a copy, it’s generally{' '}
+              When <CardLink id='N38' /> manage to create a copy, it’s generally{' '}
               weak
             </span>
           ) : null}
@@ -126,7 +126,7 @@ export default React.memo(function DryRunnerRNGField(props) {
           <>
             {harvestersInDeck ? (
               <span>
-                <WikiLink id='N38' /> sometimes create an average copy
+                <CardLink id='N38' /> sometimes create an average copy
               </span>
             ) : null}
             {freezeCard ? (

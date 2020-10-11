@@ -10,7 +10,7 @@ import Only from '../Only'
 import Row from '../Row'
 import Table from '../Table'
 import Title from '../Title'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import guides from '../../data/guides'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import serialisation from '../../helpers/serialisation'
@@ -142,9 +142,9 @@ export default React.memo(function GuideD1SFCommons(props) {
 
       <p>
         This deck has 2 main facets: cheap drops and runners. The cheap drops
-        are <WikiLink id='N1' />, <WikiLink id='N2' />, <WikiLink id='N3' />,{' '}
-        <WikiLink id='F3' /> and to a lesser extent <WikiLink id='N12' /> and{' '}
-        <WikiLink id='N16' />. That’s half the deck.
+        are <CardLink id='N1' />, <CardLink id='N2' />, <CardLink id='N3' />,{' '}
+        <CardLink id='F3' /> and to a lesser extent <CardLink id='N12' /> and{' '}
+        <CardLink id='N16' />. That’s half the deck.
       </p>
       <p>
         Like in any deck, these cards serve two purposes: being able to defend
@@ -177,15 +177,15 @@ export default React.memo(function GuideD1SFCommons(props) {
 
       <Info icon='sword' title='Runner variations'>
         <p>
-          If you happen to have <WikiLink id='N67' /> at level 3 or more, it
+          If you happen to have <CardLink id='N67' /> at level 3 or more, it
           might be a good idea to replace Summon Militia with it. Not only does
           it grant another runner, but it also makes for a less random target
           for Toxic Sacrifice combos.
         </p>
         <p>
-          On a similar note, <WikiLink id='F25' /> is a better alternative to
+          On a similar note, <CardLink id='F25' /> is a better alternative to
           First Mutineer since it comes without any penalty, and varies races to
-          avoid being subject to <WikiLink id='N18' />
+          avoid being subject to <CardLink id='N18' />
           ’s ability.
         </p>
       </Info>
@@ -193,7 +193,7 @@ export default React.memo(function GuideD1SFCommons(props) {
       <h3 id='witches-of-the-wild'>Witches of the Wild</h3>
 
       <p>
-        <WikiLink id='F14' /> is such a versatile card that it has to take part
+        <CardLink id='F14' /> is such a versatile card that it has to take part
         in most Shadowfen decks, this one being no exception. At level 5, it can
         have up to 29 strength value for 4 mana in perfect conditions, and
         easily averages between 11 and 17 value. That’s good to pass.
@@ -207,13 +207,13 @@ export default React.memo(function GuideD1SFCommons(props) {
         They are not really used offensively per se.
       </p>
       <p>
-        <WikiLink id='F4' /> is included because it provides excellent board
+        <CardLink id='F4' /> is included because it provides excellent board
         control. Not only does it make it possible to counter early pushes, but
         it also can clear our own units if they are in the way of lethal.
       </p>
       <p>
         Originally, I ran a slight variation of this deck with{' '}
-        <WikiLink id='N5' /> instead of <WikiLink id='N9' /> but it did not
+        <CardLink id='N5' /> instead of <CardLink id='N9' /> but it did not
         work. Northsea Dog ends up being cycled for most of the game and does
         not help defending whatsoever. Confinement is here to dramatically slow
         down a heavy push, and to counter Elders such as Hairy Chestnuts and
@@ -417,7 +417,7 @@ export default React.memo(function GuideD1SFCommons(props) {
 
       <p>
         There are two archetypes of Swarm decks: early rush and control (which
-        is usually <WikiLink id='S21' /> + <WikiLink id='S28' />
+        is usually <CardLink id='S21' /> + <CardLink id='S28' />
         ). It is helpful to try to guess early which kind of deck we’re facing.
       </p>
       <p>
@@ -432,7 +432,7 @@ export default React.memo(function GuideD1SFCommons(props) {
       </p>
 
       <p>
-        If the opponent starts the game with a <WikiLink id='S8' /> and we
+        If the opponent starts the game with a <CardLink id='S8' /> and we
         happen to have a Toxic Sacrifice in our hand, it might be interesting
         not to cycle it to be able to clear the upcoming cheap drops (Green
         Prototypes, Gifted Recruits, Doppelbocks, Head Start…). Being able to
@@ -452,7 +452,7 @@ export default React.memo(function GuideD1SFCommons(props) {
 
       <p>
         When facing an Ironclad deck, one has to be ready to be countered by{' '}
-        <WikiLink id='I20' />. The worst that can happen is our frontline being
+        <CardLink id='I20' />. The worst that can happen is our frontline being
         reset for only 4 mana because we set 2 units side-by-side on the
         opponent’s baseline. Therefore, it might be interesting to split the
         attack on both sides.
@@ -474,9 +474,9 @@ export default React.memo(function GuideD1SFCommons(props) {
 
       <p>
         When facing a structure deck, it’s important to go upfront and destroy
-        or minimise the impact of towers. Seeing a <WikiLink id='I2' /> or a
-        cycled <WikiLink id='I3' /> in the early turns is a good indicator that
-        either a <WikiLink id='I19' /> or an <WikiLink id='I10' /> are coming,
+        or minimise the impact of towers. Seeing a <CardLink id='I2' /> or a
+        cycled <CardLink id='I3' /> in the early turns is a good indicator that
+        either a <CardLink id='I19' /> or an <CardLink id='I10' /> are coming,
         so it’s important to move fast to counter before the opponent starts
         steamrolling.
       </p>

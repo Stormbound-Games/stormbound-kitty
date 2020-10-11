@@ -8,7 +8,7 @@ import Notice from '../Notice'
 import Only from '../Only'
 import Row from '../Row'
 import Title from '../Title'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import guides from '../../data/guides'
 import './index.css'
 
@@ -37,7 +37,7 @@ export default React.memo(function GuideNobleCoalition(props) {
         Felines are still somewhat new, so the last time around only very few
         players had the cats at an exceptional level. Most players ran their
         main deck with a small sprinkling of the better cats like{' '}
-        <WikiLink id='N67' />. This might still be a viable strategy to
+        <CardLink id='N67' />. This might still be a viable strategy to
         deck-building since +2 strength is not a whole lot, especially if cats
         are at a lower level than the rest of your collection.
       </p>
@@ -59,7 +59,7 @@ export default React.memo(function GuideNobleCoalition(props) {
             <p>
               Critical Pancake is one of my favourite deckbuilders every week
               and my own brawl decks are usually very close to his. Could switch{' '}
-              <WikiLink id='F20' /> for <WikiLink id='N68' />, since more cats
+              <CardLink id='F20' /> for <CardLink id='N68' />, since more cats
               might now have outgrown the Minister’s reach.
             </p>
           </Column>
@@ -83,18 +83,18 @@ export default React.memo(function GuideNobleCoalition(props) {
                 even besides the fact that it is maxed
               </Only.DefaultCollection>
               . Early aggression and eventually finding lethal with lots of
-              cheap runners or <WikiLink id='S6' /> should be easy. This is{' '}
-              <WikiLink id='N71' />’ time to shine, if you like wasting good
+              cheap runners or <CardLink id='S6' /> should be easy. This is{' '}
+              <CardLink id='N71' />’ time to shine, if you like wasting good
               coins on an otherwise terrible card.
             </p>
             <p>
               The rest of the decks last time were largely just normal D1 or
-              ladder decks with <WikiLink id='N67' />, normal Swarm and
-              Shadowfen rush decks or the now nerfed <WikiLink id='S21' /> and
+              ladder decks with <CardLink id='N67' />, normal Swarm and
+              Shadowfen rush decks or the now nerfed <CardLink id='S21' /> and
               not really worth mentioning. Not to say they are not viable
               (except for Queen, the Queen is dead), I'm just hoping we see more
               interesting cat decks this time around, maybe even utilizing the
-              recently buffed <WikiLink id='N60' /> which ought to finally get
+              recently buffed <CardLink id='N60' /> which ought to finally get
               some time in the spotlight.
             </p>
           </Column>

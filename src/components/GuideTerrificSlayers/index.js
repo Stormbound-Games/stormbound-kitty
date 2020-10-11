@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Card from '../Card'
 import Column from '../Column'
 import Guide from '../Guide'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import Row from '../Row'
 import Title from '../Title'
 import guides from '../../data/guides'
@@ -15,7 +15,7 @@ export default React.memo(function GuideTerrificSlayers(props) {
   return (
     <Guide {...guide}>
       <p>
-        <WikiLink id='N27' /> is a rather underused card outside of the{' '}
+        <CardLink id='N27' /> is a rather underused card outside of the{' '}
         <Link to='/brawl/knight-mana'>Heavy Metal</Link> Brawl focusing on
         knights. Still, it is not a bad card and can have very strong value in
         some situations. In this guide, I will outline some tips to best play
@@ -78,18 +78,18 @@ export default React.memo(function GuideTerrificSlayers(props) {
       <p>
         Ironically enough, Terrific Slayers are pretty interesting in dragon
         decks because it’s a good recipe against card conversion (such as{' '}
-        <WikiLink id='F22' />, <WikiLink id='F20' /> and <WikiLink id='F24' />
+        <CardLink id='F22' />, <CardLink id='F20' /> and <CardLink id='F24' />
         )—especially in a heavily Shadowfen meta—as well as{' '}
-        <WikiLink id='N38' /> to some extent.
+        <CardLink id='N38' /> to some extent.
       </p>
 
       <Title id='limited-aoe'>Limited AoE</Title>
       <p>
         <abbr title='Area of Effeft'>AoE</abbr> and randomised damage (such as{' '}
-        <WikiLink id='N23' />) are not recommended as these can weaken your
+        <CardLink id='N23' />) are not recommended as these can weaken your
         target(s) when unwanted. You want to keep nice and juicy dragons for
         maximum value—
-        <WikiLink id='N18' /> and <WikiLink id='W15' /> being clear exceptions.
+        <CardLink id='N18' /> and <CardLink id='W15' /> being clear exceptions.
       </p>
 
       <Title id='take-risks-and-bait'>Take risks and bait</Title>
@@ -110,7 +110,7 @@ export default React.memo(function GuideTerrificSlayers(props) {
       <p>
         After you use this card, your opponent is able to try playing around it,
         so the first usage always has the most value, if you can, make sure this
-        first usage reflects that (use <WikiLink id='N1' /> to buff the enemy
+        first usage reflects that (use <CardLink id='N1' /> to buff the enemy
         dragon when you can’t go without buffing a unit for a pro gamer move).
       </p>
     </Guide>

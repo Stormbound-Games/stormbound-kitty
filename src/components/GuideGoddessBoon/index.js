@@ -6,7 +6,7 @@ import Guide from '../Guide'
 import Notice from '../Notice'
 import Row from '../Row'
 import Title from '../Title'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import guides from '../../data/guides'
 
 const guide = guides.find(guide => guide.id === 'GODDESS_BOON_GUIDE')
@@ -41,10 +41,10 @@ export default React.memo(function GuideGoddessBoon(props) {
         i.e. try a deck with a lower curve and runners as finishers.
       </p>
       <p>
-        That said, the recently buffed <WikiLink id='N36' /> will likely be
+        That said, the recently buffed <CardLink id='N36' /> will likely be
         incredible and is absolutely worth including, so be wary of your
         placement with units below 6 strength. Also be sure to pack{' '}
-        <WikiLink id='N9' /> and/or <WikiLink id='N58' />, because they will
+        <CardLink id='N9' /> and/or <CardLink id='N58' />, because they will
         provide a lot of value against any lumbering snow titans.
       </p>
 
@@ -57,13 +57,13 @@ export default React.memo(function GuideGoddessBoon(props) {
             <p>
               This was the featured deck by Frostkhan and I think it still
               stands the test of time. The only card I’m not sure about is{' '}
-              <WikiLink id='W9' /> and could be replaced by{' '}
-              <WikiLink id='W28' /> to have more even-cost cards and tempo.
+              <CardLink id='W9' /> and could be replaced by{' '}
+              <CardLink id='W28' /> to have more even-cost cards and tempo.
             </p>
             <p>
-              As mentioned before, <WikiLink id='N58' /> is important to be able
+              As mentioned before, <CardLink id='N58' /> is important to be able
               to clear series of buffed up Frostlings. Same for{' '}
-              <WikiLink id='N9' />, especially given <WikiLink id='W10' /> is
+              <CardLink id='N9' />, especially given <CardLink id='W10' /> is
               going to be packed in most decks.
             </p>
           </Column>
@@ -83,16 +83,16 @@ export default React.memo(function GuideGoddessBoon(props) {
 
             <p>
               This deck looks like a pretty good aggressive option, although I’m
-              not sure about the <WikiLink id='W9' /> since it’s been nerfed,
+              not sure about the <CardLink id='W9' /> since it’s been nerfed,
               but the curve overall looks very decent. It could be that this
-              kind of curve will be crushed by the new <WikiLink id='N36' />, we
+              kind of curve will be crushed by the new <CardLink id='N36' />, we
               will see.
             </p>
 
             <p>
               <Link to='/member/SeveralPeople'>SeveralPeople</Link> runs a very
-              similar deck with <WikiLink id='N1' /> and <WikiLink id='N67' />{' '}
-              instead of <WikiLink id='N9' /> and <WikiLink id='W10' />, which
+              similar deck with <CardLink id='N1' /> and <CardLink id='N67' />{' '}
+              instead of <CardLink id='N9' /> and <CardLink id='W10' />, which
               can be interesting to have cheaper options and potentially more
               board control.
             </p>
@@ -112,8 +112,8 @@ export default React.memo(function GuideGoddessBoon(props) {
             <h3 style={{ marginTop: '0.5em' }}>Adig’s Frosty Feline Dwarf</h3>
             <p>
               A high-end option, capitalizing on runners can catch opponents off
-              guard. Even something like <WikiLink id='N52' /> in place of{' '}
-              <WikiLink id='W23' /> could work. It might struggle a little with
+              guard. Even something like <CardLink id='N52' /> in place of{' '}
+              <CardLink id='W23' /> could work. It might struggle a little with
               clear hords of Frostlings with Siren of the Seas though, so
               beware.
             </p>
@@ -133,12 +133,12 @@ export default React.memo(function GuideGoddessBoon(props) {
       <p>So, to summarize: </p>
       <ul>
         <li>
-          Deal with small units (<WikiLink id='N36' /> and <WikiLink id='N11' />
+          Deal with small units (<CardLink id='N36' /> and <CardLink id='N11' />
           ).
         </li>
         <li>
-          Deal with big units (i.e. <WikiLink id='N9' />, <WikiLink id='N58' />,
-          counter Big <WikiLink id='W10' /> with an even bigger one).
+          Deal with big units (i.e. <CardLink id='N9' />, <CardLink id='N58' />,
+          counter Big <CardLink id='W10' /> with an even bigger one).
         </li>
         <li>Runners to win games.</li>
         <li>Stay frosty.</li>

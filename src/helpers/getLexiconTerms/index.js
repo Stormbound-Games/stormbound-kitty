@@ -1,10 +1,10 @@
 import React from 'react'
-import WikiLink from '../../components/WikiLink'
+import CardLink from '../../components/CardLink'
 import cards from '../../data/cards'
 import getAbbreviations from '../../helpers/getAbbreviations'
 
 const INDEX = cards.reduce((acc, card) => {
-  acc[card.name] = <WikiLink id={card.id} />
+  acc[card.name] = <CardLink id={card.id} />
   return acc
 }, {})
 

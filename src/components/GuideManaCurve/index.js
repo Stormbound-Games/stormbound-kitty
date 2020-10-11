@@ -7,7 +7,7 @@ import Info from '../Info'
 import Only from '../Only'
 import Row from '../Row'
 import Title from '../Title'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import serialisation from '../../helpers/serialisation'
 import toSentence from '../../helpers/toSentence'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
@@ -350,7 +350,7 @@ export default React.memo(function GuideManaCurve(props) {
           game where board control is critical.
         </li>
         <li>
-          <WikiLink id='W12' /> and <WikiLink id='W19' /> granting mana. Both of
+          <CardLink id='W12' /> and <CardLink id='W19' /> granting mana. Both of
           these cards have been properly implemented, and their mana gain is
           taken into account in the evaluation of these chances.
         </li>
@@ -362,16 +362,16 @@ export default React.memo(function GuideManaCurve(props) {
           take the board back.
         </li>
         <li>
-          Cycling <WikiLink id='W1' /> if it cannot be played due to lack of
+          Cycling <CardLink id='W1' /> if it cannot be played due to lack of
           cards which can freeze as part of the same hand. Despite being a cheap
           card, Icicle Burst should not be kept in hand if it cannot be played
           at all due to lack of synergy.
         </li>
         <li>
           Cards which cannot be played on the first turn. This includes{' '}
-          <WikiLink id='W1' />, <WikiLink id='N9' />, <WikiLink id='N63' /> and{' '}
-          <WikiLink id='S10' /> due to lack of enemies, as well as{' '}
-          <WikiLink id='F4' />, and other potions (which are cheapened in Brawl)
+          <CardLink id='W1' />, <CardLink id='N9' />, <CardLink id='N63' /> and{' '}
+          <CardLink id='S10' /> due to lack of enemies, as well as{' '}
+          <CardLink id='F4' />, and other potions (which are cheapened in Brawl)
           due to lack of friendly units.
         </li>
       </ul>

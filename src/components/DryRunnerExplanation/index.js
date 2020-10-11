@@ -1,6 +1,6 @@
 import React from 'react'
 import TogglableContent from '../TogglableContent'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import { PROBABILITIES } from '../../constants/dryRunner'
 import './index.css'
 
@@ -103,7 +103,7 @@ export default function DryRunnerExplanation(props) {
                     .filter(cardId => category.cards.includes(cardId))
                     .map(cardId => (
                       <li className='DryRunnerExplanation__item' key={cardId}>
-                        <WikiLink id={cardId} />
+                        <CardLink id={cardId} />
                         {': '}
                         {CARD_ATTRIBUTES[cardId]}
                       </li>

@@ -12,7 +12,7 @@ import PageMeta from '../PageMeta'
 import Quest from '../Quest'
 import Row from '../Row'
 import Title from '../Title'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import { Coins, Rubies, Stones } from '../Resource'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import './index.css'
@@ -220,7 +220,7 @@ export default React.memo(function ChangelogJuly2020(props) {
       </Article.FullWidth>
 
       <p>
-        <WikiLink id='N77' /> will be available shortly (a few days following
+        <CardLink id='N77' /> will be available shortly (a few days following
         the release) through crafting and{' '}
         <Link to='/calculators/books'>books</Link>. Additionally, it will be
         possible to buy a $9.99 limited edition pack containing Rogue Sheep and
@@ -251,48 +251,48 @@ export default React.memo(function ChangelogJuly2020(props) {
 
       <ul>
         <li>
-          <WikiLink id='N70' /> have their strength and ability both decreased
+          <CardLink id='N70' /> have their strength and ability both decreased
           by 1 at all levels.
         </li>
         <li>
-          <WikiLink id='N74' /> cost 6 mana at all levels (up from 5).
+          <CardLink id='N74' /> cost 6 mana at all levels (up from 5).
         </li>
         <li>
-          <WikiLink id='N76' /> has its strength decreased by 1 at all levels.
+          <CardLink id='N76' /> has its strength decreased by 1 at all levels.
         </li>
         <li>
-          <WikiLink id='F20' /> have their strength decreased by 2 at all
+          <CardLink id='F20' /> have their strength decreased by 2 at all
           levels.
         </li>
         <li>
-          <WikiLink id='F28' /> have their strength decreased by 2 at all
+          <CardLink id='F28' /> have their strength decreased by 2 at all
           levels.
         </li>
         <li>
-          <WikiLink id='S20' /> costs 7 mana at all levels (up from 6).
+          <CardLink id='S20' /> costs 7 mana at all levels (up from 6).
         </li>
         <li>
-          <WikiLink id='S21' /> costs 7 mana at all levels (up from 6).
+          <CardLink id='S21' /> costs 7 mana at all levels (up from 6).
           Additionally, its ability is no longer able to play a card of rarity
           higher than rare.
         </li>
         <li>
-          <WikiLink id='S28' /> have their strength decreased by 1 at all
+          <CardLink id='S28' /> have their strength decreased by 1 at all
           levels.
         </li>
         <li>
-          <WikiLink id='W9' /> has its ability decreased by 1 at all levels.
+          <CardLink id='W9' /> has its ability decreased by 1 at all levels.
         </li>
         <li>
-          <WikiLink id='W13' /> have their movement decreased by 1 at all
+          <CardLink id='W13' /> have their movement decreased by 1 at all
           levels.
         </li>
         <li>
-          <WikiLink id='W19' /> costs 8 mana at all levels (up from 7) and
+          <CardLink id='W19' /> costs 8 mana at all levels (up from 7) and
           grants one more mana at all levels.
         </li>
         <li>
-          <WikiLink id='W27' /> have their strength decreased by 1 at all levels
+          <CardLink id='W27' /> have their strength decreased by 1 at all levels
           and regenerate 3, 3, 3 (down from 4), 4 (down from 5), 4 (down from
           6).
         </li>
@@ -317,21 +317,21 @@ export default React.memo(function ChangelogJuly2020(props) {
 
       <ul>
         <li>
-          <WikiLink id='N9' /> costs 3 mana at all levels (down from 4 at level
+          <CardLink id='N9' /> costs 3 mana at all levels (down from 4 at level
           1 to 3) and reduce strength to 5, 4, 3, 2 (down from 3) and 1.
         </li>
         <li>
-          <WikiLink id='N21' /> does 1 more damage at all levels.
+          <CardLink id='N21' /> does 1 more damage at all levels.
         </li>
         <li>
-          <WikiLink id='N60' /> cost 5 mana at all levels (down from 6).
+          <CardLink id='N60' /> cost 5 mana at all levels (down from 6).
         </li>
       </ul>
 
       <h3>Confusion</h3>
 
       <p>
-        On top of making <WikiLink id='N60' /> more accessible by decreasing
+        On top of making <CardLink id='N60' /> more accessible by decreasing
         their mana cost, Sheepyard has{' '}
         <u style={{ textDecoration: 'line-through', opacity: 0.5 }}>
           revisited

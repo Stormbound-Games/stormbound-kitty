@@ -3,7 +3,7 @@ import modifyDeck from '../../helpers/modifyDeck'
 import DryRunner from '../DryRunner'
 import DeckMechanisms from '../DeckMechanisms'
 import { NotificationContext } from '../NotificationProvider'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import { BRAWLS } from '../../constants/brawl'
 import isCard from '../../helpers/isCard'
 import getDeckPresets from '../../helpers/getDeckPresets'
@@ -229,9 +229,9 @@ class DeckDryRunView extends React.Component {
       <>
         There {activeFrozenCores === 1 ? 'is' : 'are'}{' '}
         {activeFrozenCores ? activeFrozenCores : 'no'}{' '}
-        <WikiLink id='W9'>
+        <CardLink id='W9'>
           Frozen {activeFrozenCores === 1 ? 'Core' : 'Cores'}
-        </WikiLink>{' '}
+        </CardLink>{' '}
         on the board.
         <br />
       </>
@@ -244,8 +244,7 @@ class DeckDryRunView extends React.Component {
     return (
       <>
         There {activeDawnsparks === 1 ? 'is' : 'are'}{' '}
-        {activeDawnsparks ? activeDawnsparks : 'no'}{' '}
-        <WikiLink id='W16'>Dawnsparks</WikiLink>{' '}
+        {activeDawnsparks ? activeDawnsparks : 'no'} <CardLink id='W16' />{' '}
         {activeDawnsparks === 0
           ? ''
           : activeDawnsparks === 1

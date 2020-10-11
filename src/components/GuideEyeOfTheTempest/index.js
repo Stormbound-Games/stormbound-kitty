@@ -6,7 +6,7 @@ import Guide from '../Guide'
 import Notice from '../Notice'
 import Row from '../Row'
 import Title from '../Title'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import guides from '../../data/guides'
 
 const guide = guides.find(guide => guide.id === 'EYE_OF_THE_TEMPEST_GUIDE')
@@ -36,25 +36,25 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
       <p>
         This Brawl has a lot of different approaches and is a community
         favourite for this reason. The first approach makes use of spawning free
-        toads and buffing them with a 4 mana <WikiLink id='N40' /> that has just
+        toads and buffing them with a 4 mana <CardLink id='N40' /> that has just
         been buffed to provide more strength for the primary target. You can get
         an insane amount of stats on the board this way.
       </p>
       <p>
-        However, AoE spells like <WikiLink id='N29' /> and <WikiLink id='N44' />{' '}
-        are also reduced, so a Winter deck featuring <WikiLink id='W23' /> and{' '}
-        <WikiLink id='W19' /> on steroids might still be able to consistently
+        However, AoE spells like <CardLink id='N29' /> and <CardLink id='N44' />{' '}
+        are also reduced, so a Winter deck featuring <CardLink id='W23' /> and{' '}
+        <CardLink id='W19' /> on steroids might still be able to consistently
         clear the board and go the distance by attrition.
       </p>
       <p>
         Swarm is another strong contender, with free frontline satyrs and insane
-        AoE board clearing and base damage spell <WikiLink id='S15' /> for only
+        AoE board clearing and base damage spell <CardLink id='S15' /> for only
         3 mana, just buffed from bordering to surrounding. Also{' '}
-        <WikiLink id='S20' /> costs 5, so you can get a taste of how strong it
+        <CardLink id='S20' /> costs 5, so you can get a taste of how strong it
         originally was before it got nerfed twice.
       </p>
       <p>
-        Just for the record, Ironclad has free <WikiLink id='I3' /> available,
+        Just for the record, Ironclad has free <CardLink id='I3' /> available,
         but the rest of their spell lineup is not looking too strong comparably,
         so I would not expect to see much of them.
       </p>
@@ -73,12 +73,12 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
               claiming it was too easy.
             </p>
             <p>
-              But maybe <WikiLink id='S20' /> costing one more mana is enough to
-              offset the buff to <WikiLink id='S15' /> and make it less viable?
-              Maybe the more powerful <WikiLink id='N29' /> can topple it?
+              But maybe <CardLink id='S20' /> costing one more mana is enough to
+              offset the buff to <CardLink id='S15' /> and make it less viable?
+              Maybe the more powerful <CardLink id='N29' /> can topple it?
             </p>
             <p>
-              He also mentioned that <WikiLink id='N14' /> got swapped out in
+              He also mentioned that <CardLink id='N14' /> got swapped out in
               the last games, because they were over too quickly anyways.
             </p>
           </Column>
@@ -98,14 +98,14 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
             <h3 style={{ marginTop: '0.5em' }}>OneC’s Toad Spam</h3>
             <p>
               Not too many spells, but toads are just really strong, and{' '}
-              <WikiLink id='F22' /> with <WikiLink id='F17' /> can steal some
-              wins. The mana cost reduction makes <WikiLink id='F8' /> playable
+              <CardLink id='F22' /> with <CardLink id='F17' /> can steal some
+              wins. The mana cost reduction makes <CardLink id='F8' /> playable
               even if it’s not too high level.
             </p>
 
             <p>
               Other variations could include cheaper spells and cheaper runners,
-              such as <WikiLink id='N67' /> and <WikiLink id='F25' />.
+              such as <CardLink id='N67' /> and <CardLink id='F25' />.
             </p>
           </Column>
           <Column>
@@ -126,14 +126,14 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
             </h3>
             <p>
               The quintessential Winter attrition deck is also a scary high
-              level option, but <WikiLink id='W19' /> costs one more mana
+              level option, but <CardLink id='W19' /> costs one more mana
               compared to last time, so we will see if it still holds up against
               the aggression of Swarm and the buffed toad spam of Shadowfen
               decks.
             </p>
 
             <p>
-              <WikiLink id='W21' /> could be replaced with <WikiLink id='W24' />{' '}
+              <CardLink id='W21' /> could be replaced with <CardLink id='W24' />{' '}
               to trade offence for defence and really bank on permanent health
               regeneration.
             </p>

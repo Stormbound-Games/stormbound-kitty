@@ -4,7 +4,7 @@ import Column from '../Column'
 import Guide from '../Guide'
 import Row from '../Row'
 import Title from '../Title'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import guides from '../../data/guides'
 import './index.css'
@@ -73,8 +73,8 @@ export default React.memo(function GuideDeck(props) {
       <p>
         Consider what would be the earliest turn for you to play a full hand of
         4 cards. For some, it is a disgusting low 5 mana (
-        <WikiLink id='N1' />, <WikiLink id='N2' />, <WikiLink id='W1' />,{' '}
-        <WikiLink id='W2' />
+        <CardLink id='N1' />, <CardLink id='N2' />, <CardLink id='W1' />,{' '}
+        <CardLink id='W2' />
         ), for others it won’t happen before 12 mana (4×3 mana cost cards for
         instance).
       </p>
@@ -167,8 +167,8 @@ export default React.memo(function GuideDeck(props) {
 
       <p>
         Thirdly, you need some means to deal with hard to reach, or clusters of,
-        enemies such as <WikiLink id='N21' />, <WikiLink id='N11' />,{' '}
-        <WikiLink id='N47' />, <WikiLink id='N29' />, etc. These cards can keep
+        enemies such as <CardLink id='N21' />, <CardLink id='N11' />,{' '}
+        <CardLink id='N47' />, <CardLink id='N29' />, etc. These cards can keep
         you in the game and are necessary. You need at least one, in some form.
         If they are cheap (3 or less) these are the cards you consider holding
         for a turn or two when cycling, in case you need them.
@@ -184,10 +184,10 @@ export default React.memo(function GuideDeck(props) {
 
       <p>
         This is about how cards work together in combination. Try and find a
-        few. Some will be obvious such as <WikiLink id='S1' /> &{' '}
-        <WikiLink id='S9' />, <WikiLink id='I2' /> & <WikiLink id='I19' />,{' '}
-        <WikiLink id='F2' /> & <WikiLink id='F11' />, <WikiLink id='W2' /> &{' '}
-        <WikiLink id='W4' />…
+        few. Some will be obvious such as <CardLink id='S1' /> &{' '}
+        <CardLink id='S9' />, <CardLink id='I2' /> & <CardLink id='I19' />,{' '}
+        <CardLink id='F2' /> & <CardLink id='F11' />, <CardLink id='W2' /> &{' '}
+        <CardLink id='W4' />…
       </p>
 
       <Guide.FullWidth padding='120px'>
@@ -239,24 +239,24 @@ export default React.memo(function GuideDeck(props) {
 
       <p>
         Some are less obvious, but still extraordinarily useful: for instance{' '}
-        <WikiLink id='I1' /> detonating a <WikiLink id='I12' /> to drive back
+        <CardLink id='I1' /> detonating a <CardLink id='I12' /> to drive back
         the opponent’s front.
       </p>
 
       <p>
-        <WikiLink id='N9' /> synergizes remarkably well with a number of cards,
-        such as <WikiLink id='I16' />, <WikiLink id='F17' />,{' '}
-        <WikiLink id='S12' />, <WikiLink id='N38' />, and so on while also
+        <CardLink id='N9' /> synergizes remarkably well with a number of cards,
+        such as <CardLink id='I16' />, <CardLink id='F17' />,{' '}
+        <CardLink id='S12' />, <CardLink id='N38' />, and so on while also
         taking care of big units.
       </p>
 
       <p>
         When building your deck, try to make sure you have multiple synergies
-        available (i.e. <WikiLink id='I8' /> to combo with <WikiLink id='N1' />{' '}
-        & <WikiLink id='I6' />) <strong className='Highlight'>and</strong> not
-        just one (i.e. running <WikiLink id='W1' /> in a deck with only{' '}
-        <WikiLink id='W2' /> to freeze, or <WikiLink id='N43' /> with only{' '}
-        <WikiLink id='N10' />
+        available (i.e. <CardLink id='I8' /> to combo with <CardLink id='N1' />{' '}
+        & <CardLink id='I6' />) <strong className='Highlight'>and</strong> not
+        just one (i.e. running <CardLink id='W1' /> in a deck with only{' '}
+        <CardLink id='W2' /> to freeze, or <CardLink id='N43' /> with only{' '}
+        <CardLink id='N10' />
         ).
       </p>
 
@@ -325,31 +325,31 @@ export default React.memo(function GuideDeck(props) {
 
       <p>
         Are you running multiple cards which do the same thing? Do you really
-        need <WikiLink id='N36' /> <em>and</em> <WikiLink id='F14' />?{' '}
-        <WikiLink id='N29' /> <em>and</em> <WikiLink id='N18' />?
+        need <CardLink id='N36' /> <em>and</em> <CardLink id='F14' />?{' '}
+        <CardLink id='N29' /> <em>and</em> <CardLink id='N18' />?
       </p>
 
       <p>
-        Or are some of your cards strongly lacking synergy? <WikiLink id='F4' />{' '}
+        Or are some of your cards strongly lacking synergy? <CardLink id='F4' />{' '}
         is risky in a deck which relies on growth, or which can’t place 0
         movement, low cost units to detonate it.
       </p>
 
       <p>
         If you are running a deck which focuses on growth (i.e.{' '}
-        <WikiLink id='N15' />, <WikiLink id='I11' />, <WikiLink id='N20' />,
+        <CardLink id='N15' />, <CardLink id='I11' />, <CardLink id='N20' />,
         etc.) then focus on units over structures or spells (i.e.{' '}
-        <WikiLink id='N11' />
-        rather than <WikiLink id='N21' />, <WikiLink id='N19' /> rather than{' '}
-        <WikiLink id='N13' />
+        <CardLink id='N11' />
+        rather than <CardLink id='N21' />, <CardLink id='N19' /> rather than{' '}
+        <CardLink id='N13' />
         ). Growth is also partially redundant with 2 movement cards as they run
         straight into the opponent’s base before you can use a spell to boost
         them.
       </p>
 
       <p>
-        Note that multiple game winners (i.e. <WikiLink id='I15' /> and{' '}
-        <WikiLink id='I12' />) are not necessarily redundant; however if you
+        Note that multiple game winners (i.e. <CardLink id='I15' /> and{' '}
+        <CardLink id='I12' />) are not necessarily redundant; however if you
         have 5 of them, your deck is probably too expensive. Try focusing on two
         or three that have synergy with other cards in your deck (2 movement
         cards need a close enough front to run from for instance).

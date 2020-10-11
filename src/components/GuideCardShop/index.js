@@ -4,7 +4,7 @@ import Guide from '../Guide'
 import Info from '../Info'
 import { Coins, Rubies } from '../Resource'
 import Title from '../Title'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import guides from '../../data/guides'
 import './index.css'
 
@@ -55,28 +55,28 @@ export default React.memo(function GuideCardShop(props) {
       </p>
       <ul>
         <li>
-          <WikiLink id='N1' /> is an incredibly cheap mover which is why it is
+          <CardLink id='N1' /> is an incredibly cheap mover which is why it is
           included in many a deck given how important movement is early game.
         </li>
         <li>
-          <WikiLink id='N3' /> is also a cheap unit with movement without any
+          <CardLink id='N3' /> is also a cheap unit with movement without any
           penalty, which makes it an essential tool of most decks.
         </li>
         <li>
-          <WikiLink id='N4' /> does not move but is cheap and robust, which is a
+          <CardLink id='N4' /> does not move but is cheap and robust, which is a
           good card to put units on the board.
         </li>
         <li>
-          <WikiLink id='N16' /> is a little more expensive than the
+          <CardLink id='N16' /> is a little more expensive than the
           aforementioned cards but has decent strength and one movement, making
           it very efficient.
         </li>
         <li>
-          <WikiLink id='N9' /> becomes invaluable at level 5 for a lot of
+          <CardLink id='N9' /> becomes invaluable at level 5 for a lot of
           non-rush decks against Elders.
         </li>
         <li>
-          <WikiLink id='N63' />: this is a really powerful spell for a low cost,
+          <CardLink id='N63' />: this is a really powerful spell for a low cost,
           but there is a caveat because it doesn’t always have a target. For
           this reason it is better in decks that are capable of setting up
           scenarios where it gets value—for instance in rush decks to clear
@@ -84,7 +84,7 @@ export default React.memo(function GuideCardShop(props) {
           own base.
         </li>
         <li>
-          <WikiLink id='N60' /> was buffed from 6 to 5 mana and is now, with a
+          <CardLink id='N60' /> was buffed from 6 to 5 mana and is now, with a
           maximum of 12 strength at level 5, one of the strongest 5-mana cards.
           The confusion ability is just a bonus, but I expect the archetype to
           become both more viable and popular. I also definitely expect this
@@ -105,48 +105,48 @@ export default React.memo(function GuideCardShop(props) {
       </p>
       <ul>
         <li>
-          <WikiLink id='N2' />
+          <CardLink id='N2' />
         </li>
         <li>
-          <WikiLink id='S1' />
+          <CardLink id='S1' />
         </li>
         <li>
-          <WikiLink id='S24' />
+          <CardLink id='S24' />
         </li>
         <li>
-          <WikiLink id='S6' />
+          <CardLink id='S6' />
         </li>
         <li>
-          <WikiLink id='N15' />
+          <CardLink id='N15' />
         </li>
       </ul>
 
       <p>
         <span className='Highlight'>Winter</span> on the other hand is quite
         late-game oriented, despite the aggressive nerfs to mana-oriented cards
-        like <WikiLink id='W9' /> and <WikiLink id='W19' /> in July 2020. Some
+        like <CardLink id='W9' /> and <CardLink id='W19' /> in July 2020. Some
         common and rare cards might be worth investing into depending on what
         strategies you like. But overall, until Winter either gets early-game
-        cards worth mentioning (besides <WikiLink id='W5' />) or their mana
+        cards worth mentioning (besides <CardLink id='W5' />) or their mana
         manipulation capabilities back to pre-nerf levels, the list is reduced
         to:
       </p>
 
       <ul>
         <li>
-          <WikiLink id='N14' />
+          <CardLink id='N14' />
         </li>
         <li>
-          <WikiLink id='N13' />
+          <CardLink id='N13' />
         </li>
         <li>
-          <WikiLink id='N47' />
+          <CardLink id='N47' />
         </li>
         <li>
-          <WikiLink id='N44' />
+          <CardLink id='N44' />
         </li>
         <li>
-          <WikiLink id='W17' />
+          <CardLink id='W17' />
         </li>
       </ul>
       <p>
@@ -156,19 +156,19 @@ export default React.memo(function GuideCardShop(props) {
       </p>
       <ul>
         <li>
-          <WikiLink id='F4' />
+          <CardLink id='F4' />
         </li>
         <li>
-          <WikiLink id='F3' />
+          <CardLink id='F3' />
         </li>
         <li>
-          <WikiLink id='F7' />
+          <CardLink id='F7' />
         </li>
         <li>
-          <WikiLink id='F25' />
+          <CardLink id='F25' />
         </li>
         <li>
-          <WikiLink id='F14' /> (which is commonly considered the best 4-mana
+          <CardLink id='F14' /> (which is commonly considered the best 4-mana
           card in the game at level 5)
         </li>
       </ul>
@@ -179,13 +179,13 @@ export default React.memo(function GuideCardShop(props) {
       </p>
       <ul>
         <li>
-          <WikiLink id='N2' />
+          <CardLink id='N2' />
         </li>
         <li>
-          <WikiLink id='I1' />
+          <CardLink id='I1' />
         </li>
         <li>
-          <WikiLink id='I7' />
+          <CardLink id='I7' />
         </li>
       </ul>
       <Title id='ruby-purchases'>Ruby Purchases</Title>
@@ -210,25 +210,25 @@ export default React.memo(function GuideCardShop(props) {
       </p>
       <ul>
         <li>
-          <WikiLink id='N67' /> is the cheapest neutral runner in the game and
+          <CardLink id='N67' /> is the cheapest neutral runner in the game and
           can also be used to stay static which is sometimes needed—making it
           ideal for rush decks, mainly Swarm or Shadowfen.
         </li>
         <li>
-          <WikiLink id='N23' /> is a very cheap spell which can bring a lot of
+          <CardLink id='N23' /> is a very cheap spell which can bring a lot of
           value and easily finds its place in control decks.
         </li>
         <li>
-          <WikiLink id='N74' /> is a very strong neutral Elder with incredible
+          <CardLink id='N74' /> is a very strong neutral Elder with incredible
           strength at all level and offering solid board control.
         </li>
         <li>
-          <WikiLink id='N34' /> tends to be mainly for Ironclad due to{' '}
-          <WikiLink id='I2' /> but can be efficiently used in a variety of
+          <CardLink id='N34' /> tends to be mainly for Ironclad due to{' '}
+          <CardLink id='I2' /> but can be efficiently used in a variety of
           decks.
         </li>
         <li>
-          <WikiLink id='N39' /> is a great defensive and offensive tool for all
+          <CardLink id='N39' /> is a great defensive and offensive tool for all
           decks running structures.
         </li>
       </ul>
@@ -237,12 +237,12 @@ export default React.memo(function GuideCardShop(props) {
       </p>
       <ul>
         <li>
-          <WikiLink id='S2' /> is a cheap runner with a penalty that becomes
+          <CardLink id='S2' /> is a cheap runner with a penalty that becomes
           more and more marginal as the base health increases, making it the
           perfect backbone of many rush decks.
         </li>
         <li>
-          <WikiLink id='S11' /> is an often overlooked card but has become more
+          <CardLink id='S11' /> is an often overlooked card but has become more
           popular thanks to its presence in the highly-competitive{' '}
           <Link to='/deck/3n13n23s13n33s243s23n633n673s63n153s83s11/detail'>
             Reckless Rush deck
@@ -250,8 +250,8 @@ export default React.memo(function GuideCardShop(props) {
           .
         </li>
         <li>
-          <WikiLink id='S28' /> is a very valuable Elder, even though it can no
-          longer be spawned by <WikiLink id='S21' />.
+          <CardLink id='S28' /> is a very valuable Elder, even though it can no
+          longer be spawned by <CardLink id='S21' />.
         </li>
       </ul>
       <p>
@@ -271,12 +271,12 @@ export default React.memo(function GuideCardShop(props) {
       </p>
       <ul>
         <li>
-          <WikiLink id='I8' /> is a cheap construct providing a lot of value for
+          <CardLink id='I8' /> is a cheap construct providing a lot of value for
           a relatively simple condition, making it a de factor part of many
           Ironclad decks.
         </li>
         <li>
-          <WikiLink id='I28' /> is a strong Elder with incredible chip
+          <CardLink id='I28' /> is a strong Elder with incredible chip
           capabilities, giving a non-marginal edge in games lasting passed early
           game.
         </li>
@@ -286,13 +286,13 @@ export default React.memo(function GuideCardShop(props) {
       </p>
       <ul>
         <li>
-          <WikiLink id='F8' /> is an incredibly cheap spell spawning a lot of
+          <CardLink id='F8' /> is an incredibly cheap spell spawning a lot of
           units, opening a lot of combos with cards such as{' '}
-          <WikiLink id='F23' />, <WikiLink id='F17' /> and <WikiLink id='N76' />
+          <CardLink id='F23' />, <CardLink id='F17' /> and <CardLink id='N76' />
           .
         </li>
         <li>
-          <WikiLink id='F28' /> is the only way for Shadowfen to do chip damage,
+          <CardLink id='F28' /> is the only way for Shadowfen to do chip damage,
           and can be precisely controlled with self-harm and poisoning.
         </li>
       </ul>

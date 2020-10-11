@@ -6,7 +6,7 @@ import Guide from '../Guide'
 import Notice from '../Notice'
 import Row from '../Row'
 import Title from '../Title'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 
 const guide = guides.find(g => g.id === 'TRIVIA_GUIDE')
 
@@ -41,59 +41,59 @@ export default React.memo(function GuideWinter(props) {
 
       <ul>
         <li>
-          <WikiLink id='N48' /> was named after Arano, the origin lead designer
+          <CardLink id='N48' /> was named after Arano, the origin lead designer
           for the game.
         </li>
         <li>
-          <WikiLink id='N6' /> was named after Aspareforyou, a popular
+          <CardLink id='N6' /> was named after Aspareforyou, a popular
           Kongregate forum user.
         </li>
         <li>
-          <WikiLink id='N10' /> was named after Conflicter, a former player
+          <CardLink id='N10' /> was named after Conflicter, a former player
           moderator of the official Discord abd guide on the forums and Reddit.
         </li>
         <li>
-          <WikiLink id='N43' /> was named after Ludo88, a popular Kongregate
+          <CardLink id='N43' /> was named after Ludo88, a popular Kongregate
           forum user.
         </li>
         <li>
-          <WikiLink id='N51' /> was named after Dan Su, an early Stormbound
+          <CardLink id='N51' /> was named after Dan Su, an early Stormbound
           youtuber.
         </li>
         <li>
-          <WikiLink id='I7' /> was named after Gale, an early player who helped
+          <CardLink id='I7' /> was named after Gale, an early player who helped
           conceptualise a lot of cards.
         </li>
         <li>
-          <WikiLink id='I13' /> was named after Emkaem, a former Paladin Studios
+          <CardLink id='I13' /> was named after Emkaem, a former Paladin Studios
           employee, Discord moderator and popular streamer.
         </li>
         <li>
-          <WikiLink id='F9' /> was named after Wander, a former Discord/Reddit
+          <CardLink id='F9' /> was named after Wander, a former Discord/Reddit
           moderator, and Wiki contributor.
         </li>
         <li>
-          <WikiLink id='F19' /> was named after Sunny, an early player who
+          <CardLink id='F19' /> was named after Sunny, an early player who
           created a (now offline) Stormbound site.
         </li>
         <li>
-          <WikiLink id='S4' /> was named after Kepp, a Discord moderator and
+          <CardLink id='S4' /> was named after Kepp, a Discord moderator and
           tournament organiser.
         </li>
         <li>
-          <WikiLink id='S12' /> was named after Omer, a player since the
+          <CardLink id='S12' /> was named after Omer, a player since the
           beta-test version.
         </li>
         <li>
-          <WikiLink id='W5' /> was named after Ayanami, a day 1 player and
+          <CardLink id='W5' /> was named after Ayanami, a day 1 player and
           Discord moderator.
         </li>
         <li>
-          <WikiLink id='W15' /> was named after FrozenEarth, a Discord moderator
+          <CardLink id='W15' /> was named after FrozenEarth, a Discord moderator
           and main Wiki author.
         </li>
         <li>
-          <WikiLink id='N77' /> is the first and only sheep in the game and was
+          <CardLink id='N77' /> is the first and only sheep in the game and was
           introduced by Sheepyard when they took over Stormbound development as
           an effigy to the studio.
         </li>
@@ -103,11 +103,11 @@ export default React.memo(function GuideWinter(props) {
 
       <ul>
         <li>
-          <WikiLink id='N34' /> was <em>not</em> named after the Kongregate
+          <CardLink id='N34' /> was <em>not</em> named after the Kongregate
           moderator; the latter named themselves after the card.
         </li>
         <li>
-          <WikiLink id='N62' /> was <em>not</em> named after Kitty; it was
+          <CardLink id='N62' /> was <em>not</em> named after Kitty; it was
           planned before the site got popular.
         </li>
       </ul>
@@ -173,7 +173,7 @@ export default React.memo(function GuideWinter(props) {
         <Column>
           <p>
             Then, they needed to figure out how fast toads from{' '}
-            <WikiLink id='F8' /> fall from a particular height. They could not
+            <CardLink id='F8' /> fall from a particular height. They could not
             use the animation of the toad falling since it is already falling at
             terminal velocity. Instead, they took the animation of the toad
             bouncing and falling back down. They found the peak height of the

@@ -7,7 +7,7 @@ import Guide from '../Guide'
 import Notice from '../Notice'
 import Row from '../Row'
 import Title from '../Title'
-import WikiLink from '../WikiLink'
+import CardLink from '../CardLink'
 import guides from '../../data/guides'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import getInitialCardData from '../../helpers/getInitialCardData'
@@ -45,13 +45,13 @@ export default React.memo(function GuideBroodmotherQordia(props) {
             considered structures before they hatch. That means they are granted
             immunity to poison, freezing, pushing and pulling, confusion, life
             drain and conversion. Eggs are also immune to some spells and cards’
-            attack abilities such as <WikiLink id='I7' />’ or{' '}
-            <WikiLink id='F18' />.
+            attack abilities such as <CardLink id='I7' />’ or{' '}
+            <CardLink id='F18' />.
           </p>
           <p>
             At the same time, eggs only have 1 strength, so they can be
-            destroyed pretty easily by cards like <WikiLink id='N29' /> or{' '}
-            <WikiLink id='N47' />.
+            destroyed pretty easily by cards like <CardLink id='N29' /> or{' '}
+            <CardLink id='N47' />.
           </p>
 
           <p>
@@ -81,7 +81,7 @@ export default React.memo(function GuideBroodmotherQordia(props) {
       </p>
 
       <p>
-        Just like with <WikiLink id='F8' />, eggs are a good way to prevent
+        Just like with <CardLink id='F8' />, eggs are a good way to prevent
         runners to rush through your baseline and into your base.{' '}
       </p>
 
@@ -99,7 +99,7 @@ export default React.memo(function GuideBroodmotherQordia(props) {
         The best use of Broodmother Qordia has to be a super-offensive play on
         the enemy’s baseline. Her ability to lay eggs around her makes her one
         of the only 2 units in the game able to drop a structure on the enemy’s
-        baseline (<WikiLink id='W13' /> being the other one). This gives
+        baseline (<CardLink id='W13' /> being the other one). This gives
         incredible opportunities to “baselock” the opponent, by filling all the
         available cells on their line to prevent them from defending.
       </p>
@@ -128,10 +128,10 @@ export default React.memo(function GuideBroodmotherQordia(props) {
 
       <p>
         Qordia has some other interesting offensive uses, for instance alongside{' '}
-        <WikiLink id='N20' />. Eggs layed in front of the Emerald Towers will
+        <CardLink id='N20' />. Eggs layed in front of the Emerald Towers will
         hatch <span className='Highlight'>before</span> the latter resolves,
         which grants an immediately buffed and moving unit. Beware of{' '}
-        <WikiLink id='N68' /> though as this card can be quite a threat to this
+        <CardLink id='N68' /> though as this card can be quite a threat to this
         combo.
       </p>
 
@@ -145,7 +145,7 @@ export default React.memo(function GuideBroodmotherQordia(props) {
 
       <p>
         Another interesting use of Broodmother Qordia is when paired with{' '}
-        <WikiLink id='N39' />. Because eggs are considered structures,
+        <CardLink id='N39' />. Because eggs are considered structures,
         Hearthguards’ ability works on them, which can be a powerful (albeit
         expensive) finisher.
       </p>
