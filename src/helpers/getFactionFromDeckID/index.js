@@ -1,8 +1,13 @@
 const getFactionFromDeckID = id => {
-  if (id.includes('i')) return 'ironclad'
-  if (id.includes('s')) return 'swarm'
-  if (id.includes('f')) return 'shadowfen'
-  if (id.includes('w')) return 'winter'
+  const factions = [
+    id.includes('f') && 'shadowfen',
+    id.includes('i') && 'ironclad',
+    id.includes('s') && 'swarm',
+    id.includes('w') && 'winter',
+  ].filter(Boolean)
+
+  if (factions.length === 1) return factions[0]
+  if (factions.length > 1) return 'multi-factions'
   return 'neutral'
 }
 
