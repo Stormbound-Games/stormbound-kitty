@@ -89,7 +89,9 @@ const useArticleProps = deck => {
   props.action = {
     onClick: () => {
       toggleUnseen(!bookmark)
-      bookmark ? removeDeck(bookmark.uuid) : addDeck(matchedDeck)
+      bookmark
+        ? removeDeck(bookmark.uuid)
+        : addDeck({ ...matchedDeck, id: serialisation.deck.serialise(deck) })
     },
     children: bookmark ? 'Unbookmark deck' : 'Bookmark deck',
     icon: 'star',
