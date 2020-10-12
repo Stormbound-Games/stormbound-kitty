@@ -2,10 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default React.memo(
-  ({ active, children, to, href, onClick, target, rel }) =>
+  ({ active, children, to, href, onClick, target, rel, disabled }) =>
     onClick ? (
       <button
         onClick={onClick}
+        disabled={disabled}
         children={children}
         className='Header__action'
       />

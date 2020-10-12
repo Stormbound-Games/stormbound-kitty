@@ -85,16 +85,15 @@ export default React.memo(function Header(props) {
               </li>
             </React.Fragment>
           ))}
-          {props.isSearchReady && (
-            <li className='Header__item Header__item--right'>
-              <NavLink
-                onClick={props.openSearch}
-                active={topActive === 'SEARCH'}
-              >
-                <Icon className='Header__icon' icon='search' /> Search
-              </NavLink>
-            </li>
-          )}
+          <li className='Header__item Header__item--right'>
+            <NavLink
+              disabled={!props.isSearchReady}
+              onClick={props.openSearch}
+              active={topActive === 'SEARCH'}
+            >
+              <Icon className='Header__icon' icon='search' /> Search
+            </NavLink>
+          </li>
         </ul>
       </nav>
       <SubNav active={props.active} />
