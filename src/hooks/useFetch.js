@@ -1,14 +1,7 @@
 import React from 'react'
+import usePrevious from './usePrevious'
 
 const cache = new Map()
-
-function usePrevious(value) {
-  const ref = React.useRef()
-  React.useEffect(() => {
-    ref.current = value
-  })
-  return ref.current
-}
 
 const DEFAULT_STATE = { data: undefined, error: undefined, loading: false }
 
