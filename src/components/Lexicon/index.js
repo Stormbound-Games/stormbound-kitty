@@ -33,7 +33,7 @@ export default React.memo(function Lexicon(props) {
       title='Lexicon'
       author='Kitty'
       meta={CATEGORIES.ESSENTIALS.name.short}
-      backLink={{
+      action={{
         to: '/guides/' + CATEGORIES.ESSENTIALS.slug,
         children: 'Back to guides',
       }}

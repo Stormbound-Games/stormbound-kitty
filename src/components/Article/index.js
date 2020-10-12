@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import HeaderBanner from '../HeaderBanner'
+import Icon from '../Icon'
 import './index.css'
 
 export const renderAuthorsLinks = (acc, author, index, authors) => {
@@ -20,7 +21,7 @@ export const renderAuthorsLinks = (acc, author, index, authors) => {
 }
 
 const Article = React.memo(function Article(props) {
-  const backLink = props.backLink || {}
+  const action = props.action || {}
   const authors = (props.authors || [props.author]).filter(Boolean)
 
   return (
@@ -43,9 +44,27 @@ const Article = React.memo(function Article(props) {
           </>
         )}
         {props.meta && <span>{props.meta}</span>}
-        {Object.keys(backLink).length > 0 && (
-          <Link {...backLink} className='Article__backLink' />
-        )}
+        {Object.keys(action).length > 0 &&
+          (action.to ? (
+            <Link to={action.to} className='Article__action'>
+              <Icon
+                icon={action.icon || 'arrow-left'}
+                className='Article__action-icon'
+              />
+              {action.children}
+            </Link>
+          ) : action.onClick ? (
+            <button
+              type='button'
+              onClick={action.onClick}
+              className='Article__action ButtonAsLink'
+            >
+              {action.icon && (
+                <Icon icon={action.icon} className='Article__action-icon' />
+              )}
+              {action.children}
+            </button>
+          ) : null)}
       </p>
 
       <div

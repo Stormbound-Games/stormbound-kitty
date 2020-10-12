@@ -62,7 +62,7 @@ export default React.memo(function DeckDetailView(props) {
               : '')
           : undefined
       }
-      backLink={{ to: '/deck/' + props.deckId, children: 'Edit deck' }}
+      action={{ to: '/deck/' + props.deckId, children: 'Edit deck' }}
     >
       <Article.FullWidth style={{ fontSize: '85%' }}>
         <Row desktopOnly wideGutter>

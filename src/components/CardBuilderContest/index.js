@@ -16,7 +16,7 @@ export default React.memo(function CardBuilderContest(props) {
       <Article
         title='Weekly Card Contest'
         authors={['Taco_G']}
-        backLink={{ to: '/card', children: 'Card builder' }}
+        action={{ to: '/card', children: 'Card builder' }}
         noDropCap
         meta={isWeekEnd ? 'Voting phase' : 'Ongoing'}
       >

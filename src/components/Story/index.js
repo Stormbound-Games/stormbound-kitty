@@ -39,7 +39,7 @@ export default React.memo(function Story(props) {
           author={story.author}
           background={background}
           meta={getReadingTime(story.content)}
-          backLink={{
+          action={{
             to: '/stories/' + story.category,
             children: 'Back to stories',
           }}

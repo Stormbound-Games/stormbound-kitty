@@ -24,7 +24,7 @@ export default React.memo(function Member(props) {
   return (
     <Article
       title={displayName}
-      backLink={{ to: '/members', children: 'Back to Members' }}
+      action={{ to: '/members', children: 'Back to Members' }}
       meta={
         <>
           {content.length} contribution{content.length === 1 ? '' : 's'}

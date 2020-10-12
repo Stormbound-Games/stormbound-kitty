@@ -90,7 +90,7 @@ export default React.memo(function TournamentOddEven(props) {
     <Article
       title={viewportWidth < 700 ? 'Odd & Even' : 'Odd & Even Tournament'}
       authors={['Kitty', 'Derk', 'ArthisRoo']}
-      backLink={{ to: '/', children: 'Home' }}
+      action={{ to: '/', children: 'Home' }}
       noDropCap
     >
       <p>

@@ -18,7 +18,7 @@ const Guide = React.memo(function Guide(props) {
         authors={props.authors}
         title={props.name}
         background={props.background}
-        backLink={{
+        action={{
           to: '/guides/' + CATEGORIES[props.category].slug,
           children: 'Back to guides',
         }}

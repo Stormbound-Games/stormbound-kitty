@@ -21,7 +21,7 @@ export default React.memo(function Changelog3rdAnniversary(props) {
     <Article
       author='Kitty'
       title='3rd Anniversary'
-      backLink={{
+      action={{
         to: '/changelog/releases',
         children: 'Back to release notes',
       }}

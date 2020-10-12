@@ -13,19 +13,21 @@
   text-align: center;
 }
 
-.Article__backLink {
+.Article__action {
   text-decoration: none;
   flex: 1 0 100%;
   margin-top: 0.5em;
   font-size: 80%;
 }
 
-.Article__backLink::before {
-  content: '← ';
+.Article__action:hover {
+  text-decoration: underline;
 }
 
-.Article__backLink:hover {
-  text-decoration: underline;
+.Article__action-icon {
+  margin-right: 1ch;
+  position: relative;
+  top: 0.2em;
 }
 
 .Article__content {
@@ -74,7 +76,7 @@
     justify-content: space-between;
   }
 
-  .Article__backLink {
+  .Article__action {
     margin-left: auto;
     flex: 0 0 auto;
     margin-top: 0;

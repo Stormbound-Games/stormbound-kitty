@@ -52,7 +52,7 @@ export default React.memo(function ChangelogOctober2020(props) {
     <Article
       author='Kitty'
       title='Update 10-2020'
-      backLink={{
+      action={{
         to: '/changelog/releases',
         children: 'Back to release notes',
       }}
