@@ -57,6 +57,7 @@ const Article = React.memo(function Article(props) {
             <button
               type='button'
               onClick={action.onClick}
+              disabled={action.disabled}
               className='Article__action ButtonAsLink'
             >
               {action.icon && (

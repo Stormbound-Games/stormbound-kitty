@@ -18,9 +18,15 @@
   flex: 1 0 100%;
   margin-top: 0.5em;
   font-size: 80%;
+  text-transform: uppercase;
 }
 
-.Article__action:hover {
+.Article__action[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.Article__action:not([disabled]):hover {
   text-decoration: underline;
 }
 
