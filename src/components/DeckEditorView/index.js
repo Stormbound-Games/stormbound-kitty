@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link, useRouteMatch, useHistory } from 'react-router-dom'
 import { CollectionContext } from '../CollectionProvider'
-import BookmarkDeckButton from '../BookmarkDeckButton'
+import { PersonalDecksContext } from '../PersonalDecksProvider'
+import Article from '../Article'
 import CollectionClearHint from '../CollectionClearHint'
 import CardLevelField from '../DeckCardLevelField'
 import CardsFiltering from '../CardsFiltering'
@@ -26,8 +27,12 @@ import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isSuggestedDeck from '../../helpers/isSuggestedDeck'
 import modifyDeck from '../../helpers/modifyDeck'
 import serialisation from '../../helpers/serialisation'
+import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import usePrevious from '../../hooks/usePrevious'
+import { CATEGORIES } from '../../constants/decks'
+import { BRAWLS } from '../../constants/brawl'
+
 import './index.css'
 
 // The `adjustCardToCollection` function is used to access the card data as it
@@ -36,6 +41,60 @@ import './index.css'
 const adjustCardToCollection = collection => ({ id }) => {
   const { level, missing } = collection.find(card => card.id === id)
   return missing ? null : { id, level }
+}
+
+const useModifiedDeck = deck => {
+  const matchedDeck = isSuggestedDeck(deck)
+
+  // In case the deck is in fact a suggested deck, and a brawl deck at that, it
+  // should be adjusted to reflect the brawl modifier. This is especially
+  // important for mana brawls in order to display the correct card mana cost.
+  if (matchedDeck && matchedDeck.brawl) {
+    return modifyDeck(deck, matchedDeck.brawl)
+  }
+
+  return deck
+}
+
+const useArticleProps = deck => {
+  // Retrieve whether the given deck is one of the suggested decks, in which
+  // case we can display more information on screen.
+  const matchedDeck = isSuggestedDeck(deck) || {}
+  const id = serialisation.deck.serialise(deck)
+  const { decks, addDeck, removeDeck, toggleUnseen } = React.useContext(
+    PersonalDecksContext
+  )
+  const props = {}
+
+  props.title = matchedDeck.name || 'Create your deck'
+  props.author = matchedDeck.author
+
+  if (matchedDeck.category) {
+    props.meta = `${CATEGORIES[matchedDeck.category]} deck`
+
+    if (matchedDeck.category === 'BRAWL') {
+      props.meta += `(${BRAWLS.find(b => b.id === matchedDeck.brawl).title})`
+    }
+  } else {
+    props.meta = getFactionFromDeckID(id) + ' deck'
+  }
+
+  // This check is performed on the deck ID instead of its UUID because only
+  // bookmarked decks have a UUID; the others do not. To know whether a deck has
+  // been bookmarked, we need to see if it exists in the bookmarked collection.
+  const bookmark = decks.find(deck => deck.id === id)
+
+  props.action = {
+    onClick: () => {
+      toggleUnseen(!bookmark)
+      bookmark ? removeDeck(bookmark.uuid) : addDeck(matchedDeck)
+    },
+    children: bookmark ? 'Unbookmark deck' : 'Bookmark deck',
+    icon: 'star',
+    disabled: deck.length !== 12,
+  }
+
+  return props
 }
 
 const DeckEditorView = React.memo(function DeckEditorView(props) {
@@ -124,10 +183,6 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
     // eslint-disable-next-line
   }, [shouldRestoreOriginalDeck])
 
-  // Retrieve whether the given deck is one of the suggested decks, in which
-  // case we can display more information on screen.
-  const matchedDeck = isSuggestedDeck(props.deck)
-
   // Compute the card collection and its level based on whether there is in fact
   // a custom collection, and whether the levels should be the ones of the
   // collection.
@@ -138,129 +193,103 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
     })
   )
 
-  // In case the deck is in fact a suggested deck, and a brawl deck at that, it
-  // should be adjusted to reflect the brawl modifier. This is especially
-  // important for mana brawls in order to display the correct card mana cost.
-  const deck =
-    matchedDeck && matchedDeck.brawl
-      ? modifyDeck(props.deck, matchedDeck.brawl)
-      : props.deck
-  const title = matchedDeck ? matchedDeck.name : 'Your deck'
+  const deck = useModifiedDeck(props.deck)
+  const articleProps = useArticleProps(deck)
 
   return (
-    <>
-      <h1 className='VisuallyHidden'>Deck Builder</h1>
+    <Article {...articleProps}>
+      <Article.FullWidth style={{ fontSize: '85%' }}>
+        <Row desktopOnly wideGutter>
+          <Column width='1/3'>
+            <Title style={{ marginTop: 0 }}>Deck</Title>
 
-      <Row desktopOnly wideGutter>
-        <Column width='1/3'>
-          <div className='DeckEditorView__header'>
-            <Title>{title}</Title>
+            <Deck
+              showUpgrades
+              showTooltips={cardTooltips}
+              id='deck'
+              deck={deck}
+              orientation={viewportWidth >= 700 ? 'vertical' : 'horizontal'}
+              onClick={props.removeCardFromDeck}
+              onClickLabel='Remove card from deck'
+              highlightedCards={props.highlightedCards}
+            />
 
-            {matchedDeck && (
-              <p className='DeckEditorView__subtitle'>
-                (by{' '}
-                <Link to={`/member/${matchedDeck.author}`}>
-                  {matchedDeck.author}
-                </Link>
-                )
-              </p>
+            {deckId && (
+              <Only.Desktop>
+                <CardTooltipsCheckbox
+                  value={cardTooltips}
+                  set={setCardTooltips}
+                />
+              </Only.Desktop>
             )}
 
-            {deck.length === 12 && (
-              <BookmarkDeckButton
-                className='DeckEditorView__bookmark'
-                id={serialisation.deck.serialise(deck)}
-                {...matchedDeck}
+            {(deckId !== adjustedDeckId || adjustCardLevels) && (
+              <CardLevelsCheckbox
+                value={adjustCardLevels}
+                set={setAdjustCardLevels}
               />
             )}
-          </div>
 
-          <Deck
-            showUpgrades
-            showTooltips={cardTooltips}
-            id='deck'
-            deck={deck}
-            orientation={viewportWidth >= 700 ? 'vertical' : 'horizontal'}
-            onClick={props.removeCardFromDeck}
-            onClickLabel='Remove card from deck'
-            highlightedCards={props.highlightedCards}
-          />
+            {deck.length > 0 ? (
+              <DeckActions reset={props.reset} />
+            ) : (
+              <HelpInfo defineDeck={props.defineDeck} />
+            )}
 
-          {deckId && (
             <Only.Desktop>
-              <CardTooltipsCheckbox
-                value={cardTooltips}
-                set={setCardTooltips}
+              <CollectionInfo
+                onCollectionImport={collection =>
+                  // When importing a custom collection, set the card levels in
+                  // the gallery to the ones from the collection (`0`).
+                  collection ? setCardLevel(0) : undefined
+                }
               />
             </Only.Desktop>
-          )}
+          </Column>
 
-          {(deckId !== adjustedDeckId || adjustCardLevels) && (
-            <CardLevelsCheckbox
-              value={adjustCardLevels}
-              set={setAdjustCardLevels}
-            />
-          )}
+          <Column width='2/3'>
+            <Title style={{ marginTop: 0 }}>Cards</Title>
 
-          {deck.length > 0 ? (
-            <DeckActions reset={props.reset} />
-          ) : (
-            <HelpInfo defineDeck={props.defineDeck} />
-          )}
-
-          <Only.Desktop>
-            <CollectionInfo
-              onCollectionImport={collection =>
-                // When importing a custom collection, set the card levels in
-                // the gallery to the ones from the collection (`0`).
-                collection ? setCardLevel(0) : undefined
-              }
-            />
-          </Only.Desktop>
-        </Column>
-
-        <Column width='2/3'>
-          <Title>Cards</Title>
-
-          <CardsFiltering cards={cardCollection}>
-            {({
-              filters,
-              filtersSetters,
-              collection,
-              resetFilters,
-              cardsPerPage,
-            }) => (
-              <>
-                <Filters
-                  {...filters}
-                  {...filtersSetters}
-                  resetFilters={resetFilters}
-                />
-
-                {collection.length > 0 ? (
-                  <Gallery
-                    filter={filters}
-                    collection={collection}
-                    addCardToDeck={props.addCardToDeck}
-                    cardsPerPage={cardsPerPage}
-                    cardLevel={cardLevel}
-                    setCardLevel={setCardLevel}
-                    deck={props.deck}
-                  />
-                ) : (
-                  <EmptySearch
-                    title='No cards found'
+            <CardsFiltering cards={cardCollection}>
+              {({
+                filters,
+                filtersSetters,
+                collection,
+                resetFilters,
+                cardsPerPage,
+              }) => (
+                <>
+                  <Filters
+                    {...filters}
+                    {...filtersSetters}
                     resetFilters={resetFilters}
                   />
-                )}
-              </>
-            )}
-          </CardsFiltering>
-        </Column>
-      </Row>
+
+                  {collection.length > 0 ? (
+                    <Gallery
+                      filter={filters}
+                      collection={collection}
+                      addCardToDeck={props.addCardToDeck}
+                      cardsPerPage={cardsPerPage}
+                      cardLevel={cardLevel}
+                      setCardLevel={setCardLevel}
+                      deck={props.deck}
+                    />
+                  ) : (
+                    <EmptySearch
+                      title='No cards found'
+                      resetFilters={resetFilters}
+                    />
+                  )}
+                </>
+              )}
+            </CardsFiltering>
+          </Column>
+        </Row>
+      </Article.FullWidth>
 
       <PageMeta {...getDeckBuilderMetaTags(deck, 'Deck Builder')} />
-    </>
+    </Article>
   )
 })
 

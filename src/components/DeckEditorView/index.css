@@ -1,21 +1,3 @@
-.DeckEditorView__header {
-  position: relative;
-  text-align: center;
-}
-
-.DeckEditorView__help {
-  margin-bottom: 2em;
-}
-
-.DeckEditorView__info p:last-of-type {
-  margin-bottom: 2em;
-}
-
-.DeckEditorView__subtitle {
-  margin-bottom: 2em;
-  margin-top: -1.25em;
-}
-
 .DeckEditorView__actions {
   margin-bottom: 2em;
 }
@@ -24,13 +6,6 @@
   .DeckEditorView__actions {
     margin-top: 1em;
   }
-}
-
-.DeckEditorView__bookmark {
-  position: absolute;
-  top: 0;
-  right: 0.5em;
-  font-size: 80%;
 }
 
 .DeckEditorView__checkbox {
