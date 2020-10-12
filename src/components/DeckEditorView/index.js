@@ -75,8 +75,10 @@ const useArticleProps = deck => {
     if (matchedDeck.category === 'BRAWL') {
       props.meta += `(${BRAWLS.find(b => b.id === matchedDeck.brawl).title})`
     }
-  } else {
+  } else if (id) {
     props.meta = getFactionFromDeckID(id) + ' deck'
+  } else {
+    props.meta = 'Add cards to get started'
   }
 
   // This check is performed on the deck ID instead of its UUID because only
@@ -214,24 +216,17 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
               highlightedCards={props.highlightedCards}
             />
 
-            {deckId && (
-              <Only.Desktop>
-                <CardTooltipsCheckbox
-                  value={cardTooltips}
-                  set={setCardTooltips}
-                />
-              </Only.Desktop>
-            )}
-
-            {(deckId !== adjustedDeckId || adjustCardLevels) && (
-              <CardLevelsCheckbox
-                value={adjustCardLevels}
-                set={setAdjustCardLevels}
-              />
-            )}
-
             {deck.length > 0 ? (
-              <DeckActions reset={props.reset} />
+              <>
+                <DeckSettings
+                  canAdjustCardLevels={deckId !== adjustedDeckId}
+                  adjustCardLevels={adjustCardLevels}
+                  setAdjustCardLevels={setAdjustCardLevels}
+                  cardTooltips={cardTooltips}
+                  setCardTooltips={setCardTooltips}
+                />
+                <DeckActions reset={props.reset} />
+              </>
             ) : (
               <HelpInfo defineDeck={props.defineDeck} />
             )}
@@ -346,6 +341,26 @@ const DeckActions = React.memo(function DeckActions(props) {
         </Column>
       </Row>
     </div>
+  )
+})
+
+const DeckSettings = React.memo(function DeckSettings(props) {
+  return (
+    <>
+      <Only.Desktop>
+        <CardTooltipsCheckbox
+          value={props.cardTooltips}
+          set={props.setCardTooltips}
+        />
+      </Only.Desktop>
+
+      {(props.canAdjustCardLevels || props.adjustCardLevels) && (
+        <CardLevelsCheckbox
+          value={props.adjustCardLevels}
+          set={props.setAdjustCardLevels}
+        />
+      )}
+    </>
   )
 })
 
