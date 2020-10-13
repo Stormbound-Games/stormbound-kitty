@@ -264,7 +264,7 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
 
                   {collection.length > 0 ? (
                     <Gallery
-                      filter={filters}
+                      filters={filters}
                       collection={collection}
                       addCardToDeck={props.addCardToDeck}
                       cardsPerPage={cardsPerPage}
