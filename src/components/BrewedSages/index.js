@@ -52,7 +52,7 @@ export default React.memo(function BrewedSages(props) {
 
       <Title>Episodes</Title>
       <Article.FullWidth>
-        {chunk(PODCAST_EPISODES, 3).map((row, index) => (
+        {chunk(PODCAST_EPISODES.slice(0).reverse(), 3).map((row, index) => (
           <Row desktopOnly key={index}>
             <Column width='1/3'>
               {row[0] && (
@@ -60,7 +60,7 @@ export default React.memo(function BrewedSages(props) {
                   {...row[0]}
                   card={{
                     ...CARD,
-                    mana: index * 3 + 1,
+                    mana: PODCAST_EPISODES.length - index * 3,
                     ability: row[0].excerpt,
                   }}
                 />
@@ -72,7 +72,7 @@ export default React.memo(function BrewedSages(props) {
                   {...row[1]}
                   card={{
                     ...CARD,
-                    mana: index * 3 + 2,
+                    mana: PODCAST_EPISODES.length - index * 3 - 1,
                     ability: row[1].excerpt,
                   }}
                 />
@@ -84,7 +84,7 @@ export default React.memo(function BrewedSages(props) {
                   {...row[2]}
                   card={{
                     ...CARD,
-                    mana: index * 3 + 3,
+                    mana: PODCAST_EPISODES.length - index * 3 - 2,
                     ability: row[2].excerpt,
                   }}
                 />
