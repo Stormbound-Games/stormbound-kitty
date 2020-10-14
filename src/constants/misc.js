@@ -420,6 +420,13 @@ export const PODCAST_EPISODES = [
     excerpt:
       'The Brewed Sages are excited for all the balance changes and new cards being introduced to Stormbound... but where are they going to find the resources to play with them?',
   },
+  {
+    title: 'From Earyn with Love',
+    meta: '47 minutes and 21 seconds',
+    href: 'https://freeloader.podbean.com/e/episode-007-from-earyn-with-love/',
+    excerpt:
+      'Our hosts are back to discuss Stormbound with a very special guest. Emkaem makes his Brewed Sages debut and we review the state of the meta.',
+  },
 ]
 
 export const UNVALUED_CARDS = [
