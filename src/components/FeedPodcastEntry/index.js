@@ -12,7 +12,7 @@ export default React.memo(function FeedPodcastEntry(props) {
 
   return (
     <FeedEntry icon='bubbles' date={props.date}>
-      {name} has published
+      {name} has featured in
       {props.authors.length > 1 ? (
         <>
           , alongside{' '}
