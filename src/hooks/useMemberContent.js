@@ -84,11 +84,8 @@ const useUserDonations = id =>
 
 const useUserEvents = id =>
   events
-    .filter(
-      event =>
-        (event.author && event.author.toLowerCase() === id) ||
-        (Array.isArray(event.authors) &&
-          event.authors.map(author => author.toLowerCase()).includes(id))
+    .filter(event =>
+      event.authors.map(author => author.toLowerCase()).includes(id)
     )
     .map(formatEntryWithDate)
 
@@ -129,7 +126,7 @@ const useMemberContent = id => {
     puzzles[0]?.author ??
     artworks[0]?.author ??
     donations[0]?.author ??
-    (events[0]?.author || events[0]?.authors.find(findDisplayName)) ??
+    events[0]?.authors.find(findDisplayName) ??
     guides[0]?.authors.find(findDisplayName) ??
     hosts[0]?.hosts.find(findDisplayName) ??
     podiums[0]?.podium.flat().find(findDisplayName) ??

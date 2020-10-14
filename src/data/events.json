@@ -12,7 +12,7 @@
     "title": "The Hunt for the Bread in October"
   },
   {
-    "author": "Kitty",
+    "authors": ["Kitty"],
     "title": "October update",
     "date": "10/2020",
     "type": "RELEASE",
@@ -25,32 +25,32 @@
     "title": "What’s a Burf?"
   },
   {
-    "author": "HanooSt",
+    "authors": ["HanooSt"],
     "date": "04/2020",
     "type": "EQUAL_LIST"
   },
   {
-    "author": "Kitty",
+    "authors": ["Kitty"],
     "title": "Third Anniversary update",
     "date": "09/2020",
     "type": "RELEASE",
     "slug": "09-2020"
   },
   {
-    "author": "Taco_G",
+    "authors": ["Taco_G"],
     "date": "08/2020",
     "type": "SWCC",
     "season": 2
   },
   {
-    "author": "Kitty",
+    "authors": ["Kitty"],
     "title": "September update",
     "date": "09/2020",
     "type": "RELEASE",
     "slug": "07-2020"
   },
   {
-    "author": "Kitty",
+    "authors": ["Kitty"],
     "title": "July update",
     "date": "07/2020",
     "type": "RELEASE",
@@ -81,7 +81,7 @@
     "title": "The Beginning"
   },
   {
-    "author": "Taco_G",
+    "authors": ["Taco_G"],
     "date": "01/2019",
     "type": "SWCC",
     "season": 1

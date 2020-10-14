@@ -56,7 +56,7 @@ const useMemberList = ({ name, type }) => {
       .map(addType('CARD')),
     ...puzzles.map(addType('PUZZLE')),
     ...events
-      .map(event => event.author || event.authors)
+      .map(event => event.authors)
       .flat()
       .map(addType('EVENT')),
   ]
