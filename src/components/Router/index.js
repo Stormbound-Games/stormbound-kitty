@@ -27,6 +27,7 @@ const COMPONENTS = {
   NOBLE_COALITION_GUIDE: load('GuideNobleCoalition'),
   SELF_CONTROL_GUIDE: load('GuideSelfControl'),
   EYE_OF_THE_TEMPEST_GUIDE: load('GuideEyeOfTheTempest'),
+  FREEDOM_FIGHT_GUIDE: load('GuideFreedomFight'),
   GODDESS_BOON_GUIDE: load('GuideGoddessBoon'),
   CHILLBEARDS_GUIDE: load('GuideChillbeards'),
   TERRIFIC_SLAYERS_GUIDE: load('GuideTerrificSlayers'),

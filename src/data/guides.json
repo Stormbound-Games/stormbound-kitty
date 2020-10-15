@@ -36,6 +36,18 @@
     "date": "07/2020"
   },
   {
+    "id": "FREEDOM_FIGHT_GUIDE",
+    "name": "Freedom Fight",
+    "authors": ["Oeni"],
+    "excerpt": "In this toad edition of the Brawl Gazette, Oeni goes through everything to know about the Eye of the Tempest Brawl.",
+    "slug": "freedom-fight",
+    "faction": "shadowfen",
+    "cardId": "F12",
+    "background": "/assets/images/banners/environment_shadowfen.png",
+    "category": "BRAWL_MODE",
+    "date": "10/2020"
+  },
+  {
     "id": "GODDESS_BOON_GUIDE",
     "name": "Goddess Boon",
     "authors": ["Oeni"],
