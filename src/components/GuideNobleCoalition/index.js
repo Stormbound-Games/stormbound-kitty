@@ -67,7 +67,7 @@ export default React.memo(function GuideNobleCoalition(props) {
             <FeaturedDeck
               id='5f44f35n34f84n624n673n664n614f105f144f174f20'
               name='Cat Butcher'
-              author='Critical Pancake'
+              author='CriticalPancake'
               category='BRAWL'
               faction='shadowfen'
             />
