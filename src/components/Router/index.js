@@ -255,10 +255,12 @@ export default function Router(props) {
 
           <Redirect from='/guides' to='/guides/essentials' />
 
+          <Redirect from='/list/ranked/display' to='/list/ranked' />
           <Page exact path='/list/ranked' active={['GAME', 'RANKED_LIST']}>
             <RankedList />
           </Page>
 
+          <Redirect from='/list/equals/display' to='/list/equals' />
           <Page exact path='/list/equals' active={['GAME', 'EQUALS_LIST']}>
             <EqualsList />
           </Page>
