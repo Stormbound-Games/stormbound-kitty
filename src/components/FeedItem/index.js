@@ -6,7 +6,6 @@ const COMPONENTS = {
   CARD: load('FeedCardEntry'),
   DECK: load('FeedDeckEntry'),
   DONATION: load('FeedDonationEntry'),
-  EQUAL_LIST: load('FeedEqualListEntry'),
   GUIDE: load('FeedGuideEntry'),
   HOST: load('FeedHostEntry'),
   PODCAST: load('FeedPodcastEntry'),

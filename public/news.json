@@ -235,11 +235,6 @@
     "link": "/fan-kit/cards"
   },
   {
-    "intro": "List Builder",
-    "description": "The Equals Tier List has been updated by HanooSt.",
-    "link": "/list/equals/display"
-  },
-  {
     "intro": "Popular Decks",
     "description": "Popular decks show card levels from your collection and are ordered accordingly.",
     "link": "/deck/suggestions"
