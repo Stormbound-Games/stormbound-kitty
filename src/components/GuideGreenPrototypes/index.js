@@ -269,11 +269,11 @@ export default React.memo(function GuideGreenPrototypes(props) {
         <CardLink id='W7' />’ ability, which can be a huge lifesaver.
       </p>
 
-      <h3>Target for the Heart</h3>
+      <h3>Target for the Hearth</h3>
 
       <p>
         If the enemy starts, you open with 4 mana. enough to play Green
-        Prototypes and <CardLink id='W3' />. Doing so gives the Heart a target
+        Prototypes and <CardLink id='W3' />. Doing so gives the Hearth a target
         for your next turn, instead of wasting its ability.
       </p>
 
