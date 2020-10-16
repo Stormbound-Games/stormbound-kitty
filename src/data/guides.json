@@ -183,7 +183,7 @@
     "id": "D1_SF_COMMONS_GUIDE",
     "name": "D1 with SF Commons",
     "authors": ["Kitty"],
-    "excerpt": "In this in-depth guide, Kitty goes into a Shadowfen deck that performs in Diamond 1 despite being essentially using common cards.",
+    "excerpt": "In this guide, Kitty goes into a Shadowfen deck that performs in Diamond 1 despite being essentially using common cards.",
     "slug": "d1-with-sf-commons",
     "faction": "neutral",
     "cardId": "F3",
@@ -191,7 +191,6 @@
     "category": "PLAYSTYLE",
     "date": "06/2020"
   },
-
   {
     "id": "WINTER_GUIDE",
     "name": "Winter Guide",
@@ -204,7 +203,6 @@
     "category": "PLAYSTYLE",
     "date": "06/2019"
   },
-
   {
     "id": "PIRATE_GUIDE",
     "name": "Pirate Guide",
@@ -228,6 +226,18 @@
     "background": "/assets/images/banners/environment_ironclad.png",
     "category": "IN_DEPTH",
     "date": "07/2020"
+  },
+  {
+    "id": "GREEN_PROTOTYPES_GUIDE",
+    "name": "Green Prototypes",
+    "authors": ["Stratadox"],
+    "excerpt": "In this guide, Stratadox expands on why Green Prototypes is the most versatile card in the game, listing many situations in which this card makes the difference.",
+    "slug": "green-prototypes",
+    "faction": "neutral",
+    "cardId": "N1",
+    "background": "/assets/images/banners/environment_neutral.png",
+    "category": "PLAYSTYLE",
+    "date": "10/2020"
   },
   {
     "id": "CHILLBEARDS_GUIDE",

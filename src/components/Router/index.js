@@ -15,6 +15,7 @@ const COMPONENTS = {
   COMPLETE_GUIDE: load('GuideComplete'),
   DECK_GUIDE: load('GuideDeck'),
   DRAWING_GUIDE: load('GuideDrawing'),
+  GREEN_PROTOTYPES_GUIDE: load('GuideGreenPrototypes'),
   RESOURCES_GUIDE: load('GuideResources'),
   MANA_CURVE_GUIDE: load('GuideManaCurve'),
   WINTER_GUIDE: load('GuideWinter'),
