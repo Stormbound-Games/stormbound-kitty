@@ -6,8 +6,8 @@ export const ImageSupportContext = React.createContext(false)
 const getStoredSupport = format => {
   try {
     return JSON.parse(localStorage.getItem('sk.' + format))
-  } catch (error) {
-    return false
+  } catch {
+    return null
   }
 }
 
@@ -22,8 +22,8 @@ export default function ImageSupportProvider(props) {
     try {
       // `localStorage` is not defined in some Android webviews and should
       // always be safeguarded to avoid a runtime JavaScript error.
-      storedWebp = localStorage.getItem('sk.webp')
-      storedAvif = localStorage.getItem('sk.avif')
+      storedWebp = getStoredSupport('webp')
+      storedAvif = getStoredSupport('avif')
     } catch (error) {}
 
     if (storedWebp === null) {
