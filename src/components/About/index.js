@@ -38,7 +38,7 @@ export default React.memo(function About(props) {
         other Sheepyard-provided support.
       </p>
 
-      <h2>Asking for support</h2>
+      <h2>Financial support</h2>
 
       <p>
         Working on the website and the bot takes a lot of my time, time I cannot
@@ -84,6 +84,37 @@ export default React.memo(function About(props) {
           </a>
         </Sparkles>
       </div>
+
+      <h2>Non-financial support</h2>
+
+      <p>
+        If you do not want or simply cannot afford to provide a financial
+        contribution to Stormbound-Kitty, fear not! There are plenty of ways for
+        you to contribute without spending a cent:
+      </p>
+
+      <ul>
+        <li>
+          We have plenty <Link to='/deck/suggestions'>suggested decks</Link>,
+          but it’s sometimes hard to maintain that collection up to date with
+          the meta. If you could point out which decks should be removed because
+          no longer competitive, that would be helpful!
+        </li>
+
+        <li>
+          The <Link to='/calculators/value'>value calculator</Link> is pretty
+          experimental. Some cards have questionable results, and{' '}
+          <Link to='/faq#value-calculator'>some cards are not implemented</Link>{' '}
+          at all. It would be great to have help figuring out how to best
+          compute the value of some cards.
+        </li>
+
+        <li>
+          People really like <Link to='/sim/puzzles'>Stormbound puzzles</Link>,
+          but not many are being added. If you would like to suggest new
+          puzzles, I’m sure that would make a lot of people happy!
+        </li>
+      </ul>
 
       <h2>Special thanks</h2>
 
