@@ -103,18 +103,30 @@ export default () => {
       id: 'GUIDES',
       icon: 'compass',
       label: 'Guides',
-      items: Object.keys(CATEGORIES).map(category => ({
-        title: CATEGORIES[category].name.long,
-        icon: CATEGORIES[category].icon,
-        to: '/guides/' + CATEGORIES[category].slug,
-        items: GUIDES.filter(guide => guide.category === category).map(
-          guide => ({
-            label: guide.name,
-            to: '/guides/' + guide.slug,
-            id: guide.id,
+      items: Object.keys(CATEGORIES).map(category => {
+        const catGuides = GUIDES.filter(guide => guide.category === category)
+        const shownGuides = catGuides.filter(guide => !guide.skipNav)
+        const items = shownGuides.map(guide => ({
+          label: guide.name,
+          to: '/guides/' + guide.slug,
+          id: guide.id,
+        }))
+
+        if (catGuides.length !== shownGuides.length) {
+          items.push({
+            label: `More ${CATEGORIES[category].name.short} guides`,
+            to: '/guides/' + CATEGORIES[category].slug,
+            id: category,
           })
-        ),
-      })),
+        }
+
+        return {
+          title: CATEGORIES[category].name.long,
+          icon: CATEGORIES[category].icon,
+          to: '/guides/' + CATEGORIES[category].slug,
+          items,
+        }
+      }),
     },
     {
       id: 'TOOLS',

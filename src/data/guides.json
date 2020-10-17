@@ -93,7 +93,8 @@
     "cardId": "S3",
     "background": "/assets/images/banners/environment_swarm.png",
     "category": "BRAWL_MODE",
-    "date": "09/2020"
+    "date": "09/2020",
+    "skipNav": true
   },
   {
     "id": "DECK_GUIDE",
@@ -249,7 +250,8 @@
     "cardId": "W22",
     "background": "/assets/images/banners/environment_winter.png",
     "category": "PLAYSTYLE",
-    "date": "08/2020"
+    "date": "08/2020",
+    "skipNav": true
   },
   {
     "id": "TERRIFIC_SLAYERS_GUIDE",
@@ -261,7 +263,8 @@
     "cardId": "N27",
     "background": "/assets/images/banners/environment_neutral.png",
     "category": "PLAYSTYLE",
-    "date": "08/2020"
+    "date": "08/2020",
+    "skipNav": true
   },
   {
     "id": "BROODMOTHER_QORDIA_GUIDE",
