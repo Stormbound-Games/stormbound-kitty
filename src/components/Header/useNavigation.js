@@ -182,7 +182,6 @@ export default () => {
               label: 'Value Calculator',
               to: '/calculators/value',
               id: 'VALUE_CALCULATOR',
-              new: true,
             },
           ],
         },
@@ -273,7 +272,9 @@ export default () => {
           title: 'Categories',
           icon: 'folder-open',
           items: Object.keys(STORY_CATEGORIES)
-            .filter(category => category !== 'eastern-heat')
+            .filter(
+              category => !['eastern-heat', 'march-of-fauns'].includes(category)
+            )
             .map(category => ({
               label: STORY_CATEGORIES[category].title,
               to: '/stories/' + category,
@@ -301,6 +302,29 @@ export default () => {
             .concat({
               label: 'Read all Eastern Heat',
               to: '/stories/eastern-heat',
+            }),
+        },
+        {
+          title: 'March of Fauns',
+          icon: 'drop',
+          to: '/stories/march-of-fauns',
+          items: stories
+            .filter(story => story.category === 'march-of-fauns')
+            .sort((a, b) => {
+              const indexA = parseInt(a.title, 10)
+              const indexB = parseInt(b.title, 10)
+
+              return isNaN(indexA) || isNaN(indexB) ? 0 : indexA - indexB
+            })
+            .slice(0, 5)
+            .map(story => ({
+              label: story.title,
+              to: '/stories/' + story.id,
+              id: story.id,
+            }))
+            .concat({
+              label: 'Read all of March of Fauns',
+              to: '/stories/march-of-fauns',
             }),
         },
       ],
