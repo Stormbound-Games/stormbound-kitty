@@ -53,6 +53,19 @@ const Article = React.memo(function Article(props) {
               />
               {action.children}
             </Link>
+          ) : action.href ? (
+            <a
+              href={action.href}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='Article__action'
+            >
+              {action.children}
+              <Icon
+                icon={action.icon || 'arrow-right'}
+                className='Article__action-icon'
+              />
+            </a>
           ) : action.onClick ? (
             <button
               type='button'
