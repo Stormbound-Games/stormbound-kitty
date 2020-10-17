@@ -1,7 +1,6 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import App from '../CardBuilderApp'
-import CardDisplayControls from '../CardDisplayControls'
 import PageMeta from '../PageMeta'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import getCardBuilderMetaTags from '../../helpers/getCardBuilderMetaTags'
@@ -13,11 +12,7 @@ export default React.memo(function CardBuilderDisplay(props) {
 
   return (
     <>
-      <h1 className='VisuallyHidden'>Card builder</h1>
-
       <App {...cardData} cardId={id} mode='DISPLAY' />
-      <CardDisplayControls />
-
       <PageMeta {...getCardBuilderMetaTags(cardData)} />
     </>
   )

@@ -33,7 +33,7 @@ const INITIAL_STATE = {
   ability: formatLevelProp(null),
 }
 
-class CardBuilderRoot extends React.Component {
+class CardBuilderEditor extends React.Component {
   constructor(props) {
     super(props)
 
@@ -189,8 +189,6 @@ class CardBuilderRoot extends React.Component {
   render() {
     return (
       <>
-        <h1 className='VisuallyHidden'>Card Builder</h1>
-
         <App
           {...this.state}
           setName={this.setName}
@@ -221,4 +219,4 @@ class CardBuilderRoot extends React.Component {
 export default hookIntoProps(() => ({
   history: useHistory(),
   cardId: useRouteMatch().params.cardId,
-}))(CardBuilderRoot)
+}))(CardBuilderEditor)

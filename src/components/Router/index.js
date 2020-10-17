@@ -45,7 +45,7 @@ const BrawlPage = load('BrawlPage')
 const BrewedSages = load('BrewedSages')
 const CardBuilderContest = load('CardBuilderContest')
 const CardBuilderDisplay = load('CardBuilderDisplay')
-const CardBuilderRoot = load('CardBuilderRoot')
+const CardBuilderEditor = load('CardBuilderEditor')
 const CardsStats = load('CardsStats')
 const Changelog = load('Changelog')
 const Changelog3rdAnniversary = load('Changelog3rdAnniversary')
@@ -132,11 +132,11 @@ export default function Router(props) {
             path='/card/:cardId'
             active={['TOOLS', 'CARD_BUILDER', 'EDITOR']}
           >
-            <CardBuilderRoot />
+            <CardBuilderEditor />
           </Page>
 
           <Page path='/card' active={['TOOLS', 'CARD_BUILDER', 'EDITOR']}>
-            <CardBuilderRoot />
+            <CardBuilderEditor />
           </Page>
 
           <Page

@@ -36,6 +36,11 @@
   top: 0.2em;
 }
 
+.Article__action-icon:last-child {
+  margin-left: 1ch;
+  margin-right: 0;
+}
+
 .Article__content {
   font-size: 125%;
   max-width: 65ch;

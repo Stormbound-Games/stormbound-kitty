@@ -4,6 +4,7 @@ import CardSelect from '../CardSelect'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
 import FactionSelect from '../FactionSelect'
+import ImageErrorDialog from '../CardBuilderImageErrorDialog'
 import Row from '../Row'
 import capitalise from '../../helpers/capitalise'
 import './index.css'
@@ -140,6 +141,7 @@ export default React.memo(function CardBuilderCardForm(props) {
               withTokens
               withClear
             />
+            <ImageErrorDialog dialogRef={props.imageErrorDialogRef} />
           </Column>
           <Column
             width={
