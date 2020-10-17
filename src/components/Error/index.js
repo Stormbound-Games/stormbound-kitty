@@ -1,7 +1,6 @@
 import React from 'react'
 import CTA from '../CTA'
 import Image from '../Image'
-import PageMeta from '../PageMeta'
 import Title from '../Title'
 import './index.css'
 
@@ -52,12 +51,6 @@ export default React.memo(function Error(props) {
 
         {props.retry && <CTA onClick={props.retry}>Retry</CTA>}
       </div>
-
-      <PageMeta
-        title='Error'
-        description='Unfortunately, an error occurred, sorry about this!'
-        noIndex
-      />
     </>
   )
 })
