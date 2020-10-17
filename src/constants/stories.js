@@ -42,8 +42,14 @@ export const STORY_CATEGORIES = {
   },
   'eastern-heat': {
     background: '/assets/images/banners/dragons.jpg',
-    content: 'Something ',
+    content: 'The epic Eastern Heat saga by Zyries',
     title: 'Eastern Heat',
     shortName: 'Eastern Heat',
+  },
+  'march-of-fauns': {
+    background: '/assets/images/banners/factions.png',
+    content: 'The epic March of Fauns saga by SirToast',
+    title: 'March of Fauns',
+    shortName: 'March of Fauns',
   },
 }
