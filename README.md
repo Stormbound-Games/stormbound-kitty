@@ -12,13 +12,14 @@ Create a `.env` file at the root of the project, and set:
 
 ```
 NODE_ENV=development
+EXTEND_ESLINT=true
 ```
 
 Then run:
 
 ```
 npm install
-npm start # `npm run start:window` for Windows
+npm start
 ```
 
 ## Bot

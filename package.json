@@ -39,8 +39,7 @@
   },
   "scripts": {
     "prebuild:cra": "node -r esm bin/sitemap.js",
-    "start": "EXTEND_ESLINT=true react-scripts start",
-    "start:windows": "set EXTEND_ESLINT=true && react-scripts start",
+    "start": "react-scripts start",
     "build:cra": "CI=false react-scripts build",
     "test": "cypress run",
     "eject": "react-scripts eject",
