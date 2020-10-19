@@ -10,7 +10,6 @@ import Row from '../Row'
 import guides from '../../data/guides'
 import { CATEGORIES } from '../../constants/guides'
 import chunk from '../../helpers/chunk'
-import useViewportWidth from '../../hooks/useViewportWidth'
 
 const Category = props =>
   chunk(props.guides, 3).map((row, index) => (
@@ -22,7 +21,6 @@ const Category = props =>
   ))
 
 export default React.memo(function Guides(props) {
-  const viewportWidth = useViewportWidth()
   const relevantGuides = guides.filter(
     guide => guide.category === props.category
   )
@@ -30,13 +28,7 @@ export default React.memo(function Guides(props) {
   return (
     <>
       <Only.Desktop>
-        <HeaderBanner
-          title={
-            CATEGORIES[props.category].name[
-              viewportWidth >= 700 ? 'long' : 'short'
-            ]
-          }
-        />
+        <HeaderBanner title={CATEGORIES[props.category].name.long} />
       </Only.Desktop>
 
       <Category guides={relevantGuides} />
