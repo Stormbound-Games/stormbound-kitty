@@ -1,13 +1,13 @@
 [
   {
+    "intro": "Green Prototypes Guide",
+    "description": "Stratadox expands on why Green Prototypes is the most versatile card in the game.",
+    "link": "/guides/green-prototypes"
+  },
+  {
     "intro": "Value Calculator",
     "description": "The value calculator aims at putting a number of a given card based on its properties.",
     "link": "/calculators/value"
-  },
-  {
-    "intro": "Frostling Brawl Guide",
-    "description": "In this “Goddess Boon” edition of the Brawl Gazette, Oeni goes into everything you need to know to rock the battle field.",
-    "link": "/guides/goddess-boon"
   },
   {
     "intro": "Members",
