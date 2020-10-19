@@ -31,15 +31,15 @@ const Rare = ({ amount }) => <Rarity rarity='rare' amount={amount} />
 const Common = ({ amount }) => <Rarity rarity='common' amount={amount} />
 */
 
-const BISANU = serialisation.card.deserialise(
+const STOIC_PROTECTORS = serialisation.card.deserialise(
   serialisation.card.serialise({
-    name: 'Bisanu',
+    name: 'Stoic Protectors',
     id: 'N80',
     type: 'unit',
     faction: 'neutral',
     race: 'ancient',
     rarity: 'epic',
-    image: 'bisanu.png',
+    image: 'stoic_protectors.png',
     mana: 0,
     strength: 0,
     movement: 0,
@@ -58,7 +58,7 @@ export default React.memo(function ChangelogOctober2020(props) {
       }}
       meta='Official announcement'
       className='ChangelogOctober2020'
-      background='/assets/images/banners/bisanu.png'
+      background='/assets/images/banners/ancients.png'
       withAvif
       ratio='25%'
     >
@@ -134,15 +134,15 @@ export default React.memo(function ChangelogOctober2020(props) {
         <p>
           Additionally, a new card{' '}
           <span className='Highlight'>from a new race</span> makes its entrance:
-          Bisanu, an ancient card bringing a whole new mechanic into the
-          landscape (which will come out 2 weeks after Excited Mouser).
+          Stoic Protectors, an ancient card bringing a whole new mechanic into
+          the landscape (which will come out 2 weeks after Excited Mouser).
         </p>
       </Article.Narrow>
 
       <Article.Embed>
         <CardBuilderCardDisplay
-          {...BISANU}
-          imageURL='bisanu.png'
+          {...STOIC_PROTECTORS}
+          imageURL='stoic_protectors.png'
           imageCardId={null}
         />
       </Article.Embed>
@@ -361,8 +361,8 @@ export default React.memo(function ChangelogOctober2020(props) {
               answer: (
                 <>
                   <CardLink id='N78' /> will be available as of October 1st,{' '}
-                  <CardLink id='N79' /> from October 15th onwards, and Bisanu 2
-                  weeks after that.
+                  <CardLink id='N79' /> from October 15th onwards, and Stoic
+                  Protectors 2 weeks after that.
                 </>
               ),
             },
