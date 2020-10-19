@@ -311,6 +311,19 @@ export const SWCC_SEASON_2 = [
   {
     week: 41,
     name: 'Environmental & board effects',
+    winner: {
+      id:
+        'Rjs7QztSOzU7OztUb3hpYyUyMHN3YW1wO0YxMTsqQm9hcmQlMjBlZmZlY3QqJTIwQXQlMjBzdGFydCUyMG9mJTIwZWFjaCUyMHR1cm4lMkMlMjBkZWFsJTIwMSUyRjElMkYxJTJGMiUyRjIlMjBkYW1hZ2UlMjB0byUyMGFscmVhZHklMjBwb2lzb25uZWQlMjB1bml0cyUyMGFuZCUyMHBvaXNvbiUyMHVuaXRzJTIwd2l0aCUyMDIlMkYzJTJGNCUyRjQlMkY1JTIwc3RyZW5ndGglMjBvciUyMGxlc3M7Ow==',
+      author: 'Jerahus',
+    },
+  },
+  {
+    week: 42,
+    name: 'Spell Focus',
+  },
+  {
+    week: 43,
+    name: 'Overkill',
     submitURL: 'https://forms.gle/oHWRj45WoJc2q8ps5',
   },
 ]
