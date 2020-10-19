@@ -10,6 +10,7 @@ import {
 } from '../../constants/list'
 import Column from '../Column'
 import CTA from '../CTA'
+import HeaderBanner from '../HeaderBanner'
 import PageMeta from '../PageMeta'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
@@ -169,7 +170,7 @@ class ListBuilderEditorView extends React.Component {
   render() {
     return (
       <>
-        <h1 className='VisuallyHidden'>List Builder</h1>
+        <HeaderBanner title='Create your list' />
 
         <Row wideGutter desktopOnly>
           <Column width='1/3'>

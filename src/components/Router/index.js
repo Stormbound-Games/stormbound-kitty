@@ -36,7 +36,7 @@ const COMPONENTS = {
   TRIVIA_GUIDE: load('GuideTrivia'),
 }
 
-const BattleSimApp = load('BattleSimApp')
+const BattleSimPage = load('BattleSimPage')
 const BattleSimPuzzles = load('BattleSimPuzzles')
 const BooksCalculator = load('BooksCalculator')
 const BrawlIndex = load('BrawlIndex')
@@ -94,7 +94,7 @@ export default function Router(props) {
             path='/sim/:simId/display'
             active={['TOOLS', 'BATTLE_SIM', 'DISPLAY']}
           >
-            <BattleSimApp mode='DISPLAY' withMeta />
+            <BattleSimPage mode='DISPLAY' />
           </Page>
 
           <Page path='/sim/puzzles' active={['COMMUNITY', 'PUZZLES']}>
@@ -102,11 +102,11 @@ export default function Router(props) {
           </Page>
 
           <Page path='/sim/:simId' active={['TOOLS', 'BATTLE_SIM', 'EDITOR']}>
-            <BattleSimApp mode='EDITOR' withMeta />
+            <BattleSimPage mode='EDITOR' />
           </Page>
 
           <Page path='/sim' active={['TOOLS', 'BATTLE_SIM', 'EDITOR']}>
-            <BattleSimApp mode='EDITOR' withMeta />
+            <BattleSimPage mode='EDITOR' />
           </Page>
 
           <Page

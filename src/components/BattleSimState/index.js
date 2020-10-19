@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory, useRouteMatch } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import clone from 'lodash.clonedeep'
 import isEqual from 'lodash.isequal'
@@ -472,6 +472,7 @@ class BattleSimState extends React.Component {
         BLUE: { ...this.state.players.BLUE, update: this.updateBluePlayer },
       },
 
+      environment: this.props.environment,
       mode: this.props.mode,
       simId: this.props.simId,
       resetBoard: this.resetBoard,
@@ -501,5 +502,4 @@ class BattleSimState extends React.Component {
 
 export default hookIntoProps(props => ({
   history: useHistory(),
-  simId: props.simId || useRouteMatch().params.simId,
 }))(BattleSimState)

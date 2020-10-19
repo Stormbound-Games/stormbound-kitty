@@ -13,7 +13,7 @@ const guide = guides.find(g => g.id === 'KNOWN_BUGS')
 export default React.memo(function GuideKnownBugs(props) {
   return (
     <Guide {...guide}>
-      <p>
+      <p style={{ marginBottom: '2em' }}>
         Bugs are{' '}
         <u style={{ textDecoration: 'line-through', opacity: 0.5 }}>storm</u>
         bound to happen. Software development is not infallible, and honest

@@ -63,7 +63,7 @@ class QuestBuilderRoot extends React.Component {
   render() {
     return (
       <>
-        <HeaderBanner title='Quest Builder' />
+        <HeaderBanner title='Create Your Quest' />
 
         <div className='QuestBuilder'>
           <Row desktopOnly wideGutter>
