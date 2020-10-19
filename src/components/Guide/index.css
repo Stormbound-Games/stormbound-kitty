@@ -11,3 +11,18 @@
   max-width: 80%;
   margin: 2em auto;
 }
+
+.Guide__fullwidth {
+  position: relative;
+  margin: 1.5em auto;
+}
+
+@media (min-width: 700px) {
+  /**
+   * 1. Negate half the layout body horizontal padding.
+   */
+  .Guide__fullwidth {
+    margin: 3em calc(-50vw + 1200px / 2);
+    padding: 0 calc(var(--padding, 0) + 0.625em); /* 1 */
+  }
+}

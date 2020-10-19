@@ -39,55 +39,53 @@ export default React.memo(function Member(props) {
         </>
       }
     >
-      <Article.FullWidth>
-        <Row desktopOnly wideGutter>
-          <Column width='1/3'>
-            <p>
-              <span className='Highlight'>{displayName}</span> is a member of
-              the Stormbound community. Their contribution can be found below.
-            </p>
+      <Row desktopOnly wideGutter>
+        <Column width='1/3'>
+          <p>
+            <span className='Highlight'>{displayName}</span> is a member of the
+            Stormbound community. Their contribution can be found below.
+          </p>
 
-            <MemberToC {...details} />
+          <MemberToC {...details} />
 
-            {details.donations.length > 0 && (
-              <Info icon='heart' title='Financial contributor'>
-                {displayName} is one of the generous contributors who can make
-                Stormbound-Kitty a reality. Thank you and welcome to the{' '}
-                <abbr title='Kitty Appreciation Team'>KAT</abbr>!
-              </Info>
-            )}
-          </Column>
-          <Column width='2/3'>
-            {content.length > 0 || channel ? (
-              <ul className='Member__feed'>
-                {channel && (
-                  <div className='Member__item'>
-                    <FeedItem {...channel} type='YOUTUBE' />
-                  </div>
-                )}
-                {content.map((entry, index) => (
-                  <li key={index} className='Member__item'>
-                    <FeedItem {...entry} user={id} />
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <div className='Member__empty'>
-                <Image
-                  src='/assets/images/cards/sweetcap_kittens.png'
-                  className='Error__image'
-                  withAvif
-                />
-                <p>
-                  No ‘{displayName}’ user could be found, or no content was
-                  associated to that user. If you believe this is a bug, please
-                  report it to Kitty#1909 on Discord.
-                </p>
-              </div>
-            )}
-          </Column>
-        </Row>
-      </Article.FullWidth>
+          {details.donations.length > 0 && (
+            <Info icon='heart' title='Financial contributor'>
+              {displayName} is one of the generous contributors who can make
+              Stormbound-Kitty a reality. Thank you and welcome to the{' '}
+              <abbr title='Kitty Appreciation Team'>KAT</abbr>!
+            </Info>
+          )}
+        </Column>
+        <Column width='2/3'>
+          {content.length > 0 || channel ? (
+            <ul className='Member__feed'>
+              {channel && (
+                <div className='Member__item'>
+                  <FeedItem {...channel} type='YOUTUBE' />
+                </div>
+              )}
+              {content.map((entry, index) => (
+                <li key={index} className='Member__item'>
+                  <FeedItem {...entry} user={id} />
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div className='Member__empty'>
+              <Image
+                src='/assets/images/cards/sweetcap_kittens.png'
+                className='Error__image'
+                withAvif
+              />
+              <p>
+                No ‘{displayName}’ user could be found, or no content was
+                associated to that user. If you believe this is a bug, please
+                report it to Kitty#1909 on Discord.
+              </p>
+            </div>
+          )}
+        </Column>
+      </Row>
 
       <PageMeta
         noIndex={content.length === 0}

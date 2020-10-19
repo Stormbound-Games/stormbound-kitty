@@ -44,26 +44,24 @@ export default React.memo(function TournamentHallOfFame(props) {
         .slice(0)
         .reverse()
         .map(tournament => (
-          <Article.FullWidth padding='120px'>
-            <section className='Tournament'>
-              <Row desktopOnly wideGutter>
-                <Column>
-                  <h2 className='Tournament__name'>{tournament.name}</h2>
-                  <p className='Tournament__meta'>
-                    {formatDate(getDate(tournament.date))} · By{' '}
-                    <MemberList members={tournament.hosts} />
-                  </p>
-                  {Boolean(tournament.description) && (
-                    <p>{tournament.description}</p>
-                  )}
-                  <TournamentWinners podium={tournament.podium} />
-                </Column>
-                <Column>
-                  <TournamentDeck {...tournament} />
-                </Column>
-              </Row>
-            </section>
-          </Article.FullWidth>
+          <section className='Tournament'>
+            <Row desktopOnly wideGutter>
+              <Column>
+                <h2 className='Tournament__name'>{tournament.name}</h2>
+                <p className='Tournament__meta'>
+                  {formatDate(getDate(tournament.date))} · By{' '}
+                  <MemberList members={tournament.hosts} />
+                </p>
+                {Boolean(tournament.description) && (
+                  <p>{tournament.description}</p>
+                )}
+                <TournamentWinners podium={tournament.podium} />
+              </Column>
+              <Column>
+                <TournamentDeck {...tournament} />
+              </Column>
+            </Row>
+          </section>
         ))}
 
       <FAQSection

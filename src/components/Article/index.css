@@ -2,8 +2,12 @@
   margin-bottom: 6em;
 }
 
+/**
+ * 1. Pull the meta content within the bottom spacing of the `HeaderBanner`
+ *    component.
+ */
 .Article__meta {
-  margin-top: -2em;
+  margin-top: -2em; /* 1 */
   text-transform: uppercase;
   color: var(--beige);
   display: flex;
@@ -42,18 +46,37 @@
 }
 
 .Article__content {
-  font-size: 125%;
-  max-width: 65ch;
   hyphens: auto;
+}
+
+/**
+ * 1. Historically, the site’s font size was set relatively small because it was
+ *    mostly tools which required to display many things on screen at once such
+ *    as the battle sim. However, as the site evolved, more and more content
+ *    became text-based, such as stories, guides and over pages with a non-
+ *    trivial amount of text content. The initial font size is no longer adequat
+ *    and it’s too difficult/risky to increase it side-wide. Instead, most pages
+ *    use the `Article` component as a main wrapper, which sets a larger font
+ *    size. For pages which need to benefit from the `Article` layout but need
+ *    the original small font size, the `smallFontSize` prop can be used.
+ */
+.Article__content:not(.Article__content--small) {
+  font-size: 125%; /* 1 */
+}
+
+/**
+ * 1. By default, the `Article` layout spreads across the entire 1200px width of
+ *    the main container. However, when the context is mostly text-based, 1200px
+ *    is too wide for comfortable reading. The `Article.Narrow` sub-component
+ *    provides a narrower width adjusted to be reading length.
+ */
+.Article__narrow {
+  max-width: 65ch; /* 1 */
   margin: auto;
 }
 
-.Article__fullwidth {
-  position: relative;
-  margin: 1.5em auto;
-}
-
 .Article__content:not(.Article__content--no-drop-cap)
+  .Article__narrow
   > p:first-of-type::first-letter {
   color: var(--beige);
   float: left;
@@ -69,44 +92,13 @@
   color: var(--beige);
 }
 
-.Article .Info,
-.Article > div > .Row {
+.Article__embed {
   margin-top: 1.5em;
   margin-bottom: 1.5em;
 }
 
 .Article .Info + .Info {
   margin-top: 0;
-}
-
-@media (min-width: 700px) {
-  .Article__meta {
-    margin-bottom: 6em;
-    display: flex;
-    font-size: 120%;
-    justify-content: space-between;
-  }
-
-  .Article__action {
-    margin-left: auto;
-    flex: 0 0 auto;
-    margin-top: 0;
-    font-size: 100%;
-  }
-
-  /**
-   * 1. Negate half the layout body horizontal padding.
-   */
-  .Article__fullwidth {
-    margin: 3em calc(-50vw + 1200px / 2);
-    padding: 0 calc(var(--padding, 0) + 0.625em); /* 1 */
-  }
-
-  .Article .Info,
-  .Article > div > .Row {
-    margin-top: 3em;
-    margin-bottom: 3em;
-  }
 }
 
 .Article h2:not(.Teaser__title) {
@@ -147,4 +139,25 @@
 .Article li ul {
   margin-top: 0.5em;
   margin-bottom: 0;
+}
+
+@media (min-width: 700px) {
+  .Article__meta {
+    margin-bottom: 6em;
+    display: flex;
+    font-size: 120%;
+    justify-content: space-between;
+  }
+
+  .Article__action {
+    margin-left: auto;
+    flex: 0 0 auto;
+    margin-top: 0;
+    font-size: 100%;
+  }
+
+  .Article__embed {
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
 }

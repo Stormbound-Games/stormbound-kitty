@@ -45,11 +45,15 @@ export default React.memo(function Story(props) {
           }}
           withAvif
         >
-          <MicroMarkdown content={story.content} />
+          <Article.Narrow>
+            <MicroMarkdown content={story.content} />
+          </Article.Narrow>
         </Article>
       ) : null}
 
       <div ref={ref}>{inView && <StoriesMore {...story} />}</div>
+
+      <hr />
 
       <Notice icon='quill'>
         Looking to contribute to the Stormbound lore?

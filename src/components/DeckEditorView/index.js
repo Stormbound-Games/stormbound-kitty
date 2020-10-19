@@ -201,89 +201,87 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
   const articleProps = useArticleProps(deck)
 
   return (
-    <Article {...articleProps}>
-      <Article.FullWidth style={{ fontSize: '85%' }}>
-        <Row desktopOnly wideGutter>
-          <Column width='1/3'>
-            <Title style={{ marginTop: 0 }}>Deck</Title>
+    <Article {...articleProps} smallFontSize>
+      <Row desktopOnly wideGutter>
+        <Column width='1/3'>
+          <Title style={{ marginTop: 0 }}>Deck</Title>
 
-            <Deck
-              showUpgrades
-              showTooltips={cardTooltips}
-              id='deck'
-              deck={deck}
-              orientation={viewportWidth >= 700 ? 'vertical' : 'horizontal'}
-              onClick={props.removeCardFromDeck}
-              onClickLabel='Remove card from deck'
-              highlightedCards={props.highlightedCards}
-            />
+          <Deck
+            showUpgrades
+            showTooltips={cardTooltips}
+            id='deck'
+            deck={deck}
+            orientation={viewportWidth >= 700 ? 'vertical' : 'horizontal'}
+            onClick={props.removeCardFromDeck}
+            onClickLabel='Remove card from deck'
+            highlightedCards={props.highlightedCards}
+          />
 
-            {deck.length > 0 ? (
-              <>
-                <DeckSettings
-                  canAdjustCardLevels={deckId !== adjustedDeckId}
-                  adjustCardLevels={adjustCardLevels}
-                  setAdjustCardLevels={setAdjustCardLevels}
-                  cardTooltips={cardTooltips}
-                  setCardTooltips={setCardTooltips}
-                />
-                <DeckActions reset={props.reset} />
-              </>
-            ) : (
-              <HelpInfo defineDeck={props.defineDeck} />
-            )}
-
-            <Only.Desktop>
-              <CollectionInfo
-                onCollectionImport={collection =>
-                  // When importing a custom collection, set the card levels in
-                  // the gallery to the ones from the collection (`0`).
-                  collection ? setCardLevel(0) : undefined
-                }
+          {deck.length > 0 ? (
+            <>
+              <DeckSettings
+                canAdjustCardLevels={deckId !== adjustedDeckId}
+                adjustCardLevels={adjustCardLevels}
+                setAdjustCardLevels={setAdjustCardLevels}
+                cardTooltips={cardTooltips}
+                setCardTooltips={setCardTooltips}
               />
-            </Only.Desktop>
-          </Column>
+              <DeckActions reset={props.reset} />
+            </>
+          ) : (
+            <HelpInfo defineDeck={props.defineDeck} />
+          )}
 
-          <Column width='2/3'>
-            <Title style={{ marginTop: 0 }}>Cards</Title>
+          <Only.Desktop>
+            <CollectionInfo
+              onCollectionImport={collection =>
+                // When importing a custom collection, set the card levels in
+                // the gallery to the ones from the collection (`0`).
+                collection ? setCardLevel(0) : undefined
+              }
+            />
+          </Only.Desktop>
+        </Column>
 
-            <CardsFiltering cards={cardCollection}>
-              {({
-                filters,
-                filtersSetters,
-                collection,
-                resetFilters,
-                cardsPerPage,
-              }) => (
-                <>
-                  <Filters
-                    {...filters}
-                    {...filtersSetters}
+        <Column width='2/3'>
+          <Title style={{ marginTop: 0 }}>Cards</Title>
+
+          <CardsFiltering cards={cardCollection}>
+            {({
+              filters,
+              filtersSetters,
+              collection,
+              resetFilters,
+              cardsPerPage,
+            }) => (
+              <>
+                <Filters
+                  {...filters}
+                  {...filtersSetters}
+                  resetFilters={resetFilters}
+                />
+
+                {collection.length > 0 ? (
+                  <Gallery
+                    filters={filters}
+                    collection={collection}
+                    addCardToDeck={props.addCardToDeck}
+                    cardsPerPage={cardsPerPage}
+                    cardLevel={cardLevel}
+                    setCardLevel={setCardLevel}
+                    deck={props.deck}
+                  />
+                ) : (
+                  <EmptySearch
+                    title='No cards found'
                     resetFilters={resetFilters}
                   />
-
-                  {collection.length > 0 ? (
-                    <Gallery
-                      filters={filters}
-                      collection={collection}
-                      addCardToDeck={props.addCardToDeck}
-                      cardsPerPage={cardsPerPage}
-                      cardLevel={cardLevel}
-                      setCardLevel={setCardLevel}
-                      deck={props.deck}
-                    />
-                  ) : (
-                    <EmptySearch
-                      title='No cards found'
-                      resetFilters={resetFilters}
-                    />
-                  )}
-                </>
-              )}
-            </CardsFiltering>
-          </Column>
-        </Row>
-      </Article.FullWidth>
+                )}
+              </>
+            )}
+          </CardsFiltering>
+        </Column>
+      </Row>
 
       <PageMeta {...getDeckBuilderMetaTags(deck, 'Deck Builder')} />
     </Article>

@@ -24,7 +24,7 @@ const Guide = React.memo(function Guide(props) {
         }}
         withAvif
       >
-        {props.children}
+        <Article.Narrow>{props.children}</Article.Narrow>
       </Article>
 
       <hr />
@@ -50,6 +50,19 @@ const Guide = React.memo(function Guide(props) {
   )
 })
 
-Guide.FullWidth = Article.FullWidth
+// Guides have a narrow width by default, imposed by the `Article.Narrow`
+// wrapper, but it is sometimes necessary to display something across the full
+// width of the container. For that, the `Guide.FullWidth` sub-component
+// can be used.
+Guide.FullWidth = React.memo(function FullWidth(props) {
+  return (
+    <div
+      className='Guide__fullwidth Article__embed'
+      style={{ ...props.style, '--padding': props.padding }}
+    >
+      {props.children}
+    </div>
+  )
+})
 
 export default Guide

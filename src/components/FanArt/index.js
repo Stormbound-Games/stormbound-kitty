@@ -15,42 +15,42 @@ export default React.memo(function FanArt(props) {
 
   return (
     <Article title='Fan Art'>
-      <p>
-        All illustrations displayed on this page have been collected from the
-        official Discord and Reddit, and all credits go to their respective
-        author. If you are the author of an artwork showcased on this page and
-        would like to have it removed, contact Kitty#1909 on Discord.
-      </p>
+      <Article.Narrow>
+        <p>
+          All illustrations displayed on this page have been collected from the
+          official Discord and Reddit, and all credits go to their respective
+          author. If you are the author of an artwork showcased on this page and
+          would like to have it removed, contact Kitty#1909 on Discord.
+        </p>
+      </Article.Narrow>
 
-      <Article.FullWidth>
-        <Masonry
-          breakpointCols={{
-            default: 3,
-            1100: 3,
-            700: 2,
-            500: 1,
-          }}
-          className='FanArtWrapper'
-          columnClassName='FanArtItem'
-        >
-          {items.map(entry => (
-            <figure className='FanArt' key={entry.image}>
-              <img
-                src={'/assets/images/art/' + entry.image}
-                alt={'Artwork by ' + entry.author}
-                className='FanArt__image'
-              />
-              <figcaption className='FanArt__caption'>
-                Artwork by{' '}
-                <Link to={'/member/' + entry.author}>{entry.author}</Link>
-              </figcaption>
-            </figure>
-          ))}
-        </Masonry>
+      <Masonry
+        breakpointCols={{
+          default: 3,
+          1100: 3,
+          700: 2,
+          500: 1,
+        }}
+        className='FanArtWrapper'
+        columnClassName='FanArtItem'
+      >
+        {items.map(entry => (
+          <figure className='FanArt' key={entry.image}>
+            <img
+              src={'/assets/images/art/' + entry.image}
+              alt={'Artwork by ' + entry.author}
+              className='FanArt__image'
+            />
+            <figcaption className='FanArt__caption'>
+              Artwork by{' '}
+              <Link to={'/member/' + entry.author}>{entry.author}</Link>
+            </figcaption>
+          </figure>
+        ))}
+      </Masonry>
 
-        {loading && <Loader />}
-        <div ref={ref} />
-      </Article.FullWidth>
+      {loading && <Loader />}
+      <div ref={ref} />
 
       <PageMeta
         title='Fan Art'

@@ -106,36 +106,38 @@ export const VIDEOS = [
 export default React.memo(function Videos(props) {
   return (
     <Article title='Videos'>
-      {VIDEOS.map(video => (
-        <section key={video.author} className='Video'>
-          <Row desktopOnly wideGutter>
-            <Column width='1/3'>
-              <img
-                src={video.thumbnail}
-                alt={`${video.author}’s avatar`}
-                className='Video__image'
-              />
-            </Column>
-            <Column width='2/3' style={{ justifyContent: 'center' }}>
-              <h2 className='Video__title'>
-                <Link to={`/member/${video.author}`}>{video.author}</Link>
-              </h2>
-              {video.description}
-              <p>
-                <Icon icon='arrow-right' className='Video__icon' />
-                <a
-                  href={video.href}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='Video__link'
-                >
-                  Visit {video.author}’s channel
-                </a>
-              </p>
-            </Column>
-          </Row>
-        </section>
-      ))}
+      <Article.Narrow>
+        {VIDEOS.map(video => (
+          <section key={video.author} className='Video'>
+            <Row desktopOnly wideGutter>
+              <Column width='1/3'>
+                <img
+                  src={video.thumbnail}
+                  alt={`${video.author}’s avatar`}
+                  className='Video__image'
+                />
+              </Column>
+              <Column width='2/3' style={{ justifyContent: 'center' }}>
+                <h2 className='Video__title'>
+                  <Link to={`/member/${video.author}`}>{video.author}</Link>
+                </h2>
+                {video.description}
+                <p>
+                  <Icon icon='arrow-right' className='Video__icon' />
+                  <a
+                    href={video.href}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='Video__link'
+                  >
+                    Visit {video.author}’s channel
+                  </a>
+                </p>
+              </Column>
+            </Row>
+          </section>
+        ))}
+      </Article.Narrow>
 
       <PageMeta
         title='Videos'

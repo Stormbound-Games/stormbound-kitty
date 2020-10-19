@@ -1,7 +1,7 @@
 import React from 'react'
+import Article from '../Article'
 import Column from '../Column'
 import FAQSection from '../FAQSection'
-import HeaderBanner from '../HeaderBanner'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import StructuredData from '../StructuredData'
@@ -34,12 +34,10 @@ export default React.memo(function FAQ() {
   }, [])
 
   return (
-    <div className='FAQ'>
-      <HeaderBanner title='FAQ' />
-
+    <Article title='FAQ'>
       <Row desktopOnly wideGutter>
         <Column width='1/3'>
-          <Title>Topics</Title>
+          <Title style={{ marginTop: 0 }}>Topics</Title>
 
           <ul className='FAQ__toc'>
             {categories.map(category => (
@@ -86,6 +84,6 @@ export default React.memo(function FAQ() {
         title='Frequently Asked questions'
         description='Find answers to the frequently asked questions about Stormbound and Stormbound-Kitty'
       />
-    </div>
+    </Article>
   )
 })

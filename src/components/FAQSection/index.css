@@ -1,3 +1,7 @@
+.FAQSection:first-child > .Title {
+  margin-top: 0;
+}
+
 .FAQSection {
   margin-bottom: 2em;
 }

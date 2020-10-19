@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Article from '../Article'
 import Column from '../Column'
 import MemberList from '../MemberList'
 import Row from '../Row'
@@ -62,43 +61,45 @@ export default React.memo(function Podium(props) {
   )
 
   return (
-    <Article.FullWidth>
+    <>
       <Title>Hall of Fame</Title>
-      <Row desktopOnly>
-        {podium.slice(0, 3).map(([user, medals], index) => (
-          <Column width='1/3' key={user}>
-            <Teaser
-              title={
-                <>
-                  {index + 1}. <Link to={'/member/' + user}>{user}</Link>
-                </>
-              }
-              meta={`With ${getPoints(medals)} points`}
-              card={{
-                name: user,
-                faction: ['swarm', 'neutral', 'ironclad'][index],
-                level: index + 1,
-                mana: index + 1,
-                type: 'unit',
-                race: ['Champion', 'Conqueror', 'Runner-up'][index],
-                image: getRawCardData(['N54', 'N32', 'N3'][index]).image,
-              }}
-              excerpt={
-                <>
-                  {user} has won {medals[0]} 🥇 gold medal
-                  {medals[0] === 1 ? '' : 's'} ({medals[0] * POINT_VALUE[0]}{' '}
-                  points), 🥈 {medals[1]} silver medal
-                  {medals[1] === 1 ? '' : 's'} ({medals[1] * POINT_VALUE[1]}{' '}
-                  points) and 🥉 {medals[2]} bronze medal
-                  {medals[2] === 1 ? '' : 's'} ({medals[2] * POINT_VALUE[2]}{' '}
-                  point
-                  {medals[2] === 1 ? '' : 's'}).
-                </>
-              }
-            />
-          </Column>
-        ))}
-      </Row>
+      <div style={{ fontSize: '85%' }}>
+        <Row desktopOnly wideGutter>
+          {podium.slice(0, 3).map(([user, medals], index) => (
+            <Column width='1/3' key={user}>
+              <Teaser
+                title={
+                  <>
+                    {index + 1}. <Link to={'/member/' + user}>{user}</Link>
+                  </>
+                }
+                meta={`With ${getPoints(medals)} points`}
+                card={{
+                  name: user,
+                  faction: ['swarm', 'neutral', 'ironclad'][index],
+                  level: index + 1,
+                  mana: index + 1,
+                  type: 'unit',
+                  race: ['Champion', 'Conqueror', 'Runner-up'][index],
+                  image: getRawCardData(['N54', 'N32', 'N3'][index]).image,
+                }}
+                excerpt={
+                  <>
+                    {user} has won {medals[0]} 🥇 gold medal
+                    {medals[0] === 1 ? '' : 's'} ({medals[0] * POINT_VALUE[0]}{' '}
+                    points), 🥈 {medals[1]} silver medal
+                    {medals[1] === 1 ? '' : 's'} ({medals[1] * POINT_VALUE[1]}{' '}
+                    points) and 🥉 {medals[2]} bronze medal
+                    {medals[2] === 1 ? '' : 's'} ({medals[2] * POINT_VALUE[2]}{' '}
+                    point
+                    {medals[2] === 1 ? '' : 's'}).
+                  </>
+                }
+              />
+            </Column>
+          ))}
+        </Row>
+      </div>
 
       <ol start='4' style={{ columns: '16em' }}>
         {Object.keys(pointGroups)
@@ -111,6 +112,6 @@ export default React.memo(function Podium(props) {
             </li>
           ))}
       </ol>
-    </Article.FullWidth>
+    </>
   )
 })

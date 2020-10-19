@@ -63,43 +63,38 @@ export default React.memo(function DeckDetailView(props) {
           : undefined
       }
       action={{ to: '/deck/' + props.deckId, children: 'Edit deck' }}
+      smallFontSize
     >
-      <Article.FullWidth style={{ fontSize: '85%' }}>
-        <Row desktopOnly wideGutter>
-          <Column width='1/3'>
-            <Title style={{ marginTop: 0 }}>Deck</Title>
-            <Deck
-              id='deck'
-              deck={deck}
-              orientation={viewportWidth >= 700 ? 'vertical' : 'horizontal'}
-              highlightedCards={props.highlightedCards}
-              onClick={card => history.push('/card/' + card.id + '/display')}
-              onClickLabel='Open card in card builder'
-            />
-          </Column>
+      <Row desktopOnly wideGutter>
+        <Column width='1/3'>
+          <Title style={{ marginTop: 0 }}>Deck</Title>
+          <Deck
+            id='deck'
+            deck={deck}
+            orientation={viewportWidth >= 700 ? 'vertical' : 'horizontal'}
+            highlightedCards={props.highlightedCards}
+            onClick={card => history.push('/card/' + card.id + '/display')}
+            onClickLabel='Open card in card builder'
+          />
+        </Column>
 
-          <Column width='1/3'>
-            <Stats deck={deck} highlight={props.highlight} />
-            <DeckStatsChart
-              deck={deck}
-              modifier={modifier}
-              setModifier={setModifier}
-              withHowTo
-              withModifiers
-            />
-          </Column>
+        <Column width='1/3'>
+          <Stats deck={deck} highlight={props.highlight} />
+          <DeckStatsChart
+            deck={deck}
+            modifier={modifier}
+            setModifier={setModifier}
+            withHowTo
+            withModifiers
+          />
+        </Column>
 
-          <Column width='1/3'>
-            <Advice
-              deck={deck}
-              highlight={props.highlight}
-              modifier={modifier}
-            />
-          </Column>
-        </Row>
+        <Column width='1/3'>
+          <Advice deck={deck} highlight={props.highlight} modifier={modifier} />
+        </Column>
+      </Row>
 
-        <PageMeta {...getDeckBuilderMetaTags(props.deck, 'Deck Insights')} />
-      </Article.FullWidth>
+      <PageMeta {...getDeckBuilderMetaTags(props.deck, 'Deck Insights')} />
     </Article>
   )
 })

@@ -51,7 +51,7 @@ const Article = React.memo(function Article(props) {
                 icon={action.icon || 'arrow-left'}
                 className='Article__action-icon'
               />
-              {action.children}
+              <span>{action.children}</span>
             </Link>
           ) : action.href ? (
             <a
@@ -60,7 +60,7 @@ const Article = React.memo(function Article(props) {
               rel='noopener noreferrer'
               className='Article__action'
             >
-              {action.children}
+              <span>{action.children}</span>
               <Icon
                 icon={action.icon || 'arrow-right'}
                 className='Article__action-icon'
@@ -76,7 +76,7 @@ const Article = React.memo(function Article(props) {
               {action.icon && (
                 <Icon icon={action.icon} className='Article__action-icon' />
               )}
-              {action.children}
+              <span>{action.children}</span>
             </button>
           ) : null)}
       </p>
@@ -84,6 +84,7 @@ const Article = React.memo(function Article(props) {
       <div
         className={[
           'Article__content',
+          props.smallFontSize && 'Article__content--small',
           props.noDropCap && 'Article__content--no-drop-cap',
         ]
           .filter(Boolean)
@@ -95,12 +96,17 @@ const Article = React.memo(function Article(props) {
   )
 })
 
-Article.FullWidth = React.memo(function FullWidth(props) {
+Article.Narrow = React.memo(function Narrow(props) {
   return (
-    <div
-      className='Article__fullwidth'
-      style={{ ...props.style, '--padding': props.padding }}
-    >
+    <div className='Article__narrow' style={props.style}>
+      {props.children}
+    </div>
+  )
+})
+
+Article.Embed = React.memo(function Embed(props) {
+  return (
+    <div className='Article__embed' style={props.style}>
       {props.children}
     </div>
   )

@@ -17,7 +17,7 @@ const App = React.memo(function App(props) {
 
   return (
     <>
-      <h1 className='VisuallyHidden'>Battle Simulator</h1>
+      {props.withMeta && <h1 className='VisuallyHidden'>Battle Simulator</h1>}
       {viewportWidth >= 700 ? (
         <AppDesktop
           {...props}

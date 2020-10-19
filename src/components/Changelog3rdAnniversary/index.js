@@ -30,42 +30,46 @@ export default React.memo(function Changelog3rdAnniversary(props) {
       background='/assets/images/releases/third-anniversary.png'
       ratio='57.5%'
     >
-      <p>
-        On September 18th, Stormbound is turning 3 years old. That’s incredible
-        that a prototype issued from a game-jam turned into the game we all like
-        and play daily! Happy anniversary Boundy!
-      </p>
+      <Article.Narrow>
+        <p>
+          On September 18th, Stormbound is turning 3 years old. That’s
+          incredible that a prototype issued from a game-jam turned into the
+          game we all like and play daily! Happy anniversary Boundy!
+        </p>
 
-      <p>
-        Going against the tradition, Stormbound is the one offering gifts on
-        that special occasion. On the menu, four different things, enough to
-        please everyone, whether paying or non-paying player.
-      </p>
+        <p>
+          Going against the tradition, Stormbound is the one offering gifts on
+          that special occasion. On the menu, four different things, enough to
+          please everyone, whether paying or non-paying player.
+        </p>
 
-      <p>
-        To begin with, every player will receive a one-time bundle containing{' '}
-        <Coins amount={330} />, <Rubies amount={30} /> and <Stones amount={3} />{' '}
-        as well as one random legendary card upon login.
-      </p>
+        <p>
+          To begin with, every player will receive a one-time bundle containing{' '}
+          <Coins amount={330} />, <Rubies amount={30} /> and{' '}
+          <Stones amount={3} /> as well as one random legendary card upon login.
+        </p>
 
-      <Title id='brawl'>Brawl</Title>
+        <Title id='brawl'>Brawl</Title>
 
-      <p>
-        All matches for the{' '}
-        <Link to='/brawl/feline-strength'>
-          Brawl following the 18th of September
-        </Link>{' '}
-        will{' '}
-        <span className='Highlight'>cost a third of their original price</span>{' '}
-        (rounded to the closest multiple of 5).
-        <Only.Desktop>
-          {' '}
-          Here are the adjust values for every milestone:
-        </Only.Desktop>
-      </p>
+        <p>
+          All matches for the{' '}
+          <Link to='/brawl/feline-strength'>
+            Brawl following the 18th of September
+          </Link>{' '}
+          will{' '}
+          <span className='Highlight'>
+            cost a third of their original price
+          </span>{' '}
+          (rounded to the closest multiple of 5).
+          <Only.Desktop>
+            {' '}
+            Here are the adjust values for every milestone:
+          </Only.Desktop>
+        </p>
+      </Article.Narrow>
 
       <Only.Desktop>
-        <Article.FullWidth padding='60px'>
+        <Article.Embed>
           <Table>
             <thead>
               <tr>
@@ -91,61 +95,65 @@ export default React.memo(function Changelog3rdAnniversary(props) {
               })}
             </tbody>
           </Table>
-        </Article.FullWidth>
+        </Article.Embed>
       </Only.Desktop>
 
-      <Info icon='crown' title='Oeni’s Gazette'>
+      <Article.Narrow>
+        <Info icon='crown' title='Oeni’s Gazette'>
+          <p>
+            Be sure to read{' '}
+            <Link to='/guides/noble-coalition'>Oeni’s Gazette</Link> to learn
+            more about the Noble Coalition brawl, especially in regard to this
+            anniversary event.
+          </p>
+        </Info>
+
+        <Title>Boosted Tomes</Title>
+
         <p>
-          Be sure to read{' '}
-          <Link to='/guides/noble-coalition'>Oeni’s Gazette</Link> to learn more
-          about the Noble Coalition brawl, especially in regard to this
-          anniversary event.
+          If you were waiting for an appealing sale to spend all your rubies,
+          now is the time. Because between September 17th and September 20th,{' '}
+          <span className='Highlight'>
+            all tomes will contain 33% more cards
+          </span>
+          . As a result:{' '}
         </p>
-      </Info>
 
-      <Title>Boosted Tomes</Title>
+        <ul>
+          <li>
+            Mythic, Heroic and Classic tomes will yield 8 cards instead of 6.
+          </li>
+          <li>Noble books will yield 4 cards instead of 3.</li>
+          <li>Humble books will still contain a single card.</li>
+        </ul>
 
-      <p>
-        If you were waiting for an appealing sale to spend all your rubies, now
-        is the time. Because between September 17th and September 20th,{' '}
-        <span className='Highlight'>all tomes will contain 33% more cards</span>
-        . As a result:{' '}
-      </p>
+        <Title>Limited Offers</Title>
 
-      <ul>
-        <li>
-          Mythic, Heroic and Classic tomes will yield 8 cards instead of 6.
-        </li>
-        <li>Noble books will yield 4 cards instead of 3.</li>
-        <li>Humble books will still contain a single card.</li>
-      </ul>
+        <p>
+          For players who can afford or are willing to spend some money into the
+          game, this 3rd anniversary brings exciting new limited one-time offers
+          between September 17th and September 24th:
+        </p>
 
-      <Title>Limited Offers</Title>
+        <ul>
+          <li>
+            At $4.99: 1 Mythic Tome + <Coins amount={100} />
+          </li>
+          <li>
+            At $19.99: 4 Mythic Tomes + 4 Heroic Tomes + <Coins amount={500} />
+          </li>
+          <li>
+            At $49.99: 10 Mythic Tomes + 10 Heroic Tomes + 10 Classic Tomes +{' '}
+            <Coins amount={1500} />
+          </li>
+          <li>
+            At $99.99: 20 Mythic Tomes + 20 Heroic Tomes + 20 Classic Tomes +{' '}
+            <Coins amount={5000} /> + <Stones amount={50} />
+          </li>
+        </ul>
+      </Article.Narrow>
 
-      <p>
-        For players who can afford or are willing to spend some money into the
-        game, this 3rd anniversary brings exciting new limited one-time offers
-        between September 17th and September 24th:
-      </p>
-
-      <ul>
-        <li>
-          At $4.99: 1 Mythic Tome + <Coins amount={100} />
-        </li>
-        <li>
-          At $19.99: 4 Mythic Tomes + 4 Heroic Tomes + <Coins amount={500} />
-        </li>
-        <li>
-          At $49.99: 10 Mythic Tomes + 10 Heroic Tomes + 10 Classic Tomes +{' '}
-          <Coins amount={1500} />
-        </li>
-        <li>
-          At $99.99: 20 Mythic Tomes + 20 Heroic Tomes + 20 Classic Tomes +{' '}
-          <Coins amount={5000} /> + <Stones amount={50} />
-        </li>
-      </ul>
-
-      <Article.FullWidth padding='60px'>
+      <Article.Embed>
         <Row desktopOnly wideGutter>
           <Column>
             <Image
@@ -174,32 +182,35 @@ export default React.memo(function Changelog3rdAnniversary(props) {
             />
           </Column>
         </Row>
-      </Article.FullWidth>
+      </Article.Embed>
 
-      <p>
-        Additionally, <ResourceIcon resource='RUBY' /> rubies and{' '}
-        <ResourceIcon resource='COIN' /> coins offers in the shop will yield 33%
-        more resources. The $9.99 offer for instance will yield{' '}
-        <Rubies amount={170} /> instead of 130. Similarly, the coins pack for{' '}
-        <Rubies amount={50} /> will yield <Coins amount={600} /> instead of 450.
-      </p>
+      <Article.Narrow>
+        <p>
+          Additionally, <ResourceIcon resource='RUBY' /> rubies and{' '}
+          <ResourceIcon resource='COIN' /> coins offers in the shop will yield
+          33% more resources. The $9.99 offer for instance will yield{' '}
+          <Rubies amount={170} /> instead of 130. Similarly, the coins pack for{' '}
+          <Rubies amount={50} /> will yield <Coins amount={600} /> instead of
+          450.
+        </p>
 
-      <Title id='wallpapers'>Wallpapers</Title>
+        <Title id='wallpapers'>Wallpapers</Title>
 
-      <p>
-        Last but not least, the Sheepyard design team has put up a collection of
-        desktop and home screen wallpapers that you can find in exclusivity in
-        the <Link to='/fan-kit/wallpapers'>wallpapers section</Link>. Enjoy
-        them!
-      </p>
+        <p>
+          Last but not least, the Sheepyard design team has put up a collection
+          of desktop and home screen wallpapers that you can find in exclusivity
+          in the <Link to='/fan-kit/wallpapers'>wallpapers section</Link>. Enjoy
+          them!
+        </p>
+      </Article.Narrow>
 
-      <Article.FullWidth padding='60px'>
+      <Article.Embed>
         <Image
           src='/assets/images/wallpapers/lite/wp-d-3.png'
           alt='Stormbound Wallpaper'
           withAvif
         />
-      </Article.FullWidth>
+      </Article.Embed>
 
       <hr />
 

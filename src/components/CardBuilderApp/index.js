@@ -34,37 +34,36 @@ export default React.memo(function CardBuilderApp(props) {
           children: 'Open in wiki',
         }
       }
+      smallFontSize
     >
-      <Article.FullWidth style={{ fontSize: '85%' }}>
-        <CardDisplay {...props} />
+      <CardDisplay {...props} />
 
-        {isOfficial && <CardDisplayControls />}
+      {isOfficial && <CardDisplayControls />}
 
-        {props.hasSingleLevel && (
-          <Notice icon='wand'>
-            This card was created before it was possible to define all 5 levels,
-            or without consideration for leveling, therefore only the level{' '}
-            {props.level} is relevant.
-          </Notice>
-        )}
+      {props.hasSingleLevel && (
+        <Notice icon='wand'>
+          This card was created before it was possible to define all 5 levels,
+          or without consideration for leveling, therefore only the level{' '}
+          {props.level} is relevant.
+        </Notice>
+      )}
 
-        {props.mode === 'EDITOR' && (
-          <>
-            <div className='CardBuilderApp__bottom'>
-              <Row desktopOnly wideGutter>
-                <Column>
-                  <Title>Core attributes</Title>
-                  <CoreForm {...props} />
-                </Column>
-                <Column>
-                  <Title>Level-specific attributes</Title>
-                  <LevelForm {...props} />
-                </Column>
-              </Row>
-            </div>
-          </>
-        )}
-      </Article.FullWidth>
+      {props.mode === 'EDITOR' && (
+        <>
+          <div className='CardBuilderApp__bottom'>
+            <Row desktopOnly wideGutter>
+              <Column>
+                <Title>Core attributes</Title>
+                <CoreForm {...props} />
+              </Column>
+              <Column>
+                <Title>Level-specific attributes</Title>
+                <LevelForm {...props} />
+              </Column>
+            </Row>
+          </div>
+        </>
+      )}
     </Article>
   )
 })

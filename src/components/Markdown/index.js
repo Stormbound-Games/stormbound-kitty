@@ -59,16 +59,18 @@ const p = React.memo(props => {
 
   if (isDeck) {
     return (
-      <Deck
-        orientation='horizontal'
-        deck={serialisation.deck.deserialise(isDeck[1])}
-      />
+      <div className='Article__embed'>
+        <Deck
+          orientation='horizontal'
+          deck={serialisation.deck.deserialise(isDeck[1])}
+        />
+      </div>
     )
   }
 
   if (isSim) {
     return (
-      <div className='Article__fullwidth'>
+      <div className='Guide__fullwidth Article__embed'>
         <BattleSimApp mode='DISPLAY' simId={isSim[1]} />
       </div>
     )
