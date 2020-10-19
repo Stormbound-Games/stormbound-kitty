@@ -15,7 +15,7 @@ export default React.memo(function CardBuilderContest(props) {
     <>
       <Article
         title='Weekly Card Contest'
-        authors={['Taco_G']}
+        authors={['TaKo_G']}
         action={{ to: '/card', children: 'Card builder' }}
         noDropCap
         meta={isWeekEnd ? 'Voting phase' : 'Ongoing'}
@@ -30,7 +30,7 @@ export default React.memo(function CardBuilderContest(props) {
             participate and/or vote in the weekly card competitions. Would you
             have any questions or{' '}
             <strong className='Highlight'>want to be a judge</strong>, feel free
-            to message @Taco_G_#0373 on the{' '}
+            to message @TaKo_G#0373 on the{' '}
             <a
               href='https://discord.gg/stormbound'
               target='_blank'
