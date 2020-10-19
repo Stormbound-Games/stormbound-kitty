@@ -23,7 +23,7 @@ export default React.memo(function CardBuilderContest(props) {
         <Article.Narrow>
           <ContestStatus />
 
-          <Title className='CardBuilderContest__title'>Introduction</Title>
+          <Title>Introduction</Title>
 
           <p>
             The following is a collection of all of the information to
@@ -61,7 +61,7 @@ export default React.memo(function CardBuilderContest(props) {
             will get <Rubies amount={5} /> each.
           </p>
 
-          <Title className='CardBuilderContest__title'>Rules</Title>
+          <Title>Rules</Title>
           <ul className='CardBuilderContest__rules'>
             <li>
               Card submissions must be made by Friday 11:59 pm (23:59) CDT.

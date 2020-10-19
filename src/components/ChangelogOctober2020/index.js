@@ -57,7 +57,6 @@ export default React.memo(function ChangelogOctober2020(props) {
         children: 'Back to release notes',
       }}
       meta='Official announcement'
-      className='ChangelogOctober2020'
       background='/assets/images/banners/ancients.png'
       withAvif
       ratio='25%'
