@@ -10,22 +10,6 @@ describe('The `canCardBePlayed` helper', () => {
     expect(canCardBePlayed(3, getRawCardData('N1'))).to.equal(true)
   })
 
-  it('should return false if card is Icicle Burst and there are no frozen enemies', () => {
-    expect(
-      canCardBePlayed(3, getRawCardData('W1'), {
-        frozenEnemies: false,
-      })
-    ).to.equal(false)
-  })
-
-  it('should return true if card is Icicle Burst and there are frozen enemies', () => {
-    expect(
-      canCardBePlayed(3, getRawCardData('W1'), {
-        frozenEnemies: true,
-      })
-    ).to.equal(true)
-  })
-
   it('should return false if there are no empty cells and the card is not a spell', () => {
     expect(
       canCardBePlayed(3, getRawCardData('N1'), {

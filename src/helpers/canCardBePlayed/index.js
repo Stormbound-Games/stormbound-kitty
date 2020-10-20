@@ -10,12 +10,6 @@ const canCardBePlayed = (availableMana, card, state = {}) => {
 
   if (!card.id) return false
 
-  // This checks if a unit has been frozen this turn to allow Icicle Burst
-  // to be played.
-  if (card.id === 'W1' && !state.frozenEnemies) {
-    return false
-  }
-
   if (state.turn === 1) {
     // If the board is full no units/structures can be played. Spells that spawn
     // units can still be played, they simply don’t spawn anything.
@@ -24,9 +18,7 @@ const canCardBePlayed = (availableMana, card, state = {}) => {
     }
 
     // These spells can’t be played on turn 1 since they require a target:
-    // Confinement, Unhealthy Hysteria and Broken Truce. Icicle Burst is
-    // handled here again because playing Frosthexers on turn 1 should not make
-    // Icicle Burst playable either.
+    // Confinement, Unhealthy Hysteria and Broken Truce.
     const unplayableSpells = ['N9', 'N63', 'S10', 'W1']
 
     if (state.noUnits) {

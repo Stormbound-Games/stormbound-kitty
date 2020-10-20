@@ -315,10 +315,6 @@ const isSatyrInDeck = state => card =>
   state.deck.find(isCard(card)).race === 'satyr'
 
 const isPlayableSpell = state => card => {
-  if (card.id === 'W1') {
-    return state.specifics.frozenEnemiesLevel !== 0
-  }
-
   const cardInDeck = state.deck.find(isCard(card))
   return cardInDeck.type === 'spell'
 }

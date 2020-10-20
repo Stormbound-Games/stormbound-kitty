@@ -362,12 +362,6 @@ export default React.memo(function GuideManaCurve(props) {
           take the board back.
         </li>
         <li>
-          Cycling <CardLink id='W1' /> if it cannot be played due to lack of
-          cards which can freeze as part of the same hand. Despite being a cheap
-          card, Icicle Burst should not be kept in hand if it cannot be played
-          at all due to lack of synergy.
-        </li>
-        <li>
           Cards which cannot be played on the first turn. This includes{' '}
           <CardLink id='W1' />, <CardLink id='N9' />, <CardLink id='N63' /> and{' '}
           <CardLink id='S10' /> due to lack of enemies, as well as{' '}
