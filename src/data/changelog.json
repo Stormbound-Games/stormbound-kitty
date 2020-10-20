@@ -4198,5 +4198,11 @@
     "description": "Decreased strength by 1 and ability by 1 at low levels",
     "id": "N24",
     "type": "NERF"
+  },
+  {
+    "date": 1604188800000,
+    "description": "Updated ability",
+    "id": "I17",
+    "type": "BUFF"
   }
 ]
