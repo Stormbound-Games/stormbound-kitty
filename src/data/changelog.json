@@ -4168,5 +4168,11 @@
     "description": "Added to the game",
     "id": "N79",
     "type": "INFO"
+  },
+  {
+    "date": 1604188800000,
+    "description": "Increased mana cost by 1 at level 5",
+    "id": "F8",
+    "type": "NERF"
   }
 ]
