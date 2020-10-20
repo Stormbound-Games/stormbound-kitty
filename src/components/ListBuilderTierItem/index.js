@@ -58,9 +58,15 @@ export default React.memo(function ListBuilderTierItem(props) {
       )}
 
       <button
-        onMouseDown={() => props.onMouseDown(props.index)}
-        onMouseOver={() => props.onMouseOver(props.index)}
-        onMouseUp={() => props.onMouseUp(props.index)}
+        onMouseDown={
+          props.onMouseDown ? () => props.onMouseDown(props.index) : undefined
+        }
+        onMouseOver={
+          props.onMouseOver ? () => props.onMouseOver(props.index) : undefined
+        }
+        onMouseUp={
+          props.onMouseUp ? () => props.onMouseUp(props.index) : undefined
+        }
         type='button'
         onClick={() => props.removeCard(props.card.id)}
         className={[
