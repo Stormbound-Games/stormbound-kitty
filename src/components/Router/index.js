@@ -80,6 +80,7 @@ const ReleaseNotes = load('ReleaseNotes')
 const Story = load('Story')
 const StoryCategory = load('StoryCategory')
 const TournamentHallOfFame = load('TournamentHallOfFame')
+const TournamentTornado = load('TournamentTornado')
 const ValueCalculator = load('ValueCalculator')
 const Videos = load('Videos')
 
@@ -430,6 +431,14 @@ export default function Router(props) {
 
           <Page exact path='/' active={['HOME', 'NEWS']}>
             <Home />
+          </Page>
+
+          <Page
+            exact
+            path='/tournaments/tornado'
+            active={['COMMUNITY', 'TORNADO']}
+          >
+            <TournamentTornado />
           </Page>
 
           <Page path='*'>

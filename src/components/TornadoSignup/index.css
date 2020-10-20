@@ -1,0 +1,8 @@
+.TornadoSignup__field {
+  margin-bottom: 1em;
+}
+
+.TornadoSignup__field:last-child {
+  margin-top: 2em;
+  text-align: center;
+}
