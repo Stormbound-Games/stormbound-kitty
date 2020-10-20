@@ -4180,5 +4180,11 @@
     "description": "Decreased mana cost by 1",
     "id": "N77",
     "type": "BUFF"
+  },
+  {
+    "date": 1604188800000,
+    "description": "Decreased mana cost by 1",
+    "id": "F21",
+    "type": "BUFF"
   }
 ]
