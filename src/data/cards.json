@@ -307,10 +307,10 @@
     "race": "construct",
     "rarity": "common",
     "image": "personal_servers.png",
-    "mana": 4,
-    "strength": "2/2/3/3/4",
+    "mana": 3,
+    "strength": "1/2/2/3/3",
     "movement": 1,
-    "ability": "On play, *give 2/3/3/4/4* strength to another random friendly unit"
+    "ability": "On play, *give 2/2/3/3/4* strength to another random friendly unit"
   },
   {
     "name": "Siegebreakers",
