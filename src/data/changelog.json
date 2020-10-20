@@ -4222,5 +4222,11 @@
     "description": "Updated ability",
     "id": "W1",
     "type": "BUFF"
+  },
+  {
+    "date": 1604188800000,
+    "description": "Updated ability",
+    "id": "I17",
+    "type": "BUFF"
   }
 ]
