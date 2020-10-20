@@ -35,6 +35,7 @@
   top: 100%;
   transform: translate(-50%, -50%) translateY(3px);
   width: 50%;
+  text-align: center;
 }
 
 .Info > :last-child {
