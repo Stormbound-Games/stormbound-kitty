@@ -6,12 +6,14 @@ import './index.css'
 
 export default React.memo(function ListBuilderTier(props) {
   const cards = props.cards.map(getRawCardData)
+  const shouldRenderHeader =
+    typeof props.withHeader === 'undefined'
+      ? props.name || props.isEditable
+      : props.withHeader
 
   return (
     <div className='ListBuilderTier' style={{ '--color': props.color }}>
-      {(props.name || props.isEditable) && (
-        <ListBuilderTierHeader {...props} cards={cards} />
-      )}
+      {shouldRenderHeader && <ListBuilderTierHeader {...props} cards={cards} />}
 
       <div
         className={[
