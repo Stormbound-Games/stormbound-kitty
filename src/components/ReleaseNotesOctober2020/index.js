@@ -11,23 +11,6 @@ import Row from '../Row'
 import Title from '../Title'
 import CardLink from '../CardLink'
 import getInitialCardData from '../../helpers/getInitialCardData'
-import serialisation from '../../helpers/serialisation'
-
-const STOIC_PROTECTORS = serialisation.card.deserialise(
-  serialisation.card.serialise({
-    name: 'Stoic Protectors',
-    id: 'N80',
-    type: 'unit',
-    faction: 'neutral',
-    race: 'ancient',
-    rarity: 'epic',
-    image: 'stoic_protectors.png',
-    mana: 0,
-    strength: 0,
-    movement: 0,
-    ability: 'Stats and ability will be revealed when officially launched',
-  })
-)
 
 export default React.memo(function ReleaseNotesOctober2020(props) {
   return (
@@ -110,11 +93,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
       </Article.Narrow>
 
       <Article.Embed>
-        <CardBuilderCardDisplay
-          {...STOIC_PROTECTORS}
-          imageURL='stoic_protectors.png'
-          imageCardId={null}
-        />
+        <CardBuilderCardDisplay {...getInitialCardData('N80')} />
       </Article.Embed>
 
       <Article.Narrow>
