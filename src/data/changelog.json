@@ -4204,5 +4204,11 @@
     "description": "Updated ability",
     "id": "I17",
     "type": "BUFF"
+  },
+  {
+    "date": 1604188800000,
+    "description": "Added to the game",
+    "id": "N80",
+    "type": "INFO"
   }
 ]
