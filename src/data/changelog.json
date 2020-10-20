@@ -4216,5 +4216,11 @@
     "description": "Increased mana cost by 1 at level 5",
     "id": "F8",
     "type": "NERF"
+  },
+  {
+    "date": 1604188800000,
+    "description": "Updated ability",
+    "id": "W1",
+    "type": "BUFF"
   }
 ]

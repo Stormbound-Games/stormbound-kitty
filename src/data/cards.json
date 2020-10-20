@@ -2171,7 +2171,7 @@
     "mana": 1,
     "strength": null,
     "movement": null,
-    "ability": "Deal *8/10/12/15/18* damage to a target *frozen* enemy"
+    "ability": "Freeze a target enemy unit. If it is already frozen, deal *8/10/12/15/18* damage to it instead"
   },
   {
     "name": "Frosthexers",
