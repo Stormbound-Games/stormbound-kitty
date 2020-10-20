@@ -20,8 +20,10 @@ export default string => {
   }
 
   bolds.forEach((bold, index) => {
-    // Get the index in the string where the segment starts
-    const strIndex = string.indexOf(bold)
+    // Get the index in the string where the segment starts (ignoring everything
+    // before the currently recorded position so if a same word is bolded twice,
+    // we deal with the correct occurrence each time)
+    const strIndex = string.indexOf(bold, currentIndex)
 
     // Push anything from the end of the last segment until the beginning of
     // this one into the result
