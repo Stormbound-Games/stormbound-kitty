@@ -1008,7 +1008,7 @@
     "race": "pirate",
     "rarity": "legendary",
     "image": "rogue_sheep.png",
-    "mana": 7,
+    "mana": 6,
     "strength": "2/3/4/5/7",
     "movement": 0,
     "ability": "On death, deal *1/1/2/2/2 damage* to all enemy units and structures. Add 0-1/1/1/1/2 damage for up to 1/2/2/3/3 Pirate in hand.",

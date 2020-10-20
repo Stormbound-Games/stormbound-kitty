@@ -4174,5 +4174,11 @@
     "description": "Increased mana cost by 1 at level 5",
     "id": "F8",
     "type": "NERF"
+  },
+  {
+    "date": 1604188800000,
+    "description": "Decreased mana cost by 1",
+    "id": "N77",
+    "type": "BUFF"
   }
 ]
