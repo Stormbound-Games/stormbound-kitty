@@ -88,7 +88,7 @@
   padding-left: 3px;
 }
 
-.Article__content strong {
+.Article__content p:not([class]) strong {
   color: var(--beige);
 }
 
