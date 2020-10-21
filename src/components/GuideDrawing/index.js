@@ -300,7 +300,7 @@ export default React.memo(function GuideDrawing(props) {
       </p>
 
       <Info title='Try it out' icon='stack'>
-        You can try all these mechanics and practive your mana curve in the deck
+        You can try all these mechanics and practice your mana curve in the deck
         dry-runner. Simply open or compose a deck in the{' '}
         <Link to='/deck'>deck builder</Link>, then{' '}
         <Only.Desktop>click</Only.Desktop>/<Only.Mobile>tap</Only.Mobile>{' '}
