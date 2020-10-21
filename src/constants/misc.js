@@ -440,6 +440,14 @@ export const PODCAST_EPISODES = [
     excerpt:
       'Our hosts are back to discuss Stormbound with a very special guest. Emkaem makes his Brewed Sages debut and we review the state of the meta.',
   },
+  {
+    title: 'Introducing the BS Meta Report',
+    meta: '42 minutes and 31 seconds',
+    href:
+      'https://freeloader.podbean.com/e/episode-8-introducing-the-bs-meta-report/',
+    excerpt:
+      'Our hosts have brewed up another tool to help Stormbound players achieve loftier finishes each month: The BS Meta Report! How does it work? Does it work?',
+  },
 ]
 
 export const UNVALUED_CARDS = [
