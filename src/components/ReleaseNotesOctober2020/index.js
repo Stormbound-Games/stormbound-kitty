@@ -65,7 +65,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
         <Title id='new-cards'>New Cards</Title>
 
         <p>
-          As <Link to='/changelog/07-2020'>announced back in July</Link>, this
+          As <Link to='/releases/07-2020'>announced back in July</Link>, this
           update introduces two new cards aiming at buffing the confusion
           mechanic: <CardLink id='N78' /> (available as soon as October 1st) and{' '}
           <CardLink id='N79' /> (which will only be available from October 15th

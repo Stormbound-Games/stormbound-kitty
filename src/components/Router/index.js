@@ -55,7 +55,7 @@ const CardBuilderContest = load('CardBuilderContest')
 const CardBuilderDisplay = load('CardBuilderDisplay')
 const CardBuilderEditor = load('CardBuilderEditor')
 const CardsStats = load('CardsStats')
-const CardChanges = load('CardChanges')
+const CardChangelog = load('CardChangelog')
 const Collection = load('Collection')
 const CollectionStats = load('CollectionStats')
 const DeckBuilderRoot = load('DeckBuilderRoot')
@@ -376,7 +376,7 @@ export default function Router(props) {
             return (
               <Page
                 exact
-                path={'/changelog/' + release.slug}
+                path={'/releases/' + release.slug}
                 active={['GAME', release.id]}
                 key={release.id}
               >
@@ -385,16 +385,22 @@ export default function Router(props) {
             )
           })}
 
-          <Page
-            exact
-            path='/changelog/releases'
-            active={['GAME', 'RELEASE_NOTES']}
-          >
+          {releases.map(release => (
+            <Redirect
+              key={release.id}
+              from={'/changelog/' + release.slug}
+              to={'/releases/' + release.slug}
+            />
+          ))}
+
+          <Redirect from='/changelog/releases' to='/releases' />
+          <Page exact path='/releases' active={['GAME', 'RELEASES']}>
             <Releases />
           </Page>
 
-          <Page exact path='/changelog/cards' active={['GAME', 'CARD_CHANGES']}>
-            <CardChanges />
+          <Redirect from='/changelog/cards' to='/changelog' />
+          <Page exact path='/changelog' active={['GAME', 'CARD_CHANGELOG']}>
+            <CardChangelog />
           </Page>
 
           <Page exact path='/faq' active={['HOME', 'FAQ']}>

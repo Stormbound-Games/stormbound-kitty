@@ -21,7 +21,7 @@ export default React.memo(function GuideCardShop(props) {
       <p>
         This helps to prepare for the Diamond league and even Diamond 1 as early
         as possible. Just be aware that coins are a lot more precious since the{' '}
-        <Link to='/changelog/07-2020'>July update</Link>, and unless you go for
+        <Link to='/releases/07-2020'>July update</Link>, and unless you go for
         the coin cap on a regular basis, buying more than one copy of a card
         will take a large bite out of your weekly <Coins amount={700} /> from
         quests.

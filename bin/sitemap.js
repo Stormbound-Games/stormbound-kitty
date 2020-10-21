@@ -6,6 +6,7 @@ const { SWCC_SEASON_1, SWCC_SEASON_2 } = require('../src/constants/misc')
 const cards = require('../src/data/cards')
 const guides = require('../src/data/guides')
 const puzzles = require('../src/data/puzzles')
+const releases = require('../src/data/releases')
 const stories = require('../public/stories')
 
 const links = [
@@ -19,11 +20,7 @@ const links = [
   '/card',
   '/card/contest',
   '/card/stats',
-  '/changelog/cards',
-  '/changelog/releases',
-  '/changelog/07-2020',
-  '/changelog/09-2020',
-  '/changelog/3rd-anniversary',
+  '/changelog',
   '/collection',
   '/collection/stats',
   '/deck',
@@ -39,6 +36,7 @@ const links = [
   '/list/ranked',
   '/members',
   '/quest',
+  '/releases',
   '/sim',
   '/sim/puzzles',
   '/stories',
@@ -53,6 +51,9 @@ cards.forEach(card => {
 })
 guides.forEach(guide => {
   links.push('/guides/' + guide.slug)
+})
+releases.forEach(release => {
+  links.push('/releases/' + release.slug)
 })
 ;[...SWCC_SEASON_1, ...SWCC_SEASON_2]
   .filter(contest => !!contest.winner)

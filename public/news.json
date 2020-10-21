@@ -17,7 +17,7 @@
   {
     "intro": "October Update",
     "description": "The second Sheepyard update is here, so be sure to read everything you need to know!",
-    "link": "/changelog/10-2020"
+    "link": "/releases/10-2020"
   },
   {
     "intro": "Member Pages",
@@ -37,7 +37,7 @@
   {
     "intro": "Third Anniversary",
     "description": "A minor promotional update on the 17th of September to celebrate Stormbound’s 3rd anniversary!",
-    "link": "/changelog/3rd-anniversary"
+    "link": "/releases/3rd-anniversary"
   },
   {
     "intro": "Brewed Sages Podcast",
@@ -45,9 +45,9 @@
     "link": "/brewed-sages"
   },
   {
-    "intro": "Buff Patch",
+    "intro": "Small Buff Patch",
     "description": "A minor buff patch is landing, so be sure to check it out!",
-    "link": "/changelog/09-2020"
+    "link": "/releases/09-2020"
   },
   {
     "intro": "New Navigation",
@@ -110,9 +110,9 @@
     "link": "/guides/card-shop"
   },
   {
-    "intro": "Card Changes",
-    "description": "The changelog has been revisited to be more accurate and more easily searchable.",
-    "link": "/changelog/cards"
+    "intro": "Card Changelog",
+    "description": "The card changelog has been revisited to be more accurate and more easily searchable.",
+    "link": "/changelog"
   },
   {
     "intro": "Personal Decks",
@@ -122,7 +122,7 @@
   {
     "intro": "Update 07-2020",
     "description": "Discover everything there is to know about the first Stormbound update from the Sheepyard studio!",
-    "link": "/changelog/07-2020"
+    "link": "/releases/07-2020"
   },
   {
     "intro": "About Page",
@@ -220,9 +220,9 @@
     "link": "/deck"
   },
   {
-    "intro": "Card Changes",
+    "intro": "Card Changelog",
     "description": "Stormbound Kitty now provides a changelog of all cards additions and updates, courtesy of the official Wiki.",
-    "link": "/changelog/cards"
+    "link": "/changelog"
   },
   {
     "intro": "Cards Stats",

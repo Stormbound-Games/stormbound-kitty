@@ -10,7 +10,7 @@ export default React.memo(function ReleaseNotes(props) {
     <Article
       author='Kitty'
       title={release.title}
-      action={{ to: '/changelog/releases', children: 'Back to release notes' }}
+      action={{ to: '/releases', children: 'Back to release notes' }}
       meta={'Official · ' + release.date}
       background={release.background}
       ratio={release.ratio}

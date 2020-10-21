@@ -3,6 +3,7 @@ import cards from '../../data/cards'
 import decks from '../../data/decks'
 import guides from '../../data/guides'
 import puzzles from '../../data/puzzles'
+import releases from '../../data/releases'
 import { BRAWLS } from '../../constants/brawl'
 import { CATEGORIES } from '../../constants/guides'
 import { STORY_CATEGORIES } from '../../constants/stories'
@@ -126,39 +127,23 @@ SEARCH_INDEX.push({
 })
 
 SEARCH_INDEX.push({
-  path: '/changelog/cards',
-  label: 'Card Changes',
+  path: '/changelog',
+  label: 'Card Changelog',
   breadcrumbs: ['Game', 'Changelog'],
 })
 
 SEARCH_INDEX.push({
-  path: '/changelog/releases',
+  path: '/releases',
   label: 'Releases Notes',
-  breadcrumbs: ['Game', 'Changelog'],
+  breadcrumbs: ['Game', 'Releases'],
 })
 
-SEARCH_INDEX.push({
-  path: '/changelog/07-2020',
-  label: 'July 2020 release',
-  breadcrumbs: ['Game', 'Changelog'],
-})
-
-SEARCH_INDEX.push({
-  path: '/changelog/09-2020',
-  label: 'September 2020 release',
-  breadcrumbs: ['Game', 'Changelog'],
-})
-
-SEARCH_INDEX.push({
-  path: '/changelog/10-2020',
-  label: 'October 2020 release',
-  breadcrumbs: ['Game', 'Changelog'],
-})
-
-SEARCH_INDEX.push({
-  path: '/changelog/3rd-anniversary',
-  label: 'Third Anniversary release',
-  breadcrumbs: ['Game', 'Changelog'],
+releases.forEach(release => {
+  SEARCH_INDEX.push({
+    path: '/releases/' + release.slug,
+    label: release.title,
+    breadcrumbs: ['Game', 'Releases'],
+  })
 })
 
 SEARCH_INDEX.push({

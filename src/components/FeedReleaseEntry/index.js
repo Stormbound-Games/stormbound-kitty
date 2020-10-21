@@ -6,7 +6,7 @@ export default React.memo(function FeedReleaseEntry(props) {
   return (
     <FeedEntry icon='bullhorn' date={props.date}>
       Kitty has published release notes for the{' '}
-      <Link to={'/changelog/' + props.slug}>{props.title}</Link>.
+      <Link to={'/releases/' + props.slug}>{props.title}</Link>.
     </FeedEntry>
   )
 })

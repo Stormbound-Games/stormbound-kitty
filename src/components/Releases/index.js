@@ -20,7 +20,7 @@ export default React.memo(function Releases(props) {
               <Teaser
                 {...row[0]}
                 title={row[0].name}
-                to={`/changelog/${row[0].slug}`}
+                to={`/releases/${row[0].slug}`}
               />
             )}
           </Column>
@@ -29,7 +29,7 @@ export default React.memo(function Releases(props) {
               <Teaser
                 {...row[1]}
                 title={row[1].name}
-                to={`/changelog/${row[1].slug}`}
+                to={`/releases/${row[1].slug}`}
               />
             )}
           </Column>
@@ -38,7 +38,7 @@ export default React.memo(function Releases(props) {
               <Teaser
                 {...row[2]}
                 title={row[2].name}
-                to={`/changelog/${row[2].slug}`}
+                to={`/releases/${row[2].slug}`}
               />
             )}
           </Column>
@@ -47,8 +47,8 @@ export default React.memo(function Releases(props) {
 
       <Notice icon='compass'>
         If you are looking for all the changes that were ever applied to
-        specific cards, refer to{' '}
-        <Link to='/changelog/cards'>the card changes</Link>.
+        specific cards, refer to <Link to='/changelog'>the card changelog</Link>
+        .
       </Notice>
 
       <PageMeta

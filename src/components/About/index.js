@@ -35,8 +35,8 @@ export default React.memo(function About(props) {
 
         <p>
           As of July 2020, Stormbound-Kitty is also the official platform for{' '}
-          <Link to='/changelog/releases'>release notes</Link> as well as some
-          other Sheepyard-provided support.
+          <Link to='/releases'>release notes</Link> as well as some other
+          Sheepyard-provided support.
         </p>
 
         <h2>Financial support</h2>

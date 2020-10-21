@@ -37,28 +37,28 @@ export default () => {
           items: [
             {
               label: 'Update 10-2020',
-              to: '/changelog/10-2020',
+              to: '/releases/10-2020',
               id: '10_2020',
             },
             {
               label: 'Update 09-2020',
-              to: '/changelog/09-2020',
+              to: '/releases/09-2020',
               id: '09_2020',
             },
             {
               label: 'Update 07-2020',
-              to: '/changelog/07-2020',
+              to: '/releases/07-2020',
               id: '07_2020',
             },
             {
-              label: 'Release Notes',
-              to: '/changelog/releases',
-              id: 'RELEASE_NOTES',
+              label: 'Releases',
+              to: '/releases',
+              id: 'RELEASES',
             },
             {
-              label: 'Cards History',
-              to: '/changelog/cards',
-              id: 'CARD_CHANGES',
+              label: 'Card Changelog',
+              to: '/changelog',
+              id: 'CARD_CHANGELOG',
             },
           ],
         },

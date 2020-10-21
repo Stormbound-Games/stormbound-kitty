@@ -28,7 +28,7 @@ const Change = React.memo(function Change(props) {
   )
 })
 
-export default function CardChanges(props) {
+export default function CardChangelog(props) {
   const [sorting, setSorting] = React.useState('DATE')
   const [type, setType] = React.useState('*')
   const changesByDate = React.useMemo(() => {
@@ -56,7 +56,7 @@ export default function CardChanges(props) {
 
   return (
     <>
-      <HeaderBanner title='Card Changes' />
+      <HeaderBanner title='Card Changelog' />
 
       <Row desktopOnly wideGutter>
         <Column width='1/3'>
@@ -112,7 +112,7 @@ export default function CardChanges(props) {
 
           <Info icon='compass' title='Release notes'>
             If you are looking for the details of a specific update, check out
-            the <Link to='/changelog/releases'>release notes</Link>.
+            the <Link to='/releases'>release notes</Link>.
           </Info>
         </Column>
         <Column width='2/3'>
