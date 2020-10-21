@@ -2,24 +2,19 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import FeedEntry from '../FeedEntry'
 import MemberList from '../MemberList'
-import { PODCAST_EPISODES } from '../../constants/misc'
+import podcasts from '../../data/podcasts'
 
 export default React.memo(function FeedPodcastEntry(props) {
-  const episode = PODCAST_EPISODES.find(
-    episode => episode.title === props.title
-  )
-  const name = props.authors.find(author => author.toLowerCase() === props.user)
+  const episode = podcasts.find(episode => episode.title === props.title)
+  const name = props.hosts.find(host => host.toLowerCase() === props.user)
 
   return (
     <FeedEntry icon='bubbles' date={props.date}>
       {name} has featured in
-      {props.authors.length > 1 ? (
+      {props.hosts.length > 1 ? (
         <>
           , alongside{' '}
-          <MemberList
-            members={props.authors.filter(author => author !== name)}
-          />
-          ,
+          <MemberList members={props.hosts.filter(host => host !== name)} />,
         </>
       ) : null}{' '}
       an episode of the Brewed Sages podcast named{' '}

@@ -1,0 +1,77 @@
+[
+  {
+    "title": "The Beginning",
+    "meta": "51 minutes and 56 seconds",
+    "date": "09/2020",
+    "hosts": ["Freeloader", "Subaiku"],
+    "href":
+      "https://freeloader.podbean.com/e/episode-1-the-beginning-1599101201/",
+    "excerpt":
+      "Find out where Freeloader and Subaiku came from, and how they see the fun and challenging game that is Stormbound."
+  },
+  {
+    "title": "Midsummer Buffs",
+    "meta": "51 minutes and 34 seconds",
+    "date": "09/2020",
+    "hosts": ["Freeloader", "Subaiku"],
+    "href": "https://freeloader.podbean.com/e/episode-2-midsummer-buffs/",
+    "excerpt":
+      "Sheepyard has gifted us some free content to discus. We oblige as only Freeloaders can!"
+  },
+  {
+    "title": "OK, Boomers",
+    "meta": "41 minutes and 42 seconds",
+    "date": "09/2020",
+    "hosts": ["Freeloader", "Subaiku"],
+    "href": "https://www.podbean.com/media/share/pb-kjsah-ebb8af",
+    "excerpt":
+      "Freeloader and Subaiku are discussing some of the strongest elder cards in Stormbound. Who dodged the nerf hammer? Should they be nerfed now? Tune in to find out!"
+  },
+  {
+    "title": "A New Bloke",
+    "meta": "42 minutes and 50 seconds",
+    "date": "09/2020",
+    "hosts": ["Freeloader", "Subaiku", "ArthisRoo"],
+    "href": "https://freeloader.podbean.com/e/episode-4-a-new-bloke/",
+    "excerpt":
+      "Freeloader and Subaiku welcome a third host. Who will this mystery host be, and are they truly crazy enough to spend an hour each week talking with us?!"
+  },
+  {
+    "title": "What’s a Burf?",
+    "meta": "52 minutes and 36 seconds",
+    "date": "09/2020",
+    "hosts": ["Freeloader", "Subaiku", "ArthisRoo"],
+    "href": "https://freeloader.podbean.com/e/episode-5-whats-a-burf/",
+    "excerpt":
+      "Our hosts are hot on the trail of Stormbound breadcrumbs: an AMA, leaks in the Discord server and an interview with Brzoza help drawing a map of where Sheepyard is taking the game."
+  },
+  {
+    "title": "The Hunt for the Bread in October",
+    "meta": "44 minutes and 31 seconds",
+    "date": "10/2020",
+    "hosts": ["Freeloader", "Subaiku", "ArthisRoo", "Brzoza"],
+    "href":
+      "https://freeloader.podbean.com/e/episode-6-the-hunt-for-the-bread-in-october/",
+    "excerpt":
+      "The Brewed Sages are excited for all the balance changes and new cards being introduced to Stormbound… but where are they going to find the resources to play with them?"
+  },
+  {
+    "title": "From Earyn with Love",
+    "meta": "47 minutes and 21 seconds",
+    "date": "10/2020",
+    "hosts": ["Freeloader", "Subaiku", "ArthisRoo", "Emkaem"],
+    "href": "https://freeloader.podbean.com/e/episode-007-from-earyn-with-love/",
+    "excerpt":
+      "Our hosts are back to discuss Stormbound with a very special guest. Emkaem makes his Brewed Sages debut and we review the state of the meta."
+  },
+  {
+    "title": "Introducing the BS Meta Report",
+    "meta": "42 minutes and 31 seconds",
+    "date": "10/2020",
+    "hosts": ["Freeloader", "Subaiku", "ArthisRoo"],
+    "href":
+      "https://freeloader.podbean.com/e/episode-8-introducing-the-bs-meta-report/",
+    "excerpt":
+      "Our hosts have brewed up another tool to help Stormbound players achieve loftier finishes each month: The BS Meta Report! How does it work? Does it work?"
+  }
+]

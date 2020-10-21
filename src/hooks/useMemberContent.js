@@ -8,7 +8,7 @@ import artworks from '../data/artworks'
 import puzzles from '../data/puzzles'
 import events from '../data/events'
 import releases from '../data/releases'
-
+import podcasts from '../data/podcasts'
 import { SWCC_SEASON_1, SWCC_SEASON_2, DONATORS } from '../constants/misc'
 
 const formatEntryWithDate = entry => {
@@ -41,6 +41,13 @@ const useUserHosts = id =>
   tournaments
     .filter(tournament =>
       tournament.hosts.map(host => host.toLowerCase()).includes(id)
+    )
+    .map(formatEntryWithDate)
+
+const useUserPodcasts = id =>
+  podcasts
+    .filter(episode =>
+      episode.hosts.map(host => host.toLocaleLowerCase()).includes(id)
     )
     .map(formatEntryWithDate)
 
@@ -105,6 +112,7 @@ const useMemberContent = id => {
   const cards = useUserCards(id)
   const donations = useUserDonations(id)
   const events = useUserEvents(id)
+  const podcasts = useUserPodcasts(id)
 
   const content = [
     ...stories.map(addType('STORY')),
@@ -116,6 +124,7 @@ const useMemberContent = id => {
     ...puzzles.map(addType('PUZZLE')),
     ...cards.map(addType('CARD')),
     ...donations.map(addType('DONATION')),
+    ...podcasts.map(addType('PODCAST')),
     ...events,
   ].sort((a, b) => b.date - a.date)
 
@@ -132,6 +141,7 @@ const useMemberContent = id => {
     events[0]?.authors.find(findDisplayName) ??
     guides[0]?.authors.find(findDisplayName) ??
     hosts[0]?.hosts.find(findDisplayName) ??
+    podcasts[0]?.hosts.find(findDisplayName) ??
     podiums[0]?.podium.flat().find(findDisplayName) ??
     cards[0]?.winner.author ??
     capitalise(id)
@@ -140,16 +150,17 @@ const useMemberContent = id => {
     displayName,
     content,
     details: {
-      stories,
-      decks,
-      guides,
-      hosts,
-      podiums,
       artworks,
-      puzzles,
       cards,
+      decks,
       donations,
       events,
+      guides,
+      hosts,
+      podcasts,
+      podiums,
+      puzzles,
+      stories,
     },
   }
 }

@@ -9,7 +9,7 @@ import Teaser from '../Teaser'
 import Title from '../Title'
 import chunk from '../../helpers/chunk'
 import useViewportWidth from '../../hooks/useViewportWidth'
-import { PODCAST_EPISODES } from '../../constants/misc'
+import podcasts from '../../data/podcasts'
 
 const CARD = {
   image: 'brewed_sages.png',
@@ -53,7 +53,7 @@ export default React.memo(function BrewedSages(props) {
       </Article.Narrow>
 
       <Title>Episodes</Title>
-      {chunk(PODCAST_EPISODES.slice(0).reverse(), 3).map((row, index) => (
+      {chunk(podcasts.slice(0).reverse(), 3).map((row, index) => (
         <Row desktopOnly key={index}>
           <Column width='1/3'>
             {row[0] && (
@@ -61,7 +61,7 @@ export default React.memo(function BrewedSages(props) {
                 {...row[0]}
                 card={{
                   ...CARD,
-                  mana: PODCAST_EPISODES.length - index * 3,
+                  mana: podcasts.length - index * 3,
                   ability: row[0].excerpt,
                 }}
               />
@@ -73,7 +73,7 @@ export default React.memo(function BrewedSages(props) {
                 {...row[1]}
                 card={{
                   ...CARD,
-                  mana: PODCAST_EPISODES.length - index * 3 - 1,
+                  mana: podcasts.length - index * 3 - 1,
                   ability: row[1].excerpt,
                 }}
               />
@@ -85,7 +85,7 @@ export default React.memo(function BrewedSages(props) {
                 {...row[2]}
                 card={{
                   ...CARD,
-                  mana: PODCAST_EPISODES.length - index * 3 - 2,
+                  mana: podcasts.length - index * 3 - 2,
                   ability: row[2].excerpt,
                 }}
               />

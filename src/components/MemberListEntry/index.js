@@ -24,6 +24,8 @@ const getLabel = (key, number) => {
       return number === 1 ? 'won card contest' : 'won card contests'
     case 'donations':
       return number === 1 ? 'donation' : 'donations'
+    case 'podcasts':
+      return number === 1 ? 'podcast' : 'podcasts'
     case 'events':
       return number === 1 ? 'miscellaneous event' : 'miscellaneous events'
     default:

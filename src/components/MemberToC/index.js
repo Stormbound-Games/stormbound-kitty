@@ -38,6 +38,10 @@ export default React.memo(function MemberToC(props) {
         {props.puzzles.length === 1 ? 'puzzle' : 'puzzles'}
       </li>
       <li>
+        <Icon icon='bubbles' /> {props.podcasts.length}{' '}
+        {props.podcasts.length === 1 ? 'podcast' : 'podcasts'}
+      </li>
+      <li>
         <Icon icon='star' /> {props.events.length} miscellaneous{' '}
         {props.events.length === 1 ? 'event' : 'events'}
       </li>
