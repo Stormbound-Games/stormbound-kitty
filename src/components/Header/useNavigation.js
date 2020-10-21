@@ -41,6 +41,7 @@ export default () => {
               label: 'Update 11-2020',
               to: '/releases/11-2020',
               id: '11_2020',
+              new: true,
             },
             {
               label: 'Update 10-2020',
@@ -48,7 +49,7 @@ export default () => {
               id: '10_2020',
             },
             {
-              label: 'Releases',
+              label: 'All Releases',
               to: '/releases',
               id: 'RELEASES',
             },
