@@ -201,10 +201,10 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
               answer: (
                 <>
                   The Stoic Protector’s pack will be available from November 1st
-                  to November 8th. The Trick of Treat offer will be available
-                  from October 29th to November 15th. The extra weekly and
-                  monthly vanishing packs will be available all throughout
-                  November.
+                  to November 8th. The Trick of Treat offer and the ruby packs’
+                  boost will be available from October 29th to November 15th.
+                  The extra weekly and monthly vanishing packs will be available
+                  all throughout November.
                 </>
               ),
             },
