@@ -20,6 +20,11 @@ const getEffectiveSpeed = card => {
       // played with bordering or surrounding units, so we consider an average
       // speed of 1.
       return 1
+    case 'I17':
+      // Eloth the Ignited has 0 base movement, but can be used to move in front
+      // of the first enemy (and then 1 extra tile if it kills it), so we
+      // consider an average of 2.
+      return 2
     default:
       return card.movement || 0
   }
