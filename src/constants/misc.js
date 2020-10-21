@@ -320,6 +320,11 @@ export const SWCC_SEASON_2 = [
   {
     week: 42,
     name: 'Spell Focus',
+    winner: {
+      id:
+        'TjtSO1U7RTs0OzA7Mi8zLzQvNS82O1RoaXN0bGVyb2JlJTIwQWNvbHl0ZTtodHRwcyUzQSUyRiUyRmkuaW1ndXIuY29tJTJGakpBczhjTi5wbmc7T24lMjBwbGF5JTJDJTIwcmFuZG9tbHklMjAqY2FzdColMjBhJTIwc3BlbGwlMjBmcm9tJTIweW91ciUyMGRlY2slMjB0aGF0JTIwY29zdHMlMjA0JTIwb3IlMjBsZXNzOzs=',
+      author: 'MooreFunn',
+    },
   },
   {
     week: 43,
