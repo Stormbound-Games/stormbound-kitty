@@ -1,4 +1,4 @@
-import { SWCC_SEASON_1 } from '../../../src/constants/misc'
+import swcc from '../../../src/data/swcc'
 
 describe('Routes — Card Builder', () => {
   it('it should render', () => {
@@ -10,7 +10,7 @@ describe('Routes — Card Builder', () => {
   })
 
   it('it should render the editor mode', () => {
-    cy.visit('/card/' + SWCC_SEASON_1[0].winner.id)
+    cy.visit('/card/' + swcc[0].winner.id)
       .get('main h1')
       .should('exist')
   })
@@ -24,7 +24,7 @@ describe('Routes — Card Builder', () => {
   })
 
   it('it should render the display mode', () => {
-    cy.visit('/card/' + SWCC_SEASON_1[0].winner.id + '/display')
+    cy.visit('/card/' + swcc[0].winner.id + '/display')
       .get('main h1')
       .should('exist')
   })

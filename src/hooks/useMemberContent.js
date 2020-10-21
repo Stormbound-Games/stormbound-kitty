@@ -10,7 +10,7 @@ import puzzles from '../data/puzzles'
 import events from '../data/events'
 import releases from '../data/releases'
 import podcasts from '../data/podcasts'
-import { SWCC_SEASON_1, SWCC_SEASON_2 } from '../constants/misc'
+import swcc from '../data/swcc'
 
 const formatEntryWithDate = entry => {
   if (!entry.date) return entry
@@ -73,19 +73,18 @@ const useUserPuzzles = id =>
     .map(formatEntryWithDate)
 
 const useUserCards = id =>
-  SWCC_SEASON_1.filter(contest => contest.winner.author.toLowerCase() === id)
+  swcc
+    .filter(
+      contest => contest.winner && contest.winner.author.toLowerCase() === id
+    )
     .map(entry => ({
       ...entry,
-      date: new Date(2019, 0, 1 + (entry.week - 1) * 7),
+      date: new Date(
+        entry.season === 1 ? 2019 : 2020,
+        0,
+        1 + (entry.week - 1) * 7
+      ),
     }))
-    .concat(
-      SWCC_SEASON_2.filter(
-        contest => contest.winner && contest.winner.author.toLowerCase() === id
-      ).map(entry => ({
-        ...entry,
-        date: new Date(2020, 0, 1 + (entry.week - 1) * 7),
-      }))
-    )
 
 const useUserDonations = id =>
   donations

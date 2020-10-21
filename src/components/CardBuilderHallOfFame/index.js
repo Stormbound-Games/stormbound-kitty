@@ -1,9 +1,9 @@
 import React from 'react'
-import { SWCC_SEASON_1, SWCC_SEASON_2 } from '../../constants/misc'
 import HallOfFameTeaser from '../HallOfFameTeaser'
 import Column from '../Column'
 import Row from '../Row'
 import Title from '../Title'
+import swcc from '../../data/swcc'
 import chunk from '../../helpers/chunk'
 
 export const CardBuilderHallOfFameSeason = React.memo(
@@ -44,12 +44,16 @@ export default React.memo(function CardBuilderHallOfFame(props) {
     <>
       <Title>Season 2</Title>
       <CardBuilderHallOfFameSeason
-        weeks={SWCC_SEASON_2.filter(week => !!week.winner).reverse()}
+        weeks={swcc
+          .filter(week => !!week.winner && week.season === 1)
+          .reverse()}
       />
 
       <Title>Season 1</Title>
       <CardBuilderHallOfFameSeason
-        weeks={SWCC_SEASON_1.filter(week => !!week.winner).reverse()}
+        weeks={swcc
+          .filter(week => !!week.winner && week.season === 2)
+          .reverse()}
       />
     </>
   )

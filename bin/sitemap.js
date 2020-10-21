@@ -2,7 +2,7 @@ const fs = require('fs')
 const { SitemapStream, streamToPromise } = require('sitemap')
 const { BRAWLS } = require('../src/constants/brawl')
 const { STORY_CATEGORIES } = require('../src/constants/stories')
-const { SWCC_SEASON_1, SWCC_SEASON_2 } = require('../src/constants/misc')
+const swcc = require('../src/data/swcc')
 const cards = require('../src/data/cards')
 const guides = require('../src/data/guides')
 const puzzles = require('../src/data/puzzles')
@@ -55,7 +55,7 @@ guides.forEach(guide => {
 releases.forEach(release => {
   links.push('/releases/' + release.slug)
 })
-;[...SWCC_SEASON_1, ...SWCC_SEASON_2]
+swcc
   .filter(contest => !!contest.winner)
   .forEach(contest => {
     links.push('/card/' + contest.winner.id + '/display')

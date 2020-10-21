@@ -13,8 +13,8 @@ import events from '../../data/events'
 import guides from '../../data/guides'
 import puzzles from '../../data/puzzles'
 import tournaments from '../../data/tournaments'
+import swcc from '../../data/swcc'
 import chunk from '../../helpers/chunk'
-import { SWCC_SEASON_1, SWCC_SEASON_2 } from '../../constants/misc'
 
 const uniq = (myArr, prop) =>
   myArr.filter(
@@ -51,7 +51,7 @@ const useMemberList = ({ name, type }) => {
       .map(tournament => tournament.podium)
       .flat(2)
       .map(addType('PODIUM')),
-    ...[...SWCC_SEASON_1, ...SWCC_SEASON_2]
+    ...swcc
       .filter(week => week.winner)
       .map(week => week.winner.author)
       .map(addType('CARD')),
