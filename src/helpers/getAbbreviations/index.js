@@ -1,6 +1,45 @@
 import cards from '../../data/cards'
 import abbreviate from '../abbreviate'
-import { COMMON_ABBREVIATIONS } from '../../constants/misc'
+
+const COMMON_ABBREVIATIONS = {
+  AH: 'Amberhides',
+  AoE: 'Area of Effect',
+  ATE: 'Attack Trigger Effect',
+  BH: 'Base Health',
+  BS: 'Bladestorm',
+  CB: 'Chillbeards',
+  DB: ['Destructobots', 'Doppelbocks'],
+  DF: 'Dreadfauns',
+  DS: 'Dawnsparks',
+  DTE: 'Death Trigger Effect',
+  EF: 'Earthfathers',
+  F2P: 'Free-to-play',
+  FH: 'Frosthexers',
+  FL: 'Fortress Level',
+  FM: 'Fleshmenders',
+  FS: 'Fusion Stones',
+  GG: 'Goldgrubbers',
+  HP: 'Health Point(s)',
+  IC: 'Ironclad',
+  LL: 'Limelimbs',
+  MW: 'Mystwives',
+  OC: 'Overchargers',
+  P2P: 'Pay-to-play',
+  P2W: 'Pay-to-win',
+  QoL: 'Quality of Life',
+  RL: 'Rimelings',
+  RR: 'Reckless Rush',
+  RW: 'Rockworkers',
+  SB: ['Siegebreakers', 'Stormbound'],
+  SC: ['Soulcrushers', 'Swarmcallers'],
+  SF: 'Shadowfen',
+  SM: 'Snowmasons',
+  SS: 'Sleetstompers',
+  STE: 'Survive Trigger Effect',
+  WC: 'Wolfcloaks',
+  WM: 'Windmakers',
+  WP: 'Winter Pact',
+}
 
 export default (casing = 'NATURAL') => {
   const abbreviations = {}
