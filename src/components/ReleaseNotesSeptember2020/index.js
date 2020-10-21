@@ -2,7 +2,6 @@ import React from 'react'
 import Article from '../Article'
 import CardLink from '../CardLink'
 import Notice from '../Notice'
-import PageMeta from '../PageMeta'
 import ReleaseNotes from '../ReleaseNotes'
 import Title from '../Title'
 
@@ -98,12 +97,6 @@ export default React.memo(function ReleaseNotesSeptember2020(props) {
           Stormbounders!
         </Notice>
       </Article.Narrow>
-
-      <PageMeta
-        title='Update 09-2020'
-        description='Discover everything there is to know about the minor Stormbound balance tweaks!'
-        image='/assets/images/banners/environment_dragon.png'
-      />
     </ReleaseNotes>
   )
 })

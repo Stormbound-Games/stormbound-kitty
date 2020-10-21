@@ -5,7 +5,6 @@ import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Column from '../Column'
 import FAQSection from '../FAQSection'
 import Info from '../Info'
-import PageMeta from '../PageMeta'
 import { Coins, Rubies, Stones } from '../Resource'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
@@ -358,12 +357,6 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
           ]}
         />
       </Article.Narrow>
-
-      <PageMeta
-        title='Update 10-2020'
-        description='Discover everything there is to know about the second Sheepyard update!'
-        image='/assets/images/banners/factions.png'
-      />
     </ReleaseNotes>
   )
 })
