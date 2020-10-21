@@ -1,5 +1,6 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import EyeCatcher from '../EyeCatcher'
 import Footer from '../Footer'
 import Header from '../Header'
 import load from '../../helpers/load'
@@ -36,6 +37,11 @@ export default React.memo(function Layout(props) {
 
   return (
     <div className='Layout'>
+      <EyeCatcher id='patch-2020-11'>
+        Halloween is around the corner and so is a new update!{' '}
+        <Link to='/releases/11-2020'>Be sure to check it out</Link>!
+      </EyeCatcher>
+
       <Header
         active={props.active}
         isSearchReady={isSearchReady}
