@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ChangelogLegend from '../ChangelogLegend'
+import CardChangesLegend from '../CardChangesLegend'
 import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
@@ -20,7 +20,7 @@ const getCardName = id => getRawCardData(id).name
 
 const Change = React.memo(function Change(props) {
   return props.type ? (
-    <span className={`Changelog__${props.type.toLowerCase()}`}>
+    <span className={`CardChanges__${props.type.toLowerCase()}`}>
       {props.description}
     </span>
   ) : (
@@ -28,7 +28,7 @@ const Change = React.memo(function Change(props) {
   )
 })
 
-export default function Changelog(props) {
+export default function CardChanges(props) {
   const [sorting, setSorting] = React.useState('DATE')
   const [type, setType] = React.useState('*')
   const changesByDate = React.useMemo(() => {
@@ -93,11 +93,11 @@ export default function Changelog(props) {
 
           <Row>
             <Column>
-              <ChangelogLegend />
+              <CardChangesLegend />
             </Column>
           </Row>
 
-          <p className='Changelog__disclaimer'>
+          <p className='CardChanges__disclaimer'>
             This data is periodically scrapped from the official{' '}
             <a
               href='https://stormboundkingdomwars.gamepedia.com/Stormbound:_Kingdom_Wars_Wiki'
@@ -121,11 +121,11 @@ export default function Changelog(props) {
                 .sort()
                 .reverse()
                 .map(date => (
-                  <section className='Changelog__section' key={date}>
-                    <Title className='Changelog__title'>
+                  <section className='CardChanges__section' key={date}>
+                    <Title className='CardChanges__title'>
                       {formatDate(date)}
                     </Title>
-                    <ul className='Changelog__list'>
+                    <ul className='CardChanges__list'>
                       {changesByDate[date].map(change => (
                         <li key={change.date + change.id + change.description}>
                           <CardLink id={change.id} />: <Change {...change} />
@@ -137,11 +137,11 @@ export default function Changelog(props) {
             : Object.keys(changesByCard)
                 .sort((a, b) => CARD_IDS.indexOf(a) - CARD_IDS.indexOf(b))
                 .map(id => (
-                  <section className='Changelog__section' key={id}>
-                    <Title className='Changelog__title'>
+                  <section className='CardChanges__section' key={id}>
+                    <Title className='CardChanges__title'>
                       {getCardName(id)}
                     </Title>
-                    <ul className='Changelog__list'>
+                    <ul className='CardChanges__list'>
                       {changesByCard[id].map(change => (
                         <li key={id + change.date + change.description}>
                           <time className='Highlight'>

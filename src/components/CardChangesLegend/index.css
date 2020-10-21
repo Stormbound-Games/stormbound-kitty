@@ -1,14 +1,14 @@
-.ChangelogLegend {
+.CardChangesLegend {
   list-style: none;
   padding-left: 2.25em;
 }
 
-.ChangelogLegend__item {
+.CardChangesLegend__item {
   position: relative;
   margin: 0.5em 0;
 }
 
-.ChangelogLegend__item::before {
+.CardChangesLegend__item::before {
   box-sizing: border-box;
   content: '';
   width: 1em;
@@ -23,15 +23,15 @@
   background-clip: content-box;
 }
 
-.ChangelogLegend__item--buff::before {
+.CardChangesLegend__item--buff::before {
   background-color: var(--light-shadowfen);
 }
-.ChangelogLegend__item--nerf::before {
+.CardChangesLegend__item--nerf::before {
   background-color: var(--light-ironclad);
 }
-.ChangelogLegend__item--mixed::before {
+.CardChangesLegend__item--mixed::before {
   background-color: var(--light-swarm);
 }
-.ChangelogLegend__item--game::before {
+.CardChangesLegend__item--game::before {
   background-color: var(--light-winter);
 }

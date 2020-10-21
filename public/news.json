@@ -110,9 +110,9 @@
     "link": "/guides/card-shop"
   },
   {
-    "intro": "Changelog",
-    "description": "The changelog has been revisited to be more accurated and more easily searchable.",
-    "link": "/changelog"
+    "intro": "Card Changes",
+    "description": "The changelog has been revisited to be more accurate and more easily searchable.",
+    "link": "/changelog/cards"
   },
   {
     "intro": "Personal Decks",
@@ -220,9 +220,9 @@
     "link": "/deck"
   },
   {
-    "intro": "Changelog",
+    "intro": "Card Changes",
     "description": "Stormbound Kitty now provides a changelog of all cards additions and updates, courtesy of the official Wiki.",
-    "link": "/changelog"
+    "link": "/changelog/cards"
   },
   {
     "intro": "Cards Stats",

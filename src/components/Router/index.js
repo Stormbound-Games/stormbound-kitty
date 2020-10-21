@@ -47,7 +47,7 @@ const CardBuilderContest = load('CardBuilderContest')
 const CardBuilderDisplay = load('CardBuilderDisplay')
 const CardBuilderEditor = load('CardBuilderEditor')
 const CardsStats = load('CardsStats')
-const Changelog = load('Changelog')
+const CardChanges = load('CardChanges')
 const Changelog3rdAnniversary = load('Changelog3rdAnniversary')
 const ChangelogJuly2020 = load('ChangelogJuly2020')
 const ChangelogSeptember2020 = load('ChangelogSeptember2020')
@@ -395,7 +395,7 @@ export default function Router(props) {
           </Page>
 
           <Page exact path='/changelog/cards' active={['GAME', 'CARD_CHANGES']}>
-            <Changelog />
+            <CardChanges />
           </Page>
 
           <Page exact path='/faq' active={['HOME', 'FAQ']}>
