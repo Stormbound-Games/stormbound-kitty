@@ -190,8 +190,8 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
               answer: (
                 <>
                   The release will be ready for October 29th, when the Brawl
-                  starts. <CardLink id='N80' /> will only be available on
-                  November 1st.
+                  starts. The balance changes and <CardLink id='N80' /> will
+                  only be available from November 1st though.
                 </>
               ),
             },
