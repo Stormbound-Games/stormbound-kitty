@@ -40,7 +40,15 @@ export default React.memo(function BrewedSages(props) {
         </p>
 
         <Notice icon='quill'>
-          Be sure to follow{' '}
+          Be sure to check their{' '}
+          <a
+            href='https://docs.google.com/spreadsheets/d/1z4h7UJFnMw1eSBPFg3iLL9mY2SrU6hkoKQeTNMurXBk/edit?usp=sharing'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            meta report spreadsheet
+          </a>{' '}
+          and follow{' '}
           <a
             href='https://twitter.com/BrewedSages'
             target='_blank'
