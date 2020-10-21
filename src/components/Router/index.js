@@ -76,7 +76,7 @@ const Member = load('Member')
 const Members = load('Members')
 const QuestBuilderRoot = load('QuestBuilderRoot')
 const RankedList = load('RankedList')
-const ReleaseNotes = load('ReleaseNotes')
+const Releases = load('Releases')
 const Story = load('Story')
 const StoryCategory = load('StoryCategory')
 const TournamentHallOfFame = load('TournamentHallOfFame')
@@ -391,7 +391,7 @@ export default function Router(props) {
             path='/changelog/releases'
             active={['GAME', 'RELEASE_NOTES']}
           >
-            <ReleaseNotes />
+            <Releases />
           </Page>
 
           <Page exact path='/changelog/cards' active={['GAME', 'CARD_CHANGES']}>

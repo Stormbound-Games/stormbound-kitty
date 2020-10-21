@@ -9,10 +9,10 @@ import Teaser from '../Teaser'
 import chunk from '../../helpers/chunk'
 import releases from '../../data/releases'
 
-export default React.memo(function ReleaseNotes(props) {
+export default React.memo(function Releases(props) {
   return (
     <>
-      <HeaderBanner title='Release Notes' />
+      <HeaderBanner title='Releases' />
       {chunk(releases, 3).map((row, index) => (
         <Row desktopOnly>
           <Column width='1/3'>
