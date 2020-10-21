@@ -180,6 +180,12 @@ BRAWLS.forEach(brawl => {
 })
 
 SEARCH_INDEX.push({
+  path: '/brawl',
+  label: 'Brawl Tracker',
+  breadcrumbs: ['Tools', 'Brawl Tracker'],
+})
+
+SEARCH_INDEX.push({
   path: '/collection',
   label: 'Collection',
   breadcrumbs: ['Tools', 'Card Collection'],
