@@ -8,12 +8,13 @@ import Row from '../Row'
 import { StoriesContext } from '../StoriesProvider'
 import artworks from '../../data/artworks'
 import decks from '../../data/decks'
+import donations from '../../data/donations'
 import events from '../../data/events'
 import guides from '../../data/guides'
 import puzzles from '../../data/puzzles'
 import tournaments from '../../data/tournaments'
 import chunk from '../../helpers/chunk'
-import { SWCC_SEASON_1, SWCC_SEASON_2, DONATORS } from '../../constants/misc'
+import { SWCC_SEASON_1, SWCC_SEASON_2 } from '../../constants/misc'
 
 const uniq = (myArr, prop) =>
   myArr.filter(
@@ -39,7 +40,7 @@ const useMemberList = ({ name, type }) => {
       .map(guide => guide.authors)
       .flat()
       .map(addType('GUIDE')),
-    ...DONATORS.map(addType('DONATION')),
+    ...donations.map(addType('DONATION')),
     ...decks.map(addType('DECK')),
     ...artworks.map(addType('ARTWORK')),
     ...tournaments

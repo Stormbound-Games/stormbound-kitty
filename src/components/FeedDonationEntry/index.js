@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import FeedEntry from '../FeedEntry'
-import { DONATORS } from '../../constants/misc'
+import donations from '../../data/donations'
 
 export default React.memo(function FeedDonationEntry(props) {
-  const { author: name } = DONATORS.find(
+  const { author: name } = donations.find(
     entry => entry.author.toLowerCase() === props.user
   )
   return (

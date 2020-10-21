@@ -5,7 +5,7 @@ import MemberList from '../MemberList'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Sparkles from '../Sparkles'
-import { DONATORS } from '../../constants/misc'
+import donations from '../../data/donations'
 import './index.css'
 
 export default React.memo(function About(props) {
@@ -125,7 +125,7 @@ export default React.memo(function About(props) {
           I have been incredibly lucky to have been supported by wonderful
           people whom I cannot thank enough. My gratitude to, in no particular
           order,
-          <MemberList members={DONATORS.map(donation => donation.author)} />
+          <MemberList members={donations.map(donation => donation.author)} />
           —for their generous and kind donations. Welcome to the{' '}
           <abbr title='Kitty Appreciation Team'>KAT</abbr>. ✨
         </p>

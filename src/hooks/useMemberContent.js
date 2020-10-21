@@ -2,6 +2,7 @@ import React from 'react'
 import { StoriesContext } from '../components/StoriesProvider'
 import capitalise from '../helpers/capitalise'
 import decks from '../data/decks'
+import donations from '../data/donations'
 import guides from '../data/guides'
 import tournaments from '../data/tournaments'
 import artworks from '../data/artworks'
@@ -9,7 +10,7 @@ import puzzles from '../data/puzzles'
 import events from '../data/events'
 import releases from '../data/releases'
 import podcasts from '../data/podcasts'
-import { SWCC_SEASON_1, SWCC_SEASON_2, DONATORS } from '../constants/misc'
+import { SWCC_SEASON_1, SWCC_SEASON_2 } from '../constants/misc'
 
 const formatEntryWithDate = entry => {
   if (!entry.date) return entry
@@ -87,9 +88,9 @@ const useUserCards = id =>
     )
 
 const useUserDonations = id =>
-  DONATORS.filter(donation => donation.author.toLowerCase() === id).map(
-    formatEntryWithDate
-  )
+  donations
+    .filter(donation => donation.author.toLowerCase() === id)
+    .map(formatEntryWithDate)
 
 const useUserEvents = id =>
   events
