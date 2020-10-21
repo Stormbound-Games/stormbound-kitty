@@ -1,34 +1,49 @@
 [
   {
     "cardId": "N78",
-    "title": "Second Sheepyard Update",
+    "title": "Update 10-2020",
+    "name": "Second Sheepyard Update",
     "meta": "October 1st, 2020",
     "date": "10/2020",
     "excerpt": "The second Sheepyard update is ready and brings a new bundle of goodness to the game: balance, new cards, new friendly matches settings.",
-    "slug": "10-2020"
+    "slug": "10-2020",
+    "background": "/assets/images/banners/ancients.png",
+    "ratio": "25%",
+    "id": "10_2020"
   },
   {
     "cardId": "N8",
-    "title": "3rd Anniversary",
+    "title": "Event Anniversary",
+    "name": "3rd Anniversary Event",
     "meta": "September 18th, 2020",
     "date": "09/2020",
     "excerpt": "A minor promotional update to celebrate Stormbound’s 3rd anniversary with offers (for paying and non-paying players) and gifts.",
-    "slug": "3rd-anniversary"
+    "slug": "3rd-anniversary",
+    "background": "/assets/images/releases/third-anniversary.png",
+    "ratio": "57.5%",
+    "id": "3RD_ANNIVERSARY"
   },
   {
     "cardId": "N57",
-    "title": "Small buff patch",
+    "title": "Update 09-2020",
+    "name": "Small Buff Patch",
     "meta": "September 1st, 2020",
     "date": "09/2020",
     "excerpt": "A minor balance patch buffing 12 under-appreciated cards: 9 neutral cards, 2 Ironclad cards and 1 Winter card. Nothing for Shadowfen and Swarm.",
-    "slug": "09-2020"
+    "slug": "09-2020",
+    "background": "/assets/images/banners/environment_dragon.jpg",
+    "id": "09_2020"
   },
   {
     "cardId": "N77",
-    "title": "First Sheepyard update",
+    "name": "First Sheepyard Update",
+    "title": "Update 07-2020",
     "meta": "July 15th, 2020",
     "date": "07/2020",
     "excerpt": "The first update from Sheepyard featuring a new card, some balance tweaks, matchmaking improvements, economy updates, and more.",
-    "slug": "07-2020"
+    "slug": "07-2020",
+    "background": "/assets/images/banners/environment_dragon.jpg",
+    "ratio": "50%",
+    "id": "07_2020"
   }
 ]

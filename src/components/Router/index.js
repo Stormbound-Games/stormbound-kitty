@@ -7,9 +7,10 @@ import { StoriesContext } from '../StoriesProvider'
 import load from '../../helpers/load'
 import { STORY_CATEGORIES } from '../../constants/stories'
 import guides from '../../data/guides'
+import releases from '../../data/releases'
 import { CATEGORIES } from '../../constants/guides'
 
-const COMPONENTS = {
+const GUIDE_COMPONENTS = {
   BEGINNER_GUIDE: load('GuideBeginner'),
   D1_SF_COMMONS_GUIDE: load('GuideD1SFCommons'),
   COMPLETE_GUIDE: load('GuideComplete'),
@@ -36,6 +37,13 @@ const COMPONENTS = {
   TRIVIA_GUIDE: load('GuideTrivia'),
 }
 
+const RELEASE_COMPONENTS = {
+  '10_2020': load('ReleaseNotesOctober2020'),
+  '3RD_ANNIVERSARY': load('ReleaseNotes3rdAnniversary'),
+  '09_2020': load('ReleaseNotesSeptember2020'),
+  '07_2020': load('ReleaseNotesJuly2020'),
+}
+
 const BattleSimPage = load('BattleSimPage')
 const BattleSimPuzzles = load('BattleSimPuzzles')
 const BooksCalculator = load('BooksCalculator')
@@ -48,10 +56,6 @@ const CardBuilderDisplay = load('CardBuilderDisplay')
 const CardBuilderEditor = load('CardBuilderEditor')
 const CardsStats = load('CardsStats')
 const CardChanges = load('CardChanges')
-const Changelog3rdAnniversary = load('Changelog3rdAnniversary')
-const ChangelogJuly2020 = load('ChangelogJuly2020')
-const ChangelogSeptember2020 = load('ChangelogSeptember2020')
-const ChangelogOctober2020 = load('ChangelogOctober2020')
 const Collection = load('Collection')
 const CollectionStats = load('CollectionStats')
 const DeckBuilderRoot = load('DeckBuilderRoot')
@@ -230,7 +234,7 @@ export default function Router(props) {
           <Redirect path='/stories' to='/stories/lore' />
 
           {guides.map(guide => {
-            const Component = COMPONENTS[guide.id]
+            const Component = GUIDE_COMPONENTS[guide.id]
 
             return (
               <Page
@@ -366,25 +370,20 @@ export default function Router(props) {
             <ValueCalculator />
           </Page>
 
-          <Page exact path='/changelog/07-2020' active={['GAME', '07_2020']}>
-            <ChangelogJuly2020 />
-          </Page>
+          {releases.map(release => {
+            const Component = RELEASE_COMPONENTS[release.id]
 
-          <Page exact path='/changelog/09-2020' active={['GAME', '09_2020']}>
-            <ChangelogSeptember2020 />
-          </Page>
-
-          <Page exact path='/changelog/10-2020' active={['GAME', '10_2020']}>
-            <ChangelogOctober2020 />
-          </Page>
-
-          <Page
-            exact
-            path='/changelog/3rd-anniversary'
-            active={['GAME', '3RD_ANNIVERSARY']}
-          >
-            <Changelog3rdAnniversary />
-          </Page>
+            return (
+              <Page
+                exact
+                path={'/changelog/' + release.slug}
+                active={['GAME', release.id]}
+                key={release.id}
+              >
+                <Component />
+              </Page>
+            )
+          })}
 
           <Page
             exact

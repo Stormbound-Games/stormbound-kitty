@@ -7,29 +7,12 @@ import FAQSection from '../FAQSection'
 import Info from '../Info'
 import PageMeta from '../PageMeta'
 import { Coins, Rubies, Stones } from '../Resource'
+import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
 import Title from '../Title'
 import CardLink from '../CardLink'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import serialisation from '../../helpers/serialisation'
-import './index.css'
-/*
-const Rarity = ({ rarity, amount }) => (
-  <>
-    <img
-      className='ChangelogOctober2020__rarity'
-      src={`/assets/images/card/rarity-${rarity}.png`}
-      alt=''
-    />{' '}
-    {amount} {rarity} card{amount === 1 ? '' : 's'}
-  </>
-)
-
-const Legendary = ({ amount }) => <Rarity rarity='legendary' amount={amount} />
-const Epic = ({ amount }) => <Rarity rarity='epic' amount={amount} />
-const Rare = ({ amount }) => <Rarity rarity='rare' amount={amount} />
-const Common = ({ amount }) => <Rarity rarity='common' amount={amount} />
-*/
 
 const STOIC_PROTECTORS = serialisation.card.deserialise(
   serialisation.card.serialise({
@@ -47,20 +30,9 @@ const STOIC_PROTECTORS = serialisation.card.deserialise(
   })
 )
 
-export default React.memo(function ChangelogOctober2020(props) {
+export default React.memo(function ReleaseNotesOctober2020(props) {
   return (
-    <Article
-      author='Kitty'
-      title='Update 10-2020'
-      action={{
-        to: '/changelog/releases',
-        children: 'Back to release notes',
-      }}
-      meta='Official announcement'
-      background='/assets/images/banners/ancients.png'
-      withAvif
-      ratio='25%'
-    >
+    <ReleaseNotes id='10_2020'>
       <Article.Narrow>
         <p>
           The long awaited “Friendly Matches update” from Sheepyard is finally
@@ -392,6 +364,6 @@ export default React.memo(function ChangelogOctober2020(props) {
         description='Discover everything there is to know about the second Sheepyard update!'
         image='/assets/images/banners/factions.png'
       />
-    </Article>
+    </ReleaseNotes>
   )
 })

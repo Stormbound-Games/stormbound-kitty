@@ -8,8 +8,8 @@ import Column from '../Column'
 import FAQSection from '../FAQSection'
 import Info from '../Info'
 import Notice from '../Notice'
-import PageMeta from '../PageMeta'
 import Quest from '../Quest'
+import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
 import Title from '../Title'
 import CardLink from '../CardLink'
@@ -17,7 +17,7 @@ import { Coins, Rubies, Stones } from '../Resource'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import './index.css'
 
-export default React.memo(function ChangelogJuly2020(props) {
+export default React.memo(function ReleaseNotesJuly2020(props) {
   const [withConfusionFix, setConfusionFix] = React.useState(true)
 
   React.useEffect(() => {
@@ -31,7 +31,7 @@ export default React.memo(function ChangelogJuly2020(props) {
 
     ODDS.forEach(([cell, newOdd, oldOdd, position]) => {
       const container = document.querySelector(`[data-testid="cell-${cell}"]`)
-      const odds = container.querySelector('.ChangelogJuly2020__odd')
+      const odds = container.querySelector('.ReleaseNotesJuly2020__odd')
 
       if (odds) {
         odds.innerText = withConfusionFix ? newOdd : oldOdd
@@ -39,26 +39,14 @@ export default React.memo(function ChangelogJuly2020(props) {
         const odds = document.createElement('span')
         odds.setAttribute('data-position', position)
         odds.innerText = withConfusionFix ? newOdd : oldOdd
-        odds.setAttribute('class', 'ChangelogJuly2020__odd')
+        odds.setAttribute('class', 'ReleaseNotesJuly2020__odd')
         container.appendChild(odds)
       }
     })
   }, [withConfusionFix])
 
   return (
-    <Article
-      author='Kitty'
-      title='Update 07-2020'
-      action={{
-        to: '/changelog/releases',
-        children: 'Back to release notes',
-      }}
-      meta='Official announcement'
-      className='ChangelogJuly2020'
-      background='/assets/images/banners/environment_dragon.jpg'
-      withAvif
-      ratio='50%'
-    >
+    <ReleaseNotes id='07_2020'>
       <Article.Narrow>
         <p>
           Back in April, Paladin Studios announced they would hand over
@@ -379,7 +367,7 @@ export default React.memo(function ChangelogJuly2020(props) {
           onChange={event => setConfusionFix(event.target.checked)}
           name='confusion-fix'
           id='confusion-fix'
-          className='ChangelogJuly2020__fix'
+          className='ReleaseNotesJuly2020__fix'
         >
           Apply the confusion fix
         </Checkbox>
@@ -548,12 +536,6 @@ export default React.memo(function ChangelogJuly2020(props) {
           Stormbounders!
         </Notice>
       </Article.Narrow>
-
-      <PageMeta
-        title='Update 07-2020'
-        description='Discover everything there is to know about the first Stormbound update from the Sheepyard studio!'
-        image='/assets/images/banners/environment_dragon.png'
-      />
-    </Article>
+    </ReleaseNotes>
   )
 })

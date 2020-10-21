@@ -1,24 +1,14 @@
 import React from 'react'
 import Article from '../Article'
+import CardLink from '../CardLink'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
+import ReleaseNotes from '../ReleaseNotes'
 import Title from '../Title'
-import CardLink from '../CardLink'
 
-export default React.memo(function ChangelogSeptember2020(props) {
+export default React.memo(function ReleaseNotesSeptember2020(props) {
   return (
-    <Article
-      author='Kitty'
-      title='Update 09-2020'
-      action={{
-        to: '/changelog/releases',
-        children: 'Back to release notes',
-      }}
-      meta='Official announcement'
-      className='ChangelogSeptember2020'
-      background='/assets/images/banners/environment_dragon.jpg'
-      withAvif
-    >
+    <ReleaseNotes id='09_2020'>
       <Article.Narrow>
         <p>
           On the 1st of September, a small balance patch will{' '}
@@ -114,6 +104,6 @@ export default React.memo(function ChangelogSeptember2020(props) {
         description='Discover everything there is to know about the minor Stormbound balance tweaks!'
         image='/assets/images/banners/environment_dragon.png'
       />
-    </Article>
+    </ReleaseNotes>
   )
 })

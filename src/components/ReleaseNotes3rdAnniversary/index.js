@@ -6,7 +6,7 @@ import Image from '../Image'
 import Info from '../Info'
 import Notice from '../Notice'
 import Only from '../Only'
-import PageMeta from '../PageMeta'
+import ReleaseNotes from '../ReleaseNotes'
 import ResourceIcon from '../ResourceIcon'
 import { Coins, Crowns, Stones, Rubies } from '../Resource'
 import Row from '../Row'
@@ -16,20 +16,9 @@ import { MILESTONES } from '../../constants/brawl'
 import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
 import './index.css'
 
-export default React.memo(function Changelog3rdAnniversary(props) {
+export default React.memo(function ReleaseNotes3rdAnniversary(props) {
   return (
-    <Article
-      author='Kitty'
-      title='3rd Anniversary'
-      action={{
-        to: '/changelog/releases',
-        children: 'Back to release notes',
-      }}
-      meta='Official announcement'
-      className='Changelog3rdAnniversary'
-      background='/assets/images/releases/third-anniversary.png'
-      ratio='57.5%'
-    >
+    <ReleaseNotes id='3RD_ANNIVERSARY' withAvif={false}>
       <Article.Narrow>
         <p>
           On September 18th, Stormbound is turning 3 years old. That’s
@@ -218,11 +207,6 @@ export default React.memo(function Changelog3rdAnniversary(props) {
         <span className='Highlight'>Meow</span> and happy fighting, fellow
         Stormbounders!
       </Notice>
-
-      <PageMeta
-        title='3rd Anniversary'
-        description='A minor promotional update on the 17th of September to celebrate Stormbound’s 3rd anniversary'
-      />
-    </Article>
+    </ReleaseNotes>
   )
 })

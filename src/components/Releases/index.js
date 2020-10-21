@@ -14,15 +14,33 @@ export default React.memo(function Releases(props) {
     <>
       <HeaderBanner title='Releases' />
       {chunk(releases, 3).map((row, index) => (
-        <Row desktopOnly>
+        <Row desktopOnly key={index}>
           <Column width='1/3'>
-            {row[0] && <Teaser {...row[0]} to={`/changelog/${row[0].slug}`} />}
+            {row[0] && (
+              <Teaser
+                {...row[0]}
+                title={row[0].name}
+                to={`/changelog/${row[0].slug}`}
+              />
+            )}
           </Column>
           <Column width='1/3'>
-            {row[1] && <Teaser {...row[1]} to={`/changelog/${row[1].slug}`} />}
+            {row[1] && (
+              <Teaser
+                {...row[1]}
+                title={row[1].name}
+                to={`/changelog/${row[1].slug}`}
+              />
+            )}
           </Column>
           <Column width='1/3'>
-            {row[2] && <Teaser {...row[2]} to={`/changelog/${row[2].slug}`} />}
+            {row[2] && (
+              <Teaser
+                {...row[2]}
+                title={row[2].name}
+                to={`/changelog/${row[2].slug}`}
+              />
+            )}
           </Column>
         </Row>
       ))}
