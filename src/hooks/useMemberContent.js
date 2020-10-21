@@ -7,6 +7,7 @@ import tournaments from '../data/tournaments'
 import artworks from '../data/artworks'
 import puzzles from '../data/puzzles'
 import events from '../data/events'
+import releases from '../data/releases'
 
 import { SWCC_SEASON_1, SWCC_SEASON_2, DONATORS } from '../constants/misc'
 
@@ -62,6 +63,7 @@ const useUserPuzzles = id =>
   puzzles
     .filter(puzzle => puzzle.author.toLowerCase() === id)
     .map(formatEntryWithDate)
+
 const useUserCards = id =>
   SWCC_SEASON_1.filter(contest => contest.winner.author.toLowerCase() === id)
     .map(entry => ({
@@ -87,6 +89,7 @@ const useUserEvents = id =>
     .filter(event =>
       event.authors.map(author => author.toLowerCase()).includes(id)
     )
+    .concat(id === 'kitty' ? releases.map(addType('RELEASE')) : [])
     .map(formatEntryWithDate)
 
 const addType = type => entry => ({ ...entry, type })
