@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import CardLink from '../CardLink'
+import Column from '../Column'
 import FAQSection from '../FAQSection'
 import Info from '../Info'
 import Notice from '../Notice'
@@ -177,9 +178,56 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
             </Table>
           </Article.Embed>
         </Only.Desktop>
+      </Article.Narrow>
 
+      <Article.Narrow>
         <Title id='exclusive-promotions'>Exclusive promotions</Title>
 
+        <p>
+          Halloween event means exclusive promotion packs and offers. Quite a
+          few options as always:
+        </p>
+        <ul>
+          <li>
+            The <span className='Highlight'>Stoic Protectors pack</span>: 3
+            copies of <CardLink id='N80' />, <Stones amount={5} /> and{' '}
+            <Coins amount={750} />. This one-time pack will be available between
+            November 1st and November 8th.
+          </li>
+          <li>
+            The <span className='Highlight'>Trick or Treat bundle</span>: 6
+            Mythic Tomes, 6 Heroic Tomes and 6 Classic Tomes. This one-time
+            bundle will be available between October 29th and November 15th.
+          </li>
+          <li>
+            There will be some special weekly and monthly vanishing packs
+            available throughout the month of November.
+          </li>
+          <li>
+            All ruby bundles will yield +20% more rubies between October 29th
+            and November 15th.
+          </li>
+        </ul>
+      </Article.Narrow>
+
+      <Article.Embed>
+        <Row desktopOnly wideGutter>
+          <Column>
+            <img
+              src='/assets/images/releases/stoic_protectors_pack.png'
+              alt='Stoic Protectors pack: 3 copies of the card, 5 fusion stones, 750 coins'
+            />
+          </Column>
+          <Column>
+            <img
+              src='/assets/images/releases/halloween_bundle.png'
+              alt='Trick or Treat bundle: 6 Mythic Tomes, 6 Heroic Tomes, 6 Classic Tomes'
+            />
+          </Column>
+        </Row>
+      </Article.Embed>
+
+      <Article.Narrow>
         <FAQSection
           id='faq'
           title='FAQ'
