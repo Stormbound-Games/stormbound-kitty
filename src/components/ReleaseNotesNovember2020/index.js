@@ -203,8 +203,8 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
             available throughout the month of November.
           </li>
           <li>
-            All ruby bundles will yield +20% more rubies between October 29th
-            and November 15th.
+            All coin and ruby bundles will yield +20% more resources between
+            October 29th and November 15th.
           </li>
         </ul>
       </Article.Narrow>
@@ -248,10 +248,10 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
               answer: (
                 <>
                   The Stoic Protector’s pack will be available from November 1st
-                  to November 8th. The Trick of Treat offer and the ruby packs’
-                  boost will be available from October 29th to November 15th.
-                  The extra weekly and monthly vanishing packs will be available
-                  all throughout November.
+                  to November 8th. The Trick of Treat offer and the coin/ruby
+                  packs’ boost will be available from October 29th to November
+                  15th. The extra weekly and monthly vanishing packs will be
+                  available all throughout November.
                 </>
               ),
             },
