@@ -1,5 +1,6 @@
 import React from 'react'
-import { RARITIES, RACES } from '../../constants/game'
+import { TYPES, RARITIES, RACES } from '../../constants/game'
+import Checkbox from '../Checkbox'
 import Column from '../Column'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
@@ -35,6 +36,27 @@ export default React.memo(function CollectionFilters(props) {
                 />
               </Column>
               <Column>
+                <label htmlFor='type'>Type</label>
+                <select
+                  name='type'
+                  id='type'
+                  value={props.type}
+                  onChange={event => props.setType(event.target.value)}
+                  data-testid='type-select'
+                >
+                  <option value='*'>Any</option>
+                  {Object.keys(TYPES).map(type => (
+                    <option value={type} key={type}>
+                      {capitalise(type)}
+                    </option>
+                  ))}
+                </select>
+              </Column>
+            </Row>
+          </Column>
+          <Column>
+            <Row>
+              <Column>
                 <label htmlFor='status'>Status</label>
                 <select
                   name='status'
@@ -49,10 +71,6 @@ export default React.memo(function CollectionFilters(props) {
                   <option value='EXCESS'>Excess copies</option>
                 </select>
               </Column>
-            </Row>
-          </Column>
-          <Column>
-            <Row>
               <Column>
                 <label htmlFor='level'>Level</label>
                 <select
@@ -70,6 +88,13 @@ export default React.memo(function CollectionFilters(props) {
                   <option value='5'>5</option>
                 </select>
               </Column>
+            </Row>
+          </Column>
+        </Row>
+
+        <Row desktopOnly>
+          <Column>
+            <Row>
               <Column>
                 <label htmlFor='rarity'>Rarity</label>
                 <select
@@ -87,13 +112,6 @@ export default React.memo(function CollectionFilters(props) {
                   ))}
                 </select>
               </Column>
-            </Row>
-          </Column>
-        </Row>
-
-        <Row desktopOnly>
-          <Column>
-            <Row>
               <Column>
                 <label htmlFor='race'>Race</label>
                 <select
@@ -111,6 +129,10 @@ export default React.memo(function CollectionFilters(props) {
                   ))}
                 </select>
               </Column>
+            </Row>
+          </Column>
+          <Column>
+            <Row>
               <Column>
                 <Only.CustomCollection>
                   <label htmlFor='order'>Order</label>
@@ -127,24 +149,50 @@ export default React.memo(function CollectionFilters(props) {
                   </select>
                 </Only.CustomCollection>
               </Column>
+              <Column>
+                <label htmlFor='text'>Name</label>
+                <input
+                  type='search'
+                  name='text'
+                  id='text'
+                  value={props.text}
+                  onChange={event => props.setText(event.target.value)}
+                  placeholder='e.g. Faun'
+                  data-testid='name-input'
+                />
+              </Column>
+            </Row>
+          </Column>
+        </Row>
+
+        <Row desktopOnly>
+          <Column>
+            <Row>
+              <Column>
+                <Checkbox
+                  id='elder'
+                  checked={props.elder}
+                  onChange={event => props.setElder(event.target.checked)}
+                  data-testid='elder-checkbox'
+                >
+                  Elder
+                </Checkbox>
+              </Column>
+              <Column>
+                <Checkbox
+                  id='hero'
+                  checked={props.hero}
+                  onChange={event => props.setHero(event.target.checked)}
+                  data-testid='hero-checkbox'
+                >
+                  Hero
+                </Checkbox>
+              </Column>
             </Row>
           </Column>
           <Column>
             <Row>
-              <Only.Desktop>
-                <Column>
-                  <label htmlFor='text'>Name</label>
-                  <input
-                    type='search'
-                    name='text'
-                    id='text'
-                    value={props.text}
-                    onChange={event => props.setText(event.target.value)}
-                    placeholder='e.g. Faun'
-                    data-testid='name-input'
-                  />
-                </Column>
-              </Only.Desktop>
+              <Column />
               <Column>
                 <CTA
                   onClick={props.resetFilters}
@@ -156,7 +204,11 @@ export default React.memo(function CollectionFilters(props) {
                     props.status === '*' &&
                     props.level === '*' &&
                     props.rarity === '*' &&
+                    props.type === '*' &&
+                    props.race === '*' &&
                     !props.text &&
+                    !props.elder &&
+                    !props.hero &&
                     props.order === 'NATURAL'
                   }
                 >
