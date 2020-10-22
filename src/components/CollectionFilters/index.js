@@ -1,5 +1,5 @@
 import React from 'react'
-import { RARITIES } from '../../constants/game'
+import { RARITIES, RACES } from '../../constants/game'
 import Column from '../Column'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
@@ -95,16 +95,21 @@ export default React.memo(function CollectionFilters(props) {
           <Column>
             <Row>
               <Column>
-                <label htmlFor='text'>Name</label>
-                <input
-                  type='search'
-                  name='text'
-                  id='text'
-                  value={props.text}
-                  onChange={event => props.setText(event.target.value)}
-                  placeholder='e.g. Faun'
-                  data-testid='name-input'
-                />
+                <label htmlFor='race'>Race</label>
+                <select
+                  name='race'
+                  id='race'
+                  value={props.race}
+                  onChange={event => props.setRace(event.target.value)}
+                  data-testid='race-select'
+                >
+                  <option value='*'>Any</option>
+                  {Object.keys(RACES).map(race => (
+                    <option value={race} key={race}>
+                      {capitalise(race)}
+                    </option>
+                  ))}
+                </select>
               </Column>
               <Column>
                 <Only.CustomCollection>
@@ -127,7 +132,18 @@ export default React.memo(function CollectionFilters(props) {
           <Column>
             <Row>
               <Only.Desktop>
-                <Column />
+                <Column>
+                  <label htmlFor='text'>Name</label>
+                  <input
+                    type='search'
+                    name='text'
+                    id='text'
+                    value={props.text}
+                    onChange={event => props.setText(event.target.value)}
+                    placeholder='e.g. Faun'
+                    data-testid='name-input'
+                  />
+                </Column>
               </Only.Desktop>
               <Column>
                 <CTA
