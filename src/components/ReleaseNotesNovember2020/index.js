@@ -191,13 +191,14 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
           <li>
             The <span className='Highlight'>Stoic Protectors pack</span>: 3
             copies of <CardLink id='N80' />, <Stones amount={5} /> and{' '}
-            <Coins amount={750} />. This one-time pack will be available between
-            November 1st and November 8th.
+            <Coins amount={750} />. This one-time $9.99 pack will be available
+            between November 1st and November 8th.
           </li>
           <li>
             The <span className='Highlight'>Trick or Treat bundle</span>: 6
             Mythic Tomes, 6 Heroic Tomes and 6 Classic Tomes. This one-time
-            bundle will be available between October 29th and November 15th.
+            bundle $29.99 will be available between October 29th and November
+            15th.
           </li>
           <li>
             There will be some special weekly and monthly vanishing packs
