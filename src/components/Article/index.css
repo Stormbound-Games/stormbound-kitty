@@ -75,9 +75,16 @@
   margin: auto;
 }
 
+/**
+ * 1. This is a monstrosity, I know… `.Article__content` is the closest unique
+ *    guaranteed container we have. Then, it should not have the `no-drop-cap`
+ *    modifier. Then, find the first `.Article__narrow` (which is basically a
+ *    text content container), then provided the first child is a paragraph,
+ *    draw a drop-cap for first letter.
+ */
 .Article__content:not(.Article__content--no-drop-cap)
-  .Article__narrow
-  > p:first-of-type::first-letter {
+  .Article__narrow:first-child
+  > p:first-child::first-letter /* 1 */ {
   color: var(--beige);
   float: left;
   font-family: Georgia, serif;
