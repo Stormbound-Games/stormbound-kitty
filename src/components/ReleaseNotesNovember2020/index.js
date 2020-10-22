@@ -8,7 +8,7 @@ import FAQSection from '../FAQSection'
 import Info from '../Info'
 import Only from '../Only'
 import ReleaseNotes from '../ReleaseNotes'
-import { Coins, Crowns, Stones } from '../Resource'
+import { Coins, Crowns, Rubies, Stones } from '../Resource'
 import Row from '../Row'
 import Table from '../Table'
 import Title from '../Title'
@@ -47,6 +47,12 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
             <a href='#faq'>FAQ</a>
           </li>
         </ul>
+
+        <Info icon='gift' title='Free rubies'>
+          Anyone logging into the game at least once between October 30th and
+          November 1st will be granted <Rubies amount={20} />. Happy Halloween!
+          🎃
+        </Info>
 
         <Title id='balance-changes'>Balance changes</Title>
 
