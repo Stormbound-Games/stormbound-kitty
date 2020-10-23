@@ -45,14 +45,14 @@ export default React.memo(function CardBuilderHallOfFame(props) {
       <Title>Season 2</Title>
       <CardBuilderHallOfFameSeason
         weeks={swcc
-          .filter(week => !!week.winner && week.season === 1)
+          .filter(week => !!week.winner && week.season === 2)
           .reverse()}
       />
 
       <Title>Season 1</Title>
       <CardBuilderHallOfFameSeason
         weeks={swcc
-          .filter(week => !!week.winner && week.season === 2)
+          .filter(week => !!week.winner && week.season === 1)
           .reverse()}
       />
     </>

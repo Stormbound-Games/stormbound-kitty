@@ -234,6 +234,7 @@
     }
   },
   {
+    "season": 2,
     "week": 33,
     "name": "Hunt",
     "winner": {
@@ -243,6 +244,7 @@
     }
   },
   {
+    "season": 2,
     "week": 34,
     "name": "RNG",
     "winner": {
@@ -252,6 +254,7 @@
     }
   },
   {
+    "season": 2,
     "week": 35,
     "name": "Aggressive Structures",
     "winner": {
@@ -261,6 +264,7 @@
     }
   },
   {
+    "season": 2,
     "week": 36,
     "name": "Faction Felines",
     "winner": {
@@ -270,10 +274,12 @@
     }
   },
   {
+    "season": 2,
     "week": 37,
     "name": "C-C-Combo"
   },
   {
+    "season": 2,
     "week": 38,
     "name": "Anti-neutral",
     "winner": {
@@ -283,6 +289,7 @@
     }
   },
   {
+    "season": 2,
     "week": 39,
     "name": "Symmetry",
     "winner": {
@@ -292,6 +299,7 @@
     }
   },
   {
+    "season": 2,
     "week": 40,
     "name": "Art Match",
     "winner": {
@@ -301,6 +309,7 @@
     }
   },
   {
+    "season": 2,
     "week": 41,
     "name": "Environmental & board effects",
     "winner": {
@@ -310,6 +319,7 @@
     }
   },
   {
+    "season": 2,
     "week": 42,
     "name": "Spell Focus",
     "winner": {
@@ -319,6 +329,7 @@
     }
   },
   {
+    "season": 2,
     "week": 43,
     "name": "Overkill",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
