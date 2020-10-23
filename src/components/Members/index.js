@@ -3,6 +3,7 @@ import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import Icon from '../Icon'
 import MemberListEntry from '../MemberListEntry'
+import MemberTagYourself from '../MemberTagYourself'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import { StoriesContext } from '../StoriesProvider'
@@ -70,7 +71,8 @@ export default React.memo(function Members(props) {
   const [name, setName] = React.useState('')
   const [type, setType] = React.useState('*')
   const members = useMemberList({ name, type })
-  const rows = chunk(uniq(members, 'member'), 3)
+  const uniqMembers = uniq(members, 'member')
+  const rows = chunk(uniqMembers, 3)
 
   return (
     <>
@@ -123,6 +125,8 @@ export default React.memo(function Members(props) {
               </select>
             </Column>
           </Row>
+
+          <MemberTagYourself members={uniqMembers.map(a => a.member)} />
         </Column>
         <Column width='2/3'>
           {rows.map(([a, b, c], index) => (

@@ -6,6 +6,7 @@ import NotificationProvider from '../NotificationProvider'
 import PersonalDecksProvider from '../PersonalDecksProvider'
 import ImageSupportProvider from '../ImageSupportProvider'
 import StoriesProvider from '../StoriesProvider'
+import UserProvider from '../UserProvider'
 import Router from '../Router'
 
 export default function Root(props) {
@@ -17,10 +18,12 @@ export default function Root(props) {
             <CollectionProvider>
               <PersonalDecksProvider>
                 <StoriesProvider>
-                  <Router />
-                  <Helmet>
-                    <meta name='author' content='Kitty' />
-                  </Helmet>
+                  <UserProvider>
+                    <Router />
+                    <Helmet>
+                      <meta name='author' content='Kitty' />
+                    </Helmet>
+                  </UserProvider>
                 </StoriesProvider>
               </PersonalDecksProvider>
             </CollectionProvider>

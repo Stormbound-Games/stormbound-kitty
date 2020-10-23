@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Icon from '../Icon'
+import { UserContext } from '../UserProvider'
 import useMemberContent from '../../hooks/useMemberContent'
 import './index.css'
 
@@ -55,17 +56,25 @@ const MemberListEntryToC = React.memo(function MemberListEntryToC(props) {
 })
 
 export default React.memo(function MemberListEntry(props) {
+  const { name } = React.useContext(UserContext)
   const { content, details } = useMemberContent(props.member.toLowerCase())
   const KATMember = details.donations.length > 0
+  const isCurrentUser = name === props.member
+
   return (
-    <div className='MemberListEntry'>
+    <div
+      className={['MemberListEntry', isCurrentUser && 'MemberListEntry--you']
+        .filter(Boolean)
+        .join(' ')}
+    >
       <Icon
         icon={KATMember ? 'star' : 'user'}
         className='MemberListEntry__icon'
       />
       <div className='MemberListEntry__content'>
         <Link to={`/member/${props.member}`} className='MemberListEntry__name'>
-          {props.member}
+          {props.member}{' '}
+          <span style={{ opacity: 0.6 }}>{isCurrentUser ? '(you)' : null}</span>
         </Link>
         <details>
           <summary>

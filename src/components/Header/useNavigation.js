@@ -1,6 +1,7 @@
 import React from 'react'
 import GUIDES from '../../data/guides'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
+import { UserContext } from '../UserProvider'
 import { CATEGORIES } from '../../constants/guides'
 import { STORY_CATEGORIES } from '../../constants/stories'
 import { StoriesContext } from '../StoriesProvider'
@@ -8,6 +9,7 @@ import { StoriesContext } from '../StoriesProvider'
 export default () => {
   const stories = React.useContext(StoriesContext)
   const { isUnseen } = React.useContext(PersonalDecksContext)
+  const { name } = React.useContext(UserContext)
 
   return [
     {
@@ -149,6 +151,11 @@ export default () => {
           title: 'Your Content',
           icon: 'user',
           items: [
+            name && {
+              label: 'Personal feed',
+              to: '/member/' + name,
+              id: 'FEED',
+            },
             { label: 'Card Collection', to: '/collection', id: 'COLLECTION' },
             {
               label: 'Collection Stats',
@@ -162,7 +169,7 @@ export default () => {
               new: isUnseen,
             },
             { label: 'Brawl Tracker', to: '/brawl', id: 'BRAWL' },
-          ],
+          ].filter(Boolean),
         },
         {
           title: 'Calculators',

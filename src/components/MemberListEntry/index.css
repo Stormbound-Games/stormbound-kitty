@@ -4,6 +4,31 @@
   display: flex;
 }
 
+.MemberListEntry--you {
+  border: 1px solid var(--dark-beige);
+  position: relative;
+}
+
+.MemberListEntry--you::before,
+.MemberListEntry--you::after {
+  content: '';
+  position: absolute;
+  top: 0.25em;
+  bottom: 0.25em;
+  border: inherit;
+  width: 0.25em;
+}
+
+.MemberListEntry--you::before {
+  right: 100%;
+  border-right-color: var(--black);
+}
+
+.MemberListEntry--you::after {
+  left: 100%;
+  border-left-color: var(--black);
+}
+
 .MemberListEntry__name {
   text-decoration: none;
   border-bottom: 1px solid transparent;
