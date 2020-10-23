@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet-async'
 import CardDisplay from '../CardBuilderCardDisplay'
 import CardDisplayControls from '../CardDisplayControls'
 import Column from '../Column'
@@ -9,33 +10,52 @@ import LevelForm from '../CardBuilderLevelForm'
 import Row from '../Row'
 import Title from '../Title'
 import getRawCardData from '../../helpers/getRawCardData'
+import swcc from '../../data/swcc'
 import './index.css'
 
 const getWikiUrl = name =>
   'https://stormboundkingdomwars.gamepedia.com/' +
   encodeURIComponent(name.replace(/\s/g, '_').replace(/’/g, "'"))
 
+const useArticleProps = props => {
+  const isOfficial = Boolean(getRawCardData(props.cardId).name)
+  const contest = swcc.find(
+    contest => contest.winner && contest.winner.id === props.cardId
+  )
+  const properties = {}
+
+  if (props.name && props.mode === 'DISPLAY') {
+    properties.title = props.name
+  } else {
+    properties.title = 'Create your card'
+  }
+
+  if (isOfficial) {
+    properties.meta = [props.faction, props.type, props.race]
+      .filter(Boolean)
+      .join(' · ')
+    properties.action = {
+      href: getWikiUrl(props.name),
+      children: 'Open in wiki',
+    }
+  }
+
+  if (contest) {
+    const year = props.season === 1 ? 2019 : 2020
+    properties.meta = `Week #${contest.week} (${year})`
+    properties.author = contest.winner.author
+    properties.action = { to: '/card/contest', children: 'Back to SWCC' }
+  }
+
+  return properties
+}
+
 export default React.memo(function CardBuilderApp(props) {
   const isOfficial = Boolean(getRawCardData(props.cardId).name)
-  const title =
-    props.mode === 'EDITOR' || !props.name ? 'Create your card' : props.name
+  const articleProps = useArticleProps(props)
 
   return (
-    <Article
-      title={title}
-      meta={
-        props.mode === 'DISPLAY' && isOfficial
-          ? [props.faction, props.type, props.race].filter(Boolean).join(' · ')
-          : undefined
-      }
-      action={
-        isOfficial && {
-          href: getWikiUrl(props.name),
-          children: 'Open in wiki',
-        }
-      }
-      smallFontSize
-    >
+    <Article {...articleProps} smallFontSize>
       <CardDisplay {...props} />
 
       {isOfficial && <CardDisplayControls />}
@@ -63,6 +83,11 @@ export default React.memo(function CardBuilderApp(props) {
             </Row>
           </div>
         </>
+      )}
+      {articleProps.author && (
+        <Helmet>
+          <meta name='author' content={articleProps.author} />
+        </Helmet>
       )}
     </Article>
   )
