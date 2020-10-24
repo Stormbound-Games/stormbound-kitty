@@ -179,7 +179,10 @@ const CardsFiltering = React.memo(function CardsFiltering(props) {
     [filters.elder]
   )
 
-  const toggleAdvancedSearch = () => setAdvanced(advanced => !advanced)
+  const toggleAdvancedSearch = () => {
+    setFilters({ ...DEFAULT_FILTERS })
+    setAdvanced(advanced => !advanced)
+  }
 
   const runAdvancedSearch = event => {
     event.preventDefault()
