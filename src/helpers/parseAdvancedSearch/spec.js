@@ -35,6 +35,11 @@ describe('The `parseAdvancedSearch` helper', () => {
     expect(parse('is:elder')).to.deep.equal({ elder: true })
   })
 
+  it('should be case-insensitive', () => {
+    expect(parse('is:HERO')).to.deep.equal({ hero: true })
+    expect(parse('is:eLdEr')).to.deep.equal({ elder: true })
+  })
+
   it('should handle aliases', () => {
     expect(parse('is:wp')).to.deep.equal({ faction: 'winter' })
   })

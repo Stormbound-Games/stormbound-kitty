@@ -5,6 +5,7 @@ import getRawCardData from '../getRawCardData'
 const SAMPLE_CARD = getRawCardData('N1')
 
 const parseCardGuess = message => {
+  message = message.toLowerCase()
   if (message === 'hero') return ['hero', true]
   if (message === 'elder') return ['elder', true]
   if (Object.keys(RARITIES).includes(message)) return ['rarity', message]
