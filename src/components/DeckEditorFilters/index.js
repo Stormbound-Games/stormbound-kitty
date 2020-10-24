@@ -29,6 +29,7 @@ export default React.memo(function DeckEditorFilters(props) {
         onSubmit={props.runAdvancedSearch}
         value={props.search}
         setSearch={props.setAdvancedSearch}
+        cancel={props.toggleAdvancedSearch}
       />
     )
   }

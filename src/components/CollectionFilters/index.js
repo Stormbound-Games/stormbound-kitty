@@ -30,6 +30,7 @@ export default React.memo(function CollectionFilters(props) {
         onSubmit={props.runAdvancedSearch}
         value={props.search}
         setSearch={props.setAdvancedSearch}
+        cancel={props.toggleAdvancedSearch}
       />
     )
   }

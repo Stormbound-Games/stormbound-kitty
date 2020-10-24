@@ -2,6 +2,7 @@ import React from 'react'
 import Column from '../Column'
 import CTA from '../CTA'
 import LearnMoreIcon from '../LearnMoreIcon'
+import Only from '../Only'
 import Row from '../Row'
 
 export default React.memo(function AdvancedCardSearch(props) {
@@ -9,9 +10,20 @@ export default React.memo(function AdvancedCardSearch(props) {
     <form onSubmit={props.onSubmit}>
       <Row desktopOnly>
         <Column width='3/4'>
-          <label htmlFor='search'>
-            Advanced search <LearnMoreIcon anchor='#advanced-search' />
-          </label>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <label htmlFor='search'>
+              Advanced search <LearnMoreIcon anchor='#advanced-search' />
+            </label>
+            <button
+              type='button'
+              onClick={props.cancel}
+              className='ButtonAsLink'
+              style={{ marginBottom: '0.5em' }}
+            >
+              <Only.Desktop>Back to regular search</Only.Desktop>
+              <Only.Mobile>Regular search</Only.Mobile>
+            </button>
+          </div>
           <input
             type='search'
             name='search'
@@ -22,8 +34,10 @@ export default React.memo(function AdvancedCardSearch(props) {
             data-testid='advanced-search-input'
           />
         </Column>
-        <Column width='1/4' style={{ justifyContent: 'center' }}>
-          <CTA type='submit'>Search</CTA>
+        <Column width='1/4' style={{ justifyContent: 'flex-end' }}>
+          <span style={{ marginBottom: '0.2em' }}>
+            <CTA type='submit'>Search</CTA>
+          </span>
         </Column>
       </Row>
     </form>
