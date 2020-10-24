@@ -27,6 +27,8 @@ const DEFAULT_FILTERS = {
   elder: false,
 }
 
+const normaliseName = name => name.toLowerCase().replace(/['’ ]/g, '')
+
 const CardsFiltering = React.memo(function CardsFiltering(props) {
   const viewportWidth = useViewportWidth()
   // All filters are within the same state object for convenience, otherwise we
@@ -83,17 +85,11 @@ const CardsFiltering = React.memo(function CardsFiltering(props) {
   // that “RoF” (regardless of casing) yields a result. If no abbreviation
   // matches, it checks the name while replacing curly quotes with dumb quotes
   // for convenience.
-  // @TODO: still yield results if curly quotes are used.
   const matchesText = React.useCallback(
-    card => {
-      if (filters.text === '') return true
-      if (filters.text.toUpperCase() === abbreviate(card.name).toUpperCase())
-        return true
-      return card.name
-        .toLowerCase()
-        .replace('’', "'")
-        .includes(filters.text.toLowerCase())
-    },
+    card =>
+      filters.text === '' ||
+      filters.text.toUpperCase() === abbreviate(card.name).toUpperCase() ||
+      normaliseName(card.name).includes(normaliseName(filters.text)),
     [filters.text]
   )
 
