@@ -124,6 +124,7 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
 
   const captureKeyboardEvents = React.useCallback(
     event => {
+      if (event.target.nodeName === 'INPUT') return
       const key = event.which
       const keys = [49, 50, 51, 52, 53]
       const padKeys = [97, 98, 99, 100, 101]
@@ -247,19 +248,9 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
           <Title style={{ marginTop: 0 }}>Cards</Title>
 
           <CardsFiltering cards={cardCollection}>
-            {({
-              filters,
-              filtersSetters,
-              collection,
-              resetFilters,
-              cardsPerPage,
-            }) => (
+            {({ filters, actions, collection, cardsPerPage }) => (
               <>
-                <Filters
-                  {...filters}
-                  {...filtersSetters}
-                  resetFilters={resetFilters}
-                />
+                <Filters {...filters} {...actions} />
 
                 {collection.length > 0 ? (
                   <Gallery
@@ -274,7 +265,7 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
                 ) : (
                   <EmptySearch
                     title='No cards found'
-                    resetFilters={resetFilters}
+                    resetFilters={actions.resetFilters}
                   />
                 )}
               </>

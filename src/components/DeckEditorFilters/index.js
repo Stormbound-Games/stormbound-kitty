@@ -1,5 +1,6 @@
 import React from 'react'
 import { TYPES, RACES, RARITIES } from '../../constants/game'
+import AdvancedCardSearch from '../AdvancedCardSearch'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
 import CTA from '../CTA'
@@ -9,7 +10,29 @@ import MobileTogglableContent from '../MobileTogglableContent'
 import capitalise from '../../helpers/capitalise'
 import './index.css'
 
+const isButtonDisabled = props =>
+  props.faction === '*' &&
+  props.type === '*' &&
+  props.mana === '*' &&
+  props.movement === '*' &&
+  props.rarity === '*' &&
+  props.race === '*' &&
+  props.ability === '*' &&
+  !props.text &&
+  !props.elder &&
+  !props.hero
+
 export default React.memo(function DeckEditorFilters(props) {
+  if (props.advanced) {
+    return (
+      <AdvancedCardSearch
+        onSubmit={props.runAdvancedSearch}
+        value={props.search}
+        setSearch={props.setAdvancedSearch}
+      />
+    )
+  }
+
   return (
     <MobileTogglableContent
       id='deck-filters'
@@ -69,7 +92,7 @@ export default React.memo(function DeckEditorFilters(props) {
                   <option value='1-3'>1, 2 or 3</option>
                   <option value='4-5'>4 or 5</option>
                   <option value='6-7'>6 or 7</option>
-                  <option value='8+'>8 or plus</option>
+                  <option value='8-Infinity'>8 or plus</option>
                 </select>
               </Column>
 
@@ -200,25 +223,22 @@ export default React.memo(function DeckEditorFilters(props) {
           </Column>
           <Column>
             <Row>
-              <Column />
+              <Column style={{ justifyContent: 'center' }}>
+                <button
+                  type='button'
+                  onClick={props.toggleAdvancedSearch}
+                  className='ButtonAsLink'
+                >
+                  Advanced search
+                </button>
+              </Column>
               <Column>
                 <CTA
                   onClick={props.resetFilters}
                   type='button'
                   className='DeckEditorFilters__reset'
                   data-testid='reset-filters-btn'
-                  disabled={
-                    props.faction === '*' &&
-                    props.type === '*' &&
-                    props.mana === '*' &&
-                    props.movement === '*' &&
-                    props.rarity === '*' &&
-                    props.race === '*' &&
-                    props.ability === '*' &&
-                    !props.text &&
-                    !props.elder &&
-                    !props.hero
-                  }
+                  disabled={isButtonDisabled(props)}
                 >
                   Reset filters
                 </CTA>

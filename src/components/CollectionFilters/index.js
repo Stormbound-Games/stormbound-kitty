@@ -1,5 +1,6 @@
 import React from 'react'
 import { TYPES, RARITIES, RACES } from '../../constants/game'
+import AdvancedCardSearch from '../AdvancedCardSearch'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
 import CTA from '../CTA'
@@ -10,7 +11,29 @@ import Row from '../Row'
 import capitalise from '../../helpers/capitalise'
 import './index.css'
 
+const isButtonDisabled = props =>
+  props.faction === '*' &&
+  props.status === '*' &&
+  props.level === '*' &&
+  props.rarity === '*' &&
+  props.type === '*' &&
+  props.race === '*' &&
+  !props.text &&
+  !props.elder &&
+  !props.hero &&
+  props.order === 'NATURAL'
+
 export default React.memo(function CollectionFilters(props) {
+  if (props.advanced) {
+    return (
+      <AdvancedCardSearch
+        onSubmit={props.runAdvancedSearch}
+        value={props.search}
+        setSearch={props.setAdvancedSearch}
+      />
+    )
+  }
+
   return (
     <MobileTogglableContent
       id='collection-filters'
@@ -192,25 +215,22 @@ export default React.memo(function CollectionFilters(props) {
           </Column>
           <Column>
             <Row>
-              <Column />
+              <Column style={{ justifyContent: 'center' }}>
+                <button
+                  type='button'
+                  onClick={props.toggleAdvancedSearch}
+                  className='ButtonAsLink'
+                >
+                  Advanced search
+                </button>
+              </Column>
               <Column>
                 <CTA
                   onClick={props.resetFilters}
                   type='button'
                   className='CollectionFilters__reset'
                   data-testid='reset-btn'
-                  disabled={
-                    props.faction === '*' &&
-                    props.status === '*' &&
-                    props.level === '*' &&
-                    props.rarity === '*' &&
-                    props.type === '*' &&
-                    props.race === '*' &&
-                    !props.text &&
-                    !props.elder &&
-                    !props.hero &&
-                    props.order === 'NATURAL'
-                  }
+                  disabled={isButtonDisabled(props)}
                 >
                   Reset filters
                 </CTA>

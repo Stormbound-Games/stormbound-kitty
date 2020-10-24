@@ -1,9 +1,9 @@
 import React from 'react'
-import hookIntoProps from 'hook-into-props'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import abbreviate from '../../helpers/abbreviate'
+import parseAdvancedSearch from '../../helpers/parseAdvancedSearch'
 import sortCards, {
   sortByValue,
   sortByLockedCoins,
@@ -16,6 +16,7 @@ const DEFAULT_FILTERS = {
   race: '*',
   type: '*',
   mana: '*',
+  strength: '*',
   movement: '*',
   rarity: '*',
   text: '',
@@ -24,174 +25,236 @@ const DEFAULT_FILTERS = {
   ability: '*',
   hero: false,
   elder: false,
-  order: 'NATURAL',
 }
 
-class CardsFiltering extends React.Component {
-  constructor(props) {
-    super(props)
+const CardsFiltering = React.memo(function CardsFiltering(props) {
+  const viewportWidth = useViewportWidth()
+  // All filters are within the same state object for convenience, otherwise we
+  // would need a dozen of individual setters, which is pretty cumbersome.
+  const [filters, setFilters] = React.useState(DEFAULT_FILTERS)
+  // The order is handled separately since it does not filter cards per se, it
+  // just orders them. It also allows us to preserve the order when bulk
+  // reseting  filters which is convenient.
+  const [order, setOrder] = React.useState('NATURAL')
+  // Whether the advanced search is enabled.
+  const [advanced, setAdvanced] = React.useState(false)
+  // The content of the advanced search field; not to confuse with the text
+  // search filter which is used to find cards by name.
+  const [search, setSearch] = React.useState('')
 
-    this.state = { ...DEFAULT_FILTERS }
+  // `updateFilter` is a convenience function to update a given filter while
+  // preserving the value of the others.
+  const updateFilter = key => value =>
+    setFilters(filters => ({ ...filters, [key]: value }))
+
+  // When reseting the name filter (by clicking the clear button for instance),
+  // the filters should stay as they are. But if searching cards by name, all
+  // other filters should be reseted for convenience.
+  const setText = text =>
+    setFilters(filters => ({
+      ...(text === '' ? filters : DEFAULT_FILTERS),
+      text,
+    }))
+
+  const setFaction = updateFilter('faction')
+  const setRace = updateFilter('race')
+  const setMana = updateFilter('mana')
+  const setType = type => {
+    updateFilter('type')(type)
+    // If the type filter is not `unit`, movement should be reseted to its
+    // default value otherwise this leads to absence of results.
+    if (type !== 'unit') updateFilter('movement')(DEFAULT_FILTERS.movement)
   }
-
-  setFaction = faction => this.setState({ faction })
-  setText = text =>
-    text === ''
-      ? this.setState({ text })
-      : this.setState({ ...DEFAULT_FILTERS, text })
-  setType = type =>
-    this.setState({
-      type,
-      movement: type !== 'unit' ? '*' : this.state.movement,
-    })
-  setRace = race => this.setState({ race })
-  setMana = mana => this.setState({ mana })
-  setMovement = movement =>
-    this.setState({
-      movement,
-      type: movement !== '*' ? 'unit' : this.state.type,
-    })
-  setRarity = rarity => this.setState({ rarity })
-  setStatus = status => this.setState({ status })
-  setLevel = level => this.setState({ level: +level || level })
-  setAbility = ability => this.setState({ ability })
-  setHero = hero => this.setState({ hero })
-  setElder = elder => this.setState({ elder })
-  setOrder = order => this.setState({ order })
-
-  resetFilters = () => this.setState({ ...DEFAULT_FILTERS })
-
-  matchesText = card =>
-    this.state.text === '' ||
-    this.state.text.toUpperCase() === abbreviate(card.name).toUpperCase() ||
-    card.name
-      .toLowerCase()
-      .replace('’', "'")
-      .includes(this.state.text.toLowerCase())
-
-  matchesFaction = card =>
-    this.state.faction === '*' || card.faction === this.state.faction
-  matchesRace = card => this.state.race === '*' || card.race === this.state.race
-  matchesType = card => this.state.type === '*' || card.type === this.state.type
-  matchesMana = card => {
-    const { mana } = this.state
-    if (mana === '*') return true
-    if (mana === '1-3' && card.mana >= 1 && card.mana <= 3) return true
-    if (mana === '4-5' && (card.mana === 4 || card.mana === 5)) return true
-    if (mana === '6-7' && (card.mana === 6 || card.mana === 7)) return true
-    if (mana === '8+' && card.mana >= 8) return true
-    return false
+  const setMovement = movement => {
+    updateFilter('movement')(movement)
+    // If the movement filter is set, the type filter should be set to `unit`
+    // otherwise this leads to absence of results.
+    if (movement !== '*') updateFilter('type')('unit')
   }
-  matchesMovement = card => {
-    return (
-      this.state.movement === '*' || +this.state.movement === +card.movement
-    )
-  }
-  matchesRarity = card =>
-    this.state.rarity === '*' || card.rarity === this.state.rarity
-  matchesStatus = card => {
-    return (
-      this.state.status === '*' ||
-      (this.state.status === 'MISSING' && card.missing) ||
-      (this.state.status === 'UPGRADABLE' && isCardUpgradable(card)) ||
-      (this.state.status === 'EXCESS' && getExtraAfterMax(card).coins > 0)
-    )
-  }
-  matchesLevel = card =>
-    this.state.level === '*' ||
-    (card.level === this.state.level && !card.missing)
-  matchesAbility = card => {
-    return (
-      this.state.ability === '*' ||
-      (this.state.ability === 'POISON' && /poison/i.test(card.ability || '')) ||
-      (this.state.ability === 'SPAWN' && /spawn/i.test(card.ability || '')) ||
-      (this.state.ability === 'DRAIN' && /drain/i.test(card.ability || '')) ||
-      (this.state.ability === 'CONFUSION' &&
-        /confus/i.test(card.ability || '')) ||
-      (this.state.ability === 'SURVIVING' &&
-        /surviv/i.test(card.ability || '')) ||
-      (this.state.ability === 'PUSH_PULL' &&
-        /push|pull/i.test(card.ability || '')) ||
-      (this.state.ability === 'FREEZE' && /freeze/i.test(card.ability || '')) ||
-      (this.state.ability === 'COMMAND' &&
-        /command/i.test(card.ability || '')) ||
-      (this.state.ability === 'CHIP' && CHIP_CARDS.includes(card.id))
-    )
-  }
-  matchesHero = card =>
-    !this.state.hero || Boolean(card.hero) === this.state.hero
-  matchesElder = card =>
-    !this.state.elder || Boolean(card.elder) === this.state.elder
+  const setRarity = updateFilter('rarity')
+  const setStatus = updateFilter('status')
+  const setLevel = updateFilter('level')
+  const setAbility = updateFilter('ability')
+  const setHero = updateFilter('hero')
+  const setElder = updateFilter('elder')
+  const resetFilters = () => setFilters({ ...DEFAULT_FILTERS })
 
-  getCollection = cards => {
-    return cards
-      .filter(card => {
-        // It is technically possible for the card not to be found in the collection
-        // at all if it was added as a new card in a separate branch, stored in
-        // local storage. Then, checking out a branch without this card in the
-        // database yet would cause the card not to be found in the collection. It
-        // cannot happen in production unless cards ever get removed from the game.
-        if (!card) return false
-        if (card.token) return false
-        if (!this.matchesText(card)) return false
-        if (!this.matchesFaction(card)) return false
-        if (!this.matchesRace(card)) return false
-        if (!this.matchesType(card)) return false
-        if (!this.matchesMana(card)) return false
-        if (!this.matchesMovement(card)) return false
-        if (!this.matchesRarity(card)) return false
-        if (!this.matchesStatus(card)) return false
-        if (!this.matchesLevel(card)) return false
-        if (!this.matchesAbility(card)) return false
-        if (!this.matchesHero(card)) return false
-        if (!this.matchesElder(card)) return false
+  // The text match checks whether the card matches by abbreviation first, so
+  // that “RoF” (regardless of casing) yields a result. If no abbreviation
+  // matches, it checks the name while replacing curly quotes with dumb quotes
+  // for convenience.
+  // @TODO: still yield results if curly quotes are used.
+  const matchesText = React.useCallback(
+    card => {
+      if (filters.text === '') return true
+      if (filters.text.toUpperCase() === abbreviate(card.name).toUpperCase())
         return true
-      })
-      .map(getResolvedCardData)
-      .sort(
-        this.state.status === 'EXCESS'
-          ? sortByLockedCoins
-          : this.state.order === 'VALUE'
-          ? sortByValue
-          : sortCards()
+      return card.name
+        .toLowerCase()
+        .replace('’', "'")
+        .includes(filters.text.toLowerCase())
+    },
+    [filters.text]
+  )
+
+  const matchesFaction = React.useCallback(
+    card => filters.faction === '*' || filters.faction === card.faction,
+    [filters.faction]
+  )
+
+  const matchesRace = React.useCallback(
+    card => filters.race === '*' || filters.race === card.race,
+    [filters.race]
+  )
+
+  const matchesType = React.useCallback(
+    card => filters.type === '*' || filters.type === card.type,
+    [filters.type]
+  )
+
+  const matchesNumeric = key => card => {
+    const filter = filters[key]
+    if (filter === '*') return true
+    if (!isNaN(+filter)) return card[key] === +filter
+    const [low, high] = filter.split('-').map(Number)
+    return card[key] >= low && card[key] <= high
+  }
+
+  const matchesMana = React.useCallback(matchesNumeric('mana'), [filters.mana])
+
+  const matchesStrength = React.useCallback(matchesNumeric('strength'), [
+    filters.strength,
+  ])
+
+  const matchesMovement = React.useCallback(matchesNumeric('movement'), [
+    filters.movement,
+  ])
+
+  const matchesRarity = React.useCallback(
+    card => filters.rarity === '*' || filters.rarity === card.rarity,
+    [filters.rarity]
+  )
+
+  const matchesStatus = React.useCallback(
+    card =>
+      filters.status === '*' ||
+      (filters.status === 'MISSING' && card.missing) ||
+      (filters.status === 'UPGRADABLE' && isCardUpgradable(card)) ||
+      (filters.status === 'EXCESS' && getExtraAfterMax(card).coins > 0),
+    [filters.status]
+  )
+
+  const matchesLevel = React.useCallback(
+    card =>
+      filters.level === '*' || (card.level === filters.level && !card.missing),
+    [filters.level]
+  )
+
+  const matchesAbility = React.useCallback(
+    card => {
+      const ability = filters.ability
+      return (
+        ability === '*' ||
+        (ability === 'POISON' && /poison/i.test(card.ability || '')) ||
+        (ability === 'SPAWN' && /spawn/i.test(card.ability || '')) ||
+        (ability === 'DRAIN' && /drain/i.test(card.ability || '')) ||
+        (ability === 'CONFUSION' && /confus/i.test(card.ability || '')) ||
+        (ability === 'SURVIVING' && /surviv/i.test(card.ability || '')) ||
+        (ability === 'PUSH_PULL' && /push|pull/i.test(card.ability || '')) ||
+        (ability === 'FREEZE' && /freeze/i.test(card.ability || '')) ||
+        (ability === 'COMMAND' && /command/i.test(card.ability || '')) ||
+        (ability === 'CHIP' && CHIP_CARDS.includes(card.id))
       )
+    },
+    [filters.ability]
+  )
+
+  const matchesHero = React.useCallback(
+    card => !filters.hero || Boolean(card.hero) === filters.hero,
+    [filters.hero]
+  )
+
+  const matchesElder = React.useCallback(
+    card => !filters.elder || Boolean(card.elder) === filters.elder,
+    [filters.elder]
+  )
+
+  const toggleAdvancedSearch = () => setAdvanced(advanced => !advanced)
+
+  const runAdvancedSearch = event => {
+    event.preventDefault()
+    const parameters = parseAdvancedSearch(search.trim())
+    setFilters({ ...DEFAULT_FILTERS, ...parameters })
   }
 
-  getCardsPerPage = () => (this.props.viewportWidth < 1100 ? 6 : 8)
+  const setAdvancedSearch = search => {
+    setSearch(search)
+    if (search === '') setFilters(DEFAULT_FILTERS)
+  }
 
-  render() {
-    const filters = { ...this.state }
-    const filtersSetters = {
-      setFaction: this.setFaction,
-      setType: this.setType,
-      setRace: this.setRace,
-      setMana: this.setMana,
-      setMovement: this.setMovement,
-      setRarity: this.setRarity,
-      setText: this.setText,
-      setStatus: this.setStatus,
-      setLevel: this.setLevel,
-      setAbility: this.setAbility,
-      setHero: this.setHero,
-      setElder: this.setElder,
-      setOrder: this.setOrder,
-    }
+  const actions = {
+    setFaction,
+    setType,
+    setRace,
+    setMana,
+    setMovement,
+    setRarity,
+    setText,
+    setStatus,
+    setLevel,
+    setAbility,
+    setHero,
+    setElder,
+    // While these are not card filters per se, they are grouped within the
+    // actions object to make it more convenient to access them.
+    setOrder,
+    setAdvancedSearch,
+    toggleAdvancedSearch,
+    runAdvancedSearch,
+    resetFilters,
+  }
 
-    return this.props.children({
-      filters,
-      filtersSetters,
-      resetFilters: this.resetFilters,
-      collection: this.getCollection(this.props.cards),
-      cardsPerPage:
-        this.props.viewportWidth < 850
-          ? 4
-          : this.props.viewportWidth < 1100
-          ? 6
-          : 8,
+  const sort =
+    filters.status === 'EXCESS'
+      ? sortByLockedCoins
+      : order === 'VALUE'
+      ? sortByValue
+      : sortCards()
+
+  const collection = props.cards
+    .filter(card => {
+      // It is technically possible for the card not to be found in the
+      // collection at all if it was added as a new card in a separate
+      // branch, stored in local storage. Then, checking out a branch
+      // without this card in the database yet would cause the card not to
+      // be found in the collection. It cannot happen in production unless
+      // cards ever get removed from the game.
+      if (!card) return false
+      if (card.token) return false
+      if (!matchesText(card)) return false
+      if (!matchesFaction(card)) return false
+      if (!matchesRace(card)) return false
+      if (!matchesType(card)) return false
+      if (!matchesMana(card)) return false
+      if (!matchesStrength(card)) return false
+      if (!matchesMovement(card)) return false
+      if (!matchesRarity(card)) return false
+      if (!matchesStatus(card)) return false
+      if (!matchesLevel(card)) return false
+      if (!matchesAbility(card)) return false
+      if (!matchesHero(card)) return false
+      if (!matchesElder(card)) return false
+      return true
     })
-  }
-}
+    .map(getResolvedCardData)
+    .sort(sort)
 
-export default hookIntoProps(() => ({ viewportWidth: useViewportWidth() }))(
-  CardsFiltering
-)
+  return props.children({
+    filters: { ...filters, advanced, order, search },
+    actions,
+    collection,
+    cardsPerPage: viewportWidth < 850 ? 4 : viewportWidth < 1100 ? 6 : 8,
+  })
+})
+
+export default CardsFiltering

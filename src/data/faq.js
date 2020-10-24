@@ -211,6 +211,90 @@ export default [
         ),
       },
       {
+        id: 'advanced-search',
+        question: 'What is the advanced card search?',
+        answer: (
+          <>
+            <p>
+              The advanced card search (also present in the collection manager)
+              relies on some sort of “tokens”. For instance,{' '}
+              <code>is:epic</code> will filter out all non-epic cards.{' '}
+              <code>is:wp</code> shows winter cards only. And the nice thing
+              about this is that they are cumulative. So{' '}
+              <code>is:epic is:wp is:dragon</code> yields Yowling Weavers for
+              instance.
+            </p>
+            <p>Here is a list of all filters available:</p>
+            <ul>
+              <li>
+                Race filters: <code>is:&lt;race&gt;</code> (e.g.{' '}
+                <code>is:feline</code>)
+              </li>
+              <li>
+                Faction filters: <code>is:&lt;faction&gt;</code> (e.g.{' '}
+                <code>is:winter</code>, including aliases like <code>sf</code>,{' '}
+                <code>ic</code>, <code>wp</code>…)
+              </li>
+              <li>
+                Rarity filters: <code>is:&lt;rarity&gt;</code> (e.g.{' '}
+                <code>is:epic</code>)
+              </li>
+              <li>
+                Type filters: <code>is:&lt;type&gt;</code> (e.g.{' '}
+                <code>is:spell</code>)
+              </li>
+              <li>
+                Modifier filters: <code>is:hero</code> and <code>is:elder</code>
+              </li>
+              <li>
+                Strength (<code>str</code> or <code>strength</code>), mana (
+                <code>man</code> or <code>mana</code>), movement (
+                <code>move</code>, <code>movement</code>, <code>spe</code> or{' '}
+                <code>speed</code>) filters:{' '}
+              </li>
+              <ul style={{ paddingLeft: '1.5em' }}>
+                <li>
+                  with a static value: <code>mana:4</code>
+                </li>
+                <li>
+                  above a certain value: <code>mana:4+</code>/
+                  <code>mana:&lt;4</code>
+                </li>
+                <li>
+                  below a certain value: <code>mana:4-</code>/
+                  <code>mana:&gt;4</code>
+                </li>
+                <li>
+                  within 2 specific values: <code>mana:4-6</code>
+                </li>
+              </ul>
+            </ul>
+            <p>
+              Currently <span className='Highlight'>not</span> supported:
+            </p>
+            <ul>
+              <li>
+                Negative filters, such as looking for cards that are{' '}
+                <span className='Highlight'>not</span> something{' '}
+              </li>
+              <li>
+                Ability filters, such as looking for cards with a specific
+                ability (e.g. freeze, drain, chip…)
+              </li>
+              <li>
+                Level/status filters—right now the search is collection-agnostic
+              </li>
+            </ul>
+            <p>
+              All in all, it should be relatively resilient. In theory, you
+              cannot really break it per se. Worst case scenario, your search is
+              not understood or non-sensical (e.g.{' '}
+              <code>is:winter is:shadowfen</code>) and no results are returned.
+            </p>
+          </>
+        ),
+      },
+      {
         id: 'dry-runner-mechanics',
         question:
           'Which mechanics are currently implemented in the dry-run simulator?',
