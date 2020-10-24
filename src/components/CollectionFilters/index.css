@@ -11,8 +11,14 @@
   margin: 0 auto 0.75em;
 }
 
-.CollectionFilters__reset {
-  margin: 0.5em auto 0;
+.CollectionFilters__icon {
+  font-size: 80%;
+  position: relative;
+  transform: translateY(2px);
+}
+
+.CollectionFilters__icon--cross {
+  font-size: 120%;
 }
 
 @media (min-width: 700px) {

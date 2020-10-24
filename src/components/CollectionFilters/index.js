@@ -3,8 +3,8 @@ import { TYPES, RARITIES, RACES } from '../../constants/game'
 import AdvancedCardSearch from '../AdvancedCardSearch'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
-import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
+import Icon from '../Icon'
 import Only from '../Only'
 import MobileTogglableContent from '../MobileTogglableContent'
 import Row from '../Row'
@@ -222,19 +222,23 @@ export default React.memo(function CollectionFilters(props) {
                   onClick={props.toggleAdvancedSearch}
                   className='ButtonAsLink'
                 >
+                  <Icon icon='search' className='CollectionFilters__icon' />{' '}
                   Advanced search
                 </button>
               </Column>
               <Column>
-                <CTA
+                <button
                   onClick={props.resetFilters}
                   type='button'
-                  className='CollectionFilters__reset'
+                  className='ButtonAsLink'
                   data-testid='reset-btn'
                   disabled={isButtonDisabled(props)}
                 >
+                  <span className='CollectionFilters__icon CollectionFilters__icon--cross'>
+                    &times;
+                  </span>{' '}
                   Reset filters
-                </CTA>
+                </button>
               </Column>
             </Row>
           </Column>
