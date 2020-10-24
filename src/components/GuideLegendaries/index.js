@@ -112,11 +112,10 @@ export default React.memo(function GuideLegendaries(props) {
       </p>
       <p>
         <CardLink id='S21' />: <span className='Highlight'>yes</span>,
-        especially when combined with
-        <CardLink id='S16' />. Dreadfauns on the 5- or 6-mana turn followed by
-        Queen of Herds spawning another Dreadfauns is pretty good. At level 1,
-        with level 3 Dreadfauns, it’s a 2.3 strength/mana ratio, which is pretty
-        good.
+        especially when combined with <CardLink id='S16' />. Dreadfauns on the
+        5- or 6-mana turn followed by Queen of Herds spawning another Dreadfauns
+        is pretty good. At level 1, with level 3 Dreadfauns, it’s a 2.3
+        strength/mana ratio, which is pretty good.
       </p>
 
       <Title>Ironclad</Title>
@@ -127,10 +126,10 @@ export default React.memo(function GuideLegendaries(props) {
         you build a deck around it.
       </p>
       <p>
-        <CardLink id='I17' />: no, stay away from it, even at higher levels. Use{' '}
-        <CardLink id='I20' /> (which is a better choice at virtually any level),{' '}
-        <CardLink id='I18' /> or <CardLink id='I4' />
-        instead.
+        <CardLink id='I17' />: <span className='Highlight'>no</span>, stay away
+        from it, even at higher levels. Use <CardLink id='I20' /> (which is a
+        better choice at virtually any level), <CardLink id='I18' /> or{' '}
+        <CardLink id='I4' /> instead.
       </p>
       <p>
         <CardLink id='I22' />: <span className='Highlight'>no</span>. At level
@@ -157,7 +156,7 @@ export default React.memo(function GuideLegendaries(props) {
         there, she becomes quite good.
       </p>
       <p>
-        <CardLink id='N22' />: <span className='Highlight'>maybe</span>, but
+        <CardLink id='W23' />: <span className='Highlight'>maybe</span>, but
         just because the best substitute is an epic—
         <CardLink id='N39' />. The latter may not heal your base, but fill the
         same defensive role better and can attack the enemy base too if you have
@@ -177,7 +176,7 @@ export default React.memo(function GuideLegendaries(props) {
         2 mana instead, like <CardLink id='N3' /> and <CardLink id='F3' />.
       </p>
       <p>
-        <CardLink id='F22' />: <span className='Highlight'>no</span>. Use it for
+        <CardLink id='F21' />: <span className='Highlight'>no</span>. Use it for
         fun at lower leagues, but it’s a very epensive card and a gamble.
         Keeping the 1 strength eggs alive is a challenge at higher leagues and
         the benefits are not always worth the risks. I wouldn’t bother even at
