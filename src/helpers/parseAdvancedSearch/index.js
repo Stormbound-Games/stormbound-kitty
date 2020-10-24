@@ -61,3 +61,19 @@ export default value => {
     return acc
   }, accumulator)
 }
+
+export const serialiseFilters = filters => {
+  let search = []
+
+  if (filters.hero) search.push('is:hero')
+  if (filters.elder) search.push('is:elder')
+  if (filters.text) search.push(filters.text)
+  if (filters.faction !== '*') search.push('is:' + filters.faction)
+  if (filters.race !== '*') search.push('is:' + filters.race)
+  if (filters.type !== '*') search.push('is:' + filters.type)
+  if (filters.rarity !== '*') search.push('is:' + filters.rarity)
+  if (filters.movement !== '*') search.push('mov:' + filters.movement)
+  if (filters.mana !== '*') search.push('mana:' + filters.mana)
+
+  return search.join(' ')
+}

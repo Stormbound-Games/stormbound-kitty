@@ -3,7 +3,9 @@ import getExtraAfterMax from '../../helpers/getExtraAfterMax'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import abbreviate from '../../helpers/abbreviate'
-import parseAdvancedSearch from '../../helpers/parseAdvancedSearch'
+import parseAdvancedSearch, {
+  serialiseFilters,
+} from '../../helpers/parseAdvancedSearch'
 import sortCards, {
   sortByValue,
   sortByLockedCoins,
@@ -176,7 +178,15 @@ const CardsFiltering = React.memo(function CardsFiltering(props) {
   )
 
   const toggleAdvancedSearch = () => {
-    setFilters({ ...DEFAULT_FILTERS })
+    const search = serialiseFilters(filters)
+
+    if (advanced || search.length === 0) setFilters({ ...DEFAULT_FILTERS })
+
+    // Going from the regular search to the advanced one, serialise the existing
+    // filters (if not default) to maintain the search across modes and prefill
+    // the search field with the existing filters.
+    if (search) setSearch(search)
+
     setAdvanced(advanced => !advanced)
   }
 
