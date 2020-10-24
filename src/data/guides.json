@@ -241,6 +241,18 @@
     "date": "10/2020"
   },
   {
+    "id": "LEGENDARIES_GUIDE",
+    "name": "Legendaries Guide",
+    "authors": ["VultureMadAtTheOx"],
+    "excerpt": "In this straightforward guide, VultureMadAtTheOx goes through all the legendary cards in the game and explains whether they are worthy at level 1, and when to start using them.",
+    "slug": "legendaries",
+    "faction": "neutral",
+    "cardId": "N46",
+    "background": "/assets/images/wallpapers/lite/wp-d-3.png",
+    "category": "PLAYSTYLE",
+    "date": "10/2020"
+  },
+  {
     "id": "CHILLBEARDS_GUIDE",
     "name": "Chillbeards",
     "authors": ["Dracqi"],

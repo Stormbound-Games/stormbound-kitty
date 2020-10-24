@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Legendaries Guide",
+    "description": "VultureMadAtTheOx goes through all legendary cards to discuss their power at low level.",
+    "link": "/guides/legendaries"
+  },
+  {
     "intro": "Green Prototypes Guide",
     "description": "Stratadox expands on why Green Prototypes is the most versatile card in the game.",
     "link": "/guides/green-prototypes"
