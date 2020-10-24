@@ -15,6 +15,16 @@
   align-self: flex-end;
 }
 
+.DeckEditorFilters__icon {
+  font-size: 80%;
+  position: relative;
+  transform: translateY(2px);
+}
+
+.DeckEditorFilters__icon--cross {
+  font-size: 120%;
+}
+
 @media (max-width: 699px) {
   .DeckEditorFilters .Row {
     margin-bottom: 0;

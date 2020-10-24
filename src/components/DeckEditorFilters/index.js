@@ -3,7 +3,7 @@ import { TYPES, RACES, RARITIES } from '../../constants/game'
 import AdvancedCardSearch from '../AdvancedCardSearch'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
-import CTA from '../CTA'
+import Icon from '../Icon'
 import FactionSelect from '../FactionSelect'
 import Row from '../Row'
 import MobileTogglableContent from '../MobileTogglableContent'
@@ -229,19 +229,23 @@ export default React.memo(function DeckEditorFilters(props) {
                   onClick={props.toggleAdvancedSearch}
                   className='ButtonAsLink'
                 >
+                  <Icon icon='search' className='DeckEditorFilters__icon' />{' '}
                   Advanced search
                 </button>
               </Column>
               <Column>
-                <CTA
+                <button
                   onClick={props.resetFilters}
                   type='button'
-                  className='DeckEditorFilters__reset'
+                  className='ButtonAsLink'
                   data-testid='reset-filters-btn'
                   disabled={isButtonDisabled(props)}
                 >
+                  <span className='DeckEditorFilters__icon DeckEditorFilters__icon--cross'>
+                    &times;
+                  </span>{' '}
                   Reset filters
-                </CTA>
+                </button>
               </Column>
             </Row>
           </Column>
