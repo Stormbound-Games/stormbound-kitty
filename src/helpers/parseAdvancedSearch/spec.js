@@ -45,6 +45,7 @@ describe('The `parseAdvancedSearch` helper', () => {
   })
 
   it('should handle mana', () => {
+    expect(parse('man:5')).to.deep.equal({ mana: 5 })
     expect(parse('mana:5')).to.deep.equal({ mana: 5 })
     expect(parse('mana:>5')).to.deep.equal({ mana: '5-Infinity' })
     expect(parse('mana:5+')).to.deep.equal({ mana: '5-Infinity' })
@@ -54,6 +55,7 @@ describe('The `parseAdvancedSearch` helper', () => {
   })
 
   it('should handle strength', () => {
+    expect(parse('strength:5')).to.deep.equal({ strength: 5 })
     expect(parse('str:5')).to.deep.equal({ strength: 5 })
     expect(parse('str:>5')).to.deep.equal({ strength: '5-Infinity' })
     expect(parse('str:5+')).to.deep.equal({ strength: '5-Infinity' })
@@ -63,6 +65,9 @@ describe('The `parseAdvancedSearch` helper', () => {
   })
 
   it('should handle movement', () => {
+    expect(parse('spe:2')).to.deep.equal({ movement: 2 })
+    expect(parse('speed:2')).to.deep.equal({ movement: 2 })
+    expect(parse('movement:2')).to.deep.equal({ movement: 2 })
     expect(parse('mov:2')).to.deep.equal({ movement: 2 })
     expect(parse('mov:>2')).to.deep.equal({ movement: '2-Infinity' })
     expect(parse('mov:2+')).to.deep.equal({ movement: '2-Infinity' })

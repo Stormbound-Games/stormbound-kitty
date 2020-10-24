@@ -1,9 +1,9 @@
 import parseCardGuess from '../parseCardGuess'
 
-const IS_TOKEN = 'is:'
-const MANA_TOKEN = 'mana:'
-const STR_TOKEN = 'str:'
-const MOV_TOKEN = 'mov:'
+const IS_TOKEN = /^is:/
+const MANA_TOKEN = /^mana?:/
+const STR_TOKEN = /^str(?:ength)?:/
+const MOV_TOKEN = /^(mov(?:ement)?|spe(?:ed)?):/
 
 const parseToRange = value => {
   if (
@@ -28,12 +28,12 @@ const parseToRange = value => {
 
 export default value => {
   const chunks = value.split(/\s+/g)
-  const is = chunks.filter(chunk => chunk.startsWith(IS_TOKEN))
+  const is = chunks.filter(chunk => chunk.match(IS_TOKEN))
   const text = chunks.filter(chunk => !chunk.includes(':')).join(' ')
   const accumulator = text ? { text } : {}
-  const manaChunk = chunks.find(chunk => chunk.startsWith(MANA_TOKEN))
-  const strChunk = chunks.find(chunk => chunk.startsWith(STR_TOKEN))
-  const movChunk = chunks.find(chunk => chunk.startsWith(MOV_TOKEN))
+  const manaChunk = chunks.find(chunk => chunk.match(MANA_TOKEN))
+  const strChunk = chunks.find(chunk => chunk.match(STR_TOKEN))
+  const movChunk = chunks.find(chunk => chunk.match(MOV_TOKEN))
 
   if (manaChunk) {
     const mana = parseToRange(manaChunk.replace(MANA_TOKEN, ''))
