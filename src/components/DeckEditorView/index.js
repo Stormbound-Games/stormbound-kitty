@@ -247,19 +247,9 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
           <Title style={{ marginTop: 0 }}>Cards</Title>
 
           <CardsFiltering cards={cardCollection}>
-            {({
-              filters,
-              filtersSetters,
-              collection,
-              resetFilters,
-              cardsPerPage,
-            }) => (
+            {({ filters, actions, collection, cardsPerPage }) => (
               <>
-                <Filters
-                  {...filters}
-                  {...filtersSetters}
-                  resetFilters={resetFilters}
-                />
+                <Filters {...filters} {...actions} />
 
                 {collection.length > 0 ? (
                   <Gallery
@@ -274,7 +264,7 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
                 ) : (
                   <EmptySearch
                     title='No cards found'
-                    resetFilters={resetFilters}
+                    resetFilters={actions.resetFilters}
                   />
                 )}
               </>

@@ -198,19 +198,9 @@ class Collection extends React.Component {
             <CardsFiltering
               cards={this.props.collection.map(getResolvedCardData)}
             >
-              {({
-                filters,
-                filtersSetters,
-                collection,
-                resetFilters,
-                cardsPerPage,
-              }) => (
+              {({ filters, actions, collection, cardsPerPage }) => (
                 <>
-                  <Filters
-                    {...filters}
-                    {...filtersSetters}
-                    resetFilters={resetFilters}
-                  />
+                  <Filters {...filters} {...actions} />
 
                   {collection.length > 0 ? (
                     <CardsGallery
@@ -226,7 +216,7 @@ class Collection extends React.Component {
                   ) : (
                     <EmptySearch
                       title='No cards found'
-                      resetFilters={resetFilters}
+                      resetFilters={actions.resetFilters}
                     />
                   )}
                 </>
