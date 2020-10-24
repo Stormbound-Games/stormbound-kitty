@@ -268,6 +268,10 @@ export default [
                   within 2 specific values: <code>mana:4-6</code>
                 </li>
               </ul>
+              <li>
+                Ability filters: <code>has:&lt;ability&gt;</code> (e.g.{' '}
+                <code>has:freeze</code>, <code>has:drain</code>)
+              </li>
             </ul>
             <p>
               Currently <span className='Highlight'>not</span> supported:

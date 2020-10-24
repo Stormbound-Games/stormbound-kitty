@@ -1,6 +1,7 @@
 import parseCardGuess from '../parseCardGuess'
 
 const IS_TOKEN = /^is[:=]/
+const HAS_TOKEN = /^has[:=]/
 const MANA_TOKEN = /^mana?[:=]/
 const STR_TOKEN = /^str(?:ength)?[:=]/
 const MOV_TOKEN = /^(mov(?:ement)?|spe(?:ed)?)[:=]/
@@ -34,6 +35,7 @@ export default value => {
   const manaChunk = chunks.find(chunk => chunk.match(MANA_TOKEN))
   const strChunk = chunks.find(chunk => chunk.match(STR_TOKEN))
   const movChunk = chunks.find(chunk => chunk.match(MOV_TOKEN))
+  const hasChunk = chunks.find(chunk => chunk.match(HAS_TOKEN))
 
   if (textChunks.length > 0) {
     accumulator.text = textChunks.join(' ')
@@ -52,6 +54,11 @@ export default value => {
   if (movChunk) {
     const movement = parseToRange(movChunk.replace(MOV_TOKEN, ''))
     if (movement) accumulator.movement = movement
+  }
+
+  if (hasChunk) {
+    const ability = hasChunk.replace(HAS_TOKEN, '').toUpperCase()
+    if (ability) accumulator.ability = ability
   }
 
   return is.reduce((acc, chunk) => {
@@ -74,6 +81,8 @@ export const serialiseFilters = filters => {
   if (filters.rarity !== '*') search.push('is:' + filters.rarity)
   if (filters.movement !== '*') search.push('mov:' + filters.movement)
   if (filters.mana !== '*') search.push('mana:' + filters.mana)
+  if (filters.ability !== '*')
+    search.push('has:' + filters.ability.toLowerCase())
 
   return search.join(' ')
 }

@@ -159,6 +159,8 @@ const CardsFiltering = React.memo(function CardsFiltering(props) {
         (ability === 'CONFUSION' && /confus/i.test(card.ability || '')) ||
         (ability === 'SURVIVING' && /surviv/i.test(card.ability || '')) ||
         (ability === 'PUSH_PULL' && /push|pull/i.test(card.ability || '')) ||
+        (ability === 'PUSH' && /push/i.test(card.ability || '')) ||
+        (ability === 'PULL' && /pull/i.test(card.ability || '')) ||
         (ability === 'FREEZE' && /freeze/i.test(card.ability || '')) ||
         (ability === 'COMMAND' && /command/i.test(card.ability || '')) ||
         (ability === 'CHIP' && CHIP_CARDS.includes(card.id))
