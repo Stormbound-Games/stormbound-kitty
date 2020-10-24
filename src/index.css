@@ -222,6 +222,11 @@ fieldset {
   font-weight: normal;
 }
 
+code {
+  color: var(--beige);
+  font-size: 110%;
+}
+
 abbr[title] {
   border-bottom: 1px dotted;
   text-decoration: none;

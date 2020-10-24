@@ -1,6 +1,7 @@
 import React from 'react'
 import Column from '../Column'
 import CTA from '../CTA'
+import LearnMoreIcon from '../LearnMoreIcon'
 import Row from '../Row'
 
 export default React.memo(function AdvancedCardSearch(props) {
@@ -8,7 +9,9 @@ export default React.memo(function AdvancedCardSearch(props) {
     <form onSubmit={props.onSubmit}>
       <Row desktopOnly>
         <Column width='3/4'>
-          <label htmlFor='search'>Advanced search</label>
+          <label htmlFor='search'>
+            Advanced search <LearnMoreIcon anchor='#advanced-search' />
+          </label>
           <input
             type='search'
             name='search'
