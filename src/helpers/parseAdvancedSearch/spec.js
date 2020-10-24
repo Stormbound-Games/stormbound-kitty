@@ -50,6 +50,7 @@ describe('The `parseAdvancedSearch` helper', () => {
     expect(parse('mana:5+')).to.deep.equal({ mana: '5-Infinity' })
     expect(parse('mana:5-')).to.deep.equal({ mana: '0-5' })
     expect(parse('mana:<5')).to.deep.equal({ mana: '0-5' })
+    expect(parse('mana:4-8')).to.deep.equal({ mana: '4-8' })
   })
 
   it('should handle strength', () => {
@@ -58,13 +59,22 @@ describe('The `parseAdvancedSearch` helper', () => {
     expect(parse('str:5+')).to.deep.equal({ strength: '5-Infinity' })
     expect(parse('str:5-')).to.deep.equal({ strength: '0-5' })
     expect(parse('str:<5')).to.deep.equal({ strength: '0-5' })
+    expect(parse('str:4-8')).to.deep.equal({ strength: '4-8' })
   })
 
   it('should handle movement', () => {
-    expect(parse('mov:5')).to.deep.equal({ movement: 5 })
-    expect(parse('mov:>5')).to.deep.equal({ movement: '5-Infinity' })
-    expect(parse('mov:5+')).to.deep.equal({ movement: '5-Infinity' })
-    expect(parse('mov:5-')).to.deep.equal({ movement: '0-5' })
-    expect(parse('mov:<5')).to.deep.equal({ movement: '0-5' })
+    expect(parse('mov:2')).to.deep.equal({ movement: 2 })
+    expect(parse('mov:>2')).to.deep.equal({ movement: '2-Infinity' })
+    expect(parse('mov:2+')).to.deep.equal({ movement: '2-Infinity' })
+    expect(parse('mov:2-')).to.deep.equal({ movement: '0-2' })
+    expect(parse('mov:<2')).to.deep.equal({ movement: '0-2' })
+    expect(parse('mov:0-2')).to.deep.equal({ movement: '0-2' })
+  })
+
+  it('should ignore invalid numeric values', () => {
+    expect(parse('mana:a-b')).to.deep.equal({})
+    expect(parse('mana:a---')).to.deep.equal({})
+    expect(parse('mana:5+-')).to.deep.equal({})
+    expect(parse('mana:foo')).to.deep.equal({})
   })
 })

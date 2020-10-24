@@ -6,17 +6,24 @@ const STR_TOKEN = 'str:'
 const MOV_TOKEN = 'mov:'
 
 const parseToRange = value => {
+  if (
+    value.match(/[^-]+-[^-]/) &&
+    value.split('-').every(chunk => !isNaN(+chunk))
+  ) {
+    return value
+  }
+
   if (value.endsWith('+') || value.startsWith('>')) {
-    return [+value.replace(/[+>]/g, ''), Infinity].join('-')
+    const low = +value.replace(/[+>]/g, '')
+    if (!isNaN(low)) return [low, Infinity].join('-')
   }
 
   if (value.endsWith('-') || value.startsWith('<')) {
-    return [0, +value.replace(/[<-]/g, '')].join('-')
+    const high = +value.replace(/[<-]/g, '')
+    if (!isNaN(high)) return [0, high].join('-')
   }
 
-  if (!isNaN(+value)) {
-    return +value
-  }
+  if (!isNaN(+value)) return +value
 }
 
 export default value => {
