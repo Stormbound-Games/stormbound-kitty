@@ -180,14 +180,8 @@ const CardsFiltering = React.memo(function CardsFiltering(props) {
   )
 
   const toggleAdvancedSearch = () => {
-    const search = serialiseFilters(filters)
-
-    if (advanced || search.length === 0) setFilters({ ...DEFAULT_FILTERS })
-
-    // Going from the regular search to the advanced one, serialise the existing
-    // filters (if not default) to maintain the search across modes and prefill
-    // the search field with the existing filters.
-    if (search) setSearch(search)
+    if (advanced) setFilters({ ...DEFAULT_FILTERS })
+    else setSearch(serialiseFilters(filters))
 
     setAdvanced(advanced => !advanced)
   }
