@@ -5,6 +5,11 @@
     "link": "/guides/legendaries"
   },
   {
+    "intro": "Advanced Card Search",
+    "description": "The deck builder and collection manager now have an advanced card search for power users.",
+    "link": "/deck"
+  },
+  {
     "intro": "Green Prototypes Guide",
     "description": "Stratadox expands on why Green Prototypes is the most versatile card in the game.",
     "link": "/guides/green-prototypes"
