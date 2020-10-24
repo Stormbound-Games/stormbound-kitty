@@ -213,8 +213,14 @@ fieldset {
   transition: 250ms;
 }
 
-.ButtonAsLink:hover {
+.ButtonAsLink:not(:disabled):hover {
   color: var(--beige);
+}
+
+.ButtonAsLink[disabled] {
+  opacity: 0.7;
+  filter: grayscale(1);
+  cursor: default;
 }
 
 .Highlight {
