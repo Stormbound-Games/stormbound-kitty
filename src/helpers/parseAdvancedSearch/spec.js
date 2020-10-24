@@ -39,6 +39,10 @@ describe('The `parseAdvancedSearch` helper', () => {
     expect(parse('is:wp')).to.deep.equal({ faction: 'winter' })
   })
 
+  it('should handle equal signs', () => {
+    expect(parse('is=neutral')).to.deep.equal({ faction: 'neutral' })
+  })
+
   it('should ignore non-card searches', () => {
     expect(parse('is:d1')).to.deep.equal({})
     expect(parse('is:equals')).to.deep.equal({})
