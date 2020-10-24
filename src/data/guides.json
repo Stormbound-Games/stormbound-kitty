@@ -288,7 +288,8 @@
     "cardId": "F21",
     "background": "/assets/images/banners/environment_shadowfen.png",
     "category": "PLAYSTYLE",
-    "date": "08/2020"
+    "date": "08/2020",
+    "skipNav": true
   },
   {
     "id": "TRIVIA_GUIDE",
