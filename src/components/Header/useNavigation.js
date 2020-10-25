@@ -65,7 +65,7 @@ export default () => {
           ],
         },
         {
-          title: 'Assets',
+          title: 'Fan-Kit',
           icon: 'image',
           items: [
             {

@@ -33,25 +33,25 @@ cards
 SEARCH_INDEX.push({
   path: '/members',
   label: 'Members',
-  breadcrumbs: ['Community', 'Members'],
+  breadcrumbs: ['Community', 'Miscellaneous'],
 })
 
 SEARCH_INDEX.push({
   path: '/videos',
   label: 'Videos',
-  breadcrumbs: ['Community', 'Videos'],
+  breadcrumbs: ['Community', 'Miscellaneous'],
 })
 
 SEARCH_INDEX.push({
   path: '/card',
   label: 'Card Builder',
-  breadcrumbs: ['Tools', 'Card Builder'],
+  breadcrumbs: ['Tools', 'Builders'],
 })
 
 SEARCH_INDEX.push({
-  path: `/card/stats`,
+  path: '/card/stats',
   label: 'Card Statistics',
-  breadcrumbs: ['Game', 'Card Statistics'],
+  breadcrumbs: ['Official', 'Miscellaneous'],
 })
 
 decks.forEach(deck => {
@@ -67,7 +67,7 @@ Object.keys(CATEGORIES).forEach(id => {
   SEARCH_INDEX.push({
     path: `/guides/${CATEGORIES[id].slug}`,
     label: CATEGORIES[id].name.long,
-    breadcrumbs: ['Guides', CATEGORIES[id].name.short],
+    breadcrumbs: ['Guides'],
   })
 })
 
@@ -84,20 +84,20 @@ guides.forEach(guide => {
 SEARCH_INDEX.push({
   path: `/sim`,
   label: 'Battle Sim',
-  breadcrumbs: ['Tools', 'Battle Sim', 'Editor'],
+  breadcrumbs: ['Tools', 'Builders'],
 })
 
 SEARCH_INDEX.push({
   path: '/sim/puzzles',
   label: 'Puzzles',
-  breadcrumbs: ['Tools', 'Battle Sim', 'Puzzles'],
+  breadcrumbs: ['Community', 'Contests'],
 })
 
 puzzles.forEach(puzzle => {
   SEARCH_INDEX.push({
     path: `/sim/${puzzle.board}`,
     label: puzzle.name,
-    breadcrumbs: ['Community', 'Puzzles'],
+    breadcrumbs: ['Community', 'Contests', 'Puzzles'],
   })
   recordMember(puzzle.author)
 })
@@ -105,69 +105,81 @@ puzzles.forEach(puzzle => {
 SEARCH_INDEX.push({
   path: '/faq',
   label: 'Frequently Asked Questions',
-  breadcrumbs: ['Community', 'FAQ'],
+  breadcrumbs: ['Home', 'FAQ'],
 })
 
 SEARCH_INDEX.push({
   path: '/fan-kit/cards',
-  label: 'Fan-kit – Cards',
-  breadcrumbs: ['Game', 'Fan-Kit', 'Cards'],
+  label: 'Cards Assets',
+  breadcrumbs: ['Game', 'Fan-Kit'],
 })
 
 SEARCH_INDEX.push({
   path: '/fan-kit/books',
-  label: 'Fan-kit – Books',
-  breadcrumbs: ['Game', 'Fan-Kit', 'Books'],
+  label: 'Books Assets',
+  breadcrumbs: ['Game', 'Fan-Kit'],
 })
 
 SEARCH_INDEX.push({
   path: '/fan-kit/wallpapers',
-  label: 'Fan-kit – Wallpapers',
-  breadcrumbs: ['Game', 'Fan-Kit', 'Wallpapers'],
+  label: 'Wallpapers',
+  breadcrumbs: ['Game', 'Fan-Kit'],
 })
 
 SEARCH_INDEX.push({
   path: '/changelog',
   label: 'Card Changelog',
-  breadcrumbs: ['Game', 'Changelog'],
+  breadcrumbs: ['Official', 'Updates'],
 })
 
 SEARCH_INDEX.push({
   path: '/releases',
   label: 'Releases Notes',
-  breadcrumbs: ['Game', 'Releases'],
+  breadcrumbs: ['Official', 'Updates'],
 })
 
 releases.forEach(release => {
   SEARCH_INDEX.push({
     path: '/releases/' + release.slug,
     label: release.title,
-    breadcrumbs: ['Game', 'Releases'],
+    breadcrumbs: ['Official', 'Updates'],
   })
 })
 
 SEARCH_INDEX.push({
   path: '/tournaments/hall-of-fame',
   label: 'Tournaments',
-  breadcrumbs: ['Community', 'Tournament Hall of Fame'],
+  breadcrumbs: ['Community', 'Contests'],
 })
 
 SEARCH_INDEX.push({
   path: '/calculators/income',
   label: 'Income Calculator',
-  breadcrumbs: ['Tools', 'Income Calculator'],
+  breadcrumbs: ['Tools', 'Calculators'],
+})
+
+SEARCH_INDEX.push({
+  path: '/calculators/value',
+  label: 'Value Calculator',
+  breadcrumbs: ['Tools', 'Calculators'],
+})
+
+SEARCH_INDEX.push({
+  path: '/calculators/books',
+  label: 'Books Calculator',
+  breadcrumbs: ['Tools', 'Calculators'],
 })
 
 SEARCH_INDEX.push({
   path: '/list/ranked',
   label: 'Ranked Tier List',
-  breadcrumbs: ['Game', 'Ranked Tier List'],
+  breadcrumbs: ['Community', 'Meta'],
 })
 
 SEARCH_INDEX.push({
   path: '/list/equals',
   label: 'Equals Tier List',
-  breadcrumbs: ['Game', 'Equals Tier List'],
+  breadcrumbs: ['Community', 'Meta'],
 })
 
 // Add all individual brawl pages to the index.
@@ -182,49 +194,43 @@ BRAWLS.forEach(brawl => {
 SEARCH_INDEX.push({
   path: '/brawl',
   label: 'Brawl Tracker',
-  breadcrumbs: ['Tools', 'Brawl Tracker'],
+  breadcrumbs: ['Tools', 'Your Content'],
 })
 
 SEARCH_INDEX.push({
   path: '/collection',
   label: 'Collection',
-  breadcrumbs: ['Tools', 'Card Collection'],
-})
-
-SEARCH_INDEX.push({
-  path: '/calculators/books',
-  label: 'Books Drawing Calculator',
-  breadcrumbs: ['Tools', 'Books Calculator'],
+  breadcrumbs: ['Tools', 'Your Content'],
 })
 
 SEARCH_INDEX.push({
   path: '/collection/stats',
   label: 'Collection Statistics',
-  breadcrumbs: ['Tools', 'Collection Stats'],
+  breadcrumbs: ['Tools', 'Your Content', 'Collection'],
 })
 
 SEARCH_INDEX.push({
   path: '/deck/suggestions',
   label: 'Popular Decks',
-  breadcrumbs: ['Community', 'Popular Decks'],
+  breadcrumbs: ['Community', 'Meta'],
 })
 
 SEARCH_INDEX.push({
   path: '/deck',
   label: 'Deck Builder',
-  breadcrumbs: ['Tools', 'Deck Builder', 'Editor'],
+  breadcrumbs: ['Tools', 'Builds'],
 })
 
 SEARCH_INDEX.push({
   path: '/deck/collection',
   label: 'Your Personal Decks',
-  breadcrumbs: ['Tools', 'Personal Decks'],
+  breadcrumbs: ['Tools', 'Your Content'],
 })
 
 SEARCH_INDEX.push({
   path: '/quest',
   label: 'Quest Builder',
-  breadcrumbs: ['Tools', 'Quest Builder'],
+  breadcrumbs: ['Tools', 'Builders'],
 })
 
 SEARCH_INDEX.push({
@@ -237,20 +243,20 @@ Object.keys(STORY_CATEGORIES).forEach(id => {
   SEARCH_INDEX.push({
     path: `/stories/${id}`,
     label: STORY_CATEGORIES[id].title,
-    breadcrumbs: ['Stories', STORY_CATEGORIES[id].shortName],
+    breadcrumbs: ['Stories'],
   })
 })
 
 SEARCH_INDEX.push({
   path: '/brewed-sages',
   label: 'Brewed Sages Podcast',
-  breadcrumbs: ['Community', 'Podcast'],
+  breadcrumbs: ['Community', 'Miscellaneous'],
 })
 
 SEARCH_INDEX.push({
   path: '/fan-art',
   label: 'Fan Art',
-  breadcrumbs: ['Community', 'Fan Art'],
+  breadcrumbs: ['Community', 'Miscellaneous'],
 })
 
 export default new FuzzySearch(SEARCH_INDEX, ['label'], {
