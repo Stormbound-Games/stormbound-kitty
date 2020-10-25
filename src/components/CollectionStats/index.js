@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {
   ResponsiveContainer,
   Bar,
@@ -16,7 +17,6 @@ import Checkbox from '../Checkbox'
 import CollectionFigures from '../CollectionFigures'
 import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
-import ImportCollection from '../ImportCollection'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
@@ -224,9 +224,10 @@ export default function CollectionStats(props) {
                 On this page, you can find some data visualisation for your card
                 collection.{' '}
                 <Only.DefaultCollection>
-                  Start by importing your card collection. In the mean time, the
-                  visualised collection contains all cards in the game at level
-                  1.
+                  Start by{' '}
+                  <Link to='/collection'>setting up your card collection</Link>.
+                  In the mean time, the visualised collection contains all cards
+                  in the game at level 1.
                 </Only.DefaultCollection>
               </p>
               <p>
@@ -235,14 +236,6 @@ export default function CollectionStats(props) {
                 collection and the amount of extra copies you have of that card
                 before the next level.
               </p>
-              <Only.DefaultCollection>
-                <Row desktopOnly>
-                  <Column>
-                    <ImportCollection />
-                  </Column>
-                  <Column />
-                </Row>
-              </Only.DefaultCollection>
             </Column>
           </Row>
           <Row desktopOnly>
