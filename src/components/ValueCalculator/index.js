@@ -86,9 +86,9 @@ export default React.memo(function ValueCalculator(props) {
   const [B, setB] = React.useState('N32')
   const [levelA, setLevelA] = React.useState(5)
   const [levelB, setLevelB] = React.useState(5)
-  const disabledOptions = [A, B].concat(
-    cards.filter(card => getCardValue(card.id) === null).map(card => card.id)
-  )
+  const disabledOptions = cards
+    .filter(card => getCardValue(card.id) === null)
+    .map(card => card.id)
 
   return (
     <>
