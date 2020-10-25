@@ -566,9 +566,9 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Unhealthy Hysteria', () => {
     const value1 = getCardValue('N63', 1)
     const value5 = getCardValue('N63', 5)
-    expect(value1[0]).to.equal((4 * 2) / 3)
+    expect(value1[0]).to.equal(2 / 3)
     expect(value1[1]).to.equal((4 * 2) / 3)
-    expect(value5[0]).to.equal((8 * 2) / 3)
+    expect(value5[0]).to.equal(2 / 3)
     expect(value5[1]).to.equal((8 * 2) / 3)
   })
 
