@@ -83,20 +83,20 @@ const CardValue = React.memo(function CardValue(props) {
 })
 
 const getCardsFromURL = id => {
+  const defaultCard = { id: null, level: 1 }
+
   try {
-    return serialisation.cards.deserialise(id)
-  } catch {
-    return [
-      { id: null, level: 1 },
-      { id: null, level: 1 },
-    ]
+    const cards = serialisation.cards.deserialise(id)
+    return [cards[0] || defaultCard, cards[1] || defaultCard]
+  } catch (error) {
+    return [defaultCard, defaultCard]
   }
 }
 
 export default React.memo(function ValueCalculator(props) {
   const history = useHistory()
-  const { id } = useRouteMatch()
-  const initialCards = getCardsFromURL(id)
+  const { params } = useRouteMatch()
+  const initialCards = getCardsFromURL(params.id?.toUpperCase())
   const [A, setA] = React.useState(initialCards[0])
   const [B, setB] = React.useState(initialCards[1])
   const disabledOptions = cards

@@ -365,7 +365,7 @@ export default function Router(props) {
 
           <Page
             exact
-            path='/calculators/value'
+            path='/calculators/value/:id'
             active={['TOOLS', 'VALUE_CALCULATOR']}
           >
             <ValueCalculator />
@@ -373,7 +373,7 @@ export default function Router(props) {
 
           <Page
             exact
-            path='/calculators/value/:id'
+            path='/calculators/value'
             active={['TOOLS', 'VALUE_CALCULATOR']}
           >
             <ValueCalculator />
