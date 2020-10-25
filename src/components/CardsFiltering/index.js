@@ -144,7 +144,7 @@ const CardsFiltering = React.memo(function CardsFiltering(props) {
 
   const matchesLevel = React.useCallback(
     card =>
-      filters.level === '*' || (card.level === filters.level && !card.missing),
+      filters.level === '*' || (card.level === +filters.level && !card.missing),
     [filters.level]
   )
 
