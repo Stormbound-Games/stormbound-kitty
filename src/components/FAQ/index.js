@@ -1,9 +1,7 @@
 import React from 'react'
 import Article from '../Article'
-import Column from '../Column'
 import FAQSection from '../FAQSection'
 import PageMeta from '../PageMeta'
-import Row from '../Row'
 import StructuredData from '../StructuredData'
 import Title from '../Title'
 import TogglableContent from '../TogglableContent'
@@ -35,55 +33,49 @@ export default React.memo(function FAQ() {
 
   return (
     <Article title='FAQ'>
-      <Row desktopOnly wideGutter>
-        <Column width='1/3'>
-          <Title style={{ marginTop: 0 }}>Topics</Title>
+      <Article.Narrow>
+        <Title>Topics</Title>
 
-          <ul className='FAQ__toc'>
-            {categories.map(category => (
-              <li key={category.id}>
-                <a href={'#' + category.id}>{category.title}</a>
-                <TogglableContent
-                  isExpanded={expanded.includes(category.id)}
-                  id={category.id + '-questions'}
-                  renderToggle={toggleProps => (
-                    <button
-                      className='ButtonAsLink FAQ__toggle'
-                      onClick={() => toggle(category.id)}
-                    >
-                      (
-                      {expanded.includes(category.id)
-                        ? '- collapse'
-                        : '+ expand'}
-                      )
-                    </button>
-                  )}
-                >
-                  <ul className='FAQ__toc-list'>
-                    {category.entries.map(entry => (
-                      <li key={entry.id}>
-                        <a href={'#' + entry.id}>{entry.question}</a>
-                      </li>
-                    ))}
-                  </ul>
-                </TogglableContent>
-              </li>
-            ))}
-          </ul>
-        </Column>
-
-        <Column width='2/3'>
+        <ul className='FAQ__toc'>
           {categories.map(category => (
-            <FAQSection {...category} key={category.id} />
+            <li key={category.id}>
+              <a href={'#' + category.id}>{category.title}</a>
+              <TogglableContent
+                isExpanded={expanded.includes(category.id)}
+                id={category.id + '-questions'}
+                renderToggle={toggleProps => (
+                  <button
+                    className='ButtonAsLink FAQ__toggle'
+                    onClick={() => toggle(category.id)}
+                  >
+                    (
+                    {expanded.includes(category.id) ? '- collapse' : '+ expand'}
+                    )
+                  </button>
+                )}
+              >
+                <ul className='FAQ__toc-list'>
+                  {category.entries.map(entry => (
+                    <li key={entry.id}>
+                      <a href={'#' + entry.id}>{entry.question}</a>
+                    </li>
+                  ))}
+                </ul>
+              </TogglableContent>
+            </li>
           ))}
-        </Column>
-      </Row>
+        </ul>
 
-      <StructuredData type='FAQ' />
-      <PageMeta
-        title='Frequently Asked questions'
-        description='Find answers to the frequently asked questions about Stormbound and Stormbound-Kitty'
-      />
+        {categories.map(category => (
+          <FAQSection {...category} key={category.id} />
+        ))}
+
+        <StructuredData type='FAQ' />
+        <PageMeta
+          title='Frequently Asked questions'
+          description='Find answers to the frequently asked questions about Stormbound and Stormbound-Kitty'
+        />
+      </Article.Narrow>
     </Article>
   )
 })
