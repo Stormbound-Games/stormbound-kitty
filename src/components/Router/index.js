@@ -371,6 +371,14 @@ export default function Router(props) {
             <ValueCalculator />
           </Page>
 
+          <Page
+            exact
+            path='/calculators/value/:id'
+            active={['TOOLS', 'VALUE_CALCULATOR']}
+          >
+            <ValueCalculator />
+          </Page>
+
           {releases.map(release => {
             const Component = RELEASE_COMPONENTS[release.id]
 

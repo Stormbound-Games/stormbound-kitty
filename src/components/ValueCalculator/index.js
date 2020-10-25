@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useRouteMatch, useHistory, Link } from 'react-router-dom'
 import Card from '../Card'
 import CardSelect from '../CardSelect'
 import Column from '../Column'
@@ -12,6 +12,7 @@ import Title from '../Title'
 import cards from '../../data/cards'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import getCardValue from '../../helpers/getCardValue'
+import serialisation from '../../helpers/serialisation'
 import './index.css'
 
 const LevelSelect = React.memo(function LevelSelect(props) {
@@ -51,7 +52,7 @@ const SlotSelect = React.memo(function SlotSelect(props) {
 })
 
 const CardValue = React.memo(function CardValue(props) {
-  const value = getCardValue(props.id, props.level)
+  const value = props.id && getCardValue(props.id, props.level)
 
   if (!value) {
     return (
@@ -81,14 +82,36 @@ const CardValue = React.memo(function CardValue(props) {
   )
 })
 
+const getCardsFromURL = id => {
+  try {
+    return serialisation.cards.deserialise(id)
+  } catch {
+    return [
+      { id: null, level: 1 },
+      { id: null, level: 1 },
+    ]
+  }
+}
+
 export default React.memo(function ValueCalculator(props) {
-  const [A, setA] = React.useState('N3')
-  const [B, setB] = React.useState('N32')
-  const [levelA, setLevelA] = React.useState(5)
-  const [levelB, setLevelB] = React.useState(5)
+  const history = useHistory()
+  const { id } = useRouteMatch()
+  const initialCards = getCardsFromURL(id)
+  const [A, setA] = React.useState(initialCards[0])
+  const [B, setB] = React.useState(initialCards[1])
   const disabledOptions = cards
     .filter(card => getCardValue(card.id) === null)
     .map(card => card.id)
+
+  React.useEffect(() => {
+    history.replace(
+      ['/calculators/value', serialisation.cards.serialise([A, B])]
+        .filter(Boolean)
+        .join('/')
+        .toLowerCase()
+    )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [A, B])
 
   return (
     <>
@@ -138,20 +161,24 @@ export default React.memo(function ValueCalculator(props) {
             <Column width='3/4'>
               <SlotSelect
                 slot='A'
-                value={A}
-                setCard={setA}
+                value={A.id}
+                setCard={id => setA(A => ({ id, level: A.level }))}
                 disabledOptions={disabledOptions}
               />
             </Column>
             <Column width='1/4'>
-              <LevelSelect slot='A' value={levelA} setLevel={setLevelA} />
+              <LevelSelect
+                slot='A'
+                value={A.level}
+                setLevel={level => setA(A => ({ level, id: A.id }))}
+              />
             </Column>
           </Row>
-          {A && (
+          {A.id && (
             <>
-              <CardValue id={A} level={levelA} />
+              <CardValue {...A} />
               <div className='ValueCalculator__CardHolder'>
-                <Card {...getResolvedCardData({ id: A, level: levelA })} />
+                <Card {...getResolvedCardData(A)} />
               </div>
             </>
           )}
@@ -162,20 +189,24 @@ export default React.memo(function ValueCalculator(props) {
             <Column width='3/4'>
               <SlotSelect
                 slot='B'
-                value={B}
-                setCard={setB}
+                value={B.id}
+                setCard={id => setB(B => ({ id, level: B.level }))}
                 disabledOptions={disabledOptions}
               />
             </Column>
             <Column width='1/4'>
-              <LevelSelect slot='B' value={levelB} setLevel={setLevelB} />
+              <LevelSelect
+                slot='B'
+                value={B.level}
+                setLevel={level => setB(B => ({ level, id: B.id }))}
+              />
             </Column>
           </Row>
-          {B && (
+          {B.id && (
             <>
-              <CardValue id={B} level={levelB} />
+              <CardValue {...B} />
               <div className='ValueCalculator__CardHolder'>
-                <Card {...getResolvedCardData({ id: B, level: levelB })} />
+                <Card {...getResolvedCardData(B)} />
               </div>
             </>
           )}
