@@ -168,7 +168,7 @@ const getCardValue = (id, level = 1) => {
     }
     case 'N63': /* Unhealthy Hysteria */ {
       const value = parseAbility(ability)
-      return [(value * 2) / mana, (value * 2) / mana]
+      return [2 / mana, (value * 2) / mana]
     }
     case 'I23': /* Armed Schemers */
     case 'N56': /* Temple Guardians */
