@@ -161,13 +161,13 @@ export default React.memo(function GuideLegendaries(props) {
         <CardLink id='N39' />. The latter may not heal your base, but fill the
         same defensive role better and can attack the enemy base too if you have
         a building or <CardLink id='W13' />. Epics are easier to level up, but
-        not easy. Use whichever has the higher level. Olf the Gammer is not the
+        not easy. Use whichever has the higher level. Olf the Hammer is not the
         best level 1 legendary, but it’s not bad either.
       </p>
 
       <Title>Shadowfen</Title>
       <p>
-        <CardLink id='F21' />: <span className='Highlight'>maybe</span>. It’s
+        <CardLink id='F12' />: <span className='Highlight'>maybe</span>. It’s
         only good if it survives after attacking and making a 3 strength unit
         survive an attack is not always easy, especially as one progresses
         through the leagues. It may work on in low leagues, but I would not
