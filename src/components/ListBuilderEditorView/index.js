@@ -8,9 +8,9 @@ import {
   DEFAULT_TIER,
   MAX_TIERS,
 } from '../../constants/list'
+import Article from '../Article'
 import Column from '../Column'
 import CTA from '../CTA'
-import HeaderBanner from '../HeaderBanner'
 import PageMeta from '../PageMeta'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
@@ -169,12 +169,20 @@ class ListBuilderEditorView extends React.Component {
 
   render() {
     return (
-      <>
-        <HeaderBanner title='Create your list' />
-
+      <Article
+        title='Create your list'
+        action={
+          this.props.listId && {
+            to: `/list/${this.props.listId}/display`,
+            children: 'Display view',
+            icon: 'eye',
+          }
+        }
+        smallFontSize
+      >
         <Row wideGutter desktopOnly>
           <Column width='1/3'>
-            <Title element='h2'>Settings</Title>
+            <Title style={{ marginTop: 0 }}>Settings</Title>
 
             <p>
               This tier list editor makes it possible to create up to 12 tiers
@@ -200,7 +208,7 @@ class ListBuilderEditorView extends React.Component {
             </Row>
           </Column>
           <Column width='2/3'>
-            <Title>Tier list</Title>
+            <Title style={{ marginTop: 0 }}>Tier list</Title>
 
             {this.state.tiers.map((tier, index) => (
               <ListBuilderTier
@@ -241,7 +249,7 @@ class ListBuilderEditorView extends React.Component {
           title='Tier List Builder'
           description='Compose your own tier lists from the Stormbound cards, ranking them the way you see fit'
         />
-      </>
+      </Article>
     )
   }
 }

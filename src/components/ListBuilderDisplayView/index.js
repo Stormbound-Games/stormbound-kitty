@@ -1,6 +1,7 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import { TIER_COLORS, MAX_TIERS } from '../../constants/list'
+import Article from '../Article'
 import Column from '../Column'
 import CTA from '../CTA'
 import PageMeta from '../PageMeta'
@@ -17,11 +18,17 @@ export default React.memo(function ListBuilderDisplayView(props) {
   const tiers = getInitialListData(id)
 
   return (
-    <>
-      <h1 className='VisuallyHidden'>List Builder</h1>
+    <Article
+      title='List builder'
+      action={{
+        to: `/list/${id}`,
+        children: 'Edit list',
+      }}
+      smallFontSize
+    >
       <Row wideGutter desktopOnly>
         <Column width='1/3'>
-          <Title element='h2'>Information</Title>
+          <Title style={{ marginTop: 0 }}>Information</Title>
 
           <p>
             This tier list editor makes it possible to create up to {MAX_TIERS}{' '}
@@ -41,7 +48,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
           </Row>
         </Column>
         <Column width='2/3'>
-          <Title>Tier list</Title>
+          <Title style={{ marginTop: 0 }}>Tier list</Title>
 
           {tiers.map((tier, index) => (
             <ListBuilderTier
@@ -59,6 +66,6 @@ export default React.memo(function ListBuilderDisplayView(props) {
         title='Tier List Builder'
         description='Compose your own tier lists from the Stormbound cards, ranking them the way you see fit'
       />
-    </>
+    </Article>
   )
 })

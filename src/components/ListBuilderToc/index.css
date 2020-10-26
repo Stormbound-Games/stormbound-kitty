@@ -13,6 +13,7 @@
   position: relative;
   counter-increment: toc;
   margin: 0.5em 0;
+  text-indent: 0 !important;
 }
 
 .ListBuilderToc__list li::before,

@@ -20,11 +20,6 @@ const SubNav = React.memo(function (props) {
     return <NavBattleSim active={bottomActive} />
   }
 
-  if (topActive === 'TOOLS' && midActive === 'LIST_BUILDER') {
-    const NavListBuilder = load('NavListBuilder')
-    return <NavListBuilder active={bottomActive} />
-  }
-
   if (topActive === 'TOOLS' && midActive === 'DECK_BUILDER') {
     const NavDeckBuilder = load('NavDeckBuilder')
     return <NavDeckBuilder active={bottomActive} />
