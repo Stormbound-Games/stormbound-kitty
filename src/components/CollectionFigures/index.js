@@ -201,7 +201,11 @@ export default function CollectionFigures(props) {
         })}
       </ul>
 
-      <Info title='Books & Income Calculators' style={{ marginTop: '2em' }}>
+      <Info
+        icon='equalizer'
+        title='Books & Income Calculators'
+        style={{ marginTop: '2em' }}
+      >
         To figure out the odds of finding a specific card in a certain book, be
         sure to check the <Link to='/calculators/books'>books calculator</Link>.
         To learn more about your regular resources and cards income, use the{' '}
