@@ -11,19 +11,19 @@ describe('Bot — !deckid', () => {
   it('should default to level 1 for no mentioned levels', () => {
     expect(
       deckid('gp,sm,dopp,gr,head,rg,uh,wild,forsoul,pog,sg,dev').url
-    ).to.equal(BASE_URL + '1n11n21s11n31s241s21n631n671s61n151s81s11')
+    ).to.equal(BASE_URL + '1xn1n2s1n3s24s2n63n67s6n15s8s11')
   })
 
   it('should handle leading deck level', () => {
     expect(
       deckid('5 gp,sm,dopp,gr,head,rg,uh,wild,forsoul,pog,sg,dev').url
-    ).to.equal(BASE_URL + '5n15n25s15n35s245s25n635n675s65n155s85s11')
+    ).to.equal(BASE_URL + '5xn1n2s1n3s24s2n63n67s6n15s8s11')
   })
 
   it('should handle trailing deck level', () => {
     expect(
       deckid('gp,sm,dopp,gr,head,rg,uh,wild,forsoul,pog,sg,dev 5').url
-    ).to.equal(BASE_URL + '5n15n25s15n35s245s25n635n675s65n155s85s11')
+    ).to.equal(BASE_URL + '5xn1n2s1n3s24s2n63n67s6n15s8s11')
   })
 
   it('should handle card levels', () => {
