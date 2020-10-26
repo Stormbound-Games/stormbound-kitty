@@ -1,7 +1,6 @@
 import React from 'react'
 import { NotificationContext } from '../NotificationProvider'
 import cards from '../../data/cards'
-import getBaseHealth from '../../helpers/getBaseHealth'
 
 export const CollectionContext = React.createContext([])
 const cardsWithoutTokens = cards.filter(card => !card.token)
