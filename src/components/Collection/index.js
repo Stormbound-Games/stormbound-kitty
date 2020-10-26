@@ -114,7 +114,7 @@ class Collection extends React.Component {
 
               <p>
                 If you take the time to mark the level of all your cards, as
-                well as the amount of copies you have for each, you can get
+                well as the amount of copies you have for each, you can get{' '}
                 <Link to='/collection/stats'>handy stats</Link> such as the
                 amount of fusion stones or gold you need to upgrade your cards.
               </p>
