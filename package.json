@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@loadable/component": "^5.13.2",
+    "@loadable/component": "^5.14.1",
     "@reach/tooltip": "^0.10.3",
     "canvas": "^2.6.1",
     "comlink": "^4.3.0",
     "copy-to-clipboard": "^3.3.1",
     "dateformat": "^3.0.3",
-    "discord.js": "^12.3.1",
+    "discord.js": "^12.4.1",
     "dotenv": "^8.2.0",
     "downshift": "^6.0.6",
     "esm": "^3.2.25",
@@ -27,7 +27,7 @@
     "react-a11y-dialog": "^4.2.0",
     "react-dom": "^16.13.1",
     "react-helmet-async": "^1.0.7",
-    "react-intersection-observer": "^8.28.5",
+    "react-intersection-observer": "^8.29.1",
     "react-masonry-css": "^1.0.14",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
@@ -58,17 +58,17 @@
   "devDependencies": {
     "asyncro": "^3.0.0",
     "cypress": "^4.12.1",
-    "cypress-react-unit-test": "^4.13.0",
+    "cypress-react-unit-test": "^4.16.5",
     "eslint": "^6.8.0",
     "husky": "^4.3.0",
     "imagemin": "^7.0.1",
     "imagemin-webp": "^6.0.0",
-    "lint-staged": "^10.4.0",
-    "nodemon": "^2.0.4",
+    "lint-staged": "^10.5.0",
+    "nodemon": "^2.0.6",
     "prettier": "^2.1.2",
-    "sitemap": "^6.3.0",
+    "sitemap": "^6.3.2",
     "spritesh": "^1.2.1",
-    "webpack-bundle-analyzer": "^3.8.0"
+    "webpack-bundle-analyzer": "^3.9.0"
   },
   "husky": {
     "hooks": {
