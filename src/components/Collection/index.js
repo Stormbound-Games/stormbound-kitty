@@ -1,11 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import ActiveCardForm from '../CollectionActiveCardForm'
 import CardsGallery from '../CardsGallery'
 import { CollectionContext } from '../CollectionProvider'
 import CollectionClearHint from '../CollectionClearHint'
 import Column from '../Column'
-import CTA from '../CTA'
 import HeaderBanner from '../HeaderBanner'
 import EmptySearch from '../EmptySearch'
 import CardsFiltering from '../CardsFiltering'
@@ -13,13 +13,10 @@ import Filters from '../CollectionFilters'
 import ImportCollection from '../ImportCollection'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
-import { NotificationContext } from '../NotificationProvider'
 import Row from '../Row'
 import Title from '../Title'
-import download from '../../helpers/download'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
-import getRawCardData from '../../helpers/getRawCardData'
 import './index.css'
 
 class Collection extends React.Component {
@@ -52,37 +49,6 @@ class Collection extends React.Component {
       const $button = document.querySelector(`#card-${id} > button`)
 
       if ($button) $button.focus()
-    })
-  }
-
-  formatCollectionAsCSV = cards => {
-    const headers = ['id', 'name', 'level', 'copies']
-    const data = [
-      headers,
-      ...cards.map(card => [
-        card.id,
-        // Make sure the name doesn’t contain a comma otherwise it might cause
-        // an issue when deserialising the CSV
-        getRawCardData(card.id).name.replace(',', ''),
-        // For people to open the CSV file in Excel, it’s better if it contains
-        // *all* cards; missing ones are marked as level 0
-        card.missing ? 0 : card.level,
-        card.copies || 0,
-      ]),
-    ].join('\n')
-
-    return data
-  }
-
-  download = () => {
-    download({
-      content: this.formatCollectionAsCSV(this.props.collection),
-      fileName: 'stormbound_collection.csv',
-      mimeType: 'text/csv;encoding:utf-8',
-    })
-    this.props.notify({
-      icon: 'books',
-      children: 'Your collection has been successfully exported.',
     })
   }
 
@@ -149,8 +115,8 @@ class Collection extends React.Component {
               <p>
                 If you take the time to mark the level of all your cards, as
                 well as the amount of copies you have for each, you can get
-                handy stats such as the amount of fusion stones or gold you need
-                to upgrade your cards.
+                <Link to='/collection/stats'>handy stats</Link> such as the
+                amount of fusion stones or gold you need to upgrade your cards.
               </p>
 
               <p>
@@ -162,21 +128,14 @@ class Collection extends React.Component {
 
               <CollectionClearHint />
 
-              <Row>
-                <Column>
-                  <ImportCollection />
-                </Column>
-                <Column>
-                  <CTA
-                    type='button'
-                    data-testid='export-btn'
-                    onClick={this.download}
-                    disabled={this.props.hasDefaultCollection}
-                  >
-                    Export<Only.Desktop> collection</Only.Desktop>
-                  </CTA>
-                </Column>
-              </Row>
+              <Only.DefaultCollection>
+                <Row>
+                  <Column>
+                    <ImportCollection />
+                  </Column>
+                  <Column></Column>
+                </Row>
+              </Only.DefaultCollection>
             </div>
 
             {this.state.activeCard && (
@@ -236,5 +195,4 @@ class Collection extends React.Component {
 
 export default hookIntoProps(() => ({
   ...React.useContext(CollectionContext),
-  ...React.useContext(NotificationContext),
 }))(Collection)
