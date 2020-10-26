@@ -8,6 +8,8 @@ import getExtraAfterMax from '../../helpers/getExtraAfterMax'
 import getRawCardData from '../../helpers/getRawCardData'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
+import getBaseHealth from '../../helpers/getBaseHealth'
+import isLevelAvailable from '../../helpers/isLevelAvailable'
 import { getRarityColor } from '../../helpers/getRarity'
 import cards from '../../data/cards'
 import { RARITY_COPIES } from '../../constants/game'
@@ -93,6 +95,60 @@ const getCopiesData = (collection, expectedCardLevel) => {
   })
 }
 
+const getFortressAfterUpgrade = collection => {
+  const updateCard = card => {
+    if (!isCardUpgradable(card)) return card
+
+    return {
+      ...card,
+      level: [5, 4, 3, 2].find(level => isLevelAvailable(card, level)),
+    }
+  }
+
+  return getBaseHealth(collection.map(updateCard))
+}
+
+const useFortressDisplay = collection => {
+  const curr = getBaseHealth(collection)
+  const next = getFortressAfterUpgrade(collection)
+
+  // If done with the fortress (level 20, progress 100%), simply return the
+  // fortress level
+  if (curr.progress === 1) return curr.level
+
+  // Small function to display a progress with rounding (and visually showing
+  // approximation)
+  const display = progress => '~' + Math.round(progress * 100) + '%'
+
+  // Current fortress display (level + progress)
+  const current = `${curr.level} and ${display(curr.progress)}`
+
+  // If the progress after upgrade is the same as now, it means upgrading cards
+  // will make no difference (or there are no cards to upgrade), therefore it
+  // can return the current fortress display
+  if (next.progress === curr.progress) return current
+
+  const willLevelUp = next.level > curr.level
+  const willNotBeDone = next.progress < 1
+
+  // If there is progress upon upgrading cards, display it like so:
+  // e.g. “13 and ~14% (~34% after upgrading)”
+  // e.g. “13 and ~14% (15 and ~2% after upgrading)”
+  return [
+    // Current level and progress
+    `${current} (`,
+    // If the level is different after upgrade, show it
+    willLevelUp && next.level,
+    // If the next progress is not 100%, add connector
+    willLevelUp && willNotBeDone && ' and ',
+    // Display next progress
+    willNotBeDone && display(next.progress),
+    ' after upgrading)',
+  ]
+    .filter(Boolean)
+    .join('')
+}
+
 export default function CollectionFigures(props) {
   const [expectedCardLevel, setExpectedCardLevel] = React.useState(5)
   const ownedCards = React.useMemo(() => getNonMissingCards(props.collection), [
@@ -129,6 +185,7 @@ export default function CollectionFigures(props) {
     () => getCopiesData(props.collection, expectedCardLevel),
     [expectedCardLevel, props.collection]
   )
+  const fortressDisplay = useFortressDisplay(props.collection)
 
   return (
     <>
@@ -165,6 +222,10 @@ export default function CollectionFigures(props) {
         <li>
           Missing cards:{' '}
           <span className='CollectionFigures__item'>{missingCards.length}</span>
+        </li>
+        <li>
+          Fortress level:{' '}
+          <span className='CollectionFigures__item'>{fortressDisplay}</span>
         </li>
       </ul>
       <p>
