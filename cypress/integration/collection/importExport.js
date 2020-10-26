@@ -1,12 +1,9 @@
 import s from './selectors'
 
 describe('Collection — Import/export', () => {
-  before(() => {
-    cy.visit('/collection')
-  })
-
   it('should be possible to import a CSV', () => {
-    cy.get(s.IMPORT_BTN)
+    cy.visit('/collection')
+      .get(s.IMPORT_BTN)
       .importFile('collection.import.csv')
       .get(s.CARD)
       .filter('#N1')
@@ -15,7 +12,8 @@ describe('Collection — Import/export', () => {
   })
 
   it('should be possible to import an incomplete collection', () => {
-    cy.get(s.IMPORT_BTN)
+    cy.visit('/collection')
+      .get(s.IMPORT_BTN)
       .importFile('collection.import2.csv')
       .get(s.CARD)
       .filter('#N1')
