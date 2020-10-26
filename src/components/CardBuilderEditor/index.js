@@ -191,6 +191,7 @@ class CardBuilderEditor extends React.Component {
       <>
         <App
           {...this.state}
+          cardId={this.props.cardId}
           setName={this.setName}
           setImageCardId={this.setImageCardId}
           setImageURL={this.setImageURL}

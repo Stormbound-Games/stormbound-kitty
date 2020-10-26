@@ -38,13 +38,26 @@ const useArticleProps = props => {
       href: getWikiUrl(props.name),
       children: 'Open in wiki',
     }
-  }
-
-  if (contest) {
+  } else if (contest) {
     const year = props.season === 1 ? 2019 : 2020
     properties.meta = `Week #${contest.week} (${year})`
     properties.author = contest.winner.author
     properties.action = { to: '/card/contest', children: 'Back to SWCC' }
+  } else if (props.cardId) {
+    properties.meta = [props.faction, props.type, props.race]
+      .filter(Boolean)
+      .join(' · ')
+    properties.action =
+      props.mode === 'EDITOR'
+        ? {
+            to: `/card/${props.cardId}/display`,
+            children: 'Display view',
+            icon: 'eye',
+          }
+        : {
+            to: `/card/${props.cardId}`,
+            children: 'Edit card',
+          }
   }
 
   return properties
