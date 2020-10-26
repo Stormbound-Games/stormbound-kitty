@@ -5,7 +5,7 @@ import BattleSimApp from '../BattleSimApp'
 import PageMeta from '../PageMeta'
 import puzzles from '../../data/puzzles'
 
-const useArticleProps = puzzle =>
+const useArticleProps = (id, mode, puzzle) =>
   puzzle
     ? {
         title: puzzle.name,
@@ -13,13 +13,22 @@ const useArticleProps = puzzle =>
         meta: puzzle.type,
         action: { to: '/sim/puzzles', children: 'Back to puzzles' },
       }
-    : { title: 'Battle simulator' }
+    : {
+        title: 'Battle simulator',
+        action: id
+          ? {
+              to: mode === 'EDITOR' ? `/sim/${id}/display` : `/sim/${id}`,
+              children: mode === 'EDITOR' ? 'Display view' : 'Edit sim',
+              icon: mode === 'EDITOR' ? 'eye' : undefined,
+            }
+          : undefined,
+      }
 
 const BattleSimPage = React.memo(function BattleSimPage(props) {
   const { params } = useRouteMatch()
   const simId = props.simId || params.simId
   const puzzle = puzzles.find(puzzle => puzzle.board === simId)
-  const articleProps = useArticleProps(puzzle)
+  const articleProps = useArticleProps(simId, props.mode, puzzle)
 
   return (
     <Article {...articleProps} smallFontSize>
