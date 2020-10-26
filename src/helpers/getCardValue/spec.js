@@ -1065,9 +1065,9 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Marked as Prey', () => {
     const value1 = getCardValue('F11', 1)
     const value5 = getCardValue('F11', 5)
-    expect(value1[0]).to.equal((5 - 5) / 4)
+    expect(value1[0]).to.equal(1 / 4)
     expect(value1[1]).to.equal((5 * 2) / 4)
-    expect(value5[0]).to.equal((10 - 10) / 4)
+    expect(value5[0]).to.equal(1 / 4)
     expect(value5[1]).to.equal((10 * 2) / 4)
   })
 

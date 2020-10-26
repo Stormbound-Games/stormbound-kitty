@@ -256,7 +256,7 @@ const getCardValue = (id, level = 1) => {
     }
     case 'F11': /* Marked as Prey */ {
       const [damage, strength] = ability.match(/(\d+)/g).map(Number)
-      return [(damage - strength) / mana, (damage + strength) / mana]
+      return [Math.max(damage - strength, 1) / mana, (damage + strength) / mana]
     }
     case 'S13': /* Mischiefs */
     case 'I15': /* Overchargers */ {
