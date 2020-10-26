@@ -13,13 +13,6 @@ describe('Card Builder — Official card', () => {
       .click({ force: true })
       .type('Sweet', { force: true })
       .type('{enter}', { force: true })
-      .get('.Header__nav + .Header__nav .Header__action')
-      .first()
-      .click()
-      .get(s.IMAGE_SELECT)
-      .find('.CardSelect__single-value')
-      .should('contain', 'Sweetcap Kittens')
-
       .get(s.CARD_NAME)
       .should('contain', 'Sweetcap Kittens')
   })
