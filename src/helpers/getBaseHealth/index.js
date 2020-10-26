@@ -42,7 +42,7 @@ export const computeProgress = experience => {
   const level = EXPERIENCE_TABLE[index]
   const nextLevel = EXPERIENCE_TABLE[index - 1]
 
-  return index === 0 ? 100 : (experience - level) / (nextLevel - level)
+  return index === 0 ? 1 : (experience - level) / (nextLevel - level)
 }
 
 const getBaseHealth = collection => {
