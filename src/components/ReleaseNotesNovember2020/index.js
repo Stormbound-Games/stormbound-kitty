@@ -44,7 +44,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
           <li>
             <CardLink id='N24' /> now cost 3 mana at all levels (down from 4).
             As a result, their strength is reduced by 1 (from 2/2/3/3/4 to
-            1/1/2/2/3) and their ability is adjusted (from 2/3/3/4/4 to
+            1/2/2/3/3) and their ability is adjusted (from 2/3/3/4/4 to
             2/2/3/3/4).
           </li>
         </ul>
