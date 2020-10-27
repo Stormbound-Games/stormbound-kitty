@@ -100,7 +100,7 @@ export default React.memo(function DeckCollection(props) {
 
   // If the collection of decks is updated, it is as the result of an addition,
   // a removal or an edition, which means the editing mode can be cancelled.
-  React.useEffect(disabledEditor, [context.decks])
+  React.useEffect(disabledEditor, [context.decks, disabledEditor])
 
   const addDeck = React.useCallback(
     event => {
