@@ -51,8 +51,8 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
 
         <Info icon='heart' title='Nerf compensation'>
           Owners of Rain of Frogs will be compensated proportionally to the
-          level of the card: <Coins amount='0/10/20/50/120' /> and{' '}
-          <Stones amount='0/0/1/2/5' /> stones.
+          level of the card: <Coins amount='0/15/40/120/250' /> and{' '}
+          <Stones amount='0/2/5/10/20' /> stones.
         </Info>
 
         <FAQSection
