@@ -27,7 +27,7 @@
  */
 .Home__news-box {
   position: relative;
-  background: url('/assets/images/background.png') repeat var(--black);
+  background: url('../../background.png') repeat var(--black);
   border: 1px solid var(--beige);
   padding: 1em;
   box-shadow: 0 0 2em 1em rgba(0, 0, 0, 0.2);
