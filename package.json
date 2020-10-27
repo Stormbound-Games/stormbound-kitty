@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@loadable/component": "^5.14.1",
-    "@reach/tooltip": "^0.10.3",
+    "@reach/tooltip": "^0.11.2",
     "canvas": "^2.6.1",
     "comlink": "^4.3.0",
     "copy-to-clipboard": "^3.3.1",
