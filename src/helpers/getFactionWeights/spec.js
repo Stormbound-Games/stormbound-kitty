@@ -1,8 +1,5 @@
 import getFactionWeights from './'
 
-const RANDOM_DECK =
-  'NU4xNiw1TjM2LDVONjgsNU41Myw1TjE4LDVOMiw1RjE5LDVGOCw1TjE1LDVONTksNUY1LDVONQ'
-
 describe('The `getFactionWeights` helper', () => {
   it(`should return an array with constant weigths with no modifier`, () => {
     const expectedResults = {
