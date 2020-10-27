@@ -38,19 +38,14 @@ export default () => {
           icon: 'bullhorn',
           items: [
             {
+              label: 'Update 11-2020',
+              to: '/releases/11-2020',
+              id: '11_2020',
+            },
+            {
               label: 'Update 10-2020',
               to: '/releases/10-2020',
               id: '10_2020',
-            },
-            {
-              label: 'Update 09-2020',
-              to: '/releases/09-2020',
-              id: '09_2020',
-            },
-            {
-              label: 'Update 07-2020',
-              to: '/releases/07-2020',
-              id: '07_2020',
             },
             {
               label: 'Releases',
