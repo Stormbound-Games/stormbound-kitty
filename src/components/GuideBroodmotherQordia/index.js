@@ -35,7 +35,7 @@ export default React.memo(function GuideBroodmotherQordia(props) {
           <p>
             The main power and weakness of Qordia is her eggs. She lays 3 of
             them randomly around here (or fewer if there are not enough empty
-            surrounding cells). Because of her high mana cost (7) and the random
+            surrounding cells). Because of her high mana cost (6) and the random
             aspect of her ability, it is a “high risk, high reward” kind of
             card.
           </p>
