@@ -1,6 +1,8 @@
 import React from 'react'
 import CardLink from '../CardLink'
+import FAQSection from '../FAQSection'
 import Info from '../Info'
+import Notice from '../Notice'
 import Title from '../Title'
 import ReleaseNotes from '../ReleaseNotes'
 import { Coins, Stones } from '../Resource'
@@ -12,9 +14,9 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
       <Article.Narrow>
         <p>
           It’s spooky season, and Sheepyard is releasing a small update.
-          Unfortunately, there is a bit of an unforeseen situation with Apple,
-          and the full changelog will have to be delayed. Find below the planned
-          balance tweaks, and come back soon for more!
+          Unfortunately, there is a bit of an unforeseen situation, and the full
+          changelog will have to be delayed. Find below the balance tweaks, and
+          come back soon for more!
         </p>
 
         <Title id='balance-changes'>Balance changes</Title>
@@ -52,6 +54,52 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
           level of the card: <Coins amount='0/10/20/50/120' /> and{' '}
           <Stones amount='0/0/1/2/5' /> stones.
         </Info>
+
+        <FAQSection
+          id='faq'
+          title='FAQ'
+          entries={[
+            {
+              id: 'full-content',
+              question: 'What happened to the rest of the release?',
+              answer: (
+                <>
+                  <p>
+                    We are currently experiencing an unforeseen issue with
+                    publishing the release on the Apple app store. We are
+                    working hard towards having it resolved shortly, but we do
+                    not have an estimated date/time for that.
+                  </p>
+                  <p>
+                    When the build eventually lands, the Stoic Protectors card,
+                    exclusive promotional packs and the rework of the freeze
+                    mechanic (including the Icicle Burst tweak) will be
+                    released.
+                  </p>
+                </>
+              ),
+            },
+            {
+              id: 'release-date',
+              question: 'When will the release be available?',
+              answer: (
+                <>
+                  The balance tweaks will be available from November 1st with
+                  the new season regardless, since they are applied from the
+                  server and do not need an app update. The release date for the
+                  full release and the rest of its features is unconfirmed so
+                  far.
+                </>
+              ),
+            },
+          ]}
+        />
+
+        <hr />
+
+        <Notice icon='heart'>
+          Come back soon to get the full extent of the changelog!
+        </Notice>
       </Article.Narrow>
     </ReleaseNotes>
   )
