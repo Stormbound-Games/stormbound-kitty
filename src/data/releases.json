@@ -1,5 +1,17 @@
 [
   {
+    "cardId": "F8",
+    "title": "Update 11-2020",
+    "name": "Halloween pre-event",
+    "meta": "November 1st, 2020",
+    "date": "11/2020",
+    "excerpt": "The Halloween event will be there soon; find the balance changes that it will include.",
+    "slug": "11-2020",
+    "background": "/assets/images/banners/halloween.png",
+    "ratio": "25%",
+    "id": "11_2020"
+  },
+  {
     "cardId": "N78",
     "title": "Update 10-2020",
     "name": "Second Sheepyard Update",
