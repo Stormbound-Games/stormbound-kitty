@@ -30,7 +30,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
         <ul>
           <li>
             <CardLink id='F8' /> now costs 2 mana at level 5. As a result, the
-            amount of spawned toads is adjusted 4/4/4-5/5/6 (from 4/4/5/5/6).
+            amount of spawned toads is adjusted 4/4/4-5/5/6 (from 4/5/5/6/6).
           </li>
           <li>
             <CardLink id='N77' /> now costs 6 mana at all levels (down from 7).
