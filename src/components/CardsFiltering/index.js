@@ -118,12 +118,15 @@ const CardsFiltering = React.memo(function CardsFiltering(props) {
     return card[key] >= low && card[key] <= high
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const matchesMana = React.useCallback(matchesNumeric('mana'), [filters.mana])
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const matchesStrength = React.useCallback(matchesNumeric('strength'), [
     filters.strength,
   ])
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const matchesMovement = React.useCallback(matchesNumeric('movement'), [
     filters.movement,
   ])
