@@ -10,7 +10,6 @@ describe('Dry-runner — Toxic Sacrifice', () => {
   ;[
     { id: 'N2', name: 'Summon Militia', action: 'spawn' },
     { id: 'N1', name: 'Green Prototypes', action: 'play' },
-    { id: 'F8', name: 'Rain of Frogs', action: 'spawn' },
   ].forEach(({ id, name, action }) => {
     it(`should not be possible to play Toxic Sacrifice without ${action}ing a unit before, with ${name} for example`, () => {
       cy.drSelect('F4')

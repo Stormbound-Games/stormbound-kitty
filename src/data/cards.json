@@ -1260,7 +1260,7 @@
     "mana": 5,
     "strength": "5/6/7/8/10",
     "movement": 0,
-    "ability": "On play, *fly* to the first enemy unit in front. *Push* this enemy away and deal 3 damage to it. If pushed enemy dies, move forward",
+    "ability": "On play, *fly* to the first enemy unit in front. *Push* this enemy away and deal *3/4/5/6/7 damage* to it. If pushed enemy dies, move forward",
     "hero": true
   },
   {

@@ -213,10 +213,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Personal Servers', () => {
     const value1 = getCardValue('N24', 1)
     const value5 = getCardValue('N24', 5)
-    expect(value1[0]).to.equal((2 / 4) * 1)
-    expect(value1[1]).to.equal(((2 + 2) / 4) * 1)
-    expect(value5[0]).to.equal((4 / 4) * 1)
-    expect(value5[1]).to.equal(((4 + 4) / 4) * 1)
+    expect(value1[0]).to.equal((1 / 3) * 1)
+    expect(value1[1]).to.equal(((1 + 2) / 3) * 1)
+    expect(value5[0]).to.equal((3 / 3) * 1)
+    expect(value5[1]).to.equal(((3 + 4) / 3) * 1)
   })
 
   it('should return value for Siegebreakers', () => {
@@ -692,13 +692,13 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Rogue Sheep', () => {
     const value1 = getCardValue('N77', 1)
     const value5 = getCardValue('N77', 5)
-    expect(value1[0]).to.equal((2 / 7) * 0.5)
+    expect(value1[0]).to.equal((2 / 6) * 0.5)
     expect(value1[1]).to.equal(
-      ((2 + MAX_TILES * 1 + MAX_TILES * 1 * 1) / 7) * 0.5
+      ((2 + MAX_TILES * 1 + MAX_TILES * 1 * 1) / 6) * 0.5
     )
-    expect(value5[0]).to.equal((7 / 7) * 0.5)
+    expect(value5[0]).to.equal((7 / 6) * 0.5)
     expect(value5[1]).to.equal(
-      ((7 + MAX_TILES * 2 + MAX_TILES * 2 * 3) / 7) * 0.5
+      ((7 + MAX_TILES * 2 + MAX_TILES * 2 * 3) / 6) * 0.5
     )
   })
 
@@ -1040,8 +1040,8 @@ describe('The `getCardValue` helper', () => {
     const value5 = getCardValue('F8', 5)
     expect(value1[0]).to.equal((4 * 1) / 3)
     expect(value1[1]).to.equal((4 * 1) / 3)
-    expect(value5[0]).to.equal((6 * 1) / 1)
-    expect(value5[1]).to.equal((6 * 1) / 1)
+    expect(value5[0]).to.equal((6 * 1) / 2)
+    expect(value5[1]).to.equal((6 * 1) / 2)
   })
 
   it('should return value for Wandering Wyrms', () => {
@@ -1155,10 +1155,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Broodmother Qordia', () => {
     const value1 = getCardValue('F21', 1)
     const value5 = getCardValue('F21', 5)
-    expect(value1[0]).to.equal((5 / 7) * 1)
-    expect(value1[1]).to.equal(((5 + 3 * 3) / 7) * 1)
-    expect(value5[0]).to.equal((10 / 7) * 1)
-    expect(value5[1]).to.equal(((10 + 3 * 7) / 7) * 1)
+    expect(value1[0]).to.equal((5 / 6) * 1)
+    expect(value1[1]).to.equal(((5 + 3 * 3) / 6) * 1)
+    expect(value5[0]).to.equal((10 / 6) * 1)
+    expect(value5[1]).to.equal(((10 + 3 * 7) / 6) * 1)
   })
 
   it('should return value for Curse of Strings', () => {
