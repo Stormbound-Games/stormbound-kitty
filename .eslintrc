@@ -11,10 +11,14 @@
       }
     },
     {
+      "files": ["src/**/*.js"],
+      "excludedFiles": ["src/bot/**/*.js"],
+      "rules": { "no-console": "warn" }
+    },
+    {
       "files": ["**/*.js"],
-      "excludedFiles": ["bin/*"],
       "rules": {
-        "no-console": "warn",
+        "import/no-anonymous-default-export": 0,
         "padding-line-between-statements": [
           "error",
           { "blankLine": "always", "prev": "var", "next": "return" }
