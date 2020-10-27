@@ -30,7 +30,7 @@ const getAuthors = () => {
 export default React.memo(function DeckSuggestionsFilters(props) {
   const { hasDefaultCollection } = React.useContext(CollectionContext)
   const [name, updateName] = React.useState(props.name)
-  const authors = React.useMemo(getAuthors)
+  const authors = React.useMemo(getAuthors, [])
 
   return (
     <MobileTogglableContent
