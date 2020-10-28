@@ -4,7 +4,10 @@ export const UserContext = React.createContext({})
 
 const getStoredName = () => {
   try {
-    return localStorage.getItem('sk.user_name')
+    const name = localStorage.getItem('sk.user_name')
+    // Workaround for a serialisation bug where `null` would get stored as a
+    // string in localStorage.
+    return name === 'null' ? null : name
   } catch {
     return null
   }
@@ -12,7 +15,11 @@ const getStoredName = () => {
 
 const storeName = name => {
   try {
-    localStorage.setItem('sk.user_name', name)
+    if (name) {
+      localStorage.setItem('sk.user_name', name)
+    } else {
+      localStorage.removeItem('sk.user_name')
+    }
   } catch {}
 }
 
