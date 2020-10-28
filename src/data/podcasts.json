@@ -73,5 +73,15 @@
       "https://freeloader.podbean.com/e/episode-8-introducing-the-bs-meta-report/",
     "excerpt":
       "Our hosts have brewed up another tool to help Stormbound players achieve loftier finishes each month: The BS Meta Report! How does it work? Does it work?"
+  },
+  {
+    "title": "A Winning Position(ing)",
+    "meta": "40 minutes and 20 seconds",
+    "date": "10/2020",
+    "hosts": ["Freeloader", "Subaiku", "ArthisRoo"],
+    "href":
+      "https://freeloader.podbean.com/e/episode-9-a-winning-positioning/",
+    "excerpt":
+      "In this last episode of October, our hosts discuss the extremely critical topic of unit positioning in Stormbound."
   }
 ]
