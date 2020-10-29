@@ -27,6 +27,7 @@ const GUIDE_COMPONENTS = {
   GREEN_PROTOTYPES_GUIDE: load('GuideGreenPrototypes'),
   KNOWN_BUGS: load('GuideKnownBugs'),
   LEXICON: load('Lexicon'),
+  LUCRATIVE_PROJECT_GUIDE: load('GuideLucrativeProject'),
   MANA_CURVE_GUIDE: load('GuideManaCurve'),
   NOBLE_COALITION_GUIDE: load('GuideNobleCoalition'),
   PIRATE_GUIDE: load('GuidePirate'),
