@@ -14,9 +14,6 @@ describe('Brawl — Page', () => {
       .get(s.MILESTONE)
       .eq(0)
       .should('be.visible')
-
-      .get(s.DECK)
-      .should('have.length', 1)
   })
 
   it('should be possible to navigate milestones', () => {
