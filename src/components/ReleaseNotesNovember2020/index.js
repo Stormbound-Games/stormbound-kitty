@@ -21,10 +21,9 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
     <ReleaseNotes id='11_2020' withAvif={false}>
       <Article.Narrow>
         <p>
-          It’s spooky season, and Sheepyard is releasing a small update.
-          Unfortunately, there is a bit of an unforeseen situation, and the full
-          changelog will have to be delayed. Find below the balance tweaks, and
-          come back soon for more!
+          It’s spooky season, and Sheepyard is releasing a small update. The
+          situation with Apple has been resolved and the Halloween event can
+          finally start! Find below all the goodness scheduled for this release!
         </p>
 
         <ul style={{ columns: '16em' }}>
@@ -49,8 +48,8 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
         </ul>
 
         <Info icon='gift' title='Free rubies'>
-          Anyone logging into the game at least once between October 30th and
-          November 1st will be granted <Rubies amount={20} />. Happy Halloween!
+          Anyone logging into the game at least once between October 31th and
+          November 15th will be granted <Rubies amount={20} />. Happy Halloween!
           🎃
         </Info>
 
@@ -98,7 +97,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
         <Title id='updated-freeze-mechanic'>Updated freeze mechanic</Title>
 
         <p>
-          First of all, the freeze mechanic is being reworked. Until now, a
+          As hinted before, the freeze mechanic is being reworked. Until now, a
           frozen unit would simply skip its moving phase at the beginning of its
           next turn. That remains the case, however it also temporarily loses
           its Death Trigger Effect and its Survive Trigger Effect.
@@ -144,7 +143,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
         <p>
           Similar to what happened for the{' '}
           <Link to='/releases/3rd-anniversary'>third anniversary</Link>, the
-          Brawl starting on November 29th is going to be cheaper. All fight will
+          Brawl starting on November 5th is going to be cheaper. All fight will
           cost 50% of their original price.
           <Only.Desktop>
             {' '}
@@ -201,7 +200,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
           <li>
             The <span className='Highlight'>Trick or Treat bundle</span>: 6
             Mythic Tomes, 6 Heroic Tomes and 6 Classic Tomes. This one-time
-            bundle $29.99 will be available between October 29th and November
+            bundle $29.99 will be available between October 31st and November
             15th.
           </li>
           <li>
@@ -210,7 +209,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
           </li>
           <li>
             All coin and ruby bundles will yield +20% more resources between
-            October 29th and November 15th.
+            October 31st and November 15th.
           </li>
         </ul>
       </Article.Narrow>
@@ -242,9 +241,9 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
               question: 'When will the release be available?',
               answer: (
                 <>
-                  The release will be ready for October 29th, when the Brawl
-                  starts. The balance changes and <CardLink id='N80' /> will
-                  only be available from November 1st though.
+                  The release will be ready for October 31st. The balance
+                  changes and <CardLink id='N80' /> will only be available from
+                  November 1st though.
                 </>
               ),
             },
@@ -255,42 +254,9 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
                 <>
                   The Stoic Protector’s pack will be available from November 1st
                   to November 8th. The Trick of Treat offer and the coin/ruby
-                  packs’ boost will be available from October 29th to November
+                  packs’ boost will be available from October 31st to November
                   15th. The extra weekly and monthly vanishing packs will be
                   available all throughout November.
-                </>
-              ),
-            },
-            {
-              id: 'full-content',
-              question: 'What happened to the rest of the release?',
-              answer: (
-                <>
-                  <p>
-                    We are currently experiencing an unforeseen issue with
-                    publishing the release on the Apple app store. We are
-                    working hard towards having it resolved shortly, but we do
-                    not have an estimated date/time for that.
-                  </p>
-                  <p>
-                    When the build eventually lands, the Stoic Protectors card,
-                    exclusive promotional packs and the rework of the freeze
-                    mechanic (including the Icicle Burst tweak) will be
-                    released.
-                  </p>
-                </>
-              ),
-            },
-            {
-              id: 'release-date',
-              question: 'When will the release be available?',
-              answer: (
-                <>
-                  The balance tweaks will be available from November 1st with
-                  the new season regardless, since they are applied from the
-                  server and do not need an app update. The release date for the
-                  full release and the rest of its features is unconfirmed so
-                  far.
                 </>
               ),
             },
