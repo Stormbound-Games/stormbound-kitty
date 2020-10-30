@@ -17,13 +17,4 @@ describe('Dry-runner — Archdruid Earyn', () => {
       .get(s.CARD)
       .should('have.length', 1)
   })
-
-  it('should not be possible to play Icicle Burst with Archdruid Earyn with no frozen enemies', () => {
-    cy.drDrawHand(['W1', 'W2', 'W19', 'N48'])
-      .drEndTurn(4)
-
-      .drPlay('N48')
-      .drPlay('W2')
-      .drPlay('W1')
-  })
 })
