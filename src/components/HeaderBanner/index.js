@@ -34,6 +34,7 @@ export default React.memo(function HeaderBanner(props) {
         '--ratio': props.ratio,
       }}
     >
+      <img src={background} alt='' hidden />
       <h1 className='HeaderBanner__title' title={props.title}>
         {props.title}
       </h1>
