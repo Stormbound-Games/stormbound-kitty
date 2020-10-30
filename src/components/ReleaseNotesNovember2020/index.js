@@ -143,8 +143,8 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
         <p>
           Similar to what happened for the{' '}
           <Link to='/releases/3rd-anniversary'>third anniversary</Link>, the
-          Brawl starting on November 5th is going to be cheaper. All fight will
-          cost 50% of their original price.
+          Brawl starting on November 5th (and only that one) is going to be
+          cheaper. All fight will cost 50% of their original price.
           <Only.Desktop>
             {' '}
             Here are the adjusted values for every milestone:
