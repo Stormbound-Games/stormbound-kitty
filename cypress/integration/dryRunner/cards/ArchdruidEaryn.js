@@ -6,7 +6,7 @@ describe('Dry-runner — Archdruid Earyn', () => {
   beforeEach(() => cy.visit(`/deck/${DECK_ID}/dry-run?mode=MANUAL`))
 
   it('should be possible to play spells with Archdruid Earyn', () => {
-    cy.drDrawHand(['W1', 'N44', 'W19', 'N48'])
+    cy.drDrawHand(['N1', 'N44', 'W19', 'N48'])
       .drEndTurn(4)
 
       .drPlay('N48')
