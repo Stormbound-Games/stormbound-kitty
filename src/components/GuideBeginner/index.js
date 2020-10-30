@@ -213,7 +213,8 @@ export default React.memo(function GuideBeginner(props) {
       </p>
       <p>
         <strong className='Highlight'>Freeze</strong>: units don’t move at the
-        start of their owner’s next turn. Lasts until the owner’s next turn
+        start of their owner’s next turn and they lose their “on death” and “on
+        survive” ability for this turn. Lasts until the owner’s next turn
         starts, so frozen units can still be commanded forward during the next
         turn.
       </p>
