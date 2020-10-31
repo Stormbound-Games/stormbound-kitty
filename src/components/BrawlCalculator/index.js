@@ -156,7 +156,7 @@ const CalculatorRewards = React.memo(function CalculatorRewards(props) {
 
 const CalculatorOutcome = React.memo(function CalculatorOutcome(props) {
   const { mode, coins, milestone, winRate, setup, discount } = props
-  const options = [winRate, 1 - discount / 100, setup]
+  const options = [winRate / 100, 1 - discount / 100, setup]
   const gains =
     setup === 'NONE' ? (
       'without considering winning gain'

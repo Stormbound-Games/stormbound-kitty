@@ -2,16 +2,16 @@ import { MILESTONES } from '../../constants/brawl'
 import getCoinsForWin from '../getCoinsForWin'
 
 // @param {Integer} coins - Amount of available coins
-// @param {Number} winRate - Win rate in %
+// @param {Float} winRatio - Win ratio between 0 (100% loss) and 1 (100% win)
 // @param {Float} costModifier - Cost modifier between 0 (free) and 1 (normal)
 // @param {String} setup - Wins strategy (ads, Steam…)
 const getMilestoneIndexFromCoins = (
   coins,
-  winRate,
+  winRatio = 1,
   costModifier = 1,
   setup = 'NONE'
 ) => {
-  if (typeof coins !== 'number' || typeof winRate !== 'number') return -1
+  if (typeof coins !== 'number' || typeof winRatio !== 'number') return -1
 
   const getCoins = getCoinsForWin(setup)
   let crowns = 0
@@ -19,8 +19,8 @@ const getMilestoneIndexFromCoins = (
 
   while (coins >= MILESTONES[index].cost * costModifier) {
     coins -= MILESTONES[index].cost * costModifier
-    coins += getCoins(winRate / 100)
-    crowns += (5 * winRate) / 100 + (100 - winRate) / 100
+    coins += getCoins(winRatio)
+    crowns += 5 * winRatio + (1 - winRatio)
     // eslint-disable-next-line no-loop-func
     index = MILESTONES.findIndex(milestone => milestone.crowns > crowns)
     if (index === -1) return MILESTONES.length - 1
