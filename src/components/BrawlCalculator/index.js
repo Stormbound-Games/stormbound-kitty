@@ -5,7 +5,9 @@ import PageMeta from '../PageMeta'
 import Radio from '../Radio'
 import Row from '../Row'
 import Title from '../Title'
+import { Coins } from '../Resource'
 import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
+import getMilestoneIndexFromCoins from '../../helpers/getMilestoneIndexFromCoins'
 import { MILESTONES } from '../../constants/brawl'
 
 const CalculatorMode = React.memo(function CalculatorMode(props) {
@@ -29,6 +31,7 @@ const CalculatorMode = React.memo(function CalculatorMode(props) {
         checked={props.mode === 'GOAL'}
         onChange={event => props.setMode(event.target.value)}
         required
+        disabled
       >
         … how much reaching my goal costs.
       </Radio>
@@ -93,6 +96,8 @@ export default React.memo(function BrawlCalculator(props) {
   const [winRate, setWinRate] = React.useState('')
   const [coins, setCoins] = React.useState('')
   const [milestone, setMilestone] = React.useState('')
+  const outcome =
+    mode === 'COINS' ? getMilestoneIndexFromCoins(coins, winRate) : null
 
   return (
     <>
@@ -122,6 +127,22 @@ export default React.memo(function BrawlCalculator(props) {
         </Column>
         <Column width='1/3'>
           <Title>Outcome</Title>
+          {mode === 'COINS' && Boolean(outcome) && (
+            <>
+              <p>
+                With <Coins amount={coins} /> and accounting for a {winRate}%
+                win rate, you can expect reaching milestone #{outcome + 1}, and
+                get the following rewards:
+              </p>
+              <ul>
+                {MILESTONES.slice(0, outcome + 1).map(milestone => (
+                  <li key={milestone.crowns}>
+                    {getBrawlRewardLabel(milestone, true)}
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </Column>
       </Row>
       <PageMeta
