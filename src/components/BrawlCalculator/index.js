@@ -155,7 +155,8 @@ const CalculatorRewards = React.memo(function CalculatorRewards(props) {
 })
 
 const CalculatorOutcome = React.memo(function CalculatorOutcome(props) {
-  const { mode, coins, milestone, winRate, setup } = props
+  const { mode, coins, milestone, winRate, setup, discount } = props
+  const options = [winRate, 1 - discount / 100, setup]
   const gains =
     setup === 'NONE' ? (
       'without considering winning gain'
@@ -188,11 +189,12 @@ const CalculatorOutcome = React.memo(function CalculatorOutcome(props) {
       )
     }
 
-    const outcome = getMilestoneIndexFromCoins(coins, winRate, setup)
+    const outcome = getMilestoneIndexFromCoins(coins, ...options)
     const next =
       outcome < MILESTONES.length - 1
-        ? getCostForMilestone(outcome + 1, winRate, setup)
+        ? getCostForMilestone(outcome + 1, ...options)
         : null
+    const nextUp = next ? Math.round(Math.round(next) / 5) * 5 : null
 
     return (
       <>
@@ -208,9 +210,9 @@ const CalculatorOutcome = React.memo(function CalculatorOutcome(props) {
             <p>
               Reaching the next milestone (milestone #{outcome + 2}, yielding{' '}
               {getBrawlRewardLabel(MILESTONES[outcome + 2], true)}) would cost{' '}
-              <Coins amount={next} />, or an{' '}
+              <Coins amount={nextUp} />, or an{' '}
               <span className='Highlight'>
-                extra <Coins amount={next - coins} />
+                extra <Coins amount={nextUp - coins} />
               </span>
               .
             </p>
@@ -237,7 +239,7 @@ const CalculatorOutcome = React.memo(function CalculatorOutcome(props) {
       )
     }
 
-    const outcome = getCostForMilestone(milestone, winRate, setup)
+    const outcome = getCostForMilestone(milestone, ...options)
     const outcomeUp = Math.round(Math.round(outcome) / 5) * 5
     const reward = getBrawlRewardLabel(MILESTONES[milestone], true)
 
@@ -259,12 +261,36 @@ const CalculatorOutcome = React.memo(function CalculatorOutcome(props) {
   return null
 })
 
+const CalculatorDiscount = React.memo(function CalculatorDiscount(props) {
+  return (
+    <>
+      <Row>
+        <Column>
+          <label htmlFor='discount'>Cost Discount (%)</label>
+          <input
+            id='discount'
+            name='discount'
+            type='number'
+            value={props.discount}
+            onChange={event => props.setDiscount(+event.target.value)}
+            min={1}
+            max={100}
+            placeholder='e.g. 50'
+          />
+        </Column>
+        <Column />
+      </Row>
+    </>
+  )
+})
+
 export default React.memo(function BrawlCalculator(props) {
   const [mode, setMode] = React.useState('')
   const [winRate, setWinRate] = React.useState(50)
   const [coins, setCoins] = React.useState('')
   const [milestone, setMilestone] = React.useState('')
   const [setup, setSetup] = React.useState('NONE')
+  const [discount, setDiscount] = React.useState(0)
 
   React.useEffect(() => {
     setMilestone('')
@@ -302,10 +328,12 @@ export default React.memo(function BrawlCalculator(props) {
             setWinRate={setWinRate}
           />
           <CalculatorSetup setup={setup} setSetup={setSetup} />
+          <CalculatorDiscount discount={discount} setDiscount={setDiscount} />
         </Column>
         <Column width='1/3'>
           <Title>Outcome</Title>
           <CalculatorOutcome
+            discount={discount}
             coins={coins}
             milestone={milestone}
             mode={mode}
