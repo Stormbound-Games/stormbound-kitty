@@ -1,0 +1,7 @@
+.BrawlCalculatorMode {
+  margin-bottom: 1.5em;
+}
+
+.BrawlCalculatorMode .Radio__label {
+  color: var(--white);
+}
