@@ -20,7 +20,7 @@ if (typeof window === 'undefined') {
   // This appears to be the way to use Comlink with Webpack.
   // See: https://dev.to/nicolasrannou/web-workers-in-create-react-app-cra-without-unmounting-4865
   // eslint-disable-next-line import/no-webpack-loader-syntax
-  const Worker = require('worker-loader!./worker')
+  const { default: Worker } = require('worker-loader!./worker')
   worker = new Worker()
 }
 
