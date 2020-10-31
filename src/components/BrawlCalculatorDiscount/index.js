@@ -14,7 +14,7 @@ export default React.memo(function BrawlCalculatorDiscount(props) {
             type='number'
             value={props.discount}
             onChange={event => props.setDiscount(+event.target.value)}
-            min={1}
+            min={0}
             max={100}
             placeholder='e.g. 50'
           />
