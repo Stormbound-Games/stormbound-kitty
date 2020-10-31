@@ -8,6 +8,7 @@ import Title from '../Title'
 import { Coins } from '../Resource'
 import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
 import getMilestoneIndexFromCoins from '../../helpers/getMilestoneIndexFromCoins'
+import getCostForMilestone from '../../helpers/getCostForMilestone'
 import { MILESTONES } from '../../constants/brawl'
 import './index.css'
 
@@ -80,7 +81,6 @@ const CalculatorMode = React.memo(function CalculatorMode(props) {
         checked={props.mode === 'GOAL'}
         onChange={event => props.setMode(event.target.value)}
         required
-        disabled
       >
         … how much reaching my goal costs.
       </Radio>
@@ -144,12 +144,22 @@ const CalculatorSettings = React.memo(function CalculatorSettings(props) {
 
 export default React.memo(function BrawlCalculator(props) {
   const [mode, setMode] = React.useState('')
-  const [winRate, setWinRate] = React.useState('')
+  const [winRate, setWinRate] = React.useState(50)
   const [coins, setCoins] = React.useState('')
   const [milestone, setMilestone] = React.useState('')
   const [setup, setSetup] = React.useState('NONE')
-  const outcome =
-    mode === 'COINS' ? getMilestoneIndexFromCoins(coins, winRate, setup) : null
+  const outcome = React.useMemo(
+    () =>
+      mode === 'COINS'
+        ? getMilestoneIndexFromCoins(coins, winRate, setup)
+        : getCostForMilestone(milestone, winRate, setup),
+    [mode, coins, winRate, setup, milestone]
+  )
+
+  React.useEffect(() => {
+    setMilestone('')
+    setCoins('')
+  }, [mode])
 
   return (
     <>
@@ -180,26 +190,43 @@ export default React.memo(function BrawlCalculator(props) {
         </Column>
         <Column width='1/3'>
           <Title>Outcome</Title>
-          {mode === 'COINS' && Boolean(outcome) && outcome !== -1 && (
-            <>
-              <p>
-                With <Coins amount={coins} /> (
-                {setup === 'NONE'
-                  ? 'without considering winning gains'
-                  : 'while considering winning gains'}
-                ) and accounting for a {winRate}% win rate, you can expect
-                reaching milestone #{outcome + 1}, and get the following
-                rewards:
-              </p>
-              <ul>
-                {MILESTONES.slice(0, outcome + 1).map(milestone => (
-                  <li key={milestone.crowns}>
-                    {getBrawlRewardLabel(milestone, true)}
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
+          {mode === 'COINS' ? (
+            Boolean(outcome) && outcome !== -1 ? (
+              <>
+                <p>
+                  With <Coins amount={coins} /> (
+                  {setup === 'NONE'
+                    ? 'without considering winning gains'
+                    : 'while considering winning gains'}
+                  ) and accounting for a {winRate}% win rate, you can expect
+                  reaching milestone #{outcome + 1}, and get the following
+                  rewards:
+                </p>
+                <ul>
+                  {MILESTONES.slice(0, outcome + 1).map(milestone => (
+                    <li key={milestone.crowns}>
+                      {getBrawlRewardLabel(milestone, true)}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null
+          ) : mode === 'GOAL' ? (
+            typeof outcome === 'number' && typeof milestone === 'number' ? (
+              <>
+                <p>
+                  Reaching milestone #{milestone + 1} (
+                  {getBrawlRewardLabel(MILESTONES[milestone], true)}) and
+                  accounting for a {winRate}% win rate would cost{' '}
+                  <Coins amount={outcome} /> (
+                  {setup === 'NONE'
+                    ? 'without considering winning gains'
+                    : 'while considering winning gains'}
+                  ).
+                </p>
+              </>
+            ) : null
+          ) : null}
         </Column>
       </Row>
       <PageMeta

@@ -1,4 +1,4 @@
-import getMilestoneIndexFromCoins from '.'
+import getMilestoneIndexFromCoins from './'
 
 describe('The `getMilestoneIndexFromCoins` helper', () => {
   it('should return first milestone even with 0 coins', () => {
