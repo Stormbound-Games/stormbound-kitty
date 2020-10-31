@@ -15,6 +15,7 @@ const links = [
   '/brawl',
   '/brawl/overview',
   '/calculators/books',
+  '/calculators/brawl',
   '/calculators/income',
   '/calculators/value',
   '/card',
