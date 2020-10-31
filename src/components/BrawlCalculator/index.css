@@ -1,0 +1,12 @@
+.BrawlCalculator__mode {
+  margin-bottom: 1.5em;
+}
+
+.BrawlCalculator__setup {
+  margin-top: 1.5em;
+}
+
+.BrawlCalculator__mode .Radio__label,
+.BrawlCalculator__setup .Radio__label {
+  color: var(--white);
+}

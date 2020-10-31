@@ -9,10 +9,11 @@ import { Coins } from '../Resource'
 import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
 import getMilestoneIndexFromCoins from '../../helpers/getMilestoneIndexFromCoins'
 import { MILESTONES } from '../../constants/brawl'
+import './index.css'
 
 const CalculatorSetup = React.memo(function CalculatorSetup(props) {
   return (
-    <fieldset>
+    <fieldset className='BrawlCalculator__setup'>
       <legend>Setup</legend>
       <Radio
         name='setup'
@@ -60,7 +61,7 @@ const CalculatorSetup = React.memo(function CalculatorSetup(props) {
 
 const CalculatorMode = React.memo(function CalculatorMode(props) {
   return (
-    <fieldset>
+    <fieldset className='BrawlCalculator__mode'>
       <legend>I want to find out…</legend>
       <Radio
         name='mode'
@@ -100,6 +101,7 @@ const CalculatorSettings = React.memo(function CalculatorSettings(props) {
           onChange={event => props.setWinRate(+event.target.value)}
           min={1}
           max={100}
+          placeholder='e.g. 50'
         />
       </Column>
       <Column>
@@ -114,6 +116,7 @@ const CalculatorSettings = React.memo(function CalculatorSettings(props) {
               onChange={event => props.setCoins(+event.target.value)}
               min={5}
               step={5}
+              placeholder='e.g. 700'
             />
           </>
         ) : props.mode === 'GOAL' ? (
@@ -177,7 +180,7 @@ export default React.memo(function BrawlCalculator(props) {
         </Column>
         <Column width='1/3'>
           <Title>Outcome</Title>
-          {mode === 'COINS' && Boolean(outcome) && (
+          {mode === 'COINS' && Boolean(outcome) && outcome !== -1 && (
             <>
               <p>
                 With <Coins amount={coins} /> (
