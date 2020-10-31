@@ -10,7 +10,7 @@ import {
   YAxis,
 } from 'recharts'
 import Loader from '../../components/Loader'
-import computeDeckChances from '../../helpers/computeDeckChances/async'
+import computeDeckChances from '../../helpers/computeDeckChances'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 import { BRAWLS } from '../../constants/brawl'
 import './index.css'
@@ -18,7 +18,7 @@ import './index.css'
 const computeData = async (deck, modifier) => {
   const data = []
   let mana = 3
-  let odds = await computeDeckChances(deck, mana, modifier)
+  let odds = computeDeckChances(deck, mana, modifier)
 
   // This avoids an edge case where no cards are playable on the first turn
   // (yielding 0% on both lines, and therefore never entering the loop).
@@ -32,7 +32,7 @@ const computeData = async (deck, modifier) => {
       playingAllCards: +odds.playingAllCards.toFixed(2),
     })
     mana += 1
-    odds = await computeDeckChances(deck, mana, modifier)
+    odds = computeDeckChances(deck, mana, modifier)
   }
 
   data.push({

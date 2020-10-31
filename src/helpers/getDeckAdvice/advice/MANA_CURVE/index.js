@@ -1,4 +1,4 @@
-import computeDeckChances from '../../../computeDeckChances/async'
+import computeDeckChances from '../../../computeDeckChances'
 
 const getManaCurveIntersection = async (deck, modifier) => {
   // 8 is a decent starting point to avoid unnecessary computations before that.
@@ -6,10 +6,10 @@ const getManaCurveIntersection = async (deck, modifier) => {
   // intersection of 9. Note that some decks with a mana-Brawl modifier can hit
   // way lower, such as Eye Tempest which hits 5.
   let mana = 8
-  let odds = await computeDeckChances(deck, mana, modifier)
+  let odds = computeDeckChances(deck, mana, modifier)
 
   while (odds.usingAllMana >= odds.playingAllCards) {
-    odds = await computeDeckChances(deck, ++mana, modifier)
+    odds = computeDeckChances(deck, ++mana, modifier)
   }
 
   return mana
