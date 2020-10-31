@@ -10,6 +10,54 @@ import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
 import getMilestoneIndexFromCoins from '../../helpers/getMilestoneIndexFromCoins'
 import { MILESTONES } from '../../constants/brawl'
 
+const CalculatorSetup = React.memo(function CalculatorSetup(props) {
+  return (
+    <fieldset>
+      <legend>Setup</legend>
+      <Radio
+        name='setup'
+        id='MOBILE_WITHOUT_ADS'
+        value='MOBILE_WITHOUT_ADS'
+        required
+        checked={props.setup === 'MOBILE_WITHOUT_ADS'}
+        onChange={event => props.setSetup(event.target.value)}
+      >
+        Mobile (w/o ads)
+      </Radio>
+      <Radio
+        name='setup'
+        id='MOBILE_WITH_ADS'
+        value='MOBILE_WITH_ADS'
+        required
+        checked={props.setup === 'MOBILE_WITH_ADS'}
+        onChange={event => props.setSetup(event.target.value)}
+      >
+        Mobile (w/ ads)
+      </Radio>
+      <Radio
+        name='setup'
+        id='STEAM'
+        value='STEAM'
+        required
+        checked={props.setup === 'STEAM'}
+        onChange={event => props.setSetup(event.target.value)}
+      >
+        Steam
+      </Radio>
+      <Radio
+        name='setup'
+        id='NONE'
+        value='NONE'
+        required
+        checked={props.setup === 'NONE'}
+        onChange={event => props.setSetup(event.target.value)}
+      >
+        Ignore victory coins
+      </Radio>
+    </fieldset>
+  )
+})
+
 const CalculatorMode = React.memo(function CalculatorMode(props) {
   return (
     <fieldset>
@@ -96,8 +144,9 @@ export default React.memo(function BrawlCalculator(props) {
   const [winRate, setWinRate] = React.useState('')
   const [coins, setCoins] = React.useState('')
   const [milestone, setMilestone] = React.useState('')
+  const [setup, setSetup] = React.useState('NONE')
   const outcome =
-    mode === 'COINS' ? getMilestoneIndexFromCoins(coins, winRate) : null
+    mode === 'COINS' ? getMilestoneIndexFromCoins(coins, winRate, setup) : null
 
   return (
     <>
@@ -124,15 +173,20 @@ export default React.memo(function BrawlCalculator(props) {
             winRate={winRate}
             setWinRate={setWinRate}
           />
+          <CalculatorSetup setup={setup} setSetup={setSetup} />
         </Column>
         <Column width='1/3'>
           <Title>Outcome</Title>
           {mode === 'COINS' && Boolean(outcome) && (
             <>
               <p>
-                With <Coins amount={coins} /> and accounting for a {winRate}%
-                win rate, you can expect reaching milestone #{outcome + 1}, and
-                get the following rewards:
+                With <Coins amount={coins} /> (
+                {setup === 'NONE'
+                  ? 'without considering winning gains'
+                  : 'while considering winning gains'}
+                ) and accounting for a {winRate}% win rate, you can expect
+                reaching milestone #{outcome + 1}, and get the following
+                rewards:
               </p>
               <ul>
                 {MILESTONES.slice(0, outcome + 1).map(milestone => (
