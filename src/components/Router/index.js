@@ -50,6 +50,7 @@ const RELEASE_COMPONENTS = {
 const BattleSimPage = load('BattleSimPage')
 const BattleSimPuzzles = load('BattleSimPuzzles')
 const BooksCalculator = load('BooksCalculator')
+const BrawlCalculator = load('BrawlCalculator')
 const BrawlIndex = load('BrawlIndex')
 const BrawlOverview = load('BrawlOverview')
 const BrawlPage = load('BrawlPage')
@@ -379,6 +380,14 @@ export default function Router(props) {
             active={['TOOLS', 'VALUE_CALCULATOR']}
           >
             <ValueCalculator />
+          </Page>
+
+          <Page
+            exact
+            path='/calculators/brawl'
+            active={['TOOLS', 'BRAWL_CALCULATOR']}
+          >
+            <BrawlCalculator />
           </Page>
 
           {releases.map(release => {
