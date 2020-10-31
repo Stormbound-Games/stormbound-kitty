@@ -171,6 +171,12 @@ SEARCH_INDEX.push({
 })
 
 SEARCH_INDEX.push({
+  path: '/calculators/brawl',
+  label: 'Brawl Calculator',
+  breadcrumbs: ['Tools', 'Calculators'],
+})
+
+SEARCH_INDEX.push({
   path: '/list/ranked',
   label: 'Ranked Tier List',
   breadcrumbs: ['Community', 'Meta'],

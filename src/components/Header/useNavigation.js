@@ -186,6 +186,11 @@ export default () => {
               to: '/calculators/value',
               id: 'VALUE_CALCULATOR',
             },
+            {
+              label: 'Brawl Calculator',
+              to: '/calculators/brawl',
+              id: 'BRAWL_CALCULATOR',
+            },
           ],
         },
       ],

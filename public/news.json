@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Brawl Calculator",
+    "description": "There is a new Brawl calculator to plan your Brawl journey!",
+    "link": "/calculators/brawl"
+  },
+  {
     "intro": "Halloween Event",
     "description": "Halloween is around the corner and with it a new small patch with goodies!",
     "link": "/releases/11-2020"
