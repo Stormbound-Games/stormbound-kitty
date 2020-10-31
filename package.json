@@ -56,7 +56,7 @@
   "devDependencies": {
     "asyncro": "^3.0.0",
     "cypress": "^5.5.0",
-    "cypress-react-unit-test": "^4.16.5",
+    "cypress-react-unit-test": "^4.16.8",
     "eslint": "^7.12.1",
     "husky": "^4.3.0",
     "imagemin": "^7.0.1",
