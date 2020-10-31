@@ -11,7 +11,7 @@ import { Coins } from '../Resource'
 import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
 import getMilestoneIndexFromCoins from '../../helpers/getMilestoneIndexFromCoins'
 import getCostForMilestone from '../../helpers/getCostForMilestone'
-import { MILESTONES } from '../../constants/brawl'
+import { MILESTONES, COIN_MULTIPLIERS } from '../../constants/brawl'
 import './index.css'
 
 const CalculatorSetup = React.memo(function CalculatorSetup(props) {
@@ -144,8 +144,29 @@ const CalculatorSettings = React.memo(function CalculatorSettings(props) {
   )
 })
 
+const CalculatorRewards = React.memo(function CalculatorRewards(props) {
+  return (
+    <ul className='BrawlCalculator__rewards'>
+      {MILESTONES.slice(0, props.milestone + 1).map((milestone, index) => (
+        <li key={milestone.crowns}>
+          {getBrawlRewardLabel(milestone, true)} (from milestone #{index + 1})
+        </li>
+      ))}
+    </ul>
+  )
+})
+
 const CalculatorOutcome = React.memo(function CalculatorOutcome(props) {
   const { mode, coins, milestone, winRate, setup } = props
+  const gains =
+    setup === 'NONE' ? (
+      'without considering winning gain'
+    ) : (
+      <>
+        considering <Coins amount={COIN_MULTIPLIERS[setup]} /> per win until
+        coin cap
+      </>
+    )
 
   if (!mode) {
     return (
@@ -174,20 +195,12 @@ const CalculatorOutcome = React.memo(function CalculatorOutcome(props) {
     return (
       <>
         <p>
-          With <Coins amount={coins} /> (
-          {setup === 'NONE'
-            ? 'without considering winning gains'
-            : 'while considering winning gains'}
-          ) and accounting for a {winRate}% win rate, you can expect reaching
-          milestone #{outcome + 1}, and get the following rewards:
+          With <Coins amount={coins} /> ({gains}) and accounting for a {winRate}
+          % win rate, you can expect reaching{' '}
+          <span className='Highlight'>milestone #{outcome + 1}</span>, and get
+          the following rewards:
         </p>
-        <ul>
-          {MILESTONES.slice(0, outcome + 1).map(milestone => (
-            <li key={milestone.crowns}>
-              {getBrawlRewardLabel(milestone, true)}
-            </li>
-          ))}
-        </ul>
+        <CalculatorRewards milestone={outcome} />
       </>
     )
   }
@@ -205,17 +218,22 @@ const CalculatorOutcome = React.memo(function CalculatorOutcome(props) {
     }
 
     const outcome = getCostForMilestone(milestone, winRate, setup)
+    const outcomeUp = Math.round(Math.round(outcome) / 5) * 5
 
     return (
-      <p>
-        Reaching milestone #{milestone + 1} (
-        {getBrawlRewardLabel(MILESTONES[milestone], true)}) and accounting for a{' '}
-        {winRate}% win rate would cost <Coins amount={outcome} /> (
-        {setup === 'NONE'
-          ? 'without considering winning gains'
-          : 'while considering winning gains'}
-        ).
-      </p>
+      <>
+        <p>
+          Reaching milestone #{milestone + 1} (
+          {getBrawlRewardLabel(MILESTONES[milestone], true)}) and accounting for
+          a {winRate}% win rate would{' '}
+          <span className='Highlight'>
+            cost <Coins amount={outcomeUp} />
+          </span>{' '}
+          ({gains}
+          ). Here are all the rewards you would get:
+        </p>
+        <CalculatorRewards milestone={milestone} />
+      </>
     )
   }
 
