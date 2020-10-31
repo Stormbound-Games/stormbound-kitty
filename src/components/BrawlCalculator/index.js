@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
+import Info from '../Info'
 import PageMeta from '../PageMeta'
 import Radio from '../Radio'
 import Row from '../Row'
@@ -142,19 +144,90 @@ const CalculatorSettings = React.memo(function CalculatorSettings(props) {
   )
 })
 
+const CalculatorOutcome = React.memo(function CalculatorOutcome(props) {
+  const { mode, coins, milestone, winRate, setup } = props
+
+  if (!mode) {
+    return (
+      <p>
+        Start by deciding whether you want to reach a certain milestone or
+        contribute with a certain amount of coins. Then, fill the remaining
+        options to let the calculator come up with a result.
+      </p>
+    )
+  }
+
+  if (mode === 'COINS') {
+    if (!coins) {
+      return (
+        <p>
+          You must define how many coins you are willing to spend for the
+          calculator to compute a result. Remember to check which winning gains
+          to use depending on whether you watch ads or play on Steam (or don’t
+          want to consider winning coins at all).
+        </p>
+      )
+    }
+
+    const outcome = getMilestoneIndexFromCoins(coins, winRate, setup)
+
+    return (
+      <>
+        <p>
+          With <Coins amount={coins} /> (
+          {setup === 'NONE'
+            ? 'without considering winning gains'
+            : 'while considering winning gains'}
+          ) and accounting for a {winRate}% win rate, you can expect reaching
+          milestone #{outcome + 1}, and get the following rewards:
+        </p>
+        <ul>
+          {MILESTONES.slice(0, outcome + 1).map(milestone => (
+            <li key={milestone.crowns}>
+              {getBrawlRewardLabel(milestone, true)}
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
+
+  if (mode === 'GOAL') {
+    if (milestone === '') {
+      return (
+        <p>
+          You must define which milestone you are wishing to reach for the
+          calculator to compute a result. Remember to check which winning gains
+          to use depending on whether you watch ads or play on Steam (or don’t
+          want to consider winning coins at all).
+        </p>
+      )
+    }
+
+    const outcome = getCostForMilestone(milestone, winRate, setup)
+
+    return (
+      <p>
+        Reaching milestone #{milestone + 1} (
+        {getBrawlRewardLabel(MILESTONES[milestone], true)}) and accounting for a{' '}
+        {winRate}% win rate would cost <Coins amount={outcome} /> (
+        {setup === 'NONE'
+          ? 'without considering winning gains'
+          : 'while considering winning gains'}
+        ).
+      </p>
+    )
+  }
+
+  return null
+})
+
 export default React.memo(function BrawlCalculator(props) {
   const [mode, setMode] = React.useState('')
   const [winRate, setWinRate] = React.useState(50)
   const [coins, setCoins] = React.useState('')
   const [milestone, setMilestone] = React.useState('')
   const [setup, setSetup] = React.useState('NONE')
-  const outcome = React.useMemo(
-    () =>
-      mode === 'COINS'
-        ? getMilestoneIndexFromCoins(coins, winRate, setup)
-        : getCostForMilestone(milestone, winRate, setup),
-    [mode, coins, winRate, setup, milestone]
-  )
 
   React.useEffect(() => {
     setMilestone('')
@@ -173,6 +246,11 @@ export default React.memo(function BrawlCalculator(props) {
             objective in mind and would like to know how much it will cost, this
             calculator is made for you.
           </p>
+          <Info icon='sword' title='Brawl tracker'>
+            To keep track of your expenses and win ratio during the Brawl, use
+            the <Link to='/brawl'>Brawl tracker</Link>. New to the Brawl?{' '}
+            <Link to='/guides/brawl'>Read the guide</Link>.
+          </Info>
         </Column>
         <Column width='1/3'>
           <Title>Settings</Title>
@@ -190,43 +268,13 @@ export default React.memo(function BrawlCalculator(props) {
         </Column>
         <Column width='1/3'>
           <Title>Outcome</Title>
-          {mode === 'COINS' ? (
-            Boolean(outcome) && outcome !== -1 ? (
-              <>
-                <p>
-                  With <Coins amount={coins} /> (
-                  {setup === 'NONE'
-                    ? 'without considering winning gains'
-                    : 'while considering winning gains'}
-                  ) and accounting for a {winRate}% win rate, you can expect
-                  reaching milestone #{outcome + 1}, and get the following
-                  rewards:
-                </p>
-                <ul>
-                  {MILESTONES.slice(0, outcome + 1).map(milestone => (
-                    <li key={milestone.crowns}>
-                      {getBrawlRewardLabel(milestone, true)}
-                    </li>
-                  ))}
-                </ul>
-              </>
-            ) : null
-          ) : mode === 'GOAL' ? (
-            typeof outcome === 'number' && typeof milestone === 'number' ? (
-              <>
-                <p>
-                  Reaching milestone #{milestone + 1} (
-                  {getBrawlRewardLabel(MILESTONES[milestone], true)}) and
-                  accounting for a {winRate}% win rate would cost{' '}
-                  <Coins amount={outcome} /> (
-                  {setup === 'NONE'
-                    ? 'without considering winning gains'
-                    : 'while considering winning gains'}
-                  ).
-                </p>
-              </>
-            ) : null
-          ) : null}
+          <CalculatorOutcome
+            coins={coins}
+            milestone={milestone}
+            mode={mode}
+            setup={setup}
+            winRate={winRate}
+          />
         </Column>
       </Row>
       <PageMeta
