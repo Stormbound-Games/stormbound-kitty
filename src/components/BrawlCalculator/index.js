@@ -26,7 +26,7 @@ const CalculatorSetup = React.memo(function CalculatorSetup(props) {
         checked={props.setup === 'MOBILE_WITHOUT_ADS'}
         onChange={event => props.setSetup(event.target.value)}
       >
-        Mobile (w/o ads)
+        Mobile (without watching ads)
       </Radio>
       <Radio
         name='setup'
@@ -36,7 +36,7 @@ const CalculatorSetup = React.memo(function CalculatorSetup(props) {
         checked={props.setup === 'MOBILE_WITH_ADS'}
         onChange={event => props.setSetup(event.target.value)}
       >
-        Mobile (w/ ads)
+        Mobile (while watching ads)
       </Radio>
       <Radio
         name='setup'
@@ -146,13 +146,11 @@ const CalculatorSettings = React.memo(function CalculatorSettings(props) {
 
 const CalculatorRewards = React.memo(function CalculatorRewards(props) {
   return (
-    <ul className='BrawlCalculator__rewards'>
+    <ol className='BrawlCalculator__rewards'>
       {MILESTONES.slice(0, props.milestone + 1).map((milestone, index) => (
-        <li key={milestone.crowns}>
-          {getBrawlRewardLabel(milestone, true)} (from milestone #{index + 1})
-        </li>
+        <li key={milestone.crowns}>{getBrawlRewardLabel(milestone, true)}</li>
       ))}
-    </ul>
+    </ol>
   )
 })
 
@@ -191,6 +189,10 @@ const CalculatorOutcome = React.memo(function CalculatorOutcome(props) {
     }
 
     const outcome = getMilestoneIndexFromCoins(coins, winRate, setup)
+    const next =
+      outcome < MILESTONES.length - 1
+        ? getCostForMilestone(outcome + 1, winRate, setup)
+        : null
 
     return (
       <>
@@ -201,6 +203,24 @@ const CalculatorOutcome = React.memo(function CalculatorOutcome(props) {
           the following rewards:
         </p>
         <CalculatorRewards milestone={outcome} />
+        {next ? (
+          <>
+            <p>
+              Reaching the next milestone (milestone #{outcome + 2}, yielding{' '}
+              {getBrawlRewardLabel(MILESTONES[outcome + 2], true)}) would cost{' '}
+              <Coins amount={next} />, or an{' '}
+              <span className='Highlight'>
+                extra <Coins amount={next - coins} />
+              </span>
+              .
+            </p>
+            <Info icon='equalizer' title='Income calculator'>
+              To figure out how much coins you can earn in a given period of
+              time, check out the{' '}
+              <Link to='/calculators/income'>income calculator</Link>.
+            </Info>
+          </>
+        ) : null}
       </>
     )
   }
@@ -219,18 +239,17 @@ const CalculatorOutcome = React.memo(function CalculatorOutcome(props) {
 
     const outcome = getCostForMilestone(milestone, winRate, setup)
     const outcomeUp = Math.round(Math.round(outcome) / 5) * 5
+    const reward = getBrawlRewardLabel(MILESTONES[milestone], true)
 
     return (
       <>
         <p>
-          Reaching milestone #{milestone + 1} (
-          {getBrawlRewardLabel(MILESTONES[milestone], true)}) and accounting for
-          a {winRate}% win rate would{' '}
+          Reaching milestone #{milestone + 1} ({reward}) and accounting for a{' '}
+          {winRate}% win rate would{' '}
           <span className='Highlight'>
             cost <Coins amount={outcomeUp} />
           </span>{' '}
-          ({gains}
-          ). Here are all the rewards you would get:
+          ({gains}). Here are all the rewards you would get:
         </p>
         <CalculatorRewards milestone={milestone} />
       </>
