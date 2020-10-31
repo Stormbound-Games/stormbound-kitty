@@ -123,9 +123,10 @@ export default React.memo(function GuideLucrativeProject(props) {
 
       <Info icon='crown' title='Brawl Tracker'>
         <p>
-          To monitor your progress and keep track of your expenses during the
-          Brawl, be sure to use{' '}
-          <Link to='/brawl/construct-movement'>the brawl tracker</Link>.
+          Use the <Link to='/calculators/brawl'>Brawl calculator</Link> to plan
+          your journey. To monitor your progress and keep track of your expenses
+          during the Brawl, be sure to use{' '}
+          <Link to='/brawl/construct-movement'>the Brawl tracker</Link>.
         </p>
       </Info>
 

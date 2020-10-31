@@ -139,10 +139,10 @@ export default React.memo(function GuideFreedomFight(props) {
               <CardLink id='N9' />, <CardLink id='N16' /> and{' '}
               <CardLink id='N18' />. Again we have 3 1-mana cards to round out
               the curve, of which Toxic Sacrifice was nerfed, putting it into a
-              very awkward mana-slot for this brawl. But foregoing the 4-mana
+              very awkward mana-slot for this Brawl. But foregoing the 4-mana
               toads to run Westwind Sailors at 3 mana, an odd-cost without the
               poison drawback, and Beasts of Terror as an incredible (although
-              considerably expensive in this brawl) toad killer are very
+              considerably expensive in this Brawl) toad killer are very
               interesting choices.
             </p>
             <p>
@@ -165,9 +165,10 @@ export default React.memo(function GuideFreedomFight(props) {
 
       <Info icon='crown' title='Brawl Tracker'>
         <p>
-          To monitor your progress and keep track of your expenses during the
-          Brawl, be sure to use{' '}
-          <Link to='/brawl/toad-mana'>the brawl tracker</Link>.
+          Use the <Link to='/calculators/brawl'>Brawl calculator</Link> to plan
+          your journey. To monitor your progress and keep track of your expenses
+          during the Brawl, be sure to use{' '}
+          <Link to='/brawl/toad-mana'>the Brawl tracker</Link>.
         </p>
       </Info>
 

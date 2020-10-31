@@ -37,7 +37,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
             <a href='#new-ancient-race'>New Ancient race</a>
           </li>
           <li>
-            <a href='#cheapened-brawl'>Cheapened brawl</a>
+            <a href='#cheapened-brawl'>Cheapened Brawl</a>
           </li>
           <li>
             <a href='#exclusive-promotions'>Exclusive promotions</a>
@@ -138,7 +138,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
       </Article.Embed>
 
       <Article.Narrow>
-        <Title id='cheapened-brawl'>Cheapened brawl</Title>
+        <Title id='cheapened-brawl'>Cheapened Brawl</Title>
 
         <p>
           Similar to what happened for the{' '}

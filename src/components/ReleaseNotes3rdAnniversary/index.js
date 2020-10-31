@@ -92,7 +92,7 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
           <p>
             Be sure to read{' '}
             <Link to='/guides/noble-coalition'>Oeni’s Gazette</Link> to learn
-            more about the Noble Coalition brawl, especially in regard to this
+            more about the Noble Coalition Brawl, especially in regard to this
             anniversary event.
           </p>
         </Info>

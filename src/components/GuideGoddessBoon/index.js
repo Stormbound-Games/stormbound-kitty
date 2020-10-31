@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Column from '../Column'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
+import Info from '../Info'
 import Notice from '../Notice'
 import Row from '../Row'
 import Title from '../Title'
@@ -143,6 +144,15 @@ export default React.memo(function GuideGoddessBoon(props) {
         <li>Runners to win games.</li>
         <li>Stay frosty.</li>
       </ul>
+
+      <Info icon='crown' title='Brawl Tracker'>
+        <p>
+          Use the <Link to='/calculators/brawl'>Brawl calculator</Link> to plan
+          your journey. To monitor your progress and keep track of your expenses
+          during the Brawl, be sure to use{' '}
+          <Link to='/brawl/frostling-strength'>the Brawl tracker</Link>.
+        </p>
+      </Info>
 
       <Notice>
         See you on the battlefield! If you have any comment or suggestion, get
