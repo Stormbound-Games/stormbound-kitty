@@ -75,7 +75,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
           <>
             <p>
               Reaching the next milestone (milestone #{outcome + 2}, yielding{' '}
-              {getBrawlRewardLabel(MILESTONES[outcome + 2], true)}) would cost{' '}
+              {getBrawlRewardLabel(MILESTONES[outcome + 1], true)}) would cost{' '}
               <Coins amount={nextUp} />, or an{' '}
               <span className='Highlight'>
                 extra <Coins amount={nextUp - coins} />
