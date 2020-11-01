@@ -66,7 +66,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
         </ul>
 
         <Info icon='gift' title='Free rubies'>
-          Anyone logging into the game at least once between October 31th and
+          Anyone logging into the game at least once between November 1st and
           November 15th will be granted <Rubies amount={20} />. Happy Halloween!
           🎃
         </Info>
@@ -218,7 +218,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
           <li>
             The <span className='Highlight'>Trick or Treat bundle</span>: 6
             Mythic Tomes, 6 Heroic Tomes and 6 Classic Tomes. This one-time
-            bundle $29.99 will be available between October 31st and November
+            bundle $29.99 will be available between November 1st and November
             15th.
           </li>
           <li>
@@ -227,7 +227,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
           </li>
           <li>
             All coin and ruby bundles will yield +20% more resources between
-            October 31st and November 15th.
+            November 1st and November 15th.
           </li>
         </ul>
       </Article.Narrow>
@@ -259,9 +259,11 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
               question: 'When will the release be available?',
               answer: (
                 <>
-                  The release will be ready for October 31st. The balance
-                  changes and <CardLink id='N80' /> will only be available from
-                  November 1st though.
+                  The release will be ready on November 1st, from 10AM UTC (so a
+                  little later than the usual season reset due to the unforeseen
+                  issues with Apple). Unfortunately, Stoic Protectors will not
+                  be available just yet and will be delayed until the Apple
+                  situation is fully resolved. No ETA yet.
                 </>
               ),
             },
@@ -270,11 +272,11 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
               question: 'How long will the event last?',
               answer: (
                 <>
-                  The Stoic Protector’s pack will be available from November 1st
-                  to November 8th. The Trick of Treat offer and the coin/ruby
-                  packs’ boost will be available from October 31st to November
-                  15th. The extra weekly and monthly vanishing packs will be
-                  available all throughout November.
+                  The Stoic Protector’s pack will be available until November
+                  8th. The Trick of Treat offer and the coin/ruby packs’ boost
+                  will be available until November 15th. The extra weekly and
+                  monthly vanishing packs will be available all throughout
+                  November.
                 </>
               ),
             },
