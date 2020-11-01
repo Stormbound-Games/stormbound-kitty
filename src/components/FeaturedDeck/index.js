@@ -15,7 +15,7 @@ import resolveCollection from '../../helpers/resolveCollection'
 import modifyDeck from '../../helpers/modifyDeck'
 import './index.css'
 
-const useAdjustedDeck = ({ brawl, category, id }) => {
+const useAdjustedDeck = ({ brawl, category, id, staticLevels }) => {
   const { hasDefaultCollection, collection } = React.useContext(
     CollectionContext
   )
@@ -24,7 +24,7 @@ const useAdjustedDeck = ({ brawl, category, id }) => {
     ? modifyDeck(deserialisedDeck, brawl)
     : deserialisedDeck
 
-  if (hasDefaultCollection || category === 'EQUALS') {
+  if (hasDefaultCollection || category === 'EQUALS' || staticLevels) {
     // The `id` does not have to be derivated from the `modifiedDeck` since a
     // deck id only carries the card IDs and levels, but nothing that can be
     // modified by a Brawl.

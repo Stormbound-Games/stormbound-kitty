@@ -31,6 +31,7 @@ const GUIDE_COMPONENTS = {
   MANA_CURVE_GUIDE: load('GuideManaCurve'),
   NOBLE_COALITION_GUIDE: load('GuideNobleCoalition'),
   PIRATE_GUIDE: load('GuidePirate'),
+  RECKLESS_RUSH_GUIDE: load('GuideRecklessRush'),
   RESOURCES_GUIDE: load('GuideResources'),
   SELF_CONTROL_GUIDE: load('GuideSelfControl'),
   TERRIFIC_SLAYERS_GUIDE: load('GuideTerrificSlayers'),
