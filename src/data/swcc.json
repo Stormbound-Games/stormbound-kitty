@@ -332,6 +332,15 @@
     "season": 2,
     "week": 43,
     "name": "Overkill",
+    "winner": {
+      "id": "RjtUO1U7Ujs2OzE7NC81LzYvNy84O1NpbHZlcmVkZ2UlMjBzYXZhZ2U7aHR0cHMlM0ElMkYlMkZpLmltZ3VyLmNvbSUyRnB5ZTJzM0oucG5nO09uJTIwcGxheSUyQyUyMGRlYWwlMjAqNCUyRjUlMkY2JTJGNyUyRjglMjBkYW1hZ2UqJTIwdG8lMjB0aGUlMjB3ZWFrZXN0JTIwZW5lbXkuJTIwRGVhbCUyMGFsbCUyMGV4dHJhJTIwdG8lMjB0aGUlMjBlbmVteSdzJTIwc3Ryb25nZXN0JTIwdW5pdDs7",
+      "author": "MooreFunn"
+    }
+  },
+  {
+    "season": 2,
+    "week": 44,
+    "name": "Cross-Faction",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
