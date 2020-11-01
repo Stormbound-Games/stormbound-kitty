@@ -21,6 +21,7 @@ export default React.memo(function BrawlCalculator(props) {
   const [mode, setMode] = React.useState('')
   const [winRate, setWinRate] = React.useState(50)
   const [coins, setCoins] = React.useState('')
+  const [crowns, setCrowns] = React.useState(0)
   const [milestone, setMilestone] = React.useState('')
   const [setup, setSetup] = React.useState('NONE')
   const [discount, setDiscount] = React.useState(0)
@@ -61,6 +62,8 @@ export default React.memo(function BrawlCalculator(props) {
                 setCoins={setCoins}
                 winRate={winRate}
                 setWinRate={setWinRate}
+                crowns={crowns}
+                setCrowns={setCrowns}
               />
               <BrawlCalculatorSetup setup={setup} setSetup={setSetup} />
               <BrawlCalculatorDiscount
@@ -71,6 +74,7 @@ export default React.memo(function BrawlCalculator(props) {
             <Column>
               <Title>Outcome</Title>
               <BrawlCalculatorOutcome
+                crowns={crowns}
                 discount={discount}
                 coins={coins}
                 milestone={milestone}
