@@ -26,6 +26,24 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
           finally start! Find below all the goodness scheduled for this release!
         </p>
 
+        <Info icon='bullhorn' title='Important announcement'>
+          <p>
+            The issue with Apple validation of the app has been brought up again
+            and has caused issue with the season reset and the update—both of
+            which did not happen on time. As a result, the Halloween event is
+            once again delayed, and while we know that Halloween was yesterday,
+            we unfortunately could not influence this to make it go live on
+            time.
+          </p>
+          <p>
+            We will run an hour long maintenance on November 1st at 12pm CET
+            (10am UTC) in order to set everything up manually. After the
+            upcoming maintenance, the new season will start (with chests as
+            expected). Additionally, the balance changes will be live (with
+            freeze, just without the new animations on iOS).
+          </p>
+        </Info>
+
         <ul style={{ columns: '16em' }}>
           <li>
             <a href='#balance-changes'>Balance changes</a>
