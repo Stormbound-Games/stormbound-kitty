@@ -67,7 +67,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
 
         <Info icon='gift' title='Free rubies'>
           Anyone logging into the game at least once between November 1st and
-          November 15th will be granted <Rubies amount={20} />. Happy Halloween!
+          November 15th will be granted <Rubies amount={30} />. Happy Halloween!
           🎃
         </Info>
 
