@@ -90,6 +90,10 @@ const handleCardEffect = (state, card, mode, HoS) => {
       // one on the board.
       if (state.specifics.frozenEnemiesLevel === 1) {
         state.specifics.frozenEnemiesLevel = 0
+        // Otherwise should freeze an enemy unit if there is no frozen unit on
+        // the board yet.
+      } else if (state.specifics.frozenEnemiesLevel === 0) {
+        state.specifics.frozenEnemiesLevel = 1
       }
       break
     }
@@ -124,8 +128,8 @@ const handleCardEffect = (state, card, mode, HoS) => {
         )
       }
 
-      // If the RNG is unfriendly to the user, the opposite happens: Freezing cards are not as
-      // efficient and less enemy units get frozen
+      // If the RNG is unfriendly, the opposite happens: freezing cards are not
+      // as efficient and less enemy units get frozen.
       else if (state.RNG === 'UNFRIENDLY') {
         state.specifics.frozenEnemiesLevel = Math.max(
           frozenEnemiesNowRegular - 1,
