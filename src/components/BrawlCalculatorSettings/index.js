@@ -31,6 +31,10 @@ export default React.memo(function BrawlCalculatorSettings(props) {
             min={1}
             max={100}
             placeholder='e.g. 50'
+            onBlur={event => {
+              if (+event.target.value < 1) props.setWinRate(1)
+              if (+event.target.value > 100) props.setWinRate(100)
+            }}
           />
         </Column>
         <Column>
@@ -44,6 +48,10 @@ export default React.memo(function BrawlCalculatorSettings(props) {
             min={0}
             max={250}
             placeholder='e.g. 5'
+            onBlur={event => {
+              if (+event.target.value < 0) props.setCrowns(0)
+              if (+event.target.value > 250) props.setCrowns(250)
+            }}
           />
         </Column>
       </Row>
