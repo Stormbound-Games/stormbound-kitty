@@ -28,11 +28,11 @@ export default React.memo(function BrawlCalculatorSettings(props) {
             type='number'
             value={props.winRate}
             onChange={event => props.setWinRate(+event.target.value)}
-            min={1}
+            min={0}
             max={100}
             placeholder='e.g. 50'
             onBlur={event => {
-              if (+event.target.value < 1) props.setWinRate(1)
+              if (+event.target.value < 0) props.setWinRate(0)
               if (+event.target.value > 100) props.setWinRate(100)
             }}
           />
