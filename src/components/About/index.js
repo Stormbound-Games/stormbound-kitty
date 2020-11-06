@@ -123,8 +123,8 @@ export default React.memo(function About(props) {
 
         <p>
           I have been incredibly lucky to have been supported by wonderful
-          people whom I cannot thank enough. My gratitude to, in no particular
-          order,
+          people whom I cannot thank enough. My gratitude to (in alphabetical
+          order)
           <MemberList members={donations.map(donation => donation.author)} />
           —for their generous and kind donations. Welcome to the{' '}
           <abbr title='Kitty Appreciation Team'>KAT</abbr>. ✨
