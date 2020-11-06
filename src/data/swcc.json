@@ -341,6 +341,15 @@
     "season": 2,
     "week": 44,
     "name": "Cross-Faction",
+    "winner": {
+      "id": "TjtPO1U7TDs2OzA7Ni82LzgvOC8xMDtXZWFwb24lMjBDb2xsZWN0b3I7aHR0cHMlM0ElMkYlMkZpLnBvc3RpbWcuY2MlMkZ0VGJ3UThUTCUyRkxvY3VyYS5wbmc7T24lMjBwbGF5JTJDJTIwKnB1c2gqJTIwYSUyMHJhbmRvbSUyMGJvcmRlcmluZyUyMHVuaXQlMjBhd2F5LiUyMEFmdGVyJTIwdGhhdCUyQyUyMHJhbmRvbWx5JTIwKnBvaXNvbiolMkMlMjAqZnJlZXplKiUyMG9yJTIwZGVhbCUyMCoxJTJGMiUyRjMlMkY0JTJGNSUyMGRhbWFnZSolMjB0byUyMGFsbCUyMHN1cnJvdW5kaW5nJTIwZW5lbWllcyUyMGZyb20lMjB0aGUlMjBwdXNoZWQlMjB1bml0Ozs=",
+      "author": "Athena"
+    }
+  },
+  {
+    "season": 2,
+    "week": 45,
+    "name": "Echo Echo",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
