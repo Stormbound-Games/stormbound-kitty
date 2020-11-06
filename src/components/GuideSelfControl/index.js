@@ -104,7 +104,6 @@ export default React.memo(function GuideSelfControl(props) {
               author='CriticalPancake'
               category='BRAWL'
               faction='shadowfen'
-              noAuthorLink
             />
           </Column>
         </Row>
