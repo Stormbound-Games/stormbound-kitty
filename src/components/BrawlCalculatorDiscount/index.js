@@ -18,7 +18,7 @@ export default React.memo(function BrawlCalculatorDiscount(props) {
             max={100}
             placeholder='e.g. 50'
             onBlur={event => {
-              if (+event.target.value < 1) props.setDiscount(1)
+              if (+event.target.value < 0) props.setDiscount(0)
               if (+event.target.value > 100) props.setDiscount(100)
             }}
           />
