@@ -4,7 +4,7 @@ const hasAny = (cards, ids) =>
 export default cards => {
   const cardIds = cards.map(card => card.id)
   const hasFreezeConsumer = cardIds.includes('W1') || cardIds.includes('W4')
-  const hasFreezeProvider = hasAny(cards, ['W2', 'W6', 'W11'])
+  const hasFreezeProvider = hasAny(cards, ['W1', 'W2', 'W6', 'W11'])
 
   // If the deck has cards requiring freeze (consumers), but no cards freezing
   // enemies (providers), it is considered inefficient. If it does not have
