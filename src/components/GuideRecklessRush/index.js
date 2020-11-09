@@ -55,6 +55,9 @@ export default React.memo(function GuideRecklessRush(props) {
           <a href='#how-to-play'>How to play</a>
         </li>
         <li>
+          <a href='#game-openers'>Game openers</a>
+        </li>
+        <li>
           <a href='#prioritisation'>Prioritisation</a>
         </li>
         <li>
@@ -62,6 +65,9 @@ export default React.memo(function GuideRecklessRush(props) {
         </li>
         <li>
           <a href='#order'>Order</a>
+        </li>
+        <li>
+          <a href='#positioning'>Positioning</a>
         </li>
       </ol>
 
@@ -99,14 +105,15 @@ export default React.memo(function GuideRecklessRush(props) {
             </p>
             <p>
               Another swap that can be considered would be <CardLink id='N2' />{' '}
-              for <CardLink id='N66' />, especially since they now cost 2 mana
-              only. It’s a 1-mana trade-off for more control and movement, and
-              most importantly less random.
+              for <CardLink id='S24' />. The latter costs 1 more mana, but is
+              very powerful in regards to its mana-to-strength ratio. It will
+              always land forwards which is exactly what all rush decks need
+              anyways.
             </p>
           </Column>
           <Column>
             <FeaturedDeck
-              id='2n11n663s12n32s21n672s62n151s82n632s112n26'
+              id='2n13n23s12n32s21n672s62n151s82n632s112n26'
               name='Reckless Rush (Snowmasons)'
               author='RecklessRush'
               category='REGULAR'
@@ -129,8 +136,7 @@ export default React.memo(function GuideRecklessRush(props) {
               this?” Apart from it being one of the highest win rate decks to
               ever exist, RR is great for players who are looking for quick
               games (possibly to grind gold or finish quests) or looking to
-              climb high ranks with relatively low level cards. In fact these
-              were my levels upon reaching plat 5 with base health 12.
+              climb high ranks with relatively low level cards.
             </p>
           </Column>
           <Column>
@@ -204,9 +210,9 @@ export default React.memo(function GuideRecklessRush(props) {
       </p>
 
       <p>
-        Look to only use play it on turns where you will have 1 mana in excess.
-        In regards to the actual value of the card, it’s only expected to be
-        used to hold your frontline, otherwise it’s not a really great.
+        Look to only play it on turns where you will have 1 mana in excess. In
+        regards to the actual value of the card, it’s only expected to be used
+        to hold your frontline, otherwise it’s not a really great card.
       </p>
 
       <h3>Doppelbocks</h3>
@@ -232,10 +238,9 @@ export default React.memo(function GuideRecklessRush(props) {
       <p>
         The card is typically used as a high strength unit for dishing out
         damage on the opponent, you will likely want to play it in corners and
-        defend it using other weaker cards like <CardLink id='S1' />
-        . On turn mana 5 and if you have a strong board, you can typically
-        afford to play
-        <CardLink id='N3' /> + <CardLink id='N15' /> to πut pressure on your
+        defend it using other weaker cards like <CardLink id='S1' />. On turn
+        mana 5 and if you have a strong board, you can typically afford to play{' '}
+        <CardLink id='N3' /> + <CardLink id='N15' /> to put pressure on your
         opponent and force out cards.
       </p>
 
@@ -472,48 +477,36 @@ export default React.memo(function GuideRecklessRush(props) {
         one of your stronger units.
       </p>
       <p>
-        Due to the order of attacking (left-to-right), Snowmasons will always
-        prefer being placed to the left of any friendly unit. The best tile for
-        Snowmasons is one tile to the left of the top-right corner. This is
-        because you can place a strong unit in the top right corner defended by
-        a Snowmasons to the left, which will significantly pressure the
-        opponent. If they want to defend they will have to attack into
-        Snowmasons which will further increase the other unit’s strength.
-        Otherwise if they leave it alone, Snowmasons will walk into the enemy
-        base first, buffing the unit to the right and therefore dealing massive
-        damage to the enemy base. This setup does NOT work if Snowmasons is
-        bordering the friendly unit to the right which is why you should never
-        play Snowmasons in the far right column.
-      </p>
-      <p>
         In situations where you don’t have Devastators in hand, you can use both
         Snowmasons and a unit to stimulate pressure by using Snowmasons as a
         guardian and the other unit to act like Devastators.
       </p>
 
-      <Title id='prioritisation'>Prioritisation</Title>
+      <Title id='game-openers'>Game openers</Title>
 
       <p>
-        The RR prioritisation refers to being able to distinguish which cards
-        you should aim at playing over others in any given situation. This idea
-        can extend to which enemy units/structures you should focus on killing
-        as well. Which and how you prioritize cards will vary depending on each
-        and every unique turn given a new board state. However, while
-        prioritisation differs largely, there are some rules you can apply to
-        your gameplay to produce the most value/best results for each given
-        turn. We can start by exploring Trinity Openers.
+        Within the RR decks, there exists a total of three 2-movement units—each
+        of these cost three mana or less and are necessary for preforming any{' '}
+        <span className='Highlight'>Trinity Opener</span>.
       </p>
+      <ul>
+        <li>
+          <CardLink id='S2' />
+        </li>
+        <li>
+          <CardLink id='S8' />
+        </li>
+        <li>
+          <CardLink id='N67' /> (although not always 2-movement)
+        </li>
+      </ul>
 
       <p>
-        Within the RR decks, there exists a total of three 2-movement units:{' '}
-        <CardLink id='S2' />, <CardLink id='N67' /> (although not always
-        2-movement) and <CardLink id='S8' />. Each of these cost three mana or
-        less and are necessary for preforming any{' '}
-        <span className='Highlight'>Trinity Opener</span>. Simply put, a Trinity
-        Opener is pushing your frontline to three tiles forward on your very
-        first turn. In doing so you open up the entire board and give yourself
-        the ability to play a unit on any tile. By maintaining this frontline
-        you give yourself a huge advantage over your opponent.
+        Simply put, a Trinity Opener is pushing your frontline to three tiles
+        forward on your very first turn. In doing so you open up the entire
+        board and give yourself the ability to play a unit on any tile. By
+        maintaining this frontline you give yourself a huge advantage over your
+        opponent.
       </p>
 
       <p>Here are all the possible Trinity Openers at 3 mana:</p>
@@ -564,7 +557,7 @@ export default React.memo(function GuideRecklessRush(props) {
       />
       <Board
         id='LCwsLCwsM04xQjMsLCwzTjY3QjMsLCwsLCwsLCwsO1IxME4tQjEwUzszTTA7M04xM04yM1MxM04zM1MyNDNTMjNONjMzTjY3M1M2M04xNTNTODNTMTE7'
-        caption='Trinity opener example 2: Wild Saberpaws + Green Prototypes'
+        caption='Trinity opener example 3: Wild Saberpaws + Green Prototypes'
       />
 
       <Info icon='equalizer' title='Best value'>
@@ -606,6 +599,19 @@ export default React.memo(function GuideRecklessRush(props) {
         </li>
       </ol>
 
+      <Title id='prioritisation'>Prioritisation</Title>
+
+      <p>
+        The RR prioritisation refers to being able to distinguish which cards
+        you should aim at playing over others in any given situation. This idea
+        can extend to which enemy units/structures you should focus on killing
+        as well. Which and how you prioritize cards will vary depending on each
+        and every unique turn given a new board state. However, while
+        prioritisation differs largely, there are some rules you can apply to
+        your gameplay to produce the most value/best results for each given
+        turn.
+      </p>
+
       <p>
         Devastators is one of the most impactful cards in RR. It is considered a
         high-risk/high-reward card because for 4 mana you can get away with
@@ -627,7 +633,7 @@ export default React.memo(function GuideRecklessRush(props) {
       </p>
 
       <Board
-        id='NFczUjMsM1MyQjMsM04xQjMsMlMxQjMsLCwsLCwsLCwsLCwsLCwsO1IxMFctQjEwUzszTTA7Ow=='
+        id='NFczUjMsM1MyQjMsM04xQjMsMlMxQjMsLCwsLCwsLCwsLCwsLCwsO1IxMFctQjEwUzszTTA7M04xM04yM1MxM04zM1MyNDNTMjNONjMzTjY3M1M2M04xNTNTODNTMTE7'
         caption='Using the enemy’s structure as a way to baselock them.'
       />
       <Board
@@ -693,10 +699,11 @@ export default React.memo(function GuideRecklessRush(props) {
         By applying pressure every turn you snowball your early game lead in
         hopes to close out the game fast. This deck doesn’t fare well into the
         late game so you really want to squeeze in any advantages you can. The
-        biggest takeaway from prioritisation is you want to really focus on
-        playing Devastators as much as possible and as early as possible.
-        Especially in the lower ranks, this strategy works exceptionally well
-        because opponents do not have many ways to defend against it.
+        biggest takeaway from prioritisation is playing Trinity Openers on your
+        first turn if possible and to really focus on playing Devastators as
+        much as possible and as early as possible. Especially in the lower
+        ranks, this strategy works exceptionally well because opponents do not
+        have many ways to defend against it.
       </p>
 
       <Title id='cycling'>Cycling</Title>
@@ -746,11 +753,10 @@ export default React.memo(function GuideRecklessRush(props) {
       <p>
         You should be aiming to maximise your usage of Devastators and on the
         other side of the spectrum, minimise your usage of Forgotten Souls. Bear
-        in mind that these two cards put together make an amazing combo, so the
-        next question you should be asking is, how do I properly set up this
-        combo? Ideally you want to play this combo exactly when it is available
-        (at the 7-mana turn) and this requires a bit of timing, thinking and
-        luck.
+        in mind that these two cards make an amazing combo, so the next question
+        you should be asking is, how do I properly set up this combo? Ideally
+        you want to play this combo exactly when it is available (at the 7-mana
+        turn) and this requires a bit of timing, thinking and luck.
       </p>
       <p>
         Forgotten Souls is in fact the highest priority cycle for the majority
@@ -807,8 +813,8 @@ export default React.memo(function GuideRecklessRush(props) {
 
       <p>
         Now that we have covered cycling, we can start learning about{' '}
-        <span className='Highlight'>order</span>
-        which refers to the order in which you play your cards.
+        <span className='Highlight'>order</span> which refers to the order in
+        which you play your cards.
       </p>
 
       <p>
@@ -856,9 +862,9 @@ export default React.memo(function GuideRecklessRush(props) {
       </p>
 
       <p>
-        As demonstrated earlier however, sometimes the order in which you play
-        your cards will have an affect on the PVO. This becomes more obvious
-        during turns where you want to play{' '}
+        As demonstrated earlier, sometimes the order in which you play your
+        cards will have an affect on the PVO. This becomes more obvious during
+        turns where you want to play{' '}
         <abbr title='Random Number Generator'>RNG</abbr> (luck-based) cards like
         Summon Militia, Head Start and Unhealthy Hysteria.
       </p>
@@ -941,7 +947,7 @@ export default React.memo(function GuideRecklessRush(props) {
       </p>
 
       <Board
-        id='M1QzUjEsM1QzUjEsMlMxQjMsLCwsM04zQjMsLCw1TjU5UjMsLDROMTZSMywsLCwsLCwsO1IxME4tQjEwUzszTTA7M04xM04yM1MxM04zM1MyNDNTMjNONjMzTjY3M1M2M04xNTNTODNTMTE7TjEsTjE1LFM4LFMyNA=='
+        id='M1QzUjEsM1QzUjEsMlMxQjMsLCwsM04zQjMsLCw1TjU5UjMsLDROMTZSMywsLCwsLCwsO1IxME4tQjEwUzs1TTA7M04xM04yM1MxM04zM1MyNDNTMjNONjMzTjY3M1M2M04xNTNTODNTMTE7TjEsTjE1LFM4LFMyNA=='
         caption='Shady Ghoul does not see any play here and therefore is a liability and is worth cycling first to see if I can draw for a better play. For example a Devastators or Gifted Recruits draw here is much better than Shady Ghoul.'
       />
 
@@ -1029,7 +1035,7 @@ export default React.memo(function GuideRecklessRush(props) {
       <h3>Snowmasons</h3>
 
       <p>
-        The positioning of these two cards only matter in the Snowmasons
+        The positioning of the next two cards only matter in the Snowmasons
         variation. Due to the movement order, Snowmasons love the centre right
         column more than any other since it allows you to guard a high priority
         unit on the top right corner. By clearing the Snowmasons, the opponent
@@ -1062,11 +1068,10 @@ export default React.memo(function GuideRecklessRush(props) {
       <p>
         With this setup the opponent might have a lot of trouble thinking of the
         best play. Either they clear the Snowmasons and buff the token, or don’t
-        and loose board control—not to mention giving you a nice top right
-        corner setup for you next round. Assuming the same situation only
-        difference is that you played Shady Ghoul centre right, you end up with
-        Snowmasons center-left, which is less valuable as we’ve previously
-        discussed.
+        and lose board control—not to mention giving you a nice top right corner
+        setup for you next round. Assuming the same situation only difference is
+        that you played Shady Ghoul centre right, you end up with Snowmasons
+        center-left, which is less valuable as we’ve previously discussed.
       </p>
 
       <h3>General tips</h3>
@@ -1115,8 +1120,19 @@ export default React.memo(function GuideRecklessRush(props) {
       </p>
 
       <Board
-        id='NFMxMUIzLDJUN0IxLCwsM1MyQjMsMlMxQjMsLCwsLCwsLCwsLCwsLDtSMTBOLUIxMFM7Nk0wOzNOMTNOMjNTMTNOMzNTMjQzUzIzTjYzM042NzNTNjNOMTUzUzgzUzExOw=='
+        id='OE4zQjMsMlQ3QjEsLCwzUzJCMywyUzFCMywsLCwsLCwsLCwsLCwsO1IxME4tQjEwUzs2TTA7M04xM04yM1MxM04zM1MyNDNTMjNONjMzTjY3M1M2M04xNTNTODNTMTE7'
         caption='Example of a square attack formation, particularly efficient against Shadowfen.'
+      />
+
+      <p>
+        Assuming the Shadowfen player uses Toxic Sacrifice, an even better idea
+        is to separate your units as far apart as possible, hugging the left and
+        right side columns to avoid surrounding AoE damages.
+      </p>
+
+      <Board
+        id='OE4zQjMsLCwyVDdCMSwzUzJCMywsLDJTMUIzLCwsLCwsLCwsLCwsO1IxME4tQjEwUzs2TTA7Ow=='
+        caption='Example of a side attack formation to avoid AoE damage.'
       />
 
       <p>
@@ -1128,7 +1144,7 @@ export default React.memo(function GuideRecklessRush(props) {
       </p>
 
       <Board
-        id='NFMxMUIzLDJTMUIzLDNTMkIzLCw0VDdCMSwsLCwsLCwsLCwsLCwsLDtSMTBXLUIxMFM7Nk0wOzNOMTNOMjNTMTNOMzNTMjQzUzIzTjYzM042NzNTNjNOMTUzUzgzUzExOw=='
+        id='NFMxMUIzLDJTMUIzLDNTMkIzLCwsLCwsLCwsLCwsLCwsLCw7UjEwVy1CMTBTOzZNMDszTjEzTjIzUzEzTjMzUzI0M1MyM042MzNONjczUzYzTjE1M1M4M1MxMTs='
         caption='Example of a horizontal attack formation, effecient against decks without too many runners.'
       />
 
