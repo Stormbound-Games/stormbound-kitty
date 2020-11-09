@@ -228,7 +228,8 @@
     "cardId": "W9",
     "background": "/assets/images/banners/environment_winter.png",
     "category": "PLAYSTYLE",
-    "date": "06/2019"
+    "date": "06/2019",
+    "skipNav": true
   },
   {
     "id": "PIRATE_GUIDE",
