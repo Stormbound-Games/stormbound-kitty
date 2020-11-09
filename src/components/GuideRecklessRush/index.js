@@ -77,7 +77,7 @@ export default React.memo(function GuideRecklessRush(props) {
         <Row desktopOnly wideGutter>
           <Column>
             <FeaturedDeck
-              id='2n13n23s14n32s243s23n632n671s64n151s84s11'
+              id='2n12n23s14n32s243s23n632n671s64n151s84s11'
               name='Reckless Rush'
               author='RecklessRush'
               category='REGULAR'
@@ -100,8 +100,7 @@ export default React.memo(function GuideRecklessRush(props) {
               If you play in Gold or in lower leagues, I would recommend a small
               variation of the deck with <CardLink id='N26' /> instead of{' '}
               <CardLink id='S24' />
-              —which are pretty fantastic at lower levels. These were my exact
-              card levels when I reached Platinum at 12 base health.
+              —which are pretty fantastic at lower levels.
             </p>
             <p>
               Another swap that can be considered would be <CardLink id='N2' />{' '}
@@ -113,7 +112,7 @@ export default React.memo(function GuideRecklessRush(props) {
           </Column>
           <Column>
             <FeaturedDeck
-              id='2n13n23s12n32s21n672s62n151s82n632s112n26'
+              id='2n12n23s12n32s21n672s62n151s82n632s112n26'
               name='Reckless Rush (Snowmasons)'
               author='RecklessRush'
               category='REGULAR'
