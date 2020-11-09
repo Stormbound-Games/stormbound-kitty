@@ -41,7 +41,6 @@ export default () => {
               label: 'Update 11-2020',
               to: '/releases/11-2020',
               id: '11_2020',
-              new: true,
             },
             {
               label: 'Update 10-2020',
