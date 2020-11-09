@@ -22,6 +22,7 @@ const Guide = React.memo(function Guide(props) {
           to: '/guides/' + CATEGORIES[props.category].slug,
           children: 'Back to guides',
         }}
+        ratio={props.ratio}
         withAvif
       >
         <Article.Narrow>{props.children}</Article.Narrow>
