@@ -65,10 +65,22 @@ export const VIDEOS = [
     ),
   },
   {
+    author: 'RecklessRush',
+    href: 'https://www.youtube.com/channel/UCqc9ONUhTVQ3WnTRci3dYXQ',
+    thumbnail:
+      'https://yt3.ggpht.com/a/AATXAJycXe3vDT9iJherI79bxa5Pm20OiFyFgk8DT_AVlA=s176-c-k-c0x00ffffff-no-rj',
+    description: (
+      <p>
+        RecklessRush is a popular Stormbound community manager known for his
+        eponymous deck which focuses on aggressive rush strategies.
+      </p>
+    ),
+  },
+  {
     author: 'Frostkhan',
     href: 'https://www.youtube.com/channel/UCy9LE_mTjVPEyZP56U_u0WA',
     thumbnail:
-      'https://yt3.ggpht.com/a/AATXAJw5m7JC1ALHO8RaK6qRn5rOEHyrO--dtDuYi8rPjQ=s288-c-k-c0xffffffff-no-rj-mo',
+      'https://yt3.ggpht.com/a/AATXAJw5m7JC1ALHO8RaK6qRn5rOEHyrO--dtDuYi8rPjQ=s176-c-k-c0x00ffffff-no-rj',
     description: (
       <p>
         Frostkhan is a high-rank player producing a lot of Stormbound videos
