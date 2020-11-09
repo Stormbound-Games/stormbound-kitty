@@ -194,6 +194,19 @@
     "date": "05/2019"
   },
   {
+    "id": "RECKLESS_RUSH_GUIDE",
+    "name": "Reckless Rush",
+    "authors": ["RecklessRush"],
+    "excerpt": "In this comprehensive guide, RecklessRush explains how to play his eponymous famous deck, relying on agressive rushing strategies to beat high-level players.",
+    "slug": "reckless-rush",
+    "faction": "swarm",
+    "cardId": "S11",
+    "background": "/assets/images/guides/reckless_rush.png",
+    "category": "PLAYSTYLE",
+    "date": "11/2020",
+    "ratio": "56%"
+  },
+  {
     "id": "D1_SF_COMMONS_GUIDE",
     "name": "D1 with SF Commons",
     "authors": ["Kitty"],

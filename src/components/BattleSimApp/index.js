@@ -39,6 +39,12 @@ const BattleSimPage = React.memo(function BattleSimPage(props) {
 
 export default props => (
   <State mode={props.mode} simId={props.simId}>
-    {state => <BattleSimPage {...state} puzzle={props.puzzle} />}
+    {state => (
+      <BattleSimPage
+        {...state}
+        puzzle={props.puzzle}
+        environment={props.environment}
+      />
+    )}
   </State>
 )
