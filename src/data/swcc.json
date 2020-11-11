@@ -350,6 +350,15 @@
     "season": 2,
     "week": 45,
     "name": "Echo Echo",
+    "winner": {
+      "id": "Rjs7UztFOzI7OzIvMy8zLzQvNDtEZWF0aGx5JTIwQ29udGFnaW9uO2h0dHBzJTNBJTJGJTJGaS5pbWd1ci5jb20lMkZFbW9McE8wLnBuZztPbiUyMHBsYXklMkMlMjBpZiUyMHRoZXJlJTIwaXMlMjBhJTIwYm9yZGVyaW5nJTJGYm9yZGVyaW5nJTJGc3Vycm91bmRpbmclMkZzdXJyb3VuZGluZyUyRiUyMGZyaWVuZGx5JTIwc3RydWN0dXJlJTJDJTIwcmV0dXJuJTIwdGhpcyUyMGNhcmQlMjB0byUyMHlvdXIlMjBoYW5kOzs=",
+      "author": "MooreFunn"
+    }
+  },
+  {
+    "season": 2,
+    "week": 46,
+    "name": "Drawback",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
