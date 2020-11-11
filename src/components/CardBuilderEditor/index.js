@@ -65,15 +65,19 @@ class CardBuilderEditor extends React.Component {
   }
 
   updateURL = () => {
-    this.props.history.replace(
-      '/card/' +
-        serialisation.card.serialise({
-          ...this.state,
-          strength: this.state.strength.display,
-          mana: this.state.mana.display,
-          ability: this.state.ability.display,
-        })
-    )
+    // Safari has a limit of 100 `history.pushState()` per 30 seconds window, so
+    // we should fail silently if it’s not possible to update the URL anymore.
+    try {
+      this.props.history.replace(
+        '/card/' +
+          serialisation.card.serialise({
+            ...this.state,
+            strength: this.state.strength.display,
+            mana: this.state.mana.display,
+            ability: this.state.ability.display,
+          })
+      )
+    } catch {}
   }
 
   reset = () => {
