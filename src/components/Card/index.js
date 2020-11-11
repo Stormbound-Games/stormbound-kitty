@@ -80,7 +80,7 @@ export default React.memo(function Card(props) {
             <Image
               alt={props.image ? props.name : ''}
               src={
-                (props.image || '').startsWith('http')
+                (props.image || '').startsWith('http') || !props.image
                   ? props.image
                   : '/assets/images/cards/' + props.image
               }
