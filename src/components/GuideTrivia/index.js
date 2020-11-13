@@ -50,7 +50,7 @@ export default React.memo(function GuideWinter(props) {
         </li>
         <li>
           <CardLink id='N10' /> was named after Conflicter, a former player
-          moderator of the official Discord abd guide on the forums and Reddit.
+          moderator of the official Discord and guide on the forums and Reddit.
         </li>
         <li>
           <CardLink id='N43' /> was named after Ludo88, a popular Kongregate
@@ -136,7 +136,7 @@ export default React.memo(function GuideWinter(props) {
               To do so, they used some in-game graphics as a scale, such as the
               hippo we can see in one of the pool. The average length of a hippo
               is about 4.25m. For the vertical scale, they used a human knight
-              with an average height of 1.7m. Based on that, they realised that
+              with an average height of 1.7m. Based on that, they realised that{' '}
               <span className='Highlight'>every tile is 5x5m wide</span>{' '}
               (provided they are squares).
             </p>
