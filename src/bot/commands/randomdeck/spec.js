@@ -37,15 +37,15 @@ describe('Bot — !randomdeck', () => {
   })
 
   it('should handle including a card', () => {
-    expect(randomdeck('N48').url).to.contain('1n48')
-    expect(randomdeck('Earyn').url).to.contain('1n48')
-    expect(randomdeck('rof').url).to.contain('1f8')
+    expect(randomdeck('N48').url).to.contain('n48')
+    expect(randomdeck('Earyn').url).to.contain('n48')
+    expect(randomdeck('rof').url).to.contain('f8')
   })
 
   it('should handle including multiple cards', () => {
-    expect(randomdeck('N48, N49').url).to.contain('1n481n49')
-    expect(randomdeck('Earyn, Avian').url).to.contain('1n481n49')
-    expect(randomdeck('rof,wyrm').url).to.contain('1f81f9')
+    expect(randomdeck('N48, N49').url).to.contain('n48n49')
+    expect(randomdeck('Earyn, Avian').url).to.contain('n48n49')
+    expect(randomdeck('rof,wyrm').url).to.contain('f8f9')
   })
 
   it('should return an error if conflicting arguments', () => {

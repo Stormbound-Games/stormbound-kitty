@@ -21,6 +21,16 @@ describe('The `serialisation.deck.serialise` helper', () => {
       serialisation.deck.serialise([{ level: 1, id: 'N1' }, null, {}])
     ).to.equal('1n1')
   })
+
+  it('should use global level above 3 cards', () => {
+    expect(
+      serialisation.deck.serialise([
+        { level: 1, id: 'N1' },
+        { level: 1, id: 'N2' },
+        { level: 1, id: 'N3' },
+      ])
+    ).to.equal('1xn1n2n3')
+  })
 })
 
 describe('The `serialisation.deck.deserialise` helper', () => {
@@ -81,6 +91,13 @@ describe('The `serialisation.deck.deserialise` helper', () => {
       { level: 5, id: 'T2' },
       { level: 10, id: 'T3' },
       { level: 99, id: 'T4' },
+    ])
+  })
+
+  it('should handle a global level', () => {
+    expect(serialisation.deck.deserialise('5xn1n2')).to.deep.equal([
+      { level: 5, id: 'N1' },
+      { level: 5, id: 'N2' },
     ])
   })
 })
