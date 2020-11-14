@@ -22,7 +22,11 @@ export default search => {
   if (cardFromID.id) return [cardFromID]
 
   const matchAbbr = (ABBREVIATIONS[needle.toLowerCase()] || [])
-    .map(definition => getRawCardData(definition, 'name'))
+    .map(definition => {
+      const card = getRawCardData(definition, 'name')
+
+      return card.id ? card : null
+    })
     .filter(Boolean)
 
   if (matchAbbr.length) return matchAbbr
