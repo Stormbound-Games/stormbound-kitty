@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
-import { BRAWLS } from '../../constants/brawl'
+import { BRAWL_INDEX } from '../../constants/brawl'
 import BrawlHeader from '../BrawlHeader'
 import BrawlProvider from '../BrawlProvider'
 import BrawlTracker from '../BrawlTracker'
@@ -9,7 +9,7 @@ import PageMeta from '../PageMeta'
 export default React.memo(function BrawlPage(props) {
   const match = useRouteMatch()
   const id = match.params.id.toUpperCase().replace(/-/g, '_')
-  const brawl = BRAWLS.find(brawl => brawl.id === id)
+  const brawl = BRAWL_INDEX[id]
 
   return (
     <>

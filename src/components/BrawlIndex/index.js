@@ -9,14 +9,12 @@ import Teaser from '../Teaser'
 import chunk from '../../helpers/chunk'
 import getCurrentBrawl from '../../helpers/getCurrentBrawl'
 import isBrawlRunning from '../../helpers/isBrawlRunning'
-import { BRAWLS } from '../../constants/brawl'
+import { BRAWL_INDEX } from '../../constants/brawl'
 import guides from '../../data/guides'
-
-const getBrawlData = id => BRAWLS.find(brawl => brawl.id === id)
 
 export const BRAWL_DATA = [
   {
-    ...getBrawlData('DWARF_MANA'),
+    ...BRAWL_INDEX.DWARF_MANA,
     description: (
       <>
         All <span className='Highlight'>Dwarf</span> units cost{' '}
@@ -26,7 +24,7 @@ export const BRAWL_DATA = [
     ),
   },
   {
-    ...getBrawlData('PIRATE_MANA'),
+    ...BRAWL_INDEX.PIRATE_MANA,
     description: (
       <>
         All <span className='Highlight'>Pirate</span> units cost{' '}
@@ -36,7 +34,7 @@ export const BRAWL_DATA = [
     ),
   },
   {
-    ...getBrawlData('RAVEN_MOVEMENT'),
+    ...BRAWL_INDEX.RAVEN_MOVEMENT,
     description: (
       <>
         All <span className='Highlight'>Raven</span> units benefit from an extra{' '}
@@ -46,7 +44,7 @@ export const BRAWL_DATA = [
     ),
   },
   {
-    ...getBrawlData('STRUCTURE_MANA'),
+    ...BRAWL_INDEX.STRUCTURE_MANA,
     description: (
       <>
         All <span className='Highlight'>structures</span> cost{' '}
@@ -56,7 +54,7 @@ export const BRAWL_DATA = [
     ),
   },
   {
-    ...getBrawlData('RODENT_STRENGTH'),
+    ...BRAWL_INDEX.RODENT_STRENGTH,
     description: (
       <>
         All <span className='Highlight'>Rodent</span> units benefit from an
@@ -66,7 +64,7 @@ export const BRAWL_DATA = [
     ),
   },
   {
-    ...getBrawlData('PIRATE_MOVEMENT'),
+    ...BRAWL_INDEX.PIRATE_MOVEMENT,
     description: (
       <>
         All <span className='Highlight'>Pirate</span> units have{' '}
@@ -76,7 +74,7 @@ export const BRAWL_DATA = [
     ),
   },
   {
-    ...getBrawlData('FELINE_STRENGTH'),
+    ...BRAWL_INDEX.FELINE_STRENGTH,
     description: (
       <>
         All <span className='Highlight'>Feline</span> units benefit from an
@@ -86,7 +84,7 @@ export const BRAWL_DATA = [
     ),
   },
   {
-    ...getBrawlData('SATYR_MOVEMENT'),
+    ...BRAWL_INDEX.SATYR_MOVEMENT,
     description: (
       <>
         All <span className='Highlight'>Satyr</span> units benefit from an extra{' '}
@@ -96,7 +94,7 @@ export const BRAWL_DATA = [
     ),
   },
   {
-    ...getBrawlData('SPELL_MANA'),
+    ...BRAWL_INDEX.SPELL_MANA,
     description: (
       <>
         All <span className='Highlight'>spells</span> cost{' '}
@@ -106,7 +104,7 @@ export const BRAWL_DATA = [
     ),
   },
   {
-    ...getBrawlData('FROSTLING_STRENGTH'),
+    ...BRAWL_INDEX.FROSTLING_STRENGTH,
     description: (
       <>
         All <span className='Highlight'>Frostling</span> units benefit from an
@@ -116,7 +114,7 @@ export const BRAWL_DATA = [
     ),
   },
   {
-    ...getBrawlData('TOAD_MANA'),
+    ...BRAWL_INDEX.TOAD_MANA,
     description: (
       <>
         All <span className='Highlight'>Toad</span> units cost{' '}
@@ -126,7 +124,7 @@ export const BRAWL_DATA = [
     ),
   },
   {
-    ...getBrawlData('ELDER_STRENGTH'),
+    ...BRAWL_INDEX.ELDER_STRENGTH,
     description: (
       <>
         All <span className='Highlight'>Elder</span> units benefit from an extra{' '}
@@ -136,7 +134,7 @@ export const BRAWL_DATA = [
     ),
   },
   {
-    ...getBrawlData('CONSTRUCT_MOVEMENT'),
+    ...BRAWL_INDEX.CONSTRUCT_MOVEMENT,
     description: (
       <>
         All <span className='Highlight'>Construct</span> units have{' '}
@@ -146,7 +144,7 @@ export const BRAWL_DATA = [
     ),
   },
   {
-    ...getBrawlData('KNIGHT_MANA'),
+    ...BRAWL_INDEX.KNIGHT_MANA,
     description: (
       <>
         All <span className='Highlight'>Knight</span> units cost{' '}
@@ -156,7 +154,7 @@ export const BRAWL_DATA = [
     ),
   },
   {
-    ...getBrawlData('DRAGON_MOVEMENT'),
+    ...BRAWL_INDEX.DRAGON_MOVEMENT,
     description: (
       <>
         All <span className='Highlight'>Dragon</span> units benefit from an
@@ -166,7 +164,7 @@ export const BRAWL_DATA = [
     ),
   },
   {
-    ...getBrawlData('UNDEAD_STRENGTH'),
+    ...BRAWL_INDEX.UNDEAD_STRENGTH,
     description: (
       <>
         All <span className='Highlight'>Undead</span> units benefit from an
@@ -176,7 +174,7 @@ export const BRAWL_DATA = [
     ),
   },
   {
-    ...getBrawlData('HERO_STRENGTH'),
+    ...BRAWL_INDEX.HERO_STRENGTH,
     description: (
       <>
         All <span className='Highlight'>Hero</span> units benefit from an extra{' '}

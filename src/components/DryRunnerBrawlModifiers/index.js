@@ -1,7 +1,7 @@
 import React from 'react'
 import Dialog from '../Dialog'
 import getRawCardData from '../../helpers/getRawCardData'
-import { BRAWLS } from '../../constants/brawl'
+import { BRAWLS, BRAWL_INDEX } from '../../constants/brawl'
 import './index.css'
 
 const getDialogImage = modifier => {
@@ -9,9 +9,7 @@ const getDialogImage = modifier => {
     return '/assets/images/cards/execution.png'
   }
 
-  const brawl = BRAWLS.find(brawl => brawl.id === modifier)
-
-  return getRawCardData(brawl.cardId).image
+  return getRawCardData(BRAWL_INDEX[modifier].cardId).image
 }
 
 export default React.memo(function DryRunnerBrawlModifiers(props) {

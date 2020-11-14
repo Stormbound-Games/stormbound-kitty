@@ -16,7 +16,7 @@ import modifyDeck from '../../helpers/modifyDeck'
 import getDeckPresets from '../../helpers/getDeckPresets'
 import isSuggestedDeck from '../../helpers/isSuggestedDeck'
 import useViewportWidth from '../../hooks/useViewportWidth'
-import { BRAWLS } from '../../constants/brawl'
+import { BRAWL_INDEX } from '../../constants/brawl'
 
 const getDefaultBrawlModifier = deck => {
   const presets = getDeckPresets(deck)
@@ -42,7 +42,7 @@ export default React.memo(function DeckDetailView(props) {
 
   React.useEffect(() => {
     if (defaultModifier !== 'NONE') {
-      const brawlLabel = BRAWLS.find(({ id }) => id === defaultModifier).label
+      const brawlLabel = BRAWL_INDEX[defaultModifier].label
       sendNotification(`Brawl deck found. Loaded with modifier ${brawlLabel}.`)
     }
   }, [defaultModifier, sendNotification])
@@ -56,9 +56,7 @@ export default React.memo(function DeckDetailView(props) {
           ? CATEGORIES[suggestedDeck.category] +
             ' deck' +
             (suggestedDeck.category === 'BRAWL'
-              ? ' (' +
-                BRAWLS.find(b => b.id === suggestedDeck.brawl).title +
-                ')'
+              ? ' (' + BRAWL_INDEX[suggestedDeck.brawl].title + ')'
               : '')
           : undefined
       }

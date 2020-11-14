@@ -1,11 +1,11 @@
 import capitalise from '../capitalise'
 import getRawCardData from '../getRawCardData'
 import { CATEGORIES } from '../../constants/decks'
-import { BRAWLS } from '../../constants/brawl'
+import { BRAWL_INDEX } from '../../constants/brawl'
 
 const getDeckSearchDescription = state => {
   const cardData = getRawCardData(state.including)
-  const brawl = BRAWLS.find(brawl => brawl.id === state.brawl)
+  const brawl = BRAWL_INDEX[state.brawl]
 
   return [
     'Find a collection of',

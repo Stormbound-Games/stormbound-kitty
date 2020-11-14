@@ -6,7 +6,7 @@ import BrawlOutcome from '../BrawlOutcome'
 import BrawlStatusChart from '../BrawlStatusChart'
 import Column from '../Column'
 import Row from '../Row'
-import { BRAWLS, MILESTONES } from '../../constants/brawl'
+import { BRAWL_INDEX, MILESTONES } from '../../constants/brawl'
 import './index.css'
 
 export default React.memo(function BrawlOverviewRow(props) {
@@ -31,10 +31,7 @@ export default React.memo(function BrawlOverviewRow(props) {
         </Column>
         <Column width='1/3'>
           {milestone && (
-            <BrawlMilestone
-              {...milestone}
-              cardId={BRAWLS.find(brawl => brawl.id === id).cardId}
-            />
+            <BrawlMilestone {...milestone} cardId={BRAWL_INDEX[id].cardId} />
           )}
         </Column>
       </Row>

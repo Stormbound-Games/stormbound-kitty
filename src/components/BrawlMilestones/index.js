@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { BRAWLS, MILESTONES } from '../../constants/brawl'
+import { BRAWL_INDEX, MILESTONES } from '../../constants/brawl'
 import { BrawlContext } from '../BrawlProvider'
 import BrawlMilestone from '../BrawlMilestone'
 import BrawlProgress from '../BrawlProgress'
@@ -56,7 +56,7 @@ export default React.memo(function BrawlMilestones(props) {
               <BrawlMilestone
                 index={index + 1}
                 {...milestone}
-                cardId={BRAWLS.find(brawl => brawl.id === id).cardId}
+                cardId={BRAWL_INDEX[id].cardId}
               />
             </div>
           ))}

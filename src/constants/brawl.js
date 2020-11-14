@@ -103,6 +103,11 @@ export const BRAWLS = [
   },
 ]
 
+export const BRAWL_INDEX = BRAWLS.reduce(
+  (acc, brawl) => ({ ...acc, [brawl.id]: brawl }),
+  {}
+)
+
 export const MILESTONES = [
   { crowns: 10, reward: 'HUMBLE_BOOK', rewardAmount: 1, cost: 0 },
   { crowns: 20, reward: 'RUBIES', rewardAmount: 5, cost: 20 },

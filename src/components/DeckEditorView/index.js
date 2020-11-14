@@ -31,7 +31,7 @@ import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import usePrevious from '../../hooks/usePrevious'
 import { CATEGORIES } from '../../constants/decks'
-import { BRAWLS } from '../../constants/brawl'
+import { BRAWL_INDEX } from '../../constants/brawl'
 
 import './index.css'
 
@@ -73,7 +73,7 @@ const useArticleProps = deck => {
     props.meta = `${CATEGORIES[matchedDeck.category]} deck`
 
     if (matchedDeck.category === 'BRAWL') {
-      props.meta += `(${BRAWLS.find(b => b.id === matchedDeck.brawl).title})`
+      props.meta += `(${BRAWL_INDEX[matchedDeck.brawl].title})`
     }
   } else if (id) {
     props.meta = getFactionFromDeckID(id) + ' deck'

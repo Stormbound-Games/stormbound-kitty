@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
-import { BRAWLS } from '../../constants/brawl'
+import { BRAWL_INDEX } from '../../constants/brawl'
 import NavLink from '../NavLink'
 import hasBrawlData from '../../helpers/hasBrawlData'
 
@@ -8,7 +8,7 @@ export default React.memo(function NavBrawl(props) {
   const match = useRouteMatch()
   const id = match.params.id
   const normalisedId = id ? id.toUpperCase().replace(/-/g, '_') : undefined
-  const brawl = BRAWLS.find(brawl => brawl.id === normalisedId)
+  const brawl = BRAWL_INDEX[normalisedId]
 
   return (
     <nav className='Header__nav'>

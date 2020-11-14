@@ -4,7 +4,7 @@ import DryRunner from '../DryRunner'
 import DeckMechanisms from '../DeckMechanisms'
 import { NotificationContext } from '../NotificationProvider'
 import CardLink from '../CardLink'
-import { BRAWLS } from '../../constants/brawl'
+import { BRAWL_INDEX } from '../../constants/brawl'
 import isCard from '../../helpers/isCard'
 import getDeckPresets from '../../helpers/getDeckPresets'
 
@@ -35,7 +35,7 @@ export default props => {
     const preset = getDeckPresets(props.deck)
 
     if (preset.modifier.includes('MANA')) {
-      const brawlLabel = BRAWLS.find(({ id }) => id === preset.modifier).label
+      const brawlLabel = BRAWL_INDEX[preset.modifier].label
       setModifier(preset.modifier)
       sendNotification(`Brawl deck found. Loaded with modifier ${brawlLabel}.`)
     }
