@@ -7,9 +7,9 @@ import Notice from '../Notice'
 import Row from '../Row'
 import Title from '../Title'
 import CardLink from '../CardLink'
-import guides from '../../data/guides'
+import getGuide from '../../helpers/getGuide'
 
-const guide = guides.find(guide => guide.id === 'EYE_OF_THE_TEMPEST_GUIDE')
+const guide = getGuide('EYE_OF_THE_TEMPEST_GUIDE')
 
 export default React.memo(function GuideEyeOfTheTempest(props) {
   return (

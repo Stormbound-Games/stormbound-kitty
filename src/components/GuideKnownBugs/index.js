@@ -6,9 +6,9 @@ import Only from '../Only'
 import Row from '../Row'
 import Title from '../Title'
 import { Stones, Coins, Rubies } from '../Resource'
-import guides from '../../data/guides'
+import getGuide from '../../helpers/getGuide'
 
-const guide = guides.find(g => g.id === 'KNOWN_BUGS')
+const guide = getGuide('KNOWN_BUGS')
 
 export default React.memo(function GuideKnownBugs(props) {
   return (

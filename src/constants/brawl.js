@@ -1,3 +1,5 @@
+import indexArray from '../helpers/indexArray'
+
 export const BRAWLS = [
   {
     id: 'DWARF_MANA',
@@ -103,10 +105,7 @@ export const BRAWLS = [
   },
 ]
 
-export const BRAWL_INDEX = BRAWLS.reduce(
-  (acc, brawl) => ({ ...acc, [brawl.id]: brawl }),
-  {}
-)
+export const BRAWL_INDEX = indexArray(BRAWLS)
 
 export const MILESTONES = [
   { crowns: 10, reward: 'HUMBLE_BOOK', rewardAmount: 1, cost: 0 },

@@ -1,10 +1,13 @@
 import React from 'react'
 import Article from '../Article'
 import PageMeta from '../PageMeta'
+import indexArray from '../../helpers/indexArray'
 import releases from '../../data/releases'
 
+const RELEASES_INDEX = indexArray(releases)
+
 export default React.memo(function ReleaseNotes(props) {
-  const release = releases.find(release => release.id === props.id)
+  const release = RELEASES_INDEX[props.id]
 
   return (
     <Article

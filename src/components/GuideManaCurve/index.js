@@ -12,11 +12,11 @@ import serialisation from '../../helpers/serialisation'
 import toSentence from '../../helpers/toSentence'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import modifyDeck from '../../helpers/modifyDeck'
-import guides from '../../data/guides'
+import getGuide from '../../helpers/getGuide'
 import { BRAWLS } from '../../constants/brawl'
 import './index.css'
 
-const guide = guides.find(guide => guide.id === 'MANA_CURVE_GUIDE')
+const guide = getGuide('MANA_CURVE_GUIDE')
 const manaBrawls = BRAWLS.filter(brawl => brawl.id.includes('MANA')).map(
   brawl => brawl.label
 )

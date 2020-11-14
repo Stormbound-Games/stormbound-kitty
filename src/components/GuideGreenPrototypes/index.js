@@ -5,10 +5,10 @@ import Notice from '../Notice'
 import Guide from '../Guide'
 import CardLink from '../CardLink'
 import Title from '../Title'
-import guides from '../../data/guides'
 import getInitialCardData from '../../helpers/getInitialCardData'
+import getGuide from '../../helpers/getGuide'
 
-const guide = guides.find(g => g.id === 'GREEN_PROTOTYPES_GUIDE')
+const guide = getGuide('GREEN_PROTOTYPES_GUIDE')
 
 export default React.memo(function GuideGreenPrototypes(props) {
   return (

@@ -8,9 +8,9 @@ import Notice from '../Notice'
 import Row from '../Row'
 import Title from '../Title'
 import CardLink from '../CardLink'
-import guides from '../../data/guides'
+import getGuide from '../../helpers/getGuide'
 
-const guide = guides.find(guide => guide.id === 'LUCRATIVE_PROJECT_GUIDE')
+const guide = getGuide('LUCRATIVE_PROJECT_GUIDE')
 
 export default React.memo(function GuideLucrativeProject(props) {
   return (

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import guides from '../../data/guides'
 import CardLink from '../CardLink'
 import Guide from '../Guide'
 import Title from '../Title'
+import getGuide from '../../helpers/getGuide'
 
-const guide = guides.find(g => g.id === 'PIRATE_GUIDE')
+const guide = getGuide('PIRATE_GUIDE')
 
 export default React.memo(function GuidePirate(props) {
   return (

@@ -8,11 +8,11 @@ import Notice from '../Notice'
 import Row from '../Row'
 import Title from '../Title'
 import CardLink from '../CardLink'
-import guides from '../../data/guides'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import getInitialCardData from '../../helpers/getInitialCardData'
+import getGuide from '../../helpers/getGuide'
 
-const guide = guides.find(g => g.id === 'BROODMOTHER_QORDIA_GUIDE')
+const guide = getGuide('BROODMOTHER_QORDIA_GUIDE')
 
 export default React.memo(function GuideBroodmotherQordia(props) {
   return (

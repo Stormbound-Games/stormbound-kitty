@@ -1,6 +1,7 @@
 import React from 'react'
 import { NotificationContext } from '../NotificationProvider'
 import cards from '../../data/cards'
+import indexArray from '../../helpers/indexArray'
 
 export const CollectionContext = React.createContext([])
 const cardsWithoutTokens = cards.filter(card => !card.token)
@@ -34,15 +35,15 @@ const getInitialCollectionData = () => {
       return collection
     }
 
+    const index = indexArray(collection)
+
     // It is possible that the locally saved collection does not contain all
     // the cards in the game if it was recorded before a card gets added. In
     // such case, we should update the collection with the missing card(s),
     // and mark them as missing.
-    return cardsWithoutTokens.map(card => {
-      const cardFromCollection = collection.find(entry => entry.id === card.id)
-
-      return cardFromCollection || { ...MISSING_CARD_PROPS, id: card.id }
-    })
+    return cardsWithoutTokens.map(
+      card => index[card.id] || { ...MISSING_CARD_PROPS, id: card.id }
+    )
   } catch {
     return DEFAULT_COLLECTION
   }
@@ -102,10 +103,15 @@ export default function CollectionProvider(props) {
     )
   }
 
+  const indexedCollection = React.useMemo(() => indexArray(collection), [
+    collection,
+  ])
+
   return (
     <CollectionContext.Provider
       value={{
         collection: collection,
+        indexedCollection,
         hasDefaultCollection: isDefaultCollection(collection),
         resetCollection,
         updateCollection,

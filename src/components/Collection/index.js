@@ -78,9 +78,7 @@ class Collection extends React.Component {
     this.updateActiveCardInCollection('missing', event.target.checked)
 
   getActiveCardData = () => {
-    const activeCard = this.props.collection.find(
-      card => card.id === this.state.activeCard
-    )
+    const activeCard = this.props.indexedCollection[this.state.activeCard]
 
     return (
       activeCard &&
@@ -91,16 +89,12 @@ class Collection extends React.Component {
     )
   }
 
-  isCardUpgradable = id =>
-    isCardUpgradable(this.props.collection.find(card => card.id === id))
+  isCardUpgradable = id => isCardUpgradable(this.props.indexedCollection[id])
 
-  isCardMissing = id =>
-    this.props.collection.find(card => card.id === id).missing
+  isCardMissing = id => this.props.indexedCollection[id].missing
 
   render() {
-    const activeCard = this.props.collection.find(
-      card => card.id === this.state.activeCard
-    )
+    const activeCard = this.props.indexedCollection[this.state.activeCard]
     const resolvedActiveCard = this.getActiveCardData()
 
     return (
