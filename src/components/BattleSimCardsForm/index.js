@@ -3,6 +3,7 @@ import { DEFAULT_CARD } from '../../constants/battle'
 import CardSelect from '../CardSelect'
 import Column from '../Column'
 import DeckImport from '../BattleSimDeckImport'
+import NumberInput from '../NumberInput'
 import Row from '../Row'
 import getRawCardData from '../../helpers/getRawCardData'
 import './index.css'
@@ -41,16 +42,13 @@ const CardsFormRow = React.memo(({ index, ...props }) => (
               Slot #{index + 1}’s level
             </label>
             {getRawCardData(props.cards[index].id).token ? (
-              <input
-                type='number'
+              <NumberInput
                 name={`card-${index}-level`}
                 id={`card-${index}-level`}
                 required
                 min={1}
                 value={props.cards[index].level || 1}
-                onChange={event =>
-                  props.setCard(index)({ level: +event.target.value })
-                }
+                onChange={level => props.setCard(index)({ level })}
                 data-testid={`cards-form-strength-${index}`}
               />
             ) : (

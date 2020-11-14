@@ -6,6 +6,7 @@ import BookOutcome from '../BookOutcome'
 import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import Image from '../Image'
+import NumberInput from '../NumberInput'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
@@ -40,6 +41,10 @@ export default React.memo(function BooksCalculator(props) {
       ),
       ...expectations.slice(index + 1),
     ])
+  const setCommonExpectation = React.useCallback(() => setExpectation(0), [])
+  const setRareExpectation = React.useCallback(() => setExpectation(1), [])
+  const setEpicExpectation = React.useCallback(() => setExpectation(2), [])
+  const setLegendaryExpectation = React.useCallback(() => setExpectation(3), [])
 
   return (
     <>
@@ -127,25 +132,23 @@ export default React.memo(function BooksCalculator(props) {
               <Row>
                 <Column>
                   <label htmlFor='target-common'>Common cards</label>
-                  <input
-                    type='number'
+                  <NumberInput
                     min={0}
                     max={countCardsForRarity('common')}
                     name='target-common'
                     id='target-common'
-                    onChange={event => setExpectation(0)(event.target.value)}
+                    onChange={setCommonExpectation}
                     value={expectations[0]}
                   />
                 </Column>
                 <Column>
                   <label htmlFor='target-rare'>Rare cards</label>
-                  <input
-                    type='number'
+                  <NumberInput
                     min={0}
                     max={countCardsForRarity('rare')}
                     name='target-rare'
                     id='target-rare'
-                    onChange={event => setExpectation(1)(event.target.value)}
+                    onChange={setRareExpectation}
                     value={expectations[1]}
                   />
                 </Column>
@@ -153,25 +156,23 @@ export default React.memo(function BooksCalculator(props) {
               <Row>
                 <Column>
                   <label htmlFor='target-epic'>Epic cards</label>
-                  <input
-                    type='number'
+                  <NumberInput
                     min={0}
                     max={countCardsForRarity('epic')}
                     name='target-epic'
                     id='target-epic'
-                    onChange={event => setExpectation(2)(event.target.value)}
+                    onChange={setEpicExpectation}
                     value={expectations[2]}
                   />
                 </Column>
                 <Column>
                   <label htmlFor='target-legendary'>Legendary cards</label>
-                  <input
-                    type='number'
+                  <NumberInput
                     min={0}
                     max={countCardsForRarity('legendary')}
                     name='target-legendary'
                     id='target-legendary'
-                    onChange={event => setExpectation(3)(event.target.value)}
+                    onChange={setLegendaryExpectation}
                     value={expectations[3]}
                   />
                 </Column>

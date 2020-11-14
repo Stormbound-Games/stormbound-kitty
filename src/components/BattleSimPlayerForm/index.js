@@ -1,6 +1,7 @@
 import React from 'react'
 import Column from '../Column'
 import FactionSelect from '../FactionSelect'
+import NumberInput from '../NumberInput'
 import Row from '../Row'
 
 export default React.memo(function BattleSimPlayerForm(props) {
@@ -30,16 +31,12 @@ export default React.memo(function BattleSimPlayerForm(props) {
           >
             {props.player} Health
           </label>
-          <input
-            type='number'
+          <NumberInput
             name={`health-${props.player}`}
             id={`health-${props.player}`}
             value={props.health}
-            onChange={event =>
-              props.update({
-                health: event.target.value,
-                faction: props.faction,
-              })
+            onChange={health =>
+              props.update({ health, faction: props.faction })
             }
             required
             min={1}

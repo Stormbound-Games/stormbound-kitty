@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import CardUpgradeStats from '../CardUpgradeStats'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
+import NumberInput from '../NumberInput'
 import Row from '../Row'
 import Title from '../Title'
 
@@ -34,15 +35,14 @@ export default React.memo(function CollectionActiveCardForm(props) {
 
           <Column>
             <label htmlFor='copies'>Copies</label>
-            <input
-              type='number'
+            <NumberInput
               id='copies'
               name='copies'
               required
               value={
                 props.activeCard.level === 5 || props.activeCard.missing
-                  ? '0'
-                  : props.activeCard.copies.toString()
+                  ? 0
+                  : props.activeCard.copies || ''
               }
               onChange={props.setActiveCardCopies}
               disabled={

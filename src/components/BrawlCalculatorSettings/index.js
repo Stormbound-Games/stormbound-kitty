@@ -1,5 +1,6 @@
 import React from 'react'
 import Column from '../Column'
+import NumberInput from '../NumberInput'
 import Row from '../Row'
 import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
 import { MILESTONES } from '../../constants/brawl'
@@ -22,36 +23,26 @@ export default React.memo(function BrawlCalculatorSettings(props) {
       <Row>
         <Column>
           <label htmlFor='winRate'>Win rate (%)</label>
-          <input
+          <NumberInput
             id='winRate'
             name='winRate'
-            type='number'
             value={props.winRate}
-            onChange={event => props.setWinRate(+event.target.value)}
+            onChange={props.setWinRate}
             min={0}
             max={100}
             placeholder='e.g. 50'
-            onBlur={event => {
-              if (+event.target.value < 0) props.setWinRate(0)
-              if (+event.target.value > 100) props.setWinRate(100)
-            }}
           />
         </Column>
         <Column>
           <label htmlFor='crowns'>Crowns</label>
-          <input
+          <NumberInput
             id='crowns'
             name='crowns'
-            type='number'
             value={props.crowns}
-            onChange={event => props.setCrowns(+event.target.value)}
+            onChange={props.setCrowns}
             min={0}
             max={250}
             placeholder='e.g. 5'
-            onBlur={event => {
-              if (+event.target.value < 0) props.setCrowns(0)
-              if (+event.target.value > 250) props.setCrowns(250)
-            }}
           />
         </Column>
       </Row>
@@ -60,12 +51,11 @@ export default React.memo(function BrawlCalculatorSettings(props) {
           {props.mode === 'COINS' ? (
             <>
               <label htmlFor='coins'>Coins</label>
-              <input
+              <NumberInput
                 id='coins'
                 name='coins'
-                type='number'
                 value={props.coins}
-                onChange={event => props.setCoins(+event.target.value)}
+                onChange={props.setCoins}
                 min={5}
                 step={5}
                 placeholder='e.g. 700'

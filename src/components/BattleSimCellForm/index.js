@@ -4,6 +4,7 @@ import CardSelect from '../CardSelect'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
 import CTA from '../CTA'
+import NumberInput from '../NumberInput'
 import Radio from '../Radio'
 import Row from '../Row'
 import getRawCardData from '../../helpers/getRawCardData'
@@ -125,15 +126,14 @@ export default React.memo(function BattleSimCellForm(props) {
             <label className='label' htmlFor='strength'>
               Strength
             </label>
-            <input
-              type='number'
+            <NumberInput
               name='strength'
               id='strength'
               required
               min={1}
               max={99}
               value={strength}
-              onChange={event => setStrength(event.target.value)}
+              onChange={setStrength}
               data-testid='cell-strength-input'
             />
           </Column>

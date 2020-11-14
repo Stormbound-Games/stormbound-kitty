@@ -1,5 +1,6 @@
 import React from 'react'
 import Column from '../Column'
+import NumberInput from '../NumberInput'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
 import ShareButton from '../QuestBuilderShareButton'
@@ -29,15 +30,14 @@ export default React.memo(function QuestBuilderForm(props) {
       <Row>
         <Column width='1/3'>
           <label htmlFor='amount'>Amount</label>
-          <input
-            type='number'
+          <NumberInput
             name='amount'
             id='amount'
             min={0}
             required
-            step={props.currency === 'COINS' ? 10 : 1}
+            step={props.currency === 'coins' ? 10 : 1}
             value={props.amount}
-            onChange={event => props.setAmount(event.target.value)}
+            onChange={props.setAmount}
           />
         </Column>
 
