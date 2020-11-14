@@ -4,6 +4,7 @@ import Checkbox from '../Checkbox'
 import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
+import NumberInput from '../NumberInput'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import ResourceIcon from '../ResourceIcon'
@@ -339,12 +340,11 @@ export default React.memo(function IncomeCalculator(props) {
             </Column>
             <Column>
               <label htmlFor='wins'>Daily wins</label>
-              <input
+              <NumberInput
                 id='wins'
                 name='wins'
-                type='number'
                 value={wins}
-                onChange={event => setWins(event.target.value)}
+                onChange={setWins}
                 min={0}
                 max={maxWins}
               />
@@ -404,12 +404,11 @@ export default React.memo(function IncomeCalculator(props) {
             </Column>
             <Column>
               <label htmlFor='brawl-cost'>Brawl avg. cost</label>
-              <input
+              <NumberInput
                 id='brawl-cost'
                 name='brawl-cost'
-                type='number'
                 value={brawlCost}
-                onChange={event => setBrawlCost(+event.target.value)}
+                onChange={setBrawlCost}
                 min={
                   milestone === ''
                     ? 0
@@ -419,10 +418,14 @@ export default React.memo(function IncomeCalculator(props) {
                       )
                 }
                 step={10}
-                max={MILESTONES.slice(0, milestone + 1).reduce(
-                  (max, ms) => max + ms.cost * ms.crowns,
-                  0
-                )}
+                max={
+                  milestone
+                    ? MILESTONES.slice(0, milestone + 1).reduce(
+                        (max, ms) => max + ms.cost * ms.crowns,
+                        0
+                      )
+                    : undefined
+                }
               />
             </Column>
           </Row>
@@ -432,7 +435,6 @@ export default React.memo(function IncomeCalculator(props) {
               <select
                 id='rubies-conversion'
                 name='rubies-conversion'
-                type='number'
                 value={rubiesConversion}
                 onChange={event => setRubiesConversion(event.target.value)}
               >

@@ -8,6 +8,7 @@ import {
   Tooltip,
 } from 'recharts'
 import Column from '../Column'
+import NumberInput from '../NumberInput'
 import Row from '../Row'
 import Title from '../Title'
 import { BrawlContext } from '../BrawlProvider'
@@ -52,14 +53,13 @@ const getWeighedScore = baseHealth => match => {
 const BrawlBaseHealthInput = props => (
   <div className='BrawlBaseHealthInput'>
     <label htmlFor='base-health'>Base health</label>
-    <input
-      type='number'
+    <NumberInput
       min={10}
       max={20}
       id='base-health'
       name='base-health'
       value={props.baseHealth}
-      onChange={event => props.setBaseHealth(event.target.value)}
+      onChange={props.setBaseHealth}
     />
   </div>
 )

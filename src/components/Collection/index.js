@@ -71,8 +71,8 @@ class Collection extends React.Component {
   setActiveCardLevel = event =>
     this.updateActiveCardInCollection('level', +event.target.value)
 
-  setActiveCardCopies = event =>
-    this.updateActiveCardInCollection('copies', +event.target.value || null)
+  setActiveCardCopies = value =>
+    this.updateActiveCardInCollection('copies', value || null)
 
   setActiveCardMissing = event =>
     this.updateActiveCardInCollection('missing', event.target.checked)

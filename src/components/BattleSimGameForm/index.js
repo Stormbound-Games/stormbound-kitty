@@ -2,6 +2,7 @@ import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import Checkbox from '../Checkbox'
 import Column from '../Column'
+import NumberInput from '../NumberInput'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
 import ShareButton from '../BattleSimShareButton'
@@ -16,14 +17,13 @@ export default React.memo(function BattleSimGameForm(props) {
       <Row>
         <Column>
           <label htmlFor='mana'>Current mana</label>
-          <input
-            type='number'
+          <NumberInput
             name='mana'
             id='mana'
             min={3}
             max={99}
             value={props.mana}
-            onChange={event => props.setMana(event.target.value)}
+            onChange={props.setMana}
             data-testid='mana-input'
             required
           />

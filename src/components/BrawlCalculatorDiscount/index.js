@@ -1,5 +1,6 @@
 import React from 'react'
 import Column from '../Column'
+import NumberInput from '../NumberInput'
 import Row from '../Row'
 
 export default React.memo(function BrawlCalculatorDiscount(props) {
@@ -8,19 +9,14 @@ export default React.memo(function BrawlCalculatorDiscount(props) {
       <Row>
         <Column>
           <label htmlFor='discount'>Cost Discount (%)</label>
-          <input
+          <NumberInput
             id='discount'
             name='discount'
-            type='number'
             value={props.discount}
-            onChange={event => props.setDiscount(+event.target.value)}
+            onChange={props.setDiscount}
             min={0}
             max={100}
             placeholder='e.g. 50'
-            onBlur={event => {
-              if (+event.target.value < 0) props.setDiscount(0)
-              if (+event.target.value > 100) props.setDiscount(100)
-            }}
           />
         </Column>
         <Column />
