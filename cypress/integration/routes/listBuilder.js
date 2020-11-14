@@ -4,11 +4,11 @@ describe('Routes — List builder', () => {
   })
 
   it('it should render the equals tier list', () => {
-    cy.visit('/list/equals/display').get('main h1').should('exist')
+    cy.visit('/list/equals').get('main h1').should('exist')
   })
 
   it('it should render the ranked tier list', () => {
-    cy.visit('/list/ranked/display').get('main h1').should('exist')
+    cy.visit('/list/ranked').get('main h1').should('exist')
   })
 
   it('it should render the display mode', () => {
