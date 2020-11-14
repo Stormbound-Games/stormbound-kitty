@@ -220,7 +220,7 @@ export default () => {
             },
             {
               label: 'Reckless Rush',
-              to: '/deck/3n13n23s13n33s243s23n633n673s63n153s83s11/detail',
+              to: '/deck/3xn1n2s1n3s24s2n63n67s6n15s8s11/detail',
               id: 'RECKLESS_RUSH',
             },
           ],

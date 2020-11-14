@@ -21,7 +21,7 @@
     "description": "The new Harvesters of Souls card was added to the game! Built by the community, this tournament was made to show it off, and see its power.",
     "decks": [
       {
-        "id": "1n11n21s11n51n61n101n121n131s81s121n411n39"
+        "id": "1xn1n2s1n5n6n10n12n13s8s12n41n39"
       }
     ]
   },
@@ -33,7 +33,7 @@
     "description": "The biggest tournament Stormbound has ever seen! The 4 factions battled against each other round robin style! Each player brought glory to their faction, and the MVP got extra prizes.",
     "decks": [
       {
-        "id": "1n21s11n41n51n61n101n111s81n181s121s181s22",
+        "id": "1xn2s1n4n5n6n10n11s8n18s12s18s22",
         "name": "Winning team’s deck"
       }
     ]
@@ -49,7 +49,7 @@
     "hosts": ["DGL"],
     "podium": ["Shades", "Emkaem", "Quaker"],
     "date": "01/2019",
-    "decks": [{ "id": "1n11i11i21n81i81i101n191i61i201i161i231n57" }]
+    "decks": [{ "id": "1xn1i1i2n8i8i10n19i6i20i16i23n57" }]
   },
   {
     "name": "Diamond Tournament",
@@ -58,9 +58,9 @@
     "date": "02/2019",
     "description": "Only the top of the top could join! In a battle of wits and high strategy, this tournament was hosted for Diamond players only.",
     "decks": [
-      { "id": "5n15n25f45f15f25f35n35n45n55n125n285f14" },
-      { "id": "1n11n31n51n61n71n101n121i71n161i111i61i12" },
-      { "id": "1n11f41f11f21n31f81n161f101n281f141f151n40" }
+      { "id": "5xn1n2f1f2f3n3n4n5f4n12n28f14" },
+      { "id": "1xn1n3n5n6n7n10n12i7n16i11i6i12" },
+      { "id": "1xn1f1f2n3f4f8n16f10n28f14f15n40" }
     ]
   },
   {
@@ -70,9 +70,9 @@
     "date": "04/2019",
     "description": "Prepare your battalions! A legendary in each deck, acting as a general to guide your battles! The most powerful general across the whole tournament would bring extra prizes to their players.",
     "decks": [
-      { "id": "1n11i11i21i51i81i101n181i131i61i201i191n47" },
-      { "id": "1n11n51n61w51n221w71w81w61w131w151w181n57" },
-      { "id": "1n11i11i21i51i81i101n181i131i61i201i161n39" }
+      { "id": "1xn1i1i2i5i8i10n18i13i6i20i19n47" },
+      { "id": "1xn1n5n6w5n22w7w8w6w13w15w18n57" },
+      { "id": "1xn1i1i2i5i8i10n18i13i6i20i16n39" }
     ]
   },
   {
@@ -90,9 +90,9 @@
     "date": "07/2019",
     "description": "No deckbuilding required! In this tournament you were given a random deck with which you had to battle your way to the top!",
     "decks": [
-      { "id": "1w11w21n31n101w31n171n191n321w61w131n361n54" },
-      { "id": "1n51i51n71n121i111n191n201i151n251i191i211n57" },
-      { "id": "1i11n71n171i111n191i61n311i151i201n341n541n55" }
+      { "id": "1xw1w2n3n10w3n17n19n32w6w13n36n54" },
+      { "id": "1xn5i5n7n12i11n19n20i15n25i19i21n57" },
+      { "id": "1xi1n7n17i11n19i6n31i15i20n34n54n55" }
     ]
   },
   {
@@ -102,9 +102,9 @@
     "date": "10/2019",
     "description": "The real royals of a deck are rares and commons! In this tournament decks were made only of those two types of cards.",
     "decks": [
-      { "id": "1n11i11n61i51i71i91i201i251n321n681n471n52" },
-      { "id": "1s11s241n41s51s251s71n151n211s131s91s161n68" },
-      { "id": "1i11n111n131i91n211i61i151i201i121n681n471i26" }
+      { "id": "1xn1i1n6i5i7i9i20i25n32n68n47n52" },
+      { "id": "1xs1s24n4s5s25s7n15n21s13s9s16n68" },
+      { "id": "1xi1n11n13i9n21i6i15i20i12n68n47i26" }
     ]
   },
   {
@@ -114,9 +114,9 @@
     "date": "01/2020",
     "description": "This was a smaller tournament Kepp hosted while he prepared a bigger one, to keep the community entertained using random decks",
     "decks": [
-      { "id": "1i41n91n611i111n641i271n271i201n301i121i161n70" },
-      { "id": "1i11i41i51n71n121i101i61n261i121n451n531n57" },
-      { "id": "1i11i51i91n171n751i271n261i201n301i181n401n52" }
+      { "id": "1xi4n9n61i11n64i27n27i20n30i12i16n70" },
+      { "id": "1xi1i4i5n7n12i10i6n26i12n45n53n57" },
+      { "id": "1xi1i5i9n17n75i27n26i20n30i18n40n52" }
     ]
   },
   {
@@ -126,9 +126,9 @@
     "date": "02/2020",
     "description": "The elders just arrived to Stormbound! Players battled using these new cards to prove their power!",
     "decks": [
-      { "id": "1n11n61w51w281w71w241w131n341n391w271n571w19" },
-      { "id": "1n11i11n61i81i91n181i131i271i201i161i281n52" },
-      { "id": "1n11f31f271n111f71n221n641f141f181f281n451n68" }
+      { "id": "1xn1n6w5w28w7w24w13n34n39w27n57w19" },
+      { "id": "1xn1i1n6i8i9n18i13i27i20i16i28n52" },
+      { "id": "1xn1f3f27n11f7n22n64f14f18f28n45n68" }
     ]
   },
   {
@@ -143,9 +143,9 @@
     "podium": ["FrozenEarth", "Felcruel", "Dracqi"],
     "date": "10/2020",
     "decks": [
-      { "id": "1n11i11n81i81i101n191i131n211i61i151n271i21" },
-      { "id": "1n41n81n111i71i91n161n211i61i201n381i191n33" },
-      { "id": "1n11n71n111n161w51n191n211n251w91n361w161w10" }
+      { "id": "1xn1i1n8i8i10n19i13n21i6i15n27i21" },
+      { "id": "1xn4n8n11i7i9n16n21i6i20n38i19n33" },
+      { "id": "1xn1n7n11n16w5n19n21n25w9n36w16w10" }
     ]
   },
   {
@@ -155,9 +155,9 @@
     "date": "12/2019",
     "description": "In All or Nothing, if the game reaches 15 mana and no one has won, it will be counted as a draw and nobody takes that round.",
     "decks": [
-      { "id": "1n11i11i21i81i101n181i61n241i201i161i191n36" },
-      { "id": "1n11i11i51i71i81i91i101i131i61i151i201i17" },
-      { "id": "1n11s241n61s41n111s81n631n181s111s181n461n68" }
+      { "id": "1xn1i1i2i8n24i10n18i6i20i16i19n36" },
+      { "id": "1xn1i1i5i7i8i9i10i13i6i15i20i17" },
+      { "id": "1xn1s24n6s4n11s8n63n18s11s18n46n68" }
     ]
   },
   {
@@ -169,7 +169,7 @@
       ["BluePhoenix", "Dracqi", "ErikBust", "Ajmm"]
     ],
     "date": "03/2020",
-    "decks": [{ "id": "1n11w21n81n111n151w31w51n221w131n461w171w19" }]
+    "decks": [{ "id": "1xn1w2n8n11n15w3w5n22w13n46w17w19" }]
   },
   {
     "name": "Anniversary Tournament",
@@ -177,8 +177,8 @@
     "podium": ["ArthisRoo", "Helios", "Strongraycool44"],
     "date": "04/2020",
     "decks": [
-      { "id": "1i21i41n61n81i71i131n641i201n361i281n461i23" },
-      { "id": "1n21n61n81i71n221n641i151n261n691i281n701n58" }
+      { "id": "1xi2i4n6n8i7i13n64i20n36i28n46i23" },
+      { "id": "1xn2n6n8i7n22n64i15n26n69i28n70n58" }
     ]
   },
   {
@@ -188,9 +188,9 @@
     "date": "04/2020",
     "description": "The Ban Tourney had a very big list of unbalanced and commonly used cards banned, forcing to get creative.",
     "decks": [
-      { "id": "1n231n61n101f71n151f91n591n261f121f171f191f21" },
-      { "id": "1n21f31n671f51n111f71n261f121f161f171f181n52" },
-      { "id": "1n21i11n111i81i101i61n641i161i181i211i231n52" }
+      { "id": "1xn23n6n10f7n15f9n59n26f12f17f19f21" },
+      { "id": "1xn2f3n67f5n11f7n26f12f16f17f18n52" },
+      { "id": "1xn2i1n11i8i10i6n64i16i18i21i23n52" }
     ]
   },
   {
@@ -214,9 +214,9 @@
     "date": "05/2020",
     "description": "The Designers Tournament faced vanilla cards (cards with no ability) against non-vanilla cards to see which were the best.",
     "decks": [
-      { "id": "1n11f31n61n101f271f91n181f241f141n741f201n68" },
-      { "id": "1n11i11n61n101i81i131i61n641i271i201n741n68" },
-      { "id": "1n11i11n671i71i81i131i61i151i271i201i121i28" }
+      { "id": "1xn1f3n6n10f27f9n18f24f14n74f20n68" },
+      { "id": "1xn1i1n6n10i8i13i6n64i27i20n74n68" },
+      { "id": "1xn1i1n67i7i8i13i6i15i27i20i12i28" }
     ]
   },
   {
@@ -237,9 +237,9 @@
     "date": "06/2020",
     "description": "The Black Sheep Tournament imposed specific “black sheep” cards which had to be played before a win could be claimed.",
     "decks": [
-      { "id": "1n11i11n61n101i81i111i131n711n271i201i281n52" },
-      { "id": "1n11i11n121i31i81i101i111i61i201i121i161i28" },
-      { "id": "1w51w281w71n271w241w91w131n471w201w191n551n57" }
+      { "id": "1xn1i1n6n10i8i11i13n71n27i20i28n52" },
+      { "id": "1xn1i1i3n12i8i10i11i6i20i12i16i28" },
+      { "id": "1xw5w28w7n27w24w9w13n47w20n57w19n55" }
     ]
   },
   {
@@ -256,9 +256,9 @@
     "date": "07/2020",
     "description": "The Renaissance Tournament aimed to bring back veteran players and navigating a set of challenging deck restrictions.",
     "decks": [
-      { "id": "1n11f31n111n131f81n221n411n261f171n451n461n47" },
-      { "id": "1n11f31n111n131f81n221n411n261f171n451n461n47" },
-      { "id": "1n71n81n141w31w51w91w131w161n391n461w181w19" }
+      { "id": "1xn1f3n11n13f8n22n41n26f17n45n46n47" },
+      { "id": "1xn1f3n11n13f8n22n41n26f17n45n46n47" },
+      { "id": "1xn7n8n14w3w5w9w13w16n39n46w18w19" }
     ]
   },
   {
@@ -275,9 +275,9 @@
     "date": "08/2020",
     "description": "The Snowball tournament relies on not playing any card before 6 mana (7 for the second player). The goal of the tournament was to compose heavy decks, which can start strong right from the opening move.",
     "decks": [
-      { "id": "1n61n111n181n641w71n601w91n461n681n481w191n58" },
-      { "id": "1n131n641w71n601w91w131w161n391n461n481w191n58" },
-      { "id": "1n11s11s241n61n671s61n151s81s111n311s191s28" }
+      { "id": "1xn6n11n18n64w7n60w9n46n68n48w19n58" },
+      { "id": "1xn13n64w7n60w9w13w16n39n46n48w19n58" },
+      { "id": "1xn1s1s24n6n67s6n15s8s11n31s19s28" }
     ]
   },
   {
@@ -298,19 +298,19 @@
     "description": "Through the use of a bot, players are presented with 12 separate selections of cards and must choose a card from each set, drafting a 12-card deck to battle against other players.",
     "decks": [
       {
-        "id": "1f21f51f271f71n731f91n411n251f151n381n361f21",
+        "id": "1xf2f5f27f7n73f9n41n25f15n38n36f21",
         "authors": ["Helios", "Emkaem"]
       },
       {
-        "id": "1i41n621n81n611n181n211i271i251i161n601i191n36",
+        "id": "1xi4n62n8n61n18n21i27i25i16n60i19n36",
         "authors": ["Helios", "Emkaem"]
       },
       {
-        "id": "1w21n61w31n631n211n271n601w91n341w161n721w23",
+        "id": "1xw2n6w3n63n21n27n60w9n34w16n72w23",
         "authors": ["Helios", "Emkaem"]
       },
       {
-        "id": "1s251s71n151s121n591n211n221s161n451s231n571n55",
+        "id": "1xs25s7n15s12n59n21n22s16n45s23n57n55",
         "authors": ["Helios", "Emkaem"]
       }
     ]
@@ -322,9 +322,9 @@
     "date": "09/2020",
     "description": "The Odd & Even Tournament relied on having only odd or even cards within a single deck, preventing most of the main combos from being played.",
     "decks": [
-      { "id": "1i11n231n61i51n671n181i131n641i271i201n391n57" },
-      { "id": "1n11f51f271n111n131f71n631n601n381n691n361f22" },
-      { "id": "1n11n21n111w31n171w51n601n381w121w131w181n58" }
+      { "id": "1xi1n23n6i5n67n18i13n64i27i20n39n57" },
+      { "id": "1xn1f5f27n11n13f7n63n60n38n69n36f22" },
+      { "id": "1xn1n2n11w3n17w5n60n38w12w13w18n58" }
     ]
   }
 ]
