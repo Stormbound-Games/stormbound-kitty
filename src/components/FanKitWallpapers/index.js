@@ -6,6 +6,7 @@ import HeaderBanner from '../HeaderBanner'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import chunk from '../../helpers/chunk'
+import indexArray from '../../helpers/indexArray'
 
 const resolveAsset = idPrefix => (wallpaper, index) => ({
   name: `Stormbound ${idPrefix.toLowerCase()} wallpaper ${index + 1}`,
@@ -22,12 +23,12 @@ const mobileWallpapers = Array.from(
   (_, i) => 'wp-m-' + (i + 1)
 ).map(resolveAsset('MOBILE'))
 
+const WALLPAPERS_INDEX = indexArray([...desktopWallpapers, ...mobileWallpapers])
+
 export default React.memo(function FanKitBooks(props) {
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
-  const activeWallpaper = [...desktopWallpapers, ...mobileWallpapers].find(
-    wallpaper => wallpaper.id === active
-  )
+  const activeWallpaper = WALLPAPERS_INDEX[active]
 
   React.useEffect(() => {
     if (dialogRef.current) {

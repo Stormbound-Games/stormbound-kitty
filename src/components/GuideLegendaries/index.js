@@ -2,9 +2,9 @@ import React from 'react'
 import Guide from '../Guide'
 import Title from '../Title'
 import CardLink from '../CardLink'
-import guides from '../../data/guides'
+import getGuide from '../../helpers/getGuide'
 
-const guide = guides.find(g => g.id === 'LEGENDARIES_GUIDE')
+const guide = getGuide('LEGENDARIES_GUIDE')
 
 export default React.memo(function GuideLegendaries(props) {
   return (

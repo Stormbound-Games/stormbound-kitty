@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom'
 import FeedEntry from '../FeedEntry'
 import MemberList from '../MemberList'
 import podcasts from '../../data/podcasts'
+import indexArray from '../../helpers/indexArray'
+
+const PODCASTS_INDEX = indexArray(podcasts, 'title')
 
 export default React.memo(function FeedPodcastEntry(props) {
-  const episode = podcasts.find(episode => episode.title === props.title)
+  const episode = PODCASTS_INDEX[props.title]
   const name = props.hosts.find(host => host.toLowerCase() === props.user)
 
   return (

@@ -6,10 +6,10 @@ import Row from '../Row'
 import Title from '../Title'
 import CardLink from '../CardLink'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
-import guides from '../../data/guides'
+import getGuide from '../../helpers/getGuide'
 import './index.css'
 
-const guide = guides.find(g => g.id === 'DECK_GUIDE')
+const guide = getGuide('DECK_GUIDE')
 
 export default React.memo(function GuideDeck(props) {
   return (

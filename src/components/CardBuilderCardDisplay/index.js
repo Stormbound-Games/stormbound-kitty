@@ -13,13 +13,13 @@ import './index.css'
 export default React.memo(function CardBuilderCardDisplay(props) {
   const match = useRouteMatch()
   const [activeLevel, setActiveLevel] = React.useState(props.level || 1)
-  const { hasDefaultCollection, collection } = React.useContext(
+  const { hasDefaultCollection, indexedCollection } = React.useContext(
     CollectionContext
   )
   const cardInCollection =
     hasDefaultCollection || !match.params.cardId || props.mode === 'EDITOR'
       ? { level: 5 }
-      : collection.find(card => card.id === match.params.cardId) || { level: 5 }
+      : indexedCollection[match.params.cardId] || { level: 5 }
 
   return (
     <>

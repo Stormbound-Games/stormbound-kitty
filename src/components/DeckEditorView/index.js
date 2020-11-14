@@ -25,6 +25,7 @@ import Title from '../Title'
 import getDeckBuilderMetaTags from '../../helpers/getDeckBuilderMetaTags'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isSuggestedDeck from '../../helpers/isSuggestedDeck'
+import indexArray from '../../helpers/indexArray'
 import modifyDeck from '../../helpers/modifyDeck'
 import serialisation from '../../helpers/serialisation'
 import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
@@ -38,8 +39,8 @@ import './index.css'
 // The `adjustCardToCollection` function is used to access the card data as it
 // exists in the user’s collection. It is therefore only called when there is
 // a custom collection.
-const adjustCardToCollection = collection => ({ id }) => {
-  const { level, missing } = collection.find(card => card.id === id)
+const adjustCardToCollection = indexedCollection => ({ id }) => {
+  const { level, missing } = indexedCollection[id]
   return missing ? null : { id, level }
 }
 
@@ -105,9 +106,11 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
   const viewportWidth = useViewportWidth()
   const { deckId } = useRouteMatch().params
   const history = useHistory()
-  const { collection, hasDefaultCollection } = React.useContext(
-    CollectionContext
-  )
+  const {
+    collection,
+    indexedCollection,
+    hasDefaultCollection,
+  } = React.useContext(CollectionContext)
   // `cardLevel` is set to `0` when the user has a custom collection loaded and
   // expects the card levels to be the ones of the collection. This is done to
   // always have a number (0 for custom levels, 1 to 5 for static levels). Note
@@ -150,7 +153,7 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
   // adjusted deck ID is the same as the deck ID.
   const adjustedDeck = hasDefaultCollection
     ? props.deck
-    : props.deck.map(adjustCardToCollection(collection)).filter(Boolean)
+    : props.deck.map(adjustCardToCollection(indexedCollection)).filter(Boolean)
   const adjustedDeckId = hasDefaultCollection
     ? deckId
     : serialisation.deck.serialise(adjustedDeck)
@@ -283,18 +286,26 @@ const Gallery = React.memo(function Gallery(props) {
   const { hasDefaultCollection } = React.useContext(CollectionContext)
   const { collection, cardLevel, setCardLevel, addCardToDeck, deck } = props
   const deckIds = deck.map(card => card.id)
+  const indexedCollection = React.useMemo(() => indexArray(collection), [
+    collection,
+  ])
 
-  const isCardMissing = id => collection.find(card => card.id === id).missing
-  const isCardInDeck = id => deckIds.includes(id)
+  const isCardMissing = React.useCallback(id => indexedCollection[id].missing, [
+    indexedCollection,
+  ])
+  const isCardInDeck = React.useCallback(id => deckIds.includes(id), [deckIds])
 
   // The `resolveCardLevel` function is used to know at which level to add card
   // to the deck. When the levels are adjusted to the ones of the custom
   // collection (`0`), it reads the level from the collection, otherwise it uses
   // the value of `cardLevel`.
-  const resolveCardLevel = id =>
-    cardLevel === 0 && !hasDefaultCollection
-      ? collection.find(card => card.id === id).level
-      : +cardLevel
+  const resolveCardLevel = React.useCallback(
+    id =>
+      cardLevel === 0 && !hasDefaultCollection
+        ? indexedCollection[id].level
+        : +cardLevel,
+    [indexedCollection, cardLevel, hasDefaultCollection]
+  )
 
   const onCardClick = id =>
     isCardMissing(id)

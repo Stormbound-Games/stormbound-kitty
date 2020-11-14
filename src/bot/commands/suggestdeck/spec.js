@@ -1,9 +1,11 @@
 import decks from '../../../data/decks'
 import getFactionFromDeckID from '../../../helpers/getFactionFromDeckID'
+import indexArray from '../../../helpers/indexArray'
 import { CATEGORIES } from '../../../constants/decks'
 import command from './'
 const suggestdeck = command.handler.bind(command)
 
+const DECKS_INDEX = indexArray(decks)
 const BASE_URL = 'https://stormbound-kitty.com/deck/'
 
 describe('Bot — !suggestdeck', () => {
@@ -21,7 +23,7 @@ describe('Bot — !suggestdeck', () => {
   it('should handle categories', () => {
     Object.keys(CATEGORIES).forEach(category => {
       const id = suggestdeck(category.toLowerCase()).url.replace(BASE_URL, '')
-      const deck = decks.find(deck => deck.id === id)
+      const deck = DECKS_INDEX[id]
       expect(deck.category).to.equal(category)
     })
   })
@@ -46,7 +48,7 @@ describe('Bot — !suggestdeck', () => {
 
   it('should handle multi-searches', () => {
     const id = suggestdeck('ic d1').url.replace(BASE_URL, '')
-    const deck = decks.find(deck => deck.id === id)
+    const deck = DECKS_INDEX[id]
 
     expect(deck.category).to.equal('DIAMOND_1')
     expect(getFactionFromDeckID(deck.id)).to.equal('ironclad')

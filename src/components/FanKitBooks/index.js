@@ -9,6 +9,7 @@ import Row from '../Row'
 import { BOOKS } from '../../constants/game'
 import capitalise from '../../helpers/capitalise'
 import chunk from '../../helpers/chunk'
+import indexArray from '../../helpers/indexArray'
 import useLazyLoad from '../../hooks/useLazyLoad'
 
 const books = [...Object.keys(BOOKS), 'ELDER'].map(book => ({
@@ -17,11 +18,13 @@ const books = [...Object.keys(BOOKS), 'ELDER'].map(book => ({
   image: '/assets/images/books/book-' + book.toLowerCase() + '.png',
 }))
 
+const BOOKS_INDEX = indexArray(books)
+
 export default React.memo(function FanKitBooks(props) {
   const columns = 4
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
-  const activeBook = books.find(book => book.id === active)
+  const activeBook = BOOKS_INDEX[active]
   const { loading, items: displayedItems, ref } = useLazyLoad(
     books,
     columns * 2

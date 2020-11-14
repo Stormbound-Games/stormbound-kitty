@@ -6,10 +6,10 @@ import Guide from '../Guide'
 import CardLink from '../CardLink'
 import Row from '../Row'
 import Title from '../Title'
-import guides from '../../data/guides'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
+import getGuide from '../../helpers/getGuide'
 
-const guide = guides.find(g => g.id === 'CHILLBEARDS_GUIDE')
+const guide = getGuide('CHILLBEARDS_GUIDE')
 
 export default React.memo(function GuideChillbeards(props) {
   return (

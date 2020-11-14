@@ -51,7 +51,7 @@ const DeckSlot = React.memo(function DeckSlot(props) {
 })
 
 const DeckSlotContent = React.memo(function DeckSlotContent(props) {
-  const { collection } = React.useContext(CollectionContext)
+  const { indexedCollection } = React.useContext(CollectionContext)
   const highlightedCards = props.highlightedCards || []
   const card = props.card
 
@@ -64,7 +64,7 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
         `Deck__card--${card.type}`,
         props.showUpgrades &&
           !card.token &&
-          isCardUpgradable(collection.find(c => c.id === card.id)) &&
+          isCardUpgradable(indexedCollection[card.id]) &&
           'Deck__card--upgradable',
         card.rarity === 'legendary' && `Deck__card--legendary`,
         highlightedCards.length > 0 &&
