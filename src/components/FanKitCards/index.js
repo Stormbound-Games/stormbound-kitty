@@ -18,7 +18,7 @@ export default React.memo(function FanKit(props) {
   const columns = 4
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
-  const activeCard = active ? cards.find(card => card.id === active) : null
+  const activeCard = getRawCardData(active)
   const assets = search ? [getRawCardData(search)] : cards.sort(sortCards())
   const { loading, items: displayedItems, ref } = useLazyLoad(
     assets,

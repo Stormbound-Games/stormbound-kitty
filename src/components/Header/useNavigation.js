@@ -1,5 +1,5 @@
 import React from 'react'
-import GUIDES from '../../data/guides'
+import guides from '../../data/guides'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import { UserContext } from '../UserProvider'
 import { CATEGORIES } from '../../constants/guides'
@@ -101,7 +101,7 @@ export default () => {
       icon: 'compass',
       label: 'Guides',
       items: Object.keys(CATEGORIES).map(category => {
-        const catGuides = GUIDES.filter(guide => guide.category === category)
+        const catGuides = guides.filter(guide => guide.category === category)
         const shownGuides = catGuides.filter(guide => !guide.skipNav)
         const items = shownGuides.map(guide => ({
           label: guide.name,

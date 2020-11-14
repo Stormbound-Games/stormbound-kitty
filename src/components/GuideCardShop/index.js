@@ -5,10 +5,10 @@ import Info from '../Info'
 import { Coins, Rubies } from '../Resource'
 import Title from '../Title'
 import CardLink from '../CardLink'
-import guides from '../../data/guides'
+import getGuide from '../../helpers/getGuide'
 import './index.css'
 
-const guide = guides.find(g => g.id === 'CARD_SHOP_GUIDE')
+const guide = getGuide('CARD_SHOP_GUIDE')
 
 export default React.memo(function GuideCardShop(props) {
   return (

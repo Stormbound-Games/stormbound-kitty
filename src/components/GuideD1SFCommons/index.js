@@ -11,12 +11,12 @@ import Row from '../Row'
 import Table from '../Table'
 import Title from '../Title'
 import CardLink from '../CardLink'
-import guides from '../../data/guides'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import serialisation from '../../helpers/serialisation'
+import getGuide from '../../helpers/getGuide'
 import './index.css'
 
-const guide = guides.find(g => g.id === 'D1_SF_COMMONS_GUIDE')
+const guide = getGuide('D1_SF_COMMONS_GUIDE')
 
 const DECK_ID = '5n15n25f45f35n35n95n125n165n285f145n305n52'
 

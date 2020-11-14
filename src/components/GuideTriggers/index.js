@@ -7,10 +7,10 @@ import Info from '../Info'
 import Row from '../Row'
 import Title from '../Title'
 import CardLink from '../CardLink'
-import guides from '../../data/guides'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
+import getGuide from '../../helpers/getGuide'
 
-const guide = guides.find(g => g.id === 'TRIGGER_GUIDE')
+const guide = getGuide('TRIGGER_GUIDE')
 
 export default React.memo(function GuideDrawing(props) {
   return (

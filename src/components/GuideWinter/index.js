@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import guides from '../../data/guides'
 import CardLink from '../CardLink'
 import Column from '../Column'
 import FeaturedDeck from '../FeaturedDeck'
@@ -9,8 +8,9 @@ import Info from '../Info'
 import Notice from '../Notice'
 import Row from '../Row'
 import Title from '../Title'
+import getGuide from '../../helpers/getGuide'
 
-const guide = guides.find(g => g.id === 'WINTER_GUIDE')
+const guide = getGuide('WINTER_GUIDE')
 
 export default React.memo(function GuideWinter(props) {
   return (

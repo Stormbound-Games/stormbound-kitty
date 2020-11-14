@@ -13,14 +13,14 @@ import ResourceIcon from '../ResourceIcon'
 import Row from '../Row'
 import Table from '../Table'
 import Title from '../Title'
-import guides from '../../data/guides'
 import isBrawlRunning from '../../helpers/isBrawlRunning'
 import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
 import getCurrentBrawl from '../../helpers/getCurrentBrawl'
+import getGuide from '../../helpers/getGuide'
 import { BRAWLS, MILESTONES } from '../../constants/brawl'
 import './index.css'
 
-const guide = guides.find(g => g.id === 'BRAWL_GUIDE')
+const guide = getGuide('BRAWL_GUIDE')
 
 export default React.memo(function GuideBrawl(props) {
   const currentBrawl = getCurrentBrawl()

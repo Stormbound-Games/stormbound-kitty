@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import guides from '../../data/guides'
 import BattleSimApp from '../BattleSimApp'
 import CardLink from '../CardLink'
 import Column from '../Column'
@@ -15,9 +14,10 @@ import Sparkles from '../Sparkles'
 import Title from '../Title'
 import serialisation from '../../helpers/serialisation'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
+import getGuide from '../../helpers/getGuide'
 import './index.css'
 
-const guide = guides.find(g => g.id === 'RECKLESS_RUSH_GUIDE')
+const guide = getGuide('RECKLESS_RUSH_GUIDE')
 
 const Board = props => (
   <Guide.FullWidth>

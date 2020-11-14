@@ -6,9 +6,9 @@ import Guide from '../Guide'
 import Info from '../Info'
 import Notice from '../Notice'
 import Title from '../Title'
-import guides from '../../data/guides'
+import getGuide from '../../helpers/getGuide'
 
-const guide = guides.find(g => g.id === 'COMPLETE_GUIDE')
+const guide = getGuide('COMPLETE_GUIDE')
 
 export default React.memo(function GuideComplete(props) {
   return (

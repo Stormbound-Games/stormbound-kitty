@@ -2,10 +2,12 @@ import React from 'react'
 import Card from '../Card'
 import CTA from '../CTA'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
+import indexArray from '../../helpers/indexArray'
 import './index.css'
 
 export default React.memo(function BattleSimCards(props) {
   const [cycleMode, setCycleMode] = React.useState(false)
+  const cardsIndex = React.useMemo(() => indexArray(props.cards), [props.cards])
 
   return (
     <>
@@ -34,9 +36,7 @@ export default React.memo(function BattleSimCards(props) {
 
         {[0, 1, 2, 3].map(index => {
           const cardId = props.hand[index]
-          const card = getResolvedCardData(
-            props.cards.find(card => card.id === cardId)
-          )
+          const card = getResolvedCardData(cardsIndex[cardId])
           const buttonLabel =
             !card && props.canDrawCard
               ? 'Draw card'

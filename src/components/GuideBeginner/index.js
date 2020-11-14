@@ -4,10 +4,10 @@ import Info from '../Info'
 import Guide from '../Guide'
 import Title from '../Title'
 import CardLink from '../CardLink'
-import guides from '../../data/guides'
+import getGuide from '../../helpers/getGuide'
 import './index.css'
 
-const guide = guides.find(g => g.id === 'BEGINNER_GUIDE')
+const guide = getGuide('BEGINNER_GUIDE')
 
 export default React.memo(function GuideBeginner(props) {
   return (

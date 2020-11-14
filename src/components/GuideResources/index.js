@@ -6,11 +6,11 @@ import ResourceIcon from '../ResourceIcon'
 import { Coins, Stones } from '../Resource'
 import Title from '../Title'
 import { RARITY_COPIES } from '../../constants/game'
-import guides from '../../data/guides'
 import cards from '../../data/cards'
+import getGuide from '../../helpers/getGuide'
 import './index.css'
 
-const guide = guides.find(g => g.id === 'RESOURCES_GUIDE')
+const guide = getGuide('RESOURCES_GUIDE')
 const THOUSANDS = /\B(?=(\d{3})+(?!\d))/g
 
 const countCopiesForRarity = rarity =>

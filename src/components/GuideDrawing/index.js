@@ -9,12 +9,12 @@ import Only from '../Only'
 import Row from '../Row'
 import Title from '../Title'
 import CardLink from '../CardLink'
-import guides from '../../data/guides'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
+import getGuide from '../../helpers/getGuide'
 import './index.css'
 
-const guide = guides.find(g => g.id === 'DRAWING_GUIDE')
+const guide = getGuide('DRAWING_GUIDE')
 
 export default React.memo(function GuideDrawing(props) {
   return (

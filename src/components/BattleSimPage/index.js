@@ -4,6 +4,9 @@ import Article from '../Article'
 import BattleSimApp from '../BattleSimApp'
 import PageMeta from '../PageMeta'
 import puzzles from '../../data/puzzles'
+import indexArray from '../../helpers/indexArray'
+
+const PUZZLES_INDEX = indexArray(puzzles, 'board')
 
 const useArticleProps = (id, mode, puzzle) =>
   puzzle
@@ -27,7 +30,7 @@ const useArticleProps = (id, mode, puzzle) =>
 const BattleSimPage = React.memo(function BattleSimPage(props) {
   const { params } = useRouteMatch()
   const simId = props.simId || params.simId
-  const puzzle = puzzles.find(puzzle => puzzle.board === simId)
+  const puzzle = PUZZLES_INDEX[simId]
   const articleProps = useArticleProps(simId, props.mode, puzzle)
 
   return (
