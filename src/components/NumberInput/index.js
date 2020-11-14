@@ -24,7 +24,8 @@ export default React.memo(function NumberInput(props) {
 
       // If the value would result in no longer being a number, or being above the
       // maximum, or being below the mininum, do not update it.
-      if (isNaN(value) || value < min || value > max) return
+      if (event.target.value && (isNaN(value) || value < min || value > max))
+        return
 
       // If the field is empty, let it be empty and do not force a 0, which cannot
       // be removed and cause confusion.
