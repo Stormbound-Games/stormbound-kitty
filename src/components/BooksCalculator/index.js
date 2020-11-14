@@ -27,7 +27,7 @@ export default React.memo(function BooksCalculator(props) {
   // Reset the default state of each mode when toggling between the 2
   React.useEffect(() => {
     if (isAdvancedMode) setTarget('FUSION_STONES')
-    else setExpectation([0, 0, 0, 0])
+    else setExpectations([0, 0, 0, 0])
   }, [isAdvancedMode])
 
   const setExpectation = index => value =>
