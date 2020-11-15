@@ -5,7 +5,7 @@ import getEmbed from '../../../helpers/getEmbed'
 import getFactionFromDeckID from '../../../helpers/getFactionFromDeckID'
 import serialisation from '../../../helpers/serialisation'
 import { parseMessage } from '../decks'
-import { CATEGORIES } from '../../../constants/decks'
+import { CATEGORIES } from '../../../constants/deck'
 
 export default {
   command: 'suggestdeck',

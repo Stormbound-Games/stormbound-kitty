@@ -30,7 +30,7 @@ import serialisation from '../../helpers/serialisation'
 import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import usePrevious from '../../hooks/usePrevious'
-import { CATEGORIES } from '../../constants/decks'
+import { CATEGORIES } from '../../constants/deck'
 import { BRAWL_INDEX } from '../../constants/brawl'
 
 import './index.css'

@@ -1,5 +1,5 @@
 import { FACTIONS } from '../../../constants/game'
-import { CATEGORIES } from '../../../constants/decks'
+import { CATEGORIES } from '../../../constants/deck'
 import getDeckSearchDescription from '../../../helpers/getDeckSearchDescription'
 import getEmbed from '../../../helpers/getEmbed'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'

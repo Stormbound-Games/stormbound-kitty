@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { CATEGORIES } from '../../constants/decks'
+import { CATEGORIES } from '../../constants/deck'
 import { CollectionContext } from '../CollectionProvider'
 import Deck from '../Deck'
 import DiamondButton from '../DiamondButton'

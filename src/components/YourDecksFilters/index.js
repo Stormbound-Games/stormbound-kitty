@@ -1,5 +1,5 @@
 import React from 'react'
-import { CATEGORIES } from '../../constants/decks'
+import { CATEGORIES } from '../../constants/deck'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import FactionSelect from '../FactionSelect'
 import MobileTogglableContent from '../MobileTogglableContent'

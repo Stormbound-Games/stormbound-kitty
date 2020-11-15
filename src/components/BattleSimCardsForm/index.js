@@ -1,5 +1,5 @@
 import React from 'react'
-import { DEFAULT_CARD } from '../../constants/battle'
+import { DEFAULT_CARD } from '../../constants/deck'
 import CardSelect from '../CardSelect'
 import DeckImport from '../BattleSimDeckImport'
 import NumberInput from '../NumberInput'

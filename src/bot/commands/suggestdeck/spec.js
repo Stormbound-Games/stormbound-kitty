@@ -1,7 +1,7 @@
 import decks from '../../../data/decks'
 import getFactionFromDeckID from '../../../helpers/getFactionFromDeckID'
 import indexArray from '../../../helpers/indexArray'
-import { CATEGORIES } from '../../../constants/decks'
+import { CATEGORIES } from '../../../constants/deck'
 import command from './'
 const suggestdeck = command.handler.bind(command)
 

@@ -1,4 +1,5 @@
-import { DEFAULT_CELL, DEFAULT_CARD } from '../../constants/battle'
+import { DEFAULT_CELL } from '../../constants/battle'
+import { DEFAULT_CARD } from '../../constants/deck'
 import arrayPad from '../arrayPad'
 import chunk from '../chunk'
 import getRawCardData from '../getRawCardData'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { CATEGORIES } from '../../constants/decks'
+import { CATEGORIES } from '../../constants/deck'
 import { BRAWLS } from '../../constants/brawl'
 import decks from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'

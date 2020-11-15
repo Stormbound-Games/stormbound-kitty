@@ -1,6 +1,6 @@
 import capitalise from '../capitalise'
 import getRawCardData from '../getRawCardData'
-import { CATEGORIES } from '../../constants/decks'
+import { CATEGORIES } from '../../constants/deck'
 import { BRAWL_INDEX } from '../../constants/brawl'
 
 const getDeckSearchDescription = state => {

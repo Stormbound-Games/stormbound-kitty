@@ -4,7 +4,7 @@ import FeaturedDeck from '../FeaturedDeck'
 import FeedEntry from '../FeedEntry'
 import capitalise from '../../helpers/capitalise'
 import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
-import { CATEGORIES as DECK_CATEGORIES } from '../../constants/decks'
+import { CATEGORIES } from '../../constants/deck'
 import './index.css'
 
 export default React.memo(function FeedDeckEntry(props) {
@@ -14,7 +14,7 @@ export default React.memo(function FeedDeckEntry(props) {
   return (
     <FeedEntry icon='stack' date={props.date}>
       {props.author} has set up {prefix} {capitalise(faction)} deck in the{' '}
-      {DECK_CATEGORIES[props.category]} category called{' '}
+      {CATEGORIES[props.category]} category called{' '}
       <Link to={'/deck/' + props.id + '/detail'}>{props.name}</Link>.
       <div className='FeedDeckEntry__container'>
         <FeaturedDeck {...props} />
