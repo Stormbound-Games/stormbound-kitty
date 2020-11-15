@@ -1,5 +1,4 @@
 import React from 'react'
-import Column from '../Column'
 import DryRunnerCard from '../DryRunnerCard'
 import Row from '../Row'
 import chunk from '../../helpers/chunk'
@@ -13,16 +12,16 @@ export default React.memo(function DryRunnerHand(props) {
   return (
     <Row data-testid='hand' desktopOnly>
       {chunk(paddedHand, 2).map(([cardA, cardB], index) => (
-        <Column key={cardA ? cardA.id + '_' + cardA.idx : index}>
+        <Row.Column key={cardA ? cardA.id + '_' + cardA.idx : index}>
           <Row>
-            <Column>
+            <Row.Column>
               <DryRunnerCard {...props} card={cardA} />
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <DryRunnerCard {...props} card={cardB} />
-            </Column>
+            </Row.Column>
           </Row>
-        </Column>
+        </Row.Column>
       ))}
     </Row>
   )

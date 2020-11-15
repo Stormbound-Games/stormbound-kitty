@@ -1,5 +1,4 @@
 import React from 'react'
-import Column from '../Column'
 import Row from '../Row'
 import YourDeck from '../YourDeck'
 import YourDeckForm from '../YourDeckForm'
@@ -22,7 +21,7 @@ export default React.memo(function YourDecks(props) {
     <div className='YourDecks'>
       {rows.map((row, index) => (
         <Row desktopOnly key={index}>
-          <Column>
+          <Row.Column>
             <YourDeck
               {...row[0]}
               onEdit={() => props.onEdit(row[0].uuid)}
@@ -30,8 +29,8 @@ export default React.memo(function YourDecks(props) {
               handleEdit={props.editDeck}
               cancelEdit={props.disabledEditor}
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             {row[1] ? (
               <YourDeck
                 {...row[1]}
@@ -49,13 +48,13 @@ export default React.memo(function YourDecks(props) {
                 cancel={props.disabledEditor}
               />
             )}
-          </Column>
+          </Row.Column>
         </Row>
       ))}
 
       {props.decks.length % 2 === 0 && (
         <Row desktopOnly>
-          <Column>
+          <Row.Column>
             <NewDeck
               editedDeckUUID={props.editedDeckUUID}
               mode={props.mode}
@@ -63,8 +62,8 @@ export default React.memo(function YourDecks(props) {
               addDeck={props.addDeck}
               cancel={props.disabledEditor}
             />
-          </Column>
-          <Column></Column>
+          </Row.Column>
+          <Row.Column />
         </Row>
       )}
     </div>

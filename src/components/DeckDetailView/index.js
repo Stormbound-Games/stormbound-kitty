@@ -2,7 +2,6 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import Advice from '../DeckAdvice'
 import Article from '../Article'
-import Column from '../Column'
 import Deck from '../Deck'
 import DeckStatsChart from '../DeckStatsChart'
 import PageMeta from '../PageMeta'
@@ -64,7 +63,7 @@ export default React.memo(function DeckDetailView(props) {
       smallFontSize
     >
       <Row desktopOnly wideGutter>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <Title style={{ marginTop: 0 }}>Deck</Title>
           <Deck
             id='deck'
@@ -74,9 +73,9 @@ export default React.memo(function DeckDetailView(props) {
             onClick={card => history.push('/card/' + card.id + '/display')}
             onClickLabel='Open card in card builder'
           />
-        </Column>
+        </Row.Column>
 
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <Stats deck={deck} highlight={props.highlight} />
           <DeckStatsChart
             deck={deck}
@@ -85,11 +84,11 @@ export default React.memo(function DeckDetailView(props) {
             withHowTo
             withModifiers
           />
-        </Column>
+        </Row.Column>
 
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <Advice deck={deck} highlight={props.highlight} modifier={modifier} />
-        </Column>
+        </Row.Column>
       </Row>
 
       <PageMeta {...getDeckBuilderMetaTags(props.deck, 'Deck Insights')} />

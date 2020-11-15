@@ -4,7 +4,6 @@ import Article from '../Article'
 import BattleSimApp from '../BattleSimApp'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Checkbox from '../Checkbox'
-import Column from '../Column'
 import FAQSection from '../FAQSection'
 import Info from '../Info'
 import Notice from '../Notice'
@@ -136,7 +135,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
 
       <Article.Embed>
         <Row desktopOnly wideGutter>
-          <Column width='1/3'>
+          <Row.Column width='1/3'>
             <Quest
               difficulty={1}
               name='Student'
@@ -144,8 +143,8 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
               currency='COINS'
               amount={100}
             />
-          </Column>
-          <Column width='1/3'>
+          </Row.Column>
+          <Row.Column width='1/3'>
             <Quest
               difficulty={2}
               name='Grand recruitment'
@@ -153,8 +152,8 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
               currency='RUBIES'
               amount={5}
             />
-          </Column>
-          <Column width='1/3'>
+          </Row.Column>
+          <Row.Column width='1/3'>
             <Quest
               difficulty={3}
               name='Masterful Blueprint'
@@ -162,7 +161,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
               currency='STONES'
               amount={2}
             />
-          </Column>
+          </Row.Column>
         </Row>
       </Article.Embed>
 
@@ -187,15 +186,15 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
 
       <Article.Embed>
         <Row desktopOnly wideGutter>
-          <Column width='1/2'>
+          <Row.Column width='1/2'>
             <h3 style={{ marginTop: 0 }}>Sketches & illustrations</h3>
             <img
               style={{ marginTop: 0 }}
               src='/assets/images/releases/banner_rogue_sheep.png'
               alt='New Rogue Sheep card'
             />
-          </Column>
-          <Column width='1/2'>
+          </Row.Column>
+          <Row.Column width='1/2'>
             <h3 style={{ marginTop: 0 }}>In-game 3D model</h3>
             <video
               style={{ marginTop: 0 }}
@@ -203,7 +202,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
               muted
               controls
             ></video>
-          </Column>
+          </Row.Column>
         </Row>
         <CardBuilderCardDisplay {...getInitialCardData('N77')} />
       </Article.Embed>
@@ -432,7 +431,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
       <Article.Embed>
         <Title id='ui-improvements'>UI improvements</Title>
         <Row desktopOnly wideGutter>
-          <Column width='1/3'>
+          <Row.Column width='1/3'>
             <p style={{ marginTop: '2em' }}>
               Sheepyard has already started to revisit old interfaces and is
               going to introduce{' '}
@@ -458,19 +457,19 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
               fortress level dialog box in the joined image is the new icon for
               the “Friends” button to replace to current one.
             </p>
-          </Column>
-          <Column width='1/3'>
+          </Row.Column>
+          <Row.Column width='1/3'>
             <img
               src='/assets/images/releases/base_health_dialog.png'
               alt='Dialog disclosing information about the current base health'
             />
-          </Column>
-          <Column width='1/3'>
+          </Row.Column>
+          <Row.Column width='1/3'>
             <img
               src='/assets/images/releases/base_health_level.png'
               alt='Illustration of the base health increasing'
             />
-          </Column>
+          </Row.Column>
         </Row>
       </Article.Embed>
 

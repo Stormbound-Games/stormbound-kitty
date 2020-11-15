@@ -1,5 +1,4 @@
 import React from 'react'
-import Column from '../Column'
 import CTA from '../CTA'
 import Row from '../Row'
 import { STATUSES } from '../../constants/tracker'
@@ -11,7 +10,7 @@ export default React.memo(function TrackerActions(props) {
   return (
     <div className='TrackerActions'>
       <Row desktopOnly>
-        <Column align='center'>
+        <Row.Column align='center'>
           <CTA
             type='button'
             onClick={props.cycleCard}
@@ -23,8 +22,8 @@ export default React.memo(function TrackerActions(props) {
           >
             <u>C</u>ycle card
           </CTA>
-        </Column>
-        <Column align='center'>
+        </Row.Column>
+        <Row.Column align='center'>
           <CTA
             type='button'
             onClick={props.playCard}
@@ -36,7 +35,7 @@ export default React.memo(function TrackerActions(props) {
           >
             <u>P</u>lay card
           </CTA>
-        </Column>
+        </Row.Column>
       </Row>
     </div>
   )

@@ -2,7 +2,6 @@ import React from 'react'
 import { DEFAULT_CELL } from '../../constants/battle'
 import CardSelect from '../CardSelect'
 import Checkbox from '../Checkbox'
-import Column from '../Column'
 import CTA from '../CTA'
 import NumberInput from '../NumberInput'
 import Radio from '../Radio'
@@ -72,7 +71,7 @@ export default React.memo(function BattleSimCellForm(props) {
     >
       <div className='BattleSimCellForm__row'>
         <Row>
-          <Column width='3/4'>
+          <Row.Column width='3/4'>
             <label className='label' htmlFor='card'>
               Card
             </label>
@@ -95,8 +94,8 @@ export default React.memo(function BattleSimCellForm(props) {
               withSpells={false}
               withTokens
             />
-          </Column>
-          <Column width='1/4'>
+          </Row.Column>
+          <Row.Column width='1/4'>
             <label htmlFor='level'>Level</label>
             <select
               disabled={(card || '').startsWith('T')}
@@ -116,13 +115,13 @@ export default React.memo(function BattleSimCellForm(props) {
               <option value='4'>4</option>
               <option value='5'>5</option>
             </select>
-          </Column>
+          </Row.Column>
         </Row>
       </div>
 
       <div className='BattleSimCellForm__row'>
         <Row>
-          <Column>
+          <Row.Column>
             <label className='label' htmlFor='strength'>
               Strength
             </label>
@@ -136,8 +135,8 @@ export default React.memo(function BattleSimCellForm(props) {
               onChange={setStrength}
               data-testid='cell-strength-input'
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <fieldset>
               <legend>Active player</legend>
               <div className='BattleSimCellForm__radios'>
@@ -169,7 +168,7 @@ export default React.memo(function BattleSimCellForm(props) {
                 </Radio>
               </div>
             </fieldset>
-          </Column>
+          </Row.Column>
         </Row>
       </div>
 
@@ -177,7 +176,7 @@ export default React.memo(function BattleSimCellForm(props) {
         <legend>Penalties</legend>
         <div className='BattleSimCellForm__row'>
           <Row>
-            <Column width='1/3'>
+            <Row.Column width='1/3'>
               <Checkbox
                 name='poisoned'
                 id='poisoned'
@@ -188,8 +187,8 @@ export default React.memo(function BattleSimCellForm(props) {
               >
                 Poisoned
               </Checkbox>
-            </Column>
-            <Column width='1/3'>
+            </Row.Column>
+            <Row.Column width='1/3'>
               <Checkbox
                 name='frozen'
                 id='frozen'
@@ -200,8 +199,8 @@ export default React.memo(function BattleSimCellForm(props) {
               >
                 Frozen
               </Checkbox>
-            </Column>
-            <Column width='1/3'>
+            </Row.Column>
+            <Row.Column width='1/3'>
               <Checkbox
                 name='confused'
                 id='confused'
@@ -212,13 +211,13 @@ export default React.memo(function BattleSimCellForm(props) {
               >
                 Confused
               </Checkbox>
-            </Column>
+            </Row.Column>
           </Row>
         </div>
       </fieldset>
 
       <Row>
-        <Column>
+        <Row.Column>
           {activeCellCard.card.id !== card ||
           activeCellCard.strength !== +strength ||
           activeCellCard.level !== +level ||
@@ -237,8 +236,8 @@ export default React.memo(function BattleSimCellForm(props) {
                 : 'Add ' + (getRawCardData(card).type || '')}
             </CTA>
           ) : null}
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           {!!activeCellCard.card.id ? (
             <CTA
               type='button'
@@ -250,7 +249,7 @@ export default React.memo(function BattleSimCellForm(props) {
               Remove {activeCellCard.card.type}
             </CTA>
           ) : null}
-        </Column>
+        </Row.Column>
       </Row>
     </form>
   )

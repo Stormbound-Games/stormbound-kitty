@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import CardLink from '../CardLink'
-import Column from '../Column'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
 import Info from '../Info'
@@ -166,7 +165,7 @@ export default React.memo(function GuideWinter(props) {
 
       <Guide.FullWidth padding='60px'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <FeaturedDeck
               id='3xn3n11n12n16w5n18n28w12w13w15w19w21'
               name='Winterfell'
@@ -174,8 +173,8 @@ export default React.memo(function GuideWinter(props) {
               category='DIAMOND_1'
               faction='winter'
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <p>
               If you have doubts about which cards to use, skip to{' '}
               <a href='#how-to-use'>How to use</a> &gt; Best combos and then
@@ -193,7 +192,7 @@ export default React.memo(function GuideWinter(props) {
               efficient decks, refer to{' '}
               <Link to='/guides/deck'>the deck building guide</Link>.
             </p>
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 

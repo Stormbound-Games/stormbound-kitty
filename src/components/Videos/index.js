@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
-import Column from '../Column'
 import Icon from '../Icon'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
@@ -122,14 +121,14 @@ export default React.memo(function Videos(props) {
         {VIDEOS.map(video => (
           <section key={video.author} className='Video'>
             <Row desktopOnly wideGutter>
-              <Column width='1/3'>
+              <Row.Column width='1/3'>
                 <img
                   src={video.thumbnail}
                   alt={`${video.author}’s avatar`}
                   className='Video__image'
                 />
-              </Column>
-              <Column width='2/3' style={{ justifyContent: 'center' }}>
+              </Row.Column>
+              <Row.Column width='2/3' style={{ justifyContent: 'center' }}>
                 <h2 className='Video__title'>
                   <Link to={`/member/${video.author}`}>{video.author}</Link>
                 </h2>
@@ -145,7 +144,7 @@ export default React.memo(function Videos(props) {
                     Visit {video.author}’s channel
                   </a>
                 </p>
-              </Column>
+              </Row.Column>
             </Row>
           </section>
         ))}

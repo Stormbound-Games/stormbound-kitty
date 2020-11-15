@@ -1,7 +1,6 @@
 import React from 'react'
 import BattleSimApp from '../BattleSimApp'
 import Card from '../Card'
-import Column from '../Column'
 import Guide from '../Guide'
 import CardLink from '../CardLink'
 import Row from '../Row'
@@ -22,7 +21,7 @@ export default React.memo(function GuideChillbeards(props) {
       </p>
 
       <Row desktopOnly wideGutter>
-        <Column width='2/3'>
+        <Row.Column width='2/3'>
           <Title style={{ marginTop: '2em' }}>Table of contents</Title>
           <ol style={{ columns: '8em' }}>
             <li>
@@ -50,10 +49,10 @@ export default React.memo(function GuideChillbeards(props) {
               <a href='#freeze-confusion'>Freeze & confusion</a>
             </li>
           </ol>
-        </Column>
-        <Column width='1/3'>
+        </Row.Column>
+        <Row.Column width='1/3'>
           <Card {...getResolvedCardData({ id: 'W22', level: 5 })} />
-        </Column>
+        </Row.Column>
       </Row>
 
       <Title id='be-mindful-of-mana'>1. Be mindful of mana</Title>

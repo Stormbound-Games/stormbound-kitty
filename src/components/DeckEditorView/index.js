@@ -8,7 +8,6 @@ import CardLevelField from '../DeckCardLevelField'
 import CardsFiltering from '../CardsFiltering'
 import CardsGallery from '../CardsGallery'
 import Checkbox from '../Checkbox'
-import Column from '../Column'
 import Deck from '../Deck'
 import EmptySearch from '../EmptySearch'
 import Filters from '../DeckEditorFilters'
@@ -207,7 +206,7 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
   return (
     <Article {...articleProps} smallFontSize>
       <Row desktopOnly wideGutter>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <Title style={{ marginTop: 0 }}>Deck</Title>
 
           <Deck
@@ -245,9 +244,9 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
               }
             />
           </Only.Desktop>
-        </Column>
+        </Row.Column>
 
-        <Column width='2/3'>
+        <Row.Column width='2/3'>
           <Title style={{ marginTop: 0 }}>Cards</Title>
 
           <CardsFiltering cards={cardCollection}>
@@ -274,7 +273,7 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
               </>
             )}
           </CardsFiltering>
-        </Column>
+        </Row.Column>
       </Row>
 
       <PageMeta {...getDeckBuilderMetaTags(deck, 'Deck Builder')} />
@@ -331,16 +330,16 @@ const DeckActions = React.memo(function DeckActions(props) {
   return (
     <div className='DeckEditorView__actions'>
       <Row>
-        <Column>
+        <Row.Column>
           <ResetButton
             label='Reset deck'
             confirm='Are you sure you want to reset your deck?'
             reset={props.reset}
           />
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <ShareButton />
-        </Column>
+        </Row.Column>
       </Row>
     </div>
   )

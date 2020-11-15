@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import DryRunnerCardLog from '../DryRunnerCardLog'
-import Column from '../Column'
 import Deck from '../Deck'
 import DryRunnerActions from '../DryRunnerActions'
 import DryRunnerHand from '../DryRunnerHand'
@@ -24,7 +23,7 @@ export default React.memo(function DryRunner(props) {
       <h1 className='VisuallyHidden'>Deck Dry-run</h1>
 
       <Row desktopOnly wideGutter>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <Title>Deck</Title>
           <Deck
             deck={props.displayDeck}
@@ -64,15 +63,15 @@ export default React.memo(function DryRunner(props) {
               addCardToDeck={props.addCardToDeck}
             />
           )}
-        </Column>
+        </Row.Column>
 
-        <Column width='2/3'>
+        <Row.Column width='2/3'>
           <Title>Your hand</Title>
           <DryRunnerHeader {...props} />
           <DryRunnerHand {...props} />
           <DryRunnerActions {...props} />
           <DryRunnerInfo {...props} />
-        </Column>
+        </Row.Column>
       </Row>
 
       <PageMeta

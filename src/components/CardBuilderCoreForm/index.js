@@ -2,7 +2,6 @@ import React from 'react'
 import { RARITIES, TYPES, RACES } from '../../constants/game'
 import CardSelect from '../CardSelect'
 import Checkbox from '../Checkbox'
-import Column from '../Column'
 import FactionSelect from '../FactionSelect'
 import ImageErrorDialog from '../CardBuilderImageErrorDialog'
 import Row from '../Row'
@@ -16,7 +15,7 @@ export default React.memo(function CardBuilderCardForm(props) {
     <>
       <form onSubmit={event => event.preventDefault()}>
         <Row>
-          <Column>
+          <Row.Column>
             <label htmlFor='name'>Name</label>
             <input
               type='text'
@@ -28,8 +27,8 @@ export default React.memo(function CardBuilderCardForm(props) {
               onChange={event => props.setName(event.target.value)}
               data-testid='cb-name-input'
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <label htmlFor='movement'>Movement</label>
             <input
               type='text'
@@ -41,11 +40,11 @@ export default React.memo(function CardBuilderCardForm(props) {
               disabled={props.type !== 'unit'}
               data-testid='cb-movement-input'
             />
-          </Column>
+          </Row.Column>
         </Row>
 
         <Row>
-          <Column>
+          <Row.Column>
             <label htmlFor='rarity'>Rarity</label>
             <select
               name='rarity'
@@ -61,8 +60,8 @@ export default React.memo(function CardBuilderCardForm(props) {
                 </option>
               ))}
             </select>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <label htmlFor='type'>Type</label>
             <select
               name='type'
@@ -78,11 +77,11 @@ export default React.memo(function CardBuilderCardForm(props) {
                 </option>
               ))}
             </select>
-          </Column>
+          </Row.Column>
         </Row>
 
         <Row>
-          <Column>
+          <Row.Column>
             <FactionSelect
               value={props.faction}
               onChange={event => props.setFaction(event.target.value)}
@@ -90,8 +89,8 @@ export default React.memo(function CardBuilderCardForm(props) {
               required
               data-testid='cb-faction-select'
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <label htmlFor='race'>Race</label>
             <select
               name='race'
@@ -109,11 +108,11 @@ export default React.memo(function CardBuilderCardForm(props) {
                 </option>
               ))}
             </select>
-          </Column>
+          </Row.Column>
         </Row>
 
         <Row>
-          <Column
+          <Row.Column
             width={
               imageFocusedColumn === 'imageCardId'
                 ? 66
@@ -142,8 +141,8 @@ export default React.memo(function CardBuilderCardForm(props) {
               withClear
             />
             <ImageErrorDialog dialogRef={props.imageErrorDialogRef} />
-          </Column>
-          <Column
+          </Row.Column>
+          <Row.Column
             width={
               imageFocusedColumn === 'imageURL'
                 ? 66
@@ -169,14 +168,14 @@ export default React.memo(function CardBuilderCardForm(props) {
               onBlur={() => setImageFocusedColumn(null)}
               data-testid='cb-image-input'
             />
-          </Column>
+          </Row.Column>
         </Row>
         <Row desktopOnly>
-          <Column>
+          <Row.Column>
             <fieldset>
               <legend>Unit-specific modifiers</legend>
               <Row>
-                <Column>
+                <Row.Column>
                   <Checkbox
                     className='CardBuilderCoreForm__checkbox'
                     name='elder'
@@ -188,8 +187,8 @@ export default React.memo(function CardBuilderCardForm(props) {
                   >
                     Elder
                   </Checkbox>
-                </Column>
-                <Column>
+                </Row.Column>
+                <Row.Column>
                   <Checkbox
                     className='CardBuilderCoreForm__checkbox'
                     name='hero'
@@ -201,11 +200,11 @@ export default React.memo(function CardBuilderCardForm(props) {
                   >
                     Hero
                   </Checkbox>
-                </Column>
+                </Row.Column>
               </Row>
             </fieldset>
-          </Column>
-          <Column />
+          </Row.Column>
+          <Row.Column />
         </Row>
       </form>
     </>

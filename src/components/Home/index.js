@@ -1,5 +1,4 @@
 import React from 'react'
-import Column from '../Column'
 import CTA from '../CTA'
 import Image from '../Image'
 import News from '../News'
@@ -32,8 +31,8 @@ export default React.memo(() => (
       >
         <div className='Home__section-inner'>
           <Row desktopOnly>
-            <Column />
-            <Column>
+            <Row.Column />
+            <Row.Column>
               <h2>Prepare your decks</h2>
               <p>
                 Compose your own decks and perfect them with the insightful
@@ -45,7 +44,7 @@ export default React.memo(() => (
                 <CTA to='/deck'>Builder</CTA>
                 <CTA to='/deck/suggestions'>Decks</CTA>
               </div>
-            </Column>
+            </Row.Column>
           </Row>
         </div>
       </section>
@@ -53,8 +52,8 @@ export default React.memo(() => (
       <section className='Home__section' style={{ '--color': 'var(--swarm)' }}>
         <div className='Home__section-inner'>
           <Row desktopOnly>
-            <Column />
-            <Column>
+            <Row.Column />
+            <Row.Column>
               <h2>Learn from the warlords</h2>
               <p>
                 New to the game or looking to perfect your battle strategies,
@@ -66,7 +65,7 @@ export default React.memo(() => (
                 <CTA to='/guides/in-depth'>In-depth</CTA>
                 <CTA to='/guides/playstyle'>Playstyle</CTA>
               </div>
-            </Column>
+            </Row.Column>
           </Row>
         </div>
       </section>
@@ -77,8 +76,8 @@ export default React.memo(() => (
       >
         <div className='Home__section-inner'>
           <Row desktopOnly>
-            <Column />
-            <Column>
+            <Row.Column />
+            <Row.Column>
               <h2>Keep track of your riches</h2>
               <p>
                 Maintain an accurate record of all your riches in the collection
@@ -90,7 +89,7 @@ export default React.memo(() => (
                 <CTA to='/calculators/books'>Books</CTA>
                 <CTA to='/collection'>Collection</CTA>
               </div>
-            </Column>
+            </Row.Column>
           </Row>
         </div>
       </section>
@@ -98,7 +97,7 @@ export default React.memo(() => (
       <section className='Home__section' style={{ '--color': 'var(--winter)' }}>
         <div className='Home__section-inner'>
           <Row desktopOnly>
-            <Column>
+            <Row.Column>
               <Only.Desktop>
                 <Image
                   className='Home__section-image'
@@ -106,8 +105,8 @@ export default React.memo(() => (
                   withAvif
                 />
               </Only.Desktop>
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <h2>Battle for glory</h2>
               <p>
                 Simulate your own Stormbound games in the simulator, be it for
@@ -118,14 +117,14 @@ export default React.memo(() => (
                 <CTA to='/sim'>Simulator</CTA>
                 <CTA to='/sim/puzzles'>Puzzles</CTA>
               </div>
-            </Column>
+            </Row.Column>
           </Row>
         </div>
       </section>
       <section className='Home__section' style={{ '--color': 'var(--swarm)' }}>
         <div className='Home__section-inner'>
           <Row desktopOnly>
-            <Column>
+            <Row.Column>
               <Only.Desktop>
                 <Image
                   className='Home__section-image'
@@ -133,8 +132,8 @@ export default React.memo(() => (
                   withAvif
                 />
               </Only.Desktop>
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <h2>Practice your craft</h2>
               <p>
                 Either dreamed of having a card after your name? Want to invent
@@ -145,7 +144,7 @@ export default React.memo(() => (
                 <CTA to='/list'>List builder</CTA>
                 <CTA to='/card'>Card builder</CTA>
               </div>
-            </Column>
+            </Row.Column>
           </Row>
         </div>
       </section>
@@ -156,7 +155,7 @@ export default React.memo(() => (
       >
         <div className='Home__section-inner'>
           <Row desktopOnly>
-            <Column>
+            <Row.Column>
               <Only.Desktop>
                 <Image
                   className='Home__section-image'
@@ -164,8 +163,8 @@ export default React.memo(() => (
                   withAvif
                 />
               </Only.Desktop>
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <h2>Listen to tales of the Elders</h2>
               <p>
                 Whether you’re curious about the Storm, interested in the long
@@ -176,7 +175,7 @@ export default React.memo(() => (
                 <CTA to='/stories/eastern-heat'>Eastern Heat</CTA>
                 <CTA to='/stories'>All stories</CTA>
               </div>
-            </Column>
+            </Row.Column>
           </Row>
         </div>
       </section>

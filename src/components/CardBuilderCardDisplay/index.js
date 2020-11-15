@@ -2,7 +2,6 @@ import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import { CollectionContext } from '../CollectionProvider'
 import Card from '../Card'
-import Column from '../Column'
 import CTA from '../CTA'
 import Only from '../Only'
 import Row from '../Row'
@@ -35,7 +34,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
             }
           >
             {[0, 1, 2, 3, 4].map(level => (
-              <Column width='1/5' key={level}>
+              <Row.Column width='1/5' key={level}>
                 <div
                   className={[
                     'CardBuilderApp__card',
@@ -65,7 +64,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
                     level={level + 1}
                   />
                 </div>
-              </Column>
+              </Row.Column>
             ))}
           </Row>
         </div>
@@ -84,7 +83,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
           {!props.hasSingleLevel && (
             <div className='CardBuilderCardDisplay__buttons'>
               <Row>
-                <Column>
+                <Row.Column>
                   {activeLevel > 1 && (
                     <CTA
                       type='button'
@@ -93,8 +92,8 @@ export default React.memo(function CardBuilderCardDisplay(props) {
                       Level {activeLevel - 1}
                     </CTA>
                   )}
-                </Column>
-                <Column>
+                </Row.Column>
+                <Row.Column>
                   {activeLevel < 5 && (
                     <CTA
                       type='button'
@@ -103,7 +102,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
                       Level {activeLevel + 1}
                     </CTA>
                   )}
-                </Column>
+                </Row.Column>
               </Row>
             </div>
           )}

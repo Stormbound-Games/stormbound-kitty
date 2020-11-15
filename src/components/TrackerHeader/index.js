@@ -1,6 +1,5 @@
 import React from 'react'
 import Checkbox from '../Checkbox'
-import Column from '../Column'
 import CTA from '../CTA'
 import Mana from '../Mana'
 import ResetButton from '../ResetButton'
@@ -12,7 +11,7 @@ export default React.memo(function TrackerHeader(props) {
   return (
     <div className='TrackerHeader'>
       <Row desktopOnly>
-        <Column width='1/3' align='center'>
+        <Row.Column width='1/3' align='center'>
           <span className='TrackerHeader__mana'>
             <div>
               Current mana:{' '}
@@ -37,9 +36,9 @@ export default React.memo(function TrackerHeader(props) {
               Second player
             </Checkbox>
           </span>
-        </Column>
+        </Row.Column>
 
-        <Column width='1/3' align='center'>
+        <Row.Column width='1/3' align='center'>
           <ResetButton
             label='Reset game'
             confirm='Are you sure you want to reset the game? Don’t worry, you’ll keep your deck.'
@@ -56,9 +55,9 @@ export default React.memo(function TrackerHeader(props) {
               </Checkbox>
             </div>
           </ResetButton>
-        </Column>
+        </Row.Column>
 
-        <Column width='1/3' align='center'>
+        <Row.Column width='1/3' align='center'>
           <CTA
             type='button'
             onClick={props.endTurn}
@@ -66,7 +65,7 @@ export default React.memo(function TrackerHeader(props) {
           >
             <u>E</u>nd turn
           </CTA>
-        </Column>
+        </Row.Column>
       </Row>
     </div>
   )

@@ -1,7 +1,6 @@
 import React from 'react'
 import BattleSimApp from '../BattleSimApp'
 import Card from '../Card'
-import Column from '../Column'
 import Guide from '../Guide'
 import Info from '../Info'
 import Row from '../Row'
@@ -35,26 +34,26 @@ export default React.memo(function GuideDrawing(props) {
 
       <Guide.FullWidth padding='120px'>
         <Row desktopOnly>
-          <Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'F5', level: 1 })} />
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'I12', level: 1 })} />
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'S8', level: 1 })} />
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'N6', level: 1 })} />
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 
@@ -262,26 +261,26 @@ export default React.memo(function GuideDrawing(props) {
 
       <Guide.FullWidth padding='120px'>
         <Row desktopOnly>
-          <Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'F28', level: 1 })} />
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'I28', level: 1 })} />
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'S28', level: 1 })} />
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'W28', level: 1 })} />
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 

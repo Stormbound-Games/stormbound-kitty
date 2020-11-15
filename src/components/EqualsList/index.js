@@ -1,6 +1,5 @@
 import React from 'react'
 import { EQUALS_TIER_LIST, TIER_COLORS } from '../../constants/list'
-import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
@@ -35,7 +34,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
       <HeaderBanner title='Equals Tier List' />
 
       <Row wideGutter desktopOnly>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <p>
             This tier list was made by the Stormbound community, with strong
             involvement from competitive tournament players. It is their take at
@@ -60,9 +59,9 @@ export default React.memo(function ListBuilderDisplayView(props) {
             <option value='SWARM'>Swarm only</option>
             <option value='WINTER'>Winter only</option>
           </select>
-        </Column>
+        </Row.Column>
 
-        <Column width='2/3'>
+        <Row.Column width='2/3'>
           {tiers.map((tier, index) => (
             <ListBuilderTier
               {...tier}
@@ -72,7 +71,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
               isEditable={false}
             />
           ))}
-        </Column>
+        </Row.Column>
       </Row>
 
       <PageMeta

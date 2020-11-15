@@ -1,7 +1,6 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import Article from '../Article'
-import Column from '../Column'
 import FeedItem from '../FeedItem'
 import Image from '../Image'
 import Info from '../Info'
@@ -40,7 +39,7 @@ export default React.memo(function Member(props) {
       }
     >
       <Row desktopOnly wideGutter>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <p>
             <span className='Highlight'>{displayName}</span> is a member of the
             Stormbound community. Their contribution can be found below.
@@ -55,8 +54,8 @@ export default React.memo(function Member(props) {
               <abbr title='Kitty Appreciation Team'>KAT</abbr>!
             </Info>
           )}
-        </Column>
-        <Column width='2/3'>
+        </Row.Column>
+        <Row.Column width='2/3'>
           {content.length > 0 || channel ? (
             <ul className='Member__feed'>
               {channel && (
@@ -84,7 +83,7 @@ export default React.memo(function Member(props) {
               </p>
             </div>
           )}
-        </Column>
+        </Row.Column>
       </Row>
 
       <PageMeta

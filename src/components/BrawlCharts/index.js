@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrawlContext } from '../BrawlProvider'
-import Column from '../Column'
 import BrawlCoinsChart from '../BrawlCoinsChart'
 import BrawlStatusChart from '../BrawlStatusChart'
 import BrawlWeighedStatusChart from '../BrawlWeighedStatusChart'
@@ -17,12 +16,12 @@ export default React.memo(function BrawlCharts(props) {
   return (
     <div className='BrawlCharts' data-testid='charts'>
       <Row desktopOnly>
-        <Column>
+        <Row.Column>
           <BrawlStatusChart />
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <BrawlCoinsChart setup={props.setup} />
-        </Column>
+        </Row.Column>
       </Row>
       <BrawlWeighedStatusChart />
     </div>

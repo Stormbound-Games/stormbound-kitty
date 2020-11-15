@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import puzzles from '../../data/puzzles'
-import Column from '../Column'
 import EmptySearch from '../EmptySearch'
 import HeaderBanner from '../HeaderBanner'
 import Notice from '../Notice'
@@ -61,10 +60,10 @@ export default class BattleSimPuzzles extends React.Component {
         <HeaderBanner title='Puzzles' />
 
         <Row desktopOnly wideGutter>
-          <Column width='1/3'>
+          <Row.Column width='1/3'>
             <PuzzlesFilters {...this.state} updateFilter={this.updateFilter} />
-          </Column>
-          <Column width='2/3'>
+          </Row.Column>
+          <Row.Column width='2/3'>
             {puzzles.length > 0 ? (
               <ul className='BattleSimPuzzles__list'>
                 {puzzles.map(puzzle => (
@@ -91,7 +90,7 @@ export default class BattleSimPuzzles extends React.Component {
               </Link>{' '}
               to the list!
             </Notice>
-          </Column>
+          </Row.Column>
         </Row>
 
         <PageMeta

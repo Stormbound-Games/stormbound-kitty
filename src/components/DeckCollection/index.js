@@ -3,7 +3,6 @@ import serialize from 'form-serialize'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import { NotificationContext } from '../NotificationProvider'
 import { CATEGORIES } from '../../constants/decks'
-import Column from '../Column'
 import ExportDecks from '../ExportDecks'
 import HeaderBanner from '../HeaderBanner'
 import ImportDecks from '../ImportDecks'
@@ -135,7 +134,7 @@ export default React.memo(function DeckCollection(props) {
       <HeaderBanner title='Personal Decks' />
 
       <Row desktopOnly wideGutter>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <Title>What is this</Title>
           <p>
             This is your own personal deck collection. You can add, update and
@@ -151,17 +150,17 @@ export default React.memo(function DeckCollection(props) {
 
           <div className='DeckCollection__actions'>
             <Row>
-              <Column>
+              <Row.Column>
                 <ImportDecks />
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <ExportDecks />
-              </Column>
+              </Row.Column>
             </Row>
           </div>
-        </Column>
+        </Row.Column>
 
-        <Column width='2/3'>
+        <Row.Column width='2/3'>
           <Title>Your decks</Title>
           <YourDecks
             decks={displayedDecks}
@@ -173,7 +172,7 @@ export default React.memo(function DeckCollection(props) {
             setMode={setMode}
             addDeck={addDeck}
           />
-        </Column>
+        </Row.Column>
       </Row>
       <PageMeta
         title='Your decks'

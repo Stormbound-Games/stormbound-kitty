@@ -1,6 +1,5 @@
 import React from 'react'
 import Card from '../Card'
-import Column from '../Column'
 import Guide from '../Guide'
 import Row from '../Row'
 import Title from '../Title'
@@ -86,26 +85,26 @@ export default React.memo(function GuideDeck(props) {
 
       <Guide.FullWidth padding='120px'>
         <Row desktopOnly>
-          <Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'N1', level: 1 })} />
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'N2', level: 1 })} />
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'W1', level: 1 })} />
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'W2', level: 1 })} />
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 
@@ -129,15 +128,15 @@ export default React.memo(function GuideDeck(props) {
 
       <div className='Guide__embed'>
         <Row>
-          <Column width='1/3'>
+          <Row.Column width='1/3'>
             <Card {...getResolvedCardData({ id: 'S13', level: 5 })} />
-          </Column>
-          <Column width='1/3'>
+          </Row.Column>
+          <Row.Column width='1/3'>
             <Card {...getResolvedCardData({ id: 'N28', level: 5 })} />
-          </Column>
-          <Column width='1/3'>
+          </Row.Column>
+          <Row.Column width='1/3'>
             <Card {...getResolvedCardData({ id: 'N54', level: 5 })} />
-          </Column>
+          </Row.Column>
         </Row>
       </div>
 
@@ -192,48 +191,48 @@ export default React.memo(function GuideDeck(props) {
 
       <Guide.FullWidth padding='120px'>
         <Row desktopOnly>
-          <Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'S1', level: 1 })} />
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'S9', level: 1 })} />
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'I2', level: 1 })} />
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'I19', level: 1 })} />
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
+          </Row.Column>
         </Row>
         <Row desktopOnly>
-          <Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'F2', level: 1 })} />
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'F11', level: 1 })} />
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'W2', level: 1 })} />
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <Card {...getResolvedCardData({ id: 'W4', level: 1 })} />
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 

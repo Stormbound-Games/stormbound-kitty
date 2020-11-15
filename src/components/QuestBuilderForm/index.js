@@ -1,5 +1,4 @@
 import React from 'react'
-import Column from '../Column'
 import NumberInput from '../NumberInput'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
@@ -13,7 +12,7 @@ export default React.memo(function QuestBuilderForm(props) {
       className='QuestBuilderForm'
     >
       <Row>
-        <Column>
+        <Row.Column>
           <label htmlFor='name'>Name</label>
           <input
             type='text'
@@ -24,11 +23,11 @@ export default React.memo(function QuestBuilderForm(props) {
             value={props.name}
             onChange={event => props.setName(event.target.value)}
           />
-        </Column>
+        </Row.Column>
       </Row>
 
       <Row>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <label htmlFor='amount'>Amount</label>
           <NumberInput
             name='amount'
@@ -39,9 +38,9 @@ export default React.memo(function QuestBuilderForm(props) {
             value={props.amount}
             onChange={props.setAmount}
           />
-        </Column>
+        </Row.Column>
 
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <label htmlFor='currency'>Currency</label>
           <select
             name='currency'
@@ -54,9 +53,9 @@ export default React.memo(function QuestBuilderForm(props) {
             <option value='rubies'>Rubies</option>
             <option value='stones'>Fusion stones</option>
           </select>
-        </Column>
+        </Row.Column>
 
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <label htmlFor='difficulty'>Difficulty</label>
           <select
             name='difficulty'
@@ -69,11 +68,11 @@ export default React.memo(function QuestBuilderForm(props) {
             <option value='2'>2</option>
             <option value='3'>3</option>
           </select>
-        </Column>
+        </Row.Column>
       </Row>
 
       <Row>
-        <Column>
+        <Row.Column>
           <label htmlFor='description'>Description</label>
           <input
             type='text'
@@ -84,21 +83,21 @@ export default React.memo(function QuestBuilderForm(props) {
             value={props.description}
             onChange={event => props.setDescription(event.target.value)}
           />
-        </Column>
+        </Row.Column>
       </Row>
 
       <div className=' QuestBuilderForm__buttons'>
         <Row>
-          <Column>
+          <Row.Column>
             <ShareButton />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <ResetButton
               label='Reset form'
               confirm='Are you sure you want to reset the form to its initial state?'
               reset={props.reset}
             />
-          </Column>
+          </Row.Column>
         </Row>
       </div>
     </form>

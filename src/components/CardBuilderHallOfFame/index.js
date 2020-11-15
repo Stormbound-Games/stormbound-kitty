@@ -1,6 +1,5 @@
 import React from 'react'
 import HallOfFameTeaser from '../HallOfFameTeaser'
-import Column from '../Column'
 import Row from '../Row'
 import Title from '../Title'
 import swcc from '../../data/swcc'
@@ -10,30 +9,30 @@ export const CardBuilderHallOfFameSeason = React.memo(
   function CardBuilderHallOfFameSeason(props) {
     return chunk(props.weeks, 3).map((row, index) => (
       <Row key={index} desktopOnly wideGutter>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           {row[0] && (
             <HallOfFameTeaser
               {...row[0]}
               number={props.weeks.length - index * 3}
             />
           )}
-        </Column>
-        <Column width='1/3'>
+        </Row.Column>
+        <Row.Column width='1/3'>
           {row[1] && (
             <HallOfFameTeaser
               {...row[1]}
               number={props.weeks.length - index * 3 - 1}
             />
           )}
-        </Column>
-        <Column width='1/3'>
+        </Row.Column>
+        <Row.Column width='1/3'>
           {row[2] && (
             <HallOfFameTeaser
               {...row[2]}
               number={props.weeks.length - index * 3 - 2}
             />
           )}
-        </Column>
+        </Row.Column>
       </Row>
     ))
   }

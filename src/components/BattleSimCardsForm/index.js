@@ -1,7 +1,6 @@
 import React from 'react'
 import { DEFAULT_CARD } from '../../constants/battle'
 import CardSelect from '../CardSelect'
-import Column from '../Column'
 import DeckImport from '../BattleSimDeckImport'
 import NumberInput from '../NumberInput'
 import Row from '../Row'
@@ -14,7 +13,7 @@ const CardsFormRow = React.memo(({ index, ...props }) => (
     hidden={!props.expanded && index >= 4}
   >
     <Row>
-      <Column width='2/3'>
+      <Row.Column width='2/3'>
         <label className='VisuallyHidden' htmlFor={`card-${index}`}>
           Slot #{index + 1}’s card
         </label>
@@ -34,10 +33,10 @@ const CardsFormRow = React.memo(({ index, ...props }) => (
           withTokens
           disabledOptions={props.cards.map(card => card.id)}
         />
-      </Column>
-      <Column width='1/3'>
+      </Row.Column>
+      <Row.Column width='1/3'>
         <Row>
-          <Column>
+          <Row.Column>
             <label className={'VisuallyHidden'} htmlFor={`card-${index}-level`}>
               Slot #{index + 1}’s level
             </label>
@@ -70,8 +69,8 @@ const CardsFormRow = React.memo(({ index, ...props }) => (
                 <option value={5}>5</option>
               </select>
             )}
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <button
               type='button'
               className='BattleSimCardsForm__hand-button'
@@ -97,9 +96,9 @@ const CardsFormRow = React.memo(({ index, ...props }) => (
             >
               {props.hand.includes(props.cards[index].id) ? '-' : '+'}
             </button>
-          </Column>
+          </Row.Column>
         </Row>
-      </Column>
+      </Row.Column>
     </Row>
   </div>
 ))

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Column from '../Column'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
 import Info from '../Info'
@@ -53,7 +52,7 @@ export default React.memo(function GuideGoddessBoon(props) {
 
       <Guide.FullWidth padding='60px'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <h3 style={{ marginTop: '0.5em' }}>Frostkhan’s Goddess Boon</h3>
             <p>
               This was the featured deck by Frostkhan and I think it still
@@ -67,8 +66,8 @@ export default React.memo(function GuideGoddessBoon(props) {
               <CardLink id='N9' />, especially given <CardLink id='W10' /> is
               going to be packed in most decks.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <FeaturedDeck
               id='5xn1w2n3n9n11w4w9w12n36w10w19n58'
               name='Goddess Boon'
@@ -76,10 +75,10 @@ export default React.memo(function GuideGoddessBoon(props) {
               category='BRAWL'
               faction='winter'
             />
-          </Column>
+          </Row.Column>
         </Row>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <h3 style={{ marginTop: '0.5em' }}>CriticalPancake’s Frost Deck</h3>
 
             <p>
@@ -97,8 +96,8 @@ export default React.memo(function GuideGoddessBoon(props) {
               can be interesting to have cheaper options and potentially more
               board control.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <FeaturedDeck
               id='5xw2n3n9n11n14w4w28w9w12w10w19n58'
               name='Frost Deck'
@@ -106,10 +105,10 @@ export default React.memo(function GuideGoddessBoon(props) {
               category='BRAWL'
               faction='winter'
             />
-          </Column>
+          </Row.Column>
         </Row>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <h3 style={{ marginTop: '0.5em' }}>Adig’s Frosty Feline Dwarf</h3>
             <p>
               A high-end option, capitalizing on runners can catch opponents off
@@ -118,8 +117,8 @@ export default React.memo(function GuideGoddessBoon(props) {
               clear hords of Frostlings with Siren of the Seas though, so
               beware.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <FeaturedDeck
               id='5xn1w2n3n9n14w4w9w12n68w17w19w23'
               name='Frosty Feline Dwarf'
@@ -127,7 +126,7 @@ export default React.memo(function GuideGoddessBoon(props) {
               category='BRAWL'
               faction='winter'
             />
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 

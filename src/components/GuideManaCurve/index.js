@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import DeckStatsChart from '../DeckStatsChart'
-import Column from '../Column'
 import Guide from '../Guide'
 import Info from '../Info'
 import Only from '../Only'
@@ -99,10 +98,10 @@ export default React.memo(function GuideManaCurve(props) {
 
       <Guide.FullWidth padding='60px'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <Graph id='5xn1n2i1n3n6i5n13i7n18i13i20n39' />{' '}
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <p>
               A mana curve graph is made of two lines: the{' '}
               <span style={{ color: 'rgb(57, 133, 175)' }}>mana line</span>,
@@ -128,7 +127,7 @@ export default React.memo(function GuideManaCurve(props) {
               reading of such graph, as we will see more in detail in the next
               few sections.
             </p>
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 
@@ -163,7 +162,7 @@ export default React.memo(function GuideManaCurve(props) {
 
       <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <p>
               In the graph <Only.Desktop>on the right</Only.Desktop>
               <Only.Mobile>below</Only.Mobile>, the mana line is steady and very
@@ -180,19 +179,19 @@ export default React.memo(function GuideManaCurve(props) {
               </Link>
               , which will perform increasingly worse as the game progresses.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <Graph id='3xn1n2s1n3s24s2n67s6n15s8n63s11' />
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 
       <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <Graph id='1xf2n62n19f24n21n22n41n25n69n44n72n54' />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <p>
               In the graph <Only.Desktop>on the left</Only.Desktop>
               <Only.Mobile>above</Only.Mobile>, the mana line is incredibly
@@ -206,7 +205,7 @@ export default React.memo(function GuideManaCurve(props) {
               however, which is a critical turn to assert board dominance, is
               fragile and subject to randomness.
             </p>
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 
@@ -240,7 +239,7 @@ export default React.memo(function GuideManaCurve(props) {
 
       <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <p>
               In the graph <Only.Desktop>on the right</Only.Desktop>
               <Only.Mobile>below</Only.Mobile>, the cards line is stuck at 0%
@@ -257,19 +256,19 @@ export default React.memo(function GuideManaCurve(props) {
               might potentially be a little late depending on the randomness of
               the cards.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <Graph id='3xn1s1n3n23n4n13s8n63n16s13n39n46' />
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 
       <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <Graph id='5xn1n2w2n3n4n14n18w13w16w15w19n58' />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <p>
               In the graph <Only.Desktop>on the left</Only.Desktop>
               <Only.Mobile>above</Only.Mobile>, the cards line is close to null
@@ -284,7 +283,7 @@ export default React.memo(function GuideManaCurve(props) {
               for the game. That’s why the simulation never cycles Gift of the
               Wise at turn mana 7 if it is in the hand.
             </p>
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 
@@ -314,18 +313,18 @@ export default React.memo(function GuideManaCurve(props) {
 
       <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <Graph
               id='1xn3n4n5n11n12n13n16n28n30n32n34n52'
               syncId='comparison'
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <Graph
               id='1xn3n4n5n9n11n12n13n16n28n30n32n52'
               syncId='comparison'
             />
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 
@@ -388,13 +387,13 @@ export default React.memo(function GuideManaCurve(props) {
 
       <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <Graph
               id='5xn1n2n23n14w5n18n29n44n48w19w21w23'
               modifier='SPELL_MANA'
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <p>
               The graph <Only.Desktop>on the left</Only.Desktop>
               <Only.Mobile>above</Only.Mobile> for{' '}
@@ -411,13 +410,13 @@ export default React.memo(function GuideManaCurve(props) {
               already possible—although very unlikely—to play all 4 cards at
               turn mana 4.
             </p>
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 
       <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <p>
               In the graph <Only.Desktop>on the right</Only.Desktop>
               <Only.Mobile>below</Only.Mobile> from{' '}
@@ -433,10 +432,10 @@ export default React.memo(function GuideManaCurve(props) {
               full hand. This is due to the high number of 0-, 1- and 2-mana
               cards in the deck.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <Graph id='5xn1n2f3n3f8f4n67n9n15f10n40n76' modifier='SPELL_MANA' />
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 

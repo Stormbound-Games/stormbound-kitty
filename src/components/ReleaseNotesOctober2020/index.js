@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
-import Column from '../Column'
 import FAQSection from '../FAQSection'
 import Info from '../Info'
 import { Coins, Rubies, Stones } from '../Resource'
@@ -61,21 +60,21 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
 
       <Article.Narrow>
         <Row desktopOnly>
-          <Column>
+          <Row.Column>
             <img
               src='/assets/images/releases/slyboots_pack.png'
               alt='$9.99 pack: 5 copies of Slyboots + 750 coins + 5 fusion stones'
               style={{ marginTop: 0 }}
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <p style={{ marginTop: '1em' }}>
               If you would like to put your hands on this card immediately, a
               $9.99 one-time limited pack grants 5 copies of Slyboots, making it
               possible to get it level 2 right away. It also offers{' '}
               <Coins amount={750} /> and <Stones amount={5} />.
             </p>
-          </Column>
+          </Row.Column>
         </Row>
       </Article.Narrow>
 
@@ -203,35 +202,35 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
       </Article.Narrow>
 
       <Row desktopOnly wideGutter>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <img
             src='/assets/images/releases/friendly_matches_2.png'
             alt='A screenshot of the new advanced friendly matches options for a new player'
             style={{ marginTop: 0 }}
           />
-        </Column>
-        <Column width='1/3'>
+        </Row.Column>
+        <Row.Column width='1/3'>
           <img
             src='/assets/images/releases/friendly_matches_3.png'
             alt='A screenshot of the new advanced friendly matches options for a high-level player'
             style={{ marginTop: 0 }}
           />
-        </Column>
-        <Column width='1/3'>
+        </Row.Column>
+        <Row.Column width='1/3'>
           <video
             src='/assets/images/releases/draw.mp4'
             muted
             controls
             style={{ marginTop: 0 }}
           ></video>
-        </Column>
+        </Row.Column>
       </Row>
 
       <Article.Narrow>
         <Title id='social-panel'>Social panel</Title>
 
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <p>
               The “social panel” has been hyped a few times on Discord over the
               last few weeks, and is a good testament of Sheepyard’s intents to
@@ -253,27 +252,27 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
               Additionally, there will be many more UI improvements aiming at
               making the game overall better.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <img
               src='/assets/images/releases/social_panel.png'
               alt='New in-game social panel feature Discord, Reddit, Stormbound-Kitty, the wiki and social networks'
               style={{ marginTop: 0 }}
             />
-          </Column>
+          </Row.Column>
         </Row>
 
         <Title id='vanishing-packs'>Vanishing Packs</Title>
 
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <img
               src='/assets/images/releases/vanishing_packs.png'
               alt='A screenshot of the new tab dedicated to vanishing packs'
               style={{ marginTop: 0 }}
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <p>
               For those of you who are not against putting a few Real-Life
               Coins™ in the game every now and then, you will be pleased to know
@@ -297,7 +296,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
               The exhaustive list of all existing packs will be released at a
               later stage.
             </p>
-          </Column>
+          </Row.Column>
         </Row>
 
         <FAQSection

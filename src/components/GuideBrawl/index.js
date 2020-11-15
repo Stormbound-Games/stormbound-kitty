@@ -4,7 +4,6 @@ import BrawlMilestone from '../BrawlMilestone'
 import BrawlMilestones from '../BrawlMilestones'
 import BrawlOutcome from '../BrawlOutcome'
 import BrawlProvider from '../BrawlProvider'
-import Column from '../Column'
 import Guide from '../Guide'
 import Info from '../Info'
 import Only from '../Only'
@@ -76,7 +75,7 @@ export default React.memo(function GuideBrawl(props) {
       </p>
 
       <Row desktopOnly wideGutter>
-        <Column>
+        <Row.Column>
           <p>
             Every match, whether won or lost, grants{' '}
             <span className='Highlight'>crowns</span>: victories grant{' '}
@@ -88,8 +87,8 @@ export default React.memo(function GuideBrawl(props) {
             <Crowns amount={20} /> (including the 10 from the first one), and so
             on.
           </p>
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <Only.Desktop>
             <div className='GuideBrawl__milestones'>
               <BrawlProvider id={currentBrawl.id}>
@@ -97,7 +96,7 @@ export default React.memo(function GuideBrawl(props) {
               </BrawlProvider>
             </div>
           </Only.Desktop>
-        </Column>
+        </Row.Column>
       </Row>
 
       <p>Find below the list of all milestones, their cost and reward.</p>

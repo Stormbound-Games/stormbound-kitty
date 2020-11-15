@@ -1,7 +1,6 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import Checkbox from '../Checkbox'
-import Column from '../Column'
 import NumberInput from '../NumberInput'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
@@ -15,7 +14,7 @@ export default React.memo(function BattleSimGameForm(props) {
   return (
     <div className='BattleSimGameForm'>
       <Row>
-        <Column>
+        <Row.Column>
           <label htmlFor='mana'>Current mana</label>
           <NumberInput
             name='mana'
@@ -27,8 +26,8 @@ export default React.memo(function BattleSimGameForm(props) {
             data-testid='mana-input'
             required
           />
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <fieldset>
             <legend>Grid Markers</legend>
             <Checkbox
@@ -42,21 +41,21 @@ export default React.memo(function BattleSimGameForm(props) {
               Enable <span className='VisuallyHidden'>grid markers</span>
             </Checkbox>
           </fieldset>
-        </Column>
+        </Row.Column>
       </Row>
       <div className='BattleSimGameForm__buttons'>
         <Row>
-          <Column>
+          <Row.Column>
             <ResetButton
               label='Reset board'
               confirm='Are you sure you want to reset the board and all its configuration?'
               reset={props.resetBoard}
               disabled={isPristine}
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <ShareButton disabled={isPristine} />
-          </Column>
+          </Row.Column>
         </Row>
       </div>
     </div>

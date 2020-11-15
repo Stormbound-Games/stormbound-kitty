@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Card from '../Card'
-import Column from '../Column'
 import Guide from '../Guide'
 import CardLink from '../CardLink'
 import Row from '../Row'
@@ -23,7 +22,7 @@ export default React.memo(function GuideTerrificSlayers(props) {
       </p>
 
       <Row desktopOnly wideGutter>
-        <Column width='2/3'>
+        <Row.Column width='2/3'>
           <Title style={{ marginTop: '2em' }}>Table of contents</Title>
           <ol>
             <li>
@@ -42,10 +41,10 @@ export default React.memo(function GuideTerrificSlayers(props) {
               <a href='#bank-on-surprise'>Bank on surprise</a>
             </li>
           </ol>
-        </Column>
-        <Column width='1/3'>
+        </Row.Column>
+        <Row.Column width='1/3'>
           <Card {...getResolvedCardData({ id: 'N27', level: 5 })} />
-        </Column>
+        </Row.Column>
       </Row>
 
       <Title id='what-the-deck'>What the deck?</Title>

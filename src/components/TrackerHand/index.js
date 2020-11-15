@@ -1,5 +1,4 @@
 import React from 'react'
-import Column from '../Column'
 import Row from '../Row'
 import TrackerCard from '../TrackerCard'
 import arrayPad from '../../helpers/arrayPad'
@@ -12,16 +11,16 @@ export default React.memo(function TrackerHand(props) {
   return (
     <Row data-testid='hand' desktopOnly>
       {chunk(paddedHand, 2).map(([cardA, cardB], index) => (
-        <Column key={cardA || index}>
+        <Row.Column key={cardA || index}>
           <Row>
-            <Column>
+            <Row.Column>
               <TrackerCard {...props} card={cardA} />
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <TrackerCard {...props} card={cardB} />
-            </Column>
+            </Row.Column>
           </Row>
-        </Column>
+        </Row.Column>
       ))}
     </Row>
   )

@@ -1,7 +1,6 @@
 import React from 'react'
 import { CATEGORIES } from '../../constants/decks'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
-import Column from '../Column'
 import FactionSelect from '../FactionSelect'
 import MobileTogglableContent from '../MobileTogglableContent'
 import Row from '../Row'
@@ -40,15 +39,15 @@ export default React.memo(function YourDecksFilters(props) {
         className='YourDecksFilters'
       >
         <Row>
-          <Column>
+          <Row.Column>
             <FactionSelect
               value={props.faction}
               onChange={event => updateFaction(event.target.value)}
               data-testid='decks-faction-select'
               withAny
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <label htmlFor='category'>Category</label>
             <select
               id='category'
@@ -65,11 +64,11 @@ export default React.memo(function YourDecksFilters(props) {
                 </option>
               ))}
             </select>
-          </Column>
+          </Row.Column>
         </Row>
 
         <Row>
-          <Column>
+          <Row.Column>
             <label htmlFor='name'>Name</label>
             <input
               type='search'
@@ -80,8 +79,8 @@ export default React.memo(function YourDecksFilters(props) {
               placeholder='e.g. Reckless Rush'
               data-testid='decks-name-input'
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <label htmlFor='order'>Order</label>
             <select
               id='order'
@@ -94,7 +93,7 @@ export default React.memo(function YourDecksFilters(props) {
               <option value='FACTION'>Faction</option>
               <option value='NAME'>Name</option>
             </select>
-          </Column>
+          </Row.Column>
         </Row>
       </form>
     </MobileTogglableContent>

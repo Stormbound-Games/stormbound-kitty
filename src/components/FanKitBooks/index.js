@@ -1,5 +1,4 @@
 import React from 'react'
-import Column from '../Column'
 import FanKitDownloadDialog from '../FanKitDownloadDialog'
 import FanKitItem from '../FanKitItem'
 import HeaderBanner from '../HeaderBanner'
@@ -59,7 +58,7 @@ export default React.memo(function FanKitBooks(props) {
       {items.map((row, rowIndex) => (
         <Row desktopOnly key={rowIndex}>
           {Array.from({ length: columns }, (_, index) => (
-            <Column
+            <Row.Column
               width={'1/' + columns}
               key={row[index] ? row[index].id : index}
             >
@@ -73,7 +72,7 @@ export default React.memo(function FanKitBooks(props) {
                   withAvif
                 />
               )}
-            </Column>
+            </Row.Column>
           ))}
         </Row>
       ))}

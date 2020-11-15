@@ -2,7 +2,6 @@ import React from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import Form from '../QuestBuilderForm'
-import Column from '../Column'
 import Row from '../Row'
 import PageMeta from '../PageMeta'
 import Quest from '../Quest'
@@ -67,10 +66,10 @@ class QuestBuilderRoot extends React.Component {
 
         <div className='QuestBuilder'>
           <Row desktopOnly wideGutter>
-            <Column style={{ justifyContent: 'center' }}>
+            <Row.Column style={{ justifyContent: 'center' }}>
               <Quest {...this.state} />
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <Form
                 {...this.state}
                 setCurrency={currency => this.setState({ currency })}
@@ -80,7 +79,7 @@ class QuestBuilderRoot extends React.Component {
                 setDifficulty={difficulty => this.setState({ difficulty })}
                 reset={this.reset}
               />
-            </Column>
+            </Row.Column>
           </Row>
         </div>
 

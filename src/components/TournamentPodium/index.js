@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Column from '../Column'
 import MemberList from '../MemberList'
 import Row from '../Row'
 import Teaser from '../Teaser'
@@ -66,7 +65,7 @@ export default React.memo(function Podium(props) {
       <div style={{ fontSize: '85%' }}>
         <Row desktopOnly wideGutter>
           {podium.slice(0, 3).map(([user, medals], index) => (
-            <Column width='1/3' key={user}>
+            <Row.Column width='1/3' key={user}>
               <Teaser
                 title={
                   <>
@@ -96,7 +95,7 @@ export default React.memo(function Podium(props) {
                   </>
                 }
               />
-            </Column>
+            </Row.Column>
           ))}
         </Row>
       </div>

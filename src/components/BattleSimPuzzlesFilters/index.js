@@ -1,7 +1,6 @@
 import React from 'react'
 import { RESTRICTIONS, TYPES } from '../../constants/puzzles'
 import Checkbox from '../Checkbox'
-import Column from '../Column'
 import Row from '../Row'
 import TogglableContent from '../TogglableContent'
 import './index.css'
@@ -19,7 +18,7 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
       className='BattleSimPuzzlesFilters'
     >
       <Row>
-        <Column>
+        <Row.Column>
           <label htmlFor='difficulty'>Difficulty</label>
           <select
             data-testid='difficulty-select'
@@ -33,9 +32,9 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
             <option value='2'>2</option>
             <option value='3'>3</option>
           </select>
-        </Column>
+        </Row.Column>
 
-        <Column>
+        <Row.Column>
           <label htmlFor='type'>Type</label>
           <select
             data-testid='type-select'
@@ -51,11 +50,11 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
               </option>
             ))}
           </select>
-        </Column>
+        </Row.Column>
       </Row>
 
       <Row>
-        <Column>
+        <Row.Column>
           <label htmlFor='name'>Name</label>
           <input
             type='search'
@@ -66,11 +65,11 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
             onChange={event => updateName(event.target.value)}
             placeholder='e.g. Sneaky Outcasts'
           />
-        </Column>
+        </Row.Column>
       </Row>
 
       <Row>
-        <Column>
+        <Row.Column>
           <fieldset>
             <TogglableContent
               isExpanded={areFiltersExpanded}
@@ -116,7 +115,7 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
               ))}
             </TogglableContent>
           </fieldset>
-        </Column>
+        </Row.Column>
       </Row>
     </form>
   )

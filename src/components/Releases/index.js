@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
@@ -15,7 +14,7 @@ export default React.memo(function Releases(props) {
       <HeaderBanner title='Releases' />
       {chunk(releases, 3).map((row, index) => (
         <Row desktopOnly key={index}>
-          <Column width='1/3'>
+          <Row.Column width='1/3'>
             {row[0] && (
               <Teaser
                 {...row[0]}
@@ -23,8 +22,8 @@ export default React.memo(function Releases(props) {
                 to={`/releases/${row[0].slug}`}
               />
             )}
-          </Column>
-          <Column width='1/3'>
+          </Row.Column>
+          <Row.Column width='1/3'>
             {row[1] && (
               <Teaser
                 {...row[1]}
@@ -32,8 +31,8 @@ export default React.memo(function Releases(props) {
                 to={`/releases/${row[1].slug}`}
               />
             )}
-          </Column>
-          <Column width='1/3'>
+          </Row.Column>
+          <Row.Column width='1/3'>
             {row[2] && (
               <Teaser
                 {...row[2]}
@@ -41,7 +40,7 @@ export default React.memo(function Releases(props) {
                 to={`/releases/${row[2].slug}`}
               />
             )}
-          </Column>
+          </Row.Column>
         </Row>
       ))}
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import Column from '../Column'
 import FactionSelect from '../FactionSelect'
 import NumberInput from '../NumberInput'
 import Row from '../Row'
@@ -8,7 +7,7 @@ export default React.memo(function BattleSimPlayerForm(props) {
   return (
     <div className='BattleSimPlayerForm'>
       <Row>
-        <Column width='2/3'>
+        <Row.Column width='2/3'>
           <FactionSelect
             name={`faction-${props.player}`}
             id={`faction-${props.player}`}
@@ -23,8 +22,8 @@ export default React.memo(function BattleSimPlayerForm(props) {
             data-testid={`${props.player}-faction-select`}
             withNeutral
           />
-        </Column>
-        <Column width='1/3'>
+        </Row.Column>
+        <Row.Column width='1/3'>
           <label
             className='BattleSimPlayerForm__label'
             htmlFor={`health-${props.player}`}
@@ -43,7 +42,7 @@ export default React.memo(function BattleSimPlayerForm(props) {
             max={99}
             data-testid={`${props.player}-health-input`}
           />
-        </Column>
+        </Row.Column>
       </Row>
     </div>
   )

@@ -2,7 +2,6 @@ import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import { CollectionContext } from '../CollectionProvider'
 import CardProgress from '../CardProgress'
-import Column from '../Column'
 import CTA from '../CTA'
 import Only from '../Only'
 import Row from '../Row'
@@ -32,29 +31,29 @@ export default React.memo(function CardDisplayControls(props) {
   return (
     <Only.Desktop>
       <Row>
-        <Column width='1/5' align='center'>
+        <Row.Column width='1/5' align='center'>
           {previousCard && (
             <CTA to={`/card/${previousCard.id}/display`} data-testid='prev-btn'>
               Previous card
             </CTA>
           )}
-        </Column>
-        <Column width='1/5' />
-        <Column width='1/5'>
+        </Row.Column>
+        <Row.Column width='1/5' />
+        <Row.Column width='1/5'>
           {cardInCollection && (
             <Only.CustomCollection>
               <CardProgress card={cardInCollection} />
             </Only.CustomCollection>
           )}
-        </Column>
-        <Column width='1/5' />
-        <Column width='1/5' align='center'>
+        </Row.Column>
+        <Row.Column width='1/5' />
+        <Row.Column width='1/5' align='center'>
           {nextCard && (
             <CTA to={`/card/${nextCard.id}/display`} data-testid='next-btn'>
               Next card
             </CTA>
           )}
-        </Column>
+        </Row.Column>
       </Row>
     </Only.Desktop>
   )

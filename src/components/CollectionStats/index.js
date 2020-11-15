@@ -15,7 +15,6 @@ import {
 import { CollectionContext } from '../CollectionProvider'
 import Checkbox from '../Checkbox'
 import CollectionFigures from '../CollectionFigures'
-import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
@@ -216,9 +215,9 @@ export default function CollectionStats(props) {
       <HeaderBanner title='Collection Stats' />
 
       <Row desktopOnly>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <Row desktopOnly>
-            <Column>
+            <Row.Column>
               <Title>What is this</Title>
               <p>
                 On this page, you can find some data visualisation for your card
@@ -236,17 +235,17 @@ export default function CollectionStats(props) {
                 collection and the amount of extra copies you have of that card
                 before the next level.
               </p>
-            </Column>
+            </Row.Column>
           </Row>
           <Row desktopOnly>
-            <Column>
+            <Row.Column>
               <CollectionFigures collection={collection} />
-            </Column>
+            </Row.Column>
           </Row>
-        </Column>
-        <Column width='2/3'>
+        </Row.Column>
+        <Row.Column width='2/3'>
           <Row desktopOnly>
-            <Column>
+            <Row.Column>
               <div className='CollectionStats__chart'>
                 <Title className='CollectionStats__title'>
                   Level repartition
@@ -273,8 +272,8 @@ export default function CollectionStats(props) {
                   </PieChart>
                 </ResponsiveContainer>
               </div>
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <div className='CollectionStats__chart'>
                 <Title className='CollectionStats__title'>
                   Faction (stones)
@@ -310,10 +309,10 @@ export default function CollectionStats(props) {
                   </Checkbox>
                 </div>
               </div>
-            </Column>
+            </Row.Column>
           </Row>
           <Row desktopOnly>
-            <Column>
+            <Row.Column>
               <div className='CollectionStats__chart'>
                 <Title className='CollectionStats__title'>
                   Rarity (stones)
@@ -344,8 +343,8 @@ export default function CollectionStats(props) {
                   </PieChart>
                 </ResponsiveContainer>
               </div>
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <div className='CollectionStats__chart'>
                 <Title className='CollectionStats__title'>Statuses</Title>
                 <ResponsiveContainer width='100%' height={300}>
@@ -368,11 +367,11 @@ export default function CollectionStats(props) {
                   </PieChart>
                 </ResponsiveContainer>
               </div>
-            </Column>
+            </Row.Column>
           </Row>
 
           <Row desktopOnly>
-            <Column>
+            <Row.Column>
               <div className='CollectionStats__chart'>
                 <Title className='CollectionStats__title'>Card copies</Title>
                 <ResponsiveContainer width='100%' height={300}>
@@ -438,8 +437,8 @@ export default function CollectionStats(props) {
                   </BarChart>
                 </ResponsiveContainer>
               </div>
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <div className='CollectionStats__chart'>
                 <Title className='CollectionStats__title'>Progress data</Title>
                 <ResponsiveContainer width='100%' height={300}>
@@ -462,9 +461,9 @@ export default function CollectionStats(props) {
                   </PieChart>
                 </ResponsiveContainer>
               </div>
-            </Column>
+            </Row.Column>
           </Row>
-        </Column>
+        </Row.Column>
       </Row>
 
       <PageMeta

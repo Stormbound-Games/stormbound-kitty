@@ -5,7 +5,6 @@ import ActiveCardForm from '../CollectionActiveCardForm'
 import CardsGallery from '../CardsGallery'
 import { CollectionContext } from '../CollectionProvider'
 import CollectionClearHint from '../CollectionClearHint'
-import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import EmptySearch from '../EmptySearch'
 import CardsFiltering from '../CardsFiltering'
@@ -102,7 +101,7 @@ class Collection extends React.Component {
         <HeaderBanner title='Card Collection' />
 
         <Row desktopOnly wideGutter>
-          <Column width='1/3'>
+          <Row.Column width='1/3'>
             <div className='Collection__info'>
               <Title>What is this</Title>
 
@@ -124,10 +123,10 @@ class Collection extends React.Component {
 
               <Only.DefaultCollection>
                 <Row>
-                  <Column>
+                  <Row.Column>
                     <ImportCollection />
-                  </Column>
-                  <Column></Column>
+                  </Row.Column>
+                  <Row.Column />
                 </Row>
               </Only.DefaultCollection>
             </div>
@@ -143,9 +142,9 @@ class Collection extends React.Component {
                 levelFieldRef={this.levelField}
               />
             )}
-          </Column>
+          </Row.Column>
 
-          <Column width='2/3'>
+          <Row.Column width='2/3'>
             <Title>Card Collection</Title>
 
             <CardsFiltering
@@ -175,7 +174,7 @@ class Collection extends React.Component {
                 </>
               )}
             </CardsFiltering>
-          </Column>
+          </Row.Column>
         </Row>
 
         <PageMeta

@@ -3,7 +3,6 @@ import isEqual from 'lodash.isequal'
 import Board from '../BattleSimBoardDesktop'
 import CardsForm from '../BattleSimCardsForm'
 import CellFormDialog from '../BattleSimCellFormDialog'
-import Column from '../Column'
 import Deck from '../Deck'
 import GameForm from '../BattleSimGameForm'
 import PlayerForm from '../BattleSimPlayerForm'
@@ -112,12 +111,12 @@ export default class BattleSimAppDesktop extends React.Component {
         {this.props.mode === 'EDITOR' && (
           <div className='BattleSimAppDesktop__settings'>
             <Row wideGutter>
-              <Column width='1/3'>
+              <Row.Column width='1/3'>
                 <Title>Game settings</Title>
                 <GameForm {...this.props} />
-              </Column>
+              </Row.Column>
 
-              <Column width='1/3'>
+              <Row.Column width='1/3'>
                 <Title>Player settings</Title>
                 <PlayerForm
                   player='RED'
@@ -129,12 +128,12 @@ export default class BattleSimAppDesktop extends React.Component {
                   displayName='🔵 Blue player (you)'
                   {...this.props.players.BLUE}
                 />
-              </Column>
+              </Row.Column>
 
-              <Column width='1/3'>
+              <Row.Column width='1/3'>
                 <Title>Cards settings</Title>
                 <CardsForm {...this.props} />
-              </Column>
+              </Row.Column>
             </Row>
           </div>
         )}

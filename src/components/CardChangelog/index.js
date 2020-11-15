@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import CardChangesLegend from '../CardChangesLegend'
-import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
 import PageMeta from '../PageMeta'
@@ -59,10 +58,10 @@ export default function CardChangelog(props) {
       <HeaderBanner title='Card Changelog' />
 
       <Row desktopOnly wideGutter>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <Title>Filters</Title>
           <Row>
-            <Column>
+            <Row.Column>
               <label htmlFor='sorting'>Sort by</label>
               <select
                 id='sorting'
@@ -73,8 +72,8 @@ export default function CardChangelog(props) {
                 <option value='DATE'>Date</option>
                 <option value='CARD'>Card</option>
               </select>
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <label htmlFor='type'>Types of changes</label>
               <select
                 id='type'
@@ -88,13 +87,13 @@ export default function CardChangelog(props) {
                 <option value='MIXED'>Mixed</option>
                 <option value='NERF'>Nerf</option>
               </select>
-            </Column>
+            </Row.Column>
           </Row>
 
           <Row>
-            <Column>
+            <Row.Column>
               <CardChangesLegend />
-            </Column>
+            </Row.Column>
           </Row>
 
           <p className='CardChanges__disclaimer'>
@@ -114,8 +113,8 @@ export default function CardChangelog(props) {
             If you are looking for the details of a specific update, check out
             the <Link to='/releases'>release notes</Link>.
           </Info>
-        </Column>
-        <Column width='2/3'>
+        </Row.Column>
+        <Row.Column width='2/3'>
           {sorting === 'DATE'
             ? Object.keys(changesByDate)
                 .sort()
@@ -153,7 +152,7 @@ export default function CardChangelog(props) {
                     </ul>
                   </section>
                 ))}
-        </Column>
+        </Row.Column>
       </Row>
       <PageMeta
         title='Card Changes'

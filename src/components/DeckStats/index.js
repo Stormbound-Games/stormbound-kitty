@@ -1,5 +1,4 @@
 import React from 'react'
-import Column from '../Column'
 import Row from '../Row'
 import Title from '../Title'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
@@ -72,7 +71,7 @@ export default function DeckStats(props) {
       <Title style={{ marginTop: 0 }}>Statistics</Title>
 
       <Row>
-        <Column>
+        <Row.Column>
           <p>
             This deck (level ~{averageLevel}) is made of {cards.length} cards:{' '}
             <span
@@ -140,7 +139,7 @@ export default function DeckStats(props) {
             </strong>{' '}
             of them moving the front line).
           </p>
-        </Column>
+        </Row.Column>
       </Row>
     </div>
   )

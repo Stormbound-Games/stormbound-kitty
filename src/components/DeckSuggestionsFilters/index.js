@@ -4,7 +4,6 @@ import { BRAWLS } from '../../constants/brawl'
 import decks from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
 import CardSelect from '../CardSelect'
-import Column from '../Column'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
 import MobileTogglableContent from '../MobileTogglableContent'
@@ -45,14 +44,14 @@ export default React.memo(function DeckSuggestionsFilters(props) {
         className='DeckSuggestionsFilters'
       >
         <Row>
-          <Column>
+          <Row.Column>
             <FactionSelect
               value={props.faction}
               onChange={event => props.updateFaction(event.target.value)}
               withAny
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <label htmlFor='category'>Category</label>
             <select
               id='category'
@@ -67,11 +66,11 @@ export default React.memo(function DeckSuggestionsFilters(props) {
                 </option>
               ))}
             </select>
-          </Column>
+          </Row.Column>
         </Row>
 
         <Row>
-          <Column>
+          <Row.Column>
             <label htmlFor='name'>Name</label>
             <input
               type='search'
@@ -84,8 +83,8 @@ export default React.memo(function DeckSuggestionsFilters(props) {
               }}
               placeholder='e.g. Reckless Rush'
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <label htmlFor='including'>Including card</label>
             <CardSelect
               name='including'
@@ -97,11 +96,11 @@ export default React.memo(function DeckSuggestionsFilters(props) {
               withSpells
               withClear
             />
-          </Column>
+          </Row.Column>
         </Row>
 
         <Row>
-          <Column>
+          <Row.Column>
             <label htmlFor='author'>Author</label>
             <select
               id='author'
@@ -116,8 +115,8 @@ export default React.memo(function DeckSuggestionsFilters(props) {
                 </option>
               ))}
             </select>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <label htmlFor='brawl-modifier'>Brawl</label>
             <select
               id='brawl-modifier'
@@ -133,10 +132,10 @@ export default React.memo(function DeckSuggestionsFilters(props) {
                 </option>
               ))}
             </select>
-          </Column>
+          </Row.Column>
         </Row>
         <Row>
-          <Column>
+          <Row.Column>
             <label htmlFor='order'>Order</label>
             <select
               id='order'
@@ -150,8 +149,8 @@ export default React.memo(function DeckSuggestionsFilters(props) {
                 Feasibility
               </option>
             </select>
-          </Column>
-          <Column style={{ alignSelf: 'flex-end' }}>
+          </Row.Column>
+          <Row.Column style={{ alignSelf: 'flex-end' }}>
             <CTA
               disabled={
                 props.author === '*' &&
@@ -165,7 +164,7 @@ export default React.memo(function DeckSuggestionsFilters(props) {
             >
               Reset
             </CTA>
-          </Column>
+          </Row.Column>
         </Row>
       </form>
     </MobileTogglableContent>

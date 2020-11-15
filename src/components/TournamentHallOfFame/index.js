@@ -2,7 +2,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
-import Column from '../Column'
 import FAQSection from '../FAQSection'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
@@ -46,7 +45,7 @@ export default React.memo(function TournamentHallOfFame(props) {
         .map(tournament => (
           <section className='Tournament'>
             <Row desktopOnly wideGutter>
-              <Column>
+              <Row.Column>
                 <h2 className='Tournament__name'>{tournament.name}</h2>
                 <p className='Tournament__meta'>
                   {formatDate(getDate(tournament.date))} · By{' '}
@@ -56,10 +55,10 @@ export default React.memo(function TournamentHallOfFame(props) {
                   <p>{tournament.description}</p>
                 )}
                 <TournamentWinners podium={tournament.podium} />
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <TournamentDeck {...tournament} />
-              </Column>
+              </Row.Column>
             </Row>
           </section>
         ))}

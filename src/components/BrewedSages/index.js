@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
-import Column from '../Column'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
@@ -63,7 +62,7 @@ export default React.memo(function BrewedSages(props) {
       <Title>Episodes</Title>
       {chunk(podcasts.slice(0).reverse(), 3).map((row, index) => (
         <Row desktopOnly key={index}>
-          <Column width='1/3'>
+          <Row.Column width='1/3'>
             {row[0] && (
               <Teaser
                 {...row[0]}
@@ -74,8 +73,8 @@ export default React.memo(function BrewedSages(props) {
                 }}
               />
             )}
-          </Column>
-          <Column width='1/3'>
+          </Row.Column>
+          <Row.Column width='1/3'>
             {row[1] && (
               <Teaser
                 {...row[1]}
@@ -86,8 +85,8 @@ export default React.memo(function BrewedSages(props) {
                 }}
               />
             )}
-          </Column>
-          <Column width='1/3'>
+          </Row.Column>
+          <Row.Column width='1/3'>
             {row[2] && (
               <Teaser
                 {...row[2]}
@@ -98,7 +97,7 @@ export default React.memo(function BrewedSages(props) {
                 }}
               />
             )}
-          </Column>
+          </Row.Column>
         </Row>
       ))}
 

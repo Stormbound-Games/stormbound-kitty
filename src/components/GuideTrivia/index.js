@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Column from '../Column'
 import Guide from '../Guide'
 import Notice from '../Notice'
 import Row from '../Row'
@@ -131,7 +130,7 @@ export default React.memo(function GuideWinter(props) {
 
       <Guide.FullWidth>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <p>
               To do so, they used some in-game graphics as a scale, such as the
               hippo we can see in one of the pool. The average length of a hippo
@@ -151,26 +150,26 @@ export default React.memo(function GuideWinter(props) {
               </span>{' '}
               from the horizontal.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <img
               src='/assets/images/guides/scales.png'
               alt='A human knight and hippo used as measurement scales'
               style={{ marginTop: 0 }}
             />
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 
       <Row desktopOnly wideGutter>
-        <Column>
+        <Row.Column>
           <img
             src='/assets/images/guides/toad_fall.gif'
             alt='The fall of a toad at 0.25x speed'
             style={{ marginTop: 0 }}
           />
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <p>
             Then, they needed to figure out how fast toads from{' '}
             <CardLink id='F8' /> fall from a particular height. They could not
@@ -180,7 +179,7 @@ export default React.memo(function GuideWinter(props) {
             toad bounce to be 5.577m vertically, and it took 0.115s to fall that
             distance from rest.
           </p>
-        </Column>
+        </Row.Column>
       </Row>
 
       <Notice>

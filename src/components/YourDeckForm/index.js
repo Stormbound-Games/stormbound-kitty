@@ -1,5 +1,4 @@
 import React from 'react'
-import Column from '../Column'
 import CTA from '../CTA'
 import Row from '../Row'
 import serialisation from '../../helpers/serialisation'
@@ -17,7 +16,7 @@ export default React.memo(function YourDeckForm(props) {
   return (
     <form onSubmit={props.onSubmit} data-testid='deck-form'>
       <Row>
-        <Column>
+        <Row.Column>
           <label htmlFor='id'>Deck URL or ID</label>
           <input
             required
@@ -30,10 +29,10 @@ export default React.memo(function YourDeckForm(props) {
             value={deckID}
             onChange={event => setDeckID(event.target.value)}
           />
-        </Column>
+        </Row.Column>
       </Row>
       <Row>
-        <Column>
+        <Row.Column>
           <label htmlFor='name'>Deck name</label>
           <input
             required
@@ -45,8 +44,8 @@ export default React.memo(function YourDeckForm(props) {
             defaultValue={props.name}
             autoComplete='off'
           />
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <label htmlFor='category'>Deck category</label>
           <input
             type='text'
@@ -57,10 +56,10 @@ export default React.memo(function YourDeckForm(props) {
             required
             maxLength={25}
           />
-        </Column>
+        </Row.Column>
       </Row>
       <Row>
-        <Column>
+        <Row.Column>
           <CTA
             type='submit'
             data-testid='deck-submit'
@@ -71,12 +70,12 @@ export default React.memo(function YourDeckForm(props) {
               ? 'Update deck'
               : 'Add deck'}
           </CTA>
-        </Column>
-        <Column style={{ justifyContent: 'center' }}>
+        </Row.Column>
+        <Row.Column style={{ justifyContent: 'center' }}>
           <button type='button' onClick={props.cancel} className='ButtonAsLink'>
             Nevermind
           </button>
-        </Column>
+        </Row.Column>
       </Row>
     </form>
   )

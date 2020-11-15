@@ -1,5 +1,4 @@
 import React from 'react'
-import Column from '../Column'
 import CTA from '../CTA'
 import LearnMoreIcon from '../LearnMoreIcon'
 import Only from '../Only'
@@ -9,7 +8,7 @@ export default React.memo(function AdvancedCardSearch(props) {
   return (
     <form onSubmit={props.onSubmit}>
       <Row desktopOnly>
-        <Column width='3/4'>
+        <Row.Column width='3/4'>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <label htmlFor='search'>
               Advanced search <LearnMoreIcon anchor='#advanced-search' />
@@ -33,12 +32,12 @@ export default React.memo(function AdvancedCardSearch(props) {
             placeholder='e.g. is:satyr mana:3+ str:3-'
             data-testid='advanced-search-input'
           />
-        </Column>
-        <Column width='1/4' style={{ justifyContent: 'flex-end' }}>
+        </Row.Column>
+        <Row.Column width='1/4' style={{ justifyContent: 'flex-end' }}>
           <span style={{ marginBottom: '0.2em' }}>
             <CTA type='submit'>Search</CTA>
           </span>
-        </Column>
+        </Row.Column>
       </Row>
     </form>
   )

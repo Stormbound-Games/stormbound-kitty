@@ -2,7 +2,6 @@ import React from 'react'
 import { useRouteMatch, useHistory, Link } from 'react-router-dom'
 import Card from '../Card'
 import CardSelect from '../CardSelect'
-import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
 import LearnMoreIcon from '../LearnMoreIcon'
@@ -117,7 +116,7 @@ export default React.memo(function ValueCalculator(props) {
     <>
       <HeaderBanner title='Value Calculator' />
       <Row desktopOnly wideGutter>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <Title>What is this</Title>
           <p>
             This is a (simplified and experimental) card value calculator and
@@ -154,25 +153,25 @@ export default React.memo(function ValueCalculator(props) {
             <Link to='/member/Kitty'>Kitty#1909</Link> or{' '}
             <Link to='/member/Derk'>Derk#7109</Link> on Discord.
           </Info>
-        </Column>
-        <Column width='1/3'>
+        </Row.Column>
+        <Row.Column width='1/3'>
           <Title>First card</Title>
           <Row>
-            <Column width='3/4'>
+            <Row.Column width='3/4'>
               <SlotSelect
                 slot='A'
                 value={A.id}
                 setCard={id => setA(A => ({ id, level: A.level }))}
                 disabledOptions={disabledOptions}
               />
-            </Column>
-            <Column width='1/4'>
+            </Row.Column>
+            <Row.Column width='1/4'>
               <LevelSelect
                 slot='A'
                 value={A.level}
                 setLevel={level => setA(A => ({ level, id: A.id }))}
               />
-            </Column>
+            </Row.Column>
           </Row>
           {A.id && (
             <>
@@ -182,25 +181,25 @@ export default React.memo(function ValueCalculator(props) {
               </div>
             </>
           )}
-        </Column>
-        <Column width='1/3'>
+        </Row.Column>
+        <Row.Column width='1/3'>
           <Title>Second card</Title>
           <Row>
-            <Column width='3/4'>
+            <Row.Column width='3/4'>
               <SlotSelect
                 slot='B'
                 value={B.id}
                 setCard={id => setB(B => ({ id, level: B.level }))}
                 disabledOptions={disabledOptions}
               />
-            </Column>
-            <Column width='1/4'>
+            </Row.Column>
+            <Row.Column width='1/4'>
               <LevelSelect
                 slot='B'
                 value={B.level}
                 setLevel={level => setB(B => ({ level, id: B.id }))}
               />
-            </Column>
+            </Row.Column>
           </Row>
           {B.id && (
             <>
@@ -210,11 +209,11 @@ export default React.memo(function ValueCalculator(props) {
               </div>
             </>
           )}
-        </Column>
+        </Row.Column>
       </Row>
       <Row desktopOnly>
-        <Column width='1/3'></Column>
-        <Column width='2/3'>
+        <Row.Column width='1/3'></Row.Column>
+        <Row.Column width='2/3'>
           <p className='ValueCalculator__hint'>
             * The maximum is not in fact the theoretical maximum as{' '}
             <Link to='/faq#value-calculator'>some values are capped</Link> for
@@ -222,7 +221,7 @@ export default React.memo(function ValueCalculator(props) {
             realistic—albeit arbitrary—maximum value to be expected in a normal
             game.
           </p>
-        </Column>
+        </Row.Column>
       </Row>
       <PageMeta
         title='Value Calculator'

@@ -8,7 +8,6 @@ import ChartRarity from '../ChartRarity'
 import ChartStrength from '../ChartStrength'
 import ChartStrengthMana from '../ChartStrengthMana'
 import ChartType from '../ChartType'
-import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
 import Only from '../Only'
@@ -27,7 +26,7 @@ export default React.memo(() => {
         <HeaderBanner title='Cards Statistics' />
 
         <Row desktopOnly>
-          <Column width='1/3'>
+          <Row.Column width='1/3'>
             <Title>What is this</Title>
             <p className='CardStats__intro'>
               This is data visualisation about the current state of the
@@ -44,8 +43,8 @@ export default React.memo(() => {
                 <Link to='/collection/stats'>the collection section</Link>.
               </Info>
             </Only.CustomCollection>
-          </Column>
-          <Column
+          </Row.Column>
+          <Row.Column
             width={66}
             style={{
               // For some reason having 100%-width charts cause this column from
@@ -55,43 +54,43 @@ export default React.memo(() => {
             }}
           >
             <Row desktopOnly>
-              <Column>
+              <Row.Column>
                 <ChartType />
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <ChartRarity />
-              </Column>
+              </Row.Column>
             </Row>
             <Row desktopOnly>
-              <Column>
+              <Row.Column>
                 <ChartMovement />
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <ChartAbility />
-              </Column>
+              </Row.Column>
             </Row>
             <Row desktopOnly>
-              <Column>
+              <Row.Column>
                 <ChartModifier />
-              </Column>
-              <Column></Column>
+              </Row.Column>
+              <Row.Column />
             </Row>
             <Row desktopOnly>
-              <Column>
+              <Row.Column>
                 <ChartMana />
-              </Column>
+              </Row.Column>
             </Row>
             <Row desktopOnly>
-              <Column>
+              <Row.Column>
                 <ChartStrength />
-              </Column>
+              </Row.Column>
             </Row>
             <Row desktopOnly>
-              <Column>
+              <Row.Column>
                 <ChartStrengthMana />
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
+          </Row.Column>
         </Row>
       </div>
 

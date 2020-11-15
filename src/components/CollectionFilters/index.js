@@ -2,7 +2,6 @@ import React from 'react'
 import { TYPES, RARITIES, RACES } from '../../constants/game'
 import AdvancedCardSearch from '../AdvancedCardSearch'
 import Checkbox from '../Checkbox'
-import Column from '../Column'
 import FactionSelect from '../FactionSelect'
 import Icon from '../Icon'
 import Only from '../Only'
@@ -48,9 +47,9 @@ export default React.memo(function CollectionFilters(props) {
         onSubmit={event => event.preventDefault()}
       >
         <Row desktopOnly>
-          <Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <FactionSelect
                   value={props.faction}
                   onChange={event => props.setFaction(event.target.value)}
@@ -58,8 +57,8 @@ export default React.memo(function CollectionFilters(props) {
                   withAny
                   data-testid='faction-select'
                 />
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <label htmlFor='type'>Type</label>
                 <select
                   name='type'
@@ -75,12 +74,12 @@ export default React.memo(function CollectionFilters(props) {
                     </option>
                   ))}
                 </select>
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <label htmlFor='status'>Status</label>
                 <select
                   name='status'
@@ -94,8 +93,8 @@ export default React.memo(function CollectionFilters(props) {
                   <option value='UPGRADABLE'>Upgradable</option>
                   <option value='EXCESS'>Excess copies</option>
                 </select>
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <label htmlFor='level'>Level</label>
                 <select
                   name='level'
@@ -111,15 +110,15 @@ export default React.memo(function CollectionFilters(props) {
                   <option value='4'>4</option>
                   <option value='5'>5</option>
                 </select>
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
+          </Row.Column>
         </Row>
 
         <Row desktopOnly>
-          <Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <label htmlFor='rarity'>Rarity</label>
                 <select
                   name='rarity'
@@ -135,8 +134,8 @@ export default React.memo(function CollectionFilters(props) {
                     </option>
                   ))}
                 </select>
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <label htmlFor='race'>Race</label>
                 <select
                   name='race'
@@ -152,12 +151,12 @@ export default React.memo(function CollectionFilters(props) {
                     </option>
                   ))}
                 </select>
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <Only.CustomCollection>
                   <label htmlFor='order'>Order</label>
                   <select
@@ -172,8 +171,8 @@ export default React.memo(function CollectionFilters(props) {
                     <option value='VALUE'>Value</option>
                   </select>
                 </Only.CustomCollection>
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <label htmlFor='text'>Name</label>
                 <input
                   type='search'
@@ -184,15 +183,15 @@ export default React.memo(function CollectionFilters(props) {
                   placeholder='e.g. Faun'
                   data-testid='name-input'
                 />
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
+          </Row.Column>
         </Row>
 
         <Row desktopOnly>
-          <Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <Checkbox
                   id='elder'
                   checked={props.elder}
@@ -201,8 +200,8 @@ export default React.memo(function CollectionFilters(props) {
                 >
                   Elder
                 </Checkbox>
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <Checkbox
                   id='hero'
                   checked={props.hero}
@@ -211,12 +210,12 @@ export default React.memo(function CollectionFilters(props) {
                 >
                   Hero
                 </Checkbox>
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <Row>
-              <Column style={{ justifyContent: 'center' }}>
+              <Row.Column style={{ justifyContent: 'center' }}>
                 <button
                   type='button'
                   onClick={props.toggleAdvancedSearch}
@@ -225,8 +224,8 @@ export default React.memo(function CollectionFilters(props) {
                   <Icon icon='search' className='CollectionFilters__icon' />{' '}
                   Advanced search
                 </button>
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <button
                   onClick={props.resetFilters}
                   type='button'
@@ -239,9 +238,9 @@ export default React.memo(function CollectionFilters(props) {
                   </span>{' '}
                   Reset filters
                 </button>
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
+          </Row.Column>
         </Row>
       </form>
     </MobileTogglableContent>
