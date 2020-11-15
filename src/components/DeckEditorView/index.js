@@ -211,7 +211,7 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
           <Title style={{ marginTop: 0 }}>Deck</Title>
 
           <Deck
-            showUpgrades
+            showUpgrades={adjustCardLevels}
             showTooltips={cardTooltips}
             id='deck'
             deck={deck}
