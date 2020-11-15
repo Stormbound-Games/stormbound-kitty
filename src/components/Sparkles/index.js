@@ -29,12 +29,12 @@ const Sparkles = props => {
   }, ...interval)
 
   return (
-    <div className='Sparkles'>
+    <span className='Sparkles'>
       {sparkles.map(sparkle => (
         <Sparkle key={sparkle.id} {...sparkle} />
       ))}
       {props.children}
-    </div>
+    </span>
   )
 }
 

@@ -6,12 +6,13 @@ import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Teaser from '../Teaser'
+import Title from '../Title'
 import chunk from '../../helpers/chunk'
 import getBrawlDescription from '../../helpers/getBrawlDescription'
 import getCurrentBrawl from '../../helpers/getCurrentBrawl'
 import getGuide from '../../helpers/getGuide'
 import isBrawlRunning from '../../helpers/isBrawlRunning'
-import { BRAWLS, BRAWL_INDEX } from '../../constants/brawl'
+import { BRAWLS } from '../../constants/brawl'
 
 const BrawlTeaser = React.memo(function BrawlTeaser(props) {
   return (
@@ -76,17 +77,29 @@ const BrawlBanner = React.memo(function BrawlBanner(props) {
 })
 
 export default React.memo(function BrawlIndex() {
-  const brawl = BRAWL_INDEX[getCurrentBrawl().id]
+  const currentBrawl = getCurrentBrawl()
+  const index = BRAWLS.findIndex(brawl => brawl.id === currentBrawl.id)
+  const brawl = BRAWLS[index]
+  const brawls = BRAWLS.slice(index + 1).concat(BRAWLS.slice(0, index))
 
   return (
     <>
-      <Only.Desktop>
-        <HeaderBanner title='Brawl Tracker' />
-        <BrawlBanner {...brawl} />
-        <hr />
-      </Only.Desktop>
+      <HeaderBanner title='Brawl Tracker' />
 
-      {chunk(BRAWLS, 3).map((row, index) => (
+      <Only.Desktop>
+        <BrawlBanner {...brawl} />
+      </Only.Desktop>
+      <Only.Mobile>
+        <Title>Upcoming Brawl</Title>
+        <BrawlTeaser
+          {...currentBrawl}
+          description={getBrawlDescription(currentBrawl.id)}
+        />
+      </Only.Mobile>
+
+      <Title>Other Brawls</Title>
+
+      {chunk(brawls, 3).map((row, index) => (
         <Row key={index} desktopOnly wideGutter>
           <Column width='1/3'>
             {row[0] && (
