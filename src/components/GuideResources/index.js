@@ -286,7 +286,7 @@ export default React.memo(function GuideResources(props) {
           Kitty’s guide on achieving it with a mostly common SF deck
         </Link>
         , or try out{' '}
-        <Link to='/deck/3n13n23s13n33s243s23n633n673s63n153s83s11/detail'>
+        <Link to='/deck/3xn1n2s1n3s24s2n67s6n15s8n63s11/detail'>
           Reckless Rush
         </Link>
         ’s deck.
@@ -310,7 +310,7 @@ export default React.memo(function GuideResources(props) {
         Leave Brawl beyond Milestone 1 aside as it is costly, the many modifiers
         will probably make your deck less competitive and the rewards are skewed
         towards higher tier cards. That being said,{' '}
-        <Link to='/deck/3n13n23s13n33s243s23n633n673s63n153s83s11/detail'>
+        <Link to='/deck/3xn1n2s1n3s24s2n67s6n15s8n63s11/detail'>
           Reckless Rush
         </Link>
         ’s deck does perform well in several current Brawl modifiers. However,

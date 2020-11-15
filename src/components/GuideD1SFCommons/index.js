@@ -18,7 +18,7 @@ import './index.css'
 
 const guide = getGuide('D1_SF_COMMONS_GUIDE')
 
-const DECK_ID = '5n15n25f45f35n35n95n125n165n285f145n305n52'
+const DECK_ID = '5xn1n2f3n3f4n9n12n16n28f14n30n52'
 
 const Graph = props => {
   const deck = serialisation.deck.deserialise(props.id).map(getResolvedCardData)
@@ -422,7 +422,7 @@ export default React.memo(function GuideD1SFCommons(props) {
       </p>
       <p>
         When facing a rush deck, such as{' '}
-        <Link to='/deck/3n13n23s13n33s243s23n633n673s63n153s83s11/detail'>
+        <Link to='/deck/3xn1n2s1n3s24s2n67s6n15s8n63s11/detail'>
           Reckless Rush
         </Link>
         , I would recommend defending. With 4 runners costing 3/4/5/7 mana, our

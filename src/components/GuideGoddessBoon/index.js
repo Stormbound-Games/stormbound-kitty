@@ -70,7 +70,7 @@ export default React.memo(function GuideGoddessBoon(props) {
           </Column>
           <Column>
             <FeaturedDeck
-              id='5n15w25n35n95n115w45w95w125n365w105w195n58'
+              id='5xn1w2n3n9n11w4w9w12n36w10w19n58'
               name='Goddess Boon'
               author='Frostkhan'
               category='BRAWL'
@@ -100,7 +100,7 @@ export default React.memo(function GuideGoddessBoon(props) {
           </Column>
           <Column>
             <FeaturedDeck
-              id='5w25n35n95n115n145w45w285w95w125w105w195n58'
+              id='5xw2n3n9n11n14w4w28w9w12w10w19n58'
               name='Frost Deck'
               author='CriticalPancake'
               category='BRAWL'
@@ -121,7 +121,7 @@ export default React.memo(function GuideGoddessBoon(props) {
           </Column>
           <Column>
             <FeaturedDeck
-              id='5n15w25n35n95n145w45w95w125n685w175w195w23'
+              id='5xn1w2n3n9n14w4w9w12n68w17w19w23'
               name='Frosty Feline Dwarf'
               author='Adig'
               category='BRAWL'

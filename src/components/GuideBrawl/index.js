@@ -194,7 +194,7 @@ export default React.memo(function GuideBrawl(props) {
       >
         It is possible to analyse the mana-curve of a deck with a Brawl
         mana-modifier in the deck detail of the site (for example,{' '}
-        <Link to='/deck/5n15f85n25f45f35n35n675n95n155f105n405n76/detail'>
+        <Link to='/deck/5xn1n2f3n3f8f4n67n9n15f10n40n76/detail'>
           Mirc’s deck for the spell Brawl
         </Link>
         ). Additionally, it can be practiced in the dry-runner, if only to test

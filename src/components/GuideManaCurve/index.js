@@ -100,7 +100,7 @@ export default React.memo(function GuideManaCurve(props) {
       <Guide.FullWidth padding='60px'>
         <Row desktopOnly wideGutter>
           <Column>
-            <Graph id='5n15n25i15n35n65i55n135i75n185i135i205n39' />{' '}
+            <Graph id='5xn1n2i1n3n6i5n13i7n18i13i20n39' />{' '}
           </Column>
           <Column>
             <p>
@@ -175,14 +175,14 @@ export default React.memo(function GuideManaCurve(props) {
               However, we see that starting turn mana 8, the likelihood of
               having too much mana is getting greater and greater. This is
               indicative of a{' '}
-              <Link to='/deck/3n13n23s13n33s243s23n633n673s63n153s83s11/detail'>
+              <Link to='/deck/3xn1n2s1n3s24s2n67s6n15s8n63s11/detail'>
                 rush deck
               </Link>
               , which will perform increasingly worse as the game progresses.
             </p>
           </Column>
           <Column>
-            <Graph id='3n13n23s13n33s243s23n633n673s63n153s83s11' />
+            <Graph id='3xn1n2s1n3s24s2n67s6n15s8n63s11' />
           </Column>
         </Row>
       </Guide.FullWidth>
@@ -190,7 +190,7 @@ export default React.memo(function GuideManaCurve(props) {
       <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
           <Column>
-            <Graph id='1n191n691n441n251f241n411n541n721f21n211n221n62' />
+            <Graph id='1xf2n62n19f24n21n22n41n25n69n44n72n54' />
           </Column>
           <Column>
             <p>
@@ -259,7 +259,7 @@ export default React.memo(function GuideManaCurve(props) {
             </p>
           </Column>
           <Column>
-            <Graph id='3n13s13n33n43n633n132n233s83n163s133n393n46' />
+            <Graph id='3xn1s1n3n23n4n13s8n63n16s13n39n46' />
           </Column>
         </Row>
       </Guide.FullWidth>
@@ -267,7 +267,7 @@ export default React.memo(function GuideManaCurve(props) {
       <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
           <Column>
-            <Graph id='5n15n25w25n35n45n145n185w135w165w155w195n58' />
+            <Graph id='5xn1n2w2n3n4n14n18w13w16w15w19n58' />
           </Column>
           <Column>
             <p>
@@ -292,11 +292,11 @@ export default React.memo(function GuideManaCurve(props) {
 
       <p>
         Both the following graphs are for the{' '}
-        <Link to='/deck/1n31n41n51n111n121n131n161n281n301n321n341n52/detail'>
+        <Link to='/deck/1xn3n4n5n11n12n13n16n28n30n32n34n52/detail'>
           same deck
         </Link>{' '}
         (with a{' '}
-        <Link to='/deck/1n31n41n51n111n121n131n161n91n281n301n321n52/detail'>
+        <Link to='/deck/1xn3n4n5n9n11n12n13n16n28n30n32n52/detail'>
           single card change
         </Link>
         ).
@@ -316,13 +316,13 @@ export default React.memo(function GuideManaCurve(props) {
         <Row desktopOnly wideGutter>
           <Column>
             <Graph
-              id='1n31n41n51n111n121n131n161n281n301n321n341n52'
+              id='1xn3n4n5n11n12n13n16n28n30n32n34n52'
               syncId='comparison'
             />
           </Column>
           <Column>
             <Graph
-              id='1n31n41n51n111n121n131n161n91n281n301n321n52'
+              id='1xn3n4n5n9n11n12n13n16n28n30n32n52'
               syncId='comparison'
             />
           </Column>
@@ -390,7 +390,7 @@ export default React.memo(function GuideManaCurve(props) {
         <Row desktopOnly wideGutter>
           <Column>
             <Graph
-              id='5n15n25n235n145w55n185n295n445n485w195w215w23'
+              id='5xn1n2n23n14w5n18n29n44n48w19w21w23'
               modifier='SPELL_MANA'
             />
           </Column>
@@ -398,7 +398,7 @@ export default React.memo(function GuideManaCurve(props) {
             <p>
               The graph <Only.Desktop>on the left</Only.Desktop>
               <Only.Mobile>above</Only.Mobile> for{' '}
-              <Link to='/deck/5n15n25n235n145w55n185n295n445n485w195w215w23/detail'>
+              <Link to='/deck/5xn1n2n23n14w5n18n29n44n48w19w21w23/detail'>
                 Frostkhan’s Eye Tempest deck
               </Link>{' '}
               is pretty astonishing, because both lines almost intersect on turn
@@ -421,7 +421,7 @@ export default React.memo(function GuideManaCurve(props) {
             <p>
               In the graph <Only.Desktop>on the right</Only.Desktop>
               <Only.Mobile>below</Only.Mobile> from{' '}
-              <Link to='/deck/5n15f85n25f45f35n35n675n95n155f105n405n76/detail'>
+              <Link to='/deck/5xn1n2f3n3f8f4n67n9n15f10n40n76/detail'>
                 The_mirc’s spell Brawl deck
               </Link>
               , the cards line does not start at 0, which is particularly
@@ -435,10 +435,7 @@ export default React.memo(function GuideManaCurve(props) {
             </p>
           </Column>
           <Column>
-            <Graph
-              id='5n15f85n25f45f35n35n675n95n155f105n405n76'
-              modifier='SPELL_MANA'
-            />
+            <Graph id='5xn1n2f3n3f8f4n67n9n15f10n40n76' modifier='SPELL_MANA' />
           </Column>
         </Row>
       </Guide.FullWidth>

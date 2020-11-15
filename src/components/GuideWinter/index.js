@@ -168,7 +168,7 @@ export default React.memo(function GuideWinter(props) {
         <Row desktopOnly wideGutter>
           <Column>
             <FeaturedDeck
-              id='3n33n113n123n163w53n183n283w123w133w153w193w21'
+              id='3xn3n11n12n16w5n18n28w12w13w15w19w21'
               name='Winterfell'
               author='WinterBoii'
               category='DIAMOND_1'

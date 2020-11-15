@@ -65,7 +65,7 @@ export default React.memo(function GuideSelfControl(props) {
           </Column>
           <Column>
             <FeaturedDeck
-              id='5n15n25s15n35s245n45s25n675s35s145s9'
+              id='5xn1n2s1n3s24n4s2n67s3s14s9'
               name='Basic Swarm Rush'
               author='basically everyone'
               category='BRAWL'

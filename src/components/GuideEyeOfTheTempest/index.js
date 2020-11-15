@@ -84,7 +84,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
           </Column>
           <Column>
             <FeaturedDeck
-              id='5n15n25s15n35s245s25n675s65n145n155s155s20'
+              id='5xn1n2s1n3s24s2n67s6n14n15s15s20'
               name='Die Die Die'
               author='CriticalPancake'
               category='BRAWL'
@@ -110,7 +110,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
           </Column>
           <Column>
             <FeaturedDeck
-              id='5n25f45f25f35n35f55f85f105f115f175n405f22'
+              id='5xn2f2f3n3f8f4f5f10f11f17n40f22'
               name='Toad Spam'
               author='OneC'
               category='BRAWL'
@@ -140,7 +140,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
           </Column>
           <Column>
             <FeaturedDeck
-              id='5n15n25n235n145w55n185n295n445n485w195w215w23'
+              id='5xn1n2n23n14w5n18n29n44n48w19w21w23'
               name='Eye of the Tempest'
               author='Frostkhan'
               category='BRAWL'

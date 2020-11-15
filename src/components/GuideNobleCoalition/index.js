@@ -100,7 +100,7 @@ export default React.memo(function GuideNobleCoalition(props) {
           </Column>
           <Column>
             <FeaturedDeck
-              id='5n15s15n35s25n675n665n125s65n715n655n695n68'
+              id='5xn1n66s1n3s2n67n12s6n71n65n69n68'
               name='Swarm Cat Runners'
               author='The_mirc'
               category='BRAWL'

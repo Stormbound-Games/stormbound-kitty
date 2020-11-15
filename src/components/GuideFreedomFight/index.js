@@ -76,7 +76,7 @@ export default React.memo(function GuideFreedomFight(props) {
           </Column>
           <Column>
             <FeaturedDeck
-              id='5n15f85n95f55f75f105f125f155f175f285n525n53'
+              id='5xn1f8n9f5f7f10f12f15f17f28n52n53'
               name='Freedom Fight'
               author='Frostkhan'
               category='BRAWL'
@@ -100,7 +100,7 @@ export default React.memo(function GuideFreedomFight(props) {
           </Column>
           <Column>
             <FeaturedDeck
-              id='5n15f45n95f55n145f105f125f155f175f285n525n53'
+              id='5xn1f4n9f5n14f10f12f15f17f28n52n53'
               name='CP Toads'
               author='CriticalPancake'
               category='BRAWL'
@@ -122,7 +122,7 @@ export default React.memo(function GuideFreedomFight(props) {
           </Column>
           <Column>
             <FeaturedDeck
-              id='5n15n25f25f45n95f105f125f155f175f285n525n53'
+              id='5xn1n2f2f4n9f10f12f15f17f28n52n53'
               name='SP Toads'
               author='SeveralPeople'
               category='BRAWL'
@@ -152,7 +152,7 @@ export default React.memo(function GuideFreedomFight(props) {
           </Column>
           <Column>
             <FeaturedDeck
-              id='5n15f85f45n95f255n165n185f155f175f285n525n53'
+              id='5xn1f8f4n9f25n16n18f15f17f28n52n53'
               name='Adig Toads'
               author='Adig'
               category='BRAWL'

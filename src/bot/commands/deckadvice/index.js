@@ -12,7 +12,7 @@ export default {
       .setTitle(`${this.label}: help`)
       .setURL('https://stormbound-kitty.com/deck')
       .setDescription(
-        `Get advice and suggestions for the given deck. It expects a fully qualified Stormbound-Kitty deck URL, or a Stormbound-Kitty deck ID. For instance, \`!${this.command} 3n13n23s13n33s243s23n633n673s63n153s83s11\`. To get the deck URL/ID, either compose it on the site, or use the \`!deckid\` command.`
+        `Get advice and suggestions for the given deck. It expects a fully qualified Stormbound-Kitty deck URL, or a Stormbound-Kitty deck ID. For instance, \`!${this.command} 3xn1n2s1n3s24s2n67s6n15s8n63s11\`. To get the deck URL/ID, either compose it on the site, or use the \`!deckid\` command.`
       )
   },
   handler: async function (message) {

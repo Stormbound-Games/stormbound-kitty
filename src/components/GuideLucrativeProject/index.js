@@ -90,7 +90,7 @@ export default React.memo(function GuideLucrativeProject(props) {
           </Column>
           <Column>
             <FeaturedDeck
-              id='5n15n25i15n35n45i45i55n675i85i65i165i21'
+              id='5xn1n2i1n3n4i4i5n67i8i6i16i21'
               name='Iron Movement'
               author='CriticalPancake'
               category='BRAWL'
@@ -111,7 +111,7 @@ export default React.memo(function GuideLucrativeProject(props) {
           </Column>
           <Column>
             <FeaturedDeck
-              id='5n15i15i25n35n45i45i55i85i105i205i165i21'
+              id='5xn1i1i2n3n4i4i5i8i10i20i16i21'
               name='Small Ball'
               author='OneC'
               category='BRAWL'
