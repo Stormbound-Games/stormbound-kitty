@@ -7,25 +7,10 @@
   text-decoration: none;
 }
 
-.FAQ__toc-list {
+ul.FAQ__toc-list.FAQ__toc-list {
   margin-top: 0.5em;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
   padding-left: 0;
-}
-
-.FAQ__toc-list > li {
-  margin-bottom: 0.25em;
-  list-style-position: inside;
-  padding: 0;
-}
-
-.FAQ__toggle {
-  margin-left: 1ch;
-  color: var(--beige);
-}
-
-.FAQ__toggle:hover {
-  color: var(--white);
 }
 
 .FAQ__image {
