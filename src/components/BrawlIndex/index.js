@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
@@ -101,30 +100,30 @@ export default React.memo(function BrawlIndex() {
 
       {chunk(brawls, 3).map((row, index) => (
         <Row key={index} desktopOnly wideGutter>
-          <Column width='1/3'>
+          <Row.Column width='1/3'>
             {row[0] && (
               <BrawlTeaser
                 {...row[0]}
                 description={getBrawlDescription(row[0].id)}
               />
             )}
-          </Column>
-          <Column width='1/3'>
+          </Row.Column>
+          <Row.Column width='1/3'>
             {row[1] && (
               <BrawlTeaser
                 {...row[1]}
                 description={getBrawlDescription(row[1].id)}
               />
             )}
-          </Column>
-          <Column width='1/3'>
+          </Row.Column>
+          <Row.Column width='1/3'>
             {row[2] && (
               <BrawlTeaser
                 {...row[2]}
                 description={getBrawlDescription(row[2].id)}
               />
             )}
-          </Column>
+          </Row.Column>
         </Row>
       ))}
 

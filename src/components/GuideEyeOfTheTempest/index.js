@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Column from '../Column'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
 import Notice from '../Notice'
@@ -63,7 +62,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
 
       <Guide.FullWidth padding='60px'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <h3 style={{ marginTop: '0.5em' }}>
               CriticalPancake’s Die Die Die
             </h3>
@@ -81,8 +80,8 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
               He also mentioned that <CardLink id='N14' /> got swapped out in
               the last games, because they were over too quickly anyways.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <FeaturedDeck
               id='5xn1n2s1n3s24s2n67s6n14n15s15s20'
               name='Die Die Die'
@@ -91,10 +90,10 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
               faction='shadowfen'
               brawl='SPELL_MANA'
             />
-          </Column>
+          </Row.Column>
         </Row>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <h3 style={{ marginTop: '0.5em' }}>OneC’s Toad Spam</h3>
             <p>
               Not too many spells, but toads are just really strong, and{' '}
@@ -107,8 +106,8 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
               Other variations could include cheaper spells and cheaper runners,
               such as <CardLink id='N67' /> and <CardLink id='F25' />.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <FeaturedDeck
               id='5xn2f2f3n3f8f4f5f10f11f17n40f22'
               name='Toad Spam'
@@ -117,10 +116,10 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
               faction='shadowfen'
               brawl='SPELL_MANA'
             />
-          </Column>
+          </Row.Column>
         </Row>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <h3 style={{ marginTop: '0.5em' }}>
               Frostkhan’s Eye of the Tempest
             </h3>
@@ -137,8 +136,8 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
               to trade offence for defence and really bank on permanent health
               regeneration.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <FeaturedDeck
               id='5xn1n2n23n14w5n18n29n44n48w19w21w23'
               name='Eye of the Tempest'
@@ -147,7 +146,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
               faction='winter'
               brawl='SPELL_MANA'
             />
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 

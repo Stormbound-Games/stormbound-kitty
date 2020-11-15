@@ -5,7 +5,6 @@ import BrawlCalculatorMode from '../BrawlCalculatorMode'
 import BrawlCalculatorOutcome from '../BrawlCalculatorOutcome'
 import BrawlCalculatorSettings from '../BrawlCalculatorSettings'
 import BrawlCalculatorSetup from '../BrawlCalculatorSetup'
-import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
 import Only from '../Only'
@@ -35,7 +34,7 @@ export default React.memo(function BrawlCalculator(props) {
     <>
       <HeaderBanner title='Brawl Calculator' />
       <Row desktopOnly wideGutter>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <Title>What is this</Title>
           <p>
             This is a calculator to plan your Brawl journey. Whether you have
@@ -48,10 +47,10 @@ export default React.memo(function BrawlCalculator(props) {
             the <Link to='/brawl'>Brawl tracker</Link>. New to the Brawl?{' '}
             <Link to='/guides/brawl'>Read the guide</Link>.
           </Info>
-        </Column>
-        <Column width='2/3'>
+        </Row.Column>
+        <Row.Column width='2/3'>
           <Row desktopOnly wideGutter>
-            <Column>
+            <Row.Column>
               <Title>Settings</Title>
               <BrawlCalculatorMode mode={mode} setMode={setMode} />
               <BrawlCalculatorSettings
@@ -70,8 +69,8 @@ export default React.memo(function BrawlCalculator(props) {
                 discount={discount}
                 setDiscount={setDiscount}
               />
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <Title>Outcome</Title>
               <BrawlCalculatorOutcome
                 crowns={crowns}
@@ -82,7 +81,7 @@ export default React.memo(function BrawlCalculator(props) {
                 setup={setup}
                 winRate={winRate}
               />
-            </Column>
+            </Row.Column>
           </Row>
           <Only.Desktop>
             <Title>Milestones breakdown</Title>
@@ -130,7 +129,7 @@ export default React.memo(function BrawlCalculator(props) {
               </tbody>
             </Table>
           </Only.Desktop>
-        </Column>
+        </Row.Column>
       </Row>
       <PageMeta
         title='Brawl Calculator'

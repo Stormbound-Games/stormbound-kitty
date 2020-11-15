@@ -6,7 +6,6 @@ import TrackerHeader from '../TrackerHeader'
 import TrackerHint from '../TrackerHint'
 import TrackerInfo from '../TrackerInfo'
 import TrackerTitle from '../TrackerTitle'
-import Column from '../Column'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
@@ -18,13 +17,13 @@ export default React.memo(function Tracker(props) {
       <h1 className='VisuallyHidden'>Deck Tracker</h1>
 
       <Row desktopOnly wideGutter>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <Title>Your deck</Title>
           <TrackerDeck {...props} />
           <TrackerInfo />
-        </Column>
+        </Row.Column>
 
-        <Column width='2/3'>
+        <Row.Column width='2/3'>
           <div className='Tracker__main'>
             <TrackerTitle status={props.status} />
             <TrackerHeader {...props} />
@@ -35,7 +34,7 @@ export default React.memo(function Tracker(props) {
             />
             <TrackerActions {...props} />
           </div>
-        </Column>
+        </Row.Column>
       </Row>
 
       <PageMeta

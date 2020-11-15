@@ -2,7 +2,6 @@ import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import { TIER_COLORS, MAX_TIERS } from '../../constants/list'
 import Article from '../Article'
-import Column from '../Column'
 import CTA from '../CTA'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
@@ -27,7 +26,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
       smallFontSize
     >
       <Row wideGutter desktopOnly>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <Title style={{ marginTop: 0 }}>Information</Title>
 
           <p>
@@ -39,15 +38,15 @@ export default React.memo(function ListBuilderDisplayView(props) {
           <ListBuilderToc tiers={tiers} />
 
           <Row>
-            <Column>
+            <Row.Column>
               <CTA to={`/list/${id}`}>Edit list</CTA>
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <ShareButton title='Share tier list' />
-            </Column>
+            </Row.Column>
           </Row>
-        </Column>
-        <Column width='2/3'>
+        </Row.Column>
+        <Row.Column width='2/3'>
           <Title style={{ marginTop: 0 }}>Tier list</Title>
 
           {tiers.map((tier, index) => (
@@ -59,7 +58,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
               isEditable={false}
             />
           ))}
-        </Column>
+        </Row.Column>
       </Row>
 
       <PageMeta

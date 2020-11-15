@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Column from '../Column'
 import GuideTeaser from '../GuideTeaser'
 import HeaderBanner from '../HeaderBanner'
 import Notice from '../Notice'
@@ -14,9 +13,15 @@ import chunk from '../../helpers/chunk'
 const Category = props =>
   chunk(props.guides, 3).map((row, index) => (
     <Row key={index} desktopOnly wideGutter>
-      <Column width='1/3'>{row[0] && <GuideTeaser {...row[0]} />}</Column>
-      <Column width='1/3'>{row[1] && <GuideTeaser {...row[1]} />}</Column>
-      <Column width='1/3'>{row[2] && <GuideTeaser {...row[2]} />}</Column>
+      <Row.Column width='1/3'>
+        {row[0] && <GuideTeaser {...row[0]} />}
+      </Row.Column>
+      <Row.Column width='1/3'>
+        {row[1] && <GuideTeaser {...row[1]} />}
+      </Row.Column>
+      <Row.Column width='1/3'>
+        {row[2] && <GuideTeaser {...row[2]} />}
+      </Row.Column>
     </Row>
   ))
 

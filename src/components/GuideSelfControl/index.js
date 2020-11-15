@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Column from '../Column'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
 import Info from '../Info'
@@ -48,7 +47,7 @@ export default React.memo(function GuideSelfControl(props) {
 
       <Guide.FullWidth padding='60px'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <h3 style={{ marginTop: '0.5em' }}>Basic Swarm Rush</h3>
             <p>
               Most decks encountered in this Brawl are based on these cards,
@@ -62,8 +61,8 @@ export default React.memo(function GuideSelfControl(props) {
               is. For more details about possible contender, refer to{' '}
               <a href='#cards'>the next section</a>.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <FeaturedDeck
               id='5xn1n2s1n3s24n4s2n67s3s14s9'
               name='Basic Swarm Rush'
@@ -72,10 +71,10 @@ export default React.memo(function GuideSelfControl(props) {
               faction='swarm'
               noAuthorLink
             />
-          </Column>
+          </Row.Column>
         </Row>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <h3 style={{ marginTop: '0.5em' }}>
               CriticalPancake’s Satyr’s Demise
             </h3>
@@ -96,8 +95,8 @@ export default React.memo(function GuideSelfControl(props) {
               able to pull this off by avoiding Swarm entirely. TheMirc also did
               run Shadowfen in that Brawl.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <FeaturedDeck
               id='5n15f45f35n35n44f84n674f55n634f105f144f17'
               name='Satyr’s Demise'
@@ -105,7 +104,7 @@ export default React.memo(function GuideSelfControl(props) {
               category='BRAWL'
               faction='shadowfen'
             />
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 

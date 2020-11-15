@@ -1,5 +1,4 @@
 import React from 'react'
-import Column from '../Column'
 import NumberInput from '../NumberInput'
 import Row from '../Row'
 import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
@@ -21,7 +20,7 @@ export default React.memo(function BrawlCalculatorSettings(props) {
   return (
     <>
       <Row>
-        <Column>
+        <Row.Column>
           <label htmlFor='winRate'>Win rate (%)</label>
           <NumberInput
             id='winRate'
@@ -32,8 +31,8 @@ export default React.memo(function BrawlCalculatorSettings(props) {
             max={100}
             placeholder='e.g. 50'
           />
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <label htmlFor='crowns'>Crowns</label>
           <NumberInput
             id='crowns'
@@ -44,10 +43,10 @@ export default React.memo(function BrawlCalculatorSettings(props) {
             max={250}
             placeholder='e.g. 5'
           />
-        </Column>
+        </Row.Column>
       </Row>
       <Row>
-        <Column>
+        <Row.Column>
           {props.mode === 'COINS' ? (
             <>
               <label htmlFor='coins'>Coins</label>
@@ -83,7 +82,7 @@ export default React.memo(function BrawlCalculatorSettings(props) {
               </select>
             </>
           ) : null}
-        </Column>
+        </Row.Column>
       </Row>
     </>
   )

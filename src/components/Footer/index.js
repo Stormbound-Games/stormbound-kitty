@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Column from '../Column'
 import Icon from '../Icon'
 import Only from '../Only'
 import Row from '../Row'
@@ -11,7 +10,7 @@ export default React.memo(function Footer(props) {
     <footer className='Footer' role='contentinfo'>
       <div className='Footer__inner'>
         <Row desktopOnly>
-          <Column>
+          <Row.Column>
             <span className='Footer__heading'>Dedicated to the community</span>
             <p className='Footer__info'>
               Stormbound Kitty is made with{' '}
@@ -57,11 +56,11 @@ export default React.memo(function Footer(props) {
               </a>
               .
             </p>
-          </Column>
+          </Row.Column>
           <Only.Desktop>
-            <Column>
+            <Row.Column>
               <Row desktopOnly>
-                <Column width='1/3'>
+                <Row.Column width='1/3'>
                   <span className='Footer__heading'>Stormbound</span>
                   <ul className='Footer__list'>
                     <li className='Footer__item'>
@@ -110,8 +109,8 @@ export default React.memo(function Footer(props) {
                       </a>
                     </li>
                   </ul>
-                </Column>
-                <Column width='1/3'>
+                </Row.Column>
+                <Row.Column width='1/3'>
                   <span className='Footer__heading'>Kitty</span>
                   <ul className='Footer__list'>
                     <li className='Footer__item'>
@@ -131,8 +130,8 @@ export default React.memo(function Footer(props) {
                       <Link to='/about'>Donate</Link>
                     </li>
                   </ul>
-                </Column>
-                <Column width='1/3'>
+                </Row.Column>
+                <Row.Column width='1/3'>
                   <span className='Footer__heading'>Community</span>
                   <ul className='Footer__list'>
                     <li className='Footer__item'>
@@ -185,9 +184,9 @@ export default React.memo(function Footer(props) {
                       </a>
                     </li>
                   </ul>
-                </Column>
+                </Row.Column>
               </Row>
-            </Column>
+            </Row.Column>
           </Only.Desktop>
         </Row>
       </div>

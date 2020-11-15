@@ -1,7 +1,6 @@
 import React from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import CardZoom from '../CardZoom'
-import Column from '../Column'
 import Image from '../Image'
 import Row from '../Row'
 import arrayPad from '../../helpers/arrayPad'
@@ -24,7 +23,7 @@ export default React.memo(function DryRunnerCardLog(props) {
       <div className='DryRunnerCardLog__container' data-testid='card-log'>
         <Row>
           {cards.map((card, index) => (
-            <Column
+            <Row.Column
               style={{ opacity: 1 - index / 8 }}
               width='1/6'
               key={(card ? card.id + '_' + card.idx : '') + '_' + index}
@@ -56,7 +55,7 @@ export default React.memo(function DryRunnerCardLog(props) {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </Column>
+            </Row.Column>
           ))}
         </Row>
       </div>

@@ -1,7 +1,6 @@
 import React from 'react'
 import BrawlExport from '../BrawlExport'
 import BrawlImport from '../BrawlImport'
-import Column from '../Column'
 import Radio from '../Radio'
 import Row from '../Row'
 import './index.css'
@@ -12,7 +11,7 @@ export default React.memo(function BrawlSetup(props) {
       <fieldset>
         <legend className='VisuallyHidden'>Setup</legend>
         <Row>
-          <Column
+          <Row.Column
             width='1/3'
             style={{ justifyContent: 'center' }}
             align='center'
@@ -28,8 +27,8 @@ export default React.memo(function BrawlSetup(props) {
               Mobile <br />
               (w/o ads)
             </Radio>
-          </Column>
-          <Column
+          </Row.Column>
+          <Row.Column
             width='1/3'
             style={{ justifyContent: 'center' }}
             align='center'
@@ -45,8 +44,8 @@ export default React.memo(function BrawlSetup(props) {
               Mobile <br />
               (w/ ads)
             </Radio>
-          </Column>
-          <Column
+          </Row.Column>
+          <Row.Column
             width='1/3'
             style={{ justifyContent: 'center' }}
             align='center'
@@ -61,16 +60,16 @@ export default React.memo(function BrawlSetup(props) {
             >
               Steam
             </Radio>
-          </Column>
+          </Row.Column>
         </Row>
       </fieldset>
       <Row>
-        <Column>
+        <Row.Column>
           <BrawlImport />
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <BrawlExport />
-        </Column>
+        </Row.Column>
       </Row>
     </div>
   )

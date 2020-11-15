@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { TIER_COLORS } from '../../constants/list'
-import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
@@ -37,7 +36,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
       <HeaderBanner title='Ranked Tier List' />
 
       <Row wideGutter desktopOnly>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <p>
             This tier list is computed from the{' '}
             <Link to='/deck/suggestions'>popular decks</Link>. It orders cards
@@ -70,9 +69,9 @@ export default React.memo(function ListBuilderDisplayView(props) {
           </select>
 
           <ListBuilderToc tiers={tiers} />
-        </Column>
+        </Row.Column>
 
-        <Column width='2/3'>
+        <Row.Column width='2/3'>
           {tiers.map((tier, index) => (
             <ListBuilderTier
               {...tier}
@@ -82,7 +81,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
               isEditable={false}
             />
           ))}
-        </Column>
+        </Row.Column>
       </Row>
 
       <PageMeta

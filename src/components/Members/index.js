@@ -1,5 +1,4 @@
 import React from 'react'
-import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import Icon from '../Icon'
 import MemberListEntry from '../MemberListEntry'
@@ -78,7 +77,7 @@ export default React.memo(function Members(props) {
     <>
       <HeaderBanner title='Members' />
       <Row desktopOnly wideGutter>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <p>
             Find on this page all contributing members to Stormbound-Kitty,
             whether implicitly or explicitly. Any player with any site
@@ -92,7 +91,7 @@ export default React.memo(function Members(props) {
             keep working on it.
           </p>
           <Row>
-            <Column>
+            <Row.Column>
               <label htmlFor='name'>Name</label>
               <input
                 type='search'
@@ -102,8 +101,8 @@ export default React.memo(function Members(props) {
                 value={name}
                 onChange={event => setName(event.target.value)}
               />
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <label htmlFor='type'>Type</label>
               <select
                 name='type'
@@ -123,26 +122,26 @@ export default React.memo(function Members(props) {
                 <option value='PUZZLE'>Puzzles</option>
                 <option value='STORY'>Stories</option>
               </select>
-            </Column>
+            </Row.Column>
           </Row>
 
           <MemberTagYourself members={uniqMembers.map(a => a.member)} />
-        </Column>
-        <Column width='2/3'>
+        </Row.Column>
+        <Row.Column width='2/3'>
           {rows.map(([a, b, c], index) => (
             <Row desktopOnly key={index}>
-              <Column width='1/3'>
+              <Row.Column width='1/3'>
                 {a && <MemberListEntry key={a.member} member={a.member} />}
-              </Column>
-              <Column width='1/3'>
+              </Row.Column>
+              <Row.Column width='1/3'>
                 {b && <MemberListEntry key={b.member} member={b.member} />}
-              </Column>
-              <Column width='1/3'>
+              </Row.Column>
+              <Row.Column width='1/3'>
                 {c && <MemberListEntry key={c.member} member={c.member} />}
-              </Column>
+              </Row.Column>
             </Row>
           ))}
-        </Column>
+        </Row.Column>
       </Row>
       <PageMeta
         title='Members'

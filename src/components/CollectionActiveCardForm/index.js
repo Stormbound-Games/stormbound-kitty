@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import CardUpgradeStats from '../CardUpgradeStats'
 import Checkbox from '../Checkbox'
-import Column from '../Column'
 import NumberInput from '../NumberInput'
 import Row from '../Row'
 import Title from '../Title'
@@ -14,7 +13,7 @@ export default React.memo(function CollectionActiveCardForm(props) {
 
       <form onSubmit={props.onActiveCardFormSubmit}>
         <Row>
-          <Column>
+          <Row.Column>
             <label htmlFor='level'>Card level</label>
             <select
               id='level'
@@ -31,9 +30,9 @@ export default React.memo(function CollectionActiveCardForm(props) {
               <option value='4'>4</option>
               <option value='5'>5</option>
             </select>
-          </Column>
+          </Row.Column>
 
-          <Column>
+          <Row.Column>
             <label htmlFor='copies'>Copies</label>
             <NumberInput
               id='copies'
@@ -50,11 +49,11 @@ export default React.memo(function CollectionActiveCardForm(props) {
               }
               min={0}
             />
-          </Column>
+          </Row.Column>
         </Row>
 
         <Row>
-          <Column>
+          <Row.Column>
             <Checkbox
               name='missing'
               id='missing'
@@ -63,7 +62,7 @@ export default React.memo(function CollectionActiveCardForm(props) {
             >
               Missing card
             </Checkbox>
-          </Column>
+          </Row.Column>
         </Row>
 
         <CardUpgradeStats {...props.activeCard} />

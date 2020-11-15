@@ -1,6 +1,5 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import Column from '../Column'
 import FeaturedDeck from '../FeaturedDeck'
 import CTA from '../CTA'
 import Loader from '../Loader'
@@ -29,7 +28,7 @@ export default React.memo(function Decks(props) {
       {rows.map((row, rowIndex) => (
         <Row desktopOnly key={rowIndex}>
           {Array.from({ length: columns }, (_, index) => (
-            <Column
+            <Row.Column
               key={index}
               width={columns > 2 ? `1/${columns}` : undefined}
             >
@@ -46,7 +45,7 @@ export default React.memo(function Decks(props) {
                   }
                 />
               ) : null}
-            </Column>
+            </Row.Column>
           ))}
         </Row>
       ))}
@@ -54,11 +53,11 @@ export default React.memo(function Decks(props) {
       {loading && <Loader />}
       {loadMore && (
         <Row>
-          <Column align='center'>
+          <Row.Column align='center'>
             <CTA onClick={loadMore} type='button' disabled={loading}>
               Load more
             </CTA>
-          </Column>
+          </Row.Column>
         </Row>
       )}
     </>

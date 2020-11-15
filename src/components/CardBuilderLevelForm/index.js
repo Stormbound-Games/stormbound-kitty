@@ -1,6 +1,5 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
-import Column from '../Column'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
 import ShareButton from '../CardBuilderShareButton'
@@ -20,7 +19,7 @@ export default React.memo(function CardBuilderCardForm(props) {
         </p>
 
         <Row>
-          <Column>
+          <Row.Column>
             <label htmlFor='strength'>Strength</label>
             <input
               type='text'
@@ -35,8 +34,8 @@ export default React.memo(function CardBuilderCardForm(props) {
               placeholder='e.g. “3” or “1/2/3/4/5”'
               data-testid='cb-strength-input'
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <label htmlFor='mana'>Mana</label>
             <input
               type='text'
@@ -48,11 +47,11 @@ export default React.memo(function CardBuilderCardForm(props) {
               placeholder='e.g. “3” or “5/5/4/4/3”'
               data-testid='cb-mana-input'
             />
-          </Column>
+          </Row.Column>
         </Row>
 
         <Row>
-          <Column>
+          <Row.Column>
             <label htmlFor='ability'>Ability</label>
             <input
               type='text'
@@ -66,26 +65,26 @@ export default React.memo(function CardBuilderCardForm(props) {
               onChange={event => props.setAbility(event.target.value)}
               data-testid='cb-ability-input'
             />
-          </Column>
+          </Row.Column>
         </Row>
 
         <div className='CardBuilderCoreForm__buttons'>
           <Row>
-            <Column>
+            <Row.Column>
               <ResetButton
                 label='Reset form'
                 confirm='Are you sure you want to reset the form to its initial state?'
                 reset={props.reset}
                 disabled={isPristine}
               />
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <ShareButton
                 title={props.name}
                 content={formatCardStats(props)}
                 disabled={isPristine}
               />
-            </Column>
+            </Row.Column>
           </Row>
         </div>
       </form>

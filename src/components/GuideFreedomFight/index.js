@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Column from '../Column'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
 import Info from '../Info'
@@ -64,7 +63,7 @@ export default React.memo(function GuideFreedomFight(props) {
 
       <Guide.FullWidth padding='60px'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <h3 style={{ marginTop: '0.5em' }}>Frostkhan’s Freedom Fight</h3>
             <p>
               <CardLink id='N1' />, <CardLink id='F8' />, <CardLink id='N9' />.
@@ -73,8 +72,8 @@ export default React.memo(function GuideFreedomFight(props) {
               awkward odd-mana turns, and Confinement as a tool against
               Sharpfist Exiles and Hairy Chestnuts.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <FeaturedDeck
               id='5xn1f8n9f5f7f10f12f15f17f28n52n53'
               name='Freedom Fight'
@@ -83,10 +82,10 @@ export default React.memo(function GuideFreedomFight(props) {
               faction='shadowfen'
               modifier='TOAD_MANA'
             />
-          </Column>
+          </Row.Column>
         </Row>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <h3 style={{ marginTop: '0.5em' }}>Critical Pancake’s deck</h3>
             <p>
               <CardLink id='N1' />, <CardLink id='F4' />, <CardLink id='N9' />,
@@ -97,8 +96,8 @@ export default React.memo(function GuideFreedomFight(props) {
               hand. I’m not sure that is a thing that happens often, but if your
               playstyle is defensive it’s good to be prepared.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <FeaturedDeck
               id='5xn1f4n9f5n14f10f12f15f17f28n52n53'
               name='CP Toads'
@@ -107,10 +106,10 @@ export default React.memo(function GuideFreedomFight(props) {
               faction='shadowfen'
               modifier='TOAD_MANA'
             />
-          </Column>
+          </Row.Column>
         </Row>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <h3 style={{ marginTop: '0.5em' }}>SeveralPeople’s deck</h3>
             <p>
               <CardLink id='N1' />, <CardLink id='N2' />, <CardLink id='F4' />,{' '}
@@ -119,8 +118,8 @@ export default React.memo(function GuideFreedomFight(props) {
               I doubt it’s still worth it now that Toxic Sacrifice costs 2 mana
               and is more awkward to combo with.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <FeaturedDeck
               id='5xn1n2f2f4n9f10f12f15f17f28n52n53'
               name='SP Toads'
@@ -129,10 +128,10 @@ export default React.memo(function GuideFreedomFight(props) {
               faction='shadowfen'
               modifier='TOAD_MANA'
             />
-          </Column>
+          </Row.Column>
         </Row>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <h3 style={{ marginTop: '0.5em' }}>Adig’s deck</h3>
             <p>
               <CardLink id='N1' />, <CardLink id='F8' />, <CardLink id='F4' />,{' '}
@@ -149,8 +148,8 @@ export default React.memo(function GuideFreedomFight(props) {
               Adig reported lossless to Mythic with this deck, and there are
               some carefully considered tech cards.{' '}
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <FeaturedDeck
               id='5xn1f8f4n9f25n16n18f15f17f28n52n53'
               name='Adig Toads'
@@ -159,7 +158,7 @@ export default React.memo(function GuideFreedomFight(props) {
               faction='shadowfen'
               modifier='TOAD_MANA'
             />
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 

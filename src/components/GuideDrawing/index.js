@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Column from '../Column'
 import Card from '../Card'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Guide from '../Guide'
@@ -174,18 +173,18 @@ export default React.memo(function GuideDrawing(props) {
       <Only.Desktop>
         <Guide.FullWidth padding='120px'>
           <Row>
-            <Column width='1/4'>
+            <Row.Column width='1/4'>
               <Card {...getResolvedCardData({ id: 'N12', level: 1 })} />
-            </Column>
-            <Column width='1/4'>
+            </Row.Column>
+            <Row.Column width='1/4'>
               <Card {...getResolvedCardData({ id: 'N14', level: 4 })} />
-            </Column>
-            <Column width='1/4'>
+            </Row.Column>
+            <Row.Column width='1/4'>
               <Card {...getResolvedCardData({ id: 'N22', level: 3 })} />
-            </Column>
-            <Column width='1/4'>
+            </Row.Column>
+            <Row.Column width='1/4'>
               <Card {...getResolvedCardData({ id: 'N33', level: 5 })} />
-            </Column>
+            </Row.Column>
           </Row>
         </Guide.FullWidth>
       </Only.Desktop>
@@ -227,15 +226,15 @@ export default React.memo(function GuideDrawing(props) {
       <Only.Desktop>
         <div className='Guide__embed'>
           <Row>
-            <Column width='1/3'>
+            <Row.Column width='1/3'>
               <Card {...getResolvedCardData({ id: 'S3', level: 1 })} />
-            </Column>
-            <Column width='1/3'>
+            </Row.Column>
+            <Row.Column width='1/3'>
               <Card {...getResolvedCardData({ id: 'N48', level: 1 })} />
-            </Column>
-            <Column width='1/3'>
+            </Row.Column>
+            <Row.Column width='1/3'>
               <Card {...getResolvedCardData({ id: 'N8', level: 1 })} />
-            </Column>
+            </Row.Column>
           </Row>
         </div>
       </Only.Desktop>

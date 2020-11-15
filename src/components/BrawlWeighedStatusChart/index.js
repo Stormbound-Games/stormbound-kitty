@@ -7,7 +7,6 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts'
-import Column from '../Column'
 import NumberInput from '../NumberInput'
 import Row from '../Row'
 import Title from '../Title'
@@ -95,7 +94,7 @@ export default React.memo(function BrawlCharts(props) {
         Weighed win ratio
       </Title>
       <Row desktopOnly>
-        <Column>
+        <Row.Column>
           <ResponsiveContainer width='100%' height={250}>
             <PieChart>
               <Tooltip {...TOOLTIP_STYLES} />
@@ -117,8 +116,8 @@ export default React.memo(function BrawlCharts(props) {
               </Pie>
             </PieChart>
           </ResponsiveContainer>
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <BrawlBaseHealthInput
             baseHealth={baseHealth}
             setBaseHealth={setBaseHealth}
@@ -150,7 +149,7 @@ export default React.memo(function BrawlCharts(props) {
               for <span className='Highlight'>150%</span>
             </li>
           </ul>
-        </Column>
+        </Row.Column>
       </Row>
     </div>
   )

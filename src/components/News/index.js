@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Column from '../Column'
 import CTA from '../CTA'
 import Error from '../Error'
 import Loader from '../Loader'
@@ -53,7 +52,7 @@ export default React.memo(function News(props) {
         ))}
       </ul>
       <Row desktopOnly>
-        <Column align='center'>
+        <Row.Column align='center'>
           <CTA
             type='button'
             data-testid='news-recent-btn'
@@ -62,8 +61,8 @@ export default React.memo(function News(props) {
           >
             Recent news
           </CTA>
-        </Column>
-        <Column align='center'>
+        </Row.Column>
+        <Row.Column align='center'>
           <CTA
             type='button'
             data-testid='news-older-btn'
@@ -72,7 +71,7 @@ export default React.memo(function News(props) {
           >
             Older news
           </CTA>
-        </Column>
+        </Row.Column>
       </Row>
     </>
   )

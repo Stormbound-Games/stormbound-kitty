@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Column from '../Column'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
 import Info from '../Info'
@@ -46,7 +45,7 @@ export default React.memo(function GuideNobleCoalition(props) {
 
       <Guide.FullWidth padding='60px'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <h3 style={{ marginTop: '0.5em' }}>
               Critical Pancake’s Cat Butcher
             </h3>
@@ -62,8 +61,8 @@ export default React.memo(function GuideNobleCoalition(props) {
               <CardLink id='F20' /> for <CardLink id='N68' />, since more cats
               might now have outgrown the Minister’s reach.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <FeaturedDeck
               id='5f44f35n34f84n624n673n664n614f105f144f174f20'
               name='Cat Butcher'
@@ -71,10 +70,10 @@ export default React.memo(function GuideNobleCoalition(props) {
               category='BRAWL'
               faction='shadowfen'
             />
-          </Column>
+          </Row.Column>
         </Row>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <h3 style={{ marginTop: '0.5em' }}>The_Mirc’s Swarm Cat Runners</h3>
             <p>
               Looks like a solid deck
@@ -97,8 +96,8 @@ export default React.memo(function GuideNobleCoalition(props) {
               recently buffed <CardLink id='N60' /> which ought to finally get
               some time in the spotlight.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <FeaturedDeck
               id='5xn1n66s1n3s2n67n12s6n71n65n69n68'
               name='Swarm Cat Runners'
@@ -106,7 +105,7 @@ export default React.memo(function GuideNobleCoalition(props) {
               category='BRAWL'
               faction='swarm'
             />
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 

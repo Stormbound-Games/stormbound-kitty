@@ -2,7 +2,6 @@ import React from 'react'
 import hookIntoProps from 'hook-into-props'
 import { FACTIONS } from '../../constants/game'
 import { CollectionContext } from '../CollectionProvider'
-import Column from '../Column'
 import CTA from '../CTA'
 import Dialog from '../Dialog'
 import FactionSelect from '../FactionSelect'
@@ -78,7 +77,7 @@ class RandomDeckButton extends React.Component {
           }}
         >
           <Row>
-            <Column>
+            <Row.Column>
               <FactionSelect
                 data-testid='random-faction-select'
                 value={this.state.faction}
@@ -87,8 +86,8 @@ class RandomDeckButton extends React.Component {
                 }
                 withAny
               />
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <label htmlFor='factionCards'>Min faction cards</label>
               <select
                 data-testid='random-min-faction-select'
@@ -104,10 +103,10 @@ class RandomDeckButton extends React.Component {
                 <option value={4}>4</option>
                 <option value={6}>6</option>
               </select>
-            </Column>
+            </Row.Column>
           </Row>
           <Row>
-            <Column>
+            <Row.Column>
               <label htmlFor='maxEpicCards'>Max epic cards</label>
               <select
                 data-testid='random-max-epic-select'
@@ -127,8 +126,8 @@ class RandomDeckButton extends React.Component {
                 <option value={2}>2</option>
                 <option value={3}>3</option>
               </select>
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <label htmlFor='maxLegendaryCards'>Max legendary cards</label>
               <select
                 data-testid='random-max-legendary-select'
@@ -147,7 +146,7 @@ class RandomDeckButton extends React.Component {
                 <option value={1}>1</option>
                 <option value={2}>2</option>
               </select>
-            </Column>
+            </Row.Column>
           </Row>
         </Dialog>
       </>

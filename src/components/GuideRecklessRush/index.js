@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import BattleSimApp from '../BattleSimApp'
 import CardLink from '../CardLink'
-import Column from '../Column'
 import DeckStatsChart from '../DeckStatsChart'
 import FeaturedDeck from '../FeaturedDeck'
 import Info from '../Info'
@@ -75,7 +74,7 @@ export default React.memo(function GuideRecklessRush(props) {
         <Title id='the-decks'>The Decks</Title>
 
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <FeaturedDeck
               id='2n12n23s14n32s243s23n632n671s64n151s84s11'
               name='Reckless Rush'
@@ -83,19 +82,19 @@ export default React.memo(function GuideRecklessRush(props) {
               category='REGULAR'
               staticLevels
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <p>This is the main Reckless Rush deck in all its glory.</p>
             <p>
               These were my exact card levels when I reached Diamond 5. Note
               that <CardLink id='N63' /> costed 2 mana at that time instead of
               3. That being said, even at 3 mana, it is still very viable.
             </p>
-          </Column>
+          </Row.Column>
         </Row>
 
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <p>
               If you play in Gold or in lower leagues, I would recommend a small
               variation of the deck with <CardLink id='N26' /> instead of{' '}
@@ -109,8 +108,8 @@ export default React.memo(function GuideRecklessRush(props) {
               always land forwards which is exactly what all rush decks need
               anyways.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <FeaturedDeck
               id='2n12n23s12n32s21n672s62n151s82n632s112n26'
               name='Reckless Rush (Snowmasons)'
@@ -118,13 +117,13 @@ export default React.memo(function GuideRecklessRush(props) {
               category='REGULAR'
               staticLevels
             />
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 
       <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <p>
               As you might have noticed by now, Reckless Rush decks consist of
               an extremely low mana curve, with the most expensive card peaking
@@ -137,15 +136,15 @@ export default React.memo(function GuideRecklessRush(props) {
               games (possibly to grind gold or finish quests) or looking to
               climb high ranks with relatively low level cards.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <DeckStatsChart
               deck={serialisation.deck
                 .deserialise('2n13n23s14n32s243s23n632n671s64n151s84s11')
                 .map(getResolvedCardData)}
               modifier='NONE'
             />
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 

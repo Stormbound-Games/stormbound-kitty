@@ -1,5 +1,4 @@
 import React from 'react'
-import Column from '../Column'
 import DryRunnerSettings from '../DryRunnerSettings'
 import Row from '../Row'
 import Title from '../Title'
@@ -14,11 +13,11 @@ export default React.memo(function DryRunnerInfo(props) {
   return (
     <div className='DryRunnerInfo'>
       <Row desktopOnly>
-        <Column>
+        <Row.Column>
           <DryRunnerSettings {...props} />
-        </Column>
+        </Row.Column>
 
-        <Column>
+        <Row.Column>
           <Title>Statistics</Title>
 
           {props.turn === 1 ? (
@@ -74,7 +73,7 @@ export default React.memo(function DryRunnerInfo(props) {
                 ))}
             </>
           )}
-        </Column>
+        </Row.Column>
       </Row>
     </div>
   )

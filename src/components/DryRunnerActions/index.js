@@ -1,5 +1,4 @@
 import React from 'react'
-import Column from '../Column'
 import CTA from '../CTA'
 import Row from '../Row'
 import './index.css'
@@ -10,7 +9,7 @@ export default React.memo(function DryRunnerActions(props) {
   return (
     <div className='DryRunnerActions'>
       <Row desktopOnly>
-        <Column align='center'>
+        <Row.Column align='center'>
           <CTA
             type='button'
             data-testid='cycle-btn'
@@ -19,8 +18,8 @@ export default React.memo(function DryRunnerActions(props) {
           >
             <u>C</u>ycle card
           </CTA>
-        </Column>
-        <Column align='center'>
+        </Row.Column>
+        <Row.Column align='center'>
           <CTA
             type='button'
             data-testid='play-btn'
@@ -29,7 +28,7 @@ export default React.memo(function DryRunnerActions(props) {
           >
             <u>P</u>lay card
           </CTA>
-        </Column>
+        </Row.Column>
       </Row>
     </div>
   )

@@ -2,7 +2,6 @@ import React from 'react'
 import { TYPES, RACES, RARITIES } from '../../constants/game'
 import AdvancedCardSearch from '../AdvancedCardSearch'
 import Checkbox from '../Checkbox'
-import Column from '../Column'
 import Icon from '../Icon'
 import FactionSelect from '../FactionSelect'
 import Row from '../Row'
@@ -47,9 +46,9 @@ export default React.memo(function DeckEditorFilters(props) {
         onSubmit={event => event.preventDefault()}
       >
         <Row desktopOnly>
-          <Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <FactionSelect
                   value={props.faction}
                   onChange={event => props.setFaction(event.target.value)}
@@ -57,9 +56,9 @@ export default React.memo(function DeckEditorFilters(props) {
                   withAny
                   data-testid='faction-select'
                 />
-              </Column>
+              </Row.Column>
 
-              <Column>
+              <Row.Column>
                 <label htmlFor='type'>Type</label>
                 <select
                   name='type'
@@ -75,12 +74,12 @@ export default React.memo(function DeckEditorFilters(props) {
                     </option>
                   ))}
                 </select>
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <label htmlFor='mana'>Mana</label>
                 <select
                   name='mana'
@@ -95,9 +94,9 @@ export default React.memo(function DeckEditorFilters(props) {
                   <option value='6-7'>6 or 7</option>
                   <option value='8-Infinity'>8 or plus</option>
                 </select>
-              </Column>
+              </Row.Column>
 
-              <Column>
+              <Row.Column>
                 <label htmlFor='movement'>Movement</label>
                 <select
                   name='movement'
@@ -112,15 +111,15 @@ export default React.memo(function DeckEditorFilters(props) {
                   <option value='2'>2</option>
                   <option value='3'>3</option>
                 </select>
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
+          </Row.Column>
         </Row>
 
         <Row desktopOnly>
-          <Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <label htmlFor='rarity'>Rarity</label>
                 <select
                   name='rarity'
@@ -136,9 +135,9 @@ export default React.memo(function DeckEditorFilters(props) {
                     </option>
                   ))}
                 </select>
-              </Column>
+              </Row.Column>
 
-              <Column>
+              <Row.Column>
                 <label htmlFor='race'>Race</label>
                 <select
                   name='race'
@@ -154,12 +153,12 @@ export default React.memo(function DeckEditorFilters(props) {
                     </option>
                   ))}
                 </select>
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <label htmlFor='ability'>Ability</label>
                 <select
                   name='ability'
@@ -179,9 +178,9 @@ export default React.memo(function DeckEditorFilters(props) {
                   <option value='SPAWN'>Spawn</option>
                   <option value='SURVIVING'>Surviving</option>
                 </select>
-              </Column>
+              </Row.Column>
 
-              <Column>
+              <Row.Column>
                 <label htmlFor='text'>Name</label>
                 <input
                   type='search'
@@ -192,15 +191,15 @@ export default React.memo(function DeckEditorFilters(props) {
                   placeholder='e.g. Faun'
                   data-testid='name-input'
                 />
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
+          </Row.Column>
         </Row>
 
         <Row desktopOnly>
-          <Column>
+          <Row.Column>
             <Row>
-              <Column>
+              <Row.Column>
                 <Checkbox
                   id='elder'
                   checked={props.elder}
@@ -209,8 +208,8 @@ export default React.memo(function DeckEditorFilters(props) {
                 >
                   Elder
                 </Checkbox>
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <Checkbox
                   id='hero'
                   checked={props.hero}
@@ -219,12 +218,12 @@ export default React.memo(function DeckEditorFilters(props) {
                 >
                   Hero
                 </Checkbox>
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <Row>
-              <Column style={{ justifyContent: 'center' }}>
+              <Row.Column style={{ justifyContent: 'center' }}>
                 <button
                   type='button'
                   onClick={props.toggleAdvancedSearch}
@@ -233,8 +232,8 @@ export default React.memo(function DeckEditorFilters(props) {
                   <Icon icon='search' className='DeckEditorFilters__icon' />{' '}
                   Advanced search
                 </button>
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <button
                   onClick={props.resetFilters}
                   type='button'
@@ -247,9 +246,9 @@ export default React.memo(function DeckEditorFilters(props) {
                   </span>{' '}
                   Reset filters
                 </button>
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
+          </Row.Column>
         </Row>
       </div>
     </MobileTogglableContent>

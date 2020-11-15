@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import BattleSimApp from '../BattleSimApp'
-import Column from '../Column'
 import DeckStatsChart from '../DeckStatsChart'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
@@ -79,7 +78,7 @@ export default React.memo(function GuideD1SFCommons(props) {
 
       <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <FeaturedDeck
               id={DECK_ID}
               name='Meow'
@@ -87,8 +86,8 @@ export default React.memo(function GuideD1SFCommons(props) {
               category='DIAMOND_1'
               faction='shadowfen'
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <p>A few interesting points to note about that deck:</p>
             <ul>
               <li>
@@ -108,13 +107,13 @@ export default React.memo(function GuideD1SFCommons(props) {
                 and aggressively.
               </li>
             </ul>
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 
       <Guide.FullWidth padding='120px'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <p>
               Looking at the mana curve graph, we can see that the first few
               turns are pretty stable, which is a good quality of a deck. Turn
@@ -129,10 +128,10 @@ export default React.memo(function GuideD1SFCommons(props) {
               increases rapidly at every turn to pass the 50% threshold by turn
               mana 9 and 90% threshold at mana 12.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <Graph id={DECK_ID} />
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
-import Column from '../Column'
 import Image from '../Image'
 import Info from '../Info'
 import Notice from '../Notice'
@@ -144,32 +143,32 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
 
       <Article.Embed>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <Image
               src='/assets/images/releases/birthday_pack_1.png'
               alt='$4.99 promotion: 1 Mythic Tome + 100 coins'
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <Image
               src='/assets/images/releases/birthday_pack_2.png'
               alt='$10.99 promotion: 4 Mythic Tomes + 4 Heroic Tomes + 500 coins'
             />
-          </Column>
+          </Row.Column>
         </Row>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <Image
               src='/assets/images/releases/birthday_pack_3.png'
               alt='$49.99 promotion: 10 Mythic Tomes + 10 Heroic Tomes + 10 Classic Tomes + 1500 coins'
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <Image
               src='/assets/images/releases/birthday_pack_4.png'
               alt='$99.99 promotion: 20 Mythic Tomes + 20 Heroic Tomes + 20 Classic Tomes + 5000 coins + 50 fusion stones'
             />
-          </Column>
+          </Row.Column>
         </Row>
       </Article.Embed>
 

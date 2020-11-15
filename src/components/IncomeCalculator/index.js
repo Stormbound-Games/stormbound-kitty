@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Checkbox from '../Checkbox'
-import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
 import NumberInput from '../NumberInput'
@@ -292,7 +291,7 @@ export default React.memo(function IncomeCalculator(props) {
       <HeaderBanner title='Income Calculator' />
 
       <Row desktopOnly wideGutter>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <Title>What is this?</Title>
           <p>
             This income calculator helps you figure out how many{' '}
@@ -321,11 +320,11 @@ export default React.memo(function IncomeCalculator(props) {
             fantastic{' '}
             <Link to='/guides/resources'>guides on Stormbound resources</Link>.
           </Info>
-        </Column>
-        <Column width='1/3'>
+        </Row.Column>
+        <Row.Column width='1/3'>
           <Title>Configuration</Title>
           <Row desktopOnly>
-            <Column>
+            <Row.Column>
               <label htmlFor='setup'>Game setup</label>
               <select
                 name='setup'
@@ -337,8 +336,8 @@ export default React.memo(function IncomeCalculator(props) {
                 <option value='MOBILE_WITH_ADS'>Mobile with ads</option>
                 <option value='STEAM_OR_WEB'>Steam or web version</option>
               </select>
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <label htmlFor='wins'>Daily wins</label>
               <NumberInput
                 id='wins'
@@ -348,10 +347,10 @@ export default React.memo(function IncomeCalculator(props) {
                 min={0}
                 max={maxWins}
               />
-            </Column>
+            </Row.Column>
           </Row>
           <Row desktopOnly>
-            <Column>
+            <Row.Column>
               <label htmlFor='league'>Monthly league</label>
               <select
                 name='league'
@@ -367,8 +366,8 @@ export default React.memo(function IncomeCalculator(props) {
                 <option value='BRONZE'>Bronze</option>
                 <option value='IRON'>Iron</option>
               </select>
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <label htmlFor='rank'>Monthly rank</label>
               <select
                 name='rank'
@@ -383,10 +382,10 @@ export default React.memo(function IncomeCalculator(props) {
                 <option value={4}>4</option>
                 <option value={5}>5</option>
               </select>
-            </Column>
+            </Row.Column>
           </Row>
           <Row desktopOnly>
-            <Column>
+            <Row.Column>
               <label htmlFor='milestone'>Weekly milestone</label>
               <select
                 name='milestone'
@@ -401,8 +400,8 @@ export default React.memo(function IncomeCalculator(props) {
                   </option>
                 ))}
               </select>
-            </Column>
-            <Column>
+            </Row.Column>
+            <Row.Column>
               <label htmlFor='brawl-cost'>Brawl avg. cost</label>
               <NumberInput
                 id='brawl-cost'
@@ -427,10 +426,10 @@ export default React.memo(function IncomeCalculator(props) {
                     : undefined
                 }
               />
-            </Column>
+            </Row.Column>
           </Row>
           <Row desktopOnly>
-            <Column>
+            <Row.Column>
               <label htmlFor='rubies-conversion'>Convert rubies to</label>
               <select
                 id='rubies-conversion'
@@ -444,8 +443,8 @@ export default React.memo(function IncomeCalculator(props) {
                 <option value='CLASSIC'>Classic Tomes</option>
                 <option value='CARD_SHOP'>Card Shop Epics</option>
               </select>
-            </Column>
-            <Column></Column>
+            </Row.Column>
+            <Row.Column />
           </Row>
           <Checkbox
             id='with-daily-quests'
@@ -471,8 +470,8 @@ export default React.memo(function IncomeCalculator(props) {
           >
             Open daily Humble book
           </Checkbox>
-        </Column>
-        <Column width='1/3'>
+        </Row.Column>
+        <Row.Column width='1/3'>
           <div>
             <Title
               style={{
@@ -555,7 +554,7 @@ export default React.memo(function IncomeCalculator(props) {
               </li>
             </ul>
           </div>
-        </Column>
+        </Row.Column>
       </Row>
       <PageMeta
         title='Income Calculator'

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { RARITIES, BOOKS, PRE_MADE_EXPECTATIONS } from '../../constants/game'
 import BookExplanation from '../BookExplanation'
 import BookOutcome from '../BookOutcome'
-import Column from '../Column'
 import HeaderBanner from '../HeaderBanner'
 import Image from '../Image'
 import NumberInput from '../NumberInput'
@@ -51,7 +50,7 @@ export default React.memo(function BooksCalculator(props) {
       <HeaderBanner title='Books Calculator' />
 
       <Row desktopOnly wideGutter>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <Title element='h2'>What is this</Title>
           <p>
             This is a calculator to estimate the odds of getting fusion stones
@@ -66,7 +65,7 @@ export default React.memo(function BooksCalculator(props) {
 
           <form className='BooksCalculator__form'>
             <Row>
-              <Column>
+              <Row.Column>
                 <label htmlFor='book'>Book type</label>
                 <select
                   id='book'
@@ -81,9 +80,9 @@ export default React.memo(function BooksCalculator(props) {
                     </option>
                   ))}
                 </select>
-              </Column>
+              </Row.Column>
 
-              <Column>
+              <Row.Column>
                 <label htmlFor='target'>Looking for</label>
                 <select
                   id='target'
@@ -99,7 +98,7 @@ export default React.memo(function BooksCalculator(props) {
                     </option>
                   ))}
                 </select>
-              </Column>
+              </Row.Column>
             </Row>
 
             <TogglableContent
@@ -130,7 +129,7 @@ export default React.memo(function BooksCalculator(props) {
                 “Legendary cards”.
               </p>
               <Row>
-                <Column>
+                <Row.Column>
                   <label htmlFor='target-common'>Common cards</label>
                   <NumberInput
                     min={0}
@@ -140,8 +139,8 @@ export default React.memo(function BooksCalculator(props) {
                     onChange={setCommonExpectation}
                     value={expectations[0]}
                   />
-                </Column>
-                <Column>
+                </Row.Column>
+                <Row.Column>
                   <label htmlFor='target-rare'>Rare cards</label>
                   <NumberInput
                     min={0}
@@ -151,10 +150,10 @@ export default React.memo(function BooksCalculator(props) {
                     onChange={setRareExpectation}
                     value={expectations[1]}
                   />
-                </Column>
+                </Row.Column>
               </Row>
               <Row>
-                <Column>
+                <Row.Column>
                   <label htmlFor='target-epic'>Epic cards</label>
                   <NumberInput
                     min={0}
@@ -164,8 +163,8 @@ export default React.memo(function BooksCalculator(props) {
                     onChange={setEpicExpectation}
                     value={expectations[2]}
                   />
-                </Column>
-                <Column>
+                </Row.Column>
+                <Row.Column>
                   <label htmlFor='target-legendary'>Legendary cards</label>
                   <NumberInput
                     min={0}
@@ -175,13 +174,13 @@ export default React.memo(function BooksCalculator(props) {
                     onChange={setLegendaryExpectation}
                     value={expectations[3]}
                   />
-                </Column>
+                </Row.Column>
               </Row>
             </TogglableContent>
           </form>
-        </Column>
+        </Row.Column>
 
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <Title element='h2'>Outcome</Title>
 
           <BookExplanation book={book} />
@@ -191,17 +190,17 @@ export default React.memo(function BooksCalculator(props) {
             isAdvancedMode={isAdvancedMode}
             expectations={expectations}
           />
-        </Column>
+        </Row.Column>
 
         <Only.Desktop>
-          <Column width='1/3'>
+          <Row.Column width='1/3'>
             <Image
               src={'/assets/images/books/book-' + book.toLowerCase() + '.png'}
               className='BooksCalculator__book'
               alt={capitalise(book.toLowerCase()) + ' book'}
               withAvif
             />
-          </Column>
+          </Row.Column>
         </Only.Desktop>
       </Row>
 

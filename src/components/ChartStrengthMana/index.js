@@ -9,7 +9,6 @@ import {
   YAxis,
   ZAxis,
 } from 'recharts'
-import Column from '../Column'
 import FactionSelect from '../FactionSelect'
 import Row from '../Row'
 import Title from '../Title'
@@ -45,7 +44,7 @@ export default React.memo(function ChartStrengthMana(props) {
     <>
       <Title>Strength to mana ratio</Title>
       <Row desktopOnly>
-        <Column>
+        <Row.Column>
           <FactionSelect
             value={faction}
             onChange={event => setFaction(event.target.value)}
@@ -53,8 +52,8 @@ export default React.memo(function ChartStrengthMana(props) {
             id='csm-faction'
             withNeutral
           />
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <label htmlFor='csm-level'>Level</label>
           <select
             name='csm-level'
@@ -68,7 +67,7 @@ export default React.memo(function ChartStrengthMana(props) {
             <option value='4'>4</option>
             <option value='5'>5</option>
           </select>
-        </Column>
+        </Row.Column>
       </Row>
       <ResponsiveContainer width='100%' height={350}>
         <ScatterChart margin={{ top: 20, right: 0, bottom: 0, left: -10 }}>

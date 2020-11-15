@@ -1,5 +1,4 @@
 import React from 'react'
-import Column from '../Column'
 import Guide from '../Guide'
 import Info from '../Info'
 import Only from '../Only'
@@ -65,13 +64,13 @@ export default React.memo(function GuideKnownBugs(props) {
 
       <Title id='displayed-debug-view'>Displayed debug view</Title>
       <Row wideGutter desktopOnly>
-        <Column>
+        <Row.Column>
           <img
             src='/assets/images/guides/brawl_debug_view.jpg'
             alt='Debug Brawl view with infinite resources, test name and missing UI elements'
           />
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <div>
             <h3>Problem</h3>
             <p>
@@ -102,12 +101,12 @@ export default React.memo(function GuideKnownBugs(props) {
               “resolved” with a simple game restart.
             </p>
           </div>
-        </Column>
+        </Row.Column>
       </Row>
 
       <Title id='double-animations'>Double animations</Title>
       <Row wideGutter desktopOnly>
-        <Column>
+        <Row.Column>
           <div>
             <h3>Problem</h3>
             <p>
@@ -133,24 +132,24 @@ export default React.memo(function GuideKnownBugs(props) {
               of the two players invite the other.
             </p>
           </div>
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <img
             src='/assets/images/guides/double_animation_bug.jpg'
             alt='All in-game animations are doubled'
           />
-        </Column>
+        </Row.Column>
       </Row>
 
       <Title id='missing-resources'>Missing resources</Title>
       <Row wideGutter desktopOnly>
-        <Column>
+        <Row.Column>
           <img
             src='/assets/images/guides/fusion_stone_reward.jpeg'
             alt='Animation when being rewarded with fusion stones'
           />
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <div>
             <h3>Problem</h3>
             <p>
@@ -176,12 +175,12 @@ export default React.memo(function GuideKnownBugs(props) {
               game should do it.
             </p>
           </div>
-        </Column>
+        </Row.Column>
       </Row>
 
       <Title id='three-cards-in-hand'>Three-cards in hand</Title>
       <Row wideGutter desktopOnly>
-        <Column>
+        <Row.Column>
           <div>
             <h3>Problem</h3>
             <p>
@@ -204,24 +203,24 @@ export default React.memo(function GuideKnownBugs(props) {
               4 cards.
             </p>
           </div>
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <img
             src='/assets/images/guides/three_cards_bug.jpg'
             alt='Stormbound hand with only 3 cards despite having cycled'
           />
-        </Column>
+        </Row.Column>
       </Row>
 
       <Title id='misplaced-game-invite'>Misplaced game invite</Title>
       <Row wideGutter desktopOnly>
-        <Column>
+        <Row.Column>
           <img
             src='/assets/images/guides/challenge_in_deck_selection.jpg'
             alt='Friendly challenge dialog being displayed in the deck view'
           />
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <div>
             <h3>Problem</h3>
             <p>
@@ -251,12 +250,12 @@ export default React.memo(function GuideKnownBugs(props) {
               a complete deck from the collection.
             </p>
           </div>
-        </Column>
+        </Row.Column>
       </Row>
 
       <Title id='unwatchable-ads'>Unwatchable ads</Title>
       <Row wideGutter desktopOnly>
-        <Column>
+        <Row.Column>
           <div>
             <h3>Problem</h3>
             <p>
@@ -292,24 +291,24 @@ export default React.memo(function GuideKnownBugs(props) {
               </li>
             </ul>
           </div>
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <img
             src='/assets/images/guides/unwatchable_ads.jpg'
             alt='The reward screen does not allow watching an ad'
           />
-        </Column>
+        </Row.Column>
       </Row>
 
       <Title id='glitchy-friend-list'>Glitchy friend list</Title>
       <Row wideGutter desktopOnly>
-        <Column>
+        <Row.Column>
           <img
             src='/assets/images/guides/friend-list-gaps.jpg'
             alt='Friend list having odd empty gaps'
           />
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <div>
             <h3>Problem</h3>
             <p>
@@ -325,12 +324,12 @@ export default React.memo(function GuideKnownBugs(props) {
               enough to restore the proper display.
             </p>
           </div>
-        </Column>
+        </Row.Column>
       </Row>
 
       <Title id='tegor-ever-lasting-skull'>Tegor’s ever-lasting skull</Title>
       <Row wideGutter desktopOnly>
-        <Column>
+        <Row.Column>
           <div>
             <h3>Problem</h3>
             <p>
@@ -353,13 +352,13 @@ export default React.memo(function GuideKnownBugs(props) {
               workaround.
             </p>
           </div>
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <img
             src='/assets/images/guides/tegor_ever_lasting_skull.png'
             alt='Tegor’s on-death skull floating at the bottom left of the board'
           />
-        </Column>
+        </Row.Column>
       </Row>
     </Guide>
   )

@@ -2,7 +2,6 @@ import React from 'react'
 import BattleSimApp from '../BattleSimApp'
 import Card from '../Card'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
-import Column from '../Column'
 import Guide from '../Guide'
 import Notice from '../Notice'
 import Row from '../Row'
@@ -31,7 +30,7 @@ export default React.memo(function GuideBroodmotherQordia(props) {
       <Title id='eggs'>It’s all in the eggs</Title>
 
       <Row desktopOnly wideGutter>
-        <Column width='2/3'>
+        <Row.Column width='2/3'>
           <p>
             The main power and weakness of Qordia is her eggs. She lays 3 of
             them randomly around here (or fewer if there are not enough empty
@@ -57,13 +56,13 @@ export default React.memo(function GuideBroodmotherQordia(props) {
           <p>
             This is all to say that there is some use to Broodmother Qordia.
           </p>
-        </Column>
-        <Column width='1/3' style={{ justifyContent: 'center' }}>
+        </Row.Column>
+        <Row.Column width='1/3' style={{ justifyContent: 'center' }}>
           <Card
             {...getResolvedCardData({ id: 'T12', level: 1 })}
             rarity='common'
           />
-        </Column>
+        </Row.Column>
       </Row>
 
       <Title id='defensive-usage'>Defensive usage</Title>

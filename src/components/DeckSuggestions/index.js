@@ -5,7 +5,6 @@ import debounce from 'lodash.debounce'
 import decks from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
 import BookmarkDeckButton from '../BookmarkDeckButton'
-import Column from '../Column'
 import Decks from '../Decks'
 import EmptySearch from '../EmptySearch'
 import HeaderBanner from '../HeaderBanner'
@@ -172,7 +171,7 @@ class DeckSuggestions extends React.Component {
         <HeaderBanner title='Popular Decks' />
 
         <Row desktopOnly wideGutter>
-          <Column width='1/3'>
+          <Row.Column width='1/3'>
             <Title>Filters</Title>
 
             <SuggestionsFilters
@@ -218,8 +217,8 @@ class DeckSuggestions extends React.Component {
                 </Only.DefaultCollection>
               </Only.Desktop>
             </div>
-          </Column>
-          <Column width='2/3'>
+          </Row.Column>
+          <Row.Column width='2/3'>
             <Title>Decks</Title>
             {decks.length > 0 ? (
               <Decks
@@ -235,7 +234,7 @@ class DeckSuggestions extends React.Component {
                 resetFilters={this.resetFilters}
               />
             )}
-          </Column>
+          </Row.Column>
         </Row>
 
         <PageMeta

@@ -2,7 +2,6 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import CardDisplay from '../CardBuilderCardDisplay'
 import CardDisplayControls from '../CardDisplayControls'
-import Column from '../Column'
 import Article from '../Article'
 import CoreForm from '../CardBuilderCoreForm'
 import Notice from '../Notice'
@@ -85,14 +84,14 @@ export default React.memo(function CardBuilderApp(props) {
         <>
           <div className='CardBuilderApp__bottom'>
             <Row desktopOnly wideGutter>
-              <Column>
+              <Row.Column>
                 <Title>Core attributes</Title>
                 <CoreForm {...props} />
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <Title>Level-specific attributes</Title>
                 <LevelForm {...props} />
-              </Column>
+              </Row.Column>
             </Row>
           </div>
         </>

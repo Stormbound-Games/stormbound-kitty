@@ -1,6 +1,5 @@
 import React from 'react'
 import CardSelect from '../CardSelect'
-import Column from '../Column'
 import FanKitDownloadDialog from '../FanKitDownloadDialog'
 import FanKitItem from '../FanKitItem'
 import HeaderBanner from '../HeaderBanner'
@@ -38,8 +37,8 @@ export default React.memo(function FanKit(props) {
       <HeaderBanner title='Cards Fan-Kit' />
 
       <Row desktopOnly wideGutter>
-        <Column width='1/4' />
-        <Column>
+        <Row.Column width='1/4' />
+        <Row.Column>
           <CardSelect
             label='Search for a card'
             name='card'
@@ -51,8 +50,8 @@ export default React.memo(function FanKit(props) {
             withTokens
             withClear
           />
-        </Column>
-        <Column width='1/4' />
+        </Row.Column>
+        <Row.Column width='1/4' />
       </Row>
 
       <FanKitDownloadDialog
@@ -73,7 +72,7 @@ export default React.memo(function FanKit(props) {
       {items.map((row, rowIndex) => (
         <Row desktopOnly key={rowIndex}>
           {Array.from({ length: columns }, (_, index) => (
-            <Column
+            <Row.Column
               width={'1/' + columns}
               key={row[index] ? row[index].id : index}
             >
@@ -88,7 +87,7 @@ export default React.memo(function FanKit(props) {
                   withAvif
                 />
               )}
-            </Column>
+            </Row.Column>
           ))}
         </Row>
       ))}

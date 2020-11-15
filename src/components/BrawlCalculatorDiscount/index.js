@@ -1,5 +1,4 @@
 import React from 'react'
-import Column from '../Column'
 import NumberInput from '../NumberInput'
 import Row from '../Row'
 
@@ -7,7 +6,7 @@ export default React.memo(function BrawlCalculatorDiscount(props) {
   return (
     <>
       <Row>
-        <Column>
+        <Row.Column>
           <label htmlFor='discount'>Cost Discount (%)</label>
           <NumberInput
             id='discount'
@@ -18,8 +17,8 @@ export default React.memo(function BrawlCalculatorDiscount(props) {
             max={100}
             placeholder='e.g. 50'
           />
-        </Column>
-        <Column />
+        </Row.Column>
+        <Row.Column />
       </Row>
     </>
   )

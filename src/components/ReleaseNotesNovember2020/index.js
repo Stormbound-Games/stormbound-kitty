@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import CardLink from '../CardLink'
-import Column from '../Column'
 import FAQSection from '../FAQSection'
 import Info from '../Info'
 import Only from '../Only'
@@ -234,18 +233,18 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
 
       <Article.Embed>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <img
               src='/assets/images/releases/stoic_protectors_pack.png'
               alt='Stoic Protectors pack: 3 copies of the card, 5 fusion stones, 750 coins'
             />
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <img
               src='/assets/images/releases/halloween_bundle.png'
               alt='Trick or Treat bundle: 6 Mythic Tomes, 6 Heroic Tomes, 6 Classic Tomes'
             />
-          </Column>
+          </Row.Column>
         </Row>
       </Article.Embed>
 

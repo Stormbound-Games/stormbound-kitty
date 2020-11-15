@@ -4,7 +4,6 @@ import { BrawlContext } from '../BrawlProvider'
 import BrawlMilestone from '../BrawlMilestone'
 import BrawlOutcome from '../BrawlOutcome'
 import BrawlStatusChart from '../BrawlStatusChart'
-import Column from '../Column'
 import Row from '../Row'
 import { BRAWL_INDEX, MILESTONES } from '../../constants/brawl'
 import './index.css'
@@ -20,20 +19,20 @@ export default React.memo(function BrawlOverviewRow(props) {
   return (
     <div className='BrawlOverviewRow'>
       <Row desktopOnly>
-        <Column width='1/3'>
+        <Row.Column width='1/3'>
           <h2 className='BrawlOverviewRow__title'>
             <Link to={`/brawl/${slug}`}>{props.title}</Link>
           </h2>
           <BrawlOutcome />
-        </Column>
-        <Column width='1/3'>
+        </Row.Column>
+        <Row.Column width='1/3'>
           <BrawlStatusChart />
-        </Column>
-        <Column width='1/3'>
+        </Row.Column>
+        <Row.Column width='1/3'>
           {milestone && (
             <BrawlMilestone {...milestone} cardId={BRAWL_INDEX[id].cardId} />
           )}
-        </Column>
+        </Row.Column>
       </Row>
     </div>
   )

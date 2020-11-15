@@ -9,7 +9,6 @@ import {
   MAX_TIERS,
 } from '../../constants/list'
 import Article from '../Article'
-import Column from '../Column'
 import CTA from '../CTA'
 import PageMeta from '../PageMeta'
 import ResetButton from '../ResetButton'
@@ -181,7 +180,7 @@ class ListBuilderEditorView extends React.Component {
         smallFontSize
       >
         <Row wideGutter desktopOnly>
-          <Column width='1/3'>
+          <Row.Column width='1/3'>
             <Title style={{ marginTop: 0 }}>Settings</Title>
 
             <p>
@@ -191,23 +190,23 @@ class ListBuilderEditorView extends React.Component {
             </p>
 
             <Row>
-              <Column>
+              <Row.Column>
                 <ResetButton
                   label='Reset list'
                   confirm='Are you sure you want to reset the list to its initial state?'
                   reset={this.reset}
                   disabled={!this.props.listId}
                 />
-              </Column>
-              <Column>
+              </Row.Column>
+              <Row.Column>
                 <ShareButton
                   title='Share tier list'
                   disabled={!this.props.listId}
                 />
-              </Column>
+              </Row.Column>
             </Row>
-          </Column>
-          <Column width='2/3'>
+          </Row.Column>
+          <Row.Column width='2/3'>
             <Title style={{ marginTop: 0 }}>Tier list</Title>
 
             {this.state.tiers.map((tier, index) => (
@@ -242,7 +241,7 @@ class ListBuilderEditorView extends React.Component {
             >
               Add a new tier
             </CTA>
-          </Column>
+          </Row.Column>
         </Row>
 
         <PageMeta

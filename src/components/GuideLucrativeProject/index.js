@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Column from '../Column'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
 import Info from '../Info'
@@ -72,7 +71,7 @@ export default React.memo(function GuideLucrativeProject(props) {
 
       <Guide.FullWidth padding='60px'>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <h3 style={{ marginTop: '0.5em' }}>
               CriticalPancake’s Iron Movement
             </h3>
@@ -87,8 +86,8 @@ export default React.memo(function GuideLucrativeProject(props) {
               the opponent cannot clear every turn, you get enough front-line to
               pass the big boys.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <FeaturedDeck
               id='5xn1n2i1n3n4i4i5n67i8i6i16i21'
               name='Iron Movement'
@@ -96,10 +95,10 @@ export default React.memo(function GuideLucrativeProject(props) {
               category='BRAWL'
               faction='ironclad'
             />
-          </Column>
+          </Row.Column>
         </Row>
         <Row desktopOnly wideGutter>
-          <Column>
+          <Row.Column>
             <h3 style={{ marginTop: '0.5em' }}>OneC’s Small Ball</h3>
             <p>
               <Link to='/member/OneC'>OneC</Link> adopts a slower deck with
@@ -108,8 +107,8 @@ export default React.memo(function GuideLucrativeProject(props) {
               the mid- and back-field to slowly buff construct so the tide
               cannot be turned.
             </p>
-          </Column>
-          <Column>
+          </Row.Column>
+          <Row.Column>
             <FeaturedDeck
               id='5xn1i1i2n3n4i4i5i8i10i20i16i21'
               name='Small Ball'
@@ -117,7 +116,7 @@ export default React.memo(function GuideLucrativeProject(props) {
               category='BRAWL'
               faction='ironclad'
             />
-          </Column>
+          </Row.Column>
         </Row>
       </Guide.FullWidth>
 

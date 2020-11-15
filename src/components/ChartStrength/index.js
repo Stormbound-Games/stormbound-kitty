@@ -9,7 +9,6 @@ import {
   Tooltip,
 } from 'recharts'
 import FactionSelect from '../FactionSelect'
-import Column from '../Column'
 import Row from '../Row'
 import Title from '../Title'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
@@ -48,7 +47,7 @@ export default React.memo(function ChartStrength(props) {
     <>
       <Title>Unit &amp; structure Strength</Title>
       <Row desktopOnly>
-        <Column>
+        <Row.Column>
           <FactionSelect
             value={faction}
             onChange={event => setFaction(event.target.value)}
@@ -57,8 +56,8 @@ export default React.memo(function ChartStrength(props) {
             withNeutral
             withAny
           />
-        </Column>
-        <Column>
+        </Row.Column>
+        <Row.Column>
           <label htmlFor='cs-level'>Level</label>
           <select
             name='cs-level'
@@ -72,7 +71,7 @@ export default React.memo(function ChartStrength(props) {
             <option value='4'>4</option>
             <option value='5'>5</option>
           </select>
-        </Column>
+        </Row.Column>
       </Row>
       <ResponsiveContainer width='100%' height={350}>
         <LineChart
