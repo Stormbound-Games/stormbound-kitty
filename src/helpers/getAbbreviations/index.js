@@ -36,6 +36,7 @@ const COMMON_ABBREVIATIONS = {
   SM: 'Snowmasons',
   SS: 'Sleetstompers',
   STE: 'Survive Trigger Effect',
+  SWCC: 'Stormbound Weekly Card Contest',
   WC: 'Wolfcloaks',
   WM: 'Windmakers',
   WP: 'Winter Pact',
