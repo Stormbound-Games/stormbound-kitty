@@ -326,5 +326,17 @@
       { "id": "1xn1f5f27n11n13f7n63n60n38n69n36f22" },
       { "id": "1xn1n2n11w3n17w5n60n38w12w13w18n58" }
     ]
+  },
+  {
+    "name": "Tornado Tournament",
+    "hosts": ["Stratadox", "Troxyz"],
+    "podium": ["HanooSt", "Vox", "Helios"],
+    "date": "10/2020",
+    "description": "The Tornado Tournament brought deck building into the fights as well. With the use of a web interface, combatants had to ban, pick and mandate cards together with their opponent.",
+    "decks": [
+      { "id": "1xw1n6n8n20w7n25w8n27n49n76n46n57" },
+      { "id": "1xw1n6n8w5w7n78w8n27n38n76n46n57" },
+      { "id": "1xn6n8n13w5n25n36n39n77n46n48n57w19" }
+    ]
   }
 ]
