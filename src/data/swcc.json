@@ -359,6 +359,15 @@
     "season": 2,
     "week": 46,
     "name": "Drawback",
+    "winner": {
+      "id": "VztGO1U7UjsyOzE7NS82LzcvOC8xMDtCbHVlbW91bnQlMjBHb2xlbXM7VzE2O09uJTIwZGVhdGglMkMlMjB5b3VyJTIwb3Bwb25lbnQlMjBnYWluJTIwKjIlMjBtYW5hKjs7",
+      "author": "Pepegak"
+    }
+  },
+  {
+    "season": 2,
+    "week": 47,
+    "name": "In-hand effects",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
