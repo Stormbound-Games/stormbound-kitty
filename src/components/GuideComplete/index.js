@@ -842,8 +842,8 @@ export default React.memo(function GuideComplete(props) {
           <CardLink id='W6' /> and <CardLink id='W11' />.
         </li>
         <li>
-          <CardLink id='N48' /> and a big spell (<CardLink id='W19' />,{' '}
-          <CardLink id='N44' />, <CardLink id='N50' />
+          <CardLink id='N48' /> and a big spell (such as <CardLink id='N44' />,{' '}
+          <CardLink id='N50' />
           …).
         </li>
         <li>

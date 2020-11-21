@@ -341,7 +341,8 @@ export default React.memo(function GuideBeginner(props) {
       <p>
         <strong className='Highlight'>Play</strong>: <CardLink id='S21' /> plays
         random satyr cards from your deck, and <CardLink id='N48' /> random
-        spells from your hand, and both play them for free.{' '}
+        spells from your hand (that does not cost more than Earyn’s mana cost),
+        and both play them for free.{' '}
         <Link to='/guides/drawing#queen-of-herds'>
           Queen of Herds’ draws aren’t affected by weight
         </Link>
