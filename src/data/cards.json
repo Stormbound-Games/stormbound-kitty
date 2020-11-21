@@ -467,7 +467,7 @@
     "mana": 5,
     "strength": 6,
     "movement": 0,
-    "ability": "When played with at least *2* surrounding enemies, deal *2/3/4/5/6 damage* to each"
+    "ability": "When played with at least *3* surrounding enemies, deal *2/3/4/5/6 damage* to each"
   },
   {
     "name": "Boomstick Officers",
@@ -624,7 +624,7 @@
     "mana": 7,
     "strength": "7/9/11/12/15",
     "movement": 0,
-    "ability": "On play, randomly *play* up to *1/1/1/2/2* spell card/card/card/cards/cards from your hand",
+    "ability": "On play, randomly *play* up to *1/1/1/2/2* spell card/card/card/cards/cards up to Earyn’s mana cost from your hand",
     "hero": true
   },
   {
@@ -1049,7 +1049,7 @@
     "rarity": "epic",
     "image": "stoic_protectors.png",
     "mana": 4,
-    "strength": "2/3/3/4/5",
+    "strength": "3/4/5/6/7",
     "movement": 0,
     "ability": "On play, turn off up to 1/2/2/3/4 bordering/bordering/surrounding/surrounding/surrounding enemy unit’s/units’/units’/units’/units’ ability"
   },
@@ -2089,7 +2089,7 @@
     "rarity": "rare",
     "image": "lasting_remains.png",
     "mana": 7,
-    "strength": "7/8/10/12/15",
+    "strength": "8/9/11/13/15",
     "movement": 1,
     "ability": "After attacking, *move* forward"
   },
@@ -2141,9 +2141,9 @@
     "rarity": "rare",
     "image": "petrified_fossils.png",
     "mana": 5,
-    "strength": "4/5/6/7/8",
+    "strength": "4/5/6/8/10",
     "movement": 1,
-    "ability": "After surviving damage, randomly command all weaker friendly units to move forward",
+    "ability": "After surviving damage, randomly command all friendly units with equal or less strength forward",
     "elder": true
   },
   {

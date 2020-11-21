@@ -1,5 +1,16 @@
 [
   {
+    "cardId": "N36",
+    "title": "Update 12-2020",
+    "name": "Christmas Event",
+    "meta": "December 1st, 2020",
+    "date": "12/2020",
+    "excerpt": "Christmas is around the corner and Sheepyard is releasing a small Advent Calendar patch, including some balance changes and exclusive offers.",
+    "slug": "12-2020",
+    "background": "/assets/images/banners/ancients.png",
+    "id": "12_2020"
+  },
+  {
     "cardId": "N80",
     "title": "Update 11-2020",
     "name": "Halloween Event",

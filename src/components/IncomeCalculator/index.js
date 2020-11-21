@@ -13,7 +13,7 @@ import { MILESTONES } from '../../constants/brawl'
 import { BOOKS } from '../../constants/game'
 import { Coins, Rubies, Stones } from '../Resource'
 import capitalise from '../../helpers/capitalise'
-import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
+import getRewardLabel from '../../helpers/getRewardLabel'
 import getAverageStonesPerBook from '../../helpers/getAverageStonesPerBook'
 import './index.css'
 
@@ -396,7 +396,7 @@ export default React.memo(function IncomeCalculator(props) {
                 <option value=''>Select a milestone</option>
                 {MILESTONES.map((milestone, index) => (
                   <option key={milestone.crowns} value={index}>
-                    {index + 1}. {getBrawlRewardLabel(milestone)}
+                    {index + 1}. {getRewardLabel(milestone)}
                   </option>
                 ))}
               </select>

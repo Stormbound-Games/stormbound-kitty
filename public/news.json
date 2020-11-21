@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Black Friday & Christmas Event",
+    "description": "Thanksgiving and Christmas are approaching and with them a new small patch with rewards!",
+    "link": "/releases/11-2020"
+  },
+  {
     "intro": "Reckless Rush Guide",
     "description": "RecklessRush wrote an entire guide on playing his eponymous deck to perfect!",
     "link": "/guides/reckless-rush"

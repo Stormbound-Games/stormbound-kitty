@@ -13,7 +13,7 @@ import Row from '../Row'
 import Table from '../Table'
 import Title from '../Title'
 import isBrawlRunning from '../../helpers/isBrawlRunning'
-import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
+import getRewardLabel from '../../helpers/getRewardLabel'
 import getCurrentBrawl from '../../helpers/getCurrentBrawl'
 import getGuide from '../../helpers/getGuide'
 import { BRAWLS, MILESTONES } from '../../constants/brawl'
@@ -120,7 +120,7 @@ export default React.memo(function GuideBrawl(props) {
                   <td>
                     <Coins amount={milestone.cost} />
                   </td>
-                  <td>{getBrawlRewardLabel(milestone, true)}</td>
+                  <td>{getRewardLabel(milestone, true)}</td>
                 </tr>
               ))}
             </tbody>

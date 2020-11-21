@@ -4228,5 +4228,41 @@
     "description": "Updated ability",
     "id": "W1",
     "type": "BUFF"
+  },
+  {
+    "date": 1606780800000,
+    "description": "Strength increased by 1",
+    "id": "N80",
+    "type": "BUFF"
+  },
+  {
+    "date": 1606780800000,
+    "description": "Can no longer cast spells more expensive than base mana cost",
+    "id": "N48",
+    "type": "NERF"
+  },
+  {
+    "date": 1606780800000,
+    "description": "Need 3 surrounding enemies to proc",
+    "id": "N36",
+    "type": "NERF"
+  },
+  {
+    "date": 1606780800000,
+    "description": "Strength increased by 1 at all levels but 5",
+    "id": "S23",
+    "type": "BUFF"
+  },
+  {
+    "date": 1606780800000,
+    "description": "Strength increased by 2 at high levels",
+    "id": "S27",
+    "type": "BUFF"
+  },
+  {
+    "date": 1606780800000,
+    "description": "Also commands equal strength units forward",
+    "id": "S27",
+    "type": "BUFF"
   }
 ]

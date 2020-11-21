@@ -4,7 +4,7 @@ import Card from '../Card'
 import Image from '../Image'
 import BrawlProgressBar from '../BrawlProgressBar'
 import ResourceIcon from '../ResourceIcon'
-import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
+import getRewardLabel from '../../helpers/getRewardLabel'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import './index.css'
 
@@ -75,9 +75,7 @@ export default React.memo(function BrawlMilestone(props) {
         >
           <BrawlRewardAsset reward={props.reward} cardId={props.cardId} />
         </div>
-        <span className='BrawlMilestone__label'>
-          {getBrawlRewardLabel(props)}
-        </span>
+        <span className='BrawlMilestone__label'>{getRewardLabel(props)}</span>
       </div>
 
       <div className='BrawlMilestone__footer'>

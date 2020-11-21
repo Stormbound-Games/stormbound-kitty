@@ -4,7 +4,7 @@ import Info from '../Info'
 import { Coins, Crowns } from '../Resource'
 import { MILESTONES, COIN_MULTIPLIERS } from '../../constants/brawl'
 import getMilestoneIndexFromCoins from '../../helpers/getMilestoneIndexFromCoins'
-import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
+import getRewardLabel from '../../helpers/getRewardLabel'
 import getCostForMilestone from '../../helpers/getCostForMilestone'
 import getMilestoneForCrowns from '../../helpers/getMilestoneForCrowns'
 import './index.css'
@@ -18,7 +18,7 @@ const BrawlCalculatorRewards = React.memo(function BrawlCalculatorRewards(
     <ol className='BrawlCalculatorOutcome__rewards' start={info.nextIndex + 1}>
       {MILESTONES.slice(info.nextIndex, props.milestone + 1).map(
         (milestone, index) => (
-          <li key={milestone.crowns}>{getBrawlRewardLabel(milestone, true)}</li>
+          <li key={milestone.crowns}>{getRewardLabel(milestone, true)}</li>
         )
       )}
     </ol>
@@ -113,9 +113,8 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
           <>
             <p>
               Reaching the next milestone (milestone #{reachableIndex + 2},
-              yielding{' '}
-              {getBrawlRewardLabel(MILESTONES[reachableIndex + 1], true)}) would
-              cost <Coins amount={nextUp} />, or an{' '}
+              yielding {getRewardLabel(MILESTONES[reachableIndex + 1], true)})
+              would cost <Coins amount={nextUp} />, or an{' '}
               <span className='Highlight'>
                 extra <Coins amount={nextUp - coins} />
               </span>
@@ -146,7 +145,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
 
     const outcome = getCostForMilestone(milestone, ...options)
     const outcomeUp = Math.round(Math.round(outcome) / 5) * 5
-    const reward = getBrawlRewardLabel(MILESTONES[milestone], true)
+    const reward = getRewardLabel(MILESTONES[milestone], true)
 
     return (
       <>

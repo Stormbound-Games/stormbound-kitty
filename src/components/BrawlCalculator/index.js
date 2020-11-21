@@ -14,7 +14,7 @@ import Table from '../Table'
 import { Coins, Crowns } from '../Resource'
 import Title from '../Title'
 import { MILESTONES } from '../../constants/brawl'
-import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
+import getRewardLabel from '../../helpers/getRewardLabel'
 
 export default React.memo(function BrawlCalculator(props) {
   const [mode, setMode] = React.useState('')
@@ -121,7 +121,7 @@ export default React.memo(function BrawlCalculator(props) {
                           <Coins amount={-1 * (milestone.cost - cost)} />
                         </td>
                       ) : (
-                        <td>{getBrawlRewardLabel(milestone, true)}</td>
+                        <td>{getRewardLabel(milestone, true)}</td>
                       )}
                     </tr>
                   )

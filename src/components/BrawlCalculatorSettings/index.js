@@ -1,7 +1,7 @@
 import React from 'react'
 import NumberInput from '../NumberInput'
 import Row from '../Row'
-import getBrawlRewardLabel from '../../helpers/getBrawlRewardLabel'
+import getRewardLabel from '../../helpers/getRewardLabel'
 import { MILESTONES } from '../../constants/brawl'
 
 export default React.memo(function BrawlCalculatorSettings(props) {
@@ -76,7 +76,7 @@ export default React.memo(function BrawlCalculatorSettings(props) {
                     value={index}
                     disabled={milestone.crowns <= props.crowns}
                   >
-                    {index + 1}. {getBrawlRewardLabel(milestone)}
+                    {index + 1}. {getRewardLabel(milestone)}
                   </option>
                 ))}
               </select>
