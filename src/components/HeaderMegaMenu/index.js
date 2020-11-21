@@ -32,6 +32,8 @@ export default React.memo(function HeaderMegaMenu(props) {
         .filter(Boolean)
         .join(' ')}
       style={{ '--columns': props.columns.length }}
+      onMouseOver={props.onMouseOver}
+      onMouseOut={props.onMouseOut}
     >
       <Row desktopOnly>
         {props.columns.map((column, index) => (

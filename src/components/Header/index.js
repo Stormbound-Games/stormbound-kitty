@@ -52,6 +52,8 @@ export default React.memo(function Header(props) {
                     type='button'
                     aria-expanded={open === item.id}
                     onClick={() => setOpen(open === item.id ? null : item.id)}
+                    onMouseOver={() => setOpen(item.id)}
+                    onMouseOut={() => setOpen(null)}
                     className={[
                       'Header__action',
                       topActive === item.id && 'Header__action--active',
@@ -66,6 +68,8 @@ export default React.memo(function Header(props) {
                 )}
                 {item.items.length > 0 ? (
                   <HeaderMegaMenu
+                    onMouseOver={() => setOpen(item.id)}
+                    onMouseOut={() => setOpen(null)}
                     active={props.active.slice(1)}
                     close={() => setOpen(null)}
                     columns={item.items}
