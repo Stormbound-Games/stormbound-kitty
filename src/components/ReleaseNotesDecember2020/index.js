@@ -214,8 +214,8 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
         <p>
           Like most holiday events, there will be some one-time only special
           offers for people willing to put some money into the game. The Black
-          Friday exclusive packs will be available from November 27th until
-          November 29th (end of day) so be sure to jump on them!
+          Friday exclusive packs will be available from November 24th (9AM CET)
+          until November 30th (end of day) so be sure to jump on them!
         </p>
 
         <ul>
@@ -263,7 +263,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
               id: 'release-date',
               question: 'When is the update going to be released?',
               answer:
-                'The balance changes will be effective with the season reset on December 1st. The premium pass and Black Friday offers will also become available from that date onwards and will last until the 31st of December.',
+                'The balance changes will be effective with the season reset on December 1st. The premium pass will become available at that date as well. The Black Friday offers will be available from November 24th (9AM CET) until November 30th (end of day).',
             },
             {
               id: 'daily-checkin-calendar',
