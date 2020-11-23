@@ -39,7 +39,7 @@ export default React.memo(function ChartAbility(props) {
         if (typeof acc[type] === 'undefined') {
           acc[type] = {
             name: type,
-            color: abilities[match[1]].color,
+            color: abilities[match[1].toLowerCase()].color,
             value: 0,
           }
         }
