@@ -257,6 +257,11 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
           </li>
         </ul>
 
+        <p>
+          As it is often the case, the paid bundles yield coins and rubies will
+          also grant more resources for the duration of the Black Friday event.
+        </p>
+
         <FAQSection
           id='faq'
           title='FAQ'
