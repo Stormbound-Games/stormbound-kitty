@@ -258,8 +258,10 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
         </ul>
 
         <p>
-          As it is often the case, the paid bundles yield coins and rubies will
-          also grant more resources for the duration of the Black Friday event.
+          On top of that, <span className='Highlight'>all books</span> (but
+          Noble) will yield an extra card until the end of the Black Friday
+          event. Similarly, the paid bundles yield coins and rubies will also
+          grant more resources for the duration of the Black Friday event.
         </p>
 
         <FAQSection
