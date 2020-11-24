@@ -193,13 +193,15 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
         >
           <Table>
             <thead>
-              <th style={{ width: '100px' }}>Day</th>
-              <th>Free</th>
-              <th>Premium</th>
+              <tr>
+                <th style={{ width: '100px' }}>Day</th>
+                <th>Free</th>
+                <th>Premium</th>
+              </tr>
             </thead>
             <tbody>
               {rewards.map((reward, index) => (
-                <tr>
+                <tr key={index}>
                   <td style={{ width: '100px' }}>#{index + 1}</td>
                   <td>{getRewardLabel(reward[0], true)}</td>
                   <td>{getRewardLabel(reward[1], true)}</td>
