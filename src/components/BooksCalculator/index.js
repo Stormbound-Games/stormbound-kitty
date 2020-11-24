@@ -30,20 +30,36 @@ export default React.memo(function BooksCalculator(props) {
     else setExpectations([0, 0, 0, 0])
   }, [isAdvancedMode])
 
-  const setExpectation = index => value =>
+  const setExpectation = (index, value) => {
     setExpectations(expectations => [
       ...expectations.slice(0, index),
-      clamp(
-        0,
-        Number(value),
-        countCardsForRarity(Object.keys(RARITIES)[index])
-      ),
+      value === ''
+        ? ''
+        : clamp(
+            0,
+            Number(value),
+            countCardsForRarity(Object.keys(RARITIES)[index])
+          ),
       ...expectations.slice(index + 1),
     ])
-  const setCommonExpectation = React.useCallback(() => setExpectation(0), [])
-  const setRareExpectation = React.useCallback(() => setExpectation(1), [])
-  const setEpicExpectation = React.useCallback(() => setExpectation(2), [])
-  const setLegendaryExpectation = React.useCallback(() => setExpectation(3), [])
+  }
+
+  const setCommonExpectation = React.useCallback(
+    value => setExpectation(0, value),
+    []
+  )
+  const setRareExpectation = React.useCallback(
+    value => setExpectation(1, value),
+    []
+  )
+  const setEpicExpectation = React.useCallback(
+    value => setExpectation(2, value),
+    []
+  )
+  const setLegendaryExpectation = React.useCallback(
+    value => setExpectation(3, value),
+    []
+  )
 
   return (
     <>

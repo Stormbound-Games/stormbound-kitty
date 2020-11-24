@@ -38,17 +38,18 @@ export default React.memo(function BookOutcome(props) {
   const subject = props.isAdvancedMode
     ? 'at least one of the cards you want'
     : PRE_MADE_EXPECTATIONS[props.target].label.toLowerCase()
+  const expectations = props.expectations.map(a => a || 0)
   const chances = getDrawingProbability(
     props.book,
     props.isAdvancedMode
-      ? props.expectations
+      ? expectations
       : PRE_MADE_EXPECTATIONS[props.target].expectations
   )
 
   return (
     <div className='BookOutcome'>
       <Info icon='books' title='Outcome'>
-        {props.isAdvancedMode && props.expectations.join('') === '0000' ? (
+        {props.isAdvancedMode && expectations.join('') === '0000' ? (
           <p>
             Define how many different cards you need of each rarity to get the
             odds of drawing at least one of them in a {bookName}.
