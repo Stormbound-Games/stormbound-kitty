@@ -1425,8 +1425,8 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Lasting Remains', () => {
     const value1 = getCardValue('S23', 1)
     const value5 = getCardValue('S23', 5)
-    expect(value1[0]).to.equal((7 / 7) * 1)
-    expect(value1[1]).to.equal((7 / 7) * 2)
+    expect(value1[0]).to.equal((8 / 7) * 1)
+    expect(value1[1]).to.equal((8 / 7) * 2)
     expect(value5[0]).to.equal((15 / 7) * 1)
     expect(value5[1]).to.equal((15 / 7) * 2)
   })
