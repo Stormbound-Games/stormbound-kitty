@@ -11,6 +11,10 @@ import cycle from './cycle'
 import draw from './draw'
 import modifyDeck from '../../helpers/modifyDeck'
 
+// Used to get Archdruid’s Earyn mana cost to know whether spells can be played
+// for free by her ability. The level would need to be adjusted accordingly and
+// dynamically if Earyn’s mana cost started varying per level.
+const ARCHDRUID_EARYN = getResolvedCardData({ id: 'N48', level: 1 })
 // Frozen enemies left after a card's ability has been resolved, in regular RNG mode
 const FROZEN_ENEMIES_AFTER = {
   // Frosthexers
@@ -320,7 +324,8 @@ const isSatyrInDeck = state => card =>
 
 const isPlayableSpell = state => card => {
   const cardInDeck = state.deck.find(isCard(card))
-  return cardInDeck.type === 'spell'
+
+  return cardInDeck.type === 'spell' && cardInDeck.mana <= ARCHDRUID_EARYN.mana
 }
 
 function getCollectorMirzToken(deck, level) {

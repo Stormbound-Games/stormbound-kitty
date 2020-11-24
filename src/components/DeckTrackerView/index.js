@@ -265,10 +265,11 @@ class DeckTrackerView extends React.Component {
     }
 
     if (activeCard === 'N48' /* Archdruid Earyn */) {
-      const spells = this.props.hand.filter(
-        cardId =>
-          this.props.deck.find(card => card.id === cardId).type === 'spell'
-      )
+      const Earyn = this.props.deck.find(card => card.id === activeCard)
+      const spells = this.props.hand.filter(cardId => {
+        const card = this.props.deck.find(card => card.id === cardId)
+        return card.type === 'spell' && card.mana <= Earyn.mana
+      })
 
       if (spells.length > 0) {
         if (spells.length === 1) {

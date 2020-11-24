@@ -41,6 +41,7 @@ const GUIDE_COMPONENTS = {
 }
 
 const RELEASE_COMPONENTS = {
+  '12_2020': load('ReleaseNotesDecember2020'),
   '11_2020': load('ReleaseNotesNovember2020'),
   '10_2020': load('ReleaseNotesOctober2020'),
   '3RD_ANNIVERSARY': load('ReleaseNotes3rdAnniversary'),

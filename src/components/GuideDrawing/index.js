@@ -253,12 +253,13 @@ export default React.memo(function GuideDrawing(props) {
       </p>
 
       <p>
-        <CardLink id='N48' /> simply plays one or two spells from the hand.
-        Unlike with Queen of Herds, these plays do cause a reweighing of the
-        deck (or 2 for level 4 and 5). Interestingly enough, the first spell
-        played by <CardLink id='N48' /> will end up with a non-0 weight after
-        the second spell is played, which mean it could technically be drawn
-        (although unlikely) right away.
+        <CardLink id='N48' /> simply plays one or two spells from the hand
+        (provided they do not cost more than Earyn’s mana cost). Unlike with
+        Queen of Herds, these plays do cause a reweighing of the deck (or 2 for
+        level 4 and 5). Interestingly enough, the first spell played by{' '}
+        <CardLink id='N48' /> will end up with a non-0 weight after the second
+        spell is played, which mean it could technically be drawn (although
+        unlikely) right away.
       </p>
 
       <p>

@@ -71,13 +71,13 @@ export default React.memo(function GuideLegendaries(props) {
         than 3, it can have some value. Past that, other cards will be better.
       </p>
       <p>
-        <CardLink id='N48' />: <span className='Highlight'>yes for Winter</span>{' '}
-        to combine with <CardLink id='W19' />, otherwise maybe not. Perhaps if
-        you plan to trigger <CardLink id='N44' /> instead. With Gift of the
-        Wise, you can use it one turn earlier and get a free 7 strength unit, so
-        no reason not to use it in this case. With Needle Blast, you get less
-        value, but it remains alright. If planning on using{' '}
-        <CardLink id='N29' /> instead, then it gets weaker.
+        <CardLink id='N48' />: maybe not—especially since it can no longer play{' '}
+        <CardLink id='W19' />. Perhaps if you plan to trigger{' '}
+        <CardLink id='N44' /> instead. With Gift of the Wise, you can use it one
+        turn earlier and get a free 7 strength unit, so no reason not to use it
+        in this case. With Needle Blast, you get less value, but it remains
+        alright. If planning on using <CardLink id='N29' /> instead, then it
+        gets weaker.
       </p>
       <p>
         <CardLink id='N77' />: <span className='Highlight'>no</span>. 7 mana for

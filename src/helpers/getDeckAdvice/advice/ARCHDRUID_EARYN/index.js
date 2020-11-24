@@ -1,8 +1,9 @@
-const getSpells = cards => cards.filter(c => c.type === 'spell')
+const getPlayableSpells = (cards, maxManaCost = Infinity) =>
+  cards.filter(c => c.type === 'spell' && c.mana <= maxManaCost)
 
 export default cards => {
   const archdruidEaryn = cards.find(card => card.id === 'N48')
-  const spells = getSpells(cards)
+  const spells = getPlayableSpells(cards, archdruidEaryn?.mana)
   const threshold = archdruidEaryn && archdruidEaryn.level >= 4 ? 4 : 3
 
   // Whether Aeryn is effecient depends on her level. If she can play 2 spells
