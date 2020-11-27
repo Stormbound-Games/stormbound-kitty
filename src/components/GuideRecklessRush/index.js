@@ -98,15 +98,16 @@ export default React.memo(function GuideRecklessRush(props) {
             <p>
               If you play in Gold or in lower leagues, I would recommend a small
               variation of the deck with <CardLink id='N26' /> instead of{' '}
-              <CardLink id='S24' />
+              <CardLink id='N2' />
               —which are pretty fantastic at lower levels.
             </p>
             <p>
-              Another swap that can be considered would be <CardLink id='N2' />{' '}
-              for <CardLink id='S24' />. The latter costs 1 more mana, but is
-              very powerful in regards to its mana-to-strength ratio. It will
-              always land forwards which is exactly what all rush decks need
-              anyways.
+              Another swap that can be considered is <CardLink id='N24' />{' '}
+              instead of <CardLink id='N63' />. Due to recent shifts in the
+              meta, the latter’s play rate in rush decks has fallen tremendously
+              and it is currently better to replace it with some other card. The
+              recent change to Personal Servers now allows it to fill quite a
+              few different niches in the RR decks.
             </p>
           </Row.Column>
           <Row.Column>
@@ -400,7 +401,9 @@ export default React.memo(function GuideRecklessRush(props) {
         <CardLink id='S8' /> is the third and last card that is capable of
         performing a Trinity Opener. You might have noticed that I still have
         this card at level 1—it’s because I do not think this card should be
-        played often in your games.
+        played often in your games. Note that this card is very strong at lower
+        levels/ranks but slowly gets outshined by your other Trinity Opener
+        cards as all your cards level up.
       </p>
       <p>
         Similar to the Wild Saberpaws treatment, this card behaves very closely
@@ -462,6 +465,18 @@ export default React.memo(function GuideRecklessRush(props) {
         this card as it is almost always better played than cycled especially in
         the lower ranks where you are able to pull off sneaky Devastator plays
         much more frequently.
+      </p>
+
+      <h3>Personal servers</h3>
+      <p>
+        <CardLink id='N24' /> is a very fitting 3 mana card in this deck because
+        of its versatility. This card can be used to accomplish several goals
+        such as: move frontline forward, buff a unit to create more pressure,
+        act as a guardian to defend your stronger units and for potential lethal
+        since it can behave like a Potion of Growth substitute. For 3 mana this
+        card has proven to be very useful. It is not the most important card in
+        the deck nor is it the worst—just a great card to pick up when playing
+        this deck.
       </p>
 
       <h3>Snowmasons</h3>
