@@ -103,8 +103,8 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
             than her own cost.
           </li>
           <li>
-            <CardLink id='N36' /> now require 3 surrounding enemy units to proc
-            (up from 2).
+            <CardLink id='N36' /> now require 3 surrounding enemies to proc (up
+            from 2).
           </li>
           <li>
             <CardLink id='S23' /> see their strength increased to 8/9/11/13/15
