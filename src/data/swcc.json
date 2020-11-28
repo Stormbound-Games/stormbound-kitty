@@ -368,6 +368,15 @@
     "season": 2,
     "week": 47,
     "name": "In-hand effects",
+    "winner": {
+      "id": "VztEO1U7RTs3OzA7Ni83LzgvMTAvMTI7RnJvc3QlMjBMZXZpYXRoYW47aHR0cHMlM0ElMkYlMkZpLmltZ3VyLmNvbSUyRnhDcnpvQTcucG5nO1doZW4lMjBkcmF3biUyQyUyMCpmcmVlemUlMjAyJTJGMiUyRjIlMkYzJTJGMyolMjByYW5kb20lMjBlbmVteSUyMHVuaXRzOzs=",
+      "author": "MooreFunn"
+    }
+  },
+  {
+    "season": 2,
+    "week": 48,
+    "name": "Faction Pirates",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
