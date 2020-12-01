@@ -1,13 +1,15 @@
-[[headers]]
-  for = "*.woff2"
-  [headers.values]
-    Cache-Control = "public, max-age=604800"
-  for = "*.png"
-  [headers.values]
-    Cache-Control = "public, max-age=86400"
-  for = "*.webp"
-  [headers.values]
-    Cache-Control = "public, max-age=86400"
-  for = "*.avif"
-  [headers.values]
-    Cache-Control = "public, max-age=86400"
+/*.woff2
+  cache-control: public
+  cache-control: max-age=604800
+
+/*.png
+  cache-control: public
+  cache-control: max-age=86400
+
+/*.webp
+  cache-control: public
+  cache-control: max-age=86400
+
+/*.avif
+  cache-control: public
+  cache-control: max-age=86400
