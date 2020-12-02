@@ -112,8 +112,8 @@ export default React.memo(function GuideRecklessRush(props) {
           </Row.Column>
           <Row.Column>
             <FeaturedDeck
-              id='2n12n23s12n32s21n672s62n151s82n632s112n26'
-              name='Reckless Rush (Snowmasons)'
+              id='2xn1s1n3s24s2n67s6n24n15s8s11n26'
+              name='Reckless Rush (SnowServers)'
               author='RecklessRush'
               category='REGULAR'
               staticLevels
