@@ -258,11 +258,11 @@ export default [
                 </li>
                 <li>
                   above a certain value: <code>mana:4+</code>/
-                  <code>mana:&lt;4</code>
+                  <code>mana:&gt;4</code>
                 </li>
                 <li>
                   below a certain value: <code>mana:4-</code>/
-                  <code>mana:&gt;4</code>
+                  <code>mana:&lt;4</code>
                 </li>
                 <li>
                   within 2 specific values: <code>mana:4-6</code>
