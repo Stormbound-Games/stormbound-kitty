@@ -168,15 +168,17 @@ export default React.memo(function DeckEditorFilters(props) {
                   data-testid='ability-select'
                 >
                   <option value='*'>Any</option>
+                  <option value='ATTACKING'>Attacking Effet</option>
                   <option value='CHIP'>Chip</option>
                   <option value='COMMAND'>Command</option>
                   <option value='CONFUSION'>Confusion</option>
                   <option value='DRAIN'>Drain</option>
+                  <option value='ON_DEATH'>On-death Effect</option>
                   <option value='FREEZE'>Freeze</option>
                   <option value='POISON'>Poison</option>
                   <option value='PUSH_PULL'>Push/Pull</option>
                   <option value='SPAWN'>Spawn</option>
-                  <option value='SURVIVING'>Surviving</option>
+                  <option value='SURVIVING'>Surviving Effect</option>
                 </select>
               </Row.Column>
 
