@@ -101,6 +101,14 @@ const useArticleProps = deck => {
   return props
 }
 
+const getStoredTooltipsSetting = () => {
+  try {
+    return JSON.parse(localStorage.getItem('sk.db.card_tooltips'))
+  } catch {
+    return false
+  }
+}
+
 const DeckEditorView = React.memo(function DeckEditorView(props) {
   const viewportWidth = useViewportWidth()
   const { deckId } = useRouteMatch().params
@@ -115,7 +123,9 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
   // always have a number (0 for custom levels, 1 to 5 for static levels). Note
   // that this is for the card gallery, and not the cards of the deck itself.
   const [cardLevel, setCardLevel] = React.useState(hasDefaultCollection ? 1 : 0)
-  const [cardTooltips, setCardTooltips] = React.useState(false)
+  const [cardTooltips, setCardTooltips] = React.useState(
+    getStoredTooltipsSetting()
+  )
   const [adjustCardLevels, setAdjustCardLevels] = React.useState(false)
   const previousAdjustCardLevels = usePrevious(adjustCardLevels)
   // The `originalDeckId` contains the deck ID as loaded from the URL before it
@@ -366,6 +376,12 @@ const DeckSettings = React.memo(function DeckSettings(props) {
 })
 
 const CardTooltipsCheckbox = React.memo(function CardTooltipsCheckbox(props) {
+  React.useEffect(() => {
+    try {
+      localStorage.setItem('sk.db.card_tooltips', JSON.stringify(props.value))
+    } catch {}
+  }, [props.value])
+
   return (
     <Checkbox
       className='DeckEditorView__checkbox'
