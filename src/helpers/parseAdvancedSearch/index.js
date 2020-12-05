@@ -14,14 +14,20 @@ const parseToRange = value => {
     return value
   }
 
-  if (value.endsWith('+') || value.startsWith('>')) {
-    const low = +value.replace(/[+>]/g, '')
+  if (value.endsWith('+') || value.startsWith('>=')) {
+    const low = +value.replace(/[+>=]/g, '')
     if (!isNaN(low)) return [low, Infinity].join('-')
+  } else if (value.startsWith('>')) {
+    const low = +value.replace('>', '')
+    if (!isNaN(low)) return [low + 1, Infinity].join('-')
   }
 
-  if (value.endsWith('-') || value.startsWith('<')) {
-    const high = +value.replace(/[<-]/g, '')
+  if (value.endsWith('-') || value.startsWith('<=')) {
+    const high = +value.replace(/[-<=]/g, '')
     if (!isNaN(high)) return [0, high].join('-')
+  } else if (value.startsWith('<')) {
+    const high = +value.replace('<', '')
+    if (!isNaN(high)) return [0, high - 1].join('-')
   }
 
   if (!isNaN(+value)) return +value
