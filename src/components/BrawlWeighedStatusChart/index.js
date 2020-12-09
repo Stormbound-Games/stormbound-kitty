@@ -53,12 +53,12 @@ const BrawlBaseHealthInput = props => (
   <div className='BrawlBaseHealthInput'>
     <label htmlFor='base-health'>Base health</label>
     <NumberInput
+      min={10}
       max={20}
       id='base-health'
       name='base-health'
       value={props.baseHealth}
       onChange={props.setBaseHealth}
-      onBlur={event => props.setBaseHealth(Math.max(10, props.baseHealth))}
     />
   </div>
 )

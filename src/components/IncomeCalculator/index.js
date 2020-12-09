@@ -15,6 +15,7 @@ import { Coins, Rubies, Stones } from '../Resource'
 import capitalise from '../../helpers/capitalise'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getAverageStonesPerBook from '../../helpers/getAverageStonesPerBook'
+import getCostForMilestone from '../../helpers/getCostForMilestone'
 import './index.css'
 
 const DEFAULT_STATE = { coins: 0, rubies: 0, stones: 0, cards: [0, 0, 0, 0] }
@@ -408,22 +409,14 @@ export default React.memo(function IncomeCalculator(props) {
                 name='brawl-cost'
                 value={brawlCost}
                 onChange={setBrawlCost}
-                min={
-                  milestone === ''
-                    ? 0
-                    : MILESTONES.slice(0, milestone + 1).reduce(
-                        (max, ms) => max + (ms.cost * ms.crowns) / 5,
-                        0
-                      )
-                }
                 step={10}
+                min={
+                  milestone === '' ? 0 : getCostForMilestone(milestone, 0, 1)
+                }
                 max={
-                  milestone
-                    ? MILESTONES.slice(0, milestone + 1).reduce(
-                        (max, ms) => max + ms.cost * ms.crowns,
-                        0
-                      )
-                    : undefined
+                  milestone === ''
+                    ? undefined
+                    : getCostForMilestone(milestone, 0, 0)
                 }
               />
             </Row.Column>
