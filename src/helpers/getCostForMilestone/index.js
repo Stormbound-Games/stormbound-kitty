@@ -3,14 +3,14 @@ import getCoinsForWin from '../getCoinsForWin'
 import getMilestoneForCrowns from '../getMilestoneForCrowns'
 
 // @param {Integer} milestone - Index of the expected milestone
-// @param {Integer} crowns - Amount of obtained crowns
 // @param {Float} winRatio - Win ratio between 0 (100% loss) and 1 (100% win)
+// @param {Integer} crowns - Amount of obtained crowns
 // @param {Float} costModifier - Cost modifier between 0 (free) and 1 (normal)
 // @param {String} setup - Wins strategy (ads, Steam…)
 const getCostForMilestone = (
   milestone,
-  crowns = 0,
   winRatio = 1,
+  crowns = 0,
   costModifier = 1,
   setup = 'NONE'
 ) => {

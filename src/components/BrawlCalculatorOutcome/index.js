@@ -27,7 +27,7 @@ const BrawlCalculatorRewards = React.memo(function BrawlCalculatorRewards(
 
 export default React.memo(function BrawlCalculatorOutcome(props) {
   const { mode, crowns, coins, milestone, winRate, setup, discount } = props
-  const options = [crowns, winRate / 100, 1 - discount / 100, setup]
+  const options = [winRate / 100, crowns, 1 - discount / 100, setup]
   const info = getMilestoneForCrowns(crowns)
   const gains =
     setup === 'NONE' ? (

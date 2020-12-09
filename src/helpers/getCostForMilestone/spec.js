@@ -6,7 +6,7 @@ describe('The `getCostForMilestone` helper', () => {
   })
 
   it('should handle 100% win rate', () => {
-    expect(getCostForMilestone(1, 0, 1)).to.equal(40)
-    expect(getCostForMilestone(9, 0, 1)).to.equal(13890)
+    expect(getCostForMilestone(1, 1)).to.equal(40)
+    expect(getCostForMilestone(9, 1)).to.equal(13890)
   })
 })

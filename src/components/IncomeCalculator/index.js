@@ -410,13 +410,11 @@ export default React.memo(function IncomeCalculator(props) {
                 value={brawlCost}
                 onChange={setBrawlCost}
                 step={10}
-                min={
-                  milestone === '' ? 0 : getCostForMilestone(milestone, 0, 1)
-                }
+                min={milestone === '' ? 0 : getCostForMilestone(milestone, 1)}
                 max={
                   milestone === ''
                     ? undefined
-                    : getCostForMilestone(milestone, 0, 0)
+                    : getCostForMilestone(milestone, 0)
                 }
               />
             </Row.Column>
