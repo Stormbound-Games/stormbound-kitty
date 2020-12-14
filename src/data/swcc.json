@@ -361,6 +361,15 @@
     "season": 2,
     "week": 50,
     "name": "Power Creep",
+    "winner": {
+      "author": "DukeOfJuke",
+      "id": "RjtEO1U7UjszOzA7MztXYW5kZXJpbmclMjBXeXJtcyUyQjtGOTtXaGVuJTIwcGxheWVkJTIwYm9yZGVyaW5nJTIwYSUyMGZyaWVuZGx5JTIwZHJhZ29uJTJDJTIwZGVhbCUyMDMlMkY0JTJGNSUyRjYlMkY3JTIwZGFtYWdlJTIwdG8lMjBlbmVteSUyMHVuaXRzJTJDJTIwc3RhcnRpbmclMjB3aXRoJTIwdGhlJTIwc3Ryb25nZXN0Ljs7"
+    }
+  },
+  {
+    "season": 2,
+    "week": 51,
+    "name": "One Mana",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
