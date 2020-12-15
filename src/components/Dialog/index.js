@@ -1,5 +1,5 @@
 import React from 'react'
-import A11yDialog from 'react-a11y-dialog'
+import { A11yDialog } from 'react-a11y-dialog'
 import ButtonIcon from '../ButtonIcon'
 import CTA from '../CTA'
 import Image from '../Image'
@@ -39,12 +39,11 @@ export default React.memo(function Dialog(props) {
       dialogRoot='#dialog-root'
       dialogRef={registerDialog}
       title={props.title}
-      useDialog={false}
       classNames={{
-        base: 'Dialog',
+        container: 'Dialog',
         overlay: 'Dialog__overlay',
-        element: `Dialog__content`,
-        document: 'Dialog__document',
+        dialog: 'Dialog__content',
+        inner: 'Dialog__document',
         title: 'Dialog__hidden',
         closeButton: 'Dialog__hidden',
       }}
