@@ -193,7 +193,7 @@
     "mana": 3,
     "strength": null,
     "movement": null,
-    "ability": "*Give 3/4/5/6/7* strength to a target friendly unit"
+    "ability": "*Give 3/4/5/6/7* strength to a target friendly unit and vitalizes it"
   },
   {
     "name": "Westwind Sailors",
@@ -1154,9 +1154,9 @@
     "rarity": "epic",
     "image": "linked_golems.png",
     "mana": 3,
-    "strength": "1/1/2/2/3",
+    "strength": "2/2/3/3/3",
     "movement": 1,
-    "ability": "When played bordering a friendly Construct, *both gain 2/3/3/4/5* strength"
+    "ability": "When played bordering a friendly Construct, *both gain 1/2/2/3/4* strength"
   },
   {
     "name": "Sound Drivers",
@@ -1668,7 +1668,7 @@
     "mana": 5,
     "strength": "2/3/4/5/6",
     "movement": 1,
-    "ability": "On play, *gain* the strength of the strongest bordering friendly Dragon"
+    "ability": "On play, *gain* the strength of the strongest friendly Dragon"
   },
   {
     "name": "Blood Ministers",
@@ -1917,10 +1917,10 @@
     "race": null,
     "rarity": "rare",
     "image": "broken_truce.png",
-    "mana": 3,
+    "mana": 4,
     "strength": null,
     "movement": null,
-    "ability": "*Destroy* a target unit or structure with *8/10/12/15/18 or less strength*. Deal *3 damage* to your base."
+    "ability": "*Destroy* a target unit or structure with *8/10/12/15/18 or less strength*. Spread spare damage randomly among surrounding units and structures. Deal *3 damage* to your base."
   },
   {
     "name": "Devastators",
@@ -2037,7 +2037,7 @@
     "mana": 5,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On play, *fly* to the first empty tile in front. *Give 3/4/5/6/7* strength to all friendly units passed.",
+    "ability": "On play, *fly* to the first empty tile in front. *Give 3/4/5/6/7* strength to all friendly units passed and vitalize them.",
     "hero": true
   },
   {
@@ -2526,10 +2526,9 @@
     "mana": 4,
     "strength": "4/5/6/7/8",
     "movement": 1,
-    "ability": "After surviving damage, *destroy* all weaker enemy units in front",
+    "ability": "After surviving damage, *destroy* all enemy units in front",
     "elder": true
   },
-
   {
     "name": "Token Constructs",
     "id": "T1",

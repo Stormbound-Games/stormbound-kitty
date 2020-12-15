@@ -1,8 +1,19 @@
 [
   {
+    "cardId": "S19",
+    "title": "Update 12-2020",
+    "name": "End of 2020",
+    "meta": "December 21, 2020",
+    "date": "12/2020",
+    "excerpt": "The year is almost over, but Stormbound is not! Balance changes, new offers and some UI updates are around the corner!",
+    "slug": "end-of-2020",
+    "background": "/assets/images/releases/christmas.png",
+    "id": "end_of_2020"
+  },
+  {
     "cardId": "N48",
     "title": "Update 12-2020",
-    "name": "Christmas Event",
+    "name": "Advent Event",
     "meta": "December 1st, 2020",
     "date": "12/2020",
     "excerpt": "Christmas is around the corner and Sheepyard is releasing a small Advent Calendar patch, including some balance changes and exclusive offers.",

@@ -4264,5 +4264,65 @@
     "description": "Also commands equal strength units forward",
     "id": "S27",
     "type": "BUFF"
+  },
+  {
+    "date": 1609502400000,
+    "description": "Increased mana cost by 1",
+    "id": "S10",
+    "type": "NERF"
+  },
+  {
+    "date": 1609502400000,
+    "description": "Leftover damage now spread to units and structures around",
+    "id": "S10",
+    "type": "MIXED"
+  },
+  {
+    "date": 1609502400000,
+    "description": "Vitalizes friendly units he flies over",
+    "id": "S19",
+    "type": "BUFF"
+  },
+  {
+    "date": 1609502400000,
+    "description": "Decreased ability by 1",
+    "id": "N15",
+    "type": "NERF"
+  },
+  {
+    "date": 1609502400000,
+    "description": "Now vitalizes the target",
+    "id": "N15",
+    "type": "BUFF"
+  },
+  {
+    "date": 1609502400000,
+    "description": "No longer require bordering dragon",
+    "id": "F19",
+    "type": "BUFF"
+  },
+  {
+    "date": 1609502400000,
+    "description": "Increased mana cost by 1",
+    "id": "W28",
+    "type": "NERF"
+  },
+  {
+    "date": 1609502400000,
+    "description": "No longer need enemy units in front to be weaker",
+    "id": "W28",
+    "type": "BUFF"
+  },
+  {
+    "date": 1609502400000,
+    "description": "Increased strength by 1 up to level 4",
+    "id": "I8",
+    "type": "BUFF"
+  },
+  {
+    "date": 1609502400000,
+    "description": "Decreased ability by 1",
+    "id": "I8",
+    "type": "NERF"
   }
 ]

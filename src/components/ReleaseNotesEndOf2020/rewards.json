@@ -1,11 +1,11 @@
 [
   [
     { "reward": "COINS", "amount": 50 },
-    { "reward": "COINS", "amount": 150 }
+    { "reward": "COINS", "amount": 100 }
   ],
   [
     { "reward": "RUBIES", "amount": 5 },
-    { "reward": "RUBIES", "amount": 15 }
+    { "reward": "RUBIES", "amount": 10 }
   ],
   [
     { "reward": "FUSION_STONES", "amount": 1 },
@@ -17,11 +17,95 @@
   ],
   [
     { "reward": "COINS", "amount": 50 },
-    { "reward": "COINS", "amount": 150 }
+    { "reward": "COINS", "amount": 100 }
   ],
   [
     { "reward": "RUBIES", "amount": 5 },
-    { "reward": "RUBIES", "amount": 15 }
+    { "reward": "RUBIES", "amount": 10 }
+  ],
+  [
+    { "reward": "FUSION_STONES", "amount": 1 },
+    { "reward": "FUSION_STONES", "amount": 3 }
+  ],
+  [
+    { "reward": "COINS", "amount": 50 },
+    { "reward": "COINS", "amount": 100 }
+  ],
+  [
+    { "reward": "RUBIES", "amount": 5 },
+    { "reward": "RUBIES", "amount": 10 }
+  ],
+  [
+    { "reward": "FUSION_STONES", "amount": 1 },
+    { "reward": "FUSION_STONES", "amount": 3 }
+  ],
+  [
+    { "reward": "COMMON_CARD", "amount": 1 },
+    { "reward": "RARE_CARD", "amount": 1 }
+  ],
+  [
+    { "reward": "COINS", "amount": 50 },
+    { "reward": "COINS", "amount": 100 }
+  ],
+  [
+    { "reward": "RUBIES", "amount": 5 },
+    { "reward": "RUBIES", "amount": 10 }
+  ],
+  [
+    { "reward": "FUSION_STONES", "amount": 1 },
+    { "reward": "FUSION_STONES", "amount": 3 }
+  ],
+  [
+    { "reward": "COINS", "amount": 50 },
+    { "reward": "COINS", "amount": 100 }
+  ],
+  [
+    { "reward": "RUBIES", "amount": 5 },
+    { "reward": "RUBIES", "amount": 10 }
+  ],
+  [
+    { "reward": "FUSION_STONES", "amount": 1 },
+    { "reward": "FUSION_STONES", "amount": 3 }
+  ],
+  [
+    { "reward": "COMMON_CARD", "amount": 1 },
+    { "reward": "RARE_CARD", "amount": 1 }
+  ],
+  [
+    { "reward": "COINS", "amount": 50 },
+    { "reward": "COINS", "amount": 100 }
+  ],
+  [
+    { "reward": "RUBIES", "amount": 5 },
+    { "reward": "RUBIES", "amount": 10 }
+  ],
+  [
+    { "reward": "FUSION_STONES", "amount": 1 },
+    { "reward": "FUSION_STONES", "amount": 3 }
+  ],
+  [
+    { "reward": "COINS", "amount": 50 },
+    { "reward": "COINS", "amount": 100 }
+  ],
+  [
+    { "reward": "RUBIES", "amount": 5 },
+    { "reward": "RUBIES", "amount": 10 }
+  ],
+  [
+    { "reward": "COINS", "amount": 50 },
+    { "reward": "COINS", "amount": 100 }
+  ],
+  [
+    { "reward": "COMMON_CARD", "amount": 1 },
+    { "reward": "RARE_CARD", "amount": 1 }
+  ],
+  [
+    { "reward": "COINS", "amount": 50 },
+    { "reward": "COINS", "amount": 100 }
+  ],
+  [
+    { "reward": "RUBIES", "amount": 5 },
+    { "reward": "RUBIES", "amount": 10 }
   ],
   [
     { "reward": "FUSION_STONES", "amount": 1 },
@@ -30,90 +114,6 @@
   [
     { "reward": "RARE_CARD", "amount": 1 },
     { "reward": "EPIC_CARD", "amount": 1 }
-  ],
-  [
-    { "reward": "COINS", "amount": 50 },
-    { "reward": "COINS", "amount": 150 }
-  ],
-  [
-    { "reward": "RUBIES", "amount": 5 },
-    { "reward": "RUBIES", "amount": 15 }
-  ],
-  [
-    { "reward": "FUSION_STONES", "amount": 1 },
-    { "reward": "FUSION_STONES", "amount": 3 }
-  ],
-  [
-    { "reward": "COMMON_CARD", "amount": 1 },
-    { "reward": "RARE_CARD", "amount": 1 }
-  ],
-  [
-    { "reward": "COINS", "amount": 50 },
-    { "reward": "COINS", "amount": 150 }
-  ],
-  [
-    { "reward": "RUBIES", "amount": 5 },
-    { "reward": "RUBIES", "amount": 15 }
-  ],
-  [
-    { "reward": "FUSION_STONES", "amount": 1 },
-    { "reward": "FUSION_STONES", "amount": 3 }
-  ],
-  [
-    { "reward": "RARE_CARD", "amount": 1 },
-    { "reward": "EPIC_CARD", "amount": 1 }
-  ],
-  [
-    { "reward": "COINS", "amount": 50 },
-    { "reward": "COINS", "amount": 150 }
-  ],
-  [
-    { "reward": "RUBIES", "amount": 5 },
-    { "reward": "RUBIES", "amount": 15 }
-  ],
-  [
-    { "reward": "FUSION_STONES", "amount": 1 },
-    { "reward": "FUSION_STONES", "amount": 3 }
-  ],
-  [
-    { "reward": "COMMON_CARD", "amount": 1 },
-    { "reward": "RARE_CARD", "amount": 1 }
-  ],
-  [
-    { "reward": "COINS", "amount": 50 },
-    { "reward": "COINS", "amount": 150 }
-  ],
-  [
-    { "reward": "RUBIES", "amount": 5 },
-    { "reward": "RUBIES", "amount": 15 }
-  ],
-  [
-    { "reward": "FUSION_STONES", "amount": 1 },
-    { "reward": "FUSION_STONES", "amount": 3 }
-  ],
-  [
-    { "reward": "EPIC_CARD", "amount": 1 },
-    { "reward": "LEGENDARY_CARD", "amount": 1 }
-  ],
-  [
-    { "reward": "FUSION_STONES", "amount": 3 },
-    { "reward": "FUSION_STONES", "amount": 10 }
-  ],
-  [
-    { "reward": "RUBIES", "amount": 10 },
-    { "reward": "RUBIES", "amount": 30 }
-  ],
-  [
-    { "reward": "COINS", "amount": 100 },
-    { "reward": "COINS", "amount": 300 }
-  ],
-  [
-    { "reward": "FUSION_STONES", "amount": 2 },
-    { "reward": "FUSION_STONES", "amount": 6 }
-  ],
-  [
-    { "reward": "RUBIES", "amount": 10 },
-    { "reward": "RUBIES", "amount": 30 }
   ],
   [
     { "reward": "EPIC_CARD", "amount": 1 },

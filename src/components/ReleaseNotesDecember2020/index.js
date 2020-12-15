@@ -10,50 +10,10 @@ import { Coins, Rubies } from '../Resource'
 import TogglableContent from '../TogglableContent'
 import Table from '../Table'
 import Title from '../Title'
+import displayBundle from '../../helpers/displayBundle'
 import getRewardLabel from '../../helpers/getRewardLabel'
+import getCalendarValue from '../../helpers/getCalendarValue'
 import rewards from './rewards'
-
-const getTotalValue = (type = 'FREE') => {
-  return rewards.reduce((acc, day) => {
-    const [free, premium] = day
-
-    if (typeof acc[free.reward] === 'undefined') {
-      acc[free.reward] = 0
-    }
-
-    acc[free.reward] += free.amount
-
-    if (type === 'PREMIUM') {
-      if (typeof acc[premium.reward] === 'undefined') {
-        acc[premium.reward] = 0
-      }
-
-      acc[premium.reward] += premium.amount
-    }
-
-    return acc
-  }, {})
-}
-const displayTotalValue = value => {
-  const keys = Object.keys(value)
-  let tree = null
-
-  keys.forEach((reward, index) => {
-    const amount = value[reward]
-    const content = getRewardLabel({ reward, amount }, true)
-    const isLast = index === keys.length - 1
-    tree = !tree ? (
-      content
-    ) : (
-      <>
-        {tree}
-        {isLast ? ' and' : ','} {content}
-      </>
-    )
-  })
-
-  return tree
-}
 
 export default React.memo(function ReleaseNotesDecember2020(props) {
   const [isTableExpanded, expandTable] = React.useState(false)
@@ -164,11 +124,12 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
         </p>
         <ul>
           <li>
-            Total free rewards: {displayTotalValue(getTotalValue('FREE'))}
+            Total free rewards:{' '}
+            {displayBundle(getCalendarValue(rewards, 'FREE'))}
           </li>
           <li>
             Total Premium (including free) rewards:{' '}
-            {displayTotalValue(getTotalValue('PREMIUM'))}
+            {displayBundle(getCalendarValue(rewards, 'PREMIUM'))}
           </li>
         </ul>
 

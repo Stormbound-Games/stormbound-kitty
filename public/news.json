@@ -1,7 +1,12 @@
 [
   {
-    "intro": "Black Friday & Christmas Event",
-    "description": "Thanksgiving and Christmas are approaching and with them a new small patch with rewards!",
+    "intro": "Christmas Event",
+    "description": "Christmas and New Year’s Eve are approaching and with them a new small patch with rewards!",
+    "link": "/releases/end-of-2020"
+  },
+  {
+    "intro": "Black Friday",
+    "description": "Thanksgiving is approaching and with them a new small patch with rewards!",
     "link": "/releases/12-2020"
   },
   {
