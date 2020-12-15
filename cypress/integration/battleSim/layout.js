@@ -9,7 +9,7 @@ describe('Battle Sim — Layout', () => {
     cy.get(s.SETTINGS_PANEL)
       .should('not.be.visible')
       .get(s.CELL_PANEL)
-      .should('not.be.visible')
+      .should('not.exist')
   })
 
   it('should display the cell panel when clicking a cell', () => {
@@ -17,7 +17,7 @@ describe('Battle Sim — Layout', () => {
   })
 
   it('should close the cell panel when filling a cell', () => {
-    cy.bsFill('A1', { card: 'Zhev' }).get(s.CELL_PANEL).should('not.be.visible')
+    cy.bsFill('A1', { card: 'Zhev' }).get(s.CELL_PANEL).should('not.exist')
   })
 
   it('should be possible to open the settings panel', () => {

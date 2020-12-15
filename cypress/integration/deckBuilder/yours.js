@@ -34,7 +34,7 @@ describe('Deck Builder - Personal decks', () => {
       .click()
 
       .get(s.DECK_FORM)
-      .should('not.be.visible')
+      .should('not.exist')
 
       .get(s.PERSONAL_DECKS)
       .should('have.length', 1)
@@ -62,7 +62,7 @@ describe('Deck Builder - Personal decks', () => {
       .click()
 
       .get(s.DECK_FORM)
-      .should('not.be.visible')
+      .should('not.exist')
 
       .get(s.PERSONAL_DECKS)
       .should('have.length', 1)

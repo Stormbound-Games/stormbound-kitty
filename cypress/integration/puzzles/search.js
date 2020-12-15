@@ -34,7 +34,6 @@ describe('Puzzles — Search', () => {
       .click()
 
       .get(s.RESTRICTION_CHECKBOXES)
-      .should('be.visible')
       .filter('#RNG_FRIENDLY')
       .check()
 
