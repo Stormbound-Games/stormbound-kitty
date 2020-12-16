@@ -159,6 +159,16 @@ export default React.memo(function BrewedSages(props) {
           <li>
             On{' '}
             <a
+              href='https://www.pandora.com/podcast/the-brewed-sages-of-stormbound/PC:47351'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Pandora,
+            </a>
+          </li>
+          <li>
+            On{' '}
+            <a
               href='https://www.youtube.com/channel/UCTEax9JOxhsvDkY8rP-hqJg'
               target='_blank'
               rel='noopener noreferrer'
