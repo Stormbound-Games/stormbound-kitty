@@ -16,7 +16,7 @@ export default cards => {
     name: 'Inefficient Hearthguards',
     description:
       hasHearthguards && hasTwilightProwlers
-        ? 'This deck includes Hearthguards but doesn’t include enough structures. Consider including more structures, or a structure with a cost of 3 mana or less'
+        ? 'This deck includes Hearthguards but doesn’t include enough structures. Consider including more structures, or a structure with a cost of 3 mana or less.'
         : 'This deck includes Hearthguards but doesn’t include enough structures. Consider including more structures, a structure with a cost of 3 mana or less, or replacing it with Twilight Prowlers.',
     highlight: ['N39', ...structures],
   }
