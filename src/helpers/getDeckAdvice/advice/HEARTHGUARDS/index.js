@@ -8,7 +8,8 @@ export default cards => {
   const hasTwilightProwlers = cardIds.includes('N68')
 
   // Hearthguards requires at least two structures, or a structure costing 3 mana
-  // or less to be considered efficient. It can be replaced with Twilight Prowlers.
+  // or less to be considered efficient. Otherwise, it could be replaced with Twilight
+  // Prowlers.
   if (!hasHearthguards || structures.length >= 2 || cheapStructures.length > 0)
     return null
 
