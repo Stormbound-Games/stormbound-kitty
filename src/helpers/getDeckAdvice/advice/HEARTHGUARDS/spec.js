@@ -35,7 +35,17 @@ describe('The `HEARTHGUARDS` advice', () => {
   })
 
   it('should not be returned if there are several structures', () => {
-    const cards = getCards('1n11i11i21n671n661n641n651i161i171n341n451n68')
+    const cards = getCards('1n11n661i11i24i51n671n651i161i171n344n391n45')
     expect(advice(cards)).to.equal(null)
+  })
+
+  it('should suggest Twilight Prowlers if it is not in the deck', () => {
+    const cards = getCards('1n11n21n661i11i21n671n641n651i161i171n341n39')
+    expect(advice(cards).description).to.include('Twilight Prowlers')
+  })
+
+  it('should not suggest Twilight Prowlers if it is already in the deck', () => {
+    const cards = getCards('1n11n21n661i11i21n641n651i161i171n341n391n68')
+    expect(advice(cards).description).to.not.include('Twilight Prowlers.')
   })
 })
