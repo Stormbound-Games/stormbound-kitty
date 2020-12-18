@@ -17,7 +17,11 @@ export default React.memo(function NumberInput(props) {
     <input
       {...props}
       type='number'
-      onChange={event => onChange(event.target.value)}
+      onChange={event =>
+        onChange(
+          event.target.value !== '' ? +event.target.value : event.target.value
+        )
+      }
       onBlur={handleBlur}
     />
   )
