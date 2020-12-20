@@ -25,9 +25,16 @@ export default React.memo(function FactionSelect(props) {
         {Object.keys(FACTIONS)
           .filter(faction => props.withNeutral || faction !== 'neutral')
           .map(faction => (
-            <option value={faction} key={faction}>
-              {capitalise(faction)}
-            </option>
+            <>
+              <option value={faction} key={faction}>
+                {capitalise(faction)}
+              </option>
+              {props.withExtendedVersions && faction !== 'neutral' && (
+                <option value={'neutral,' + faction} key={'neutral,' + faction}>
+                  {capitalise(faction)} + Neutral
+                </option>
+              )}
+            </>
           ))}
       </select>
     </>

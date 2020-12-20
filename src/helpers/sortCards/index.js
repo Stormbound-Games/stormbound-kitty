@@ -45,15 +45,15 @@ export const sortByValue = (a, b) => {
   return sortNaturally()(a, b)
 }
 
-const sortNaturally = (level = 0) => (a, b) => {
+const sortNaturally = ({ withFaction = true } = {}) => (a, b) => {
   const factionIndexA = FACTIONS_ORDER.indexOf(a.faction)
   const factionIndexB = FACTIONS_ORDER.indexOf(b.faction)
 
-  if (factionIndexA > factionIndexB) return +1
-  if (factionIndexA < factionIndexB) return -1
+  if (withFaction && factionIndexA > factionIndexB) return +1
+  if (withFaction && factionIndexA < factionIndexB) return -1
 
-  const manaA = +unfoldValue(a.mana)[level]
-  const manaB = +unfoldValue(b.mana)[level]
+  const manaA = +unfoldValue(a.mana)[0]
+  const manaB = +unfoldValue(b.mana)[0]
 
   if (a.token && !b.token) return +1
   if (!a.token && b.token) return -1

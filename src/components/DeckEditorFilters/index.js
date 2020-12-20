@@ -54,6 +54,7 @@ export default React.memo(function DeckEditorFilters(props) {
                   onChange={event => props.setFaction(event.target.value)}
                   withNeutral
                   withAny
+                  withExtendedVersions
                   data-testid='faction-select'
                 />
               </Row.Column>
