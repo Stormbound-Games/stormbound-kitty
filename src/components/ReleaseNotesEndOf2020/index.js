@@ -315,6 +315,12 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
               answer:
                 'The balance changes will be effective with the season reset on January 1st. The Christmas offers will be available from December 21st until December 27th (end of day).',
             },
+            {
+              id: 'vitality-cards',
+              question: 'Will more cards benefit from vitality in the future?',
+              answer:
+                'Absolutely. Vitality will not be a Swarm-specific ability and will make its way to more cards after we test it with these 2 first.',
+            },
           ]}
         />
       </Article.Narrow>
