@@ -7,6 +7,7 @@ const getTitle = props => {
   }
 
   const poisoned = props.poisoned ? '(poisoned)' : ''
+  const vitalised = props.vitalised ? '(vitalised)' : ''
   const frozen = props.frozen ? '(frozen)' : ''
   const confused = props.confused ? '(confused)' : ''
   const level = `(lvl ${props.level})`
@@ -14,7 +15,16 @@ const getTitle = props => {
   const strength = `× ${props.strength}`
   const player = `from ${props.player}`
 
-  return [name, level, strength, player, poisoned, frozen, confused].join(' ')
+  return [
+    name,
+    level,
+    strength,
+    player,
+    poisoned,
+    vitalised,
+    frozen,
+    confused,
+  ].join(' ')
 }
 
 export default React.memo(function BattleSimCell(props) {
@@ -26,6 +36,7 @@ export default React.memo(function BattleSimCell(props) {
         props.isDragging && 'BattleSimCell--dragging',
         props.mode === 'DISPLAY' && 'BattleSimCell--display',
         props.poisoned && 'BattleSimCell--poisoned',
+        props.vitalised && 'BattleSimCell--vitalised',
         props.frozen && 'BattleSimCell--frozen',
         props.confused && 'BattleSimCell--confused',
       ]
@@ -69,10 +80,16 @@ export default React.memo(function BattleSimCell(props) {
         </span>
       )}
 
-      {!!props.poisoned && (
+      {!!(props.poisoned || props.vitalised) && (
         <div
-          className='BattleSimCell__dots BattleSimCell__dots--poisoned'
-          data-testid='cell-poisoned'
+          className={[
+            'BattleSimCell__dots',
+            props.poisoned && 'BattleSimCell__dots--poisoned',
+            props.vitalised && 'BattleSimCell__dots--vitalised',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+          data-testid={props.poisoned ? 'cell-poisoned' : 'cell-vitalised'}
         >
           <span className='BattleSimCell__dot BattleSimCell__dot--bubble' />
           <span className='BattleSimCell__dot' />

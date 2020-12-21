@@ -21,6 +21,7 @@ const serialiseBoard = board =>
                 cell.poisoned ? 'P' : '',
                 cell.frozen ? 'F' : '',
                 cell.confused ? 'C' : '',
+                cell.vitalised ? 'V' : '',
               ].join('')
             : ''
         )
@@ -43,7 +44,8 @@ const deserialiseBoard = string => {
       poisoned = '',
       frozen = '',
       confused = '',
-    ] = item.match(/^(\d+)(\w+)([RB])([1-5])?(P)?(F)?(C)?$/)
+      vitalised = '',
+    ] = item.match(/^(\d+)(\w+)([RB])([1-5])?(P)?(F)?(C)?(V)?$/)
 
     return {
       strength: +strength,
@@ -51,6 +53,7 @@ const deserialiseBoard = string => {
       card: getRawCardData(id),
       player: player === 'R' ? 'RED' : 'BLUE',
       poisoned: poisoned === 'P',
+      vitalised: vitalised === 'V',
       frozen: frozen === 'F',
       confused: confused === 'C',
     }

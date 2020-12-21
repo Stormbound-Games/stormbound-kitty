@@ -89,6 +89,18 @@ describe('Battle Sim — Cells', () => {
       .should('be.visible')
   })
 
+  it('should be possible to update the vitality status of a filled cell', () => {
+    cy.get(s.CELL_A1)
+      .click()
+      .get(s.CELL_FORM_VITALITY_CHECKBOX)
+      .click({ force: true })
+      .get(s.CELL_FORM_BTN)
+      .click()
+      .get(s.CELL_A1)
+      .find(s.CELL_VITALITY)
+      .should('be.visible')
+  })
+
   it('should be possible to update the frozen status of a filled cell', () => {
     cy.get(s.CELL_A1)
       .click()
@@ -114,13 +126,16 @@ describe('Battle Sim — Cells', () => {
       .should($cell => expect($cell.attr('title')).to.match(/Moonlit/))
   })
 
-  it('should be impossible to update the frozen and poisoned statuses of a structure', () => {
+  it('should be impossible to update the frozen/vitality/poisoned statuses of a structure', () => {
     cy.get(s.CELL_A1)
       .click()
       .get(s.CELL_FORM_FROZEN_CHECKBOX)
       .should('be.disabled')
       .should('not.be.checked')
       .get(s.CELL_FORM_POISON_CHECKBOX)
+      .should('be.disabled')
+      .should('not.be.checked')
+      .get(s.CELL_FORM_VITALITY_CHECKBOX)
       .should('be.disabled')
       .should('not.be.checked')
   })

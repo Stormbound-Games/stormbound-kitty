@@ -265,6 +265,7 @@ class BattleSimState extends React.Component {
     targetCell.player = sourceCell.player
     targetCell.card = { ...sourceCell.card }
     targetCell.poisoned = sourceCell.poisoned
+    targetCell.vitalised = sourceCell.vitalised
     targetCell.frozen = sourceCell.frozen
     targetCell.confused = sourceCell.confused
   }
@@ -275,6 +276,7 @@ class BattleSimState extends React.Component {
     level,
     card,
     poisoned,
+    vitalised,
     frozen,
     confused,
   }) => {
@@ -286,6 +288,7 @@ class BattleSimState extends React.Component {
     cell.player = player
     cell.card = card
     cell.poisoned = poisoned
+    cell.vitalised = vitalised
     cell.frozen = frozen
     cell.confused = confused
 
@@ -308,6 +311,7 @@ class BattleSimState extends React.Component {
       player: this.state.activePlayer,
       card: card,
       poisoned: !!formData.poisoned,
+      vitalised: !!formData.vitalised,
       frozen: !!formData.frozen,
       confused: !!formData.confused,
     })

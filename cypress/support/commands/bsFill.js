@@ -3,7 +3,7 @@ import s from '../../integration/battleSim/selectors'
 export default (
   subject,
   cell,
-  { card, level, strength, player, poisoned, frozen }
+  { card, level, strength, player, poisoned, vitalised, frozen }
 ) => {
   Cypress.log({
     name: 'FILL',
@@ -16,6 +16,7 @@ export default (
       strength,
       player,
       poisoned,
+      vitalised,
       frozen,
     }),
   })
@@ -62,6 +63,11 @@ export default (
     .then(() => {
       if (poisoned) {
         cy.get(s.CELL_FORM_POISON_CHECKBOX, { log: false }).click({
+          force: true,
+          log: false,
+        })
+      } else if (vitalised) {
+        cy.get(s.CELL_FORM_VITALITY_CHECKBOX, { log: false }).click({
           force: true,
           log: false,
         })

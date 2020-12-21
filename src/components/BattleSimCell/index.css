@@ -372,10 +372,22 @@
 
 .BattleSimCell__dots--poisoned .BattleSimCell__dot {
   background-color: var(--poison);
+  animation-direction: reverse;
 }
 
 .BattleSimCell__dots--poisoned .BattleSimCell__dot--bubble {
   background-color: greenyellow;
+  border-radius: 50%;
+  width: 0.4em;
+  height: 0.4em;
+}
+
+.BattleSimCell__dots--vitalised .BattleSimCell__dot {
+  background-color: var(--vitalised);
+}
+
+.BattleSimCell__dots--vitalised .BattleSimCell__dot--bubble {
+  background-color: darkgreen;
   border-radius: 50%;
   width: 0.4em;
   height: 0.4em;

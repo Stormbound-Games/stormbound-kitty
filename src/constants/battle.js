@@ -5,6 +5,7 @@ export const DEFAULT_CELL = {
   strength: 0,
   level: 1,
   poisoned: false,
+  vitalised: false,
   frozen: false,
   confused: false,
 }

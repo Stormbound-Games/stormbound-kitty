@@ -105,8 +105,8 @@ export default React.memo(function GuideBroodmotherQordia(props) {
 
       <p>
         And because her eggs are considered structures, they cannot be frozen,
-        poisoned, confused, pushed or pull which makes them essentially
-        impossible to clear without physical damage.
+        poisoned, vitalised, confused, pushed or pull which makes them
+        essentially impossible to clear without physical damage.
       </p>
 
       <p>

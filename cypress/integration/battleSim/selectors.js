@@ -47,6 +47,7 @@ export default {
 
   CELL_IMAGE: '[data-testid="cell-image"]',
   CELL_POISONED: '[data-testid="cell-poisoned"]',
+  CELL_VITALISED: '[data-testid="cell-vitalised"]',
   CELL_FROZEN: '[data-testid="cell-frozen"]',
   CELL_STRENGTH: '[data-testid="cell-strength"]',
 
@@ -56,6 +57,7 @@ export default {
   CELL_FORM_RED_RADIO: '[data-testid="cell-player-RED-radio"]',
   CELL_FORM_FROZEN_CHECKBOX: '[data-testid="cell-frozen-checkbox"]',
   CELL_FORM_POISON_CHECKBOX: '[data-testid="cell-poisoned-checkbox"]',
+  CELL_FORM_VITALITY_CHECKBOX: '[data-testid="cell-vitalised-checkbox"]',
   CELL_FORM_STRENGTH: '[data-testid="cell-strength-input"]',
   CELL_FORM_LEVEL: '[data-testid="cell-level-select"]',
   CELL_FORM_BTN: '[data-testid="cell-form-btn"]',
