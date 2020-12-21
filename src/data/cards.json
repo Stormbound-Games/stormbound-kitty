@@ -193,7 +193,7 @@
     "mana": 3,
     "strength": null,
     "movement": null,
-    "ability": "*Give 3/4/5/6/7* strength to a target friendly unit and vitalizes it"
+    "ability": "*Give 2/3/4/5/6* strength to a target friendly unit and vitalizes it"
   },
   {
     "name": "Westwind Sailors",
