@@ -97,7 +97,7 @@ describe('Battle Sim — Cells', () => {
       .get(s.CELL_FORM_BTN)
       .click()
       .get(s.CELL_A1)
-      .find(s.CELL_VITALITY)
+      .find(s.CELL_VITALISED)
       .should('be.visible')
   })
 

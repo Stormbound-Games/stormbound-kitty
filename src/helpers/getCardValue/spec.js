@@ -131,10 +131,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Potion of Growth', () => {
     const value1 = getCardValue('N15', 1)
     const value5 = getCardValue('N15', 5)
-    expect(value1[0]).to.equal(3 / 3)
-    expect(value1[1]).to.equal(3 / 3)
-    expect(value5[0]).to.equal(7 / 3)
-    expect(value5[1]).to.equal(7 / 3)
+    expect(value1[0]).to.equal(2 / 3)
+    expect(value1[1]).to.equal(2 / 3)
+    expect(value5[0]).to.equal(6 / 3)
+    expect(value5[1]).to.equal(6 / 3)
   })
 
   it('should return value for Westwind Sailors', () => {
