@@ -370,6 +370,15 @@
     "season": 2,
     "week": 51,
     "name": "One Mana",
+    "winner": {
+      "author": "Ajmm",
+      "id": "Tjs7QztDOzE7OztHYWxsb3dzO1MxMDtEZWFsJTIwMiUyRjMlMkY0JTJGNSUyRjYlMjBkYW1hZ2UlMjB0byUyMGElMjB1bml0JTIwd2l0aCUyMG5vJTIwb3IlMjBkaXNhYmxlZCUyMGFiaWxpdHk7Ow=="
+    }
+  },
+  {
+    "season": 2,
+    "week": 52,
+    "name": "Drawback II",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
