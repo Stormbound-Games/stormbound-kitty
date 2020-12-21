@@ -786,10 +786,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Linked Golems', () => {
     const value1 = getCardValue('I8', 1)
     const value5 = getCardValue('I8', 5)
-    expect(value1[0]).to.equal((1 / 3) * 1)
-    expect(value1[1]).to.equal(((1 + 2) / 3) * 1)
+    expect(value1[0]).to.equal((2 / 3) * 1)
+    expect(value1[1]).to.equal(((2 + 1) / 3) * 1)
     expect(value5[0]).to.equal((3 / 3) * 1)
-    expect(value5[1]).to.equal(((3 + 5) / 3) * 1)
+    expect(value5[1]).to.equal(((3 + 4) / 3) * 1)
   })
 
   it('should return value for Sound Drivers', () => {
@@ -1308,10 +1308,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Broken Truce', () => {
     const value1 = getCardValue('S10', 1)
     const value5 = getCardValue('S10', 5)
-    expect(value1[0]).to.equal((1 - 3) / 3)
-    expect(value1[1]).to.equal((8 - 3) / 3)
-    expect(value5[0]).to.equal((1 - 3) / 3)
-    expect(value5[1]).to.equal((18 - 3) / 3)
+    expect(value1[0]).to.equal((1 - 3) / 4)
+    expect(value1[1]).to.equal((8 - 3) / 4)
+    expect(value5[0]).to.equal((1 - 3) / 4)
+    expect(value5[1]).to.equal((18 - 3) / 4)
   })
 
   it('should return value for Devastators', () => {
@@ -1722,9 +1722,9 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Chilled Stonedames', () => {
     const value1 = getCardValue('W28', 1)
     const value5 = getCardValue('W28', 5)
-    expect(value1[0]).to.equal((4 / 4) * 1)
-    expect(value1[1]).to.equal(((4 + 2 * 4) / 4) * 1)
-    expect(value5[0]).to.equal((8 / 4) * 1)
-    expect(value5[1]).to.equal(((8 + 6 * 4) / 4) * 1)
+    expect(value1[0]).to.equal((4 / 5) * 1)
+    expect(value1[1]).to.equal(((4 + 2 * 4) / 5) * 1)
+    expect(value5[0]).to.equal((8 / 5) * 1)
+    expect(value5[1]).to.equal(((8 + 6 * 4) / 5) * 1)
   })
 })
