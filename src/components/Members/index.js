@@ -85,10 +85,12 @@ export default React.memo(function Members(props) {
             puzzles, donations, card contests, tournaments…).
           </p>
           <p>
-            Players marked with a star (<Icon icon='star' />) are{' '}
+            Players marked with a star <Icon icon='star' /> are{' '}
             <abbr title='Kitty Appreciation Team'>KAT</abbr> members for having
             generously supported the site hence making it possible to actively
-            keep working on it.
+            keep working on it. Rare players marked with a shiny star{' '}
+            <Icon icon='super-star' /> are Super KAT members for having issued{' '}
+            <span class='Highlight'>multiple</span> donations!
           </p>
           <Row>
             <Row.Column>

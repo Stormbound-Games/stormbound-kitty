@@ -30,7 +30,8 @@ export default React.memo(function Member(props) {
           {details.donations.length > 0 ? (
             <>
               {' '}
-              · <abbr title='Kitty Appreciation Team'>KAT</abbr> member
+              · {details.donations.length > 1 ? 'Super ' : null}
+              <abbr title='Kitty Appreciation Team'>KAT</abbr> member
             </>
           ) : (
             ''
@@ -48,7 +49,10 @@ export default React.memo(function Member(props) {
           <MemberToC {...details} />
 
           {details.donations.length > 0 && (
-            <Info icon='heart' title='Financial contributor'>
+            <Info
+              icon={details.donations.length > 1 ? 'super-star' : 'star'}
+              title='Financial contributor'
+            >
               {displayName} is one of the generous contributors who can make
               Stormbound-Kitty a reality. Thank you and welcome to the{' '}
               <abbr title='Kitty Appreciation Team'>KAT</abbr>!

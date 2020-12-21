@@ -59,6 +59,7 @@ export default React.memo(function MemberListEntry(props) {
   const { name } = React.useContext(UserContext)
   const { content, details } = useMemberContent(props.member.toLowerCase())
   const KATMember = details.donations.length > 0
+  const superKATMember = details.donations.length > 1
   const isCurrentUser = name === props.member
 
   return (
@@ -68,7 +69,7 @@ export default React.memo(function MemberListEntry(props) {
         .join(' ')}
     >
       <Icon
-        icon={KATMember ? 'star' : 'user'}
+        icon={superKATMember ? 'super-star' : KATMember ? 'star' : 'user'}
         className='MemberListEntry__icon'
       />
       <div className='MemberListEntry__content'>

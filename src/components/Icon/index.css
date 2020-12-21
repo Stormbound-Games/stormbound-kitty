@@ -13,3 +13,7 @@
 .Icon--sword {
   transform: rotate(90deg); /* 1 */
 }
+
+.Icon--super-star {
+  transform: translateY(1px) scale(1.3);
+}
