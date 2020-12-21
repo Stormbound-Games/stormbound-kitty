@@ -18,6 +18,7 @@ const Row = React.memo(function Row(props) {
         .filter(Boolean)
         .join(' ')}
       data-testid={props['data-testid']}
+      style={props.style}
     >
       <RowContext.Provider
         value={{ wideGutter: props.wideGutter, desktopOnly: props.desktopOnly }}

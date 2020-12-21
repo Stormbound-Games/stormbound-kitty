@@ -212,7 +212,7 @@ export default React.memo(function BattleSimCellForm(props) {
               </Checkbox>
             </Row.Column>
           </Row>
-          <Row>
+          <Row style={{ marginTop: '-0.75em' }}>
             <Row.Column>
               <Checkbox
                 name='frozen'
