@@ -23,7 +23,7 @@ describe('The `modifyDeck` helper', () => {
     it(`should handle ${brawl} brawl`, () => {
       const deck = modifyDeck([{ id }], brawl)
       expect(deck[0].mana).to.equal(mana)
-      expect(deck[0].costReduced).to.equal(true)
+      expect(deck[0].manaDecreased).to.equal(true)
     })
   })
 })

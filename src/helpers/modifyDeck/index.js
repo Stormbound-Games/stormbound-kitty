@@ -2,75 +2,115 @@ import getResolvedCardData from '../getResolvedCardData'
 
 const setToLevel1 = card => ({ ...card, level: card.token ? card.level : 1 })
 
-const setStructureManaCost = card => {
-  if (card.type !== 'structure') return card
-  return { ...card, mana: 2, costReduced: card.mana > 2 ? true : false }
-}
-
-const setToadManaCost = card => {
-  if (card.race !== 'toad') return card
-  return { ...card, mana: 2, costReduced: card.mana > 2 ? true : false }
-}
-
-const reduceKnightManaCost = card => {
-  if (card.race !== 'knight') return card
-  return {
-    ...card,
-    mana: Math.max(0, card.mana - 2),
-    costReduced: card.mana > 0,
-  }
-}
-
-const reduceDwarfManaCost = card => {
-  if (card.race !== 'dwarf') return card
-  return {
-    ...card,
-    mana: Math.max(0, card.mana - 2),
-    costReduced: card.mana > 0,
-  }
-}
-
-const reduceSpellManaCost = card => {
-  if (card.type !== 'spell') return card
-  return {
-    ...card,
-    mana: Math.max(0, card.mana - 2),
-    costReduced: card.mana > 0,
-  }
-}
-
-const reducePirateManaCost = card => {
-  if (card.race !== 'pirate') return card
-  return {
-    ...card,
-    mana: Math.max(0, card.mana - 2),
-    costReduced: card.mana > 0,
-  }
-}
-
 export default (deck, modifier, equalsMode) => {
   const fullDeck = equalsMode
     ? deck.map(setToLevel1).map(getResolvedCardData)
     : deck.map(getResolvedCardData)
 
   switch (modifier) {
-    case 'STRUCTURE_MANA':
-      return fullDeck.map(setStructureManaCost)
-
-    case 'TOAD_MANA':
-      return fullDeck.map(setToadManaCost)
-
-    case 'KNIGHT_MANA':
-      return fullDeck.map(reduceKnightManaCost)
-
     case 'DWARF_MANA':
-      return fullDeck.map(reduceDwarfManaCost)
-
-    case 'SPELL_MANA':
-      return fullDeck.map(reduceSpellManaCost)
-
+      return fullDeck.map(card => {
+        if (card.race !== 'dwarf') return card
+        return {
+          ...card,
+          mana: Math.max(0, card.mana - 2),
+          manaDecreased: card.mana > 0,
+        }
+      })
     case 'PIRATE_MANA':
-      return fullDeck.map(reducePirateManaCost)
+      return fullDeck.map(card => {
+        if (card.race !== 'pirate') return card
+        return {
+          ...card,
+          mana: Math.max(0, card.mana - 2),
+          manaDecreased: card.mana > 0,
+        }
+      })
+    case 'STRUCTURE_MANA':
+      return fullDeck.map(card => {
+        if (card.type !== 'structure') return card
+        return { ...card, mana: 2, manaDecreased: card.mana > 2 }
+      })
+    case 'SPELL_MANA':
+      return fullDeck.map(card => {
+        if (card.type !== 'spell') return card
+        return {
+          ...card,
+          mana: Math.max(0, card.mana - 2),
+          manaDecreased: card.mana > 0,
+        }
+      })
+    case 'TOAD_MANA':
+      return fullDeck.map(card => {
+        if (card.race !== 'toad') return card
+        return { ...card, mana: 2, manaDecreased: card.mana > 2 }
+      })
+    case 'KNIGHT_MANA':
+      return fullDeck.map(card => {
+        if (card.race !== 'knight') return card
+        return {
+          ...card,
+          mana: Math.max(0, card.mana - 2),
+          manaDecreased: card.mana > 0,
+        }
+      })
+
+    case 'RAVEN_MOVEMENT':
+      return fullDeck.map(card => {
+        if (card.race !== 'raven') return card
+        return { ...card, movement: card.movement + 1, movementDecreased: true }
+      })
+    case 'PIRATE_MOVEMENT':
+      return fullDeck.map(card => {
+        if (card.race !== 'pirate') return card
+        return { ...card, movement: 2, movementDecreased: card.movement !== 2 }
+      })
+    case 'SATYR_MOVEMENT':
+      return fullDeck.map(card => {
+        if (card.race !== 'satyr') return card
+        return { ...card, movement: card.movement + 1, movementDecreased: true }
+      })
+    case 'CONSTRUCT_MOVEMENT':
+      return fullDeck.map(card => {
+        if (card.race !== 'construct') return card
+        return { ...card, movement: 2, movementDecreased: card.movement !== 2 }
+      })
+    case 'DRAGON_MOVEMENT':
+      return fullDeck.map(card => {
+        if (card.race !== 'dragon') return card
+        return { ...card, movement: card.movement + 1, movementDecreased: true }
+      })
+
+    case 'RODENT_STRENGTH':
+      return fullDeck.map(card => {
+        if (card.race !== 'rodent') return card
+        return { ...card, strength: card.strength + 3, strengthIncreased: true }
+      })
+    case 'FELINE_STRENGTH':
+      return fullDeck.map(card => {
+        if (card.race !== 'feline') return card
+        return { ...card, strength: card.strength + 2, strengthIncreased: true }
+      })
+    case 'FROSTLING_STRENGTH':
+      return fullDeck.map(card => {
+        if (card.race !== 'frostling') return card
+        return { ...card, strength: card.strength + 4, strengthIncreased: true }
+      })
+    case 'ELDER_STRENGTH':
+      return fullDeck.map(card => {
+        if (!card.elder) return card
+        return { ...card, strength: card.strength + 3, strengthIncreased: true }
+      })
+    case 'UNDEAD_STRENGTH':
+      return fullDeck.map(card => {
+        if (card.race !== 'undead') return card
+        return { ...card, strength: card.strength + 2, strengthIncreased: true }
+      })
+    case 'HERO_STRENGTH':
+      return fullDeck.map(card => {
+        if (!card.hero) return card
+        return { ...card, strength: card.strength + 3, strengthIncreased: true }
+      })
 
     case 'NONE':
     default:

@@ -146,8 +146,12 @@
   transform: translateY(-0.1em);
 }
 
-.Card__mana-content--cost-reduced {
+.Card__mana-content--decreased {
   color: var(--affordable);
+}
+
+.Card__mana-content--increased {
+  color: var(--light-ironclad);
 }
 
 .Card__name {

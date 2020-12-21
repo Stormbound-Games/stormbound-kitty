@@ -50,7 +50,8 @@ export default React.memo(function Card(props) {
             <span
               className={[
                 'Card__mana-content',
-                props.costReduced && 'Card__mana-content--cost-reduced',
+                props.manaIncreased && 'Card__mana-content--increased',
+                props.manaDecreased && 'Card__mana-content--decreased',
               ]
                 .filter(Boolean)
                 .join(' ')}
@@ -129,7 +130,15 @@ export default React.memo(function Card(props) {
                 .join(' ')}
             >
               <span
-                className='Card__strength-content'
+                className={[
+                  'Card__strength-content',
+                  props.strengthIncreased &&
+                    'Card__strength-content--increased',
+                  props.strengthDecreased &&
+                    'Card__strength-content--decreased',
+                ]
+                  .filter(Boolean)
+                  .join(' ')}
                 data-testid='card-strength'
               >
                 {

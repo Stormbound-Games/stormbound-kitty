@@ -174,8 +174,12 @@
   top: -0.7em;
 }
 
-.Deck__mana--reduced {
+.Deck__mana--decreased {
   color: var(--affordable);
+}
+
+.Deck__mana--increased {
+  color: var(--light-ironclad);
 }
 
 .Deck__name {

@@ -88,7 +88,11 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
       )}
 
       <Mana
-        className={['Deck__mana', card.costReduced && 'Deck__mana--reduced']
+        className={[
+          'Deck__mana',
+          card.manaDecreased && 'Deck__mana--decreased',
+          card.manaIncreased && 'Deck__mana--increased',
+        ]
           .filter(Boolean)
           .join(' ')}
         mana={card.mana}

@@ -113,7 +113,7 @@ export default React.memo(function DeckStatsChart(props) {
             onChange={event => props.setModifier(event.target.value)}
           >
             <option value='NONE'>None</option>
-            {BRAWLS.filter(brawl => brawl.id.includes('MANA')).map(brawl => (
+            {BRAWLS.map(brawl => (
               <option key={brawl.id} value={brawl.id}>
                 {brawl.label}
               </option>
