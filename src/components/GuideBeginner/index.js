@@ -200,7 +200,11 @@ export default React.memo(function GuideBeginner(props) {
       </p>
       <p>
         <strong className='Highlight'>Poison</strong>: units lose 1 health per
-        turn. Lasts until the unit dies.
+        turn. Lasts until the unit dies or gets vitalised.
+      </p>
+      <p>
+        <strong className='Highlight'>Vitality</strong>: units gain 1 health per
+        turn. Lasts until the unit dies or gets poisoned.
       </p>
       <p>
         <strong className='Highlight'>Confusion</strong>: a confused unit has ⅓
