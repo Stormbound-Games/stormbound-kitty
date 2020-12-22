@@ -4,7 +4,12 @@
 .BrawlMatches {
   margin-bottom: 4em;
   margin-top: -3px; /* 1 */
-  width: auto;
+  width: 100%;
+}
+
+.BrawlMatches tr > td:first-child,
+.BrawlMatches tr > th:first-child {
+  width: 60px;
 }
 
 .BrawlMatches__edit {
@@ -95,5 +100,10 @@
 
   .BrawlMatches__milestone > td::after {
     content: none;
+  }
+
+  .BrawlMatches tr > td:first-child,
+  .BrawlMatches tr > th:first-child {
+    width: auto;
   }
 }
