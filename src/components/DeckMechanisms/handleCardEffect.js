@@ -329,7 +329,7 @@ const isPlayableSpell = state => card => {
 }
 
 function getCollectorMirzToken(deck, level) {
-  const id = 'T' + arrayRandom([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14])
+  const id = 'T' + arrayRandom([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15])
   const token = getResolvedCardData({ id })
   token.level = [5, 6, 6, 8, 10][level - 1]
   token.weight = 0
