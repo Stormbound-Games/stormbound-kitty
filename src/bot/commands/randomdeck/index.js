@@ -123,7 +123,7 @@ export default {
 
     embed.setURL('https://stormbound-kitty.com/deck/' + id)
     embed.addFields(
-      ...deck.sort(sortCards()).map(card => ({
+      ...deck.sort(sortCards({ withFaction: false })).map(card => ({
         name: card.name,
         value: [
           typeof card.mana === 'number' ? card.mana + 'mn' : '',
