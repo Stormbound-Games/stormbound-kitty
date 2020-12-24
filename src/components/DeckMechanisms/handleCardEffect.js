@@ -320,12 +320,12 @@ const isNotPirate = state => card =>
 
 const isSatyrInDeck = state => card => {
   const isInHand = state.hand.find(isCard(card))
-  const card = state.deck.find(isCard(card))
+  const cardInDeck = state.deck.find(isCard(card))
 
   return (
     !isInHand &&
-    card.race === 'satyr' &&
-    ['common', 'rare'].includes(card.rarity)
+    cardInDeck.race === 'satyr' &&
+    ['common', 'rare'].includes(cardInDeck.rarity)
   )
 }
 
