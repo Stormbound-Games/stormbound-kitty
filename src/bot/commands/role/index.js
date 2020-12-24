@@ -11,7 +11,13 @@ const LEAGUE_ROLES = [
   'Starter',
 ]
 const FACTION_ROLES = ['Swarm', 'Shadowfen', 'Ironclad', 'Winter', 'Neutral']
-const MISC_ROLES = ['Tournamentee', 'Streambound', 'Quest Helper', 'SWCC']
+const MISC_ROLES = [
+  'Tournamentee',
+  'Streambound',
+  'Quest Helper',
+  'SWCC',
+  'BS squad',
+]
 const ROLES = [...LEAGUE_ROLES, ...MISC_ROLES]
 
 const getAvailableRoles = guild => {
