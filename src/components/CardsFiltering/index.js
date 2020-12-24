@@ -231,7 +231,7 @@ const CardsFiltering = React.memo(function CardsFiltering(props) {
       ? sortByLockedCoins
       : order === 'VALUE'
       ? sortByValue
-      : sortCards({ withFaction: !filters.faction.includes(',') })
+      : sortCards({ withFaction: false })
 
   const collection = props.cards
     .filter(card => {
