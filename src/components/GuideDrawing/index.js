@@ -149,8 +149,8 @@ export default React.memo(function GuideDrawing(props) {
         First of all, Queen of Herds <span className='Highlight'>does not</span>{' '}
         respect the cards weight when drawing satyrs from the deck. It uses a
         purely random draw (or two in case of levels 4 and 5). That implies
-        playing, say, <CardLink id='S28' />, then playing Queen of Herds, does
-        not prevent <CardLink id='S28' /> from being drawn again even though
+        playing, say, <CardLink id='S16' />, then playing Queen of Herds, does
+        not prevent <CardLink id='S16' /> from being drawn again even though
         there are other satyrs in the deck. It is definitely possible.
       </p>
 
