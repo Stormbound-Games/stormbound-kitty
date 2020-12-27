@@ -1028,13 +1028,13 @@
     "ability": "On play, confuse up to *1/1/2/2/3* bordering enemy units"
   },
   {
-    "name": "Excited Mouser",
+    "name": "Excited Mousers",
     "id": "N79",
     "type": "unit",
     "faction": "neutral",
     "race": "feline",
     "rarity": "rare",
-    "image": "excited_mouser.png",
+    "image": "excited_mousers.png",
     "mana": 5,
     "strength": "5/6/7/9/11",
     "movement": 0,
