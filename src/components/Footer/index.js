@@ -21,14 +21,6 @@ export default React.memo(function Footer(props) {
             <p className='Footer__info'>
               Official Stormbound game content courtesy of{' '}
               <a
-                href='https://paladinstudios.com/stormbound/'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                Paladin Studios
-              </a>{' '}
-              and{' '}
-              <a
                 href='https://www.sheepyard.pl/'
                 target='_blank'
                 rel='noopener noreferrer'

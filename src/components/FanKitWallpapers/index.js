@@ -95,7 +95,7 @@ export default React.memo(function FanKitBooks(props) {
 
       <PageMeta
         title='Wallpapers – Fan-Kit'
-        description='Find all the wallpapers from Stormbound used on Stormbound-Kitty, courtesy of Paladin Studios and Sheepyard'
+        description='Find all the wallpapers from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
       />
     </>
   )

@@ -82,7 +82,7 @@ export default React.memo(function FanKitBooks(props) {
 
       <PageMeta
         title='Books – Fan-Kit'
-        description='Find all the books assets from Stormbound used on Stormbound-Kitty, courtesy of Paladin Studios and Sheepyard'
+        description='Find all the books assets from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
       />
     </>
   )
