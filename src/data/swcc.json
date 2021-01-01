@@ -379,6 +379,15 @@
     "season": 2,
     "week": 52,
     "name": "Drawback II",
+    "winner": {
+      "author": "Ajmm",
+      "id": "UztVO1U7Ujs0OzI7MS8yLzMvMy80O0R1YWwlMjBoYXJicmluZ2VyO1MyMjtPbiUyMGRlYXRoJTJDJTIwZGVhbCUyMDIlMkYyJTJGMiUyRjMlMkYzJTIwZGFtYWdlJTIwdG8lMjBib3RoJTIwYmFzZXM7Ow=="
+    }
+  },
+  {
+    "season": 2,
+    "week": 1,
+    "name": "Vitality",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
