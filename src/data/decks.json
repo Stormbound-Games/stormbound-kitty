@@ -133,13 +133,6 @@
     "date": "06/2019"
   },
   {
-    "name": "Druid’s Blast",
-    "id": "5xw2n3n14n23n22n29w16n44n48w19w21w23",
-    "author": "Visions",
-    "category": "DIAMOND_1",
-    "date": "06/2019"
-  },
-  {
     "name": "Blessed Hearth",
     "id": "5xn1n2w2n3n4n12w3w4w6n28w12w14",
     "author": "Visions",
@@ -389,15 +382,6 @@
     "author": "Frostkhan",
     "category": "BRAWL",
     "brawl": "TOAD_MANA",
-    "date": "03/2020"
-  },
-  {
-    "name": "Eye Tempest",
-    "id": "5xn1n2n23n14w5n18n29n44n48w19w21w23",
-    "author": "Frostkhan",
-    "category": "BRAWL",
-    "brawl": "SPELL_MANA",
-    "nerfed": "07/2020",
     "date": "03/2020"
   },
   {
