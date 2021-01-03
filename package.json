@@ -5,6 +5,7 @@
   "dependencies": {
     "@loadable/component": "^5.14.1",
     "@reach/tooltip": "^0.12.1",
+    "abort-controller": "^3.0.0",
     "canvas": "^2.6.1",
     "comlink": "^4.3.0",
     "copy-to-clipboard": "^3.3.1",

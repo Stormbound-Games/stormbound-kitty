@@ -291,8 +291,13 @@ export default class Trivia {
       .getScores(this.guildId)
       .then(formatTriviaScores)
       .then(output => embed.setDescription(output))
-      .catch(() =>
-        embed.setDescription('🏅 Failed to get scores. Try again later.')
-      )
+      .catch(error => {
+        const message =
+          error.name === 'AbortError'
+            ? '🏅 It looks like the storage service (jsonbin.org) is not responsive. Try again later!'
+            : '🏅 Failed to get scores. Try again later.'
+
+        return embed.setDescription(message)
+      })
   }
 }

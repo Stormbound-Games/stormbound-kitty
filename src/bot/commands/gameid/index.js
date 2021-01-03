@@ -29,9 +29,11 @@ export default {
         )
         .catch(error => {
           console.error(error)
-          embed.setDescription(
-            `There was an issue recording your game ID (${message}).`
-          )
+          const message =
+            error.name === 'AbortError'
+              ? 'It looks like the storage service (jsonbin.org) is not responsive. Try again later!'
+              : `There was an issue recording your game ID (${message}).`
+          return embed.setDescription(message)
         })
     }
 
@@ -52,9 +54,11 @@ export default {
         )
         .catch(error => {
           console.error(error)
-          embed.setDescription(
-            `There was an issue finding ${username}’s game ID.`
-          )
+          const message =
+            error.name === 'AbortError'
+              ? 'It looks like the storage service (jsonbin.org) is not responsive. Try again later!'
+              : `There was an issue finding ${username}’s game ID.`
+          return embed.setDescription(message)
         })
     }
   },
