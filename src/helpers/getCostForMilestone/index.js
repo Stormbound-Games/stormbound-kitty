@@ -1,3 +1,4 @@
+import { RARITY_COPIES } from '../../constants/game'
 import { MILESTONES } from '../../constants/brawl'
 import getCoinsForWin from '../getCoinsForWin'
 import getMilestoneForCrowns from '../getMilestoneForCrowns'
@@ -7,12 +8,14 @@ import getMilestoneForCrowns from '../getMilestoneForCrowns'
 // @param {Integer} crowns - Amount of obtained crowns
 // @param {Float} costModifier - Cost modifier between 0 (free) and 1 (normal)
 // @param {String} setup - Wins strategy (ads, Steam…)
+// @param {Boolean} hasLegendary5 - Whether has the Brawl legendary level 5
 const getCostForMilestone = (
   milestone,
   winRatio = 1,
   crowns = 0,
   costModifier = 1,
-  setup = 'NONE'
+  setup = 'NONE',
+  hasLegendary5 = false
 ) => {
   if (typeof milestone !== 'number' || typeof winRatio !== 'number') return 0
 
@@ -32,7 +35,21 @@ const getCostForMilestone = (
     coins += MILESTONES[index].cost * costModifier
     coins -= getCoins(winRatio)
     crowns += 5 * winRatio + (1 - winRatio)
-    index = getMilestoneForCrowns(crowns).nextIndex
+
+    let { nextIndex } = getMilestoneForCrowns(crowns)
+
+    if (index !== nextIndex) {
+      // If the player has the legendary card from the Brawl level 5 already and
+      // the reached milestone reward is copies of the legendary card, convert
+      // these copies into coins.
+      if (hasLegendary5 && MILESTONES[index].reward === 'LEGENDARY_CARD') {
+        coins -=
+          MILESTONES[index].rewardAmount *
+          RARITY_COPIES.legendary.coinsPerExtraCopy
+      }
+
+      index = nextIndex
+    }
   }
 
   return coins

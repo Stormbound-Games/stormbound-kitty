@@ -16,18 +16,38 @@ const BrawlCalculatorRewards = React.memo(function BrawlCalculatorRewards(
 
   return (
     <ol className='BrawlCalculatorOutcome__rewards' start={info.nextIndex + 1}>
-      {MILESTONES.slice(info.nextIndex, props.milestone + 1).map(
-        (milestone, index) => (
-          <li key={milestone.crowns}>{getRewardLabel(milestone, true)}</li>
+      {MILESTONES.slice(info.nextIndex, props.milestone + 1).map(milestone => {
+        return (
+          <li key={milestone.crowns}>
+            {getRewardLabel(milestone, true)}{' '}
+            {milestone.reward === 'LEGENDARY_CARD' && props.hasLegendary5
+              ? '(exchanged)'
+              : ''}
+          </li>
         )
-      )}
+      })}
     </ol>
   )
 })
 
 export default React.memo(function BrawlCalculatorOutcome(props) {
-  const { mode, crowns, coins, milestone, winRate, setup, discount } = props
-  const options = [winRate / 100, crowns, 1 - discount / 100, setup]
+  const {
+    mode,
+    crowns,
+    coins,
+    milestone,
+    winRate,
+    setup,
+    discount,
+    hasLegendary5,
+  } = props
+  const options = [
+    winRate / 100,
+    crowns,
+    1 - discount / 100,
+    setup,
+    hasLegendary5,
+  ]
   const info = getMilestoneForCrowns(crowns)
   const gains =
     setup === 'NONE' ? (
@@ -107,6 +127,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
         <BrawlCalculatorRewards
           crowns={props.crowns}
           milestone={reachableIndex}
+          hasLegendary5={hasLegendary5}
         />
 
         {next ? (
@@ -158,7 +179,11 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
           </span>{' '}
           ({gains}). Here are all the rewards you would get:
         </p>
-        <BrawlCalculatorRewards crowns={crowns} milestone={milestone} />
+        <BrawlCalculatorRewards
+          crowns={crowns}
+          milestone={milestone}
+          hasLegendary5={hasLegendary5}
+        />
       </>
     )
   }

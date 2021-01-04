@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import BrawlCalculatorDiscount from '../BrawlCalculatorDiscount'
+import BrawlCalculatorLegendaryToggle from '../BrawlCalculatorLegendaryToggle'
 import BrawlCalculatorMode from '../BrawlCalculatorMode'
 import BrawlCalculatorOutcome from '../BrawlCalculatorOutcome'
 import BrawlCalculatorSettings from '../BrawlCalculatorSettings'
@@ -24,6 +25,7 @@ export default React.memo(function BrawlCalculator(props) {
   const [milestone, setMilestone] = React.useState('')
   const [setup, setSetup] = React.useState('NONE')
   const [discount, setDiscount] = React.useState(0)
+  const [hasLegendary5, setHasLegendary5] = React.useState(false)
 
   React.useEffect(() => {
     setMilestone('')
@@ -64,6 +66,12 @@ export default React.memo(function BrawlCalculator(props) {
                 crowns={crowns}
                 setCrowns={setCrowns}
               />
+              <BrawlCalculatorLegendaryToggle
+                mode={mode}
+                milestone={milestone}
+                checked={hasLegendary5}
+                onChange={event => setHasLegendary5(event.target.checked)}
+              />
               <BrawlCalculatorSetup setup={setup} setSetup={setSetup} />
               <BrawlCalculatorDiscount
                 discount={discount}
@@ -80,6 +88,7 @@ export default React.memo(function BrawlCalculator(props) {
                 mode={mode}
                 setup={setup}
                 winRate={winRate}
+                hasLegendary5={hasLegendary5}
               />
             </Row.Column>
           </Row>
