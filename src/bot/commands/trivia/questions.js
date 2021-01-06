@@ -1013,7 +1013,7 @@ export default [
 
     return {
       question:
-        'Which two people have tied for the most Stormbound championship titles?',
+        'Which two people have the most Stormbound championship titles?',
       answer: 'HanooSt and BluePhoenix',
       options: Array.from({ length: 20 }, () => {
         const randomAuthor = arrayRandom(authors)
@@ -1315,8 +1315,8 @@ export default [
   {
     question:
       'What is the maximum effective strength of Blood Ministers at level 5 considering their ability?',
-    answer: 66,
-    options: [10, 38, ...rangeAround(66, 5)],
+    answer: 64,
+    options: [10, 38, ...rangeAround(64, 5)],
   },
 
   {
