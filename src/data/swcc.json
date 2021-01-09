@@ -388,6 +388,15 @@
     "season": 2,
     "week": 1,
     "name": "Vitality",
+    "winner": {
+      "author": "Lyt",
+      "id": "UztLO1U7UjszOzA7My80LzQvNS82O1NwcmVhZGVyJTIwb2YlMjBTcGlyaXQ7Tjc7V2hlbiUyMHBsYXllZCUyMGJvcmRlcmluZyUyMGElMjB2aXRhbGl6ZWQlMjBmcmllbmRseSUyMHVuaXQlMkMlMjB2aXRhbGl6ZSUyMGl0c2VsZiUyMGFuZCUyMGFsbCUyMGJvcmRlcmluZyUyRmJvcmRlcmluZyUyRnN1cnJvdW5kaW5nJTJGc3Vycm91bmRpbmclMkZzdXJyb3VuZGluZyUyMGZyaWVuZGx5JTIwdW5pdHMuOzs="
+    }
+  },
+  {
+    "season": 2,
+    "week": 2,
+    "name": "Missing Piece",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
