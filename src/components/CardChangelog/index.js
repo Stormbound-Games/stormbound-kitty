@@ -10,7 +10,7 @@ import CardLink from '../CardLink'
 import changelog from '../../data/changelog'
 import sortCards from '../../helpers/sortCards'
 import getRawCardData from '../../helpers/getRawCardData'
-import formatDate from '../../helpers/formatDate'
+import { formatDate } from '../../helpers/formatDate'
 import cards from '../../data/cards'
 import './index.css'
 

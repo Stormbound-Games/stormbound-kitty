@@ -1,5 +1,5 @@
 import React from 'react'
-import formatDate from '../../helpers/formatDate'
+import { formatPreciseDate } from '../../helpers/formatDate'
 import './index.css'
 
 export default React.memo(function Timeline(props) {
@@ -24,7 +24,7 @@ export default React.memo(function Timeline(props) {
             key={item.date}
           >
             <time className='Timeline__time' dateTime={item.date.toISOString()}>
-              {formatDate(item.date)}
+              {formatPreciseDate(item.date)}
             </time>
             <span className='Timeline__label'>{item.title}</span>
           </li>

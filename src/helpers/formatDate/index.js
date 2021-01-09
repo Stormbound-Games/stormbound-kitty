@@ -1,4 +1,4 @@
-const formatDate = date => {
+export const formatPreciseDate = date => {
   const formatter = new Intl.DateTimeFormat('en', {
     year: 'numeric',
     month: 'short',
@@ -12,4 +12,14 @@ const formatDate = date => {
   return month + ' ' + day + ', ' + year
 }
 
-export default formatDate
+export const formatDate = date => {
+  const formatter = new Intl.DateTimeFormat('en', {
+    year: 'numeric',
+    month: 'long',
+  })
+  const parts = formatter.formatToParts(date)
+  const month = parts[0].value
+  const year = parts[2].value
+
+  return month + ' ' + year
+}

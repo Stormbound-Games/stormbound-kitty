@@ -3,9 +3,20 @@ import { Link } from 'react-router-dom'
 import { RESTRICTIONS, TYPES } from '../../constants/puzzles'
 import Image from '../Image'
 import Only from '../Only'
+import { formatDate } from '../../helpers/formatDate'
 import './index.css'
 
+const getDate = date => {
+  if (date instanceof Date) return date
+
+  const [month, year] = date.split('/')
+
+  return new Date(+year, +month - 1, 1)
+}
+
 export default React.memo(function BattleSimPuzzle(props) {
+  const date = getDate(props.date)
+
   return (
     <div className='BattleSimPuzzle'>
       {!props.noImage && (
@@ -26,7 +37,17 @@ export default React.memo(function BattleSimPuzzle(props) {
           </Link>
         </h3>
         <p className='BattleSimPuzzle__author'>
-          by <Link to={'/member/' + props.author}>{props.author}</Link>
+          by <Link to={'/member/' + props.author}>{props.author}</Link>, in{' '}
+          <time
+            className='BattleSimPuzzle__date'
+            dateTime={
+              date.getFullYear() +
+              '-' +
+              String(date.getMonth()).padStart(2, '0')
+            }
+          >
+            {formatDate(date)}
+          </time>
         </p>
         <dl className='BattleSimPuzzle__details'>
           <dt data-testid='puzzle-type'>{props.type.toLowerCase()}:</dt>

@@ -14,18 +14,7 @@ import { Rubies } from '../Resource'
 import tournaments from '../../data/tournaments.json'
 import './index.css'
 import MemberList from '../MemberList'
-
-const formatDate = date => {
-  const formatter = new Intl.DateTimeFormat('en', {
-    year: 'numeric',
-    month: 'long',
-  })
-  const parts = formatter.formatToParts(date)
-  const month = parts[0].value
-  const year = parts[2].value
-
-  return month + ' ' + year
-}
+import { formatDate } from '../../helpers/formatDate'
 
 export const getDate = string => {
   if (!string) return null

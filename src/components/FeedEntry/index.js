@@ -1,18 +1,7 @@
 import React from 'react'
 import Icon from '../Icon'
+import { formatDate } from '../../helpers/formatDate'
 import './index.css'
-
-const formatDate = date => {
-  const formatter = new Intl.DateTimeFormat('en', {
-    year: 'numeric',
-    month: 'long',
-  })
-  const parts = formatter.formatToParts(date)
-  const month = parts[0].value
-  const year = parts[2].value
-
-  return month + ' ' + year
-}
 
 export default React.memo(function FeedEntry(props) {
   return (
