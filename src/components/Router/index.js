@@ -41,6 +41,7 @@ const GUIDE_COMPONENTS = {
 }
 
 const RELEASE_COMPONENTS = {
+  ios_01_2021: load('ReleaseNotesIOSJanuary2021'),
   end_of_2020: load('ReleaseNotesEndOf2020'),
   '12_2020': load('ReleaseNotesDecember2020'),
   '11_2020': load('ReleaseNotesNovember2020'),

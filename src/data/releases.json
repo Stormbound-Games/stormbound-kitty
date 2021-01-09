@@ -1,5 +1,16 @@
 [
   {
+    "cardId": "N3",
+    "title": "Important iOS notice",
+    "name": "iOS Warning",
+    "meta": "January 8, 2021",
+    "date": "01/2021",
+    "excerpt": "A critical iOS update impacting guest accounts will happen on January 21st. Make sure to read how to save your progress!",
+    "slug": "ios-01-2021",
+    "background": "/assets/images/banners/ancients.png",
+    "id": "ios_01_2021"
+  },
+  {
     "cardId": "S19",
     "title": "Update 12-2020",
     "name": "End of 2020",

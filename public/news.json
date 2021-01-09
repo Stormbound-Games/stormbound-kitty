@@ -1,5 +1,10 @@
 [
   {
+    "intro": "iOS Warning",
+    "description": "A critical iOS update impacting guest accounts will happen on January 21st. Save your progress!",
+    "link": "/releases/ios-01-2021"
+  },
+  {
     "intro": "Christmas Event",
     "description": "Christmas and New Year’s Eve are approaching and with them a new small patch with rewards!",
     "link": "/releases/end-of-2020"
