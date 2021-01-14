@@ -13,13 +13,9 @@ export default React.memo(function ReleaseNotesTempleOfFocus(props) {
         <p>
           On January 17th, a new card will make its entrance! It’s a structure
           from Swarm of the East, it’s epic, and it’s a bit of a new mechanic
-          while still making sense in the context of the overall faction!
-        </p>
-
-        <p>
-          Oh and just like <CardLink id='N80' />, it is an ancient card
-          (although the site does not entirely correctly reflect this yet). It
-          currently does not have impact in the game, but it will.
+          while still making sense in the context of the overall faction! Oh and
+          just like <CardLink id='N80' />, it is an ancient card. It currently
+          does not have impact in the game, but it will.
         </p>
       </Article.Narrow>
 
