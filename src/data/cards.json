@@ -2168,7 +2168,7 @@
     "race": null,
     "rarity": "epic",
     "image": "temple_of_focus.png",
-    "mana": 6,
+    "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": 0,
     "ability": "At the start of your turn, deconfuse and give 1 additional move to all friendly units in front. Destroy itself when a boosted unit reaches the enemy base.",
