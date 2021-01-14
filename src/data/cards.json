@@ -2165,7 +2165,7 @@
     "id": "S29",
     "type": "structure",
     "faction": "swarm",
-    "race": null,
+    "race": "ancient",
     "rarity": "epic",
     "image": "temple_of_focus.png",
     "mana": 3,

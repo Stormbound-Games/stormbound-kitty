@@ -51,7 +51,12 @@ export const deserialiseCard = string => {
 
   card.faction = getLongFaction(chunks[0])
   card.type = getLongType(chunks[2])
-  card.race = card.type === 'unit' ? getLongRace(chunks[1]) : null
+  card.race =
+    card.type === 'unit'
+      ? getLongRace(chunks[1])
+      : card.type === 'structure' && chunks[1] === 'A'
+      ? 'ancient'
+      : null
   card.rarity = getLongRarity(chunks[3])
   card.mana = resolveMana(chunks[4])
   card.strength = resolveStrength(chunks[6], card.type)

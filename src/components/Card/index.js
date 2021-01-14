@@ -66,7 +66,6 @@ export default React.memo(function Card(props) {
 
           <span className='Card__race' data-testid='card-race'>
             {props.race} {props.elder && 'elder'} {props.hero && 'hero'}
-            {props.name === 'Temple of Focus' ? 'ancient' : null}
           </span>
         </header>
 

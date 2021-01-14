@@ -97,16 +97,20 @@ export default React.memo(function CardBuilderCardForm(props) {
               id='race'
               required
               value={props.race || ''}
-              disabled={props.type !== 'unit'}
+              disabled={props.type === 'spell'}
               onChange={event => props.setRace(event.target.value)}
               data-testid='cb-race-select'
             >
               <option value=''>Race</option>
-              {Object.keys(RACES).map(race => (
-                <option value={race} key={race}>
-                  {capitalise(race)}
-                </option>
-              ))}
+              {props.type === 'unit' ? (
+                Object.keys(RACES).map(race => (
+                  <option value={race} key={race}>
+                    {capitalise(race)}
+                  </option>
+                ))
+              ) : (
+                <option value='ancient'>Ancient</option>
+              )}
             </select>
           </Row.Column>
         </Row>
