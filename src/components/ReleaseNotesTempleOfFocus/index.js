@@ -30,7 +30,7 @@ export default React.memo(function ReleaseNotesTempleOfFocus(props) {
           Additionally, there will be a promotion pack to put your hands on this
           sweet new card. It costs $9.99, grants 3 copies of{' '}
           <CardLink id='S29' />, <Stones amount={5} /> and{' '}
-          <Coins amount={750} />. It will only be available during January 17th
+          <Coins amount={750} />. It will only be available between January 17th
           and January 24th, so be sure to consider it!
         </p>
         <Image
