@@ -2161,6 +2161,20 @@
     "elder": true
   },
   {
+    "name": "Temple of Focus",
+    "id": "S29",
+    "type": "structure",
+    "faction": "swarm",
+    "race": "ancient",
+    "rarity": "epic",
+    "image": "temple_of_focus.png",
+    "mana": 3,
+    "strength": "3/4/5/6/7",
+    "movement": 0,
+    "ability": "At the start of your turn, deconfuse and give 1 additional move to all friendly units in front. Deal 1 damage to itself when boosted unit reaches the enemy base.",
+    "elder": false
+  },
+  {
     "name": "Icicle Burst",
     "id": "W1",
     "type": "spell",

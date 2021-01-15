@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Temple of Focus",
+    "description": "A new Swarm of the East epic structure is making its entrance: the Temple of Focus!",
+    "link": "/releases/temple-of-focus"
+  },
+  {
     "intro": "iOS Warning",
     "description": "A critical iOS update impacting guest accounts will happen on January 21st. Save your progress!",
     "link": "/releases/ios-01-2021"

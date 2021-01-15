@@ -38,15 +38,15 @@ export default () => {
           icon: 'bullhorn',
           items: [
             {
+              label: 'Update Temple of Focus',
+              to: '/releases/temple-of-focus',
+              id: 'temple_of_focus',
+            },
+            {
               label: 'Update end of 2020',
               to: '/releases/end-of-2020',
               id: 'end_of_2020',
               new: true,
-            },
-            {
-              label: 'Update 12-2020',
-              to: '/releases/12-2020',
-              id: '12_2020',
             },
             {
               label: 'All Releases',
