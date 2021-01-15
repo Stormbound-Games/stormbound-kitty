@@ -2171,7 +2171,7 @@
     "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "At the start of your turn, deconfuse and give 1 additional move to all friendly units in front. Destroy itself when a boosted unit reaches the enemy base.",
+    "ability": "At the start of your turn, deconfuse and give 1 additional move to all friendly units in front. Deal 1 damage to itself when boosted unit reaches the enemy base.",
     "elder": false
   },
   {
