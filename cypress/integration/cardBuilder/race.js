@@ -29,18 +29,11 @@ describe('Card Builder — Race', () => {
 
   it('should be emptied if picking structure type', () => {
     cy.get(s.TYPE_SELECT).select('structure')
-    cy.get(s.RACE_SELECT).should('have.value', '')
+    cy.get(s.RACE_SELECT).should('have.value', '').and('be.disabled')
     cy.get(s.CARD_PREVIEW)
       .eq(0)
       .find(s.CARD_RACE)
       .should($node => expect($node.text().trim()).to.have.length(0))
-  })
-
-  it('should be preserved if ancient and picking structure type', () => {
-    cy.get(s.TYPE_SELECT).select('unit')
-    cy.get(s.RACE_SELECT).select('ancient').should('have.value', 'ancient')
-    cy.get(s.TYPE_SELECT).select('structure')
-    cy.get(s.RACE_SELECT).should('have.value', 'ancient')
   })
 
   it('should be emptied if picking spell type', () => {

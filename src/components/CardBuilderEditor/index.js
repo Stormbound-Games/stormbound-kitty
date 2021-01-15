@@ -129,14 +129,13 @@ class CardBuilderEditor extends React.Component {
       )
     }
 
-    // If the new type is a structure, disable movement, unit modifiers, only
-    // preserve the race if it’s ancient, and if the current type is a spell,
-    // enable strength
+    // If the new type is a structure, disable movement, race and unit modifiers
+    // and if the current type is a spell, enable strength
     else if (type === 'structure') {
       this.setState(
         {
           type,
-          race: this.state.race === 'ancient' ? this.state.race : null,
+          race: null,
           elder: false,
           hero: false,
           movement: null,
