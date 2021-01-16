@@ -3,7 +3,10 @@
     "name": "A Different Exam",
     "type": "LETHAL",
     "difficulty": 1,
-    "restrictions": ["ANTI_RNG", "LEVEL_5"],
+    "restrictions": [
+      "ANTI_RNG",
+      "LEVEL_5"
+    ],
     "author": "Ayanami",
     "board": "LCwsLCwsLCwxUzhSNSwsLCwsNk40UjUsLCwxMk4zUjUsLCw7UjEyUy1CMTBTOzE5TTE7NVMxNjVTNjVTOTVTMTVTMTk7",
     "image": "/assets/images/puzzles/a_different_exam.png",
@@ -13,7 +16,9 @@
     "name": "Broken Movement",
     "type": "BOARDCLEAR",
     "difficulty": 1,
-    "restrictions": ["LEVEL_5"],
+    "restrictions": [
+      "LEVEL_5"
+    ],
     "author": "Ayanami",
     "board": "LCwsLDZONFI1LCwxOFcxNlI1LDZXM1I1LDExVzdSNSwsLDZXM1I1LCwsLCwsLDZOMTZSNSw2VzEyUjU7UjIwVy1CMjBXOzI1TTE7NVcxNSw1VzE3LDVONTgsNVcyMiwsLCwsLCwsO1cxNSxXMTcsTjU4LFcyMg==",
     "image": "/assets/images/puzzles/broken_movement.png",
@@ -23,7 +28,9 @@
     "name": "VIP – Frozen Core",
     "type": "VIP",
     "difficulty": 1,
-    "restrictions": ["LEVEL_5"],
+    "restrictions": [
+      "LEVEL_5"
+    ],
     "author": "Ayanami",
     "board": "Nk40NVI1LCwsNkkxOVI1LDhJOFI1LCwsLDE5STIxUjUsLCwsOE4xM0I1LCwsNFc5QjUsLCw3TjQ3UjUsO1IxNUktQjE5Vzs5TTE7NVcxOSw1TjExLDVONTgsNU4zNywsLCwsLCwsO1cxOSxONTgsTjM3LE4xMQ==",
     "image": "/assets/images/puzzles/vip_frozen_core.png",
@@ -34,7 +41,9 @@
     "name": "Hammer’s Wrath",
     "type": "SURVIVE",
     "difficulty": 1,
-    "restrictions": ["LEVEL_1"],
+    "restrictions": [
+      "LEVEL_1"
+    ],
     "author": "Ayanami",
     "board": "LCwsNFMxOFIxLCwzUzdSMSwsNFMxOFIxLCw1UzIxUjEsLCw0TjEzQjEsLCwsM1MzUjEsM1MzUjEsLDtSOFMtQjFXOzE5TTE7MVcyMzFXMTIxVzQxVzY7VzIzLFcxMixXNCxXNg==",
     "image": "/assets/images/puzzles/hammers_wrath.png",
@@ -44,7 +53,10 @@
     "name": "Devastating Keepers",
     "type": "LETHAL",
     "difficulty": 3,
-    "restrictions": ["LEVEL_1", "ANTI_RNG"],
+    "restrictions": [
+      "LEVEL_1",
+      "ANTI_RNG"
+    ],
     "author": "Ayanami",
     "board": "LCwsLDRTMThSMSwsLCwsLDJTMTNSMSwxTjZCMSwsLDNTMlIxLDFTMlIxLCwxUzVSMSwsO1IxMUktQjJTOzE2TTE7MVM0MVMxMTFTNjFTMjA7UzYsUzIwLFMxMSxTNA==",
     "image": "/assets/images/puzzles/devastating_keepers.png",
@@ -54,7 +66,10 @@
     "name": "Lord of Flight",
     "type": "LETHAL",
     "difficulty": 3,
-    "restrictions": ["LEVEL_1", "ANTI_RNG"],
+    "restrictions": [
+      "LEVEL_1",
+      "ANTI_RNG"
+    ],
     "author": "Ayanami",
     "board": "LCwsLCwsNE4zNFIxLCwsLCwsN0kyMVIxLCwsNEkxUjEsLCw0SThSMSw7UjRJLUIyUzsxOU0xOzFTMTYxUzE5MVM2MVMyMDtTMTksUzYsUzE2LFMyMA==",
     "image": "/assets/images/puzzles/lord_of_flight.png",
@@ -64,7 +79,10 @@
     "name": "Plentiful Harvest",
     "type": "LETHAL",
     "difficulty": 2,
-    "restrictions": ["LEVEL_1", "ANTI_RNG"],
+    "restrictions": [
+      "LEVEL_1",
+      "ANTI_RNG"
+    ],
     "author": "Ayanami",
     "board": "MVMyUjEsLCwsLDFTMlIxLDFTMlIxLCwsLDFTMVIxLDROMTNSMSwxUzJSMSwsMVQ3UjEsMVMyUjEsMVMyUjEsLCwxUzJSMTtSMTJTLUIxMFM7MjBNMTsxUzIxMVMxMjFTMTUxUzE2O1MxMixTMTUsUzE2LFMyMQ==",
     "image": "/assets/images/puzzles/plentiful_harvest.png",
@@ -74,7 +92,10 @@
     "name": "Lasting Advice",
     "type": "LETHAL",
     "difficulty": 3,
-    "restrictions": ["LEVEL_5", "RNG_FRIENDLY"],
+    "restrictions": [
+      "LEVEL_5",
+      "RNG_FRIENDLY"
+    ],
     "author": "Ayanami",
     "board": "LCwsOFc1UjUsLDhXOVI1LCwsLCwsOFc4UjUsOE4xM1I1LCwsLDVOM1I1LDFONlI1LDVOMVI1LDtSMTlXLUIxOVM7MjRNMTs1UzIzNVMzNVMxNVMyMjtTMjMsUzMsUzEsUzIy",
     "image": "/assets/images/puzzles/lasting_advice.png",
@@ -84,7 +105,9 @@
     "name": "Sneaky Outcasts",
     "type": "LETHAL",
     "difficulty": 2,
-    "restrictions": ["ANTI_RNG"],
+    "restrictions": [
+      "ANTI_RNG"
+    ],
     "author": "Ayanami",
     "board": "LCwsLCwsLCw1TjNSNSw4RjZSNSwzRjNSNSwsMlQ1UjUsLDhGMTRSNSw5RjE4UjUsLCwsO1IxMk4tQjhOOzE2TTE7NVMyLDVTMTMsNU41Miw1UzgsLCwsLCwsLDtTMTMsTjUyLFM4LFMy",
     "image": "/assets/images/puzzles/sneaky_outcasts.png",
@@ -94,7 +117,10 @@
     "name": "Alternate Solution",
     "type": "LETHAL",
     "difficulty": 2,
-    "restrictions": ["LEVEL_1", "ANTI_RNG"],
+    "restrictions": [
+      "LEVEL_1",
+      "ANTI_RNG"
+    ],
     "author": "Ayanami",
     "board": "LDRGNlIxLCwsMU4zUjEsLCwyRjFSMSwsLDVGMTRSMSwsLDROMTNSMSwsMVQ4UjEsLCwsMVQ4UjE7UjZOLUIyTjsxOU0xOzFOMzAsMVMyMywxUzExLDFTNiwsLCwsLCwsO04zMCxTMjMsUzExLFM2",
     "image": "/assets/images/puzzles/alternate_solution.png",
@@ -104,7 +130,10 @@
     "name": "Traitorous Knights",
     "type": "TARGET",
     "difficulty": 3,
-    "restrictions": ["DETAILED", "ANTI_RNG"],
+    "restrictions": [
+      "DETAILED",
+      "ANTI_RNG"
+    ],
     "author": "Ayanami",
     "board": "MUkxMlI1LCwsLCwsMUkxMlI1LDhOMTNSNSwxRjVSNSwsLCwsMjVONTRCNSwsLCwsLDtSMjBGLUIyMEk7MjdNMTs1STksMUkxLDVOMzEsNEkyMw%3D%3D",
     "image": "/assets/images/puzzles/traitorous_knights.png",
@@ -115,7 +144,10 @@
     "name": "The Doctor’s Degree",
     "type": "LETHAL",
     "difficulty": 3,
-    "restrictions": ["DETAILED", "ANTI_RNG"],
+    "restrictions": [
+      "DETAILED",
+      "ANTI_RNG"
+    ],
     "author": "Ayanami",
     "board": "MkkxOVI1LCwsLCwsLCwsLCwsMTBXMTNSNSwsLCw4TjEzUjUsOEk4UjUsLDNJNlI1O1IxNEktQjFGOzE2TTE7NU4zNiw1TjMxLDVGMTQsNUYz",
     "image": "/assets/images/puzzles/the_doctors_degree.png",
@@ -125,7 +157,10 @@
     "name": "Feeble Resistance",
     "type": "SURVIVE",
     "difficulty": 3,
-    "restrictions": ["LEVEL_5", "ANTI_RNG"],
+    "restrictions": [
+      "LEVEL_5",
+      "ANTI_RNG"
+    ],
     "author": "Ayanami",
     "board": "MkkxOVI1LCwsLCwsLCwsLCwsMTBXMTNSNSwsLCw4TjEzUjUsOEk4UjUsLDNJNlI1O1IxNEktQjFGOzE2TTE7NU4zNiw1TjMxLDVGMTQsNUYz",
     "image": "/assets/images/puzzles/feeble_resistance.png",
@@ -135,7 +170,10 @@
     "name": "False Alarm",
     "type": "LETHAL",
     "difficulty": 2,
-    "restrictions": ["LEVEL_5", "ANTI_RNG"],
+    "restrictions": [
+      "LEVEL_5",
+      "ANTI_RNG"
+    ],
     "author": "Ayanami",
     "board": "Nk4xUjUsLCwsLCwsLDZGM1I1LCw4UzE4UjUsLCwsLCw2STE5QjUsLCw7UjZTLUI0STsxMU0xOzVJNzJJMjVJNTNJMTI7STcsSTIsSTUsSTEy",
     "image": "/assets/images/puzzles/false_alarm.png",
@@ -145,7 +183,10 @@
     "name": "Devastated Decimation",
     "type": "LETHAL",
     "difficulty": 2,
-    "restrictions": ["LEVEL_5", "ANTI_RNG"],
+    "restrictions": [
+      "LEVEL_5",
+      "ANTI_RNG"
+    ],
     "author": "Pröjêčtûńfõrgïvēñ",
     "board": "LCwsMU4xUjUsMUY1UjUsLCwsNUYzUjUsNkYxM1I1LCwsLCwsLCwsLDM0TjQ2UjU7UjEwTi1CMTBOOzk5TTA7NU40MSw1UzEwLDVTMjAsNVMxMSwsLCwsLCwsO040MSxTMTAsUzIwLFMxMQ==",
     "image": "/assets/images/puzzles/devastated_decimation.png",
@@ -165,7 +206,9 @@
     "name": "Unhelpful Cards",
     "type": "LETHAL",
     "difficulty": 2,
-    "restrictions": ["LEVEL_1"],
+    "restrictions": [
+      "LEVEL_1"
+    ],
     "author": "FrozenEarth",
     "board": "LCwsM1M3UjEsLDVOMTlSMSwsNE4xM0IxLDNTMlIxLDFTMVIxLCwsLDFUN1IxLCw0VDdSMSwsLDdTOVIxLDtSM1MtQjNJOzEyTTE7MUk0MU4zMTFJMTUxTjI4O0k0LE4zMSxJMTUsTjI4",
     "image": "/assets/images/puzzles/unhelpful_cards.png",
@@ -200,5 +243,17 @@
     "board": "LCwsM04zNFI1LCwsLCwsNVQxUjEsLCwsLDJJMjBSNSw1STZSNSw1TjNSNSw2STE2UjUsLDtSNUktQjVJOzE0TTA7NVMyMjVOMTM1UzE4NU45O1MyMixOMTMsUzE4LE45",
     "image": "/assets/images/puzzles/obnoxious_vindicators.png",
     "date": "08/2020"
+  },
+  {
+    "name": "Elusive Runners",
+    "type": "LETHAL",
+    "difficulty": 3,
+    "restrictions": [
+      "ANTI_RNG"
+    ],
+    "author": "Sgamer",
+    "board": "LCwsLDVOM1I1LCwxM041N1I1LCwsNU4xUjUsLCwsLCw2RjNSNSwsLCw7UjFGLUIyUzsxME0xOzRONjcxUzY1Uzg1UzI7TjY3LFMyLFM4LFM2",
+    "image": "/assets/images/puzzles/elusive_runners.png",
+    "date": "01/2021"
   }
 ]

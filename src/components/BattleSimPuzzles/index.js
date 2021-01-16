@@ -51,6 +51,7 @@ export default class BattleSimPuzzles extends React.Component {
       .filter(this.matchesDifficulty)
       .filter(this.matchesRestriction)
       .filter(this.matchesType)
+      .reverse()
 
   render() {
     const puzzles = this.getPuzzles()
