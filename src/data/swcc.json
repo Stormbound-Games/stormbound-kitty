@@ -397,6 +397,15 @@
     "season": 2,
     "week": 2,
     "name": "Missing Piece",
+    "winner": {
+      "author": "Athena",
+      "id": "TjtLO1U7RTs1OzE7Ni82LzcvNy84O1Rocm9uZSUyMERlZmVuZGVyO2h0dHBzJTNBJTJGJTJGaS5pbWd1ci5jb20lMkY1Q1RKYllZLnBuZzslMjBPbiUyMHBsYXklMkMlMjBpZiUyMHlvdXIlMjBiYXNlJTIwaGFzJTIwNSUyMGhlYWx0aCUyMG9yJTIwbGVzcyUyQyUyMGRlYWwlMjAqMSUyRjIlMkYzJTJGNCUyRjUlMjBkYW1hZ2UqJTIwdG8lMjBhbGwlMjBlbmVteSUyMHVuaXRzJTIwYm9yZGVyaW5nJTIweW91ciUyMGJhc2UuOzs="
+    }
+  },
+  {
+    "season": 2,
+    "week": 3,
+    "name": "Apprentice",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
