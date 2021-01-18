@@ -4324,5 +4324,11 @@
     "description": "Decreased ability by 1",
     "id": "I8",
     "type": "NERF"
+  },
+  {
+    "date": 1610841600000,
+    "description": "Added to the game",
+    "id": "S29",
+    "type": "INFO"
   }
 ]
