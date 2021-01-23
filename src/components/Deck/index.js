@@ -54,9 +54,14 @@ const DeckSlot = React.memo(function DeckSlot(props) {
 })
 
 const CardVariants = React.memo(function CardVariants(props) {
-  const position = props.index < 6 ? 'right' : 'left'
-  const orientation =
-    props.orientation === 'vertical' ? 'horizontal' : 'vertical'
+  const position =
+    props.orientation === 'vertical'
+      ? props.index < 6
+        ? 'bottom'
+        : 'top'
+      : props.index < 6
+      ? 'right'
+      : 'left'
 
   return (
     <Tooltip
@@ -68,7 +73,7 @@ const CardVariants = React.memo(function CardVariants(props) {
               deck={props.variants}
               showEmptySlots={false}
               fontSize={`calc(${props.fontSize} * 0.8)`}
-              orientation={orientation}
+              orientation={props.orientation}
             />
           </div>
         </Box>

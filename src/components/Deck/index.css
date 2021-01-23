@@ -266,7 +266,6 @@
 .Deck__variants::before {
   content: '';
   position: absolute;
-  top: 50%;
   background-color: inherit;
   width: 1em;
   height: 1em;
@@ -276,6 +275,7 @@
   transform: translate(-50%, -50%) rotate(45deg);
   border-left: 1px solid var(--beige);
   border-bottom: 1px solid var(--beige);
+  top: 50%;
   left: 0;
 }
 
@@ -283,6 +283,25 @@
   transform: translateX(1px) translate(50%, -50%) rotate(45deg);
   border-right: 1px solid var(--beige);
   border-top: 1px solid var(--beige);
+  top: 50%;
   right: 0;
   left: auto;
+}
+
+.Deck__variants--top::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-bottom: 1px solid var(--beige);
+  border-right: 1px solid var(--beige);
+  top: calc(100% + 0.5em);
+  z-index: 3;
+  left: 50%;
+}
+
+.Deck__variants--bottom::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-top: 1px solid var(--beige);
+  border-left: 1px solid var(--beige);
+  bottom: calc(100% - 0.5em);
+  z-index: 3;
+  left: 50%;
 }
