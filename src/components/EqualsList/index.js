@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { EQUALS_TIER_LIST, TIER_COLORS } from '../../constants/list'
 import HeaderBanner from '../HeaderBanner'
 import PageMeta from '../PageMeta'
@@ -7,9 +8,11 @@ import ListBuilderTier from '../ListBuilderTier'
 import ListBuilderToc from '../ListBuilderToc'
 import getInitialListData from '../../helpers/getInitialListData'
 import getRawCardData from '../../helpers/getRawCardData'
+import { formatDate } from '../../helpers/formatDate'
+import RELEASES from '../../data/releases.json'
 
 export default React.memo(function ListBuilderDisplayView(props) {
-  const id = EQUALS_TIER_LIST
+  const { date, value: id } = EQUALS_TIER_LIST
   const [faction, setFaction] = React.useState('*')
   const tiers = getInitialListData(id)
     .map(tier => ({
@@ -28,6 +31,9 @@ export default React.memo(function ListBuilderDisplayView(props) {
       }),
     }))
     .filter(tier => tier.cards.length > 0)
+  const [month, year] = date.split('/')
+  const lastUpdate = new Date(+year, +month - 1, 1)
+  const release = RELEASES.find(release => release.date === date)
 
   return (
     <>
@@ -39,6 +45,17 @@ export default React.memo(function ListBuilderDisplayView(props) {
             This tier list was made by the Stormbound community, with strong
             involvement from competitive tournament players. It is their take at
             ranking cards by efficiency in Equals mode. Your mileage may vary.
+          </p>
+
+          <p>
+            It was last updated{' '}
+            {release ? (
+              <>
+                following the{' '}
+                <Link to={'/releases/' + release.slug}>{release.name}</Link>{' '}
+              </>
+            ) : null}
+            in <span className='Highlight'>{formatDate(lastUpdate)}</span>.
           </p>
 
           <ListBuilderToc tiers={tiers} />
