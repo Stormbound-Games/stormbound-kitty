@@ -247,7 +247,11 @@
   {
     "season": 2,
     "week": 37,
-    "name": "C-C-Combo"
+    "name": "C-C-Combo",
+    "winner": {
+      "id": "TjtLO1U7RTs1OzA7NC81LzYvNy84O1NpZGVsaW5lJTIwRW5jaGFudGVycztONzM7T24lMjBwbGF5JTJDJTIwYWRkJTIwYSUyMDYlMkY1JTJGNCUyRjMlMkYyJTIwbWFuYSUyMGNvcHklMjBvZiUyMHRoZSUyMGxhc3QlMjBzcGVsbCUyMHBsYXllZCUyMHRvJTIweW91ciUyMGhhbmQ7Ow==",
+      "author": "Blastoise"
+    }
   },
   {
     "season": 2,
@@ -406,6 +410,15 @@
     "season": 2,
     "week": 3,
     "name": "Apprentice",
+    "winner": {
+      "author": "Equinox",
+      "id": "TjtLO1U7RTs1OzA7NC81LzYvNy84O1NpZGVsaW5lJTIwRW5jaGFudGVycztONzM7T24lMjBwbGF5JTJDJTIwYWRkJTIwYSUyMDYlMkY1JTJGNCUyRjMlMkYyJTIwbWFuYSUyMGNvcHklMjBvZiUyMHRoZSUyMGxhc3QlMjBzcGVsbCUyMHBsYXllZCUyMHRvJTIweW91ciUyMGhhbmQ7Ow=="
+    }
+  },
+  {
+    "season": 2,
+    "week": 4,
+    "name": "Ancient Structures",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
