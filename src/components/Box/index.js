@@ -2,7 +2,7 @@ import React from 'react'
 import './index.css'
 
 export default React.memo(function Box(props) {
-  const Element = props.element || 'p'
+  const Element = props.element || 'div'
 
   return (
     <Element
