@@ -32,7 +32,6 @@
   { "image": "31.png", "author": "Visions", "date": "08/2020" },
   { "image": "32.png", "author": "HanooSt", "date": "09/2020" },
   { "image": "33.png", "author": "Todam", "date": "09/2020" },
-  { "image": "34.png", "author": "негатив", "date": "09/2020" },
   { "image": "35.png", "author": "EmmaBelotti", "date": "08/2020" },
   { "image": "36.png", "author": "HanooSt", "date": "08/2020" },
   { "image": "37.jpg", "author": "BixBox", "date": "08/2020" },
@@ -95,5 +94,9 @@
   { "image": "94.jpg", "author": "IQ", "date": "01/2021" },
   { "image": "95.jpg", "author": "IQ", "date": "01/2021" },
   { "image": "96.jpg", "author": "IQ", "date": "01/2021" },
-  { "image": "97.jpg", "author": "IQ", "date": "01/2021" }
+  { "image": "97.jpg", "author": "IQ", "date": "01/2021" },
+  { "image": "98.png", "author": "Wakamoto", "date": "01/2021" },
+  { "image": "99.png", "author": "Wakamoto", "date": "01/2021" },
+  { "image": "100.png", "author": "Player_Null_Name", "date": "01/2021" },
+  { "image": "101.jpg", "author": "JotaDiez", "date": "01/2021" }
 ]
