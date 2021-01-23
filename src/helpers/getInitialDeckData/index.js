@@ -7,5 +7,5 @@ export default deck => {
 
   const decodedData = decodeURIComponent(deck)
 
-  return serialisation.deck.deserialise(decodedData).deck
+  return serialisation.deck.deserialise(decodedData)
 }

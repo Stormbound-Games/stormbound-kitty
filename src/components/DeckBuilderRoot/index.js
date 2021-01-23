@@ -11,7 +11,7 @@ class DeckBuilderRoot extends React.Component {
 
     this.state = {
       highlightedCards: [],
-      deck: getInitialDeckData(props.deckId),
+      ...getInitialDeckData(props.deckId),
     }
   }
 
@@ -79,6 +79,7 @@ class DeckBuilderRoot extends React.Component {
   render() {
     return this.props.children({
       deck: this.state.deck,
+      variants: this.state.variants,
       deckId: this.props.deckId,
       reset: this.reset,
       addCardToDeck: this.addCardToDeck,

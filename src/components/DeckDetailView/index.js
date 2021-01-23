@@ -68,6 +68,7 @@ export default React.memo(function DeckDetailView(props) {
           <Deck
             id='deck'
             deck={deck}
+            variants={props.variants}
             orientation={viewportWidth >= 700 ? 'vertical' : 'horizontal'}
             highlightedCards={props.highlightedCards}
             onClick={card => history.push('/card/' + card.id + '/display')}
