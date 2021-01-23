@@ -166,8 +166,10 @@
 }
 
 .Deck--vertical .Deck__mana {
-  transform: scale(1.2);
-  left: -2em;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
 }
 
 .Deck--horizontal .Deck__mana {
@@ -188,6 +190,9 @@
 
 .Deck__name {
   text-transform: uppercase;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .Deck--vertical .Deck__image {
@@ -204,16 +209,17 @@
   margin: auto auto 0.25em;
 }
 
+.Deck--vertical .Deck__name {
+  padding-left: 1em;
+}
+
 .Deck--horizontal .Deck__name {
   transform-origin: top left;
   transform: rotate(90deg) translateY(-50%);
-  white-space: nowrap;
   position: absolute;
   left: 50%;
   top: 1.5em;
   max-width: 500%;
-  text-overflow: ellipsis;
-  overflow: hidden;
   font-size: 85%;
 }
 
