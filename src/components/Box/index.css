@@ -1,0 +1,37 @@
+/**
+ * 1. Arbitrary width for the boxes on desktop.
+ */
+.Box {
+  width: 18em; /* 1 */
+  background-color: var(--black);
+  border: 1px double var(--beige);
+  padding: 1em;
+  box-shadow: 0 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
+  margin: 0;
+  position: relative;
+}
+
+/**
+ * 1. Horizontal pseudo-element at the top and the bottom of the box to give it
+ *    these cutted-out corners like in the game.
+ */
+.Box::after,
+.Box::before {
+  content: ''; /* 1 */
+  position: absolute;
+  left: 0.5em;
+  height: 0.5em;
+  right: 0.5em;
+  border: inherit;
+  background-color: inherit;
+}
+
+.Box::before {
+  bottom: 100%;
+  border-bottom: 0;
+}
+
+.Box::after {
+  top: 100%;
+  border-top: 0;
+}
