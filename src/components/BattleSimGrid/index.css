@@ -1,8 +1,9 @@
 /**
- * 1. Initialise counters for rows and columns markers
+ * 1. Initialise counters for rows (at 6 so it goes from bottom to top) and
+ *    columns markers
  */
 .BattleSimGrid {
-  counter-reset: row column; /* 1 */
+  counter-reset: row 6 column; /* 1 */
 }
 
 /**
@@ -47,7 +48,7 @@
 .BattleSimRow:first-child .BattleSimGrid__cell-content::after {
   position: absolute;
   font-size: 150%;
-  opacity: 0.3;
+  opacity: 0.7;
   animation: appear-markers 0.4s both;
 }
 
@@ -105,14 +106,14 @@
 .BattleSimGrid--markers
   .BattleSimRow:first-child
   .BattleSimGrid__cell-content::after {
-  content: counter(column); /* 1 */
+  content: counter(column, upper-alpha); /* 1 */
 }
 
 /**
  * 1. Only display the row markers when enabled
  */
 .BattleSimGrid--markers .BattleSimGrid__cell:first-child::after {
-  content: counter(row, upper-alpha); /* 1 */
+  content: counter(row); /* 1 */
 }
 
 /**
