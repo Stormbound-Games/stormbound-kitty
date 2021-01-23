@@ -16,6 +16,7 @@ const serialiseDeck = cards => {
 const deserialiseDeck = hash => {
   try {
     const string = base64Decode(hash)
+    const variants = {}
 
     // The card serialisation system operates within the base64 range, which
     // means it is technically possible to base64 decode a deck string without
@@ -24,13 +25,32 @@ const deserialiseDeck = hash => {
     // means the input was not actually a base64 hash but deck string to be
     // deserialised.
     if (!/^[NSFWIT\d,]+$/.test(string)) {
-      return serialisation.cards.deserialise(hash.toUpperCase())
+      return {
+        deck: serialisation.cards.deserialise(hash.toUpperCase()),
+        variants,
+      }
     }
 
     // Maintain backward compability with decks serialised in base64.
-    return serialisation.cards.deserialise(string)
+    return { deck: serialisation.cards.deserialise(string), variants }
   } catch (error) {
-    return serialisation.cards.deserialise(hash.toUpperCase())
+    const [deck, sides = ''] = hash.split('-')
+    const deckCards = serialisation.cards.deserialise(deck.toUpperCase())
+    const deckIds = deckCards.map(card => card.id)
+    const variants = serialisation.cards
+      .deserialise(sides.toUpperCase())
+      .reduce((acc, card) => {
+        if (deckIds.includes(card.id)) {
+          acc.current = card.id
+          acc[card.id] = []
+        } else {
+          acc[acc.current].push(card)
+        }
+        return acc
+      }, {})
+    delete variants.current
+
+    return { deck: deckCards, variants: variants }
   }
 }
 
