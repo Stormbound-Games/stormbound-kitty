@@ -10,7 +10,7 @@ import modifyDeck from '../../../modifyDeck'
 import getRawCardData from '../../../getRawCardData'
 
 const getCards = (id, modifier = 'NONE') =>
-  modifyDeck(serialisation.deck.deserialise(id), modifier).map(
+  modifyDeck(serialisation.deck.deserialise(id).deck, modifier).map(
     getResolvedCardData
   )
 

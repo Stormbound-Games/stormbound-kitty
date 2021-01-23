@@ -9,7 +9,7 @@ const STORAGE_KEY = 'sk.personal_decks'
 const ensureUUID = deck => (deck.uuid ? deck : { ...deck, uuid: uuid() })
 
 const getCategoryFromId = id => {
-  const cards = serialisation.deck.deserialise(id)
+  const { deck: cards } = serialisation.deck.deserialise(id)
   const average =
     cards.map(card => card.level).reduce((a, b) => a + b, 0) / cards.length
 

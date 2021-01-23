@@ -37,7 +37,7 @@ describe('The `getEffectiveManaCost` helper', () => {
 describe('The `getCycledHands` helper', () => {
   const deck = serialisation.deck.deserialise(
     '5n15n25w25n35n45n144n185w133w164w153w192n58'
-  )
+  ).deck
   const hand = deck.slice(0, 3).concat(deck.slice(-1))
 
   it('should return 8 hands', () => {
@@ -55,7 +55,7 @@ describe('The `getCycledHands` helper', () => {
   it('should take effective mana in consideration when cycling', () => {
     const deck = serialisation.deck
       .deserialise('5n15n25w25n35n44n55n144n185w133w164w153w19')
-      .map(getResolvedCardData)
+      .deck.map(getResolvedCardData)
     const hand = deck.slice(0, 2).concat(deck.slice(-2))
     const hands = getCycledHands({ deck, hand, availableMana: 7 })
 
@@ -68,7 +68,7 @@ describe('The `getCycledHands` helper', () => {
 describe('The `canSpendAllMana` helper', () => {
   const deck = serialisation.deck
     .deserialise('5n15n25w25n35n45n144n185w133w164w153w192n58')
-    .map(getResolvedCardData)
+    .deck.map(getResolvedCardData)
 
   it('should return false if there is too much mana', () => {
     const hand = deck.slice(0, 4)
@@ -89,7 +89,7 @@ describe('The `canSpendAllMana` helper', () => {
 describe('The `canPlayAllCards` helper', () => {
   const deck = serialisation.deck
     .deserialise('5n15n25w25n35n45n144n185w133w164w153w192n58')
-    .map(getResolvedCardData)
+    .deck.map(getResolvedCardData)
 
   it('should return false if there is not enough mana', () => {
     const hand = deck.slice(0, 4)
@@ -105,7 +105,7 @@ describe('The `canPlayAllCards` helper', () => {
 describe('The `getHandCost` helper', () => {
   const deck = serialisation.deck
     .deserialise('5n15n25w25n35n44n55n144n185w133w164w153w19')
-    .map(getResolvedCardData)
+    .deck.map(getResolvedCardData)
 
   it('should return the cost of a full hand', () => {
     const hand = deck.slice(0, 4)

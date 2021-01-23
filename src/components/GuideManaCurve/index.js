@@ -23,7 +23,7 @@ const manaBrawls = BRAWLS.filter(brawl => brawl.id.includes('MANA')).map(
 const Graph = props => {
   const cards = serialisation.deck
     .deserialise(props.id)
-    .map(getResolvedCardData)
+    .deck.map(getResolvedCardData)
   const deck = modifyDeck(cards, props.modifier)
 
   return (

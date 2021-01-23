@@ -36,7 +36,7 @@ const getLiveTierList = () => {
     // incorrectly skewing the popularity of cards
     if (category === 'BRAWL' || category === 'TOURNAMENT') return
 
-    const deck = serialisation.deck.deserialise(id)
+    const { deck } = serialisation.deck.deserialise(id)
 
     COUNTS[getFactionFromDeckID(id)]++
     COUNTS.neutral++

@@ -141,8 +141,8 @@ export default React.memo(function GuideRecklessRush(props) {
           <Row.Column>
             <DeckStatsChart
               deck={serialisation.deck
-                .deserialise('2n13n23s14n32s243s23n632n671s64n151s84s11')
-                .map(getResolvedCardData)}
+                .deserialise('3xn1n2s1n3s24s2n63n67s6n15s8s11')
+                .deck.map(getResolvedCardData)}
               modifier='NONE'
             />
           </Row.Column>

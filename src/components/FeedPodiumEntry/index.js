@@ -46,7 +46,7 @@ export default React.memo(function FeedPodiumEntry(props) {
             <Only.Mobile>Tap</Only.Mobile> to toggle deck display
           </summary>
           <Deck
-            deck={serialisation.deck.deserialise(deck)}
+            deck={serialisation.deck.deserialise(deck).deck}
             orientation='horizontal'
             id={deck}
           />

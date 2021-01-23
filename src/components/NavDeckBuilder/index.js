@@ -7,7 +7,7 @@ export default React.memo(function NavDeckBuilder(props) {
   const match = useRouteMatch()
   const id = match.params.deckId
   const deck = React.useMemo(
-    () => (id ? serialisation.deck.deserialise(id) : []),
+    () => (id ? serialisation.deck.deserialise(id).deck : []),
     [id]
   )
   const hasBigEnoughDeck = deck.length === 12

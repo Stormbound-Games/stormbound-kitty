@@ -20,7 +20,9 @@ const guide = getGuide('D1_SF_COMMONS_GUIDE')
 const DECK_ID = '5xn1n2f3n3f4n9n12n16n28f14n30n52'
 
 const Graph = props => {
-  const deck = serialisation.deck.deserialise(props.id).map(getResolvedCardData)
+  const deck = serialisation.deck
+    .deserialise(props.id)
+    .deck.map(getResolvedCardData)
 
   return (
     <DeckStatsChart

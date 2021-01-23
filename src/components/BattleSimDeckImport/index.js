@@ -40,7 +40,10 @@ export default class BattleSimDeckImport extends React.Component {
           /\/deck\/([\w=%]+)(?:\/|$|\?)/i
         )
 
-        this.setState({ deck: serialisation.deck.deserialise(id), error: '' })
+        this.setState({
+          deck: serialisation.deck.deserialise(id).deck,
+          error: '',
+        })
       } catch (error) {
         this.setState({
           error: 'Unfortunately this deck could not be imported.',

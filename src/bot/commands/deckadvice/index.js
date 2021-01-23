@@ -25,7 +25,9 @@ export default {
       .setURL('https://stormbound-kitty.com/deck/' + id)
 
     try {
-      const cards = serialisation.deck.deserialise(id).map(getResolvedCardData)
+      const cards = serialisation.deck
+        .deserialise(id)
+        .deck.map(getResolvedCardData)
       const promises = getDeckAdvice(cards)
       const advice = (await Promise.all(promises)).filter(Boolean)
 

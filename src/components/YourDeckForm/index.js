@@ -7,7 +7,8 @@ import getDeckIDFromURL from '../../helpers/getDeckIDFromURL'
 
 const isValidCard = card => Boolean(getRawCardData(card.id).id)
 const validateDeckId = id =>
-  id && serialisation.deck.deserialise(getDeckIDFromURL(id)).every(isValidCard)
+  id &&
+  serialisation.deck.deserialise(getDeckIDFromURL(id)).deck.every(isValidCard)
 
 export default React.memo(function YourDeckForm(props) {
   const [deckID, setDeckID] = React.useState(props.id)

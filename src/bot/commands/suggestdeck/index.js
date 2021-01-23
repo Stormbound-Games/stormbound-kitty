@@ -64,7 +64,7 @@ export default {
         params.including &&
         !serialisation.deck
           .deserialise(deck.id)
-          .map(card => card.id)
+          .deck.map(card => card.id)
           .includes(params.including)
       ) {
         return false

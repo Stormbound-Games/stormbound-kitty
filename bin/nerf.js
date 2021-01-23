@@ -8,7 +8,7 @@ const NERFS = {
 }
 
 decks.forEach(deck => {
-  const cards = serialisation.deck.deserialise(deck.id)
+  const { deck: cards } = serialisation.deck.deserialise(deck.id)
   const ids = cards.map(card => card.id)
 
   Object.keys(NERFS).forEach(date => {

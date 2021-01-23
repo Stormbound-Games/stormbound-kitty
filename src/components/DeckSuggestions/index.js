@@ -128,7 +128,7 @@ class DeckSuggestions extends React.Component {
     !this.state.including ||
     serialisation.deck
       .deserialise(deck.id)
-      .map(card => card.id)
+      .deck.map(card => card.id)
       .includes(this.state.including)
   matchesBrawl = deck =>
     this.state.brawl === '*' || deck.brawl === this.state.brawl
