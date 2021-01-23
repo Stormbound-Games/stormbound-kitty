@@ -19,7 +19,9 @@ const useAdjustedDeck = ({ brawl, category, id, staticLevels }) => {
   const { hasDefaultCollection, collection } = React.useContext(
     CollectionContext
   )
-  const deserialisedDeck = serialisation.deck.deserialise(id)
+  const { deck: deserialisedDeck, variants } = serialisation.deck.deserialise(
+    id
+  )
   const modifiedDeck = brawl
     ? modifyDeck(deserialisedDeck, brawl)
     : deserialisedDeck
@@ -28,7 +30,7 @@ const useAdjustedDeck = ({ brawl, category, id, staticLevels }) => {
     // The `id` does not have to be derivated from the `modifiedDeck` since a
     // deck id only carries the card IDs and levels, but nothing that can be
     // modified by a Brawl.
-    return { deck: modifiedDeck, id, distance: null }
+    return { deck: modifiedDeck, id, distance: null, variants }
   }
 
   const resolvedCollection = resolveCollection(collection)
@@ -48,11 +50,11 @@ const useAdjustedDeck = ({ brawl, category, id, staticLevels }) => {
   })
   const distance = getDeckDistanceToMax(resolvedCollection)({ id })
 
-  return { deck, id: serialisation.deck.serialise(deck), distance }
+  return { deck, id: serialisation.deck.serialise(deck), distance, variants }
 }
 
 export default React.memo(function FeaturedDeck(props) {
-  const { id, deck, distance } = useAdjustedDeck(props)
+  const { id, deck, variants, distance } = useAdjustedDeck(props)
   const actions = props.actions || []
 
   return (
@@ -60,6 +62,7 @@ export default React.memo(function FeaturedDeck(props) {
       <Deck
         showUpgrades={props.showUpgrades}
         deck={deck}
+        variants={variants}
         orientation='horizontal'
         onClick={props.onClick}
         onClickLabel='Display card'
