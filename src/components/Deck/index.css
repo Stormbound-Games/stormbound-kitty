@@ -26,7 +26,7 @@
   margin: 0;
 }
 
-.Deck--horizontal .Deck__list {
+.Deck--horizontal > .Deck__list {
   position: absolute;
   top: 0;
   left: 0;
@@ -35,7 +35,7 @@
   bottom: 0;
 }
 
-.Deck--vertical .Deck__list {
+.Deck--vertical > .Deck__list {
   margin-left: 1em;
 }
 
@@ -59,7 +59,11 @@
   border-color: var(--upgradable);
 }
 
-.Deck--horizontal .Deck__card {
+.Deck__card--variants {
+  border-color: orange;
+}
+
+.Deck--horizontal > .Deck__list > .Deck__card {
   margin: 0 0.15em;
   display: flex;
   flex-direction: column;
@@ -69,7 +73,7 @@
   flex: 1 1 calc(100% / 12);
 }
 
-.Deck--vertical .Deck__card {
+.Deck--vertical > .Deck__list > .Deck__card {
   padding: 0.25em 1em;
   display: flex;
   align-items: center;
@@ -246,4 +250,33 @@
   .Deck--horizontal {
     font-size: var(--font-size, 13.8137px); /* 1 */
   }
+}
+
+.Deck__variants {
+  width: 20em;
+  background-color: inherit;
+}
+
+.Deck__variants::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  background-color: inherit;
+  width: 1em;
+  height: 1em;
+}
+
+.Deck__variants--right::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-left: 1px solid var(--beige);
+  border-bottom: 1px solid var(--beige);
+  left: 0;
+}
+
+.Deck__variants--left::before {
+  transform: translateX(1px) translate(50%, -50%) rotate(45deg);
+  border-right: 1px solid var(--beige);
+  border-top: 1px solid var(--beige);
+  right: 0;
+  left: auto;
 }

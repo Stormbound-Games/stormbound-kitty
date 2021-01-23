@@ -2,7 +2,9 @@ import React from 'react'
 import { CollectionContext } from '../CollectionProvider'
 import Mana from '../Mana'
 import Card from '../Card'
+import Box from '../Box'
 import Tooltip from '../Tooltip'
+import Title from '../Title'
 import sortByMana from '../../helpers/sortByMana'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isCard from '../../helpers/isCard'
@@ -50,6 +52,46 @@ const DeckSlot = React.memo(function DeckSlot(props) {
   )
 })
 
+const CardVariants = React.memo(function CardVariants(props) {
+  const position = props.index < 6 ? 'right' : 'left'
+  const orientation =
+    props.orientation === 'vertical' ? 'horizontal' : 'vertical'
+
+  return (
+    <Tooltip
+      label={
+        <Box style={{ width: 'auto', paddingBottom: 0, fontSize: '80%' }}>
+          <div className={`Deck__variants Deck__variants--${position}`}>
+            <Title element='p'>Variants</Title>
+            <Deck
+              deck={props.variants}
+              showEmptySlots={false}
+              fontSize={`calc(${props.fontSize} * 0.8)`}
+              orientation={orientation}
+            />
+          </div>
+        </Box>
+      }
+      position={position}
+      style={{
+        backgroundColor: 'transparent',
+        border: 0,
+        whiteSpace: 'normal',
+        boxShadow: 'none',
+        filter: 'drop-shadow(0 1em 2em rgba(0, 0, 0, 0.2))',
+      }}
+    >
+      {trigger => (
+        <span {...trigger} className='Deck__button'>
+          <span className='VisuallyHidden'>
+            Check variants {props.card.name}
+          </span>
+        </span>
+      )}
+    </Tooltip>
+  )
+})
+
 const DeckSlotContent = React.memo(function DeckSlotContent(props) {
   const { indexedCollection } = React.useContext(CollectionContext)
   const highlightedCards = props.highlightedCards || []
@@ -66,6 +108,7 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
           !card.token &&
           isCardUpgradable(indexedCollection[card.id]) &&
           'Deck__card--upgradable',
+        props.variants.length > 0 && 'Deck__card--variants',
         card.rarity === 'legendary' && `Deck__card--legendary`,
         highlightedCards.length > 0 &&
           !highlightedCards.find(isCard(card)) &&
@@ -86,6 +129,8 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
           <span className='VisuallyHidden'>{props.onClickLabel}</span>
         </button>
       )}
+
+      {props.variants.length > 0 && <CardVariants {...props} />}
 
       <Mana
         className={[
@@ -115,12 +160,13 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
   )
 })
 
-export default React.memo(function Deck(props) {
+const Deck = function Deck(props) {
   const showEmptySlots =
     typeof props.showEmptySlots === 'undefined' ? true : props.showEmptySlots
   const sort = props.sort || sortByMana
   const slots = props.deck.map(getResolvedCardData).sort(sort)
   const { fontSize, ref } = useFluidSizing(0.03683665247)
+  const variants = props.variants || {}
 
   if (showEmptySlots && props.deck.length < 12) {
     const extraSlots = Array.from({ length: 12 - props.deck.length }, _ => null)
@@ -131,7 +177,7 @@ export default React.memo(function Deck(props) {
   return (
     <div
       className={`Deck Deck--${props.orientation || 'vertical'}`}
-      style={{ '--font-size': fontSize }}
+      style={{ '--font-size': props.fontSize || fontSize }}
       ref={ref}
       id={props.id}
     >
@@ -139,12 +185,17 @@ export default React.memo(function Deck(props) {
         {slots.map((card, index) => (
           <DeckSlot
             key={card ? card.id + index : index}
+            index={index}
             {...props}
             showEmptySlots={showEmptySlots}
             card={card}
+            variants={card ? variants[card.id] || [] : []}
+            fontSize={fontSize}
           />
         ))}
       </ul>
     </div>
   )
-})
+}
+
+export default React.memo(Deck)
