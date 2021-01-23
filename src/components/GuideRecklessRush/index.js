@@ -112,7 +112,7 @@ export default React.memo(function GuideRecklessRush(props) {
           </Row.Column>
           <Row.Column>
             <FeaturedDeck
-              id='2xn1s1n3s24s2n67s6n24n15s8s11n26'
+              id='2xn1s1n3s24s2n67s6n24n15s8s11n26-1xn24n63n26n2'
               name='Reckless Rush (SnowServers)'
               author='RecklessRush'
               category='REGULAR'
