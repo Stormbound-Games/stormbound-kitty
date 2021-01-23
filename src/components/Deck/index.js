@@ -10,6 +10,7 @@ import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isCard from '../../helpers/isCard'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import useFluidSizing from '../../hooks/useFluidSizing'
+import useViewportWidth from '../../hooks/useViewportWidth'
 import './index.css'
 
 const TOOLTIP_STYLES = {
@@ -96,6 +97,8 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
   const { indexedCollection } = React.useContext(CollectionContext)
   const highlightedCards = props.highlightedCards || []
   const card = props.card
+  const displayVariants =
+    props.variants.length > 0 && props.viewportWidth >= 700
 
   return (
     <li
@@ -108,7 +111,7 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
           !card.token &&
           isCardUpgradable(indexedCollection[card.id]) &&
           'Deck__card--upgradable',
-        props.variants.length > 0 && 'Deck__card--variants',
+        displayVariants && 'Deck__card--variants',
         card.rarity === 'legendary' && `Deck__card--legendary`,
         highlightedCards.length > 0 &&
           !highlightedCards.find(isCard(card)) &&
@@ -130,7 +133,7 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
         </button>
       )}
 
-      {props.variants.length > 0 && <CardVariants {...props} />}
+      {displayVariants && <CardVariants {...props} />}
 
       <Mana
         className={[
@@ -161,6 +164,7 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
 })
 
 const Deck = function Deck(props) {
+  const viewportWidth = useViewportWidth()
   const showEmptySlots =
     typeof props.showEmptySlots === 'undefined' ? true : props.showEmptySlots
   const sort = props.sort || sortByMana
@@ -191,6 +195,7 @@ const Deck = function Deck(props) {
             card={card}
             variants={card ? variants[card.id] || [] : []}
             fontSize={fontSize}
+            viewportWidth={viewportWidth}
           />
         ))}
       </ul>
