@@ -338,5 +338,12 @@
       { "id": "1xw1n6n8w5w7n78w8n27n38n76n46n57" },
       { "id": "1xn6n8n13w5n25n36n39n77n46n48n57w19" }
     ]
+  },
+  {
+    "name": "Conquest Tournament",
+    "hosts": ["Pixlz", "Vox"],
+    "podium": ["Grimm", "LawbroBetz", "Shades"],
+    "date": "12/2020",
+    "description": ""
   }
 ]
