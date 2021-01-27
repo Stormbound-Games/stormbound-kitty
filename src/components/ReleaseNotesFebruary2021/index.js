@@ -9,7 +9,7 @@ import Info from '../Info'
 import Only from '../Only'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
-import { Coins, Crowns, Rubies } from '../Resource'
+import { Coins, Crowns, Rubies, Stones } from '../Resource'
 import Table from '../Table'
 import Title from '../Title'
 import getRewardLabel from '../../helpers/getRewardLabel'
@@ -183,38 +183,54 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
         </Info>
 
         <Title id='valentine-offers'>Valentine offers</Title>
+        <p>
+          Like most holiday events, there will be some one-time only special
+          offers for people willing to put some money into the game. The
+          Valentine exclusive packs will be available from February 8th (9AM
+          CET) until Feburary 14th (end of day) so be sure to jump on them!
+        </p>
+      </Article.Narrow>
 
+      <Article.Embed>
         <Row desktopOnly wideGutter>
-          <Row.Column>
-            <p style={{ marginTop: '1.5em' }}>
-              Like most holiday events, there will be some one-time only special
-              offers for people willing to put some money into the game. The
-              Valentine exclusive packs will be available from February 8th (9AM
-              CET) until Feburary 14th (end of day) so be sure to jump on them!
-            </p>
-
-            <ul>
-              <li>
-                <span className='Highlight'>Valentines Pack</span> ($29.99): all
-                4 weekly journals (48 cards in total, with guaranteed 4
-                legendaries, and 12 cards of each faction),{' '}
-                <Coins amount={100} /> and <Rubies amount={50} />
-              </li>
-              <li>
-                <span className='Highlight'>Lovely Bundle</span> ($59.99): 100
-                neutral cards (with rarity odds being 45%, 30%, 15%, 10%),{' '}
-                <Coins amount={1500} /> and <Rubies amount={250} />
-              </li>
-            </ul>
-          </Row.Column>
-          <Row.Column>
+          <Row.Column width='1/3'>
             <Image
-              src='/assets/images/releases/valentine_packs.png'
+              src='/assets/images/releases/temple_of_heart_pack.png'
+              alt='Temple of Heart ($9.99): 10 copies of the Temple of Heart card, 5 fusions stones and 750 coins'
+            />
+            <p>
+              <span className='Highlight'>Temple of Heart pack</span> ($9.99):
+              10 copies of <CardLink id='N81' />, <Stones amount={5} /> and{' '}
+              <Coins amount={750} />.
+            </p>
+          </Row.Column>
+          <Row.Column width='1/3'>
+            <Image
+              src='/assets/images/releases/valentines_pack.png'
               alt='Valentines Pack ($29.99): all 4 weekly journals (48 cards in total, with guaranteed 4 legendaries, and 12 cards of each faction), 100 coins and 50 rubies; Lovely Bundle ($59.99): 100 neutral cards (with rarity odds being 45%, 30%, 15%, 10%), 1500 coins and 250 rubies'
             />
+            <p>
+              <span className='Highlight'>Valentines Pack</span> ($29.99): all 4
+              weekly journals (48 cards in total, with guaranteed 4 legendaries,
+              and 12 cards of each faction), <Coins amount={100} /> and{' '}
+              <Rubies amount={50} />.
+            </p>
+          </Row.Column>
+          <Row.Column width='1/3'>
+            <Image
+              src='/assets/images/releases/lovely_bundle.png'
+              alt='Lovely Bundle ($59.99): 100 neutral cards (with rarity odds being 45%, 30%, 15%, 10%), 1500 coins and 250 rubies'
+            />
+            <p>
+              <span className='Highlight'>Lovely Bundle</span> ($59.99): 100
+              neutral cards (with rarity odds being 45%, 30%, 15%, 10%),{' '}
+              <Coins amount={1500} /> and <Rubies amount={250} />.
+            </p>
           </Row.Column>
         </Row>
+      </Article.Embed>
 
+      <Article.Narrow>
         <FAQSection
           id='faq'
           title='FAQ'
