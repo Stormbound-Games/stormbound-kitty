@@ -4330,5 +4330,47 @@
     "description": "Added to the game",
     "id": "S29",
     "type": "INFO"
+  },
+  {
+    "date": 1612180800000,
+    "description": "Ability triggers in front of temple structure",
+    "id": "N56",
+    "type": "BUFF"
+  },
+  {
+    "date": 1612180800000,
+    "description": "Confused units no longer move forwards",
+    "id": "N60",
+    "type": "BUFF"
+  },
+  {
+    "date": 1612180800000,
+    "description": "Confused units no longer move forwards",
+    "id": "N61",
+    "type": "BUFF"
+  },
+  {
+    "date": 1612180800000,
+    "description": "Confused units no longer move forwards",
+    "id": "N62",
+    "type": "BUFF"
+  },
+  {
+    "date": 1612180800000,
+    "description": "Confused units no longer move forwards",
+    "id": "N64",
+    "type": "BUFF"
+  },
+  {
+    "date": 1612180800000,
+    "description": "Confused units no longer move forwards",
+    "id": "N78",
+    "type": "BUFF"
+  },
+  {
+    "date": 1612180800000,
+    "description": "Confused units no longer move forwards",
+    "id": "N79",
+    "type": "BUFF"
   }
 ]
