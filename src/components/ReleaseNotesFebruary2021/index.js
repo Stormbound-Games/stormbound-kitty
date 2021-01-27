@@ -90,10 +90,14 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
             and <CardLink id='N60' />.
           </li>
         </ul>
+        <Title id='new-card'>New card</Title>
+        <p>
+          On February 8th, a new temple card will be introduced: the Temple of
+          Heart. Look how pretty is is! 💖
+        </p>
       </Article.Narrow>
 
       <Article.Embed>
-        <Title id='new-card'>New card</Title>
         <CardBuilderCardDisplay {...getInitialCardData('N81')} />
       </Article.Embed>
 
@@ -313,7 +317,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
               id: 'release-date',
               question: 'When is the update going to be released?',
               answer:
-                'The balance changes and the player profiles will be effective with the season reset on February 1st. The exclusive offers will be available between February 8th and February 14th (end of day).',
+                'The balance changes and the player profiles will be effective with the season reset on February 1st. The new card will be available from February 8th. The exclusive offers will be available between February 8th and February 14th (end of day).',
             },
             {
               id: 'custom-avatars',
