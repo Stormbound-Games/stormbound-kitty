@@ -175,56 +175,36 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
 
         <Title id='valentine-offers'>Valentine offers</Title>
 
-        <p>
-          Like most holiday events, there will be some one-time only special
-          offers for people willing to put some money into the game. The
-          Valentine exclusive packs will be available from February 8th (9AM
-          CET) until Feburary 14th (end of day) so be sure to jump on them!
-        </p>
+        <Row desktopOnly wideGutter>
+          <Row.Column>
+            <p style={{ marginTop: '1.5em' }}>
+              Like most holiday events, there will be some one-time only special
+              offers for people willing to put some money into the game. The
+              Valentine exclusive packs will be available from February 8th (9AM
+              CET) until Feburary 14th (end of day) so be sure to jump on them!
+            </p>
 
-        <ul>
-          <li>
-            <span className='Highlight'>Raining Cats</span> ($9.99): guaranteed
-            3 copies of each of the 6 rare and epic felines + 3 Classic Tomes
-          </li>
-          <li>
-            <span className='Highlight'>Edrik’s Army</span> ($19.99): 2 copies
-            of <CardLink id='N59' /> + 18 cards{' '}
-            <a
-              href='#most-played-cards'
-              aria-describedby='Footnotes'
-              id='edriks-army'
-              style={{ textDecoration: 'none' }}
-            >
-              amongst the most played across the last 3 months globally
-              <span
-                style={{
-                  color: 'var(--beige)',
-                  marginLeft: '2px',
-                  fontSize: '120%',
-                }}
-              >
-                *
-              </span>
-            </a>
-          </li>
-          <li>
-            <span className='Highlight'>Emblem of Heroism</span> ($49.99): 35
-            Heroic Tomes
-          </li>
-          <li>
-            <span className='Highlight'>The Greatest Treasure</span> ($99.99):
-            30 cards from each rarity + <Rubies amount={1000} /> +{' '}
-            <Coins amount={5000} />
-          </li>
-        </ul>
-
-        <p>
-          On top of that, <span className='Highlight'>all books</span> (but
-          Noble) will yield an extra card until the end of the Black Friday
-          event. Similarly, the paid bundles yield coins and rubies will also
-          grant more resources for the duration of the Black Friday event.
-        </p>
+            <ul>
+              <li>
+                <span className='Highlight'>Valentines Pack</span> ($29.99): all
+                4 weekly journals (48 cards in total, with guaranteed 4
+                legendaries, and 12 cards of each faction),{' '}
+                <Coins amount={100} /> and <Rubies amount={50} />
+              </li>
+              <li>
+                <span className='Highlight'>Lovely Bundle</span> ($59.99): 100
+                neutral cards (with rarity odds being 45%, 30%, 15%, 10%),{' '}
+                <Coins amount={1500} /> and <Rubies amount={250} />
+              </li>
+            </ul>
+          </Row.Column>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/valentine_packs.png'
+              alt='Valentines Pack ($29.99): all 4 weekly journals (48 cards in total, with guaranteed 4 legendaries, and 12 cards of each faction), 100 coins and 50 rubies; Lovely Bundle ($59.99): 100 neutral cards (with rarity odds being 45%, 30%, 15%, 10%), 1500 coins and 250 rubies'
+            />
+          </Row.Column>
+        </Row>
 
         <FAQSection
           id='faq'
