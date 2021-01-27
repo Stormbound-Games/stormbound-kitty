@@ -12,11 +12,17 @@ import Row from '../Row'
 import { Coins, Crowns, Rubies, Stones } from '../Resource'
 import Table from '../Table'
 import Title from '../Title'
+import TogglableContent from '../TogglableContent'
+import displayBundle from '../../helpers/displayBundle'
+import getCalendarValue from '../../helpers/getCalendarValue'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import { MILESTONES } from '../../constants/brawl'
+import rewards from './rewards'
 
 export default React.memo(function ReleaseNotesFebruary2021(props) {
+  const [isTableExpanded, expandTable] = React.useState(false)
+
   return (
     <ReleaseNotes id='02_2021'>
       <Article.Narrow>
@@ -36,6 +42,9 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
           </li>
           <li>
             <a href='#player-profiles'>Player profiles</a>
+          </li>
+          <li>
+            <a href='#daily-check-in-calendar'>Daily check-in calendar</a>
           </li>
           <li>
             <a href='#valentine-offers'>Valentine offers</a>
@@ -181,6 +190,71 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
             it possible to define a certain Brawl discount as well (here 66%).
           </p>
         </Info>
+
+        <Title id='daily-check-in-calendar'>Daily check-in calendar</Title>
+
+        <p>
+          The daily check-in calendar will pursue in Feburary. It will work
+          exactly like the{' '}
+          <Link to='/releases/12-2020#daily-check-in-calendar'>
+            Advent Calendar from December
+          </Link>{' '}
+          and will cost only $5 to boost to Premium.
+        </p>
+
+        <p>
+          This is the total value for the calendar, free and premium
+          respectively (including free rewards within the premium one):{' '}
+        </p>
+        <ul>
+          <li>
+            Total free rewards:{' '}
+            {displayBundle(getCalendarValue(rewards, 'FREE'))}
+          </li>
+          <li>
+            Total Premium (including free) rewards:{' '}
+            {displayBundle(getCalendarValue(rewards, 'PREMIUM'))}
+          </li>
+        </ul>
+
+        <TogglableContent
+          isExpanded={isTableExpanded}
+          id='reward-table'
+          renderToggle={toggleProps => (
+            <p>
+              Refer to the following table to get the rewards breakdown per day.{' '}
+              <button
+                {...toggleProps}
+                type='button'
+                className='ButtonAsLink'
+                onClick={() => expandTable(isExpanded => !isExpanded)}
+              >
+                {isTableExpanded
+                  ? '- Hide table breakdown'
+                  : '+ Show table breakdown'}
+              </button>
+            </p>
+          )}
+        >
+          <Table>
+            <thead>
+              <tr>
+                <th style={{ width: '100px' }}>Day</th>
+                <th>Free</th>
+                <th>Premium</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rewards.map(([free, premium], index) => (
+                <tr key={index}>
+                  <td style={{ width: '100px' }}>#{index + 1}</td>
+                  <td>{getRewardLabel(free, true)}</td>
+                  <td>{getRewardLabel(premium, true)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </TogglableContent>
 
         <Title id='valentine-offers'>Valentine offers</Title>
         <p>
