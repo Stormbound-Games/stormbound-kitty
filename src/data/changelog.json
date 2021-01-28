@@ -4333,6 +4333,12 @@
   },
   {
     "date": 1612180800000,
+    "description": "Added to the game",
+    "id": "N81",
+    "type": "INFO"
+  },
+  {
+    "date": 1612180800000,
     "description": "Ability triggers in front of temple structure",
     "id": "N56",
     "type": "BUFF"
