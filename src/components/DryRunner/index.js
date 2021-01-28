@@ -44,12 +44,10 @@ export default React.memo(function DryRunner(props) {
           <Only.Desktop>
             <Info icon='sword' title='In-game mechanics'>
               This simulator has same{' '}
-              <Link to={{ pathname: '/faq', hash: '#drawing-algorithm' }}>
-                drawing/cycling mechanics
-              </Link>{' '}
-              as the game and should be an accurate representation of how
-              playing your deck would feel. It can be useful to evaluate card
-              cycling, mana flow and combo efficiency. Additionally,{' '}
+              <Link to='/guides/drawing'>drawing/cycling mechanics</Link> as the
+              game and should be an accurate representation of how playing your
+              deck would feel. It can be useful to evaluate card cycling, mana
+              flow and combo efficiency. Additionally,{' '}
               <Link to={{ pathname: '/faq', hash: '#dry-runner-mechanics' }}>
                 many card abilities
               </Link>{' '}
