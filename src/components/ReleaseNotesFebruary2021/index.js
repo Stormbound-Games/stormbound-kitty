@@ -78,7 +78,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
                 bordering
               </span>{' '}
               <span className='Highlight'>
-                in front or your temple structure or
+                in front of your temple structure or
               </span>{' '}
               your base <span style={{ opacity: 0.7 }}>[…]</span>
             </blockquote>
