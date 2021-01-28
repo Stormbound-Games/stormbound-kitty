@@ -419,6 +419,15 @@
     "season": 2,
     "week": 4,
     "name": "Ancient Structures",
+    "winner": {
+      "author": "RandomlyDrawnCard",
+      "id": "STs7UztFOzU7OzQvNS82LzcvODtUZW1wbGUlMjBvZiUyMFJ1aW47aHR0cHMlM0ElMkYlMkZpLmltZ3VyLmNvbSUyRkpESko5dTMucG5nJTNGMTtBdCUyMHRoZSUyMHN0YXJ0JTIwb2YlMjB5b3VyJTIwdHVybiUyQyUyMGFsbCUyMGZyaWVuZGxpZXMlMjB0aGF0JTIwZGVhbCUyMCpiZWxvdyUyMDMlMkY0JTJGNSUyRjUlMkY2JTIwZGFtYWdlKiUyMHdpdGglMjBhYmlsaXRpZXMlMjBkZWFsJTIwKjIlMkYyJTJGMiUyRjMlMkYzJTIwZXh0cmElMjBkYW1hZ2UqOzs="
+    }
+  },
+  {
+    "season": 2,
+    "week": 5,
+    "name": "Faction Knights",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
