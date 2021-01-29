@@ -1,5 +1,17 @@
 [
   {
+    "cardId": "N56",
+    "title": "Update 02-2021",
+    "name": "Valentine Update",
+    "meta": "February 1st, 2021",
+    "date": "02/2021",
+    "excerpt": "Valentine’s Day is around the corner, and so is a new release with balance changes, a new card and player profiles!",
+    "slug": "02-2021",
+    "background": "/assets/images/releases/banner_valentine.png",
+    "id": "02_2021",
+    "ratio": "50%"
+  },
+  {
     "cardId": "S29",
     "title": "Temple of Focus",
     "name": "Temple of Focus",

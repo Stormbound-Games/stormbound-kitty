@@ -207,13 +207,11 @@ export default React.memo(function GuideBeginner(props) {
         turn. Lasts until the unit dies or gets poisoned.
       </p>
       <p>
-        <strong className='Highlight'>Confusion</strong>: a confused unit has ⅓
-        chance to move forward, ⅓ chance to move inwards and ⅓ chance to move
-        outwards. If sitting on the edge of the board, the unit has ⅓ chance to
-        move forward and ⅔ chance to move inwards. A confused unit will attack
-        friendly units or structures if they’re in the target tile. Lasts until
-        the unit moves or attacks sideways; if it moves forward normally, the
-        unit remains confused.
+        <strong className='Highlight'>Confusion</strong>: a confused unit has ½
+        chance to move inwards and ½ chance to move outwards. If sitting on the
+        edge of the board, the unit is guaranteed to move inwards. A confused
+        unit will attack friendly units or structures if they’re in the target
+        tile. It lasts only one turn.
       </p>
       <p>
         <strong className='Highlight'>Freeze</strong>: units don’t move at the

@@ -626,8 +626,9 @@ export default [
 
   {
     question: 'How does confusion work?',
-    answer: '33% chance to move forward, 33% chance to move on each side',
+    answer: '50% chance to move on each side',
     options: [
+      '33% chance to move forward, 33% chance to move on each side',
       '60% chance to move forward, 20% chance to move on each side',
       '50% chance to move forward, 25% chance to move on each side',
       '25% chance to move on any bordering tile',

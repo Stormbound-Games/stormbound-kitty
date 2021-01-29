@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Valentine Update",
+    "description": "Valentine’s Day is around the corner, and so is a new release with balance changes, a new card and player profiles!",
+    "link": "/releases/02-2021"
+  },
+  {
     "intro": "Temple of Focus",
     "description": "A new Swarm of the East epic structure is making its entrance: the Temple of Focus!",
     "link": "/releases/temple-of-focus"

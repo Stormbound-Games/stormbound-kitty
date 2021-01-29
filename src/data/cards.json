@@ -1054,6 +1054,20 @@
     "ability": "On play, turn off up to 1/2/2/3/4 bordering/bordering/surrounding/surrounding/surrounding enemy unit’s/units’/units’/units’/units’ ability"
   },
   {
+    "name": "Temple of Heart",
+    "id": "N81",
+    "type": "structure",
+    "faction": "neutral",
+    "race": null,
+    "rarity": "common",
+    "image": "temple_of_heart.png",
+    "mana": 3,
+    "strength": "2/3/4/5/6",
+    "movement": 0,
+    "ability": "At the start of your turn remove 1/1/1/2/2 strength from stronger base and give it to the weaker one",
+    "elder": false
+  },
+  {
     "name": "Destructobots",
     "id": "I1",
     "type": "unit",
