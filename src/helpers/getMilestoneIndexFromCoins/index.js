@@ -9,8 +9,8 @@ import getMilestoneForCrowns from '../getMilestoneForCrowns'
 // @param {String} setup - Wins strategy (ads, Steam…)
 const getMilestoneIndexFromCoins = (
   coins,
-  crowns = 0,
   winRatio = 1,
+  crowns = 0,
   costModifier = 1,
   setup = 'NONE'
 ) => {
