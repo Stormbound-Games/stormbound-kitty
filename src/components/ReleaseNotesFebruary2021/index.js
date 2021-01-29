@@ -93,7 +93,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
         <Title id='new-card'>New card</Title>
         <p>
           On February 8th, a new temple card will be introduced: the Temple of
-          Heart. Look how pretty is is! 💖
+          Heart. Look how pretty it is! 💖
         </p>
       </Article.Narrow>
 
