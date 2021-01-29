@@ -191,7 +191,8 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
             To calculate how far you can go with a given amount of coins, or how
             much it will cost you to reach a certain milestone, be sure to use
             the <Link to='/calculators/brawl'>Brawl calculator</Link>. It makes
-            it possible to define a certain Brawl discount as well (here 66%).
+            it possible to define a certain Brawl discount as well (here 33%
+            discount).
           </p>
         </Info>
 
