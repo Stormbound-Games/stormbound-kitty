@@ -428,6 +428,15 @@
     "season": 2,
     "week": 5,
     "name": "Faction Knights",
+    "winner": {
+      "author": "Mirceaboss",
+      "id": "STtLO1U7RTs1OzE7NS82LzcvOC8xMDtEaXNtYW50bGluZyUyMGd1YXJkcztOMztCZWZvcmUlMjBtb3ZpbmclMjBwdWxsJTIwdGhlJTIwZmlyc3QlMjBlbmVteSUyMHVuaXQlMjBpbiUyMGZyb250Ljs7"
+    }
+  },
+  {
+    "season": 2,
+    "week": 6,
+    "name": "Programming Nightmare",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
