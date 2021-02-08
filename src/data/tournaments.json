@@ -344,6 +344,16 @@
     "hosts": ["Pixlz", "Vox"],
     "podium": ["Grimm", "LawbroBetz", "Shades"],
     "date": "12/2020",
-    "description": ""
+    "description": "With a choice of three factions, decks are designed and modified on the fly throughout the battles. Each faction can only win once in each best of 3 set. Winners of a battle must switch to the remaining factions they have chosen.",
+    "decks": [
+      {"id": "1xn1f3n6f27n73f9n25f12f18n36f21f23" }
+    ]
+  },
+  {
+    "name": "Attack & Defend Tournament",
+    "hosts": ["RecklessRush"],
+    "podium": [["Helios", "Grimm"], ["HanooSt","Sewerrat"], ["Derk", "Wolf"]],
+    "date": "01/2021",
+    "description": "Teams of two each have a designated Attacker and Defender. Teams are matched against each other and the Attackers aim to win as fast as possible and the Defenders try to stall for as long as possible. Each round is driven by a new Brawl Modifier, while Defenders face overwhelming odds with Legendary and Brawl card bans."
   }
 ]
