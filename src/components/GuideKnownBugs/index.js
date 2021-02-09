@@ -14,7 +14,7 @@ export default React.memo(function GuideKnownBugs(props) {
     <Guide {...guide}>
       <p style={{ marginBottom: '2em' }}>
         Bugs are{' '}
-        <u style={{ textDecoration: 'line-through', opacity: 0.5 }}>storm</u>
+        <s style={{ textDecoration: 'line-through', opacity: 0.5 }}>storm</s>
         bound to happen. Software development is not infallible, and honest
         mistakes, inconsistencies or omissions exist in pretty much any program.
         Stormbound is no exception. A few common bugs have stood out over the

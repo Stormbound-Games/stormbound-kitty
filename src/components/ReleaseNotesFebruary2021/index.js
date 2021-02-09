@@ -74,16 +74,16 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
             <CardLink id='N56' />’ ability trigger is being extended.
             <blockquote style={{ textIndent: 0 }}>
               When played{' '}
-              <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>
+              <s style={{ textDecoration: 'line-through', opacity: 0.7 }}>
                 bordering
-              </span>{' '}
+              </s>{' '}
               <span className='Highlight'>
                 on the tile in front of your temple structure or
               </span>{' '}
               your base, spawn 4/5/6/7/8 strength Knights on all{' '}
-              <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>
+              <s style={{ textDecoration: 'line-through', opacity: 0.7 }}>
                 tiles in the same row
-              </span>{' '}
+              </s>{' '}
               <span className='Highlight'>of its bordering tiles</span>
             </blockquote>
           </li>

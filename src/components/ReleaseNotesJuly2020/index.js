@@ -59,7 +59,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
             Sheepyard
           </a>
           . A few months later, Sheepyard is ready to{' '}
-          <u style={{ textDecoration: 'line-through', opacity: 0.5 }}>sheep</u>{' '}
+          <s style={{ textDecoration: 'line-through', opacity: 0.5 }}>sheep</s>{' '}
           ship their very first release, after a drought of about 8 months. I am
           very excited and honoured to be able to announce these changes in
           exclusivity!
@@ -310,9 +310,9 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
         <p>
           On top of making <CardLink id='N60' /> more accessible by decreasing
           their mana cost, Sheepyard has{' '}
-          <u style={{ textDecoration: 'line-through', opacity: 0.5 }}>
+          <s style={{ textDecoration: 'line-through', opacity: 0.5 }}>
             revisited
-          </u>{' '}
+          </s>{' '}
           fixed the confusion mechanic to make it more reliable.
         </p>
 
