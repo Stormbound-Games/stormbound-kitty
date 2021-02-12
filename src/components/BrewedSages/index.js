@@ -4,11 +4,13 @@ import Article from '../Article'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import Sparkles from '../Sparkles'
 import Teaser from '../Teaser'
 import Title from '../Title'
 import chunk from '../../helpers/chunk'
 import useViewportWidth from '../../hooks/useViewportWidth'
 import podcasts from '../../data/podcasts'
+import './index.css'
 
 const CARD = {
   image: 'brewed_sages.png',
@@ -37,6 +39,19 @@ export default React.memo(function BrewedSages(props) {
           mic on a regular basis to discuss everything Stormbound. Tune in, and
           enjoy the show!
         </p>
+
+        <div className='BrewedSages__container'>
+          <Sparkles>
+            <a
+              className='BrewedSages__CTA'
+              href='https://gumroad.com/l/KuFWl'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              Support Brewed Sages
+            </a>
+          </Sparkles>
+        </div>
 
         <Notice icon='quill'>
           Be sure to check their{' '}
