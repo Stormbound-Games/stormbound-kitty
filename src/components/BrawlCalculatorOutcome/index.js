@@ -112,7 +112,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
       reachableIndex < MILESTONES.length - 1
         ? getCostForMilestone(reachableIndex + 1, ...options)
         : null
-    const nextUp = next ? Math.round(Math.round(next) / 5) * 5 : null
+    const nextUp = next ? Math.ceil(Math.ceil(next) / 5) * 5 : null
 
     return (
       <>
@@ -165,7 +165,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
     }
 
     const outcome = getCostForMilestone(milestone, ...options)
-    const outcomeUp = Math.round(Math.round(outcome) / 5) * 5
+    const outcomeUp = Math.ceil(Math.ceil(outcome) / 5) * 5
     const reward = getRewardLabel(MILESTONES[milestone], true)
 
     return (

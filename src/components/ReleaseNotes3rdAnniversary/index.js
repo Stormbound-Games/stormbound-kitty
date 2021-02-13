@@ -68,7 +68,7 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
             </thead>
             <tbody>
               {MILESTONES.map(milestone => {
-                const cost = Math.round(Math.round(milestone.cost / 3) / 5) * 5
+                const cost = Math.ceil(Math.ceil(milestone.cost / 3) / 5) * 5
                 return (
                   <tr key={milestone.crowns}>
                     <td>

@@ -180,8 +180,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
               </thead>
               <tbody>
                 {MILESTONES.map(milestone => {
-                  const cost =
-                    Math.round(Math.round(milestone.cost / 2) / 5) * 5
+                  const cost = Math.ceil(Math.ceil(milestone.cost / 2) / 5) * 5
                   return (
                     <tr key={milestone.crowns}>
                       <td>

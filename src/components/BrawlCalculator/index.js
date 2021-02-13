@@ -114,8 +114,7 @@ export default React.memo(function BrawlCalculator(props) {
                   // discount =  25% -> multiplier = 0.75
                   const costModifier = (100 - discount) / 100
                   const cost =
-                    Math.round(Math.round(milestone.cost * costModifier) / 5) *
-                    5
+                    Math.ceil(Math.ceil(milestone.cost * costModifier) / 5) * 5
 
                   return (
                     <tr key={milestone.crowns}>
