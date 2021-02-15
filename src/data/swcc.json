@@ -437,6 +437,21 @@
     "season": 2,
     "week": 6,
     "name": "Programming Nightmare",
+    "winner": {
+      "author": "RandomlyDrawnCard",
+      "id": "Tjs7VTtMOzM7MTsyLzMvNC81LzY7QW1hZ2hpJTIwVGhlJTIwVW5rbm93bjtONTk7T24lMjBwbGF5JTJDJTIwKmluY3JlYXNlKiUyMHRoZSUyMGxldmVsJTIwb2YlMjBhbGwlMjBjYXJkcyUyMGluJTIweW91ciUyMGhhbmQlMjB0byUyMCpsZXZlbCUyMDIlMkYzJTJGNCUyRjUlMkY2Kjs7SA=="
+    }
+  },
+  {
+    "season": 2,
+    "week": 8,
+    "name": "Faction Felines II",
+    "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
+  },
+  {
+    "season": 2,
+    "week": 9,
+    "name": "Curse",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
