@@ -57,8 +57,8 @@ export default React.memo(function CardBuilderContest(props) {
           </p>
           <p>
             The winner will be announced on Monday and will win{' '}
-            <Rubies amount={20} />! The other two persons having made the top 3
-            will get <Rubies amount={5} /> each.
+            <Rubies amount={50} />! The other two persons having made the top 3
+            will get <Rubies amount={25} /> each.
           </p>
 
           <Title>Rules</Title>
