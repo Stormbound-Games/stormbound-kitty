@@ -1068,6 +1068,20 @@
     "elder": false
   },
   {
+    "name": "Flameless Lizards",
+    "id": "N82",
+    "type": "unit",
+    "faction": "neutral",
+    "race": "dragon",
+    "rarity": "common",
+    "image": "flameless_lizards.png",
+    "mana": 5,
+    "strength": "7/9/11/13/15",
+    "movement": 0,
+    "ability": null,
+    "elder": false
+  },
+  {
     "name": "Destructobots",
     "id": "I1",
     "type": "unit",

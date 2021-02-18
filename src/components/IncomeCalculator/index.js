@@ -102,6 +102,8 @@ const BRAWL_REWARDS = [
 
 const getMonthlyChestReward = league => {
   switch (league) {
+    case 'HEROES':
+      return { coins: 3000, rubies: 100, stones: 7.5, cards: [20, 16, 8, 3] }
     case 'DIAMOND':
       return { coins: 1800, rubies: 50, stones: 7.5, cards: [14, 12, 6, 2] }
     case 'PLATINUM':

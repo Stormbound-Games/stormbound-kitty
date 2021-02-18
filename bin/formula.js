@@ -36,7 +36,8 @@ MathJax.start()
 
 typeset(
   {
-    math: '\\color{beige}f(w) = ⌊w * 1.6⌋ + 1',
+    math:
+      '\\color{beige}R_n = R_o + K * (W - \\frac{1}{10^{-\\frac{dr}{400}}+1})',
     format: 'TeX',
     png: true,
     scale: 1,
