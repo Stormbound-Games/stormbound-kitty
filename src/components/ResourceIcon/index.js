@@ -36,6 +36,14 @@ export default React.memo(function ResourceIcon(props) {
           alt='crown'
         />
       )
+    case 'ELO':
+      return (
+        <Image
+          className='ResourceIcon'
+          src='/assets/images/iconography/elo_icon.png'
+          alt='elo crown'
+        />
+      )
     default:
       return null
   }

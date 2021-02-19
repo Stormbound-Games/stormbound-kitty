@@ -10,6 +10,7 @@ const Resource = React.memo(function Resource({ amount, resource }) {
       &nbsp;{amount.toString().replace(THOUSANDS, ',')}&nbsp;
       {resource === 'COIN' && (amount === 1 ? 'coin' : 'coins')}
       {resource === 'RUBY' && (amount === 1 ? 'ruby' : 'rubies')}
+      {resource === 'ELO' && (amount === 1 ? 'elo crown' : 'elo crowns')}
       {resource === 'CROWN' && (amount === 1 ? 'crown' : 'crowns')}
       {resource === 'MYTHIC' && (amount === 1 ? 'Mythic Tome' : 'Mythic Tomes')}
       {resource === 'STONE' &&
@@ -24,6 +25,10 @@ export const Coins = React.memo(function Coins(props) {
 
 export const Crowns = React.memo(function Crowns(props) {
   return <Resource resource='CROWN' {...props} />
+})
+
+export const EloCrowns = React.memo(function EloCrowns(props) {
+  return <Resource resource='ELO' {...props} />
 })
 
 export const Stones = React.memo(function Stones(props) {

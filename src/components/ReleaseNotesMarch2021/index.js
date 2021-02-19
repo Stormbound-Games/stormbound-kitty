@@ -11,7 +11,7 @@ import NerfCompensationInfo from '../NerfCompensationInfo'
 import Only from '../Only'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
-import { Coins, Crowns, Rubies, Stones } from '../Resource'
+import { Coins, EloCrowns, Rubies, Stones } from '../Resource'
 import Table from '../Table'
 import Title from '../Title'
 import TogglableContent from '../TogglableContent'
@@ -120,20 +120,21 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           others—instead it has a ladder. Players move along that ladder based
           on the amount of <span className='Highlight'>Elo Crowns</span> they
           own, also known as their{' '}
-          <span className='Highlight'>Elo Ranking</span> (e.g. owning 1500 Elo
-          Crowns is the same as having a ranking of 1500). These are gained and
-          lost after each ranked game performed in Diamond and the Heroes League
-          (see formula below).
+          <span className='Highlight'>Elo Ranking</span> (e.g. owning{' '}
+          <EloCrowns amount={1500} /> is the same as having a ranking of 1500).
+          These are gained and lost after each ranked game performed in Diamond
+          and the Heroes League (see formula below).
         </p>
 
         <p>
-          When entering the Diamond league, every player is granted 1000 Elo
-          Crowns to start with. As they progress through Diamond, they already
-          collect (or loose) Elo Crowns (see below). When finally passing
-          Diamond 1 and entering the Heroes League, the amount of Elo Crowns
-          collected represents the Elo Ranking—provided it is above 1000. If the
-          Diamond progress was difficult and a player was to enter Heroes League
-          with less than 1000 Elo Crowns, their ranking would be set to 1000.
+          When entering the Diamond league, every player is granted{' '}
+          <EloCrowns amount={1000} /> to start with. As they progress through
+          Diamond, they already collect (or loose) Elo Crowns (see below). When
+          finally passing Diamond 1 and entering the Heroes League, the amount
+          of Elo Crowns collected represents the Elo Ranking—provided it is
+          above 1000. If the Diamond progress was difficult and a player was to
+          enter Heroes League with less than 1000 Elo Crowns, their ranking
+          would be set to 1000.
         </p>
 
         <img
