@@ -206,9 +206,9 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           </li>
           <li>
             <var className='Highlight'>K</var> is the coefficient factor: it is
-            worth 40 for new players until they have played 30 ranked games, 20
-            for players rated below 2400, and 10 for players who ever reached
-            2400, regardless of their current ranking
+            worth 40 for new players until they have played 30 matches in
+            Diamond, 20 for players rated below 2400, and 10 for players who
+            ever reached 2400, regardless of their current ranking
           </li>
           <li>
             <var className='Highlight'>W</var> is either 1 in case of a win, 0
