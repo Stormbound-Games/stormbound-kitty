@@ -86,8 +86,9 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <Title id='new-cards'>New cards</Title>
 
         <p>
-          On March 8th will be released 2 news cards: the Temple of Space, and a
-          common dragon card called Flameless Lizards.
+          On February 26th will be released Temple of Space, a new Ironclad
+          structure. On March 19th will be added a common dragon card called
+          Flameless Lizards.
         </p>
       </Article.Narrow>
 
@@ -237,7 +238,8 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             {
               id: 'release-date',
               question: 'When is the update going to be released?',
-              answer: 'TBA.',
+              answer:
+                'Temple of Space will be released on February 26th, and Flameless Lizards on March 19th.',
             },
             {
               id: 'diamond-and-heroes',
