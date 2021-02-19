@@ -87,7 +87,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
         <p>
           On March 8th will be released 2 news cards: the Temple of Space, and a
-          common dragon card called Flameless Dragons.
+          common dragon card called Flameless Lizards.
         </p>
       </Article.Narrow>
 
