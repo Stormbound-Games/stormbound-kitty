@@ -1456,7 +1456,7 @@
     "type": "structure",
     "faction": "ironclad",
     "race": null,
-    "rarity": "rare",
+    "rarity": "legendary",
     "image": "temple_of_focus.png",
     "mana": 2,
     "strength": "2/3/4/5/6",
