@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
@@ -8,18 +7,11 @@ import FAQSection from '../FAQSection'
 import Image from '../Image'
 import Info from '../Info'
 import NerfCompensationInfo from '../NerfCompensationInfo'
-import Only from '../Only'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
 import { Coins, EloCrowns, Rubies, Stones } from '../Resource'
-import Table from '../Table'
 import Title from '../Title'
-import TogglableContent from '../TogglableContent'
-import displayBundle from '../../helpers/displayBundle'
-import getCalendarValue from '../../helpers/getCalendarValue'
-import getRewardLabel from '../../helpers/getRewardLabel'
 import getInitialCardData from '../../helpers/getInitialCardData'
-import { MILESTONES } from '../../constants/brawl'
 
 export default React.memo(function ReleaseNotesMarch2021(props) {
   return (
@@ -40,13 +32,13 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             <a href='#new-cards'>New cards</a>
           </li>
           <li>
+            <a href='#new-books'>New books</a>
+          </li>
+          <li>
             <a href='#heroes-league'>Heroes League</a>
           </li>
           <li>
             <a href='#ui-improvements'>UI improvements</a>
-          </li>
-          <li>
-            <a href='#new-books'>New books</a>
           </li>
           <li>
             <a href='#faq'>FAQ</a>
@@ -129,6 +121,48 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             />
           </Row.Column>
         </Row>
+      </Article.Embed>
+
+      <Article.Narrow>
+        <Title id='new-books'>New books</Title>
+
+        <p>
+          Five new books will make their entrance in the next update: the former
+          Dragon and Feline tomes, but also a Legendary Dragon tome, and Elder
+          tome and a Pirate tome. They all contain 3 cards and cost{' '}
+          <Rubies amount={60} />, except the Legendary Dragon one which costs{' '}
+          <Rubies amount={120} />.
+        </p>
+
+        <ul>
+          <li>
+            <span className='Highlight'>Elder tome</span>: 3 cards, with rarity
+            distribution of 0/60/35/5.
+          </li>
+          <li>
+            <span className='Highlight'>Feline tome</span>: 3 cards, with rarity
+            distribution of 50/30/15/5.
+          </li>
+          <li>
+            <span className='Highlight'>Pirate tome</span>: 3 cards, with rarity
+            distribution of 55/25/15/5.
+          </li>
+          <li>
+            <span className='Highlight'>Dragon tome</span>: 3 cards, with rarity
+            distribution of 20/60/20/0.
+          </li>
+          <li>
+            <span className='Highlight'>Legendary Dragon tome</span>: 3 cards,
+            with rarity distribution of 0/0/70/30.
+          </li>
+        </ul>
+      </Article.Narrow>
+
+      <Article.Embed>
+        <Image
+          src='/assets/images/releases/books.png'
+          alt='Showcase of all books in the game'
+        />
       </Article.Embed>
 
       <Article.Narrow>
@@ -261,6 +295,72 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           </p>
           <EloCalculator />
         </Info>
+
+        <Title id='ui-improvements'>UI improvements</Title>
+
+        <p>
+          This release will bring some quality of life and interface
+          improvements, starting with a way to add the player you just battled
+          as a friend!
+        </p>
+
+        <p>
+          There will also be a dozen new avatars for everyone including Siren of
+          the Seas, Dopplebocks, Stoic Protectors, Snake Eyes, Doctor Mia, First
+          Mutineer, Dreadfauns, Laurus King in Exile, Bigthrust Tigers, Agents
+          in Charge, Bluesail Raiders and Mystwives.
+        </p>
+
+        <p>
+          Additionally, there will be 14 new exclusive premium avatars which can
+          be unlocked for <Rubies amount={200} /> each, shown below!
+        </p>
+      </Article.Narrow>
+
+      <Article.Embed>
+        <Row desktopOnly wideGutter>
+          <Row.Column width='1/3'>
+            <Image
+              src='/assets/images/releases/premium_avatars_female.png'
+              alt='Female premium avatars selection screen'
+            />
+          </Row.Column>
+          <Row.Column width='1/3'>
+            <Image
+              src='/assets/images/releases/premium_avatars_neutral.png'
+              alt='Neutral premium avatars selection screen'
+            />
+          </Row.Column>
+          <Row.Column width='1/3'>
+            <Image
+              src='/assets/images/releases/premium_avatars_male.png'
+              alt='Male premium avatars selection screen'
+            />
+          </Row.Column>
+        </Row>
+      </Article.Embed>
+
+      <Article.Narrow>
+        <Title id='new-books'>New books</Title>
+
+        <p>
+          Five new books will make their entrance in the next update: the former
+          Dragon and Feline tomes, but also a Legendary Dragon tome, and Elder
+          tome and a Pirate tome. They all contain 3 cards and cost{' '}
+          <Rubies amount={60} />, except the Legendary Dragon one which costs{' '}
+          <Rubies amount={120} />.
+        </p>
+
+        <ul>
+          <li>Dragon tome: 3 cards, with rarity distribution of 20/60/20/0.</li>
+          <li>
+            Legendary Dragon tome: 3 cards, with rarity distribution of
+            0/0/70/30.
+          </li>
+          <li>Feline tome: 3 cards, with rarity distribution of 50/30/15/5.</li>
+          <li>Elder tome: 3 cards, with rarity distribution of 0/60/35/5.</li>
+          <li>Pirate tome: 3 cards, with rarity distribution of 55/25/15/5.</li>
+        </ul>
 
         <FAQSection
           id='faq'
