@@ -101,17 +101,37 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
       </Article.Embed>
 
       <Article.Narrow>
-        <p>
-          An exclusive $9.99 pack will be available to get 10 copies of{' '}
-          <CardLink id='N82' />, as well as <Stones amount={5} /> and{' '}
-          <Coins amount={750} />.
-        </p>
+        <p>As usual, two exclusive $9.99 packs will be available:</p>
+        <ul>
+          <li>
+            Flameless Lizards pack ($9.99): 10 copies of <CardLink id='N82' />,
+            as well as <Stones amount={5} /> and <Coins amount={750} />.
+          </li>
+          <li>
+            Temple of Space pack ($9.99): 1 copy of <CardLink id='N82' />, as
+            well as <Stones amount={5} /> and <Coins amount={750} />.
+          </li>
+        </ul>
+      </Article.Narrow>
 
-        <Image
-          src='/assets/images/releases/flameless_lizards_pack.png'
-          alt='Exclusive pack ($9.99): 10 copies of Flameless Lizards, 5 fusion stones and 750 coins'
-        />
+      <Article.Embed>
+        <Row desktopOnly wideGutter>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/flameless_lizards_pack.png'
+              alt='Exclusive pack ($9.99): 10 copies of Flameless Lizards, 5 fusion stones and 750 coins'
+            />
+          </Row.Column>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/temple_of_space_pack.png'
+              alt='Exclusive pack ($9.99): 1 copy of Temple of Space, 5 fusion stones and 750 coins'
+            />
+          </Row.Column>
+        </Row>
+      </Article.Embed>
 
+      <Article.Narrow>
         <Title id='heroes-league'>Heroes League</Title>
 
         <p>
