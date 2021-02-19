@@ -92,7 +92,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
       </Article.Narrow>
 
       <Article.Embed>
-        <CardBuilderCardDisplay {...getInitialCardData('N81')} />
+        <CardBuilderCardDisplay {...getInitialCardData('I29')} />
       </Article.Embed>
 
       <Article.Embed>
