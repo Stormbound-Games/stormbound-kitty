@@ -7,6 +7,7 @@ import EloCalculator from '../EloCalculator'
 import FAQSection from '../FAQSection'
 import Image from '../Image'
 import Info from '../Info'
+import NerfCompensationInfo from '../NerfCompensationInfo'
 import Only from '../Only'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
@@ -67,12 +68,20 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
         <ul>
           <li>
-            Confused units can no longer go forward. This change indirectly
-            impacts <CardLink id='N62' />, <CardLink id='N61' />,{' '}
-            <CardLink id='N64' />, <CardLink id='N78' />, <CardLink id='N79' />{' '}
-            and <CardLink id='N60' />.
+            <CardLink id='I3' />
+            ’s ability now grants 1/2/3/4/5 strength (down from 2/3/4/5/6).
+          </li>
+          <li>
+            <CardLink id='F28' />’ strength is now 4/5/7/9/12 (down from
+            5/6/8/10/13).
+          </li>
+          <li>
+            <CardLink id='N23' />
+            ’s mana cost is now 3 on all levels (up from 2).
           </li>
         </ul>
+
+        <NerfCompensationInfo />
 
         <Title id='new-cards'>New cards</Title>
 
@@ -100,6 +109,12 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           passing beyond Diamond 1.
         </p>
 
+        <img
+          src='/assets/images/releases/rank_hero.png'
+          alt='Heroes League badge'
+          style={{ maxWidth: '300px', margin: '3em auto' }}
+        />
+
         <p>
           This league does not have the same ranking system as the
           others—instead it has a ladder. Players move along that ladder based
@@ -121,20 +136,11 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           with less than 1000 Elo Crowns, their ranking would be set to 1000.
         </p>
 
-        <Row desktopOnly>
-          <Row.Column>
-            <img
-              src='/assets/images/releases/chest_hero.png'
-              alt='Heroes League chest'
-            />
-          </Row.Column>
-          <Row.Column>
-            <img
-              src='/assets/images/releases/rank_hero.png'
-              alt='Heroes League badge'
-            />
-          </Row.Column>
-        </Row>
+        <img
+          src='/assets/images/releases/chest_hero.png'
+          alt='Heroes League chest'
+          style={{ maxWidth: '300px', margin: '3em auto' }}
+        />
 
         <p>
           At the end of the season, players having reached the Heroes League

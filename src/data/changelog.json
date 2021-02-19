@@ -4378,5 +4378,23 @@
     "description": "Confused units no longer move forwards",
     "id": "N79",
     "type": "BUFF"
+  },
+  {
+    "date": 1614596400000,
+    "description": "Decreased ability by 1",
+    "id": "I3",
+    "type": "NERF"
+  },
+  {
+    "date": 1614596400000,
+    "description": "Decreased strength by 1",
+    "id": "F28",
+    "type": "NERF"
+  },
+  {
+    "date": 1614596400000,
+    "description": "Increased mana cost by 1",
+    "id": "N23",
+    "type": "NERF"
   }
 ]

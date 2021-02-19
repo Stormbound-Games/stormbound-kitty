@@ -294,7 +294,7 @@
     "race": null,
     "rarity": "epic",
     "image": "hunters_vengeance.png",
-    "mana": 2,
+    "mana": 3,
     "strength": null,
     "movement": null,
     "ability": "Randomly deal *2/3/4/5/6 damage* to one unit of each *unit type*"
@@ -1119,7 +1119,7 @@
     "mana": 2,
     "strength": null,
     "movement": null,
-    "ability": "*Give 2/3/4/5/6* strength to all friendly units *surrounding* a friendly structure"
+    "ability": "*Give 1/2/3/4/5* strength to all friendly units *surrounding* a friendly structure"
   },
   {
     "name": "Ozone Purifiers",
@@ -1814,7 +1814,7 @@
     "rarity": "epic",
     "image": "hairy_chestnuts.png",
     "mana": 6,
-    "strength": "5/6/8/10/13",
+    "strength": "4/5/7/9/12",
     "movement": 0,
     "ability": "After surviving damage, *drain up to 1/1/2/2/3* of the damage received from the enemy base",
     "elder": true
