@@ -101,6 +101,17 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
       </Article.Embed>
 
       <Article.Narrow>
+        <p>
+          An exclusive $9.99 pack will be available to get 10 copies of{' '}
+          <CardLink id='N82' />, as well as <Stones amount={5} /> and{' '}
+          <Coins amount={750} />.
+        </p>
+
+        <Image
+          src='/assets/images/releases/flameless_lizards_pack.png'
+          alt='Exclusive pack ($9.99): 10 copies of Flameless Lizards, 5 fusion stones and 750 coins'
+        />
+
         <Title id='heroes-league'>Heroes League</Title>
 
         <p>
