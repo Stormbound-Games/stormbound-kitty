@@ -4396,5 +4396,11 @@
     "description": "Increased mana cost by 1",
     "id": "N23",
     "type": "NERF"
+  },
+  {
+    "date": 1614596400000,
+    "description": "Added to the game",
+    "id": "I29",
+    "type": "INFO"
   }
 ]

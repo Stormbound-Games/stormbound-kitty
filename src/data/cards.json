@@ -1074,7 +1074,7 @@
     "faction": "neutral",
     "race": "dragon",
     "rarity": "common",
-    "image": "flameless_lizards.png",
+    "image": "token_dragon.png",
     "mana": 5,
     "strength": "7/9/11/13/15",
     "movement": 0,
@@ -1449,6 +1449,19 @@
     "movement": 0,
     "ability": "After surviving damage, deal up to *3/3/4/5/6 of its remaining strength as damage* to the first enemy in front",
     "elder": true
+  },
+  {
+    "name": "Temple of Space",
+    "id": "I29",
+    "type": "structure",
+    "faction": "ironclad",
+    "race": null,
+    "rarity": "rare",
+    "image": "temple_of_space.png",
+    "mana": 2,
+    "strength": "2/3/4/5/6",
+    "movement": 0,
+    "ability": "TBA"
   },
   {
     "name": "Brood Sages",
