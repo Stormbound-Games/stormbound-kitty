@@ -1,4 +1,4 @@
-const getEloRanking = ({ current, opponent, coefficient, won }) => {
+const getHeroScore = ({ current, opponent, coefficient, won }) => {
   const Ro = current
   const K = Number(coefficient)
   const W = Number(won)
@@ -9,4 +9,4 @@ const getEloRanking = ({ current, opponent, coefficient, won }) => {
   return Rn
 }
 
-export default getEloRanking
+export default getHeroScore

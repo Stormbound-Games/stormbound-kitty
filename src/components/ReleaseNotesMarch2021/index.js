@@ -3,14 +3,14 @@ import Article from '../Article'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import CheapenedBrawl from '../CheapenedBrawl'
-import EloCalculator from '../EloCalculator'
+import HeroScoreCalculator from '../HeroScoreCalculator'
 import FAQSection from '../FAQSection'
 import Image from '../Image'
 import Info from '../Info'
 import NerfCompensationInfo from '../NerfCompensationInfo'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
-import { Coins, EloCrowns, Rubies, Stones } from '../Resource'
+import { Coins, HeroCrowns, Rubies, Stones } from '../Resource'
 import Title from '../Title'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import { getRarityColor } from '../../helpers/getRarity'
@@ -234,24 +234,24 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
         <p>
           This league does not have the same ranking system as the
-          others—instead it has a ladder. Players move along that ladder based
-          on the amount of <span className='Highlight'>Elo Crowns</span> they
-          own, also known as their{' '}
-          <span className='Highlight'>Elo Ranking</span> (e.g. owning{' '}
-          <EloCrowns amount={1500} /> is the same as having a ranking of 1500).
-          These are gained and lost after each ranked game performed in Diamond
-          and the Heroes League (see formula below).
+          others—instead it has a scoring ladder. Players move along that ladder
+          based on the amount of <span className='Highlight'>Hero Crowns</span>{' '}
+          they own, also known as their{' '}
+          <span className='Highlight'>Hero Score</span> (HS for short). Owning{' '}
+          <HeroCrowns amount={1500} /> is the same as having a Hero Score of
+          1500. These are gained and lost after each ranked game performed in
+          Diamond and the Heroes League (see formula below).
         </p>
 
         <p>
           When entering the Diamond league, every player is granted{' '}
-          <EloCrowns amount={1000} /> to start with. As they progress through
-          Diamond, they already collect (or loose) Elo Crowns (see below). When
+          <HeroCrowns amount={1000} /> to start with. As they progress through
+          Diamond, they already collect (or loose) Hero Crowns (see below). When
           finally passing Diamond 1 and entering the Heroes League, the amount
-          of Elo Crowns collected represents the Elo Ranking—provided it is
+          of Hero Crowns collected represents the Hero Score—provided it is
           above 1000. If the Diamond progress was difficult and a player was to
-          enter Heroes League with less than 1000 Elo Crowns, their ranking
-          would be set to 1000.
+          enter Heroes League with less than <HeroCrowns amount={1000} />, their
+          score would be set to 1000.
         </p>
 
         <img
@@ -262,8 +262,8 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
         <p>
           At the end of the season, players having reached the Heroes League
-          will be down-ranked back to Diamond 5, their ranking will be reset,
-          and will receive a Heroes League chest (20 common cards, 16 rare
+          will be down-ranked back to Diamond 5, their Hero Score will be reset,
+          and they will receive a Heroes League chest (20 common cards, 16 rare
           cards, 8 epic cards and 3 legendary cards, as well as{' '}
           <Coins amount={3000} /> and <Rubies amount={100} />) as well as
           rewards based on their final position in the ladder as follow:
@@ -291,11 +291,11 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <hr />
 
         <p>
-          The formula used to determine the new ranking (
+          The formula used to determine the new Hero Score (
           <var className='Highlight'>
             R<sub>n</sub>
           </var>
-          ) from the old ranking (
+          ) from the old Hero Score (
           <var className='Highlight'>
             R<sub>o</sub>
           </var>
@@ -304,7 +304,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
         <img
           src='/assets/images/releases/elo_formula.png'
-          alt='Ranking formula'
+          alt='Hero Score computing formula'
         />
 
         <p>Here are the terms:</p>
@@ -314,19 +314,19 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             <var className='Highlight'>
               R<sub>n</sub>
             </var>{' '}
-            is the new ranking
+            is the new Hero Score
           </li>
           <li>
             <var className='Highlight'>
               R<sub>o</sub>
             </var>{' '}
-            is the old ranking
+            is the old Hero Score
           </li>
           <li>
             <var className='Highlight'>K</var> is the coefficient factor: it is
             worth 40 for new players until they have played 30 matches in
             Diamond, 20 for players rated below 2400, and 10 for players who
-            ever reached 2400, regardless of their current ranking
+            ever reached 2400, regardless of their current Hero Score
           </li>
           <li>
             <var className='Highlight'>W</var> is either 1 in case of a win, 0
@@ -334,17 +334,17 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           </li>
           <li>
             <var className='Highlight'>dr</var> is the difference between the
-            two player’s ranking and is capped to 400 too much rating
-            fluctuations in case of uneven matchmaking
+            two player’s Hero Score and is capped to 400 too much fluctuations
+            in case of uneven matchmaking
           </li>
         </ul>
 
-        <Info icon='equalizer' title='Ranking calculator'>
+        <Info icon='equalizer' title='Hero Score calculator'>
           <p>
             This calculator executes the aforementioned formula on the given
-            variables to compute your expect Elo ranking.
+            variables to compute your expected Hero Score.
           </p>
-          <EloCalculator />
+          <HeroScoreCalculator />
         </Info>
 
         <CheapenedBrawl ratio={(1 / 3) * 2}>
@@ -425,7 +425,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
               id: 'diamond-and-heroes',
               question: 'Can I be in both Diamond and Heroes?',
               answer:
-                'No, you are either in the Diamond league or in the Heroes league, but never both. However, when you are in Diamond, you are already in Elo ranking but your score is not taken into consideration on the Heroes league leaderboard.',
+                'No, you are either in the Diamond league or in the Heroes league, but never both. However, when you are in Diamond, you are already ranking but your score is not taken into consideration on the Heroes league leaderboard.',
             },
             {
               id: 'crowns-count',

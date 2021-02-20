@@ -1,4 +1,4 @@
-import getEloRanking from './'
+import getHeroScore from './'
 
 const CASES = [
   // Current, Opponent, Coefficient, Won -> New
@@ -11,12 +11,12 @@ const CASES = [
   [[4000, 1, 40, true], 4003.636364],
 ]
 
-describe.only('The `getEloRanking` helper', () => {
+describe.only('The `getHeroScore` helper', () => {
   it('should pass Sheepyard-provided test cases', () => {
     CASES.forEach(([variables, expected]) => {
       const [current, opponent, coefficient, won] = variables
       expect(
-        Math.round(getEloRanking({ current, opponent, coefficient, won }))
+        Math.round(getHeroScore({ current, opponent, coefficient, won }))
       ).to.equal(Math.round(expected))
     })
   })

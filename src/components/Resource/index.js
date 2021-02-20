@@ -27,8 +27,8 @@ export const Crowns = React.memo(function Crowns(props) {
   return <Resource resource='CROWN' {...props} />
 })
 
-export const EloCrowns = React.memo(function EloCrowns(props) {
-  return <Resource resource='ELO' {...props} />
+export const HeroCrowns = React.memo(function HeroCrowns(props) {
+  return <Resource resource='HERO_CROWN' {...props} />
 })
 
 export const Stones = React.memo(function Stones(props) {

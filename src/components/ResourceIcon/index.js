@@ -36,7 +36,7 @@ export default React.memo(function ResourceIcon(props) {
           alt='crown'
         />
       )
-    case 'ELO':
+    case 'HERO_CROWN':
       return (
         <Image
           className='ResourceIcon'

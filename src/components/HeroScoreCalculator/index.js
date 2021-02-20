@@ -2,14 +2,14 @@ import React from 'react'
 import Checkbox from '../Checkbox'
 import NumberInput from '../NumberInput'
 import Row from '../Row'
-import getEloRanking from '../../helpers/getEloRanking'
+import getHeroScore from '../../helpers/getHeroScore'
 
-const EloCalculator = props => {
+const HeroScoreCalculator = props => {
   const [current, setCurrent] = React.useState(1000)
   const [opponent, setOpponent] = React.useState(1000)
   const [coefficient, setCoefficient] = React.useState(20)
   const [won, setWon] = React.useState(false)
-  const outcome = getEloRanking({ current, opponent, coefficient, won })
+  const outcome = getHeroScore({ current, opponent, coefficient, won })
 
   return (
     <Row desktopOnly>
@@ -70,4 +70,4 @@ const EloCalculator = props => {
   )
 }
 
-export default React.memo(EloCalculator)
+export default React.memo(HeroScoreCalculator)
