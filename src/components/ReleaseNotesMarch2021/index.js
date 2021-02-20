@@ -125,11 +125,40 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             />
           </Row.Column>
         </Row>
+        <Title id='new-books'>New books</Title>
+
+        <Row desktopOnly wideGutter>
+          <Row.Column width='1/5'>
+            <Image
+              src='/assets/images/books/book-pirate.png'
+              alt='Pirate Tome'
+            />
+          </Row.Column>
+          <Row.Column width='1/5'>
+            <Image
+              src='/assets/images/books/book-feline.png'
+              alt='Feline Tome'
+            />
+          </Row.Column>
+          <Row.Column width='1/5'>
+            <Image src='/assets/images/books/book-elder.png' alt='Elder Tome' />
+          </Row.Column>
+          <Row.Column width='1/5'>
+            <Image
+              src='/assets/images/books/book-dragon.png'
+              alt='Dragon Tome'
+            />
+          </Row.Column>
+          <Row.Column width='1/5'>
+            <Image
+              src='/assets/images/books/book-legendary-dragon.png'
+              alt='Legendary Dragon Tome'
+            />
+          </Row.Column>
+        </Row>
       </Article.Embed>
 
       <Article.Narrow>
-        <Title id='new-books'>New books</Title>
-
         <p>
           Five new books will make their entrance in the next update: the former
           Dragon and Feline tomes (revisited), but also a Legendary Dragon tome,
@@ -366,27 +395,6 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
       </Article.Embed>
 
       <Article.Narrow>
-        <Title id='new-books'>New books</Title>
-
-        <p>
-          Five new books will make their entrance in the next update: the former
-          Dragon and Feline tomes, but also a Legendary Dragon tome, and Elder
-          tome and a Pirate tome. They all contain 3 cards and cost{' '}
-          <Rubies amount={60} />, except the Legendary Dragon one which costs{' '}
-          <Rubies amount={120} />.
-        </p>
-
-        <ul>
-          <li>Dragon tome: 3 cards, with rarity distribution of 20/60/20/0.</li>
-          <li>
-            Legendary Dragon tome: 3 cards, with rarity distribution of
-            0/0/70/30.
-          </li>
-          <li>Feline tome: 3 cards, with rarity distribution of 50/30/15/5.</li>
-          <li>Elder tome: 3 cards, with rarity distribution of 50/30/15/5.</li>
-          <li>Pirate tome: 3 cards, with rarity distribution of 55/25/15/5.</li>
-        </ul>
-
         <FAQSection
           id='faq'
           title='FAQ'
