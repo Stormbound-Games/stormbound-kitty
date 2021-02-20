@@ -10,6 +10,7 @@ import capitalise from '../../helpers/capitalise'
 import getAverageStonesPerBook from '../../helpers/getAverageStonesPerBook'
 import getExpectedCoinsPerBook from '../../helpers/getExpectedCoinsPerBook'
 import getRawCardData from '../../helpers/getRawCardData'
+import getBookName from '../../helpers/getBookName'
 import './index.css'
 
 const useExpectedCoins = book => {
@@ -63,7 +64,10 @@ export default React.memo(function BookOutcome(props) {
         ) : (
           <>
             <p>
-              Opening a <strong className='Highlight'>{bookName} book</strong>{' '}
+              Opening a{' '}
+              <strong className='Highlight'>
+                {getBookName(props.book)} book
+              </strong>{' '}
               would yield:
             </p>
             <ul>

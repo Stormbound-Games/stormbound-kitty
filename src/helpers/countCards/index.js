@@ -7,7 +7,7 @@ const matchElder = elder => card => !elder || card.elder
 const cache = new Map()
 
 const countCards = (criteria, countFusionStones = true) => {
-  const key = Object.values(criteria).sort().join(',')
+  const key = Object.values(criteria).sort().concat(countFusionStones).join(',')
 
   if (cache.has(key)) return cache.get(key)
 
