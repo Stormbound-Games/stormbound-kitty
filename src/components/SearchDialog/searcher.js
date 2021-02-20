@@ -177,6 +177,12 @@ SEARCH_INDEX.push({
 })
 
 SEARCH_INDEX.push({
+  path: '/calculators/hero',
+  label: 'Hero Score Calculator',
+  breadcrumbs: ['Tools', 'Calculators'],
+})
+
+SEARCH_INDEX.push({
   path: '/list/ranked',
   label: 'Ranked Tier List',
   breadcrumbs: ['Community', 'Meta'],

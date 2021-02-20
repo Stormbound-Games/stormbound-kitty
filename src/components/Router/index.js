@@ -54,6 +54,7 @@ const RELEASE_COMPONENTS = {
   '07_2020': load('ReleaseNotesJuly2020'),
 }
 
+const About = load('About')
 const BattleSimPage = load('BattleSimPage')
 const BattleSimPuzzles = load('BattleSimPuzzles')
 const BooksCalculator = load('BooksCalculator')
@@ -75,7 +76,6 @@ const DeckDetailView = load('DeckDetailView')
 const DeckDryRunView = load('DeckDryRunView')
 const DeckEditorView = load('DeckEditorView')
 const DeckSuggestions = load('DeckSuggestions')
-const About = load('About')
 const EqualsList = load('EqualsList')
 const FanArt = load('FanArt')
 const FanKitCards = load('FanKitCards')
@@ -83,6 +83,7 @@ const FanKitBooks = load('FanKitBooks')
 const FanKitWallpapers = load('FanKitWallpapers')
 const FAQ = load('FAQ')
 const Guides = load('Guides')
+const HeroScoreCalculator = load('HeroScoreCalculator')
 const Home = load('Home')
 const IncomeCalculator = load('IncomeCalculator')
 const ListBuilderDisplayView = load('ListBuilderDisplayView')
@@ -361,6 +362,14 @@ export default function Router(props) {
             active={['TOOLS', 'BOOKS_CALCULATOR']}
           >
             <BooksCalculator />
+          </Page>
+
+          <Page
+            exact
+            path='/calculators/hero'
+            active={['TOOLS', 'HERO_CALCULATOR']}
+          >
+            <HeroScoreCalculator />
           </Page>
 
           <Redirect from='/income-calculator' to='/calculators/income' />

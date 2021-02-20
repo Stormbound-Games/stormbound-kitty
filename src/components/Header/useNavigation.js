@@ -172,24 +172,30 @@ export default () => {
           icon: 'equalizer',
           items: [
             {
-              label: 'Income Calculator',
-              to: '/calculators/income',
-              id: 'INCOME_CALCULATOR',
-            },
-            {
               label: 'Books Calculator',
               to: '/calculators/books',
               id: 'BOOKS_CALCULATOR',
             },
             {
-              label: 'Value Calculator',
-              to: '/calculators/value',
-              id: 'VALUE_CALCULATOR',
-            },
-            {
               label: 'Brawl Calculator',
               to: '/calculators/brawl',
               id: 'BRAWL_CALCULATOR',
+            },
+            {
+              label: 'Hero Calculator',
+              to: '/calculators/hero',
+              id: 'HERO_CALCULATOR',
+              new: true,
+            },
+            {
+              label: 'Income Calculator',
+              to: '/calculators/income',
+              id: 'INCOME_CALCULATOR',
+            },
+            {
+              label: 'Value Calculator',
+              to: '/calculators/value',
+              id: 'VALUE_CALCULATOR',
             },
           ],
         },

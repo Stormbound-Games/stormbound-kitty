@@ -1,0 +1,25 @@
+.HeroScore {
+  position: relative;
+}
+
+.HeroScoreCalculator__formula,
+.HeroScore__image {
+  max-width: 100%;
+}
+
+.HeroScore__score {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 175%;
+  color: var(--beige);
+}
+
+.HeroScoreCalculator__radio {
+  display: inline-block;
+}
+
+.HeroScoreCalculator__radio + .HeroScoreCalculator__radio {
+  margin-left: 2em;
+}

@@ -1,9 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import CheapenedBrawl from '../CheapenedBrawl'
-import HeroScoreCalculator from '../HeroScoreCalculator'
 import FAQSection from '../FAQSection'
 import Image from '../Image'
 import Info from '../Info'
@@ -336,12 +336,12 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           </li>
         </ul>
 
-        <Info icon='equalizer' title='Hero Score calculator'>
+        <Info icon='equalizer' title='Hero Score Calculator'>
           <p>
-            This calculator executes the aforementioned formula on the given
-            variables to compute your expected Hero Score.
+            To calculate your new expected Hero Score from the aforementionned
+            variables, be sure to use the{' '}
+            <Link to='/calculators/hero'>Hero Score calculator</Link>.
           </p>
-          <HeroScoreCalculator />
         </Info>
 
         <CheapenedBrawl ratio={(1 / 3) * 2}>
