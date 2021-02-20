@@ -225,7 +225,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <ul>
           <li>
             The 1st player in the ladder will earn a Mythic tome, one Elder tome
-            and one legendary dragon card (worth <Rubies amount={260} /> total).
+            and one Legendary Dragon tome (worth <Rubies amount={260} /> total).
           </li>
           <li>
             The other players in the top 10 will earn a Mythic tome and a Feline
