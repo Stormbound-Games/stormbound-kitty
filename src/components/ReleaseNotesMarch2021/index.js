@@ -2,6 +2,7 @@ import React from 'react'
 import Article from '../Article'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
+import CheapenedBrawl from '../CheapenedBrawl'
 import EloCalculator from '../EloCalculator'
 import FAQSection from '../FAQSection'
 import Image from '../Image'
@@ -36,6 +37,9 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           </li>
           <li>
             <a href='#heroes-league'>Heroes League</a>
+          </li>
+          <li>
+            <a href='#cheapened-brawl'>Cheapened Brawl</a>
           </li>
           <li>
             <a href='#ui-improvements'>UI improvements</a>
@@ -100,7 +104,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             as well as <Stones amount={5} /> and <Coins amount={750} />.
           </li>
           <li>
-            Temple of Space pack ($9.99): 1 copy of <CardLink id='N82' />, as
+            Temple of Space pack ($9.99): 1 copy of <CardLink id='I29' />, as
             well as <Stones amount={5} /> and <Coins amount={750} />.
           </li>
         </ul>
@@ -128,8 +132,8 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
         <p>
           Five new books will make their entrance in the next update: the former
-          Dragon and Feline tomes, but also a Legendary Dragon tome, and Elder
-          tome and a Pirate tome. They all contain 3 cards and cost{' '}
+          Dragon and Feline tomes (revisited), but also a Legendary Dragon tome,
+          an Elder tome and a Pirate tome. They all contain 3 cards and cost{' '}
           <Rubies amount={60} />, except the Legendary Dragon one which costs{' '}
           <Rubies amount={120} />.
         </p>
@@ -296,6 +300,16 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           <EloCalculator />
         </Info>
 
+        <Title id='cheapened-brawl'>Cheapened Brawl</Title>
+
+        <CheapenedBrawl ratio={(1 / 3) * 2}>
+          <p>
+            To apologize for the server issues during the last discounted Brawl,
+            we decided to make the Brawl starting on February 25th cheaper: all
+            matches will cost two thirds of their original price!
+          </p>
+        </CheapenedBrawl>
+
         <Title id='ui-improvements'>UI improvements</Title>
 
         <p>
@@ -358,7 +372,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             0/0/70/30.
           </li>
           <li>Feline tome: 3 cards, with rarity distribution of 50/30/15/5.</li>
-          <li>Elder tome: 3 cards, with rarity distribution of 0/60/35/5.</li>
+          <li>Elder tome: 3 cards, with rarity distribution of 50/30/15/5.</li>
           <li>Pirate tome: 3 cards, with rarity distribution of 55/25/15/5.</li>
         </ul>
 
