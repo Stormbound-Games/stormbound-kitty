@@ -422,7 +422,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
               id: 'diamond-and-heroes',
               question: 'Can I be in both Diamond and Heroes?',
               answer:
-                'No, you are either in the Diamond league or in the Heroes league, but never both. However, when you are in Diamond, you are already ranking but your score is not taken into consideration on the Heroes league leaderboard.',
+                'No, you are either in the Diamond league or in the Heroes league, but never both. However, when you are in Diamond, you already collect Hero Crowns but your score is not taken into consideration on the Heroes league leaderboard.',
             },
             {
               id: 'platinum-and-heroes',
