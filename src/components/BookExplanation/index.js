@@ -1,14 +1,15 @@
 import React from 'react'
 import { RARITIES, BOOKS } from '../../constants/game'
-import capitalise from '../../helpers/capitalise'
+import getBookName from '../../helpers/getBookName'
 
 export default React.memo(({ book }) => {
-  const { percentiles, draws } = BOOKS[book]
+  const { percentiles, draws, only = {} } = BOOKS[book]
+  const qualifier = [only.rarity, only.elder && 'elder', only.race].join(' ')
 
   return (
     <div className='BookExplanation'>
       <p>
-        A {capitalise(book.toLowerCase())} book contains {draws}{' '}
+        A {getBookName(book)} book contains {draws} {qualifier}{' '}
         {draws > 1 ? 'cards' : 'card'} and potentially some Fusion stones. It
         cannot yield more than a single copy of a single card.
       </p>
@@ -16,7 +17,8 @@ export default React.memo(({ book }) => {
       <ul>
         {Object.keys(RARITIES).map((rarity, index) => (
           <li key={rarity}>
-            {percentiles[index] * 100}% chance of pulling a {rarity} card
+            {(percentiles[index] * 100).toFixed(0)}% chance of pulling a{' '}
+            {rarity} card
           </li>
         ))}
       </ul>
