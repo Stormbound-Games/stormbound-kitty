@@ -288,15 +288,16 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <hr />
 
         <p>
-          The formula used to determine the new Hero Score (named{' '}
-          <var className='Highlight'>
-            S<sub>n</sub>
-          </var>
-          ) from the old Hero Score ( named{' '}
-          <var className='Highlight'>
-            S<sub>o</sub>
-          </var>
-          ) at the end of a ranked battle goes as follow:
+          The formula used to update a player A’s Hero Score (<var>S</var>) is a
+          variation of the{' '}
+          <a
+            href='https://en.wikipedia.org/wiki/Elo_rating_system'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Elo rating system
+          </a>{' '}
+          used in chess, amongst other games. It looks like this:
         </p>
 
         <img
@@ -309,30 +310,50 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <ul style={{ marginBottom: '3em' }}>
           <li>
             <var className='Highlight'>
-              S<sub>n</sub>
+              S'<sub>A</sub>
             </var>{' '}
             is the new Hero Score
           </li>
           <li>
             <var className='Highlight'>
-              S<sub>o</sub>
+              S<sub>A</sub>
             </var>{' '}
-            is the old Hero Score
+            is the current Hero Score
           </li>
           <li>
-            <var className='Highlight'>C</var> is the coefficient factor: it is
-            worth 40 for new players until they have played 30 matches in
-            Diamond, 20 for players rated below 2400, and 10 for players who
-            ever reached 2400, regardless of their current Hero Score
+            <var className='Highlight'>K</var> is the coefficient factor
+            (sometimes named “K-factor” in elo rating systems) and works like in
+            FIDE:
+            <ul style={{ marginBottom: 0 }}>
+              <li>
+                K = 40 for new players until they have played 30 matches in
+                Diamond
+              </li>
+              <li>K = 20 for players rated below 2400</li>
+              <li>
+                K = 10 for players who ever reached 2400, regardless of their
+                current Hero Score
+              </li>
+            </ul>
           </li>
           <li>
             <var className='Highlight'>W</var> is either 1 in case of a win, 0
             for a loss
           </li>
           <li>
-            <var className='Highlight'>sd</var> is the difference between the
-            two player’s Hero Score and is capped to 400 to avoid causing too
-            much fluctuations in case of uneven matchmaking
+            <var className='Highlight'>
+              S<sub>B</sub>
+            </var>{' '}
+            is the opponent’s score; the difference between{' '}
+            <var className='Highlight'>
+              S<sub>A</sub>
+            </var>{' '}
+            and{' '}
+            <var className='Highlight'>
+              S<sub>B</sub>
+            </var>{' '}
+            is capped to 400 to avoid causing too much fluctuations in case of
+            uneven matchmaking
           </li>
         </ul>
 
