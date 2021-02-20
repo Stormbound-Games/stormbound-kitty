@@ -37,7 +37,6 @@
     "worker-loader": "^3.0.8"
   },
   "scripts": {
-    "postinstall": "patch-package",
     "prebuild:cra": "node -r esm bin/sitemap.js",
     "start": "react-scripts start",
     "build:cra": "CI=false react-scripts build",
