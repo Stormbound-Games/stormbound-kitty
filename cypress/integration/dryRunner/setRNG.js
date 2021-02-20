@@ -42,4 +42,19 @@ describe('Dry-runner — Set RNG', () => {
       .get('S3')
       .should('not.exist')
   })
+
+  it('should only be possible to get Temple of Space back in hand in FRIENDLY mode', () => {
+    cy.visit(`/deck/${DECK_ID.replace('5s3', '5i29')}/dry-run?mode=MANUAL`)
+      .drDrawHand(['W9', 'W16', 'N12', 'I29'])
+      .drEndTurn(3)
+
+      .drSetRNG('FRIENDLY')
+      .drPlay('I29')
+
+      .drSetRNG('UNFRIENDLY')
+      .drPlay('I29')
+
+      .get('I29')
+      .should('not.exist')
+  })
 })

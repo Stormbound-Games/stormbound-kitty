@@ -17,6 +17,18 @@ const RNG_SENSITIVE_CARDS = {
       </>
     ),
   },
+  I29: {
+    FRIENDLY: () => (
+      <>
+        <CardLink id='I29' /> comes back in hand
+      </>
+    ),
+    UNFRIENDLY: () => (
+      <>
+        <CardLink id='I29' /> doesn’t come back to hand
+      </>
+    ),
+  },
   W9: {
     FRIENDLY: () => (
       <>

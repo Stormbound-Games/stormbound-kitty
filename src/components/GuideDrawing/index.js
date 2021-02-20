@@ -253,6 +253,12 @@ export default React.memo(function GuideDrawing(props) {
       </p>
 
       <p>
+        <CardLink id='I29' /> works in a very similar fashion. When played
+        without an active copy on the board, it comes back to the hand despite
+        its weight being 0.
+      </p>
+
+      <p>
         <CardLink id='N48' /> simply plays one or two spells from the hand
         (provided they do not cost more than Earyn’s mana cost). Unlike with
         Queen of Herds, these plays do cause a reweighing of the deck (or 2 for

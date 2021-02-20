@@ -248,6 +248,17 @@ const handleCardEffect = (state, card, mode, HoS) => {
       break
     }
 
+    // Temple of Space
+    case 'I29': {
+      if (
+        state.RNG === 'FRIENDLY' ||
+        (state.RNG === 'REGULAR' && Math.random() <= PROBABILITIES.TOS_RETURNS)
+      ) {
+        state.hand.push(card)
+      }
+      break
+    }
+
     // Queen of Herds
     case 'S21': {
       const satyrs = state.deck.filter(isSatyrInDeck(state))

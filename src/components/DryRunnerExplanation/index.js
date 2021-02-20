@@ -18,7 +18,7 @@ const CARD_MECHANICS = {
     label: 'Gaining mana',
     cards: ['W12', 'W19', 'W10', 'W9', 'W16', 'W8'],
   },
-  RNG: { label: 'RNG-dependent', cards: ['S3', 'W9', 'W16', 'W8'] },
+  RNG: { label: 'RNG-dependent', cards: ['S3', 'W9', 'W16', 'W8', 'I29'] },
   FIRST_TURN: {
     label: 'First turn restrictions',
     cards: ['W1', 'F4', 'N9', 'N15', 'N63'],
