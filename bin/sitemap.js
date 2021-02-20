@@ -18,6 +18,7 @@ const links = [
   '/calculators/brawl',
   '/calculators/income',
   '/calculators/value',
+  '/calculators/hero',
   '/card',
   '/card/contest',
   '/card/stats',
