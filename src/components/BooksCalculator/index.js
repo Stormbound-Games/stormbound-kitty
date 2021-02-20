@@ -211,7 +211,11 @@ export default React.memo(function BooksCalculator(props) {
         <Only.Desktop>
           <Row.Column width='1/3'>
             <Image
-              src={'/assets/images/books/book-' + book.toLowerCase() + '.png'}
+              src={
+                '/assets/images/books/book-' +
+                book.toLowerCase().replace(/_/g, '-') +
+                '.png'
+              }
               className='BooksCalculator__book'
               alt={getBookName(book) + ' book'}
               withAvif
