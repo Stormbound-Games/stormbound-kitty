@@ -312,23 +312,34 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
         <Title id='ui-improvements'>UI improvements</Title>
 
-        <p>
-          This release will bring some quality of life and interface
-          improvements, starting with a way to add the player you just battled
-          as a friend!
-        </p>
+        <Row desktopOnly wideGutter>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/add_a_friend.png'
+              alt='Button to add battled player as a friend on the outcome screen of a game'
+            />
+          </Row.Column>
+          <Row.Column style={{ justifyContent: 'center' }}>
+            <p style={{ marginTop: '2em' }}>
+              This release will bring some quality of life and interface
+              improvements, starting with a way to add the player you just
+              battled as a friend!
+            </p>
 
-        <p>
-          There will also be a dozen new avatars for everyone including Siren of
-          the Seas, Dopplebocks, Stoic Protectors, Snake Eyes, Doctor Mia, First
-          Mutineer, Dreadfauns, Laurus King in Exile, Bigthrust Tigers, Agents
-          in Charge, Bluesail Raiders and Mystwives.
-        </p>
+            <p>
+              There will also be a dozen new avatars for everyone including
+              Siren of the Seas, Dopplebocks, Stoic Protectors, Snake Eyes,
+              Doctor Mia, First Mutineer, Dreadfauns, Laurus King in Exile,
+              Bigthrust Tigers, Agents in Charge, Bluesail Raiders and
+              Mystwives.
+            </p>
 
-        <p>
-          Additionally, there will be 14 new exclusive premium avatars which can
-          be unlocked for <Rubies amount={200} /> each, shown below!
-        </p>
+            <p>
+              Additionally, there will be 14 new exclusive premium avatars which
+              can be unlocked for <Rubies amount={200} /> each, shown below!
+            </p>
+          </Row.Column>
+        </Row>
       </Article.Narrow>
 
       <Article.Embed>
