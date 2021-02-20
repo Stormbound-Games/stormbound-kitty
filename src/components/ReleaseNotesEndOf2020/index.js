@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CardLink from '../CardLink'
+import CheapenedBrawl from '../CheapenedBrawl'
 import FAQSection from '../FAQSection'
 import Image from '../Image'
 import Info from '../Info'
-import Only from '../Only'
 import ReleaseNotes from '../ReleaseNotes'
-import { Coins, Crowns, Rubies, Stones } from '../Resource'
+import { Coins, Rubies, Stones } from '../Resource'
 import Row from '../Row'
 import Table from '../Table'
 import Title from '../Title'
@@ -15,7 +15,6 @@ import TogglableContent from '../TogglableContent'
 import displayBundle from '../../helpers/displayBundle'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getCalendarValue from '../../helpers/getCalendarValue'
-import { MILESTONES } from '../../constants/brawl'
 import rewards from './rewards'
 
 export default React.memo(function ReleaseNotesEndOf2020(props) {
@@ -113,57 +112,16 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
 
         <Title id='cheapened-brawl'>Cheapened Brawl</Title>
 
-        <p>
-          Similar to{' '}
-          <Link to='/releases/11-2020#cheapened-braawl'>
-            what happened in November
-          </Link>
-          , the Brawl starting on December 24th (and only that one) is going to
-          be cheaper. All fight will cost 50% of their original price.
-          <Only.Desktop>
-            {' '}
-            Here are the adjusted values for every milestone:
-          </Only.Desktop>
-        </p>
-
-        <Only.Desktop>
-          <Article.Embed>
-            <Table>
-              <thead>
-                <tr>
-                  <th>Required crowns</th>
-                  <th>Cost per match</th>
-                  <th>Reward once reached</th>
-                </tr>
-              </thead>
-              <tbody>
-                {MILESTONES.map(milestone => {
-                  const cost = Math.ceil(Math.ceil(milestone.cost / 2) / 5) * 5
-                  return (
-                    <tr key={milestone.crowns}>
-                      <td>
-                        <Crowns amount={milestone.crowns} />
-                      </td>
-                      <td>
-                        <Coins amount={cost} /> ({-1 * (milestone.cost - cost)})
-                      </td>
-                      <td>{getRewardLabel(milestone, true)}</td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </Table>
-          </Article.Embed>
-        </Only.Desktop>
-
-        <Info icon='equalizer' title='Brawl calculator'>
+        <CheapenedBrawl ratio={1 / 2}>
           <p>
-            To calculate how far you can go with a given amount of coins, or how
-            much it will cost you to reach a certain milestone, be sure to use
-            the <Link to='/calculators/brawl'>Brawl calculator</Link>. It makes
-            it possible to define a certain Brawl discount as well (here 50%).
+            Similar to{' '}
+            <Link to='/releases/11-2020#cheapened-braawl'>
+              what happened in November
+            </Link>
+            , the Brawl starting on December 24th (and only that one) is going
+            to be cheaper. All fight will cost 50% of their original price.
           </p>
-        </Info>
+        </CheapenedBrawl>
 
         <Title id='daily-check-in-calendar'>Daily check-in calendar</Title>
 

@@ -5,15 +5,12 @@ import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import CardLink from '../CardLink'
 import FAQSection from '../FAQSection'
 import Info from '../Info'
-import Only from '../Only'
 import ReleaseNotes from '../ReleaseNotes'
-import { Coins, Crowns, Rubies, Stones } from '../Resource'
+import { Coins, Rubies, Stones } from '../Resource'
 import Row from '../Row'
-import Table from '../Table'
 import Title from '../Title'
-import { MILESTONES } from '../../constants/brawl'
-import getRewardLabel from '../../helpers/getRewardLabel'
 import getInitialCardData from '../../helpers/getInitialCardData'
+import CheapenedBrawl from '../CheapenedBrawl'
 
 export default React.memo(function ReleaseNotesNovember2020(props) {
   return (
@@ -157,49 +154,15 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
       <Article.Narrow>
         <Title id='cheapened-brawl'>Cheapened Brawl</Title>
 
-        <p>
-          Similar to what happened for the{' '}
-          <Link to='/releases/3rd-anniversary'>third anniversary</Link>, the
-          Brawl starting on November 5th (and only that one) is going to be
-          cheaper. All fight will cost 50% of their original price.
-          <Only.Desktop>
-            {' '}
-            Here are the adjusted values for every milestone:
-          </Only.Desktop>
-        </p>
+        <CheapenedBrawl ratio={(1 / 3) * 2}>
+          <p>
+            Similar to what happened for the{' '}
+            <Link to='/releases/3rd-anniversary'>third anniversary</Link>, the
+            Brawl starting on November 5th (and only that one) is going to be
+            cheaper. All fight will cost 50% of their original price.
+          </p>
+        </CheapenedBrawl>
 
-        <Only.Desktop>
-          <Article.Embed>
-            <Table>
-              <thead>
-                <tr>
-                  <th>Required crowns</th>
-                  <th>Cost per match</th>
-                  <th>Reward once reached</th>
-                </tr>
-              </thead>
-              <tbody>
-                {MILESTONES.map(milestone => {
-                  const cost = Math.ceil(Math.ceil(milestone.cost / 2) / 5) * 5
-                  return (
-                    <tr key={milestone.crowns}>
-                      <td>
-                        <Crowns amount={milestone.crowns} />
-                      </td>
-                      <td>
-                        <Coins amount={cost} /> ({-1 * (milestone.cost - cost)})
-                      </td>
-                      <td>{getRewardLabel(milestone, true)}</td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </Table>
-          </Article.Embed>
-        </Only.Desktop>
-      </Article.Narrow>
-
-      <Article.Narrow>
         <Title id='exclusive-promotions'>Exclusive promotions</Title>
 
         <p>

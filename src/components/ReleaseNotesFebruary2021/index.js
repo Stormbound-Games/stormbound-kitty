@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
+import CheapenedBrawl from '../CheapenedBrawl'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import FAQSection from '../FAQSection'
 import Image from '../Image'
 import Info from '../Info'
-import Only from '../Only'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
-import { Coins, Crowns, Rubies, Stones } from '../Resource'
+import { Coins, Rubies, Stones } from '../Resource'
 import Table from '../Table'
 import Title from '../Title'
 import TogglableContent from '../TogglableContent'
@@ -17,7 +17,6 @@ import displayBundle from '../../helpers/displayBundle'
 import getCalendarValue from '../../helpers/getCalendarValue'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getInitialCardData from '../../helpers/getInitialCardData'
-import { MILESTONES } from '../../constants/brawl'
 import rewards from './rewards'
 
 export default React.memo(function ReleaseNotesFebruary2021(props) {
@@ -146,59 +145,14 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
       </Article.Embed>
 
       <Article.Narrow>
-        <Title id='cheapened-brawl'>Cheapened Brawl</Title>
-
-        <p>
-          Similar to what happened in{' '}
-          <Link to='/releases/11-2020'>November</Link>, the Brawl starting on
-          February 11th (and only that one) is going to be cheaper. All fight
-          will cost two thirds of their original price.
-          <Only.Desktop>
-            {' '}
-            Here are the adjusted values for every milestone:
-          </Only.Desktop>
-        </p>
-
-        <Only.Desktop>
-          <Article.Embed>
-            <Table>
-              <thead>
-                <tr>
-                  <th>Required crowns</th>
-                  <th>Cost per match</th>
-                  <th>Reward once reached</th>
-                </tr>
-              </thead>
-              <tbody>
-                {MILESTONES.map(milestone => {
-                  const cost =
-                    Math.ceil(Math.ceil((milestone.cost / 3) * 2) / 5) * 5
-                  return (
-                    <tr key={milestone.crowns}>
-                      <td>
-                        <Crowns amount={milestone.crowns} />
-                      </td>
-                      <td>
-                        <Coins amount={cost} /> ({-1 * (milestone.cost - cost)})
-                      </td>
-                      <td>{getRewardLabel(milestone, true)}</td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </Table>
-          </Article.Embed>
-        </Only.Desktop>
-
-        <Info icon='equalizer' title='Brawl calculator'>
+        <CheapenedBrawl ratio={(1 / 3) * 2}>
           <p>
-            To calculate how far you can go with a given amount of coins, or how
-            much it will cost you to reach a certain milestone, be sure to use
-            the <Link to='/calculators/brawl'>Brawl calculator</Link>. It makes
-            it possible to define a certain Brawl discount as well (here 33%
-            discount).
+            Similar to what happened in{' '}
+            <Link to='/releases/11-2020'>November</Link>, the Brawl starting on
+            February 11th (and only that one) is going to be cheaper. All fight
+            will cost two thirds of their original price.
           </p>
-        </Info>
+        </CheapenedBrawl>
 
         <Title id='daily-check-in-calendar'>Daily check-in calendar</Title>
 
