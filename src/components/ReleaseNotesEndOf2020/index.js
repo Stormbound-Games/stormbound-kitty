@@ -110,8 +110,6 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
           <Stones amount='0/2/5/10/20' />.
         </Info>
 
-        <Title id='cheapened-brawl'>Cheapened Brawl</Title>
-
         <CheapenedBrawl ratio={1 / 2}>
           <p>
             Similar to{' '}

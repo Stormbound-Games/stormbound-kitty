@@ -152,8 +152,6 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
       </Article.Embed>
 
       <Article.Narrow>
-        <Title id='cheapened-brawl'>Cheapened Brawl</Title>
-
         <CheapenedBrawl ratio={(1 / 3) * 2}>
           <p>
             Similar to what happened for the{' '}
