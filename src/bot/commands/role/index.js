@@ -2,6 +2,7 @@ import getEmbed from '../../../helpers/getEmbed'
 import toSentence from '../../../helpers/toSentence'
 
 const LEAGUE_ROLES = [
+  'Heroes',
   'Diamond',
   'Platinum',
   'Gold',
