@@ -10,7 +10,6 @@ const base = index =>
 
 /**
  * Generate a drawing sequence of length `draws` for given index
- * @param {Number} index - Index
  * @param {Number} draws - Amount of draws in a book
  * @return {Number[]} Drawing sequence
  */
