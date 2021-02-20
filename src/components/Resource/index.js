@@ -10,7 +10,8 @@ const Resource = React.memo(function Resource({ amount, resource }) {
       &nbsp;{amount.toString().replace(THOUSANDS, ',')}&nbsp;
       {resource === 'COIN' && (amount === 1 ? 'coin' : 'coins')}
       {resource === 'RUBY' && (amount === 1 ? 'ruby' : 'rubies')}
-      {resource === 'ELO' && (amount === 1 ? 'elo crown' : 'elo crowns')}
+      {resource === 'HERO_CROWN' &&
+        (amount === 1 ? 'Hero Crown' : 'Hero Crowns')}
       {resource === 'CROWN' && (amount === 1 ? 'crown' : 'crowns')}
       {resource === 'MYTHIC' && (amount === 1 ? 'Mythic Tome' : 'Mythic Tomes')}
       {resource === 'STONE' &&
