@@ -1,9 +1,9 @@
 import { BOOKS, RARITIES, RARITY_COPIES } from '../../constants/game'
 import arrayPad from '../arrayPad'
-import countCardsForRarity from '../countCardsForRarity'
+import countCards from '../countCards'
 import getDrawingSequences from '../getDrawingSequences'
 
-const CARD_COUNTS = Object.keys(RARITIES).map(countCardsForRarity)
+const CARD_COUNTS = Object.keys(RARITIES).map(rarity => countCards({ rarity }))
 
 /**
  * Return an array of sequences filled with 0 and 1 where 0 means the card in
