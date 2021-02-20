@@ -1,5 +1,5 @@
 import { RARITIES, BOOKS } from '../../constants/game'
-import countCardsForRarity from '../countCardsForRarity'
+import countCards from '../countCards'
 import getDrawingSequences from '../getDrawingSequences'
 
 /**
@@ -10,8 +10,10 @@ import getDrawingSequences from '../getDrawingSequences'
  * @return {Float} Probability between 0 and 1
  */
 const getProbability = (bookType, expectations) => {
-  const cardCounts = Object.keys(RARITIES).map(countCardsForRarity)
-  const { draws, percentiles } = BOOKS[bookType]
+  const { draws, percentiles, only } = BOOKS[bookType]
+  const cardCounts = Object.keys(RARITIES).map(rarity =>
+    countCards({ ...only, rarity })
+  )
 
   return sequence => {
     const pools = cardCounts.slice(0)
@@ -19,6 +21,7 @@ const getProbability = (bookType, expectations) => {
 
     for (let i = 0; i < draws; i++) {
       const rarity = sequence[i]
+      if (pools[rarity] === 0) return 0
       probability *= percentiles[rarity]
       probability *= (pools[rarity] - expectations[rarity]) / pools[rarity]
       pools[rarity] -= 1
@@ -40,18 +43,15 @@ const getDrawingProbability = (bookType, expectations) => {
 
   // If an expected card is from a rarity that cannot be found in the given book
   // (e.g. a common card in a Mythic book), set this rarity expectation to 0
-  expectations = expectations.map((expectation, index) => {
-    return percentiles[index] === 0 ? 0 : expectation
-  })
+  expectations = expectations.map((expectation, index) =>
+    percentiles[index] === 0 ? 0 : expectation
+  )
 
   // If there are no expectations (either because there were none to begin with
   // or because the expectations did not match the book type capabilities),
   // return early with a null probability
-  if (expectations.every(expectation => expectation === 0)) {
-    return 0
-  }
-
   if (
+    expectations.every(expectation => expectation === 0) ||
     percentiles.some(
       (percentile, index) => percentile === 0 && expectations[index] !== 0
     )

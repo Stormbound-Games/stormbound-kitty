@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { RARITIES, BOOKS, PRE_MADE_EXPECTATIONS } from '../../constants/game'
+import { RARITIES, BOOKS, EXPECTATIONS } from '../../constants/game'
 import BookExplanation from '../BookExplanation'
 import BookOutcome from '../BookOutcome'
 import HeaderBanner from '../HeaderBanner'
@@ -13,7 +13,8 @@ import Title from '../Title'
 import TogglableContent from '../TogglableContent'
 import CardLink from '../CardLink'
 import capitalise from '../../helpers/capitalise'
-import countCardsForRarity from '../../helpers/countCardsForRarity'
+import countCards from '../../helpers/countCards'
+import getBookName from '../../helpers/getBookName'
 import './index.css'
 
 const clamp = (min, value, max) => Math.min(Math.max(Number(value), 0), max)
@@ -38,7 +39,7 @@ export default React.memo(function BooksCalculator(props) {
         : clamp(
             0,
             Number(value),
-            countCardsForRarity(Object.keys(RARITIES)[index])
+            countCards({ rarity: Object.keys(RARITIES)[index] })
           ),
       ...expectations.slice(index + 1),
     ])
@@ -92,7 +93,7 @@ export default React.memo(function BooksCalculator(props) {
                 >
                   {Object.keys(BOOKS).map(book => (
                     <option key={book} value={book}>
-                      {capitalise(book.toLowerCase())}
+                      {getBookName(book)}
                     </option>
                   ))}
                 </select>
@@ -108,9 +109,9 @@ export default React.memo(function BooksCalculator(props) {
                   data-testid='target-select'
                   disabled={isAdvancedMode}
                 >
-                  {Object.keys(PRE_MADE_EXPECTATIONS).map(option => (
+                  {Object.keys(EXPECTATIONS).map(option => (
                     <option key={option} value={option}>
-                      {PRE_MADE_EXPECTATIONS[option].label}
+                      {EXPECTATIONS[option].label}
                     </option>
                   ))}
                 </select>
@@ -149,7 +150,7 @@ export default React.memo(function BooksCalculator(props) {
                   <label htmlFor='target-common'>Common cards</label>
                   <NumberInput
                     min={0}
-                    max={countCardsForRarity('common')}
+                    max={countCards({ rarity: 'common' })}
                     name='target-common'
                     id='target-common'
                     onChange={setCommonExpectation}
@@ -160,7 +161,7 @@ export default React.memo(function BooksCalculator(props) {
                   <label htmlFor='target-rare'>Rare cards</label>
                   <NumberInput
                     min={0}
-                    max={countCardsForRarity('rare')}
+                    max={countCards({ rarity: 'rare' })}
                     name='target-rare'
                     id='target-rare'
                     onChange={setRareExpectation}
@@ -173,7 +174,7 @@ export default React.memo(function BooksCalculator(props) {
                   <label htmlFor='target-epic'>Epic cards</label>
                   <NumberInput
                     min={0}
-                    max={countCardsForRarity('epic')}
+                    max={countCards({ rarity: 'epic' })}
                     name='target-epic'
                     id='target-epic'
                     onChange={setEpicExpectation}
@@ -184,7 +185,7 @@ export default React.memo(function BooksCalculator(props) {
                   <label htmlFor='target-legendary'>Legendary cards</label>
                   <NumberInput
                     min={0}
-                    max={countCardsForRarity('legendary')}
+                    max={countCards({ rarity: 'legendary' })}
                     name='target-legendary'
                     id='target-legendary'
                     onChange={setLegendaryExpectation}

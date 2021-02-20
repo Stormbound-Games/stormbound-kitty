@@ -1,4 +1,4 @@
-import countCardsForRarity from '../helpers/countCardsForRarity'
+import countCards from '../helpers/countCards'
 
 export const FACTIONS = {
   neutral: 'N',
@@ -68,35 +68,89 @@ export const BOOKS = {
   CLASSIC: { percentiles: [0.7, 0.25, 0.04, 0.01], draws: 6 },
   NOBLE: { percentiles: [0.7, 0.25, 0.04, 0.01], draws: 3 },
   HUMBLE: { percentiles: [0.7, 0.25, 0.04, 0.01], draws: 1 },
+  PIRATE: {
+    only: { race: 'pirate' },
+    percentiles: [0.55, 0.25, 0.15, 0.05],
+    draws: 3,
+  },
+  FELINE: {
+    only: { race: 'feline' },
+    percentiles: [0.5, 0.3, 0.15, 0.05],
+    draws: 3,
+  },
+  ELDER: {
+    only: { elder: true },
+    percentiles: [0.5, 0.3, 0.15, 0.05],
+    draws: 3,
+  },
+  DRAGON: {
+    only: { race: 'dragon' },
+    percentiles: [0.2, 0.6, 0.2, 0],
+    draws: 3,
+  },
+  LEGENDARY_DRAGON: {
+    only: { race: 'dragon' },
+    percentiles: [0, 0, 0.7, 0.3],
+    draws: 3,
+  },
 }
 
-export const PRE_MADE_EXPECTATIONS = {
-  FUSION_STONES: { label: 'Fusion stones', expectations: [1, 1, 1, 1] },
+export const EXPECTATIONS = {
+  FUSION_STONES: {
+    label: 'Fusion stones',
+    getExpectations: () => [1, 1, 1, 1],
+  },
   SPECIFIC_COMMON: {
     label: 'a specific common card',
-    expectations: [1, 0, 0, 0],
+    getExpectations: () => [1, 0, 0, 0],
   },
-  SPECIFIC_RARE: { label: 'a specific rare card', expectations: [0, 1, 0, 0] },
-  SPECIFIC_EPIC: { label: 'a specific epic card', expectations: [0, 0, 1, 0] },
+  SPECIFIC_RARE: {
+    label: 'a specific rare card',
+    getExpectations: () => [0, 1, 0, 0],
+  },
+  SPECIFIC_EPIC: {
+    label: 'a specific epic card',
+    getExpectations: () => [0, 0, 1, 0],
+  },
   SPECIFIC_LEGENDARY: {
     label: 'a specific legendary card',
-    expectations: [0, 0, 0, 1],
+    getExpectations: () => [0, 0, 0, 1],
   },
   ANY_COMMON: {
     label: 'any common card',
-    expectations: [countCardsForRarity('common'), 0, 0, 0],
+    getExpectations: criteria => [
+      countCards({ ...criteria, rarity: 'common' }),
+      0,
+      0,
+      0,
+    ],
   },
   ANY_RARE: {
     label: 'any rare card',
-    expectations: [0, countCardsForRarity('rare'), 0, 0],
+    getExpectations: criteria => [
+      0,
+      countCards({ ...criteria, rarity: 'rare' }),
+      0,
+      0,
+    ],
   },
   ANY_EPIC: {
     label: 'any epic card',
-    expectations: [0, 0, countCardsForRarity('epic'), 0],
+    getExpectations: criteria => [
+      0,
+      0,
+      countCards({ ...criteria, rarity: 'epic' }),
+      0,
+    ],
   },
   ANY_LEGENDARY: {
     label: 'any legendary card',
-    expectations: [0, 0, 0, countCardsForRarity('legendary')],
+    getExpectations: criteria => [
+      0,
+      0,
+      0,
+      countCards({ ...criteria, rarity: 'legendary' }),
+    ],
   },
 }
 

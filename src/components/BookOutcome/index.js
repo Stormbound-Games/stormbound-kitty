@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { PRE_MADE_EXPECTATIONS } from '../../constants/game'
+import { BOOKS, EXPECTATIONS } from '../../constants/game'
 import { CollectionContext } from '../CollectionProvider'
 import Info from '../Info'
 import Only from '../Only'
@@ -37,13 +37,14 @@ export default React.memo(function BookOutcome(props) {
   const expectedCoins = useExpectedCoins(props.book)
   const subject = props.isAdvancedMode
     ? 'at least one of the cards you want'
-    : PRE_MADE_EXPECTATIONS[props.target].label.toLowerCase()
+    : EXPECTATIONS[props.target].label.toLowerCase()
   const expectations = props.expectations.map(a => a || 0)
+  const bookExpectations = EXPECTATIONS[props.target].getExpectations(
+    BOOKS[props.book].only
+  )
   const chances = getDrawingProbability(
     props.book,
-    props.isAdvancedMode
-      ? expectations
-      : PRE_MADE_EXPECTATIONS[props.target].expectations
+    props.isAdvancedMode ? expectations : bookExpectations
   )
 
   return (

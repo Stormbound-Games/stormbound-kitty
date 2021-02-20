@@ -1,5 +1,5 @@
 import getDrawingProbability from '../getDrawingProbability'
-import { PRE_MADE_EXPECTATIONS } from '../../constants/game'
+import { EXPECTATIONS } from '../../constants/game'
 
 const RARITY_STONES = {
   COMMON: 5,
@@ -14,7 +14,7 @@ const getAverageStonesPerBook = bookType =>
       total +
       getDrawingProbability(
         bookType,
-        PRE_MADE_EXPECTATIONS['SPECIFIC_' + rarity].expectations
+        EXPECTATIONS['SPECIFIC_' + rarity].getExpectations()
       ) *
         RARITY_STONES[rarity],
     0

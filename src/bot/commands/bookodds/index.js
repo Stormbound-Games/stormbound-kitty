@@ -1,18 +1,18 @@
-import { RARITIES, BOOKS, PRE_MADE_EXPECTATIONS } from '../../../constants/game'
+import { RARITIES, BOOKS, EXPECTATIONS } from '../../../constants/game'
 import capitalise from '../../../helpers/capitalise'
 import getDrawingProbability from '../../../helpers/getDrawingProbability'
 import searchCards from '../../../helpers/searchCards'
 import getEmbed from '../../../helpers/getEmbed'
 
 const getEmbedFields = book => {
-  const stoneOdds = PRE_MADE_EXPECTATIONS.FUSION_STONES.expectations
+  const stoneOdds = EXPECTATIONS.FUSION_STONES.getExpectations()
   const fields = []
 
-  Object.keys(RARITIES).forEach((rarity, index) => {
+  Object.keys(RARITIES).forEach(rarity => {
     const anyKey = 'ANY_' + rarity.toUpperCase()
     const specificKey = 'SPECIFIC_' + rarity.toUpperCase()
-    const anyOdds = PRE_MADE_EXPECTATIONS[anyKey].expectations
-    const specificOdds = PRE_MADE_EXPECTATIONS[specificKey].expectations
+    const anyOdds = EXPECTATIONS[anyKey].getExpectations(book.only)
+    const specificOdds = EXPECTATIONS[specificKey].getExpectations(book.only)
 
     fields.push({
       name: `Any ${rarity} card`,
@@ -83,7 +83,7 @@ export default {
     const fsOdds =
       getDrawingProbability(
         book,
-        PRE_MADE_EXPECTATIONS.FUSION_STONES.expectations
+        EXPECTATIONS.FUSION_STONES.getExpectations()
       ) * 100
     const fsLine = `- ${fsOdds.toFixed(2)}% chances to draw **Fusion stones**`
 
@@ -105,11 +105,11 @@ export default {
     // If the target happens to be a card, compute the odds to draw a specific
     // card of the card’s rarity, and provide a custom answer.
     if (target.id) {
+      const rarity = target.rarity.toUpperCase()
       const odds =
         getDrawingProbability(
           book,
-          PRE_MADE_EXPECTATIONS['SPECIFIC_' + target.rarity.toUpperCase()]
-            .expectations
+          EXPECTATIONS['SPECIFIC_' + rarity].getExpectations(book.only)
         ) * 100
 
       embed.setTitle(embed.title + ' · ' + target.name)

@@ -11,7 +11,7 @@ import chunk from '../../helpers/chunk'
 import indexArray from '../../helpers/indexArray'
 import useLazyLoad from '../../hooks/useLazyLoad'
 
-const books = [...Object.keys(BOOKS), 'ELDER'].map(book => ({
+const books = Object.keys(BOOKS).map(book => ({
   name: capitalise(book.toLowerCase()) + ' book',
   id: book,
   image: '/assets/images/books/book-' + book.toLowerCase() + '.png',
