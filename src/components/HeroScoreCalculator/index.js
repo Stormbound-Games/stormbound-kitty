@@ -3,6 +3,7 @@ import Radio from '../Radio'
 import HeaderBanner from '../HeaderBanner'
 import Title from '../Title'
 import NumberInput from '../NumberInput'
+import PageMeta from '../PageMeta'
 import Row from '../Row'
 import getHeroScore from '../../helpers/getHeroScore'
 import './index.css'
@@ -190,6 +191,11 @@ const HeroScoreCalculator = props => {
           </div>
         </Row.Column>
       </Row>
+
+      <PageMeta
+        title='Hero Score Calculator'
+        description='Figure out how to optimize your Hero Score in the Heroes League with this elo rating inspired calculator!'
+      />
     </>
   )
 }
