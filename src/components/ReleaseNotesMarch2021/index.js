@@ -13,6 +13,7 @@ import Row from '../Row'
 import { Coins, EloCrowns, Rubies, Stones } from '../Resource'
 import Title from '../Title'
 import getInitialCardData from '../../helpers/getInitialCardData'
+import { getRarityColor } from '../../helpers/getRarity'
 
 export default React.memo(function ReleaseNotesMarch2021(props) {
   return (
@@ -21,7 +22,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
           March, bringing balance changes, new cards, new avatars, some UI
-          improvements, some exclusive offers as usual and most important, the
+          improvements, some exclusive offers as usual and most importantly, the
           Heroes League!
         </p>
 
@@ -43,6 +44,9 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           </li>
           <li>
             <a href='#ui-improvements'>UI improvements</a>
+          </li>
+          <li>
+            <a href='#asking-for-help'>Asking for help</a>
           </li>
           <li>
             <a href='#faq'>FAQ</a>
@@ -82,9 +86,12 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <Title id='new-cards'>New cards</Title>
 
         <p>
-          On February 26th will be released Temple of Space, a new Ironclad
-          structure. On March 19th will be added a common dragon card called
-          Flameless Lizards.
+          On February 26th, the next temple card will be released—Temple of
+          Space, a new{' '}
+          <span style={{ color: getRarityColor('legendary', 'bright') }}>
+            legendary
+          </span>{' '}
+          Ironclad structure with an interesting teleportation mechanic.
         </p>
       </Article.Narrow>
 
@@ -92,20 +99,31 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <CardBuilderCardDisplay {...getInitialCardData('I29')} />
       </Article.Embed>
 
+      <Article.Narrow>
+        <p>
+          On March 19th, the very first common dragon card will be
+          introduced—Flameless Lizards.
+        </p>
+      </Article.Narrow>
+
       <Article.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N82')} />
       </Article.Embed>
 
       <Article.Narrow>
-        <p>As usual, two exclusive $9.99 packs will be available:</p>
+        <p>
+          As usual, two exclusive packs will be available for 7 days starting
+          from their respective release date:
+        </p>
         <ul>
           <li>
-            Flameless Lizards pack ($9.99): 10 copies of <CardLink id='N82' />,
-            as well as <Stones amount={5} /> and <Coins amount={750} />.
+            The Flameless Lizards pack ($9.99): 10 copies of{' '}
+            <CardLink id='N82' />, as well as <Stones amount={5} /> and{' '}
+            <Coins amount={750} />.
           </li>
           <li>
-            Temple of Space pack ($9.99): 1 copy of <CardLink id='I29' />, as
-            well as <Stones amount={5} /> and <Coins amount={750} />.
+            The Temple of Space pack ($9.99): 1 copy of <CardLink id='I29' />,
+            as well as <Stones amount={5} /> and <Coins amount={750} />.
           </li>
         </ul>
       </Article.Narrow>
@@ -329,13 +347,11 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           <EloCalculator />
         </Info>
 
-        <Title id='cheapened-brawl'>Cheapened Brawl</Title>
-
         <CheapenedBrawl ratio={(1 / 3) * 2}>
           <p>
-            To apologize for the server issues during the last discounted Brawl,
-            we decided to make the Brawl starting on February 25th cheaper: all
-            matches will cost two thirds of their original price!
+            To apologise for the server issues during the last discounted Brawl,
+            we decided to make the Brawl starting on February 25th cheaper as
+            well: all matches will cost two thirds of their original price!
           </p>
         </CheapenedBrawl>
 
