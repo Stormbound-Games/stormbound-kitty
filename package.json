@@ -55,7 +55,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@cypress/react": "^5.0.1",
+    "@cypress/react": "^4.16.4",
     "asyncro": "^3.0.0",
     "cypress": "^6.6.0",
     "eslint": "^7.20.0",
