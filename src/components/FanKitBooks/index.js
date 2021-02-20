@@ -6,13 +6,13 @@ import Loader from '../Loader'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import { BOOKS } from '../../constants/game'
-import capitalise from '../../helpers/capitalise'
+import getBookName from '../../helpers/getBookName'
 import chunk from '../../helpers/chunk'
 import indexArray from '../../helpers/indexArray'
 import useLazyLoad from '../../hooks/useLazyLoad'
 
 const books = Object.keys(BOOKS).map(book => ({
-  name: capitalise(book.toLowerCase()) + ' book',
+  name: getBookName(book) + ' book',
   id: book,
   image:
     '/assets/images/books/book-' +

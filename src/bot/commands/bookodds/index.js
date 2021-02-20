@@ -3,6 +3,7 @@ import capitalise from '../../../helpers/capitalise'
 import getDrawingProbability from '../../../helpers/getDrawingProbability'
 import searchCards from '../../../helpers/searchCards'
 import getEmbed from '../../../helpers/getEmbed'
+import getBookName from '../../../helpers/getBookName'
 
 const getEmbedFields = book => {
   const stoneOdds = EXPECTATIONS.FUSION_STONES.getExpectations()
@@ -74,7 +75,7 @@ export default {
     // anything if it’s not provided.
     if (!book) return
 
-    const bookName = capitalise(book.toLowerCase())
+    const bookName = getBookName(book)
     const embed = getEmbed()
       .setTitle(`${this.label}: ${bookName}`)
       .setURL('https://stormbound-kitty.com/calculators/books')

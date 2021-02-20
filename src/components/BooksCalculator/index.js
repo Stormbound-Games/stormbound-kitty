@@ -12,7 +12,6 @@ import Row from '../Row'
 import Title from '../Title'
 import TogglableContent from '../TogglableContent'
 import CardLink from '../CardLink'
-import capitalise from '../../helpers/capitalise'
 import countCards from '../../helpers/countCards'
 import getBookName from '../../helpers/getBookName'
 import './index.css'
@@ -137,7 +136,7 @@ export default React.memo(function BooksCalculator(props) {
               <p>
                 Define how many different cards of any rarity you are looking
                 for to know the odds of finding at least some of them when
-                opening a {capitalise(book.toLowerCase())} book.
+                opening a {getBookName(book)} book.
               </p>
               <p>
                 For instance, if you’re looking for a copy of{' '}
@@ -214,7 +213,7 @@ export default React.memo(function BooksCalculator(props) {
             <Image
               src={'/assets/images/books/book-' + book.toLowerCase() + '.png'}
               className='BooksCalculator__book'
-              alt={capitalise(book.toLowerCase()) + ' book'}
+              alt={getBookName(book) + ' book'}
               withAvif
             />
           </Row.Column>

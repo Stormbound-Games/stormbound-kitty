@@ -54,7 +54,7 @@ export default React.memo(function BookOutcome(props) {
         {props.isAdvancedMode && expectations.join('') === '0000' ? (
           <p>
             Define how many different cards you need of each rarity to get the
-            odds of drawing at least one of them in a {bookName}.
+            odds of drawing at least one of them in a {bookName} book.
           </p>
         ) : Number(chances) === 0 ? (
           <p>
