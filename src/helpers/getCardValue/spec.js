@@ -741,10 +741,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Fortification Tonic', () => {
     const value1 = getCardValue('I3', 1)
     const value5 = getCardValue('I3', 5)
-    expect(value1[0]).to.equal((1 * 1) / 2)
-    expect(value1[1]).to.equal((1 * 8) / 2)
-    expect(value5[0]).to.equal((5 * 1) / 2)
-    expect(value5[1]).to.equal((5 * 8) / 2)
+    expect(value1[0]).to.equal((2 * 1) / 3)
+    expect(value1[1]).to.equal((2 * 8) / 3)
+    expect(value5[0]).to.equal((6 * 1) / 3)
+    expect(value5[1]).to.equal((6 * 8) / 3)
   })
 
   it('should return value for Ozone Purifiers', () => {

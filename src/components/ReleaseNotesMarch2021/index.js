@@ -66,7 +66,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <ul>
           <li>
             <CardLink id='I3' />
-            ’s ability now grants 1/2/3/4/5 strength (down from 2/3/4/5/6).
+            ’s mana cost is now 3 on all levels (up from 2).
           </li>
           <li>
             <CardLink id='F28' />’ strength is now 4/5/7/9/12 (down from

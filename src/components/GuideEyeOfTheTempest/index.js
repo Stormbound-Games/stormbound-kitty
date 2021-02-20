@@ -53,7 +53,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
         originally was before it got nerfed twice.
       </p>
       <p>
-        Just for the record, Ironclad has free <CardLink id='I3' /> available,
+        Just for the record, Ironclad has 1-mana <CardLink id='I3' /> available,
         but the rest of their spell lineup is not looking too strong comparably,
         so I would not expect to see much of them.
       </p>
