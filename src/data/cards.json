@@ -1458,10 +1458,10 @@
     "race": null,
     "rarity": "legendary",
     "image": "temple_of_space.png",
-    "mana": 2,
-    "strength": "2/3/4/5/6",
+    "mana": 3,
+    "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "TBA"
+    "ability": "When played with a friendly copy on the board, teleport 3/4/5/6/7 surrounding units from it, then destroy both temples. Otherwise, return to the hand."
   },
   {
     "name": "Brood Sages",
