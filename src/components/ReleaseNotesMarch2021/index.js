@@ -369,11 +369,11 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             </p>
 
             <p>
-              There will also be a dozen new avatars for everyone including
-              Siren of the Seas, Dopplebocks, Stoic Protectors, Snake Eyes,
-              Doctor Mia, First Mutineer, Dreadfauns, Laurus King in Exile,
-              Bigthrust Tigers, Agents in Charge, Bluesail Raiders and
-              Mystwives.
+              There will also be a dozen new avatars costing{' '}
+              <Coins amount={1000} /> including Siren of the Seas, Dopplebocks,
+              Stoic Protectors, Snake Eyes, Doctor Mia, First Mutineer,
+              Dreadfauns, Laurus King in Exile, Bigthrust Tigers, Agents in
+              Charge, Bluesail Raiders and Mystwives.
             </p>
 
             <p>
