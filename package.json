@@ -56,9 +56,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@cypress/react": "^5.0.1",
     "asyncro": "^3.0.0",
     "cypress": "^6.1.0",
-    "cypress-react-unit-test": "^4.16.9",
     "eslint": "^7.20.0",
     "husky": "^4.3.0",
     "imagemin": "^7.0.1",
