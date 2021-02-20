@@ -204,10 +204,10 @@ describe('The `getCardValue` helper', () => {
     const types = Object.keys(RACES).length + 2
     const value1 = getCardValue('N23', 1)
     const value5 = getCardValue('N23', 5)
-    expect(value1[0]).to.equal((-2 * types) / 2)
-    expect(value1[1]).to.equal((2 * types) / 2)
-    expect(value5[0]).to.equal((-6 * types) / 2)
-    expect(value5[1]).to.equal((6 * types) / 2)
+    expect(value1[0]).to.equal((-2 * types) / 3)
+    expect(value1[1]).to.equal((2 * types) / 3)
+    expect(value5[0]).to.equal((-6 * types) / 3)
+    expect(value5[1]).to.equal((6 * types) / 3)
   })
 
   it('should return value for Personal Servers', () => {
@@ -741,10 +741,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Fortification Tonic', () => {
     const value1 = getCardValue('I3', 1)
     const value5 = getCardValue('I3', 5)
-    expect(value1[0]).to.equal((2 * 1) / 2)
-    expect(value1[1]).to.equal((2 * 8) / 2)
-    expect(value5[0]).to.equal((6 * 1) / 2)
-    expect(value5[1]).to.equal((6 * 8) / 2)
+    expect(value1[0]).to.equal((1 * 1) / 2)
+    expect(value1[1]).to.equal((1 * 8) / 2)
+    expect(value5[0]).to.equal((5 * 1) / 2)
+    expect(value5[1]).to.equal((5 * 8) / 2)
   })
 
   it('should return value for Ozone Purifiers', () => {
@@ -1218,10 +1218,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Hairy Chestnuts', () => {
     const value1 = getCardValue('F28', 1)
     const value5 = getCardValue('F28', 5)
-    expect(value1[0]).to.equal((5 / 6) * 0.5)
-    expect(value1[1]).to.equal(((5 + 2 * 1) / 6) * 0.5)
-    expect(value5[0]).to.equal((13 / 6) * 0.5)
-    expect(value5[1]).to.equal(((13 + 2 * 3) / 6) * 0.5)
+    expect(value1[0]).to.equal((4 / 6) * 0.5)
+    expect(value1[1]).to.equal(((4 + 2 * 1) / 6) * 0.5)
+    expect(value5[0]).to.equal((12 / 6) * 0.5)
+    expect(value5[1]).to.equal(((12 + 2 * 3) / 6) * 0.5)
   })
 
   it('should return value for Doppelbocks', () => {
