@@ -8,23 +8,25 @@ const DEFAULT_BANNER = '/assets/images/wallpapers/lite/wp-d-1.png'
 // automatically generated for all files with a script (although is sometimes
 // larger than PNG, hence the need for a way out), while the AVIF version needs
 // to be done by hand for every image.
-const useFileExtension = ({ withAvif, withoutWebp }) => {
+const useFileExtension = ({ fileType, withAvif, withoutWebp }) => {
   const { supportsWebp, supportsAvif } = React.useContext(ImageSupportContext)
 
   if (supportsAvif && withAvif) return 'avif'
   if (supportsWebp && !withoutWebp) return 'webp'
-  return 'png'
+  return fileType
 }
 
 export default React.memo(function HeaderBanner(props) {
+  const fileType = props.background?.split('.').pop() ?? 'png'
   const ext = useFileExtension({
     // The `DEFAULT_BANNER` image has an AVIF version ready, so if there is no
     // background provided, it means the default banner will be used, and AVIF
     // can be used.
     withAvif: props.withAvif || !props.background,
     withoutWebp: props.withoutWebp,
+    fileType: fileType,
   })
-  const background = (props.background || DEFAULT_BANNER).replace('png', ext)
+  const background = (props.background || DEFAULT_BANNER).replace(fileType, ext)
 
   return (
     <header
