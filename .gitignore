@@ -11,3 +11,5 @@ coverage
 public/sitemap.xml
 .vscode
 .eslintcache
+# Local Netlify folder
+.netlify
