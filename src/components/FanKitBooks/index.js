@@ -14,7 +14,10 @@ import useLazyLoad from '../../hooks/useLazyLoad'
 const books = Object.keys(BOOKS).map(book => ({
   name: capitalise(book.toLowerCase()) + ' book',
   id: book,
-  image: '/assets/images/books/book-' + book.toLowerCase() + '.png',
+  image:
+    '/assets/images/books/book-' +
+    book.toLowerCase().replace(/_/g, '-') +
+    '.png',
 }))
 
 const BOOKS_INDEX = indexArray(books)
