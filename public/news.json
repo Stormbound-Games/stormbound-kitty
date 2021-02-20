@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Heroes Update",
+    "description": "Heroes, assemble! The Heroes League is about to open its doors, and with it endless rewards and battles!",
+    "link": "/releases/03-2021"
+  },
+  {
     "intro": "Valentine Update",
     "description": "Valentine’s Day is around the corner, and so is a new release with balance changes, a new card and player profiles!",
     "link": "/releases/02-2021"
