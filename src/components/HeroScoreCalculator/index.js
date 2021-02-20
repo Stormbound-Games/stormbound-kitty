@@ -15,7 +15,7 @@ const HeroScoreCalculator = props => {
     <Row desktopOnly>
       <Row.Column>
         <p>
-          <label htmlFor='current'>Current Elo ranking</label>
+          <label htmlFor='current'>Current Hero Score</label>
           <NumberInput
             id='current'
             name='current'
@@ -26,7 +26,7 @@ const HeroScoreCalculator = props => {
           />
         </p>
         <p>
-          <label htmlFor='current'>Opponent’s Elo ranking</label>
+          <label htmlFor='current'>Opponent’s Hero Score</label>
           <NumberInput
             id='opponent'
             name='opponent'
@@ -48,8 +48,8 @@ const HeroScoreCalculator = props => {
             required
           >
             <option value='40'>40 (first 30 ranked matches)</option>
-            <option value='20'>20 (ranking below 2400)</option>
-            <option value='10'>10 (once ranked above 2400)</option>
+            <option value='20'>20 (scoring below 2400)</option>
+            <option value='10'>10 (once scored above 2400)</option>
           </select>
         </p>
         <p>
@@ -63,7 +63,7 @@ const HeroScoreCalculator = props => {
           </Checkbox>
         </p>
         <p>
-          Expected new Elo ranking: <span className='Highlight'>{outcome}</span>
+          Expected new Hero Score: <span className='Highlight'>{outcome}</span>
         </p>
       </Row.Column>
     </Row>

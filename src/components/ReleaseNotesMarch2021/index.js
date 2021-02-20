@@ -46,9 +46,6 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             <a href='#ui-improvements'>UI improvements</a>
           </li>
           <li>
-            <a href='#asking-for-help'>Asking for help</a>
-          </li>
-          <li>
             <a href='#faq'>FAQ</a>
           </li>
         </ol>
@@ -246,12 +243,12 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <p>
           When entering the Diamond league, every player is granted{' '}
           <HeroCrowns amount={1000} /> to start with. As they progress through
-          Diamond, they already collect (or loose) Hero Crowns (see below). When
-          finally passing Diamond 1 and entering the Heroes League, the amount
-          of Hero Crowns collected represents the Hero Score—provided it is
-          above 1000. If the Diamond progress was difficult and a player was to
-          enter Heroes League with less than <HeroCrowns amount={1000} />, their
-          score would be set to 1000.
+          Diamond, they already collect (or loose) Hero Crowns (see calculations
+          below). When finally passing Diamond 1 and entering the Heroes League,
+          the amount of Hero Crowns collected represents the current Hero
+          Score—provided it is above 1000. If the Diamond progress was difficult
+          and a player was to enter Heroes League with less than{' '}
+          <HeroCrowns amount={1000} />, their score would be set to 1000.
         </p>
 
         <img
@@ -275,15 +272,15 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             and one Legendary Dragon tome (worth <Rubies amount={260} /> total).
           </li>
           <li>
-            The other players in the top 10 will earn a Mythic tome and a Feline
-            tome (worth <Rubies amount={140} /> total).
+            The 9 other players in the top 10 will earn a Mythic tome and a
+            Feline tome (worth <Rubies amount={140} /> total).
           </li>
           <li>
-            The other players in the top 100 will earn a Heroic tome and a
+            The 90 other players in the top 100 will earn a Heroic tome and a
             common dragon card (worth <Rubies amount={100} /> total).
           </li>
           <li>
-            The other players in the top 500 will earn a Pirate tome (worth{' '}
+            The 400 other players in the top 500 will earn a Pirate tome (worth{' '}
             <Rubies amount={60} /> total).
           </li>
         </ul>
@@ -291,19 +288,19 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <hr />
 
         <p>
-          The formula used to determine the new Hero Score (
+          The formula used to determine the new Hero Score (named{' '}
           <var className='Highlight'>
-            R<sub>n</sub>
+            S<sub>n</sub>
           </var>
-          ) from the old Hero Score (
+          ) from the old Hero Score ( named{' '}
           <var className='Highlight'>
-            R<sub>o</sub>
+            S<sub>o</sub>
           </var>
           ) at the end of a ranked battle goes as follow:
         </p>
 
         <img
-          src='/assets/images/releases/elo_formula.png'
+          src='/assets/images/releases/hero_score_formula.png'
           alt='Hero Score computing formula'
         />
 
@@ -312,18 +309,18 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <ul style={{ marginBottom: '3em' }}>
           <li>
             <var className='Highlight'>
-              R<sub>n</sub>
+              S<sub>n</sub>
             </var>{' '}
             is the new Hero Score
           </li>
           <li>
             <var className='Highlight'>
-              R<sub>o</sub>
+              S<sub>o</sub>
             </var>{' '}
             is the old Hero Score
           </li>
           <li>
-            <var className='Highlight'>K</var> is the coefficient factor: it is
+            <var className='Highlight'>C</var> is the coefficient factor: it is
             worth 40 for new players until they have played 30 matches in
             Diamond, 20 for players rated below 2400, and 10 for players who
             ever reached 2400, regardless of their current Hero Score
@@ -333,9 +330,9 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             for a loss
           </li>
           <li>
-            <var className='Highlight'>dr</var> is the difference between the
-            two player’s Hero Score and is capped to 400 too much fluctuations
-            in case of uneven matchmaking
+            <var className='Highlight'>sd</var> is the difference between the
+            two player’s Hero Score and is capped to 400 to avoid causing too
+            much fluctuations in case of uneven matchmaking
           </li>
         </ul>
 
@@ -426,6 +423,13 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
               question: 'Can I be in both Diamond and Heroes?',
               answer:
                 'No, you are either in the Diamond league or in the Heroes league, but never both. However, when you are in Diamond, you are already ranking but your score is not taken into consideration on the Heroes league leaderboard.',
+            },
+            {
+              id: 'platinum-and-heroes',
+              question:
+                'Can I start increasing my Hero Score while in Platinum?',
+              answer:
+                'No, amongst all regular leagues, only the Diamond one takes the Hero Score into consideration.',
             },
             {
               id: 'crowns-count',
