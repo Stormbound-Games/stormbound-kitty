@@ -446,7 +446,10 @@
     "season": 2,
     "week": 8,
     "name": "Faction Felines II",
-    "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
+    "winner": {
+      "author": "Giraudy",
+      "id": "STtFO1U7RTs1OzA7NC81LzYvNy84O0JyYXNzaGVhcnQlMjBMZW9wYXJkcztodHRwcyUzQSUyRiUyRmkuaW1ndXIuY29tJTJGWGdhMno2bS5qcGc7SWYlMjB0aGUlMjBvbmx5JTIwYm9yZGVyaW5nJTIwZnJpZW5kbHklMjB1bml0JTIwdHlwZSUyMGlzJTIwY29uc3RydWN0JTJDJTIwZ2FpbiUyMDIlMkYyJTJGMyUyRjMlMkY0JTIwc3RyZW5ndGglMkMlMjBpZiUyMGl0JTIwaXMlMjByb2RlbnQlMjBnYWluJTIwMiUyMHNwZWVkOzs="
+    }
   },
   {
     "season": 2,
