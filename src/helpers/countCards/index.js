@@ -6,15 +6,16 @@ const matchElder = elder => card => !elder || card.elder
 
 const cache = new Map()
 
-const countCards = criteria => {
+const countCards = (criteria, countFusionStones = true) => {
   const key = Object.values(criteria).sort().join(',')
 
   if (cache.has(key)) return cache.get(key)
 
-  const count = cards
-    .filter(matchRace(criteria.race))
-    .filter(matchRarity(criteria.rarity))
-    .filter(matchElder(criteria.elder)).length
+  const count =
+    cards
+      .filter(matchRace(criteria.race))
+      .filter(matchRarity(criteria.rarity))
+      .filter(matchElder(criteria.elder)).length + Number(countFusionStones)
 
   cache.set(key, count)
 
