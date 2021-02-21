@@ -314,6 +314,15 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           </li>
         </ul>
 
+        <Info icon='equalizer' title='Income Calculator'>
+          <p>
+            This is your friendly reminder that we have a nice{' '}
+            <Link to='/calculators/income'>income calculator</Link> to figure
+            out how many resources you make across a given time frame. It has
+            been updated with this release’s changes already!
+          </p>
+        </Info>
+
         <hr />
 
         <p>
