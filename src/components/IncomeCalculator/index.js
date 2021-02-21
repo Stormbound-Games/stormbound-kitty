@@ -24,6 +24,10 @@ import capitalise from '../../helpers/capitalise'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getAverageStonesPerBook from '../../helpers/getAverageStonesPerBook'
 import getCostForMilestone from '../../helpers/getCostForMilestone'
+import getPeriodMultiplier from '../../helpers/getPeriodMultiplier'
+import getMonthlyChestReward from '../../helpers/getMonthlyChestReward'
+import getWinCoins from '../../helpers/getWinCoins'
+import getWeeklyBrawlReward from '../../helpers/getWeeklyBrawlReward'
 import './index.css'
 
 const DEFAULT_STATE = { coins: 0, rubies: 0, stones: 0, cards: [0, 0, 0, 0] }
@@ -35,34 +39,8 @@ const SELECT_LENGTH_MULTIPLIER = {
   YEARLY: '1.1ch',
 }
 
-const getMultiplier = period => {
-  switch (period) {
-    case 'YEARLY':
-      return 365.25
-    case 'MONTHLY':
-      return 365.25 / 12
-    case 'WEEKLY':
-      return 7
-    case 'DAILY':
-    default:
-      return 1
-  }
-}
-
-const getWinCoins = setup => {
-  switch (setup) {
-    case 'MOBILE_WITHOUT_ADS':
-      return 5
-    case 'MOBILE_WITH_ADS':
-      return 20
-    case 'STEAM_OR_WEB':
-      return 10
-    default:
-      return 1
-  }
-}
-
 const CLIMBING_CARDS = {
+  HEROES: [],
   DIAMOND: [0, 1, 2, 1, 3],
   PLATINUM: [0, 1, 2, 1, 2],
   GOLD: [0, 1, 0, 1, 2],
@@ -71,86 +49,63 @@ const CLIMBING_CARDS = {
   IRON: [0, 0, 0, 0, 1],
 }
 
-const BRAWL_REWARDS = [
-  {
-    stones: getAverageStonesPerBook('HUMBLE'),
-    cards: [
-      BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[0],
-      BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[1],
-      BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[2],
-      BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[3],
-    ],
-  },
-  { rubies: 5 },
-  {
-    stones: getAverageStonesPerBook('CLASSIC'),
-    cards: [
-      BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[0],
-      BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[1],
-      BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[2],
-      BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[3],
-    ],
-  },
-  { stones: 10 },
-  {
-    stones: getAverageStonesPerBook('MYTHIC'),
-    cards: [
-      BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[0],
-      BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[1],
-      BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[2],
-      BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[3],
-    ],
-  },
-  { cards: [0, 0, 0, 1] },
-  { stones: 50 },
-  { rubies: 250 },
-  { cards: [0, 0, 0, 5] },
-  { stones: 200 },
-]
-
-const getMonthlyChestReward = league => {
-  switch (league) {
-    case 'HEROES':
-      return { coins: 3000, rubies: 100, stones: 7.5, cards: [20, 16, 8, 3] }
-    case 'DIAMOND':
-      return { coins: 1800, rubies: 50, stones: 7.5, cards: [14, 12, 6, 2] }
-    case 'PLATINUM':
-      return { coins: 1200, rubies: 30, stones: 0, cards: [12, 9, 4, 1] }
-    case 'GOLD':
-      return { coins: 800, rubies: 20, stones: 0, cards: [10, 6, 3, 0] }
-    case 'SILVER':
-      return { coins: 500, rubies: 10, stones: 0, cards: [7, 4, 2, 0] }
-    case 'BRONZE':
-      return { coins: 300, rubies: 5, stones: 0, cards: [5, 2, 1, 0] }
-    case 'IRON':
-      return { coins: 150, rubies: 0, stones: 0, cards: [3, 1, 0, 0] }
-    default:
-      return { ...DEFAULT_STATE, cards: [...DEFAULT_STATE.cards] }
-  }
+const RUBY_CONVERSION_MAP = {
+  CARD_SHOP: 20,
+  CLASSIC: 20,
+  DRAGON: 60,
+  ELDER: 60,
+  FELINE: 60,
+  HEROIC: 40,
+  LEGENDARY_DRAGON: 120,
+  MYTHIC: 80,
+  PIRATE: 60,
 }
 
-const getWeeklyBrawlReward = milestone => {
-  const rewards = { ...DEFAULT_STATE, cards: [...DEFAULT_STATE.cards] }
+// Open a book and add the resulting cards and possible fusion stones to the
+// current income, recalibrated over the given period if any.
+const addTomeToIncome = (income, type, period = 'DAILY') => {
+  const { draws, percentiles } = BOOKS[type]
+  const multiplier = getPeriodMultiplier(period)
 
-  for (let i = 0; i <= milestone; i += 1) {
-    const reward = BRAWL_REWARDS[i]
+  income.stones += getAverageStonesPerBook(type)
+  income.cards[0] += (draws * percentiles[0]) / multiplier
+  income.cards[1] += (draws * percentiles[1]) / multiplier
+  income.cards[2] += (draws * percentiles[2]) / multiplier
+  income.cards[3] += (draws * percentiles[3]) / multiplier
+}
 
-    if (reward.coins) rewards.coins += reward.coins
-    if (reward.rubies) rewards.rubies += reward.rubies
-    if (reward.stones) rewards.stones += reward.stones
-    if (reward.cards) {
-      rewards.cards[0] += reward.cards[0]
-      rewards.cards[1] += reward.cards[1]
-      rewards.cards[2] += reward.cards[2]
-      rewards.cards[3] += reward.cards[3]
-    }
+// Convert income’s rubies into a certain type of purchase (certain books or
+// epic cards from the shop).
+const convertRubies = (income, type) => {
+  if (!(type in RUBY_CONVERSION_MAP)) return
+
+  const cost = RUBY_CONVERSION_MAP[type]
+  const count = Math.floor(income.rubies / cost)
+
+  income.rubies -= count * cost
+
+  if (type === 'CARD_SHOP') income.cards[2] += count
+  else for (let i = 0; i < count; i += 1) addTomeToIncome(income, type)
+}
+
+const addHeroRewards = (income, heroesPosition, period = 'MONTHLY') => {
+  if (heroesPosition === 'TOP_1') {
+    addTomeToIncome(income, 'MYTHIC', period)
+    addTomeToIncome(income, 'LEGENDARY_DRAGON', period)
+  } else if (heroesPosition === 'TOP_10') {
+    addTomeToIncome(income, 'MYTHIC', period)
+    addTomeToIncome(income, 'FELINE', period)
+  } else if (heroesPosition === 'TOP_100') {
+    addTomeToIncome(income, 'HEROIC', period)
+    addTomeToIncome(income, 'DRAGON', period)
+  } else if (heroesPosition === 'TOP_500') {
+    addTomeToIncome(income, 'PIRATE', period)
   }
-
-  return rewards
 }
 
 const getDailyIncome = ({
   brawlCost,
+  heroesPosition,
   league,
   milestone,
   preferTier3Stones,
@@ -164,17 +119,24 @@ const getDailyIncome = ({
   const chest = getMonthlyChestReward(league)
 
   // Recalibrate the monthly chest rewards to daily rewards
-  income.coins += chest.coins / getMultiplier('MONTHLY')
-  income.rubies += chest.rubies / getMultiplier('MONTHLY')
-  income.stones += chest.stones / getMultiplier('MONTHLY')
+  income.coins += chest.coins / getPeriodMultiplier('MONTHLY')
+  income.rubies += chest.rubies / getPeriodMultiplier('MONTHLY')
+  income.stones += chest.stones / getPeriodMultiplier('MONTHLY')
   chest.cards.forEach((cards, index) => {
-    income.cards[index] += cards / getMultiplier('MONTHLY')
+    income.cards[index] += cards / getPeriodMultiplier('MONTHLY')
   })
 
-  // Consider the cards earned from climbing on a monthly basis
+  // Similarly, recalibrate any potential hero rewards to daily rewards and make
+  // sure one does not set a heroes position, before changing league field back
+  // to something lower, which would cause calculation errors
+  if (league === 'HEROES' && heroesPosition !== 'NOT_RANKED') {
+    addHeroRewards(income, heroesPosition)
+  }
+
+  // Consider the cards earned from climbing on a monthly basis (if any)
   if (league && rank) {
     CLIMBING_CARDS[league].slice(0, 5 - rank + 1).forEach(rank => {
-      income.cards[rank] += 1 / getMultiplier('MONTHLY')
+      income.cards[rank] += 1 / getPeriodMultiplier('MONTHLY')
     })
   }
 
@@ -182,21 +144,17 @@ const getDailyIncome = ({
   if (milestone !== '') {
     const brawl = getWeeklyBrawlReward(milestone)
 
-    income.coins += brawl.coins / getMultiplier('WEEKLY')
-    income.coins -= brawlCost / getMultiplier('WEEKLY')
-    income.rubies += brawl.rubies / getMultiplier('WEEKLY')
-    income.stones += brawl.stones / getMultiplier('WEEKLY')
+    income.coins += brawl.coins / getPeriodMultiplier('WEEKLY')
+    income.coins -= brawlCost / getPeriodMultiplier('WEEKLY')
+    income.rubies += brawl.rubies / getPeriodMultiplier('WEEKLY')
+    income.stones += brawl.stones / getPeriodMultiplier('WEEKLY')
     brawl.cards.forEach((cards, index) => {
-      income.cards[index] += cards / getMultiplier('WEEKLY')
+      income.cards[index] += cards / getPeriodMultiplier('WEEKLY')
     })
   }
 
   if (withDailyHumble) {
-    income.stones += getAverageStonesPerBook('HUMBLE')
-    income.cards[0] += BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[0]
-    income.cards[1] += BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[1]
-    income.cards[2] += BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[2]
-    income.cards[3] += BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[3]
+    addTomeToIncome(income, 'HUMBLE')
   }
 
   if (withDailyQuests) {
@@ -214,51 +172,14 @@ const getDailyIncome = ({
 }
 
 const getPeriodIncome = (income, period, rubiesConversion) => {
-  const multiplier = getMultiplier(period)
+  const multiplier = getPeriodMultiplier(period)
 
   income.coins *= multiplier
   income.rubies *= multiplier
   income.stones *= multiplier
   income.cards = income.cards.map(prob => prob * multiplier)
 
-  if (rubiesConversion === 'MYTHIC') {
-    const books = Math.floor(income.rubies / 80)
-    income.rubies -= books * 80
-
-    for (let i = 0; i < books; i += 1) {
-      income.stones += getAverageStonesPerBook('MYTHIC')
-      income.cards[0] += BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[0]
-      income.cards[1] += BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[1]
-      income.cards[2] += BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[2]
-      income.cards[3] += BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[3]
-    }
-  } else if (rubiesConversion === 'HEROIC') {
-    const books = Math.floor(income.rubies / 40)
-    income.rubies -= books * 40
-
-    for (let i = 0; i < books; i += 1) {
-      income.stones += getAverageStonesPerBook('HEROIC')
-      income.cards[0] += BOOKS.HEROIC.draws * BOOKS.HEROIC.percentiles[0]
-      income.cards[1] += BOOKS.HEROIC.draws * BOOKS.HEROIC.percentiles[1]
-      income.cards[2] += BOOKS.HEROIC.draws * BOOKS.HEROIC.percentiles[2]
-      income.cards[3] += BOOKS.HEROIC.draws * BOOKS.HEROIC.percentiles[3]
-    }
-  } else if (rubiesConversion === 'CLASSIC') {
-    const books = Math.floor(income.rubies / 20)
-    income.rubies -= books * 20
-
-    for (let i = 0; i < books; i += 1) {
-      income.stones += getAverageStonesPerBook('CLASSIC')
-      income.cards[0] += BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[0]
-      income.cards[1] += BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[1]
-      income.cards[2] += BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[2]
-      income.cards[3] += BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[3]
-    }
-  } else if (rubiesConversion === 'CARD_SHOP') {
-    const cards = Math.floor(income.rubies / 20)
-    income.rubies -= cards * 20
-    income.cards[2] += cards
-  }
+  convertRubies(income, rubiesConversion)
 
   return income
 }
@@ -271,6 +192,7 @@ export default React.memo(function IncomeCalculator(props) {
   const [rank, setRank] = React.useState('')
   const [milestone, setMilestone] = React.useState('')
   const [brawlCost, setBrawlCost] = React.useState(0)
+  const [heroesPosition, setHeroesPosition] = React.useState('NOT_RANKED')
   const [rubiesConversion, setRubiesConversion] = React.useState('NONE')
   const [preferTier3Stones, setPreferTier3Stones] = React.useState(false)
   const [withDailyHumble, setWithDailyHumble] = React.useState(false)
@@ -278,6 +200,7 @@ export default React.memo(function IncomeCalculator(props) {
   const income = getPeriodIncome(
     getDailyIncome({
       brawlCost,
+      heroesPosition,
       league,
       milestone,
       preferTier3Stones,
@@ -370,6 +293,7 @@ export default React.memo(function IncomeCalculator(props) {
                 onChange={event => setLeague(event.target.value)}
               >
                 <option value=''>Select a league</option>
+                <option value='HEROES'>Heroes</option>
                 <option value='DIAMOND'>Diamond</option>
                 <option value='PLATINUM'>Platinum</option>
                 <option value='GOLD'>Gold</option>
@@ -384,6 +308,7 @@ export default React.memo(function IncomeCalculator(props) {
                 name='rank'
                 id='rank'
                 value={rank}
+                disabled={league === 'HEROES'}
                 onChange={event => setRank(event.target.value)}
               >
                 <option value=''>Select a rank</option>
@@ -431,6 +356,22 @@ export default React.memo(function IncomeCalculator(props) {
           </Row>
           <Row desktopOnly>
             <Row.Column>
+              <label htmlFor='rubies-conversion'>Heroes Position</label>
+              <select
+                id='heroes-position'
+                name='heroes-position'
+                value={heroesPosition}
+                disabled={league !== 'HEROES'}
+                onChange={event => setHeroesPosition(event.target.value)}
+              >
+                <option value='NOT_RANKED'>Not within top 500</option>
+                <option value='TOP_500'>Top 500</option>
+                <option value='TOP_100'>Top 100</option>
+                <option value='TOP_10'>Top 10</option>
+                <option value='TOP_1'>Top 1</option>
+              </select>
+            </Row.Column>
+            <Row.Column>
               <label htmlFor='rubies-conversion'>Convert rubies to</label>
               <select
                 id='rubies-conversion'
@@ -442,10 +383,14 @@ export default React.memo(function IncomeCalculator(props) {
                 <option value='MYTHIC'>Mythic Tomes</option>
                 <option value='HEROIC'>Heroic Tomes</option>
                 <option value='CLASSIC'>Classic Tomes</option>
+                <option value='FELINE'>Feline Tomes</option>
+                <option value='ELDER'>Elder Tomes</option>
+                <option value='PIRATE'>Pirate Tomes</option>
+                <option value='DRAGON'>Dragon Tomes</option>
+                <option value='LEGENDARY_DRAGON'>Legendary Dragon Tomes</option>
                 <option value='CARD_SHOP'>Card Shop Epics</option>
               </select>
             </Row.Column>
-            <Row.Column />
           </Row>
           <Checkbox
             id='with-daily-quests'
