@@ -4,6 +4,38 @@ import './index.css'
 
 export default React.memo(function ResourceIcon(props) {
   switch (props.resource) {
+    case 'COMMON':
+      return (
+        <Image
+          className='ResourceIcon'
+          src='/assets/images/card/rarity-common.png'
+          alt='common card'
+        />
+      )
+    case 'RARE':
+      return (
+        <Image
+          className='ResourceIcon'
+          src='/assets/images/card/rarity-rare.png'
+          alt='rare card'
+        />
+      )
+    case 'EPIC':
+      return (
+        <Image
+          className='ResourceIcon'
+          src='/assets/images/card/rarity-epic.png'
+          alt='epic card'
+        />
+      )
+    case 'LEGENDARY':
+      return (
+        <Image
+          className='ResourceIcon'
+          src='/assets/images/card/rarity-legendary.png'
+          alt='legendary card'
+        />
+      )
     case 'COIN':
       return (
         <Image

@@ -19,6 +19,11 @@ const Resource = React.memo(function Resource({ amount, resource }) {
       {resource === 'MYTHIC' && (amount === 1 ? 'Mythic Tome' : 'Mythic Tomes')}
       {resource === 'STONE' &&
         (amount === 1 ? 'fusion stone' : 'fusion stones')}
+      {resource === 'COMMON' && (amount === 1 ? 'common card' : 'common cards')}
+      {resource === 'RARE' && (amount === 1 ? 'rare card' : 'rare cards')}
+      {resource === 'EPIC' && (amount === 1 ? 'epic card' : 'epic cards')}
+      {resource === 'LEGENDARY' &&
+        (amount === 1 ? 'legendary card' : 'legendary cards')}
     </>
   )
 })
@@ -41,4 +46,17 @@ export const Stones = React.memo(function Stones(props) {
 
 export const Rubies = React.memo(function Rubies(props) {
   return <Resource resource='RUBY' {...props} />
+})
+
+export const Common = React.memo(function Common(props) {
+  return <Resource resource='COMMON' {...props} />
+})
+export const Rare = React.memo(function Rare(props) {
+  return <Resource resource='RARE' {...props} />
+})
+export const Epic = React.memo(function Epic(props) {
+  return <Resource resource='EPIC' {...props} />
+})
+export const Legendary = React.memo(function Legendary(props) {
+  return <Resource resource='LEGENDARY' {...props} />
 })
