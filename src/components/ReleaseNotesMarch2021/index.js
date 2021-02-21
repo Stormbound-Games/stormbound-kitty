@@ -178,7 +178,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           Five new books will make their entrance in the next update: the former
           Dragon and Feline tomes (revisited), but also a Legendary Dragon tome,
           an Elder tome and a Pirate tome. They all contain 3 cards and cost{' '}
-          <Rubies amount={60} />, except the Legendary Dragon one which costs{' '}
+          <Rubies amount={60} />, except the Legendary Dragon tome which costs{' '}
           <Rubies amount={120} />.
         </p>
 
@@ -277,7 +277,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           </li>
           <li>
             The 90 other players in the top 100 will earn a Heroic tome and a
-            common dragon card (worth <Rubies amount={100} /> total).
+            Dragon tome (worth <Rubies amount={100} /> total).
           </li>
           <li>
             The 400 other players in the top 500 will earn a Pirate tome (worth{' '}
