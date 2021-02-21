@@ -11,7 +11,15 @@ import Row from '../Row'
 import Title from '../Title'
 import { MILESTONES } from '../../constants/brawl'
 import { BOOKS } from '../../constants/game'
-import { Coins, Rubies, Stones } from '../Resource'
+import {
+  Common,
+  Rare,
+  Epic,
+  Legendary,
+  Coins,
+  Rubies,
+  Stones,
+} from '../Resource'
 import capitalise from '../../helpers/capitalise'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getAverageStonesPerBook from '../../helpers/getAverageStonesPerBook'
@@ -510,40 +518,16 @@ export default React.memo(function IncomeCalculator(props) {
             <p>As well as:</p>
             <ul>
               <li>
-                <img
-                  className='IncomeCalculator__rarity'
-                  src={`/assets/images/card/rarity-common.png`}
-                  alt=''
-                />{' '}
-                {income.cards[0].toFixed(2)} common card
-                {income.cards[0] < 2 ? '' : 's'}
+                <Common amount={Number(income.cards[0].toFixed(2))} />
               </li>
               <li>
-                <img
-                  className='IncomeCalculator__rarity'
-                  src={`/assets/images/card/rarity-rare.png`}
-                  alt=''
-                />{' '}
-                {income.cards[1].toFixed(2)} rare card
-                {income.cards[1] < 2 ? '' : 's'}
+                <Rare amount={Number(income.cards[1].toFixed(2))} />
               </li>
               <li>
-                <img
-                  className='IncomeCalculator__rarity'
-                  src={`/assets/images/card/rarity-epic.png`}
-                  alt=''
-                />{' '}
-                {income.cards[2].toFixed(2)} epic card
-                {income.cards[2] < 2 ? '' : 's'}
+                <Epic amount={Number(income.cards[2].toFixed(2))} />
               </li>
               <li>
-                <img
-                  className='IncomeCalculator__rarity'
-                  src={`/assets/images/card/rarity-legendary.png`}
-                  alt=''
-                />{' '}
-                {income.cards[3].toFixed(2)} legendary card
-                {income.cards[3] < 2 ? '' : 's'}
+                <Legendary amount={Number(income.cards[3].toFixed(2))} />
               </li>
             </ul>
           </div>

@@ -7,7 +7,7 @@ import FAQSection from '../FAQSection'
 import Image from '../Image'
 import Info from '../Info'
 import ReleaseNotes from '../ReleaseNotes'
-import { Coins, Rubies, Stones } from '../Resource'
+import { Rare, Epic, Legendary, Coins, Rubies, Stones } from '../Resource'
 import Row from '../Row'
 import Table from '../Table'
 import Title from '../Title'
@@ -201,8 +201,9 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
             <Coins amount={500} />
           </li>
           <li>
-            <span className='Highlight'>Helpful Elf pack</span> ($19.99): 20
-            rare cards + 15 epic cards + 10 legendary cards
+            <span className='Highlight'>Helpful Elf pack</span> ($19.99):{' '}
+            <Rare amount={20} /> + <Epic amount={15} /> +{' '}
+            <Legendary amount={10} />
           </li>
           <li>
             <span className='Highlight'>Santa Edrik pack</span> ($49.99):{' '}

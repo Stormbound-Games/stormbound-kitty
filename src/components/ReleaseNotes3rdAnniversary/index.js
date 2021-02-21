@@ -7,7 +7,7 @@ import Notice from '../Notice'
 import Only from '../Only'
 import ReleaseNotes from '../ReleaseNotes'
 import ResourceIcon from '../ResourceIcon'
-import { Coins, Crowns, Stones, Rubies } from '../Resource'
+import { Legendary, Coins, Crowns, Stones, Rubies } from '../Resource'
 import Row from '../Row'
 import Table from '../Table'
 import Title from '../Title'
@@ -34,7 +34,8 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
         <p>
           To begin with, every player will receive a one-time bundle containing{' '}
           <Coins amount={330} />, <Rubies amount={30} /> and{' '}
-          <Stones amount={3} /> as well as one random legendary card upon login.
+          <Stones amount={3} /> as well as <Legendary amount={1} /> at random
+          upon login.
         </p>
 
         <Title id='brawl'>Brawl</Title>

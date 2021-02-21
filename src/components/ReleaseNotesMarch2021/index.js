@@ -10,7 +10,16 @@ import Info from '../Info'
 import NerfCompensationInfo from '../NerfCompensationInfo'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
-import { Coins, HeroCrowns, Rubies, Stones } from '../Resource'
+import {
+  Common,
+  Rare,
+  Epic,
+  Legendary,
+  Coins,
+  HeroCrowns,
+  Rubies,
+  Stones,
+} from '../Resource'
 import Title from '../Title'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import { getRarityColor } from '../../helpers/getRarity'
@@ -175,11 +184,10 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
       <Article.Narrow>
         <p>
-          Five new books will make their entrance in the next update: the former
-          Dragon and Feline tomes (revisited), but also a Legendary Dragon tome,
-          an Elder tome and a Pirate tome. They all contain 3 cards and cost{' '}
-          <Rubies amount={60} />, except the Legendary Dragon tome which costs{' '}
-          <Rubies amount={120} />.
+          Five new books will make their entrance in the next update: a Pirate
+          tome, a Feline tome, and Elder tome, a Dragon tome, all containing 3
+          cards and worth <Rubies amount={60} /> as well as a Legendary Dragon
+          tome with 3 cards worth <Rubies amount={120} />.
         </p>
 
         <ul>
@@ -260,10 +268,31 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <p>
           At the end of the season, players having reached the Heroes League
           will be down-ranked back to Diamond 5, their Hero Score will be reset,
-          and they will receive a Heroes League chest (20 common cards, 16 rare
-          cards, 8 epic cards and 3 legendary cards, as well as{' '}
-          <Coins amount={3000} /> and <Rubies amount={100} />) as well as
-          rewards based on their final position in the ladder as follow:
+          and they will receive a Heroes League chest containing:
+        </p>
+        <ul>
+          <li>
+            <Common amount={20} /> (+6 from Diamond)
+          </li>
+          <li>
+            <Rare amount={16} /> (+4 from Diamond)
+          </li>
+          <li>
+            <Epic amount={8} /> (+2 from Diamond)
+          </li>
+          <li>
+            <Legendary amount={3} /> (+1 from Diamond)
+          </li>
+          <li>
+            <Coins amount={3000} /> (+1200 from Diamond)
+          </li>
+          <li>
+            <Rubies amount={100} /> (+50 from Diamond)
+          </li>
+        </ul>
+        <p>
+          Players within the top 500 of the ladder will gain additional rewards
+          as follow:
         </p>
 
         <ul>

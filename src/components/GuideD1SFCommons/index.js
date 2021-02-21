@@ -10,6 +10,7 @@ import Row from '../Row'
 import Table from '../Table'
 import Title from '../Title'
 import CardLink from '../CardLink'
+import { Common, Rare } from '../Resource'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import serialisation from '../../helpers/serialisation'
 import getGuide from '../../helpers/getGuide'
@@ -57,7 +58,8 @@ export default React.memo(function GuideD1SFCommons(props) {
         originally reached Diamond with a Winter rush deck, and kept playing
         Winter for a long while. Eventually I switched to Shadowfen for a change
         of pace, but did not have a lot of options. So thanks to kind help from
-        The_mirc, I came up with a deck made of 11 common cards and 1 rare card.
+        The_mirc, I came up with a deck made of <Common amount={11} /> and{' '}
+        <Rare amount={1} />.
       </p>
       <p>
         I am still rocking that deck in Diamond 1 today, waiting for my
@@ -70,10 +72,10 @@ export default React.memo(function GuideD1SFCommons(props) {
 
       <p>
         Before we get into the gameplay and situations, let’s have a look at the
-        deck itself. As I mentioned before, it is made of 11 common cards, and 1
-        rare card. There might be a way to replace Green Prototypes with a
-        common card for the sake of having a fully common deck, but that’s for
-        another day.
+        deck itself. As I mentioned before, it is made of <Common amount={11} />
+        , and <Rare amount={1} />. There might be a way to replace Green
+        Prototypes with a common card for the sake of having a fully common
+        deck, but that’s for another day.
       </p>
 
       <Guide.FullWidth padding='120px'>
