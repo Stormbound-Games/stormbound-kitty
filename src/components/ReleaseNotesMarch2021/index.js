@@ -186,8 +186,9 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <p>
           Five new books will make their entrance in the next update: a Pirate
           tome, a Feline tome, and Elder tome, a Dragon tome, all containing 3
-          cards and worth <Rubies amount={60} /> as well as a Legendary Dragon
-          tome with 3 cards worth <Rubies amount={120} />.
+          cards of a specific type and worth <Rubies amount={60} /> as well as a
+          Legendary Dragon tome with 3 dragon cards worth{' '}
+          <Rubies amount={120} />.
         </p>
 
         <ul>
