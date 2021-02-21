@@ -14,7 +14,7 @@ const resolveAsset = idPrefix => (wallpaper, index) => ({
 })
 
 const desktopWallpapers = Array.from(
-  { length: 7 },
+  { length: 8 },
   (_, i) => 'wp-d-' + (i + 1)
 ).map(resolveAsset('DESKTOP'))
 const mobileWallpapers = Array.from(

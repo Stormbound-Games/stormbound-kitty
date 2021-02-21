@@ -217,7 +217,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
       <Article.Embed>
         <Image
-          src='/assets/images/releases/books.png'
+          src='/assets/images/wallpapers/lite/wp-d-8.png'
           alt='Showcase of all books in the game'
         />
       </Article.Embed>
