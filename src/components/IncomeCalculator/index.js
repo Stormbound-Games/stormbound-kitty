@@ -56,7 +56,7 @@ const RUBY_CONVERSION_MAP = {
   ELDER: 60,
   FELINE: 60,
   HEROIC: 40,
-  LEGENDARY_DRAGON: 120,
+  ARCHDRAGON: 120,
   MYTHIC: 80,
   PIRATE: 60,
 }
@@ -91,7 +91,7 @@ const convertRubies = (income, type) => {
 const addHeroRewards = (income, heroesPosition, period = 'MONTHLY') => {
   if (heroesPosition === 'TOP_1') {
     income.stones += 100
-    addTomeToIncome(income, 'LEGENDARY_DRAGON', period)
+    addTomeToIncome(income, 'ARCHDRAGON', period)
   } else if (heroesPosition === 'TOP_10') {
     income.stones += 50
     addTomeToIncome(income, 'FELINE', period)
@@ -388,7 +388,7 @@ export default React.memo(function IncomeCalculator(props) {
                 <option value='ELDER'>Elder Tomes</option>
                 <option value='PIRATE'>Pirate Tomes</option>
                 <option value='DRAGON'>Dragon Tomes</option>
-                <option value='LEGENDARY_DRAGON'>Legendary Dragon Tomes</option>
+                <option value='ARCHDRAGON'>Archdragon Tomes</option>
                 <option value='CARD_SHOP'>Card Shop Epics</option>
               </select>
             </Row.Column>

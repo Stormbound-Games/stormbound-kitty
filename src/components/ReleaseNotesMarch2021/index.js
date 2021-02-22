@@ -178,7 +178,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           <Row.Column width='1/5'>
             <Image
               src='/assets/images/books/book-legendary-dragon.png'
-              alt='Legendary Dragon Tome'
+              alt='Archdragon Tome'
             />
           </Row.Column>
         </Row>
@@ -189,8 +189,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           Five new books will make their entrance in the next update: a Pirate
           tome, a Feline tome, and Elder tome, a Dragon tome, all containing 3
           cards of a specific type and worth <Rubies amount={60} /> as well as a
-          Legendary Dragon tome with 3 dragon cards worth{' '}
-          <Rubies amount={120} />.
+          Archdragon tome with 3 dragon cards worth <Rubies amount={120} />.
         </p>
 
         <ul>
@@ -211,8 +210,8 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             distribution of 20/60/20/0.
           </li>
           <li>
-            <span className='Highlight'>Legendary Dragon tome</span>: 3 cards,
-            with rarity distribution of 0/0/70/30.
+            <span className='Highlight'>Archdragon tome</span>: 3 cards, with
+            rarity distribution of 0/0/70/30.
           </li>
         </ul>
       </Article.Narrow>
@@ -301,7 +300,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <ul>
           <li>
             The 1st player in the ladder will earn <Stones amount={100} />, a
-            Legendary Dragon tome and a custom avatar.
+            Archdragon tome and a custom avatar.
           </li>
           <li>
             The 9 other players in the top 10 will earn <Stones amount={50} />,
@@ -484,6 +483,13 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
               question: 'How can I check how many crowns I have?',
               answer:
                 'When you are in Diamond, you can already see your score in the Heroes League leaderboard, only it is marked with an info icon (?) that says you do not belong to this leaderboard yet.',
+            },
+            {
+              id: 'daily-check-in-calendar',
+              question:
+                'Is the daily check-in calendar going to continue in March?',
+              answer:
+                'Yes, the daily check-in calendar will continue in March, and can be boosted to Premium for $5 like previous months. The rewards are not finalized yet, but they will be similar to the ones from January and February.',
             },
           ]}
         />
