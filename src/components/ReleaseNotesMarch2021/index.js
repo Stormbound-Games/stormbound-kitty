@@ -438,8 +438,14 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             </p>
 
             <p>
-              The release will also introduce a lot of small UI tweaks here and
-              there, as well as many bugfixes, including the infamous{' '}
+              One thing to note is that already claimed first-time rewards (for
+              achieving a new rank) will no longer show up on the reward list
+              next to the rank.
+            </p>
+
+            <p>
+              The release will also introduce a lot of other small UI tweaks
+              here and there, as well as many bugfixes, including the infamous{' '}
               <Link to='/guides/known-bugs#tegor-ever-lasting-skull'>
                 Tegor death bug
               </Link>
