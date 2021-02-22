@@ -97,7 +97,9 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           <span style={{ color: getRarityColor('legendary', 'bright') }}>
             legendary
           </span>{' '}
-          Ironclad structure with an interesting teleportation mechanic.
+          Ironclad structure with an interesting teleportation mechanic (the
+          background is slightly different in game, being special for legendary
+          structures).
         </p>
       </Article.Narrow>
 
@@ -430,42 +432,22 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
             <p>
               There will also be a dozen new avatars costing{' '}
-              <Coins amount={1000} /> including Siren of the Seas, Dopplebocks,
-              Stoic Protectors, Snake Eyes, Doctor Mia, First Mutineer,
-              Dreadfauns, Laurus King in Exile, Bigthrust Tigers, Agents in
-              Charge, Bluesail Raiders and Mystwives.
+              <Coins amount={1000} /> featuring cards from the game as well as
+              14 new exclusive premium avatars which can be unlocked for{' '}
+              <Rubies amount={200} /> each!
             </p>
 
             <p>
-              Additionally, there will be 14 new exclusive premium avatars which
-              can be unlocked for <Rubies amount={200} /> each, shown below!
+              The release will also introduce a lot of small UI tweaks here and
+              there, as well as many bugfixes, including the infamous{' '}
+              <Link to='/guides/known-bugs#tegor-ever-lasting-skull'>
+                Tegor death bug
+              </Link>
+              .
             </p>
           </Row.Column>
         </Row>
       </Article.Narrow>
-
-      <Article.Embed>
-        <Row desktopOnly wideGutter>
-          <Row.Column width='1/3'>
-            <Image
-              src='/assets/images/releases/premium_avatars_female.png'
-              alt='Female premium avatars selection screen'
-            />
-          </Row.Column>
-          <Row.Column width='1/3'>
-            <Image
-              src='/assets/images/releases/premium_avatars_neutral.png'
-              alt='Neutral premium avatars selection screen'
-            />
-          </Row.Column>
-          <Row.Column width='1/3'>
-            <Image
-              src='/assets/images/releases/premium_avatars_male.png'
-              alt='Male premium avatars selection screen'
-            />
-          </Row.Column>
-        </Row>
-      </Article.Embed>
 
       <Article.Narrow>
         <FAQSection
