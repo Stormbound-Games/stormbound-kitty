@@ -12,27 +12,14 @@ const useCardBackground = ({ missing, hero, rarity, type, faction }) => {
   const base = '/assets/images/card'
   const asUrl = fileName => `url("${base}/${fileName}.${ext}")`
 
-  if (missing) {
-    return asUrl(`missing-${hero ? 'legendary-unit' : type}`)
-  }
-
-  // Only Ironclad has a legendary structure background so far.
-  if (
-    faction === 'ironclad' &&
-    rarity === 'legendary' &&
-    type === 'structure'
-  ) {
-    return asUrl('ironclad-legendary-structure')
-  }
-
   // A type check is used in favor of `hero` here as we might not want the
   // `hero` modifier to apply the aggressive hero background in the custom card
   // builder.
-  if (rarity === 'legendary' && type === 'unit') {
-    return asUrl(`${faction}-legendary-unit`)
+  if (rarity === 'legendary' && type !== 'spell') {
+    return asUrl(`${missing ? 'missing' : faction}-legendary-${type}`)
   }
 
-  return asUrl(`${faction}-${type}`)
+  return missing ? asUrl(`missing-${type}`) : asUrl(`${faction}-${type}`)
 }
 
 export default React.memo(function Card(props) {
