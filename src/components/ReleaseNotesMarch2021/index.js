@@ -489,7 +489,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             },
             {
               id: 'crowns-count',
-              question: 'How can I check how many crowns I have?',
+              question: 'How can I check how many Hero Crowns I have?',
               answer:
                 'When you are in Diamond, you can already see your score in the Heroes League leaderboard, only it is marked with an info icon (?) that says you do not belong to this leaderboard yet.',
             },
