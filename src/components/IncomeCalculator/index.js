@@ -90,15 +90,16 @@ const convertRubies = (income, type) => {
 
 const addHeroRewards = (income, heroesPosition, period = 'MONTHLY') => {
   if (heroesPosition === 'TOP_1') {
-    addTomeToIncome(income, 'MYTHIC', period)
+    income.stones += 100
     addTomeToIncome(income, 'LEGENDARY_DRAGON', period)
   } else if (heroesPosition === 'TOP_10') {
-    addTomeToIncome(income, 'MYTHIC', period)
+    income.stones += 50
     addTomeToIncome(income, 'FELINE', period)
   } else if (heroesPosition === 'TOP_100') {
-    addTomeToIncome(income, 'HEROIC', period)
+    income.stones += 25
     addTomeToIncome(income, 'DRAGON', period)
   } else if (heroesPosition === 'TOP_500') {
+    income.stones += 10
     addTomeToIncome(income, 'PIRATE', period)
   }
 }

@@ -300,20 +300,20 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
         <ul>
           <li>
-            The 1st player in the ladder will earn a Mythic tome, one Elder tome
-            and one Legendary Dragon tome (worth <Rubies amount={260} /> total).
+            The 1st player in the ladder will earn <Stones amount={100} />, a
+            Legendary Dragon tome and a custom avatar.
           </li>
           <li>
-            The 9 other players in the top 10 will earn a Mythic tome and a
-            Feline tome (worth <Rubies amount={140} /> total).
+            The 9 other players in the top 10 will earn <Stones amount={50} />,
+            a Feline tome and (to be confirmed) a custom avatar.
           </li>
           <li>
-            The 90 other players in the top 100 will earn a Heroic tome and a
-            Dragon tome (worth <Rubies amount={100} /> total).
+            The 90 other players in the top 100 will earn <Stones amount={25} />
+            , a Dragon tome and (to be confirmed) a custom avatar.
           </li>
           <li>
-            The 400 other players in the top 500 will earn a Pirate tome (worth{' '}
-            <Rubies amount={60} /> total).
+            The 400 other players in the top 500 will earn{' '}
+            <Stones amount={10} /> and a Pirate tome.
           </li>
         </ul>
 
