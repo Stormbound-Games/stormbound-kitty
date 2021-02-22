@@ -6,10 +6,40 @@ import microMarkdown from '../../helpers/microMarkdown'
 import useFluidSizing from '../../hooks/useFluidSizing'
 import './index.css'
 
+const useCardBackground = ({ missing, hero, rarity, type, faction }) => {
+  const { supportsWebp } = React.useContext(ImageSupportContext)
+  const ext = supportsWebp ? 'webp' : 'png'
+  const base = '/assets/images/card'
+  const asUrl = fileName => `url("${base}/${fileName}.${ext}")`
+
+  if (missing) {
+    return asUrl(`missing-${hero ? 'legendary-unit' : type}`)
+  }
+
+  // Only Ironclad has a legendary structure background so far.
+  if (
+    faction === 'ironclad' &&
+    rarity === 'legendary' &&
+    type === 'structure'
+  ) {
+    return asUrl('ironclad-legendary-structure')
+  }
+
+  // A type check is used in favor of `hero` here as we might not want the
+  // `hero` modifier to apply the aggressive hero background in the custom card
+  // builder.
+  if (rarity === 'legendary' && type === 'unit') {
+    return asUrl(`${faction}-legendary-unit`)
+  }
+
+  return asUrl(`${faction}-${type}`)
+}
+
 export default React.memo(function Card(props) {
   const { supportsWebp } = React.useContext(ImageSupportContext)
   const { fontSize, ref } = useFluidSizing(0.03902439024)
   const ext = supportsWebp ? 'webp' : 'png'
+  const backgroundImage = useCardBackground(props)
 
   return (
     <article
@@ -30,21 +60,7 @@ export default React.memo(function Card(props) {
       data-testid='card'
       id={[props.id, props.idx].filter(Boolean).join('_')}
     >
-      <div
-        className='Card__content'
-        style={{
-          backgroundImage: props.missing
-            ? props.hero
-              ? `url("/assets/images/card/missing-legendary-unit.${ext}")`
-              : `url("/assets/images/card/missing-${props.type}.${ext}")`
-            : // A type check is used in favor of `hero` here as we might not want
-            // the `hero` modifier to apply the aggressive hero background in
-            // the custom card builder.
-            props.rarity === 'legendary' && props.type === 'unit'
-            ? `url("/assets/images/card/${props.faction}-legendary-unit.${ext}")`
-            : `url("/assets/images/card/${props.faction}-${props.type}.${ext}")`,
-        }}
-      >
+      <div className='Card__content' style={{ backgroundImage }}>
         <header className='Card__header'>
           <div className='Card__mana'>
             <span
