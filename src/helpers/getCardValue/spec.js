@@ -1218,10 +1218,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Hairy Chestnuts', () => {
     const value1 = getCardValue('F28', 1)
     const value5 = getCardValue('F28', 5)
-    expect(value1[0]).to.equal((4 / 6) * 0.5)
-    expect(value1[1]).to.equal(((4 + 2 * 1) / 6) * 0.5)
+    expect(value1[0]).to.equal((5 / 6) * 0.5)
+    expect(value1[1]).to.equal(((5 + 2 * 1) / 6) * 0.5)
     expect(value5[0]).to.equal((12 / 6) * 0.5)
-    expect(value5[1]).to.equal(((12 + 2 * 3) / 6) * 0.5)
+    expect(value5[1]).to.equal(((12 + 2 * 2) / 6) * 0.5)
   })
 
   it('should return value for Doppelbocks', () => {

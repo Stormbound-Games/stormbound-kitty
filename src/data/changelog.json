@@ -4387,7 +4387,7 @@
   },
   {
     "date": 1614596400000,
-    "description": "Decreased strength by 1",
+    "description": "Decreased strength and ability by 1 at level 5",
     "id": "F28",
     "type": "NERF"
   },

@@ -78,8 +78,8 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             ’s mana cost is now 3 on all levels (up from 2).
           </li>
           <li>
-            <CardLink id='F28' />’ strength is now 4/5/7/9/12 (down from
-            5/6/8/10/13).
+            <CardLink id='F28' level={5} />’ strength is now 12 at level 5 (down
+            from 13) and its ability drains 2 at level 5 (down from 3).
           </li>
           <li>
             <CardLink id='N23' />

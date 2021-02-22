@@ -1827,9 +1827,9 @@
     "rarity": "epic",
     "image": "hairy_chestnuts.png",
     "mana": 6,
-    "strength": "4/5/7/9/12",
+    "strength": "5/6/8/10/12",
     "movement": 0,
-    "ability": "After surviving damage, *drain up to 1/1/2/2/3* of the damage received from the enemy base",
+    "ability": "After surviving damage, *drain up to 1/1/2/2/2* of the damage received from the enemy base",
     "elder": true
   },
   {
