@@ -262,7 +262,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <p>
           When entering the Diamond league, every player is granted{' '}
           <HeroCrowns amount={1000} /> to start with. As they progress through
-          Diamond, they already collect (or loose) Hero Crowns (see calculations
+          Diamond, they already collect (or lose) Hero Crowns (see calculations
           below). When finally passing Diamond 1 and entering the Heroes League,
           the amount of Hero Crowns collected represents the current Hero
           Score—provided it is above 1000. If the Diamond progress was difficult
