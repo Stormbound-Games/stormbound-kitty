@@ -92,12 +92,18 @@ const addHeroRewards = (income, heroesPosition, period = 'MONTHLY') => {
   if (heroesPosition === 'TOP_1') {
     income.stones += 100
     addBookToIncome(income, 'ARCHDRAGON', period)
+    addBookToIncome(income, 'FELINE', period)
+    addBookToIncome(income, 'DRAGON', period)
+    addBookToIncome(income, 'PIRATE', period)
   } else if (heroesPosition === 'TOP_10') {
     income.stones += 50
     addBookToIncome(income, 'FELINE', period)
+    addBookToIncome(income, 'DRAGON', period)
+    addBookToIncome(income, 'PIRATE', period)
   } else if (heroesPosition === 'TOP_100') {
     income.stones += 25
     addBookToIncome(income, 'DRAGON', period)
+    addBookToIncome(income, 'PIRATE', period)
   } else if (heroesPosition === 'TOP_500') {
     income.stones += 10
     addBookToIncome(income, 'PIRATE', period)
