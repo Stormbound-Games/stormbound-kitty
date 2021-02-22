@@ -9,7 +9,7 @@ describe('Routes — Releases', () => {
     })
   })
 
-  it('it should render the card changes', () => {
+  it('should render the card changes', () => {
     cy.visit('/changelog').get('main h1').should('exist')
   })
 })

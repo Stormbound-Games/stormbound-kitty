@@ -1,7 +1,7 @@
 import { BRAWLS } from '../../../src/constants/brawl'
 
 describe('Routes — Brawl', () => {
-  it('it should render the index', () => {
+  it('should render the index', () => {
     cy.visit('/brawl').get('main h1').should('exist')
   })
 

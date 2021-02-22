@@ -9,7 +9,7 @@ describe('Routes — Stories', () => {
     })
   })
 
-  it('it should render a story', () => {
+  it('should render a story', () => {
     cy.visit('/stories/lore/sisters-pact').get('main h1').should('exist')
   })
 })
