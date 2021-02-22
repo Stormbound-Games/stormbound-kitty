@@ -214,6 +214,15 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             rarity distribution of 0/0/70/30.
           </li>
         </ul>
+
+        <Info icon='equalizer' title='Book Calculator'>
+          <p>
+            If you are curious about your odds of finding a specific card or
+            type of card when opening books, remember that we have a handy{' '}
+            <Link to='/calculators/books'>book calculator</Link>. It’s also
+            available on Discord through the <code>!bookodds</code> command.
+          </p>
+        </Info>
       </Article.Narrow>
 
       <Article.Embed>
