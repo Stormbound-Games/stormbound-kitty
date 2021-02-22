@@ -35,13 +35,13 @@ export default React.memo(function Card(props) {
         style={{
           backgroundImage: props.missing
             ? props.hero
-              ? `url("/assets/images/card/missing-hero.${ext}")`
+              ? `url("/assets/images/card/missing-legendary-unit.${ext}")`
               : `url("/assets/images/card/missing-${props.type}.${ext}")`
             : // A type check is used in favor of `hero` here as we might not want
             // the `hero` modifier to apply the aggressive hero background in
             // the custom card builder.
             props.rarity === 'legendary' && props.type === 'unit'
-            ? `url("/assets/images/card/${props.faction}-hero.${ext}")`
+            ? `url("/assets/images/card/${props.faction}-legendary-unit.${ext}")`
             : `url("/assets/images/card/${props.faction}-${props.type}.${ext}")`,
         }}
       >
