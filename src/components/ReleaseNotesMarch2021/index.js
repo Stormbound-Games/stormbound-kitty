@@ -194,16 +194,16 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
         <ul>
           <li>
-            <span className='Highlight'>Elder book</span>: 3 cards, with rarity
-            distribution of 0/60/35/5.
+            <span className='Highlight'>Pirate book</span>: 3 cards, with rarity
+            distribution of 55/25/15/5.
           </li>
           <li>
             <span className='Highlight'>Feline book</span>: 3 cards, with rarity
             distribution of 50/30/15/5.
           </li>
           <li>
-            <span className='Highlight'>Pirate book</span>: 3 cards, with rarity
-            distribution of 55/25/15/5.
+            <span className='Highlight'>Elder book</span>: 3 cards, with rarity
+            distribution of 0/60/35/5.
           </li>
           <li>
             <span className='Highlight'>Dragon book</span>: 3 cards, with rarity
