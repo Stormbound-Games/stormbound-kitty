@@ -308,16 +308,16 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
         <ul>
           <li>
-            The 1st player in the ladder will earn <Stones amount={100} />, a
-            Archdragon book and a special avatar.
+            The 1st player in the ladder will earn <Stones amount={100} />, an
+            Archdragon book, a Feline book, a Dragon book and a Pirate book.
           </li>
           <li>
             The 9 other players in the top 10 will earn <Stones amount={50} />,
-            a Feline book and (to be confirmed) a special avatar.
+            a Feline book, a Dragon book and a Pirate book.
           </li>
           <li>
             The 90 other players in the top 100 will earn <Stones amount={25} />
-            , a Dragon book and (to be confirmed) a special avatar.
+            , a Dragon book and a Pirate book.
           </li>
           <li>
             The 400 other players in the top 500 will earn{' '}
