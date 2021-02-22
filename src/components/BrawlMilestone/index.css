@@ -99,8 +99,8 @@
  * 1. Reverse engineer the width from the ratio of a book.
  */
 .BrawlMilestone__asset--HUMBLE_BOOK img,
-.BrawlMilestone__asset--CLASSIC_TOME img,
-.BrawlMilestone__asset--MYTHIC_TOME img {
+.BrawlMilestone__asset--CLASSIC_BOOK img,
+.BrawlMilestone__asset--MYTHIC_BOOK img {
   width: calc(100% / 146.5 * 100); /* 1 */
   margin: auto;
   display: block;

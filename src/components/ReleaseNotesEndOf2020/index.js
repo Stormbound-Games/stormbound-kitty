@@ -197,7 +197,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
         <ul>
           <li>
             <span className='Highlight'>Christmas Tree Pack</span> ($9.99): 3
-            Mythic Tomes + 2 Heroic Tomes + 1 Classic Tome +{' '}
+            Mythic books + 2 Heroic books + 1 Classic book +{' '}
             <Coins amount={500} />
           </li>
           <li>
@@ -216,7 +216,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
           <Row.Column width='1/3'>
             <Image
               src='/assets/images/releases/christmas_pack_1.png'
-              alt='Christmas Tree Pack ($9.99): 3 Mythic Tomes + 2 Heroic Tomes + 1 Classic Tome + 500 coins'
+              alt='Christmas Tree Pack ($9.99): 3 Mythic books + 2 Heroic books + 1 Classic book + 500 coins'
             />
           </Row.Column>
           <Row.Column width='1/3'>

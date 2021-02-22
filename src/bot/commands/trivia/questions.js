@@ -1384,7 +1384,7 @@ export default [
   },
 
   {
-    question: 'What book did Noble Tome replace in the shop?',
+    question: 'What book did Noble book replace in the shop?',
     answer: 'Splendid Book',
     options: 'Superb Book,Savant’s Book,Scholar’s Book,Sacred Book'.split(','),
   },

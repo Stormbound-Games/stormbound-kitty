@@ -227,7 +227,7 @@ export default React.memo(function GuideBrawl(props) {
       <p>
         From there, it really depends how many coins you can realistically
         spend, and how successful you are at beating your opponents. Most
-        players able to reach milestone 5 (the one granting a Mythic Tome)
+        players able to reach milestone 5 (the one granting a Mythic book)
         consistently would stop there, because that is the perfect sweet spot
         between coins spent and rewards earned.
       </p>

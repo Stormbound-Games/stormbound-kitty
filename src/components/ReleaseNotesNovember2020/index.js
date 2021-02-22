@@ -176,7 +176,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
           </li>
           <li>
             The <span className='Highlight'>Trick or Treat bundle</span>: 6
-            Mythic Tomes, 6 Heroic Tomes and 6 Classic Tomes. This one-time
+            Mythic books, 6 Heroic books and 6 Classic books. This one-time
             bundle $29.99 will be available between November 1st and November
             15th.
           </li>
@@ -202,7 +202,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
           <Row.Column>
             <img
               src='/assets/images/releases/halloween_bundle.png'
-              alt='Trick or Treat bundle: 6 Mythic Tomes, 6 Heroic Tomes, 6 Classic Tomes'
+              alt='Trick or Treat bundle: 6 Mythic books, 6 Heroic books, 6 Classic books'
             />
           </Row.Column>
         </Row>

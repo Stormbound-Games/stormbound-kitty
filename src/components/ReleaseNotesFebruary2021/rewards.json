@@ -271,11 +271,11 @@
   ],
   [
     {
-      "reward": "HEROIC_TOME",
+      "reward": "HEROIC_BOOK",
       "amount": 1
     },
     {
-      "reward": "MYTHIC_TOME",
+      "reward": "MYTHIC_BOOK",
       "amount": 1
     }
   ]

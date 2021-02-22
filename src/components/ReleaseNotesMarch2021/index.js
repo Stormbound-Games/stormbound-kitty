@@ -157,28 +157,28 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           <Row.Column width='1/5'>
             <Image
               src='/assets/images/books/book-pirate.png'
-              alt='Pirate Tome'
+              alt='Pirate book'
             />
           </Row.Column>
           <Row.Column width='1/5'>
             <Image
               src='/assets/images/books/book-feline.png'
-              alt='Feline Tome'
+              alt='Feline book'
             />
           </Row.Column>
           <Row.Column width='1/5'>
-            <Image src='/assets/images/books/book-elder.png' alt='Elder Tome' />
+            <Image src='/assets/images/books/book-elder.png' alt='Elder book' />
           </Row.Column>
           <Row.Column width='1/5'>
             <Image
               src='/assets/images/books/book-dragon.png'
-              alt='Dragon Tome'
+              alt='Dragon book'
             />
           </Row.Column>
           <Row.Column width='1/5'>
             <Image
               src='/assets/images/books/book-legendary-dragon.png'
-              alt='Archdragon Tome'
+              alt='Archdragon book'
             />
           </Row.Column>
         </Row>
@@ -187,30 +187,30 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
       <Article.Narrow>
         <p>
           Five new books will make their entrance in the next update: a Pirate
-          tome, a Feline tome, and Elder tome, a Dragon tome, all containing 3
+          book, a Feline book, and Elder book, a Dragon book, all containing 3
           cards of a specific type and worth <Rubies amount={60} /> as well as a
-          Archdragon tome with 3 dragon cards worth <Rubies amount={120} />.
+          Archdragon book with 3 dragon cards worth <Rubies amount={120} />.
         </p>
 
         <ul>
           <li>
-            <span className='Highlight'>Elder tome</span>: 3 cards, with rarity
+            <span className='Highlight'>Elder book</span>: 3 cards, with rarity
             distribution of 0/60/35/5.
           </li>
           <li>
-            <span className='Highlight'>Feline tome</span>: 3 cards, with rarity
+            <span className='Highlight'>Feline book</span>: 3 cards, with rarity
             distribution of 50/30/15/5.
           </li>
           <li>
-            <span className='Highlight'>Pirate tome</span>: 3 cards, with rarity
+            <span className='Highlight'>Pirate book</span>: 3 cards, with rarity
             distribution of 55/25/15/5.
           </li>
           <li>
-            <span className='Highlight'>Dragon tome</span>: 3 cards, with rarity
+            <span className='Highlight'>Dragon book</span>: 3 cards, with rarity
             distribution of 20/60/20/0.
           </li>
           <li>
-            <span className='Highlight'>Archdragon tome</span>: 3 cards, with
+            <span className='Highlight'>Archdragon book</span>: 3 cards, with
             rarity distribution of 0/0/70/30.
           </li>
         </ul>
@@ -300,19 +300,19 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <ul>
           <li>
             The 1st player in the ladder will earn <Stones amount={100} />, a
-            Archdragon tome and a custom avatar.
+            Archdragon book and a custom avatar.
           </li>
           <li>
             The 9 other players in the top 10 will earn <Stones amount={50} />,
-            a Feline tome and (to be confirmed) a custom avatar.
+            a Feline book and (to be confirmed) a custom avatar.
           </li>
           <li>
             The 90 other players in the top 100 will earn <Stones amount={25} />
-            , a Dragon tome and (to be confirmed) a custom avatar.
+            , a Dragon book and (to be confirmed) a custom avatar.
           </li>
           <li>
             The 400 other players in the top 500 will earn{' '}
-            <Stones amount={10} /> and a Pirate tome.
+            <Stones amount={10} /> and a Pirate book.
           </li>
         </ul>
 

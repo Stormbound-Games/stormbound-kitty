@@ -19,18 +19,18 @@ const getRewardLabel = (entry, enhanced = false) => {
       ) : (
         `${amount} coin${amount === 1 ? '' : 's'}`
       )
-    case 'CLASSIC_TOME':
-      return `${amount} Classic Tome${amount === 1 ? '' : 's'}`
+    case 'CLASSIC_BOOK':
+      return `${amount} Classic book${amount === 1 ? '' : 's'}`
     case 'FUSION_STONES':
       return enhanced ? (
         <Stones amount={amount} />
       ) : (
         `${amount} fusion stone${amount === 1 ? '' : 's'}`
       )
-    case 'HEROIC_TOME':
-      return `${amount} Heroic Tome${amount === 1 ? '' : 's'}`
-    case 'MYTHIC_TOME':
-      return `${amount} Mythic Tome${amount === 1 ? '' : 's'}`
+    case 'HEROIC_BOOK':
+      return `${amount} Heroic book${amount === 1 ? '' : 's'}`
+    case 'MYTHIC_BOOK':
+      return `${amount} Mythic book${amount === 1 ? '' : 's'}`
     case 'COMMON_CARD':
       return `${amount} common card${amount === 1 ? '' : 's'}`
     case 'RARE_CARD':

@@ -152,7 +152,7 @@ export default React.memo(function GuideResources(props) {
           10).
         </li>
         <li>
-          <Link to='/calculators/books'>Sometimes in tomes and books</Link>.
+          <Link to='/calculators/books'>Sometimes in books</Link>.
         </li>
         <li>Shop purchases as part of bundles.</li>
       </ul>
@@ -178,7 +178,7 @@ export default React.memo(function GuideResources(props) {
       <p>
         Playing on mobile can greatly reduce the time it takes to maximise coins
         through wins, especially with a solid rush deck for this. Brawl
-        typically isn’t worth the costs beyond Milestone 5 (Mythic Tome) and
+        typically isn’t worth the costs beyond Milestone 5 (Mythic book) and
         even then you would want to achieve at least a win-rate of 50% (roughly{' '}
         <Coins amount={1780} />
         ).
@@ -201,9 +201,9 @@ export default React.memo(function GuideResources(props) {
       <p>
         If you’re planning on playing Stormbound for a while it is always
         advisable to set aside some resources for sales, offers and certain
-        cards or books/tomes you might want to get in the shop. It has happened
-        in the past that books and tomes were temporarily cheaper and people who
-        had saved a lot of rubies made good deals.
+        cards or books you might want to get in the shop. It has happened in the
+        past that books were temporarily cheaper and people who had saved a lot
+        of rubies made good deals.
       </p>
 
       <Info title='Community rewards' icon='crown'>
@@ -242,7 +242,7 @@ export default React.memo(function GuideResources(props) {
       <p>
         This game is all about creating decks. For that, a bigger collection is
         better. The best way to grow your collection fairly evenly in the
-        beginning is by buying Noble Books, Heroic Tomes and opening your daily
+        beginning is by buying Noble books, Heroic books and opening your daily
         Humble Book.
       </p>
 
@@ -251,7 +251,7 @@ export default React.memo(function GuideResources(props) {
         some <ResourceIcon resource='COIN' /> coins and{' '}
         <ResourceIcon resource='RUBY' /> rubies aside to buy singular cards in
         the shop or save up <ResourceIcon resource='RUBY' /> rubies for a Mythic
-        Tome. You’ll have a feel for the cards and maybe also have some
+        book. You’ll have a feel for the cards and maybe also have some
         favourite cards and/or factions to buy more specific copies from. Please
         refer to the section below for some recommended cards or have a look at
         the <Link to='/list/ranked'>tier list</Link> to see which cards have
@@ -304,7 +304,7 @@ export default React.memo(function GuideResources(props) {
         the deck and then focus on buying copies of those cards when they appear
         in the shop. Save <ResourceIcon resource='RUBY' /> rubies for any epic
         card copies you might have in your deck, and with a high surplus buy
-        Heroic Tomes.
+        Heroic books.
       </p>
       <p>
         Leave Brawl beyond Milestone 1 aside as it is costly, the many modifiers
@@ -352,7 +352,7 @@ export default React.memo(function GuideResources(props) {
         <Link to='/calculators/income'>income calculator</Link>. With those you
         can see how many more cards you need of each rarity and how to adjust
         your income to match that. You might find for instance it’s better for
-        you to buy Heroic Tomes rather than Mythic Tomes (since the way the
+        you to buy Heroic books rather than Mythic books (since the way the
         cards are distributed and generally rewarded makes the rare cards the
         hardest to complete). You might find preferring{' '}
         <ResourceIcon resource='STONE' /> fusion stones missions better than the{' '}

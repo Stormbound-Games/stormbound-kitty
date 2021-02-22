@@ -20,21 +20,21 @@ const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
       )
     case 'RUBIES':
       return <Image src='/assets/images/iconography/rubies.png' alt='Rubies' />
-    case 'CLASSIC_TOME':
+    case 'CLASSIC_BOOK':
       return (
         <Image
           src='/assets/images/books/book-classic.png'
-          alt='Classic tome'
+          alt='Classic book'
           withAvif
         />
       )
     case 'FUSION_STONES':
       return <Image src='/assets/images/iconography/stones.png' alt='Stones' />
-    case 'MYTHIC_TOME':
+    case 'MYTHIC_BOOK':
       return (
         <Image
           src='/assets/images/books/book-mythic.png'
-          alt='Mythic tome'
+          alt='Mythic book'
           withAvif
         />
       )

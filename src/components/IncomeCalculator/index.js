@@ -63,7 +63,7 @@ const RUBY_CONVERSION_MAP = {
 
 // Open a book and add the resulting cards and possible fusion stones to the
 // current income, recalibrated over the given period if any.
-const addTomeToIncome = (income, type, period = 'DAILY') => {
+const addBookToIncome = (income, type, period = 'DAILY') => {
   const { draws, percentiles } = BOOKS[type]
   const multiplier = getPeriodMultiplier(period)
 
@@ -85,22 +85,22 @@ const convertRubies = (income, type) => {
   income.rubies -= count * cost
 
   if (type === 'CARD_SHOP') income.cards[2] += count
-  else for (let i = 0; i < count; i += 1) addTomeToIncome(income, type)
+  else for (let i = 0; i < count; i += 1) addBookToIncome(income, type)
 }
 
 const addHeroRewards = (income, heroesPosition, period = 'MONTHLY') => {
   if (heroesPosition === 'TOP_1') {
     income.stones += 100
-    addTomeToIncome(income, 'ARCHDRAGON', period)
+    addBookToIncome(income, 'ARCHDRAGON', period)
   } else if (heroesPosition === 'TOP_10') {
     income.stones += 50
-    addTomeToIncome(income, 'FELINE', period)
+    addBookToIncome(income, 'FELINE', period)
   } else if (heroesPosition === 'TOP_100') {
     income.stones += 25
-    addTomeToIncome(income, 'DRAGON', period)
+    addBookToIncome(income, 'DRAGON', period)
   } else if (heroesPosition === 'TOP_500') {
     income.stones += 10
-    addTomeToIncome(income, 'PIRATE', period)
+    addBookToIncome(income, 'PIRATE', period)
   }
 }
 
@@ -155,7 +155,7 @@ const getDailyIncome = ({
   }
 
   if (withDailyHumble) {
-    addTomeToIncome(income, 'HUMBLE')
+    addBookToIncome(income, 'HUMBLE')
   }
 
   if (withDailyQuests) {
@@ -381,14 +381,14 @@ export default React.memo(function IncomeCalculator(props) {
                 onChange={event => setRubiesConversion(event.target.value)}
               >
                 <option value='NONE'>Nothing</option>
-                <option value='MYTHIC'>Mythic Tomes</option>
-                <option value='HEROIC'>Heroic Tomes</option>
-                <option value='CLASSIC'>Classic Tomes</option>
-                <option value='FELINE'>Feline Tomes</option>
-                <option value='ELDER'>Elder Tomes</option>
-                <option value='PIRATE'>Pirate Tomes</option>
-                <option value='DRAGON'>Dragon Tomes</option>
-                <option value='ARCHDRAGON'>Archdragon Tomes</option>
+                <option value='MYTHIC'>Mythic Books</option>
+                <option value='HEROIC'>Heroic Books</option>
+                <option value='CLASSIC'>Classic Books</option>
+                <option value='FELINE'>Feline Books</option>
+                <option value='ELDER'>Elder Books</option>
+                <option value='PIRATE'>Pirate Books</option>
+                <option value='DRAGON'>Dragon Books</option>
+                <option value='ARCHDRAGON'>Archdragon Books</option>
                 <option value='CARD_SHOP'>Card Shop Epics</option>
               </select>
             </Row.Column>
