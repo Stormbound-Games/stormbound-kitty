@@ -52,7 +52,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
         </Info>
 
         <Title id='balance-changes'>Balance changes</Title>
-        <p>This release, like any others, brings some balance changes.</p>
+        <p>This release, like any other, brings some balance changes.</p>
         <ul>
           <li>
             <CardLink id='N80' /> see their strength increased to 3/4/5/6/7

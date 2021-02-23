@@ -63,7 +63,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
 
         <Title id='balance-changes'>Balance changes</Title>
         <p>
-          This release, like any others, brings some balance changes for the new
+          This release, like any other, brings some balance changes for the new
           season starting on January 1st, including a new mechanic—
           <span style={{ color: '#24e071' }}>vitality</span>.
         </p>

@@ -70,7 +70,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
         <Title id='balance-changes'>Balance changes</Title>
 
-        <p>This release, like any others, brings some balance changes.</p>
+        <p>This release, like any other, brings some balance changes.</p>
 
         <ul>
           <li>
@@ -185,9 +185,10 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
       <Article.Narrow>
         <p>
           Five new books will make their entrance in the next update: a Pirate
-          book, a Feline book, an Elder book, a Dragon book, all containing 3
-          cards of a specific type and worth <Rubies amount={60} /> as well as
-          an Archdragon book with 3 dragon cards worth <Rubies amount={120} />.
+          book, a Feline book, an Elder book and a Dragon book, each containing
+          3 cards of a specific type and costing <Rubies amount={60} /> as well
+          as an Archdragon book with 3 dragon cards costing{' '}
+          <Rubies amount={120} />.
         </p>
 
         <ul>

@@ -67,7 +67,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
 
         <Title id='balance-changes'>Balance changes</Title>
 
-        <p>This release, like any others, brings some balance changes.</p>
+        <p>This release, like any other, brings some balance changes.</p>
         <ul>
           <li>
             <CardLink id='N56' />’ ability trigger is being extended.
