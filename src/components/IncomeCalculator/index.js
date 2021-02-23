@@ -48,7 +48,6 @@ const getIncome = period => {
   if (period === 'MONTHLY') return new MonthlyIncome()
   if (period === 'WEEKLY') return new WeeklyIncome()
   if (period === 'DAILY') return new DailyIncome()
-  throw new Error()
 }
 
 const useIncomeOverPeriod = (
