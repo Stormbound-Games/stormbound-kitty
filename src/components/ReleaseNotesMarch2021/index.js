@@ -97,9 +97,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           <span style={{ color: getRarityColor('legendary', 'bright') }}>
             legendary
           </span>{' '}
-          Ironclad structure with an interesting teleportation mechanic (the
-          background is slightly different in game, being special for legendary
-          structures).
+          Ironclad structure with an interesting teleportation mechanic.
         </p>
       </Article.Narrow>
 
