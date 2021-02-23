@@ -10,7 +10,6 @@ import ResourceIcon from '../ResourceIcon'
 import Row from '../Row'
 import Title from '../Title'
 import { MILESTONES } from '../../constants/brawl'
-import { BOOKS } from '../../constants/game'
 import {
   Common,
   Rare,
@@ -22,15 +21,18 @@ import {
 } from '../Resource'
 import capitalise from '../../helpers/capitalise'
 import getRewardLabel from '../../helpers/getRewardLabel'
-import getAverageStonesPerBook from '../../helpers/getAverageStonesPerBook'
 import getCostForMilestone from '../../helpers/getCostForMilestone'
-import getPeriodMultiplier from '../../helpers/getPeriodMultiplier'
 import getMonthlyChestReward from '../../helpers/getMonthlyChestReward'
 import getWinCoins from '../../helpers/getWinCoins'
 import getWeeklyBrawlReward from '../../helpers/getWeeklyBrawlReward'
+import {
+  DailyIncome,
+  WeeklyIncome,
+  MonthlyIncome,
+  YearlyIncome,
+} from './Income'
 import './index.css'
 
-const DEFAULT_STATE = { coins: 0, rubies: 0, stones: 0, cards: [0, 0, 0, 0] }
 const PERIODS = ['DAILY', 'WEEKLY', 'MONTHLY', 'YEARLY']
 const SELECT_LENGTH_MULTIPLIER = {
   DAILY: '1ch',
@@ -49,144 +51,103 @@ const CLIMBING_CARDS = {
   IRON: [0, 0, 0, 0, 1],
 }
 
-const RUBY_CONVERSION_MAP = {
-  CARD_SHOP: 20,
-  CLASSIC: 20,
-  DRAGON: 60,
-  ELDER: 60,
-  FELINE: 60,
-  HEROIC: 40,
-  ARCHDRAGON: 120,
-  MYTHIC: 80,
-  PIRATE: 60,
-}
+const getHeroIncome = position => {
+  const rewards = new MonthlyIncome()
 
-// Open a book and add the resulting cards and possible fusion stones to the
-// current income, recalibrated over the given period if any.
-const addBookToIncome = (income, type, period = 'DAILY') => {
-  const { draws, percentiles } = BOOKS[type]
-  const multiplier = getPeriodMultiplier(period)
-
-  income.stones += getAverageStonesPerBook(type)
-  income.cards[0] += (draws * percentiles[0]) / multiplier
-  income.cards[1] += (draws * percentiles[1]) / multiplier
-  income.cards[2] += (draws * percentiles[2]) / multiplier
-  income.cards[3] += (draws * percentiles[3]) / multiplier
-}
-
-// Convert income’s rubies into a certain type of purchase (certain books or
-// epic cards from the shop).
-const convertRubies = (income, type) => {
-  if (!(type in RUBY_CONVERSION_MAP)) return
-
-  const cost = RUBY_CONVERSION_MAP[type]
-  const count = Math.floor(income.rubies / cost)
-
-  income.rubies -= count * cost
-
-  if (type === 'CARD_SHOP') income.cards[2] += count
-  else for (let i = 0; i < count; i += 1) addBookToIncome(income, type)
-}
-
-const addHeroRewards = (income, heroesPosition, period = 'MONTHLY') => {
-  if (heroesPosition === 'TOP_1') {
-    income.stones += 100
-    addBookToIncome(income, 'ARCHDRAGON', period)
-    addBookToIncome(income, 'FELINE', period)
-    addBookToIncome(income, 'DRAGON', period)
-    addBookToIncome(income, 'PIRATE', period)
-  } else if (heroesPosition === 'TOP_10') {
-    income.stones += 50
-    addBookToIncome(income, 'FELINE', period)
-    addBookToIncome(income, 'DRAGON', period)
-    addBookToIncome(income, 'PIRATE', period)
-  } else if (heroesPosition === 'TOP_100') {
-    income.stones += 25
-    addBookToIncome(income, 'DRAGON', period)
-    addBookToIncome(income, 'PIRATE', period)
-  } else if (heroesPosition === 'TOP_500') {
-    income.stones += 10
-    addBookToIncome(income, 'PIRATE', period)
-  }
-}
-
-const getDailyIncome = ({
-  brawlCost,
-  heroesPosition,
-  league,
-  milestone,
-  preferTier3Stones,
-  rank,
-  setup,
-  wins,
-  withDailyHumble,
-  withDailyQuests,
-}) => {
-  const income = { ...DEFAULT_STATE, cards: [...DEFAULT_STATE.cards] }
-  const chest = getMonthlyChestReward(league)
-
-  // Recalibrate the monthly chest rewards to daily rewards
-  income.coins += chest.coins / getPeriodMultiplier('MONTHLY')
-  income.rubies += chest.rubies / getPeriodMultiplier('MONTHLY')
-  income.stones += chest.stones / getPeriodMultiplier('MONTHLY')
-  chest.cards.forEach((cards, index) => {
-    income.cards[index] += cards / getPeriodMultiplier('MONTHLY')
-  })
-
-  // Similarly, recalibrate any potential hero rewards to daily rewards and make
-  // sure one does not set a heroes position, before changing league field back
-  // to something lower, which would cause calculation errors
-  if (league === 'HEROES' && heroesPosition !== 'NOT_RANKED') {
-    addHeroRewards(income, heroesPosition)
+  if (position === 'TOP_1') {
+    rewards.stones += 100
+    rewards.openBook(['ARCHDRAGON', 'FELINE', 'DRAGON', 'PIRATE'])
+  } else if (position === 'TOP_10') {
+    rewards.stones += 50
+    rewards.openBook(['FELINE', 'DRAGON', 'PIRATE'])
+  } else if (position === 'TOP_100') {
+    rewards.stones += 25
+    rewards.openBook(['DRAGON', 'PIRATE'])
+  } else if (position === 'TOP_500') {
+    rewards.stones += 10
+    rewards.openBook('PIRATE')
   }
 
-  // Consider the cards earned from climbing on a monthly basis (if any)
+  return rewards
+}
+
+const getIncome = period => {
+  if (period === 'YEARLY') return new YearlyIncome()
+  if (period === 'MONTHLY') return new MonthlyIncome()
+  if (period === 'WEEKLY') return new WeeklyIncome()
+  if (period === 'DAILY') return new DailyIncome()
+  throw new Error()
+}
+
+const getCardsFromLeague = league =>
+  CLIMBING_CARDS[league].reduce(
+    (acc, rarity) => {
+      acc[rarity] += 1
+      return acc
+    },
+    [0, 0, 0, 0]
+  )
+
+const useIncomeOverPeriod = (
+  {
+    brawlCost,
+    heroesPosition,
+    league,
+    milestone,
+    preferTier3Stones,
+    rank,
+    setup,
+    withDailyHumble,
+    withDailyQuests,
+    wins,
+  },
+  period,
+  rubiesConversion
+) => {
+  const income = getIncome(period)
+
+  const chest = new MonthlyIncome(getMonthlyChestReward(league))
+  income.add(chest)
+
+  if (league === 'HEROES') {
+    const hero = getHeroIncome(heroesPosition)
+    income.add(hero)
+  }
+
   if (league && rank) {
-    CLIMBING_CARDS[league].slice(0, 5 - rank + 1).forEach(rank => {
-      income.cards[rank] += 1 / getPeriodMultiplier('MONTHLY')
-    })
+    const cards = new MonthlyIncome({ cards: getCardsFromLeague(league) })
+    income.add(cards)
   }
 
-  // Recalibrate the weekly Brawl rewards to daily rewards
   if (milestone !== '') {
-    const brawl = getWeeklyBrawlReward(milestone)
-
-    income.coins += brawl.coins / getPeriodMultiplier('WEEKLY')
-    income.coins -= brawlCost / getPeriodMultiplier('WEEKLY')
-    income.rubies += brawl.rubies / getPeriodMultiplier('WEEKLY')
-    income.stones += brawl.stones / getPeriodMultiplier('WEEKLY')
-    brawl.cards.forEach((cards, index) => {
-      income.cards[index] += cards / getPeriodMultiplier('WEEKLY')
-    })
+    const brawl = new WeeklyIncome(getWeeklyBrawlReward(milestone))
+    brawl.coins -= brawlCost
+    income.add(brawl)
   }
 
   if (withDailyHumble) {
-    addBookToIncome(income, 'HUMBLE')
+    const book = new DailyIncome()
+    book.openBook('HUMBLE')
+    income.add(book)
   }
 
   if (withDailyQuests) {
-    income.coins += 100 + ((preferTier3Stones ? 5 : 6) / 9) * 150
-    income.rubies += 5
-    income.stones += ((preferTier3Stones ? 4 : 3) / 9) * 2
+    const quests = new DailyIncome({
+      coins: 100 + ((preferTier3Stones ? 5 : 6) / 9) * 150,
+      rubies: 5,
+      stones: ((preferTier3Stones ? 4 : 3) / 9) * 2,
+    })
+    income.add(quests)
   }
 
   if (wins > 0) {
-    income.coins += 30
-    income.coins += wins * getWinCoins(setup)
+    const coins = new DailyIncome({ coins: 30 + wins * getWinCoins(setup) })
+    income.add(coins)
   }
 
-  return income
-}
-
-const getPeriodIncome = (income, period, rubiesConversion) => {
-  const multiplier = getPeriodMultiplier(period)
-
-  income.coins *= multiplier
-  income.rubies *= multiplier
-  income.stones *= multiplier
-  income.cards = income.cards.map(prob => prob * multiplier)
-
-  convertRubies(income, rubiesConversion)
+  if (rubiesConversion !== 'NONE') {
+    income.convertRubies(rubiesConversion)
+  }
 
   return income
 }
@@ -204,8 +165,8 @@ export default React.memo(function IncomeCalculator(props) {
   const [preferTier3Stones, setPreferTier3Stones] = React.useState(false)
   const [withDailyHumble, setWithDailyHumble] = React.useState(false)
   const [withDailyQuests, setWithDailyQuests] = React.useState(false)
-  const income = getPeriodIncome(
-    getDailyIncome({
+  const income = useIncomeOverPeriod(
+    {
       brawlCost,
       heroesPosition,
       league,
@@ -216,7 +177,7 @@ export default React.memo(function IncomeCalculator(props) {
       wins,
       withDailyHumble,
       withDailyQuests,
-    }),
+    },
     period,
     rubiesConversion
   )
