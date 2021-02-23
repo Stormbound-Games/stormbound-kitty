@@ -370,7 +370,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           </li>
           <li>
             <var className='Highlight'>K</var> is the coefficient factor
-            (sometimes named “K-factor” in elo rating systems) and works like in
+            (sometimes named “K-factor” in Elo rating systems) and works like in
             FIDE:
             <ul style={{ marginBottom: 0 }}>
               <li>
@@ -471,7 +471,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
               id: 'release-date',
               question: 'When is the update going to be released?',
               answer:
-                'Temple of Space will be released on February 26th, and Flameless Lizards on March 19th.',
+                'Temple of Space will be released on February 26th, and Flameless Lizards on March 19th. The Heroes League will be available from March onwards.',
             },
             {
               id: 'diamond-and-heroes',
@@ -497,7 +497,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
               question:
                 'Is the daily check-in calendar going to continue in March?',
               answer:
-                'Yes, the daily check-in calendar will continue in March, and can be boosted to Premium for $5 like previous months. The rewards are not finalized yet, but they will be similar to the ones from January and February.',
+                'Yes, the daily check-in calendar will continue in March, and can be boosted to Premium for $5 like previous months. The rewards are not finalised yet, but they will be similar to the ones from January and February.',
             },
           ]}
         />
