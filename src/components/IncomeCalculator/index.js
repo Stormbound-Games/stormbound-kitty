@@ -20,17 +20,19 @@ import {
   Stones,
 } from '../Resource'
 import capitalise from '../../helpers/capitalise'
-import getRewardLabel from '../../helpers/getRewardLabel'
 import getCostForMilestone from '../../helpers/getCostForMilestone'
-import getMonthlyChestReward from '../../helpers/getMonthlyChestReward'
-import getWinCoins from '../../helpers/getWinCoins'
-import getWeeklyBrawlReward from '../../helpers/getWeeklyBrawlReward'
+import getDailyActivityRewards from '../../helpers/getDailyActivityRewards'
+import getHeroesLeagueRewards from '../../helpers/getHeroesLeagueRewards'
+import getMonthlyChestRewards from '../../helpers/getMonthlyChestRewards'
+import getMonthlyClimbingRewards from '../../helpers/getMonthlyClimbingRewards'
+import getRewardLabel from '../../helpers/getRewardLabel'
+import getWeeklyBrawlRewards from '../../helpers/getWeeklyBrawlRewards'
 import {
   DailyIncome,
   WeeklyIncome,
   MonthlyIncome,
   YearlyIncome,
-} from './Income'
+} from '../../helpers/Income'
 import './index.css'
 
 const PERIODS = ['DAILY', 'WEEKLY', 'MONTHLY', 'YEARLY']
@@ -41,36 +43,6 @@ const SELECT_LENGTH_MULTIPLIER = {
   YEARLY: '1.1ch',
 }
 
-const CLIMBING_CARDS = {
-  HEROES: [],
-  DIAMOND: [0, 1, 2, 1, 3],
-  PLATINUM: [0, 1, 2, 1, 2],
-  GOLD: [0, 1, 0, 1, 2],
-  SILVER: [0, 0, 1, 0, 2],
-  BRONZE: [0, 0, 1, 0, 1],
-  IRON: [0, 0, 0, 0, 1],
-}
-
-const getHeroIncome = position => {
-  const rewards = new MonthlyIncome()
-
-  if (position === 'TOP_1') {
-    rewards.stones += 100
-    rewards.openBook(['ARCHDRAGON', 'FELINE', 'DRAGON', 'PIRATE'])
-  } else if (position === 'TOP_10') {
-    rewards.stones += 50
-    rewards.openBook(['FELINE', 'DRAGON', 'PIRATE'])
-  } else if (position === 'TOP_100') {
-    rewards.stones += 25
-    rewards.openBook(['DRAGON', 'PIRATE'])
-  } else if (position === 'TOP_500') {
-    rewards.stones += 10
-    rewards.openBook('PIRATE')
-  }
-
-  return rewards
-}
-
 const getIncome = period => {
   if (period === 'YEARLY') return new YearlyIncome()
   if (period === 'MONTHLY') return new MonthlyIncome()
@@ -78,15 +50,6 @@ const getIncome = period => {
   if (period === 'DAILY') return new DailyIncome()
   throw new Error()
 }
-
-const getCardsFromLeague = league =>
-  CLIMBING_CARDS[league].reduce(
-    (acc, rarity) => {
-      acc[rarity] += 1
-      return acc
-    },
-    [0, 0, 0, 0]
-  )
 
 const useIncomeOverPeriod = (
   {
@@ -106,44 +69,33 @@ const useIncomeOverPeriod = (
 ) => {
   const income = getIncome(period)
 
-  const chest = new MonthlyIncome(getMonthlyChestReward(league))
-  income.add(chest)
+  const chestRewards = getMonthlyChestRewards(league)
+  income.add(chestRewards)
 
   if (league === 'HEROES') {
-    const hero = getHeroIncome(heroesPosition)
-    income.add(hero)
+    const heroLeagueRewards = getHeroesLeagueRewards(heroesPosition)
+    income.add(heroLeagueRewards)
   }
 
   if (league && rank) {
-    const cards = new MonthlyIncome({ cards: getCardsFromLeague(league) })
-    income.add(cards)
+    const climbingRewards = getMonthlyClimbingRewards(league, rank)
+    income.add(climbingRewards)
   }
 
   if (milestone !== '') {
-    const brawl = new WeeklyIncome(getWeeklyBrawlReward(milestone))
-    brawl.coins -= brawlCost
-    income.add(brawl)
+    const brawlRewards = getWeeklyBrawlRewards(milestone)
+    brawlRewards.coins -= brawlCost
+    income.add(brawlRewards)
   }
 
-  if (withDailyHumble) {
-    const book = new DailyIncome()
-    book.openBook('HUMBLE')
-    income.add(book)
-  }
-
-  if (withDailyQuests) {
-    const quests = new DailyIncome({
-      coins: 100 + ((preferTier3Stones ? 5 : 6) / 9) * 150,
-      rubies: 5,
-      stones: ((preferTier3Stones ? 4 : 3) / 9) * 2,
-    })
-    income.add(quests)
-  }
-
-  if (wins > 0) {
-    const coins = new DailyIncome({ coins: 30 + wins * getWinCoins(setup) })
-    income.add(coins)
-  }
+  const activityRewards = getDailyActivityRewards({
+    preferTier3Stones,
+    setup,
+    wins,
+    withDailyHumble,
+    withDailyQuests,
+  })
+  income.add(activityRewards)
 
   if (rubiesConversion !== 'NONE') {
     income.convertRubies(rubiesConversion)

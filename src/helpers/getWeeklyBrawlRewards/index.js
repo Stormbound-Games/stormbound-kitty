@@ -1,7 +1,6 @@
 import { BOOKS } from '../../constants/game'
 import getAverageStonesPerBook from '../getAverageStonesPerBook'
-
-const DEFAULT_STATE = { coins: 0, rubies: 0, stones: 0, cards: [0, 0, 0, 0] }
+import { WeeklyIncome } from '../Income'
 
 const BRAWL_REWARDS = [
   {
@@ -40,24 +39,12 @@ const BRAWL_REWARDS = [
   { stones: 200 },
 ]
 
-const getWeeklyBrawlReward = milestone => {
-  const rewards = { ...DEFAULT_STATE, cards: [...DEFAULT_STATE.cards] }
+const getWeeklyBrawlRewards = milestone => {
+  const rewards = new WeeklyIncome()
 
-  for (let i = 0; i <= milestone; i += 1) {
-    const reward = BRAWL_REWARDS[i]
-
-    if (reward.coins) rewards.coins += reward.coins
-    if (reward.rubies) rewards.rubies += reward.rubies
-    if (reward.stones) rewards.stones += reward.stones
-    if (reward.cards) {
-      rewards.cards[0] += reward.cards[0]
-      rewards.cards[1] += reward.cards[1]
-      rewards.cards[2] += reward.cards[2]
-      rewards.cards[3] += reward.cards[3]
-    }
-  }
+  for (let i = 0; i <= milestone; i += 1) rewards.add(BRAWL_REWARDS[i])
 
   return rewards
 }
 
-export default getWeeklyBrawlReward
+export default getWeeklyBrawlRewards
