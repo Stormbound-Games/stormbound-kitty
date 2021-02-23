@@ -43,56 +43,43 @@ const SELECT_LENGTH_MULTIPLIER = {
   YEARLY: '1.1ch',
 }
 
-const getIncome = period => {
+const getPeriodicIncome = period => {
   if (period === 'YEARLY') return new YearlyIncome()
   if (period === 'MONTHLY') return new MonthlyIncome()
   if (period === 'WEEKLY') return new WeeklyIncome()
   if (period === 'DAILY') return new DailyIncome()
 }
 
-const useIncomeOverPeriod = (
-  {
-    brawlCost,
-    heroesPosition,
-    league,
-    milestone,
-    preferTier3Stones,
-    rank,
-    setup,
-    withDailyHumble,
-    withDailyQuests,
-    wins,
-  },
-  period,
-  rubiesConversion
-) => {
-  const income = getIncome(period)
+const useIncomeOverPeriod = (settings, period, rubiesConversion) => {
+  const income = getPeriodicIncome(period)
 
-  const chestRewards = getLeagueChestRewards(league)
-  income.add(chestRewards)
+  if (settings.league) {
+    const chestRewards = getLeagueChestRewards(settings.league)
+    income.add(chestRewards)
+  }
 
-  if (league === 'HEROES') {
-    const heroLeagueRewards = getHeroesLeagueRewards(heroesPosition)
+  if (settings.league === 'HEROES') {
+    const heroLeagueRewards = getHeroesLeagueRewards(settings.heroesPosition)
     income.add(heroLeagueRewards)
   }
 
-  if (league && rank) {
-    const climbingRewards = getClimbingRewards(league, rank)
+  if (settings.league && settings.rank) {
+    const climbingRewards = getClimbingRewards(settings.league, settings.rank)
     income.add(climbingRewards)
   }
 
-  if (milestone !== '') {
-    const brawlRewards = getBrawlRewards(milestone)
-    brawlRewards.coins -= brawlCost
+  if (settings.milestone !== '') {
+    const brawlRewards = getBrawlRewards(settings.milestone)
+    brawlRewards.coins -= settings.brawlCost
     income.add(brawlRewards)
   }
 
   const activityRewards = getActivityRewards({
-    preferTier3Stones,
-    setup,
-    wins,
-    withDailyHumble,
-    withDailyQuests,
+    preferTier3Stones: settings.preferTier3Stones,
+    setup: settings.setup,
+    wins: settings.wins,
+    withDailyHumble: settings.withDailyHumble,
+    withDailyQuests: settings.withDailyQuests,
   })
   income.add(activityRewards)
 
