@@ -39,7 +39,7 @@ const BRAWL_REWARDS = [
   { stones: 200 },
 ]
 
-const getWeeklyBrawlRewards = milestone => {
+const getBrawlRewards = milestone => {
   const rewards = new WeeklyIncome()
 
   for (let i = 0; i <= milestone; i += 1) rewards.add(BRAWL_REWARDS[i])
@@ -47,4 +47,4 @@ const getWeeklyBrawlRewards = milestone => {
   return rewards
 }
 
-export default getWeeklyBrawlRewards
+export default getBrawlRewards

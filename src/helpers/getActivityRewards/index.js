@@ -1,7 +1,7 @@
 import { DailyIncome } from '../Income'
 import getWinCoins from '../getWinCoins'
 
-const getDailyActivityRewards = ({
+const getActivityRewards = ({
   preferTier3Stones,
   setup,
   wins,
@@ -29,4 +29,4 @@ const getDailyActivityRewards = ({
   return rewards
 }
 
-export default getDailyActivityRewards
+export default getActivityRewards

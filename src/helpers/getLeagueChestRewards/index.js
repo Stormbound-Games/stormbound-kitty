@@ -1,6 +1,6 @@
 import { MonthlyIncome } from '../Income'
 
-const getMonthlyChestRewards = league => {
+const getLeagueChestRewards = league => {
   switch (league) {
     case 'HEROES':
       return new MonthlyIncome({
@@ -62,4 +62,4 @@ const getMonthlyChestRewards = league => {
   }
 }
 
-export default getMonthlyChestRewards
+export default getLeagueChestRewards

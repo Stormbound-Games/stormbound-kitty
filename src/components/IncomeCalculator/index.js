@@ -20,13 +20,13 @@ import {
   Stones,
 } from '../Resource'
 import capitalise from '../../helpers/capitalise'
+import getActivityRewards from '../../helpers/getActivityRewards'
+import getBrawlRewards from '../../helpers/getBrawlRewards'
+import getClimbingRewards from '../../helpers/getClimbingRewards'
 import getCostForMilestone from '../../helpers/getCostForMilestone'
-import getDailyActivityRewards from '../../helpers/getDailyActivityRewards'
 import getHeroesLeagueRewards from '../../helpers/getHeroesLeagueRewards'
-import getMonthlyChestRewards from '../../helpers/getMonthlyChestRewards'
-import getMonthlyClimbingRewards from '../../helpers/getMonthlyClimbingRewards'
+import getLeagueChestRewards from '../../helpers/getLeagueChestRewards'
 import getRewardLabel from '../../helpers/getRewardLabel'
-import getWeeklyBrawlRewards from '../../helpers/getWeeklyBrawlRewards'
 import {
   DailyIncome,
   WeeklyIncome,
@@ -69,7 +69,7 @@ const useIncomeOverPeriod = (
 ) => {
   const income = getIncome(period)
 
-  const chestRewards = getMonthlyChestRewards(league)
+  const chestRewards = getLeagueChestRewards(league)
   income.add(chestRewards)
 
   if (league === 'HEROES') {
@@ -78,17 +78,17 @@ const useIncomeOverPeriod = (
   }
 
   if (league && rank) {
-    const climbingRewards = getMonthlyClimbingRewards(league, rank)
+    const climbingRewards = getClimbingRewards(league, rank)
     income.add(climbingRewards)
   }
 
   if (milestone !== '') {
-    const brawlRewards = getWeeklyBrawlRewards(milestone)
+    const brawlRewards = getBrawlRewards(milestone)
     brawlRewards.coins -= brawlCost
     income.add(brawlRewards)
   }
 
-  const activityRewards = getDailyActivityRewards({
+  const activityRewards = getActivityRewards({
     preferTier3Stones,
     setup,
     wins,

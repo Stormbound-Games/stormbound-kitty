@@ -10,7 +10,7 @@ const CLIMBING_CARDS = {
   IRON: [0, 0, 0, 0, 1],
 }
 
-const getMonthlyClimbingRewards = (league, rank) => {
+const getClimbingRewards = (league, rank) => {
   const rewards = new MonthlyIncome()
   const cards = CLIMBING_CARDS[league]
 
@@ -21,4 +21,4 @@ const getMonthlyClimbingRewards = (league, rank) => {
   return rewards
 }
 
-export default getMonthlyClimbingRewards
+export default getClimbingRewards
