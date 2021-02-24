@@ -455,6 +455,15 @@
     "season": 2,
     "week": 9,
     "name": "Curse",
+    "winner": {
+      "author": "sqiri",
+      "id": "TjtSO1U7RTszOzE7MS8yLzMvNC81O0NhcmVsZXNzJTIwc29yY2VyZXJzO0YxNjtPbiUyMHBsYXklMkMlMjAqY3Vyc2UqJTIwYWxsJTIwYm9yZGVyaW5nJTIwdW5pdHMuJTIwQmVmb3JlJTIwYXR0YWNraW5nJTIwYSUyMGZyaWVuZGx5JTIwdW5pdCUyQyUyMGdpdmVzJTIwaXQlMjAqMiUyRjQlMkY1JTJGNyUyRjglMjBzdHJlbmdodCo7Ow=="
+    }
+  },
+  {
+    "season": 2,
+    "week": 10,
+    "name": "Neutral Race Elders",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
