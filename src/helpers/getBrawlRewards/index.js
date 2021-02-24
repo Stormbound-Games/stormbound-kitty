@@ -1,48 +1,18 @@
-import { BOOKS } from '../../constants/game'
-import getAverageStonesPerBook from '../getAverageStonesPerBook'
 import { WeeklyIncome } from '../Income'
-
-const BRAWL_REWARDS = [
-  {
-    stones: getAverageStonesPerBook('HUMBLE'),
-    cards: [
-      BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[0],
-      BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[1],
-      BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[2],
-      BOOKS.HUMBLE.draws * BOOKS.HUMBLE.percentiles[3],
-    ],
-  },
-  { rubies: 5 },
-  {
-    stones: getAverageStonesPerBook('CLASSIC'),
-    cards: [
-      BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[0],
-      BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[1],
-      BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[2],
-      BOOKS.CLASSIC.draws * BOOKS.CLASSIC.percentiles[3],
-    ],
-  },
-  { stones: 10 },
-  {
-    stones: getAverageStonesPerBook('MYTHIC'),
-    cards: [
-      BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[0],
-      BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[1],
-      BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[2],
-      BOOKS.MYTHIC.draws * BOOKS.MYTHIC.percentiles[3],
-    ],
-  },
-  { cards: [0, 0, 0, 1] },
-  { stones: 50 },
-  { rubies: 250 },
-  { cards: [0, 0, 0, 5] },
-  { stones: 200 },
-]
 
 const getBrawlRewards = milestone => {
   const rewards = new WeeklyIncome()
 
-  for (let i = 0; i <= milestone; i += 1) rewards.add(BRAWL_REWARDS[i])
+  if (milestone >= 0) rewards.openBook('HUMBLE')
+  if (milestone >= 1) rewards.add({ rubies: 5 })
+  if (milestone >= 2) rewards.openBook('CLASSIC')
+  if (milestone >= 3) rewards.add({ stones: 10 })
+  if (milestone >= 4) rewards.openBook('MYTHIC')
+  if (milestone >= 5) rewards.add({ cards: [0, 0, 0, 1] })
+  if (milestone >= 6) rewards.add({ stones: 50 })
+  if (milestone >= 7) rewards.add({ rubies: 250 })
+  if (milestone >= 8) rewards.add({ cards: [0, 0, 0, 5] })
+  if (milestone >= 9) rewards.add({ stones: 200 })
 
   return rewards
 }
