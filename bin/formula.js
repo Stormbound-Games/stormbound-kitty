@@ -37,7 +37,7 @@ MathJax.start()
 typeset(
   {
     math:
-      "\\color{beige}S'_A = S_A + K * (W - \\frac{1}{1+10^{(S_A-S_B)/400}})",
+      "\\color{beige}S'_A = S_A + K * (W - \\frac{1}{1+10^{(S_B-S_A)/400}})",
     format: 'TeX',
     png: true,
     scale: 1,
