@@ -463,7 +463,12 @@
   {
     "season": 2,
     "week": 10,
-    "name": "Neutral Race Elders",
+    "name": "Neutral Race Elders"
+  },
+  {
+    "season": 2,
+    "week": 11,
+    "name": "Cloaked",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
