@@ -352,14 +352,14 @@
   {
     "name": "Attack & Defend Tournament",
     "hosts": ["RecklessRush"],
-    "podium": [["Helios", "Grimm"], ["HanooSt","Sewerrat"], ["Derk", "wOLF"]],
+    "podium": [["Helios", "Grimm"], ["HanooSt","Sewerrat"], ["Derk", "Wolf"]],
     "date": "01/2021",
     "description": "Teams of two each have a designated Attacker and Defender. Teams are matched against each other and the Attackers aim to win as fast as possible and the Defenders try to stall for as long as possible. Each round is driven by a new Brawl Modifier, while Defenders face overwhelming odds with Legendary and Brawl card bans."
   },
   {
     "name": "An Equals Tournament",
     "hosts": ["HanooSt"],
-    "podium": ["wOLF", "theSINGULARITY", "BenDover"],
+    "podium": ["Wolf", "theSINGULARITY", "BenDover"],
     "date": "02/2021",
     "description": "A straightforward classic where players fight for the top. 0 gimmicks, 0 bans, 0 restrictions, all determination.",
     "decks": [
