@@ -379,8 +379,8 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
               </li>
               <li>K = 20 for players rated below 2400</li>
               <li>
-                K = 10 for players who ever reached 2400, regardless of their
-                current Hero Score
+                K = 10 for players who ever reached 2400 during the current
+                season, regardless of their current Hero Score
               </li>
             </ul>
           </li>
