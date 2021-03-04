@@ -463,7 +463,11 @@
   {
     "season": 2,
     "week": 10,
-    "name": "Neutral Race Elders"
+    "name": "Neutral Race Elders",
+    "winner": {
+      "author": "Sewerrat",
+      "id": "TjtQO1U7RTs1OzE7My80LzUvNi83O29sJyUyMGNhcCduJTIwU2VhJTIwUmF0O043NztBZnRlciUyMHN1cnZpdmluZyUyMGRhbWFnZSUyQyUyMCpyZXBsYWNlKiUyMGElMjByYW5kb20lMjBub24tUGlyYXRlJTIwY2FyZCUyMGZyb20lMjB5b3VyJTIwaGFuZC4lMjBJZiUyMGl0J3MlMjBhJTIwUGlyYXRlJTIwY2FyZCUyMCpwbGF5KiUyMGl0JTIwb24lMjBhJTIwdGlsZSUyMGluJTIwaXRzJTIwcm93Ljs7RQ=="
+    }
   },
   {
     "season": 2,
