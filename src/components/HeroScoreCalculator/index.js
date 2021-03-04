@@ -106,7 +106,6 @@ const HeroScoreCalculator = props => {
                 id='current'
                 name='current'
                 value={current}
-                min={1000}
                 onChange={setCurrent}
                 required
               />
