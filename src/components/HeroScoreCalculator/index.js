@@ -116,7 +116,6 @@ const HeroScoreCalculator = props => {
                 id='opponent'
                 name='opponent'
                 value={opponent}
-                min={1000}
                 onChange={setOpponent}
                 required
               />
