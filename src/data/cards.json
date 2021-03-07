@@ -1064,7 +1064,7 @@
     "mana": 3,
     "strength": "2/3/4/5/6",
     "movement": 0,
-    "ability": "At the start of your turn remove 1/1/1/2/2 strength from the stronger base and give it to the weaker one",
+    "ability": "At the start of your turn remove *1/1/1/2/2 strength* from the stronger base and *give it* to the weaker one",
     "elder": false
   },
   {
@@ -1461,7 +1461,7 @@
     "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "When played with a friendly copy on the board, teleport 2/3/4/6/8 surrounding units from it, then destroy both temples. Otherwise, return to the hand."
+    "ability": "When played with a friendly copy on the board, teleport *2/3/4/6/8* surrounding units from it, then destroy both temples. Otherwise, return to the hand."
   },
   {
     "name": "Brood Sages",
@@ -2212,7 +2212,7 @@
     "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "At the start of your turn, deconfuse and give 1 additional move to all friendly units in front. Deal 1 damage to itself when boosted unit reaches the enemy base.",
+    "ability": "At the start of your turn, deconfuse and give *1* additional move to all friendly units in front. Deal *1 damage* to itself when boosted unit reaches the enemy base.",
     "elder": false
   },
   {
