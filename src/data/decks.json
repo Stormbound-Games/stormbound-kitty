@@ -1126,7 +1126,7 @@
   },
   {
     "name": "Warm Winter",
-    "id": "5xn1w1w2n3n23n67n8n9n14n18n35n52",
+    "id": "5xn1w1w2n3n4n67n8n9n14n18n35n46",
     "author": "Kitty",
     "category": "DIAMOND_1",
     "date": "11/2020"
@@ -1255,6 +1255,27 @@
     "id": "5xn1n2f2f3n3n67f27n12n23f25f8f14",
     "author": "Davideg211",
     "category": "DIAMOND_1",
+    "date": "03/2021"
+  },
+  {
+    "name": "Iconic Masters",
+    "id": "5xn1i1i2n3i5n67i7i8i27i20n34n35",
+    "author": "MisterP93",
+    "category": "DIAMOND_1",
+    "date": "03/2021"
+  },
+  {
+    "name": "Spell Caster",
+    "id": "5xn1f3n3f8n67f5n23f12n29f28n44n48",
+    "author": "MisterP93",
+    "category": "DIAMOND_1",
+    "date": "03/2021"
+  },
+  {
+    "name": "Xuri’s Army",
+    "id": "3xn1s1n3s5s7s10s14n25s16n38s19s20",
+    "author": "CryoPlasma",
+    "category": "REGULAR",
     "date": "03/2021"
   }
 ]
