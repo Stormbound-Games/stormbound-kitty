@@ -473,6 +473,15 @@
     "season": 2,
     "week": 11,
     "name": "Cloaked",
+    "winner": {
+      "author": "sqiri",
+      "id": "TjtQO1U7RTs1OzI7Mi8zLzQvNS82O1NoZWx0ZXJpbmclMjBkYXNoZXJzO04xMjtPbiUyMHBsYXklMkMlMjAqY2xvYWsqJTIwYWxsJTIwYm9yZGVyaW5nJTIwdW5pdHMlMjBhbmQlMjBzdHJ1Y3R1cmVzJTIwdGhhdCUyMGFyZSUyMG5vdCUyMGJvcmRlcmluZyUyMGFueSUyMGJhc2U7Ow=="
+    }
+  },
+  {
+    "season": 2,
+    "week": 12,
+    "name": "Deck restrictions",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
