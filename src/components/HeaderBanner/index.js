@@ -2,7 +2,7 @@ import React from 'react'
 import { ImageSupportContext } from '../ImageSupportProvider'
 import './index.css'
 
-const DEFAULT_BANNER = '/assets/images/wallpapers/lite/wp-d-1.png'
+const DEFAULT_BANNER = '/assets/images/banners/default_banner.jpg'
 
 // The reason AVIF is opt-in but WEBP is opt-out is because the WEBP version is
 // automatically generated for all files with a script (although is sometimes
@@ -17,7 +17,7 @@ const useFileExtension = ({ fileType, withAvif, withoutWebp }) => {
 }
 
 export default React.memo(function HeaderBanner(props) {
-  const fileType = props.background?.split('.').pop() ?? 'png'
+  const fileType = props.background?.split('.').pop() ?? 'jpg'
   const ext = useFileExtension({
     // The `DEFAULT_BANNER` image has an AVIF version ready, so if there is no
     // background provided, it means the default banner will be used, and AVIF
