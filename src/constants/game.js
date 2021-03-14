@@ -88,7 +88,7 @@ export const BOOKS = {
     percentiles: [0.2, 0.6, 0.2, 0],
     draws: 3,
   },
-  LEGENDARY_DRAGON: {
+  ARCHDRAGON: {
     only: { race: 'dragon' },
     percentiles: [0, 0, 0.7, 0.3],
     draws: 3,
