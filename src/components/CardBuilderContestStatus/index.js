@@ -1,6 +1,6 @@
 import React from 'react'
 import getCalendarWeek from '../../helpers/getCalendarWeek'
-import getNextWeekDay from '../../helpers/getNextWeekDay'
+import { getNextWeekDay } from '../../helpers/getWeekDay'
 import swcc from '../../data/swcc'
 import './index.css'
 
@@ -43,7 +43,7 @@ export default React.memo(function CardBuilderContestStatus(props) {
         <span className='CardBuilderContestStatus__theme'>{contest.name}</span>!
         You have until{' '}
         <span className='CardBuilderContestStatus__date'>
-          {getNextWeekDay('FRIDAY', true).toLocaleDateString(
+          {getNextWeekDay('FRIDAY', { endOfDay: true }).toLocaleDateString(
             'en',
             DATE_TIME_OPTIONS
           )}
