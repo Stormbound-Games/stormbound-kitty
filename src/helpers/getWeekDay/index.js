@@ -10,26 +10,38 @@ const WEEK_DAYS = [
 
 export const getNextWeekDay = (
   day,
-  { anchor = new Date(), endOfDay, skipToday } = {}
+  { date = new Date(), endOfDay, skipToday } = {}
 ) => {
   const dayIndex = WEEK_DAYS.indexOf(day)
 
-  if (anchor.getDay() === dayIndex && skipToday) {
-    anchor.setDate(anchor.getDate() + 1)
+  if (date.getDay() === dayIndex && skipToday) {
+    date.setDate(date.getDate() + 1)
   }
 
-  const resultDate = new Date(anchor.getTime())
+  const resultDate = new Date(date.getTime())
 
-  resultDate.setDate(anchor.getDate() + ((7 + dayIndex - anchor.getDay()) % 7))
+  resultDate.setDate(date.getDate() + ((7 + dayIndex - date.getDay()) % 7))
 
   if (endOfDay) resultDate.setHours(23, 59, 59)
 
   return resultDate
 }
 
-export const getLastWeekDay = (day, options) => {
-  const next = getNextWeekDay(day, options)
-  const date = new Date(next.valueOf())
-  date.setDate(date.getDate() - 7)
-  return date
+export const getLastWeekDay = (
+  day,
+  { date = new Date(), startOfDay, skipToday } = {}
+) => {
+  const dayIndex = WEEK_DAYS.indexOf(day)
+
+  if (date.getDay() === dayIndex && skipToday) {
+    date.setDate(date.getDate() - 1)
+  }
+
+  const resultDate = new Date(date.getTime())
+
+  resultDate.setDate(date.getDate() - ((7 + date.getDay() - dayIndex) % 7))
+
+  if (startOfDay) resultDate.setHours(0, 0, 0)
+
+  return resultDate
 }
