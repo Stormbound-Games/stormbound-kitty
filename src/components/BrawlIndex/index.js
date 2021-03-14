@@ -11,6 +11,7 @@ import getBrawlDescription from '../../helpers/getBrawlDescription'
 import getCurrentBrawl from '../../helpers/getCurrentBrawl'
 import getGuide from '../../helpers/getGuide'
 import isBrawlRunning from '../../helpers/isBrawlRunning'
+import microMarkdown from '../../helpers/microMarkdown'
 import { BRAWLS } from '../../constants/brawl'
 
 const BrawlTeaser = React.memo(function BrawlTeaser(props) {
@@ -57,7 +58,7 @@ const BrawlBanner = React.memo(function BrawlBanner(props) {
       description={
         <>
           <span className='Highlight'>{props.label}</span> ·{' '}
-          {getBrawlDescription(props.id)}{' '}
+          {microMarkdown(getBrawlDescription(props.id))}{' '}
           {guide ? (
             <Link to={`/guides/${guide.slug}`}>Read Oeni’s Gazette</Link>
           ) : (
