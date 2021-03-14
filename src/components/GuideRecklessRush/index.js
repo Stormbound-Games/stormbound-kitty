@@ -86,9 +86,9 @@ export default React.memo(function GuideRecklessRush(props) {
           <Row.Column>
             <p>This is the main Reckless Rush deck in all its glory.</p>
             <p>
-              These were my exact card levels when I reached Diamond 5. Note
-              that <CardLink id='N63' /> costed 2 mana at that time instead of
-              3. That being said, even at 3 mana, it is still very viable.
+              These were my exact card levels when I reached Diamond 5. With
+              changes to the meta, different variations of the original deck
+              were born, so let’s take a look at all the best variations.
             </p>
           </Row.Column>
         </Row>
@@ -353,10 +353,12 @@ export default React.memo(function GuideRecklessRush(props) {
         the entire match and it should be the last card played.
       </p>
       <p>
-        The only reason to ever play it is to win the match, whether that means
-        to use it to push a weak unit into the base, perhaps combo’d with Potion
-        of Growth or most remarkably with Devastators. At 7 mana, the
-        Devastators + Forgotten Souls combo is a deadly one.
+        There are some rare cases where you may want to use Forgotten Souls to
+        set up a baselock. Otherwise, the only reason to ever play it is to win
+        the match, whether that means to use it to push a weak unit into the
+        base, perhaps combo’d with Potion of Growth or most remarkably with
+        Devastators. At 7 mana, the Devastators + Forgotten Souls combo is a
+        deadly one.
       </p>
 
       <h3>Potion of Growth</h3>
@@ -394,7 +396,17 @@ export default React.memo(function GuideRecklessRush(props) {
         <li>
           As a finisher when combo’d with Forgotten Souls in the late game.
         </li>
+        <li>
+          To vitalize a unit close by your base or cancel out the poison effect.
+        </li>
       </ol>
+      <p>
+        Since Potion of Growth can vitalize units, it may be preferable to play
+        this card on a poisoned unit to prevent the enemy from using poison
+        synergy cards on it like Marked as Prey or Amberhides. Potion of Growth
+        can also be used in the early game on a unit close to your own base,
+        simply allowing it to grow before it reaches the enemy base.
+      </p>
 
       <h3>Shady Ghoul</h3>
       <p>
