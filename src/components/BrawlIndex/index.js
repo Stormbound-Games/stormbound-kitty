@@ -28,9 +28,9 @@ const BrawlTeaser = React.memo(function BrawlTeaser(props) {
   )
 })
 
-const getDateDisplay = () => {
-  const isRunning = isBrawlRunning()
-  const dayOfTheWeek = new Date().getDay()
+const getDateDisplay = (date = new Date()) => {
+  const isRunning = isBrawlRunning(date)
+  const dayOfTheWeek = date.getDay()
 
   if (!isRunning) {
     const startDate = dayOfTheWeek === 4 ? 'Starts today' : 'Starts on Thursday'
@@ -38,9 +38,8 @@ const getDateDisplay = () => {
     return `Upcoming Brawl · ${startDate}`
   }
 
-  if (dayOfTheWeek === 0) {
-    return `Current Brawl · Ends today`
-  }
+  if (dayOfTheWeek === 0) return `Current Brawl · Ends tomorrow`
+  if (dayOfTheWeek === 1) return `Current Brawl · Ends today`
 
   return `Current Brawl · Ends in ${7 - dayOfTheWeek} day${
     7 - dayOfTheWeek === 1 ? '' : 's'
