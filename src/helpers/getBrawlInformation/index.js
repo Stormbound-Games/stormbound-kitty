@@ -6,8 +6,8 @@ const getBrawlInformation = (date = new Date()) => {
   if (!isBrawlRunning(date)) return null
 
   const brawl = getCurrentBrawl(date)
-  const start = getLastWeekDay('THURSDAY', { anchor: date })
-  const end = getNextWeekDay('MONDAY', { anchor: start })
+  const start = getLastWeekDay('THURSDAY', { date: date })
+  const end = getNextWeekDay('MONDAY', { date: start })
 
   return { ...brawl, start, end }
 }
