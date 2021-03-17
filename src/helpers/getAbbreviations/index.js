@@ -21,6 +21,7 @@ const COMMON_ABBREVIATIONS = {
   GG: 'Goldgrubbers',
   HP: 'Health Point(s)',
   HC: 'Hero Crown(s)',
+  HG: 'Heartguards',
   HL: 'Heroes League',
   HS: 'Hero Score',
   IC: 'Ironclad',
