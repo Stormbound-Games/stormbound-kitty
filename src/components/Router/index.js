@@ -41,6 +41,7 @@ const GUIDE_COMPONENTS = {
 }
 
 const RELEASE_COMPONENTS = {
+  '04_2021': load('ReleaseNotesApril2021'),
   '03_2021': load('ReleaseNotesMarch2021'),
   '02_2021': load('ReleaseNotesFebruary2021'),
   temple_of_focus: load('ReleaseNotesTempleOfFocus'),

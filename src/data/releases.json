@@ -1,5 +1,16 @@
 [
   {
+    "cardId": "N77",
+    "title": "Update 04-2021",
+    "name": "Easter Update",
+    "meta": "April 1st, 2021",
+    "date": "04/2021",
+    "excerpt": "It’s about Easter, and with it a new Stormbound release with new cards, balance tweaks, Heroes League improvements and some exclusive offers!",
+    "slug": "04-2021",
+    "background": "/assets/images/banners/ancients.png",
+    "id": "04_2021"
+  },
+  {
     "cardId": "N82",
     "title": "Update 03-2021",
     "name": "Heroes Update",
