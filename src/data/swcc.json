@@ -482,6 +482,15 @@
     "season": 2,
     "week": 12,
     "name": "Deck restrictions",
+    "winner": {
+      "author": "Giraudy",
+      "id": "Tjs7QztSOzQ7OztQb3B1bG91cyUyMERlY2ltYXRvciUyMDtOMjM7R2l2ZSUyMDMlMkY0JTJGNSUyRjYlMkY3JTIwc3RyZW5ndGglMjB0byUyMGFsbCUyMHVuaXRzJTIwd2l0aCUyMG5vJTIwb3RoZXIlMjB1bml0cyUyMG9mJTIwdGhlJTIwc2FtZSUyMHVuaXQlMjB0eXBlJTIwYW5kJTIwZGVhbCUyMDMlMkY0JTJGNSUyRjYlMkY3JTIwZGFtYWdlJTIwdG8lMjBhbGwlMjBvdGhlciUyMHVuaXRzOzs="
+    }
+  },
+  {
+    "season": 2,
+    "week": 13,
+    "name": "Flight",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
