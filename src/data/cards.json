@@ -2585,6 +2585,19 @@
     "elder": true
   },
   {
+    "name": "Temple of Life",
+    "id": "W29",
+    "type": "structure",
+    "faction": "winter",
+    "race": null,
+    "rarity": "rare",
+    "image": "temple_of_life.png",
+    "mana": 4,
+    "strength": "3/4/5/6/7",
+    "movement": null,
+    "ability": "At the start of your turn, vitalize 2/3/3/4/5 bordering/bordering/surrounding/surrounding/all friendly units"
+  },
+  {
     "name": "Token Constructs",
     "id": "T1",
     "token": true,
