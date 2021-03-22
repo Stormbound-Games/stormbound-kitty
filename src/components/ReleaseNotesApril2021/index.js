@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
-import CheapenedBrawl from '../CheapenedBrawl'
 import FAQSection from '../FAQSection'
 import Image from '../Image'
 import Info from '../Info'
@@ -20,6 +19,7 @@ import {
   Rubies,
   Stones,
 } from '../Resource'
+import ResourceIcon from '../ResourceIcon'
 import Title from '../Title'
 import getInitialCardData from '../../helpers/getInitialCardData'
 
@@ -47,6 +47,12 @@ export default React.memo(function ReleaseNotesApril2021(props) {
             <a href='#exclusive-offers'>Exclusive offers</a>
           </li>
           <li>
+            <a href='#new-login-system'>New login system</a>
+          </li>
+          <li>
+            <a href='#new-avatars'>New avatars</a>
+          </li>
+          <li>
             <a href='#faq'>FAQ</a>
           </li>
         </ol>
@@ -72,14 +78,38 @@ export default React.memo(function ReleaseNotesApril2021(props) {
 
         <Title id='new-cards'>New cards</Title>
 
-        <p>TBA.</p>
+        <p>
+          Yet another temple will make its entrance in April, the Temple of
+          Life, a new rare structure from Winterpact.
+        </p>
       </Article.Narrow>
 
       <Article.Embed>
-        <CardBuilderCardDisplay {...getInitialCardData('I29')} />
+        <CardBuilderCardDisplay {...getInitialCardData('W29')} />
       </Article.Embed>
 
       <Article.Narrow>
+        <Row desktopOnly style={{ alignItems: 'center' }}>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/pack_temple_of_life.png'
+              alt='Temple of Life pack ($9.99): 5 copies of Temple of Life, 5 fusions stones and 750 coins'
+              withAvif
+            />
+          </Row.Column>
+          <Row.Column>
+            <p>
+              As usual, there will be an exclusive pack to quickly get access to
+              some copies of the new card between April 9th and April 16th.
+            </p>
+            <p>
+              It will cost $9.99, and will grant the following:{' '}
+              <ResourceIcon resource='RARE' /> 5 copies of <CardLink id='W29' />
+              , <Stones amount={5} /> and <Coins amount={750} />.
+            </p>
+          </Row.Column>
+        </Row>
+
         <Title id='heroes-league-improvements'>
           Heroes League improvements
         </Title>
@@ -145,8 +175,8 @@ export default React.memo(function ReleaseNotesApril2021(props) {
         <Title id='exclusive-offers'>Exclusive offers</Title>
 
         <p>
-          As usual, exclusive packs will be available for 7 days starting from
-          their respective release date:
+          As usual, exclusive packs will be available from April 1st until April
+          5th:
         </p>
 
         <ul>
@@ -195,6 +225,64 @@ export default React.memo(function ReleaseNotesApril2021(props) {
       </Article.Embed>
 
       <Article.Narrow>
+        <Title id='new-login-system'>New login system</Title>
+
+        <p>
+          This has been a loooong time coming, but we are finally about to have
+          a new login system. It’s not quite done yet, but we are hoping to see
+          it live some time during the month of April.
+        </p>
+
+        <p>
+          The new system will let people sign in with their Google Play account
+          or Apple ID. It will be possible to merge your Kongregate account to
+          your new account (and vice verse). As a result, new players will no
+          longer have to create a Kongregate account, thus finally severing us
+          from Kongregate once and for all.
+        </p>
+
+        <Info icon='hammer' title='Open beta test'>
+          We are currently considering beta-testers who will be thanked with
+          in-game rewards at the end of the program. If you would like to
+          volunteer, please send a message in #login-testing on{' '}
+          <a href='https://discord.gg/stormbound'>Discord</a>. Kindly mention
+          the device you use, the country you live in and your player ID. We can
+          only onboard a few people, so we won’t take everyone.
+        </Info>
+
+        <Title id='new-avatars'>New avatars</Title>
+
+        <p>
+          There will be new avatars featuring Laurus, King in Exile, Doctor Mia
+          and Siren of the Seas, costing <Coins amount={1000} /> a piece. Three
+          more avatars featuring lovely flowers for <Rubies amount={200} />{' '}
+          each.
+        </p>
+
+        <Row>
+          <Row.Column width='1/3'>
+            <Image
+              src='/assets/images/releases/avatar_flower_pink.png'
+              alt='Cute anthromorphised pink flower'
+              withAvif
+            />
+          </Row.Column>
+          <Row.Column width='1/3'>
+            <Image
+              src='/assets/images/releases/avatar_flower_blue.png'
+              alt='Cute anthromorphised blue flower'
+              withAvif
+            />
+          </Row.Column>
+          <Row.Column width='1/3'>
+            <Image
+              src='/assets/images/releases/avatar_flower_gold.png'
+              alt='Cute anthromorphised orange flower'
+              withAvif
+            />
+          </Row.Column>
+        </Row>
+
         <FAQSection
           id='faq'
           title='FAQ'
@@ -202,7 +290,8 @@ export default React.memo(function ReleaseNotesApril2021(props) {
             {
               id: 'release-date',
               question: 'When is the update going to be released?',
-              answer: 'TBA.',
+              answer:
+                'The exclusive packs will be available between April 1st and April 5th. The Temple of Life pack will be available for a week starting April 9th. ',
             },
           ]}
         />
