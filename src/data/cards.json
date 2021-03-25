@@ -100,7 +100,7 @@
     "image": "collector_mirz.png",
     "mana": 3,
     "strength": "1/1/2/2/3",
-    "movement": 1,
+    "movement": 0,
     "ability": "On play, *create* a *0* cost unit with *5/6/6/8/10 strength* and add it to your deck",
     "hero": true
   },
@@ -1035,8 +1035,8 @@
     "race": "feline",
     "rarity": "rare",
     "image": "excited_mousers.png",
-    "mana": 5,
-    "strength": "5/6/7/9/11",
+    "mana": 3,
+    "strength": "3/4/5/6/7",
     "movement": 0,
     "ability": "On play confuse the same number of surrounding enemies, as there are surrounding friendly units"
   },

@@ -4414,5 +4414,23 @@
     "description": "Added to the game",
     "id": "W29",
     "type": "INFO"
+  },
+  {
+    "date": 1617271200000,
+    "description": "Decreased mana cost by 2",
+    "id": "N79",
+    "type": "BUFF"
+  },
+  {
+    "date": 1617271200000,
+    "description": "Decreased strength by 2/2/2/3/4",
+    "id": "N79",
+    "type": "NERF"
+  },
+  {
+    "date": 1617271200000,
+    "description": "Decreased movement by 1",
+    "id": "N8",
+    "type": "NERF"
   }
 ]
