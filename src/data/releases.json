@@ -7,8 +7,9 @@
     "date": "04/2021",
     "excerpt": "It’s about Easter, and with it a new Stormbound release with new cards, balance tweaks, Heroes League improvements and some exclusive offers!",
     "slug": "04-2021",
-    "background": "/assets/images/banners/ancients.png",
-    "id": "04_2021"
+    "background": "/assets/images/releases/temple_of_life.jpg",
+    "id": "04_2021",
+    "ratio": "50%"
   },
   {
     "cardId": "N82",

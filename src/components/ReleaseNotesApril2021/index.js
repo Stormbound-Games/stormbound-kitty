@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
@@ -9,16 +8,7 @@ import Info from '../Info'
 import NerfCompensationInfo from '../NerfCompensationInfo'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
-import {
-  Common,
-  Rare,
-  Epic,
-  Legendary,
-  Coins,
-  HeroCrowns,
-  Rubies,
-  Stones,
-} from '../Resource'
+import { Rare, Epic, Legendary, Coins, Rubies, Stones } from '../Resource'
 import ResourceIcon from '../ResourceIcon'
 import Title from '../Title'
 import getInitialCardData from '../../helpers/getInitialCardData'
@@ -140,7 +130,8 @@ export default React.memo(function ReleaseNotesApril2021(props) {
           </li>
           <li>The matchmaking often felt unfair and uneven.</li>
           <li>
-            The Hero Crowns gains and losses after a battle often felt too high.
+            The <ResourceIcon resource='HERO_CROWN' /> Hero Crowns gains and
+            losses after a battle often felt too high.
           </li>
         </ol>
 
@@ -159,20 +150,24 @@ export default React.memo(function ReleaseNotesApril2021(props) {
 
           <li>
             We are revisiting the way matchmaking works in order to make battles
-            more balanced. The Hero Crowns will be used to match players in
-            Heroes League, and players’ league and cards level within their
-            played deck will be taken into account in any other league.
+            more balanced. The <ResourceIcon resource='HERO_CROWN' /> Hero
+            Crowns will be used to match players in Heroes League, and players’
+            league and cards level within their played deck will be taken into
+            account in any other league.
             <br />
             As a result, we hope to build a system where gold farmers are more
             likely to be matched with other gold farmers instead of people who
-            are trying to climb. Additionally, the difference in Hero Crowns in
-            Heroes League matches should be lower.
+            are trying to climb. Additionally, the difference in{' '}
+            <ResourceIcon resource='HERO_CROWN' /> Hero Crowns in Heroes League
+            matches should be lower.
           </li>
 
           <li>
             When a Heroes League player gets matched with a Diamond player, the
-            Diamond’s player Hero Score is assumed to be 1000. This should
-            decrease the Hero Crowns losses/gains in such matches.
+            Diamond’s player amount of <ResourceIcon resource='HERO_CROWN' />{' '}
+            Hero Crowns is assumed to be 1000. This should decrease the{' '}
+            <ResourceIcon resource='HERO_CROWN' /> Hero Crowns losses/gains in
+            such matches.
           </li>
         </ol>
 
@@ -302,6 +297,12 @@ export default React.memo(function ReleaseNotesApril2021(props) {
               question: 'When is the update going to be released?',
               answer:
                 'The exclusive packs will be available between April 1st and April 5th. The Temple of Life pack will be available for a week starting April 9th. ',
+            },
+            {
+              id: 'daily-check-in-calendar',
+              question: 'Will there be a daily check-in calendar in April?',
+              answer:
+                'Yes! The daily check-in calendar will be extended in April, just like it did in March. Still $4.99 to boost to Premium.',
             },
           ]}
         />
