@@ -1,6 +1,64 @@
 import React from 'react'
 import Info from '../Info'
 import ResourceIcon from '../ResourceIcon'
+import capitalise from '../../helpers/capitalise'
+
+const COMPENSATION = {
+  common: [
+    [0, 0],
+    [10, 0],
+    [20, 1],
+    [50, 2],
+    [120, 5],
+  ],
+  rare: [
+    [0, 0],
+    [15, 2],
+    [30, 3],
+    [90, 7],
+    [190, 10],
+  ],
+  epic: [
+    [0, 0],
+    [15, 2],
+    [40, 5],
+    [120, 10],
+    [250, 20],
+  ],
+  legendary: [
+    [0, 1],
+    [20, 5],
+    [50, 10],
+    [150, 20],
+    [300, 50],
+  ],
+}
+
+const LevelCompensation = ({ level, coins, stones }) => {
+  if (coins === 0 && stones === 0) return null
+
+  return (
+    <>
+      {coins > 0 && (
+        <>
+          <ResourceIcon resource='COIN' />
+          &nbsp;
+          {coins}
+        </>
+      )}
+      {coins > 0 && stones > 0 && ' and '}
+      {stones > 0 && (
+        <>
+          <ResourceIcon resource='STONE' />
+          &nbsp;
+          {stones}
+        </>
+      )}{' '}
+      at level {level}
+      {level !== 5 && ', '}
+    </>
+  )
+}
 
 export default React.memo(function NerfCompensationInfo(props) {
   return (
@@ -12,22 +70,24 @@ export default React.memo(function NerfCompensationInfo(props) {
         rarity and level (coins/stones).
       </p>
       <ul style={{ marginBottom: 0 }}>
-        <li>
-          <ResourceIcon resource='COMMON' />
-          &nbsp; Common card: 0/0, 10/0, 20/1, 50/2, 120/5
-        </li>
-        <li>
-          <ResourceIcon resource='RARE' />
-          &nbsp; Rare card: 0/0, 15/2, 30/3, 90/7, 190/10
-        </li>
-        <li>
-          <ResourceIcon resource='EPIC' />
-          &nbsp; Epic card: 0/0, 15/2, 40/5, 120/10, 250/20
-        </li>
-        <li>
-          <ResourceIcon resource='LEGENDARY' />
-          &nbsp; Legendary card: 0/1, 20/5, 50/10, 150/20, 300/50
-        </li>
+        {Object.keys(COMPENSATION).map(rarity => (
+          <li key={rarity}>
+            <ResourceIcon resource={rarity.toUpperCase()} />
+            &nbsp; {capitalise(rarity)} card:{' '}
+            {COMPENSATION[rarity].reduce((acc, level, index) => {
+              return (
+                <>
+                  {acc}
+                  <LevelCompensation
+                    coins={level[0]}
+                    stones={level[1]}
+                    level={index + 1}
+                  />
+                </>
+              )
+            }, null)}
+          </li>
+        ))}
       </ul>
     </Info>
   )
