@@ -240,10 +240,10 @@ export default React.memo(function ReleaseNotesApril2021(props) {
         </p>
 
         <p>
-          The new system will let people sign in with their Google Play account
-          or Apple ID. It will be possible to merge your Kongregate account to
-          your new account (and vice verse). As a result, new players will no
-          longer have to create a Kongregate account.
+          The new system will let people sign in with their Google account or
+          Apple ID. It will be possible to merge your Kongregate account to your
+          new account (and vice verse). As a result, new players will no longer
+          have to create a Kongregate account.
         </p>
 
         <Info icon='hammer' title='Open beta test'>
