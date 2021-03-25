@@ -638,7 +638,7 @@
     "mana": 6,
     "strength": "5/6/7/8/10",
     "movement": 0,
-    "ability": "On death, *destroy* all units in front with *3/4/5/6/7* strength or less and *spawn 3/4/5/6/7* strength Ravens on all these tiles"
+    "ability": "On death, *destroy* all units in front with *3/4/5/6/7* strength or less and *spawn 3/4/5/6/7* strength Ravens on all tiles behind"
   },
   {
     "name": "Call for Aid",
