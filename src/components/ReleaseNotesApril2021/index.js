@@ -28,7 +28,7 @@ export default React.memo(function ReleaseNotesApril2021(props) {
             <a href='#balance-changes'>Balance changes</a>
           </li>
           <li>
-            <a href='#new-cards'>New cards</a>
+            <a href='#new-card'>New card</a>
           </li>
           <li>
             <a href='#heroes-league-improvements'>Heroes League improvements</a>
@@ -66,7 +66,7 @@ export default React.memo(function ReleaseNotesApril2021(props) {
           </li>
           <li>
             <CardLink id='N35' />
-            ’s ability now only consider friendly surrounding units (previously
+            ’s ability now only considers friendly surrounding units (previously
             all surrounding units).
           </li>
           <li>
@@ -77,7 +77,7 @@ export default React.memo(function ReleaseNotesApril2021(props) {
 
         <NerfCompensationInfo />
 
-        <Title id='new-cards'>New cards</Title>
+        <Title id='new-card'>New card</Title>
 
         <p>
           Yet another temple will make its entrance in April, the Temple of
