@@ -2592,10 +2592,10 @@
     "race": null,
     "rarity": "rare",
     "image": "temple_of_life.png",
-    "mana": 4,
+    "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": null,
-    "ability": "At the start of your turn, vitalize 2/3/3/4/5 bordering/bordering/surrounding/surrounding/all friendly units"
+    "ability": "At the start of your turn, vitalize 2/3/4/5/6 surrounding friendly units"
   },
   {
     "name": "Token Constructs",
