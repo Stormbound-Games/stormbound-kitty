@@ -40,6 +40,9 @@ export default React.memo(function ReleaseNotesApril2021(props) {
             <a href='#new-login-system'>New login system</a>
           </li>
           <li>
+            <a href='#qol-improvements'>QoL improvements</a>
+          </li>
+          <li>
             <a href='#new-avatars'>New avatars</a>
           </li>
           <li>
@@ -257,6 +260,20 @@ export default React.memo(function ReleaseNotesApril2021(props) {
           the device you use, the country you live in and your player ID. We can
           only onboard a few people, so we won’t take everyone.
         </Info>
+
+        <Title id='qol-improvements'>QoL improvements</Title>
+
+        <p>
+          This release will also bring quite some quality of life improvements.
+          In no particular order, I feel like it is worth mentioning:
+        </p>
+        <ul>
+          <li>There will be a way to sort the friends list.</li>
+          <li>Tapping a player’s ID will copy it to the clipboard.</li>
+          <li>
+            The <CardLink id='T15' /> image and 3D model will be renewed.
+          </li>
+        </ul>
 
         <Title id='new-avatars'>New avatars</Title>
 
