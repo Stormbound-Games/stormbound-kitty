@@ -65,13 +65,16 @@ export default React.memo(function ReleaseNotesApril2021(props) {
             <CardLink id='N8' /> no longer has movement (down from 1).
           </li>
           <li>
-            <CardLink id='N35' />
-            ’s ability now only considers friendly surrounding units (previously
-            all surrounding units).
-          </li>
-          <li>
             <CardLink id='N79' /> now cost 3 mana (down from 5) and have
             3/4/5/6/7 strength (down from 5/6/7/9/11).
+          </li>
+          <li>
+            <CardLink id='N35' />
+            ’s ability now only considers each unique surrounding{' '}
+            <span className='Highlight'>primary</span> unit types. For instance,{' '}
+            <CardLink id='F27' /> would be considered Ravens only in such case,
+            not Elders. <CardLink id='N76' /> is treated as an Elder only, not a
+            Hero.
           </li>
         </ul>
 

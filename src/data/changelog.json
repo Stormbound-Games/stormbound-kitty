@@ -4432,5 +4432,11 @@
     "description": "Decreased movement by 1",
     "id": "N8",
     "type": "NERF"
+  },
+  {
+    "date": 1617271200000,
+    "description": "Ability now only considers primary unit types",
+    "id": "N35",
+    "type": "NERF"
   }
 ]

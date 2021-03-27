@@ -453,7 +453,7 @@
     "mana": 5,
     "strength": "5/6/6/8/10",
     "movement": 0,
-    "ability": "On play, deal *1/1/2/2/3 damage* to a random enemy for each surrounding *unit type*",
+    "ability": "On play, deal *1/1/2/2/3 damage* to a random enemy for each unique surrounding *primary unit type*",
     "hero": true
   },
   {
