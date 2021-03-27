@@ -112,12 +112,14 @@ export default React.memo(function Card(props) {
           <p className='Card__ability' data-testid='card-ability'>
             {microMarkdown(props.ability)}
           </p>
-          <img
-            className='Card__rarity'
-            src={`/assets/images/card/rarity-${props.rarity}.${ext}`}
-            alt={props.rarity}
-            data-testid='card-rarity'
-          />
+          {props.rarity && (
+            <img
+              className='Card__rarity'
+              src={`/assets/images/card/rarity-${props.rarity}.${ext}`}
+              alt={props.rarity}
+              data-testid='card-rarity'
+            />
+          )}
 
           {props.type !== 'spell' && props.strength !== null && (
             <div
