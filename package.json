@@ -32,7 +32,7 @@
     "react-intersection-observer": "^8.31.0",
     "react-masonry-css": "^1.0.14",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.2",
+    "react-scripts": "^4.0.3",
     "react-select": "^4.1.0",
     "recharts": "^2.0.7",
     "svg2png": "^4.1.1",
