@@ -86,6 +86,13 @@ export default React.memo(function About(props) {
           </Sparkles>
         </div>
 
+        <p>
+          If you do donate, please do let me know on Discord so I can add a
+          donation entry to{' '}
+          <Link to='/members'>your page on Stormbound-Kitty</Link>, or will
+          create one if you don’t have one yet. Thank you so much! 🙏
+        </p>
+
         <h2>Non-financial support</h2>
 
         <p>
