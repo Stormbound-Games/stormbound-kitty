@@ -28,10 +28,9 @@ export default class BattleSimAppDesktop extends React.Component {
           }) > :nth-child(${this.props.activeCell[1] + 1})`
         )
         const coords = node.getBoundingClientRect()
-
-        this.dialog.dialog.style.left =
+        this.dialog.$el.style.left =
           window.scrollX + coords.width / 2 + coords.left + 'px'
-        this.dialog.dialog.style.top =
+        this.dialog.$el.style.top =
           window.scrollY + coords.height + coords.top + 'px'
 
         this.setState({ coords })
