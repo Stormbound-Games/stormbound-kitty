@@ -35,15 +35,12 @@ export default React.memo(function Dialog(props) {
     <A11yDialog
       role={props.role}
       id={props.id}
-      appRoot='#root'
-      dialogRoot='#dialog-root'
       dialogRef={registerDialog}
       title={props.title}
       classNames={{
         container: 'Dialog',
         overlay: 'Dialog__overlay',
         dialog: 'Dialog__content',
-        inner: 'Dialog__document',
         title: 'Dialog__hidden',
         closeButton: 'Dialog__hidden',
       }}
