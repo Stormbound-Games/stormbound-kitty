@@ -148,7 +148,7 @@ export default React.memo(function Footer(props) {
 
                     <li className='Footer__item'>
                       <a
-                        href='https://stormboundkingdomwars.gamepedia.com/Stormbound:_Kingdom_Wars_Wiki'
+                        href='https://stormboundkingdomwars.fandom.com'
                         target='_blank'
                         rel='noopener noreferrer'
                       >

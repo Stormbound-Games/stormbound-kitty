@@ -99,7 +99,7 @@ export default function CardChangelog(props) {
           <p className='CardChanges__disclaimer'>
             This data is periodically scrapped from the official{' '}
             <a
-              href='https://stormboundkingdomwars.gamepedia.com/Stormbound:_Kingdom_Wars_Wiki'
+              href='https://stormboundkingdomwars.fandom.com'
               target='_blank'
               rel='noopener noreferrer'
             >

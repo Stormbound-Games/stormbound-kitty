@@ -13,7 +13,7 @@ import swcc from '../../data/swcc'
 import './index.css'
 
 const getWikiUrl = name =>
-  'https://stormboundkingdomwars.gamepedia.com/' +
+  'https://stormboundkingdomwars.fandom.com/' +
   encodeURIComponent(name.replace(/\s/g, '_').replace(/’/g, "'"))
 
 const useArticleProps = props => {
