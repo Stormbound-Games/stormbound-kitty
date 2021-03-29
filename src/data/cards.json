@@ -2800,7 +2800,7 @@
     "token": true,
     "type": "unit",
     "faction": "neutral",
-    "race": null,
+    "race": "ancient",
     "rarity": null,
     "image": "eternal_spirits.png",
     "mana": 0,
