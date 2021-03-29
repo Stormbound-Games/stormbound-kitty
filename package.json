@@ -69,12 +69,6 @@
     "spritesh": "^1.2.1",
     "webpack-bundle-analyzer": "^4.4.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "post-rewrite": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.js": [
       "prettier --write",
