@@ -40,7 +40,7 @@ export default React.memo(function ReleaseNotesApril2021(props) {
             <a href='#new-login-system'>New login system</a>
           </li>
           <li>
-            <a href='#qol-improvements'>QoL improvements</a>
+            <a href='#qol-improvements'>Quality of Life improvements</a>
           </li>
           <li>
             <a href='#new-avatars'>New avatars</a>
@@ -261,7 +261,7 @@ export default React.memo(function ReleaseNotesApril2021(props) {
           only onboard a few people, so we won’t take everyone.
         </Info>
 
-        <Title id='qol-improvements'>QoL improvements</Title>
+        <Title id='qol-improvements'>Quality of Life improvements</Title>
 
         <p>
           This release will also bring quite some quality of life improvements.
@@ -271,17 +271,18 @@ export default React.memo(function ReleaseNotesApril2021(props) {
           <li>There will be a way to sort the friends list.</li>
           <li>Tapping a player’s ID will copy it to the clipboard.</li>
           <li>
-            The <CardLink id='T15' /> image and 3D model will be renewed.
+            The <CardLink id='T15'>Ancient Token</CardLink>’s image and 3D model
+            will be renewed.
           </li>
         </ul>
 
         <Title id='new-avatars'>New avatars</Title>
 
         <p>
-          There will be new avatars featuring Laurus, King in Exile, Doctor Mia
-          and Siren of the Seas, costing <Coins amount={1000} /> a piece. Three
-          more avatars featuring lovely flowers for <Rubies amount={200} />{' '}
-          each.
+          There will be new avatars featuring <CardLink id='N69' />,{' '}
+          <CardLink id='I2' /> and <CardLink id='N58' />, costing{' '}
+          <Coins amount={1000} /> a piece. Three more avatars featuring lovely
+          flowers for <Rubies amount={200} /> each.
         </p>
 
         <Row>
