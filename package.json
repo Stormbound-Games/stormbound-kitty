@@ -34,7 +34,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-select": "^4.1.0",
-    "recharts": "^2.0.7",
+    "recharts": "^2.0.9",
     "svg2png": "^4.1.1",
     "worker-loader": "^3.0.8"
   },
