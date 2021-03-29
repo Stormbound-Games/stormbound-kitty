@@ -23,5 +23,9 @@
   "projectId": "h321g2",
   "env": {
     "coverage": false
+  },
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
   }
 }
