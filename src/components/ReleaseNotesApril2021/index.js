@@ -317,7 +317,7 @@ export default React.memo(function ReleaseNotesApril2021(props) {
               id: 'release-date',
               question: 'When is the update going to be released?',
               answer:
-                'The exclusive packs will be available between April 1st and April 5th. The Temple of Life pack will be available for a week starting April 9th. ',
+                'The balance changes will be up with the season reset as always. The exclusive packs will be available between April 1st and April 5th. The Temple of Life pack will be available for a week starting April 9th. ',
             },
             {
               id: 'daily-check-in-calendar',
