@@ -207,7 +207,7 @@
 
 .Card__rarity {
   width: 8%;
-  margin: 0 auto 0.75emem;
+  margin: 0 auto 0.75em;
 }
 
 /**
@@ -285,6 +285,14 @@
   font-size: 140%;
   display: block;
   transform: translateY(-1px);
+}
+
+/**
+ * 1. When there is no rarity between the ability and the strength, such as for
+ *    token cards, some space should be left for the image to remain centered.
+ */
+.Card__ability + .Card__strength + .Card__level {
+  margin-top: 2em; /* 1 */
 }
 
 /**
