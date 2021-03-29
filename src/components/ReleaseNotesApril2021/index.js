@@ -1,7 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
+import CheapenedBrawl from '../CheapenedBrawl'
 import FAQSection from '../FAQSection'
 import Image from '../Image'
 import Info from '../Info'
@@ -32,6 +34,9 @@ export default React.memo(function ReleaseNotesApril2021(props) {
           </li>
           <li>
             <a href='#heroes-league-improvements'>Heroes League improvements</a>
+          </li>
+          <li>
+            <a href='#cheapened-brawl'>Cheapened Brawl</a>
           </li>
           <li>
             <a href='#exclusive-offers'>Exclusive offers</a>
@@ -184,6 +189,17 @@ export default React.memo(function ReleaseNotesApril2021(props) {
           We have a few other improvement ideas if needed.
         </p>
 
+        <CheapenedBrawl ratio={1 / 2}>
+          <p>
+            Similar to{' '}
+            <Link to='/releases/11-2020#cheapened-braawl'>
+              what happened in November
+            </Link>
+            , the Brawl starting on April 4th (and only that one) is going to be
+            cheaper. All fight will cost 50% of their original price.
+          </p>
+        </CheapenedBrawl>
+
         <Title id='exclusive-offers'>Exclusive offers</Title>
 
         <p>
@@ -237,6 +253,12 @@ export default React.memo(function ReleaseNotesApril2021(props) {
       </Article.Embed>
 
       <Article.Narrow>
+        <p>
+          On top of that, all rubies offer will grant additional rubies between
+          April 1st and April 5th (end of day), respectively +5%, +10%, +15%,
+          +25% and +50% rubies.
+        </p>
+
         <Title id='new-login-system'>New login system</Title>
 
         <p>
