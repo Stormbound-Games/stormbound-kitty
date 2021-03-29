@@ -2807,6 +2807,6 @@
     "strength": 1,
     "movement": 1,
     "ability": null,
-    "elder": true
+    "elder": false
   }
 ]
