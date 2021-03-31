@@ -195,7 +195,7 @@ export default React.memo(function ReleaseNotesApril2021(props) {
             <Link to='/releases/11-2020#cheapened-braawl'>
               what happened in November
             </Link>
-            , the Brawl starting on April 4th (and only that one) is going to be
+            , the Brawl starting on April 1st (and only that one) is going to be
             cheaper. All fight will cost 50% of their original price.
           </p>
         </CheapenedBrawl>
