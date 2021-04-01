@@ -296,6 +296,9 @@ export default React.memo(function ReleaseNotesApril2021(props) {
             The <CardLink id='T15'>Ancient Token</CardLink>’s image and 3D model
             will be renewed.
           </li>
+          <li>
+            The Diamond 1 cap preventing to fall down the rank has been removed.
+          </li>
         </ul>
 
         <Title id='new-avatars'>New avatars</Title>
