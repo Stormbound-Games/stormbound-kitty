@@ -19,6 +19,11 @@ describe('The `HEARTHGUARDS` advice', () => {
     expect(advice(cards)).to.equal(null)
   })
 
+  it('should not be returned if it has at least 1 structure and Rockworkers', () => {
+    const cards = getCards('1xn1w1n2n66w2n3w4w7w13n34n39w17')
+    expect(advice(cards)).to.equal(null)
+  })
+
   it('should not be returned if it has a cheap structure', () => {
     const cards = getCards('5n15n25i15n31n45n65i55i75n185i135i205n39')
     expect(advice(cards)).to.equal(null)
@@ -26,6 +31,11 @@ describe('The `HEARTHGUARDS` advice', () => {
 
   it('should be returned if there are not enough structures', () => {
     const cards = getCards('1n11i11i21n671n661n641n651i161i171n341n391n68')
+    expect(advice(cards)).to.not.equal(null)
+  })
+
+  it('should be returned if there are not enough structures, including Rockworkers', () => {
+    const cards = getCards('1xn1w1n2n66w2n3w4w7w28w13n39w17')
     expect(advice(cards)).to.not.equal(null)
   })
 
