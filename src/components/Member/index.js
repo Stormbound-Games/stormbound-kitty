@@ -27,7 +27,7 @@ export default React.memo(function Member(props) {
       meta={
         <>
           {count} contribution{count === 1 ? '' : 's'}
-          {details.donations.length > 0 ? (
+          {details.donations.length > 0 || details.contributions.length > 0 ? (
             <>
               {' '}
               · {details.donations.length > 1 ? 'Super ' : null}
@@ -55,6 +55,14 @@ export default React.memo(function Member(props) {
             >
               {displayName} is one of the generous contributors who can make
               Stormbound-Kitty a reality. Thank you and welcome to the{' '}
+              <abbr title='Kitty Appreciation Team'>KAT</abbr>!
+            </Info>
+          )}
+
+          {details.contributions.length > 0 && (
+            <Info icon='hammer' title='Technical contributor'>
+              {displayName} is one of the skilled contributors who help make
+              Stormbound-Kitty better every day. Thank you and welcome to the{' '}
               <abbr title='Kitty Appreciation Team'>KAT</abbr>!
             </Info>
           )}

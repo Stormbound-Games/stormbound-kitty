@@ -5,6 +5,7 @@ import MemberList from '../MemberList'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Sparkles from '../Sparkles'
+import contributions from '../../data/contributions'
 import donations from '../../data/donations'
 import './index.css'
 
@@ -130,12 +131,31 @@ export default React.memo(function About(props) {
 
         <p>
           I have been incredibly lucky to have been supported by wonderful
-          people whom I cannot thank enough. My gratitude to (in alphabetical
-          order)
+          people whom I cannot thank enough.
+        </p>
+        <p>
+          My gratitude to (in alphabetical order)
           <MemberList
             members={[...new Set(donations.map(donation => donation.author))]}
+          />{' '}
+          for their generous and kind donations.
+        </p>
+
+        <p>
+          Additionally, special thanks to the following contributors for issuing
+          code updates, whether small or large:{' '}
+          <MemberList
+            members={[
+              ...new Set(
+                contributions.map(contribution => contribution.author).sort()
+              ),
+            ]}
           />
-          —for their generous and kind donations. Welcome to the{' '}
+          .
+        </p>
+
+        <p>
+          To you all, welcome to the{' '}
           <abbr title='Kitty Appreciation Team'>KAT</abbr>. ✨
         </p>
 

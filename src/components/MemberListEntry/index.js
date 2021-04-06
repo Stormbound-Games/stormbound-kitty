@@ -67,7 +67,8 @@ const MemberListEntryToC = React.memo(function MemberListEntryToC(props) {
 export default React.memo(function MemberListEntry(props) {
   const { name } = React.useContext(UserContext)
   const { count, details } = useMemberContent(props.member.toLowerCase())
-  const KATMember = details.donations.length > 0
+  const KATMember =
+    details.donations.length > 0 || details.contributions.length > 0
   const superKATMember = details.donations.length > 1
   const isCurrentUser = name === props.member
 
