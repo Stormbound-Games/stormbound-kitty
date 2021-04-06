@@ -134,4 +134,4 @@ export const COIN_MULTIPLIERS = {
   NONE: 0,
 }
 
-export const CYCLE_START = new Date(2020, 7, 6)
+export const CYCLE_START = new Date(2021, 3, 1, 9, 0)

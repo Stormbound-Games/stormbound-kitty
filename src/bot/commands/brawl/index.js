@@ -1,33 +1,9 @@
 import { formatPreciseDate } from '../../../helpers/formatDate'
-import { getLastWeekDay, getNextWeekDay } from '../../../helpers/getWeekDay'
 import getBrawlDescription from '../../../helpers/getBrawlDescription'
-import getBrawlInformation from '../../../helpers/getBrawlInformation'
 import getEmbed from '../../../helpers/getEmbed'
+import getNearBrawl from '../../../helpers/getNearBrawl'
 import isBrawlRunning from '../../../helpers/isBrawlRunning'
 import { BRAWLS } from '../../../constants/brawl'
-
-const getBrawl = message => {
-  const date = new Date()
-  // To try another day and/or hours:
-  // date.setDate(date.getDate() + 4)
-  // date.setHours(3)
-  const options = {
-    date,
-    skipToday: isBrawlRunning(date),
-    startOfDay: true,
-    endOfDay: true,
-  }
-
-  if (message === 'next' || message === 'upcoming') {
-    return getBrawlInformation(getNextWeekDay('THURSDAY', options))
-  }
-
-  if (message === 'prev' || message === 'previous') {
-    return getBrawlInformation(getLastWeekDay('MONDAY', options))
-  }
-
-  return getBrawlInformation(date)
-}
 
 export default {
   command: 'brawl',
@@ -58,7 +34,7 @@ export default {
         )
     }
 
-    const { start, end, ...brawl } = getBrawl(message) || {}
+    const { start, end, ...brawl } = getNearBrawl(message) || {}
 
     if (!brawl.id) {
       return embed

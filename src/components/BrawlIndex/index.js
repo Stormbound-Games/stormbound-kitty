@@ -8,7 +8,7 @@ import Teaser from '../Teaser'
 import Title from '../Title'
 import chunk from '../../helpers/chunk'
 import getBrawlDescription from '../../helpers/getBrawlDescription'
-import getCurrentBrawl from '../../helpers/getCurrentBrawl'
+import getNearBrawl from '../../helpers/getNearBrawl'
 import getGuide from '../../helpers/getGuide'
 import isBrawlRunning from '../../helpers/isBrawlRunning'
 import microMarkdown from '../../helpers/microMarkdown'
@@ -76,9 +76,8 @@ const BrawlBanner = React.memo(function BrawlBanner(props) {
 })
 
 export default React.memo(function BrawlIndex() {
-  const currentBrawl = getCurrentBrawl()
-  const index = BRAWLS.findIndex(brawl => brawl.id === currentBrawl.id)
-  const brawl = BRAWLS[index]
+  const brawl = getNearBrawl() || getNearBrawl('next')
+  const index = BRAWLS.findIndex(b => b.id === brawl.id)
   const brawls = BRAWLS.slice(index + 1).concat(BRAWLS.slice(0, index))
 
   return (
@@ -90,10 +89,7 @@ export default React.memo(function BrawlIndex() {
       </Only.Desktop>
       <Only.Mobile>
         <Title>Upcoming Brawl</Title>
-        <BrawlTeaser
-          {...currentBrawl}
-          description={getBrawlDescription(currentBrawl.id)}
-        />
+        <BrawlTeaser {...brawl} description={getBrawlDescription(brawl.id)} />
       </Only.Mobile>
 
       <Title>Other Brawls</Title>
