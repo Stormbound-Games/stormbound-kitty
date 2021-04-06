@@ -23,6 +23,8 @@ const getLabel = (key, number) => {
       return number === 1 ? 'puzzle' : 'puzzles'
     case 'cards':
       return number === 1 ? 'won card contest' : 'won card contests'
+    case 'contributions':
+      return number === 1 ? 'contribution' : 'contributions'
     case 'donations':
       return number === 1 ? 'donation' : 'donations'
     case 'podcasts':

@@ -45,6 +45,16 @@ export default React.memo(function MemberToC(props) {
         <Icon icon='star' /> {props.events.length} miscellaneous{' '}
         {props.events.length === 1 ? 'event' : 'events'}
       </li>
+      <li>
+        <Icon icon='hammer' /> {props.contributions.length}{' '}
+        {props.contributions.length === 1
+          ? 'code contribution'
+          : 'code contributions'}
+      </li>
+      <li>
+        <Icon icon='heart' /> {props.donations.length}{' '}
+        {props.donations.length === 1 ? 'donation' : 'donations'}
+      </li>
     </ul>
   )
 })

@@ -4,6 +4,7 @@ import load from '../../helpers/load'
 const COMPONENTS = {
   ART: load('FeedArtEntry'),
   CARD: load('FeedCardEntry'),
+  CONTRIBUTION: load('FeedContributionEntry'),
   DECK: load('FeedDeckEntry'),
   DONATION: load('FeedDonationEntry'),
   GUIDE: load('FeedGuideEntry'),

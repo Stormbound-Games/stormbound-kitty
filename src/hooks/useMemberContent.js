@@ -2,6 +2,7 @@ import React from 'react'
 import { StoriesContext } from '../components/StoriesProvider'
 import capitalise from '../helpers/capitalise'
 import decks from '../data/decks'
+import contributions from '../data/contributions'
 import donations from '../data/donations'
 import guides from '../data/guides'
 import tournaments from '../data/tournaments'
@@ -91,6 +92,11 @@ const useUserDonations = id =>
     .filter(donation => donation.author.toLowerCase() === id)
     .map(formatEntryWithDate)
 
+const useUserContributions = id =>
+  contributions
+    .filter(contribution => contribution.author.toLowerCase() === id)
+    .map(formatEntryWithDate)
+
 const useUserEvents = id =>
   events
     .filter(event =>
@@ -110,6 +116,7 @@ const useMemberContent = id => {
   const artworks = useUserArtworks(id)
   const puzzles = useUserPuzzles(id)
   const cards = useUserCards(id)
+  const contributions = useUserContributions(id)
   const donations = useUserDonations(id)
   const events = useUserEvents(id)
   const podcasts = useUserPodcasts(id)
@@ -123,6 +130,7 @@ const useMemberContent = id => {
     ...artworks.map(addType('ART')),
     ...puzzles.map(addType('PUZZLE')),
     ...cards.map(addType('CARD')),
+    ...contributions.map(addType('CONTRIBUTION')),
     ...donations.map(addType('DONATION')),
     ...podcasts.map(addType('PODCAST')),
     ...events,
@@ -137,6 +145,7 @@ const useMemberContent = id => {
     decks[0]?.author ??
     puzzles[0]?.author ??
     artworks[0]?.author ??
+    contributions[0]?.author ??
     donations[0]?.author ??
     events[0]?.authors.find(findDisplayName) ??
     guides[0]?.authors.find(findDisplayName) ??
@@ -152,6 +161,7 @@ const useMemberContent = id => {
     details: {
       artworks,
       cards,
+      contributions,
       decks,
       donations,
       events,
