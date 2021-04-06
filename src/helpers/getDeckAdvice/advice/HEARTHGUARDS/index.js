@@ -1,7 +1,7 @@
 const getStructures = cards => cards.filter(c => c.type === 'structure')
 // Construction workers not considered for now; May be added later.
 const structureSpawningCardIds = new Set([
-  "W13",  // Hearthguards
+  "W13",  // Rockworkers
 ])
 const getStructureSpawningCards = cards => cards.filter(c => structureSpawningCardIds.has(c.id))
 
