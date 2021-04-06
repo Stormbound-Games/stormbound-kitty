@@ -24,7 +24,7 @@ const getLabel = (key, number) => {
     case 'cards':
       return number === 1 ? 'won card contest' : 'won card contests'
     case 'contributions':
-      return number === 1 ? 'contribution' : 'contributions'
+      return number === 1 ? 'code update' : 'code updates'
     case 'donations':
       return number === 1 ? 'donation' : 'donations'
     case 'podcasts':
@@ -48,18 +48,25 @@ const MemberListEntryToC = React.memo(function MemberListEntryToC(props) {
 
   return (
     <ul className='MemberListEntry__toc'>
-      {Object.keys(data).map(key => (
-        <li key={key}>
-          {data[key].length} {getLabel(key, data[key].length)}
-        </li>
-      ))}
+      {Object.keys(data).map(key => {
+        const count = data[key].reduce(
+          (acc, entry) => acc + (entry.entries?.length ?? 1),
+          0
+        )
+
+        return (
+          <li key={key}>
+            {count} {getLabel(key, count)}
+          </li>
+        )
+      })}
     </ul>
   )
 })
 
 export default React.memo(function MemberListEntry(props) {
   const { name } = React.useContext(UserContext)
-  const { content, details } = useMemberContent(props.member.toLowerCase())
+  const { count, details } = useMemberContent(props.member.toLowerCase())
   const KATMember = details.donations.length > 0
   const superKATMember = details.donations.length > 1
   const isCurrentUser = name === props.member
@@ -82,7 +89,7 @@ export default React.memo(function MemberListEntry(props) {
         <details>
           <summary>
             <span className='MemberListEntry__summary'>
-              {content.length} contribution{content.length === 1 ? '' : 's'}
+              {count} contribution{count === 1 ? '' : 's'}
             </span>
           </summary>
           <MemberListEntryToC details={details} />

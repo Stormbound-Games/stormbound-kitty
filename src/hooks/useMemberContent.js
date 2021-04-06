@@ -155,9 +155,17 @@ const useMemberContent = id => {
     cards[0]?.winner.author ??
     capitalise(id)
 
+  // The count is not quite the length of the `content` array as some entries
+  // such as code updates can hold multiple contributions (e.g. one per PR).
+  const count = content.reduce(
+    (acc, item) => acc + (item.entries?.length ?? 1),
+    0
+  )
+
   return {
     displayName,
     content,
+    count,
     details: {
       artworks,
       cards,

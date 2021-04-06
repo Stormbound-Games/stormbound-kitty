@@ -7,6 +7,7 @@ import PageMeta from '../PageMeta'
 import Row from '../Row'
 import { StoriesContext } from '../StoriesProvider'
 import artworks from '../../data/artworks'
+import contributions from '../../data/contributions'
 import decks from '../../data/decks'
 import donations from '../../data/donations'
 import events from '../../data/events'
@@ -40,6 +41,7 @@ const useMemberList = ({ name, type }) => {
       .map(guide => guide.authors)
       .flat()
       .map(addType('GUIDE')),
+    ...contributions.map(addType('CONTRIBUTION')),
     ...donations.map(addType('DONATION')),
     ...decks.map(addType('DECK')),
     ...artworks.map(addType('ARTWORK')),
