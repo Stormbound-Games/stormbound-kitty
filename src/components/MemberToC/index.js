@@ -3,6 +3,11 @@ import Icon from '../Icon'
 import './index.css'
 
 export default React.memo(function MemberToC(props) {
+  const codeUpdatesCount = props.contributions.reduce(
+    (acc, { entries }) => acc + entries.length,
+    0
+  )
+
   return (
     <ul className='MemberToC'>
       <li>
@@ -44,6 +49,14 @@ export default React.memo(function MemberToC(props) {
       <li>
         <Icon icon='star' /> {props.events.length} miscellaneous{' '}
         {props.events.length === 1 ? 'event' : 'events'}
+      </li>
+      <li>
+        <Icon icon='hammer' /> {codeUpdatesCount}{' '}
+        {codeUpdatesCount === 1 ? 'code update' : 'code updates'}
+      </li>
+      <li>
+        <Icon icon='heart' /> {props.donations.length}{' '}
+        {props.donations.length === 1 ? 'donation' : 'donations'}
       </li>
     </ul>
   )

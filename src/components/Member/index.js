@@ -14,7 +14,7 @@ import { VIDEOS } from '../Videos'
 export default React.memo(function Member(props) {
   const match = useRouteMatch()
   const id = match.params.memberId.toLowerCase()
-  const { content, details, displayName: name } = useMemberContent(id)
+  const { count, content, details, displayName: name } = useMemberContent(id)
   const channel = VIDEOS.find(channel => channel.author.toLowerCase() === id)
   // This is basically a hack for people listed as video content creators, but
   // without any contributions to the site itself.
@@ -26,8 +26,8 @@ export default React.memo(function Member(props) {
       action={{ to: '/members', children: 'Back to Members' }}
       meta={
         <>
-          {content.length} contribution{content.length === 1 ? '' : 's'}
-          {details.donations.length > 0 ? (
+          {count} contribution{count === 1 ? '' : 's'}
+          {details.donations.length > 0 || details.contributions.length > 0 ? (
             <>
               {' '}
               · {details.donations.length > 1 ? 'Super ' : null}
@@ -58,9 +58,17 @@ export default React.memo(function Member(props) {
               <abbr title='Kitty Appreciation Team'>KAT</abbr>!
             </Info>
           )}
+
+          {details.contributions.length > 0 && (
+            <Info icon='hammer' title='Technical contributor'>
+              {displayName} is one of the skilled contributors who help make
+              Stormbound-Kitty better every day. Thank you and welcome to the{' '}
+              <abbr title='Kitty Appreciation Team'>KAT</abbr>!
+            </Info>
+          )}
         </Row.Column>
         <Row.Column width='2/3'>
-          {content.length > 0 || channel ? (
+          {count > 0 || channel ? (
             <ul className='Member__feed'>
               {channel && (
                 <div className='Member__item'>
@@ -91,7 +99,7 @@ export default React.memo(function Member(props) {
       </Row>
 
       <PageMeta
-        noIndex={content.length === 0}
+        noIndex={count === 0 && !channel}
         title={displayName}
         description={`Find all of ${displayName}’s contributions to Stormbound-Kitty such as stories, decks, puzzles or guides.`}
       />
