@@ -107,7 +107,7 @@ export default React.memo(function GuideResources(props) {
         </li>
         <li>
           Monthly season chests (150 in Iron, 300 in Bronze, 500 in Silver, 800
-          in Gold, 1200 in Platinum, 1800 in Diamond).
+          in Gold, 1200 in Platinum, 1800 in Diamond, 3000 in Heroes).
         </li>
         <li>
           Duplicate copies above level 5 (15, 30, 70 or 150 depending on the
@@ -131,7 +131,7 @@ export default React.memo(function GuideResources(props) {
         <li>Tier 2 daily missions (5).</li>
         <li>
           Monthly season chests (5 in Bronze, 10 in Silver, 20 in Gold, 30 in
-          Platinum, 50 in Diamond).
+          Platinum, 50 in Diamond, 100 in Heroes).
         </li>
         <li>Weekly Brawl (5 at Milestone 2, 250 at Milestone 8).</li>
         <li>Shop purchases as part of bundles or rubies only.</li>
@@ -150,6 +150,10 @@ export default React.memo(function GuideResources(props) {
         <li>
           Weekly Brawl (10 at Milestone 4, 50 at Milestone 7, 200 at Milestone
           10).
+        </li>
+        <li>
+          Heroes Leaderboard (100 for Top 1, 50 for Top 10, 25 for Top 100, 10
+          for Top 500).
         </li>
         <li>
           <Link to='/calculators/books'>Sometimes in books</Link>.
@@ -221,7 +225,7 @@ export default React.memo(function GuideResources(props) {
       </p>
 
       <ul>
-        <li>Reaching the top league (Diamond 1)</li>
+        <li>Reaching the top league (Heroes League)</li>
         <li>
           Completing one’s collection (having at least one copy of each card)
         </li>
