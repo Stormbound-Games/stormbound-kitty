@@ -375,7 +375,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             <ul style={{ marginBottom: 0 }}>
               <li>
                 K = 40 for new players until they have played 30 matches in
-                Diamond
+                Diamond or Heroes league
               </li>
               <li>K = 20 for players rated below 2400</li>
               <li>

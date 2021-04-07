@@ -67,7 +67,7 @@ const HeroScoreCalculator = props => {
               <ul style={{ margin: '0.5em 0' }}>
                 <li>
                   K = 40 for new players until they have played 30 matches in
-                  Diamond
+                  Diamond or Heroes leagues
                 </li>
                 <li>K = 20 for players rated below 2400</li>
                 <li>
