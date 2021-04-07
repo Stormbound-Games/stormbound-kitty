@@ -117,6 +117,7 @@ export default React.memo(function Members(props) {
                 <option value='*'>Any</option>
                 <option value='ARTWORK'>Artworks</option>
                 <option value='CARD'>Card Contests</option>
+                <option value='CONTRIBUTION'>Code Updates</option>
                 <option value='DECK'>Decks</option>
                 <option value='DONATION'>Donations</option>
                 <option value='EVENT'>Events</option>
