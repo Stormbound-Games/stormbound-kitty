@@ -491,6 +491,24 @@
     "season": 2,
     "week": 13,
     "name": "Flight",
+    "winner": {
+      "author": "Equinox",
+      "id": "TjtEO1U7TDs4OzE7Ni83LzgvMTAvMTI7QWV0aGlhJTIwdGhlJTIwQ2VsZXN0aWFsO1c4O0FmdGVyJTIwYXR0YWNraW5nJTJDJTIwZmx5JTIwb2ZmJTIwdGhlJTIwYm9hcmQlMjB1bnRpbCUyMHRoZSUyMGJlZ2lubmluZyUyMG9mJTIweW91ciUyMG5leHQlMjB0dXJuLiUyMFdoZW4lMjByZXR1cm5pbmclMkMlMjBzZWxlY3QlMjBhJTIwdGlsZSUyMHRvJTIwcmV0dXJuJTIwdG8lMjBhbmQlMjBkZXN0cm95JTIwYW55dGhpbmclMjBvY2N1cHlpbmclMjB0aGUlMjB0aWxlOztI"
+    }
+  },
+  {
+    "season": 2,
+    "week": 14,
+    "name": "Army",
+    "winner": {
+      "author": "Equinox",
+      "id": "TjtEO1U7Ujs0OzE7MS8yLzMvNC81O1NvYXJpbmclMjBGbGFyZXM7STc7T24lMjBwbGF5JTJDJTIwZmx5JTIwdG8lMjB0aGUlMjBmaXJzdCUyMG9wZW4lMjB0aWxlLiUyMElmJTIwY29tYmluZWQlMjB3aXRoJTIwYSUyMGZyaWVuZGx5JTIwdW5pdCUyQyUyMGZseSUyMGl0JTIwdG8lMjB0aGUlMjBmaXJzdCUyMG9wZW4lMjB0aWxlJTIwYW5kJTIwZGVhbCUyMDIlMjBkYW1hZ2UlMjB0byUyMGl0Ozs="
+    }
+  },
+  {
+    "season": 2,
+    "week": 15,
+    "name": "Sacrifice Swarm",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
