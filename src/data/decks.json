@@ -629,20 +629,6 @@
     "date": "04/2020"
   },
   {
-    "name": "Beards & Nuts",
-    "id": "5xn1f8f4f3n3n67n9f25f14n74f17f28",
-    "author": "The_mirc",
-    "category": "DIAMOND_1",
-    "date": "04/2020"
-  },
-  {
-    "name": "Confined Siege",
-    "id": "5xn1i1i2n3n67n9n16i15i20i19i28n45",
-    "author": "The_mirc",
-    "category": "DIAMOND_1",
-    "date": "04/2020"
-  },
-  {
     "name": "Aftershock Control",
     "id": "5xn1n2i1i2i3n14i10n21i14i19n34n45",
     "author": "Emkaem",
@@ -765,27 +751,6 @@
     "date": "04/2020"
   },
   {
-    "name": "True Boom",
-    "id": "5xn1i1i2n3n67n9i8n16i6i20n34i28",
-    "author": "The_mirc",
-    "category": "DIAMOND_1",
-    "date": "04/2020"
-  },
-  {
-    "name": "Froggy Disaster",
-    "id": "5xn1f8f4f3n3n67n9n16f10f17f28n76",
-    "author": "The_mirc",
-    "category": "DIAMOND_1",
-    "date": "04/2020"
-  },
-  {
-    "name": "Heart Attack",
-    "id": "5xn1i1n3n63i5n67n9i7n16i20i28n39",
-    "author": "The_mirc",
-    "category": "DIAMOND_1",
-    "date": "04/2020"
-  },
-  {
     "name": "Hailstone",
     "id": "1xn1w1w2n5n8n12w28w8w6w16n46n52",
     "author": "Helios",
@@ -798,21 +763,6 @@
     "author": "Misha",
     "category": "DIAMOND_1",
     "date": "04/2020"
-  },
-  {
-    "name": "Spellfen",
-    "id": "5xn1f8f4f3n3n23n63n67n9f10f17n76",
-    "author": "The_mirc",
-    "category": "DIAMOND_1",
-    "date": "04/2020"
-  },
-  {
-    "name": "Brawl Spell",
-    "id": "5xn1f8n2f4f3n3n67n9n15f10n40n76",
-    "author": "The_mirc",
-    "category": "BRAWL",
-    "brawl": "SPELL_MANA",
-    "date": "05/2020"
   },
   {
     "name": "Springtime",
@@ -942,22 +892,6 @@
     "date": "06/2020"
   },
   {
-    "name": "Hero Brawl v.1",
-    "id": "5xn1f4n3n67n8f8n16f12n35n76n46n58",
-    "author": "The_mirc",
-    "category": "BRAWL",
-    "brawl": "HERO_STRENGTH",
-    "date": "06/2020"
-  },
-  {
-    "name": "Hero Brawl v.2",
-    "id": "5xn1n3n67n8s3s6n16n59n69n35n46n58",
-    "author": "The_mirc",
-    "category": "BRAWL",
-    "brawl": "HERO_STRENGTH",
-    "date": "06/2020"
-  },
-  {
     "name": "Black Fang",
     "id": "5xn1s1n3s2n8n9s3n13n59n35n46n58",
     "author": "Adig",
@@ -980,14 +914,6 @@
     "category": "BRAWL",
     "brawl": "HERO_STRENGTH",
     "date": "06/2020"
-  },
-  {
-    "name": "Dwarf Mana",
-    "id": "5xn1n3n67n16w5w7w9w13n39w18w19w23",
-    "author": "The_mirc",
-    "category": "BRAWL",
-    "brawl": "DWARF_MANA",
-    "date": "07/2020"
   },
   {
     "name": "Winter Sprinters",
@@ -1041,20 +967,6 @@
     "author": "Mathematica",
     "category": "DIAMOND_1",
     "date": "07/2020"
-  },
-  {
-    "name": "Hairy Ubass",
-    "id": "5xn1f8f4f3n3n23n67n9f14n35f28n76",
-    "author": "The_mirc",
-    "category": "DIAMOND_1",
-    "date": "08/2020"
-  },
-  {
-    "name": "Chippy Clad",
-    "id": "5xn1i1n3n23n67n9i7n16n18i27n35i28",
-    "author": "The_mirc",
-    "category": "DIAMOND_1",
-    "date": "08/2020"
   },
   {
     "name": "Hasty Hysteria",
