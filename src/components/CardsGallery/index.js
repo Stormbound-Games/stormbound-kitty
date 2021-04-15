@@ -58,7 +58,19 @@ export default React.memo(function CardsGallery(props) {
     <div
       ref={container}
       className='CardsGallery'
-      style={{ '--cards-per-row': props.cardsPerPage / 2 }}
+      // The `CardsGallery` component is the only display of cards in the entire
+      // site that uses *both* the “upgradable” color (yellow outline for cards
+      // which can be upgraded) and the “affordable” color (green outline used
+      // for the selected card in this case).
+      // Unfortunately, these 2 colors are too close to one another for people
+      // with color-blindness (deuteranopia) to be discernible. Because the
+      // “affordable” color (green outline) from the game is used here for user
+      // experience purposes (selected card), we replace the color in that
+      // context so that both outlines are different enough to be discernible.
+      style={{
+        '--affordable': '#FF1493',
+        '--cards-per-row': props.cardsPerPage / 2,
+      }}
     >
       <motion.ul
         drag={pages.length > 1 ? 'x' : undefined}
