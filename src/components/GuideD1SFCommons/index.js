@@ -57,15 +57,15 @@ export default React.memo(function GuideD1SFCommons(props) {
         As a free-to-play player, my collection is not very developed. I
         originally reached Diamond with a Winter rush deck, and kept playing
         Winter for a long while. Eventually I switched to Shadowfen for a change
-        of pace, but did not have a lot of options. So thanks to kind help from
-        The_mirc, I came up with a deck made of <Common amount={11} /> and{' '}
-        <Rare amount={1} />.
+        of pace, but did not have a lot of options. So thanks to kind help from{' '}
+        <Link to='/member/the_mirc'>The_mirc</Link>, I came up with a deck made
+        of <Common amount={11} /> and <Rare amount={1} />.
       </p>
       <p>
-        I am still rocking that deck in Diamond 1 today, waiting for my
-        collection to evolve so I can experiment with other things. It’s a
-        strong deck that’s easy to make, and that’s what we are going to focus
-        on today.
+        I am still rocking that deck in Diamond 1 as of writing (June 2020),
+        waiting for my collection to evolve so I can experiment with other
+        things. It’s a strong deck that’s easy to make, and that’s what we are
+        going to focus on today.
       </p>
 
       <Title id='the-deck'>The deck</Title>
