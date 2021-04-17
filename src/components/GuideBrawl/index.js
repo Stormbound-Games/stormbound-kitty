@@ -129,6 +129,17 @@ export default React.memo(function GuideBrawl(props) {
       </Only.Desktop>
 
       <Only.Mobile>
+        <ul>
+          {MILESTONES.map(milestone => (
+            <li key={milestone.crowns}>
+              <Coins amount={milestone.cost} /> until{' '}
+              <Crowns amount={milestone.crowns} />
+            </li>
+          ))}
+        </ul>
+      </Only.Mobile>
+
+      <Only.Mobile>
         <div className='GuideBrawl__milestones'>
           <BrawlProvider id={currentBrawl.id}>
             <BrawlMilestones />
