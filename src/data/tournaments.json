@@ -365,5 +365,12 @@
     "decks": [
       {"id": "1xn1w1w2n6n8w5w7n25w8n60n46n57" }
     ]
+  },
+  {
+    "name": "Buffet Tournament",
+    "hosts": ["Sgamer", "Kepp"],
+    "podium": ["Derk", "LuZiffer", "FrozenEarth"],
+    "date": "04/2021",
+    "description": "In Buffet Tournament players crafted half-decks, decks composed by only six cards, and then mixed and matched them to create the best possible deck out of two halves!"
   }
 ]
