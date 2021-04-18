@@ -2,6 +2,10 @@
   cache-control: public
   cache-control: max-age=604800
 
+/*.jpg
+  cache-control: public
+  cache-control: max-age=86400
+
 /*.png
   cache-control: public
   cache-control: max-age=86400
