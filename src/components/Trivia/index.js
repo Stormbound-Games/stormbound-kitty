@@ -77,6 +77,7 @@ const Failure = ({ answer }) => {
 }
 
 const Trivia = () => {
+  const form = React.useRef()
   const [{ question, choices }, setQuestion] = React.useState(
     getRandomQuestion()
   )
@@ -85,6 +86,7 @@ const Trivia = () => {
   const askAgain = React.useCallback(() => {
     setQuestion(getRandomQuestion())
     setStatus('UNANSWERED')
+    form.current.reset()
   }, [])
 
   const handleSubmit = React.useCallback(
@@ -119,7 +121,7 @@ const Trivia = () => {
           as you want as you’re your own opponent.
         </p>
 
-        <form onSubmit={handleSubmit} className='Trivia__form'>
+        <form onSubmit={handleSubmit} className='Trivia__form' ref={form}>
           <Notice>{microMarkdown(question.question)}</Notice>
 
           <fieldset
