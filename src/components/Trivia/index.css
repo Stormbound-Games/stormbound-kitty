@@ -1,0 +1,21 @@
+.Trivia__form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5em;
+}
+
+.Trivia__legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+}
+
+.Trivia__radio {
+  margin: 0.75em 1em;
+  white-space: nowrap;
+}

@@ -97,6 +97,7 @@ const Releases = load('Releases')
 const Story = load('Story')
 const StoryCategory = load('StoryCategory')
 const TournamentHallOfFame = load('TournamentHallOfFame')
+const Trivia = load('Trivia')
 const ValueCalculator = load('ValueCalculator')
 const Videos = load('Videos')
 
@@ -136,6 +137,10 @@ export default function Router(props) {
 
           <Page exact path='/card/stats' active={['GAME', 'CARD_STATS']}>
             <CardsStats />
+          </Page>
+
+          <Page exact path='/trivia' active={['GAME', 'TRIVIA']}>
+            <Trivia />
           </Page>
 
           <Page
