@@ -6,6 +6,7 @@ import Article from '../Article'
 import CTA from '../CTA'
 import Info from '../Info'
 import Notice from '../Notice'
+import PageMeta from '../PageMeta'
 import Radio from '../Radio'
 import Sparkles from '../Sparkles'
 import getRandomQuestion from '../../helpers/getRandomQuestion'
@@ -157,6 +158,11 @@ const Trivia = () => {
           </p>
         </Info>
       </Article.Narrow>
+
+      <PageMeta
+        title='Trivia'
+        description='Test your knownledge of Stormbound with this trivia game!'
+      />
     </Article>
   )
 }
