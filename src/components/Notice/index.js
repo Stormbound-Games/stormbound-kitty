@@ -4,7 +4,7 @@ import './index.css'
 
 export default React.memo(function Notice(props) {
   return (
-    <p className='Notice'>
+    <p className='Notice' style={props.style}>
       {props.icon && <Icon className='Notice__icon' icon={props.icon} />}{' '}
       {props.children}
     </p>
