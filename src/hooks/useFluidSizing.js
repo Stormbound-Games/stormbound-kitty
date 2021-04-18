@@ -1,8 +1,8 @@
 import React from 'react'
-import useViewportWidth from './useViewportWidth'
+import useViewportSize from './useViewportSize'
 
 export default ratio => {
-  const viewportWidth = useViewportWidth()
+  const { viewportWidth } = useViewportSize()
   const ref = React.createRef()
   const [fontSize, setFontSize] = React.useState(undefined)
 

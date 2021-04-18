@@ -7,7 +7,7 @@ import Table from '../Table'
 import Title from '../Title'
 import { MILESTONES } from '../../constants/brawl'
 import capitalise from '../../helpers/capitalise'
-import useViewportWidth from '../../hooks/useViewportWidth'
+import useViewportSize from '../../hooks/useViewportSize'
 import './index.css'
 
 const getDefaultFaction = id => {
@@ -26,7 +26,7 @@ const getDefaultFaction = id => {
 }
 
 export default React.memo(function BrawlMatches(props) {
-  const viewportWidth = useViewportWidth()
+  const { viewportWidth } = useViewportSize()
   const [editedMatch, setEditedMatch] = React.useState(null)
   const { brawl, meta, addMatch, updateMatch } = React.useContext(BrawlContext)
 

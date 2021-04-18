@@ -1,9 +1,9 @@
 import React from 'react'
 import { CollectionContext } from '../CollectionProvider'
-import useViewportWidth from '../../hooks/useViewportWidth'
+import useViewportSize from '../../hooks/useViewportSize'
 
 const Only = React.memo(function Only(props) {
-  const viewportWidth = useViewportWidth()
+  const { viewportWidth } = useViewportSize()
   const { hasDefaultCollection } = React.useContext(CollectionContext)
 
   switch (props.when) {

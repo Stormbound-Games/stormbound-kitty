@@ -1,9 +1,9 @@
 import React from 'react'
-import useViewportWidth from '../../hooks/useViewportWidth'
+import useViewportSize from '../../hooks/useViewportSize'
 import TogglableContent from '../TogglableContent'
 
 export default React.memo(function (props) {
-  const viewportWidth = useViewportWidth()
+  const { viewportWidth } = useViewportSize()
   const [isExpanded, expand] = React.useState(false)
   const labelExpanded = (props.withSymbols ? '+ ' : '') + props.labelExpanded
   const labelCollapsed = (props.withSymbols ? '+ ' : '') + props.labelCollapsed

@@ -28,7 +28,7 @@ import indexArray from '../../helpers/indexArray'
 import modifyDeck from '../../helpers/modifyDeck'
 import serialisation from '../../helpers/serialisation'
 import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
-import useViewportWidth from '../../hooks/useViewportWidth'
+import useViewportSize from '../../hooks/useViewportSize'
 import usePrevious from '../../hooks/usePrevious'
 import { CATEGORIES } from '../../constants/deck'
 import { BRAWL_INDEX } from '../../constants/brawl'
@@ -110,7 +110,7 @@ const getStoredTooltipsSetting = () => {
 }
 
 const DeckEditorView = React.memo(function DeckEditorView(props) {
-  const viewportWidth = useViewportWidth()
+  const { viewportWidth } = useViewportSize()
   const { deckId } = useRouteMatch().params
   const history = useHistory()
   const {

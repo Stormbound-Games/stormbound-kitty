@@ -2,10 +2,10 @@ import React from 'react'
 import AppDesktop from '../BattleSimAppDesktop'
 import AppMobile from '../BattleSimAppMobile'
 import State from '../BattleSimState'
-import useViewportWidth from '../../hooks/useViewportWidth'
+import useViewportSize from '../../hooks/useViewportSize'
 
 const BattleSimPage = React.memo(function BattleSimPage(props) {
-  const viewportWidth = useViewportWidth()
+  const { viewportWidth } = useViewportSize()
   const shouldRenderLeftPanel =
     props.mode === 'EDITOR' ||
     (props.mode === 'DISPLAY' && props.cards.filter(c => !!c.id).length > 0)

@@ -90,7 +90,7 @@ export default () => {
           icon: 'star',
           items: [
             { label: 'Known Bugs', to: '/guides/known-bugs', id: 'KNOWN_BUGS' },
-            { label: 'Stormbound Trivia', to: '/guides/trivia', id: 'TRIVIA' },
+            { label: 'Stormbound Trivia', to: '/trivia', id: 'TRIVIA' },
             { label: 'Cards Statistics', to: '/card/stats', id: 'CARD_STATS' },
             { label: 'Lexicon', to: '/guides/lexicon', id: 'LEXICON' },
           ],

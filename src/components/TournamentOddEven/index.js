@@ -7,7 +7,7 @@ import PageMeta from '../PageMeta'
 import Timeline from '../Timeline'
 import Title from '../Title'
 import { Coins, Stones, Rubies } from '../Resource'
-import useViewportWidth from '../../hooks/useViewportWidth'
+import useViewportSize from '../../hooks/useViewportSize'
 import cards from '../../data/cards'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import serialisation from '../../helpers/serialisation'
@@ -58,7 +58,7 @@ const getList = (pool, name) =>
   )
 
 export default React.memo(function TournamentOddEven(props) {
-  const viewportWidth = useViewportWidth()
+  const { viewportWidth } = useViewportSize()
   const [odd, even] = React.useMemo(
     () =>
       cards.reduce(

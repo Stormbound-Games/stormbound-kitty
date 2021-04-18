@@ -1,10 +1,10 @@
 import React from 'react'
-import getViewportWidth from '../helpers/getViewportWidth'
+import getViewportSize from '../helpers/getViewportSize'
 
-const useViewportWidth = () => {
-  const [viewportWidth, setViewportWidth] = React.useState(getViewportWidth())
+const useViewportSize = () => {
+  const [dimensions, setDimensions] = React.useState(getViewportSize())
   const recordViewportWidth = React.useCallback(
-    () => setViewportWidth(getViewportWidth()),
+    () => setDimensions(getViewportSize()),
     []
   )
 
@@ -13,7 +13,7 @@ const useViewportWidth = () => {
     return () => window.removeEventListener('resize', recordViewportWidth)
   }, [recordViewportWidth])
 
-  return viewportWidth
+  return dimensions
 }
 
-export default useViewportWidth
+export default useViewportSize

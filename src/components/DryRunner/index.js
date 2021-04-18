@@ -13,10 +13,10 @@ import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
 import isCard from '../../helpers/isCard'
-import useViewportWidth from '../../hooks/useViewportWidth'
+import useViewportSize from '../../hooks/useViewportSize'
 
 export default React.memo(function DryRunner(props) {
-  const viewportWidth = useViewportWidth()
+  const { viewportWidth } = useViewportSize()
 
   return (
     <>

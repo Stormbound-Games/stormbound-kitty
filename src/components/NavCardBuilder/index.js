@@ -2,10 +2,10 @@ import React from 'react'
 import { useRouteMatch, useHistory } from 'react-router-dom'
 import CardSelect from '../CardSelect'
 import getRawCardData from '../../helpers/getRawCardData'
-import useViewportWidth from '../../hooks/useViewportWidth'
+import useViewportSize from '../../hooks/useViewportSize'
 
 export default React.memo(function NavCardBuilder(props) {
-  const viewportWidth = useViewportWidth()
+  const { viewportWidth } = useViewportSize()
   const history = useHistory()
   const match = useRouteMatch()
   const id = match.params.cardId

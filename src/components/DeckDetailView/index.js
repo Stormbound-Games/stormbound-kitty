@@ -14,7 +14,7 @@ import getDeckBuilderMetaTags from '../../helpers/getDeckBuilderMetaTags'
 import modifyDeck from '../../helpers/modifyDeck'
 import getDeckPresets from '../../helpers/getDeckPresets'
 import isSuggestedDeck from '../../helpers/isSuggestedDeck'
-import useViewportWidth from '../../hooks/useViewportWidth'
+import useViewportSize from '../../hooks/useViewportSize'
 import { BRAWL_INDEX } from '../../constants/brawl'
 
 const getDefaultBrawlModifier = deck => {
@@ -24,7 +24,7 @@ const getDefaultBrawlModifier = deck => {
 }
 
 export default React.memo(function DeckDetailView(props) {
-  const viewportWidth = useViewportWidth()
+  const { viewportWidth } = useViewportSize()
   const { notify } = React.useContext(NotificationContext)
   const history = useHistory()
   const defaultModifier = getDefaultBrawlModifier(props.deck)

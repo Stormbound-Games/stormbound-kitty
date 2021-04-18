@@ -16,7 +16,7 @@ import PageMeta from '../PageMeta'
 import Row from '../Row'
 import SuggestionsFilters from '../DeckSuggestionsFilters'
 import Title from '../Title'
-import useViewportWidth from '../../hooks/useViewportWidth'
+import useViewportSize from '../../hooks/useViewportSize'
 import sortDeckSuggestions from '../../helpers/sortDeckSuggestions'
 import getDeckSearchDescription from '../../helpers/getDeckSearchDescription'
 import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
@@ -247,7 +247,7 @@ class DeckSuggestions extends React.Component {
 }
 
 export default hookIntoProps(() => ({
-  viewportWidth: useViewportWidth(),
+  viewportWidth: useViewportSize().viewportWidth,
   history: useHistory(),
   location: useLocation(),
   ...React.useContext(CollectionContext),

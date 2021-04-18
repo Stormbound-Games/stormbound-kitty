@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 import Card from '../Card'
 import Tooltip from '../Tooltip'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
-import useViewportWidth from '../../hooks/useViewportWidth'
+import useViewportSize from '../../hooks/useViewportSize'
 
 export default React.memo(function CardLink(props) {
-  const viewportWidth = useViewportWidth()
+  const { viewportWidth } = useViewportSize()
   const cardData = getResolvedCardData({
     id: props.id,
     level: props.level || 1,

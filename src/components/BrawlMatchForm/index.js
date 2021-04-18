@@ -2,11 +2,11 @@ import React from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
-import useViewportWidth from '../../hooks/useViewportWidth'
+import useViewportSize from '../../hooks/useViewportSize'
 import './index.css'
 
 export default React.memo(function BrawlMatchForm(props) {
-  const viewportWith = useViewportWidth()
+  const { viewportWith } = useViewportSize()
 
   return (
     <AnimatePresence exitBeforeEnter>

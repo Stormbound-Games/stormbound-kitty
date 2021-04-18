@@ -10,7 +10,7 @@ import sortCards, {
   sortByValue,
   sortByLockedCoins,
 } from '../../helpers/sortCards'
-import useViewportWidth from '../../hooks/useViewportWidth'
+import useViewportSize from '../../hooks/useViewportSize'
 import { CHIP_CARDS } from '../../constants/game'
 
 const DEFAULT_FILTERS = {
@@ -32,7 +32,7 @@ const DEFAULT_FILTERS = {
 const normaliseName = name => name.toLowerCase().replace(/['’ ]/g, '')
 
 const CardsFiltering = React.memo(function CardsFiltering(props) {
-  const viewportWidth = useViewportWidth()
+  const { viewportWidth } = useViewportSize()
   // All filters are within the same state object for convenience, otherwise we
   // would need a dozen of individual setters, which is pretty cumbersome.
   const [filters, setFilters] = React.useState(DEFAULT_FILTERS)

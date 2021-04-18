@@ -62,6 +62,10 @@
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
+.CTA:focus:not(:focus-visible) {
+  outline: 0;
+}
+
 @media (max-width: 400px) {
   .CTA {
     min-width: 0;

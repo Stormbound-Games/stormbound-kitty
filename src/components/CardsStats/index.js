@@ -14,11 +14,11 @@ import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
-import useViewportWidth from '../../hooks/useViewportWidth'
+import useViewportSize from '../../hooks/useViewportSize'
 import './index.css'
 
 export default React.memo(() => {
-  const viewportWidth = useViewportWidth()
+  const { viewportWidth } = useViewportSize()
 
   return (
     <>

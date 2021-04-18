@@ -8,11 +8,11 @@ import Loader from '../Loader'
 import PageMeta from '../PageMeta'
 import Stories from '../Stories'
 import useLazyLoad from '../../hooks/useLazyLoad'
-import useViewportWidth from '../../hooks/useViewportWidth'
+import useViewportSize from '../../hooks/useViewportSize'
 import { StoriesContext } from '../StoriesProvider'
 
 export default React.memo(function StoryCategory(props) {
-  const viewportWidth = useViewportWidth()
+  const { viewportWidth } = useViewportSize()
   const stories = React.useContext(StoriesContext)
     .filter(story => story.category === props.category)
     .sort((a, b) => {

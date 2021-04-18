@@ -8,7 +8,7 @@ import Sparkles from '../Sparkles'
 import Teaser from '../Teaser'
 import Title from '../Title'
 import chunk from '../../helpers/chunk'
-import useViewportWidth from '../../hooks/useViewportWidth'
+import useViewportSize from '../../hooks/useViewportSize'
 import podcasts from '../../data/podcasts'
 import './index.css'
 
@@ -21,7 +21,7 @@ const CARD = {
 }
 
 export default React.memo(function BrewedSages(props) {
-  const viewportWidth = useViewportWidth()
+  const { viewportWidth } = useViewportSize()
 
   return (
     <Article

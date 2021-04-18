@@ -6,10 +6,10 @@ import Loader from '../Loader'
 import Row from '../Row'
 import chunk from '../../helpers/chunk'
 import useLazyLoad from '../../hooks/useLazyLoad'
-import useViewportWidth from '../../hooks/useViewportWidth'
+import useViewportSize from '../../hooks/useViewportSize'
 
 export default React.memo(function Decks(props) {
-  const viewportWidth = useViewportWidth()
+  const { viewportWidth } = useViewportSize()
   const columns = viewportWidth < 700 ? 1 : props.columns || 2
   const history = useHistory()
   const { loadMore, loading, items } = useLazyLoad(
