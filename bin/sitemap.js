@@ -42,6 +42,7 @@ const links = [
   '/sim',
   '/sim/puzzles',
   '/stories',
+  '/trivia',
   '/videos',
 ]
 
