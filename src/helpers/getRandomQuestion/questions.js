@@ -975,7 +975,7 @@ export default [
 
   {
     question: 'How many ranks were there before the leagues were introduced?',
-    answer: 35,
+    answer: 30,
     options: '10,12,24,25,28,30,40,50'.split(','),
   },
 
