@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Stormbound Trivia",
+    "description": "The infamous Discord Stormbound trivia is now available on the site as well!",
+    "link": "/trivia"
+  },
+  {
     "intro": "Easter Update",
     "description": "It’s about Easter, and with it a new Stormbound release with new cards, balance tweaks, Heroes League improvements and some exclusive offers!",
     "link": "/releases/04-2021"
