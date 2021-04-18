@@ -8,6 +8,7 @@ import Info from '../Info'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Radio from '../Radio'
+import Row from '../Row'
 import Sparkles from '../Sparkles'
 import getRandomQuestion from '../../helpers/getRandomQuestion'
 import microMarkdown from '../../helpers/microMarkdown'
@@ -159,6 +160,44 @@ const Trivia = () => {
             in the shattered world of Stormbound.
           </p>
         </Info>
+
+        <hr />
+
+        <form name='trivia' method='POST'>
+          <p>
+            <span
+              className='Highlight'
+              style={{
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                fontSize: '90%',
+              }}
+            >
+              Want to suggest a question?
+            </span>{' '}
+            Fantastic! Fill the form below (please be considerate, don’t spam).
+            You can also get in touch with Kitty#1909 on Discord to discuss it
+            if you would rather.
+          </p>
+
+          <input type='hidden' name='form-name' value='trivia' />
+
+          <div hidden>
+            <label htmlFor='beartrap'>Do not fill you’re a human</label>
+            <input type='text' name='beartrap' id='beartrap' />
+          </div>
+          <Row desktopOnly>
+            <Row.Column>
+              <label htmlFor='question'>Your question</label>
+              <input type='text' name='question' id='question' required />
+            </Row.Column>
+            <Row.Column>
+              <label htmlFor='answer'>The answer</label>
+              <input type='text' name='answer' id='answer' required />
+            </Row.Column>
+          </Row>
+          <CTA type='submit'>Submit</CTA>
+        </form>
       </Article.Narrow>
 
       <PageMeta
