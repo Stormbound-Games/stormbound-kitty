@@ -1,6 +1,6 @@
 import arrayRandom from '../arrayRandom'
 import shuffle from '../shuffle'
-import questions from '../../bot/commands/trivia/questions'
+import questions from './questions'
 
 const MAX_CHOICES = 5
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
