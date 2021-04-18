@@ -1540,4 +1540,20 @@ export default [
       .filter(faction => faction !== 'neutral')
       .map(capitalise),
   },
+
+  {
+    question: 'Which was the first temple to be released?',
+    answer: 'Temple of Focus',
+    options: cards
+      .filter(card => card.name.startsWith('Temple'))
+      .map(card => card.name),
+  },
+
+  {
+    question: 'What are the colors of Tegor’s flames?',
+    answer: 'White, red, green',
+    options: 'Red, green, blue;Yellow, orange, red;Yellow, red, green;Black and white'.split(
+      ';'
+    ),
+  },
 ]
