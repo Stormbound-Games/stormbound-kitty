@@ -177,7 +177,7 @@ export default React.memo(function GuideLegendaries(props) {
       </p>
       <p>
         <CardLink id='F21' />: <span className='Highlight'>no</span>. Use it for
-        fun at lower leagues, but it’s a very epensive card and a gamble.
+        fun at lower leagues, but it’s a very expensive card and a gamble.
         Keeping the 1 strength eggs alive is a challenge at higher leagues and
         the benefits are not always worth the risks. I wouldn’t bother even at
         higher levels but it can be fun.
