@@ -509,6 +509,15 @@
     "season": 2,
     "week": 15,
     "name": "Sacrifice Swarm",
+    "winner": {
+      "author": "RandomlyDrawnCard",
+      "id": "UztTO1U7RTs1OzA7NC81LzYvNy84O09jY3VsdCUyMEN1bHRpc3RzO2h0dHBzJTNBJTJGJTJGY2RuLmRpc2NvcmRhcHAuY29tJTJGYXR0YWNobWVudHMlMkY3NzIxMTE5MzI1NTAyODMzMzQlMkY4MzExOTQyMDQyNzIzMjg3MzUlMkZQaWNzQXJ0XzA0LTEyLTEwLjQ4LjA3LnBuZztPbiUyMHBsYXklMkMlMjAqZGVzdHJveSUyMDIlMkYzJTJGNCUyRjYlMkZhbGwqJTIwc3Vycm91bmRpbmclMjBmcmllbmRseSUyMHVuaXRzJTJDJTIwYW5kJTIwbmV4dCUyMHRoZXklMjBhcmUlMjBkcmF3biUyQyUyMCpzZXQqJTIwdGhlaXIlMjBjb3N0JTIwdG8lMjAqMCo7Ow=="
+    }
+  },
+  {
+    "season": 2,
+    "week": 16,
+    "name": "Mythological",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
