@@ -6,7 +6,7 @@ import useViewportSize from '../../hooks/useViewportSize'
 import './index.css'
 
 export default React.memo(function BrawlMatchForm(props) {
-  const { viewportWith } = useViewportSize()
+  const { viewportWidth } = useViewportSize()
 
   return (
     <AnimatePresence exitBeforeEnter>
@@ -16,7 +16,7 @@ export default React.memo(function BrawlMatchForm(props) {
         animate={{ scaleY: 1 }}
       >
         <td>
-          {viewportWith >= 700 ? (
+          {viewportWidth >= 700 ? (
             <button
               form='add-match-form'
               type='submit'
