@@ -23,7 +23,7 @@ const unique = (value, index, array) => array.indexOf(value) === index
 const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 const range = (min, max) => [...Array(max - min).keys()].map(n => n + min)
 const rangeAround = (value, delta) => range(value - delta, value + delta)
-const NEVER_UPDATED = 'N11,N28,N32,N21,N30,N22,N19,N24,N16,S18'.split(',')
+const NEVER_UPDATED = 'N11,N28,N32,N30,N22,N19,N16,S18'.split(',')
 const racesWithOnDeath = cards
   .filter(card => (card.ability || '').includes('n death'))
   .map(card => card.race)
@@ -31,6 +31,10 @@ const racesWithOnDeath = cards
 const racesWithoutOnDeath = Object.keys(RACES).filter(
   race => !racesWithOnDeath.includes(race)
 )
+const cardsPerFaction = Object.keys(FACTIONS)
+  .filter(faction => faction !== 'neutral')
+  .map(faction => cards.filter(card => card.faction === faction).length)
+const maxCardsPerFaction = Math.max(...cardsPerFaction)
 
 export default [
   {
@@ -556,7 +560,7 @@ export default [
 
   {
     question: 'How many cards increase the base health?',
-    answer: 2,
+    answer: 3,
     options: range(1, 5),
   },
 
@@ -609,9 +613,11 @@ export default [
   },
 
   {
-    question: 'How many cards per faction are there?',
-    answer: cards.filter(card => card.faction === 'winter').length,
-    options: range(20, 60),
+    question: cardsPerFaction.every(count => count === cardsPerFaction[0])
+      ? 'How many cards per faction are there?'
+      : 'How many cards are there in the faction with the most cards?',
+    answer: maxCardsPerFaction,
+    options: range(maxCardsPerFaction - 20, maxCardsPerFaction + 20),
   },
 
   {
@@ -656,7 +662,8 @@ export default [
   },
 
   {
-    question: 'How many rare cards come in the Collector’s Edition bundle?',
+    question:
+      'How many rare cards used to come in the Collector’s Edition bundle?',
     answer: 34,
     options: [22, 24, 26, 28, 30, 32, 36, 38, 40, 42, 44],
   },
@@ -1015,7 +1022,7 @@ export default [
     return {
       question:
         'Which two people have the most Stormbound championship titles?',
-      answer: 'HanooSt and BluePhoenix',
+      answer: 'HanooSt and Helios',
       options: Array.from({ length: 20 }, () => {
         const randomAuthor = arrayRandom(authors)
         return [
@@ -1042,8 +1049,8 @@ export default [
 
   {
     question: 'How much damage could Needle Blast do when first released?',
-    answer: 10,
-    options: range(5, 12),
+    answer: 7,
+    options: range(4, 10),
   },
 
   {
@@ -1152,7 +1159,8 @@ export default [
   },
 
   {
-    question: 'Which structure is named after the Kongregate forum moderator?',
+    question:
+      'Which structure shares its name with a Kongregate forum moderator?',
     answer: 'Trueshot Post',
     options: cards
       .filter(card => card.type === 'structure' && card.id !== 'T12')
@@ -1491,12 +1499,6 @@ export default [
   },
 
   {
-    question: 'Which quest rewards 80 coins?',
-    answer: 'Victor',
-    options: ['Student', 'Tournament', 'Heroic Winds'],
-  },
-
-  {
     question: 'Which faction does *not* have a “sunglasses” emote?',
     answer: 'Satyr',
     options: ['Construct', 'Toad', 'Frostling'],
@@ -1523,8 +1525,8 @@ export default [
 
   {
     question: 'Which of the following criteria cannot be used to sort cards?',
-    answer: 'Level',
-    options: ['Strength', 'Speed', 'Name'],
+    answer: 'Ability',
+    options: ['Strength', 'Speed', 'Name', 'Mana', 'Level'],
   },
 
   {
