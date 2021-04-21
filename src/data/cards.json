@@ -2598,6 +2598,32 @@
     "ability": "At the start of your turn, vitalize 2/3/4/5/6 surrounding friendly units"
   },
   {
+    "name": "Glacier Palace",
+    "id": "W30",
+    "type": "structure",
+    "faction": "winter",
+    "race": null,
+    "rarity": "rare",
+    "image": "glacier_palace.png",
+    "mana": 3,
+    "strength": "3/4/5/6/7",
+    "movement": null,
+    "ability": "At the start of your turn, randomly freeze the most forward enemy unit"
+  },
+  {
+    "name": "Ice Flake",
+    "id": "W31",
+    "type": "unit",
+    "faction": "winter",
+    "race": "frostling",
+    "rarity": "common",
+    "image": "ice_flake.png",
+    "mana": 2,
+    "strength": "3/4/5/6/7",
+    "movement": 0,
+    "ability": "On play, freeze itself"
+  },
+  {
     "name": "Token Constructs",
     "id": "T1",
     "token": true,

@@ -4438,5 +4438,17 @@
     "description": "Ability now only considers primary unit types",
     "id": "N35",
     "type": "NERF"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Added to the game",
+    "id": "W30",
+    "type": "INFO"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Added to the game",
+    "id": "W31",
+    "type": "INFO"
   }
 ]
