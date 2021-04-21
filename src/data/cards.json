@@ -1051,7 +1051,7 @@
     "mana": 4,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On play, turn off up to 1/2/2/3/4 bordering/bordering/surrounding/surrounding/surrounding enemy unit’s/units’/units’/units’/units’ ability"
+    "ability": "On play, disable up to 1/2/2/3/4 bordering/bordering/surrounding/surrounding/surrounding enemy unit’s/units’/units’/units’/units’ ability"
   },
   {
     "name": "Temple of the Heart",
