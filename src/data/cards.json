@@ -2611,13 +2611,13 @@
     "ability": "At the start of your turn, randomly freeze the most forward enemy unit"
   },
   {
-    "name": "Ice Flake",
+    "name": "Iceflakes",
     "id": "W31",
     "type": "unit",
     "faction": "winter",
     "race": "frostling",
     "rarity": "common",
-    "image": "ice_flake.png",
+    "image": "iceflakes.png",
     "mana": 2,
     "strength": "3/4/5/6/7",
     "movement": 0,
