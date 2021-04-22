@@ -1,9 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Radio from '../Radio'
 import HeaderBanner from '../HeaderBanner'
 import Title from '../Title'
 import NumberInput from '../NumberInput'
 import PageMeta from '../PageMeta'
+import { HeroCrowns } from '../Resource'
 import Row from '../Row'
 import getHeroScore from '../../helpers/getHeroScore'
 import './index.css'
@@ -44,6 +46,12 @@ const HeroScoreCalculator = props => {
             alt='Hero Score computing formula'
             className='HeroScoreCalculator__formula'
           />
+
+          <p>
+            As of <Link to='/releases/05-2021'>May 2021</Link>, wins are limited
+            to <HeroCrowns amount={10} /> and losses are limited to{' '}
+            <HeroCrowns amount={-5} />.
+          </p>
 
           <p>Here are the terms:</p>
 

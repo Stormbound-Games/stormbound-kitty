@@ -185,7 +185,6 @@ export default () => {
               label: 'Hero Calculator',
               to: '/calculators/hero',
               id: 'HERO_CALCULATOR',
-              new: true,
             },
             {
               label: 'Income Calculator',

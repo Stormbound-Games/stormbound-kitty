@@ -5,6 +5,7 @@
 .HeroScoreCalculator__formula,
 .HeroScore__image {
   max-width: 100%;
+  margin-bottom: 1.5em;
 }
 
 .HeroScore__score {

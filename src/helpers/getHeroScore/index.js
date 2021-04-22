@@ -5,8 +5,10 @@ const getHeroScore = ({ current: Sa, opponent: Sb, coefficient: K, won }) => {
   // avoid too much fluctuation in case of uneven matchmaking.
   const diff = Math.min(won ? Sa - Sb : Sb - Sa, 400)
   const deviation = 1 / (1 + 10 ** (diff / 400))
+  const score = K * deviation * (won ? 1 : -1)
+  const capped = Math.max(-5, Math.min(10, score))
 
-  return Sa + K * deviation * (won ? 1 : -1)
+  return Math.round(Sa + capped)
 }
 
 export default getHeroScore
