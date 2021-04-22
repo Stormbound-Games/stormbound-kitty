@@ -1,23 +1,13 @@
 {
+  "experimentalComponentTesting": true,
   "componentFolder": "src",
   "coverage": false,
   "baseUrl": "http://localhost:3000",
   "video": false,
   "ignoreTestFiles": [
-    "selectors.js",
-    "index.css",
-    "index.js",
-    "map.js",
-    "**/DeckMechanisms/*.js",
-    "**/serialisation/!(spec).js",
-    "**/getDeckAdvice/**/!(spec).js",
-    "**/constants/*.js",
-    "**/data/*.*",
-    "**/hooks/*.js",
-    "serviceWorker.js",
-    "**/bot/commands/*.js",
-    "**/bot/commands/trivia/questions.js",
-    "**/bot/*.js"
+    "**/src/*.*",
+    "**/src/{bot,helpers}/**/!(spec).js",
+    "**/src/{components,constants,data,fonts,hooks}/**/*"
   ],
   "projectId": "h321g2",
   "env": {

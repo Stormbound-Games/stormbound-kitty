@@ -5,5 +5,5 @@ updates:
     schedule:
       interval: 'weekly'
     ignore:
-      - dependency-name: 'husky'
-        versions: ['5.x']
+      - dependency-name: 'cypress'
+        versions: ['7.x']
