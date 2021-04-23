@@ -4456,5 +4456,17 @@
     "description": "Made ability surrounding",
     "id": "I7",
     "type": "NERF"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Reduced strength by 1/1/2/2/3",
+    "id": "I23",
+    "type": "NERF"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Reduced mana cost by 1",
+    "id": "I23",
+    "type": "BUFF"
   }
 ]
