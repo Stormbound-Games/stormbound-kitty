@@ -4480,5 +4480,17 @@
     "description": "Reduced mana cost by 1",
     "id": "S9",
     "type": "BUFF"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Increased ability by 1",
+    "id": "N37",
+    "type": "BUFF"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Made ability predictable",
+    "id": "N37",
+    "type": "BUFF"
   }
 ]

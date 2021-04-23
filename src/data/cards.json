@@ -480,7 +480,7 @@
     "mana": 6,
     "strength": "5/6/7/8/10",
     "movement": 1,
-    "ability": "On play, deal *3/4/5/6/7 damage* to a random enemy behind"
+    "ability": "On play, deal *4/5/6/7/8 damage* to the closest enemy behind"
   },
   {
     "name": "Harvesters of Souls",
