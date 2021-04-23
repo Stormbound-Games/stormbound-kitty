@@ -4492,5 +4492,11 @@
     "description": "Made ability predictable",
     "id": "N37",
     "type": "BUFF"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Made ability increase strength by 1",
+    "id": "S3",
+    "type": "BUFF"
   }
 ]
