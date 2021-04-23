@@ -4468,5 +4468,17 @@
     "description": "Reduced mana cost by 1",
     "id": "I23",
     "type": "BUFF"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Reduced strength by 1/1/0/1/0",
+    "id": "S9",
+    "type": "NERF"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Reduced mana cost by 1",
+    "id": "S9",
+    "type": "BUFF"
   }
 ]

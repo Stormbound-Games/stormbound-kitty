@@ -1945,8 +1945,8 @@
     "race": "satyr",
     "rarity": "rare",
     "image": "swarmcallers.png",
-    "mana": 4,
-    "strength": "2/3/3/5/5",
+    "mana": 3,
+    "strength": "1/2/3/4/5",
     "movement": 1,
     "ability": "On play, *gain 2/2/3/3/4* strength for each bordering friendly Satyr"
   },
