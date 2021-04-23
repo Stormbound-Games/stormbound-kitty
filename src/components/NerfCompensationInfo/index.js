@@ -1,7 +1,9 @@
 import React from 'react'
 import Info from '../Info'
 import ResourceIcon from '../ResourceIcon'
+import { RARITIES } from '../../constants/game'
 import capitalise from '../../helpers/capitalise'
+import getRawCardData from '../../helpers/getRawCardData'
 
 const COMPENSATION = {
   common: [
@@ -61,6 +63,10 @@ const LevelCompensation = ({ level, coins, stones }) => {
 }
 
 export default React.memo(function NerfCompensationInfo(props) {
+  const rarities = props.ids
+    ? props.ids.map(getRawCardData).map(card => card.rarity)
+    : Object.keys(RARITIES)
+
   return (
     <Info icon='heart' title='Nerf compensation'>
       <p>
@@ -70,24 +76,26 @@ export default React.memo(function NerfCompensationInfo(props) {
         and level.
       </p>
       <ul style={{ marginBottom: 0 }}>
-        {Object.keys(COMPENSATION).map(rarity => (
-          <li key={rarity}>
-            <ResourceIcon resource={rarity.toUpperCase()} />
-            &nbsp; {capitalise(rarity)} card:{' '}
-            {COMPENSATION[rarity].reduce((acc, level, index) => {
-              return (
-                <>
-                  {acc}
-                  <LevelCompensation
-                    coins={level[0]}
-                    stones={level[1]}
-                    level={index + 1}
-                  />
-                </>
-              )
-            }, null)}
-          </li>
-        ))}
+        {Object.keys(COMPENSATION)
+          .filter(rarity => rarities.includes(rarity))
+          .map(rarity => (
+            <li key={rarity}>
+              <ResourceIcon resource={rarity.toUpperCase()} />
+              &nbsp; {capitalise(rarity)} card:{' '}
+              {COMPENSATION[rarity].reduce((acc, level, index) => {
+                return (
+                  <>
+                    {acc}
+                    <LevelCompensation
+                      coins={level[0]}
+                      stones={level[1]}
+                      level={index + 1}
+                    />
+                  </>
+                )
+              }, null)}
+            </li>
+          ))}
       </ul>
     </Info>
   )

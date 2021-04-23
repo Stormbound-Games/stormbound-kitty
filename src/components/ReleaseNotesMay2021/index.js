@@ -73,10 +73,31 @@ export default React.memo(function ReleaseNotesMay2021(props) {
         <p>This release, like any other, brings some balance changes.</p>
 
         <ul>
-          <li>TBA.</li>
+          <li>
+            <CardLink id='I7' />’ ability now buff a{' '}
+            <span className='Highlight'>surrounding</span> friendly dragon
+            instead of any friendly dragon.
+          </li>
+          <li>
+            <CardLink id='I23' /> now cost 6 mana (down from 7) and have
+            6/7/8/10/12 strength (down from 7/8/10/12/15).
+          </li>
+          <li>
+            <CardLink id='S9' /> now cost 3 mana (down from 4) and have
+            1/2/3/4/5 strength (down from 2/3/3/5/5)
+          </li>
+          <li>
+            <CardLink id='N37' />’ ability now deal 4/5/6/7/8 (up from
+            3/4/5/6/7) and hits the closest enemy behind instead of a random
+            enemy behind.
+          </li>
+          <li>
+            <CardLink id='S3' /> now comes back in hand with +1 strength
+            (without a maximum).
+          </li>
         </ul>
 
-        <NerfCompensationInfo />
+        <NerfCompensationInfo ids={['I7']} />
 
         <Title id='new-cards'>New cards</Title>
         <p>
