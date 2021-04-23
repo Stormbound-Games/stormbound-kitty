@@ -48,9 +48,9 @@ const HeroScoreCalculator = props => {
           />
 
           <p>
-            As of <Link to='/releases/05-2021'>May 2021</Link>, wins are limited
-            to <HeroCrowns amount={10} /> and losses are limited to{' '}
-            <HeroCrowns amount={-5} />.
+            As of <Link to='/releases/05-2021'>May 2021</Link>, losses are
+            limited to <HeroCrowns amount={-10} /> and gains are at least of{' '}
+            <HeroCrowns amount={+5} />.
           </p>
 
           <p>Here are the terms:</p>
