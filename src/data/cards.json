@@ -1171,7 +1171,7 @@
     "mana": 3,
     "strength": "1/2/2/3/3",
     "movement": 2,
-    "ability": "Before attacking a unit, *gives 1/1/2/2/3 strength* to itself and a random friendly Dragon"
+    "ability": "Before attacking a unit, *gives 1/1/2/2/3 strength* to itself and a surrounding friendly Dragon"
   },
   {
     "name": "Linked Golems",

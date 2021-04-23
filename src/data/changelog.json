@@ -4450,5 +4450,11 @@
     "description": "Added to the game",
     "id": "W31",
     "type": "INFO"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Made ability surrounding",
+    "id": "I7",
+    "type": "NERF"
   }
 ]
