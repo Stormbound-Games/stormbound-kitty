@@ -7,3 +7,5 @@ updates:
     ignore:
       - dependency-name: 'cypress'
         versions: ['7.x']
+      - dependency-name: 'framer-motion'
+        versions: ['4.x']
