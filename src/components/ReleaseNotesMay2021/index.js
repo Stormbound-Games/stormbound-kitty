@@ -181,26 +181,52 @@ export default React.memo(function ReleaseNotesMay2021(props) {
         </p>
 
         <ul>
-          <li className='Highlight'>No more ads for the month.</li>
-
-          <li>The coin cap is now 600 for the month.</li>
-
           <li>
-            The friend limit is now 200 (up from 100). This perk is persisted
-            after the end of the month. In other words, as soon as one buys the
-            Premium Pass, their friend list can forever contain up to 200
-            people.
+            <span className='Highlight'>No more ads</span> for the month.
           </li>
 
           <li>
-            Three more deck slots. This perk is also persisted after the end of
-            the month.
+            The coin cap is raised to <Coins amount={600} /> for the month.
           </li>
 
           <li>
-            The daily calendar rewards. It will work the same as it has since
-            the beginning, and the rewards will be closer to the original one
-            from December.
+            The friend limit is raised to 200 (up from 100){' '}
+            <a
+              href='#friend-list'
+              aria-describedby='Footnotes'
+              id='friend-list-ref'
+              style={{ textDecoration: 'none' }}
+            >
+              for the month
+              <span
+                style={{
+                  color: 'var(--beige)',
+                  marginLeft: '2px',
+                  fontSize: '120%',
+                }}
+              >
+                *
+              </span>
+            </a>
+            .
+          </li>
+
+          <li>
+            Three more deck slots.{' '}
+            <span className='Highlight'>
+              This perk is also persisted after the end of the month
+            </span>
+            .
+          </li>
+
+          <li>
+            From <span className='Highlight'>June</span> onwards (so not in the
+            May Premium Pass), it will also grant discounted entries for in-game
+            events for the month (such as Brawl).
+          </li>
+
+          <li>
+            Increased daily check-in calendar rewards for the month, as always.
           </li>
         </ul>
 
@@ -299,6 +325,20 @@ export default React.memo(function ReleaseNotesMay2021(props) {
             },
           ]}
         />
+
+        <footer style={{ fontSize: '80%' }}>
+          <h2 className='VisuallyHidden' id='footnotes'>
+            Footnotes
+          </h2>
+          <p id='friend-list'>
+            (*) Any friends above 100 when the Premium Pass at the end of the
+            month remains in the friend list, but it is no longer possible to
+            add more friends until another Premium Pass gets purchased.
+            <a href='#friend-list-ref' aria-label='Back to content'>
+              ↩
+            </a>
+          </p>
+        </footer>
       </Article.Narrow>
     </ReleaseNotes>
   )
