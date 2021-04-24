@@ -7,5 +7,7 @@ updates:
     ignore:
       - dependency-name: 'cypress'
         versions: ['7.x']
+      - dependency-name: '@cypress/react'
+        versions: ['5.x']
       - dependency-name: 'framer-motion'
-        versions: ['4.x']
+        versions: ['2.x', '3.x', '4.x']
