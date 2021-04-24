@@ -57,12 +57,6 @@ export default React.memo(function ReleaseNotesMay2021(props) {
             <a href='#extra-decks-lots'>Extra deck slots</a>
           </li>
           <li>
-            <a href='#exclusive-offers'>Exclusive offers</a>
-          </li>
-          <li>
-            <a href='#qol-improvements'>Quality of Life improvements</a>
-          </li>
-          <li>
             <a href='#faq'>FAQ</a>
           </li>
         </ol>
@@ -304,14 +298,6 @@ export default React.memo(function ReleaseNotesMay2021(props) {
             One of the 3 slots costs <Stones amount={50} />.
           </li>
         </ul>
-
-        <Title id='exclusive-offers'>Exclusive offers</Title>
-
-        <p>Something</p>
-
-        <Title id='qol-improvements'>Quality of Life improvements</Title>
-
-        <p>Things.</p>
 
         <FAQSection
           id='faq'
