@@ -1,5 +1,13 @@
 import React from 'react'
-import { Coins, Rubies, Stones } from '../../components/Resource'
+import {
+  Coins,
+  Rubies,
+  Stones,
+  Common,
+  Rare,
+  Epic,
+  Legendary,
+} from '../../components/Resource'
 
 const getRewardLabel = (entry, enhanced = false) => {
   const amount = entry.rewardAmount || entry.amount
@@ -32,13 +40,13 @@ const getRewardLabel = (entry, enhanced = false) => {
     case 'MYTHIC_BOOK':
       return `${amount} Mythic book${amount === 1 ? '' : 's'}`
     case 'COMMON_CARD':
-      return `${amount} common card${amount === 1 ? '' : 's'}`
+      return <Common amount={amount} />
     case 'RARE_CARD':
-      return `${amount} rare card${amount === 1 ? '' : 's'}`
+      return <Rare amount={amount} />
     case 'EPIC_CARD':
-      return `${amount} epic card${amount === 1 ? '' : 's'}`
+      return <Epic amount={amount} />
     case 'LEGENDARY_CARD':
-      return `${amount} legendary card${amount === 1 ? '' : 's'}`
+      return <Legendary amount={amount} />
     default:
       return null
   }
