@@ -1119,7 +1119,7 @@
     "mana": 3,
     "strength": null,
     "movement": null,
-    "ability": "*Give 2/3/4/5/6)* strength to all friendly units *surrounding* a friendly structure"
+    "ability": "*Give 2/3/4/5/6* strength to all friendly units *surrounding* a friendly structure"
   },
   {
     "name": "Ozone Purifiers",
