@@ -94,8 +94,10 @@ export default React.memo(function ReleaseNotesMay2021(props) {
             enemy behind.
           </li>
           <li>
-            <CardLink id='S3' /> now comes back in hand with +1 strength
-            (without a maximum).
+            <CardLink id='S3' /> now comes back in hand with +1 strength when
+            played without surrounding enemies. There is no maximum amount of
+            strength, but as soon as Ahmi doesn’t come back in hand, the card in
+            the deck has its default strength back, and not the boosted one.
           </li>
         </ul>
 
