@@ -1,5 +1,4 @@
 import React from 'react'
-import Checkbox from '../Checkbox'
 import NumberInput from '../NumberInput'
 import Row from '../Row'
 import getRewardLabel from '../../helpers/getRewardLabel'

@@ -10,15 +10,7 @@ import NerfCompensationInfo from '../NerfCompensationInfo'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
 import Table from '../Table'
-import {
-  Rare,
-  Epic,
-  Legendary,
-  Coins,
-  Rubies,
-  Stones,
-  HeroCrowns,
-} from '../Resource'
+import { Coins, Rubies, Stones, HeroCrowns } from '../Resource'
 import ResourceIcon from '../ResourceIcon'
 import TogglableContent from '../TogglableContent'
 import Title from '../Title'
