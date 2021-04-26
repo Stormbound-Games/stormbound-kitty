@@ -40,13 +40,29 @@ const getRewardLabel = (entry, enhanced = false) => {
     case 'MYTHIC_BOOK':
       return `${amount} Mythic book${amount === 1 ? '' : 's'}`
     case 'COMMON_CARD':
-      return <Common amount={amount} />
+      return enhanced ? (
+        <Common amount={amount} />
+      ) : (
+        `${amount} common card${amount === 1 ? '' : 's'}`
+      )
     case 'RARE_CARD':
-      return <Rare amount={amount} />
+      return enhanced ? (
+        <Rare amount={amount} />
+      ) : (
+        `${amount} rare card${amount === 1 ? '' : 's'}`
+      )
     case 'EPIC_CARD':
-      return <Epic amount={amount} />
+      return enhanced ? (
+        <Epic amount={amount} />
+      ) : (
+        `${amount} epic card${amount === 1 ? '' : 's'}`
+      )
     case 'LEGENDARY_CARD':
-      return <Legendary amount={amount} />
+      return enhanced ? (
+        <Legendary amount={amount} />
+      ) : (
+        `${amount} legendary card${amount === 1 ? '' : 's'}`
+      )
     default:
       return null
   }
