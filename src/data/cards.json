@@ -1946,7 +1946,7 @@
     "rarity": "rare",
     "image": "swarmcallers.png",
     "mana": 3,
-    "strength": "1/2/3/4/5",
+    "strength": "1/2/2/3/3",
     "movement": 1,
     "ability": "On play, *gain 2/2/3/3/4* strength for each bordering friendly Satyr"
   },

@@ -86,7 +86,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
           </li>
           <li>
             <CardLink id='S9' /> now cost 3 mana (down from 4) and have
-            1/2/3/4/5 strength (down from 2/3/3/5/5)
+            1/2/2/3/3 strength (down from 2/3/3/5/5)
           </li>
           <li>
             <CardLink id='N37' />’ ability now deal 4/5/6/7/8 (up from
