@@ -105,7 +105,7 @@ export default React.memo(function BrawlCalculator(props) {
               <thead>
                 <tr>
                   <th>Required crowns</th>
-                  <th>Cost per match</th>
+                  <th>Cost per match {withPremiumPass ? '(Premium)' : ''}</th>
                   {discount > 0 ? (
                     <th>Discount per match</th>
                   ) : (
@@ -115,11 +115,22 @@ export default React.memo(function BrawlCalculator(props) {
               </thead>
               <tbody>
                 {MILESTONES.map(milestone => {
+                  // The Premium Pass grants an unlimited 10% discount to Brawl
+                  // matches, which is a cost modifier of 0.9. If there is also
+                  // another cost modifier applied (e.g. event-specific
+                  // discount), multiply both. For instance, 50% discount +
+                  // Premium Pass = 0.5 * 0.9 = 0.45
+                  // Note that this is being discussed and not confirmed.
+                  // Sheepyard is considering having discounts being additive
+                  // instead of cumulative.
+                  //
                   // discount = 100% -> multiplier = 0.00
                   // discount =   0% -> multiplier = 1.00
                   // discount =  50% -> multiplier = 0.50
                   // discount =  25% -> multiplier = 0.75
-                  const costModifier = (100 - discount) / 100
+                  const costModifier =
+                    (withPremiumPass ? 0.9 : 1) * ((100 - discount) / 100)
+
                   const cost =
                     Math.ceil(Math.ceil(milestone.cost * costModifier) / 5) * 5
 

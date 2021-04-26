@@ -205,9 +205,9 @@ export default React.memo(function ReleaseNotesMay2021(props) {
           </li>
 
           <li>
-            From <span className='Highlight'>June</span> onwards (so not in the
-            May Premium Pass), it will also grant discounted entries for in-game
-            events for the month (such as Brawl).
+            10% discount on any Brawl matches. The{' '}
+            <Link to='/calculators/brawl'>Brawl calculator</Link> has been
+            updated to reflect this option.
           </li>
 
           <li>

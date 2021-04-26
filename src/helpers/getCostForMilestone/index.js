@@ -9,6 +9,7 @@ import getMilestoneForCrowns from '../getMilestoneForCrowns'
 // @param {Float} costModifier - Cost modifier between 0 (free) and 1 (normal)
 // @param {String} setup - Wins strategy (ads, Steam…)
 // @param {Boolean} hasLegendary5 - Whether has the Brawl legendary level 5
+// @param {Boolean} withPremiumPass - Whether has the Premium Pass
 const getCostForMilestone = (
   milestone,
   winRatio = 1,
@@ -19,6 +20,14 @@ const getCostForMilestone = (
   withPremiumPass = false
 ) => {
   if (typeof milestone !== 'number' || typeof winRatio !== 'number') return 0
+
+  // The Premium Pass grants an unlimited 10% discount to Brawl matches, which
+  // is a cost modifier of 0.9. If there is also another cost modifier applied
+  // (e.g. event-specific discount), multiply both.
+  // For instance, 50% discount + Premium Pass = 0.5 * 0.9 = 0.45
+  // Note that this is being discussed and not confirmed. Sheepyard is
+  // considering having discounts being additive instead of cumulative.
+  costModifier = (withPremiumPass ? 0.9 : 1) * costModifier
 
   const getCoins = getCoinsForWin(setup, withPremiumPass)
   const { currentIndex, nextIndex } = getMilestoneForCrowns(crowns)
