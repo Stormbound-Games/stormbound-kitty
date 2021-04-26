@@ -18,6 +18,7 @@ import { MILESTONES } from '../../constants/brawl'
 import getRewardLabel from '../../helpers/getRewardLabel'
 
 export default React.memo(function BrawlCalculator(props) {
+  const [withPremiumPass, setWithPremiumPass] = React.useState(false)
   const [mode, setMode] = React.useState('')
   const [winRate, setWinRate] = React.useState(50)
   const [coins, setCoins] = React.useState('')
@@ -65,6 +66,8 @@ export default React.memo(function BrawlCalculator(props) {
                 setWinRate={setWinRate}
                 crowns={crowns}
                 setCrowns={setCrowns}
+                withPremiumPass={withPremiumPass}
+                setWithPremiumPass={setWithPremiumPass}
               />
               <BrawlCalculatorLegendaryToggle
                 mode={mode}
@@ -89,6 +92,7 @@ export default React.memo(function BrawlCalculator(props) {
                 setup={setup}
                 winRate={winRate}
                 hasLegendary5={hasLegendary5}
+                withPremiumPass={withPremiumPass}
               />
             </Row.Column>
           </Row>

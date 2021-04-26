@@ -40,6 +40,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
     setup,
     discount,
     hasLegendary5,
+    withPremiumPass,
   } = props
   const options = [
     winRate / 100,
@@ -47,6 +48,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
     1 - discount / 100,
     setup,
     hasLegendary5,
+    withPremiumPass,
   ]
   const info = getMilestoneForCrowns(crowns)
   const gains =

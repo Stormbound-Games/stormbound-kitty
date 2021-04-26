@@ -1,4 +1,5 @@
 import React from 'react'
+import Checkbox from '../Checkbox'
 import NumberInput from '../NumberInput'
 import Row from '../Row'
 import getRewardLabel from '../../helpers/getRewardLabel'
@@ -84,6 +85,14 @@ export default React.memo(function BrawlCalculatorSettings(props) {
           ) : null}
         </Row.Column>
       </Row>
+      <Checkbox
+        id='premium-pass'
+        name='premium-pass'
+        checked={props.withPremiumPass}
+        onChange={event => props.setWithPremiumPass(event.target.checked)}
+      >
+        Premium Pass
+      </Checkbox>
     </>
   )
 })

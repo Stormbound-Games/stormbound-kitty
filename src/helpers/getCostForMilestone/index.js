@@ -15,11 +15,12 @@ const getCostForMilestone = (
   crowns = 0,
   costModifier = 1,
   setup = 'NONE',
-  hasLegendary5 = false
+  hasLegendary5 = false,
+  withPremiumPass = false
 ) => {
   if (typeof milestone !== 'number' || typeof winRatio !== 'number') return 0
 
-  const getCoins = getCoinsForWin(setup)
+  const getCoins = getCoinsForWin(setup, withPremiumPass)
   const { currentIndex, nextIndex } = getMilestoneForCrowns(crowns)
 
   // If there is no next milestone, that means there are already too many crowns
