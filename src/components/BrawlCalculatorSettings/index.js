@@ -85,14 +85,6 @@ export default React.memo(function BrawlCalculatorSettings(props) {
           ) : null}
         </Row.Column>
       </Row>
-      <Checkbox
-        id='premium-pass'
-        name='premium-pass'
-        checked={props.withPremiumPass}
-        onChange={event => props.setWithPremiumPass(event.target.checked)}
-      >
-        Premium Pass
-      </Checkbox>
     </>
   )
 })

@@ -4,6 +4,7 @@ import BrawlCalculatorDiscount from '../BrawlCalculatorDiscount'
 import BrawlCalculatorLegendaryToggle from '../BrawlCalculatorLegendaryToggle'
 import BrawlCalculatorMode from '../BrawlCalculatorMode'
 import BrawlCalculatorOutcome from '../BrawlCalculatorOutcome'
+import BrawlCalculatorPremiumPassToggle from '../BrawlCalculatorPremiumPassToggle'
 import BrawlCalculatorSettings from '../BrawlCalculatorSettings'
 import BrawlCalculatorSetup from '../BrawlCalculatorSetup'
 import HeaderBanner from '../HeaderBanner'
@@ -66,8 +67,10 @@ export default React.memo(function BrawlCalculator(props) {
                 setWinRate={setWinRate}
                 crowns={crowns}
                 setCrowns={setCrowns}
-                withPremiumPass={withPremiumPass}
-                setWithPremiumPass={setWithPremiumPass}
+              />
+              <BrawlCalculatorPremiumPassToggle
+                checked={withPremiumPass}
+                onChange={event => setWithPremiumPass(event.target.checked)}
               />
               <BrawlCalculatorLegendaryToggle
                 mode={mode}
