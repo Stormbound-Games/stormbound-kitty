@@ -2,10 +2,13 @@
   position: relative;
 }
 
-.HeroScoreCalculator__formula,
-.HeroScore__image {
+.HeroScoreCalculator__formula {
   max-width: 100%;
   margin-bottom: 1.5em;
+}
+
+.HeroScore__image {
+  max-width: 100%;
 }
 
 .HeroScore__score {
