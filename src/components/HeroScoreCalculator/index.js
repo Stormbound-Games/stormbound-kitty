@@ -74,8 +74,24 @@ const HeroScoreCalculator = props => {
               in FIDE:
               <ul style={{ margin: '0.5em 0' }}>
                 <li>
-                  K = 40 for new players until they have played 30 matches in
-                  Diamond or Heroes leagues
+                  K = 40 for players until they have been in{' '}
+                  <a
+                    href='#matches-30'
+                    aria-describedby='Footnotes'
+                    id='matches-30-ref'
+                    style={{ textDecoration: 'none' }}
+                  >
+                    30 matches in Diamond and then 30 matches in Heroes League
+                    <span
+                      style={{
+                        color: 'var(--beige)',
+                        marginLeft: '2px',
+                        fontSize: '120%',
+                      }}
+                    >
+                      *
+                    </span>
+                  </a>
                 </li>
                 <li>K = 20 for players rated below 2400</li>
                 <li>
@@ -197,6 +213,22 @@ const HeroScoreCalculator = props => {
           </div>
         </Row.Column>
       </Row>
+
+      <footer style={{ fontSize: '80%' }}>
+        <h2 className='VisuallyHidden' id='footnotes'>
+          Footnotes
+        </h2>
+        <p id='matches-30'>
+          (*) The coefficient factor (K) is 40 until the player has done at
+          least 30 matches in Diamond—regardless of their outcome—or if they
+          have reached the Heroes League with less matches then that. Then it
+          resets to 0. And then for another 30 matches in Heroes League, the
+          coefficient is 40 again.
+          <a href='#matches-30-ref' aria-label='Back to content'>
+            ↩
+          </a>
+        </p>
+      </footer>
 
       <PageMeta
         title='Hero Score Calculator'
