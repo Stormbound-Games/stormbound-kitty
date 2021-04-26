@@ -180,7 +180,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
           </li>
 
           <li>
-            The coin cap is raised to <Coins amount={600} /> for the month.
+            The coin cap is raised to <Coins amount={700} /> for the month.
           </li>
 
           <li>
