@@ -208,11 +208,8 @@ export default React.memo(function ReleaseNotesMay2021(props) {
           </li>
 
           <li>
-            Three more deck slots.{' '}
-            <span className='Highlight'>
-              This perk is also persisted after the end of the month
-            </span>
-            .
+            Six extra deck slots for the month. Any extra deck after the month
+            is over cannot be played, only stored or removed.
           </li>
 
           <li>
@@ -284,7 +281,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
         <Title id='extra-deck-slots'>Extra deck slots</Title>
 
         <p>
-          On top of the 3 deck slots that can be unlocked via the Premium Pass,
+          On top of the 6 deck slots that can be unlocked via the Premium Pass,
           3 extra deck slots can be bought by all players via some in-game
           resources (in any order).
         </p>
