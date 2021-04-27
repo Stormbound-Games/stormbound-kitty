@@ -191,7 +191,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
             of <CardLink id='N59' /> + 18 cards{' '}
             <a
               href='#most-played-cards'
-              aria-describedby='Footnotes'
+              aria-describedby='footnotes'
               id='edriks-army'
               style={{ textDecoration: 'none' }}
             >

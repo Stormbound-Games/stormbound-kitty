@@ -77,7 +77,7 @@ const HeroScoreCalculator = props => {
                   K = 40 for players until they have been in{' '}
                   <a
                     href='#matches-30'
-                    aria-describedby='Footnotes'
+                    aria-describedby='footnotes'
                     id='matches-30-ref'
                     style={{ textDecoration: 'none' }}
                   >
