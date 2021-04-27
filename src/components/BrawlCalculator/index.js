@@ -115,21 +115,17 @@ export default React.memo(function BrawlCalculator(props) {
               </thead>
               <tbody>
                 {MILESTONES.map(milestone => {
-                  // The Premium Pass grants an unlimited 10% discount to Brawl
-                  // matches, which is a cost modifier of 0.9. If there is also
-                  // another cost modifier applied (e.g. event-specific
-                  // discount), multiply both. For instance, 50% discount +
-                  // Premium Pass = 0.5 * 0.9 = 0.45
-                  // Note that this is being discussed and not confirmed.
-                  // Sheepyard is considering having discounts being additive
-                  // instead of cumulative.
-                  //
+                  // While this is not confirmed yet, there seem to be no plan
+                  // to add multiple discounts, so we take the highest discount
+                  // (hence lowest cost modifier).
                   // discount = 100% -> multiplier = 0.00
                   // discount =   0% -> multiplier = 1.00
                   // discount =  50% -> multiplier = 0.50
                   // discount =  25% -> multiplier = 0.75
-                  const costModifier =
-                    (withPremiumPass ? 0.9 : 1) * ((100 - discount) / 100)
+                  const costModifier = Math.min(
+                    withPremiumPass ? 0.9 : 1,
+                    (100 - discount) / 100
+                  )
 
                   const cost =
                     Math.ceil(Math.ceil(milestone.cost * costModifier) / 5) * 5
@@ -155,6 +151,21 @@ export default React.memo(function BrawlCalculator(props) {
               </tbody>
             </Table>
           </Only.Desktop>
+          <footer style={{ marginTop: '2em' }}>
+            <h2 className='VisuallyHidden' id='footnotes'>
+              Footnotes
+            </h2>
+            <p id='multiple-discounts'>
+              (*) At this stage, there is no intention to have cumulative Brawl
+              discounts in case the owner of the Premium Pass takes part in a
+              discounted Brawl. The exact outcome of such situation is not
+              confirmed yet, but it is likely only the highest discount will be
+              applied.{' '}
+              <a href='#multiple-discounts-ref' aria-label='Back to content'>
+                ↩
+              </a>
+            </p>
+          </footer>
         </Row.Column>
       </Row>
       <PageMeta

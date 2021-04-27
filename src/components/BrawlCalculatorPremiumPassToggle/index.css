@@ -1,4 +1,10 @@
 .BrawlCalculatorPremiumPassToggle {
-  color: white;
+  display: inline-flex;
+  flex-wrap: wrap;
   margin-top: -0.25em;
+}
+
+.BrawlCalculatorPremiumPassToggle .Checkbox {
+  color: white;
+  display: inline-flex;
 }

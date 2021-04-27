@@ -181,7 +181,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
             The friend limit is raised to 200 (up from 100){' '}
             <a
               href='#friend-list'
-              aria-describedby='Footnotes'
+              aria-describedby='footnotes'
               id='friend-list-ref'
               style={{ textDecoration: 'none' }}
             >
@@ -269,6 +269,15 @@ export default React.memo(function ReleaseNotesMay2021(props) {
             </tbody>
           </Table>
         </TogglableContent>
+
+        <Info icon='equalizer' title='Calculators'>
+          <p>
+            The <Link to='/calculators/brawl'>Brawl calculator</Link> and the{' '}
+            <Link to='/calculators/income'>Income calculator</Link> have been
+            updated to consider a Premium Pass (coin cap at 700 and 10% Brawl
+            discount).
+          </p>
+        </Info>
 
         <Title id='extra-deck-slots'>Extra deck slots</Title>
 
