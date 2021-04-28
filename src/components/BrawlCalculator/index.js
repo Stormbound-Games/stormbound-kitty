@@ -127,8 +127,18 @@ export default React.memo(function BrawlCalculator(props) {
                     (100 - discount) / 100
                   )
 
-                  const cost =
+                  let cost =
                     Math.ceil(Math.ceil(milestone.cost * costModifier) / 5) * 5
+
+                  // If there is a discount (cost modifier below 1), but the
+                  // cost remains the same, force a discount by rounding the
+                  // cost the other way around.
+                  if (costModifier < 1 && cost === milestone.cost) {
+                    cost =
+                      Math.floor(
+                        Math.floor(milestone.cost * costModifier) / 5
+                      ) * 5
+                  }
 
                   return (
                     <tr key={milestone.crowns}>
