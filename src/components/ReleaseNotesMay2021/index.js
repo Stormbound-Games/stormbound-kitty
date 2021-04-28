@@ -85,15 +85,6 @@ export default React.memo(function ReleaseNotesMay2021(props) {
             3/4/5/6/7) and hits the closest enemy behind instead of a random
             enemy behind.
           </li>
-          <li>
-            <CardLink id='S3' />
-            ’s strength is now 1/2/3/4/5 (down from 2/3/4/5/6) and comes back in
-            hand with +1 strength when played without{' '}
-            <span className='Highlight'>surrounding</span> enemies. There is no
-            maximum amount of strength, but as soon as Ahmi doesn’t come back in
-            hand, the card in the deck has its default strength back, and not
-            the boosted one.
-          </li>
         </ul>
 
         <NerfCompensationInfo ids={['I7']} />

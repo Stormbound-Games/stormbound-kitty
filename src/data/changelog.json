@@ -4492,23 +4492,5 @@
     "description": "Made ability predictable",
     "id": "N37",
     "type": "BUFF"
-  },
-  {
-    "date": 1619863200000,
-    "description": "Made ability increase strength by 1",
-    "id": "S3",
-    "type": "BUFF"
-  },
-  {
-    "date": 1619863200000,
-    "description": "Made ability surrounding",
-    "id": "S3",
-    "type": "NERF"
-  },
-  {
-    "date": 1619863200000,
-    "description": "Decreased strength by 1",
-    "id": "S3",
-    "type": "NERF"
   }
 ]
