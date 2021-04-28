@@ -46,7 +46,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
             <a href='#new-premium-pass'>New Premium Pass</a>
           </li>
           <li>
-            <a href='#extra-decks-lots'>Extra deck slots</a>
+            <a href='#extra-deck-lots'>Extra deck slots</a>
           </li>
           <li>
             <a href='#faq'>FAQ</a>
@@ -86,10 +86,13 @@ export default React.memo(function ReleaseNotesMay2021(props) {
             enemy behind.
           </li>
           <li>
-            <CardLink id='S3' /> now comes back in hand with +1 strength when
-            played without surrounding enemies. There is no maximum amount of
-            strength, but as soon as Ahmi doesn’t come back in hand, the card in
-            the deck has its default strength back, and not the boosted one.
+            <CardLink id='S3' />
+            ’s strength is now 1/2/3/4/5 (down from 2/3/4/5/6) and comes back in
+            hand with +1 strength when played without{' '}
+            <span className='Highlight'>surrounding</span> enemies. There is no
+            maximum amount of strength, but as soon as Ahmi doesn’t come back in
+            hand, the card in the deck has its default strength back, and not
+            the boosted one.
           </li>
         </ul>
 
