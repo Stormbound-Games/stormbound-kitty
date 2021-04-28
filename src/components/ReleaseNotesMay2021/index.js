@@ -286,21 +286,9 @@ export default React.memo(function ReleaseNotesMay2021(props) {
 
         <p>
           On top of the 6 deck slots that can be unlocked via the Premium Pass,
-          3 extra deck slots can be bought by all players via some in-game
-          resources (in any order).
+          3 extra deck slots can be bought by all players for{' '}
+          <Rubies amount={250} /> each.
         </p>
-
-        <ul>
-          <li>
-            One of the 3 slots costs <Coins amount={3000} />.
-          </li>
-          <li>
-            One of the 3 slots costs <Rubies amount={250} />.
-          </li>
-          <li>
-            One of the 3 slots costs <Stones amount={50} />.
-          </li>
-        </ul>
 
         <FAQSection
           id='faq'
