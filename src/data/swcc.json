@@ -518,6 +518,15 @@
     "season": 2,
     "week": 16,
     "name": "Mythological",
+    "winner": {
+      "author": "RandomlyDrawnCard",
+      "id": "Tjs7QztFOzQ7OztNaWRhcyclMjBUb3VjaDtodHRwcyUzQSUyRiUyRmNkbi5kaXNjb3JkYXBwLmNvbSUyRmF0dGFjaG1lbnRzJTJGNzcyMTExOTMyNTUwMjgzMzM0JTJGODM1MjU1ODU4NjMxNDA5NjY0JTJGUGljc0FydF8wNC0yMy0wMy40OC4wMS5wbmc7VHVybiUyMGElMjB0YXJnZXQlMjB1bml0JTIwd2l0aCUyMCo0JTJGNSUyRjYlMkY3JTJGOCUyMG9yJTIwbGVzcyUyMHN0cmVuZ3RoKiUyMGludG8lMjBhJTIwKmdvbGQqLiUyMEdvbGQlMjB1bml0cyUyMGJlY29tZSUyMGZyaWVuZGx5JTIwc3RydWN0dXJlcyUyMDs7"
+    }
+  },
+  {
+    "season": 2,
+    "week": 17,
+    "name": "Passives",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
