@@ -2,7 +2,9 @@
   {
     "id": "BEGINNER_GUIDE",
     "name": "Beginner’s Guide",
-    "authors": ["Buggz"],
+    "authors": [
+      "Buggz"
+    ],
     "excerpt": "In this beginner’s guide, Buggz goes through the base mechanics making the game, as well as a lot of tricks and tips that one might need to know to become efficient on the battlefield!",
     "slug": "beginner",
     "faction": "neutral",
@@ -12,9 +14,25 @@
     "date": "06/2020"
   },
   {
+    "id": "EQUALS_INTRO_GUIDE",
+    "name": "Intro to Equals",
+    "authors": [
+      "Derk"
+    ],
+    "excerpt": "In this short introduction to Equals mode, Derk goes through what to expect, the main difference with ranked, and some tips and tricks to perform.",
+    "slug": "equals-intro",
+    "faction": "neutral",
+    "cardId": "F21",
+    "background": "/assets/images/banners/environment_neutral.png",
+    "category": "ESSENTIALS",
+    "date": "04/2021"
+  },
+  {
     "id": "COMPLETE_GUIDE",
     "name": "Complete Guide",
-    "authors": ["Arikrat"],
+    "authors": [
+      "Arikrat"
+    ],
     "excerpt": "Learn the basics of Stormbound and more with this in-depth guide by Arikrat. From battle placement to upgrade strategies, you’ll learn everything you’ll need to know to make your way towards Diamond!",
     "slug": "complete",
     "faction": "neutral",
@@ -26,7 +44,9 @@
   {
     "id": "BRAWL_GUIDE",
     "name": "Brawl Guide",
-    "authors": ["Kitty"],
+    "authors": [
+      "Kitty"
+    ],
     "excerpt": "In this beginner’s guide, Kitty explains how the Brawl works, why you should care, and what are the common strategies to make the most of your coins.",
     "slug": "brawl",
     "faction": "neutral",
@@ -38,7 +58,9 @@
   {
     "id": "LUCRATIVE_PROJECT_GUIDE",
     "name": "Lucrative Project",
-    "authors": ["Oeni"],
+    "authors": [
+      "Oeni"
+    ],
     "excerpt": "In this construct edition of the Brawl Gazette, Oeni goes through everything to know about the Lucrative Project Brawl.",
     "slug": "lucrative-project",
     "faction": "ironclad",
@@ -50,7 +72,9 @@
   {
     "id": "FREEDOM_FIGHT_GUIDE",
     "name": "Freedom Fight",
-    "authors": ["Oeni"],
+    "authors": [
+      "Oeni"
+    ],
     "excerpt": "In this toad edition of the Brawl Gazette, Oeni goes through everything to know about the Freedom Fight Brawl.",
     "slug": "freedom-fight",
     "faction": "shadowfen",
@@ -62,7 +86,9 @@
   {
     "id": "GODDESS_BOON_GUIDE",
     "name": "Goddess Boon",
-    "authors": ["Oeni"],
+    "authors": [
+      "Oeni"
+    ],
     "excerpt": "In this frostling edition of the Brawl Gazette, Oeni goes through everything to know about the Goddess Boon Brawl.",
     "slug": "goddess-boon",
     "faction": "winter",
@@ -74,7 +100,9 @@
   {
     "id": "EYE_OF_THE_TEMPEST_GUIDE",
     "name": "Eye of the Tempest",
-    "authors": ["Oeni"],
+    "authors": [
+      "Oeni"
+    ],
     "excerpt": "In this spell edition of the Brawl Gazette, Oeni goes through everything to know about the Eye of the Tempest Brawl.",
     "slug": "eye-of-the-tempest",
     "faction": "neutral",
@@ -86,7 +114,9 @@
   {
     "id": "NOBLE_COALITION_GUIDE",
     "name": "Noble Coalition",
-    "authors": ["Oeni"],
+    "authors": [
+      "Oeni"
+    ],
     "excerpt": "In this feline edition of the Brawl Gazette, Oeni goes through everything to know about the Noble Coalition Brawl.",
     "slug": "noble-coalition",
     "faction": "neutral",
@@ -99,7 +129,9 @@
   {
     "id": "SELF_CONTROL_GUIDE",
     "name": "Self-control",
-    "authors": ["Kitty"],
+    "authors": [
+      "Kitty"
+    ],
     "excerpt": "In this satyr edition of the Brawl Gazette, Kitty goes through everything to know about the Self Control Brawl.",
     "slug": "self-control",
     "faction": "swarm",
@@ -112,7 +144,9 @@
   {
     "id": "DECK_GUIDE",
     "name": "Deck Building Guide",
-    "authors": ["Zemeu"],
+    "authors": [
+      "Zemeu"
+    ],
     "excerpt": "In this primer guide to building efficient decks, Zemeu goes through fundamental concepts such as mana curve, need for cheap units, and winning strategies. If you’re looking to making your own deck, you’re at the right place.",
     "slug": "deck",
     "faction": "shadowfen",
@@ -124,7 +158,9 @@
   {
     "id": "DRAWING_GUIDE",
     "name": "Drawing Guide",
-    "authors": ["Kitty"],
+    "authors": [
+      "Kitty"
+    ],
     "excerpt": "In this short guide by Kitty, learn more about the drawing mechanics of Stormbound as well as their edge cases to make the most out of your matches. Don’t let chance surprise you!",
     "slug": "drawing",
     "faction": "neutral",
@@ -136,7 +172,9 @@
   {
     "id": "RESOURCES_GUIDE",
     "name": "Resources Guide",
-    "authors": ["Roman"],
+    "authors": [
+      "Roman"
+    ],
     "excerpt": "In this economy guide to Stormbound, Roman explain what is the best approach when it comes to spending resources efficiently. Make the most out of them stones!",
     "slug": "resources",
     "faction": "neutral",
@@ -148,7 +186,9 @@
   {
     "id": "MANA_CURVE_GUIDE",
     "name": "Mana Curve Guide",
-    "authors": ["Kitty"],
+    "authors": [
+      "Kitty"
+    ],
     "excerpt": "In this in-depth guide supported by a lot of data visualisation, Kitty explains how to analyse the mana curve of a deck, and how to potentially fix it.",
     "slug": "mana-curve",
     "faction": "winter",
@@ -160,7 +200,10 @@
   {
     "id": "TRIGGER_GUIDE",
     "name": "Triggers Guide",
-    "authors": ["Kitty", "Derk"],
+    "authors": [
+      "Kitty",
+      "Derk"
+    ],
     "excerpt": "In this in-depth guide, Kitty and Derk dive deep into the trigger effects and attempt to demystify their resolution order.",
     "slug": "triggers",
     "faction": "shadowfen",
@@ -172,7 +215,9 @@
   {
     "id": "CARD_SHOP_GUIDE",
     "name": "Card Shop Guide",
-    "authors": ["Oeni"],
+    "authors": [
+      "Oeni"
+    ],
     "excerpt": "In this in-depth guide to the Card Shop, Oeni goes into which cards matter most for which faction, and how to get the most out of coins and rubies.",
     "slug": "card-shop",
     "faction": "neutral",
@@ -184,7 +229,9 @@
   {
     "id": "LEXICON",
     "name": "Lexicon",
-    "authors": ["Kitty"],
+    "authors": [
+      "Kitty"
+    ],
     "excerpt": "Stormbound discussions are full of acronyms and shortened names. Tired of not being able to follow what’s going on on Discord and Reddit? This guide is for you.",
     "slug": "lexicon",
     "faction": "neutral",
@@ -196,7 +243,9 @@
   {
     "id": "RECKLESS_RUSH_GUIDE",
     "name": "Reckless Rush",
-    "authors": ["RecklessRush"],
+    "authors": [
+      "RecklessRush"
+    ],
     "excerpt": "In this comprehensive guide, RecklessRush explains how to play his eponymous famous deck, relying on agressive rushing strategies to beat high-level players.",
     "slug": "reckless-rush",
     "faction": "swarm",
@@ -209,7 +258,9 @@
   {
     "id": "D1_SF_COMMONS_GUIDE",
     "name": "D1 with SF Commons",
-    "authors": ["Kitty"],
+    "authors": [
+      "Kitty"
+    ],
     "excerpt": "In this guide, Kitty goes into a Shadowfen deck that performs in Diamond 1 despite being essentially using common cards.",
     "slug": "d1-with-sf-commons",
     "faction": "neutral",
@@ -221,7 +272,10 @@
   {
     "id": "WINTER_GUIDE",
     "name": "Winter Guide",
-    "authors": ["WinterBoii", "Helios"],
+    "authors": [
+      "WinterBoii",
+      "Helios"
+    ],
     "excerpt": "In this deep-dive, WinterBoii tells us how to play, well, Winter Pact. From creating a deck to using niche abilities like Broken Earth Drakes’ and Rockworkers’, you should learn everything you need to know. Snow problem.",
     "slug": "winter",
     "faction": "winter",
@@ -234,7 +288,9 @@
   {
     "id": "PIRATE_GUIDE",
     "name": "Pirate Guide",
-    "authors": ["MooreFunn"],
+    "authors": [
+      "MooreFunn"
+    ],
     "excerpt": "In this comprehensive guide, MooreFunn tells us how to conquer the seas with pirate cards! From composing an efficient deck to countering specific situations, you should learn everything you need to know to master pirate gameplay.",
     "slug": "pirate",
     "faction": "neutral",
@@ -246,7 +302,9 @@
   {
     "id": "KNOWN_BUGS",
     "name": "Known Bugs",
-    "authors": ["Kitty"],
+    "authors": [
+      "Kitty"
+    ],
     "excerpt": "Find a list of the (in)famous Stormbound known bugs, their cause (when known) and their workaround or solution. Note that this is not a bug report page.",
     "slug": "known-bugs",
     "faction": "ironclad",
@@ -258,7 +316,9 @@
   {
     "id": "GREEN_PROTOTYPES_GUIDE",
     "name": "Green Prototypes",
-    "authors": ["Stratadox"],
+    "authors": [
+      "Stratadox"
+    ],
     "excerpt": "In this guide, Stratadox expands on why Green Prototypes is the most versatile card in the game, listing many situations in which this card makes the difference.",
     "slug": "green-prototypes",
     "faction": "neutral",
@@ -270,7 +330,9 @@
   {
     "id": "LEGENDARIES_GUIDE",
     "name": "Legendaries Guide",
-    "authors": ["VultureMadAtTheOx"],
+    "authors": [
+      "VultureMadAtTheOx"
+    ],
     "excerpt": "In this straightforward guide, VultureMadAtTheOx goes through all the legendary cards in the game and explains whether they are worthy at level 1, and when to start using them.",
     "slug": "legendaries",
     "faction": "neutral",
@@ -282,7 +344,9 @@
   {
     "id": "CHILLBEARDS_GUIDE",
     "name": "Chillbeards",
-    "authors": ["Dracqi"],
+    "authors": [
+      "Dracqi"
+    ],
     "excerpt": "In this short and straightforward guide, Dracqi goes through a series of tips to get the most out of Chillbeards, a rather under-appreciated yet powerful card.",
     "slug": "chillbeards",
     "faction": "winter",
@@ -295,7 +359,9 @@
   {
     "id": "TERRIFIC_SLAYERS_GUIDE",
     "name": "Terrific Slayers",
-    "authors": ["Dracqi"],
+    "authors": [
+      "Dracqi"
+    ],
     "excerpt": "In this short and straightforward guide, Dracqi goes through a series of tips to get the most out of Terrific Slayers, a rather under-appreciated yet powerful card.",
     "slug": "terrific-slayers",
     "faction": "neutral",
@@ -308,7 +374,9 @@
   {
     "id": "BROODMOTHER_QORDIA_GUIDE",
     "name": "Broodmother Qordia",
-    "authors": ["HyperScrub"],
+    "authors": [
+      "HyperScrub"
+    ],
     "excerpt": "In this short and straightforward guide, HyperScrub goes through a series of tips to get the most out of Broodmother Qordia, the Shadowfen legendary dragon.",
     "slug": "broodmother-qordia",
     "faction": "shadowfen",
@@ -321,7 +389,9 @@
   {
     "id": "TRIVIA_GUIDE",
     "name": "Stormbound Trivia",
-    "authors": ["Kitty"],
+    "authors": [
+      "Kitty"
+    ],
     "excerpt": "In this short write-up, Kitty goes through all the little more or less well-known pieces of knowledge about the Stormbound universe.",
     "slug": "trivia",
     "faction": "neutral",
