@@ -118,7 +118,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
             <p>They will each cost $9.99, and will grant the following: </p>
             <ul>
               <li>
-                <ResourceIcon resource='RARE' /> 10 copies of{' '}
+                <ResourceIcon resource='COMMON' /> 10 copies of{' '}
                 <CardLink id='W31' />
                 , <Stones amount={5} /> and <Coins amount={750} />.
               </li>
