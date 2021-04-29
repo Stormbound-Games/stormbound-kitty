@@ -27,6 +27,7 @@ import getCostForMilestone from '../../helpers/getCostForMilestone'
 import getHeroesLeagueRewards from '../../helpers/getHeroesLeagueRewards'
 import getLeagueChestRewards from '../../helpers/getLeagueChestRewards'
 import getRewardLabel from '../../helpers/getRewardLabel'
+import getWinCoins from '../../helpers/getWinCoins'
 import {
   DailyIncome,
   WeeklyIncome,
@@ -91,6 +92,7 @@ const useIncomeOverPeriod = (settings, period, rubiesConversion) => {
 }
 
 export default React.memo(function IncomeCalculator(props) {
+  const [withPremiumPass, setWithPremiumPass] = React.useState(false)
   const [period, setPeriod] = React.useState(PERIODS[0])
   const [setup, setSetup] = React.useState('MOBILE_WITHOUT_ADS')
   const [wins, setWins] = React.useState(0)
@@ -119,8 +121,9 @@ export default React.memo(function IncomeCalculator(props) {
     period,
     rubiesConversion
   )
-  const maxWins =
-    setup === 'STEAM_OR_WEB' ? 37 : setup === 'MOBILE_WITH_ADS' ? 19 : 74
+
+  const coinCap = withPremiumPass ? 700 : 400
+  const maxWins = Math.ceil((coinCap - 30) / getWinCoins(setup))
 
   React.useEffect(() => {
     if (wins > maxWins) setWins(maxWins)
@@ -321,6 +324,14 @@ export default React.memo(function IncomeCalculator(props) {
             onChange={event => setWithDailyHumble(event.target.checked)}
           >
             Open daily Humble book
+          </Checkbox>
+          <Checkbox
+            id='premium-pass'
+            name='premium-pass'
+            checked={withPremiumPass}
+            onChange={event => setWithPremiumPass(event.target.checked)}
+          >
+            Premium Pass
           </Checkbox>
         </Row.Column>
         <Row.Column width='1/3'>

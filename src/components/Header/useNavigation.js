@@ -38,15 +38,15 @@ export default () => {
           icon: 'bullhorn',
           items: [
             {
-              label: 'Update 04-2021',
-              to: '/releases/04-2021',
-              id: '04_2021',
+              label: 'Update 05-2021',
+              to: '/releases/05-2021',
+              id: '05_2021',
               new: true,
             },
             {
-              label: 'Update 03-2021',
-              to: '/releases/03-2021',
-              id: '03_2021',
+              label: 'Update 04-2021',
+              to: '/releases/04-2021',
+              id: '04_2021',
             },
             {
               label: 'All Releases',
@@ -185,7 +185,6 @@ export default () => {
               label: 'Hero Calculator',
               to: '/calculators/hero',
               id: 'HERO_CALCULATOR',
-              new: true,
             },
             {
               label: 'Income Calculator',

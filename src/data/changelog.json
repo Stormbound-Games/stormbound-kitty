@@ -4438,5 +4438,59 @@
     "description": "Ability now only considers primary unit types",
     "id": "N35",
     "type": "NERF"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Added to the game",
+    "id": "W30",
+    "type": "INFO"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Added to the game",
+    "id": "W31",
+    "type": "INFO"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Made ability surrounding",
+    "id": "I7",
+    "type": "NERF"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Reduced strength by 1/1/2/2/3",
+    "id": "I23",
+    "type": "NERF"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Reduced mana cost by 1",
+    "id": "I23",
+    "type": "BUFF"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Reduced strength by 2",
+    "id": "S9",
+    "type": "NERF"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Reduced mana cost by 1",
+    "id": "S9",
+    "type": "BUFF"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Increased ability by 1",
+    "id": "N37",
+    "type": "BUFF"
+  },
+  {
+    "date": 1619863200000,
+    "description": "Made ability predictable",
+    "id": "N37",
+    "type": "BUFF"
   }
 ]

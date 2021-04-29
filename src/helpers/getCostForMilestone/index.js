@@ -9,17 +9,23 @@ import getMilestoneForCrowns from '../getMilestoneForCrowns'
 // @param {Float} costModifier - Cost modifier between 0 (free) and 1 (normal)
 // @param {String} setup - Wins strategy (ads, Steam…)
 // @param {Boolean} hasLegendary5 - Whether has the Brawl legendary level 5
+// @param {Boolean} withPremiumPass - Whether has the Premium Pass
 const getCostForMilestone = (
   milestone,
   winRatio = 1,
   crowns = 0,
   costModifier = 1,
   setup = 'NONE',
-  hasLegendary5 = false
+  hasLegendary5 = false,
+  withPremiumPass = false
 ) => {
   if (typeof milestone !== 'number' || typeof winRatio !== 'number') return 0
 
-  const getCoins = getCoinsForWin(setup)
+  // While this is not confirmed yet, there seem to be no plan to add multiple
+  // discounts, so we take the highest discount (hence lowest cost modifier).
+  costModifier = Math.min(withPremiumPass ? 0.9 : 1, costModifier)
+
+  const getCoins = getCoinsForWin(setup, withPremiumPass)
   const { currentIndex, nextIndex } = getMilestoneForCrowns(crowns)
 
   // If there is no next milestone, that means there are already too many crowns

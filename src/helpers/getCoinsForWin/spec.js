@@ -24,4 +24,12 @@ describe('The `getCoinsForWin` helper', () => {
     }
     expect(getCoins()).to.equal(0)
   })
+
+  it('should cap gains at 700 with premium pass', () => {
+    const getCoins = getCoinsForWin('MOBILE_WITH_ADS', true)
+    for (let i = 0; i < 700 / 20; i += 1) {
+      expect(getCoins()).to.equal(20)
+    }
+    expect(getCoins()).to.equal(0)
+  })
 })
