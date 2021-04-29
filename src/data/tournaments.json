@@ -386,6 +386,7 @@
     "hosts": ["Grimm"],
     "podium": ["Derk", "theSINGULARITY", "HanooSt"],
     "date": "04/2021",
-    "description": "A Joust in which the participants created their own banlists and battled it out in their user-made metas."
+    "description": "A Joust in which the participants created their own banlists and battled it out in their user-made metas.",
+    "decks": [{ "id": "1xn1n6n8w5n18w7n69n34w16n46n68n57" }]
   }
 ]
