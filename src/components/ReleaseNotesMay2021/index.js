@@ -46,7 +46,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
             <a href='#new-premium-pass'>New Premium Pass</a>
           </li>
           <li>
-            <a href='#extra-deck-lots'>Extra deck slots</a>
+            <a href='#extra-deck-slots'>Extra deck slots</a>
           </li>
           <li>
             <a href='#faq'>FAQ</a>
@@ -158,7 +158,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
 
         <p>
           May will be the month where the Premium Pass finally get redesigned
-          and boosted. Its cost is increased to $9.99, but its rewards are now
+          and boosted. Its cost is increased to $7.99, but its rewards are now
           numerous:
         </p>
 
@@ -278,8 +278,20 @@ export default React.memo(function ReleaseNotesMay2021(props) {
         <p>
           On top of the 6 deck slots that can be unlocked via the Premium Pass,
           3 extra deck slots can be bought by all players for{' '}
-          <Rubies amount={250} /> each.
+          <ResourceIcon resource='RUBY' /> rubies.
         </p>
+
+        <ol>
+          <li>
+            The first deck slot costs <Rubies amount={50} />.
+          </li>
+          <li>
+            The second deck slot costs <Rubies amount={150} />.
+          </li>
+          <li>
+            The third deck slot costs <Rubies amount={250} />.
+          </li>
+        </ol>
 
         <FAQSection
           id='faq'
