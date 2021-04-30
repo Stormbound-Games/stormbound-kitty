@@ -16,10 +16,10 @@ const LEVEL_1_COLLECTION = cards.map(card => ({
 describe('The `getExpectedCoinsPerBook` helper', () => {
   const COINS = {
     MYTHIC: 545.5790513833992,
-    HEROIC: 269.71865308604475,
-    CLASSIC: 131.4215262997873,
-    NOBLE: 65.71076314989358,
-    HUMBLE: 21.903587716631197,
+    HEROIC: 269.7480237154153,
+    CLASSIC: 131.44505928853738,
+    NOBLE: 65.72252964426876,
+    HUMBLE: 21.90750988142292,
   }
 
   Object.keys(COINS).forEach(bookType => {

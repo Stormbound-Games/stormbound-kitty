@@ -3,10 +3,10 @@ import getAverageStonesPerBook from './'
 describe('The `getAverageStonesPerBook` helper', () => {
   const FUSION_STONES = {
     MYTHIC: 6.299407114624558,
-    HEROIC: 2.279831255700729,
-    CLASSIC: 0.8480693219836473,
-    NOBLE: 0.42403466099121756,
-    HUMBLE: 0.14134488699706316,
+    HEROIC: 2.2680830039523276,
+    CLASSIC: 0.8395256917014182,
+    NOBLE: 0.4197628458498357,
+    HUMBLE: 0.1399209486166033,
   }
 
   Object.keys(FUSION_STONES).forEach(bookType => {
