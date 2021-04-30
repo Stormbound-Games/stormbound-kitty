@@ -12,7 +12,7 @@ Log into your GitHub account. GitHub is a platform to collaboratively work on (o
 
 ## Adding your deck
 
-Go to https://github.com/KittySparkles/stormbound-kitty/edit/master/src/data/decks.json. This will open a page with a big form where you will get to update the content.
+Go to https://github.com/KittySparkles/stormbound-kitty/edit/main/src/data/decks.json. This will open a page with a big form where you will get to update the content.
 
 This file you will edit is the one containing all the decks from the site. Technically speaking, this is a JSON file exporting an “array” (a collection) of “objects” (small key-value maps), and each object has:
 

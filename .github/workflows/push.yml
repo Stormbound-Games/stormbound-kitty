@@ -2,7 +2,7 @@ name: End-to-end tests (Push)
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
