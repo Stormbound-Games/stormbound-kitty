@@ -25,7 +25,7 @@ describe('Bot — !decks', () => {
 
   it('should handle categories', () => {
     expect(decks('diamond_1').url).to.equal(
-      'https://stormbound-kitty.com/deck/suggestions?category=DIAMOND_1'
+      'https://stormbound-kitty.com/deck/suggestions?category=HIGH_LEVELS'
     )
     expect(decks('regular').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?category=REGULAR'
@@ -40,10 +40,10 @@ describe('Bot — !decks', () => {
 
   it('should handle aliases', () => {
     expect(decks('d1').url).to.equal(
-      'https://stormbound-kitty.com/deck/suggestions?category=DIAMOND_1'
+      'https://stormbound-kitty.com/deck/suggestions?category=HIGH_LEVELS'
     )
     expect(decks('diamond').url).to.equal(
-      'https://stormbound-kitty.com/deck/suggestions?category=DIAMOND_1'
+      'https://stormbound-kitty.com/deck/suggestions?category=HIGH_LEVELS'
     )
     expect(decks('tournament').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?category=EQUALS'
@@ -99,7 +99,7 @@ describe('Bot — !decks', () => {
     const [, search] = decks('ic mia diamond').url.split('?')
     const params = new URLSearchParams(search)
     expect(params.get('faction')).to.equal('ironclad')
-    expect(params.get('category')).to.equal('DIAMOND_1')
+    expect(params.get('category')).to.equal('HIGH_LEVELS')
     expect(params.get('including')).to.equal('I2')
   })
 })

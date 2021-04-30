@@ -47,10 +47,10 @@ describe('Bot — !suggestdeck', () => {
   })
 
   it('should handle multi-searches', () => {
-    const id = suggestdeck('ic d1').url.replace(BASE_URL, '')
+    const id = suggestdeck('ic hl').url.replace(BASE_URL, '')
     const deck = DECKS_INDEX[id]
 
-    expect(deck.category).to.equal('DIAMOND_1')
+    expect(deck.category).to.equal('HIGH_LEVELS')
     expect(getFactionFromDeckID(deck.id)).to.equal('ironclad')
   })
 

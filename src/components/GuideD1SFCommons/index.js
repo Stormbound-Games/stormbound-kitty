@@ -85,7 +85,7 @@ export default React.memo(function GuideD1SFCommons(props) {
               id={DECK_ID}
               name='Meow'
               author='Kitty'
-              category='DIAMOND_1'
+              category='HIGH_LEVELS'
               faction='shadowfen'
             />
           </Row.Column>
