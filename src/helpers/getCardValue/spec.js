@@ -921,10 +921,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Armed Schemers', () => {
     const value1 = getCardValue('I23', 1)
     const value5 = getCardValue('I23', 5)
-    expect(value1[0]).to.equal((7 / 6) * 0.5)
-    expect(value1[1]).to.equal(((7 + 3 * 3) / 6) * 0.5)
-    expect(value5[0]).to.equal((15 / 6) * 0.5)
-    expect(value5[1]).to.equal(((15 + 7 * 3) / 6) * 0.5)
+    expect(value1[0]).to.equal((6 / 6) * 0.5)
+    expect(value1[1]).to.equal(((6 + 3 * 3) / 6) * 0.5)
+    expect(value5[0]).to.equal((12 / 6) * 0.5)
+    expect(value5[1]).to.equal(((12 + 7 * 3) / 6) * 0.5)
   })
 
   it('should return value for Mechanical Workers', () => {
@@ -1299,10 +1299,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Swarmcallers', () => {
     const value1 = getCardValue('S9', 1)
     const value5 = getCardValue('S9', 5)
-    expect(value1[0]).to.equal((2 / 3) * 1)
-    expect(value1[1]).to.equal(((2 + 2 * 4) / 3) * 1)
-    expect(value5[0]).to.equal((5 / 3) * 1)
-    expect(value5[1]).to.equal(((5 + 4 * 4) / 3) * 1)
+    expect(value1[0]).to.equal((1 / 3) * 1)
+    expect(value1[1]).to.equal(((1 + 2 * 4) / 3) * 1)
+    expect(value5[0]).to.equal((3 / 3) * 1)
+    expect(value5[1]).to.equal(((3 + 4 * 4) / 3) * 1)
   })
 
   it('should return value for Broken Truce', () => {
