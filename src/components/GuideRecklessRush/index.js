@@ -925,7 +925,7 @@ export default React.memo(function GuideRecklessRush(props) {
         order (PVO) because the order in which I play my cards this turn, will
         determine the state of the board/game for this turn and the next turn.
         The PVO has everything to do with prioritisation—for instance do you
-        want the Doppelbock token to be more forward than the Green Prototypes
+        want the Doppelbocks’ token to be more forward than the Green Prototypes
         or vice versa?
       </p>
 
@@ -1297,7 +1297,7 @@ export default React.memo(function GuideRecklessRush(props) {
       </p>
 
       <p>
-        It is important to note that doppelbocks is incredibly strong for all 4
+        It is important to note that Doppelbocks is incredibly strong for all 4
         mana trinity openers and should be actively played if given the
         opportunity. Starting with the easiest of positions, when your opponent
         plays nothing on the board, you proceed with two units occupying the
@@ -1402,7 +1402,7 @@ export default React.memo(function GuideRecklessRush(props) {
         can draw into new cards at a slower rate. You can manipulate cycles not
         only by choosing whether to cycle or not, but also by deciding on
         playing more cards. For example for 3 mana you could play shady ghoul,
-        but it might be more beneficial to play doppelbocks and greenprototypes
+        but it might be more beneficial to play Doppelbocks and Green Prototypes
         simply to speed up your cycles. Conversely you could play shady ghoul
         instead to slow down your cycles. Fast cycling is extremely useful for
         two main purposes. The first is to play out your best cards (determined
@@ -1418,8 +1418,8 @@ export default React.memo(function GuideRecklessRush(props) {
         strongly affect your future card draws. These decisions are completely
         dependent on numerous factors and require practice for each new
         situation to master. A solid example of how to use fast cycles is by
-        cycling away your forgotten souls in the early game. This will ensure
-        that forgotten souls will return to your hand during a turn when it’s
+        cycling away your Forgotten Souls in the early game. This will ensure
+        that Forgotten Souls will return to your hand during a turn when it’s
         more playable and sometimes even close out games.
       </p>
 
