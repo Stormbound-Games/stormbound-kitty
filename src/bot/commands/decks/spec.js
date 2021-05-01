@@ -24,7 +24,7 @@ describe('Bot — !decks', () => {
   })
 
   it('should handle categories', () => {
-    expect(decks('diamond_1').url).to.equal(
+    expect(decks('high_levels').url).to.equal(
       'https://stormbound-kitty.com/deck/suggestions?category=HIGH_LEVELS'
     )
     expect(decks('regular').url).to.equal(
