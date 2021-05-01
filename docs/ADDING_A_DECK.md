@@ -18,10 +18,10 @@ This file you will edit is the one containing all the decks from the site. Techn
 
 - a `name`: the name of the deck
 - an `author`: your nickname
-- a `category`: either `DIAMOND_1`, `BRAWL`, `REGULAR` or `EQUALS`
+- a `category`: either `HIGH_LEVELS`, `BRAWL`, `REGULAR` or `EQUALS`
 - an `id`: which can be found in the URL of the deck builder
 
-> ❔ When creating your deck in the deck builder to have its identifier from the URL, please use all cards level 1 for a `EQUALS` deck, all cards level 3 for a `REGULAR` deck and all cards level 5 for a `DIAMOND_1` or `BRAWL` deck.
+> ❔ When creating your deck in the deck builder to have its identifier from the URL, please use all cards level 1 for a `EQUALS` deck, all cards level 3 for a `REGULAR` deck and all cards level 5 for a `HIGH_LEVELS` or `BRAWL` deck.
 
 ![Editing the `decks.json` file on GitHub](./assets/decks_edit_page.png)
 

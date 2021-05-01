@@ -16,7 +16,7 @@ export const DEFAULT_DECK = [
 export const CATEGORIES = {
   STARTER: 'Starter',
   REGULAR: 'Regular',
-  DIAMOND_1: 'Diamond 1',
+  HIGH_LEVELS: 'High Levels',
   BRAWL: 'Brawl',
   EQUALS: 'Equals',
 }

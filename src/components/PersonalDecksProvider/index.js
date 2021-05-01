@@ -14,7 +14,7 @@ const getCategoryFromId = id => {
     cards.map(card => card.level).reduce((a, b) => a + b, 0) / cards.length
 
   if (average === 1) return 'EQUALS'
-  if (average >= 4) return 'DIAMOND_1'
+  if (average >= 4) return 'HIGH_LEVELS'
   return 'REGULAR'
 }
 

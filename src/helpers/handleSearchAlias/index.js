@@ -19,9 +19,11 @@ export default term => {
     case 'grey':
     case 'gray':
       return ['faction', 'neutral']
-    case 'd1':
+    case 'd1': // legacy
+    case 'hl':
+    case 'heroes':
     case 'diamond':
-      return ['category', 'DIAMOND_1']
+      return ['category', 'HIGH_LEVELS']
     case 'equal':
     case 'tournament':
     case 'tourney':
