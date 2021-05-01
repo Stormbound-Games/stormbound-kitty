@@ -8,6 +8,11 @@ import './index.css'
 
 const getEffectiveSpeed = card => {
   switch (card.id) {
+    case 'W31':
+      // Iceflakes not only does not have initial movement, but it’s also frozen
+      // for a turn, which essentially negate its natural movement from the next
+      // turn.
+      return -0.5
     case 'S16':
       // Dreadfauns has an average speed of about 0.5. Out of the 16 slots it
       // can be played, 2 of them always move the line (corners), 8 of them have
