@@ -68,6 +68,9 @@ export default React.memo(function GuideRecklessRush(props) {
         <li>
           <a href='#positioning'>Positioning</a>
         </li>
+        <li>
+          <a href='#advanced-rush-theory'>Advanced Rush Theory</a>
+        </li>
       </ol>
 
       <Guide.FullWidth padding='120px'>
@@ -76,7 +79,7 @@ export default React.memo(function GuideRecklessRush(props) {
         <Row desktopOnly wideGutter>
           <Row.Column>
             <FeaturedDeck
-              id='2n12n23s14n32s243s23n632n671s64n151s84s11'
+              id='2xn1n2s1n3s24s2n67s6n24n15s8s11'
               name='Reckless Rush'
               author='RecklessRush'
               category='REGULAR'
@@ -84,40 +87,69 @@ export default React.memo(function GuideRecklessRush(props) {
             />
           </Row.Column>
           <Row.Column>
-            <p>This is the main Reckless Rush deck in all its glory.</p>
             <p>
-              These were my exact card levels when I reached Diamond 5. With
-              changes to the meta, different variations of the original deck
-              were born, so let’s take a look at all the best variations.
+              This is the current Standard Reckless Rush deck (updated
+              frequently to fit meta conditions).
+            </p>
+            <p>
+              This deck is suitable for all ranks. It is the most fast paced
+              variation and you should be zooming through the cards in your
+              deck, making it extremely difficult for the enemies to defend
+              against your attack.
+            </p>
+            <p>
+              If you play in Silver or in lower leagues, I would recommend a
+              small variation of the deck with <CardLink id='N26' /> instead of{' '}
+              <CardLink id='N2' />
+              —which are pretty fantastic at lower levels.
             </p>
           </Row.Column>
         </Row>
 
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <p>
-              If you play in Gold or in lower leagues, I would recommend a small
-              variation of the deck with <CardLink id='N26' /> instead of{' '}
-              <CardLink id='N2' />
-              —which are pretty fantastic at lower levels.
-            </p>
-            <p>
-              Another swap that can be considered is <CardLink id='N24' />{' '}
-              instead of <CardLink id='N63' />. Due to recent shifts in the
-              meta, the latter’s play rate in rush decks has fallen tremendously
-              and it is currently better to replace it with some other card. The
-              recent change to Personal Servers now allows it to fill quite a
-              few different niches in the RR decks.
-            </p>
-          </Row.Column>
-          <Row.Column>
             <FeaturedDeck
-              id='2xn1s1n3s24s2n67s6n24n15s8s11n26'
-              name='Reckless Rush (SnowServers)'
+              id='5xn1s1n3s24s2n67s6n24n15s8n81s11'
+              name='Reckless Rush (Heart Attack)'
               author='RecklessRush'
-              category='REGULAR'
+              category='DIAMOND_1'
               staticLevels
             />
+
+            <Info
+              icon='sword'
+              title='Temple of the Heart'
+              style={{ marginTop: 0 }}
+            >
+              <p>
+                For more information on how <CardLink id='N81' /> works, you can
+                check out <a href='https://youtu.be/sfGL_Nponu0'>this video</a>.
+              </p>
+            </Info>
+          </Row.Column>
+          <Row.Column>
+            <p>
+              For Diamond and above there is one last variation of the deck,
+              which is a special case deck. This deck is extremely difficult to
+              play and requires advanced knowledge in RR to play at a
+              competitive level.
+            </p>
+            <p>
+              This special case deck is only to be used if you find yourself
+              constantly fighting opponents that have 4 or more base health than
+              you. This deck is centered around the fact that there is no base
+              health cap in Diamond so you can utilize your lower base health to
+              an advantage. This deck is amazing for trimming down high base
+              health titans and generally pushes for slower games than the usual
+              RR which inherently requires more skill to play.
+            </p>
+            <p>
+              Since this deck is naturally aggressive, in many cases you should
+              go all out aggressive and play as if it’s a standard RR deck. In
+              other cases you might have to slow down the speed of the game and
+              juggle the enemy base health at a relatively low level allowing
+              you to close out the game in one unsuspecting turn.
+            </p>
           </Row.Column>
         </Row>
       </Guide.FullWidth>
@@ -307,24 +339,6 @@ export default React.memo(function GuideRecklessRush(props) {
         can be used in the corners or to defend a stronger unit.
       </p>
 
-      <h3>Unhealthy Hysteria</h3>
-      <p>
-        <CardLink id='N63' /> has been put into question quite a few times (even
-        from me). Since its change to make it 3 mana instead of 2, it actually
-        started seeing less playrate in the RR decks. This was mainly due to the
-        fact that 3 mana in this deck is fairly expensive and you were usually
-        better off playing other cards instead of this one.
-      </p>
-      <p>
-        That being said, it is still a very powerful card. The main reasons to
-        play it is to stall the enemy out by making two units attack one
-        another, deal early chip damage if they play a strong unit bordering
-        their base, or in the late game where you can pressure the enemy into
-        defending their base, and use hysteria to make that unit attack it.
-        Since this card is a spell, it does not rely on the frontline to be
-        played, and it can be used to come up with some very sneaky lethals.
-      </p>
-
       <h3>Wild Saberpaws</h3>
       <p>
         <CardLink id='N67' /> should be played for similar reasons as Restless
@@ -440,6 +454,41 @@ export default React.memo(function GuideRecklessRush(props) {
         desperate need of keeping the frontline.
       </p>
 
+      <h3>Personal servers</h3>
+      <p>
+        <CardLink id='N24' /> is a very fitting 3 mana card in this deck because
+        of its versatility. This card can be used to accomplish several goals
+        such as: move frontline forward, buff a unit to create more pressure,
+        act as a guardian to defend your stronger units and for potential lethal
+        since it can behave like a Potion of Growth substitute.
+      </p>
+
+      <p>
+        For 3 mana this card has proven to be very useful. It is not the most
+        important card in the deck nor is it the worst—just a great card to pick
+        up when playing this deck. Typically you should aim to play this card
+        during an odd mana turn (e.g. 5, 7…) and use up the remaining mana with
+        your even-cost units.
+      </p>
+
+      <h3>Temple of the Heart</h3>
+      <p>
+        <CardLink id='N81' /> is an extremely niche card and completely changes
+        the flow of the game. When played properly, this card can become your
+        enemies’ worst nightmare. It has a relatively weak statline so you need
+        to actively be looking for good places to set this down for at least 1
+        trigger to receive value from it. There are some cases where Temple of
+        the Heart can be used to set up disguised lethals because of the
+        mechanical order of the game.
+      </p>
+      <p>
+        At the start of your turn the Temple is triggered (2 damage) followed by
+        your units marching into the enemy base (X damage) and now you are given
+        freedom to play out your turn as necessary (Y damage). The addition of
+        this card into the deck makes this variation the most difficult to play,
+        it is not recommended for the majority of players.
+      </p>
+
       <h3>Devastators</h3>
       <p>
         The one that makes your victories feel cheap, the one that puts Winter
@@ -477,18 +526,6 @@ export default React.memo(function GuideRecklessRush(props) {
         this card as it is almost always better played than cycled especially in
         the lower ranks where you are able to pull off sneaky Devastator plays
         much more frequently.
-      </p>
-
-      <h3>Personal servers</h3>
-      <p>
-        <CardLink id='N24' /> is a very fitting 3 mana card in this deck because
-        of its versatility. This card can be used to accomplish several goals
-        such as: move frontline forward, buff a unit to create more pressure,
-        act as a guardian to defend your stronger units and for potential lethal
-        since it can behave like a Potion of Growth substitute. For 3 mana this
-        card has proven to be very useful. It is not the most important card in
-        the deck nor is it the worst—just a great card to pick up when playing
-        this deck.
       </p>
 
       <h3>Snowmasons</h3>
@@ -573,15 +610,15 @@ export default React.memo(function GuideRecklessRush(props) {
       </ul>
 
       <Board
-        id='LDJOMTBSMSwsLDNOMUIzLCwsLCwsMVM4QjMsLCwsLCwsLCw7UjEwTi1CMTBTOzNNMDszTjEzTjIzUzEzTjMzUzI0M1MyM042MzNONjczUzYzTjE1M1M4M1MxMTs='
+        id='LDJOMTBSMSwsLDNOMUIzLCwsLCwsMVM4QjMsLCwsLCwsLCw7UjEwTi1CMTBTOzNNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExOw=='
         caption='Trinity opener example 1: Shady Ghoul + Green Prototypes'
       />
       <Board
-        id='LCwsLCwsM04xQjMsLCwzUzJCMywsLCwsLCwsLCw7UjEwTi1CMTBTOzNNMDszTjEzTjIzUzEzTjMzUzI0M1MyM042MzNONjczUzYzTjE1M1M4M1MxMTs='
+        id='LCwsLCwsM04xQjMsLCwzUzJCMywsLCwsLCwsLCw7UjEwTi1CMTBTOzNNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExOw=='
         caption='Trinity opener example 2: Restless Goats + Green Prototypes'
       />
       <Board
-        id='LCwsLCwsM04xQjMsLCwzTjY3QjMsLCwsLCwsLCwsO1IxME4tQjEwUzszTTA7M04xM04yM1MxM04zM1MyNDNTMjNONjMzTjY3M1M2M04xNTNTODNTMTE7'
+        id='LCwsLCwsM04xQjMsLCwzTjY3QjMsLCwsLCwsLCwsO1IxME4tQjEwUzszTTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTs='
         caption='Trinity opener example 3: Wild Saberpaws + Green Prototypes'
       />
 
@@ -594,7 +631,11 @@ export default React.memo(function GuideRecklessRush(props) {
       <p>
         Trinity Openers are the best turn 1 openers for RR because it is very
         hard for the opponent to match them. Generally speaking you should still
-        be able to maintain this frontline for the duration of the match.
+        be able to maintain this frontline for the duration of the match. A
+        three mana trinity opener can lead to a 4 mana Devastators in the corner
+        in your next turn. A four mana trinity opener can lead to either a
+        Devastators + Green Prototypes play or a Gifted Recruit + Potion of
+        Growth play.
       </p>
       <p>
         It’s important to note that semi-Trinity Openers exist where you push
@@ -610,7 +651,7 @@ export default React.memo(function GuideRecklessRush(props) {
         Ghoul).
       </p>
 
-      <Board id='LCwsLCwsLCwzVDNCMSwzUzJCMywsLCwsLCwsLCw7UjEwTi1CMTBTOzNNMDszTjEzTjIzUzEzTjMzUzI0M1MyM042MzNONjczUzYzTjE1M1M4M1MxMTs=' />
+      <Board id='LCwsLCwsLCwzVDNCMSwzUzJCMywsLCwsLCwsLCw7UjEwTi1CMTBTOzNNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExOw==' />
 
       <p>Two reasons as to why Trinity Openers are so important:</p>
       <ol>
@@ -620,7 +661,8 @@ export default React.memo(function GuideRecklessRush(props) {
         </li>
         <li>
           You give yourself the opportunity to get extremely early and well
-          defended Devastators.
+          defended units such as Devastators or a 2-mana unit + Potion of
+          Growth.
         </li>
       </ol>
 
@@ -658,11 +700,11 @@ export default React.memo(function GuideRecklessRush(props) {
       </p>
 
       <Board
-        id='NFczUjMsM1MyQjMsM04xQjMsMlMxQjMsLCwsLCwsLCwsLCwsLCwsO1IxMFctQjEwUzszTTA7M04xM04yM1MxM04zM1MyNDNTMjNONjMzTjY3M1M2M04xNTNTODNTMTE7'
+        id='NFczUjMsM1MyQjMsM04xQjMsMlMxQjMsLCwsLCwsLCwsLCwsLCwsO1IxMFctQjEwUzszTTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTs='
         caption='Using the enemy’s structure as a way to baselock them.'
       />
       <Board
-        id='NFczUjMsLCwsNFMxMUIzLDNOMVIzLDRXMTJSMywzVDNCMSwsLDNTMkIzLCwsLCwsLCwsO1IxMFctQjEwUzszTTA7M04xM04yM1MxM04zM1MyNDNTMjNONjMzTjY3M1M2M04xNTNTODNTMTE7'
+        id='NFczUjMsLCwsNFMxMUIzLDNOMVIzLDRXMTJSMywzVDNCMSwsLDNTMkIzLCwsLCwsLCwsO1IxMFctQjEwUzszTTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTs='
         caption='In this case, Devastators would usually attack towards the centre, but because the structure is in front, Devastators will attack forward instead. With boards exactly like this in the late game, Devastators + Forgotten Souls combo is brutal because the enemy does not expect the Devastators to go through the structure.'
       />
 
@@ -693,7 +735,7 @@ export default React.memo(function GuideRecklessRush(props) {
       </p>
 
       <Board
-        id='NFMxMUIzLDNOMUIzLCwsLCwzUzJCMywsLCwsLDRGM1IzLCwsLCwsLDtSMTBXLUIxMFM7M00wOzNOMTNOMjNTMTNOMzNTMjQzUzIzTjYzM042NzNTNjNOMTUzUzgzUzExOw=='
+        id='NFMxMUIzLDNOMUIzLCwsLCwzUzJCMywsLCwsLDRGM1IzLCwsLCwsLDtSMTBXLUIxMFM7M00wOzN4TjFOMlMxTjNTMjRTMk42N1M2TjI0TjE1UzhTMTE7'
         caption='Extremely aggressive second turn swing with 5 mana.'
       />
 
@@ -716,7 +758,7 @@ export default React.memo(function GuideRecklessRush(props) {
       </p>
 
       <Board
-        id='OE4zQjMsLDNTMkIzLCwsLCwzVDNCMSwsLCwsLCwsLDRGM1IzLDNOMVIzLCw7UjEwVy1CMTBTOzNNMDszTjEzTjIzUzEzTjMzUzI0M1MyM042MzNONjczUzYzTjE1M1M4M1MxMTs='
+        id='OE4zQjMsLDNTMkIzLCwsLCwzVDNCMSwsLCwsLCwsLDRGM1IzLDNOMVIzLCw7UjEwVy1CMTBTOzNNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExOw=='
         caption='In most cases, playing Gifted Recruits top right would have been the better play, but I specifically played Gifted Recruits top left here to avoid 2 movement units from defending. The Restless Goats from last turn is still acting as a defender for another high priority target.'
       />
 
@@ -806,10 +848,9 @@ export default React.memo(function GuideRecklessRush(props) {
         </li>
         <li>
           As far as cycling prioritisation goes, Forgotten Souls has the highest
-          priority, Unhealthy Hysteria is second and Summon Militia is third.
-          This rule is not always true as it really depends on the state of the
-          board and your expectations for which card you will receive after
-          cycling.
+          priority, Summon Militia is second and Snowmason is third. This rule
+          is not always true as it really depends on the state of the board and
+          your expectations for which card you will receive after cycling.
         </li>
         <li>
           By playing Devastators in the early game, and cycling Forgotten Souls
@@ -823,7 +864,9 @@ export default React.memo(function GuideRecklessRush(props) {
         <li>
           Almost never cycle Devastators, and it’s okay to keep this card in
           your hand for many turns because each turn you should be looking to
-          make a Devastators play setup.
+          make a Devastators play setup. As you rank up, Devastators
+          progressively become harder to set down without risk and it may be
+          common to cycle this card only in the early game.
         </li>
       </ul>
 
@@ -857,12 +900,12 @@ export default React.memo(function GuideRecklessRush(props) {
       </p>
 
       <Board
-        id='LCwsLCwsM04zUjMsM1QzQjEsLCwsLCwsLCwsLCw7UjZOLUIxMFM7Nk0wOzNOMTNOMjNTMTNOMzNTMjQzUzIzTjYzM042NzNTNjNOMTUzUzgzUzExO04xLE42NyxTNixTMTE='
+        id='LCwsLCwsM04zUjMsM1QzQjEsLCwsLCwsLCwsLCw7UjZOLUIxMFM7Nk0wOzN4TjFOMlMxTjNTMjRTMk42N1M2TjI0TjE1UzhTMTE7TjEsTjY3LFM2LFMxMQ=='
         caption='In this case, there is only one proper order for lethal: Wild Saberpaws > Green Prototypes > Forgotten Souls.'
       />
 
       <Board
-        id='LCwxUzhCMywyUzFCMywsLCwsM04zUjMsLCwsLDNOMVIzLCwsLCwsO1I2Ti1CMTBTOzZNMDszTjEzTjIzUzEzTjMzUzI0M1MyM042MzNONjczUzYzTjE1M1M4M1MxMTtOMSxONjcsUzIsUzI0'
+        id='LCwxUzhCMywyUzFCMywsLCwsM04zUjMsLCwsLDNOMVIzLCwsLCwsO1I2Ti1CMTBTOzZNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExO04xLE42NyxTMixTMjQ='
         caption='In this case, Green Prototypes need to clear Gifted Recruits first so Wild Saberpaws can have 2-movement.'
       />
       <p>There are two parts behind the concept of order:</p>
@@ -891,11 +934,11 @@ export default React.memo(function GuideRecklessRush(props) {
         cards will have an affect on the PVO. This becomes more obvious during
         turns where you want to play{' '}
         <abbr title='Random Number Generator'>RNG</abbr> (luck-based) cards like
-        Summon Militia, Head Start and Unhealthy Hysteria.
+        Summon Militia and Head Start.
       </p>
 
       <Board
-        id='MVQ4UjEsN1Q3QjEsMVQ4UjEsLDFUOFIxLDJTMUIzLDNUM0IxLCwxVDhSMSwsLDFUOFIxLCwsLCwsLCw7UjEwVy1CMTBTOzZNMDszTjEzTjIzUzEzTjMzUzI0M1MyM042MzNONjczUzYzTjE1M1M4M1MxMTtTMTEsUzI0'
+        id='MVQ4UjEsN1Q3QjEsMVQ4UjEsLDFUOFIxLDJTMUIzLDNUM0IxLCwxVDhSMSwsLDFUOFIxLCwsLCwsLCw7UjEwVy1CMTBTOzZNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExO1MxMSxTMjQ='
         caption='Devastators must be played first, before playing Head Start, otherwise Head Start token will block off access to the top right corner tile.'
       />
 
@@ -908,7 +951,7 @@ export default React.memo(function GuideRecklessRush(props) {
       </p>
 
       <Board
-        id='LCwzVDNCMSwsM04zUjMsLCw3VDdSMSwsLCwsLCwsLCwsLDtSNk4tQjEwUzs2TTA7M04xM04yM1MxM04zM1MyNDNTMjNONjMzTjY3M1M2M04xNTNTODNTMTE7TjY3LFMyNA=='
+        id='LCwzVDNCMSwsM04zUjMsLCw3VDdSMSwsLCwsLCwsLCwsLDtSNk4tQjEwUzs2TTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTtONjcsUzI0'
         caption='I want the Head Start token to land on the left, so I play Wild Saberpaws on the right first.'
       />
 
@@ -926,9 +969,9 @@ export default React.memo(function GuideRecklessRush(props) {
         to buff with Potion of Growth.
       </p>
 
-      <Board id='M04xQjMsLCwzTjNCMywsLCwsLDNOMVIzLDNXMlIzLCwsLCwsLCwsO1I2Vy1CMTBTOzlNMDszTjEzTjIzUzEzTjMzUzI0M1MyM042MzNONjczUzYzTjE1M1M4M1MxMTtTMjQsTjE1LFM4LE4y' />
+      <Board id='M04xQjMsLCwzTjNCMywsLCwsLDNOMVIzLDNXMlIzLCwsLCwsLCwsO1I2Vy1CMTBTOzlNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExO1MyNCxOMTUsUzgsTjI=' />
       <Board
-        id='OE4xQjMsLCwzTjNCMywsLCw1VDdCMSwsM04xUjMsM1cyUjMsLCwsLCwsM1QzQjEsLDtSNlctQjEwUzszTTA7M04xM04yM1MxM04zM1MyNDNTMjNONjMzTjY3M1M2M04xNTNTODNTMTE7Uzg='
+        id='OE4xQjMsLCwzTjNCMywsLCw1VDdCMSwsM04xUjMsM1cyUjMsLCwsLCwsM1QzQjEsLDtSNlctQjEwUzszTTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTtTOA=='
         caption='The Summon Militia token did not land where I wanted it to, however this order was still correct. Since my right hand column is pretty powerful, I want to distribute the strength evenly across the board so I use Potion of Growth on the Green Prototypes.'
       />
 
@@ -972,7 +1015,7 @@ export default React.memo(function GuideRecklessRush(props) {
       </p>
 
       <Board
-        id='M1QzUjEsM1QzUjEsMlMxQjMsLCwsM04zQjMsLCw1TjU5UjMsLDROMTZSMywsLCwsLCwsO1IxME4tQjEwUzs1TTA7M04xM04yM1MxM04zM1MyNDNTMjNONjMzTjY3M1M2M04xNTNTODNTMTE7TjEsTjE1LFM4LFMyNA=='
+        id='M1QzUjEsM1QzUjEsMlMxQjMsLCwsM04zQjMsLCw1TjU5UjMsLDROMTZSMywsLCwsLCwsO1IxME4tQjEwUzs1TTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTtOMSxOMTUsUzgsUzI0'
         caption='Shady Ghoul does not see any play here and therefore is a liability and is worth cycling first to see if I can draw for a better play. For example a Devastators or Gifted Recruits draw here is much better than Shady Ghoul.'
       />
 
@@ -984,7 +1027,7 @@ export default React.memo(function GuideRecklessRush(props) {
       </p>
 
       <Board
-        id='M04zQjMsNlc4UjMsNE4xNFIzLDZXOVIzLCwsLCwsLDNUM0IxLCwsLCwsLCwsO1IxMFctQjEwUzs2TTA7M04xM04yM1MxM04zM1MyNDNTMjNONjMzTjY3M1M2M04xNTNTODNTMTE7TjEsUzI0LFMxMSxONjc='
+        id='M04zQjMsNlc4UjMsNE4xNFIzLDZXOVIzLCwsLCwsLDNUM0IxLCwsLCwsLCwsO1IxMFctQjEwUzs2TTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTtOMSxTMjQsUzExLE42Nw=='
         caption='Since Devastators is such a high priority card here, it’s worth playing first before cycling. Afterwards I can determine whether I want to play Head Start first and then cycle, or cycle first to see if I can draw a better play. The chances of me drawing an even better play than this is low, so I cycle last specifically because I would rather draw back Head Start sooner than Wild Saberpaws.'
       />
 
@@ -1145,7 +1188,7 @@ export default React.memo(function GuideRecklessRush(props) {
       </p>
 
       <Board
-        id='OE4zQjMsMlQ3QjEsLCwzUzJCMywyUzFCMywsLCwsLCwsLCwsLCwsO1IxME4tQjEwUzs2TTA7M04xM04yM1MxM04zM1MyNDNTMjNONjMzTjY3M1M2M04xNTNTODNTMTE7'
+        id='OE4zQjMsMlQ3QjEsLCwzUzJCMywyUzFCMywsLCwsLCwsLCwsLCwsO1IxME4tQjEwUzs2TTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTs='
         caption='Example of a square attack formation, particularly efficient against Shadowfen.'
       />
 
@@ -1169,7 +1212,7 @@ export default React.memo(function GuideRecklessRush(props) {
       </p>
 
       <Board
-        id='NFMxMUIzLDJTMUIzLDNTMkIzLCwsLCwsLCwsLCwsLCwsLCw7UjEwVy1CMTBTOzZNMDszTjEzTjIzUzEzTjMzUzI0M1MyM042MzNONjczUzYzTjE1M1M4M1MxMTs='
+        id='NFMxMUIzLDJTMUIzLDNTMkIzLCwsLCwsLCwsLCwsLCwsLCw7UjEwVy1CMTBTOzZNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExOw=='
         caption='Example of a horizontal attack formation, effecient against decks without too many runners.'
       />
 
@@ -1199,6 +1242,191 @@ export default React.memo(function GuideRecklessRush(props) {
         Souls combo for next turn, you want to make sure you find ways to leave
         an open space for them, even if that means clogging up all your units on
         one side to leave the other side open.
+      </p>
+
+      <Title id='advanced-rush-theory'>Advanced Rush Theory</Title>
+
+      <p>
+        Now that we have successfully covered all the major topics of how to
+        play this deck, let’s combine it all together.
+      </p>
+      <p>
+        Let’s start with common assumptions you can integrate to optimize your
+        gameplay.
+      </p>
+
+      <ol>
+        <li>The enemy will always attack the furthest unit.</li>
+        <li>
+          The enemy will always try to reduce the total damage they will take
+          (usually done by targeting high-threat units).
+        </li>
+        <li>The enemy will typically play cards that are in meta.</li>
+      </ol>
+
+      <p>
+        Now that we have a foundation for what to expect from the enemy, we can
+        find ways to play around them. Starting with the first assumption, the
+        root of a Trinity Opener stems from this idea. We can expect that the
+        second unit played in the Trinity Opener will be targeted and this
+        typically means the first unit is left uncontested. Our next plays will
+        typically rely on using the uncontested unit as a Defender for a
+        stronger unit.
+      </p>
+
+      <p>
+        In regards to Trinity Openers, there are several variations that exist
+        and are strongly dependent on what your opponent is playing. Starting at
+        3 mana, there are only two trinity opener positions you should study.
+        Both of these require you to play either Saberpaws or Restless Goats on
+        one of the center tiles. The only difference now is where to place your
+        Green Prototypes. The most notable position is having your Green
+        Prototypes occupy the other center tile. This allows for a potential
+        mana 4 Devastators on either corner if either of these two units are
+        uncontested.
+      </p>
+
+      <p>
+        Otherwise the second idea would be to position your Green Prototypes in
+        the opposite far corner tile. This setup is great to prevent a potential
+        enemy Green Prototypes + Linked Golems (only works if the enemy Green
+        Prototypes is stronger than yours) or even an enemy Crimson Sentry.
+        Generally this trinity opener is used against Shadowfen, it is slightly
+        less aggressive but less risky. Moving onto the 4 mana trinity openers,
+        there are several variations because the enemy is given the first turn.
+      </p>
+
+      <p>
+        It is important to note that doppelbocks is incredibly strong for all 4
+        mana trinity openers and should be actively played if given the
+        opportunity. Starting with the easiest of positions, when your opponent
+        plays nothing on the board, you proceed with two units occupying the
+        center tiles. Next is if the enemy plays a structure, the position of
+        the structure matters as well. A corner structure (most common
+        placement) should be met with the trinity runner on the column bordering
+        the enemy structure’s column and the second unit on the other center
+        tile.
+      </p>
+
+      <Board id='NFM3UjMsLCwsLCwyVDdCMSwsLDNTMkIzLDJTMUIzLCwsLCwsLCwsO1IxMFMtQjEwUzs0TTA7Ow==' />
+
+      <p>
+        Essentially, this will bait the enemy into defending the right hand side
+        because the furthest unit is positioned there, and this leaves us a
+        clean board to set down Devastators top left, applying pressure and
+        destroying the structure along the way. A center tile structure will be
+        met with the trinity runner on the opposite center tile and the second
+        unit on the bordering column.{' '}
+      </p>
+
+      <Board id='LCw0UzdSMywsMlQ3QjEsLCwsMlMxQjMsM1MyQjMsLCwsLCwsLCwsO1IxMFMtQjEwUzs0TTA7Ow==' />
+
+      <p>
+        The goal here is not to destroy the structure, but rather keep it there
+        for the remainder of the game and plug in units on the corner that the
+        enemy cannot defend because the structure essentially defends it. Bear
+        in mind that in both structure cases, you also have the additional
+        opportunity to keep enemy structures up allowing for smoother baselocks
+        or even a perfect path for a Devastators + Forgotten Souls combo. Next
+        up is analyzing 0 movement units. If the enemy plays a 0 movement unit
+        in a corner tile, you want to position the second unit on the center
+        tile bordering it.
+      </p>
+
+      <Board id='LCwsNE4xNFIzLCwsM04zQjMsLCwzUzJCMywsLCwsLCwsLCw7UjEwUy1CMTBTOzRNMDs7' />
+
+      <p>
+        Applying the first assumption, the enemy will likely defend against the
+        Gifted Recruits and by pushing their units all on one side, we can take
+        advantage of the other side. That is, to play a heavy unit on the enemy
+        top left. Assuming the enemy plays the 0 movement unit on the center,
+        you want to recreate the same situation. Play the second unit on the
+        column bordering it. This leads to the same situation as mentioned
+        previously.
+      </p>
+
+      <Board id='LCw0TjE0UjMsLCwsLDNOM0IzLCwzUzJCMywsLCwsLCwsLCw7UjEwUy1CMTBTOzRNMDs7' />
+
+      <p>
+        The most common enemy first turn play will be opening with a 1 movement
+        unit, your goal here is to avoid it and push your most forward unit on
+        that same side. This setup will likely lead to the same situation
+        mentioned before as well.
+      </p>
+
+      <Board id='LCwsLCwsM04zUjMsM04zQjMsLDNTMkIzLCwsLCwsLCwsLDtSMTBTLUIxMFM7NE0wOzs=' />
+
+      <p>
+        There is one very tricky and rare case Trinity Opener that can be
+        extremely beneficial to your gameplay. By applying the first assumption,
+        we often will be left with one unit on the board, that is the trinity
+        runner. Instead of doing setups where the trinity runner acts as the
+        only guardian, with 5 mana, you will sometimes have opportunities to set
+        down two units. In this case it’s even more powerful to have both these
+        units on the enemy baseline and have the trinity runner as a defender.
+        Thus, instead of setting up the board like mentioned last time, we can
+        play all our units on one side like so.
+      </p>
+
+      <Board id='LCwsLDNOM0IzLCwzTjNSMywsLDNTMkIzLCwsLCwsLCwsLDtSMTBTLUIxMFM7NE0wOzs=' />
+
+      <p>
+        Assuming your most forward unit is attacked but your trinity runner is
+        left unscathed, this will often lead to positions where you can
+        capitalize on the forward unit by accompanying it with two other units.
+      </p>
+
+      <Board id='LCwzTjFCMyw0UzExQjMsLDNTMkIzLCwsMk4yOFIxLCwzTjNSMywsLCwsLCwsLDtSMTBTLUIxMFM7NE0wOzs=' />
+
+      <p>
+        What you are seeing here is one of the most powerful 5 mana turns for RR
+        as it is extremely difficult for the enemy to defend against this board.
+        Lastly we can analyze what happens if the enemy plays a 2 movement unit
+        for their starting turn. Simply put, avoid it and play aggressively.
+        Your aggression should be more powerful than the enemy’s and you can
+        withstand the damage from the runner. In some cases however, against an
+        enemy deck that is just as aggressive as yours, you might consider
+        having to defend against it only by setting back their early game
+        frontline. The best case scenario is if you have the opportunity to both
+        clear the enemy unit and set up a trinity opener.
+      </p>
+
+      <p>
+        Once the art of cycling has been mastered, you should be confident
+        enough to play as if you’re playing with 6 cards in your hand. One of
+        the major goals of cycling is pairing Devastators and Forgotten Souls
+        together like glue because this is a nasty combo in the late game. There
+        are two common cycling techniques I implement in all my games. Fast
+        Cycling is essentially an attempt to speed up the rate at which your
+        cards appear. Slow Cycling would be slowing down that rate so that you
+        can draw into new cards at a slower rate. You can manipulate cycles not
+        only by choosing whether to cycle or not, but also by deciding on
+        playing more cards. For example for 3 mana you could play shady ghoul,
+        but it might be more beneficial to play doppelbocks and greenprototypes
+        simply to speed up your cycles. Conversely you could play shady ghoul
+        instead to slow down your cycles. Fast cycling is extremely useful for
+        two main purposes. The first is to play out your best cards (determined
+        by card levels) and fast cycle to draw them back as soon as you can. The
+        second is to fast cycle because you have a certain card in mind that you
+        want to draw back in the near future. For those in the lower leagues I
+        encourage fast cycling over slow cycling because level disparity between
+        your own cards likely exist and you want to always be playing out your
+        best ones as often as possible. Combining order with cycling, the order
+        that you play out your cards is extremely important for managing your
+        cycles. You must be decisive between either cycling before playing a
+        card or cycling after playing the card because these orders will
+        strongly affect your future card draws. These decisions are completely
+        dependent on numerous factors and require practice for each new
+        situation to master. A solid example of how to use fast cycles is by
+        cycling away your forgotten souls in the early game. This will ensure
+        that forgotten souls will return to your hand during a turn when it’s
+        more playable and sometimes even close out games.
+      </p>
+
+      <p>
+        By manipulating your cycles, you should have a general idea of which
+        cards you can expect in the near future and even set up a board
+        predicting their arrival.
       </p>
 
       <hr />
