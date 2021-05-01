@@ -1558,4 +1558,46 @@ export default [
       ';'
     ),
   },
+
+  {
+    question: 'What is the color of Amberhides’ eyes?',
+    answer: 'Red',
+    options: 'Red,Green,Blue,Yellow,Orange,White,Brown'.split(','),
+  },
+
+  {
+    question: 'What is the color of Amberhides’ tongue?',
+    answer: 'Blue',
+    options: 'Red,Green,Blue,Yellow,Orange,White,Brown'.split(','),
+  },
+
+  {
+    question: 'What is the flag of the Powder Tower?',
+    answer: 'A skull',
+    options: 'A pirate,A rodent,A knight,A sword,A chest,A bomb'.split(','),
+  },
+
+  {
+    question: 'How many arms does Lady Rime have?',
+    answer: 4,
+    options: rangeAround(4, 2),
+  },
+
+  {
+    question: 'How many ravens are flying over Marked as Prey?',
+    answer: 8,
+    options: rangeAround(8, 4),
+  },
+
+  {
+    question: 'How many ravens are flying around Avian Stalkers?',
+    answer: 3,
+    options: rangeAround(3, 3),
+  },
+
+  {
+    question: 'Which number is not rolled by Snake Eyes’ dice?',
+    answer: 1,
+    options: [2, 3, 4, 5, 6],
+  },
 ]
