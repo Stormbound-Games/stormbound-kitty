@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
+import Info from '../Info'
 import Notice from '../Notice'
 import Row from '../Row'
 import Title from '../Title'
@@ -57,6 +58,14 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
         but the rest of their spell lineup is not looking too strong comparably,
         so I would not expect to see much of them.
       </p>
+
+      <Info icon='eye' title='Brawl Decks'>
+        <p>
+          Check the{' '}<Link to='/deck/suggestions?category=BRAWL&brawl=SPELL_MANA'>
+          community-provided decks</Link> for this brawl. You might find a deck that 
+          suits you, or that you can base your own creation on.
+        </p>
+      </Info>
 
       <Title>Possible Decks</Title>
 

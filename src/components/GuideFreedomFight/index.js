@@ -59,6 +59,15 @@ export default React.memo(function GuideFreedomFight(props) {
         decks from the channel history what other players filled them with.
       </p>
 
+
+      <Info icon='eye' title='Brawl Decks'>
+        <p>
+          Check the{' '}<Link to='/deck/suggestions?category=BRAWL&brawl=TOAD_MANA'>
+          community-provided decks</Link> for this brawl. You might find a deck that 
+          suits you, or that you can base your own creation on.
+        </p>
+      </Info>
+
       <Title>Possible Decks</Title>
 
       <Guide.FullWidth padding='60px'>

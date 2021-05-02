@@ -43,6 +43,14 @@ export default React.memo(function GuideSelfControl(props) {
         given it has 2 movement.
       </p>
 
+      <Info icon='eye' title='Brawl Decks'>
+        <p>
+          Check the{' '}<Link to='/deck/suggestions?category=BRAWL&brawl=SATYR_MOVEMENT'>
+          community-provided decks</Link> for this brawl. You might find a deck that 
+          suits you, or that you can base your own creation on.
+        </p>
+      </Info>
+
       <Title>Possible Decks</Title>
 
       <Guide.FullWidth padding='60px'>

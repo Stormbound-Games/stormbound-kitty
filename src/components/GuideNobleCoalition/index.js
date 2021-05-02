@@ -41,6 +41,14 @@ export default React.memo(function GuideNobleCoalition(props) {
         are at a lower level than the rest of your collection.
       </p>
 
+      <Info icon='eye' title='Brawl Decks'>
+        <p>
+          Check the{' '}<Link to='/deck/suggestions?category=BRAWL&brawl=FELINE_STRENGTH'>
+          community-provided decks</Link> for this brawl. You might find a deck that 
+          suits you, or that you can base your own creation on.
+        </p>
+      </Info>
+
       <Title>Possible Decks</Title>
 
       <Guide.FullWidth padding='60px'>
