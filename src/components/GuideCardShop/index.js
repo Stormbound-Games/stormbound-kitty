@@ -244,7 +244,7 @@ export default React.memo(function GuideCardShop(props) {
         <li>
           <CardLink id='S11' /> is an often overlooked card but has become more
           popular thanks to its presence in the highly-competitive{' '}
-          <Link to='/deck/3xn1n2s1n3s24s2n67s6n15s8n63s11/detail'>
+          <Link to='/deck/3xn1n2s1n3s24s2n67s6n24n15s8s11/detail'>
             Reckless Rush deck
           </Link>
           .

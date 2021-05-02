@@ -423,7 +423,7 @@ export default React.memo(function GuideD1SFCommons(props) {
       </p>
       <p>
         When facing a rush deck, such as{' '}
-        <Link to='/deck/3xn1n2s1n3s24s2n67s6n15s8n63s11/detail'>
+        <Link to='/deck/3xn1n2s1n3s24s2n67s6n24n15s8s11/detail'>
           Reckless Rush
         </Link>
         , I would recommend defending. With 4 runners costing 3/4/5/7 mana, our
