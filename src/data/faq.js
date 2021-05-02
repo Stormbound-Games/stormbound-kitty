@@ -56,6 +56,35 @@ export default [
           </>
         ),
       },
+      {
+        id: 'where-to-get-all-cards-data',
+        question: 'Where can I get all the cards’ data?',
+        answer: (
+          <>
+            <p>
+              If you are looking for a way to consume all the cards’ data to
+              build something related to Stormbound (a Discord bot, a tool…),
+              you can get{' '}
+              <a href='https://github.com/KittySparkles/stormbound-kitty/blob/main/src/data/cards.json'>
+                the JSON file
+              </a>{' '}
+              I maintain from GitHub. It contains all cards in the game in their
+              current state in a rather digestible format. Values varying across
+              levels such as strength are authored as strings and might have to
+              be unpacked manually (e.g. <code>"1/2/3/4/5"</code>).
+            </p>
+            <p>
+              Regarding{' '}
+              <a href='https://github.com/KittySparkles/stormbound-kitty/tree/main/public/assets/images'>
+                images
+              </a>
+              (such as cards’ art), feel free to hot-link them from the site to
+              avoid having to host them yourself. Please, be mindful of
+              bandwidth though (although it will mostly likely be fine).
+            </p>
+          </>
+        ),
+      },
     ],
   },
 
