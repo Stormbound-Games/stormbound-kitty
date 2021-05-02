@@ -21,19 +21,19 @@ describe('The `isSuggestedDeck` helper', () => {
 
   it('should return suggested deck if found', () => {
     const deck = [
-      { level: 3, id: 'N1' },
-      { level: 3, id: 'N2' },
-      { level: 3, id: 'S1' },
-      { level: 3, id: 'N3' },
-      { level: 3, id: 'S24' },
-      { level: 3, id: 'S2' },
-      { level: 3, id: 'N63' },
-      { level: 3, id: 'N67' },
-      { level: 3, id: 'S6' },
-      { level: 3, id: 'N15' },
-      { level: 3, id: 'S8' },
-      { level: 3, id: 'S11' },
+      { level: 5, id: 'N1' },
+      { level: 5, id: 'S1' },
+      { level: 5, id: 'N3' },
+      { level: 5, id: 'N23' },
+      { level: 5, id: 'S7' },
+      { level: 5, id: 'N81' },
+      { level: 5, id: 'S10' },
+      { level: 5, id: 'S14' },
+      { level: 5, id: 'S15' },
+      { level: 5, id: 'S16' },
+      { level: 5, id: 'N69' },
+      { level: 5, id: 'S21' },
     ]
-    expect(isSuggestedDeck(deck).name).to.equal('Reckless Rush')
+    expect(isSuggestedDeck(deck).name).to.equal('Queen of Hearts')
   })
 })
