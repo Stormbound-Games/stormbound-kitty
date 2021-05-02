@@ -112,7 +112,7 @@ export default React.memo(function GuideRecklessRush(props) {
               id='5xn1s1n3s24s2n67s6n24n15s8n81s11'
               name='Reckless Rush (Heart Attack)'
               author='RecklessRush'
-              category='DIAMOND_1'
+              category='HIGH_LEVELS'
               staticLevels
             />
 
