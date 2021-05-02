@@ -220,6 +220,11 @@ export default React.memo(function GuideBeginner(props) {
         starts, so frozen units can still be commanded forward during the next
         turn.
       </p>
+      <p>
+        <strong className='Highlight'>Disable</strong>: disabling a card’s
+        ability means removing it. It lasts until the card dies or gets
+        destroyed, essentially making it a “vanilla” card up til then.
+      </p>
 
       <Title>Special abilities</Title>
 
