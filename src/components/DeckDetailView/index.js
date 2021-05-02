@@ -1,9 +1,10 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import Advice from '../DeckAdvice'
 import Article from '../Article'
 import Deck from '../Deck'
 import DeckStatsChart from '../DeckStatsChart'
+import Info from '../Info'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Stats from '../DeckStats'
@@ -73,6 +74,15 @@ export default React.memo(function DeckDetailView(props) {
             onClick={card => history.push('/card/' + card.id + '/display')}
             onClickLabel='Open card in card builder'
           />
+          {suggestedDeck.name === 'Reckless Rush' && (
+            <Info icon='compass' title='Reckless Rush Guide'>
+              <p>
+                If you are interested in playing the Reckless Rush deck, be sure
+                to read{' '}
+                <Link to='/guides/reckless-rush'>the comprehensive guide</Link>.
+              </p>
+            </Info>
+          )}
         </Row.Column>
 
         <Row.Column width='1/3'>
