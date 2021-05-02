@@ -1401,9 +1401,9 @@ export default React.memo(function GuideRecklessRush(props) {
         cards appear. Slow Cycling would be slowing down that rate so that you
         can draw into new cards at a slower rate. You can manipulate cycles not
         only by choosing whether to cycle or not, but also by deciding on
-        playing more cards. For example for 3 mana you could play shady ghoul,
+        playing more cards. For example for 3 mana you could play Shady Ghoul,
         but it might be more beneficial to play Doppelbocks and Green Prototypes
-        simply to speed up your cycles. Conversely you could play shady ghoul
+        simply to speed up your cycles. Conversely you could play Shady Ghoul
         instead to slow down your cycles. Fast cycling is extremely useful for
         two main purposes. The first is to play out your best cards (determined
         by card levels) and fast cycle to draw them back as soon as you can. The
@@ -1428,6 +1428,78 @@ export default React.memo(function GuideRecklessRush(props) {
         cards you can expect in the near future and even set up a board
         predicting their arrival.
       </p>
+
+      <p>Cycle prioritization:</p>
+      <ol>
+        <li>Forgotten Souls</li>
+        <li>Shady Ghoul</li>
+        <li>Summon Militia</li>
+      </ol>
+
+      <p>
+        This is a very general rule I follow when deciding on what to cycle out.
+        When two or more of these are in your hand, you should be cycling the
+        ones that are highest ranking (Forgotten Souls should be cycled before
+        Shady Ghoul). This rule is not always true as new scenarios require new
+        ideas and these can become the most important cards to keep in your
+        hand.
+      </p>
+
+      <p>Upgrading prioritization:</p>
+      <ol>
+        <li>Devastators</li>
+        <li>Restless Goats</li>
+        <li>Wild Saberpaws</li>
+      </ol>
+
+      <p>
+        This is the order that you want to be upgrading your cards. Bring your
+        Devastators to make level first, next Restless Goats and then Wild
+        Saberpaws. Devastators is the very core of this deck and which higher
+        levels means even more opportunities for crazy lethals. Restless Goats
+        is the most reliable runner in the deck and is necessary for closing out
+        games fast. Wild Saberpaws is also a great runner but has some
+        restrictions to its movement so it is ranked after Restless Goats. It’s
+        recommended you save up your fusion for leveling up these cards in that
+        order.
+      </p>
+
+      <p>Last minute tips:</p>
+
+      <ul>
+        <li>
+          If you want to practice cycling, head over to the{' '}
+          <Link to='/deck/3xn1n2s1n3s24s2n67s6n24n15s8s11/dry-run'>
+            practice tool
+          </Link>
+          . Plan out your turns as if you were playing a real game and make your
+          own predictions for which cards you expect to see before they are
+          drawn into your hand. Over time this will provide a deeper insight on
+          how to cycle effectively.
+        </li>
+        <li>
+          Play Brawl… but conscientiously. For most players brawl is not the
+          ideal playground to grind for resources, and most will struggle. For
+          those that believe they can reach milestone 4, I strongly urge you to
+          save up a satisfactory amount and attempt to play brawl for the 10
+          Fusion Stones reward. These fusion stones will stack up quickly and
+          allow you to upgrade any card you desire.
+        </li>
+        <li>
+          Always check your shop. Sometimes very useful cards might appear in
+          your shop and these cards are generally worth purchasing despite
+          costing a higher price. This will help accelerate the leveling of your
+          deck and better levels will lead to easy climbing on ladder.
+        </li>
+        <li>
+          Practice. This is probably the most annoying yet truthful advice
+          anyone can give you. You don’t become the best overnight and it will
+          require a lot of effort and strength to push to the next level always.
+          If you are really struggling with RR in particular and would like some
+          coaching I would advise you to reach out to me so we can help train
+          your tactics.
+        </li>
+      </ul>
 
       <hr />
 
