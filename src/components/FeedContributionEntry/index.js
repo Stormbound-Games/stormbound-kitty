@@ -16,7 +16,7 @@ export default React.memo(function FeedContributionEntry(props) {
             {acc}
             {index !== 0 ? ', ' : ''}
             <a
-              href={`https://github.com/KittySparkles/stormbound-kitty/pull/${props.pr}`}
+              href={`https://github.com/KittySparkles/stormbound-kitty/pull/${pr}`}
               target='_blank'
               rel='noopener noreferrer'
             >
