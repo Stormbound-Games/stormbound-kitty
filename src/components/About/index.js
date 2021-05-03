@@ -52,8 +52,8 @@ export default React.memo(function About(props) {
         </p>
 
         <p>
-          If you would like to help, you can make one-time donations with PayPal
-          or credit card through{' '}
+          If you would like to help, you can make one-time donations via credit
+          card through{' '}
           <a
             href='https://gumroad.com/l/stormbound-kitty'
             target='_blank'
@@ -61,9 +61,10 @@ export default React.memo(function About(props) {
           >
             Gumroad
           </a>
-          —a secure platform for online purchases. The amount is totally up to
-          you, from $4 and up. Don’t ruin yourself, donate as little or as much
-          as you feel like or can. You can visit my{' '}
+          —a secure platform for online purchases (PayPal no longer being
+          supported 😔). The amount is totally up to you, from $4 and up. Don’t
+          ruin yourself, donate as little or as much as you feel like or can.
+          You can visit my{' '}
           <a
             href='https://gumroad.com/l/stormbound-kitty'
             target='_blank'
