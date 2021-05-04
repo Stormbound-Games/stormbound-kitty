@@ -24,7 +24,7 @@ export default cards => {
   // have only 1 strength at low level that Butchers could be considered
   // efficient even if it doesn’t have any of these cards to be paired with.
   // In a dragon deck, Obsidian Butchers is a viable card if Ludic Matriarchs is
-  // level 1 or 2
+  // level 1 or 2 (as long as she spawns 1-strength dragons).
   if (
     !hasObsidianButchers ||
     hasRainOfFrogs ||
