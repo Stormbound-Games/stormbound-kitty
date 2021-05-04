@@ -16,7 +16,7 @@ export default cards => {
   const averageLevel =
     cards.map(card => card.level).reduce((acc, level) => acc + level, 0) / 12
 
-  const dragonMsg = (hasLowLvlMatriarchs && numDragons <= 3) ? ", or more dragons to synergize with Ludic Matriarchs" : ''
+  const dragonMessage = (hasLowLvlMatriarchs && numDragons <= 3) ? ", or more dragons to synergize with Ludic Matriarchs" : ''
 
   // For Obsidian Butchers to be considered efficient, they need Rain of Frogs
   // or Azure Hatchers, or an efficient Brood Sages (although this is less ideal
