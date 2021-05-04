@@ -12,7 +12,7 @@ export default cards => {
   const hasRainOfFrogs = cardIds.includes('F8')
   const hasAzureHatchers = cardIds.includes('F10')
   const LudicMatriarchs = cards.find(card => card.id === 'N43')
-  const numDragons = getDragons(cards).length
+  const dragons  = getDragons(cards)
   const averageLevel =
     cards.map(card => card.level).reduce((acc, level) => acc + level, 0) / 12
 
