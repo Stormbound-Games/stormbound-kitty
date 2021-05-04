@@ -11,11 +11,7 @@ export default cards => {
   const hasObsidianButchers = cardIds.includes('F17')
   const hasRainOfFrogs = cardIds.includes('F8')
   const hasAzureHatchers = cardIds.includes('F10')
-  const hasLudicMatriarchs = cardIds.includes('N43')
-  let hasLowLvlMatriarchs = false
-  if (hasLudicMatriarchs) {
-    hasLowLvlMatriarchs = cards.find( card =>  card.id === 'N43' ).level <= 2 ? true : false
-  }
+  const LudicMatriarchs = cards.find(card => card.id === 'N43')
   const numDragons = getDragons(cards).length
   const averageLevel =
     cards.map(card => card.level).reduce((acc, level) => acc + level, 0) / 12
