@@ -467,7 +467,8 @@ export default [
                 minimum value.
               </li>
               <li>
-                Hand manipulations, freeze, poison, confusion are ignored.
+                Hand manipulations, freeze, poison, confusion, command and
+                vitality are ignored.
               </li>
               <li>
                 Mana is capped to 30 (e.g. Lady Rime and Visions of the Grove).
