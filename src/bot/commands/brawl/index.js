@@ -23,7 +23,7 @@ export default {
       return embed
         .setTitle(`${this.label}: list`)
         .setDescription(
-          'Find all Brawls, a tracker and a calculator on Stormbound-kitty.com!'
+          'Find all Brawls, a tracker and a calculator on Stormbound-Kitty.com!'
         )
         .addFields(
           ...BRAWLS.map(brawl => ({
