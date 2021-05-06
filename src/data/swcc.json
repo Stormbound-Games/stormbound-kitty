@@ -527,6 +527,15 @@
     "season": 2,
     "week": 17,
     "name": "Passives",
+    "winner": {
+      "author": "RandomlyDrawnCard",
+      "id": "TjtQO1U7RTszOzA7Mi8zLzMvNC80O0dyZWVkeSUyMEhvYXJkZXJzO2h0dHBzJTNBJTJGJTJGY2RuLmRpc2NvcmRhcHAuY29tJTJGYXR0YWNobWVudHMlMkY3NzIxMTE5MzI1NTAyODMzMzQlMkY4MzczNzc2NTkzNjA1MDk5ODIlMkZQaWNzQXJ0XzA0LTI5LTEyLjE3LjUwLnBuZztXaGlsZSUyMHRoaXMlMjBpcyUyMGFsaXZlJTJDJTIwKmdhaW4lMjAxJTJGMSUyRjIlMkYyJTJGMyolMjBzdHJlbmd0aCUyMGZvciUyMGVhY2glMjBjYXJkJTIweW91JTIwZHJhdzs7"
+    }
+  },
+  {
+    "season": 2,
+    "week": 18,
+    "name": "Cheap Cheap",
     "submitURL": "https://forms.gle/oHWRj45WoJc2q8ps5"
   }
 ]
