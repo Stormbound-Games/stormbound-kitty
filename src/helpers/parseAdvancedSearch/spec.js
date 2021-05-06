@@ -110,7 +110,6 @@ describe('The `parseAdvancedSearch` helper', () => {
     expect(parse('has:push_pull')).to.deep.equal({ ability: 'PUSH_PULL' })
     expect(parse('has:push')).to.deep.equal({ ability: 'PUSH' })
     expect(parse('has:pull')).to.deep.equal({ ability: 'PULL' })
-    expect(parse('has:freeze')).to.deep.equal({ ability: 'FREEZE' })
     expect(parse('has:command')).to.deep.equal({ ability: 'COMMAND' })
     expect(parse('has:chip')).to.deep.equal({ ability: 'CHIP' })
     expect(parse('has:freeze')).to.deep.equal({ ability: 'FREEZE' })

@@ -18,6 +18,7 @@ export default React.memo(function ChartAbility(props) {
     command: { name: 'Commanding', color: 'var(--swarm)' },
     confus: { name: 'Confusion', color: 'var(--confused)' },
     freeze: { name: 'Freeze', color: 'var(--winter)' },
+    frozen: { name: 'Freeze', color: 'var(--winter)' },
     poison: { name: 'Poison', color: 'var(--shadowfen)' },
     pull: { name: 'Push/pull', color: 'var(--ironclad)' },
     push: { name: 'Push/pull', color: 'var(--ironclad)' },
