@@ -1,5 +1,6 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import EyeCatcher from '../EyeCatcher'
 import Footer from '../Footer'
 import Header from '../Header'
 import load from '../../helpers/load'
@@ -36,6 +37,10 @@ export default React.memo(function Layout(props) {
 
   return (
     <div className='Layout'>
+      <EyeCatcher id='052021'>
+        Stormbound-kitty has been a 100% free (no ads, no paywall) one-person
+        project for over 2 years now. <Link to='/about'>Consider helping</Link>!
+      </EyeCatcher>
       <Header
         active={props.active}
         isSearchReady={isSearchReady}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { UserContext } from '../UserProvider'
 import Article from '../Article'
 import MemberList from '../MemberList'
 import Notice from '../Notice'
@@ -10,11 +11,13 @@ import donations from '../../data/donations'
 import './index.css'
 
 export default React.memo(function About(props) {
+  const { name } = React.useContext(UserContext)
+
   return (
     <Article title='About'>
       <Article.Narrow>
         <p>
-          Hey there! My name is Kitty. I created Stormbound-Kitty in March 2019
+          Hey there! I’m Kitty. I created Stormbound-Kitty in March 2019
           (although it did not have a name yet at that point), wanting to do
           something with the beautiful artwork of the game.
         </p>
@@ -30,8 +33,8 @@ export default React.memo(function About(props) {
         <p>
           In June 2020, I also created a Discord bot for the official Stormbound
           Discord server, which is kind of an extension of the site for Discord,
-          giving access to most of the tools directly from Discord, as well as a
-          Stormbound trivia game.
+          giving access to most of the tools directly from Discord, as well as a{' '}
+          <Link to='/trivia'>Stormbound trivia game</Link>.
         </p>
 
         <p>
@@ -48,7 +51,7 @@ export default React.memo(function About(props) {
           love this project to bits, and I invest in it because I feel like it
           and want to. That being said, having financial support can allow me
           devote more time without feeling guilty and helps cover minor costs
-          such as hosting and the domain name.
+          such as hosting, tracking-less analytics and domain names.
         </p>
 
         <p>
@@ -61,10 +64,10 @@ export default React.memo(function About(props) {
           >
             Gumroad
           </a>
-          —a secure platform for online purchases (PayPal no longer being
-          supported 😔). The amount is totally up to you, from $4 and up. Don’t
-          ruin yourself, donate as little or as much as you feel like or can.
-          You can visit my{' '}
+          —a secure platform for online purchases (PayPal is unfortunately no
+          longer supported, I’m sorry 😔). The amount is totally up to you, from
+          $4 and up. Don’t ruin yourself, donate as little or as much as you
+          feel like or can. You can visit my{' '}
           <a
             href='https://gumroad.com/l/stormbound-kitty'
             target='_blank'
@@ -91,16 +94,18 @@ export default React.memo(function About(props) {
         <p>
           If you do donate, please do let me know on Discord so I can add a
           donation entry to{' '}
-          <Link to='/members'>your page on Stormbound-Kitty</Link>, or will
-          create one if you don’t have one yet. Thank you so much! 🙏
+          <Link to={name ? `/member/${name}` : '/members'}>
+            your page on Stormbound-Kitty
+          </Link>
+          , or will create one if you don’t have one yet. Thank you so much! 🙏
         </p>
 
         <h2>Non-financial support</h2>
 
         <p>
-          If you do not want or simply cannot afford to provide a financial
-          contribution to Stormbound-Kitty, fear not! There are plenty of ways
-          for you to contribute without spending a cent:
+          If you do not want or simply cannot afford a financial contribution to
+          Stormbound-Kitty, fear not! There are plenty of ways for you to
+          contribute without spending a cent:
         </p>
 
         <ul>
@@ -122,6 +127,13 @@ export default React.memo(function About(props) {
           </li>
 
           <li>
+            <Link to='/guides'>Guides</Link> tend to be outdated as time goes by
+            and the game gets updated. Having them reviewed every now and then
+            ensures the information they contain remains valuable and helpful
+            for people relying on these guides.
+          </li>
+
+          <li>
             People really like <Link to='/sim/puzzles'>Stormbound puzzles</Link>
             , but not many are being added. If you would like to suggest new
             puzzles, I’m sure that would make a lot of people happy!
@@ -139,7 +151,25 @@ export default React.memo(function About(props) {
           <MemberList
             members={[...new Set(donations.map(donation => donation.author))]}
           />{' '}
-          for their generous and kind donations.
+          for{' '}
+          <a
+            href='#anonymous-donations'
+            aria-describedby='footnotes'
+            id='anonymous-donations-ref'
+            style={{ textDecoration: 'none' }}
+          >
+            their generous and kind donations
+            <span
+              style={{
+                color: 'var(--beige)',
+                marginLeft: '2px',
+                fontSize: '120%',
+              }}
+            >
+              *
+            </span>
+          </a>
+          .
         </p>
 
         <p>
@@ -160,13 +190,6 @@ export default React.memo(function About(props) {
           <abbr title='Kitty Appreciation Team'>KAT</abbr>. ✨
         </p>
 
-        <p style={{ fontStyle: 'italic' }}>
-          Donations being anonymous, I might have missed some. If you have
-          issued a donation but are not mentioned, please kindly let me know so
-          I can fix that mistake. Along the same lines, if you would like{' '}
-          <em>not</em> to figure in that list, also let me know.
-        </p>
-
         <hr />
 
         <Notice>
@@ -174,6 +197,21 @@ export default React.memo(function About(props) {
           making this site the main resource when it comes to the beautiful and
           whimsical game that is Stormbound, thank you.
         </Notice>
+
+        <footer style={{ marginTop: '4em', fontSize: '90%' }}>
+          <h2 className='VisuallyHidden' id='footnotes'>
+            Footnotes
+          </h2>
+          <p id='anonymous-donations'>
+            (*) Donations being anonymous, I might have missed some. If you have
+            issued a donation but are not mentioned, please kindly let me know
+            so I can fix that mistake. Along the same lines, if you would like{' '}
+            <em>not</em> to figure in that list, also do let me know.{' '}
+            <a href='#anonymous-donations-ref' aria-label='Back to content'>
+              ↩
+            </a>
+          </p>
+        </footer>
       </Article.Narrow>
 
       <PageMeta
