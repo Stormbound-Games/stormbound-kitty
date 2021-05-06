@@ -89,17 +89,6 @@ export const VIDEOS = [
     ),
   },
   {
-    author: 'Arasanu',
-    href: 'https://www.youtube.com/channel/UCC1mDPjyQ3OhC9MfTIBsI-g',
-    thumbnail:
-      'https://yt3.ggpht.com/a/AATXAJxeOkPQKoVQn0OZbHMtCwuhNqb8BcUXviRBLhT-hw=s288-c-k-c0xffffffff-no-rj-mo',
-    description: (
-      <p>
-        Arasanu is a popular Stormbound Youtuber regularly creating new videos.
-      </p>
-    ),
-  },
-  {
     author: 'LazyLotazo',
     href:
       'https://www.youtube.com/playlist?list=PLRZ8OyLIb3tOsqGHvXsGMEEFa4kDoKIsm',
