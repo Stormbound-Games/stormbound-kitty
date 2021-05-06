@@ -99,6 +99,12 @@ SEARCH_INDEX.push({
   breadcrumbs: ['Community', 'Contests'],
 })
 
+SEARCH_INDEX.push({
+  path: '/card/contest',
+  label: 'Weekly Card Contest',
+  breadcrumbs: ['Community', 'Contests'],
+})
+
 puzzles.forEach(puzzle => {
   SEARCH_INDEX.push({
     path: `/sim/${puzzle.board}`,
