@@ -180,6 +180,7 @@ export default React.memo(function DeckEditorFilters(props) {
                   <option value='PUSH_PULL'>Push/Pull</option>
                   <option value='SPAWN'>Spawn</option>
                   <option value='SURVIVING'>Surviving Effect</option>
+                  <option value='VITALITY'>Vitality</option>
                 </select>
               </Row.Column>
 

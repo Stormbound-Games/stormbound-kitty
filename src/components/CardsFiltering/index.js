@@ -170,7 +170,8 @@ const CardsFiltering = React.memo(function CardsFiltering(props) {
         (ability === 'PULL' && /pull/i.test(card.ability || '')) ||
         (ability === 'FREEZE' && /freeze/i.test(card.ability || '')) ||
         (ability === 'COMMAND' && /command/i.test(card.ability || '')) ||
-        (ability === 'CHIP' && CHIP_CARDS.includes(card.id))
+        (ability === 'CHIP' && CHIP_CARDS.includes(card.id)) ||
+        (ability === 'VITALITY' && /vital/i.test(card.ability || ''))
       )
     },
     [filters.ability]
