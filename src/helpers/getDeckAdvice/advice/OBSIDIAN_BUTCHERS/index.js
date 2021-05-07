@@ -11,12 +11,18 @@ export default cards => {
   const hasObsidianButchers = cardIds.includes('F17')
   const hasRainOfFrogs = cardIds.includes('F8')
   const hasAzureHatchers = cardIds.includes('F10')
-  const LudicMatriarchs = cards.find(card => card.id === 'N43')
+  const ludicMatriarchs = cards.find(card => card.id === 'N43')
+  const ludicMatriarchsLvl = ludicMatriarchs ? ludicMatriarchs.level : 0
   const dragons  = getDragons(cards)
+  const showDragonAdvice = ludicMatriarchsLvl > 2 || dragons.length < 3
   const averageLevel =
     cards.map(card => card.level).reduce((acc, level) => acc + level, 0) / 12
+  console.log("lm level:" + ludicMatriarchsLvl)
+  console.log("num dragons:" + dragons.length)
+  console.log("show advice:" + showDragonAdvice)
 
-  const dragonMessage = (hasLowLvlMatriarchs && numDragons <= 3) ? ", or more dragons to synergize with Ludic Matriarchs" : ''
+  const dragonMessage = showDragonAdvice ? ", or more dragons to synergize with Ludic Matriarchs" : ''
+  //const dragonMessage = 'hello'
 
   // For Obsidian Butchers to be considered efficient, they need Rain of Frogs
   // or Azure Hatchers, or an efficient Brood Sages (although this is less ideal
@@ -31,14 +37,14 @@ export default cards => {
     hasAzureHatchers ||
     (hasBroodSages && (hasPoisonCards || hasHeliotroopers)) ||
     averageLevel < 2 ||
-    (hasLowLvlMatriarchs && numDragons >= 3)
+    !showDragonAdvice
   )
     return null
 
   return {
     name: 'Inefficient Obsidian Butchers',
     description:
-      `This deck includes Obsidian Butchers but doesn’t include a way to spawn many one strength units. Consider including Rain of Frogs, Azure Hatchers, or Brood Sages and Poison Cards${dragonMsg}.`,
+      `This deck includes Obsidian Butchers but doesn’t include a way to spawn many one strength units. Consider including Rain of Frogs, Azure Hatchers, or Brood Sages and Poison Cards${dragonMessage}.`,
     highlight: ['F17', 'F8', 'F10', 'N43'],
   }
 }
