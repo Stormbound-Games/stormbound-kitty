@@ -17,12 +17,8 @@ export default cards => {
   const showDragonAdvice = ludicMatriarchsLvl > 2 || dragons.length < 3
   const averageLevel =
     cards.map(card => card.level).reduce((acc, level) => acc + level, 0) / 12
-  console.log("lm level:" + ludicMatriarchsLvl)
-  console.log("num dragons:" + dragons.length)
-  console.log("show advice:" + showDragonAdvice)
 
   const dragonMessage = showDragonAdvice ? ", or more dragons to synergize with Ludic Matriarchs" : ''
-  //const dragonMessage = 'hello'
 
   // For Obsidian Butchers to be considered efficient, they need Rain of Frogs
   // or Azure Hatchers, or an efficient Brood Sages (although this is less ideal
