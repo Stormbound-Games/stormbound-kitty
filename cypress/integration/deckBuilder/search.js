@@ -72,11 +72,11 @@ describe('Deck Builder — Search', () => {
 
   it('should be able to filter by ability', () => {
     cy.get(s.ABILITY_SELECT)
-      .select('FREEZE')
+      .select('VITALITY')
       .get(s.CARD)
       .find(s.CARD_ABILITY)
       .each($node => {
-        expect($node.text()).to.match(/freeze/i)
+        expect($node.text()).to.match(/vitali/i)
       })
   })
 
