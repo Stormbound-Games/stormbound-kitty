@@ -38,8 +38,9 @@ const useArticleProps = props => {
       children: 'Open in wiki',
     }
   } else if (contest) {
-    const year = props.season === 1 ? 2019 : 2020
-    properties.meta = `Week #${contest.week} (${year})`
+    properties.meta = `Week #${contest.id || contest.week} (season ${
+      contest.season
+    })`
     properties.author = contest.winner.author
     properties.action = { to: '/card/contest', children: 'Back to SWCC' }
   } else if (props.cardId) {
