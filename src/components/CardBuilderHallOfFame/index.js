@@ -10,28 +10,13 @@ export const CardBuilderHallOfFameSeason = React.memo(
     return chunk(props.weeks, 3).map((row, index) => (
       <Row key={index} desktopOnly wideGutter>
         <Row.Column width='1/3'>
-          {row[0] && (
-            <HallOfFameTeaser
-              {...row[0]}
-              number={props.weeks.length - index * 3}
-            />
-          )}
+          {row[0] && <HallOfFameTeaser {...row[0]} />}
         </Row.Column>
         <Row.Column width='1/3'>
-          {row[1] && (
-            <HallOfFameTeaser
-              {...row[1]}
-              number={props.weeks.length - index * 3 - 1}
-            />
-          )}
+          {row[1] && <HallOfFameTeaser {...row[1]} />}
         </Row.Column>
         <Row.Column width='1/3'>
-          {row[2] && (
-            <HallOfFameTeaser
-              {...row[2]}
-              number={props.weeks.length - index * 3 - 2}
-            />
-          )}
+          {row[2] && <HallOfFameTeaser {...row[2]} />}
         </Row.Column>
       </Row>
     ))
