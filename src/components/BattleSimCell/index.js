@@ -6,27 +6,13 @@ const getTitle = props => {
     return undefined
   }
 
-  const poisoned = props.poisoned ? '(poisoned)' : ''
-  const vitalised = props.vitalised ? '(vitalised)' : ''
-  const frozen = props.frozen ? '(frozen)' : ''
-  const confused = props.confused ? '(confused)' : ''
-  const disabled = props.disabled ? '(disabled)' : ''
-  const level = `(lvl ${props.level})`
-  const name = `“${props.card.name}”`
-  const strength = `× ${props.strength}`
-  const player = `from ${props.player}`
-
-  return [
-    name,
-    level,
-    strength,
-    player,
-    poisoned,
-    vitalised,
-    frozen,
-    confused,
-    disabled,
-  ].join(' ')
+  const { strength, card, level, player } = props
+  const name = card.name
+  const side = player === 'RED' ? 'enemy' : 'friendly'
+  const statuses = ['poisoned', 'vitalised', 'frozen', 'confused', 'disabled']
+    .filter(status => props[status])
+    .join(', ')
+  return `${strength}-strength ${side} ${name} (lvl ${level}) (${statuses})`
 }
 
 export default React.memo(function BattleSimCell(props) {
