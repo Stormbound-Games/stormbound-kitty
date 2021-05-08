@@ -1,13 +1,13 @@
-const fs = require('fs')
-const { SitemapStream, streamToPromise } = require('sitemap')
-const { BRAWLS } = require('../src/constants/brawl')
-const { STORY_CATEGORIES } = require('../src/constants/stories')
-const swcc = require('../src/data/swcc')
-const cards = require('../src/data/cards')
-const guides = require('../src/data/guides')
-const puzzles = require('../src/data/puzzles')
-const releases = require('../src/data/releases')
-const stories = require('../public/stories')
+import fs from 'fs'
+import { SitemapStream, streamToPromise } from 'sitemap'
+import { BRAWLS } from '../src/constants/brawl'
+import { STORY_CATEGORIES } from '../src/constants/stories'
+import swcc from '../src/data/swcc'
+import cards from '../src/data/cards'
+import guides from '../src/data/guides'
+import puzzles from '../src/data/puzzles'
+import releases from '../src/data/releases'
+import stories from '../public/stories'
 
 const links = [
   '/',
@@ -85,7 +85,7 @@ links
 
 stream.end()
 
-return streamToPromise(stream).then(data => {
+streamToPromise(stream).then(data => {
   console.log(`Sitemap successfully generated (${links.length} URLs).`)
   fs.writeFileSync('public/sitemap.xml', data.toString(), 'utf8')
 })
