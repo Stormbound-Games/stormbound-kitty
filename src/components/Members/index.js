@@ -54,6 +54,7 @@ const useMemberList = ({ name, type }) => {
       .flat(2)
       .map(addType('PODIUM')),
     ...swcc
+      .flat()
       .filter(week => week.winner)
       .map(week => week.winner.author)
       .map(addType('CARD')),

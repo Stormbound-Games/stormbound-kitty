@@ -10,7 +10,7 @@ describe('Routes — Card Builder', () => {
   })
 
   it('should render the editor mode', () => {
-    cy.visit('/card/' + swcc[0].winner.id)
+    cy.visit('/card/' + swcc[1][0].winner.id)
       .get('main h1')
       .should('exist')
   })
@@ -24,7 +24,7 @@ describe('Routes — Card Builder', () => {
   })
 
   it('should render the display mode', () => {
-    cy.visit('/card/' + swcc[0].winner.id + '/display')
+    cy.visit('/card/' + swcc[1][0].winner.id + '/display')
       .get('main h1')
       .should('exist')
   })

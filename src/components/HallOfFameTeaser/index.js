@@ -20,7 +20,7 @@ export default React.memo(function HallOfFameTeaser(props) {
     <Teaser
       card={cardData}
       title={'Card by ' + props.winner.author}
-      meta={`Week #${props.number} – ${props.name}`}
+      meta={`Week #${props.id} – ${props.name}`}
       to={`/card/${props.winner.id}/display`}
       excerpt={
         <>

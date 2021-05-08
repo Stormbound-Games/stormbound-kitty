@@ -75,17 +75,15 @@ const useUserPuzzles = id =>
 
 const useUserCards = id =>
   swcc
+    .flat()
     .filter(
       contest => contest.winner && contest.winner.author.toLowerCase() === id
     )
-    .map(entry => ({
-      ...entry,
-      date: new Date(
-        entry.season === 1 ? 2019 : 2020,
-        0,
-        1 + (entry.week - 1) * 7
-      ),
-    }))
+    .map(entry => {
+      const [day, month, year] = entry.date.split('/').map(Number)
+
+      return { ...entry, date: new Date(year, month - 1, day) }
+    })
 
 const useUserDonations = id =>
   donations

@@ -59,6 +59,7 @@ releases.forEach(release => {
   links.push('/releases/' + release.slug)
 })
 swcc
+  .flat()
   .filter(contest => !!contest.winner)
   .forEach(contest => {
     links.push('/card/' + contest.winner.id + '/display')

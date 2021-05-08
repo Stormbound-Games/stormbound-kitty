@@ -16,11 +16,17 @@ const getWikiUrl = name =>
   'https://stormboundkingdomwars.fandom.com/' +
   encodeURIComponent(name.replace(/\s/g, '_').replace(/’/g, "'"))
 
+const getEntryDate = entry => {
+  const [day, month, year] = entry.date.split('/').map(Number)
+
+  return new Date(year, month - 1, day)
+}
+
 const useArticleProps = props => {
   const isOfficial = Boolean(getRawCardData(props.cardId).name)
-  const contest = swcc.find(
-    contest => contest.winner && contest.winner.id === props.cardId
-  )
+  const contest = swcc
+    .flat()
+    .find(contest => contest.winner && contest.winner.id === props.cardId)
   const properties = {}
 
   if (props.name && props.mode === 'DISPLAY') {
@@ -38,8 +44,9 @@ const useArticleProps = props => {
       children: 'Open in wiki',
     }
   } else if (contest) {
-    const year = props.season === 1 ? 2019 : 2020
-    properties.meta = `Week #${contest.week} (${year})`
+    const season = getEntryDate(contest) > getEntryDate(swcc[1][0]) ? 2 : 1
+
+    properties.meta = `Week #${contest.id} (season ${season})`
     properties.author = contest.winner.author
     properties.action = { to: '/card/contest', children: 'Back to SWCC' }
   } else if (props.cardId) {

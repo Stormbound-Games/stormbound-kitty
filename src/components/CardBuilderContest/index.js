@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
-import ContestStatus from '../CardBuilderContestStatus'
 import HallOfFame from '../CardBuilderHallOfFame'
 import { Rubies } from '../Resource'
 import PageMeta from '../PageMeta'
@@ -11,6 +10,7 @@ import './index.css'
 export default React.memo(function CardBuilderContest(props) {
   const weekDay = new Date().getDay()
   const isWeekEnd = weekDay === 7 || weekDay === 0
+
   return (
     <>
       <Article
@@ -21,8 +21,6 @@ export default React.memo(function CardBuilderContest(props) {
         meta={isWeekEnd ? 'Voting phase' : 'Ongoing'}
       >
         <Article.Narrow>
-          <ContestStatus />
-
           <Title>Introduction</Title>
 
           <p>
