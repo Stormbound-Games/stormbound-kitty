@@ -75,6 +75,7 @@ const useUserPuzzles = id =>
 
 const useUserCards = id =>
   swcc
+    .flat()
     .filter(
       contest => contest.winner && contest.winner.author.toLowerCase() === id
     )

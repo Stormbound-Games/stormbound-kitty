@@ -18,9 +18,8 @@ const DATE_TIME_OPTIONS = {
 
 export default React.memo(function CardBuilderContestStatus(props) {
   const calendarWeek = getCalendarWeek()
-  const contest = swcc.find(
-    contest => contest.season === 2 && contest.week === calendarWeek
-  )
+  const season2 = swcc[0]
+  const contest = season2.find(contest => contest.week === calendarWeek)
   const weekDay = new Date().getDay()
   const isWeekEnd = weekDay === 7 || weekDay === 0
 

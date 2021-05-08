@@ -18,9 +18,9 @@ const getWikiUrl = name =>
 
 const useArticleProps = props => {
   const isOfficial = Boolean(getRawCardData(props.cardId).name)
-  const contest = swcc.find(
-    contest => contest.winner && contest.winner.id === props.cardId
-  )
+  const contest = swcc
+    .flat()
+    .find(contest => contest.winner && contest.winner.id === props.cardId)
   const properties = {}
 
   if (props.name && props.mode === 'DISPLAY') {
