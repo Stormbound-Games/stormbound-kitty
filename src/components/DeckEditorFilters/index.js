@@ -173,6 +173,7 @@ export default React.memo(function DeckEditorFilters(props) {
                   <option value='CHIP'>Chip</option>
                   <option value='COMMAND'>Command</option>
                   <option value='CONFUSION'>Confusion</option>
+                  <option value='DISABLE'>Disable</option>
                   <option value='DRAIN'>Drain</option>
                   <option value='ON_DEATH'>On-death Effect</option>
                   <option value='FREEZE'>Freeze</option>

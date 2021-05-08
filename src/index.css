@@ -56,6 +56,7 @@
   --freeze: rgb(96, 173, 199);
   --confused: rgb(197, 153, 72);
   --vitalised: rgb(36, 224, 113);
+  --disabled: rgb(165, 32, 134);
 }
 
 * {

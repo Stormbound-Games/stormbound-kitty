@@ -105,6 +105,7 @@ describe('The `parseAdvancedSearch` helper', () => {
     expect(parse('has:confusion')).to.deep.equal({ ability: 'CONFUSION' })
     expect(parse('has:surviving')).to.deep.equal({ ability: 'SURVIVING' })
     expect(parse('has:vitality')).to.deep.equal({ ability: 'VITALITY' })
+    expect(parse('has:disable')).to.deep.equal({ ability: 'DISABLE' })
     expect(parse('has:attacking')).to.deep.equal({ ability: 'ATTACKING' })
     expect(parse('has:on_death')).to.deep.equal({ ability: 'ON_DEATH' })
     expect(parse('has:push_pull')).to.deep.equal({ ability: 'PUSH_PULL' })

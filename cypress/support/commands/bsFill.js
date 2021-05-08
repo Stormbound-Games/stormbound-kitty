@@ -3,7 +3,17 @@ import s from '../../integration/battleSim/selectors'
 export default (
   subject,
   cell,
-  { card, level, strength, player, poisoned, vitalised, frozen }
+  {
+    card,
+    level,
+    strength,
+    player,
+    poisoned,
+    vitalised,
+    frozen,
+    disabled,
+    confused,
+  }
 ) => {
   Cypress.log({
     name: 'FILL',
@@ -18,6 +28,8 @@ export default (
       poisoned,
       vitalised,
       frozen,
+      disabled,
+      confused,
     }),
   })
 
@@ -77,6 +89,24 @@ export default (
     .then(() => {
       if (frozen) {
         cy.get(s.CELL_FORM_FROZEN_CHECKBOX, { log: false }).click({
+          force: true,
+          log: false,
+        })
+      }
+    })
+
+    .then(() => {
+      if (confused) {
+        cy.get(s.CELL_FORM_CONFUSED_CHECKBOX, { log: false }).click({
+          force: true,
+          log: false,
+        })
+      }
+    })
+
+    .then(() => {
+      if (disabled) {
+        cy.get(s.CELL_FORM_DISABLED_CHECKBOX, { log: false }).click({
           force: true,
           log: false,
         })

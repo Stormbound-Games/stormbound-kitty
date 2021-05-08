@@ -8,6 +8,7 @@ export const DEFAULT_CELL = {
   vitalised: false,
   frozen: false,
   confused: false,
+  disabled: false,
 }
 export const DEFAULT_MANA = 3
 export const DEFAULT_BOARD = [

@@ -170,6 +170,8 @@ describe('Battle Sim — Cells', () => {
       player: 'BLUE',
       poisoned: true,
       frozen: true,
+      disabled: true,
+      confused: true,
     })
       .reload()
       .get(s.CELL_B1)
@@ -177,6 +179,12 @@ describe('Battle Sim — Cells', () => {
       .should('be.visible')
       .get(s.CELL_B1)
       .find(s.CELL_FROZEN)
+      .should('be.visible')
+      .get(s.CELL_B1)
+      .find(s.CELL_DISABLED)
+      .should('be.visible')
+      .get(s.CELL_B1)
+      .find(s.CELL_CONFUSED)
       .should('be.visible')
   })
 })
