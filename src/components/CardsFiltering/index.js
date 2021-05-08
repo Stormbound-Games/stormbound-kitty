@@ -160,6 +160,7 @@ const CardsFiltering = React.memo(function CardsFiltering(props) {
         ability === '*' ||
         (ability === 'POISON' && /poison/i.test(card.ability || '')) ||
         (ability === 'SPAWN' && /spawn/i.test(card.ability || '')) ||
+        (ability === 'DISABLE' && /disable/i.test(card.ability || '')) ||
         (ability === 'DRAIN' && /drain/i.test(card.ability || '')) ||
         (ability === 'CONFUSION' && /confus/i.test(card.ability || '')) ||
         (ability === 'SURVIVING' && /surviving/i.test(card.ability || '')) ||
