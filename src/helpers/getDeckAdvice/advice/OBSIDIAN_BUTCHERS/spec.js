@@ -38,4 +38,19 @@ describe('The `OBSIDIAN_BUTCHERS` advice', () => {
     const cards = getCards('5n15n21f15f35n31n41n55n675n95n151f175n40')
     expect(advice(cards)).to.not.equal(null)
   })
+  
+  it('should not be returned if it has Ludic Matriarchs and at least two other dragons', () => {
+    const cards = getCards('4n14n23n665f34n34n43n63n673n105f54f171n43')
+    expect(advice(cards)).to.equal(null)
+  })
+
+  it('should be returned if it has Ludic Matriarchs and less than 2 other dragons', () => {
+    const cards = getCards('4n14n23n665f34n34n43n53n63n675f54f171n43')
+    expect(advice(cards)).to.not.equal(null)
+  })
+
+  it('should be returned if Ludic Matriarchs is over level 2', () => {
+    const cards = getCards('4n14n23n665f34n34n43n63n673n105f54f173n43')
+    expect(advice(cards)).to.not.equal(null)
+  })
 })
