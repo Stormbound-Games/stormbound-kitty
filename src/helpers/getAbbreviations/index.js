@@ -25,6 +25,7 @@ const COMMON_ABBREVIATIONS = {
   HL: 'Heroes League',
   HS: 'Hero Score',
   IC: 'Ironclad',
+  IF: 'Iceflakes',
   LL: 'Limelimbs',
   MW: 'Mystwives',
   OC: 'Overchargers',
