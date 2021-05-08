@@ -49,7 +49,11 @@ export default React.memo(function CardBuilderContestStatus(props) {
           )}
         </span>{' '}
         CDT to{' '}
-        <a href={contest.submitURL} target='_blank' rel='noopener noreferrer'>
+        <a
+          href='https://forms.gle/oHWRj45WoJc2q8ps5'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
           submit your entry
         </a>
         !
