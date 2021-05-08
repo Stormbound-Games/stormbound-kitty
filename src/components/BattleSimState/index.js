@@ -268,6 +268,7 @@ class BattleSimState extends React.Component {
     targetCell.vitalised = sourceCell.vitalised
     targetCell.frozen = sourceCell.frozen
     targetCell.confused = sourceCell.confused
+    targetCell.disabled = sourceCell.disabled
   }
 
   updateActiveCell = ({
@@ -279,6 +280,7 @@ class BattleSimState extends React.Component {
     vitalised,
     frozen,
     confused,
+    disabled,
   }) => {
     const newBoard = clone(this.state.board)
     const cell = newBoard[this.state.activeCell[0]][this.state.activeCell[1]]
@@ -291,6 +293,7 @@ class BattleSimState extends React.Component {
     cell.vitalised = vitalised
     cell.frozen = frozen
     cell.confused = confused
+    cell.disabled = disabled
 
     this.setState({
       cardSelectValue: '',
@@ -314,6 +317,7 @@ class BattleSimState extends React.Component {
       vitalised: !!formData.vitalised,
       frozen: !!formData.frozen,
       confused: !!formData.confused,
+      disabled: !!formData.disabled,
     })
 
     const activePlayer = this.state.players[this.state.activePlayer]

@@ -10,6 +10,7 @@ const getTitle = props => {
   const vitalised = props.vitalised ? '(vitalised)' : ''
   const frozen = props.frozen ? '(frozen)' : ''
   const confused = props.confused ? '(confused)' : ''
+  const disabled = props.disabled ? '(disabled)' : ''
   const level = `(lvl ${props.level})`
   const name = `“${props.card.name}”`
   const strength = `× ${props.strength}`
@@ -24,6 +25,7 @@ const getTitle = props => {
     vitalised,
     frozen,
     confused,
+    disabled,
   ].join(' ')
 }
 
@@ -39,6 +41,7 @@ export default React.memo(function BattleSimCell(props) {
         props.vitalised && 'BattleSimCell--vitalised',
         props.frozen && 'BattleSimCell--frozen',
         props.confused && 'BattleSimCell--confused',
+        props.disabled && 'BattleSimCell--disabled',
       ]
         .filter(Boolean)
         .join(' ')}
@@ -124,6 +127,12 @@ export default React.memo(function BattleSimCell(props) {
 
       {!!props.frozen && (
         <span className='BattleSimCell__frozen' data-testid='cell-frozen' />
+      )}
+
+      {!!props.disabled && (
+        <span className='BattleSimCell__disabled' data-testid='cell-disabled'>
+          &times;
+        </span>
       )}
     </button>
   )

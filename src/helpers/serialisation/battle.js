@@ -22,6 +22,7 @@ const serialiseBoard = board =>
                 cell.frozen ? 'F' : '',
                 cell.confused ? 'C' : '',
                 cell.vitalised ? 'V' : '',
+                cell.disabled ? 'D' : '',
               ].join('')
             : ''
         )
@@ -45,7 +46,8 @@ const deserialiseBoard = string => {
       frozen = '',
       confused = '',
       vitalised = '',
-    ] = item.match(/^(\d+)(\w+)([RB])([1-5])?(P)?(F)?(C)?(V)?$/)
+      disabled = '',
+    ] = item.match(/^(\d+)(\w+)([RB])([1-5])?(P)?(F)?(C)?(V)?(D)?$/)
 
     return {
       strength: +strength,
@@ -56,6 +58,7 @@ const deserialiseBoard = string => {
       vitalised: vitalised === 'V',
       frozen: frozen === 'F',
       confused: confused === 'C',
+      disabled: disabled === 'D',
     }
   })
 
