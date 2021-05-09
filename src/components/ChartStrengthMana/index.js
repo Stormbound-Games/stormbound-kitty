@@ -20,15 +20,15 @@ export default React.memo(function ChartStrengthMana(props) {
   const [faction, setFaction] = React.useState('neutral')
   const [level, setLevel] = React.useState(5)
 
-  const activeFaction = faction.split(',')
-  const mainFaction = [...activeFaction].pop()
+  const factions = faction.split(',')
+  const mainFaction = factions.length > 1 ? factions.filter(faction => faction !== 'neutral') : factions[0]
 
   const cards = React.useMemo(
     () =>
       CARDS.filter(
-        card => !card.token && activeFaction.includes(card.faction) && card.type !== 'spell'
+        card => !card.token && factions.includes(card.faction) && card.type !== 'spell'
       ).map(card => getResolvedCardData({ ...card, level })),
-    [level, activeFaction]
+    [level, factions]
   )
   const getFactionData = React.useCallback(
     faction => {
