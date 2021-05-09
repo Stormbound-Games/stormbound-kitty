@@ -19,12 +19,15 @@ export default React.memo(function ChartStrength(props) {
   const [faction, setFaction] = React.useState('*')
   const [level, setLevel] = React.useState(5)
 
+  const activeFaction = faction.split(',')
+  const mainFaction = [...activeFaction].pop()
+  
   const cards = React.useMemo(
     () =>
       CARDS.filter(
-        card => !card.token && (faction === '*' || card.faction === faction)
+        card => !card.token && (faction === '*' || activeFaction.includes(card.faction))
       ).map(card => getResolvedCardData({ ...card, level })),
-    [level, faction]
+    [level, faction, activeFaction]
   )
 
   const data = Object.values(
@@ -55,6 +58,7 @@ export default React.memo(function ChartStrength(props) {
             id='cs-faction'
             withNeutral
             withAny
+            withExtendedVersions
           />
         </Row.Column>
         <Row.Column>
@@ -90,7 +94,7 @@ export default React.memo(function ChartStrength(props) {
             type='monotone'
             dataKey='value'
             stroke={`var(--light-${
-              faction === '*' ? 'neutral' : faction
+              faction === '*' ? 'neutral' : mainFaction
             }, var(--beige))`}
             strokeWidth={2}
           />
