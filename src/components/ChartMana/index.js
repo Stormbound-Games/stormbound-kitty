@@ -19,14 +19,17 @@ export default React.memo(function ChartMana(props) {
   const [faction, setFaction] = React.useState('*')
   const [level, setLevel] = React.useState(5)
 
+  const factions = faction.split(',')
+  const mainFaction = factions.length > 1 ? factions.filter(faction => faction !== 'neutral') : factions[0]
+
   const cards = React.useMemo(
     () =>
       CARDS.filter(
-        card => !card.token && (faction === '*' || card.faction === faction)
+        card => !card.token && (factions[0] === '*' || factions.includes(card.faction))
       ).map(card => getResolvedCardData({ ...card, level })),
-    [level, faction]
+    [level, factions]
   )
-
+  
   const data = Object.values(
     cards
       .filter(card => !card.token)
@@ -52,6 +55,7 @@ export default React.memo(function ChartMana(props) {
             id='cm-faction'
             withNeutral
             withAny
+            withExtendedVersions
           />
         </Row.Column>
         <Row.Column>
@@ -87,7 +91,7 @@ export default React.memo(function ChartMana(props) {
             type='monotone'
             dataKey='value'
             stroke={`var(--light-${
-              faction === '*' ? 'neutral' : faction
+              faction === '*' ? 'neutral' : mainFaction
             }, var(--beige))`}
             strokeWidth={2}
           />

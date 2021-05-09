@@ -19,12 +19,16 @@ import { TOOLTIP_STYLES } from '../../constants/stats'
 export default React.memo(function ChartStrengthMana(props) {
   const [faction, setFaction] = React.useState('neutral')
   const [level, setLevel] = React.useState(5)
+
+  const factions = faction.split(',')
+  const mainFaction = factions.length > 1 ? factions.filter(faction => faction !== 'neutral') : factions[0]
+
   const cards = React.useMemo(
     () =>
       CARDS.filter(
-        card => !card.token && card.faction === faction && card.type !== 'spell'
+        card => !card.token && factions.includes(card.faction) && card.type !== 'spell'
       ).map(card => getResolvedCardData({ ...card, level })),
-    [faction, level]
+    [level, factions]
   )
   const getFactionData = React.useCallback(
     faction => {
@@ -51,6 +55,7 @@ export default React.memo(function ChartStrengthMana(props) {
             name='csm-faction'
             id='csm-faction'
             withNeutral
+            withExtendedVersions
           />
         </Row.Column>
         <Row.Column>
@@ -79,7 +84,7 @@ export default React.memo(function ChartStrengthMana(props) {
           <Scatter
             name={faction}
             data={getFactionData(faction)}
-            fill={`var(--light-${faction}, var(--beige))`}
+            fill={`var(--light-${mainFaction}, var(--beige))`}
           />
         </ScatterChart>
       </ResponsiveContainer>
