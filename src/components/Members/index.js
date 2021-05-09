@@ -93,7 +93,7 @@ export default React.memo(function Members(props) {
             generously supported the site hence making it possible to actively
             keep working on it. Rare players marked with a shiny star{' '}
             <Icon icon='super-star' /> are Super KAT members for having issued{' '}
-            <span class='Highlight'>multiple</span> donations!
+            <span className='Highlight'>multiple</span> donations!
           </p>
           <Row>
             <Row.Column>
