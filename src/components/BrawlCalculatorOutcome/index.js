@@ -187,7 +187,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
 
         <Info icon='equalizer' title='About the cost'>
           <p>
-            Keep in mind the aforementionned cost is an estimation based on the
+            Keep in mind the aforementioned cost is an estimation based on the
             given win rate. Depending on the milestones at which the losses
             occur in reality, the actual cost will vary and might not exactly
             match the expected outcome.
