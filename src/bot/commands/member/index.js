@@ -27,6 +27,10 @@ export default {
       )
   },
   handler: async function (message, client, messageObject) {
+    if (message.trim() === '') {
+      return
+    }
+
     const id = message.toLowerCase()
     const response = await fetch(BASE_URL + '/stories.json')
     const stories = await response.json()
