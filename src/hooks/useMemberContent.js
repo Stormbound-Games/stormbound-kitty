@@ -21,16 +21,22 @@ const formatEntryWithDate = entry => {
   return { ...entry, date: new Date(+year, +month - 1, 1) }
 }
 
-const useUserStories =
-  typeof window !== 'undefined'
-    ? id =>
-        React.useContext(StoriesContext)
-          .filter(story => story.date && story.author.toLowerCase() === id)
-          .map(formatEntryWithDate)
-    : (id, _stories) =>
-        _stories
-          .filter(story => story.date && story.author.toLowerCase() === id)
-          .map(formatEntryWithDate)
+// The `_stories` argument is only provided when used via the Discord bot
+// `!member` command since it cannot access the React context and this hook
+// cannot asynchronously fetch stories either.
+const useUserStories = (id, _stories) =>
+  (
+    _stories ||
+    // Hooks should technically never be called conditionally because they
+    // should always be called in the same order at every single render. That
+    // being said, `_stories` will never be defined on the client, which means
+    // the hook will *always* be called, no matter what. It probably is fine to
+    // keep the condition in that case.
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    React.useContext(StoriesContext)
+  )
+    .filter(story => story.date && story.author.toLowerCase() === id)
+    .map(formatEntryWithDate)
 
 const useUserDecks = id =>
   decks
