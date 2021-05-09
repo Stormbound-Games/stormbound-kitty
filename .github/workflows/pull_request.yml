@@ -20,7 +20,6 @@ jobs:
           build: npm run build:cra
           start: npm start
           wait-on: http://localhost:3000
-          record: true
           parallel: true
           group: 'Integration tests'
         env:
