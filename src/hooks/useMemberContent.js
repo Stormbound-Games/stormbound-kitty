@@ -21,13 +21,22 @@ const formatEntryWithDate = entry => {
   return { ...entry, date: new Date(+year, +month - 1, 1) }
 }
 
-const useUserStories = id => {
-  const stories = React.useContext(StoriesContext)
-
-  return stories
+// The `_stories` argument is only provided when used via the Discord bot
+// `!member` command since it cannot access the React context and this hook
+// cannot asynchronously fetch stories either.
+const useUserStories = (id, _stories) =>
+  (
+    _stories ||
+    // Hooks should technically never be called conditionally because they
+    // should always be called in the same order at every single render. That
+    // being said, `_stories` will never be defined on the client, which means
+    // the hook will *always* be called, no matter what. It probably is fine to
+    // keep the condition in that case.
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    React.useContext(StoriesContext)
+  )
     .filter(story => story.date && story.author.toLowerCase() === id)
     .map(formatEntryWithDate)
-}
 
 const useUserDecks = id =>
   decks
@@ -105,8 +114,11 @@ const useUserEvents = id =>
 
 const addType = type => entry => ({ ...entry, type })
 
-const useMemberContent = id => {
-  const stories = useUserStories(id)
+// This hook is being used a regular function by the `member` command from the
+// Discord bot. The latter cannot rely on the React context, so the stories are
+// provided to the function itself in that case.
+const useMemberContent = (id, _stories = []) => {
+  const stories = useUserStories(id, _stories)
   const decks = useUserDecks(id)
   const guides = useUserGuides(id)
   const hosts = useUserHosts(id)
@@ -149,7 +161,7 @@ const useMemberContent = id => {
   // The count is not quite the length of the `content` array as some entries
   // such as code updates can hold multiple contributions (e.g. one per PR).
   const count = content.reduce(
-    (acc, item) => acc + (item.entries?.length ?? 1),
+    (acc, item) => acc + (item.entries ? item.entries.length : 1),
     0
   )
 

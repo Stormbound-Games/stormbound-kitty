@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Icon from '../Icon'
 import { UserContext } from '../UserProvider'
+import isKATMember from '../../helpers/isKATMember'
 import useMemberContent from '../../hooks/useMemberContent'
 import './index.css'
 
@@ -67,9 +68,7 @@ const MemberListEntryToC = React.memo(function MemberListEntryToC(props) {
 export default React.memo(function MemberListEntry(props) {
   const { name } = React.useContext(UserContext)
   const { count, details } = useMemberContent(props.member.toLowerCase())
-  const KATMember =
-    details.donations.length > 0 || details.contributions.length > 0
-  const superKATMember = details.donations.length > 1
+  const { isKAT, isSuperKAT } = isKATMember(details)
   const isCurrentUser = name === props.member
 
   return (
@@ -79,7 +78,7 @@ export default React.memo(function MemberListEntry(props) {
         .join(' ')}
     >
       <Icon
-        icon={superKATMember ? 'super-star' : KATMember ? 'star' : 'user'}
+        icon={isSuperKAT ? 'super-star' : isKAT ? 'star' : 'user'}
         className='MemberListEntry__icon'
       />
       <div className='MemberListEntry__content'>
