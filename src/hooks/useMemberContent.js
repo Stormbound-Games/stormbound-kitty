@@ -21,13 +21,16 @@ const formatEntryWithDate = entry => {
   return { ...entry, date: new Date(+year, +month - 1, 1) }
 }
 
-const useUserStories = id => {
-  const stories = React.useContext(StoriesContext)
-
-  return stories
-    .filter(story => story.date && story.author.toLowerCase() === id)
-    .map(formatEntryWithDate)
-}
+const useUserStories =
+  typeof window !== 'undefined'
+    ? id =>
+        React.useContext(StoriesContext)
+          .filter(story => story.date && story.author.toLowerCase() === id)
+          .map(formatEntryWithDate)
+    : (id, _stories) =>
+        _stories
+          .filter(story => story.date && story.author.toLowerCase() === id)
+          .map(formatEntryWithDate)
 
 const useUserDecks = id =>
   decks
@@ -105,8 +108,11 @@ const useUserEvents = id =>
 
 const addType = type => entry => ({ ...entry, type })
 
-const useMemberContent = id => {
-  const stories = useUserStories(id)
+// This hook is being used a regular function by the `member` command from the
+// Discord bot. The latter cannot rely on the React context, so the stories are
+// provided to the function itself in that case.
+const useMemberContent = (id, _stories = []) => {
+  const stories = useUserStories(id, _stories)
   const decks = useUserDecks(id)
   const guides = useUserGuides(id)
   const hosts = useUserHosts(id)
@@ -149,7 +155,7 @@ const useMemberContent = id => {
   // The count is not quite the length of the `content` array as some entries
   // such as code updates can hold multiple contributions (e.g. one per PR).
   const count = content.reduce(
-    (acc, item) => acc + (item.entries?.length ?? 1),
+    (acc, item) => acc + (item.entries ? item.entries.length : 1),
     0
   )
 

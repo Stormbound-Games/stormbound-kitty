@@ -7,6 +7,7 @@ import Info from '../Info'
 import MemberToC from '../MemberToC'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import isKATMember from '../../helpers/isKATMember'
 import useMemberContent from '../../hooks/useMemberContent'
 import './index.css'
 import { VIDEOS } from '../Videos'
@@ -19,6 +20,7 @@ export default React.memo(function Member(props) {
   // This is basically a hack for people listed as video content creators, but
   // without any contributions to the site itself.
   const displayName = channel ? channel.author : name
+  const { isKAT, isSuperKAT } = isKATMember(details)
 
   return (
     <Article
@@ -27,10 +29,10 @@ export default React.memo(function Member(props) {
       meta={
         <>
           {count} contribution{count === 1 ? '' : 's'}
-          {details.donations.length > 0 || details.contributions.length > 0 ? (
+          {isKAT ? (
             <>
               {' '}
-              · {details.donations.length > 1 ? 'Super ' : null}
+              · {isSuperKAT ? 'Super ' : null}
               <abbr title='Kitty Appreciation Team'>KAT</abbr> member
             </>
           ) : (
@@ -50,7 +52,7 @@ export default React.memo(function Member(props) {
 
           {details.donations.length > 0 && (
             <Info
-              icon={details.donations.length > 1 ? 'super-star' : 'star'}
+              icon={isSuperKAT ? 'super-star' : 'star'}
               title='Financial contributor'
             >
               {displayName} is one of the generous contributors who can make
