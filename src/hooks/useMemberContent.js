@@ -139,19 +139,12 @@ const useMemberContent = id => {
   // correct capitalisation since it cannot be retrieved from the URL parameter
   // unfortunately.
   const displayName =
-    stories[0]?.author ??
-    decks[0]?.author ??
-    puzzles[0]?.author ??
-    artworks[0]?.author ??
-    contributions[0]?.author ??
-    donations[0]?.author ??
-    events[0]?.authors.find(findDisplayName) ??
-    guides[0]?.authors.find(findDisplayName) ??
-    hosts[0]?.hosts.find(findDisplayName) ??
-    podcasts[0]?.hosts.find(findDisplayName) ??
-    podiums[0]?.podium.flat().find(findDisplayName) ??
-    cards[0]?.winner.author ??
-    capitalise(id)
+    content.map(
+      ({ author, authors = [], hosts = [], podium = [], winner = {} }) =>
+        author ||
+        [...authors, ...hosts, ...podium.flat()].find(findDisplayName) ||
+        winner.author
+    )[0] || capitalise(id)
 
   // The count is not quite the length of the `content` array as some entries
   // such as code updates can hold multiple contributions (e.g. one per PR).
