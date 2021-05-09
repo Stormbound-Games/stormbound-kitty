@@ -101,6 +101,18 @@ export const VIDEOS = [
       </p>
     ),
   },
+  {
+    author: 'Stratarts',
+    href: 'https://www.youtube.com/channel/UC7qPCB2Qf8YeufRY1G9E_tg',
+    thumbnail:
+      'https://yt3.ggpht.com/ytc/AAUvwnhtxJdy4-GIAIqhdk15IDEvAICAA0QvndTqHoqk=s176-c-k-c0x00ffffff-no-rj',
+    description: (
+      <p>
+        Stratarts is an avid Spanish gamer and active member of the community
+        who mainly uploads brawl videos.
+      </p>
+    ),
+  },
 ]
 
 export default React.memo(function Videos(props) {
