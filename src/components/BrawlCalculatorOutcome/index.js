@@ -175,17 +175,24 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
         <p>
           Starting at <Crowns amount={crowns} />, reaching milestone #
           {milestone + 1} ({reward}) and accounting for a {winRate}% win rate
-          would{' '}
-          <span className='Highlight'>
-            cost <Coins amount={outcomeUp} />
-          </span>{' '}
-          ({gains}). Here are all the rewards you would get:
+          would cost <Coins amount={outcomeUp} /> ({gains}). Here are all the
+          rewards you would get:
         </p>
+
         <BrawlCalculatorRewards
           crowns={crowns}
           milestone={milestone}
           hasLegendary5={hasLegendary5}
         />
+
+        <Info icon='equalizer' title='About the cost'>
+          <p>
+            Keep in mind the aforementionned cost is an estimation based on the
+            given win rate. Depending on the milestones at which the losses
+            occur in reality, the actual cost will vary and might not exactly
+            match the expected outcome.
+          </p>
+        </Info>
       </>
     )
   }
