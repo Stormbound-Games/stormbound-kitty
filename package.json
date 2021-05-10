@@ -61,7 +61,7 @@
     "@cypress/react": "^4.16.4",
     "asyncro": "^3.0.0",
     "cypress": "^6.9.1",
-    "eslint": "^7.25.0",
+    "eslint": "^7.26.0",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
     "nodemon": "^2.0.7",
