@@ -177,10 +177,17 @@ export default React.memo(function GuideEqualsIntro(props) {
       </Title>
 
       <p>
-        The Equals format is almost exclusively used in tournaments. Every
-        tournament has a unique set of rules and often a list of banned cards.
-        This gives players the opportunity to make very different decks each
-        time, meaning you will never see the same deck twice in any event.
+        The Equals format is almost exclusively used in tournaments. This format
+        can only be played in friendly matches currently, this is also how
+        Tournament matches are organised (add your next opponent as friend
+        in-game and then select level 1 cards and 10 base health when
+        challenging them for a friendly match).
+      </p>
+
+      <p>
+        Every tournament has a unique set of rules and often a list of banned
+        cards. This gives players the opportunity to make very different decks
+        each time, meaning you will never see the same deck twice in any event.
       </p>
 
       <p>
