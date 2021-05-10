@@ -1,18 +1,18 @@
-import FuzzySearch from 'fuzzy-search'
+import Fuse from 'fuse.js'
 import searchCards from '../searchCards'
 import stories from '../../../public/stories'
 
-const SEARCH_OPTIONS = { caseSensitive: false, sort: true }
-export const searcher = new FuzzySearch(
-  stories,
-  ['title', 'author'],
-  SEARCH_OPTIONS
-)
+export const searcher = new Fuse(stories, {
+  keys: [
+    { name: 'title', weight: 0.7 },
+    { name: 'author', weight: 0.3 },
+  ],
+})
 
 export default search => {
   if (search.length < 2) return []
 
-  const results = searcher.search(search)
+  const results = searcher.search(search).map(result => result.item)
 
   if (results.length > 0) return results
 

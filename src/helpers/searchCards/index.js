@@ -1,15 +1,13 @@
-import FuzzySearch from 'fuzzy-search'
+import Fuse from 'fuse.js'
 import cards from '../../data/cards'
 import getRawCardData from '../getRawCardData'
 import getAbbreviations from '../getAbbreviations'
 
 const ABBREVIATIONS = getAbbreviations('LOWERCASE')
-const SEARCH_OPTIONS = { caseSensitive: false, sort: true }
 
-export const searcher = new FuzzySearch(
+export const searcher = new Fuse(
   cards.filter(card => !card.token),
-  ['name'],
-  SEARCH_OPTIONS
+  { keys: ['name'] }
 )
 
 export default search => {
@@ -31,5 +29,5 @@ export default search => {
 
   if (matchAbbr.length) return matchAbbr
 
-  return searcher.search(needle.trim())
+  return searcher.search(needle).map(result => result.item)
 }

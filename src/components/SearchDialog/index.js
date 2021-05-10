@@ -174,7 +174,7 @@ export default React.memo(function SearchDialog(props) {
                 ? searcher
                     .search(inputValue)
                     .slice(0, 5)
-                    .map((item, index) => {
+                    .map(({ item }, index) => {
                       return (
                         <li
                           className='SearchDialog__item'

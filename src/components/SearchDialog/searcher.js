@@ -1,4 +1,4 @@
-import FuzzySearch from 'fuzzy-search'
+import Fuse from 'fuse.js'
 import cards from '../../data/cards'
 import decks from '../../data/decks'
 import guides from '../../data/guides'
@@ -283,7 +283,4 @@ SEARCH_INDEX.push({
   breadcrumbs: ['Community', 'Miscellaneous'],
 })
 
-export default new FuzzySearch(SEARCH_INDEX, ['label'], {
-  caseSensitive: false,
-  sort: true,
-})
+export default new Fuse(SEARCH_INDEX, { keys: ['label'] })

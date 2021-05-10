@@ -16,7 +16,7 @@
     "esm": "^3.2.25",
     "form-serialize": "^0.7.2",
     "framer-motion": "^1.11.1",
-    "fuzzy-search": "^3.2.1",
+    "fuse.js": "^6.4.6",
     "hook-into-props": "^4.0.1",
     "html2canvas": "^1.0.0-rc.7",
     "lodash.clonedeep": "^4.5.0",
