@@ -65,7 +65,7 @@
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
     "nodemon": "^2.0.7",
-    "prettier": "^2.2.1",
+    "prettier": "^2.3.0",
     "sitemap": "^7.0.0",
     "spritesh": "^1.2.1",
     "webpack-bundle-analyzer": "^4.4.1"
