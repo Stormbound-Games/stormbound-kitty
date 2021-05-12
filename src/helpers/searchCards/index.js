@@ -7,7 +7,12 @@ const ABBREVIATIONS = getAbbreviations('LOWERCASE')
 
 export const searcher = new Fuse(
   cards.filter(card => !card.token),
-  { keys: ['name'] }
+  {
+    keys: ['name'],
+    minMatchCharLength: 3,
+    threshold: 0.4,
+    ignoreFieldNorm: true,
+  }
 )
 
 export default search => {
