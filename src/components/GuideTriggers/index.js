@@ -302,8 +302,7 @@ export default React.memo(function GuideDrawing(props) {
           a second STE might occur if the elder survives the subsequent attack.
         </li>
         <li>
-          <CardLink id='N47' />, <CardLink id='N55' />, <CardLink id='W4' /> and{' '}
-          <CardLink id='I15' />
+          <CardLink id='N47' />, <CardLink id='N55' /> and <CardLink id='I15' />
           ’s abilities cause an initial STE (provided the elder survives it).
           Then a second STE might occur if the elder survives the subsequent
           attack.
