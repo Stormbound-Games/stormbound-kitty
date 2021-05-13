@@ -121,14 +121,20 @@ SEARCH_INDEX.push({
 })
 
 SEARCH_INDEX.push({
-  path: '/fan-kit/cards',
-  label: 'Cards Assets',
+  path: '/fan-kit/avatars',
+  label: 'Avatars Assets',
   breadcrumbs: ['Game', 'Fan-Kit'],
 })
 
 SEARCH_INDEX.push({
   path: '/fan-kit/books',
   label: 'Books Assets',
+  breadcrumbs: ['Game', 'Fan-Kit'],
+})
+
+SEARCH_INDEX.push({
+  path: '/fan-kit/cards',
+  label: 'Cards Assets',
   breadcrumbs: ['Game', 'Fan-Kit'],
 })
 

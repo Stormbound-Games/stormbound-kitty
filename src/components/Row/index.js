@@ -31,6 +31,7 @@ const Row = React.memo(function Row(props) {
 
 Row.Column = React.memo(function Column(props) {
   const { wideGutter, desktopOnly } = React.useContext(RowContext)
+  const [spread, columns] = (props.width || '1/2').split('/').map(Number)
 
   return (
     <div
@@ -38,11 +39,15 @@ Row.Column = React.memo(function Column(props) {
         'Column',
         desktopOnly && 'Column--desktop',
         wideGutter && 'Column--wide',
-        Boolean(props.width) && `Column--${props.width}`,
       ]
         .filter(Boolean)
         .join(' ')}
-      style={{ ...props.style, alignItems: props.align }}
+      style={{
+        ...props.style,
+        alignItems: props.align,
+        '--columns': columns,
+        '--spread': spread,
+      }}
     >
       <RowContext.Provider value={{ wideGutter: false, desktopOnly: false }}>
         {props.children}

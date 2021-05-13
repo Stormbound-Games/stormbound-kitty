@@ -75,6 +75,11 @@ export default () => {
               id: 'BOOKS',
             },
             {
+              label: 'Avatar Images',
+              to: '/fan-kit/avatars',
+              id: 'AVATARS',
+            },
+            {
               label: 'Wallpapers',
               to: '/fan-kit/wallpapers',
               id: 'WALLPAPERS',

@@ -115,9 +115,9 @@ export default React.memo(function CardBuilderCardForm(props) {
           <Row.Column
             width={
               imageFocusedColumn === 'imageCardId'
-                ? 66
+                ? '2/3'
                 : imageFocusedColumn === 'imageURL'
-                ? 33
+                ? '1/3'
                 : undefined
             }
           >
@@ -145,9 +145,9 @@ export default React.memo(function CardBuilderCardForm(props) {
           <Row.Column
             width={
               imageFocusedColumn === 'imageURL'
-                ? 66
+                ? '2/3'
                 : imageFocusedColumn === 'imageCardId'
-                ? 33
+                ? '1/3'
                 : undefined
             }
           >
