@@ -85,8 +85,9 @@ export default () => {
               id: 'WALLPAPERS',
             },
             {
-              label: 'Soundtrack',
-              href: 'https://www.tonyteoli.com/stormbound',
+              label: 'Backgrounds',
+              to: '/fan-kit/backgrounds',
+              id: 'BACKGROUNDS',
             },
           ],
         },
@@ -98,6 +99,10 @@ export default () => {
             { label: 'Stormbound Trivia', to: '/trivia', id: 'TRIVIA' },
             { label: 'Cards Statistics', to: '/card/stats', id: 'CARD_STATS' },
             { label: 'Lexicon', to: '/guides/lexicon', id: 'LEXICON' },
+            {
+              label: 'Soundtrack',
+              href: 'https://www.tonyteoli.com/stormbound',
+            },
           ],
         },
       ],
