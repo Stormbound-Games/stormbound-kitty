@@ -10,7 +10,11 @@ import './index.css'
 
 // Because the faction is picked at random, it needs to be defined outside of
 // the memoised component.
-const faction = arrayRandom(Object.keys(FACTIONS).filter(f => f !== 'neutral'))
+const faction = arrayRandom(
+  Object.keys(FACTIONS)
+    .filter(f => f !== 'neutral')
+    .concat(['dragon', 'neutral', 'feline'])
+)
 
 export default React.memo(function BattleSimBoardDesktop(props) {
   return (
