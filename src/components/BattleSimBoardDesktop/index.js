@@ -1,4 +1,5 @@
 import React from 'react'
+import { ImageSupportContext } from '../ImageSupportProvider'
 import BaseHealth from '../BattleSimBaseHealth'
 import Cards from '../BattleSimCards'
 import CardZoom from '../CardZoom'
@@ -16,14 +17,36 @@ const faction = arrayRandom(
     .concat(['dragon', 'neutral', 'feline'])
 )
 
+const POSITIONS = {
+  dragon: [['3.25%'], ['66.3%']],
+  feline: [['2.15%'], ['68%']],
+  ironclad: [['4.8%'], ['65%']],
+  neutral: [['4.45%'], ['66.3%']],
+  shadowfen: [['4.8%'], ['66%']],
+  swarm: [
+    ['5.5%', '-40%'],
+    ['67.3%', '-75%'],
+  ],
+  winter: [['5.75%'], ['66.3%']],
+}
+
 export default React.memo(function BattleSimBoardDesktop(props) {
+  const { supportsAvif, supportsWebp } = React.useContext(ImageSupportContext)
+  const ext = supportsAvif ? 'avif' : supportsWebp ? 'webp' : 'png'
+  const environment = props.environment || faction
+  const [redHealth, blueHealth] = POSITIONS[environment]
+
   return (
     <div
-      className={[
-        'BattleSimBoardDesktop',
-        `BattleSimBoardDesktop--${props.environment || faction}`,
-      ].join(' ')}
+      className='BattleSimBoardDesktop'
       data-testid='board'
+      style={{
+        backgroundImage: `url('https://stormbound-kitty.com/assets/images/backgrounds/lite/${environment}.${ext}')`,
+        '--red-health-y': redHealth[0],
+        '--red-health-x': redHealth[1],
+        '--blue-health-y': blueHealth[0],
+        '--blue-health-x': blueHealth[1],
+      }}
     >
       <div className='BattleSimBoardDesktop__health BattleSimBoardDesktop__health--RED'>
         <BaseHealth player='RED' health={props.players.RED.health} />

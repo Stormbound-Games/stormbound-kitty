@@ -11,76 +11,6 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-html:not(.webp):not(.avif) .BattleSimBoardDesktop--swarm {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/swarm.png');
-}
-.webp:not(.avif) .BattleSimBoardDesktop--swarm {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/swarm.webp');
-}
-.avif .BattleSimBoardDesktop--swarm {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/swarm.avif');
-}
-
-html:not(.webp):not(.avif) .BattleSimBoardDesktop--ironclad {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/ironclad.png');
-}
-.webp:not(.avif) .BattleSimBoardDesktop--ironclad {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/ironclad.webp');
-}
-.avif .BattleSimBoardDesktop--ironclad {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/ironclad.avif');
-}
-
-html:not(.webp):not(.avif) .BattleSimBoardDesktop--winter {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/winter.png');
-}
-.webp:not(.avif) .BattleSimBoardDesktop--winter {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/winter.webp');
-}
-.avif .BattleSimBoardDesktop--winter {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/winter.avif');
-}
-
-html:not(.webp):not(.avif) .BattleSimBoardDesktop--shadowfen {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/shadowfen.png');
-}
-.webp:not(.avif) .BattleSimBoardDesktop--shadowfen {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/shadowfen.webp');
-}
-.avif .BattleSimBoardDesktop--shadowfen {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/shadowfen.avif');
-}
-
-html:not(.webp):not(.avif) .BattleSimBoardDesktop--dragon {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/dragon.png');
-}
-.webp:not(.avif) .BattleSimBoardDesktop--dragon {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/dragon.webp');
-}
-.avif .BattleSimBoardDesktop--dragon {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/dragon.avif');
-}
-
-html:not(.webp):not(.avif) .BattleSimBoardDesktop--feline {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/feline.png');
-}
-.webp:not(.avif) .BattleSimBoardDesktop--feline {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/feline.webp');
-}
-.avif .BattleSimBoardDesktop--feline {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/feline.avif');
-}
-
-html:not(.webp):not(.avif) .BattleSimBoardDesktop--neutral {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/neutral.png');
-}
-.webp:not(.avif) .BattleSimBoardDesktop--neutral {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/neutral.webp');
-}
-.avif .BattleSimBoardDesktop--neutral {
-  background-image: url('https://stormbound-kitty.com/assets/images/backgrounds/lite/neutral.avif');
-}
-
 /**
  * 1. Ensure proper ratio based on background size
  */
@@ -96,74 +26,14 @@ html:not(.webp):not(.avif) .BattleSimBoardDesktop--neutral {
   transform: translateX(-50%);
 }
 
-.BattleSimBoardDesktop--swarm .BattleSimBoardDesktop__health--RED {
-  top: 5.5%;
-  transform: translateX(-50%) translateX(10%);
+.BattleSimBoardDesktop__health--RED {
+  top: var(--red-health-y);
+  transform: translateX(var(--red-health-x, -50%));
 }
 
-.BattleSimBoardDesktop--swarm .BattleSimBoardDesktop__health--BLUE {
-  top: 67.3%;
-  transform: translate(-50%) translateX(-25%);
-}
-
-.BattleSimBoardDesktop--shadowfen .BattleSimBoardDesktop__health--RED {
-  top: 4.8%;
-  transform: translateX(-50%);
-}
-
-.BattleSimBoardDesktop--shadowfen .BattleSimBoardDesktop__health--BLUE {
-  top: 66%;
-  transform: translate(-50%);
-}
-
-.BattleSimBoardDesktop--ironclad .BattleSimBoardDesktop__health--RED {
-  top: 4.8%;
-  transform: translateX(-50%);
-}
-
-.BattleSimBoardDesktop--ironclad .BattleSimBoardDesktop__health--BLUE {
-  top: 65%;
-  transform: translate(-50%);
-}
-
-.BattleSimBoardDesktop--winter .BattleSimBoardDesktop__health--RED {
-  top: 5.75%;
-  transform: translateX(-50%);
-}
-
-.BattleSimBoardDesktop--winter .BattleSimBoardDesktop__health--BLUE {
-  top: 66.3%;
-  transform: translate(-50%);
-}
-
-.BattleSimBoardDesktop--dragon .BattleSimBoardDesktop__health--RED {
-  top: 3.25%;
-  transform: translateX(-50%);
-}
-
-.BattleSimBoardDesktop--dragon .BattleSimBoardDesktop__health--BLUE {
-  top: 66.3%;
-  transform: translate(-50%);
-}
-
-.BattleSimBoardDesktop--feline .BattleSimBoardDesktop__health--RED {
-  top: 2.15%;
-  transform: translateX(-50%);
-}
-
-.BattleSimBoardDesktop--feline .BattleSimBoardDesktop__health--BLUE {
-  top: 68%;
-  transform: translate(-50%);
-}
-
-.BattleSimBoardDesktop--neutral .BattleSimBoardDesktop__health--RED {
-  top: 4.45%;
-  transform: translateX(-50%);
-}
-
-.BattleSimBoardDesktop--neutral .BattleSimBoardDesktop__health--BLUE {
-  top: 66.3%;
-  transform: translate(-50%);
+.BattleSimBoardDesktop__health--BLUE {
+  top: var(--blue-health-y);
+  transform: translateX(var(--blue-health-x, -50%));
 }
 
 .BattleSimBoardDesktop__player {
