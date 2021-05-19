@@ -24,7 +24,7 @@ const mobileWallpapers = Array.from(
 
 const WALLPAPERS_INDEX = indexArray([...desktopWallpapers, ...mobileWallpapers])
 
-export default React.memo(function FanKitBooks(props) {
+export default React.memo(function FanKitWallpapers(props) {
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
   const activeWallpaper = WALLPAPERS_INDEX[active]
