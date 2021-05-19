@@ -7,96 +7,111 @@ import Title from '../Title'
 import getRawCardData from '../../helpers/getRawCardData'
 import tournaments from '../../data/tournaments.json'
 
-const POINT_VALUE = [3, 2, 1]
+const POINT_VALUE = {
+  TOURNAMENT: [9, 6, 3],
+  JOUST: [6, 4, 2],
+}
 
-const getMedals = () => {
-  const medals = {}
+const getPodiumData = () => {
+  const data = {}
 
   tournaments.forEach(tournament => {
     tournament.podium.forEach((user, index) => {
       const users = Array.isArray(user) ? user : [user]
 
       users.forEach(user => {
-        if (typeof medals[user] === 'undefined') {
-          medals[user] = [0, 0, 0]
+        if (typeof data[user] === 'undefined') {
+          data[user] = { user, medals: [], points: 0 }
         }
 
-        medals[user][index] += 1
+        data[user].medals.push({
+          type: tournament.type,
+          place: index,
+          points: POINT_VALUE[tournament.type][index],
+        })
+        data[user].points += POINT_VALUE[tournament.type][index]
       })
     })
   })
 
-  return medals
+  return data
 }
 
-const getPoints = ([gold, silver, bronze]) =>
-  gold * POINT_VALUE[0] + silver * POINT_VALUE[1] + bronze * POINT_VALUE[2]
-
 const getOverallPodium = () => {
-  const medals = getMedals()
+  const medals = getPodiumData()
   const users = Object.keys(medals)
 
   return users
-    .sort((a, b) => getPoints(medals[b]) - getPoints(medals[a]))
-    .map(user => [user, medals[user]])
+    .sort((a, b) => medals[b].points - medals[a].points)
+    .map(user => medals[user])
 }
+
+const getMedalDetails = (data, index) => {
+  const medals = data.filter(medal => medal.place === index)
+  const count = medals.length
+  const points = medals.reduce(
+    (total, medal) => total + POINT_VALUE[medal.type][medal.place],
+    0
+  )
+
+  return [count, points]
+}
+
+const getPointGroups = podium =>
+  podium.slice(3).reduce(
+    (acc, { user, points }) => ({
+      ...acc,
+      [points]: (acc[points] || []).concat(user),
+    }),
+    {}
+  )
 
 export default React.memo(function Podium(props) {
   const podium = getOverallPodium()
-  const pointGroups = React.useMemo(
-    () =>
-      podium.slice(3).reduce((acc, [user, medals]) => {
-        const key = String(getPoints(medals))
-
-        if (typeof acc[key] === 'undefined') {
-          acc[key] = []
-        }
-
-        acc[key].push(user)
-
-        return acc
-      }, {}),
-    [podium]
-  )
+  const pointGroups = React.useMemo(() => getPointGroups(podium), [podium])
 
   return (
     <>
       <Title>Hall of Fame</Title>
       <div style={{ fontSize: '85%' }}>
         <Row desktopOnly wideGutter>
-          {podium.slice(0, 3).map(([user, medals], index) => (
-            <Row.Column width='1/3' key={user}>
-              <Teaser
-                title={
-                  <>
-                    {index + 1}. <Link to={'/member/' + user}>{user}</Link>
-                  </>
-                }
-                meta={`With ${getPoints(medals)} points`}
-                card={{
-                  name: user,
-                  faction: ['swarm', 'neutral', 'ironclad'][index],
-                  level: index + 1,
-                  mana: index + 1,
-                  type: 'unit',
-                  race: ['Champion', 'Conqueror', 'Runner-up'][index],
-                  image: getRawCardData(['N54', 'N32', 'N3'][index]).image,
-                }}
-                excerpt={
-                  <>
-                    {user} has won {medals[0]} 🥇 gold medal
-                    {medals[0] === 1 ? '' : 's'} ({medals[0] * POINT_VALUE[0]}{' '}
-                    points), 🥈 {medals[1]} silver medal
-                    {medals[1] === 1 ? '' : 's'} ({medals[1] * POINT_VALUE[1]}{' '}
-                    points) and 🥉 {medals[2]} bronze medal
-                    {medals[2] === 1 ? '' : 's'} ({medals[2] * POINT_VALUE[2]}{' '}
-                    point
-                    {medals[2] === 1 ? '' : 's'}).
-                  </>
-                }
-              />
-            </Row.Column>
-          ))}
+          {podium.slice(0, 3).map(({ user, medals, points }, index) => {
+            const [nGold, sGold] = getMedalDetails(medals, 0)
+            const [nSilver, sSilver] = getMedalDetails(medals, 1)
+            const [nBronze, sBronze] = getMedalDetails(medals, 2)
+
+            return (
+              <Row.Column width='1/3' key={user}>
+                <Teaser
+                  title={
+                    <>
+                      {index + 1}. <Link to={'/member/' + user}>{user}</Link>
+                    </>
+                  }
+                  meta={`With ${points} points`}
+                  card={{
+                    name: user,
+                    faction: ['swarm', 'neutral', 'ironclad'][index],
+                    level: index + 1,
+                    mana: index + 1,
+                    type: 'unit',
+                    race: ['Champion', 'Conqueror', 'Runner-up'][index],
+                    image: getRawCardData(['N54', 'N32', 'N3'][index]).image,
+                  }}
+                  excerpt={
+                    <>
+                      {user} has won {nGold} 🥇 gold medal
+                      {nGold === 1 ? '' : 's'} ({sGold} points), 🥈 {nSilver}{' '}
+                      silver medal
+                      {nSilver === 1 ? '' : 's'} ({sSilver} points) and 🥉{' '}
+                      {nBronze} bronze medal
+                      {nBronze === 1 ? '' : 's'} ({sBronze} points).
+                    </>
+                  }
+                />
+              </Row.Column>
+            )
+          })}
         </Row>
       </div>
 
