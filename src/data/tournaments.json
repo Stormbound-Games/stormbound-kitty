@@ -465,7 +465,7 @@
   },
   {
     "name": "Reckless Draft 1",
-    "type": "JOUST",
+    "type": "TOURNAMENT",
     "hosts": [
       "RecklessRush"
     ],
@@ -556,7 +556,7 @@
   },
   {
     "name": "Battle Week",
-    "type": "JOUST",
+    "type": "TOURNAMENT",
     "hosts": [
       "Todam"
     ],
@@ -610,7 +610,7 @@
   },
   {
     "name": "Reckless Draft 2",
-    "type": "JOUST",
+    "type": "TOURNAMENT",
     "hosts": [
       "RecklessRush"
     ],
@@ -774,7 +774,7 @@
   },
   {
     "name": "Grimmdark Joust",
-    "type": "JOUST",
+    "type": "TOURNAMENT",
     "hosts": [
       "Grimm"
     ],
@@ -808,7 +808,7 @@
   },
   {
     "name": "Choose Your Poison Joust",
-    "type": "JOUST",
+    "type": "TOURNAMENT",
     "hosts": [
       "Grimm"
     ],
