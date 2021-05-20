@@ -1629,7 +1629,7 @@
     "rarity": "rare",
     "image": "venomfall_spire.png",
     "mana": 4,
-    "strength": "3/4/4/6/7",
+    "strength": "4/5/5/7/8",
     "movement": null,
     "ability": "At the start of your turn, *poison 1/1/2/2/3* random enemy unit/unit/units/units/units"
   },
