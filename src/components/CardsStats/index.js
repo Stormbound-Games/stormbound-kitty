@@ -45,7 +45,7 @@ export default React.memo(() => {
             </Only.CustomCollection>
           </Row.Column>
           <Row.Column
-            width={66}
+            width='2/3'
             style={{
               // For some reason having 100%-width charts cause this column from
               // expanding forever, unless it has an explicit `width` (since
