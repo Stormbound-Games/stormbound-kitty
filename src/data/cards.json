@@ -1867,7 +1867,7 @@
     "rarity": "legendary",
     "image": "counselor_ahmi.png",
     "mana": 3,
-    "strength": "2/3/4/5/6",
+    "strength": "1/2/3/4/5",
     "movement": 1,
     "ability": "If played with no bordering enemies, return the copy of this card to your hand with +1 strength",
     "hero": true
