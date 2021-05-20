@@ -4,15 +4,15 @@ const getLeagueChestRewards = league => {
   switch (league) {
     case 'HEROES':
       return new MonthlyIncome({
-        coins: 3000,
-        rubies: 100,
+        coins: 2000,
+        rubies: 70,
         stones: 7.5,
         cards: [20, 16, 8, 3],
       })
 
     case 'DIAMOND':
       return new MonthlyIncome({
-        coins: 1800,
+        coins: 1500,
         rubies: 50,
         stones: 7.5,
         cards: [14, 12, 6, 2],
@@ -20,7 +20,7 @@ const getLeagueChestRewards = league => {
 
     case 'PLATINUM':
       return new MonthlyIncome({
-        coins: 1200,
+        coins: 1100,
         rubies: 30,
         stones: 0,
         cards: [12, 9, 4, 1],
