@@ -1145,7 +1145,7 @@
     "mana": 2,
     "strength": "5/6/7/8/9",
     "movement": null,
-    "ability": "At the start of your turn, deal *2 damage* to itself"
+    "ability": "At the start of your turn, deal *3 damage* to itself"
   },
   {
     "name": "Finite Loopers",
