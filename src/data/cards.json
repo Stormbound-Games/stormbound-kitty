@@ -713,7 +713,7 @@
     "race": "knight",
     "rarity": "rare",
     "image": "joust_champions.png",
-    "mana": 8,
+    "mana": 7,
     "strength": "3/4/5/6/7",
     "movement": 2,
     "ability": "Before attacking a unit or structure, deal *3/4/5/6/7 additional damage* to it"
