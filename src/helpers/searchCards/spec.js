@@ -14,9 +14,4 @@ describe('The `searchCards` helper', () => {
     expect(searchCards('rof').length).to.equal(1)
     expect(searchCards('fs').length).to.equal(3)
   })
-
-  it('should handle fuzzy searches', () => {
-    expect(searchCards('greprot').length).to.equal(1)
-    expect(searchCards('souls').length).to.equal(3)
-  })
 })
