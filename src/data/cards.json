@@ -952,7 +952,7 @@
     "rarity": "rare",
     "image": "trekking_aldermen.png",
     "mana": 3,
-    "strength": "3/4/4/5/6",
+    "strength": "3/4/5/6/7",
     "movement": 0,
     "ability": "After surviving damage, deal *2/2/3/3/4 damage* spread randomly among enemy units on the board",
     "elder": true
