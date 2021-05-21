@@ -117,7 +117,7 @@ const addType = type => entry => ({ ...entry, type })
 // This hook is being used a regular function by the `member` command from the
 // Discord bot. The latter cannot rely on the React context, so the stories are
 // provided to the function itself in that case.
-const useMemberContent = (id, _stories = []) => {
+const useMemberContent = (id, _stories) => {
   const stories = useUserStories(id, _stories)
   const decks = useUserDecks(id)
   const guides = useUserGuides(id)
