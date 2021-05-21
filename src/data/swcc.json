@@ -8,7 +8,11 @@
     {
       "id": 37,
       "date": "03/05/2021",
-      "name": "Cheap Cheap"
+      "name": "Cheap Cheap",
+      "winner": {
+        "author": "Dewalian",
+        "id": "UztTO1U7RTsyOzA7Mi8zLzMvNC80O1NuZWFrYmFpdGVycztTOTtJZiUyMHBsYXllZCUyMGluJTIwZnJvbnQlMjBvZiUyMGFuJTIwZW5lbXklMjB1bml0JTJDJTIwZm9yY2UlMjB0aGF0JTIwZW5lbXklMjB1bml0JTIwdG8lMjBhdHRhY2slMjB0aGlzLiUyME9uJTIwZGVhdGglMkMlMjBzcGF3biUyMGElMjAyJTJGMiUyRjMlMkYzJTJGNCUyMHN0cmVuZ3RoJTIwc2F0eXIlMjBiZWhpbmQlMjBhbiUyMGVuZW15JTIwdW5pdCUyMG9uJTIwdGhlJTIwdGlsZSUyMGluJTIwZnJvbnQuOzs="
+      }
     },
     {
       "name": "Passives",
