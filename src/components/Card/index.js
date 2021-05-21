@@ -3,6 +3,7 @@ import Image from '../Image'
 import { ImageSupportContext } from '../ImageSupportProvider'
 import { getRarityColor } from '../../helpers/getRarity'
 import microMarkdown from '../../helpers/microMarkdown'
+import clamp from '../../helpers/clamp'
 import useFluidSizing from '../../hooks/useFluidSizing'
 import './index.css'
 
@@ -26,6 +27,7 @@ export default React.memo(function Card(props) {
   const { fontSize, ref } = useFluidSizing(0.03902439024)
   const ext = supportsWebp ? 'webp' : 'png'
   const backgroundImage = useCardBackground(props)
+  const level = clamp(props.level, 1, 5)
 
   return (
     <article
@@ -114,8 +116,8 @@ export default React.memo(function Card(props) {
           </p>
           {props.rarity && (
             <img
-              className='Card__rarity'
-              src={`/assets/images/card/rarity-${props.rarity}.${ext}`}
+              className={['Card__rarity', `Card__rarity--${level}`].join(' ')}
+              src={`/assets/images/card/rarity_${props.rarity}_${level}.png`}
               alt={props.rarity}
               data-testid='card-rarity'
             />

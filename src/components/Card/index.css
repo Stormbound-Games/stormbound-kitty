@@ -206,8 +206,16 @@
 }
 
 .Card__rarity {
-  width: 8%;
+  max-height: 1.6em;
+  object-fit: contain;
   margin: 0 auto 0.75em;
+}
+
+.Card__rarity--2 {
+  max-height: 2em;
+}
+.Card__rarity--4 {
+  max-height: 1.9em;
 }
 
 /**

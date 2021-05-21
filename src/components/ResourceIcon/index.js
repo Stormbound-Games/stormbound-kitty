@@ -8,32 +8,36 @@ export default React.memo(function ResourceIcon(props) {
       return (
         <Image
           className='ResourceIcon'
-          src='/assets/images/card/rarity-common.png'
+          src='/assets/images/card/rarity_common_4.png'
           alt='common card'
+          withoutWebp
         />
       )
     case 'RARE':
       return (
         <Image
           className='ResourceIcon'
-          src='/assets/images/card/rarity-rare.png'
+          src='/assets/images/card/rarity_rare_4.png'
           alt='rare card'
+          withoutWebp
         />
       )
     case 'EPIC':
       return (
         <Image
           className='ResourceIcon'
-          src='/assets/images/card/rarity-epic.png'
+          src='/assets/images/card/rarity_epic_4.png'
           alt='epic card'
+          withoutWebp
         />
       )
     case 'LEGENDARY':
       return (
         <Image
           className='ResourceIcon'
-          src='/assets/images/card/rarity-legendary.png'
+          src='/assets/images/card/rarity_legendary_4.png'
           alt='legendary card'
+          withoutWebp
         />
       )
     case 'COIN':
