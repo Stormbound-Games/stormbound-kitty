@@ -68,10 +68,6 @@ export default React.memo(function BrawlCalculator(props) {
                 crowns={crowns}
                 setCrowns={setCrowns}
               />
-              <BrawlCalculatorPremiumPassToggle
-                checked={withPremiumPass}
-                onChange={event => setWithPremiumPass(event.target.checked)}
-              />
               <BrawlCalculatorLegendaryToggle
                 mode={mode}
                 milestone={milestone}
@@ -79,6 +75,10 @@ export default React.memo(function BrawlCalculator(props) {
                 onChange={event => setHasLegendary5(event.target.checked)}
               />
               <BrawlCalculatorSetup setup={setup} setSetup={setSetup} />
+              <BrawlCalculatorPremiumPassToggle
+                checked={withPremiumPass}
+                onChange={event => setWithPremiumPass(event.target.checked)}
+              />
               <BrawlCalculatorDiscount
                 discount={discount}
                 setDiscount={setDiscount}
