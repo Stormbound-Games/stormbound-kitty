@@ -146,8 +146,8 @@ export default React.memo(function ReleaseNotesJune2021(props) {
         <Title id='victory-coins-update'>Victory coins update</Title>
 
         <p>
-          Victory coins will be increased across the board, proportionally to
-          the league of the player.
+          Victory coins will be increased across the board in ranked matches,
+          proportionally to the league of the player.
         </p>
 
         <ul>
@@ -173,6 +173,11 @@ export default React.memo(function ReleaseNotesJune2021(props) {
             In <span style={{ color: 'var(--heroes)' }}>Heroes</span> league, a
             victory will yield <Coins amount={25} /> + an additional{' '}
             <Coins amount={25} /> for watching an ad.
+          </li>
+          <li>
+            Brawl matches will yield <Coins amount={10} /> + an additional{' '}
+            <Coins amount={10} /> for watching an ad, regardless of the league
+            of the player.
           </li>
         </ul>
 
