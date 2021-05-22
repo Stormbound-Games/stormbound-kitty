@@ -37,7 +37,6 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
     crowns,
     discount,
     hasLegendary5,
-    league,
     milestone,
     mode,
     setup,
@@ -48,7 +47,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
     costModifier: 1 - discount / 100,
     crowns,
     hasLegendary5,
-    league,
+    league: 'BRAWL',
     setup,
     winRatio: winRate / 100,
     withPremiumPass,
@@ -60,8 +59,9 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
       'without considering winning gain'
     ) : (
       <>
-        considering <Coins amount={getVictoryCoins(setup, league)} /> per win
-        until coin cap
+        considering{' '}
+        <Coins amount={getVictoryCoins(setup, 'BRAWL', withPremiumPass)} /> per
+        win until coin cap
       </>
     )
 
@@ -83,16 +83,6 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
       <p>
         With <Crowns amount={crowns} />, you have already reached milestone #
         {MILESTONES.length}. Set less than 250 crowns to use the calculator.
-      </p>
-    )
-  }
-
-  if (setup !== 'NONE' && !league) {
-    return (
-      <p>
-        You must define in which league you play since it impacts the coins you
-        earn for each victory (unless you decide not to take victory coins into
-        consideration whatsoever).
       </p>
     )
   }

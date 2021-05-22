@@ -12,12 +12,27 @@ import Row from '../Row'
 import Title from '../Title'
 import { BRAWL_INDEX } from '../../constants/brawl'
 import getGuide from '../../helpers/getGuide'
+import getDailyCoinsCounter from '../../helpers/getDailyCoinsCounter'
 
 export default React.memo(function BrawlTracker(props) {
+  const [withPremiumPass, setWithPremiumPass] = React.useState(false)
   const [setup, setSetup] = React.useState('MOBILE_WITHOUT_ADS')
   const { brawl: currentBrawl } = React.useContext(BrawlContext)
   const { title } = BRAWL_INDEX[currentBrawl.id] || {}
   const guide = getGuide(title, 'name')
+
+  const wonMatches = currentBrawl.matches.filter(match =>
+    ['WON', 'FORFEIT'].includes(match.status)
+  )
+  const getCoins = getDailyCoinsCounter({
+    setup,
+    league: 'BRAWL',
+    withPremiumPass,
+  })
+  const income = Array.from({ length: wonMatches.length }).reduce(
+    (acc, _) => acc + getCoins(),
+    0
+  )
 
   return (
     <div>
@@ -25,8 +40,13 @@ export default React.memo(function BrawlTracker(props) {
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>About your Brawl</Title>
-          <BrawlOutcome setup={setup} />
-          <BrawlSetup setup={setup} setSetup={setSetup} />
+          <BrawlOutcome income={income} />
+          <BrawlSetup
+            setup={setup}
+            setSetup={setSetup}
+            withPremiumPass={withPremiumPass}
+            setWithPremiumPass={setWithPremiumPass}
+          />
           <BrawlReset />
           {guide ? (
             <div>
@@ -38,7 +58,11 @@ export default React.memo(function BrawlTracker(props) {
         </Row.Column>
         <Row.Column width='2/3'>
           <BrawlMatches />
-          <BrawlCharts setup={setup} />
+          <BrawlCharts
+            setup={setup}
+            withPremiumPass={withPremiumPass}
+            income={income}
+          />
         </Row.Column>
       </Row>
     </div>

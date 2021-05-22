@@ -20,7 +20,7 @@ export default React.memo(function BrawlCharts(props) {
           <BrawlStatusChart />
         </Row.Column>
         <Row.Column>
-          <BrawlCoinsChart setup={props.setup} />
+          <BrawlCoinsChart income={props.income} />
         </Row.Column>
       </Row>
       <BrawlWeighedStatusChart />

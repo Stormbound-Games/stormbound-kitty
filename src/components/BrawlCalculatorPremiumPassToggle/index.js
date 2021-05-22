@@ -15,7 +15,7 @@ export default React.memo(function BrawlCalculatorPremiumPassToggle(props) {
         Premium Pass
       </Checkbox>
       <span style={{ marginTop: '-0.35em' }}>
-        (<Coins amount={700} /> cap,{' '}
+        (<Coins amount={20} /> per win, <Coins amount={700} /> cap,{' '}
         <a
           href='#multiple-discounts'
           aria-describedby='footnotes'
@@ -23,15 +23,17 @@ export default React.memo(function BrawlCalculatorPremiumPassToggle(props) {
           style={{ textDecoration: 'none', display: 'inline' }}
         >
           10% Brawl discount
-          <span
-            style={{
-              color: 'var(--beige)',
-              marginLeft: '2px',
-              fontSize: '120%',
-            }}
-          >
-            *
-          </span>
+          {props.withFootnote && (
+            <span
+              style={{
+                color: 'var(--beige)',
+                marginLeft: '2px',
+                fontSize: '120%',
+              }}
+            >
+              *
+            </span>
+          )}
         </a>
         )
       </span>

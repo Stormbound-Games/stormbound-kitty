@@ -10,10 +10,9 @@ import {
 import Title from '../Title'
 import { BrawlContext } from '../BrawlProvider'
 import { TOOLTIP_STYLES } from '../../constants/stats'
-import getVictoryCoins from '../../helpers/getVictoryCoins'
 
 export default React.memo(function BrawlCharts(props) {
-  const { brawl, meta } = React.useContext(BrawlContext)
+  const { meta } = React.useContext(BrawlContext)
 
   const data = [
     {
@@ -23,9 +22,7 @@ export default React.memo(function BrawlCharts(props) {
     },
     {
       name: 'Earned',
-      value:
-        brawl.matches.filter(match => ['WON', 'FORFEIT'].includes(match.status))
-          .length * getVictoryCoins(props.setup, props.league),
+      value: props.income,
       color: 'var(--light-shadowfen)',
     },
   ]

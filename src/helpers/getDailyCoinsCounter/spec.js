@@ -18,7 +18,7 @@ describe('The `getDailyCoinsCounter` helper', () => {
   })
 
   it('should cap gains at 400 (steam)', () => {
-    const getCoins = getDailyCoinsCounter({ setup: 'STEAM' })
+    const getCoins = getDailyCoinsCounter({ setup: 'STEAM_OR_WEB' })
     for (let i = 0; i < 400 / 10; i += 1) {
       expect(getCoins()).to.equal(10)
     }

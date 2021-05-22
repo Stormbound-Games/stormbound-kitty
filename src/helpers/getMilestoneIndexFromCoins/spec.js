@@ -5,7 +5,7 @@ describe('The `getMilestoneIndexFromCoins` helper', () => {
     expect(
       getMilestoneIndexFromCoins({
         coins: 0,
-        league: null,
+        league: 'BRAWL',
         winRatio: 0.75,
         crowns: 0,
       })
@@ -16,7 +16,7 @@ describe('The `getMilestoneIndexFromCoins` helper', () => {
     expect(
       getMilestoneIndexFromCoins({
         coins: 30000,
-        league: null,
+        league: 'BRAWL',
         winRatio: 1,
         crowns: 0,
       })

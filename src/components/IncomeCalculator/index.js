@@ -7,6 +7,7 @@ import LeagueSelect from '../LeagueSelect'
 import NumberInput from '../NumberInput'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
+import PremiumPassCheckbox from '../PremiumPassCheckbox'
 import ResourceIcon from '../ResourceIcon'
 import Row from '../Row'
 import Title from '../Title'
@@ -83,6 +84,7 @@ const useIncomeOverPeriod = (settings, period, rubiesConversion) => {
     wins: settings.wins,
     withDailyHumble: settings.withDailyHumble,
     withDailyQuests: settings.withDailyQuests,
+    withPremiumPass: settings.withPremiumPass,
   })
   income.add(activityRewards)
 
@@ -119,13 +121,16 @@ export default React.memo(function IncomeCalculator(props) {
       wins,
       withDailyHumble,
       withDailyQuests,
+      withPremiumPass,
     },
     period,
     rubiesConversion
   )
 
   const coinCap = withPremiumPass ? 700 : 400
-  const maxWins = Math.ceil((coinCap - 30) / getVictoryCoins(setup, league))
+  const maxWins = Math.ceil(
+    (coinCap - 30) / getVictoryCoins(setup, league, withPremiumPass)
+  )
 
   React.useEffect(() => {
     if (wins > maxWins) setWins(maxWins)
@@ -320,14 +325,10 @@ export default React.memo(function IncomeCalculator(props) {
           >
             Open daily Humble book
           </Checkbox>
-          <Checkbox
-            id='premium-pass'
-            name='premium-pass'
+          <PremiumPassCheckbox
             checked={withPremiumPass}
             onChange={event => setWithPremiumPass(event.target.checked)}
-          >
-            Premium Pass
-          </Checkbox>
+          />
         </Row.Column>
         <Row.Column width='1/3'>
           <div>

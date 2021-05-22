@@ -4,14 +4,13 @@ import BrawlCalculatorDiscount from '../BrawlCalculatorDiscount'
 import BrawlCalculatorLegendaryToggle from '../BrawlCalculatorLegendaryToggle'
 import BrawlCalculatorMode from '../BrawlCalculatorMode'
 import BrawlCalculatorOutcome from '../BrawlCalculatorOutcome'
-import BrawlCalculatorPremiumPassToggle from '../BrawlCalculatorPremiumPassToggle'
 import BrawlCalculatorSettings from '../BrawlCalculatorSettings'
 import BrawlCalculatorSetup from '../BrawlCalculatorSetup'
 import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
-import LeagueSelect from '../LeagueSelect'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
+import PremiumPassCheckbox from '../PremiumPassCheckbox'
 import Row from '../Row'
 import Table from '../Table'
 import { Coins, Crowns } from '../Resource'
@@ -22,7 +21,6 @@ import './index.css'
 
 export default React.memo(function BrawlCalculator(props) {
   const [withPremiumPass, setWithPremiumPass] = React.useState(false)
-  const [league, setLeague] = React.useState('')
   const [mode, setMode] = React.useState('')
   const [winRate, setWinRate] = React.useState(50)
   const [coins, setCoins] = React.useState('')
@@ -36,10 +34,6 @@ export default React.memo(function BrawlCalculator(props) {
     setMilestone('')
     setCoins('')
   }, [mode])
-
-  React.useEffect(() => {
-    if (setup === 'NONE') setLeague('')
-  }, [setup])
 
   return (
     <>
@@ -71,10 +65,10 @@ export default React.memo(function BrawlCalculator(props) {
               <div className='BrawlCalculator__section'>
                 <Title>Setup</Title>
                 <BrawlCalculatorSetup setup={setup} setSetup={setSetup} />
-                <LeagueSelect
-                  value={league}
-                  onChange={event => setLeague(event.target.value)}
-                  disabled={setup === 'NONE'}
+                <PremiumPassCheckbox
+                  checked={withPremiumPass}
+                  onChange={event => setWithPremiumPass(event.target.checked)}
+                  withFootnote
                 />
                 <BrawlCalculatorLegendaryToggle
                   mode={mode}
@@ -83,18 +77,10 @@ export default React.memo(function BrawlCalculator(props) {
                   onChange={event => setHasLegendary5(event.target.checked)}
                 />
               </div>
-
-              <div className='BrawlCalculator__section'>
-                <Title>Discounts</Title>
-                <BrawlCalculatorDiscount
-                  discount={discount}
-                  setDiscount={setDiscount}
-                />
-                <BrawlCalculatorPremiumPassToggle
-                  checked={withPremiumPass}
-                  onChange={event => setWithPremiumPass(event.target.checked)}
-                />
-              </div>
+              <BrawlCalculatorDiscount
+                discount={discount}
+                setDiscount={setDiscount}
+              />
             </Row.Column>
           </Row>
         </Row.Column>
@@ -105,7 +91,6 @@ export default React.memo(function BrawlCalculator(props) {
             crowns={crowns}
             discount={discount}
             hasLegendary5={hasLegendary5}
-            league={league}
             milestone={milestone}
             mode={mode}
             setup={setup}
