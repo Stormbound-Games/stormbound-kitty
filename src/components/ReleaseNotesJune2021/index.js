@@ -326,7 +326,7 @@ export default React.memo(function ReleaseNotesJune2021(props) {
               id: 'release-date',
               question: 'When is the update going to be released?',
               answer:
-                'The balance changes will be deployed with the season reset as usual. The two new cards will be available from May 7th.',
+                'The balance changes will be deployed with the season reset as usual. The two new cards will be available from June 7th.',
             },
           ]}
         />
