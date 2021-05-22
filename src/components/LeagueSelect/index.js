@@ -10,6 +10,7 @@ export default React.memo(function LeagueSelect(props) {
         value={props.value}
         onChange={props.onChange}
         required={props.required}
+        disabled={props.disabled}
       >
         <option value=''>Select a league</option>
         <option value='HEROES'>Heroes</option>

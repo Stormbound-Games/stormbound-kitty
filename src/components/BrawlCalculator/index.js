@@ -9,6 +9,7 @@ import BrawlCalculatorSettings from '../BrawlCalculatorSettings'
 import BrawlCalculatorSetup from '../BrawlCalculatorSetup'
 import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
+import LeagueSelect from '../LeagueSelect'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
@@ -20,6 +21,7 @@ import getRewardLabel from '../../helpers/getRewardLabel'
 
 export default React.memo(function BrawlCalculator(props) {
   const [withPremiumPass, setWithPremiumPass] = React.useState(false)
+  const [league, setLeague] = React.useState('')
   const [mode, setMode] = React.useState('')
   const [winRate, setWinRate] = React.useState(50)
   const [coins, setCoins] = React.useState('')
@@ -33,6 +35,10 @@ export default React.memo(function BrawlCalculator(props) {
     setMilestone('')
     setCoins('')
   }, [mode])
+
+  React.useEffect(() => {
+    if (setup === 'NONE') setLeague('')
+  }, [setup])
 
   return (
     <>
@@ -79,22 +85,34 @@ export default React.memo(function BrawlCalculator(props) {
                 checked={withPremiumPass}
                 onChange={event => setWithPremiumPass(event.target.checked)}
               />
-              <BrawlCalculatorDiscount
-                discount={discount}
-                setDiscount={setDiscount}
-              />
+              <Row>
+                <Row.Column>
+                  <LeagueSelect
+                    value={league}
+                    onChange={event => setLeague(event.target.value)}
+                    disabled={setup === 'NONE'}
+                  />
+                </Row.Column>
+                <Row.Column>
+                  <BrawlCalculatorDiscount
+                    discount={discount}
+                    setDiscount={setDiscount}
+                  />
+                </Row.Column>
+              </Row>
             </Row.Column>
             <Row.Column>
               <Title>Outcome</Title>
               <BrawlCalculatorOutcome
+                coins={coins}
                 crowns={crowns}
                 discount={discount}
-                coins={coins}
+                hasLegendary5={hasLegendary5}
+                league={league}
                 milestone={milestone}
                 mode={mode}
                 setup={setup}
                 winRate={winRate}
-                hasLegendary5={hasLegendary5}
                 withPremiumPass={withPremiumPass}
               />
             </Row.Column>

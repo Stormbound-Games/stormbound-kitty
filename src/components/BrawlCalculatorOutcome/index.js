@@ -87,6 +87,16 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
     )
   }
 
+  if (setup !== 'NONE' && !league) {
+    return (
+      <p>
+        You must define in which league you play since it impacts the coins you
+        earn for each victory (unless you decide not to take victory coins into
+        consideration whatsoever).
+      </p>
+    )
+  }
+
   if (mode === 'COINS') {
     if (!coins) {
       return (
