@@ -253,12 +253,20 @@ export default React.memo(function IncomeCalculator(props) {
                 min={
                   milestone === ''
                     ? 0
-                    : getCostForMilestone({ milestone, league, winRatio: 1 })
+                    : getCostForMilestone({
+                        milestone,
+                        league: 'BRAWL',
+                        winRatio: 1,
+                      })
                 }
                 max={
                   milestone === ''
                     ? undefined
-                    : getCostForMilestone({ milestone, league, winRatio: 0 })
+                    : getCostForMilestone({
+                        milestone,
+                        league: 'BRAWL',
+                        winRatio: 0,
+                      })
                 }
               />
             </Row.Column>
