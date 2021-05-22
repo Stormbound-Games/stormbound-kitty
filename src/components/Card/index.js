@@ -116,7 +116,8 @@ export default React.memo(function Card(props) {
           </p>
           {props.rarity && (
             <img
-              className={['Card__rarity', `Card__rarity--${level}`].join(' ')}
+              style={{ '--level': level }}
+              className='Card__rarity'
               src={`/assets/images/card/rarity_${props.rarity}_${level}.png`}
               alt={props.rarity}
               data-testid='card-rarity'
@@ -175,7 +176,14 @@ export default React.memo(function Card(props) {
           </span>
 
           {props.type === 'unit' && props.movement !== null && (
-            <div className='Card__movement'>
+            <div
+              className={[
+                'Card__movement',
+                props.ability?.includes('fixed') && 'Card__movement--fixed',
+              ]
+                .filter(Boolean)
+                .join(' ')}
+            >
               <span
                 className={[
                   'Card__movement-content',
