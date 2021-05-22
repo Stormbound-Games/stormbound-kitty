@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Checkbox from '../Checkbox'
 import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
+import LeagueSelect from '../LeagueSelect'
 import NumberInput from '../NumberInput'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
@@ -195,22 +196,11 @@ export default React.memo(function IncomeCalculator(props) {
           </Row>
           <Row desktopOnly>
             <Row.Column>
-              <label htmlFor='league'>Monthly league</label>
-              <select
-                name='league'
-                id='league'
+              <LeagueSelect
+                label='Monthly league'
                 value={league}
                 onChange={event => setLeague(event.target.value)}
-              >
-                <option value=''>Select a league</option>
-                <option value='HEROES'>Heroes</option>
-                <option value='DIAMOND'>Diamond</option>
-                <option value='PLATINUM'>Platinum</option>
-                <option value='GOLD'>Gold</option>
-                <option value='SILVER'>Silver</option>
-                <option value='BRONZE'>Bronze</option>
-                <option value='IRON'>Iron</option>
-              </select>
+              />
             </Row.Column>
             <Row.Column>
               <label htmlFor='rank'>Monthly rank</label>
