@@ -1095,6 +1095,19 @@
     "ability": "On play, move fixedly forward"
   },
   {
+    "name": "Eternal Ethereals",
+    "id": "N84",
+    "type": "unit",
+    "faction": "neutral",
+    "race": "ancient",
+    "rarity": "common",
+    "image": "eternal_spirits.png",
+    "mana": 8,
+    "strength": "5/6/7/9/11",
+    "movement": 3,
+    "ability": null
+  },
+  {
     "name": "Destructobots",
     "id": "I1",
     "type": "unit",
