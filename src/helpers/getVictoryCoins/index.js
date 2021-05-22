@@ -10,25 +10,23 @@ const getBaseCoinsPerLeague = league => {
     case 'SILVER':
     case 'BRONZE':
     case 'IRON':
+    case 'STARTER':
+    case 'BRAWL':
       return 10
     default:
       return 0
   }
 }
 
-const getVictoryCoins = (setup, league) => {
+const getVictoryCoins = (setup, league, withPremiumPass = false) => {
   switch (setup) {
     case 'MOBILE_WITHOUT_ADS':
-      // @TODO: remove ternary when `league` is being provided in every single
-      // call of this helper.
-      return league ? getBaseCoinsPerLeague(league) : 5
+      return getBaseCoinsPerLeague(league) * (withPremiumPass ? 2 : 1)
     case 'MOBILE_WITH_ADS':
-      // @TODO: remove ternary when `league` is being provided in every single
-      // call of this helper.
-      return league ? getBaseCoinsPerLeague(league) * 2 : 20
+      return getBaseCoinsPerLeague(league) * 2
+    case 'STEAM':
     case 'STEAM_OR_WEB':
-      // @TODO: figure out what are the values for Steam based on the league.
-      return 10
+      return getBaseCoinsPerLeague('STARTER') * (withPremiumPass ? 2 : 1)
     case 'NONE':
       return 0
     default:

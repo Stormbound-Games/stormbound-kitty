@@ -6,12 +6,12 @@ const getDailyCoinsCounter = ({ setup, league, withPremiumPass = false }) => {
 
   return (winRatio = 1) => {
     if (coins < cap) {
-      const extra = getVictoryCoins(setup, league) * winRatio
+      const extra = getVictoryCoins(setup, league, withPremiumPass) * winRatio
       coins += extra
       return extra
     }
 
-    return getVictoryCoins('NONE', league)
+    return getVictoryCoins('NONE', league, withPremiumPass)
   }
 }
 
