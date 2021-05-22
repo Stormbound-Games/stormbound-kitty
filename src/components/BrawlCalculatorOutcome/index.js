@@ -43,14 +43,15 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
     hasLegendary5,
     withPremiumPass,
   } = props
-  const options = [
-    winRate / 100,
+  const options = {
+    winRatio: winRate / 100,
     crowns,
-    1 - discount / 100,
+    costModifier: 1 - discount / 100,
     setup,
     hasLegendary5,
     withPremiumPass,
-  ]
+  }
+
   const info = getMilestoneForCrowns(crowns)
   const gains =
     setup === 'NONE' ? (
@@ -96,7 +97,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
       )
     }
 
-    const reachableIndex = getMilestoneIndexFromCoins(coins, ...options)
+    const reachableIndex = getMilestoneIndexFromCoins({ ...options, coins })
 
     // If the reachable milestone with the available coins is the same as the
     // current milestone, it means there are not enough coins to reach said
@@ -113,7 +114,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
 
     const next =
       reachableIndex < MILESTONES.length - 1
-        ? getCostForMilestone(reachableIndex + 1, ...options)
+        ? getCostForMilestone({ ...options, milestone: reachableIndex + 1 })
         : null
     const nextUp = next ? Math.ceil(Math.ceil(next) / 5) * 5 : null
 
@@ -167,7 +168,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
       )
     }
 
-    const outcome = getCostForMilestone(milestone, ...options)
+    const outcome = getCostForMilestone({ ...options, milestone })
     const outcomeUp = Math.ceil(Math.ceil(outcome) / 5) * 5
     const reward = getRewardLabel(MILESTONES[milestone], true)
 

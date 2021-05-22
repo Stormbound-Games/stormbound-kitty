@@ -10,15 +10,15 @@ import getMilestoneForCrowns from '../getMilestoneForCrowns'
 // @param {String} setup - Wins strategy (ads, Steam…)
 // @param {Boolean} hasLegendary5 - Whether has the Brawl legendary level 5
 // @param {Boolean} withPremiumPass - Whether has the Premium Pass
-const getCostForMilestone = (
+const getCostForMilestone = ({
   milestone,
   winRatio = 1,
   crowns = 0,
   costModifier = 1,
   setup = 'NONE',
   hasLegendary5 = false,
-  withPremiumPass = false
-) => {
+  withPremiumPass = false,
+}) => {
   if (typeof milestone !== 'number' || typeof winRatio !== 'number') return 0
 
   // While this is not confirmed yet, there seem to be no plan to add multiple
