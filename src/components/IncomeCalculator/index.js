@@ -27,7 +27,7 @@ import getCostForMilestone from '../../helpers/getCostForMilestone'
 import getHeroesLeagueRewards from '../../helpers/getHeroesLeagueRewards'
 import getLeagueChestRewards from '../../helpers/getLeagueChestRewards'
 import getRewardLabel from '../../helpers/getRewardLabel'
-import getWinCoins from '../../helpers/getWinCoins'
+import getVictoryCoins from '../../helpers/getVictoryCoins'
 import {
   DailyIncome,
   WeeklyIncome,
@@ -123,7 +123,7 @@ export default React.memo(function IncomeCalculator(props) {
   )
 
   const coinCap = withPremiumPass ? 700 : 400
-  const maxWins = Math.ceil((coinCap - 30) / getWinCoins(setup))
+  const maxWins = Math.ceil((coinCap - 30) / getVictoryCoins(setup))
 
   React.useEffect(() => {
     if (wins > maxWins) setWins(maxWins)

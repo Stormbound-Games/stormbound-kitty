@@ -2,7 +2,7 @@ import React from 'react'
 import { BrawlContext } from '../BrawlProvider'
 import Info from '../Info'
 import { Coins } from '../Resource'
-import getWinCoins from '../../helpers/getWinCoins'
+import getVictoryCoins from '../../helpers/getVictoryCoins'
 import './index.css'
 
 export default React.memo(function BrawlOutcome(props) {
@@ -11,7 +11,7 @@ export default React.memo(function BrawlOutcome(props) {
   const wonMatches = brawl.matches.filter(match =>
     ['WON', 'FORFEIT'].includes(match.status)
   )
-  const income = wonMatches.length * getWinCoins(setup)
+  const income = wonMatches.length * getVictoryCoins(setup)
   const balance = income - meta.coinsSpent
 
   return (

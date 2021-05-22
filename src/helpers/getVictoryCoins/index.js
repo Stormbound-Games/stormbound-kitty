@@ -1,4 +1,4 @@
-const getWinCoins = setup => {
+const getVictoryCoins = setup => {
   switch (setup) {
     case 'MOBILE_WITHOUT_ADS':
       return 5
@@ -13,4 +13,4 @@ const getWinCoins = setup => {
   }
 }
 
-export default getWinCoins
+export default getVictoryCoins

@@ -7,7 +7,7 @@ import getMilestoneIndexFromCoins from '../../helpers/getMilestoneIndexFromCoins
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getCostForMilestone from '../../helpers/getCostForMilestone'
 import getMilestoneForCrowns from '../../helpers/getMilestoneForCrowns'
-import getWinCoins from '../../helpers/getWinCoins'
+import getVictoryCoins from '../../helpers/getVictoryCoins'
 import './index.css'
 
 const BrawlCalculatorRewards = React.memo(function BrawlCalculatorRewards(
@@ -57,7 +57,8 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
       'without considering winning gain'
     ) : (
       <>
-        considering <Coins amount={getWinCoins(setup)} /> per win until coin cap
+        considering <Coins amount={getVictoryCoins(setup)} /> per win until coin
+        cap
       </>
     )
 

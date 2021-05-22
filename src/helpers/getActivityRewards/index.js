@@ -1,5 +1,5 @@
 import { DailyIncome } from '../Income'
-import getWinCoins from '../getWinCoins'
+import getVictoryCoins from '../getVictoryCoins'
 
 const getActivityRewards = ({
   preferTier3Stones,
@@ -23,7 +23,7 @@ const getActivityRewards = ({
   }
 
   if (wins > 0) {
-    rewards.add({ coins: 30 + wins * getWinCoins(setup) })
+    rewards.add({ coins: 30 + wins * getVictoryCoins(setup) })
   }
 
   return rewards

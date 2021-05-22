@@ -1,4 +1,4 @@
-import getWinCoins from '../getWinCoins'
+import getVictoryCoins from '../getVictoryCoins'
 
 const getCoinsForWin = (setup, withPremiumPass = false) => {
   const cap = withPremiumPass ? 700 : 400
@@ -6,12 +6,12 @@ const getCoinsForWin = (setup, withPremiumPass = false) => {
 
   return (winRatio = 1) => {
     if (coins < cap) {
-      const extra = getWinCoins(setup) * winRatio
+      const extra = getVictoryCoins(setup) * winRatio
       coins += extra
       return extra
     }
 
-    return getWinCoins('NONE')
+    return getVictoryCoins('NONE')
   }
 }
 
