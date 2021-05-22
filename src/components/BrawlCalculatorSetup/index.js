@@ -14,7 +14,7 @@ export default React.memo(function BrawlCalculatorSetup(props) {
         checked={props.setup === 'MOBILE_WITHOUT_ADS'}
         onChange={event => props.setSetup(event.target.value)}
       >
-        Mobile (without watching ads)
+        Mobile without ads
       </Radio>
       <Radio
         name='setup'
@@ -24,17 +24,17 @@ export default React.memo(function BrawlCalculatorSetup(props) {
         checked={props.setup === 'MOBILE_WITH_ADS'}
         onChange={event => props.setSetup(event.target.value)}
       >
-        Mobile (while watching ads)
+        Mobile with ads or Premium Pass
       </Radio>
       <Radio
         name='setup'
-        id='STEAM'
-        value='STEAM'
+        id='STEAM_OR_WEB'
+        value='STEAM_OR_WEB'
         required
-        checked={props.setup === 'STEAM'}
+        checked={props.setup === 'STEAM_OR_WEB'}
         onChange={event => props.setSetup(event.target.value)}
       >
-        Steam
+        Steam or web version
       </Radio>
       <Radio
         name='setup'
