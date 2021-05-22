@@ -1,6 +1,5 @@
 import React from 'react'
 import changelog from '../../data/changelog'
-import getRawCardData from '../../helpers/getRawCardData'
 import parseDate from '../../helpers/parseDate'
 import FeedCardChange from '../FeedCardChange'
 import Title from '../Title'
