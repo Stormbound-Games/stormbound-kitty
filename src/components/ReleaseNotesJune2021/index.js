@@ -28,7 +28,7 @@ export default React.memo(function ReleaseNotesJune2021(props) {
       <Article.Narrow>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early June,
-          bringing balance changes, new cards, some Quality of Life improvements
+          bringing balance changes, new cards, some economy changes, bug fixes
           and some exclusive offers as usual!
         </p>
 
@@ -47,6 +47,9 @@ export default React.memo(function ReleaseNotesJune2021(props) {
           </li>
           <li>
             <a href='#new-avatars'>New avatars</a>
+          </li>
+          <li>
+            <a href='#bug-fixes'>Bug fixes</a>
           </li>
           <li>
             <a href='#faq'>FAQ</a>
@@ -81,7 +84,7 @@ export default React.memo(function ReleaseNotesJune2021(props) {
           </li>
           <li>
             <CardLink id='N55' />
-            ’s mana cost is no 7 (down from 8).
+            ’s mana cost is now 7 (down from 8).
           </li>
           <li>
             <CardLink id='N73' />
@@ -90,7 +93,12 @@ export default React.memo(function ReleaseNotesJune2021(props) {
 
           <li>
             <CardLink id='S3' />
-            ’s copy gains 1 strength every time it comes back in hand. If it
+            ’s ability is updated as follow:{' '}
+            <span className='Highlight'>
+              If played with no surrounding enemies, return the copy of this
+              card to your hand with +1 strength
+            </span>
+            . The copy gains 1 strength every time it comes back in hand. If it
             does not, the additional strength is lost and the copy has the
             original strength. The base strength is now 1/2/3/4/5 (down from
             2/3/4/5/6) and the ability is made surrounding.
@@ -101,8 +109,8 @@ export default React.memo(function ReleaseNotesJune2021(props) {
 
         <Title id='new-cards'>New cards</Title>
         <p>
-          Two new cards are joining the Winterpact faction, one rare structure
-          and one common unit—both with freeze dynamics!
+          Two new cards are joining the neutral faction, one rare construct and
+          one common ancient, introducing a bit of a movement twist!
         </p>
       </Article.Narrow>
 
@@ -178,10 +186,21 @@ export default React.memo(function ReleaseNotesJune2021(props) {
             <Coins amount={25} /> for watching an ad or for having the Premium
             Pass.
           </li>
+        </ul>
+
+        <p>Additionally, it is worth nothing that:</p>
+
+        <ul>
           <li>
-            Brawl matches will yield <Coins amount={10} /> + an additional{' '}
-            <Coins amount={10} /> for watching an ad or for having the Premium
-            Pass, regardless of the league of the player.
+            Victories while playing Brawl will yield <Coins amount={10} /> + an
+            additional <Coins amount={10} /> for watching an ad or for having
+            the Premium Pass, regardless of the league of the player.
+          </li>
+
+          <li>
+            Victories while playing Steam will yield <Coins amount={10} /> + an
+            additional <Coins amount={10} /> for having the Premium Pass since
+            ads cannot be watched on this platform.
           </li>
         </ul>
 
@@ -206,7 +225,7 @@ export default React.memo(function ReleaseNotesJune2021(props) {
         <Info icon='equalizer' title='Calculators'>
           <p>
             You will be pleased to know that both the{' '}
-            <Link to='/calculators/income'>income calculator</Link> and
+            <Link to='/calculators/income'>income calculator</Link> and{' '}
             <Link to='/calculators/brawl'>Brawl calculator</Link> have been
             updated to reflect these changes.
           </p>
@@ -327,6 +346,29 @@ export default React.memo(function ReleaseNotesJune2021(props) {
             />
           </Row.Column>
         </Row>
+
+        <Title id='bug-fixes'>Bug fixes</Title>
+
+        <p>
+          This release will bring quite a few interesting bug fixes as well:
+        </p>
+
+        <ul>
+          <li>
+            A potential fix for the{' '}
+            <Link to='/guides/known-bugs#three-cards-in-hand'>
+              issue with the fourth card missing from the hand
+            </Link>
+            .
+          </li>
+          <li>A fix for the bug with upside-down cards in Brawl rewards.</li>
+          <li>A fix for the persistent shop notification icon.</li>
+          <li>
+            A fix for the status effects remaining in place after a frozen unit
+            is pushed.
+          </li>
+          <li>A fix for the incorrect friend filter icons in Steam version.</li>
+        </ul>
 
         <FAQSection
           id='faq'
