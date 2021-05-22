@@ -74,7 +74,7 @@ export default React.memo(function TournamentDeck(props) {
         name={getDeckName(podium, decks, index)}
         author={getDeckAuthor(podium, decks, index)}
         category='EQUALS'
-        nerfed={parseDate(props.date) < new Date(2019, 6, 1) ? '07.2020' : null}
+        nerfed={parseDate(props.date) < new Date(2019, 6, 1) ? '07/2020' : null}
         noAuthorLink
         actions={[
           index > 0 && {
