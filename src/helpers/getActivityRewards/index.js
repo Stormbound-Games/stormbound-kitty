@@ -2,6 +2,7 @@ import { DailyIncome } from '../Income'
 import getVictoryCoins from '../getVictoryCoins'
 
 const getActivityRewards = ({
+  league,
   preferTier3Stones,
   setup,
   wins,
@@ -23,7 +24,7 @@ const getActivityRewards = ({
   }
 
   if (wins > 0) {
-    rewards.add({ coins: 30 + wins * getVictoryCoins(setup) })
+    rewards.add({ coins: 30 + wins * getVictoryCoins(setup, league) })
   }
 
   return rewards

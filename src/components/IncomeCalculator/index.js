@@ -76,6 +76,7 @@ const useIncomeOverPeriod = (settings, period, rubiesConversion) => {
   }
 
   const activityRewards = getActivityRewards({
+    league: settings.league,
     preferTier3Stones: settings.preferTier3Stones,
     setup: settings.setup,
     wins: settings.wins,
