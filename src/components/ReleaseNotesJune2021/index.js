@@ -152,25 +152,25 @@ export default React.memo(function ReleaseNotesJune2021(props) {
 
         <ul>
           <li>
-            In Starter, <span style={{ color: '#d3d1cc' }}>Iron</span>,{' '}
-            <span style={{ color: '#e2c3b7' }}>Bronze</span>,{' '}
-            <span style={{ color: '#d6d9e2' }}>Silver</span> and{' '}
-            <span style={{ color: '#f1e0be' }}>Gold</span> leagues, a victory
-            will yield <Coins amount={10} /> + an additional{' '}
+            In Starter, <span style={{ color: 'var(--iron)' }}>Iron</span>,{' '}
+            <span style={{ color: 'var(--bronze)' }}>Bronze</span>,{' '}
+            <span style={{ color: 'var(--silver)' }}>Silver</span> and{' '}
+            <span style={{ color: 'var(--gold)' }}>Gold</span> leagues, a
+            victory will yield <Coins amount={10} /> + an additional{' '}
             <Coins amount={10} /> for watching an ad.
           </li>
           <li>
-            In <span style={{ color: '#c0e0cf' }}>Platinum</span> league, a
-            victory will yield <Coins amount={15} /> + an additional{' '}
+            In <span style={{ color: 'var(--platinum)' }}>Platinum</span>{' '}
+            league, a victory will yield <Coins amount={15} /> + an additional{' '}
             <Coins amount={15} /> for watching an ad.
           </li>
           <li>
-            In <span style={{ color: '#c8c0df' }}>Diamond</span> league, a
-            victory will yield <Coins amount={20} /> + an additional{' '}
+            In <span style={{ color: 'var(--diamond)' }}>Diamond</span> league,
+            a victory will yield <Coins amount={20} /> + an additional{' '}
             <Coins amount={20} /> for watching an ad.
           </li>
           <li>
-            In <span style={{ color: '#caf9ff' }}>Heroes</span> league, a
+            In <span style={{ color: 'var(--heroes)' }}>Heroes</span> league, a
             victory will yield <Coins amount={25} /> + an additional{' '}
             <Coins amount={25} /> for watching an ad.
           </li>
