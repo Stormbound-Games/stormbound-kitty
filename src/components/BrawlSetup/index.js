@@ -29,7 +29,7 @@ export default React.memo(function BrawlSetup(props) {
           checked={props.setup === 'MOBILE_WITH_ADS'}
           onChange={event => props.setSetup(event.target.value)}
         >
-          Mobile with ads or Premium Pass
+          Mobile with ads
         </Radio>
         <Radio
           name='setup'
