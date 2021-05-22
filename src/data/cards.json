@@ -1082,6 +1082,19 @@
     "elder": false
   },
   {
+    "name": "Headless Hotheads",
+    "id": "N83",
+    "type": "unit",
+    "faction": "neutral",
+    "race": "construct",
+    "rarity": "rare",
+    "image": "headless_hotheads.png",
+    "mana": 5,
+    "strength": "3/4/5/6/7",
+    "movement": 2,
+    "ability": "On play, move fixedly forward"
+  },
+  {
     "name": "Destructobots",
     "id": "I1",
     "type": "unit",
