@@ -265,8 +265,9 @@ export default React.memo(function ReleaseNotesJune2021(props) {
         <Title id='new-avatars'>New avatars</Title>
 
         <p>
-          There will be 6 new avatars added to the game: 3 free to everyone, and
-          3 premium avatars. In case you missed it,{' '}
+          There will be 6 new avatars added to the game: 3 for everyone at{' '}
+          <Coins amount={1000} /> a piece, and 3 premium avatars for{' '}
+          <Rubies amount={200} />. In case you missed it,{' '}
           <Link to='/fan-kit/avatars'>
             all avatar images are now available in the fan-kit
           </Link>
