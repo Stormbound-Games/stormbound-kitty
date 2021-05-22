@@ -13,7 +13,7 @@ export default {
       .setTitle(`${this.label}: help`)
       .setURL('https://stormbound-kitty.com/trivia')
       .setDescription(
-        `Initiate a card, question, or image trivia (only in #trivia). It accepts an optional duration in seconds (and the keyword \`hard\` for grayscale image trivia).`
+        `Initiate a card, question, or image trivia (only in #trivia, if it exists). It accepts an optional duration in seconds (and the keyword \`hard\` for grayscale image trivia).`
       )
       .addFields(
         { name: 'Start card trivia', value: '`!trivia card`', inline: true },
