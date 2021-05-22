@@ -51,7 +51,7 @@ export default {
           const dateA = parseDate(a)
           const dateB = parseDate(b)
 
-          return dateA < dateB ? -1 : dateA > dateB ? +1 : 0
+          return dateA > dateB ? -1 : dateA < dateB ? +1 : 0
         })
         .map(date => {
           const name = dateFormat(parseDate(date), 'd mmm yyyy')
