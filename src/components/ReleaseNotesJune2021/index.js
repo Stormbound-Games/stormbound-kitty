@@ -157,27 +157,31 @@ export default React.memo(function ReleaseNotesJune2021(props) {
             <span style={{ color: 'var(--silver)' }}>Silver</span> and{' '}
             <span style={{ color: 'var(--gold)' }}>Gold</span> leagues, a
             victory will yield <Coins amount={10} /> + an additional{' '}
-            <Coins amount={10} /> for watching an ad.
+            <Coins amount={10} /> for watching an ad or for having the Premium
+            Pass.
           </li>
           <li>
             In <span style={{ color: 'var(--platinum)' }}>Platinum</span>{' '}
             league, a victory will yield <Coins amount={15} /> + an additional{' '}
-            <Coins amount={15} /> for watching an ad.
+            <Coins amount={15} /> for watching an ad or for having the Premium
+            Pass.
           </li>
           <li>
             In <span style={{ color: 'var(--diamond)' }}>Diamond</span> league,
             a victory will yield <Coins amount={20} /> + an additional{' '}
-            <Coins amount={20} /> for watching an ad.
+            <Coins amount={20} /> for watching an ad or for having the Premium
+            Pass.
           </li>
           <li>
             In <span style={{ color: 'var(--heroes)' }}>Heroes</span> league, a
             victory will yield <Coins amount={25} /> + an additional{' '}
-            <Coins amount={25} /> for watching an ad.
+            <Coins amount={25} /> for watching an ad or for having the Premium
+            Pass.
           </li>
           <li>
             Brawl matches will yield <Coins amount={10} /> + an additional{' '}
-            <Coins amount={10} /> for watching an ad, regardless of the league
-            of the player.
+            <Coins amount={10} /> for watching an ad or for having the Premium
+            Pass, regardless of the league of the player.
           </li>
         </ul>
 
