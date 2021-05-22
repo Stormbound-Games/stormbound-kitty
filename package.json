@@ -6,7 +6,7 @@
     "@loadable/component": "^5.15.0",
     "@reach/tooltip": "^0.15.0",
     "abort-controller": "^3.0.0",
-    "canvas": "^2.7.0",
+    "canvas": "^2.8.0",
     "comlink": "^4.3.1",
     "copy-to-clipboard": "^3.3.1",
     "dateformat": "^4.5.1",
