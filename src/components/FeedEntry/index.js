@@ -1,9 +1,16 @@
 import React from 'react'
 import Icon from '../Icon'
-import { formatDate } from '../../helpers/formatDate'
+import { formatDate, formatPreciseDate } from '../../helpers/formatDate'
 import './index.css'
 
+const pad = value => String(value).padStart(2, '0')
+
 export default React.memo(function FeedEntry(props) {
+  const isLong = props.dateFormat === 'LONG'
+  const connector = isLong ? 'On' : 'In'
+  const format = isLong ? formatPreciseDate : formatDate
+  const date = props.date
+
   return (
     <div className='FeedEntry'>
       <span className='FeedEntry__left'>
@@ -14,15 +21,16 @@ export default React.memo(function FeedEntry(props) {
           <time
             className='FeedEntry__date'
             dateTime={
-              props.date.getFullYear() +
+              date.getFullYear() +
               '-' +
-              String(props.date.getMonth()).padStart(2, '0')
+              pad(date.getMonth()) +
+              (isLong ? '-' + pad(date.getDate()) : '')
             }
           >
-            In {formatDate(props.date)}
+            {connector} {format(date)}
           </time>
         ) : (
-          <span className='FeedEntry__date'>{props.date}</span>
+          <span className='FeedEntry__date'>{date}</span>
         )}
         <div className='FeedEntry__label'>{props.children}</div>
       </div>

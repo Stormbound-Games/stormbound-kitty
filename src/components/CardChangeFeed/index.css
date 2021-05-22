@@ -1,0 +1,10 @@
+.CardChangeFeed {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: 125%;
+}
+
+.CardChangeFeed__item {
+  margin-bottom: 1em;
+}

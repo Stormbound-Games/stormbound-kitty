@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
+import CardChangeFeed from '../CardChangeFeed'
 import CardDisplay from '../CardBuilderCardDisplay'
 import CardDisplayControls from '../CardDisplayControls'
 import Article from '../Article'
@@ -98,6 +99,13 @@ export default React.memo(function CardBuilderApp(props) {
           </div>
         </>
       )}
+
+      {isOfficial && (
+        <Article.Narrow>
+          <CardChangeFeed id={props.cardId} />
+        </Article.Narrow>
+      )}
+
       {articleProps.author && (
         <Helmet>
           <meta name='author' content={articleProps.author} />
