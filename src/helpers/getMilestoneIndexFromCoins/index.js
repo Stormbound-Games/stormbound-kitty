@@ -1,5 +1,5 @@
 import { MILESTONES } from '../../constants/brawl'
-import getCoinsForWin from '../getCoinsForWin'
+import getDailyCoinsCounter from '../getDailyCoinsCounter'
 import getMilestoneForCrowns from '../getMilestoneForCrowns'
 
 // @param {Integer} coins - Amount of available coins
@@ -24,7 +24,7 @@ const getMilestoneIndexFromCoins = (
   // discounts, so we take the highest discount (hence lowest cost modifier).
   costModifier = Math.min(withPremiumPass ? 0.9 : 1, costModifier)
 
-  const getCoins = getCoinsForWin(setup, withPremiumPass)
+  const getCoins = getDailyCoinsCounter(setup, withPremiumPass)
   const { nextIndex, next } = getMilestoneForCrowns(crowns)
 
   // If there is no next milestone, that means there are already too many crowns

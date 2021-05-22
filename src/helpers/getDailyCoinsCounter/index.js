@@ -1,6 +1,6 @@
 import getVictoryCoins from '../getVictoryCoins'
 
-const getCoinsForWin = (setup, withPremiumPass = false) => {
+const getDailyCoinsCounter = (setup, withPremiumPass = false) => {
   const cap = withPremiumPass ? 700 : 400
   let coins = 0
 
@@ -15,4 +15,4 @@ const getCoinsForWin = (setup, withPremiumPass = false) => {
   }
 }
 
-export default getCoinsForWin
+export default getDailyCoinsCounter
