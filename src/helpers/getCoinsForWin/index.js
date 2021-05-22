@@ -1,4 +1,4 @@
-import { COIN_MULTIPLIERS } from '../../constants/brawl'
+import getWinCoins from '../getWinCoins'
 
 const getCoinsForWin = (setup, withPremiumPass = false) => {
   const cap = withPremiumPass ? 700 : 400
@@ -6,12 +6,12 @@ const getCoinsForWin = (setup, withPremiumPass = false) => {
 
   return (winRatio = 1) => {
     if (coins < cap) {
-      const extra = COIN_MULTIPLIERS[setup] * winRatio
+      const extra = getWinCoins(setup) * winRatio
       coins += extra
       return extra
     }
 
-    return COIN_MULTIPLIERS.NONE
+    return getWinCoins('NONE')
   }
 }
 

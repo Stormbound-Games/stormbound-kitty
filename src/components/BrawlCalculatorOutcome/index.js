@@ -2,11 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Info from '../Info'
 import { Coins, Crowns } from '../Resource'
-import { MILESTONES, COIN_MULTIPLIERS } from '../../constants/brawl'
+import { MILESTONES } from '../../constants/brawl'
 import getMilestoneIndexFromCoins from '../../helpers/getMilestoneIndexFromCoins'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getCostForMilestone from '../../helpers/getCostForMilestone'
 import getMilestoneForCrowns from '../../helpers/getMilestoneForCrowns'
+import getWinCoins from '../../helpers/getWinCoins'
 import './index.css'
 
 const BrawlCalculatorRewards = React.memo(function BrawlCalculatorRewards(
@@ -56,8 +57,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
       'without considering winning gain'
     ) : (
       <>
-        considering <Coins amount={COIN_MULTIPLIERS[setup]} /> per win until
-        coin cap
+        considering <Coins amount={getWinCoins(setup)} /> per win until coin cap
       </>
     )
 

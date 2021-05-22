@@ -127,11 +127,4 @@ export const MATCH_STATUSES = {
   SURRENDERED: 'S',
 }
 
-export const COIN_MULTIPLIERS = {
-  STEAM: 10,
-  MOBILE_WITH_ADS: 20,
-  MOBILE_WITHOUT_ADS: 5,
-  NONE: 0,
-}
-
 export const CYCLE_START = new Date(2021, 3, 1, 9, 0)

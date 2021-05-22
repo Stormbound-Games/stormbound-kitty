@@ -10,7 +10,7 @@ import {
 import Title from '../Title'
 import { BrawlContext } from '../BrawlProvider'
 import { TOOLTIP_STYLES } from '../../constants/stats'
-import { COIN_MULTIPLIERS } from '../../constants/brawl'
+import getWinCoins from '../../helpers/getWinCoins'
 
 export default React.memo(function BrawlCharts(props) {
   const { brawl, meta } = React.useContext(BrawlContext)
@@ -25,7 +25,7 @@ export default React.memo(function BrawlCharts(props) {
       name: 'Earned',
       value:
         brawl.matches.filter(match => ['WON', 'FORFEIT'].includes(match.status))
-          .length * COIN_MULTIPLIERS[props.setup],
+          .length * getWinCoins(props.setup),
       color: 'var(--light-shadowfen)',
     },
   ]

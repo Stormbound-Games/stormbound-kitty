@@ -6,6 +6,8 @@ const getWinCoins = setup => {
       return 20
     case 'STEAM_OR_WEB':
       return 10
+    case 'NONE':
+      return 0
     default:
       return 1
   }
