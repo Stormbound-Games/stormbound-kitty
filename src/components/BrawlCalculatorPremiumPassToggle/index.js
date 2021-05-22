@@ -15,7 +15,7 @@ export default React.memo(function BrawlCalculatorPremiumPassToggle(props) {
         Premium Pass
       </Checkbox>
       <span style={{ marginTop: '-0.35em' }}>
-        (<Coins amount={20} /> per win, <Coins amount={700} /> cap,{' '}
+        (extra coins per win, <Coins amount={700} /> cap,{' '}
         <a
           href='#multiple-discounts'
           aria-describedby='footnotes'
