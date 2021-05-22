@@ -10,7 +10,8 @@ import CardLink from '../CardLink'
 import changelog from '../../data/changelog'
 import sortCards from '../../helpers/sortCards'
 import getRawCardData from '../../helpers/getRawCardData'
-import { formatDate } from '../../helpers/formatDate'
+import parseDate from '../../helpers/parseDate'
+import { formatDate, formatPreciseDate } from '../../helpers/formatDate'
 import cards from '../../data/cards'
 import './index.css'
 
@@ -117,12 +118,17 @@ export default function CardChangelog(props) {
         <Row.Column width='2/3'>
           {sorting === 'DATE'
             ? Object.keys(changesByDate)
-                .sort()
+                .sort((a, b) => {
+                  const dateA = parseDate(a)
+                  const dateB = parseDate(b)
+
+                  return dateA < dateB ? -1 : dateA > dateB ? +1 : 0
+                })
                 .reverse()
                 .map(date => (
                   <section className='CardChanges__section' key={date}>
                     <Title className='CardChanges__title'>
-                      {formatDate(date)}
+                      {formatDate(parseDate(date))}
                     </Title>
                     <ul className='CardChanges__list'>
                       {changesByDate[date].map(change => (
@@ -144,7 +150,7 @@ export default function CardChangelog(props) {
                       {changesByCard[id].map(change => (
                         <li key={id + change.date + change.description}>
                           <time className='Highlight'>
-                            {formatDate(change.date)}
+                            {formatPreciseDate(parseDate(change.date))}
                           </time>
                           : <Change {...change} />
                         </li>

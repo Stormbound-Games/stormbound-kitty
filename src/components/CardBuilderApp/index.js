@@ -9,18 +9,13 @@ import LevelForm from '../CardBuilderLevelForm'
 import Row from '../Row'
 import Title from '../Title'
 import getRawCardData from '../../helpers/getRawCardData'
+import parseDate from '../../helpers/parseDate'
 import swcc from '../../data/swcc'
 import './index.css'
 
 const getWikiUrl = name =>
   'https://stormboundkingdomwars.fandom.com/' +
   encodeURIComponent(name.replace(/\s/g, '_').replace(/’/g, "'"))
-
-const getEntryDate = entry => {
-  const [day, month, year] = entry.date.split('/').map(Number)
-
-  return new Date(year, month - 1, day)
-}
 
 const useArticleProps = props => {
   const isOfficial = Boolean(getRawCardData(props.cardId).name)
@@ -44,7 +39,7 @@ const useArticleProps = props => {
       children: 'Open in wiki',
     }
   } else if (contest) {
-    const season = getEntryDate(contest) > getEntryDate(swcc[1][0]) ? 2 : 1
+    const season = parseDate(contest.date) > parseDate(swcc[1][0].date) ? 2 : 1
 
     properties.meta = `Week #${contest.id} (season ${season})`
     properties.author = contest.winner.author

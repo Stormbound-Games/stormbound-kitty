@@ -1,6 +1,7 @@
 import React from 'react'
 import { StoriesContext } from '../components/StoriesProvider'
 import capitalise from '../helpers/capitalise'
+import parseDate from '../helpers/parseDate'
 import decks from '../data/decks'
 import contributions from '../data/contributions'
 import donations from '../data/donations'
@@ -13,13 +14,10 @@ import releases from '../data/releases'
 import podcasts from '../data/podcasts'
 import swcc from '../data/swcc'
 
-const formatEntryWithDate = entry => {
-  if (!entry.date) return entry
-
-  const [month, year] = entry.date.split('/')
-
-  return { ...entry, date: new Date(+year, +month - 1, 1) }
-}
+const formatEntryWithDate = entry => ({
+  ...entry,
+  date: entry.date ? parseDate(entry.date) : entry.date,
+})
 
 // The `_stories` argument is only provided when used via the Discord bot
 // `!member` command since it cannot access the React context and this hook

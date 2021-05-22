@@ -15,6 +15,7 @@ import tournaments from '../../data/tournaments.json'
 import './index.css'
 import MemberList from '../MemberList'
 import { formatDate } from '../../helpers/formatDate'
+import parseDate from '../../helpers/parseDate'
 
 export const getDate = string => {
   if (!string) return null
@@ -37,7 +38,7 @@ export default React.memo(function TournamentHallOfFame(props) {
               <Row.Column>
                 <h2 className='Tournament__name'>{tournament.name}</h2>
                 <p className='Tournament__meta'>
-                  {formatDate(getDate(tournament.date))} · By{' '}
+                  {formatDate(parseDate(tournament.date))} · By{' '}
                   <MemberList members={tournament.hosts} />
                 </p>
                 {Boolean(tournament.description) && (

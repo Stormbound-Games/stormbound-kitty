@@ -4,18 +4,11 @@ import { RESTRICTIONS, TYPES } from '../../constants/puzzles'
 import Image from '../Image'
 import Only from '../Only'
 import { formatDate } from '../../helpers/formatDate'
+import parseDate from '../../helpers/parseDate'
 import './index.css'
 
-const getDate = date => {
-  if (date instanceof Date) return date
-
-  const [month, year] = date.split('/')
-
-  return new Date(+year, +month - 1, 1)
-}
-
 export default React.memo(function BattleSimPuzzle(props) {
-  const date = getDate(props.date)
+  const date = parseDate(props.date)
 
   return (
     <div className='BattleSimPuzzle'>

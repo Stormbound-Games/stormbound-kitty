@@ -1,7 +1,8 @@
 import dateFormat from 'dateformat'
-import changelog from '../../../data/changelog.json'
+import changelog from '../../../data/changelog'
 import getEmbed from '../../../helpers/getEmbed'
 import searchCards from '../../../helpers/searchCards'
+import parseDate from '../../../helpers/parseDate'
 
 const groupByDate = (acc, change) => {
   if (typeof acc[change.date] === 'undefined') {
@@ -46,9 +47,14 @@ export default {
 
     embed.addFields(
       ...Object.keys(changesByDate)
-        .sort((a, b) => +b - +a)
+        .sort((a, b) => {
+          const dateA = parseDate(a)
+          const dateB = parseDate(b)
+
+          return dateA < dateB ? -1 : dateA > dateB ? +1 : 0
+        })
         .map(date => {
-          const name = dateFormat(new Date(+date), 'd mmm yyyy')
+          const name = dateFormat(parseDate(date), 'd mmm yyyy')
           const value = changesByDate[date]
             .map(change => '- ' + change.description)
             .join('\n')

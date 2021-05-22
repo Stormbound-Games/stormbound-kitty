@@ -1,7 +1,7 @@
 import React from 'react'
 import FeaturedDeck from '../FeaturedDeck'
 import MemberList from '../MemberList'
-import { getDate } from '../TournamentHallOfFame'
+import parseDate from '../../helpers/parseDate'
 import toSentence from '../../helpers/toSentence'
 
 const toArray = value => (Array.isArray(value) ? value : [value])
@@ -74,7 +74,7 @@ export default React.memo(function TournamentDeck(props) {
         name={getDeckName(podium, decks, index)}
         author={getDeckAuthor(podium, decks, index)}
         category='EQUALS'
-        nerfed={getDate(props.date) < new Date(2019, 6, 1) ? '07.2020' : null}
+        nerfed={parseDate(props.date) < new Date(2019, 6, 1) ? '07.2020' : null}
         noAuthorLink
         actions={[
           index > 0 && {

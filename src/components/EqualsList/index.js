@@ -8,6 +8,7 @@ import ListBuilderTier from '../ListBuilderTier'
 import ListBuilderToc from '../ListBuilderToc'
 import getInitialListData from '../../helpers/getInitialListData'
 import getRawCardData from '../../helpers/getRawCardData'
+import parseDate from '../../helpers/parseDate'
 import { formatDate } from '../../helpers/formatDate'
 import RELEASES from '../../data/releases.json'
 
@@ -31,8 +32,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
       }),
     }))
     .filter(tier => tier.cards.length > 0)
-  const [month, year] = date.split('/')
-  const lastUpdate = new Date(+year, +month - 1, 1)
+  const lastUpdate = parseDate(date)
   const release = RELEASES.find(release => release.date === date)
 
   return (
