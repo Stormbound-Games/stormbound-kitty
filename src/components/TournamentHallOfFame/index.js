@@ -17,12 +17,6 @@ import MemberList from '../MemberList'
 import { formatDate } from '../../helpers/formatDate'
 import parseDate from '../../helpers/parseDate'
 
-export const getDate = string => {
-  if (!string) return null
-  const [month, year] = string.split('/')
-  return new Date(+year, +month - 1, 1)
-}
-
 export default React.memo(function TournamentHallOfFame(props) {
   return (
     <Article title='Tournaments'>
