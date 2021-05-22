@@ -38,10 +38,15 @@ export default () => {
           icon: 'bullhorn',
           items: [
             {
+              label: 'Update 06-2021',
+              to: '/releases/06-2021',
+              id: '06_2021',
+              new: true,
+            },
+            {
               label: 'Update 05-2021',
               to: '/releases/05-2021',
               id: '05_2021',
-              new: true,
             },
             {
               label: 'Update 04-2021',
