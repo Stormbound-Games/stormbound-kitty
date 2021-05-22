@@ -5,7 +5,7 @@ import './index.css'
 export default React.memo(function BrawlCalculatorSetup(props) {
   return (
     <fieldset className='BrawlCalculatorSetup'>
-      <legend>Setup</legend>
+      <legend>Coins Setup</legend>
       <Radio
         name='setup'
         id='MOBILE_WITHOUT_ADS'
