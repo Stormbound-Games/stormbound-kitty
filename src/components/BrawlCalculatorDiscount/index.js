@@ -4,7 +4,7 @@ import NumberInput from '../NumberInput'
 export default React.memo(function BrawlCalculatorDiscount(props) {
   return (
     <>
-      <label htmlFor='discount'>Specific discount (%)</label>
+      <label htmlFor='discount'>Event-specific discount (%)</label>
       <NumberInput
         id='discount'
         name='discount'
