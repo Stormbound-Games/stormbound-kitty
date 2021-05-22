@@ -25,7 +25,7 @@ export default React.memo(function BrawlCharts(props) {
       name: 'Earned',
       value:
         brawl.matches.filter(match => ['WON', 'FORFEIT'].includes(match.status))
-          .length * getVictoryCoins(props.setup),
+          .length * getVictoryCoins(props.setup, props.league),
       color: 'var(--light-shadowfen)',
     },
   ]

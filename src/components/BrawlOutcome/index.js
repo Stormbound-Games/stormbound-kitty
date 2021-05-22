@@ -11,7 +11,7 @@ export default React.memo(function BrawlOutcome(props) {
   const wonMatches = brawl.matches.filter(match =>
     ['WON', 'FORFEIT'].includes(match.status)
   )
-  const income = wonMatches.length * getVictoryCoins(setup)
+  const income = wonMatches.length * getVictoryCoins(setup, props.league)
   const balance = income - meta.coinsSpent
 
   return (

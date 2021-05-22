@@ -9,6 +9,7 @@ import getMilestoneForCrowns from '../getMilestoneForCrowns'
 // @param {String} setup - Wins strategy (ads, Steam…)
 // @param {Boolean} withPremiumPass - Whether has the Premium Pass
 const getMilestoneIndexFromCoins = ({
+  league,
   coins,
   winRatio = 1,
   crowns = 0,
@@ -22,7 +23,7 @@ const getMilestoneIndexFromCoins = ({
   // discounts, so we take the highest discount (hence lowest cost modifier).
   costModifier = Math.min(withPremiumPass ? 0.9 : 1, costModifier)
 
-  const getCoins = getDailyCoinsCounter(setup, withPremiumPass)
+  const getCoins = getDailyCoinsCounter({ setup, league, withPremiumPass })
   const { nextIndex, next } = getMilestoneForCrowns(crowns)
 
   // If there is no next milestone, that means there are already too many crowns

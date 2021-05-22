@@ -33,22 +33,24 @@ const BrawlCalculatorRewards = React.memo(function BrawlCalculatorRewards(
 
 export default React.memo(function BrawlCalculatorOutcome(props) {
   const {
-    mode,
-    crowns,
     coins,
-    milestone,
-    winRate,
-    setup,
+    crowns,
     discount,
     hasLegendary5,
+    league,
+    milestone,
+    mode,
+    setup,
+    winRate,
     withPremiumPass,
   } = props
   const options = {
-    winRatio: winRate / 100,
-    crowns,
     costModifier: 1 - discount / 100,
-    setup,
+    crowns,
     hasLegendary5,
+    league,
+    setup,
+    winRatio: winRate / 100,
     withPremiumPass,
   }
 
@@ -58,8 +60,8 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
       'without considering winning gain'
     ) : (
       <>
-        considering <Coins amount={getVictoryCoins(setup)} /> per win until coin
-        cap
+        considering <Coins amount={getVictoryCoins(setup, league)} /> per win
+        until coin cap
       </>
     )
 
