@@ -10,9 +10,11 @@ import Notice from '../Notice'
 import LevelForm from '../CardBuilderLevelForm'
 import Row from '../Row'
 import Title from '../Title'
+import usePrevious from '../../hooks/usePrevious'
 import getRawCardData from '../../helpers/getRawCardData'
 import parseDate from '../../helpers/parseDate'
 import serialisation from '../../helpers/serialisation'
+import { formatPreciseDate } from '../../helpers/formatDate'
 import swcc from '../../data/swcc'
 import changelog from '../../data/changelog'
 import './index.css'
@@ -36,7 +38,12 @@ const useArticleProps = (props, versionId) => {
   }
 
   if (isOfficial) {
-    properties.meta = [faction, type, race, versionId ? 'v' + versionId : null]
+    properties.meta = [
+      faction,
+      type,
+      race,
+      versionId ? 'Prior ' + formatPreciseDate(+versionId) : null,
+    ]
       .filter(Boolean)
       .join(' · ')
     properties.action = {
@@ -66,13 +73,6 @@ const useArticleProps = (props, versionId) => {
 
   return properties
 }
-
-const stringifyDate = date =>
-  [
-    String(date.getDate()).padStart(2, '0'),
-    String(date.getMonth() + 1).padStart(2, '0'),
-    date.getFullYear(),
-  ].join('/')
 
 const isCardOfficial = cardId => Boolean(getRawCardData(cardId).name)
 
@@ -115,6 +115,7 @@ export default React.memo(function CardBuilderApp(props) {
   const [versionId, setVersionId] = React.useState(getVersionIdFromURL())
   const cardData = useCardData(props, versionId)
   const articleProps = useArticleProps(props, versionId)
+  const previousCardId = usePrevious(props.cardId)
 
   React.useEffect(() => {
     const parameters = new URLSearchParams(window.location.search)
@@ -124,8 +125,8 @@ export default React.memo(function CardBuilderApp(props) {
   }, [versionId, history])
 
   React.useEffect(() => {
-    setVersionId(null)
-  }, [props.cardId])
+    if (previousCardId && previousCardId !== props.cardId) setVersionId(null)
+  }, [previousCardId, props.cardId])
 
   return (
     <Article {...articleProps} smallFontSize>
