@@ -34,4 +34,5 @@
 .FeedEntry__right {
   margin-left: auto;
   align-self: center;
+  padding-left: 2ch;
 }
