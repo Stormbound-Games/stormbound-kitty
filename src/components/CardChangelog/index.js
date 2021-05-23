@@ -123,7 +123,10 @@ export default function CardChangelog(props) {
                         className='CardChanges__item'
                         key={id + change.date + change.description}
                       >
-                        <FeedCardChange {...change} />
+                        <FeedCardChange
+                          {...change}
+                          date={parseDate(change.date)}
+                        />
                       </li>
                     ))}
                   </ul>
