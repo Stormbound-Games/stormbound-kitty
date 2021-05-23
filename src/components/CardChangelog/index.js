@@ -11,10 +11,8 @@ import sortCards from '../../helpers/sortCards'
 import getRawCardData from '../../helpers/getRawCardData'
 import parseDate from '../../helpers/parseDate'
 import { formatDate } from '../../helpers/formatDate'
-import cards from '../../data/cards'
 import './index.css'
 
-const CARD_IDS = cards.sort(sortCards()).map(card => card.id)
 const getCardName = id => getRawCardData(id).name
 
 export default function CardChangelog(props) {
@@ -24,10 +22,11 @@ export default function CardChangelog(props) {
     return changelog
       .filter(change => type === '*' || change.type === type)
       .reduce((acc, change) => {
-        if (!acc[change.date]) {
-          acc[change.date] = []
-        }
-        acc[change.date].push(change)
+        const chunks = change.date.split('/')
+        const key = chunks[1] + '/' + chunks[2]
+
+        if (!acc[key]) acc[key] = []
+        acc[key].push(change)
         return acc
       }, {})
   }, [type])
@@ -85,36 +84,34 @@ export default function CardChangelog(props) {
 
         {sorting === 'DATE'
           ? Object.keys(changesByDate)
-              .sort((a, b) => {
-                const dateA = parseDate(a)
-                const dateB = parseDate(b)
-
-                return dateA < dateB ? -1 : dateA > dateB ? +1 : 0
-              })
-              .reverse()
+              .sort((a, b) => parseDate(b) - parseDate(a))
               .map(date => (
                 <section className='CardChanges__section' key={date}>
                   <Title className='CardChanges__title'>
                     {formatDate(parseDate(date))}
                   </Title>
                   <ul className='CardChanges__list'>
-                    {changesByDate[date].map(change => (
-                      <li
-                        className='CardChanges__item'
-                        key={change.date + change.id + change.description}
-                      >
-                        <FeedCardChange
-                          {...change}
-                          date={change.type}
-                          author={change.id}
-                        />
-                      </li>
-                    ))}
+                    {changesByDate[date]
+                      .sort((a, b) =>
+                        sortCards()(getRawCardData(a.id), getRawCardData(b.id))
+                      )
+                      .map(change => (
+                        <li
+                          className='CardChanges__item'
+                          key={change.date + change.id + change.description}
+                        >
+                          <FeedCardChange
+                            {...change}
+                            date={change.type}
+                            author={change.id}
+                          />
+                        </li>
+                      ))}
                   </ul>
                 </section>
               ))
           : Object.keys(changesByCard)
-              .sort((a, b) => CARD_IDS.indexOf(a) - CARD_IDS.indexOf(b))
+              .sort((a, b) => sortCards()(getRawCardData(a), getRawCardData(b)))
               .map(id => (
                 <section className='CardChanges__section' key={id}>
                   <Title className='CardChanges__title'>

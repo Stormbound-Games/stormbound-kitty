@@ -47,12 +47,7 @@ export default {
 
     embed.addFields(
       ...Object.keys(changesByDate)
-        .sort((a, b) => {
-          const dateA = parseDate(a)
-          const dateB = parseDate(b)
-
-          return dateA > dateB ? -1 : dateA < dateB ? +1 : 0
-        })
+        .sort((a, b) => parseDate(b) - parseDate(a))
         .map(date => {
           const name = dateFormat(parseDate(date), 'd mmm yyyy')
           const value = changesByDate[date]
