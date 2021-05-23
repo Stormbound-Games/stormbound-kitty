@@ -1,15 +1,9 @@
 [
   {
     "date": "11/10/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and negative ability decreased by 1",
     "id": "I1",
-    "type": "NERF"
-  },
-  {
-    "date": "11/10/2017",
-    "description": "Negative ability decreased by 1",
-    "id": "I1",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "09/07/2018",
@@ -19,27 +13,15 @@
   },
   {
     "date": "07/08/2017",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and strength decreased by 1",
     "id": "I2",
-    "type": "BUFF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Strength decreased by 1",
-    "id": "I2",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "06/09/2017",
-    "description": "Strength increased by 1",
+    "description": "Strength increased by 1 and movement reduced to 0",
     "id": "I2",
-    "type": "BUFF"
-  },
-  {
-    "date": "06/09/2017",
-    "description": "Movement reduced to 0",
-    "id": "I2",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "09/07/2018",
@@ -55,21 +37,9 @@
   },
   {
     "date": "31/01/2018",
-    "description": "Mana cost decreased by 3",
+    "description": "Mana cost decreased by 3, given strength decreased by 1 and ability made bordering at lower levels",
     "id": "I3",
-    "type": "BUFF"
-  },
-  {
-    "date": "31/01/2018",
-    "description": "Given strength decreased by 1",
-    "id": "I3",
-    "type": "NERF"
-  },
-  {
-    "date": "31/01/2018",
-    "description": "Ability made bordering at lower levels",
-    "id": "I3",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "07/08/2018",
@@ -79,27 +49,15 @@
   },
   {
     "date": "13/02/2019",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and given strength decreased by 1",
     "id": "I3",
-    "type": "BUFF"
-  },
-  {
-    "date": "13/02/2019",
-    "description": "Given strength decreased by 1",
-    "id": "I3",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "27/06/2019",
-    "description": "Ability made surrounding at all levels",
+    "description": "Ability made surrounding at all levels and mana cost increased by 1 at lower levels",
     "id": "I3",
-    "type": "BUFF"
-  },
-  {
-    "date": "27/06/2019",
-    "description": "Mana cost increased by 1 at lower levels",
-    "id": "I3",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "16/11/2017",
@@ -109,13 +67,7 @@
   },
   {
     "date": "31/01/2018",
-    "description": "Ability made to remove range from pushback",
-    "id": "I4",
-    "type": "NERF"
-  },
-  {
-    "date": "31/01/2018",
-    "description": "Strength decreased by 1",
+    "description": "Ability made to remove range from pushback and strength decreased by 1",
     "id": "I4",
     "type": "NERF"
   },
@@ -139,15 +91,9 @@
   },
   {
     "date": "09/05/2019",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength increased by 1",
     "id": "I6",
-    "type": "NERF"
-  },
-  {
-    "date": "09/05/2019",
-    "description": "Strength increased by 1",
-    "id": "I6",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "20/03/2018",
@@ -163,15 +109,9 @@
   },
   {
     "date": "09/05/2019",
-    "description": "Strength decreased by 1 at higher levels",
+    "description": "Strength decreased by 1 at higher levels and ability increased by 1 at higher levels",
     "id": "I8",
-    "type": "NERF"
-  },
-  {
-    "date": "09/05/2019",
-    "description": "Ability increased by 1 at higher levels",
-    "id": "I8",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "30/10/2018",
@@ -211,25 +151,13 @@
   },
   {
     "date": "30/08/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and ability increased by 1",
     "id": "I11",
-    "type": "NERF"
-  },
-  {
-    "date": "30/08/2017",
-    "description": "Ability increased by 1",
-    "id": "I11",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "31/01/2018",
-    "description": "Ability made bordering at lower levels",
-    "id": "I11",
-    "type": "NERF"
-  },
-  {
-    "date": "31/01/2018",
-    "description": "Strength decreased at higher levels",
+    "description": "Ability made bordering at lower levels and strength decreased at higher levels",
     "id": "I11",
     "type": "NERF"
   },
@@ -247,21 +175,9 @@
   },
   {
     "date": "09/05/2019",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1, ability damage increased by 1 and made to damage 1 random bordering enemy",
     "id": "I12",
-    "type": "NERF"
-  },
-  {
-    "date": "09/05/2019",
-    "description": "Ability damage increased by 1",
-    "id": "I12",
-    "type": "BUFF"
-  },
-  {
-    "date": "09/05/2019",
-    "description": "Ability mode to deal 1 damage to a random bordering enemy",
-    "id": "I12",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "17/12/2018",
@@ -307,39 +223,21 @@
   },
   {
     "date": "07/08/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength increased by 2",
     "id": "I15",
-    "type": "NERF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Strength increased by 2",
-    "id": "I15",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "26/09/2017",
-    "description": "Strength increased at higher levels",
+    "description": "Strength increased at higher levels and ability decreased at higher levels",
     "id": "I15",
-    "type": "BUFF"
-  },
-  {
-    "date": "26/09/2017",
-    "description": "Ability decreased at higher levels",
-    "id": "I15",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "22/04/2018",
-    "description": "Strength decreased at higher levels",
+    "description": "Strength decreased at higher levels and ability damage increased at higher levels",
     "id": "I15",
-    "type": "NERF"
-  },
-  {
-    "date": "22/04/2018",
-    "description": "Ability damage increased at higher levels",
-    "id": "I15",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "09/07/2018",
@@ -373,15 +271,9 @@
   },
   {
     "date": "09/05/2019",
-    "description": "Strength decreased by 1",
+    "description": "Strength decreased by 1 and ability made to give strength to a random surrounding friendly unit",
     "id": "I16",
-    "type": "NERF"
-  },
-  {
-    "date": "09/05/2019",
-    "description": "Ability made to give strength to a random surrounding friendly unit",
-    "id": "I16",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "20/03/2018",
@@ -391,15 +283,9 @@
   },
   {
     "date": "22/04/2018",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and strength decreased by 1",
     "id": "I17",
-    "type": "BUFF"
-  },
-  {
-    "date": "22/04/2018",
-    "description": "Strength decreased by 1",
-    "id": "I17",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "17/12/2018",
@@ -439,15 +325,9 @@
   },
   {
     "date": "18/09/2018",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and ability made to deal consistent damage (3 at level 1, 7 at level 5)",
     "id": "I18",
-    "type": "NERF"
-  },
-  {
-    "date": "18/09/2018",
-    "description": "Ability made to deal consistent damage (3 at level 1, 7 at level 5)",
-    "id": "I18",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "13/02/2019",
@@ -463,15 +343,9 @@
   },
   {
     "date": "31/01/2018",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and strength decreased by 1",
     "id": "I19",
-    "type": "BUFF"
-  },
-  {
-    "date": "31/01/2018",
-    "description": "Strength decreased by 1",
-    "id": "I19",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "14/08/2017",
@@ -499,15 +373,9 @@
   },
   {
     "date": "09/05/2019",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and strength decreased by 1",
     "id": "I20",
-    "type": "BUFF"
-  },
-  {
-    "date": "09/05/2019",
-    "description": "Strength decreased by 1",
-    "id": "I20",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "16/11/2017",
@@ -529,15 +397,9 @@
   },
   {
     "date": "07/08/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and ability damage increased by 2",
     "id": "I23",
-    "type": "NERF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Ability damage increased by 2",
-    "id": "I23",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "14/08/2017",
@@ -565,15 +427,9 @@
   },
   {
     "date": "31/01/2018",
-    "description": "Ability made to remove range from pull",
+    "description": "Ability made to remove range from pull and strength decreased at higher levels",
     "id": "I23",
     "type": "MIXED"
-  },
-  {
-    "date": "31/01/2018",
-    "description": "Strength decreased at higher levels",
-    "id": "I23",
-    "type": "NERF"
   },
   {
     "date": "22/04/2018",
@@ -637,15 +493,9 @@
   },
   {
     "date": "31/01/2018",
-    "description": "Strength decreased and ability by 1",
+    "description": "Strength decreased and ability by 1 and ability made to scale with level",
     "id": "N1",
-    "type": "NERF"
-  },
-  {
-    "date": "31/01/2018",
-    "description": "Ability made to scale with level",
-    "id": "N1",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "13/02/2019",
@@ -667,15 +517,9 @@
   },
   {
     "date": "13/02/2019",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and ability decreased by 2",
     "id": "N2",
-    "type": "BUFF"
-  },
-  {
-    "date": "13/02/2019",
-    "description": "Ability decreased by 2",
-    "id": "N2",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "09/07/2018",
@@ -691,15 +535,9 @@
   },
   {
     "date": "13/02/2019",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength increased by 1",
     "id": "N4",
-    "type": "NERF"
-  },
-  {
-    "date": "13/02/2019",
-    "description": "Strength increased by 1",
-    "id": "N4",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "07/08/2017",
@@ -709,15 +547,9 @@
   },
   {
     "date": "18/09/2018",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength and ability increased by 1",
     "id": "N5",
-    "type": "NERF"
-  },
-  {
-    "date": "18/09/2018",
-    "description": "Strength and ability increased by 1",
-    "id": "N5",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "13/02/2019",
@@ -793,27 +625,15 @@
   },
   {
     "date": "09/07/2018",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength increased by 1",
     "id": "N12",
-    "type": "NERF"
-  },
-  {
-    "date": "09/07/2018",
-    "description": "Strength increased by 1",
-    "id": "N12",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "13/02/2019",
-    "description": "Strength decreased by 1",
+    "description": "Strength decreased by 1 and ability made to discard non-Pirates only",
     "id": "N12",
-    "type": "NERF"
-  },
-  {
-    "date": "13/02/2019",
-    "description": "Ability made to discard non-Pirates only",
-    "id": "N12",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "30/08/2017",
@@ -829,21 +649,9 @@
   },
   {
     "date": "11/10/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1, strength increased by 1 and ability decreased at higher levels",
     "id": "N14",
-    "type": "NERF"
-  },
-  {
-    "date": "11/10/2017",
-    "description": "Strength increased by 1",
-    "id": "N14",
-    "type": "BUFF"
-  },
-  {
-    "date": "11/10/2017",
-    "description": "Ability decreased at higher levels",
-    "id": "N14",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "22/04/2018",
@@ -883,15 +691,9 @@
   },
   {
     "date": "07/08/2017",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and strength decreased by 1",
     "id": "N20",
-    "type": "BUFF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Strength decreased by 1",
-    "id": "N20",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "30/08/2017",
@@ -925,15 +727,9 @@
   },
   {
     "date": "26/09/2017",
-    "description": "Strength set to 4 at all levels",
+    "description": "Strength set to 4 at all levels and damage increased at higher levels",
     "id": "N25",
     "type": "MIXED"
-  },
-  {
-    "date": "26/09/2017",
-    "description": "Damage increased at higher levels",
-    "id": "N25",
-    "type": "BUFF"
   },
   {
     "date": "16/11/2017",
@@ -943,15 +739,9 @@
   },
   {
     "date": "22/04/2018",
-    "description": "Ability made bordering at all levels",
+    "description": "Ability made bordering at all levels and strength increased by 1",
     "id": "N25",
-    "type": "NERF"
-  },
-  {
-    "date": "22/04/2018",
-    "description": "Strength increased by 1",
-    "id": "N25",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "14/08/2017",
@@ -973,33 +763,15 @@
   },
   {
     "date": "09/07/2018",
-    "description": "Movement increased to 2",
+    "description": "Movement increased to 2, strength decreased by 2 and ability increased by 1",
     "id": "N27",
-    "type": "BUFF"
-  },
-  {
-    "date": "09/07/2018",
-    "description": "Strength decreased by 2",
-    "id": "N27",
-    "type": "NERF"
-  },
-  {
-    "date": "09/07/2018",
-    "description": "Ability increased by 1",
-    "id": "N27",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "13/02/2019",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and strength at lower levels by decreased 1",
     "id": "N27",
-    "type": "BUFF"
-  },
-  {
-    "date": "13/02/2019",
-    "description": "Strength at lower levels by decreased 1",
-    "id": "N27",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "14/08/2017",
@@ -1051,15 +823,9 @@
   },
   {
     "date": "07/08/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength increased by 1",
     "id": "N34",
-    "type": "NERF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Strength increased by 1",
-    "id": "N34",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "31/01/2018",
@@ -1081,15 +847,9 @@
   },
   {
     "date": "10/08/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength increased by 1",
     "id": "N35",
-    "type": "NERF"
-  },
-  {
-    "date": "10/08/2017",
-    "description": "Strength increased by 1",
-    "id": "N35",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "14/08/2017",
@@ -1111,15 +871,9 @@
   },
   {
     "date": "09/07/2018",
-    "description": "Ability made to trigger only from friendly unit types",
+    "description": "Ability made to trigger only from friendly unit types and damage increased at higher levels",
     "id": "N35",
-    "type": "NERF"
-  },
-  {
-    "date": "09/07/2018",
-    "description": "Damage increased at higher levels",
-    "id": "N35",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "18/09/2018",
@@ -1141,19 +895,7 @@
   },
   {
     "date": "22/04/2018",
-    "description": "Ability made to require 2 bordering enemies",
-    "id": "N36",
-    "type": "MIXED"
-  },
-  {
-    "date": "22/04/2018",
-    "description": "Damage decreased by 2",
-    "id": "N36",
-    "type": "NERF"
-  },
-  {
-    "date": "22/04/2018",
-    "description": "Strength set to 4 at all levels",
+    "description": "Ability made to require 2 bordering enemies, damage decreased by 2 and strength set to 4 at all levels",
     "id": "N36",
     "type": "MIXED"
   },
@@ -1183,15 +925,9 @@
   },
   {
     "date": "09/07/2018",
-    "description": "Movement increased to 1",
+    "description": "Movement increased to 1 and strength at lower levels decreased by 1",
     "id": "N37",
-    "type": "BUFF"
-  },
-  {
-    "date": "09/07/2018",
-    "description": "Strength at lower levels decreased by 1",
-    "id": "N37",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "25/09/2019",
@@ -1207,15 +943,9 @@
   },
   {
     "date": "14/08/2017",
-    "description": "Strength increased by 1",
+    "description": "Strength increased by 1 and strength from ability decreased",
     "id": "N39",
-    "type": "BUFF"
-  },
-  {
-    "date": "14/08/2017",
-    "description": "Strength from ability decreased",
-    "id": "N39",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "18/09/2017",
@@ -1249,13 +979,7 @@
   },
   {
     "date": "31/01/2018",
-    "description": "Mana cost increased by 1",
-    "id": "N40",
-    "type": "NERF"
-  },
-  {
-    "date": "31/01/2018",
-    "description": "Ability revamped",
+    "description": "Mana cost increased by 1 and ability revamped",
     "id": "N40",
     "type": "MIXED"
   },
@@ -1279,15 +1003,9 @@
   },
   {
     "date": "09/05/2019",
-    "description": "Mana cost decreased by 2",
+    "description": "Mana cost decreased by 2 and strength decreased by 3",
     "id": "N41",
-    "type": "BUFF"
-  },
-  {
-    "date": "09/05/2019",
-    "description": "Strength decreased by 3",
-    "id": "N41",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "09/07/2018",
@@ -1297,15 +1015,9 @@
   },
   {
     "date": "07/08/2018",
-    "description": "Strength decreased by 1",
+    "description": "Strength decreased by 1 and ability increased by 1",
     "id": "N42",
-    "type": "NERF"
-  },
-  {
-    "date": "07/08/2018",
-    "description": "Ability increased by 1",
-    "id": "N42",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "20/03/2018",
@@ -1327,15 +1039,9 @@
   },
   {
     "date": "11/10/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and ability damage increased by 1",
     "id": "N44",
-    "type": "NERF"
-  },
-  {
-    "date": "11/10/2017",
-    "description": "Ability damage increased by 1",
-    "id": "N44",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "16/11/2017",
@@ -1375,15 +1081,9 @@
   },
   {
     "date": "06/09/2017",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and strength decreased by 1",
     "id": "N46",
-    "type": "BUFF"
-  },
-  {
-    "date": "06/09/2017",
-    "description": "Strength decreased by 1",
-    "id": "N46",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "11/10/2017",
@@ -1399,15 +1099,9 @@
   },
   {
     "date": "07/08/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength increased by 1",
     "id": "N47",
-    "type": "NERF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Strength increased by 1",
-    "id": "N47",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "14/08/2017",
@@ -1423,27 +1117,15 @@
   },
   {
     "date": "31/01/2018",
-    "description": "Ability made to hit all surrounding enemies instead of all others",
+    "description": "Ability made to hit all surrounding enemies instead of all others and strength decreased by 1",
     "id": "N47",
-    "type": "BUFF"
-  },
-  {
-    "date": "31/01/2018",
-    "description": "Strength decreased by 1",
-    "id": "N47",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "22/04/2018",
-    "description": "Ability made to only damage units and structures",
+    "description": "Ability made to only damage units and structures and strength increased by 1",
     "id": "N47",
-    "type": "NERF"
-  },
-  {
-    "date": "22/04/2018",
-    "description": "Strength increased by 1",
-    "id": "N47",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "09/07/2018",
@@ -1459,27 +1141,15 @@
   },
   {
     "date": "10/08/2017",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and strength decreased by 1",
     "id": "N48",
-    "type": "NERF"
-  },
-  {
-    "date": "10/08/2017",
-    "description": "Strength decreased by 1",
-    "id": "N48",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "06/09/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength increased by 1",
     "id": "N48",
-    "type": "NERF"
-  },
-  {
-    "date": "06/09/2017",
-    "description": "Strength increased by 1",
-    "id": "N48",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "16/11/2017",
@@ -1495,15 +1165,9 @@
   },
   {
     "date": "06/09/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength increased by 1",
     "id": "N49",
-    "type": "NERF"
-  },
-  {
-    "date": "06/09/2017",
-    "description": "Strength increased by 1",
-    "id": "N49",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "11/10/2017",
@@ -1525,39 +1189,21 @@
   },
   {
     "date": "07/08/2018",
-    "description": "Strength decreased at higher levels",
+    "description": "Strength decreased at higher levels and ability increased at higher levels",
     "id": "N49",
-    "type": "NERF"
-  },
-  {
-    "date": "07/08/2018",
-    "description": "Ability increased at higher levels",
-    "id": "N49",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "25/09/2019",
-    "description": "Strength decreased by 1",
-    "id": "N49",
-    "type": "NERF"
-  },
-  {
-    "date": "25/09/2019",
-    "description": "Ability revamped",
+    "description": "Strength decreased by 1 and ability revamped",
     "id": "N49",
     "type": "MIXED"
   },
   {
     "date": "30/08/2017",
-    "description": "Mana cost increased by 2",
+    "description": "Mana cost increased by 2 and strength of spawned units increased by 1",
     "id": "N50",
-    "type": "NERF"
-  },
-  {
-    "date": "30/08/2017",
-    "description": "Strength of spawned units increased by 1",
-    "id": "N50",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "11/10/2017",
@@ -1579,15 +1225,9 @@
   },
   {
     "date": "17/12/2018",
-    "description": "Mana cost increased by 2",
+    "description": "Mana cost increased by 2 and strength increased by 3",
     "id": "N51",
-    "type": "NERF"
-  },
-  {
-    "date": "17/12/2018",
-    "description": "Strength increased by 3",
-    "id": "N51",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "27/06/2019",
@@ -1615,13 +1255,7 @@
   },
   {
     "date": "16/11/2017",
-    "description": "Ability made to only work on units",
-    "id": "N53",
-    "type": "MIXED"
-  },
-  {
-    "date": "16/11/2017",
-    "description": "Strength decreased at low levels",
+    "description": "Ability made to only work on units and strength decreased at low levels",
     "id": "N53",
     "type": "NERF"
   },
@@ -1651,15 +1285,9 @@
   },
   {
     "date": "07/08/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and ability damage increased by 1",
     "id": "N55",
-    "type": "NERF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Ability damage increased by 1",
-    "id": "N55",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "06/09/2017",
@@ -1699,33 +1327,15 @@
   },
   {
     "date": "09/07/2018",
-    "description": "Strength at higher levels increased by 1",
-    "id": "N57",
-    "type": "BUFF"
-  },
-  {
-    "date": "09/07/2018",
-    "description": "Damage at higher levels increased by 1",
-    "id": "N57",
-    "type": "BUFF"
-  },
-  {
-    "date": "09/07/2018",
-    "description": "Ability made to hit random surrounding",
+    "description": "Strength at higher levels increased by 1, damage at higher levels increased by 1 and ability made to hit random surrounding",
     "id": "N57",
     "type": "MIXED"
   },
   {
     "date": "16/11/2017",
-    "description": "Ability set to 3 at all levels",
+    "description": "Ability set to 3 at all levels and strength increased at higher levels",
     "id": "N58",
     "type": "MIXED"
-  },
-  {
-    "date": "16/11/2017",
-    "description": "Strength increased at higher levels",
-    "id": "N58",
-    "type": "BUFF"
   },
   {
     "date": "09/05/2019",
@@ -1747,15 +1357,9 @@
   },
   {
     "date": "26/11/2019",
-    "description": "Strength decreased by 1",
+    "description": "Strength decreased by 1 and ability increased by 1",
     "id": "N59",
-    "type": "NERF"
-  },
-  {
-    "date": "26/11/2019",
-    "description": "Ability increased by 1",
-    "id": "N59",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "27/06/2019",
@@ -1765,33 +1369,15 @@
   },
   {
     "date": "25/09/2019",
-    "description": "Mana cost decreased by 1",
-    "id": "N60",
-    "type": "BUFF"
-  },
-  {
-    "date": "25/09/2019",
-    "description": "Strength decreased by 2",
-    "id": "N60",
-    "type": "NERF"
-  },
-  {
-    "date": "25/09/2019",
-    "description": "Ability revamped",
+    "description": "Ability revamped, strength decreased by 2 and mana cost decreased by 1",
     "id": "N60",
     "type": "MIXED"
   },
   {
     "date": "26/11/2019",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength increased by 2",
     "id": "N60",
-    "type": "NERF"
-  },
-  {
-    "date": "26/11/2019",
-    "description": "Strength increased by 2",
-    "id": "N60",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "27/06/2019",
@@ -1801,15 +1387,9 @@
   },
   {
     "date": "26/11/2019",
-    "description": "Mana cost decreased by 2",
+    "description": "Mana cost decreased by 2 and strength decreased by 2",
     "id": "N61",
-    "type": "BUFF"
-  },
-  {
-    "date": "26/11/2019",
-    "description": "Strength decreased by 2",
-    "id": "N61",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "27/06/2019",
@@ -1819,13 +1399,7 @@
   },
   {
     "date": "25/09/2019",
-    "description": "Ability made to affect all in front at all levels",
-    "id": "N62",
-    "type": "BUFF"
-  },
-  {
-    "date": "25/09/2019",
-    "description": "Strength at higher levels increased by 1",
+    "description": "Ability made to affect all in front at all levels and strength at higher levels increased by 1",
     "id": "N62",
     "type": "BUFF"
   },
@@ -1867,15 +1441,9 @@
   },
   {
     "date": "26/11/2019",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and strength decreased by 1",
     "id": "N66",
-    "type": "BUFF"
-  },
-  {
-    "date": "26/11/2019",
-    "description": "Strength decreased by 1",
-    "id": "N66",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "25/07/2019",
@@ -1885,15 +1453,9 @@
   },
   {
     "date": "26/11/2019",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and strength decreased by 1",
     "id": "N67",
-    "type": "BUFF"
-  },
-  {
-    "date": "26/11/2019",
-    "description": "Strength decreased by 1",
-    "id": "N67",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "25/07/2019",
@@ -1993,15 +1555,9 @@
   },
   {
     "date": "07/08/2017",
-    "description": "Strength increased when leveled",
+    "description": "Strength increased when leveled and ability strength decreased",
     "id": "F1",
-    "type": "BUFF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Ability strength decreased",
-    "id": "F1",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "26/09/2017",
@@ -2011,15 +1567,9 @@
   },
   {
     "date": "16/11/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength and ability increased by 1",
     "id": "F1",
-    "type": "NERF"
-  },
-  {
-    "date": "16/11/2017",
-    "description": "Strength and ability increased by 1",
-    "id": "F1",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "22/04/2018",
@@ -2029,15 +1579,9 @@
   },
   {
     "date": "09/07/2018",
-    "description": "Mana cost decreased to 2",
+    "description": "Mana cost decreased to 2 and movement decreased to 0",
     "id": "F1",
-    "type": "BUFF"
-  },
-  {
-    "date": "09/07/2018",
-    "description": "Movement decreased to 0",
-    "id": "F1",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "09/07/2018",
@@ -2077,27 +1621,15 @@
   },
   {
     "date": "07/08/2018",
-    "description": "Ability at higher levels increased by 1",
+    "description": "Ability at higher levels increased by 1 and strength at higher levels decreased by 1",
     "id": "F2",
-    "type": "BUFF"
-  },
-  {
-    "date": "07/08/2018",
-    "description": "Strength at higher levels decreased by 1",
-    "id": "F2",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "18/09/2017",
-    "description": "Strength decreased by 1",
+    "description": "Strength decreased by 1 and negative ability decreased by 1",
     "id": "F3",
-    "type": "NERF"
-  },
-  {
-    "date": "18/09/2017",
-    "description": "Negative ability decreased by 1",
-    "id": "F3",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "09/07/2018",
@@ -2113,27 +1645,15 @@
   },
   {
     "date": "31/01/2018",
-    "description": "Mana cost increased by 2",
-    "id": "F4",
-    "type": "NERF"
-  },
-  {
-    "date": "31/01/2018",
-    "description": "Ability made surrounding at all levels, damage and poison all units",
+    "description": "Mana cost increased by 2 and ability made surrounding at all levels, damage and poison all units",
     "id": "F4",
     "type": "MIXED"
   },
   {
     "date": "13/02/2019",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and ability decreased by 1",
     "id": "F4",
-    "type": "BUFF"
-  },
-  {
-    "date": "13/02/2019",
-    "description": "Ability decreased by 1",
-    "id": "F4",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "26/11/2019",
@@ -2155,33 +1675,15 @@
   },
   {
     "date": "31/01/2018",
-    "description": "Ability made to damage and poison friendly units too",
+    "description": "Ability made bordering and to damage and poison friendly units too and damage increased",
     "id": "F5",
-    "type": "NERF"
-  },
-  {
-    "date": "31/01/2018",
-    "description": "Damage increased",
-    "id": "F5",
-    "type": "BUFF"
-  },
-  {
-    "date": "31/01/2018",
-    "description": "Ability made bordering at all levels",
-    "id": "F5",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "13/02/2019",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and ability decreased by 1",
     "id": "F5",
-    "type": "BUFF"
-  },
-  {
-    "date": "13/02/2019",
-    "description": "Ability decreased by 1",
-    "id": "F5",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "16/11/2017",
@@ -2203,15 +1705,9 @@
   },
   {
     "date": "26/11/2019",
-    "description": "Mana cost decreased at higher levels",
+    "description": "Mana cost decreased at higher levels and spawns at higher levels decreased",
     "id": "F8",
-    "type": "BUFF"
-  },
-  {
-    "date": "26/11/2019",
-    "description": "Spawns at higher levels decreased",
-    "id": "F8",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "20/03/2018",
@@ -2221,15 +1717,9 @@
   },
   {
     "date": "22/04/2018",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and strength and ability decreased by 1",
     "id": "F9",
-    "type": "BUFF"
-  },
-  {
-    "date": "22/04/2018",
-    "description": "Strength and ability decreased by 1",
-    "id": "F9",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "07/08/2018",
@@ -2245,15 +1735,9 @@
   },
   {
     "date": "07/08/2017",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and strength decreased by 1",
     "id": "F10",
-    "type": "BUFF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Strength decreased by 1",
-    "id": "F10",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "09/07/2018",
@@ -2263,15 +1747,9 @@
   },
   {
     "date": "13/02/2019",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and ability increased by 1",
     "id": "F10",
-    "type": "NERF"
-  },
-  {
-    "date": "13/02/2019",
-    "description": "Ability increased by 1",
-    "id": "F10",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "10/12/2017",
@@ -2299,15 +1777,9 @@
   },
   {
     "date": "10/08/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength and ability increased by 1",
     "id": "F12",
-    "type": "NERF"
-  },
-  {
-    "date": "10/08/2017",
-    "description": "Strength and ability increased by 1",
-    "id": "F12",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "18/09/2017",
@@ -2317,27 +1789,15 @@
   },
   {
     "date": "22/04/2018",
-    "description": "Strength decreased by 1",
+    "description": "Strength decreased by 1 and ability increased by 1",
     "id": "F12",
-    "type": "NERF"
-  },
-  {
-    "date": "22/04/2018",
-    "description": "Ability increased by 1",
-    "id": "F12",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "18/09/2018",
-    "description": "Mana cost decreased by 2",
+    "description": "Mana cost decreased by 2 and strength decreased by 2",
     "id": "F12",
-    "type": "BUFF"
-  },
-  {
-    "date": "18/09/2018",
-    "description": "Strength decreased by 2",
-    "id": "F12",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "26/11/2019",
@@ -2353,15 +1813,9 @@
   },
   {
     "date": "26/09/2017",
-    "description": "Strength increased at higher levels",
+    "description": "Strength increased at higher levels and ability decreased at higher levels",
     "id": "F13",
-    "type": "BUFF"
-  },
-  {
-    "date": "26/09/2017",
-    "description": "Ability decreased at higher levels",
-    "id": "F13",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "16/11/2017",
@@ -2383,15 +1837,9 @@
   },
   {
     "date": "07/08/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength increased by 1",
     "id": "F14",
-    "type": "NERF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Strength increased by 1",
-    "id": "F14",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "18/09/2018",
@@ -2401,13 +1849,7 @@
   },
   {
     "date": "07/08/2017",
-    "description": "Movement increased to 1",
-    "id": "F15",
-    "type": "BUFF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Drain ability increased by 2",
+    "description": "Movement increased to 1 and drain ability increased by 2",
     "id": "F15",
     "type": "BUFF"
   },
@@ -2431,15 +1873,9 @@
   },
   {
     "date": "27/06/2019",
-    "description": "Strength at lower levels decreased to 1",
+    "description": "Strength at lower levels decreased to 1 and ability at lower levels increased to 3",
     "id": "F16",
-    "type": "NERF"
-  },
-  {
-    "date": "27/06/2019",
-    "description": "Ability at lower levels increased to 3",
-    "id": "F16",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "30/10/2018",
@@ -2551,15 +1987,9 @@
   },
   {
     "date": "07/08/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength and ability increased when leveling",
     "id": "F23",
-    "type": "NERF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Strength and ability increased when leveling",
-    "id": "F23",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "30/08/2017",
@@ -2593,13 +2023,7 @@
   },
   {
     "date": "09/05/2019",
-    "description": "Strength decreased by 2",
-    "id": "F23",
-    "type": "NERF"
-  },
-  {
-    "date": "09/05/2019",
-    "description": "Ability revamped",
+    "description": "Strength decreased by 2 and ability revamped",
     "id": "F23",
     "type": "MIXED"
   },
@@ -2659,15 +2083,9 @@
   },
   {
     "date": "09/07/2018",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and strength decreased by 1",
     "id": "S1",
-    "type": "BUFF"
-  },
-  {
-    "date": "09/07/2018",
-    "description": "Strength decreased by 1",
-    "id": "S1",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "11/10/2017",
@@ -2683,15 +2101,9 @@
   },
   {
     "date": "13/02/2019",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and ability decreased by 1",
     "id": "S2",
-    "type": "NERF"
-  },
-  {
-    "date": "13/02/2019",
-    "description": "Ability decreased by 1",
-    "id": "S2",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "26/11/2019",
@@ -2707,13 +2119,7 @@
   },
   {
     "date": "09/05/2019",
-    "description": "Strength decreased by 1",
-    "id": "S3",
-    "type": "NERF"
-  },
-  {
-    "date": "09/05/2019",
-    "description": "Ability made to trigger when not bordering enemies instead of units",
+    "description": "Strength decreased by 1 and ability made to trigger when not bordering enemies instead of any unit",
     "id": "S3",
     "type": "MIXED"
   },
@@ -2773,15 +2179,9 @@
   },
   {
     "date": "09/07/2018",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and mana cost and ability increased by 1",
     "id": "S8",
-    "type": "NERF"
-  },
-  {
-    "date": "09/07/2018",
-    "description": "Mana cost and ability increased by 1",
-    "id": "S8",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "13/02/2019",
@@ -2791,15 +2191,9 @@
   },
   {
     "date": "07/08/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength increased by 1",
     "id": "S9",
-    "type": "NERF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Strength increased by 1",
-    "id": "S9",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "31/01/2018",
@@ -2809,27 +2203,15 @@
   },
   {
     "date": "27/06/2019",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength increased by 1",
     "id": "S9",
-    "type": "NERF"
-  },
-  {
-    "date": "27/06/2019",
-    "description": "Strength increased by 1",
-    "id": "S9",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "31/01/2018",
-    "description": "Mana cost increased to 4",
+    "description": "Mana cost increased to 4 and ability made to remove the “if” requirement on base damage",
     "id": "S10",
-    "type": "NERF"
-  },
-  {
-    "date": "31/01/2018",
-    "description": "Ability made to remove the “if” requirement on base damage",
-    "id": "S10",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "25/09/2019",
@@ -2845,15 +2227,9 @@
   },
   {
     "date": "31/01/2018",
-    "description": "Strength increased by 1",
+    "description": "Strength increased by 1 and decreased bonus damage by 1",
     "id": "S11",
-    "type": "BUFF"
-  },
-  {
-    "date": "31/01/2018",
-    "description": "Decreased bonus damage by 1",
-    "id": "S11",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "09/07/2018",
@@ -2887,15 +2263,9 @@
   },
   {
     "date": "16/11/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength increased by 1",
     "id": "S13",
-    "type": "NERF"
-  },
-  {
-    "date": "16/11/2017",
-    "description": "Strength increased by 1",
-    "id": "S13",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "09/07/2018",
@@ -2905,15 +2275,9 @@
   },
   {
     "date": "26/09/2017",
-    "description": "Strength set to 3 at all levels",
+    "description": "Strength set to 3 at all levels and ability decreased by 1",
     "id": "S14",
     "type": "MIXED"
-  },
-  {
-    "date": "26/09/2017",
-    "description": "Ability decreased by 1",
-    "id": "S14",
-    "type": "NERF"
   },
   {
     "date": "31/01/2018",
@@ -2947,15 +2311,9 @@
   },
   {
     "date": "31/01/2018",
-    "description": "Mana cost set to 5 at all levels",
+    "description": "Mana cost set to 5 at all levels and ability damage at higher levels increased",
     "id": "S15",
     "type": "MIXED"
-  },
-  {
-    "date": "31/01/2018",
-    "description": "Ability damage at higher levels increased",
-    "id": "S15",
-    "type": "BUFF"
   },
   {
     "date": "30/08/2017",
@@ -2983,15 +2341,9 @@
   },
   {
     "date": "07/08/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and strength increased by 1",
     "id": "S18",
-    "type": "NERF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Strength increased by 1",
-    "id": "S18",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "18/09/2017",
@@ -3025,27 +2377,15 @@
   },
   {
     "date": "25/09/2019",
-    "description": "Ability increased by 1",
+    "description": "Ability increased by 1 and strength decreased by 1",
     "id": "S19",
-    "type": "BUFF"
-  },
-  {
-    "date": "25/09/2019",
-    "description": "Strength decreased by 1",
-    "id": "S19",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "14/08/2017",
-    "description": "Mana cost at higher levels decreased by 1",
+    "description": "Mana cost at higher levels decreased by 1 and strength at higher levels by decreased 1",
     "id": "S20",
-    "type": "BUFF"
-  },
-  {
-    "date": "14/08/2017",
-    "description": "Strength at higher levels by decreased 1",
-    "id": "S20",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "16/11/2017",
@@ -3067,19 +2407,7 @@
   },
   {
     "date": "18/09/2017",
-    "description": "Mana cost increased by 1",
-    "id": "S21",
-    "type": "NERF"
-  },
-  {
-    "date": "18/09/2017",
-    "description": "Strength increased by 1",
-    "id": "S21",
-    "type": "BUFF"
-  },
-  {
-    "date": "18/09/2017",
-    "description": "Leveling steps changed",
+    "description": "Mana cost increased by 1 and strength increased by 1 and leveling steps changed",
     "id": "S21",
     "type": "MIXED"
   },
@@ -3175,13 +2503,7 @@
   },
   {
     "date": "22/04/2018",
-    "description": "Mana cost decreased by 1",
-    "id": "W1",
-    "type": "BUFF"
-  },
-  {
-    "date": "22/04/2018",
-    "description": "Strength requirement decreased by 1",
+    "description": "Mana cost decreased by 1 and strength requirement decreased by 1",
     "id": "W1",
     "type": "BUFF"
   },
@@ -3205,15 +2527,9 @@
   },
   {
     "date": "18/09/2018",
-    "description": "Ability made bordering at lower levels",
+    "description": "Ability made bordering at lower levels and strength at higher levels increased",
     "id": "W2",
-    "type": "NERF"
-  },
-  {
-    "date": "18/09/2018",
-    "description": "Strength at higher levels increased",
-    "id": "W2",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "13/02/2019",
@@ -3223,15 +2539,9 @@
   },
   {
     "date": "16/11/2017",
-    "description": "Strength increased by 1",
+    "description": "Strength increased by 1 and ability decreased by 1",
     "id": "W3",
-    "type": "BUFF"
-  },
-  {
-    "date": "16/11/2017",
-    "description": "Ability decreased by 1",
-    "id": "W3",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "18/09/2018",
@@ -3241,21 +2551,9 @@
   },
   {
     "date": "07/08/2017",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1, strength decreased by 1 and ability damage increased",
     "id": "W4",
-    "type": "BUFF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Strength decreased by 1",
-    "id": "W4",
-    "type": "NERF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Ability damage increased",
-    "id": "W4",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "30/08/2017",
@@ -3283,21 +2581,9 @@
   },
   {
     "date": "13/02/2019",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1, strength decreased by 1, and ability made to trigger before attacking and deal 1 more damage",
     "id": "W4",
-    "type": "BUFF"
-  },
-  {
-    "date": "13/02/2019",
-    "description": "Strength decreased by 1",
-    "id": "W4",
-    "type": "NERF"
-  },
-  {
-    "date": "13/02/2019",
-    "description": "Ability made to trigger before attacking and deal 1 more damage",
-    "id": "W4",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "25/09/2019",
@@ -3319,33 +2605,15 @@
   },
   {
     "date": "22/04/2018",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1, strength increased by 2 and ability made surrounding at all levels",
     "id": "W6",
-    "type": "NERF"
-  },
-  {
-    "date": "22/04/2018",
-    "description": "Strength increased by 2",
-    "id": "W6",
-    "type": "BUFF"
-  },
-  {
-    "date": "22/04/2018",
-    "description": "Ability made surrounding at all levels",
-    "id": "W6",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "13/02/2019",
-    "description": "Mana cost decreased by 2",
+    "description": "Mana cost decreased by 2 and strength given decreased by 2",
     "id": "W6",
-    "type": "BUFF"
-  },
-  {
-    "date": "13/02/2019",
-    "description": "Strength given decreased by 2",
-    "id": "W6",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "25/09/2019",
@@ -3361,15 +2629,9 @@
   },
   {
     "date": "09/07/2018",
-    "description": "Strength decreased by 1",
+    "description": "Strength decreased by 1 and ability increased by 1",
     "id": "W7",
-    "type": "NERF"
-  },
-  {
-    "date": "09/07/2018",
-    "description": "Ability increased by 1",
-    "id": "W7",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "18/09/2018",
@@ -3397,21 +2659,9 @@
   },
   {
     "date": "07/08/2017",
-    "description": "Mana cost increased by 2",
+    "description": "Mana cost increased by 2, mana from ability increased by 1 and strength decreased by 1",
     "id": "W9",
-    "type": "NERF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Mana from ability increased by 1",
-    "id": "W9",
-    "type": "BUFF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Strength decreased by 1",
-    "id": "W9",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "30/08/2017",
@@ -3451,21 +2701,9 @@
   },
   {
     "date": "25/09/2019",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1, ability increased at higher levels and movement increased by 1",
     "id": "W10",
-    "type": "NERF"
-  },
-  {
-    "date": "25/09/2019",
-    "description": "Ability increased at higher levels",
-    "id": "W10",
-    "type": "BUFF"
-  },
-  {
-    "date": "25/09/2019",
-    "description": "Movement increased by 1",
-    "id": "W10",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "30/08/2017",
@@ -3481,51 +2719,27 @@
   },
   {
     "date": "13/02/2019",
-    "description": "Mana cost increased by 2",
+    "description": "Mana cost increased by 2 and ability damage increased by 1",
     "id": "W11",
-    "type": "NERF"
-  },
-  {
-    "date": "13/02/2019",
-    "description": "Ability damage increased by 1",
-    "id": "W11",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "25/09/2019",
-    "description": "Mana cost decreased by 1",
-    "id": "W11",
-    "type": "BUFF"
-  },
-  {
-    "date": "25/09/2019",
-    "description": "Ability revamped",
+    "description": "Mana cost decreased by 1 and ability revamped",
     "id": "W11",
     "type": "MIXED"
   },
   {
     "date": "07/08/2017",
-    "description": "Mana cost increased by 1",
-    "id": "W12",
-    "type": "NERF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Ability increased by 1",
-    "id": "W12",
-    "type": "BUFF"
-  },
-  {
-    "date": "16/11/2017",
-    "description": "Ability set to 3 for all levels",
+    "description": "Mana cost increased by 1 and ability increased by 1",
     "id": "W12",
     "type": "MIXED"
   },
   {
     "date": "16/11/2017",
-    "description": "Strength at higher levels increased",
+    "description": "Ability set to 3 for all levels and strength at higher levels increased",
     "id": "W12",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "09/07/2018",
@@ -3577,15 +2791,9 @@
   },
   {
     "date": "09/07/2018",
-    "description": "Ability made to give 4 mana at all levels",
+    "description": "Ability made to give 4 mana at all levels and increased strength at higher levels by 1",
     "id": "W16",
     "type": "MIXED"
-  },
-  {
-    "date": "09/07/2018",
-    "description": "Increased strength at higher levels by 1",
-    "id": "W16",
-    "type": "BUFF"
   },
   {
     "date": "13/02/2019",
@@ -3595,19 +2803,7 @@
   },
   {
     "date": "07/08/2017",
-    "description": "Mana cost increased by 2",
-    "id": "W17",
-    "type": "NERF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Strength increased by 2",
-    "id": "W17",
-    "type": "BUFF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Strength reduction from ability made 1 at all levels",
+    "description": "Mana cost increased by 2, strength increased by 2 and strength reduction from ability made 1 at all levels",
     "id": "W17",
     "type": "MIXED"
   },
@@ -3619,45 +2815,21 @@
   },
   {
     "date": "09/07/2018",
-    "description": "Mana cost decrased to 6",
+    "description": "Mana cost decrased to 6, movement increased to 2 and strength decreased to 6 at level 1 and 12 at level 5",
     "id": "W17",
-    "type": "BUFF"
-  },
-  {
-    "date": "09/07/2018",
-    "description": "Movement increased to 2",
-    "id": "W17",
-    "type": "BUFF"
-  },
-  {
-    "date": "09/07/2018",
-    "description": "Strength decreased to 6 at level 1 and 12 at level 5",
-    "id": "W17",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "07/08/2017",
-    "description": "Mana cost increased by 1",
-    "id": "W18",
-    "type": "NERF"
-  },
-  {
-    "date": "07/08/2017",
-    "description": "Strength given from ability decreased by 1",
+    "description": "Mana cost increased by 1 and strength given from ability decreased by 1",
     "id": "W18",
     "type": "NERF"
   },
   {
     "date": "30/08/2017",
-    "description": "Strength increased by 2",
+    "description": "Strength increased by 2 and ability decreased by 1",
     "id": "W18",
-    "type": "BUFF"
-  },
-  {
-    "date": "30/08/2017",
-    "description": "Ability decreased by 1",
-    "id": "W18",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "18/09/2017",
@@ -3673,15 +2845,9 @@
   },
   {
     "date": "09/07/2018",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and strength decreased by 1",
     "id": "W18",
-    "type": "BUFF"
-  },
-  {
-    "date": "09/07/2018",
-    "description": "Strength decreased by 1",
-    "id": "W18",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "07/08/2018",
@@ -3727,15 +2893,9 @@
   },
   {
     "date": "25/09/2019",
-    "description": "Movement decreased by 1",
+    "description": "Movement decreased by 1 and strength leveling increased",
     "id": "W21",
-    "type": "NERF"
-  },
-  {
-    "date": "25/09/2019",
-    "description": "Strength leveling increased",
-    "id": "W21",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "07/08/2017",
@@ -3745,27 +2905,15 @@
   },
   {
     "date": "06/09/2017",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and ability increased by 1",
     "id": "W22",
-    "type": "NERF"
-  },
-  {
-    "date": "06/09/2017",
-    "description": "Ability increased by 1",
-    "id": "W22",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "09/07/2018",
-    "description": "Strength increased by 1",
+    "description": "Strength increased by 1 and ability decreased by 2",
     "id": "W22",
-    "type": "BUFF"
-  },
-  {
-    "date": "09/07/2018",
-    "description": "Ability decreased by 2",
-    "id": "W22",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "18/09/2018",
@@ -3895,13 +3043,7 @@
   },
   {
     "date": "11/07/2020",
-    "description": "Mana cost increased by 1",
-    "id": "S21",
-    "type": "NERF"
-  },
-  {
-    "date": "11/07/2020",
-    "description": "Ability made to no longer play epic cards",
+    "description": "Mana cost increased by 1 and ability made to no longer play epic cards",
     "id": "S21",
     "type": "NERF"
   },
@@ -3931,13 +3073,7 @@
   },
   {
     "date": "11/07/2020",
-    "description": "Strength decreased by 1",
-    "id": "W27",
-    "type": "NERF"
-  },
-  {
-    "date": "11/07/2020",
-    "description": "Ability decreased at higher levels",
+    "description": "Strength decreased by 1 and ability decreased at higher levels",
     "id": "W27",
     "type": "NERF"
   },
@@ -3967,39 +3103,21 @@
   },
   {
     "date": "01/09/2020",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and ability increased by 2",
     "id": "N63",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "01/09/2020",
-    "description": "Ability increased by 2",
-    "id": "N63",
-    "type": "BUFF"
-  },
-  {
-    "date": "01/09/2020",
-    "description": "Mana cost decreased by 1 at lower levels",
+    "description": "Mana cost decreased by 1 at lower levels and ability increased by 1",
     "id": "N23",
     "type": "BUFF"
   },
   {
     "date": "01/09/2020",
-    "description": "Ability increased by 1",
-    "id": "N23",
-    "type": "BUFF"
-  },
-  {
-    "date": "01/09/2020",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and strength decreased by 1",
     "id": "N57",
-    "type": "BUFF"
-  },
-  {
-    "date": "01/09/2020",
-    "description": "Strength decreased by 1",
-    "id": "N57",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "01/09/2020",
@@ -4015,25 +3133,13 @@
   },
   {
     "date": "01/09/2020",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and strength decreased at lower levels",
     "id": "N51",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "01/09/2020",
-    "description": "Strength decreased at lower levels",
-    "id": "N51",
-    "type": "NERF"
-  },
-  {
-    "date": "01/09/2020",
-    "description": "Mana cost decreased by 1 at lower levels",
-    "id": "I3",
-    "type": "BUFF"
-  },
-  {
-    "date": "01/09/2020",
-    "description": "Ability increased by 1 at higher levels",
+    "description": "Mana cost decreased by 1 at lower levels and ability increased by 1 at higher levels",
     "id": "I3",
     "type": "BUFF"
   },
@@ -4045,25 +3151,13 @@
   },
   {
     "date": "01/09/2020",
-    "description": "Strength increased at higher levels",
-    "id": "W24",
-    "type": "BUFF"
-  },
-  {
-    "date": "01/09/2020",
-    "description": "Increased ability",
+    "description": "Strength increased at higher levels and increased ability",
     "id": "W24",
     "type": "BUFF"
   },
   {
     "date": "01/10/2020",
-    "description": "Movement increased by 1",
-    "id": "N25",
-    "type": "BUFF"
-  },
-  {
-    "date": "01/10/2020",
-    "description": "Ability made surrounding",
+    "description": "Movement increased by 1 and ability made surrounding",
     "id": "N25",
     "type": "BUFF"
   },
@@ -4093,19 +3187,7 @@
   },
   {
     "date": "01/10/2020",
-    "description": "Ability made to trigger surrounding structures at level 2",
-    "id": "I2",
-    "type": "BUFF"
-  },
-  {
-    "date": "01/10/2020",
-    "description": "Ability made to trigger all structures at level 4",
-    "id": "I2",
-    "type": "BUFF"
-  },
-  {
-    "date": "01/10/2020",
-    "description": "Strength increased by 1 at level 3",
+    "description": "Ability made to trigger surrounding structures at level 2, all structures at level 4 and strength increased by 1 at level 3",
     "id": "I2",
     "type": "BUFF"
   },
@@ -4123,15 +3205,9 @@
   },
   {
     "date": "01/10/2020",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and strength decreased by 2",
     "id": "N66",
-    "type": "BUFF"
-  },
-  {
-    "date": "01/10/2020",
-    "description": "Strength decreased by 2",
-    "id": "N66",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "01/10/2020",
@@ -4147,15 +3223,9 @@
   },
   {
     "date": "01/10/2020",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and ability increased by 1",
     "id": "F4",
-    "type": "NERF"
-  },
-  {
-    "date": "01/10/2020",
-    "description": "Ability increased by 1",
-    "id": "F4",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "01/10/2020",
@@ -4171,21 +3241,9 @@
   },
   {
     "date": "01/11/2020",
-    "description": "Mana cost decreased by 1 at level 2",
+    "description": "Mana cost decreased by 1 at level 2, increased by 1 at level 5 and decreased spawns at level 2, 3 and 4",
     "id": "F8",
-    "type": "BUFF"
-  },
-  {
-    "date": "01/11/2020",
-    "description": "Mana cost increased by 1 at level 5",
-    "id": "F8",
-    "type": "NERF"
-  },
-  {
-    "date": "01/11/2020",
-    "description": "Decreased spawns at level 2, 3 and 4",
-    "id": "F8",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "01/11/2020",
@@ -4201,15 +3259,9 @@
   },
   {
     "date": "01/11/2020",
-    "description": "Mana cost decreased by 1",
+    "description": "Mana cost decreased by 1 and strength and ability decreased by 1 at low levels",
     "id": "N24",
-    "type": "BUFF"
-  },
-  {
-    "date": "01/11/2020",
-    "description": "Strength and ability decreased by 1 at low levels",
-    "id": "N24",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "01/11/2020",
@@ -4255,25 +3307,13 @@
   },
   {
     "date": "01/12/2020",
-    "description": "Strength increased by 2 at high levels",
-    "id": "S27",
-    "type": "BUFF"
-  },
-  {
-    "date": "01/12/2020",
-    "description": "Ability made to also commands equal strength units forward",
+    "description": "Strength increased by 2 at high levels and ability made to also commands equal strength units forward",
     "id": "S27",
     "type": "BUFF"
   },
   {
     "date": "01/01/2021",
-    "description": "Mana cost increased by 1",
-    "id": "S10",
-    "type": "NERF"
-  },
-  {
-    "date": "01/01/2021",
-    "description": "Ability made to spread leftover damage to units and structures around",
+    "description": "Mana cost increased by 1 and ability made to spread leftover damage to units and structures around",
     "id": "S10",
     "type": "MIXED"
   },
@@ -4285,15 +3325,9 @@
   },
   {
     "date": "01/01/2021",
-    "description": "Ability decreased by 1",
+    "description": "Ability decreased by 1 and ability made to vitalize the target",
     "id": "N15",
-    "type": "NERF"
-  },
-  {
-    "date": "01/01/2021",
-    "description": "Ability made to vitalize the target",
-    "id": "N15",
-    "type": "BUFF"
+    "type": "MIXED"
   },
   {
     "date": "01/01/2021",
@@ -4303,27 +3337,15 @@
   },
   {
     "date": "01/01/2021",
-    "description": "Mana cost increased by 1",
+    "description": "Mana cost increased by 1 and ability made to no longer need enemy units in front to be weaker",
     "id": "W28",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "01/01/2021",
-    "description": "Ability made to no longer need enemy units in front to be weaker",
-    "id": "W28",
-    "type": "BUFF"
-  },
-  {
-    "date": "01/01/2021",
-    "description": "Strength increased by 1 up to level 4",
+    "description": "Strength increased by 1 up to level 4 and ability decreased by 1",
     "id": "I8",
-    "type": "BUFF"
-  },
-  {
-    "date": "01/01/2021",
-    "description": "Ability decreased by 1",
-    "id": "I8",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "17/01/2021",
@@ -4417,15 +3439,9 @@
   },
   {
     "date": "01/04/2021",
-    "description": "Mana cost decreased by 2",
+    "description": "Mana cost decreased by 2 and strength decreased by 2/2/2/3/4",
     "id": "N79",
-    "type": "BUFF"
-  },
-  {
-    "date": "01/04/2021",
-    "description": "Strength decreased by 2/2/2/3/4",
-    "id": "N79",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "01/04/2021",
@@ -4459,37 +3475,19 @@
   },
   {
     "date": "01/05/2021",
-    "description": "Strength decreased by 1/1/2/2/3",
+    "description": "Strength decreased by 1/1/2/2/3 and mana cost decreased by 1",
     "id": "I23",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "01/05/2021",
-    "description": "Mana cost decreased by 1",
-    "id": "I23",
-    "type": "BUFF"
-  },
-  {
-    "date": "01/05/2021",
-    "description": "Strength decreased by 2",
+    "description": "Strength decreased by 2 and mana cost decreased by 1",
     "id": "S9",
-    "type": "NERF"
+    "type": "MIXED"
   },
   {
     "date": "01/05/2021",
-    "description": "Mana cost decreased by 1",
-    "id": "S9",
-    "type": "BUFF"
-  },
-  {
-    "date": "01/05/2021",
-    "description": "Ability increased by 1",
-    "id": "N37",
-    "type": "BUFF"
-  },
-  {
-    "date": "01/05/2021",
-    "description": "Ability made predictable",
+    "description": "Ability increased by 1 and made predictable",
     "id": "N37",
     "type": "BUFF"
   }
