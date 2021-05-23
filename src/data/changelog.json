@@ -43,25 +43,39 @@
     "date": "01/05/2021",
     "description": "Strength decreased by 2 and mana cost decreased by 1",
     "id": "S9",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 4,
+      "strength": "2/3/3/5/5"
+    }
   },
   {
     "date": "01/04/2021",
     "description": "Movement decreased by 1",
     "id": "N8",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "movement": 1
+    }
   },
   {
     "date": "01/04/2021",
     "description": "Mana cost decreased by 2 and strength decreased by 2/2/2/3/4",
     "id": "N79",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 5,
+      "strength": "5/6/7/9/11"
+    }
   },
   {
     "date": "01/04/2021",
     "description": "Ability made to only consider primary unit types",
     "id": "N35",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "ability": "On play, deal *1/1/2/2/3 damage* to a random enemy for each surrounding *unit type*"
+    }
   },
   {
     "date": "01/04/2021",
@@ -73,7 +87,10 @@
     "date": "01/03/2021",
     "description": "Mana cost increased by 1",
     "id": "N23",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "mana": 2
+    }
   },
   {
     "date": "01/03/2021",
@@ -85,7 +102,10 @@
     "date": "01/03/2021",
     "description": "Mana cost increased by 1",
     "id": "I3",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "mana": "2"
+    }
   },
   {
     "date": "01/03/2021",
@@ -97,7 +117,11 @@
     "date": "01/03/2021",
     "description": "Strength and ability decreased by 1 at level 5",
     "id": "F28",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "5/6/8/10/13",
+      "ability": "After surviving damage, *drain up to 1/1/2/2/3* of the damage received from the enemy base"
+    }
   },
   {
     "date": "01/02/2021",
@@ -271,7 +295,11 @@
     "date": "01/10/2020",
     "description": "Mana cost decreased by 1 and strength decreased by 2",
     "id": "N66",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 3,
+      "strength": "3/4/5/6/7"
+    }
   },
   {
     "date": "01/10/2020",
@@ -424,7 +452,10 @@
     "date": "11/07/2020",
     "description": "Mana cost set to 3 at all levels",
     "id": "N9",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": "4/4/4/3/3"
+    }
   },
   {
     "date": "11/07/2020",
@@ -496,7 +527,10 @@
     "date": "11/07/2020",
     "description": "Strength decreased by 2",
     "id": "F28",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "7/8/10/12/15"
+    }
   },
   {
     "date": "11/07/2020",
@@ -586,13 +620,21 @@
     "date": "26/11/2019",
     "description": "Mana cost decreased by 1 and strength decreased by 1",
     "id": "N66",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 4,
+      "strength": "4/5/6/7/8"
+    }
   },
   {
     "date": "26/11/2019",
-    "description": "Mana cost decreased by 1 and strength decreased by 1",
+    "description": "Mana cost and strength decreased by 1",
     "id": "N67",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 3,
+      "strength": "2/3/4/5/6"
+    }
   },
   {
     "date": "26/11/2019",
@@ -808,7 +850,10 @@
     "date": "25/09/2019",
     "description": "Ability made to affect all in front at all levels and strength at higher levels increased by 1",
     "id": "N62",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, *confuse a/a/a// random/random/random/all/all enemy unit/unit/unit/units/units* in front"
+    }
   },
   {
     "date": "25/09/2019",
@@ -1024,7 +1069,10 @@
     "date": "27/06/2019",
     "description": "Ability increased at lower levels and decreased at higher levels",
     "id": "N6",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "ability": "On death, *give 2/3/4/6/8* strength to a random friendly Dragon"
+    }
   },
   {
     "date": "27/06/2019",
@@ -1300,31 +1348,48 @@
     "date": "13/02/2019",
     "description": "Ability made surrounding",
     "id": "N1",
-    "type": "BUFF"
+    "type": "NERF",
+    "from": {
+      "ability": "On death, *give 1/2/3/4/5* strength to a random bordering *enemy* unit"
+    }
   },
   {
     "date": "13/02/2019",
     "description": "Mana cost decreased by 1 and ability decreased by 2",
     "id": "N2",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 2,
+      "ability": "Randomly *spawn* a Knight with *3/4/5/6/7* strength"
+    }
   },
   {
     "date": "13/02/2019",
     "description": "Mana cost increased by 1 and strength increased by 1",
     "id": "N4",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 1,
+      "strength": "1/2/3/4/5"
+    }
   },
   {
     "date": "13/02/2019",
     "description": "Strength decreased by 1",
     "id": "N5",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "2"
+    }
   },
   {
     "date": "13/02/2019",
     "description": "Strength at higher levels increased by 1",
     "id": "N7",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "3/3/4/4/5"
+    }
   },
   {
     "date": "13/02/2019",
@@ -1580,9 +1645,14 @@
   },
   {
     "date": "18/09/2018",
-    "description": "Mana cost increased by 1 and strength and ability increased by 1",
+    "description": "Mana cost, strength and ability increased by 1",
     "id": "N5",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 1,
+      "strength": "1",
+      "ability": "When played as the last card in your hand, *gain 4/5/6/7/8* strength"
+    }
   },
   {
     "date": "18/09/2018",
@@ -1696,7 +1766,10 @@
     "date": "07/08/2018",
     "description": "Ability decreased at lower levels",
     "id": "N6",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "ability": "On death, *give 4/5/6/7/8* strength to a random friendly Dragon"
+    }
   },
   {
     "date": "07/08/2018",
@@ -1780,19 +1853,30 @@
     "date": "09/07/2018",
     "description": "Strength decreased by 1",
     "id": "N2",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "mana": 2,
+      "ability": "Randomly *spawn* a Knight with *4/5/6/7/8* strength"
+    }
   },
   {
     "date": "09/07/2018",
     "description": "Strength decreased by 1",
     "id": "N3",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "2/3/4/5/6"
+    }
   },
   {
     "date": "09/07/2018",
     "description": "Strength decreased by 1",
     "id": "N8",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "movement": 1,
+      "strength": "2/2/3/3/4"
+    }
   },
   {
     "date": "09/07/2018",
@@ -2306,9 +2390,13 @@
   },
   {
     "date": "31/01/2018",
-    "description": "Strength decreased and ability by 1 and ability made to scale with level",
+    "description": "Strength and ability decreased by 1 and ability made to scale with level",
     "id": "N1",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "strength": "2/3/4/5/6",
+      "ability": "On death, *give 2* strength to a random bordering *enemy* unit"
+    }
   },
   {
     "date": "31/01/2018",
@@ -2878,7 +2966,10 @@
     "date": "26/09/2017",
     "description": "Strength decreased at higher levels",
     "id": "N8",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "2/2/3/4/5"
+    }
   },
   {
     "date": "26/09/2017",
@@ -3328,7 +3419,11 @@
     "date": "07/08/2017",
     "description": "Bonus strength increased by 1",
     "id": "N5",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 1,
+      "ability": "When played as the last card in your hand, *gain 3/4/5/6/7* strength"
+    }
   },
   {
     "date": "07/08/2017",
