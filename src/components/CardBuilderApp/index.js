@@ -115,6 +115,10 @@ export default React.memo(function CardBuilderApp(props) {
     history.replace('?' + parameters.toString())
   }, [versionId, history])
 
+  React.useEffect(() => {
+    setVersionId(null)
+  }, [props.cardId])
+
   return (
     <Article {...articleProps} smallFontSize>
       <CardDisplay mode={props.mode} {...cardData} />
