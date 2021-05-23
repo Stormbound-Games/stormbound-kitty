@@ -21,7 +21,7 @@ const getWikiUrl = name =>
   'https://stormboundkingdomwars.fandom.com/' +
   encodeURIComponent(name.replace(/\s/g, '_').replace(/’/g, "'"))
 
-const useArticleProps = props => {
+const useArticleProps = (props, versionId) => {
   const isOfficial = Boolean(getRawCardData(props.cardId).name)
   const contest = swcc
     .flat()
@@ -36,7 +36,9 @@ const useArticleProps = props => {
   }
 
   if (isOfficial) {
-    properties.meta = [faction, type, race].filter(Boolean).join(' · ')
+    properties.meta = [faction, type, race, versionId ? 'v' + versionId : null]
+      .filter(Boolean)
+      .join(' · ')
     properties.action = {
       href: getWikiUrl(name),
       children: 'Open in wiki',
@@ -102,9 +104,9 @@ const useCardData = (props, versionId) => {
 export default React.memo(function CardBuilderApp(props) {
   const history = useHistory()
   const isOfficial = Boolean(getRawCardData(props.cardId).name)
-  const articleProps = useArticleProps(props)
   const [versionId, setVersionId] = React.useState(getVersionIdFromURL())
   const cardData = useCardData(props, versionId)
+  const articleProps = useArticleProps(props, versionId)
 
   React.useEffect(() => {
     const parameters = new URLSearchParams(window.location.search)
