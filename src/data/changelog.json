@@ -1855,7 +1855,6 @@
     "id": "N2",
     "type": "NERF",
     "from": {
-      "mana": 2,
       "ability": "Randomly *spawn* a Knight with *4/5/6/7/8* strength"
     }
   },
@@ -1874,7 +1873,6 @@
     "id": "N8",
     "type": "NERF",
     "from": {
-      "movement": 1,
       "strength": "2/2/3/3/4"
     }
   },
@@ -3421,7 +3419,6 @@
     "id": "N5",
     "type": "BUFF",
     "from": {
-      "mana": 1,
       "ability": "When played as the last card in your hand, *gain 3/4/5/6/7* strength"
     }
   },

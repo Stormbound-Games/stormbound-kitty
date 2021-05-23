@@ -74,12 +74,15 @@ const stringifyDate = date =>
     date.getFullYear(),
   ].join('/')
 
-const useCardVersion = (cardId, versionId) => {
-  if (!versionId || !Boolean(getRawCardData(cardId).name)) return null
+const isCardOfficial = cardId => Boolean(getRawCardData(cardId).name)
 
-  const date = stringifyDate(new Date(+versionId))
+const useCardVersions = cardId => {
+  if (!isCardOfficial(cardId)) return []
 
-  return changelog.find(change => change.id === cardId && change.date === date)
+  return changelog
+    .filter(change => change.id === cardId)
+    .map(change => ({ ...change, timestamp: parseDate(change.date) }))
+    .sort((a, b) => b.timestamp - a.timestamp)
 }
 
 const getVersionIdFromURL = () => {
@@ -92,18 +95,23 @@ const resolveCardData = data =>
   serialisation.card.deserialise(serialisation.card.serialise(data))
 
 const useCardData = (props, versionId) => {
-  const version = useCardVersion(props.cardId, versionId)
+  const versions = useCardVersions(props.cardId)
 
-  if (!version) return props.cardData
+  if (!versionId || versions.length === 0) return props.cardData
 
-  const cardData = { ...getRawCardData(props.cardId), ...version.from }
+  const cardData = versions
+    .filter(version => version.timestamp >= +versionId)
+    .reduce(
+      (acc, version) => ({ ...acc, ...version.from }),
+      getRawCardData(props.cardId)
+    )
 
   return resolveCardData(cardData)
 }
 
 export default React.memo(function CardBuilderApp(props) {
   const history = useHistory()
-  const isOfficial = Boolean(getRawCardData(props.cardId).name)
+  const isOfficial = isCardOfficial(props.cardId)
   const [versionId, setVersionId] = React.useState(getVersionIdFromURL())
   const cardData = useCardData(props, versionId)
   const articleProps = useArticleProps(props, versionId)
