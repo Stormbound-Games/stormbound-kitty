@@ -7,6 +7,18 @@ import './index.css'
 
 export default React.memo(function CardChangeFeed(props) {
   const changes = changelog.filter(change => change.id === props.id)
+  const hasReleaseChange = changes.some(
+    change => change.description === 'Added to the game'
+  )
+
+  if (!hasReleaseChange) {
+    changes.push({
+      date: '18/09/2017',
+      description: 'Released with the game',
+      id: props.id,
+      type: 'INFO',
+    })
+  }
 
   if (changes.length === 0) return null
 
