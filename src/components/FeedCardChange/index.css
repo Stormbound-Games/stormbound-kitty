@@ -9,3 +9,7 @@
 .FeedCardChange svg.Icon--info {
   color: var(--freeze);
 }
+
+.FeedCardChange svg.Icon--shuffle {
+  color: var(--confused);
+}

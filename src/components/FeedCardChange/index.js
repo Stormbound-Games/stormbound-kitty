@@ -3,17 +3,17 @@ import CardLink from '../CardLink'
 import FeedEntry from '../FeedEntry'
 import './index.css'
 
-export default React.memo(function FeedCardChange(props) {
-  const icon =
-    props.type === 'INFO'
-      ? 'info'
-      : props.type === 'BUFF'
-      ? 'arrow-up'
-      : 'arrow-down'
+const ICONS = {
+  INFO: 'info',
+  MIXED: 'shuffle',
+  BUFF: 'arrow-up',
+  NERF: 'arrow-down',
+}
 
+export default React.memo(function FeedCardChange(props) {
   return (
     <FeedEntry
-      icon={icon}
+      icon={ICONS[props.type]}
       date={props.date}
       dateFormat='LONG'
       className='FeedCardChange'
