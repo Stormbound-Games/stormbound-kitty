@@ -213,7 +213,10 @@
     "date": "01/01/2021",
     "description": "Ability made to no longer require bordering dragon",
     "id": "F19",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, *gain* the strength of the strongest bordering friendly Dragon"
+    }
   },
   {
     "date": "01/01/2021",
@@ -314,13 +317,20 @@
     "date": "01/11/2020",
     "description": "Mana cost decreased by 1 at level 2, increased by 1 at level 5 and decreased spawns at level 2, 3 and 4",
     "id": "F8",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": "3/3/2/2/1",
+      "ability": "*Spawn* a *1* strength Toad on *4/5/5/6/6* random tiles"
+    }
   },
   {
     "date": "01/11/2020",
     "description": "Mana cost decreased by 1",
     "id": "F21",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 7
+    }
   },
   {
     "date": "08/10/2020",
@@ -430,7 +440,11 @@
     "date": "01/10/2020",
     "description": "Mana cost increased by 1 and ability increased by 1",
     "id": "F4",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 1,
+      "ability": "*Destroy* a target friendly unit. Deal *1/2/3/4/5 damage* to all surrounding units and *poison* them."
+    }
   },
   {
     "date": "01/10/2020",
@@ -652,10 +666,13 @@
     }
   },
   {
-    "date": "11/07/2020",
+    "date": "21/07/2020",
     "description": "Strength decreased by 2",
     "id": "F20",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "5/6/7/8/10"
+    }
   },
   {
     "date": "11/07/2020",
@@ -886,37 +903,58 @@
     "date": "26/11/2019",
     "description": "Mana cost decreased by 1",
     "id": "F4",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 2
+    }
   },
   {
     "date": "26/11/2019",
     "description": "Mana cost decreased at higher levels and spawns at higher levels decreased",
     "id": "F8",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": "3/3/3/2/2",
+      "ability": "*Spawn* a *1* strength Toad on *4/5/6/6/8* random tiles"
+    }
   },
   {
     "date": "26/11/2019",
     "description": "Ability and strength increased by 1 at higher levels",
     "id": "F24",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, *convert* a random bordering enemy unit with *1/2/3/4/5 /or/or/or/or /less/less/less/less strength* to fight for you",
+      "strength": "3/3/4/5/6"
+    }
   },
   {
     "date": "26/11/2019",
     "description": "Strength and ability increased by 1 at higher levels",
     "id": "F12",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "3/3/4/5/6",
+      "ability": "After attacking, *jump* in front of a random enemy unit or structure and *gain 3/4/4/5/6* strength"
+    }
   },
   {
     "date": "26/11/2019",
     "description": "Strength at higher levels increased by 1",
     "id": "F13",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "3/4/4/5/6"
+    }
   },
   {
     "date": "26/11/2019",
     "description": "Ability increased by 1",
     "id": "F22",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "*Convert* a target enemy unit with *7/8/10/12/15 or less strength* to fight for you"
+    }
   },
   {
     "date": "26/11/2019",
@@ -1420,31 +1458,47 @@
     "date": "27/06/2019",
     "description": "Ability increased by 1",
     "id": "F1",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, for each surrounding poisoned unit *spawn* a *1* strength Toad on *1/1/2/2/3 tiles* bordering it"
+    }
   },
   {
     "date": "27/06/2019",
     "description": "Ability increased at lower levels and decreased at higher levels",
     "id": "F9",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "ability": "When played bordering a friendly Dragon, deal *2/3/4/6/8 damage* to the strongest enemy unit"
+    }
   },
   {
     "date": "27/06/2019",
     "description": "Damage and spawn increased by 1",
     "id": "F11",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "Deal *4/5/6/7/8 damage* to a target poisoned unit. If that kills it, *spawn* a *4/5/6/7/8* strength Raven there."
+    }
   },
   {
     "date": "27/06/2019",
     "description": "Strength at lower levels decreased to 1 and ability at lower levels increased to 3",
     "id": "F16",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "strength": 3,
+      "ability": "Before attacking a stronger unit, *drain 2/3/4/5/6* strength from it"
+    }
   },
   {
     "date": "27/06/2019",
     "description": "Strength at lower levels increased by 1",
     "id": "F21",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "4/5/6/8/10"
+    }
   },
   {
     "date": "27/06/2019",
@@ -1573,13 +1627,20 @@
     "date": "09/05/2019",
     "description": "Strength increased by 1",
     "id": "F20",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "4/5/6/7/8"
+    }
   },
   {
     "date": "09/05/2019",
     "description": "Strength decreased by 2 and ability revamped",
     "id": "F23",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "strength": "7/8/10/12/15",
+      "ability": "On play, randomly *destroy 3* weaker friendly units and *spawn 5/6/7/8/10* strength Ravens there"
+    }
   },
   {
     "date": "09/05/2019",
@@ -1847,25 +1908,40 @@
     "date": "13/02/2019",
     "description": "Strength decreased by 1",
     "id": "F1",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "3/4/4/5/6"
+    }
   },
   {
     "date": "13/02/2019",
-    "description": "Mana cost decreased by 1 and ability decreased by 1",
+    "description": "Mana cost and ability decreased by 1",
     "id": "F4",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 3,
+      "ability": "*Destroy* a target friendly unit. Deal *2/3/4/5/6 damage* to all surrounding units and *poison* them."
+    }
   },
   {
     "date": "13/02/2019",
     "description": "Mana cost decreased by 1 and ability decreased by 1",
     "id": "F5",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 4,
+      "ability": "On death, deal *2/3/4/5/6 damage* to all bordering units and *poison* them"
+    }
   },
   {
     "date": "13/02/2019",
     "description": "Mana cost increased by 1 and ability increased by 1",
     "id": "F10",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 3,
+      "ability": "On death, *spawn 1* strength Toads on *1/2/3/4/5* random surrounding tiles"
+    }
   },
   {
     "date": "13/02/2019",
@@ -1959,7 +2035,10 @@
     "date": "17/12/2018",
     "description": "Strength at lower levels decreased by 1",
     "id": "F21",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "5/6/7/8/10"
+    }
   },
   {
     "date": "17/12/2018",
@@ -2123,37 +2202,56 @@
     "date": "18/09/2018",
     "description": "Strength increased by 1",
     "id": "F1",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "2/3/3/4/5"
+    }
   },
   {
     "date": "18/09/2018",
-    "description": "Mana cost decreased by 2 and strength decreased by 2",
+    "description": "Mana cost and strength decreased by 2",
     "id": "F12",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 6,
+      "strength": "3/3/4/5/6"
+    }
   },
   {
     "date": "18/09/2018",
     "description": "Ability increased at higher levels",
     "id": "F14",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, *drain 1/1/1/2/2* strength from all bordering units"
+    }
   },
   {
     "date": "18/09/2018",
     "description": "Strength of spawned dragons increased by 1 at higher levels",
     "id": "F21",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, *spawn 3* Nests on random surrounding tiles which will *hatch 3/3/4/5/6* strength Dragons"
+    }
   },
   {
     "date": "18/09/2018",
     "description": "Mana cost decreased by 1",
     "id": "F22",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 8
+    }
   },
   {
     "date": "18/09/2018",
     "description": "Strength increased",
     "id": "F23",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "6/7/8/10/12"
+    }
   },
   {
     "date": "07/08/2018",
@@ -2241,19 +2339,30 @@
     "date": "07/08/2018",
     "description": "Ability at higher levels increased by 1 and strength at higher levels decreased by 1",
     "id": "F2",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "ability": "On play, *poison 1/1/1/2/2* random enemy unit/unit/units/units/units",
+      "strength": "1/2/3/3/4"
+    }
   },
   {
     "date": "07/08/2018",
     "description": "Strength set to 3 and ability adjusted at all levels",
     "id": "F9",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "strength": "3/4/5/6/7",
+      "ability": "When played bordering a friendly Dragon, deal *3/4/5/6/7 damage* to the strongest enemy unit"
+    }
   },
   {
     "date": "07/08/2018",
     "description": "Ability at higher levels increased by 1",
     "id": "F13",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "At the start of your turn, *poison 1/1/1/2/2* random enemy unit/unit/unit/units/units"
+    }
   },
   {
     "date": "07/08/2018",
@@ -2587,31 +2696,47 @@
     "date": "09/07/2018",
     "description": "Ability made to spawn multiple 1-strength toads",
     "id": "F1",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, *spawn* a *2/2/3/3/* strength Toad for each surrounding poisoned unit"
+    }
   },
   {
     "date": "09/07/2018",
     "description": "Mana cost decreased to 2 and movement decreased to 0",
     "id": "F1",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 3,
+      "movement": 1
+    }
   },
   {
     "date": "09/07/2018",
-    "description": "Movement decreased to 0",
+    "description": "Movement decreased by 1",
     "id": "F2",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "movement": 1
+    }
   },
   {
     "date": "09/07/2018",
     "description": "Strength decreased by 1",
     "id": "F3",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "3/4/5/6/7"
+    }
   },
   {
     "date": "09/07/2018",
     "description": "Ability decreased by 1",
     "id": "F10",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "ability": "On death, *spawn 1* strength Toads on *2/3/4/5/6* random surrounding tiles"
+    }
   },
   {
     "date": "09/07/2018",
@@ -2829,37 +2954,59 @@
     "date": "22/04/2018",
     "description": "Ability made to also work on friendly units",
     "id": "F1",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, *spawn* a *2/2/3/3/4 strength* Toad for each surrounding poisoned enemy"
+    }
   },
   {
     "date": "22/04/2018",
     "description": "Mana cost decreased by 1 and strength and ability decreased by 1",
     "id": "F9",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 4,
+      "strength": "4/5/6/7/8",
+      "ability": "When played bordering a friendly Dragon, deal *4/5/6/7/8 damage* to the strongest enemy unit"
+    }
   },
   {
     "date": "22/04/2018",
     "description": "Ability made to also work on friendly units",
     "id": "F11",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "ability": "Deal *4/5/6/7/8 damage* to a target poisoned enemy. If that kills it, spawn a *4/5/6/7/8 strength* Raven there."
+    }
   },
   {
     "date": "22/04/2018",
     "description": "Strength decreased by 1 and ability increased by 1",
     "id": "F12",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "strength": "6/7/8/10/12",
+      "ability": "After attacking, *jump* in front of a random enemy unit or structure and *gain 2/2/3/3/4* strength"
+    }
   },
   {
     "date": "22/04/2018",
     "description": "Strength increased by 1",
     "id": "F18",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "4/5/6/7/8"
+    }
   },
   {
     "date": "22/04/2018",
     "description": "Mana cost and strength requirement decreased by 1",
     "id": "F22",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 9,
+      "ability": "*Convert* a target enemy unit with *8/9/11/13/16 or less strength* to fight for you"
+    }
   },
   {
     "date": "22/04/2018",
@@ -3132,43 +3279,65 @@
     "date": "31/01/2018",
     "description": "Mana cost increased by 2 and ability made surrounding at all levels, damage and poison all units",
     "id": "F4",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 1,
+      "ability": "Destroy a target friendly unit. Deal *2/3/4/4/6 damage* to all *bordering/bordering/bordering/surrounding/surrounding* enemy units and poison them."
+    }
   },
   {
     "date": "31/01/2018",
     "description": "Ability made bordering and to damage and poison friendly units too and damage increased",
     "id": "F5",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "ability": "On death, deal *1/2/3/3/4 damage* to all *bordering/bordering/bordering/surrounding/surrounding* enemy units and poison them"
+    }
   },
   {
     "date": "31/01/2018",
     "description": "Strength of spawn doubled",
     "id": "F11",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "Deal *4/5/6/7/8 damage* to a target poisoned enemy. If that kills it, spawn a *2/2/3/3/4 strength* Raven there."
+    }
   },
   {
     "date": "31/01/2018",
     "description": "Ability made to also drain from a friendly poisoned unit",
     "id": "F15",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "ability": "On play, *drain 4/5/6/7/8* strength from a random surrounding poisoned enemy"
+    }
   },
   {
     "date": "31/01/2018",
     "description": "Ability at higher levels increased by 1",
     "id": "F20",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, *convert* all bordering enemy units with *3/3/4/5/6 or less strength* to fight for you"
+    }
   },
   {
     "date": "31/01/2018",
     "description": "Max strength requirement increased by 1",
     "id": "F22",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "ability": "*Convert* a target enemy unit with *7/8/10/12/15 or less strength* to fight for you"
+    }
   },
   {
     "date": "31/01/2018",
     "description": "Strength increased by 1",
     "id": "F23",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "5/6/7/8/10"
+    }
   },
   {
     "date": "31/01/2018",
@@ -3449,9 +3618,14 @@
   },
   {
     "date": "16/11/2017",
-    "description": "Mana cost increased by 1 and strength and ability increased by 1",
+    "description": "Mana cost, strength and ability increased by 1",
     "id": "F1",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 2,
+      "strength": "1/2/2/3/3",
+      "ability": "On play, *spawn* a *1/1/2/2/3 strength* Toad for each surrounding poisoned enemy"
+    }
   },
   {
     "date": "16/11/2017",
@@ -3469,13 +3643,19 @@
     "date": "16/11/2017",
     "description": "Ability made to no longer deal damage and hit 2 enemies at higher levels",
     "id": "F13",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "Ability": "At the start of your turn, *poison* a random enemy unit ///and/and ///deal/deal ///1/1 ///damage/damage ///to/to ///it/it"
+    }
   },
   {
     "date": "16/11/2017",
     "description": "Ability increased by 1",
     "id": "F23",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, randomly *destroy 3* weaker friendly units and *spawn 4/5/6/7/8* strength Ravens there"
+    }
   },
   {
     "date": "16/11/2017",
@@ -3657,13 +3837,19 @@
     "date": "11/10/2017",
     "description": "Mana cost increased by 1",
     "id": "F5",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "mana": 3
+    }
   },
   {
     "date": "11/10/2017",
     "description": "Strength decreased by 1",
     "id": "F20",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "5/6/7/8/10"
+    }
   },
   {
     "date": "11/10/2017",
@@ -3734,25 +3920,40 @@
     "date": "26/09/2017",
     "description": "Strength and ability decreased at higher levels",
     "id": "F1",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "1/2/2/3/4",
+      "ability": "On play, *spawn* a *1/1/2/3/4 strength* Toad for each surrounding poisoned enemy"
+    }
   },
   {
     "date": "26/09/2017",
     "description": "Strength increased at higher levels and ability decreased at higher levels",
     "id": "F13",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "strength": "3/4/4/5/5",
+      "ability": "At the start of your turn, *poison* a random enemy unit //and/and/and //deal/deal/deal //1/1/2 //damage/damage/damage //to/to/to //it/it/it"
+    }
   },
   {
     "date": "26/09/2017",
     "description": "Ability decreased at higher levels",
     "id": "F20",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "ability": "On play, *convert* all bordering enemy units with *3/4/5/6/7 or less strength* to fight for you"
+    }
   },
   {
     "date": "26/09/2017",
     "description": "Strength and ability decreased",
     "id": "F23",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "6/7/8/10/12",
+      "ability": "On play, randomly *destroy 3* weaker friendly units and *spawn 5/6/7/8/10* strength Ravens there"
+    }
   },
   {
     "date": "26/09/2017",
@@ -3821,19 +4022,29 @@
     "date": "18/09/2017",
     "description": "Strength decreased by 1 and negative ability decreased by 1",
     "id": "F3",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "strength": "4/5/6/7/8",
+      "ability": "On death, *spawn* a *2* strength Raven on a random bordering tile to fight for the *enemy*"
+    }
   },
   {
     "date": "18/09/2017",
     "description": "Ability decreased by 1",
     "id": "F12",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "ability": "After attacking, *jump* in front of a random enemy unit or structure and *gain 3/3/4/5/6* strength"
+    }
   },
   {
     "date": "18/09/2017",
     "description": "Ability decreased by 1",
     "id": "F16",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "ability": "Before attacking a stronger unit, *drain 3/4/5/6/7* strength from it"
+    }
   },
   {
     "date": "18/09/2017",
@@ -3937,7 +4148,10 @@
     "date": "06/09/2017",
     "description": "Mana cost decreased by 1",
     "id": "F8",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": "4/4/4/3/3"
+    }
   },
   {
     "date": "30/08/2017",
@@ -4091,25 +4305,39 @@
     "date": "30/08/2017",
     "description": "Strength increased by 1",
     "id": "F13",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "2/3/3/4/4"
+    }
   },
   {
     "date": "30/08/2017",
     "description": "Strength increased by 2, ability decreased by 1",
     "id": "F15",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "2/3/4/5/6",
+      "ability": "On play, *drain 5/6/7/8/10* strength from a random surrounding poisoned unit"
+    }
   },
   {
     "date": "30/08/2017",
     "description": "Strength increased by 2",
     "id": "F20",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "3/4/5/6/7"
+    }
   },
   {
     "date": "30/08/2017",
     "description": "Strength and ability increased by 1",
     "id": "F23",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "5/6/6/7/8",
+      "ability": "On play, randomly *destroy 3* weaker friendly units and *spawn 4/5/6/7/8* strength Ravens there"
+    }
   },
   {
     "date": "30/08/2017",
@@ -4299,13 +4527,21 @@
     "date": "10/08/2017",
     "description": "Mana cost decreased by 1",
     "id": "F4",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 2
+    }
   },
   {
     "date": "10/08/2017",
-    "description": "Mana cost increased by 1 and strength and ability increased by 1",
+    "description": "Mana cost, strength and ability increased by 1",
     "id": "F12",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 5,
+      "strength": "5/6/7/8/10",
+      "ability": "After attacking, *jump* in front of a random enemy unit or structure and *gain 2/2/3/3/4* strength"
+    }
   },
   {
     "date": "07/08/2017",
@@ -4502,43 +4738,70 @@
     "date": "07/08/2017",
     "description": "Strength increased when leveled and ability strength decreased",
     "id": "F1",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "ability": "On play, *spawn* a *2/2/3/3/4 strength* Toad for each surrounding poisoned enemy",
+      "strength": "1/2/2/3/3"
+    }
   },
   {
     "date": "07/08/2017",
     "description": "Mana cost decreased by 1",
     "id": "F5",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 4
+    }
   },
   {
     "date": "07/08/2017",
     "description": "Mana cost decreased by 1 and strength decreased by 1",
     "id": "F10",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 4,
+      "strength": 2
+    }
   },
   {
     "date": "07/08/2017",
-    "description": "Mana cost increased by 1 and strength increased by 1",
+    "description": "Mana cost and strength increased by 1",
     "id": "F14",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 3,
+      "strength": "1/2/3/3/4"
+    }
   },
   {
     "date": "07/08/2017",
     "description": "Movement increased to 1 and drain ability increased by 2",
     "id": "F15",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "movement": 0,
+      "ability": "On play, *drain 3/4/5/6/7* strength from a random surrounding poisoned enemy"
+    }
   },
   {
     "date": "07/08/2017",
     "description": "Mana cost and maximum strength requirement increased by 2",
     "id": "F22",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "mana": 7,
+      "ability": "*Convert* a target enemy unit with *5/6/7/8/10 or less strength* to fight for you"
+    }
   },
   {
     "date": "07/08/2017",
     "description": "Mana cost increased by 1 and strength and ability increased when leveling",
     "id": "F23",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 7,
+      "ability": "On play, randomly *destroy 3* weaker friendly units and *spawn 4/4/5/6/7* strength Ravens there"
+    }
   },
   {
     "date": "07/08/2017",
