@@ -10,7 +10,7 @@ export default React.memo(function CardChangeFeed(props) {
   const hasReleaseChange = changes.some(
     change =>
       change.description === 'Added to the game' ||
-      change.description === 'Added to Brawl mode'
+      change.description === 'Added in Brawl mode'
   )
 
   if (!hasReleaseChange) {
