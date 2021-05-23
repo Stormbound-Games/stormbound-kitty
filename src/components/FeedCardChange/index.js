@@ -29,7 +29,8 @@ export default React.memo(function FeedCardChange(props) {
             icon='eye'
             active={isActive}
             onClick={() => props.setVersionId(isActive ? null : versionId)}
-            aria-label='Preview version'
+            aria-label='Preview card *before* this change happened'
+            title='Preview card *before* this change happened'
           />
         )
       }
