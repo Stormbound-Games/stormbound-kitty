@@ -12,7 +12,7 @@ export default React.memo(function FeedEntry(props) {
   const date = props.date
 
   return (
-    <div className='FeedEntry'>
+    <div className={['FeedEntry', props.className].filter(Boolean).join(' ')}>
       <span className='FeedEntry__left'>
         <Icon icon={props.icon} className='FeedEntry__icon' />
       </span>

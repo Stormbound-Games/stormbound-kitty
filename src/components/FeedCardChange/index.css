@@ -1,0 +1,11 @@
+.FeedCardChange svg.Icon--arrow-down {
+  color: var(--player-red);
+}
+
+.FeedCardChange svg.Icon--arrow-up {
+  color: var(--affordable);
+}
+
+.FeedCardChange svg.Icon--info {
+  color: var(--freeze);
+}

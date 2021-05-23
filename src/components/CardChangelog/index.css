@@ -7,28 +7,13 @@
 }
 
 .CardChanges__list {
+  list-style-type: none;
   padding: 0;
-  list-style-position: inside;
-  font-size: 115%;
+  margin: 0;
 }
 
 .CardChanges__list > li {
-  margin: 0.25em 0;
-  text-indent: -1.5em;
-  padding-left: 1.5em;
-}
-
-.CardChanges__buff {
-  color: var(--light-shadowfen);
-}
-.CardChanges__nerf {
-  color: var(--light-ironclad);
-}
-.CardChanges__mixed {
-  color: var(--light-swarm);
-}
-.CardChanges__info {
-  color: var(--light-winter);
+  margin: 0.5em 0;
 }
 
 .CardChanges__disclaimer {
