@@ -8,7 +8,9 @@ import './index.css'
 export default React.memo(function CardChangeFeed(props) {
   const changes = changelog.filter(change => change.id === props.id)
   const hasReleaseChange = changes.some(
-    change => change.description === 'Added to the game'
+    change =>
+      change.description === 'Added to the game' ||
+      change.description === 'Added to Brawl mode'
   )
 
   if (!hasReleaseChange) {
