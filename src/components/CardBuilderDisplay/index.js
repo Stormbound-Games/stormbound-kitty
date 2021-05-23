@@ -12,7 +12,7 @@ export default React.memo(function CardBuilderDisplay(props) {
 
   return (
     <>
-      <App {...cardData} cardId={id} mode='DISPLAY' />
+      <App cardData={cardData} cardId={id} mode='DISPLAY' />
       <PageMeta {...getCardBuilderMetaTags(cardData)} />
     </>
   )

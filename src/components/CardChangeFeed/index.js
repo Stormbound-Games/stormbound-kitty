@@ -22,7 +22,11 @@ export default React.memo(function CardChangeFeed(props) {
           .sort((a, b) => b.date - a.date)
           .map((entry, index) => (
             <li key={index} className='CardChangeFeed__item'>
-              <FeedCardChange {...entry} />
+              <FeedCardChange
+                {...entry}
+                versionId={props.versionId}
+                setVersionId={props.setVersionId}
+              />
             </li>
           ))}
       </ul>

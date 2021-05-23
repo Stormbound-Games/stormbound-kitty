@@ -3,7 +3,10 @@
     "date": "01/05/2021",
     "description": "Ability increased by 1 and made predictable",
     "id": "N37",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, deal *3/4/5/6/7 damage* to a random enemy behind"
+    }
   },
   {
     "date": "01/05/2021",
@@ -21,13 +24,20 @@
     "date": "01/05/2021",
     "description": "Ability made surrounding",
     "id": "I7",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "ability": "Before attacking a unit, *gives 1/1/2/2/3 strength* to itself and a random friendly Dragon"
+    }
   },
   {
     "date": "01/05/2021",
     "description": "Strength decreased by 1/1/2/2/3 and mana cost decreased by 1",
     "id": "I23",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 7,
+      "strength": "7/8/10/12/15"
+    }
   },
   {
     "date": "01/05/2021",
@@ -321,7 +331,10 @@
     "date": "01/10/2020",
     "description": "Movement decreased by 1",
     "id": "I28",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "movement": 1
+    }
   },
   {
     "date": "01/10/2020",

@@ -34,6 +34,7 @@ export default React.memo(function FeedEntry(props) {
         )}
         <div className='FeedEntry__label'>{props.children}</div>
       </div>
+      {props.right && <span className='FeedEntry__right'>{props.right}</span>}
     </div>
   )
 })

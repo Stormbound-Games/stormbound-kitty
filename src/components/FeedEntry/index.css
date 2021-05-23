@@ -30,3 +30,8 @@
     display: none;
   }
 }
+
+.FeedEntry__right {
+  margin-left: auto;
+  align-self: center;
+}
