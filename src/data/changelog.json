@@ -181,7 +181,10 @@
     "date": "01/01/2021",
     "description": "Ability decreased by 1 and ability made to vitalize the target",
     "id": "N15",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "ability": "*Give 3/4/5/6/7* strength to a target friendly unit"
+    }
   },
   {
     "date": "01/01/2021",
@@ -217,19 +220,28 @@
     "date": "01/12/2020",
     "description": "Strength increased by 1",
     "id": "N80",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "2/3/3/4/5"
+    }
   },
   {
     "date": "01/12/2020",
     "description": "Ability made to require 3 surrounding enemies to proc",
     "id": "N36",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "ability": "When played with at least *2* surrounding enemies, deal *2/3/4/5/6 damage* to them"
+    }
   },
   {
     "date": "01/12/2020",
     "description": "Ability made to no longer cast spells more expensive than base mana cost",
     "id": "N48",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "ability": "On play, randomly *play* up to *1/1/1/2/2* spell card/card/card/cards/cards"
+    }
   },
   {
     "date": "01/12/2020",
@@ -247,7 +259,12 @@
     "date": "01/11/2020",
     "description": "Mana cost decreased by 1 and strength and ability decreased by 1 at low levels",
     "id": "N24",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 4,
+      "strength": "2/2/3/3/4",
+      "ability": "On play, *give 2/3/3/4/4* strength to another random friendly unit"
+    }
   },
   {
     "date": "01/11/2020",
@@ -259,7 +276,10 @@
     "date": "01/11/2020",
     "description": "Mana cost decreased by 1",
     "id": "N77",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 7
+    }
   },
   {
     "date": "01/11/2020",
@@ -305,13 +325,20 @@
     "date": "01/10/2020",
     "description": "Ability made surrounding",
     "id": "N61",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, randomly *force a bordering confused enemy unit to attack* a bordering enemy"
+    }
   },
   {
     "date": "01/10/2020",
     "description": "Movement increased by 1 and ability made surrounding",
     "id": "N25",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "movement": 0,
+      "ability": "On play, deal *4/5/6/7/8 damage* to all bordering enemy structures"
+    }
   },
   {
     "date": "01/10/2020",
@@ -323,25 +350,37 @@
     "date": "01/10/2020",
     "description": "Ability increased by 1",
     "id": "N69",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "Before attacking an enemy unit *force all enemy units* bordering it with 3/4/5/6/7 or lower strength *to attack* it"
+    }
   },
   {
     "date": "01/10/2020",
     "description": "Ability made surrounding",
     "id": "N36",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "When played with at least *2* bordering enemies, deal *2/3/4/5/6 damage* to them"
+    }
   },
   {
     "date": "01/10/2020",
     "description": "Mana cost decreased by 1",
     "id": "N49",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 7
+    }
   },
   {
     "date": "01/10/2020",
     "description": "Ability increased by 1",
     "id": "N40",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "*Give 5/6/6/8/10* strength to a target friendly unit and *2/2/3/4/5* strength to all others of the same *unit type*"
+    }
   },
   {
     "date": "01/10/2020",
@@ -380,49 +419,76 @@
     "date": "01/09/2020",
     "description": "Mana cost decreased by 1 at lower levels and ability increased by 1",
     "id": "N23",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": "3/3/3/2/2",
+      "ability": "Randomly deal *2/3/4/4/5 damage* to one unit of each *unit type*"
+    }
   },
   {
     "date": "01/09/2020",
     "description": "Mana cost increased by 1 and ability increased by 2",
     "id": "N63",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 2,
+      "ability": "*Force the target enemy unit* with 2/3/4/5/6 or less strength to *attack* a random bordering enemy"
+    }
   },
   {
     "date": "01/09/2020",
     "description": "Strength increased by 1",
     "id": "N20",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "3/4/4/5/6"
+    }
   },
   {
     "date": "01/09/2020",
     "description": "Mana cost decreased by 1",
     "id": "N31",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 5
+    }
   },
   {
     "date": "01/09/2020",
     "description": "Strength increased by 1",
     "id": "N27",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "1/2/3/4/5"
+    }
   },
   {
     "date": "01/09/2020",
     "description": "Ability damage increased at higher levels",
     "id": "N29",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "Deal *1/1-2/2/2-3/3 damage* to all enemy units and structures"
+    }
   },
   {
     "date": "01/09/2020",
     "description": "Mana cost decreased by 1",
     "id": "N38",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 6
+    }
   },
   {
     "date": "01/09/2020",
     "description": "Mana cost decreased by 1 and strength decreased at lower levels",
     "id": "N51",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 7,
+      "strength": "5/7/7/10/10"
+    }
   },
   {
     "date": "01/09/2020",
@@ -461,25 +527,37 @@
     "date": "11/07/2020",
     "description": "Ability increased by 1",
     "id": "N21",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "Deal *3/4/5/6/7 damage* to a target enemy unit or structure"
+    }
   },
   {
     "date": "11/07/2020",
     "description": "Mana cost decreased by 1",
     "id": "N60",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 6
+    }
   },
   {
     "date": "11/07/2020",
     "description": "Mana cost increased by 1",
     "id": "N74",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "mana": 5
+    }
   },
   {
     "date": "11/07/2020",
     "description": "Strength decreased by 1",
     "id": "N76",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "6/7/8/10/12"
+    }
   },
   {
     "date": "11/07/2020",
@@ -491,7 +569,11 @@
     "date": "11/07/2020",
     "description": "Decreased strength and ability by 1",
     "id": "N70",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "5/6/7/8/10",
+      "ability": "After surviving damage, randomly *give 5/6/7/8/10* strength to another friendly unit"
+    }
   },
   {
     "date": "11/07/2020",
@@ -640,61 +722,95 @@
     "date": "26/11/2019",
     "description": "Mana cost decreased by 2 and strength decreased by 2",
     "id": "N61",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 5,
+      "strength": "5/6/7/8/10"
+    }
   },
   {
     "date": "26/11/2019",
     "description": "Mana cost decreased by 1",
     "id": "N63",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 3
+    }
   },
   {
     "date": "26/11/2019",
     "description": "Strength decreased by 1 and ability increased by 1",
     "id": "N59",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "strength": "4/5/5/6/8",
+      "ability": "On play, *spawn 2/3/3/4/5* strength Knights in front of all surrounding enemy units"
+    }
   },
   {
     "date": "26/11/2019",
     "description": "Ability damage increased by 2",
     "id": "N31",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "Deal *3/4/5/6/7 damage* to all units bordering your base"
+    }
   },
   {
     "date": "26/11/2019",
     "description": "Strength and ability increased by 1",
     "id": "N64",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "3/4/5/6/7",
+      "ability": "Before attacking a confused unit, *deal up* to *3/4/5/6/7 of its strength* as damage to all enemies bordering it"
+    }
   },
   {
     "date": "26/11/2019",
     "description": "Mana cost increased by 1 and strength increased by 2",
     "id": "N60",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 5,
+      "strength": "4/5/6/7/8"
+    }
   },
   {
     "date": "26/11/2019",
     "description": "Strength increased by 1",
     "id": "N69",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "4/5/6/7/8"
+    }
   },
   {
     "date": "26/11/2019",
     "description": "Strength increased by 1",
     "id": "N36",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": 5
+    }
   },
   {
     "date": "26/11/2019",
     "description": "Strength given to others increased by 1 at higher levels",
     "id": "N40",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "Give *5/6/6/8/10 strength* to a target friendly unit and *2/2/3/3/4 strength* to all others with the same unit type"
+    }
   },
   {
     "date": "26/11/2019",
     "description": "Strength increased by 1",
     "id": "N53",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "1/3/3/6/6"
+    }
   },
   {
     "date": "26/11/2019",
@@ -865,31 +981,49 @@
     "date": "25/09/2019",
     "description": "Ability revamped, strength decreased by 2 and mana cost decreased by 1",
     "id": "N60",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 6,
+      "strength": "6/7/8/10/12",
+      "ability": "Before attacking a weaker enemy, confuse enemy units surrounding it"
+    }
   },
   {
     "date": "25/09/2019",
     "description": "Strength increased by 1",
     "id": "N33",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "5/6/8/8/10"
+    }
   },
   {
     "date": "25/09/2019",
     "description": "Ability revamped",
     "id": "N34",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "ability": "At the start of your turn, deal *3/4/5/6/7 damage* to a random enemy unit"
+    }
   },
   {
     "date": "25/09/2019",
     "description": "Strength decreased by 1 and ability revamped",
     "id": "N49",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "strength": "6/7/8/9/10",
+      "ability": "On death, *spawn 3/4/5/6/7* strength Ravens on all tiles behind"
+    }
   },
   {
     "date": "25/09/2019",
     "description": "Ability made to also hit a structure behind",
     "id": "N37",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, deal *3/4/5/6/7 damage* to the closest unit behind"
+    }
   },
   {
     "date": "25/09/2019",
@@ -1084,7 +1218,10 @@
     "date": "27/06/2019",
     "description": "Strength at higher levels decreased by 1",
     "id": "N10",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "2/3/3/4/5"
+    }
   },
   {
     "date": "27/06/2019",
@@ -1096,7 +1233,10 @@
     "date": "27/06/2019",
     "description": "Mana cost decreased by 1",
     "id": "N23",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": "4/4/4/3/3"
+    }
   },
   {
     "date": "27/06/2019",
@@ -1108,7 +1248,10 @@
     "date": "27/06/2019",
     "description": "Ability increased by 1 at higher levels",
     "id": "N59",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, *spawn 2/2/3/3/4* strength Knights in front of all surrounding enemy units"
+    }
   },
   {
     "date": "27/06/2019",
@@ -1126,7 +1269,10 @@
     "date": "27/06/2019",
     "description": "Strength at lower levels increased by 1",
     "id": "N51",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "4/6/6/9/10"
+    }
   },
   {
     "date": "27/06/2019",
@@ -1210,13 +1356,20 @@
     "date": "09/05/2019",
     "description": "Mana cost decreased by 2 and strength decreased by 3",
     "id": "N41",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 6,
+      "strength": "6/7/8/10/12"
+    }
   },
   {
     "date": "09/05/2019",
     "description": "Strength increased by 1",
     "id": "N36",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": 4
+    }
   },
   {
     "date": "09/05/2019",
@@ -1395,7 +1548,11 @@
     "date": "13/02/2019",
     "description": "Strength decreased by 1 and ability made to discard non-Pirates only",
     "id": "N12",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "strength": "2/3/4/5/6",
+      "ability": "On play, *discard* a random card from your hand"
+    }
   },
   {
     "date": "13/02/2019",
@@ -1413,7 +1570,11 @@
     "date": "13/02/2019",
     "description": "Mana cost decreased by 1 and strength at lower levels by decreased 1",
     "id": "N27",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 5,
+      "strength": "2/2/3/4/5"
+    }
   },
   {
     "date": "13/02/2019",
@@ -1425,7 +1586,10 @@
     "date": "13/02/2019",
     "description": "Ability made to deal damage for each unit type in an area",
     "id": "N35",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "ability": "On play, for each *friendly unit type* on the board, deal *1/1/2/2/3 damage* to a random enemy"
+    }
   },
   {
     "date": "13/02/2019",
@@ -1557,19 +1721,29 @@
     "date": "17/12/2018",
     "description": "Strength decreased by 1",
     "id": "N10",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "3/4/4/5/6"
+    }
   },
   {
     "date": "17/12/2018",
     "description": "Ability damage set to 2 at level 3 and 3 at level 5",
     "id": "N29",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "ability": "Deal *1/1-2/1-3/2-3/2-5 damage* to all enemy units and structures"
+    }
   },
   {
     "date": "17/12/2018",
     "description": "Mana cost increased by 2 and strength increased by 3",
     "id": "N51",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 5,
+      "strength": "1/3/3/6/6"
+    }
   },
   {
     "date": "17/12/2018",
@@ -1658,25 +1832,37 @@
     "date": "18/09/2018",
     "description": "Damage increased at higher levels",
     "id": "N10",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, deal *1/1/1/2/2 damage* to all non-Dragon units in front"
+    }
   },
   {
     "date": "18/09/2018",
     "description": "Mana cost decreased by 1",
     "id": "N31",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 6
+    }
   },
   {
     "date": "18/09/2018",
-    "description": "Movement decreased to 0",
+    "description": "Movement decreased by 1",
     "id": "N35",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "movement": 1
+    }
   },
   {
     "date": "18/09/2018",
     "description": "Strength increased at higher levels",
     "id": "N43",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "5/6/6/7/8"
+    }
   },
   {
     "date": "18/09/2018",
@@ -1775,19 +1961,29 @@
     "date": "07/08/2018",
     "description": "Strength decreased at higher levels and ability increased at higher levels",
     "id": "N49",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "strength": "6/8/9/10/12"
+    }
   },
   {
     "date": "07/08/2018",
     "description": "Strength at lower levels decreased",
     "id": "N51",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "3/4/4/5/6"
+    }
   },
   {
     "date": "07/08/2018",
     "description": "Strength decreased by 1 and ability increased by 1",
     "id": "N42",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "strength": "4/5/6/7/8",
+      "ability": "On play, *gain 2/2/3/3/4* strength for each Pirate in your hand"
+    }
   },
   {
     "date": "07/08/2018",
@@ -1878,21 +2074,33 @@
   },
   {
     "date": "09/07/2018",
-    "description": "Mana cost increased by 1 and strength increased by 1",
+    "description": "Mana cost and strength increased by 1",
     "id": "N12",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 2,
+      "strength": "1/2/3/4/5"
+    }
   },
   {
     "date": "09/07/2018",
     "description": "Strength decreased by 1",
     "id": "N16",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "3/4/5/6/7"
+    }
   },
   {
     "date": "09/07/2018",
-    "description": "Movement increased to 2, strength decreased by 2 and ability increased by 1",
+    "description": "Movement increased by 1, strength decreased by 2 and ability increased by 1",
     "id": "N27",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "movement": 1,
+      "strength": "4/5/6/7/8",
+      "ability": "Before attacking a Dragon, deal *4/5/6/7/8 additional damage*"
+    }
   },
   {
     "date": "09/07/2018",
@@ -1904,49 +2112,75 @@
     "date": "09/07/2018",
     "description": "Ability made to trigger only from friendly unit types and damage increased at higher levels",
     "id": "N35",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "ability": "On play, for each unit type on the board, deal *1/1/1/2/2 damage* to a random enemy"
+    }
   },
   {
     "date": "09/07/2018",
     "description": "Strength at lower levels increased by 1",
     "id": "N49",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "6/7/8/10/12"
+    }
   },
   {
     "date": "09/07/2018",
-    "description": "Movement increased to 1 and strength at lower levels decreased by 1",
+    "description": "Movement increased by 1 and strength at lower levels decreased by 1",
     "id": "N37",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "movement": 0,
+      "strength": "6/6/7/8/10"
+    }
   },
   {
     "date": "09/07/2018",
     "description": "Strength and ability at higher levels increased by 1",
     "id": "N39",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "3/3/4/5/6",
+      "ability": "When played bordering a friendly structure or base, *gain 3/4/4/5/6* strength"
+    }
   },
   {
     "date": "09/07/2018",
     "description": "Strength increased by 1 at higher levels",
     "id": "N42",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "4/5/5/7/7"
+    }
   },
   {
     "date": "09/07/2018",
     "description": "Mana cost increased by 1",
     "id": "N44",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "mana": 5
+    }
   },
   {
     "date": "09/07/2018",
     "description": "Strength decreased by 1",
     "id": "N47",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "4/5/5/7/8"
+    }
   },
   {
     "date": "09/07/2018",
     "description": "Strength at higher levels increased by 1",
     "id": "N48",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "7/8/10/11/14"
+    }
   },
   {
     "date": "09/07/2018",
@@ -2138,49 +2372,77 @@
     "date": "22/04/2018",
     "description": "Strength decreased by 1",
     "id": "N14",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "3/4/5/5/6"
+    }
   },
   {
     "date": "22/04/2018",
-    "description": "Ability made bordering at all levels and strength increased by 1",
+    "description": "Ability made bordering at all levels, ability damage increased at level 4 and strength increased at higher levels",
     "id": "N25",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "strength": 4,
+      "ability": "On play, deal *4/5/6/6/8 damage* to all surrounding enemy structures"
+    }
   },
   {
     "date": "22/04/2018",
     "description": "Strength increased and made to scale with level",
     "id": "N34",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": 3
+    }
   },
   {
     "date": "22/04/2018",
     "description": "Ability made to require 2 bordering enemies, damage decreased by 2 and strength set to 4 at all levels",
     "id": "N36",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "strength": "4/5/6/7/8",
+      "ability": "When played with at least *3* bordering enemies, deal *4/5/6/7/8 damage* to them"
+    }
   },
   {
     "date": "22/04/2018",
     "description": "Ability made to also work when bordering own base",
     "id": "N39",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "3/3/4/5/6",
+      "ability": "When played bordering a friendly structure, *gain 3/4/4/5/6* strength"
+    }
   },
   {
     "date": "22/04/2018",
     "description": "Initial strength increased by 1",
     "id": "N40",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "Give *4/5/5/7/8 strength* to a target friendly unit and *2/2/3/3/4 strength* to all others with the same unit type"
+    }
   },
   {
     "date": "22/04/2018",
     "description": "Strength increased by 1",
     "id": "N46",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "3/4/5/6/7"
+    }
   },
   {
     "date": "22/04/2018",
-    "description": "Ability made to only damage units and structures and strength increased by 1",
+    "description": "Ability made to no longer damage the base and strength increased by 1",
     "id": "N47",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "ability": "When attacking, deal *2/2/3/3/4 damage* to all surrounding enemies",
+      "strength": "3/4/4/5/6"
+    }
   },
   {
     "date": "22/04/2018",
@@ -2398,45 +2660,69 @@
   },
   {
     "date": "31/01/2018",
-    "description": "strength given decreased by 1",
+    "description": "Ability decreased by 1",
     "id": "N15",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "ability": "*Give 4/5/6/7/8* strength to a target friendly unit"
+    }
   },
   {
     "date": "31/01/2018",
     "description": "Ability damage increased by 1",
     "id": "N34",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "At the start of your turn, deal *2/3/4/5/6 damage* to a random enemy unit"
+    }
   },
   {
     "date": "31/01/2018",
     "description": "Strength increased by 1",
     "id": "N49",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "5/6/7/8/10"
+    }
   },
   {
     "date": "31/01/2018",
     "description": "Strength at level 1 and damage at other levels increased",
     "id": "N37",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "5/6/7/8/10",
+      "ability": "On play, deal *3/3/4/5/6 damage* to a random enemy unit behind"
+    }
   },
   {
     "date": "31/01/2018",
     "description": "Mana cost increased by 1 and ability revamped",
     "id": "N40",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 5,
+      "ability": "Give *2/3/3/4/5 strength* to a target friendly unit and all others with the same unit type"
+    }
   },
   {
     "date": "31/01/2018",
     "description": "Ability made to hit all surrounding enemies instead of all others and strength decreased by 1",
     "id": "N47",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "strength": "4/5/6/7/8",
+      "ability": "When attacking, deal *2/2/3/3/4 damage* to all other surrounding enemies"
+    }
   },
   {
     "date": "31/01/2018",
     "description": "Strength increased by 1",
     "id": "N52",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "4/5/6/7/8"
+    }
   },
   {
     "date": "31/01/2018",
@@ -2670,13 +2956,19 @@
     "date": "16/11/2017",
     "description": "Strength decreased by 1",
     "id": "N13",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "5/6/7/8/10"
+    }
   },
   {
     "date": "16/11/2017",
     "description": "Strength decreased by 1",
     "id": "N20",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "4/5/5/6/8"
+    }
   },
   {
     "date": "16/11/2017",
@@ -2688,31 +2980,46 @@
     "date": "16/11/2017",
     "description": "Ability increased by 1",
     "id": "N25",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, deal *3/4/5/5/6 damage* to all surrounding enemy structures"
+    }
   },
   {
     "date": "16/11/2017",
     "description": "Ability made surrounding",
     "id": "N26",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On death, *give 4/5/6/7/8* strength spread randomly among all bordering friendly units"
+    }
   },
   {
     "date": "16/11/2017",
     "description": "Ability revamped",
     "id": "N44",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "ability": "Deal *4/5/6/7/8 damage* spread randomly among all enemies"
+    }
   },
   {
     "date": "16/11/2017",
     "description": "Ability made to play spells from hand instead of deck",
     "id": "N48",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "ability": "On play, randomly *play* up to *1/1/1/2/2* spell card/card/card/cards/cards from your deck"
+    }
   },
   {
     "date": "16/11/2017",
     "description": "Ability made to only work on units and strength decreased at low levels",
     "id": "N53",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "ability": "On play, gain *2/2/3/3/4 strength* for every enemy unit and structure on the board"
+    }
   },
   {
     "date": "16/11/2017",
@@ -2844,55 +3151,86 @@
     "date": "11/10/2017",
     "description": "Mana cost increased by 1, strength increased by 1 and ability decreased at higher levels",
     "id": "N14",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 2,
+      "strength": "2/2/3/3/4",
+      "ability": "On play, *draw 1/1/2/2/3* card/card/cards/cards/cards"
+    }
   },
   {
     "date": "11/10/2017",
     "description": "Strength increased by 1",
     "id": "N41",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 6,
+      "strength": "5/6/7/8/10"
+    }
   },
   {
     "date": "11/10/2017",
     "description": "Strength increased by 1",
     "id": "N35",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "4/5/6/6/8"
+    }
   },
   {
     "date": "11/10/2017",
     "description": "Ability decreased by 2",
     "id": "N49",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "ability": "On death, *spawn 5/6/7/8/10* strength Ravens on all tiles behind"
+    }
   },
   {
     "date": "11/10/2017",
     "description": "Ability decreased by 1",
     "id": "N39",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "ability": "When played bordering a friendly structure or base, *gain 4/5/6/7/8* strength"
+    }
   },
   {
     "date": "11/10/2017",
     "description": "Mana cost decreased by 1",
     "id": "N40",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 6
+    }
   },
   {
     "date": "11/10/2017",
     "description": "Mana cost increased by 1 and ability damage increased by 1",
     "id": "N44",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 4,
+      "ability": "Deal *3/4/5/6/7 damage* spread randomly among all enemies"
+    }
   },
   {
     "date": "11/10/2017",
     "description": "Ability increased by 1",
     "id": "N46",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On death, do a random effect: give *5/6/7/8/10 strength*, deal *4/5/6/7/8 damage* or spawn a *3/4/5/6/7 strength* unit"
+    }
   },
   {
     "date": "11/10/2017",
     "description": "Mana cost decreased by 1",
     "id": "N50",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 8
+    }
   },
   {
     "date": "11/10/2017",
@@ -2973,7 +3311,11 @@
     "date": "26/09/2017",
     "description": "Strength set to 4 at all levels and damage increased at higher levels",
     "id": "N25",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "strength": "3/4/4/5/6",
+      "ability": "On play, deal *3/3/4/5/6 damage* to all surrounding enemy structures"
+    }
   },
   {
     "date": "26/09/2017",
@@ -3039,13 +3381,19 @@
     "date": "18/09/2017",
     "description": "Strength increased by 1",
     "id": "N35",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "3/4/5/5/6"
+    }
   },
   {
     "date": "18/09/2017",
     "description": "Ability increased by 1",
     "id": "N39",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "When played bordering a friendly structure or base, *gain 3/4/4/5/6* strength"
+    }
   },
   {
     "date": "18/09/2017",
@@ -3099,31 +3447,49 @@
     "date": "06/09/2017",
     "description": "Mana cost decreased by 1",
     "id": "N29",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 6
+    }
   },
   {
     "date": "06/09/2017",
     "description": "Mana cost increased by 1 and strength increased by 1",
     "id": "N49",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 6,
+      "strength": "4/5/6/7/8"
+    }
   },
   {
     "date": "06/09/2017",
     "description": "Mana cost increased by 1",
     "id": "N44",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "mana": 3
+    }
   },
   {
     "date": "06/09/2017",
     "description": "Mana cost decreased by 1 and strength decreased by 1",
     "id": "N46",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 7,
+      "strength": "4/5/6/7/8"
+    }
   },
   {
     "date": "06/09/2017",
     "description": "Mana cost increased by 1 and strength increased by 1",
     "id": "N48",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 6,
+      "strength": "6/7/9/10/12"
+    }
   },
   {
     "date": "06/09/2017",
@@ -3159,37 +3525,56 @@
     "date": "30/08/2017",
     "description": "Strength increased by 1",
     "id": "N13",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "4/5/6/7/8"
+    }
   },
   {
     "date": "30/08/2017",
     "description": "Ability increased by 1",
     "id": "N15",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "*Give 3/4/5/6/7* strength to a target friendly unit"
+    }
   },
   {
     "date": "30/08/2017",
     "description": "Strength increased by 1",
     "id": "N20",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "3/4/4/5/6"
+    }
   },
   {
     "date": "30/08/2017",
     "description": "Strength increased by 1",
     "id": "N47",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "3/4/5/6/7"
+    }
   },
   {
     "date": "30/08/2017",
     "description": "Mana cost increased by 2 and strength of spawned units increased by 1",
     "id": "N50",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 6,
+      "ability": "*Spawn 2/3/4/5/6* strength units on all tiles bordering a target friendly unit"
+    }
   },
   {
     "date": "30/08/2017",
     "description": "Strength increased by 1",
     "id": "N53",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "1/3/3/5/5"
+    }
   },
   {
     "date": "30/08/2017",
@@ -3291,37 +3676,56 @@
     "date": "14/08/2017",
     "description": "Strength from ability increased by 1",
     "id": "N26",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On death, *give 3/4/5/6/7* strength spread randomly among all bordering friendly units"
+    }
   },
   {
     "date": "14/08/2017",
     "description": "Maximum damage decreased by 1",
     "id": "N29",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "ability": "Deal *1-2/1-3/1-4/2-4/2-6 damage* to all enemy units and structures"
+    }
   },
   {
     "date": "14/08/2017",
     "description": "Strength increased by 1",
     "id": "N35",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "2/3/4/4/5"
+    }
   },
   {
     "date": "14/08/2017",
     "description": "Strength increased by 1 and strength from ability decreased",
     "id": "N39",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "strength": "2/2/3/3/4",
+      "ability": "When played bordering a friendly structure or base, *gain 4/5/6/7/8* strength"
+    }
   },
   {
     "date": "14/08/2017",
     "description": "Abilities increased by 1",
     "id": "N46",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "ability": "On death, do a random effect: give *4/5/6/7/8 strength*, deal *3/4/5/6/7 damage* or spawn a *2/3/4/5/6 strength* unit"
+    }
   },
   {
     "date": "14/08/2017",
     "description": "Strength decreased by 1",
     "id": "N47",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "strength": "4/5/6/7/8"
+    }
   },
   {
     "date": "14/08/2017",
@@ -3349,21 +3753,32 @@
   },
   {
     "date": "10/08/2017",
-    "description": "Mana cost increased by 1 and strength increased by 1",
+    "description": "Mana cost and strength increased by 1",
     "id": "N35",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 4,
+      "strength": "1/2/3/3/4"
+    }
   },
   {
     "date": "10/08/2017",
     "description": "Mana cost increased by 1",
     "id": "N46",
-    "type": "NERF"
+    "type": "NERF",
+    "from": {
+      "mana": 6
+    }
   },
   {
     "date": "10/08/2017",
     "description": "Mana cost decreased by 1 and strength decreased by 1",
     "id": "N48",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 7,
+      "strength": "7/8/10/11/14"
+    }
   },
   {
     "date": "10/08/2017",
@@ -3426,19 +3841,30 @@
     "date": "07/08/2017",
     "description": "Mana cost decreased by 1 and strength decreased by 1",
     "id": "N20",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 5,
+      "strength": "4/5/5/6/8"
+    }
   },
   {
     "date": "07/08/2017",
     "description": "Mana cost decreased by 1",
     "id": "N25",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "mana": 5
+    }
   },
   {
     "date": "07/08/2017",
     "description": "Mana cost increased by 1 and strength increased by 1",
     "id": "N34",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 4,
+      "strength": 2
+    }
   },
   {
     "date": "07/08/2017",
@@ -3450,13 +3876,20 @@
     "date": "07/08/2017",
     "description": "Mana cost increased by 1 and strength increased by 1",
     "id": "N47",
-    "type": "MIXED"
+    "type": "MIXED",
+    "from": {
+      "mana": 5,
+      "strength": "3/4/5/6/7"
+    }
   },
   {
     "date": "07/08/2017",
     "description": "Strength increased by 1",
     "id": "N48",
-    "type": "BUFF"
+    "type": "BUFF",
+    "from": {
+      "strength": "6/7/9/10/12"
+    }
   },
   {
     "date": "07/08/2017",
