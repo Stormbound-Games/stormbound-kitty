@@ -212,19 +212,19 @@
 }
 
 .Card__rarity--1 {
-  transform: scale(0.7);
+  transform: scale(0.75);
 }
 .Card__rarity--2 {
-  transform: scale(1);
+  transform: scale(1.05);
 }
 .Card__rarity--3 {
-  transform: scale(0.9);
+  transform: scale(0.85);
 }
 .Card__rarity--4 {
   transform: scale(1.15);
 }
 .Card__rarity--5 {
-  transform: scale(1);
+  transform: scale(1.05);
 }
 
 /**
