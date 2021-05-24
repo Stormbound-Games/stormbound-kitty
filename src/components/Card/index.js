@@ -116,8 +116,7 @@ export default React.memo(function Card(props) {
           </p>
           {props.rarity && (
             <img
-              style={{ '--level': level }}
-              className='Card__rarity'
+              className={['Card__rarity', `Card__rarity--${level}`].join(' ')}
               src={`/assets/images/card/rarity_${props.rarity}_${level}.png`}
               alt={props.rarity}
               data-testid='card-rarity'

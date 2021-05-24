@@ -207,9 +207,24 @@
 
 .Card__rarity {
   object-fit: contain;
-  margin: 0 auto 0.75em;
-  max-height: 1.4em;
-  transform: scale(calc(1 + var(--level, 1) * 0.1));
+  margin: 0 auto 0.25em;
+  max-height: 2em;
+}
+
+.Card__rarity--1 {
+  transform: scale(0.7);
+}
+.Card__rarity--2 {
+  transform: scale(1);
+}
+.Card__rarity--3 {
+  transform: scale(0.9);
+}
+.Card__rarity--4 {
+  transform: scale(1.15);
+}
+.Card__rarity--5 {
+  transform: scale(1);
 }
 
 /**
