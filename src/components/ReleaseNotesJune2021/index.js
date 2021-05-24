@@ -99,9 +99,9 @@ export default React.memo(function ReleaseNotesJune2021(props) {
               card to your hand with +1 strength
             </span>
             . The copy gains 1 strength every time it comes back in hand. If it
-            does not, the additional strength is lost and the copy has the
-            original strength. The base strength is now 1/2/3/4/5 (down from
-            2/3/4/5/6) and the ability is made surrounding.
+            does not, the additional strength is lost and the next draw will
+            have the original strength. The base strength is now 1/2/3/4/5 (down
+            from 2/3/4/5/6) and the ability is made surrounding.
           </li>
         </ul>
 
@@ -135,15 +135,20 @@ export default React.memo(function ReleaseNotesJune2021(props) {
         <Row desktopOnly wideGutter style={{ alignItems: 'center' }}>
           <Row.Column>
             <Image
-              src='/assets/images/releases/june_cards_packs.png'
-              alt='Eternal pack ($9.99): 10 copies of Eternal Ethereals, 5 fusions stones and 750 coins; Headless pack ($9.99): 5 copies of Headless Hotheads, 5 fusions stones and 750 coins'
+              src='/assets/images/releases/june_pack_ethereals.png'
+              alt='Eternal pack ($9.99): 10 copies of Eternal Ethereals, 5 fusions stones and 750 coins'
+              withAvif
+            />
+            <Image
+              src='/assets/images/releases/june_pack_headless.png'
+              alt='Eternal pack ($9.99): 5 copies of Headless Hotheads, 5 fusions stones and 750 coins'
               withAvif
             />
           </Row.Column>
           <Row.Column>
             <p>
               As usual, there will be exclusive packs to quickly get access to
-              some copies of the new cards between June 7th and June 14th.
+              some copies of the new cards between June 4th and June 11th.
             </p>
 
             <p>They will each cost $9.99, and will grant the following: </p>
@@ -200,19 +205,20 @@ export default React.memo(function ReleaseNotesJune2021(props) {
           </li>
         </ul>
 
-        <p>Additionally, it is worth nothing that:</p>
+        <p>Additionally, it is worth noting that:</p>
 
         <ul>
+          <li>
+            Victories while playing on Steam will yield the base amount per
+            league only since ads cannot be watched on this platform—unless
+            there is an active Premium Pass, in which case it’s doubled, just
+            like when watching an ad.
+          </li>
+
           <li>
             Victories while playing Brawl will yield <Coins amount={10} /> + an
             additional <Coins amount={10} /> for watching an ad or for having
             the Premium Pass, regardless of the league of the player.
-          </li>
-
-          <li>
-            Victories while playing Steam will yield <Coins amount={10} /> + an
-            additional <Coins amount={10} /> for having the Premium Pass since
-            ads cannot be watched on this platform.
           </li>
         </ul>
 
@@ -368,7 +374,7 @@ export default React.memo(function ReleaseNotesJune2021(props) {
 
         <ul>
           <li>
-            A potential fix for the{' '}
+            A fix for the infamous{' '}
             <Link to='/guides/known-bugs#three-cards-in-hand'>
               issue with the fourth card missing from the hand
             </Link>
@@ -391,7 +397,7 @@ export default React.memo(function ReleaseNotesJune2021(props) {
               id: 'release-date',
               question: 'When is the update going to be released?',
               answer:
-                'The balance changes will be deployed with the season reset as usual. The two new cards will be available from June 7th.',
+                'The balance changes will be deployed with the season reset as usual. The two new cards will be available from June 4th along with the promotional packs (for a week).',
             },
           ]}
         />
