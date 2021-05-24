@@ -120,8 +120,9 @@ export default React.memo(function ReleaseNotesJune2021(props) {
 
         <Title id='new-cards'>New cards</Title>
         <p>
-          Two new cards are joining the neutral faction, one rare construct and
-          one common ancient, introducing a bit of a movement twist!
+          Two new cards are joining the neutral faction, and they are moving
+          fast! We have a new ancient card with impressive speed, and one rare
+          construct which introduces a bit of a movement twist!
         </p>
       </Article.Narrow>
 
@@ -236,9 +237,10 @@ export default React.memo(function ReleaseNotesJune2021(props) {
         <Info icon='equalizer' title='Calculators'>
           <p>
             You will be pleased to know that both the{' '}
-            <Link to='/calculators/income'>income calculator</Link> and{' '}
-            <Link to='/calculators/brawl'>Brawl calculator</Link> have been
-            updated to reflect these changes.
+            <Link to='/calculators/income'>income calculator</Link>, the{' '}
+            <Link to='/calculators/brawl'>Brawl calculator</Link> and the{' '}
+            <Link to='/brawl/spell-mana'>Brawl tracker</Link> have been updated
+            to reflect these changes.
           </p>
         </Info>
 
