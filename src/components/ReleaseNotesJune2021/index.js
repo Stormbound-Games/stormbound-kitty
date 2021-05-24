@@ -224,18 +224,20 @@ export default React.memo(function ReleaseNotesJune2021(props) {
 
         <p>
           To balance out the significant increase in victory coins in higher
-          leagues, the monthly chest rewards have been reduced as follow:
+          leagues, the monthly chest rewards have been reduced as follow (from
+          1st of July onwards):
         </p>
 
         <ul>
           <li>
             The <span style={{ color: '#caf9ff' }}>Heroes</span> chest now
-            contains <Coins amount={2000} /> (down from 3000) and{' '}
+            contains <Coins amount={2000} /> (down from 3,000) and{' '}
             <Rubies amount={70} /> (down from 100).
           </li>
           <li>
             The <span style={{ color: '#c8c0df' }}>Diamond</span> chest now
-            contains <Coins amount={1500} /> (down from 1800). Rubies untouched.
+            contains <Coins amount={1500} /> (down from 1,800). Rubies
+            untouched.
           </li>
           <li>The chest for all the other leagues remain untouched.</li>
         </ul>
