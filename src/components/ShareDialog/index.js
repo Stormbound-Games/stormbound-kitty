@@ -28,7 +28,7 @@ export default React.memo(function ShareDialog(props) {
             ? '✓ Copied!'
             : canUseShareAPI
             ? props.label
-            : 'Copy link',
+            : props.ctaLabel || 'Copy link',
         }}
       >
         {props.children}

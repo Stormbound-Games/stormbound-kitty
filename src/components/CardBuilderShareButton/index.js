@@ -4,20 +4,26 @@ import ShareDialog from '../ShareDialog'
 import './index.css'
 
 export default React.memo(function CardBuilderShareButton(props) {
-  const [includeStats, setIncludeStats] = React.useState(false)
+  const [mode, setMode] = React.useState('LINK')
   const [hideInterface, setHideInterface] = React.useState(false)
-  const processURL = url => (hideInterface ? url + '/display' : url)
+  // If copying only the stats without the link, process the URL as null.
+  const processURL = url =>
+    mode === 'STATS' ? null : hideInterface ? url + '/display' : url
 
   return (
     <ShareDialog
       label='Share card'
       disabled={props.disabled}
       image='/assets/images/cards/collector_mirz.png'
+      ctaLabel={
+        'Copy ' +
+        (mode === 'STATS' ? 'stats' : mode === 'LINK' ? 'link' : 'info')
+      }
       share={{
         processURL,
-        shortenURL: true,
-        title: includeStats ? props.title : undefined,
-        content: includeStats ? props.content : undefined,
+        shortenURL: mode !== 'STATS',
+        title: mode.includes('STATS') ? props.title : undefined,
+        content: mode.includes('STATS') ? props.content : undefined,
       }}
     >
       <p>
@@ -31,15 +37,20 @@ export default React.memo(function CardBuilderShareButton(props) {
         with the button below.
       </p>
 
+      <label htmlFor='mode'>What to copy</label>
+      <select
+        id='mode'
+        name='mode'
+        required
+        value={mode}
+        onChange={event => setMode(event.target.value)}
+      >
+        <option value='LINK'>Link only</option>
+        <option value='LINK_AND_STATS'>Link and stats as text</option>
+        <option value='STATS'>Stats as text only</option>
+      </select>
+
       <div className='CardBuilderShareDialog__checkbox'>
-        <Checkbox
-          name='include-stats'
-          id='include-stats'
-          checked={includeStats}
-          onChange={event => setIncludeStats(event.target.checked)}
-        >
-          Include stats as text
-        </Checkbox>
         <Checkbox
           name='hide-interface'
           id='hide-interface'
