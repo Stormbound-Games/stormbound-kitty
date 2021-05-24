@@ -5,6 +5,7 @@ import { RARITIES } from '../../constants/game'
 import capitalise from '../../helpers/capitalise'
 import getRawCardData from '../../helpers/getRawCardData'
 import toSentence from '../../helpers/toSentence'
+import './index.css'
 
 const COMPENSATION = {
   common: [
@@ -65,8 +66,9 @@ const LevelCompensation = ({ level, coins, stones }) => {
 
 export default React.memo(function NerfCompensationInfo(props) {
   const ids = props.ids || []
-  const cards = ids ? ids.map(getRawCardData) : []
-  const rarities = ids ? cards.map(card => card.rarity) : Object.keys(RARITIES)
+  const cards = ids.length > 0 ? ids.map(getRawCardData) : []
+  const rarities =
+    ids.length > 0 ? cards.map(card => card.rarity) : Object.keys(RARITIES)
   const names = cards.map(card => card.name)
 
   return (
@@ -78,7 +80,7 @@ export default React.memo(function NerfCompensationInfo(props) {
         level and rarity of the card. Find below the compensation values for
         each rarity and level.
       </p>
-      <ul style={{ marginBottom: 0 }}>
+      <ul className='NerfCompensationInfo__list'>
         {Object.keys(COMPENSATION)
           .filter(rarity => rarities.includes(rarity))
           .map(rarity => (
