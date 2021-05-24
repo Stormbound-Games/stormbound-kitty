@@ -1,6 +1,7 @@
 import React from 'react'
 import Info from '../Info'
 import ResourceIcon from '../ResourceIcon'
+import { Coins, Stones } from '../Resource'
 import { RARITIES } from '../../constants/game'
 import capitalise from '../../helpers/capitalise'
 import getRawCardData from '../../helpers/getRawCardData'
@@ -43,22 +44,9 @@ const LevelCompensation = ({ level, coins, stones }) => {
 
   return (
     <>
-      {coins > 0 && (
-        <>
-          <ResourceIcon resource='COIN' />
-          &nbsp;
-          {coins}
-        </>
-      )}
+      {coins > 0 && <Coins amount={coins} />}
       {coins > 0 && stones > 0 && ' and '}
-      {stones > 0 && (
-        <>
-          <ResourceIcon resource='STONE' />
-          &nbsp;
-          {stones}
-        </>
-      )}{' '}
-      at level {level}
+      {stones > 0 && <Stones amount={stones} />} at level {level}
       {level !== 5 && ', '}
     </>
   )
@@ -99,6 +87,7 @@ export default React.memo(function NerfCompensationInfo(props) {
                   </>
                 )
               }, null)}
+              .
             </li>
           ))}
       </ul>
