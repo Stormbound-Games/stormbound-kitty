@@ -212,7 +212,7 @@
 }
 
 .Card__rarity--1 {
-  transform: scale(0.75);
+  transform: scale(0.7);
 }
 .Card__rarity--2 {
   transform: scale(1.05);
