@@ -107,6 +107,17 @@ export default React.memo(function ReleaseNotesJune2021(props) {
 
         <NerfCompensationInfo ids={['I5']} />
 
+        <Info icon='bullhorn' title='Card history'>
+          <p>
+            In case you missed it, the page of every card now lists the changes
+            the card went through over the years and provides a handy way to
+            visualize former versions of the card, before balance patches
+            happened.{' '}
+            <CardLink id='S3'>Give it a try with Counselor Ahmi</CardLink> for
+            instance!
+          </p>
+        </Info>
+
         <Title id='new-cards'>New cards</Title>
         <p>
           Two new cards are joining the neutral faction, one rare construct and
