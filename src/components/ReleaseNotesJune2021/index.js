@@ -120,18 +120,39 @@ export default React.memo(function ReleaseNotesJune2021(props) {
 
         <Title id='new-cards'>New cards</Title>
         <p>
-          Two new cards are joining the neutral faction, and they are moving
-          fast! We have a new ancient card with impressive speed, and one rare
-          construct which introduces a bit of a movement twist!
+          Two new cards are joining the neutral faction! First, we have a new
+          ancient card with impressive speed.
         </p>
       </Article.Narrow>
 
       <Article.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N84')} />
+      </Article.Embed>
+      <Article.Narrow>
+        <p>
+          Then, we have rare construct which introduces “fixed movement”.
+          Essentially, this means it will not honor the usual attack resolution
+          pattern (forwards, inwards, outwards) and will always move straight
+          ahead.
+        </p>
+
+        <p>
+          While it is somewhat similar to self-commanding as of today, it will
+          be expanded in the near future into a more unique mechanic.
+        </p>
+      </Article.Narrow>
+      <Article.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N83')} />
       </Article.Embed>
 
       <Article.Narrow>
+        <Info icon='stack' title='Rarity icons'>
+          <p>
+            As you can see, the rarity icons have been revisited to also reflect
+            the level of the card. We hope you like the new gems!
+          </p>
+        </Info>
+
         <Row desktopOnly wideGutter style={{ alignItems: 'center' }}>
           <Row.Column>
             <Image
@@ -148,7 +169,8 @@ export default React.memo(function ReleaseNotesJune2021(props) {
           <Row.Column>
             <p>
               As usual, there will be exclusive packs to quickly get access to
-              some copies of the new cards between June 4th and June 11th.
+              some copies of the new cards, for a week after their respective
+              release date.
             </p>
 
             <p>They will each cost $9.99, and will grant the following: </p>
@@ -157,12 +179,14 @@ export default React.memo(function ReleaseNotesJune2021(props) {
               <li>
                 <ResourceIcon resource='COMMON' /> 10 copies of{' '}
                 <CardLink id='N84' />
-                , <Stones amount={5} /> and <Coins amount={750} />.
+                , <Stones amount={5} /> and <Coins amount={750} /> (from June
+                18th).
               </li>
               <li>
                 <ResourceIcon resource='RARE' /> 5 copies of{' '}
                 <CardLink id='N83' />
-                , <Stones amount={5} /> and <Coins amount={750} />.
+                , <Stones amount={5} /> and <Coins amount={750} /> (from June
+                4th).
               </li>
             </ul>
           </Row.Column>
@@ -399,7 +423,7 @@ export default React.memo(function ReleaseNotesJune2021(props) {
               id: 'release-date',
               question: 'When is the update going to be released?',
               answer:
-                'The balance changes will be deployed with the season reset as usual. The two new cards will be available from June 4th along with the promotional packs (for a week).',
+                'The balance changes will be deployed with the season reset as usual. Headless Hotheads will be available from June 4th along with its promotional pack (for a week), and Eternal Ethereals will be available from June 18th alongside its promotional pack.',
             },
           ]}
         />
