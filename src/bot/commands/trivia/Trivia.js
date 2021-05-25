@@ -1,12 +1,15 @@
 import api from '../../../helpers/api'
 import arrayRandom from '../../../helpers/arrayRandom'
 import capitalise from '../../../helpers/capitalise'
-import formatTriviaScores from '../../../helpers/formatTriviaScores'
+import formatTriviaScores, {
+  groupScoresByPoints,
+} from '../../../helpers/formatTriviaScores'
 import getEmbed from '../../../helpers/getEmbed'
 import getRandomQuestion from '../../../helpers/getRandomQuestion'
 import parseCardGuess from '../../../helpers/parseCardGuess'
 import parseTriviaSettings from '../../../helpers/parseTriviaSettings'
 import searchCards from '../../../helpers/searchCards'
+import getOrdinalSuffix from '../../../helpers/getOrdinalSuffix'
 import cards from '../../../data/cards'
 import Canvas from './Canvas'
 
@@ -14,7 +17,14 @@ const KITTY_ID = '368097495605182483'
 
 export default class Trivia {
   constructor({ guildId }) {
-    this.mode = this.difficulty = this.duration = this.answer = this.user = this.initiator = this.collector = null
+    this.mode =
+      this.difficulty =
+      this.duration =
+      this.answer =
+      this.user =
+      this.initiator =
+      this.collector =
+        null
     this.streaks = []
     this.guildId = guildId
     this.canvas = new Canvas()
@@ -233,7 +243,14 @@ export default class Trivia {
 
   stop(reason) {
     if (reason !== 'TIMEOUT') this.collector.stop()
-    this.mode = this.difficulty = this.duration = this.answer = this.user = this.initiator = this.collector = null
+    this.mode =
+      this.difficulty =
+      this.duration =
+      this.answer =
+      this.user =
+      this.initiator =
+      this.collector =
+        null
     this.halfTimer = clearTimeout(this.halfTimer)
   }
 
@@ -280,6 +297,40 @@ export default class Trivia {
       .setScore(user.id, this.guildId, delta)
       .then(() => console.log(`Update ${user.id}’s score by ${delta}.`))
       .catch(error => console.error(error))
+  }
+
+  score({ author }) {
+    const embed = getEmbed({ withHeader: false })
+      .setTitle('Current trivia score')
+      .addField('Member', author.username, true)
+
+    return api
+      .getScores(this.guildId)
+      .then(scores => {
+        const score = scores[author.id]
+        const scoresByPoints = Object.keys(scores).reduce(
+          groupScoresByPoints(scores),
+          {}
+        )
+        const position = Object.keys(scoresByPoints)
+          .sort((a, b) => +b - +a)
+          .findIndex(score => scoresByPoints[score].includes(author.id))
+
+        if (position > -1)
+          embed.addField('Position', getOrdinalSuffix(position + 1), true)
+
+        return embed.setDescription(
+          score ? `🏅 Your score is ${score}.` : '🏅 No scores yet.'
+        )
+      })
+      .catch(error => {
+        const message =
+          error.name === 'AbortError'
+            ? '🏅 It looks like the storage service (jsonbin.org) is not responsive. Try again later!'
+            : '🏅 Failed to get your score. Try again later.'
+
+        return embed.setDescription(message)
+      })
   }
 
   scores() {

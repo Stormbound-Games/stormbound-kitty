@@ -25,7 +25,8 @@ export default {
         },
         { name: 'Emit guess', value: '`<guess>`', inline: true },
         { name: 'Stop current trivia', value: '`stop`', inline: true },
-        { name: 'Display scores', value: '`!trivia scores`', inline: true }
+        { name: 'Display scores', value: '`!trivia scores`', inline: true },
+        { name: 'Display your score', value: '`!trivia score`', inline: true }
       )
   },
   handler: function (message, client, messageObject) {
@@ -48,6 +49,8 @@ export default {
       return trivia.start(messageObject)
     } else if (message === 'scores') {
       return trivia.scores(messageObject)
+    } else if (message === 'score') {
+      return trivia.score(messageObject)
     }
   },
 }
