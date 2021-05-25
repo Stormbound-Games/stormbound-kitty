@@ -19,10 +19,11 @@ export default React.memo(function FanKit(props) {
   const [active, setActive] = React.useState(null)
   const activeCard = getRawCardData(active)
   const assets = search ? [getRawCardData(search)] : cards.sort(sortCards())
-  const { loading, items: displayedItems, ref } = useLazyLoad(
-    assets,
-    columns * 2
-  )
+  const {
+    loading,
+    items: displayedItems,
+    ref,
+  } = useLazyLoad(assets, columns * 2)
   const items = chunk(displayedItems, columns)
 
   React.useEffect(() => {
@@ -57,7 +58,9 @@ export default React.memo(function FanKit(props) {
       <FanKitDownloadDialog
         name={activeCard ? activeCard.name : undefined}
         image={
-          activeCard ? '/assets/images/cards/' + activeCard.image : undefined
+          activeCard
+            ? '/assets/images/cards/full/' + activeCard.image
+            : undefined
         }
         dialogRef={instance => {
           dialogRef.current = instance
