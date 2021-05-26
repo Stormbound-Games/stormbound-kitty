@@ -335,6 +335,11 @@ export default React.memo(function ReleaseNotesJune2021(props) {
           </Table>
         </TogglableContent>
 
+        <p>
+          Additionally, the Premium Pass will grand access to all friendly
+          matches settings even though they might not be unlocked.
+        </p>
+
         <Title id='new-avatars'>New avatars</Title>
 
         <p>
