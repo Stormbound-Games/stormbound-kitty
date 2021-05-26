@@ -42,6 +42,7 @@ const GUIDE_COMPONENTS = {
 }
 
 const RELEASE_COMPONENTS = {
+  '06_2021': load('ReleaseNotesJune2021'),
   '05_2021': load('ReleaseNotesMay2021'),
   '04_2021': load('ReleaseNotesApril2021'),
   '03_2021': load('ReleaseNotesMarch2021'),

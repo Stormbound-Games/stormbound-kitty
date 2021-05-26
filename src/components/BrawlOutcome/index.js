@@ -1,18 +1,12 @@
 import React from 'react'
-import { COIN_MULTIPLIERS } from '../../constants/brawl'
 import { BrawlContext } from '../BrawlProvider'
 import Info from '../Info'
 import { Coins } from '../Resource'
 import './index.css'
 
 export default React.memo(function BrawlOutcome(props) {
-  const { brawl, meta } = React.useContext(BrawlContext)
-  const setup = props.setup || 'MOBILE_WITHOUT_ADS'
-  const wonMatches = brawl.matches.filter(match =>
-    ['WON', 'FORFEIT'].includes(match.status)
-  )
-  const income = wonMatches.length * COIN_MULTIPLIERS[setup]
-  const balance = income - meta.coinsSpent
+  const { meta } = React.useContext(BrawlContext)
+  const balance = props.income - meta.coinsSpent
 
   return (
     <Info icon='crown' className='BrawlOutcome' title='Balance'>
@@ -34,7 +28,7 @@ export default React.memo(function BrawlOutcome(props) {
           <strong style={{ color: 'var(--light-shadowfen)' }}>
             Coins earned:
           </strong>{' '}
-          <Coins amount={'+' + income} />
+          <Coins amount={'+' + props.income} />
         </li>
         <li>
           <strong className='Highlight'>Balance:</strong>{' '}

@@ -1,5 +1,5 @@
 import { MILESTONES } from '../../constants/brawl'
-import getCoinsForWin from '../getCoinsForWin'
+import getDailyCoinsCounter from '../getDailyCoinsCounter'
 import getMilestoneForCrowns from '../getMilestoneForCrowns'
 
 // @param {Integer} coins - Amount of available coins
@@ -7,24 +7,23 @@ import getMilestoneForCrowns from '../getMilestoneForCrowns'
 // @param {Float} winRatio - Win ratio between 0 (100% loss) and 1 (100% win)
 // @param {Float} costModifier - Cost modifier between 0 (free) and 1 (normal)
 // @param {String} setup - Wins strategy (ads, Steam…)
-// @param {Boolean} hasLegendary5 - Whether has the Brawl legendary level 5
 // @param {Boolean} withPremiumPass - Whether has the Premium Pass
-const getMilestoneIndexFromCoins = (
+const getMilestoneIndexFromCoins = ({
+  league,
   coins,
   winRatio = 1,
   crowns = 0,
   costModifier = 1,
   setup = 'NONE',
-  hasLegendary5 = false,
-  withPremiumPass = false
-) => {
+  withPremiumPass = false,
+}) => {
   if (typeof coins !== 'number' || typeof winRatio !== 'number') return -1
 
   // While this is not confirmed yet, there seem to be no plan to add multiple
   // discounts, so we take the highest discount (hence lowest cost modifier).
   costModifier = Math.min(withPremiumPass ? 0.9 : 1, costModifier)
 
-  const getCoins = getCoinsForWin(setup, withPremiumPass)
+  const getCoins = getDailyCoinsCounter({ setup, league, withPremiumPass })
   const { nextIndex, next } = getMilestoneForCrowns(crowns)
 
   // If there is no next milestone, that means there are already too many crowns

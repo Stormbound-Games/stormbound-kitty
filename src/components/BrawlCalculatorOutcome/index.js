@@ -2,11 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Info from '../Info'
 import { Coins, Crowns } from '../Resource'
-import { MILESTONES, COIN_MULTIPLIERS } from '../../constants/brawl'
+import { MILESTONES } from '../../constants/brawl'
 import getMilestoneIndexFromCoins from '../../helpers/getMilestoneIndexFromCoins'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getCostForMilestone from '../../helpers/getCostForMilestone'
 import getMilestoneForCrowns from '../../helpers/getMilestoneForCrowns'
+import getVictoryCoins from '../../helpers/getVictoryCoins'
 import './index.css'
 
 const BrawlCalculatorRewards = React.memo(function BrawlCalculatorRewards(
@@ -32,32 +33,35 @@ const BrawlCalculatorRewards = React.memo(function BrawlCalculatorRewards(
 
 export default React.memo(function BrawlCalculatorOutcome(props) {
   const {
-    mode,
-    crowns,
     coins,
-    milestone,
-    winRate,
-    setup,
+    crowns,
     discount,
     hasLegendary5,
+    milestone,
+    mode,
+    setup,
+    winRate,
     withPremiumPass,
   } = props
-  const options = [
-    winRate / 100,
+  const options = {
+    costModifier: 1 - discount / 100,
     crowns,
-    1 - discount / 100,
-    setup,
     hasLegendary5,
+    league: 'BRAWL',
+    setup,
+    winRatio: winRate / 100,
     withPremiumPass,
-  ]
+  }
+
   const info = getMilestoneForCrowns(crowns)
   const gains =
     setup === 'NONE' ? (
       'without considering winning gain'
     ) : (
       <>
-        considering <Coins amount={COIN_MULTIPLIERS[setup]} /> per win until
-        coin cap
+        considering{' '}
+        <Coins amount={getVictoryCoins(setup, 'BRAWL', withPremiumPass)} /> per
+        win until coin cap
       </>
     )
 
@@ -95,7 +99,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
       )
     }
 
-    const reachableIndex = getMilestoneIndexFromCoins(coins, ...options)
+    const reachableIndex = getMilestoneIndexFromCoins({ ...options, coins })
 
     // If the reachable milestone with the available coins is the same as the
     // current milestone, it means there are not enough coins to reach said
@@ -112,7 +116,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
 
     const next =
       reachableIndex < MILESTONES.length - 1
-        ? getCostForMilestone(reachableIndex + 1, ...options)
+        ? getCostForMilestone({ ...options, milestone: reachableIndex + 1 })
         : null
     const nextUp = next ? Math.ceil(Math.ceil(next) / 5) * 5 : null
 
@@ -166,7 +170,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
       )
     }
 
-    const outcome = getCostForMilestone(milestone, ...options)
+    const outcome = getCostForMilestone({ ...options, milestone })
     const outcomeUp = Math.ceil(Math.ceil(outcome) / 5) * 5
     const reward = getRewardLabel(MILESTONES[milestone], true)
 

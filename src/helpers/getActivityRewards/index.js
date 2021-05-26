@@ -1,12 +1,14 @@
 import { DailyIncome } from '../Income'
-import getWinCoins from '../getWinCoins'
+import getDailyCoinsCounter from '../getDailyCoinsCounter'
 
 const getActivityRewards = ({
+  league,
   preferTier3Stones,
   setup,
   wins,
   withDailyHumble,
   withDailyQuests,
+  withPremiumPass,
 }) => {
   const rewards = new DailyIncome()
 
@@ -23,7 +25,13 @@ const getActivityRewards = ({
   }
 
   if (wins > 0) {
-    rewards.add({ coins: 30 + wins * getWinCoins(setup) })
+    const getCoins = getDailyCoinsCounter({ setup, league, withPremiumPass })
+    const coins = Array.from({ length: wins }).reduce(
+      (acc, _) => acc + getCoins(),
+      0
+    )
+
+    rewards.add({ coins })
   }
 
   return rewards

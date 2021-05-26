@@ -1,7 +1,7 @@
 .BrawlCalculatorPremiumPassToggle {
   display: inline-flex;
   flex-wrap: wrap;
-  margin-top: -0.25em;
+  margin-top: 1em;
 }
 
 .BrawlCalculatorPremiumPassToggle .Checkbox {

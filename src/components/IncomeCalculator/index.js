@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 import Checkbox from '../Checkbox'
 import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
+import LeagueSelect from '../LeagueSelect'
 import NumberInput from '../NumberInput'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
+import PremiumPassCheckbox from '../PremiumPassCheckbox'
 import ResourceIcon from '../ResourceIcon'
 import Row from '../Row'
 import Title from '../Title'
@@ -27,7 +29,7 @@ import getCostForMilestone from '../../helpers/getCostForMilestone'
 import getHeroesLeagueRewards from '../../helpers/getHeroesLeagueRewards'
 import getLeagueChestRewards from '../../helpers/getLeagueChestRewards'
 import getRewardLabel from '../../helpers/getRewardLabel'
-import getWinCoins from '../../helpers/getWinCoins'
+import getVictoryCoins from '../../helpers/getVictoryCoins'
 import {
   DailyIncome,
   WeeklyIncome,
@@ -76,11 +78,13 @@ const useIncomeOverPeriod = (settings, period, rubiesConversion) => {
   }
 
   const activityRewards = getActivityRewards({
+    league: settings.league,
     preferTier3Stones: settings.preferTier3Stones,
     setup: settings.setup,
     wins: settings.wins,
     withDailyHumble: settings.withDailyHumble,
     withDailyQuests: settings.withDailyQuests,
+    withPremiumPass: settings.withPremiumPass,
   })
   income.add(activityRewards)
 
@@ -117,13 +121,16 @@ export default React.memo(function IncomeCalculator(props) {
       wins,
       withDailyHumble,
       withDailyQuests,
+      withPremiumPass,
     },
     period,
     rubiesConversion
   )
 
   const coinCap = withPremiumPass ? 700 : 400
-  const maxWins = Math.ceil((coinCap - 30) / getWinCoins(setup))
+  const maxWins = Math.ceil(
+    (coinCap - 30) / getVictoryCoins(setup, league, withPremiumPass)
+  )
 
   React.useEffect(() => {
     if (wins > maxWins) setWins(maxWins)
@@ -194,22 +201,11 @@ export default React.memo(function IncomeCalculator(props) {
           </Row>
           <Row desktopOnly>
             <Row.Column>
-              <label htmlFor='league'>Monthly league</label>
-              <select
-                name='league'
-                id='league'
+              <LeagueSelect
+                label='Monthly league'
                 value={league}
                 onChange={event => setLeague(event.target.value)}
-              >
-                <option value=''>Select a league</option>
-                <option value='HEROES'>Heroes</option>
-                <option value='DIAMOND'>Diamond</option>
-                <option value='PLATINUM'>Platinum</option>
-                <option value='GOLD'>Gold</option>
-                <option value='SILVER'>Silver</option>
-                <option value='BRONZE'>Bronze</option>
-                <option value='IRON'>Iron</option>
-              </select>
+              />
             </Row.Column>
             <Row.Column>
               <label htmlFor='rank'>Monthly rank</label>
@@ -254,11 +250,23 @@ export default React.memo(function IncomeCalculator(props) {
                 value={brawlCost}
                 onChange={setBrawlCost}
                 step={10}
-                min={milestone === '' ? 0 : getCostForMilestone(milestone, 1)}
+                min={
+                  milestone === ''
+                    ? 0
+                    : getCostForMilestone({
+                        milestone,
+                        league: 'BRAWL',
+                        winRatio: 1,
+                      })
+                }
                 max={
                   milestone === ''
                     ? undefined
-                    : getCostForMilestone(milestone, 0)
+                    : getCostForMilestone({
+                        milestone,
+                        league: 'BRAWL',
+                        winRatio: 0,
+                      })
                 }
               />
             </Row.Column>
@@ -325,14 +333,10 @@ export default React.memo(function IncomeCalculator(props) {
           >
             Open daily Humble book
           </Checkbox>
-          <Checkbox
-            id='premium-pass'
-            name='premium-pass'
+          <PremiumPassCheckbox
             checked={withPremiumPass}
             onChange={event => setWithPremiumPass(event.target.checked)}
-          >
-            Premium Pass
-          </Checkbox>
+          />
         </Row.Column>
         <Row.Column width='1/3'>
           <div>

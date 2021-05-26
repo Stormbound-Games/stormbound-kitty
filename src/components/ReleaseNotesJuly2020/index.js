@@ -386,26 +386,28 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
 
         <ul>
           <li>
-            <span style={{ color: '#c8c0df' }}>Diamond</span>: no cap (besides
-            20 maximum health).
+            <span style={{ color: 'var(--diamond)' }}>Diamond</span>: no cap
+            (besides 20 maximum health).
           </li>
           <li>
-            <span style={{ color: '#c0e0cf' }}>Platinum</span>: health capped at
-            17.
+            <span style={{ color: 'var(--platinum)' }}>Platinum</span>: health
+            capped at 17.
           </li>
           <li>
-            <span style={{ color: '#f1e0be' }}>Gold</span>: health capped at 14.
+            <span style={{ color: 'var(--gold)' }}>Gold</span>: health capped at
+            14.
           </li>
           <li>
-            <span style={{ color: '#d6d9e2' }}>Silver</span>: health capped at
-            12.
+            <span style={{ color: 'var(--silver)' }}>Silver</span>: health
+            capped at 12.
           </li>
           <li>
-            <span style={{ color: '#e2c3b7' }}>Bronze</span>: health capped at
-            11.
+            <span style={{ color: 'var(--bronze)' }}>Bronze</span>: health
+            capped at 11.
           </li>
           <li>
-            <span style={{ color: '#d3d1cc' }}>Iron</span>: health capped at 10.
+            <span style={{ color: 'var(--iron)' }}>Iron</span>: health capped at
+            10.
           </li>
         </ul>
 

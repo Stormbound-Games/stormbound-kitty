@@ -1,10 +1,12 @@
 import React from 'react'
 import Info from '../Info'
 import ResourceIcon from '../ResourceIcon'
+import { Coins, Stones } from '../Resource'
 import { RARITIES } from '../../constants/game'
 import capitalise from '../../helpers/capitalise'
 import getRawCardData from '../../helpers/getRawCardData'
 import toSentence from '../../helpers/toSentence'
+import './index.css'
 
 const COMPENSATION = {
   common: [
@@ -42,22 +44,9 @@ const LevelCompensation = ({ level, coins, stones }) => {
 
   return (
     <>
-      {coins > 0 && (
-        <>
-          <ResourceIcon resource='COIN' />
-          &nbsp;
-          {coins}
-        </>
-      )}
+      {coins > 0 && <Coins amount={coins} />}
       {coins > 0 && stones > 0 && ' and '}
-      {stones > 0 && (
-        <>
-          <ResourceIcon resource='STONE' />
-          &nbsp;
-          {stones}
-        </>
-      )}{' '}
-      at level {level}
+      {stones > 0 && <Stones amount={stones} />} at level {level}
       {level !== 5 && ', '}
     </>
   )
@@ -65,8 +54,9 @@ const LevelCompensation = ({ level, coins, stones }) => {
 
 export default React.memo(function NerfCompensationInfo(props) {
   const ids = props.ids || []
-  const cards = ids ? ids.map(getRawCardData) : []
-  const rarities = ids ? cards.map(card => card.rarity) : Object.keys(RARITIES)
+  const cards = ids.length > 0 ? ids.map(getRawCardData) : []
+  const rarities =
+    ids.length > 0 ? cards.map(card => card.rarity) : Object.keys(RARITIES)
   const names = cards.map(card => card.name)
 
   return (
@@ -78,7 +68,7 @@ export default React.memo(function NerfCompensationInfo(props) {
         level and rarity of the card. Find below the compensation values for
         each rarity and level.
       </p>
-      <ul style={{ marginBottom: 0 }}>
+      <ul className='NerfCompensationInfo__list'>
         {Object.keys(COMPENSATION)
           .filter(rarity => rarities.includes(rarity))
           .map(rarity => (
@@ -97,6 +87,7 @@ export default React.memo(function NerfCompensationInfo(props) {
                   </>
                 )
               }, null)}
+              .
             </li>
           ))}
       </ul>

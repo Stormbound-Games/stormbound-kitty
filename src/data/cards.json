@@ -713,7 +713,7 @@
     "race": "knight",
     "rarity": "rare",
     "image": "joust_champions.png",
-    "mana": 8,
+    "mana": 7,
     "strength": "3/4/5/6/7",
     "movement": 2,
     "ability": "Before attacking a unit or structure, deal *3/4/5/6/7 additional damage* to it"
@@ -952,7 +952,7 @@
     "rarity": "rare",
     "image": "trekking_aldermen.png",
     "mana": 3,
-    "strength": "3/4/4/5/6",
+    "strength": "3/4/5/6/7",
     "movement": 0,
     "ability": "After surviving damage, deal *2/2/3/3/4 damage* spread randomly among enemy units on the board",
     "elder": true
@@ -1082,6 +1082,32 @@
     "elder": false
   },
   {
+    "name": "Headless Hotheads",
+    "id": "N83",
+    "type": "unit",
+    "faction": "neutral",
+    "race": "construct",
+    "rarity": "rare",
+    "image": "headless_hotheads.png",
+    "mana": 5,
+    "strength": "3/4/5/6/7",
+    "movement": 2,
+    "ability": "On play, move fixedly forward"
+  },
+  {
+    "name": "Eternal Ethereals",
+    "id": "N84",
+    "type": "unit",
+    "faction": "neutral",
+    "race": "ancient",
+    "rarity": "common",
+    "image": "eternal_ethereals.png",
+    "mana": 8,
+    "strength": "5/6/7/9/11",
+    "movement": 3,
+    "ability": null
+  },
+  {
     "name": "Destructobots",
     "id": "I1",
     "type": "unit",
@@ -1145,7 +1171,7 @@
     "mana": 2,
     "strength": "5/6/7/8/9",
     "movement": null,
-    "ability": "At the start of your turn, deal *2 damage* to itself"
+    "ability": "At the start of your turn, deal *3 damage* to itself"
   },
   {
     "name": "Finite Loopers",
@@ -1629,7 +1655,7 @@
     "rarity": "rare",
     "image": "venomfall_spire.png",
     "mana": 4,
-    "strength": "3/4/4/6/7",
+    "strength": "4/5/5/7/8",
     "movement": null,
     "ability": "At the start of your turn, *poison 1/1/2/2/3* random enemy unit/unit/units/units/units"
   },
@@ -1867,9 +1893,9 @@
     "rarity": "legendary",
     "image": "counselor_ahmi.png",
     "mana": 3,
-    "strength": "2/3/4/5/6",
+    "strength": "1/2/3/4/5",
     "movement": 1,
-    "ability": "If played with no bordering enemies, return the copy of this card to your hand",
+    "ability": "If played with no surrounding enemies, return the copy of this card to your hand with +1 strength",
     "hero": true
   },
   {
@@ -2828,7 +2854,7 @@
     "faction": "neutral",
     "race": "ancient",
     "rarity": null,
-    "image": "eternal_spirits.png",
+    "image": "eternal_ethereals.png",
     "mana": 0,
     "strength": 1,
     "movement": 1,
