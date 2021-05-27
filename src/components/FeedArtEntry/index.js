@@ -8,7 +8,7 @@ export default React.memo(function FeedArtEntry(props) {
     <FeedEntry icon='image' date={props.date}>
       {props.author} has made some art.
       <details>
-        <summary>
+        <summary style={{ display: 'block' }}>
           <Only.Desktop>Click</Only.Desktop>
           <Only.Mobile>Tap</Only.Mobile> to toggle art display
         </summary>
