@@ -31,19 +31,8 @@
   line-height: 1;
   transform: translateY(30%);
   margin-left: 30px;
-}
-
-/**
- * 1. There is no elegant way to have a proper text stroke, so we have to place
- *    a pseudo-element behind the text itself, that repeats the same text with
- *    an actual stroke.
- */
-.HeaderBanner__title::before {
-  content: attr(title); /* 1 */
-  position: absolute;
-  left: 0;
-  z-index: -1;
-  -webkit-text-stroke: 3px var(--black);
+  -webkit-text-stroke: 1px var(--black);
+  letter-spacing: -1px;
 }
 
 @media (max-width: 700px) {

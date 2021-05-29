@@ -37,9 +37,7 @@ export default React.memo(function HeaderBanner(props) {
       }}
     >
       <img src={background} alt='' hidden />
-      <h1 className='HeaderBanner__title' title={props.title}>
-        {props.title}
-      </h1>
+      <h1 className='HeaderBanner__title'>{props.title}</h1>
     </header>
   )
 })
