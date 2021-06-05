@@ -121,28 +121,6 @@ export default {
     const deck = getRandomDeck({ initialCards, faction: resolvedFaction })
     const id = serialisation.deck.serialise(deck)
 
-    embed.setURL('https://stormbound-kitty.com/deck/' + id)
-    embed.addFields(
-      ...deck.sort(sortCards({ withFaction: false })).map(card => ({
-        name: card.name,
-        value: [
-          typeof card.mana === 'number' ? card.mana + 'mn' : '',
-          typeof card.strength === 'number' ? card.strength + 'str' : '',
-          typeof card.movement === 'number' ? card.movement + 'mv' : '',
-        ]
-          .filter(Boolean)
-          .join(' '),
-        inline: true,
-      }))
-    )
-
-    if (ignored.length > 0) {
-      embed.addFields({
-        name: 'Ignored terms',
-        value: ignored.join(', '),
-      })
-    }
-
-    return embed
+    return 'https://stormbound-kitty.com/deck/' + id
   },
 }

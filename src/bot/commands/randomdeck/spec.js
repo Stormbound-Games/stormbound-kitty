@@ -5,47 +5,38 @@ const BASE_URL = 'https://stormbound-kitty.com/deck/'
 
 describe('Bot — !randomdeck', () => {
   it('should return a random deck for an empty search', () => {
-    expect(randomdeck('').url).to.contain(BASE_URL)
+    expect(randomdeck('')).to.contain(BASE_URL)
   })
 
   it('should handle factions', () => {
-    expect(randomdeck('ironclad').url.replace(BASE_URL, '')).to.contain('i')
-    expect(randomdeck('swarm').url.replace(BASE_URL, '')).to.contain('s')
-    expect(randomdeck('winter').url.replace(BASE_URL, '')).to.contain('w')
-    expect(randomdeck('shadowfen').url.replace(BASE_URL, '')).to.contain('f')
+    expect(randomdeck('ironclad').replace(BASE_URL, '')).to.contain('i')
+    expect(randomdeck('swarm').replace(BASE_URL, '')).to.contain('s')
+    expect(randomdeck('winter').replace(BASE_URL, '')).to.contain('w')
+    expect(randomdeck('shadowfen').replace(BASE_URL, '')).to.contain('f')
   })
 
   it('should handle aliases', () => {
-    expect(randomdeck('ic').url.replace(BASE_URL, '')).to.contain('i')
-    expect(randomdeck('red').url.replace(BASE_URL, '')).to.contain('i')
-    expect(randomdeck('sw').url.replace(BASE_URL, '')).to.contain('s')
-    expect(randomdeck('yellow').url.replace(BASE_URL, '')).to.contain('s')
-    expect(randomdeck('w').url.replace(BASE_URL, '')).to.contain('w')
-    expect(randomdeck('wp').url.replace(BASE_URL, '')).to.contain('w')
-    expect(randomdeck('blue').url.replace(BASE_URL, '')).to.contain('w')
-    expect(randomdeck('sf').url.replace(BASE_URL, '')).to.contain('f')
-    expect(randomdeck('green').url.replace(BASE_URL, '')).to.contain('f')
-  })
-
-  it('should ignore unknown terms', () => {
-    const outputA = randomdeck('ic foo bar').fields.pop().value
-    const outputB = randomdeck('ic xxx, zzz').fields.pop().value
-
-    expect(outputA).to.contain('foo bar')
-    expect(outputB).to.contain('xxx')
-    expect(outputB).to.contain('zzz')
+    expect(randomdeck('ic').replace(BASE_URL, '')).to.contain('i')
+    expect(randomdeck('red').replace(BASE_URL, '')).to.contain('i')
+    expect(randomdeck('sw').replace(BASE_URL, '')).to.contain('s')
+    expect(randomdeck('yellow').replace(BASE_URL, '')).to.contain('s')
+    expect(randomdeck('w').replace(BASE_URL, '')).to.contain('w')
+    expect(randomdeck('wp').replace(BASE_URL, '')).to.contain('w')
+    expect(randomdeck('blue').replace(BASE_URL, '')).to.contain('w')
+    expect(randomdeck('sf').replace(BASE_URL, '')).to.contain('f')
+    expect(randomdeck('green').replace(BASE_URL, '')).to.contain('f')
   })
 
   it('should handle including a card', () => {
-    expect(randomdeck('N48').url).to.contain('n48')
-    expect(randomdeck('Earyn').url).to.contain('n48')
-    expect(randomdeck('rof').url).to.contain('f8')
+    expect(randomdeck('N48')).to.contain('n48')
+    expect(randomdeck('Earyn')).to.contain('n48')
+    expect(randomdeck('rof')).to.contain('f8')
   })
 
   it('should handle including multiple cards', () => {
-    expect(randomdeck('N48, N49').url).to.contain('n48n49')
-    expect(randomdeck('Earyn, Avian').url).to.contain('n48n49')
-    expect(randomdeck('rof,wyrm').url).to.contain('f8f9')
+    expect(randomdeck('N48, N49')).to.contain('n48n49')
+    expect(randomdeck('Earyn, Avian')).to.contain('n48n49')
+    expect(randomdeck('rof,wyrm')).to.contain('f8f9')
   })
 
   it('should return an error if conflicting arguments', () => {
