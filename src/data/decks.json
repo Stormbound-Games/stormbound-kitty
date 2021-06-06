@@ -1011,5 +1011,13 @@
     "author": "NofirmeeZ",
     "category": "REGULAR",
     "date": "06/2021"
+  },
+  {
+    "name": "Frostschutzmittel",
+    "id": "5xn1i1n3i4n62i5n67i7n61n63i15i20",
+    "author": "OVRDRV",
+    "category": "BRAWL",
+    "brawl": "FROSTLING_STRENGTH",
+    "date": "06/2021"
   }
 ]
