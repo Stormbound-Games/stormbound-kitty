@@ -8,6 +8,9 @@ import './index.css'
 
 const getEffectiveSpeed = card => {
   switch (card.id) {
+    // Doppelbocks effectively advances the frontline.
+    case 'S1':
+      return 1
     case 'W31':
       // Iceflakes not only does not have initial movement, but it’s also frozen
       // for a turn, which essentially negate its natural movement from the next
