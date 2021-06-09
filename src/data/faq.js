@@ -209,7 +209,7 @@ export default [
             The deck advice are determined based on heuristics and educated
             guesses. They do not result from a thorough analysis of the decks,
             and they definitely are not based on real game data. They are only
-            generic suggestions from experimented players.
+            generic suggestions from experienced players.
           </>
         ),
       },
