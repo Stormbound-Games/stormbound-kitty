@@ -54,7 +54,7 @@ const getPlayableCards = (mana, cards) =>
     })
   )
 
-const getRaces = cards => [...new Set(cards.map(c => c.race))]
+const getRaces = cards => [...new Set(cards.map(c => c.race).filter(Boolean))]
 
 export default function DeckStats(props) {
   const cards = props.deck.map(getResolvedCardData)
