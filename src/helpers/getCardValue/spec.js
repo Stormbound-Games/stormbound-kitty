@@ -494,10 +494,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Joust Champions', () => {
     const value1 = getCardValue('N55', 1)
     const value5 = getCardValue('N55', 5)
-    expect(value1[0]).to.equal((3 / 8) * 1.5)
-    expect(value1[1]).to.equal(((3 + 3 * 2) / 8) * 1.5)
-    expect(value5[0]).to.equal((7 / 8) * 1.5)
-    expect(value5[1]).to.equal(((7 + 7 * 2) / 8) * 1.5)
+    expect(value1[0]).to.equal((3 / 7) * 1.5)
+    expect(value1[1]).to.equal(((3 + 3 * 2) / 7) * 1.5)
+    expect(value5[0]).to.equal((7 / 7) * 1.5)
+    expect(value5[1]).to.equal(((7 + 7 * 2) / 7) * 1.5)
   })
 
   it('should return value for Temple Guardians', () => {
@@ -658,8 +658,8 @@ describe('The `getCardValue` helper', () => {
     const value5 = getCardValue('N73', 5)
     expect(value1[0]).to.equal((3 / 3) * 0.5)
     expect(value1[1]).to.equal(((3 + 2) / 3) * 0.5)
-    expect(value5[0]).to.equal((6 / 3) * 0.5)
-    expect(value5[1]).to.equal(((6 + 4) / 3) * 0.5)
+    expect(value5[0]).to.equal((7 / 3) * 0.5)
+    expect(value5[1]).to.equal(((7 + 4) / 3) * 0.5)
   })
 
   it('should return value for Beards of Crowglyph', () => {
@@ -1083,10 +1083,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Venomfall Spire', () => {
     const value1 = getCardValue('F13', 1)
     const value5 = getCardValue('F13', 5)
-    expect(value1[0]).to.equal(3 / 4)
-    expect(value1[1]).to.equal(3 / 4)
-    expect(value5[0]).to.equal(7 / 4)
-    expect(value5[1]).to.equal(7 / 4)
+    expect(value1[0]).to.equal(4 / 4)
+    expect(value1[1]).to.equal(4 / 4)
+    expect(value5[0]).to.equal(8 / 4)
+    expect(value5[1]).to.equal(8 / 4)
   })
 
   it('should return value for Witches of the Wild', () => {
@@ -1245,10 +1245,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Counselor Ahmi', () => {
     const value1 = getCardValue('S3', 1)
     const value5 = getCardValue('S3', 5)
-    expect(value1[0]).to.equal((2 / 3) * 1)
-    expect(value1[1]).to.equal((2 / 3) * 1)
-    expect(value5[0]).to.equal((6 / 3) * 1)
-    expect(value5[1]).to.equal((6 / 3) * 1)
+    expect(value1[0]).to.equal((1 / 3) * 1)
+    expect(value1[1]).to.equal((1 / 3) * 1)
+    expect(value5[0]).to.equal((5 / 3) * 1)
+    expect(value5[1]).to.equal((5 / 3) * 1)
   })
 
   it('should return value for Dreadful Keepers', () => {
