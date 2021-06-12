@@ -16,7 +16,7 @@ import isBrawlRunning from '../../helpers/isBrawlRunning'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getCurrentBrawl from '../../helpers/getCurrentBrawl'
 import getGuide from '../../helpers/getGuide'
-import { BRAWLS, MILESTONES } from '../../constants/brawl'
+import { BRAWLS, BRAWL_MILESTONES } from '../../constants/brawl'
 import './index.css'
 
 const guide = getGuide('BRAWL_GUIDE')
@@ -28,6 +28,15 @@ export default React.memo(function GuideBrawl(props) {
 
   return (
     <Guide {...guide}>
+      <Info title='Outdated guide' icon='compass'>
+        <p>
+          As of June 17th 2021, the Brawl has been revisited to be more friendly
+          to all players. This guide was authored before that and has not been
+          updated since therefore its information might be outdated. If you
+          would like to help updating it, please reach out on Discord.
+        </p>
+      </Info>
+
       <p>
         Brawl was added late 2019 as an end-game platform for relatively
         high-level players to spend their coins in exchange for other resources,
@@ -92,7 +101,7 @@ export default React.memo(function GuideBrawl(props) {
           <Only.Desktop>
             <div className='GuideBrawl__milestones'>
               <BrawlProvider id={currentBrawl.id}>
-                <BrawlMilestone index={1} {...MILESTONES[0]} />
+                <BrawlMilestone index={1} {...BRAWL_MILESTONES.LEGACY[0]} />
               </BrawlProvider>
             </div>
           </Only.Desktop>
@@ -112,7 +121,7 @@ export default React.memo(function GuideBrawl(props) {
               </tr>
             </thead>
             <tbody>
-              {MILESTONES.map(milestone => (
+              {BRAWL_MILESTONES.LEGACY.map(milestone => (
                 <tr key={milestone.crowns}>
                   <td>
                     <Crowns amount={milestone.crowns} />
@@ -130,7 +139,7 @@ export default React.memo(function GuideBrawl(props) {
 
       <Only.Mobile>
         <ul>
-          {MILESTONES.map(milestone => (
+          {BRAWL_MILESTONES.LEGACY.map(milestone => (
             <li key={milestone.crowns}>
               <Coins amount={milestone.cost} /> until{' '}
               <Crowns amount={milestone.crowns} />
