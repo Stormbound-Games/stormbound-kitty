@@ -6,7 +6,8 @@ import './index.css'
 
 export default React.memo(function BrawlOutcome(props) {
   const { meta } = React.useContext(BrawlContext)
-  const balance = props.income - meta.coinsSpent
+  const income = props.income || 0
+  const balance = income - meta.coinsSpent
 
   return (
     <Info icon='crown' className='BrawlOutcome' title='Balance'>
@@ -28,7 +29,7 @@ export default React.memo(function BrawlOutcome(props) {
           <strong style={{ color: 'var(--light-shadowfen)' }}>
             Coins earned:
           </strong>{' '}
-          <Coins amount={'+' + props.income} />
+          <Coins amount={'+' + income} />
         </li>
         <li>
           <strong className='Highlight'>Balance:</strong>{' '}

@@ -6,6 +6,7 @@ import BrawlCalculatorMode from '../BrawlCalculatorMode'
 import BrawlCalculatorOutcome from '../BrawlCalculatorOutcome'
 import BrawlCalculatorSettings from '../BrawlCalculatorSettings'
 import BrawlCalculatorSetup from '../BrawlCalculatorSetup'
+import BrawlDifficultySelect from '../BrawlDifficultySelect'
 import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
 import Only from '../Only'
@@ -15,11 +16,12 @@ import Row from '../Row'
 import Table from '../Table'
 import { Coins, Crowns } from '../Resource'
 import Title from '../Title'
-import { MILESTONES } from '../../constants/brawl'
+import { BRAWL_MILESTONES } from '../../constants/brawl'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import './index.css'
 
 export default React.memo(function BrawlCalculator(props) {
+  const [difficulty, setDifficulty] = React.useState('CASUAL')
   const [withPremiumPass, setWithPremiumPass] = React.useState(false)
   const [mode, setMode] = React.useState('')
   const [winRate, setWinRate] = React.useState(50)
@@ -43,8 +45,14 @@ export default React.memo(function BrawlCalculator(props) {
           <Row desktopOnly wideGutter>
             <Row.Column>
               <Title>Goal</Title>
+              <BrawlDifficultySelect
+                className='BrawlCalculator__difficulty'
+                value={difficulty}
+                onChange={event => setDifficulty(event.target.value)}
+              />
               <BrawlCalculatorMode mode={mode} setMode={setMode} />
               <BrawlCalculatorSettings
+                difficulty={difficulty}
                 mode={mode}
                 milestone={milestone}
                 setMilestone={setMilestone}
@@ -89,6 +97,7 @@ export default React.memo(function BrawlCalculator(props) {
           <BrawlCalculatorOutcome
             coins={coins}
             crowns={crowns}
+            difficulty={difficulty}
             discount={discount}
             hasLegendary5={hasLegendary5}
             milestone={milestone}
@@ -115,7 +124,7 @@ export default React.memo(function BrawlCalculator(props) {
             </tr>
           </thead>
           <tbody>
-            {MILESTONES.map(milestone => {
+            {BRAWL_MILESTONES[difficulty].map(milestone => {
               // While this is not confirmed yet, there seem to be no plan
               // to add multiple discounts, so we take the highest discount
               // (hence lowest cost modifier).

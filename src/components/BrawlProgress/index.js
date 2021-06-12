@@ -1,14 +1,17 @@
 import React from 'react'
-import { MILESTONES } from '../../constants/brawl'
+import { BRAWL_MILESTONES } from '../../constants/brawl'
 import { BrawlContext } from '../BrawlProvider'
 import './index.css'
 
 export default React.memo(function BrawlProgress(props) {
   const { meta } = React.useContext(BrawlContext)
+  // The rewards have no impact here, only the crowns are considered, so any
+  // Brawl difficulty can be used for that.
+  const milestones = BRAWL_MILESTONES.LEGACY
 
   return (
     <ul className='BrawlProgress'>
-      {MILESTONES.map((milestone, index) => (
+      {milestones.map((milestone, index) => (
         <li
           key={index}
           className={[

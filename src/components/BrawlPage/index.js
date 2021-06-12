@@ -7,15 +7,16 @@ import BrawlTracker from '../BrawlTracker'
 import PageMeta from '../PageMeta'
 
 export default React.memo(function BrawlPage(props) {
+  const [difficulty, setDifficulty] = React.useState('CASUAL')
   const match = useRouteMatch()
   const id = match.params.id.toUpperCase().replace(/-/g, '_')
   const brawl = BRAWL_INDEX[id]
 
   return (
     <>
-      <BrawlProvider id={id}>
+      <BrawlProvider id={id} difficulty={difficulty}>
         <BrawlHeader />
-        <BrawlTracker />
+        <BrawlTracker difficulty={difficulty} setDifficulty={setDifficulty} />
       </BrawlProvider>
 
       <PageMeta

@@ -1,4 +1,4 @@
-import { MILESTONES } from '../../constants/brawl'
+import { BRAWL_MILESTONES } from '../../constants/brawl'
 import getDailyCoinsCounter from '../getDailyCoinsCounter'
 import getMilestoneForCrowns from '../getMilestoneForCrowns'
 
@@ -9,6 +9,7 @@ import getMilestoneForCrowns from '../getMilestoneForCrowns'
 // @param {String} setup - Wins strategy (ads, Steam…)
 // @param {Boolean} withPremiumPass - Whether has the Premium Pass
 const getMilestoneIndexFromCoins = ({
+  difficulty = 'LEGACY',
   league,
   coins,
   winRatio = 1,
@@ -24,7 +25,8 @@ const getMilestoneIndexFromCoins = ({
   costModifier = Math.min(withPremiumPass ? 0.9 : 1, costModifier)
 
   const getCoins = getDailyCoinsCounter({ setup, league, withPremiumPass })
-  const { nextIndex, next } = getMilestoneForCrowns(crowns)
+  const { nextIndex, next } = getMilestoneForCrowns(crowns, difficulty)
+  const milestones = BRAWL_MILESTONES[difficulty]
 
   // If there is no next milestone, that means there are already too many crowns
   // for the entire Brawl and there is nothing else to do, therefore return -1
@@ -34,15 +36,15 @@ const getMilestoneIndexFromCoins = ({
   let index = nextIndex
 
   // While there are enough coins to play the current milestone, keep playing.
-  while (MILESTONES[index] && coins >= MILESTONES[index].cost * costModifier) {
-    coins -= MILESTONES[index].cost * costModifier
+  while (milestones[index] && coins >= milestones[index].cost * costModifier) {
+    coins -= milestones[index].cost * costModifier
     coins += getCoins(winRatio)
     crowns += 5 * winRatio + (1 - winRatio)
-    index = getMilestoneForCrowns(crowns).nextIndex
+    index = getMilestoneForCrowns(crowns, difficulty).nextIndex
 
     // If there is no more next milestone, that means there was enough coins to
     // reach the entire milestone, and this milestone index should be returned.
-    if (index === -1) return MILESTONES.length - 1
+    if (index === -1) return milestones.length - 1
   }
 
   // Return the reached milestone, which is the one before the one which is

@@ -5,7 +5,7 @@ import BrawlMatchForm from '../BrawlMatchForm'
 import Icon from '../Icon'
 import Table from '../Table'
 import Title from '../Title'
-import { MILESTONES } from '../../constants/brawl'
+import { BRAWL_MILESTONES } from '../../constants/brawl'
 import capitalise from '../../helpers/capitalise'
 import useViewportSize from '../../hooks/useViewportSize'
 import './index.css'
@@ -59,7 +59,9 @@ export default React.memo(function BrawlMatches(props) {
 
   let crowns = meta.crowns
   const getMilestone = crowns =>
-    MILESTONES.find(milestone => milestone.crowns > crowns) || {}
+    BRAWL_MILESTONES[props.difficulty].find(
+      milestone => milestone.crowns > crowns
+    ) || {}
 
   return (
     <>

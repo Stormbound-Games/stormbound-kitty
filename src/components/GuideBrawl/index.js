@@ -100,8 +100,8 @@ export default React.memo(function GuideBrawl(props) {
         <Row.Column>
           <Only.Desktop>
             <div className='GuideBrawl__milestones'>
-              <BrawlProvider id={currentBrawl.id}>
-                <BrawlMilestone index={1} {...BRAWL_MILESTONES.LEGACY[0]} />
+              <BrawlProvider id={currentBrawl.id} difficulty='ULTIMATE'>
+                <BrawlMilestone index={1} {...BRAWL_MILESTONES.ULTIMATE[0]} />
               </BrawlProvider>
             </div>
           </Only.Desktop>
@@ -150,8 +150,8 @@ export default React.memo(function GuideBrawl(props) {
 
       <Only.Mobile>
         <div className='GuideBrawl__milestones'>
-          <BrawlProvider id={currentBrawl.id}>
-            <BrawlMilestones />
+          <BrawlProvider id={currentBrawl.id} difficulty='ULTIMATE'>
+            <BrawlMilestones difficulty='ULTIMATE' />
           </BrawlProvider>
         </div>
       </Only.Mobile>
@@ -280,8 +280,8 @@ export default React.memo(function GuideBrawl(props) {
       </p>
 
       <div style={{ maxWidth: '500px', margin: 'auto' }}>
-        <BrawlProvider id={currentBrawl.id}>
-          <BrawlOutcome setup='MOBILE_WITH_ADS' />
+        <BrawlProvider id={currentBrawl.id} difficulty='ULTIMATE'>
+          <BrawlOutcome setup='MOBILE_WITH_ADS' difficulty='ULTIMATE' />
         </BrawlProvider>
       </div>
     </Guide>

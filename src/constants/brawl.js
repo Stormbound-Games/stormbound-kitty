@@ -107,7 +107,7 @@ export const BRAWLS = [
 
 export const BRAWL_INDEX = indexArray(BRAWLS)
 
-export const MILESTONES = [
+export const MILESTONES_LEGACY = [
   { crowns: 10, reward: 'HUMBLE_BOOK', rewardAmount: 1, cost: 0 },
   { crowns: 20, reward: 'RUBIES', rewardAmount: 5, cost: 20 },
   { crowns: 35, reward: 'CLASSIC_BOOK', rewardAmount: 1, cost: 50 },
@@ -163,7 +163,7 @@ export const BRAWL_MILESTONES = {
   CASUAL: MILESTONES_CASUAL,
   WARRIOR: MILESTONES_WARRIOR,
   ULTIMATE: MILESTONES_ULTIMATE,
-  LEGACY: MILESTONES,
+  LEGACY: MILESTONES_LEGACY,
 }
 
 export const MATCH_STATUSES = {

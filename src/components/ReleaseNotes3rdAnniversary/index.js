@@ -11,7 +11,7 @@ import { Legendary, Coins, Crowns, Stones, Rubies } from '../Resource'
 import Row from '../Row'
 import Table from '../Table'
 import Title from '../Title'
-import { MILESTONES } from '../../constants/brawl'
+import { BRAWL_MILESTONES } from '../../constants/brawl'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import './index.css'
 
@@ -68,7 +68,7 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
               </tr>
             </thead>
             <tbody>
-              {MILESTONES.map(milestone => {
+              {BRAWL_MILESTONES.LEGACY.map(milestone => {
                 const cost = Math.ceil(Math.ceil(milestone.cost / 3) / 5) * 5
                 return (
                   <tr key={milestone.crowns}>

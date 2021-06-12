@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Info from '../Info'
 import { Coins, Crowns } from '../Resource'
-import { MILESTONES } from '../../constants/brawl'
+import { BRAWL_MILESTONES } from '../../constants/brawl'
 import getMilestoneIndexFromCoins from '../../helpers/getMilestoneIndexFromCoins'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getCostForMilestone from '../../helpers/getCostForMilestone'
@@ -13,11 +13,12 @@ import './index.css'
 const BrawlCalculatorRewards = React.memo(function BrawlCalculatorRewards(
   props
 ) {
-  const info = getMilestoneForCrowns(props.crowns)
+  const milestones = BRAWL_MILESTONES[props.difficulty]
+  const info = getMilestoneForCrowns(props.crowns, props.difficulty)
 
   return (
     <ol className='BrawlCalculatorOutcome__rewards' start={info.nextIndex + 1}>
-      {MILESTONES.slice(info.nextIndex, props.milestone + 1).map(milestone => {
+      {milestones.slice(info.nextIndex, props.milestone + 1).map(milestone => {
         return (
           <li key={milestone.crowns}>
             {getRewardLabel(milestone, true)}{' '}
@@ -35,6 +36,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
   const {
     coins,
     crowns,
+    difficulty,
     discount,
     hasLegendary5,
     milestone,
@@ -43,8 +45,10 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
     winRate,
     withPremiumPass,
   } = props
+  const milestones = BRAWL_MILESTONES[difficulty]
   const options = {
     costModifier: 1 - discount / 100,
+    difficulty,
     crowns,
     hasLegendary5,
     league: 'BRAWL',
@@ -53,7 +57,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
     withPremiumPass,
   }
 
-  const info = getMilestoneForCrowns(crowns)
+  const info = getMilestoneForCrowns(crowns, difficulty)
   const gains =
     setup === 'NONE' ? (
       'without considering winning gain'
@@ -82,7 +86,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
     return (
       <p>
         With <Crowns amount={crowns} />, you have already reached milestone #
-        {MILESTONES.length}. Set less than 250 crowns to use the calculator.
+        {milestones.length}. Set less than 250 crowns to use the calculator.
       </p>
     )
   }
@@ -115,7 +119,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
     }
 
     const next =
-      reachableIndex < MILESTONES.length - 1
+      reachableIndex < milestones.length - 1
         ? getCostForMilestone({ ...options, milestone: reachableIndex + 1 })
         : null
     const nextUp = next ? Math.ceil(Math.ceil(next) / 5) * 5 : null
@@ -133,6 +137,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
         <BrawlCalculatorRewards
           crowns={props.crowns}
           milestone={reachableIndex}
+          difficulty={difficulty}
           hasLegendary5={hasLegendary5}
         />
 
@@ -140,7 +145,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
           <>
             <p>
               Reaching the next milestone (milestone #{reachableIndex + 2},
-              yielding {getRewardLabel(MILESTONES[reachableIndex + 1], true)})
+              yielding {getRewardLabel(milestones[reachableIndex + 1], true)})
               would cost <Coins amount={nextUp} />, or an{' '}
               <span className='Highlight'>
                 extra <Coins amount={nextUp - coins} />
@@ -172,7 +177,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
 
     const outcome = getCostForMilestone({ ...options, milestone })
     const outcomeUp = Math.ceil(Math.ceil(outcome) / 5) * 5
-    const reward = getRewardLabel(MILESTONES[milestone], true)
+    const reward = getRewardLabel(milestones[milestone], true)
 
     return (
       <>
@@ -186,6 +191,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
         <BrawlCalculatorRewards
           crowns={crowns}
           milestone={milestone}
+          difficulty={difficulty}
           hasLegendary5={hasLegendary5}
         />
 
