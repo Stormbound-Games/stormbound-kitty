@@ -159,6 +159,13 @@ export const MILESTONES_ULTIMATE = [
   { crowns: 250, reward: 'FUSION_STONES', rewardAmount: 200, cost: 500 },
 ]
 
+export const BRAWL_MILESTONES = {
+  CASUAL: MILESTONES_CASUAL,
+  WARRIOR: MILESTONES_WARRIOR,
+  ULTIMATE: MILESTONES_ULTIMATE,
+  LEGACY: MILESTONES,
+}
+
 export const MATCH_STATUSES = {
   WON: 'W',
   FORFEIT: 'F',
