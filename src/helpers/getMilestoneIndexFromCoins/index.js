@@ -2,6 +2,8 @@ import { BRAWL_MILESTONES } from '../../constants/brawl'
 import getDailyCoinsCounter from '../getDailyCoinsCounter'
 import getMilestoneForCrowns from '../getMilestoneForCrowns'
 
+// @param {String} difficulty - Brawl difficulty
+// @param {String} league - Current league
 // @param {Integer} coins - Amount of available coins
 // @param {Integer} crowns - Amount of obtained crowns
 // @param {Float} winRatio - Win ratio between 0 (100% loss) and 1 (100% win)
