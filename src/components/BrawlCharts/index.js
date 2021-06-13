@@ -2,7 +2,6 @@ import React from 'react'
 import { BrawlContext } from '../BrawlProvider'
 import BrawlCoinsChart from '../BrawlCoinsChart'
 import BrawlStatusChart from '../BrawlStatusChart'
-import BrawlWeighedStatusChart from '../BrawlWeighedStatusChart'
 import Row from '../Row'
 import './index.css'
 
@@ -23,7 +22,6 @@ export default React.memo(function BrawlCharts(props) {
           <BrawlCoinsChart income={props.income} />
         </Row.Column>
       </Row>
-      <BrawlWeighedStatusChart />
     </div>
   )
 })
