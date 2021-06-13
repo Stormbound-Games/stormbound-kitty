@@ -53,10 +53,14 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
 
         <Info icon='heart' title='Important notice'>
           <p>
-            While I have your attention, please wear a mask and avoid
-            unnecessary travels—especially if you live in an area with rampant
-            COVID-19 cases. It takes everyone’s effort to slow down this
-            pandemic. Do the right thing. 🙏
+            While I have your attention, please remember the pandemic is not
+            over, even if you have been vaccinated. You can still carry the
+            disease and make people sick.
+          </p>
+          <p>
+            So wear a mask and avoid unnecessary travels—especially if you live
+            in an area with rampant COVID-19 cases. It takes everyone’s effort
+            to slow down this pandemic. Do the right thing. 🙏
           </p>
         </Info>
 
@@ -77,9 +81,10 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
         <Info icon='equalizer' title='Calculators'>
           <p>
             The <Link to='/calculators/brawl'>Brawl calculator</Link>,{' '}
-            <Link to='/brawl/elder-strength'>Brawl tracker</Link> and{' '}
-            <Link to='/calculators/income'>income calculator</Link> all have
-            been updated to handle the new Brawl updates.
+            <Link to='/brawl/elder-strength'>Brawl tracker</Link>,{' '}
+            <Link to='/calculators/income'>income calculator</Link> and{' '}
+            <Link to='/guides/brawl'>Brawl guide</Link> all have been updated to
+            handle the new Brawl updates.
           </p>
         </Info>
 
@@ -187,9 +192,9 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
           entries={[
             {
               id: 'current-brawl',
-              question: 'What happens to the current Brawl?',
+              question: 'What will happen to the current Brawl?',
               answer:
-                'The current single Brawl will no longer exist. It will always be 3 Brawl events per week, one of each difficulty.',
+                'The current unique Brawl will no longer exist. It will always be 3 Brawl events per week, one for each difficulty.',
             },
             {
               id: 'brawl-duration',
@@ -199,9 +204,15 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
             },
             {
               id: 'brawl-leaderboard',
-              question: 'What happens to the Brawl leaderboard?',
+              question: 'What will happen to the Brawl leaderboard?',
               answer:
-                'Each Brawl will have its own weekly leaderboard, but besides that it will stay the same.',
+                'Each Brawl event will have its own weekly leaderboard, but besides that it will stay the same.',
+            },
+            {
+              id: 'new-modifiers',
+              question: 'Will there ever be new modifiers?',
+              answer:
+                'Yes, we are working on bring new modifiers to the Brawl to keep it fresh.',
             },
           ]}
         />
