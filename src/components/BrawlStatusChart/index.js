@@ -21,7 +21,7 @@ const SELECT_LENGTH_MULTIPLIER = {
   winter: '1.15ch',
 }
 
-export default React.memo(function BrawlCharts(props) {
+export default React.memo(function BrawlStatusCharts(props) {
   const [faction, setFaction] = React.useState('*')
   const { brawl } = React.useContext(BrawlContext)
 
