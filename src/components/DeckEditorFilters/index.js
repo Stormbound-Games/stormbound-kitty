@@ -169,7 +169,7 @@ export default React.memo(function DeckEditorFilters(props) {
                   data-testid='ability-select'
                 >
                   <option value='*'>Any</option>
-                  <option value='ATTACKING'>Attacking Effet</option>
+                  <option value='ATTACKING'>Attacking Effect</option>
                   <option value='CHIP'>Chip</option>
                   <option value='COMMAND'>Command</option>
                   <option value='CONFUSION'>Confusion</option>
