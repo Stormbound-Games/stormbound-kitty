@@ -1,15 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import BrawlMilestone from '../BrawlMilestone'
+import BrawlDifficultySelect from '../BrawlDifficultySelect'
 import BrawlMilestones from '../BrawlMilestones'
-import BrawlOutcome from '../BrawlOutcome'
 import BrawlProvider from '../BrawlProvider'
 import Guide from '../Guide'
 import Info from '../Info'
 import Only from '../Only'
 import { Crowns, Coins } from '../Resource'
 import ResourceIcon from '../ResourceIcon'
-import Row from '../Row'
 import Table from '../Table'
 import Title from '../Title'
 import isBrawlRunning from '../../helpers/isBrawlRunning'
@@ -22,33 +20,28 @@ import './index.css'
 const guide = getGuide('BRAWL_GUIDE')
 
 export default React.memo(function GuideBrawl(props) {
+  const [difficulty, setDifficulty] = React.useState('ULTIMATE')
+  const milestones = BRAWL_MILESTONES[difficulty]
   const currentBrawl = getCurrentBrawl()
   const isRunning = isBrawlRunning()
   const currentBrawlLabel = isRunning ? '(current Brawl)' : '(upcoming Brawl)'
 
   return (
     <Guide {...guide}>
-      <Info title='Outdated guide' icon='compass'>
-        <p>
-          As of June 17th 2021, the Brawl has been revisited to be more friendly
-          to all players. This guide was authored before that and has not been
-          updated since therefore its information might be outdated. If you
-          would like to help updating it, please reach out on Discord.
-        </p>
-      </Info>
-
       <p>
         Brawl was added late 2019 as an end-game platform for relatively
         high-level players to spend their coins in exchange for other resources,
         such as <ResourceIcon resource='RUBY' /> rubies,{' '}
-        <ResourceIcon resource='STONE' /> fusion stones or valuable cards.
+        <ResourceIcon resource='STONE' /> fusion stones or valuable cards. In
+        June 2021, it was revamped to be more inclusive and welcoming to all
+        players.
       </p>
 
       <p>
-        Despite being primarily aimed at high-level players with its rather
-        steep and cost curve, it still benefits new players alike. In this
-        guide, we will see why you should care about the Brawl regardless of
-        your experience, and what are the best strategy to maximise output.
+        Despite being still primarily aimed at high-level players with its
+        rather steep and cost curve, it still benefits new players alike. In
+        this guide, we will see why you should care about the Brawl regardless
+        of your experience, and what are the best strategy to maximise output.
       </p>
 
       <ul style={{ columns: '16em' }}>
@@ -71,44 +64,81 @@ export default React.memo(function GuideBrawl(props) {
       <p>
         The Brawl is a weekly event starting every Thursday at 9:00 AM and
         ending the following Sunday at 9:00 AM. It is an alternative to the
-        “Ranked” mode with one additional rule, usually buffing a unit type
-        (e.g. Dwarf, or Raven) by increasing its strength, movement or reducing
-        its mana cost.
+        “Ranked” mode with additional rules, usually buffing a unit type (e.g.
+        Dwarf, or Raven) by increasing its strength, movement or reducing its
+        mana cost.
       </p>
 
       <p>
         Unfortunately, matches are not free to join, and get progressively more
-        expensive as you climb the 10 reachable milestones. The first milestone
-        is free, the second milestone costs <Coins amount={20} /> per match, the
-        third <Coins amount={50} /> per match, and so on and so forth.
+        expensive as you climb the milestones. Every week, three levels of
+        difficulty are available and one can compete in some or all 3 of them:
+        Casual, Warrior and Ultimate.
       </p>
 
-      <Row desktopOnly wideGutter>
-        <Row.Column>
-          <p>
-            Every match, whether won or lost, grants{' '}
-            <span className='Highlight'>crowns</span>: victories grant{' '}
-            <Crowns amount={5} /> and defeats grant only <Crowns amount={1} />.
-            When reaching a certain amount of crowns, you get to claim the
-            reward of the current milestone, and move on to the next. Milestones
-            require more and more crowns to be completed. The first one asks for
-            a meagre <Crowns amount={10} /> to complete, the second one{' '}
-            <Crowns amount={20} /> (including the 10 from the first one), and so
-            on.
-          </p>
-        </Row.Column>
-        <Row.Column>
-          <Only.Desktop>
-            <div className='GuideBrawl__milestones'>
-              <BrawlProvider id={currentBrawl.id} difficulty='ULTIMATE'>
-                <BrawlMilestone index={1} {...BRAWL_MILESTONES.ULTIMATE[0]} />
-              </BrawlProvider>
-            </div>
-          </Only.Desktop>
-        </Row.Column>
-      </Row>
+      <ul>
+        <li>
+          In the Casual event, the Fortress Level is capped to 12 health, and
+          the level of all cards is set to 1. All matches need to be settled
+          within 10 turns otherwise they will lead to a{' '}
+          <a
+            href={`#draw`}
+            aria-describedby='footnotes'
+            id={`draw-ref`}
+            style={{ textDecoration: 'none' }}
+          >
+            draw
+            <span
+              style={{
+                color: 'var(--beige)',
+                marginLeft: '2px',
+                fontSize: '120%',
+              }}
+            >
+              *
+            </span>
+          </a>
+          .
+        </li>
+        <li>
+          In the Warrior event, the Fortress Level is capped to 14 health, and
+          the level of all cards is limited to 3 at most. All matches need to be
+          settled within 15 turns otherwise they will lead to a draw.
+        </li>
+        <li>
+          In the Ultimate event, the Fortress Level and cards level are not
+          capped and depend to each player. All matches need to be settled
+          within 20 turns otherwise they will lead to a draw.
+        </li>
+      </ul>
 
-      <p>Find below the list of all milestones, their cost and reward.</p>
+      <p>
+        Every match regardless of outcome grants{' '}
+        <span className='Highlight'>crowns</span>: victories grant{' '}
+        <Crowns amount={5} />, defeats yield only <Crowns amount={1} /> and
+        draws yield <Crowns amount={2} />. When reaching a certain amount of
+        crowns, you get to claim the reward of the current milestone, and move
+        on to the next. Milestones require more and more crowns to be completed.
+        The first one asks for a meagre <Crowns amount={10} /> to complete, the
+        second one <Crowns amount={20} /> (including the 10 from the first one),
+        and so on.
+      </p>
+
+      <p>
+        When losing 3 times within a given milestone, the amount of crowns is
+        reset to the previously completed milestone. For instance, if losing for
+        the 3rd time when attempting to reach milestone 5 at{' '}
+        <Crowns amount={70} />, crowns are reset to 50.
+      </p>
+
+      <p>
+        Find below the list of all milestones, their cost and reward for every
+        difficulty level.
+      </p>
+      <BrawlDifficultySelect
+        value={difficulty}
+        onChange={event => setDifficulty(event.target.value)}
+      />
 
       <Only.Desktop>
         <Guide.FullWidth padding='60px'>
@@ -121,7 +151,7 @@ export default React.memo(function GuideBrawl(props) {
               </tr>
             </thead>
             <tbody>
-              {BRAWL_MILESTONES.LEGACY.map(milestone => (
+              {milestones.map(milestone => (
                 <tr key={milestone.crowns}>
                   <td>
                     <Crowns amount={milestone.crowns} />
@@ -139,7 +169,7 @@ export default React.memo(function GuideBrawl(props) {
 
       <Only.Mobile>
         <ul>
-          {BRAWL_MILESTONES.LEGACY.map(milestone => (
+          {milestones.map(milestone => (
             <li key={milestone.crowns}>
               <Coins amount={milestone.cost} /> until{' '}
               <Crowns amount={milestone.crowns} />
@@ -150,8 +180,8 @@ export default React.memo(function GuideBrawl(props) {
 
       <Only.Mobile>
         <div className='GuideBrawl__milestones'>
-          <BrawlProvider id={currentBrawl.id} difficulty='ULTIMATE'>
-            <BrawlMilestones difficulty='ULTIMATE' />
+          <BrawlProvider id={currentBrawl.id} difficulty={difficulty}>
+            <BrawlMilestones difficulty={difficulty} />
           </BrawlProvider>
         </div>
       </Only.Mobile>
@@ -165,7 +195,7 @@ export default React.memo(function GuideBrawl(props) {
       <Title id='what-deck-to-play'>What deck to play?</Title>
 
       <p>
-        Every week brings a new rule, so it is unlikely to be able to play the
+        Every week brings new rules, so it is unlikely to be able to play the
         same deck two weeks in a row. For instance, if dwarves cost less mana in
         week A, but satyrs have more strength in week B, it will be necessary to
         adapt to the week’s theme in order to stay competitive.
@@ -223,18 +253,18 @@ export default React.memo(function GuideBrawl(props) {
       <Title id='when-to-stop'>When to stop?</Title>
 
       <p>
-        Once again, the Brawl is a content platform aimed at players with a) a
-        solid card collection able to make a variety of decks and b) a decent
-        amount of coins to burn through in order to reach interesting
+        Once again, the Brawl is a content platform generally aimed at players
+        with a) a solid card collection able to make a variety of decks and b) a
+        decent amount of coins to burn through in order to reach interesting
         milestones. For most players, going far and high every week is not an
         option.
       </p>
 
       <p>
-        At the very least, everyone should reach the first milestone which
-        grants a Humble book. It is free to play and requires only{' '}
-        <Crowns amount={10} /> which is at best 2 victories, and at worst 10
-        losses.
+        At the very least, everyone should reach the first milestone of every
+        difficulty level which grants coins and a Humble book. It is free to
+        play and requires only <Crowns amount={10} /> (in each difficulty) which
+        is at best 2 victories, and at worst 10 losses.
       </p>
 
       <p>
@@ -247,7 +277,7 @@ export default React.memo(function GuideBrawl(props) {
       <p>
         From there, it really depends how many coins you can realistically
         spend, and how successful you are at beating your opponents. Most
-        players able to reach milestone 5 (the one granting a Mythic book)
+        players able to reach milestone 5 (the one granting interesting books)
         consistently would stop there, because that is the perfect sweet spot
         between coins spent and rewards earned.
       </p>
@@ -279,11 +309,19 @@ export default React.memo(function GuideBrawl(props) {
         on your win/rate ratio.
       </p>
 
-      <div style={{ maxWidth: '500px', margin: 'auto' }}>
-        <BrawlProvider id={currentBrawl.id} difficulty='ULTIMATE'>
-          <BrawlOutcome setup='MOBILE_WITH_ADS' difficulty='ULTIMATE' />
-        </BrawlProvider>
-      </div>
+      <footer style={{ marginTop: '4em', fontSize: '80%' }}>
+        <h2 className='VisuallyHidden' id='footnotes'>
+          Footnotes
+        </h2>
+        <p id='draw'>
+          (*) A draw can happen when both players have the same amount of health
+          by the end of the last turn (10th in Casual, 15th in Warrior and 20th
+          in Ultimate).{' '}
+          <a href='#draw-ref' aria-label='Back to content'>
+            ↩
+          </a>
+        </p>
+      </footer>
     </Guide>
   )
 })
