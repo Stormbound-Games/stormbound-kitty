@@ -23,8 +23,6 @@ export default React.memo(function GuideBrawl(props) {
   const [difficulty, setDifficulty] = React.useState('ULTIMATE')
   const milestones = BRAWL_MILESTONES[difficulty]
   const currentBrawl = getCurrentBrawl()
-  const isRunning = isBrawlRunning()
-  const currentBrawlLabel = isRunning ? '(current Brawl)' : '(upcoming Brawl)'
 
   return (
     <Guide {...guide}>
@@ -206,8 +204,7 @@ export default React.memo(function GuideBrawl(props) {
       <ul>
         {BRAWLS.map(brawl => (
           <li key={brawl.cardId}>
-            <span className='Highlight'>{brawl.title}</span>: {brawl.label}{' '}
-            {brawl.id === currentBrawl.id ? currentBrawlLabel : ''}
+            <span className='Highlight'>{brawl.title}</span>: {brawl.label}
           </li>
         ))}
       </ul>
