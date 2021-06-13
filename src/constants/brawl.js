@@ -169,8 +169,17 @@ export const BRAWL_MILESTONES = {
 export const MATCH_STATUSES = {
   WON: 'W',
   FORFEIT: 'F',
+  DRAW: 'D',
   LOST: 'L',
   SURRENDERED: 'S',
+}
+
+export const CROWN_REWARDS = {
+  WON: 5,
+  FORFEIT: 5,
+  DRAW: 2,
+  LOST: 1,
+  SURRENDERED: 1,
 }
 
 export const CYCLE_START = new Date(2021, 3, 1, 9, 0)

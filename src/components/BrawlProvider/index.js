@@ -1,5 +1,5 @@
 import React from 'react'
-import { BRAWL_MILESTONES } from '../../constants/brawl'
+import { BRAWL_MILESTONES, CROWN_REWARDS } from '../../constants/brawl'
 import { NotificationContext } from '../NotificationProvider'
 import serialisation from '../../helpers/serialisation'
 
@@ -79,8 +79,7 @@ export default function BrawlProvider(props) {
     }))
 
   const crowns = brawl.matches.reduce(
-    (crowns, match) =>
-      crowns + (['LOST', 'SURRENDERED'].includes(match.status) ? 1 : 5),
+    (crowns, match) => crowns + CROWN_REWARDS[match.status],
     0
   )
 
@@ -105,7 +104,7 @@ export default function BrawlProvider(props) {
     return brawl.matches.reduce((acc, match) => {
       const gameCost = milestones[currentMilestone].cost
       acc += gameCost
-      crowns += ['LOST', 'SURRENDERED'].includes(match.status) ? 1 : 5
+      crowns += CROWN_REWARDS[match.status]
       currentMilestone = milestones.findIndex(
         milestone => milestone.crowns > crowns
       )

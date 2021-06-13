@@ -171,6 +171,7 @@ describe('The `getShortMatchStatus` helper', () => {
   it('should return single-letter currency', () => {
     expect(getShortMatchStatus('WON')).to.equal('W')
     expect(getShortMatchStatus('FORFEIT')).to.equal('F')
+    expect(getShortMatchStatus('DRAW')).to.equal('D')
     expect(getShortMatchStatus('SURRENDERED')).to.equal('S')
     expect(getShortMatchStatus('LOST')).to.equal('L')
   })
@@ -185,6 +186,7 @@ describe('The `getLongMatchStatus` helper', () => {
   it('should return full currency', () => {
     expect(getLongMatchStatus('W')).to.equal('WON')
     expect(getLongMatchStatus('F')).to.equal('FORFEIT')
+    expect(getLongMatchStatus('D')).to.equal('DRAW')
     expect(getLongMatchStatus('S')).to.equal('SURRENDERED')
     expect(getLongMatchStatus('L')).to.equal('LOST')
   })

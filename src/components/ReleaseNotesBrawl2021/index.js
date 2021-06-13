@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Article from '../Article'
 import Image from '../Image'
 import Info from '../Info'
@@ -72,6 +73,15 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
           to look for in this mode, because the advantage of one over the other
           excluded the possibility of any fair competition.
         </p>
+
+        <Info icon='equalizer' title='Calculators'>
+          <p>
+            The <Link to='/calculators/brawl'>Brawl calculator</Link>,{' '}
+            <Link to='/brawl/elder-strength'>Brawl tracker</Link> and{' '}
+            <Link to='/calculators/income'>income calculator</Link> all have
+            been updated to handle the new Brawl updates.
+          </p>
+        </Info>
 
         <Title>Three difficulties</Title>
 

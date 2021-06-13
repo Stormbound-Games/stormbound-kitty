@@ -47,6 +47,15 @@ export default React.memo(function BrawlCharts(props) {
       color: 'var(--light-swarm)',
     },
     {
+      name: 'Draws',
+      value: brawl.matches.filter(
+        match =>
+          match.status === 'DRAW' &&
+          (faction === '*' || match.opponentFaction === faction)
+      ).length,
+      color: 'var(--light-winter)',
+    },
+    {
       name: 'Losses by forfeit',
       value: brawl.matches.filter(
         match =>
