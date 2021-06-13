@@ -282,7 +282,7 @@ export default React.memo(function IncomeCalculator(props) {
               </select>
             </Row.Column>
             <Row.Column>
-              <label htmlFor='brawl-cost'>Brawl avg. cost</label>
+              <label htmlFor='brawl-cost'>Brawl total cost</label>
               <NumberInput
                 id='brawl-cost'
                 name='brawl-cost'
