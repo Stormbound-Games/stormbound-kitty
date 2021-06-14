@@ -6,6 +6,7 @@ import { BRAWL_MILESTONES } from '../../constants/brawl'
 import getMilestoneIndexFromCoins from '../../helpers/getMilestoneIndexFromCoins'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getCostForMilestone from '../../helpers/getCostForMilestone'
+import getMilestoneCost from '../../helpers/getMilestoneCost'
 import getMilestoneForCrowns from '../../helpers/getMilestoneForCrowns'
 import getVictoryCoins from '../../helpers/getVictoryCoins'
 import './index.css'
@@ -176,7 +177,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
     }
 
     const outcome = getCostForMilestone({ ...options, milestone })
-    const outcomeUp = Math.ceil(Math.ceil(outcome) / 5) * 5
+    const outcomeUp = getMilestoneCost({ cost: outcome }, 1)
     const reward = getRewardLabel(milestones[milestone], true)
 
     return (

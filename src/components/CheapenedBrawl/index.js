@@ -6,6 +6,7 @@ import Table from '../Table'
 import Title from '../Title'
 import { Crowns, Coins } from '../Resource'
 import { BRAWL_MILESTONES } from '../../constants/brawl'
+import getMilestoneCost from '../../helpers/getRewardLabel'
 import getRewardLabel from '../../helpers/getRewardLabel'
 
 const CheapenedBrawl = ({
@@ -33,7 +34,7 @@ const CheapenedBrawl = ({
         </thead>
         <tbody>
           {BRAWL_MILESTONES[difficulty].map(milestone => {
-            const cost = Math.ceil(Math.ceil(milestone.cost * ratio) / 5) * 5
+            const cost = getMilestoneCost(milestone, ratio)
 
             return (
               <tr key={milestone.crowns}>

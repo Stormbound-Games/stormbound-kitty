@@ -9,6 +9,7 @@ import Table from '../Table'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
 import { Coins, Crowns } from '../Resource'
+import getMilestoneCost from '../../helpers/getMilestoneCost'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import {
   MILESTONES_CASUAL,
@@ -22,19 +23,23 @@ const BrawlTable = ({ data }) => (
       <tr>
         <th>Crowns goal</th>
         <th>Cost per match</th>
+        <th>With Premium Pass</th>
         <th>Reward</th>
       </tr>
     </thead>
     <tbody>
       {data.map(milestone => (
         <tr>
-          <td>
+          <td data-label='Crowns goal'>
             <Crowns amount={milestone.crowns} />
           </td>
-          <td>
+          <td data-label='Cost per match'>
             <Coins amount={milestone.cost} />
           </td>
-          <td>{getRewardLabel(milestone, true)}</td>
+          <td data-label='With Premium Pass'>
+            <Coins amount={getMilestoneCost(milestone, 0.9)} />
+          </td>
+          <td data-label='Reward'>{getRewardLabel(milestone, true)}</td>
         </tr>
       ))}
     </tbody>
