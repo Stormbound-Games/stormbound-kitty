@@ -7,9 +7,8 @@
     "date": "06/2021",
     "excerpt": "Summer is here and so is a little surprise release to revamp the Brawl mode to make it more welcome to all players!",
     "slug": "brawl-2021",
-    "background": "/assets/images/banners/headless_banner.jpg",
-    "id": "brawl_2021",
-    "ratio": "50%"
+    "background": "/assets/images/releases/brawl.jpg",
+    "id": "brawl_2021"
   },
   {
     "cardId": "N83",
