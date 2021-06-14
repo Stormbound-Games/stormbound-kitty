@@ -29,7 +29,7 @@ const BrawlTable = ({ data }) => (
     </thead>
     <tbody>
       {data.map(milestone => (
-        <tr>
+        <tr key={milestone.crowns}>
           <td data-label='Crowns goal'>
             <Crowns amount={milestone.crowns} />
           </td>
