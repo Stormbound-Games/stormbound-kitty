@@ -100,8 +100,9 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
             <p style={{ marginTop: '1.5em' }}>
               From now on, there will be 3 running Brawl events per week, of
               three different difficulties: Casual, Warrior and Ultimate. The
-              current Brawl version would sit somewhere between Warrior and
-              Ultimate.
+              current Brawl version is the new Ultimate one, so there will be
+              two new difficulty levels <span className='Highlight'>under</span>{' '}
+              the current one.
             </p>
 
             <p>
