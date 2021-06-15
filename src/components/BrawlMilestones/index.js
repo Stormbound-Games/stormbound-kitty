@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { BRAWL_INDEX, MILESTONES } from '../../constants/brawl'
+import { BRAWL_INDEX, BRAWL_MILESTONES } from '../../constants/brawl'
 import { BrawlContext } from '../BrawlProvider'
 import BrawlMilestone from '../BrawlMilestone'
 import BrawlProgress from '../BrawlProgress'
@@ -9,20 +9,21 @@ import './index.css'
 export default React.memo(function BrawlMilestones(props) {
   const container = React.useRef()
   const { id, meta } = React.useContext(BrawlContext)
-  const index = MILESTONES.findIndex(
+  const milestones = BRAWL_MILESTONES[props.difficulty]
+  const index = milestones.findIndex(
     milestone => milestone.crowns >= meta.crowns
   )
   const [active, setActive] = React.useState(index)
 
   React.useEffect(() => {
-    setActive(MILESTONES.findIndex(milestone => milestone.crowns > meta.crowns))
-  }, [meta.crowns])
+    setActive(milestones.findIndex(milestone => milestone.crowns > meta.crowns))
+  }, [meta.crowns, milestones])
 
   const handleDrag = React.useCallback(
     (event, info) => {
       const DRAG_THRESHOLD = 80
       const isNotFirstMilestone = active > 0
-      const isNotLastMilestone = active < MILESTONES.length - 1
+      const isNotLastMilestone = active < milestones.length - 1
 
       if (info.point.x > DRAG_THRESHOLD && isNotFirstMilestone) {
         setActive(current => current - 1)
@@ -30,7 +31,7 @@ export default React.memo(function BrawlMilestones(props) {
         setActive(current => current + 1)
       }
     },
-    [active, setActive]
+    [active, setActive, milestones]
   )
 
   return (
@@ -39,9 +40,9 @@ export default React.memo(function BrawlMilestones(props) {
         ref={container}
         className='BrawlMilestones__inner'
         style={{
-          '--count': MILESTONES.length,
+          '--count': milestones.length,
           transform: `translateX(calc(-11.5em - ${
-            active * MILESTONES.length
+            active * milestones.length
           }%))`,
         }}
       >
@@ -51,7 +52,7 @@ export default React.memo(function BrawlMilestones(props) {
           onDragEnd={handleDrag}
           className='BrawlMilestones__wrapper'
         >
-          {MILESTONES.map((milestone, index) => (
+          {milestones.map((milestone, index) => (
             <div className='BrawlMilestones__item' key={index}>
               <BrawlMilestone
                 index={index + 1}

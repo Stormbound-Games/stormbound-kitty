@@ -21,7 +21,7 @@ const SELECT_LENGTH_MULTIPLIER = {
   winter: '1.15ch',
 }
 
-export default React.memo(function BrawlCharts(props) {
+export default React.memo(function BrawlStatusCharts(props) {
   const [faction, setFaction] = React.useState('*')
   const { brawl } = React.useContext(BrawlContext)
 
@@ -45,6 +45,15 @@ export default React.memo(function BrawlCharts(props) {
           (faction === '*' || match.opponentFaction === faction)
       ).length,
       color: 'var(--light-swarm)',
+    },
+    {
+      name: 'Draws',
+      value: brawl.matches.filter(
+        match =>
+          match.status === 'DRAW' &&
+          (faction === '*' || match.opponentFaction === faction)
+      ).length,
+      color: 'var(--light-winter)',
     },
     {
       name: 'Losses by forfeit',

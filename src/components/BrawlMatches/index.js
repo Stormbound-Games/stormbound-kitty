@@ -5,7 +5,7 @@ import BrawlMatchForm from '../BrawlMatchForm'
 import Icon from '../Icon'
 import Table from '../Table'
 import Title from '../Title'
-import { MILESTONES } from '../../constants/brawl'
+import { BRAWL_MILESTONES, CROWN_REWARDS } from '../../constants/brawl'
 import capitalise from '../../helpers/capitalise'
 import useViewportSize from '../../hooks/useViewportSize'
 import './index.css'
@@ -59,7 +59,9 @@ export default React.memo(function BrawlMatches(props) {
 
   let crowns = meta.crowns
   const getMilestone = crowns =>
-    MILESTONES.find(milestone => milestone.crowns > crowns) || {}
+    BRAWL_MILESTONES[props.difficulty].find(
+      milestone => milestone.crowns > crowns
+    ) || {}
 
   return (
     <>
@@ -85,7 +87,7 @@ export default React.memo(function BrawlMatches(props) {
 
           {[...brawl.matches].reverse().map((match, index) => {
             const currMilestone = getMilestone(crowns)
-            crowns -= ['LOST', 'SURRENDERED'].includes(match.status) ? 1 : 5
+            crowns -= CROWN_REWARDS[match.status]
             const nextMilestone = getMilestone(crowns)
             const reversedIndex = brawl.matches.length - index - 1
 
@@ -141,6 +143,8 @@ export default React.memo(function BrawlMatches(props) {
                         return 'Won by forfeit'
                       case 'SURRENDERED':
                         return 'Lost by forfeit'
+                      case 'DRAW':
+                        return 'Draw'
                       default:
                         return 'Unknown'
                     }

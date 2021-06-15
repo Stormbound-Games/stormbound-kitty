@@ -13,8 +13,6 @@ const getRewardLabel = (entry, enhanced = false) => {
   const amount = entry.rewardAmount || entry.amount
 
   switch (entry.reward) {
-    case 'HUMBLE_BOOK':
-      return `${amount} Humble Book${amount === 1 ? '' : 's'}`
     case 'RUBIES':
       return enhanced ? (
         <Rubies amount={amount} />
@@ -35,6 +33,10 @@ const getRewardLabel = (entry, enhanced = false) => {
       ) : (
         `${amount} fusion stone${amount === 1 ? '' : 's'}`
       )
+    case 'HUMBLE_BOOK':
+      return `${amount} Humble Book${amount === 1 ? '' : 's'}`
+    case 'NOBLE_BOOK':
+      return `${amount} Noble Book${amount === 1 ? '' : 's'}`
     case 'HEROIC_BOOK':
       return `${amount} Heroic book${amount === 1 ? '' : 's'}`
     case 'MYTHIC_BOOK':

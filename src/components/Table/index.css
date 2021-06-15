@@ -119,5 +119,6 @@
     width: 50%;
     display: inline-block;
     content: attr(data-label);
+    margin-right: 1ch;
   }
 }

@@ -1,8 +1,10 @@
 import { RARITY_COPIES } from '../../constants/game'
-import { MILESTONES } from '../../constants/brawl'
+import { BRAWL_MILESTONES } from '../../constants/brawl'
 import getDailyCoinsCounter from '../getDailyCoinsCounter'
 import getMilestoneForCrowns from '../getMilestoneForCrowns'
 
+// @param {String} difficulty - Brawl difficulty
+// @param {String} league - Current league
 // @param {Integer} milestone - Index of the expected milestone
 // @param {Float} winRatio - Win ratio between 0 (100% loss) and 1 (100% win)
 // @param {Integer} crowns - Amount of obtained crowns
@@ -11,6 +13,7 @@ import getMilestoneForCrowns from '../getMilestoneForCrowns'
 // @param {Boolean} hasLegendary5 - Whether has the Brawl legendary level 5
 // @param {Boolean} withPremiumPass - Whether has the Premium Pass
 const getCostForMilestone = ({
+  difficulty = 'LEGACY',
   league,
   milestone,
   winRatio = 1,
@@ -27,7 +30,8 @@ const getCostForMilestone = ({
   costModifier = Math.min(withPremiumPass ? 0.9 : 1, costModifier)
 
   const getCoins = getDailyCoinsCounter({ setup, league, withPremiumPass })
-  const { currentIndex, nextIndex } = getMilestoneForCrowns(crowns)
+  const { currentIndex, nextIndex } = getMilestoneForCrowns(crowns, difficulty)
+  const milestones = BRAWL_MILESTONES[difficulty]
 
   // If there is no next milestone, that means there are already too many crowns
   // for the entire Brawl and there is nothing else to do. Similarly, if the
@@ -39,19 +43,19 @@ const getCostForMilestone = ({
   let coins = 0
 
   while (index > -1 && index <= milestone && milestone !== 0) {
-    coins += MILESTONES[index].cost * costModifier
+    coins += milestones[index].cost * costModifier
     coins -= getCoins(winRatio)
     crowns += 5 * winRatio + (1 - winRatio)
 
-    let { nextIndex } = getMilestoneForCrowns(crowns)
+    let { nextIndex } = getMilestoneForCrowns(crowns, difficulty)
 
     if (index !== nextIndex) {
       // If the player has the legendary card from the Brawl level 5 already and
       // the reached milestone reward is copies of the legendary card, convert
       // these copies into coins.
-      if (hasLegendary5 && MILESTONES[index].reward === 'LEGENDARY_CARD') {
+      if (hasLegendary5 && milestones[index].reward === 'LEGENDARY_CARD') {
         coins -=
-          MILESTONES[index].rewardAmount *
+          milestones[index].rewardAmount *
           RARITY_COPIES.legendary.coinsPerExtraCopy
       }
 

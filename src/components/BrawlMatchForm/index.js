@@ -80,6 +80,7 @@ export default React.memo(function BrawlMatchForm(props) {
             <option value=''>Set game outcome</option>
             <option value='WON'>Won</option>
             <option value='FORFEIT'>Won by forfeit</option>
+            <option value='DRAW'>Draw</option>
             <option value='SURRENDERED'>Forfeited</option>
             <option value='LOST'>Lost</option>
           </select>

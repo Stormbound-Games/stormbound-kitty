@@ -42,6 +42,7 @@ const GUIDE_COMPONENTS = {
 }
 
 const RELEASE_COMPONENTS = {
+  brawl_2021: load('ReleaseNotesBrawl2021'),
   '06_2021': load('ReleaseNotesJune2021'),
   '05_2021': load('ReleaseNotesMay2021'),
   '04_2021': load('ReleaseNotesApril2021'),
@@ -64,7 +65,6 @@ const BattleSimPuzzles = load('BattleSimPuzzles')
 const BooksCalculator = load('BooksCalculator')
 const BrawlCalculator = load('BrawlCalculator')
 const BrawlIndex = load('BrawlIndex')
-const BrawlOverview = load('BrawlOverview')
 const BrawlPage = load('BrawlPage')
 const BrewedSages = load('BrewedSages')
 const CardBuilderContest = load('CardBuilderContest')
@@ -309,14 +309,6 @@ export default function Router(props) {
 
           <Page path='/list' active={['TOOLS', 'LIST_BUILDER', 'EDITOR']}>
             <ListBuilderEditorView />
-          </Page>
-
-          <Page
-            exact
-            path='/brawl/overview'
-            active={['TOOLS', 'BRAWL', 'OVERVIEW']}
-          >
-            <BrawlOverview />
           </Page>
 
           <Page path='/brawl/:id' active={['TOOLS', 'BRAWL', 'TRACKER']}>

@@ -42,6 +42,7 @@ class Income {
       this.cards[1] += income.cards?.[1] ?? 0
       this.cards[2] += income.cards?.[2] ?? 0
       this.cards[3] += income.cards?.[3] ?? 0
+      if (income.books) this.openBook(income.books)
     }
   }
 

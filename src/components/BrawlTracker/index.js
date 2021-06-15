@@ -3,6 +3,7 @@ import BrawlMilestones from '../BrawlMilestones'
 import BrawlMatches from '../BrawlMatches'
 import { BrawlContext } from '../BrawlProvider'
 import BrawlCharts from '../BrawlCharts'
+import BrawlDifficultySelect from '../BrawlDifficultySelect'
 import BrawlOutcome from '../BrawlOutcome'
 import BrawlRecommendedDecks from '../BrawlRecommendedDecks'
 import BrawlReset from '../BrawlReset'
@@ -36,11 +37,15 @@ export default React.memo(function BrawlTracker(props) {
 
   return (
     <div>
-      <BrawlMilestones />
+      <BrawlMilestones difficulty={props.difficulty} />
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>About your Brawl</Title>
           <BrawlOutcome income={income} />
+          <BrawlDifficultySelect
+            value={props.difficulty}
+            onChange={event => props.setDifficulty(event.target.value)}
+          />
           <BrawlSetup
             setup={setup}
             setSetup={setSetup}
@@ -57,7 +62,7 @@ export default React.memo(function BrawlTracker(props) {
           )}
         </Row.Column>
         <Row.Column width='2/3'>
-          <BrawlMatches />
+          <BrawlMatches difficulty={props.difficulty} />
           <BrawlCharts
             setup={setup}
             withPremiumPass={withPremiumPass}

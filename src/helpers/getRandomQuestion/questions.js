@@ -74,9 +74,10 @@ export default [
   {
     question: 'Which tool started Stormbound-Kitty?',
     answer: 'Battle sim',
-    options: 'Deck builder,Card builder,List builder,Collection manager,Deck dry-runner,Puzzles,Stories,Guides'.split(
-      ','
-    ),
+    options:
+      'Deck builder,Card builder,List builder,Collection manager,Deck dry-runner,Puzzles,Stories,Guides'.split(
+        ','
+      ),
   },
 
   {
@@ -166,9 +167,10 @@ export default [
   {
     question: 'What is Olf the Hammer *not* using his hammers for?',
     answer: 'To forge weapons',
-    options: 'To win battles,To craft armor,To repair buildings,As a cushion'.split(
-      ','
-    ),
+    options:
+      'To win battles,To craft armor,To repair buildings,As a cushion'.split(
+        ','
+      ),
   },
 
   {
@@ -186,9 +188,10 @@ export default [
   {
     question: 'What’s the first quest you get when you start out?',
     answer: 'Exploring the Storm',
-    options: 'Fighting the Storm,Answering the Storm,Preventing the Storm,Releasing the Storm,Discovering the Storm,Taming the Storm'.split(
-      ','
-    ),
+    options:
+      'Fighting the Storm,Answering the Storm,Preventing the Storm,Releasing the Storm,Discovering the Storm,Taming the Storm'.split(
+        ','
+      ),
   },
 
   {
@@ -200,9 +203,10 @@ export default [
   {
     question: 'What is the common symbol of giving strength?',
     answer: 'A green leaf',
-    options: 'A green cross,A green potion,A red potion,A red leaf,A red cross'.split(
-      ','
-    ),
+    options:
+      'A green cross,A green potion,A red potion,A red leaf,A red cross'.split(
+        ','
+      ),
   },
 
   {
@@ -216,9 +220,10 @@ export default [
   {
     question: 'What did Tegor swallow as a young dragonling?',
     answer: 'An enchanted die',
-    options: 'A rotten raven,A poisonous toad,A corrupted knight,A screaming goat,A burning sword,A crusty pecan-pie'.split(
-      ','
-    ),
+    options:
+      'A rotten raven,A poisonous toad,A corrupted knight,A screaming goat,A burning sword,A crusty pecan-pie'.split(
+        ','
+      ),
   },
 
   {
@@ -302,33 +307,37 @@ export default [
   {
     question: 'What is the top symbol on Hunter’s Vengeance artwork?',
     answer: 'A skull',
-    options: 'A toad,A construct,A pirate,A raven,A rodent,A frostling,A club,A dwarf'.split(
-      ','
-    ),
+    options:
+      'A toad,A construct,A pirate,A raven,A rodent,A frostling,A club,A dwarf'.split(
+        ','
+      ),
   },
 
   {
     question: 'What is the right symbol on Hunter’s Vengeance artwork?',
     answer: 'A toad',
-    options: 'A skull,A construct,A pirate,A raven,A rodent,A frostling,A club,A dwarf'.split(
-      ','
-    ),
+    options:
+      'A skull,A construct,A pirate,A raven,A rodent,A frostling,A club,A dwarf'.split(
+        ','
+      ),
   },
 
   {
     question: 'What is the bottom symbol on Hunter’s Vengeance artwork?',
     answer: 'A construct',
-    options: 'A skull,A toad,A pirate,A raven,A rodent,A frostling,A club,A dwarf'.split(
-      ','
-    ),
+    options:
+      'A skull,A toad,A pirate,A raven,A rodent,A frostling,A club,A dwarf'.split(
+        ','
+      ),
   },
 
   {
     question: 'What is the left symbol on Hunter’s Vengeance artwork?',
     answer: 'A pirate',
-    options: 'A skull,A construct,A toad,A raven,A rodent,A frostling,A club,A dwarf'.split(
-      ','
-    ),
+    options:
+      'A skull,A construct,A toad,A raven,A rodent,A frostling,A club,A dwarf'.split(
+        ','
+      ),
   },
 
   {
@@ -402,49 +411,53 @@ export default [
   {
     question: 'What is the weapon of predilection of dwarves?',
     answer: 'Hammers',
-    options: 'Swords,Bombs,Lances,Clubs,Daggers,Spears,Staffs,Spells,Axes'.split(
-      ','
-    ),
+    options:
+      'Swords,Bombs,Lances,Clubs,Daggers,Spears,Staffs,Spells,Axes'.split(','),
   },
 
   {
     question: 'What is the weapon of predilection of ravens?',
     answer: 'Staffs',
-    options: 'Swords,Bombs,Lances,Clubs,Daggers,Spears,Hammers,Spells,Scythes,Axes'.split(
-      ','
-    ),
+    options:
+      'Swords,Bombs,Lances,Clubs,Daggers,Spears,Hammers,Spells,Scythes,Axes'.split(
+        ','
+      ),
   },
 
   {
     question: 'What is the weapon of predilection of rodents?',
     answer: 'Bombs',
-    options: 'Swords,Staffs,Lances,Clubs,Daggers,Spears,Hammers,Spells,Scythes,Axes'.split(
-      ','
-    ),
+    options:
+      'Swords,Staffs,Lances,Clubs,Daggers,Spears,Hammers,Spells,Scythes,Axes'.split(
+        ','
+      ),
   },
 
   {
     question: 'What is the weapon of predilection of satyrs?',
     answer: 'Spears',
-    options: 'Swords,Staffs,Lances,Clubs,Daggers,Bombs,Hammers,Spells,Scythes,Axes'.split(
-      ','
-    ),
+    options:
+      'Swords,Staffs,Lances,Clubs,Daggers,Bombs,Hammers,Spells,Scythes,Axes'.split(
+        ','
+      ),
   },
 
   {
     question: 'What is the weapon of predilection of toads?',
     answer: 'Axes',
-    options: 'Swords,Staffs,Lances,Clubs,Daggers,Bombs,Hammers,Spells,Scythes,Spears'.split(
-      ','
-    ),
+    options:
+      'Swords,Staffs,Lances,Clubs,Daggers,Bombs,Hammers,Spells,Scythes,Spears'.split(
+        ','
+      ),
   },
 
   {
     question: 'What is the weapon of predilection of undead?',
     answer: 'Scythes',
-    options: 'Swords,Staffs,Lances,Clubs,Daggers,Bombs,Hammers,Spells,Axes,Spears'.split(
-      ','
-    ),
+    options:
+      'Swords,Staffs,Lances,Clubs,Daggers,Bombs,Hammers,Spells,Axes,Spears'.split(
+        ','
+      ),
   },
 
   {
@@ -783,9 +796,10 @@ export default [
   {
     question: 'What was the original name of PH03-nix?',
     answer: 'Prolonged Hero 03',
-    options: 'Progressing,Persisting,Pervasive,Patient,Peaceful,Passionate,Placid,Personable'
-      .split(',')
-      .map(name => name + ' Hero 03'),
+    options:
+      'Progressing,Persisting,Pervasive,Patient,Peaceful,Passionate,Placid,Personable'
+        .split(',')
+        .map(name => name + ' Hero 03'),
   },
 
   {
@@ -822,17 +836,19 @@ export default [
   {
     question: 'What is the name of the popular Stormbound saga by Zyries?',
     answer: 'Eastern Heat',
-    options: 'Easter Heat,Eastern Feet,Eastern Cheat,Eastern Meet,Kepp killed Kitty'.split(
-      ','
-    ),
+    options:
+      'Easter Heat,Eastern Feet,Eastern Cheat,Eastern Meet,Kepp killed Kitty'.split(
+        ','
+      ),
   },
 
   {
     question: 'What is the name of the Satyr Brawl?',
     answer: 'Self-control',
-    options: 'Self-sustained,Crazy Goats,Goat2Hell,2Fast2Goat,Self-contained'.split(
-      ','
-    ),
+    options:
+      'Self-sustained,Crazy Goats,Goat2Hell,2Fast2Goat,Self-contained'.split(
+        ','
+      ),
   },
 
   () => {
@@ -917,9 +933,10 @@ export default [
   {
     question: 'Which of these dragons was *not* named after a player?',
     answer: 'Beasts of Terror',
-    options: 'Broken Earth Drakes,Broodmother Qordia,Conflicted Drakes,Dangerous Suitors,Draconic Roamer,Dreadful Keepers,Greengale Serpents,Ludic Matriarchs,Spare Dragonling,Sunbeam Serpents,Yowling Weavers'.split(
-      ','
-    ),
+    options:
+      'Broken Earth Drakes,Broodmother Qordia,Conflicted Drakes,Dangerous Suitors,Draconic Roamer,Dreadful Keepers,Greengale Serpents,Ludic Matriarchs,Spare Dragonling,Sunbeam Serpents,Yowling Weavers'.split(
+        ','
+      ),
   },
 
   {
@@ -943,9 +960,10 @@ export default [
   {
     question: 'Which of one these names is *not* an official card’s name?',
     answer: 'Wardens',
-    options: 'Boatswain,Bravefoot,Corsair,Cult of the Sky,Dead Wanderer,Elite Deathguards,Frenzied Troops,Gunner,Jade Speedster,Lonely Witch,Lost Faun,Makeshifter,Mudgrinders,Plain Helper,Privateer,Rough Patchers,Saplings,Silent Rimes,Sleetrunners,Sparkling'.split(
-      ','
-    ),
+    options:
+      'Boatswain,Bravefoot,Corsair,Cult of the Sky,Dead Wanderer,Elite Deathguards,Frenzied Troops,Gunner,Jade Speedster,Lonely Witch,Lost Faun,Makeshifter,Mudgrinders,Plain Helper,Privateer,Rough Patchers,Saplings,Silent Rimes,Sleetrunners,Sparkling'.split(
+        ','
+      ),
   },
 
   {
@@ -1056,9 +1074,10 @@ export default [
   {
     question: 'What is the first name of the composer of Stormbound?',
     answer: 'Antonio',
-    options: 'Anthony,Antoine,Tonio,Tonino,Nello,Nino,Totò,Toni,Tony,Antonello,Antonino,Antonuccio,Antoniano,Antuono'.split(
-      ','
-    ),
+    options:
+      'Anthony,Antoine,Tonio,Tonino,Nello,Nino,Totò,Toni,Tony,Antonello,Antonino,Antonuccio,Antoniano,Antuono'.split(
+        ','
+      ),
   },
 
   {
@@ -1209,7 +1228,7 @@ export default [
 
   {
     question:
-      'How many coins would it cost to get to the 10th Brawl milestone with no losses?',
+      'How many coins did it use to cost to reach the 10th Brawl milestone with no losses before the June 2021 revamp?',
     answer: 13890,
     options: Array.from(
       { length: 20 },
@@ -1370,17 +1389,19 @@ export default [
   {
     question: 'Which dwarf is *not* holding a hammer?',
     answer: 'Hearthguards',
-    options: 'Snowmasons,Mystwives,Rockworkers,Wolfcloaks,Chillbeards,Fleshmenders,Sleetstompers'.split(
-      ','
-    ),
+    options:
+      'Snowmasons,Mystwives,Rockworkers,Wolfcloaks,Chillbeards,Fleshmenders,Sleetstompers'.split(
+        ','
+      ),
   },
 
   {
     question: 'Which toad is *not* holding an axe?',
     answer: 'Sharpfist Exiles',
-    options: 'Salty Outcasts,Brood Sages,Crimson Sentry,Limelimbs,Azure Hatchers,Amberhides,Obsidian Butchers'.split(
-      ','
-    ),
+    options:
+      'Salty Outcasts,Brood Sages,Crimson Sentry,Limelimbs,Azure Hatchers,Amberhides,Obsidian Butchers'.split(
+        ','
+      ),
   },
 
   {
@@ -1414,17 +1435,19 @@ export default [
   {
     question: 'What was the teaser for the first Feline update?',
     answer: 'A box',
-    options: 'A watermelon,A heart,A cucumber,A carton of milk,A ball of wool'.split(
-      ','
-    ),
+    options:
+      'A watermelon,A heart,A cucumber,A carton of milk,A ball of wool'.split(
+        ','
+      ),
   },
 
   {
     question: 'According to its flavour text, what was Unstable Build?',
     answer: 'A centre of knowledge',
-    options: 'A Construct factory,A military base,A laboratory,An observatory,A dance-hall'.split(
-      ','
-    ),
+    options:
+      'A Construct factory,A military base,A laboratory,An observatory,A dance-hall'.split(
+        ','
+      ),
   },
 
   {
@@ -1554,9 +1577,10 @@ export default [
   {
     question: 'What are the colors of Tegor’s flames?',
     answer: 'White, red, green',
-    options: 'Red, green, blue;Yellow, orange, red;Yellow, red, green;Black and white'.split(
-      ';'
-    ),
+    options:
+      'Red, green, blue;Yellow, orange, red;Yellow, red, green;Black and white'.split(
+        ';'
+      ),
   },
 
   {

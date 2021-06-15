@@ -4,42 +4,38 @@ import Card from '../Card'
 import Image from '../Image'
 import BrawlProgressBar from '../BrawlProgressBar'
 import ResourceIcon from '../ResourceIcon'
+import capitalise from '../../helpers/capitalise'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import './index.css'
 
 const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
   switch (props.reward) {
+    case 'MYTHIC_BOOK':
+    case 'HEROIC_BOOK':
     case 'HUMBLE_BOOK':
+    case 'CLASSIC_BOOK':
+    case 'NOBLE_BOOK': {
+      const bookType = props.reward.replace('_BOOK', '').toLowerCase()
       return (
         <Image
-          src='/assets/images/books/book-humble.png'
-          alt='Humble book'
+          src={`/assets/images/books/book-${bookType}.png`}
+          alt={`${capitalise(bookType)} book`}
           withAvif
         />
       )
+    }
+    case 'COINS':
+      return <Image src='/assets/images/iconography/coins.png' alt='Coins' />
+
     case 'RUBIES':
       return <Image src='/assets/images/iconography/rubies.png' alt='Rubies' />
-    case 'CLASSIC_BOOK':
-      return (
-        <Image
-          src='/assets/images/books/book-classic.png'
-          alt='Classic book'
-          withAvif
-        />
-      )
+
     case 'FUSION_STONES':
       return <Image src='/assets/images/iconography/stones.png' alt='Stones' />
-    case 'MYTHIC_BOOK':
-      return (
-        <Image
-          src='/assets/images/books/book-mythic.png'
-          alt='Mythic book'
-          withAvif
-        />
-      )
+
     case 'LEGENDARY_CARD':
-      return <Card {...getResolvedCardData({ id: props.cardId })} />
+      return <Card {...getResolvedCardData({ id: props.cardId })} level={1} />
     default:
       return null
   }

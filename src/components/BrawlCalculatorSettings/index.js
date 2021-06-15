@@ -2,20 +2,21 @@ import React from 'react'
 import NumberInput from '../NumberInput'
 import Row from '../Row'
 import getRewardLabel from '../../helpers/getRewardLabel'
-import { MILESTONES } from '../../constants/brawl'
+import { BRAWL_MILESTONES } from '../../constants/brawl'
 
 export default React.memo(function BrawlCalculatorSettings(props) {
   const { setMilestone } = props
+  const milestones = BRAWL_MILESTONES[props.difficulty]
 
   React.useEffect(() => {
-    const current = MILESTONES.findIndex(
+    const current = milestones.findIndex(
       milestone => milestone.crowns > props.crowns
     )
     // If the amount of obtained crowns changes and end up being the equivalent
     // of a milestone higher than or equal to the one aimed at, reset the
     // expected milestone.
     if (current > props.milestone) setMilestone('')
-  }, [props.crowns, props.milestone, setMilestone])
+  }, [props.crowns, props.milestone, setMilestone, milestones])
 
   return (
     <>
@@ -70,7 +71,7 @@ export default React.memo(function BrawlCalculatorSettings(props) {
                 onChange={event => props.setMilestone(+event.target.value)}
               >
                 <option value=''>Select a milestone</option>
-                {MILESTONES.map((milestone, index) => (
+                {milestones.map((milestone, index) => (
                   <option
                     key={milestone.crowns}
                     value={index}

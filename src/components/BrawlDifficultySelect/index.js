@@ -1,0 +1,20 @@
+import React from 'react'
+import './index.css'
+
+const BrawlDifficultySelect = props => (
+  <div className={props.className}>
+    <label htmlfor='difficulty'>Brawl difficulty</label>
+    <select
+      id='difficulty'
+      name='difficulty'
+      value={props.value}
+      onChange={props.onChange}
+    >
+      <option value='CASUAL'>Casual</option>
+      <option value='WARRIOR'>Warrior</option>
+      <option value='ULTIMATE'>Ultimate</option>
+    </select>
+  </div>
+)
+
+export default React.memo(BrawlDifficultySelect)

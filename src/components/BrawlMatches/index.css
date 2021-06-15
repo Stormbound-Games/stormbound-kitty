@@ -56,6 +56,10 @@
   color: var(--light-shadowfen); /* 1 */
 }
 
+.BrawlMatches__status--DRAW {
+  color: var(--light-winter); /* 1 */
+}
+
 .BrawlMatches__status--FORFEIT {
   color: var(--light-swarm); /* 1 */
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { MILESTONES } from '../../constants/brawl'
+import { BRAWL_MILESTONES, CROWN_REWARDS } from '../../constants/brawl'
 import { NotificationContext } from '../NotificationProvider'
 import serialisation from '../../helpers/serialisation'
 
@@ -32,6 +32,7 @@ export default function BrawlProvider(props) {
     message => sendNotification({ icon: 'crown', children: message }),
     [sendNotification]
   )
+  const milestones = BRAWL_MILESTONES[props.difficulty || 'LEGACY']
 
   React.useEffect(() => {
     if (brawls.length > 1) {
@@ -78,8 +79,7 @@ export default function BrawlProvider(props) {
     }))
 
   const crowns = brawl.matches.reduce(
-    (crowns, match) =>
-      crowns + (['LOST', 'SURRENDERED'].includes(match.status) ? 1 : 5),
+    (crowns, match) => crowns + CROWN_REWARDS[match.status],
     0
   )
 
@@ -102,10 +102,10 @@ export default function BrawlProvider(props) {
     let currentMilestone = 0
 
     return brawl.matches.reduce((acc, match) => {
-      const gameCost = MILESTONES[currentMilestone].cost
+      const gameCost = milestones[currentMilestone].cost
       acc += gameCost
-      crowns += ['LOST', 'SURRENDERED'].includes(match.status) ? 1 : 5
-      currentMilestone = MILESTONES.findIndex(
+      crowns += CROWN_REWARDS[match.status]
+      currentMilestone = milestones.findIndex(
         milestone => milestone.crowns > crowns
       )
 
@@ -158,7 +158,7 @@ export default function BrawlProvider(props) {
         meta: {
           crowns,
           coinsSpent,
-          milestone: MILESTONES.findIndex(
+          milestone: milestones.findIndex(
             milestone => milestone.crowns > crowns
           ),
         },

@@ -48,7 +48,7 @@ export default React.memo(function BrawlSetup(props) {
         onChange={event => props.setWithPremiumPass(event.target.checked)}
       />
 
-      <Row>
+      <Row style={{ marginTop: '1.5em' }}>
         <Row.Column>
           <BrawlImport />
         </Row.Column>

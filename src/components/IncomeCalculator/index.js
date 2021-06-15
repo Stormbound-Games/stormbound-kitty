@@ -11,7 +11,7 @@ import PremiumPassCheckbox from '../PremiumPassCheckbox'
 import ResourceIcon from '../ResourceIcon'
 import Row from '../Row'
 import Title from '../Title'
-import { MILESTONES } from '../../constants/brawl'
+import { BRAWL_MILESTONES } from '../../constants/brawl'
 import {
   Common,
   Rare,
@@ -25,7 +25,6 @@ import capitalise from '../../helpers/capitalise'
 import getActivityRewards from '../../helpers/getActivityRewards'
 import getBrawlRewards from '../../helpers/getBrawlRewards'
 import getClimbingRewards from '../../helpers/getClimbingRewards'
-import getCostForMilestone from '../../helpers/getCostForMilestone'
 import getHeroesLeagueRewards from '../../helpers/getHeroesLeagueRewards'
 import getLeagueChestRewards from '../../helpers/getLeagueChestRewards'
 import getRewardLabel from '../../helpers/getRewardLabel'
@@ -71,11 +70,13 @@ const useIncomeOverPeriod = (settings, period, rubiesConversion) => {
     income.add(climbingRewards)
   }
 
-  if (settings.milestone !== '') {
-    const brawlRewards = getBrawlRewards(settings.milestone)
-    brawlRewards.coins -= settings.brawlCost
-    income.add(brawlRewards)
-  }
+  const brawlRewards = getBrawlRewards({
+    casual: settings.casualMilestone || -1,
+    warrior: settings.warriorMilestone || -1,
+    ultimate: settings.ultimateMilestone || -1,
+  })
+  brawlRewards.coins -= settings.brawlCost || 0
+  income.add(brawlRewards)
 
   const activityRewards = getActivityRewards({
     league: settings.league,
@@ -102,7 +103,9 @@ export default React.memo(function IncomeCalculator(props) {
   const [wins, setWins] = React.useState(0)
   const [league, setLeague] = React.useState('')
   const [rank, setRank] = React.useState('')
-  const [milestone, setMilestone] = React.useState('')
+  const [casualMilestone, setCasualMilestone] = React.useState('')
+  const [warriorMilestone, setWarriorMilestone] = React.useState('')
+  const [ultimateMilestone, setUltimateMilestone] = React.useState('')
   const [brawlCost, setBrawlCost] = React.useState(0)
   const [heroesPosition, setHeroesPosition] = React.useState('NOT_RANKED')
   const [rubiesConversion, setRubiesConversion] = React.useState('NONE')
@@ -114,7 +117,9 @@ export default React.memo(function IncomeCalculator(props) {
       brawlCost,
       heroesPosition,
       league,
-      milestone,
+      casualMilestone,
+      warriorMilestone,
+      ultimateMilestone,
       preferTier3Stones,
       rank,
       setup,
@@ -227,15 +232,15 @@ export default React.memo(function IncomeCalculator(props) {
           </Row>
           <Row desktopOnly>
             <Row.Column>
-              <label htmlFor='milestone'>Weekly milestone</label>
+              <label htmlFor='milestone'>Casual milestone</label>
               <select
-                name='milestone'
-                id='milestone'
-                value={milestone}
-                onChange={event => setMilestone(+event.target.value)}
+                name='casualMilestone'
+                id='casualMilestone'
+                value={casualMilestone}
+                onChange={event => setCasualMilestone(+event.target.value)}
               >
                 <option value=''>Select a milestone</option>
-                {MILESTONES.map((milestone, index) => (
+                {BRAWL_MILESTONES.CASUAL.map((milestone, index) => (
                   <option key={milestone.crowns} value={index}>
                     {index + 1}. {getRewardLabel(milestone)}
                   </option>
@@ -243,31 +248,48 @@ export default React.memo(function IncomeCalculator(props) {
               </select>
             </Row.Column>
             <Row.Column>
-              <label htmlFor='brawl-cost'>Brawl avg. cost</label>
+              <label htmlFor='milestone'>Warrior milestone</label>
+              <select
+                name='warriorMilestone'
+                id='warriorMilestone'
+                value={warriorMilestone}
+                onChange={event => setWarriorMilestone(+event.target.value)}
+              >
+                <option value=''>Select a milestone</option>
+                {BRAWL_MILESTONES.WARRIOR.map((milestone, index) => (
+                  <option key={milestone.crowns} value={index}>
+                    {index + 1}. {getRewardLabel(milestone)}
+                  </option>
+                ))}
+              </select>
+            </Row.Column>
+          </Row>
+          <Row desktopOnly>
+            <Row.Column>
+              <label htmlFor='milestone'>Ultimate milestone</label>
+              <select
+                name='ultimateMilestone'
+                id='ultimateMilestone'
+                value={ultimateMilestone}
+                onChange={event => setUltimateMilestone(+event.target.value)}
+              >
+                <option value=''>Select a milestone</option>
+                {BRAWL_MILESTONES.ULTIMATE.map((milestone, index) => (
+                  <option key={milestone.crowns} value={index}>
+                    {index + 1}. {getRewardLabel(milestone)}
+                  </option>
+                ))}
+              </select>
+            </Row.Column>
+            <Row.Column>
+              <label htmlFor='brawl-cost'>Brawl total cost</label>
               <NumberInput
                 id='brawl-cost'
                 name='brawl-cost'
                 value={brawlCost}
                 onChange={setBrawlCost}
                 step={10}
-                min={
-                  milestone === ''
-                    ? 0
-                    : getCostForMilestone({
-                        milestone,
-                        league: 'BRAWL',
-                        winRatio: 1,
-                      })
-                }
-                max={
-                  milestone === ''
-                    ? undefined
-                    : getCostForMilestone({
-                        milestone,
-                        league: 'BRAWL',
-                        winRatio: 0,
-                      })
-                }
+                min={0}
               />
             </Row.Column>
           </Row>
