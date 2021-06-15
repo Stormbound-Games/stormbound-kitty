@@ -220,6 +220,12 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
               answer:
                 'Yes, we are working on bring new modifiers to the Brawl to keep it fresh.',
             },
+            {
+              id: 'brawl-order',
+              question: 'Will the Brawls follow the same order as usual?',
+              answer:
+                'No, this will be somewhat random now—it won’t follow a cycle anymore. That being said, there will (hopefully soon) be a way to see the next week’s Brawls within the game.',
+            },
           ]}
         />
       </Article.Narrow>
