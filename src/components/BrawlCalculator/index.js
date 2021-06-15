@@ -17,7 +17,7 @@ import Table from '../Table'
 import { Coins, Crowns } from '../Resource'
 import Title from '../Title'
 import { BRAWL_MILESTONES } from '../../constants/brawl'
-import getMilestoneCost from '../../helpers/getRewardLabel'
+import getMilestoneCost from '../../helpers/getMilestoneCost'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import './index.css'
 
