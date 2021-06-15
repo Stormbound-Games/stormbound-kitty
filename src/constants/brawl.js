@@ -151,7 +151,7 @@ export const MILESTONES_ULTIMATE = [
   { crowns: 20, reward: 'RUBIES', rewardAmount: 5, cost: 20 },
   { crowns: 35, reward: 'CLASSIC_BOOK', rewardAmount: 1, cost: 50 },
   { crowns: 50, reward: 'FUSION_STONES', rewardAmount: 10, cost: 100 },
-  { crowns: 70, reward: 'HEROIC_BOOK', rewardAmount: 1, cost: 150 },
+  { crowns: 70, reward: 'MYTHIC_BOOK', rewardAmount: 1, cost: 150 },
   { crowns: 95, reward: 'LEGENDARY_CARD', rewardAmount: 1, cost: 200 },
   { crowns: 125, reward: 'FUSION_STONES', rewardAmount: 50, cost: 250 },
   { crowns: 160, reward: 'RUBIES', rewardAmount: 250, cost: 300 },
