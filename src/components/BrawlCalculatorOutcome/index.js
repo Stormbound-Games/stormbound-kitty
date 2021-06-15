@@ -177,7 +177,7 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
     }
 
     const outcome = getCostForMilestone({ ...options, milestone })
-    const outcomeUp = getMilestoneCost({ cost: outcome }, 1)
+    const outcomeUp = Math.max(0, getMilestoneCost({ cost: outcome }, 1))
     const reward = getRewardLabel(milestones[milestone], true)
 
     return (

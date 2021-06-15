@@ -1,5 +1,6 @@
 import { RARITY_COPIES } from '../../constants/game'
 import { BRAWL_MILESTONES } from '../../constants/brawl'
+import getMilestoneCost from '../getMilestoneCost'
 import getDailyCoinsCounter from '../getDailyCoinsCounter'
 import getMilestoneForCrowns from '../getMilestoneForCrowns'
 
@@ -43,7 +44,7 @@ const getCostForMilestone = ({
   let coins = 0
 
   while (index > -1 && index <= milestone && milestone !== 0) {
-    coins += milestones[index].cost * costModifier
+    coins += getMilestoneCost(milestones[index], costModifier)
     coins -= getCoins(winRatio)
     crowns += 5 * winRatio + (1 - winRatio)
 
