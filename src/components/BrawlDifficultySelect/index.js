@@ -3,7 +3,7 @@ import './index.css'
 
 const BrawlDifficultySelect = props => (
   <div className={props.className}>
-    <label htmlfor='difficulty'>Brawl difficulty</label>
+    <label htmlFor='difficulty'>Brawl difficulty</label>
     <select
       id='difficulty'
       name='difficulty'
