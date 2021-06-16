@@ -181,7 +181,7 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
             </p>
 
             <p>
-              We are be keeping a very close eye on this system as the goal is
+              We will be keeping a very close eye on this system as the goal is
               not to make Brawl frustrating. Additionally, we are looking for
               ways to make losses redeemable in the near future so it’s a little
               more fluctuating than just 3 losses per milestone.
