@@ -29,6 +29,7 @@ const COMMON_ABBREVIATIONS = {
   LL: 'Limelimbs',
   MW: 'Mystwives',
   OC: 'Overchargers',
+  PP: 'Project PH03-NIX',
   P2P: 'Pay-to-play',
   P2W: 'Pay-to-win',
   QoL: 'Quality of Life',
