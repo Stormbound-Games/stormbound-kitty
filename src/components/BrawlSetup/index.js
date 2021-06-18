@@ -41,6 +41,16 @@ export default React.memo(function BrawlSetup(props) {
         >
           Steam or web version
         </Radio>
+        <Radio
+          name='setup'
+          id='NONE'
+          value='NONE'
+          required
+          checked={props.setup === 'NONE'}
+          onChange={event => props.setSetup(event.target.value)}
+        >
+          Ignore victory coins
+        </Radio>
       </fieldset>
 
       <PremiumPassCheckbox
