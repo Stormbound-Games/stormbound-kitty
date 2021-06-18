@@ -63,11 +63,7 @@ export default React.memo(function BrawlTracker(props) {
         </Row.Column>
         <Row.Column width='2/3'>
           <BrawlMatches difficulty={props.difficulty} />
-          <BrawlCharts
-            setup={setup}
-            withPremiumPass={withPremiumPass}
-            income={income}
-          />
+          <BrawlCharts income={income} />
         </Row.Column>
       </Row>
     </div>
