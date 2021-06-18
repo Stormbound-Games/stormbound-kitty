@@ -1,9 +1,18 @@
 [
   [
     {
+      "id": 40,
+      "date": "08/06/2021",
+      "name": "Finale"
+    },
+    {
       "id": 39,
       "date": "24/05/2021",
-      "name": "Movement"
+      "name": "Movement",
+      "winner": {
+        "author": "RandomlyDrawnCard",
+        "id": "Tjs7QztSOzM7OztFbmVyZ2l6aW5nJTIwQnJldztodHRwcyUzQSUyRiUyRmNkbi5kaXNjb3JkYXBwLmNvbSUyRmF0dGFjaG1lbnRzJTJGNzcyMTExOTMyNTUwMjgzMzM0JTJGODQ2ODI3MzY4NDQ5NzAzOTU2JTJGUGljc0FydF8wNS0yNS0wOS4xOC41MS5wbmc7KkVuZXJnaXplKiUyMGElMjB0YXJnZXQlMjBmcmllbmRseSUyMHVuaXQlMjB3aXRoJTIwKjMlMkY0JTJGNSUyRjYlMkY3JTIwb3IlMjBsZXNzJTIwc3RyZW5ndGgqJTIwdG8lMjBtb3ZlJTIwYWdhaW47Ow=="
+      }
     },
     {
       "id": 38,
