@@ -128,6 +128,16 @@ export default React.memo(function GuideBrawl(props) {
         <Crowns amount={70} />, crowns are reset to 50.
       </p>
 
+      <Info icon='equalizer' title='Last crown for milestone'>
+        <p>
+          If missing <Crowns amount={1} /> to reach a given milestone while
+          having lost twice already, losing a 3rd game will{' '}
+          <span className='Highlight'>not</span> reset the crowns to the
+          previous milestone. Instead, the last crown awarded by the loss will
+          be enough to reach the next milestone.
+        </p>
+      </Info>
+
       <p>
         Find below the list of all milestones, their cost and reward for every
         difficulty level.
