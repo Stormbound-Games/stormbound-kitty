@@ -3,7 +3,11 @@
     {
       "id": 40,
       "date": "08/06/2021",
-      "name": "Finale"
+      "name": "Finale",
+      "winner": {
+        "author": "Grimm",
+        "id": "Uzs7QztMOzc7OztMYXN0JTIwU2FjcmlmaWNlO2h0dHBzJTNBJTJGJTJGaS5pbWd1ci5jb20lMkY1ZnRDQkV0LnBuZztEZXN0cm95JTIwYSUyMGZyaWVuZGx5JTIwdW5pdCUyMHdpdGglMjAzJTJGNCUyRjYlMkY5JTJGMTMlMjBvciUyMGxlc3MlMjBzdHJlbmdodC4lMjBBZGQlMjBpdCdzJTIwc3RyZW5naHQlMjBhbmQlMjBzcGVlZCUyMHRvJTIwYWxsJTIwdW5pdHMlMjBpbiUyMHlvdXIlMjBkZWNrJTIwYW5kJTIwaGFuZDs7"
+      }
     },
     {
       "id": 39,

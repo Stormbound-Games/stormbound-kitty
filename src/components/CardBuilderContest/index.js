@@ -42,10 +42,10 @@ export default React.memo(function CardBuilderContest(props) {
             Submissions should be in the form of a link to the{' '}
             <Link to='/card'>card builder</Link> or to an image of your card on
             a hosting service such as imgur. They can be made as soon as the
-            week’s theme is announced (typically on Sundays) until the next
-            Friday at 11:59pm (23:59) CDT. Please note that the cutoff time may
-            not be the same in your timezone, so it’s recommended to make your
-            submission early.
+            week’s theme is announced (typically on Sundays or Mondays) until
+            the next Friday at 11:59pm (23:59) CDT. Please note that the cutoff
+            time may not be the same in your timezone, so it’s recommended to
+            make your submission early.
           </p>
           <p>
             The following day, the judges will decide on the top 3 cards. After
