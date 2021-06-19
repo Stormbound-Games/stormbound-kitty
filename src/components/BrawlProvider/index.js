@@ -1,6 +1,6 @@
 import React from 'react'
-import { BRAWL_MILESTONES, CROWN_REWARDS } from '../../constants/brawl'
 import { NotificationContext } from '../NotificationProvider'
+import getBrawlStatus from '../../helpers/getBrawlStatus'
 import serialisation from '../../helpers/serialisation'
 
 export const BrawlContext = React.createContext([])
@@ -26,13 +26,12 @@ const getInitialBrawlData = id => {
 export default function BrawlProvider(props) {
   const STORAGE_KEY = 'sk.brawl.' + props.id
   const [brawls, setBrawls] = React.useState(getInitialBrawlData(props.id))
-  const brawl = brawls[brawls.length - 1] || {}
+  const brawl = React.useMemo(() => brawls[brawls.length - 1] || {}, [brawls])
   const { notify: sendNotification } = React.useContext(NotificationContext)
   const notify = React.useCallback(
     message => sendNotification({ icon: 'crown', children: message }),
     [sendNotification]
   )
-  const milestones = BRAWL_MILESTONES[props.difficulty || 'LEGACY']
 
   React.useEffect(() => {
     if (brawls.length > 1) {
@@ -78,11 +77,6 @@ export default function BrawlProvider(props) {
       ],
     }))
 
-  const crowns = brawl.matches.reduce(
-    (crowns, match) => crowns + CROWN_REWARDS[match.status],
-    0
-  )
-
   const resetBrawl = discard => {
     const now = Date.now()
 
@@ -96,22 +90,6 @@ export default function BrawlProvider(props) {
       },
     ])
   }
-
-  const coinsSpent = (() => {
-    let crowns = 0
-    let currentMilestone = 0
-
-    return brawl.matches.reduce((acc, match) => {
-      const gameCost = milestones[currentMilestone].cost
-      acc += gameCost
-      crowns += CROWN_REWARDS[match.status]
-      currentMilestone = milestones.findIndex(
-        milestone => milestone.crowns > crowns
-      )
-
-      return acc
-    }, 0)
-  })()
 
   const restoreBrawls = items => {
     // Group all Brawl entries coming from the CSV per ID, to group similar
@@ -146,6 +124,11 @@ export default function BrawlProvider(props) {
     }
   }
 
+  const meta = React.useMemo(
+    () => getBrawlStatus(brawl.matches, props.difficulty),
+    [brawl, props.difficulty]
+  )
+
   return (
     <BrawlContext.Provider
       value={{
@@ -155,13 +138,7 @@ export default function BrawlProvider(props) {
         updateMatch,
         resetBrawl,
         restoreBrawls,
-        meta: {
-          crowns,
-          coinsSpent,
-          milestone: milestones.findIndex(
-            milestone => milestone.crowns > crowns
-          ),
-        },
+        meta,
       }}
     >
       {props.children}
