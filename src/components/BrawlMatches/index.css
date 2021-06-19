@@ -1,7 +1,11 @@
+.BrawlMatches {
+  position: relative;
+}
+
 /**
  * 1. Align top border with other box placed in the sidebar.
  */
-.BrawlMatches {
+.BrawlMatches table {
   margin-bottom: 4em;
   margin-top: -3px; /* 1 */
   width: 100%;

@@ -1,6 +1,7 @@
 import React from 'react'
 import serialize from 'form-serialize'
 import { BrawlContext } from '../BrawlProvider'
+import BrawlLossCounter from '../BrawlLossCounter'
 import BrawlMatchForm from '../BrawlMatchForm'
 import Icon from '../Icon'
 import Table from '../Table'
@@ -64,8 +65,9 @@ export default React.memo(function BrawlMatches(props) {
     ) || {}
 
   return (
-    <>
+    <div className='BrawlMatches'>
       <Title>Your matches</Title>
+      <BrawlLossCounter />
 
       <form
         id='add-match-form'
@@ -155,6 +157,6 @@ export default React.memo(function BrawlMatches(props) {
           })}
         </tbody>
       </Table>
-    </>
+    </div>
   )
 })

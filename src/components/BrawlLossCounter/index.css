@@ -1,0 +1,39 @@
+.BrawlLossCounter {
+  position: static;
+  text-align: center;
+  margin-bottom: 1.75em;
+}
+
+@media (min-width: 700px) {
+  .BrawlLossCounter {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+/**
+ * 1. Shape squares as diamonds (rhombuses).
+ */
+.BrawlLossDiamond {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin: 0 0.4em;
+  font-size: 1.35em;
+  border: 0.1em solid var(--beige);
+  box-shadow: 0 0 0 0.1em var(--black), 0 0 0 0.135em var(--dark-beige);
+  transform: rotate(51deg) skewX(12.5deg) scaleY(0.976296); /* 1 */
+}
+
+/**
+ * 1. Negate the whole transform from the parent.
+ */
+.BrawlLossDiamond > .Icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scaleY(calc(1 / 0.976296)) skewX(-12.5deg)
+    rotate(-51deg) scale(0.6); /* 1 */
+  color: #e8282a;
+}
