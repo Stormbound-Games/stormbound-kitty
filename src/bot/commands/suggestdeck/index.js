@@ -15,7 +15,7 @@ export default {
       .setTitle(`${this.label}: help`)
       .setURL('https://stormbound-kitty.com/guides/lexicon')
       .setDescription(
-        `Suggest a deck matching the given search criteria. It optionally accepts a faction, category and card to include (regardless of order and casing). For instance, \`!${this.command} ic\`, \`!${this.command} wp d1\` or \`!${this.command} brawl kg\`.`
+        `Suggest a deck matching the given search criteria. It optionally accepts a faction, category and card to include (regardless of order and casing). For instance, \`!${this.command} ic\`, \`!${this.command} wp hl\` or \`!${this.command} brawl kg\`.`
       )
   },
   handler: function (message) {
