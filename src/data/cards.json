@@ -1500,7 +1500,7 @@
     "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "When played with a friendly copy on the board, teleport *2/3/4/6/8* surrounding units from it, then destroy both temples. Otherwise, return to the hand."
+    "ability": "When played with a friendly copy on the board, teleport *2/3/4/6/8* surrounding units from it, then destroy the older copy. Otherwise, return to the hand."
   },
   {
     "name": "Brood Sages",

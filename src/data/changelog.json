@@ -1,6 +1,15 @@
 [
   {
     "date": "01/07/2021",
+    "description": "Ability made to only destroy the older copy",
+    "id": "I29",
+    "type": "BUFF",
+    "from": {
+      "ability": "When played with a friendly copy on the board, teleport *2/3/4/6/8* surrounding units from it, then destroy both temples. Otherwise, return to the hand."
+    }
+  },
+  {
+    "date": "01/07/2021",
     "description": "Added to the game",
     "id": "N85",
     "type": "INFO"
