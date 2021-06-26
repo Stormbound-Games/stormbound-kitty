@@ -1,6 +1,17 @@
 [
   {
     "date": "01/07/2021",
+    "description": "Mana and strength increased by 2 and ability made to count friendly units on the board",
+    "id": "N79",
+    "type": "MIXED",
+    "from": {
+      "mana": 3,
+      "strength": "3/4/5/6/7",
+      "ability": "On play confuse the same number of surrounding enemies, as there are surrounding friendly units"
+    }
+  },
+  {
+    "date": "01/07/2021",
     "description": "Ability made to force confused unit(s) to move",
     "id": "N78",
     "type": "BUFF",
