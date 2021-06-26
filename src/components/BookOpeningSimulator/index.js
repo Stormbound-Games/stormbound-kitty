@@ -6,6 +6,7 @@ import CTA from '../CTA'
 import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
 import Notice from '../Notice'
+import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
 import arrayRandom from '../../helpers/arrayRandom'
@@ -157,6 +158,11 @@ const BookOpeningSimulator = props => {
           )}
         </Row.Column>
       </Row>
+
+      <PageMeta
+        title='Book Opening Simulator'
+        description='Recreate the thrill of opening books by playing with this simulator, opening the books of your choice!'
+      />
     </>
   )
 }
