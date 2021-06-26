@@ -158,8 +158,9 @@ export default () => {
             { label: 'Battle Sim', to: '/sim', id: 'BATTLE_SIM' },
             {
               label: 'Book Simulator',
-              to: '/simulators/book',
+              to: '/simulators/books',
               id: 'BOOK_SIMULATOR',
+              new: true,
             },
           ],
         },
