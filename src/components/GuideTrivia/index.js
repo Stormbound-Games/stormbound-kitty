@@ -23,6 +23,9 @@ export default React.memo(function GuideWinter(props) {
           <a href='#card-names'>Card names</a>
         </li>
         <li>
+          <a href='#loading-texts'>Loading texts</a>
+        </li>
+        <li>
           <a href='#animated-ui-elements'>Animated UI elements</a>
         </li>
         <li>
@@ -110,6 +113,101 @@ export default React.memo(function GuideWinter(props) {
           planned before the site got popular.
         </li>
       </ul>
+
+      <Title id='loading-texts'>Loading texts</Title>
+
+      <p>
+        Most of the legendary cards in the game have some trivia texts that are
+        displayed during loading time when queuing for a game.
+      </p>
+
+      <ul>
+        <li>
+          <CardLink id='N8' />: As a child, he started his collection with toys
+          and rocks. Now, he is gathering wealth and warriors.
+        </li>
+        <li>
+          <CardLink id='N35' />: Never look a predator directly in its eyes.
+          Luckily, these are not his eyes.
+        </li>
+        <li>
+          <CardLink id='N46' />: An enchanted die, swallowed by Tegor as a young
+          dragonling, spark magical abilities when he enrages.
+        </li>
+        <li>
+          <CardLink id='N48' />: “Make love, not war,” she said, before raining
+          down arcane spells on her enemies.
+        </li>
+        <li>
+          <CardLink id='N58' />: Though she can seduce anyone with her harp, she
+          is still searching for true love.
+        </li>
+        <li>
+          <CardLink id='I2' />: Her full title is Doctor of Science, Arts,
+          Ministry, and Education. It's all the same to her.
+        </li>
+        <li>
+          <CardLink id='I17' />: Rodents can upgrade anything, even a mighty
+          dragon like Eloth!
+        </li>
+        <li>
+          <CardLink id='I22' />: Originally called Prolonged Hero 03, his
+          creators added "nix" when they found out his renewal doesn't always
+          work.
+        </li>
+        <li>
+          <CardLink id='F12' />: Chosen by the ravens to be adored by the toads.
+        </li>
+        <li>
+          <CardLink id='F21' />: She has found the perfect alliance in
+          Shadowfen, as they also love hatching eggs and plans.
+        </li>
+        <li>
+          <CardLink id='F23' />: So...who of you will be today's offering?
+        </li>
+        <li>
+          <CardLink id='S3' />: Want my advice? Simply do everything I tell you
+          to as fast as possible.
+        </li>
+        <li>
+          <CardLink id='S19' />: Who's better to lead an army of Undead than the
+          Lord of Life?
+        </li>
+        <li>
+          <CardLink id='S21' />: She buries the living and raises the dead.
+          Sometimes by accident.
+        </li>
+        <li>
+          <CardLink id='W8' />: Having studied ancient magic, she uncovered how
+          to extract the mana crystals from her enemies.
+        </li>
+        <li>
+          <CardLink id='W10' />: When singing to a crescent moon, the lady gains
+          the goddess' boon.
+        </li>
+        <li>
+          <CardLink id='W23' />: He uses his mighty twin hammers for everything:
+          to win battles, craft armor, repair buildings and as a cushion.
+        </li>
+      </ul>
+
+      <p>
+        Additionally, the following card has a loading text despite not being a
+        legendary card:
+      </p>
+
+      <ul>
+        <li>
+          <CardLink id='S29' />: Holds a scroll of wisdom which is said to say:
+          “Control your focus, it determines your reality.”
+        </li>
+      </ul>
+
+      <p>
+        On the other hand, the following legendary cards do not have a loading
+        text (yet): <CardLink id='N59' />, <CardLink id='N69' />,{' '}
+        <CardLink id='N76' />, <CardLink id='N77' /> and <CardLink id='I29' />.
+      </p>
 
       <Title id='animated-ui-elements'>Animated UI elements</Title>
 
