@@ -1,5 +1,11 @@
 [
   {
+    "date": "01/07/2021",
+    "description": "Added to the game",
+    "id": "N85",
+    "type": "INFO"
+  },
+  {
     "date": "01/06/2021",
     "description": "Mana cost decreased by 1",
     "id": "N55",

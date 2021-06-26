@@ -1108,6 +1108,19 @@
     "ability": null
   },
   {
+    "name": "Temple of the Mind",
+    "id": "N85",
+    "type": "structure",
+    "faction": "neutral",
+    "race": null,
+    "rarity": "common",
+    "image": "temple_of_the_mind.png",
+    "mana": 3,
+    "strength": "2/3/5/6/7",
+    "movement": null,
+    "ability": "At the start of your turn, give fixedly forward movement to a random non-Hero unit card from your hand, then kill all friendly confused units"
+  },
+  {
     "name": "Destructobots",
     "id": "I1",
     "type": "unit",
