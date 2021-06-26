@@ -1,6 +1,15 @@
 [
   {
     "date": "01/07/2021",
+    "description": "Ability made to no longer inflict self-damage",
+    "id": "S29",
+    "type": "BUFF",
+    "from": {
+      "ability": "At the start of your turn, deconfuse and give *1* additional move to all friendly units in front. Deal *1 damage* to itself when boosted unit reaches the enemy base."
+    }
+  },
+  {
+    "date": "01/07/2021",
     "description": "Ability made bordering and considering all units and strength increased by 1",
     "id": "S3",
     "type": "MIXED",
