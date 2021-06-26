@@ -63,6 +63,7 @@ const About = load('About')
 const BattleSimPage = load('BattleSimPage')
 const BattleSimPuzzles = load('BattleSimPuzzles')
 const BooksCalculator = load('BooksCalculator')
+const BookOpeningSimulator = load('BookOpeningSimulator')
 const BrawlCalculator = load('BrawlCalculator')
 const BrawlIndex = load('BrawlIndex')
 const BrawlPage = load('BrawlPage')
@@ -423,6 +424,14 @@ export default function Router(props) {
             active={['TOOLS', 'BRAWL_CALCULATOR']}
           >
             <BrawlCalculator />
+          </Page>
+
+          <Page
+            exact
+            path='/simulators/books'
+            active={['TOOLS', 'BOOK_SIMULATOR']}
+          >
+            <BookOpeningSimulator />
           </Page>
 
           {releases.map(release => {

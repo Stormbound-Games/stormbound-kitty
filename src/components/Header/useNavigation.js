@@ -156,6 +156,11 @@ export default () => {
             { label: 'List Builder', to: '/list', id: 'LIST_BUILDER' },
             { label: 'Quest Builder', to: '/quest', id: 'QUEST_BUILDER' },
             { label: 'Battle Sim', to: '/sim', id: 'BATTLE_SIM' },
+            {
+              label: 'Book Simulator',
+              to: '/simulators/book',
+              id: 'BOOK_SIMULATOR',
+            },
           ],
         },
         {

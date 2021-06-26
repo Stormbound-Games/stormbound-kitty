@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Book Opening Simulator",
+    "description": "A small and useless new tool made its entrance: the book opening simulator!",
+    "link": "/simulators/books"
+  },
+  {
     "intro": "Brawl Update",
     "description": "A small surprise release is out with some revamped Brawl!",
     "link": "/releases/brawl-2021"
