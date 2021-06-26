@@ -1,6 +1,16 @@
 [
   {
     "date": "01/07/2021",
+    "description": "Ability made bordering and considering all units and strength increased by 1",
+    "id": "S3",
+    "type": "MIXED",
+    "from": {
+      "strength": "1/2/3/4/5",
+      "ability": "If played with no surrounding enemies, return the copy of this card to your hand with +1 strength"
+    }
+  },
+  {
+    "date": "01/07/2021",
     "description": "Ability made to possibly damage structures",
     "id": "I1",
     "type": "NERF",
