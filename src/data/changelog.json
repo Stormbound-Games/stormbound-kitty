@@ -1,6 +1,15 @@
 [
   {
     "date": "01/07/2021",
+    "description": "Ability made to force confused unit(s) to move",
+    "id": "N78",
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, confuse up to *1/1/2/2/3* bordering enemy units"
+    }
+  },
+  {
+    "date": "01/07/2021",
     "description": "Ability made to no longer inflict self-damage",
     "id": "S29",
     "type": "BUFF",
