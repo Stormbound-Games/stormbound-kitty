@@ -11,12 +11,12 @@ import chunk from '../../helpers/chunk'
 import indexArray from '../../helpers/indexArray'
 import useLazyLoad from '../../hooks/useLazyLoad'
 
-const books = Object.keys(BOOKS).map(book => ({
-  name: getBookName(book) + ' book',
-  id: book,
+const books = Object.keys(BOOKS).map(bookType => ({
+  name: getBookName(bookType),
+  id: bookType,
   image:
     '/assets/images/books/book-' +
-    book.toLowerCase().replace(/_/g, '-') +
+    bookType.toLowerCase().replace(/_/g, '-') +
     '.png',
 }))
 
@@ -27,10 +27,11 @@ export default React.memo(function FanKitBooks(props) {
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
   const activeBook = BOOKS_INDEX[active]
-  const { loading, items: displayedItems, ref } = useLazyLoad(
-    books,
-    columns * 2
-  )
+  const {
+    loading,
+    items: displayedItems,
+    ref,
+  } = useLazyLoad(books, columns * 2)
   const items = chunk(displayedItems, columns)
 
   React.useEffect(() => {

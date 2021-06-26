@@ -10,7 +10,7 @@ import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
 import arrayRandom from '../../helpers/arrayRandom'
-import capitalise from '../../helpers/capitalise'
+import getBookName from '../../helpers/getBookName'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isCardMatchingCriteria from '../../helpers/isCardMatchingCriteria'
 import useViewportSize from '../../hooks/useViewportSize'
@@ -90,9 +90,9 @@ const BookOpeningSimulator = props => {
               style={{ marginBottom: '2em' }}
             >
               <option value=''>Pick a book type</option>
-              {Object.keys(BOOKS).map(book => (
-                <option value={book} key={book}>
-                  {capitalise(book.toLowerCase())} book ({BOOKS[book].draws})
+              {Object.keys(BOOKS).map(bookType => (
+                <option value={bookType} key={bookType}>
+                  {getBookName(bookType)} ({BOOKS[bookType].draws})
                 </option>
               ))}
             </select>

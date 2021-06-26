@@ -5,7 +5,7 @@ describe('Collection — Books', () => {
     cy.visit('/calculators/books')
   })
 
-  it('should display fusion stones in Mythic book as a default value', () => {
+  it('should display fusion stones in Mythic Tome as a default value', () => {
     cy.get(s.BOOK_SELECT)
       .should('have.value', 'MYTHIC')
       .get(s.TARGET_SELECT)

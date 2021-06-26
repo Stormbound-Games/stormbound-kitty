@@ -112,7 +112,7 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
 
         <ul>
           <li>
-            Mythic, Heroic and Classic books will yield 8 cards instead of 6.
+            Mythic, Heroic and Classic Tomes will yield 8 cards instead of 6.
           </li>
           <li>Noble books will yield 4 cards instead of 3.</li>
           <li>Humble books will still contain a single card.</li>
@@ -128,17 +128,17 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
 
         <ul>
           <li>
-            At $4.99: 1 Mythic book + <Coins amount={100} />
+            At $4.99: 1 Mythic Tome + <Coins amount={100} />
           </li>
           <li>
-            At $19.99: 4 Mythic books + 4 Heroic books + <Coins amount={500} />
+            At $19.99: 4 Mythic Tomes + 4 Heroic Tomes + <Coins amount={500} />
           </li>
           <li>
-            At $49.99: 10 Mythic books + 10 Heroic books + 10 Classic books +{' '}
+            At $49.99: 10 Mythic Tomes + 10 Heroic Tomes + 10 Classic Tomes +{' '}
             <Coins amount={1500} />
           </li>
           <li>
-            At $99.99: 20 Mythic books + 20 Heroic books + 20 Classic books +{' '}
+            At $99.99: 20 Mythic Tomes + 20 Heroic Tomes + 20 Classic Tomes +{' '}
             <Coins amount={5000} /> + <Stones amount={50} />
           </li>
         </ul>
@@ -149,13 +149,13 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
           <Row.Column>
             <Image
               src='/assets/images/releases/birthday_pack_1.png'
-              alt='$4.99 promotion: 1 Mythic book + 100 coins'
+              alt='$4.99 promotion: 1 Mythic Tome + 100 coins'
             />
           </Row.Column>
           <Row.Column>
             <Image
               src='/assets/images/releases/birthday_pack_2.png'
-              alt='$10.99 promotion: 4 Mythic books + 4 Heroic books + 500 coins'
+              alt='$10.99 promotion: 4 Mythic Tomes + 4 Heroic Tomes + 500 coins'
             />
           </Row.Column>
         </Row>
@@ -163,13 +163,13 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
           <Row.Column>
             <Image
               src='/assets/images/releases/birthday_pack_3.png'
-              alt='$49.99 promotion: 10 Mythic books + 10 Heroic books + 10 Classic books + 1500 coins'
+              alt='$49.99 promotion: 10 Mythic Tomes + 10 Heroic Tomes + 10 Classic Tomes + 1500 coins'
             />
           </Row.Column>
           <Row.Column>
             <Image
               src='/assets/images/releases/birthday_pack_4.png'
-              alt='$99.99 promotion: 20 Mythic books + 20 Heroic books + 20 Classic books + 5000 coins + 50 fusion stones'
+              alt='$99.99 promotion: 20 Mythic Tomes + 20 Heroic Tomes + 20 Classic Tomes + 5000 coins + 50 fusion stones'
             />
           </Row.Column>
         </Row>

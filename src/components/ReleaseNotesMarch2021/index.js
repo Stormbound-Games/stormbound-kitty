@@ -21,6 +21,7 @@ import {
   Stones,
 } from '../Resource'
 import Title from '../Title'
+import getBookName from '../../helpers/getBookName'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import { getRarityColor } from '../../helpers/getRarity'
 
@@ -155,28 +156,31 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           <Row.Column width='1/5'>
             <Image
               src='/assets/images/books/book-pirate.png'
-              alt='Pirate book'
+              alt={getBookName('PIRATE')}
             />
           </Row.Column>
           <Row.Column width='1/5'>
             <Image
               src='/assets/images/books/book-feline.png'
-              alt='Feline book'
+              alt={getBookName('FELINE')}
             />
           </Row.Column>
           <Row.Column width='1/5'>
-            <Image src='/assets/images/books/book-elder.png' alt='Elder book' />
+            <Image
+              src='/assets/images/books/book-elder.png'
+              alt={getBookName('ELDER')}
+            />
           </Row.Column>
           <Row.Column width='1/5'>
             <Image
               src='/assets/images/books/book-dragon.png'
-              alt='Dragon book'
+              alt={getBookName('DRAGON')}
             />
           </Row.Column>
           <Row.Column width='1/5'>
             <Image
               src='/assets/images/books/book-legendary-dragon.png'
-              alt='Archdragon book'
+              alt={getBookName('ARCHDRAGON')}
             />
           </Row.Column>
         </Row>
@@ -193,24 +197,24 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
         <ul>
           <li>
-            <span className='Highlight'>Pirate book</span>: 3 cards, with rarity
-            distribution of 55/25/15/5.
+            <span className='Highlight'>{getBookName('PIRATE')}</span>: 3 cards,
+            with rarity distribution of 55/25/15/5.
           </li>
           <li>
-            <span className='Highlight'>Feline book</span>: 3 cards, with rarity
-            distribution of 50/30/15/5.
+            <span className='Highlight'>{getBookName('FELINE')}</span>: 3 cards,
+            with rarity distribution of 50/30/15/5.
           </li>
           <li>
-            <span className='Highlight'>Elder book</span>: 3 cards, with rarity
-            distribution of 0/60/35/5.
+            <span className='Highlight'>{getBookName('ELDER')}</span>: 3 cards,
+            with rarity distribution of 0/60/35/5.
           </li>
           <li>
-            <span className='Highlight'>Dragon book</span>: 3 cards, with rarity
-            distribution of 20/60/20/0.
+            <span className='Highlight'>{getBookName('DRAGON')}</span>: 3 cards,
+            with rarity distribution of 20/60/20/0.
           </li>
           <li>
-            <span className='Highlight'>Archdragon book</span>: 3 cards, with
-            rarity distribution of 0/0/70/30.
+            <span className='Highlight'>{getBookName('ARCHDRAGON')}</span>: 3
+            cards, with rarity distribution of 0/0/70/30.
           </li>
         </ul>
 
@@ -307,20 +311,21 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
         <ul>
           <li>
-            The 1st player in the ladder will earn <Stones amount={100} />, an
-            Archdragon book, a Feline book, a Dragon book and a Pirate book.
+            The 1st player in the ladder will earn <Stones amount={100} />, a
+            Book of Archdragons, a Book of Felines, a Book of Dragons and a Book
+            of Pirates.
           </li>
           <li>
             The 9 other players in the top 10 will earn <Stones amount={50} />,
-            a Feline book, a Dragon book and a Pirate book.
+            a Book of Felines, a Book of Dragons and a Book of Pirates.
           </li>
           <li>
             The 90 other players in the top 100 will earn <Stones amount={25} />
-            , a Dragon book and a Pirate book.
+            , a Book of Dragons and a Book of Pirates.
           </li>
           <li>
             The 400 other players in the top 500 will earn{' '}
-            <Stones amount={10} /> and a Pirate book.
+            <Stones amount={10} /> and a Book of Pirates.
           </li>
         </ul>
 

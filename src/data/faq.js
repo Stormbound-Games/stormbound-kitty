@@ -406,14 +406,14 @@ export default [
               book (other calculations are just small variations of this one).
               To do that, it lays down all the different “drawing sequences”:
               For example, ‘EEELEL’ (Epic, Epic, Epic, Legendary, Epic,
-              Legendary) is a valid and likely sequence for a Mythic book. So at
+              Legendary) is a valid and likely sequence for a Mythic Tome. So at
               the core, it is a function that takes a drawing sequence and
               returns the probability of getting this sequence and no fusion
               stones out of a book.
             </p>
             <p>
               To do this, the calculator stores the non-FS cards left in the
-              pool it draws from (Epic and Legendary for a Mythic book) and
+              pool it draws from (Epic and Legendary for a Mythic Tome) and
               iterates over the sequence cards. With the ‘EEELEL’ sequence: The
               first card is an Epic card, with a probability of 0.7 (70%), the
               probability of it not being the FS epic card is 41/42. It
@@ -422,7 +422,7 @@ export default [
               40/41 since identical cards cannot be redrawn. It then iterates
               over the whole sequence, returns the resulting probability and
               sums over the different sequences to get the total probability of
-              not getting fusion stones out of a Mythic book.
+              not getting fusion stones out of a Mythic Tome.
             </p>
             <p>
               Of course this is correct only under the assumption that book

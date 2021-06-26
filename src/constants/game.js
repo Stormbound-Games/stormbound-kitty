@@ -63,11 +63,26 @@ export const RARITY_COPIES = {
 }
 
 export const BOOKS = {
-  MYTHIC: { percentiles: [0, 0, 0.7, 0.3], draws: 6 },
-  HEROIC: { percentiles: [0, 0.7, 0.25, 0.05], draws: 6 },
-  CLASSIC: { percentiles: [0.7, 0.25, 0.04, 0.01], draws: 6 },
-  NOBLE: { percentiles: [0.7, 0.25, 0.04, 0.01], draws: 3 },
-  HUMBLE: { percentiles: [0.7, 0.25, 0.04, 0.01], draws: 1 },
+  MYTHIC: {
+    percentiles: [0, 0, 0.7, 0.3],
+    draws: 6,
+  },
+  HEROIC: {
+    percentiles: [0, 0.7, 0.25, 0.05],
+    draws: 6,
+  },
+  CLASSIC: {
+    percentiles: [0.7, 0.25, 0.04, 0.01],
+    draws: 6,
+  },
+  NOBLE: {
+    percentiles: [0.7, 0.25, 0.04, 0.01],
+    draws: 3,
+  },
+  HUMBLE: {
+    percentiles: [0.7, 0.25, 0.04, 0.01],
+    draws: 1,
+  },
   PIRATE: {
     only: { race: 'pirate' },
     percentiles: [0.55, 0.25, 0.15, 0.05],

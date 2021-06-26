@@ -1,5 +1,4 @@
 import { RARITIES, BOOKS, EXPECTATIONS } from '../../../constants/game'
-import capitalise from '../../../helpers/capitalise'
 import getDrawingProbability from '../../../helpers/getDrawingProbability'
 import searchCards from '../../../helpers/searchCards'
 import getEmbed from '../../../helpers/getEmbed'
@@ -43,7 +42,7 @@ const parseMessage = search => {
 
   terms.forEach(term => {
     if (Object.keys(BOOKS).includes(term.toUpperCase())) {
-      params.book = term.toUpperCase()
+      params.bookType = term.toUpperCase()
     } else if (Object.keys(RARITIES).includes(term.toLowerCase())) {
       params.target = term.toUpperCase()
     } else if (term.toLowerCase() === 'fs' || term.toLowerCase() === 'fusion') {
@@ -69,21 +68,22 @@ export default {
       )
   },
   handler: function (message) {
-    const { book, target } = parseMessage(message)
+    const { bookType, target } = parseMessage(message)
 
     // The book argument should be mandatory and there is no way to compute
     // anything if it’s not provided.
-    if (!book) return
+    if (!bookType) return
 
-    const bookName = getBookName(book)
+    const book = BOOKS[bookType]
+    const bookName = getBookName(bookType)
     const embed = getEmbed()
       .setTitle(`${this.label}: ${bookName}`)
       .setURL('https://stormbound-kitty.com/calculators/books')
 
-    const intro = `A **${bookName} book** has:`
+    const intro = `A **${bookName}** has:`
     const fsOdds =
       getDrawingProbability(
-        book,
+        bookType,
         EXPECTATIONS.FUSION_STONES.getExpectations()
       ) * 100
     const fsLine = `- ${fsOdds.toFixed(2)}% chances to draw **Fusion stones**`
@@ -98,7 +98,7 @@ export default {
     // If no specific target is provided, return all the odds for the given book
     // starting with fusion stones, and then going through rarities.
     if (!target) {
-      embed.addFields(...getEmbedFields(book))
+      embed.addFields(...getEmbedFields(bookType))
 
       return embed
     }
@@ -109,7 +109,7 @@ export default {
       const rarity = target.rarity.toUpperCase()
       const odds =
         getDrawingProbability(
-          book,
+          bookType,
           EXPECTATIONS['SPECIFIC_' + rarity].getExpectations(book.only)
         ) * 100
 
@@ -123,7 +123,7 @@ export default {
       return embed
     }
 
-    embed.addFields(...getEmbedFields(book))
+    embed.addFields(...getEmbedFields(bookType))
 
     return embed
   },

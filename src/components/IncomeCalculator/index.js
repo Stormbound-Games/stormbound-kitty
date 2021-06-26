@@ -12,6 +12,7 @@ import ResourceIcon from '../ResourceIcon'
 import Row from '../Row'
 import Title from '../Title'
 import { BRAWL_MILESTONES } from '../../constants/brawl'
+import { BOOKS } from '../../constants/game'
 import {
   Common,
   Rare,
@@ -23,6 +24,7 @@ import {
 } from '../Resource'
 import capitalise from '../../helpers/capitalise'
 import getActivityRewards from '../../helpers/getActivityRewards'
+import getBookName from '../../helpers/getBookName'
 import getBrawlRewards from '../../helpers/getBrawlRewards'
 import getClimbingRewards from '../../helpers/getClimbingRewards'
 import getHeroesLeagueRewards from '../../helpers/getHeroesLeagueRewards'
@@ -319,14 +321,11 @@ export default React.memo(function IncomeCalculator(props) {
                 onChange={event => setRubiesConversion(event.target.value)}
               >
                 <option value='NONE'>Nothing</option>
-                <option value='MYTHIC'>Mythic Books</option>
-                <option value='HEROIC'>Heroic Books</option>
-                <option value='CLASSIC'>Classic Books</option>
-                <option value='FELINE'>Feline Books</option>
-                <option value='ELDER'>Elder Books</option>
-                <option value='PIRATE'>Pirate Books</option>
-                <option value='DRAGON'>Dragon Books</option>
-                <option value='ARCHDRAGON'>Archdragon Books</option>
+                {Object.keys(BOOKS).map(bookType => (
+                  <option value={bookType} key={bookType}>
+                    {getBookName(bookType, true)}
+                  </option>
+                ))}
                 <option value='CARD_SHOP'>Card Shop Epics</option>
               </select>
             </Row.Column>
