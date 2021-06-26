@@ -63,6 +63,8 @@ const BookOpeningSimulator = props => {
     [book]
   )
 
+  React.useEffect(() => setCards([]), [bookType])
+
   return (
     <>
       <HeaderBanner
