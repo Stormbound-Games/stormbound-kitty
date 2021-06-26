@@ -199,7 +199,7 @@ export default React.memo(function GuideCardShop(props) {
       </p>
       <p>
         In most cases, if you want epics, saving up to buy a Heroic or Mythic
-        book is probably always the better investment. However, there are a few
+        Tome is probably always the better investment. However, there are a few
         epic cards that are very good and spending rubies on them is not wrong
         per se. It might be different from player to player, depending on taste
         and play-style, and you definitely shouldn’t spread your rubies too thin

@@ -16,7 +16,6 @@ const Resource = React.memo(function Resource({ amount, resource }) {
       {resource === 'HERO_CROWN' &&
         (amount === 1 ? 'Hero Crown' : 'Hero Crowns')}
       {resource === 'CROWN' && (amount === 1 ? 'crown' : 'crowns')}
-      {resource === 'MYTHIC' && (amount === 1 ? 'Mythic book' : 'Mythic books')}
       {resource === 'STONE' &&
         (amount === 1 ? 'fusion stone' : 'fusion stones')}
       {resource === 'COMMON' && (amount === 1 ? 'common card' : 'common cards')}

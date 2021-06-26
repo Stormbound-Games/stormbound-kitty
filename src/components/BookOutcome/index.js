@@ -6,7 +6,6 @@ import Info from '../Info'
 import Only from '../Only'
 import { Coins, Stones } from '../Resource'
 import getDrawingProbability from '../../helpers/getDrawingProbability'
-import capitalise from '../../helpers/capitalise'
 import getAverageStonesPerBook from '../../helpers/getAverageStonesPerBook'
 import getExpectedCoinsPerBook from '../../helpers/getExpectedCoinsPerBook'
 import getRawCardData from '../../helpers/getRawCardData'
@@ -14,9 +13,8 @@ import getBookName from '../../helpers/getBookName'
 import './index.css'
 
 const useExpectedCoins = book => {
-  const { hasDefaultCollection, collection } = React.useContext(
-    CollectionContext
-  )
+  const { hasDefaultCollection, collection } =
+    React.useContext(CollectionContext)
   const collectionWithRarity = React.useMemo(
     () =>
       collection.map(card => {
@@ -34,7 +32,7 @@ const useExpectedCoins = book => {
 }
 
 export default React.memo(function BookOutcome(props) {
-  const bookName = capitalise(props.book.toLowerCase())
+  const bookName = getBookName(props.book)
   const expectedCoins = useExpectedCoins(props.book)
   const subject = props.isAdvancedMode
     ? 'at least one of the cards you want'
@@ -64,11 +62,8 @@ export default React.memo(function BookOutcome(props) {
         ) : (
           <>
             <p>
-              Opening a{' '}
-              <strong className='Highlight'>
-                {getBookName(props.book)} book
-              </strong>{' '}
-              would yield:
+              Opening a <strong className='Highlight'>{bookName}</strong> would
+              yield:
             </p>
             <ul>
               <li>

@@ -9,7 +9,7 @@ export default React.memo(({ book }) => {
   return (
     <div className='BookExplanation'>
       <p>
-        A {getBookName(book)} book contains {draws} {qualifier}{' '}
+        A {getBookName(book)} contains {draws} {qualifier}{' '}
         {draws > 1 ? 'cards' : 'card'} and potentially some Fusion stones. It
         cannot yield more than a single copy of a single card.
       </p>

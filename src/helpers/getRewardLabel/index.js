@@ -8,6 +8,7 @@ import {
   Epic,
   Legendary,
 } from '../../components/Resource'
+import getBookName from '../../helpers/getBookName'
 
 const getRewardLabel = (entry, enhanced = false) => {
   const amount = entry.rewardAmount || entry.amount
@@ -25,22 +26,22 @@ const getRewardLabel = (entry, enhanced = false) => {
       ) : (
         `${amount} coin${amount === 1 ? '' : 's'}`
       )
-    case 'CLASSIC_BOOK':
-      return `${amount} Classic book${amount === 1 ? '' : 's'}`
     case 'FUSION_STONES':
       return enhanced ? (
         <Stones amount={amount} />
       ) : (
         `${amount} fusion stone${amount === 1 ? '' : 's'}`
       )
-    case 'HUMBLE_BOOK':
-      return `${amount} Humble Book${amount === 1 ? '' : 's'}`
     case 'NOBLE_BOOK':
-      return `${amount} Noble Book${amount === 1 ? '' : 's'}`
+    case 'CLASSIC_BOOK':
     case 'HEROIC_BOOK':
-      return `${amount} Heroic book${amount === 1 ? '' : 's'}`
     case 'MYTHIC_BOOK':
-      return `${amount} Mythic book${amount === 1 ? '' : 's'}`
+    case 'FELINE_BOOK':
+    case 'PIRATE_BOOK':
+    case 'DRAGON_BOOK':
+    case 'ARCHDRAGON_BOOK':
+    case 'HUMBLE_BOOK':
+      return `${amount} ${getBookName(entry.reward, amount !== 1)}`
     case 'COMMON_CARD':
       return enhanced ? (
         <Common amount={amount} />

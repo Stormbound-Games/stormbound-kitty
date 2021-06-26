@@ -1,11 +1,11 @@
 import getBookName from './'
 
 describe('The `getBookName` helper', () => {
-  it('should handle simple names', () => {
-    expect(getBookName('MYTHIC')).to.equal('Mythic')
+  it('should handle singular', () => {
+    expect(getBookName('MYTHIC')).to.equal('Mythic Tome')
   })
 
-  it('should handle multiple names', () => {
-    expect(getBookName('LEGENDARY_DRAGON')).to.equal('Legendary Dragon')
+  it('should handle plural', () => {
+    expect(getBookName('MYTHIC', true)).to.equal('Mythic Tomes')
   })
 })

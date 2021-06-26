@@ -42,7 +42,7 @@ const getDrawingProbability = (bookType, expectations) => {
   const { draws, percentiles } = BOOKS[bookType]
 
   // If an expected card is from a rarity that cannot be found in the given book
-  // (e.g. a common card in a Mythic book), set this rarity expectation to 0
+  // (e.g. a common card in a Mythic Tome), set this rarity expectation to 0
   expectations = expectations.map((expectation, index) =>
     percentiles[index] === 0 ? 0 : expectation
   )

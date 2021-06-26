@@ -20,7 +20,7 @@ const clamp = (min, value, max) => Math.min(Math.max(Number(value), 0), max)
 
 export default React.memo(function BooksCalculator(props) {
   const [isAdvancedMode, setIsAdvancedMode] = React.useState(false)
-  const [book, setBook] = React.useState('MYTHIC')
+  const [bookType, setBookType] = React.useState('MYTHIC')
   const [target, setTarget] = React.useState('FUSION_STONES')
   const [expectations, setExpectations] = React.useState([0, 0, 0, 0])
 
@@ -86,13 +86,13 @@ export default React.memo(function BooksCalculator(props) {
                 <select
                   id='book'
                   name='book'
-                  value={book}
-                  onChange={event => setBook(event.target.value)}
+                  value={bookType}
+                  onChange={event => setBookType(event.target.value)}
                   data-testid='book-select'
                 >
-                  {Object.keys(BOOKS).map(book => (
-                    <option key={book} value={book}>
-                      {getBookName(book)}
+                  {Object.keys(BOOKS).map(bookType => (
+                    <option key={bookType} value={bookType}>
+                      {getBookName(bookType)}
                     </option>
                   ))}
                 </select>
@@ -136,7 +136,7 @@ export default React.memo(function BooksCalculator(props) {
               <p>
                 Define how many different cards of any rarity you are looking
                 for to know the odds of finding at least some of them when
-                opening a {getBookName(book)} book.
+                opening a {getBookName(bookType)}.
               </p>
               <p>
                 For instance, if you’re looking for a copy of{' '}
@@ -199,9 +199,9 @@ export default React.memo(function BooksCalculator(props) {
         <Row.Column width='1/3'>
           <Title element='h2'>Outcome</Title>
 
-          <BookExplanation book={book} />
+          <BookExplanation book={bookType} />
           <BookOutcome
-            book={book}
+            book={bookType}
             target={target}
             isAdvancedMode={isAdvancedMode}
             expectations={expectations}
@@ -213,11 +213,11 @@ export default React.memo(function BooksCalculator(props) {
             <Image
               src={
                 '/assets/images/books/book-' +
-                book.toLowerCase().replace(/_/g, '-') +
+                bookType.toLowerCase().replace(/_/g, '-') +
                 '.png'
               }
               className='BooksCalculator__book'
-              alt={getBookName(book) + ' book'}
+              alt={getBookName(bookType)}
               withAvif
             />
           </Row.Column>

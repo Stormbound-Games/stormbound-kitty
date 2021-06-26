@@ -184,7 +184,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
         <ul>
           <li>
             <span className='Highlight'>Raining Cats</span> ($9.99): guaranteed
-            3 copies of each of the 6 rare and epic felines + 3 Classic books
+            3 copies of each of the 6 rare and epic felines + 3 Classic Tomes
           </li>
           <li>
             <span className='Highlight'>Edrik’s Army</span> ($19.99): 2 copies
@@ -209,7 +209,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
           </li>
           <li>
             <span className='Highlight'>Emblem of Heroism</span> ($49.99): 35
-            Heroic books
+            Heroic Tomes
           </li>
           <li>
             <span className='Highlight'>The Greatest Treasure</span> ($99.99):

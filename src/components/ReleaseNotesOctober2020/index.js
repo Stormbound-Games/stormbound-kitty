@@ -303,7 +303,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
             {
               id: 'milestone-1',
               question:
-                'Why the first Brawl milestone reward a Classic book and not a Humble book as usual?',
+                'Why the first Brawl milestone reward a Classic Tome and not a Humble book as usual?',
               answer:
                 'This is a minor bug and will stay like this for this week but will be fixed for the next Brawl.',
             },

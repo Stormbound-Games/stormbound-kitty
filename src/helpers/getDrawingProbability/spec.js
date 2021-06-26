@@ -18,13 +18,13 @@ describe.skip('The `getDrawingProbability` helper', () => {
     })
   })
 
-  it('should return 0 for a specific common card in a MYTHIC book', () => {
+  it('should return 0 for a specific common card in a Mythic Tome', () => {
     expect(getDrawingProbability('MYTHIC', [1, 0, 0, 0])).to.equal(0)
   })
-  it('should return 0 for a specific common card in a HEROIC book', () => {
+  it('should return 0 for a specific common card in a Heroic Tome', () => {
     expect(getDrawingProbability('HEROIC', [1, 0, 0, 0])).to.equal(0)
   })
-  it('should return 0 for a specific rare card in a MYTHIC book', () => {
+  it('should return 0 for a specific rare card in a Mythic Tome', () => {
     expect(getDrawingProbability('MYTHIC', [0, 1, 0, 0])).to.equal(0)
   })
 })

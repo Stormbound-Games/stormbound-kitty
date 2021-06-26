@@ -40,7 +40,7 @@ export default [
   {
     question: 'Which was the first prize Kepp ever proposed in his tournament?',
     answer: 'A Steam game',
-    options: ['Rubies', 'An artwork', 'A Mythic book', 'Nothing'],
+    options: ['Rubies', 'An artwork', 'A Mythic Tome', 'Nothing'],
   },
 
   {
@@ -811,7 +811,7 @@ export default [
 
   {
     question:
-      'What are the displayed odds of a card from a Mythic book being epic?',
+      'What are the displayed odds of a card from a Mythic Tome being epic?',
     answer: '70%',
     options: ['50%', '55%', '60%', '65%', '66.66%', '75%', '80%', '85%'],
   },
@@ -1277,7 +1277,7 @@ export default [
   },
 
   {
-    question: 'What are the odds of pulling Fusion Stones from a Mythic book?',
+    question: 'What are the odds of pulling Fusion Stones from a Mythic Tome?',
     answer: '17.86%',
     options: ['18.76%', '16.78%', '16.87%', '17.68%', '17.86%'],
   },
