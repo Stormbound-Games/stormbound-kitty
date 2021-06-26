@@ -1,6 +1,15 @@
 [
   {
     "date": "01/07/2021",
+    "description": "Ability made to work on friendly frozen units as well",
+    "id": "W8",
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, *destroy* all frozen enemies in front with *4/5/6/7/8 or less strength*. Gain *4 mana* for each unit destroyed."
+    }
+  },
+  {
+    "date": "01/07/2021",
     "description": "Mana and strength increased by 2 and ability made to count friendly units on the board",
     "id": "N79",
     "type": "MIXED",
