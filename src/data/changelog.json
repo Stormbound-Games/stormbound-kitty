@@ -1,6 +1,15 @@
 [
   {
     "date": "01/07/2021",
+    "description": "Ability made to possibly damage structures",
+    "id": "I1",
+    "type": "NERF",
+    "from": {
+      "ability": "On play, deal *1 damage* to another friendly unit"
+    }
+  },
+  {
+    "date": "01/07/2021",
     "description": "Ability made to only destroy the older copy",
     "id": "I29",
     "type": "BUFF",

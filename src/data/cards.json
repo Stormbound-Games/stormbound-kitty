@@ -1131,7 +1131,7 @@
     "mana": 2,
     "strength": "2/3/4/5/6",
     "movement": 1,
-    "ability": "On play, deal *1 damage* to another friendly unit"
+    "ability": "On play, deal *1 damage* to another friendly unit or structure"
   },
   {
     "name": "Doctor Mia",
