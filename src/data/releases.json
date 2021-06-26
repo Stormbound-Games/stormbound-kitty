@@ -1,5 +1,17 @@
 [
   {
+    "cardId": "N85",
+    "title": "Update 07-2021",
+    "name": "July Update",
+    "meta": "July 1st, 2021",
+    "date": "07/2021",
+    "excerpt": "July is already there, and with it new Stormbound release with new Brawls, a new card and balance tweaks!",
+    "slug": "07-2021",
+    "background": "/assets/images/banners/headless_banner.jpg",
+    "id": "07_2021",
+    "ratio": "50%"
+  },
+  {
     "cardId": "N35",
     "title": "Brawl Update",
     "name": "Brawl Update",
