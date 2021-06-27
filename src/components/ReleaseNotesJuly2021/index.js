@@ -159,7 +159,7 @@ export default React.memo(function ReleaseNotesJuly2021(props) {
 
         <ul>
           <li>
-            <span className='Highlight'>Pure amalgamation</span>: Both players
+            <span className='Highlight'>Pure Amalgamation</span>: Both players
             are forced to play the same deck (at the same levels), randomly
             composed of 6 cards of one player and 6 cards of the other. No
             duplicates, and the strongest card copy is preferred.
@@ -174,12 +174,12 @@ export default React.memo(function ReleaseNotesJuly2021(props) {
             are already 3 friendly units on the board.
           </li>
           <li>
-            <span className='Highlight'>Thin no-man’s land</span>: The initial
+            <span className='Highlight'>Thin No-Man’s Land</span>: The initial
             frontline starts on the second row instead of the first and cannot
             fall lower than the second row at any time.
           </li>
           <li>
-            <span className='Highlight'>Stunning attack</span>: Units get
+            <span className='Highlight'>Stunning Attack</span>: Units get
             confused on receiving any damage. This Brawl should be all about
             confusion.
           </li>
