@@ -6,6 +6,7 @@ import CTA from '../CTA'
 import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
 import Notice from '../Notice'
+import NumberInput from '../NumberInput'
 import PageMeta from '../PageMeta'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
@@ -78,21 +79,148 @@ const getCardsFromURL = id => {
   }
 }
 
+const CustomBookFields = ({
+  amount,
+  setAmount,
+  expectations,
+  setExpectations,
+}) => {
+  const setExpectation = React.useCallback(
+    (index, value) => {
+      setExpectations(expectations => [
+        ...expectations.slice(0, index),
+        value === '' ? '' : Number(value),
+        ...expectations.slice(index + 1),
+      ])
+    },
+    [setExpectations]
+  )
+  const setCommonExpectation = React.useCallback(
+    value => setExpectation(0, value),
+    [setExpectation]
+  )
+  const setRareExpectation = React.useCallback(
+    value => setExpectation(1, value),
+    [setExpectation]
+  )
+  const setEpicExpectation = React.useCallback(
+    value => setExpectation(2, value),
+    [setExpectation]
+  )
+  const setLegendaryExpectation = React.useCallback(
+    value => setExpectation(3, value),
+    [setExpectation]
+  )
+
+  return (
+    <>
+      <Row>
+        <Row.Column>
+          <label htmlFor='amount'>Amount of cards</label>
+          <input
+            type='number'
+            name='amount'
+            id='amount'
+            required
+            min={1}
+            max={15}
+            value={amount}
+            onChange={event => setAmount(+event.target.value)}
+          />
+        </Row.Column>
+      </Row>
+      <Row>
+        <Row.Column>
+          <label htmlFor='common'>Common (%)</label>
+          <NumberInput
+            name='common'
+            id='common'
+            min={0}
+            max={100}
+            onChange={setCommonExpectation}
+            value={expectations[0]}
+          />
+        </Row.Column>
+        <Row.Column>
+          <label htmlFor='rare'>Rare (%)</label>
+          <NumberInput
+            name='rare'
+            id='rare'
+            min={0}
+            max={100}
+            onChange={setRareExpectation}
+            value={expectations[1]}
+          />
+        </Row.Column>
+      </Row>
+      <Row>
+        <Row.Column>
+          <label htmlFor='epic'>Epic (%)</label>
+          <NumberInput
+            name='epic'
+            id='epic'
+            min={0}
+            max={100}
+            onChange={setEpicExpectation}
+            value={expectations[2]}
+          />
+        </Row.Column>
+        <Row.Column>
+          <label htmlFor='legendary'>Legendary (%)</label>
+          <NumberInput
+            name='legendary'
+            id='legendary'
+            min={0}
+            max={100}
+            onChange={setLegendaryExpectation}
+            value={expectations[3]}
+          />
+        </Row.Column>
+      </Row>
+    </>
+  )
+}
+
 const BookOpeningSimulator = props => {
   const history = useHistory()
   const { params } = useRouteMatch()
   const { viewportWidth } = useViewportSize()
   const container = React.useRef(null)
   const [bookType, setBookType] = React.useState('')
-  const book = bookType ? BOOKS[bookType] : null
   const [cards, setCards] = React.useState(getCardsFromURL(params.id))
+  const [amount, setAmount] = React.useState(1)
+  const [expectations, setExpectations] = React.useState([25, 25, 25, 25])
+
+  const isFormValid = React.useMemo(
+    () =>
+      bookType === 'CUSTOM'
+        ? expectations.reduce((a, b) => a + b, 0) === 100
+        : Boolean(bookType),
+    [bookType, expectations]
+  )
+
+  const reset = React.useCallback(() => {
+    setBookType('')
+    setCards([])
+    setAmount(1)
+    setExpectations([25, 25, 25, 25])
+  }, [])
 
   const open = React.useCallback(
     event => {
       event.preventDefault()
+
+      const book =
+        bookType !== 'CUSTOM'
+          ? BOOKS[bookType]
+          : {
+              draws: amount,
+              percentiles: expectations.map(expectation => expectation / 100),
+            }
+
       setCards(drawCards(book))
     },
-    [book]
+    [bookType, expectations, amount]
   )
 
   React.useEffect(() => {
@@ -111,6 +239,7 @@ const BookOpeningSimulator = props => {
         title='Book Simulator'
         background='/assets/images/wallpapers/lite/wp-d-6.png'
       />
+
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>What is this</Title>
@@ -135,10 +264,19 @@ const BookOpeningSimulator = props => {
                   {getBookName(bookType)} ({BOOKS[bookType].draws})
                 </option>
               ))}
+              <option value='CUSTOM'>Custom Book</option>
             </select>
+            {bookType === 'CUSTOM' && (
+              <CustomBookFields
+                amount={amount}
+                setAmount={setAmount}
+                expectations={expectations}
+                setExpectations={setExpectations}
+              />
+            )}
             <Row>
               <Row.Column>
-                <CTA type='submit' disabled={!bookType}>
+                <CTA type='submit' disabled={!isFormValid}>
                   Open
                 </CTA>
               </Row.Column>
@@ -146,10 +284,7 @@ const BookOpeningSimulator = props => {
                 <ResetButton
                   label='Reset'
                   confirm='Are you sure you want to reset the book?'
-                  reset={() => {
-                    setBookType('')
-                    setCards([])
-                  }}
+                  reset={reset}
                   disabled={cards.length === 0}
                 />
               </Row.Column>
