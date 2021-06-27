@@ -38,3 +38,22 @@
     margin-bottom: 1em;
   }
 }
+
+@media (max-width: 699px) {
+  .Video__image {
+    max-width: 70%;
+    margin-bottom: 1em;
+  }
+}
+
+@media (min-width: 700px) {
+  .Video .Column:first-child {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .Video .Column:first-child {
+    display: block;
+  }
+}
