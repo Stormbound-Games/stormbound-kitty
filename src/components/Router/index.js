@@ -428,6 +428,14 @@ export default function Router(props) {
 
           <Page
             exact
+            path='/simulators/books/:id'
+            active={['TOOLS', 'BOOK_SIMULATOR']}
+          >
+            <BookOpeningSimulator />
+          </Page>
+
+          <Page
+            exact
             path='/simulators/books'
             active={['TOOLS', 'BOOK_SIMULATOR']}
           >

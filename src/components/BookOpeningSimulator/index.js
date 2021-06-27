@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useRouteMatch, useHistory, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Card from '../Card'
 import CTA from '../CTA'
@@ -7,16 +7,38 @@ import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
+import ResetButton from '../ResetButton'
 import Row from '../Row'
+import ShareDialog from '../ShareDialog'
 import Title from '../Title'
 import arrayRandom from '../../helpers/arrayRandom'
 import getBookName from '../../helpers/getBookName'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isCardMatchingCriteria from '../../helpers/isCardMatchingCriteria'
+import serialisation from '../../helpers/serialisation'
 import useViewportSize from '../../hooks/useViewportSize'
 import cards from '../../data/cards'
 import { RARITIES, BOOKS } from '../../constants/game'
 import './index.css'
+
+const ShareButton = ({ disabled }) => (
+  <ShareDialog
+    label='Share book'
+    disabled={disabled}
+    image='/assets/images/cards/rogue_sheep.png'
+    style={{ margin: '1em auto 0' }}
+  >
+    <p>
+      Your book is automatically saved to the URL of the page as you open it.
+      You can safely reload the page, or bookmark it to come back to it later.
+    </p>
+
+    <p>
+      If you would like to share your book with others, you can easily do so
+      with the button below.
+    </p>
+  </ShareDialog>
+)
 
 const computeOdds = percentiles =>
   [0].concat(
@@ -48,12 +70,22 @@ const drawCards = book =>
     []
   )
 
+const getCardsFromURL = id => {
+  try {
+    return serialisation.cards.deserialise(id).map(getResolvedCardData)
+  } catch (error) {
+    return []
+  }
+}
+
 const BookOpeningSimulator = props => {
+  const history = useHistory()
+  const { params } = useRouteMatch()
   const { viewportWidth } = useViewportSize()
   const container = React.useRef(null)
   const [bookType, setBookType] = React.useState('')
   const book = bookType ? BOOKS[bookType] : null
-  const [cards, setCards] = React.useState([])
+  const [cards, setCards] = React.useState(getCardsFromURL(params.id))
 
   const open = React.useCallback(
     event => {
@@ -63,7 +95,15 @@ const BookOpeningSimulator = props => {
     [book]
   )
 
-  React.useEffect(() => setCards([]), [bookType])
+  React.useEffect(() => {
+    history.replace(
+      ['/simulators/books', serialisation.cards.serialise(cards)]
+        .filter(Boolean)
+        .join('/')
+        .toLowerCase()
+    )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cards])
 
   return (
     <>
@@ -98,19 +138,25 @@ const BookOpeningSimulator = props => {
             </select>
             <Row>
               <Row.Column>
-                <CTA type='submit'>Open</CTA>
+                <CTA type='submit' disabled={!bookType}>
+                  Open
+                </CTA>
               </Row.Column>
               <Row.Column>
-                <CTA
-                  type='button'
-                  disabled={cards.length === 0}
-                  onClick={() => {
+                <ResetButton
+                  label='Reset'
+                  confirm='Are you sure you want to reset the book?'
+                  reset={() => {
                     setBookType('')
                     setCards([])
                   }}
-                >
-                  Reset
-                </CTA>
+                  disabled={cards.length === 0}
+                />
+              </Row.Column>
+            </Row>
+            <Row>
+              <Row.Column>
+                <ShareButton disabled={cards.length === 0} />
               </Row.Column>
             </Row>
           </form>
