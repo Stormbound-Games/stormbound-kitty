@@ -9,8 +9,7 @@ import './index.css'
 export const VIDEOS = [
   {
     author: 'ThePopularEagle',
-    href:
-      'https://www.youtube.com/playlist?list=PLjem3bM4g6dU1c2PZnJcgYWZBd9eVMFpd',
+    href: 'https://www.youtube.com/playlist?list=PLjem3bM4g6dU1c2PZnJcgYWZBd9eVMFpd',
     thumbnail:
       'https://yt3.ggpht.com/a/AATXAJzYAkFSZZeww98CuTj3X5naRy3IK2x3rlWhCKtP=s176-c-k-c0x00ffffff-no-rj',
     description: (
@@ -90,8 +89,7 @@ export const VIDEOS = [
   },
   {
     author: 'LazyLotazo',
-    href:
-      'https://www.youtube.com/playlist?list=PLRZ8OyLIb3tOsqGHvXsGMEEFa4kDoKIsm',
+    href: 'https://www.youtube.com/playlist?list=PLRZ8OyLIb3tOsqGHvXsGMEEFa4kDoKIsm',
     thumbnail:
       'https://yt3.ggpht.com/a/AATXAJyt5PB_hzgoV8QYGG-JZKonctwJANaxYMpBqz4_Mw=s176-c-k-c0x00ffffff-no-rj',
     description: (
@@ -110,6 +108,18 @@ export const VIDEOS = [
       <p>
         Stratarts is an avid Spanish gamer and active member of the community
         who mainly uploads brawl videos.
+      </p>
+    ),
+  },
+  {
+    author: 'AlsterSkyreader',
+    href: 'https://www.youtube.com/channel/UCfcF-jWjMl9DjC8rUCV9ZKA',
+    thumbnail:
+      'https://yt3.ggpht.com/ytc/AAUvwnhtOU3oQj5cFMdhhypLS-rFCRwLQqjvNhSOVodO=s176-c-k-c0x00ffffff-no-rj',
+    description: (
+      <p>
+        Alster Skyreader is a winter rush player who consistenty plays in the
+        Heroes League and shares his matches on YouTube.
       </p>
     ),
   },
