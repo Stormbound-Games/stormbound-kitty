@@ -11,7 +11,12 @@ export default React.memo(function ShareDialog(props) {
 
   return (
     <>
-      <CTA onClick={open} type='button' disabled={props.disabled}>
+      <CTA
+        onClick={open}
+        type='button'
+        disabled={props.disabled}
+        style={props.style}
+      >
         {props.label}
       </CTA>
       <Dialog
