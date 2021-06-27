@@ -4,6 +4,7 @@ import Article from '../Article'
 import Icon from '../Icon'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import chunk from '../../helpers/chunk'
 import './index.css'
 
 export const VIDEOS = [
@@ -128,38 +129,42 @@ export const VIDEOS = [
 export default React.memo(function Videos(props) {
   return (
     <Article title='Videos'>
-      <Article.Narrow>
-        {VIDEOS.map(video => (
-          <section key={video.author} className='Video'>
-            <Row desktopOnly wideGutter>
-              <Row.Column width='1/3'>
-                <img
-                  src={video.thumbnail}
-                  alt={`${video.author}’s avatar`}
-                  className='Video__image'
-                />
-              </Row.Column>
-              <Row.Column width='2/3' style={{ justifyContent: 'center' }}>
-                <h2 className='Video__title'>
-                  <Link to={`/member/${video.author}`}>{video.author}</Link>
-                </h2>
-                {video.description}
-                <p>
-                  <Icon icon='arrow-right' className='Video__icon' />
-                  <a
-                    href={video.href}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='Video__link'
-                  >
-                    Visit {video.author}’s channel
-                  </a>
-                </p>
-              </Row.Column>
-            </Row>
-          </section>
-        ))}
-      </Article.Narrow>
+      {chunk(VIDEOS, 2).map((row, index) => (
+        <Row key={index} desktopOnly wideGutter>
+          {row.map(video => (
+            <Row.Column key={video.author}>
+              <section key={video.author} className='Video'>
+                <Row desktopOnly wideGutter>
+                  <Row.Column width='1/3'>
+                    <img
+                      src={video.thumbnail}
+                      alt={`${video.author}’s avatar`}
+                      className='Video__image'
+                    />
+                  </Row.Column>
+                  <Row.Column width='2/3' style={{ justifyContent: 'center' }}>
+                    <h2 className='Video__title'>
+                      <Link to={`/member/${video.author}`}>{video.author}</Link>
+                    </h2>
+                    {video.description}
+                    <p>
+                      <Icon icon='arrow-right' className='Video__icon' />
+                      <a
+                        href={video.href}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='Video__link'
+                      >
+                        Visit {video.author}’s channel
+                      </a>
+                    </p>
+                  </Row.Column>
+                </Row>
+              </section>
+            </Row.Column>
+          ))}
+        </Row>
+      ))}
 
       <PageMeta
         title='Videos'
