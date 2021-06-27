@@ -11,7 +11,7 @@ export default card => {
     return null
   }
 
-  const [displayId] = id.split('_')
+  const [displayId] = id.toUpperCase().split('_')
 
   // Find the card data from the given id, and return early if it wasn’t found
   const cardData = getRawCardData(displayId)
