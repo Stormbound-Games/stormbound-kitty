@@ -197,7 +197,7 @@ export default React.memo(function GuideD1SFCommons(props) {
         <CardLink id='F14' /> is such a versatile card that it has to take part
         in most Shadowfen decks, this one being no exception. At level 5, it can
         have up to 29 strength value for 4 mana in perfect conditions, and
-        easily averages between 11 and 17 value. That’s good to pass.
+        easily averages between 11 and 17 value. That’s too good to pass.
       </p>
 
       <h3 id='spells'>Spells</h3>
@@ -385,7 +385,7 @@ export default React.memo(function GuideD1SFCommons(props) {
 
       <p>
         It is critical to preserve high board presence at all cost. There is
-        usually no coming back from a board clear past 7 mana against a Winter
+        usually no coming back from a board clear past 8 mana against a Winter
         deck. We absolutely need to stay up front until turn mana 10/11 where we
         can start passing heavy runners in.
       </p>
