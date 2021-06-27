@@ -35,13 +35,14 @@ export const serialiseCards = cards => {
 // Exported for testing purposes
 export const deserialiseCards = string => {
   let count = 0
+
   // If the base64 decoded string contains commas, it was originally encoded
   // with the old serialisation system, and these commas need to be removed
   // for the new system to work.
   string = string.replace(/,/g, '')
 
   const cards = []
-  const factionRegex = /[NSFWIT]/
+  const factionRegex = /[NSFWIT]/i
   let globalLevel = null
 
   // If the ID starts with a number followed by a `x`, it uses the global level
