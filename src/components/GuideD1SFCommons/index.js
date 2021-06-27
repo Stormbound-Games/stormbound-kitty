@@ -418,7 +418,7 @@ export default React.memo(function GuideD1SFCommons(props) {
 
       <p>
         There are two archetypes of Swarm decks: early rush and control (which
-        is usually <CardLink id='S21' /> + <CardLink id='S28' />
+        usually involves <CardLink id='S21' /> and/or <CardLink id='S28' />
         ). It is helpful to try to guess early which kind of deck we’re facing.
       </p>
       <p>
