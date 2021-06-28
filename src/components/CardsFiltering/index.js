@@ -29,7 +29,14 @@ const DEFAULT_FILTERS = {
   elder: false,
 }
 
-const normaliseName = name => name.toLowerCase().replace(/['’ ]/g, '')
+const normaliseText = name =>
+  name
+    // Disregard differences in casing.
+    .toLowerCase()
+    // Disregard special characters such as commas, dots and apostrophes.
+    .replace(/['’,.]/g, '')
+    // Reduce multiple consecutive spaces into 1.
+    .replace(/\s+/g, ' ')
 
 const CardsFiltering = React.memo(function CardsFiltering(props) {
   const { viewportWidth } = useViewportSize()
@@ -88,10 +95,29 @@ const CardsFiltering = React.memo(function CardsFiltering(props) {
   // matches, it checks the name while replacing curly quotes with dumb quotes
   // for convenience.
   const matchesText = React.useCallback(
-    card =>
-      filters.text === '' ||
-      filters.text.toUpperCase() === abbreviate(card.name).toUpperCase() ||
-      normaliseName(card.name).includes(normaliseName(filters.text)),
+    card => {
+      // If the search does not include text search, consider it a match.
+      if (!filters.text) return true
+
+      const search = normaliseText(filters.text)
+      const abbreviation = abbreviate(card.name)
+      const name = normaliseText(card.name)
+      const ability = normaliseText(card.ability || '')
+
+      // if the search matches an abbreviation (regardless of casing), consider
+      // it a match.
+      if (search === abbreviation.toLowerCase()) return true
+
+      // If the normalised card name contains the search term, consider it a
+      // match.
+      if (name.includes(search)) return true
+
+      // If the search is long enough not to be a common abbreviation and the
+      // normalised card ability contains the search term, consider it a match.
+      if (search.length > 3 && ability.includes(search)) return true
+
+      return false
+    },
     [filters.text]
   )
 

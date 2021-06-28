@@ -173,14 +173,14 @@ export default React.memo(function CollectionFilters(props) {
                 </Only.CustomCollection>
               </Row.Column>
               <Row.Column>
-                <label htmlFor='text'>Name</label>
+                <label htmlFor='text'>Text</label>
                 <input
                   type='search'
                   name='text'
                   id='text'
                   value={props.text}
                   onChange={event => props.setText(event.target.value)}
-                  placeholder='e.g. Faun'
+                  placeholder='e.g. ‘Faun’ or ‘poison’'
                   data-testid='name-input'
                 />
               </Row.Column>
