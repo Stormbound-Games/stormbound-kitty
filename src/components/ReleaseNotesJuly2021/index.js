@@ -84,8 +84,7 @@ export default React.memo(function ReleaseNotesJuly2021(props) {
           <li>
             <CardLink id='S3' />
             ’s ability now considers bordering units (instead of surrounding
-            friendly units) and his strength is now 2/3/4/5/6 (up from
-            1/2/3/4/5).
+            enemies).
           </li>
           <li>
             <CardLink id='S29' /> no longer deals self-damage.
