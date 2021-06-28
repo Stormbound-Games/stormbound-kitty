@@ -39,7 +39,7 @@
   },
   {
     "date": "01/07/2021",
-    "description": "Ability made bordering and considering all units",
+    "description": "Ability made to considering all units instead of enemies only",
     "id": "S3",
     "type": "MIXED",
     "from": {

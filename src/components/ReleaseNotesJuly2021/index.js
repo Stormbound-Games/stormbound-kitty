@@ -83,7 +83,7 @@ export default React.memo(function ReleaseNotesJuly2021(props) {
           </li>
           <li>
             <CardLink id='S3' />
-            ’s ability now considers bordering units (instead of surrounding
+            ’s ability now considers surrounding units (instead of surrounding
             enemies).
           </li>
           <li>
