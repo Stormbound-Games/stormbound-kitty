@@ -119,13 +119,13 @@ export const BRAWLS = [
     id: 'THIN_NO_MANS_LAND',
     label: 'High frontline',
     title: 'Thin No-Man’s Land',
-    cardId: 'N67',
+    cardId: 'S17',
   },
   {
     id: 'STUNNING_ATTACK',
     label: 'Confusion on damage',
     title: 'Stunning attack',
-    cardId: 'N67',
+    cardId: 'N61',
   },
 ]
 
