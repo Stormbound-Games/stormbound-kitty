@@ -34,6 +34,14 @@ export default id => {
       return 'All *Undead* units benefit from an extra *+2 strength* on top of their initial strength.'
     case 'HERO_STRENGTH':
       return 'All *Hero* units benefit from an extra *+3 strength* on top of their initial strength.'
+    case 'PURE_AMALGAMATION':
+      return 'Both players use the same deck randomly made of 6 cards of each player’s initial deck.'
+    case 'FIGHTS_OF_THREES':
+      return 'There cannot be more than 3 friendly units on the board at all time.'
+    case 'THIN_NO_MANS_LAND':
+      return 'The frontline starts at and cannot be lower than the second row.'
+    case 'STUNNING_ATTACK':
+      return 'Units get confused on receiving any damage.'
     default:
       return null
   }

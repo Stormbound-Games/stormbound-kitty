@@ -103,6 +103,30 @@ export const BRAWLS = [
     title: 'Heroic Deeds',
     cardId: 'N8',
   },
+  {
+    id: 'PURE_AMALGAMATION',
+    label: 'Randomly merged deck',
+    title: 'Pure Amalgamation',
+    cardId: 'N48',
+  },
+  {
+    id: 'FIGHTS_OF_THREES',
+    label: 'Max 3 friendly units',
+    title: 'Fights of Threes',
+    cardId: 'N50',
+  },
+  {
+    id: 'THIN_NO_MANS_LAND',
+    label: 'High frontline',
+    title: 'Thin No-Man’s Land',
+    cardId: 'N67',
+  },
+  {
+    id: 'STUNNING_ATTACK',
+    label: 'Confusion on damage',
+    title: 'Stunning attack',
+    cardId: 'N67',
+  },
 ]
 
 export const BRAWL_INDEX = indexArray(BRAWLS)

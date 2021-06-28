@@ -38,20 +38,20 @@ export default () => {
           icon: 'bullhorn',
           items: [
             {
+              label: 'Update 07-2021',
+              to: '/releases/07-2021',
+              id: '07_2021',
+              new: true,
+            },
+            {
               label: 'Brawl update',
               to: '/releases/brawl-2021',
               id: 'brawl_2021',
-              new: true,
             },
             {
               label: 'Update 06-2021',
               to: '/releases/06-2021',
               id: '06_2021',
-            },
-            {
-              label: 'Update 05-2021',
-              to: '/releases/05-2021',
-              id: '05_2021',
             },
             {
               label: 'All Releases',

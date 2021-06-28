@@ -1,5 +1,76 @@
 [
   {
+    "date": "01/07/2021",
+    "description": "Ability made to work on friendly frozen units as well",
+    "id": "W8",
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, *destroy* all frozen enemies in front with *4/5/6/7/8 or less strength*. Gain *4 mana* for each unit destroyed."
+    }
+  },
+  {
+    "date": "01/07/2021",
+    "description": "Mana and strength increased by 2 and ability made to count friendly units on the board",
+    "id": "N79",
+    "type": "MIXED",
+    "from": {
+      "mana": 3,
+      "strength": "3/4/5/6/7",
+      "ability": "On play confuse the same number of surrounding enemies, as there are surrounding friendly units"
+    }
+  },
+  {
+    "date": "01/07/2021",
+    "description": "Ability made to force confused unit(s) to move",
+    "id": "N78",
+    "type": "BUFF",
+    "from": {
+      "ability": "On play, confuse up to *1/1/2/2/3* bordering enemy units"
+    }
+  },
+  {
+    "date": "01/07/2021",
+    "description": "Ability made to no longer inflict self-damage",
+    "id": "S29",
+    "type": "BUFF",
+    "from": {
+      "ability": "At the start of your turn, deconfuse and give *1* additional move to all friendly units in front. Deal *1 damage* to itself when boosted unit reaches the enemy base."
+    }
+  },
+  {
+    "date": "01/07/2021",
+    "description": "Ability made bordering and considering all units",
+    "id": "S3",
+    "type": "MIXED",
+    "from": {
+      "ability": "If played with no surrounding enemies, return the copy of this card to your hand with +1 strength"
+    }
+  },
+  {
+    "date": "01/07/2021",
+    "description": "Ability made to possibly damage structures",
+    "id": "I1",
+    "type": "NERF",
+    "from": {
+      "ability": "On play, deal *1 damage* to another friendly unit"
+    }
+  },
+  {
+    "date": "01/07/2021",
+    "description": "Ability made to only destroy the older copy",
+    "id": "I29",
+    "type": "BUFF",
+    "from": {
+      "ability": "When played with a friendly copy on the board, teleport *2/3/4/6/8* surrounding units from it, then destroy both temples. Otherwise, return to the hand."
+    }
+  },
+  {
+    "date": "01/07/2021",
+    "description": "Added to the game",
+    "id": "N85",
+    "type": "INFO"
+  },
+  {
     "date": "01/06/2021",
     "description": "Mana cost decreased by 1",
     "id": "N55",
