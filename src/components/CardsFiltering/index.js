@@ -34,7 +34,7 @@ const normaliseText = name =>
     // Disregard differences in casing.
     .toLowerCase()
     // Disregard special characters such as commas, dots and apostrophes.
-    .replace(/['’,.]/g, '')
+    .replace(/['’,.*]/g, '')
     // Reduce multiple consecutive spaces into 1.
     .replace(/\s+/g, ' ')
 
@@ -99,7 +99,7 @@ const CardsFiltering = React.memo(function CardsFiltering(props) {
       // If the search does not include text search, consider it a match.
       if (!filters.text) return true
 
-      const search = normaliseText(filters.text)
+      const search = filters.text
       const abbreviation = abbreviate(card.name)
       const name = normaliseText(card.name)
       const ability = normaliseText(card.ability || '')
@@ -113,8 +113,14 @@ const CardsFiltering = React.memo(function CardsFiltering(props) {
       if (name.includes(search)) return true
 
       // If the search is long enough not to be a common abbreviation and the
-      // normalised card ability contains the search term, consider it a match.
-      if (search.length > 3 && ability.includes(search)) return true
+      // normalised card ability match the search term, consider it a match.
+      if (search.length > 3) {
+        // Replace asterisk characters (`*`) with a greedy regular expression
+        // token, then make a regular expression from the search input.
+        const re = new RegExp(search.replace(/\*/g, '(.*?)'))
+
+        return ability.match(re)
+      }
 
       return false
     },
