@@ -92,7 +92,7 @@ export default React.memo(function ReleaseNotesJuly2021(props) {
           </li>
         </ul>
 
-        <NerfCompensationInfo ids={['I1', 'S3']} />
+        <NerfCompensationInfo ids={['I1']} />
 
         <Info icon='bullhorn' title='Card history'>
           <p>
@@ -159,28 +159,28 @@ export default React.memo(function ReleaseNotesJuly2021(props) {
 
         <ul>
           <li>
-            <span className='Highlight'>Pure Amalgamation</span>: Both players
-            are forced to play the same deck (at the same levels), randomly
-            composed of 6 cards of one player and 6 cards of the other. No
-            duplicates, and the strongest card copy is preferred. Say hello to{' '}
-            <span className='Highlight'>multi-faction decks</span>!
+            <Link to='/brawl/pure-amalgamation'>Pure Amalgamation</Link>: Both
+            players are forced to play the same deck (at the same levels),
+            randomly composed of 6 cards of one player and 6 cards of the other.
+            No duplicates, and the strongest card copy is preferred. Say hello
+            to <span className='Highlight'>multi-faction decks</span>!
           </li>
           <li>
-            <span className='Highlight'>Fights of Threes</span>: A player cannot
-            place more than 3 units on the board. Therefore, this Brawl will
-            encourage a careful balance of units, spells and structures to be
-            successful.
+            <Link to='/brawl/fights-of-threes'>Fights of Threes</Link>: A player
+            cannot place more than 3 units on the board. Therefore, this Brawl
+            will encourage a careful balance of units, spells and structures to
+            be successful.
             <br /> Interestingly, <CardLink id='N2' /> and <CardLink id='N50' />{' '}
             can be played but their tokens immediately get destroyed if there
             are already 3 friendly units on the board.
           </li>
           <li>
-            <span className='Highlight'>Thin No-Man’s Land</span>: The initial
-            frontline starts on the second row instead of the first and cannot
-            fall lower than the second row at any time.
+            <Link to='/brawl/thin-no-mans-land'>Thin No-Man’s Land</Link>: The
+            initial frontline starts on the second row instead of the first and
+            cannot fall lower than the second row at any time.
           </li>
           <li>
-            <span className='Highlight'>Stunning Attack</span>: Units get
+            <Link to='/brawl/stunning-attack'>Stunning Attack</Link>: Units get
             confused on receiving any damage. This Brawl should be all about
             confusion.
           </li>
