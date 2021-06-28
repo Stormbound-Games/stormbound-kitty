@@ -162,7 +162,8 @@ export default React.memo(function ReleaseNotesJuly2021(props) {
             <span className='Highlight'>Pure Amalgamation</span>: Both players
             are forced to play the same deck (at the same levels), randomly
             composed of 6 cards of one player and 6 cards of the other. No
-            duplicates, and the strongest card copy is preferred.
+            duplicates, and the strongest card copy is preferred. Say hello to{' '}
+            <span className='Highlight'>multi-faction decks</span>!
           </li>
           <li>
             <span className='Highlight'>Fights of Threes</span>: A player cannot
@@ -188,6 +189,11 @@ export default React.memo(function ReleaseNotesJuly2021(props) {
         <p>
           To celebrate these new Brawls, the Pure Amalgamation modifier will be
           issued on all difficulty levels on July 1st as a try out. Enjoy it!
+        </p>
+
+        <p>
+          On the topic of Brawls, the loss counter will be replaced with a heart
+          counter instead, in preparation for upcoming features.
         </p>
 
         <Title id='deck-slots'>Deck slots</Title>
