@@ -91,7 +91,7 @@ export default React.memo(function ReleaseNotesJuly2021(props) {
           </li>
         </ul>
 
-        <NerfCompensationInfo ids={['I1']} />
+        <NerfCompensationInfo ids={['I1', 'S3']} />
 
         <Info icon='bullhorn' title='Card history'>
           <p>
