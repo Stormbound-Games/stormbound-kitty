@@ -171,10 +171,13 @@ export const EXPECTATIONS = {
 
 export const CHIP_CARDS = [
   'I15',
+  'I28',
+  'N35',
   'N44',
   'F28',
   'S13',
   'S18',
+  'S22',
   'I19',
   'N45',
   'N81',
