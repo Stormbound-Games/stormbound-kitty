@@ -1,5 +1,10 @@
 [
   {
+    "intro": "July Update",
+    "description": "July is already there, and with it new Stormbound release with new Brawls, a new card and balance tweaks!",
+    "link": "/releases/07-2021"
+  },
+  {
     "intro": "Brawl Update",
     "description": "A small surprise release is out with some revamped Brawl!",
     "link": "/releases/brawl-2021"
