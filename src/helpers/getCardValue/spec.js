@@ -714,10 +714,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Excited Mouser', () => {
     const value1 = getCardValue('N79', 1)
     const value5 = getCardValue('N79', 5)
-    expect(value1[0]).to.equal((3 / 3) * 0.5)
-    expect(value1[1]).to.equal((3 / 3) * 0.5)
-    expect(value5[0]).to.equal((7 / 3) * 0.5)
-    expect(value5[1]).to.equal((7 / 3) * 0.5)
+    expect(value1[0]).to.equal((5 / 5) * 0.5)
+    expect(value1[1]).to.equal((5 / 5) * 0.5)
+    expect(value5[0]).to.equal((11 / 5) * 0.5)
+    expect(value5[1]).to.equal((11 / 5) * 0.5)
   })
 
   it('should return value for Destructobots', () => {
