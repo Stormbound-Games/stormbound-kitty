@@ -1,4 +1,5 @@
 import React from 'react'
+import Info from '../Info'
 import Guide from '../Guide'
 import Title from '../Title'
 import CardLink from '../CardLink'
@@ -22,6 +23,13 @@ export default React.memo(function GuideLegendaries(props) {
         We’ll also see when some legendary cards can be used for maximum
         potential.
       </p>
+
+      <Info icon='compass' title='Outdated guide'>
+        <p>
+          This guide has not been updated since its first release and might be
+          slightly outdated. Tread with caution.
+        </p>
+      </Info>
 
       <Title>Neutral</Title>
       <p>
