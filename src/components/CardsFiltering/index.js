@@ -117,7 +117,7 @@ const CardsFiltering = React.memo(function CardsFiltering(props) {
       if (search.length > 3) {
         // Replace asterisk characters (`*`) with a greedy regular expression
         // token, then make a regular expression from the search input.
-        const re = new RegExp(search.replace(/\*/g, '(.*?)'))
+        const re = new RegExp(search.replace(/\*/g, '(.*?)'), 'i')
 
         return ability.match(re)
       }
