@@ -100,6 +100,12 @@ SEARCH_INDEX.push({
 })
 
 SEARCH_INDEX.push({
+  path: `/simulators/books`,
+  label: 'Book Simulator',
+  breadcrumbs: ['Tools', 'Builders'],
+})
+
+SEARCH_INDEX.push({
   path: '/card/contest',
   label: 'Weekly Card Contest',
   breadcrumbs: ['Community', 'Contests'],

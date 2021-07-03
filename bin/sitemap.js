@@ -43,6 +43,7 @@ const links = [
   '/releases',
   '/sim',
   '/sim/puzzles',
+  '/simulators/books',
   '/stories',
   '/trivia',
   '/videos',
