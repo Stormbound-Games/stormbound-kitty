@@ -54,6 +54,11 @@ export default () => {
               id: '06_2021',
             },
             {
+              label: 'Update 05-2021',
+              to: '/releases/05-2021',
+              id: '05_2021',
+            },
+            {
               label: 'All Releases',
               to: '/releases',
               id: 'RELEASES',
@@ -93,6 +98,10 @@ export default () => {
               label: 'Backgrounds',
               to: '/fan-kit/backgrounds',
               id: 'BACKGROUNDS',
+            },
+            {
+              label: 'Sounds',
+              href: 'https://drive.google.com/drive/folders/1L94gIEyj0BEoIQWd7vS3NdKUg0W1uXI5',
             },
           ],
         },
