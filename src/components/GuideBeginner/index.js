@@ -389,7 +389,8 @@ export default React.memo(function GuideBeginner(props) {
         ’s eggs are actually structures until they hatch. This can be asserted
         by noticing the structure strength icon on the card. Because of this,
         they can be hatched by a <CardLink id='I2' /> (stolen with{' '}
-        <CardLink id='N38' />
+        <CardLink id='N38' /> or in the{' '}
+        <Link to='/brawl/pure-amalgamation'>Pure Amalgamation Brawl</Link>
         ), which hatches them on the same turn they were played on.
       </p>
       <p>
