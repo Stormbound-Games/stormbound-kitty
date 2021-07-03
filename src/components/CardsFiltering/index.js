@@ -99,7 +99,7 @@ const CardsFiltering = React.memo(function CardsFiltering(props) {
       // If the search does not include text search, consider it a match.
       if (!filters.text) return true
 
-      const search = filters.text
+      const search = filters.text.trim()
       const abbreviation = abbreviate(card.name)
       const name = normaliseText(card.name)
       const ability = normaliseText(card.ability || '')
