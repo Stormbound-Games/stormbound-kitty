@@ -103,6 +103,9 @@ const CardsFiltering = React.memo(function CardsFiltering(props) {
       const abbreviation = abbreviate(card.name)
       const name = normaliseText(card.name)
       const ability = normaliseText(card.ability || '')
+      // Replace asterisk characters (`*`) with a greedy regular expression
+      // token, then make a regular expression from the search input.
+      const re = new RegExp(search.replace(/\*/g, '(.*?)'), 'i')
 
       // if the search matches an abbreviation (regardless of casing), consider
       // it a match.
@@ -110,19 +113,11 @@ const CardsFiltering = React.memo(function CardsFiltering(props) {
 
       // If the normalised card name contains the search term, consider it a
       // match.
-      if (name.includes(search)) return true
+      if (name.match(re)) return true
 
       // If the search is long enough not to be a common abbreviation and the
       // normalised card ability match the search term, consider it a match.
-      if (search.length > 3) {
-        // Replace asterisk characters (`*`) with a greedy regular expression
-        // token, then make a regular expression from the search input.
-        const re = new RegExp(search.replace(/\*/g, '(.*?)'), 'i')
-
-        return ability.match(re)
-      }
-
-      return false
+      return search.length > 3 ? ability.match(re) : false
     },
     [filters.text]
   )
