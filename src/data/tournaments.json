@@ -824,5 +824,24 @@
         "id": "1xn1n6n8w5n18w7n69n34w16n46n68n57"
       }
     ]
+  },
+  {
+    "name": "Draftbound",
+    "type": "JOUST",
+    "hosts": [
+      "RecklessRush"
+    ],
+    "podium": [
+      "Helios",
+      "Emkaem",
+      "ThomasPetree"
+    ],
+    "date": "06/2021",
+    "description": "",
+    "decks": [
+      {
+        "id": "1xn1w2n8n24n63n21n65n60n38n44w17n57"
+      }
+    ]
   }
 ]
