@@ -311,10 +311,6 @@ export default [
                 <span className='Highlight'>not</span> something{' '}
               </li>
               <li>
-                Ability filters, such as looking for cards with a specific
-                ability (e.g. freeze, drain, chip…)
-              </li>
-              <li>
                 Level/status filters—right now the search is collection-agnostic
               </li>
             </ul>
