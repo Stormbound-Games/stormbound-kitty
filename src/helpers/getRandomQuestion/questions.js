@@ -1450,12 +1450,6 @@ export default [
       ),
   },
 
-  {
-    question: 'How to summon the Lungus?',
-    answer: ':Lungus:',
-    options: [':lungus:', ':sugnul:', ':lung:', ':lngs:', ':LUNGUS:'],
-  },
-
   () => {
     const mana = random(1, 9)
     const level = random(1, 5)
