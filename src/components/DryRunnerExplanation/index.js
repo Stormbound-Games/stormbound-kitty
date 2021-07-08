@@ -34,8 +34,7 @@ const CARD_ATTRIBUTES = {
   N48: 'Plays one or two spells from your hand, depending on her level',
   S21: 'Plays one or two Satyrs from your deck, depending on her level',
   W1: 'Can only be played when you have frozen enemy units this turn',
-  W8:
-    'Destroys frozen enemies and gain mana from them, depending on how many freezing cards were played this turn and your RNG level',
+  W8: 'Destroys frozen enemies and gain mana from them, depending on how many freezing cards were played this turn and your RNG level',
   W12: 'Gives back 3 mana',
   W10: 'Spends remaining mana to gain strength',
   W9: `Has a 0% / ${parseInt(
@@ -46,19 +45,17 @@ const CARD_ATTRIBUTES = {
   )}% / 100% chance of staying on the board and a 0% / ${parseInt(
     PROBABILITIES.DAWNSPARKS_HITS * 100
   )}% / 100% chance of giving you mana each turn`,
-  W19: 'Gives you between 9 and 13 mana, depending on its level',
+  W19: 'Gives you between 10 and 14 mana, depending on its level',
   N8: 'Adds a random token card to your deck',
   S3: `Comes back to your hand with a 0% / ${parseInt(
     PROBABILITIES.AHMI_RETURNS * 100
   )}% / 100% probability`,
-  F4:
-    'On turn one, can only be played when a friendly unit has previously been played',
+  F4: 'On turn one, can only be played when a friendly unit has previously been played',
   N15: 'Cannot be played without a friendly target unit',
   S10: 'Cannot be played without a target unit/structure',
   N9: 'Cannot be played without an enemy target unit',
   N63: 'Cannot be played without an enemy target unit',
-  F8:
-    'May fill up your base line on turn one, restricting the cards you can play after',
+  F8: 'May fill up your base line on turn one, restricting the cards you can play after',
 }
 
 export default function DryRunnerExplanation(props) {
