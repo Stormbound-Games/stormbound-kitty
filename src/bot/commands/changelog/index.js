@@ -31,7 +31,7 @@ export default {
 
     const embed = getEmbed()
       .setTitle(`${this.label}: ${card.name}`)
-      .setURL('https://stormbound-kitty.com/changelog')
+      .setURL(`https://stormbound-kitty.com/card/${card.id}/display`)
 
     const cardChanges = changelog.filter(change => change.id === card.id)
     const changesByDate = cardChanges.reduce(groupByDate, {})
