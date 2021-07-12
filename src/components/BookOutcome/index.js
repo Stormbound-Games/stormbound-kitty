@@ -96,7 +96,7 @@ export default React.memo(function BookOutcome(props) {
                       </strong>
                     </>
                   ) : (
-                    'No coins, because you cannot get copies for cards above level 5'
+                    'No coins, because your collection does not have cards level 5 yet'
                   )}
                 </li>
               </Only.CustomCollection>
