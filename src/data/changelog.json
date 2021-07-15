@@ -1,6 +1,17 @@
 [
   {
     "date": "01/08/2021",
+    "description": "Ability made to draw cards from the enemy’s hand",
+    "id": "N77",
+    "type": "BUFF",
+    "from": {
+      "mana": 6,
+      "strength": "2/3/4/5/7",
+      "ability": "On death, deal *1/1/2/2/2 damage* to all enemy units and structures. Add 0-1/1/1/1/2 damage for up to 1/2/2/3/3 Pirate in hand."
+    }
+  },
+  {
+    "date": "01/08/2021",
     "description": "Ability reworked and strength adjusted",
     "id": "N85",
     "type": "BUFF",
