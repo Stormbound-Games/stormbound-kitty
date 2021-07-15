@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { TIER_COLORS, MAX_TIERS } from '../../constants/list'
+import { TIER_COLORS } from '../../constants/list'
 import getInitialListData from '../../helpers/getInitialListData'
 import React from 'react'
 import Info from '../Info'
@@ -38,19 +38,11 @@ export default React.memo(function GuideLegendaries(props) {
 
       <Info icon='info' title='About Equals Meta'>
         <p>
-          This guide focuses on the scope of Ranked at the very early levels
-          (1-3). This guide is <span className='Highlight'>not</span> an
-          accurate representation of the{' '}
-          <span className='Highlight'>Equals</span> meta. For more information,
-          please visit the{' '}
-          <span className='Highlight'>
-            <Link to='/guides/equals-intro'>Intro to Equals</Link>
-          </span>{' '}
-          guide as well as the{' '}
-          <span className='Highlight'>
-            <Link to='/list/equals'>Equals Tier List</Link>
-          </span>
-          .
+          This guide focuses on the scope of low level Ranked. This guide is{' '}
+          <span className='Highlight'>not</span> an accurate representation of
+          the Equals meta. For more information, please visit the{' '}
+          <Link to='/guides/equals-intro'>Intro to Equals</Link> guide as well
+          as the <Link to='/list/equals'>Equals Tier List</Link>.
         </p>
       </Info>
 
@@ -64,29 +56,6 @@ export default React.memo(function GuideLegendaries(props) {
           isEditable={false}
         />
       ))}
-      {/*
-      <p>
-        The{' '}
-        <Link to='/list/S,N8N59N69N46S19F21;A,N58I2I17I22W8W23F12;B,N35N48S21W10F23;C,N77N76S3I29/display'>
-          legendaries tier list
-        </Link>{' '}
-        defines the tiers as follows:
-      </p>
-      <ul>
-        <li>
-          <span className='Highlight'>S</span> = Always usable
-        </li>
-        <li>
-          <span className='Highlight'>A</span> = Usable in most/some decks
-        </li>
-        <li>
-          <span className='Highlight'>B</span> = Usable in very few decks
-        </li>
-        <li>
-          <span className='Highlight'>C</span> = Never use
-        </li>
-      </ul>
-      */}
 
       <Title>S-Tier</Title>
 
@@ -116,7 +85,7 @@ export default React.memo(function GuideLegendaries(props) {
         value as <CardLink id='F12' />, yet getting at least 2 tokens is
         relatively easy, especially when baiting enemy placement using your own
         positioning. Playing this card against any deck that’s trying to win as
-        fast as possible is going to drastically increase your chances at
+        fast as possible is going to drastically increase your chances of
         winning.
       </p>
 
@@ -175,7 +144,7 @@ export default React.memo(function GuideLegendaries(props) {
         crazy value in long games. Not all of her eggs need to survive either to
         find success. The eggs force the opponent to make uncomfortable plays,
         which is always a good thing for you. Even if all the eggs were
-        destroyed or you managed to hatch only one, you still utilized 8
+        destroyed or you managed to hatch only one, you still utilised 8
         strength for 6 mana. That is more than cards like <CardLink id='I21' />!
         Qordia’s sturdy 5 strength body also serves as a powerful tool for
         clearing enemies. Lastly, her synergies with dragon cards are
@@ -437,11 +406,6 @@ export default React.memo(function GuideLegendaries(props) {
       <p>
         Special thanks to <Link to='/member/Derk'>Derk</Link> for helping with
         the tier list as well as a few of the entries and their polishing!
-      </p>
-
-      <p>
-        And as always, many thanks to <Link to='/member/Kitty'>Kitty</Link> for
-        her beautiful website :)
       </p>
     </Guide>
   )
