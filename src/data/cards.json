@@ -2634,7 +2634,7 @@
     "mana": 3,
     "strength": "3/4/5/6/7",
     "movement": null,
-    "ability": "At the start of your turn, vitalize 2/3/4/5/6 surrounding friendly units"
+    "ability": "At the start of your turn, *vitalize 1/2/2/3/3* friendly unit/units/units/units/units"
   },
   {
     "name": "Glacier Palace",
