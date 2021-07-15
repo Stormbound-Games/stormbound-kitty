@@ -1,6 +1,16 @@
 [
   {
     "date": "01/08/2021",
+    "description": "Ability reworked and strength adjusted",
+    "id": "N85",
+    "type": "BUFF",
+    "from": {
+      "strength": "2/3/5/6/7",
+      "ability": "At the start of your turn, give fixedly forward movement to a random non-Hero unit card from your hand, then kill all friendly confused units"
+    }
+  },
+  {
+    "date": "01/08/2021",
     "description": "Ability no longer surrounding",
     "id": "W29",
     "type": "BUFF",

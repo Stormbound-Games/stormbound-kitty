@@ -1116,9 +1116,9 @@
     "rarity": "common",
     "image": "temple_of_the_mind.png",
     "mana": 3,
-    "strength": "2/3/5/6/7",
+    "strength": "2/3/4/5/6",
     "movement": null,
-    "ability": "At the start of your turn, give fixedly forward movement to a random non-Hero unit card from your hand, then kill all friendly confused units"
+    "ability": "At the start of your turn, activate interaction: when a unit is dropped on it, give it *fixedly forward*, then *deal 1/2/3/4/5* damage to the weakest confused unit"
   },
   {
     "name": "Destructobots",
