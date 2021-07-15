@@ -1,5 +1,17 @@
 [
   {
+    "cardId": "N77",
+    "title": "Update 08-2021",
+    "name": "August Update",
+    "meta": "August 1st, 2021",
+    "date": "08/2021",
+    "excerpt": "August is already there, and with it new Stormbound release with new Brawls, a new card and balance tweaks!",
+    "slug": "08-2021",
+    "background": "/assets/images/releases/temple_of_the_mind.jpg",
+    "id": "08_2021",
+    "ratio": "50%"
+  },
+  {
     "cardId": "N85",
     "title": "Update 07-2021",
     "name": "July Update",
