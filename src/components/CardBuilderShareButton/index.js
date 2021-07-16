@@ -8,7 +8,11 @@ export default React.memo(function CardBuilderShareButton(props) {
   const [hideInterface, setHideInterface] = React.useState(false)
   // If copying only the stats without the link, process the URL as null.
   const processURL = url =>
-    mode === 'STATS' ? null : hideInterface ? url + '/display' : url
+    mode === 'STATS'
+      ? null
+      : hideInterface && !url.endsWith('/display')
+      ? url + '/display'
+      : url
 
   return (
     <ShareDialog

@@ -5,7 +5,8 @@ import './index.css'
 
 export default React.memo(function ListBuilderShareButton(props) {
   const [hideInterface, setHideInterface] = React.useState(false)
-  const processURL = url => (hideInterface ? url + '/display' : url)
+  const processURL = url =>
+    hideInterface && !url.endsWith('/display') ? url + '/display' : url
 
   return (
     <ShareDialog
