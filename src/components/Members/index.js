@@ -16,6 +16,7 @@ import puzzles from '../../data/puzzles'
 import tournaments from '../../data/tournaments'
 import swcc from '../../data/swcc'
 import chunk from '../../helpers/chunk'
+import { VIDEOS } from '../Videos'
 
 const uniq = (myArr, prop) =>
   myArr.filter(
@@ -36,6 +37,7 @@ const useMemberList = ({ name, type }) => {
   const stories = React.useContext(StoriesContext)
 
   return [
+    ...VIDEOS.map(addType('VIDEO')),
     ...stories.map(addType('STORY')),
     ...guides
       .map(guide => guide.authors)
@@ -127,6 +129,7 @@ export default React.memo(function Members(props) {
                 <option value='PODIUM'>Podiums</option>
                 <option value='PUZZLE'>Puzzles</option>
                 <option value='STORY'>Stories</option>
+                <option value='VIDEO'>Videos</option>
               </select>
             </Row.Column>
           </Row>
