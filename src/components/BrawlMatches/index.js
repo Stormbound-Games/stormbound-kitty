@@ -44,6 +44,7 @@ export default React.memo(function BrawlMatches(props) {
       opponentHealth: formData['opponent-health'],
       opponentFaction: formData['opponent-faction'],
       status: formData.status,
+      bonus: formData.bonus,
     })
 
     event.target.reset()
@@ -58,6 +59,7 @@ export default React.memo(function BrawlMatches(props) {
       opponentHealth: formData['opponent-health'],
       opponentFaction: formData['opponent-faction'],
       status: formData.status,
+      bonus: formData.bonus,
     })
     setEditedMatch(null)
   }

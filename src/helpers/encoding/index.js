@@ -5,7 +5,7 @@ import {
   RACES,
   CURRENCIES,
 } from '../../constants/game'
-import { MATCH_STATUSES } from '../../constants/brawl'
+import { MATCH_STATUSES, VICTORY_BONUSES } from '../../constants/brawl'
 
 const RACES_LONG = Object.keys(RACES)
 const RACES_SHORT = Object.values(RACES)
@@ -19,6 +19,8 @@ const CURRENCIES_LONG = Object.keys(CURRENCIES)
 const CURRENCIES_SHORT = Object.values(CURRENCIES)
 const MATCH_STATUSES_LONG = Object.keys(MATCH_STATUSES)
 const MATCH_STATUSES_SHORT = Object.values(MATCH_STATUSES)
+const VICTORY_BONUSES_LONG = Object.keys(VICTORY_BONUSES)
+const VICTORY_BONUSES_SHORT = Object.values(VICTORY_BONUSES).map(b => b.id)
 
 export const getShortFaction = faction =>
   FACTIONS_SHORT[FACTIONS_LONG.indexOf(faction)] || 'N'
@@ -46,3 +48,8 @@ export const getShortMatchStatus = status =>
   MATCH_STATUSES_SHORT[MATCH_STATUSES_LONG.indexOf(status)] || ''
 export const getLongMatchStatus = status =>
   MATCH_STATUSES_LONG[MATCH_STATUSES_SHORT.indexOf(status)] || ''
+
+export const getShortVictoryBonus = status =>
+  VICTORY_BONUSES_SHORT[VICTORY_BONUSES_LONG.indexOf(status)] || ''
+export const getLongVictoryBonus = status =>
+  VICTORY_BONUSES_LONG[VICTORY_BONUSES_SHORT.indexOf(status)] || ''

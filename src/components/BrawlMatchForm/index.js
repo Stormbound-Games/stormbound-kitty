@@ -1,5 +1,6 @@
 import React from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { BrawlContext } from '../BrawlProvider'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
 import useViewportSize from '../../hooks/useViewportSize'
@@ -7,6 +8,7 @@ import { VICTORY_BONUSES } from '../../constants/brawl'
 import './index.css'
 
 export default React.memo(function BrawlMatchForm(props) {
+  const { meta } = React.useContext(BrawlContext)
   const { viewportWidth } = useViewportSize()
   const [status, setStatus] = React.useState('')
   const [bonus, setBonus] = React.useState('')
@@ -94,12 +96,12 @@ export default React.memo(function BrawlMatchForm(props) {
           </select>
         </td>
         <td>
-          <label htmlFor='victory-bonus' className='VisuallyHidden'>
+          <label htmlFor='bonus' className='VisuallyHidden'>
             Victory bonus
           </label>
           <select
-            id='victory-bonus'
-            name='victory-bonus'
+            id='bonus'
+            name='bonus'
             form='add-match-form'
             disabled={!['WON', 'FORFEIT'].includes(status)}
             required={['WON', 'FORFEIT'].includes(status)}
@@ -108,7 +110,11 @@ export default React.memo(function BrawlMatchForm(props) {
           >
             <option value=''>Pick a bonus</option>
             {Object.keys(VICTORY_BONUSES).map(bonus => (
-              <option value={bonus} key={bonus}>
+              <option
+                value={bonus}
+                key={bonus}
+                disabled={!VICTORY_BONUSES[bonus].isAvailable(meta)}
+              >
                 {VICTORY_BONUSES[bonus].label}
               </option>
             ))}

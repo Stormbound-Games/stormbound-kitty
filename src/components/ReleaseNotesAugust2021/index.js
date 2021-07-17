@@ -263,8 +263,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             <span className='Highlight'>Iron Slot:</span> Picking this bonus
             will grant the player an extra heart slot (up to 5 heart slots in
             total). Once the player loses a life from this slot, the slots
-            destroys itself. It also destroys itself on progress reset or
-            reaching a higher milestone.
+            destroys itself. It also destroys itself on milestone reset.
           </li>
           <li>
             <span className='Highlight'>Solidify:</span> Picking this bonus will

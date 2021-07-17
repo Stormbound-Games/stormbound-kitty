@@ -209,13 +209,34 @@ export const CROWN_REWARDS = {
 export const CYCLE_START = new Date(2021, 3, 1, 9, 0)
 
 export const VICTORY_BONUSES = {
-  COINS: { label: 'Coins' },
-  RUBIES: { label: 'Rubies' },
-  FUSION_STONES: { label: 'Fusion stones' },
-  LIFE_UP: { label: '1 Life up' },
-  FORTRESS_LEVEL: { label: 'Fortress up' },
-  ALL_LIVES_UP: { label: 'All lives up' },
-  ICE_ARMOR: { label: 'Ice armor' },
-  IRON_SLOT: { label: 'Iron slot' },
-  GOLD_SLOT: { label: 'Gold solidify' },
+  COINS: { label: 'Coins', id: 'C', isAvailable: () => true },
+  RUBIES: { label: 'Rubies', id: 'R', isAvailable: () => true },
+  FUSION_STONES: { label: 'Fusion stones', id: 'FS', isAvailable: () => true },
+  FORTRESS_LEVEL: { label: 'Fortress up', id: 'FU', isAvailable: () => true },
+  LIFE_UP: {
+    label: '1 Life up',
+    id: 'LU',
+    isAvailable: ({ hearts }) => hearts.some(heart => !heart.isFull),
+  },
+  ALL_LIVES_UP: {
+    label: 'All lives up',
+    id: 'ALU',
+    isAvailable: ({ hearts }) => hearts.some(heart => !heart.isFull),
+  },
+  ICE_ARMOR: {
+    label: 'Ice armor',
+    id: 'IA',
+    isAvailable: meta =>
+      meta.hearts.some(heart => heart.isFull && !heart.isProtected),
+  },
+  IRON_SLOT: {
+    label: 'Iron slot',
+    id: 'IS',
+    isAvailable: ({ hearts }) => hearts.length < 5,
+  },
+  GOLD_SLOT: {
+    label: 'Gold solidify',
+    id: 'GS',
+    isAvailable: ({ hearts }) => hearts.some(heart => !heart.isPermanent),
+  },
 }
