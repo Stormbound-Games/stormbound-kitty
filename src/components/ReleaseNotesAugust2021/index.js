@@ -116,6 +116,34 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
       </Article.Embed>
 
       <Article.Narrow>
+        <Image
+          src='/assets/images/releases/pack_temple_of_time.png'
+          alt='Temple of Time ($9.99): 1 copy of Temple of Time, 5 fusions stones and 750 coins'
+          withAvif
+        />
+
+        <p>
+          As usual, there will be an exclusive pack to quickly get access to the
+          new card, for a week after its release date.
+        </p>
+
+        <p>
+          It will be available from August 2nd at $9.99, and will grant the
+          following :{' '}
+        </p>
+
+        <ul>
+          <li>
+            <ResourceIcon resource='COMMON' /> 1 copy of <CardLink id='N85' />
+          </li>
+          <li>
+            <Stones amount={5} />
+          </li>
+          <li>
+            <Coins amount={750} />
+          </li>
+        </ul>
+
         <Title id='brawl-bonuses'>Brawl bonuses</Title>
 
         <p>
