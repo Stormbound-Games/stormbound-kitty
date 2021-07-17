@@ -42,6 +42,10 @@ export default React.memo(function BrawlTracker(props) {
         <Row.Column width='1/3'>
           <Title>About your Brawl</Title>
           <BrawlOutcome income={income} />
+          <BrawlReset />
+        </Row.Column>
+        <Row.Column width='1/3'>
+          <Title>Setup</Title>
           <BrawlDifficultySelect
             value={props.difficulty}
             onChange={event => props.setDifficulty(event.target.value)}
@@ -52,7 +56,8 @@ export default React.memo(function BrawlTracker(props) {
             withPremiumPass={withPremiumPass}
             setWithPremiumPass={setWithPremiumPass}
           />
-          <BrawlReset />
+        </Row.Column>
+        <Row.Column width='1/3'>
           {guide ? (
             <div>
               <GuideTeaser {...guide} />
@@ -61,11 +66,10 @@ export default React.memo(function BrawlTracker(props) {
             <BrawlRecommendedDecks limit={1} columns={1} />
           )}
         </Row.Column>
-        <Row.Column width='2/3'>
-          <BrawlMatches difficulty={props.difficulty} />
-          <BrawlCharts income={income} />
-        </Row.Column>
       </Row>
+
+      <BrawlMatches difficulty={props.difficulty} />
+      <BrawlCharts income={income} />
     </div>
   )
 })
