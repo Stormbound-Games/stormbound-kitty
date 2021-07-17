@@ -24,6 +24,7 @@ export default React.forwardRef(function Image(props, ref) {
       src={props.src.replace('png', ext)}
       alt={props.alt || ''}
       className={props.className}
+      style={props.style}
       data-testid={props['data-testid']}
       onClick={props.onClick}
       onContextMenu={props.onContextMenu}

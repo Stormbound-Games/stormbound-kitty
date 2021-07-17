@@ -41,6 +41,9 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             <a href='#brawl-bonuses'>Brawl bonuses</a>
           </li>
           <li>
+            <a href='#daily-check-in-redeeming'>Daily check-in redeeming</a>
+          </li>
+          <li>
             <a href='#faq'>FAQ</a>
           </li>
         </ol>
@@ -114,6 +117,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
 
       <Article.Narrow>
         <Title id='brawl-bonuses'>Brawl bonuses</Title>
+
         <p>
           The second part of the new heart system will be introduced in late
           July in the form of Brawl winning bonuses.
@@ -148,7 +152,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             </p>
           </Row.Column>
           <Row.Column>
-            <img
+            <Image
               style={{ marginTop: 0 }}
               src='/assets/images/releases/brawl_bonuses_choice.jpg'
               alt=''
@@ -246,6 +250,29 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             it intact.
           </li>
         </ul>
+
+        <Title id='daily-check-in-redeeming'>Daily check-in redeeming</Title>
+
+        <Row desktopOnly wideGutter>
+          <Row.Column>
+            <p>
+              We are introducing a way to redeem some skipped days from the
+              daily check-in calendar for non-Premium users. Every day, you’ll
+              be able to redeem a skipped day reward by watching an ad.
+            </p>
+            <p>
+              We hope this will help players with a more sporadic involvement
+              with the game to still get all the rewards they need to progress.
+            </p>
+          </Row.Column>
+          <Row.Column>
+            <Image
+              style={{ marginTop: 0 }}
+              src='/assets/images/releases/check_in_redeem.jpg'
+              alt='Dialog window inviting the user to redeem a day from the daily check-in calendar or buy the Premium Pass'
+            />
+          </Row.Column>
+        </Row>
 
         <FAQSection
           id='faq'
