@@ -13,6 +13,7 @@ import Row from '../Row'
 import { Coins, Rubies, Stones } from '../Resource'
 import ResourceIcon from '../ResourceIcon'
 import Title from '../Title'
+import getInitialCardData from '../../helpers/getInitialCardData'
 import useViewportSize from '../../hooks/useViewportSize'
 import './index.css'
 
@@ -32,6 +33,9 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
         <ol style={{ columns: '16em' }}>
           <li>
             <a href='#balance-changes'>Balance changes</a>
+          </li>
+          <li>
+            <a href='#new-card'>New card</a>
           </li>
           <li>
             <a href='#brawl-bonuses'>Brawl bonuses</a>
@@ -99,6 +103,16 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
 
         <NerfCompensationInfo title='Compensation' ids={['N77']} />
 
+        <Title id='new-card'>New card</Title>
+
+        <p>Another temple card will come early August, the Temple of Time!</p>
+      </Article.Narrow>
+
+      <Article.Embed>
+        <CardBuilderCardDisplay {...getInitialCardData('N85')} />
+      </Article.Embed>
+
+      <Article.Narrow>
         <Title id='brawl-bonuses'>Brawl bonuses</Title>
         <p>
           The second part of the new heart system will be introduced in late
