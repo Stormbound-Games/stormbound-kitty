@@ -3,10 +3,17 @@ import { AnimatePresence, motion } from 'framer-motion'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
 import useViewportSize from '../../hooks/useViewportSize'
+import { VICTORY_BONUSES } from '../../constants/brawl'
 import './index.css'
 
 export default React.memo(function BrawlMatchForm(props) {
   const { viewportWidth } = useViewportSize()
+  const [status, setStatus] = React.useState('')
+  const [bonus, setBonus] = React.useState('')
+
+  React.useEffect(() => {
+    if (!['WON', 'FORFEIT'].includes(status)) setBonus('')
+  }, [status])
 
   return (
     <AnimatePresence exitBeforeEnter>
@@ -75,7 +82,8 @@ export default React.memo(function BrawlMatchForm(props) {
             required
             form='add-match-form'
             data-testid='outcome'
-            defaultValue={props.status}
+            value={status}
+            onChange={event => setStatus(event.target.value)}
           >
             <option value=''>Set game outcome</option>
             <option value='WON'>Won</option>
@@ -83,6 +91,27 @@ export default React.memo(function BrawlMatchForm(props) {
             <option value='DRAW'>Draw</option>
             <option value='SURRENDERED'>Forfeited</option>
             <option value='LOST'>Lost</option>
+          </select>
+        </td>
+        <td>
+          <label htmlFor='victory-bonus' className='VisuallyHidden'>
+            Victory bonus
+          </label>
+          <select
+            id='victory-bonus'
+            name='victory-bonus'
+            form='add-match-form'
+            disabled={!['WON', 'FORFEIT'].includes(status)}
+            required={['WON', 'FORFEIT'].includes(status)}
+            value={bonus}
+            onChange={event => setBonus(event.target.value)}
+          >
+            <option value=''>Pick a bonus</option>
+            {Object.keys(VICTORY_BONUSES).map(bonus => (
+              <option value={bonus} key={bonus}>
+                {VICTORY_BONUSES[bonus].label}
+              </option>
+            ))}
           </select>
         </td>
       </motion.tr>

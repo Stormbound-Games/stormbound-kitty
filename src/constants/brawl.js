@@ -207,3 +207,15 @@ export const CROWN_REWARDS = {
 }
 
 export const CYCLE_START = new Date(2021, 3, 1, 9, 0)
+
+export const VICTORY_BONUSES = {
+  COINS: { label: 'Coins' },
+  RUBIES: { label: 'Rubies' },
+  FUSION_STONES: { label: 'Fusion stones' },
+  LIFE_UP: { label: '1 Life up' },
+  FORTRESS_LEVEL: { label: 'Fortress up' },
+  ALL_LIVES_UP: { label: 'All lives up' },
+  ICE_ARMOR: { label: 'Ice armor' },
+  IRON_SLOT: { label: 'Iron slot' },
+  GOLD_SLOT: { label: 'Gold solidify' },
+}
