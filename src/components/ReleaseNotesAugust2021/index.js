@@ -93,17 +93,16 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
         <p>
           Quite uniquely, <CardLink id='N77' /> owners will be compensated with
           the usual rewards despite the card being reworked and overall buffed.
+          We decided to do so because you’re effectively “losing” a card you
+          might have invested your resources in.
         </p>
 
         <NerfCompensationInfo title='Compensation' ids={['N77']} />
 
         <Title id='brawl-bonuses'>Brawl bonuses</Title>
         <p>
-          The “hearts” counter has arguably worsen the Brawl experience for
-          players. This is because it should have been part of a broader update
-          around the Brawl progression system, which has been split in half
-          (regrettably so). The second part of that new system will be
-          introduced in August in the form of Brawl winning bonuses.
+          The second part of the new heart system will be introduced in late
+          July in the form of Brawl winning bonuses.
         </p>
 
         <Info icon='gift' title='Compensation'>
@@ -119,19 +118,19 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
         <Row desktopOnly>
           <Row.Column>
             <p>
-              The idea is that after <span className='Highlight'>every</span>{' '}
-              victory in Brawl, the player will be offered one of two random
-              bonuses, amongst a set of 9 different possible bonuses (see the
-              complete list below). Some of them will provide resources while
-              some will improve the player’s livelihood in Brawl by redeeming
-              and refilling hearts.
+              The idea is that after{' '}
+              <span className='Highlight'>every victory</span> in Brawl, the
+              player will be offered one of two random bonuses, amongst a set of
+              9 different possible bonuses (see the complete list below). Some
+              of them will provide resources while some will improve the
+              player’s livelihood in Brawl by redeeming and refilling hearts.
             </p>
             <p>
-              A player begins a Brawl tier with 3 full green hearts (just like
-              it is right now). When losing a match, a heart gets emptied (red).
-              If all hearts are empty, then the player’s crowns get reset to the
-              beginning of the current milestone. Many of the bonuses will help
-              the player not getting to that point though.
+              A player begins a Brawl adventure in the selected tier with 3 full
+              green hearts (just like it is right now). When losing a match, a
+              player loses one heart (it gets emptied and red). If all hearts
+              are lost, then the player’s crowns get reset to the beginning of
+              the current milestone.
             </p>
           </Row.Column>
           <Row.Column>
@@ -145,26 +144,6 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
 
         <CardsContainer>
           <div className='ReleaseNotesAugust2021__cards'>
-            <Image
-              src='/assets/images/iconography/brawl_COINS.png'
-              alt='Coins bonus'
-              className='ReleaseNotesAugust2021__card'
-            />
-            <Image
-              src='/assets/images/iconography/brawl_RUBIES.png'
-              alt='Rubies bonus'
-              className='ReleaseNotesAugust2021__card'
-            />
-            <Image
-              src='/assets/images/iconography/brawl_FUSION_STONES.png'
-              alt='Fusion stones bonus'
-              className='ReleaseNotesAugust2021__card'
-            />
-            <Image
-              src='/assets/images/iconography/brawl_FORTRESS_LEVEL.png'
-              alt='Fortress level bonus'
-              className='ReleaseNotesAugust2021__card'
-            />
             <Image
               src='/assets/images/iconography/brawl_LIFE_UP.png'
               alt='Life up bonus'
@@ -190,6 +169,26 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
               alt='Ice armor bonus'
               className='ReleaseNotesAugust2021__card'
             />
+            <Image
+              src='/assets/images/iconography/brawl_FORTRESS_LEVEL.png'
+              alt='Fortress level bonus'
+              className='ReleaseNotesAugust2021__card'
+            />
+            <Image
+              src='/assets/images/iconography/brawl_COINS.png'
+              alt='Coins bonus'
+              className='ReleaseNotesAugust2021__card'
+            />
+            <Image
+              src='/assets/images/iconography/brawl_RUBIES.png'
+              alt='Rubies bonus'
+              className='ReleaseNotesAugust2021__card'
+            />
+            <Image
+              src='/assets/images/iconography/brawl_FUSION_STONES.png'
+              alt='Fusion stones bonus'
+              className='ReleaseNotesAugust2021__card'
+            />
           </div>
         </CardsContainer>
 
@@ -199,10 +198,10 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           <li>
             <span className='Highlight'>Resources bonuses:</span> Picking these
             bonuses will immediately grant the player a certain amount of
-            resources, varying based on the Brawl difficulty.
+            resources, varying based on the Brawl difficulty and milestone.
           </li>
           <li>
-            <span className='Highlight'>Fortress bonus:</span> Picking this
+            <span className='Highlight'>Fortress Up bonus:</span> Picking this
             bonus will increase the Fortress Level of the player by 1 within the
             current Brawl difficulty and only for Brawl matches. It will not
             increase the Fortress Level beyond the cap for that Brawl. This
@@ -212,32 +211,25 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             <span className='Highlight'>Life/Lives Up bonuses:</span> Picking
             these bonuses will refill a heart (or all hearts), giving the player
             extra chances to climb the milestones without being reset to the
-            start of the current milestone. These bonuses cannot be found if all
-            hearts are currently full.
+            start of the current milestone.
           </li>
           <li>
-            <span className='Highlight'>Iron heart bonus:</span> Picking this
-            bonus will grant the player an extra heart (up to 5 at most), which
-            begins empty. Once filled (via a life up bonus), it grants the
-            player an extra life. If emptied again, that heart gets removed
-            entirely as it is not permanent. This bonus cannot be found if there
-            are already 5 hearts.
+            <span className='Highlight'>Iron Slot:</span> Picking this bonus
+            will grant the player an extra heart slot (up to 5 heart slots in
+            total). Once the player loses a life from this slot, the slots
+            destroys itself. It also destroys itself on progress reset or
+            reaching a higher milestone.
           </li>
           <li>
-            <span className='Highlight'>Gold solidify bonus:</span> Picking this
-            bonus will solidify an iron heart so it becomes permanent. It does
-            not change the heart status: if empty, it stays empty; if full, it
-            stays full. It just makes it permanent so the heart no longer
-            disappears after being emptied. From there on, the heart behaves
-            like the 3 starting ones. This bonus cannot be found if there is no
-            iron heart.
+            <span className='Highlight'>Solidify:</span> Picking this bonus will
+            make one of the player’s hearts indestructible. From there on, it
+            behaves like one of three default slots.
           </li>
           <li>
-            <span className='Highlight'>Ice armor bonus:</span> Picking this
-            bonus will apply an ice armor to a full heart, which protects it
-            from being emptied for one loss. After a loss, the ice armor gets
-            removed. This bonus cannot be found in there are no full unprotected
-            hearts.
+            <span className='Highlight'>Ice Armor:</span> Picking this bonus
+            will give an Ice Armor to the first full heart from the left. After
+            a loss, the Ice Armor gets destroyed while keeping the heart beneath
+            it intact.
           </li>
         </ul>
 
