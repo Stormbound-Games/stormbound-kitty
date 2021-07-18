@@ -93,5 +93,23 @@ export default ({ noBorder, withClear } = {}) => {
       backgroundSize: '0.75em',
       paddingLeft: '2.5em',
     }),
+
+    multiValueLabel: provided => ({
+      ...provided,
+      color: 'var(--beige)',
+      backgroundColor: 'var(--black)',
+      border: '1px solid',
+      borderRadius: '0.2em',
+      paddingRight: '0.5em',
+    }),
+
+    multiValueRemove: provided => ({
+      ...provided,
+      cursor: 'pointer',
+      backgroundColor: 'var(--beige)',
+      color: 'var(--black)',
+      borderTopLeftRadius: 0,
+      borderBottomLeftRadius: 0,
+    }),
   }
 }

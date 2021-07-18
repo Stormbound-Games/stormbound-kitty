@@ -50,8 +50,8 @@ const parseCSVData = data => {
     .filter(Boolean)
     .map(item => {
       // prettier-ignore
-      const [id, name, /* faction */, category] = item.split(',')
-      return { id, name, category, uuid: uuid() }
+      const [id, name, /* faction */, tags] = item.split(',')
+      return { id, name, tags: tags.split(' '), uuid: uuid() }
     })
 }
 

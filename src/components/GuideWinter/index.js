@@ -170,7 +170,7 @@ export default React.memo(function GuideWinter(props) {
               id='3xn3n11n12n16w5n18n28w12w13w15w19w21'
               name='Winterfell'
               author='WinterBoii'
-              category='HIGH_LEVELS'
+              tags={['HIGH_LEVELS']}
               faction='winter'
             />
           </Row.Column>

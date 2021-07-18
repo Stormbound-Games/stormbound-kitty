@@ -45,9 +45,12 @@ export default React.memo(function GuideSelfControl(props) {
 
       <Info icon='eye' title='Brawl Decks'>
         <p>
-          Check the{' '}<Link to='/deck/suggestions?category=BRAWL&brawl=SATYR_MOVEMENT'>
-          community-provided decks</Link> for this brawl. You might find a deck that 
-          suits you, or that you can base your own creation on.
+          Check the{' '}
+          <Link to='/deck/suggestions?tags=BRAWL%2CSATYR_MOVEMENT'>
+            community-provided decks
+          </Link>{' '}
+          for this brawl. You might find a deck that suits you, or that you can
+          base your own creation on.
         </p>
       </Info>
 
@@ -75,7 +78,7 @@ export default React.memo(function GuideSelfControl(props) {
               id='5xn1n2s1n3s24n4s2n67s3s14s9'
               name='Basic Swarm Rush'
               author='basically everyone'
-              category='BRAWL'
+              tags={['BRAWL']}
               faction='swarm'
               noAuthorLink
             />
@@ -109,7 +112,7 @@ export default React.memo(function GuideSelfControl(props) {
               id='5n15f45f35n35n44f84n674f55n634f105f144f17'
               name='Satyr’s Demise'
               author='CriticalPancake'
-              category='BRAWL'
+              tags={['BRAWL']}
               faction='shadowfen'
             />
           </Row.Column>

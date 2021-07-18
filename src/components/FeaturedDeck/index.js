@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { CATEGORIES } from '../../constants/deck'
 import { CollectionContext } from '../CollectionProvider'
 import Deck from '../Deck'
 import DiamondButton from '../DiamondButton'
 import Only from '../Only'
 import RarityBar from '../RarityBar'
 import { Stones } from '../Resource'
+import Tags from '../Tags'
 import TooltipedIcon from '../TooltipedIcon'
 import serialisation from '../../helpers/serialisation'
 import getDeckDistanceToMax from '../../helpers/getDeckDistanceToMax'
@@ -15,16 +15,15 @@ import resolveCollection from '../../helpers/resolveCollection'
 import modifyDeck from '../../helpers/modifyDeck'
 import './index.css'
 
-const useAdjustedDeck = ({ brawl, category, id, staticLevels }) => {
-  const { hasDefaultCollection, collection } = React.useContext(
-    CollectionContext
-  )
+const useAdjustedDeck = ({ brawl, tags, id, staticLevels }) => {
+  const { hasDefaultCollection, collection } =
+    React.useContext(CollectionContext)
   const deserialisedDeck = serialisation.deck.deserialise(id)
   const modifiedDeck = brawl
     ? modifyDeck(deserialisedDeck, brawl)
     : deserialisedDeck
 
-  if (hasDefaultCollection || category === 'EQUALS' || staticLevels) {
+  if (hasDefaultCollection || tags.includes('EQUALS') || staticLevels) {
     // The `id` does not have to be derivated from the `modifiedDeck` since a
     // deck id only carries the card IDs and levels, but nothing that can be
     // modified by a Brawl.
@@ -64,74 +63,69 @@ export default React.memo(function FeaturedDeck(props) {
         onClick={props.onClick}
         onClickLabel='Display card'
       />
+
       <div className='FeaturedDeck__rarity-bar'>
         <RarityBar deck={deck.map(card => getRawCardData(card.id))} />
       </div>
-      <span className='FeaturedDeck__name'>
-        <Link to={`/deck/${id}/detail`}>{props.name}</Link>
-        {props.nerfed ? (
-          <TooltipedIcon
-            label={`This deck was composed before the balance patch from ${props.nerfed}, therefore it might no longer be competitive.`}
-            icon='warning'
-            color='var(--confused)'
-          />
-        ) : null}
-        {distance ? (
-          <Only.CustomCollection>
-            <Only.Desktop>
+
+      <div className='FeaturedDeck__info'>
+        <div className='FeaturedDeck__meta'>
+          <span className='FeaturedDeck__name'>
+            <Link to={`/deck/${id}/detail`}>{props.name}</Link>
+            {props.nerfed ? (
               <TooltipedIcon
-                label={
-                  distance === Infinity ? (
-                    'You are missing some cards from this deck'
-                  ) : (
-                    <>
-                      Distance to maxed out deck: <Stones amount={distance} />
-                    </>
-                  )
-                }
-                icon='info'
+                label={`This deck was composed before the balance patch from ${props.nerfed}, therefore it might no longer be competitive.`}
+                icon='warning'
+                color='var(--confused)'
               />
-            </Only.Desktop>
-          </Only.CustomCollection>
-        ) : null}
-      </span>
-      <span className='FeaturedDeck__author'>
-        {CATEGORIES[props.category] ? (
-          <Link
-            to={{
-              pathname: '/deck/suggestions',
-              search: `?category=${props.category}`,
-            }}
-          >
-            {CATEGORIES[props.category]}
-          </Link>
-        ) : (
-          props.category
-        )}{' '}
-        deck
-        {props.author && (
-          <>
-            {' '}
-            by{' '}
-            {!props.noAuthorLink ? (
-              <Link to={`/member/${props.author}`}>{props.author}</Link>
-            ) : (
-              props.author
+            ) : null}
+            {distance ? (
+              <Only.CustomCollection>
+                <Only.Desktop>
+                  <TooltipedIcon
+                    label={
+                      distance === Infinity ? (
+                        'You are missing some cards from this deck'
+                      ) : (
+                        <>
+                          Distance to maxed out deck:{' '}
+                          <Stones amount={distance} />
+                        </>
+                      )
+                    }
+                    icon='info'
+                  />
+                </Only.Desktop>
+              </Only.CustomCollection>
+            ) : null}
+          </span>
+          <span className='FeaturedDeck__author'>
+            {props.author && (
+              <>
+                By{' '}
+                {!props.noAuthorLink ? (
+                  <Link to={`/member/${props.author}`}>{props.author}</Link>
+                ) : (
+                  props.author
+                )}{' '}
+                as
+              </>
             )}
-          </>
-        )}
-      </span>
-      {actions.length > 0 && (
-        <div className='FeaturedDeck__actions'>
-          {actions.map((action, index) =>
-            action['$$typeof'] ? (
-              <React.Fragment key={index}>{action}</React.Fragment>
-            ) : (
-              <DiamondButton key={index} {...action} />
-            )
-          )}
+            <Tags tags={props.tags} />
+          </span>
         </div>
-      )}
+        {actions.length > 0 && (
+          <div className='FeaturedDeck__actions'>
+            {actions.map((action, index) =>
+              action['$$typeof'] ? (
+                <React.Fragment key={index}>{action}</React.Fragment>
+              ) : (
+                <DiamondButton key={index} {...action} />
+              )
+            )}
+          </div>
+        )}
+      </div>
     </div>
   )
 })

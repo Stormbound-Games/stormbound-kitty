@@ -11,11 +11,10 @@ import './index.css'
 
 export default React.memo(function BrawlRecommendedDecks(props) {
   const { id } = React.useContext(BrawlContext)
-  const { hasDefaultCollection, collection } = React.useContext(
-    CollectionContext
-  )
+  const { hasDefaultCollection, collection } =
+    React.useContext(CollectionContext)
   const brawlDecks = decks
-    .filter(deck => deck.brawl === id)
+    .filter(deck => deck.tags.includes(id))
     .sort(
       sortDeckSuggestions(
         { hasDefaultCollection, collection },
@@ -33,7 +32,7 @@ export default React.memo(function BrawlRecommendedDecks(props) {
       <p className='BrawlRecommendedDecks__more'>
         <Icon icon='arrow-right' className='BrawlRecommendedDecks__icon' />{' '}
         Check more{' '}
-        <Link to={'/deck/suggestions?category=BRAWL&brawl=' + id}>
+        <Link to={'/deck/suggestions?tags=BRAWL%2C' + id}>
           decks for this brawl
         </Link>
       </p>

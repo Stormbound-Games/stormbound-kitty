@@ -10,11 +10,12 @@ import Row from '../Row'
 import Stats from '../DeckStats'
 import Title from '../Title'
 import { NotificationContext } from '../NotificationProvider'
-import { CATEGORIES } from '../../constants/deck'
+import { TAGS } from '../../constants/deck'
 import getDeckBuilderMetaTags from '../../helpers/getDeckBuilderMetaTags'
 import modifyDeck from '../../helpers/modifyDeck'
 import getDeckPresets from '../../helpers/getDeckPresets'
 import isSuggestedDeck from '../../helpers/isSuggestedDeck'
+import toSentence from '../../helpers/toSentence'
 import useViewportSize from '../../hooks/useViewportSize'
 import { BRAWL_INDEX } from '../../constants/brawl'
 
@@ -30,10 +31,10 @@ export default React.memo(function DeckDetailView(props) {
   const history = useHistory()
   const defaultModifier = getDefaultBrawlModifier(props.deck)
   const [modifier, setModifier] = React.useState(defaultModifier)
-  const deck = React.useMemo(() => modifyDeck(props.deck, modifier), [
-    modifier,
-    props.deck,
-  ])
+  const deck = React.useMemo(
+    () => modifyDeck(props.deck, modifier),
+    [modifier, props.deck]
+  )
   const suggestedDeck = isSuggestedDeck(props.deck) || {}
   const sendNotification = React.useCallback(
     message => notify({ icon: 'stack', children: message }),
@@ -51,15 +52,10 @@ export default React.memo(function DeckDetailView(props) {
     <Article
       title={suggestedDeck.name || 'Deck details'}
       author={suggestedDeck.author}
-      meta={
-        suggestedDeck.category
-          ? CATEGORIES[suggestedDeck.category] +
-            ' deck' +
-            (suggestedDeck.category === 'BRAWL'
-              ? ' (' + BRAWL_INDEX[suggestedDeck.brawl].title + ')'
-              : '')
-          : undefined
-      }
+      meta={toSentence(
+        suggestedDeck.tags.map(tag => TAGS[tag] || tag),
+        'and'
+      )}
       action={{ to: '/deck/' + props.deckId, children: 'Edit deck' }}
       smallFontSize
     >

@@ -7,20 +7,25 @@ export const PersonalDecksContext = React.createContext([])
 
 const STORAGE_KEY = 'sk.personal_decks'
 const ensureUUID = deck => (deck.uuid ? deck : { ...deck, uuid: uuid() })
+const resolveTags = deck =>
+  // Maintain backward compatibility with the old `category` key.
+  deck.tags ? deck : { ...deck, tags: [deck.category], category: undefined }
 
-const getCategoryFromId = id => {
+const getTagsFromId = id => {
   const cards = serialisation.deck.deserialise(id)
   const average =
     cards.map(card => card.level).reduce((a, b) => a + b, 0) / cards.length
 
-  if (average === 1) return 'EQUALS'
-  if (average >= 4) return 'HIGH_LEVELS'
-  return 'REGULAR'
+  if (average === 1) return ['EQUALS']
+  if (average >= 4) return ['HIGH_LEVELS']
+  return ['REGULAR']
 }
 
 const getInitialDecks = () => {
   try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)).map(ensureUUID)
+    return JSON.parse(localStorage.getItem(STORAGE_KEY))
+      .map(ensureUUID)
+      .map(resolveTags)
   } catch (error) {
     return []
   }
@@ -77,7 +82,10 @@ export default function PersonalDecksProvider(props) {
         uuid: deck.uuid || uuid(),
         id: deck.id,
         name: deck.name || 'Unnamed deck',
-        category: deck.category || getCategoryFromId(deck.id),
+        tags:
+          deck.tags && deck.tags.length > 0
+            ? deck.tags
+            : getTagsFromId(deck.id),
       },
     ])
   }
@@ -93,7 +101,7 @@ export default function PersonalDecksProvider(props) {
               uuid: deck.uuid,
               id: updatedDeck.id || deck.id,
               name: updatedDeck.name || deck.name,
-              category: updatedDeck.category || deck.category,
+              tags: updatedDeck.tags || deck.tags,
             }
           : deck
       )

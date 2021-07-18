@@ -42,27 +42,21 @@ class DeckSuggestions extends React.Component {
 
   getURLParameters = () => {
     const parameters = new URLSearchParams(window.location.search)
-    const brawl = parameters.get('brawl') || '*'
-    // If a specific Brawl is defined in URL parameters, set the category to
-    // `BRAWL`, otherwise read the category from the URL parameters if defined.
-    const category = brawl !== '*' ? 'BRAWL' : parameters.get('category') || '*'
+    const tags = parameters.get('tags')?.split(',') ?? []
 
     return {
-      category,
+      tags,
       faction: parameters.get('faction') || '*',
       author: parameters.get('author') || '*',
       including: parameters.get('including') || null,
-      // If the category is set to Brawl, read the specific Brawl from the URL
-      // parameters if defined, or display all Brawl decks otherwise.
-      brawl: category === 'BRAWL' ? brawl : '*',
     }
   }
 
   updateURLParameters = event => {
     const parameters = new URLSearchParams(window.location.search)
 
-    if (this.state.category === '*') parameters.delete('category')
-    else parameters.set('category', this.state.category)
+    if (this.state.tags.length === 0) parameters.delete('tags')
+    else parameters.set('tags', this.state.tags.join(','))
 
     if (this.state.faction === '*') parameters.delete('faction')
     else parameters.set('faction', this.state.faction)
@@ -73,17 +67,10 @@ class DeckSuggestions extends React.Component {
     if (this.state.including === null) parameters.delete('including')
     else parameters.set('including', this.state.including)
 
-    if (this.state.brawl === '*') parameters.delete('brawl')
-    else parameters.set('brawl', this.state.brawl)
-
     this.props.history.replace('?' + parameters.toString())
   }
 
-  updateCategory = category =>
-    this.setState(
-      state => ({ category, brawl: category !== 'BRAWL' ? '*' : state.brawl }),
-      this.updateURLParameters
-    )
+  updateTags = tags => this.setState({ tags }, this.updateURLParameters)
   updateFaction = faction =>
     this.setState({ faction }, this.updateURLParameters)
   updateAuthor = author => this.setState({ author }, this.updateURLParameters)
@@ -91,22 +78,16 @@ class DeckSuggestions extends React.Component {
     this.setState(
       {
         name,
-        category: '*',
+        tags: [],
         faction: '*',
         author: '*',
         including: null,
-        brawl: '*',
         order: this.props.hasDefaultCollection ? 'DATE' : 'FEASIBILITY',
       },
       this.updateURLParameters
     )
   updateIncluding = including =>
     this.setState({ including }, this.updateURLParameters)
-  updateBrawl = brawl =>
-    this.setState(
-      state => ({ brawl, category: brawl !== '*' ? 'BRAWL' : state.category }),
-      this.updateURLParameters
-    )
   updateOrder = order => this.setState({ order })
 
   debouncedUpdateName = debounce(this.updateName, 500)
@@ -120,8 +101,9 @@ class DeckSuggestions extends React.Component {
   matchesFaction = deck =>
     this.state.faction === '*' ||
     getFactionFromDeckID(deck.id) === this.state.faction
-  matchesCategory = deck =>
-    this.state.category === '*' || deck.category === this.state.category
+  matchesTags = deck =>
+    this.state.tags.length === 0 ||
+    this.state.tags.every(tag => deck.tags.includes(tag))
   matchesAuthor = deck =>
     this.state.author === '*' || deck.author === this.state.author
   matchesIncluding = deck =>
@@ -130,8 +112,6 @@ class DeckSuggestions extends React.Component {
       .deserialise(deck.id)
       .map(card => card.id)
       .includes(this.state.including)
-  matchesBrawl = deck =>
-    this.state.brawl === '*' || deck.brawl === this.state.brawl
 
   getDecks = () => {
     return (
@@ -141,11 +121,10 @@ class DeckSuggestions extends React.Component {
         // sorting it.
         .reverse()
         .filter(this.matchesFaction)
-        .filter(this.matchesCategory)
+        .filter(this.matchesTags)
         .filter(this.matchesAuthor)
         .filter(this.matchesName)
         .filter(this.matchesIncluding)
-        .filter(this.matchesBrawl)
         .sort(sortDeckSuggestions(this.props, this.state.order))
     )
   }
@@ -154,9 +133,8 @@ class DeckSuggestions extends React.Component {
     this.setState(
       {
         faction: '*',
-        category: '*',
+        tags: [],
         author: '*',
-        brawl: '*',
         name: '',
         including: null,
       },
@@ -176,12 +154,11 @@ class DeckSuggestions extends React.Component {
 
             <SuggestionsFilters
               {...this.state}
-              updateCategory={this.updateCategory}
+              updateTags={this.updateTags}
               updateFaction={this.updateFaction}
               updateAuthor={this.updateAuthor}
               updateName={this.debouncedUpdateName}
               updateIncluding={this.updateIncluding}
-              updateBrawl={this.updateBrawl}
               updateOrder={this.updateOrder}
               resetFilters={this.resetFilters}
               formRef={this.formRef}

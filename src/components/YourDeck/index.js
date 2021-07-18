@@ -12,7 +12,7 @@ export default React.memo(function YourDeck(props) {
       <YourDeckForm
         onSubmit={props.handleEdit}
         name={props.name}
-        category={props.category}
+        tags={props.tags}
         id={props.id}
         cancel={props.cancelEdit}
       />

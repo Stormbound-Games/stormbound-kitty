@@ -1,5 +1,5 @@
 import { FACTIONS } from '../../../constants/game'
-import { CATEGORIES } from '../../../constants/deck'
+import { TAGS } from '../../../constants/deck'
 import getDeckSearchDescription from '../../../helpers/getDeckSearchDescription'
 import getEmbed from '../../../helpers/getEmbed'
 import handleSearchAlias from '../../../helpers/handleSearchAlias'
@@ -14,12 +14,18 @@ export const parseMessage = content => {
   terms.forEach(term => {
     if (Object.keys(FACTIONS).includes(term)) {
       params.faction = term
-    } else if (Object.keys(CATEGORIES).includes(term.toUpperCase())) {
-      params.category = term.toUpperCase()
+    } else if (Object.keys(TAGS).includes(term.toUpperCase())) {
+      if (!params.tags) params.tags = []
+      params.tags.push(term.toUpperCase())
     } else {
       const [key, value] = handleSearchAlias(term)
-      if (key) params[key] = value
-      else unmatched.push(term)
+      if (key) {
+        if (Array.isArray(value)) {
+          if (!params[key]) params[key] = []
+          params[key].push(...value)
+        }
+        params[key] = value
+      } else unmatched.push(term)
     }
   })
 
@@ -46,7 +52,7 @@ export default {
       .setTitle(`${this.label}: help`)
       .setURL('https://stormbound-kitty.com/deck/suggestions')
       .setDescription(
-        `Get a link to a deck search matching the given search criteria. It optionally accepts a faction, category and card to include (regardless of order and casing). For instance, \`!${this.command} ic\`, \`!${this.command} wp d1\` or \`!${this.command} brawl kg\`.`
+        `Get a link to a deck search matching the given search criteria. It optionally accepts a faction, tags and card to include (regardless of order and casing). For instance, \`!${this.command} ic\`, \`!${this.command} wp d1\` or \`!${this.command} brawl kg\`.`
       )
   },
   handler: function (message) {
@@ -57,12 +63,7 @@ export default {
     // If no additional parameters were given, reply with the overall deck
     // suggestions page
     if (message.length === 0) {
-      embed.setDescription(
-        getDeckSearchDescription({
-          category: '*',
-          author: '*',
-        })
-      )
+      embed.setDescription(getDeckSearchDescription())
 
       return embed
     }
@@ -79,15 +80,7 @@ export default {
       (searchParams.toString().length ? '?' : '') +
       searchParams.toString()
 
-    embed.setDescription(
-      getDeckSearchDescription({
-        category: '*',
-        author: '*',
-        ...params,
-      }) +
-        '\n' +
-        url
-    )
+    embed.setDescription(getDeckSearchDescription(params) + '\n' + url)
 
     embed.setURL(url)
 

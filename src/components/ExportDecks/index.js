@@ -16,14 +16,14 @@ export default React.memo(function ExportDecks(props) {
   )
 
   const formatDeckAsCSV = decks => {
-    const headers = ['id', 'name', 'faction', 'category']
+    const headers = ['id', 'name', 'faction', 'tags']
     const data = [
       headers,
       ...decks.map(deck => [
         deck.id,
         deck.name,
         getFactionFromDeckID(deck.id),
-        deck.category,
+        deck.tags.join(' '),
       ]),
     ].join('\n')
 

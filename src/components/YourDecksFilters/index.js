@@ -1,23 +1,14 @@
 import React from 'react'
-import { CATEGORIES } from '../../constants/deck'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import FactionSelect from '../FactionSelect'
 import MobileTogglableContent from '../MobileTogglableContent'
 import Row from '../Row'
+import TagsSelect from '../TagsSelect'
 import './index.css'
-
-const unique = (value, index, array) => array.indexOf(value) === index
 
 export default React.memo(function YourDecksFilters(props) {
   const { decks } = React.useContext(PersonalDecksContext)
-  const categories = decks
-    // Look up whether a deck is from an existing category so that the category
-    // name is not displayed all uppercase in the filter.
-    .map(deck => CATEGORIES[deck.category] || deck.category)
-    .filter(unique)
-
-  const updateCategory = category =>
-    props.setFilters(filters => ({ ...filters, category }))
+  const updateTags = tags => props.setFilters(filters => ({ ...filters, tags }))
   const updateName = name => props.setFilters(filters => ({ ...filters, name }))
   const updateFaction = faction =>
     props.setFilters(filters => ({ ...filters, faction }))
@@ -40,35 +31,6 @@ export default React.memo(function YourDecksFilters(props) {
       >
         <Row>
           <Row.Column>
-            <FactionSelect
-              value={props.faction}
-              onChange={event => updateFaction(event.target.value)}
-              data-testid='decks-faction-select'
-              withAny
-            />
-          </Row.Column>
-          <Row.Column>
-            <label htmlFor='category'>Category</label>
-            <select
-              id='category'
-              name='category'
-              value={props.category}
-              onChange={event => updateCategory(event.target.value)}
-              data-testid='decks-category-select'
-              disabled={categories.length < 1}
-            >
-              <option value='*'>Any</option>
-              {categories.map(category => (
-                <option value={category} key={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
-          </Row.Column>
-        </Row>
-
-        <Row>
-          <Row.Column>
             <label htmlFor='name'>Name</label>
             <input
               type='search'
@@ -80,6 +42,30 @@ export default React.memo(function YourDecksFilters(props) {
               data-testid='decks-name-input'
             />
           </Row.Column>
+        </Row>
+        <Row>
+          <Row.Column>
+            <TagsSelect
+              tags={props.tags}
+              updateTags={updateTags}
+              isTagAvailable={tag =>
+                decks.some(deck => deck.tags.includes(tag))
+              }
+              id='tags'
+              name='tags'
+            />
+          </Row.Column>
+        </Row>
+
+        <Row>
+          <Row.Column>
+            <FactionSelect
+              value={props.faction}
+              onChange={event => updateFaction(event.target.value)}
+              data-testid='decks-faction-select'
+              withAny
+            />
+          </Row.Column>
           <Row.Column>
             <label htmlFor='order'>Order</label>
             <select
@@ -88,7 +74,6 @@ export default React.memo(function YourDecksFilters(props) {
               value={props.order}
               onChange={event => updateOrder(event.target.value)}
             >
-              <option value='CATEGORY'>Category</option>
               <option value='DATE'>Chronological</option>
               <option value='FACTION'>Faction</option>
               <option value='NAME'>Name</option>

@@ -18,9 +18,9 @@ This file you will edit is the one containing all the decks from the site. Techn
 
 - a `name`: the name of the deck
 - an `author`: your nickname
-- a `category`: either `HIGH_LEVELS`, `BRAWL`, `REGULAR` or `EQUALS`
 - an `id`: which can be found in the URL of the deck builder
 - a `date`: the month and year of the deck (e.g. `07/2021`)
+- some `tags`: at least one amongst `STARTER`, `REGULAR`, `HIGH_LEVELS`, `BRAWL`, `EQUALS`, `RUSH`, `CONTROL`, and the Brawl IDs (`DWARF_MANA`, `PIRATE_MANA`, `RAVEN_MOVEMENT`, `STRUCTURE_MANA`, `RODENT_STRENGTH`, `PIRATE_MOVEMENT`, `FELINE_STRENGTH`, `SATYR_MOVEMENT`, `SPELL_MANA`, `FROSTLING_STRENGTH`, `TOAD_MANA`, `ELDER_STRENGTH`, `CONSTRUCT_MOVEMENT`, `KNIGHT_MANA`, `DRAGON_MOVEMENT`, `UNDEAD_STRENGTH`, `HERO_STRENGTH`, `PURE_AMALGAMATION`, `FIGHTS_OF_THREES`, `THIN_NO_MANS_LAND`, `STUNNING_ATTACK`)
 
 > ❔ When creating your deck in the deck builder to have its identifier from the URL, please use all cards level 1 for a `EQUALS` deck, all cards level 3 for a `REGULAR` deck and all cards level 5 for a `HIGH_LEVELS` or `BRAWL` deck.
 
