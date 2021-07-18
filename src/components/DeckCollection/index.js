@@ -14,11 +14,13 @@ import getDeckIDFromURL from '../../helpers/getDeckIDFromURL'
 import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
 import './index.css'
 
+const toArray = value => (Array.isArray(value) ? value : [value])
+
 const getDeckFromForm = form => {
   const formData = serialize(form, { hash: true })
   formData.id = getDeckIDFromURL(formData.id)
   formData.faction = getFactionFromDeckID(formData.id)
-  formData.tags = Array.isArray(formData.tags) ? formData.tags : [formData.tags]
+  formData.tags = toArray(formData['deck-tags'])
   return formData
 }
 

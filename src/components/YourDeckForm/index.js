@@ -50,7 +50,13 @@ export default React.memo(function YourDeckForm(props) {
       </Row>
       <Row>
         <Row.Column>
-          <TagsSelect tags={tags} updateTags={updateTags} required />
+          <TagsSelect
+            tags={tags}
+            updateTags={updateTags}
+            required
+            id='deck-tags'
+            name='deck-tags'
+          />
         </Row.Column>
       </Row>
       <Row>

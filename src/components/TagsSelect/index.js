@@ -19,8 +19,8 @@ const TagsSelect = props => {
       <label htmlFor='tags'>Tags</label>
       <Select
         styles={styles}
-        id='tags'
-        name='tags'
+        id={props.id || 'tags-select'}
+        name={props.name || 'tags-select'}
         value={value}
         isMulti
         onChange={options =>
@@ -28,6 +28,7 @@ const TagsSelect = props => {
         }
         options={options}
         required={props.required}
+        data-testid='deck-tags-input'
       />
     </>
   )

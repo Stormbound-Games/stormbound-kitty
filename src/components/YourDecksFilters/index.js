@@ -51,6 +51,8 @@ export default React.memo(function YourDecksFilters(props) {
               isTagAvailable={tag =>
                 decks.some(deck => deck.tags.includes(tag))
               }
+              id='tags'
+              name='tags'
             />
           </Row.Column>
         </Row>

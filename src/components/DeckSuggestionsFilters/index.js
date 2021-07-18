@@ -44,7 +44,12 @@ export default React.memo(function DeckSuggestionsFilters(props) {
       >
         <Row>
           <Row.Column>
-            <TagsSelect tags={props.tags} updateTags={props.updateTags} />
+            <TagsSelect
+              tags={props.tags}
+              updateTags={props.updateTags}
+              id='tags'
+              name='tags'
+            />
           </Row.Column>
         </Row>
 
