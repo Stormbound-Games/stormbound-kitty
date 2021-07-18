@@ -52,10 +52,14 @@ export default React.memo(function DeckDetailView(props) {
     <Article
       title={suggestedDeck.name || 'Deck details'}
       author={suggestedDeck.author}
-      meta={toSentence(
-        suggestedDeck.tags.map(tag => TAGS[tag] || tag),
-        'and'
-      )}
+      meta={
+        suggestedDeck.tags
+          ? toSentence(
+              suggestedDeck.tags.map(tag => TAGS[tag] || tag),
+              'and'
+            )
+          : undefined
+      }
       action={{ to: '/deck/' + props.deckId, children: 'Edit deck' }}
       smallFontSize
     >
