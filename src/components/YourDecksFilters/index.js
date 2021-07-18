@@ -1,16 +1,13 @@
 import React from 'react'
-import Select from 'react-select'
-import { TAGS } from '../../constants/deck'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import FactionSelect from '../FactionSelect'
 import MobileTogglableContent from '../MobileTogglableContent'
 import Row from '../Row'
-import useSelectStyles from '../../hooks/useSelectStyles'
+import TagsSelect from '../TagsSelect'
 import './index.css'
 
 export default React.memo(function YourDecksFilters(props) {
   const { decks } = React.useContext(PersonalDecksContext)
-  const styles = useSelectStyles()
   const updateTags = tags => props.setFilters(filters => ({ ...filters, tags }))
   const updateName = name => props.setFilters(filters => ({ ...filters, name }))
   const updateFaction = faction =>
@@ -48,22 +45,12 @@ export default React.memo(function YourDecksFilters(props) {
         </Row>
         <Row>
           <Row.Column>
-            <label htmlFor='tags'>Tags</label>
-            <Select
-              styles={styles}
-              id='tags'
-              name='tags'
-              value={props.tags.map(value => ({ value, label: TAGS[value] }))}
-              isMulti
-              onChange={options =>
-                updateTags(options.map(option => option.value))
+            <TagsSelect
+              tags={props.tags}
+              updateTags={updateTags}
+              isTagAvailable={tag =>
+                decks.some(deck => deck.tags.includes(tag))
               }
-              options={Object.entries(TAGS)
-                .filter(([tag]) => decks.some(deck => deck.tags.includes(tag)))
-                .map(([value, label]) => ({
-                  value,
-                  label,
-                }))}
             />
           </Row.Column>
         </Row>

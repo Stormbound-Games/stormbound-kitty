@@ -1,6 +1,4 @@
 import React from 'react'
-import Select from 'react-select'
-import { TAGS } from '../../constants/deck'
 import decks from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
 import CardSelect from '../CardSelect'
@@ -8,7 +6,7 @@ import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
 import MobileTogglableContent from '../MobileTogglableContent'
 import Row from '../Row'
-import useSelectStyles from '../../hooks/useSelectStyles'
+import TagsSelect from '../TagsSelect'
 import './index.css'
 
 const getAuthors = () => {
@@ -31,7 +29,6 @@ export default React.memo(function DeckSuggestionsFilters(props) {
   const { hasDefaultCollection } = React.useContext(CollectionContext)
   const [name, updateName] = React.useState(props.name)
   const authors = React.useMemo(getAuthors, [])
-  const styles = useSelectStyles()
 
   return (
     <MobileTogglableContent
@@ -47,21 +44,7 @@ export default React.memo(function DeckSuggestionsFilters(props) {
       >
         <Row>
           <Row.Column>
-            <label htmlFor='tags'>Tags</label>
-            <Select
-              styles={styles}
-              id='tags'
-              name='tags'
-              value={props.tags.map(value => ({ value, label: TAGS[value] }))}
-              isMulti
-              onChange={options =>
-                props.updateTags(options.map(option => option.value))
-              }
-              options={Object.entries(TAGS).map(([value, label]) => ({
-                value,
-                label,
-              }))}
-            />
+            <TagsSelect tags={props.tags} updateTags={props.updateTags} />
           </Row.Column>
         </Row>
 
