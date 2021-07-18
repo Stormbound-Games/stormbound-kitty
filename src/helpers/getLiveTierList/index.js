@@ -34,7 +34,7 @@ const getLiveTierList = () => {
   decks.forEach(({ id, category }) => {
     // Do not take Brawl and Tournament decks into account as they would be
     // incorrectly skewing the popularity of cards
-    if (category === 'BRAWL' || category === 'TOURNAMENT') return
+    if (category === 'BRAWL' || category === 'EQUALS') return
 
     const deck = serialisation.deck.deserialise(id)
 
