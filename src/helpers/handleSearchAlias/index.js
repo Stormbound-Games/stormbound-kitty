@@ -28,6 +28,10 @@ export default term => {
     case 'tournament':
     case 'tourney':
       return ['tags', ['EQUALS']]
+    case 'casual':
+    case 'warrior':
+    case 'ultimate':
+      return ['tags', ['BRAWL']]
     default:
       return []
   }
