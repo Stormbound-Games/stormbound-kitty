@@ -170,7 +170,6 @@ const getCardValue = (id, level = 1) => {
       const value = parseAbility(ability)
       return [2 / mana, (value * 2) / mana]
     }
-    case 'I23': /* Armed Schemers */
     case 'N56': /* Temple Guardians */
     case 'N42': /* Lucky Charmers */ {
       return [
@@ -178,6 +177,7 @@ const getCardValue = (id, level = 1) => {
         ((strength + parseAbility(ability) * 3) / mana) * speed,
       ]
     }
+    case 'I23': /* Armed Schemers */
     case 'S9': /* Swarmcallers */
     case 'F5': /* Crimson Sentry */
     case 'N10': /* Conflicted Drakes */

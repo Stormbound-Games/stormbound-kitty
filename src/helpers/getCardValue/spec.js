@@ -940,9 +940,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('I23', 1)
     const value5 = getCardValue('I23', 5)
     expect(value1[0]).to.equal((6 / 6) * 0.5)
-    expect(value1[1]).to.equal(((6 + 3 * 3) / 6) * 0.5)
+    expect(value1[1]).to.equal(((6 + 3 * 4) / 6) * 0.5)
     expect(value5[0]).to.equal((12 / 6) * 0.5)
-    expect(value5[1]).to.equal(((12 + 7 * 3) / 6) * 0.5)
+    expect(value5[1]).to.equal(((12 + 7 * 4) / 6) * 0.5)
   })
 
   it('should return value for Mechanical Workers', () => {
