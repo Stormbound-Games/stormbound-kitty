@@ -7,7 +7,6 @@ export const UNVALUED_CARDS = [
   'N48',
   'N80',
   'N81',
-  'N82',
   'N83',
   'N84',
   'N85',

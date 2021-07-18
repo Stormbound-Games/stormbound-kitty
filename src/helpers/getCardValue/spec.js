@@ -720,6 +720,15 @@ describe('The `getCardValue` helper', () => {
     expect(value5[1]).to.equal((11 / 5) * 0.5)
   })
 
+  it('should return value for Flameless Lizards', () => {
+    const value1 = getCardValue('N82', 1)
+    const value5 = getCardValue('N82', 5)
+    expect(value1[0]).to.equal((7 / 5) * 0.5)
+    expect(value1[1]).to.equal((7 / 5) * 0.5)
+    expect(value5[0]).to.equal((16 / 5) * 0.5)
+    expect(value5[1]).to.equal((16 / 5) * 0.5)
+  })
+
   it('should return value for Destructobots', () => {
     const value1 = getCardValue('I1', 1)
     const value5 = getCardValue('I1', 5)
