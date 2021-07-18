@@ -430,12 +430,13 @@ export default [
           <>
             <p>
               The <Link to='/calculators/value'>value calculator</Link>, despite
-              efforts from Derk#7109, is not an accurate representation of
-              cards’ value. First of all, they are evaluated in isolation
-              instead of as part of a deck. Additionally, their value is based
-              on a single turn so structures and elders are undervalued.
-              Finally, a lot of cards cannot be statically valued without more
-              information about the state of the game.
+              efforts from <Link to='/member/Derk'>Derk</Link> (Derk#7109), is
+              not an accurate representation of cards’ value. First of all, they
+              are evaluated in isolation instead of as part of a deck.
+              Additionally, their value is based on a single turn so structures
+              and elders are undervalued. Finally, a lot of cards cannot be
+              statically valued without more information about the state of the
+              game.
             </p>
             <p>
               The basic formula for estimating the value of a card is to take
