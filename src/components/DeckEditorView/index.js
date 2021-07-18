@@ -28,6 +28,7 @@ import indexArray from '../../helpers/indexArray'
 import modifyDeck from '../../helpers/modifyDeck'
 import serialisation from '../../helpers/serialisation'
 import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
+import toSentence from '../../helpers/toSentence'
 import useViewportSize from '../../hooks/useViewportSize'
 import usePrevious from '../../hooks/usePrevious'
 import { TAGS } from '../../constants/deck'
@@ -51,8 +52,11 @@ const useModifiedDeck = deck => {
   // In case the deck is in fact a suggested deck, and a brawl deck at that, it
   // should be adjusted to reflect the brawl modifier. This is especially
   // important for mana brawls in order to display the correct card mana cost.
-  if (matchedDeck && matchedDeck.brawl) {
-    return modifyDeck(deck, matchedDeck.brawl)
+  if (matchedDeck) {
+    const brawl = matchedDeck.tags.find(tag =>
+      Object.keys(BRAWL_INDEX).includes(tag)
+    )
+    if (brawl) return modifyDeck(deck, brawl)
   }
 
   return deck
@@ -71,11 +75,10 @@ const useArticleProps = deck => {
   props.author = matchedDeck.author
 
   if (matchedDeck.tags) {
-    props.meta = matchedDeck.tags.map(tag => TAGS[tag] || tag)
-
-    if (matchedDeck.tags.includes('BRAWL')) {
-      props.meta += `(${BRAWL_INDEX[matchedDeck.brawl].title})`
-    }
+    props.meta = toSentence(
+      matchedDeck.tags.map(tag => TAGS[tag] || tag),
+      'and'
+    )
   } else if (id) {
     props.meta = getFactionFromDeckID(id) + ' deck'
   } else {

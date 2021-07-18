@@ -2,11 +2,9 @@ import capitalise from '../capitalise'
 import getRawCardData from '../getRawCardData'
 import toSentence from '../toSentence'
 import { TAGS } from '../../constants/deck'
-import { BRAWL_INDEX } from '../../constants/brawl'
 
 const getDeckSearchDescription = (state = {}) => {
   const cardData = getRawCardData(state.including)
-  const brawl = BRAWL_INDEX[state.brawl]
   const tags = state.tags || []
   const author = state.author || '*'
 
@@ -21,7 +19,6 @@ const getDeckSearchDescription = (state = {}) => {
           tags.map(tag => TAGS[tag] || tag),
           'and'
         )}`,
-    brawl ? `(${brawl.label})` : '',
     'suggested by',
     author !== '*' ? author : 'the Stormbound community',
   ]

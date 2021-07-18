@@ -32,9 +32,9 @@
     "id": "5xn1s1n3n67s6s8s11s13n35s28s21s22",
     "author": "Frostkhan",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "UNDEAD_STRENGTH"
     ],
-    "brawl": "UNDEAD_STRENGTH",
     "nerfed": "07/2020",
     "date": "03/2020"
   },
@@ -53,9 +53,9 @@
     "id": "5xn1n2i1n3n4i5i7i8i27i20i16i21",
     "author": "Frostkhan",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "CONSTRUCT_MOVEMENT"
     ],
-    "brawl": "CONSTRUCT_MOVEMENT",
     "date": "03/2020"
   },
   {
@@ -63,9 +63,9 @@
     "id": "5xn1f8n9f5f7f10f12f15f17f28n52n53",
     "author": "Frostkhan",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "TOAD_MANA"
     ],
-    "brawl": "TOAD_MANA",
     "date": "03/2020"
   },
   {
@@ -73,9 +73,9 @@
     "id": "5xn1n2s1n3s24n4s2n67s3n16s14s9",
     "author": "Kitty",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "SATYR_MOVEMENT"
     ],
-    "brawl": "SATYR_MOVEMENT",
     "date": "09/2020"
   },
   {
@@ -83,9 +83,9 @@
     "id": "5xn1n2i1i2i3n9i10i14i15i19n34n45",
     "author": "Frostkhan",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "STRUCTURE_MANA"
     ],
-    "brawl": "STRUCTURE_MANA",
     "date": "04/2020"
   },
   {
@@ -93,9 +93,9 @@
     "id": "5xn1n2f4f3n3f27f6f25f14f18f28f22",
     "author": "Frostkhan",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "RAVEN_MOVEMENT"
     ],
-    "brawl": "RAVEN_MOVEMENT",
     "date": "03/2020"
   },
   {
@@ -103,9 +103,9 @@
     "id": "5xn1i1i3n6i5n10i7i8i13i27i17n51",
     "author": "Frostkhan",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "DRAGON_MOVEMENT"
     ],
-    "brawl": "DRAGON_MOVEMENT",
     "date": "03/2020"
   },
   {
@@ -113,9 +113,9 @@
     "id": "5xn1n2i1i2i4i5n12i9i15i20i12i19",
     "author": "Frostkhan",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "RODENT_STRENGTH"
     ],
-    "brawl": "RODENT_STRENGTH",
     "date": "03/2020"
   },
   {
@@ -123,9 +123,9 @@
     "id": "5xn1w2n3n9n11w4w9w12n36w10w19n58",
     "author": "Frostkhan",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "FROSTLING_STRENGTH"
     ],
-    "brawl": "FROSTLING_STRENGTH",
     "nerfed": "07/2020",
     "date": "05/2020"
   },
@@ -134,9 +134,9 @@
     "id": "5xf8f4f2f3n3n8n59f12n69n35f23n58",
     "author": "Frostkhan",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "HERO_STRENGTH"
     ],
-    "brawl": "HERO_STRENGTH",
     "date": "03/2020"
   },
   {
@@ -153,9 +153,9 @@
     "id": "5xn1n2s1s2n9n13n21s13n29s18n34n45",
     "author": "Frostkhan",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "STRUCTURE_MANA"
     ],
-    "brawl": "STRUCTURE_MANA",
     "date": "04/2020"
   },
   {
@@ -163,9 +163,9 @@
     "id": "5xn1n2i1i2i3n14i10n21i14i19n34n45",
     "author": "Emkaem",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "STRUCTURE_MANA"
     ],
-    "brawl": "STRUCTURE_MANA",
     "date": "04/2020"
   },
   {
@@ -191,9 +191,9 @@
     "id": "5xn1n2n3n4n5n12n13n14n16n19n42w19",
     "author": "SeveralPeople",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "PIRATE_MOVEMENT"
     ],
-    "brawl": "PIRATE_MOVEMENT",
     "nerfed": "07/2020",
     "date": "04/2020"
   },
@@ -202,9 +202,9 @@
     "id": "5xn1f8n2f4f3n12n14n16n19n22n33n42",
     "author": "Frostkhan",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "PIRATE_MOVEMENT"
     ],
-    "brawl": "PIRATE_MOVEMENT",
     "date": "04/2020"
   },
   {
@@ -239,9 +239,9 @@
     "id": "5xn1n23n62n67n13w5n65w9n68w17w19n58",
     "author": "Frostkhan",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "FELINE_STRENGTH"
     ],
-    "brawl": "FELINE_STRENGTH",
     "nerfed": "07/2020",
     "date": "04/2020"
   },
@@ -259,9 +259,9 @@
     "id": "5xn1n2s24n4s2n63s3s6n13n15s14s9",
     "author": "SeveralPeople",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "SATYR_MOVEMENT"
     ],
-    "brawl": "SATYR_MOVEMENT",
     "date": "04/2020"
   },
   {
@@ -395,9 +395,9 @@
     "id": "5xn1n2s1n3n4s2n67s6s8s11s14s17",
     "author": "OneC",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "UNDEAD_STRENGTH"
     ],
-    "brawl": "UNDEAD_STRENGTH",
     "date": "06/2020"
   },
   {
@@ -432,9 +432,9 @@
     "id": "5xn1s1n3s2n8n9s3n13n59n35n46n58",
     "author": "Adig",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "HERO_STRENGTH"
     ],
-    "brawl": "HERO_STRENGTH",
     "date": "06/2020"
   },
   {
@@ -442,9 +442,9 @@
     "id": "5xn1n2s1n3n4s2n8s3s8n18s20n52",
     "author": "MooreFunn",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "HERO_STRENGTH"
     ],
-    "brawl": "HERO_STRENGTH",
     "date": "06/2020"
   },
   {
@@ -452,9 +452,9 @@
     "id": "5xn1s1n3n67n8s6n13n15n59n35n46n58",
     "author": "Novattack",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "HERO_STRENGTH"
     ],
-    "brawl": "HERO_STRENGTH",
     "date": "06/2020"
   },
   {
@@ -462,9 +462,9 @@
     "id": "5xn1n3n16w5w7n26n28w13n39w17w18w19",
     "author": "Kitty",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "DWARF_MANA"
     ],
-    "brawl": "DWARF_MANA",
     "date": "07/2020"
   },
   {
@@ -472,9 +472,9 @@
     "id": "5xn1w2n3n4n67n13w7w13n39w17w27w19",
     "author": "Neon",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "DWARF_MANA"
     ],
-    "brawl": "DWARF_MANA",
     "date": "07/2020"
   },
   {
@@ -482,9 +482,9 @@
     "id": "5xn1n3n4n9n14w7n26w13n39w17w18w19",
     "author": "SeveralPeople",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "DWARF_MANA"
     ],
-    "brawl": "DWARF_MANA",
     "date": "07/2020"
   },
   {
@@ -492,9 +492,9 @@
     "id": "5xn3n5n9n12n14n16n18n19n22n30n33n42",
     "author": "Kitty",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "PIRATE_MANA"
     ],
-    "brawl": "PIRATE_MANA",
     "date": "07/2020"
   },
   {
@@ -520,50 +520,50 @@
     "id": "5xw2n3n9n11n14w4w28w9w12w10w19n58",
     "author": "CriticalPancake",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "FROSTLING_STRENGTH"
     ],
-    "date": "10/2020",
-    "brawl": "FROSTLING_STRENGTH"
+    "date": "10/2020"
   },
   {
     "name": "Frosty Feline Dwarf",
     "id": "5xn1w2n3n9n14w4w9w12n68w17w19w23",
     "author": "Adig",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "FROSTLING_STRENGTH"
     ],
-    "date": "10/2020",
-    "brawl": "FROSTLING_STRENGTH"
+    "date": "10/2020"
   },
   {
     "name": "Die Die Die",
     "id": "5xn1n2s1n3s24s2n67s6n14n15s15s20",
     "author": "CriticalPancake",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "SPELL_MANA"
     ],
-    "date": "10/2020",
-    "brawl": "SPELL_MANA"
+    "date": "10/2020"
   },
   {
     "name": "Toad Spam",
     "id": "5xn2f4f2f3n3f5f8f10f11f17n40f22",
     "author": "OneC",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "SPELL_MANA"
     ],
-    "date": "10/2020",
-    "brawl": "SPELL_MANA"
+    "date": "10/2020"
   },
   {
     "name": "Cat Butcher",
     "id": "5xf4f3n3f8n62n67n66n61f10f14f17f20",
     "author": "CriticalPancake",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "FELINE_STRENGTH"
     ],
-    "date": "09/2020",
-    "brawl": "FELINE_STRENGTH"
+    "date": "09/2020"
   },
   {
     "name": "Avian Harvesters",
@@ -977,9 +977,9 @@
     "id": "5xn1i1n3i4n62i5n67i7n61n63i15i20",
     "author": "OVRDRV",
     "tags": [
-      "BRAWL"
+      "BRAWL",
+      "FROSTLING_STRENGTH"
     ],
-    "brawl": "FROSTLING_STRENGTH",
     "date": "06/2021"
   },
   {

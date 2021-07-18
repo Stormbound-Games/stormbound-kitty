@@ -1,7 +1,6 @@
 import React from 'react'
 import Select from 'react-select'
 import { TAGS } from '../../constants/deck'
-import { BRAWLS } from '../../constants/brawl'
 import decks from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
 import CardSelect from '../CardSelect'
@@ -75,18 +74,17 @@ export default React.memo(function DeckSuggestionsFilters(props) {
             />
           </Row.Column>
           <Row.Column>
-            <label htmlFor='brawl-modifier'>Brawl</label>
+            <label htmlFor='author'>Author</label>
             <select
-              id='brawl-modifier'
-              name='brawl-modifier'
-              value={props.brawl}
-              onChange={event => props.updateBrawl(event.target.value)}
-              disabled={!props.tags.includes('BRAWL')}
+              id='author'
+              name='author'
+              value={props.author}
+              onChange={event => props.updateAuthor(event.target.value)}
             >
               <option value='*'>Any</option>
-              {BRAWLS.map(brawl => (
-                <option value={brawl.id} key={brawl.id}>
-                  {brawl.label}
+              {authors.map(author => (
+                <option value={author} key={author}>
+                  {author}
                 </option>
               ))}
             </select>
@@ -125,22 +123,6 @@ export default React.memo(function DeckSuggestionsFilters(props) {
 
         <Row>
           <Row.Column>
-            <label htmlFor='author'>Author</label>
-            <select
-              id='author'
-              name='author'
-              value={props.author}
-              onChange={event => props.updateAuthor(event.target.value)}
-            >
-              <option value='*'>Any</option>
-              {authors.map(author => (
-                <option value={author} key={author}>
-                  {author}
-                </option>
-              ))}
-            </select>
-          </Row.Column>
-          <Row.Column>
             <label htmlFor='order'>Order</label>
             <select
               id='order'
@@ -155,21 +137,22 @@ export default React.memo(function DeckSuggestionsFilters(props) {
               </option>
             </select>
           </Row.Column>
+          <Row.Column>
+            <CTA
+              className='DeckSuggestionsFilters__CTA'
+              disabled={
+                props.author === '*' &&
+                props.tags.length === 0 &&
+                props.faction === '*' &&
+                !props.including &&
+                !props.name
+              }
+              onClick={props.resetFilters}
+            >
+              Reset
+            </CTA>
+          </Row.Column>
         </Row>
-        <CTA
-          className='DeckSuggestionsFilters__CTA'
-          disabled={
-            props.author === '*' &&
-            props.tags.length === 0 &&
-            props.faction === '*' &&
-            props.brawl === '*' &&
-            !props.including &&
-            !props.name
-          }
-          onClick={props.resetFilters}
-        >
-          Reset
-        </CTA>
       </form>
     </MobileTogglableContent>
   )

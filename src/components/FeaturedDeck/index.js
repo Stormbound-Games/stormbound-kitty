@@ -63,62 +63,69 @@ export default React.memo(function FeaturedDeck(props) {
         onClick={props.onClick}
         onClickLabel='Display card'
       />
+
       <div className='FeaturedDeck__rarity-bar'>
         <RarityBar deck={deck.map(card => getRawCardData(card.id))} />
       </div>
-      <span className='FeaturedDeck__name'>
-        <Link to={`/deck/${id}/detail`}>{props.name}</Link>
-        {props.nerfed ? (
-          <TooltipedIcon
-            label={`This deck was composed before the balance patch from ${props.nerfed}, therefore it might no longer be competitive.`}
-            icon='warning'
-            color='var(--confused)'
-          />
-        ) : null}
-        {distance ? (
-          <Only.CustomCollection>
-            <Only.Desktop>
+
+      <div className='FeaturedDeck__info'>
+        <div className='FeaturedDeck__meta'>
+          <span className='FeaturedDeck__name'>
+            <Link to={`/deck/${id}/detail`}>{props.name}</Link>
+            {props.nerfed ? (
               <TooltipedIcon
-                label={
-                  distance === Infinity ? (
-                    'You are missing some cards from this deck'
-                  ) : (
-                    <>
-                      Distance to maxed out deck: <Stones amount={distance} />
-                    </>
-                  )
-                }
-                icon='info'
+                label={`This deck was composed before the balance patch from ${props.nerfed}, therefore it might no longer be competitive.`}
+                icon='warning'
+                color='var(--confused)'
               />
-            </Only.Desktop>
-          </Only.CustomCollection>
-        ) : null}
-      </span>
-      <span className='FeaturedDeck__author'>
-        {props.author && (
-          <>
-            By{' '}
-            {!props.noAuthorLink ? (
-              <Link to={`/member/${props.author}`}>{props.author}</Link>
-            ) : (
-              props.author
-            )}{' '}
-            as
-          </>
-        )}
-        <Tags tags={props.tags} />
-      </span>
-      {actions.length > 0 && (
-        <div className='FeaturedDeck__actions'>
-          {actions.map((action, index) =>
-            action['$$typeof'] ? (
-              <React.Fragment key={index}>{action}</React.Fragment>
-            ) : (
-              <DiamondButton key={index} {...action} />
-            )
-          )}
+            ) : null}
+            {distance ? (
+              <Only.CustomCollection>
+                <Only.Desktop>
+                  <TooltipedIcon
+                    label={
+                      distance === Infinity ? (
+                        'You are missing some cards from this deck'
+                      ) : (
+                        <>
+                          Distance to maxed out deck:{' '}
+                          <Stones amount={distance} />
+                        </>
+                      )
+                    }
+                    icon='info'
+                  />
+                </Only.Desktop>
+              </Only.CustomCollection>
+            ) : null}
+          </span>
+          <span className='FeaturedDeck__author'>
+            {props.author && (
+              <>
+                By{' '}
+                {!props.noAuthorLink ? (
+                  <Link to={`/member/${props.author}`}>{props.author}</Link>
+                ) : (
+                  props.author
+                )}{' '}
+                as
+              </>
+            )}
+            <Tags tags={props.tags} />
+          </span>
         </div>
-      )}
+        {actions.length > 0 && (
+          <div className='FeaturedDeck__actions'>
+            {actions.map((action, index) =>
+              action['$$typeof'] ? (
+                <React.Fragment key={index}>{action}</React.Fragment>
+              ) : (
+                <DiamondButton key={index} {...action} />
+              )
+            )}
+          </div>
+        )}
+      </div>
     </div>
   )
 })
