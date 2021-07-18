@@ -25,6 +25,7 @@
     "tags": [
       "REGULAR"
     ],
+    "nerfed": "07-2021",
     "date": "02/2020"
   },
   {
@@ -269,8 +270,10 @@
     "id": "3xn1n3n67n73w5n18n75w24w13w16n39n45",
     "author": "Helios",
     "tags": [
-      "REGULAR"
+      "REGULAR",
+      "CONTROL"
     ],
+    "nerfed": "07-2020",
     "date": "05/2020"
   },
   {
@@ -388,6 +391,7 @@
     "tags": [
       "HIGH_LEVELS"
     ],
+    "nerfed": "03-2021",
     "date": "06/2020"
   },
   {
@@ -405,8 +409,10 @@
     "id": "5xn1i1n3n23i4n67n9i7i8i15n35i28",
     "author": "OneC",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "CONTROL"
     ],
+    "nerfed": "10-2020",
     "date": "06/2020"
   },
   {
@@ -511,7 +517,8 @@
     "id": "5xn1n2i1n3i4n63n67n12i7i8n16i20",
     "author": "The_Magi",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "RUSH"
     ],
     "date": "08/2020"
   },
@@ -572,6 +579,7 @@
     "tags": [
       "HIGH_LEVELS"
     ],
+    "nerfed": "12-2020",
     "date": "10/2020"
   },
   {
@@ -626,7 +634,8 @@
     "id": "5xn1n3n6n67n15n18n59f14n82f19f21n40",
     "author": "ArthisRoo",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "MIDRANGE"
     ],
     "date": "01/2021"
   },
@@ -635,7 +644,8 @@
     "id": "5xn1s1n3n67n59n21n29s15n35n44s22n48",
     "author": "ArthisRoo",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "CONTROL"
     ],
     "date": "01/2021"
   },
@@ -644,7 +654,8 @@
     "id": "5xn1s1n3n6n67s4n18n59s15n82s19s22",
     "author": "ArthisRoo",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "MIDRANGE"
     ],
     "date": "01/2021"
   },
@@ -681,7 +692,8 @@
     "id": "1xn1s1s24n6n8s4s6s11n25s19s28n46",
     "author": "Vox",
     "tags": [
-      "EQUALS"
+      "EQUALS",
+      "RUSH"
     ],
     "date": "02/2021"
   },
@@ -699,7 +711,8 @@
     "id": "5xn1w1w2n3n67n14w5w8n35w10w19w23",
     "author": "DaPoPeK",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "CONTROL"
     ],
     "date": "02/2021"
   },
@@ -708,7 +721,8 @@
     "id": "5xn2n3n9n23n63s10n21s13n29s18n44s22",
     "author": "MAK313",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "CONTROL"
     ],
     "date": "02/2021"
   },
@@ -735,7 +749,8 @@
     "id": "5xn1n2s1n3s24n4n67n18n59s15n36s19",
     "author": "Emkaem",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "CONTROL"
     ],
     "date": "03/2021"
   },
@@ -744,7 +759,8 @@
     "id": "5xn1n2n3i4i5n67i7n23n63i15i20i25",
     "author": "Davideg211",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "RUSH"
     ],
     "date": "03/2021"
   },
@@ -753,7 +769,8 @@
     "id": "5xn1n2f2f3n3n67f27n12n23f25f8f14",
     "author": "Davideg211",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "RUSH"
     ],
     "date": "03/2021"
   },
@@ -762,7 +779,8 @@
     "id": "5xn1i1i2n3i5n67i7i8i27i20n34n35",
     "author": "MisterP93",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "CONTROL"
     ],
     "date": "03/2021"
   },
@@ -771,7 +789,8 @@
     "id": "5xn1f3n3f8n67f5n23f12n29f28n44n48",
     "author": "MisterP93",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "CONTROL"
     ],
     "date": "03/2021"
   },
@@ -807,7 +826,8 @@
     "id": "3xn1n2s1n3s2n12s6n24n15s8s11s17",
     "author": "CryoPlasma",
     "tags": [
-      "REGULAR"
+      "REGULAR",
+      "RUSH"
     ],
     "date": "03/2021"
   },
@@ -816,7 +836,8 @@
     "id": "3xn1i1n3i4n62i5n61n63i20i25i28n39",
     "author": "CryoPlasma",
     "tags": [
-      "REGULAR"
+      "REGULAR",
+      "RUSH"
     ],
     "date": "03/2021"
   },
@@ -825,7 +846,8 @@
     "id": "3xn1s1n3s5s7s10s14n25s16s19s28s20",
     "author": "CryoPlasma",
     "tags": [
-      "REGULAR"
+      "REGULAR",
+      "MIDRANGE"
     ],
     "date": "03/2021"
   },
@@ -843,7 +865,8 @@
     "id": "5xn1s1n3s24s2n67s6n24n15s8n81s11",
     "author": "RecklessRush",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "RUSH"
     ],
     "date": "05/2021"
   },
@@ -852,7 +875,8 @@
     "id": "5xn1s1n3n23s7n81s10s14s15s16n69s21",
     "author": "ArthisRoo",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "CONTROL"
     ],
     "date": "05/2021"
   },
@@ -861,7 +885,8 @@
     "id": "5xn1n3n6n67f25n15f9n18n59f14f19f21",
     "author": "ArthisRoo",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "MIDRANGE"
     ],
     "date": "05/2021"
   },
@@ -870,7 +895,8 @@
     "id": "5xn1n3f8n6n23f25n18n59f12f19f21n40",
     "author": "ArthisRoo",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "MIDRANGE"
     ],
     "date": "05/2021"
   },
@@ -888,7 +914,8 @@
     "id": "3xw1n9n13n23w3n63n17n31w24w6n49n45",
     "author": "weseli003",
     "tags": [
-      "REGULAR"
+      "REGULAR",
+      "CONTROL"
     ],
     "date": "05/2021"
   },
@@ -897,7 +924,8 @@
     "id": "3xn1w1w2n3n14n81w5n25n38n57w19w22",
     "author": "CryoPlasma",
     "tags": [
-      "REGULAR"
+      "REGULAR",
+      "CONTROL"
     ],
     "date": "05/2021"
   },
@@ -924,7 +952,8 @@
     "id": "1xn1w1n9n24w3n63n21n31w24w6n34w14",
     "author": "weseli003",
     "tags": [
-      "EQUALS"
+      "EQUALS",
+      "CONTROL"
     ],
     "date": "05/2021"
   },
@@ -951,7 +980,8 @@
     "id": "3xn1i1n3n6n67n12i7i13i15i27n27n46",
     "author": "NofirmeeZ",
     "tags": [
-      "REGULAR"
+      "REGULAR",
+      "RUSH"
     ],
     "date": "06/2021"
   },
@@ -969,7 +999,8 @@
     "id": "3xn1f3n3f8f4n67f7f25f10f14n69f17",
     "author": "NofirmeeZ",
     "tags": [
-      "REGULAR"
+      "REGULAR",
+      "RUSH"
     ],
     "date": "06/2021"
   },
@@ -997,7 +1028,8 @@
     "id": "5xn1n2f3n3f4n67n12f25n16f12f14f21",
     "author": "theSINGULARITY",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "RUSH"
     ],
     "date": "06/2021"
   },
@@ -1006,7 +1038,8 @@
     "id": "5xn1n2s1n3s24s2n67s6n15s8s11n82",
     "author": "RecklessRush",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "RUSH"
     ],
     "date": "06/2021"
   },
@@ -1043,7 +1076,8 @@
     "id": "5xn1s1n3n67s3n23n18n25s15n69n68s23",
     "author": "ArthisRoo",
     "tags": [
-      "HIGH_LEVELS"
+      "HIGH_LEVELS",
+      "CONTROL"
     ],
     "date": "07/2021"
   },
@@ -1061,8 +1095,7 @@
     "id": "5xn1n3n67n14n23w5n29n60n44n48w19n58",
     "author": "Alster",
     "tags": [
-      "HIGH_LEVELS",
-      "EQUALS"
+      "HIGH_LEVELS"
     ],
     "date": "07/2021"
   }
