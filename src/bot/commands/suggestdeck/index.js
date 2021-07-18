@@ -20,7 +20,6 @@ export default {
   },
   handler: function (message) {
     const { params, ignored } = parseMessage(message.toLowerCase())
-    console.log(params)
     const embed = getEmbed().setTitle(`${this.label}`)
 
     if (Object.keys(params).length === 0) {
