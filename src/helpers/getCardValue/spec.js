@@ -729,7 +729,7 @@ describe('The `getCardValue` helper', () => {
     expect(value5[1]).to.equal((16 / 5) * 0.5)
   })
 
-  it.only('should return value for Eternal Ethereals', () => {
+  it('should return value for Eternal Ethereals', () => {
     const value1 = getCardValue('N84', 1)
     const value5 = getCardValue('N84', 5)
     expect(value1[0]).to.equal((5 / 8) * 1.75)
