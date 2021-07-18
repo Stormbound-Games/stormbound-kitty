@@ -46,7 +46,7 @@ export default React.memo(function GuideSelfControl(props) {
       <Info icon='eye' title='Brawl Decks'>
         <p>
           Check the{' '}
-          <Link to='/deck/suggestions?tags=BRAWL&brawl=SATYR_MOVEMENT'>
+          <Link to='/deck/suggestions?tags=BRAWL%2CSATYR_MOVEMENT'>
             community-provided decks
           </Link>{' '}
           for this brawl. You might find a deck that suits you, or that you can
