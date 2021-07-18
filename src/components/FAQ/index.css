@@ -12,17 +12,3 @@ ul.FAQ__toc-list.FAQ__toc-list {
   margin-bottom: 1.5em;
   padding-left: 0;
 }
-
-.FAQ__image {
-  display: block;
-  margin: 0 auto 1em;
-  max-width: 100%;
-}
-
-@media (min-width: 1000px) {
-  .FAQ__image {
-    margin: 0 auto;
-    max-width: 50%;
-    float: right;
-  }
-}

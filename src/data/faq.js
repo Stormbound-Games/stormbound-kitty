@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Image from '../components/Image'
 import CardLink from '../components/CardLink'
 import DryRunnerExplanation from '../components/DryRunnerExplanation'
 import getRawCardData from '../helpers/getRawCardData'
@@ -16,11 +15,6 @@ export default [
         question: 'How can I contribute/help?',
         answer: (
           <>
-            <Image
-              src='/assets/images/kitty.png'
-              alt='Kitty Sparkles by Hurricane Sunny'
-              className='FAQ__image'
-            />
             <p>
               First of all, thank you for using Stormbound Kitty, it means a
               lot. If you’d like to help, please kindly report any bug or oddity
@@ -29,9 +23,11 @@ export default [
               small contribution counts. 💖
             </p>
             <p>
-              Special thanks Neicigam (Neicigam#0095) and Jumboduck
-              (Jumboduck#8771) for their kind and valuable help with the
-              dry-runner and the deck advice respectively.
+              Special thanks <Link to='/member/Neicigam'>Neicigam</Link>{' '}
+              (Neicigam#0095), <Link to='/member/Jumboduck'>Jumboduck</Link>{' '}
+              (Jumboduck#8771), <Link to='/member/ArthisRoo'>ArthisRoo</Link>{' '}
+              (ArthisRoo#7189) for their kind and valuable help with the
+              dry-runner, the deck advice and overall maintenance respectively.
             </p>
           </>
         ),

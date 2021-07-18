@@ -1,6 +1,7 @@
 import React from 'react'
 import Article from '../Article'
 import FAQSection from '../FAQSection'
+import Image from '../Image'
 import PageMeta from '../PageMeta'
 import StructuredData from '../StructuredData'
 import Title from '../Title'
@@ -27,6 +28,11 @@ export default React.memo(function FAQ() {
             </li>
           ))}
         </ul>
+
+        <Image
+          src='/assets/images/kitty.png'
+          alt='Kitty Sparkles by Hurricane Sunny'
+        />
 
         {categories.map(category => (
           <FAQSection {...category} key={category.id} />
