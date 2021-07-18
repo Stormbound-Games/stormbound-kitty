@@ -21,11 +21,15 @@ describe('Bot — !suggestdeck', () => {
   })
 
   it('should handle tags', () => {
-    Object.keys(TAGS).forEach(tag => {
-      const id = suggestdeck(tag.toLowerCase()).url.replace(BASE_URL, '')
-      const deck = DECKS_INDEX[id]
-      expect(deck.tags.includes(tag)).to.equal(true)
-    })
+    Object.keys(TAGS)
+      .map(tag => [tag, suggestdeck(tag.toLowerCase())])
+      .filter(([tag, result]) => Boolean(result))
+      .forEach(([tag, result]) => {
+        const id = result.url.replace(BASE_URL, '')
+        const deck = DECKS_INDEX[id]
+
+        expect(deck.tags.includes(tag)).to.equal(true)
+      })
   })
 
   it('should handle aliases', () => {
