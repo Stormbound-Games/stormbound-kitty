@@ -71,7 +71,7 @@ const useArticleProps = deck => {
   props.author = matchedDeck.author
 
   if (matchedDeck.tags) {
-    props.meta = matchedDeck.tags.map(tag => TAGS[tag])
+    props.meta = matchedDeck.tags.map(tag => TAGS[tag] || tag)
 
     if (matchedDeck.tags.includes('BRAWL')) {
       props.meta += `(${BRAWL_INDEX[matchedDeck.brawl].title})`

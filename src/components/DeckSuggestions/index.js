@@ -42,12 +42,11 @@ class DeckSuggestions extends React.Component {
 
   getURLParameters = () => {
     const parameters = new URLSearchParams(window.location.search)
-    const brawl = parameters.get('brawl') || '*'
-    // If a specific Brawl is defined in URL parameters, set the tags to
-    // `BRAWL`, otherwise read the tags from the URL parameters if defined.
-    // @TODO: handle multiple tags
-    const tags =
-      brawl !== '*' ? 'BRAWL' : parameters.get('tags')?.split(',') ?? []
+    const brawl = parameters.get('brawl')
+    const tags = parameters.get('tags')?.split(',') ?? []
+
+    // If a specific Brawl is defined in URL parameters, add the `BRAWL` tag.
+    if (brawl && !tags.includes('BRAWL')) tags.push('BRAWL')
 
     return {
       tags,
@@ -106,7 +105,13 @@ class DeckSuggestions extends React.Component {
     this.setState({ including }, this.updateURLParameters)
   updateBrawl = brawl =>
     this.setState(
-      state => ({ brawl, tags: brawl !== '*' ? 'BRAWL' : state.tags }),
+      state => ({
+        brawl,
+        tags:
+          brawl !== '*' && !state.tags.includes('BRAWL')
+            ? state.tags.concat('BRAWL')
+            : state.tags,
+      }),
       this.updateURLParameters
     )
   updateOrder = order => this.setState({ order })

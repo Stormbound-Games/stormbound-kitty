@@ -58,10 +58,12 @@ export default React.memo(function YourDecksFilters(props) {
               onChange={options =>
                 updateTags(options.map(option => option.value))
               }
-              options={Object.entries(TAGS).map(([value, label]) => ({
-                value,
-                label,
-              }))}
+              options={Object.entries(TAGS)
+                .filter(([tag]) => decks.some(deck => deck.tags.includes(tag)))
+                .map(([value, label]) => ({
+                  value,
+                  label,
+                }))}
             />
           </Row.Column>
         </Row>
