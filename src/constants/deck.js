@@ -23,6 +23,7 @@ export const TAGS = {
   BRAWL: 'Brawl',
   EQUALS: 'Equals',
   RUSH: 'Rush',
+  MIDRANGE: 'Midrange',
   CONTROL: 'Control',
 }
 
