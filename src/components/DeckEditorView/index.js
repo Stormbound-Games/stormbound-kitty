@@ -30,7 +30,7 @@ import serialisation from '../../helpers/serialisation'
 import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
 import useViewportSize from '../../hooks/useViewportSize'
 import usePrevious from '../../hooks/usePrevious'
-import { CATEGORIES } from '../../constants/deck'
+import { TAGS } from '../../constants/deck'
 import { BRAWL_INDEX } from '../../constants/brawl'
 
 import './index.css'
@@ -38,10 +38,12 @@ import './index.css'
 // The `adjustCardToCollection` function is used to access the card data as it
 // exists in the user’s collection. It is therefore only called when there is
 // a custom collection.
-const adjustCardToCollection = indexedCollection => ({ id }) => {
-  const { level, missing } = indexedCollection[id]
-  return missing ? null : { id, level }
-}
+const adjustCardToCollection =
+  indexedCollection =>
+  ({ id }) => {
+    const { level, missing } = indexedCollection[id]
+    return missing ? null : { id, level }
+  }
 
 const useModifiedDeck = deck => {
   const matchedDeck = isSuggestedDeck(deck)
@@ -61,18 +63,17 @@ const useArticleProps = deck => {
   // case we can display more information on screen.
   const matchedDeck = isSuggestedDeck(deck) || {}
   const id = serialisation.deck.serialise(deck)
-  const { decks, addDeck, removeDeck, toggleUnseen } = React.useContext(
-    PersonalDecksContext
-  )
+  const { decks, addDeck, removeDeck, toggleUnseen } =
+    React.useContext(PersonalDecksContext)
   const props = {}
 
   props.title = matchedDeck.name || 'Create your deck'
   props.author = matchedDeck.author
 
-  if (matchedDeck.category) {
-    props.meta = `${CATEGORIES[matchedDeck.category]} deck`
+  if (matchedDeck.tags) {
+    props.meta = matchedDeck.tags.map(tag => TAGS[tag])
 
-    if (matchedDeck.category === 'BRAWL') {
+    if (matchedDeck.tags.includes('BRAWL')) {
       props.meta += `(${BRAWL_INDEX[matchedDeck.brawl].title})`
     }
   } else if (id) {
@@ -113,11 +114,8 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
   const { viewportWidth } = useViewportSize()
   const { deckId } = useRouteMatch().params
   const history = useHistory()
-  const {
-    collection,
-    indexedCollection,
-    hasDefaultCollection,
-  } = React.useContext(CollectionContext)
+  const { collection, indexedCollection, hasDefaultCollection } =
+    React.useContext(CollectionContext)
   // `cardLevel` is set to `0` when the user has a custom collection loaded and
   // expects the card levels to be the ones of the collection. This is done to
   // always have a number (0 for custom levels, 1 to 5 for static levels). Note
@@ -295,13 +293,15 @@ const Gallery = React.memo(function Gallery(props) {
   const { hasDefaultCollection } = React.useContext(CollectionContext)
   const { collection, cardLevel, setCardLevel, addCardToDeck, deck } = props
   const deckIds = deck.map(card => card.id)
-  const indexedCollection = React.useMemo(() => indexArray(collection), [
-    collection,
-  ])
+  const indexedCollection = React.useMemo(
+    () => indexArray(collection),
+    [collection]
+  )
 
-  const isCardMissing = React.useCallback(id => indexedCollection[id].missing, [
-    indexedCollection,
-  ])
+  const isCardMissing = React.useCallback(
+    id => indexedCollection[id].missing,
+    [indexedCollection]
+  )
   const isCardInDeck = React.useCallback(id => deckIds.includes(id), [deckIds])
 
   // The `resolveCardLevel` function is used to know at which level to add card

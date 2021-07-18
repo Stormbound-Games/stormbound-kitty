@@ -82,7 +82,7 @@ export default React.memo(function GuideRecklessRush(props) {
               id='2xn1n2s1n3s24s2n67s6n24n15s8s11'
               name='Reckless Rush'
               author='RecklessRush'
-              category='REGULAR'
+              tags={['REGULAR']}
               staticLevels
             />
           </Row.Column>
@@ -112,7 +112,7 @@ export default React.memo(function GuideRecklessRush(props) {
               id='5xn1s1n3s24s2n67s6n24n15s8n81s11'
               name='Reckless Rush (Heart Attack)'
               author='RecklessRush'
-              category='HIGH_LEVELS'
+              tags={['HIGH_LEVELS']}
               staticLevels
             />
 

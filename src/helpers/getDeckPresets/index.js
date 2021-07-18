@@ -6,9 +6,9 @@ const getDeckPresets = deck => {
 
   if (!suggestedDeck) return presetOptions
 
-  if (suggestedDeck.category === 'BRAWL') {
+  if (suggestedDeck.tags.includes('BRAWL')) {
     presetOptions.modifier = suggestedDeck.brawl
-  } else if (suggestedDeck.category === 'EQUALS') {
+  } else if (suggestedDeck.tags.includes('EQUALS')) {
     presetOptions.equals = true
   }
 

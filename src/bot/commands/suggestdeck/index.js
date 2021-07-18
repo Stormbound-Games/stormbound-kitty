@@ -5,7 +5,7 @@ import getEmbed from '../../../helpers/getEmbed'
 import getFactionFromDeckID from '../../../helpers/getFactionFromDeckID'
 import serialisation from '../../../helpers/serialisation'
 import { parseMessage } from '../decks'
-import { CATEGORIES } from '../../../constants/deck'
+import { TAGS } from '../../../constants/deck'
 
 export default {
   command: 'suggestdeck',
@@ -13,22 +13,24 @@ export default {
   help: function () {
     return getEmbed()
       .setTitle(`${this.label}: help`)
-      .setURL('https://stormbound-kitty.com/guides/lexicon')
+      .setURL('https://stormbound-kitty.com/decks')
       .setDescription(
-        `Suggest a deck matching the given search criteria. It optionally accepts a faction, category and card to include (regardless of order and casing). For instance, \`!${this.command} ic\`, \`!${this.command} wp hl\` or \`!${this.command} brawl kg\`.`
+        `Suggest a deck matching the given search criteria. It optionally accepts a faction, tags and card to include (regardless of order and casing). For instance, \`!${this.command} ic\`, \`!${this.command} wp hl\` or \`!${this.command} brawl kg\`.`
       )
   },
   handler: function (message) {
     const { params, ignored } = parseMessage(message.toLowerCase())
-
+    console.log(params)
     const embed = getEmbed().setTitle(`${this.label}`)
 
     if (Object.keys(params).length === 0) {
       const deck = arrayRandom(
-        // If the category is not provided, assume the expectation is to have
-        // a deck that works and is competitive under normal circumstances (so
+        // If the tags are not provided, assume the expectation is to have a
+        // deck that works and is competitive under normal circumstances (so
         // ranking and Diamond) and therefore discard any Brawl/Equals deck.
-        decks.filter(deck => !['BRAWL', 'EQUALS'].includes(deck.category))
+        decks.filter(
+          deck => !deck.tags.includes('BRAWL') && !deck.tags.includes('EQUALS')
+        )
       )
 
       embed.setTitle(deck.name)
@@ -40,7 +42,11 @@ export default {
           value: capitalise(getFactionFromDeckID(deck.id)),
           inline: true,
         },
-        { name: 'Category', value: CATEGORIES[deck.category], inline: true }
+        {
+          name: 'Tags',
+          value: deck.tags.map(tag => TAGS[tag] || tag).join(', ') || 'No tags',
+          inline: true,
+        }
       )
 
       return embed
@@ -51,13 +57,14 @@ export default {
         return false
       }
 
-      if (params.category) {
-        if (deck.category !== params.category) return false
+      if (params.tags) {
+        if (!params.tags.every(tag => deck.tags.includes(tag))) return false
       } else {
-        // If the category is not provided, assume the expectation is to have a
+        // If the tags are not provided, assume the expectation is to have a
         // deck that works and is competitive under normal circumstances (so
         // ranking and Diamond) and therefore discard any Brawl/Equals deck.
-        if (['BRAWL', 'EQUALS'].includes(deck.category)) return false
+        if (deck.tags.includes('BRAWL') || deck.tags.includes('EQUALS'))
+          return false
       }
 
       if (
@@ -85,7 +92,11 @@ export default {
           value: capitalise(getFactionFromDeckID(deck.id)),
           inline: true,
         },
-        { name: 'Category', value: CATEGORIES[deck.category], inline: true }
+        {
+          name: 'Tags',
+          value: deck.tags.map(tag => TAGS[tag] || tag).join(', ') || 'No tags',
+          inline: true,
+        }
       )
 
       if (ignored.length > 0) {

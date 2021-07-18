@@ -59,12 +59,14 @@ export default React.memo(function GuideFreedomFight(props) {
         decks from the channel history what other players filled them with.
       </p>
 
-
       <Info icon='eye' title='Brawl Decks'>
         <p>
-          Check the{' '}<Link to='/deck/suggestions?category=BRAWL&brawl=TOAD_MANA'>
-          community-provided decks</Link> for this brawl. You might find a deck that 
-          suits you, or that you can base your own creation on.
+          Check the{' '}
+          <Link to='/deck/suggestions?tags=BRAWL&brawl=TOAD_MANA'>
+            community-provided decks
+          </Link>{' '}
+          for this brawl. You might find a deck that suits you, or that you can
+          base your own creation on.
         </p>
       </Info>
 
@@ -87,7 +89,7 @@ export default React.memo(function GuideFreedomFight(props) {
               id='5xn1f8n9f5f7f10f12f15f17f28n52n53'
               name='Freedom Fight'
               author='Frostkhan'
-              category='BRAWL'
+              tags={['BRAWL']}
               faction='shadowfen'
               modifier='TOAD_MANA'
             />
@@ -111,7 +113,7 @@ export default React.memo(function GuideFreedomFight(props) {
               id='5xn1f4n9f5n14f10f12f15f17f28n52n53'
               name='CP Toads'
               author='CriticalPancake'
-              category='BRAWL'
+              tags={['BRAWL']}
               faction='shadowfen'
               modifier='TOAD_MANA'
             />
@@ -133,7 +135,7 @@ export default React.memo(function GuideFreedomFight(props) {
               id='5xn1n2f2f4n9f10f12f15f17f28n52n53'
               name='SP Toads'
               author='SeveralPeople'
-              category='BRAWL'
+              tags={['BRAWL']}
               faction='shadowfen'
               modifier='TOAD_MANA'
             />
@@ -163,7 +165,7 @@ export default React.memo(function GuideFreedomFight(props) {
               id='5xn1f8f4n9f25n16n18f15f17f28n52n53'
               name='Adig Toads'
               author='Adig'
-              category='BRAWL'
+              tags={['BRAWL']}
               faction='shadowfen'
               modifier='TOAD_MANA'
             />

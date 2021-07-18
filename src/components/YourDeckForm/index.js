@@ -46,13 +46,13 @@ export default React.memo(function YourDeckForm(props) {
           />
         </Row.Column>
         <Row.Column>
-          <label htmlFor='category'>Deck category</label>
+          <label htmlFor='tags'>Deck tags</label>
           <input
             type='text'
-            id='category'
-            name='category'
-            defaultValue={props.category}
-            data-testid='deck-category-input'
+            id='tags'
+            name='tags'
+            defaultValue={props.tags}
+            data-testid='deck-tags-input'
             required
             maxLength={25}
           />
@@ -66,9 +66,7 @@ export default React.memo(function YourDeckForm(props) {
             disabled={!isIdValid}
             title={isIdValid ? undefined : 'This deck ID is invalid'}
           >
-            {props.id || props.name || props.category
-              ? 'Update deck'
-              : 'Add deck'}
+            {props.id || props.name || props.tags ? 'Update deck' : 'Add deck'}
           </CTA>
         </Row.Column>
         <Row.Column style={{ justifyContent: 'center' }}>

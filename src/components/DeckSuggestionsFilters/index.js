@@ -1,5 +1,6 @@
 import React from 'react'
-import { CATEGORIES } from '../../constants/deck'
+import Select from 'react-select'
+import { TAGS } from '../../constants/deck'
 import { BRAWLS } from '../../constants/brawl'
 import decks from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
@@ -8,6 +9,7 @@ import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
 import MobileTogglableContent from '../MobileTogglableContent'
 import Row from '../Row'
+import useSelectStyles from '../../hooks/useSelectStyles'
 import './index.css'
 
 const getAuthors = () => {
@@ -30,6 +32,7 @@ export default React.memo(function DeckSuggestionsFilters(props) {
   const { hasDefaultCollection } = React.useContext(CollectionContext)
   const [name, updateName] = React.useState(props.name)
   const authors = React.useMemo(getAuthors, [])
+  const styles = useSelectStyles()
 
   return (
     <MobileTogglableContent
@@ -45,6 +48,26 @@ export default React.memo(function DeckSuggestionsFilters(props) {
       >
         <Row>
           <Row.Column>
+            <label htmlFor='tags'>Tags</label>
+            <Select
+              styles={styles}
+              id='tags'
+              name='tags'
+              value={props.tags.map(value => ({ value, label: TAGS[value] }))}
+              isMulti
+              onChange={options =>
+                props.updateTags(options.map(option => option.value))
+              }
+              options={Object.entries(TAGS).map(([value, label]) => ({
+                value,
+                label,
+              }))}
+            />
+          </Row.Column>
+        </Row>
+
+        <Row>
+          <Row.Column>
             <FactionSelect
               value={props.faction}
               onChange={event => props.updateFaction(event.target.value)}
@@ -52,17 +75,18 @@ export default React.memo(function DeckSuggestionsFilters(props) {
             />
           </Row.Column>
           <Row.Column>
-            <label htmlFor='category'>Category</label>
+            <label htmlFor='brawl-modifier'>Brawl</label>
             <select
-              id='category'
-              name='category'
-              value={props.category}
-              onChange={event => props.updateCategory(event.target.value)}
+              id='brawl-modifier'
+              name='brawl-modifier'
+              value={props.brawl}
+              onChange={event => props.updateBrawl(event.target.value)}
+              disabled={!props.tags.includes('BRAWL')}
             >
               <option value='*'>Any</option>
-              {Object.keys(CATEGORIES).map(category => (
-                <option value={category} key={category}>
-                  {CATEGORIES[category]}
+              {BRAWLS.map(brawl => (
+                <option value={brawl.id} key={brawl.id}>
+                  {brawl.label}
                 </option>
               ))}
             </select>
@@ -117,25 +141,6 @@ export default React.memo(function DeckSuggestionsFilters(props) {
             </select>
           </Row.Column>
           <Row.Column>
-            <label htmlFor='brawl-modifier'>Brawl</label>
-            <select
-              id='brawl-modifier'
-              name='brawl-modifier'
-              value={props.brawl}
-              onChange={event => props.updateBrawl(event.target.value)}
-              disabled={props.category !== 'BRAWL'}
-            >
-              <option value='*'>Any</option>
-              {BRAWLS.map(brawl => (
-                <option value={brawl.id} key={brawl.id}>
-                  {brawl.label}
-                </option>
-              ))}
-            </select>
-          </Row.Column>
-        </Row>
-        <Row>
-          <Row.Column>
             <label htmlFor='order'>Order</label>
             <select
               id='order'
@@ -150,22 +155,21 @@ export default React.memo(function DeckSuggestionsFilters(props) {
               </option>
             </select>
           </Row.Column>
-          <Row.Column style={{ alignSelf: 'flex-end' }}>
-            <CTA
-              disabled={
-                props.author === '*' &&
-                props.category === '*' &&
-                props.faction === '*' &&
-                props.brawl === '*' &&
-                !props.including &&
-                !props.name
-              }
-              onClick={props.resetFilters}
-            >
-              Reset
-            </CTA>
-          </Row.Column>
         </Row>
+        <CTA
+          className='DeckSuggestionsFilters__CTA'
+          disabled={
+            props.author === '*' &&
+            props.tags.length === 0 &&
+            props.faction === '*' &&
+            props.brawl === '*' &&
+            !props.including &&
+            !props.name
+          }
+          onClick={props.resetFilters}
+        >
+          Reset
+        </CTA>
       </form>
     </MobileTogglableContent>
   )

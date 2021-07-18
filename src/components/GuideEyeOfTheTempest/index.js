@@ -61,9 +61,12 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
 
       <Info icon='eye' title='Brawl Decks'>
         <p>
-          Check the{' '}<Link to='/deck/suggestions?category=BRAWL&brawl=SPELL_MANA'>
-          community-provided decks</Link> for this brawl. You might find a deck that 
-          suits you, or that you can base your own creation on.
+          Check the{' '}
+          <Link to='/deck/suggestions?tags=BRAWL&brawl=SPELL_MANA'>
+            community-provided decks
+          </Link>{' '}
+          for this brawl. You might find a deck that suits you, or that you can
+          base your own creation on.
         </p>
       </Info>
 
@@ -95,7 +98,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
               id='5xn1n2s1n3s24s2n67s6n14n15s15s20'
               name='Die Die Die'
               author='CriticalPancake'
-              category='BRAWL'
+              tags={['BRAWL']}
               faction='shadowfen'
               brawl='SPELL_MANA'
             />
@@ -121,7 +124,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
               id='5xn2f2f3n3f8f4f5f10f11f17n40f22'
               name='Toad Spam'
               author='OneC'
-              category='BRAWL'
+              tags={['BRAWL']}
               faction='shadowfen'
               brawl='SPELL_MANA'
             />
@@ -151,7 +154,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
               id='5xn1n2n23n14w5n18n29n44n48w19w21w23'
               name='Eye of the Tempest'
               author='Frostkhan'
-              category='BRAWL'
+              tags={['BRAWL']}
               faction='winter'
               brawl='SPELL_MANA'
             />

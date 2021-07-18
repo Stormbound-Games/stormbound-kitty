@@ -117,7 +117,7 @@ export default React.memo(function GuideEqualsIntro(props) {
               author='Derk'
               name='Shadowfen Equals'
               showUpgrade={false}
-              category='EQUALS'
+              tags={['EQUALS']}
             />
           </Row.Column>
           <Row.Column>
@@ -126,7 +126,7 @@ export default React.memo(function GuideEqualsIntro(props) {
               author='Derk'
               name='Winter Equals'
               showUpgrade={false}
-              category='EQUALS'
+              tags={['EQUALS']}
             />
           </Row.Column>
         </Row>
@@ -137,7 +137,7 @@ export default React.memo(function GuideEqualsIntro(props) {
               author='Derk'
               name='Ironclad Equals'
               showUpgrade={false}
-              category='EQUALS'
+              tags={['EQUALS']}
             />
           </Row.Column>
           <Row.Column>
@@ -146,7 +146,7 @@ export default React.memo(function GuideEqualsIntro(props) {
               author='Derk'
               name='Swarm Equals'
               showUpgrade={false}
-              category='EQUALS'
+              tags={['EQUALS']}
             />
           </Row.Column>
         </Row>

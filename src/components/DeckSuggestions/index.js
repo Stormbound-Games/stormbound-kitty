@@ -43,26 +43,28 @@ class DeckSuggestions extends React.Component {
   getURLParameters = () => {
     const parameters = new URLSearchParams(window.location.search)
     const brawl = parameters.get('brawl') || '*'
-    // If a specific Brawl is defined in URL parameters, set the category to
-    // `BRAWL`, otherwise read the category from the URL parameters if defined.
-    const category = brawl !== '*' ? 'BRAWL' : parameters.get('category') || '*'
+    // If a specific Brawl is defined in URL parameters, set the tags to
+    // `BRAWL`, otherwise read the tags from the URL parameters if defined.
+    // @TODO: handle multiple tags
+    const tags =
+      brawl !== '*' ? 'BRAWL' : parameters.get('tags')?.split(',') ?? []
 
     return {
-      category,
+      tags,
       faction: parameters.get('faction') || '*',
       author: parameters.get('author') || '*',
       including: parameters.get('including') || null,
-      // If the category is set to Brawl, read the specific Brawl from the URL
+      // If the tags include Brawl, read the specific Brawl from the URL
       // parameters if defined, or display all Brawl decks otherwise.
-      brawl: category === 'BRAWL' ? brawl : '*',
+      brawl: tags.includes('BRAWL') ? brawl : '*',
     }
   }
 
   updateURLParameters = event => {
     const parameters = new URLSearchParams(window.location.search)
 
-    if (this.state.category === '*') parameters.delete('category')
-    else parameters.set('category', this.state.category)
+    if (this.state.tags.length === 0) parameters.delete('tags')
+    else parameters.set('tags', this.state.tags.join(','))
 
     if (this.state.faction === '*') parameters.delete('faction')
     else parameters.set('faction', this.state.faction)
@@ -79,9 +81,9 @@ class DeckSuggestions extends React.Component {
     this.props.history.replace('?' + parameters.toString())
   }
 
-  updateCategory = category =>
+  updateTags = tags =>
     this.setState(
-      state => ({ category, brawl: category !== 'BRAWL' ? '*' : state.brawl }),
+      state => ({ tags, brawl: !tags.includes('BRAWL') ? '*' : state.brawl }),
       this.updateURLParameters
     )
   updateFaction = faction =>
@@ -91,7 +93,7 @@ class DeckSuggestions extends React.Component {
     this.setState(
       {
         name,
-        category: '*',
+        tags: [],
         faction: '*',
         author: '*',
         including: null,
@@ -104,7 +106,7 @@ class DeckSuggestions extends React.Component {
     this.setState({ including }, this.updateURLParameters)
   updateBrawl = brawl =>
     this.setState(
-      state => ({ brawl, category: brawl !== '*' ? 'BRAWL' : state.category }),
+      state => ({ brawl, tags: brawl !== '*' ? 'BRAWL' : state.tags }),
       this.updateURLParameters
     )
   updateOrder = order => this.setState({ order })
@@ -120,8 +122,9 @@ class DeckSuggestions extends React.Component {
   matchesFaction = deck =>
     this.state.faction === '*' ||
     getFactionFromDeckID(deck.id) === this.state.faction
-  matchesCategory = deck =>
-    this.state.category === '*' || deck.category === this.state.category
+  matchesTags = deck =>
+    this.state.tags.length === 0 ||
+    this.state.tags.every(tag => deck.tags.includes(tag))
   matchesAuthor = deck =>
     this.state.author === '*' || deck.author === this.state.author
   matchesIncluding = deck =>
@@ -141,7 +144,7 @@ class DeckSuggestions extends React.Component {
         // sorting it.
         .reverse()
         .filter(this.matchesFaction)
-        .filter(this.matchesCategory)
+        .filter(this.matchesTags)
         .filter(this.matchesAuthor)
         .filter(this.matchesName)
         .filter(this.matchesIncluding)
@@ -154,7 +157,7 @@ class DeckSuggestions extends React.Component {
     this.setState(
       {
         faction: '*',
-        category: '*',
+        tags: [],
         author: '*',
         brawl: '*',
         name: '',
@@ -176,7 +179,7 @@ class DeckSuggestions extends React.Component {
 
             <SuggestionsFilters
               {...this.state}
-              updateCategory={this.updateCategory}
+              updateTags={this.updateTags}
               updateFaction={this.updateFaction}
               updateAuthor={this.updateAuthor}
               updateName={this.debouncedUpdateName}

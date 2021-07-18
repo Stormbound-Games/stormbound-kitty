@@ -13,10 +13,13 @@ export const DEFAULT_DECK = [
   { ...DEFAULT_CARD },
   { ...DEFAULT_CARD },
 ]
-export const CATEGORIES = {
+
+export const TAGS = {
   STARTER: 'Starter',
   REGULAR: 'Regular',
   HIGH_LEVELS: 'High Levels',
   BRAWL: 'Brawl',
   EQUALS: 'Equals',
+  RUSH: 'Rush',
+  CONTROL: 'Control',
 }

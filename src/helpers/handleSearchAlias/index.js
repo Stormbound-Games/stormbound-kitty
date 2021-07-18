@@ -23,11 +23,11 @@ export default term => {
     case 'hl':
     case 'heroes':
     case 'diamond':
-      return ['category', 'HIGH_LEVELS']
+      return ['tags', ['HIGH_LEVELS']]
     case 'equal':
     case 'tournament':
     case 'tourney':
-      return ['category', 'EQUALS']
+      return ['tags', ['EQUALS']]
     default:
       return []
   }

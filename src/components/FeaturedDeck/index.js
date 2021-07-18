@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { CATEGORIES } from '../../constants/deck'
 import { CollectionContext } from '../CollectionProvider'
 import Deck from '../Deck'
 import DiamondButton from '../DiamondButton'
 import Only from '../Only'
 import RarityBar from '../RarityBar'
 import { Stones } from '../Resource'
+import Tags from '../Tags'
 import TooltipedIcon from '../TooltipedIcon'
 import serialisation from '../../helpers/serialisation'
 import getDeckDistanceToMax from '../../helpers/getDeckDistanceToMax'
@@ -15,16 +15,15 @@ import resolveCollection from '../../helpers/resolveCollection'
 import modifyDeck from '../../helpers/modifyDeck'
 import './index.css'
 
-const useAdjustedDeck = ({ brawl, category, id, staticLevels }) => {
-  const { hasDefaultCollection, collection } = React.useContext(
-    CollectionContext
-  )
+const useAdjustedDeck = ({ brawl, tags, id, staticLevels }) => {
+  const { hasDefaultCollection, collection } =
+    React.useContext(CollectionContext)
   const deserialisedDeck = serialisation.deck.deserialise(id)
   const modifiedDeck = brawl
     ? modifyDeck(deserialisedDeck, brawl)
     : deserialisedDeck
 
-  if (hasDefaultCollection || category === 'EQUALS' || staticLevels) {
+  if (hasDefaultCollection || tags.includes('EQUALS') || staticLevels) {
     // The `id` does not have to be derivated from the `modifiedDeck` since a
     // deck id only carries the card IDs and levels, but nothing that can be
     // modified by a Brawl.
@@ -96,30 +95,18 @@ export default React.memo(function FeaturedDeck(props) {
         ) : null}
       </span>
       <span className='FeaturedDeck__author'>
-        {CATEGORIES[props.category] ? (
-          <Link
-            to={{
-              pathname: '/deck/suggestions',
-              search: `?category=${props.category}`,
-            }}
-          >
-            {CATEGORIES[props.category]}
-          </Link>
-        ) : (
-          props.category
-        )}{' '}
-        deck
         {props.author && (
           <>
-            {' '}
-            by{' '}
+            By{' '}
             {!props.noAuthorLink ? (
               <Link to={`/member/${props.author}`}>{props.author}</Link>
             ) : (
               props.author
-            )}
+            )}{' '}
+            as
           </>
         )}
+        <Tags tags={props.tags} />
       </span>
       {actions.length > 0 && (
         <div className='FeaturedDeck__actions'>
