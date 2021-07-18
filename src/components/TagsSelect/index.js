@@ -16,7 +16,7 @@ const TagsSelect = props => {
 
   return (
     <>
-      <label htmlFor='tags'>Tags</label>
+      <label htmlFor='tags'>{props.label || 'Tags'}</label>
       <Select
         styles={styles}
         id={props.id || 'tags-select'}

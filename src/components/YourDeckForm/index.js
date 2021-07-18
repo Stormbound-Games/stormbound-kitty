@@ -51,6 +51,7 @@ export default React.memo(function YourDeckForm(props) {
       <Row>
         <Row.Column>
           <TagsSelect
+            label='Deck tags'
             tags={tags}
             updateTags={updateTags}
             required
