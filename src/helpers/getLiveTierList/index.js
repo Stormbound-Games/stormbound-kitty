@@ -31,10 +31,10 @@ const getLiveTierList = () => {
 
   // Go through each deck, and for each one increment the amount of decks of
   // this faction by 1 and go through the cards and mark them as found
-  decks.forEach(({ id, category }) => {
+  decks.forEach(({ id, tags }) => {
     // Do not take Brawl and Tournament decks into account as they would be
     // incorrectly skewing the popularity of cards
-    if (category === 'BRAWL' || category === 'TOURNAMENT') return
+    if (tags.includes('BRAWL') || tags.includes('EQUALS')) return
 
     const deck = serialisation.deck.deserialise(id)
 

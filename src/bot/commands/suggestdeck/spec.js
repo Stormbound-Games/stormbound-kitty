@@ -1,7 +1,7 @@
 import decks from '../../../data/decks'
 import getFactionFromDeckID from '../../../helpers/getFactionFromDeckID'
 import indexArray from '../../../helpers/indexArray'
-import { CATEGORIES } from '../../../constants/deck'
+import { TAGS } from '../../../constants/deck'
 import command from './'
 const suggestdeck = command.handler.bind(command)
 
@@ -20,12 +20,16 @@ describe('Bot — !suggestdeck', () => {
     expect(suggestdeck('shadowfen').url.replace(BASE_URL, '')).to.contain('f')
   })
 
-  it('should handle categories', () => {
-    Object.keys(CATEGORIES).forEach(category => {
-      const id = suggestdeck(category.toLowerCase()).url.replace(BASE_URL, '')
-      const deck = DECKS_INDEX[id]
-      expect(deck.category).to.equal(category)
-    })
+  it('should handle tags', () => {
+    Object.keys(TAGS)
+      .map(tag => [tag, suggestdeck(tag.toLowerCase())])
+      .filter(([tag, result]) => Boolean(result))
+      .forEach(([tag, result]) => {
+        const id = result.url.replace(BASE_URL, '')
+        const deck = DECKS_INDEX[id]
+
+        expect(deck.tags.includes(tag)).to.equal(true)
+      })
   })
 
   it('should handle aliases', () => {
@@ -50,7 +54,7 @@ describe('Bot — !suggestdeck', () => {
     const id = suggestdeck('ic hl').url.replace(BASE_URL, '')
     const deck = DECKS_INDEX[id]
 
-    expect(deck.category).to.equal('HIGH_LEVELS')
+    expect(deck.tags.includes('HIGH_LEVELS')).to.equal(true)
     expect(getFactionFromDeckID(deck.id)).to.equal('ironclad')
   })
 

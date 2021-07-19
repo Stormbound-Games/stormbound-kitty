@@ -1,4 +1,7 @@
+import { BRAWL_INDEX } from '../../constants/brawl'
 import isSuggestedDeck from '../isSuggestedDeck'
+
+const BRAWLS = Object.keys(BRAWL_INDEX)
 
 const getDeckPresets = deck => {
   const suggestedDeck = isSuggestedDeck(deck)
@@ -6,9 +9,13 @@ const getDeckPresets = deck => {
 
   if (!suggestedDeck) return presetOptions
 
-  if (suggestedDeck.category === 'BRAWL') {
-    presetOptions.modifier = suggestedDeck.brawl
-  } else if (suggestedDeck.category === 'EQUALS') {
+  const brawl = suggestedDeck.tags.find(tag => BRAWLS.includes(tag))
+
+  if (brawl) {
+    presetOptions.modifier = brawl
+  }
+
+  if (suggestedDeck.tags.includes('EQUALS')) {
     presetOptions.equals = true
   }
 

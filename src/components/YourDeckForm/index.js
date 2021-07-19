@@ -1,6 +1,7 @@
 import React from 'react'
 import CTA from '../CTA'
 import Row from '../Row'
+import TagsSelect from '../TagsSelect'
 import serialisation from '../../helpers/serialisation'
 import getRawCardData from '../../helpers/getRawCardData'
 import getDeckIDFromURL from '../../helpers/getDeckIDFromURL'
@@ -12,6 +13,7 @@ const validateDeckId = id =>
 export default React.memo(function YourDeckForm(props) {
   const [deckID, setDeckID] = React.useState(props.id)
   const isIdValid = validateDeckId(deckID)
+  const [tags, updateTags] = React.useState(props.tags || [])
 
   return (
     <form onSubmit={props.onSubmit} data-testid='deck-form'>
@@ -45,16 +47,16 @@ export default React.memo(function YourDeckForm(props) {
             autoComplete='off'
           />
         </Row.Column>
+      </Row>
+      <Row>
         <Row.Column>
-          <label htmlFor='category'>Deck category</label>
-          <input
-            type='text'
-            id='category'
-            name='category'
-            defaultValue={props.category}
-            data-testid='deck-category-input'
+          <TagsSelect
+            label='Deck tags'
+            tags={tags}
+            updateTags={updateTags}
             required
-            maxLength={25}
+            id='deck-tags'
+            name='deck-tags'
           />
         </Row.Column>
       </Row>
@@ -63,12 +65,10 @@ export default React.memo(function YourDeckForm(props) {
           <CTA
             type='submit'
             data-testid='deck-submit'
-            disabled={!isIdValid}
+            disabled={!isIdValid || tags.length === 0}
             title={isIdValid ? undefined : 'This deck ID is invalid'}
           >
-            {props.id || props.name || props.category
-              ? 'Update deck'
-              : 'Add deck'}
+            {props.id || props.name || props.tags ? 'Update deck' : 'Add deck'}
           </CTA>
         </Row.Column>
         <Row.Column style={{ justifyContent: 'center' }}>

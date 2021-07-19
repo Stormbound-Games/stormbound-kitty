@@ -2,7 +2,6 @@ import React from 'react'
 import serialize from 'form-serialize'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import { NotificationContext } from '../NotificationProvider'
-import { CATEGORIES } from '../../constants/deck'
 import ExportDecks from '../ExportDecks'
 import HeaderBanner from '../HeaderBanner'
 import ImportDecks from '../ImportDecks'
@@ -15,10 +14,13 @@ import getDeckIDFromURL from '../../helpers/getDeckIDFromURL'
 import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
 import './index.css'
 
+const toArray = value => (Array.isArray(value) ? value : [value])
+
 const getDeckFromForm = form => {
   const formData = serialize(form, { hash: true })
   formData.id = getDeckIDFromURL(formData.id)
   formData.faction = getFactionFromDeckID(formData.id)
+  formData.tags = toArray(formData['deck-tags'])
   return formData
 }
 
@@ -30,7 +32,7 @@ export default React.memo(function DeckCollection(props) {
   const [filters, setFilters] = React.useState({
     name: '',
     faction: '*',
-    category: '*',
+    tags: [],
     order: 'DATE',
   })
   const { notify: sendNotification } = React.useContext(NotificationContext)
@@ -46,14 +48,7 @@ export default React.memo(function DeckCollection(props) {
         getFactionFromDeckID(deck.id) !== filters.faction
       )
         return false
-      if (
-        filters.category !== '*' &&
-        deck.category !== filters.category &&
-        // Look up for existing categories as well, as the label is used to
-        // avoid rendering all uppercase categories.
-        CATEGORIES[deck.category] !== filters.category
-      )
-        return false
+      if (!filters.tags.every(tag => deck.tags.includes(tag))) return false
       return true
     })
     .slice(0)
@@ -61,9 +56,6 @@ export default React.memo(function DeckCollection(props) {
       if (filters.order === 'FACTION') {
         if (getFactionFromDeckID(a.id) > getFactionFromDeckID(b.id)) return +1
         if (getFactionFromDeckID(a.id) < getFactionFromDeckID(b.id)) return -1
-      } else if (filters.order === 'CATEGORY') {
-        if (a.category > b.category) return +1
-        if (a.category < b.category) return -1
       } else if (filters.order === 'NAME') {
         if (a.name < b.name) return -1
         if (a.name > b.name) return +1

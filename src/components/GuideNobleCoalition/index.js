@@ -43,9 +43,12 @@ export default React.memo(function GuideNobleCoalition(props) {
 
       <Info icon='eye' title='Brawl Decks'>
         <p>
-          Check the{' '}<Link to='/deck/suggestions?category=BRAWL&brawl=FELINE_STRENGTH'>
-          community-provided decks</Link> for this brawl. You might find a deck that 
-          suits you, or that you can base your own creation on.
+          Check the{' '}
+          <Link to='/deck/suggestions?tags=BRAWL%2CFELINE_STRENGTH'>
+            community-provided decks
+          </Link>{' '}
+          for this brawl. You might find a deck that suits you, or that you can
+          base your own creation on.
         </p>
       </Info>
 
@@ -75,7 +78,7 @@ export default React.memo(function GuideNobleCoalition(props) {
               id='5f44f35n34f84n624n673n664n614f105f144f174f20'
               name='Cat Butcher'
               author='CriticalPancake'
-              category='BRAWL'
+              tags={['BRAWL']}
               faction='shadowfen'
             />
           </Row.Column>
@@ -110,7 +113,7 @@ export default React.memo(function GuideNobleCoalition(props) {
               id='5xn1n66s1n3s2n67n12s6n71n65n69n68'
               name='Swarm Cat Runners'
               author='The_mirc'
-              category='BRAWL'
+              tags={['BRAWL']}
               faction='swarm'
             />
           </Row.Column>

@@ -5,6 +5,7 @@
   "baseUrl": "http://localhost:3000",
   "video": false,
   "ignoreTestFiles": [
+    "selectors.js",
     "**/src/*.*",
     "**/src/{bot,helpers}/**/!(spec).js",
     "**/src/{components,constants,data,fonts,hooks}/**/*"

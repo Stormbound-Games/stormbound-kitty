@@ -40,7 +40,7 @@ export default {
   DECK_FORM: '[data-testid="deck-form"]',
   DECK_ID_INPUT: '[data-testid="deck-id-input"]',
   DECK_NAME_INPUT: '[data-testid="deck-name-input"]',
-  DECK_CATEGORY_INPUT: '[data-testid="deck-category-input"]',
+  DECK_TAGS_INPUT: '#deck-tags input:not([type="hidden"])',
   DECK_SUBMIT_BTN: '[data-testid="deck-submit"]',
 
   IMPORT_DECKS_BTN: '[data-testid="import-decks-btn"]',
@@ -48,7 +48,7 @@ export default {
 
   PERSONAL_DECKS_NAME_INPUT: '[data-testid="decks-name-input"]',
   PERSONAL_DECKS_FACTION_SELECT: '[data-testid="decks-faction-select"]',
-  PERSONAL_DECKS_CATEGORY_SELECT: '[data-testid="decks-category-select"]',
+  PERSONAL_DECKS_TAGS_SELECT: '#tags input:not([type="hidden"])',
 
   DECK_SUGGESTION: '[data-testid="deck-suggestion"]',
   BOOKMARK_BTN: '[data-testid="bookmark-btn"]',

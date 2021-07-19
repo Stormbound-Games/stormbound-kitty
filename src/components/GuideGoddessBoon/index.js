@@ -50,9 +50,12 @@ export default React.memo(function GuideGoddessBoon(props) {
 
       <Info icon='eye' title='Brawl Decks'>
         <p>
-          Check the{' '}<Link to='/deck/suggestions?category=BRAWL&brawl=FROSTLING_STRENGTH'>
-          community-provided decks</Link> for this brawl. You might find a deck that 
-          suits you, or that you can base your own creation on.
+          Check the{' '}
+          <Link to='/deck/suggestions?tags=BRAWL%2CFROSTLING_STRENGTH'>
+            community-provided decks
+          </Link>{' '}
+          for this brawl. You might find a deck that suits you, or that you can
+          base your own creation on.
         </p>
       </Info>
 
@@ -80,7 +83,7 @@ export default React.memo(function GuideGoddessBoon(props) {
               id='5xn1w2n3n9n11w4w9w12n36w10w19n58'
               name='Goddess Boon'
               author='Frostkhan'
-              category='BRAWL'
+              tags={['BRAWL']}
               faction='winter'
             />
           </Row.Column>
@@ -110,7 +113,7 @@ export default React.memo(function GuideGoddessBoon(props) {
               id='5xw2n3n9n11n14w4w28w9w12w10w19n58'
               name='Frost Deck'
               author='CriticalPancake'
-              category='BRAWL'
+              tags={['BRAWL']}
               faction='winter'
             />
           </Row.Column>
@@ -131,7 +134,7 @@ export default React.memo(function GuideGoddessBoon(props) {
               id='5xn1w2n3n9n14w4w9w12n68w17w19w23'
               name='Frosty Feline Dwarf'
               author='Adig'
-              category='BRAWL'
+              tags={['BRAWL']}
               faction='winter'
             />
           </Row.Column>
