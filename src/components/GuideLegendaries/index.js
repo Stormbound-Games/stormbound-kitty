@@ -302,7 +302,7 @@ export default React.memo(function GuideLegendaries(props) {
         <CardLink id='S24' /> and <CardLink id='S8' /> do not count as satyr
         cards so you are safe to bring those along. When you do play the Queen
         combo, you add up to 13 strength on the board with 4 separate units for
-        only 6 mana! It is important to note that Queen only spawns a satyr in
+        only 7 mana! It is important to note that Queen only spawns a satyr in
         your deck, not your hand. If you have <CardLink id='S16' /> in your
         hand, she will not spawn it. Try to avoid cycling before playing Queen
         unless it is to cycle away that satyr.
