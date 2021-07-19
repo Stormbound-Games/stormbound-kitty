@@ -101,7 +101,7 @@ export default React.memo(function BrawlMatches(props) {
             const reversedIndex = brawl.matches.length - index - 1
 
             if (editedMatch === reversedIndex) {
-              return <BrawlMatchForm key={index} {...match} />
+              return <BrawlMatchForm key={index} {...match} isEdit />
             }
 
             return (

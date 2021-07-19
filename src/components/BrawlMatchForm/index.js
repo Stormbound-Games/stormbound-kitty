@@ -3,19 +3,36 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { BrawlContext } from '../BrawlProvider'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
+import usePrevious from '../../hooks/usePrevious'
 import useViewportSize from '../../hooks/useViewportSize'
 import { VICTORY_BONUSES } from '../../constants/brawl'
 import './index.css'
 
 export default React.memo(function BrawlMatchForm(props) {
-  const { meta } = React.useContext(BrawlContext)
+  const { meta, brawl } = React.useContext(BrawlContext)
   const { viewportWidth } = useViewportSize()
-  const [status, setStatus] = React.useState('')
-  const [bonus, setBonus] = React.useState('')
+  const { isEdit, status: editedStatus, bonus: editedBonus } = props
+  const [status, setStatus] = React.useState(editedStatus || '')
+  const [bonus, setBonus] = React.useState(editedBonus || '')
 
   React.useEffect(() => {
     if (!['WON', 'FORFEIT'].includes(status)) setBonus('')
   }, [status])
+
+  React.useEffect(() => {
+    if (isEdit) setStatus(editedStatus)
+  }, [isEdit, editedStatus])
+
+  React.useEffect(() => {
+    if (isEdit) setBonus(editedBonus)
+  }, [isEdit, editedBonus])
+
+  React.useEffect(() => {
+    if (!isEdit) {
+      setStatus('')
+      setBonus('')
+    }
+  }, [isEdit, brawl.matches.length])
 
   return (
     <AnimatePresence exitBeforeEnter>
@@ -41,9 +58,7 @@ export default React.memo(function BrawlMatchForm(props) {
               className='BrawlMatchForm__button'
               data-testid='match-btn'
             >
-              {props.opponentHealth || props.opponentFaction || props.status
-                ? 'Edit match'
-                : 'Record match'}
+              {isEdit ? 'Edit match' : 'Record match'}
             </CTA>
           )}
         </td>
