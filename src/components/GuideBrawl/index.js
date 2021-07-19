@@ -116,7 +116,7 @@ export default React.memo(function GuideBrawl(props) {
         draws yield <Crowns amount={2} />. When reaching a certain amount of
         crowns, you get to claim the reward of the current milestone, and move
         on to the next. Milestones require more and more crowns to be completed.
-        The first one asks for a meagre <Crowns amount={10} /> to complete, the
+        The first one asks for a meagre <Crowns amount={7} /> to complete, the
         second one <Crowns amount={20} /> (including the 10 from the first one),
         and so on.
       </p>

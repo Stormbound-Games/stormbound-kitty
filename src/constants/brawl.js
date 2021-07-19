@@ -145,7 +145,7 @@ export const MILESTONES_LEGACY = [
 ]
 
 export const MILESTONES_CASUAL = [
-  { crowns: 10, reward: 'COINS', rewardAmount: 10, cost: 0 },
+  { crowns: 7, reward: 'COINS', rewardAmount: 10, cost: 0 },
   { crowns: 20, reward: 'HUMBLE_BOOK', rewardAmount: 1, cost: 5 },
   { crowns: 35, reward: 'RUBIES', rewardAmount: 5, cost: 10, ppCost: 0 },
   { crowns: 50, reward: 'FUSION_STONES', rewardAmount: 1, cost: 20 },
@@ -158,7 +158,7 @@ export const MILESTONES_CASUAL = [
 ]
 
 export const MILESTONES_WARRIOR = [
-  { crowns: 10, reward: 'COINS', rewardAmount: 20, cost: 0 },
+  { crowns: 7, reward: 'COINS', rewardAmount: 20, cost: 0 },
   { crowns: 20, reward: 'HUMBLE_BOOK', rewardAmount: 1, cost: 10, ppCost: 0 },
   { crowns: 35, reward: 'NOBLE_BOOK', rewardAmount: 1, cost: 25 },
   { crowns: 50, reward: 'FUSION_STONES', rewardAmount: 4, cost: 50 },
@@ -171,7 +171,7 @@ export const MILESTONES_WARRIOR = [
 ]
 
 export const MILESTONES_ULTIMATE = [
-  { crowns: 10, reward: 'HUMBLE_BOOK', rewardAmount: 1, cost: 0 },
+  { crowns: 7, reward: 'HUMBLE_BOOK', rewardAmount: 1, cost: 0 },
   { crowns: 20, reward: 'RUBIES', rewardAmount: 5, cost: 20 },
   { crowns: 35, reward: 'CLASSIC_BOOK', rewardAmount: 1, cost: 50 },
   { crowns: 50, reward: 'FUSION_STONES', rewardAmount: 10, cost: 100 },
