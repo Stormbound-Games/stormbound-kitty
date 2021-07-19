@@ -3,6 +3,41 @@ import Icon from '../Icon'
 import { BrawlContext } from '../BrawlProvider'
 import './index.css'
 
+const getImageProps = heart => {
+  const basePath = '/assets/images/iconography/'
+
+  if (heart.isProtected)
+    return {
+      src: `${basePath}/heart_protected.png`,
+      alt: 'Protected heart',
+      title: 'Protected heart',
+    }
+  if (heart.isFull && heart.isPermanent)
+    return {
+      src: `${basePath}/heart_full_permanent.png`,
+      alt: 'Permanent and full heart',
+      title: 'Permanent and full heart',
+    }
+  if (heart.isFull)
+    return {
+      src: `${basePath}/heart_full_temporary.png`,
+      alt: 'Non-permanent and full heart',
+      title: 'Non-permanent and full heart',
+    }
+  if (!heart.isFull && heart.isPermanent)
+    return {
+      src: `${basePath}/heart_empty_permanent.png`,
+      alt: 'Permanent and empty heart',
+      title: 'Permanent and empty heart',
+    }
+  if (!heart.isFull)
+    return {
+      src: `${basePath}/heart_empty_temporary.png`,
+      alt: 'Non-permanent and empty heart',
+      title: 'Non-permanent and empty heart',
+    }
+}
+
 const BrawlLossCounter = props => {
   const { meta } = React.useContext(BrawlContext)
 
@@ -12,27 +47,13 @@ const BrawlLossCounter = props => {
         .slice(0)
         .reverse()
         .map((heart, index) => (
-          <div
-            className='BrawlLossCounter__slot'
+          <img
             key={[heart.isFull, heart.isPermanent, heart.isProtected, index]
               .map(Number)
               .join('')}
-          >
-            <Icon
-              icon={heart.isFull ? 'heart' : 'heart-broken'}
-              className={[
-                'BrawlLossCounter__icon',
-                !heart.isPermanent && 'BrawlLossCounter__icon--iron',
-                heart.isFull && 'BrawlLossCounter__icon--full',
-                !heart.isFull && 'BrawlLossCounter__icon--empty',
-              ]
-                .filter(Boolean)
-                .join(' ')}
-            />
-            {heart.isProtected && (
-              <Icon icon='shield' className='BrawlLossCounter__shield' />
-            )}
-          </div>
+            className='BrawlLossCounter__heart'
+            {...getImageProps(heart)}
+          />
         ))}
     </div>
   )
