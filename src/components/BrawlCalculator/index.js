@@ -162,20 +162,6 @@ export default React.memo(function BrawlCalculator(props) {
         </Table>
       </Only.Desktop>
 
-      <footer style={{ marginTop: '2em' }}>
-        <h2 className='VisuallyHidden' id='footnotes'>
-          Footnotes
-        </h2>
-        <p id='multiple-discounts'>
-          (*) At this stage, there is no intention to have cumulative Brawl
-          discounts in case the owner of the Premium Pass takes part in a
-          discounted Brawl. The exact outcome of such situation is not confirmed
-          yet, but it is likely only the highest discount will be applied.{' '}
-          <a href='#multiple-discounts-ref' aria-label='Back to content'>
-            ↩
-          </a>
-        </p>
-      </footer>
       <PageMeta
         title='Brawl Calculator'
         description='Find a calculator for making the best out of the Brawl based on your current savins or your objectives'
