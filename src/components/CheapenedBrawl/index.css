@@ -1,13 +1,20 @@
 .CheapenedBrawl__controls {
   display: flex;
-  margin-bottom: 0.5em;
 }
 
 .CheapenedBrawl__control {
   background-color: transparent;
+  --color: rgba(155, 142, 112, 0.1);
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--color),
+    var(--color) 4px,
+    transparent 4px,
+    transparent 8px
+  );
   font: inherit;
   border: 0;
-  border-bottom: 0.2em solid transparent;
+  border-bottom: 0.2em solid var(--dark-beige);
   padding: 1em 0;
   cursor: pointer;
   color: var(--dark-beige);
@@ -20,6 +27,7 @@
 }
 
 .CheapenedBrawl__control--active {
+  --color: rgba(155, 142, 112, 0.2);
   color: var(--beige);
   border-bottom-color: var(--beige);
 }
