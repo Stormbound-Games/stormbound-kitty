@@ -20,9 +20,9 @@ const processVictoryBonus = (meta, bonus) => {
       break
     }
 
-    // If the bonus is “Iron Slot”, add a new empty and temporary heart provided
+    // If the bonus is “Rusty Slot”, add a new empty and temporary heart provided
     // there are not already 5 hearts.
-    case 'IRON_SLOT': {
+    case 'RUSTY_SLOT': {
       if (meta.hearts.length < 5)
         meta.hearts.unshift({
           isFull: false,

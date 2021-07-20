@@ -229,8 +229,8 @@ export const VICTORY_BONUSES = {
     isAvailable: meta =>
       meta.hearts.some(heart => heart.isFull && !heart.isProtected),
   },
-  IRON_SLOT: {
-    label: 'Iron slot',
+  RUSTY_SLOT: {
+    label: 'Rusty slot',
     id: 'IS',
     isAvailable: ({ hearts }) => hearts.length < 5,
   },

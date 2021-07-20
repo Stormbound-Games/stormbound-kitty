@@ -209,8 +209,8 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
               className='ReleaseNotesAugust2021__card'
             />
             <Image
-              src='/assets/images/iconography/brawl_IRON_SLOT.png'
-              alt='Iron slot bonus'
+              src='/assets/images/iconography/brawl_RUSTY_SLOT.png'
+              alt='Rusty slot bonus'
               className='ReleaseNotesAugust2021__card'
             />
             <Image
@@ -268,7 +268,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             start of the current milestone.
           </li>
           <li>
-            <span className='Highlight'>Iron Slot:</span> Picking this bonus
+            <span className='Highlight'>Rusty Slot:</span> Picking this bonus
             will grant the player an extra heart slot (up to 5 heart slots in
             total). Once the player loses a life from this slot, the slots
             destroys itself. It also destroys itself on milestone reset.
