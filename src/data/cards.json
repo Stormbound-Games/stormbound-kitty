@@ -2155,7 +2155,7 @@
     "rarity": "legendary",
     "image": "queen_of_herds.png",
     "mana": 7,
-    "strength": "6/8/10/10/12",
+    "strength": "8/10/12/12/14",
     "movement": 0,
     "ability": "On play, randomly *play* up to *1/1/1/2/2* common or rare Satyr/Satyr/Satyr/Satyrs/Satyrs from your deck on a tile in its row",
     "hero": true

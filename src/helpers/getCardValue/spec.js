@@ -1407,10 +1407,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Queen of Herds', () => {
     const value1 = getCardValue('S21', 1)
     const value5 = getCardValue('S21', 5)
-    expect(value1[0]).to.equal((6 / 7) * 0.5)
-    expect(value1[1]).to.equal(((6 + 3 + 8 * 1) / 7) * 0.5)
-    expect(value5[0]).to.equal((12 / 7) * 0.5)
-    expect(value5[1]).to.equal(((12 + (6 + 4 + 4) + 6 + 8 * 3) / 7) * 0.5)
+    expect(value1[0]).to.equal((8 / 7) * 0.5)
+    expect(value1[1]).to.equal(((8 + 3 + 8 * 1) / 7) * 0.5)
+    expect(value5[0]).to.equal((14 / 7) * 0.5)
+    expect(value5[1]).to.equal(((14 + (6 + 4 + 4) + 6 + 8 * 3) / 7) * 0.5)
   })
 
   it('should return value for Vindicators', () => {

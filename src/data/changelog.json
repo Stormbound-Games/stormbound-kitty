@@ -1,6 +1,15 @@
 [
   {
     "date": "01/08/2021",
+    "description": "Strength increased by 2",
+    "id": "S21",
+    "type": "BUFF",
+    "from": {
+      "strength": "6/8/10/10/12"
+    }
+  },
+  {
+    "date": "01/08/2021",
     "description": "Added to the game",
     "id": "F29",
     "type": "INFO"
