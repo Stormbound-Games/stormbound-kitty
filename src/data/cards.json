@@ -2645,9 +2645,9 @@
     "rarity": "rare",
     "image": "temple_of_life.png",
     "mana": 3,
-    "strength": "3/4/5/6/7",
+    "strength": "2/3/4/5/6",
     "movement": null,
-    "ability": "At the start of your turn, *vitalize 1/2/2/3/3* friendly unit/units/units/units/units"
+    "ability": "At the start of your turn, *vitalize 1/2/2/3/3* friendly unit/units/units/units/units, then spawn a *1 strength* copy of itself on the tile behind"
   },
   {
     "name": "Glacier Palace",

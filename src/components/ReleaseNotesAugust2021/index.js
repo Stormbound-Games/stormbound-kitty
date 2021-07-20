@@ -70,7 +70,9 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             <CardLink id='W29' />
             ’s ability now considers all friendly units (instead of surrounding
             only), but affects less units at all levels (from 2/3/4/5/6 to
-            1/2/2/3/3).
+            1/2/2/3/3). It also attemps to spawn a 1-strength copy of itself on
+            the tile behind, like a tree expanding its roots. Additionally, its
+            strength has been decreased by 1 (from 2/3/4/5/6 to 1/2/3/4/5).
           </li>
           <li>
             <CardLink id='N85' />
