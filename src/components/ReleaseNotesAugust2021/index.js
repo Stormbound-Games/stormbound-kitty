@@ -280,9 +280,8 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           </li>
           <li>
             <span className='Highlight'>Ice Armor:</span> Picking this bonus
-            will give an Ice Armor to the first full heart from the left. After
-            a loss, the Ice Armor gets destroyed while keeping the heart beneath
-            it intact.
+            will give an Ice Armor to the first full heart. After a loss, the
+            Ice Armor gets destroyed while keeping the heart beneath it intact.
           </li>
         </ul>
 

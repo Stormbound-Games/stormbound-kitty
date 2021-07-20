@@ -4,10 +4,12 @@ import BrawlDifficultySelect from '../BrawlDifficultySelect'
 import BrawlMilestones from '../BrawlMilestones'
 import BrawlProvider from '../BrawlProvider'
 import Guide from '../Guide'
+import Image from '../Image'
 import Info from '../Info'
 import Only from '../Only'
 import { Crowns, Coins } from '../Resource'
 import ResourceIcon from '../ResourceIcon'
+import Row from '../Row'
 import Table from '../Table'
 import Title from '../Title'
 import getRewardLabel from '../../helpers/getRewardLabel'
@@ -44,6 +46,9 @@ export default React.memo(function GuideBrawl(props) {
       <ul style={{ columns: '16em' }}>
         <li>
           <a href='#what-is-the-brawl'>What is the Brawl?</a>
+        </li>
+        <li>
+          <a href='#what-are-victory-bonuses'>What are victory bonuses?</a>
         </li>
         <li>
           <a href='#what-deck-to-play'>What deck to play?</a>
@@ -142,6 +147,7 @@ export default React.memo(function GuideBrawl(props) {
         Find below the list of all milestones, their cost and reward for every
         difficulty level.
       </p>
+
       <BrawlDifficultySelect
         value={difficulty}
         onChange={event => setDifficulty(event.target.value)}
@@ -199,6 +205,73 @@ export default React.memo(function GuideBrawl(props) {
         to fight other players, and hopefully win.
       </p>
 
+      <Title id='what-are-victory-bonuses'>What are victory bonuses?</Title>
+
+      <Row desktopOnly>
+        <Row.Column>
+          <p>
+            The idea is that after{' '}
+            <span className='Highlight'>every victory</span> in Brawl, you will
+            be offered one of two random bonuses, amongst a set of 9 different
+            possible bonuses (see the complete list below). Some of them will
+            provide resources while some will improve your livelihood in Brawl
+            by redeeming and refilling hearts.
+          </p>
+          <p>
+            You begin a Brawl adventure with 3 full green hearts. When you lose
+            a match, you lose one heart (it gets emptied and red). If all hearts
+            are lost, then your crowns get reset to the beginning of the current
+            milestone.
+          </p>
+        </Row.Column>
+        <Row.Column>
+          <Image
+            style={{ marginTop: 0 }}
+            src='/assets/images/releases/brawl_bonuses_choice.jpg'
+            alt=''
+          />
+        </Row.Column>
+      </Row>
+
+      <p>Here is the breakdown of every victory bonus:</p>
+
+      <ul>
+        <li>
+          <span className='Highlight'>Resources bonuses:</span> Picking these
+          bonuses will immediately grant you a certain amount of resources,
+          varying based on the Brawl difficulty and milestone.
+        </li>
+        <li>
+          <span className='Highlight'>Fortress Up bonus:</span> Picking this
+          bonus will increase your Fortress Level by 1 within the current Brawl
+          difficulty and only for Brawl matches. It will not increase the
+          Fortress Level beyond the cap for that Brawl. This bonus cannot be
+          drawn if already capped.
+        </li>
+        <li>
+          <span className='Highlight'>Life/Lives Up bonuses:</span> Picking
+          these bonuses will refill a heart (or all hearts), giving you extra
+          chances to climb the milestones without being reset to the start of
+          the current milestone.
+        </li>
+        <li>
+          <span className='Highlight'>Rusty Slot:</span> Picking this bonus will
+          grant you an extra heart slot (up to 5 heart slots in total). Once you
+          lose a life from this slot, the slots destroys itself. It also
+          destroys itself on milestone reset.
+        </li>
+        <li>
+          <span className='Highlight'>Solidify:</span> Picking this bonus will
+          make one of your hearts indestructible. From there on, it behaves like
+          one of three default slots.
+        </li>
+        <li>
+          <span className='Highlight'>Ice Armor:</span> Picking this bonus will
+          give an Ice Armor to the first full heart. After a loss, the Ice Armor
+          gets destroyed while keeping the heart beneath it intact.
+        </li>
+      </ul>
+
       <Title id='what-deck-to-play'>What deck to play?</Title>
 
       <p>
@@ -208,7 +281,7 @@ export default React.memo(function GuideBrawl(props) {
         adapt to the week’s theme in order to stay competitive.
       </p>
 
-      <p>Find below the existing modifiers in their order of apparition:</p>
+      <p>Find below the existing modifiers:</p>
 
       <ul>
         {BRAWLS.map(brawl => (
@@ -290,9 +363,9 @@ export default React.memo(function GuideBrawl(props) {
 
       <Info icon='compass' title='Resources Guide'>
         The <Link to='/guides/resources'>resources guide</Link> from{' '}
-        <Link to='/member/Roman'>Roman</Link>
-        expands a bit more into the math behind the Brawl strategy, as well as
-        whether or not it is wise to spend coins in the Brawl.
+        <Link to='/member/Roman'>Roman</Link> expands a bit more into the math
+        behind the Brawl strategy, as well as whether or not it is wise to spend
+        coins in the Brawl.
       </Info>
 
       <Title id='staying-on-top-of-things'>Staying on top of things</Title>
