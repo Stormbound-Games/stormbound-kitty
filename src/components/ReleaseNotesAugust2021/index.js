@@ -298,8 +298,8 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           <p>
             Similar to previous events, the Brawl starting on July 29th (and
             only that one) is going to be cheaper. All fight will cost 10% of
-            their original price. Owner of the Premium Pass will also have their
-            usual discount applied, leading to a 20% reduction.
+            their original price. Owners of the Premium Pass will also have
+            their usual discount applied, leading to a 20% reduction.
           </p>
         </CheapenedBrawl>
 
