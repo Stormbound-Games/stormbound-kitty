@@ -169,7 +169,6 @@ export default () => {
               label: 'Book Simulator',
               to: '/simulators/books',
               id: 'BOOK_SIMULATOR',
-              new: true,
             },
           ],
         },
