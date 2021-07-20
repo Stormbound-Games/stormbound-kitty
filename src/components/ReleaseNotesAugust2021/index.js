@@ -89,12 +89,6 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           </li>
 
           <li>
-            <CardLink id='N77' />
-            ’s ability is reworked from scratch. It now draws up to 1/1/2/2/3
-            card(s) from the enemy’s hand, and reduce their mana cost by 1.
-          </li>
-
-          <li>
             <CardLink id='S21' />’ strength is now 8/10/12/12/14 (up from
             6/8/10/10/12).
           </li>
@@ -102,6 +96,13 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           <li>
             <CardLink id='F20' />’ strength is now 5/6/7/8/10 (up from
             3/4/5/6/8).
+          </li>
+
+          <li>
+            <CardLink id='N77' />
+            ’s ability is reworked from scratch. It now draws up to 1/1/2/2/3
+            card(s) from the enemy’s hand, and reduce the mana cost of these
+            copies by 1.
           </li>
         </ul>
 
@@ -116,7 +117,11 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
 
         <Title id='new-card'>New card</Title>
 
-        <p>Another temple card will come early August, the Temple of Time!</p>
+        <p>
+          Another temple card will come early August, the Temple of Time! As its
+          name might suggest, it plays with the flow of the game, restoring
+          friendly units and structures to the state of the previous turn.
+        </p>
       </Article.Narrow>
 
       <Article.Embed>
@@ -158,16 +163,6 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           The second part of the new heart system will be introduced in late
           July in the form of Brawl winning bonuses.
         </p>
-
-        <Info icon='gift' title='Compensation'>
-          <p>
-            To apologize for the recent sub-par experience with the Brawl, every
-            player logging into the game before the 29th of July will be
-            rewarded with <Coins amount={500} />. Additionally, the Brawl
-            starting on July 29th will be discounted 10% for everyone, and 20%
-            for Premium Pass holders.
-          </p>
-        </Info>
 
         <Row desktopOnly>
           <Row.Column>
@@ -300,6 +295,14 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             their original price. Owners of the Premium Pass will also have
             their usual discount applied, leading to a 20% reduction.
           </p>
+
+          <Info icon='gift' title='Compensation'>
+            <p>
+              Additionally, to apologize for the recent sub-par experience with
+              the Brawl, every player logging at least once into the game before
+              the 29th of July will be rewarded with <Coins amount={500} />.
+            </p>
+          </Info>
         </CheapenedBrawl>
 
         <Title id='daily-check-in-redeeming'>Daily check-in redeeming</Title>
@@ -333,7 +336,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
               id: 'release-date',
               question: 'When is the update going to be released?',
               answer:
-                'The balance changes will be deployed with the season reset as usual. Temple of the Mind will be available from July 2nd along with its promotional pack (for a week). The new Brawl modifiers will be released in the next few weeks.',
+                'The balance changes will be deployed with the season reset as usual. Temple of Time will be available from August 2nd along with its promotional pack (for a week). The new Brawl bonuses will be released in the next few weeks.',
             },
           ]}
         />

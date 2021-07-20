@@ -1882,7 +1882,7 @@
     "mana": 3,
     "strength": "2/3/4/5/6",
     "movement": 0,
-    "ability": "At the start of your turn, restore 1/2/2/3/3 friendly unit/units/units/units/units or/and/and/and/and structure/structures/structures/structures/structures to the state from the end of the previous turn"
+    "ability": "At the start of your turn, restore 1/1/2/2/3 friendly unit/unit/units/units/units or/or/and/and/and structure/sructures/structures/structures/structures to the state from the end of the previous turn"
   },
   {
     "name": "Doppelbocks",
