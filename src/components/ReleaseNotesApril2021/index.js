@@ -189,7 +189,7 @@ export default React.memo(function ReleaseNotesApril2021(props) {
           We have a few other improvement ideas if needed.
         </p>
 
-        <CheapenedBrawl ratio={1 / 2}>
+        <CheapenedBrawl ratio={1 / 2} difficulty='LEGACY'>
           <p>
             Similar to{' '}
             <Link to='/releases/11-2020#cheapened-braawl'>

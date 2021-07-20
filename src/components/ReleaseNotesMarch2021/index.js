@@ -418,7 +418,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           </p>
         </Info>
 
-        <CheapenedBrawl ratio={(1 / 3) * 2}>
+        <CheapenedBrawl ratio={(1 / 3) * 2} difficulty='LEGACY'>
           <p>
             To apologise for the server issues during the last discounted Brawl,
             we decided to make the Brawl starting on February 25th cheaper as

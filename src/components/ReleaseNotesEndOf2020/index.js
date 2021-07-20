@@ -110,7 +110,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
           <Stones amount='0/2/5/10/20' />.
         </Info>
 
-        <CheapenedBrawl ratio={1 / 2}>
+        <CheapenedBrawl ratio={1 / 2} difficulty='LEGACY'>
           <p>
             Similar to{' '}
             <Link to='/releases/11-2020#cheapened-braawl'>
