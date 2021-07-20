@@ -1,5 +1,4 @@
 import React from 'react'
-import Icon from '../Icon'
 import { BrawlContext } from '../BrawlProvider'
 import './index.css'
 
@@ -47,6 +46,7 @@ const BrawlLossCounter = props => {
         .slice(0)
         .reverse()
         .map((heart, index) => (
+          // eslint-disable-next-line jsx-a11y/alt-text
           <img
             key={[heart.isFull, heart.isPermanent, heart.isProtected, index]
               .map(Number)
