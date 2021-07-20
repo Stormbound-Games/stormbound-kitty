@@ -1872,6 +1872,19 @@
     "elder": true
   },
   {
+    "name": "Temple of Time",
+    "id": "F29",
+    "type": "structure",
+    "faction": "shadowfen",
+    "race": null,
+    "rarity": "legendary",
+    "image": "temple_of_time.png",
+    "mana": 3,
+    "strength": "2/3/4/5/6",
+    "movement": 0,
+    "ability": "At the start of your turn, restore 1/2/2/3/3 friendly unit/units/units/units/units or/and/and/and/and structure/structures/structures/structures/structures to the state from the end of the previous turn"
+  },
+  {
     "name": "Doppelbocks",
     "id": "S1",
     "type": "unit",

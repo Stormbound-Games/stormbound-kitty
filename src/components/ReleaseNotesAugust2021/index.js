@@ -112,7 +112,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
       </Article.Narrow>
 
       <Article.Embed>
-        <CardBuilderCardDisplay {...getInitialCardData('N85')} />
+        <CardBuilderCardDisplay {...getInitialCardData('F29')} />
       </Article.Embed>
 
       <Article.Narrow>
@@ -134,7 +134,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
 
         <ul>
           <li>
-            <ResourceIcon resource='COMMON' /> 1 copy of <CardLink id='N85' />
+            <ResourceIcon resource='COMMON' /> 1 copy of <CardLink id='F29' />
           </li>
           <li>
             <Stones amount={5} />

@@ -1,6 +1,12 @@
 [
   {
     "date": "01/08/2021",
+    "description": "Added to the game",
+    "id": "F29",
+    "type": "INFO"
+  },
+  {
+    "date": "01/08/2021",
     "description": "Ability made to draw cards from the enemy’s hand",
     "id": "N77",
     "type": "BUFF",
