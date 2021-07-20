@@ -1146,10 +1146,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Blood Ministers', () => {
     const value1 = getCardValue('F20', 1)
     const value5 = getCardValue('F20', 5)
-    expect(value1[0]).to.equal((3 / 6) * 0.5)
-    expect(value1[1]).to.equal(((3 + 4 * 3 * 2) / 6) * 0.5)
-    expect(value5[0]).to.equal((8 / 6) * 0.5)
-    expect(value5[1]).to.equal(((8 + 4 * 7 * 2) / 6) * 0.5)
+    expect(value1[0]).to.equal((5 / 6) * 0.5)
+    expect(value1[1]).to.equal(((5 + 4 * 3 * 2) / 6) * 0.5)
+    expect(value5[0]).to.equal((10 / 6) * 0.5)
+    expect(value5[1]).to.equal(((10 + 4 * 7 * 2) / 6) * 0.5)
   })
 
   it('should return value for Broodmother Qordia', () => {
