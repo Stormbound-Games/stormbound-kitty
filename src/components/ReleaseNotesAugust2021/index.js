@@ -81,11 +81,10 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
 
           <li>
             <CardLink id='N85' />
-            ’s ability no longer kills friendly confused units. Instead, once
-            per turn, manually dropping a unit on the structure itself (like
-            dropping a unit on a free tile) will grant it fixedly forward, then
-            the weakest confused unit takes 1/2/3/4/5 damage. Its strength has
-            also been adjusted to 2/3/4/5/6 (from 2/3/5/6/7).
+            ’s ability still triggers at the start of the turn but now grants
+            (or remove if already present) fixedly forward movement to the
+            leftmost unit in the hand, then destroys the weakest confused unit
+            on the board.
           </li>
 
           <li>

@@ -27,7 +27,7 @@
     "date": "01/08/2021",
     "description": "Ability made to draw cards from the enemy’s hand",
     "id": "N77",
-    "type": "BUFF",
+    "type": "MIXED",
     "from": {
       "mana": 6,
       "strength": "2/3/4/5/7",
@@ -36,9 +36,9 @@
   },
   {
     "date": "01/08/2021",
-    "description": "Ability reworked and strength adjusted",
+    "description": "Ability made to grant fixedly forward and strength adjusted",
     "id": "N85",
-    "type": "BUFF",
+    "type": "MIXED",
     "from": {
       "strength": "2/3/5/6/7",
       "ability": "At the start of your turn, give fixedly forward movement to a random non-Hero unit card from your hand, then kill all friendly confused units"
