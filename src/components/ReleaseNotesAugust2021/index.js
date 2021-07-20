@@ -11,7 +11,7 @@ import Info from '../Info'
 import NerfCompensationInfo from '../NerfCompensationInfo'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
-import { Coins, Stones } from '../Resource'
+import { Coins, Rubies, Stones } from '../Resource'
 import ResourceIcon from '../ResourceIcon'
 import Title from '../Title'
 import getInitialCardData from '../../helpers/getInitialCardData'
@@ -128,33 +128,67 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
       </Article.Embed>
 
       <Article.Narrow>
-        <Image
-          src='/assets/images/releases/pack_temple_of_time.png'
-          alt='Temple of Time ($9.99): 1 copy of Temple of Time, 5 fusions stones and 750 coins'
-          withAvif
-        />
-
         <p>
           As usual, there will be an exclusive pack to quickly get access to the
-          new card, for a week after its release date.
+          new card, for a week after its release date. To celebrate Sheepyard’s
+          first anniversary taking care of the game, there will also be a
+          Sheepyard Powerpack available.
         </p>
 
-        <p>
-          It will be available from August 2nd at $9.99, and will grant the
-          following :{' '}
-        </p>
+        <Row desktopOnly wideGutter>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/pack_temple_of_time.png'
+              alt='Temple of Time ($9.99): 1 copy of Temple of Time, 5 fusions stones and 750 coins'
+              withAvif
+              style={{ transform: 'scale(1.07)' }}
+            />
+            <p>
+              It will be available from August 2nd at $9.99, and will grant the
+              following :{' '}
+            </p>
 
-        <ul>
-          <li>
-            <ResourceIcon resource='COMMON' /> 1 copy of <CardLink id='F29' />
-          </li>
-          <li>
-            <Stones amount={5} />
-          </li>
-          <li>
-            <Coins amount={750} />
-          </li>
-        </ul>
+            <ul>
+              <li>
+                <ResourceIcon resource='LEGENDARY' /> 1 copy of{' '}
+                <CardLink id='F29' />
+              </li>
+              <li>
+                <Stones amount={5} />
+              </li>
+              <li>
+                <Coins amount={750} />
+              </li>
+            </ul>
+          </Row.Column>
+          <Row.Column>
+            <Image
+              src='/assets/images/releases/pack_sheepyard.png'
+              alt='Sheepyard pack ($9.99): 1 random legendary card, 50 fusions stones, 100 rubies and 500 coins'
+              withAvif
+            />
+
+            <p>
+              It will be available from August 2nd at $9.99, and will grant the
+              following :{' '}
+            </p>
+
+            <ul>
+              <li>
+                <ResourceIcon resource='LEGENDARY' /> 1 random legendary card
+              </li>
+              <li>
+                <Coins amount={500} />
+              </li>
+              <li>
+                <Rubies amount={100} />
+              </li>
+              <li>
+                <Stones amount={50} />
+              </li>
+            </ul>
+          </Row.Column>
+        </Row>
 
         <Title id='brawl-bonuses'>Brawl bonuses</Title>
 
