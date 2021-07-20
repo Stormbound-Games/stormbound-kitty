@@ -1,0 +1,25 @@
+.CheapenedBrawl__controls {
+  display: flex;
+  margin-bottom: 0.5em;
+}
+
+.CheapenedBrawl__control {
+  background-color: transparent;
+  font: inherit;
+  border: 0;
+  border-bottom: 0.2em solid transparent;
+  padding: 1em 0;
+  cursor: pointer;
+  color: var(--dark-beige);
+  flex: 1 1 calc(100% / 3);
+}
+
+.CheapenedBrawl__control:hover,
+.CheapenedBrawl__control:focus {
+  color: var(--beige);
+}
+
+.CheapenedBrawl__control--active {
+  color: var(--beige);
+  border-bottom-color: var(--beige);
+}
