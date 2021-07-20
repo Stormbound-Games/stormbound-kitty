@@ -91,7 +91,12 @@ export default React.memo(function BrawlMatches(props) {
         </thead>
         <tbody>
           {editedMatch === null && (
-            <BrawlMatchForm opponentFaction={getDefaultFaction(brawl.id)} />
+            <BrawlMatchForm
+              opponentFaction={getDefaultFaction(brawl.id)}
+              // Reset the component and its internal states once a match has
+              // been added.
+              key={brawl.matches.length}
+            />
           )}
 
           {[...brawl.matches].reverse().map((match, index) => {
