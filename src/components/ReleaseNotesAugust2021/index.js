@@ -74,6 +74,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             the tile behind, like a tree expanding its roots. Additionally, its
             strength has been decreased by 1 (from 2/3/4/5/6 to 1/2/3/4/5).
           </li>
+
           <li>
             <CardLink id='N85' />
             ’s ability no longer kills friendly confused units. Instead, once
@@ -87,6 +88,16 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             <CardLink id='N77' />
             ’s ability is reworked from scratch. It now draws up to 1/1/2/2/3
             card(s) from the enemy’s hand, and reduce their mana cost by 1.
+          </li>
+
+          <li>
+            <CardLink id='S21' />’ strength is now 8/10/12/12/14 (up from
+            6/8/10/10/12).
+          </li>
+
+          <li>
+            <CardLink id='F20' />’ strength is now 5/6/7/8/10 (up from
+            3/4/5/6/8).
           </li>
         </ul>
 
