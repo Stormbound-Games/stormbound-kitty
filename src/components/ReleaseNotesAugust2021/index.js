@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
+import CheapenedBrawl from '../CheapenedBrawl'
 import FAQSection from '../FAQSection'
 import Guide from '../Guide'
 import Image from '../Image'
@@ -39,6 +40,9 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           </li>
           <li>
             <a href='#brawl-bonuses'>Brawl bonuses</a>
+          </li>
+          <li>
+            <a href='#cheapened-brawl'>Cheapened Brawl</a>
           </li>
           <li>
             <a href='#daily-check-in-redeeming'>Daily check-in redeeming</a>
@@ -281,6 +285,15 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             it intact.
           </li>
         </ul>
+
+        <CheapenedBrawl ratio={0.9}>
+          <p>
+            Similar to previous events , the Brawl starting on July 29th (and
+            only that one) is going to be cheaper. All fight will cost 10% of
+            their original price. Owner of the Premium Pass will also have their
+            usual discount applied, leading to a 20% reduction.
+          </p>
+        </CheapenedBrawl>
 
         <Title id='daily-check-in-redeeming'>Daily check-in redeeming</Title>
 
