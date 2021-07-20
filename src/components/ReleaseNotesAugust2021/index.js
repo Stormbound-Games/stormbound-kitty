@@ -67,19 +67,10 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
 
         <ul>
           <li>
-            <CardLink id='W22' /> now trigger their ability before attacking a
-            unit, regardless of its position (instead of only in front).
-          </li>
-          <li>
             <CardLink id='W29' />
             ’s ability now considers all friendly units (instead of surrounding
             only), but affects less units at all levels (from 2/3/4/5/6 to
             1/2/2/3/3).
-          </li>
-          <li>
-            <CardLink id='N80' />’ ability now triggers before moving instead of
-            on play and their strength has been increased by 1 (from 3/4/5/6/7
-            to 4/5/6/7/8).
           </li>
           <li>
             <CardLink id='N85' />
