@@ -286,9 +286,17 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           </li>
         </ul>
 
+        <Info icon='hammer' title='Brawl tracker'>
+          <p>
+            The <Link to='/brawl'>Brawl tracker</Link> has been updated to take
+            these bonuses into account. You can now record which bonus you
+            picked with every victory, and the loss counter will reflect that.
+          </p>
+        </Info>
+
         <CheapenedBrawl ratio={0.9}>
           <p>
-            Similar to previous events , the Brawl starting on July 29th (and
+            Similar to previous events, the Brawl starting on July 29th (and
             only that one) is going to be cheaper. All fight will cost 10% of
             their original price. Owner of the Premium Pass will also have their
             usual discount applied, leading to a 20% reduction.
