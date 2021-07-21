@@ -112,7 +112,7 @@ export default () => {
             { label: 'Known Bugs', to: '/guides/known-bugs', id: 'KNOWN_BUGS' },
             {
               label: 'Stormbound Trivia Game',
-              to: '/trivia-game',
+              to: '/trivia',
               id: 'TRIVIA',
             },
             { label: 'Cards Statistics', to: '/card/stats', id: 'CARD_STATS' },
