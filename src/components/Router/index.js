@@ -146,7 +146,7 @@ export default function Router(props) {
             <CardsStats />
           </Page>
 
-          <Page exact path='/trivia' active={['GAME', 'TRIVIA']}>
+          <Page exact path='/trivia-game' active={['GAME', 'TRIVIA']}>
             <Trivia />
           </Page>
 
