@@ -144,8 +144,8 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
               style={{ transform: 'scale(1.07)' }}
             />
             <p>
-              It will be available from August 2nd at $9.99, and will grant the
-              following :{' '}
+              It will be available for a week from August 15th at $9.99, and
+              will grant the following :{' '}
             </p>
 
             <ul>
@@ -169,8 +169,8 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             />
 
             <p>
-              It will be available from August 2nd at $9.99, and will grant the
-              following :{' '}
+              It will be available between July 29th and August 1st at $9.99,
+              and will grant the following :{' '}
             </p>
 
             <ul>
@@ -368,8 +368,15 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             {
               id: 'release-date',
               question: 'When is the update going to be released?',
-              answer:
-                'The balance changes will be deployed with the season reset as usual. Temple of Time will be available from August 2nd along with its promotional pack (for a week). The new Brawl bonuses will be released in the next few weeks.',
+              answer: (
+                <>
+                  The balance changes will be deployed with the season reset as
+                  usual along with the compensation for Rogue Sheep. The changes
+                  to the Brawl will come live on the 29th of July, with the
+                  10%-discounted Brawl. Temple of Time will be available from
+                  August 15th along with its promotional pack (for a week).
+                </>
+              ),
             },
           ]}
         />
