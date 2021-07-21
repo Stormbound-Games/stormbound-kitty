@@ -110,7 +110,7 @@ const Trivia = () => {
   )
 
   return (
-    <Article title='Trivia'>
+    <Article title='Trivia Game'>
       <Article.Narrow>
         <p>
           Welcome to the{' '}
@@ -201,7 +201,7 @@ const Trivia = () => {
       </Article.Narrow>
 
       <PageMeta
-        title='Trivia'
+        title='Trivia Game'
         description='Test your knownledge of Stormbound with this trivia game!'
       />
     </Article>
