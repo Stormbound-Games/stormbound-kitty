@@ -278,11 +278,6 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
 
         <ul>
           <li>
-            <span className='Highlight'>Resources bonuses:</span> Picking these
-            bonuses will immediately grant the player a certain amount of
-            resources, varying based on the Brawl difficulty and milestone.
-          </li>
-          <li>
             <span className='Highlight'>Fortress Up bonus:</span> Picking this
             bonus will increase the Fortress Level of the player by 1 within the
             current Brawl difficulty and only for Brawl matches. It will not
@@ -310,6 +305,31 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             <span className='Highlight'>Ice Armor:</span> Picking this bonus
             will give an Ice Armor to the first full heart. After a loss, the
             Ice Armor gets destroyed while keeping the heart beneath it intact.
+          </li>
+          <li>
+            <span className='Highlight'>Resources bonuses:</span> Picking these
+            bonuses will immediately grant the player a certain amount of
+            resources, varying based on the Brawl difficulty and milestone.
+            <ul>
+              <li>
+                The Coins bonus can be obtained from the very first milestone.
+                Its rewards can go up to <Coins amount={100} /> in Casual,{' '}
+                <Coins amount={250} /> in Warrior and <Coins amount={500} /> in
+                Ultimate.
+              </li>
+              <li>
+                The Rubies bonus can be obtained from milestone 3 onwards and
+                can go up to <Rubies amount={25} /> in Casual,{' '}
+                <Rubies amount={50} /> in Warrior and <Rubies amount={100} /> in
+                Ultimate.
+              </li>
+              <li>
+                The Fusion Stones can be obtained from milestone 5 onwards and
+                bonus can go up to <Stones amount={3} /> in Casual,{' '}
+                <Stones amount={10} /> in Warrior and <Stones amount={25} /> in
+                Ultimate.
+              </li>
+            </ul>
           </li>
         </ul>
 
