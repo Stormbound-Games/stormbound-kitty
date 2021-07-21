@@ -1098,5 +1098,35 @@
       "HIGH_LEVELS"
     ],
     "date": "07/2021"
+  },
+  {
+    "name": "Blowdryer",
+    "id": "5xw1w2n3n67n8n14n59n25w8n35w19w23",
+    "author": "ArthisRoo",
+    "tags": [
+      "HIGH_LEVELS",
+      "CONTROL"
+    ],
+    "date": "07/2021"
+  },
+  {
+    "name": "Venom Powder",
+    "id": "5xn1f1f2n3n67f5f7f11f13f14f15n45",
+    "author": "ArthisRoo",
+    "tags": [
+      "HIGH_LEVELS",
+      "CONTROL"
+    ],
+    "date": "07/2021"
+  },
+  {
+    "name": "Powderpuff Girl",
+    "id": "5xn1i1i2n3n67i7i8n18n25n69i19n45",
+    "author": "ArthisRoo",
+    "tags": [
+      "HIGH_LEVELS",
+      "CONTROL"
+    ],
+    "date": "07/2021"
   }
 ]
