@@ -729,6 +729,15 @@ describe('The `getCardValue` helper', () => {
     expect(value5[1]).to.equal((16 / 5) * 0.5)
   })
 
+  it('should return value for Headless Hotheads', () => {
+    const value1 = getCardValue('N83', 1)
+    const value5 = getCardValue('N83', 5)
+    expect(value1[0]).to.equal((3 / 5) * 1.5)
+    expect(value1[1]).to.equal((3 / 5) * 1.5)
+    expect(value5[0]).to.equal((7 / 5) * 1.5)
+    expect(value5[1]).to.equal((7 / 5) * 1.5)
+  })
+
   it('should return value for Eternal Ethereals', () => {
     const value1 = getCardValue('N84', 1)
     const value5 = getCardValue('N84', 5)
