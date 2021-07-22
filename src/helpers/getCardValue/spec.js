@@ -729,6 +729,15 @@ describe('The `getCardValue` helper', () => {
     expect(value5[1]).to.equal((16 / 5) * 0.5)
   })
 
+  it('should return value for Headless Hotheads', () => {
+    const value1 = getCardValue('N83', 1)
+    const value5 = getCardValue('N83', 5)
+    expect(value1[0]).to.equal((3 / 5) * 1.5)
+    expect(value1[1]).to.equal((3 / 5) * 1.5)
+    expect(value5[0]).to.equal((7 / 5) * 1.5)
+    expect(value5[1]).to.equal((7 / 5) * 1.5)
+  })
+
   it('should return value for Eternal Ethereals', () => {
     const value1 = getCardValue('N84', 1)
     const value5 = getCardValue('N84', 5)
@@ -1134,13 +1143,13 @@ describe('The `getCardValue` helper', () => {
     expect(value5[1]).to.equal(((3 + 6 * 2) / 5) * 1)
   })
 
-  it.skip('should return value for Obsidian Butchers', () => {
+  it('should return value for Obsidian Butchers', () => {
     const value1 = getCardValue('F17', 1)
     const value5 = getCardValue('F17', 5)
-    expect(value1[0]).to.equal()
-    expect(value1[1]).to.equal()
-    expect(value5[0]).to.equal()
-    expect(value5[1]).to.equal()
+    expect(value1[0]).to.equal((2 / 5) * 1.5)
+    expect(value1[1]).to.equal(((2 + 2 * 10) / 5) * 1.5)
+    expect(value5[0]).to.equal((6 / 5) * 1.5)
+    expect(value5[1]).to.equal(((6 + 2 * 10) / 5) * 1.5)
   })
 
   it('should return value for Soulcrushers', () => {
@@ -1152,13 +1161,13 @@ describe('The `getCardValue` helper', () => {
     expect(value5[1]).to.equal(((10 * 2 - 1) / 5) * 1)
   })
 
-  it.skip('should return value for Sunbeam Serpents', () => {
+  it('should return value for Sunbeam Serpents', () => {
     const value1 = getCardValue('F19', 1)
     const value5 = getCardValue('F19', 5)
-    expect(value1[0]).to.equal()
-    expect(value1[1]).to.equal()
-    expect(value5[0]).to.equal()
-    expect(value5[1]).to.equal()
+    expect(value1[0]).to.equal((2 / 5) * 1)
+    expect(value1[1]).to.equal(((2 + 10) / 5) * 1)
+    expect(value5[0]).to.equal((6 / 5) * 1)
+    expect(value5[1]).to.equal(((6 + 24) / 5) * 1)
   })
 
   it('should return value for Blood Ministers', () => {
@@ -1287,13 +1296,13 @@ describe('The `getCardValue` helper', () => {
     expect(value5[1]).to.equal(((3 + 6) / 3) * 1)
   })
 
-  it('should return value for Forgotten Souls', () => {
+  it.skip('should return value for Forgotten Souls', () => {
     const value1 = getCardValue('S6', 1)
     const value5 = getCardValue('S6', 5)
-    expect(value1[0]).to.equal((1 / 3) * 1)
-    expect(value1[1]).to.equal((1 / 3) * 1)
-    expect(value5[0]).to.equal((3 / 3) * 1)
-    expect(value5[1]).to.equal((3 / 3) * 1)
+    expect(value1[0]).to.equal()
+    expect(value1[1]).to.equal()
+    expect(value5[0]).to.equal()
+    expect(value5[1]).to.equal()
   })
 
   it('should return value for Moonlit Aerie', () => {
@@ -1744,5 +1753,14 @@ describe('The `getCardValue` helper', () => {
     expect(value1[1]).to.equal(((4 + 2 * 4) / 5) * 1)
     expect(value5[0]).to.equal((8 / 5) * 1)
     expect(value5[1]).to.equal(((8 + 6 * 4) / 5) * 1)
+  })
+
+  it('should return value for Iceflakes', () => {
+    const value1 = getCardValue('W31', 1)
+    const value5 = getCardValue('W31', 5)
+    expect(value1[0]).to.equal((3 / 2) * 0.5)
+    expect(value1[1]).to.equal((3 / 2) * 0.5)
+    expect(value5[0]).to.equal((7 / 2) * 0.5)
+    expect(value5[1]).to.equal((7 / 2) * 0.5)
   })
 })
