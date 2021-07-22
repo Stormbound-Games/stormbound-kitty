@@ -133,6 +133,19 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
       </Article.Embed>
 
       <Article.Narrow>
+        <p>Here it is in action:</p>
+
+        <iframe
+          width='700'
+          height='394'
+          src='https://www.youtube-nocookie.com/embed/tac3eTGN7Ng?start=30'
+          title='YouTube video player'
+          frameBorder={0}
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+          allowFullScreen
+          style={{ margin: '0 auto 2em' }}
+        ></iframe>
+
         <p>
           As usual, there will be an exclusive pack to quickly get access to the
           new card, for a week after its release date. To celebrate Sheepyard’s
