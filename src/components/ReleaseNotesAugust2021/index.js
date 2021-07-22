@@ -11,7 +11,7 @@ import Info from '../Info'
 import NerfCompensationInfo from '../NerfCompensationInfo'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
-import { Coins, Rubies, Stones } from '../Resource'
+import { Coins, Rubies, Stones, Legendary } from '../Resource'
 import ResourceIcon from '../ResourceIcon'
 import Title from '../Title'
 import getInitialCardData from '../../helpers/getInitialCardData'
@@ -43,6 +43,9 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           </li>
           <li>
             <a href='#cheapened-brawl'>Cheapened Brawl</a>
+          </li>
+          <li>
+            <a href='#books-update'>Books update</a>
           </li>
           <li>
             <a href='#daily-check-in-redeeming'>Daily check-in redeeming</a>
@@ -357,6 +360,96 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             </p>
           </Info>
         </CheapenedBrawl>
+
+        <Title id='books-update'>Books update</Title>
+
+        <p>
+          Four new books will be introduced, all available to buy with rubies as
+          usual. We hope they help players sharpening their collection!
+        </p>
+
+        <ul>
+          <li>
+            The new <span className='Highlight'>Book of Magic</span> costs{' '}
+            <Rubies amount={40} /> and contains 3 spells with rarity odds being
+            50/30/20/0.
+          </li>
+          <li>
+            The new <span className='Highlight'>Book of Structures</span> costs{' '}
+            <Rubies amount={40} /> and contains 3 structures with rarity odds
+            being 50/30/15/5.
+          </li>
+          <li>
+            The new <span className='Highlight'>Book of Chaos</span> costs{' '}
+            <Rubies amount={50} /> and contains 3 cards with the word “random”
+            (or its localized equivalent) in their ability with rarity odds
+            being 25/25/25/25.
+          </li>
+          <li>
+            The new <span className='Highlight'>Book of Legends</span> costs{' '}
+            <Rubies amount={120} /> and contains <Legendary amount={3} />.
+          </li>
+        </ul>
+
+        <Row>
+          <Row.Column width='1/4'>
+            <Image
+              src='/assets/images/books/book-magic.png'
+              alt='Book of Magic'
+            />
+          </Row.Column>
+          <Row.Column width='1/4'>
+            <Image
+              src='/assets/images/books/book-structure.png'
+              alt='Book of Structures'
+            />
+          </Row.Column>
+          <Row.Column width='1/4'>
+            <Image
+              src='/assets/images/books/book-chaos.png'
+              alt='Book of Chaos'
+            />
+          </Row.Column>
+          <Row.Column width='1/4'>
+            <Image
+              src='/assets/images/books/book-legends.png'
+              alt='Book of Legends'
+            />
+          </Row.Column>
+        </Row>
+
+        <p>
+          On top of that, some existing books will be updated to be more
+          interesting:
+        </p>
+
+        <ul>
+          <li>
+            The <span className='Highlight'>Book of Archdragons</span> now costs{' '}
+            <Rubies amount={80} /> (down from <Rubies amount={120} />
+            ).
+          </li>
+          <li>
+            The <span className='Highlight'>Book of Dragons</span> now costs{' '}
+            <Rubies amount={40} /> (down from <Rubies amount={60} />) and its
+            rarity odds are now 20/60/15/5 (improved from 20/60/20/0).
+          </li>
+          <li>
+            The <span className='Highlight'>Book of Elders</span> now costs{' '}
+            <Rubies amount={40} /> (down from <Rubies amount={60} />) and its
+            rarity odds are now 0/60/35/5 (improved from 0/67/30/3).
+          </li>
+          <li>
+            The <span className='Highlight'>Book of Pirates</span> now costs{' '}
+            <Rubies amount={40} /> (down from <Rubies amount={60} />) and its
+            rarity odds are now 50/30/15/5 (improved from 55/25/15/5).
+          </li>
+          <li>
+            The <span className='Highlight'>Book of Felines</span> now costs{' '}
+            <Rubies amount={40} /> (down from <Rubies amount={60} />
+            ).
+          </li>
+        </ul>
 
         <Title id='daily-check-in-redeeming'>Daily check-in redeeming</Title>
 
