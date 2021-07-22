@@ -1134,13 +1134,13 @@ describe('The `getCardValue` helper', () => {
     expect(value5[1]).to.equal(((3 + 6 * 2) / 5) * 1)
   })
 
-  it.skip('should return value for Obsidian Butchers', () => {
+  it('should return value for Obsidian Butchers', () => {
     const value1 = getCardValue('F17', 1)
     const value5 = getCardValue('F17', 5)
-    expect(value1[0]).to.equal()
-    expect(value1[1]).to.equal()
-    expect(value5[0]).to.equal()
-    expect(value5[1]).to.equal()
+    expect(value1[0]).to.equal((2 / 5) * 1.5)
+    expect(value1[1]).to.equal(((2 + 2 * 10) / 5) * 1.5)
+    expect(value5[0]).to.equal((6 / 5) * 1.5)
+    expect(value5[1]).to.equal(((6 + 2 * 10) / 5) * 1.5)
   })
 
   it('should return value for Soulcrushers', () => {

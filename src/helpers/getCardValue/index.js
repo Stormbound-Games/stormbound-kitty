@@ -504,6 +504,12 @@ const getCardValue = (id, level = 1) => {
         ((strength + health + spawn) / mana) * speed,
       ]
     }
+    case 'F17': /* Obsidian Butchers */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + 2 * MAX_TILES) / mana) * speed,
+      ]
+    }
 
     default: {
       if (type === 'unit') {
