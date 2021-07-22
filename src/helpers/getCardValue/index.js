@@ -99,6 +99,12 @@ const getCardValue = (id, level = 1) => {
         ((strength + MAX_STRENGTH * 2) / mana) * speed,
       ]
     }
+    case 'F19': /* Sunbeam Serpents */ {
+      return [
+        (strength / mana) * speed,
+        ((strength + MAX_STRENGTH) / mana) * speed,
+      ]
+    }
     case 'N65': /* Razor-Sharp Lynxes */ {
       const [strengthBuff, speedBuff] = ability.match(/(\d+)/g).map(Number)
       const buffedStrength = (strength + (strength + strengthBuff)) / 2

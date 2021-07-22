@@ -1,5 +1,4 @@
 export const UNVALUED_CARDS = [
-  'F19',
   'I2',
   'I29',
   'N38',
