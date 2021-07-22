@@ -100,7 +100,7 @@ export const BOOKS = {
   },
   DRAGON: {
     only: { race: 'dragon' },
-    percentiles: [0.2, 0.6, 0.2, 0],
+    percentiles: [0.2, 0.6, 0.15, 0.05],
     draws: 3,
   },
   ARCHDRAGON: {
