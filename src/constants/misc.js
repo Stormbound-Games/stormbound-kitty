@@ -16,7 +16,6 @@ export const UNVALUED_CARDS = [
   'W24',
   'W29',
   'W30',
-  'W31',
   'W8',
   'W9',
 ]

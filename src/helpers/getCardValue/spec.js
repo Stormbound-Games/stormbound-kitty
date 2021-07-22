@@ -1745,4 +1745,13 @@ describe('The `getCardValue` helper', () => {
     expect(value5[0]).to.equal((8 / 5) * 1)
     expect(value5[1]).to.equal(((8 + 6 * 4) / 5) * 1)
   })
+
+  it('should return value for Iceflakes', () => {
+    const value1 = getCardValue('W31', 1)
+    const value5 = getCardValue('W31', 5)
+    expect(value1[0]).to.equal((3 / 2) * 0.5)
+    expect(value1[1]).to.equal((3 / 2) * 0.5)
+    expect(value5[0]).to.equal((7 / 2) * 0.5)
+    expect(value5[1]).to.equal((7 / 2) * 0.5)
+  })
 })
