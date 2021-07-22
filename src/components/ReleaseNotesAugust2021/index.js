@@ -303,8 +303,8 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           </li>
           <li>
             <span className='Highlight'>Solidify:</span> Picking this bonus will
-            make one of the player’s hearts indestructible. From there on, it
-            behaves like one of three default slots.
+            make one of the player’s rusty slots indestructible. From there on,
+            it behaves like one of three default slots.
           </li>
           <li>
             <span className='Highlight'>Ice Armor:</span> Picking this bonus
