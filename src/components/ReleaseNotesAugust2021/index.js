@@ -103,8 +103,10 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           <li>
             <CardLink id='N77' />
             ’s ability is reworked from scratch. It now draws up to 1/1/2/2/3
-            card(s) from the enemy’s hand, and reduce the mana cost of these
-            copies by 1.
+            card copies from the enemy’s hand, and reduce the mana cost of these
+            copies by 1. Card copies can be cycled like normal cards but they
+            are single-use. They do not go back into the deck once they’ve been
+            played once.
           </li>
         </ul>
 
@@ -347,7 +349,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
         <CheapenedBrawl ratio={0.9}>
           <p>
             Similar to previous events, the Brawl starting on July 29th (and
-            only that one) is going to be cheaper. All fight will cost 10% of
+            only that one) is going to be cheaper. All fights will cost 10% of
             their original price. Owners of the Premium Pass will also have
             their usual discount applied, leading to a 20% reduction.
           </p>
@@ -356,7 +358,8 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             <p>
               Additionally, to apologize for the recent sub-par experience with
               the Brawl, every player logging at least once into the game before
-              the 29th of July will be rewarded with <Coins amount={500} />.
+              the end of 29th of July will be rewarded with{' '}
+              <Coins amount={500} />.
             </p>
           </Info>
         </CheapenedBrawl>
