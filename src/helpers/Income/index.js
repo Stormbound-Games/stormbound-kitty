@@ -5,9 +5,9 @@ import getPeriodMultiplier from '../../helpers/getPeriodMultiplier'
 const RUBY_CONVERSION_MAP = {
   CARD_SHOP: 20,
   CLASSIC: 20,
-  DRAGON: 60,
-  ELDER: 60,
-  FELINE: 60,
+  DRAGON: 40,
+  ELDER: 40,
+  FELINE: 40,
   HEROIC: 40,
   ARCHDRAGON: 80,
   MYTHIC: 80,
