@@ -12,6 +12,10 @@ const RUBY_CONVERSION_MAP = {
   ARCHDRAGON: 80,
   MYTHIC: 80,
   PIRATE: 60,
+  STRUCTURE: 40,
+  CHAOS: 50,
+  LEGENDS: 120,
+  MAGIC: 40,
 }
 
 class Income {

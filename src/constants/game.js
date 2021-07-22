@@ -108,6 +108,26 @@ export const BOOKS = {
     percentiles: [0, 0, 0.7, 0.3],
     draws: 3,
   },
+  STRUCTURE: {
+    only: { type: 'structure' },
+    percentiles: [0.5, 0.3, 0.15, 0.05],
+    draws: 3,
+  },
+  CHAOS: {
+    only: { ability: /random/ },
+    percentiles: [0.25, 0.25, 0.25, 0.25],
+    draws: 3,
+  },
+  LEGENDS: {
+    only: { rarity: 'legendary' },
+    percentiles: [0, 0, 0, 1],
+    draws: 3,
+  },
+  MAGIC: {
+    only: { type: 'spell' },
+    percentiles: [0.5, 0.3, 0.2, 1],
+    draws: 3,
+  },
 }
 
 export const EXPECTATIONS = {

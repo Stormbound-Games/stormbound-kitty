@@ -23,13 +23,25 @@ const getBookName = (bookType, plural = false) => {
       return `Book${plural ? 's' : ''} of Felines`
     case 'ELDER':
     case 'ELDER_BOOK':
-      return `Scroll${plural ? 's' : ''} of Elders`
+      return `Book${plural ? 's' : ''} of Elders`
     case 'DRAGON':
     case 'DRAGON_BOOK':
       return `Book${plural ? 's' : ''} of Dragons`
     case 'ARCHDRAGON':
     case 'ARCHDRAGON_BOOK':
       return `Book${plural ? 's' : ''} of Archdragons`
+    case 'STRUCTURE':
+    case 'STRUCTURE_BOOK':
+      return `Book${plural ? 's' : ''} of Structures`
+    case 'MAGIC':
+    case 'MAGIC_BOOK':
+      return `Book${plural ? 's' : ''} of Magic`
+    case 'LEGENDS':
+    case 'LEGENDS_BOOK':
+      return `Book${plural ? 's' : ''} of Legends`
+    case 'CHAOS':
+    case 'CHAOS_BOOK':
+      return `Book${plural ? 's' : ''} of Chaos`
     default:
       return ``
   }
