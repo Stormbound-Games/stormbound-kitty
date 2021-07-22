@@ -95,7 +95,7 @@ export const BOOKS = {
   },
   ELDER: {
     only: { elder: true },
-    percentiles: [0, 0.67, 0.3, 0.03],
+    percentiles: [0, 0.6, 0.35, 0.05],
     draws: 3,
   },
   DRAGON: {
