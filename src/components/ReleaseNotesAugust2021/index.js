@@ -429,7 +429,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
         <ul>
           <li>
             The <span className='Highlight'>Book of Archdragons</span> now costs{' '}
-            <Rubies amount={80} /> (down from <Rubies amount={120} />
+            <Rubies amount={90} /> (down from <Rubies amount={120} />
             ).
           </li>
           <li>
