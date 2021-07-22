@@ -85,7 +85,7 @@ export const BOOKS = {
   },
   PIRATE: {
     only: { race: 'pirate' },
-    percentiles: [0.55, 0.25, 0.15, 0.05],
+    percentiles: [0.5, 0.3, 0.15, 0.05],
     draws: 3,
   },
   FELINE: {
