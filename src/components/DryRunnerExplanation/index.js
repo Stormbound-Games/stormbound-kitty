@@ -32,7 +32,7 @@ const CARD_ATTRIBUTES = {
   N22: 'Cycles a random non-Pirate card from your hand',
   N33: 'Discards and redraws your hand when played as the first card on a turn',
   N48: 'Plays one or two spells from your hand, depending on her level',
-  N77: 'Is not implemented.',
+  N77: 'Copies card from the opponent’s deck for single usage.',
   S21: 'Plays one or two Satyrs from your deck, depending on her level',
   W1: 'Can only be played when you have frozen enemy units this turn',
   W8: 'Destroys frozen enemies and gain mana from them, depending on how many freezing cards were played this turn and your RNG level',
