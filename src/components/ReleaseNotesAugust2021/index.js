@@ -85,7 +85,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           <li>
             <CardLink id='N85' />
             ’s ability still triggers at the start of the turn but now grants
-            (or remove if already present) fixedly forward movement to the
+            (or removes if already present) fixedly forward movement to the
             leftmost unit in the hand, then destroys the weakest confused unit
             on the board.
           </li>
@@ -103,10 +103,10 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           <li>
             <CardLink id='N77' />
             ’s ability is reworked from scratch. It now draws up to 1/1/2/2/3
-            card copies from the enemy’s hand, and reduce the mana cost of these
-            copies by 1. Card copies can be cycled like normal cards but they
-            are single-use. They do not go back into the deck once they’ve been
-            played once.
+            card copies from the enemy’s hand, and reduces the mana cost of
+            these copies by 1. Card copies can be cycled like normal cards but
+            they are single-use. They do not go back into the deck once they’ve
+            been played once.
           </li>
         </ul>
 
@@ -124,7 +124,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
         <p>
           Another temple card will come early August, the Temple of Time! As its
           name might suggest, it plays with the flow of the game, restoring
-          friendly units and structures to the state of the previous turn.
+          friendly units and structures to the state from the previous turn.
         </p>
       </Article.Narrow>
 
@@ -150,63 +150,92 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           As usual, there will be an exclusive pack to quickly get access to the
           new card, for a week after its release date. To celebrate Sheepyard’s
           first anniversary taking care of the game, there will also be a
-          Sheepyard Powerpack available.
+          Sheepyard Pack available, as well as a Rogue Sheep pack.
         </p>
 
-        <Row desktopOnly wideGutter>
-          <Row.Column>
-            <Image
-              src='/assets/images/releases/pack_temple_of_time.png'
-              alt='Temple of Time ($9.99): 1 copy of Temple of Time, 5 fusions stones and 750 coins'
-              withAvif
-              style={{ transform: 'scale(1.07)' }}
-            />
-            <p>
-              It will be available for a week from August 15th at $9.99, and
-              will grant the following :{' '}
-            </p>
+        <Guide.FullWidth padding='120px'>
+          <Row desktopOnly wideGutter>
+            <Row.Column width='1/3'>
+              <Image
+                src='/assets/images/releases/pack_sheepyard.png'
+                alt='Sheepyard pack ($9.99): 1 random legendary card, 50 fusion stones, 100 rubies and 500 coins'
+                withAvif
+              />
 
-            <ul>
-              <li>
-                <ResourceIcon resource='LEGENDARY' /> 1 copy of{' '}
-                <CardLink id='F29' />
-              </li>
-              <li>
-                <Stones amount={5} />
-              </li>
-              <li>
-                <Coins amount={750} />
-              </li>
-            </ul>
-          </Row.Column>
-          <Row.Column>
-            <Image
-              src='/assets/images/releases/pack_sheepyard.png'
-              alt='Sheepyard pack ($9.99): 1 random legendary card, 50 fusions stones, 100 rubies and 500 coins'
-              withAvif
-            />
+              <p>
+                It will be available between July 29th and August 1st at $9.99,
+                and will grant the following :{' '}
+              </p>
 
-            <p>
-              It will be available between July 29th and August 1st at $9.99,
-              and will grant the following :{' '}
-            </p>
+              <ul>
+                <li>
+                  <ResourceIcon resource='LEGENDARY' /> 1 random legendary card
+                </li>
+                <li>
+                  <Coins amount={500} />
+                </li>
+                <li>
+                  <Rubies amount={100} />
+                </li>
+                <li>
+                  <Stones amount={50} />
+                </li>
+              </ul>
+            </Row.Column>
+            <Row.Column width='1/3'>
+              <Image
+                src='/assets/images/releases/pack_rogue_sheep.png'
+                alt='Rogue Sheep pack ($9.99): 1 copy of Rogue Sheep, 5 fusion stones, 750 coins'
+                withAvif
+                style={{ transform: 'scale(1.03) translateY(-3%)' }}
+              />
 
-            <ul>
-              <li>
-                <ResourceIcon resource='LEGENDARY' /> 1 random legendary card
-              </li>
-              <li>
-                <Coins amount={500} />
-              </li>
-              <li>
-                <Rubies amount={100} />
-              </li>
-              <li>
-                <Stones amount={50} />
-              </li>
-            </ul>
-          </Row.Column>
-        </Row>
+              <p>
+                It will be available for a week from August 8th at $9.99, and
+                will grant the following :{' '}
+              </p>
+
+              <ul>
+                <li>
+                  <ResourceIcon resource='LEGENDARY' /> 1 copy of{' '}
+                  <CardLink id='N77' />
+                </li>
+                <li>
+                  <Stones amount={5} />
+                </li>
+                <li>
+                  <Coins amount={750} />
+                </li>
+              </ul>
+            </Row.Column>
+
+            <Row.Column width='1/3'>
+              <Image
+                src='/assets/images/releases/pack_temple_of_time.png'
+                alt='Temple of Time ($9.99): 1 copy of Temple of Time, 5 fusion stones and 750 coins'
+                withAvif
+                style={{ transform: 'scale(1.07)' }}
+              />
+              <p>
+                It will be available for a week from August 15th at $9.99, and
+                will grant the following :{' '}
+              </p>
+
+              <ul>
+                <li>
+                  <ResourceIcon resource='LEGENDARY' /> 1 copy of{' '}
+                  <CardLink id='F29' />
+                </li>
+                <li>
+                  <Stones amount={5} />
+                </li>
+                <li>
+                  <Coins amount={750} />
+                </li>
+              </ul>
+            </Row.Column>
+          </Row>
+        </Guide.FullWidth>
 
         <Title id='brawl-bonuses'>Brawl bonuses</Title>
 
@@ -296,13 +325,6 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
 
         <ul>
           <li>
-            <span className='Highlight'>Fortress Up bonus:</span> Picking this
-            bonus will increase the Fortress Level of the player by 1 within the
-            current Brawl difficulty and only for Brawl matches. It will not
-            increase the Fortress Level beyond the cap for that Brawl. This
-            bonus cannot be drawn if already capped.
-          </li>
-          <li>
             <span className='Highlight'>Life/Lives Up bonuses:</span> Picking
             these bonuses will refill a heart (or all hearts), giving the player
             extra chances to climb the milestones without being reset to the
@@ -323,6 +345,13 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             <span className='Highlight'>Ice Armor:</span> Picking this bonus
             will give an Ice Armor to the first full heart. After a loss, the
             Ice Armor gets destroyed while keeping the heart beneath it intact.
+          </li>
+          <li>
+            <span className='Highlight'>Fortress Up bonus:</span> Picking this
+            bonus will increase the Fortress Level of the player by 1 within the
+            current Brawl difficulty and only for Brawl matches. It will not
+            increase the Fortress Level beyond the cap for that Brawl. This
+            bonus cannot be drawn if already capped.
           </li>
           <li>
             <span className='Highlight'>Resources bonuses:</span> Picking these
