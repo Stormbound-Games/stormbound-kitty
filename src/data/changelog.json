@@ -25,7 +25,7 @@
   },
   {
     "date": "01/08/2021",
-    "description": "Ability made to draw cards from the enemy’s hand",
+    "description": "Mana decreased by 2, strength increased by 1 and ability made to draw cards from the enemy’s hand",
     "id": "N77",
     "type": "MIXED",
     "from": {
