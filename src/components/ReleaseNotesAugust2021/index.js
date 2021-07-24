@@ -101,12 +101,13 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           </li>
 
           <li>
-            <CardLink id='N77' />
-            ’s ability is reworked from scratch. It now draws up to 1/1/2/2/3
-            card copies from the enemy’s hand, and reduces the mana cost of
-            these copies by 1. Card copies can be cycled like normal cards but
-            they are single-use. They do not go back into the deck once they’ve
-            been played once.
+            <CardLink id='N77' /> now costs 4 mana (down from 6) and its
+            strength is now 3/4/5/6/7 (up from 2/3/4/5/7). Additionally, its
+            ability is reworked from scratch. It now draws up to 1/1/2/2/3 card
+            copies from the enemy’s hand, and reduces the mana cost of these
+            copies by 1. Card copies can be cycled like normal cards but they
+            are single-use. They do not go back into the deck once they’ve been
+            played once.
           </li>
         </ul>
 
@@ -359,10 +360,10 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             resources, varying based on the Brawl difficulty and milestone.
             <ul>
               <li>
-                The Coins bonus can be obtained from the very first milestone.
-                Its rewards can go up to <Coins amount={100} /> in Casual,{' '}
-                <Coins amount={250} /> in Warrior and <Coins amount={500} /> in
-                Ultimate.
+                The Coins bonus can be obtained from the very first milestone
+                onwards. Its rewards can go up to <Coins amount={100} /> in
+                Casual, <Coins amount={250} /> in Warrior and{' '}
+                <Coins amount={500} /> in Ultimate.
               </li>
               <li>
                 The Rubies bonus can be obtained from milestone 3 onwards and
@@ -391,9 +392,9 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
         <CheapenedBrawl ratio={0.9}>
           <p>
             Similar to previous events, the Brawl starting on July 29th (and
-            only that one) is going to be cheaper. All fights will cost 10% of
-            their original price. Owners of the Premium Pass will also have
-            their usual discount applied, leading to a 20% reduction.
+            only that one) is going to be cheaper. All fights will be 10% off.
+            Owners of the Premium Pass will also have their usual discount
+            applied, leading to a 20% reduction.
           </p>
 
           <Info icon='gift' title='Compensation'>
