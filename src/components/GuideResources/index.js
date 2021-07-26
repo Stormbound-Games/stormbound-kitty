@@ -388,8 +388,8 @@ export default React.memo(function GuideResources(props) {
       <p>
         Upgrading your full collection to level 5 costs{' '}
         <Coins amount={cards.filter(card => !card.token).length * 1450} />,
-        which would take you at least 410 days of max grind to save up,
-        including in-game rewards and no Brawl.
+        which would take you at least a year of max grind to save up, including
+        in-game rewards and no Brawl.
       </p>
       <p>
         Since Sheepyard has taken over development of the game, it’s very likely
