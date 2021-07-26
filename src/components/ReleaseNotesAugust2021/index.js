@@ -103,11 +103,11 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           <li>
             <CardLink id='N77' /> now costs 4 mana (down from 6) and its
             strength is now 3/4/5/6/7 (up from 2/3/4/5/7). Additionally, its
-            ability is reworked from scratch. It now draws up to 1/1/2/2/3 card
-            copies from the enemy’s hand, and reduces the mana cost of these
-            copies by 1. Card copies can be cycled like normal cards but they
-            are single-use. They do not go back into the deck once they’ve been
-            played once.
+            ability is reworked from scratch and activates on play instead of on
+            death. It now draws up to 1/1/2/2/3 card copies from the enemy’s
+            hand, and reduces the mana cost of these copies by 1. Card copies
+            can be cycled like normal cards but they are single-use. They do not
+            go back into the deck once they’ve been played once.
           </li>
         </ul>
 
@@ -525,6 +525,82 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
                 </>
               ),
             },
+            {
+              id: 'card-copies',
+              question: 'What are Rogue Sheep’s card copies?',
+              answer: (
+                <>
+                  “Card copies” (when used during a match) are single-use copies
+                  of cards produced by <CardLink id='N77' /> (and potentially
+                  some future other cards). They are{' '}
+                  <span className='Highlight'>not</span> stolen cards as the
+                  opponent does not lose these cards, even temporarily. They are
+                  copies. They can be cycled as many times as desired, but get
+                  destroyed once played.
+                </>
+              ),
+            },
+            /*{
+              id: 'copy-counselor-ahmi',
+              question:
+                'What happens if Rogue Sheep produces a card copy of Counselor Ahmi?',
+              answer: (
+                <>
+                  It works the way you would expect it to. The ability of the
+                  card copy of <CardLink id='S3' /> would work just fine
+                  (although it would come back in hand costing 2 mana, not 3).
+                  But if it’s played in a way that the card would not come back
+                  in the hand, then the card copy is destroyed.
+                </>
+              ),
+            },
+            {
+              id: 'copy-archdruid-eary',
+              question:
+                'What happens if Rogue Sheep produces a card copy of Archdruid Earyn?',
+              answer: (
+                <>
+                  The card copy of <CardLink id='N48' /> would not be able to
+                  play spells costing 8 mana, since its ability is based on the
+                  mana cost of the card, which would be 7 for the card copy.
+                </>
+              ),
+            },*/
+            {
+              id: 'copy-tokens',
+              question:
+                'What happens if Rogue Sheep produces a card copy of 0-mana token?',
+              answer: (
+                <>
+                  The card copy would cost 0 mana as well. There is no such
+                  thing as negative mana cost.
+                </>
+              ),
+            },
+            {
+              id: 'copy-copies',
+              question:
+                'What happens if Rogue Sheep produces a card copy of another card copy?',
+              answer: (
+                <>
+                  The new card copy would cost 1 mana less than the card it
+                  copied, so 2 mana (or more if this process happens several
+                  times) less than the original card cost. With a minimum of 0
+                  of course.
+                </>
+              ),
+            },
+            /*{
+              id: 'copy-queen-of-herds',
+              question:
+                'What happens if Queen of Herds plays a card copy from the deck?',
+              answer: (
+                <>
+                  That card copy would be destroyed, just as if it was played
+                  manually.
+                </>
+              ),
+            },*/
           ]}
         />
       </Article.Narrow>
