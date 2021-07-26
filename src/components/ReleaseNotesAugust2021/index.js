@@ -11,7 +11,7 @@ import Info from '../Info'
 import NerfCompensationInfo from '../NerfCompensationInfo'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
-import { Coins, Rubies, Stones, Legendary } from '../Resource'
+import { Coins, Crowns, Rubies, Stones, Legendary } from '../Resource'
 import ResourceIcon from '../ResourceIcon'
 import Title from '../Title'
 import getInitialCardData from '../../helpers/getInitialCardData'
@@ -258,6 +258,14 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             />
           </Row.Column>
         </Row>
+
+        <Info icon='crown' title='Crowns for milestone 2'>
+          <p>
+            The amount of <ResourceIcon resource='CROWNS' /> crowns to reach the
+            second milestone of any of the 3 Brawls is now <Crowns amount={7} />{' '}
+            instead of <Crowns amount={10} />.
+          </p>
+        </Info>
 
         <CardsContainer>
           <div className='ReleaseNotesAugust2021__cards'>
