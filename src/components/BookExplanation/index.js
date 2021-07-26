@@ -9,7 +9,7 @@ export default React.memo(({ book }) => {
     only.elder && 'elder',
     only.race,
     only.type,
-    only.ability.toString().replace(/\//g, ''),
+    only.ability && only.ability.toString().replace(/\//g, ''),
   ]
     .filter(Boolean)
     .join(' ')
