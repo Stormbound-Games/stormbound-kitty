@@ -79,7 +79,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             only), but affects less units at all levels (from 2/3/4/5/6 to
             1/2/2/3/3). It also attemps to spawn a 1-strength copy of itself on
             the tile behind, like a tree expanding its roots. Additionally, its
-            strength has been decreased by 1 (from 2/3/4/5/6 to 1/2/3/4/5).
+            strength has been decreased by 1 (from 3/4/5/6/7 to 2/3/4/5/6).
           </li>
 
           <li>
@@ -503,8 +503,9 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           <Row.Column>
             <p>
               We are introducing a way to redeem some skipped days from the
-              daily check-in calendar for non-Premium users. Every day, you’ll
-              be able to redeem a skipped day reward by watching an ad.
+              daily check-in calendar for both Premium and non-Premium users.
+              Every day, you’ll be able to redeem a skipped day reward by
+              watching an ad.
             </p>
             <p>
               We hope this will help players with a more sporadic involvement
