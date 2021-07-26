@@ -2,8 +2,9 @@ const isCardMatchingCriteria =
   (criteria = {}) =>
   card => {
     if (
-      !card.ability ||
-      (criteria.ability && !card.ability.match(criteria.ability))
+      criteria.ability &&
+      card.ability &&
+      !card.ability.match(criteria.ability)
     )
       return false
     if (criteria.rarity && card.rarity !== criteria.rarity) return false
