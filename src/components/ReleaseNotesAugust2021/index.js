@@ -540,7 +540,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
                 </>
               ),
             },
-            /*{
+            {
               id: 'copy-counselor-ahmi',
               question:
                 'What happens if Rogue Sheep produces a card copy of Counselor Ahmi?',
@@ -561,11 +561,11 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
               answer: (
                 <>
                   The card copy of <CardLink id='N48' /> would not be able to
-                  play spells costing 8 mana, since its ability is based on the
-                  mana cost of the card, which would be 7 for the card copy.
+                  play spells costing 7 mana, since its ability is based on the
+                  mana cost of the card, which would be 6 for the card copy.
                 </>
               ),
-            },*/
+            },
             {
               id: 'copy-tokens',
               question:
@@ -590,17 +590,18 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
                 </>
               ),
             },
-            /*{
+            {
               id: 'copy-queen-of-herds',
               question:
-                'What happens if Queen of Herds plays a card copy from the deck?',
+                'What happens if Queen of Herds or Archdruid Earyn randomly plays a card copy?',
               answer: (
                 <>
-                  That card copy would be destroyed, just as if it was played
-                  manually.
+                  That card copy would <span className='Highlight'>not</span> be
+                  destroyed. Only when played manually would a card copy be
+                  destroyed.
                 </>
               ),
-            },*/
+            },
           ]}
         />
       </Article.Narrow>
