@@ -449,17 +449,6 @@ const getCardValue = (id, level = 1) => {
     case 'W17': /* Wolfcloaks */ {
       return [(1 / mana) * speed, (strength / mana) * speed]
     }
-    case 'N77': /* Rogue Sheep */ {
-      const [a, b, c] = ability
-        .match(/(\d(?:-\d)?)/g)
-        .map(match => match.split('-').map(Number))
-      const damage = a[1] || a[0] + (b[1] || b[0]) * c[0]
-
-      return [
-        (strength / mana) * speed,
-        ((strength + MAX_TILES * damage) / mana) * speed,
-      ]
-    }
     case 'N18': /* Beasts of Terror */
     case 'N53': /* Sharpfist Exiles */
     case 'N51': /* Dangerous Suitors */ {
