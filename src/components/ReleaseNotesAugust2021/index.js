@@ -548,7 +548,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
                 </>
               ),
             },
-            {
+            /*{
               id: 'copy-counselor-ahmi',
               question:
                 'What happens if Rogue Sheep produces a card copy of Counselor Ahmi?',
@@ -573,7 +573,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
                   mana cost of the card, which would be 6 for the card copy.
                 </>
               ),
-            },
+            },*/
             {
               id: 'copy-tokens',
               question:
@@ -598,7 +598,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
                 </>
               ),
             },
-            {
+            /*{
               id: 'copy-queen-of-herds',
               question:
                 'What happens if Queen of Herds or Archdruid Earyn randomly plays a card copy?',
@@ -609,7 +609,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
                   destroyed.
                 </>
               ),
-            },
+            },*/
           ]}
         />
       </Article.Narrow>
