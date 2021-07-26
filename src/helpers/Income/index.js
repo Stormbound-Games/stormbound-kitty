@@ -5,13 +5,17 @@ import getPeriodMultiplier from '../../helpers/getPeriodMultiplier'
 const RUBY_CONVERSION_MAP = {
   CARD_SHOP: 20,
   CLASSIC: 20,
-  DRAGON: 60,
-  ELDER: 60,
-  FELINE: 60,
+  DRAGON: 40,
+  ELDER: 40,
+  FELINE: 40,
   HEROIC: 40,
-  ARCHDRAGON: 120,
+  ARCHDRAGON: 90,
   MYTHIC: 80,
   PIRATE: 60,
+  STRUCTURE: 40,
+  CHAOS: 50,
+  LEGENDS: 120,
+  MAGIC: 40,
 }
 
 class Income {

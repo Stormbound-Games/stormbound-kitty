@@ -24,7 +24,9 @@ export default React.memo(function DryRunnerActions(props) {
             type='button'
             data-testid='play-btn'
             onClick={props.playCard}
-            disabled={!props.canCardBePlayed(props.activeCard)}
+            disabled={
+              props.activeCard && !props.canCardBePlayed(props.activeCard)
+            }
           >
             <u>P</u>lay card
           </CTA>

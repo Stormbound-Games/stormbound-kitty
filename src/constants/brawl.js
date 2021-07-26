@@ -145,9 +145,9 @@ export const MILESTONES_LEGACY = [
 ]
 
 export const MILESTONES_CASUAL = [
-  { crowns: 10, reward: 'COINS', rewardAmount: 10, cost: 0 },
-  { crowns: 20, reward: 'HUMBLE_BOOK', rewardAmount: 1, cost: 5 },
-  { crowns: 35, reward: 'RUBIES', rewardAmount: 5, cost: 10, ppCost: 0 },
+  { crowns: 7, reward: 'COINS', rewardAmount: 10, cost: 0 },
+  { crowns: 20, reward: 'HUMBLE_BOOK', rewardAmount: 1, cost: 5, ppCost: 5 },
+  { crowns: 35, reward: 'RUBIES', rewardAmount: 5, cost: 10 },
   { crowns: 50, reward: 'FUSION_STONES', rewardAmount: 1, cost: 20 },
   { crowns: 70, reward: 'RUBIES', rewardAmount: 15, cost: 30 },
   { crowns: 95, reward: 'RARE_CARD', rewardAmount: 1, cost: 40 },
@@ -158,8 +158,8 @@ export const MILESTONES_CASUAL = [
 ]
 
 export const MILESTONES_WARRIOR = [
-  { crowns: 10, reward: 'COINS', rewardAmount: 20, cost: 0 },
-  { crowns: 20, reward: 'HUMBLE_BOOK', rewardAmount: 1, cost: 10, ppCost: 0 },
+  { crowns: 7, reward: 'COINS', rewardAmount: 20, cost: 0 },
+  { crowns: 20, reward: 'HUMBLE_BOOK', rewardAmount: 1, cost: 10 },
   { crowns: 35, reward: 'NOBLE_BOOK', rewardAmount: 1, cost: 25 },
   { crowns: 50, reward: 'FUSION_STONES', rewardAmount: 4, cost: 50 },
   { crowns: 70, reward: 'HEROIC_BOOK', rewardAmount: 1, cost: 75, ppCost: 65 },
@@ -171,7 +171,7 @@ export const MILESTONES_WARRIOR = [
 ]
 
 export const MILESTONES_ULTIMATE = [
-  { crowns: 10, reward: 'HUMBLE_BOOK', rewardAmount: 1, cost: 0 },
+  { crowns: 7, reward: 'HUMBLE_BOOK', rewardAmount: 1, cost: 0 },
   { crowns: 20, reward: 'RUBIES', rewardAmount: 5, cost: 20 },
   { crowns: 35, reward: 'CLASSIC_BOOK', rewardAmount: 1, cost: 50 },
   { crowns: 50, reward: 'FUSION_STONES', rewardAmount: 10, cost: 100 },
@@ -207,3 +207,36 @@ export const CROWN_REWARDS = {
 }
 
 export const CYCLE_START = new Date(2021, 3, 1, 9, 0)
+
+export const VICTORY_BONUSES = {
+  COINS: { label: 'Coins', id: 'C', isAvailable: () => true },
+  RUBIES: { label: 'Rubies', id: 'R', isAvailable: () => true },
+  FUSION_STONES: { label: 'Fusion stones', id: 'FS', isAvailable: () => true },
+  FORTRESS_LEVEL: { label: 'Fortress up', id: 'FU', isAvailable: () => true },
+  LIFE_UP: {
+    label: '1 Life up',
+    id: 'LU',
+    isAvailable: ({ hearts }) => hearts.some(heart => !heart.isFull),
+  },
+  ALL_LIVES_UP: {
+    label: 'All lives up',
+    id: 'ALU',
+    isAvailable: ({ hearts }) => hearts.some(heart => !heart.isFull),
+  },
+  ICE_ARMOR: {
+    label: 'Ice armor',
+    id: 'IA',
+    isAvailable: meta =>
+      meta.hearts.some(heart => heart.isFull && !heart.isProtected),
+  },
+  RUSTY_SLOT: {
+    label: 'Rusty slot',
+    id: 'IS',
+    isAvailable: ({ hearts }) => hearts.length < 5,
+  },
+  GOLD_SLOT: {
+    label: 'Gold solidify',
+    id: 'GS',
+    isAvailable: ({ hearts }) => hearts.some(heart => !heart.isPermanent),
+  },
+}

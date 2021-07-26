@@ -1,12 +1,30 @@
 import React from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { BrawlContext } from '../BrawlProvider'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
 import useViewportSize from '../../hooks/useViewportSize'
+import { VICTORY_BONUSES } from '../../constants/brawl'
 import './index.css'
 
 export default React.memo(function BrawlMatchForm(props) {
+  const { meta } = React.useContext(BrawlContext)
   const { viewportWidth } = useViewportSize()
+  const { isEdit, status: editedStatus, bonus: editedBonus } = props
+  const [status, setStatus] = React.useState(editedStatus || '')
+  const [bonus, setBonus] = React.useState(editedBonus || '')
+
+  React.useEffect(() => {
+    if (!['WON', 'FORFEIT'].includes(status)) setBonus('')
+  }, [status])
+
+  React.useEffect(() => {
+    if (isEdit) setStatus(editedStatus)
+  }, [isEdit, editedStatus])
+
+  React.useEffect(() => {
+    if (isEdit) setBonus(editedBonus)
+  }, [isEdit, editedBonus])
 
   return (
     <AnimatePresence exitBeforeEnter>
@@ -32,9 +50,7 @@ export default React.memo(function BrawlMatchForm(props) {
               className='BrawlMatchForm__button'
               data-testid='match-btn'
             >
-              {props.opponentHealth || props.opponentFaction || props.status
-                ? 'Edit match'
-                : 'Record match'}
+              {isEdit ? 'Edit match' : 'Record match'}
             </CTA>
           )}
         </td>
@@ -75,7 +91,8 @@ export default React.memo(function BrawlMatchForm(props) {
             required
             form='add-match-form'
             data-testid='outcome'
-            defaultValue={props.status}
+            value={status}
+            onChange={event => setStatus(event.target.value)}
           >
             <option value=''>Set game outcome</option>
             <option value='WON'>Won</option>
@@ -83,6 +100,31 @@ export default React.memo(function BrawlMatchForm(props) {
             <option value='DRAW'>Draw</option>
             <option value='SURRENDERED'>Forfeited</option>
             <option value='LOST'>Lost</option>
+          </select>
+        </td>
+        <td>
+          <label htmlFor='bonus' className='VisuallyHidden'>
+            Victory bonus
+          </label>
+          <select
+            id='bonus'
+            name='bonus'
+            form='add-match-form'
+            disabled={!['WON', 'FORFEIT'].includes(status)}
+            required={['WON', 'FORFEIT'].includes(status)}
+            value={bonus}
+            onChange={event => setBonus(event.target.value)}
+          >
+            <option value=''>Pick a bonus</option>
+            {Object.keys(VICTORY_BONUSES).map(bonus => (
+              <option
+                value={bonus}
+                key={bonus}
+                disabled={!VICTORY_BONUSES[bonus].isAvailable(meta)}
+              >
+                {VICTORY_BONUSES[bonus].label}
+              </option>
+            ))}
           </select>
         </td>
       </motion.tr>

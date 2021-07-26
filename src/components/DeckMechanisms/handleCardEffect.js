@@ -237,6 +237,26 @@ const handleCardEffect = (state, card, mode, HoS) => {
       break
     }
 
+    // Rogue Sheep
+    case 'N77': {
+      const draws = [1, 1, 2, 2, 3][card.level - 1]
+      const deck = shuffle([...state.opponentDeck])
+      const cards = deck.slice(0, draws).map(card => ({
+        ...card,
+        singleUse: true,
+        idx: state.deck.filter(c => c.id === card.id).length.toString(),
+      }))
+
+      cards.forEach(card => {
+        if (state.hand.length < 4) {
+          state.deck.push(card)
+          state.hand.push(card)
+        }
+      })
+
+      break
+    }
+
     // Counselor Ahmi
     case 'S3': {
       if (
@@ -321,6 +341,12 @@ const handleCardEffect = (state, card, mode, HoS) => {
     }
 
     default:
+      // If the card played is a card copy that’s single use, remove it from the
+      // deck now that it’s been played.
+      if (card.singleUse) {
+        state.deck = state.deck.filter(isNotCard(card))
+        break
+      }
   }
 
   return state

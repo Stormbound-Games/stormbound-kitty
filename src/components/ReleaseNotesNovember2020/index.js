@@ -152,7 +152,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
       </Article.Embed>
 
       <Article.Narrow>
-        <CheapenedBrawl ratio={(1 / 3) * 2}>
+        <CheapenedBrawl ratio={(1 / 3) * 2} difficulty='LEGACY'>
           <p>
             Similar to what happened for the{' '}
             <Link to='/releases/3rd-anniversary'>third anniversary</Link>, the

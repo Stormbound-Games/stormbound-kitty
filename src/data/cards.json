@@ -1008,10 +1008,10 @@
     "race": "pirate",
     "rarity": "legendary",
     "image": "rogue_sheep.png",
-    "mana": 6,
-    "strength": "2/3/4/5/7",
+    "mana": 4,
+    "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On death, deal *1/1/2/2/2 damage* to all enemy units and structures. Add 0-1/1/1/1/2 damage for up to 1/2/2/3/3 Pirate in hand.",
+    "ability": "On play, *draw* up to *1/1/2/2/3* card copy/copy/copies/copies/copies from the enemy’s hand with *1* mana cheaper cost",
     "hero": true
   },
   {
@@ -1116,9 +1116,9 @@
     "rarity": "common",
     "image": "temple_of_the_mind.png",
     "mana": 3,
-    "strength": "2/3/5/6/7",
+    "strength": "2/3/4/5/6",
     "movement": null,
-    "ability": "At the start of your turn, give fixedly forward movement to a random non-Hero unit card from your hand, then kill all friendly confused units"
+    "ability": "At the start of your turn, give (or remove) fixedly forward movement to the leftmost unit card in your hand, then destroy the weakest confused unit"
   },
   {
     "name": "Destructobots",
@@ -1759,7 +1759,7 @@
     "rarity": "epic",
     "image": "blood_ministers.png",
     "mana": 6,
-    "strength": "3/4/5/6/8",
+    "strength": "5/6/7/8/10",
     "movement": 0,
     "ability": "On play, *convert* all bordering enemy units with *3/4/5/6/7 or less strength* to fight for you"
   },
@@ -1870,6 +1870,19 @@
     "movement": 0,
     "ability": "After surviving damage, *drain up to 1/1/2/2/2* of the damage received from the enemy base",
     "elder": true
+  },
+  {
+    "name": "Temple of Time",
+    "id": "F29",
+    "type": "structure",
+    "faction": "shadowfen",
+    "race": null,
+    "rarity": "legendary",
+    "image": "temple_of_time.png",
+    "mana": 3,
+    "strength": "2/3/4/5/6",
+    "movement": 0,
+    "ability": "At the end of your turn, *remember* the state of surrounding friendly units and structures. At the start of your turn, *restore 1/2/2/3/3* of them to that state."
   },
   {
     "name": "Doppelbocks",
@@ -2142,7 +2155,7 @@
     "rarity": "legendary",
     "image": "queen_of_herds.png",
     "mana": 7,
-    "strength": "6/8/10/10/12",
+    "strength": "8/10/12/12/14",
     "movement": 0,
     "ability": "On play, randomly *play* up to *1/1/1/2/2* common or rare Satyr/Satyr/Satyr/Satyrs/Satyrs from your deck on a tile in its row",
     "hero": true
@@ -2632,9 +2645,9 @@
     "rarity": "rare",
     "image": "temple_of_life.png",
     "mana": 3,
-    "strength": "3/4/5/6/7",
+    "strength": "2/3/4/5/6",
     "movement": null,
-    "ability": "At the start of your turn, vitalize 2/3/4/5/6 surrounding friendly units"
+    "ability": "At the start of your turn, *vitalize 1/2/2/3/3* friendly unit/units/units/units/units, then spawn a *1 strength* copy of itself on the tile behind"
   },
   {
     "name": "Glacier Palace",

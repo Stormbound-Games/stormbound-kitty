@@ -6,7 +6,11 @@ import BrawlMatchForm from '../BrawlMatchForm'
 import Icon from '../Icon'
 import Table from '../Table'
 import Title from '../Title'
-import { BRAWL_MILESTONES, CROWN_REWARDS } from '../../constants/brawl'
+import {
+  BRAWL_MILESTONES,
+  CROWN_REWARDS,
+  VICTORY_BONUSES,
+} from '../../constants/brawl'
 import capitalise from '../../helpers/capitalise'
 import useViewportSize from '../../hooks/useViewportSize'
 import './index.css'
@@ -40,6 +44,7 @@ export default React.memo(function BrawlMatches(props) {
       opponentHealth: formData['opponent-health'],
       opponentFaction: formData['opponent-faction'],
       status: formData.status,
+      bonus: formData.bonus,
     })
 
     event.target.reset()
@@ -54,6 +59,7 @@ export default React.memo(function BrawlMatches(props) {
       opponentHealth: formData['opponent-health'],
       opponentFaction: formData['opponent-faction'],
       status: formData.status,
+      bonus: formData.bonus,
     })
     setEditedMatch(null)
   }
@@ -80,11 +86,17 @@ export default React.memo(function BrawlMatches(props) {
             <th>Opponent’s health</th>
             <th>Opponent’s faction</th>
             <th>Match status</th>
+            <th>Victory bonus</th>
           </tr>
         </thead>
         <tbody>
           {editedMatch === null && (
-            <BrawlMatchForm opponentFaction={getDefaultFaction(brawl.id)} />
+            <BrawlMatchForm
+              opponentFaction={getDefaultFaction(brawl.id)}
+              // Reset the component and its internal states once a match has
+              // been added.
+              key={brawl.matches.length}
+            />
           )}
 
           {[...brawl.matches].reverse().map((match, index) => {
@@ -94,7 +106,7 @@ export default React.memo(function BrawlMatches(props) {
             const reversedIndex = brawl.matches.length - index - 1
 
             if (editedMatch === reversedIndex) {
-              return <BrawlMatchForm key={index} {...match} />
+              return <BrawlMatchForm key={index} {...match} isEdit />
             }
 
             return (
@@ -152,6 +164,7 @@ export default React.memo(function BrawlMatches(props) {
                     }
                   })()}
                 </td>
+                <td>{VICTORY_BONUSES[match.bonus]?.label ?? 'n/a'}</td>
               </tr>
             )
           })}

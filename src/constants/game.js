@@ -85,7 +85,7 @@ export const BOOKS = {
   },
   PIRATE: {
     only: { race: 'pirate' },
-    percentiles: [0.55, 0.25, 0.15, 0.05],
+    percentiles: [0.5, 0.3, 0.15, 0.05],
     draws: 3,
   },
   FELINE: {
@@ -95,17 +95,37 @@ export const BOOKS = {
   },
   ELDER: {
     only: { elder: true },
-    percentiles: [0, 0.67, 0.3, 0.03],
+    percentiles: [0, 0.6, 0.35, 0.05],
     draws: 3,
   },
   DRAGON: {
     only: { race: 'dragon' },
-    percentiles: [0.2, 0.6, 0.2, 0],
+    percentiles: [0.2, 0.6, 0.15, 0.05],
     draws: 3,
   },
   ARCHDRAGON: {
     only: { race: 'dragon' },
     percentiles: [0, 0, 0.7, 0.3],
+    draws: 3,
+  },
+  STRUCTURE: {
+    only: { type: 'structure' },
+    percentiles: [0.5, 0.3, 0.15, 0.05],
+    draws: 3,
+  },
+  CHAOS: {
+    only: { ability: /random/ },
+    percentiles: [0.25, 0.25, 0.25, 0.25],
+    draws: 3,
+  },
+  LEGENDS: {
+    only: { rarity: 'legendary' },
+    percentiles: [0, 0, 0, 1],
+    draws: 3,
+  },
+  MAGIC: {
+    only: { type: 'spell' },
+    percentiles: [0.5, 0.3, 0.2, 1],
     draws: 3,
   },
 }

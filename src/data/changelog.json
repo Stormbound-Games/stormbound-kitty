@@ -1,5 +1,60 @@
 [
   {
+    "date": "01/08/2021",
+    "description": "Strength increased by 2",
+    "id": "F20",
+    "type": "BUFF",
+    "from": {
+      "strength": "3/4/5/6/8"
+    }
+  },
+  {
+    "date": "01/08/2021",
+    "description": "Strength increased by 2",
+    "id": "S21",
+    "type": "BUFF",
+    "from": {
+      "strength": "6/8/10/10/12"
+    }
+  },
+  {
+    "date": "01/08/2021",
+    "description": "Added to the game",
+    "id": "F29",
+    "type": "INFO"
+  },
+  {
+    "date": "01/08/2021",
+    "description": "Mana decreased by 2, strength increased by 1 and ability made to draw cards from the enemy’s hand",
+    "id": "N77",
+    "type": "MIXED",
+    "from": {
+      "mana": 6,
+      "strength": "2/3/4/5/7",
+      "ability": "On death, deal *1/1/2/2/2 damage* to all enemy units and structures. Add 0-1/1/1/1/2 damage for up to 1/2/2/3/3 Pirate in hand."
+    }
+  },
+  {
+    "date": "01/08/2021",
+    "description": "Ability made to grant fixedly forward and strength adjusted",
+    "id": "N85",
+    "type": "MIXED",
+    "from": {
+      "strength": "2/3/5/6/7",
+      "ability": "At the start of your turn, give fixedly forward movement to a random non-Hero unit card from your hand, then kill all friendly confused units"
+    }
+  },
+  {
+    "date": "01/08/2021",
+    "description": "Strength decreased by 1 and ability made no longer surrounding and to spawn a copy of itself",
+    "id": "W29",
+    "type": "MIXED",
+    "from": {
+      "strength": "3/4/5/6/7",
+      "ability": "At the start of your turn, vitalize 2/3/4/5/6 surrounding friendly units"
+    }
+  },
+  {
     "date": "01/07/2021",
     "description": "Ability made to work on friendly frozen units as well",
     "id": "W8",

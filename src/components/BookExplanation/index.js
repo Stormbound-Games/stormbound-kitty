@@ -4,7 +4,15 @@ import getBookName from '../../helpers/getBookName'
 
 export default React.memo(({ book }) => {
   const { percentiles, draws, only = {} } = BOOKS[book]
-  const qualifier = [only.rarity, only.elder && 'elder', only.race].join(' ')
+  const qualifier = [
+    only.rarity,
+    only.elder && 'elder',
+    only.race,
+    only.type,
+    only.ability.toString().replace(/\//g, ''),
+  ]
+    .filter(Boolean)
+    .join(' ')
 
   return (
     <div className='BookExplanation'>

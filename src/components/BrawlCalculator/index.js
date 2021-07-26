@@ -42,56 +42,52 @@ export default React.memo(function BrawlCalculator(props) {
     <>
       <HeaderBanner title='Brawl Calculator' />
       <Row desktopOnly wideGutter>
-        <Row.Column width='2/3'>
-          <Row desktopOnly wideGutter>
-            <Row.Column>
-              <Title>Goal</Title>
-              <BrawlDifficultySelect
-                className='BrawlCalculator__difficulty'
-                value={difficulty}
-                onChange={event => setDifficulty(event.target.value)}
-              />
-              <BrawlCalculatorMode mode={mode} setMode={setMode} />
-              <BrawlCalculatorSettings
-                difficulty={difficulty}
-                mode={mode}
-                milestone={milestone}
-                setMilestone={setMilestone}
-                coins={coins}
-                setCoins={setCoins}
-                winRate={winRate}
-                setWinRate={setWinRate}
-                crowns={crowns}
-                setCrowns={setCrowns}
-              />
-              <Info icon='sword' title='Brawl tracker'>
-                To keep track of your expenses and win ratio during the Brawl,
-                use the <Link to='/brawl'>Brawl tracker</Link>. New to the
-                Brawl? <Link to='/guides/brawl'>Read the guide</Link>.
-              </Info>
-            </Row.Column>
-            <Row.Column>
-              <div className='BrawlCalculator__section'>
-                <Title>Setup</Title>
-                <BrawlCalculatorSetup setup={setup} setSetup={setSetup} />
-                <PremiumPassCheckbox
-                  checked={withPremiumPass}
-                  onChange={event => setWithPremiumPass(event.target.checked)}
-                  withFootnote
-                />
-                <BrawlCalculatorLegendaryToggle
-                  mode={mode}
-                  milestone={milestone}
-                  checked={hasLegendary5}
-                  onChange={event => setHasLegendary5(event.target.checked)}
-                />
-              </div>
-              <BrawlCalculatorDiscount
-                discount={discount}
-                setDiscount={setDiscount}
-              />
-            </Row.Column>
-          </Row>
+        <Row.Column width='1/3'>
+          <Title>Goal</Title>
+          <BrawlDifficultySelect
+            className='BrawlCalculator__difficulty'
+            value={difficulty}
+            onChange={event => setDifficulty(event.target.value)}
+          />
+          <BrawlCalculatorMode mode={mode} setMode={setMode} />
+          <BrawlCalculatorSettings
+            difficulty={difficulty}
+            mode={mode}
+            milestone={milestone}
+            setMilestone={setMilestone}
+            coins={coins}
+            setCoins={setCoins}
+            winRate={winRate}
+            setWinRate={setWinRate}
+            crowns={crowns}
+            setCrowns={setCrowns}
+          />
+          <Info icon='sword' title='Brawl tracker'>
+            To keep track of your expenses and win ratio during the Brawl, use
+            the <Link to='/brawl'>Brawl tracker</Link>. New to the Brawl?{' '}
+            <Link to='/guides/brawl'>Read the guide</Link>.
+          </Info>
+        </Row.Column>
+        <Row.Column width='1/3'>
+          <div className='BrawlCalculator__section'>
+            <Title>Setup</Title>
+            <BrawlCalculatorSetup setup={setup} setSetup={setSetup} />
+            <PremiumPassCheckbox
+              checked={withPremiumPass}
+              onChange={event => setWithPremiumPass(event.target.checked)}
+              withFootnote
+            />
+            <BrawlCalculatorLegendaryToggle
+              mode={mode}
+              milestone={milestone}
+              checked={hasLegendary5}
+              onChange={event => setHasLegendary5(event.target.checked)}
+            />
+          </div>
+          <BrawlCalculatorDiscount
+            discount={discount}
+            setDiscount={setDiscount}
+          />
         </Row.Column>
         <Row.Column width='1/3'>
           <Title>Outcome</Title>
@@ -162,20 +158,6 @@ export default React.memo(function BrawlCalculator(props) {
         </Table>
       </Only.Desktop>
 
-      <footer style={{ marginTop: '2em' }}>
-        <h2 className='VisuallyHidden' id='footnotes'>
-          Footnotes
-        </h2>
-        <p id='multiple-discounts'>
-          (*) At this stage, there is no intention to have cumulative Brawl
-          discounts in case the owner of the Premium Pass takes part in a
-          discounted Brawl. The exact outcome of such situation is not confirmed
-          yet, but it is likely only the highest discount will be applied.{' '}
-          <a href='#multiple-discounts-ref' aria-label='Back to content'>
-            ↩
-          </a>
-        </p>
-      </footer>
       <PageMeta
         title='Brawl Calculator'
         description='Find a calculator for making the best out of the Brawl based on your current savins or your objectives'

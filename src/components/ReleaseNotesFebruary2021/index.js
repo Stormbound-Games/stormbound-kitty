@@ -145,7 +145,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
       </Article.Embed>
 
       <Article.Narrow>
-        <CheapenedBrawl ratio={(1 / 3) * 2}>
+        <CheapenedBrawl ratio={(1 / 3) * 2} difficulty='LEGACY'>
           <p>
             Similar to what happened in{' '}
             <Link to='/releases/11-2020'>November</Link>, the Brawl starting on

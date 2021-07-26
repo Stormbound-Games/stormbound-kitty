@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Guide from '../Guide'
 import Info from '../Info'
 import ResourceIcon from '../ResourceIcon'
-import { Coins, Stones } from '../Resource'
+import { Coins, Rubies, Stones } from '../Resource'
 import Title from '../Title'
 import { RARITY_COPIES } from '../../constants/game'
 import cards from '../../data/cards'
@@ -97,31 +97,52 @@ export default React.memo(function GuideResources(props) {
       <p>Coins are available through 5 different means:</p>
       <ul>
         <li>
-          Tier 1 and 3 daily missions (100 for tier 1 + 150 for tier 3, where
-          the odds of having coins as a reward are 6 to 10).
+          Tier 1 and 3 daily missions (<Coins amount={100} /> for tier 1 +{' '}
+          <Coins amount={150} /> for tier 3, where the odds of having coins as a
+          reward are 6 to 10).
         </li>
         <li>
-          Daily victories (30 extra for the first daily win, as well as 5, 10 or
-          20 depending on whether the game is played on mobile or Steam, with or
-          without ads—for a maximum of 400 a day* or 700 in case of Premium
-          Pass).
+          Daily victories (<Coins amount={25} /> in Heroes ,{' '}
+          <Coins amount={20} /> in Diamond , <Coins amount={15} /> in Platinum ,{' '}
+          <Coins amount={10} /> in other leagues, doubled when watching an ad or
+          having a Premium Pass) with{' '}
+          <a
+            href='#coins-tip'
+            aria-describedby='footnotes'
+            id='coins-tip-ref'
+            style={{ textDecoration: 'none' }}
+          >
+            a maximum of <Coins amount={400} /> a day
+            <span
+              style={{
+                color: 'var(--beige)',
+                marginLeft: '2px',
+                fontSize: '120%',
+              }}
+            >
+              *
+            </span>
+          </a>{' '}
+          or <Coins amount={700} /> in case of Premium Pass).
         </li>
         <li>
-          Monthly season chests (150 in Iron, 300 in Bronze, 500 in Silver, 800
-          in Gold, 1200 in Platinum, 1800 in Diamond, 3000 in Heroes).
+          First daily victory bonus (<Coins amount={30} />)
         </li>
         <li>
-          Duplicate copies above level 5 (15, 30, 70 or 150 depending on the
-          rarity of the card).
+          Monthly season chests (<Coins amount={150} /> in Iron,{' '}
+          <Coins amount={300} /> in Bronze, <Coins amount={500} /> in Silver,{' '}
+          <Coins amount={800} /> in Gold, <Coins amount={1200} /> in Platinum,{' '}
+          <Coins amount={1500} /> in Diamond, <Coins amount={2000} /> in
+          Heroes).
+        </li>
+        <li>Victory bonuses in the Brawl.</li>
+        <li>
+          Duplicate copies above level 5 (<Coins amount={15} />,{' '}
+          <Coins amount={30} />, <Coins amount={70} /> or <Coins amount={150} />{' '}
+          depending on the rarity of the card).
         </li>
         <li>Shop purchases as part of bundles.</li>
       </ul>
-
-      <Info title='Coins tip'>
-        It is technically possible to earn <Coins amount={415} /> from battles
-        per day despite the coins cap. To do so, reach <Coins amount={395} />{' '}
-        then win another game (with ads), bringing the total to 415.
-      </Info>
 
       <h3 id='rubies'>
         <ResourceIcon resource='RUBY' /> Rubies
@@ -129,12 +150,30 @@ export default React.memo(function GuideResources(props) {
 
       <p>Rubies are available through 4 different means:</p>
       <ul>
-        <li>Tier 2 daily missions (5).</li>
         <li>
-          Monthly season chests (5 in Bronze, 10 in Silver, 20 in Gold, 30 in
-          Platinum, 50 in Diamond, 100 in Heroes).
+          Tier 2 daily missions (<Rubies amount={5} />
+          ).
         </li>
-        <li>Weekly Brawl (5 at Milestone 2, 250 at Milestone 8).</li>
+        <li>
+          Monthly season chests (<Rubies amount={5} /> in Bronze,{' '}
+          <Rubies amount={10} /> in Silver, <Rubies amount={20} /> in Gold,{' '}
+          <Rubies amount={30} /> in Platinum, <Rubies amount={50} /> in Diamond,{' '}
+          <Rubies amount={70} /> in Heroes).
+        </li>
+        <li>
+          Weekly Casual Brawl (<Rubies amount={5} /> at Milestone 3,{' '}
+          <Rubies amount={15} /> at Milestone 5, <Rubies amount={60} /> at
+          Milestone 8 and <Rubies amount={200} /> at Milestone 10).
+        </li>
+        <li>
+          Weekly Warrior Brawl (<Rubies amount={125} /> at Milestone 8 and{' '}
+          <Rubies amount={500} /> at Milestone 10).
+        </li>
+        <li>
+          Weekly Ultimate Brawl (<Rubies amount={5} /> at Milestone 2 and{' '}
+          <Rubies amount={250} /> at Milestone 8).
+        </li>
+        <li>Victory bonuses in the Brawl.</li>
         <li>Shop purchases as part of bundles or rubies only.</li>
       </ul>
 
@@ -145,17 +184,29 @@ export default React.memo(function GuideResources(props) {
       <p>Fusion Stones are available through 4 different means:</p>
       <ul>
         <li>
-          Tier 3 daily missions (2, where the odds of having fusion stones as a
-          reward are 4 to 10).
+          Tier 3 daily missions (<Stones amount={2} />, where the odds of having
+          fusion stones as a reward are 4 to 10).
         </li>
         <li>
-          Weekly Brawl (10 at Milestone 4, 50 at Milestone 7, 200 at Milestone
-          10).
+          Weekly Casual Brawl (<Stones amount={1} /> at Milestone 4,{' '}
+          <Stones amount={7} /> at Milestone 7).
         </li>
         <li>
-          Heroes Leaderboard (100 for Top 1, 50 for Top 10, 25 for Top 100, 10
+          Weekly Warrior Brawl (<Stones amount={4} /> at Milestone 4,{' '}
+          <Stones amount={20} /> at Milestone 7).
+        </li>
+        <li>
+          Weekly Ultimate Brawl (<Stones amount={10} /> at Milestone 4,{' '}
+          <Stones amount={50} /> at Milestone 7, <Stones amount={200} /> at
+          Milestone 10).
+        </li>
+        <li>
+          Heroes Leaderboard (<Stones amount={100} /> for Top 1,{' '}
+          <Stones amount={50} /> for Top 10, <Stones amount={25} /> for Top 100,{' '}
+          <Stones amount={10} />
           for Top 500).
         </li>
+        <li>Victory bonuses in the Brawl.</li>
         <li>
           <Link to='/calculators/books'>Sometimes in books</Link>.
         </li>
@@ -172,6 +223,7 @@ export default React.memo(function GuideResources(props) {
         playstyle affects your income. The general advice here is to at least do
         these 2 things:
       </p>
+
       <ol>
         <li>Open your daily free Humble book for a random card.</li>
         <li>
@@ -182,7 +234,7 @@ export default React.memo(function GuideResources(props) {
 
       <p>
         Playing on mobile can greatly reduce the time it takes to maximise coins
-        through wins, especially with a solid rush deck for this. Brawl
+        through wins, especially with a solid rush deck for this. Ultimate Brawl
         typically isn’t worth the costs beyond Milestone 5 (Mythic Tome) and
         even then you would want to achieve at least a win-rate of 50% (roughly{' '}
         <Coins amount={1780} />
@@ -281,7 +333,7 @@ export default React.memo(function GuideResources(props) {
         (each mission can be re-rolled once a day before completing).
       </p>
 
-      <h3 id='reaching-diamond-1'>Reaching Diamond 1</h3>
+      <h3 id='reaching-diamond-1'>Reaching Heroes League</h3>
 
       <p>
         Solely reaching the top-league can be achieved within 6 months of
@@ -290,19 +342,16 @@ export default React.memo(function GuideResources(props) {
         <Link to='/guides/d1-with-sf-commons'>
           Kitty’s guide on achieving it with a mostly common SF deck
         </Link>
-        , or try out{' '}
-        <Link to='/deck/3xn1n2s1n3s24s2n67s6n24n15s8s11/detail'>
-          Reckless Rush
-        </Link>
+        , or try out <Link to='/guides/reckless-rush'>Reckless Rush</Link>
         ’s deck.
       </p>
       <p>
         The reason why a cheap deck, i.e. low rarity cards, is best is because
         you need higher level cards in order to be able to compete in the
-        Diamond league (and to some extent the Platinum league). It can take a
-        long time to find the right copies of epic and legendary cards, and the
-        latter are hard to come by, so for getting to Diamond 1 fast it is
-        highly recommended to build a deck without.
+        Diamond and Heroes leagues (and to some extent the Platinum league). It
+        can take a long time to find the right copies of epic and legendary
+        cards, and the latter are hard to come by, so for getting to Diamond 1
+        fast it is highly recommended to build a deck without.
       </p>
       <p>
         Resource-wise it is simple: buy Noble Books until you have most cards in
@@ -312,15 +361,15 @@ export default React.memo(function GuideResources(props) {
         Heroic Tomes.
       </p>
       <p>
-        Leave Brawl beyond Milestone 1 aside as it is costly, the many modifiers
-        will probably make your deck less competitive and the rewards are skewed
-        towards higher tier cards. That being said,{' '}
+        Leave Brawls beyond Milestone 1 aside as it is costly, the many
+        modifiers will probably make your deck less competitive and the rewards
+        are skewed towards higher tier cards. That being said,{' '}
         <Link to='/deck/3xn1n2s1n3s24s2n67s6n24n15s8s11/detail'>
           Reckless Rush
         </Link>
         ’s deck does perform well in several current Brawl modifiers. However,
         even then it is probably not worth trying to go any further than the{' '}
-        <Stones amount={10} /> milestone.
+        fourth milestone.
       </p>
 
       <h3 id='full-collection-level-5'>Full collection level 5</h3>
@@ -369,6 +418,21 @@ export default React.memo(function GuideResources(props) {
         How you’ve gone about building your collection thusfar affects what’s
         the best income strategy for you.
       </p>
+
+      <footer style={{ marginTop: '4em', fontSize: '90%' }}>
+        <h2 className='VisuallyHidden' id='footnotes'>
+          Footnotes
+        </h2>
+        <p id='coins-tip'>
+          (*) It is technically possible to earn <Coins amount={415} /> from
+          battles per day despite the coins cap. To do so, reach{' '}
+          <Coins amount={395} /> then win another game (with ads), bringing the
+          total to 415.{' '}
+          <a href='#coins-tip-ref' aria-label='Back to content'>
+            ↩
+          </a>
+        </p>
+      </footer>
     </Guide>
   )
 })
