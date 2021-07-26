@@ -110,6 +110,7 @@ export default React.memo(function BrawlMatchForm(props) {
             id='bonus'
             name='bonus'
             form='add-match-form'
+            data-testid='bonus'
             disabled={!['WON', 'FORFEIT'].includes(status)}
             required={['WON', 'FORFEIT'].includes(status)}
             value={bonus}

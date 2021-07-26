@@ -31,7 +31,7 @@ describe('Brawl — Page', () => {
   })
 
   it('should be possible to record a match', () => {
-    cy.brAddMatch('WON', 20, 'ironclad')
+    cy.brAddMatch('WON', 20, 'ironclad', 'RUBIES')
 
       .get(s.MATCHES)
       .should('have.length', 1)
@@ -49,6 +49,9 @@ describe('Brawl — Page', () => {
 
       .get(s.OPPONENT_HEALTH_INPUT)
       .clear()
+
+      .get(s.BONUS_SELECT)
+      .select('RUSTY_SLOT')
 
       .get(s.MATCH_SUBMIT_BTN)
       .click()
