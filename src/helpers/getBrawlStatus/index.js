@@ -91,10 +91,10 @@ const getBrawlStatus = (matches = [], difficulty = 'LEGACY') => {
     processVictoryBonus(meta, match.bonus)
 
     // Check if there are enough crowns to move on to the next milestone. If
-    // there are, remove the non-permanent hearts as they are destroyed across
-    // milestones.
+    // there are, refill empty hearts.
     if (milestone !== meta.milestone) {
       meta.milestone = milestone
+      meta.hearts = meta.hearts.map(refill)
     }
 
     // If all hearts end up empty after the match, reset the amount of crowns to
