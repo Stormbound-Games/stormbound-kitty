@@ -42,19 +42,16 @@ const BrawlLossCounter = props => {
 
   return (
     <div className='BrawlLossCounter'>
-      {meta.hearts
-        .slice(0)
-        .reverse()
-        .map((heart, index) => (
-          // eslint-disable-next-line jsx-a11y/alt-text
-          <img
-            key={[heart.isFull, heart.isPermanent, heart.isProtected, index]
-              .map(Number)
-              .join('')}
-            className='BrawlLossCounter__heart'
-            {...getImageProps(heart)}
-          />
-        ))}
+      {meta.hearts.map((heart, index) => (
+        // eslint-disable-next-line jsx-a11y/alt-text
+        <img
+          key={[heart.isFull, heart.isPermanent, heart.isProtected, index]
+            .map(Number)
+            .join('')}
+          className='BrawlLossCounter__heart'
+          {...getImageProps(heart)}
+        />
+      ))}
     </div>
   )
 }

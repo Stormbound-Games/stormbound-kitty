@@ -4,27 +4,35 @@ const DEFAULT_HEART = { isFull: true, isPermanent: true, isProtected: false }
 
 const refill = heart => ({ ...heart, isFull: true })
 const isPermanent = heart => heart.isPermanent
+const isNotPermanent = heart => !heart.isPermanent
+const isFull = heart => heart.isFull
+const isEmpty = heart => !heart.isFull
+const isProtected = heart => heart.isProtected
 
-const processVictoryBonus = (meta, bonus) => {
+const processVictory = (meta, bonus) => {
+  const getFirstIndex = predicate => meta.hearts.findIndex(predicate)
+  const getLastIndex = predicate =>
+    meta.hearts.length - 1 - meta.hearts.slice(0).reverse().findIndex(predicate)
+
   switch (bonus) {
-    // If the bonus is “Life Up”, refill the first non-full heart.
+    // If the bonus is “Life Up”, refill the first empty heart.
     case 'LIFE_UP': {
-      const index = meta.hearts.findIndex(heart => !heart.isFull)
+      const index = getFirstIndex(isEmpty)
       if (index > -1) meta.hearts[index].isFull = true
       break
     }
 
-    // If the bonus is “All Lives Up”, refill all the hearts.
+    // If the bonus is “All Lives Up”, refill all empty hearts.
     case 'ALL_LIVES_UP': {
       meta.hearts = meta.hearts.map(refill)
       break
     }
 
-    // If the bonus is “Rusty Slot”, add a new empty and temporary heart provided
-    // there are not already 5 hearts.
+    // If the bonus is “Rusty Slot”, add a new empty and non-permanent heart
+    // provided there are not already 5 hearts.
     case 'RUSTY_SLOT': {
       if (meta.hearts.length < 5)
-        meta.hearts.unshift({
+        meta.hearts.push({
           isFull: false,
           isPermanent: false,
           isProtected: false,
@@ -35,16 +43,14 @@ const processVictoryBonus = (meta, bonus) => {
     // If the bonus is “Gold solify”, make permanent the first non-permanent
     // heart.
     case 'GOLD_SLOT': {
-      const index = meta.hearts.findIndex(heart => !heart.isPermanent)
+      const index = getLastIndex(isNotPermanent)
       if (index > -1) meta.hearts[index].isPermanent = true
       break
     }
 
     // If the bonus is “Ice Armor”, protect the first full non-protected heart.
     case 'ICE_ARMOR': {
-      const index = meta.hearts.findIndex(
-        heart => heart.isFull && !heart.isProtected
-      )
+      const index = getFirstIndex(heart => isFull(heart) && !isProtected(heart))
       if (index > -1) meta.hearts[index].isProtected = true
       break
     }
@@ -57,6 +63,32 @@ const processVictoryBonus = (meta, bonus) => {
 
     default:
       break
+  }
+}
+
+const processDefeat = meta => {
+  // Iterate through the hearts from the rightmost heart to the first one.
+  for (let i = meta.hearts.length - 1; i >= 0; i--) {
+    const heart = meta.hearts[i]
+
+    // If the heart is not full, skip to previous heart.
+    if (isEmpty(heart)) continue
+
+    // If the heart is protected, break the Ice Armor and stop there.
+    if (isProtected(heart)) {
+      heart.isProtected = false
+      break
+    }
+
+    // If the heart is not a permanent heart (full is implied), remove it.
+    if (isNotPermanent(heart)) {
+      meta.hearts.splice(i, 1)
+      break
+    }
+
+    // Otherwise, empty the heart.
+    heart.isFull = false
+    break
   }
 }
 
@@ -78,17 +110,12 @@ const getBrawlStatus = (matches = [], difficulty = 'LEGACY') => {
 
     // If the match was a defeat, empty the first heart which is full.
     if (match.status === 'LOST' || match.status === 'SURRENDERED') {
-      const indexProtected = meta.hearts.findIndex(heart => heart.isProtected)
-      if (indexProtected > -1) meta.hearts[indexProtected].isProtected = false
-      else {
-        const index = meta.hearts.findIndex(heart => heart.isFull)
-        if (index > -1) meta.hearts[index].isFull = false
-      }
+      processDefeat(meta)
+    } else if (match.bonus) {
+      processVictory(meta, match.bonus)
     }
 
     const milestone = milestones.findIndex(({ crowns }) => crowns > meta.crowns)
-
-    processVictoryBonus(meta, match.bonus)
 
     // Check if there are enough crowns to move on to the next milestone. If
     // there are, refill empty hearts.
