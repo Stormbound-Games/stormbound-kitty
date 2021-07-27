@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import BattleSimApp from '../BattleSimApp'
 import CardLink from '../CardLink'
 import Guide from '../Guide'
 import Title from '../Title'
@@ -7,338 +8,424 @@ import getGuide from '../../helpers/getGuide'
 
 const guide = getGuide('PIRATE_GUIDE')
 
+const Board = props => (
+  <Guide.FullWidth>
+    <BattleSimApp environment='neutral' mode='DISPLAY' simId={props.id} />
+    {props.caption ? (
+      <p className='GuideRecklessRush__caption'>{props.caption}</p>
+    ) : null}
+  </Guide.FullWidth>
+)
+
 export default React.memo(function GuidePirate(props) {
   return (
     <Guide {...guide}>
       <p>
         Welcome to the Pirate Guide! It is recommended that you read the{' '}
-        <Link to='/guides/complete'>complete guide by Arikrat</Link>, it
-        contains useful information that will be referenced throughout this
+        <Link to='/guides/complete'>complete guide by Arikrat</Link> as well as
+        the <Link to='/guides/drawing'>drawing guide by Kitty</Link>, as they
+        contain useful information that will be referenced throughout this
         guide.
       </p>
 
       <ol style={{ marginTop: '3em', columns: '16em' }}>
         <li>
-          <a href='#deck-building'>Deck building</a>
+          <a href='#overview'>Overview and Meta Disclaimer</a>
+        </li>
+        <li>
+          <a href='#the-cards'>The Cards</a>
           <ul>
             <li>
-              <a href='#core-cards'>Core cards</a>
+              <a href='#N12'>First Mutineer</a>
             </li>
             <li>
-              <a href='#filler-cards'>Filler cards</a>
+              <a href='#N42'>Lucky Charmers</a>
+            </li>
+            <li>
+              <a href='#N14'>Freebooters</a>
+            </li>
+            <li>
+              <a href='#N5'>Northsea Dog</a>
+            </li>
+            <li>
+              <a href='#N33'>Snake Eyes</a>
+            </li>
+            <li>
+              <a href='#N16'>Westwind Sailors</a>
+            </li>
+            <li>
+              <a href='#N30'>Bluesail Raiders</a>
+            </li>
+            <li>
+              <a href='#N19'>Cabin Girls</a>
+            </li>
+            <li>
+              <a href='#N22'>Goldgrubbers</a>
+            </li>
+            <li>
+              <a href='#N72'>Seasick Bouncers</a>
+            </li>
+            <li>
+              <a href='#N77'>Rogue Sheep</a>
             </li>
           </ul>
         </li>
         <li>
-          <a href='#meta'>Meta</a>
+          <a href='#battle-styles'>Battle Styles</a>
           <ul>
             <li>
-              <a href='#early-game'>Early game</a>
+              <a href='#rush'>Rush</a>
             </li>
             <li>
-              <a href='#middle-and-late-game'>Middle and late game</a>
+              <a href='#stall'>Stall</a>
+            </li>
+            <li>
+              <a href='#shuffle'>Shuffle</a>
+            </li>
+            <li>
+              <a href='#pure'>Pure</a>
+            </li>
+            <li>
+              <a href='#hybrid'>Hybrid</a>
             </li>
           </ul>
         </li>
         <li>
-          <a href='#combat'>Combat</a>
-          <ul>
-            <li>
-              <a href='#3--to-5-mana-turns'>3- to 5-mana turn</a>
-            </li>
-            <li>
-              <a href='#6-mana-turn'>6-mana turn</a>
-            </li>
-            <li>
-              <a href='#7-mana-turn-and-onward'>7-mana turn and onward</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href='#dealing-with-strategy'>Dealing with strategy</a>
-          <ul>
-            <li>
-              <a href='#rush-decks'>Rush decks</a>
-            </li>
-            <li>
-              <a href='#control-stall-decks'>Control/stall decks</a>
-            </li>
-            <li>
-              <a href='#chip-decks'>Chip decks</a>
-            </li>
-            <li>
-              <a href='#poison-convert-decks'>Poison/convert decks</a>
-            </li>
-            <li>
-              <a href='#klaxi-rof-decks'>Klaxi/RoF decks</a>
-            </li>
-            <li>
-              <a href='#beef-decks'>Beef decks</a>
-            </li>
-            <li>
-              <a href='#dragon-decks'>Dragon decks</a>
-            </li>
-            <li>
-              <a href='#pirate-decks'>Pirate decks</a>
-            </li>
-          </ul>
+          <a href='#summary'>Summary</a>
         </li>
       </ol>
 
-      <Title id='deck-building'>Deck Building</Title>
-
-      <h3 id='core-cards'>Core Cards</h3>
-
+      <Title id='overview'>Overview</Title>
       <p>
-        The core of a pirate deck is the pirates, but the most important pirate
-        is <CardLink id='N42' />. <CardLink id='N42' /> being the beef and main
-        win condition, your main goal when making your pirate deck should be
-        making <CardLink id='N42' /> as easy and effective to play as possible.
-      </p>
-
-      <p>The core of your deck should consist of the following:</p>
-
-      <ul>
-        <li>
-          <span className='Highlight'>Beef</span>: <CardLink id='N42' />,{' '}
-          <CardLink id='N5' /> (only high mana)
-        </li>
-        <li>
-          <span className='Highlight'>Rush</span>: <CardLink id='N12' />,{' '}
-          <CardLink id='N30' />
-        </li>
-        <li>
-          <span className='Highlight'>Cycle</span>: <CardLink id='N33' />,{' '}
-          <CardLink id='N22' />, <CardLink id='N14' /> (mostly high mana)
-        </li>
-        <li>
-          <span className='Highlight'>Other</span>: <CardLink id='N16' />,{' '}
-          <CardLink id='N19' />
-        </li>
-      </ul>
-
-      <p>
-        Although every pirate is not required for a good pirate deck, it is
-        important to note that every pirate removed is a chance at not getting
-        max strength <CardLink id='N42' />.
-      </p>
-
-      <h3 id='filler-cards'>Filler Cards</h3>
-
-      <p>
-        Although there are only ~3 spaces left in your deck, this is where there
-        is variation between pirate decks. The best filler cards are cheap
-        cards, with good strength and movement. Preferably =/&lt; 2 Mana.
+        Pirates are a neutral race in stormbound with heavy emphasis on
+        card/hand interactions, as well as having a large quantity of vanilla
+        units (units without abilities).
       </p>
 
       <p>
-        Examples include: <CardLink id='N2' />, <CardLink id='N3' />,{' '}
-        <CardLink id='N1' />, <CardLink id='N4' />, <CardLink id='N62' />, and
-        other cheap faction cards.
+        <span className='Highlight'>Disclaimer:</span> Pirates are not near the
+        top of the meta, and they have never been. As new cards are added and
+        old cards changed, pirates certainly stand a fighting chance, however as
+        of now, pirate decks are not a common occurrence.
+      </p>
+      <p>
+        There is always a slight advantage to playing an unusual deck type, that
+        being people will be less able to predict and react to your strategy. In
+        some cases with pirate decks especially, you can conceal the true
+        identity of your deck until a critical moment (see “Pure” strategy).
+      </p>
+
+      <Title id='the-cards'>The Cards</Title>
+
+      <p>
+        Different pirate cards are good at progressing different game plans. I
+        will list out all of the different pirate cards, as well as the good
+        deckfits, in order of importance (most → least) for a pirate deck (by my
+        personal assessment).
+      </p>
+      <p>
+        Battle styles marked with an asterisk (*) are optional in some cases.
+      </p>
+
+      <h3 id='N12'>
+        <CardLink id='N12' />
+      </h3>
+      <p>
+        Even though it may come as a surprise, First Mutineer has the widest
+        utility of all the pirate cards. Its strengths include: being a runner,
+        hand manipulation and having a relatively low cost.
+      </p>
+      <p>
+        <span className='Highlight'>Battle styles:</span> Rush, Stall, Shuffle,
+        Pure
+      </p>
+
+      <h3 id='N42'>
+        <CardLink id='N42' />
+      </h3>
+      <p>
+        Lucky charmers is a defining power play, and often a win condition, to
+        many pirate decks. It is somewhat debatable if a deck can even be
+        considered a pirate deck without this card, however for the sake of this
+        guide, any deck that capitalizes on the strength of pirates counts.
+      </p>
+      <p>
+        <span className='Highlight'>Battle styles:</span> Pure, Stall*, Shuffle*
+      </p>
+
+      <h3 id='N14'>
+        <CardLink id='N14' />
+      </h3>
+      <p>
+        A very greedy card useful for hand refill in the late game, as well as
+        fishing out useful cards at crucial moments.
+      </p>
+      <p>
+        <span className='Highlight'>Battle styles:</span> Stall, Pure, Shuffle,
+        Rush*
+      </p>
+
+      <h3 id='N15'>
+        <CardLink id='N15' />
+      </h3>
+      <p>
+        My favorite card in the game. Northsea Dog is a major shock development
+        on the board when the enemy least expects it. Usually gets more value if
+        you have lots of mana, or very cheap cards.
+      </p>
+      <p>
+        <span className='Highlight'>Battle styles:</span> Rush, Pure, Stall*,
+        Shuffle*
+      </p>
+
+      <h3 id='N33'>
+        <CardLink id='N33' />
+      </h3>
+      <p>
+        Snake Eyes is the largest card cycle play there is, making him excel at
+        finding the cards you need and pitching the cards you don’t!
+      </p>
+      <p>
+        <span className='Highlight'>Battle styles:</span> Shuffle, Pure, Stall*
+      </p>
+
+      <h3 id='N16'>
+        <CardLink id='N16' />
+      </h3>
+      <p>A solid vanilla card that everyone knows and loves.</p>
+      <p>
+        <span className='Highlight'>Battle styles:</span> Pure, Rush*, Stall*,
+        Shuffle*
+      </p>
+
+      <h3 id='N30'>
+        <CardLink id='N30' />
+      </h3>
+      <p>
+        Not the best runner in the world, but good enough to justify its
+        inclusion for the sake of pirate synergy with Lucky Charmers. Although
+        it will have many battle styles listed, most of its inclusions are
+        purely due to its useability as a runner, but in many cases can (and
+        should) be swapped with an objectively better runner of similar cost if
+        Lucky Charmers is not in the deck.
       </p>
 
       <p>
-        The flaws with having mostly pirates is it sets your Mana curve rather
-        high. This is one reason that your filler should be cheap, there are
-        more reasons that I will come back to later.
+        <span className='Highlight'>Battle styles:</span> Pure, Stall*,
+        Shuffle*, Rush*
       </p>
 
-      <Title id='meta'>Meta</Title>
+      <h3 id='N19'>
+        <CardLink id='N19' />
+      </h3>
+      <p>
+        A sticky unit that is difficult for the opponent to remove thanks to its
+        high stats.
+      </p>
+      <p>
+        <span className='Highlight'>Battle Styles:</span> Pure, Stall*, Rush*,
+        Shuffle*
+      </p>
 
-      <h3 id='early-game'>Early game</h3>
+      <h3 id='N22'>
+        <CardLink id='N22' />
+      </h3>
+      <p>
+        Goldgrubbers is a really cool card that is just really not efficient.
+        Its one use (to cycle through the deck) does a worse job at than 2 cheap
+        units that could be played instead (and would still cycle the deck just
+        as fast). Mildly usable for slower game plans.
+      </p>
+      <p>
+        <span className='Highlight'>Battle styles:</span> Pure, Shuffle*, Stall*
+      </p>
+
+      <h3 id='N72'>
+        <CardLink id='N72' />
+      </h3>
+      <p>
+        I strongly dislike this card. Very slow. Worse version of Lucky
+        Charmers. Cool for certain Brawl I guess.
+      </p>
+      <p>
+        <span className='Highlight'>Battle styles:</span> Stall*, Pure*
+      </p>
+
+      <h3 id='N77'>
+        <CardLink id='N77' />
+      </h3>
+      <p>At the time this guide was made, this card is useless.</p>
+
+      <Title id='battle-styles'>Battles styles:</Title>
 
       <p>
-        The strategy of a pirate deck changes significantly at level 1 and 2,
-        and it is not very favorable. I would not recommend a full pirate deck
-        to new players, rather just toss <CardLink id='N12' /> and{' '}
-        <CardLink id='N5' />
-        in your deck and it will likely give you some value.
+        Pirate synergies can be used in a variety of deck types. I will not be
+        covering all possible uses for each pirate, just the decks that
+        capitalize on pirate synergy with the hand, deck, and each other.
       </p>
 
-      <h3 id='middle-and-late-game'>Middle and late game</h3>
-
+      <h3 id='rush'>Rush</h3>
       <p>
-        At level 3+, the pirate deck begins to show its true colors. A good
-        pirate deck has 2 win conditions, those being beefy units and 2-movement
-        units. Make sure to upgrade your cards, as pirate decks get
-        significantly stronger every upgrade.
+        Rush decks are great at killing your opponent fast with cheap cards.
+        Northsea Dog is a very good card for those willing to use it, and First
+        Mutineer can grant much needed discard in order to trigger Northsea
+        Dog’s effect as well as being a solid runner. Freebooters is also usable
+        for transitioning into the mid-game with some hand refill, but may
+        threaten your First Mutineer + Northsea Dog combo at times. No other
+        pirate synergy is all that effective for rush decks, as many pirates are
+        too expensive to match a rush game plan.
       </p>
-
-      <Title id='combat'>Combat</Title>
-
       <p>
-        Thanks to the pirates abilities to cycle cards, there is a good optimal
-        strategy for the first few turns, I will go over what your goals should
-        be at each point in the game.
+        Deck construction should involve many cheap cards, and should avoid
+        unnecessary pirates, as they may prevent the First Mutineer + Northsea
+        Dog synergy.
       </p>
 
-      <h3 id='3--to-5-mana-turns'>3- to 5-mana turns</h3>
+      <h3 id='stall'>Stall</h3>
+      <p>
+        The opposite of a rush deck, stall decks seek to control the board and
+        stall into the late game. For a late-game pirate deck, Freebooters grant
+        a massive card advantage over your opponents, and Snake Eyes assist in
+        digging for your big plays. Utilising Lucky Charmers’ synergy is not
+        necessary for all slow decks, and can be replaced by any other value
+        play/win condition. If you use Lucky Charmers in this style of deck,
+        then you will need to add more pirates into the deck to support. If you
+        find yourself composing a deck of 8+ pirates, then move to the “Pure”
+        strategy.
+      </p>
+
+      <h3 id='shuffle'>Shuffle</h3>
+      <p>
+        Shuffle strategy tends to be really fun to use, but often not played in
+        a very serious manner. It uses the shuffle effects of Collector Mirz and
+        Havesters of Souls to obtain valuable units, which it the searches for
+        using Freebooters, Snake Eyes, and perhaps Goldgrubbers.
+      </p>
+      <p>
+        Deck construction should usually involve a solid quantity of cheap cards
+        to improve cycle speed, and it is even possible to include the First
+        Mutineer + Northsea Dog combo in this deck type as well.
+      </p>
+
+      <h3 id='pure'>Pure</h3>
+      <p>
+        The previous strategies are simply regular deck archetypes that use a
+        small handful of pirates for their benefits. “Pure” pirate decks, on the
+        other hand, are the most clearly recognizable “pirate decks” that seek
+        to capitalise on *all* of pirate strengths. Because this is the most
+        “piratey” kind of deck, I will walk through it with more detail.
+      </p>
+      <p>
+        “Pure” pirate decks tend to have at least 8 or more pirate cards in
+        them. The reason is to maximise the value and reliability of Lucky
+        Charmers, which is the main focus of a “pure” pirate deck. Pirates tend
+        to have rather high costs, so when making a deck with so many, it's
+        important that you make your non-pirate cards fill in the early curve
+        and push your frontline in preparation for later turns (examples include
+        Dopplebocks, Gifted Recruits, Green Prototypes, Destructobots, Wild
+        Saberpaws, etc.). Ideally you have 3 or 4 cards that cost 2 or less, and
+        no more than 2 cards costing 6+ mana.
+      </p>
+      <p>
+        Once you have constructed a “pure” pirate deck, you will then need to
+        know how to play it. Here is a summary of each turn based on mana value,
+        and what you should be attempting to accomplish each turn:
+      </p>
+
+      <h4>3-5 Mana</h4>
 
       <p>
         The first few turns have a good chance at winning the game for you,
         during these turns you should try to:
       </p>
-
-      <ol>
-        <li>Use all your mana each turn</li>
-        <li>Put strength on the board</li>
+      <ul>
+        <li>Use all your mana each turn.</li>
+        <li>Put strength on the board to preserve your line.</li>
         <li>
-          Cycle cards to put <CardLink id='N42' /> and <CardLink id='N33' /> in
-          your hand (<CardLink id='N42' /> is more important)
+          Cycle cards to put Lucky Charmers and Snake Eyes in your hand (Lucky
+          is more important).
         </li>
-        <li>Play, discard, or redraw all of your non-pirates</li>
+        <li>Play, discard, or redraw all of your non-Pirates.</li>
         <li>Have units in any of the following positions:</li>
-      </ol>
+      </ul>
 
-      <img
-        src='https://i.imgur.com/czp7VjD.png'
-        alt='Optimal position for finishing move with pirates'
-      />
+      <Board id='LCwsLCwyTjE0QjEsNVQzQjEsLCwxTjVCMSw0TjNCMSwsLCwsLCwsLDtSMTBOLUIxME47M00wOzs=' />
 
       <p>All of this is in preparation for the next turn.</p>
 
-      <h3 id='6-mana-turn'>6-mana turn</h3>
-
+      <h4>6 Mana</h4>
       <p>
         This is the turn that will end most battles and your goals are simple:
       </p>
-
       <ol>
         <li>
-          Play <CardLink id='N42' /> next to the enemy base in a way that it is
-          protected
+          Play Lucky Charmers next to the enemy base in a way that it is
+          protected.
         </li>
-        <li>Redraw a card</li>
-        <li>
-          Obtain <CardLink id='N33' /> and 2-movement units
-        </li>
+        <li>Redraw a card.</li>
+        <li>Obtain Snake Eyes and 2-movement units.</li>
       </ol>
 
+      <p>
+        This move may be especially effective for a deck that might not have
+        been expecting it. You can often trick your opponents by focusing on
+        your non-pirate cards and some of the more general use ones (like
+        Westwind Sailors) and subverting their expectations as to what they need
+        to react to.
+      </p>
       <p>
         If attacking may cost you your life, you might choose to defend instead.
       </p>
-
       <p>
-        If you can’t put it on the base, or don’t have a full hand of pirates
-        that’s fine, although you might consider waiting another turn. Do
+        If you can't put it on the base, or don't have a full hand of pirates
+        that's fine, although you might consider waiting another turn. Do
         remember though: playing other cards and waiting may result in drawing
-        some of your non-pirates back into your hand.
+        some of your non-Pirates back into your hand.
       </p>
 
-      <h3 id='7-mana-turn-and-onward'>7-mana turn and onward</h3>
-
+      <h4>7+ Mana</h4>
       <p>
-        Assuming your opponent has not conceided or died, your next goals should
+        Assuming your opponent has not conceded or died, your next goals should
         be:
       </p>
-
       <ol>
-        <li>Rush if you can finish them off</li>
+        <li>Rush if you can finish them off.</li>
         <li>
-          Play <CardLink id='N33' /> (only if you have a good board presence),
-          followed by cheap non-pirates (this is why you want them at 1 or 2
-          mana)
+          Play Snake Eyes (Only if you have a good board presence), followed by
+          cheap non-Pirates (this is why you want them at 1 or 2 mana).
         </li>
-        <li>Cycle as many cards as possible</li>
+        <li>Cycle as many cards as possible.</li>
       </ol>
-
       <p>
-        The purpose of <CardLink id='N33' /> and the cycling is to get{' '}
-        <CardLink id='N42' /> back in your hand as soon as possible. If you are
-        Lucky, you should be able to play it by the 8 or 9-mana turn.
+        The purpose of Snake Eyes and the cycling is to get Lucky Charmers back
+        in your hand as soon as possible. If you are lucky (pun intended), you
+        should be able to play it by the 8- or 9-mana turn.
+      </p>
+      <p>
+        Repeat this process: Lucky Charmers then cycle, Lucky Charmers, cycle,
+        Lucky Charmers and so on until you win.
       </p>
 
+      <h3>Hybrid</h3>
       <p>
-        Repeat this process: <CardLink id='N42' /> then cycle,{' '}
-        <CardLink id='N42' />, cycle, <CardLink id='N42' /> and so on until you
-        win.
+        A Hybrid deck is one that combines the “pure” pirate strategy of playing
+        a high value Lucky Charmers and cycling them back into your hand, as
+        well as the strategy of another deck. Attempts to do this are often not
+        the most successful since the deck tends to be worse than the sum of its
+        parts.
+      </p>
+      <p>
+        Examples include: dragon-pirate, structure-pirate, freeze-pirate,
+        construct-pirate, etc.
       </p>
 
+      <Title id='summary'>Summary</Title>
       <p>
-        As you get higher and higher in mana costs, you will also be able to get
-        more value out of <CardLink id='N5' /> and <CardLink id='N14' />.
-        Pirates do fairly well in the late game.
-      </p>
-
-      <Title id='dealing-with-strategy'>Dealing with strategy</Title>
-
-      <p>
-        Pirate decks are alright early game, if you’re lucky you can even have
-        an amazing early game. Pirates also get progressively stronger up to a
-        very high mana amount. Here’s what to do against various strategies.
-      </p>
-
-      <h3 id='rush-decks'>Rush decks</h3>
-
-      <p>
-        Just make sure they don’t get any closer than the middle mane, if you
-        are placing <CardLink id='N42' />, you can let them get a little closer.
-        Be weary of <CardLink id='N52' /> and Herald’s Hymn.
-      </p>
-
-      <h3 id='control-stall-decks'>Control/stall decks</h3>
-
-      <p>
-        Be fast, place <CardLink id='N42' /> before they get a good spot on the
-        board. If they freeze it, try to prevent future freezing and do as much
-        rush damage as possible.
-      </p>
-
-      <p>
-        Avoid late game as much as possible, Visions of the Grove and Lady Rime
-        will ruin your day.
-      </p>
-
-      <h3 id='chip-decks'>Chip decks</h3>
-
-      <p>Same as normal, avoid rush damage, never be vulnerable.</p>
-
-      <h3 id='poison-convert-decks'>Poison/convert decks</h3>
-
-      <p>
-        Use beefy units to get them to use <CardLink id='F15' /> early, then use
-        <CardLink id='N42' />. Or just go for it and hope for the best.
-      </p>
-
-      <p>
-        Just make sure they don’t convert all of your units and keep your
-        frontline up for <CardLink id='N42' />.
-      </p>
-
-      <h3 id='klaxi-rof-decks'>Klaxi/RoF decks</h3>
-
-      <p>
-        <CardLink id='F23' /> likely won’t be an issue, just kill as many frogs
-        as you can whilst putting strength on the board.
-      </p>
-
-      <h3 id='beef-decks'>Beef decks</h3>
-
-      <p>
-        Your beef is faster than theirs, just rush for <CardLink id='N42' /> on
-        base.
-      </p>
-
-      <h3 id='dragon-decks'>Dragon decks</h3>
-
-      <p>
-        Kill as many dragons as possible, don’t let them get close but be sure
-        to leave an opening by their base for <CardLink id='N42' />.
-      </p>
-
-      <h3 id='pirate-decks'>Pirate decks</h3>
-
-      <p>
-        You can identify a pirate deck if they play quite a few pirates, or they
-        use generic cards. Don’t let them have a good spot for{' '}
-        <CardLink id='N42' />, and make sure your <CardLink id='N42' /> is
-        closer to their base then theirs is to yours.
-      </p>
-
-      <p>
-        Hope for the best when fighting pirates and remember that they will have
-        similar cards to you. And if you are fighting MooreFunn though, you
-        might as well concede while you still can.
+        Pirates are a unique race in stormbound that sparks unusual strategies.
+        It can often be hard to use pirates to their full effectiveness, but
+        with practice, you will be able to predict and abuse card drawing and
+        cycling, and subvert the expectations of your opponent to your own
+        benefit.
       </p>
     </Guide>
   )
