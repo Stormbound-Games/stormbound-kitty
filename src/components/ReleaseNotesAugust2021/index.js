@@ -179,7 +179,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
               />
 
               <p>
-                It will be available for a week from August 8th at $9.99, and
+                It will be available for a week from August 1st at $9.99, and
                 will grant the following :{' '}
               </p>
 
