@@ -35,6 +35,7 @@ describe('The `isCardMatchingCriteria` helper', () => {
 
     expect(isElder(getResolvedCardData({ id: 'N1' }))).to.equal(false)
     expect(isElder(getResolvedCardData({ id: 'N2' }))).to.equal(true)
+    expect(isElder(getResolvedCardData({ id: 'N3' }))).to.equal(false)
   })
 
   it('should handle mix', () => {
