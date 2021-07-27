@@ -1,4 +1,5 @@
 import indexArray from '../helpers/indexArray'
+import getMilestoneForCrowns from '../helpers/getMilestoneForCrowns'
 
 export const BRAWLS = [
   {
@@ -210,8 +211,16 @@ export const CYCLE_START = new Date(2021, 3, 1, 9, 0)
 
 export const VICTORY_BONUSES = {
   COINS: { label: 'Coins', id: 'C', isAvailable: () => true },
-  RUBIES: { label: 'Rubies', id: 'R', isAvailable: () => true },
-  FUSION_STONES: { label: 'Fusion stones', id: 'FS', isAvailable: () => true },
+  RUBIES: {
+    label: 'Rubies',
+    id: 'R',
+    isAvailable: ({ crowns }) => getMilestoneForCrowns(crowns).nextIndex >= 2,
+  },
+  FUSION_STONES: {
+    label: 'Fusion stones',
+    id: 'FS',
+    isAvailable: ({ crowns }) => getMilestoneForCrowns(crowns).nextIndex >= 4,
+  },
   FORTRESS_LEVEL: { label: 'Fortress up', id: 'FU', isAvailable: () => true },
   LIFE_UP: {
     label: '1 Life up',
