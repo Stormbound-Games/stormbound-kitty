@@ -124,6 +124,18 @@ export const VIDEOS = [
       </p>
     ),
   },
+  {
+    author: 'ThomasPetree',
+    href: 'https://www.youtube.com/channel/UCFC5zu4eV9zUZb--IkPpGLg',
+    thumbnail:
+      'https://yt3.ggpht.com/ytc/AKedOLTIk8hjrz7w5xXpqtowNZWvtfOzmYVqP2ULSA=s176-c-k-c0x00ffffff-no-rj',
+    description: (
+      <p>
+        Playing since October 2018, Thomas Petree is a Stormbound veteran always
+        looking for ways to get an edge in the game.
+      </p>
+    ),
+  },
 ]
 
 export default React.memo(function Videos(props) {
