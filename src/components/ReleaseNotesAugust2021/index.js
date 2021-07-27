@@ -548,17 +548,19 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
                 </>
               ),
             },
-            /*{
+            {
               id: 'copy-counselor-ahmi',
               question:
                 'What happens if Rogue Sheep produces a card copy of Counselor Ahmi?',
               answer: (
                 <>
-                  It works the way you would expect it to. The ability of the
-                  card copy of <CardLink id='S3' /> would work just fine
-                  (although it would come back in hand costing 2 mana, not 3).
-                  But if it’s played in a way that the card would not come back
-                  in the hand, then the card copy is destroyed.
+                  It works the way you would expect it to. The card copy would
+                  have the current strength of the opponent’s Counselor Ahmi’s
+                  card. The ability of the card copy of <CardLink id='S3' />{' '}
+                  would work just fine (although it would come back in hand
+                  costing 2 mana, not 3). But if it’s played in a way that the
+                  card would not come back in the hand, then the card copy is
+                  destroyed.
                 </>
               ),
             },
@@ -573,7 +575,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
                   mana cost of the card, which would be 6 for the card copy.
                 </>
               ),
-            },*/
+            },
             {
               id: 'copy-tokens',
               question:
@@ -598,18 +600,17 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
                 </>
               ),
             },
-            /*{
+            {
               id: 'copy-queen-of-herds',
               question:
                 'What happens if Queen of Herds or Archdruid Earyn randomly plays a card copy?',
               answer: (
                 <>
-                  That card copy would <span className='Highlight'>not</span> be
-                  destroyed. Only when played manually would a card copy be
-                  destroyed.
+                  That card copy would be destroyed, just as if it was played
+                  normally.
                 </>
               ),
-            },*/
+            },
           ]}
         />
       </Article.Narrow>
