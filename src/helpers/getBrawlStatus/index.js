@@ -3,6 +3,7 @@ import { BRAWL_MILESTONES, CROWN_REWARDS } from '../../constants/brawl'
 const DEFAULT_HEART = { isFull: true, isPermanent: true, isProtected: false }
 
 const refill = heart => ({ ...heart, isFull: true })
+const unprotect = heart => ({ ...heart, isProtected: false })
 const isPermanent = heart => heart.isPermanent
 const isNotPermanent = heart => !heart.isPermanent
 const isFull = heart => heart.isFull
@@ -118,10 +119,10 @@ const getBrawlStatus = (matches = [], difficulty = 'LEGACY') => {
     const milestone = milestones.findIndex(({ crowns }) => crowns > meta.crowns)
 
     // Check if there are enough crowns to move on to the next milestone. If
-    // there are, refill empty hearts.
+    // there are, refill empty hearts and remove all Ice Armors.
     if (milestone !== meta.milestone) {
       meta.milestone = milestone
-      meta.hearts = meta.hearts.map(refill)
+      meta.hearts = meta.hearts.map(refill).map(unprotect)
     }
 
     // If all hearts end up empty after the match, reset the amount of crowns to
