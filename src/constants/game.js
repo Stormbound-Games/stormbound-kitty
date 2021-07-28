@@ -125,7 +125,7 @@ export const BOOKS = {
   },
   MAGIC: {
     only: { type: 'spell' },
-    percentiles: [0.5, 0.3, 0.2, 1],
+    percentiles: [0.5, 0.3, 0.2, 0],
     draws: 3,
   },
 }
