@@ -165,8 +165,8 @@ export default React.memo(function GuidePirate(props) {
         Rush*
       </p>
 
-      <h3 id='N15'>
-        <CardLink id='N15' />
+      <h3 id='N5'>
+        <CardLink id='N5' />
       </h3>
       <p>
         My favorite card in the game. Northsea Dog is a major shock development
