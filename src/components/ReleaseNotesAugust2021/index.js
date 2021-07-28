@@ -33,6 +33,9 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
 
         <ol style={{ columns: '16em' }}>
           <li>
+            <a href='#hotfix-coming'>(Update) Hotfix coming</a>
+          </li>
+          <li>
             <a href='#balance-changes'>Balance changes</a>
           </li>
           <li>
@@ -67,6 +70,37 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             to slow down this pandemic. Do the right thing. 🙏
           </p>
         </Info>
+
+        <Title id='hotfix-coming'>(Update) Hotfix coming</Title>
+
+        <p>
+          A small hotfix version is coming at the end of the first week of
+          August to fix a few things from this release that were not caught
+          during beta testing. Namely:
+        </p>
+
+        <ul>
+          <li>
+            A fix for the visual glitch with Temple of Time. Only one of the
+            units/structures affected by Temple of Time’s ability would show the
+            corresponding particle effect.
+          </li>
+          <li>
+            A fix for the visual glitch where losing a match with two extra
+            slots—one filled and one not—would display both of them as lost
+            during the loss animation sequence (returning to Brawl selection
+            screen would display the correct heart state again).
+          </li>
+          <li>
+            A fix for the visual glitch where playing Queen of Herds with satyrs
+            stolen by Rogue Sheep or Harvester of Souls would display incorrect
+            card during ability animation.
+          </li>
+          <li>
+            A fix for Rogue Sheep’s inability to copy spell cards from the
+            opponent’s hand.
+          </li>
+        </ul>
 
         <Title id='balance-changes'>Balance changes</Title>
 
