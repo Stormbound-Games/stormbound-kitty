@@ -319,60 +319,76 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
 
         <p>Here is the breakdown of every victory bonus:</p>
 
+        <h3>Life/Lives Up bonuses</h3>
+        <p>
+          Picking these bonuses will refill a heart (or all hearts), giving the
+          player extra chances to climb the milestones without being reset to
+          the start of the current milestone.
+        </p>
+        <p>These bonuses can only be found if there are hearts to refill.</p>
+
+        <h3>Rusty Slot</h3>
+        <p>
+          Picking this bonus will grant the player an extra heart slot (up to 5
+          heart slots in total). This heart needs to be refilled with a
+          life/lives up before it can withstand a loss. Once the player loses a
+          life from this slot, the slots destroys itself.
+        </p>
+        <p>
+          Rusty slots also get destroyed on milestone reset (but not on
+          milestone progress).
+        </p>
+
+        <h3>Gold Solidify</h3>
+        <p>
+          Picking this bonus will make one of the player’s rusty slots
+          indestructible. From there on, it behaves like one of three default
+          slots: it can withstand multiple losses (and get refilled multiple
+          times), and never gets destroyed.
+        </p>
+        <p>
+          This bonus can only be found if the player has a rusty heart slot.
+        </p>
+
+        <h3>Ice Armor</h3>
+        <p>
+          Picking this bonus will give an Ice Armor to the first full heart
+          (from the left). After a loss, the Ice Armor gets destroyed while
+          keeping the heart beneath it intact.
+        </p>
+        <p>Ice Armors also get destroyed upon milestone progress.</p>
+
+        <h3>Fortress Up bonus</h3>
+        <p>
+          Picking this bonus will increase the Fortress Level of the player by 1
+          within the current Brawl difficulty and only for Brawl matches. It
+          will not increase the Fortress Level beyond the cap for that Brawl.
+          This bonus cannot be drawn if already capped.
+        </p>
+
+        <h3>Resources bonuses</h3>
+        <p>
+          Picking these bonuses will immediately grant the player a certain
+          amount of resources, varying based on the Brawl difficulty and
+          milestone.
+        </p>
+
         <ul>
           <li>
-            <span className='Highlight'>Life/Lives Up bonuses:</span> Picking
-            these bonuses will refill a heart (or all hearts), giving the player
-            extra chances to climb the milestones without being reset to the
-            start of the current milestone.
+            The Coins bonus can be obtained from the very first milestone
+            onwards. Its rewards can go up to <Coins amount={100} /> in Casual,{' '}
+            <Coins amount={250} /> in Warrior and <Coins amount={500} /> in
+            Ultimate.
           </li>
           <li>
-            <span className='Highlight'>Rusty Slot:</span> Picking this bonus
-            will grant the player an extra heart slot (up to 5 heart slots in
-            total). Once the player loses a life from this slot, the slots
-            destroys itself. It also destroys itself on milestone reset.
+            The Rubies bonus can be obtained from milestone 3 onwards and can go
+            up to <Rubies amount={25} /> in Casual, <Rubies amount={50} /> in
+            Warrior and <Rubies amount={100} /> in Ultimate.
           </li>
           <li>
-            <span className='Highlight'>Solidify:</span> Picking this bonus will
-            make one of the player’s rusty slots indestructible. From there on,
-            it behaves like one of three default slots.
-          </li>
-          <li>
-            <span className='Highlight'>Ice Armor:</span> Picking this bonus
-            will give an Ice Armor to the first full heart. After a loss, the
-            Ice Armor gets destroyed while keeping the heart beneath it intact.
-          </li>
-          <li>
-            <span className='Highlight'>Fortress Up bonus:</span> Picking this
-            bonus will increase the Fortress Level of the player by 1 within the
-            current Brawl difficulty and only for Brawl matches. It will not
-            increase the Fortress Level beyond the cap for that Brawl. This
-            bonus cannot be drawn if already capped.
-          </li>
-          <li>
-            <span className='Highlight'>Resources bonuses:</span> Picking these
-            bonuses will immediately grant the player a certain amount of
-            resources, varying based on the Brawl difficulty and milestone.
-            <ul>
-              <li>
-                The Coins bonus can be obtained from the very first milestone
-                onwards. Its rewards can go up to <Coins amount={100} /> in
-                Casual, <Coins amount={250} /> in Warrior and{' '}
-                <Coins amount={500} /> in Ultimate.
-              </li>
-              <li>
-                The Rubies bonus can be obtained from milestone 3 onwards and
-                can go up to <Rubies amount={25} /> in Casual,{' '}
-                <Rubies amount={50} /> in Warrior and <Rubies amount={100} /> in
-                Ultimate.
-              </li>
-              <li>
-                The Fusion Stones can be obtained from milestone 5 onwards and
-                bonus can go up to <Stones amount={3} /> in Casual,{' '}
-                <Stones amount={10} /> in Warrior and <Stones amount={25} /> in
-                Ultimate.
-              </li>
-            </ul>
+            The Fusion Stones can be obtained from milestone 5 onwards and bonus
+            can go up to <Stones amount={3} /> in Casual, <Stones amount={10} />{' '}
+            in Warrior and <Stones amount={25} /> in Ultimate.
           </li>
         </ul>
 
