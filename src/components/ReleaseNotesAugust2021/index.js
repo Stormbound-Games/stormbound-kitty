@@ -373,7 +373,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           milestone progress).
         </p>
 
-        <h3>Gold Solidify</h3>
+        <h3>Slot Solidify</h3>
         <p>
           Picking this bonus will make one of the player’s rusty slots
           indestructible. From there on, it behaves like one of three default

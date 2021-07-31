@@ -244,7 +244,7 @@ export const VICTORY_BONUSES = {
     isAvailable: ({ hearts }) => hearts.length < 5,
   },
   GOLD_SLOT: {
-    label: 'Gold solidify',
+    label: 'Slot solidify',
     id: 'GS',
     isAvailable: ({ hearts }) => hearts.some(heart => !heart.isPermanent),
   },
