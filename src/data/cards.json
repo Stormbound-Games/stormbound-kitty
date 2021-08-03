@@ -2236,7 +2236,7 @@
     "mana": 5,
     "strength": "4/5/6/8/10",
     "movement": 1,
-    "ability": "After surviving damage, randomly command all friendly units with equal or less strength forward",
+    "ability": "After surviving damage, *command* all friendly units with equal or less strength forward",
     "elder": true
   },
   {
