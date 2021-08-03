@@ -109,46 +109,59 @@ export default React.memo(function GuideRecklessRush(props) {
         <Row desktopOnly wideGutter>
           <Row.Column>
             <FeaturedDeck
+              id='5xn1n2s1n3s24s2n67n12s6n15s8n82'
+              name='Flameless Rush'
+              author='RecklessRush'
+              tags={['HIGH_LEVELS']}
+              staticLevels
+            />
+          </Row.Column>
+          <Row.Column>
+            <p>
+              For Diamond and above, if you feel like the enemies are
+              consistently playing cards that completely shut down your{' '}
+              <CardLink id='S11' />, a great variation is the Flameless Rush
+              variation where <CardLink id='N82' /> replaces{' '}
+              <CardLink id='S11' />. <CardLink id='N82' /> provides great stats
+              for it's mana cost and can often hold the front-line simply on its
+              own.
+            </p>
+            <p>
+              The most effective way to play this deck is by setting down
+              Flameless Lizards as close to the enemy base as possible and
+              preferably as fast as possible. If this card is set down on mana
+              5, it is extremely difficult for the enemy to clear it and then
+              Forgotten Souls can help push it into the enemy base on the
+              following turn. There are other fun ways to play the deck such as
+              including Spare Dragonling over Potion of Growth.
+            </p>
+          </Row.Column>
+        </Row>
+
+        <Row desktopOnly wideGutter>
+          <Row.Column>
+            <FeaturedDeck
               id='5xn1s1n3s24s2n67s6n24n15s8n81s11'
               name='Reckless Rush (Heart Attack)'
               author='RecklessRush'
               tags={['HIGH_LEVELS']}
               staticLevels
             />
-
-            <Info
-              icon='sword'
-              title='Temple of the Heart'
-              style={{ marginTop: 0 }}
-            >
-              <p>
-                For more information on how <CardLink id='N81' /> works, you can
-                check out <a href='https://youtu.be/sfGL_Nponu0'>this video</a>.
-              </p>
-            </Info>
           </Row.Column>
           <Row.Column>
             <p>
-              For Diamond and above there is one last variation of the deck,
-              which is a special case deck. This deck is extremely difficult to
-              play and requires advanced knowledge in RR to play at a
-              competitive level.
+              This last deck is a special case deck that should only be used if
+              you find yourself constantly fighting opponents that have 4 or
+              more base health than you. However, do note that this deck is
+              extremely difficult to play and requires advanced knowledge in RR
+              to play at a competitive level.
             </p>
             <p>
-              This special case deck is only to be used if you find yourself
-              constantly fighting opponents that have 4 or more base health than
-              you. This deck is centered around the fact that there is no base
-              health cap in Diamond so you can utilize your lower base health to
-              an advantage. This deck is amazing for trimming down high base
-              health titans and generally pushes for slower games than the usual
-              RR which inherently requires more skill to play.
-            </p>
-            <p>
-              Since this deck is naturally aggressive, in many cases you should
-              go all out aggressive and play as if it’s a standard RR deck. In
-              other cases you might have to slow down the speed of the game and
-              juggle the enemy base health at a relatively low level allowing
-              you to close out the game in one unsuspecting turn.
+              This deck is centered around the fact that there is no base health
+              cap in Diamond so you can utilize your lower base health to an
+              advantage. This deck is amazing for trimming down high base health
+              titans and generally pushes for slower games than the usual RR
+              which inherently requires more skill to play.
             </p>
           </Row.Column>
         </Row>
@@ -489,6 +502,13 @@ export default React.memo(function GuideRecklessRush(props) {
         it is not recommended for the majority of players.
       </p>
 
+      <Info icon='sword' title='Temple of the Heart' style={{ marginTop: 0 }}>
+        <p>
+          For more information on how <CardLink id='N81' /> works, you can check
+          out <a href='https://youtu.be/sfGL_Nponu0'>this video</a>.
+        </p>
+      </Info>
+
       <h3>Devastators</h3>
       <p>
         The one that makes your victories feel cheap, the one that puts Winter
@@ -542,6 +562,27 @@ export default React.memo(function GuideRecklessRush(props) {
         In situations where you don’t have Devastators in hand, you can use both
         Snowmasons and a unit to stimulate pressure by using Snowmasons as a
         guardian and the other unit to act like Devastators.
+      </p>
+
+      <h3>Flameless Lizards</h3>
+      <p>
+        The <CardLink id='N82' /> variation works better as you climb up the
+        ranks because most decks will be running{' '}
+        <abbr title='Area of Effect'>AoE</abbr> cards but lacking single target
+        removal cards. By replacing Devastators with Flameless Lizards, the deck
+        requires more speed so often times it’s best to replace Personal Servers
+        with First Mutineers as well.
+      </p>
+      <p>
+        Flameless Lizards is a solid drop on 5 mana as there are very few cards
+        the enemy can use to clear it. Thus, your frontline will often hold and
+        if Flameless retains most of its strength, a Forgotten Souls on the
+        following turn can end the game. A neat trick is to replace Potion of
+        Growth with Spare Dragonling as well. Spare Dragonling can act as a
+        cheaper and more effective Potion of Growth with the Flameless Lizards
+        setups. The enemies will often times be unsuspecting of these strong
+        setups. With the inclusion of this card, it’s important to always be
+        cycling back for it fast because it is the very heart of the deck.
       </p>
 
       <Title id='game-openers'>Game openers</Title>
