@@ -31,7 +31,7 @@ describe('Brawl — Page', () => {
   })
 
   it('should be possible to record a match', () => {
-    cy.brAddMatch('WON', 20, 'ironclad', 'RUBIES')
+    cy.brAddMatch('WON', 20, 'ironclad', 'FORTRESS_LEVEL')
 
       .get(s.MATCHES)
       .should('have.length', 1)
