@@ -2,11 +2,13 @@ import cards from '../../../data/cards'
 import arrayRandom from '../../../helpers/arrayRandom'
 import getEmbed from '../../../helpers/getEmbed'
 
-const [STARTS, ENDS] = (() => {
+const [STARTS, ENDS, NAMES] = (() => {
   const starts = []
   const ends = []
+  const names = []
 
   cards.forEach(card => {
+    names.push(card.name)
     const [start, ...rest] = card.name.split(/\s+/g)
     if (card.token) return
     if (rest.length === 0) {
@@ -17,8 +19,16 @@ const [STARTS, ENDS] = (() => {
     }
   })
 
-  return [starts, ends]
+  return [starts, ends, names]
 })()
+
+const getRandomCardName = () => {
+  const start = arrayRandom(STARTS)
+  const end = arrayRandom(ENDS)
+  const name = start + ' ' + end
+
+  return NAMES.includes(name) ? getRandomCardName() : name
+}
 
 export default {
   command: 'mashup',
@@ -32,8 +42,6 @@ export default {
       )
   },
   handler: async function (message, client, messageObject) {
-    return getEmbed().setTitle(
-      this.label + ': ' + arrayRandom(STARTS) + ' ' + arrayRandom(ENDS)
-    )
+    return getEmbed().setTitle(this.label + ': ' + getRandomCardName())
   },
 }
