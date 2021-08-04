@@ -27,14 +27,17 @@ export default card => {
 
   // Find the card data for the given level, or default to the first level if
   // not found
-  const unfoldedMana = unfoldValue(cardData.mana)
-  const unfoldedStrength = unfoldValue(cardData.strength)
+  const unfoldedMana = cardData.mana ? unfoldValue(cardData.mana) : null
+  const unfoldedStrength = cardData.strength
+    ? unfoldValue(cardData.strength)
+    : null
   const unfoldedAbility = resolveAbility(cardData.ability).values
-  const mana = +(unfoldedMana[level - 1] || unfoldedMana[0])
-  const strength =
-    cardData.type !== 'spell'
-      ? +(unfoldedStrength[level - 1] || unfoldedStrength[0])
-      : null
+  const mana = unfoldedMana
+    ? +(unfoldedMana[level - 1] || unfoldedMana[0])
+    : null
+  const strength = unfoldedStrength
+    ? +(unfoldedStrength[level - 1] || unfoldedStrength[0])
+    : null
   const ability = unfoldedAbility[level - 1] || unfoldedAbility[0]
 
   return { ...cardData, copies, missing, mana, strength, ability, level }
