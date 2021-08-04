@@ -14,8 +14,7 @@ const FUSION_STONES_COMMON = {
   id: 'R1',
   ability: '5 Fusion Stones',
   rarity: 'common',
-  image:
-    'http://stormbound-kitty.com/assets/images/iconography/stones_common.png',
+  image: 'stones_common.png',
 }
 
 const FUSION_STONES_RARE = {
@@ -23,8 +22,7 @@ const FUSION_STONES_RARE = {
   id: 'R2',
   ability: '10 Fusion Stones',
   rarity: 'rare',
-  image:
-    'http://stormbound-kitty.com/assets/images/iconography/stones_rare.png',
+  image: 'stones_rare.png',
 }
 
 const FUSION_STONES_EPIC = {
@@ -32,8 +30,7 @@ const FUSION_STONES_EPIC = {
   id: 'R3',
   ability: '25 Fusion Stones',
   rarity: 'epic',
-  image:
-    'http://stormbound-kitty.com/assets/images/iconography/stones_epic.png',
+  image: 'stones_epic.png',
 }
 
 const FUSION_STONES_LEGENDARY = {
@@ -41,8 +38,7 @@ const FUSION_STONES_LEGENDARY = {
   id: 'R4',
   ability: '50 Fusion Stones',
   rarity: 'legendary',
-  image:
-    'http://stormbound-kitty.com/assets/images/iconography/stones_legendary.png',
+  image: 'stones_legendary.png',
 }
 
 export const FUSION_STONES = [
