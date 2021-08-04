@@ -1,5 +1,6 @@
 import cards from '../../data/cards'
 import indexArray from '../indexArray'
+import getFusionStonesCard from '../getFusionStonesCard'
 
 const INDEXES = {
   id: indexArray(cards, 'id'),
@@ -16,5 +17,7 @@ export default (needle, key = 'id') => {
     return {}
   }
 
-  return INDEXES[key][needle] || {}
+  return needle.startsWith('R')
+    ? getFusionStonesCard(needle)
+    : INDEXES[key][needle] || {}
 }
