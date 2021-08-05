@@ -42,7 +42,7 @@ export const deserialiseCards = string => {
   string = string.replace(/,/g, '')
 
   const cards = []
-  const factionRegex = /[NSFWIT]/i
+  const factionRegex = /[NSFWITR]/i
   let globalLevel = null
 
   // If the ID starts with a number followed by a `x`, it uses the global level
