@@ -17,7 +17,9 @@ export default (needle, key = 'id') => {
     return {}
   }
 
-  return needle.startsWith('R')
-    ? getFusionStonesCard(needle)
-    : INDEXES[key][needle] || {}
+  if (needle && needle.startsWith('R')) {
+    return getFusionStonesCard(needle)
+  }
+
+  return INDEXES[key][needle] || {}
 }
