@@ -1,4 +1,5 @@
-import { RARITIES, BOOKS, EXPECTATIONS } from '../../../constants/game'
+import { RARITIES } from '../../../constants/game'
+import { BOOKS, EXPECTATIONS } from '../../../constants/books'
 import getDrawingProbability from '../../../helpers/getDrawingProbability'
 import searchCards from '../../../helpers/searchCards'
 import getEmbed from '../../../helpers/getEmbed'

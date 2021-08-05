@@ -1,5 +1,6 @@
 import React from 'react'
-import { RARITIES, BOOKS } from '../../constants/game'
+import { RARITIES } from '../../constants/game'
+import { BOOKS } from '../../constants/books'
 import getBookName from '../../helpers/getBookName'
 
 export default React.memo(({ book }) => {

@@ -17,7 +17,7 @@ import getBookName from '../../helpers/getBookName'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import serialisation from '../../helpers/serialisation'
 import useViewportSize from '../../hooks/useViewportSize'
-import { BOOKS } from '../../constants/game'
+import { BOOKS } from '../../constants/books'
 import './index.css'
 
 const ShareButton = ({ disabled }) => (

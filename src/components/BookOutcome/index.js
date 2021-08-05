@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { BOOKS, EXPECTATIONS } from '../../constants/game'
+import { BOOKS, EXPECTATIONS } from '../../constants/books'
 import { CollectionContext } from '../CollectionProvider'
 import Info from '../Info'
 import Only from '../Only'

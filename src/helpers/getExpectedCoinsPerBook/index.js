@@ -1,4 +1,5 @@
-import { BOOKS, RARITIES, RARITY_COPIES } from '../../constants/game'
+import { RARITIES, RARITY_COPIES } from '../../constants/game'
+import { BOOKS } from '../../constants/books'
 import arrayPad from '../arrayPad'
 import countCards from '../countCards'
 import getDrawingSequences from '../getDrawingSequences'

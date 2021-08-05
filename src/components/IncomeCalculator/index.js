@@ -12,7 +12,7 @@ import ResourceIcon from '../ResourceIcon'
 import Row from '../Row'
 import Title from '../Title'
 import { BRAWL_MILESTONES } from '../../constants/brawl'
-import { BOOKS } from '../../constants/game'
+import { BOOKS } from '../../constants/books'
 import {
   Common,
   Rare,

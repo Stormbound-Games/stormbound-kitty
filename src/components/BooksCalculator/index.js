@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { RARITIES, BOOKS, EXPECTATIONS } from '../../constants/game'
+import { RARITIES } from '../../constants/game'
+import { BOOKS, EXPECTATIONS } from '../../constants/books'
 import BookExplanation from '../BookExplanation'
 import BookOutcome from '../BookOutcome'
 import HeaderBanner from '../HeaderBanner'

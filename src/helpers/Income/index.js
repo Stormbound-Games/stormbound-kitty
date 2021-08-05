@@ -1,4 +1,4 @@
-import { BOOKS } from '../../constants/game'
+import { BOOKS } from '../../constants/books'
 import getAverageStonesPerBook from '../../helpers/getAverageStonesPerBook'
 import getPeriodMultiplier from '../../helpers/getPeriodMultiplier'
 
