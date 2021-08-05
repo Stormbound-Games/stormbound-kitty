@@ -4,8 +4,8 @@ describe('The `getCardCost` helper', () => {
   const rarities = ['common', 'rare', 'epic', 'legendary']
   const ids = ['N2', 'N1', 'N18', 'N8']
   const missingCost = [0, 0, 0, 0]
-  const intermediateCost = [50, 110, 205, 380]
-  const level5Cost = [152, 292, 460, 650]
+  const intermediateCost = [50, 108, 205, 380]
+  const level5Cost = [152, 290, 460, 650]
   const requirements = [
     { level: 1, copies: 0, missing: true },
     { level: 3, copies: 8, missing: false },

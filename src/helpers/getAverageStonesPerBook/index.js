@@ -3,7 +3,7 @@ import { EXPECTATIONS } from '../../constants/books'
 
 const RARITY_STONES = {
   COMMON: 5,
-  RARE: 12,
+  RARE: 10,
   EPIC: 25,
   LEGENDARY: 50,
 }

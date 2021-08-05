@@ -43,7 +43,7 @@ export const RARITY_COPIES = {
   rare: {
     copies: [2, 4, 10, 24],
     stonesPerMissingCopy: 7,
-    stonesForMissing: 12,
+    stonesForMissing: 10,
     coinsPerExtraCopy: 30,
   },
   epic: {
