@@ -41,13 +41,9 @@ const FUSION_STONES_LEGENDARY = {
   image: 'stones_legendary.png',
 }
 
-export const FUSION_STONES = [
+export default [
   FUSION_STONES_COMMON,
   FUSION_STONES_RARE,
   FUSION_STONES_EPIC,
   FUSION_STONES_LEGENDARY,
 ]
-
-export default id => {
-  return FUSION_STONES.find(fs => fs.id === id)
-}

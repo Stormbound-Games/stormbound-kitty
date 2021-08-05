@@ -21,7 +21,7 @@ import getDrawingProbability from '../../helpers/getDrawingProbability'
 import shuffle from '../../helpers/shuffle'
 import useViewportSize from '../../hooks/useViewportSize'
 import cards from '../../data/cards'
-import { FUSION_STONES } from '../../helpers/getFusionStonesCard'
+import FUSION_STONES from '../../helpers/getRawCardData/fs'
 import { RARITIES, BOOKS, EXPECTATIONS } from '../../constants/game'
 import './index.css'
 

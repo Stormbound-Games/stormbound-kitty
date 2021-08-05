@@ -1,11 +1,17 @@
 import cards from '../../data/cards'
 import indexArray from '../indexArray'
-import getFusionStonesCard from '../getFusionStonesCard'
+import FUSION_STONES from './fs'
 
 const INDEXES = {
   id: indexArray(cards, 'id'),
   name: indexArray(cards, 'name'),
 }
+
+FUSION_STONES.forEach(fs => {
+  INDEXES.id[fs.id] = fs
+  // Explicitly do not index resources cards by name as they could show up in
+  // card searches.
+})
 
 export default (needle, key = 'id') => {
   // `getRawCardData` is sometimes used as a direct callback in
@@ -15,10 +21,6 @@ export default (needle, key = 'id') => {
 
   if (typeof INDEXES[key] === 'undefined') {
     return {}
-  }
-
-  if (needle && needle.startsWith('R')) {
-    return getFusionStonesCard(needle)
   }
 
   return INDEXES[key][needle] || {}
