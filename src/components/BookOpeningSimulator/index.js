@@ -12,17 +12,12 @@ import ResetButton from '../ResetButton'
 import Row from '../Row'
 import ShareDialog from '../ShareDialog'
 import Title from '../Title'
-import arrayRandom from '../../helpers/arrayRandom'
+import openBook from '../../helpers/openBook'
 import getBookName from '../../helpers/getBookName'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
-import isCardMatchingCriteria from '../../helpers/isCardMatchingCriteria'
 import serialisation from '../../helpers/serialisation'
-import getDrawingProbability from '../../helpers/getDrawingProbability'
-import shuffle from '../../helpers/shuffle'
 import useViewportSize from '../../hooks/useViewportSize'
-import cards from '../../data/cards'
-import FUSION_STONES from '../../helpers/getRawCardData/fs'
-import { RARITIES, BOOKS, EXPECTATIONS } from '../../constants/game'
+import { BOOKS } from '../../constants/game'
 import './index.css'
 
 const ShareButton = ({ disabled }) => (
@@ -43,59 +38,6 @@ const ShareButton = ({ disabled }) => (
     </p>
   </ShareDialog>
 )
-
-const computeOdds = percentiles =>
-  [0].concat(
-    percentiles.map((_, index, array) =>
-      array.slice(0, index + 1).reduce((a, b) => a + b, 0)
-    )
-  )
-
-const getRandomRarity = percentiles => {
-  const random = Math.random()
-  const index = computeOdds(percentiles).findIndex(odd => odd > random) - 1
-
-  return Object.keys(RARITIES)[index]
-}
-
-const drawCard = ({ percentiles, only }, drawnIds) => {
-  const rarity = getRandomRarity(percentiles)
-  const pool = cards
-    .filter(isCardMatchingCriteria({ ...only, rarity }))
-    .filter(card => !drawnIds.includes(card.id))
-
-  return getResolvedCardData({ id: arrayRandom(pool).id, level: 1 })
-}
-
-const getFusionStonesCardForBook = (bookType, book) => {
-  const rarity = getRandomRarity(book.percentiles)
-  const fsOdds = getDrawingProbability(
-    bookType,
-    EXPECTATIONS.FUSION_STONES.getExpectations()
-  )
-
-  return Math.random() <= fsOdds
-    ? FUSION_STONES.find(fs => fs.rarity === rarity)
-    : null
-}
-
-const drawCards = (bookType, book) => {
-  const stones = getFusionStonesCardForBook(bookType, book)
-  const draws = stones ? book.draws - 1 : book.draws
-
-  return shuffle(
-    Array.from({ length: draws }).reduce(
-      acc => [
-        ...acc,
-        drawCard(
-          book,
-          acc.map(card => card.id)
-        ),
-      ],
-      [stones].filter(Boolean)
-    )
-  )
-}
 
 const getCardsFromURL = id => {
   try {
@@ -244,7 +186,7 @@ const BookOpeningSimulator = props => {
               percentiles: expectations.map(expectation => expectation / 100),
             }
 
-      setCards(drawCards(bookType, book))
+      setCards(openBook(bookType, book))
     },
     [bookType, expectations, amount]
   )
