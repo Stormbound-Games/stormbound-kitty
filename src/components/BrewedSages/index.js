@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
-import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Sparkles from '../Sparkles'
@@ -51,26 +50,6 @@ export default React.memo(function BrewedSages(props) {
             </a>
           </Sparkles>
         </div>
-
-        <Notice icon='quill'>
-          Be sure to check their{' '}
-          <a
-            href='https://docs.google.com/spreadsheets/d/1z4h7UJFnMw1eSBPFg3iLL9mY2SrU6hkoKQeTNMurXBk/edit?usp=sharing'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            meta report spreadsheet
-          </a>{' '}
-          and follow{' '}
-          <a
-            href='https://twitter.com/BrewedSages'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            @BrewedSages on Twitter
-          </a>{' '}
-          to avoid missing any new episode!
-        </Notice>
       </Article.Narrow>
 
       <Title>Episodes</Title>
