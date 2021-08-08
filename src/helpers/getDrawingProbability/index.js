@@ -10,8 +10,8 @@ import getDrawingSequences from '../getDrawingSequences'
  * @param {Number[]} sequence - Drawing sequence
  * @return {Float} Probability between 0 and 1
  */
-export const getSequenceProbability = (bookType, expectations) => {
-  const { draws, percentiles, only } = BOOKS[bookType]
+export const getSequenceProbability = (book, expectations) => {
+  const { draws, percentiles, only } = book
   const cardCounts = Object.keys(RARITIES).map(rarity =>
     countCards({ ...only, rarity })
   )
@@ -60,7 +60,7 @@ const getDrawingProbability = (bookType, expectations) => {
     return 0
   }
 
-  const getProbability = getSequenceProbability(bookType, expectations)
+  const getProbability = getSequenceProbability(BOOKS[bookType], expectations)
   const sequences = getDrawingSequences(draws)
 
   return 1 - sequences.map(getProbability).reduce((a, b) => a + b, 0)

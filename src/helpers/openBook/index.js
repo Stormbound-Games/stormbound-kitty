@@ -1,3 +1,4 @@
+import rwc from 'random-weighted-choice'
 import arrayRandom from '../../helpers/arrayRandom'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isCardMatchingCriteria from '../../helpers/isCardMatchingCriteria'
@@ -38,10 +39,37 @@ const getRandomCardId = pools => rarity => {
   return draw
 }
 
-const openBook = (bookType, book) => {
-  const canHappen = getSequenceProbability(bookType, [1, 1, 1, 1])
-  const sequences = getDrawingSequences(book.draws).filter(canHappen)
-  const sequence = arrayRandom(sequences)
+const cache = new Map()
+
+const getSequences = book => {
+  const key = `${book.draws}.${book.percentiles.join('')}`
+
+  if (cache.has(key)) {
+    return cache.get(key)
+  }
+
+  const getProbability = getSequenceProbability(book, [1, 1, 1, 1])
+  const sequences = getDrawingSequences(book.draws)
+    .map(sequence => ({
+      id: sequence.join(','),
+      // I am not sure this is the best way to go. The random library wants the
+      // weights to be integers, but the `getSequenceProbability` function
+      // returns a float between 0 and 1.
+      weight: Math.round(1_000_000_000 * getProbability(sequence)),
+    }))
+    // Remove the sequences which cannot happen in that particular book.
+    .filter(entry => entry.weight > 0)
+
+  cache.set(key, sequences)
+
+  return sequences
+}
+
+const getRandomSequence = sequences => rwc(sequences).split(',').map(Number)
+
+const openBook = book => {
+  const sequences = getSequences(book)
+  const sequence = getRandomSequence(sequences)
   const pools = getDrawingPools(book)
   const draw = getRandomCardId(pools)
 

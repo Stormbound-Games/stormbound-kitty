@@ -91,7 +91,7 @@ const CustomBookFields = ({
             id='amount'
             required
             min={1}
-            max={15}
+            max={10}
             value={amount}
             onChange={event => setAmount(+event.target.value)}
           />
@@ -186,7 +186,7 @@ const BookOpeningSimulator = props => {
               percentiles: expectations.map(expectation => expectation / 100),
             }
 
-      setCards(openBook(bookType, book))
+      setCards(openBook(book))
     },
     [bookType, expectations, amount]
   )
