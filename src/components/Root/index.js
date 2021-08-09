@@ -10,8 +10,10 @@ import StoriesProvider from '../StoriesProvider'
 import UserProvider from '../UserProvider'
 import Router from '../Router'
 import createFelaRenderer from '../../helpers/createFelaRenderer'
+import renderRootStyles from '../../helpers/renderRootStyles'
 
 const renderer = createFelaRenderer()
+renderRootStyles(renderer)
 
 export default function Root(props) {
   return (

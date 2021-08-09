@@ -1,10 +1,11 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Radio from '../Radio'
-import './index.css'
 
 export default React.memo(function BrawlCalculatorSetup(props) {
+  const { css } = useFela()
   return (
-    <fieldset className='BrawlCalculatorSetup'>
+    <fieldset className={css({ marginTop: '1.5em' })}>
       <legend>Coins</legend>
       <Radio
         name='setup'

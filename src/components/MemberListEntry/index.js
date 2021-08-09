@@ -1,10 +1,11 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Icon from '../Icon'
 import { UserContext } from '../UserProvider'
 import isKATMember from '../../helpers/isKATMember'
 import useMemberContent from '../../hooks/useMemberContent'
-import './index.css'
+import styles from './styles'
 
 const getLabel = (key, number) => {
   switch (key) {
@@ -38,6 +39,7 @@ const getLabel = (key, number) => {
 }
 
 const MemberListEntryToC = React.memo(function MemberListEntryToC(props) {
+  const { css } = useFela()
   const keys = Object.keys(props.details)
   const data = keys.reduce((acc, key) => {
     if (props.details[key].length > 0) {
@@ -48,7 +50,7 @@ const MemberListEntryToC = React.memo(function MemberListEntryToC(props) {
   }, {})
 
   return (
-    <ul className='MemberListEntry__toc'>
+    <ul className={css(styles.toc)}>
       {Object.keys(data).map(key => {
         const count = data[key].reduce(
           (acc, entry) => acc + (entry.entries?.length ?? 1),
@@ -70,25 +72,24 @@ export default React.memo(function MemberListEntry(props) {
   const { count, details } = useMemberContent(props.member.toLowerCase())
   const { isKAT, isSuperKAT } = isKATMember(details)
   const isCurrentUser = name === props.member
+  const { css } = useFela({ isYou: isCurrentUser })
 
   return (
-    <div
-      className={['MemberListEntry', isCurrentUser && 'MemberListEntry--you']
-        .filter(Boolean)
-        .join(' ')}
-    >
+    <div className={css(styles.entry)}>
       <Icon
         icon={isSuperKAT ? 'super-star' : isKAT ? 'star' : 'user'}
-        className='MemberListEntry__icon'
+        extend={styles.icon}
       />
-      <div className='MemberListEntry__content'>
-        <Link to={`/member/${props.member}`} className='MemberListEntry__name'>
+      <div className={css(styles.content)}>
+        <Link to={`/member/${props.member}`} className={css(styles.name)}>
           {props.member}{' '}
-          <span style={{ opacity: 0.6 }}>{isCurrentUser ? '(you)' : null}</span>
+          <span className={css({ opacity: 0.6 })}>
+            {isCurrentUser ? '(you)' : null}
+          </span>
         </Link>
         <details>
           <summary>
-            <span className='MemberListEntry__summary'>
+            <span className={css(styles.summary)}>
               {count} contribution{count === 1 ? '' : 's'}
             </span>
           </summary>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { useRouteMatch } from 'react-router-dom'
 import { CollectionContext } from '../CollectionProvider'
 import Card from '../Card'
@@ -7,14 +8,14 @@ import Only from '../Only'
 import Row from '../Row'
 import getRawCardData from '../../helpers/getRawCardData'
 import isLevelAvailable from '../../helpers/isLevelAvailable'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function CardBuilderCardDisplay(props) {
+  const { css } = useFela()
   const match = useRouteMatch()
   const [activeLevel, setActiveLevel] = React.useState(props.level || 1)
-  const { hasDefaultCollection, indexedCollection } = React.useContext(
-    CollectionContext
-  )
+  const { hasDefaultCollection, indexedCollection } =
+    React.useContext(CollectionContext)
   const cardInCollection =
     hasDefaultCollection || !match.params.cardId || props.mode === 'EDITOR'
       ? { level: 5 }
@@ -23,7 +24,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
   return (
     <>
       <Only.Desktop>
-        <div className='CardBuilderCardDisplay'>
+        <div className={css(styles.display)}>
           <Row
             desktopOnly
             wideGutter={
@@ -36,16 +37,12 @@ export default React.memo(function CardBuilderCardDisplay(props) {
             {[0, 1, 2, 3, 4].map(level => (
               <Row.Column width='1/5' key={level}>
                 <div
-                  className={[
-                    'CardBuilderApp__card',
-                    props.hasSingleLevel &&
-                      props.level !== level + 1 &&
-                      'CardBuilderApp__card--irrelevant',
-                    level + 1 === cardInCollection.level &&
-                      'CardBuilderApp__card--current',
-                  ]
-                    .filter(Boolean)
-                    .join(' ')}
+                  className={css(
+                    styles.card({
+                      isIrrelevant:
+                        props.hasSingleLevel && props.level !== level + 1,
+                    })
+                  )}
                   data-testid={`card-preview-${level}`}
                 >
                   <Card
@@ -70,7 +67,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
         </div>
       </Only.Desktop>
       <Only.Mobile>
-        <div className='CardBuilderApp__single-card'>
+        <div className={css(styles.singleCard)}>
           <Card
             {...props}
             mana={props.mana.values[activeLevel - 1]}
@@ -81,7 +78,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
           />
 
           {!props.hasSingleLevel && (
-            <div className='CardBuilderCardDisplay__buttons'>
+            <div className={css(styles.buttons)}>
               <Row>
                 <Row.Column>
                   {activeLevel > 1 && (

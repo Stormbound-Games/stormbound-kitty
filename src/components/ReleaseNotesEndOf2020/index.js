@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CardLink from '../CardLink'
@@ -10,6 +11,7 @@ import ReleaseNotes from '../ReleaseNotes'
 import { Rare, Epic, Legendary, Coins, Rubies, Stones } from '../Resource'
 import Row from '../Row'
 import Table from '../Table'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import TogglableContent from '../TogglableContent'
 import displayBundle from '../../helpers/displayBundle'
@@ -18,6 +20,7 @@ import getCalendarValue from '../../helpers/getCalendarValue'
 import rewards from './rewards'
 
 export default React.memo(function ReleaseNotesEndOf2020(props) {
+  const { css } = useFela()
   const [isTableExpanded, expandTable] = React.useState(false)
 
   return (
@@ -29,7 +32,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
           balance changes, exclusive offer and some UI improvements!
         </p>
 
-        <ol style={{ columns: '16em' }}>
+        <TableOfContents>
           <li>
             <a href='#balance-changes'>Balance changes</a>
           </li>
@@ -48,7 +51,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
           <li>
             <a href='#faq'>FAQ</a>
           </li>
-        </ol>
+        </TableOfContents>
 
         <Info icon='gift' title='Merry Christmas'>
           <p>
@@ -65,7 +68,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
         <p>
           This release, like any other, brings some balance changes for the new
           season starting on January 1st, including a new mechanic—
-          <span style={{ color: '#24e071' }}>vitality</span>.
+          <span className={css({ color: '#24e071' })}>vitality</span>.
         </p>
 
         <p>
@@ -169,7 +172,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
           <Table>
             <thead>
               <tr>
-                <th style={{ width: '100px' }}>Day</th>
+                <th className={css({ width: '100px' })}>Day</th>
                 <th>Free</th>
                 <th>Premium</th>
               </tr>
@@ -177,7 +180,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
             <tbody>
               {rewards.map(([free, premium], index) => (
                 <tr key={index}>
-                  <td style={{ width: '100px' }}>#{index + 1}</td>
+                  <td className={css({ width: '100px' })}>#{index + 1}</td>
                   <td>{getRewardLabel(free, true)}</td>
                   <td>{getRewardLabel(premium, true)}</td>
                 </tr>
@@ -244,7 +247,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
 
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <p style={{ marginTop: '2em' }}>
+            <p className={css({ marginTop: '2em' })}>
               Besides some minor quality-of-life improvements, the collection
               pagination has been redesigned from scratch to use a swift slider
               instead of tedious tap/click navigation.

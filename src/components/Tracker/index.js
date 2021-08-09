@@ -9,7 +9,6 @@ import TrackerTitle from '../TrackerTitle'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
-import './index.css'
 
 export default React.memo(function Tracker(props) {
   return (

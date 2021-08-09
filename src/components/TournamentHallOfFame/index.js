@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
 import FAQSection from '../FAQSection'
@@ -12,12 +13,14 @@ import TournamentPodium from '../TournamentPodium'
 import TournamentWinners from '../TournamentWinners'
 import { Rubies } from '../Resource'
 import tournaments from '../../data/tournaments.json'
-import './index.css'
 import MemberList from '../MemberList'
 import { formatDate } from '../../helpers/formatDate'
 import parseDate from '../../helpers/parseDate'
+import styles from './styles'
 
 export default React.memo(function TournamentHallOfFame(props) {
+  const { css } = useFela()
+
   return (
     <Article title='Tournaments'>
       <TournamentPodium />
@@ -27,11 +30,11 @@ export default React.memo(function TournamentHallOfFame(props) {
         .slice(0)
         .reverse()
         .map(tournament => (
-          <section className='Tournament'>
+          <section className={css(styles.tournament)}>
             <Row desktopOnly wideGutter>
               <Row.Column>
-                <h2 className='Tournament__name'>{tournament.name}</h2>
-                <p className='Tournament__meta'>
+                <h2 className={css(styles.name)}>{tournament.name}</h2>
+                <p className={css(styles.meta)}>
                   {formatDate(parseDate(tournament.date))} · By{' '}
                   <MemberList members={tournament.hosts} />
                 </p>

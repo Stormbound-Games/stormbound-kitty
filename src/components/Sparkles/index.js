@@ -1,7 +1,8 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import random from '../../helpers/random'
 import useRandomInterval from '../../hooks/useRandomInterval'
-import './index.css'
+import styles from './styles'
 
 const generateSparkle = color => ({
   id: String(random(10000, 99999)),
@@ -12,6 +13,7 @@ const generateSparkle = color => ({
 })
 
 const Sparkles = props => {
+  const { css } = useFela()
   const color = props.color || '#FFC700'
   const count = props.count || 3
   const interval = props.interval || [40, 450]
@@ -29,7 +31,7 @@ const Sparkles = props => {
   }, ...interval)
 
   return (
-    <span className='Sparkles'>
+    <span className={css(styles.sparkles)}>
       {sparkles.map(sparkle => (
         <Sparkle key={sparkle.id} {...sparkle} />
       ))}
@@ -38,21 +40,24 @@ const Sparkles = props => {
   )
 }
 
-const Sparkle = props => (
-  <span className='Sparkle' style={props.style}>
-    <svg
-      className='Sparkle__svg'
-      width={props.size}
-      height={props.size}
-      viewBox='0 0 68 68'
-      fill='none'
-    >
-      <path
-        d='M26.5 25.5C19.0043 33.3697 0 34 0 34C0 34 19.1013 35.3684 26.5 43.5C33.234 50.901 34 68 34 68C34 68 36.9884 50.7065 44.5 43.5C51.6431 36.647 68 34 68 34C68 34 51.6947 32.0939 44.5 25.5C36.5605 18.2235 34 0 34 0C34 0 33.6591 17.9837 26.5 25.5Z'
-        fill={props.color}
-      />
-    </svg>
-  </span>
-)
+const Sparkle = props => {
+  const { css } = useFela()
+  return (
+    <span className={css(styles.sparkle, props.extend)}>
+      <svg
+        className={css(styles.svg)}
+        width={props.size}
+        height={props.size}
+        viewBox='0 0 68 68'
+        fill='none'
+      >
+        <path
+          d='M26.5 25.5C19.0043 33.3697 0 34 0 34C0 34 19.1013 35.3684 26.5 43.5C33.234 50.901 34 68 34 68C34 68 36.9884 50.7065 44.5 43.5C51.6431 36.647 68 34 68 34C68 34 51.6947 32.0939 44.5 25.5C36.5605 18.2235 34 0 34 0C34 0 33.6591 17.9837 26.5 25.5Z'
+          fill={props.color}
+        />
+      </svg>
+    </span>
+  )
+}
 
 export default Sparkles

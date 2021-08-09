@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import serialize from 'form-serialize'
 import { BrawlContext } from '../BrawlProvider'
 import BrawlLossCounter from '../BrawlLossCounter'
@@ -13,7 +14,7 @@ import {
 } from '../../constants/brawl'
 import capitalise from '../../helpers/capitalise'
 import useViewportSize from '../../hooks/useViewportSize'
-import './index.css'
+import styles from './styles'
 
 const getDefaultFaction = id => {
   if (id.startsWith('SATYR') || id.startsWith('UNDEAD')) {
@@ -31,6 +32,7 @@ const getDefaultFaction = id => {
 }
 
 export default React.memo(function BrawlMatches(props) {
+  const { css } = useFela()
   const { viewportWidth } = useViewportSize()
   const [editedMatch, setEditedMatch] = React.useState(null)
   const { brawl, meta, addMatch, updateMatch } = React.useContext(BrawlContext)
@@ -71,7 +73,7 @@ export default React.memo(function BrawlMatches(props) {
     ) || {}
 
   return (
-    <div className='BrawlMatches'>
+    <div className={css(styles.matches)}>
       <Title>Your matches</Title>
       <BrawlLossCounter />
 
@@ -79,7 +81,8 @@ export default React.memo(function BrawlMatches(props) {
         id='add-match-form'
         onSubmit={editedMatch === null ? handleAdd : handleEdit}
       />
-      <Table zebra className='BrawlMatches'>
+
+      <Table zebra extend={styles.table}>
         <thead>
           <tr>
             <th>&nbsp;</th>
@@ -113,18 +116,17 @@ export default React.memo(function BrawlMatches(props) {
               <tr
                 data-testid='match'
                 key={index}
-                className={[
-                  currMilestone.crowns !== nextMilestone.crowns &&
-                    'BrawlMatches__milestone',
-                ]
-                  .filter(Boolean)
-                  .join(' ')}
+                className={css(
+                  styles.milestone({
+                    isActive: currMilestone.crowns !== nextMilestone.crowns,
+                  })
+                )}
               >
                 <td data-label='Match #'>
                   {brawl.matches.length - index}
                   {viewportWidth >= 700 ? '.' : ''}
                   <button
-                    className='BrawlMatches__edit ButtonAsLink'
+                    className={'ButtonAsLink ' + css(styles.edit)}
                     type='button'
                     onClick={() => setEditedMatch(reversedIndex)}
                     data-testid='edit-btn'
@@ -142,10 +144,7 @@ export default React.memo(function BrawlMatches(props) {
                 </td>
                 <td
                   data-label='Match outcome'
-                  className={[
-                    'BrawlMatches__status',
-                    `BrawlMatches__status--${match.status}`,
-                  ].join(' ')}
+                  className={css(styles.status({ status: match.status }))}
                 >
                   {(() => {
                     switch (match.status) {

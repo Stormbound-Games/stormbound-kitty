@@ -1,4 +1,6 @@
 import React from 'react'
+import { useFela } from 'react-fela'
+import { ArticleContext } from '../Article'
 import { ImageSupportContext } from '../ImageSupportProvider'
 
 // The reason AVIF is opt-in but WEBP is opt-out is because the WEBP version is
@@ -13,7 +15,9 @@ const useFileExtension = ({ withAvif, withoutWebp }) => {
   return 'png'
 }
 
-export default React.forwardRef(function Image(props, ref) {
+const Image = props => {
+  const { css } = useFela()
+  const { isEditorialContent } = React.useContext(ArticleContext)
   const ext = useFileExtension({
     withAvif: props.withAvif && props.src.startsWith('/assets/images'),
     withoutWebp: props.withoutWebp || !props.src.startsWith('/assets/images'),
@@ -21,13 +25,25 @@ export default React.forwardRef(function Image(props, ref) {
 
   return (
     <img
+      width={props.width}
+      height={props.height}
       src={props.src.replace('png', ext)}
       alt={props.alt || ''}
-      className={props.className}
+      className={css(
+        {
+          display: 'block',
+          height: 'auto',
+          maxWidth: '100%',
+          margin: isEditorialContent ? '2em auto' : undefined,
+        },
+        props.extend
+      )}
       style={props.style}
       data-testid={props['data-testid']}
       onClick={props.onClick}
       onContextMenu={props.onContextMenu}
     />
   )
-})
+}
+
+export default React.memo(Image)

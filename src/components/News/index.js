@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import CTA from '../CTA'
 import Error from '../Error'
@@ -6,11 +7,12 @@ import Loader from '../Loader'
 import Row from '../Row'
 import chunk from '../../helpers/chunk'
 import useFetch from '../../hooks/useFetch'
-import './index.css'
+import styles from './styles'
 
 const MAX_NEWS = 7
 
 export default React.memo(function News(props) {
+  const { css } = useFela()
   const { loading, error, data: news = [] } = useFetch('/news.json')
   const pages = chunk(news, MAX_NEWS)
   const [activePage, setActivePage] = React.useState(0)
@@ -19,7 +21,7 @@ export default React.memo(function News(props) {
 
   if (loading) {
     return (
-      <div className='News' data-testid='news'>
+      <div className={css(styles.news)} data-testid='news'>
         <Loader hideLabel />
       </div>
     )
@@ -27,7 +29,7 @@ export default React.memo(function News(props) {
 
   if (error) {
     return (
-      <div className='News' data-testid='news'>
+      <div className={css(styles.news)} data-testid='news'>
         <Error error='Error fetching latest news.' noTitle noImage />
       </div>
     )
@@ -37,9 +39,9 @@ export default React.memo(function News(props) {
 
   return (
     <>
-      <ul className='News' data-testid='news'>
+      <ul className={css(styles.news)} data-testid='news'>
         {pages[activePage].map((news, index) => (
-          <li className='News__item' key={index}>
+          <li className={css(styles.item)} key={index}>
             {news.link ? (
               <Link to={news.link}>
                 <strong className='Highlight'>{news.intro}:</strong>

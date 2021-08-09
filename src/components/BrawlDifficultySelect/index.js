@@ -1,5 +1,4 @@
 import React from 'react'
-import './index.css'
 
 const BrawlDifficultySelect = props => (
   <div className={props.className}>

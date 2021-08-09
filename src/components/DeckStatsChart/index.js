@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import {
   Legend,
@@ -13,7 +14,7 @@ import Loader from '../../components/Loader'
 import computeDeckChances from '../../helpers/computeDeckChances'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 import { BRAWLS } from '../../constants/brawl'
-import './index.css'
+import styles from './styles'
 
 const computeData = async (deck, modifier) => {
   const data = []
@@ -45,6 +46,7 @@ const computeData = async (deck, modifier) => {
 }
 
 export default React.memo(function DeckStatsChart(props) {
+  const { css } = useFela()
   const [data, setData] = React.useState([])
   const [loading, setLoading] = React.useState(false)
 
@@ -63,7 +65,7 @@ export default React.memo(function DeckStatsChart(props) {
 
   return (
     <>
-      <div className='DeckStatsChart__chart'>
+      <div className={css(styles.chart)}>
         <ResponsiveContainer width='100%' height={300}>
           <LineChart
             data={data}
@@ -96,14 +98,14 @@ export default React.memo(function DeckStatsChart(props) {
         </ResponsiveContainer>
 
         {props.withHowTo && (
-          <Link to='/guides/mana-curve' className='DeckStatsChart__how-to'>
+          <Link to='/guides/mana-curve' className={css(styles.howTo)}>
             How to read this graph?
           </Link>
         )}
       </div>
 
       {props.withModifiers && (
-        <div className='DeckStatsChart__select'>
+        <div className={css(styles.select)}>
           <label htmlFor='brawl-modifier'>Brawl modifier</label>
           <select
             name='brawl-modifier'

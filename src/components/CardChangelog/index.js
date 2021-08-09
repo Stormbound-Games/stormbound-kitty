@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
 import Info from '../Info'
@@ -11,11 +12,12 @@ import sortCards from '../../helpers/sortCards'
 import getRawCardData from '../../helpers/getRawCardData'
 import parseDate from '../../helpers/parseDate'
 import { formatDate } from '../../helpers/formatDate'
-import './index.css'
+import styles from './styles'
 
 const getCardName = id => getRawCardData(id).name
 
 export default function CardChangelog(props) {
+  const { css } = useFela()
   const [sorting, setSorting] = React.useState('DATE')
   const [type, setType] = React.useState('*')
   const changesByDate = React.useMemo(() => {
@@ -86,18 +88,18 @@ export default function CardChangelog(props) {
           ? Object.keys(changesByDate)
               .sort((a, b) => parseDate(b) - parseDate(a))
               .map(date => (
-                <section className='CardChanges__section' key={date}>
-                  <Title className='CardChanges__title'>
+                <section className={css(styles.section)} key={date}>
+                  <Title extend={styles.title}>
                     {formatDate(parseDate(date))}
                   </Title>
-                  <ul className='CardChanges__list'>
+                  <ul className={css(styles.list)}>
                     {changesByDate[date]
                       .sort((a, b) =>
                         sortCards()(getRawCardData(a.id), getRawCardData(b.id))
                       )
                       .map(change => (
                         <li
-                          className='CardChanges__item'
+                          className={css(styles.item)}
                           key={change.date + change.id + change.description}
                         >
                           <FeedCardChange
@@ -113,14 +115,12 @@ export default function CardChangelog(props) {
           : Object.keys(changesByCard)
               .sort((a, b) => sortCards()(getRawCardData(a), getRawCardData(b)))
               .map(id => (
-                <section className='CardChanges__section' key={id}>
-                  <Title className='CardChanges__title'>
-                    {getCardName(id)}
-                  </Title>
-                  <ul className='CardChanges__list'>
+                <section className={css(styles.section)} key={id}>
+                  <Title className={css(styles.title)}>{getCardName(id)}</Title>
+                  <ul className={css(styles.list)}>
                     {changesByCard[id].map(change => (
                       <li
-                        className='CardChanges__item'
+                        className={css(styles.item)}
                         key={id + change.date + change.description}
                       >
                         <FeedCardChange
@@ -133,6 +133,7 @@ export default function CardChangelog(props) {
                 </section>
               ))}
       </Article.Narrow>
+
       <PageMeta
         title='Card Changes'
         description='Find all cards changes that ever happened on Stormbound'

@@ -1,6 +1,7 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Only from '../Only'
-import './index.css'
+import styles from './styles'
 
 const RowContext = React.createContext({
   wideGutter: false,
@@ -8,17 +9,15 @@ const RowContext = React.createContext({
 })
 
 const Row = React.memo(function Row(props) {
+  const { css } = useFela({
+    isWide: props.wideGutter,
+    isDesktop: props.desktopOnly,
+  })
+
   return (
     <div
-      className={[
-        'Row',
-        props.desktopOnly && 'Row--desktop',
-        props.wideGutter && 'Row--wide',
-      ]
-        .filter(Boolean)
-        .join(' ')}
+      className={css(styles.row, props.extend)}
       data-testid={props['data-testid']}
-      style={props.style}
     >
       <RowContext.Provider
         value={{ wideGutter: props.wideGutter, desktopOnly: props.desktopOnly }}
@@ -32,19 +31,15 @@ const Row = React.memo(function Row(props) {
 Row.Column = React.memo(function Column(props) {
   const { wideGutter, desktopOnly } = React.useContext(RowContext)
   const [spread, columns] = (props.width || '1/2').split('/').map(Number)
+  const { css } = useFela({
+    isWide: wideGutter,
+    isDesktop: desktopOnly,
+  })
 
   return (
     <div
-      className={[
-        'Column',
-        desktopOnly && 'Column--desktop',
-        wideGutter && 'Column--wide',
-      ]
-        .filter(Boolean)
-        .join(' ')}
+      className={css(styles.column, { alignItems: props.align }, props.extend)}
       style={{
-        ...props.style,
-        alignItems: props.align,
         '--columns': columns,
         '--spread': spread,
       }}

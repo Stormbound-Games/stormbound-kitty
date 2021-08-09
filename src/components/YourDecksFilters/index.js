@@ -1,12 +1,13 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import FactionSelect from '../FactionSelect'
 import MobileTogglableContent from '../MobileTogglableContent'
 import Row from '../Row'
 import TagsSelect from '../TagsSelect'
-import './index.css'
 
 export default React.memo(function YourDecksFilters(props) {
+  const { css } = useFela()
   const { decks } = React.useContext(PersonalDecksContext)
   const updateTags = tags => props.setFilters(filters => ({ ...filters, tags }))
   const updateName = name => props.setFilters(filters => ({ ...filters, name }))
@@ -23,12 +24,12 @@ export default React.memo(function YourDecksFilters(props) {
       withSymbols
       labelCollapsed='Expand deck filters'
       labelExpanded='Collapse deck filters'
-      className='YourDecksFilters__toggle'
+      className={css({
+        display: 'block',
+        margin: '0 auto 0.75em',
+      })}
     >
-      <form
-        onSubmit={event => event.preventDefault()}
-        className='YourDecksFilters'
-      >
+      <form onSubmit={event => event.preventDefault()}>
         <Row>
           <Row.Column>
             <label htmlFor='name'>Name</label>

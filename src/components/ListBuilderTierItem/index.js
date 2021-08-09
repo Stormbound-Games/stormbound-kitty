@@ -1,24 +1,34 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Image from '../Image'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function ListBuilderTierItem(props) {
+  const { css } = useFela({
+    isDragging:
+      props.isDragging &&
+      props.dndSource === props.index &&
+      props.dndTarget !== null &&
+      props.dndTarget !== props.index,
+  })
+
   if (!props.isEditable) {
     return (
       <Link
         to={'/card/' + props.card.id + '/display'}
-        className='ListBuilderTierItem'
-        style={{ '--faction': `var(--${props.card.faction})` }}
+        className={css(styles.item, {
+          '--faction': `var(--${props.card.faction})`,
+        })}
         title={props.card.name}
       >
         <Image
           src={'/assets/images/cards/' + props.card.image}
           alt={props.card.name}
-          className='ListBuilderTierItem__image'
+          extend={styles.image}
           withAvif
         />
-        <span aria-hidden className='ListBuilderTierItem__name'>
+        <span aria-hidden className={css(styles.name)}>
           {props.card.name}
         </span>
       </Link>
@@ -47,11 +57,11 @@ export default React.memo(function ListBuilderTierItem(props) {
   return (
     <>
       {shouldDisplayPlaceholderBefore && (
-        <span className='ListBuilderTierItem ListBuilderTierItem--placeholder'>
+        <span className={css(styles.item({ isPlaceholder: true }))}>
           <Image
-            src={props.cards[props.dndSource].image}
+            src={'/assets/images/cards/' + props.cards[props.dndSource].image}
             alt={props.card.name}
-            className='ListBuilderTierItem__image'
+            extend={styles.image}
             withAvif
           />
         </span>
@@ -69,33 +79,25 @@ export default React.memo(function ListBuilderTierItem(props) {
         }
         type='button'
         onClick={() => props.removeCard(props.card.id)}
-        className={[
-          'ListBuilderTierItem',
-          props.isDragging &&
-            props.dndSource === props.index &&
-            props.dndTarget !== null &&
-            props.dndTarget !== props.index &&
-            'ListBuilderTierItem--dragging',
-        ]
-          .filter(Boolean)
-          .join(' ')}
-        style={{ '--color': `var(--${props.card.faction})` }}
+        className={css(styles.item, {
+          '--color': `var(--${props.card.faction})`,
+        })}
         title={'Remove ' + props.card.name + ' from list'}
       >
         <Image
           src={'/assets/images/cards/' + props.card.image}
           alt={props.card.name}
-          className='ListBuilderTierItem__image'
+          extend={styles.image}
           withAvif
         />
       </button>
 
       {shouldDisplayPlaceholderAfter && (
-        <span className='ListBuilderTierItem ListBuilderTierItem--placeholder'>
+        <span className={css(styles.item({ isPlaceholder: true }))}>
           <Image
-            src={props.cards[props.dndSource].image}
+            src={'/assets/images/cards/' + props.cards[props.dndSource].image}
             alt={props.card.name}
-            className='ListBuilderTierItem__image'
+            extend={styles.image}
             withAvif
           />
         </span>

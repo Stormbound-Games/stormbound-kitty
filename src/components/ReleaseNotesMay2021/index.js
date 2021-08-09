@@ -1,6 +1,8 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
+import Asterisk from '../Asterisk'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import FAQSection from '../FAQSection'
@@ -13,6 +15,7 @@ import Table from '../Table'
 import { Coins, Rubies, Stones, HeroCrowns } from '../Resource'
 import ResourceIcon from '../ResourceIcon'
 import TogglableContent from '../TogglableContent'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import displayBundle from '../../helpers/displayBundle'
@@ -21,6 +24,7 @@ import getRewardLabel from '../../helpers/getRewardLabel'
 import rewards from './rewards'
 
 export default React.memo(function ReleaseNotesMay2021(props) {
+  const { css } = useFela()
   const [isTableExpanded, expandTable] = React.useState(false)
 
   return (
@@ -32,7 +36,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
           improvements and some exclusive offers as usual!
         </p>
 
-        <ol style={{ columns: '16em' }}>
+        <TableOfContents>
           <li>
             <a href='#balance-changes'>Balance changes</a>
           </li>
@@ -51,7 +55,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
           <li>
             <a href='#faq'>FAQ</a>
           </li>
-        </ol>
+        </TableOfContents>
 
         <Info icon='heart' title='Important notice'>
           <p>
@@ -102,7 +106,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
       </Article.Embed>
 
       <Article.Narrow>
-        <Row desktopOnly wideGutter style={{ alignItems: 'center' }}>
+        <Row desktopOnly wideGutter extend={{ alignItems: 'center' }}>
           <Row.Column>
             <Image
               src='/assets/images/releases/may_cards_packs.png'
@@ -177,18 +181,10 @@ export default React.memo(function ReleaseNotesMay2021(props) {
               href='#friend-list'
               aria-describedby='footnotes'
               id='friend-list-ref'
-              style={{ textDecoration: 'none' }}
+              className={css({ textDecoration: 'none' })}
             >
               for the month
-              <span
-                style={{
-                  color: 'var(--beige)',
-                  marginLeft: '2px',
-                  fontSize: '120%',
-                }}
-              >
-                *
-              </span>
+              <Asterisk />
             </a>
             .
           </li>
@@ -247,7 +243,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
           <Table>
             <thead>
               <tr>
-                <th style={{ width: '100px' }}>Day</th>
+                <th className={css({ width: '100px' })}>Day</th>
                 <th>Free</th>
                 <th>Premium</th>
               </tr>
@@ -255,7 +251,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
             <tbody>
               {rewards.map(([free, premium], index) => (
                 <tr key={index}>
-                  <td style={{ width: '100px' }}>#{index + 1}</td>
+                  <td className={css({ width: '100px' })}>#{index + 1}</td>
                   <td>{getRewardLabel(free, true)}</td>
                   <td>{getRewardLabel(premium, true)}</td>
                 </tr>
@@ -306,7 +302,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
           ]}
         />
 
-        <footer style={{ fontSize: '80%' }}>
+        <footer className={css({ fontSize: '80%' })}>
           <h2 className='VisuallyHidden' id='footnotes'>
             Footnotes
           </h2>

@@ -1,15 +1,18 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import CTA from '../CTA'
 import Image from '../Image'
 import Title from '../Title'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function Error(props) {
+  const { css } = useFela()
+
   return (
     <>
-      <div className='Error'>
+      <div className={css(styles.error)}>
         {!props.noTitle && (
-          <Title element='h1' className='Error__title'>
+          <Title element='h1' className={css(styles.title)}>
             An error occurred
           </Title>
         )}
@@ -17,7 +20,7 @@ export default React.memo(function Error(props) {
         {!props.noImage && (
           <Image
             src='/assets/images/cards/sweetcap_kittens.png'
-            className='Error__image'
+            extend={styles.image}
             withAvif
           />
         )}
@@ -45,7 +48,7 @@ export default React.memo(function Error(props) {
               , along with the URL of this page and the following error:
             </p>
 
-            <pre className='Error__pre'>{props.error}</pre>
+            <pre className={css(styles.pre)}>{props.error}</pre>
           </>
         )}
 

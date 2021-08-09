@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Info from '../Info'
 import ResourceIcon from '../ResourceIcon'
 import { Coins, Stones } from '../Resource'
@@ -6,7 +7,6 @@ import { RARITIES } from '../../constants/game'
 import capitalise from '../../helpers/capitalise'
 import getRawCardData from '../../helpers/getRawCardData'
 import toSentence from '../../helpers/toSentence'
-import './index.css'
 
 const COMPENSATION = {
   common: [
@@ -53,6 +53,7 @@ const LevelCompensation = ({ level, coins, stones }) => {
 }
 
 export default React.memo(function NerfCompensationInfo(props) {
+  const { css } = useFela()
   const ids = props.ids || []
   const cards = ids.length > 0 ? ids.map(getRawCardData) : []
   const rarities =
@@ -68,7 +69,13 @@ export default React.memo(function NerfCompensationInfo(props) {
         level and rarity of the card. Find below the compensation values for
         each rarity and level.
       </p>
-      <ul className='NerfCompensationInfo__list'>
+      <ul
+        className={css({
+          marginBottom: 0,
+          listStyleType: 'none',
+          padding: 0,
+        })}
+      >
         {Object.keys(COMPENSATION)
           .filter(rarity => rarities.includes(rarity))
           .map(rarity => (

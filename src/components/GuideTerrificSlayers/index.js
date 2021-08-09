@@ -23,7 +23,7 @@ export default React.memo(function GuideTerrificSlayers(props) {
 
       <Row desktopOnly wideGutter>
         <Row.Column width='2/3'>
-          <Title style={{ marginTop: '2em' }}>Table of contents</Title>
+          <Title>Table of contents</Title>
           <ol>
             <li>
               <a href='#what-the-deck'>What the deck?</a>

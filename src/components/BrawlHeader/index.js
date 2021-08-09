@@ -1,12 +1,14 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import { BrawlContext } from '../BrawlProvider'
 import HeaderBanner from '../HeaderBanner'
 import { getLongFaction } from '../../helpers/encoding'
 import { BRAWL_INDEX } from '../../constants/brawl'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function BrawlHeader(props) {
+  const { css } = useFela()
   const { brawl } = React.useContext(BrawlContext)
   const brawlData = BRAWL_INDEX[brawl.id]
   const faction = getLongFaction(brawlData.cardId.slice(0, 1))
@@ -18,9 +20,9 @@ export default React.memo(function BrawlHeader(props) {
         background={`/assets/images/banners/environment_${faction}.png`}
         withAvif
       />
-      <p className='BrawlHeader__meta'>
-        <span className='BrawlHeader__author'>{brawlData.label}</span>
-        <Link to='/brawl' className='BrawlHeader__backLink'>
+      <p className={css(styles.meta)}>
+        <span>{brawlData.label}</span>
+        <Link to='/brawl' className={css(styles.backLink)}>
           Back to index
         </Link>
       </p>

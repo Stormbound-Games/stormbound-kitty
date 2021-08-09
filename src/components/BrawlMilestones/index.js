@@ -1,12 +1,14 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { motion } from 'framer-motion'
 import { BRAWL_INDEX, BRAWL_MILESTONES } from '../../constants/brawl'
 import { BrawlContext } from '../BrawlProvider'
 import BrawlMilestone from '../BrawlMilestone'
 import BrawlProgress from '../BrawlProgress'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function BrawlMilestones(props) {
+  const { css } = useFela()
   const container = React.useRef()
   const { id, meta } = React.useContext(BrawlContext)
   const milestones = BRAWL_MILESTONES[props.difficulty]
@@ -35,10 +37,10 @@ export default React.memo(function BrawlMilestones(props) {
   )
 
   return (
-    <div className='BrawlMilestones'>
+    <div className={css(styles.milestones)}>
       <div
         ref={container}
-        className='BrawlMilestones__inner'
+        className={css(styles.inner)}
         style={{
           '--count': milestones.length,
           transform: `translateX(calc(-11.5em - ${
@@ -50,10 +52,10 @@ export default React.memo(function BrawlMilestones(props) {
           drag='x'
           dragConstraints={container}
           onDragEnd={handleDrag}
-          className='BrawlMilestones__wrapper'
+          className={css(styles.wrapper)}
         >
           {milestones.map((milestone, index) => (
-            <div className='BrawlMilestones__item' key={index}>
+            <div className={css(styles.item)} key={index}>
               <BrawlMilestone
                 index={index + 1}
                 {...milestone}

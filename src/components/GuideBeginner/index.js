@@ -1,15 +1,19 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
+import Image from '../Image'
 import Info from '../Info'
 import Guide from '../Guide'
 import Title from '../Title'
 import CardLink from '../CardLink'
 import getGuide from '../../helpers/getGuide'
-import './index.css'
+import styles from './styles'
 
 const guide = getGuide('BEGINNER_GUIDE')
 
 export default React.memo(function GuideBeginner(props) {
+  const { css } = useFela()
+
   return (
     <Guide {...guide}>
       <p>
@@ -168,8 +172,8 @@ export default React.memo(function GuideBeginner(props) {
         ), and units move in the same order.
       </p>
 
-      <img
-        className='GuideBeginner__image'
+      <Image
+        extend={styles.image}
         src='/assets/images/guides/guide_ozone_purifiers.png'
         alt='Ozone Purifiers pushing the front unit instead of the side one which is blocked between Ozone Purifiers and the edge and thus cannot move'
       />
@@ -368,7 +372,7 @@ export default React.memo(function GuideBeginner(props) {
         actually replaces them, as does <CardLink id='N22' />.
       </p>
 
-      <p style={{ marginBottom: '2.5em' }}>
+      <p className={css({ marginBottom: '2.5em' })}>
         <strong className='Highlight'>Draw</strong>: <CardLink id='N14' /> draws
         new cards which allows you to play 5 cards (or 6 at higher levels) in
         one turn if Freebooters is one of them.

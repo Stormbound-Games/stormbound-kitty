@@ -1,11 +1,14 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Image from '../Image'
 import ProgressBar from '../ProgressBar'
 import { RARITY_COPIES } from '../../constants/game'
 import getRawCardData from '../../helpers/getRawCardData'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function CardProgress(props) {
+  const { level, copies, missing } = props.card
+  const { css } = useFela({ isStone: missing })
   const { rarity } = getRawCardData(props.card.id)
 
   // If the card is not found, there is no concept of card progress
@@ -13,7 +16,6 @@ export default React.memo(function CardProgress(props) {
     return null
   }
 
-  const { level, copies, missing } = props.card
   const { stonesForMissing } = RARITY_COPIES[rarity]
   const max = missing
     ? stonesForMissing
@@ -26,22 +28,17 @@ export default React.memo(function CardProgress(props) {
   }
 
   return (
-    <div className='CardProgress'>
+    <div className={css(styles.progress)}>
       <Image
         src={
           missing
             ? '/assets/images/iconography/stones.png'
             : '/assets/images/iconography/cards.png'
         }
-        className={[
-          'CardProgress__image',
-          missing && 'CardProgress__image--stone',
-        ]
-          .filter(Boolean)
-          .join(' ')}
+        extend={styles.image}
       />
       <ProgressBar value={current} min={0} max={max} />
-      <span className='CardProgress__label'>{current + '/' + max}</span>
+      <span className={css(styles.label)}>{current + '/' + max}</span>
     </div>
   )
 })

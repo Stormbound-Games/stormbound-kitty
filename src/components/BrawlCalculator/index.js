@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import BrawlCalculatorDiscount from '../BrawlCalculatorDiscount'
 import BrawlCalculatorLegendaryToggle from '../BrawlCalculatorLegendaryToggle'
@@ -19,9 +20,9 @@ import Title from '../Title'
 import { BRAWL_MILESTONES } from '../../constants/brawl'
 import getMilestoneCost from '../../helpers/getMilestoneCost'
 import getRewardLabel from '../../helpers/getRewardLabel'
-import './index.css'
 
 export default React.memo(function BrawlCalculator(props) {
+  const { css } = useFela()
   const [difficulty, setDifficulty] = React.useState('CASUAL')
   const [withPremiumPass, setWithPremiumPass] = React.useState(false)
   const [mode, setMode] = React.useState('')
@@ -45,7 +46,7 @@ export default React.memo(function BrawlCalculator(props) {
         <Row.Column width='1/3'>
           <Title>Goal</Title>
           <BrawlDifficultySelect
-            className='BrawlCalculator__difficulty'
+            className={css({ marginBottom: '1.5em' })}
             value={difficulty}
             onChange={event => setDifficulty(event.target.value)}
           />
@@ -69,7 +70,7 @@ export default React.memo(function BrawlCalculator(props) {
           </Info>
         </Row.Column>
         <Row.Column width='1/3'>
-          <div className='BrawlCalculator__section'>
+          <div className={css({ marginBottom: '2em' })}>
             <Title>Setup</Title>
             <BrawlCalculatorSetup setup={setup} setSetup={setSetup} />
             <PremiumPassCheckbox

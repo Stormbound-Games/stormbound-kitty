@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom'
 import BattleSimApp from '../BattleSimApp'
 import CardLink from '../CardLink'
 import Guide from '../Guide'
+import Image from '../Image'
 import Info from '../Info'
 import Notice from '../Notice'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import getGuide from '../../helpers/getGuide'
 
@@ -18,7 +20,7 @@ export default React.memo(function GuideComplete(props) {
         came to the right place. This is a complete guide to the game and its
         strategies. Sit tight, and enjoy the ride because it’s pretty long.
       </p>
-      <ol style={{ columns: '16em', marginTop: '2em' }}>
+      <TableOfContents>
         <li>
           <a href='#introduction'>Introduction</a>
         </li>
@@ -106,7 +108,7 @@ export default React.memo(function GuideComplete(props) {
         <li>
           <a href='#contact-me'>Contact me</a>
         </li>
-      </ol>
+      </TableOfContents>
 
       <Title id='introduction'>Introduction</Title>
 
@@ -148,7 +150,7 @@ export default React.memo(function GuideComplete(props) {
         spots.
       </p>
 
-      <img
+      <Image
         src='https://i.ibb.co/KmX0R1p/Attack-pattern.jpg'
         alt='Attack pattern'
       />

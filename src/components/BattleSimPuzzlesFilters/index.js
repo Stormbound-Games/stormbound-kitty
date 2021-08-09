@@ -1,11 +1,13 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { RESTRICTIONS, TYPES } from '../../constants/puzzles'
 import Checkbox from '../Checkbox'
 import Row from '../Row'
 import TogglableContent from '../TogglableContent'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function BattleSimPuzzlesFilters(props) {
+  const { css } = useFela()
   const [areFiltersExpanded, expandFilters] = React.useState(false)
   const updateDifficulty = props.updateFilter('difficulty')
   const updateName = props.updateFilter('name')
@@ -13,10 +15,7 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
   const updateRestrictions = props.updateFilter('restrictions')
 
   return (
-    <form
-      onSubmit={event => event.preventDefault()}
-      className='BattleSimPuzzlesFilters'
-    >
+    <form onSubmit={event => event.preventDefault()}>
       <Row>
         <Row.Column>
           <label htmlFor='difficulty'>Difficulty</label>
@@ -79,7 +78,7 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
                   <button
                     {...toggleProps}
                     type='button'
-                    className='BattleSimPuzzlesFilters__toggle'
+                    className={css(styles.toggle)}
                     onClick={() => expandFilters(s => !s)}
                   >
                     {areFiltersExpanded
@@ -108,7 +107,7 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
                   data-testid='restriction-checkbox'
                 >
                   {RESTRICTIONS[restriction].name}
-                  <span className='BattleSimPuzzlesFilters__info'>
+                  <span className={css(styles.info)}>
                     {RESTRICTIONS[restriction].description}
                   </span>
                 </Checkbox>

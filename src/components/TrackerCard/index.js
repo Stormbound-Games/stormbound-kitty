@@ -1,7 +1,6 @@
 import React from 'react'
 import Card from '../Card'
 import { STATUSES } from '../../constants/tracker'
-import './index.css'
 
 export default React.memo(function TrackerCard(props) {
   const cardData = props.deck.find(card => card.id === props.card)

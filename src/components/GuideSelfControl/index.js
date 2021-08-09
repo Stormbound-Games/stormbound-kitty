@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
@@ -12,6 +13,8 @@ import getGuide from '../../helpers/getGuide'
 const guide = getGuide('SELF_CONTROL_GUIDE')
 
 export default React.memo(function GuideSelfControl(props) {
+  const { css } = useFela()
+
   return (
     <Guide {...guide}>
       <p>
@@ -23,7 +26,11 @@ export default React.memo(function GuideSelfControl(props) {
 
       <hr />
       <p
-        style={{ fontSize: '135%', textAlign: 'center', color: 'var(--beige)' }}
+        className={css({
+          fontSize: '135%',
+          textAlign: 'center',
+          color: 'var(--beige)',
+        })}
       >
         This week, all Satyr units benefit from an extra +1 movement on top of
         their initial movement.
@@ -59,7 +66,7 @@ export default React.memo(function GuideSelfControl(props) {
       <Guide.FullWidth padding='60px'>
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <h3 style={{ marginTop: '0.5em' }}>Basic Swarm Rush</h3>
+            <h3 className={css({ marginTop: '0.5em' })}>Basic Swarm Rush</h3>
             <p>
               Most decks encountered in this Brawl are based on these cards,
               with some variations based on playstyles and card levels.
@@ -86,7 +93,7 @@ export default React.memo(function GuideSelfControl(props) {
         </Row>
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <h3 style={{ marginTop: '0.5em' }}>
+            <h3 className={css({ marginTop: '0.5em' })}>
               CriticalPancake’s Satyr’s Demise
             </h3>
             <p>

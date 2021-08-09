@@ -1,23 +1,28 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
 import BattleSimApp from '../BattleSimApp'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Checkbox from '../Checkbox'
 import FAQSection from '../FAQSection'
+import Image from '../Image'
 import Info from '../Info'
 import NerfCompensationInfo from '../NerfCompensationInfo'
 import Notice from '../Notice'
 import Quest from '../Quest'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
+import Strikethrough from '../Strikethrough'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import CardLink from '../CardLink'
 import { Coins, Rubies, Stones } from '../Resource'
 import getInitialCardData from '../../helpers/getInitialCardData'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function ReleaseNotesJuly2020(props) {
+  const { css } = useFela()
   const [withConfusionFix, setConfusionFix] = React.useState(true)
 
   React.useEffect(() => {
@@ -31,19 +36,20 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
 
     ODDS.forEach(([cell, newOdd, oldOdd, position]) => {
       const container = document.querySelector(`[data-testid="cell-${cell}"]`)
-      const odds = container.querySelector('.ReleaseNotesJuly2020__odd')
+      const odds = container.querySelector('[data-selector="odd"]')
 
       if (odds) {
         odds.innerText = withConfusionFix ? newOdd : oldOdd
       } else {
         const odds = document.createElement('span')
-        odds.setAttribute('data-position', position)
         odds.innerText = withConfusionFix ? newOdd : oldOdd
-        odds.setAttribute('class', 'ReleaseNotesJuly2020__odd')
+        odds.setAttribute('data-position', position)
+        odds.setAttribute('class', css(styles.odd))
+        odds.setAttribute('data-selector', 'odd')
         container.appendChild(odds)
       }
     })
-  }, [withConfusionFix])
+  }, [withConfusionFix, css])
 
   return (
     <ReleaseNotes id='07_2020'>
@@ -59,13 +65,12 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
             Sheepyard
           </a>
           . A few months later, Sheepyard is ready to{' '}
-          <s style={{ textDecoration: 'line-through', opacity: 0.5 }}>sheep</s>{' '}
-          ship their very first release, after a drought of about 8 months. I am
-          very excited and honoured to be able to announce these changes in
-          exclusivity!
+          <Strikethrough>sheep</Strikethrough> ship their very first release,
+          after a drought of about 8 months. I am very excited and honoured to
+          be able to announce these changes in exclusivity!
         </p>
 
-        <ul style={{ columns: '16em' }}>
+        <TableOfContents>
           <li>
             <a href='#economy-update'>Economy update</a>
           </li>
@@ -84,7 +89,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           <li>
             <a href='#faq'>FAQ</a>
           </li>
-        </ul>
+        </TableOfContents>
 
         <p>
           Following Paladin Studios’ advice, the update will hit the production
@@ -188,17 +193,17 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
       <Article.Embed>
         <Row desktopOnly wideGutter>
           <Row.Column width='1/2'>
-            <h3 style={{ marginTop: 0 }}>Sketches & illustrations</h3>
-            <img
-              style={{ marginTop: 0 }}
+            <h3 className={css({ marginTop: 0 })}>Sketches & illustrations</h3>
+            <Image
+              extend={{ marginTop: 0 }}
               src='/assets/images/releases/banner_rogue_sheep.png'
               alt='New Rogue Sheep card'
             />
           </Row.Column>
           <Row.Column width='1/2'>
-            <h3 style={{ marginTop: 0 }}>In-game 3D model</h3>
+            <h3 className={css({ marginTop: 0 })}>In-game 3D model</h3>
             <video
-              style={{ marginTop: 0 }}
+              className={css({ marginTop: 0 })}
               src='/assets/videos/sheep_hero.mp4'
               muted
               controls
@@ -217,7 +222,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           and some resources. This one-time offer will only be available for a
           few days, so be sure to consider it!
         </p>
-        <img
+        <Image
           src='/assets/images/releases/pack_offer.png'
           alt='Limited offer to get Rogue Sheep and some resources'
         />
@@ -310,10 +315,8 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
         <p>
           On top of making <CardLink id='N60' /> more accessible by decreasing
           their mana cost, Sheepyard has{' '}
-          <s style={{ textDecoration: 'line-through', opacity: 0.5 }}>
-            revisited
-          </s>{' '}
-          fixed the confusion mechanic to make it more reliable.
+          <Strikethrough>revisited</Strikethrough> fixed the confusion mechanic
+          to make it more reliable.
         </p>
 
         <p>
@@ -348,13 +351,13 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
         </p>
       </Article.Narrow>
 
-      <Article.Embed style={{ position: 'relative' }}>
+      <Article.Embed extend={{ position: 'relative' }}>
         <Checkbox
           checked={withConfusionFix}
           onChange={event => setConfusionFix(event.target.checked)}
           name='confusion-fix'
           id='confusion-fix'
-          className='ReleaseNotesJuly2020__fix'
+          extend={styles.fix}
         >
           Apply the confusion fix
         </Checkbox>
@@ -386,28 +389,28 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
 
         <ul>
           <li>
-            <span style={{ color: 'var(--diamond)' }}>Diamond</span>: no cap
-            (besides 20 maximum health).
+            <span className={css({ color: 'var(--diamond)' })}>Diamond</span>:
+            no cap (besides 20 maximum health).
           </li>
           <li>
-            <span style={{ color: 'var(--platinum)' }}>Platinum</span>: health
-            capped at 17.
+            <span className={css({ color: 'var(--platinum)' })}>Platinum</span>:
+            health capped at 17.
           </li>
           <li>
-            <span style={{ color: 'var(--gold)' }}>Gold</span>: health capped at
-            14.
+            <span className={css({ color: 'var(--gold)' })}>Gold</span>: health
+            capped at 14.
           </li>
           <li>
-            <span style={{ color: 'var(--silver)' }}>Silver</span>: health
-            capped at 12.
+            <span className={css({ color: 'var(--silver)' })}>Silver</span>:
+            health capped at 12.
           </li>
           <li>
-            <span style={{ color: 'var(--bronze)' }}>Bronze</span>: health
-            capped at 11.
+            <span className={css({ color: 'var(--bronze)' })}>Bronze</span>:
+            health capped at 11.
           </li>
           <li>
-            <span style={{ color: 'var(--iron)' }}>Iron</span>: health capped at
-            10.
+            <span className={css({ color: 'var(--iron)' })}>Iron</span>: health
+            capped at 10.
           </li>
         </ul>
 
@@ -422,7 +425,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
         <Title id='ui-improvements'>UI improvements</Title>
         <Row desktopOnly wideGutter>
           <Row.Column width='1/3'>
-            <p style={{ marginTop: '2em' }}>
+            <p className={css({ marginTop: '2em' })}>
               Sheepyard has already started to revisit old interfaces and is
               going to introduce{' '}
               <span className='Highlight'>many interface improvements</span> in
@@ -449,13 +452,13 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
             </p>
           </Row.Column>
           <Row.Column width='1/3'>
-            <img
+            <Image
               src='/assets/images/releases/base_health_dialog.png'
               alt='Dialog disclosing information about the current base health'
             />
           </Row.Column>
           <Row.Column width='1/3'>
-            <img
+            <Image
               src='/assets/images/releases/base_health_level.png'
               alt='Illustration of the base health increasing'
             />

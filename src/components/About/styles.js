@@ -1,13 +1,8 @@
-const ctaContainer = {
-  margin: '2.5em auto',
-  textAlign: 'center',
-}
-
 const cta = {
-  fontSize: '180%',
+  fontSize: '120%',
   textDecoration: 'none',
   borderBottom: '1px solid',
-  small: { fontSize: '120%' },
+  medium: { fontSize: '180%' },
 }
 
-export default { ctaContainer, cta }
+export default { cta }

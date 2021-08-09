@@ -1,17 +1,22 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
+import Image from '../Image'
 import FAQSection from '../FAQSection'
 import NerfCompensationInfo from '../NerfCompensationInfo'
 import { Coins, Rubies, Stones } from '../Resource'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import CardLink from '../CardLink'
 import getInitialCardData from '../../helpers/getInitialCardData'
 
 export default React.memo(function ReleaseNotesOctober2020(props) {
+  const { css } = useFela()
+
   return (
     <ReleaseNotes id='10_2020'>
       <Article.Narrow>
@@ -22,7 +27,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
           exclusivity.
         </p>
 
-        <ul style={{ columns: '16em' }}>
+        <TableOfContents>
           <li>
             <a href='#new-cards'>New cards</a>
           </li>
@@ -41,7 +46,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
           <li>
             <a href='#faq'>FAQ</a>
           </li>
-        </ul>
+        </TableOfContents>
 
         <Title id='new-cards'>New Cards</Title>
 
@@ -61,14 +66,14 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
       <Article.Narrow>
         <Row desktopOnly>
           <Row.Column>
-            <img
+            <Image
               src='/assets/images/releases/slyboots_pack.png'
               alt='$9.99 pack: 5 copies of Slyboots + 750 coins + 5 fusion stones'
-              style={{ marginTop: 0 }}
+              extend={{ marginTop: 0 }}
             />
           </Row.Column>
           <Row.Column>
-            <p style={{ marginTop: '1em' }}>
+            <p className={css({ marginTop: '1em' })}>
               If you would like to put your hands on this card immediately, a
               $9.99 one-time limited pack grants 5 copies of Slyboots, making it
               possible to get it level 2 right away. It also offers{' '}
@@ -189,17 +194,17 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
 
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
-          <img
+          <Image
             src='/assets/images/releases/friendly_matches_2.png'
             alt='A screenshot of the new advanced friendly matches options for a new player'
-            style={{ marginTop: 0 }}
+            extend={{ marginTop: 0 }}
           />
         </Row.Column>
         <Row.Column width='1/3'>
-          <img
+          <Image
             src='/assets/images/releases/friendly_matches_3.png'
             alt='A screenshot of the new advanced friendly matches options for a high-level player'
-            style={{ marginTop: 0 }}
+            extend={{ marginTop: 0 }}
           />
         </Row.Column>
         <Row.Column width='1/3'>
@@ -207,7 +212,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
             src='/assets/images/releases/draw.mp4'
             muted
             controls
-            style={{ marginTop: 0 }}
+            extend={{ marginTop: 0 }}
           ></video>
         </Row.Column>
       </Row>
@@ -240,10 +245,10 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
             </p>
           </Row.Column>
           <Row.Column>
-            <img
+            <Image
               src='/assets/images/releases/social_panel.png'
               alt='New in-game social panel feature Discord, Reddit, Stormbound-Kitty, the wiki and social networks'
-              style={{ marginTop: 0 }}
+              extend={{ marginTop: 0 }}
             />
           </Row.Column>
         </Row>
@@ -252,10 +257,10 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
 
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <img
+            <Image
               src='/assets/images/releases/vanishing_packs.png'
               alt='A screenshot of the new tab dedicated to vanishing packs'
-              style={{ marginTop: 0 }}
+              extend={{ marginTop: 0 }}
             />
           </Row.Column>
           <Row.Column>

@@ -1,18 +1,20 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Checkbox from '../Checkbox'
 import DryRunnerEqualsMode from '../DryRunnerEqualsMode'
 import DryRunnerBrawlModifiers from '../DryRunnerBrawlModifiers'
 import DryRunnerRNGField from '../DryRunnerRNGField'
 import Title from '../Title'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function DryRunnerSettings(props) {
+  const { css } = useFela()
   return (
-    <div className='DryRunnerSettings'>
+    <div className={css(styles.container)}>
       <Title>Settings</Title>
 
       <Checkbox
-        className='DryRunnerSettings__display-chance'
+        extend={styles.displayChance}
         name='display-chance'
         id='display-chance'
         checked={props.displayChance}
@@ -20,7 +22,7 @@ export default React.memo(function DryRunnerSettings(props) {
         data-testid='display-chance'
       >
         Drawing odds
-        <span className='DryRunnerSettings__info'>
+        <span className={css(styles.info)}>
           Display drawing odds in the deck
         </span>
       </Checkbox>

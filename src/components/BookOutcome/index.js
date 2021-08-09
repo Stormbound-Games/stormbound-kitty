@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import { BOOKS, EXPECTATIONS } from '../../constants/books'
 import { CollectionContext } from '../CollectionProvider'
@@ -10,7 +11,6 @@ import getAverageStonesPerBook from '../../helpers/getAverageStonesPerBook'
 import getExpectedCoinsPerBook from '../../helpers/getExpectedCoinsPerBook'
 import getRawCardData from '../../helpers/getRawCardData'
 import getBookName from '../../helpers/getBookName'
-import './index.css'
 
 const useExpectedCoins = book => {
   const { hasDefaultCollection, collection } =
@@ -32,6 +32,7 @@ const useExpectedCoins = book => {
 }
 
 export default React.memo(function BookOutcome(props) {
+  const { css } = useFela()
   const bookName = getBookName(props.book)
   const expectedCoins = useExpectedCoins(props.book)
   const subject = props.isAdvancedMode
@@ -47,63 +48,66 @@ export default React.memo(function BookOutcome(props) {
   )
 
   return (
-    <div className='BookOutcome'>
-      <Info icon='books' title='Outcome'>
-        {props.isAdvancedMode && expectations.join('') === '0000' ? (
+    <Info icon='books' title='Outcome'>
+      {props.isAdvancedMode && expectations.join('') === '0000' ? (
+        <p>
+          Define how many different cards you need of each rarity to get the
+          odds of drawing at least one of them in a {bookName} book.
+        </p>
+      ) : Number(chances) === 0 ? (
+        <p>
+          It is not possible to pull {subject} because this rarity does not
+          appear in this type of book.
+        </p>
+      ) : (
+        <>
           <p>
-            Define how many different cards you need of each rarity to get the
-            odds of drawing at least one of them in a {bookName} book.
+            Opening a <strong className='Highlight'>{bookName}</strong> would
+            yield:
           </p>
-        ) : Number(chances) === 0 ? (
-          <p>
-            It is not possible to pull {subject} because this rarity does not
-            appear in this type of book.
-          </p>
-        ) : (
-          <>
-            <p>
-              Opening a <strong className='Highlight'>{bookName}</strong> would
-              yield:
-            </p>
-            <ul>
+          <ul
+            className={css({
+              paddingLeft: '0.25em',
+              listStylePosition: 'inside',
+            })}
+          >
+            <li>
+              <strong className='Highlight' data-testid='odds-result'>
+                {(chances * 100).toFixed(2)}%
+              </strong>{' '}
+              chances to draw {subject}
+            </li>
+            <li>
+              An average of{' '}
+              <strong className='Highlight' data-testid='average-stones'>
+                <Stones
+                  amount={getAverageStonesPerBook(props.book).toFixed(2)}
+                />
+              </strong>
+            </li>
+            <Only.DefaultCollection>
               <li>
-                <strong className='Highlight' data-testid='odds-result'>
-                  {(chances * 100).toFixed(2)}%
-                </strong>{' '}
-                chances to draw {subject}
+                Potentially some coins depending on{' '}
+                <Link to='/collection'>your collection</Link>
               </li>
+            </Only.DefaultCollection>
+            <Only.CustomCollection>
               <li>
-                An average of{' '}
-                <strong className='Highlight' data-testid='average-stones'>
-                  <Stones
-                    amount={getAverageStonesPerBook(props.book).toFixed(2)}
-                  />
-                </strong>
+                {expectedCoins > 0 ? (
+                  <>
+                    An average of{' '}
+                    <strong className='Highlight'>
+                      <Coins amount={expectedCoins.toFixed(2)} />
+                    </strong>
+                  </>
+                ) : (
+                  'No coins, because your collection does not have cards level 5 yet'
+                )}
               </li>
-              <Only.DefaultCollection>
-                <li>
-                  Potentially some coins depending on{' '}
-                  <Link to='/collection'>your collection</Link>
-                </li>
-              </Only.DefaultCollection>
-              <Only.CustomCollection>
-                <li>
-                  {expectedCoins > 0 ? (
-                    <>
-                      An average of{' '}
-                      <strong className='Highlight'>
-                        <Coins amount={expectedCoins.toFixed(2)} />
-                      </strong>
-                    </>
-                  ) : (
-                    'No coins, because your collection does not have cards level 5 yet'
-                  )}
-                </li>
-              </Only.CustomCollection>
-            </ul>
-          </>
-        )}
-      </Info>
-    </div>
+            </Only.CustomCollection>
+          </ul>
+        </>
+      )}
+    </Info>
   )
 })

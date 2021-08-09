@@ -30,7 +30,7 @@ export default React.memo(function CardSelect(props) {
       onBlur={props.onBlur}
       placeholder='Pick a card'
       styles={styles}
-      className='CardSelect'
+      className={['CardSelect', props.className].filter(Boolean).join(' ')}
       classNamePrefix='CardSelect'
       isOptionDisabled={option => option.disabled}
       options={Object.keys(cardsByFaction)

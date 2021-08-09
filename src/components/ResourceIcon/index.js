@@ -1,13 +1,13 @@
 import React from 'react'
 import Image from '../Image'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function ResourceIcon(props) {
   switch (props.resource) {
     case 'COMMON':
       return (
         <Image
-          className='ResourceIcon'
+          extend={styles.icon}
           src='/assets/images/card/rarity_common_4.png'
           alt='common card'
           withoutWebp
@@ -16,7 +16,7 @@ export default React.memo(function ResourceIcon(props) {
     case 'RARE':
       return (
         <Image
-          className='ResourceIcon'
+          extend={styles.icon}
           src='/assets/images/card/rarity_rare_4.png'
           alt='rare card'
           withoutWebp
@@ -25,7 +25,7 @@ export default React.memo(function ResourceIcon(props) {
     case 'EPIC':
       return (
         <Image
-          className='ResourceIcon'
+          extend={styles.icon}
           src='/assets/images/card/rarity_epic_4.png'
           alt='epic card'
           withoutWebp
@@ -34,7 +34,7 @@ export default React.memo(function ResourceIcon(props) {
     case 'LEGENDARY':
       return (
         <Image
-          className='ResourceIcon'
+          extend={styles.icon}
           src='/assets/images/card/rarity_legendary_4.png'
           alt='legendary card'
           withoutWebp
@@ -43,7 +43,7 @@ export default React.memo(function ResourceIcon(props) {
     case 'COIN':
       return (
         <Image
-          className='ResourceIcon'
+          extend={styles.icon}
           src='/assets/images/iconography/coin.png'
           alt='coin'
         />
@@ -51,7 +51,7 @@ export default React.memo(function ResourceIcon(props) {
     case 'STONE':
       return (
         <Image
-          className='ResourceIcon'
+          extend={styles.icon}
           src='/assets/images/iconography/stones.png'
           alt='fusion stone'
         />
@@ -59,7 +59,7 @@ export default React.memo(function ResourceIcon(props) {
     case 'RUBY':
       return (
         <Image
-          className='ResourceIcon'
+          extend={styles.icon}
           src='/assets/images/iconography/ruby.png'
           alt='ruby'
         />
@@ -67,7 +67,7 @@ export default React.memo(function ResourceIcon(props) {
     case 'CROWN':
       return (
         <Image
-          className='ResourceIcon'
+          extend={styles.icon}
           src='/assets/images/iconography/crown_icon.png'
           alt='crown'
         />
@@ -75,7 +75,7 @@ export default React.memo(function ResourceIcon(props) {
     case 'HERO_CROWN':
       return (
         <Image
-          className='ResourceIcon'
+          extend={styles.icon}
           src='/assets/images/iconography/elo_icon.png'
           alt='elo crown'
         />

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import { TIER_COLORS } from '../../constants/list'
 import HeaderBanner from '../HeaderBanner'
@@ -11,6 +12,7 @@ import getLiveTierList from '../../helpers/getLiveTierList'
 import getRawCardData from '../../helpers/getRawCardData'
 
 export default React.memo(function ListBuilderDisplayView(props) {
+  const { css } = useFela()
   const [faction, setFaction] = React.useState('*')
   const id = React.useMemo(() => getLiveTierList(), [])
   const tiers = getInitialListData(id)
@@ -57,7 +59,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
             name='factions'
             value={faction}
             onChange={event => setFaction(event.target.value)}
-            style={{ marginBottom: '1em' }}
+            className={css({ marginBottom: '1em' })}
           >
             <option value='*'>All</option>
             <option value='NOT_NEUTRAL'>All but neutral</option>

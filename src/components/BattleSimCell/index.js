@@ -1,5 +1,7 @@
 import React from 'react'
-import './index.css'
+import { useFela } from 'react-fela'
+import Image from '../Image'
+import styles from './styles'
 
 const getTitle = props => {
   if (props.mode === 'DISPLAY' || !props.card.id) {
@@ -16,21 +18,21 @@ const getTitle = props => {
 }
 
 export default React.memo(function BattleSimCell(props) {
+  const { css } = useFela({
+    activePlayer: props.activePlayer,
+    player: props.player,
+    isDragging: props.isDragging,
+    isDisplay: props.mode === 'DISPLAY',
+    isPoisoned: props.poisoned,
+    isVitalised: props.vitalised,
+    isFrozen: props.frozen,
+    isConfused: props.confused,
+    isDisabled: props.disabled,
+  })
+
   return (
     <button
-      className={[
-        'BattleSimCell',
-        !!props.activePlayer && `BattleSimCell--${props.activePlayer}`,
-        props.isDragging && 'BattleSimCell--dragging',
-        props.mode === 'DISPLAY' && 'BattleSimCell--display',
-        props.poisoned && 'BattleSimCell--poisoned',
-        props.vitalised && 'BattleSimCell--vitalised',
-        props.frozen && 'BattleSimCell--frozen',
-        props.confused && 'BattleSimCell--confused',
-        props.disabled && 'BattleSimCell--disabled',
-      ]
-        .filter(Boolean)
-        .join(' ')}
+      className={css(styles.cell)}
       type='button'
       aria-pressed={props.isActive}
       onClick={props.onClick}
@@ -41,24 +43,14 @@ export default React.memo(function BattleSimCell(props) {
       title={getTitle(props)}
     >
       {props.strength > 0 && (
-        <span
-          data-testid='cell-strength'
-          className={[
-            'BattleSimCell__strength',
-            props.player && `BattleSimCell__strength--${props.player}`,
-          ]
-            .filter(Boolean)
-            .join(' ')}
-        >
-          <span className='BattleSimCell__strength-content'>
-            {props.strength}
-          </span>
+        <span data-testid='cell-strength' className={css(styles.strength)}>
+          <span className={css(styles.strengthContent)}>{props.strength}</span>
         </span>
       )}
 
       {props.card.id ? (
-        <img
-          className='BattleSimCell__image'
+        <Image
+          extend={styles.image}
           src={'/assets/images/cards/' + props.card.image}
           alt={props.card.name}
           data-testid='cell-image'
@@ -71,52 +63,43 @@ export default React.memo(function BattleSimCell(props) {
 
       {!!(props.poisoned || props.vitalised) && (
         <div
-          className={[
-            'BattleSimCell__dots',
-            props.poisoned && 'BattleSimCell__dots--poisoned',
-            props.vitalised && 'BattleSimCell__dots--vitalised',
-          ]
-            .filter(Boolean)
-            .join(' ')}
+          className={css(styles.dots)}
           data-testid={props.poisoned ? 'cell-poisoned' : 'cell-vitalised'}
         >
-          <span className='BattleSimCell__dot BattleSimCell__dot--bubble' />
-          <span className='BattleSimCell__dot' />
-          <span className='BattleSimCell__dot' />
-          <span className='BattleSimCell__dot BattleSimCell__dot--bubble' />
-          <span className='BattleSimCell__dot' />
-          <span className='BattleSimCell__dot' />
-          <span className='BattleSimCell__dot BattleSimCell__dot--bubble' />
-          <span className='BattleSimCell__dot' />
-          <span className='BattleSimCell__dot' />
-          <span className='BattleSimCell__dot BattleSimCell__dot--bubble' />
+          <span className={css(styles.dot({ isBubble: true }))} />
+          <span className={css(styles.dot)} />
+          <span className={css(styles.dot)} />
+          <span className={css(styles.dot({ isBubble: true }))} />
+          <span className={css(styles.dot)} />
+          <span className={css(styles.dot)} />
+          <span className={css(styles.dot({ isBubble: true }))} />
+          <span className={css(styles.dot)} />
+          <span className={css(styles.dot)} />
+          <span className={css(styles.dot({ isBubble: true }))} />
         </div>
       )}
 
       {!!props.confused && (
-        <div
-          className='BattleSimCell__dots BattleSimCell__dots--confused'
-          data-testid='cell-confused'
-        >
-          <span className='BattleSimCell__dot' />
-          <span className='BattleSimCell__dot' />
-          <span className='BattleSimCell__dot' />
-          <span className='BattleSimCell__dot' />
-          <span className='BattleSimCell__dot' />
-          <span className='BattleSimCell__dot' />
-          <span className='BattleSimCell__dot' />
-          <span className='BattleSimCell__dot' />
-          <span className='BattleSimCell__dot' />
-          <span className='BattleSimCell__dot' />
+        <div className={css(styles.dots)} data-testid='cell-confused'>
+          <span className={css(styles.dot)} />
+          <span className={css(styles.dot)} />
+          <span className={css(styles.dot)} />
+          <span className={css(styles.dot)} />
+          <span className={css(styles.dot)} />
+          <span className={css(styles.dot)} />
+          <span className={css(styles.dot)} />
+          <span className={css(styles.dot)} />
+          <span className={css(styles.dot)} />
+          <span className={css(styles.dot)} />
         </div>
       )}
 
       {!!props.frozen && (
-        <span className='BattleSimCell__frozen' data-testid='cell-frozen' />
+        <span className={css(styles.frozen)} data-testid='cell-frozen' />
       )}
 
       {!!props.disabled && (
-        <span className='BattleSimCell__disabled' data-testid='cell-disabled'>
+        <span className={css(styles.disabled)} data-testid='cell-disabled'>
           &times;
         </span>
       )}

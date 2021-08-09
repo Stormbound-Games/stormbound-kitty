@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import isEqual from 'lodash.isequal'
@@ -19,7 +20,6 @@ import Title from '../Title'
 import serialisation from '../../helpers/serialisation'
 import getInitialListData from '../../helpers/getInitialListData'
 import reorder from '../../helpers/reorder'
-import './index.css'
 
 class ListBuilderEditorView extends React.Component {
   constructor(props) {
@@ -181,7 +181,7 @@ class ListBuilderEditorView extends React.Component {
       >
         <Row wideGutter desktopOnly>
           <Row.Column width='1/3'>
-            <Title style={{ marginTop: 0 }}>Settings</Title>
+            <Title>Settings</Title>
 
             <p>
               This tier list editor makes it possible to create up to 12 tiers
@@ -207,7 +207,7 @@ class ListBuilderEditorView extends React.Component {
             </Row>
           </Row.Column>
           <Row.Column width='2/3'>
-            <Title style={{ marginTop: 0 }}>Tier list</Title>
+            <Title>Tier list</Title>
 
             {this.state.tiers.map((tier, index) => (
               <ListBuilderTier
@@ -237,7 +237,7 @@ class ListBuilderEditorView extends React.Component {
             <CTA
               onClick={this.addTier}
               disabled={this.state.tiers.length === MAX_TIERS}
-              className='ListBuilderEditorView__CTA'
+              extend={{ margin: '0 auto' }}
             >
               Add a new tier
             </CTA>
@@ -254,6 +254,7 @@ class ListBuilderEditorView extends React.Component {
 }
 
 export default hookIntoProps(() => ({
+  ...useFela(),
   history: useHistory(),
   listId: useRouteMatch().params.listId,
 }))(ListBuilderEditorView)

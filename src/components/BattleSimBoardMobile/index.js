@@ -1,19 +1,21 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import BaseHealth from '../BattleSimBaseHealth'
 import Cards from '../BattleSimCards'
 import CardZoom from '../CardZoom'
 import Grid from '../BattleSimGrid'
 import PlayerBanner from '../BattleSimPlayerBanner'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function BattleSimBoardMobile(props) {
+  const { css } = useFela()
   return (
-    <div className='BattleSimBoardMobile' data-testid='board'>
-      <div className='BattleSimBoardMobile__health BattleSimBoardMobile__health--RED'>
+    <div className={css(styles.board)} data-testid='board'>
+      <div className={css(styles.health({ player: 'RED' }))}>
         <BaseHealth player='RED' health={props.players.RED.health} />
       </div>
 
-      <div className='BattleSimBoardMobile__player BattleSimBoardMobile__player--RED'>
+      <div className={css(styles.player({ player: 'RED' }))}>
         <PlayerBanner
           player='RED'
           faction={props.players.RED.faction}
@@ -31,15 +33,15 @@ export default React.memo(function BattleSimBoardMobile(props) {
         />
       )}
 
-      <div className='BattleSimBoardMobile__grid '>
+      <div className={css(styles.grid)}>
         <Grid {...props} />
       </div>
 
-      <div className='BattleSimBoardMobile__health BattleSimBoardMobile__health--BLUE'>
+      <div className={css(styles.health({ player: 'BLUE' }))}>
         <BaseHealth player='BLUE' health={props.players.BLUE.health} />
       </div>
 
-      <div className='BattleSimBoardMobile__player BattleSimBoardMobile__player--BLUE'>
+      <div className={css(styles.player({ player: 'BLUE' }))}>
         <PlayerBanner
           player='BLUE'
           faction={props.players.BLUE.faction}
@@ -47,7 +49,7 @@ export default React.memo(function BattleSimBoardMobile(props) {
         />
       </div>
 
-      <div className='BattleSimBoardMobile__cards'>
+      <div className={css(styles.cards)}>
         <Cards
           hand={props.hand}
           cards={props.cards}

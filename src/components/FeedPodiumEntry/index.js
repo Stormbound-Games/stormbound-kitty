@@ -1,12 +1,13 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Deck from '../Deck'
 import FeedEntry from '../FeedEntry'
 import MemberList from '../MemberList'
 import Only from '../Only'
 import serialisation from '../../helpers/serialisation'
-import './index.css'
 
 export default React.memo(function FeedPodiumEntry(props) {
+  const { css } = useFela()
   const { podium, decks, user } = props
   const isAtIndex = index =>
     podium[index]
@@ -40,7 +41,7 @@ export default React.memo(function FeedPodiumEntry(props) {
       </span>{' '}
       in {props.name}.
       {deck && (
-        <details open className='FeedPodiumEntry__container'>
+        <details open className={css({ maxWidth: '450px' })}>
           <summary>
             <Only.Desktop>Click</Only.Desktop>
             <Only.Mobile>Tap</Only.Mobile> to toggle deck display

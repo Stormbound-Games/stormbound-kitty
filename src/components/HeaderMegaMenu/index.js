@@ -1,8 +1,9 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Icon from '../Icon'
 import Row from '../Row'
-import './index.css'
+import styles from './styles'
 
 const useOutsideAlerter = (props, ref) => {
   const { open, close } = props
@@ -21,6 +22,7 @@ const useOutsideAlerter = (props, ref) => {
 }
 
 export default React.memo(function HeaderMegaMenu(props) {
+  const { css } = useFela({ isOpen: props.open })
   const ref = React.useRef(null)
 
   useOutsideAlerter(props, ref)
@@ -28,9 +30,7 @@ export default React.memo(function HeaderMegaMenu(props) {
   return (
     <div
       ref={ref}
-      className={['HeaderMegaMenu', props.open && 'HeaderMegaMenu--open']
-        .filter(Boolean)
-        .join(' ')}
+      className={css(styles.menu)}
       style={{ '--columns': props.columns.length }}
       onMouseOver={props.onMouseOver}
       onMouseOut={props.onMouseOut}
@@ -38,9 +38,9 @@ export default React.memo(function HeaderMegaMenu(props) {
       <Row desktopOnly>
         {props.columns.map((column, index) => (
           <Row.Column width={`1/${props.columns.length}`} key={index}>
-            <h2 className='HeaderMegaMenu__title'>
+            <h2 className={css(styles.title)}>
               {column.icon ? (
-                <Icon icon={column.icon} className='HeaderMegaMenu__icon' />
+                <Icon icon={column.icon} extend={styles.icon} />
               ) : null}
               {column.to ? (
                 <Link to={column.to}>{column.title}</Link>
@@ -48,33 +48,28 @@ export default React.memo(function HeaderMegaMenu(props) {
                 column.title
               )}
             </h2>
-            <ul className='HeaderMegaMenu__list'>
+            <ul className={css(styles.list)}>
               {column.items.map(item => (
-                <li key={item.label} className='HeaderMegaMenu__item'>
+                <li key={item.label} className={css(styles.item)}>
                   {item.href ? (
                     <a
                       href={item.href}
-                      className='HeaderMegaMenu__link'
+                      className={css(styles.link)}
                       rel='noopener noreferrer'
                       target='_blank'
                     >
                       {item.label}
-                      <Icon
-                        icon='arrow-top-right'
-                        className='HeaderMegaMenu__newTab'
-                      />
+                      <Icon icon='arrow-top-right' extend={styles.newTab} />
                     </a>
                   ) : (
                     <Link
                       to={item.to}
-                      className={[
-                        'HeaderMegaMenu__link',
-                        props.active.includes(item.id) &&
-                          'HeaderMegaMenu__link--active',
-                        item.new && 'Header__item--new',
-                      ]
-                        .filter(Boolean)
-                        .join(' ')}
+                      className={css(
+                        styles.link({
+                          isNew: item.new,
+                          isActive: props.active.includes(item.id),
+                        })
+                      )}
                     >
                       {item.label}
                     </Link>
@@ -90,7 +85,7 @@ export default React.memo(function HeaderMegaMenu(props) {
           type='button'
           onClick={props.close}
           aria-label='Close menu'
-          className='HeaderMegaMenu__close'
+          className={css(styles.close)}
         >
           &times;
         </button>

@@ -1,23 +1,25 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Deck from '../Deck'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function YourDeckGhost(props) {
+  const { css } = useFela()
   const { decks } = React.useContext(PersonalDecksContext)
   const label = decks.length === 0 ? 'Add your deck' : 'Add a new deck'
 
   return (
-    <div className='YourDeckGhost' data-testid='ghost-deck'>
+    <div className={css(styles.ghost)} data-testid='ghost-deck'>
       <button
-        className='YourDeckGhost__button'
+        className={css(styles.button)}
         onClick={props.onClick}
         data-testid='ghost-deck-btn'
       >
         <span className='VisuallyHidden'>{label}</span>
       </button>
       <Deck deck={[]} orientation='horizontal' />
-      <span className='YourDeckGhost__name' aria-hidden>
+      <span className={css(styles.name)} aria-hidden>
         {label}
       </span>
     </div>

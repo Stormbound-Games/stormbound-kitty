@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import CardLink from '../CardLink'
 import FeaturedDeck from '../FeaturedDeck'
@@ -6,12 +7,15 @@ import Guide from '../Guide'
 import Info from '../Info'
 import Notice from '../Notice'
 import Row from '../Row'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import getGuide from '../../helpers/getGuide'
 
 const guide = getGuide('WINTER_GUIDE')
 
 export default React.memo(function GuideWinter(props) {
+  const { css } = useFela()
+
   return (
     <Guide {...guide}>
       <p>
@@ -20,7 +24,7 @@ export default React.memo(function GuideWinter(props) {
         it is not the most up to date strategies for Winter.
       </p>
 
-      <ol style={{ columns: '16em', marginTop: '2em' }}>
+      <TableOfContents>
         <li>
           <a href='#make-the-deck'>Make the deck</a>
           <ul>
@@ -89,7 +93,7 @@ export default React.memo(function GuideWinter(props) {
             </li>
           </ul>
         </li>
-      </ol>
+      </TableOfContents>
 
       <Title id='make-the-deck'>Make the deck</Title>
       <p>The deck has two different goals:</p>
@@ -97,7 +101,7 @@ export default React.memo(function GuideWinter(props) {
         <li>Clear the board whenever needed</li>
         <li>Use 2-tiles moving units to deal damage to the enemy’s base</li>
       </ul>
-      <p style={{ marginBottom: '2em' }}>
+      <p className={css({ marginBottom: '2em' })}>
         To do so, certain cards are required—and will be the core of our
         deck—while others can be swapped depending upon their levels.
       </p>

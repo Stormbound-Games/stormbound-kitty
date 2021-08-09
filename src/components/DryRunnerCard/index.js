@@ -1,25 +1,20 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Card from '../Card'
 import isCard from '../../helpers/isCard'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function DryRunnerCard(props) {
   const cardData = props.deck.find(isCard(props.card))
   const isActive = isCard(props.activeCard)(cardData)
+  const { css } = useFela({ isActive })
 
   if (!cardData) return null
 
   return (
-    <div
-      className={[
-        'DryRunnerHand__wrapper',
-        isActive && 'DryRunnerHand__wrapper--active',
-      ]
-        .filter(Boolean)
-        .join(' ')}
-    >
+    <div className={css(styles.wrapper)}>
       <button
-        className='DryRunnerHand__button'
+        className={css(styles.button)}
         type='button'
         onClick={() => props.selectCard(props.card)}
       >

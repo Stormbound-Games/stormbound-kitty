@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { useRouteMatch } from 'react-router-dom'
 import Article from '../Article'
 import FeedItem from '../FeedItem'
@@ -9,10 +10,11 @@ import PageMeta from '../PageMeta'
 import Row from '../Row'
 import isKATMember from '../../helpers/isKATMember'
 import useMemberContent from '../../hooks/useMemberContent'
-import './index.css'
+import styles from './styles'
 import { VIDEOS } from '../Videos'
 
 export default React.memo(function Member(props) {
+  const { css } = useFela()
   const match = useRouteMatch()
   const id = match.params.memberId.toLowerCase()
   const { count, content, details, displayName: name } = useMemberContent(id)
@@ -71,23 +73,23 @@ export default React.memo(function Member(props) {
         </Row.Column>
         <Row.Column width='2/3'>
           {count > 0 || channel ? (
-            <ul className='Member__feed'>
+            <ul className={css(styles.feed)}>
               {channel && (
-                <div className='Member__item'>
+                <div className={css(styles.item)}>
                   <FeedItem {...channel} type='YOUTUBE' />
                 </div>
               )}
               {content.map((entry, index) => (
-                <li key={index} className='Member__item'>
+                <li key={index} className={css(styles.item)}>
                   <FeedItem {...entry} user={id} />
                 </li>
               ))}
             </ul>
           ) : (
-            <div className='Member__empty'>
+            <div className={css(styles.empty)}>
               <Image
                 src='/assets/images/cards/sweetcap_kittens.png'
-                className='Error__image'
+                extend={styles.image}
                 withAvif
               />
               <p>

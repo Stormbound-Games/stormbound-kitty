@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Guide from '../Guide'
+import Image from '../Image'
 import Notice from '../Notice'
 import Row from '../Row'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import CardLink from '../CardLink'
 import getGuide from '../../helpers/getGuide'
@@ -18,7 +20,7 @@ export default React.memo(function GuideWinter(props) {
         more eccentric. Find below a list of all known trivia:
       </p>
 
-      <ol style={{ columns: '16em' }}>
+      <TableOfContents>
         <li>
           <a href='#card-names'>Card names</a>
         </li>
@@ -31,7 +33,7 @@ export default React.memo(function GuideWinter(props) {
         <li>
           <a href='#gravity-acceleration'>Gravity acceleration</a>
         </li>
-      </ol>
+      </TableOfContents>
 
       <Title id='card-names'>Card names</Title>
 
@@ -250,10 +252,10 @@ export default React.memo(function GuideWinter(props) {
             </p>
           </Row.Column>
           <Row.Column>
-            <img
+            <Image
               src='/assets/images/guides/scales.png'
               alt='A human knight and hippo used as measurement scales'
-              style={{ marginTop: 0 }}
+              extend={{ marginTop: 0 }}
             />
           </Row.Column>
         </Row>
@@ -261,10 +263,10 @@ export default React.memo(function GuideWinter(props) {
 
       <Row desktopOnly wideGutter>
         <Row.Column>
-          <img
+          <Image
             src='/assets/images/guides/toad_fall.gif'
             alt='The fall of a toad at 0.25x speed'
-            style={{ marginTop: 0 }}
+            extend={{ marginTop: 0 }}
           />
         </Row.Column>
         <Row.Column>

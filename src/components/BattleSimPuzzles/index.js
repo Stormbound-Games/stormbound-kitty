@@ -1,4 +1,6 @@
 import React from 'react'
+import hookIntoProps from 'hook-into-props'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import puzzles from '../../data/puzzles'
 import EmptySearch from '../EmptySearch'
@@ -8,9 +10,9 @@ import PageMeta from '../PageMeta'
 import Puzzle from '../BattleSimPuzzle'
 import PuzzlesFilters from '../BattleSimPuzzlesFilters'
 import Row from '../Row'
-import './index.css'
+import styles from './styles'
 
-export default class BattleSimPuzzles extends React.Component {
+class BattleSimPuzzles extends React.Component {
   state = {
     difficulty: '*',
     type: '*',
@@ -66,9 +68,9 @@ export default class BattleSimPuzzles extends React.Component {
           </Row.Column>
           <Row.Column width='2/3'>
             {puzzles.length > 0 ? (
-              <ul className='BattleSimPuzzles__list'>
+              <ul className={this.props.css(styles.list)}>
                 {puzzles.map(puzzle => (
-                  <li className='BattleSimPuzzles__item' key={puzzle.name}>
+                  <li className={this.props.css(styles.item)} key={puzzle.name}>
                     <Puzzle {...puzzle} key={puzzle.name} />
                   </li>
                 ))}
@@ -102,3 +104,7 @@ export default class BattleSimPuzzles extends React.Component {
     )
   }
 }
+
+export default hookIntoProps(props => ({
+  ...useFela(),
+}))(BattleSimPuzzles)

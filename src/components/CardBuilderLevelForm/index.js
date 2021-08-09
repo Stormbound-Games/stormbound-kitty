@@ -1,14 +1,16 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { useRouteMatch } from 'react-router-dom'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
 import ShareButton from '../CardBuilderShareButton'
 import formatCardStats from '../../helpers/formatCardStats'
-import './index.css'
 
 export default React.memo(function CardBuilderCardForm(props) {
+  const { css } = useFela()
   const match = useRouteMatch()
   const isPristine = !match.params.cardId
+
   return (
     <>
       <form onSubmit={event => event.preventDefault()}>
@@ -68,7 +70,7 @@ export default React.memo(function CardBuilderCardForm(props) {
           </Row.Column>
         </Row>
 
-        <div className='CardBuilderCoreForm__buttons'>
+        <div className={css({ marginTop: '2em' })}>
           <Row>
             <Row.Column>
               <ResetButton

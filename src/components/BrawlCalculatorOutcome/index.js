@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Info from '../Info'
 import { Coins, Crowns } from '../Resource'
@@ -9,16 +10,23 @@ import getCostForMilestone from '../../helpers/getCostForMilestone'
 import getMilestoneCost from '../../helpers/getMilestoneCost'
 import getMilestoneForCrowns from '../../helpers/getMilestoneForCrowns'
 import getVictoryCoins from '../../helpers/getVictoryCoins'
-import './index.css'
 
 const BrawlCalculatorRewards = React.memo(function BrawlCalculatorRewards(
   props
 ) {
+  const { css } = useFela()
   const milestones = BRAWL_MILESTONES[props.difficulty]
   const info = getMilestoneForCrowns(props.crowns, props.difficulty)
 
   return (
-    <ol className='BrawlCalculatorOutcome__rewards' start={info.nextIndex + 1}>
+    <ol
+      className={css({
+        padding: 0,
+        margin: '0 0 1.5em',
+        listStylePosition: 'inside',
+      })}
+      start={info.nextIndex + 1}
+    >
       {milestones.slice(info.nextIndex, props.milestone + 1).map(milestone => {
         return (
           <li key={milestone.crowns}>

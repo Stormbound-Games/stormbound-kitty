@@ -2,7 +2,6 @@ import React from 'react'
 import CTA from '../CTA'
 import Row from '../Row'
 import { STATUSES } from '../../constants/tracker'
-import './index.css'
 
 export default React.memo(function TrackerActions(props) {
   if (!props.activeCard) return null

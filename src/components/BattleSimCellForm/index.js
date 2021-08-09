@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { DEFAULT_CELL } from '../../constants/battle'
 import CardSelect from '../CardSelect'
 import Checkbox from '../Checkbox'
@@ -8,12 +9,13 @@ import Radio from '../Radio'
 import Row from '../Row'
 import getRawCardData from '../../helpers/getRawCardData'
 import unfoldValue from '../../helpers/unfoldValue'
-import './index.css'
+import styles from './styles'
 
 const getActiveCellCard = ({ board, activeCell }) =>
   activeCell ? board[activeCell[0]][activeCell[1]] : { ...DEFAULT_CELL }
 
 export default React.memo(function BattleSimCellForm(props) {
+  const { css } = useFela()
   const activeCellCard = getActiveCellCard(props)
   const { setCardSelectValue } = props
   const [strength, setStrength] = React.useState(activeCellCard.strength || 1)
@@ -75,16 +77,14 @@ export default React.memo(function BattleSimCellForm(props) {
 
   return (
     <form
-      className='BattleSimCellForm'
+      className={css(styles.form)}
       onSubmit={props.onUnitSubmit}
       data-testid='cell-form'
     >
-      <div className='BattleSimCellForm__row'>
+      <div className={css(styles.row)}>
         <Row>
           <Row.Column width='3/4'>
-            <label className='label' htmlFor='card'>
-              Card
-            </label>
+            <label htmlFor='card'>Card</label>
 
             <CardSelect
               name='card'
@@ -129,12 +129,10 @@ export default React.memo(function BattleSimCellForm(props) {
         </Row>
       </div>
 
-      <div className='BattleSimCellForm__row'>
+      <div className={css(styles.row)}>
         <Row>
           <Row.Column>
-            <label className='label' htmlFor='strength'>
-              Strength
-            </label>
+            <label htmlFor='strength'>Strength</label>
             <NumberInput
               name='strength'
               id='strength'
@@ -149,9 +147,8 @@ export default React.memo(function BattleSimCellForm(props) {
           <Row.Column>
             <fieldset>
               <legend>Active player</legend>
-              <div className='BattleSimCellForm__radios'>
+              <div className={css(styles.radios)}>
                 <Radio
-                  className='GameForm__radio'
                   id='activePlayerBlue'
                   name='activePlayer'
                   value='BLUE'
@@ -164,7 +161,6 @@ export default React.memo(function BattleSimCellForm(props) {
                 </Radio>
 
                 <Radio
-                  className='GameForm__radio'
                   type='radio'
                   id='activePlayerRed'
                   name='activePlayer'
@@ -184,7 +180,7 @@ export default React.memo(function BattleSimCellForm(props) {
 
       <fieldset>
         <legend>Statuses</legend>
-        <div className='BattleSimCellForm__row'>
+        <div className={css(styles.row)}>
           <Row>
             <Row.Column width='1/3'>
               <Checkbox
@@ -229,7 +225,7 @@ export default React.memo(function BattleSimCellForm(props) {
               </Checkbox>
             </Row.Column>
           </Row>
-          <Row style={{ marginTop: '-0.75em' }}>
+          <Row extend={{ marginTop: '-0.75em' }}>
             <Row.Column width='1/3'>
               <Checkbox
                 name='confused'
@@ -271,7 +267,7 @@ export default React.memo(function BattleSimCellForm(props) {
           activeCellCard.player !== props.activePlayer ? (
             <CTA
               type='submit'
-              className='BattleSimCellForm__button'
+              extend={styles.button}
               disabled={!card}
               data-testid='cell-form-btn'
             >
@@ -285,7 +281,7 @@ export default React.memo(function BattleSimCellForm(props) {
           {!!activeCellCard.card.id ? (
             <CTA
               type='button'
-              className='BattleSimCellForm__button'
+              extend={styles.button}
               disabled={!card}
               onClick={props.emptyActiveCell}
               data-testid='cell-form-remove-btn'

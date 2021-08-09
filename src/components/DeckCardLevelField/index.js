@@ -1,14 +1,16 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Only from '../Only'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function DeckCardLevelField(props) {
+  const { css } = useFela()
   return (
-    <div className='DeckCardLevelField'>
-      <label htmlFor='level' className='DeckCardLevelField__label'>
+    <div className={css(styles.field)}>
+      <label htmlFor='level' className={css(styles.label)}>
         Cards level
         <Only.Desktop>
-          <span className='DeckCardLevelField__hint'>(keyboard 1-5)</span>
+          <span className={css(styles.hint)}>(keyboard 1-5)</span>
         </Only.Desktop>
       </label>
       <select

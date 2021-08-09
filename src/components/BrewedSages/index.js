@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
 import PageMeta from '../PageMeta'
@@ -9,7 +10,7 @@ import Title from '../Title'
 import chunk from '../../helpers/chunk'
 import useViewportSize from '../../hooks/useViewportSize'
 import podcasts from '../../data/podcasts'
-import './index.css'
+import styles from './styles'
 
 const CARD = {
   image: 'brewed_sages.png',
@@ -20,6 +21,7 @@ const CARD = {
 }
 
 export default React.memo(function BrewedSages(props) {
+  const { css } = useFela()
   const { viewportWidth } = useViewportSize()
 
   return (
@@ -38,10 +40,10 @@ export default React.memo(function BrewedSages(props) {
           enjoy the show!
         </p>
 
-        <div className='BrewedSages__container'>
+        <div className={css(styles.container)}>
           <Sparkles>
             <a
-              className='BrewedSages__CTA'
+              className={css(styles.cta)}
               href='https://gumroad.com/l/KuFWl'
               target='_blank'
               rel='noopener noreferrer'
@@ -179,7 +181,7 @@ export default React.memo(function BrewedSages(props) {
           src='https://www.podbean.com/media/player/multi?playlist=http%3A%2F%2Fplaylist.podbean.com%2F9522621%2Fplaylist_multi.xml&amp;vjs=1&amp;size=430&amp;skin=1&amp;episode_list_bg=%23ffffff&amp;bg_left=%23427552&amp;bg_mid=%23689174&amp;bg_right=%23427552&amp;podcast_title_color=%23c4c4c4&amp;episode_title_color=%23ffffff&amp;auto=0&amp;share=1&amp;fonts=Helvetica&amp;download=1&amp;rtl=0&amp;show_playlist_recent_number=10'
           title='The Brewed Sages'
           scrolling='no'
-          style={{ margin: '1em auto', border: ' none' }}
+          className={css({ margin: '1em auto', border: ' none' })}
           width='100%'
           height='400'
         ></iframe>

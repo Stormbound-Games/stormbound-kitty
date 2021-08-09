@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import BattleSimApp from '../BattleSimApp'
 import DeckStatsChart from '../DeckStatsChart'
@@ -14,7 +15,7 @@ import { Common, Rare } from '../Resource'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import serialisation from '../../helpers/serialisation'
 import getGuide from '../../helpers/getGuide'
-import './index.css'
+import styles from './styles'
 
 const guide = getGuide('D1_SF_COMMONS_GUIDE')
 
@@ -34,6 +35,7 @@ const Graph = props => {
 }
 
 export default React.memo(function GuideD1SFCommons(props) {
+  const { css } = useFela()
   const [cardLevel, setCardLevel] = React.useState(5)
   const cards = {
     N12: getResolvedCardData({ id: 'N12', level: cardLevel }),
@@ -263,7 +265,7 @@ export default React.memo(function GuideD1SFCommons(props) {
                   <select
                     id='level'
                     name='level'
-                    className='GuideD1SFCommons__select'
+                    className={css(styles.select)}
                     value={cardLevel}
                     onChange={event => setCardLevel(event.target.value)}
                   >
@@ -274,36 +276,36 @@ export default React.memo(function GuideD1SFCommons(props) {
                     <option value='5'>5</option>
                   </select>
                 </th>
-                <th style={{ color: '#a28668' }}>First Mutineer</th>
-                <th style={{ color: '#66b8b0' }}>Warfront Runners</th>
-                <th style={{ color: '#cb2f29' }}>Bluesail Raiders</th>
-                <th style={{ color: '#98c941' }}>Salty Outcasts</th>
+                <th className={css({ color: '#a28668' })}>First Mutineer</th>
+                <th className={css({ color: '#66b8b0' })}>Warfront Runners</th>
+                <th className={css({ color: '#cb2f29' })}>Bluesail Raiders</th>
+                <th className={css({ color: '#98c941' })}>Salty Outcasts</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th style={{ color: '#a28668' }}>First Mutineer</th>
+                <th className={css({ color: '#a28668' })}>First Mutineer</th>
                 <td>{combine('N12')}</td>
                 <td>{combine('N12', 'N28')}</td>
                 <td>{combine('N12', 'N30')}</td>
                 <td>{combine('N12', 'N52')}</td>
               </tr>
               <tr>
-                <th style={{ color: '#66b8b0' }}>Warfront Runners</th>
+                <th className={css({ color: '#66b8b0' })}>Warfront Runners</th>
                 <td>{combine('N28', 'N12')}</td>
                 <td>{combine('N28')}</td>
                 <td>{combine('N28', 'N30')}</td>
                 <td>{combine('N28', 'N52')}</td>
               </tr>
               <tr>
-                <th style={{ color: '#cb2f29' }}>Bluesail Raiders</th>
+                <th className={css({ color: '#cb2f29' })}>Bluesail Raiders</th>
                 <td>{combine('N30', 'N12')}</td>
                 <td>{combine('N30', 'N28')}</td>
                 <td>{combine('N30')}</td>
                 <td>{combine('N30', 'N52')}</td>
               </tr>
               <tr>
-                <th style={{ color: '#98c941' }}>Salty Outcasts</th>
+                <th className={css({ color: '#98c941' })}>Salty Outcasts</th>
                 <td>{combine('N52', 'N12')}</td>
                 <td>{combine('N52', 'N28')}</td>
                 <td>{combine('N52', 'N30')}</td>

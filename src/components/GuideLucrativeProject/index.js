@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
@@ -12,6 +13,8 @@ import getGuide from '../../helpers/getGuide'
 const guide = getGuide('LUCRATIVE_PROJECT_GUIDE')
 
 export default React.memo(function GuideLucrativeProject(props) {
+  const { css } = useFela()
+
   return (
     <Guide {...guide}>
       <p>
@@ -23,7 +26,11 @@ export default React.memo(function GuideLucrativeProject(props) {
 
       <hr />
       <p
-        style={{ fontSize: '135%', textAlign: 'center', color: 'var(--beige)' }}
+        className={css({
+          fontSize: '135%',
+          textAlign: 'center',
+          color: 'var(--beige)',
+        })}
       >
         This week, all Construct units have 2 movement, regardless of their
         initial movement.
@@ -83,7 +90,7 @@ export default React.memo(function GuideLucrativeProject(props) {
       <Guide.FullWidth padding='60px'>
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <h3 style={{ marginTop: '0.5em' }}>
+            <h3 className={css({ marginTop: '0.5em' })}>
               CriticalPancake’s Iron Movement
             </h3>
             <p>
@@ -110,7 +117,7 @@ export default React.memo(function GuideLucrativeProject(props) {
         </Row>
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <h3 style={{ marginTop: '0.5em' }}>OneC’s Small Ball</h3>
+            <h3 className={css({ marginTop: '0.5em' })}>OneC’s Small Ball</h3>
             <p>
               <Link to='/member/OneC'>OneC</Link> adopts a slower deck with
               Upgrade Point, and building a mid-to-late game strategy. The idea

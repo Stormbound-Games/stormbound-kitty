@@ -1,20 +1,23 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Image from '../Image'
 import Mana from '../Mana'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function BattleSimPlayerBanner(props) {
+  const { css } = useFela()
+
   return (
-    <div className='BattleSimPlayerBanner'>
+    <div className={css(styles.banner)}>
       <Mana mana={props.mana} disabled={props.disabled} />
-      <div className='BattleSimPlayerBanner__meta'>
-        <span className='BattleSimPlayerBanner__name'>{props.player}</span>
+      <div className={css(styles.meta)}>
+        <span>{props.player}</span>
         <span
-          className='BattleSimPlayerBanner__faction'
+          className={css(styles.faction)}
           data-testid={`${props.player}-faction`}
         >
           <Image
-            className='BattleSimPlayerBanner__faction-icon'
+            extend={styles.factionIcon}
             src={
               '/assets/images/iconography/icon_' +
               (props.faction || 'neutral') +

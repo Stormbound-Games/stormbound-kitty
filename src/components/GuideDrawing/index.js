@@ -1,8 +1,10 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Card from '../Card'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Guide from '../Guide'
+import Image from '../Image'
 import Info from '../Info'
 import Only from '../Only'
 import Row from '../Row'
@@ -11,11 +13,13 @@ import CardLink from '../CardLink'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import getGuide from '../../helpers/getGuide'
-import './index.css'
+import styles from './styles'
 
 const guide = getGuide('DRAWING_GUIDE')
 
 export default React.memo(function GuideDrawing(props) {
+  const { css } = useFela()
+
   return (
     <Guide {...guide}>
       <p>
@@ -35,7 +39,7 @@ export default React.memo(function GuideDrawing(props) {
         the chance it gets drawn.
       </p>
 
-      <Info title='Try it out' icon='stack' className='GuideDrawing__Info'>
+      <Info title='Try it out' icon='stack' extend={styles.info}>
         You can experiment with all the mechanics mentioned in this guide
         directly within the deck dry-runner. Simply open or compose a deck in
         the <Link to='/deck'>deck builder</Link>, then{' '}
@@ -72,8 +76,8 @@ export default React.memo(function GuideDrawing(props) {
         </li>
       </ol>
 
-      <img
-        className='GuideDrawing__Formula'
+      <Image
+        extend={styles.formula}
         src='/assets/images/guides/formula.png'
         alt='f(w) = floor(w * 1.6) + 1'
       />
@@ -224,7 +228,7 @@ export default React.memo(function GuideDrawing(props) {
       </p>
 
       <Only.Desktop>
-        <div className='Guide__embed'>
+        <div className={css({ margin: '2em auto 2.5em' })}>
           <Row>
             <Row.Column width='1/3'>
               <Card {...getResolvedCardData({ id: 'S3', level: 1 })} />

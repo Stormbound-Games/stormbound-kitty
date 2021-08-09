@@ -1,11 +1,13 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { motion } from 'framer-motion'
 import Card from '../Card'
 import CTA from '../CTA'
 import chunk from '../../helpers/chunk'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function CardsGallery(props) {
+  const { css } = useFela()
   const [allowScroll, setAllowScroll] = React.useState(false)
 
   // See: https://github.com/framer/motion/issues/185#issuecomment-542829562
@@ -57,7 +59,7 @@ export default React.memo(function CardsGallery(props) {
   return (
     <div
       ref={container}
-      className='CardsGallery'
+      className={css(styles.gallery, props.extend?.container)}
       // The `CardsGallery` component is the only display of cards in the entire
       // site that uses *both* the “upgradable” color (yellow outline for cards
       // which can be upgraded) and the “affordable” color (green outline used
@@ -80,13 +82,13 @@ export default React.memo(function CardsGallery(props) {
           setAllowScroll(Math.abs(info.delta.y) > Math.abs(info.delta.x))
         }}
         onDragEnd={handleDrag}
-        className='CardsGallery__list'
+        className={css(styles.list, props.extend?.list)}
       >
         {page.map((card, index) => {
           const key = [card.id, index].join('_')
           return (
             <motion.li
-              className='CardsGallery__item'
+              className={css(styles.item, props.extend?.item)}
               id={'card-' + key}
               data-testid={'card-' + index}
               key={key}
@@ -101,16 +103,17 @@ export default React.memo(function CardsGallery(props) {
             >
               {props.onCardClick && (
                 <button
-                  className='CardsGallery__button'
+                  className={css(
+                    styles.button({
+                      isInDeck:
+                        props.isCardInDeck && props.isCardInDeck(card.id),
+                    })
+                  )}
                   type='button'
                   onClick={() => props.onCardClick(card.id)}
                 >
                   <span className='VisuallyHidden'>Add card to deck</span>
                 </button>
-              )}
-
-              {props.isCardInDeck && props.isCardInDeck(card.id) && (
-                <span className='CardsGallery__in-deck'>In deck</span>
               )}
 
               <Card
@@ -130,16 +133,20 @@ export default React.memo(function CardsGallery(props) {
                     : false
                 }
               />
+
+              {props.isCardInDeck && props.isCardInDeck(card.id) && (
+                <span className={css(styles.inDeck)}>In deck</span>
+              )}
             </motion.li>
           )
         })}
       </motion.ul>
 
       {!props.hideNavButtons && (
-        <div className='CardsGallery__nav'>
+        <div className={css(styles.nav)}>
           <CTA
             type='button'
-            className='CardsGallery__nav-button'
+            extend={styles.navButton}
             onClick={() => changePage(p => p - 1)}
             disabled={activePage === 0}
           >
@@ -150,7 +157,7 @@ export default React.memo(function CardsGallery(props) {
 
           <CTA
             type='button'
-            className='CardsGallery__nav-button'
+            extend={styles.navButton}
             onClick={() => changePage(p => p + 1)}
             disabled={pages.length === 0 || activePage === pages.length - 1}
           >

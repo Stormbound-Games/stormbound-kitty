@@ -1,5 +1,7 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { CollectionContext } from '../CollectionProvider'
+import Image from '../Image'
 import Mana from '../Mana'
 import Card from '../Card'
 import Tooltip from '../Tooltip'
@@ -8,7 +10,7 @@ import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isCard from '../../helpers/isCard'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
 import useFluidSizing from '../../hooks/useFluidSizing'
-import './index.css'
+import styles from './styles'
 
 const TOOLTIP_STYLES = {
   zIndex: 20,
@@ -21,9 +23,11 @@ const TOOLTIP_STYLES = {
 }
 
 const DeckEmptySlot = React.memo(function DeckEmptySlot(props) {
+  const { css } = useFela({ isEmpty: true, orientation: props.orientation })
+
   return (
-    <li className='Deck__card Deck__card--empty'>
-      <Mana className='Deck__mana' mana='' />
+    <li className={css(styles.card)}>
+      <Mana extend={styles.mana({ orientation: props.orientation })} mana='' />
       <span className='VisuallyHidden'>Empty deck slot</span>
     </li>
   )
@@ -31,7 +35,7 @@ const DeckEmptySlot = React.memo(function DeckEmptySlot(props) {
 
 const DeckSlot = React.memo(function DeckSlot(props) {
   if (!props.card) {
-    return props.showEmptySlots ? <DeckEmptySlot /> : null
+    return props.showEmptySlots ? <DeckEmptySlot {...props} /> : null
   }
 
   if (!props.showTooltips) {
@@ -51,35 +55,35 @@ const DeckSlot = React.memo(function DeckSlot(props) {
 })
 
 const DeckSlotContent = React.memo(function DeckSlotContent(props) {
+  const card = props.card
   const { indexedCollection } = React.useContext(CollectionContext)
   const highlightedCards = props.highlightedCards || []
-  const card = props.card
+  const isUpgradable =
+    props.showUpgrades &&
+    !card.token &&
+    isCardUpgradable(indexedCollection[card.id])
+  const isExcluded =
+    highlightedCards.length > 0 && !highlightedCards.find(isCard(card))
+  const { css } = useFela({
+    orientation: props.orientation,
+    faction: card.faction,
+    type: card.type,
+    isUpgradable,
+    isLegendary: card.rarity === 'legendary',
+    isExcluded,
+    isMissing: card.missing,
+  })
 
   return (
     <li
       {...props.trigger}
-      className={[
-        'Deck__card',
-        `Deck__card--${card.faction}`,
-        `Deck__card--${card.type}`,
-        props.showUpgrades &&
-          !card.token &&
-          isCardUpgradable(indexedCollection[card.id]) &&
-          'Deck__card--upgradable',
-        card.rarity === 'legendary' && `Deck__card--legendary`,
-        highlightedCards.length > 0 &&
-          !highlightedCards.find(isCard(card)) &&
-          'Deck__card--excluded',
-        card.missing && 'Deck__card--missing',
-      ]
-        .filter(Boolean)
-        .join(' ')}
+      className={css(styles.card)}
       data-testid={[card.id, card.idx].filter(Boolean).join('_')}
     >
       {props.onClick && (
         <button
           type='button'
-          className='Deck__button'
+          className={css(styles.button)}
           onClick={() => props.onClick(card)}
           disabled={props.isCardDisabled ? props.isCardDisabled(card) : false}
         >
@@ -88,25 +92,23 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
       )}
 
       <Mana
-        className={[
-          'Deck__mana',
-          card.manaDecreased && 'Deck__mana--decreased',
-          card.manaIncreased && 'Deck__mana--increased',
-        ]
-          .filter(Boolean)
-          .join(' ')}
         mana={card.mana}
+        extend={styles.mana({
+          orientation: props.orientation,
+          isDecreased: card.manaDecreased,
+          isIncreased: card.manaIncreased,
+        })}
       />
-      <span className='Deck__name'>{card.name}</span>
-      <img
-        className='Deck__image'
+      <span className={css(styles.name)}>{card.name}</span>
+      <Image
+        extend={styles.image({ orientation: props.orientation })}
         src={'/assets/images/cards/' + card.image}
         alt={card.name}
         width={24}
         height={24}
       />
       <span
-        className='Deck__level'
+        className={css(styles.level)}
         data-testid={card.token ? 'deck-token-level' : 'deck-card-level'}
       >
         {card.level}
@@ -116,6 +118,8 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
 })
 
 export default React.memo(function Deck(props) {
+  const orientation = props.orientation || 'vertical'
+  const { css } = useFela({ orientation })
   const showEmptySlots =
     typeof props.showEmptySlots === 'undefined' ? true : props.showEmptySlots
   const sort = props.sort || sortByMana
@@ -130,16 +134,17 @@ export default React.memo(function Deck(props) {
 
   return (
     <div
-      className={`Deck Deck--${props.orientation || 'vertical'}`}
+      className={css(styles.deck)}
       style={{ '--font-size': fontSize }}
       ref={ref}
       id={props.id}
     >
-      <ul className='Deck__list'>
+      <ul className={css(styles.list)}>
         {slots.map((card, index) => (
           <DeckSlot
             key={card ? card.id + index : index}
             {...props}
+            orientation={orientation}
             showEmptySlots={showEmptySlots}
             card={card}
           />

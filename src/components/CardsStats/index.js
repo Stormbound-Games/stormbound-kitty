@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import ChartAbility from '../ChartAbility'
 import ChartMana from '../ChartMana'
@@ -13,11 +14,12 @@ import Info from '../Info'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import Title from '../Title'
 import useViewportSize from '../../hooks/useViewportSize'
-import './index.css'
 
 export default React.memo(() => {
+  const { css } = useFela()
   const { viewportWidth } = useViewportSize()
 
   return (
@@ -28,7 +30,7 @@ export default React.memo(() => {
         <Row desktopOnly>
           <Row.Column width='1/3'>
             <Title>What is this</Title>
-            <p className='CardStats__intro'>
+            <p className={css({ marginBottom: '2em' })}>
               This is data visualisation about the current state of the
               Stormbound card collection. If you would like to suggest more data
               representations, please get in touch with me on Discord
@@ -46,7 +48,7 @@ export default React.memo(() => {
           </Row.Column>
           <Row.Column
             width='2/3'
-            style={{
+            extend={{
               // For some reason having 100%-width charts cause this column from
               // expanding forever, unless it has an explicit `width` (since
               // `flex-grow` and `flex-basis` don’t do the trick).
@@ -55,39 +57,55 @@ export default React.memo(() => {
           >
             <Row desktopOnly>
               <Row.Column>
-                <ChartType />
+                <Spacing bottom='LARGER'>
+                  <ChartType />
+                </Spacing>
               </Row.Column>
               <Row.Column>
-                <ChartRarity />
-              </Row.Column>
-            </Row>
-            <Row desktopOnly>
-              <Row.Column>
-                <ChartMovement />
-              </Row.Column>
-              <Row.Column>
-                <ChartAbility />
+                <Spacing bottom='LARGER'>
+                  <ChartRarity />
+                </Spacing>
               </Row.Column>
             </Row>
             <Row desktopOnly>
               <Row.Column>
-                <ChartModifier />
+                <Spacing bottom='LARGER'>
+                  <ChartMovement />
+                </Spacing>
+              </Row.Column>
+              <Row.Column>
+                <Spacing bottom='LARGER'>
+                  <ChartAbility />
+                </Spacing>
+              </Row.Column>
+            </Row>
+            <Row desktopOnly>
+              <Row.Column>
+                <Spacing bottom='LARGER'>
+                  <ChartModifier />
+                </Spacing>
               </Row.Column>
               <Row.Column />
             </Row>
             <Row desktopOnly>
               <Row.Column>
-                <ChartMana />
+                <Spacing bottom='LARGER'>
+                  <ChartMana />
+                </Spacing>
               </Row.Column>
             </Row>
             <Row desktopOnly>
               <Row.Column>
-                <ChartStrength />
+                <Spacing bottom='LARGER'>
+                  <ChartStrength />
+                </Spacing>
               </Row.Column>
             </Row>
             <Row desktopOnly>
               <Row.Column>
-                <ChartStrengthMana />
+                <Spacing bottom='LARGER'>
+                  <ChartStrengthMana />
+                </Spacing>
               </Row.Column>
             </Row>
           </Row.Column>

@@ -1,8 +1,10 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { BrawlContext } from '../BrawlProvider'
 import { NotificationContext } from '../NotificationProvider'
+import CTA from '../CTA'
 import Only from '../Only'
-import './index.css'
+import styles from './styles'
 
 const useFileUpload = onChange => {
   const { restoreBrawls } = React.useContext(BrawlContext)
@@ -57,22 +59,21 @@ const parseCSVData = data => {
 }
 
 export default React.memo(function BrawlImport(props) {
+  const { css } = useFela()
   const onFileUpload = useFileUpload(props.onChange)
 
   return (
-    <div className='BrawlImport'>
-      <label htmlFor='import' className='CTA'>
-        <span className='CTA__content'>
-          Import<Only.Desktop> Brawl</Only.Desktop>
-        </span>
-      </label>
+    <div className={css(styles.container)}>
+      <CTA htmlFor='import' as='label'>
+        Import<Only.Desktop> Brawl</Only.Desktop>
+      </CTA>
       <input
         id='import'
         name='import'
         type='file'
         accept='.csv'
         onChange={onFileUpload}
-        className='BrawlImport__file'
+        className={css(styles.file)}
         data-testid='import-brawl-btn'
       />
     </div>

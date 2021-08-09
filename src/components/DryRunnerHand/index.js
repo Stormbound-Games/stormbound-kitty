@@ -3,7 +3,6 @@ import DryRunnerCard from '../DryRunnerCard'
 import Row from '../Row'
 import chunk from '../../helpers/chunk'
 import arrayPad from '../../helpers/arrayPad'
-import './index.css'
 
 export default React.memo(function DryRunnerHand(props) {
   const hand = props.hand.slice(0)

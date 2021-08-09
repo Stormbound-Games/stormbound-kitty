@@ -1,16 +1,15 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import NumberInput from '../NumberInput'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
 import ShareButton from '../QuestBuilderShareButton'
-import './index.css'
 
 export default React.memo(function QuestBuilderForm(props) {
+  const { css } = useFela()
+
   return (
-    <form
-      onSubmit={event => event.preventDefault()}
-      className='QuestBuilderForm'
-    >
+    <form onSubmit={event => event.preventDefault()}>
       <Row>
         <Row.Column>
           <label htmlFor='name'>Name</label>
@@ -86,7 +85,7 @@ export default React.memo(function QuestBuilderForm(props) {
         </Row.Column>
       </Row>
 
-      <div className=' QuestBuilderForm__buttons'>
+      <div className={css({ marginTop: '2em' })}>
         <Row>
           <Row.Column>
             <ShareButton />

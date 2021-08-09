@@ -1,10 +1,13 @@
 import React from 'react'
-import './index.css'
+import { useFela } from 'react-fela'
+import styles from './styles'
 
 export default React.memo(function Icon(props) {
+  const { css } = useFela({ type: props.icon })
+
   return (
     <svg
-      className={['Icon', `Icon--${props.icon}`, props.className]
+      className={[css(styles.icon, props.extend), props.className]
         .filter(Boolean)
         .join(' ')}
       aria-hidden

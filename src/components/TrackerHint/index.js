@@ -1,7 +1,6 @@
 import React from 'react'
 import Notice from '../Notice'
 import { STATUSES } from '../../constants/tracker'
-import './index.css'
 
 const getHint = ({ status, playerOrder }) => {
   switch (status) {

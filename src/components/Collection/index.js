@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import ActiveCardForm from '../CollectionActiveCardForm'
@@ -16,7 +17,6 @@ import Row from '../Row'
 import Title from '../Title'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
-import './index.css'
 
 class Collection extends React.Component {
   constructor(props) {
@@ -102,7 +102,7 @@ class Collection extends React.Component {
 
         <Row desktopOnly wideGutter>
           <Row.Column width='1/3'>
-            <div className='Collection__info'>
+            <div className={this.props.css({ marginBottom: '2em' })}>
               <Title>What is this</Title>
 
               <p>
@@ -112,7 +112,7 @@ class Collection extends React.Component {
                 amount of fusion stones or gold you need to upgrade your cards.
               </p>
 
-              <p>
+              <p className={this.props.css({ marginBottom: '2em' })}>
                 The collection is locally saved in your browser as you update it
                 so you can safely leave or refresh the page. If you want to save
                 it more permanently and synchronise it between device, you can
@@ -187,5 +187,6 @@ class Collection extends React.Component {
 }
 
 export default hookIntoProps(() => ({
+  ...useFela(),
   ...React.useContext(CollectionContext),
 }))(Collection)

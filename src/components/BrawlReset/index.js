@@ -1,12 +1,14 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { BrawlContext } from '../BrawlProvider'
 import Checkbox from '../Checkbox'
 import CTA from '../CTA'
 import Dialog from '../Dialog'
 import Info from '../Info'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function BrawlReset(props) {
+  const { css } = useFela()
   const { brawl, resetBrawl } = React.useContext(BrawlContext)
   const [discard, setDiscard] = React.useState(false)
   const dialog = React.useRef()
@@ -19,7 +21,7 @@ export default React.memo(function BrawlReset(props) {
     <>
       <Info
         icon='crown'
-        className='BrawlReset'
+        className={css(styles.reset)}
         title='Reset data'
         CTA={
           <CTA onClick={open} data-testid='reset-btn'>
@@ -58,7 +60,7 @@ export default React.memo(function BrawlReset(props) {
           following checkbox.{' '}
           <strong className='Highlight'>This cannot be undone.</strong>
         </p>
-        <div className='BrawlReset__checkbox'>
+        <div className={css(styles.checkbox)}>
           <Checkbox
             name='discard-brawl'
             id='discard-brawl'

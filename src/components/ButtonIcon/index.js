@@ -1,9 +1,17 @@
 import React from 'react'
-import './index.css'
+import { useFela } from 'react-fela'
+import styles from './styles'
 
 export default React.memo(function ButtonIcon(props) {
+  const { css } = useFela()
+
   return (
-    <button {...props} className={`ButtonIcon ${props.className || ''}`}>
+    <button
+      {...props}
+      className={[css(styles.button, props.extend), props.className]
+        .filter(Boolean)
+        .join(' ')}
+    >
       {props.children}
     </button>
   )

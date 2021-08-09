@@ -27,7 +27,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
     >
       <Row wideGutter desktopOnly>
         <Row.Column width='1/3'>
-          <Title style={{ marginTop: 0 }}>Information</Title>
+          <Title>Information</Title>
 
           <p>
             This tier list editor makes it possible to create up to {MAX_TIERS}{' '}
@@ -47,7 +47,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
           </Row>
         </Row.Column>
         <Row.Column width='2/3'>
-          <Title style={{ marginTop: 0 }}>Tier list</Title>
+          <Title>Tier list</Title>
 
           {tiers.map((tier, index) => (
             <ListBuilderTier

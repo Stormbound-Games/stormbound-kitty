@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import BattleSimApp from '../BattleSimApp'
 import Card from '../Card'
 import Guide from '../Guide'
@@ -11,6 +12,7 @@ import getGuide from '../../helpers/getGuide'
 const guide = getGuide('CHILLBEARDS_GUIDE')
 
 export default React.memo(function GuideChillbeards(props) {
+  const { css } = useFela()
   return (
     <Guide {...guide}>
       <p>
@@ -22,8 +24,8 @@ export default React.memo(function GuideChillbeards(props) {
 
       <Row desktopOnly wideGutter>
         <Row.Column width='2/3'>
-          <Title style={{ marginTop: '2em' }}>Table of contents</Title>
-          <ol style={{ columns: '8em' }}>
+          <Title>Table of contents</Title>
+          <ol className={css({ columns: '8em' })}>
             <li>
               <a href='#be-mindful-of-mana'>Be mindful of mana</a>
             </li>

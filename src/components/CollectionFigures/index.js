@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Info from '../Info'
 import LearnMoreIcon from '../LearnMoreIcon'
@@ -13,7 +14,7 @@ import isLevelAvailable from '../../helpers/isLevelAvailable'
 import { getRarityColor } from '../../helpers/getRarity'
 import cards from '../../data/cards'
 import { RARITY_COPIES, UPGRADE_COST } from '../../constants/game'
-import './index.css'
+import styles from './styles'
 
 const sum = (a, b) => a + b
 const getAverageLevel = cards =>
@@ -163,20 +164,24 @@ const useFortressDisplay = collection => {
 }
 
 export default function CollectionFigures(props) {
+  const { css } = useFela()
   const [expectedCardLevel, setExpectedCardLevel] = React.useState(5)
-  const ownedCards = React.useMemo(() => getNonMissingCards(props.collection), [
-    props.collection,
-  ])
-  const averageLevel = React.useMemo(() => getAverageLevel(ownedCards), [
-    ownedCards,
-  ])
+  const ownedCards = React.useMemo(
+    () => getNonMissingCards(props.collection),
+    [props.collection]
+  )
+  const averageLevel = React.useMemo(
+    () => getAverageLevel(ownedCards),
+    [ownedCards]
+  )
   const upgradableCards = React.useMemo(
     () => getUpgradableCards(props.collection),
     [props.collection]
   )
-  const missingCards = React.useMemo(() => getMissingCards(props.collection), [
-    props.collection,
-  ])
+  const missingCards = React.useMemo(
+    () => getMissingCards(props.collection),
+    [props.collection]
+  )
   const levelStats = React.useMemo(
     () =>
       getLevelStats(
@@ -212,43 +217,41 @@ export default function CollectionFigures(props) {
   return (
     <>
       <p>Find below some helpful metrics about your card collection:</p>
-      <ul className='CollectionFigures__list'>
+      <ul className={css(styles.list)}>
         <li>
           Total value
           <LearnMoreIcon anchor='#collection-value'>
             What is the collection value
           </LearnMoreIcon>
           :{' '}
-          <span className='CollectionFigures__item'>
+          <span className={css(styles.item)}>
             <Stones amount={collectionCost} />
           </span>{' '}
           ({((collectionCost / totalCost) * 100).toFixed(2)}%)
         </li>
         <li>
           Average card level:{' '}
-          <span className='CollectionFigures__item' title={levelStats.slice(1)}>
+          <span className={css(styles.item)} title={levelStats.slice(1)}>
             {averageLevel.toFixed(2)}
           </span>
         </li>
         <li>
           Upgradable cards:{' '}
-          <span className='CollectionFigures__item'>
-            {upgradableCards.length}
-          </span>
+          <span className={css(styles.item)}>{upgradableCards.length}</span>
         </li>
         <li>
           Coins after exchange:{' '}
-          <span className='CollectionFigures__item'>
+          <span className={css(styles.item)}>
             <Coins amount={extraAfterMax} />
           </span>
         </li>
         <li>
           Missing cards:{' '}
-          <span className='CollectionFigures__item'>{missingCards.length}</span>
+          <span className={css(styles.item)}>{missingCards.length}</span>
         </li>
         <li>
           Fortress level:{' '}
-          <span className='CollectionFigures__item'>{fortressDisplay}</span>
+          <span className={css(styles.item)}>{fortressDisplay}</span>
         </li>
       </ul>
       <p>
@@ -256,7 +259,7 @@ export default function CollectionFigures(props) {
         <select
           id='level'
           name='level'
-          className='CollectionFigures__select'
+          className={css(styles.select)}
           value={expectedCardLevel}
           onChange={event => setExpectedCardLevel(+event.target.value)}
         >
@@ -267,7 +270,7 @@ export default function CollectionFigures(props) {
         </select>
         , you still need:
       </p>
-      <ul className='CollectionFigures__list'>
+      <ul className={css(styles.list)}>
         {copiesData.map(({ rarity, total, current, missing, cost, coins }) => {
           if (current >= total) {
             return <li key={rarity}>No more {rarity} copies</li>
@@ -276,7 +279,9 @@ export default function CollectionFigures(props) {
           return (
             <li key={rarity}>
               {missing}{' '}
-              <span style={{ color: getRarityColor(rarity) }}>{rarity}</span>{' '}
+              <span className={css({ color: getRarityColor(rarity) })}>
+                {rarity}
+              </span>{' '}
               {missing === 1 ? 'copy' : 'copies'} out of {total} (
               {((current / total) * 100).toFixed(2)}% completed) or{' '}
               <Stones amount={cost} />
@@ -293,7 +298,7 @@ export default function CollectionFigures(props) {
       <Info
         icon='equalizer'
         title='Books & Income Calculators'
-        style={{ marginTop: '2em' }}
+        extend={{ marginTop: '2em' }}
       >
         To figure out the odds of finding a specific card in a certain book, be
         sure to check the <Link to='/calculators/books'>books calculator</Link>.

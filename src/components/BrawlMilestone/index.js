@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { BrawlContext } from '../BrawlProvider'
 import Card from '../Card'
 import Image from '../Image'
@@ -7,7 +8,7 @@ import ResourceIcon from '../ResourceIcon'
 import capitalise from '../../helpers/capitalise'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
-import './index.css'
+import styles from './styles'
 
 const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
   switch (props.reward) {
@@ -21,21 +22,46 @@ const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
         <Image
           src={`/assets/images/books/book-${bookType}.png`}
           alt={`${capitalise(bookType)} book`}
+          extend={styles.bookImage}
           withAvif
         />
       )
     }
     case 'COINS':
-      return <Image src='/assets/images/iconography/coins.png' alt='Coins' />
+      return (
+        <Image
+          src='/assets/images/iconography/coins.png'
+          alt='Coins'
+          extend={styles.resourceImage}
+        />
+      )
 
     case 'RUBIES':
-      return <Image src='/assets/images/iconography/rubies.png' alt='Rubies' />
+      return (
+        <Image
+          src='/assets/images/iconography/rubies.png'
+          alt='Rubies'
+          extend={styles.resourceImage}
+        />
+      )
 
     case 'FUSION_STONES':
-      return <Image src='/assets/images/iconography/stones.png' alt='Stones' />
+      return (
+        <Image
+          src='/assets/images/cards/stones_rare.png'
+          alt='Stones'
+          extend={styles.resourceImage}
+        />
+      )
 
     case 'LEGENDARY_CARD':
-      return <Card {...getResolvedCardData({ id: props.cardId })} level={1} />
+      return (
+        <Card
+          {...getResolvedCardData({ id: props.cardId })}
+          level={1}
+          extend={styles.card}
+        />
+      )
     default:
       return null
   }
@@ -44,37 +70,26 @@ const BrawlRewardAsset = React.memo(function BrawlRewardAsset(props) {
 export default React.memo(function BrawlMilestone(props) {
   const { meta } = React.useContext(BrawlContext)
   const collected = meta.crowns >= props.crowns
+  const { css } = useFela({ isCollected: collected })
 
   return (
-    <div
-      data-testid='milestone'
-      className={['BrawlMilestone', collected && 'BrawlMilestone--collected']
-        .filter(Boolean)
-        .join(' ')}
-    >
-      <header className='BrawlMilestone__header'>
-        Milestone {props.index}
-      </header>
+    <div data-testid='milestone' className={css(styles.milestone)}>
+      <header className={css(styles.header)}>Milestone {props.index}</header>
 
       {collected && (
-        <div className='BrawlMilestone__overlay'>
-          <span className='BrawlMilestone__collected'>Collected</span>
+        <div className={css(styles.overlay)}>
+          <span className={css(styles.collected)}>Collected</span>
         </div>
       )}
 
-      <div className='BrawlMilestone__body'>
-        <div
-          className={[
-            'BrawlMilestone__asset',
-            `BrawlMilestone__asset--${props.reward}`,
-          ].join(' ')}
-        >
+      <div className={css(styles.body)}>
+        <div className={css({ width: '50%' })}>
           <BrawlRewardAsset reward={props.reward} cardId={props.cardId} />
         </div>
-        <span className='BrawlMilestone__label'>{getRewardLabel(props)}</span>
+        <span className={css(styles.label)}>{getRewardLabel(props)}</span>
       </div>
 
-      <div className='BrawlMilestone__footer'>
+      <div className={css(styles.footer)}>
         <BrawlProgressBar
           value={meta.crowns}
           max={props.crowns}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import BrawlDifficultySelect from '../BrawlDifficultySelect'
 import BrawlMilestones from '../BrawlMilestones'
@@ -11,16 +12,17 @@ import { Crowns, Coins } from '../Resource'
 import ResourceIcon from '../ResourceIcon'
 import Row from '../Row'
 import Table from '../Table'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getCurrentBrawl from '../../helpers/getCurrentBrawl'
 import getGuide from '../../helpers/getGuide'
 import { BRAWLS, BRAWL_MILESTONES } from '../../constants/brawl'
-import './index.css'
 
 const guide = getGuide('BRAWL_GUIDE')
 
 export default React.memo(function GuideBrawl(props) {
+  const { css } = useFela()
   const [difficulty, setDifficulty] = React.useState('ULTIMATE')
   const milestones = BRAWL_MILESTONES[difficulty]
   const currentBrawl = getCurrentBrawl()
@@ -43,7 +45,7 @@ export default React.memo(function GuideBrawl(props) {
         of your experience, and what are the best strategy to maximise output.
       </p>
 
-      <ul style={{ columns: '16em' }}>
+      <TableOfContents>
         <li>
           <a href='#what-is-the-brawl'>What is the Brawl?</a>
         </li>
@@ -59,7 +61,7 @@ export default React.memo(function GuideBrawl(props) {
         <li>
           <a href='#staying-on-top-of-things'>Staying on top of things</a>
         </li>
-      </ul>
+      </TableOfContents>
 
       <Title id='what-is-the-brawl'>What is the Brawl?</Title>
 
@@ -87,11 +89,11 @@ export default React.memo(function GuideBrawl(props) {
             href={`#draw`}
             aria-describedby='footnotes'
             id={`draw-ref`}
-            style={{ textDecoration: 'none' }}
+            className={css({ textDecoration: 'none' })}
           >
             draw
             <span
-              style={{
+              className={{
                 color: 'var(--beige)',
                 marginLeft: '2px',
                 fontSize: '120%',
@@ -192,7 +194,7 @@ export default React.memo(function GuideBrawl(props) {
       </Only.Mobile>
 
       <Only.Mobile>
-        <div className='GuideBrawl__milestones'>
+        <div className={css({ fontSize: '80%' })}>
           <BrawlProvider id={currentBrawl.id} difficulty={difficulty}>
             <BrawlMilestones difficulty={difficulty} />
           </BrawlProvider>
@@ -226,7 +228,7 @@ export default React.memo(function GuideBrawl(props) {
         </Row.Column>
         <Row.Column>
           <Image
-            style={{ marginTop: 0 }}
+            extend={{ marginTop: 0 }}
             src='/assets/images/releases/brawl_bonuses_choice.jpg'
             alt=''
           />
@@ -388,7 +390,7 @@ export default React.memo(function GuideBrawl(props) {
         on your win/rate ratio.
       </p>
 
-      <footer style={{ marginTop: '4em', fontSize: '80%' }}>
+      <footer className={css({ marginTop: '4em', fontSize: '80%' })}>
         <h2 className='VisuallyHidden' id='footnotes'>
           Footnotes
         </h2>

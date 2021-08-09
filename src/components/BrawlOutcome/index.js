@@ -1,32 +1,34 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { BrawlContext } from '../BrawlProvider'
 import Info from '../Info'
 import { Coins } from '../Resource'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function BrawlOutcome(props) {
+  const { css } = useFela()
   const { meta } = React.useContext(BrawlContext)
   const income = props.income || 0
   const balance = income - meta.coinsSpent
 
   return (
-    <Info icon='crown' className='BrawlOutcome' title='Balance'>
+    <Info icon='crown' extend={styles.outcome} title='Balance'>
       <p>
         At this stage, this is the current balance for your Brawl performance:
       </p>
-      <ul className='BrawlOutcome__list'>
+      <ul className={css(styles.list)}>
         <li>
           <strong className='Highlight'>Milestone completed:</strong>{' '}
           {meta.milestone || 'none'}
         </li>
         <li>
-          <strong style={{ color: 'var(--light-ironclad)' }}>
+          <strong className={css({ color: 'var(--light-ironclad)' })}>
             Coins spent:
           </strong>{' '}
           <Coins amount={'-' + meta.coinsSpent} />
         </li>
         <li>
-          <strong style={{ color: 'var(--light-shadowfen)' }}>
+          <strong className={css({ color: 'var(--light-shadowfen)' })}>
             Coins earned:
           </strong>{' '}
           <Coins amount={'+' + income} />

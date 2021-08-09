@@ -1,14 +1,16 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link, useLocation } from 'react-router-dom'
 import EyeCatcher from '../EyeCatcher'
 import Footer from '../Footer'
 import Header from '../Header'
 import load from '../../helpers/load'
-import './index.css'
+import styles from './styles'
 
 const SearchDialog = load('SearchDialog')
 
 export default React.memo(function Layout(props) {
+  const { css } = useFela()
   const { hash } = useLocation()
   const searchDialog = React.useRef(null)
   const [isSearchReady, setIsSearchReady] = React.useState(false)
@@ -36,7 +38,7 @@ export default React.memo(function Layout(props) {
   }, [hash])
 
   return (
-    <div className='Layout'>
+    <div className={css(styles.layout)}>
       <EyeCatcher id='052021'>
         Stormbound-Kitty has been a 100% free (no ads, no paywall) one-person
         project for over 2 years now. <Link to='/about'>Consider helping</Link>!
@@ -47,7 +49,7 @@ export default React.memo(function Layout(props) {
         openSearch={() => searchDialog.current.show()}
       />
 
-      <main className='Layout__body'>{props.children}</main>
+      <main className={css(styles.body)}>{props.children}</main>
 
       <Footer />
 

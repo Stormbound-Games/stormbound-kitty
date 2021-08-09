@@ -1,9 +1,11 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Checkbox from '../Checkbox'
 import Dialog from '../Dialog'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function DryRunnerEqualsMode(props) {
+  const { css } = useFela()
   const dialogRef = React.useRef()
 
   return (
@@ -12,14 +14,12 @@ export default React.memo(function DryRunnerEqualsMode(props) {
         name='equals-mode'
         id='equals-mode'
         data-testid='equals-mode'
-        className='DryRunnerEqualsMode'
+        extend={styles.container}
         checked={props.equalsMode}
         onChange={event => dialogRef.current.show()}
       >
         Equal levels
-        <span className='DryRunnerEqualsMode__info'>
-          Set all cards to level 1
-        </span>
+        <span className={css(styles.info)}>Set all cards to level 1</span>
       </Checkbox>
       <Dialog
         id='equals-mode-dialog'

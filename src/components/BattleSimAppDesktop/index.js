@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-fela'
 import isEqual from 'lodash.isequal'
 import Board from '../BattleSimBoardDesktop'
 import CardsForm from '../BattleSimCardsForm'
@@ -9,9 +10,9 @@ import PlayerForm from '../BattleSimPlayerForm'
 import Puzzle from '../BattleSimPuzzle'
 import Row from '../Row'
 import Title from '../Title'
-import './index.css'
+import styles from './styles'
 
-export default class BattleSimAppDesktop extends React.Component {
+class BattleSimAppDesktop extends React.Component {
   state = {
     coords: {},
   }
@@ -23,7 +24,7 @@ export default class BattleSimAppDesktop extends React.Component {
     if (!isEqual(prevProps.activeCell, this.props.activeCell)) {
       if (this.props.activeCell) {
         const node = document.querySelector(
-          `.BattleSimRow:nth-child(${
+          `[data-battle-sim-row]:nth-child(${
             this.props.activeCell[0] + 1
           }) > :nth-child(${this.props.activeCell[1] + 1})`
         )
@@ -78,7 +79,7 @@ export default class BattleSimAppDesktop extends React.Component {
 
   render() {
     return (
-      <div className='BattleSimAppDesktop'>
+      <div className={this.props.styles.root}>
         <Board {...this.props} dndProps={this.dndProps} />
 
         {this.props.mode === 'EDITOR' && (
@@ -91,13 +92,13 @@ export default class BattleSimAppDesktop extends React.Component {
         )}
 
         {this.props.mode === 'DISPLAY' && !!this.props.puzzle && (
-          <div className='BattleSimAppDesktop__puzzle'>
+          <div className={this.props.styles.puzzle}>
             <Puzzle {...this.props.puzzle} noImage />
           </div>
         )}
 
         {this.props.mode === 'DISPLAY' && (
-          <div className='BattleSimAppDesktop__deck'>
+          <div className={this.props.styles.deck}>
             <Deck
               deck={this.props.cards}
               onClick={this.props.zoom}
@@ -108,7 +109,7 @@ export default class BattleSimAppDesktop extends React.Component {
         )}
 
         {this.props.mode === 'EDITOR' && (
-          <div className='BattleSimAppDesktop__settings'>
+          <div className={this.props.styles.settings}>
             <Row wideGutter>
               <Row.Column width='1/3'>
                 <Title>Game settings</Title>
@@ -140,3 +141,5 @@ export default class BattleSimAppDesktop extends React.Component {
     )
   }
 }
+
+export default connect(styles)(BattleSimAppDesktop)

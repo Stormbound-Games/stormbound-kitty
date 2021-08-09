@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import serialize from 'form-serialize'
 import Confetti from 'react-dom-confetti'
@@ -10,11 +11,13 @@ import PageMeta from '../PageMeta'
 import Radio from '../Radio'
 import Row from '../Row'
 import Sparkles from '../Sparkles'
+import Strikethrough from '../Strikethrough'
 import getRandomQuestion from '../../helpers/getRandomQuestion'
 import microMarkdown from '../../helpers/microMarkdown'
-import './index.css'
+import styles from './styles'
 
 const Success = () => {
+  const { css } = useFela()
   const [active, setActive] = React.useState(false)
 
   const CONFETTI = {
@@ -42,16 +45,16 @@ const Success = () => {
   return (
     <>
       <div
-        style={{
+        className={css({
           position: 'absolute',
           left: '50%',
           top: '50%',
           transform: 'translate(-50%, -50%)',
-        }}
+        })}
       >
         <Confetti config={CONFETTI} active={active} />
       </div>
-      <Notice icon='star' style={{ marginTop: 0, marginBottom: '2em' }}>
+      <Notice icon='star' extend={{ marginTop: 0, marginBottom: '2em' }}>
         <span className='Highlight'>Congratulations!</span> The answer is
         correct.
       </Notice>
@@ -60,15 +63,21 @@ const Success = () => {
 }
 
 const Failure = ({ answer }) => {
+  const { css } = useFela()
+
   return (
-    <Notice icon='fire' style={{ marginTop: 0, marginBottom: '2em' }}>
+    <Notice icon='fire' extend={{ marginTop: 0, marginBottom: '2em' }}>
       <span className='Highlight'>Oh no!</span> Unfortunately the answer is not
       correct.
       <details>
         <summary>Do you want to reveal the answer?</summary>
         <p
-          className='Highlight'
-          style={{ marginBottom: 0, marginTop: '0.5em', fontSize: '120%' }}
+          className={css({
+            color: 'var(--beige)',
+            marginBottom: 0,
+            marginTop: '0.5em',
+            fontSize: '120%',
+          })}
         >
           <Sparkles>{answer}</Sparkles>
         </p>
@@ -78,6 +87,7 @@ const Failure = ({ answer }) => {
 }
 
 const Trivia = () => {
+  const { css } = useFela()
   const form = React.useRef()
   const [{ question, choices }, setQuestion] = React.useState(
     getRandomQuestion()
@@ -113,20 +123,17 @@ const Trivia = () => {
     <Article title='Trivia Game'>
       <Article.Narrow>
         <p>
-          Welcome to the{' '}
-          <s style={{ textDecoration: 'line-through', opacity: 0.5 }}>
-            Thunder
-          </s>
-          Stormdome! Test your knowledge of Stormbound—both useful and
-          useless—with the Stormbound trivia. You can play as little or as long
-          as you want as you’re your own opponent.
+          Welcome to the <Strikethrough>Thunder</Strikethrough> Stormdome! Test
+          your knowledge of Stormbound—both useful and useless—with the
+          Stormbound trivia. You can play as little or as long as you want as
+          you’re your own opponent.
         </p>
 
-        <form onSubmit={handleSubmit} className='Trivia__form' ref={form}>
+        <form onSubmit={handleSubmit} className={css(styles.form)} ref={form}>
           <Notice>{microMarkdown(question.question)}</Notice>
 
           <fieldset
-            className='Trivia__legend'
+            className={css(styles.legend)}
             disabled={status !== 'UNANSWERED'}
           >
             <legend className='VisuallyHidden'>{question.question}</legend>
@@ -136,7 +143,7 @@ const Trivia = () => {
                 id={'try-' + letter}
                 name='try'
                 value={letter}
-                className='Trivia__radio'
+                extend={styles.radio}
               >
                 {choices[letter]}
               </Radio>
@@ -166,12 +173,14 @@ const Trivia = () => {
         <form name='trivia' method='POST'>
           <p>
             <span
-              className='Highlight'
-              style={{
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-                fontSize: '90%',
-              }}
+              className={
+                'Highlight ' +
+                css({
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                  fontSize: '90%',
+                })
+              }
             >
               Want to suggest a question?
             </span>{' '}

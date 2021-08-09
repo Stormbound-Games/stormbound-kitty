@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import {
   ResponsiveContainer,
@@ -29,7 +30,7 @@ import { getCardCost } from '../../helpers/getCollectionCost'
 import { getRarityColor } from '../../helpers/getRarity'
 import { RARITIES, RARITY_COPIES } from '../../constants/game'
 import { TOOLTIP_STYLES } from '../../constants/stats'
-import './index.css'
+import styles from './styles'
 
 const COLORS = [
   'rgb(222, 215, 164)',
@@ -187,21 +188,26 @@ const getProgressData = collection => {
 }
 
 export default function CollectionStats(props) {
+  const { css } = useFela()
   const { collection } = React.useContext(CollectionContext)
   const [ignoreNeutral, setIgnoreNeutral] = React.useState(false)
   const levelData = React.useMemo(() => getLevelData(collection), [collection])
-  const rarityData = React.useMemo(() => getRarityData(collection), [
-    collection,
-  ])
-  const statusData = React.useMemo(() => getStatusData(collection), [
-    collection,
-  ])
-  const copiesData = React.useMemo(() => getCopiesData(collection), [
-    collection,
-  ])
-  const progressData = React.useMemo(() => getProgressData(collection), [
-    collection,
-  ])
+  const rarityData = React.useMemo(
+    () => getRarityData(collection),
+    [collection]
+  )
+  const statusData = React.useMemo(
+    () => getStatusData(collection),
+    [collection]
+  )
+  const copiesData = React.useMemo(
+    () => getCopiesData(collection),
+    [collection]
+  )
+  const progressData = React.useMemo(
+    () => getProgressData(collection),
+    [collection]
+  )
   const factionData = React.useMemo(
     () =>
       ignoreNeutral
@@ -246,10 +252,8 @@ export default function CollectionStats(props) {
         <Row.Column width='2/3'>
           <Row desktopOnly>
             <Row.Column>
-              <div className='CollectionStats__chart'>
-                <Title className='CollectionStats__title'>
-                  Level repartition
-                </Title>
+              <div className={css(styles.chart)}>
+                <Title extend={styles.title}>Level repartition</Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
                     <Tooltip {...TOOLTIP_STYLES} />
@@ -274,10 +278,8 @@ export default function CollectionStats(props) {
               </div>
             </Row.Column>
             <Row.Column>
-              <div className='CollectionStats__chart'>
-                <Title className='CollectionStats__title'>
-                  Faction (stones)
-                </Title>
+              <div className={css(styles.chart)}>
+                <Title extend={styles.title}>Faction (stones)</Title>
 
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
@@ -298,7 +300,7 @@ export default function CollectionStats(props) {
                     </Pie>
                   </PieChart>
                 </ResponsiveContainer>
-                <div className='CollectionStats__checkbox'>
+                <div className={css(styles.checkbox)}>
                   <Checkbox
                     name='ignore-neutral'
                     id='ignore-neutral'
@@ -313,10 +315,8 @@ export default function CollectionStats(props) {
           </Row>
           <Row desktopOnly>
             <Row.Column>
-              <div className='CollectionStats__chart'>
-                <Title className='CollectionStats__title'>
-                  Rarity (stones)
-                </Title>
+              <div className={css(styles.chart)}>
+                <Title extend={styles.title}>Rarity (stones)</Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
                     <Tooltip {...TOOLTIP_STYLES} />
@@ -345,8 +345,8 @@ export default function CollectionStats(props) {
               </div>
             </Row.Column>
             <Row.Column>
-              <div className='CollectionStats__chart'>
-                <Title className='CollectionStats__title'>Statuses</Title>
+              <div className={css(styles.chart)}>
+                <Title extend={styles.title}>Statuses</Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
                     <Tooltip {...TOOLTIP_STYLES} />
@@ -372,8 +372,8 @@ export default function CollectionStats(props) {
 
           <Row desktopOnly>
             <Row.Column>
-              <div className='CollectionStats__chart'>
-                <Title className='CollectionStats__title'>Card copies</Title>
+              <div className={css(styles.chart)}>
+                <Title extend={styles.title}>Card copies</Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <BarChart
                     width={500}
@@ -439,8 +439,8 @@ export default function CollectionStats(props) {
               </div>
             </Row.Column>
             <Row.Column>
-              <div className='CollectionStats__chart'>
-                <Title className='CollectionStats__title'>Progress data</Title>
+              <div className={css(styles.chart)}>
+                <Title extend={styles.title}>Progress data</Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
                     <Tooltip {...TOOLTIP_STYLES} />

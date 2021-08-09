@@ -6,7 +6,6 @@ import FactionSelect from '../FactionSelect'
 import ImageErrorDialog from '../CardBuilderImageErrorDialog'
 import Row from '../Row'
 import capitalise from '../../helpers/capitalise'
-import './index.css'
 
 export default React.memo(function CardBuilderCardForm(props) {
   const [imageFocusedColumn, setImageFocusedColumn] = React.useState(null)
@@ -177,7 +176,7 @@ export default React.memo(function CardBuilderCardForm(props) {
               <Row>
                 <Row.Column>
                   <Checkbox
-                    className='CardBuilderCoreForm__checkbox'
+                    extend={{ marginTop: '0.75em' }}
                     name='elder'
                     id='elder'
                     checked={props.elder}

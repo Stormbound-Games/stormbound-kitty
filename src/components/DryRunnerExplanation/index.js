@@ -1,8 +1,9 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import TogglableContent from '../TogglableContent'
 import CardLink from '../CardLink'
 import { PROBABILITIES } from '../../constants/dryRunner'
-import './index.css'
+import styles from './styles'
 
 const CARD_MECHANICS = {
   PLAYING_CYCLING_DISCARDING: {
@@ -60,6 +61,7 @@ const CARD_ATTRIBUTES = {
 }
 
 export default function DryRunnerExplanation(props) {
+  const { css } = useFela()
   const [expanded, setExpanded] = React.useState([])
 
   const toggle = category => {
@@ -74,7 +76,7 @@ export default function DryRunnerExplanation(props) {
         The dry-run simulator currently correctly supports the following
         abilities, while their effect might vary depending on the RNG setting:
       </p>
-      <ul className='DryRunnerExplanation'>
+      <ul className={css(styles.explanation)}>
         {Object.keys(CARD_MECHANICS).map(categoryTitle => {
           const category = CARD_MECHANICS[categoryTitle]
           return (
@@ -86,7 +88,7 @@ export default function DryRunnerExplanation(props) {
                 renderToggle={toggleProps => (
                   <button
                     {...toggleProps}
-                    className='ButtonAsLink DryRunnerExplanation__toggle'
+                    className={'ButtonAsLink ' + css(styles.toggle)}
                     onClick={() => toggle(categoryTitle)}
                   >
                     (
@@ -97,11 +99,11 @@ export default function DryRunnerExplanation(props) {
                   </button>
                 )}
               >
-                <ul className='DryRunnerExplanation__list'>
+                <ul className={css(styles.list)}>
                   {Object.keys(CARD_ATTRIBUTES)
                     .filter(cardId => category.cards.includes(cardId))
                     .map(cardId => (
-                      <li className='DryRunnerExplanation__item' key={cardId}>
+                      <li className={css(styles.item)} key={cardId}>
                         <CardLink id={cardId} />
                         {': '}
                         {CARD_ATTRIBUTES[cardId]}

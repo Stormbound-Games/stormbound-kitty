@@ -1,13 +1,16 @@
 import React from 'react'
 import CardsGallery from '../CardsGallery'
 import Dialog from '../Dialog'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function HarvestersDialog(props) {
   return (
     <Dialog
       id='harvesters-dialog'
-      className='Dialog__content'
+      extend={{
+        dialog: styles.dialog,
+        body: styles.body,
+      }}
       role='alertdialog'
       close={() => {
         props.setCards([])
@@ -17,6 +20,10 @@ export default React.memo(function HarvestersDialog(props) {
       image='/assets/images/cards/harvesters_of_souls.png'
     >
       <CardsGallery
+        extend={{
+          list: styles.list,
+          item: styles.item,
+        }}
         cards={props.cards}
         cardsPerPage={props.cards.length}
         hideNavButtons

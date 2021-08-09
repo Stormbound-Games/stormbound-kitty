@@ -1,5 +1,8 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
+import Asterisk from '../Asterisk'
+import Image from '../Image'
 import Radio from '../Radio'
 import HeaderBanner from '../HeaderBanner'
 import Title from '../Title'
@@ -8,9 +11,10 @@ import PageMeta from '../PageMeta'
 import { HeroCrowns } from '../Resource'
 import Row from '../Row'
 import getHeroScore from '../../helpers/getHeroScore'
-import './index.css'
+import styles from './styles'
 
 const HeroScoreCalculator = props => {
+  const { css } = useFela()
   const [current, setCurrent] = React.useState(1000)
   const [opponent, setOpponent] = React.useState(1000)
   const [coefficient, setCoefficient] = React.useState(20)
@@ -41,10 +45,10 @@ const HeroScoreCalculator = props => {
             following formula:
           </p>
 
-          <img
+          <Image
             src='/assets/images/releases/hero_score_formula.png'
             alt='Hero Score computing formula'
-            className='HeroScoreCalculator__formula'
+            extend={styles.formula}
           />
 
           <p>
@@ -55,7 +59,7 @@ const HeroScoreCalculator = props => {
 
           <p>Here are the terms:</p>
 
-          <ul style={{ marginBottom: '3em' }}>
+          <ul className={css({ marginBottom: '3em' })}>
             <li>
               <var className='Highlight'>
                 S'<sub>A</sub>
@@ -72,25 +76,17 @@ const HeroScoreCalculator = props => {
               <var className='Highlight'>K</var> is the coefficient factor
               (sometimes named “K-factor” in elo rating systems) and works like
               in FIDE:
-              <ul style={{ margin: '0.5em 0' }}>
+              <ul className={css({ margin: '0.5em 0' })}>
                 <li>
                   K = 40 for players until they have been in{' '}
                   <a
                     href='#matches-30'
                     aria-describedby='footnotes'
                     id='matches-30-ref'
-                    style={{ textDecoration: 'none' }}
+                    className={css({ textDecoration: 'none' })}
                   >
                     30 matches in Diamond and then 30 matches in Heroes League
-                    <span
-                      style={{
-                        color: 'var(--beige)',
-                        marginLeft: '2px',
-                        fontSize: '120%',
-                      }}
-                    >
-                      *
-                    </span>
+                    <Asterisk />
                   </a>
                 </li>
                 <li>K = 20 for players rated below 2400</li>
@@ -167,7 +163,7 @@ const HeroScoreCalculator = props => {
                 <legend>Game outcome</legend>
                 <Radio
                   id='outcome-won'
-                  className='HeroScoreCalculator__radio'
+                  extend={styles.radio}
                   name='outcome'
                   value='WON'
                   checked={outcome === 'WON'}
@@ -179,7 +175,7 @@ const HeroScoreCalculator = props => {
 
                 <Radio
                   id='outcome-lost'
-                  className='HeroScoreCalculator__radio'
+                  extend={styles.radio}
                   name='outcome'
                   value='LOST'
                   checked={outcome === 'LOST'}
@@ -203,18 +199,19 @@ const HeroScoreCalculator = props => {
             estimated to be:
           </p>
 
-          <div className='HeroScore'>
-            <img
-              className='HeroScore__image'
+          <div className={css(styles.container)}>
+            <Image
+              extend={styles.image}
               src='/assets/images/releases/rank_hero.png'
               alt=''
+              withoutWebp
             />
-            <span className='HeroScore__score'>{Math.round(newScore)}</span>
+            <span className={css(styles.score)}>{Math.round(newScore)}</span>
           </div>
         </Row.Column>
       </Row>
 
-      <footer style={{ fontSize: '80%' }}>
+      <footer className={css({ fontSize: '80%' })}>
         <h2 className='VisuallyHidden' id='footnotes'>
           Footnotes
         </h2>

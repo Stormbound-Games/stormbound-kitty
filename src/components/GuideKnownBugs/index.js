@@ -1,7 +1,11 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Guide from '../Guide'
+import Image from '../Image'
 import Info from '../Info'
 import Row from '../Row'
+import Strikethrough from '../Strikethrough'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import { Stones, Coins, Rubies } from '../Resource'
 import getGuide from '../../helpers/getGuide'
@@ -9,15 +13,15 @@ import getGuide from '../../helpers/getGuide'
 const guide = getGuide('KNOWN_BUGS')
 
 export default React.memo(function GuideKnownBugs(props) {
+  const { css } = useFela()
+
   return (
     <Guide {...guide}>
-      <p style={{ marginBottom: '2em' }}>
-        Bugs are{' '}
-        <s style={{ textDecoration: 'line-through', opacity: 0.5 }}>storm</s>
-        bound to happen. Software development is not infallible, and honest
-        mistakes, inconsistencies or omissions exist in pretty much any program.
-        Stormbound is no exception. A few common bugs have stood out over the
-        years, and are compiled here.
+      <p className={css({ marginBottom: '2em' })}>
+        Bugs are <Strikethrough>storm</Strikethrough> bound to happen. Software
+        development is not infallible, and honest mistakes, inconsistencies or
+        omissions exist in pretty much any program. Stormbound is no exception.
+        A few common bugs have stood out over the years, and are compiled here.
       </p>
 
       <Info icon='warning' title='Important Disclaimer'>
@@ -34,7 +38,7 @@ export default React.memo(function GuideKnownBugs(props) {
         .
       </Info>
 
-      <ul style={{ columns: '16em' }}>
+      <TableOfContents>
         <li>
           <a href='#displayed-debug-view'>Displayed debug view</a>
         </li>
@@ -56,12 +60,12 @@ export default React.memo(function GuideKnownBugs(props) {
         <li>
           <a href='#glitchy-friend-list'>Glitchy friend list</a>
         </li>
-      </ul>
+      </TableOfContents>
 
       <Title id='displayed-debug-view'>Displayed debug view</Title>
       <Row wideGutter desktopOnly>
         <Row.Column>
-          <img
+          <Image
             src='/assets/images/guides/brawl_debug_view.jpg'
             alt='Debug Brawl view with infinite resources, test name and missing UI elements'
           />
@@ -130,7 +134,7 @@ export default React.memo(function GuideKnownBugs(props) {
           </div>
         </Row.Column>
         <Row.Column>
-          <img
+          <Image
             src='/assets/images/guides/double_animation_bug.jpg'
             alt='All in-game animations are doubled'
           />
@@ -140,7 +144,7 @@ export default React.memo(function GuideKnownBugs(props) {
       <Title id='missing-resources'>Missing resources</Title>
       <Row wideGutter desktopOnly>
         <Row.Column>
-          <img
+          <Image
             src='/assets/images/guides/fusion_stone_reward.jpeg'
             alt='Animation when being rewarded with fusion stones'
           />
@@ -201,7 +205,7 @@ export default React.memo(function GuideKnownBugs(props) {
           </div>
         </Row.Column>
         <Row.Column>
-          <img
+          <Image
             src='/assets/images/guides/three_cards_bug.jpg'
             alt='Stormbound hand with only 3 cards despite having cycled'
           />
@@ -211,7 +215,7 @@ export default React.memo(function GuideKnownBugs(props) {
       <Title id='misplaced-game-invite'>Misplaced game invite</Title>
       <Row wideGutter desktopOnly>
         <Row.Column>
-          <img
+          <Image
             src='/assets/images/guides/challenge_in_deck_selection.jpg'
             alt='Friendly challenge dialog being displayed in the deck view'
           />
@@ -289,7 +293,7 @@ export default React.memo(function GuideKnownBugs(props) {
           </div>
         </Row.Column>
         <Row.Column>
-          <img
+          <Image
             src='/assets/images/guides/unwatchable_ads.jpg'
             alt='The reward screen does not allow watching an ad'
           />
@@ -299,7 +303,7 @@ export default React.memo(function GuideKnownBugs(props) {
       <Title id='glitchy-friend-list'>Glitchy friend list</Title>
       <Row wideGutter desktopOnly>
         <Row.Column>
-          <img
+          <Image
             src='/assets/images/guides/friend-list-gaps.jpg'
             alt='Friend list having odd empty gaps'
           />

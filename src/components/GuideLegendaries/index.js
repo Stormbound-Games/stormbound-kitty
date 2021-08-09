@@ -1,3 +1,4 @@
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import { TIER_COLORS } from '../../constants/list'
 import getInitialListData from '../../helpers/getInitialListData'
@@ -14,6 +15,7 @@ const TIER_LIST =
   'S - Always Usable,N8N59N69N46S19F21;A - Usable in Most%2FSome Decks,N58I2I17I22W8W23F12;B - Usable in Very Few Decks,N35N48S21W10F23;C - Never Use,N77N76S3I29/display'
 
 export default React.memo(function GuideLegendaries(props) {
+  const { css } = useFela()
   const tiers = getInitialListData(TIER_LIST)
 
   return (
@@ -30,7 +32,11 @@ export default React.memo(function GuideLegendaries(props) {
 
       <hr />
       <p
-        style={{ fontSize: '135%', textAlign: 'center', color: 'var(--beige)' }}
+        className={css({
+          fontSize: '135%',
+          textAlign: 'center',
+          color: 'var(--beige)',
+        })}
       >
         Should I use this level 1 legendary?
       </p>

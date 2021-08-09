@@ -3,7 +3,6 @@ import { Coins, Stones } from '../Resource'
 import getCostForLevel from '../../helpers/getCostForLevel'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
-import './index.css'
 
 export default React.memo(function CardUpgradeStats(props) {
   const card = getResolvedCardData(props)
@@ -16,7 +15,7 @@ export default React.memo(function CardUpgradeStats(props) {
     <>
       {card.missing ? (
         <p>
-          <span className='CardUpgradeStats__mark'>Crafting cost:</span>{' '}
+          <span className='Highlight'>Crafting cost:</span>{' '}
           <Stones amount={getCostForLevel(1)(card).stones} />
         </p>
       ) : (
@@ -28,7 +27,7 @@ export default React.memo(function CardUpgradeStats(props) {
           }))
           .map(({ nextLevelCost, level }, index) => (
             <p key={level}>
-              <span className='CardUpgradeStats__mark'>
+              <span className='Highlight'>
                 Upgrading cost for level {level}
                 {index > 0 ? ' (including previous levels)' : ''}:{' '}
               </span>

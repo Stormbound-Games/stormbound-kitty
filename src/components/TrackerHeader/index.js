@@ -5,7 +5,6 @@ import Mana from '../Mana'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
 import { STATUSES } from '../../constants/tracker'
-import './index.css'
 
 export default React.memo(function TrackerHeader(props) {
   return (

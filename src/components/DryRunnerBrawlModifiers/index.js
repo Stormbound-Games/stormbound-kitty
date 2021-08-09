@@ -1,8 +1,8 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Dialog from '../Dialog'
 import getRawCardData from '../../helpers/getRawCardData'
 import { BRAWLS, BRAWL_INDEX } from '../../constants/brawl'
-import './index.css'
 
 const getDialogImage = modifier => {
   if (!modifier || modifier === 'NONE') {
@@ -13,6 +13,7 @@ const getDialogImage = modifier => {
 }
 
 export default React.memo(function DryRunnerBrawlModifiers(props) {
+  const { css } = useFela()
   const dialogRef = React.useRef()
   const [modifier, setModifier] = React.useState(props.modifier)
 
@@ -23,7 +24,7 @@ export default React.memo(function DryRunnerBrawlModifiers(props) {
         name='brawl-modifier'
         id='brawl-modifier'
         data-testid='brawl-modifier'
-        className='DryRunnerBrawlModifier'
+        className={css({ marginBottom: '1.5em' })}
         value={props.modifier}
         onChange={event => {
           setModifier(event.target.value)

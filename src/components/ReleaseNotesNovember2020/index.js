@@ -4,10 +4,12 @@ import Article from '../Article'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import CardLink from '../CardLink'
 import FAQSection from '../FAQSection'
+import Image from '../Image'
 import Info from '../Info'
 import ReleaseNotes from '../ReleaseNotes'
 import { Coins, Rubies, Stones } from '../Resource'
 import Row from '../Row'
+import TableOfContents from '../Title'
 import Title from '../Title'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import CheapenedBrawl from '../CheapenedBrawl'
@@ -40,7 +42,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
           </p>
         </Info>
 
-        <ul style={{ columns: '16em' }}>
+        <TableOfContents>
           <li>
             <a href='#balance-changes'>Balance changes</a>
           </li>
@@ -59,7 +61,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
           <li>
             <a href='#faq'>FAQ</a>
           </li>
-        </ul>
+        </TableOfContents>
 
         <Info icon='gift' title='Free rubies'>
           Anyone logging into the game at least once between November 1st and
@@ -194,13 +196,13 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
       <Article.Embed>
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <img
+            <Image
               src='/assets/images/releases/stoic_protectors_pack.png'
               alt='Stoic Protectors pack: 3 copies of the card, 5 fusion stones, 750 coins'
             />
           </Row.Column>
           <Row.Column>
-            <img
+            <Image
               src='/assets/images/releases/halloween_bundle.png'
               alt='Trick or Treat bundle: 6 Mythic Tomes, 6 Heroic Tomes, 6 Classic Tomes'
             />

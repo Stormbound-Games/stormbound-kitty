@@ -1,8 +1,10 @@
 import React from 'react'
-import './index.css'
+import { useFela } from 'react-fela'
+import styles from './styles'
 
 export default React.memo(function TogglableContent(props) {
   const [isExpanded, setIsExpanded] = React.useState(props.isExpanded)
+  const { css } = useFela({ isHidden: !isExpanded })
 
   React.useEffect(() => setIsExpanded(props.isExpanded), [props.isExpanded])
 
@@ -15,7 +17,7 @@ export default React.memo(function TogglableContent(props) {
       })}
 
       <div
-        className='TogglableContent__target'
+        className={css(styles.target)}
         id={props.id + '-target'}
         aria-labelledby={props.id}
         aria-hidden={!isExpanded}

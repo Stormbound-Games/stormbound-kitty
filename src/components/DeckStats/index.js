@@ -1,10 +1,11 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Row from '../Row'
 import Title from '../Title'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import canCardBePlayed from '../../helpers/canCardBePlayed'
 import canDeployUnits from '../../helpers/canDeployUnits'
-import './index.css'
+import styles from './styles'
 
 const getEffectiveSpeed = card => {
   switch (card.id) {
@@ -57,6 +58,7 @@ const getPlayableCards = (mana, cards) =>
 const getRaces = cards => [...new Set(cards.map(c => c.race).filter(Boolean))]
 
 export default function DeckStats(props) {
+  const { css } = useFela()
   const cards = props.deck.map(getResolvedCardData)
   const averageMana = getAverageManaCost(cards)
   const averageSpeed = getAverageSpeed(cards)
@@ -75,15 +77,15 @@ export default function DeckStats(props) {
   )
 
   return (
-    <div className='DeckStats'>
-      <Title style={{ marginTop: 0 }}>Statistics</Title>
+    <div className={css(styles.container)}>
+      <Title>Statistics</Title>
 
       <Row>
         <Row.Column>
-          <p>
+          <p className={css({ marginTop: 0 })}>
             This deck (level ~{averageLevel}) is made of {cards.length} cards:{' '}
             <span
-              className='DeckStats__trigger'
+              className={css(styles.trigger)}
               onMouseOver={() => props.highlight(units)}
               onMouseOut={() => props.highlight([])}
             >
@@ -91,7 +93,7 @@ export default function DeckStats(props) {
             </span>{' '}
             {units.length > 1 ? 'units' : 'unit'},{' '}
             <span
-              className='DeckStats__trigger'
+              className={css(styles.trigger)}
               onMouseOver={() => props.highlight(structures)}
               onMouseOut={() => props.highlight([])}
             >
@@ -99,7 +101,7 @@ export default function DeckStats(props) {
             </span>{' '}
             {structures.length > 1 ? 'structures' : 'structure'}, and{' '}
             <span
-              className='DeckStats__trigger'
+              className={css(styles.trigger)}
               onMouseOver={() => props.highlight(spells)}
               onMouseOut={() => props.highlight([])}
             >
@@ -109,13 +111,13 @@ export default function DeckStats(props) {
             {races.length > 1 ? 'different races' : 'single race'}.
           </p>
 
-          <p>
+          <p className={css({ marginTop: 0 })}>
             Its average speed is{' '}
             <strong className='Highlight'>{averageSpeed}</strong> cell on play.
             Its average mana cost is{' '}
             <strong className='Highlight'>{averageMana}</strong>.{' '}
             <strong
-              className='Highlight DeckStats__trigger'
+              className={'Highlight ' + css(styles.trigger)}
               onMouseOver={() => props.highlight(playableCards1)}
               onMouseOut={() => props.highlight([])}
             >
@@ -123,7 +125,7 @@ export default function DeckStats(props) {
             </strong>{' '}
             cards can be played as the first player (
             <strong
-              className='Highlight DeckStats__trigger'
+              className={'Highlight ' + css(styles.trigger)}
               onMouseOver={() => props.highlight(movingCards1)}
               onMouseOut={() => props.highlight([])}
             >
@@ -131,7 +133,7 @@ export default function DeckStats(props) {
             </strong>{' '}
             of them moving the front line),{' '}
             <strong
-              className='Highlight DeckStats__trigger'
+              className={'Highlight ' + css(styles.trigger)}
               onMouseOver={() => props.highlight(playableCards2)}
               onMouseOut={() => props.highlight([])}
             >
@@ -139,7 +141,7 @@ export default function DeckStats(props) {
             </strong>{' '}
             as the second player (
             <strong
-              className='Highlight DeckStats__trigger'
+              className={'Highlight ' + css(styles.trigger)}
               onMouseOver={() => props.highlight(movingCards2)}
               onMouseOut={() => props.highlight([])}
             >

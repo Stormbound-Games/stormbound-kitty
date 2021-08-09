@@ -1,21 +1,23 @@
 import React from 'react'
-import './index.css'
+import { useFela } from 'react-fela'
+import styles from './styles'
 
 export default React.memo(function Radio(props) {
+  const { css } = useFela({
+    isChecked: props.checked,
+    isDisabled: props.disabled,
+  })
+
   return (
-    <label className={`Radio ${props.className || ''}`} htmlFor={props.id}>
+    <label className={css(styles.radio, props.extend)} htmlFor={props.id}>
       <input
         type='radio'
         {...props}
         children={undefined}
-        className='Radio__input'
+        className={css(styles.input)}
       />
-      <span
-        className={['Radio__icon', props.checked && 'Radio__icon--checked']
-          .filter(Boolean)
-          .join(' ')}
-      />
-      <span className='Radio__label'>{props.children}</span>
+      <span className={css(styles.icon)} />
+      <span className={css(styles.label)}>{props.children}</span>
     </label>
   )
 })

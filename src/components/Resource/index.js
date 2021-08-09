@@ -1,12 +1,15 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import ResourceIcon from '../ResourceIcon'
 
 const THOUSANDS = /\B(?=(\d{3})+(?!\d))/g
 
 const Resource = React.memo(function Resource({ amount, resource }) {
+  const { css } = useFela()
+
   return (
     <>
-      <span style={{ whiteSpace: 'nowrap' }}>
+      <span className={css({ whiteSpace: 'nowrap' })}>
         <ResourceIcon resource={resource} />
         &nbsp;{amount.toString().replace(THOUSANDS, ',')}
       </span>
