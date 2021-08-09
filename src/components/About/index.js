@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../UserProvider'
 import Article from '../Article'
@@ -8,10 +9,11 @@ import PageMeta from '../PageMeta'
 import Sparkles from '../Sparkles'
 import contributions from '../../data/contributions'
 import donations from '../../data/donations'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function About(props) {
   const { name } = React.useContext(UserContext)
+  const { css } = useFela()
 
   return (
     <Article title='About'>
@@ -78,10 +80,10 @@ export default React.memo(function About(props) {
           or click the “Support Stormbound-Kitty” link below.
         </p>
 
-        <div className='About__container'>
+        <div className={css(styles.ctaContainer)}>
           <Sparkles>
             <a
-              className='About__CTA'
+              className={css(styles.cta)}
               href='https://gum.co/stormbound-kitty?wanted=true'
               target='_blank'
               rel='noopener noreferrer'
