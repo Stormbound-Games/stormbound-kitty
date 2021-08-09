@@ -1,5 +1,6 @@
 import React from 'react'
 import { HelmetProvider, Helmet } from 'react-helmet-async'
+import { RendererProvider } from 'react-fela'
 import CollectionProvider from '../CollectionProvider'
 import ErrorBoundary from '../ErrorBoundary'
 import NotificationProvider from '../NotificationProvider'
@@ -8,28 +9,33 @@ import ImageSupportProvider from '../ImageSupportProvider'
 import StoriesProvider from '../StoriesProvider'
 import UserProvider from '../UserProvider'
 import Router from '../Router'
+import createFelaRenderer from '../../helpers/createFelaRenderer'
+
+const renderer = createFelaRenderer()
 
 export default function Root(props) {
   return (
-    <HelmetProvider>
-      <ErrorBoundary>
-        <ImageSupportProvider>
-          <NotificationProvider>
-            <CollectionProvider>
-              <PersonalDecksProvider>
-                <StoriesProvider>
-                  <UserProvider>
-                    <Router />
-                    <Helmet>
-                      <meta name='author' content='Kitty' />
-                    </Helmet>
-                  </UserProvider>
-                </StoriesProvider>
-              </PersonalDecksProvider>
-            </CollectionProvider>
-          </NotificationProvider>
-        </ImageSupportProvider>
-      </ErrorBoundary>
-    </HelmetProvider>
+    <RendererProvider renderer={renderer}>
+      <HelmetProvider>
+        <ErrorBoundary>
+          <ImageSupportProvider>
+            <NotificationProvider>
+              <CollectionProvider>
+                <PersonalDecksProvider>
+                  <StoriesProvider>
+                    <UserProvider>
+                      <Router />
+                      <Helmet>
+                        <meta name='author' content='Kitty' />
+                      </Helmet>
+                    </UserProvider>
+                  </StoriesProvider>
+                </PersonalDecksProvider>
+              </CollectionProvider>
+            </NotificationProvider>
+          </ImageSupportProvider>
+        </ErrorBoundary>
+      </HelmetProvider>
+    </RendererProvider>
   )
 }
