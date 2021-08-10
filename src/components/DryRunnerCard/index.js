@@ -12,7 +12,7 @@ export default React.memo(function DryRunnerCard(props) {
   if (!cardData) return null
 
   return (
-    <div className={css(styles.wrapper)}>
+    <div className={css(styles.wrapper)} data-active={isActive || undefined}>
       <button
         className={css(styles.button)}
         type='button'

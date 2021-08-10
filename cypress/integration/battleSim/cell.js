@@ -10,7 +10,7 @@ describe('Battle Sim — Cells', () => {
   })
 
   it('should be possible to unselect a selected cell', () => {
-    cy.get('#cell-form-dialog .Dialog__button')
+    cy.get('#cell-form-dialog [data-testid="cell-form-dialog-close"]')
       .click()
       .get(s.CELL_A1)
       .click()
@@ -67,14 +67,14 @@ describe('Battle Sim — Cells', () => {
   it('should be possible to update the player of a filled cell', () => {
     cy.get(s.CELL_A1)
       .find(s.CELL_STRENGTH)
-      .should('have.class', 'BattleSimCell__strength--BLUE')
+      .should('have.attr', 'data-player', 'BLUE')
       .get(s.CELL_FORM_RED_RADIO)
       .click({ force: true })
       .get(s.CELL_FORM_BTN)
       .click()
       .get(s.CELL_A1)
       .find(s.CELL_STRENGTH)
-      .should('have.class', 'BattleSimCell__strength--RED')
+      .should('have.attr', 'data-player', 'RED')
   })
 
   it('should be possible to update the poison status of a filled cell', () => {

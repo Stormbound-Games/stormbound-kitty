@@ -73,7 +73,11 @@ export default React.memo(function BrawlMilestone(props) {
   const { css } = useFela({ isCollected: collected })
 
   return (
-    <div data-testid='milestone' className={css(styles.milestone)}>
+    <div
+      data-testid='milestone'
+      className={css(styles.milestone)}
+      data-collected={collected || undefined}
+    >
       <header className={css(styles.header)}>Milestone {props.index}</header>
 
       {collected && (

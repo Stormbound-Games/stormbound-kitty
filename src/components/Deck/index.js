@@ -26,7 +26,7 @@ const DeckEmptySlot = React.memo(function DeckEmptySlot(props) {
   const { css } = useFela({ isEmpty: true, orientation: props.orientation })
 
   return (
-    <li className={css(styles.card)}>
+    <li className={css(styles.card)} data-testid='deck-slot'>
       <Mana extend={styles.mana({ orientation: props.orientation })} mana='' />
       <span className='VisuallyHidden'>Empty deck slot</span>
     </li>
@@ -78,7 +78,7 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
     <li
       {...props.trigger}
       className={css(styles.card)}
-      data-testid={[card.id, card.idx].filter(Boolean).join('_')}
+      data-testid={[card.id, card.idx].filter(Boolean).join('_') + ' deck-slot'}
     >
       {props.onClick && (
         <button

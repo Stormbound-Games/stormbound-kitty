@@ -6,10 +6,8 @@ describe('Card Builder — Type', () => {
     cy
       .get(s.CARD_PREVIEW)
       .eq(index)
-      .find('.Card__content')
-      .then($node => {
-        expect($node.attr('style')).to.include(type)
-      })
+      .find('[data-testid="card"]')
+      .should('have.attr', 'data-type', type)
 
   before(() => {
     cy.visit('/card')

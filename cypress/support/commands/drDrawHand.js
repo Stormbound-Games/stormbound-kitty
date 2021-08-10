@@ -15,7 +15,7 @@ const drawHand = ids => {
       id = id + '_0'
     }
     cy.get(s.DECK_CARD, { log: false })
-      .filter('[data-testid="' + id + '"]', { log: false })
+      .filter('[data-testid*="' + id + '"]', { log: false })
       .find('button', { log: false })
       .first({ log: false })
       .click({ log: false })

@@ -12,7 +12,11 @@ const CardsFormRow = React.memo(({ index, ...props }) => {
   const { css } = useFela()
 
   return (
-    <div className={css(styles.row)} hidden={!props.expanded && index >= 4}>
+    <div
+      className={css(styles.row)}
+      hidden={!props.expanded && index >= 4}
+      data-testid='battle-sim-cards-form'
+    >
       <Row extend={{ marginBottom: 0 }}>
         <Row.Column width='2/3'>
           <label className='VisuallyHidden' htmlFor={`card-${index}`}>

@@ -6,7 +6,7 @@ const showsDrawingChance = value => {
 }
 
 const unselectActiveCard = ($wrapper, index) => {
-  if ($wrapper.hasClass('DryRunnerHand__wrapper--active')) {
+  if ($wrapper.attr('data-active')) {
     cy.drSelect(index)
   }
 }
@@ -14,9 +14,9 @@ const unselectActiveCard = ($wrapper, index) => {
 const isMarkedAffordable = $card => {
   const id = $card.attr('id').split('_')[0]
   const { mana } = getResolvedCardData({ id })
-  const assert = mana <= 3 ? 'have.class' : 'not.have.class'
+  const assert = mana <= 3 ? 'have.attr' : 'not.have.attr'
 
-  cy.wrap($card).should(assert, 'Card--affordable')
+  cy.wrap($card).should(assert, 'data-affordable')
 }
 
 describe('Dry-runner — Basics', () => {

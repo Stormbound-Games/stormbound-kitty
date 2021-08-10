@@ -63,7 +63,10 @@ export default React.memo(function BattleSimCards(props) {
                 </button>
               )}
 
-              <div className={css(styles.slotContent)}>
+              <div
+                className={css(styles.slotContent)}
+                data-testid='card-slot-content'
+              >
                 {card && card.id ? (
                   <Card {...card} affordable={card.mana <= props.mana} />
                 ) : null}

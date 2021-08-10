@@ -19,9 +19,7 @@ export default React.memo(function BattleSimRow(props) {
   return (
     <div
       data-testid='row'
-      data-battle-sim-row={
-        props.index === 0 ? 'RED' : props.index === 4 ? 'BLUE' : 'UNCLAIMED'
-      }
+      data-battle-sim-row={player ? `${player}-${frontRowIndex}` : ''}
       className={css(styles.row)}
     >
       {props.children}

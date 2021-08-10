@@ -1,5 +1,5 @@
 export default {
-  CARD: '.Card',
+  CARD: '[data-testid="card"]',
   CARD_ABILITY: '[data-testid="card-ability"]',
   CARD_RACE: '[data-testid="card-race"]',
   CARD_RARITY: '[data-testid="card-rarity"]',
@@ -25,7 +25,7 @@ export default {
   RANDOM_MAX_EPIC_SELECT: '[data-testid="random-max-epic-select"]',
   RANDOM_MAX_LEGENDARY_SELECT: '[data-testid="random-max-legendary-select"]',
   RANDOM_DIALOG_CONFIRM: '[data-testid="random-deck-dialog-confirm-btn"]',
-  DECK_CARD: '#deck .Deck__card',
+  DECK_CARD: '#deck [data-testid*="deck-slot"]',
 
   IMPORT_BTN: '[data-testid="import-btn"]',
   RESET_BTN: '[data-testid="reset-btn"]',
@@ -35,7 +35,7 @@ export default {
   EDIT_DECK_BTN: '[data-testid="edit-deck-btn"]',
   DELETE_DECK_BTN: '[data-testid="delete-deck-btn"]',
   DELETE_DECK_CONFIRM_BTN: '[data-testid="delete-confirm-btn"]',
-  PERSONAL_DECKS: '[data-testid="personal-deck"]',
+  PERSONAL_DECKS: '[data-testid="featured-deck"]',
   GHOST_DECK_BTN: '[data-testid="ghost-deck-btn"]',
   DECK_FORM: '[data-testid="deck-form"]',
   DECK_ID_INPUT: '[data-testid="deck-id-input"]',
@@ -50,6 +50,6 @@ export default {
   PERSONAL_DECKS_FACTION_SELECT: '[data-testid="decks-faction-select"]',
   PERSONAL_DECKS_TAGS_SELECT: '#tags input:not([type="hidden"])',
 
-  DECK_SUGGESTION: '[data-testid="deck-suggestion"]',
+  DECK_SUGGESTION: '[data-testid="featured-deck"]',
   BOOKMARK_BTN: '[data-testid="bookmark-btn"]',
 }

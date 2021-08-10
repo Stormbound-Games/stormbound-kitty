@@ -22,7 +22,7 @@ describe('Collection — Import/export', () => {
   })
 
   it('should mark missing rows as missing cards', () => {
-    cy.get(s.CARD).filter('#N2').should('have.class', 'Card--missing')
+    cy.get(s.CARD).filter('#N2').should('have.attr', 'data-missing', 'true')
   })
 
   it('should be possible to export the collection as CSV', () => {

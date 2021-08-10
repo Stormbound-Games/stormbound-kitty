@@ -24,14 +24,4 @@ describe('Fan-kit', () => {
         })
       })
   })
-
-  it('should be possible to close that dialog and navigate away', () => {
-    cy.get(s.DIALOG_CLOSE_BTN)
-      .click()
-      .get(s.DIALOG)
-      .should('not.be.visible')
-      .get('.Header__action')
-      .first()
-      .click()
-  })
 })

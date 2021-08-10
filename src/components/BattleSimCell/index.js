@@ -43,7 +43,11 @@ export default React.memo(function BattleSimCell(props) {
       title={getTitle(props)}
     >
       {props.strength > 0 && (
-        <span data-testid='cell-strength' className={css(styles.strength)}>
+        <span
+          data-testid='cell-strength'
+          className={css(styles.strength)}
+          data-player={props.player}
+        >
           <span className={css(styles.strengthContent)}>{props.strength}</span>
         </span>
       )}

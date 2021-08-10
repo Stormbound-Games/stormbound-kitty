@@ -36,7 +36,6 @@ export default React.memo(function Decks(props) {
                 <FeaturedDeck
                   {...row[index]}
                   showUpgrades={props.showUpgrades}
-                  data-testid={props['data-testid']}
                   onClick={navigateToCard}
                   actions={
                     typeof props.actions === 'function'

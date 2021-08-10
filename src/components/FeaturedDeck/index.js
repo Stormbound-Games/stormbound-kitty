@@ -57,7 +57,7 @@ export default React.memo(function FeaturedDeck(props) {
   const actions = props.actions || []
 
   return (
-    <div className={css(styles.deck)} data-testid={props['data-testid']}>
+    <div className={css(styles.deck)} data-testid='featured-deck'>
       <Deck
         showUpgrades={props.showUpgrades}
         deck={deck}
@@ -73,7 +73,9 @@ export default React.memo(function FeaturedDeck(props) {
       <div className={css(styles.info)}>
         <div className={css(styles.meta)}>
           <span className={css(styles.name)}>
-            <Link to={`/deck/${id}/detail`}>{props.name}</Link>
+            <Link to={`/deck/${id}/detail`} data-testid='featured-deck-name'>
+              {props.name}
+            </Link>
             {props.nerfed ? (
               <TooltipedIcon
                 label={`This deck was composed before the balance patch from ${props.nerfed}, therefore it might no longer be competitive.`}

@@ -49,6 +49,13 @@ export default React.memo(function Card(props) {
   return (
     <article
       className={css(styles.card, props.extend)}
+      data-affordable={props.affordable || undefined}
+      data-upgradable={props.upgradable || undefined}
+      data-missing={props.missing || undefined}
+      data-faction={props.faction}
+      data-rarity={props.rarity}
+      data-race={props.race}
+      data-type={props.type}
       ref={ref}
       style={{ '--font-size': fontSize }}
       data-testid='card'

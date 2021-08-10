@@ -87,14 +87,14 @@ describe('Card Builder — Official card', () => {
 
       .get(s.CARD)
       .eq(2)
-      .should('have.class', 'Card--upgradable')
+      .should('have.attr', 'data-upgradable', 'true')
 
       .get(s.CARD)
       .eq(3)
-      .should('not.have.class', 'Card--upgradable')
+      .should('not.have.attr', 'data-upgradable')
 
       .get(s.CARD)
       .eq(4)
-      .should('not.have.class', 'Card--upgradable')
+      .should('not.have.attr', 'data-upgradable')
   })
 })

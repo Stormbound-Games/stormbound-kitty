@@ -202,7 +202,6 @@ class DeckSuggestions extends React.Component {
                 decks={decks}
                 withBookmarking
                 showUpgrades
-                data-testid='deck-suggestion'
                 actions={deck => [<BookmarkDeckButton {...deck} />]}
               />
             ) : (
