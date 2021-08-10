@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Icon from '../Icon'
+import NewPulse from '../NewPulse'
 import Row from '../Row'
 import styles from './styles'
 
@@ -66,7 +67,6 @@ export default React.memo(function HeaderMegaMenu(props) {
                       to={item.to}
                       className={css(
                         styles.link({
-                          isNew: item.new,
                           isActive: props.active.includes(item.id),
                         })
                       )}
@@ -74,6 +74,7 @@ export default React.memo(function HeaderMegaMenu(props) {
                       {item.label}
                     </Link>
                   )}
+                  {item.new && <NewPulse />}
                 </li>
               ))}
             </ul>

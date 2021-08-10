@@ -1,14 +1,3 @@
-const pulse = {
-  from: { boxShadow: '0 0 0 0 rgba(203, 43, 67, 0.6)' },
-
-  '50%': {
-    transform: 'scale(1.05)',
-    boxShadow: '0 0 0 0.5em transparent',
-  },
-
-  to: { boxShadow: '0 0 0 0 transparent' },
-}
-
 /**
  * 1. Make sure the header sits over the content.
  */
@@ -58,30 +47,13 @@ const list = {
 /**
  * 1. Position context for the active state pseudo-element.
  */
-const item = ({ isRight, isNew, isSelect }) => ({
+const item = ({ isRight, isSelect }) => ({
   textAlign: isSelect ? 'left' : 'center',
   position: 'relative' /* 1 */,
   marginLeft: isRight ? 'auto' : undefined,
   width: isSelect ? '250px' : undefined,
   padding: isSelect ? '0.5em 1em' : undefined,
   overflow: isSelect ? 'visible' : undefined,
-
-  '::after': isNew
-    ? {
-        content: '""',
-        position: 'absolute',
-        top: '0.75em',
-        right: '0.5em',
-        width: '0.5em',
-        height: '0.5em',
-        borderRadius: '50%',
-        backgroundColor: 'rgba(203, 43, 67, 1)',
-        animationName: pulse,
-        animationDuration: '2s',
-        animationIterationCount: 'infinite',
-        animationTimingFunction: 'ease-out',
-      }
-    : undefined,
 
   /**
    * 1. Display navigation items in 2 columns.

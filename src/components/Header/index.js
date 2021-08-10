@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import { useLocation } from 'react-router-dom'
 import HeaderMegaMenu from '../HeaderMegaMenu'
 import NavLink from '../NavLink'
+import NewPulse from '../NewPulse'
 import Icon from '../Icon'
 import load from '../../helpers/load'
 import useNavigation from './useNavigation'
@@ -39,7 +40,7 @@ export default React.memo(function Header(props) {
         <ul className={css(styles.list)}>
           {navigation.map(item => (
             <React.Fragment key={item.label}>
-              <li className={css(styles.item({ isNew: item.new }))}>
+              <li className={css(styles.item)}>
                 {item.to ? (
                   <NavLink active={topActive === item.id} to={item.to}>
                     <Icon icon={item.icon} extend={styles.icon} /> {item.label}
@@ -71,6 +72,9 @@ export default React.memo(function Header(props) {
                     open={open === item.id}
                   />
                 ) : null}
+                {item.new && (
+                  <NewPulse extend={{ right: '1em', left: 'auto' }} />
+                )}
               </li>
             </React.Fragment>
           ))}
