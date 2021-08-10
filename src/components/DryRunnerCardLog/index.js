@@ -37,13 +37,15 @@ export default React.memo(function DryRunnerCardLog(props) {
                     initial={{ scale: Math.min(index, 1) }}
                     animate={{ scale: 1 }}
                     transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-                    className={css(styles.imageWrapper)}
-                  >
-                    <Image
-                      extend={styles.image({
+                    className={css(
+                      styles.imageWrapper({
                         isTurn:
                           props.cardsThisTurn === index + 1 && index !== 5,
-                      })}
+                      })
+                    )}
+                  >
+                    <Image
+                      extend={styles.image}
                       src={'/assets/images/cards/' + card.image}
                       alt={card.name}
                       onClick={() => setZoomedCard(card)}

@@ -156,7 +156,7 @@ export default React.memo(function GuideBrawl(props) {
       />
 
       <Only.Desktop>
-        <Guide.FullWidth padding='60px'>
+        <Guide.FullWidth>
           <Table>
             <thead>
               <tr>
@@ -285,13 +285,15 @@ export default React.memo(function GuideBrawl(props) {
 
       <p>Find below the existing modifiers:</p>
 
-      <ul>
-        {BRAWLS.map(brawl => (
-          <li key={brawl.cardId}>
-            <span className='Highlight'>{brawl.title}</span>: {brawl.label}
-          </li>
-        ))}
-      </ul>
+      <Guide.FullWidth>
+        <ul className={css({ columns: '16em', columnGap: '2em' })}>
+          {BRAWLS.map(brawl => (
+            <li key={brawl.cardId} style={{ textIndent: 0, paddingLeft: 0 }}>
+              <span className='Highlight'>{brawl.title}</span>: {brawl.label}
+            </li>
+          ))}
+        </ul>
+      </Guide.FullWidth>
 
       <p>
         A good way to practice Brawl and try decks outside of the event itself

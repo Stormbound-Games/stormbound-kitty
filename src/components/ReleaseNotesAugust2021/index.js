@@ -178,7 +178,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           Sheepyard Pack available, as well as a Rogue Sheep pack.
         </p>
 
-        <Guide.FullWidth padding='120px'>
+        <Guide.FullWidth>
           <Row desktopOnly wideGutter>
             <Row.Column width='1/3'>
               <Image

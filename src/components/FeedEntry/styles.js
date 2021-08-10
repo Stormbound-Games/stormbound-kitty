@@ -11,16 +11,17 @@ const left = {
   },
 }
 
-const icon = {
+const icon = ({ iconColor = 'var(--beige)' }) => ({
   position: 'relative',
   top: '0.225em',
   fontSize: '200%',
   opacity: 0.5,
-  color: 'var(--beige)',
-}
+  color: iconColor,
+})
 
 const main = {
   marginTop: 0,
+  color: 'var(--white)',
 }
 
 const date = {

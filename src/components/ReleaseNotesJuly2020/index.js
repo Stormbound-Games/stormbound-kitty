@@ -13,6 +13,7 @@ import Notice from '../Notice'
 import Quest from '../Quest'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import Strikethrough from '../Strikethrough'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
@@ -191,25 +192,33 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
       </Article.Narrow>
 
       <Article.Embed>
-        <Row desktopOnly wideGutter>
-          <Row.Column width='1/2'>
-            <h3 className={css({ marginTop: 0 })}>Sketches & illustrations</h3>
-            <Image
-              extend={{ marginTop: 0 }}
-              src='/assets/images/releases/banner_rogue_sheep.png'
-              alt='New Rogue Sheep card'
-            />
-          </Row.Column>
-          <Row.Column width='1/2'>
-            <h3 className={css({ marginTop: 0 })}>In-game 3D model</h3>
-            <video
-              className={css({ marginTop: 0 })}
-              src='/assets/videos/sheep_hero.mp4'
-              muted
-              controls
-            ></video>
-          </Row.Column>
-        </Row>
+        <Spacing bottom='LARGER'>
+          <Row desktopOnly wideGutter>
+            <Row.Column width='1/2'>
+              <h3 className={css({ marginTop: 0 })}>
+                Sketches & illustrations
+              </h3>
+              <Image
+                extend={{ marginTop: 0 }}
+                src='/assets/images/releases/banner_rogue_sheep.png'
+                alt='New Rogue Sheep card'
+              />
+            </Row.Column>
+            <Row.Column width='1/2'>
+              <h3 className={css({ marginTop: 0 })}>In-game 3D model</h3>
+              <video
+                className={css({
+                  marginTop: 0,
+                  maxWidth: '100%',
+                  display: 'block',
+                })}
+                src='/assets/videos/sheep_hero.mp4'
+                muted
+                controls
+              ></video>
+            </Row.Column>
+          </Row>
+        </Spacing>
         <CardBuilderCardDisplay {...getInitialCardData('N77')} />
       </Article.Embed>
 

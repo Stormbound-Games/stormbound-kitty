@@ -186,6 +186,7 @@ const image = {
   width: '100%',
   objectFit: 'contain',
   maxHeight: '100%',
+  margin: 'auto',
 }
 
 const ability = ({ isMissing }) => ({
@@ -193,6 +194,7 @@ const ability = ({ isMissing }) => ({
   padding: '0 2em',
   hyphens: 'none',
   opacity: isMissing ? 0.5 : undefined,
+  marginBottom: '1em',
 })
 
 const footer = {

@@ -265,13 +265,6 @@ const renderRootStyles = renderer => {
     margin-top: 2em;
   }
 
-  .EditorialContent video:not([class]) {
-    margin: 2em auto;
-    display: block;
-    height: auto;
-    max-width: 100%;
-  }
-
   .EditorialContent ol ul:not([class]) {
     margin-top: 0.5em;
     margin-bottom: 0;

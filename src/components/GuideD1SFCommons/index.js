@@ -80,7 +80,7 @@ export default React.memo(function GuideD1SFCommons(props) {
         deck, but that’s for another day.
       </p>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <FeaturedDeck
@@ -115,7 +115,7 @@ export default React.memo(function GuideD1SFCommons(props) {
         </Row>
       </Guide.FullWidth>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <p>
@@ -256,7 +256,7 @@ export default React.memo(function GuideD1SFCommons(props) {
       </Only.Mobile>
 
       <Only.Desktop>
-        <Guide.FullWidth padding='60px'>
+        <Guide.FullWidth>
           <Table>
             <thead>
               <tr>

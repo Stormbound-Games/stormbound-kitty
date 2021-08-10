@@ -175,7 +175,7 @@ export default React.memo(function GuideDrawing(props) {
       </p>
 
       <Only.Desktop>
-        <Guide.FullWidth padding='120px'>
+        <Guide.FullWidth>
           <Row>
             <Row.Column width='1/4'>
               <Card {...getResolvedCardData({ id: 'N12', level: 1 })} />

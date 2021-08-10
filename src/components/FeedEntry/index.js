@@ -16,7 +16,10 @@ export default React.memo(function FeedEntry(props) {
   return (
     <div className={css(styles.entry, props.extend)}>
       <span className={css(styles.left)}>
-        <Icon icon={props.icon} extend={styles.icon} />
+        <Icon
+          icon={props.icon}
+          extend={styles.icon({ iconColor: props.iconColor })}
+        />
       </span>
       <div className={css(styles.main)}>
         {props.date instanceof Date ? (

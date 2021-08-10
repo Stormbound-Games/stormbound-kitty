@@ -11,7 +11,7 @@ const fullWidth = {
      */
     marginLeft: 'calc(-50vw + 1200px / 2)',
     marginRight: 'calc(-50vw + 1200px / 2)',
-    padding: '0 calc(var(--padding, 0) + 0.625em)' /* 1 */,
+    padding: '0 calc(var(--padding, 100px) + 0.625em)' /* 1 */,
   },
 }
 

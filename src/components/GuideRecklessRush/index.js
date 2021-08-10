@@ -100,7 +100,7 @@ export default React.memo(function GuideRecklessRush(props) {
         </li>
       </TableOfContents>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Title id='the-decks'>The Decks</Title>
 
         <Row desktopOnly wideGutter>
@@ -194,7 +194,7 @@ export default React.memo(function GuideRecklessRush(props) {
         </Row>
       </Guide.FullWidth>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <p>

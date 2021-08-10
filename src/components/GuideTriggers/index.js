@@ -32,7 +32,7 @@ export default React.memo(function GuideDrawing(props) {
         the unit dies.
       </p>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly>
           <Row.Column>
             <Row>
@@ -259,7 +259,7 @@ export default React.memo(function GuideDrawing(props) {
         short).
       </p>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly>
           <Row.Column>
             <Row>

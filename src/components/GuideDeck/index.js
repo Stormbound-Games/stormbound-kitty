@@ -85,7 +85,7 @@ export default React.memo(function GuideDeck(props) {
         than playing a big one.
       </p>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly>
           <Row.Column>
             <Row>
@@ -191,7 +191,7 @@ export default React.memo(function GuideDeck(props) {
         <CardLink id='W4' />…
       </p>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly>
           <Row.Column>
             <Row>

@@ -48,6 +48,7 @@ const image = {
   top: '50%',
   transform: 'translate(-50%, -50%)',
   pointerEvents: 'none',
+  margin: 'auto',
 }
 
 const name = {

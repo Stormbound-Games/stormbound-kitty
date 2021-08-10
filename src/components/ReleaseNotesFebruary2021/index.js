@@ -118,32 +118,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
           Profile”, suggesting there will be more content to come, eventually
           fleshing out advanced player profiles!
         </p>
-      </Article.Narrow>
 
-      <Article.Embed>
-        <Row desktopOnly>
-          <Row.Column width='1/3'>
-            <Image
-              src='/assets/images/releases/avatars_3.png'
-              alt='Player profile screen showcasing the new player avatar'
-            />
-          </Row.Column>
-          <Row.Column width='1/3'>
-            <Image
-              src='/assets/images/releases/avatars_2.png'
-              alt='Avatar selection screen offering 9 different avatars from characters in the game'
-            />
-          </Row.Column>
-          <Row.Column width='1/3'>
-            <Image
-              src='/assets/images/releases/avatars_1.png'
-              alt='Friend list screen displayed players’ avatar and preferred faction'
-            />
-          </Row.Column>
-        </Row>
-      </Article.Embed>
-
-      <Article.Narrow>
         <CheapenedBrawl ratio={(1 / 3) * 2} difficulty='LEGACY'>
           <p>
             Similar to what happened in{' '}

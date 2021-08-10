@@ -102,7 +102,7 @@ export default React.memo(function GuideManaCurve(props) {
 
       <Title id='anatomy-of-the-graph'>Anatomy of the graph</Title>
 
-      <Guide.FullWidth padding='60px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <Graph id='5xn1n2i1n3n6i5n13i7n18i13i20n39' />{' '}
@@ -170,7 +170,7 @@ export default React.memo(function GuideManaCurve(props) {
         translates into better board control or speed.
       </p>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <p>
@@ -196,7 +196,7 @@ export default React.memo(function GuideManaCurve(props) {
         </Row>
       </Guide.FullWidth>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <Graph id='1xf2n62n19f24n21n22n41n25n69n44n72n54' />
@@ -247,7 +247,7 @@ export default React.memo(function GuideManaCurve(props) {
         for board control and speed.
       </p>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <p>
@@ -273,7 +273,7 @@ export default React.memo(function GuideManaCurve(props) {
         </Row>
       </Guide.FullWidth>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <Graph id='5xn1n2w2n3n4n14n18w13w16w15w19n58' />
@@ -321,7 +321,7 @@ export default React.memo(function GuideManaCurve(props) {
         early mana line making for a less random early game.
       </p>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <Graph
@@ -395,7 +395,7 @@ export default React.memo(function GuideManaCurve(props) {
         for very interesting graphs which are interesting to look at.
       </p>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <Graph
@@ -424,7 +424,7 @@ export default React.memo(function GuideManaCurve(props) {
         </Row>
       </Guide.FullWidth>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <p>

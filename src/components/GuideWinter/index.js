@@ -167,7 +167,7 @@ export default React.memo(function GuideWinter(props) {
         </li>
       </ul>
 
-      <Guide.FullWidth padding='60px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <FeaturedDeck

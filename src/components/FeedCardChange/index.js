@@ -21,7 +21,7 @@ export default React.memo(function FeedCardChange(props) {
       icon={ICONS[props.type].icon}
       date={props.date}
       dateFormat='LONG'
-      extend={{ color: ICONS[props.type].color }}
+      iconColor={ICONS[props.type].color}
       right={
         shouldRenderPreviewer && (
           <DiamondButton

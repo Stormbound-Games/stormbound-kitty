@@ -79,7 +79,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
 
       <Title>Possible Decks</Title>
 
-      <Guide.FullWidth padding='60px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <h3 className={css({ marginTop: '0.5em' })}>

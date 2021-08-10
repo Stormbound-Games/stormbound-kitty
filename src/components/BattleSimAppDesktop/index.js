@@ -9,6 +9,7 @@ import GameForm from '../BattleSimGameForm'
 import PlayerForm from '../BattleSimPlayerForm'
 import Puzzle from '../BattleSimPuzzle'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import Title from '../Title'
 import styles from './styles'
 
@@ -80,7 +81,9 @@ class BattleSimAppDesktop extends React.Component {
   render() {
     return (
       <div className={this.props.styles.root}>
-        <Board {...this.props} dndProps={this.dndProps} />
+        <Spacing bottom='LARGEST'>
+          <Board {...this.props} dndProps={this.dndProps} />
+        </Spacing>
 
         {this.props.mode === 'EDITOR' && (
           <CellFormDialog
