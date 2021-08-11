@@ -52,21 +52,19 @@ const content = ({ isDisabled }) => ({
   position: 'relative',
   overflow: 'hidden',
 
-  '::before': isDisabled
-    ? undefined
-    : {
-        content: '""',
-        width: '100%',
-        paddingTop: '100%',
-        position: 'absolute',
-        left: '50%',
-        top: '50%',
-        transform: 'translate(0%, -75%) rotate(45deg)',
-        backgroundImage: 'linear-gradient(45deg, #ffffff66, #ffffff33)',
-        transition: '0.25s',
+  '::before': {
+    content: isDisabled ? undefined : '""',
+    width: '100%',
+    paddingTop: '100%',
+    position: 'absolute',
+    left: '50%',
+    top: '50%',
+    transform: 'translate(0%, -75%) rotate(45deg)',
+    backgroundImage: 'linear-gradient(45deg, #ffffff66, #ffffff33)',
+    transition: '0.25s',
+  },
 
-        ':hover': { transform: 'translate(-50%, -50%) rotate(45deg)' },
-      },
+  ':hover::before': { transform: 'translate(-50%, -50%) rotate(45deg)' },
 })
 
 export default { cta, content }
