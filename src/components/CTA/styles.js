@@ -62,8 +62,7 @@ const content = ({ isDisabled }) => ({
         left: '50%',
         top: '50%',
         transform: 'translate(0%, -75%) rotate(45deg)',
-        backgroundImage:
-          'linear-gradient(45deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2))',
+        backgroundImage: 'linear-gradient(45deg, #ffffff66, #ffffff33)',
         transition: '0.25s',
 
         ':hover': { transform: 'translate(-50%, -50%) rotate(45deg)' },

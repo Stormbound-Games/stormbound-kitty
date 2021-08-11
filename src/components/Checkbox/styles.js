@@ -9,7 +9,7 @@ const checkbox = {
 const icon = ({ isChecked, isDisabled }) => ({
   width: '1.25em',
   height: '1.25em',
-  border: '1px solid rgba(222, 215, 164, 0.5)',
+  border: '1px solid #ded7a480',
   transform: 'translate(25%, -50%) rotate(45deg)',
   display: 'inline-block',
   position: 'absolute',

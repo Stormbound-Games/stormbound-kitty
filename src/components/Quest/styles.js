@@ -50,11 +50,7 @@ const difficultyDiamond = ({ level }) => ({
   height: '1em',
   transform: 'rotate(45deg)',
   margin: '0 0.3em',
-  backgroundColor: [
-    'rgb(37, 106, 156)',
-    'rgb(133, 41, 154)',
-    'rgb(231, 147, 18)',
-  ][level - 1],
+  backgroundColor: ['#256a9c', '#85299a', '#e79312'][level - 1],
 })
 
 const content = {

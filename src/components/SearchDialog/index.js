@@ -186,7 +186,7 @@ export default React.memo(function SearchDialog(props) {
                               style: {
                                 backgroundColor:
                                   highlightedIndex === index
-                                    ? 'rgba(0, 0, 0, 0.1)'
+                                    ? '#0000001a'
                                     : 'transparent',
                                 fontWeight:
                                   selectedItem === item ? 'bold' : 'normal',

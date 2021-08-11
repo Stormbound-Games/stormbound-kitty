@@ -25,7 +25,7 @@ const button = ({ isEmpty }) => ({
     left: '50%',
     top: '50%',
     position: 'absolute',
-    color: 'rgba(255, 255, 255, 0.7)',
+    color: '#ffffffb3',
     lineHeight: 1,
     transform: 'translate(-50%, -50%)',
     transition: 'opacity 500ms',

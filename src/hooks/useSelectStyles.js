@@ -62,8 +62,8 @@ export default ({ noBorder, withClear } = {}) => {
             ':hover': { borderColor: 'transparent' },
           }
         : {
-            borderColor: 'rgba(222, 215, 164, 0.5)',
-            ':hover': { borderColor: 'rgba(222, 215, 164, 0.5)' },
+            borderColor: '#ded7a480',
+            ':hover': { borderColor: '#ded7a480' },
             outline: isFocused
               ? ['auto 2px Highlight', 'auto 5px -webkit-focus-ring-color']
               : provided.outline,

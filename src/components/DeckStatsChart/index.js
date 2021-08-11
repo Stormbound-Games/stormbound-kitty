@@ -84,14 +84,14 @@ export default React.memo(function DeckStatsChart(props) {
               name='Chances to spend all mana'
               type='monotone'
               dataKey='usingAllMana'
-              stroke='rgb(57, 133, 175)'
+              stroke='#3985af'
               strokeWidth={2}
             />
             <Line
               name='Chances to play all cards'
               type='monotone'
               dataKey='playingAllCards'
-              stroke='rgb(107, 231, 156)'
+              stroke='var(--affordable)'
               strokeWidth={2}
             />
           </LineChart>

@@ -21,10 +21,10 @@ export default React.memo(function ChartMovement(props) {
         return acc
       },
       [
-        { name: 'No movement', value: 0, color: 'rgb(96, 72, 48)' },
-        { name: '1 movement', value: 0, color: 'rgb(96, 92, 68)' },
-        { name: '2 movement', value: 0, color: 'rgb(96, 112, 88)' },
-        { name: '3 movement', value: 0, color: 'rgb(96, 132, 108)' },
+        { name: 'No movement', value: 0, color: 'var(--swarm)' },
+        { name: '1 movement', value: 0, color: '#605c44' },
+        { name: '2 movement', value: 0, color: '#607058' },
+        { name: '3 movement', value: 0, color: '#60846c' },
       ]
     )
 

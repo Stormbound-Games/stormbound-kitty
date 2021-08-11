@@ -19,7 +19,7 @@ const TOOLTIP_STYLES = {
   border: 0,
   whiteSpace: 'normal',
   boxShadow: 'none',
-  filter: 'drop-shadow(0 1em 2em rgba(0, 0, 0, 0.2))',
+  filter: 'drop-shadow(0 1em 2em #00000033)',
 }
 
 const DeckEmptySlot = React.memo(function DeckEmptySlot(props) {

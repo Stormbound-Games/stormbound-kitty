@@ -8,14 +8,13 @@ const milestone = ({ isCollected }) => ({
   flexDirection: 'column',
   width: '20em' /* 1 */,
   height: '20em' /* 1 */,
-  backgroundImage:
-    'linear-gradient(45deg, rgb(28, 67, 82) 50%, rgb(30, 72, 88) 50%)' /* 2 */,
+  backgroundImage: 'linear-gradient(45deg, #1c4352 50%, #1e4858 50%)' /* 2 */,
   border: '1px solid var(--dark-beige)',
-  boxShadow: '0 0 0 5px rgb(28, 67, 82)',
+  boxShadow: '0 0 0 5px #1c4352',
   margin: 'auto',
 
   ...(isCollected && {
-    boxShadow: '0 0 0 5px rgba(28, 67, 82, 0.5)',
+    boxShadow: '0 0 0 5px #1c435280',
   }),
 })
 
@@ -24,8 +23,8 @@ const header = {
   fontSize: '120%',
   textAlign: 'center',
   textTransform: 'uppercase',
-  color: 'rgb(159, 212, 231)',
-  backgroundColor: 'rgb(54, 92, 112)',
+  color: '#9fd4e7',
+  backgroundColor: '#365c70',
 }
 
 /**
@@ -47,7 +46,7 @@ const overlay = {
   right: 0,
   left: 0,
   bottom: 0,
-  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  backgroundColor: '#00000080',
   zIndex: 2,
 }
 
@@ -55,8 +54,7 @@ const overlay = {
  * 1. Negates the 1px border and 5px box-shadow on the top-level container.
  */
 const collected = {
-  backgroundImage:
-    'linear-gradient(45deg, rgb(210, 195, 141) 50%, rgb(226, 215, 175) 50%)',
+  backgroundImage: 'linear-gradient(45deg, #d2c38d 50%, var(--beige) 50%)',
   position: 'absolute',
   left: '-6px' /* 1 */,
   right: '-6px' /* 1 */,

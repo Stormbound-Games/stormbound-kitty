@@ -10,16 +10,15 @@ const cell = ({ type }) => ({
   borderRadius: '8px',
 
   ...(type === 'Devastators' && {
-    backgroundColor: 'rgba(231, 76, 60, 0.6)',
+    backgroundColor: '#e74c3c99',
   }),
 
   ...(type === 'Snowmasons' && {
-    backgroundColor: 'rgba(46, 204, 113, 0.6)',
+    backgroundColor: '#2ecc7199',
   }),
 
   ...(type === 'guardians' && {
-    background:
-      'linear-gradient(to top left, rgba(52, 152, 219, 0.6) 50%, rgba(46, 204, 113, 0.6) 50%)',
+    background: 'linear-gradient(to top left, #3498db99 50%, #2ecc7199 50%)',
   }),
 })
 
@@ -35,9 +34,9 @@ const legend = {
     boxSizing: 'border-box',
   },
 
-  ':nth-of-type(1)::before': { backgroundColor: 'rgba(231, 76, 60, 1)' },
-  ':nth-of-type(2)::before': { backgroundColor: 'rgba(52, 152, 219, 1)' },
-  ':nth-of-type(3)::before': { backgroundColor: 'rgba(46, 204, 113, 1)' },
+  ':nth-of-type(1)::before': { backgroundColor: '#e74c3c' },
+  ':nth-of-type(2)::before': { backgroundColor: '#3498db' },
+  ':nth-of-type(3)::before': { backgroundColor: '#2ecc71' },
 }
 
 export default { caption, legend, cell }

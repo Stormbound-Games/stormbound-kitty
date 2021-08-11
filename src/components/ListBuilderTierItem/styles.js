@@ -1,18 +1,18 @@
 const item = ({ isPlaceholder }) => ({
   display: 'inline-block',
   width: 'calc(20% - 0.5em)',
-  border: '1px solid var(--faction, rgba(255, 255, 255, 0.3))',
+  border: '1px solid var(--faction, #ffffff4d)',
   margin: '0.07em 0.25em',
-  backgroundColor: 'rgba(0, 0, 0, 0.6)',
+  backgroundColor: '#00000099',
   borderRadius: '0.2em',
   position: 'relative',
   padding: 0,
   borderStyle: isPlaceholder ? 'dashed' : undefined,
-  borderColor: isPlaceholder ? 'rgba(255, 255, 255, 0.3)' : undefined,
+  borderColor: isPlaceholder ? '#ffffff4d' : undefined,
   opacity: isPlaceholder ? 0.7 : undefined,
 
   "[style*='--neutral']": {
-    backgroundColor: 'rgba(0, 0, 0, 0.33)',
+    backgroundColor: '#0000004d',
   },
 
   '::after': {

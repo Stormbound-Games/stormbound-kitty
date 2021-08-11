@@ -28,7 +28,7 @@ const item = {
  */
 const inDeck = {
   backgroundImage:
-    'linear-gradient(45deg, rgb(210, 195, 141) 50%, rgb(226, 215, 175) 50%)' /* 1 */,
+    'linear-gradient(45deg, #d2c38d 50%, var(--beige) 50%)' /* 1 */,
   position: 'absolute',
   left: 'calc(0.5em * 100 / 150)' /* 2 */,
   right: 'calc(0.5em * 100 / 150)' /* 2 */,

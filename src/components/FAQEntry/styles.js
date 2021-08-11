@@ -4,7 +4,7 @@ const pulse = {
     boxShadow: '0 0 0 1px var(--black), 0 0 0 2px var(--beige)',
   },
   to: {
-    boxShadow: '0 0 0 1px var(--black), 0 0 0 2px rgba(222, 215, 164, 0)',
+    boxShadow: '0 0 0 1px var(--black), 0 0 0 2px #ded7a400',
   },
 }
 

@@ -13,8 +13,7 @@ const puzzle = {
   textAlign: 'right',
   padding: '1em',
   width: 'calc((100% - 40%) / 2)',
-  backgroundImage:
-    'linear-gradient(-194deg, transparent 60%, rgba(0, 0, 0, 0.5))',
+  backgroundImage: 'linear-gradient(-194deg, transparent 60%, #00000080)',
 }
 
 const deck = {

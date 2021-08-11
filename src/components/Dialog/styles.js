@@ -14,7 +14,7 @@ const container = {
 }
 
 const overlay = {
-  backgroundColor: 'rgba(0, 0, 0, 0.6)',
+  backgroundColor: '#00000099',
   position: 'fixed',
   top: 0,
   right: 0,
