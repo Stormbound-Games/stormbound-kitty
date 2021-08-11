@@ -140,7 +140,6 @@ const sectionTitle = {
 
 const sectionImage = {
   medium: {
-    display: 'block',
     marginRight: 'auto',
     maxHeight: '15em',
     zIndex: 2,
