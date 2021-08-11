@@ -1,14 +1,12 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import Link from '../Link'
-import Asterisk from '../Asterisk'
+import Footnotes, { Footnote } from '../Footnotes'
 import Guide from '../Guide'
 import Info from '../Info'
 import ResourceIcon from '../ResourceIcon'
 import { Coins, Rubies, Stones } from '../Resource'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
-import VisuallyHidden from '../VisuallyHidden'
 import { RARITY_COPIES } from '../../constants/game'
 import cards from '../../data/cards'
 import getGuide from '../../helpers/getGuide'
@@ -25,8 +23,6 @@ const countCopiesForRarity = rarity =>
     .replace(THOUSANDS, ',')
 
 export default React.memo(function GuideResources(props) {
-  const { css } = useFela()
-
   return (
     <Guide {...guide}>
       <p>
@@ -113,15 +109,9 @@ export default React.memo(function GuideResources(props) {
           <Coins amount={20} /> in Diamond , <Coins amount={15} /> in Platinum ,{' '}
           <Coins amount={10} /> in other leagues, doubled when watching an ad or
           having a Premium Pass) with{' '}
-          <Link
-            href='#coins-tip'
-            aria-describedby='footnotes'
-            id='coins-tip-ref'
-            className={css({ textDecoration: 'none' })}
-          >
+          <Footnote id='coins-tip'>
             a maximum of <Coins amount={400} /> a day
-            <Asterisk />
-          </Link>{' '}
+          </Footnote>{' '}
           or <Coins amount={700} /> in case of Premium Pass).
         </li>
         <li>
@@ -418,10 +408,7 @@ export default React.memo(function GuideResources(props) {
         the best income strategy for you.
       </p>
 
-      <footer className={css({ marginTop: '4em', fontSize: '90%' })}>
-        <VisuallyHidden as='h2' id='footnotes'>
-          Footnotes
-        </VisuallyHidden>
+      <Footnotes>
         <p id='coins-tip'>
           (*) It is technically possible to earn <Coins amount={415} /> from
           battles per day despite the coins cap. To do so, reach{' '}
@@ -431,7 +418,7 @@ export default React.memo(function GuideResources(props) {
             ↩
           </Link>
         </p>
-      </footer>
+      </Footnotes>
     </Guide>
   )
 })

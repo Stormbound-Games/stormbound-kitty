@@ -3,13 +3,12 @@ import { useFela } from 'react-fela'
 import { UserContext } from '../UserProvider'
 import Link from '../Link'
 import Article from '../Article'
-import Asterisk from '../Asterisk'
+import Footnotes, { Footnote } from '../Footnotes'
 import MemberList from '../MemberList'
 import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Spacing from '../Spacing'
 import Sparkles from '../Sparkles'
-import VisuallyHidden from '../VisuallyHidden'
 import contributions from '../../data/contributions'
 import donations from '../../data/donations'
 import styles from './styles'
@@ -154,15 +153,9 @@ export default React.memo(function About(props) {
               members={[...new Set(donations.map(donation => donation.author))]}
             />{' '}
             for{' '}
-            <Link
-              href='#anonymous-donations'
-              aria-describedby='footnotes'
-              id='anonymous-donations-ref'
-              extend={{ textDecoration: 'none' }}
-            >
+            <Footnote id='anonymous-donations'>
               their generous and kind donations
-              <Asterisk />
-            </Link>
+            </Footnote>
             .
           </p>
 
@@ -193,10 +186,7 @@ export default React.memo(function About(props) {
           whimsical game that is Stormbound, thank you.
         </Notice>
 
-        <footer className={css({ marginTop: '4em', fontSize: '90%' })}>
-          <VisuallyHidden as='h2' id='footnotes'>
-            Footnotes
-          </VisuallyHidden>
+        <Footnotes>
           <p id='anonymous-donations'>
             (*) Donations being anonymous, I might have missed some. If you have
             issued a donation but are not mentioned, please kindly let me know
@@ -206,7 +196,7 @@ export default React.memo(function About(props) {
               ↩
             </Link>
           </p>
-        </footer>
+        </Footnotes>
       </Article.Narrow>
 
       <PageMeta

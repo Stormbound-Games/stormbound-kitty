@@ -4,6 +4,7 @@ import Link from '../Link'
 import BrawlDifficultySelect from '../BrawlDifficultySelect'
 import BrawlMilestones from '../BrawlMilestones'
 import BrawlProvider from '../BrawlProvider'
+import Footnotes, { Footnote } from '../Footnotes'
 import Guide from '../Guide'
 import Image from '../Image'
 import Info from '../Info'
@@ -14,7 +15,6 @@ import Row from '../Row'
 import Table from '../Table'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
-import VisuallyHidden from '../VisuallyHidden'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getCurrentBrawl from '../../helpers/getCurrentBrawl'
 import getGuide from '../../helpers/getGuide'
@@ -88,24 +88,7 @@ export default React.memo(function GuideBrawl(props) {
           In the Casual event, the Fortress Level is capped to 12 health, and
           the level of all cards is set to 1. All matches need to be settled
           within 10 turns otherwise they will lead to a{' '}
-          <Link
-            href={`#draw`}
-            aria-describedby='footnotes'
-            id={`draw-ref`}
-            extend={{ textDecoration: 'none' }}
-          >
-            draw
-            <span
-              className={{
-                color: 'var(--beige)',
-                marginLeft: '2px',
-                fontSize: '120%',
-              }}
-            >
-              *
-            </span>
-          </Link>
-          .
+          <Footnote id='draw'>draw</Footnote>.
         </li>
         <li>
           In the Warrior event, the Fortress Level is capped to 14 health, and
@@ -395,10 +378,7 @@ export default React.memo(function GuideBrawl(props) {
         on your win/rate ratio.
       </p>
 
-      <footer className={css({ marginTop: '4em', fontSize: '80%' })}>
-        <VisuallyHidden as='h2' id='footnotes'>
-          Footnotes
-        </VisuallyHidden>
+      <Footnotes>
         <p id='draw'>
           (*) A draw can happen when both players have the same amount of health
           by the end of the last turn (10th in Casual, 15th in Warrior and 20th
@@ -407,7 +387,7 @@ export default React.memo(function GuideBrawl(props) {
             ↩
           </Link>
         </p>
-      </footer>
+      </Footnotes>
     </Guide>
   )
 })
