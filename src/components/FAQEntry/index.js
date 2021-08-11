@@ -1,15 +1,18 @@
 import React from 'react'
-import './index.css'
+import { useFela } from 'react-fela'
+import styles from './styles'
 
 export default React.memo(function FAQEntry(props) {
+  const { css } = useFela()
+
   return (
     <>
-      <dt className='FAQEntry' id={props.id}>
-        <a className='FAQEntry__link' href={'#' + props.id}>
+      <dt className={css(styles.entry)} id={props.id}>
+        <a className={css(styles.link)} href={'#' + props.id}>
           {props.question}
         </a>
       </dt>
-      <dd className='FAQEntry__answer'>{props.answer}</dd>
+      <dd className={css(styles.answer)}>{props.answer}</dd>
     </>
   )
 })

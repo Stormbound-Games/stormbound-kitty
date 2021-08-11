@@ -6,8 +6,8 @@ describe('Card Builder — Faction', () => {
     cy
       .get(s.CARD_PREVIEW)
       .eq(index)
-      .find('.Card')
-      .should('have.class', 'Card--' + faction)
+      .find('[data-testid="card"]')
+      .should('have.attr', 'data-faction', faction)
 
   before(() => {
     cy.visit('/card')

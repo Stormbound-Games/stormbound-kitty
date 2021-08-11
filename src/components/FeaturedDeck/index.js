@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import { CollectionContext } from '../CollectionProvider'
 import Deck from '../Deck'
@@ -13,7 +14,7 @@ import getDeckDistanceToMax from '../../helpers/getDeckDistanceToMax'
 import getRawCardData from '../../helpers/getRawCardData'
 import resolveCollection from '../../helpers/resolveCollection'
 import modifyDeck from '../../helpers/modifyDeck'
-import './index.css'
+import styles from './styles'
 
 const useAdjustedDeck = ({ brawl, tags, id, staticLevels }) => {
   const { hasDefaultCollection, collection } =
@@ -51,11 +52,12 @@ const useAdjustedDeck = ({ brawl, tags, id, staticLevels }) => {
 }
 
 export default React.memo(function FeaturedDeck(props) {
+  const { css } = useFela()
   const { id, deck, distance } = useAdjustedDeck(props)
   const actions = props.actions || []
 
   return (
-    <div className='FeaturedDeck' data-testid={props['data-testid']}>
+    <div className={css(styles.deck)} data-testid='featured-deck'>
       <Deck
         showUpgrades={props.showUpgrades}
         deck={deck}
@@ -64,14 +66,16 @@ export default React.memo(function FeaturedDeck(props) {
         onClickLabel='Display card'
       />
 
-      <div className='FeaturedDeck__rarity-bar'>
+      <div className={css(styles.rarityBar)}>
         <RarityBar deck={deck.map(card => getRawCardData(card.id))} />
       </div>
 
-      <div className='FeaturedDeck__info'>
-        <div className='FeaturedDeck__meta'>
-          <span className='FeaturedDeck__name'>
-            <Link to={`/deck/${id}/detail`}>{props.name}</Link>
+      <div className={css(styles.info)}>
+        <div className={css(styles.meta)}>
+          <span className={css(styles.name)}>
+            <Link to={`/deck/${id}/detail`} data-testid='featured-deck-name'>
+              {props.name}
+            </Link>
             {props.nerfed ? (
               <TooltipedIcon
                 label={`This deck was composed before the balance patch from ${props.nerfed}, therefore it might no longer be competitive.`}
@@ -99,7 +103,7 @@ export default React.memo(function FeaturedDeck(props) {
               </Only.CustomCollection>
             ) : null}
           </span>
-          <span className='FeaturedDeck__author'>
+          <span className={css(styles.author)}>
             {props.author && (
               <>
                 By{' '}
@@ -115,7 +119,7 @@ export default React.memo(function FeaturedDeck(props) {
           </span>
         </div>
         {actions.length > 0 && (
-          <div className='FeaturedDeck__actions'>
+          <div className={css(styles.actions)}>
             {actions.map((action, index) =>
               action['$$typeof'] ? (
                 <React.Fragment key={index}>{action}</React.Fragment>

@@ -57,7 +57,7 @@ export default React.memo(function GuideBroodmotherQordia(props) {
             This is all to say that there is some use to Broodmother Qordia.
           </p>
         </Row.Column>
-        <Row.Column width='1/3' style={{ justifyContent: 'center' }}>
+        <Row.Column width='1/3' extend={{ justifyContent: 'center' }}>
           <Card
             {...getResolvedCardData({ id: 'T12', level: 1 })}
             rarity='common'

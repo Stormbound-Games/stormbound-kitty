@@ -1,8 +1,9 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Dialog from '../Dialog'
-import './index.css'
 
 export default React.memo(function FanKitDownloadDialog(props) {
+  const { css } = useFela()
   return (
     <Dialog
       id='fan-kit-dialog'
@@ -15,7 +16,7 @@ export default React.memo(function FanKitDownloadDialog(props) {
           ? {
               href: props.image,
               download: true,
-              className: 'FanKitDownloadDialog__CTA',
+              className: css({ minWidth: 0 }),
               'data-testid': 'fan-kit-link',
               children: 'PNG file',
             }

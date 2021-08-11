@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { useHistory } from 'react-router-dom'
 import Downshift from 'downshift'
 import { StoriesContext } from '../StoriesProvider'
@@ -6,7 +7,7 @@ import Dialog from '../Dialog'
 import Icon from '../Icon'
 import searcher, { SEARCH_INDEX } from './searcher'
 import capitalise from '../../helpers/capitalise'
-import './index.css'
+import styles from './styles'
 
 const isSearchShortcut = event => {
   const { key, metaKey } = event
@@ -31,18 +32,20 @@ const useSearchKeyboardShortcut = setIsOpen => {
 }
 
 const Option = props => {
+  const { css } = useFela()
+
   return (
-    <span className='SearchDialog__option'>
+    <span className={css(styles.option)}>
       {props.label}
       {props.breadcrumbs.length > 0 && (
-        <span className='SearchDialog__meta'>
+        <span className={css(styles.meta)}>
           In{' '}
           {props.breadcrumbs.reduce((acc, crumb, index) => {
             if (index !== 0) {
               acc.push(
                 <Icon
                   icon='arrow-right'
-                  className='SearchDialog__arrow'
+                  className={css(styles.arrow)}
                   key={index + '-icon'}
                 />
               )
@@ -61,6 +64,7 @@ const Option = props => {
 }
 
 export default React.memo(function SearchDialog(props) {
+  const { css } = useFela()
   const [storiesAdded, setStoriesAdded] = React.useState(false)
   const [inputValue, setInputValue] = React.useState('')
   const history = useHistory()
@@ -128,84 +132,82 @@ export default React.memo(function SearchDialog(props) {
       close={() => props.dialogRef.current.hide()}
       image='/assets/images/cards/trekking_aldermen.png'
     >
-      <Downshift
-        inputValue={inputValue}
-        onChange={handleSearch}
-        itemToString={item => (item ? item.label : '')}
-      >
-        {({
-          getInputProps,
-          getItemProps,
-          getLabelProps,
-          getMenuProps,
-          getRootProps,
-          highlightedIndex,
-          inputValue,
-          isOpen,
-          selectedItem,
-        }) => (
-          <div className='SearchDialog__wrapper'>
-            <label
-              {...getLabelProps()}
-              className='SearchDialog__label VisuallyHidden'
-            >
-              Search Stormbound-Kitty
-            </label>
-            <div
-              className='SearchDialog__input-wrapper'
-              style={{ display: 'inline-block' }}
-              {...getRootProps({}, { suppressRefError: true })}
-            >
-              <input
-                {...getInputProps({
-                  className: 'SearchDialog__input',
-                  placeholder: 'e.g. calculator',
-                  type: 'text',
-                  id: 'search',
-                  name: 'search',
-                  ref: input,
-                  value: inputValue,
-                  onChange: event => setInputValue(event.target.value),
-                })}
-              />
+      <div className={css(styles.body)}>
+        <Downshift
+          inputValue={inputValue}
+          onChange={handleSearch}
+          itemToString={item => (item ? item.label : '')}
+        >
+          {({
+            getInputProps,
+            getItemProps,
+            getLabelProps,
+            getMenuProps,
+            getRootProps,
+            highlightedIndex,
+            inputValue,
+            isOpen,
+            selectedItem,
+          }) => (
+            <div className={css(styles.wrapper)}>
+              <label {...getLabelProps()} className='VisuallyHidden'>
+                Search Stormbound-Kitty
+              </label>
+              <div
+                className={css(styles.inputWrapper)}
+                {...getRootProps({}, { suppressRefError: true })}
+              >
+                <input
+                  {...getInputProps({
+                    className: css(styles.input),
+                    placeholder: 'e.g. calculator',
+                    type: 'text',
+                    id: 'search',
+                    name: 'search',
+                    ref: input,
+                    value: inputValue,
+                    onChange: event => setInputValue(event.target.value),
+                  })}
+                />
+              </div>
+              <ul {...getMenuProps()} className={css(styles.list)}>
+                {isOpen && inputValue.length >= 3
+                  ? searcher
+                      .search(inputValue)
+                      .slice(0, 5)
+                      .map(({ item }, index) => {
+                        return (
+                          <li
+                            className={css(styles.item)}
+                            {...getItemProps({
+                              key: item.path,
+                              index,
+                              item,
+                              style: {
+                                backgroundColor:
+                                  highlightedIndex === index
+                                    ? 'rgba(0, 0, 0, 0.1)'
+                                    : 'transparent',
+                                fontWeight:
+                                  selectedItem === item ? 'bold' : 'normal',
+                              },
+                            })}
+                          >
+                            <Option {...item} />
+                          </li>
+                        )
+                      })
+                  : null}
+              </ul>
             </div>
-            <ul {...getMenuProps()} className='SearchDialog__list'>
-              {isOpen && inputValue.length >= 3
-                ? searcher
-                    .search(inputValue)
-                    .slice(0, 5)
-                    .map(({ item }, index) => {
-                      return (
-                        <li
-                          className='SearchDialog__item'
-                          {...getItemProps({
-                            key: item.path,
-                            index,
-                            item,
-                            style: {
-                              backgroundColor:
-                                highlightedIndex === index
-                                  ? 'rgba(0, 0, 0, 0.1)'
-                                  : 'transparent',
-                              fontWeight:
-                                selectedItem === item ? 'bold' : 'normal',
-                            },
-                          })}
-                        >
-                          <Option {...item} />
-                        </li>
-                      )
-                    })
-                : null}
-            </ul>
-          </div>
-        )}
-      </Downshift>
+          )}
+        </Downshift>
 
-      <p className='SearchDialog__hint'>
-        Psst! Next time, you can use <kbd>/</kbd> or <kbd>{metaKeyName}</kbd> +{' '}
-        <kbd>k</kbd> to quickly open the search from anywhere.
-      </p>
+        <p className={css(styles.hint)}>
+          Psst! Next time, you can use <kbd>/</kbd> or <kbd>{metaKeyName}</kbd>{' '}
+          + <kbd>k</kbd> to quickly open the search from anywhere.
+        </p>
+      </div>
     </Dialog>
   )
 })

@@ -1,11 +1,13 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import changelog from '../../data/changelog'
 import parseDate from '../../helpers/parseDate'
 import FeedCardChange from '../FeedCardChange'
 import Title from '../Title'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function CardChangeFeed(props) {
+  const { css } = useFela()
   const changes = changelog.filter(change => change.id === props.id)
   const hasReleaseChange = changes.some(
     change =>
@@ -27,7 +29,7 @@ export default React.memo(function CardChangeFeed(props) {
   return (
     <>
       <Title>Changes</Title>
-      <ul className='CardChangeFeed'>
+      <ul className={css(styles.feed)}>
         {changes
           .map(entry => ({
             ...entry,
@@ -35,7 +37,7 @@ export default React.memo(function CardChangeFeed(props) {
           }))
           .sort((a, b) => b.date - a.date)
           .map((entry, index) => (
-            <li key={index} className='CardChangeFeed__item'>
+            <li key={index} className={css(styles.item)}>
               <FeedCardChange
                 {...entry}
                 versionId={props.versionId}

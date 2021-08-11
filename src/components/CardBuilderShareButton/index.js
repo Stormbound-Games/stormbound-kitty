@@ -1,9 +1,11 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Checkbox from '../Checkbox'
 import ShareDialog from '../ShareDialog'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function CardBuilderShareButton(props) {
+  const { css } = useFela()
   const [mode, setMode] = React.useState('LINK')
   const [hideInterface, setHideInterface] = React.useState(false)
   // If copying only the stats without the link, process the URL as null.
@@ -54,7 +56,7 @@ export default React.memo(function CardBuilderShareButton(props) {
         <option value='STATS'>Stats as text only</option>
       </select>
 
-      <div className='CardBuilderShareDialog__checkbox'>
+      <div className={css(styles.checkbox)}>
         <Checkbox
           name='hide-interface'
           id='hide-interface'

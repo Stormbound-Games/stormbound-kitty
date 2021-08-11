@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Card from '../Card'
+import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Guide from '../Guide'
 import CardLink from '../CardLink'
-import Row from '../Row'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
-import getResolvedCardData from '../../helpers/getResolvedCardData'
+import getInitialCardData from '../../helpers/getInitialCardData'
 import getGuide from '../../helpers/getGuide'
 
 const guide = getGuide('TERRIFIC_SLAYERS_GUIDE')
@@ -21,31 +21,27 @@ export default React.memo(function GuideTerrificSlayers(props) {
         them.
       </p>
 
-      <Row desktopOnly wideGutter>
-        <Row.Column width='2/3'>
-          <Title style={{ marginTop: '2em' }}>Table of contents</Title>
-          <ol>
-            <li>
-              <a href='#what-the-deck'>What the deck?</a>
-            </li>
-            <li>
-              <a href='#countering-the-counters'>Countering the counters</a>
-            </li>
-            <li>
-              <a href='#limited-aoe'>Limited AoE</a>
-            </li>
-            <li>
-              <a href='#take-risks-and-bait'>Take risks and bait</a>
-            </li>
-            <li>
-              <a href='#bank-on-surprise'>Bank on surprise</a>
-            </li>
-          </ol>
-        </Row.Column>
-        <Row.Column width='1/3'>
-          <Card {...getResolvedCardData({ id: 'N27', level: 5 })} />
-        </Row.Column>
-      </Row>
+      <TableOfContents>
+        <li>
+          <a href='#what-the-deck'>What the deck?</a>
+        </li>
+        <li>
+          <a href='#countering-the-counters'>Countering the counters</a>
+        </li>
+        <li>
+          <a href='#limited-aoe'>Limited AoE</a>
+        </li>
+        <li>
+          <a href='#take-risks-and-bait'>Take risks and bait</a>
+        </li>
+        <li>
+          <a href='#bank-on-surprise'>Bank on surprise</a>
+        </li>
+      </TableOfContents>
+
+      <Guide.FullWidth>
+        <CardBuilderCardDisplay {...getInitialCardData('N27')} />
+      </Guide.FullWidth>
 
       <Title id='what-the-deck'>What the deck?</Title>
       <p>

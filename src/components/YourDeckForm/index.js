@@ -71,7 +71,7 @@ export default React.memo(function YourDeckForm(props) {
             {props.id || props.name || props.tags ? 'Update deck' : 'Add deck'}
           </CTA>
         </Row.Column>
-        <Row.Column style={{ justifyContent: 'center' }}>
+        <Row.Column extend={{ justifyContent: 'center' }}>
           <button type='button' onClick={props.cancel} className='ButtonAsLink'>
             Nevermind
           </button>

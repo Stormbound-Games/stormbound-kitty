@@ -1,5 +1,4 @@
 import React from 'react'
-import './index.css'
 
 export default React.memo(function TrackerInfo(props) {
   return (

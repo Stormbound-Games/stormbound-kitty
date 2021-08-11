@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
 import Image from '../Image'
@@ -47,6 +48,8 @@ const BrawlTable = ({ data }) => (
 )
 
 export default React.memo(function ReleaseNotesBrawl2021(props) {
+  const { css } = useFela()
+
   return (
     <ReleaseNotes id='brawl_2021'>
       <Article.Narrow>
@@ -97,7 +100,7 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
 
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <p style={{ marginTop: '1.5em' }}>
+            <p className={css({ marginTop: '1.5em' })}>
               From now on, there will be 3 running Brawl events per week, of
               three different difficulties: Casual, Warrior and Ultimate. The
               current Brawl version is the new Ultimate one, so there will be
@@ -161,7 +164,7 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
 
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <p style={{ marginTop: '1.5em' }}>
+            <p className={css({ marginTop: '1.5em' })}>
               Victories will still yield <Crowns amount={5} /> and losses will
               still yield <Crowns amount={1} />. However, due to the fact that
               matches are limited in length, draws can happen and will reward{' '}

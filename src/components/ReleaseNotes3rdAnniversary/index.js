@@ -14,7 +14,6 @@ import Title from '../Title'
 import { BRAWL_MILESTONES } from '../../constants/brawl'
 import getMilestoneCost from '../../helpers/getMilestoneCost'
 import getRewardLabel from '../../helpers/getRewardLabel'
-import './index.css'
 
 export default React.memo(function ReleaseNotes3rdAnniversary(props) {
   return (
@@ -148,12 +147,14 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
         <Row desktopOnly wideGutter>
           <Row.Column>
             <Image
+              extend={{ margin: 'auto' }}
               src='/assets/images/releases/birthday_pack_1.png'
               alt='$4.99 promotion: 1 Mythic Tome + 100 coins'
             />
           </Row.Column>
           <Row.Column>
             <Image
+              extend={{ margin: 'auto' }}
               src='/assets/images/releases/birthday_pack_2.png'
               alt='$10.99 promotion: 4 Mythic Tomes + 4 Heroic Tomes + 500 coins'
             />
@@ -162,12 +163,14 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
         <Row desktopOnly wideGutter>
           <Row.Column>
             <Image
+              extend={{ margin: 'auto' }}
               src='/assets/images/releases/birthday_pack_3.png'
               alt='$49.99 promotion: 10 Mythic Tomes + 10 Heroic Tomes + 10 Classic Tomes + 1500 coins'
             />
           </Row.Column>
           <Row.Column>
             <Image
+              extend={{ margin: 'auto' }}
               src='/assets/images/releases/birthday_pack_4.png'
               alt='$99.99 promotion: 20 Mythic Tomes + 20 Heroic Tomes + 20 Classic Tomes + 5000 coins + 50 fusion stones'
             />
@@ -197,6 +200,7 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
 
       <Article.Embed>
         <Image
+          extend={{ margin: 'auto' }}
           src='/assets/images/wallpapers/lite/wp-d-3.png'
           alt='Stormbound Wallpaper'
           withAvif

@@ -1,16 +1,19 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import CardSelect from '../CardSelect'
 import Only from '../Only'
 import generateId from '../../helpers/generateId'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function ListBuilderTierHeader(props) {
+  const { css } = useFela()
+
   return (
-    <header className='ListBuilderTierHeader'>
-      <div className='ListBuilderTierHeader__item'>
+    <header className={css(styles.header)}>
+      <div className={'ListBuilderTierHeader__item ' + css(styles.item)}>
         {props.isEditable ? (
           <>
-            <label className='ListBuilderTierHeader__label' htmlFor='listName'>
+            <label className={css(styles.label)} htmlFor='listName'>
               Tier name
             </label>
             <input
@@ -24,19 +27,16 @@ export default React.memo(function ListBuilderTierHeader(props) {
             />
           </>
         ) : (
-          <h3
-            className='ListBuilderTierHeader__name'
-            id={generateId(props.name)}
-          >
+          <h3 className={css(styles.name)} id={generateId(props.name)}>
             {props.name}
           </h3>
         )}
       </div>
 
-      <div className='ListBuilderTierHeader__item'>
+      <div className={'ListBuilderTierHeader__item ' + css(styles.item)}>
         {props.isEditable ? (
           <>
-            <label className='ListBuilderTierHeader__label' htmlFor='newCard'>
+            <label className={css(styles.label)} htmlFor='newCard'>
               Add card to tier
             </label>
             <CardSelect
@@ -54,13 +54,13 @@ export default React.memo(function ListBuilderTierHeader(props) {
 
       {props.isEditable && (
         <Only.Desktop>
-          <div className='ListBuilderTierHeader__item'>
+          <div className={'ListBuilderTierHeader__item ' + css(styles.item)}>
             <button
               type='button'
               onClick={props.moveUp}
               title='Move tier up'
               aria-label='Move tier up'
-              className='ListBuilderTierHeader__move'
+              className={css(styles.move)}
               disabled={!props.isEditable || !props.canMoveUp}
             >
               ↑
@@ -71,7 +71,7 @@ export default React.memo(function ListBuilderTierHeader(props) {
               onClick={props.moveDown}
               title='Move tier down'
               aria-label='Move tier down'
-              className='ListBuilderTierHeader__move'
+              className={css(styles.move)}
               disabled={!props.isEditable || !props.canMoveDown}
             >
               ↓

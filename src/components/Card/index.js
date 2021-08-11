@@ -1,11 +1,12 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Image from '../Image'
 import { ImageSupportContext } from '../ImageSupportProvider'
 import { getRarityColor } from '../../helpers/getRarity'
 import microMarkdown from '../../helpers/microMarkdown'
 import clamp from '../../helpers/clamp'
 import useFluidSizing from '../../hooks/useFluidSizing'
-import './index.css'
+import styles from './styles'
 
 const useCardBackground = ({ missing, rarity, type, faction }) => {
   const { supportsWebp } = React.useContext(ImageSupportContext)
@@ -28,60 +29,64 @@ export default React.memo(function Card(props) {
   const ext = supportsWebp ? 'webp' : 'png'
   const backgroundImage = useCardBackground(props)
   const level = clamp(props.level, 1, 5)
+  const styleProps = {
+    ...props,
+    hasDecreasedMana: props.manaDecreased,
+    hasDecreasedStrength: props.strengthDecreased,
+    hasFixedMovement: props.ability?.includes('fixed'),
+    hasIncreasedMana: props.manaIncreased,
+    hasIncreasedStrength: props.strengthIncreased,
+    hasNoRarity: !props.rarity,
+    isAffordable: props.affordable,
+    isCreated: props.created,
+    isHero: props.hero,
+    isMissing: props.missing,
+    isUpgradable: props.upgradable,
+    level,
+  }
+  const { css } = useFela(styleProps)
 
   return (
     <article
-      className={[
-        'Card',
-        `Card--${props.faction}`,
-        props.affordable && 'Card--affordable',
-        props.upgradable && 'Card--upgradable',
-        props.missing && 'Card--missing',
-        props.created && 'Card--created',
-        props.player === 'RED' && 'Card--RED',
-        props.player === 'BLUE' && 'Card--BLUE',
-      ]
-        .filter(Boolean)
-        .join(' ')}
+      className={css(styles.card, props.extend)}
+      data-affordable={props.affordable || undefined}
+      data-upgradable={props.upgradable || undefined}
+      data-missing={props.missing || undefined}
+      data-faction={props.faction}
+      data-rarity={props.rarity}
+      data-race={props.race}
+      data-type={props.type}
       ref={ref}
       style={{ '--font-size': fontSize }}
       data-testid='card'
       id={[props.id, props.idx].filter(Boolean).join('_')}
     >
-      <div className='Card__content' style={{ backgroundImage }}>
-        <header className='Card__header'>
-          <div className='Card__mana'>
+      <div className={css(styles.content)} style={{ backgroundImage }}>
+        <header className={css(styles.header)}>
+          <div className={css(styles.mana)}>
             <span
-              className={[
-                'Card__mana-content',
-                props.manaIncreased && 'Card__mana-content--increased',
-                props.manaDecreased && 'Card__mana-content--decreased',
-              ]
-                .filter(Boolean)
-                .join(' ')}
+              className={css(
+                styles.manaContent({
+                  isIncreased: props.manaIncreased,
+                  isDecreased: props.manaDecreased,
+                })
+              )}
               data-testid='card-mana'
             >
               {props.mana}
             </span>
           </div>
-          <span className='Card__name' data-testid='card-name'>
+          <span className={css(styles.name)} data-testid='card-name'>
             {props.name}
           </span>
 
-          <span className='Card__race' data-testid='card-race'>
+          <span className={css(styles.race)} data-testid='card-race'>
             {props.race} {props.elder && 'elder'} {props.hero && 'hero'}
           </span>
         </header>
 
         {!props.missing ? (
-          <div
-            className={[
-              'Card__image-wrapper',
-              props.rarity === 'legendary' && 'Card__image-wrapper--hero',
-            ]
-              .filter(Boolean)
-              .join(' ')}
-          >
+          <div className={css(styles.imageWrapper)}>
             <Image
               alt={props.image ? props.name : ''}
               src={
@@ -89,14 +94,14 @@ export default React.memo(function Card(props) {
                   ? props.image
                   : '/assets/images/cards/' + props.image
               }
-              className='Card__image'
+              extend={styles.image}
               data-testid='card-image'
               withAvif
             />
           </div>
         ) : (
           <span
-            className='Card__missing'
+            className={css(styles.missing)}
             style={{
               maskImage: `url(/assets/images/cards/${props.image.replace(
                 '.png',
@@ -110,41 +115,24 @@ export default React.memo(function Card(props) {
           />
         )}
 
-        <footer className='Card__footer'>
-          <p className='Card__ability' data-testid='card-ability'>
+        <footer className={css(styles.footer)}>
+          <p className={css(styles.ability)} data-testid='card-ability'>
             {microMarkdown(props.ability)}
           </p>
           {props.rarity && (
-            <img
-              className={['Card__rarity', `Card__rarity--${level}`].join(' ')}
+            <Image
+              extend={styles.rarity(styleProps)}
               src={`/assets/images/card/rarity_${props.rarity}_${level}.png`}
               alt={props.rarity}
               data-testid='card-rarity'
+              withoutWebp
             />
           )}
 
           {props.type !== 'spell' && props.strength !== null && (
-            <div
-              className={[
-                'Card__strength',
-                props.strengthIncreased && 'Card__strength--increased',
-                props.strengthDecreased && 'Card__strength--decreased',
-                props.type === 'structure' && 'Card__strength--structure',
-                props.hero && 'Card__strength--hero',
-              ]
-                .filter(Boolean)
-                .join(' ')}
-            >
+            <div className={css(styles.strength)}>
               <span
-                className={[
-                  'Card__strength-content',
-                  props.strengthIncreased &&
-                    'Card__strength-content--increased',
-                  props.strengthDecreased &&
-                    'Card__strength-content--decreased',
-                ]
-                  .filter(Boolean)
-                  .join(' ')}
+                className={css(styles.strengthContent)}
                 data-testid='card-strength'
               >
                 {
@@ -158,7 +146,7 @@ export default React.memo(function Card(props) {
           )}
 
           <span
-            className='Card__level'
+            className={css(styles.level)}
             style={{
               // Token cards do not have a rarity, but should be displayed as
               // “common” cards.
@@ -175,22 +163,9 @@ export default React.memo(function Card(props) {
           </span>
 
           {props.type === 'unit' && props.movement !== null && (
-            <div
-              className={[
-                'Card__movement',
-                props.ability?.includes('fixed') && 'Card__movement--fixed',
-              ]
-                .filter(Boolean)
-                .join(' ')}
-            >
+            <div className={css(styles.movement)}>
               <span
-                className={[
-                  'Card__movement-content',
-                  props.movementIncreased && 'Card__movement--increased',
-                  props.movementDecreased && 'Card__movement--decreased',
-                ]
-                  .filter(Boolean)
-                  .join(' ')}
+                className={css(styles.movementContent)}
                 data-testid='card-movement'
               >
                 {props.movement}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CardLink from '../CardLink'
@@ -13,12 +14,14 @@ import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
 import { Coins, Crowns, Rubies, Stones, Legendary } from '../Resource'
 import ResourceIcon from '../ResourceIcon'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import useViewportSize from '../../hooks/useViewportSize'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function ReleaseNotesAugust2021(props) {
+  const { css } = useFela()
   const { viewportWidth } = useViewportSize()
   const CardsContainer = viewportWidth >= 700 ? Guide.FullWidth : React.Fragment
 
@@ -31,7 +34,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           developments!
         </p>
 
-        <ol style={{ columns: '16em' }}>
+        <TableOfContents>
           <li>
             <a href='#hotfix-coming'>(Update) Hotfix coming</a>
           </li>
@@ -56,7 +59,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           <li>
             <a href='#faq'>FAQ</a>
           </li>
-        </ol>
+        </TableOfContents>
 
         <Info icon='heart' title='Important notice'>
           <p>
@@ -175,7 +178,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           Sheepyard Pack available, as well as a Rogue Sheep pack.
         </p>
 
-        <Guide.FullWidth padding='120px'>
+        <Guide.FullWidth>
           <Row desktopOnly wideGutter>
             <Row.Column width='1/3'>
               <Image
@@ -286,7 +289,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           </Row.Column>
           <Row.Column>
             <Image
-              style={{ marginTop: 0 }}
+              extend={{ marginTop: 0 }}
               src='/assets/images/releases/brawl_bonuses_choice.jpg'
               alt=''
             />
@@ -302,51 +305,51 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
         </Info>
 
         <CardsContainer>
-          <div className='ReleaseNotesAugust2021__cards'>
+          <div className={css(styles.cards)}>
             <Image
               src='/assets/images/iconography/brawl_LIFE_UP.png'
               alt='Life up bonus'
-              className='ReleaseNotesAugust2021__card'
+              extend={styles.card}
             />
             <Image
               src='/assets/images/iconography/brawl_ALL_LIVES_UP.png'
               alt='All lives up'
-              className='ReleaseNotesAugust2021__card'
+              extend={styles.card}
             />
             <Image
               src='/assets/images/iconography/brawl_RUSTY_SLOT.png'
               alt='Rusty slot bonus'
-              className='ReleaseNotesAugust2021__card'
+              extend={styles.card}
             />
             <Image
               src='/assets/images/iconography/brawl_GOLD_SLOT.png'
               alt='Gold slot bonus'
-              className='ReleaseNotesAugust2021__card'
+              extend={styles.card}
             />
             <Image
               src='/assets/images/iconography/brawl_ICE_ARMOR.png'
               alt='Ice armor bonus'
-              className='ReleaseNotesAugust2021__card'
+              extend={styles.card}
             />
             <Image
               src='/assets/images/iconography/brawl_FORTRESS_LEVEL.png'
               alt='Fortress level bonus'
-              className='ReleaseNotesAugust2021__card'
+              extend={styles.card}
             />
             <Image
               src='/assets/images/iconography/brawl_COINS.png'
               alt='Coins bonus'
-              className='ReleaseNotesAugust2021__card'
+              extend={styles.card}
             />
             <Image
               src='/assets/images/iconography/brawl_RUBIES.png'
               alt='Rubies bonus'
-              className='ReleaseNotesAugust2021__card'
+              extend={styles.card}
             />
             <Image
               src='/assets/images/iconography/brawl_FUSION_STONES.png'
               alt='Fusion stones bonus'
-              className='ReleaseNotesAugust2021__card'
+              extend={styles.card}
             />
           </div>
         </CardsContainer>

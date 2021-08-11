@@ -1,18 +1,20 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { useRouteMatch } from 'react-router-dom'
 import Checkbox from '../Checkbox'
 import NumberInput from '../NumberInput'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
 import ShareButton from '../BattleSimShareButton'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function BattleSimGameForm(props) {
+  const { css } = useFela()
   const match = useRouteMatch()
   const isPristine = !match.params.simId
 
   return (
-    <div className='BattleSimGameForm'>
+    <div className={css(styles.form)}>
       <Row>
         <Row.Column>
           <label htmlFor='mana'>Current mana</label>
@@ -36,14 +38,14 @@ export default React.memo(function BattleSimGameForm(props) {
               checked={props.gridMarkers}
               onChange={props.toggleGridMarkers}
               data-testid='grid-markers'
-              className='BattleSimGameForm__grid-markers'
+              extend={css(styles.gridMarkers)}
             >
               Enable <span className='VisuallyHidden'>grid markers</span>
             </Checkbox>
           </fieldset>
         </Row.Column>
       </Row>
-      <div className='BattleSimGameForm__buttons'>
+      <div className={css(styles.buttons)}>
         <Row>
           <Row.Column>
             <ResetButton

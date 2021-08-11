@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Dialog from '../Dialog'
-import './index.css'
 
 export default React.memo(function CardBuilderImageErrorDialog(props) {
   const dialog = React.useRef(null)

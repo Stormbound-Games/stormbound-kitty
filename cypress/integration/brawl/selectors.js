@@ -4,7 +4,7 @@ export default {
   RESET_BTN: '[data-testid="reset-btn"]',
   RESET_CONFIRM_BTN: '[data-testid="reset-confirm-btn"]',
   MILESTONE: '[data-testid="milestone"]',
-  DECK: '.FeaturedDeck',
+  DECK: '[data-testid="featured-deck"]',
 
   MILESTONE_DIAMOND: '[data-testid="milestone-diamond"]',
 

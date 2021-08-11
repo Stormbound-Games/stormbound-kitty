@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { useHistory, useLocation } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import debounce from 'lodash.debounce'
@@ -21,7 +22,6 @@ import sortDeckSuggestions from '../../helpers/sortDeckSuggestions'
 import getDeckSearchDescription from '../../helpers/getDeckSearchDescription'
 import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
 import serialisation from '../../helpers/serialisation'
-import './index.css'
 
 class DeckSuggestions extends React.Component {
   constructor(props) {
@@ -163,7 +163,7 @@ class DeckSuggestions extends React.Component {
               resetFilters={this.resetFilters}
               formRef={this.formRef}
             />
-            <div className='DeckSuggestions__order'>
+            <div className={this.props.css({ marginTop: '1.5em' })}>
               {this.state.order === 'FEASIBILITY' && (
                 <Only.CustomCollection>
                   <Info icon='books' title='Your collection'>
@@ -202,7 +202,6 @@ class DeckSuggestions extends React.Component {
                 decks={decks}
                 withBookmarking
                 showUpgrades
-                data-testid='deck-suggestion'
                 actions={deck => [<BookmarkDeckButton {...deck} />]}
               />
             ) : (
@@ -224,6 +223,7 @@ class DeckSuggestions extends React.Component {
 }
 
 export default hookIntoProps(() => ({
+  ...useFela(),
   viewportWidth: useViewportSize().viewportWidth,
   history: useHistory(),
   location: useLocation(),

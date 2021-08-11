@@ -1,13 +1,12 @@
 import React from 'react'
 import Checkbox from '../Checkbox'
-import './index.css'
 
 export default React.memo(function BrawlCalculatorLegendaryToggle(props) {
   if (props.mode !== 'GOAL' || props.milestone < 5) return null
 
   return (
     <Checkbox
-      className='BrawlCalculatorLegendaryToggle'
+      extend={{ color: 'white', marginTop: '1em' }}
       name='legendary-level-5'
       id='legendary-level-5'
       onChange={props.onChange}

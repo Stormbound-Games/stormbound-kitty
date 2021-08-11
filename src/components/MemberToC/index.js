@@ -1,61 +1,63 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Icon from '../Icon'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function MemberToC(props) {
+  const { css } = useFela()
   const codeUpdatesCount = props.contributions.reduce(
     (acc, { entries }) => acc + entries.length,
     0
   )
 
   return (
-    <ul className='MemberToC'>
+    <ul className={css(styles.toc)}>
       <li>
-        <Icon icon='quill' /> {props.stories.length}{' '}
+        <Icon extend={styles.icon} icon='quill' /> {props.stories.length}{' '}
         {props.stories.length === 1 ? 'story' : 'stories'}
       </li>
       <li>
-        <Icon icon='compass' /> {props.guides.length}{' '}
+        <Icon extend={styles.icon} icon='compass' /> {props.guides.length}{' '}
         {props.guides.length === 1 ? 'guide' : 'guides'}
       </li>
       <li>
-        <Icon icon='stack' /> {props.decks.length}{' '}
+        <Icon extend={styles.icon} icon='stack' /> {props.decks.length}{' '}
         {props.decks.length === 1 ? 'deck' : 'decks'}
       </li>
       <li>
-        <Icon icon='users' /> {props.hosts.length} hosted{' '}
+        <Icon extend={styles.icon} icon='users' /> {props.hosts.length} hosted{' '}
         {props.hosts.length === 1 ? 'tournament' : 'tournaments'}
       </li>
       <li>
-        <Icon icon='trophy' /> {props.podiums.length}{' '}
+        <Icon extend={styles.icon} icon='trophy' /> {props.podiums.length}{' '}
         {props.podiums.length === 1 ? 'podium' : 'podiums'}
       </li>
       <li>
-        <Icon icon='wand' /> {props.cards.length} won{' '}
+        <Icon extend={styles.icon} icon='wand' /> {props.cards.length} won{' '}
         {props.cards.length === 1 ? 'card contest' : 'card contests'}
       </li>
       <li>
-        <Icon icon='image' /> {props.artworks.length}{' '}
+        <Icon extend={styles.icon} icon='image' /> {props.artworks.length}{' '}
         {props.artworks.length === 1 ? 'artwork' : 'artworks'}
       </li>
       <li>
-        <Icon icon='sword' /> {props.puzzles.length}{' '}
+        <Icon extend={styles.icon} icon='sword' /> {props.puzzles.length}{' '}
         {props.puzzles.length === 1 ? 'puzzle' : 'puzzles'}
       </li>
       <li>
-        <Icon icon='bubbles' /> {props.podcasts.length}{' '}
+        <Icon extend={styles.icon} icon='bubbles' /> {props.podcasts.length}{' '}
         {props.podcasts.length === 1 ? 'podcast' : 'podcasts'}
       </li>
       <li>
-        <Icon icon='star' /> {props.events.length} miscellaneous{' '}
-        {props.events.length === 1 ? 'event' : 'events'}
+        <Icon extend={styles.icon} icon='star' /> {props.events.length}{' '}
+        miscellaneous {props.events.length === 1 ? 'event' : 'events'}
       </li>
       <li>
-        <Icon icon='hammer' /> {codeUpdatesCount}{' '}
+        <Icon extend={styles.icon} icon='hammer' /> {codeUpdatesCount}{' '}
         {codeUpdatesCount === 1 ? 'code update' : 'code updates'}
       </li>
       <li>
-        <Icon icon='heart' /> {props.donations.length}{' '}
+        <Icon extend={styles.icon} icon='heart' /> {props.donations.length}{' '}
         {props.donations.length === 1 ? 'donation' : 'donations'}
       </li>
     </ul>

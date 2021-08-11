@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Info from '../Info'
 import Only from '../Only'
@@ -8,7 +9,7 @@ import { Crowns, Coins } from '../Resource'
 import { BRAWL_MILESTONES } from '../../constants/brawl'
 import getMilestoneCost from '../../helpers/getMilestoneCost'
 import getRewardLabel from '../../helpers/getRewardLabel'
-import './index.css'
+import styles from './styles'
 
 const CheapenedBrawl = ({
   ratio = 1,
@@ -17,6 +18,7 @@ const CheapenedBrawl = ({
   id = 'cheapened-brawl',
   title = 'Cheapened Brawl',
 }) => {
+  const { css } = useFela()
   const [active, setActive] = React.useState(difficulty || 'CASUAL')
 
   return (
@@ -29,39 +31,28 @@ const CheapenedBrawl = ({
         <p>Here are the adjusted values for every milestone:</p>
 
         {difficulty !== 'LEGACY' && (
-          <div className='CheapenedBrawl__controls'>
+          <div className={css(styles.controls)}>
             <button
               type='button'
-              className={[
-                'CheapenedBrawl__control',
-                active === 'CASUAL' && 'CheapenedBrawl__control--active',
-              ]
-                .filter(Boolean)
-                .join(' ')}
+              className={css(styles.control({ isActive: active === 'CASUAL' }))}
               onClick={() => setActive('CASUAL')}
             >
               Casual
             </button>
             <button
               type='button'
-              className={[
-                'CheapenedBrawl__control',
-                active === 'WARRIOR' && 'CheapenedBrawl__control--active',
-              ]
-                .filter(Boolean)
-                .join(' ')}
+              className={css(
+                styles.control({ isActive: active === 'WARRIOR' })
+              )}
               onClick={() => setActive('WARRIOR')}
             >
               Warrior
             </button>
             <button
               type='button'
-              className={[
-                'CheapenedBrawl__control',
-                active === 'ULTIMATE' && 'CheapenedBrawl__control--active',
-              ]
-                .filter(Boolean)
-                .join(' ')}
+              className={css(
+                styles.control({ isActive: active === 'ULTIMATE' })
+              )}
               onClick={() => setActive('ULTIMATE')}
             >
               Ultimate

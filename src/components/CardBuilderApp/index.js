@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { useHistory } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import CardChangeFeed from '../CardChangeFeed'
@@ -17,7 +18,6 @@ import serialisation from '../../helpers/serialisation'
 import { formatPreciseDate } from '../../helpers/formatDate'
 import swcc from '../../data/swcc'
 import changelog from '../../data/changelog'
-import './index.css'
 
 const getWikiUrl = name =>
   'https://stormboundkingdomwars.fandom.com/' +
@@ -110,6 +110,7 @@ const useCardData = (props, versionId) => {
 }
 
 export default React.memo(function CardBuilderApp(props) {
+  const { css } = useFela()
   const history = useHistory()
   const isOfficial = isCardOfficial(props.cardId)
   const [versionId, setVersionId] = React.useState(getVersionIdFromURL())
@@ -144,7 +145,7 @@ export default React.memo(function CardBuilderApp(props) {
 
       {props.mode === 'EDITOR' && (
         <>
-          <div className='CardBuilderApp__bottom'>
+          <div className={css({ maxWidth: '960px', margin: '3em auto 0' })}>
             <Row desktopOnly wideGutter>
               <Row.Column>
                 <Title>Core attributes</Title>

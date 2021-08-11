@@ -73,7 +73,7 @@ describe('Brawl — Page', () => {
 
       .get(s.MILESTONE)
       .eq(0)
-      .should('have.class', 'BrawlMilestone--collected')
+      .should('have.attr', 'data-collected', 'true')
   })
 
   it('should be backed up in local storage and offer CSV export', () => {

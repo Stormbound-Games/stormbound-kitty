@@ -29,7 +29,7 @@ describe('Dry-runner — Reset', () => {
   it('should be able to reset a game in equals mode', () => {
     cy.drReset({ equals: true })
       .get(s.DECK_CARD)
-      .find('.Deck__level')
+      .find('[data-testid="deck-card-level"]')
       .should('contain', 1)
   })
 

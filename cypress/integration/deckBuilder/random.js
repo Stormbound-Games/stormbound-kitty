@@ -18,7 +18,6 @@ describe('Deck Builder — Random deck', () => {
       .get(s.RANDOM_DIALOG_CONFIRM)
       .click()
       .get(s.DECK_CARD)
-      .find('.Deck__name')
       .should('have.length', 12)
   })
 
@@ -33,15 +32,11 @@ describe('Deck Builder — Random deck', () => {
       .click()
       .get(s.DECK_CARD)
       .each($card => {
-        expect($card).to.satisfy(
-          $card =>
-            ($card.hasClass('Deck__card--winter') ||
-              $card.hasClass('Deck__card--neutral')) &&
-            !(
-              $card.hasClass('Deck__card--ironclad') ||
-              $card.hasClass('Deck__card--swarm') ||
-              $card.hasClass('Deck__card--shadowfen')
-            )
+        const id = $card.attr('data-testid').replace('deck-slot', '').trim()
+        const card = getRawCardData(id)
+
+        expect(card.faction).to.satisfy(faction =>
+          ['winter', 'neutral'].includes(faction)
         )
       })
   })
@@ -58,8 +53,16 @@ describe('Deck Builder — Random deck', () => {
       .get(s.RANDOM_DIALOG_CONFIRM)
       .click()
       .get(s.DECK_CARD)
-      .filter('.Deck__card--winter')
-      .then($cards => expect($cards.length).to.be.at.least(6))
+      .then($cards => {
+        const cards = $cards
+          .map((_, card) =>
+            card.getAttribute('data-testid').replace('deck-slot', '').trim()
+          )
+          .map((_, id) => getRawCardData(id))
+        const winterCards = cards.filter((_, card) => card.faction === 'winter')
+
+        expect(winterCards.length).to.be.at.least(6)
+      })
   })
 
   it('should be possible to specify a max amount of epic cards', () => {

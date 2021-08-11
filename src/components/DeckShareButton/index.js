@@ -3,7 +3,6 @@ import CTA from '../CTA'
 import Only from '../Only'
 import ShareDialog from '../ShareDialog'
 import download from '../../helpers/download'
-import './index.css'
 
 const exportAsImage = () => {
   const deck = document.querySelector('#deck')
@@ -50,7 +49,10 @@ export default React.memo(function DeckShareButton(props) {
       <CTA
         type='button'
         onClick={exportAsImage}
-        className='DeckShareButton__button'
+        extend={{
+          width: 'calc(50% + 1em)',
+          marginTop: '1em',
+        }}
       >
         <Only.Desktop>Download</Only.Desktop> as image
       </CTA>

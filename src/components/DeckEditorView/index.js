@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link, useRouteMatch, useHistory } from 'react-router-dom'
 import { CollectionContext } from '../CollectionProvider'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
@@ -33,8 +34,7 @@ import useViewportSize from '../../hooks/useViewportSize'
 import usePrevious from '../../hooks/usePrevious'
 import { TAGS } from '../../constants/deck'
 import { BRAWL_INDEX } from '../../constants/brawl'
-
-import './index.css'
+import styles from './styles'
 
 // The `adjustCardToCollection` function is used to access the card data as it
 // exists in the user’s collection. It is therefore only called when there is
@@ -218,7 +218,7 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
     <Article {...articleProps} smallFontSize>
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
-          <Title style={{ marginTop: 0 }}>Deck</Title>
+          <Title>Deck</Title>
 
           <Deck
             showUpgrades={adjustCardLevels}
@@ -258,7 +258,7 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
         </Row.Column>
 
         <Row.Column width='2/3'>
-          <Title style={{ marginTop: 0 }}>Cards</Title>
+          <Title>Cards</Title>
 
           <CardsFiltering cards={cardCollection}>
             {({ filters, actions, collection, cardsPerPage }) => (
@@ -340,8 +340,10 @@ const Gallery = React.memo(function Gallery(props) {
 })
 
 const DeckActions = React.memo(function DeckActions(props) {
+  const { css } = useFela()
+
   return (
-    <div className='DeckEditorView__actions'>
+    <div className={css(styles.actions)}>
       <Row>
         <Row.Column>
           <ResetButton
@@ -387,7 +389,7 @@ const CardTooltipsCheckbox = React.memo(function CardTooltipsCheckbox(props) {
 
   return (
     <Checkbox
-      className='DeckEditorView__checkbox'
+      extend={styles.checkbox}
       onChange={event => props.set(event.target.checked)}
       name='card-tooltips'
       id='card-tooltips'
@@ -405,7 +407,7 @@ const CardLevelsCheckbox = React.memo(function CardLevelsCheckbox(props) {
 
   return (
     <Checkbox
-      className='DeckEditorView__checkbox'
+      extend={styles.checkbox}
       onChange={event => props.set(event.target.checked)}
       name='adjust-card-levels'
       id='adjust-card-levels'

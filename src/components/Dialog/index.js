@@ -1,13 +1,16 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { A11yDialog } from 'react-a11y-dialog'
 import ButtonIcon from '../ButtonIcon'
 import CTA from '../CTA'
 import Image from '../Image'
 import Title from '../Title'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function Dialog(props) {
   const ctaProps = props.ctaProps || {}
+  const hasCTA = Object.keys(ctaProps).length > 0
+  const { css } = useFela({ withCTA: hasCTA })
   const image =
     typeof props.image === 'undefined'
       ? '/assets/images/cards/lady_rime.png'
@@ -29,8 +32,6 @@ export default React.memo(function Dialog(props) {
     props.dialogRef(ref)
   }
 
-  const hasCTA = Object.keys(ctaProps).length > 0
-
   return (
     <A11yDialog
       role={props.role}
@@ -38,11 +39,11 @@ export default React.memo(function Dialog(props) {
       dialogRef={registerDialog}
       title={props.title}
       classNames={{
-        container: 'Dialog',
-        overlay: 'Dialog__overlay',
-        dialog: 'Dialog__content',
-        title: 'Dialog__hidden',
-        closeButton: 'Dialog__hidden',
+        container: css(styles.container, props.extend?.container),
+        overlay: css(styles.overlay, props.extend?.overlay),
+        dialog: css(styles.content, props.extend?.dialog),
+        title: css({ display: 'none' }, props.extend?.title),
+        closeButton: css({ display: 'none' }, props.extend?.closeButton),
       }}
     >
       <ButtonIcon
@@ -50,34 +51,25 @@ export default React.memo(function Dialog(props) {
         onClick={props.close}
         title='Close dialog'
         aria-label='Close dialog'
-        className='Dialog__button'
+        extend={styles.button}
         data-testid={`${props.id}-close`}
       >
         &times;
       </ButtonIcon>
 
-      <header
-        className={['Dialog__header', hideHeader && 'VisuallyHidden']
-          .filter(Boolean)
-          .join(' ')}
-      >
-        <Title className='Dialog__title' data-testid={`${props.id}-title`}>
+      <header className={hideHeader ? 'VisuallyHidden' : css(styles.header)}>
+        <Title extend={styles.title} data-testid={`${props.id}-title`}>
           {props.title}
         </Title>
       </header>
 
       {image !== null && (
-        <Image className='Dialog__image' src={image} alt='' withAvif />
+        <Image extend={styles.image} src={image} alt='' withAvif />
       )}
 
-      <div
-        className={[`Dialog__body`, hasCTA && 'Dialog__body--with-cta']
-          .filter(Boolean)
-          .join(' ')}
-      >
+      <div className={css(styles.body, props.extend?.body)}>
         {props.children}
-
-        {hasCTA && <CTA {...ctaProps} className='Dialog__CTA' />}
+        {hasCTA && <CTA {...ctaProps} className={css(styles.cta)} />}
       </div>
     </A11yDialog>
   )

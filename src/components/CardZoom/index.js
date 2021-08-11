@@ -1,13 +1,16 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Card from '../Card'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function CardZoom(props) {
+  const { css } = useFela()
   const { close } = props
-  const handleESC = React.useCallback(event => event.which === 27 && close(), [
-    close,
-  ])
+  const handleESC = React.useCallback(
+    event => event.which === 27 && close(),
+    [close]
+  )
 
   React.useEffect(() => {
     document.addEventListener('keydown', handleESC)
@@ -24,8 +27,12 @@ export default React.memo(function CardZoom(props) {
   }, [handleESC, props.cardId])
 
   return props.cardId ? (
-    <div className='CardZoom__overlay' onClick={props.close} data-testid='zoom'>
-      <div className='CardZoom__wrapper'>
+    <div
+      className={css(styles.overlay)}
+      onClick={props.close}
+      data-testid='zoom'
+    >
+      <div className={css(styles.wrapper)}>
         <Card
           {...getResolvedCardData({
             id: props.cardId,

@@ -3,9 +3,8 @@ import { PersonalDecksContext } from '../PersonalDecksProvider'
 import DiamondButton from '../DiamondButton'
 
 export default React.memo(function BookmarkDeckButton(props) {
-  const { decks, addDeck, removeDeck, toggleUnseen } = React.useContext(
-    PersonalDecksContext
-  )
+  const { decks, addDeck, removeDeck, toggleUnseen } =
+    React.useContext(PersonalDecksContext)
   // This check is performed on the deck ID instead of its UUID because only
   // bookmarked decks have a UUID; the others do not. To know whether a deck has
   // been bookmarked, we need to see if it exists in the bookmarked collection.
@@ -22,7 +21,7 @@ export default React.memo(function BookmarkDeckButton(props) {
       aria-label='Bookmark deck'
       title='Bookmark deck'
       active={bookmark}
-      className={props.className}
+      extend={props.extend}
     />
   )
 })

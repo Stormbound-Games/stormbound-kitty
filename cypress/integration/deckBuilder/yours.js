@@ -76,7 +76,7 @@ describe('Deck Builder - Personal decks', () => {
 
       .get(s.PERSONAL_DECKS)
       .first()
-      .find('.FeaturedDeck__name')
+      .find('[data-testid="featured-deck-name"]')
       .should('contain', 'Renamed')
     cy.saveLocalStorage()
   })

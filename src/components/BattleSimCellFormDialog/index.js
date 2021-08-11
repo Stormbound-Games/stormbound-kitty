@@ -1,7 +1,7 @@
 import React from 'react'
 import CellForm from '../BattleSimCellForm'
 import Dialog from '../Dialog'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function BattleSimCellFormDialog(props) {
   return (
@@ -13,6 +13,12 @@ export default React.memo(function BattleSimCellFormDialog(props) {
       image={null}
       hideHeader={true}
       allowScroll={true}
+      extend={{
+        container: styles.container,
+        dialog: styles.dialog,
+        overlay: styles.overlay,
+        body: styles.body,
+      }}
     >
       <CellForm {...props} />
     </Dialog>

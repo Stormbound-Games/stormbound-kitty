@@ -1,17 +1,19 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Title from '../Title'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function Loader(props) {
+  const { css } = useFela()
   return (
-    <div className='Loader'>
+    <div className={css(styles.loader)}>
       <svg
         width='44'
         height='44'
         viewBox='0 0 44 44'
         xmlns='http://www.w3.org/2000/svg'
         stroke='var(--beige)'
-        className='Loader__svg'
+        className={css(styles.svg)}
       >
         <g fill='none' fillRule='evenodd' strokeWidth='2'>
           <circle cx='22' cy='22' r='1'>
@@ -62,7 +64,7 @@ export default React.memo(function Loader(props) {
       </svg>
       <Title
         element='p'
-        className={props.hideLabel ? 'VisuallyHidden' : undefined}
+        extend={props.hideLabel ? 'VisuallyHidden' : undefined}
       >
         Loading content…
       </Title>

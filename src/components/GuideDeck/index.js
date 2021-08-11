@@ -1,16 +1,18 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Card from '../Card'
 import Guide from '../Guide'
 import Row from '../Row'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import CardLink from '../CardLink'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import getGuide from '../../helpers/getGuide'
-import './index.css'
 
 const guide = getGuide('DECK_GUIDE')
 
 export default React.memo(function GuideDeck(props) {
+  const { css } = useFela()
   return (
     <Guide {...guide}>
       <p>
@@ -34,7 +36,7 @@ export default React.memo(function GuideDeck(props) {
 
       <hr />
 
-      <ol className='GuideDeck__toc'>
+      <TableOfContents>
         <li>
           <a href='#cost'>Cost</a>
         </li>
@@ -53,7 +55,7 @@ export default React.memo(function GuideDeck(props) {
         <li>
           <a href='#redundancies'>Redundancies</a>
         </li>
-      </ol>
+      </TableOfContents>
 
       <Title id='cost'>Cost</Title>
 
@@ -83,7 +85,7 @@ export default React.memo(function GuideDeck(props) {
         than playing a big one.
       </p>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly>
           <Row.Column>
             <Row>
@@ -126,7 +128,7 @@ export default React.memo(function GuideDeck(props) {
         victory!
       </p>
 
-      <div className='Guide__embed'>
+      <div className={css({ margin: '2em auto 2.5em' })}>
         <Row>
           <Row.Column width='1/3'>
             <Card {...getResolvedCardData({ id: 'S13', level: 5 })} />
@@ -189,7 +191,7 @@ export default React.memo(function GuideDeck(props) {
         <CardLink id='W4' />…
       </p>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly>
           <Row.Column>
             <Row>

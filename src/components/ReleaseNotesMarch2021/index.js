@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CardLink from '../CardLink'
@@ -20,12 +21,14 @@ import {
   Rubies,
   Stones,
 } from '../Resource'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import getBookName from '../../helpers/getBookName'
 import getInitialCardData from '../../helpers/getInitialCardData'
 import { getRarityColor } from '../../helpers/getRarity'
 
 export default React.memo(function ReleaseNotesMarch2021(props) {
+  const { css } = useFela()
   return (
     <ReleaseNotes id='03_2021'>
       <Article.Narrow>
@@ -36,7 +39,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           Heroes League!
         </p>
 
-        <ol style={{ columns: '16em' }}>
+        <TableOfContents>
           <li>
             <a href='#balance-changes'>Balance changes</a>
           </li>
@@ -58,7 +61,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           <li>
             <a href='#faq'>FAQ</a>
           </li>
-        </ol>
+        </TableOfContents>
 
         <Info icon='heart' title='Important notice'>
           <p>
@@ -95,7 +98,9 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <p>
           On February 26th, the next temple card will be released—Temple of
           Space, a new{' '}
-          <span style={{ color: getRarityColor('legendary', 'bright') }}>
+          <span
+            className={css({ color: getRarityColor('legendary', 'bright') })}
+          >
             legendary
           </span>{' '}
           Ironclad structure with an interesting teleportation mechanic.
@@ -179,7 +184,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           </Row.Column>
           <Row.Column width='1/5'>
             <Image
-              src='/assets/images/books/book-legendary-dragon.png'
+              src='/assets/images/books/book-archdragon.png'
               alt={getBookName('ARCHDRAGON')}
             />
           </Row.Column>
@@ -245,10 +250,13 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           passing beyond Diamond 1.
         </p>
 
-        <img
+        <Image
           src='/assets/images/releases/rank_hero.png'
           alt='Heroes League badge'
-          style={{ maxWidth: '300px', margin: '3em auto' }}
+          extend={css({
+            maxWidth: '300px',
+            margin: '3em auto',
+          })}
         />
 
         <p>
@@ -273,10 +281,10 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           <HeroCrowns amount={1000} />, their score would be set to 1000.
         </p>
 
-        <img
+        <Image
           src='/assets/images/releases/chest_hero.png'
           alt='Heroes League chest'
-          style={{ maxWidth: '300px', margin: '3em auto' }}
+          extend={{ maxWidth: '300px', margin: '3em auto' }}
         />
 
         <p>
@@ -353,14 +361,14 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           used in chess, amongst other games. It looks like this:
         </p>
 
-        <img
+        <Image
           src='/assets/images/releases/hero_score_formula.png'
           alt='Hero Score computing formula'
         />
 
         <p>Here are the terms:</p>
 
-        <ul style={{ marginBottom: '3em' }}>
+        <ul className={css({ marginBottom: '3em' })}>
           <li>
             <var className='Highlight'>
               S'<sub>A</sub>
@@ -377,7 +385,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             <var className='Highlight'>K</var> is the coefficient factor
             (sometimes named “K-factor” in Elo rating systems) and works like in
             FIDE:
-            <ul style={{ marginBottom: 0 }}>
+            <ul className={css({ marginBottom: 0 })}>
               <li>
                 K = 40 for new players until they have played 30 matches in
                 Diamond or Heroes league
@@ -435,8 +443,8 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
               alt='Button to add battled player as a friend on the outcome screen of a game'
             />
           </Row.Column>
-          <Row.Column style={{ justifyContent: 'center' }}>
-            <p style={{ marginTop: '2em' }}>
+          <Row.Column extend={{ justifyContent: 'center' }}>
+            <p className={css({ marginTop: '2em' })}>
               This release will bring some quality of life and interface
               improvements, starting with a way to add the player you just
               battled as a friend!

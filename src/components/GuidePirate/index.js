@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import BattleSimApp from '../BattleSimApp'
 import CardLink from '../CardLink'
 import Guide from '../Guide'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import getGuide from '../../helpers/getGuide'
 
@@ -28,7 +29,7 @@ export default React.memo(function GuidePirate(props) {
         guide.
       </p>
 
-      <ol style={{ marginTop: '3em', columns: '16em' }}>
+      <TableOfContents>
         <li>
           <a href='#overview'>Overview and Meta Disclaimer</a>
         </li>
@@ -93,7 +94,7 @@ export default React.memo(function GuidePirate(props) {
         <li>
           <a href='#summary'>Summary</a>
         </li>
-      </ol>
+      </TableOfContents>
 
       <Title id='overview'>Overview</Title>
       <p>

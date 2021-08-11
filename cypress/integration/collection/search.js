@@ -15,7 +15,7 @@ describe('Collection — Search', () => {
     cy.get(s.FACTION_SELECT)
       .select('ironclad')
       .get(s.CARD)
-      .should('have.class', 'Card--ironclad')
+      .should('have.attr', 'data-faction', 'ironclad')
   })
 
   it('should be able to filter by status', () => {

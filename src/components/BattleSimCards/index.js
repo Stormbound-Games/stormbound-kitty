@@ -1,36 +1,27 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Card from '../Card'
 import CTA from '../CTA'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import indexArray from '../../helpers/indexArray'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function BattleSimCards(props) {
   const [cycleMode, setCycleMode] = React.useState(false)
+  const { css } = useFela({ isCycle: cycleMode })
   const cardsIndex = React.useMemo(() => indexArray(props.cards), [props.cards])
 
   return (
     <>
-      {cycleMode && (
-        <div
-          className='BattleSimCards__overlay'
-          onClick={() => setCycleMode(false)}
-        />
-      )}
-
-      <div
-        className={['BattleSimCards', cycleMode && 'BattleSimCards--cycle']
-          .filter(Boolean)
-          .join(' ')}
-      >
+      <div className={css(styles.cards)}>
         {props.canCycleCard && (
           <CTA
             type='button'
             onClick={() => setCycleMode(m => !m)}
-            className='BattleSimCards__cycle-button'
+            extend={styles.cycleButton}
             aria-pressed={cycleMode}
           >
-            Cycle card
+            {cycleMode ? 'Cancel' : 'Cycle card'}
           </CTA>
         )}
 
@@ -46,7 +37,7 @@ export default React.memo(function BattleSimCards(props) {
 
           return (
             <div
-              className='BattleSimCards__slot'
+              className={css(styles.slot)}
               key={index}
               data-testid={`card-slot-${index}`}
             >
@@ -54,12 +45,7 @@ export default React.memo(function BattleSimCards(props) {
                 <button
                   type='button'
                   data-testid='card-slot-button'
-                  className={[
-                    'BattleSimCards__button',
-                    !card && 'BattleSimCards__button--empty',
-                  ]
-                    .filter(Boolean)
-                    .join(' ')}
+                  className={css(styles.button({ isEmpty: !card }))}
                   onClick={() => {
                     if (!card && props.canDrawCard) {
                       return props.drawCard()
@@ -77,7 +63,10 @@ export default React.memo(function BattleSimCards(props) {
                 </button>
               )}
 
-              <div className='BattleSimCards__slot-content'>
+              <div
+                className={css(styles.slotContent)}
+                data-testid='card-slot-content'
+              >
                 {card && card.id ? (
                   <Card {...card} affordable={card.mana <= props.mana} />
                 ) : null}

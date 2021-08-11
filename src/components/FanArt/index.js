@@ -1,15 +1,18 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Masonry from 'react-masonry-css'
+import Image from '../Image'
 import Article from '../Article'
 import Loader from '../Loader'
 import PageMeta from '../PageMeta'
 import artworks from '../../data/artworks'
 import shuffle from '../../helpers/shuffle'
 import useLazyLoad from '../../hooks/useLazyLoad'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function FanArt(props) {
+  const { css } = useFela()
   const entries = React.useMemo(() => shuffle(artworks), [])
   const { loading, items, ref } = useLazyLoad(entries, 3)
 
@@ -31,17 +34,17 @@ export default React.memo(function FanArt(props) {
           700: 2,
           500: 1,
         }}
-        className='FanArtWrapper'
-        columnClassName='FanArtItem'
+        className={css(styles.wrapper)}
+        columnClassName={css(styles.item)}
       >
         {items.map(entry => (
-          <figure className='FanArt' key={entry.image}>
-            <img
+          <figure className={css(styles.art)} key={entry.image}>
+            <Image
               src={'/assets/images/art/' + entry.image}
               alt={'Artwork by ' + entry.author}
-              className='FanArt__image'
+              extend={styles.image}
             />
-            <figcaption className='FanArt__caption'>
+            <figcaption className={css(styles.caption)}>
               Artwork by{' '}
               <Link to={'/member/' + entry.author}>{entry.author}</Link>
             </figcaption>

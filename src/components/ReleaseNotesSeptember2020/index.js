@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Article from '../Article'
 import CardLink from '../CardLink'
 import Notice from '../Notice'
@@ -6,12 +7,14 @@ import ReleaseNotes from '../ReleaseNotes'
 import Title from '../Title'
 
 export default React.memo(function ReleaseNotesSeptember2020(props) {
+  const { css } = useFela()
+
   return (
     <ReleaseNotes id='09_2020'>
       <Article.Narrow>
         <p>
           On the 1st of September, a small balance patch will{' '}
-          <span style={{ color: 'var(--light-shadowfen)' }}>
+          <span className={css({ color: 'var(--light-shadowfen)' })}>
             buff 12 different cards
           </span>{' '}
           (mainly neutral). Nothing too groundbreaking but it will hopefully

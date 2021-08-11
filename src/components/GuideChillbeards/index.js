@@ -1,12 +1,12 @@
 import React from 'react'
 import BattleSimApp from '../BattleSimApp'
-import Card from '../Card'
+import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Guide from '../Guide'
 import CardLink from '../CardLink'
-import Row from '../Row'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
-import getResolvedCardData from '../../helpers/getResolvedCardData'
 import getGuide from '../../helpers/getGuide'
+import getInitialCardData from '../../helpers/getInitialCardData'
 
 const guide = getGuide('CHILLBEARDS_GUIDE')
 
@@ -20,40 +20,36 @@ export default React.memo(function GuideChillbeards(props) {
         of Chillbeards.
       </p>
 
-      <Row desktopOnly wideGutter>
-        <Row.Column width='2/3'>
-          <Title style={{ marginTop: '2em' }}>Table of contents</Title>
-          <ol style={{ columns: '8em' }}>
-            <li>
-              <a href='#be-mindful-of-mana'>Be mindful of mana</a>
-            </li>
-            <li>
-              <a href='#aim-for-the-baseline'>Aim for the baseline</a>
-            </li>
-            <li>
-              <a href='#control-cards'>Control cards</a>
-            </li>
-            <li>
-              <a href='#tokens-are-friends'>Tokens are friends</a>
-            </li>
-            <li>
-              <a href='#its-all-about-that-bait'>It’s all about that bait</a>
-            </li>
-            <li>
-              <a href='#cycling'>Cycling</a>
-            </li>
-            <li>
-              <a href='#chip-chip'>Chip Chip</a>
-            </li>
-            <li>
-              <a href='#freeze-confusion'>Freeze & confusion</a>
-            </li>
-          </ol>
-        </Row.Column>
-        <Row.Column width='1/3'>
-          <Card {...getResolvedCardData({ id: 'W22', level: 5 })} />
-        </Row.Column>
-      </Row>
+      <TableOfContents>
+        <li>
+          <a href='#be-mindful-of-mana'>Be mindful of mana</a>
+        </li>
+        <li>
+          <a href='#aim-for-the-baseline'>Aim for the baseline</a>
+        </li>
+        <li>
+          <a href='#control-cards'>Control cards</a>
+        </li>
+        <li>
+          <a href='#tokens-are-friends'>Tokens are friends</a>
+        </li>
+        <li>
+          <a href='#its-all-about-that-bait'>It’s all about that bait</a>
+        </li>
+        <li>
+          <a href='#cycling'>Cycling</a>
+        </li>
+        <li>
+          <a href='#chip-chip'>Chip Chip</a>
+        </li>
+        <li>
+          <a href='#freeze-confusion'>Freeze & confusion</a>
+        </li>
+      </TableOfContents>
+
+      <Guide.FullWidth>
+        <CardBuilderCardDisplay {...getInitialCardData('W22')} />
+      </Guide.FullWidth>
 
       <Title id='be-mindful-of-mana'>1. Be mindful of mana</Title>
       <p>

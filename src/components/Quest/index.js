@@ -1,38 +1,55 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Image from '../Image'
 import useFluidSizing from '../../hooks/useFluidSizing'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function Quest(props) {
+  const { css } = useFela()
   const { fontSize, ref } = useFluidSizing(0.04114285714)
+
   return (
-    <div className='Quest' style={{ '--font-size': fontSize }} ref={ref}>
-      <div className='Quest__inner'>
-        <span
-          className={`Quest__difficulty Quest__difficulty--${props.difficulty}`}
-        >
+    <div
+      className={css(styles.quest)}
+      style={{ '--font-size': fontSize }}
+      ref={ref}
+    >
+      <div className={css(styles.inner)}>
+        <span className={css(styles.difficulty)}>
           <span className='VisuallyHidden'>Difficulty {props.difficulty}</span>
-          <span className='Quest__difficulty-diamond Quest__difficulty-diamond--1' />
+          <span
+            className={css(
+              styles.difficultyDiamond({ level: props.difficulty })
+            )}
+          />
           {props.difficulty > 1 && (
-            <span className='Quest__difficulty-diamond Quest__difficulty-diamond--2' />
+            <span
+              className={css(
+                styles.difficultyDiamond({ level: props.difficulty })
+              )}
+            />
           )}
           {props.difficulty > 2 && (
-            <span className='Quest__difficulty-diamond Quest__difficulty-diamond--3' />
+            <span
+              className={css(
+                styles.difficultyDiamond({ level: props.difficulty })
+              )}
+            />
           )}
         </span>
-        <div className='Quest__content'>
-          <span className='Quest__name'>{props.name}</span>
-          <p className='Quest__description'>{props.description}</p>
+        <div className={css(styles.content)}>
+          <span className={css(styles.name)}>{props.name}</span>
+          <p className={css(styles.description)}>{props.description}</p>
         </div>
-        <div className='Quest__reward'>
+        <div className={css(styles.reward)}>
           <Image
-            className='Quest__currency-image'
+            extend={styles.currencyImage}
             src={`/assets/images/iconography/${props.currency}.png`}
             alt={props.currency}
           />
-          <span className='Quest__amount'>
-            <span className='Quest__number'>{props.amount}</span>{' '}
-            <span className='Quest__currency'>
+          <span className={css(styles.amount)}>
+            <span className={css(styles.number)}>{props.amount}</span>{' '}
+            <span className={css(styles.currency)}>
               {props.currency.toLowerCase().replace('_', ' ')}
             </span>
           </span>

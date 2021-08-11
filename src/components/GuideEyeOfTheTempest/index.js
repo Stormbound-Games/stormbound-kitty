@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
@@ -12,6 +13,8 @@ import getGuide from '../../helpers/getGuide'
 const guide = getGuide('EYE_OF_THE_TEMPEST_GUIDE')
 
 export default React.memo(function GuideEyeOfTheTempest(props) {
+  const { css } = useFela()
+
   return (
     <Guide {...guide}>
       <p>
@@ -25,7 +28,11 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
       <hr />
 
       <p
-        style={{ fontSize: '135%', textAlign: 'center', color: 'var(--beige)' }}
+        className={css({
+          fontSize: '135%',
+          textAlign: 'center',
+          color: 'var(--beige)',
+        })}
       >
         This week, all spells cost -2 mana from their initial mana cost, for a
         minimum of 0.
@@ -72,10 +79,10 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
 
       <Title>Possible Decks</Title>
 
-      <Guide.FullWidth padding='60px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <h3 style={{ marginTop: '0.5em' }}>
+            <h3 className={css({ marginTop: '0.5em' })}>
               CriticalPancake’s Die Die Die
             </h3>
 
@@ -105,7 +112,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
         </Row>
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <h3 style={{ marginTop: '0.5em' }}>OneC’s Toad Spam</h3>
+            <h3 className={css({ marginTop: '0.5em' })}>OneC’s Toad Spam</h3>
             <p>
               Not too many spells, but toads are just really strong, and{' '}
               <CardLink id='F22' /> with <CardLink id='F17' /> can steal some
@@ -130,7 +137,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
         </Row>
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <h3 style={{ marginTop: '0.5em' }}>
+            <h3 className={css({ marginTop: '0.5em' })}>
               Frostkhan’s Eye of the Tempest
             </h3>
             <p>

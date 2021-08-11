@@ -1,11 +1,13 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
 import Icon from '../Icon'
+import Image from '../Image'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import chunk from '../../helpers/chunk'
-import './index.css'
+import styles from './styles'
 
 export const VIDEOS = [
   {
@@ -139,33 +141,35 @@ export const VIDEOS = [
 ]
 
 export default React.memo(function Videos(props) {
+  const { css } = useFela()
+
   return (
     <Article title='Videos'>
       {chunk(VIDEOS, 2).map((row, index) => (
         <Row key={index} desktopOnly wideGutter>
           {row.map(video => (
             <Row.Column key={video.author}>
-              <section key={video.author} className='Video'>
+              <section key={video.author} className={css(styles.video)}>
                 <Row desktopOnly wideGutter>
-                  <Row.Column width='1/3'>
-                    <img
+                  <Row.Column width='1/3' extend={styles.column}>
+                    <Image
                       src={video.thumbnail}
                       alt={`${video.author}’s avatar`}
-                      className='Video__image'
+                      extend={styles.image}
                     />
                   </Row.Column>
-                  <Row.Column width='2/3' style={{ justifyContent: 'center' }}>
-                    <h2 className='Video__title'>
+                  <Row.Column width='2/3' extend={{ justifyContent: 'center' }}>
+                    <h2 className={css(styles.title)}>
                       <Link to={`/member/${video.author}`}>{video.author}</Link>
                     </h2>
                     {video.description}
                     <p>
-                      <Icon icon='arrow-right' className='Video__icon' />
+                      <Icon icon='arrow-right' extend={styles.icon} />
                       <a
                         href={video.href}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='Video__link'
+                        className={css(styles.link)}
                       >
                         Visit {video.author}’s channel
                       </a>

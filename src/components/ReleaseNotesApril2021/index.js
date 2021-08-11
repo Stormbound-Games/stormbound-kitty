@@ -12,6 +12,7 @@ import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
 import { Rare, Epic, Legendary, Coins, Rubies, Stones } from '../Resource'
 import ResourceIcon from '../ResourceIcon'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import getInitialCardData from '../../helpers/getInitialCardData'
 
@@ -25,7 +26,7 @@ export default React.memo(function ReleaseNotesApril2021(props) {
           improvements and some exclusive offers as usual!
         </p>
 
-        <ol style={{ columns: '16em' }}>
+        <TableOfContents>
           <li>
             <a href='#balance-changes'>Balance changes</a>
           </li>
@@ -53,7 +54,7 @@ export default React.memo(function ReleaseNotesApril2021(props) {
           <li>
             <a href='#faq'>FAQ</a>
           </li>
-        </ol>
+        </TableOfContents>
 
         <Info icon='heart' title='Important notice'>
           <p>
@@ -101,7 +102,7 @@ export default React.memo(function ReleaseNotesApril2021(props) {
       </Article.Embed>
 
       <Article.Narrow>
-        <Row desktopOnly style={{ alignItems: 'center' }}>
+        <Row desktopOnly extend={{ alignItems: 'center' }}>
           <Row.Column>
             <Image
               src='/assets/images/releases/pack_temple_of_life.png'

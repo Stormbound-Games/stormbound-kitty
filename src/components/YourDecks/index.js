@@ -1,10 +1,10 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Row from '../Row'
 import YourDeck from '../YourDeck'
 import YourDeckForm from '../YourDeckForm'
 import YourDeckGhost from '../YourDeckGhost'
 import chunk from '../../helpers/chunk'
-import './index.css'
 
 const NewDeck = React.memo(function NewDeck(props) {
   return props.mode === 'INITIAL' || !!props.editedDeckUUID ? (
@@ -16,9 +16,10 @@ const NewDeck = React.memo(function NewDeck(props) {
 
 export default React.memo(function YourDecks(props) {
   const rows = chunk(props.decks, 2)
+  const { css } = useFela()
 
   return (
-    <div className='YourDecks'>
+    <div className={css({ marginTop: '0.75em' })}>
       {rows.map((row, index) => (
         <Row desktopOnly key={index}>
           <Row.Column>

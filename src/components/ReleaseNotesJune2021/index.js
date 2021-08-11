@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CardLink from '../CardLink'
@@ -10,6 +11,7 @@ import NerfCompensationInfo from '../NerfCompensationInfo'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
 import Table from '../Table'
+import TableOfContents from '../TableOfContents'
 import { Coins, Rubies, Stones } from '../Resource'
 import ResourceIcon from '../ResourceIcon'
 import TogglableContent from '../TogglableContent'
@@ -21,6 +23,7 @@ import getRewardLabel from '../../helpers/getRewardLabel'
 import rewards from './rewards'
 
 export default React.memo(function ReleaseNotesJune2021(props) {
+  const { css } = useFela()
   const [isTableExpanded, expandTable] = React.useState(false)
 
   return (
@@ -32,7 +35,7 @@ export default React.memo(function ReleaseNotesJune2021(props) {
           and some exclusive offers as usual!
         </p>
 
-        <ol style={{ columns: '16em' }}>
+        <TableOfContents>
           <li>
             <a href='#balance-changes'>Balance changes</a>
           </li>
@@ -54,7 +57,7 @@ export default React.memo(function ReleaseNotesJune2021(props) {
           <li>
             <a href='#faq'>FAQ</a>
           </li>
-        </ol>
+        </TableOfContents>
 
         <Info icon='heart' title='Important notice'>
           <p>
@@ -153,7 +156,7 @@ export default React.memo(function ReleaseNotesJune2021(props) {
           </p>
         </Info>
 
-        <Row desktopOnly wideGutter style={{ alignItems: 'center' }}>
+        <Row desktopOnly wideGutter extend={{ alignItems: 'center' }}>
           <Row.Column>
             <Image
               src='/assets/images/releases/june_pack_ethereals.png'
@@ -201,29 +204,31 @@ export default React.memo(function ReleaseNotesJune2021(props) {
 
         <ul>
           <li>
-            In Starter, <span style={{ color: 'var(--iron)' }}>Iron</span>,{' '}
-            <span style={{ color: 'var(--bronze)' }}>Bronze</span>,{' '}
-            <span style={{ color: 'var(--silver)' }}>Silver</span> and{' '}
-            <span style={{ color: 'var(--gold)' }}>Gold</span> leagues, a
-            victory will yield <Coins amount={10} /> + an additional{' '}
+            In Starter,{' '}
+            <span className={css({ color: 'var(--iron)' })}>Iron</span>,{' '}
+            <span className={css({ color: 'var(--bronze)' })}>Bronze</span>,{' '}
+            <span className={css({ color: 'var(--silver)' })}>Silver</span> and{' '}
+            <span className={css({ color: 'var(--gold)' })}>Gold</span> leagues,
+            a victory will yield <Coins amount={10} /> + an additional{' '}
             <Coins amount={10} /> for watching an ad or for having the Premium
             Pass.
           </li>
           <li>
-            In <span style={{ color: 'var(--platinum)' }}>Platinum</span>{' '}
+            In{' '}
+            <span className={css({ color: 'var(--platinum)' })}>Platinum</span>{' '}
             league, a victory will yield <Coins amount={15} /> + an additional{' '}
             <Coins amount={15} /> for watching an ad or for having the Premium
             Pass.
           </li>
           <li>
-            In <span style={{ color: 'var(--diamond)' }}>Diamond</span> league,
-            a victory will yield <Coins amount={20} /> + an additional{' '}
+            In <span className={css({ color: 'var(--diamond)' })}>Diamond</span>{' '}
+            league, a victory will yield <Coins amount={20} /> + an additional{' '}
             <Coins amount={20} /> for watching an ad or for having the Premium
             Pass.
           </li>
           <li>
-            In <span style={{ color: 'var(--heroes)' }}>Heroes</span> league, a
-            victory will yield <Coins amount={25} /> + an additional{' '}
+            In <span className={css({ color: 'var(--heroes)' })}>Heroes</span>{' '}
+            league, a victory will yield <Coins amount={25} /> + an additional{' '}
             <Coins amount={25} /> for watching an ad or for having the Premium
             Pass.
           </li>
@@ -254,13 +259,13 @@ export default React.memo(function ReleaseNotesJune2021(props) {
 
         <ul>
           <li>
-            The <span style={{ color: '#caf9ff' }}>Heroes</span> chest now
-            contains <Coins amount={2000} /> (down from 3,000) and{' '}
+            The <span className={css({ color: '#caf9ff' })}>Heroes</span> chest
+            now contains <Coins amount={2000} /> (down from 3,000) and{' '}
             <Rubies amount={70} /> (down from 100).
           </li>
           <li>
-            The <span style={{ color: '#c8c0df' }}>Diamond</span> chest now
-            contains <Coins amount={1500} /> (down from 1,800). Rubies
+            The <span className={css({ color: '#c8c0df' })}>Diamond</span> chest
+            now contains <Coins amount={1500} /> (down from 1,800). Rubies
             untouched.
           </li>
           <li>The chest for all the other leagues remain untouched.</li>
@@ -318,7 +323,7 @@ export default React.memo(function ReleaseNotesJune2021(props) {
           <Table>
             <thead>
               <tr>
-                <th style={{ width: '100px' }}>Day</th>
+                <th className={css({ width: '100px' })}>Day</th>
                 <th>Free</th>
                 <th>Premium</th>
               </tr>
@@ -326,7 +331,7 @@ export default React.memo(function ReleaseNotesJune2021(props) {
             <tbody>
               {rewards.map(([free, premium], index) => (
                 <tr key={index}>
-                  <td style={{ width: '100px' }}>#{index + 1}</td>
+                  <td className={css({ width: '100px' })}>#{index + 1}</td>
                   <td>{getRewardLabel(free, true)}</td>
                   <td>{getRewardLabel(premium, true)}</td>
                 </tr>

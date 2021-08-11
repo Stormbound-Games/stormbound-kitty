@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import { EQUALS_TIER_LIST, TIER_COLORS } from '../../constants/list'
 import HeaderBanner from '../HeaderBanner'
@@ -13,6 +14,7 @@ import { formatDate } from '../../helpers/formatDate'
 import RELEASES from '../../data/releases.json'
 
 export default React.memo(function ListBuilderDisplayView(props) {
+  const { css } = useFela()
   const { date, value: id } = EQUALS_TIER_LIST
   const [faction, setFaction] = React.useState('*')
   const tiers = getInitialListData(id)
@@ -66,7 +68,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
             name='factions'
             value={faction}
             onChange={event => setFaction(event.target.value)}
-            style={{ marginBottom: '1em' }}
+            className={css({ marginBottom: '1em' })}
           >
             <option value='*'>All</option>
             <option value='NOT_NEUTRAL'>All but neutral</option>

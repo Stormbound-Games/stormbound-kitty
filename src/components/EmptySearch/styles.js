@@ -1,0 +1,23 @@
+const container = {
+  margin: '3em auto',
+  textAlign: 'center',
+}
+
+const title = {
+  fontSize: '200%',
+  display: 'block',
+  marginBottom: '0.25em',
+}
+
+const image = {
+  display: 'block',
+  margin: '0 auto 1em',
+  maxWidth: '250px',
+}
+
+const copy = {
+  maxWidth: '50ch',
+  margin: '0 auto 2em',
+}
+
+export default { container, title, image, copy }

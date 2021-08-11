@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
@@ -12,6 +13,7 @@ import getGuide from '../../helpers/getGuide'
 const guide = getGuide('GODDESS_BOON_GUIDE')
 
 export default React.memo(function GuideGoddessBoon(props) {
+  const { css } = useFela()
   return (
     <Guide {...guide}>
       <p>
@@ -25,7 +27,11 @@ export default React.memo(function GuideGoddessBoon(props) {
       <hr />
 
       <p
-        style={{ fontSize: '135%', textAlign: 'center', color: 'var(--beige)' }}
+        className={css({
+          fontSize: '135%',
+          textAlign: 'center',
+          color: 'var(--beige)',
+        })}
       >
         This week, all Frostling units benefit from an extra +4 strength on top
         of their initial strength.
@@ -61,10 +67,12 @@ export default React.memo(function GuideGoddessBoon(props) {
 
       <Title>Possible Decks</Title>
 
-      <Guide.FullWidth padding='60px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <h3 style={{ marginTop: '0.5em' }}>Frostkhan’s Goddess Boon</h3>
+            <h3 className={css({ marginTop: '0.5em' })}>
+              Frostkhan’s Goddess Boon
+            </h3>
             <p>
               This was the featured deck by Frostkhan and I think it still
               stands the test of time. The only card I’m not sure about is{' '}
@@ -90,7 +98,9 @@ export default React.memo(function GuideGoddessBoon(props) {
         </Row>
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <h3 style={{ marginTop: '0.5em' }}>CriticalPancake’s Frost Deck</h3>
+            <h3 className={css({ marginTop: '0.5em' })}>
+              CriticalPancake’s Frost Deck
+            </h3>
 
             <p>
               This deck looks like a pretty good aggressive option, although I’m
@@ -120,7 +130,9 @@ export default React.memo(function GuideGoddessBoon(props) {
         </Row>
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <h3 style={{ marginTop: '0.5em' }}>Adig’s Frosty Feline Dwarf</h3>
+            <h3 className={css({ marginTop: '0.5em' })}>
+              Adig’s Frosty Feline Dwarf
+            </h3>
             <p>
               A high-end option, capitalizing on runners can catch opponents off
               guard. Even something like <CardLink id='N52' /> in place of{' '}

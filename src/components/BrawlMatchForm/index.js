@@ -1,13 +1,15 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { AnimatePresence, motion } from 'framer-motion'
 import { BrawlContext } from '../BrawlProvider'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
 import useViewportSize from '../../hooks/useViewportSize'
 import { VICTORY_BONUSES } from '../../constants/brawl'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function BrawlMatchForm(props) {
+  const { css } = useFela()
   const { meta } = React.useContext(BrawlContext)
   const { viewportWidth } = useViewportSize()
   const { isEdit, status: editedStatus, bonus: editedBonus } = props
@@ -29,16 +31,16 @@ export default React.memo(function BrawlMatchForm(props) {
   return (
     <AnimatePresence exitBeforeEnter>
       <motion.tr
-        className='BrawlMatchForm'
         initial={{ scaleY: 0 }}
         animate={{ scaleY: 1 }}
+        className={css(styles.form)}
       >
         <td>
           {viewportWidth >= 700 ? (
             <button
               form='add-match-form'
               type='submit'
-              className='ButtonAsLink BrawlMatchForm__button'
+              className={css(styles.button) + ' ButtonAsLink'}
               data-testid='match-btn'
             >
               ✔
@@ -47,7 +49,7 @@ export default React.memo(function BrawlMatchForm(props) {
             <CTA
               form='add-match-form'
               type='submit'
-              className='BrawlMatchForm__button'
+              extend={styles.button}
               data-testid='match-btn'
             >
               {isEdit ? 'Edit match' : 'Record match'}
@@ -68,6 +70,7 @@ export default React.memo(function BrawlMatchForm(props) {
             data-testid='opponent-health'
             placeholder='e.g. 18'
             defaultValue={props.opponentHealth || ''}
+            className={css(styles.field)}
           />
         </td>
         <td data-label='Opponent’s faction'>
@@ -79,6 +82,7 @@ export default React.memo(function BrawlMatchForm(props) {
             data-testid='opponent-faction'
             withEmpty
             defaultValue={props.opponentFaction}
+            className={css(styles.field)}
           />
         </td>
         <td data-label='Match outcome'>
@@ -93,6 +97,7 @@ export default React.memo(function BrawlMatchForm(props) {
             data-testid='outcome'
             value={status}
             onChange={event => setStatus(event.target.value)}
+            className={css(styles.field)}
           >
             <option value=''>Set game outcome</option>
             <option value='WON'>Won</option>
@@ -115,6 +120,7 @@ export default React.memo(function BrawlMatchForm(props) {
             required={['WON', 'FORFEIT'].includes(status)}
             value={bonus}
             onChange={event => setBonus(event.target.value)}
+            className={css(styles.field)}
           >
             <option value=''>Pick a bonus</option>
             {Object.keys(VICTORY_BONUSES).map(bonus => (

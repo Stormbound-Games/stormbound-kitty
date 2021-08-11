@@ -1,12 +1,14 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { useAnimation } from 'framer-motion'
 import CTA from '../CTA'
 import ResetButton from '../ResetButton'
 import Mana from '../Mana'
 import Row from '../Row'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function DryRunnerHeader(props) {
+  const { css } = useFela()
   const controls = useAnimation()
   const endTurn = React.useCallback(() => {
     controls.start({
@@ -31,16 +33,17 @@ export default React.memo(function DryRunnerHeader(props) {
   }, [registerShortcuts])
 
   return (
-    <div className='DryRunnerHeader'>
+    <div className={css(styles.header)}>
       <Row desktopOnly>
         <Row.Column width='1/3' align='center'>
-          <span className='DryRunnerHeader__mana'>
+          <span className={css(styles.mana)}>
             Current mana:{' '}
             <Mana
               controls={controls}
               mana={props.mana}
               data-testid='mana-pool'
               disabled={props.hand.every(card => !props.canCardBePlayed(card))}
+              extend={{ marginLeft: '1em' }}
             />
           </span>
         </Row.Column>

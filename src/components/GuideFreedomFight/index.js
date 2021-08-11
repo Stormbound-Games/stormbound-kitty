@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
@@ -12,6 +13,7 @@ import getGuide from '../../helpers/getGuide'
 const guide = getGuide('FREEDOM_FIGHT_GUIDE')
 
 export default React.memo(function GuideFreedomFight(props) {
+  const { css } = useFela()
   return (
     <Guide {...guide}>
       <p>
@@ -23,7 +25,11 @@ export default React.memo(function GuideFreedomFight(props) {
 
       <hr />
       <p
-        style={{ fontSize: '135%', textAlign: 'center', color: 'var(--beige)' }}
+        className={css({
+          fontSize: '135%',
+          textAlign: 'center',
+          color: 'var(--beige)',
+        })}
       >
         This week, all Toad units cost 2 mana, regardless of their initial mana
         cost.
@@ -72,10 +78,12 @@ export default React.memo(function GuideFreedomFight(props) {
 
       <Title>Possible Decks</Title>
 
-      <Guide.FullWidth padding='60px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <h3 style={{ marginTop: '0.5em' }}>Frostkhan’s Freedom Fight</h3>
+            <h3 className={css({ marginTop: '0.5em' })}>
+              Frostkhan’s Freedom Fight
+            </h3>
             <p>
               <CardLink id='N1' />, <CardLink id='F8' />, <CardLink id='N9' />.
               Cheap 1-mana filler cards (do not consider Rain of Frogs unless it
@@ -97,7 +105,9 @@ export default React.memo(function GuideFreedomFight(props) {
         </Row>
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <h3 style={{ marginTop: '0.5em' }}>Critical Pancake’s deck</h3>
+            <h3 className={css({ marginTop: '0.5em' })}>
+              Critical Pancake’s deck
+            </h3>
             <p>
               <CardLink id='N1' />, <CardLink id='F4' />, <CardLink id='N9' />,
               <CardLink id='N14' />. I doubt Toxic Sacrifice is worth running
@@ -105,7 +115,7 @@ export default React.memo(function GuideFreedomFight(props) {
               cards. Freebooters is an interesting choice in case your games
               drag beyond the 8 mana turn and you can always play your whole
               hand. I’m not sure that is a thing that happens often, but if your
-              playstyle is defensive it’s good to be prepared.
+              playclassName icss(s defensive it’s good to be) prepared.
             </p>
           </Row.Column>
           <Row.Column>
@@ -121,7 +131,9 @@ export default React.memo(function GuideFreedomFight(props) {
         </Row>
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <h3 style={{ marginTop: '0.5em' }}>SeveralPeople’s deck</h3>
+            <h3 className={css({ marginTop: '0.5em' })}>
+              SeveralPeople’s deck
+            </h3>
             <p>
               <CardLink id='N1' />, <CardLink id='N2' />, <CardLink id='F4' />,{' '}
               <CardLink id='N9' /> and <CardLink id='F2' />. We see a pattern
@@ -143,7 +155,7 @@ export default React.memo(function GuideFreedomFight(props) {
         </Row>
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <h3 style={{ marginTop: '0.5em' }}>Adig’s deck</h3>
+            <h3 className={css({ marginTop: '0.5em' })}>Adig’s deck</h3>
             <p>
               <CardLink id='N1' />, <CardLink id='F8' />, <CardLink id='F4' />,{' '}
               <CardLink id='N9' />, <CardLink id='N16' /> and{' '}

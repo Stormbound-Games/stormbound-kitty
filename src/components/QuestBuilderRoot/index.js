@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import Form from '../QuestBuilderForm'
@@ -8,7 +9,6 @@ import Quest from '../Quest'
 import HeaderBanner from '../HeaderBanner'
 import serialisation from '../../helpers/serialisation'
 import getInitialQuestData from '../../helpers/getInitialQuestData'
-import './index.css'
 
 class QuestBuilderRoot extends React.Component {
   constructor(props) {
@@ -64,9 +64,15 @@ class QuestBuilderRoot extends React.Component {
       <>
         <HeaderBanner title='Create Your Quest' />
 
-        <div className='QuestBuilder'>
+        <div
+          className={this.props.css({
+            maxWidth: '100%',
+            width: '900px',
+            margin: '0 auto',
+          })}
+        >
           <Row desktopOnly wideGutter>
-            <Row.Column style={{ justifyContent: 'center' }}>
+            <Row.Column extend={{ justifyContent: 'center' }}>
               <Quest {...this.state} />
             </Row.Column>
             <Row.Column>
@@ -93,6 +99,7 @@ class QuestBuilderRoot extends React.Component {
 }
 
 export default hookIntoProps(() => ({
+  ...useFela(),
   history: useHistory(),
   questId: useRouteMatch().params.questId,
 }))(QuestBuilderRoot)

@@ -6,7 +6,6 @@ import { Coins, Rubies } from '../Resource'
 import Title from '../Title'
 import CardLink from '../CardLink'
 import getGuide from '../../helpers/getGuide'
-import './index.css'
 
 const guide = getGuide('CARD_SHOP_GUIDE')
 

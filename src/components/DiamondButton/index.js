@@ -1,19 +1,17 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Icon from '../Icon'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function DiamondButton(props) {
+  const { css } = useFela({ isActive: !!props.active })
+
   return (
     <button
       {...props}
       active={undefined}
-      className={[
-        'DiamondButton',
-        props.className,
-        props.active && 'DiamondButton--active',
-      ]
-        .filter(Boolean)
-        .join(' ')}
+      data-active={!!props.active || undefined}
+      className={css(styles.button, props.extend)}
     >
       <Icon icon={props.icon} />
     </button>

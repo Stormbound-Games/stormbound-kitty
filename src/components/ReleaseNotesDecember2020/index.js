@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Article from '../Article'
 import CardLink from '../CardLink'
 import FAQSection from '../FAQSection'
@@ -9,6 +10,7 @@ import ReleaseNotes from '../ReleaseNotes'
 import { Coins, Rubies } from '../Resource'
 import TogglableContent from '../TogglableContent'
 import Table from '../Table'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import displayBundle from '../../helpers/displayBundle'
 import getRewardLabel from '../../helpers/getRewardLabel'
@@ -16,6 +18,7 @@ import getCalendarValue from '../../helpers/getCalendarValue'
 import rewards from './rewards'
 
 export default React.memo(function ReleaseNotesDecember2020(props) {
+  const { css } = useFela()
   const [isTableExpanded, expandTable] = React.useState(false)
 
   return (
@@ -27,7 +30,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
           Calendar! Be sure to tune in on a daily basis for some juicy rewards!
         </p>
 
-        <ol style={{ columns: '16em' }}>
+        <TableOfContents>
           <li>
             <a href='#balance-changes'>Balance changes</a>
           </li>
@@ -40,7 +43,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
           <li>
             <a href='#faq'>FAQ</a>
           </li>
-        </ol>
+        </TableOfContents>
 
         <Info icon='heart' title='Important notice'>
           <p>
@@ -155,7 +158,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
           <Table>
             <thead>
               <tr>
-                <th style={{ width: '100px' }}>Day</th>
+                <th className={css({ width: '100px' })}>Day</th>
                 <th>Free</th>
                 <th>Premium</th>
               </tr>
@@ -163,7 +166,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
             <tbody>
               {rewards.map((reward, index) => (
                 <tr key={index}>
-                  <td style={{ width: '100px' }}>#{index + 1}</td>
+                  <td className={css({ width: '100px' })}>#{index + 1}</td>
                   <td>{getRewardLabel(reward[0], true)}</td>
                   <td>{getRewardLabel(reward[1], true)}</td>
                 </tr>
@@ -193,15 +196,15 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
               href='#most-played-cards'
               aria-describedby='footnotes'
               id='edriks-army'
-              style={{ textDecoration: 'none' }}
+              className={css({ textDecoration: 'none' })}
             >
               amongst the most played across the last 3 months globally
               <span
-                style={{
+                className={css({
                   color: 'var(--beige)',
                   marginLeft: '2px',
                   fontSize: '120%',
-                }}
+                })}
               >
                 *
               </span>
@@ -247,7 +250,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
 
         <hr />
 
-        <footer style={{ fontSize: '80%' }}>
+        <footer className={css({ fontSize: '80%' })}>
           <h2 className='VisuallyHidden' id='footnotes'>
             Footnotes
           </h2>

@@ -7,7 +7,7 @@ import PageMeta from '../PageMeta'
 import getExcerpt from '../../helpers/getExcerpt'
 import toSentence from '../../helpers/toSentence'
 import { CATEGORIES } from '../../constants/guides'
-import './index.css'
+import styles from './styles'
 
 const Guide = React.memo(function Guide(props) {
   return (
@@ -24,6 +24,7 @@ const Guide = React.memo(function Guide(props) {
         }}
         ratio={props.ratio}
         withAvif
+        withEditorialContent
       >
         <Article.Narrow>{props.children}</Article.Narrow>
       </Article>
@@ -57,12 +58,12 @@ const Guide = React.memo(function Guide(props) {
 // can be used.
 Guide.FullWidth = React.memo(function FullWidth(props) {
   return (
-    <div
-      className='Guide__fullwidth Article__embed'
-      style={{ ...props.style, '--padding': props.padding }}
+    <Article.Embed
+      extend={styles.fullWidth}
+      style={{ '--padding': props.padding }}
     >
       {props.children}
-    </div>
+    </Article.Embed>
   )
 })
 

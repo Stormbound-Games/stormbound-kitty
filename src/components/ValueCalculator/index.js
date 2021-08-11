@@ -1,8 +1,10 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { useRouteMatch, useHistory, Link } from 'react-router-dom'
 import Card from '../Card'
 import CardSelect from '../CardSelect'
 import HeaderBanner from '../HeaderBanner'
+import Image from '../Image'
 import Info from '../Info'
 import LearnMoreIcon from '../LearnMoreIcon'
 import PageMeta from '../PageMeta'
@@ -12,7 +14,7 @@ import cards from '../../data/cards'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import getCardValue from '../../helpers/getCardValue'
 import serialisation from '../../helpers/serialisation'
-import './index.css'
+import styles from './styles'
 
 const LevelSelect = React.memo(function LevelSelect(props) {
   return (
@@ -51,6 +53,7 @@ const SlotSelect = React.memo(function SlotSelect(props) {
 })
 
 const CardValue = React.memo(function CardValue(props) {
+  const { css } = useFela()
   const value = props.id && getCardValue(props.id, props.level)
 
   if (!value) {
@@ -62,7 +65,7 @@ const CardValue = React.memo(function CardValue(props) {
   const [min, max] = value
 
   return (
-    <table className='ValueCalculator__table'>
+    <table className={css(styles.table)}>
       <thead>
         <tr>
           <th>Min</th>
@@ -93,6 +96,7 @@ const getCardsFromURL = id => {
 }
 
 export default React.memo(function ValueCalculator(props) {
+  const { css } = useFela()
   const history = useHistory()
   const { params } = useRouteMatch()
   const initialCards = getCardsFromURL(params.id?.toUpperCase())
@@ -134,10 +138,10 @@ export default React.memo(function ValueCalculator(props) {
             speed factor. The speed factor is 0.5, 1, 1.5, 1.75 or 2 depending
             on the card’s effective movement between 0 and 4.
           </p>
-          <img
+          <Image
             src='/assets/images/card_value.png'
             alt='v(c) = s / m * f'
-            className='ValueCalculator__formula'
+            extend={styles.formula}
           />
           <Info
             icon='equalizer'
@@ -176,7 +180,7 @@ export default React.memo(function ValueCalculator(props) {
           {A.id && (
             <>
               <CardValue {...A} />
-              <div className='ValueCalculator__CardHolder'>
+              <div className={css(styles.cardHolder)}>
                 <Card {...getResolvedCardData(A)} />
               </div>
             </>
@@ -204,7 +208,7 @@ export default React.memo(function ValueCalculator(props) {
           {B.id && (
             <>
               <CardValue {...B} />
-              <div className='ValueCalculator__CardHolder'>
+              <div className={css(styles.cardHolder)}>
                 <Card {...getResolvedCardData(B)} />
               </div>
             </>
@@ -214,7 +218,7 @@ export default React.memo(function ValueCalculator(props) {
       <Row desktopOnly>
         <Row.Column width='1/3'></Row.Column>
         <Row.Column width='2/3'>
-          <p className='ValueCalculator__hint'>
+          <p className={css(styles.hint)}>
             * The maximum is not in fact the theoretical maximum as{' '}
             <Link to='/faq#value-calculator'>some values are capped</Link> for
             sake of simplicity or realism. Therefore, this is more of a

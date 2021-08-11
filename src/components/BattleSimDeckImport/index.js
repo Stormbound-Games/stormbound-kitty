@@ -1,11 +1,12 @@
 import React from 'react'
+import { useFela } from 'react-fela'
+import hookIntoProps from 'hook-into-props'
 import CTA from '../CTA'
 import Deck from '../Deck'
 import Dialog from '../Dialog'
 import serialisation from '../../helpers/serialisation'
-import './index.css'
 
-export default class BattleSimDeckImport extends React.Component {
+class BattleSimDeckImport extends React.Component {
   state = {
     deckURL: '',
     deck: [],
@@ -68,7 +69,10 @@ export default class BattleSimDeckImport extends React.Component {
         <CTA
           type='CTA'
           onClick={this.open}
-          className='BattleSimDeckImport__button'
+          extend={{
+            margin: '1em auto 2em',
+            display: 'block',
+          }}
         >
           Import deck
         </CTA>
@@ -117,3 +121,7 @@ export default class BattleSimDeckImport extends React.Component {
     )
   }
 }
+
+export default hookIntoProps(props => ({
+  ...useFela(),
+}))(BattleSimDeckImport)

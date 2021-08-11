@@ -1,21 +1,23 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Icon from '../Icon'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function Info(props) {
+  const { css } = useFela({ withCta: Boolean(props.CTA) })
+
   return (
     <div
-      className={['Info', props.CTA && 'Info--with-cta', props.className]
+      className={[css(styles.info, props.extend), props.className]
         .filter(Boolean)
         .join(' ')}
-      style={props.style}
     >
-      <span className='Info__title'>
-        {!!props.icon && <Icon className='Info__icon' icon={props.icon} />}{' '}
+      <span className={css(styles.title)}>
+        {!!props.icon && <Icon extend={styles.icon} icon={props.icon} />}{' '}
         {props.title}
       </span>
       {props.children}
-      {props.CTA && <div className='Info__CTA'>{props.CTA}</div>}
+      {props.CTA && <div className={css(styles.cta)}>{props.CTA}</div>}
     </div>
   )
 })

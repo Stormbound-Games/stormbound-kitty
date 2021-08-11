@@ -6,6 +6,7 @@ import Guide from '../Guide'
 import Info from '../Info'
 import Notice from '../Notice'
 import Row from '../Row'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import getGuide from '../../helpers/getGuide'
 
@@ -14,7 +15,7 @@ const guide = getGuide('EQUALS_INTRO_GUIDE')
 export default React.memo(function GuideEqualsIntro(props) {
   return (
     <Guide {...guide}>
-      <ol style={{ columns: '16em' }}>
+      <TableOfContents>
         <li>
           <a href='#what-to-expect'>What to expect</a>
         </li>
@@ -32,7 +33,7 @@ export default React.memo(function GuideEqualsIntro(props) {
         <li>
           <a href='#tips-and-tricks'>Tips and Tricks</a>
         </li>
-      </ol>
+      </TableOfContents>
 
       <Title id='what-to-expect'>What to expect</Title>
 

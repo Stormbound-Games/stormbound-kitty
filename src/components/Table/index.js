@@ -1,14 +1,11 @@
 import React from 'react'
-import './index.css'
+import { useFela } from 'react-fela'
+import styles from './styles'
 
 export default React.memo(function Table(props) {
+  const { css } = useFela({ isZebra: props.zebra })
+
   return (
-    <table
-      className={['Table', props.zebra && 'Table--zebra', props.className]
-        .filter(Boolean)
-        .join(' ')}
-    >
-      {props.children}
-    </table>
+    <table className={css(styles.table, props.extend)}>{props.children}</table>
   )
 })

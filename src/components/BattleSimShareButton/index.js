@@ -1,9 +1,11 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Checkbox from '../Checkbox'
 import ShareDialog from '../ShareDialog'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function BattleSimShareButton(props) {
+  const { css } = useFela()
   const [hideInterface, setHideInterface] = React.useState(false)
   const processURL = url =>
     hideInterface && !url.endsWith('/display') ? url + '/display' : url
@@ -26,7 +28,7 @@ export default React.memo(function BattleSimShareButton(props) {
         with the button below.
       </p>
 
-      <div className='BattleSimShareButton__checkbox'>
+      <div className={css(styles.checkbox)}>
         <Checkbox
           name='hide-interface'
           id='hide-interface'

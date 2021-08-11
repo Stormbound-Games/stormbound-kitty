@@ -1,9 +1,11 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import { NotificationContext } from '../NotificationProvider'
+import CTA from '../CTA'
 import Only from '../Only'
 import uuid from '../../helpers/uuid'
-import './index.css'
+import styles from './styles'
 
 const useFileUpload = onChange => {
   const { setDecks } = React.useContext(PersonalDecksContext)
@@ -56,22 +58,21 @@ const parseCSVData = data => {
 }
 
 export default React.memo(function ImportDecks(props) {
+  const { css } = useFela()
   const onFileUpload = useFileUpload(props.onChange)
 
   return (
-    <div className='ImportDecks'>
-      <label htmlFor='import' className='CTA'>
-        <span className='CTA__content'>
-          Import<Only.Desktop> decks</Only.Desktop>
-        </span>
-      </label>
+    <div className={css(styles.container)}>
+      <CTA as='label' htmlFor='import'>
+        Import<Only.Desktop> decks</Only.Desktop>
+      </CTA>
       <input
         id='import'
         name='import'
         type='file'
         accept='.csv'
         onChange={onFileUpload}
-        className='ImportDecks__file'
+        className={css(styles.file)}
         data-testid='import-decks-btn'
       />
     </div>

@@ -1,8 +1,10 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { getRarityColor } from '../../helpers/getRarity'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function RarityBar(props) {
+  const { css } = useFela()
   const getRarityCount = rarity =>
     props.deck.filter(card => card.rarity === rarity).length
   const commons = getRarityCount('common')
@@ -11,55 +13,55 @@ export default React.memo(function RarityBar(props) {
   const legendaries = getRarityCount('legendary')
 
   return (
-    <div className='RarityBar' aria-hidden>
+    <div className={css(styles.bar)} aria-hidden>
       {commons > 0 && (
         <div
-          className='RarityBar__slice'
+          className={css(styles.slice)}
           style={{
             '--color': getRarityColor('common', 'bright'),
             '--count': commons,
           }}
         >
-          <span className='RarityBar__count' title={commons}>
+          <span className={css(styles.count)} title={commons}>
             {commons}
           </span>
         </div>
       )}
       {rares > 0 && (
         <div
-          className='RarityBar__slice'
+          className={css(styles.slice)}
           style={{
             '--color': getRarityColor('rare', 'bright'),
             '--count': rares,
           }}
         >
-          <span className='RarityBar__count' title={rares}>
+          <span className={css(styles.count)} title={rares}>
             {rares}
           </span>
         </div>
       )}
       {epics > 0 && (
         <div
-          className='RarityBar__slice'
+          className={css(styles.slice)}
           style={{
             '--color': getRarityColor('epic', 'bright'),
             '--count': epics,
           }}
         >
-          <span className='RarityBar__count' title={epics}>
+          <span className={css(styles.count)} title={epics}>
             {epics}
           </span>
         </div>
       )}
       {legendaries > 0 && (
         <div
-          className='RarityBar__slice'
+          className={css(styles.slice)}
           style={{
             '--color': getRarityColor('legendary', 'bright'),
             '--count': legendaries,
           }}
         >
-          <span className='RarityBar__count' title={legendaries}>
+          <span className={css(styles.count)} title={legendaries}>
             {legendaries}
           </span>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
@@ -9,11 +10,12 @@ import Row from '../Row'
 import Title from '../Title'
 import CardLink from '../CardLink'
 import getGuide from '../../helpers/getGuide'
-import './index.css'
 
 const guide = getGuide('NOBLE_COALITION_GUIDE')
 
 export default React.memo(function GuideNobleCoalition(props) {
+  const { css } = useFela()
+
   return (
     <Guide {...guide}>
       <p>
@@ -25,7 +27,11 @@ export default React.memo(function GuideNobleCoalition(props) {
 
       <hr />
       <p
-        style={{ fontSize: '135%', textAlign: 'center', color: 'var(--beige)' }}
+        className={css({
+          fontSize: '135%',
+          textAlign: 'center',
+          color: 'var(--beige)',
+        })}
       >
         This week, all Feline units benefit from an extra +2 strength on top of
         their initial strength.
@@ -54,10 +60,10 @@ export default React.memo(function GuideNobleCoalition(props) {
 
       <Title>Possible Decks</Title>
 
-      <Guide.FullWidth padding='60px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <h3 style={{ marginTop: '0.5em' }}>
+            <h3 className={css({ marginTop: '0.5em' })}>
               Critical Pancake’s Cat Butcher
             </h3>
             <p>
@@ -85,7 +91,9 @@ export default React.memo(function GuideNobleCoalition(props) {
         </Row>
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <h3 style={{ marginTop: '0.5em' }}>The_Mirc’s Swarm Cat Runners</h3>
+            <h3 className={css({ marginTop: '0.5em' })}>
+              The_Mirc’s Swarm Cat Runners
+            </h3>
             <p>
               Looks like a solid deck
               <Only.DefaultCollection>

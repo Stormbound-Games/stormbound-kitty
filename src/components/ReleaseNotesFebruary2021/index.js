@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
 import CheapenedBrawl from '../CheapenedBrawl'
@@ -10,7 +11,9 @@ import Info from '../Info'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
 import { Coins, Rubies, Stones } from '../Resource'
+import Strikethrough from '../Strikethrough'
 import Table from '../Table'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import TogglableContent from '../TogglableContent'
 import displayBundle from '../../helpers/displayBundle'
@@ -20,6 +23,7 @@ import getInitialCardData from '../../helpers/getInitialCardData'
 import rewards from './rewards'
 
 export default React.memo(function ReleaseNotesFebruary2021(props) {
+  const { css } = useFela()
   const [isTableExpanded, expandTable] = React.useState(false)
 
   return (
@@ -32,7 +36,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
           usual!
         </p>
 
-        <ol style={{ columns: '16em' }}>
+        <TableOfContents>
           <li>
             <a href='#balance-changes'>Balance changes</a>
           </li>
@@ -54,7 +58,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
           <li>
             <a href='#faq'>FAQ</a>
           </li>
-        </ol>
+        </TableOfContents>
 
         <Info icon='heart' title='Important notice'>
           <p>
@@ -71,18 +75,13 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
         <ul>
           <li>
             <CardLink id='N56' />’ ability trigger is being extended.
-            <blockquote style={{ textIndent: 0 }}>
-              When played{' '}
-              <s style={{ textDecoration: 'line-through', opacity: 0.7 }}>
-                bordering
-              </s>{' '}
+            <blockquote className={css({ textIndent: 0 })}>
+              When played <Strikethrough>bordering</Strikethrough>{' '}
               <span className='Highlight'>
                 on the tile in front of your temple structure or
               </span>{' '}
               your base, spawn 4/5/6/7/8 strength Knights on all{' '}
-              <s style={{ textDecoration: 'line-through', opacity: 0.7 }}>
-                tiles in the same row
-              </s>{' '}
+              <Strikethrough>tiles in the same row</Strikethrough>{' '}
               <span className='Highlight'>of its bordering tiles</span>
             </blockquote>
           </li>
@@ -119,32 +118,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
           Profile”, suggesting there will be more content to come, eventually
           fleshing out advanced player profiles!
         </p>
-      </Article.Narrow>
 
-      <Article.Embed>
-        <Row desktopOnly>
-          <Row.Column width='1/3'>
-            <Image
-              src='/assets/images/releases/avatars_3.png'
-              alt='Player profile screen showcasing the new player avatar'
-            />
-          </Row.Column>
-          <Row.Column width='1/3'>
-            <Image
-              src='/assets/images/releases/avatars_2.png'
-              alt='Avatar selection screen offering 9 different avatars from characters in the game'
-            />
-          </Row.Column>
-          <Row.Column width='1/3'>
-            <Image
-              src='/assets/images/releases/avatars_1.png'
-              alt='Friend list screen displayed players’ avatar and preferred faction'
-            />
-          </Row.Column>
-        </Row>
-      </Article.Embed>
-
-      <Article.Narrow>
         <CheapenedBrawl ratio={(1 / 3) * 2} difficulty='LEGACY'>
           <p>
             Similar to what happened in{' '}
@@ -202,7 +176,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
           <Table>
             <thead>
               <tr>
-                <th style={{ width: '100px' }}>Day</th>
+                <th className={css({ width: '100px' })}>Day</th>
                 <th>Free</th>
                 <th>Premium</th>
               </tr>
@@ -210,7 +184,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
             <tbody>
               {rewards.map(([free, premium], index) => (
                 <tr key={index}>
-                  <td style={{ width: '100px' }}>#{index + 1}</td>
+                  <td className={css({ width: '100px' })}>#{index + 1}</td>
                   <td>{getRewardLabel(free, true)}</td>
                   <td>{getRewardLabel(premium, true)}</td>
                 </tr>

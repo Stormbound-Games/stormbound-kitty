@@ -1,11 +1,14 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Icon from '../Icon'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function Notice(props) {
+  const { css } = useFela()
+
   return (
-    <p className='Notice' style={props.style}>
-      {props.icon && <Icon className='Notice__icon' icon={props.icon} />}{' '}
+    <p className={css(styles.notice, props.extend)}>
+      {props.icon && <Icon extend={styles.icon} icon={props.icon} />}{' '}
       {props.children}
     </p>
   )

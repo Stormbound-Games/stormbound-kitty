@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Checkbox from '../Checkbox'
 import HeaderBanner from '../HeaderBanner'
@@ -37,7 +38,7 @@ import {
   MonthlyIncome,
   YearlyIncome,
 } from '../../helpers/Income'
-import './index.css'
+import styles from './styles'
 
 const PERIODS = ['DAILY', 'WEEKLY', 'MONTHLY', 'YEARLY']
 const SELECT_LENGTH_MULTIPLIER = {
@@ -99,6 +100,7 @@ const useIncomeOverPeriod = (settings, period, rubiesConversion) => {
 }
 
 export default React.memo(function IncomeCalculator(props) {
+  const { css } = useFela()
   const [withPremiumPass, setWithPremiumPass] = React.useState(false)
   const [period, setPeriod] = React.useState(PERIODS[0])
   const [setup, setSetup] = React.useState('MOBILE_WITHOUT_ADS')
@@ -165,7 +167,7 @@ export default React.memo(function IncomeCalculator(props) {
             <Only.Mobile>tapping</Only.Mobile> “Daily” in the outcome section.
           </p>
 
-          <p style={{ marginBottom: '2em' }}>
+          <p className={css({ marginBottom: '2em' })}>
             Special thanks to <Link to='/member/Oeni'>Oeni</Link> (oeni#7266)
             and <Link to='/member/Roman'>Roman</Link> (Roman_NFP#6918) for their
             help in designing and making this simulator possible.
@@ -362,7 +364,7 @@ export default React.memo(function IncomeCalculator(props) {
         <Row.Column width='1/3'>
           <div>
             <Title
-              style={{
+              extend={{
                 '--length': period.length,
                 '--multiplier': SELECT_LENGTH_MULTIPLIER[period],
               }}
@@ -375,7 +377,7 @@ export default React.memo(function IncomeCalculator(props) {
                 id='period'
                 value={period}
                 onChange={event => setPeriod(event.target.value)}
-                className='IncomeCalculator__period'
+                className={css(styles.period)}
               >
                 {PERIODS.map(period => (
                   <option key={period} value={period}>

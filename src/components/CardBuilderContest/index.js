@@ -1,13 +1,15 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Article from '../Article'
 import HallOfFame from '../CardBuilderHallOfFame'
 import { Rubies } from '../Resource'
 import PageMeta from '../PageMeta'
 import Title from '../Title'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function CardBuilderContest(props) {
+  const { css } = useFela()
   const weekDay = new Date().getDay()
   const isWeekEnd = weekDay === 7 || weekDay === 0
 
@@ -60,31 +62,31 @@ export default React.memo(function CardBuilderContest(props) {
           </p>
 
           <Title>Rules</Title>
-          <ul className='CardBuilderContest__rules'>
-            <li>
+          <ul className={css(styles.rules)}>
+            <li className={css(styles.item)}>
               Card submissions must be made by Friday 11:59 pm (23:59) CDT.
             </li>
 
-            <li>
+            <li className={css(styles.item)}>
               Card submissions must adhere to the weekly theme. Cards that do
               not follow the theme will not be considered for voting, no matter
               how cool they may be.
             </li>
 
-            <li>
+            <li className={css(styles.item)}>
               Card art does not need to be present for submissions, and does not
               need to be original artwork. You are allowed to use any image as
               long as it is appropriate. You know exactly what appropriate
               means.
             </li>
 
-            <li>
+            <li className={css(styles.item)}>
               Cards do not need all of their values filled. If you do not know
               what value would best suit the card, a variable (like ∆) is always
               fine.
             </li>
 
-            <li>
+            <li className={css(styles.item)}>
               Only 1 card may be submitted per person, unless otherwise
               specified by the weekly rules/theme. Submissions{' '}
               <span className='Highlight'>can</span> be edited before the
@@ -93,12 +95,12 @@ export default React.memo(function CardBuilderContest(props) {
               by the first (like Qordia’s nests).
             </li>
 
-            <li>
+            <li className={css(styles.item)}>
               Only 1 vote is allowed per person. Participants and
               non-participants are allowed to vote for their favorite card.
             </li>
 
-            <li>
+            <li className={css(styles.item)}>
               When you are getting the link to your card,{' '}
               <span className='Highlight'>
                 do not include the stats as text
@@ -106,7 +108,7 @@ export default React.memo(function CardBuilderContest(props) {
               . Only a URL should be submitted.
             </li>
 
-            <li>
+            <li className={css(styles.item)}>
               Judges are not allowed to compete in the competition and should
               refrain from helping the contestants.
             </li>

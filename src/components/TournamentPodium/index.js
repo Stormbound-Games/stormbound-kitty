@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import MemberList from '../MemberList'
 import Row from '../Row'
@@ -67,13 +68,14 @@ const getPointGroups = podium =>
   )
 
 export default React.memo(function Podium(props) {
+  const { css } = useFela()
   const podium = getOverallPodium()
   const pointGroups = React.useMemo(() => getPointGroups(podium), [podium])
 
   return (
     <>
       <Title>Hall of Fame</Title>
-      <div style={{ fontSize: '85%' }}>
+      <div className={css({ fontSize: '85%' })}>
         <Row desktopOnly wideGutter>
           {podium.slice(0, 3).map(({ user, medals, points }, index) => {
             const [nGold, sGold] = getMedalDetails(medals, 0)
@@ -115,7 +117,7 @@ export default React.memo(function Podium(props) {
         </Row>
       </div>
 
-      <ol start='4' style={{ columns: '16em' }}>
+      <ol start='4' className={css({ columns: '16em' })}>
         {Object.keys(pointGroups)
           .sort((a, b) => +b - +a)
           .slice(0, 6)

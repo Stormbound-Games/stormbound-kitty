@@ -14,7 +14,6 @@ import getRawCardData from '../../helpers/getRawCardData'
 import getExcerpt from '../../helpers/getExcerpt'
 import getReadingTime from '../../helpers/getReadingTime'
 import useFetch from '../../hooks/useFetch'
-import './index.css'
 
 export default React.memo(function Story(props) {
   const [ref, inView] = useInView()
@@ -27,13 +26,18 @@ export default React.memo(function Story(props) {
   const type = story ? story.type : undefined
 
   return (
-    <div className={['Story', 'Story--' + type].join(' ')}>
+    <>
       {error ? (
         <Error error='Error fetching story.' />
       ) : loading ? (
         <Loader />
       ) : story ? (
         <Article
+          extend={
+            type === 'poem'
+              ? { textAlign: 'center', fontSize: '120%' }
+              : undefined
+          }
           noDropCap={story.type === 'poem'}
           title={story.title}
           author={story.author}
@@ -44,6 +48,7 @@ export default React.memo(function Story(props) {
             children: 'Back to stories',
           }}
           withAvif
+          withEditorialContent
         >
           <Article.Narrow>
             <MicroMarkdown content={story.content} />
@@ -74,6 +79,6 @@ export default React.memo(function Story(props) {
           description={getExcerpt(story.content.replace('---', ''), 160)}
         />
       )}
-    </div>
+    </>
   )
 })

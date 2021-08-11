@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Checkbox from '../Checkbox'
 import { Coins } from '../Resource'
 
@@ -7,6 +8,8 @@ export default React.memo(function PremiumPassCheckbox({
   withFootnote = false,
   ...props
 }) {
+  const { css } = useFela()
+
   return (
     <>
       <Checkbox
@@ -18,7 +21,7 @@ export default React.memo(function PremiumPassCheckbox({
         Premium Pass
       </Checkbox>
       {withExplanation && (
-        <span style={{ marginTop: '-0.35em' }}>
+        <span className={css({ marginTop: '-0.35em' })}>
           (extra coins per win, <Coins amount={700} /> cap, 10% extra Brawl
           discount
         </span>

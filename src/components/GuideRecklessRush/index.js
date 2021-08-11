@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import BattleSimApp from '../BattleSimApp'
 import CardLink from '../CardLink'
@@ -10,24 +11,50 @@ import Notice from '../Notice'
 import { Stones } from '../Resource'
 import Row from '../Row'
 import Sparkles from '../Sparkles'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import serialisation from '../../helpers/serialisation'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import getGuide from '../../helpers/getGuide'
-import './index.css'
+import styles from './styles'
 
 const guide = getGuide('RECKLESS_RUSH_GUIDE')
 
-const Board = props => (
-  <Guide.FullWidth>
-    <BattleSimApp environment='swarm' mode='DISPLAY' simId={props.id} />
-    {props.caption ? (
-      <p className='GuideRecklessRush__caption'>{props.caption}</p>
-    ) : null}
-  </Guide.FullWidth>
-)
+const Board = props => {
+  const { css } = useFela()
+
+  return (
+    <Guide.FullWidth>
+      <BattleSimApp environment='swarm' mode='DISPLAY' simId={props.id} />
+      {props.caption ? (
+        <p className={css(styles.caption)}>{props.caption}</p>
+      ) : null}
+    </Guide.FullWidth>
+  )
+}
+
+const colorCells = css => (cells, type) => {
+  const container = document.querySelector("[data-selector='placement']")
+
+  Array.from(
+    container.querySelectorAll(
+      cells.map(cell => `[data-testid='cell-${cell}']`).join(', ')
+    )
+  ).forEach(cell =>
+    cell.classList.add(...css(styles.cell({ type })).split(' '))
+  )
+}
 
 export default React.memo(function GuideRecklessRush(props) {
+  const { css } = useFela()
+
+  React.useEffect(() => {
+    const color = colorCells(css)
+    color(['A1', 'A4'], 'Devastators')
+    color(['A2', 'B2'], 'Snowmasons')
+    color(['A3', 'B3'], 'guardians')
+  }, [css])
+
   return (
     <Guide {...guide}>
       <p>
@@ -46,7 +73,7 @@ export default React.memo(function GuideRecklessRush(props) {
         the perfect deck for you.
       </p>
 
-      <ol style={{ columns: '16em' }}>
+      <TableOfContents>
         <li>
           <a href='#the-decks'>The decks</a>
         </li>
@@ -71,9 +98,9 @@ export default React.memo(function GuideRecklessRush(props) {
         <li>
           <a href='#advanced-rush-theory'>Advanced Rush Theory</a>
         </li>
-      </ol>
+      </TableOfContents>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Title id='the-decks'>The Decks</Title>
 
         <Row desktopOnly wideGutter>
@@ -167,7 +194,7 @@ export default React.memo(function GuideRecklessRush(props) {
         </Row>
       </Guide.FullWidth>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <p>
@@ -502,7 +529,7 @@ export default React.memo(function GuideRecklessRush(props) {
         it is not recommended for the majority of players.
       </p>
 
-      <Info icon='sword' title='Temple of the Heart' style={{ marginTop: 0 }}>
+      <Info icon='sword' title='Temple of the Heart' extend={{ marginTop: 0 }}>
         <p>
           For more information on how <CardLink id='N81' /> works, you can check
           out <a href='https://youtu.be/sfGL_Nponu0'>this video</a>.
@@ -1198,16 +1225,16 @@ export default React.memo(function GuideRecklessRush(props) {
         enemy to access that tile with proper defense.
       </p>
 
-      <div className='GuideRecklessRush__placement'>
+      <div data-selector='placement'>
         <Board
           id='LCwsLCwsLCwsLCwsLCwsLCwsLDtSMTBOLUIxME47M00wOzs='
           caption={
             <>
               Simple analysis of where to best put{' '}
-              <span className='GuideRecklessRush__legend'>Devastators</span>,
-              <span className='GuideRecklessRush__legend'>Snowmasons</span> and{' '}
-              <span className='GuideRecklessRush__legend'>guardians</span> (any
-              units that can be used to protect enemy units from attacking
+              <span className={css(styles.legend)}>Devastators</span>,
+              <span className={css(styles.legend)}>Snowmasons</span> and{' '}
+              <span className={css(styles.legend)}>guardians</span> (any units
+              that can be used to protect enemy units from attacking
               Devastators).
             </>
           }

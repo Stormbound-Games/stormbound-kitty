@@ -1,9 +1,9 @@
 export default {
   MANA: '[data-testid="mana-pool"]',
   CHANCES_CHECKBOX: '[data-testid="display-chance"]',
-  DECK_CARD: '.Deck__card',
+  DECK_CARD: '[data-testid*="deck-slot"]',
   CARD: '[data-testid="hand"] [data-testid="card"]',
-  MANA_COST: '.Mana__value',
+  MANA_COST: '[data-testid="mana-value"]',
   CYCLE_BTN: '[data-testid="cycle-btn"]',
   PLAY_BTN: '[data-testid="play-btn"]',
   END_TURN_BTN: '[data-testid="end-turn-btn"]',

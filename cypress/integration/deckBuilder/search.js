@@ -15,24 +15,21 @@ describe('Deck Builder — Search', () => {
     cy.get(s.FACTION_SELECT)
       .select('ironclad')
       .get(s.CARD)
-      .should('have.class', 'Card--ironclad')
+      .should('have.attr', 'data-faction', 'ironclad')
   })
 
   it('should be able to filter by type', () => {
     cy.get(s.TYPE_SELECT)
       .select('spell')
       .get(s.CARD)
-      .find('.Card__content')
-      .then($node => {
-        expect($node.attr('style')).to.include('spell')
-      })
+      .should('have.attr', 'data-type', 'spell')
   })
 
   it('should be able to filter by mana', () => {
     cy.get(s.MANA_SELECT)
       .select('6-7')
       .get(s.CARD)
-      .find('.Card__mana-content')
+      .find('[data-testid="card-mana"]')
       .each($node => {
         const mana = Number($node.text())
         expect(mana).to.be.above(5)
@@ -44,7 +41,7 @@ describe('Deck Builder — Search', () => {
     cy.get(s.MOVEMENT_SELECT)
       .select('2')
       .get(s.CARD)
-      .find('.Card__movement-content')
+      .find("[data-testid='card-movement']")
       .each($node => {
         expect($node.text()).to.equal('2')
       })
@@ -54,20 +51,14 @@ describe('Deck Builder — Search', () => {
     cy.get(s.RARITY_SELECT)
       .select('epic')
       .get(s.CARD)
-      .find(s.CARD_RARITY)
-      .each($node => {
-        expect($node.attr('alt')).to.equal('epic')
-      })
+      .should('have.attr', 'data-rarity', 'epic')
   })
 
   it('should be able to filter by race', () => {
     cy.get(s.RACE_SELECT)
       .select('rodent')
       .get(s.CARD)
-      .find(s.CARD_RACE)
-      .each($node => {
-        expect($node.text()).to.contain('rodent')
-      })
+      .should('have.attr', 'data-race', 'rodent')
   })
 
   it('should be able to filter by ability', () => {

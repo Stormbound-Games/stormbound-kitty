@@ -1,21 +1,24 @@
 import React from 'react'
+import { useFela } from 'react-fela'
+import Image from '../Image'
 import FeedEntry from '../FeedEntry'
 import Only from '../Only'
-import './index.css'
 
 export default React.memo(function FeedArtEntry(props) {
+  const { css } = useFela()
   return (
     <FeedEntry icon='image' date={props.date}>
       {props.author} has made some art.
       <details>
-        <summary style={{ display: 'block' }}>
+        <summary className={css({ display: 'block' })}>
           <Only.Desktop>Click</Only.Desktop>
           <Only.Mobile>Tap</Only.Mobile> to toggle art display
         </summary>
-        <img
+        <Image
           src={'/assets/images/art/' + props.image}
           alt={'Artwork by' + props.author}
-          className='FeedArtEntry__image'
+          extend={{ maxWidth: '450px', width: '100%' }}
+          withoutWebp
         />
       </details>
     </FeedEntry>

@@ -1,13 +1,15 @@
 import React from 'react'
-import './index.css'
+import { useFela } from 'react-fela'
+import styles from './styles'
 
 export default React.memo(function ProgressBar(props) {
+  const { css } = useFela()
   const progress = Math.min((props.value / props.max) * 100, 100)
 
   return (
-    <div className='ProgressBar'>
+    <div className={css(styles.progress)}>
       <div
-        className='ProgressBar__inner'
+        className={css(styles.inner)}
         style={{ width: progress + '%' }}
         role='progressbar'
         aria-valuenow={progress}

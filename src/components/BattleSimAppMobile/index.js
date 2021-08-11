@@ -1,4 +1,6 @@
 import React from 'react'
+import { useFela } from 'react-fela'
+import hookIntoProps from 'hook-into-props'
 import isEqual from 'lodash.isequal'
 import Board from '../BattleSimBoardMobile'
 import ButtonIcon from '../ButtonIcon'
@@ -10,9 +12,9 @@ import Panel from '../BattleSimPanel'
 import PlayerForm from '../BattleSimPlayerForm'
 import Puzzle from '../BattleSimPuzzle'
 import serialisation from '../../helpers/serialisation'
-import './index.css'
+import styles from './styles'
 
-export default class BattleSimAppMobile extends React.Component {
+class BattleSimAppMobile extends React.Component {
   static MODES = {
     GAME: 'GAME',
     SETTINGS: 'SETTINGS',
@@ -141,12 +143,15 @@ export default class BattleSimAppMobile extends React.Component {
       (this.props.mode === 'DISPLAY' && !!this.props.puzzle)
 
     return (
-      <div
-        className={`BattleSimAppMobile BattleSimAppMobile--${this.state.mode}`}
-      >
+      <div className={this.props.css(styles.root)}>
         {this.props.shouldRenderLeftPanel && (
           <div
-            className={`BattleSimAppMobile__panel BattleSimAppMobile__panel--${BattleSimAppMobile.MODES.SETTINGS}`}
+            className={this.props.css(
+              styles.panel({
+                type: BattleSimAppMobile.MODES.SETTINGS,
+                isActive: this.state.mode === BattleSimAppMobile.MODES.SETTINGS,
+              })
+            )}
           >
             {this.props.mode === 'EDITOR' ? (
               <Panel
@@ -209,7 +214,7 @@ export default class BattleSimAppMobile extends React.Component {
           </div>
         )}
 
-        <div className='BattleSimAppMobile__board'>
+        <div className={this.props.css(styles.board)}>
           <Board
             {...this.props}
             openCellPanel={() =>
@@ -221,7 +226,7 @@ export default class BattleSimAppMobile extends React.Component {
           {this.props.shouldRenderLeftPanel &&
             this.state.mode !== BattleSimAppMobile.MODES.SETTINGS && (
               <ButtonIcon
-                className='BattleSimAppMobile__panel-button BattleSimAppMobile__panel-button--left'
+                extend={styles.button({ side: 'LEFT' })}
                 onClick={() =>
                   this.setState({ mode: BattleSimAppMobile.MODES.SETTINGS })
                 }
@@ -235,7 +240,7 @@ export default class BattleSimAppMobile extends React.Component {
           {shouldRenderRightPanel &&
             this.state.mode !== BattleSimAppMobile.MODES.CELL && (
               <ButtonIcon
-                className='BattleSimAppMobile__panel-button BattleSimAppMobile__panel-button--right'
+                extend={styles.button({ side: 'RIGHT' })}
                 onClick={() =>
                   this.setState({ mode: BattleSimAppMobile.MODES.CELL })
                 }
@@ -249,7 +254,12 @@ export default class BattleSimAppMobile extends React.Component {
 
         {shouldRenderRightPanel && (
           <div
-            className={`BattleSimAppMobile__panel BattleSimAppMobile__panel--${BattleSimAppMobile.MODES.CELL}`}
+            className={this.props.css(
+              styles.panel({
+                type: BattleSimAppMobile.MODES.CELL,
+                isActive: this.state.mode === BattleSimAppMobile.MODES.CELL,
+              })
+            )}
           >
             {this.props.mode === 'EDITOR' ? (
               <Panel
@@ -293,3 +303,7 @@ export default class BattleSimAppMobile extends React.Component {
     )
   }
 }
+
+export default hookIntoProps(props => ({
+  ...useFela(),
+}))(BattleSimAppMobile)

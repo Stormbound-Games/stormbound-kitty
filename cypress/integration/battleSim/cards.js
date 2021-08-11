@@ -22,11 +22,11 @@ describe('Battle Sim — Cards', () => {
   it('should mark affordable cards in regard to mana', () => {
     cy.get(s.CARD_SLOT_1)
       .find(s.CARD)
-      .should('not.have.class', 'Card--affordable')
+      .should('not.have.attr', 'data-affordable')
       .bsDraw({ slot: 2, card: 'Summon' })
       .get(s.CARD_SLOT_2)
       .find(s.CARD)
-      .should('have.class', 'Card--affordable')
+      .should('have.attr', 'data-affordable')
   })
 
   it('should handle token cards differently', () => {

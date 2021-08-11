@@ -1,10 +1,12 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import ListBuilderTierHeader from '../ListBuilderTierHeader'
 import ListBuilderTierItem from '../ListBuilderTierItem'
 import getRawCardData from '../../helpers/getRawCardData'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function ListBuilderTier(props) {
+  const { css } = useFela({ isDragging: props.isDragging })
   const cards = props.cards.map(getRawCardData)
   const shouldRenderHeader =
     typeof props.withHeader === 'undefined'
@@ -12,18 +14,10 @@ export default React.memo(function ListBuilderTier(props) {
       : props.withHeader
 
   return (
-    <div className='ListBuilderTier' style={{ '--color': props.color }}>
+    <div className={css(styles.tier, { '--color': props.color })}>
       {shouldRenderHeader && <ListBuilderTierHeader {...props} cards={cards} />}
 
-      <div
-        className={[
-          'ListBuilderTier__body',
-          props.isDragging && 'ListBuilderTier__body--dragging',
-        ]
-          .filter(Boolean)
-          .join(' ')}
-        onMouseUp={props.onMouseUp}
-      >
+      <div className={css(styles.body)} onMouseUp={props.onMouseUp}>
         {cards.length ? (
           cards.map((card, index) => (
             <ListBuilderTierItem
@@ -43,7 +37,7 @@ export default React.memo(function ListBuilderTier(props) {
             />
           ))
         ) : (
-          <p className='ListBuilderTier__empty'>
+          <p className={css(styles.empty)}>
             There are currently no cards in this tier.{' '}
             {props.isEditable &&
               'Try adding a card to it to have it displayed here.'}

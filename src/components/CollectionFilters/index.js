@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { TYPES, RARITIES, RACES } from '../../constants/game'
 import AdvancedCardSearch from '../AdvancedCardSearch'
 import Checkbox from '../Checkbox'
@@ -8,7 +9,7 @@ import Only from '../Only'
 import MobileTogglableContent from '../MobileTogglableContent'
 import Row from '../Row'
 import capitalise from '../../helpers/capitalise'
-import './index.css'
+import styles from './styles'
 
 const isButtonDisabled = props =>
   props.faction === '*' &&
@@ -23,6 +24,8 @@ const isButtonDisabled = props =>
   props.order === 'NATURAL'
 
 export default React.memo(function CollectionFilters(props) {
+  const { css } = useFela()
+
   if (props.advanced) {
     return (
       <AdvancedCardSearch
@@ -40,15 +43,15 @@ export default React.memo(function CollectionFilters(props) {
       withSymbols
       labelCollapsed='Expand collection filters'
       labelExpanded='Collapse collection filters'
-      className='CollectionFilters__toggle'
+      className={css(styles.toggle)}
     >
       <form
-        className='CollectionFilters'
+        className={css(styles.filters)}
         onSubmit={event => event.preventDefault()}
       >
-        <Row desktopOnly>
+        <Row desktopOnly extend={styles.row}>
           <Row.Column>
-            <Row>
+            <Row extend={styles.row}>
               <Row.Column>
                 <FactionSelect
                   value={props.faction}
@@ -78,7 +81,7 @@ export default React.memo(function CollectionFilters(props) {
             </Row>
           </Row.Column>
           <Row.Column>
-            <Row>
+            <Row extend={styles.row}>
               <Row.Column>
                 <label htmlFor='status'>Status</label>
                 <select
@@ -115,9 +118,9 @@ export default React.memo(function CollectionFilters(props) {
           </Row.Column>
         </Row>
 
-        <Row desktopOnly>
+        <Row desktopOnly extend={styles.row}>
           <Row.Column>
-            <Row>
+            <Row extend={styles.row}>
               <Row.Column>
                 <label htmlFor='rarity'>Rarity</label>
                 <select
@@ -155,7 +158,7 @@ export default React.memo(function CollectionFilters(props) {
             </Row>
           </Row.Column>
           <Row.Column>
-            <Row>
+            <Row extend={styles.row}>
               <Row.Column>
                 <Only.CustomCollection>
                   <label htmlFor='order'>Order</label>
@@ -188,9 +191,9 @@ export default React.memo(function CollectionFilters(props) {
           </Row.Column>
         </Row>
 
-        <Row desktopOnly>
+        <Row desktopOnly extend={styles.row}>
           <Row.Column>
-            <Row>
+            <Row extend={styles.row}>
               <Row.Column>
                 <Checkbox
                   id='elder'
@@ -214,18 +217,17 @@ export default React.memo(function CollectionFilters(props) {
             </Row>
           </Row.Column>
           <Row.Column>
-            <Row>
-              <Row.Column style={{ justifyContent: 'center' }}>
+            <Row extend={styles.row}>
+              <Row.Column extend={{ justifyContent: 'center' }}>
                 <button
                   type='button'
                   onClick={props.toggleAdvancedSearch}
                   className='ButtonAsLink'
                 >
-                  <Icon icon='search' className='CollectionFilters__icon' />{' '}
-                  Advanced search
+                  <Icon icon='search' extend={styles.icon} /> Advanced search
                 </button>
               </Row.Column>
-              <Row.Column>
+              <Row.Column extend={{ alignSelf: 'flex-end' }}>
                 <button
                   onClick={props.resetFilters}
                   type='button'
@@ -233,7 +235,7 @@ export default React.memo(function CollectionFilters(props) {
                   data-testid='reset-btn'
                   disabled={isButtonDisabled(props)}
                 >
-                  <span className='CollectionFilters__icon CollectionFilters__icon--cross'>
+                  <span className={css(styles.icon, styles.cross)}>
                     &times;
                   </span>{' '}
                   Reset filters

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { ImageSupportContext } from '../ImageSupportProvider'
 import BaseHealth from '../BattleSimBaseHealth'
 import Cards from '../BattleSimCards'
@@ -7,7 +8,7 @@ import Grid from '../BattleSimGrid'
 import PlayerBanner from '../BattleSimPlayerBanner'
 import arrayRandom from '../../helpers/arrayRandom'
 import { FACTIONS } from '../../constants/game'
-import './index.css'
+import styles from './styles'
 
 // Because the faction is picked at random, it needs to be defined outside of
 // the memoised component.
@@ -31,6 +32,7 @@ const POSITIONS = {
 }
 
 export default React.memo(function BattleSimBoardDesktop(props) {
+  const { css } = useFela()
   const { supportsAvif, supportsWebp } = React.useContext(ImageSupportContext)
   const ext = supportsAvif ? 'avif' : supportsWebp ? 'webp' : 'png'
   const environment = props.environment || faction
@@ -38,7 +40,7 @@ export default React.memo(function BattleSimBoardDesktop(props) {
 
   return (
     <div
-      className='BattleSimBoardDesktop'
+      className={css(styles.root)}
       data-testid='board'
       style={{
         backgroundImage: `url('https://stormbound-kitty.com/assets/images/backgrounds/lite/${environment}.${ext}')`,
@@ -48,11 +50,11 @@ export default React.memo(function BattleSimBoardDesktop(props) {
         '--blue-health-x': blueHealth[1],
       }}
     >
-      <div className='BattleSimBoardDesktop__health BattleSimBoardDesktop__health--RED'>
+      <div className={css(styles.health({ type: 'RED' }))}>
         <BaseHealth player='RED' health={props.players.RED.health} />
       </div>
 
-      <div className='BattleSimBoardDesktop__player BattleSimBoardDesktop__player--RED'>
+      <div className={css(styles.player({ type: 'RED' }))}>
         <PlayerBanner
           player='RED'
           faction={props.players.RED.faction}
@@ -70,15 +72,15 @@ export default React.memo(function BattleSimBoardDesktop(props) {
         />
       )}
 
-      <div className='BattleSimBoardDesktop__grid '>
+      <div className={css(styles.grid)}>
         <Grid {...props} />
       </div>
 
-      <div className='BattleSimBoardDesktop__health BattleSimBoardDesktop__health--BLUE'>
+      <div className={css(styles.health({ type: 'BLUE' }))}>
         <BaseHealth player='BLUE' health={props.players.BLUE.health} />
       </div>
 
-      <div className='BattleSimBoardDesktop__player BattleSimBoardDesktop__player--BLUE'>
+      <div className={css(styles.player({ type: 'BLUE' }))}>
         <PlayerBanner
           player='BLUE'
           faction={props.players.BLUE.faction}
@@ -86,7 +88,7 @@ export default React.memo(function BattleSimBoardDesktop(props) {
         />
       </div>
 
-      <div className='BattleSimBoardDesktop__cards'>
+      <div className={css(styles.cards)}>
         <Cards
           hand={props.hand}
           cards={props.cards}

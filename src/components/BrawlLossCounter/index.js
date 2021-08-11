@@ -1,6 +1,8 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { BrawlContext } from '../BrawlProvider'
-import './index.css'
+import Image from '../Image'
+import styles from './styles'
 
 const getImageProps = heart => {
   const basePath = '/assets/images/iconography/'
@@ -38,17 +40,18 @@ const getImageProps = heart => {
 }
 
 const BrawlLossCounter = props => {
+  const { css } = useFela()
   const { meta } = React.useContext(BrawlContext)
 
   return (
-    <div className='BrawlLossCounter'>
+    <div className={css(styles.counter)}>
       {meta.hearts.map((heart, index) => (
         // eslint-disable-next-line jsx-a11y/alt-text
-        <img
+        <Image
           key={[heart.isFull, heart.isPermanent, heart.isProtected, index]
             .map(Number)
             .join('')}
-          className='BrawlLossCounter__heart'
+          extend={styles.heart}
           {...getImageProps(heart)}
         />
       ))}

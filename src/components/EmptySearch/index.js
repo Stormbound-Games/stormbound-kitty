@@ -1,20 +1,23 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import CTA from '../CTA'
 import Image from '../Image'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function EmptySearch(props) {
+  const { css } = useFela()
+
   return (
-    <div className='EmptySearch'>
+    <div className={css(styles.container)}>
       <Image
-        className='EmptySearch__image'
+        extend={styles.image}
         src='/assets/images/cards/sweetcap_kittens.png'
         withAvif
       />
-      <span className='EmptySearch__title'>
+      <span className={css(styles.title)}>
         {props.title || 'No results found'}
       </span>
-      <p className='EmptySearch__copy'>
+      <p className={css(styles.copy)}>
         It looks like there are no results for your search… Try adjusting your
         search parameters, or reset all filters and try again.
       </p>

@@ -1,6 +1,6 @@
 export default {
   CARD: '[data-testid="card"]',
-  CARD_SELECT: '.Header .CardSelect',
+  CARD_SELECT: 'header .CardSelect',
 
   CARD_ABILITY: '[data-testid="card-ability"]',
   CARD_FACTION: '[data-testid="card-faction"]',

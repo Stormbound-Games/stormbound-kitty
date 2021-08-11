@@ -22,7 +22,6 @@ export default React.memo(function YourDeck(props) {
   return (
     <FeaturedDeck
       {...props}
-      data-testid='personal-deck'
       author={null}
       actions={[
         {

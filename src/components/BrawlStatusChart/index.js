@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import {
   Cell,
   Legend,
@@ -11,7 +12,7 @@ import Title from '../Title'
 import { BrawlContext } from '../BrawlProvider'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 import FactionSelect from '../FactionSelect'
-import './index.css'
+import styles from './styles'
 
 const SELECT_LENGTH_MULTIPLIER = {
   '*': '1ch',
@@ -22,6 +23,7 @@ const SELECT_LENGTH_MULTIPLIER = {
 }
 
 export default React.memo(function BrawlStatusCharts(props) {
+  const { css } = useFela()
   const [faction, setFaction] = React.useState('*')
   const { brawl } = React.useContext(BrawlContext)
 
@@ -77,15 +79,15 @@ export default React.memo(function BrawlStatusCharts(props) {
 
   return (
     <div
-      className='BrawlStatusChart'
       style={{
         '--length': (faction === '*' ? 'all factions' : faction).length,
         '--multiplier': SELECT_LENGTH_MULTIPLIER[faction],
       }}
     >
-      <Title className='BrawlStatusChart__title'>
+      <Title extend={styles.title}>
         Ratio vs.{' '}
         <FactionSelect
+          className={css(styles.select)}
           labelClassName='VisuallyHidden'
           anyLabel='all factions'
           withAny

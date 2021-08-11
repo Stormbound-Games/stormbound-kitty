@@ -1,8 +1,14 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import HeaderBanner from '../HeaderBanner'
 import Icon from '../Icon'
-import './index.css'
+import styles from './styles'
+
+export const ArticleContext = React.createContext({
+  isEditorialContent: false,
+  withDropCap: true,
+})
 
 export const renderAuthorsLinks = (acc, author, index, authors) => {
   if (authors.length > 1 && index === authors.length - 1) {
@@ -23,9 +29,20 @@ export const renderAuthorsLinks = (acc, author, index, authors) => {
 const Article = React.memo(function Article(props) {
   const action = props.action || {}
   const authors = (props.authors || [props.author]).filter(Boolean)
+  const { css } = useFela({
+    smallFontSize: props.smallFontSize,
+    noDropCap: props.noDropCap,
+  })
 
   return (
-    <article className={['Article', props.className].filter(Boolean).join(' ')}>
+    <article
+      className={[
+        css(styles.article, props.extend),
+        props.withEditorialContent && 'EditorialContent',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
       <HeaderBanner
         title={props.title}
         background={props.background}
@@ -34,22 +51,20 @@ const Article = React.memo(function Article(props) {
         withoutWebp={props.withoutWebp}
       />
 
-      <p className='Article__meta'>
+      <p className={css(styles.meta)}>
         {authors.length > 0 && (
           <>
-            <span className='Article__author'>
-              By {authors.reduce(renderAuthorsLinks, [])}
-            </span>
+            By&nbsp;{authors.reduce(renderAuthorsLinks, [])}
             {props.meta && <>&nbsp;·&nbsp;</>}
           </>
         )}
-        {props.meta && <span>{props.meta}</span>}
+        {props.meta}
         {Object.keys(action).length > 0 &&
           (action.to ? (
-            <Link to={action.to} className='Article__action'>
+            <Link to={action.to} className={css(styles.action)}>
               <Icon
                 icon={action.icon || 'arrow-left'}
-                className='Article__action-icon'
+                extend={styles.actionIcon}
               />
               <span>{action.children}</span>
             </Link>
@@ -58,12 +73,12 @@ const Article = React.memo(function Article(props) {
               href={action.href}
               target='_blank'
               rel='noopener noreferrer'
-              className='Article__action'
+              className={css(styles.action)}
             >
               <span>{action.children}</span>
               <Icon
                 icon={action.icon || 'arrow-right'}
-                className='Article__action-icon'
+                extend={styles.actionIcon}
               />
             </a>
           ) : action.onClick ? (
@@ -71,42 +86,44 @@ const Article = React.memo(function Article(props) {
               type='button'
               onClick={action.onClick}
               disabled={action.disabled}
-              className='Article__action ButtonAsLink'
+              className={css(styles.action) + ' ButtonAsLink'}
             >
               {action.icon && (
-                <Icon icon={action.icon} className='Article__action-icon' />
+                <Icon icon={action.icon} extend={styles.actionIcon} />
               )}
               <span>{action.children}</span>
             </button>
           ) : null)}
       </p>
 
-      <div
-        className={[
-          'Article__content',
-          props.smallFontSize && 'Article__content--small',
-          props.noDropCap && 'Article__content--no-drop-cap',
-        ]
-          .filter(Boolean)
-          .join(' ')}
+      <ArticleContext.Provider
+        value={{
+          isEditorialContent: props.withEditorialContent,
+          withDropCap: !props.noDropCap,
+        }}
       >
-        {props.children}
-      </div>
+        <div className={css(styles.content)}>{props.children}</div>
+      </ArticleContext.Provider>
     </article>
   )
 })
 
 Article.Narrow = React.memo(function Narrow(props) {
+  const { withDropCap } = React.useContext(ArticleContext)
+  const { css } = useFela({ withDropCap })
+
   return (
-    <div className='Article__narrow' style={props.style}>
+    <div className={css(styles.narrow, props.extend)} style={props.style}>
       {props.children}
     </div>
   )
 })
 
 Article.Embed = React.memo(function Embed(props) {
+  const { css } = useFela()
+
   return (
-    <div className='Article__embed' style={props.style}>
+    <div className={css(styles.embed, props.extend)} style={props.style}>
       {props.children}
     </div>
   )

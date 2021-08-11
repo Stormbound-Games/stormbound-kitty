@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import { RARITIES } from '../../constants/game'
 import { BOOKS, EXPECTATIONS } from '../../constants/books'
@@ -15,11 +16,12 @@ import TogglableContent from '../TogglableContent'
 import CardLink from '../CardLink'
 import countCards from '../../helpers/countCards'
 import getBookName from '../../helpers/getBookName'
-import './index.css'
+import styles from './styles'
 
 const clamp = (min, value, max) => Math.min(Math.max(Number(value), 0), max)
 
 export default React.memo(function BooksCalculator(props) {
+  const { css } = useFela()
   const [isAdvancedMode, setIsAdvancedMode] = React.useState(false)
   const [bookType, setBookType] = React.useState('MYTHIC')
   const [target, setTarget] = React.useState('FUSION_STONES')
@@ -80,7 +82,7 @@ export default React.memo(function BooksCalculator(props) {
             </Link>
           </p>
 
-          <form className='BooksCalculator__form'>
+          <form className={css(styles.form)}>
             <Row>
               <Row.Column>
                 <label htmlFor='book'>Book type</label>
@@ -125,7 +127,7 @@ export default React.memo(function BooksCalculator(props) {
                 <button
                   {...toggleProps}
                   type='button'
-                  className='ButtonAsLink BooksCalculator__toggle'
+                  className={css(styles.toggle) + ' ButtonAsLink'}
                   onClick={() => setIsAdvancedMode(mode => !mode)}
                 >
                   {isAdvancedMode
@@ -217,7 +219,7 @@ export default React.memo(function BooksCalculator(props) {
                 bookType.toLowerCase().replace(/_/g, '-') +
                 '.png'
               }
-              className='BooksCalculator__book'
+              extend={styles.book}
               alt={getBookName(bookType)}
               withAvif
             />

@@ -1,18 +1,24 @@
 import React from 'react'
-import './index.css'
+import { useFela } from 'react-fela'
+import styles from './styles'
 
 export default React.memo(function Checkbox(props) {
+  const { css } = useFela({
+    isDisabled: props.disabled,
+    isChecked: props.checked,
+  })
+
   return (
-    <label className={`Checkbox ${props.className || ''}`} htmlFor={props.id}>
+    <label className={css(styles.checkbox, props.extend)} htmlFor={props.id}>
       <input
         form={props.form}
         type='checkbox'
         {...props}
         children={undefined}
-        className='Checkbox__input'
+        className={css(styles.input)}
       />
-      <span className='Checkbox__icon' />
-      <span className='Checkbox__label'>{props.children}</span>
+      <span className={css(styles.icon)} />
+      <span className={css(styles.label)}>{props.children}</span>
     </label>
   )
 })

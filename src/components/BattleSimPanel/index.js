@@ -1,21 +1,21 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import ButtonIcon from '../ButtonIcon'
 import Title from '../Title'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function BattleSimPanel(props) {
+  const { css } = useFela({ side: props.side })
+
   return (
-    <div
-      className={`BattleSimPanel BattleSimPanel--${props.side}`}
-      data-testid={props['data-testid']}
-    >
+    <div className={css(styles.panel)} data-testid={props['data-testid']}>
       <Title>{props.title}</Title>
 
       {props.children}
 
       {props.isMobile && props.isPanelOpen && (
         <ButtonIcon
-          className='BattleSimPanel__board-button'
+          extend={styles.boardButton({ side: props.side })}
           onClick={props.closePanel}
           aria-label='Go to board'
           data-testid='panel-close-btn'

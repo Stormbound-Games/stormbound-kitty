@@ -33,7 +33,7 @@ export default React.memo(function ReleaseNotesIOSJanuary2021(props) {
           all your game progress.
         </p>
 
-        <Info icon='heart' title='Stay healthy' style={{ marginTop: '3em' }}>
+        <Info icon='heart' title='Stay healthy' extend={{ marginTop: '3em' }}>
           <p>
             While I have your attention, please wear a mask and avoid
             unnecessary travels—especially if you live in an area with rampant

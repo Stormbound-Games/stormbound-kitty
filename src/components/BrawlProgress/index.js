@@ -1,30 +1,31 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { BRAWL_MILESTONES } from '../../constants/brawl'
 import { BrawlContext } from '../BrawlProvider'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function BrawlProgress(props) {
+  const { css } = useFela()
   const { meta } = React.useContext(BrawlContext)
   // The rewards have no impact here, only the crowns are considered, so any
   // Brawl difficulty can be used for that.
   const milestones = BRAWL_MILESTONES.LEGACY
 
   return (
-    <ul className='BrawlProgress'>
+    <ul className={css(styles.progress)}>
       {milestones.map((milestone, index) => (
         <li
           key={index}
-          className={[
-            'BrawlProgress__item',
-            props.active === index && 'BrawlProgress__item--active',
-            meta.crowns >= milestone.crowns && 'BrawlProgress__item--passed',
-          ]
-            .filter(Boolean)
-            .join(' ')}
+          className={css(
+            styles.item({
+              isActive: props.active === index,
+              isPassed: meta.crowns >= milestone.crowns,
+            })
+          )}
         >
           <button
             onClick={() => props.setActive(index)}
-            className='ButtonAsLink BrawlProgress__button'
+            className={'ButtonAsLink ' + css(styles.button)}
             data-testid='milestone-diamond'
           >
             <span className='VisuallyHidden'>Select milestone {index + 1}</span>

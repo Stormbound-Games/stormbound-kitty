@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import serialize from 'form-serialize'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import { NotificationContext } from '../NotificationProvider'
@@ -12,7 +13,6 @@ import YourDecks from '../YourDecks'
 import YourDecksFilters from '../YourDecksFilters'
 import getDeckIDFromURL from '../../helpers/getDeckIDFromURL'
 import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
-import './index.css'
 
 const toArray = value => (Array.isArray(value) ? value : [value])
 
@@ -25,6 +25,7 @@ const getDeckFromForm = form => {
 }
 
 export default React.memo(function DeckCollection(props) {
+  const { css } = useFela()
   const context = React.useContext(PersonalDecksContext)
   const { toggleUnseen } = context
   const [mode, setMode] = React.useState('INITIAL')
@@ -140,7 +141,7 @@ export default React.memo(function DeckCollection(props) {
 
           <YourDecksFilters {...filters} setFilters={setFilters} />
 
-          <div className='DeckCollection__actions'>
+          <div className={css({ marginTop: '1.5em' })}>
             <Row>
               <Row.Column>
                 <ImportDecks />

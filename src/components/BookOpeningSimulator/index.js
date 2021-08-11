@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { useRouteMatch, useHistory, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Card from '../Card'
@@ -18,14 +19,14 @@ import getResolvedCardData from '../../helpers/getResolvedCardData'
 import serialisation from '../../helpers/serialisation'
 import useViewportSize from '../../hooks/useViewportSize'
 import { BOOKS } from '../../constants/books'
-import './index.css'
+import styles from './styles'
 
 const ShareButton = ({ disabled }) => (
   <ShareDialog
     label='Share book'
     disabled={disabled}
     image='/assets/images/cards/rogue_sheep.png'
-    style={{ margin: '1em auto 0' }}
+    extend={{ margin: '1em auto 0' }}
   >
     <p>
       Your book is automatically saved to the URL of the page as you open it.
@@ -150,6 +151,7 @@ const CustomBookFields = ({
 }
 
 const BookOpeningSimulator = props => {
+  const { css } = useFela()
   const history = useHistory()
   const { params } = useRouteMatch()
   const { viewportWidth } = useViewportSize()
@@ -224,7 +226,7 @@ const BookOpeningSimulator = props => {
               required
               value={bookType}
               onChange={event => setBookType(event.target.value)}
-              style={{ marginBottom: '2em' }}
+              className={css({ marginBottom: '2em' })}
             >
               <option value=''>Pick a book type</option>
               {Object.keys(BOOKS).map(bookType => (
@@ -282,10 +284,10 @@ const BookOpeningSimulator = props => {
                 '--cards-per-row': viewportWidth > 700 ? 3 : 2,
               }}
             >
-              <motion.ul className='BookOpeningSimulator__list'>
+              <motion.ul className={css(styles.list)}>
                 {cards.map((card, index) => (
                   <motion.li
-                    className='BookOpeningSimulator__item'
+                    className={css(styles.item)}
                     id={'card-' + card.id}
                     key={card.id}
                     initial={{ opacity: 0, y: 50 }}

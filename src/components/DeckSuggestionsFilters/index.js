@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import decks from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
 import CardSelect from '../CardSelect'
@@ -7,7 +8,7 @@ import FactionSelect from '../FactionSelect'
 import MobileTogglableContent from '../MobileTogglableContent'
 import Row from '../Row'
 import TagsSelect from '../TagsSelect'
-import './index.css'
+import styles from './styles'
 
 const getAuthors = () => {
   const authors = []
@@ -26,6 +27,7 @@ const getAuthors = () => {
 }
 
 export default React.memo(function DeckSuggestionsFilters(props) {
+  const { css } = useFela()
   const { hasDefaultCollection } = React.useContext(CollectionContext)
   const [name, updateName] = React.useState(props.name)
   const authors = React.useMemo(getAuthors, [])
@@ -36,12 +38,9 @@ export default React.memo(function DeckSuggestionsFilters(props) {
       withSymbols
       labelCollapsed='Expand deck filters'
       labelExpanded='Collapse deck filters'
-      className='DeckSuggestionsFilters__toggle'
+      className={css(styles.toggle)}
     >
-      <form
-        onSubmit={event => event.preventDefault()}
-        className='DeckSuggestionsFilters'
-      >
+      <form onSubmit={event => event.preventDefault()}>
         <Row>
           <Row.Column>
             <TagsSelect
@@ -125,9 +124,9 @@ export default React.memo(function DeckSuggestionsFilters(props) {
               </option>
             </select>
           </Row.Column>
-          <Row.Column>
+          <Row.Column extend={{ alignSelf: 'flex-end' }}>
             <CTA
-              className='DeckSuggestionsFilters__CTA'
+              extend={styles.cta}
               disabled={
                 props.author === '*' &&
                 props.tags.length === 0 &&

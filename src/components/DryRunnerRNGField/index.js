@@ -1,8 +1,9 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Radio from '../Radio'
 import CardLink from '../CardLink'
 import { FRIENDLY_CHANCES } from '../../constants/dryRunner'
-import './index.css'
+import styles from './styles'
 
 const RNG_SENSITIVE_CARDS = {
   S3: {
@@ -56,6 +57,7 @@ const RNG_SENSITIVE_CARDS = {
 }
 
 export default React.memo(function DryRunnerRNGField(props) {
+  const { css } = useFela()
   const deckIds = props.deck.map(card => card.id)
   const possibleRNGSensitiveCards = Object.keys(RNG_SENSITIVE_CARDS)
   const RNGSensitiveCards = possibleRNGSensitiveCards.filter(cardId =>
@@ -85,17 +87,21 @@ export default React.memo(function DryRunnerRNGField(props) {
         required
       >
         Friendly
-        <span className='DryRunnerRNGField__radio-info'>
+        <span className={css(styles.info)}>
           {harvestersInDeck ? (
-            <span>
+            <span className={css(styles.infoInner)}>
               <CardLink id='N38' /> often create strong copies
             </span>
           ) : null}
           {freezeCard ? (
-            <span>Freeze cards manage to freeze many enemies</span>
+            <span className={css(styles.infoInner)}>
+              Freeze cards manage to freeze many enemies
+            </span>
           ) : null}
           {RNGSensitiveCards.map(cardId => (
-            <span key={cardId}>{RNG_SENSITIVE_CARDS[cardId].FRIENDLY()}</span>
+            <span key={cardId} className={css(styles.infoInner)}>
+              {RNG_SENSITIVE_CARDS[cardId].FRIENDLY()}
+            </span>
           ))}
         </span>
       </Radio>
@@ -109,18 +115,22 @@ export default React.memo(function DryRunnerRNGField(props) {
         required
       >
         Unfriendly
-        <span className='DryRunnerRNGField__radio-info'>
+        <span className={css(styles.info)}>
           {harvestersInDeck ? (
-            <span>
+            <span className={css(styles.infoInner)}>
               When <CardLink id='N38' /> manage to create a copy, it’s generally{' '}
               weak
             </span>
           ) : null}
           {freezeCard ? (
-            <span>Freeze cards do not manage to freeze many enemies</span>
+            <span className={css(styles.infoInner)}>
+              Freeze cards do not manage to freeze many enemies
+            </span>
           ) : null}
           {RNGSensitiveCards.map(cardId => (
-            <span key={cardId}>{RNG_SENSITIVE_CARDS[cardId].UNFRIENDLY()}</span>
+            <span key={cardId} className={css(styles.infoInner)}>
+              {RNG_SENSITIVE_CARDS[cardId].UNFRIENDLY()}
+            </span>
           ))}
         </span>
       </Radio>
@@ -134,18 +144,20 @@ export default React.memo(function DryRunnerRNGField(props) {
         required
       >
         Regular{' '}
-        <span className='DryRunnerRNGField__radio-info'>
+        <span className={css(styles.info)}>
           <>
             {harvestersInDeck ? (
-              <span>
+              <span className={css(styles.infoInner)}>
                 <CardLink id='N38' /> sometimes create an average copy
               </span>
             ) : null}
             {freezeCard ? (
-              <span>Freeze cards manage to freeze a few enemies</span>
+              <span className={css(styles.infoInner)}>
+                Freeze cards manage to freeze a few enemies
+              </span>
             ) : null}
             {RNGSensitiveCards.map(cardId => (
-              <span key={cardId}>
+              <span key={cardId} className={css(styles.infoInner)}>
                 {parseInt(FRIENDLY_CHANCES[cardId] * 100)}% chance per turn that{' '}
                 {RNG_SENSITIVE_CARDS[cardId].FRIENDLY()}
               </span>

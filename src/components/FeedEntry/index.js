@@ -1,25 +1,30 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Icon from '../Icon'
 import { formatDate, formatPreciseDate } from '../../helpers/formatDate'
-import './index.css'
+import styles from './styles'
 
 const pad = value => String(value).padStart(2, '0')
 
 export default React.memo(function FeedEntry(props) {
+  const { css } = useFela()
   const isLong = props.dateFormat === 'LONG'
   const connector = isLong ? 'On' : 'In'
   const format = isLong ? formatPreciseDate : formatDate
   const date = props.date
 
   return (
-    <div className={['FeedEntry', props.className].filter(Boolean).join(' ')}>
-      <span className='FeedEntry__left'>
-        <Icon icon={props.icon} className='FeedEntry__icon' />
+    <div className={css(styles.entry, props.extend)}>
+      <span className={css(styles.left)}>
+        <Icon
+          icon={props.icon}
+          extend={styles.icon({ iconColor: props.iconColor })}
+        />
       </span>
-      <div className='FeedEntry__main'>
+      <div className={css(styles.main)}>
         {props.date instanceof Date ? (
           <time
-            className='FeedEntry__date'
+            className={css(styles.date)}
             dateTime={
               date.getFullYear() +
               '-' +
@@ -30,11 +35,11 @@ export default React.memo(function FeedEntry(props) {
             {connector} {format(date)}
           </time>
         ) : (
-          <span className='FeedEntry__date'>{date}</span>
+          <span className={css(styles.date)}>{date}</span>
         )}
-        <div className='FeedEntry__label'>{props.children}</div>
+        <div>{props.children}</div>
       </div>
-      {props.right && <span className='FeedEntry__right'>{props.right}</span>}
+      {props.right && <span className={css(styles.right)}>{props.right}</span>}
     </div>
   )
 })

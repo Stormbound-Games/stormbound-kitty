@@ -1,14 +1,16 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
+import Asterisk from '../Asterisk'
 import Guide from '../Guide'
 import Info from '../Info'
 import ResourceIcon from '../ResourceIcon'
 import { Coins, Rubies, Stones } from '../Resource'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import { RARITY_COPIES } from '../../constants/game'
 import cards from '../../data/cards'
 import getGuide from '../../helpers/getGuide'
-import './index.css'
 
 const guide = getGuide('RESOURCES_GUIDE')
 const THOUSANDS = /\B(?=(\d{3})+(?!\d))/g
@@ -22,6 +24,8 @@ const countCopiesForRarity = rarity =>
     .replace(THOUSANDS, ',')
 
 export default React.memo(function GuideResources(props) {
+  const { css } = useFela()
+
   return (
     <Guide {...guide}>
       <p>
@@ -31,7 +35,7 @@ export default React.memo(function GuideResources(props) {
         update.
       </p>
 
-      <ol style={{ columns: '16em' }}>
+      <TableOfContents>
         <li>
           <a href='#resources'>Resources</a>
           <ul>
@@ -76,7 +80,7 @@ export default React.memo(function GuideResources(props) {
             </li>
           </ul>
         </li>
-      </ol>
+      </TableOfContents>
 
       <Info icon='wand' title='Income calculator'>
         Find a handy <Link to='/calculators/income'>income calculator</Link> (
@@ -110,18 +114,10 @@ export default React.memo(function GuideResources(props) {
             href='#coins-tip'
             aria-describedby='footnotes'
             id='coins-tip-ref'
-            style={{ textDecoration: 'none' }}
+            className={css({ textDecoration: 'none' })}
           >
             a maximum of <Coins amount={400} /> a day
-            <span
-              style={{
-                color: 'var(--beige)',
-                marginLeft: '2px',
-                fontSize: '120%',
-              }}
-            >
-              *
-            </span>
+            <Asterisk />
           </a>{' '}
           or <Coins amount={700} /> in case of Premium Pass).
         </li>
@@ -419,7 +415,7 @@ export default React.memo(function GuideResources(props) {
         the best income strategy for you.
       </p>
 
-      <footer style={{ marginTop: '4em', fontSize: '90%' }}>
+      <footer className={css({ marginTop: '4em', fontSize: '90%' })}>
         <h2 className='VisuallyHidden' id='footnotes'>
           Footnotes
         </h2>

@@ -1,7 +1,7 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Icon from '../Icon'
 import Tooltip from '../Tooltip'
-import './index.css'
 
 const tooltipStyles = {
   backgroundColor: 'var(--dark-blue)',
@@ -14,15 +14,23 @@ const tooltipStyles = {
   padding: '0.5em',
 }
 
+const icon = ({ color }) => ({
+  color,
+  fontSize: '80%',
+  position: 'relative',
+  transform: 'translateY(10%)',
+  display: 'inline-block',
+  marginLeft: '1ch',
+  cursor: 'help',
+})
+
 export default React.memo(function TooltipedIcon(props) {
+  const { css } = useFela({ color: props.color })
+
   return (
     <Tooltip style={tooltipStyles} label={props.label}>
       {trigger => (
-        <span
-          {...trigger}
-          className='TooltipedIcon'
-          style={{ color: props.color }}
-        >
+        <span {...trigger} className={css(icon)}>
           <Icon icon={props.icon} />
         </span>
       )}

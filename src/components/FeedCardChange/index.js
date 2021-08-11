@@ -3,13 +3,12 @@ import CardLink from '../CardLink'
 import DiamondButton from '../DiamondButton'
 import FeedEntry from '../FeedEntry'
 import parseDate from '../../helpers/parseDate'
-import './index.css'
 
 const ICONS = {
-  INFO: 'info',
-  MIXED: 'shuffle',
-  BUFF: 'arrow-up',
-  NERF: 'arrow-down',
+  INFO: { icon: 'info', color: 'var(--freeze)' },
+  MIXED: { icon: 'shuffle', color: 'var(--confused)' },
+  BUFF: { icon: 'arrow-up', color: 'var(--affordable)' },
+  NERF: { icon: 'arrow-down', color: 'var(--player-red)' },
 }
 
 export default React.memo(function FeedCardChange(props) {
@@ -19,10 +18,10 @@ export default React.memo(function FeedCardChange(props) {
 
   return (
     <FeedEntry
-      icon={ICONS[props.type]}
+      icon={ICONS[props.type].icon}
       date={props.date}
       dateFormat='LONG'
-      className='FeedCardChange'
+      iconColor={ICONS[props.type].color}
       right={
         shouldRenderPreviewer && (
           <DiamondButton

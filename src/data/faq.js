@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import CardLink from '../components/CardLink'
+import Image from '../components/Image'
 import DryRunnerExplanation from '../components/DryRunnerExplanation'
 import getRawCardData from '../helpers/getRawCardData'
 import { UNVALUED_CARDS } from '../constants/misc'
@@ -277,7 +278,7 @@ export default [
                 <code>move</code>, <code>movement</code>, <code>spe</code> or{' '}
                 <code>speed</code>) filters:{' '}
               </li>
-              <ul style={{ paddingLeft: '1.5em' }}>
+              <ul className={{ paddingLeft: '1.5em' }}>
                 <li>
                   with a static value: <code>mana:4</code>
                 </li>
@@ -445,10 +446,10 @@ export default [
               1.5, 1.75 or 2 depending on the effective movement of a card
               between 0 and 4.
             </p>
-            <img
+            <Image
               src='/assets/images/card_value.png'
               alt='v(c) = s / m * f'
-              style={{ maxWidth: '200px', display: 'block', margin: '1.5em 0' }}
+              extend={{ maxWidth: '200px', margin: '1.5em 0' }}
             />
             <p>
               For sake of simplicity and/or realism, some liberties have been

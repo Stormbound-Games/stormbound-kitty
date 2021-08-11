@@ -1,10 +1,13 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import DeckStatsChart from '../DeckStatsChart'
 import Guide from '../Guide'
 import Info from '../Info'
 import Only from '../Only'
 import Row from '../Row'
+import Spacing from '../Spacing'
+import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import CardLink from '../CardLink'
 import serialisation from '../../helpers/serialisation'
@@ -13,7 +16,6 @@ import getResolvedCardData from '../../helpers/getResolvedCardData'
 import modifyDeck from '../../helpers/modifyDeck'
 import getGuide from '../../helpers/getGuide'
 import { BRAWLS } from '../../constants/brawl'
-import './index.css'
 
 const guide = getGuide('MANA_CURVE_GUIDE')
 const manaBrawls = BRAWLS.filter(brawl => brawl.id.includes('MANA')).map(
@@ -36,6 +38,8 @@ const Graph = props => {
 }
 
 export default React.memo(function GuideManaCurve(props) {
+  const { css } = useFela()
+
   return (
     <Guide {...guide}>
       <p>
@@ -53,12 +57,14 @@ export default React.memo(function GuideManaCurve(props) {
         overall deck.
       </p>
 
-      <blockquote className='GuideManaCurve__quote'>
-        <p>
-          “Lower your mana curve and add a finisher.”
-          <br /> &mdash; Every deck advice ever
-        </p>
-      </blockquote>
+      <Spacing vertical='LARGER'>
+        <blockquote>
+          <p>
+            “Lower your mana curve and add a finisher.”
+            <br /> &mdash; Every deck advice ever
+          </p>
+        </blockquote>
+      </Spacing>
 
       <p>
         In this short guide, we will demystify the so-called “mana curve”, see
@@ -67,7 +73,7 @@ export default React.memo(function GuideManaCurve(props) {
         them.
       </p>
 
-      <ol className='GuideManaCurve__toc'>
+      <TableOfContents>
         <li>
           <a href='#anatomy-of-the-graph'>Anatomy of the graph</a>
         </li>
@@ -80,7 +86,7 @@ export default React.memo(function GuideManaCurve(props) {
         <li>
           <a href='#how-it-works'>How it works</a>
         </li>
-      </ol>
+      </TableOfContents>
 
       <hr />
 
@@ -96,7 +102,7 @@ export default React.memo(function GuideManaCurve(props) {
 
       <Title id='anatomy-of-the-graph'>Anatomy of the graph</Title>
 
-      <Guide.FullWidth padding='60px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <Graph id='5xn1n2i1n3n6i5n13i7n18i13i20n39' />{' '}
@@ -104,14 +110,18 @@ export default React.memo(function GuideManaCurve(props) {
           <Row.Column>
             <p>
               A mana curve graph is made of two lines: the{' '}
-              <span style={{ color: 'rgb(57, 133, 175)' }}>mana line</span>,
-              which represents the{' '}
+              <span className={css({ color: 'rgb(57, 133, 175)' })}>
+                mana line
+              </span>
+              , which represents the{' '}
               <span className='Highlight'>
                 likelihood of spending all the available mana
               </span>{' '}
               on a given turn and the{' '}
-              <span style={{ color: 'var(--affordable)' }}>cards line</span> for
-              the{' '}
+              <span className={css({ color: 'var(--affordable)' })}>
+                cards line
+              </span>{' '}
+              for the{' '}
               <span className='Highlight'>
                 likelihood of playing all 4 cards
               </span>{' '}
@@ -135,11 +145,11 @@ export default React.memo(function GuideManaCurve(props) {
 
       <p>
         The mana line (in{' '}
-        <span style={{ color: 'rgb(57, 133, 175)' }}>blue</span>) represents the
-        likelihood of spending all the available mana. As the game progresses
-        and the allocated mana becomes greater, it becomes less and less likely
-        to be able to spend it all. This is because at some point, one has too
-        much mana for the cards in hand.
+        <span className={css({ color: 'rgb(57, 133, 175)' })}>blue</span>)
+        represents the likelihood of spending all the available mana. As the
+        game progresses and the allocated mana becomes greater, it becomes less
+        and less likely to be able to spend it all. This is because at some
+        point, one has too much mana for the cards in hand.
       </p>
 
       <p>
@@ -160,7 +170,7 @@ export default React.memo(function GuideManaCurve(props) {
         translates into better board control or speed.
       </p>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <p>
@@ -186,7 +196,7 @@ export default React.memo(function GuideManaCurve(props) {
         </Row>
       </Guide.FullWidth>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <Graph id='1xf2n62n19f24n21n22n41n25n69n44n72n54' />
@@ -213,13 +223,13 @@ export default React.memo(function GuideManaCurve(props) {
 
       <p>
         The cards line (in{' '}
-        <span style={{ color: 'var(--affordable)' }}>green</span>) represents
-        the likelihood of playing all 4 cards from the hand in a given turn. It
-        is impossible for it to be non-null on the 3-mana turn since it would
-        imply one or more of the 4 cards cost 0 mana (which can happen in Brawl
-        as we will see later). As the game progresses and the allocated mana
-        becomes greater, it becomes more and more likely to be able to play all
-        4 cards from the hand.
+        <span className={css({ color: 'var(--affordable)' })}>green</span>)
+        represents the likelihood of playing all 4 cards from the hand in a
+        given turn. It is impossible for it to be non-null on the 3-mana turn
+        since it would imply one or more of the 4 cards cost 0 mana (which can
+        happen in Brawl as we will see later). As the game progresses and the
+        allocated mana becomes greater, it becomes more and more likely to be
+        able to play all 4 cards from the hand.
       </p>
 
       <p>
@@ -237,7 +247,7 @@ export default React.memo(function GuideManaCurve(props) {
         for board control and speed.
       </p>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <p>
@@ -263,7 +273,7 @@ export default React.memo(function GuideManaCurve(props) {
         </Row>
       </Guide.FullWidth>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <Graph id='5xn1n2w2n3n4n14n18w13w16w15w19n58' />
@@ -311,7 +321,7 @@ export default React.memo(function GuideManaCurve(props) {
         early mana line making for a less random early game.
       </p>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <Graph
@@ -385,7 +395,7 @@ export default React.memo(function GuideManaCurve(props) {
         for very interesting graphs which are interesting to look at.
       </p>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <Graph
@@ -414,7 +424,7 @@ export default React.memo(function GuideManaCurve(props) {
         </Row>
       </Guide.FullWidth>
 
-      <Guide.FullWidth padding='120px'>
+      <Guide.FullWidth>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <p>
@@ -464,7 +474,7 @@ export default React.memo(function GuideManaCurve(props) {
         similar, and takes account cycling in the same way.
       </p>
 
-      <p style={{ marginTop: '3em' }}>
+      <p className={css({ marginTop: '3em' })}>
         <em>
           Special thanks to Troxyz#5675 for the original idea and implementation
           draft, and 123499#2723 for their help with the underlying logic and

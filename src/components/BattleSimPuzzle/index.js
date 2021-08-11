@@ -1,38 +1,36 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import { RESTRICTIONS, TYPES } from '../../constants/puzzles'
 import Image from '../Image'
 import Only from '../Only'
 import { formatDate } from '../../helpers/formatDate'
 import parseDate from '../../helpers/parseDate'
-import './index.css'
+import styles from './styles'
 
 export default React.memo(function BattleSimPuzzle(props) {
+  const { css } = useFela()
   const date = parseDate(props.date)
 
   return (
-    <div className='BattleSimPuzzle'>
+    <div className={css(styles.puzzle)}>
       {!props.noImage && (
         <Only.Desktop>
-          <div className='BattleSimPuzzle__image-wrapper'>
-            <Image
-              className='BattleSimPuzzle__image'
-              src={props.image}
-              alt={props.name}
-            />
+          <div className={css(styles.imageWrapper)}>
+            <Image extend={styles.image} src={props.image} alt={props.name} />
           </div>
         </Only.Desktop>
       )}
-      <div className='BattleSimPuzzle__content'>
-        <h3 className='BattleSimPuzzle__name'>
+      <div className={css(styles.content)}>
+        <h3 className={css(styles.name)}>
           <Link to={`/sim/${props.board}/display`} data-testid='puzzle-link'>
             {props.name}
           </Link>
         </h3>
-        <p className='BattleSimPuzzle__author'>
+        <p className={css(styles.author)}>
           by <Link to={'/member/' + props.author}>{props.author}</Link>, in{' '}
           <time
-            className='BattleSimPuzzle__date'
+            className={css(styles.date)}
             dateTime={
               date.getFullYear() +
               '-' +
@@ -42,17 +40,27 @@ export default React.memo(function BattleSimPuzzle(props) {
             {formatDate(date)}
           </time>
         </p>
-        <dl className='BattleSimPuzzle__details'>
-          <dt data-testid='puzzle-type'>{props.type.toLowerCase()}:</dt>
-          <dd>
+        <dl>
+          <dt className={css(styles.term)} data-testid='puzzle-type'>
+            {props.type.toLowerCase()}:
+          </dt>
+          <dd className={css(styles.definition)}>
             {props.description || TYPES[props.type]} {props.note}
           </dd>
 
-          <dt>Difficulty:</dt>
-          <dd data-testid='puzzle-difficulty'>{props.difficulty}/3</dd>
+          <dt className={css(styles.term)}>Difficulty:</dt>
+          <dd
+            className={css(styles.definition)}
+            data-testid='puzzle-difficulty'
+          >
+            {props.difficulty}/3
+          </dd>
 
-          <dt>Restrictions:</dt>
-          <dd data-testid={'puzzle-restrictions'}>
+          <dt className={css(styles.term)}>Restrictions:</dt>
+          <dd
+            className={css(styles.definition)}
+            data-testid={'puzzle-restrictions'}
+          >
             {props.restrictions.length > 0
               ? [...props.restrictions].sort().map((restriction, index) => (
                   <React.Fragment key={index}>
