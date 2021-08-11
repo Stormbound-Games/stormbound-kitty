@@ -228,7 +228,10 @@ export default React.memo(() => {
         </section>
       </div>
 
-      <PageMeta title='Home' />
+      <PageMeta
+        title='Home'
+        description='Stormbound Kitty aims at providing tools and information about Sheepyard’s great game, and extending its players’ experience outside the game'
+      />
     </>
   )
 })
