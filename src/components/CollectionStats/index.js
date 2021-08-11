@@ -220,6 +220,10 @@ export default function CollectionStats(props) {
     <Page
       title='Collection Stats'
       description='Get insights about your own card collection and visualise it'
+      action={{
+        to: '/collection',
+        children: 'Back to collection',
+      }}
     >
       <Row desktopOnly>
         <Row.Column width='1/3'>

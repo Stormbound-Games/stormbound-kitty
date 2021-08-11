@@ -8,7 +8,6 @@ import Sparkles from '../Sparkles'
 import Teaser from '../Teaser'
 import Title from '../Title'
 import chunk from '../../helpers/chunk'
-import useViewportSize from '../../hooks/useViewportSize'
 import podcasts from '../../data/podcasts'
 import styles from './styles'
 
@@ -22,12 +21,10 @@ const CARD = {
 
 export default React.memo(function BrewedSages(props) {
   const { css } = useFela()
-  const { viewportWidth } = useViewportSize()
 
   return (
     <Page
-      title={viewportWidth < 700 ? 'Brewed Sages' : 'Brewed Sages Podcast'}
-      author='Freeloader, Subaiku, ArthisRoo'
+      title='Brewed Sages'
       description='The Brewed Sages is the first Stormbound podcast, by Freeloader and
     Subaiku'
       authors={['Freeloader', 'Subaiku']}

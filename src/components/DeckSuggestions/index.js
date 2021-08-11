@@ -148,6 +148,12 @@ class DeckSuggestions extends React.Component {
       <Page
         title='Popular Decks'
         description={getDeckSearchDescription(this.state)}
+        meta={decks.length === 1 ? '1 deck' : `${decks.length} decks`}
+        action={{
+          to: '/deck/collection',
+          children: 'Your decks',
+          icon: 'arrow-right',
+        }}
       >
         <Row desktopOnly wideGutter>
           <Row.Column width='1/3'>

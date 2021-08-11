@@ -72,7 +72,7 @@ export default React.memo(function BooksCalculator(props) {
     >
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
-          <Title element='h2'>What is this</Title>
+          <Title>What is this</Title>
           <p>
             This is a calculator to estimate the odds of getting fusion stones
             or a specific card when opening a certain book, as well as the

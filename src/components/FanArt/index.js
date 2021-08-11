@@ -20,6 +20,7 @@ export default React.memo(function FanArt(props) {
     <Page
       title='Fan Art'
       description='Find the amazing visual artwork created by the Stormbound community'
+      meta={entries.length === 1 ? '1 artwork' : entries.length + ' artworks'}
       isEditorialContent
     >
       <Page.Narrow>

@@ -2,7 +2,6 @@ import React from 'react'
 import Page from '../Page'
 import Row from '../Row'
 import Teaser from '../Teaser'
-import Title from '../Title'
 import chunk from '../../helpers/chunk'
 import getBrawlDescription from '../../helpers/getBrawlDescription'
 import { BRAWLS } from '../../constants/brawl'
@@ -27,8 +26,6 @@ export default React.memo(function BrawlIndex() {
       title='Brawl Tracker'
       description='Find all the Brawl modes from Stormbound and their ideal decks'
     >
-      <Title>Brawls</Title>
-
       {chunk(BRAWLS, 3).map((row, index) => (
         <Row key={index} desktopOnly wideGutter>
           <Row.Column width='1/3'>

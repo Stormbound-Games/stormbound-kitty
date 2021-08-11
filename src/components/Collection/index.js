@@ -100,6 +100,11 @@ class Collection extends React.Component {
       <Page
         title='Card Collection'
         description='Manage your own card collection and keep track of your cards'
+        action={{
+          to: '/collection/stats',
+          children: 'Collection stats',
+          icon: 'arrow-right',
+        }}
       >
         <Row desktopOnly wideGutter>
           <Row.Column width='1/3'>

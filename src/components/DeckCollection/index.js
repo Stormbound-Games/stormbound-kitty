@@ -124,6 +124,14 @@ export default React.memo(function DeckCollection(props) {
     <Page
       title='Personal Decks'
       description='Bookmark and manage your own deck, with a local backup and CSV import/export'
+      meta={
+        context.decks.length === 1 ? '1 deck' : `${context.decks.length} decks`
+      }
+      action={{
+        to: '/deck/suggestions',
+        children: 'Deck suggestions',
+        icon: 'arrow-right',
+      }}
     >
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>

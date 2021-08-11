@@ -48,8 +48,9 @@ export default function CardChangelog(props) {
   return (
     <Page
       title='Card Changelog'
-      isEditorialContent
       description='Find all cards changes that ever happened on Stormbound'
+      action={{ to: '/releases', children: 'All releases' }}
+      isEditorialContent
     >
       <Page.Narrow>
         <Title>Filters</Title>

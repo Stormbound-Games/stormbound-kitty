@@ -22,6 +22,7 @@ export default React.memo(function DryRunner(props) {
     <Page
       title='Deck Dry-Run'
       description='Try your deck with actual in-game mechanisms to test its mana curve and the likelihood of having cards combos'
+      action={{ to: '/deck/' + props.deckId, children: 'Edit deck' }}
     >
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>

@@ -40,6 +40,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
     <Page
       title='Equals Tier List'
       description='Find a Tier List for ‘Equals Mode’ of all the Stormbound cards, ranked by effectiveness and popularity'
+      meta={'Updated in ' + formatDate(lastUpdate)}
     >
       <Row wideGutter desktopOnly>
         <Row.Column width='1/3'>

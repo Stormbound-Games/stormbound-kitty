@@ -54,14 +54,14 @@ const PageHeaderMeta = ({ action, authors, meta }) => {
             inNewTab={!!action.href}
             extend={styles.action}
           >
-            {action.to && (
+            {action.to && action.icon !== 'arrow-right' && (
               <Icon
                 icon={action.icon || 'arrow-left'}
                 extend={styles.actionIcon}
               />
             )}
             <span>{action.children}</span>
-            {action.href && (
+            {(action.href || action.icon === 'arrow-right') && (
               <Icon
                 icon={action.icon || 'arrow-right'}
                 extend={styles.actionIcon}
