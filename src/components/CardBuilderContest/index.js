@@ -10,8 +10,6 @@ import styles from './styles'
 
 export default React.memo(function CardBuilderContest(props) {
   const { css } = useFela()
-  const weekDay = new Date().getDay()
-  const isWeekEnd = weekDay === 7 || weekDay === 0
 
   return (
     <>
@@ -19,7 +17,7 @@ export default React.memo(function CardBuilderContest(props) {
         title='Weekly Card Contest'
         authors={['TaKo_G']}
         action={{ to: '/card', children: 'Card builder' }}
-        meta={isWeekEnd ? 'Voting phase' : 'Ongoing'}
+        meta='Discontinued'
       >
         <Article.Narrow>
           <Title>Introduction</Title>
