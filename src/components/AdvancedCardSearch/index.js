@@ -21,7 +21,9 @@ export default React.memo(function AdvancedCardSearch(props) {
                   justifyContent: 'space-between',
                 })}
               >
-                Advanced search <LearnMoreIcon anchor='#advanced-search' />
+                <span>
+                  Advanced search <LearnMoreIcon anchor='#advanced-search' />
+                </span>
                 <button
                   type='button'
                   onClick={props.cancel}
