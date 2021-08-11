@@ -79,8 +79,6 @@ const renderRootStyles = renderer => {
     box-sizing: border-box;
   }
 
-  input,
-  select,
   button {
     font: inherit;
   }
@@ -131,36 +129,6 @@ const renderRootStyles = renderer => {
     background: linear-gradient(to right, transparent, var(--dark-beige), transparent);
     border: 0;
     margin: 3em auto;
-  }
-
-  input[type='text'],
-  input[type='search'],
-  input[type='url'],
-  input[type='number'],
-  select {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    padding: 0.65em;
-    border-radius: 0.3em;
-    background-color: transparent;
-    border: 1px solid #ded7a480;
-    color: var(--white);
-  }
-
-  input[type='radio'] {
-    width: 1.8em;
-    height: 1.8em;
-    transform: translateY(4px);
-  }
-
-  input[type='search']:disabled,
-  input[type='text']:read-only,
-  input[type='text']:disabled,
-  input[type='url']:disabled,
-  input[type='number']:disabled,
-  select:disabled {
-    opacity: 0.5;
   }
 
   option {

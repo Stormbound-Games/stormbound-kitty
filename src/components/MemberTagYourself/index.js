@@ -9,7 +9,6 @@ const UserSelect = props => {
 
   return (
     <Select
-      name='user-name'
       id='user-name'
       isClearable
       value={{ id: props.value, label: props.value }}

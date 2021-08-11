@@ -30,7 +30,6 @@ export default React.memo(function BattleSimShareButton(props) {
 
       <div className={css(styles.checkbox)}>
         <Checkbox
-          name='hide-interface'
           id='hide-interface'
           checked={hideInterface}
           onChange={event => setHideInterface(event.target.checked)}

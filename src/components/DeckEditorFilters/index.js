@@ -4,8 +4,10 @@ import { TYPES, RACES, RARITIES } from '../../constants/game'
 import AdvancedCardSearch from '../AdvancedCardSearch'
 import Checkbox from '../Checkbox'
 import Icon from '../Icon'
+import Input from '../Input'
 import FactionSelect from '../FactionSelect'
 import Row from '../Row'
+import Select from '../Select'
 import MobileTogglableContent from '../MobileTogglableContent'
 import capitalise from '../../helpers/capitalise'
 import styles from './styles'
@@ -63,9 +65,8 @@ export default React.memo(function DeckEditorFilters(props) {
               </Row.Column>
 
               <Row.Column>
-                <label htmlFor='type'>Type</label>
-                <select
-                  name='type'
+                <Select
+                  label='Type'
                   id='type'
                   value={props.type}
                   onChange={event => props.setType(event.target.value)}
@@ -77,16 +78,15 @@ export default React.memo(function DeckEditorFilters(props) {
                       {capitalise(type)}
                     </option>
                   ))}
-                </select>
+                </Select>
               </Row.Column>
             </Row>
           </Row.Column>
           <Row.Column>
             <Row extend={styles.row}>
               <Row.Column>
-                <label htmlFor='mana'>Mana</label>
-                <select
-                  name='mana'
+                <Select
+                  label='Mana'
                   id='mana'
                   value={props.mana}
                   onChange={event => props.setMana(event.target.value)}
@@ -97,13 +97,12 @@ export default React.memo(function DeckEditorFilters(props) {
                   <option value='4-5'>4 or 5</option>
                   <option value='6-7'>6 or 7</option>
                   <option value='8-Infinity'>8 or plus</option>
-                </select>
+                </Select>
               </Row.Column>
 
               <Row.Column>
-                <label htmlFor='movement'>Movement</label>
-                <select
-                  name='movement'
+                <Select
+                  label='Movement'
                   id='movement'
                   value={props.movement}
                   onChange={event => props.setMovement(event.target.value)}
@@ -114,7 +113,7 @@ export default React.memo(function DeckEditorFilters(props) {
                   <option value='1'>1</option>
                   <option value='2'>2</option>
                   <option value='3'>3</option>
-                </select>
+                </Select>
               </Row.Column>
             </Row>
           </Row.Column>
@@ -124,9 +123,8 @@ export default React.memo(function DeckEditorFilters(props) {
           <Row.Column>
             <Row extend={styles.row}>
               <Row.Column>
-                <label htmlFor='rarity'>Rarity</label>
-                <select
-                  name='rarity'
+                <Select
+                  label='Rarity'
                   id='rarity'
                   value={props.rarity}
                   onChange={event => props.setRarity(event.target.value)}
@@ -138,13 +136,12 @@ export default React.memo(function DeckEditorFilters(props) {
                       {capitalise(rarity)}
                     </option>
                   ))}
-                </select>
+                </Select>
               </Row.Column>
 
               <Row.Column>
-                <label htmlFor='race'>Race</label>
-                <select
-                  name='race'
+                <Select
+                  label='Race'
                   id='race'
                   value={props.race}
                   onChange={event => props.setRace(event.target.value)}
@@ -156,16 +153,15 @@ export default React.memo(function DeckEditorFilters(props) {
                       {capitalise(race)}
                     </option>
                   ))}
-                </select>
+                </Select>
               </Row.Column>
             </Row>
           </Row.Column>
           <Row.Column>
             <Row extend={styles.row}>
               <Row.Column>
-                <label htmlFor='ability'>Ability</label>
-                <select
-                  name='ability'
+                <Select
+                  label='Ability'
                   id='ability'
                   value={props.ability}
                   onChange={event => props.setAbility(event.target.value)}
@@ -185,14 +181,13 @@ export default React.memo(function DeckEditorFilters(props) {
                   <option value='SPAWN'>Spawn</option>
                   <option value='SURVIVING'>Surviving Effect</option>
                   <option value='VITALITY'>Vitality</option>
-                </select>
+                </Select>
               </Row.Column>
 
               <Row.Column>
-                <label htmlFor='text'>Text</label>
-                <input
+                <Input
+                  label='Text'
                   type='search'
-                  name='text'
                   id='text'
                   value={props.text}
                   onChange={event => props.setText(event.target.value)}

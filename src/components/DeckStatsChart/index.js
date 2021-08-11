@@ -10,7 +10,8 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
-import Loader from '../../components/Loader'
+import Loader from '../Loader'
+import Select from '../Select'
 import computeDeckChances from '../../helpers/computeDeckChances'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 import { BRAWLS } from '../../constants/brawl'
@@ -106,9 +107,8 @@ export default React.memo(function DeckStatsChart(props) {
 
       {props.withModifiers && (
         <div className={css(styles.select)}>
-          <label htmlFor='brawl-modifier'>Brawl modifier</label>
-          <select
-            name='brawl-modifier'
+          <Select
+            label='Brawl modifier'
             id='brawl-modifier'
             data-testid='brawl-modifier'
             value={props.modifier}
@@ -120,7 +120,7 @@ export default React.memo(function DeckStatsChart(props) {
                 {brawl.label}
               </option>
             ))}
-          </select>
+          </Select>
         </div>
       )}
     </>

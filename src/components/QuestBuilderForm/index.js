@@ -1,8 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import Input from '../Input'
 import NumberInput from '../NumberInput'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
+import Select from '../Select'
 import ShareButton from '../QuestBuilderShareButton'
 
 export default React.memo(function QuestBuilderForm(props) {
@@ -12,10 +14,8 @@ export default React.memo(function QuestBuilderForm(props) {
     <form onSubmit={event => event.preventDefault()}>
       <Row>
         <Row.Column>
-          <label htmlFor='name'>Name</label>
-          <input
-            type='text'
-            name='name'
+          <Input
+            label='Name'
             id='name'
             maxLength={40}
             required
@@ -27,8 +27,8 @@ export default React.memo(function QuestBuilderForm(props) {
 
       <Row>
         <Row.Column width='1/3'>
-          <label htmlFor='amount'>Amount</label>
           <NumberInput
+            label='Amount'
             name='amount'
             id='amount'
             min={0}
@@ -40,9 +40,8 @@ export default React.memo(function QuestBuilderForm(props) {
         </Row.Column>
 
         <Row.Column width='1/3'>
-          <label htmlFor='currency'>Currency</label>
-          <select
-            name='currency'
+          <Select
+            label='Currency'
             id='currency'
             value={props.currency}
             onChange={event => props.setCurrency(event.target.value)}
@@ -51,13 +50,12 @@ export default React.memo(function QuestBuilderForm(props) {
             <option value='coins'>Coins</option>
             <option value='rubies'>Rubies</option>
             <option value='stones'>Fusion stones</option>
-          </select>
+          </Select>
         </Row.Column>
 
         <Row.Column width='1/3'>
-          <label htmlFor='difficulty'>Difficulty</label>
-          <select
-            name='difficulty'
+          <Select
+            label='Difficulty'
             id='difficulty'
             value={props.difficulty}
             onChange={event => props.setDifficulty(+event.target.value)}
@@ -66,16 +64,14 @@ export default React.memo(function QuestBuilderForm(props) {
             <option value='1'>1</option>
             <option value='2'>2</option>
             <option value='3'>3</option>
-          </select>
+          </Select>
         </Row.Column>
       </Row>
 
       <Row>
         <Row.Column>
-          <label htmlFor='description'>Description</label>
-          <input
-            type='text'
-            name='description'
+          <Input
+            label='Description'
             id='description'
             maxLength={100}
             required

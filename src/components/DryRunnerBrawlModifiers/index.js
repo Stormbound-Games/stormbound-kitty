@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Dialog from '../Dialog'
+import Select from '../Select'
 import getRawCardData from '../../helpers/getRawCardData'
 import { BRAWLS, BRAWL_INDEX } from '../../constants/brawl'
 
@@ -19,9 +20,8 @@ export default React.memo(function DryRunnerBrawlModifiers(props) {
 
   return (
     <>
-      <label htmlFor='brawl-modifier'>Brawl modifier</label>
-      <select
-        name='brawl-modifier'
+      <Select
+        label='Brawl modifier'
         id='brawl-modifier'
         data-testid='brawl-modifier'
         className={css({ marginBottom: '1.5em' })}
@@ -37,7 +37,7 @@ export default React.memo(function DryRunnerBrawlModifiers(props) {
             {brawl.label}
           </option>
         ))}
-      </select>
+      </Select>
       <Dialog
         id='brawl-modifier-dialog'
         title='Brawl mode'

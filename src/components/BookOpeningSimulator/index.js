@@ -6,11 +6,13 @@ import Card from '../Card'
 import CTA from '../CTA'
 import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
+import Input from '../Input'
 import Notice from '../Notice'
 import NumberInput from '../NumberInput'
 import PageMeta from '../PageMeta'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
+import Select from '../Select'
 import ShareDialog from '../ShareDialog'
 import Title from '../Title'
 import openBook from '../../helpers/openBook'
@@ -85,10 +87,9 @@ const CustomBookFields = ({
     <>
       <Row>
         <Row.Column>
-          <label htmlFor='amount'>Amount of cards</label>
-          <input
+          <Input
+            label='Amount of cards'
             type='number'
-            name='amount'
             id='amount'
             required
             min={1}
@@ -100,8 +101,8 @@ const CustomBookFields = ({
       </Row>
       <Row>
         <Row.Column>
-          <label htmlFor='common'>Common (%)</label>
           <NumberInput
+            label='Common (%)'
             name='common'
             id='common'
             min={0}
@@ -111,8 +112,8 @@ const CustomBookFields = ({
           />
         </Row.Column>
         <Row.Column>
-          <label htmlFor='rare'>Rare (%)</label>
           <NumberInput
+            label='Rare (%)'
             name='rare'
             id='rare'
             min={0}
@@ -124,8 +125,8 @@ const CustomBookFields = ({
       </Row>
       <Row>
         <Row.Column>
-          <label htmlFor='epic'>Epic (%)</label>
           <NumberInput
+            label='Epic (%)'
             name='epic'
             id='epic'
             min={0}
@@ -135,8 +136,8 @@ const CustomBookFields = ({
           />
         </Row.Column>
         <Row.Column>
-          <label htmlFor='legendary'>Legendary (%)</label>
           <NumberInput
+            label='Legendary (%)'
             name='legendary'
             id='legendary'
             min={0}
@@ -219,10 +220,9 @@ const BookOpeningSimulator = props => {
             want to open, click the “Open” button below and see what you found!
           </p>
           <form onSubmit={open}>
-            <label htmlFor='bookType'>Book type</label>
-            <select
+            <Select
+              label='Book type'
               id='bookType'
-              name='bookType'
               required
               value={bookType}
               onChange={event => setBookType(event.target.value)}
@@ -235,7 +235,7 @@ const BookOpeningSimulator = props => {
                 </option>
               ))}
               <option value='CUSTOM'>Custom Book</option>
-            </select>
+            </Select>
             {bookType === 'CUSTOM' && (
               <CustomBookFields
                 amount={amount}

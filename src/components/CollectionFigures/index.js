@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import Info from '../Info'
 import LearnMoreIcon from '../LearnMoreIcon'
+import Select from '../Select'
 import { Coins, Stones } from '../Resource'
 import getCollectionCost from '../../helpers/getCollectionCost'
 import getExtraAfterMax from '../../helpers/getExtraAfterMax'
@@ -256,10 +257,11 @@ export default function CollectionFigures(props) {
       </ul>
       <p>
         To bring your entire collection to{' '}
-        <select
+        <Select
+          hideLabel
+          label='Level'
           id='level'
-          name='level'
-          className={css(styles.select)}
+          extend={styles.select}
           value={expectedCardLevel}
           onChange={event => setExpectedCardLevel(+event.target.value)}
         >
@@ -267,7 +269,7 @@ export default function CollectionFigures(props) {
           <option value={3}>level 3</option>
           <option value={4}>level 4</option>
           <option value={5}>level 5</option>
-        </select>
+        </Select>
         , you still need:
       </p>
       <ul className={css(styles.list)}>

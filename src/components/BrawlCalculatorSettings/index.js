@@ -1,6 +1,7 @@
 import React from 'react'
 import NumberInput from '../NumberInput'
 import Row from '../Row'
+import Select from '../Select'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import { BRAWL_MILESTONES } from '../../constants/brawl'
 
@@ -22,8 +23,8 @@ export default React.memo(function BrawlCalculatorSettings(props) {
     <>
       <Row>
         <Row.Column>
-          <label htmlFor='winRate'>Win rate (%)</label>
           <NumberInput
+            label='Win rate (%)'
             id='winRate'
             name='winRate'
             value={props.winRate}
@@ -34,8 +35,8 @@ export default React.memo(function BrawlCalculatorSettings(props) {
           />
         </Row.Column>
         <Row.Column>
-          <label htmlFor='crowns'>Crowns</label>
           <NumberInput
+            label='Crowns'
             id='crowns'
             name='crowns'
             value={props.crowns}
@@ -50,8 +51,8 @@ export default React.memo(function BrawlCalculatorSettings(props) {
         <Row.Column>
           {props.mode === 'COINS' ? (
             <>
-              <label htmlFor='coins'>Coins</label>
               <NumberInput
+                label='Coins'
                 id='coins'
                 name='coins'
                 value={props.coins}
@@ -62,26 +63,23 @@ export default React.memo(function BrawlCalculatorSettings(props) {
               />
             </>
           ) : props.mode === 'GOAL' ? (
-            <>
-              <label htmlFor='milestone'>Milestone</label>
-              <select
-                name='milestone'
-                id='milestone'
-                value={props.milestone}
-                onChange={event => props.setMilestone(+event.target.value)}
-              >
-                <option value=''>Select a milestone</option>
-                {milestones.map((milestone, index) => (
-                  <option
-                    key={milestone.crowns}
-                    value={index}
-                    disabled={milestone.crowns <= props.crowns}
-                  >
-                    {index + 1}. {getRewardLabel(milestone)}
-                  </option>
-                ))}
-              </select>
-            </>
+            <Select
+              label='Milestone'
+              id='milestone'
+              value={props.milestone}
+              onChange={event => props.setMilestone(+event.target.value)}
+            >
+              <option value=''>Select a milestone</option>
+              {milestones.map((milestone, index) => (
+                <option
+                  key={milestone.crowns}
+                  value={index}
+                  disabled={milestone.crowns <= props.crowns}
+                >
+                  {index + 1}. {getRewardLabel(milestone)}
+                </option>
+              ))}
+            </Select>
           ) : null}
         </Row.Column>
       </Row>

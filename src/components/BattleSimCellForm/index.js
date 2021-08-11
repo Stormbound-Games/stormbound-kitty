@@ -7,6 +7,7 @@ import CTA from '../CTA'
 import NumberInput from '../NumberInput'
 import Radio from '../Radio'
 import Row from '../Row'
+import Select from '../Select'
 import getRawCardData from '../../helpers/getRawCardData'
 import unfoldValue from '../../helpers/unfoldValue'
 import styles from './styles'
@@ -106,10 +107,9 @@ export default React.memo(function BattleSimCellForm(props) {
             />
           </Row.Column>
           <Row.Column width='1/4'>
-            <label htmlFor='level'>Level</label>
-            <select
+            <Select
+              label='Level'
               disabled={(card || '').startsWith('T')}
-              name='level'
               id='level'
               value={level}
               onChange={event => {
@@ -124,7 +124,7 @@ export default React.memo(function BattleSimCellForm(props) {
               <option value='3'>3</option>
               <option value='4'>4</option>
               <option value='5'>5</option>
-            </select>
+            </Select>
           </Row.Column>
         </Row>
       </div>
@@ -132,8 +132,8 @@ export default React.memo(function BattleSimCellForm(props) {
       <div className={css(styles.row)}>
         <Row>
           <Row.Column>
-            <label htmlFor='strength'>Strength</label>
             <NumberInput
+              label='Strength'
               name='strength'
               id='strength'
               required
@@ -161,7 +161,6 @@ export default React.memo(function BattleSimCellForm(props) {
                 </Radio>
 
                 <Radio
-                  type='radio'
                   id='activePlayerRed'
                   name='activePlayer'
                   value='RED'
@@ -184,7 +183,6 @@ export default React.memo(function BattleSimCellForm(props) {
           <Row>
             <Row.Column width='1/3'>
               <Checkbox
-                name='poisoned'
                 id='poisoned'
                 disabled={getRawCardData(card).type === 'structure'}
                 checked={poisoned}
@@ -199,7 +197,6 @@ export default React.memo(function BattleSimCellForm(props) {
             </Row.Column>
             <Row.Column width='1/3'>
               <Checkbox
-                name='vitalised'
                 id='vitalised'
                 disabled={getRawCardData(card).type === 'structure'}
                 checked={vitalised}
@@ -214,7 +211,6 @@ export default React.memo(function BattleSimCellForm(props) {
             </Row.Column>
             <Row.Column width='1/3'>
               <Checkbox
-                name='frozen'
                 id='frozen'
                 disabled={getRawCardData(card).type === 'structure'}
                 checked={frozen}
@@ -228,7 +224,6 @@ export default React.memo(function BattleSimCellForm(props) {
           <Row extend={{ marginTop: '-0.75em' }}>
             <Row.Column width='1/3'>
               <Checkbox
-                name='confused'
                 id='confused'
                 disabled={getRawCardData(card).type === 'structure'}
                 checked={confused}
@@ -240,7 +235,6 @@ export default React.memo(function BattleSimCellForm(props) {
             </Row.Column>
             <Row.Column width='1/3'>
               <Checkbox
-                name='disabled'
                 id='disabled'
                 disabled={getRawCardData(card).type === 'structure'}
                 checked={disabled}

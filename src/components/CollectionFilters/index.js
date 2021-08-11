@@ -5,8 +5,10 @@ import AdvancedCardSearch from '../AdvancedCardSearch'
 import Checkbox from '../Checkbox'
 import FactionSelect from '../FactionSelect'
 import Icon from '../Icon'
+import Input from '../Input'
 import Only from '../Only'
 import MobileTogglableContent from '../MobileTogglableContent'
+import Select from '../Select'
 import Row from '../Row'
 import capitalise from '../../helpers/capitalise'
 import styles from './styles'
@@ -62,9 +64,8 @@ export default React.memo(function CollectionFilters(props) {
                 />
               </Row.Column>
               <Row.Column>
-                <label htmlFor='type'>Type</label>
-                <select
-                  name='type'
+                <Select
+                  label='Type'
                   id='type'
                   value={props.type}
                   onChange={event => props.setType(event.target.value)}
@@ -76,16 +77,15 @@ export default React.memo(function CollectionFilters(props) {
                       {capitalise(type)}
                     </option>
                   ))}
-                </select>
+                </Select>
               </Row.Column>
             </Row>
           </Row.Column>
           <Row.Column>
             <Row extend={styles.row}>
               <Row.Column>
-                <label htmlFor='status'>Status</label>
-                <select
-                  name='status'
+                <Select
+                  label='Status'
                   id='status'
                   value={props.status}
                   onChange={event => props.setStatus(event.target.value)}
@@ -95,12 +95,11 @@ export default React.memo(function CollectionFilters(props) {
                   <option value='MISSING'>Missing</option>
                   <option value='UPGRADABLE'>Upgradable</option>
                   <option value='EXCESS'>Excess copies</option>
-                </select>
+                </Select>
               </Row.Column>
               <Row.Column>
-                <label htmlFor='level'>Level</label>
-                <select
-                  name='level'
+                <Select
+                  label='Level'
                   id='level'
                   value={props.level}
                   onChange={event => props.setLevel(event.target.value)}
@@ -112,7 +111,7 @@ export default React.memo(function CollectionFilters(props) {
                   <option value='3'>3</option>
                   <option value='4'>4</option>
                   <option value='5'>5</option>
-                </select>
+                </Select>
               </Row.Column>
             </Row>
           </Row.Column>
@@ -122,9 +121,8 @@ export default React.memo(function CollectionFilters(props) {
           <Row.Column>
             <Row extend={styles.row}>
               <Row.Column>
-                <label htmlFor='rarity'>Rarity</label>
-                <select
-                  name='rarity'
+                <Select
+                  label='Rarity'
                   id='rarity'
                   value={props.rarity}
                   onChange={event => props.setRarity(event.target.value)}
@@ -136,12 +134,11 @@ export default React.memo(function CollectionFilters(props) {
                       {capitalise(rarity)}
                     </option>
                   ))}
-                </select>
+                </Select>
               </Row.Column>
               <Row.Column>
-                <label htmlFor='race'>Race</label>
-                <select
-                  name='race'
+                <Select
+                  label='Race'
                   id='race'
                   value={props.race}
                   onChange={event => props.setRace(event.target.value)}
@@ -153,7 +150,7 @@ export default React.memo(function CollectionFilters(props) {
                       {capitalise(race)}
                     </option>
                   ))}
-                </select>
+                </Select>
               </Row.Column>
             </Row>
           </Row.Column>
@@ -161,9 +158,8 @@ export default React.memo(function CollectionFilters(props) {
             <Row extend={styles.row}>
               <Row.Column>
                 <Only.CustomCollection>
-                  <label htmlFor='order'>Order</label>
-                  <select
-                    name='order'
+                  <Select
+                    label='Order'
                     id='order'
                     value={props.order}
                     onChange={event => props.setOrder(event.target.value)}
@@ -172,14 +168,13 @@ export default React.memo(function CollectionFilters(props) {
                   >
                     <option value='NATURAL'>Natural</option>
                     <option value='VALUE'>Value</option>
-                  </select>
+                  </Select>
                 </Only.CustomCollection>
               </Row.Column>
               <Row.Column>
-                <label htmlFor='text'>Text</label>
-                <input
+                <Input
+                  label='Text'
                   type='search'
-                  name='text'
                   id='text'
                   value={props.text}
                   onChange={event => props.setText(event.target.value)}

@@ -364,7 +364,6 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
         <Checkbox
           checked={withConfusionFix}
           onChange={event => setConfusionFix(event.target.checked)}
-          name='confusion-fix'
           id='confusion-fix'
           extend={styles.fix}
         >

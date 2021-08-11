@@ -11,6 +11,7 @@ import NumberInput from '../NumberInput'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import Select from '../Select'
 import Title from '../Title'
 import TogglableContent from '../TogglableContent'
 import CardLink from '../CardLink'
@@ -85,10 +86,9 @@ export default React.memo(function BooksCalculator(props) {
           <form className={css(styles.form)}>
             <Row>
               <Row.Column>
-                <label htmlFor='book'>Book type</label>
-                <select
+                <Select
+                  label='Book type'
                   id='book'
-                  name='book'
                   value={bookType}
                   onChange={event => setBookType(event.target.value)}
                   data-testid='book-select'
@@ -98,14 +98,13 @@ export default React.memo(function BooksCalculator(props) {
                       {getBookName(bookType)}
                     </option>
                   ))}
-                </select>
+                </Select>
               </Row.Column>
 
               <Row.Column>
-                <label htmlFor='target'>Looking for</label>
-                <select
+                <Select
+                  label='Looking for'
                   id='target'
-                  name='target'
                   value={target}
                   onChange={event => setTarget(event.target.value)}
                   data-testid='target-select'
@@ -116,7 +115,7 @@ export default React.memo(function BooksCalculator(props) {
                       {EXPECTATIONS[option].label}
                     </option>
                   ))}
-                </select>
+                </Select>
               </Row.Column>
             </Row>
 
@@ -149,8 +148,8 @@ export default React.memo(function BooksCalculator(props) {
               </p>
               <Row>
                 <Row.Column>
-                  <label htmlFor='target-common'>Common cards</label>
                   <NumberInput
+                    label='Common cards'
                     min={0}
                     max={countCards({ rarity: 'common' })}
                     name='target-common'
@@ -160,8 +159,8 @@ export default React.memo(function BooksCalculator(props) {
                   />
                 </Row.Column>
                 <Row.Column>
-                  <label htmlFor='target-rare'>Rare cards</label>
                   <NumberInput
+                    label='Rare cards'
                     min={0}
                     max={countCards({ rarity: 'rare' })}
                     name='target-rare'
@@ -173,8 +172,8 @@ export default React.memo(function BooksCalculator(props) {
               </Row>
               <Row>
                 <Row.Column>
-                  <label htmlFor='target-epic'>Epic cards</label>
                   <NumberInput
+                    label='Epic cards'
                     min={0}
                     max={countCards({ rarity: 'epic' })}
                     name='target-epic'
@@ -184,8 +183,8 @@ export default React.memo(function BooksCalculator(props) {
                   />
                 </Row.Column>
                 <Row.Column>
-                  <label htmlFor='target-legendary'>Legendary cards</label>
                   <NumberInput
+                    label='Legendary cards'
                     min={0}
                     max={countCards({ rarity: 'legendary' })}
                     name='target-legendary'

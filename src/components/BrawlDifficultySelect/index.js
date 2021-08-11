@@ -1,19 +1,18 @@
 import React from 'react'
+import Select from '../Select'
 
 const BrawlDifficultySelect = props => (
-  <div className={props.className}>
-    <label htmlFor='difficulty'>Brawl difficulty</label>
-    <select
-      id='difficulty'
-      name='difficulty'
-      value={props.value}
-      onChange={props.onChange}
-    >
-      <option value='CASUAL'>Casual</option>
-      <option value='WARRIOR'>Warrior</option>
-      <option value='ULTIMATE'>Ultimate</option>
-    </select>
-  </div>
+  <Select
+    label='Brawl difficulty'
+    id='difficulty'
+    value={props.value}
+    onChange={props.onChange}
+    extend={props.extend}
+  >
+    <option value='CASUAL'>Casual</option>
+    <option value='WARRIOR'>Warrior</option>
+    <option value='ULTIMATE'>Ultimate</option>
+  </Select>
 )
 
 export default React.memo(BrawlDifficultySelect)

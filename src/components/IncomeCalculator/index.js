@@ -11,8 +11,8 @@ import PageMeta from '../PageMeta'
 import PremiumPassCheckbox from '../PremiumPassCheckbox'
 import ResourceIcon from '../ResourceIcon'
 import Row from '../Row'
+import Select from '../Select'
 import Title from '../Title'
-import VisuallyHidden from '../VisuallyHidden'
 import { BRAWL_MILESTONES } from '../../constants/brawl'
 import { BOOKS } from '../../constants/books'
 import {
@@ -185,9 +185,8 @@ export default React.memo(function IncomeCalculator(props) {
           <Title>Configuration</Title>
           <Row desktopOnly>
             <Row.Column>
-              <label htmlFor='setup'>Game setup</label>
-              <select
-                name='setup'
+              <Select
+                label='Game setup'
                 id='setup'
                 value={setup}
                 onChange={event => setSetup(event.target.value)}
@@ -195,11 +194,11 @@ export default React.memo(function IncomeCalculator(props) {
                 <option value='MOBILE_WITHOUT_ADS'>Mobile without ads</option>
                 <option value='MOBILE_WITH_ADS'>Mobile with ads</option>
                 <option value='STEAM_OR_WEB'>Steam or web version</option>
-              </select>
+              </Select>
             </Row.Column>
             <Row.Column>
-              <label htmlFor='wins'>Daily wins</label>
               <NumberInput
+                label='Daily wins'
                 id='wins'
                 name='wins'
                 value={wins}
@@ -218,9 +217,8 @@ export default React.memo(function IncomeCalculator(props) {
               />
             </Row.Column>
             <Row.Column>
-              <label htmlFor='rank'>Monthly rank</label>
-              <select
-                name='rank'
+              <Select
+                label='Monthly rank'
                 id='rank'
                 value={rank}
                 disabled={league === 'HEROES'}
@@ -232,14 +230,13 @@ export default React.memo(function IncomeCalculator(props) {
                 <option value={3}>3</option>
                 <option value={4}>4</option>
                 <option value={5}>5</option>
-              </select>
+              </Select>
             </Row.Column>
           </Row>
           <Row desktopOnly>
             <Row.Column>
-              <label htmlFor='milestone'>Casual milestone</label>
-              <select
-                name='casualMilestone'
+              <Select
+                label='Casual milestone'
                 id='casualMilestone'
                 value={casualMilestone}
                 onChange={event => setCasualMilestone(+event.target.value)}
@@ -250,12 +247,11 @@ export default React.memo(function IncomeCalculator(props) {
                     {index + 1}. {getRewardLabel(milestone)}
                   </option>
                 ))}
-              </select>
+              </Select>
             </Row.Column>
             <Row.Column>
-              <label htmlFor='milestone'>Warrior milestone</label>
-              <select
-                name='warriorMilestone'
+              <Select
+                label='Warrior milestone'
                 id='warriorMilestone'
                 value={warriorMilestone}
                 onChange={event => setWarriorMilestone(+event.target.value)}
@@ -266,14 +262,13 @@ export default React.memo(function IncomeCalculator(props) {
                     {index + 1}. {getRewardLabel(milestone)}
                   </option>
                 ))}
-              </select>
+              </Select>
             </Row.Column>
           </Row>
           <Row desktopOnly>
             <Row.Column>
-              <label htmlFor='milestone'>Ultimate milestone</label>
-              <select
-                name='ultimateMilestone'
+              <Select
+                label='Ultimate milestone'
                 id='ultimateMilestone'
                 value={ultimateMilestone}
                 onChange={event => setUltimateMilestone(+event.target.value)}
@@ -284,13 +279,12 @@ export default React.memo(function IncomeCalculator(props) {
                     {index + 1}. {getRewardLabel(milestone)}
                   </option>
                 ))}
-              </select>
+              </Select>
             </Row.Column>
             <Row.Column>
-              <label htmlFor='brawl-cost'>Brawl total cost</label>
               <NumberInput
+                label='Brawl total cost'
                 id='brawl-cost'
-                name='brawl-cost'
                 value={brawlCost}
                 onChange={setBrawlCost}
                 step={10}
@@ -300,10 +294,9 @@ export default React.memo(function IncomeCalculator(props) {
           </Row>
           <Row desktopOnly>
             <Row.Column>
-              <label htmlFor='rubies-conversion'>Heroes Position</label>
-              <select
+              <Select
+                label='Heroes Position'
                 id='heroes-position'
-                name='heroes-position'
                 value={heroesPosition}
                 disabled={league !== 'HEROES'}
                 onChange={event => setHeroesPosition(event.target.value)}
@@ -313,13 +306,12 @@ export default React.memo(function IncomeCalculator(props) {
                 <option value='TOP_100'>Top 100</option>
                 <option value='TOP_10'>Top 10</option>
                 <option value='TOP_1'>Top 1</option>
-              </select>
+              </Select>
             </Row.Column>
             <Row.Column>
-              <label htmlFor='rubies-conversion'>Convert rubies to</label>
-              <select
+              <Select
+                label='Convert rubies to'
                 id='rubies-conversion'
-                name='rubies-conversion'
                 value={rubiesConversion}
                 onChange={event => setRubiesConversion(event.target.value)}
               >
@@ -330,12 +322,11 @@ export default React.memo(function IncomeCalculator(props) {
                   </option>
                 ))}
                 <option value='CARD_SHOP'>Card Shop Epics</option>
-              </select>
+              </Select>
             </Row.Column>
           </Row>
           <Checkbox
             id='with-daily-quests'
-            name='with-daily-quests'
             checked={withDailyQuests}
             onChange={event => setWithDailyQuests(event.target.checked)}
           >
@@ -343,7 +334,6 @@ export default React.memo(function IncomeCalculator(props) {
           </Checkbox>
           <Checkbox
             id='prefer-tier3-stones'
-            name='prefer-tier3-stones'
             checked={preferTier3Stones}
             onChange={event => setPreferTier3Stones(event.target.checked)}
           >
@@ -351,7 +341,6 @@ export default React.memo(function IncomeCalculator(props) {
           </Checkbox>
           <Checkbox
             id='with-daily-humble'
-            name='with-daily-humble'
             checked={withDailyHumble}
             onChange={event => setWithDailyHumble(event.target.checked)}
           >
@@ -370,11 +359,9 @@ export default React.memo(function IncomeCalculator(props) {
                 '--multiplier': SELECT_LENGTH_MULTIPLIER[period],
               }}
             >
-              <VisuallyHidden as='label' htmlFor='period'>
-                Period
-              </VisuallyHidden>
-              <select
-                name='period'
+              <Select
+                hideLabel
+                label='Period'
                 id='period'
                 value={period}
                 onChange={event => setPeriod(event.target.value)}
@@ -385,7 +372,7 @@ export default React.memo(function IncomeCalculator(props) {
                     {capitalise(period.toLowerCase())}
                   </option>
                 ))}
-              </select>
+              </Select>
               Income
             </Title>
 

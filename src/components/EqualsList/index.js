@@ -7,6 +7,7 @@ import PageMeta from '../PageMeta'
 import Row from '../Row'
 import ListBuilderTier from '../ListBuilderTier'
 import ListBuilderToc from '../ListBuilderToc'
+import Select from '../Select'
 import getInitialListData from '../../helpers/getInitialListData'
 import getRawCardData from '../../helpers/getRawCardData'
 import parseDate from '../../helpers/parseDate'
@@ -62,10 +63,9 @@ export default React.memo(function ListBuilderDisplayView(props) {
 
           <ListBuilderToc tiers={tiers} />
 
-          <label htmlFor='factions'>Display factions</label>
-          <select
+          <Select
+            label='Display factions'
             id='factions'
-            name='factions'
             value={faction}
             onChange={event => setFaction(event.target.value)}
             className={css({ marginBottom: '1em' })}
@@ -77,7 +77,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
             <option value='SHADOWFEN'>Shadowfen only</option>
             <option value='SWARM'>Swarm only</option>
             <option value='WINTER'>Winter only</option>
-          </select>
+          </Select>
         </Row.Column>
 
         <Row.Column width='2/3'>

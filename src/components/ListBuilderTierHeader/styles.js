@@ -14,11 +14,6 @@ const name = {
   fontWeight: 'normal',
 }
 
-const label = {
-  display: 'block',
-  marginBottom: '0.25em',
-}
-
 const item = {
   flex: '1 1 100%',
   padding: '0 0.5em',
@@ -55,7 +50,7 @@ const move = {
 export default {
   header,
   name,
-  label,
+
   item,
   move,
 }

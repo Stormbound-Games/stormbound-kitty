@@ -16,7 +16,7 @@ export default React.memo(({ book }) => {
     .join(' ')
 
   return (
-    <div className='BookExplanation'>
+    <>
       <p>
         A {getBookName(book)} contains {draws} {qualifier}{' '}
         {draws > 1 ? 'cards' : 'card'} and potentially some Fusion stones. It
@@ -31,6 +31,6 @@ export default React.memo(({ book }) => {
           </li>
         ))}
       </ul>
-    </div>
+    </>
   )
 })

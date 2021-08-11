@@ -9,9 +9,7 @@ const StoryAuthor = React.memo(function StoryAuthor(props) {
   return (
     <>
       {capitalise(props.type || 'story')} by{' '}
-      <Link className='StoryTeaser__author' to={'/member/' + props.author}>
-        {props.author}
-      </Link>{' '}
+      <Link to={'/member/' + props.author}>{props.author}</Link>{' '}
     </>
   )
 })

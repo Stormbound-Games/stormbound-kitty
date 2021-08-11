@@ -7,7 +7,6 @@ export default React.memo(function BrawlCalculatorLegendaryToggle(props) {
   return (
     <Checkbox
       extend={{ color: 'white', marginTop: '1em' }}
-      name='legendary-level-5'
       id='legendary-level-5'
       onChange={props.onChange}
       checked={props.checked}

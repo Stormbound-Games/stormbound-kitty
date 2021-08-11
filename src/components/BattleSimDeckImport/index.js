@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import hookIntoProps from 'hook-into-props'
 import CTA from '../CTA'
+import Input from '../Input'
 import Deck from '../Deck'
 import Dialog from '../Dialog'
 import serialisation from '../../helpers/serialisation'
@@ -94,10 +95,9 @@ class BattleSimDeckImport extends React.Component {
             can select up to 4 cards to put in your hand.
           </p>
 
-          <label htmlFor='deck'>Deck URL</label>
-          <input
+          <Input
+            label='Deck URL'
             type='url'
-            name='deck'
             id='deck'
             required
             placeholder='e.g. https://stormbound-kitty.com/deck/NE4xLDRJMSw0TjMsNEk2LDRJOCw0STExLDRJMTUsNEkxMiw0TjI4LDRJMjAsNEkxOSw0STIx'

@@ -4,7 +4,9 @@ import CardSelect from '../CardSelect'
 import Checkbox from '../Checkbox'
 import FactionSelect from '../FactionSelect'
 import ImageErrorDialog from '../CardBuilderImageErrorDialog'
+import Input from '../Input'
 import Row from '../Row'
+import Select from '../Select'
 import capitalise from '../../helpers/capitalise'
 
 export default React.memo(function CardBuilderCardForm(props) {
@@ -15,10 +17,8 @@ export default React.memo(function CardBuilderCardForm(props) {
       <form onSubmit={event => event.preventDefault()}>
         <Row>
           <Row.Column>
-            <label htmlFor='name'>Name</label>
-            <input
-              type='text'
-              name='name'
+            <Input
+              label='Name'
               id='name'
               maxLength={20}
               required
@@ -28,10 +28,8 @@ export default React.memo(function CardBuilderCardForm(props) {
             />
           </Row.Column>
           <Row.Column>
-            <label htmlFor='movement'>Movement</label>
-            <input
-              type='text'
-              name='movement'
+            <Input
+              label='Movement'
               id='movement'
               value={props.movement === null ? '' : props.movement}
               onChange={event => props.setMovement(event.target.value)}
@@ -44,9 +42,8 @@ export default React.memo(function CardBuilderCardForm(props) {
 
         <Row>
           <Row.Column>
-            <label htmlFor='rarity'>Rarity</label>
-            <select
-              name='rarity'
+            <Select
+              label='Rarity'
               id='rarity'
               required
               value={props.rarity}
@@ -58,12 +55,11 @@ export default React.memo(function CardBuilderCardForm(props) {
                   {capitalise(rarity)}
                 </option>
               ))}
-            </select>
+            </Select>
           </Row.Column>
           <Row.Column>
-            <label htmlFor='type'>Type</label>
-            <select
-              name='type'
+            <Select
+              label='Type'
               id='type'
               required
               value={props.type}
@@ -75,7 +71,7 @@ export default React.memo(function CardBuilderCardForm(props) {
                   {capitalise(type)}
                 </option>
               ))}
-            </select>
+            </Select>
           </Row.Column>
         </Row>
 
@@ -90,9 +86,8 @@ export default React.memo(function CardBuilderCardForm(props) {
             />
           </Row.Column>
           <Row.Column>
-            <label htmlFor='race'>Race</label>
-            <select
-              name='race'
+            <Select
+              label='Race'
               id='race'
               required
               value={props.race || ''}
@@ -106,7 +101,7 @@ export default React.memo(function CardBuilderCardForm(props) {
                   {capitalise(race)}
                 </option>
               ))}
-            </select>
+            </Select>
           </Row.Column>
         </Row>
 
@@ -120,12 +115,7 @@ export default React.memo(function CardBuilderCardForm(props) {
                 : undefined
             }
           >
-            <label
-              className='CardBuilderCardForm__image-label'
-              htmlFor='imageCardId'
-            >
-              Existing card image
-            </label>
+            <label htmlFor='imageCardId'>Existing card image</label>
             <CardSelect
               id='imageCardId'
               name='imageCardId'
@@ -150,15 +140,9 @@ export default React.memo(function CardBuilderCardForm(props) {
                 : undefined
             }
           >
-            <label
-              className='CardBuilderCardForm__image-label'
-              htmlFor='imageURL'
-            >
-              Or image from URL
-            </label>
-            <input
+            <Input
+              label='Or image from URL'
               type='url'
-              name='imageURL'
               id='imageURL'
               value={props.imageURL}
               onChange={event => props.setImageURL(event.target.value)}
@@ -177,7 +161,6 @@ export default React.memo(function CardBuilderCardForm(props) {
                 <Row.Column>
                   <Checkbox
                     extend={{ marginTop: '0.75em' }}
-                    name='elder'
                     id='elder'
                     checked={props.elder}
                     onChange={event => props.setElder(event.target.checked)}
@@ -189,8 +172,6 @@ export default React.memo(function CardBuilderCardForm(props) {
                 </Row.Column>
                 <Row.Column>
                   <Checkbox
-                    className='CardBuilderCoreForm__checkbox'
-                    name='hero'
                     id='hero'
                     checked={props.hero}
                     onChange={event => props.setHero(event.target.checked)}

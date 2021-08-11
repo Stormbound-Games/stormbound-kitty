@@ -64,10 +64,7 @@ export default React.memo(function BattleSimPuzzle(props) {
             {props.restrictions.length > 0
               ? [...props.restrictions].sort().map((restriction, index) => (
                   <React.Fragment key={index}>
-                    <span
-                      title={RESTRICTIONS[restriction].description}
-                      className='BattleSimPuzzle__restriction'
-                    >
+                    <span title={RESTRICTIONS[restriction].description}>
                       {RESTRICTIONS[restriction].name}
                     </span>
                     {index !== props.restrictions.length - 1 && ', '}

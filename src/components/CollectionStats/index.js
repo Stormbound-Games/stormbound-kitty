@@ -302,7 +302,6 @@ export default function CollectionStats(props) {
                 </ResponsiveContainer>
                 <div className={css(styles.checkbox)}>
                   <Checkbox
-                    name='ignore-neutral'
                     id='ignore-neutral'
                     value={ignoreNeutral}
                     onChange={event => setIgnoreNeutral(event.target.checked)}

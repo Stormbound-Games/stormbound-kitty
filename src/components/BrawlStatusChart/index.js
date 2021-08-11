@@ -87,7 +87,7 @@ export default React.memo(function BrawlStatusCharts(props) {
       <Title extend={styles.title}>
         Ratio vs.{' '}
         <FactionSelect
-          isLabelHidden
+          hideLabel
           className={css(styles.select)}
           anyLabel='all factions'
           withAny

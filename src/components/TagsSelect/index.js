@@ -14,13 +14,15 @@ const TagsSelect = props => {
       label,
     }))
 
+  const id = props.id || 'tags-select'
+
   return (
     <>
-      <label htmlFor='tags'>{props.label || 'Tags'}</label>
+      <label htmlFor={id}>{props.label || 'Tags'}</label>
       <Select
         styles={styles}
-        id={props.id || 'tags-select'}
-        name={props.name || 'tags-select'}
+        id={id}
+        name={props.name || id}
         value={value}
         isMulti
         onChange={options =>

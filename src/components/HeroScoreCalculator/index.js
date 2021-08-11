@@ -10,6 +10,7 @@ import NumberInput from '../NumberInput'
 import PageMeta from '../PageMeta'
 import { HeroCrowns } from '../Resource'
 import Row from '../Row'
+import Select from '../Select'
 import VisuallyHidden from '../VisuallyHidden'
 import getHeroScore from '../../helpers/getHeroScore'
 import styles from './styles'
@@ -122,8 +123,8 @@ const HeroScoreCalculator = props => {
           <Title>Configuration</Title>
           <Row>
             <Row.Column>
-              <label htmlFor='current'>Current Hero Score</label>
               <NumberInput
+                label='Current Hero Score'
                 id='current'
                 name='current'
                 value={current}
@@ -132,8 +133,8 @@ const HeroScoreCalculator = props => {
               />
             </Row.Column>
             <Row.Column>
-              <label htmlFor='current'>Opponent’s Hero Score</label>
               <NumberInput
+                label='Opponent’s Hero Score'
                 id='opponent'
                 name='opponent'
                 value={opponent}
@@ -144,9 +145,8 @@ const HeroScoreCalculator = props => {
           </Row>
           <Row>
             <Row.Column>
-              <label htmlFor='coefficient'>Coefficient factor</label>
-              <select
-                name='coefficient'
+              <Select
+                label='Coefficient factor'
                 id='coefficient'
                 value={coefficient}
                 onChange={event => setCoefficient(event.target.value)}
@@ -155,7 +155,7 @@ const HeroScoreCalculator = props => {
                 <option value='40'>40 (first 30 ranked matches)</option>
                 <option value='20'>20 (scoring below 2400)</option>
                 <option value='10'>10 (once scored above 2400)</option>
-              </select>
+              </Select>
             </Row.Column>
           </Row>
           <Row>

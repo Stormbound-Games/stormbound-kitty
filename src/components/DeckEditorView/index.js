@@ -391,7 +391,6 @@ const CardTooltipsCheckbox = React.memo(function CardTooltipsCheckbox(props) {
     <Checkbox
       extend={styles.checkbox}
       onChange={event => props.set(event.target.checked)}
-      name='card-tooltips'
       id='card-tooltips'
       checked={props.value}
     >
@@ -409,7 +408,6 @@ const CardLevelsCheckbox = React.memo(function CardLevelsCheckbox(props) {
     <Checkbox
       extend={styles.checkbox}
       onChange={event => props.set(event.target.checked)}
-      name='adjust-card-levels'
       id='adjust-card-levels'
       checked={props.value}
     >

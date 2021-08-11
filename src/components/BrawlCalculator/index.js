@@ -46,7 +46,7 @@ export default React.memo(function BrawlCalculator(props) {
         <Row.Column width='1/3'>
           <Title>Goal</Title>
           <BrawlDifficultySelect
-            className={css({ marginBottom: '1.5em' })}
+            extend={{ marginBottom: '1.5em' }}
             value={difficulty}
             onChange={event => setDifficulty(event.target.value)}
           />

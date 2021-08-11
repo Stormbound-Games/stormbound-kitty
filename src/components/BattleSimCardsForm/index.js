@@ -5,6 +5,7 @@ import CardSelect from '../CardSelect'
 import DeckImport from '../BattleSimDeckImport'
 import NumberInput from '../NumberInput'
 import Row from '../Row'
+import Select from '../Select'
 import VisuallyHidden from '../VisuallyHidden'
 import getRawCardData from '../../helpers/getRawCardData'
 import styles from './styles'
@@ -43,11 +44,10 @@ const CardsFormRow = React.memo(({ index, ...props }) => {
         <Row.Column width='1/3'>
           <Row>
             <Row.Column>
-              <VisuallyHidden as='label' htmlFor={`card-${index}-level`}>
-                Slot #{index + 1}’s level
-              </VisuallyHidden>
               {getRawCardData(props.cards[index].id).token ? (
                 <NumberInput
+                  hideLabel
+                  label={`Slot #${index + 1}’s level`}
                   name={`card-${index}-level`}
                   id={`card-${index}-level`}
                   required
@@ -57,9 +57,10 @@ const CardsFormRow = React.memo(({ index, ...props }) => {
                   data-testid={`cards-form-strength-${index}`}
                 />
               ) : (
-                <select
+                <Select
+                  hideLabel
+                  label={`Slot #${index + 1}’s level`}
                   disabled={getRawCardData(props.cards[index].id).token}
-                  name={`card-${index}-level`}
                   id={`card-${index}-level`}
                   value={Math.min(props.cards[index].level, 5) || 1}
                   onChange={event =>
@@ -73,7 +74,7 @@ const CardsFormRow = React.memo(({ index, ...props }) => {
                   <option value={3}>3</option>
                   <option value={4}>4</option>
                   <option value={5}>5</option>
-                </select>
+                </Select>
               )}
             </Row.Column>
             <Row.Column>

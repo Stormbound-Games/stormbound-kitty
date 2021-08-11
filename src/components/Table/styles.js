@@ -70,12 +70,13 @@ const table = ({ isZebra }) => ({
       padding: '0.25em 1em',
       textAlign: 'left',
 
-      '::before': {
+      '[data-label]::before': {
         color: 'var(--beige)',
         width: '50%',
+        whiteSpace: 'nowrap',
         display: 'inline-block',
         content: 'attr(data-label)',
-        marginRight: '1ch',
+        paddingRight: '1ch',
       },
     },
   },

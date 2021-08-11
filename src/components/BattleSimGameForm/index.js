@@ -18,8 +18,8 @@ export default React.memo(function BattleSimGameForm(props) {
     <div className={css(styles.form)}>
       <Row>
         <Row.Column>
-          <label htmlFor='mana'>Current mana</label>
           <NumberInput
+            label='Current mana'
             name='mana'
             id='mana'
             min={3}
@@ -34,7 +34,6 @@ export default React.memo(function BattleSimGameForm(props) {
           <fieldset>
             <legend>Grid Markers</legend>
             <Checkbox
-              name='gridMarkers'
               id='gridMarkers'
               checked={props.gridMarkers}
               onChange={props.toggleGridMarkers}

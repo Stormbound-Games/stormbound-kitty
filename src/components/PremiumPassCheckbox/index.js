@@ -13,7 +13,7 @@ export default React.memo(function PremiumPassCheckbox({
   return (
     <>
       <Checkbox
-        name={props.name || 'withPremiumPass'}
+        name={props.name}
         id={props.id || 'withPremiumPass'}
         onChange={props.onChange}
         checked={props.checked}

@@ -10,6 +10,7 @@ import {
 } from 'recharts'
 import FactionSelect from '../FactionSelect'
 import Row from '../Row'
+import Select from '../Select'
 import Title from '../Title'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import CARDS from '../../data/cards'
@@ -20,16 +21,21 @@ export default React.memo(function ChartMana(props) {
   const [level, setLevel] = React.useState(5)
 
   const factions = faction.split(',')
-  const mainFaction = factions.length > 1 ? factions.filter(faction => faction !== 'neutral') : factions[0]
+  const mainFaction =
+    factions.length > 1
+      ? factions.filter(faction => faction !== 'neutral')
+      : factions[0]
 
   const cards = React.useMemo(
     () =>
       CARDS.filter(
-        card => !card.token && (factions[0] === '*' || factions.includes(card.faction))
+        card =>
+          !card.token &&
+          (factions[0] === '*' || factions.includes(card.faction))
       ).map(card => getResolvedCardData({ ...card, level })),
     [level, factions]
   )
-  
+
   const data = Object.values(
     cards
       .filter(card => !card.token)
@@ -59,9 +65,8 @@ export default React.memo(function ChartMana(props) {
           />
         </Row.Column>
         <Row.Column>
-          <label htmlFor='cm-level'>Level</label>
-          <select
-            name='cm-level'
+          <Select
+            label='Level'
             id='cm-level'
             value={level}
             onChange={event => setLevel(+event.target.value)}
@@ -71,7 +76,7 @@ export default React.memo(function ChartMana(props) {
             <option value='3'>3</option>
             <option value='4'>4</option>
             <option value='5'>5</option>
-          </select>
+          </Select>
         </Row.Column>
       </Row>
       <ResponsiveContainer width='100%' height={300}>

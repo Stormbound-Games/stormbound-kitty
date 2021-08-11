@@ -3,12 +3,12 @@ import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import styles from './styles'
 
-export default React.memo(({ as: Component, ...props }) => {
+export default React.memo(({ as: Component, extend, ...props }) => {
   const { css } = useFela({ isNew: props.new, isDisabled: props.disabled })
 
   if (Component) {
     return (
-      <Component {...props} className={css(styles.cta, props.extend)}>
+      <Component {...props} className={css(styles.cta, extend)}>
         <span className={css(styles.content)}>{props.children}</span>
       </Component>
     )
@@ -30,13 +30,13 @@ export default React.memo(({ as: Component, ...props }) => {
     <Link
       data-testid={props['data-testid']}
       to={props.to}
-      className={css(styles.cta, props.extend)}
+      className={css(styles.cta, extend)}
       aria-label={props['aria-label']}
     >
       <span className={css(styles.content)}>{props.children}</span>
     </Link>
   ) : (
-    <button {...props} className={css(styles.cta, props.extend)}>
+    <button {...props} className={css(styles.cta, extend)}>
       <span className={css(styles.content)}>{props.children}</span>
     </button>
   )

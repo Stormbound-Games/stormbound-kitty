@@ -28,8 +28,8 @@ export default React.memo(function BrawlCharts(props) {
   ]
 
   return (
-    <div className='BrawlStatusChart'>
-      <Title className='BrawlStatusChart__title'>Coins</Title>
+    <>
+      <Title>Coins</Title>
       <ResponsiveContainer width='100%' height={250}>
         <PieChart>
           <Tooltip {...TOOLTIP_STYLES} />
@@ -51,6 +51,6 @@ export default React.memo(function BrawlCharts(props) {
           </Pie>
         </PieChart>
       </ResponsiveContainer>
-    </div>
+    </>
   )
 })

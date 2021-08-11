@@ -1,10 +1,12 @@
 import React from 'react'
 import HeaderBanner from '../HeaderBanner'
 import Icon from '../Icon'
+import Input from '../Input'
 import MemberListEntry from '../MemberListEntry'
 import MemberTagYourself from '../MemberTagYourself'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import Select from '../Select'
 import { StoriesContext } from '../StoriesProvider'
 import artworks from '../../data/artworks'
 import contributions from '../../data/contributions'
@@ -99,10 +101,9 @@ export default React.memo(function Members(props) {
           </p>
           <Row>
             <Row.Column>
-              <label htmlFor='name'>Name</label>
-              <input
+              <Input
+                label='Name'
                 type='search'
-                name='name'
                 id='name'
                 placeholder='e.g. Kitty'
                 value={name}
@@ -110,9 +111,8 @@ export default React.memo(function Members(props) {
               />
             </Row.Column>
             <Row.Column>
-              <label htmlFor='type'>Type</label>
-              <select
-                name='type'
+              <Select
+                label='Type'
                 id='type'
                 value={type}
                 onChange={event => setType(event.target.value)}
@@ -130,7 +130,7 @@ export default React.memo(function Members(props) {
                 <option value='PUZZLE'>Puzzles</option>
                 <option value='STORY'>Stories</option>
                 <option value='VIDEO'>Videos</option>
-              </select>
+              </Select>
             </Row.Column>
           </Row>
 

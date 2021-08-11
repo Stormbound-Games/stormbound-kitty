@@ -13,7 +13,6 @@ const Guide = React.memo(function Guide(props) {
   return (
     <>
       <Article
-        className='Guide'
         meta={CATEGORIES[props.category].name.short}
         authors={props.authors}
         title={props.name}

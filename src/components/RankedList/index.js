@@ -5,6 +5,7 @@ import { TIER_COLORS } from '../../constants/list'
 import HeaderBanner from '../HeaderBanner'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import Select from '../Select'
 import ListBuilderTier from '../ListBuilderTier'
 import ListBuilderToc from '../ListBuilderToc'
 import getInitialListData from '../../helpers/getInitialListData'
@@ -53,10 +54,9 @@ export default React.memo(function ListBuilderDisplayView(props) {
             cards that are included in over 90% of decks that can include them.
           </p>
 
-          <label htmlFor='factions'>Display factions</label>
-          <select
+          <Select
+            label='Display factions'
             id='factions'
-            name='factions'
             value={faction}
             onChange={event => setFaction(event.target.value)}
             className={css({ marginBottom: '1em' })}
@@ -68,7 +68,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
             <option value='SHADOWFEN'>Shadowfen only</option>
             <option value='SWARM'>Swarm only</option>
             <option value='WINTER'>Winter only</option>
-          </select>
+          </Select>
 
           <ListBuilderToc tiers={tiers} />
         </Row.Column>
