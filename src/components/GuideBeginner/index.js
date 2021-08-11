@@ -1,5 +1,4 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import Link from '../Link'
 import Image from '../Image'
 import Info from '../Info'
@@ -12,8 +11,6 @@ import styles from './styles'
 const guide = getGuide('BEGINNER_GUIDE')
 
 export default React.memo(function GuideBeginner(props) {
-  const { css } = useFela()
-
   return (
     <Guide {...guide}>
       <p>
@@ -192,9 +189,11 @@ export default React.memo(function GuideBeginner(props) {
       </p>
 
       <Info icon='sword' title='In-depth triggers'>
-        For more information about the intricacies of triggers, particularly
-        death trigger effects, refer to the extensive{' '}
-        <Link to='/guides/triggers'>guide on trigger effects</Link>.
+        <p>
+          For more information about the intricacies of triggers, particularly
+          death trigger effects, refer to the extensive{' '}
+          <Link to='/guides/triggers'>guide on trigger effects</Link>.
+        </p>
       </Info>
 
       <Title>Status Effects</Title>
@@ -372,7 +371,7 @@ export default React.memo(function GuideBeginner(props) {
         actually replaces them, as does <CardLink id='N22' />.
       </p>
 
-      <p className={css({ marginBottom: '2.5em' })}>
+      <p>
         <strong className='Highlight'>Draw</strong>: <CardLink id='N14' /> draws
         new cards which allows you to play 5 cards (or 6 at higher levels) in
         one turn if Freebooters is one of them.

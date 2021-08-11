@@ -9,7 +9,7 @@ export default React.memo(function FAQEntry(props) {
   return (
     <>
       <dt className={css(styles.entry)} id={props.id}>
-        <Link className={css(styles.link)} href={'#' + props.id}>
+        <Link extend={styles.link} href={'#' + props.id}>
           {props.question}
         </Link>
       </dt>

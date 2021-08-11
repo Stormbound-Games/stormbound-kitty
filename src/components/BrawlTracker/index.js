@@ -10,6 +10,7 @@ import BrawlReset from '../BrawlReset'
 import BrawlSetup from '../BrawlSetup'
 import GuideTeaser from '../GuideTeaser'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import Title from '../Title'
 import { BRAWL_INDEX } from '../../constants/brawl'
 import getGuide from '../../helpers/getGuide'
@@ -41,8 +42,12 @@ export default React.memo(function BrawlTracker(props) {
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>About your Brawl</Title>
-          <BrawlOutcome income={income} />
-          <BrawlReset />
+          <Spacing bottom='LARGE'>
+            <BrawlOutcome income={income} />
+          </Spacing>
+          <Spacing bottom='LARGEST'>
+            <BrawlReset />
+          </Spacing>
         </Row.Column>
         <Row.Column width='1/3'>
           <Title>Setup</Title>
@@ -50,12 +55,14 @@ export default React.memo(function BrawlTracker(props) {
             value={props.difficulty}
             onChange={event => props.setDifficulty(event.target.value)}
           />
-          <BrawlSetup
-            setup={setup}
-            setSetup={setSetup}
-            withPremiumPass={withPremiumPass}
-            setWithPremiumPass={setWithPremiumPass}
-          />
+          <Spacing top='BASE'>
+            <BrawlSetup
+              setup={setup}
+              setSetup={setSetup}
+              withPremiumPass={withPremiumPass}
+              setWithPremiumPass={setWithPremiumPass}
+            />
+          </Spacing>
         </Row.Column>
         <Row.Column width='1/3'>
           {guide ? (
@@ -69,7 +76,10 @@ export default React.memo(function BrawlTracker(props) {
       </Row>
 
       <BrawlMatches difficulty={props.difficulty} />
-      <BrawlCharts income={income} />
+
+      <Spacing bottom='LARGE'>
+        <BrawlCharts income={income} />
+      </Spacing>
     </div>
   )
 })

@@ -1,7 +1,6 @@
 const toggle = {
   display: 'inline-flex',
   flexWrap: 'wrap',
-  marginTop: '1em',
 }
 
 const checkbox = {

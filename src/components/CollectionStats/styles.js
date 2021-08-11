@@ -5,10 +5,6 @@ const checkbox = {
   fontSize: '90%',
 }
 
-const chart = {
-  marginBottom: '3em',
-}
-
 /**
  * 1. The diagram themselves have quite some spacing, so the margin below the
  *    title is unnecessary.
@@ -19,6 +15,5 @@ const title = {
 
 export default {
   checkbox,
-  chart,
   title,
 }

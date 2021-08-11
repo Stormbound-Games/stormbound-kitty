@@ -10,6 +10,7 @@ import Link from '../Link'
 import Notice from '../Notice'
 import { Stones } from '../Resource'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import Sparkles from '../Sparkles'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
@@ -27,7 +28,9 @@ const Board = props => {
     <Guide.FullWidth>
       <BattleSimApp environment='swarm' mode='DISPLAY' simId={props.id} />
       {props.caption ? (
-        <p className={css(styles.caption)}>{props.caption}</p>
+        <Spacing top='BASE'>
+          <p className={css(styles.caption)}>{props.caption}</p>
+        </Spacing>
       ) : null}
     </Guide.FullWidth>
   )
@@ -103,7 +106,7 @@ export default React.memo(function GuideRecklessRush(props) {
       <Guide.FullWidth>
         <Title id='the-decks'>The Decks</Title>
 
-        <Row desktopOnly wideGutter>
+        <Row desktopOnly wideGutter spacing={{ bottom: 'LARGE' }}>
           <Row.Column>
             <FeaturedDeck
               id='2xn1n2s1n3s24s2n67s6n24n15s8s11'
@@ -133,16 +136,7 @@ export default React.memo(function GuideRecklessRush(props) {
           </Row.Column>
         </Row>
 
-        <Row desktopOnly wideGutter>
-          <Row.Column>
-            <FeaturedDeck
-              id='5xn1n2s1n3s24s2n67n12s6n15s8n82'
-              name='Flameless Rush'
-              author='RecklessRush'
-              tags={['HIGH_LEVELS']}
-              staticLevels
-            />
-          </Row.Column>
+        <Row desktopOnly wideGutter spacing={{ bottom: 'LARGE' }}>
           <Row.Column>
             <p>
               For Diamond and above, if you feel like the enemies are
@@ -162,6 +156,15 @@ export default React.memo(function GuideRecklessRush(props) {
               following turn. There are other fun ways to play the deck such as
               including Spare Dragonling over Potion of Growth.
             </p>
+          </Row.Column>
+          <Row.Column>
+            <FeaturedDeck
+              id='5xn1n2s1n3s24s2n67n12s6n15s8n82'
+              name='Flameless Rush'
+              author='RecklessRush'
+              tags={['HIGH_LEVELS']}
+              staticLevels
+            />
           </Row.Column>
         </Row>
 
@@ -529,7 +532,7 @@ export default React.memo(function GuideRecklessRush(props) {
         it is not recommended for the majority of players.
       </p>
 
-      <Info icon='sword' title='Temple of the Heart' extend={{ marginTop: 0 }}>
+      <Info icon='sword' title='Temple of the Heart'>
         <p>
           For more information on how <CardLink id='N81' /> works, you can check
           out <Link href='https://youtu.be/sfGL_Nponu0'>this video</Link>.
@@ -691,11 +694,14 @@ export default React.memo(function GuideRecklessRush(props) {
       />
 
       <Info icon='equalizer' title='Best value'>
-        When given multiple options, you should prioritise the Trinity Opener
-        that grants you the most value based off your card levels. Therefore,
-        there is no one absolute best opener, it depends on the value of your
-        cards.
+        <p>
+          When given multiple options, you should prioritise the Trinity Opener
+          that grants you the most value based off your card levels. Therefore,
+          there is no one absolute best opener, it depends on the value of your
+          cards.
+        </p>
       </Info>
+
       <p>
         Trinity Openers are the best turn 1 openers for RR because it is very
         hard for the opponent to match them. Generally speaking you should still
@@ -705,12 +711,14 @@ export default React.memo(function GuideRecklessRush(props) {
         Devastators + Green Prototypes play or a Gifted Recruit + Potion of
         Growth play.
       </p>
+
       <p>
         It’s important to note that semi-Trinity Openers exist where you push
         your frontline only two tiles forward, however (instead of one) you have
         two units controlling the same row, preferably centre-left and
         centre-right.
       </p>
+
       <p>
         Since they move up at the start of your next turn, you still have good
         frontline over the board. However, there are far too many semi-Trinity
@@ -722,6 +730,7 @@ export default React.memo(function GuideRecklessRush(props) {
       <Board id='LCwsLCwsLCwzVDNCMSwzUzJCMywsLCwsLCwsLCw7UjEwTi1CMTBTOzNNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExOw==' />
 
       <p>Two reasons as to why Trinity Openers are so important:</p>
+
       <ol>
         <li>
           You get immediate frontline which you can take advantage of in your
@@ -761,6 +770,7 @@ export default React.memo(function GuideRecklessRush(props) {
         from this play. But you can also lose the game if the enemy is able to
         defend against it and delay your rush.
       </p>
+
       <p>
         Devastators is also great for removing structures, and when enemies play
         buildings in the corners, you can leave them up until late game for an
@@ -785,11 +795,13 @@ export default React.memo(function GuideRecklessRush(props) {
         may even be forced to play an Execution on a one strength Devastators to
         prevent the damage.
       </p>
+
       <p>
         In lower leagues, since players don’t typically play decks with good
         removal, aim to play Devastators as much as possible because you are
         generally rewarded in most of these exchanges.
       </p>
+
       <p>
         Although Devastators is a high-risk/high-reward card, there are ways to
         minimise the risks when playing this card. By expanding on what we have
@@ -816,6 +828,7 @@ export default React.memo(function GuideRecklessRush(props) {
         mana, the Execution is effectively costing more than 4 mana and you
         automatically win in this exchange.
       </p>
+
       <p>
         In the case that the enemy is able to use up the excess mana, if your
         defending unit is still alive, you will be able to use it to defend
@@ -852,10 +865,12 @@ export default React.memo(function GuideRecklessRush(props) {
       </p>
 
       <Info icon='stack' title='Drawing Guide'>
-        Refer to the <Link to='/guides/drawing'>drawing guide</Link> to learn
-        more about drawing mechanics. You can also practice cycling and see all
-        how drawing works by going to Tools &gt; Deck Builder, then in the
-        sub-menu <span className='Highlight'>Practice</span>.
+        <p>
+          Refer to the <Link to='/guides/drawing'>drawing guide</Link> to learn
+          more about drawing mechanics. You can also practice cycling and see
+          all how drawing works by going to Tools &gt; Deck Builder, then in the
+          sub-menu <span className='Highlight'>Practice</span>.
+        </p>
       </Info>
 
       <p>
@@ -1569,8 +1584,6 @@ export default React.memo(function GuideRecklessRush(props) {
         </li>
       </ul>
 
-      <hr />
-
       <p>
         That about sums up the Reckless Rush guide, I hope you were able to read
         up until the very end, hope you learned some things you can apply not
@@ -1582,7 +1595,7 @@ export default React.memo(function GuideRecklessRush(props) {
         to see how I actually play the deck and see what you can improve on.
       </p>
 
-      <Notice icon='sword'>
+      <Notice icon='sword' spacing={{ top: 'LARGEST' }}>
         <Sparkles>Rush to victory!</Sparkles>
       </Notice>
     </Guide>

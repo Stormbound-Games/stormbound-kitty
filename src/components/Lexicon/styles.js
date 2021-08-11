@@ -9,10 +9,6 @@ const column = {
   backgroundClip: 'padding-box',
 }
 
-const heading = {
-  marginBottom: '2em',
-}
-
 const title = {
   marginBottom: 0,
   color: 'var(--beige)',
@@ -22,7 +18,7 @@ const title = {
   },
 
   ':not(:first-child)': {
-    marginTop: '2em',
+    marginTop: 'var(--s-large)',
   },
 }
 
@@ -30,17 +26,16 @@ const terms = {
   listStyleType: 'none',
   paddingLeft: 0,
   marginTop: 0,
-  marginBottom: '1.5em',
+  marginBottom: 0,
 }
 
 const item = {
-  margin: '0.5em 0',
+  margin: 'var(--s-smaller) 0',
 }
 
 export default {
   lexicon,
   column,
-  heading,
   title,
   terms,
   item,

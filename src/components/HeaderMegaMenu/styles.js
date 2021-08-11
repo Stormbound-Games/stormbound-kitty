@@ -40,7 +40,7 @@ const title = {
   letterSpacing: '1px',
   color: 'var(--beige)',
   marginTop: 0,
-  marginBottom: '0.5em',
+  marginBottom: 'var(--s-smaller)',
   fontWeight: 'normal',
   borderBottom: '1px solid var(--dark-beige)',
   paddingBottom: '0.5em',

@@ -1,7 +1,6 @@
 const caption = {
   fontSize: '80%',
   color: 'var(--beige)',
-  marginTop: '1em',
 }
 
 const cell = ({ type }) => ({

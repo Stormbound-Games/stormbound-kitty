@@ -6,6 +6,7 @@ import Image from '../Image'
 import Article from '../Article'
 import Loader from '../Loader'
 import PageMeta from '../PageMeta'
+import Spacing from '../Spacing'
 import artworks from '../../data/artworks'
 import shuffle from '../../helpers/shuffle'
 import useLazyLoad from '../../hooks/useLazyLoad'
@@ -27,30 +28,33 @@ export default React.memo(function FanArt(props) {
         </p>
       </Article.Narrow>
 
-      <Masonry
-        breakpointCols={{
-          default: 3,
-          1100: 3,
-          700: 2,
-          500: 1,
-        }}
-        className={css(styles.wrapper)}
-        columnClassName={css(styles.item)}
-      >
-        {items.map(entry => (
-          <figure className={css(styles.art)} key={entry.image}>
-            <Image
-              src={'/assets/images/art/' + entry.image}
-              alt={'Artwork by ' + entry.author}
-              extend={styles.image}
-            />
-            <figcaption className={css(styles.caption)}>
-              Artwork by{' '}
-              <Link to={'/member/' + entry.author}>{entry.author}</Link>
-            </figcaption>
-          </figure>
-        ))}
-      </Masonry>
+      <Spacing vertical='LARGEST'>
+        <Masonry
+          breakpointCols={{
+            default: 3,
+            1100: 3,
+            700: 2,
+            500: 1,
+          }}
+          className={css(styles.wrapper)}
+          columnClassName={css(styles.item)}
+        >
+          {items.map(entry => (
+            <figure className={css(styles.art)} key={entry.image}>
+              <Image
+                src={'/assets/images/art/' + entry.image}
+                alt={'Artwork by ' + entry.author}
+                extend={styles.image}
+                withoutWebp
+              />
+              <figcaption className={css(styles.caption)}>
+                Artwork by{' '}
+                <Link to={'/member/' + entry.author}>{entry.author}</Link>
+              </figcaption>
+            </figure>
+          ))}
+        </Masonry>
+      </Spacing>
 
       {loading && <Loader />}
       <div ref={ref} />

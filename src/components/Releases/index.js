@@ -12,8 +12,14 @@ export default React.memo(function Releases(props) {
   return (
     <>
       <HeaderBanner title='Releases' />
+
       {chunk(releases, 3).map((row, index) => (
-        <Row desktopOnly key={index}>
+        <Row
+          key={index}
+          desktopOnly
+          wideGutter
+          spacing={{ bottom: ['NONE', 'BASE'] }}
+        >
           <Row.Column width='1/3'>
             {row[0] && (
               <Teaser

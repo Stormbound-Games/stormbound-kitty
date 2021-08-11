@@ -204,9 +204,11 @@ export default React.memo(function GuideComplete(props) {
       </p>
 
       <Info icon='stack' title='Drawing Guide'>
-        You can learn more about the hand manipulation mechanics such as
-        drawing, discarding and cycling in{' '}
-        <Link to='/guides/drawing'>the drawing guide</Link>.
+        <p>
+          You can learn more about the hand manipulation mechanics such as
+          drawing, discarding and cycling in{' '}
+          <Link to='/guides/drawing'>the drawing guide</Link>.
+        </p>
       </Info>
 
       <h3 id='what-and-what-to-discard'>What and when to discard</h3>
@@ -761,10 +763,12 @@ export default React.memo(function GuideComplete(props) {
       </ul>
 
       <Info icon='compass' title='More information'>
-        For more information about building competitive decks,{' '}
-        <Link to='/guides/deck'>read the deck building guide</Link>. And to know
-        more about the concept of mana curve, check the{' '}
-        <Link to='/guides/mana-curve'>guide on mana curves</Link>.
+        <p>
+          For more information about building competitive decks,{' '}
+          <Link to='/guides/deck'>read the deck building guide</Link>. And to
+          know more about the concept of mana curve, check the{' '}
+          <Link to='/guides/mana-curve'>guide on mana curves</Link>.
+        </p>
       </Info>
 
       <h3 id='units'>Units</h3>
@@ -889,8 +893,10 @@ export default React.memo(function GuideComplete(props) {
       </p>
 
       <Info icon='equalizer' title='Value calculator'>
-        For a closer look at the estimated value of cards, be sure to play with
-        the <Link to='/calculators/value'>value calculator</Link>.
+        <p>
+          For a closer look at the estimated value of cards, be sure to play
+          with the <Link to='/calculators/value'>value calculator</Link>.
+        </p>
       </Info>
 
       <Title id='contact-me'>Contact me</Title>

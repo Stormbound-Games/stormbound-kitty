@@ -5,7 +5,7 @@ const feed = {
 }
 
 const item = {
-  marginBottom: '2em',
+  marginBottom: 'var(--s-large)',
 }
 
 const empty = {
@@ -16,7 +16,7 @@ const empty = {
 
 const image = {
   display: 'block',
-  margin: '0 auto 1em',
+  margin: '0 auto var(--s-base)',
   maxWidth: '250px',
 }
 

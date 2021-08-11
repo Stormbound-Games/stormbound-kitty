@@ -8,8 +8,8 @@ const link = {
 }
 
 const list = {
-  marginTop: '0.5em',
-  marginBottom: '1.5em',
+  marginTop: 'var(--s-smaller)',
+  marginBottom: 'var(--s-large)',
   paddingLeft: 0,
 }
 

@@ -3,9 +3,7 @@ const info = ({ withCta }) => ({
   borderRadius: '3px',
   padding: '1em',
   position: 'relative',
-  margin: '2em 0',
   paddingBottom: withCta ? '2.25em' : undefined,
-  marginBottom: withCta ? '3em' : undefined,
 
   '> :last-child': {
     marginBottom: 0,

@@ -33,7 +33,7 @@ const caption = {
   textTransform: 'uppercase',
   fontSize: '80%',
   letterSpacing: '1px',
-  marginTop: '1em',
+  marginTop: 'var(--s-base)',
 }
 
 export default {

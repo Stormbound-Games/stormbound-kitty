@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import FeedEntry from '../FeedEntry'
 import HallOfFameTeaser from '../HallOfFameTeaser'
+import Spacing from '../Spacing'
 import serialisation from '../../helpers/serialisation'
 import styles from './styles'
 
@@ -16,9 +17,11 @@ export default React.memo(function FeedCardEntry(props) {
       <Link to='/card/contest'>Stormbound Weekly Card Contest</Link> (week #
       {props.id}, themed <span className='Highlight'>{props.name}</span>) with a
       card called <Link to={'/card/' + props.winner.id}>{card.name}</Link>.
-      <div className={css(styles.container)}>
-        <HallOfFameTeaser {...props} />
-      </div>
+      <Spacing top='BASE'>
+        <div className={css(styles.container)}>
+          <HallOfFameTeaser {...props} />
+        </div>
+      </Spacing>
     </FeedEntry>
   )
 })

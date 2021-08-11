@@ -1,5 +1,5 @@
 const fix = {
-  marginBottom: '1em',
+  marginBottom: 'var(--s-base)',
 
   medium: {
     position: 'absolute',

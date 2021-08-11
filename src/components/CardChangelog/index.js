@@ -6,6 +6,7 @@ import Info from '../Info'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Select from '../Select'
+import Spacing from '../Spacing'
 import Title from '../Title'
 import FeedCardChange from '../FeedCardChange'
 import changelog from '../../data/changelog'
@@ -78,16 +79,18 @@ export default function CardChangelog(props) {
         </Row>
 
         <Info icon='compass' title='Release notes'>
-          If you happen to be looking for the details of a specific update,
-          check out the <Link to='/releases'>release notes</Link> for a list of
-          all the releases since July 2020.
+          <p>
+            If you happen to be looking for the details of a specific update,
+            check out the <Link to='/releases'>release notes</Link> for a list
+            of all the releases since July 2020.
+          </p>
         </Info>
 
         {sorting === 'DATE'
           ? Object.keys(changesByDate)
               .sort((a, b) => parseDate(b) - parseDate(a))
               .map(date => (
-                <section className={css(styles.section)} key={date}>
+                <Spacing top='LARGER' key={date}>
                   <Title extend={styles.title}>
                     {formatDate(parseDate(date))}
                   </Title>
@@ -109,12 +112,12 @@ export default function CardChangelog(props) {
                         </li>
                       ))}
                   </ul>
-                </section>
+                </Spacing>
               ))
           : Object.keys(changesByCard)
               .sort((a, b) => sortCards()(getRawCardData(a), getRawCardData(b)))
               .map(id => (
-                <section className={css(styles.section)} key={id}>
+                <Spacing top='LARGER' key={id}>
                   <Title className={css(styles.title)}>{getCardName(id)}</Title>
                   <ul className={css(styles.list)}>
                     {changesByCard[id].map(change => (
@@ -129,7 +132,7 @@ export default function CardChangelog(props) {
                       </li>
                     ))}
                   </ul>
-                </section>
+                </Spacing>
               ))}
       </Article.Narrow>
 

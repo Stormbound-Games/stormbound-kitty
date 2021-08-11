@@ -6,6 +6,7 @@ import News from '../News'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import Title from '../Title'
 import VisuallyHidden from '../VisuallyHidden'
 import styles from './styles'
@@ -24,10 +25,13 @@ export default React.memo(() => {
             src='/assets/images/kitty.png'
             withoutWebp
           />
-          <div className={css(styles.newsBox)}>
-            <Title extend={styles.newsTitle}>News</Title>
-            <News />
-          </div>
+
+          <Spacing bottom='LARGE'>
+            <div className={css(styles.newsBox)}>
+              <Title extend={styles.newsTitle}>News</Title>
+              <News />
+            </div>
+          </Spacing>
         </aside>
 
         <section
@@ -44,9 +48,15 @@ export default React.memo(() => {
                   one of the many ready-to-go decks from the community.
                 </p>
                 <div className={css(styles.buttons)}>
-                  <CTA to='/guides/deck'>Guide</CTA>
-                  <CTA to='/deck'>Builder</CTA>
-                  <CTA to='/deck/suggestions'>Decks</CTA>
+                  <CTA extend={styles.button} to='/guides/deck'>
+                    Guide
+                  </CTA>
+                  <CTA extend={styles.button} to='/deck'>
+                    Builder
+                  </CTA>
+                  <CTA extend={styles.button} to='/deck/suggestions'>
+                    Decks
+                  </CTA>
                 </div>
               </Row.Column>
             </Row>
@@ -67,9 +77,15 @@ export default React.memo(() => {
                   members of the community.
                 </p>
                 <div className={css(styles.buttons)}>
-                  <CTA to='/guides/essentials'>Essentials</CTA>
-                  <CTA to='/guides/in-depth'>In-depth</CTA>
-                  <CTA to='/guides/playstyle'>Playstyle</CTA>
+                  <CTA extend={styles.button} to='/guides/essentials'>
+                    Essentials
+                  </CTA>
+                  <CTA extend={styles.button} to='/guides/in-depth'>
+                    In-depth
+                  </CTA>
+                  <CTA extend={styles.button} to='/guides/playstyle'>
+                    Playstyle
+                  </CTA>
                 </div>
               </Row.Column>
             </Row>
@@ -92,9 +108,15 @@ export default React.memo(() => {
                   one will match your collection.
                 </p>
                 <div className={css(styles.buttons)}>
-                  <CTA to='/calculators/income'>Income</CTA>
-                  <CTA to='/calculators/books'>Books</CTA>
-                  <CTA to='/collection'>Collection</CTA>
+                  <CTA extend={styles.button} to='/calculators/income'>
+                    Income
+                  </CTA>
+                  <CTA extend={styles.button} to='/calculators/books'>
+                    Books
+                  </CTA>
+                  <CTA extend={styles.button} to='/collection'>
+                    Collection
+                  </CTA>
                 </div>
               </Row.Column>
             </Row>
@@ -123,8 +145,12 @@ export default React.memo(() => {
                   tricky situations for other players to resolve!
                 </p>
                 <div className={css(styles.buttons)}>
-                  <CTA to='/sim'>Simulator</CTA>
-                  <CTA to='/sim/puzzles'>Puzzles</CTA>
+                  <CTA extend={styles.button} to='/sim'>
+                    Simulator
+                  </CTA>
+                  <CTA extend={styles.button} to='/sim/puzzles'>
+                    Puzzles
+                  </CTA>
                 </div>
               </Row.Column>
             </Row>
@@ -152,8 +178,12 @@ export default React.memo(() => {
                   Create your very own cards in the card builder.
                 </p>
                 <div className={css(styles.buttons)}>
-                  <CTA to='/list'>List builder</CTA>
-                  <CTA to='/card'>Card builder</CTA>
+                  <CTA extend={styles.button} to='/list'>
+                    List builder
+                  </CTA>
+                  <CTA extend={styles.button} to='/card'>
+                    Card builder
+                  </CTA>
                 </div>
               </Row.Column>
             </Row>
@@ -185,8 +215,12 @@ export default React.memo(() => {
                   to go.
                 </p>
                 <div className={css(styles.buttons)}>
-                  <CTA to='/stories/eastern-heat'>Eastern Heat</CTA>
-                  <CTA to='/stories'>All stories</CTA>
+                  <CTA extend={styles.button} to='/stories/eastern-heat'>
+                    Eastern Heat
+                  </CTA>
+                  <CTA extend={styles.button} to='/stories'>
+                    All stories
+                  </CTA>
                 </div>
               </Row.Column>
             </Row>

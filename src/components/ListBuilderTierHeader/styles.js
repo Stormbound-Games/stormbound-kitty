@@ -1,13 +1,12 @@
 const header = {
   display: 'flex',
-  margin: '0 -0.5em 0.5em',
+  margin: '0 -0.5em var(--s-base)',
   alignItems: 'flex-end',
 }
 
 const name = {
   textTransform: 'uppercase',
-  paddingTop: '0.55em',
-  paddingBottom: '0.55em',
+  marginTop: 0,
   marginBottom: 0,
   color: 'var(--beige)',
   fontSize: '100%',

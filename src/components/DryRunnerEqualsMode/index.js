@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Checkbox from '../Checkbox'
 import Dialog from '../Dialog'
+import Spacing from '../Spacing'
 import styles from './styles'
 
 export default React.memo(function DryRunnerEqualsMode(props) {
@@ -9,11 +10,10 @@ export default React.memo(function DryRunnerEqualsMode(props) {
   const dialogRef = React.useRef()
 
   return (
-    <>
+    <Spacing bottom='LARGE'>
       <Checkbox
         id='equals-mode'
         data-testid='equals-mode'
-        extend={styles.container}
         checked={props.equalsMode}
         onChange={event => dialogRef.current.show()}
       >
@@ -39,6 +39,6 @@ export default React.memo(function DryRunnerEqualsMode(props) {
         Toggling “Equals” mode will reset the game. Are you sure you want to?
         Don’t worry, you’ll keep your deck.
       </Dialog>
-    </>
+    </Spacing>
   )
 })

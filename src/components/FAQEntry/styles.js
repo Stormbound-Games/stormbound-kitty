@@ -9,7 +9,7 @@ const pulse = {
 }
 
 const entry = {
-  marginBottom: '0.5em',
+  marginBottom: 'var(--s-smaller)',
   fontSize: '120%',
   position: 'relative',
 

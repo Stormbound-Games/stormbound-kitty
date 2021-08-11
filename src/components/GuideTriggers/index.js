@@ -58,9 +58,11 @@ export default React.memo(function GuideDrawing(props) {
       </Guide.FullWidth>
 
       <Info icon='sword' title='Attacking bases and DTE'>
-        Units attacking a base always die right after the damage is done to the
-        base, which triggers their DTE immediately after, unless they destroy
-        the base in which case the game is obviously over.
+        <p>
+          Units attacking a base always die right after the damage is done to
+          the base, which triggers their DTE immediately after, unless they
+          destroy the base in which case the game is obviously over.
+        </p>
       </Info>
 
       <h3>Resolution order</h3>
@@ -81,10 +83,12 @@ export default React.memo(function GuideDrawing(props) {
       </p>
 
       <Info icon='sword' title='Finite Loopers quirk'>
-        Interesting piece of trivia about the Green Prototypes / Finite Loopers
-        situation: if the looper construct spawns on the tile where Green
-        Prototypes died, it will not gain strength from the Green Prototypes
-        because it is not technically a “surrounding tile”.
+        <p>
+          Interesting piece of trivia about the Green Prototypes / Finite
+          Loopers situation: if the looper construct spawns on the tile where
+          Green Prototypes died, it will not gain strength from the Green
+          Prototypes because it is not technically a “surrounding tile”.
+        </p>
       </Info>
 
       <p>

@@ -1,5 +1,5 @@
 const article = {
-  marginBottom: '6em',
+  marginBottom: 'var(--s-largest)',
 }
 
 /**
@@ -8,16 +8,15 @@ const article = {
  */
 const meta = {
   marginTop: '-2em' /* 1 */,
+  marginBottom: '5em',
   textTransform: 'uppercase',
   color: 'var(--beige)',
   display: 'flex',
   justifyContent: 'center',
   flexWrap: 'wrap',
-  marginBottom: '4em',
   textAlign: 'center',
 
   medium: {
-    marginBottom: '6em',
     display: 'flex',
     fontSize: '120%',
     justifyContent: 'space-between',
@@ -27,7 +26,7 @@ const meta = {
 const action = {
   textDecoration: 'none',
   flex: '1 0 100%',
-  marginTop: '0.5em',
+  marginTop: 'var(--s-smaller)',
   fontSize: '80%',
   textTransform: 'uppercase',
 
@@ -102,14 +101,4 @@ const narrow = ({ withDropCap }) => ({
   },
 })
 
-const embed = {
-  marginTop: '1.5em',
-  marginBottom: '1.5em',
-
-  medium: {
-    marginTop: '3em',
-    marginBottom: '3em',
-  },
-}
-
-export default { article, meta, action, actionIcon, content, narrow, embed }
+export default { article, meta, action, actionIcon, content, narrow }

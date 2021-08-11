@@ -1,5 +1,4 @@
 const ghost = {
-  marginBottom: '2em',
   position: 'relative',
 
   '::before': {

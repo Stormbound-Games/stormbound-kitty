@@ -15,6 +15,7 @@ import LearnMoreIcon from '../LearnMoreIcon'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import SuggestionsFilters from '../DeckSuggestionsFilters'
 import Title from '../Title'
 import useViewportSize from '../../hooks/useViewportSize'
@@ -163,15 +164,17 @@ class DeckSuggestions extends React.Component {
               resetFilters={this.resetFilters}
               formRef={this.formRef}
             />
-            <div className={this.props.css({ marginTop: '1.5em' })}>
+            <Spacing top='LARGE'>
               {this.state.order === 'FEASIBILITY' && (
                 <Only.CustomCollection>
                   <Info icon='books' title='Your collection'>
-                    Decks are ordered based on the cards in{' '}
-                    <span className='Highlight'>your collection</span>. That
-                    means decks you can make with your highest cards are at the
-                    top of the list and decks containing cards you do not
-                    possess are downranked.
+                    <p>
+                      Decks are ordered based on the cards in{' '}
+                      <span className='Highlight'>your collection</span>. That
+                      means decks you can make with your highest cards are at
+                      the top of the list and decks containing cards you do not
+                      possess are downranked.
+                    </p>
                   </Info>
                 </Only.CustomCollection>
               )}
@@ -187,13 +190,15 @@ class DeckSuggestions extends React.Component {
                     }
                     CTA={<ImportCollection />}
                   >
-                    If you have already created your collection, you can import
-                    it so decks are sorted by how well they would perform based
-                    on the level of your cards.
+                    <p>
+                      If you have already created your collection, you can
+                      import it so decks are sorted by how well they would
+                      perform based on the level of your cards.
+                    </p>
                   </Info>
                 </Only.DefaultCollection>
               </Only.Desktop>
-            </div>
+            </Spacing>
           </Row.Column>
           <Row.Column width='2/3'>
             <Title>Decks</Title>

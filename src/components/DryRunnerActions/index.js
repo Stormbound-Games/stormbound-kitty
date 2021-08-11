@@ -1,15 +1,13 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import CTA from '../CTA'
 import Row from '../Row'
+import Spacing from '../Spacing'
 
 export default React.memo(function DryRunnerActions(props) {
-  const { css } = useFela()
-
   if (!props.activeCard) return null
 
   return (
-    <div className={css({ marginTop: '3em' })}>
+    <Spacing top='LARGER'>
       <Row desktopOnly>
         <Row.Column align='center'>
           <CTA
@@ -34,6 +32,6 @@ export default React.memo(function DryRunnerActions(props) {
           </CTA>
         </Row.Column>
       </Row>
-    </div>
+    </Spacing>
   )
 })

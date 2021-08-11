@@ -70,7 +70,7 @@ const cycleButton = {
   bottom: '100%',
   right: 0,
   minWidth: '35%',
-  marginBottom: '1.5em',
+  marginBottom: 'var(--s-large)',
 }
 
 export default {

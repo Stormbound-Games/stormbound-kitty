@@ -79,9 +79,9 @@ export default React.memo(function GuideFreedomFight(props) {
       <Title>Possible Decks</Title>
 
       <Guide.FullWidth>
-        <Row desktopOnly wideGutter>
+        <Row desktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
-            <h3 className={css({ marginTop: '0.5em' })}>
+            <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               Frostkhan’s Freedom Fight
             </h3>
             <p>
@@ -103,9 +103,9 @@ export default React.memo(function GuideFreedomFight(props) {
             />
           </Row.Column>
         </Row>
-        <Row desktopOnly wideGutter>
+        <Row desktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
-            <h3 className={css({ marginTop: '0.5em' })}>
+            <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               Critical Pancake’s deck
             </h3>
             <p>
@@ -129,9 +129,9 @@ export default React.memo(function GuideFreedomFight(props) {
             />
           </Row.Column>
         </Row>
-        <Row desktopOnly wideGutter>
+        <Row desktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
-            <h3 className={css({ marginTop: '0.5em' })}>
+            <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               SeveralPeople’s deck
             </h3>
             <p>
@@ -153,9 +153,11 @@ export default React.memo(function GuideFreedomFight(props) {
             />
           </Row.Column>
         </Row>
-        <Row desktopOnly wideGutter>
+        <Row desktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
-            <h3 className={css({ marginTop: '0.5em' })}>Adig’s deck</h3>
+            <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
+              Adig’s deck
+            </h3>
             <p>
               <CardLink id='N1' />, <CardLink id='F8' />, <CardLink id='F4' />,{' '}
               <CardLink id='N9' />, <CardLink id='N16' /> and{' '}

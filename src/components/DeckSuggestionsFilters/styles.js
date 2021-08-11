@@ -1,10 +1,6 @@
 const toggle = {
   display: 'block',
-  margin: '0 auto 0.75em',
+  margin: '0 auto var(--s-small)',
 }
 
-const cta = {
-  marginTop: '2.25em',
-}
-
-export default { toggle, cta }
+export default { toggle }

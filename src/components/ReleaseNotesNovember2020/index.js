@@ -64,9 +64,11 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
         </TableOfContents>
 
         <Info icon='gift' title='Free rubies'>
-          Anyone logging into the game at least once between November 1st and
-          November 15th will be granted <Rubies amount={30} />. Happy Halloween!
-          🎃
+          <p>
+            Anyone logging into the game at least once between November 1st and
+            November 15th will be granted <Rubies amount={30} />. Happy
+            Halloween! 🎃
+          </p>
         </Info>
 
         <Title id='balance-changes'>Balance changes</Title>
@@ -105,9 +107,11 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
         </ul>
 
         <Info icon='heart' title='Nerf compensation'>
-          Owners of Rain of Frogs will be compensated proportionally to the
-          level of the card: <Coins amount='0/15/40/120/250' /> and{' '}
-          <Stones amount='0/2/5/10/20' />.
+          <p>
+            Owners of Rain of Frogs will be compensated proportionally to the
+            level of the card: <Coins amount='0/15/40/120/250' /> and{' '}
+            <Stones amount='0/2/5/10/20' />.
+          </p>
         </Info>
 
         <Title id='updated-freeze-mechanic'>Updated freeze mechanic</Title>

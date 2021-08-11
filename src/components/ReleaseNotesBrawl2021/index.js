@@ -1,10 +1,10 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import Link from '../Link'
 import Article from '../Article'
 import Image from '../Image'
 import Info from '../Info'
 import FAQSection from '../FAQSection'
+import Spacing from '../Spacing'
 import Title from '../Title'
 import Table from '../Table'
 import ReleaseNotes from '../ReleaseNotes'
@@ -48,8 +48,6 @@ const BrawlTable = ({ data }) => (
 )
 
 export default React.memo(function ReleaseNotesBrawl2021(props) {
-  const { css } = useFela()
-
   return (
     <ReleaseNotes id='brawl_2021'>
       <Article.Narrow>
@@ -100,13 +98,15 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
 
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <p className={css({ marginTop: '1.5em' })}>
-              From now on, there will be 3 running Brawl events per week, of
-              three different difficulties: Casual, Warrior and Ultimate. The
-              current Brawl version is the new Ultimate one, so there will be
-              two new difficulty levels <span className='Highlight'>under</span>{' '}
-              the current one.
-            </p>
+            <Spacing top='LARGE'>
+              <p>
+                From now on, there will be 3 running Brawl events per week, of
+                three different difficulties: Casual, Warrior and Ultimate. The
+                current Brawl version is the new Ultimate one, so there will be
+                two new difficulty levels{' '}
+                <span className='Highlight'>under</span> the current one.
+              </p>
+            </Spacing>
 
             <p>
               Additionally, every match will have a{' '}
@@ -164,14 +164,16 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
 
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <p className={css({ marginTop: '1.5em' })}>
-              Victories will still yield <Crowns amount={5} /> and losses will
-              still yield <Crowns amount={1} />. However, due to the fact that
-              matches are limited in length, draws can happen and will reward{' '}
-              <Crowns amount={2} /> to each player. A draw occurs when both
-              players have the same amount of health by the end of the last
-              turn.{' '}
-            </p>
+            <Spacing top='LARGE'>
+              <p>
+                Victories will still yield <Crowns amount={5} /> and losses will
+                still yield <Crowns amount={1} />. However, due to the fact that
+                matches are limited in length, draws can happen and will reward{' '}
+                <Crowns amount={2} /> to each player. A draw occurs when both
+                players have the same amount of health by the end of the last
+                turn.{' '}
+              </p>
+            </Spacing>
 
             <p>
               To avoid making the Brawl too easy for lower tiers and difficulty

@@ -6,6 +6,7 @@ import Card from '../Card'
 import CTA from '../CTA'
 import Only from '../Only'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import getRawCardData from '../../helpers/getRawCardData'
 import isLevelAvailable from '../../helpers/isLevelAvailable'
 import styles from './styles'
@@ -24,7 +25,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
   return (
     <>
       <Only.Desktop>
-        <div className={css(styles.display)}>
+        <Spacing bottom='LARGE'>
           <Row
             desktopOnly
             wideGutter={
@@ -64,10 +65,10 @@ export default React.memo(function CardBuilderCardDisplay(props) {
               </Row.Column>
             ))}
           </Row>
-        </div>
+        </Spacing>
       </Only.Desktop>
       <Only.Mobile>
-        <div className={css(styles.singleCard)}>
+        <Spacing horizontal='BASE' top='BASE'>
           <Card
             {...props}
             mana={props.mana.values[activeLevel - 1]}
@@ -78,7 +79,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
           />
 
           {!props.hasSingleLevel && (
-            <div className={css(styles.buttons)}>
+            <Spacing top='LARGER'>
               <Row>
                 <Row.Column>
                   {activeLevel > 1 && (
@@ -101,9 +102,9 @@ export default React.memo(function CardBuilderCardDisplay(props) {
                   )}
                 </Row.Column>
               </Row>
-            </div>
+            </Spacing>
           )}
-        </div>
+        </Spacing>
       </Only.Mobile>
     </>
   )

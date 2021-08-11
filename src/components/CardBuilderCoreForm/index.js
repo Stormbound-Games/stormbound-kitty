@@ -7,6 +7,7 @@ import ImageErrorDialog from '../CardBuilderImageErrorDialog'
 import Input from '../Input'
 import Row from '../Row'
 import Select from '../Select'
+import Spacing from '../Spacing'
 import capitalise from '../../helpers/capitalise'
 
 export default React.memo(function CardBuilderCardForm(props) {
@@ -159,16 +160,17 @@ export default React.memo(function CardBuilderCardForm(props) {
               <legend>Unit-specific modifiers</legend>
               <Row>
                 <Row.Column>
-                  <Checkbox
-                    extend={{ marginTop: '0.75em' }}
-                    id='elder'
-                    checked={props.elder}
-                    onChange={event => props.setElder(event.target.checked)}
-                    disabled={props.type !== 'unit'}
-                    data-testid='cb-elder-checkbox'
-                  >
-                    Elder
-                  </Checkbox>
+                  <Spacing top='SMALL'>
+                    <Checkbox
+                      id='elder'
+                      checked={props.elder}
+                      onChange={event => props.setElder(event.target.checked)}
+                      disabled={props.type !== 'unit'}
+                      data-testid='cb-elder-checkbox'
+                    >
+                      Elder
+                    </Checkbox>
+                  </Spacing>
                 </Row.Column>
                 <Row.Column>
                   <Checkbox

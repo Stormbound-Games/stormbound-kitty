@@ -1,5 +1,4 @@
 const deck = {
-  marginBottom: '2em',
   position: 'relative',
 }
 
@@ -20,14 +19,14 @@ const name = {
  * 1. Pull rarity bar within the bottom margin of the deck itself.
  */
 const rarityBar = {
-  marginBottom: '0.5em',
+  marginBottom: 'var(--s-smaller)',
   marginTop: '-0.5em' /* 1 */,
 }
 
 const actions = {
   fontSize: '80%',
   display: 'flex',
-  marginTop: '1em',
+  marginTop: 'var(--s-base)',
   marginLeft: 'auto',
   opacity: 0.5,
   transition: '250ms',

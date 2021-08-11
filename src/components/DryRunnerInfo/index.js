@@ -1,18 +1,17 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import DryRunnerSettings from '../DryRunnerSettings'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import Title from '../Title'
 
 export default React.memo(function DryRunnerInfo(props) {
-  const { css } = useFela()
   const deckIds = props.deck.map(card => card.id)
   const containsFrozenCore = deckIds.includes('W9')
   const containsDawnsparks = deckIds.includes('W16')
   const containsFreeze = props.containsFreeze(props.deck)
 
   return (
-    <div className={css({ marginTop: '3em' })}>
+    <Spacing bottom='LARGER'>
       <Row desktopOnly>
         <Row.Column>
           <DryRunnerSettings {...props} />
@@ -76,6 +75,6 @@ export default React.memo(function DryRunnerInfo(props) {
           )}
         </Row.Column>
       </Row>
-    </div>
+    </Spacing>
   )
 })

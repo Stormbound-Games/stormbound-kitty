@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import Checkbox from '../Checkbox'
 import Select from '../Select'
 import ShareDialog from '../ShareDialog'
+import Spacing from '../Spacing'
 import styles from './styles'
 
 export default React.memo(function CardBuilderShareButton(props) {
@@ -56,15 +57,17 @@ export default React.memo(function CardBuilderShareButton(props) {
         <option value='STATS'>Stats as text only</option>
       </Select>
 
-      <div className={css(styles.checkbox)}>
-        <Checkbox
-          id='hide-interface'
-          checked={hideInterface}
-          onChange={event => setHideInterface(event.target.checked)}
-        >
-          Hide editing interface
-        </Checkbox>
-      </div>
+      <Spacing vertical='BASE'>
+        <div className={css(styles.checkbox)}>
+          <Checkbox
+            id='hide-interface'
+            checked={hideInterface}
+            onChange={event => setHideInterface(event.target.checked)}
+          >
+            Hide editing interface
+          </Checkbox>
+        </div>
+      </Spacing>
     </ShareDialog>
   )
 })

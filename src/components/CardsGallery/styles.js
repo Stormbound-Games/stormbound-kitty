@@ -64,7 +64,6 @@ const nav = {
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'space-around',
-  marginTop: '2em',
 
   medium: { justifyContent: 'space-between' },
 }

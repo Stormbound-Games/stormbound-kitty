@@ -57,17 +57,21 @@ export default React.memo(function Member(props) {
               icon={isSuperKAT ? 'super-star' : 'star'}
               title='Financial contributor'
             >
-              {displayName} is one of the generous contributors who can make
-              Stormbound-Kitty a reality. Thank you and welcome to the{' '}
-              <abbr title='Kitty Appreciation Team'>KAT</abbr>!
+              <p>
+                {displayName} is one of the generous contributors who can make
+                Stormbound-Kitty a reality. Thank you and welcome to the{' '}
+                <abbr title='Kitty Appreciation Team'>KAT</abbr>!
+              </p>
             </Info>
           )}
 
           {details.contributions.length > 0 && (
             <Info icon='hammer' title='Technical contributor'>
-              {displayName} is one of the skilled contributors who help make
-              Stormbound-Kitty better every day. Thank you and welcome to the{' '}
-              <abbr title='Kitty Appreciation Team'>KAT</abbr>!
+              <p>
+                {displayName} is one of the skilled contributors who help make
+                Stormbound-Kitty better every day. Thank you and welcome to the{' '}
+                <abbr title='Kitty Appreciation Team'>KAT</abbr>!
+              </p>
             </Info>
           )}
         </Row.Column>
@@ -75,9 +79,9 @@ export default React.memo(function Member(props) {
           {count > 0 || channel ? (
             <ul className={css(styles.feed)}>
               {channel && (
-                <div className={css(styles.item)}>
+                <li className={css(styles.item)}>
                   <FeedItem {...channel} type='YOUTUBE' />
-                </div>
+                </li>
               )}
               {content.map((entry, index) => (
                 <li key={index} className={css(styles.item)}>

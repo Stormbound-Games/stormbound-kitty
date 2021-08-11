@@ -6,7 +6,7 @@ const label = {
   textAlign: 'center',
   fontSize: '135%',
   display: 'block',
-  marginTop: '0.5em',
+  marginTop: 'var(--s-smaller)',
 }
 
 const image = ({ isStone }) => ({

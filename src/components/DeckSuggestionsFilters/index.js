@@ -9,6 +9,7 @@ import Input from '../Input'
 import MobileTogglableContent from '../MobileTogglableContent'
 import Row from '../Row'
 import Select from '../Select'
+import Spacing from '../Spacing'
 import TagsSelect from '../TagsSelect'
 import styles from './styles'
 
@@ -124,19 +125,20 @@ export default React.memo(function DeckSuggestionsFilters(props) {
             </Select>
           </Row.Column>
           <Row.Column extend={{ alignSelf: 'flex-end' }}>
-            <CTA
-              extend={styles.cta}
-              disabled={
-                props.author === '*' &&
-                props.tags.length === 0 &&
-                props.faction === '*' &&
-                !props.including &&
-                !props.name
-              }
-              onClick={props.resetFilters}
-            >
-              Reset
-            </CTA>
+            <Spacing bottom='LARGE'>
+              <CTA
+                disabled={
+                  props.author === '*' &&
+                  props.tags.length === 0 &&
+                  props.faction === '*' &&
+                  !props.including &&
+                  !props.name
+                }
+                onClick={props.resetFilters}
+              >
+                Reset
+              </CTA>
+            </Spacing>
           </Row.Column>
         </Row>
       </form>

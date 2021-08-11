@@ -5,6 +5,7 @@ import CTA from '../CTA'
 import ResetButton from '../ResetButton'
 import Mana from '../Mana'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import styles from './styles'
 
 export default React.memo(function DryRunnerHeader(props) {
@@ -33,7 +34,7 @@ export default React.memo(function DryRunnerHeader(props) {
   }, [registerShortcuts])
 
   return (
-    <div className={css(styles.header)}>
+    <Spacing bottom='LARGER'>
       <Row desktopOnly>
         <Row.Column width='1/3' align='center'>
           <span className={css(styles.mana)}>
@@ -62,6 +63,6 @@ export default React.memo(function DryRunnerHeader(props) {
           </CTA>
         </Row.Column>
       </Row>
-    </div>
+    </Spacing>
   )
 })

@@ -564,7 +564,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           </Row.Column>
           <Row.Column>
             <Image
-              style={{ marginTop: 0 }}
+              extend={{ marginTop: 0 }}
               src='/assets/images/releases/check_in_redeem.jpg'
               alt='Dialog window inviting the user to redeem a day from the daily check-in calendar or buy the Premium Pass'
             />

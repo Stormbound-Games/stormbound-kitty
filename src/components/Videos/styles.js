@@ -1,10 +1,6 @@
-const video = {
-  marginBottom: '3em',
-}
-
 const title = {
   marginTop: 0,
-  marginBottom: '0.25em',
+  marginBottom: 'var(--s-smallest)',
 }
 
 const image = {
@@ -16,7 +12,7 @@ const image = {
 
   small: {
     maxWidth: '70%',
-    marginBottom: '1em',
+    marginBottom: 'var(--s-base)',
   },
 }
 
@@ -43,7 +39,6 @@ const column = {
 }
 
 export default {
-  video,
   title,
   image,
   link,

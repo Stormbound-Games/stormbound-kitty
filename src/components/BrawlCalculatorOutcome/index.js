@@ -162,9 +162,11 @@ export default React.memo(function BrawlCalculatorOutcome(props) {
               .
             </p>
             <Info icon='equalizer' title='Income calculator'>
-              To figure out how much coins you can earn in a given period of
-              time, check out the{' '}
-              <Link to='/calculators/income'>income calculator</Link>.
+              <p>
+                To figure out how much coins you can earn in a given period of
+                time, check out the{' '}
+                <Link to='/calculators/income'>income calculator</Link>.
+              </p>
             </Info>
           </>
         ) : null}

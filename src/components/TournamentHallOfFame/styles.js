@@ -1,9 +1,5 @@
-const tournament = {
-  marginBottom: '1em',
-}
-
 const name = {
-  marginTop: '0 !important',
+  marginTop: 0,
   marginBottom: 0,
 }
 
@@ -13,4 +9,4 @@ const meta = {
   fontSize: '80%',
 }
 
-export default { tournament, name, meta }
+export default { name, meta }

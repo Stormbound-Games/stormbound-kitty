@@ -2,6 +2,7 @@ import React from 'react'
 import CTA from '../CTA'
 import Only from '../Only'
 import ShareDialog from '../ShareDialog'
+import Spacing from '../Spacing'
 import download from '../../helpers/download'
 
 const exportAsImage = () => {
@@ -46,16 +47,15 @@ export default React.memo(function DeckShareButton(props) {
         by downloading it as an image, or by sharing it directly.
       </p>
 
-      <CTA
-        type='button'
-        onClick={exportAsImage}
-        extend={{
-          width: 'calc(50% + 1em)',
-          marginTop: '1em',
-        }}
-      >
-        <Only.Desktop>Download</Only.Desktop> as image
-      </CTA>
+      <Spacing top='BASE'>
+        <CTA
+          type='button'
+          onClick={exportAsImage}
+          extend={{ width: 'calc(50% + 1em)' }}
+        >
+          <Only.Desktop>Download</Only.Desktop> as image
+        </CTA>
+      </Spacing>
     </ShareDialog>
   )
 })

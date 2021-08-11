@@ -3,7 +3,6 @@ const matches = {
 }
 
 const table = {
-  marginBottom: '4em',
   width: '100%',
 
   '> * > tr > *:first-child': {

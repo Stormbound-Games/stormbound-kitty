@@ -24,7 +24,7 @@ const teaserPseudo = {
 const teaser = ({ isLarge }) => ({
   position: 'relative',
   border: '1px solid var(--dark-beige)',
-  marginBottom: '2em',
+  marginBottom: 'var(--s-large)',
   flexGrow: 1 /* 1 */,
   display: 'flex' /* 2 */,
   flexDirection: isLarge ? 'row' : 'column' /* 2 */,
@@ -155,7 +155,7 @@ const author = {
 
 const title = {
   marginTop: 0,
-  marginBottom: '0.5em',
+  marginBottom: 'var(--s-smaller)',
 }
 
 const link = {

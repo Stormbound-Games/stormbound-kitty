@@ -2,8 +2,8 @@ const title = {
   color: 'var(--beige)',
   fontSize: '80%',
   textTransform: 'uppercase',
-  marginTop: '1.25em',
-  marginBottom: '0.5em',
+  marginTop: 'var(--s-base)',
+  marginBottom: 'var(--s-smaller)',
 }
 
 const container = {
@@ -13,7 +13,7 @@ const container = {
   backgroundColor: 'var(--black)',
   border: '1px solid var(--dark-beige)',
   borderRadius: '4px',
-  marginBottom: '2em',
+  marginBottom: 'var(--s-large)',
 }
 
 const row = {

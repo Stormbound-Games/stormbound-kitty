@@ -1,5 +1,4 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import Link from '../Link'
 import BrawlCalculatorDiscount from '../BrawlCalculatorDiscount'
 import BrawlCalculatorLegendaryToggle from '../BrawlCalculatorLegendaryToggle'
@@ -14,6 +13,7 @@ import Only from '../Only'
 import PageMeta from '../PageMeta'
 import PremiumPassCheckbox from '../PremiumPassCheckbox'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import Table from '../Table'
 import { Coins, Crowns } from '../Resource'
 import Title from '../Title'
@@ -22,7 +22,6 @@ import getMilestoneCost from '../../helpers/getMilestoneCost'
 import getRewardLabel from '../../helpers/getRewardLabel'
 
 export default React.memo(function BrawlCalculator(props) {
-  const { css } = useFela()
   const [difficulty, setDifficulty] = React.useState('CASUAL')
   const [withPremiumPass, setWithPremiumPass] = React.useState(false)
   const [mode, setMode] = React.useState('')
@@ -45,11 +44,12 @@ export default React.memo(function BrawlCalculator(props) {
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>Goal</Title>
-          <BrawlDifficultySelect
-            extend={{ marginBottom: '1.5em' }}
-            value={difficulty}
-            onChange={event => setDifficulty(event.target.value)}
-          />
+          <Spacing bottom='LARGE'>
+            <BrawlDifficultySelect
+              value={difficulty}
+              onChange={event => setDifficulty(event.target.value)}
+            />
+          </Spacing>
           <BrawlCalculatorMode mode={mode} setMode={setMode} />
           <BrawlCalculatorSettings
             difficulty={difficulty}
@@ -64,13 +64,15 @@ export default React.memo(function BrawlCalculator(props) {
             setCrowns={setCrowns}
           />
           <Info icon='sword' title='Brawl tracker'>
-            To keep track of your expenses and win ratio during the Brawl, use
-            the <Link to='/brawl'>Brawl tracker</Link>. New to the Brawl?{' '}
-            <Link to='/guides/brawl'>Read the guide</Link>.
+            <p>
+              To keep track of your expenses and win ratio during the Brawl, use
+              the <Link to='/brawl'>Brawl tracker</Link>. New to the Brawl?{' '}
+              <Link to='/guides/brawl'>Read the guide</Link>.
+            </p>
           </Info>
         </Row.Column>
         <Row.Column width='1/3'>
-          <div className={css({ marginBottom: '2em' })}>
+          <Spacing bottom='LARGER'>
             <Title>Setup</Title>
             <BrawlCalculatorSetup setup={setup} setSetup={setSetup} />
             <PremiumPassCheckbox
@@ -84,7 +86,7 @@ export default React.memo(function BrawlCalculator(props) {
               checked={hasLegendary5}
               onChange={event => setHasLegendary5(event.target.checked)}
             />
-          </div>
+          </Spacing>
           <BrawlCalculatorDiscount
             discount={discount}
             setDiscount={setDiscount}

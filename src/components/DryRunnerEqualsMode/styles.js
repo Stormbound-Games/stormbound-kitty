@@ -1,12 +1,7 @@
-const container = {
-  marginBottom: '2em',
-  display: 'block',
-}
-
-const info =  {
+const info = {
   color: 'var(--white)',
   display: 'block',
   textTransform: 'initial',
 }
 
-export default { container, info }
+export default { info }

@@ -1,7 +1,3 @@
-const tier = {
-  ':not(:last-of-type)': { marginBottom: '1em' },
-}
-
 const body = ({ isDragging }) => ({
   overflow: 'hidden',
   position: 'relative',
@@ -36,4 +32,4 @@ const empty = {
   margin: 0,
 }
 
-export default { tier, body, empty }
+export default { body, empty }

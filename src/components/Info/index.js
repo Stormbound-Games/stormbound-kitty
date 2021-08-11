@@ -1,17 +1,15 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Icon from '../Icon'
+import useSpacing from '../../hooks/useSpacing'
 import styles from './styles'
 
 export default React.memo(function Info(props) {
   const { css } = useFela({ withCta: Boolean(props.CTA) })
+  const margin = useSpacing(props.spacing || { vertical: 'LARGE' })
 
   return (
-    <div
-      className={[css(styles.info, props.extend), props.className]
-        .filter(Boolean)
-        .join(' ')}
-    >
+    <div className={css(styles.info, margin, props.extend)}>
       <span className={css(styles.title)}>
         {!!props.icon && <Icon extend={styles.icon} icon={props.icon} />}{' '}
         {props.title}

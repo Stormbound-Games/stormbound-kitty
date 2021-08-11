@@ -81,9 +81,7 @@ class BattleSimAppDesktop extends React.Component {
   render() {
     return (
       <div className={this.props.styles.root}>
-        <Spacing bottom='LARGEST'>
-          <Board {...this.props} dndProps={this.dndProps} />
-        </Spacing>
+        <Board {...this.props} dndProps={this.dndProps} />
 
         {this.props.mode === 'EDITOR' && (
           <CellFormDialog
@@ -112,7 +110,7 @@ class BattleSimAppDesktop extends React.Component {
         )}
 
         {this.props.mode === 'EDITOR' && (
-          <div className={this.props.styles.settings}>
+          <Spacing top='LARGEST'>
             <Row wideGutter>
               <Row.Column width='1/3'>
                 <Title>Game settings</Title>
@@ -138,7 +136,7 @@ class BattleSimAppDesktop extends React.Component {
                 <CardsForm {...this.props} />
               </Row.Column>
             </Row>
-          </div>
+          </Spacing>
         )}
       </div>
     )

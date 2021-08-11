@@ -12,6 +12,7 @@ import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Select from '../Select'
+import Spacing from '../Spacing'
 import Title from '../Title'
 import TogglableContent from '../TogglableContent'
 import CardLink from '../CardLink'
@@ -82,120 +83,121 @@ export default React.memo(function BooksCalculator(props) {
               Learn more about how it works.
             </Link>
           </p>
-
-          <form className={css(styles.form)}>
-            <Row>
-              <Row.Column>
-                <Select
-                  label='Book type'
-                  id='book'
-                  value={bookType}
-                  onChange={event => setBookType(event.target.value)}
-                  data-testid='book-select'
-                >
-                  {Object.keys(BOOKS).map(bookType => (
-                    <option key={bookType} value={bookType}>
-                      {getBookName(bookType)}
-                    </option>
-                  ))}
-                </Select>
-              </Row.Column>
-
-              <Row.Column>
-                <Select
-                  label='Looking for'
-                  id='target'
-                  value={target}
-                  onChange={event => setTarget(event.target.value)}
-                  data-testid='target-select'
-                  disabled={isAdvancedMode}
-                >
-                  {Object.keys(EXPECTATIONS).map(option => (
-                    <option key={option} value={option}>
-                      {EXPECTATIONS[option].label}
-                    </option>
-                  ))}
-                </Select>
-              </Row.Column>
-            </Row>
-
-            <TogglableContent
-              isExpanded={isAdvancedMode}
-              id='advanced-mode'
-              renderToggle={toggleProps => (
-                <button
-                  {...toggleProps}
-                  type='button'
-                  className={css(styles.toggle) + ' ButtonAsLink'}
-                  onClick={() => setIsAdvancedMode(mode => !mode)}
-                >
-                  {isAdvancedMode
-                    ? '- Collapse advanced mode'
-                    : '+ Expand advanced mode'}
-                </button>
-              )}
-            >
-              <p>
-                Define how many different cards of any rarity you are looking
-                for to know the odds of finding at least some of them when
-                opening a {getBookName(bookType)}.
-              </p>
-              <p>
-                For instance, if you’re looking for a copy of{' '}
-                <CardLink id='N2' />, a copy of <CardLink id='I4' /> and a copy
-                of <CardLink id='N8' />, set 2 for “Common cards” and 1 for
-                “Legendary cards”.
-              </p>
+          <Spacing top='BASE' bottom='LARGER'>
+            <form>
               <Row>
                 <Row.Column>
-                  <NumberInput
-                    label='Common cards'
-                    min={0}
-                    max={countCards({ rarity: 'common' })}
-                    name='target-common'
-                    id='target-common'
-                    onChange={setCommonExpectation}
-                    value={expectations[0]}
-                  />
+                  <Select
+                    label='Book type'
+                    id='book'
+                    value={bookType}
+                    onChange={event => setBookType(event.target.value)}
+                    data-testid='book-select'
+                  >
+                    {Object.keys(BOOKS).map(bookType => (
+                      <option key={bookType} value={bookType}>
+                        {getBookName(bookType)}
+                      </option>
+                    ))}
+                  </Select>
                 </Row.Column>
+
                 <Row.Column>
-                  <NumberInput
-                    label='Rare cards'
-                    min={0}
-                    max={countCards({ rarity: 'rare' })}
-                    name='target-rare'
-                    id='target-rare'
-                    onChange={setRareExpectation}
-                    value={expectations[1]}
-                  />
+                  <Select
+                    label='Looking for'
+                    id='target'
+                    value={target}
+                    onChange={event => setTarget(event.target.value)}
+                    data-testid='target-select'
+                    disabled={isAdvancedMode}
+                  >
+                    {Object.keys(EXPECTATIONS).map(option => (
+                      <option key={option} value={option}>
+                        {EXPECTATIONS[option].label}
+                      </option>
+                    ))}
+                  </Select>
                 </Row.Column>
               </Row>
-              <Row>
-                <Row.Column>
-                  <NumberInput
-                    label='Epic cards'
-                    min={0}
-                    max={countCards({ rarity: 'epic' })}
-                    name='target-epic'
-                    id='target-epic'
-                    onChange={setEpicExpectation}
-                    value={expectations[2]}
-                  />
-                </Row.Column>
-                <Row.Column>
-                  <NumberInput
-                    label='Legendary cards'
-                    min={0}
-                    max={countCards({ rarity: 'legendary' })}
-                    name='target-legendary'
-                    id='target-legendary'
-                    onChange={setLegendaryExpectation}
-                    value={expectations[3]}
-                  />
-                </Row.Column>
-              </Row>
-            </TogglableContent>
-          </form>
+
+              <TogglableContent
+                isExpanded={isAdvancedMode}
+                id='advanced-mode'
+                renderToggle={toggleProps => (
+                  <button
+                    {...toggleProps}
+                    type='button'
+                    className={css(styles.toggle) + ' ButtonAsLink'}
+                    onClick={() => setIsAdvancedMode(mode => !mode)}
+                  >
+                    {isAdvancedMode
+                      ? '- Collapse advanced mode'
+                      : '+ Expand advanced mode'}
+                  </button>
+                )}
+              >
+                <p>
+                  Define how many different cards of any rarity you are looking
+                  for to know the odds of finding at least some of them when
+                  opening a {getBookName(bookType)}.
+                </p>
+                <p>
+                  For instance, if you’re looking for a copy of{' '}
+                  <CardLink id='N2' />, a copy of <CardLink id='I4' /> and a
+                  copy of <CardLink id='N8' />, set 2 for “Common cards” and 1
+                  for “Legendary cards”.
+                </p>
+                <Row>
+                  <Row.Column>
+                    <NumberInput
+                      label='Common cards'
+                      min={0}
+                      max={countCards({ rarity: 'common' })}
+                      name='target-common'
+                      id='target-common'
+                      onChange={setCommonExpectation}
+                      value={expectations[0]}
+                    />
+                  </Row.Column>
+                  <Row.Column>
+                    <NumberInput
+                      label='Rare cards'
+                      min={0}
+                      max={countCards({ rarity: 'rare' })}
+                      name='target-rare'
+                      id='target-rare'
+                      onChange={setRareExpectation}
+                      value={expectations[1]}
+                    />
+                  </Row.Column>
+                </Row>
+                <Row>
+                  <Row.Column>
+                    <NumberInput
+                      label='Epic cards'
+                      min={0}
+                      max={countCards({ rarity: 'epic' })}
+                      name='target-epic'
+                      id='target-epic'
+                      onChange={setEpicExpectation}
+                      value={expectations[2]}
+                    />
+                  </Row.Column>
+                  <Row.Column>
+                    <NumberInput
+                      label='Legendary cards'
+                      min={0}
+                      max={countCards({ rarity: 'legendary' })}
+                      name='target-legendary'
+                      id='target-legendary'
+                      onChange={setLegendaryExpectation}
+                      value={expectations[3]}
+                    />
+                  </Row.Column>
+                </Row>
+              </TogglableContent>
+            </form>
+          </Spacing>{' '}
         </Row.Column>
 
         <Row.Column width='1/3'>

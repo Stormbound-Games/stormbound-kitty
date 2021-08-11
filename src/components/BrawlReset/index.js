@@ -5,6 +5,7 @@ import Checkbox from '../Checkbox'
 import CTA from '../CTA'
 import Dialog from '../Dialog'
 import Info from '../Info'
+import Spacing from '../Spacing'
 import styles from './styles'
 
 export default React.memo(function BrawlReset(props) {
@@ -21,7 +22,6 @@ export default React.memo(function BrawlReset(props) {
     <>
       <Info
         icon='crown'
-        className={css(styles.reset)}
         title='Reset data'
         CTA={
           <CTA onClick={open} data-testid='reset-btn'>
@@ -29,8 +29,10 @@ export default React.memo(function BrawlReset(props) {
           </CTA>
         }
       >
-        If this data is from a past Brawl or just irrelevant, you can reset it
-        to record a brand new Brawl. You will be asked to confirm.
+        <p>
+          If this data is from a past Brawl or just irrelevant, you can reset it
+          to record a brand new Brawl. You will be asked to confirm.
+        </p>
       </Info>
       <Dialog
         id='reset-dialog'
@@ -60,15 +62,17 @@ export default React.memo(function BrawlReset(props) {
           following checkbox.{' '}
           <strong className='Highlight'>This cannot be undone.</strong>
         </p>
-        <div className={css(styles.checkbox)}>
-          <Checkbox
-            id='discard-brawl'
-            value={discard}
-            onChange={event => setDiscard(event.target.checked)}
-          >
-            Discard this Brawl data
-          </Checkbox>
-        </div>
+        <Spacing bottom='BASE'>
+          <div className={css(styles.checkbox)}>
+            <Checkbox
+              id='discard-brawl'
+              value={discard}
+              onChange={event => setDiscard(event.target.checked)}
+            >
+              Discard this Brawl data
+            </Checkbox>
+          </div>
+        </Spacing>
       </Dialog>
     </>
   )

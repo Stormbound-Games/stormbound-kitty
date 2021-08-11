@@ -10,6 +10,7 @@ import Info from '../Info'
 import ReleaseNotes from '../ReleaseNotes'
 import { Rare, Epic, Legendary, Coins, Rubies, Stones } from '../Resource'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import Table from '../Table'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
@@ -108,9 +109,11 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
         </ul>
 
         <Info icon='heart' title='Nerf compensation'>
-          Owners of Linked Golems will be compensated proportionally to the
-          level of the card: <Coins amount='0/15/40/120/250' /> and{' '}
-          <Stones amount='0/2/5/10/20' />.
+          <p>
+            Owners of Linked Golems will be compensated proportionally to the
+            level of the card: <Coins amount='0/15/40/120/250' /> and{' '}
+            <Stones amount='0/2/5/10/20' />.
+          </p>
         </Info>
 
         <CheapenedBrawl ratio={1 / 2} difficulty='LEGACY'>
@@ -247,11 +250,13 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
 
         <Row desktopOnly wideGutter>
           <Row.Column>
-            <p className={css({ marginTop: '2em' })}>
-              Besides some minor quality-of-life improvements, the collection
-              pagination has been redesigned from scratch to use a swift slider
-              instead of tedious tap/click navigation.
-            </p>
+            <Spacing top='LARGE'>
+              <p>
+                Besides some minor quality-of-life improvements, the collection
+                pagination has been redesigned from scratch to use a swift
+                slider instead of tedious tap/click navigation.
+              </p>
+            </Spacing>
 
             <p>
               In case you missed it, a recent update also added a collection

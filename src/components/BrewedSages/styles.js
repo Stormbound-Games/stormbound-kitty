@@ -1,5 +1,4 @@
 const container = {
-  marginTop: '2.5em',
   textAlign: 'center',
 }
 

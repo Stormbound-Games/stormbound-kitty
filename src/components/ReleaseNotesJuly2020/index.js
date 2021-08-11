@@ -99,10 +99,12 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
         </p>
 
         <Info icon='gift' title='Free rubies'>
-          Anyone logging into the game at least once during the 3 days following
-          the update will be granted <Rubies amount={50} /> as a token of
-          gratitude and to help with the fact that game development has been
-          silent for so long.
+          <p>
+            Anyone logging into the game at least once during the 3 days
+            following the update will be granted <Rubies amount={50} /> as a
+            token of gratitude and to help with the fact that game development
+            has been silent for so long.
+          </p>
         </Info>
 
         <Title id='economy-update'>Economy update</Title>
@@ -169,10 +171,12 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
 
       <Article.Narrow>
         <Info title='Daily coin cap'>
-          To compensate the fact that quests overall grant less coins than
-          before, the daily coin cap has been increased to{' '}
-          <Coins amount={400} /> (up from <Coins amount={250} />
-          ).
+          <p>
+            To compensate the fact that quests overall grant less coins than
+            before, the daily coin cap has been increased to{' '}
+            <Coins amount={400} /> (up from <Coins amount={250} />
+            ).
+          </p>
         </Info>
 
         <Title id='new-legendary-card'>New legendary card</Title>
@@ -355,20 +359,22 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
         </p>
       </Article.Narrow>
 
-      <Article.Embed extend={{ position: 'relative' }}>
-        <Checkbox
-          checked={withConfusionFix}
-          onChange={event => setConfusionFix(event.target.checked)}
-          id='confusion-fix'
-          extend={styles.fix}
-        >
-          Apply the confusion fix
-        </Checkbox>
-        <BattleSimApp
-          environment='winter'
-          mode='DISPLAY'
-          simId='MU42MlIxLCwsLCwsMU4xNkI1QywsLCwsLCwsLCwxTjFCMUMsLCw7UjEwTi1CMTBOOzNNMDs7'
-        />
+      <Article.Embed>
+        <div className={css({ position: 'relative' })}>
+          <Checkbox
+            checked={withConfusionFix}
+            onChange={event => setConfusionFix(event.target.checked)}
+            id='confusion-fix'
+            extend={styles.fix}
+          >
+            Apply the confusion fix
+          </Checkbox>
+          <BattleSimApp
+            environment='winter'
+            mode='DISPLAY'
+            simId='MU42MlIxLCwsLCwsMU4xNkI1QywsLCwsLCwsLCwxTjFCMUMsLCw7UjEwTi1CMTBOOzNNMDs7'
+          />
+        </div>
       </Article.Embed>
 
       <Article.Narrow>
@@ -428,12 +434,14 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
         <Title id='ui-improvements'>UI improvements</Title>
         <Row desktopOnly wideGutter>
           <Row.Column width='1/3'>
-            <p className={css({ marginTop: '2em' })}>
-              Sheepyard has already started to revisit old interfaces and is
-              going to introduce{' '}
-              <span className='Highlight'>many interface improvements</span> in
-              this release, and even more so in the next one.
-            </p>
+            <Spacing top='LARGE'>
+              <p>
+                Sheepyard has already started to revisit old interfaces and is
+                going to introduce{' '}
+                <span className='Highlight'>many interface improvements</span>{' '}
+                in this release, and even more so in the next one.
+              </p>
+            </Spacing>
 
             <p>
               Here, the base health—which is now named “

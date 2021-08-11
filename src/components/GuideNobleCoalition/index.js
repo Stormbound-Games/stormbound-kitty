@@ -61,9 +61,9 @@ export default React.memo(function GuideNobleCoalition(props) {
       <Title>Possible Decks</Title>
 
       <Guide.FullWidth>
-        <Row desktopOnly wideGutter>
+        <Row desktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
-            <h3 className={css({ marginTop: '0.5em' })}>
+            <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               Critical Pancake’s Cat Butcher
             </h3>
             <p>
@@ -89,9 +89,9 @@ export default React.memo(function GuideNobleCoalition(props) {
             />
           </Row.Column>
         </Row>
-        <Row desktopOnly wideGutter>
+        <Row desktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
-            <h3 className={css({ marginTop: '0.5em' })}>
+            <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               The_Mirc’s Swarm Cat Runners
             </h3>
             <p>

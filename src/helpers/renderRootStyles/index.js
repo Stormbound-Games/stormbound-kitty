@@ -1,3 +1,5 @@
+import { SPACING_TOKENS } from '../../styles/variables'
+
 const renderRootStyles = renderer => {
   renderer.renderFont('Nunito', ['/assets/fonts/nunito-700.woff2'], {
     fontDisplay: 'swap',
@@ -58,6 +60,15 @@ const renderRootStyles = renderer => {
     --platinum: #c0e0cf;
     --diamond: #c8c0df;
     --heroes: #caf9ff;
+
+    /* Spacing variables */
+    --s-smallest: ${SPACING_TOKENS.SMALLEST};
+    --s-smaller: ${SPACING_TOKENS.SMALLER};
+    --s-small: ${SPACING_TOKENS.SMALL};
+    --s-base: ${SPACING_TOKENS.BASE};
+    --s-large: ${SPACING_TOKENS.LARGE};
+    --s-larger: ${SPACING_TOKENS.LARGER};
+    --s-largest: ${SPACING_TOKENS.LARGEST};
   }
 
   * {
@@ -229,7 +240,6 @@ const renderRootStyles = renderer => {
   .EditorialContent ul:not([class]) {
     padding: 0;
     list-style-position: inside;
-    margin-bottom: 2em;
   }
 
   .EditorialContent li:not([class]) {

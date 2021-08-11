@@ -326,7 +326,7 @@ export default function Router(props) {
             <Member />
           </Page>
 
-          <Page exact path='/members'>
+          <Page exact path='/members' active={['COMMUNITY', 'MEMBERS']}>
             <Members />
           </Page>
 

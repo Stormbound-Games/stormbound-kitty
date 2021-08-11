@@ -1,11 +1,11 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import Guide from '../Guide'
 import Image from '../Image'
 import Info from '../Info'
 import Link from '../Link'
 import Row from '../Row'
 import Strikethrough from '../Strikethrough'
+import Spacing from '../Spacing'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import { Stones, Coins, Rubies } from '../Resource'
@@ -14,22 +14,28 @@ import getGuide from '../../helpers/getGuide'
 const guide = getGuide('KNOWN_BUGS')
 
 export default React.memo(function GuideKnownBugs(props) {
-  const { css } = useFela()
-
   return (
     <Guide {...guide}>
-      <p className={css({ marginBottom: '2em' })}>
-        Bugs are <Strikethrough>storm</Strikethrough> bound to happen. Software
-        development is not infallible, and honest mistakes, inconsistencies or
-        omissions exist in pretty much any program. Stormbound is no exception.
-        A few common bugs have stood out over the years, and are compiled here.
-      </p>
+      <Spacing bottom='LARGE'>
+        <p>
+          Bugs are <Strikethrough>storm</Strikethrough> bound to happen.
+          Software development is not infallible, and honest mistakes,
+          inconsistencies or omissions exist in pretty much any program.
+          Stormbound is no exception. A few common bugs have stood out over the
+          years, and are compiled here.
+        </p>
+      </Spacing>
 
       <Info icon='warning' title='Important Disclaimer'>
-        This is <span className='Highlight'>not</span> a bug report page. If you
-        are experiencing an issue with your account, please kindly open a
-        support ticket within the game, or visit the{' '}
-        <Link href='https://paladinstudios.zendesk.com/hc/en-us'>Zendesk</Link>.
+        <p>
+          This is <span className='Highlight'>not</span> a bug report page. If
+          you are experiencing an issue with your account, please kindly open a
+          support ticket within the game, or visit the{' '}
+          <Link href='https://paladinstudios.zendesk.com/hc/en-us'>
+            Zendesk
+          </Link>
+          .
+        </p>
       </Info>
 
       <TableOfContents>
@@ -274,13 +280,13 @@ export default React.memo(function GuideKnownBugs(props) {
             </p>
             <ul>
               <li>
-                On <span className='Highlight'>Android</span>, go to Settings >
-                Privacy > Advanced > Ads >{' '}
+                On <span className='Highlight'>Android</span>, go to Settings
+                &lt; Privacy &lt; Advanced &lt; Ads &lt;{' '}
                 <span className='Highlight'>Reset advertising ID</span>.
               </li>
               <li>
-                On <span className='Highlight'>iOS</span>, go to Settings >
-                Privacy > Advertising >{' '}
+                On <span className='Highlight'>iOS</span>, go to Settings &lt;
+                Privacy &lt; Advertising &lt;{' '}
                 <span className='Highlight'>Reset Advertising Identifier</span>.
               </li>
             </ul>

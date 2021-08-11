@@ -14,7 +14,7 @@ export default React.memo(function ListBuilderTier(props) {
       : props.withHeader
 
   return (
-    <div className={css(styles.tier, { '--color': props.color })}>
+    <div style={{ '--color': props.color }}>
       {shouldRenderHeader && <ListBuilderTierHeader {...props} cards={cards} />}
 
       <div className={css(styles.body)} onMouseUp={props.onMouseUp}>
