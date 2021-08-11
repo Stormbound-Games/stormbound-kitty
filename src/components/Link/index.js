@@ -3,7 +3,7 @@ import { useFela } from 'react-fela'
 import { Link as RouterLink } from 'react-router-dom'
 import styles from './styles'
 
-const Link = ({ inNewTab, extend, ...props }) => {
+const Link = ({ inNewTab, extend, ...props }, ref) => {
   const { css } = useFela()
 
   if (props.href) {
@@ -14,6 +14,7 @@ const Link = ({ inNewTab, extend, ...props }) => {
     return (
       <a
         {...props}
+        ref={ref}
         className={css(styles.link, extend)}
         target={shouldUseNewTab ? '_blank' : undefined}
         rel={shouldUseNewTab ? 'noopener noreferrer' : undefined}
@@ -25,7 +26,11 @@ const Link = ({ inNewTab, extend, ...props }) => {
 
   if (props.to) {
     return (
-      <RouterLink {...props} className={css(styles.link, extend)}>
+      <RouterLink
+        {...props}
+        innerRef={ref}
+        className={css(styles.link, extend)}
+      >
         {props.children}
       </RouterLink>
     )
@@ -37,4 +42,4 @@ const Link = ({ inNewTab, extend, ...props }) => {
   return null
 }
 
-export default React.memo(Link)
+export default React.memo(React.forwardRef(Link))
