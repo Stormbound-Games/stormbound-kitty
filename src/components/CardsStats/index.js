@@ -52,31 +52,31 @@ export default React.memo(() => {
 
         <Row desktopOnly>
           <Row.Column>
-            <Spacing bottom='LARGER'>
+            <Spacing vertical='BASE'>
               <ChartType />
             </Spacing>
           </Row.Column>
           <Row.Column>
-            <Spacing bottom='LARGER'>
+            <Spacing vertical='BASE'>
               <ChartRarity />
             </Spacing>
           </Row.Column>
         </Row>
         <Row desktopOnly>
           <Row.Column>
-            <Spacing bottom='LARGER'>
+            <Spacing vertical='BASE'>
               <ChartMovement />
             </Spacing>
           </Row.Column>
           <Row.Column>
-            <Spacing bottom='LARGER'>
+            <Spacing vertical='BASE'>
               <ChartAbility />
             </Spacing>
           </Row.Column>
         </Row>
         <Row desktopOnly>
           <Row.Column>
-            <Spacing bottom='LARGER'>
+            <Spacing vertical='BASE'>
               <ChartModifier />
             </Spacing>
           </Row.Column>
@@ -84,21 +84,21 @@ export default React.memo(() => {
         </Row>
         <Row desktopOnly>
           <Row.Column>
-            <Spacing bottom='LARGER'>
+            <Spacing vertical='BASE'>
               <ChartMana />
             </Spacing>
           </Row.Column>
         </Row>
         <Row desktopOnly>
           <Row.Column>
-            <Spacing bottom='LARGER'>
+            <Spacing vertical='BASE'>
               <ChartStrength />
             </Spacing>
           </Row.Column>
         </Row>
         <Row desktopOnly>
           <Row.Column>
-            <Spacing bottom='LARGER'>
+            <Spacing vertical='BASE'>
               <ChartStrengthMana />
             </Spacing>
           </Row.Column>
