@@ -6,11 +6,12 @@ import sortClassNames from 'fela-sort-classnames'
 import sortMediaQueryMobileFirst from 'fela-sort-media-query-mobile-first'
 import responsiveValue from 'fela-plugin-responsive-value'
 import namedKeys from 'fela-plugin-named-keys'
+import { BREAKPOINTS } from '../../styles/variables'
 
 const toObject = (acc, prop) => ({ ...acc, [prop]: true })
 
 const getMediaQueries = values => {
-  if (values.length === 2) return ['@media (min-width: 700px)']
+  if (values.length === 2) return [BREAKPOINTS.medium.query]
 }
 
 // prettier-ignore
@@ -30,8 +31,8 @@ function createFelaRenderer() {
         responsiveProperties.reduce(toObject, {})
       ),
       namedKeys({
-        medium: '@media (min-width: 700px)',
-        small: '@media (max-width: 699px)',
+        medium: BREAKPOINTS.medium.query,
+        small: BREAKPOINTS.small.query,
       }),
     ],
     enhancers: [

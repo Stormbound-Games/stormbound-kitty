@@ -2,18 +2,17 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import { AnimatePresence, motion } from 'framer-motion'
 import { BrawlContext } from '../BrawlProvider'
+import Only from '../Only'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
 import Input from '../Input'
 import Select from '../Select'
-import useViewportSize from '../../hooks/useViewportSize'
 import { VICTORY_BONUSES } from '../../constants/brawl'
 import styles from './styles'
 
 export default React.memo(function BrawlMatchForm(props) {
   const { css } = useFela()
   const { meta } = React.useContext(BrawlContext)
-  const { viewportWidth } = useViewportSize()
   const { isEdit, status: editedStatus, bonus: editedBonus } = props
   const [status, setStatus] = React.useState(editedStatus || '')
   const [bonus, setBonus] = React.useState(editedBonus || '')
@@ -38,7 +37,7 @@ export default React.memo(function BrawlMatchForm(props) {
         className={css(styles.form)}
       >
         <td>
-          {viewportWidth >= 700 ? (
+          <Only.Desktop>
             <button
               form='add-match-form'
               type='submit'
@@ -47,7 +46,8 @@ export default React.memo(function BrawlMatchForm(props) {
             >
               ✔
             </button>
-          ) : (
+          </Only.Desktop>
+          <Only.Mobile>
             <CTA
               form='add-match-form'
               type='submit'
@@ -56,7 +56,7 @@ export default React.memo(function BrawlMatchForm(props) {
             >
               {isEdit ? 'Edit match' : 'Record match'}
             </CTA>
-          )}
+          </Only.Mobile>
         </td>
         <td data-label='Opponent’s health'>
           <Input
