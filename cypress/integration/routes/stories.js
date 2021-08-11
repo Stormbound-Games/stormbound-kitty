@@ -1,6 +1,10 @@
 import { STORY_CATEGORIES } from '../../../src/constants/stories'
 
 describe('Routes — Stories', () => {
+  it('it should render the index page', () => {
+    cy.visit('/stories').get('main h1').should('be.visible')
+  })
+
   Object.keys(STORY_CATEGORIES).forEach(category => {
     it(`it should render the ${category} page`, () => {
       cy.visit('/stories/' + category)

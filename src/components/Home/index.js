@@ -218,6 +218,9 @@ export default React.memo(() => {
                   <CTA extend={styles.button} to='/stories/eastern-heat'>
                     Eastern Heat
                   </CTA>
+                  <CTA extend={styles.button} to='/stories/march-of-fauns'>
+                    March of Fauns
+                  </CTA>
                   <CTA extend={styles.button} to='/stories'>
                     All stories
                   </CTA>

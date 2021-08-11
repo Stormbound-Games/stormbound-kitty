@@ -28,6 +28,7 @@ export default React.memo(function StoryCategory(props) {
       background={background}
       title={viewportWidth >= 700 ? title : shortName}
       description={`Read immersive stories from the community about ${title}`}
+      action={{ to: '/stories', children: 'Back to stories' }}
       withAvif
     >
       <Stories stories={items} columns={3} />

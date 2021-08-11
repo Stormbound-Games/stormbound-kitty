@@ -287,6 +287,12 @@ SEARCH_INDEX.push({
   breadcrumbs: ['Home', 'About'],
 })
 
+SEARCH_INDEX.push({
+  path: '/stories',
+  label: 'Stories',
+  breadcrumbs: ['Stories'],
+})
+
 Object.keys(STORY_CATEGORIES).forEach(id => {
   SEARCH_INDEX.push({
     path: `/stories/${id}`,

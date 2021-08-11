@@ -104,6 +104,7 @@ const QuestBuilderRoot = load('QuestBuilderRoot')
 const RankedList = load('RankedList')
 const Releases = load('Releases')
 const Story = load('Story')
+const StoryIndex = load('StoryIndex')
 const StoryCategory = load('StoryCategory')
 const TournamentHallOfFame = load('TournamentHallOfFame')
 const Trivia = load('Trivia')
@@ -264,7 +265,9 @@ export default function Router(props) {
             <Story />
           </PageRoute>
 
-          <Redirect path='/stories' to='/stories/lore' />
+          <PageRoute path='/stories' active={['STORIES']}>
+            <StoryIndex />
+          </PageRoute>
 
           {guides.map(guide => {
             const Component = GUIDE_COMPONENTS[guide.id]

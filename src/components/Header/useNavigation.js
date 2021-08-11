@@ -310,6 +310,7 @@ export default () => {
       id: 'STORIES',
       icon: 'quill',
       label: 'Stories',
+      to: '/stories',
       items: [
         {
           title: 'Categories',

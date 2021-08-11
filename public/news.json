@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Stories Index",
+    "description": "The stories now has an index page to list all the various categories from the section.",
+    "link": "/stories"
+  },
+  {
     "intro": "Fan-kit Index",
     "description": "The fan-kit now has an index page to list all the various categories from the section.",
     "link": "/fan-kit"
