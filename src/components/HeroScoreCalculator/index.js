@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
-import Asterisk from '../Asterisk'
+import Footnotes, { Footnote } from '../Footnotes'
 import Image from '../Image'
 import Radio from '../Radio'
 import HeaderBanner from '../HeaderBanner'
@@ -11,7 +11,6 @@ import PageMeta from '../PageMeta'
 import { HeroCrowns } from '../Resource'
 import Row from '../Row'
 import Select from '../Select'
-import VisuallyHidden from '../VisuallyHidden'
 import getHeroScore from '../../helpers/getHeroScore'
 import styles from './styles'
 
@@ -81,15 +80,9 @@ const HeroScoreCalculator = props => {
               <ul className={css({ margin: '0.5em 0' })}>
                 <li>
                   K = 40 for players until they have been in{' '}
-                  <Link
-                    href='#matches-30'
-                    aria-describedby='footnotes'
-                    id='matches-30-ref'
-                    extend={{ textDecoration: 'none' }}
-                  >
+                  <Footnote id='matches-30'>
                     30 matches in Diamond and then 30 matches in Heroes League
-                    <Asterisk />
-                  </Link>
+                  </Footnote>
                 </li>
                 <li>K = 20 for players rated below 2400</li>
                 <li>
@@ -212,10 +205,7 @@ const HeroScoreCalculator = props => {
         </Row.Column>
       </Row>
 
-      <footer className={css({ fontSize: '80%' })}>
-        <VisuallyHidden as='h2' id='footnotes'>
-          Footnotes
-        </VisuallyHidden>
+      <Footnotes>
         <p id='matches-30'>
           (*) The coefficient factor (K) is 40 until the player has done at
           least 30 matches in Diamond—regardless of their outcome—or if they
@@ -226,7 +216,7 @@ const HeroScoreCalculator = props => {
             ↩
           </Link>
         </p>
-      </footer>
+      </Footnotes>
 
       <PageMeta
         title='Hero Score Calculator'

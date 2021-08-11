@@ -2,17 +2,16 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
 import Article from '../Article'
-import Asterisk from '../Asterisk'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import FAQSection from '../FAQSection'
+import Footnotes, { Footnote } from '../Footnotes'
 import Image from '../Image'
 import Info from '../Info'
 import NerfCompensationInfo from '../NerfCompensationInfo'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
 import Table from '../Table'
-import VisuallyHidden from '../VisuallyHidden'
 import { Coins, Rubies, Stones, HeroCrowns } from '../Resource'
 import ResourceIcon from '../ResourceIcon'
 import TogglableContent from '../TogglableContent'
@@ -180,16 +179,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
 
           <li>
             The friend limit is raised to 200 (up from 100){' '}
-            <Link
-              href='#friend-list'
-              aria-describedby='footnotes'
-              id='friend-list-ref'
-              extend={{ textDecoration: 'none' }}
-            >
-              for the month
-              <Asterisk />
-            </Link>
-            .
+            <Footnote id='friend-list'>for the month</Footnote>.
           </li>
 
           <li>
@@ -305,10 +295,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
           ]}
         />
 
-        <footer className={css({ fontSize: '80%' })}>
-          <VisuallyHidden as='h2' id='footnotes'>
-            Footnotes
-          </VisuallyHidden>
+        <Footnotes>
           <p id='friend-list'>
             (*) Any friends above 100 when the Premium Pass at the end of the
             month remains in the friend list, but it is no longer possible to
@@ -317,7 +304,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
               ↩
             </Link>
           </p>
-        </footer>
+        </Footnotes>
       </Article.Narrow>
     </ReleaseNotes>
   )

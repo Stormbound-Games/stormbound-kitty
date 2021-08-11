@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import Article from '../Article'
 import CardLink from '../CardLink'
 import FAQSection from '../FAQSection'
+import Footnotes, { Footnote } from '../Footnotes'
 import Image from '../Image'
 import Info from '../Info'
 import Link from '../Link'
@@ -13,7 +14,6 @@ import TogglableContent from '../TogglableContent'
 import Table from '../Table'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
-import VisuallyHidden from '../VisuallyHidden'
 import displayBundle from '../../helpers/displayBundle'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getCalendarValue from '../../helpers/getCalendarValue'
@@ -194,23 +194,9 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
           <li>
             <span className='Highlight'>Edrik’s Army</span> ($19.99): 2 copies
             of <CardLink id='N59' /> + 18 cards{' '}
-            <Link
-              href='#most-played-cards'
-              aria-describedby='footnotes'
-              id='edriks-army'
-              extend={{ textDecoration: 'none' }}
-            >
+            <Footnote id='most-played-cards'>
               amongst the most played across the last 3 months globally
-              <span
-                className={css({
-                  color: 'var(--beige)',
-                  marginLeft: '2px',
-                  fontSize: '120%',
-                })}
-              >
-                *
-              </span>
-            </Link>
+            </Footnote>
           </li>
           <li>
             <span className='Highlight'>Emblem of Heroism</span> ($49.99): 35
@@ -252,21 +238,18 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
 
         <hr />
 
-        <footer className={css({ fontSize: '80%' })}>
-          <VisuallyHidden as='h2' id='footnotes'>
-            Footnotes
-          </VisuallyHidden>
+        <Footnotes>
           <p id='most-played-cards'>
             (*) The most played cards globally across the last 3 months are:
             Execution, Gifted Recruits, Veterans of War, Felflares, Dreadfauns,
             Doppelbocks, Green Prototypes, Summon Militia, Personal Servers,
             Warfront Runners, Confinement, Windmakers, The Hearth, Twilight
             Prowlers, Call For Aid, Bladestorm, Frozen Core and Crimson Sentry.{' '}
-            <Link href='#edriks-army' aria-label='Back to content'>
+            <Link href='#most-played-cards' aria-label='Back to content'>
               ↩
             </Link>
           </p>
-        </footer>
+        </Footnotes>
       </Article.Narrow>
     </ReleaseNotes>
   )
