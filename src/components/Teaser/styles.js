@@ -18,16 +18,19 @@ const teaserPseudo = {
 }
 
 /**
- * 1. Make sure stories will all have the same height when displayed in columns.
- * 2. Used to be able to spread the story body all the remaining height.
+ * 1. Prevent teasers from being abnormally big when used in an editorial
+ *    container.
+ * 2. Make sure stories will all have the same height when displayed in columns.
+ * 3. Used to be able to spread the story body all the remaining height.
  */
 const teaser = ({ isLarge }) => ({
   position: 'relative',
+  fontSize: '1rem' /* 1 */,
   border: '1px solid var(--dark-beige)',
   marginBottom: 'var(--s-large)',
-  flexGrow: 1 /* 1 */,
-  display: 'flex' /* 2 */,
-  flexDirection: isLarge ? 'row' : 'column' /* 2 */,
+  flexGrow: 1 /* 2 */,
+  display: 'flex' /* 3 */,
+  flexDirection: isLarge ? 'row' : 'column' /* 3 */,
 
   '::before': {
     ...teaserPseudo,
