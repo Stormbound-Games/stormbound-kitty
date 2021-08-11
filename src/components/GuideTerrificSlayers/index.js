@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Guide from '../Guide'
 import CardLink from '../CardLink'
@@ -23,19 +23,19 @@ export default React.memo(function GuideTerrificSlayers(props) {
 
       <TableOfContents>
         <li>
-          <a href='#what-the-deck'>What the deck?</a>
+          <Link href='#what-the-deck'>What the deck?</Link>
         </li>
         <li>
-          <a href='#countering-the-counters'>Countering the counters</a>
+          <Link href='#countering-the-counters'>Countering the counters</Link>
         </li>
         <li>
-          <a href='#limited-aoe'>Limited AoE</a>
+          <Link href='#limited-aoe'>Limited AoE</Link>
         </li>
         <li>
-          <a href='#take-risks-and-bait'>Take risks and bait</a>
+          <Link href='#take-risks-and-bait'>Take risks and bait</Link>
         </li>
         <li>
-          <a href='#bank-on-surprise'>Bank on surprise</a>
+          <Link href='#bank-on-surprise'>Bank on surprise</Link>
         </li>
       </TableOfContents>
 

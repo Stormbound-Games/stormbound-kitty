@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
 import Info from '../Info'
@@ -77,7 +77,7 @@ export default React.memo(function GuideSelfControl(props) {
               The last card (or cards if you need more than one) are up to you.
               They depend a lot on what you prefer, and how high your collection
               is. For more details about possible contender, refer to{' '}
-              <a href='#cards'>the next section</a>.
+              <Link href='#cards'>the next section</Link>.
             </p>
           </Row.Column>
           <Row.Column>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import FeedEntry from '../FeedEntry'
 import BattleSimPuzzle from '../BattleSimPuzzle'
 import styles from './styles'

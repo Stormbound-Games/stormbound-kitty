@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Article from '../Article'
 import Image from '../Image'
 import Info from '../Info'
@@ -121,7 +121,7 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
             <p>
               The crossed diamonds in the joint screenshot are further explained
               in the{' '}
-              <a href='#crowns-and-milestones'>Crowns &amp; milestones</a>{' '}
+              <Link href='#crowns-and-milestones'>Crowns &amp; milestones</Link>{' '}
               section.
             </p>
           </Row.Column>

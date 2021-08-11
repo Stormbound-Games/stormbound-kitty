@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Article from '../Article'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
@@ -37,25 +37,25 @@ export default React.memo(function ReleaseNotesJune2021(props) {
 
         <TableOfContents>
           <li>
-            <a href='#balance-changes'>Balance changes</a>
+            <Link href='#balance-changes'>Balance changes</Link>
           </li>
           <li>
-            <a href='#new-cards'>New cards</a>
+            <Link href='#new-cards'>New cards</Link>
           </li>
           <li>
-            <a href='#victory-coins-update'>Victory coins update</a>
+            <Link href='#victory-coins-update'>Victory coins update</Link>
           </li>
           <li>
-            <a href='#daily-check-in-calendar'>Daily check-in calendar</a>
+            <Link href='#daily-check-in-calendar'>Daily check-in calendar</Link>
           </li>
           <li>
-            <a href='#new-avatars'>New avatars</a>
+            <Link href='#new-avatars'>New avatars</Link>
           </li>
           <li>
-            <a href='#bug-fixes'>Bug fixes</a>
+            <Link href='#bug-fixes'>Bug fixes</Link>
           </li>
           <li>
-            <a href='#faq'>FAQ</a>
+            <Link href='#faq'>FAQ</Link>
           </li>
         </TableOfContents>
 

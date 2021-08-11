@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Teaser from '../Teaser'
 import capitalise from '../../helpers/capitalise'
 import getExcerpt from '../../helpers/getExcerpt'

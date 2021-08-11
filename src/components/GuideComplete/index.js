@@ -1,10 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import BattleSimApp from '../BattleSimApp'
 import CardLink from '../CardLink'
 import Guide from '../Guide'
 import Image from '../Image'
 import Info from '../Info'
+import Link from '../Link'
 import Notice from '../Notice'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
@@ -22,91 +22,95 @@ export default React.memo(function GuideComplete(props) {
       </p>
       <TableOfContents>
         <li>
-          <a href='#introduction'>Introduction</a>
+          <Link href='#introduction'>Introduction</Link>
         </li>
         <li>
-          <a href='#game-mechanics'>Game Mechanics</a>
+          <Link href='#game-mechanics'>Game Mechanics</Link>
           <ul>
             <li>
-              <a href='#attack-pattern'>Attack pattern</a>
+              <Link href='#attack-pattern'>Attack pattern</Link>
             </li>
             <li>
-              <a href='#discard-and-draw-mechanics'>
+              <Link href='#discard-and-draw-mechanics'>
                 Discard and draw mechanics
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#what-and-when-to-discard'>What and when to discard</a>
+              <Link href='#what-and-when-to-discard'>
+                What and when to discard
+              </Link>
             </li>
           </ul>
         </li>
         <li>
-          <a href='#game-strategies'>Game strategies</a>
+          <Link href='#game-strategies'>Game strategies</Link>
           <ul>
             <li>
-              <a href='#the-golden-rule'>The Golden Rule</a>
+              <Link href='#the-golden-rule'>The Golden Rule</Link>
             </li>
             <li>
-              <a href='#basic-strategies'>Basic Strategies</a>
+              <Link href='#basic-strategies'>Basic Strategies</Link>
             </li>
             <li>
-              <a href='#managing-the-board'>Managing the Board</a>
+              <Link href='#managing-the-board'>Managing the Board</Link>
             </li>
             <li>
-              <a href='#when-to-attack-the-base'>When to attack the base</a>
+              <Link href='#when-to-attack-the-base'>
+                When to attack the base
+              </Link>
             </li>
             <li>
-              <a href='#how-when-and-where-to-play-structures'>
+              <Link href='#how-when-and-where-to-play-structures'>
                 How, when and where to play{' '}
-              </a>
+              </Link>
             </li>
             structures
             <li>
-              <a href='#when-to-push-your-advantage'>
+              <Link href='#when-to-push-your-advantage'>
                 When to push your advantage
-              </a>
+              </Link>
             </li>
           </ul>
         </li>
         <li>
-          <a href='#choose-your-faction'>Choosing your faction</a>
+          <Link href='#choose-your-faction'>Choosing your faction</Link>
           <ul>
             <li>
-              <a href='#swarm'>Swarm</a>
+              <Link href='#swarm'>Swarm</Link>
             </li>
             <li>
-              <a href='#ironclad'>Ironclad</a>
+              <Link href='#ironclad'>Ironclad</Link>
             </li>
             <li>
-              <a href='#winter'>Winter</a>
+              <Link href='#winter'>Winter</Link>
             </li>
             <li>
-              <a href='#shadowfen'>Shadowfen</a>
+              <Link href='#shadowfen'>Shadowfen</Link>
             </li>
             <li>
-              <a href='#dragon'>Dragon</a>
+              <Link href='#dragon'>Dragon</Link>
             </li>
             <li>
-              <a href='#pirate'>Pirate</a>
+              <Link href='#pirate'>Pirate</Link>
             </li>
           </ul>
         </li>
         <li>
-          <a href='#deckbuilding'>Deckbuilding</a>
+          <Link href='#deckbuilding'>Deckbuilding</Link>
           <ul>
             <li>
-              <a href='#mana-curve'>Mana curve</a>
+              <Link href='#mana-curve'>Mana curve</Link>
             </li>
             <li>
-              <a href='#units'>Units</a>
+              <Link href='#units'>Units</Link>
             </li>
             <li>
-              <a href='#ways-of-winner'>Ways of winning</a>
+              <Link href='#ways-of-winner'>Ways of winning</Link>
             </li>
           </ul>
         </li>
         <li>
-          <a href='#contact-me'>Contact me</a>
+          <Link href='#contact-me'>Contact me</Link>
         </li>
       </TableOfContents>
 

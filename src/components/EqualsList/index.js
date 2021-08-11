@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import { EQUALS_TIER_LIST, TIER_COLORS } from '../../constants/list'
 import HeaderBanner from '../HeaderBanner'
 import PageMeta from '../PageMeta'

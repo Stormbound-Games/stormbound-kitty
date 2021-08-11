@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Article from '../Article'
 import BattleSimApp from '../BattleSimApp'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
@@ -58,37 +58,31 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
         <p>
           Back in April, Paladin Studios announced they would hand over
           Stormbound to a Polish game development studio called{' '}
-          <a
-            href='https://www.sheepyard.pl/'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Sheepyard
-          </a>
-          . A few months later, Sheepyard is ready to{' '}
-          <Strikethrough>sheep</Strikethrough> ship their very first release,
-          after a drought of about 8 months. I am very excited and honoured to
-          be able to announce these changes in exclusivity!
+          <Link href='https://www.sheepyard.pl/'>Sheepyard</Link>. A few months
+          later, Sheepyard is ready to <Strikethrough>sheep</Strikethrough> ship
+          their very first release, after a drought of about 8 months. I am very
+          excited and honoured to be able to announce these changes in
+          exclusivity!
         </p>
 
         <TableOfContents>
           <li>
-            <a href='#economy-update'>Economy update</a>
+            <Link href='#economy-update'>Economy update</Link>
           </li>
           <li>
-            <a href='#new-legendary-card'>New legendary card</a>
+            <Link href='#new-legendary-card'>New legendary card</Link>
           </li>
           <li>
-            <a href='#balance-changes'>Balance changes</a>
+            <Link href='#balance-changes'>Balance changes</Link>
           </li>
           <li>
-            <a href='#matchmaking-tweaks'>Matchmaking tweaks</a>
+            <Link href='#matchmaking-tweaks'>Matchmaking tweaks</Link>
           </li>
           <li>
-            <a href='#ui-improvements'>UI improvements</a>
+            <Link href='#ui-improvements'>UI improvements</Link>
           </li>
           <li>
-            <a href='#faq'>FAQ</a>
+            <Link href='#faq'>FAQ</Link>
           </li>
         </TableOfContents>
 
@@ -99,8 +93,9 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           and players are encouraged to update the game as soon as possible. A
           few days later, a forced update will be conducted to migrate the
           remaining players to the latest version of the app. Only after that
-          will the <a href='#new-legendary-card'>new card and new pack offer</a>{' '}
-          be available.
+          will the{' '}
+          <Link href='#new-legendary-card'>new card and new pack offer</Link> be
+          available.
         </p>
 
         <Info icon='gift' title='Free rubies'>

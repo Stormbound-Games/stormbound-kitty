@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Icon from '../Icon'
 import { UserContext } from '../UserProvider'
 import isKATMember from '../../helpers/isKATMember'
@@ -81,7 +81,7 @@ export default React.memo(function MemberListEntry(props) {
         extend={styles.icon}
       />
       <div className={css(styles.content)}>
-        <Link to={`/member/${props.member}`} className={css(styles.name)}>
+        <Link to={`/member/${props.member}`} extend={styles.name}>
           {props.member}{' '}
           <span className={css({ opacity: 0.6 })}>
             {isCurrentUser ? '(you)' : null}

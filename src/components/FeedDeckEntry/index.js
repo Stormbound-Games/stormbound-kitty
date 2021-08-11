@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import FeaturedDeck from '../FeaturedDeck'
 import FeedEntry from '../FeedEntry'
 import Tags from '../Tags'

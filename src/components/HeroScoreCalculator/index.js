@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Asterisk from '../Asterisk'
 import Image from '../Image'
 import Radio from '../Radio'
@@ -81,15 +81,15 @@ const HeroScoreCalculator = props => {
               <ul className={css({ margin: '0.5em 0' })}>
                 <li>
                   K = 40 for players until they have been in{' '}
-                  <a
+                  <Link
                     href='#matches-30'
                     aria-describedby='footnotes'
                     id='matches-30-ref'
-                    className={css({ textDecoration: 'none' })}
+                    extend={{ textDecoration: 'none' }}
                   >
                     30 matches in Diamond and then 30 matches in Heroes League
                     <Asterisk />
-                  </a>
+                  </Link>
                 </li>
                 <li>K = 20 for players rated below 2400</li>
                 <li>
@@ -222,9 +222,9 @@ const HeroScoreCalculator = props => {
           have reached the Heroes League with less matches then that. Then it
           resets to 0. And then for another 30 matches in Heroes League, the
           coefficient is 40 again.
-          <a href='#matches-30-ref' aria-label='Back to content'>
+          <Link href='#matches-30-ref' aria-label='Back to content'>
             ↩
-          </a>
+          </Link>
         </p>
       </footer>
 

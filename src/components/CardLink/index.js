@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Card from '../Card'
 import Tooltip from '../Tooltip'
 import getResolvedCardData from '../../helpers/getResolvedCardData'

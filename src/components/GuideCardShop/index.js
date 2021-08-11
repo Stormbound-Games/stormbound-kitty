@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Guide from '../Guide'
 import Info from '../Info'
 import { Coins, Rubies } from '../Resource'

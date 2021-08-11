@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import { RESTRICTIONS, TYPES } from '../../constants/puzzles'
 import Image from '../Image'
 import Only from '../Only'

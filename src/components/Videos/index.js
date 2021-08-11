@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Article from '../Article'
 import Icon from '../Icon'
 import Image from '../Image'
@@ -19,23 +19,8 @@ export const VIDEOS = [
       <p>
         The Popular Eagle (TPE for short) is a long time Stormbound Youtuber,
         having created content and guides since as far back as 2018. TPE is also
-        on{' '}
-        <a
-          href='https://twitter.com/ThePopularEagle'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Twitter
-        </a>{' '}
-        and{' '}
-        <a
-          href='https://discord.gg/zmkuDU'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Discord
-        </a>
-        .
+        on <Link href='https://twitter.com/ThePopularEagle'>Twitter</Link> and{' '}
+        <Link href='https://discord.gg/zmkuDU'>Discord</Link>.
       </p>
     ),
   },
@@ -165,14 +150,9 @@ export default React.memo(function Videos(props) {
                     {video.description}
                     <p>
                       <Icon icon='arrow-right' extend={styles.icon} />
-                      <a
-                        href={video.href}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className={css(styles.link)}
-                      >
+                      <Link href={video.href} extend={styles.link}>
                         Visit {video.author}’s channel
-                      </a>
+                      </Link>
                     </p>
                   </Row.Column>
                 </Row>

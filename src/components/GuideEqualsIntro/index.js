@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import CardLink from '../CardLink'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
@@ -17,21 +17,21 @@ export default React.memo(function GuideEqualsIntro(props) {
     <Guide {...guide}>
       <TableOfContents>
         <li>
-          <a href='#what-to-expect'>What to expect</a>
+          <Link href='#what-to-expect'>What to expect</Link>
         </li>
         <li>
-          <a href='#differences-from-ranked'>Differences from Ranked</a>
+          <Link href='#differences-from-ranked'>Differences from Ranked</Link>
         </li>
         <li>
-          <a href='#deck-building'>Deck building</a>
+          <Link href='#deck-building'>Deck building</Link>
         </li>
         <li>
-          <a href='#tournaments-and-deck-flexibility'>
+          <Link href='#tournaments-and-deck-flexibility'>
             Tournaments and deck flexibility
-          </a>
+          </Link>
         </li>
         <li>
-          <a href='#tips-and-tricks'>Tips and Tricks</a>
+          <Link href='#tips-and-tricks'>Tips and Tricks</Link>
         </li>
       </TableOfContents>
 

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Article from '../Article'
 import FAQSection from '../FAQSection'
 import Notice from '../Notice'
@@ -104,15 +104,9 @@ export default React.memo(function TournamentHallOfFame(props) {
             answer: (
               <>
                 The <Link to='/deck'>deck builder</Link> to compose decks,{' '}
-                <a
-                  href='https://challonge.com/'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  Challonge
-                </a>{' '}
-                to create and display brackets, Google Forms for the
-                registration, and Discord for communication.
+                <Link href='https://challonge.com/'>Challonge</Link> to create
+                and display brackets, Google Forms for the registration, and
+                Discord for communication.
               </>
             ),
           },
@@ -128,13 +122,9 @@ export default React.memo(function TournamentHallOfFame(props) {
       <Notice icon='crown'>
         For more information about ongoing tournaments and how to participate,
         join the{' '}
-        <a
-          href='https://discord.gg/stormbound'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
+        <Link href='https://discord.gg/stormbound'>
           official Discord server
-        </a>
+        </Link>
         .
       </Notice>
 

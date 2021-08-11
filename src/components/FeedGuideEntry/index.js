@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import FeedEntry from '../FeedEntry'
 import MemberList from '../MemberList'
 import { CATEGORIES } from '../../constants/guides'

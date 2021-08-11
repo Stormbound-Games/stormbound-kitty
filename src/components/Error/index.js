@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import CTA from '../CTA'
 import Image from '../Image'
+import Link from '../Link'
 import Title from '../Title'
 import styles from './styles'
 
@@ -38,13 +39,9 @@ export default React.memo(function Error(props) {
             </p>
             <p>
               What you can do is report it to Kitty#1909 on the{' '}
-              <a
-                href='https://discord.gg/stormbound'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
+              <Link href='https://discord.gg/stormbound'>
                 Stormbound Discord
-              </a>
+              </Link>
               , along with the URL of this page and the following error:
             </p>
 

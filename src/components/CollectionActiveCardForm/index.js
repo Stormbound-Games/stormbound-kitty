@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import CardUpgradeStats from '../CardUpgradeStats'
 import Checkbox from '../Checkbox'
 import NumberInput from '../NumberInput'

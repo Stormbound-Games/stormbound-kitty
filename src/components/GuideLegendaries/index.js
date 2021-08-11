@@ -1,5 +1,5 @@
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import { TIER_COLORS } from '../../constants/list'
 import getInitialListData from '../../helpers/getInitialListData'
 import React from 'react'

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Dialog from '../Dialog'
+import Link from '../Link'
 
 export default React.memo(function FanKitDownloadDialog(props) {
   const { css } = useFela()
@@ -25,9 +26,9 @@ export default React.memo(function FanKitDownloadDialog(props) {
     >
       {props.image ? (
         <p>
-          <a href={props.image} target='_blank' rel='noopener noreferrer'>
+          <Link href={props.image} inNewTab>
             Open image in new tab
-          </a>{' '}
+          </Link>{' '}
           or download it as:
         </p>
       ) : (

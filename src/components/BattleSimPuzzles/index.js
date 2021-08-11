@@ -1,7 +1,7 @@
 import React from 'react'
 import hookIntoProps from 'hook-into-props'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import puzzles from '../../data/puzzles'
 import EmptySearch from '../EmptySearch'
 import HeaderBanner from '../HeaderBanner'

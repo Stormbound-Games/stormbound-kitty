@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import MemberList from '../MemberList'
 
 export default React.memo(function TournamentWinners(props) {
@@ -40,19 +40,19 @@ export default React.memo(function TournamentWinners(props) {
   return (
     <p>
       The tournament was won by 🥇{' '}
-      <Link to={'/member/' + gold} className='Highlight'>
+      <Link to={'/member/' + gold} extend={{ color: 'var(--beige)' }}>
         {gold}
       </Link>
       {silver ? (
         <>
           , with 🥈{' '}
-          <Link to={'/member/' + silver} className='Highlight'>
+          <Link to={'/member/' + silver} extend={{ color: 'var(--beige)' }}>
             {silver}
           </Link>{' '}
           {bronze ? (
             <>
               and 🥉{' '}
-              <Link to={'/member/' + bronze} className='Highlight'>
+              <Link to={'/member/' + bronze} extend={{ color: 'var(--beige)' }}>
                 {bronze}
               </Link>{' '}
             </>

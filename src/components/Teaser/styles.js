@@ -160,6 +160,7 @@ const title = {
 
 const link = {
   textDecoration: 'none',
+
   ':hover': { borderBottom: '1px solid' },
 }
 

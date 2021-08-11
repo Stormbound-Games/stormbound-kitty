@@ -5,6 +5,7 @@ import CardLink from '../CardLink'
 import FAQSection from '../FAQSection'
 import Image from '../Image'
 import Info from '../Info'
+import Link from '../Link'
 import NerfCompensationInfo from '../NerfCompensationInfo'
 import ReleaseNotes from '../ReleaseNotes'
 import { Coins, Rubies } from '../Resource'
@@ -33,16 +34,16 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
 
         <TableOfContents>
           <li>
-            <a href='#balance-changes'>Balance changes</a>
+            <Link href='#balance-changes'>Balance changes</Link>
           </li>
           <li>
-            <a href='#daily-check-in-calendar'>Daily check-in calendar</a>
+            <Link href='#daily-check-in-calendar'>Daily check-in calendar</Link>
           </li>
           <li>
-            <a href='#black-friday-offers'>Black Friday offers</a>
+            <Link href='#black-friday-offers'>Black Friday offers</Link>
           </li>
           <li>
-            <a href='#faq'>FAQ</a>
+            <Link href='#faq'>FAQ</Link>
           </li>
         </TableOfContents>
 
@@ -193,11 +194,11 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
           <li>
             <span className='Highlight'>Edrik’s Army</span> ($19.99): 2 copies
             of <CardLink id='N59' /> + 18 cards{' '}
-            <a
+            <Link
               href='#most-played-cards'
               aria-describedby='footnotes'
               id='edriks-army'
-              className={css({ textDecoration: 'none' })}
+              extend={{ textDecoration: 'none' }}
             >
               amongst the most played across the last 3 months globally
               <span
@@ -209,7 +210,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
               >
                 *
               </span>
-            </a>
+            </Link>
           </li>
           <li>
             <span className='Highlight'>Emblem of Heroism</span> ($49.99): 35
@@ -261,9 +262,9 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
             Doppelbocks, Green Prototypes, Summon Militia, Personal Servers,
             Warfront Runners, Confinement, Windmakers, The Hearth, Twilight
             Prowlers, Call For Aid, Bladestorm, Frozen Core and Crimson Sentry.{' '}
-            <a href='#edriks-army' aria-label='Back to content'>
+            <Link href='#edriks-army' aria-label='Back to content'>
               ↩
-            </a>
+            </Link>
           </p>
         </footer>
       </Article.Narrow>

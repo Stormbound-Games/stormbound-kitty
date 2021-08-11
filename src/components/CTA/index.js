@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
 import styles from './styles'
 
 export default React.memo(({ as: Component, extend, ...props }) => {
@@ -27,14 +27,14 @@ export default React.memo(({ as: Component, extend, ...props }) => {
       <span className={css(styles.content)}>{props.children}</span>
     </a>
   ) : props.to ? (
-    <Link
+    <RouterLink
       data-testid={props['data-testid']}
       to={props.to}
       className={css(styles.cta, extend)}
       aria-label={props['aria-label']}
     >
       <span className={css(styles.content)}>{props.children}</span>
-    </Link>
+    </RouterLink>
   ) : (
     <button {...props} className={css(styles.cta, extend)}>
       <span className={css(styles.content)}>{props.children}</span>

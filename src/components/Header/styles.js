@@ -88,7 +88,6 @@ const action = ({ isDisabled, isActive, isOpen, isWithinSubList }) => ({
   padding: '1em',
   position: 'relative',
   textDecoration: 'none',
-  transition: 'color 250ms',
   opacity: isDisabled ? 0.5 : undefined,
   cursor: isDisabled ? 'help' : 'pointer',
   zIndex: isOpen ? 20 : undefined /* 1 */,

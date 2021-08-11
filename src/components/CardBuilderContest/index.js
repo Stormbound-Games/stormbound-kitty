@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Article from '../Article'
 import HallOfFame from '../CardBuilderHallOfFame'
 import { Rubies } from '../Resource'
@@ -31,13 +31,7 @@ export default React.memo(function CardBuilderContest(props) {
             have any questions or{' '}
             <strong className='Highlight'>want to be a judge</strong>, feel free
             to message @TaKo_G#0373 on the{' '}
-            <a
-              href='https://discord.gg/stormbound'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              Stormbound Discord
-            </a>
+            <Link href='https://discord.gg/stormbound'>Stormbound Discord</Link>
             .
           </p>
           <p>

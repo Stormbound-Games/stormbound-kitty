@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Guide from '../Guide'
 import Image from '../Image'
 import Notice from '../Notice'
@@ -22,16 +22,16 @@ export default React.memo(function GuideWinter(props) {
 
       <TableOfContents>
         <li>
-          <a href='#card-names'>Card names</a>
+          <Link href='#card-names'>Card names</Link>
         </li>
         <li>
-          <a href='#loading-texts'>Loading texts</a>
+          <Link href='#loading-texts'>Loading texts</Link>
         </li>
         <li>
-          <a href='#animated-ui-elements'>Animated UI elements</a>
+          <Link href='#animated-ui-elements'>Animated UI elements</Link>
         </li>
         <li>
-          <a href='#gravity-acceleration'>Gravity acceleration</a>
+          <Link href='#gravity-acceleration'>Gravity acceleration</Link>
         </li>
       </TableOfContents>
 

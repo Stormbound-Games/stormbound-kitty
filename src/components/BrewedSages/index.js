@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Article from '../Article'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
@@ -42,14 +42,9 @@ export default React.memo(function BrewedSages(props) {
 
         <div className={css(styles.container)}>
           <Sparkles>
-            <a
-              className={css(styles.cta)}
-              href='https://gumroad.com/l/KuFWl'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
+            <Link extend={styles.cta} href='https://gumroad.com/l/KuFWl'>
               Support Brewed Sages
-            </a>
+            </Link>
           </Sparkles>
         </div>
       </Article.Narrow>
@@ -102,74 +97,43 @@ export default React.memo(function BrewedSages(props) {
         <p>There are many ways for you to listen to Brewed Sages podcast:</p>
         <ul>
           <li>
-            On{' '}
-            <a
-              href='https://freeloader.podbean.com/'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              Podbean,
-            </a>
+            On <Link href='https://freeloader.podbean.com/'>Podbean,</Link>
           </li>
           <li>
             On{' '}
-            <a
-              href='https://podcasts.apple.com/us/podcast/the-brewed-sages/id1530313986'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
+            <Link href='https://podcasts.apple.com/us/podcast/the-brewed-sages/id1530313986'>
               Apple Podcasts,
-            </a>
+            </Link>
           </li>
           <li>
             On{' '}
-            <a
-              href='https://www.google.com/podcasts?feed=aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL2ZyZWVsb2FkZXIvZmVlZC54bWw%3D'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
+            <Link href='https://www.google.com/podcasts?feed=aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL2ZyZWVsb2FkZXIvZmVlZC54bWw%3D'>
               Google Podcasts,
-            </a>
+            </Link>
           </li>
           <li>
             On{' '}
-            <a
-              href='https://open.spotify.com/show/0zPLDrVZesb2Xr8RzVNfmF?nd=1'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
+            <Link href='https://open.spotify.com/show/0zPLDrVZesb2Xr8RzVNfmF?nd=1'>
               Spotify,
-            </a>
+            </Link>
           </li>
           <li>
             On{' '}
-            <a
-              href='https://tunein.com/podcasts/Media--Entertainment-Podcasts/The-Brewed-Sages-p1363569/?topicId=157030692'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
+            <Link href='https://tunein.com/podcasts/Media--Entertainment-Podcasts/The-Brewed-Sages-p1363569/?topicId=157030692'>
               TuneIn,
-            </a>
+            </Link>
           </li>
           <li>
             On{' '}
-            <a
-              href='https://www.pandora.com/podcast/the-brewed-sages-of-stormbound/PC:47351'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
+            <Link href='https://www.pandora.com/podcast/the-brewed-sages-of-stormbound/PC:47351'>
               Pandora,
-            </a>
+            </Link>
           </li>
           <li>
             On{' '}
-            <a
-              href='https://www.youtube.com/channel/UCTEax9JOxhsvDkY8rP-hqJg'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
+            <Link href='https://www.youtube.com/channel/UCTEax9JOxhsvDkY8rP-hqJg'>
               YouTube,
-            </a>
+            </Link>
           </li>
           <li>
             Or with the player below (from which you can also download the
