@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { ImageSupportContext } from '../ImageSupportProvider'
+import Spacing from '../Spacing'
 import styles from './styles'
 
 const DEFAULT_BANNER = '/assets/images/banners/default_banner.jpg'
@@ -31,15 +32,17 @@ export default React.memo(function HeaderBanner(props) {
   const background = (props.background || DEFAULT_BANNER).replace(fileType, ext)
 
   return (
-    <header
-      className={css(styles.banner)}
-      style={{
-        backgroundImage: `url(${background})`,
-        '--ratio': props.ratio,
-      }}
-    >
-      <img src={background} alt='' hidden />
-      <h1 className={css(styles.title)}>{props.title}</h1>
-    </header>
+    <Spacing bottom='LARGEST'>
+      <header
+        className={css(styles.banner)}
+        style={{
+          backgroundImage: `url(${background})`,
+          '--ratio': props.ratio,
+        }}
+      >
+        <img src={background} alt='' hidden />
+        <h1 className={css(styles.title)}>{props.title}</h1>
+      </header>
+    </Spacing>
   )
 })

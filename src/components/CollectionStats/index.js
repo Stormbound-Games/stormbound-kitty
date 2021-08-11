@@ -20,6 +20,7 @@ import HeaderBanner from '../HeaderBanner'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import Title from '../Title'
 import cards from '../../data/cards'
 import getRawCardData from '../../helpers/getRawCardData'
@@ -252,7 +253,7 @@ export default function CollectionStats(props) {
         <Row.Column width='2/3'>
           <Row desktopOnly>
             <Row.Column>
-              <div className={css(styles.chart)}>
+              <Spacing bottom='LARGER'>
                 <Title extend={styles.title}>Level repartition</Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
@@ -275,10 +276,10 @@ export default function CollectionStats(props) {
                     </Pie>
                   </PieChart>
                 </ResponsiveContainer>
-              </div>
+              </Spacing>
             </Row.Column>
             <Row.Column>
-              <div className={css(styles.chart)}>
+              <Spacing bottom='LARGER'>
                 <Title extend={styles.title}>Faction (stones)</Title>
 
                 <ResponsiveContainer width='100%' height={300}>
@@ -309,12 +310,12 @@ export default function CollectionStats(props) {
                     Ignore neutral cards
                   </Checkbox>
                 </div>
-              </div>
+              </Spacing>
             </Row.Column>
           </Row>
           <Row desktopOnly>
             <Row.Column>
-              <div className={css(styles.chart)}>
+              <Spacing bottom='LARGER'>
                 <Title extend={styles.title}>Rarity (stones)</Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
@@ -341,10 +342,10 @@ export default function CollectionStats(props) {
                     </Pie>
                   </PieChart>
                 </ResponsiveContainer>
-              </div>
+              </Spacing>
             </Row.Column>
             <Row.Column>
-              <div className={css(styles.chart)}>
+              <Spacing bottom='LARGER'>
                 <Title extend={styles.title}>Statuses</Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
@@ -365,13 +366,13 @@ export default function CollectionStats(props) {
                     </Pie>
                   </PieChart>
                 </ResponsiveContainer>
-              </div>
+              </Spacing>
             </Row.Column>
           </Row>
 
           <Row desktopOnly>
             <Row.Column>
-              <div className={css(styles.chart)}>
+              <Spacing bottom='LARGER'>
                 <Title extend={styles.title}>Card copies</Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <BarChart
@@ -435,10 +436,10 @@ export default function CollectionStats(props) {
                     />
                   </BarChart>
                 </ResponsiveContainer>
-              </div>
+              </Spacing>
             </Row.Column>
             <Row.Column>
-              <div className={css(styles.chart)}>
+              <Spacing bottom='LARGER'>
                 <Title extend={styles.title}>Progress data</Title>
                 <ResponsiveContainer width='100%' height={300}>
                   <PieChart>
@@ -459,7 +460,7 @@ export default function CollectionStats(props) {
                     </Pie>
                   </PieChart>
                 </ResponsiveContainer>
-              </div>
+              </Spacing>
             </Row.Column>
           </Row>
         </Row.Column>

@@ -14,6 +14,7 @@ import getDeckDistanceToMax from '../../helpers/getDeckDistanceToMax'
 import getRawCardData from '../../helpers/getRawCardData'
 import resolveCollection from '../../helpers/resolveCollection'
 import modifyDeck from '../../helpers/modifyDeck'
+import useSpacing from '../../hooks/useSpacing'
 import styles from './styles'
 
 const useAdjustedDeck = ({ brawl, tags, id, staticLevels }) => {
@@ -55,9 +56,10 @@ export default React.memo(function FeaturedDeck(props) {
   const { css } = useFela()
   const { id, deck, distance } = useAdjustedDeck(props)
   const actions = props.actions || []
+  const margin = useSpacing('NONE')
 
   return (
-    <div className={css(styles.deck)} data-testid='featured-deck'>
+    <div className={css(styles.deck, margin)} data-testid='featured-deck'>
       <Deck
         showUpgrades={props.showUpgrades}
         deck={deck}

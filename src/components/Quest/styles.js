@@ -8,7 +8,7 @@ const quest = {
   width: '100%',
   backgroundImage:
     'linear-gradient(45deg, var(--dark-blue) 50%, var(--light-blue) 50%)' /* 1 */,
-  marginBottom: '2em',
+  marginBottom: 'var(--s-large)',
   fontSize: 'var(--fontSize)',
 
   /**

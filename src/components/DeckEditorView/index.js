@@ -1,5 +1,4 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import { useRouteMatch, useHistory } from 'react-router-dom'
 import { CollectionContext } from '../CollectionProvider'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
@@ -22,6 +21,7 @@ import RandomDeckButton from '../RandomDeckButton'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
 import ShareButton from '../DeckShareButton'
+import Spacing from '../Spacing'
 import Title from '../Title'
 import getDeckBuilderMetaTags from '../../helpers/getDeckBuilderMetaTags'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
@@ -35,7 +35,6 @@ import useViewportSize from '../../hooks/useViewportSize'
 import usePrevious from '../../hooks/usePrevious'
 import { TAGS } from '../../constants/deck'
 import { BRAWL_INDEX } from '../../constants/brawl'
-import styles from './styles'
 
 // The `adjustCardToCollection` function is used to access the card data as it
 // exists in the user’s collection. It is therefore only called when there is
@@ -241,7 +240,9 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
                 cardTooltips={cardTooltips}
                 setCardTooltips={setCardTooltips}
               />
-              <DeckActions reset={props.reset} />
+              <Spacing top={['BASE', null]} bottom='LARGE'>
+                <DeckActions reset={props.reset} />
+              </Spacing>
             </>
           ) : (
             <HelpInfo defineDeck={props.defineDeck} />
@@ -341,23 +342,19 @@ const Gallery = React.memo(function Gallery(props) {
 })
 
 const DeckActions = React.memo(function DeckActions(props) {
-  const { css } = useFela()
-
   return (
-    <div className={css(styles.actions)}>
-      <Row>
-        <Row.Column>
-          <ResetButton
-            label='Reset deck'
-            confirm='Are you sure you want to reset your deck?'
-            reset={props.reset}
-          />
-        </Row.Column>
-        <Row.Column>
-          <ShareButton />
-        </Row.Column>
-      </Row>
-    </div>
+    <Row>
+      <Row.Column>
+        <ResetButton
+          label='Reset deck'
+          confirm='Are you sure you want to reset your deck?'
+          reset={props.reset}
+        />
+      </Row.Column>
+      <Row.Column>
+        <ShareButton />
+      </Row.Column>
+    </Row>
   )
 })
 
@@ -372,10 +369,12 @@ const DeckSettings = React.memo(function DeckSettings(props) {
       </Only.Desktop>
 
       {(props.canAdjustCardLevels || props.adjustCardLevels) && (
-        <CardLevelsCheckbox
-          value={props.adjustCardLevels}
-          set={props.setAdjustCardLevels}
-        />
+        <Spacing bottom='LARGE'>
+          <CardLevelsCheckbox
+            value={props.adjustCardLevels}
+            set={props.setAdjustCardLevels}
+          />
+        </Spacing>
       )}
     </>
   )
@@ -390,10 +389,10 @@ const CardTooltipsCheckbox = React.memo(function CardTooltipsCheckbox(props) {
 
   return (
     <Checkbox
-      extend={styles.checkbox}
       onChange={event => props.set(event.target.checked)}
       id='card-tooltips'
       checked={props.value}
+      extend={{ marginTop: '-1em' }}
     >
       Enable card tooltips on hover
     </Checkbox>
@@ -407,7 +406,6 @@ const CardLevelsCheckbox = React.memo(function CardLevelsCheckbox(props) {
 
   return (
     <Checkbox
-      extend={styles.checkbox}
       onChange={event => props.set(event.target.checked)}
       id='adjust-card-levels'
       checked={props.value}
@@ -424,10 +422,12 @@ const HelpInfo = React.memo(function HelpInfo(props) {
       title='Getting started'
       CTA={<RandomDeckButton defineDeck={props.defineDeck} />}
     >
-      If you do not know where to start,{' '}
-      <Link to='/guides/deck'>read the deck-building guide</Link> to learn how
-      to make a viable deck, or try one of the{' '}
-      <Link to='/deck/suggestions'>ready-to-go suggested decks</Link>.
+      <p>
+        If you do not know where to start,{' '}
+        <Link to='/guides/deck'>read the deck-building guide</Link> to learn how
+        to make a viable deck, or try one of the{' '}
+        <Link to='/deck/suggestions'>ready-to-go suggested decks</Link>.
+      </p>
     </Info>
   )
 })
@@ -450,8 +450,10 @@ export const CollectionInfo = React.memo(function CollectionInfo(props) {
       }
       CTA={<ImportCollection onChange={props.onCollectionImport} />}
     >
-      If you have already created your collection, you can import it directly in
-      the deck builder to compose decks that you can make in-game.
+      <p>
+        If you have already created your collection, you can import it directly
+        in the deck builder to compose decks that you can make in-game.
+      </p>
     </Info>
   )
 })

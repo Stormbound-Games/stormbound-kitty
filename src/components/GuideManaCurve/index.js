@@ -472,13 +472,15 @@ export default React.memo(function GuideManaCurve(props) {
         similar, and takes account cycling in the same way.
       </p>
 
-      <p className={css({ marginTop: '3em' })}>
-        <em>
-          Special thanks to Troxyz#5675 for the original idea and implementation
-          draft, and 123499#2723 for their help with the underlying logic and
-          algorithms.
-        </em>
-      </p>
+      <Spacing top='LARGER'>
+        <p>
+          <em>
+            Special thanks to Troxyz#5675 for the original idea and
+            implementation draft, and 123499#2723 for their help with the
+            underlying logic and algorithms.
+          </em>
+        </p>
+      </Spacing>
     </Guide>
   )
 })

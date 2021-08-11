@@ -1,9 +1,11 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Link from '../Link'
 import Article from '../Article'
 import Notice from '../Notice'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
+import Spacing from '../Spacing'
 import getExcerpt from '../../helpers/getExcerpt'
 import toSentence from '../../helpers/toSentence'
 import { CATEGORIES } from '../../constants/guides'
@@ -56,13 +58,15 @@ const Guide = React.memo(function Guide(props) {
 // width of the container. For that, the `Guide.FullWidth` sub-component
 // can be used.
 Guide.FullWidth = React.memo(function FullWidth(props) {
+  const { css } = useFela()
+
   return (
-    <Article.Embed
-      extend={styles.fullWidth}
+    <div
+      className={css(styles.fullWidth)}
       style={{ '--padding': props.padding }}
     >
-      {props.children}
-    </Article.Embed>
+      <Spacing vertical={['LARGE', 'LARGER']}>{props.children}</Spacing>
+    </div>
   )
 })
 

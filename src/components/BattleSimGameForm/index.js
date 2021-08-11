@@ -6,6 +6,7 @@ import NumberInput from '../NumberInput'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
 import ShareButton from '../BattleSimShareButton'
+import Spacing from '../Spacing'
 import VisuallyHidden from '../VisuallyHidden'
 import styles from './styles'
 
@@ -38,14 +39,14 @@ export default React.memo(function BattleSimGameForm(props) {
               checked={props.gridMarkers}
               onChange={props.toggleGridMarkers}
               data-testid='grid-markers'
-              extend={css(styles.gridMarkers)}
+              extend={styles.gridMarkers}
             >
               Enable <VisuallyHidden>grid markers</VisuallyHidden>
             </Checkbox>
           </fieldset>
         </Row.Column>
       </Row>
-      <div className={css(styles.buttons)}>
+      <Spacing top='BASE'>
         <Row>
           <Row.Column>
             <ResetButton
@@ -59,7 +60,7 @@ export default React.memo(function BattleSimGameForm(props) {
             <ShareButton disabled={isPristine} />
           </Row.Column>
         </Row>
-      </div>
+      </Spacing>
     </div>
   )
 })

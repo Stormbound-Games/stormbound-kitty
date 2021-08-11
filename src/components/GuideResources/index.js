@@ -82,13 +82,15 @@ export default React.memo(function GuideResources(props) {
       </TableOfContents>
 
       <Info icon='wand' title='Income calculator'>
-        Find a handy <Link to='/calculators/income'>income calculator</Link> (
-        <span className='Highlight'>
-          up-to-date with the July economy changes
-        </span>
-        ) to compute how many resources (coins, rubies, fusion stones and cards)
-        you get on a daily, weekly, monthly or yearly basis based on your
-        playstyle .
+        <p>
+          Find a handy <Link to='/calculators/income'>income calculator</Link> (
+          <span className='Highlight'>
+            up-to-date with the July economy changes
+          </span>
+          ) to compute how many resources (coins, rubies, fusion stones and
+          cards) you get on a daily, weekly, monthly or yearly basis based on
+          your playstyle.
+        </p>
       </Info>
 
       <Title id='resources'>Resources</Title>
@@ -253,9 +255,12 @@ export default React.memo(function GuideResources(props) {
       </p>
 
       <Info title='Community rewards' icon='crown'>
-        There are several rewards handed out in community tournaments and social
-        media engagement competitions. Please refer to the official Stormbound
-        social channels and the Discord server for more information.
+        <p>
+          There are several rewards handed out in community tournaments and
+          social media engagement competitions. Please refer to the official
+          Stormbound social channels and the Discord server for more
+          information.
+        </p>
       </Info>
 
       <Title id='spending'>Spending</Title>

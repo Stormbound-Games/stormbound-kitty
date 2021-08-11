@@ -6,6 +6,7 @@ import BrawlLossCounter from '../BrawlLossCounter'
 import BrawlMatchForm from '../BrawlMatchForm'
 import Icon from '../Icon'
 import Only from '../Only'
+import Spacing from '../Spacing'
 import Table from '../Table'
 import Title from '../Title'
 import {
@@ -81,95 +82,97 @@ export default React.memo(function BrawlMatches(props) {
         onSubmit={editedMatch === null ? handleAdd : handleEdit}
       />
 
-      <Table zebra extend={styles.table}>
-        <thead>
-          <tr>
-            <th>&nbsp;</th>
-            <th>Opponent’s health</th>
-            <th>Opponent’s faction</th>
-            <th>Match status</th>
-            <th>Victory bonus</th>
-          </tr>
-        </thead>
-        <tbody>
-          {editedMatch === null && (
-            <BrawlMatchForm
-              opponentFaction={getDefaultFaction(brawl.id)}
-              // Reset the component and its internal states once a match has
-              // been added.
-              key={brawl.matches.length}
-            />
-          )}
+      <Spacing bottom='LARGEST'>
+        <Table zebra extend={styles.table}>
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th>Opponent’s health</th>
+              <th>Opponent’s faction</th>
+              <th>Match status</th>
+              <th>Victory bonus</th>
+            </tr>
+          </thead>
+          <tbody>
+            {editedMatch === null && (
+              <BrawlMatchForm
+                opponentFaction={getDefaultFaction(brawl.id)}
+                // Reset the component and its internal states once a match has
+                // been added.
+                key={brawl.matches.length}
+              />
+            )}
 
-          {[...brawl.matches].reverse().map((match, index) => {
-            const currMilestone = getMilestone(crowns)
-            crowns -= CROWN_REWARDS[match.status]
-            const nextMilestone = getMilestone(crowns)
-            const reversedIndex = brawl.matches.length - index - 1
+            {[...brawl.matches].reverse().map((match, index) => {
+              const currMilestone = getMilestone(crowns)
+              crowns -= CROWN_REWARDS[match.status]
+              const nextMilestone = getMilestone(crowns)
+              const reversedIndex = brawl.matches.length - index - 1
 
-            if (editedMatch === reversedIndex) {
-              return <BrawlMatchForm key={index} {...match} isEdit />
-            }
+              if (editedMatch === reversedIndex) {
+                return <BrawlMatchForm key={index} {...match} isEdit />
+              }
 
-            return (
-              <tr
-                data-testid='match'
-                key={index}
-                className={css(
-                  styles.milestone({
-                    isActive: currMilestone.crowns !== nextMilestone.crowns,
-                  })
-                )}
-              >
-                <td data-label='Match #'>
-                  {brawl.matches.length - index}
-                  <Only.Desktop>.</Only.Desktop>
-                  <button
-                    className={'ButtonAsLink ' + css(styles.edit)}
-                    type='button'
-                    onClick={() => setEditedMatch(reversedIndex)}
-                    data-testid='edit-btn'
-                  >
-                    <Icon icon='pencil' />
-                  </button>
-                </td>
-                <td data-label='Opponent’s health'>
-                  {match.opponentHealth
-                    ? `${match.opponentHealth} base health`
-                    : 'Unspecified'}
-                </td>
-                <td data-label='Opponent’s faction'>
-                  {capitalise(match.opponentFaction || 'unspecified')}
-                </td>
-                <td
-                  data-label='Match outcome'
-                  className={css(styles.status({ status: match.status }))}
+              return (
+                <tr
+                  data-testid='match'
+                  key={index}
+                  className={css(
+                    styles.milestone({
+                      isActive: currMilestone.crowns !== nextMilestone.crowns,
+                    })
+                  )}
                 >
-                  {(() => {
-                    switch (match.status) {
-                      case 'WON':
-                        return 'Won'
-                      case 'LOST':
-                        return 'Lost'
-                      case 'FORFEIT':
-                        return 'Won by forfeit'
-                      case 'SURRENDERED':
-                        return 'Lost by forfeit'
-                      case 'DRAW':
-                        return 'Draw'
-                      default:
-                        return 'Unknown'
-                    }
-                  })()}
-                </td>
-                <td data-label='Victory bonus'>
-                  {VICTORY_BONUSES[match.bonus]?.label ?? 'n/a'}
-                </td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </Table>
+                  <td data-label='Match #'>
+                    {brawl.matches.length - index}
+                    <Only.Desktop>.</Only.Desktop>
+                    <button
+                      className={'ButtonAsLink ' + css(styles.edit)}
+                      type='button'
+                      onClick={() => setEditedMatch(reversedIndex)}
+                      data-testid='edit-btn'
+                    >
+                      <Icon icon='pencil' />
+                    </button>
+                  </td>
+                  <td data-label='Opponent’s health'>
+                    {match.opponentHealth
+                      ? `${match.opponentHealth} base health`
+                      : 'Unspecified'}
+                  </td>
+                  <td data-label='Opponent’s faction'>
+                    {capitalise(match.opponentFaction || 'unspecified')}
+                  </td>
+                  <td
+                    data-label='Match outcome'
+                    className={css(styles.status({ status: match.status }))}
+                  >
+                    {(() => {
+                      switch (match.status) {
+                        case 'WON':
+                          return 'Won'
+                        case 'LOST':
+                          return 'Lost'
+                        case 'FORFEIT':
+                          return 'Won by forfeit'
+                        case 'SURRENDERED':
+                          return 'Lost by forfeit'
+                        case 'DRAW':
+                          return 'Draw'
+                        default:
+                          return 'Unknown'
+                      }
+                    })()}
+                  </td>
+                  <td data-label='Victory bonus'>
+                    {VICTORY_BONUSES[match.bonus]?.label ?? 'n/a'}
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </Table>
+      </Spacing>
     </div>
   )
 })

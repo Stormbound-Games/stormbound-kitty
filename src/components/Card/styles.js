@@ -154,7 +154,7 @@ const header = {
 
 const name = ({ isMissing }) => ({
   fontSize: '170%',
-  marginBottom: '0.25em',
+  marginBottom: 'var(--s-smallest)',
   textTransform: 'uppercase',
   padding: '0 1em',
   opacity: isMissing ? 0.5 : undefined,
@@ -192,7 +192,7 @@ const ability = ({ isMissing }) => ({
   padding: '0 2em',
   hyphens: 'none',
   opacity: isMissing ? 0.5 : undefined,
-  marginBottom: '1em',
+  marginBottom: 'var(--s-base)',
 })
 
 const footer = {
@@ -313,7 +313,7 @@ const level = ({ isCreated, isMissing, hasNoRarity }) => ({
   transform: 'translateY(-1px)',
   opacity: isMissing ? 0.5 : undefined,
   visibility: isCreated ? 'hidden' : 'visible' /* 1 */,
-  marginTop: hasNoRarity ? '2em' : undefined /* 2 */,
+  marginTop: hasNoRarity ? 'var(--s-large)' : undefined /* 2 */,
 })
 
 /*

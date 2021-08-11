@@ -1,6 +1,6 @@
 const list = {
   marginTop: 0,
-  marginBottom: '3em',
+  marginBottom: 0,
   paddingLeft: '2.5em',
   listStyle: 'none',
   counterReset: 'toc',
@@ -17,7 +17,7 @@ const itemPseudo = {
 const item = {
   position: 'relative',
   counterIncrement: 'toc',
-  margin: '0.5em 0',
+  margin: 'var(--s-smaller) 0',
   textIndent: '0 !important',
 
   '::before': {

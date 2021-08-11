@@ -1,5 +1,4 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import Link from '../Link'
 import CardLink from '../CardLink'
 import FeaturedDeck from '../FeaturedDeck'
@@ -7,6 +6,7 @@ import Guide from '../Guide'
 import Info from '../Info'
 import Notice from '../Notice'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import getGuide from '../../helpers/getGuide'
@@ -14,8 +14,6 @@ import getGuide from '../../helpers/getGuide'
 const guide = getGuide('WINTER_GUIDE')
 
 export default React.memo(function GuideWinter(props) {
-  const { css } = useFela()
-
   return (
     <Guide {...guide}>
       <p>
@@ -95,15 +93,20 @@ export default React.memo(function GuideWinter(props) {
         <li>Clear the board whenever needed</li>
         <li>Use 2-tiles moving units to deal damage to the enemy’s base</li>
       </ul>
-      <p className={css({ marginBottom: '2em' })}>
-        To do so, certain cards are required—and will be the core of our
-        deck—while others can be swapped depending upon their levels.
-      </p>
+
+      <Spacing bottom='LARGE'>
+        <p>
+          To do so, certain cards are required—and will be the core of our
+          deck—while others can be swapped depending upon their levels.
+        </p>
+      </Spacing>
 
       <Info title='July 2020 nerfs'>
-        This guide was written before the July 2020 update which included some
-        consequent nerfs to Frozen Core and Gift of the Wise. The guide remains
-        viable, but some things might have changed a little.
+        <p>
+          This guide was written before the July 2020 update which included some
+          consequent nerfs to Frozen Core and Gift of the Wise. The guide
+          remains viable, but some things might have changed a little.
+        </p>
       </Info>
 
       <h3 id='core-cards'>Core cards</h3>
@@ -463,9 +466,10 @@ export default React.memo(function GuideWinter(props) {
         <Link href='#how-to-use'>How to use</Link>.
       </p>
 
-      <Notice>
-        For more detailed advices amp responses, please check out the Stormbound
-        Discord and we'll be happy to help. Best of luck in your matches!
+      <Notice spacing={{ top: 'LARGER' }}>
+        For more detailed advices &amp; responses, please check out the
+        Stormbound Discord and we'll be happy to help. Best of luck in your
+        matches!
       </Notice>
     </Guide>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import Dialog from '../Dialog'
 import Select from '../Select'
+import Spacing from '../Spacing'
 import getRawCardData from '../../helpers/getRawCardData'
 import { BRAWLS, BRAWL_INDEX } from '../../constants/brawl'
 
@@ -14,17 +14,15 @@ const getDialogImage = modifier => {
 }
 
 export default React.memo(function DryRunnerBrawlModifiers(props) {
-  const { css } = useFela()
   const dialogRef = React.useRef()
   const [modifier, setModifier] = React.useState(props.modifier)
 
   return (
-    <>
+    <Spacing bottom='LARGE'>
       <Select
         label='Brawl modifier'
         id='brawl-modifier'
         data-testid='brawl-modifier'
-        className={css({ marginBottom: '1.5em' })}
         value={props.modifier}
         onChange={event => {
           setModifier(event.target.value)
@@ -56,6 +54,6 @@ export default React.memo(function DryRunnerBrawlModifiers(props) {
         Changing the Brawl Modifier will reset the game. Are you sure you want
         to? Don’t worry, you’ll keep your deck.
       </Dialog>
-    </>
+    </Spacing>
   )
 })

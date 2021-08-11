@@ -214,7 +214,11 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
             src='/assets/images/releases/draw.mp4'
             muted
             controls
-            extend={{ marginTop: 0, maxWidth: '100%', display: 'block' }}
+            className={css({
+              marginTop: 0,
+              maxWidth: '100%',
+              display: 'block',
+            })}
           ></video>
         </Row.Column>
       </Row>

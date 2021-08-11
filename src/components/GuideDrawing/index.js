@@ -39,14 +39,16 @@ export default React.memo(function GuideDrawing(props) {
         the chance it gets drawn.
       </p>
 
-      <Info title='Try it out' icon='stack' extend={styles.info}>
-        You can experiment with all the mechanics mentioned in this guide
-        directly within the deck dry-runner. Simply open or compose a deck in
-        the <Link to='/deck'>deck builder</Link>, then{' '}
-        <Only.Desktop>click</Only.Desktop>
-        <Only.Mobile>tap</Only.Mobile>{' '}
-        <span className='Highlight'>“Practice”</span> in the navigation to
-        start.
+      <Info title='Try it out' icon='stack'>
+        <p>
+          You can experiment with all the mechanics mentioned in this guide
+          directly within the deck dry-runner. Simply open or compose a deck in
+          the <Link to='/deck'>deck builder</Link>, then{' '}
+          <Only.Desktop>click</Only.Desktop>
+          <Only.Mobile>tap</Only.Mobile>{' '}
+          <span className='Highlight'>“Practice”</span> in the navigation to
+          start.
+        </p>
       </Info>
 
       <Title>Initial hand</Title>
@@ -310,11 +312,13 @@ export default React.memo(function GuideDrawing(props) {
       </p>
 
       <Info title='Try it out' icon='stack'>
-        You can try all these mechanics and practice your mana curve in the deck
-        dry-runner. Simply open or compose a deck in the{' '}
-        <Link to='/deck'>deck builder</Link>, then{' '}
-        <Only.Desktop>click</Only.Desktop>/<Only.Mobile>tap</Only.Mobile>{' '}
-        “Practice” in the navigation to start.
+        <p>
+          You can try all these mechanics and practice your mana curve in the
+          deck dry-runner. Simply open or compose a deck in the{' '}
+          <Link to='/deck'>deck builder</Link>, then{' '}
+          <Only.Desktop>click</Only.Desktop>/<Only.Mobile>tap</Only.Mobile>{' '}
+          “Practice” in the navigation to start.
+        </p>
       </Info>
     </Guide>
   )

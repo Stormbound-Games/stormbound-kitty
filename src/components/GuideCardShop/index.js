@@ -25,12 +25,16 @@ export default React.memo(function GuideCardShop(props) {
         will take a large bite out of your weekly <Coins amount={700} /> from
         quests.
       </p>
+
       <Info title='About resources'>
-        For a complete guide on Stormbound resources, how to get them and how to
-        make the most of them, please refer to the{' '}
-        <Link to='/guides/resources'>dedicated resources guide</Link> by{' '}
-        <Link to='/member/Roman'>Roman</Link>.
+        <p>
+          For a complete guide on Stormbound resources, how to get them and how
+          to make the most of them, please refer to the{' '}
+          <Link to='/guides/resources'>dedicated resources guide</Link> by{' '}
+          <Link to='/member/Roman'>Roman</Link>.
+        </p>
       </Info>
+
       <Title id='cheap-core-cards'>Cheap Core Cards</Title>
       <blockquote>
         <p>

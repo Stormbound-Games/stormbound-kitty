@@ -310,13 +310,15 @@ export default React.memo(function GuideBrawl(props) {
           </>
         }
       >
-        It is possible to analyse the mana-curve of a deck with a Brawl
-        mana-modifier in the deck detail of the site (for example,{' '}
-        <Link to='/deck/5xn1n2f3n3f8f4n67n9n15f10n40n76/detail'>
-          Mirc’s deck for the spell Brawl
-        </Link>
-        ). Additionally, it can be practiced in the dry-runner, if only to test
-        whether mana gets wasted or if the cards flow nicely.
+        <p>
+          It is possible to analyse the mana-curve of a deck with a Brawl
+          mana-modifier in the deck detail of the site (for example,{' '}
+          <Link to='/deck/5xn1n2f3n3f8f4n67n9n15f10n40n76/detail'>
+            Mirc’s deck for the spell Brawl
+          </Link>
+          ). Additionally, it can be practiced in the dry-runner, if only to
+          test whether mana gets wasted or if the cards flow nicely.
+        </p>
       </Info>
 
       <Title id='when-to-stop'>When to stop?</Title>
@@ -352,10 +354,12 @@ export default React.memo(function GuideBrawl(props) {
       </p>
 
       <Info icon='compass' title='Resources Guide'>
-        The <Link to='/guides/resources'>resources guide</Link> from{' '}
-        <Link to='/member/Roman'>Roman</Link> expands a bit more into the math
-        behind the Brawl strategy, as well as whether or not it is wise to spend
-        coins in the Brawl.
+        <p>
+          The <Link to='/guides/resources'>resources guide</Link> from{' '}
+          <Link to='/member/Roman'>Roman</Link> expands a bit more into the math
+          behind the Brawl strategy, as well as whether or not it is wise to
+          spend coins in the Brawl.
+        </p>
       </Info>
 
       <Title id='staying-on-top-of-things'>Staying on top of things</Title>

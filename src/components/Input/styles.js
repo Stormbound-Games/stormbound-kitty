@@ -3,7 +3,7 @@ const label = {
   fontSize: '90%',
   color: 'var(--beige)',
   display: 'inline-block',
-  marginBottom: '0.25em',
+  marginBottom: 'var(--s-smallest)',
 }
 
 const input = {

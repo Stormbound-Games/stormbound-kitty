@@ -6,6 +6,7 @@ import styles from './styles'
 
 export default React.memo(function DeckCardLevelField(props) {
   const { css } = useFela()
+
   return (
     <div className={css(styles.field)}>
       <Select
@@ -17,6 +18,7 @@ export default React.memo(function DeckCardLevelField(props) {
             </Only.Desktop>
           </span>
         }
+        extend={styles.select}
         data-testid='level-select'
         id='level'
         value={props.cardLevel}

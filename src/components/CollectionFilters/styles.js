@@ -1,15 +1,6 @@
-const filters = {
-  marginBottom: '1em',
-}
-
-const row = {
-  marginBottom: 0,
-  medium: { marginBottom: '0.5em' },
-}
-
 const toggle = {
   display: 'block',
-  margin: '0 auto 0.75em',
+  margin: '0 auto var(--s-small)',
 }
 
 const icon = {
@@ -23,8 +14,6 @@ const cross = {
 }
 
 export default {
-  filters,
-  row,
   toggle,
   icon,
   cross,

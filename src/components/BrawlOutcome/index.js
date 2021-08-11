@@ -12,7 +12,7 @@ export default React.memo(function BrawlOutcome(props) {
   const balance = income - meta.coinsSpent
 
   return (
-    <Info icon='crown' extend={styles.outcome} title='Balance'>
+    <Info icon='crown' title='Balance'>
       <p>
         At this stage, this is the current balance for your Brawl performance:
       </p>

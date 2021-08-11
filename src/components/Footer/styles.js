@@ -24,7 +24,7 @@ const inner = {
 
 const info = {
   maxWidth: '40ch',
-  marginBottom: '0.75em',
+  marginBottom: 'var(--s-small)',
 }
 
 const icon = {
@@ -42,7 +42,7 @@ const list = {
 const heading = {
   color: 'var(--beige)',
   textTransform: 'uppercase',
-  marginBottom: '1em',
+  marginBottom: 'var(--s-base)',
 }
 
 const item = {

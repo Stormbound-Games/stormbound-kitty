@@ -6,6 +6,7 @@ import Icon from '../Icon'
 import Image from '../Image'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import chunk from '../../helpers/chunk'
 import styles from './styles'
 
@@ -132,32 +133,42 @@ export default React.memo(function Videos(props) {
     <Article title='Videos'>
       {chunk(VIDEOS, 2).map((row, index) => (
         <Row key={index} desktopOnly wideGutter>
-          {row.map(video => (
-            <Row.Column key={video.author}>
-              <section key={video.author} className={css(styles.video)}>
-                <Row desktopOnly wideGutter>
-                  <Row.Column width='1/3' extend={styles.column}>
-                    <Image
-                      src={video.thumbnail}
-                      alt={`${video.author}’s avatar`}
-                      extend={styles.image}
-                    />
-                  </Row.Column>
-                  <Row.Column width='2/3' extend={{ justifyContent: 'center' }}>
-                    <h2 className={css(styles.title)}>
-                      <Link to={`/member/${video.author}`}>{video.author}</Link>
-                    </h2>
-                    {video.description}
-                    <p>
-                      <Icon icon='arrow-right' extend={styles.icon} />
-                      <Link href={video.href} extend={styles.link}>
-                        Visit {video.author}’s channel
-                      </Link>
-                    </p>
-                  </Row.Column>
-                </Row>
-              </section>
-            </Row.Column>
+          {row.map((video, index, array) => (
+            <React.Fragment key={video.author}>
+              <Row.Column>
+                <Spacing bottom='LARGER'>
+                  <Row desktopOnly wideGutter>
+                    <Row.Column width='1/3' extend={styles.column}>
+                      <Image
+                        src={video.thumbnail}
+                        alt={`${video.author}’s avatar`}
+                        extend={styles.image}
+                      />
+                    </Row.Column>
+                    <Row.Column
+                      width='2/3'
+                      extend={{ justifyContent: 'center' }}
+                    >
+                      <h2 className={css(styles.title)}>
+                        <Link to={`/member/${video.author}`}>
+                          {video.author}
+                        </Link>
+                      </h2>
+                      {video.description}
+                      <p>
+                        <Icon icon='arrow-right' extend={styles.icon} />
+                        <Link href={video.href} extend={styles.link}>
+                          Visit {video.author}’s channel
+                        </Link>
+                      </p>
+                    </Row.Column>
+                  </Row>
+                </Spacing>
+              </Row.Column>
+              {VIDEOS.length % 2 !== 0 && index === array.length - 1 && (
+                <Row.Column />
+              )}
+            </React.Fragment>
           ))}
         </Row>
       ))}

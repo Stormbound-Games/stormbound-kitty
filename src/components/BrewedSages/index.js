@@ -4,6 +4,7 @@ import Link from '../Link'
 import Article from '../Article'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import Sparkles from '../Sparkles'
 import Teaser from '../Teaser'
 import Title from '../Title'
@@ -40,56 +41,60 @@ export default React.memo(function BrewedSages(props) {
           enjoy the show!
         </p>
 
-        <div className={css(styles.container)}>
-          <Sparkles>
-            <Link extend={styles.cta} href='https://gumroad.com/l/KuFWl'>
-              Support Brewed Sages
-            </Link>
-          </Sparkles>
-        </div>
+        <Spacing vertical='LARGER'>
+          <div className={css(styles.container)}>
+            <Sparkles>
+              <Link extend={styles.cta} href='https://gumroad.com/l/KuFWl'>
+                Support Brewed Sages
+              </Link>
+            </Sparkles>
+          </div>
+        </Spacing>
       </Article.Narrow>
 
-      <Title>Episodes</Title>
-      {chunk(podcasts.slice(0).reverse(), 3).map((row, index) => (
-        <Row desktopOnly key={index}>
-          <Row.Column width='1/3'>
-            {row[0] && (
-              <Teaser
-                {...row[0]}
-                card={{
-                  ...CARD,
-                  mana: podcasts.length - index * 3,
-                  ability: row[0].excerpt,
-                }}
-              />
-            )}
-          </Row.Column>
-          <Row.Column width='1/3'>
-            {row[1] && (
-              <Teaser
-                {...row[1]}
-                card={{
-                  ...CARD,
-                  mana: podcasts.length - index * 3 - 1,
-                  ability: row[1].excerpt,
-                }}
-              />
-            )}
-          </Row.Column>
-          <Row.Column width='1/3'>
-            {row[2] && (
-              <Teaser
-                {...row[2]}
-                card={{
-                  ...CARD,
-                  mana: podcasts.length - index * 3 - 2,
-                  ability: row[2].excerpt,
-                }}
-              />
-            )}
-          </Row.Column>
-        </Row>
-      ))}
+      <Spacing vertical='LARGER'>
+        <Title>Episodes</Title>
+        {chunk(podcasts.slice(0).reverse(), 3).map((row, index) => (
+          <Row desktopOnly key={index}>
+            <Row.Column width='1/3'>
+              {row[0] && (
+                <Teaser
+                  {...row[0]}
+                  card={{
+                    ...CARD,
+                    mana: podcasts.length - index * 3,
+                    ability: row[0].excerpt,
+                  }}
+                />
+              )}
+            </Row.Column>
+            <Row.Column width='1/3'>
+              {row[1] && (
+                <Teaser
+                  {...row[1]}
+                  card={{
+                    ...CARD,
+                    mana: podcasts.length - index * 3 - 1,
+                    ability: row[1].excerpt,
+                  }}
+                />
+              )}
+            </Row.Column>
+            <Row.Column width='1/3'>
+              {row[2] && (
+                <Teaser
+                  {...row[2]}
+                  card={{
+                    ...CARD,
+                    mana: podcasts.length - index * 3 - 2,
+                    ability: row[2].excerpt,
+                  }}
+                />
+              )}
+            </Row.Column>
+          </Row>
+        ))}
+      </Spacing>
 
       <Article.Narrow>
         <Title>Listening</Title>

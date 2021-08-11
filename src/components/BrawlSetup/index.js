@@ -1,17 +1,15 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import BrawlExport from '../BrawlExport'
 import BrawlImport from '../BrawlImport'
 import PremiumPassCheckbox from '../PremiumPassCheckbox'
 import Radio from '../Radio'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import VisuallyHidden from '../VisuallyHidden'
 
 export default React.memo(function BrawlSetup(props) {
-  const { css } = useFela()
-
   return (
-    <div className={css({ marginTop: '1em' })}>
+    <>
       <fieldset>
         <VisuallyHidden as='legend'>Setup</VisuallyHidden>
         <Radio
@@ -62,14 +60,16 @@ export default React.memo(function BrawlSetup(props) {
         onChange={event => props.setWithPremiumPass(event.target.checked)}
       />
 
-      <Row extend={{ marginTop: '1.5em' }}>
-        <Row.Column>
-          <BrawlImport />
-        </Row.Column>
-        <Row.Column>
-          <BrawlExport />
-        </Row.Column>
-      </Row>
-    </div>
+      <Spacing top='LARGE'>
+        <Row>
+          <Row.Column>
+            <BrawlImport />
+          </Row.Column>
+          <Row.Column>
+            <BrawlExport />
+          </Row.Column>
+        </Row>
+      </Spacing>
+    </>
   )
 })

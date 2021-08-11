@@ -10,8 +10,8 @@ const deck = ({ orientation }) => ({
     position: 'relative',
     display: 'flex',
     flexDirection: 'column',
-    marginBottom: '1em',
-    marginTop: '0.7em',
+    marginBottom: 'var(--s-base)',
+    marginTop: 'var(--s-small)',
 
     medium: {
       fontSize: 'var(--font-size, 13.8137px)' /* 1 */,
@@ -25,7 +25,7 @@ const deck = ({ orientation }) => ({
   }),
 
   ...(orientation === 'vertical' && {
-    marginBottom: '2em',
+    marginBottom: 'var(--s-large)',
 
     medium: {
       fontSize: 'var(--font-size, 13.4085px)' /* 1 */,

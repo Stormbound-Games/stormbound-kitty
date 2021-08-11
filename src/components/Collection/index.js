@@ -14,6 +14,7 @@ import ImportCollection from '../ImportCollection'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import Title from '../Title'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isCardUpgradable from '../../helpers/isCardUpgradable'
@@ -102,7 +103,7 @@ class Collection extends React.Component {
 
         <Row desktopOnly wideGutter>
           <Row.Column width='1/3'>
-            <div className={this.props.css({ marginBottom: '2em' })}>
+            <Spacing bottom='LARGE'>
               <Title>What is this</Title>
 
               <p>
@@ -112,12 +113,14 @@ class Collection extends React.Component {
                 amount of fusion stones or gold you need to upgrade your cards.
               </p>
 
-              <p className={this.props.css({ marginBottom: '2em' })}>
-                The collection is locally saved in your browser as you update it
-                so you can safely leave or refresh the page. If you want to save
-                it more permanently and synchronise it between device, you can
-                export it as a CSV.
-              </p>
+              <Spacing bottom='LARGE'>
+                <p>
+                  The collection is locally saved in your browser as you update
+                  it so you can safely leave or refresh the page. If you want to
+                  save it more permanently and synchronise it between device,
+                  you can export it as a CSV.
+                </p>
+              </Spacing>
 
               <CollectionClearHint />
 
@@ -129,7 +132,7 @@ class Collection extends React.Component {
                   <Row.Column />
                 </Row>
               </Only.DefaultCollection>
-            </div>
+            </Spacing>
 
             {this.state.activeCard && (
               <ActiveCardForm

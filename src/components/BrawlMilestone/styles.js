@@ -72,7 +72,7 @@ const label = {
   textAlign: 'center',
   textTransform: 'uppercase',
   fontSize: '130%',
-  marginTop: '0.5em',
+  marginTop: 'var(--s-smaller)',
 }
 
 const asset = {

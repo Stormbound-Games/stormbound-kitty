@@ -1,10 +1,3 @@
-const container = {
-  small: {
-    padding: 0,
-    marginTop: '1em',
-  },
-}
-
 const trigger = {
   display: 'inline-block',
   border: '1px solid #ffffff33',
@@ -13,4 +6,4 @@ const trigger = {
   cursor: 'help',
 }
 
-export default { container, trigger }
+export default { trigger }

@@ -1,13 +1,13 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import Link from '../Link'
-import { EQUALS_TIER_LIST, TIER_COLORS } from '../../constants/list'
+import { EQUALS_TIER_LIST } from '../../constants/list'
 import HeaderBanner from '../HeaderBanner'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
-import ListBuilderTier from '../ListBuilderTier'
+import ListBuilderTierList from '../ListBuilderTierList'
 import ListBuilderToc from '../ListBuilderToc'
 import Select from '../Select'
+import Spacing from '../Spacing'
 import getInitialListData from '../../helpers/getInitialListData'
 import getRawCardData from '../../helpers/getRawCardData'
 import parseDate from '../../helpers/parseDate'
@@ -15,7 +15,6 @@ import { formatDate } from '../../helpers/formatDate'
 import RELEASES from '../../data/releases.json'
 
 export default React.memo(function ListBuilderDisplayView(props) {
-  const { css } = useFela()
   const { date, value: id } = EQUALS_TIER_LIST
   const [faction, setFaction] = React.useState('*')
   const tiers = getInitialListData(id)
@@ -63,33 +62,26 @@ export default React.memo(function ListBuilderDisplayView(props) {
 
           <ListBuilderToc tiers={tiers} />
 
-          <Select
-            label='Display factions'
-            id='factions'
-            value={faction}
-            onChange={event => setFaction(event.target.value)}
-            className={css({ marginBottom: '1em' })}
-          >
-            <option value='*'>All</option>
-            <option value='NOT_NEUTRAL'>All but neutral</option>
-            <option value='NEUTRAL'>Neutral only</option>
-            <option value='IRONCLAD'>Ironclad only</option>
-            <option value='SHADOWFEN'>Shadowfen only</option>
-            <option value='SWARM'>Swarm only</option>
-            <option value='WINTER'>Winter only</option>
-          </Select>
+          <Spacing bottom='LARGE'>
+            <Select
+              label='Display factions'
+              id='factions'
+              value={faction}
+              onChange={event => setFaction(event.target.value)}
+            >
+              <option value='*'>All</option>
+              <option value='NOT_NEUTRAL'>All but neutral</option>
+              <option value='NEUTRAL'>Neutral only</option>
+              <option value='IRONCLAD'>Ironclad only</option>
+              <option value='SHADOWFEN'>Shadowfen only</option>
+              <option value='SWARM'>Swarm only</option>
+              <option value='WINTER'>Winter only</option>
+            </Select>
+          </Spacing>
         </Row.Column>
 
         <Row.Column width='2/3'>
-          {tiers.map((tier, index) => (
-            <ListBuilderTier
-              {...tier}
-              color={TIER_COLORS[index]}
-              key={index}
-              prefix={`tier-${index}-`}
-              isEditable={false}
-            />
-          ))}
+          <ListBuilderTierList tiers={tiers} />
         </Row.Column>
       </Row>
 

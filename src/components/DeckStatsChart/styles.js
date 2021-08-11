@@ -1,8 +1,3 @@
-const select = {
-  marginTop: '1em',
-  marginBottom: '2em',
-}
-
 const chart = {
   position: 'relative',
 }
@@ -16,4 +11,4 @@ const howTo = {
   fontSize: '90%',
 }
 
-export default { select, chart, howTo }
+export default { chart, howTo }

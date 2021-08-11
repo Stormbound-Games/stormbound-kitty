@@ -1,15 +1,13 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import Input from '../Input'
 import NumberInput from '../NumberInput'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
 import Select from '../Select'
 import ShareButton from '../QuestBuilderShareButton'
+import Spacing from '../Spacing'
 
 export default React.memo(function QuestBuilderForm(props) {
-  const { css } = useFela()
-
   return (
     <form onSubmit={event => event.preventDefault()}>
       <Row>
@@ -81,7 +79,7 @@ export default React.memo(function QuestBuilderForm(props) {
         </Row.Column>
       </Row>
 
-      <div className={css({ marginTop: '2em' })}>
+      <Spacing top='LARGE'>
         <Row>
           <Row.Column>
             <ShareButton />
@@ -94,7 +92,7 @@ export default React.memo(function QuestBuilderForm(props) {
             />
           </Row.Column>
         </Row>
-      </div>
+      </Spacing>
     </form>
   )
 })

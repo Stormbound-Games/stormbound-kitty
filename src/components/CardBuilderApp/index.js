@@ -10,6 +10,7 @@ import CoreForm from '../CardBuilderCoreForm'
 import Notice from '../Notice'
 import LevelForm from '../CardBuilderLevelForm'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import Title from '../Title'
 import usePrevious from '../../hooks/usePrevious'
 import getRawCardData from '../../helpers/getRawCardData'
@@ -133,7 +134,11 @@ export default React.memo(function CardBuilderApp(props) {
     <Article {...articleProps} smallFontSize>
       <CardDisplay mode={props.mode} {...cardData} />
 
-      {isOfficial && <CardDisplayControls />}
+      {isOfficial && (
+        <Spacing bottom='LARGEST'>
+          <CardDisplayControls />
+        </Spacing>
+      )}
 
       {props.hasSingleLevel && (
         <Notice icon='wand'>
@@ -144,8 +149,8 @@ export default React.memo(function CardBuilderApp(props) {
       )}
 
       {props.mode === 'EDITOR' && (
-        <>
-          <div className={css({ maxWidth: '960px', margin: '3em auto 0' })}>
+        <Spacing vertical='LARGEST'>
+          <div className={css({ maxWidth: '960px', margin: 'auto' })}>
             <Row desktopOnly wideGutter>
               <Row.Column>
                 <Title>Core attributes</Title>
@@ -157,7 +162,7 @@ export default React.memo(function CardBuilderApp(props) {
               </Row.Column>
             </Row>
           </div>
-        </>
+        </Spacing>
       )}
 
       {isOfficial && (

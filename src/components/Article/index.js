@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import HeaderBanner from '../HeaderBanner'
 import Icon from '../Icon'
+import Spacing from '../Spacing'
 import styles from './styles'
 
 export const ArticleContext = React.createContext({
@@ -53,10 +54,10 @@ const Article = React.memo(function Article(props) {
 
       <p className={css(styles.meta)}>
         {authors.length > 0 && (
-          <>
+          <span>
             By&nbsp;{authors.reduce(renderAuthorsLinks, [])}
             {props.meta && <>&nbsp;·&nbsp;</>}
-          </>
+          </span>
         )}
         {props.meta}
         {Object.keys(action).length > 0 &&
@@ -120,13 +121,7 @@ Article.Narrow = React.memo(function Narrow(props) {
 })
 
 Article.Embed = React.memo(function Embed(props) {
-  const { css } = useFela()
-
-  return (
-    <div className={css(styles.embed, props.extend)} style={props.style}>
-      {props.children}
-    </div>
-  )
+  return <Spacing vertical={['LARGE', 'LARGER']}>{props.children}</Spacing>
 })
 
 export default Article

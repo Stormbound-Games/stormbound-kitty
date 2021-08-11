@@ -80,9 +80,9 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
       <Title>Possible Decks</Title>
 
       <Guide.FullWidth>
-        <Row desktopOnly wideGutter>
+        <Row desktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
-            <h3 className={css({ marginTop: '0.5em' })}>
+            <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               CriticalPancake’s Die Die Die
             </h3>
 
@@ -110,9 +110,11 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
             />
           </Row.Column>
         </Row>
-        <Row desktopOnly wideGutter>
+        <Row desktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
-            <h3 className={css({ marginTop: '0.5em' })}>OneC’s Toad Spam</h3>
+            <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
+              OneC’s Toad Spam
+            </h3>
             <p>
               Not too many spells, but toads are just really strong, and{' '}
               <CardLink id='F22' /> with <CardLink id='F17' /> can steal some
@@ -135,9 +137,9 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
             />
           </Row.Column>
         </Row>
-        <Row desktopOnly wideGutter>
+        <Row desktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
-            <h3 className={css({ marginTop: '0.5em' })}>
+            <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               Frostkhan’s Eye of the Tempest
             </h3>
             <p>

@@ -21,6 +21,7 @@ import {
   Rubies,
   Stones,
 } from '../Resource'
+import Spacing from '../Spacing'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import getBookName from '../../helpers/getBookName'
@@ -364,55 +365,57 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
         <p>Here are the terms:</p>
 
-        <ul className={css({ marginBottom: '3em' })}>
-          <li>
-            <var className='Highlight'>
-              S'<sub>A</sub>
-            </var>{' '}
-            is the new Hero Score
-          </li>
-          <li>
-            <var className='Highlight'>
-              S<sub>A</sub>
-            </var>{' '}
-            is the current Hero Score
-          </li>
-          <li>
-            <var className='Highlight'>K</var> is the coefficient factor
-            (sometimes named “K-factor” in Elo rating systems) and works like in
-            FIDE:
-            <ul className={css({ marginBottom: 0 })}>
-              <li>
-                K = 40 for new players until they have played 30 matches in
-                Diamond or Heroes league
-              </li>
-              <li>K = 20 for players rated below 2400</li>
-              <li>
-                K = 10 for players who ever reached 2400 during the current
-                season, regardless of their current Hero Score
-              </li>
-            </ul>
-          </li>
-          <li>
-            <var className='Highlight'>W</var> is either 1 in case of a win, 0
-            for a loss
-          </li>
-          <li>
-            <var className='Highlight'>
-              S<sub>B</sub>
-            </var>{' '}
-            is the opponent’s score; the difference between{' '}
-            <var className='Highlight'>
-              S<sub>A</sub>
-            </var>{' '}
-            and{' '}
-            <var className='Highlight'>
-              S<sub>B</sub>
-            </var>{' '}
-            is capped to 400 to avoid causing too much fluctuations in case of
-            uneven matchmaking
-          </li>
-        </ul>
+        <Spacing bottom='LARGER'>
+          <ul>
+            <li>
+              <var className='Highlight'>
+                S'<sub>A</sub>
+              </var>{' '}
+              is the new Hero Score
+            </li>
+            <li>
+              <var className='Highlight'>
+                S<sub>A</sub>
+              </var>{' '}
+              is the current Hero Score
+            </li>
+            <li>
+              <var className='Highlight'>K</var> is the coefficient factor
+              (sometimes named “K-factor” in Elo rating systems) and works like
+              in FIDE:
+              <ul className={css({ marginBottom: 0 })}>
+                <li>
+                  K = 40 for new players until they have played 30 matches in
+                  Diamond or Heroes league
+                </li>
+                <li>K = 20 for players rated below 2400</li>
+                <li>
+                  K = 10 for players who ever reached 2400 during the current
+                  season, regardless of their current Hero Score
+                </li>
+              </ul>
+            </li>
+            <li>
+              <var className='Highlight'>W</var> is either 1 in case of a win, 0
+              for a loss
+            </li>
+            <li>
+              <var className='Highlight'>
+                S<sub>B</sub>
+              </var>{' '}
+              is the opponent’s score; the difference between{' '}
+              <var className='Highlight'>
+                S<sub>A</sub>
+              </var>{' '}
+              and{' '}
+              <var className='Highlight'>
+                S<sub>B</sub>
+              </var>{' '}
+              is capped to 400 to avoid causing too much fluctuations in case of
+              uneven matchmaking
+            </li>
+          </ul>
+        </Spacing>
 
         <Info icon='equalizer' title='Hero Score Calculator'>
           <p>
@@ -440,11 +443,13 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             />
           </Row.Column>
           <Row.Column extend={{ justifyContent: 'center' }}>
-            <p className={css({ marginTop: '2em' })}>
-              This release will bring some quality of life and interface
-              improvements, starting with a way to add the player you just
-              battled as a friend!
-            </p>
+            <Spacing top='LARGE'>
+              <p>
+                This release will bring some quality of life and interface
+                improvements, starting with a way to add the player you just
+                battled as a friend!
+              </p>
+            </Spacing>
 
             <p>
               There will also be a dozen new avatars costing{' '}

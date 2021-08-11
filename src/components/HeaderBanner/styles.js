@@ -3,7 +3,6 @@ const banner = {
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
-  marginBottom: '5em',
 
   '::before': {
     content: '""',

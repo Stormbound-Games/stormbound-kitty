@@ -8,6 +8,7 @@ import NumberInput from '../NumberInput'
 import Radio from '../Radio'
 import Row from '../Row'
 import Select from '../Select'
+import Spacing from '../Spacing'
 import getRawCardData from '../../helpers/getRawCardData'
 import unfoldValue from '../../helpers/unfoldValue'
 import styles from './styles'
@@ -179,7 +180,7 @@ export default React.memo(function BattleSimCellForm(props) {
 
       <fieldset>
         <legend>Statuses</legend>
-        <div className={css(styles.row)}>
+        <Spacing bottom='BASE'>
           <Row>
             <Row.Column width='1/3'>
               <Checkbox
@@ -245,7 +246,7 @@ export default React.memo(function BattleSimCellForm(props) {
               </Checkbox>
             </Row.Column>
           </Row>
-        </div>
+        </Spacing>
       </fieldset>
 
       <Row>

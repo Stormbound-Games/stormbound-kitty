@@ -150,11 +150,15 @@ export default React.memo(function ValueCalculator(props) {
               </>
             }
           >
-            This calculator is highly{' '}
-            <Link to='/faq#value-calculator'>experimental and incomplete</Link>.
-            If you would like to help, please get in touch with{' '}
-            <Link to='/member/Kitty'>Kitty#1909</Link> or{' '}
-            <Link to='/member/Derk'>Derk#7109</Link> on Discord.
+            <p>
+              This calculator is highly{' '}
+              <Link to='/faq#value-calculator'>
+                experimental and incomplete
+              </Link>
+              . If you would like to help, please get in touch with{' '}
+              <Link to='/member/Kitty'>Kitty#1909</Link> or{' '}
+              <Link to='/member/Derk'>Derk#7109</Link> on Discord.
+            </p>
           </Info>
         </Row.Column>
         <Row.Column width='1/3'>

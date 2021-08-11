@@ -62,11 +62,10 @@ const newsBoxPseudo = {
  */
 const newsBox = {
   position: 'relative',
-  background: 'url("../../background.png") repeat var(--black)',
+  background: 'url("/assets/images/background.png") repeat var(--black)',
   border: '1px solid var(--beige)',
   padding: '1em',
   boxShadow: '0 0 2em 1em #00000033',
-  marginBottom: '2em',
   marginTop: '-2.5em' /* 1 */,
 
   '::before': {
@@ -93,8 +92,8 @@ const section = {
   medium: {
     width: '100vw',
     position: 'relative',
-    marginTop: '1em',
-    marginBottom: '1em',
+    marginTop: 'var(--s-base)',
+    marginBottom: 'var(--s-base)',
     marginLeft: '-50vw',
     marginRight: '-50vw',
     left: '50%',
@@ -132,10 +131,10 @@ const sectionInner = {
 const sectionTitle = {
   fontSize: '180%',
   marginTop: 0,
-  marginBottom: '0.5em',
+  marginBottom: 'var(--s-smaller)',
 
   medium: {
-    marginTop: '1em',
+    marginTop: 'var(--s-base)',
   },
 }
 
@@ -154,14 +153,19 @@ const buttons = {
    * 1. Visually align the right button with the edge of the text.
    */
   medium: {
-    marginTop: '1.5em',
+    marginTop: 'var(--s-large)',
     marginRight: '-0.5em' /* 1 */,
-    marginBottom: '1em',
+    marginBottom: 'var(--s-base)',
+  },
+}
 
-    '> *': {
-      width: 'auto',
-      margin: '0 0.5em',
-    },
+const button = {
+  marginTop: 'var(--s-smallest)',
+  marginBottom: 'var(--s-smallest)',
+
+  medium: {
+    width: 'auto',
+    margin: '0 var(--s-smaller)',
   },
 }
 
@@ -176,4 +180,5 @@ export default {
   sectionTitle,
   sectionImage,
   buttons,
+  button,
 }

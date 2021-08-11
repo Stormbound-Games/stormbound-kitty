@@ -5,6 +5,7 @@ import FAQSection from '../FAQSection'
 import Image from '../Image'
 import Link from '../Link'
 import PageMeta from '../PageMeta'
+import Spacing from '../Spacing'
 import StructuredData from '../StructuredData'
 import Title from '../Title'
 import categories from '../../data/faq'
@@ -14,20 +15,20 @@ export default React.memo(function FAQ() {
   const { css } = useFela()
 
   return (
-    <Article title='FAQ'>
+    <Article title='FAQ' withEditorialContent>
       <Article.Narrow>
         <Title>Topics</Title>
 
         <ul className={css(styles.toc)}>
           {categories.map(category => (
             <li key={category.id}>
-              <Link href={'#' + category.id} className={css(styles.link)}>
+              <Link href={'#' + category.id} extend={styles.link}>
                 {category.title}
               </Link>
               <ul className={css(styles.list)}>
                 {category.entries.map(entry => (
                   <li key={entry.id}>
-                    <Link href={'#' + entry.id} className={css(styles.link)}>
+                    <Link href={'#' + entry.id} extend={styles.link}>
                       {entry.question}
                     </Link>
                   </li>
@@ -43,8 +44,14 @@ export default React.memo(function FAQ() {
           extend={{ margin: 'auto' }}
         />
 
-        {categories.map(category => (
-          <FAQSection {...category} key={category.id} />
+        {categories.map((category, index) => (
+          <Spacing
+            bottom={index !== categories.length - 1 ? 'LARGEST' : 'NONE'}
+            id={category.id}
+            key={category.id}
+          >
+            <FAQSection {...category} />
+          </Spacing>
         ))}
 
         <StructuredData type='FAQ' />

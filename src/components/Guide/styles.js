@@ -1,7 +1,7 @@
 const fullWidth = {
   position: 'relative',
-  marginTop: '1.5em',
-  marginBottom: '1.5em',
+  marginTop: 'var(--s-large)',
+  marginBottom: 'var(--s-large)',
   marginLeft: 'auto',
   marginRight: 'auto',
 

@@ -2,10 +2,6 @@ const root = {
   position: 'relative',
 }
 
-const settings = {
-  marginTop: '2em',
-}
-
 const puzzle = {
   position: 'absolute',
   right: 0,
@@ -26,7 +22,6 @@ const deck = {
 
 export default {
   root,
-  settings,
   puzzle,
   deck,
 }

@@ -1,19 +1,17 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import Link from '../Link'
-import { TIER_COLORS } from '../../constants/list'
 import HeaderBanner from '../HeaderBanner'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Select from '../Select'
-import ListBuilderTier from '../ListBuilderTier'
+import Spacing from '../Spacing'
+import ListBuilderTierList from '../ListBuilderTierList'
 import ListBuilderToc from '../ListBuilderToc'
 import getInitialListData from '../../helpers/getInitialListData'
 import getLiveTierList from '../../helpers/getLiveTierList'
 import getRawCardData from '../../helpers/getRawCardData'
 
 export default React.memo(function ListBuilderDisplayView(props) {
-  const { css } = useFela()
   const [faction, setFaction] = React.useState('*')
   const id = React.useMemo(() => getLiveTierList(), [])
   const tiers = getInitialListData(id)
@@ -54,35 +52,28 @@ export default React.memo(function ListBuilderDisplayView(props) {
             cards that are included in over 90% of decks that can include them.
           </p>
 
-          <Select
-            label='Display factions'
-            id='factions'
-            value={faction}
-            onChange={event => setFaction(event.target.value)}
-            className={css({ marginBottom: '1em' })}
-          >
-            <option value='*'>All</option>
-            <option value='NOT_NEUTRAL'>All but neutral</option>
-            <option value='NEUTRAL'>Neutral only</option>
-            <option value='IRONCLAD'>Ironclad only</option>
-            <option value='SHADOWFEN'>Shadowfen only</option>
-            <option value='SWARM'>Swarm only</option>
-            <option value='WINTER'>Winter only</option>
-          </Select>
-
           <ListBuilderToc tiers={tiers} />
+
+          <Spacing bottom='LARGE'>
+            <Select
+              label='Display factions'
+              id='factions'
+              value={faction}
+              onChange={event => setFaction(event.target.value)}
+            >
+              <option value='*'>All</option>
+              <option value='NOT_NEUTRAL'>All but neutral</option>
+              <option value='NEUTRAL'>Neutral only</option>
+              <option value='IRONCLAD'>Ironclad only</option>
+              <option value='SHADOWFEN'>Shadowfen only</option>
+              <option value='SWARM'>Swarm only</option>
+              <option value='WINTER'>Winter only</option>
+            </Select>
+          </Spacing>
         </Row.Column>
 
         <Row.Column width='2/3'>
-          {tiers.map((tier, index) => (
-            <ListBuilderTier
-              {...tier}
-              color={TIER_COLORS[index]}
-              key={index}
-              prefix={`tier-${index}-`}
-              isEditable={false}
-            />
-          ))}
+          <ListBuilderTierList tiers={tiers} />
         </Row.Column>
       </Row>
 

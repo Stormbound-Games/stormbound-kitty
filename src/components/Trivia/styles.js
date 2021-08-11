@@ -4,7 +4,6 @@ const form = {
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  marginBottom: '5em',
 }
 
 const legend = {
@@ -12,11 +11,10 @@ const legend = {
   alignItems: 'center',
   justifyContent: 'center',
   flexWrap: 'wrap',
-  marginBottom: '2em',
 }
 
 const radio = {
-  margin: '0.75em 1em',
+  margin: 'var(--s-small) var(--s-base)',
 }
 
 export default { form, legend, radio }

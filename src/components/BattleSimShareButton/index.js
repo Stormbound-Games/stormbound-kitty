@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Checkbox from '../Checkbox'
 import ShareDialog from '../ShareDialog'
+import Spacing from '../Spacing'
 import styles from './styles'
 
 export default React.memo(function BattleSimShareButton(props) {
@@ -28,15 +29,17 @@ export default React.memo(function BattleSimShareButton(props) {
         with the button below.
       </p>
 
-      <div className={css(styles.checkbox)}>
-        <Checkbox
-          id='hide-interface'
-          checked={hideInterface}
-          onChange={event => setHideInterface(event.target.checked)}
-        >
-          Hide editing interface
-        </Checkbox>
-      </div>
+      <Spacing top='BASE'>
+        <div className={css(styles.checkbox)}>
+          <Checkbox
+            id='hide-interface'
+            checked={hideInterface}
+            onChange={event => setHideInterface(event.target.checked)}
+          >
+            Hide editing interface
+          </Checkbox>
+        </div>
+      </Spacing>
     </ShareDialog>
   )
 })

@@ -5,7 +5,7 @@ const rules = {
 }
 
 const item = {
-  marginBottom: '0.5em',
+  marginBottom: 'var(--s-smaller)',
   paddingLeft: '1.5em',
   textIndent: '-1.5em',
 }

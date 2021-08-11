@@ -1,17 +1,17 @@
 const explanation = {
   listStylePosition: 'inside',
   paddingLeft: '1em',
-  marginTop: '0.5em',
+  marginTop: 'var(--s-smaller)',
 }
 
 const list = {
-  marginTop: '0.5em',
-  marginBottom: '1em',
+  marginTop: 'var(--s-smaller)',
+  marginBottom: 'var(--s-base)',
   paddingLeft: '1.5em',
 }
 
 const item = {
-  marginBottom: '0.2em',
+  marginBottom: 'var(--s-smaller)',
   listStylePosition: 'inside',
   padding: 0,
   paddingLeft: '1.4em',

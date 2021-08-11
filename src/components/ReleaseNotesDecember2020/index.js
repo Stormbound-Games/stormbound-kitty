@@ -115,7 +115,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
         </p>
       </Article.Narrow>
 
-      <Article.Embed padding='60px'>
+      <Article.Embed>
         <Image
           src='/assets/images/releases/calendar.png'
           alt='Daily check-in calendar featuring daily rewards and days were said rewards were skipped'

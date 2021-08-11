@@ -2,15 +2,6 @@ const container = {
   position: 'relative',
 }
 
-const formula = {
-  maxWidth: '100%',
-  marginBottom: '1.5em',
-}
-
-const image = {
-  maxWidth: '100%',
-}
-
 const score = {
   position: 'absolute',
   top: '50%',
@@ -28,8 +19,6 @@ const radio = {
 
 export default {
   container,
-  formula,
-  image,
   score,
   radio,
 }

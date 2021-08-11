@@ -27,7 +27,7 @@ const meta = {
 }
 
 const faction = {
-  marginTop: '0.15em',
+  marginTop: 'var(--s-smallest)',
   fontSize: '70%',
   whiteSpace: 'nowrap',
   display: 'flex',

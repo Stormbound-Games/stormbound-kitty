@@ -6,7 +6,7 @@ const container = {
 const title = {
   fontSize: '200%',
   display: 'block',
-  marginBottom: '0.25em',
+  marginBottom: 'var(--s-smallest)',
 }
 
 const image = {

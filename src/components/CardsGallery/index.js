@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import { motion } from 'framer-motion'
 import Card from '../Card'
 import CTA from '../CTA'
+import Spacing from '../Spacing'
 import VisuallyHidden from '../VisuallyHidden'
 import chunk from '../../helpers/chunk'
 import styles from './styles'
@@ -144,27 +145,29 @@ export default React.memo(function CardsGallery(props) {
       </motion.ul>
 
       {!props.hideNavButtons && (
-        <div className={css(styles.nav)}>
-          <CTA
-            type='button'
-            extend={styles.navButton}
-            onClick={() => changePage(p => p - 1)}
-            disabled={activePage === 0}
-          >
-            Previous
-          </CTA>
+        <Spacing top='LARGER'>
+          <div className={css(styles.nav)}>
+            <CTA
+              type='button'
+              extend={styles.navButton}
+              onClick={() => changePage(p => p - 1)}
+              disabled={activePage === 0}
+            >
+              Previous
+            </CTA>
 
-          {props.navChildren || null}
+            {props.navChildren || null}
 
-          <CTA
-            type='button'
-            extend={styles.navButton}
-            onClick={() => changePage(p => p + 1)}
-            disabled={pages.length === 0 || activePage === pages.length - 1}
-          >
-            Next
-          </CTA>
-        </div>
+            <CTA
+              type='button'
+              extend={styles.navButton}
+              onClick={() => changePage(p => p + 1)}
+              disabled={pages.length === 0 || activePage === pages.length - 1}
+            >
+              Next
+            </CTA>
+          </div>
+        </Spacing>
       )}
     </div>
   )

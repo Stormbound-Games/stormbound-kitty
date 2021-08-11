@@ -1,9 +1,5 @@
-const section = {
-  marginBottom: '3em',
-}
-
 const title = {
-  marginBottom: '1.5em',
+  marginBottom: 'var(--s-base)',
 }
 
 const list = {
@@ -13,17 +9,11 @@ const list = {
 }
 
 const item = {
-  margin: '0.5em 0',
-}
-
-const disclaimer = {
-  marginBottom: '3em',
+  margin: 'var(--s-smaller) 0',
 }
 
 export default {
-  section,
   title,
   list,
   item,
-  disclaimer,
 }

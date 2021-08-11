@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import Masonry from 'react-masonry-css'
 import Article from '../Article'
 import PageMeta from '../PageMeta'
+import Spacing from '../Spacing'
 import { CATEGORIES } from '../../constants/guides'
 import getTermsForLetter from '../../helpers/getTermsForLetter'
 import getLexiconTerms from '../../helpers/getLexiconTerms'
@@ -13,19 +14,21 @@ const Terms = React.memo(function Terms(props) {
   const terms = getLexiconTerms()
 
   return (
-    <ul className={css(styles.terms)}>
-      {Object.keys(props.terms).map(term => (
-        <li key={term} className={css(styles.item)}>
-          {term}:{' '}
-          {terms[term].map((entry, index) => (
-            <React.Fragment key={index}>
-              {entry}
-              {index < terms[term].length - 1 ? ', ' : ''}
-            </React.Fragment>
-          ))}
-        </li>
-      ))}
-    </ul>
+    <Spacing bottom='LARGE'>
+      <ul className={css(styles.terms)}>
+        {Object.keys(props.terms).map(term => (
+          <li key={term} className={css(styles.item)}>
+            {term}:{' '}
+            {terms[term].map((entry, index) => (
+              <React.Fragment key={index}>
+                {entry}
+                {index < terms[term].length - 1 ? ', ' : ''}
+              </React.Fragment>
+            ))}
+          </li>
+        ))}
+      </ul>
+    </Spacing>
   )
 })
 

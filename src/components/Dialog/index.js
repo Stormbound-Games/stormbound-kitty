@@ -76,7 +76,7 @@ export default React.memo(function Dialog(props) {
 
       <div className={css(styles.body, props.extend?.body)}>
         {props.children}
-        {hasCTA && <CTA {...ctaProps} className={css(styles.cta)} />}
+        {hasCTA && <CTA {...ctaProps} extend={styles.cta} />}
       </div>
     </A11yDialog>
   )

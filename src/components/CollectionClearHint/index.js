@@ -57,16 +57,18 @@ export default React.memo(function CollectionClearHint(props) {
           </CTA>
         }
       >
-        A locally saved card collection was found and loaded. If you would like
-        to remove it and start fresh, you can{' '}
-        <button
-          type='button'
-          onClick={resetCollection}
-          className='ButtonAsLink'
-        >
-          clear the local data
-        </button>{' '}
-        (you will be asked to confirm).
+        <p>
+          A locally saved card collection was found and loaded. If you would
+          like to remove it and start fresh, you can{' '}
+          <button
+            type='button'
+            onClick={resetCollection}
+            className='ButtonAsLink'
+          >
+            clear the local data
+          </button>{' '}
+          (you will be asked to confirm).
+        </p>
       </Info>
     </Only.CustomCollection>
   )

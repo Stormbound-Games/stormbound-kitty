@@ -11,6 +11,7 @@ import PageMeta from '../PageMeta'
 import { HeroCrowns } from '../Resource'
 import Row from '../Row'
 import Select from '../Select'
+import Spacing from '../Spacing'
 import getHeroScore from '../../helpers/getHeroScore'
 import styles from './styles'
 
@@ -46,11 +47,12 @@ const HeroScoreCalculator = props => {
             following formula:
           </p>
 
-          <Image
-            src='/assets/images/releases/hero_score_formula.png'
-            alt='Hero Score computing formula'
-            extend={styles.formula}
-          />
+          <Spacing bottom='LARGE'>
+            <Image
+              src='/assets/images/releases/hero_score_formula.png'
+              alt='Hero Score computing formula'
+            />
+          </Spacing>
 
           <p>
             As of <Link to='/releases/05-2021'>May 2021</Link>, losses are
@@ -60,57 +62,59 @@ const HeroScoreCalculator = props => {
 
           <p>Here are the terms:</p>
 
-          <ul className={css({ marginBottom: '3em' })}>
-            <li>
-              <var className='Highlight'>
-                S'<sub>A</sub>
-              </var>{' '}
-              is the new Hero Score
-            </li>
-            <li>
-              <var className='Highlight'>
-                S<sub>A</sub>
-              </var>{' '}
-              is the current Hero Score
-            </li>
-            <li>
-              <var className='Highlight'>K</var> is the coefficient factor
-              (sometimes named “K-factor” in elo rating systems) and works like
-              in FIDE:
-              <ul className={css({ margin: '0.5em 0' })}>
-                <li>
-                  K = 40 for players until they have been in{' '}
-                  <Footnote id='matches-30'>
-                    30 matches in Diamond and then 30 matches in Heroes League
-                  </Footnote>
-                </li>
-                <li>K = 20 for players rated below 2400</li>
-                <li>
-                  K = 10 for players who ever reached 2400 during the current
-                  season, regardless of their current Hero Score
-                </li>
-              </ul>
-            </li>
-            <li>
-              <var className='Highlight'>W</var> is either 1 in case of a win, 0
-              for a loss
-            </li>
-            <li>
-              <var className='Highlight'>
-                S<sub>B</sub>
-              </var>{' '}
-              is the opponent’s score; the difference between{' '}
-              <var className='Highlight'>
-                S<sub>A</sub>
-              </var>{' '}
-              and{' '}
-              <var className='Highlight'>
-                S<sub>B</sub>
-              </var>{' '}
-              is capped to 400 to avoid causing too much fluctuations in case of
-              uneven matchmaking
-            </li>
-          </ul>
+          <Spacing bottom='LARGER'>
+            <ul>
+              <li>
+                <var className='Highlight'>
+                  S'<sub>A</sub>
+                </var>{' '}
+                is the new Hero Score
+              </li>
+              <li>
+                <var className='Highlight'>
+                  S<sub>A</sub>
+                </var>{' '}
+                is the current Hero Score
+              </li>
+              <li>
+                <var className='Highlight'>K</var> is the coefficient factor
+                (sometimes named “K-factor” in elo rating systems) and works
+                like in FIDE:
+                <ul className={css({ margin: '0.5em 0' })}>
+                  <li>
+                    K = 40 for players until they have been in{' '}
+                    <Footnote id='matches-30'>
+                      30 matches in Diamond and then 30 matches in Heroes League
+                    </Footnote>
+                  </li>
+                  <li>K = 20 for players rated below 2400</li>
+                  <li>
+                    K = 10 for players who ever reached 2400 during the current
+                    season, regardless of their current Hero Score
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <var className='Highlight'>W</var> is either 1 in case of a win,
+                0 for a loss
+              </li>
+              <li>
+                <var className='Highlight'>
+                  S<sub>B</sub>
+                </var>{' '}
+                is the opponent’s score; the difference between{' '}
+                <var className='Highlight'>
+                  S<sub>A</sub>
+                </var>{' '}
+                and{' '}
+                <var className='Highlight'>
+                  S<sub>B</sub>
+                </var>{' '}
+                is capped to 400 to avoid causing too much fluctuations in case
+                of uneven matchmaking
+              </li>
+            </ul>
+          </Spacing>
         </Row.Column>
         <Row.Column width='1/3'>
           <Title>Configuration</Title>
@@ -195,7 +199,6 @@ const HeroScoreCalculator = props => {
 
           <div className={css(styles.container)}>
             <Image
-              extend={styles.image}
               src='/assets/images/releases/rank_hero.png'
               alt=''
               withoutWebp

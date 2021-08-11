@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import Title from '../Title'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import canCardBePlayed from '../../helpers/canCardBePlayed'
@@ -77,12 +78,12 @@ export default function DeckStats(props) {
   )
 
   return (
-    <div className={css(styles.container)}>
+    <Spacing top={['BASE', null]}>
       <Title>Statistics</Title>
 
       <Row>
         <Row.Column>
-          <p className={css({ marginTop: 0 })}>
+          <p>
             This deck (level ~{averageLevel}) is made of {cards.length} cards:{' '}
             <span
               className={css(styles.trigger)}
@@ -111,7 +112,7 @@ export default function DeckStats(props) {
             {races.length > 1 ? 'different races' : 'single race'}.
           </p>
 
-          <p className={css({ marginTop: 0 })}>
+          <p>
             Its average speed is{' '}
             <strong className='Highlight'>{averageSpeed}</strong> cell on play.
             Its average mana cost is{' '}
@@ -151,6 +152,6 @@ export default function DeckStats(props) {
           </p>
         </Row.Column>
       </Row>
-    </div>
+    </Spacing>
   )
 }

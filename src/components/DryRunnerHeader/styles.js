@@ -1,7 +1,3 @@
-const header = {
-  marginBottom: '3em',
-}
-
 const mana = {
   display: 'flex',
   justifyContent: 'center',
@@ -9,4 +5,4 @@ const mana = {
   fontSize: '125%',
 }
 
-export default { header, mana }
+export default { mana }

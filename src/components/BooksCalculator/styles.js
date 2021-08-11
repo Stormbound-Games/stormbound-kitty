@@ -1,21 +1,14 @@
-const form = {
-  marginTop: '1em',
-  marginBottom: '2.5em',
-}
-
 const book = {
-  display: 'block',
   maxWidth: '60%',
-  margin: '2em auto',
+  margin: 'var(--s-larger) auto',
 }
 
 const toggle = {
   color: 'var(--beige)',
-  marginBottom: '0.5em',
+  marginBottom: 'var(--s-smaller)',
 }
 
 export default {
-  form,
   book,
   toggle,
 }

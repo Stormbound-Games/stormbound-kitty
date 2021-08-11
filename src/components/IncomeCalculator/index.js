@@ -12,6 +12,7 @@ import PremiumPassCheckbox from '../PremiumPassCheckbox'
 import ResourceIcon from '../ResourceIcon'
 import Row from '../Row'
 import Select from '../Select'
+import Spacing from '../Spacing'
 import Title from '../Title'
 import { BRAWL_MILESTONES } from '../../constants/brawl'
 import { BOOKS } from '../../constants/books'
@@ -168,17 +169,22 @@ export default React.memo(function IncomeCalculator(props) {
             <Only.Mobile>tapping</Only.Mobile> “Daily” in the outcome section.
           </p>
 
-          <p className={css({ marginBottom: '2em' })}>
-            Special thanks to <Link to='/member/Oeni'>Oeni</Link> (oeni#7266)
-            and <Link to='/member/Roman'>Roman</Link> (Roman_NFP#6918) for their
-            help in designing and making this simulator possible.
-          </p>
+          <Spacing bottom='LARGE'>
+            <p>
+              Special thanks to <Link to='/member/Oeni'>Oeni</Link> (oeni#7266)
+              and <Link to='/member/Roman'>Roman</Link> (Roman_NFP#6918) for
+              their help in designing and making this simulator possible.
+            </p>
+          </Spacing>
 
           <Info icon='compass' title='Resources Guide'>
-            To learn about the best way to spend resources based on your
-            play-style, <Link to='/member/Roman'>Roman</Link> has authored a
-            fantastic{' '}
-            <Link to='/guides/resources'>guides on Stormbound resources</Link>.
+            <p>
+              To learn about the best way to spend resources based on your
+              play-style, <Link to='/member/Roman'>Roman</Link> has authored a
+              fantastic{' '}
+              <Link to='/guides/resources'>guides on Stormbound resources</Link>
+              .
+            </p>
           </Info>
         </Row.Column>
         <Row.Column width='1/3'>

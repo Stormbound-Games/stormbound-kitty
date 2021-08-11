@@ -1,18 +1,22 @@
 const field = {
   display: 'flex',
   alignItems: 'center',
+  width: 'auto',
 
   small: {
-
+    marginTop: 'var(--s-base)',
     order: 1,
-    marginTop: '2em',
-    width: '100%',
-  }
+  },
 }
 
 const label = {
+  display: 'block',
   marginRight: '1em',
   flex: '1 0 auto',
+}
+
+const select = {
+  width: 'auto',
 }
 
 const hint = {
@@ -21,4 +25,4 @@ const hint = {
   display: 'block',
 }
 
-export default {field, label, hint }
+export default { field, label, hint, select }

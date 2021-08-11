@@ -10,6 +10,7 @@ import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Radio from '../Radio'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import Sparkles from '../Sparkles'
 import Strikethrough from '../Strikethrough'
 import VisuallyHidden from '../VisuallyHidden'
@@ -55,10 +56,13 @@ const Success = () => {
       >
         <Confetti config={CONFETTI} active={active} />
       </div>
-      <Notice icon='star' extend={{ marginTop: 0, marginBottom: '2em' }}>
-        <span className='Highlight'>Congratulations!</span> The answer is
-        correct.
-      </Notice>
+
+      <Spacing bottom='LARGE'>
+        <Notice icon='star'>
+          <span className='Highlight'>Congratulations!</span> The answer is
+          correct.
+        </Notice>
+      </Spacing>
     </>
   )
 }
@@ -67,23 +71,20 @@ const Failure = ({ answer }) => {
   const { css } = useFela()
 
   return (
-    <Notice icon='fire' extend={{ marginTop: 0, marginBottom: '2em' }}>
-      <span className='Highlight'>Oh no!</span> Unfortunately the answer is not
-      correct.
-      <details>
-        <summary>Do you want to reveal the answer?</summary>
-        <p
-          className={css({
-            color: 'var(--beige)',
-            marginBottom: 0,
-            marginTop: '0.5em',
-            fontSize: '120%',
-          })}
-        >
-          <Sparkles>{answer}</Sparkles>
-        </p>
-      </details>
-    </Notice>
+    <Spacing bottom='LARGE'>
+      <Notice icon='fire'>
+        <span className='Highlight'>Oh no!</span> Unfortunately the answer is
+        not correct.
+        <details>
+          <summary>Do you want to reveal the answer?</summary>
+          <Spacing top='SMALLER' bottom='NONE'>
+            <p className={css({ color: 'var(--beige)', fontSize: '120%' })}>
+              <Sparkles>{answer}</Sparkles>
+            </p>
+          </Spacing>
+        </details>
+      </Notice>
+    </Spacing>
   )
 }
 
@@ -130,36 +131,42 @@ const Trivia = () => {
           you’re your own opponent.
         </p>
 
-        <form onSubmit={handleSubmit} className={css(styles.form)} ref={form}>
-          <Notice>{microMarkdown(question.question)}</Notice>
+        <Spacing bottom='LARGEST'>
+          <form onSubmit={handleSubmit} className={css(styles.form)} ref={form}>
+            <Notice>{microMarkdown(question.question)}</Notice>
 
-          <fieldset
-            className={css(styles.legend)}
-            disabled={status !== 'UNANSWERED'}
-          >
-            <VisuallyHidden as='legend'>{question.question}</VisuallyHidden>
-            {Object.keys(choices).map(letter => (
-              <Radio
-                key={letter}
-                id={'try-' + letter}
-                name='try'
-                value={letter}
-                extend={styles.radio}
+            <Spacing bottom='LARGE'>
+              <fieldset
+                className={css(styles.legend)}
+                disabled={status !== 'UNANSWERED'}
               >
-                {choices[letter]}
-              </Radio>
-            ))}
-          </fieldset>
-          {status === 'FAILURE' && <Failure {...question} />}
-          {status === 'SUCCESS' && <Success />}
-          {status === 'UNANSWERED' ? (
-            <CTA type='submit'>Confirm</CTA>
-          ) : (
-            <CTA type='button' onClick={askAgain}>
-              New question
-            </CTA>
-          )}
-        </form>
+                <VisuallyHidden as='legend'>{question.question}</VisuallyHidden>
+                {Object.keys(choices).map(letter => (
+                  <Radio
+                    key={letter}
+                    id={'try-' + letter}
+                    name='try'
+                    value={letter}
+                    extend={styles.radio}
+                  >
+                    {choices[letter]}
+                  </Radio>
+                ))}
+              </fieldset>
+            </Spacing>
+
+            {status === 'FAILURE' && <Failure {...question} />}
+            {status === 'SUCCESS' && <Success />}
+            {status === 'UNANSWERED' ? (
+              <CTA type='submit'>Confirm</CTA>
+            ) : (
+              <CTA type='button' onClick={askAgain}>
+                New question
+              </CTA>
+            )}
+          </form>
+        </Spacing>
+
         <Info icon='compass' title='Fun facts'>
           <p>
             If you haven’t had the chance yet, consider reading the{' '}

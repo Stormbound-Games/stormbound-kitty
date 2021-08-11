@@ -278,12 +278,14 @@ export default React.memo(function ReleaseNotesApril2021(props) {
         </p>
 
         <Info icon='hammer' title='Open beta test'>
-          We are currently considering beta-testers who will be thanked with
-          in-game rewards at the end of the program. If you would like to
-          volunteer, please send a message in #login-testing on{' '}
-          <Link href='https://discord.gg/stormbound'>Discord</Link>. Kindly
-          mention the device you use, the country you live in and your player
-          ID. We can only onboard a few people, so we won’t take everyone.
+          <p>
+            We are currently considering beta-testers who will be thanked with
+            in-game rewards at the end of the program. If you would like to
+            volunteer, please send a message in #login-testing on{' '}
+            <Link href='https://discord.gg/stormbound'>Discord</Link>. Kindly
+            mention the device you use, the country you live in and your player
+            ID. We can only onboard a few people, so we won’t take everyone.
+          </p>
         </Info>
 
         <Title id='qol-improvements'>Quality of Life improvements</Title>

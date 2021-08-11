@@ -61,7 +61,11 @@ export default React.memo(function NerfCompensationInfo(props) {
   const names = cards.map(card => card.name)
 
   return (
-    <Info icon='heart' title={props.title || 'Nerf compensation'}>
+    <Info
+      icon='heart'
+      title={props.title || 'Nerf compensation'}
+      spacing={props.spacing || { vertical: 'LARGE' }}
+    >
       <p>
         As usual, some compensation in the form of coins and fusion stones will
         be provided to owners of{' '}

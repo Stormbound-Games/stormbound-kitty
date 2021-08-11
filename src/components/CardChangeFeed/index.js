@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import changelog from '../../data/changelog'
 import parseDate from '../../helpers/parseDate'
 import FeedCardChange from '../FeedCardChange'
+import Spacing from '../Spacing'
 import Title from '../Title'
 import styles from './styles'
 
@@ -37,12 +38,14 @@ export default React.memo(function CardChangeFeed(props) {
           }))
           .sort((a, b) => b.date - a.date)
           .map((entry, index) => (
-            <li key={index} className={css(styles.item)}>
-              <FeedCardChange
-                {...entry}
-                versionId={props.versionId}
-                setVersionId={props.setVersionId}
-              />
+            <li key={index}>
+              <Spacing bottom='BASE'>
+                <FeedCardChange
+                  {...entry}
+                  versionId={props.versionId}
+                  setVersionId={props.setVersionId}
+                />
+              </Spacing>
             </li>
           ))}
       </ul>

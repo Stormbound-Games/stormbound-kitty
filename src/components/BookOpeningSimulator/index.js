@@ -15,6 +15,7 @@ import ResetButton from '../ResetButton'
 import Row from '../Row'
 import Select from '../Select'
 import ShareDialog from '../ShareDialog'
+import Spacing from '../Spacing'
 import Title from '../Title'
 import openBook from '../../helpers/openBook'
 import getBookName from '../../helpers/getBookName'
@@ -221,22 +222,23 @@ const BookOpeningSimulator = props => {
             want to open, click the “Open” button below and see what you found!
           </p>
           <form onSubmit={open}>
-            <Select
-              label='Book type'
-              id='bookType'
-              required
-              value={bookType}
-              onChange={event => setBookType(event.target.value)}
-              className={css({ marginBottom: '2em' })}
-            >
-              <option value=''>Pick a book type</option>
-              {Object.keys(BOOKS).map(bookType => (
-                <option value={bookType} key={bookType}>
-                  {getBookName(bookType)} ({BOOKS[bookType].draws})
-                </option>
-              ))}
-              <option value='CUSTOM'>Custom Book</option>
-            </Select>
+            <Spacing bottom='LARGE'>
+              <Select
+                label='Book type'
+                id='bookType'
+                required
+                value={bookType}
+                onChange={event => setBookType(event.target.value)}
+              >
+                <option value=''>Pick a book type</option>
+                {Object.keys(BOOKS).map(bookType => (
+                  <option value={bookType} key={bookType}>
+                    {getBookName(bookType)} ({BOOKS[bookType].draws})
+                  </option>
+                ))}
+                <option value='CUSTOM'>Custom Book</option>
+              </Select>
+            </Spacing>
             {bookType === 'CUSTOM' && (
               <CustomBookFields
                 amount={amount}

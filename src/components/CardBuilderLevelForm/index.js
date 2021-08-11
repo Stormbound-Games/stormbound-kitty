@@ -1,14 +1,13 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import { useRouteMatch } from 'react-router-dom'
 import Input from '../Input'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
 import ShareButton from '../CardBuilderShareButton'
+import Spacing from '../Spacing'
 import formatCardStats from '../../helpers/formatCardStats'
 
 export default React.memo(function CardBuilderCardForm(props) {
-  const { css } = useFela()
   const match = useRouteMatch()
   const isPristine = !match.params.cardId
 
@@ -65,7 +64,7 @@ export default React.memo(function CardBuilderCardForm(props) {
           </Row.Column>
         </Row>
 
-        <div className={css({ marginTop: '2em' })}>
+        <Spacing top='LARGE'>
           <Row>
             <Row.Column>
               <ResetButton
@@ -83,7 +82,7 @@ export default React.memo(function CardBuilderCardForm(props) {
               />
             </Row.Column>
           </Row>
-        </div>
+        </Spacing>
       </form>
     </>
   )

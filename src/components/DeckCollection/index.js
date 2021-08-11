@@ -1,5 +1,4 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import serialize from 'form-serialize'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import { NotificationContext } from '../NotificationProvider'
@@ -8,6 +7,7 @@ import HeaderBanner from '../HeaderBanner'
 import ImportDecks from '../ImportDecks'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import Title from '../Title'
 import YourDecks from '../YourDecks'
 import YourDecksFilters from '../YourDecksFilters'
@@ -25,7 +25,6 @@ const getDeckFromForm = form => {
 }
 
 export default React.memo(function DeckCollection(props) {
-  const { css } = useFela()
   const context = React.useContext(PersonalDecksContext)
   const { toggleUnseen } = context
   const [mode, setMode] = React.useState('INITIAL')
@@ -141,7 +140,7 @@ export default React.memo(function DeckCollection(props) {
 
           <YourDecksFilters {...filters} setFilters={setFilters} />
 
-          <div className={css({ marginTop: '1.5em' })}>
+          <Spacing top='BASE'>
             <Row>
               <Row.Column>
                 <ImportDecks />
@@ -150,7 +149,7 @@ export default React.memo(function DeckCollection(props) {
                 <ExportDecks />
               </Row.Column>
             </Row>
-          </div>
+          </Spacing>
         </Row.Column>
 
         <Row.Column width='2/3'>

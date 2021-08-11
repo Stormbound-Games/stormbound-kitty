@@ -5,8 +5,4 @@ const feed = {
   fontSize: '125%',
 }
 
-const item = {
-  marginBottom: '1em',
-}
-
-export default { feed, item }
+export default { feed }
