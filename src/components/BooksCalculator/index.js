@@ -89,7 +89,6 @@ export default React.memo(function BooksCalculator(props) {
                 <Select
                   label='Book type'
                   id='book'
-                  name='book'
                   value={bookType}
                   onChange={event => setBookType(event.target.value)}
                   data-testid='book-select'
@@ -106,7 +105,6 @@ export default React.memo(function BooksCalculator(props) {
                 <Select
                   label='Looking for'
                   id='target'
-                  name='target'
                   value={target}
                   onChange={event => setTarget(event.target.value)}
                   data-testid='target-select'

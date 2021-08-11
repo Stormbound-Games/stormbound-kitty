@@ -12,9 +12,7 @@ const guide = getGuide('PIRATE_GUIDE')
 const Board = props => (
   <Guide.FullWidth>
     <BattleSimApp environment='neutral' mode='DISPLAY' simId={props.id} />
-    {props.caption ? (
-      <p className='GuideRecklessRush__caption'>{props.caption}</p>
-    ) : null}
+    {props.caption ? <p>{props.caption}</p> : null}
   </Guide.FullWidth>
 )
 

@@ -37,7 +37,6 @@ export default React.memo(function YourDecksFilters(props) {
             <Input
               label='Name'
               type='search'
-              name='name'
               id='name'
               value={props.name}
               onChange={event => updateName(event.target.value)}
@@ -73,7 +72,6 @@ export default React.memo(function YourDecksFilters(props) {
             <Select
               label='Order'
               id='order'
-              name='order'
               value={props.order}
               onChange={event => updateOrder(event.target.value)}
             >

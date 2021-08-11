@@ -110,7 +110,6 @@ export default React.memo(function BattleSimCellForm(props) {
             <Select
               label='Level'
               disabled={(card || '').startsWith('T')}
-              name='level'
               id='level'
               value={level}
               onChange={event => {
@@ -184,7 +183,6 @@ export default React.memo(function BattleSimCellForm(props) {
           <Row>
             <Row.Column width='1/3'>
               <Checkbox
-                name='poisoned'
                 id='poisoned'
                 disabled={getRawCardData(card).type === 'structure'}
                 checked={poisoned}
@@ -199,7 +197,6 @@ export default React.memo(function BattleSimCellForm(props) {
             </Row.Column>
             <Row.Column width='1/3'>
               <Checkbox
-                name='vitalised'
                 id='vitalised'
                 disabled={getRawCardData(card).type === 'structure'}
                 checked={vitalised}
@@ -214,7 +211,6 @@ export default React.memo(function BattleSimCellForm(props) {
             </Row.Column>
             <Row.Column width='1/3'>
               <Checkbox
-                name='frozen'
                 id='frozen'
                 disabled={getRawCardData(card).type === 'structure'}
                 checked={frozen}
@@ -228,7 +224,6 @@ export default React.memo(function BattleSimCellForm(props) {
           <Row extend={{ marginTop: '-0.75em' }}>
             <Row.Column width='1/3'>
               <Checkbox
-                name='confused'
                 id='confused'
                 disabled={getRawCardData(card).type === 'structure'}
                 checked={confused}
@@ -240,7 +235,6 @@ export default React.memo(function BattleSimCellForm(props) {
             </Row.Column>
             <Row.Column width='1/3'>
               <Checkbox
-                name='disabled'
                 id='disabled'
                 disabled={getRawCardData(card).type === 'structure'}
                 checked={disabled}

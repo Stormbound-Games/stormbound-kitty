@@ -24,7 +24,6 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
             label='Difficulty'
             data-testid='difficulty-select'
             id='difficulty'
-            name='difficulty'
             value={props.difficulty}
             onChange={event => updateDifficulty(event.target.value)}
           >
@@ -40,7 +39,6 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
             label='Type'
             data-testid='type-select'
             id='type'
-            name='type'
             value={props.type}
             onChange={event => updateType(event.target.value)}
           >
@@ -59,7 +57,6 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
           <Input
             label='Name'
             type='search'
-            name='name'
             id='name'
             data-testid='name-input'
             value={props.name}
@@ -95,7 +92,6 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
                   key={restriction}
                   id={restriction}
                   value={restriction}
-                  name='restrictions'
                   checked={props.restrictions.includes(restriction)}
                   onChange={event => {
                     if (props.restrictions.includes(event.target.value)) {

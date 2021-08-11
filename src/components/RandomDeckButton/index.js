@@ -92,7 +92,6 @@ class RandomDeckButton extends React.Component {
               <Select
                 label='Min faction cards'
                 data-testid='random-min-faction-select'
-                name='factionCards'
                 id='factionCards'
                 value={this.state.minFactionCards}
                 onChange={event =>
@@ -111,7 +110,6 @@ class RandomDeckButton extends React.Component {
               <Select
                 label='Max epic cards'
                 data-testid='random-max-epic-select'
-                name='maxEpicCards'
                 id='maxEpicCards'
                 value={this.state.maxEpicCards}
                 onChange={event =>
@@ -132,7 +130,6 @@ class RandomDeckButton extends React.Component {
               <Select
                 label='Max legendary cards'
                 data-testid='random-max-legendary-select'
-                name='maxLegendaryCards'
                 id='maxLegendaryCards'
                 value={this.state.maxLegendaryCards}
                 onChange={event =>

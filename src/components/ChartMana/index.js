@@ -67,7 +67,6 @@ export default React.memo(function ChartMana(props) {
         <Row.Column>
           <Select
             label='Level'
-            name='cm-level'
             id='cm-level'
             value={level}
             onChange={event => setLevel(+event.target.value)}

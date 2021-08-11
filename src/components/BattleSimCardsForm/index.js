@@ -61,7 +61,6 @@ const CardsFormRow = React.memo(({ index, ...props }) => {
                   hideLabel
                   label={`Slot #${index + 1}’s level`}
                   disabled={getRawCardData(props.cards[index].id).token}
-                  name={`card-${index}-level`}
                   id={`card-${index}-level`}
                   value={Math.min(props.cards[index].level, 5) || 1}
                   onChange={event =>

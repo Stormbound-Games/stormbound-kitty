@@ -165,7 +165,6 @@ export default React.memo(function SearchDialog(props) {
                     placeholder: 'e.g. calculator',
                     type: 'text',
                     id: 'search',
-                    name: 'search',
                     ref: input,
                     value: inputValue,
                     onChange: event => setInputValue(event.target.value),

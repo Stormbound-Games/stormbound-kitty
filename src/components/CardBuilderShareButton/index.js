@@ -47,7 +47,6 @@ export default React.memo(function CardBuilderShareButton(props) {
       <Select
         label='What to copy'
         id='mode'
-        name='mode'
         required
         value={mode}
         onChange={event => setMode(event.target.value)}
@@ -59,7 +58,6 @@ export default React.memo(function CardBuilderShareButton(props) {
 
       <div className={css(styles.checkbox)}>
         <Checkbox
-          name='hide-interface'
           id='hide-interface'
           checked={hideInterface}
           onChange={event => setHideInterface(event.target.checked)}

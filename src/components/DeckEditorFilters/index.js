@@ -67,7 +67,6 @@ export default React.memo(function DeckEditorFilters(props) {
               <Row.Column>
                 <Select
                   label='Type'
-                  name='type'
                   id='type'
                   value={props.type}
                   onChange={event => props.setType(event.target.value)}
@@ -88,7 +87,6 @@ export default React.memo(function DeckEditorFilters(props) {
               <Row.Column>
                 <Select
                   label='Mana'
-                  name='mana'
                   id='mana'
                   value={props.mana}
                   onChange={event => props.setMana(event.target.value)}
@@ -105,7 +103,6 @@ export default React.memo(function DeckEditorFilters(props) {
               <Row.Column>
                 <Select
                   label='Movement'
-                  name='movement'
                   id='movement'
                   value={props.movement}
                   onChange={event => props.setMovement(event.target.value)}
@@ -128,7 +125,6 @@ export default React.memo(function DeckEditorFilters(props) {
               <Row.Column>
                 <Select
                   label='Rarity'
-                  name='rarity'
                   id='rarity'
                   value={props.rarity}
                   onChange={event => props.setRarity(event.target.value)}
@@ -146,7 +142,6 @@ export default React.memo(function DeckEditorFilters(props) {
               <Row.Column>
                 <Select
                   label='Race'
-                  name='race'
                   id='race'
                   value={props.race}
                   onChange={event => props.setRace(event.target.value)}
@@ -167,7 +162,6 @@ export default React.memo(function DeckEditorFilters(props) {
               <Row.Column>
                 <Select
                   label='Ability'
-                  name='ability'
                   id='ability'
                   value={props.ability}
                   onChange={event => props.setAbility(event.target.value)}
@@ -194,7 +188,6 @@ export default React.memo(function DeckEditorFilters(props) {
                 <Input
                   label='Text'
                   type='search'
-                  name='text'
                   id='text'
                   value={props.text}
                   onChange={event => props.setText(event.target.value)}

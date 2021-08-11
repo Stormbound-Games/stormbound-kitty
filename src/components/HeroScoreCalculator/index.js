@@ -147,7 +147,6 @@ const HeroScoreCalculator = props => {
             <Row.Column>
               <Select
                 label='Coefficient factor'
-                name='coefficient'
                 id='coefficient'
                 value={coefficient}
                 onChange={event => setCoefficient(event.target.value)}

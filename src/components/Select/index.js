@@ -5,6 +5,7 @@ import styles from './styles'
 
 const Select = ({ hideLabel, extend, label, ...props }, ref) => {
   const { css } = useFela()
+  const name = props.name || props.id
 
   return (
     <>
@@ -17,7 +18,12 @@ const Select = ({ hideLabel, extend, label, ...props }, ref) => {
           {label}
         </label>
       )}
-      <select {...props} className={css(styles.select, extend)} ref={ref}>
+      <select
+        {...props}
+        name={name}
+        className={css(styles.select, extend)}
+        ref={ref}
+      >
         {props.children}
       </select>
     </>

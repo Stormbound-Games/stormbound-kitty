@@ -22,7 +22,6 @@ export default React.memo(function DryRunnerBrawlModifiers(props) {
     <>
       <Select
         label='Brawl modifier'
-        name='brawl-modifier'
         id='brawl-modifier'
         data-testid='brawl-modifier'
         className={css({ marginBottom: '1.5em' })}

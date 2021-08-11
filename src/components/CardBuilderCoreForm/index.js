@@ -19,8 +19,6 @@ export default React.memo(function CardBuilderCardForm(props) {
           <Row.Column>
             <Input
               label='Name'
-              type='text'
-              name='name'
               id='name'
               maxLength={20}
               required
@@ -32,8 +30,6 @@ export default React.memo(function CardBuilderCardForm(props) {
           <Row.Column>
             <Input
               label='Movement'
-              type='text'
-              name='movement'
               id='movement'
               value={props.movement === null ? '' : props.movement}
               onChange={event => props.setMovement(event.target.value)}
@@ -48,7 +44,6 @@ export default React.memo(function CardBuilderCardForm(props) {
           <Row.Column>
             <Select
               label='Rarity'
-              name='rarity'
               id='rarity'
               required
               value={props.rarity}
@@ -65,7 +60,6 @@ export default React.memo(function CardBuilderCardForm(props) {
           <Row.Column>
             <Select
               label='Type'
-              name='type'
               id='type'
               required
               value={props.type}
@@ -94,7 +88,6 @@ export default React.memo(function CardBuilderCardForm(props) {
           <Row.Column>
             <Select
               label='Race'
-              name='race'
               id='race'
               required
               value={props.race || ''}
@@ -150,7 +143,6 @@ export default React.memo(function CardBuilderCardForm(props) {
             <Input
               label='Or image from URL'
               type='url'
-              name='imageURL'
               id='imageURL'
               value={props.imageURL}
               onChange={event => props.setImageURL(event.target.value)}
@@ -169,7 +161,6 @@ export default React.memo(function CardBuilderCardForm(props) {
                 <Row.Column>
                   <Checkbox
                     extend={{ marginTop: '0.75em' }}
-                    name='elder'
                     id='elder'
                     checked={props.elder}
                     onChange={event => props.setElder(event.target.checked)}
@@ -181,8 +172,6 @@ export default React.memo(function CardBuilderCardForm(props) {
                 </Row.Column>
                 <Row.Column>
                   <Checkbox
-                    className='CardBuilderCoreForm__checkbox'
-                    name='hero'
                     id='hero'
                     checked={props.hero}
                     onChange={event => props.setHero(event.target.checked)}

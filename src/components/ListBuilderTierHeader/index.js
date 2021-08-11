@@ -15,9 +15,7 @@ export default React.memo(function ListBuilderTierHeader(props) {
         {props.isEditable ? (
           <Input
             label='Tier name'
-            name='listName'
             id={`${props.prefix}listName`}
-            type='text'
             value={props.name}
             onChange={event => props.onNameChange(event.target.value)}
             maxLength={30}

@@ -18,7 +18,6 @@ export default React.memo(function DeckCardLevelField(props) {
           </span>
         }
         data-testid='level-select'
-        name='level'
         id='level'
         value={props.cardLevel}
         onChange={event => props.setCardLevel(+event.target.value)}

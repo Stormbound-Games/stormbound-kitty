@@ -104,7 +104,6 @@ export default React.memo(function Members(props) {
               <Input
                 label='Name'
                 type='search'
-                name='name'
                 id='name'
                 placeholder='e.g. Kitty'
                 value={name}
@@ -114,7 +113,6 @@ export default React.memo(function Members(props) {
             <Row.Column>
               <Select
                 label='Type'
-                name='type'
                 id='type'
                 value={type}
                 onChange={event => setType(event.target.value)}

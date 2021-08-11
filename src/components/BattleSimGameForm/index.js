@@ -34,7 +34,6 @@ export default React.memo(function BattleSimGameForm(props) {
           <fieldset>
             <legend>Grid Markers</legend>
             <Checkbox
-              name='gridMarkers'
               id='gridMarkers'
               checked={props.gridMarkers}
               onChange={props.toggleGridMarkers}

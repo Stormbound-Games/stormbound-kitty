@@ -16,8 +16,6 @@ export default React.memo(function QuestBuilderForm(props) {
         <Row.Column>
           <Input
             label='Name'
-            type='text'
-            name='name'
             id='name'
             maxLength={40}
             required
@@ -44,7 +42,6 @@ export default React.memo(function QuestBuilderForm(props) {
         <Row.Column width='1/3'>
           <Select
             label='Currency'
-            name='currency'
             id='currency'
             value={props.currency}
             onChange={event => props.setCurrency(event.target.value)}
@@ -59,7 +56,6 @@ export default React.memo(function QuestBuilderForm(props) {
         <Row.Column width='1/3'>
           <Select
             label='Difficulty'
-            name='difficulty'
             id='difficulty'
             value={props.difficulty}
             onChange={event => props.setDifficulty(+event.target.value)}
@@ -76,8 +72,6 @@ export default React.memo(function QuestBuilderForm(props) {
         <Row.Column>
           <Input
             label='Description'
-            type='text'
-            name='description'
             id='description'
             maxLength={100}
             required

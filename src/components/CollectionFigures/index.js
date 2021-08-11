@@ -261,7 +261,6 @@ export default function CollectionFigures(props) {
           hideLabel
           label='Level'
           id='level'
-          name='level'
           extend={styles.select}
           value={expectedCardLevel}
           onChange={event => setExpectedCardLevel(+event.target.value)}

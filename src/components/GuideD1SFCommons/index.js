@@ -265,7 +265,6 @@ export default React.memo(function GuideD1SFCommons(props) {
                   <Select
                     label='Level'
                     id='level'
-                    name='level'
                     className={css(styles.select)}
                     value={cardLevel}
                     onChange={event => setCardLevel(event.target.value)}

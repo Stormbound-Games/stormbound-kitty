@@ -22,7 +22,6 @@ const LevelSelect = React.memo(function LevelSelect(props) {
     <Select
       label='Level'
       id={'level-' + props.slot}
-      name={'level-' + props.slot}
       value={props.value}
       onChange={event => props.setLevel(+event.target.value)}
     >

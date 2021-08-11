@@ -23,8 +23,6 @@ export default React.memo(function YourDeckForm(props) {
           <Input
             label='Deck URL or ID'
             required
-            type='text'
-            name='id'
             id='id'
             data-testid='deck-id-input'
             minLength={3 * 12}
@@ -39,8 +37,6 @@ export default React.memo(function YourDeckForm(props) {
           <Input
             label='Deck name'
             required
-            type='text'
-            name='name'
             id='name'
             data-testid='deck-name-input'
             maxLength={30}

@@ -15,7 +15,6 @@ export default React.memo(function DryRunnerSettings(props) {
 
       <Checkbox
         extend={styles.displayChance}
-        name='display-chance'
         id='display-chance'
         checked={props.displayChance}
         onChange={event => props.setDisplayChance(event.target.checked)}

@@ -5,7 +5,6 @@ const BrawlDifficultySelect = props => (
   <Select
     label='Brawl difficulty'
     id='difficulty'
-    name='difficulty'
     value={props.value}
     onChange={props.onChange}
     extend={props.extend}

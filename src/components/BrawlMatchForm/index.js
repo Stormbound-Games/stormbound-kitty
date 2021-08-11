@@ -92,7 +92,6 @@ export default React.memo(function BrawlMatchForm(props) {
             hideLabel
             label='Status'
             id='status'
-            name='status'
             required
             form='add-match-form'
             data-testid='outcome'
@@ -113,7 +112,6 @@ export default React.memo(function BrawlMatchForm(props) {
             hideLabel
             label='Victory bonus'
             id='bonus'
-            name='bonus'
             form='add-match-form'
             data-testid='bonus'
             disabled={!['WON', 'FORFEIT'].includes(status)}

@@ -65,7 +65,6 @@ export default React.memo(function BrawlCalculatorSettings(props) {
           ) : props.mode === 'GOAL' ? (
             <Select
               label='Milestone'
-              name='milestone'
               id='milestone'
               value={props.milestone}
               onChange={event => props.setMilestone(+event.target.value)}

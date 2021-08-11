@@ -18,7 +18,6 @@ export default React.memo(function ResetButton(props) {
   return (
     <>
       <CTA
-        className='ResetButton'
         type='button'
         onClick={open}
         data-testid='reset-btn'

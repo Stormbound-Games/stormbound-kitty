@@ -187,7 +187,6 @@ export default React.memo(function IncomeCalculator(props) {
             <Row.Column>
               <Select
                 label='Game setup'
-                name='setup'
                 id='setup'
                 value={setup}
                 onChange={event => setSetup(event.target.value)}
@@ -220,7 +219,6 @@ export default React.memo(function IncomeCalculator(props) {
             <Row.Column>
               <Select
                 label='Monthly rank'
-                name='rank'
                 id='rank'
                 value={rank}
                 disabled={league === 'HEROES'}
@@ -239,7 +237,6 @@ export default React.memo(function IncomeCalculator(props) {
             <Row.Column>
               <Select
                 label='Casual milestone'
-                name='casualMilestone'
                 id='casualMilestone'
                 value={casualMilestone}
                 onChange={event => setCasualMilestone(+event.target.value)}
@@ -255,7 +252,6 @@ export default React.memo(function IncomeCalculator(props) {
             <Row.Column>
               <Select
                 label='Warrior milestone'
-                name='warriorMilestone'
                 id='warriorMilestone'
                 value={warriorMilestone}
                 onChange={event => setWarriorMilestone(+event.target.value)}
@@ -273,7 +269,6 @@ export default React.memo(function IncomeCalculator(props) {
             <Row.Column>
               <Select
                 label='Ultimate milestone'
-                name='ultimateMilestone'
                 id='ultimateMilestone'
                 value={ultimateMilestone}
                 onChange={event => setUltimateMilestone(+event.target.value)}
@@ -290,7 +285,6 @@ export default React.memo(function IncomeCalculator(props) {
               <NumberInput
                 label='Brawl total cost'
                 id='brawl-cost'
-                name='brawl-cost'
                 value={brawlCost}
                 onChange={setBrawlCost}
                 step={10}
@@ -303,7 +297,6 @@ export default React.memo(function IncomeCalculator(props) {
               <Select
                 label='Heroes Position'
                 id='heroes-position'
-                name='heroes-position'
                 value={heroesPosition}
                 disabled={league !== 'HEROES'}
                 onChange={event => setHeroesPosition(event.target.value)}
@@ -319,7 +312,6 @@ export default React.memo(function IncomeCalculator(props) {
               <Select
                 label='Convert rubies to'
                 id='rubies-conversion'
-                name='rubies-conversion'
                 value={rubiesConversion}
                 onChange={event => setRubiesConversion(event.target.value)}
               >
@@ -335,7 +327,6 @@ export default React.memo(function IncomeCalculator(props) {
           </Row>
           <Checkbox
             id='with-daily-quests'
-            name='with-daily-quests'
             checked={withDailyQuests}
             onChange={event => setWithDailyQuests(event.target.checked)}
           >
@@ -343,7 +334,6 @@ export default React.memo(function IncomeCalculator(props) {
           </Checkbox>
           <Checkbox
             id='prefer-tier3-stones'
-            name='prefer-tier3-stones'
             checked={preferTier3Stones}
             onChange={event => setPreferTier3Stones(event.target.checked)}
           >
@@ -351,7 +341,6 @@ export default React.memo(function IncomeCalculator(props) {
           </Checkbox>
           <Checkbox
             id='with-daily-humble'
-            name='with-daily-humble'
             checked={withDailyHumble}
             onChange={event => setWithDailyHumble(event.target.checked)}
           >
@@ -373,7 +362,6 @@ export default React.memo(function IncomeCalculator(props) {
               <Select
                 hideLabel
                 label='Period'
-                name='period'
                 id='period'
                 value={period}
                 onChange={event => setPeriod(event.target.value)}

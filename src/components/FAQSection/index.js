@@ -8,7 +8,7 @@ export default React.memo(function FAQSection(props) {
   return (
     <section className={css({ marginBottom: '2em' })} id={props.id}>
       <Title>{props.title}</Title>
-      <dl className='FAQSection__list'>
+      <dl>
         {props.entries.map(entry => (
           <FAQEntry key={entry.id} {...entry} />
         ))}

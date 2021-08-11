@@ -11,7 +11,6 @@ export default React.memo(function DryRunnerEqualsMode(props) {
   return (
     <>
       <Checkbox
-        name='equals-mode'
         id='equals-mode'
         data-testid='equals-mode'
         extend={styles.container}

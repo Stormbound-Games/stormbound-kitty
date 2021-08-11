@@ -68,7 +68,6 @@ export default React.memo(function ChartStrengthMana(props) {
         <Row.Column>
           <Select
             label='Level'
-            name='csm-level'
             id='csm-level'
             value={level}
             onChange={event => setLevel(+event.target.value)}

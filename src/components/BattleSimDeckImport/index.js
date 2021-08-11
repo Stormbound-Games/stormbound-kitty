@@ -98,7 +98,6 @@ class BattleSimDeckImport extends React.Component {
           <Input
             label='Deck URL'
             type='url'
-            name='deck'
             id='deck'
             required
             placeholder='e.g. https://stormbound-kitty.com/deck/NE4xLDRJMSw0TjMsNEk2LDRJOCw0STExLDRJMTUsNEkxMiw0TjI4LDRJMjAsNEkxOSw0STIx'

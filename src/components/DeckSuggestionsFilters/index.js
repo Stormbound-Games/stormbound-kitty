@@ -66,7 +66,6 @@ export default React.memo(function DeckSuggestionsFilters(props) {
             <Select
               label='Author'
               id='author'
-              name='author'
               value={props.author}
               onChange={event => props.updateAuthor(event.target.value)}
             >
@@ -85,7 +84,6 @@ export default React.memo(function DeckSuggestionsFilters(props) {
             <Input
               label='Name'
               type='search'
-              name='name'
               id='name'
               value={name}
               onChange={event => {
@@ -115,7 +113,6 @@ export default React.memo(function DeckSuggestionsFilters(props) {
             <Select
               label='Order'
               id='order'
-              name='order'
               value={props.order}
               onChange={event => props.updateOrder(event.target.value)}
             >

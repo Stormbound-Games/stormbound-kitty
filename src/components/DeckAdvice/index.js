@@ -19,7 +19,7 @@ export default React.memo(function DeckAdvice(props) {
   }, [deckAdvice])
 
   return (
-    <div className='DeckAdvice'>
+    <>
       <Title>
         Suggestions <LearnMoreIcon anchor='#incorrect-deck-advice' />
       </Title>
@@ -49,6 +49,6 @@ export default React.memo(function DeckAdvice(props) {
           </p>
         </>
       )}
-    </div>
+    </>
   )
 })

@@ -33,7 +33,6 @@ export default React.memo(function AdvancedCardSearch(props) {
               </div>
             }
             type='search'
-            name='search'
             id='search'
             value={props.value}
             onChange={event => props.setSearch(event.target.value)}

@@ -66,7 +66,6 @@ export default React.memo(function ListBuilderDisplayView(props) {
           <Select
             label='Display factions'
             id='factions'
-            name='factions'
             value={faction}
             onChange={event => setFaction(event.target.value)}
             className={css({ marginBottom: '1em' })}

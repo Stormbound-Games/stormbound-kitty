@@ -18,7 +18,6 @@ export default React.memo(function CollectionActiveCardForm(props) {
             <Select
               label='Card level'
               id='level'
-              name='level'
               required
               value={props.activeCard.missing ? '1' : props.activeCard.level}
               onChange={props.setActiveCardLevel}
@@ -56,7 +55,6 @@ export default React.memo(function CollectionActiveCardForm(props) {
         <Row>
           <Row.Column>
             <Checkbox
-              name='missing'
               id='missing'
               checked={props.activeCard.missing}
               onChange={props.setActiveCardMissing}

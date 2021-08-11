@@ -25,8 +25,6 @@ export default React.memo(function CardBuilderCardForm(props) {
           <Row.Column>
             <Input
               label='Strength'
-              type='text'
-              name='strength'
               id='strength'
               value={
                 props.strength.display === null ? '' : props.strength.display
@@ -41,8 +39,6 @@ export default React.memo(function CardBuilderCardForm(props) {
           <Row.Column>
             <Input
               label='Mana'
-              type='text'
-              name='mana'
               id='mana'
               value={props.mana.display === null ? '' : props.mana.display}
               onChange={event => props.setMana(event.target.value)}
@@ -57,8 +53,6 @@ export default React.memo(function CardBuilderCardForm(props) {
           <Row.Column>
             <Input
               label='Ability'
-              type='text'
-              name='ability'
               id='ability'
               maxLength={160}
               value={

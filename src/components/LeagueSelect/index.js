@@ -5,7 +5,6 @@ export default React.memo(function LeagueSelect(props) {
   return (
     <Select
       label={props.label || 'League'}
-      name='league'
       id='league'
       value={props.value}
       onChange={props.onChange}

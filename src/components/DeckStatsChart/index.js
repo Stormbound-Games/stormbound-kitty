@@ -109,7 +109,6 @@ export default React.memo(function DeckStatsChart(props) {
         <div className={css(styles.select)}>
           <Select
             label='Brawl modifier'
-            name='brawl-modifier'
             id='brawl-modifier'
             data-testid='brawl-modifier'
             value={props.modifier}

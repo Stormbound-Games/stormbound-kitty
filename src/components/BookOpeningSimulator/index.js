@@ -90,7 +90,6 @@ const CustomBookFields = ({
           <Input
             label='Amount of cards'
             type='number'
-            name='amount'
             id='amount'
             required
             min={1}
@@ -224,7 +223,6 @@ const BookOpeningSimulator = props => {
             <Select
               label='Book type'
               id='bookType'
-              name='bookType'
               required
               value={bookType}
               onChange={event => setBookType(event.target.value)}

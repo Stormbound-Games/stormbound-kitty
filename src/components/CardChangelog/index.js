@@ -54,7 +54,6 @@ export default function CardChangelog(props) {
             <Select
               label='Sort by'
               id='sorting'
-              name='sorting'
               value={sorting}
               onChange={event => setSorting(event.target.value)}
             >
@@ -66,7 +65,6 @@ export default function CardChangelog(props) {
             <Select
               label='Types of changes'
               id='type'
-              name='type'
               value={type}
               onChange={event => setType(event.target.value)}
             >

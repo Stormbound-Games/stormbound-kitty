@@ -10,7 +10,6 @@ export default React.memo(function BrawlCalculatorPremiumPassToggle(props) {
   return (
     <p className={css(styles.toggle)}>
       <Checkbox
-        name='with-premium-pass'
         id='with-premium-pass'
         onChange={props.onChange}
         checked={props.checked}

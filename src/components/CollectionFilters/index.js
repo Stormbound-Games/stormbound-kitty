@@ -66,7 +66,6 @@ export default React.memo(function CollectionFilters(props) {
               <Row.Column>
                 <Select
                   label='Type'
-                  name='type'
                   id='type'
                   value={props.type}
                   onChange={event => props.setType(event.target.value)}
@@ -87,7 +86,6 @@ export default React.memo(function CollectionFilters(props) {
               <Row.Column>
                 <Select
                   label='Status'
-                  name='status'
                   id='status'
                   value={props.status}
                   onChange={event => props.setStatus(event.target.value)}
@@ -102,7 +100,6 @@ export default React.memo(function CollectionFilters(props) {
               <Row.Column>
                 <Select
                   label='Level'
-                  name='level'
                   id='level'
                   value={props.level}
                   onChange={event => props.setLevel(event.target.value)}
@@ -126,7 +123,6 @@ export default React.memo(function CollectionFilters(props) {
               <Row.Column>
                 <Select
                   label='Rarity'
-                  name='rarity'
                   id='rarity'
                   value={props.rarity}
                   onChange={event => props.setRarity(event.target.value)}
@@ -143,7 +139,6 @@ export default React.memo(function CollectionFilters(props) {
               <Row.Column>
                 <Select
                   label='Race'
-                  name='race'
                   id='race'
                   value={props.race}
                   onChange={event => props.setRace(event.target.value)}
@@ -165,7 +160,6 @@ export default React.memo(function CollectionFilters(props) {
                 <Only.CustomCollection>
                   <Select
                     label='Order'
-                    name='order'
                     id='order'
                     value={props.order}
                     onChange={event => props.setOrder(event.target.value)}
@@ -181,7 +175,6 @@ export default React.memo(function CollectionFilters(props) {
                 <Input
                   label='Text'
                   type='search'
-                  name='text'
                   id='text'
                   value={props.text}
                   onChange={event => props.setText(event.target.value)}

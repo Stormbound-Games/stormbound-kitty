@@ -62,7 +62,6 @@ export default React.memo(function BrawlReset(props) {
         </p>
         <div className={css(styles.checkbox)}>
           <Checkbox
-            name='discard-brawl'
             id='discard-brawl'
             value={discard}
             onChange={event => setDiscard(event.target.checked)}

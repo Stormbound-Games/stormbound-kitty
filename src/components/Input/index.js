@@ -5,6 +5,7 @@ import styles from './styles'
 
 const Input = ({ hideLabel, extend, label, ...props }, ref) => {
   const { css } = useFela()
+  const name = props.name || props.id
 
   return (
     <>
@@ -17,7 +18,13 @@ const Input = ({ hideLabel, extend, label, ...props }, ref) => {
           {label}
         </label>
       )}
-      <input {...props} className={css(styles.input, extend)} ref={ref} />
+      <input
+        type='text'
+        {...props}
+        name={name}
+        className={css(styles.input, extend)}
+        ref={ref}
+      />
     </>
   )
 }
