@@ -19,12 +19,6 @@ describe('Routes — Deck Builder', () => {
       .should('exist')
   })
 
-  it('should render deck tracker for ' + deck.id, () => {
-    cy.visit('/deck/' + deck.id + '/tracker')
-      .get('main h1')
-      .should('exist')
-  })
-
   it('should render deck dry-runner for ' + deck.id, () => {
     cy.visit('/deck/' + deck.id + '/dry-run')
       .get('main h1')
