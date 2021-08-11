@@ -215,7 +215,7 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
   const articleProps = useArticleProps(deck)
 
   return (
-    <Article {...articleProps} smallFontSize>
+    <Article {...articleProps}>
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>Deck</Title>

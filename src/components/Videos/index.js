@@ -130,7 +130,7 @@ export default React.memo(function Videos(props) {
   const { css } = useFela()
 
   return (
-    <Article title='Videos'>
+    <Article title='Videos' isEditorialContent>
       {chunk(VIDEOS, 2).map((row, index) => (
         <Row key={index} desktopOnly wideGutter>
           {row.map((video, index, array) => (

@@ -23,7 +23,6 @@ export default React.memo(function ListBuilderDisplayView(props) {
         to: `/list/${id}`,
         children: 'Edit list',
       }}
-      smallFontSize
     >
       <Row wideGutter desktopOnly>
         <Row.Column width='1/3'>

@@ -42,6 +42,7 @@ export default React.memo(function Member(props) {
           )}
         </>
       }
+      isEditorialContent
     >
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>

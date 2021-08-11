@@ -31,6 +31,7 @@ export default React.memo(function BrewedSages(props) {
       authors={['Freeloader', 'Subaiku']}
       background='/assets/images/banners/environment_shadowfen.png'
       withAvif
+      isEditorialContent
     >
       <Article.Narrow>
         <p>

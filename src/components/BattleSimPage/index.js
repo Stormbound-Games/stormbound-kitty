@@ -34,7 +34,7 @@ const BattleSimPage = React.memo(function BattleSimPage(props) {
   const articleProps = useArticleProps(simId, props.mode, puzzle)
 
   return (
-    <Article {...articleProps} smallFontSize>
+    <Article {...articleProps}>
       <BattleSimApp {...props} simId={simId} puzzle={puzzle} />
       <PageMeta
         title={articleProps.title}

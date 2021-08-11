@@ -18,7 +18,7 @@ export default React.memo(function About(props) {
   const { css } = useFela()
 
   return (
-    <Article title='About'>
+    <Article title='About' isEditorialContent>
       <Article.Narrow>
         <p>
           Hey there! I’m Kitty. I created Stormbound-Kitty in March 2019

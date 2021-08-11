@@ -21,7 +21,6 @@ export default React.memo(function BrawlPage(props) {
       action={{ to: '/brawl', children: 'Back to index' }}
       background={`/assets/images/banners/environment_${faction}.png`}
       withAvif
-      smallFontSize
     >
       <BrawlProvider id={id} difficulty={difficulty}>
         <BrawlTracker difficulty={difficulty} setDifficulty={setDifficulty} />

@@ -43,6 +43,7 @@ export default React.memo(function Lexicon(props) {
         to: '/guides/' + CATEGORIES.ESSENTIALS.slug,
         children: 'Back to guides',
       }}
+      isEditorialContent
     >
       <Masonry
         breakpointCols={{ default: 2, 700: 2, 500: 1 }}

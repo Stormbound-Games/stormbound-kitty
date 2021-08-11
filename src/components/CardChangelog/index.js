@@ -47,7 +47,7 @@ export default function CardChangelog(props) {
   }, [type])
 
   return (
-    <Article title='Card Changelog'>
+    <Article title='Card Changelog' isEditorialContent>
       <Article.Narrow>
         <Title>Filters</Title>
         <Row>

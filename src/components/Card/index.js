@@ -47,7 +47,7 @@ export default React.memo(function Card(props) {
   const { css } = useFela(styleProps)
 
   return (
-    <article
+    <div
       className={css(styles.card, props.extend)}
       data-affordable={props.affordable || undefined}
       data-upgradable={props.upgradable || undefined}
@@ -62,7 +62,7 @@ export default React.memo(function Card(props) {
       id={[props.id, props.idx].filter(Boolean).join('_')}
     >
       <div className={css(styles.content)} style={{ backgroundImage }}>
-        <header className={css(styles.header)}>
+        <div className={css(styles.header)}>
           <div className={css(styles.mana)}>
             <span
               className={css(
@@ -83,7 +83,7 @@ export default React.memo(function Card(props) {
           <span className={css(styles.race)} data-testid='card-race'>
             {props.race} {props.elder && 'elder'} {props.hero && 'hero'}
           </span>
-        </header>
+        </div>
 
         {!props.missing ? (
           <div className={css(styles.imageWrapper)}>
@@ -115,7 +115,7 @@ export default React.memo(function Card(props) {
           />
         )}
 
-        <footer className={css(styles.footer)}>
+        <div className={css(styles.footer)}>
           <p className={css(styles.ability)} data-testid='card-ability'>
             {microMarkdown(props.ability)}
           </p>
@@ -172,8 +172,8 @@ export default React.memo(function Card(props) {
               </span>
             </div>
           )}
-        </footer>
+        </div>
       </div>
-    </article>
+    </div>
   )
 })

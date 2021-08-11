@@ -6,16 +6,15 @@ const article = {
  * 1. Historically, the site’s font size was set relatively small because it was
  *    mostly tools which required to display many things on screen at once such
  *    as the battle sim. However, as the site evolved, more and more content
- *    became text-based, such as stories, guides and over pages with a non-
+ *    became text-based, such as stories, guides and other pages with a non-
  *    trivial amount of text content. The initial font size is no longer adequat
- *    and it’s too difficult/risky to increase it side-wide. Instead, most pages
- *    use the `Article` component as a main wrapper, which sets a larger font
- *    size. For pages which need to benefit from the `Article` layout but need
- *    the original small font size, the `smallFontSize` prop can be used.
+ *    and it’s too difficult/risky to increase it site-wide. Instead, pages with
+ *    “editorial content” use the `Article` component as a main wrapper, which
+ *    sets a larger font size.
  */
-const content = ({ smallFontSize }) => ({
+const content = ({ isEditorialContent }) => ({
   hyphens: 'auto',
-  fontSize: smallFontSize ? undefined : '125%' /* 1 */,
+  fontSize: isEditorialContent ? '125%' : undefined /* 1 */,
 })
 
 /**

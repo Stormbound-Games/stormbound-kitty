@@ -14,7 +14,7 @@ const Article = React.memo(function Article(props) {
   const action = props.action || {}
   const authors = (props.authors || [props.author]).filter(Boolean)
   const { css } = useFela({
-    smallFontSize: props.smallFontSize,
+    isEditorialContent: props.isEditorialContent,
     withDropCap: props.withDropCap,
   })
 

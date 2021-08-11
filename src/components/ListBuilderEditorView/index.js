@@ -177,7 +177,6 @@ class ListBuilderEditorView extends React.Component {
             icon: 'eye',
           }
         }
-        smallFontSize
       >
         <Row wideGutter desktopOnly>
           <Row.Column width='1/3'>

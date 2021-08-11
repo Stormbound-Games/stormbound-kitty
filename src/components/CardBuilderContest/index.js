@@ -18,6 +18,7 @@ export default React.memo(function CardBuilderContest(props) {
         authors={['TaKo_G']}
         action={{ to: '/card', children: 'Card builder' }}
         meta='Discontinued'
+        isEditorialContent
       >
         <Article.Narrow>
           <Title>Introduction</Title>

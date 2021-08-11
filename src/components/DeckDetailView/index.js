@@ -62,7 +62,6 @@ export default React.memo(function DeckDetailView(props) {
           : undefined
       }
       action={{ to: '/deck/' + props.deckId, children: 'Edit deck' }}
-      smallFontSize
     >
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>

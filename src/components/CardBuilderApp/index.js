@@ -131,7 +131,7 @@ export default React.memo(function CardBuilderApp(props) {
   }, [previousCardId, props.cardId])
 
   return (
-    <Article {...articleProps} smallFontSize>
+    <Article {...articleProps}>
       <CardDisplay mode={props.mode} {...cardData} />
 
       {isOfficial && (

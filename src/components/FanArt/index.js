@@ -18,7 +18,7 @@ export default React.memo(function FanArt(props) {
   const { loading, items, ref } = useLazyLoad(entries, 3)
 
   return (
-    <Article title='Fan Art'>
+    <Article title='Fan Art' isEditorialContent>
       <Article.Narrow>
         <p>
           All illustrations displayed on this page have been collected from the

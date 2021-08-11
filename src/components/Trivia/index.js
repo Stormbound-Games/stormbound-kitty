@@ -122,7 +122,7 @@ const Trivia = () => {
   )
 
   return (
-    <Article title='Trivia Game'>
+    <Article title='Trivia Game' isEditorialContent>
       <Article.Narrow>
         <p>
           Welcome to the <Strikethrough>Thunder</Strikethrough> Stormdome! Test
