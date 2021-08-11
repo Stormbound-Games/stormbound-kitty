@@ -8,12 +8,11 @@ import { CollectionContext } from '../CollectionProvider'
 import BookmarkDeckButton from '../BookmarkDeckButton'
 import Decks from '../Decks'
 import EmptySearch from '../EmptySearch'
-import HeaderBanner from '../HeaderBanner'
+import Article from '../Article'
 import ImportCollection from '../ImportCollection'
 import Info from '../Info'
 import LearnMoreIcon from '../LearnMoreIcon'
 import Only from '../Only'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Spacing from '../Spacing'
 import SuggestionsFilters from '../DeckSuggestionsFilters'
@@ -146,9 +145,10 @@ class DeckSuggestions extends React.Component {
     const decks = this.getDecks()
 
     return (
-      <>
-        <HeaderBanner title='Popular Decks' />
-
+      <Article
+        title='Popular Decks'
+        description={getDeckSearchDescription(this.state)}
+      >
         <Row desktopOnly wideGutter>
           <Row.Column width='1/3'>
             <Title>Filters</Title>
@@ -217,12 +217,7 @@ class DeckSuggestions extends React.Component {
             )}
           </Row.Column>
         </Row>
-
-        <PageMeta
-          title='Popular Decks'
-          description={getDeckSearchDescription(this.state)}
-        />
-      </>
+      </Article>
     )
   }
 }

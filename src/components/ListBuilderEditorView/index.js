@@ -11,7 +11,6 @@ import {
 } from '../../constants/list'
 import Article from '../Article'
 import CTA from '../CTA'
-import PageMeta from '../PageMeta'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
 import ShareButton from '../ListBuilderShareButton'
@@ -170,6 +169,7 @@ class ListBuilderEditorView extends React.Component {
     return (
       <Article
         title='Create your list'
+        description='Compose your own tier lists from the Stormbound cards, ranking them the way you see fit'
         action={
           this.props.listId && {
             to: `/list/${this.props.listId}/display`,
@@ -242,11 +242,6 @@ class ListBuilderEditorView extends React.Component {
             </CTA>
           </Row.Column>
         </Row>
-
-        <PageMeta
-          title='Tier List Builder'
-          description='Compose your own tier lists from the Stormbound cards, ranking them the way you see fit'
-        />
       </Article>
     )
   }

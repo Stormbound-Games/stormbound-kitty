@@ -4,7 +4,6 @@ import Link from '../Link'
 import Article from '../Article'
 import HallOfFame from '../CardBuilderHallOfFame'
 import { Rubies } from '../Resource'
-import PageMeta from '../PageMeta'
 import Title from '../Title'
 import styles from './styles'
 
@@ -15,6 +14,7 @@ export default React.memo(function CardBuilderContest(props) {
     <>
       <Article
         title='Weekly Card Contest'
+        description='All the information to participate and/or vote in the Stormbound weekly card competitions'
         authors={['TaKo_G']}
         action={{ to: '/card', children: 'Card builder' }}
         meta='Discontinued'
@@ -109,11 +109,6 @@ export default React.memo(function CardBuilderContest(props) {
       </Article>
 
       <HallOfFame />
-
-      <PageMeta
-        title='Weekly Card Contest'
-        description='All the information to participate and/or vote in the Stormbound weekly card competitions'
-      />
     </>
   )
 })

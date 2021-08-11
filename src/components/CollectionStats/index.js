@@ -14,11 +14,10 @@ import {
   Pie,
 } from 'recharts'
 import { CollectionContext } from '../CollectionProvider'
+import Article from '../Article'
 import Checkbox from '../Checkbox'
 import CollectionFigures from '../CollectionFigures'
-import HeaderBanner from '../HeaderBanner'
 import Only from '../Only'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Spacing from '../Spacing'
 import Title from '../Title'
@@ -218,9 +217,10 @@ export default function CollectionStats(props) {
   )
 
   return (
-    <>
-      <HeaderBanner title='Collection Stats' />
-
+    <Article
+      title='Collection Stats'
+      description='Get insights about your own card collection and visualise it'
+    >
       <Row desktopOnly>
         <Row.Column width='1/3'>
           <Row desktopOnly>
@@ -465,11 +465,6 @@ export default function CollectionStats(props) {
           </Row>
         </Row.Column>
       </Row>
-
-      <PageMeta
-        title='Collection Stats'
-        description='Get insights about your own card collection and visualise it'
-      />
-    </>
+    </Article>
   )
 }

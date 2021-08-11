@@ -1,9 +1,8 @@
 import React from 'react'
 import FanKitDownloadDialog from '../FanKitDownloadDialog'
 import FanKitItem from '../FanKitItem'
-import HeaderBanner from '../HeaderBanner'
+import Article from '../Article'
 import Loader from '../Loader'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import chunk from '../../helpers/chunk'
 import capitalise from '../../helpers/capitalise'
@@ -69,10 +68,11 @@ export default React.memo(function FanKitAvatars(props) {
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
   const activeAvatar = AVATARS_INDEX[active]
-  const { loading, items: displayedItems, ref } = useLazyLoad(
-    avatars,
-    columns * 2
-  )
+  const {
+    loading,
+    items: displayedItems,
+    ref,
+  } = useLazyLoad(avatars, columns * 2)
   const items = chunk(displayedItems, columns)
 
   React.useEffect(() => {
@@ -83,9 +83,10 @@ export default React.memo(function FanKitAvatars(props) {
   }, [active])
 
   return (
-    <>
-      <HeaderBanner title='Avatars Fan-Kit' />
-
+    <Article
+      title='Avatars Fan-Kit'
+      description='Find all the avatars assets from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
+    >
       <FanKitDownloadDialog
         displayImage={false}
         name={activeAvatar ? activeAvatar.name : undefined}
@@ -125,11 +126,6 @@ export default React.memo(function FanKitAvatars(props) {
 
       {loading && <Loader />}
       <div ref={ref} />
-
-      <PageMeta
-        title='Avatars – Fan-Kit'
-        description='Find all the avatars assets from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
-      />
-    </>
+    </Article>
   )
 })

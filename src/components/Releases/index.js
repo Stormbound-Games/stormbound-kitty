@@ -1,8 +1,7 @@
 import React from 'react'
 import Link from '../Link'
-import HeaderBanner from '../HeaderBanner'
+import Article from '../Article'
 import Notice from '../Notice'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Teaser from '../Teaser'
 import chunk from '../../helpers/chunk'
@@ -10,9 +9,10 @@ import releases from '../../data/releases'
 
 export default React.memo(function Releases(props) {
   return (
-    <>
-      <HeaderBanner title='Releases' />
-
+    <Article
+      title='Releases'
+      description='Find all the information about every release on Stormbound-Kitty, the official place for release notes'
+    >
       {chunk(releases, 3).map((row, index) => (
         <Row
           key={index}
@@ -55,11 +55,6 @@ export default React.memo(function Releases(props) {
         specific cards, refer to <Link to='/changelog'>the card changelog</Link>
         .
       </Notice>
-
-      <PageMeta
-        title='Release Notes'
-        description='Find all the information about every release on Stormbound-Kitty, the official place for release notes'
-      />
-    </>
+    </Article>
   )
 })

@@ -1,11 +1,10 @@
 import React from 'react'
 import serialize from 'form-serialize'
+import Article from '../Article'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import { NotificationContext } from '../NotificationProvider'
 import ExportDecks from '../ExportDecks'
-import HeaderBanner from '../HeaderBanner'
 import ImportDecks from '../ImportDecks'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Spacing from '../Spacing'
 import Title from '../Title'
@@ -122,9 +121,10 @@ export default React.memo(function DeckCollection(props) {
   )
 
   return (
-    <>
-      <HeaderBanner title='Personal Decks' />
-
+    <Article
+      title='Personal Decks'
+      description='Bookmark and manage your own deck, with a local backup and CSV import/export'
+    >
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>What is this</Title>
@@ -166,10 +166,6 @@ export default React.memo(function DeckCollection(props) {
           />
         </Row.Column>
       </Row>
-      <PageMeta
-        title='Your decks'
-        description='Bookmark and manage your own deck, with a local backup and CSV import/export'
-      />
-    </>
+    </Article>
   )
 })

@@ -1,10 +1,9 @@
 import React from 'react'
-import HeaderBanner from '../HeaderBanner'
+import Article from '../Article'
 import Icon from '../Icon'
 import Input from '../Input'
 import MemberListEntry from '../MemberListEntry'
 import MemberTagYourself from '../MemberTagYourself'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Select from '../Select'
 import { StoriesContext } from '../StoriesProvider'
@@ -81,8 +80,10 @@ export default React.memo(function Members(props) {
   const rows = chunk(uniqMembers, 3)
 
   return (
-    <>
-      <HeaderBanner title='Members' />
+    <Article
+      title='Members'
+      description='Find an index of all Stormbound-Kitty community members having contributed, one way or another, to the site with content'
+    >
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
           <p>
@@ -152,10 +153,6 @@ export default React.memo(function Members(props) {
           ))}
         </Row.Column>
       </Row>
-      <PageMeta
-        title='Members'
-        description='Find an index of all Stormbound-Kitty community members having contributed, one way or another, to the site with content'
-      />
-    </>
+    </Article>
   )
 })

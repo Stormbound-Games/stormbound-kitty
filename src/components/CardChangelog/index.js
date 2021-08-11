@@ -3,7 +3,6 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import Article from '../Article'
 import Info from '../Info'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Select from '../Select'
 import Spacing from '../Spacing'
@@ -47,7 +46,11 @@ export default function CardChangelog(props) {
   }, [type])
 
   return (
-    <Article title='Card Changelog' isEditorialContent>
+    <Article
+      title='Card Changelog'
+      isEditorialContent
+      description='Find all cards changes that ever happened on Stormbound'
+    >
       <Article.Narrow>
         <Title>Filters</Title>
         <Row>
@@ -135,11 +138,6 @@ export default function CardChangelog(props) {
                 </Spacing>
               ))}
       </Article.Narrow>
-
-      <PageMeta
-        title='Card Changes'
-        description='Find all cards changes that ever happened on Stormbound'
-      />
     </Article>
   )
 }

@@ -3,7 +3,6 @@ import { useRouteMatch } from 'react-router-dom'
 import { TIER_COLORS, MAX_TIERS } from '../../constants/list'
 import Article from '../Article'
 import CTA from '../CTA'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import ShareButton from '../ListBuilderShareButton'
 import ListBuilderTier from '../ListBuilderTier'
@@ -19,6 +18,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
   return (
     <Article
       title='List builder'
+      description='Compose your own tier lists from the Stormbound cards, ranking them the way you see fit'
       action={{
         to: `/list/${id}`,
         children: 'Edit list',
@@ -59,11 +59,6 @@ export default React.memo(function ListBuilderDisplayView(props) {
           ))}
         </Row.Column>
       </Row>
-
-      <PageMeta
-        title='Tier List Builder'
-        description='Compose your own tier lists from the Stormbound cards, ranking them the way you see fit'
-      />
     </Article>
   )
 })

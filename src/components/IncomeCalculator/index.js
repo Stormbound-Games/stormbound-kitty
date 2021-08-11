@@ -2,12 +2,11 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
 import Checkbox from '../Checkbox'
-import HeaderBanner from '../HeaderBanner'
+import Article from '../Article'
 import Info from '../Info'
 import LeagueSelect from '../LeagueSelect'
 import NumberInput from '../NumberInput'
 import Only from '../Only'
-import PageMeta from '../PageMeta'
 import PremiumPassCheckbox from '../PremiumPassCheckbox'
 import ResourceIcon from '../ResourceIcon'
 import Row from '../Row'
@@ -148,9 +147,10 @@ export default React.memo(function IncomeCalculator(props) {
   }, [maxWins, setup, wins])
 
   return (
-    <>
-      <HeaderBanner title='Income Calculator' />
-
+    <Article
+      title='Income Calculator'
+      description='Compute how many resources you can get during a certain period of time to get most out of your resources.'
+    >
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>What is this?</Title>
@@ -416,10 +416,6 @@ export default React.memo(function IncomeCalculator(props) {
           </div>
         </Row.Column>
       </Row>
-      <PageMeta
-        title='Income Calculator'
-        description='Compute how many resources you can get during a certain period of time to get most out of your resources.'
-      />
-    </>
+    </Article>
   )
 })

@@ -3,12 +3,11 @@ import { useFela } from 'react-fela'
 import { useRouteMatch, useHistory } from 'react-router-dom'
 import Card from '../Card'
 import CardSelect from '../CardSelect'
-import HeaderBanner from '../HeaderBanner'
+import Article from '../Article'
 import Image from '../Image'
 import Info from '../Info'
 import LearnMoreIcon from '../LearnMoreIcon'
 import Link from '../Link'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Select from '../Select'
 import Title from '../Title'
@@ -116,8 +115,10 @@ export default React.memo(function ValueCalculator(props) {
   }, [A, B])
 
   return (
-    <>
-      <HeaderBanner title='Value Calculator' />
+    <Article
+      title='Value Calculator'
+      description='Find an experimental and simplified card value calculator helping determine the numeric value of a given card based on its properties'
+    >
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>What is this</Title>
@@ -230,10 +231,6 @@ export default React.memo(function ValueCalculator(props) {
           </p>
         </Row.Column>
       </Row>
-      <PageMeta
-        title='Value Calculator'
-        description='Find an experimental and simplified card value calculator helping determine the numeric value of a given card based on its properties'
-      />
-    </>
+    </Article>
   )
 })

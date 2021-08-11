@@ -1,8 +1,7 @@
 import React from 'react'
 import FanKitDownloadDialog from '../FanKitDownloadDialog'
 import FanKitItem from '../FanKitItem'
-import HeaderBanner from '../HeaderBanner'
-import PageMeta from '../PageMeta'
+import Article from '../Article'
 import Row from '../Row'
 import chunk from '../../helpers/chunk'
 import indexArray from '../../helpers/indexArray'
@@ -37,9 +36,10 @@ export default React.memo(function FanKitWallpapers(props) {
   }, [active])
 
   return (
-    <>
-      <HeaderBanner title='Wallpapers' />
-
+    <Article
+      title='Wallpapers'
+      description='Find all the wallpapers from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
+    >
       <FanKitDownloadDialog
         displayImage={false}
         name={activeWallpaper ? activeWallpaper.name : undefined}
@@ -92,11 +92,6 @@ export default React.memo(function FanKitWallpapers(props) {
           </Row.Column>
         </Row>
       ))}
-
-      <PageMeta
-        title='Wallpapers – Fan-Kit'
-        description='Find all the wallpapers from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
-      />
-    </>
+    </Article>
   )
 })

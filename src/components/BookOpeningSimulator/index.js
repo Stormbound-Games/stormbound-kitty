@@ -2,15 +2,14 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import { useRouteMatch, useHistory } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import Article from '../Article'
 import Card from '../Card'
 import CTA from '../CTA'
-import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
 import Input from '../Input'
 import Link from '../Link'
 import Notice from '../Notice'
 import NumberInput from '../NumberInput'
-import PageMeta from '../PageMeta'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
 import Select from '../Select'
@@ -207,12 +206,11 @@ const BookOpeningSimulator = props => {
   }, [cards])
 
   return (
-    <>
-      <HeaderBanner
-        title='Book Simulator'
-        background='/assets/images/wallpapers/lite/wp-d-6.png'
-      />
-
+    <Article
+      title='Book Simulator'
+      description='Recreate the thrill of opening books by playing with this simulator, opening the books of your choice!'
+      background='/assets/images/wallpapers/lite/wp-d-6.png'
+    >
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>What is this</Title>
@@ -314,12 +312,7 @@ const BookOpeningSimulator = props => {
           )}
         </Row.Column>
       </Row>
-
-      <PageMeta
-        title='Book Opening Simulator'
-        description='Recreate the thrill of opening books by playing with this simulator, opening the books of your choice!'
-      />
-    </>
+    </Article>
   )
 }
 

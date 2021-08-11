@@ -4,10 +4,8 @@ import Link from '../Link'
 import Article from '../Article'
 import Notice from '../Notice'
 import Only from '../Only'
-import PageMeta from '../PageMeta'
 import Spacing from '../Spacing'
 import getExcerpt from '../../helpers/getExcerpt'
-import toSentence from '../../helpers/toSentence'
 import { CATEGORIES } from '../../constants/guides'
 import styles from './styles'
 
@@ -15,9 +13,11 @@ const Guide = React.memo(function Guide(props) {
   return (
     <>
       <Article
-        meta={CATEGORIES[props.category].name.short}
-        authors={props.authors}
         title={props.name}
+        description={getExcerpt(props.excerpt, 160)}
+        image={props.background}
+        authors={props.authors}
+        meta={CATEGORIES[props.category].name.short}
         background={props.background}
         action={{
           to: '/guides/' + CATEGORIES[props.category].slug,
@@ -43,13 +43,6 @@ const Guide = React.memo(function Guide(props) {
         </Link>
         .
       </Notice>
-
-      <PageMeta
-        author={toSentence(props.authors, 'and')}
-        title={props.name}
-        image={props.background}
-        description={getExcerpt(props.excerpt, 160)}
-      />
     </>
   )
 })

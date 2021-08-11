@@ -4,7 +4,6 @@ import Link from '../Link'
 import Article from '../Article'
 import Icon from '../Icon'
 import Image from '../Image'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Spacing from '../Spacing'
 import chunk from '../../helpers/chunk'
@@ -130,7 +129,11 @@ export default React.memo(function Videos(props) {
   const { css } = useFela()
 
   return (
-    <Article title='Videos' isEditorialContent>
+    <Article
+      title='Videos'
+      description='Find here a list of popular and active Stormbound video content creators and their YouTube channels.'
+      isEditorialContent
+    >
       {chunk(VIDEOS, 2).map((row, index) => (
         <Row key={index} desktopOnly wideGutter>
           {row.map((video, index, array) => (
@@ -172,11 +175,6 @@ export default React.memo(function Videos(props) {
           ))}
         </Row>
       ))}
-
-      <PageMeta
-        title='Videos'
-        description='Find here a list of popular and active Stormbound video content creators and their YouTube channels.'
-      />
     </Article>
   )
 })

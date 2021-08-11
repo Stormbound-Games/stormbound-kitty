@@ -6,7 +6,6 @@ import FeedItem from '../FeedItem'
 import Image from '../Image'
 import Info from '../Info'
 import MemberToC from '../MemberToC'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import isKATMember from '../../helpers/isKATMember'
 import useMemberContent from '../../hooks/useMemberContent'
@@ -27,6 +26,8 @@ export default React.memo(function Member(props) {
   return (
     <Article
       title={displayName}
+      description={`Find all of ${displayName}’s contributions to Stormbound-Kitty such as stories, decks, puzzles or guides.`}
+      noIndex={count === 0 && !channel}
       action={{ to: '/members', children: 'Back to Members' }}
       meta={
         <>
@@ -106,12 +107,6 @@ export default React.memo(function Member(props) {
           )}
         </Row.Column>
       </Row>
-
-      <PageMeta
-        noIndex={count === 0 && !channel}
-        title={displayName}
-        description={`Find all of ${displayName}’s contributions to Stormbound-Kitty such as stories, decks, puzzles or guides.`}
-      />
     </Article>
   )
 })

@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from '../Link'
-import HeaderBanner from '../HeaderBanner'
-import PageMeta from '../PageMeta'
+import Article from '../Article'
 import Row from '../Row'
 import Select from '../Select'
 import Spacing from '../Spacing'
@@ -33,9 +32,10 @@ export default React.memo(function ListBuilderDisplayView(props) {
     .filter(tier => tier.cards.length > 0)
 
   return (
-    <>
-      <HeaderBanner title='Ranked Tier List' />
-
+    <Article
+      title='Ranked Tier List'
+      description='Find a Tier List for ‘Ranked Mode’ of all the most  effective and popular Stormbound cards'
+    >
       <Row wideGutter desktopOnly>
         <Row.Column width='1/3'>
           <p>
@@ -76,11 +76,6 @@ export default React.memo(function ListBuilderDisplayView(props) {
           <ListBuilderTierList tiers={tiers} />
         </Row.Column>
       </Row>
-
-      <PageMeta
-        title='Ranked Tier List'
-        description='Find a Tier List for ‘Ranked Mode’ of all the most  effective and popular Stormbound cards'
-      />
-    </>
+    </Article>
   )
 })

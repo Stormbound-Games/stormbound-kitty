@@ -2,7 +2,6 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
 import Article from '../Article'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Spacing from '../Spacing'
 import Sparkles from '../Sparkles'
@@ -28,6 +27,9 @@ export default React.memo(function BrewedSages(props) {
   return (
     <Article
       title={viewportWidth < 700 ? 'Brewed Sages' : 'Brewed Sages Podcast'}
+      author='Freeloader, Subaiku, ArthisRoo'
+      description='The Brewed Sages is the first Stormbound podcast, by Freeloader and
+    Subaiku'
       authors={['Freeloader', 'Subaiku']}
       background='/assets/images/banners/environment_shadowfen.png'
       withAvif
@@ -156,13 +158,6 @@ export default React.memo(function BrewedSages(props) {
           height='400'
         ></iframe>
       </Article.Narrow>
-
-      <PageMeta
-        author='Freeloader, Subaiku, ArthisRoo'
-        title='Brewed Sages Podcast'
-        description='The Brewed Sages is the first Stormbound podcast, by Freeloader and
-      Subaiku'
-      />
     </Article>
   )
 })

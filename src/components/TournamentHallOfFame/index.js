@@ -5,7 +5,6 @@ import Link from '../Link'
 import Article from '../Article'
 import FAQSection from '../FAQSection'
 import Notice from '../Notice'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Spacing from '../Spacing'
 import Title from '../Title'
@@ -23,7 +22,10 @@ export default React.memo(function TournamentHallOfFame(props) {
   const { css } = useFela()
 
   return (
-    <Article title='Tournaments'>
+    <Article
+      title='Tournaments'
+      description='Find the list of all past Stormbound tournaments and the hall of fame.'
+    >
       <Spacing bottom='LARGEST'>
         <TournamentPodium />
       </Spacing>
@@ -135,11 +137,6 @@ export default React.memo(function TournamentHallOfFame(props) {
           .
         </Notice>
       </Article.Narrow>
-
-      <PageMeta
-        title='Tournaments – Hall of Fame'
-        description='Find the list of all past Stormbound tournaments and the hall of fame.'
-      />
     </Article>
   )
 })

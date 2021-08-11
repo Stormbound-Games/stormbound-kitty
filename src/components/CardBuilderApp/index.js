@@ -14,6 +14,7 @@ import Spacing from '../Spacing'
 import Title from '../Title'
 import usePrevious from '../../hooks/usePrevious'
 import getRawCardData from '../../helpers/getRawCardData'
+import getCardBuilderMetaTags from '../../helpers/getCardBuilderMetaTags'
 import parseDate from '../../helpers/parseDate'
 import serialisation from '../../helpers/serialisation'
 import { formatPreciseDate } from '../../helpers/formatDate'
@@ -131,7 +132,7 @@ export default React.memo(function CardBuilderApp(props) {
   }, [previousCardId, props.cardId])
 
   return (
-    <Article {...articleProps}>
+    <Article {...articleProps} {...getCardBuilderMetaTags(props.cardData)}>
       <CardDisplay mode={props.mode} {...cardData} />
 
       {isOfficial && (

@@ -1,11 +1,10 @@
 import React from 'react'
 import Link from '../Link'
 import { STORY_CATEGORIES } from '../../constants/stories'
-import HeaderBanner from '../HeaderBanner'
+import Article from '../Article'
 import Notice from '../Notice'
 import Only from '../Only'
 import Loader from '../Loader'
-import PageMeta from '../PageMeta'
 import Stories from '../Stories'
 import useLazyLoad from '../../hooks/useLazyLoad'
 import useViewportSize from '../../hooks/useViewportSize'
@@ -25,13 +24,12 @@ export default React.memo(function StoryCategory(props) {
   const { title, background, shortName } = STORY_CATEGORIES[props.category]
 
   return (
-    <>
-      <HeaderBanner
-        background={background}
-        title={viewportWidth >= 700 ? title : shortName}
-        withAvif
-      />
-
+    <Article
+      background={background}
+      title={viewportWidth >= 700 ? title : shortName}
+      description={`Read immersive stories from the community about ${title}`}
+      withAvif
+    >
       <Stories stories={items} columns={3} />
       {loadingMore && <Loader />}
       <div ref={ref} />
@@ -46,11 +44,6 @@ export default React.memo(function StoryCategory(props) {
         </Link>
         .
       </Notice>
-
-      <PageMeta
-        title={`${title} Stories`}
-        description={`Read immersive stories from the community about ${title}`}
-      />
-    </>
+    </Article>
   )
 })

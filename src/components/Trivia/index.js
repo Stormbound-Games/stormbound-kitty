@@ -7,7 +7,6 @@ import Article from '../Article'
 import CTA from '../CTA'
 import Info from '../Info'
 import Notice from '../Notice'
-import PageMeta from '../PageMeta'
 import Radio from '../Radio'
 import Row from '../Row'
 import Spacing from '../Spacing'
@@ -122,7 +121,11 @@ const Trivia = () => {
   )
 
   return (
-    <Article title='Trivia Game' isEditorialContent>
+    <Article
+      title='Trivia Game'
+      description='Test your knownledge of Stormbound with this trivia game!'
+      isEditorialContent
+    >
       <Article.Narrow>
         <p>
           Welcome to the <Strikethrough>Thunder</Strikethrough> Stormdome! Test
@@ -216,11 +219,6 @@ const Trivia = () => {
           <CTA type='submit'>Submit</CTA>
         </form>
       </Article.Narrow>
-
-      <PageMeta
-        title='Trivia Game'
-        description='Test your knownledge of Stormbound with this trivia game!'
-      />
     </Article>
   )
 }

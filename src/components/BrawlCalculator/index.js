@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from '../Link'
+import Article from '../Article'
 import BrawlCalculatorDiscount from '../BrawlCalculatorDiscount'
 import BrawlCalculatorLegendaryToggle from '../BrawlCalculatorLegendaryToggle'
 import BrawlCalculatorMode from '../BrawlCalculatorMode'
@@ -7,10 +8,8 @@ import BrawlCalculatorOutcome from '../BrawlCalculatorOutcome'
 import BrawlCalculatorSettings from '../BrawlCalculatorSettings'
 import BrawlCalculatorSetup from '../BrawlCalculatorSetup'
 import BrawlDifficultySelect from '../BrawlDifficultySelect'
-import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
 import Only from '../Only'
-import PageMeta from '../PageMeta'
 import PremiumPassCheckbox from '../PremiumPassCheckbox'
 import Row from '../Row'
 import Spacing from '../Spacing'
@@ -39,8 +38,10 @@ export default React.memo(function BrawlCalculator(props) {
   }, [mode])
 
   return (
-    <>
-      <HeaderBanner title='Brawl Calculator' />
+    <Article
+      title='Brawl Calculator'
+      description='Find a calculator for making the best out of the Brawl based on your current savins or your objectives'
+    >
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>Goal</Title>
@@ -160,11 +161,6 @@ export default React.memo(function BrawlCalculator(props) {
           </tbody>
         </Table>
       </Only.Desktop>
-
-      <PageMeta
-        title='Brawl Calculator'
-        description='Find a calculator for making the best out of the Brawl based on your current savins or your objectives'
-      />
-    </>
+    </Article>
   )
 })

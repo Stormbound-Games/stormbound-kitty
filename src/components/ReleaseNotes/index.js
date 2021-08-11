@@ -1,6 +1,5 @@
 import React from 'react'
 import Article from '../Article'
-import PageMeta from '../PageMeta'
 import indexArray from '../../helpers/indexArray'
 import releases from '../../data/releases'
 
@@ -11,8 +10,10 @@ export default React.memo(function ReleaseNotes(props) {
 
   return (
     <Article
-      author='Kitty'
       title={release.title}
+      description={release.excerpt}
+      author='Kitty'
+      image={release.background}
       action={{ to: '/releases', children: 'Back to releases' }}
       meta={'Official · ' + release.date}
       background={release.background}
@@ -22,12 +23,6 @@ export default React.memo(function ReleaseNotes(props) {
       withDropCap
     >
       {props.children}
-
-      <PageMeta
-        title={release.title}
-        description={release.excerpt}
-        image={release.background}
-      />
     </Article>
   )
 })

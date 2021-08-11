@@ -9,10 +9,9 @@ import DryRunnerInfo from '../DryRunnerInfo'
 import HarvestersDialog from '../HarvestersDialog'
 import Info from '../Info'
 import Only from '../Only'
-import PageMeta from '../PageMeta'
+import Article from '../Article'
 import Row from '../Row'
 import Title from '../Title'
-import VisuallyHidden from '../VisuallyHidden'
 import isCard from '../../helpers/isCard'
 import useViewportSize from '../../hooks/useViewportSize'
 
@@ -20,9 +19,10 @@ export default React.memo(function DryRunner(props) {
   const { viewportWidth } = useViewportSize()
 
   return (
-    <>
-      <VisuallyHidden as='h1'>Deck Dry-run</VisuallyHidden>
-
+    <Article
+      title='Deck Dry-Run'
+      description='Try your deck with actual in-game mechanisms to test its mana curve and the likelihood of having cards combos'
+    >
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>Deck</Title>
@@ -74,11 +74,6 @@ export default React.memo(function DryRunner(props) {
           <DryRunnerInfo {...props} />
         </Row.Column>
       </Row>
-
-      <PageMeta
-        title='Deck Dry-Run'
-        description='Try your deck with actual in-game mechanisms to test its mana curve and the likelihood of having cards combos'
-      />
-    </>
+    </Article>
   )
 })

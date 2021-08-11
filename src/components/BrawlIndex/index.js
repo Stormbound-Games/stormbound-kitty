@@ -1,6 +1,5 @@
 import React from 'react'
-import HeaderBanner from '../HeaderBanner'
-import PageMeta from '../PageMeta'
+import Article from '../Article'
 import Row from '../Row'
 import Teaser from '../Teaser'
 import Title from '../Title'
@@ -24,9 +23,10 @@ const BrawlTeaser = React.memo(function BrawlTeaser(props) {
 
 export default React.memo(function BrawlIndex() {
   return (
-    <>
-      <HeaderBanner title='Brawl Tracker' />
-
+    <Article
+      title='Brawl Tracker'
+      description='Find all the Brawl modes from Stormbound and their ideal decks'
+    >
       <Title>Brawls</Title>
 
       {chunk(BRAWLS, 3).map((row, index) => (
@@ -57,11 +57,6 @@ export default React.memo(function BrawlIndex() {
           </Row.Column>
         </Row>
       ))}
-
-      <PageMeta
-        title='Brawl'
-        description='Find all the Brawl modes from Stormbound and their ideal decks'
-      />
-    </>
+    </Article>
   )
 })

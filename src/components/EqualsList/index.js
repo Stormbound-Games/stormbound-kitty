@@ -1,8 +1,7 @@
 import React from 'react'
 import Link from '../Link'
 import { EQUALS_TIER_LIST } from '../../constants/list'
-import HeaderBanner from '../HeaderBanner'
-import PageMeta from '../PageMeta'
+import Article from '../Article'
 import Row from '../Row'
 import ListBuilderTierList from '../ListBuilderTierList'
 import ListBuilderToc from '../ListBuilderToc'
@@ -38,9 +37,10 @@ export default React.memo(function ListBuilderDisplayView(props) {
   const release = RELEASES.find(release => release.date === date)
 
   return (
-    <>
-      <HeaderBanner title='Equals Tier List' />
-
+    <Article
+      title='Equals Tier List'
+      description='Find a Tier List for ‘Equals Mode’ of all the Stormbound cards, ranked by effectiveness and popularity'
+    >
       <Row wideGutter desktopOnly>
         <Row.Column width='1/3'>
           <p>
@@ -84,11 +84,6 @@ export default React.memo(function ListBuilderDisplayView(props) {
           <ListBuilderTierList tiers={tiers} />
         </Row.Column>
       </Row>
-
-      <PageMeta
-        title='Equals Tier List'
-        description='Find a Tier List for ‘Equals Mode’ of all the Stormbound cards, ranked by effectiveness and popularity'
-      />
-    </>
+    </Article>
   )
 })

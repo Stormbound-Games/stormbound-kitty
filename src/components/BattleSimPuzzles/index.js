@@ -1,12 +1,11 @@
 import React from 'react'
 import hookIntoProps from 'hook-into-props'
 import { useFela } from 'react-fela'
+import Article from '../Article'
 import Link from '../Link'
 import puzzles from '../../data/puzzles'
 import EmptySearch from '../EmptySearch'
-import HeaderBanner from '../HeaderBanner'
 import Notice from '../Notice'
-import PageMeta from '../PageMeta'
 import Puzzle from '../BattleSimPuzzle'
 import PuzzlesFilters from '../BattleSimPuzzlesFilters'
 import Row from '../Row'
@@ -59,9 +58,10 @@ class BattleSimPuzzles extends React.Component {
     const puzzles = this.getPuzzles()
 
     return (
-      <>
-        <HeaderBanner title='Puzzles' />
-
+      <Article
+        title='Puzzles'
+        description='Test your skills and resolve interesting and creative puzzles made by the Stormbound community'
+      >
         <Row desktopOnly wideGutter>
           <Row.Column width='1/3'>
             <PuzzlesFilters {...this.state} updateFilter={this.updateFilter} />
@@ -95,12 +95,7 @@ class BattleSimPuzzles extends React.Component {
             </Notice>
           </Row.Column>
         </Row>
-
-        <PageMeta
-          title='Puzzles'
-          description='Test your skills and resolve interesting and creative puzzles made by the Stormbound community'
-        />
-      </>
+      </Article>
     )
   }
 }

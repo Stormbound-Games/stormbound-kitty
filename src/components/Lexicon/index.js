@@ -2,7 +2,6 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Masonry from 'react-masonry-css'
 import Article from '../Article'
-import PageMeta from '../PageMeta'
 import Spacing from '../Spacing'
 import { CATEGORIES } from '../../constants/guides'
 import getTermsForLetter from '../../helpers/getTermsForLetter'
@@ -37,6 +36,7 @@ export default React.memo(function Lexicon(props) {
   return (
     <Article
       title='Lexicon'
+      description='Find a list of terms and abbreviations for Stormbound'
       author='Kitty'
       meta={CATEGORIES.ESSENTIALS.name.short}
       action={{
@@ -57,11 +57,6 @@ export default React.memo(function Lexicon(props) {
           </React.Fragment>
         ))}
       </Masonry>
-
-      <PageMeta
-        title='Lexicon'
-        description='Find a list of terms and abbreviations for Stormbound'
-      />
     </Article>
   )
 })

@@ -2,9 +2,8 @@ import React from 'react'
 import CardSelect from '../CardSelect'
 import FanKitDownloadDialog from '../FanKitDownloadDialog'
 import FanKitItem from '../FanKitItem'
-import HeaderBanner from '../HeaderBanner'
+import Article from '../Article'
 import Loader from '../Loader'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import cards from '../../data/cards'
 import chunk from '../../helpers/chunk'
@@ -34,9 +33,10 @@ export default React.memo(function FanKit(props) {
   }, [active])
 
   return (
-    <>
-      <HeaderBanner title='Cards Fan-Kit' />
-
+    <Article
+      title='Cards Fan-Kit'
+      description='Find all the cards assets from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
+    >
       <Row desktopOnly wideGutter>
         <Row.Column width='1/4' />
         <Row.Column>
@@ -97,11 +97,6 @@ export default React.memo(function FanKit(props) {
 
       {loading && <Loader />}
       <div ref={ref} />
-
-      <PageMeta
-        title='Cards – Fan-Kit'
-        description='Find all the cards assets from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
-      />
-    </>
+    </Article>
   )
 })

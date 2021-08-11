@@ -2,14 +2,12 @@ import React from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import App from '../CardBuilderApp'
-import PageMeta from '../PageMeta'
 import serialisation from '../../helpers/serialisation'
 import areAllValuesEqual from '../../helpers/areAllValuesEqual'
 import getInitialCardData, {
   getInitialCardDataFromQuery,
 } from '../../helpers/getInitialCardData'
 import resolveAbility from '../../helpers/resolveAbility'
-import getCardBuilderMetaTags from '../../helpers/getCardBuilderMetaTags'
 import getCardFromSlug from '../../helpers/getCardFromSlug'
 
 const formatLevelProp = value => ({
@@ -192,31 +190,27 @@ class CardBuilderEditor extends React.Component {
 
   render() {
     return (
-      <>
-        <App
-          cardData={this.state}
-          cardId={this.props.cardId}
-          setName={this.setName}
-          setImageCardId={this.setImageCardId}
-          setImageURL={this.setImageURL}
-          setRarity={this.setRarity}
-          setMana={this.setMana}
-          setFaction={this.setFaction}
-          setType={this.setType}
-          setRace={this.setRace}
-          setElder={this.setElder}
-          setHero={this.setHero}
-          setMovement={this.setMovement}
-          setStrength={this.setStrength}
-          setAbility={this.setAbility}
-          onImagePaste={this.onImagePaste}
-          reset={this.reset}
-          imageErrorDialogRef={dialog => (this.imageErrorDialog = dialog)}
-          mode='EDITOR'
-        />
-
-        <PageMeta {...getCardBuilderMetaTags(this.state)} />
-      </>
+      <App
+        cardData={this.state}
+        cardId={this.props.cardId}
+        setName={this.setName}
+        setImageCardId={this.setImageCardId}
+        setImageURL={this.setImageURL}
+        setRarity={this.setRarity}
+        setMana={this.setMana}
+        setFaction={this.setFaction}
+        setType={this.setType}
+        setRace={this.setRace}
+        setElder={this.setElder}
+        setHero={this.setHero}
+        setMovement={this.setMovement}
+        setStrength={this.setStrength}
+        setAbility={this.setAbility}
+        onImagePaste={this.onImagePaste}
+        reset={this.reset}
+        imageErrorDialogRef={dialog => (this.imageErrorDialog = dialog)}
+        mode='EDITOR'
+      />
     )
   }
 }

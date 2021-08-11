@@ -6,7 +6,6 @@ import Article from '../Article'
 import Footnotes, { Footnote } from '../Footnotes'
 import MemberList from '../MemberList'
 import Notice from '../Notice'
-import PageMeta from '../PageMeta'
 import Spacing from '../Spacing'
 import Sparkles from '../Sparkles'
 import contributions from '../../data/contributions'
@@ -18,7 +17,11 @@ export default React.memo(function About(props) {
   const { css } = useFela()
 
   return (
-    <Article title='About' isEditorialContent>
+    <Article
+      title='About'
+      description='Stormbound-Kitty is 100% free: no ads, no tracking, no paywall. If you can, consider donating!'
+      isEditorialContent
+    >
       <Article.Narrow>
         <p>
           Hey there! I’m Kitty. I created Stormbound-Kitty in March 2019
@@ -198,11 +201,6 @@ export default React.memo(function About(props) {
           </p>
         </Footnotes>
       </Article.Narrow>
-
-      <PageMeta
-        title='About'
-        description='Stormbound-Kitty is 100% free: no ads, no tracking, no paywall. If you can, consider donating!'
-      />
     </Article>
   )
 })

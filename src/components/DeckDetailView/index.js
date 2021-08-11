@@ -6,7 +6,6 @@ import Deck from '../Deck'
 import DeckStatsChart from '../DeckStatsChart'
 import Info from '../Info'
 import Link from '../Link'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Stats from '../DeckStats'
 import Title from '../Title'
@@ -52,6 +51,7 @@ export default React.memo(function DeckDetailView(props) {
   return (
     <Article
       title={suggestedDeck.name || 'Deck details'}
+      {...getDeckBuilderMetaTags(props.deck, 'Deck Insights')}
       author={suggestedDeck.author}
       meta={
         suggestedDeck.tags
@@ -100,8 +100,6 @@ export default React.memo(function DeckDetailView(props) {
           <Advice deck={deck} highlight={props.highlight} modifier={modifier} />
         </Row.Column>
       </Row>
-
-      <PageMeta {...getDeckBuilderMetaTags(props.deck, 'Deck Insights')} />
     </Article>
   )
 })

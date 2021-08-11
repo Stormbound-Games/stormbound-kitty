@@ -4,7 +4,6 @@ import Article from '../Article'
 import FAQSection from '../FAQSection'
 import Image from '../Image'
 import Link from '../Link'
-import PageMeta from '../PageMeta'
 import Spacing from '../Spacing'
 import StructuredData from '../StructuredData'
 import Title from '../Title'
@@ -15,7 +14,11 @@ export default React.memo(function FAQ() {
   const { css } = useFela()
 
   return (
-    <Article title='FAQ' isEditorialContent>
+    <Article
+      title='FAQ'
+      description='Find answers to the frequently asked questions about Stormbound and Stormbound-Kitty'
+      isEditorialContent
+    >
       <Article.Narrow>
         <Title>Topics</Title>
 
@@ -55,10 +58,6 @@ export default React.memo(function FAQ() {
         ))}
 
         <StructuredData type='FAQ' />
-        <PageMeta
-          title='Frequently Asked questions'
-          description='Find answers to the frequently asked questions about Stormbound and Stormbound-Kitty'
-        />
       </Article.Narrow>
     </Article>
   )

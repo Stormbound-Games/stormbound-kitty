@@ -3,13 +3,12 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import { RARITIES } from '../../constants/game'
 import { BOOKS, EXPECTATIONS } from '../../constants/books'
+import Article from '../Article'
 import BookExplanation from '../BookExplanation'
 import BookOutcome from '../BookOutcome'
-import HeaderBanner from '../HeaderBanner'
 import Image from '../Image'
 import NumberInput from '../NumberInput'
 import Only from '../Only'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Select from '../Select'
 import Spacing from '../Spacing'
@@ -67,9 +66,10 @@ export default React.memo(function BooksCalculator(props) {
   )
 
   return (
-    <>
-      <HeaderBanner title='Books Calculator' />
-
+    <Article
+      title='Books Calculator'
+      description='Maximise the use of your resources and calculate the odds of finding a specific Stormbound card or fusion stones in a specific book'
+    >
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title element='h2'>What is this</Title>
@@ -227,11 +227,6 @@ export default React.memo(function BooksCalculator(props) {
           </Row.Column>
         </Only.Desktop>
       </Row>
-
-      <PageMeta
-        title='Books Calculator'
-        description='Maximise the use of your resources and calculate the odds of finding a specific Stormbound card or fusion stones in a specific book'
-      />
-    </>
+    </Article>
   )
 })

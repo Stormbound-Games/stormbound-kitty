@@ -8,7 +8,6 @@ import Only from '../Only'
 import Link from '../Link'
 import Loader from '../Loader'
 import MicroMarkdown from '../MicroMarkdown'
-import PageMeta from '../PageMeta'
 import StoriesMore from '../StoriesMore'
 import { STORY_CATEGORIES } from '../../constants/stories'
 import getRawCardData from '../../helpers/getRawCardData'
@@ -41,6 +40,8 @@ export default React.memo(function Story(props) {
           }
           title={story.title}
           author={story.author}
+          image={'/assets/images/cards/' + card.image}
+          description={getExcerpt(story.content.replace('---', ''), 160)}
           background={background}
           meta={getReadingTime(story.content)}
           action={{
@@ -71,15 +72,6 @@ export default React.memo(function Story(props) {
         </Link>
         .
       </Notice>
-
-      {story && (
-        <PageMeta
-          title={story.title}
-          author={story.author}
-          image={'/assets/images/cards/' + card.image}
-          description={getExcerpt(story.content.replace('---', ''), 160)}
-        />
-      )}
     </>
   )
 })

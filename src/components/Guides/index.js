@@ -1,10 +1,9 @@
 import React from 'react'
 import Link from '../Link'
 import GuideTeaser from '../GuideTeaser'
-import HeaderBanner from '../HeaderBanner'
+import Article from '../Article'
 import Notice from '../Notice'
 import Only from '../Only'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import guides from '../../data/guides'
 import { CATEGORIES } from '../../constants/guides'
@@ -31,11 +30,10 @@ export default React.memo(function Guides(props) {
   )
 
   return (
-    <>
-      <Only.Desktop>
-        <HeaderBanner title={CATEGORIES[props.category].name.long} />
-      </Only.Desktop>
-
+    <Article
+      title={CATEGORIES[props.category].name.long}
+      description='Find guides from the community about Stormbound and improve your gameplay and knowledge about the game'
+    >
       <Category guides={relevantGuides} />
 
       <Notice icon='compass'>
@@ -48,11 +46,6 @@ export default React.memo(function Guides(props) {
         </Link>
         .
       </Notice>
-
-      <PageMeta
-        title={CATEGORIES[props.category].name.long}
-        description='Find guides from the community about Stormbound and improve your gameplay and knowledge about the game'
-      />
-    </>
+    </Article>
   )
 })

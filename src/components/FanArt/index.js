@@ -5,7 +5,6 @@ import Masonry from 'react-masonry-css'
 import Image from '../Image'
 import Article from '../Article'
 import Loader from '../Loader'
-import PageMeta from '../PageMeta'
 import Spacing from '../Spacing'
 import artworks from '../../data/artworks'
 import shuffle from '../../helpers/shuffle'
@@ -18,7 +17,11 @@ export default React.memo(function FanArt(props) {
   const { loading, items, ref } = useLazyLoad(entries, 3)
 
   return (
-    <Article title='Fan Art' isEditorialContent>
+    <Article
+      title='Fan Art'
+      description='Find the amazing visual artwork created by the Stormbound community'
+      isEditorialContent
+    >
       <Article.Narrow>
         <p>
           All illustrations displayed on this page have been collected from the
@@ -58,11 +61,6 @@ export default React.memo(function FanArt(props) {
 
       {loading && <Loader />}
       <div ref={ref} />
-
-      <PageMeta
-        title='Fan Art'
-        description='Find the amazing visual artwork created by the Stormbound community'
-      />
     </Article>
   )
 })

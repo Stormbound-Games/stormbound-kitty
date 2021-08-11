@@ -4,10 +4,9 @@ import Link from '../Link'
 import Footnotes, { Footnote } from '../Footnotes'
 import Image from '../Image'
 import Radio from '../Radio'
-import HeaderBanner from '../HeaderBanner'
+import Article from '../Article'
 import Title from '../Title'
 import NumberInput from '../NumberInput'
-import PageMeta from '../PageMeta'
 import { HeroCrowns } from '../Resource'
 import Row from '../Row'
 import Select from '../Select'
@@ -29,9 +28,10 @@ const HeroScoreCalculator = props => {
   })
 
   return (
-    <>
-      <HeaderBanner title='Hero Calculator' />
-
+    <Article
+      title='Hero Calculator'
+      description='Figure out how to optimize your Hero Score in the Heroes League with this elo rating inspired calculator!'
+    >
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>What is this</Title>
@@ -220,12 +220,7 @@ const HeroScoreCalculator = props => {
           </Link>
         </p>
       </Footnotes>
-
-      <PageMeta
-        title='Hero Score Calculator'
-        description='Figure out how to optimize your Hero Score in the Heroes League with this elo rating inspired calculator!'
-      />
-    </>
+    </Article>
   )
 }
 

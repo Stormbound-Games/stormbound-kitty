@@ -4,9 +4,8 @@ import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import Form from '../QuestBuilderForm'
 import Row from '../Row'
-import PageMeta from '../PageMeta'
 import Quest from '../Quest'
-import HeaderBanner from '../HeaderBanner'
+import Article from '../Article'
 import serialisation from '../../helpers/serialisation'
 import getInitialQuestData from '../../helpers/getInitialQuestData'
 
@@ -61,9 +60,10 @@ class QuestBuilderRoot extends React.Component {
 
   render() {
     return (
-      <>
-        <HeaderBanner title='Create Your Quest' />
-
+      <Article
+        title='Create Your Quest'
+        description='Design your very own Stormbound quest'
+      >
         <div
           className={this.props.css({
             maxWidth: '100%',
@@ -88,12 +88,7 @@ class QuestBuilderRoot extends React.Component {
             </Row.Column>
           </Row>
         </div>
-
-        <PageMeta
-          title='Quest Builder'
-          description='Design your very own Stormbound quest'
-        />
-      </>
+      </Article>
     )
   }
 }

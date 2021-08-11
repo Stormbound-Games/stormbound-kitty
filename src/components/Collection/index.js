@@ -2,17 +2,16 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
 import hookIntoProps from 'hook-into-props'
+import Article from '../Article'
 import ActiveCardForm from '../CollectionActiveCardForm'
 import CardsGallery from '../CardsGallery'
 import { CollectionContext } from '../CollectionProvider'
 import CollectionClearHint from '../CollectionClearHint'
-import HeaderBanner from '../HeaderBanner'
 import EmptySearch from '../EmptySearch'
 import CardsFiltering from '../CardsFiltering'
 import Filters from '../CollectionFilters'
 import ImportCollection from '../ImportCollection'
 import Only from '../Only'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Spacing from '../Spacing'
 import Title from '../Title'
@@ -98,9 +97,10 @@ class Collection extends React.Component {
     const resolvedActiveCard = this.getActiveCardData()
 
     return (
-      <>
-        <HeaderBanner title='Card Collection' />
-
+      <Article
+        title='Card Collection'
+        description='Manage your own card collection and keep track of your cards'
+      >
         <Row desktopOnly wideGutter>
           <Row.Column width='1/3'>
             <Spacing bottom='LARGE'>
@@ -179,12 +179,7 @@ class Collection extends React.Component {
             </CardsFiltering>
           </Row.Column>
         </Row>
-
-        <PageMeta
-          title='Card Collection'
-          description='Manage your own card collection and keep track of your cards'
-        />
-      </>
+      </Article>
     )
   }
 }

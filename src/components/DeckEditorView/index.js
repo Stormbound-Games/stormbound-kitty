@@ -16,7 +16,6 @@ import Info from '../Info'
 import LearnMoreIcon from '../LearnMoreIcon'
 import Link from '../Link'
 import Only from '../Only'
-import PageMeta from '../PageMeta'
 import RandomDeckButton from '../RandomDeckButton'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
@@ -215,7 +214,10 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
   const articleProps = useArticleProps(deck)
 
   return (
-    <Article {...articleProps}>
+    <Article
+      {...articleProps}
+      {...getDeckBuilderMetaTags(deck, 'Deck Builder')}
+    >
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>Deck</Title>
@@ -288,8 +290,6 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
           </CardsFiltering>
         </Row.Column>
       </Row>
-
-      <PageMeta {...getDeckBuilderMetaTags(deck, 'Deck Builder')} />
     </Article>
   )
 })

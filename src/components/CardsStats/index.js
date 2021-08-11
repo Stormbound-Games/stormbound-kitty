@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from '../Link'
+import Article from '../Article'
 import ChartAbility from '../ChartAbility'
 import ChartMana from '../ChartMana'
 import ChartModifier from '../ChartModifier'
@@ -8,10 +9,8 @@ import ChartRarity from '../ChartRarity'
 import ChartStrength from '../ChartStrength'
 import ChartStrengthMana from '../ChartStrengthMana'
 import ChartType from '../ChartType'
-import HeaderBanner from '../HeaderBanner'
 import Info from '../Info'
 import Only from '../Only'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Spacing from '../Spacing'
 import Title from '../Title'
@@ -21,9 +20,10 @@ export default React.memo(() => {
   const { viewportWidth } = useViewportSize()
 
   return (
-    <>
-      <HeaderBanner title='Cards Statistics' />
-
+    <Article
+      title='Cards Statistics'
+      description='Enjoy insights and statistics about the state of the Stormbound card collection'
+    >
       <Row desktopOnly>
         <Row.Column width='1/3'>
           <Title>What is this</Title>
@@ -109,11 +109,6 @@ export default React.memo(() => {
           </Row>
         </Row.Column>
       </Row>
-
-      <PageMeta
-        title='Cards Stats'
-        description='Enjoy insights and statistics about the state of the Stormbound card collection'
-      />
-    </>
+    </Article>
   )
 })

@@ -4,7 +4,6 @@ import { BRAWL_INDEX } from '../../constants/brawl'
 import Article from '../Article'
 import BrawlProvider from '../BrawlProvider'
 import BrawlTracker from '../BrawlTracker'
-import PageMeta from '../PageMeta'
 import { getLongFaction } from '../../helpers/encoding'
 
 export default React.memo(function BrawlPage(props) {
@@ -17,6 +16,7 @@ export default React.memo(function BrawlPage(props) {
   return (
     <Article
       title={brawl.title}
+      description='Manage your Brawl, track your progress as well as your expenses and rewards'
       meta={brawl.label}
       action={{ to: '/brawl', children: 'Back to index' }}
       background={`/assets/images/banners/environment_${faction}.png`}
@@ -25,11 +25,6 @@ export default React.memo(function BrawlPage(props) {
       <BrawlProvider id={id} difficulty={difficulty}>
         <BrawlTracker difficulty={difficulty} setDifficulty={setDifficulty} />
       </BrawlProvider>
-
-      <PageMeta
-        title={'Brawl – ' + brawl.title}
-        description='Manage your Brawl, track your progress as well as your expenses and rewards'
-      />
     </Article>
   )
 })

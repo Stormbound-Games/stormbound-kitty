@@ -1,9 +1,8 @@
 import React from 'react'
 import FanKitDownloadDialog from '../FanKitDownloadDialog'
 import FanKitItem from '../FanKitItem'
-import HeaderBanner from '../HeaderBanner'
+import Article from '../Article'
 import Loader from '../Loader'
-import PageMeta from '../PageMeta'
 import Row from '../Row'
 import { BOOKS } from '../../constants/books'
 import getBookName from '../../helpers/getBookName'
@@ -42,9 +41,10 @@ export default React.memo(function FanKitBooks(props) {
   }, [active])
 
   return (
-    <>
-      <HeaderBanner title='Books Fan-Kit' />
-
+    <Article
+      title='Books Fan-Kit'
+      description='Find all the books assets from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
+    >
       <FanKitDownloadDialog
         displayImage={false}
         name={activeBook ? activeBook.name : undefined}
@@ -83,11 +83,6 @@ export default React.memo(function FanKitBooks(props) {
 
       {loading && <Loader />}
       <div ref={ref} />
-
-      <PageMeta
-        title='Books – Fan-Kit'
-        description='Find all the books assets from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
-      />
-    </>
+    </Article>
   )
 })

@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import ArticleMeta from '../ArticleMeta'
 import HeaderBanner from '../HeaderBanner'
+import PageMeta from '../PageMeta'
 import Spacing from '../Spacing'
 import styles from './styles'
 
@@ -45,6 +46,8 @@ const Article = React.memo(function Article(props) {
       >
         <div className={css(styles.content)}>{props.children}</div>
       </ArticleContext.Provider>
+
+      <PageMeta {...props} authors={authors.join(',')} />
     </article>
   )
 })
