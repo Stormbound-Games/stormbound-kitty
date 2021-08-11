@@ -15,7 +15,7 @@ const exportAsImage = () => {
     .then(({ default: html2canvas }) => {
       return html2canvas(deck, {
         backgroundColor: null,
-        ignoreElements: element => element.id === 'dialog-root',
+        ignoreElements: element => element.getAttribute('role') === 'dialog',
       })
     })
     .then(canvas =>
