@@ -1,4 +1,8 @@
 describe('Routes — Fan-Kit', () => {
+  it('should render the index page', () => {
+    cy.visit('/fan-kit').get('main h1').should('exist')
+  })
+
   it('should render the avatars page', () => {
     cy.visit('/fan-kit/avatars').get('main h1').should('exist')
   })

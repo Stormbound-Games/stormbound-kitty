@@ -44,6 +44,7 @@ export default React.memo(function FanKitBooks(props) {
     <Page
       title='Books Fan-Kit'
       description='Find all the books assets from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
+      action={{ to: '/fan-kit', children: 'Back to fan-kit' }}
     >
       <FanKitDownloadDialog
         displayImage={false}

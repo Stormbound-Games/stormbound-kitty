@@ -21,6 +21,7 @@ export default React.memo(function FanArt(props) {
       title='Fan Art'
       description='Find the amazing visual artwork created by the Stormbound community'
       meta={entries.length === 1 ? '1 artwork' : entries.length + ' artworks'}
+      action={{ to: '/fan-kit', children: 'Back to fan-kit' }}
       isEditorialContent
     >
       <Page.Narrow>

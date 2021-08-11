@@ -72,6 +72,7 @@ export default () => {
         },
         {
           title: 'Fan-Kit',
+          to: '/fan-kit',
           icon: 'image',
           items: [
             {

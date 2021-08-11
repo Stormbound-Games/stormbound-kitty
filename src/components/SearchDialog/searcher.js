@@ -127,6 +127,12 @@ SEARCH_INDEX.push({
 })
 
 SEARCH_INDEX.push({
+  path: '/fan-kit',
+  label: 'Fan-Kit',
+  breadcrumbs: ['Game', 'Fan-Kit'],
+})
+
+SEARCH_INDEX.push({
   path: '/fan-kit/avatars',
   label: 'Avatars Assets',
   breadcrumbs: ['Game', 'Fan-Kit'],

@@ -69,6 +69,7 @@ export default React.memo(function FanKitBackgrounds(props) {
     <Page
       title='Background Fan-Kit'
       description='Find all the backgrounds from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
+      action={{ to: '/fan-kit', children: 'Back to fan-kit' }}
     >
       <FanKitDownloadDialog
         displayImage={false}

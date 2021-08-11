@@ -1,5 +1,10 @@
 [
   {
+    "intro": "Fan-kit Index",
+    "description": "The fan-kit now has an index page to list all the various categories from the section.",
+    "link": "/fan-kit"
+  },
+  {
     "intro": "August Update",
     "description": "August is already there, and with it new Stormbound release with new Brawls, a new card and balance tweaks!",
     "link": "/releases/08-2021"
