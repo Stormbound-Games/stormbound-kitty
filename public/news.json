@@ -399,11 +399,6 @@
     "description": "The site’s code is now available on GitHub (under GPL-3.0)."
   },
   {
-    "intro": "Deck Tracker",
-    "description": "There now is a deck tracker to get accurate drawing chances during an actual game.",
-    "link": "/deck"
-  },
-  {
     "intro": "Deck Builder",
     "description": "The deck builder now providers a (smart) random deck generator.",
     "link": "/deck"

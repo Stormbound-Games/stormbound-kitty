@@ -20,11 +20,5 @@ describe('The `getDeckIDFromURL` helper', () => {
         'https://stormbound-kitty.com/deck/5n15n25f45f35n35n95n125n165n285f145n305n52/dry-run'
       )
     ).to.equal('5n15n25f45f35n35n95n125n165n285f145n305n52')
-
-    expect(
-      getDeckIDFromURL(
-        'https://stormbound-kitty.com/deck/5n15n25f45f35n35n95n125n165n285f145n305n52/tracker'
-      )
-    ).to.equal('5n15n25f45f35n35n95n125n165n285f145n305n52')
   })
 })
