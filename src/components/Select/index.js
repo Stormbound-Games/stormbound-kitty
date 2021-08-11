@@ -3,12 +3,12 @@ import { useFela } from 'react-fela'
 import VisuallyHidden from '../VisuallyHidden'
 import styles from './styles'
 
-const Select = ({ isLabelHidden, extend, label, ...props }, ref) => {
+const Select = ({ hideLabel, extend, label, ...props }, ref) => {
   const { css } = useFela()
 
   return (
     <>
-      {isLabelHidden ? (
+      {hideLabel ? (
         <VisuallyHidden as='label' htmlFor={props.id}>
           {label}
         </VisuallyHidden>

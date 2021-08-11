@@ -371,7 +371,7 @@ export default React.memo(function IncomeCalculator(props) {
               }}
             >
               <Select
-                isLabelHidden
+                hideLabel
                 label='Period'
                 name='period'
                 id='period'

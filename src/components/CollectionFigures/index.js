@@ -258,7 +258,7 @@ export default function CollectionFigures(props) {
       <p>
         To bring your entire collection to{' '}
         <Select
-          isLabelHidden
+          hideLabel
           label='Level'
           id='level'
           name='level'

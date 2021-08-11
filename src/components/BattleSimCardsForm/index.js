@@ -46,7 +46,7 @@ const CardsFormRow = React.memo(({ index, ...props }) => {
             <Row.Column>
               {getRawCardData(props.cards[index].id).token ? (
                 <NumberInput
-                  isLabelHidden
+                  hideLabel
                   label={`Slot #${index + 1}’s level`}
                   name={`card-${index}-level`}
                   id={`card-${index}-level`}
@@ -58,7 +58,7 @@ const CardsFormRow = React.memo(({ index, ...props }) => {
                 />
               ) : (
                 <Select
-                  isLabelHidden
+                  hideLabel
                   label={`Slot #${index + 1}’s level`}
                   disabled={getRawCardData(props.cards[index].id).token}
                   name={`card-${index}-level`}

@@ -9,7 +9,7 @@ export default React.memo(function FactionSelect(props) {
 
   return (
     <Select
-      isLabelHidden={props.isLabelHidden}
+      hideLabel={props.hideLabel}
       label={label}
       form={props.form}
       name={props.name || id}
