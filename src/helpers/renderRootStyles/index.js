@@ -79,8 +79,6 @@ const renderRootStyles = renderer => {
     box-sizing: border-box;
   }
 
-  input,
-  select,
   button {
     font: inherit;
   }

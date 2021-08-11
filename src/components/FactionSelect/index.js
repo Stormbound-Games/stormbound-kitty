@@ -20,6 +20,7 @@ export default React.memo(function FactionSelect(props) {
       onChange={props.onChange}
       data-testid={props['data-testid']}
       className={props.className}
+      extend={props.extend}
     >
       {props.withAny && <option value='*'>{props.anyLabel || 'Any'}</option>}
       {props.withEmpty && (

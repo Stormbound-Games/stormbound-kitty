@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { BrawlContext } from '../BrawlProvider'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
+import Input from '../Input'
 import Select from '../Select'
 import VisuallyHidden from '../VisuallyHidden'
 import useViewportSize from '../../hooks/useViewportSize'
@@ -59,20 +60,18 @@ export default React.memo(function BrawlMatchForm(props) {
           )}
         </td>
         <td data-label='Opponent’s health'>
-          <VisuallyHidden htmlFor='opponent-health' as='label'>
-            Opponent’s health
-          </VisuallyHidden>
-          <input
+          <Input
+            hideLabel
+            label='Opponent’s health'
             form='add-match-form'
             type='number'
             min={10}
             max={20}
-            name='opponent-health'
             id='opponent-health'
             data-testid='opponent-health'
             placeholder='e.g. 18'
             defaultValue={props.opponentHealth || ''}
-            className={css(styles.field)}
+            extend={styles.field}
           />
         </td>
         <td data-label='Opponent’s faction'>
@@ -84,7 +83,7 @@ export default React.memo(function BrawlMatchForm(props) {
             data-testid='opponent-faction'
             withEmpty
             defaultValue={props.opponentFaction}
-            className={css(styles.field)}
+            extend={styles.field}
           />
         </td>
         <td data-label='Match outcome'>
@@ -97,7 +96,7 @@ export default React.memo(function BrawlMatchForm(props) {
             data-testid='outcome'
             value={status}
             onChange={event => setStatus(event.target.value)}
-            className={css(styles.field)}
+            extend={styles.field}
           >
             <option value=''>Set game outcome</option>
             <option value='WON'>Won</option>
@@ -107,7 +106,7 @@ export default React.memo(function BrawlMatchForm(props) {
             <option value='LOST'>Lost</option>
           </Select>
         </td>
-        <td>
+        <td data-label='Victory bonus'>
           <Select
             hideLabel
             label='Victory bonus'
@@ -118,7 +117,7 @@ export default React.memo(function BrawlMatchForm(props) {
             required={['WON', 'FORFEIT'].includes(status)}
             value={bonus}
             onChange={event => setBonus(event.target.value)}
-            className={css(styles.field)}
+            extend={styles.field}
           >
             <option value=''>Pick a bonus</option>
             {Object.keys(VICTORY_BONUSES).map(bonus => (

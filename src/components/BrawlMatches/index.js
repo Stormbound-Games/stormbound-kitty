@@ -163,7 +163,9 @@ export default React.memo(function BrawlMatches(props) {
                     }
                   })()}
                 </td>
-                <td>{VICTORY_BONUSES[match.bonus]?.label ?? 'n/a'}</td>
+                <td data-label='Victory bonus'>
+                  {VICTORY_BONUSES[match.bonus]?.label ?? 'n/a'}
+                </td>
               </tr>
             )
           })}
