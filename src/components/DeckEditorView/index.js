@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouteMatch, useHistory } from 'react-router-dom'
 import { CollectionContext } from '../CollectionProvider'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
-import Article from '../Article'
+import Page from '../Page'
 import CollectionClearHint from '../CollectionClearHint'
 import CardLevelField from '../DeckCardLevelField'
 import CardsFiltering from '../CardsFiltering'
@@ -214,10 +214,7 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
   const articleProps = useArticleProps(deck)
 
   return (
-    <Article
-      {...articleProps}
-      {...getDeckBuilderMetaTags(deck, 'Deck Builder')}
-    >
+    <Page {...articleProps} {...getDeckBuilderMetaTags(deck, 'Deck Builder')}>
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>Deck</Title>
@@ -290,7 +287,7 @@ const DeckEditorView = React.memo(function DeckEditorView(props) {
           </CardsFiltering>
         </Row.Column>
       </Row>
-    </Article>
+    </Page>
   )
 })
 

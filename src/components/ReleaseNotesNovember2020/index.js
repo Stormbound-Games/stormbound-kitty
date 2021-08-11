@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import CardLink from '../CardLink'
 import FAQSection from '../FAQSection'
@@ -17,7 +17,7 @@ import CheapenedBrawl from '../CheapenedBrawl'
 export default React.memo(function ReleaseNotesNovember2020(props) {
   return (
     <ReleaseNotes id='11_2020' withAvif={false}>
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           It’s spooky season, and Sheepyard is releasing a small update. The
           situation with Apple has been resolved and the Halloween event can
@@ -151,13 +151,13 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
           peculiar property makes Stoic Protectors another pretty effective
           counter to elders.
         </p>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N80')} />
-      </Article.Embed>
+      </Page.Embed>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <CheapenedBrawl ratio={(1 / 3) * 2} difficulty='LEGACY'>
           <p>
             Similar to what happened for the{' '}
@@ -195,9 +195,9 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
             November 1st and November 15th.
           </li>
         </ul>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <Image
@@ -212,9 +212,9 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
             />
           </Row.Column>
         </Row>
-      </Article.Embed>
+      </Page.Embed>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <FAQSection
           id='faq'
           title='FAQ'
@@ -247,7 +247,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
             },
           ]}
         />
-      </Article.Narrow>
+      </Page.Narrow>
     </ReleaseNotes>
   )
 })

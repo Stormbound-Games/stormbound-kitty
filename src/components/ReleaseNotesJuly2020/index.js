@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import BattleSimApp from '../BattleSimApp'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Checkbox from '../Checkbox'
@@ -54,7 +54,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
 
   return (
     <ReleaseNotes id='07_2020'>
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           Back in April, Paladin Studios announced they would hand over
           Stormbound to a Polish game development studio called{' '}
@@ -135,9 +135,9 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           3 quest will either grant coins (6 out of 10 quests) or fusion stones
           (4 out of 10 quests).
         </p>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <Row desktopOnly wideGutter>
           <Row.Column width='1/3'>
             <Quest
@@ -167,9 +167,9 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
             />
           </Row.Column>
         </Row>
-      </Article.Embed>
+      </Page.Embed>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <Info title='Daily coin cap'>
           <p>
             To compensate the fact that quests overall grant less coins than
@@ -188,9 +188,9 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           sheep! Meanwhile, Siren is crying in the corner seeing her hopes and
           dreams of becoming a pirate hero crushed.
         </p>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <Spacing bottom='LARGER'>
           <Row desktopOnly wideGutter>
             <Row.Column width='1/2'>
@@ -219,9 +219,9 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           </Row>
         </Spacing>
         <CardBuilderCardDisplay {...getInitialCardData('N77')} />
-      </Article.Embed>
+      </Page.Embed>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           <CardLink id='N77' /> will be available shortly (a few days following
           the release) through crafting and{' '}
@@ -357,9 +357,9 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           board, so the ⅓ chance to move to the left are effectively
           redistributed to the right side.
         </p>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <div className={css({ position: 'relative' })}>
           <Checkbox
             checked={withConfusionFix}
@@ -375,9 +375,9 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
             simId='MU42MlIxLCwsLCwsMU4xNkI1QywsLCwsLCwsLCwxTjFCMUMsLCw7UjEwTi1CMTBOOzNNMDs7'
           />
         </div>
-      </Article.Embed>
+      </Page.Embed>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           Sheepyard also allowed me to announce that the next update will
           introduce two extra ways to induce confusion. They are planning on
@@ -428,9 +428,9 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           mode whatsoever. Additionally, the CPU health has also been similarly
           adjusted when facing bots.
         </p>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <Title id='ui-improvements'>UI improvements</Title>
         <Row desktopOnly wideGutter>
           <Row.Column width='1/3'>
@@ -475,9 +475,9 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
             />
           </Row.Column>
         </Row>
-      </Article.Embed>
+      </Page.Embed>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <FAQSection
           id='faq'
           title='FAQ'
@@ -538,7 +538,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           <span className='Highlight'>Meow</span> and happy fighting, fellow
           Stormbounders!
         </Notice>
-      </Article.Narrow>
+      </Page.Narrow>
     </ReleaseNotes>
   )
 })

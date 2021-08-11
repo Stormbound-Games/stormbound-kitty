@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
-import Article from '../Article'
+import Page from '../Page'
 import BattleSimApp from '../BattleSimApp'
 import puzzles from '../../data/puzzles'
 import indexArray from '../../helpers/indexArray'
@@ -33,12 +33,12 @@ const BattleSimPage = React.memo(function BattleSimPage(props) {
   const articleProps = useArticleProps(simId, props.mode, puzzle)
 
   return (
-    <Article
+    <Page
       {...articleProps}
       description='Create your own Stormbound battles, reproducing static in-game situations in this simulator'
     >
       <BattleSimApp {...props} simId={simId} puzzle={puzzle} />
-    </Article>
+    </Page>
   )
 })
 

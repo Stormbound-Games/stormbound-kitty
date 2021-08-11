@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import CheapenedBrawl from '../CheapenedBrawl'
@@ -19,7 +19,7 @@ import getInitialCardData from '../../helpers/getInitialCardData'
 export default React.memo(function ReleaseNotesApril2021(props) {
   return (
     <ReleaseNotes id='04_2021'>
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
           April, bringing balance changes, new cards, new avatars, some UI
@@ -97,13 +97,13 @@ export default React.memo(function ReleaseNotesApril2021(props) {
           Yet another temple will make its entrance in April, the Temple of
           Life, a new rare structure from Winterpact.
         </p>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('W29')} />
-      </Article.Embed>
+      </Page.Embed>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <Row desktopOnly extend={{ alignItems: 'center' }}>
           <Row.Column>
             <Image
@@ -225,9 +225,9 @@ export default React.memo(function ReleaseNotesApril2021(props) {
             <Rubies amount={650} /> and <Coins amount={6500} />
           </li>
         </ul>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <Row desktopOnly wideGutter>
           <Row.Column width='1/3'>
             <Image
@@ -253,9 +253,9 @@ export default React.memo(function ReleaseNotesApril2021(props) {
             />
           </Row.Column>
         </Row>
-      </Article.Embed>
+      </Page.Embed>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           On top of that, all rubies offer will grant additional rubies between
           April 1st and April 5th (end of day), respectively +5%, +10%, +15%,
@@ -357,7 +357,7 @@ export default React.memo(function ReleaseNotesApril2021(props) {
             },
           ]}
         />
-      </Article.Narrow>
+      </Page.Narrow>
     </ReleaseNotes>
   )
 })

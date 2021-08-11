@@ -3,7 +3,7 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import { RARITIES } from '../../constants/game'
 import { BOOKS, EXPECTATIONS } from '../../constants/books'
-import Article from '../Article'
+import Page from '../Page'
 import BookExplanation from '../BookExplanation'
 import BookOutcome from '../BookOutcome'
 import Image from '../Image'
@@ -66,7 +66,7 @@ export default React.memo(function BooksCalculator(props) {
   )
 
   return (
-    <Article
+    <Page
       title='Books Calculator'
       description='Maximise the use of your resources and calculate the odds of finding a specific Stormbound card or fusion stones in a specific book'
     >
@@ -227,6 +227,6 @@ export default React.memo(function BooksCalculator(props) {
           </Row.Column>
         </Only.Desktop>
       </Row>
-    </Article>
+    </Page>
   )
 })

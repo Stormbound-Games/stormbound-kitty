@@ -20,7 +20,7 @@ const content = ({ isEditorialContent }) => ({
 /**
  * 1. By default, the `Article` layout spreads across the entire 1200px width of
  *    the main container. However, when the context is mostly text-based, 1200px
- *    is too wide for comfortable reading. The `Article.Narrow` sub-component
+ *    is too wide for comfortable reading. The `Page.Narrow` sub-component
  *    provides a narrower width adjusted to be reading length.
  * 2. This is a monstrosity, I know… `.Article__content` is the closest unique
  *    guaranteed container we have. Then, it should not have the `no-drop-cap`

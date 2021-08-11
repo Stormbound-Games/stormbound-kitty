@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { useRouteMatch } from 'react-router-dom'
-import Article from '../Article'
+import Page from '../Page'
 import FeedItem from '../FeedItem'
 import Image from '../Image'
 import Info from '../Info'
@@ -24,7 +24,7 @@ export default React.memo(function Member(props) {
   const { isKAT, isSuperKAT } = isKATMember(details)
 
   return (
-    <Article
+    <Page
       title={displayName}
       description={`Find all of ${displayName}’s contributions to Stormbound-Kitty such as stories, decks, puzzles or guides.`}
       noIndex={count === 0 && !channel}
@@ -107,6 +107,6 @@ export default React.memo(function Member(props) {
           )}
         </Row.Column>
       </Row>
-    </Article>
+    </Page>
   )
 })

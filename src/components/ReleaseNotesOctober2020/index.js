@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Image from '../Image'
 import FAQSection from '../FAQSection'
@@ -19,7 +19,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
 
   return (
     <ReleaseNotes id='10_2020'>
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           The long awaited “Friendly Matches update” from Sheepyard is finally
           here, and it brings a lot of new things on the table. As always, I’m
@@ -59,13 +59,13 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
           <CardLink id='N79' /> (which will only be available from October 15th
           onwards).
         </p>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N78')} />
-      </Article.Embed>
+      </Page.Embed>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <Row desktopOnly>
           <Row.Column>
             <Image
@@ -83,26 +83,26 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
             </p>
           </Row.Column>
         </Row>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N79')} />
-      </Article.Embed>
+      </Page.Embed>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           Additionally, a new card{' '}
           <span className='Highlight'>from a new race</span> makes its entrance:
           Stoic Protectors, an ancient card bringing a whole new mechanic into
           the landscape (which will come out 2 weeks after Excited Mouser).
         </p>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N80')} />
-      </Article.Embed>
+      </Page.Embed>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <Title id='balance-changes'>Balance Changes</Title>
 
         <p>
@@ -192,7 +192,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
           Not all these settings are available to all players. They get unlocked
           as one progresses throughout the game.
         </p>
-      </Article.Narrow>
+      </Page.Narrow>
 
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
@@ -223,7 +223,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
         </Row.Column>
       </Row>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <Title id='social-panel'>Social panel</Title>
 
         <Row desktopOnly wideGutter>
@@ -331,7 +331,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
             },
           ]}
         />
-      </Article.Narrow>
+      </Page.Narrow>
     </ReleaseNotes>
   )
 })

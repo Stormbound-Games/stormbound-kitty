@@ -1,5 +1,5 @@
 import React from 'react'
-import Article from '../Article'
+import Page from '../Page'
 import Icon from '../Icon'
 import Input from '../Input'
 import MemberListEntry from '../MemberListEntry'
@@ -80,7 +80,7 @@ export default React.memo(function Members(props) {
   const rows = chunk(uniqMembers, 3)
 
   return (
-    <Article
+    <Page
       title='Members'
       description='Find an index of all Stormbound-Kitty community members having contributed, one way or another, to the site with content'
     >
@@ -153,6 +153,6 @@ export default React.memo(function Members(props) {
           ))}
         </Row.Column>
       </Row>
-    </Article>
+    </Page>
   )
 })

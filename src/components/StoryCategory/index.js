@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from '../Link'
 import { STORY_CATEGORIES } from '../../constants/stories'
-import Article from '../Article'
+import Page from '../Page'
 import Notice from '../Notice'
 import Only from '../Only'
 import Loader from '../Loader'
@@ -24,7 +24,7 @@ export default React.memo(function StoryCategory(props) {
   const { title, background, shortName } = STORY_CATEGORIES[props.category]
 
   return (
-    <Article
+    <Page
       background={background}
       title={viewportWidth >= 700 ? title : shortName}
       description={`Read immersive stories from the community about ${title}`}
@@ -44,6 +44,6 @@ export default React.memo(function StoryCategory(props) {
         </Link>
         .
       </Notice>
-    </Article>
+    </Page>
   )
 })

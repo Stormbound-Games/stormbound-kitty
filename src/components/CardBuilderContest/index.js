@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import HallOfFame from '../CardBuilderHallOfFame'
 import { Rubies } from '../Resource'
 import Title from '../Title'
@@ -12,7 +12,7 @@ export default React.memo(function CardBuilderContest(props) {
 
   return (
     <>
-      <Article
+      <Page
         title='Weekly Card Contest'
         description='All the information to participate and/or vote in the Stormbound weekly card competitions'
         authors={['TaKo_G']}
@@ -20,7 +20,7 @@ export default React.memo(function CardBuilderContest(props) {
         meta='Discontinued'
         isEditorialContent
       >
-        <Article.Narrow>
+        <Page.Narrow>
           <Title>Introduction</Title>
 
           <p>
@@ -105,8 +105,8 @@ export default React.memo(function CardBuilderContest(props) {
               refrain from helping the contestants.
             </li>
           </ul>
-        </Article.Narrow>
-      </Article>
+        </Page.Narrow>
+      </Page>
 
       <HallOfFame />
     </>

@@ -1,7 +1,7 @@
 import React from 'react'
 import FanKitDownloadDialog from '../FanKitDownloadDialog'
 import FanKitItem from '../FanKitItem'
-import Article from '../Article'
+import Page from '../Page'
 import Row from '../Row'
 import capitalise from '../../helpers/capitalise'
 import chunk from '../../helpers/chunk'
@@ -66,7 +66,7 @@ export default React.memo(function FanKitBackgrounds(props) {
   }, [active])
 
   return (
-    <Article
+    <Page
       title='Backgrounds'
       description='Find all the backgrounds from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
     >
@@ -102,6 +102,6 @@ export default React.memo(function FanKitBackgrounds(props) {
           </Row.Column>
         </Row>
       ))}
-    </Article>
+    </Page>
   )
 })

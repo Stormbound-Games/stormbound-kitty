@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Article from '../Article'
+import Page from '../Page'
 import Image from '../Image'
 import Info from '../Info'
 import Notice from '../Notice'
@@ -18,7 +18,7 @@ import getRewardLabel from '../../helpers/getRewardLabel'
 export default React.memo(function ReleaseNotes3rdAnniversary(props) {
   return (
     <ReleaseNotes id='3RD_ANNIVERSARY' withAvif={false}>
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           On September 18th, Stormbound is turning 3 years old. That’s
           incredible that a prototype issued from a game-jam turned into the
@@ -55,10 +55,10 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
             Here are the adjust values for every milestone:
           </Only.Desktop>
         </p>
-      </Article.Narrow>
+      </Page.Narrow>
 
       <Only.Desktop>
-        <Article.Embed>
+        <Page.Embed>
           <Table>
             <thead>
               <tr>
@@ -85,10 +85,10 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
               })}
             </tbody>
           </Table>
-        </Article.Embed>
+        </Page.Embed>
       </Only.Desktop>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <Info icon='crown' title='Oeni’s Gazette'>
           <p>
             Be sure to read{' '}
@@ -141,9 +141,9 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
             <Coins amount={5000} /> + <Stones amount={50} />
           </li>
         </ul>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <Row desktopOnly wideGutter>
           <Row.Column>
             <Image
@@ -176,9 +176,9 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
             />
           </Row.Column>
         </Row>
-      </Article.Embed>
+      </Page.Embed>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           Additionally, <ResourceIcon resource='RUBY' /> rubies and{' '}
           <ResourceIcon resource='COIN' /> coins offers in the shop will yield
@@ -196,16 +196,16 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
           in the <Link to='/fan-kit/wallpapers'>wallpapers section</Link>. Enjoy
           them!
         </p>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <Image
           extend={{ margin: 'auto' }}
           src='/assets/images/wallpapers/lite/wp-d-3.png'
           alt='Stormbound Wallpaper'
           withAvif
         />
-      </Article.Embed>
+      </Page.Embed>
 
       <hr />
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
 import hookIntoProps from 'hook-into-props'
-import Article from '../Article'
+import Page from '../Page'
 import ActiveCardForm from '../CollectionActiveCardForm'
 import CardsGallery from '../CardsGallery'
 import { CollectionContext } from '../CollectionProvider'
@@ -97,7 +97,7 @@ class Collection extends React.Component {
     const resolvedActiveCard = this.getActiveCardData()
 
     return (
-      <Article
+      <Page
         title='Card Collection'
         description='Manage your own card collection and keep track of your cards'
       >
@@ -179,7 +179,7 @@ class Collection extends React.Component {
             </CardsFiltering>
           </Row.Column>
         </Row>
-      </Article>
+      </Page>
     )
   }
 }

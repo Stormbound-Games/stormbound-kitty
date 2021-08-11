@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import Image from '../Image'
 import Info from '../Info'
 import FAQSection from '../FAQSection'
@@ -50,7 +50,7 @@ const BrawlTable = ({ data }) => (
 export default React.memo(function ReleaseNotesBrawl2021(props) {
   return (
     <ReleaseNotes id='brawl_2021'>
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           On June 17th, a Stormbound update will be released to revamp the Brawl
           system. It’s not a complete overhaul, but it should make the Brawl
@@ -243,7 +243,7 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
             },
           ]}
         />
-      </Article.Narrow>
+      </Page.Narrow>
     </ReleaseNotes>
   )
 })

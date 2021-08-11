@@ -9,7 +9,7 @@ import DryRunnerInfo from '../DryRunnerInfo'
 import HarvestersDialog from '../HarvestersDialog'
 import Info from '../Info'
 import Only from '../Only'
-import Article from '../Article'
+import Page from '../Page'
 import Row from '../Row'
 import Title from '../Title'
 import isCard from '../../helpers/isCard'
@@ -19,7 +19,7 @@ export default React.memo(function DryRunner(props) {
   const { viewportWidth } = useViewportSize()
 
   return (
-    <Article
+    <Page
       title='Deck Dry-Run'
       description='Try your deck with actual in-game mechanisms to test its mana curve and the likelihood of having cards combos'
     >
@@ -74,6 +74,6 @@ export default React.memo(function DryRunner(props) {
           <DryRunnerInfo {...props} />
         </Row.Column>
       </Row>
-    </Article>
+    </Page>
   )
 })

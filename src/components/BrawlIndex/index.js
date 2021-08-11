@@ -1,5 +1,5 @@
 import React from 'react'
-import Article from '../Article'
+import Page from '../Page'
 import Row from '../Row'
 import Teaser from '../Teaser'
 import Title from '../Title'
@@ -23,7 +23,7 @@ const BrawlTeaser = React.memo(function BrawlTeaser(props) {
 
 export default React.memo(function BrawlIndex() {
   return (
-    <Article
+    <Page
       title='Brawl Tracker'
       description='Find all the Brawl modes from Stormbound and their ideal decks'
     >
@@ -57,6 +57,6 @@ export default React.memo(function BrawlIndex() {
           </Row.Column>
         </Row>
       ))}
-    </Article>
+    </Page>
   )
 })

@@ -1,7 +1,7 @@
 import React from 'react'
 import FanKitDownloadDialog from '../FanKitDownloadDialog'
 import FanKitItem from '../FanKitItem'
-import Article from '../Article'
+import Page from '../Page'
 import Loader from '../Loader'
 import Row from '../Row'
 import chunk from '../../helpers/chunk'
@@ -83,7 +83,7 @@ export default React.memo(function FanKitAvatars(props) {
   }, [active])
 
   return (
-    <Article
+    <Page
       title='Avatars Fan-Kit'
       description='Find all the avatars assets from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
     >
@@ -126,6 +126,6 @@ export default React.memo(function FanKitAvatars(props) {
 
       {loading && <Loader />}
       <div ref={ref} />
-    </Article>
+    </Page>
   )
 })

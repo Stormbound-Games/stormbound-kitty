@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import Icon from '../Icon'
 import Image from '../Image'
 import Row from '../Row'
@@ -129,7 +129,7 @@ export default React.memo(function Videos(props) {
   const { css } = useFela()
 
   return (
-    <Article
+    <Page
       title='Videos'
       description='Find here a list of popular and active Stormbound video content creators and their YouTube channels.'
       isEditorialContent
@@ -175,6 +175,6 @@ export default React.memo(function Videos(props) {
           ))}
         </Row>
       ))}
-    </Article>
+    </Page>
   )
 })

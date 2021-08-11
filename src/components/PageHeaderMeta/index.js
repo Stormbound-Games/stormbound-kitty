@@ -20,7 +20,7 @@ export const renderAuthorsLinks = (acc, author, index, authors) => {
   return acc
 }
 
-const ArticleMeta = ({ action, authors, meta }) => {
+const PageHeaderMeta = ({ action, authors, meta }) => {
   const { css } = useFela()
 
   return (
@@ -73,4 +73,4 @@ const ArticleMeta = ({ action, authors, meta }) => {
   )
 }
 
-export default React.memo(ArticleMeta)
+export default React.memo(PageHeaderMeta)

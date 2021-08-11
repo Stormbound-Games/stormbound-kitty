@@ -2,7 +2,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import FAQSection from '../FAQSection'
 import Notice from '../Notice'
 import Row from '../Row'
@@ -22,7 +22,7 @@ export default React.memo(function TournamentHallOfFame(props) {
   const { css } = useFela()
 
   return (
-    <Article
+    <Page
       title='Tournaments'
       description='Find the list of all past Stormbound tournaments and the hall of fame.'
     >
@@ -57,7 +57,7 @@ export default React.memo(function TournamentHallOfFame(props) {
           ))}
       </Spacing>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <FAQSection
           id='faq'
           title='FAQ'
@@ -136,7 +136,7 @@ export default React.memo(function TournamentHallOfFame(props) {
           </Link>
           .
         </Notice>
-      </Article.Narrow>
-    </Article>
+      </Page.Narrow>
+    </Page>
   )
 })

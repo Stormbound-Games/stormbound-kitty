@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import { useInView } from 'react-intersection-observer'
-import Article from '../Article'
+import Page from '../Page'
 import Error from '../Error'
 import Notice from '../Notice'
 import Only from '../Only'
@@ -32,7 +32,7 @@ export default React.memo(function Story(props) {
       ) : loading ? (
         <Loader />
       ) : story ? (
-        <Article
+        <Page
           extend={
             type === 'poem'
               ? { textAlign: 'center', fontSize: '120%' }
@@ -52,10 +52,10 @@ export default React.memo(function Story(props) {
           isEditorialContent
           withDropCap={story.type !== 'poem'}
         >
-          <Article.Narrow>
+          <Page.Narrow>
             <MicroMarkdown content={story.content} />
-          </Article.Narrow>
-        </Article>
+          </Page.Narrow>
+        </Page>
       ) : null}
 
       <div ref={ref}>{inView && <StoriesMore {...story} />}</div>

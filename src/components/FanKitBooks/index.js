@@ -1,7 +1,7 @@
 import React from 'react'
 import FanKitDownloadDialog from '../FanKitDownloadDialog'
 import FanKitItem from '../FanKitItem'
-import Article from '../Article'
+import Page from '../Page'
 import Loader from '../Loader'
 import Row from '../Row'
 import { BOOKS } from '../../constants/books'
@@ -41,7 +41,7 @@ export default React.memo(function FanKitBooks(props) {
   }, [active])
 
   return (
-    <Article
+    <Page
       title='Books Fan-Kit'
       description='Find all the books assets from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
     >
@@ -83,6 +83,6 @@ export default React.memo(function FanKitBooks(props) {
 
       {loading && <Loader />}
       <div ref={ref} />
-    </Article>
+    </Page>
   )
 })

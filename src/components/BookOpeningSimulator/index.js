@@ -2,7 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import { useRouteMatch, useHistory } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import Article from '../Article'
+import Page from '../Page'
 import Card from '../Card'
 import CTA from '../CTA'
 import Info from '../Info'
@@ -206,7 +206,7 @@ const BookOpeningSimulator = props => {
   }, [cards])
 
   return (
-    <Article
+    <Page
       title='Book Simulator'
       description='Recreate the thrill of opening books by playing with this simulator, opening the books of your choice!'
       background='/assets/images/wallpapers/lite/wp-d-6.png'
@@ -312,7 +312,7 @@ const BookOpeningSimulator = props => {
           )}
         </Row.Column>
       </Row>
-    </Article>
+    </Page>
   )
 }
 

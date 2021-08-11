@@ -3,7 +3,7 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import serialize from 'form-serialize'
 import Confetti from 'react-dom-confetti'
-import Article from '../Article'
+import Page from '../Page'
 import CTA from '../CTA'
 import Info from '../Info'
 import Notice from '../Notice'
@@ -121,12 +121,12 @@ const Trivia = () => {
   )
 
   return (
-    <Article
+    <Page
       title='Trivia Game'
       description='Test your knownledge of Stormbound with this trivia game!'
       isEditorialContent
     >
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           Welcome to the <Strikethrough>Thunder</Strikethrough> Stormdome! Test
           your knowledge of Stormbound—both useful and useless—with the
@@ -218,8 +218,8 @@ const Trivia = () => {
           </Row>
           <CTA type='submit'>Submit</CTA>
         </form>
-      </Article.Narrow>
-    </Article>
+      </Page.Narrow>
+    </Page>
   )
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import { BRAWL_INDEX } from '../../constants/brawl'
-import Article from '../Article'
+import Page from '../Page'
 import BrawlProvider from '../BrawlProvider'
 import BrawlTracker from '../BrawlTracker'
 import { getLongFaction } from '../../helpers/encoding'
@@ -14,7 +14,7 @@ export default React.memo(function BrawlPage(props) {
   const faction = getLongFaction(brawl.cardId.slice(0, 1))
 
   return (
-    <Article
+    <Page
       title={brawl.title}
       description='Manage your Brawl, track your progress as well as your expenses and rewards'
       meta={brawl.label}
@@ -25,6 +25,6 @@ export default React.memo(function BrawlPage(props) {
       <BrawlProvider id={id} difficulty={difficulty}>
         <BrawlTracker difficulty={difficulty} setDifficulty={setDifficulty} />
       </BrawlProvider>
-    </Article>
+    </Page>
   )
 })

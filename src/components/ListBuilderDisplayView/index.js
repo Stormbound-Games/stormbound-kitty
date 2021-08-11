@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import { TIER_COLORS, MAX_TIERS } from '../../constants/list'
-import Article from '../Article'
+import Page from '../Page'
 import CTA from '../CTA'
 import Row from '../Row'
 import ShareButton from '../ListBuilderShareButton'
@@ -16,7 +16,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
   const tiers = getInitialListData(id)
 
   return (
-    <Article
+    <Page
       title='List builder'
       description='Compose your own tier lists from the Stormbound cards, ranking them the way you see fit'
       action={{
@@ -59,6 +59,6 @@ export default React.memo(function ListBuilderDisplayView(props) {
           ))}
         </Row.Column>
       </Row>
-    </Article>
+    </Page>
   )
 })

@@ -3,7 +3,7 @@ import { useFela } from 'react-fela'
 import { useRouteMatch, useHistory } from 'react-router-dom'
 import Card from '../Card'
 import CardSelect from '../CardSelect'
-import Article from '../Article'
+import Page from '../Page'
 import Image from '../Image'
 import Info from '../Info'
 import LearnMoreIcon from '../LearnMoreIcon'
@@ -115,7 +115,7 @@ export default React.memo(function ValueCalculator(props) {
   }, [A, B])
 
   return (
-    <Article
+    <Page
       title='Value Calculator'
       description='Find an experimental and simplified card value calculator helping determine the numeric value of a given card based on its properties'
     >
@@ -231,6 +231,6 @@ export default React.memo(function ValueCalculator(props) {
           </p>
         </Row.Column>
       </Row>
-    </Article>
+    </Page>
   )
 })

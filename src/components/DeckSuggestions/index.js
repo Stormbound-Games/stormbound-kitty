@@ -8,7 +8,7 @@ import { CollectionContext } from '../CollectionProvider'
 import BookmarkDeckButton from '../BookmarkDeckButton'
 import Decks from '../Decks'
 import EmptySearch from '../EmptySearch'
-import Article from '../Article'
+import Page from '../Page'
 import ImportCollection from '../ImportCollection'
 import Info from '../Info'
 import LearnMoreIcon from '../LearnMoreIcon'
@@ -145,7 +145,7 @@ class DeckSuggestions extends React.Component {
     const decks = this.getDecks()
 
     return (
-      <Article
+      <Page
         title='Popular Decks'
         description={getDeckSearchDescription(this.state)}
       >
@@ -217,7 +217,7 @@ class DeckSuggestions extends React.Component {
             )}
           </Row.Column>
         </Row>
-      </Article>
+      </Page>
     )
   }
 }

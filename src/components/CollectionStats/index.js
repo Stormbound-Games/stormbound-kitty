@@ -14,7 +14,7 @@ import {
   Pie,
 } from 'recharts'
 import { CollectionContext } from '../CollectionProvider'
-import Article from '../Article'
+import Page from '../Page'
 import Checkbox from '../Checkbox'
 import CollectionFigures from '../CollectionFigures'
 import Only from '../Only'
@@ -217,7 +217,7 @@ export default function CollectionStats(props) {
   )
 
   return (
-    <Article
+    <Page
       title='Collection Stats'
       description='Get insights about your own card collection and visualise it'
     >
@@ -465,6 +465,6 @@ export default function CollectionStats(props) {
           </Row>
         </Row.Column>
       </Row>
-    </Article>
+    </Page>
   )
 }

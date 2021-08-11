@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import CheapenedBrawl from '../CheapenedBrawl'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
@@ -28,7 +28,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
 
   return (
     <ReleaseNotes id='02_2021'>
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
           February, bringing balance changes (and a well-deserved confusion
@@ -97,13 +97,13 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
           On February 8th, a new temple card will be introduced: the Temple of
           Heart. Look how pretty it is! 💖
         </p>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N81')} />
-      </Article.Embed>
+      </Page.Embed>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <Title id='player-profiles'>Player profiles</Title>
         <p>
           A brand new feature is coming with this release:{' '}
@@ -200,9 +200,9 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
           Valentine exclusive packs will be available from February 8th (9AM
           CET) until Feburary 14th (end of day) so be sure to jump on them!
         </p>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <Row desktopOnly wideGutter>
           <Row.Column width='1/3'>
             <Image
@@ -239,9 +239,9 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
             </p>
           </Row.Column>
         </Row>
-      </Article.Embed>
+      </Page.Embed>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <FAQSection
           id='faq'
           title='FAQ'
@@ -260,7 +260,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
             },
           ]}
         />
-      </Article.Narrow>
+      </Page.Narrow>
     </ReleaseNotes>
   )
 })

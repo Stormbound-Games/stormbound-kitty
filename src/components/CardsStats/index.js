@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import ChartAbility from '../ChartAbility'
 import ChartMana from '../ChartMana'
 import ChartModifier from '../ChartModifier'
@@ -20,7 +20,7 @@ export default React.memo(() => {
   const { viewportWidth } = useViewportSize()
 
   return (
-    <Article
+    <Page
       title='Cards Statistics'
       description='Enjoy insights and statistics about the state of the Stormbound card collection'
     >
@@ -109,6 +109,6 @@ export default React.memo(() => {
           </Row>
         </Row.Column>
       </Row>
-    </Article>
+    </Page>
   )
 })

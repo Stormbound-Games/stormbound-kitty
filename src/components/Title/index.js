@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { ArticleContext } from '../Article'
+import { PageContext } from '../Page'
 import styles from './styles'
 
 export default React.memo(function Title(props) {
-  const { isEditorialContent } = React.useContext(ArticleContext)
+  const { isEditorialContent } = React.useContext(PageContext)
   const Element = props.element || 'h2'
   const { css } = useFela({ isEditorialContent })
 

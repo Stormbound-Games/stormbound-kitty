@@ -1,5 +1,5 @@
 import React from 'react'
-import Article from '../Article'
+import Page from '../Page'
 import indexArray from '../../helpers/indexArray'
 import releases from '../../data/releases'
 
@@ -9,7 +9,7 @@ export default React.memo(function ReleaseNotes(props) {
   const release = RELEASES_INDEX[props.id]
 
   return (
-    <Article
+    <Page
       title={release.title}
       description={release.excerpt}
       author='Kitty'
@@ -23,6 +23,6 @@ export default React.memo(function ReleaseNotes(props) {
       withDropCap
     >
       {props.children}
-    </Article>
+    </Page>
   )
 })

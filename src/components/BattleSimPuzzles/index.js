@@ -1,7 +1,7 @@
 import React from 'react'
 import hookIntoProps from 'hook-into-props'
 import { useFela } from 'react-fela'
-import Article from '../Article'
+import Page from '../Page'
 import Link from '../Link'
 import puzzles from '../../data/puzzles'
 import EmptySearch from '../EmptySearch'
@@ -58,7 +58,7 @@ class BattleSimPuzzles extends React.Component {
     const puzzles = this.getPuzzles()
 
     return (
-      <Article
+      <Page
         title='Puzzles'
         description='Test your skills and resolve interesting and creative puzzles made by the Stormbound community'
       >
@@ -95,7 +95,7 @@ class BattleSimPuzzles extends React.Component {
             </Notice>
           </Row.Column>
         </Row>
-      </Article>
+      </Page>
     )
   }
 }

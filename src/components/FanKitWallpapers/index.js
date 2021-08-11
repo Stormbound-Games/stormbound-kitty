@@ -1,7 +1,7 @@
 import React from 'react'
 import FanKitDownloadDialog from '../FanKitDownloadDialog'
 import FanKitItem from '../FanKitItem'
-import Article from '../Article'
+import Page from '../Page'
 import Row from '../Row'
 import chunk from '../../helpers/chunk'
 import indexArray from '../../helpers/indexArray'
@@ -36,7 +36,7 @@ export default React.memo(function FanKitWallpapers(props) {
   }, [active])
 
   return (
-    <Article
+    <Page
       title='Wallpapers'
       description='Find all the wallpapers from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
     >
@@ -92,6 +92,6 @@ export default React.memo(function FanKitWallpapers(props) {
           </Row.Column>
         </Row>
       ))}
-    </Article>
+    </Page>
   )
 })

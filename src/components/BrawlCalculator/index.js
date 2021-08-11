@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import BrawlCalculatorDiscount from '../BrawlCalculatorDiscount'
 import BrawlCalculatorLegendaryToggle from '../BrawlCalculatorLegendaryToggle'
 import BrawlCalculatorMode from '../BrawlCalculatorMode'
@@ -38,7 +38,7 @@ export default React.memo(function BrawlCalculator(props) {
   }, [mode])
 
   return (
-    <Article
+    <Page
       title='Brawl Calculator'
       description='Find a calculator for making the best out of the Brawl based on your current savins or your objectives'
     >
@@ -161,6 +161,6 @@ export default React.memo(function BrawlCalculator(props) {
           </tbody>
         </Table>
       </Only.Desktop>
-    </Article>
+    </Page>
   )
 })

@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from '../Link'
 import GuideTeaser from '../GuideTeaser'
-import Article from '../Article'
+import Page from '../Page'
 import Notice from '../Notice'
 import Only from '../Only'
 import Row from '../Row'
@@ -30,7 +30,7 @@ export default React.memo(function Guides(props) {
   )
 
   return (
-    <Article
+    <Page
       title={CATEGORIES[props.category].name.long}
       description='Find guides from the community about Stormbound and improve your gameplay and knowledge about the game'
     >
@@ -46,6 +46,6 @@ export default React.memo(function Guides(props) {
         </Link>
         .
       </Notice>
-    </Article>
+    </Page>
   )
 })

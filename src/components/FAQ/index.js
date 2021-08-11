@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Article from '../Article'
+import Page from '../Page'
 import FAQSection from '../FAQSection'
 import Image from '../Image'
 import Link from '../Link'
@@ -14,12 +14,12 @@ export default React.memo(function FAQ() {
   const { css } = useFela()
 
   return (
-    <Article
+    <Page
       title='FAQ'
       description='Find answers to the frequently asked questions about Stormbound and Stormbound-Kitty'
       isEditorialContent
     >
-      <Article.Narrow>
+      <Page.Narrow>
         <Title>Topics</Title>
 
         <ul className={css(styles.toc)}>
@@ -58,7 +58,7 @@ export default React.memo(function FAQ() {
         ))}
 
         <StructuredData type='FAQ' />
-      </Article.Narrow>
-    </Article>
+      </Page.Narrow>
+    </Page>
   )
 })

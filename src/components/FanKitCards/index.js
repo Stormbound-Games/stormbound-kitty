@@ -2,7 +2,7 @@ import React from 'react'
 import CardSelect from '../CardSelect'
 import FanKitDownloadDialog from '../FanKitDownloadDialog'
 import FanKitItem from '../FanKitItem'
-import Article from '../Article'
+import Page from '../Page'
 import Loader from '../Loader'
 import Row from '../Row'
 import cards from '../../data/cards'
@@ -33,7 +33,7 @@ export default React.memo(function FanKit(props) {
   }, [active])
 
   return (
-    <Article
+    <Page
       title='Cards Fan-Kit'
       description='Find all the cards assets from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
     >
@@ -97,6 +97,6 @@ export default React.memo(function FanKit(props) {
 
       {loading && <Loader />}
       <div ref={ref} />
-    </Article>
+    </Page>
   )
 })

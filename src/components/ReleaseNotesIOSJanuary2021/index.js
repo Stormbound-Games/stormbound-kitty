@@ -1,12 +1,12 @@
 import React from 'react'
-import Article from '../Article'
+import Page from '../Page'
 import Info from '../Info'
 import ReleaseNotes from '../ReleaseNotes'
 
 export default React.memo(function ReleaseNotesIOSJanuary2021(props) {
   return (
     <ReleaseNotes id='ios_01_2021'>
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           Important notice for{' '}
           <strong className='Highlight'>iOS guest players!</strong> If you do
@@ -41,7 +41,7 @@ export default React.memo(function ReleaseNotesIOSJanuary2021(props) {
             pandemic. Do the right thing. 🙏
           </p>
         </Info>
-      </Article.Narrow>
+      </Page.Narrow>
     </ReleaseNotes>
   )
 })

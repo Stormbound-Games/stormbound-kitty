@@ -2,7 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import { UserContext } from '../UserProvider'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import Footnotes, { Footnote } from '../Footnotes'
 import MemberList from '../MemberList'
 import Notice from '../Notice'
@@ -17,12 +17,12 @@ export default React.memo(function About(props) {
   const { css } = useFela()
 
   return (
-    <Article
+    <Page
       title='About'
       description='Stormbound-Kitty is 100% free: no ads, no tracking, no paywall. If you can, consider donating!'
       isEditorialContent
     >
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           Hey there! I’m Kitty. I created Stormbound-Kitty in March 2019
           (although it did not have a name yet at that point), wanting to do
@@ -200,7 +200,7 @@ export default React.memo(function About(props) {
             </Link>
           </p>
         </Footnotes>
-      </Article.Narrow>
-    </Article>
+      </Page.Narrow>
+    </Page>
   )
 })

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import Advice from '../DeckAdvice'
-import Article from '../Article'
+import Page from '../Page'
 import Deck from '../Deck'
 import DeckStatsChart from '../DeckStatsChart'
 import Info from '../Info'
@@ -49,7 +49,7 @@ export default React.memo(function DeckDetailView(props) {
   }, [defaultModifier, sendNotification])
 
   return (
-    <Article
+    <Page
       title={suggestedDeck.name || 'Deck details'}
       {...getDeckBuilderMetaTags(props.deck, 'Deck Insights')}
       author={suggestedDeck.author}
@@ -100,6 +100,6 @@ export default React.memo(function DeckDetailView(props) {
           <Advice deck={deck} highlight={props.highlight} modifier={modifier} />
         </Row.Column>
       </Row>
-    </Article>
+    </Page>
   )
 })

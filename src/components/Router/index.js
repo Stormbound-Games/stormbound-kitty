@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Redirect, Switch } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Error from '../Error'
-import Page from '../Page'
+import PageRoute from '../PageRoute'
 import { StoriesContext } from '../StoriesProvider'
 import load from '../../helpers/load'
 import { STORY_CATEGORIES } from '../../constants/stories'
@@ -116,123 +116,129 @@ export default function Router(props) {
     <AnimatePresence exitBeforeEnter>
       <BrowserRouter>
         <Switch>
-          <Page
+          <PageRoute
             path='/sim/:simId/display'
             active={['TOOLS', 'BATTLE_SIM', 'DISPLAY']}
           >
             <BattleSimPage mode='DISPLAY' />
-          </Page>
+          </PageRoute>
 
-          <Page path='/sim/puzzles' active={['COMMUNITY', 'PUZZLES']}>
+          <PageRoute path='/sim/puzzles' active={['COMMUNITY', 'PUZZLES']}>
             <BattleSimPuzzles />
-          </Page>
+          </PageRoute>
 
-          <Page path='/sim/:simId' active={['TOOLS', 'BATTLE_SIM', 'EDITOR']}>
+          <PageRoute
+            path='/sim/:simId'
+            active={['TOOLS', 'BATTLE_SIM', 'EDITOR']}
+          >
             <BattleSimPage mode='EDITOR' />
-          </Page>
+          </PageRoute>
 
-          <Page path='/sim' active={['TOOLS', 'BATTLE_SIM', 'EDITOR']}>
+          <PageRoute path='/sim' active={['TOOLS', 'BATTLE_SIM', 'EDITOR']}>
             <BattleSimPage mode='EDITOR' />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             exact
             path='/card/contest'
             active={['COMMUNITY', 'CARD_CONTEST']}
           >
             <CardBuilderContest />
-          </Page>
+          </PageRoute>
 
-          <Page exact path='/card/stats' active={['GAME', 'CARD_STATS']}>
+          <PageRoute exact path='/card/stats' active={['GAME', 'CARD_STATS']}>
             <CardsStats />
-          </Page>
+          </PageRoute>
 
-          <Page exact path='/trivia' active={['GAME', 'TRIVIA']}>
+          <PageRoute exact path='/trivia' active={['GAME', 'TRIVIA']}>
             <Trivia />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             path='/card/:cardId/display'
             active={['TOOLS', 'CARD_BUILDER', 'DISPLAY']}
           >
             <CardBuilderDisplay />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             path='/card/:cardId'
             active={['TOOLS', 'CARD_BUILDER', 'EDITOR']}
           >
             <CardBuilderEditor />
-          </Page>
+          </PageRoute>
 
-          <Page path='/card' active={['TOOLS', 'CARD_BUILDER', 'EDITOR']}>
+          <PageRoute path='/card' active={['TOOLS', 'CARD_BUILDER', 'EDITOR']}>
             <CardBuilderEditor />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             exact
             path='/deck/suggestions'
             active={['COMMUNITY', 'DECK_SUGGESTIONS']}
           >
             <DeckSuggestions />
-          </Page>
+          </PageRoute>
 
-          <Page path='/deck/collection' active={['TOOLS', 'DECK_COLLECTION']}>
+          <PageRoute
+            path='/deck/collection'
+            active={['TOOLS', 'DECK_COLLECTION']}
+          >
             <DeckCollection />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             path='/deck/:deckId/detail'
             active={['TOOLS', 'DECK_BUILDER', 'DETAIL']}
           >
             <DeckBuilderRoot view='DETAIL'>
               {state => <DeckDetailView {...state} />}
             </DeckBuilderRoot>
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             path='/deck/:deckId/dry-run'
             active={['TOOLS', 'DECK_BUILDER', 'DRY_RUN']}
           >
             <DeckBuilderRoot view='DRY_RUN'>
               {state => <DeckDryRunView {...state} />}
             </DeckBuilderRoot>
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             path='/deck/:deckId'
             active={['TOOLS', 'DECK_BUILDER', 'EDITOR']}
           >
             <DeckBuilderRoot view='EDITOR'>
               {state => <DeckEditorView {...state} />}
             </DeckBuilderRoot>
-          </Page>
+          </PageRoute>
 
-          <Page path='/deck' active={['TOOLS', 'DECK_BUILDER', 'EDITOR']}>
+          <PageRoute path='/deck' active={['TOOLS', 'DECK_BUILDER', 'EDITOR']}>
             <DeckBuilderRoot view='EDITOR'>
               {state => <DeckEditorView {...state} />}
             </DeckBuilderRoot>
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             exact
             path='/collection/stats'
             active={['TOOLS', 'COLLECTION_STATS']}
           >
             <CollectionStats />
-          </Page>
+          </PageRoute>
 
-          <Page exact path='/collection' active={['TOOLS', 'COLLECTION']}>
+          <PageRoute exact path='/collection' active={['TOOLS', 'COLLECTION']}>
             <Collection />
-          </Page>
+          </PageRoute>
 
-          <Page path='/quest/:questId' active={['TOOLS', 'QUEST_BUILDER']}>
+          <PageRoute path='/quest/:questId' active={['TOOLS', 'QUEST_BUILDER']}>
             <QuestBuilderRoot />
-          </Page>
+          </PageRoute>
 
-          <Page path='/quest' active={['TOOLS', 'QUEST_BUILDER']}>
+          <PageRoute path='/quest' active={['TOOLS', 'QUEST_BUILDER']}>
             <QuestBuilderRoot />
-          </Page>
+          </PageRoute>
 
           {stories.map(story => (
             <Redirect
@@ -243,19 +249,19 @@ export default function Router(props) {
           ))}
 
           {Object.keys(STORY_CATEGORIES).map(category => (
-            <Page
+            <PageRoute
               exact
               path={`/stories/${category}`}
               active={['STORIES', category]}
               key={category}
             >
               <StoryCategory category={category} />
-            </Page>
+            </PageRoute>
           ))}
 
-          <Page path='/stories/:storyId' active={['STORIES', 'STORY']}>
+          <PageRoute path='/stories/:storyId' active={['STORIES', 'STORY']}>
             <Story />
-          </Page>
+          </PageRoute>
 
           <Redirect path='/stories' to='/stories/lore' />
 
@@ -263,199 +269,207 @@ export default function Router(props) {
             const Component = GUIDE_COMPONENTS[guide.id]
 
             return (
-              <Page
+              <PageRoute
                 path={`/guides/${guide.slug}`}
                 active={['GUIDES', guide.id]}
                 key={guide.id}
               >
                 <Component />
-              </Page>
+              </PageRoute>
             )
           })}
 
           {Object.keys(CATEGORIES).map(category => (
-            <Page
+            <PageRoute
               exact
               path={`/guides/${CATEGORIES[category].slug}`}
               active={['GUIDES', category]}
               key={category}
             >
               <Guides category={category} />
-            </Page>
+            </PageRoute>
           ))}
 
           <Redirect from='/guides' to='/guides/essentials' />
 
           <Redirect from='/list/ranked/display' to='/list/ranked' />
-          <Page exact path='/list/ranked' active={['COMMUNITY', 'RANKED_LIST']}>
+          <PageRoute
+            exact
+            path='/list/ranked'
+            active={['COMMUNITY', 'RANKED_LIST']}
+          >
             <RankedList />
-          </Page>
+          </PageRoute>
 
           <Redirect from='/list/equals/display' to='/list/equals' />
-          <Page exact path='/list/equals' active={['COMMUNITY', 'EQUALS_LIST']}>
+          <PageRoute
+            exact
+            path='/list/equals'
+            active={['COMMUNITY', 'EQUALS_LIST']}
+          >
             <EqualsList />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             path='/list/:listId/display'
             active={['TOOLS', 'LIST_BUILDER', 'DISPLAY']}
           >
             <ListBuilderDisplayView />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             path='/list/:listId'
             active={['TOOLS', 'LIST_BUILDER', 'EDITOR']}
           >
             <ListBuilderEditorView />
-          </Page>
+          </PageRoute>
 
-          <Page path='/list' active={['TOOLS', 'LIST_BUILDER', 'EDITOR']}>
+          <PageRoute path='/list' active={['TOOLS', 'LIST_BUILDER', 'EDITOR']}>
             <ListBuilderEditorView />
-          </Page>
+          </PageRoute>
 
-          <Page path='/brawl/:id' active={['TOOLS', 'BRAWL', 'TRACKER']}>
+          <PageRoute path='/brawl/:id' active={['TOOLS', 'BRAWL', 'TRACKER']}>
             <BrawlPage />
-          </Page>
+          </PageRoute>
 
-          <Page exact path='/brawl' active={['TOOLS', 'BRAWL', 'INDEX']}>
+          <PageRoute exact path='/brawl' active={['TOOLS', 'BRAWL', 'INDEX']}>
             <BrawlIndex />
-          </Page>
+          </PageRoute>
 
-          <Page path='/member/:memberId'>
+          <PageRoute path='/member/:memberId'>
             <Member />
-          </Page>
+          </PageRoute>
 
-          <Page exact path='/members' active={['COMMUNITY', 'MEMBERS']}>
+          <PageRoute exact path='/members' active={['COMMUNITY', 'MEMBERS']}>
             <Members />
-          </Page>
+          </PageRoute>
 
           <Redirect exact path='/fan-kit' to='/fan-kit/cards' />
 
-          <Page
+          <PageRoute
             exact
             path='/fan-kit/avatars'
             active={['GAME', 'FAN_KIT', 'AVATARS']}
           >
             <FanKitAvatars />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             exact
             path='/fan-kit/books'
             active={['GAME', 'FAN_KIT', 'BOOKS']}
           >
             <FanKitBooks />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             exact
             path='/fan-kit/cards'
             active={['GAME', 'FAN_KIT', 'CARDS']}
           >
             <FanKitCards />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             exact
             path='/fan-kit/wallpapers'
             active={['GAME', 'FAN_KIT', 'WALLPAPERS']}
           >
             <FanKitWallpapers />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             exact
             path='/fan-kit/backgrounds'
             active={['GAME', 'FAN_KIT', 'BACKGROUNDS']}
           >
             <FanKitBackgrounds />
-          </Page>
+          </PageRoute>
 
-          <Page exact path='/fan-art' active={['GAME', 'FAN_ART']}>
+          <PageRoute exact path='/fan-art' active={['GAME', 'FAN_ART']}>
             <FanArt />
-          </Page>
+          </PageRoute>
 
           <Redirect from='/collection/books' to='/calculators/books' />
 
-          <Page
+          <PageRoute
             exact
             path='/calculators/books'
             active={['TOOLS', 'BOOKS_CALCULATOR']}
           >
             <BooksCalculator />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             exact
             path='/calculators/hero'
             active={['TOOLS', 'HERO_CALCULATOR']}
           >
             <HeroScoreCalculator />
-          </Page>
+          </PageRoute>
 
           <Redirect from='/income-calculator' to='/calculators/income' />
 
-          <Page
+          <PageRoute
             exact
             path='/calculators/income'
             active={['TOOLS', 'INCOME_CALCULATOR']}
           >
             <IncomeCalculator />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             exact
             path='/calculators/value/:id'
             active={['TOOLS', 'VALUE_CALCULATOR']}
           >
             <ValueCalculator />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             exact
             path='/calculators/value'
             active={['TOOLS', 'VALUE_CALCULATOR']}
           >
             <ValueCalculator />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             exact
             path='/calculators/brawl'
             active={['TOOLS', 'BRAWL_CALCULATOR']}
           >
             <BrawlCalculator />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             exact
             path='/simulators/books/:id'
             active={['TOOLS', 'BOOK_SIMULATOR']}
           >
             <BookOpeningSimulator />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             exact
             path='/simulators/books'
             active={['TOOLS', 'BOOK_SIMULATOR']}
           >
             <BookOpeningSimulator />
-          </Page>
+          </PageRoute>
 
           {releases.map(release => {
             const Component = RELEASE_COMPONENTS[release.id]
 
             return (
-              <Page
+              <PageRoute
                 exact
                 path={'/releases/' + release.slug}
                 active={['GAME', release.id]}
                 key={release.id}
               >
                 <Component />
-              </Page>
+              </PageRoute>
             )
           })}
 
@@ -468,52 +482,56 @@ export default function Router(props) {
           ))}
 
           <Redirect from='/changelog/releases' to='/releases' />
-          <Page exact path='/releases' active={['GAME', 'RELEASES']}>
+          <PageRoute exact path='/releases' active={['GAME', 'RELEASES']}>
             <Releases />
-          </Page>
+          </PageRoute>
 
           <Redirect from='/changelog/cards' to='/changelog' />
-          <Page exact path='/changelog' active={['GAME', 'CARD_CHANGELOG']}>
+          <PageRoute
+            exact
+            path='/changelog'
+            active={['GAME', 'CARD_CHANGELOG']}
+          >
             <CardChangelog />
-          </Page>
+          </PageRoute>
 
-          <Page exact path='/faq' active={['HOME', 'FAQ']}>
+          <PageRoute exact path='/faq' active={['HOME', 'FAQ']}>
             <FAQ />
-          </Page>
+          </PageRoute>
 
           <Redirect from='/donate' to='/about' />
 
-          <Page exact path='/about' active={['HOME', 'ABOUT']}>
+          <PageRoute exact path='/about' active={['HOME', 'ABOUT']}>
             <About />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             exact
             path='/tournaments/hall-of-fame'
             active={['COMMUNITY', 'HALL_OF_FAME']}
           >
             <TournamentHallOfFame />
-          </Page>
+          </PageRoute>
 
-          <Page
+          <PageRoute
             exact
             path='/brewed-sages'
             active={['COMMUNITY', 'BREWED_SAGES']}
           >
             <BrewedSages />
-          </Page>
+          </PageRoute>
 
-          <Page path='/videos' exact active={['COMMUNITY', 'VIDEOS']}>
+          <PageRoute path='/videos' exact active={['COMMUNITY', 'VIDEOS']}>
             <Videos />
-          </Page>
+          </PageRoute>
 
-          <Page exact path='/' active={['HOME', 'NEWS']}>
+          <PageRoute exact path='/' active={['HOME', 'NEWS']}>
             <Home />
-          </Page>
+          </PageRoute>
 
-          <Page path='*'>
+          <PageRoute path='*'>
             <Error error='HTTP 404 – Not Found' />
-          </Page>
+          </PageRoute>
         </Switch>
       </BrowserRouter>
     </AnimatePresence>

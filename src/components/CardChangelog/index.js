@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import Info from '../Info'
 import Row from '../Row'
 import Select from '../Select'
@@ -46,12 +46,12 @@ export default function CardChangelog(props) {
   }, [type])
 
   return (
-    <Article
+    <Page
       title='Card Changelog'
       isEditorialContent
       description='Find all cards changes that ever happened on Stormbound'
     >
-      <Article.Narrow>
+      <Page.Narrow>
         <Title>Filters</Title>
         <Row>
           <Row.Column>
@@ -137,7 +137,7 @@ export default function CardChangelog(props) {
                   </ul>
                 </Spacing>
               ))}
-      </Article.Narrow>
-    </Article>
+      </Page.Narrow>
+    </Page>
   )
 }

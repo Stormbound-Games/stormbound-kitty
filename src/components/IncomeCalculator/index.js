@@ -2,7 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
 import Checkbox from '../Checkbox'
-import Article from '../Article'
+import Page from '../Page'
 import Info from '../Info'
 import LeagueSelect from '../LeagueSelect'
 import NumberInput from '../NumberInput'
@@ -147,7 +147,7 @@ export default React.memo(function IncomeCalculator(props) {
   }, [maxWins, setup, wins])
 
   return (
-    <Article
+    <Page
       title='Income Calculator'
       description='Compute how many resources you can get during a certain period of time to get most out of your resources.'
     >
@@ -416,6 +416,6 @@ export default React.memo(function IncomeCalculator(props) {
           </div>
         </Row.Column>
       </Row>
-    </Article>
+    </Page>
   )
 })

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Article from '../Article'
+import Page from '../Page'
 import CardLink from '../CardLink'
 import Notice from '../Notice'
 import ReleaseNotes from '../ReleaseNotes'
@@ -11,7 +11,7 @@ export default React.memo(function ReleaseNotesSeptember2020(props) {
 
   return (
     <ReleaseNotes id='09_2020'>
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           On the 1st of September, a small balance patch will{' '}
           <span className={css({ color: 'var(--light-shadowfen)' })}>
@@ -99,7 +99,7 @@ export default React.memo(function ReleaseNotesSeptember2020(props) {
           <span className='Highlight'>Meow</span> and happy fighting, fellow
           Stormbounders!
         </Notice>
-      </Article.Narrow>
+      </Page.Narrow>
     </ReleaseNotes>
   )
 })

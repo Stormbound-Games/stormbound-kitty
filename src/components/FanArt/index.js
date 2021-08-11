@@ -3,7 +3,7 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import Masonry from 'react-masonry-css'
 import Image from '../Image'
-import Article from '../Article'
+import Page from '../Page'
 import Loader from '../Loader'
 import Spacing from '../Spacing'
 import artworks from '../../data/artworks'
@@ -17,19 +17,19 @@ export default React.memo(function FanArt(props) {
   const { loading, items, ref } = useLazyLoad(entries, 3)
 
   return (
-    <Article
+    <Page
       title='Fan Art'
       description='Find the amazing visual artwork created by the Stormbound community'
       isEditorialContent
     >
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           All illustrations displayed on this page have been collected from the
           official Discord and Reddit, and all credits go to their respective
           author. If you are the author of an artwork showcased on this page and
           would like to have it removed, contact Kitty#1909 on Discord.
         </p>
-      </Article.Narrow>
+      </Page.Narrow>
 
       <Spacing vertical='LARGEST'>
         <Masonry
@@ -61,6 +61,6 @@ export default React.memo(function FanArt(props) {
 
       {loading && <Loader />}
       <div ref={ref} />
-    </Article>
+    </Page>
   )
 })

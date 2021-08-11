@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { ArticleContext } from '../Article'
+import { PageContext } from '../Page'
 import { ImageSupportContext } from '../ImageSupportProvider'
 
 // The reason AVIF is opt-in but WEBP is opt-out is because the WEBP version is
@@ -17,7 +17,7 @@ const useFileExtension = ({ withAvif, withoutWebp }) => {
 
 const Image = props => {
   const { css } = useFela()
-  const { isEditorialContent } = React.useContext(ArticleContext)
+  const { isEditorialContent } = React.useContext(PageContext)
   const ext = useFileExtension({
     withAvif: props.withAvif && props.src.startsWith('/assets/images'),
     withoutWebp: props.withoutWebp || !props.src.startsWith('/assets/images'),

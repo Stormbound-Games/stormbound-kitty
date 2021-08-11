@@ -5,7 +5,7 @@ import hookIntoProps from 'hook-into-props'
 import Form from '../QuestBuilderForm'
 import Row from '../Row'
 import Quest from '../Quest'
-import Article from '../Article'
+import Page from '../Page'
 import serialisation from '../../helpers/serialisation'
 import getInitialQuestData from '../../helpers/getInitialQuestData'
 
@@ -60,7 +60,7 @@ class QuestBuilderRoot extends React.Component {
 
   render() {
     return (
-      <Article
+      <Page
         title='Create Your Quest'
         description='Design your very own Stormbound quest'
       >
@@ -88,7 +88,7 @@ class QuestBuilderRoot extends React.Component {
             </Row.Column>
           </Row>
         </div>
-      </Article>
+      </Page>
     )
   }
 }

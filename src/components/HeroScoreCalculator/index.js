@@ -4,7 +4,7 @@ import Link from '../Link'
 import Footnotes, { Footnote } from '../Footnotes'
 import Image from '../Image'
 import Radio from '../Radio'
-import Article from '../Article'
+import Page from '../Page'
 import Title from '../Title'
 import NumberInput from '../NumberInput'
 import { HeroCrowns } from '../Resource'
@@ -28,7 +28,7 @@ const HeroScoreCalculator = props => {
   })
 
   return (
-    <Article
+    <Page
       title='Hero Calculator'
       description='Figure out how to optimize your Hero Score in the Heroes League with this elo rating inspired calculator!'
     >
@@ -220,7 +220,7 @@ const HeroScoreCalculator = props => {
           </Link>
         </p>
       </Footnotes>
-    </Article>
+    </Page>
   )
 }
 

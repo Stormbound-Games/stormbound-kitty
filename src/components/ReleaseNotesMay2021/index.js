@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import FAQSection from '../FAQSection'
@@ -29,7 +29,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
 
   return (
     <ReleaseNotes id='05_2021'>
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early May,
           bringing balance changes, new cards, a new Premium pass, some UI
@@ -100,14 +100,14 @@ export default React.memo(function ReleaseNotesMay2021(props) {
           Two new cards are joining the Winterpact faction, one rare structure
           and one common unit—both with freeze dynamics!
         </p>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('W31')} />
         <CardBuilderCardDisplay {...getInitialCardData('W30')} />
-      </Article.Embed>
+      </Page.Embed>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <Row desktopOnly wideGutter extend={{ alignItems: 'center' }}>
           <Row.Column>
             <Image
@@ -305,7 +305,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
             </Link>
           </p>
         </Footnotes>
-      </Article.Narrow>
+      </Page.Narrow>
     </ReleaseNotes>
   )
 })

@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async'
 import CardChangeFeed from '../CardChangeFeed'
 import CardDisplay from '../CardBuilderCardDisplay'
 import CardDisplayControls from '../CardDisplayControls'
-import Article from '../Article'
+import Page from '../Page'
 import CoreForm from '../CardBuilderCoreForm'
 import Notice from '../Notice'
 import LevelForm from '../CardBuilderLevelForm'
@@ -132,7 +132,7 @@ export default React.memo(function CardBuilderApp(props) {
   }, [previousCardId, props.cardId])
 
   return (
-    <Article {...articleProps} {...getCardBuilderMetaTags(props.cardData)}>
+    <Page {...articleProps} {...getCardBuilderMetaTags(props.cardData)}>
       <CardDisplay mode={props.mode} {...cardData} />
 
       {isOfficial && (
@@ -167,13 +167,13 @@ export default React.memo(function CardBuilderApp(props) {
       )}
 
       {isOfficial && (
-        <Article.Narrow>
+        <Page.Narrow>
           <CardChangeFeed
             id={props.cardId}
             versionId={versionId}
             setVersionId={setVersionId}
           />
-        </Article.Narrow>
+        </Page.Narrow>
       )}
 
       {articleProps.author && (
@@ -181,6 +181,6 @@ export default React.memo(function CardBuilderApp(props) {
           <meta name='author' content={articleProps.author} />
         </Helmet>
       )}
-    </Article>
+    </Page>
   )
 })

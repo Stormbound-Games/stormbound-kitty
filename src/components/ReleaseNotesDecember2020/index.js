@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Article from '../Article'
+import Page from '../Page'
 import CardLink from '../CardLink'
 import FAQSection from '../FAQSection'
 import Footnotes, { Footnote } from '../Footnotes'
@@ -25,7 +25,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
 
   return (
     <ReleaseNotes id='12_2020'>
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           It’s almost holiday season already, and Sheepyard is gifting us of a
           small release with balance changes, exclusive offer and an Advent
@@ -113,16 +113,16 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
           <span className='Highlight'>and</span> the premium reward for every
           single day you log in.
         </p>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <Image
           src='/assets/images/releases/calendar.png'
           alt='Daily check-in calendar featuring daily rewards and days were said rewards were skipped'
         />
-      </Article.Embed>
+      </Page.Embed>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           This is the total value for the Advent calendar, free and premium
           respectively (including free rewards within the premium one):{' '}
@@ -250,7 +250,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
             </Link>
           </p>
         </Footnotes>
-      </Article.Narrow>
+      </Page.Narrow>
     </ReleaseNotes>
   )
 })

@@ -1,6 +1,6 @@
 import React from 'react'
 import serialize from 'form-serialize'
-import Article from '../Article'
+import Page from '../Page'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import { NotificationContext } from '../NotificationProvider'
 import ExportDecks from '../ExportDecks'
@@ -121,7 +121,7 @@ export default React.memo(function DeckCollection(props) {
   )
 
   return (
-    <Article
+    <Page
       title='Personal Decks'
       description='Bookmark and manage your own deck, with a local backup and CSV import/export'
     >
@@ -166,6 +166,6 @@ export default React.memo(function DeckCollection(props) {
           />
         </Row.Column>
       </Row>
-    </Article>
+    </Page>
   )
 })

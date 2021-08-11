@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import Row from '../Row'
 import Spacing from '../Spacing'
 import Sparkles from '../Sparkles'
@@ -25,7 +25,7 @@ export default React.memo(function BrewedSages(props) {
   const { viewportWidth } = useViewportSize()
 
   return (
-    <Article
+    <Page
       title={viewportWidth < 700 ? 'Brewed Sages' : 'Brewed Sages Podcast'}
       author='Freeloader, Subaiku, ArthisRoo'
       description='The Brewed Sages is the first Stormbound podcast, by Freeloader and
@@ -35,7 +35,7 @@ export default React.memo(function BrewedSages(props) {
       withAvif
       isEditorialContent
     >
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           The Brewed Sages is the first Stormbound podcast, by{' '}
           <Link to='/member/Freeloader'>Freeloader</Link>, and{' '}
@@ -53,7 +53,7 @@ export default React.memo(function BrewedSages(props) {
             </Sparkles>
           </div>
         </Spacing>
-      </Article.Narrow>
+      </Page.Narrow>
 
       <Spacing vertical='LARGER'>
         <Title>Episodes</Title>
@@ -99,7 +99,7 @@ export default React.memo(function BrewedSages(props) {
         ))}
       </Spacing>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <Title>Listening</Title>
 
         <p>There are many ways for you to listen to Brewed Sages podcast:</p>
@@ -157,7 +157,7 @@ export default React.memo(function BrewedSages(props) {
           width='100%'
           height='400'
         ></iframe>
-      </Article.Narrow>
-    </Article>
+      </Page.Narrow>
+    </Page>
   )
 })

@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import Notice from '../Notice'
 import Row from '../Row'
 import Teaser from '../Teaser'
@@ -9,7 +9,7 @@ import releases from '../../data/releases'
 
 export default React.memo(function Releases(props) {
   return (
-    <Article
+    <Page
       title='Releases'
       description='Find all the information about every release on Stormbound-Kitty, the official place for release notes'
     >
@@ -55,6 +55,6 @@ export default React.memo(function Releases(props) {
         specific cards, refer to <Link to='/changelog'>the card changelog</Link>
         .
       </Notice>
-    </Article>
+    </Page>
   )
 })

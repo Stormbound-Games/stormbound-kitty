@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import CardLink from '../CardLink'
 import CheapenedBrawl from '../CheapenedBrawl'
 import FAQSection from '../FAQSection'
@@ -26,7 +26,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
 
   return (
     <ReleaseNotes id='end_of_2020'>
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           It’s almost the end of the year already (and what a year it’s been,
           honestly…), and Sheepyard is gifting us with a small release with
@@ -216,8 +216,8 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
             <Coins amount={6500} /> + <Rubies amount={650} />
           </li>
         </ul>
-      </Article.Narrow>
-      <Article.Embed>
+      </Page.Narrow>
+      <Page.Embed>
         <Row desktopOnly>
           <Row.Column width='1/3'>
             <Image
@@ -238,8 +238,8 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
             />
           </Row.Column>
         </Row>
-      </Article.Embed>
-      <Article.Narrow>
+      </Page.Embed>
+      <Page.Narrow>
         <p>
           On top of that, <span className='Highlight'>all books</span> will
           yield an extra card until the end of the Christmas event (end of day
@@ -287,7 +287,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
             },
           ]}
         />
-      </Article.Narrow>
+      </Page.Narrow>
     </ReleaseNotes>
   )
 })

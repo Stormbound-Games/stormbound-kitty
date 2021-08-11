@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import FAQSection from '../FAQSection'
@@ -18,7 +18,7 @@ import getInitialCardData from '../../helpers/getInitialCardData'
 export default React.memo(function ReleaseNotesJuly2021(props) {
   return (
     <ReleaseNotes id='07_2021'>
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early July,
           bringing balance changes, a new card, and some further Brawl
@@ -112,13 +112,13 @@ export default React.memo(function ReleaseNotesJuly2021(props) {
           <CardLink id='N13' />, which plays on the new “fixedly forward”
           movement that was introduced with <CardLink id='N83' />.
         </p>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('N85')} />
-      </Article.Embed>
+      </Page.Embed>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <Spacing bottom='LARGE'>
           <Image
             src='/assets/images/releases/pack_temple_of_the_mind.png'
@@ -226,7 +226,7 @@ export default React.memo(function ReleaseNotesJuly2021(props) {
             },
           ]}
         />
-      </Article.Narrow>
+      </Page.Narrow>
     </ReleaseNotes>
   )
 })

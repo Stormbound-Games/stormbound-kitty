@@ -9,7 +9,7 @@ import {
   DEFAULT_TIER,
   MAX_TIERS,
 } from '../../constants/list'
-import Article from '../Article'
+import Page from '../Page'
 import CTA from '../CTA'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
@@ -167,7 +167,7 @@ class ListBuilderEditorView extends React.Component {
 
   render() {
     return (
-      <Article
+      <Page
         title='Create your list'
         description='Compose your own tier lists from the Stormbound cards, ranking them the way you see fit'
         action={
@@ -242,7 +242,7 @@ class ListBuilderEditorView extends React.Component {
             </CTA>
           </Row.Column>
         </Row>
-      </Article>
+      </Page>
     )
   }
 }

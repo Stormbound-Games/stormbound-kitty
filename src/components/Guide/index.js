@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import Notice from '../Notice'
 import Only from '../Only'
 import Spacing from '../Spacing'
@@ -12,7 +12,7 @@ import styles from './styles'
 const Guide = React.memo(function Guide(props) {
   return (
     <>
-      <Article
+      <Page
         title={props.name}
         description={getExcerpt(props.excerpt, 160)}
         image={props.background}
@@ -28,8 +28,8 @@ const Guide = React.memo(function Guide(props) {
         isEditorialContent
         withDropCap
       >
-        <Article.Narrow>{props.children}</Article.Narrow>
-      </Article>
+        <Page.Narrow>{props.children}</Page.Narrow>
+      </Page>
 
       <hr />
 
@@ -47,7 +47,7 @@ const Guide = React.memo(function Guide(props) {
   )
 })
 
-// Guides have a narrow width by default, imposed by the `Article.Narrow`
+// Guides have a narrow width by default, imposed by the `Page.Narrow`
 // wrapper, but it is sometimes necessary to display something across the full
 // width of the container. For that, the `Guide.FullWidth` sub-component
 // can be used.

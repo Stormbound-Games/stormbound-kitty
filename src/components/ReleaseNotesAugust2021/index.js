@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
-import Article from '../Article'
+import Page from '../Page'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import CheapenedBrawl from '../CheapenedBrawl'
@@ -27,7 +27,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
 
   return (
     <ReleaseNotes id='08_2021'>
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
           August, bringing balance changes, a new card, and some further Brawl
@@ -166,13 +166,13 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           name might suggest, it plays with the flow of the game, restoring
           friendly units and structures to the state from the previous turn.
         </p>
-      </Article.Narrow>
+      </Page.Narrow>
 
-      <Article.Embed>
+      <Page.Embed>
         <CardBuilderCardDisplay {...getInitialCardData('F29')} />
-      </Article.Embed>
+      </Page.Embed>
 
-      <Article.Narrow>
+      <Page.Narrow>
         <p>
           As usual, there will be an exclusive pack to quickly get access to the
           new card, for a week after its release date. To celebrate Sheepyard’s
@@ -668,7 +668,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             },
           ]}
         />
-      </Article.Narrow>
+      </Page.Narrow>
     </ReleaseNotes>
   )
 })

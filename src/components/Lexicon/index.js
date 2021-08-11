@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Masonry from 'react-masonry-css'
-import Article from '../Article'
+import Page from '../Page'
 import Spacing from '../Spacing'
 import { CATEGORIES } from '../../constants/guides'
 import getTermsForLetter from '../../helpers/getTermsForLetter'
@@ -34,7 +34,7 @@ const Terms = React.memo(function Terms(props) {
 export default React.memo(function Lexicon(props) {
   const { css } = useFela()
   return (
-    <Article
+    <Page
       title='Lexicon'
       description='Find a list of terms and abbreviations for Stormbound'
       author='Kitty'
@@ -57,6 +57,6 @@ export default React.memo(function Lexicon(props) {
           </React.Fragment>
         ))}
       </Masonry>
-    </Article>
+    </Page>
   )
 })
