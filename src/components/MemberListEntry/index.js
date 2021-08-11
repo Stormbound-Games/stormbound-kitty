@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Icon from '../Icon'
 import { UserContext } from '../UserProvider'
 import isKATMember from '../../helpers/isKATMember'

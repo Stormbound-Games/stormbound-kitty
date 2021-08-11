@@ -3,6 +3,7 @@ import BattleSimApp from '../BattleSimApp'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Guide from '../Guide'
 import CardLink from '../CardLink'
+import Link from '../Link'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import getGuide from '../../helpers/getGuide'
@@ -22,28 +23,28 @@ export default React.memo(function GuideChillbeards(props) {
 
       <TableOfContents>
         <li>
-          <a href='#be-mindful-of-mana'>Be mindful of mana</a>
+          <Link href='#be-mindful-of-mana'>Be mindful of mana</Link>
         </li>
         <li>
-          <a href='#aim-for-the-baseline'>Aim for the baseline</a>
+          <Link href='#aim-for-the-baseline'>Aim for the baseline</Link>
         </li>
         <li>
-          <a href='#control-cards'>Control cards</a>
+          <Link href='#control-cards'>Control cards</Link>
         </li>
         <li>
-          <a href='#tokens-are-friends'>Tokens are friends</a>
+          <Link href='#tokens-are-friends'>Tokens are friends</Link>
         </li>
         <li>
-          <a href='#its-all-about-that-bait'>It’s all about that bait</a>
+          <Link href='#its-all-about-that-bait'>It’s all about that bait</Link>
         </li>
         <li>
-          <a href='#cycling'>Cycling</a>
+          <Link href='#cycling'>Cycling</Link>
         </li>
         <li>
-          <a href='#chip-chip'>Chip Chip</a>
+          <Link href='#chip-chip'>Chip Chip</Link>
         </li>
         <li>
-          <a href='#freeze-confusion'>Freeze & confusion</a>
+          <Link href='#freeze-confusion'>Freeze & confusion</Link>
         </li>
       </TableOfContents>
 

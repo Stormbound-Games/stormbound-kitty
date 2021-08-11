@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import serialize from 'form-serialize'
 import Confetti from 'react-dom-confetti'
 import Article from '../Article'

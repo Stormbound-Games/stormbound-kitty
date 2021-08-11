@@ -1,5 +1,6 @@
 import React from 'react'
 import FeedEntry from '../FeedEntry'
+import Link from '../Link'
 import contributions from '../../data/contributions'
 
 export default React.memo(function FeedContributionEntry(props) {
@@ -15,13 +16,13 @@ export default React.memo(function FeedContributionEntry(props) {
           <>
             {acc}
             {index !== 0 ? ', ' : ''}
-            <a
+            <Link
               href={`https://github.com/KittySparkles/stormbound-kitty/pull/${pr}`}
               target='_blank'
               rel='noopener noreferrer'
             >
               #{pr}
-            </a>
+            </Link>
           </>
         ),
         <></>

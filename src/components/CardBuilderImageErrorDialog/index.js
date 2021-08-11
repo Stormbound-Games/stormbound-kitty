@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Dialog from '../Dialog'
 
 export default React.memo(function CardBuilderImageErrorDialog(props) {
@@ -58,13 +58,13 @@ export default React.memo(function CardBuilderImageErrorDialog(props) {
           <p>
             You can either pick another image, or try to save it and upload it
             to an image sharing service such as{' '}
-            <a
+            <Link
               href='https://imgur.com/upload'
               target='_blank'
               rel='noopener noreferrer'
             >
               imgur
-            </a>
+            </Link>
             .
           </p>
         </>

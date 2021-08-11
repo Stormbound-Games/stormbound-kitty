@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import DryRunnerCardLog from '../DryRunnerCardLog'
 import Deck from '../Deck'
 import DryRunnerActions from '../DryRunnerActions'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import GuideTeaser from '../GuideTeaser'
 import HeaderBanner from '../HeaderBanner'
 import Notice from '../Notice'

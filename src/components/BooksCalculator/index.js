@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import { RARITIES } from '../../constants/game'
 import { BOOKS, EXPECTATIONS } from '../../constants/books'
 import BookExplanation from '../BookExplanation'

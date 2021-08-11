@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../components/Link'
 import CardLink from '../components/CardLink'
 import Image from '../components/Image'
 import DryRunnerExplanation from '../components/DryRunnerExplanation'
@@ -62,9 +62,9 @@ export default [
               If you are looking for a way to consume all the cards’ data to
               build something related to Stormbound (a Discord bot, a tool…),
               you can get{' '}
-              <a href='https://github.com/KittySparkles/stormbound-kitty/blob/main/src/data/cards.json'>
+              <Link href='https://github.com/KittySparkles/stormbound-kitty/blob/main/src/data/cards.json'>
                 the JSON file
-              </a>{' '}
+              </Link>{' '}
               I maintain from GitHub. It contains all cards in the game in their
               current state in a rather digestible format. Values varying across
               levels such as strength are authored as strings and might have to
@@ -72,9 +72,9 @@ export default [
             </p>
             <p>
               Regarding{' '}
-              <a href='https://github.com/KittySparkles/stormbound-kitty/tree/main/public/assets/images'>
+              <Link href='https://github.com/KittySparkles/stormbound-kitty/tree/main/public/assets/images'>
                 images
-              </a>
+              </Link>
               (such as cards’ art), feel free to hot-link them from the site to
               avoid having to host them yourself. Please, be mindful of
               bandwidth though (although it will mostly likely be fine).
@@ -145,21 +145,21 @@ export default [
               your own and have them added, just get in touch with me on Discord
               (Kitty#1909). The only constraint is that your puzzle need to
               respect the rules in place. It needs to be one of{' '}
-              <a
+              <Link
                 target='_blank'
                 rel='noopener noreferrer'
                 href='https://github.com/KittySparkles/stormbound-kitty/blob/master/src/constants/puzzles.js#L39-L47'
               >
                 these types
-              </a>{' '}
+              </Link>{' '}
               and can include any of{' '}
-              <a
+              <Link
                 target='_blank'
                 rel='noopener noreferrer'
                 href='https://github.com/KittySparkles/stormbound-kitty/blob/master/src/constants/puzzles.js#L1-L37'
               >
                 these restrictions
-              </a>{' '}
+              </Link>{' '}
               (or none).
             </p>
           </>
@@ -185,13 +185,13 @@ export default [
             <p>
               Alternatively, if you happen to have basic knowledge of web
               development and have a GitHub account, you can{' '}
-              <a
+              <Link
                 href='https://github.com/KittySparkles/stormbound-kitty/blob/master/docs/ADDING_A_DECK.md'
                 target='_blank'
                 rel='noopener noreferrer'
               >
                 follow the guide
-              </a>{' '}
+              </Link>{' '}
               and do it yourself.
             </p>
           </>

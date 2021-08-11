@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Icon from '../Icon'
 import NewPulse from '../NewPulse'
 import Row from '../Row'
@@ -52,28 +52,22 @@ export default React.memo(function HeaderMegaMenu(props) {
             <ul className={css(styles.list)}>
               {column.items.map(item => (
                 <li key={item.label} className={css(styles.item)}>
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      className={css(styles.link)}
-                      rel='noopener noreferrer'
-                      target='_blank'
-                    >
-                      {item.label}
+                  <Link
+                    href={item.href}
+                    to={item.to}
+                    className={css(
+                      styles.link({
+                        isActive: props.active.includes(item.id),
+                      })
+                    )}
+                    rel={item.href ? 'noopener noreferrer' : undefined}
+                    target={item.href ? '_blank' : undefined}
+                  >
+                    {item.label}
+                    {item.href && (
                       <Icon icon='arrow-top-right' extend={styles.newTab} />
-                    </a>
-                  ) : (
-                    <Link
-                      to={item.to}
-                      className={css(
-                        styles.link({
-                          isActive: props.active.includes(item.id),
-                        })
-                      )}
-                    >
-                      {item.label}
-                    </Link>
-                  )}
+                    )}
+                  </Link>
                   {item.new && <NewPulse />}
                 </li>
               ))}

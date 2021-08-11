@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Article from '../Article'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
@@ -28,31 +28,33 @@ export default React.memo(function ReleaseNotesApril2021(props) {
 
         <TableOfContents>
           <li>
-            <a href='#balance-changes'>Balance changes</a>
+            <Link href='#balance-changes'>Balance changes</Link>
           </li>
           <li>
-            <a href='#new-card'>New card</a>
+            <Link href='#new-card'>New card</Link>
           </li>
           <li>
-            <a href='#heroes-league-improvements'>Heroes League improvements</a>
+            <Link href='#heroes-league-improvements'>
+              Heroes League improvements
+            </Link>
           </li>
           <li>
-            <a href='#cheapened-brawl'>Cheapened Brawl</a>
+            <Link href='#cheapened-brawl'>Cheapened Brawl</Link>
           </li>
           <li>
-            <a href='#exclusive-offers'>Exclusive offers</a>
+            <Link href='#exclusive-offers'>Exclusive offers</Link>
           </li>
           <li>
-            <a href='#new-login-system'>New login system</a>
+            <Link href='#new-login-system'>New login system</Link>
           </li>
           <li>
-            <a href='#qol-improvements'>Quality of Life improvements</a>
+            <Link href='#qol-improvements'>Quality of Life improvements</Link>
           </li>
           <li>
-            <a href='#new-avatars'>New avatars</a>
+            <Link href='#new-avatars'>New avatars</Link>
           </li>
           <li>
-            <a href='#faq'>FAQ</a>
+            <Link href='#faq'>FAQ</Link>
           </li>
         </TableOfContents>
 
@@ -279,9 +281,9 @@ export default React.memo(function ReleaseNotesApril2021(props) {
           We are currently considering beta-testers who will be thanked with
           in-game rewards at the end of the program. If you would like to
           volunteer, please send a message in #login-testing on{' '}
-          <a href='https://discord.gg/stormbound'>Discord</a>. Kindly mention
-          the device you use, the country you live in and your player ID. We can
-          only onboard a few people, so we won’t take everyone.
+          <Link href='https://discord.gg/stormbound'>Discord</Link>. Kindly
+          mention the device you use, the country you live in and your player
+          ID. We can only onboard a few people, so we won’t take everyone.
         </Info>
 
         <Title id='qol-improvements'>Quality of Life improvements</Title>

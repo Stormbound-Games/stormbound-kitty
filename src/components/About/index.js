@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
 import { UserContext } from '../UserProvider'
+import Link from '../Link'
 import Article from '../Article'
 import Asterisk from '../Asterisk'
 import MemberList from '../MemberList'
@@ -63,38 +63,38 @@ export default React.memo(function About(props) {
           <p>
             If you would like to help, you can make one-time donations via
             credit card through{' '}
-            <a
+            <Link
               href='https://gumroad.com/l/stormbound-kitty'
               target='_blank'
               rel='noopener noreferrer'
             >
               Gumroad
-            </a>
+            </Link>
             —a secure platform for online purchases (PayPal is unfortunately no
             longer supported, I’m sorry 😔). The amount is totally up to you,
             from $4 and up. Don’t ruin yourself, donate as little or as much as
             you feel like or can. You can visit my{' '}
-            <a
+            <Link
               href='https://gumroad.com/l/stormbound-kitty'
               target='_blank'
               rel='noopener noreferrer'
             >
               Gumroad page
-            </a>{' '}
+            </Link>{' '}
             or click the “Support Stormbound-Kitty” link below.
           </p>
 
           <Spacing vertical='LARGE'>
             <div className={css({ textAlign: 'center' })}>
               <Sparkles>
-                <a
+                <Link
                   className={css(styles.cta)}
                   href='https://gum.co/stormbound-kitty?wanted=true'
                   target='_blank'
                   rel='noopener noreferrer'
                 >
                   Support Stormbound-Kitty
-                </a>
+                </Link>
               </Sparkles>
             </div>
           </Spacing>
@@ -166,7 +166,7 @@ export default React.memo(function About(props) {
               members={[...new Set(donations.map(donation => donation.author))]}
             />{' '}
             for{' '}
-            <a
+            <Link
               href='#anonymous-donations'
               aria-describedby='footnotes'
               id='anonymous-donations-ref'
@@ -174,7 +174,7 @@ export default React.memo(function About(props) {
             >
               their generous and kind donations
               <Asterisk />
-            </a>
+            </Link>
             .
           </p>
 
@@ -214,9 +214,9 @@ export default React.memo(function About(props) {
             issued a donation but are not mentioned, please kindly let me know
             so I can fix that mistake. Along the same lines, if you would like{' '}
             <em>not</em> to figure in that list, also do let me know.{' '}
-            <a href='#anonymous-donations-ref' aria-label='Back to content'>
+            <Link href='#anonymous-donations-ref' aria-label='Back to content'>
               ↩
-            </a>
+            </Link>
           </p>
         </footer>
       </Article.Narrow>

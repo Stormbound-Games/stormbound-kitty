@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Article from '../Article'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import CardLink from '../CardLink'
@@ -44,22 +44,22 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
 
         <TableOfContents>
           <li>
-            <a href='#balance-changes'>Balance changes</a>
+            <Link href='#balance-changes'>Balance changes</Link>
           </li>
           <li>
-            <a href='#updated-freeze-mechanic'>Update freeze mechanic</a>
+            <Link href='#updated-freeze-mechanic'>Update freeze mechanic</Link>
           </li>
           <li>
-            <a href='#new-ancient-race'>New Ancient race</a>
+            <Link href='#new-ancient-race'>New Ancient race</Link>
           </li>
           <li>
-            <a href='#cheapened-brawl'>Cheapened Brawl</a>
+            <Link href='#cheapened-brawl'>Cheapened Brawl</Link>
           </li>
           <li>
-            <a href='#exclusive-promotions'>Exclusive promotions</a>
+            <Link href='#exclusive-promotions'>Exclusive promotions</Link>
           </li>
           <li>
-            <a href='#faq'>FAQ</a>
+            <Link href='#faq'>FAQ</Link>
           </li>
         </TableOfContents>
 

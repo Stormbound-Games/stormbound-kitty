@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import HeaderBanner from '../HeaderBanner'
 import Icon from '../Icon'
 import styles from './styles'
@@ -69,7 +69,7 @@ const Article = React.memo(function Article(props) {
               <span>{action.children}</span>
             </Link>
           ) : action.href ? (
-            <a
+            <Link
               href={action.href}
               target='_blank'
               rel='noopener noreferrer'
@@ -80,7 +80,7 @@ const Article = React.memo(function Article(props) {
                 icon={action.icon || 'arrow-right'}
                 extend={styles.actionIcon}
               />
-            </a>
+            </Link>
           ) : action.onClick ? (
             <button
               type='button'

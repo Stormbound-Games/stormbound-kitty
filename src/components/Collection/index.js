@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import hookIntoProps from 'hook-into-props'
 import ActiveCardForm from '../CollectionActiveCardForm'
 import CardsGallery from '../CardsGallery'

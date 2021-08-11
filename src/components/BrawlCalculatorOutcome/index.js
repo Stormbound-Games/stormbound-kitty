@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Info from '../Info'
 import { Coins, Crowns } from '../Resource'
 import { BRAWL_MILESTONES } from '../../constants/brawl'

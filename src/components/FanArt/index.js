@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Masonry from 'react-masonry-css'
 import Image from '../Image'
 import Article from '../Article'

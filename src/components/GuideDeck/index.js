@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Card from '../Card'
 import Guide from '../Guide'
+import Link from '../Link'
 import Row from '../Row'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
@@ -38,22 +39,22 @@ export default React.memo(function GuideDeck(props) {
 
       <TableOfContents>
         <li>
-          <a href='#cost'>Cost</a>
+          <Link href='#cost'>Cost</Link>
         </li>
         <li>
-          <a href='#win-conditions'>Win conditions</a>
+          <Link href='#win-conditions'>Win conditions</Link>
         </li>
         <li>
-          <a href='#capabilities'>Capabilities</a>
+          <Link href='#capabilities'>Capabilities</Link>
         </li>
         <li>
-          <a href='#synergies'>Synergies</a>
+          <Link href='#synergies'>Synergies</Link>
         </li>
         <li>
-          <a href='#core'>Core</a>
+          <Link href='#core'>Core</Link>
         </li>
         <li>
-          <a href='#redundancies'>Redundancies</a>
+          <Link href='#redundancies'>Redundancies</Link>
         </li>
       </TableOfContents>
 

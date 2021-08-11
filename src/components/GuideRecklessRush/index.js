@@ -75,28 +75,28 @@ export default React.memo(function GuideRecklessRush(props) {
 
       <TableOfContents>
         <li>
-          <a href='#the-decks'>The decks</a>
+          <Link href='#the-decks'>The decks</Link>
         </li>
         <li>
-          <a href='#how-to-play'>How to play</a>
+          <Link href='#how-to-play'>How to play</Link>
         </li>
         <li>
-          <a href='#game-openers'>Game openers</a>
+          <Link href='#game-openers'>Game openers</Link>
         </li>
         <li>
-          <a href='#prioritisation'>Prioritisation</a>
+          <Link href='#prioritisation'>Prioritisation</Link>
         </li>
         <li>
-          <a href='#cycling'>Cycling</a>
+          <Link href='#cycling'>Cycling</Link>
         </li>
         <li>
-          <a href='#order'>Order</a>
+          <Link href='#order'>Order</Link>
         </li>
         <li>
-          <a href='#positioning'>Positioning</a>
+          <Link href='#positioning'>Positioning</Link>
         </li>
         <li>
-          <a href='#advanced-rush-theory'>Advanced Rush Theory</a>
+          <Link href='#advanced-rush-theory'>Advanced Rush Theory</Link>
         </li>
       </TableOfContents>
 
@@ -532,7 +532,7 @@ export default React.memo(function GuideRecklessRush(props) {
       <Info icon='sword' title='Temple of the Heart' extend={{ marginTop: 0 }}>
         <p>
           For more information on how <CardLink id='N81' /> works, you can check
-          out <a href='https://youtu.be/sfGL_Nponu0'>this video</a>.
+          out <Link href='https://youtu.be/sfGL_Nponu0'>this video</Link>.
         </p>
       </Info>
 
@@ -547,7 +547,7 @@ export default React.memo(function GuideRecklessRush(props) {
       <p>
         On its own, Devastators is a fairly weak card because it can get cleared
         easily, however with the help of other units and proper{' '}
-        <a href='#positioning'>positioning</a>, this card can deal absurd
+        <Link href='#positioning'>positioning</Link>, this card can deal absurd
         amounts of damage to the enemy base. Think of Devastators like the egg
         of a beast. All alone, Devastators will get eaten up by all the other
         cards in the game but with proper care and consideration, a beast will
@@ -1576,13 +1576,13 @@ export default React.memo(function GuideRecklessRush(props) {
         up until the very end, hope you learned some things you can apply not
         only to this deck but also your own decks. Hope you enjoyed reading this
         guide—if you liked what you saw, feel free to subscribe to{' '}
-        <a
+        <Link
           href='https://www.youtube.com/channel/UCqc9ONUhTVQ3WnTRci3dYXQ'
           target='_blank'
           rel='noopener noreferrer'
         >
           my Youtube channel
-        </a>{' '}
+        </Link>{' '}
         to see how I actually play the deck and see what you can improve on.
       </p>
 

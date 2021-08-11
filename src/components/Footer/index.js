@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Icon from '../Icon'
 import Only from '../Only'
 import Row from '../Row'
@@ -25,32 +25,32 @@ export default React.memo(function Footer(props) {
             </p>
             <p className={css(styles.info)}>
               Official Stormbound game content courtesy of{' '}
-              <a
+              <Link
                 href='https://www.sheepyard.pl/'
                 target='_blank'
                 rel='noopener noreferrer'
               >
                 Sheepyard
-              </a>
+              </Link>
               .
             </p>
             <p className={css(styles.info)}>
               This site is hosted on{' '}
-              <a
+              <Link
                 href='https://github.com/KittySparkles/stormbound-kitty'
                 target='_blank'
                 rel='noopener noreferrer'
               >
                 GitHub
-              </a>{' '}
+              </Link>{' '}
               and{' '}
-              <a
+              <Link
                 href='https://www.netlify.com'
                 target='_blank'
                 rel='noopener noreferrer'
               >
                 Netlify
-              </a>
+              </Link>
               .
             </p>
           </Row.Column>
@@ -61,49 +61,49 @@ export default React.memo(function Footer(props) {
                   <span className={css(styles.heading)}>Stormbound</span>
                   <ul className={css(styles.list)}>
                     <li className={css(styles.item)}>
-                      <a
+                      <Link
                         href='https://paladinstudios.com/stormbound/'
                         target='_blank'
                         rel='noopener noreferrer'
                       >
                         Official site
-                      </a>
+                      </Link>
                     </li>
                     <li className={css(styles.item)}>
-                      <a
+                      <Link
                         href='https://twitter.com/stormboundccg'
                         target='_blank'
                         rel='noopener noreferrer'
                       >
                         Twitter
-                      </a>
+                      </Link>
                     </li>
                     <li className={css(styles.item)}>
-                      <a
+                      <Link
                         href='https://www.facebook.com/stormboundccg'
                         target='_blank'
                         rel='noopener noreferrer'
                       >
                         Facebook
-                      </a>
+                      </Link>
                     </li>
                     <li className={css(styles.item)}>
-                      <a
+                      <Link
                         href='https://www.instagram.com/stormboundccg/'
                         target='_blank'
                         rel='noopener noreferrer'
                       >
                         Instagram
-                      </a>
+                      </Link>
                     </li>
                     <li className={css(styles.item)}>
-                      <a
+                      <Link
                         href='https://store.steampowered.com/app/790600/Stormbound/'
                         target='_blank'
                         rel='noopener noreferrer'
                       >
                         Steam
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </Row.Column>
@@ -132,53 +132,53 @@ export default React.memo(function Footer(props) {
                   <span className={css(styles.heading)}>Community</span>
                   <ul className={css(styles.list)}>
                     <li className={css(styles.item)}>
-                      <a
+                      <Link
                         href='https://reddit.com/r/stormbound'
                         target='_blank'
                         rel='noopener noreferrer'
                       >
                         Reddit
-                      </a>
+                      </Link>
                     </li>
 
                     <li className={css(styles.item)}>
-                      <a
+                      <Link
                         href='https://discord.gg/stormbound'
                         target='_blank'
                         rel='noopener noreferrer'
                       >
                         Discord
-                      </a>
+                      </Link>
                     </li>
 
                     <li className={css(styles.item)}>
-                      <a
+                      <Link
                         href='https://stormboundkingdomwars.fandom.com'
                         target='_blank'
                         rel='noopener noreferrer'
                       >
                         Wiki
-                      </a>
+                      </Link>
                     </li>
 
                     <li className={css(styles.item)}>
-                      <a
+                      <Link
                         href='https://www.youtube.com/results?search_query=stormbound&sp=CAI%253D'
                         target='_blank'
                         rel='noopener noreferrer'
                       >
                         Youtube
-                      </a>
+                      </Link>
                     </li>
 
                     <li className={css(styles.item)}>
-                      <a
+                      <Link
                         href='https://www.twitch.tv/stormboundccg'
                         target='_blank'
                         rel='noopener noreferrer'
                       >
                         Twitch
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </Row.Column>

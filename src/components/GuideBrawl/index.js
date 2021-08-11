@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import BrawlDifficultySelect from '../BrawlDifficultySelect'
 import BrawlMilestones from '../BrawlMilestones'
 import BrawlProvider from '../BrawlProvider'
@@ -48,19 +48,21 @@ export default React.memo(function GuideBrawl(props) {
 
       <TableOfContents>
         <li>
-          <a href='#what-is-the-brawl'>What is the Brawl?</a>
+          <Link href='#what-is-the-brawl'>What is the Brawl?</Link>
         </li>
         <li>
-          <a href='#what-are-victory-bonuses'>What are victory bonuses?</a>
+          <Link href='#what-are-victory-bonuses'>
+            What are victory bonuses?
+          </Link>
         </li>
         <li>
-          <a href='#what-deck-to-play'>What deck to play?</a>
+          <Link href='#what-deck-to-play'>What deck to play?</Link>
         </li>
         <li>
-          <a href='#when-to-stop'>When to stop?</a>
+          <Link href='#when-to-stop'>When to stop?</Link>
         </li>
         <li>
-          <a href='#staying-on-top-of-things'>Staying on top of things</a>
+          <Link href='#staying-on-top-of-things'>Staying on top of things</Link>
         </li>
       </TableOfContents>
 
@@ -86,7 +88,7 @@ export default React.memo(function GuideBrawl(props) {
           In the Casual event, the Fortress Level is capped to 12 health, and
           the level of all cards is set to 1. All matches need to be settled
           within 10 turns otherwise they will lead to a{' '}
-          <a
+          <Link
             href={`#draw`}
             aria-describedby='footnotes'
             id={`draw-ref`}
@@ -102,7 +104,7 @@ export default React.memo(function GuideBrawl(props) {
             >
               *
             </span>
-          </a>
+          </Link>
           .
         </li>
         <li>
@@ -401,9 +403,9 @@ export default React.memo(function GuideBrawl(props) {
           (*) A draw can happen when both players have the same amount of health
           by the end of the last turn (10th in Casual, 15th in Warrior and 20th
           in Ultimate).{' '}
-          <a href='#draw-ref' aria-label='Back to content'>
+          <Link href='#draw-ref' aria-label='Back to content'>
             ↩
-          </a>
+          </Link>
         </p>
       </footer>
     </Guide>

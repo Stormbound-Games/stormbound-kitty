@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Article from '../Article'
 import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
@@ -41,25 +41,25 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
         <TableOfContents>
           <li>
-            <a href='#balance-changes'>Balance changes</a>
+            <Link href='#balance-changes'>Balance changes</Link>
           </li>
           <li>
-            <a href='#new-cards'>New cards</a>
+            <Link href='#new-cards'>New cards</Link>
           </li>
           <li>
-            <a href='#new-books'>New books</a>
+            <Link href='#new-books'>New books</Link>
           </li>
           <li>
-            <a href='#heroes-league'>Heroes League</a>
+            <Link href='#heroes-league'>Heroes League</Link>
           </li>
           <li>
-            <a href='#cheapened-brawl'>Cheapened Brawl</a>
+            <Link href='#cheapened-brawl'>Cheapened Brawl</Link>
           </li>
           <li>
-            <a href='#ui-improvements'>UI improvements</a>
+            <Link href='#ui-improvements'>UI improvements</Link>
           </li>
           <li>
-            <a href='#faq'>FAQ</a>
+            <Link href='#faq'>FAQ</Link>
           </li>
         </TableOfContents>
 
@@ -351,13 +351,13 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <p>
           The formula used to update a player A’s Hero Score (<var>S</var>) is a
           variation of the{' '}
-          <a
+          <Link
             href='https://en.wikipedia.org/wiki/Elo_rating_system'
             target='_blank'
             rel='noopener noreferrer'
           >
             Elo rating system
-          </a>{' '}
+          </Link>{' '}
           used in chess, amongst other games. It looks like this:
         </p>
 

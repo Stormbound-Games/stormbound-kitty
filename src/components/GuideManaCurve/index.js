@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import DeckStatsChart from '../DeckStatsChart'
 import Guide from '../Guide'
 import Info from '../Info'
@@ -75,16 +75,16 @@ export default React.memo(function GuideManaCurve(props) {
 
       <TableOfContents>
         <li>
-          <a href='#anatomy-of-the-graph'>Anatomy of the graph</a>
+          <Link href='#anatomy-of-the-graph'>Anatomy of the graph</Link>
         </li>
         <li>
-          <a href='#other-considerations'>Other consideration</a>
+          <Link href='#other-considerations'>Other consideration</Link>
         </li>
         <li>
-          <a href='#brawl-modifiers'>Brawl modifiers</a>
+          <Link href='#brawl-modifiers'>Brawl modifiers</Link>
         </li>
         <li>
-          <a href='#how-it-works'>How it works</a>
+          <Link href='#how-it-works'>How it works</Link>
         </li>
       </TableOfContents>
 

@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import Article from '../Article'
 import FAQSection from '../FAQSection'
 import Image from '../Image'
+import Link from '../Link'
 import PageMeta from '../PageMeta'
 import StructuredData from '../StructuredData'
 import Title from '../Title'
@@ -20,15 +21,15 @@ export default React.memo(function FAQ() {
         <ul className={css(styles.toc)}>
           {categories.map(category => (
             <li key={category.id}>
-              <a href={'#' + category.id} className={css(styles.link)}>
+              <Link href={'#' + category.id} className={css(styles.link)}>
                 {category.title}
-              </a>
+              </Link>
               <ul className={css(styles.list)}>
                 {category.entries.map(entry => (
                   <li key={entry.id}>
-                    <a href={'#' + entry.id} className={css(styles.link)}>
+                    <Link href={'#' + entry.id} className={css(styles.link)}>
                       {entry.question}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

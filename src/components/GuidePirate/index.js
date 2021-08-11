@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import BattleSimApp from '../BattleSimApp'
 import CardLink from '../CardLink'
 import Guide from '../Guide'
+import Link from '../Link'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import getGuide from '../../helpers/getGuide'
@@ -29,68 +29,68 @@ export default React.memo(function GuidePirate(props) {
 
       <TableOfContents>
         <li>
-          <a href='#overview'>Overview and Meta Disclaimer</a>
+          <Link href='#overview'>Overview and Meta Disclaimer</Link>
         </li>
         <li>
-          <a href='#the-cards'>The Cards</a>
+          <Link href='#the-cards'>The Cards</Link>
           <ul>
             <li>
-              <a href='#N12'>First Mutineer</a>
+              <Link href='#N12'>First Mutineer</Link>
             </li>
             <li>
-              <a href='#N42'>Lucky Charmers</a>
+              <Link href='#N42'>Lucky Charmers</Link>
             </li>
             <li>
-              <a href='#N14'>Freebooters</a>
+              <Link href='#N14'>Freebooters</Link>
             </li>
             <li>
-              <a href='#N5'>Northsea Dog</a>
+              <Link href='#N5'>Northsea Dog</Link>
             </li>
             <li>
-              <a href='#N33'>Snake Eyes</a>
+              <Link href='#N33'>Snake Eyes</Link>
             </li>
             <li>
-              <a href='#N16'>Westwind Sailors</a>
+              <Link href='#N16'>Westwind Sailors</Link>
             </li>
             <li>
-              <a href='#N30'>Bluesail Raiders</a>
+              <Link href='#N30'>Bluesail Raiders</Link>
             </li>
             <li>
-              <a href='#N19'>Cabin Girls</a>
+              <Link href='#N19'>Cabin Girls</Link>
             </li>
             <li>
-              <a href='#N22'>Goldgrubbers</a>
+              <Link href='#N22'>Goldgrubbers</Link>
             </li>
             <li>
-              <a href='#N72'>Seasick Bouncers</a>
+              <Link href='#N72'>Seasick Bouncers</Link>
             </li>
             <li>
-              <a href='#N77'>Rogue Sheep</a>
+              <Link href='#N77'>Rogue Sheep</Link>
             </li>
           </ul>
         </li>
         <li>
-          <a href='#battle-styles'>Battle Styles</a>
+          <Link href='#battle-styles'>Battle Styles</Link>
           <ul>
             <li>
-              <a href='#rush'>Rush</a>
+              <Link href='#rush'>Rush</Link>
             </li>
             <li>
-              <a href='#stall'>Stall</a>
+              <Link href='#stall'>Stall</Link>
             </li>
             <li>
-              <a href='#shuffle'>Shuffle</a>
+              <Link href='#shuffle'>Shuffle</Link>
             </li>
             <li>
-              <a href='#pure'>Pure</a>
+              <Link href='#pure'>Pure</Link>
             </li>
             <li>
-              <a href='#hybrid'>Hybrid</a>
+              <Link href='#hybrid'>Hybrid</Link>
             </li>
           </ul>
         </li>
         <li>
-          <a href='#summary'>Summary</a>
+          <Link href='#summary'>Summary</Link>
         </li>
       </TableOfContents>
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import { STORY_CATEGORIES } from '../../constants/stories'
 import HeaderBanner from '../HeaderBanner'
 import Notice from '../Notice'

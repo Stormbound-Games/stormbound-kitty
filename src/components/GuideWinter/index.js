@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import CardLink from '../CardLink'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
@@ -26,70 +26,70 @@ export default React.memo(function GuideWinter(props) {
 
       <TableOfContents>
         <li>
-          <a href='#make-the-deck'>Make the deck</a>
+          <Link href='#make-the-deck'>Make the deck</Link>
           <ul>
             <li>
-              <a href='#core-cards'>Core cards</a>
+              <Link href='#core-cards'>Core cards</Link>
             </li>
             <li>
-              <a href='#filler-cards'>Filler cards</a>
+              <Link href='#filler-cards'>Filler cards</Link>
             </li>
           </ul>
         </li>
         <li>
-          <a href='#how-to-use'>How to use</a>
+          <Link href='#how-to-use'>How to use</Link>
           <ul>
             <li>
-              <a href='#broken-earth-drakes'>
+              <Link href='#broken-earth-drakes'>
                 <CardLink id='W15' />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#yowling-weavers'>
+              <Link href='#yowling-weavers'>
                 <CardLink id='W5' />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#<CardLink id='W13' />">
+              <Link href="#<CardLink id='W13' />">
                 <CardLink id='W13' />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#lady-rime'>Lady Rime</a>
+              <Link href='#lady-rime'>Lady Rime</Link>
             </li>
             <li>
-              <a href='#gift-of-the-wise'>Gift of the Wise</a>
+              <Link href='#gift-of-the-wise'>Gift of the Wise</Link>
             </li>
             <li>
-              <a href='#2-tiles-moving-units'>2-tiles moving units</a>
+              <Link href='#2-tiles-moving-units'>2-tiles moving units</Link>
             </li>
             <li>
-              <a href='#cheap-units'>Cheap units</a>
+              <Link href='#cheap-units'>Cheap units</Link>
             </li>
           </ul>
         </li>
         <li>
-          <a href='#fix-your-deck'>Fix your deck</a>
+          <Link href='#fix-your-deck'>Fix your deck</Link>
           <ul>
             <li>
-              <a href='#the-deck-doesnt-work-in-the-early-game'>
+              <Link href='#the-deck-doesnt-work-in-the-early-game'>
                 The deck doesn’t work in the early game
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#the-deck-doesnt-work-in-the-late-game'>
+              <Link href='#the-deck-doesnt-work-in-the-late-game'>
                 The deck doesn’t work in the late game
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#i-dont-usually-use-all-my-mana'>
+              <Link href='#i-dont-usually-use-all-my-mana'>
                 I don’t usually use all my mana
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#i-cant-defend-against-the-enemys-pressure'>
+              <Link href='#i-cant-defend-against-the-enemys-pressure'>
                 I can’t defend against the enemy’s pressure
-              </a>
+              </Link>
             </li>
           </ul>
         </li>
@@ -181,8 +181,8 @@ export default React.memo(function GuideWinter(props) {
           <Row.Column>
             <p>
               If you have doubts about which cards to use, skip to{' '}
-              <a href='#how-to-use'>How to use</a> &gt; Best combos and then
-              decide.
+              <Link href='#how-to-use'>How to use</Link> &gt; Best combos and
+              then decide.
             </p>
 
             <p>
@@ -461,12 +461,12 @@ export default React.memo(function GuideWinter(props) {
       </h3>
       <p>
         The causes may be the same ones as why you might{' '}
-        <a href='#the-deck-doesnt-work-in-the-early-game'>
+        <Link href='#the-deck-doesnt-work-in-the-early-game'>
           struggle in early game
-        </a>{' '}
+        </Link>{' '}
         or you might be misusing <CardLink id='W15' />
         —either way I’d recommend to read again{' '}
-        <a href='#how-to-use'>How to use</a>.
+        <Link href='#how-to-use'>How to use</Link>.
       </p>
 
       <Notice>

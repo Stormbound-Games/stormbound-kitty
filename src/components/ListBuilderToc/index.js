@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import Link from '../Link'
 import generateId from '../../helpers/generateId'
 import { TIER_COLORS } from '../../constants/list'
 import styles from './styles'
@@ -20,7 +21,7 @@ export default React.memo(function ListBuilderToc(props) {
             className={css(styles.item, { '--color': TIER_COLORS[index] })}
             key={tier.name + index}
           >
-            <a href={'#' + generateId(tier.name)}>{tier.name}</a> (
+            <Link href={'#' + generateId(tier.name)}>{tier.name}</Link> (
             {tier.cards.length} card
             {tier.cards.length === 1 ? '' : 's'})
           </li>

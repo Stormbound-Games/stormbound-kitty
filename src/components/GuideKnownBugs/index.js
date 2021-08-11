@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import Guide from '../Guide'
 import Image from '../Image'
 import Info from '../Info'
+import Link from '../Link'
 import Row from '../Row'
 import Strikethrough from '../Strikethrough'
 import TableOfContents from '../TableOfContents'
@@ -28,37 +29,37 @@ export default React.memo(function GuideKnownBugs(props) {
         This is <span className='Highlight'>not</span> a bug report page. If you
         are experiencing an issue with your account, please kindly open a
         support ticket within the game, or visit the{' '}
-        <a
+        <Link
           href='https://paladinstudios.zendesk.com/hc/en-us'
           target='_blank'
           rel='noopener noreferrer'
         >
           Zendesk
-        </a>
+        </Link>
         .
       </Info>
 
       <TableOfContents>
         <li>
-          <a href='#displayed-debug-view'>Displayed debug view</a>
+          <Link href='#displayed-debug-view'>Displayed debug view</Link>
         </li>
         <li>
-          <a href='#double-animations'>Double animations</a>
+          <Link href='#double-animations'>Double animations</Link>
         </li>
         <li>
-          <a href='#missing-resources'>Missing resources</a>
+          <Link href='#missing-resources'>Missing resources</Link>
         </li>
         <li>
-          <a href='#three-cards-in-hand'>Three-cards in hand</a>
+          <Link href='#three-cards-in-hand'>Three-cards in hand</Link>
         </li>
         <li>
-          <a href='#misplaced-game-invite'>Misplaced game invite</a>
+          <Link href='#misplaced-game-invite'>Misplaced game invite</Link>
         </li>
         <li>
-          <a href='#unwatchable-ads'>Unwatchable ads</a>
+          <Link href='#unwatchable-ads'>Unwatchable ads</Link>
         </li>
         <li>
-          <a href='#glitchy-friend-list'>Glitchy friend list</a>
+          <Link href='#glitchy-friend-list'>Glitchy friend list</Link>
         </li>
       </TableOfContents>
 

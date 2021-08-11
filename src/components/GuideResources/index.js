@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Asterisk from '../Asterisk'
 import Guide from '../Guide'
 import Info from '../Info'
@@ -38,46 +38,48 @@ export default React.memo(function GuideResources(props) {
 
       <TableOfContents>
         <li>
-          <a href='#resources'>Resources</a>
+          <Link href='#resources'>Resources</Link>
           <ul>
             <li>
-              <a href='#coins'>Coins</a>
+              <Link href='#coins'>Coins</Link>
             </li>
             <li>
-              <a href='#rubies'>Rubies</a>
+              <Link href='#rubies'>Rubies</Link>
             </li>
             <li>
-              <a href='#fusion-stones'>Fusion Stones</a>
+              <Link href='#fusion-stones'>Fusion Stones</Link>
             </li>
           </ul>
         </li>
 
         <li>
-          <a href='#income'>Income</a>
+          <Link href='#income'>Income</Link>
           <ul>
             <li>
-              <a href='#general'>General</a>
+              <Link href='#general'>General</Link>
             </li>
             <li>
-              <a href='#exchanging'>Exchanging</a>
+              <Link href='#exchanging'>Exchanging</Link>
             </li>
             <li>
-              <a href='#hoarding'>Hoarding</a>
+              <Link href='#hoarding'>Hoarding</Link>
             </li>
           </ul>
         </li>
 
         <li>
-          <a href='#spending'>Spending</a>
+          <Link href='#spending'>Spending</Link>
           <ul>
             <li>
-              <a href='#setting-a-goal'>Setting a goal</a>
+              <Link href='#setting-a-goal'>Setting a goal</Link>
             </li>
             <li>
-              <a href='#reaching-diamond-1'>Reaching Diamond 1</a>
+              <Link href='#reaching-diamond-1'>Reaching Diamond 1</Link>
             </li>
             <li>
-              <a href='#full-collection-level-5'>Full collection level 5</a>
+              <Link href='#full-collection-level-5'>
+                Full collection level 5
+              </Link>
             </li>
           </ul>
         </li>
@@ -111,7 +113,7 @@ export default React.memo(function GuideResources(props) {
           <Coins amount={20} /> in Diamond , <Coins amount={15} /> in Platinum ,{' '}
           <Coins amount={10} /> in other leagues, doubled when watching an ad or
           having a Premium Pass) with{' '}
-          <a
+          <Link
             href='#coins-tip'
             aria-describedby='footnotes'
             id='coins-tip-ref'
@@ -119,7 +121,7 @@ export default React.memo(function GuideResources(props) {
           >
             a maximum of <Coins amount={400} /> a day
             <Asterisk />
-          </a>{' '}
+          </Link>{' '}
           or <Coins amount={700} /> in case of Premium Pass).
         </li>
         <li>
@@ -425,9 +427,9 @@ export default React.memo(function GuideResources(props) {
           battles per day despite the coins cap. To do so, reach{' '}
           <Coins amount={395} /> then win another game (with ads), bringing the
           total to 415.{' '}
-          <a href='#coins-tip-ref' aria-label='Back to content'>
+          <Link href='#coins-tip-ref' aria-label='Back to content'>
             ↩
-          </a>
+          </Link>
         </p>
       </footer>
     </Guide>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Card from '../Card'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import styles from './styles'
@@ -25,14 +25,16 @@ export default React.memo(function Teaser(props) {
       <div className={css(styles.body)}>
         {props.meta && <p className={css(styles.meta)}>{props.meta}</p>}
         <h2 className={css(styles.title)}>
-          {props.to ? (
-            <Link className={css(styles.link)} to={props.to}>
+          {props.to || props.href ? (
+            <Link
+              className={css(styles.link)}
+              to={props.to}
+              href={props.href}
+              target={props.href ? '_blank' : undefined}
+              rel={props.href ? 'noopener noreferrer' : undefined}
+            >
               {title}
             </Link>
-          ) : props.href ? (
-            <a href={props.href} target='_blank' rel='noopener noreferrer'>
-              {props.title}
-            </a>
           ) : (
             title
           )}

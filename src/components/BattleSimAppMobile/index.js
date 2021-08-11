@@ -8,6 +8,7 @@ import CardsForm from '../BattleSimCardsForm'
 import CellForm from '../BattleSimCellForm'
 import Deck from '../Deck'
 import GameForm from '../BattleSimGameForm'
+import Link from '../Link'
 import Panel from '../BattleSimPanel'
 import PlayerForm from '../BattleSimPlayerForm'
 import Puzzle from '../BattleSimPuzzle'
@@ -198,7 +199,7 @@ class BattleSimAppMobile extends React.Component {
                   onClickLabel='Enlarge card'
                 />
                 <p>
-                  <a
+                  <Link
                     href={
                       `/deck/` + serialisation.deck.serialise(this.props.cards)
                     }
@@ -206,7 +207,7 @@ class BattleSimAppMobile extends React.Component {
                     rel='noopener noreferrer'
                   >
                     Open deck
-                  </a>{' '}
+                  </Link>{' '}
                   in deck builder.
                 </p>
               </Panel>

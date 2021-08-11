@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Article from '../Article'
 import Asterisk from '../Asterisk'
 import CardLink from '../CardLink'
@@ -39,22 +39,24 @@ export default React.memo(function ReleaseNotesMay2021(props) {
 
         <TableOfContents>
           <li>
-            <a href='#balance-changes'>Balance changes</a>
+            <Link href='#balance-changes'>Balance changes</Link>
           </li>
           <li>
-            <a href='#new-cards'>New cards</a>
+            <Link href='#new-cards'>New cards</Link>
           </li>
           <li>
-            <a href='#heroes-league-improvements'>Heroes League improvements</a>
+            <Link href='#heroes-league-improvements'>
+              Heroes League improvements
+            </Link>
           </li>
           <li>
-            <a href='#new-premium-pass'>New Premium Pass</a>
+            <Link href='#new-premium-pass'>New Premium Pass</Link>
           </li>
           <li>
-            <a href='#extra-deck-slots'>Extra deck slots</a>
+            <Link href='#extra-deck-slots'>Extra deck slots</Link>
           </li>
           <li>
-            <a href='#faq'>FAQ</a>
+            <Link href='#faq'>FAQ</Link>
           </li>
         </TableOfContents>
 
@@ -178,7 +180,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
 
           <li>
             The friend limit is raised to 200 (up from 100){' '}
-            <a
+            <Link
               href='#friend-list'
               aria-describedby='footnotes'
               id='friend-list-ref'
@@ -186,7 +188,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
             >
               for the month
               <Asterisk />
-            </a>
+            </Link>
             .
           </li>
 
@@ -311,9 +313,9 @@ export default React.memo(function ReleaseNotesMay2021(props) {
             (*) Any friends above 100 when the Premium Pass at the end of the
             month remains in the friend list, but it is no longer possible to
             add more friends until another Premium Pass gets purchased.
-            <a href='#friend-list-ref' aria-label='Back to content'>
+            <Link href='#friend-list-ref' aria-label='Back to content'>
               ↩
-            </a>
+            </Link>
           </p>
         </footer>
       </Article.Narrow>

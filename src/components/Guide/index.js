@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Article from '../Article'
 import Notice from '../Notice'
 import Only from '../Only'

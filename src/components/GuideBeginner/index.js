@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Image from '../Image'
 import Info from '../Info'
 import Guide from '../Guide'

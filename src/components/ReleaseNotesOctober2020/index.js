@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Article from '../Article'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Image from '../Image'
@@ -29,22 +29,24 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
 
         <TableOfContents>
           <li>
-            <a href='#new-cards'>New cards</a>
+            <Link href='#new-cards'>New cards</Link>
           </li>
           <li>
-            <a href='#balance-changes'>Balance changes</a>
+            <Link href='#balance-changes'>Balance changes</Link>
           </li>
           <li>
-            <a href='#friendly-matches-settings'>Friendly matches settings</a>
+            <Link href='#friendly-matches-settings'>
+              Friendly matches settings
+            </Link>
           </li>
           <li>
-            <a href='#social-panel'>Social panel</a>
+            <Link href='#social-panel'>Social panel</Link>
           </li>
           <li>
-            <a href='#vanishing-packs'>Vanishing packs</a>
+            <Link href='#vanishing-packs'>Vanishing packs</Link>
           </li>
           <li>
-            <a href='#faq'>FAQ</a>
+            <Link href='#faq'>FAQ</Link>
           </li>
         </TableOfContents>
 
