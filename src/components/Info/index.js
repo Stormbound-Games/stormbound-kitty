@@ -10,11 +10,13 @@ export default React.memo(function Info(props) {
 
   return (
     <div className={css(styles.info, margin, props.extend)}>
-      <span className={css(styles.title)}>
-        {!!props.icon && <Icon extend={styles.icon} icon={props.icon} />}{' '}
-        {props.title}
-      </span>
-      {props.children}
+      <div className={css({ '> :last-child': { marginBottom: 0 } })}>
+        <span className={css(styles.title)}>
+          {!!props.icon && <Icon extend={styles.icon} icon={props.icon} />}{' '}
+          {props.title}
+        </span>
+        {props.children}
+      </div>
       {props.CTA && <div className={css(styles.cta)}>{props.CTA}</div>}
     </div>
   )

@@ -4,10 +4,6 @@ const info = ({ withCta }) => ({
   padding: '1em',
   position: 'relative',
   paddingBottom: withCta ? '2.25em' : undefined,
-
-  '> :last-child': {
-    marginBottom: 0,
-  },
 })
 
 const title = {
