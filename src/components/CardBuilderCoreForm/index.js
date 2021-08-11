@@ -4,6 +4,7 @@ import CardSelect from '../CardSelect'
 import Checkbox from '../Checkbox'
 import FactionSelect from '../FactionSelect'
 import ImageErrorDialog from '../CardBuilderImageErrorDialog'
+import Input from '../Input'
 import Row from '../Row'
 import capitalise from '../../helpers/capitalise'
 
@@ -15,8 +16,8 @@ export default React.memo(function CardBuilderCardForm(props) {
       <form onSubmit={event => event.preventDefault()}>
         <Row>
           <Row.Column>
-            <label htmlFor='name'>Name</label>
-            <input
+            <Input
+              label='Name'
               type='text'
               name='name'
               id='name'
@@ -28,8 +29,8 @@ export default React.memo(function CardBuilderCardForm(props) {
             />
           </Row.Column>
           <Row.Column>
-            <label htmlFor='movement'>Movement</label>
-            <input
+            <Input
+              label='Movement'
               type='text'
               name='movement'
               id='movement'
@@ -120,12 +121,7 @@ export default React.memo(function CardBuilderCardForm(props) {
                 : undefined
             }
           >
-            <label
-              className='CardBuilderCardForm__image-label'
-              htmlFor='imageCardId'
-            >
-              Existing card image
-            </label>
+            <label htmlFor='imageCardId'>Existing card image</label>
             <CardSelect
               id='imageCardId'
               name='imageCardId'
@@ -150,13 +146,8 @@ export default React.memo(function CardBuilderCardForm(props) {
                 : undefined
             }
           >
-            <label
-              className='CardBuilderCardForm__image-label'
-              htmlFor='imageURL'
-            >
-              Or image from URL
-            </label>
-            <input
+            <Input
+              label='Or image from URL'
               type='url'
               name='imageURL'
               id='imageURL'

@@ -1,4 +1,5 @@
 import React from 'react'
+import Input from '../Input'
 
 export default React.memo(function NumberInput(props) {
   const { min, max, onChange } = props
@@ -14,7 +15,7 @@ export default React.memo(function NumberInput(props) {
   )
 
   return (
-    <input
+    <Input
       {...props}
       type='number'
       onChange={event =>

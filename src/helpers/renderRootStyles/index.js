@@ -133,10 +133,6 @@ const renderRootStyles = renderer => {
     margin: 3em auto;
   }
 
-  input[type='text'],
-  input[type='search'],
-  input[type='url'],
-  input[type='number'],
   select {
     -webkit-appearance: none;
     appearance: none;
@@ -148,17 +144,6 @@ const renderRootStyles = renderer => {
     color: var(--white);
   }
 
-  input[type='radio'] {
-    width: 1.8em;
-    height: 1.8em;
-    transform: translateY(4px);
-  }
-
-  input[type='search']:disabled,
-  input[type='text']:read-only,
-  input[type='text']:disabled,
-  input[type='url']:disabled,
-  input[type='number']:disabled,
   select:disabled {
     opacity: 0.5;
   }

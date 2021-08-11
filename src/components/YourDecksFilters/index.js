@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
+import Input from '../Input'
 import FactionSelect from '../FactionSelect'
 import MobileTogglableContent from '../MobileTogglableContent'
 import Row from '../Row'
@@ -32,8 +33,8 @@ export default React.memo(function YourDecksFilters(props) {
       <form onSubmit={event => event.preventDefault()}>
         <Row>
           <Row.Column>
-            <label htmlFor='name'>Name</label>
-            <input
+            <Input
+              label='Name'
               type='search'
               name='name'
               id='name'

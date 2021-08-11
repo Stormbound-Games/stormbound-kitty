@@ -4,6 +4,7 @@ import { TYPES, RACES, RARITIES } from '../../constants/game'
 import AdvancedCardSearch from '../AdvancedCardSearch'
 import Checkbox from '../Checkbox'
 import Icon from '../Icon'
+import Input from '../Input'
 import FactionSelect from '../FactionSelect'
 import Row from '../Row'
 import MobileTogglableContent from '../MobileTogglableContent'
@@ -189,8 +190,8 @@ export default React.memo(function DeckEditorFilters(props) {
               </Row.Column>
 
               <Row.Column>
-                <label htmlFor='text'>Text</label>
-                <input
+                <Input
+                  label='Text'
                   type='search'
                   name='text'
                   id='text'

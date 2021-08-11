@@ -1,5 +1,6 @@
 import React from 'react'
 import CTA from '../CTA'
+import Input from '../Input'
 import Row from '../Row'
 import TagsSelect from '../TagsSelect'
 import serialisation from '../../helpers/serialisation'
@@ -19,8 +20,8 @@ export default React.memo(function YourDeckForm(props) {
     <form onSubmit={props.onSubmit} data-testid='deck-form'>
       <Row>
         <Row.Column>
-          <label htmlFor='id'>Deck URL or ID</label>
-          <input
+          <Input
+            label='Deck URL or ID'
             required
             type='text'
             name='id'
@@ -35,8 +36,8 @@ export default React.memo(function YourDeckForm(props) {
       </Row>
       <Row>
         <Row.Column>
-          <label htmlFor='name'>Deck name</label>
-          <input
+          <Input
+            label='Deck name'
             required
             type='text'
             name='name'

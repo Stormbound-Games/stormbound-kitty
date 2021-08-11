@@ -132,8 +132,8 @@ export default React.memo(function BattleSimCellForm(props) {
       <div className={css(styles.row)}>
         <Row>
           <Row.Column>
-            <label htmlFor='strength'>Strength</label>
             <NumberInput
+              label='Strength'
               name='strength'
               id='strength'
               required
@@ -161,7 +161,6 @@ export default React.memo(function BattleSimCellForm(props) {
                 </Radio>
 
                 <Radio
-                  type='radio'
                   id='activePlayerRed'
                   name='activePlayer'
                   value='RED'

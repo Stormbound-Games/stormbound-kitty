@@ -5,6 +5,7 @@ import Downshift from 'downshift'
 import { StoriesContext } from '../StoriesProvider'
 import Dialog from '../Dialog'
 import Icon from '../Icon'
+import Input from '../Input'
 import VisuallyHidden from '../VisuallyHidden'
 import searcher, { SEARCH_INDEX } from './searcher'
 import capitalise from '../../helpers/capitalise'
@@ -158,9 +159,9 @@ export default React.memo(function SearchDialog(props) {
                 className={css(styles.inputWrapper)}
                 {...getRootProps({}, { suppressRefError: true })}
               >
-                <input
+                <Input
                   {...getInputProps({
-                    className: css(styles.input),
+                    extend: styles.input,
                     placeholder: 'e.g. calculator',
                     type: 'text',
                     id: 'search',

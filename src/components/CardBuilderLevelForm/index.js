@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { useRouteMatch } from 'react-router-dom'
+import Input from '../Input'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
 import ShareButton from '../CardBuilderShareButton'
@@ -22,8 +23,8 @@ export default React.memo(function CardBuilderCardForm(props) {
 
         <Row>
           <Row.Column>
-            <label htmlFor='strength'>Strength</label>
-            <input
+            <Input
+              label='Strength'
               type='text'
               name='strength'
               id='strength'
@@ -38,8 +39,8 @@ export default React.memo(function CardBuilderCardForm(props) {
             />
           </Row.Column>
           <Row.Column>
-            <label htmlFor='mana'>Mana</label>
-            <input
+            <Input
+              label='Mana'
               type='text'
               name='mana'
               id='mana'
@@ -54,8 +55,8 @@ export default React.memo(function CardBuilderCardForm(props) {
 
         <Row>
           <Row.Column>
-            <label htmlFor='ability'>Ability</label>
-            <input
+            <Input
+              label='Ability'
               type='text'
               name='ability'
               id='ability'

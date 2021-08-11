@@ -33,8 +33,8 @@ export default React.memo(function CollectionActiveCardForm(props) {
           </Row.Column>
 
           <Row.Column>
-            <label htmlFor='copies'>Copies</label>
             <NumberInput
+              label='Copies'
               id='copies'
               name='copies'
               required

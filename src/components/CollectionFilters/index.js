@@ -5,6 +5,7 @@ import AdvancedCardSearch from '../AdvancedCardSearch'
 import Checkbox from '../Checkbox'
 import FactionSelect from '../FactionSelect'
 import Icon from '../Icon'
+import Input from '../Input'
 import Only from '../Only'
 import MobileTogglableContent from '../MobileTogglableContent'
 import Row from '../Row'
@@ -176,8 +177,8 @@ export default React.memo(function CollectionFilters(props) {
                 </Only.CustomCollection>
               </Row.Column>
               <Row.Column>
-                <label htmlFor='text'>Text</label>
-                <input
+                <Input
+                  label='Text'
                   type='search'
                   name='text'
                   id='text'

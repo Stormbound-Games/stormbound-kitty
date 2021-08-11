@@ -22,8 +22,8 @@ export default React.memo(function BrawlCalculatorSettings(props) {
     <>
       <Row>
         <Row.Column>
-          <label htmlFor='winRate'>Win rate (%)</label>
           <NumberInput
+            label='Win rate (%)'
             id='winRate'
             name='winRate'
             value={props.winRate}
@@ -34,8 +34,8 @@ export default React.memo(function BrawlCalculatorSettings(props) {
           />
         </Row.Column>
         <Row.Column>
-          <label htmlFor='crowns'>Crowns</label>
           <NumberInput
+            label='Crowns'
             id='crowns'
             name='crowns'
             value={props.crowns}
@@ -50,8 +50,8 @@ export default React.memo(function BrawlCalculatorSettings(props) {
         <Row.Column>
           {props.mode === 'COINS' ? (
             <>
-              <label htmlFor='coins'>Coins</label>
               <NumberInput
+                label='Coins'
                 id='coins'
                 name='coins'
                 value={props.coins}

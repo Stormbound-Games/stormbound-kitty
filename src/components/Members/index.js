@@ -1,6 +1,7 @@
 import React from 'react'
 import HeaderBanner from '../HeaderBanner'
 import Icon from '../Icon'
+import Input from '../Input'
 import MemberListEntry from '../MemberListEntry'
 import MemberTagYourself from '../MemberTagYourself'
 import PageMeta from '../PageMeta'
@@ -99,8 +100,8 @@ export default React.memo(function Members(props) {
           </p>
           <Row>
             <Row.Column>
-              <label htmlFor='name'>Name</label>
-              <input
+              <Input
+                label='Name'
                 type='search'
                 name='name'
                 id='name'

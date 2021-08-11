@@ -5,6 +5,7 @@ import { CollectionContext } from '../CollectionProvider'
 import CardSelect from '../CardSelect'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
+import Input from '../Input'
 import MobileTogglableContent from '../MobileTogglableContent'
 import Row from '../Row'
 import TagsSelect from '../TagsSelect'
@@ -80,8 +81,8 @@ export default React.memo(function DeckSuggestionsFilters(props) {
 
         <Row>
           <Row.Column>
-            <label htmlFor='name'>Name</label>
-            <input
+            <Input
+              label='Name'
               type='search'
               name='name'
               id='name'

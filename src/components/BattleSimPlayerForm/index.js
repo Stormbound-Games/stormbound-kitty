@@ -24,13 +24,8 @@ export default React.memo(function BattleSimPlayerForm(props) {
           />
         </Row.Column>
         <Row.Column width='1/3'>
-          <label
-            className='BattleSimPlayerForm__label'
-            htmlFor={`health-${props.player}`}
-          >
-            {props.player} Health
-          </label>
           <NumberInput
+            label={`${props.player} Health`}
             name={`health-${props.player}`}
             id={`health-${props.player}`}
             value={props.health}

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import CardSelect from '../CardSelect'
+import Input from '../Input'
 import Only from '../Only'
 import generateId from '../../helpers/generateId'
 import styles from './styles'
@@ -12,20 +13,16 @@ export default React.memo(function ListBuilderTierHeader(props) {
     <header className={css(styles.header)}>
       <div className={'ListBuilderTierHeader__item ' + css(styles.item)}>
         {props.isEditable ? (
-          <>
-            <label className={css(styles.label)} htmlFor='listName'>
-              Tier name
-            </label>
-            <input
-              name='listName'
-              id={`${props.prefix}listName`}
-              type='text'
-              value={props.name}
-              onChange={event => props.onNameChange(event.target.value)}
-              maxLength={30}
-              placeholder='Unnamed tier'
-            />
-          </>
+          <Input
+            label='Tier name'
+            name='listName'
+            id={`${props.prefix}listName`}
+            type='text'
+            value={props.name}
+            onChange={event => props.onNameChange(event.target.value)}
+            maxLength={30}
+            placeholder='Unnamed tier'
+          />
         ) : (
           <h3 className={css(styles.name)} id={generateId(props.name)}>
             {props.name}

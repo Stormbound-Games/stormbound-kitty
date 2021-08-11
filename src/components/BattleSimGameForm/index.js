@@ -18,8 +18,8 @@ export default React.memo(function BattleSimGameForm(props) {
     <div className={css(styles.form)}>
       <Row>
         <Row.Column>
-          <label htmlFor='mana'>Current mana</label>
           <NumberInput
+            label='Current mana'
             name='mana'
             id='mana'
             min={3}

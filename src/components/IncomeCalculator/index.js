@@ -198,8 +198,8 @@ export default React.memo(function IncomeCalculator(props) {
               </select>
             </Row.Column>
             <Row.Column>
-              <label htmlFor='wins'>Daily wins</label>
               <NumberInput
+                label='Daily wins'
                 id='wins'
                 name='wins'
                 value={wins}
@@ -287,8 +287,8 @@ export default React.memo(function IncomeCalculator(props) {
               </select>
             </Row.Column>
             <Row.Column>
-              <label htmlFor='brawl-cost'>Brawl total cost</label>
               <NumberInput
+                label='Brawl total cost'
                 id='brawl-cost'
                 name='brawl-cost'
                 value={brawlCost}

@@ -122,8 +122,8 @@ const HeroScoreCalculator = props => {
           <Title>Configuration</Title>
           <Row>
             <Row.Column>
-              <label htmlFor='current'>Current Hero Score</label>
               <NumberInput
+                label='Current Hero Score'
                 id='current'
                 name='current'
                 value={current}
@@ -132,8 +132,8 @@ const HeroScoreCalculator = props => {
               />
             </Row.Column>
             <Row.Column>
-              <label htmlFor='current'>Opponent’s Hero Score</label>
               <NumberInput
+                label='Opponent’s Hero Score'
                 id='opponent'
                 name='opponent'
                 value={opponent}

@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import { RESTRICTIONS, TYPES } from '../../constants/puzzles'
 import Checkbox from '../Checkbox'
+import Input from '../Input'
 import Row from '../Row'
 import TogglableContent from '../TogglableContent'
 import styles from './styles'
@@ -54,8 +55,8 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
 
       <Row>
         <Row.Column>
-          <label htmlFor='name'>Name</label>
-          <input
+          <Input
+            label='Name'
             type='search'
             name='name'
             id='name'

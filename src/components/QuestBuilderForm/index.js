@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import Input from '../Input'
 import NumberInput from '../NumberInput'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
@@ -12,8 +13,8 @@ export default React.memo(function QuestBuilderForm(props) {
     <form onSubmit={event => event.preventDefault()}>
       <Row>
         <Row.Column>
-          <label htmlFor='name'>Name</label>
-          <input
+          <Input
+            label='Name'
             type='text'
             name='name'
             id='name'
@@ -27,8 +28,8 @@ export default React.memo(function QuestBuilderForm(props) {
 
       <Row>
         <Row.Column width='1/3'>
-          <label htmlFor='amount'>Amount</label>
           <NumberInput
+            label='Amount'
             name='amount'
             id='amount'
             min={0}
@@ -72,8 +73,8 @@ export default React.memo(function QuestBuilderForm(props) {
 
       <Row>
         <Row.Column>
-          <label htmlFor='description'>Description</label>
-          <input
+          <Input
+            label='Description'
             type='text'
             name='description'
             id='description'
