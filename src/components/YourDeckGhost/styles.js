@@ -3,7 +3,7 @@ const ghost = {
   position: 'relative',
 
   '::before': {
-    content: '+',
+    content: '"+"',
     opacity: 0,
     fontSize: '600%',
     left: '50%',

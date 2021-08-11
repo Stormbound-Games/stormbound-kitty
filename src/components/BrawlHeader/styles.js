@@ -24,7 +24,7 @@ const backLink = {
   fontSize: '80%',
 
   '::before': {
-    content: '← ',
+    content: '"← "',
   },
 
   ':hover': {

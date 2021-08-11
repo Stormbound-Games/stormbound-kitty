@@ -19,7 +19,7 @@ const button = ({ isEmpty }) => ({
   height: '100%',
 
   '::after': isEmpty && {
-    content: '+',
+    content: '"+"',
     opacity: 0,
     fontSize: '350%',
     left: '50%',

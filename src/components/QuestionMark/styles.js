@@ -5,7 +5,7 @@ const mark = {
   cursor: 'help',
 
   '::before': {
-    content: '(',
+    content: '"("',
     opacity: 0.5,
     fontFamily: 'monospace',
     transform: 'translateY(-2px)',
@@ -15,7 +15,7 @@ const mark = {
   },
 
   '::after': {
-    content: ')',
+    content: '")"',
     opacity: 0.5,
     fontFamily: 'monospace',
     transform: 'translateY(-2px)',
