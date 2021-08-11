@@ -133,21 +133,6 @@ const renderRootStyles = renderer => {
     margin: 3em auto;
   }
 
-  select {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    padding: 0.65em;
-    border-radius: 0.3em;
-    background-color: transparent;
-    border: 1px solid #ded7a480;
-    color: var(--white);
-  }
-
-  select:disabled {
-    opacity: 0.5;
-  }
-
   option {
     color: var(--black);
   }

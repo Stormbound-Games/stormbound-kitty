@@ -12,6 +12,7 @@ import NumberInput from '../NumberInput'
 import PageMeta from '../PageMeta'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
+import Select from '../Select'
 import ShareDialog from '../ShareDialog'
 import Title from '../Title'
 import openBook from '../../helpers/openBook'
@@ -220,8 +221,8 @@ const BookOpeningSimulator = props => {
             want to open, click the “Open” button below and see what you found!
           </p>
           <form onSubmit={open}>
-            <label htmlFor='bookType'>Book type</label>
-            <select
+            <Select
+              label='Book type'
               id='bookType'
               name='bookType'
               required
@@ -236,7 +237,7 @@ const BookOpeningSimulator = props => {
                 </option>
               ))}
               <option value='CUSTOM'>Custom Book</option>
-            </select>
+            </Select>
             {bookType === 'CUSTOM' && (
               <CustomBookFields
                 amount={amount}

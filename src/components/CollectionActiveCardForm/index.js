@@ -4,6 +4,7 @@ import CardUpgradeStats from '../CardUpgradeStats'
 import Checkbox from '../Checkbox'
 import NumberInput from '../NumberInput'
 import Row from '../Row'
+import Select from '../Select'
 import Title from '../Title'
 
 export default React.memo(function CollectionActiveCardForm(props) {
@@ -14,8 +15,8 @@ export default React.memo(function CollectionActiveCardForm(props) {
       <form onSubmit={props.onActiveCardFormSubmit}>
         <Row>
           <Row.Column>
-            <label htmlFor='level'>Card level</label>
-            <select
+            <Select
+              label='Card level'
               id='level'
               name='level'
               required
@@ -29,7 +30,7 @@ export default React.memo(function CollectionActiveCardForm(props) {
               <option value='3'>3</option>
               <option value='4'>4</option>
               <option value='5'>5</option>
-            </select>
+            </Select>
           </Row.Column>
 
           <Row.Column>

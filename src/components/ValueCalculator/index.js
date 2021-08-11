@@ -9,6 +9,7 @@ import Info from '../Info'
 import LearnMoreIcon from '../LearnMoreIcon'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import Select from '../Select'
 import Title from '../Title'
 import cards from '../../data/cards'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
@@ -18,21 +19,19 @@ import styles from './styles'
 
 const LevelSelect = React.memo(function LevelSelect(props) {
   return (
-    <>
-      <label htmlFor={'level-' + props.slot}>Level</label>
-      <select
-        id={'level-' + props.slot}
-        name={'level-' + props.slot}
-        value={props.value}
-        onChange={event => props.setLevel(+event.target.value)}
-      >
-        <option value={1}>1</option>
-        <option value={2}>2</option>
-        <option value={3}>3</option>
-        <option value={4}>4</option>
-        <option value={5}>5</option>
-      </select>
-    </>
+    <Select
+      label='Level'
+      id={'level-' + props.slot}
+      name={'level-' + props.slot}
+      value={props.value}
+      onChange={event => props.setLevel(+event.target.value)}
+    >
+      <option value={1}>1</option>
+      <option value={2}>2</option>
+      <option value={3}>3</option>
+      <option value={4}>4</option>
+      <option value={5}>5</option>
+    </Select>
   )
 })
 

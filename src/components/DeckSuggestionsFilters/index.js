@@ -8,6 +8,7 @@ import FactionSelect from '../FactionSelect'
 import Input from '../Input'
 import MobileTogglableContent from '../MobileTogglableContent'
 import Row from '../Row'
+import Select from '../Select'
 import TagsSelect from '../TagsSelect'
 import styles from './styles'
 
@@ -62,8 +63,8 @@ export default React.memo(function DeckSuggestionsFilters(props) {
             />
           </Row.Column>
           <Row.Column>
-            <label htmlFor='author'>Author</label>
-            <select
+            <Select
+              label='Author'
               id='author'
               name='author'
               value={props.author}
@@ -75,7 +76,7 @@ export default React.memo(function DeckSuggestionsFilters(props) {
                   {author}
                 </option>
               ))}
-            </select>
+            </Select>
           </Row.Column>
         </Row>
 
@@ -111,8 +112,8 @@ export default React.memo(function DeckSuggestionsFilters(props) {
 
         <Row>
           <Row.Column>
-            <label htmlFor='order'>Order</label>
-            <select
+            <Select
+              label='Order'
               id='order'
               name='order'
               value={props.order}
@@ -123,7 +124,7 @@ export default React.memo(function DeckSuggestionsFilters(props) {
               <option value='FEASIBILITY' disabled={hasDefaultCollection}>
                 Feasibility
               </option>
-            </select>
+            </Select>
           </Row.Column>
           <Row.Column extend={{ alignSelf: 'flex-end' }}>
             <CTA

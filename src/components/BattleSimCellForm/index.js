@@ -7,6 +7,7 @@ import CTA from '../CTA'
 import NumberInput from '../NumberInput'
 import Radio from '../Radio'
 import Row from '../Row'
+import Select from '../Select'
 import getRawCardData from '../../helpers/getRawCardData'
 import unfoldValue from '../../helpers/unfoldValue'
 import styles from './styles'
@@ -106,8 +107,8 @@ export default React.memo(function BattleSimCellForm(props) {
             />
           </Row.Column>
           <Row.Column width='1/4'>
-            <label htmlFor='level'>Level</label>
-            <select
+            <Select
+              label='Level'
               disabled={(card || '').startsWith('T')}
               name='level'
               id='level'
@@ -124,7 +125,7 @@ export default React.memo(function BattleSimCellForm(props) {
               <option value='3'>3</option>
               <option value='4'>4</option>
               <option value='5'>5</option>
-            </select>
+            </Select>
           </Row.Column>
         </Row>
       </div>

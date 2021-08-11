@@ -4,6 +4,7 @@ import Input from '../Input'
 import NumberInput from '../NumberInput'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
+import Select from '../Select'
 import ShareButton from '../QuestBuilderShareButton'
 
 export default React.memo(function QuestBuilderForm(props) {
@@ -41,8 +42,8 @@ export default React.memo(function QuestBuilderForm(props) {
         </Row.Column>
 
         <Row.Column width='1/3'>
-          <label htmlFor='currency'>Currency</label>
-          <select
+          <Select
+            label='Currency'
             name='currency'
             id='currency'
             value={props.currency}
@@ -52,12 +53,12 @@ export default React.memo(function QuestBuilderForm(props) {
             <option value='coins'>Coins</option>
             <option value='rubies'>Rubies</option>
             <option value='stones'>Fusion stones</option>
-          </select>
+          </Select>
         </Row.Column>
 
         <Row.Column width='1/3'>
-          <label htmlFor='difficulty'>Difficulty</label>
-          <select
+          <Select
+            label='Difficulty'
             name='difficulty'
             id='difficulty'
             value={props.difficulty}
@@ -67,7 +68,7 @@ export default React.memo(function QuestBuilderForm(props) {
             <option value='1'>1</option>
             <option value='2'>2</option>
             <option value='3'>3</option>
-          </select>
+          </Select>
         </Row.Column>
       </Row>
 

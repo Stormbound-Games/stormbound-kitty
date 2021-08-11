@@ -10,6 +10,7 @@ import NumberInput from '../NumberInput'
 import PageMeta from '../PageMeta'
 import { HeroCrowns } from '../Resource'
 import Row from '../Row'
+import Select from '../Select'
 import VisuallyHidden from '../VisuallyHidden'
 import getHeroScore from '../../helpers/getHeroScore'
 import styles from './styles'
@@ -144,8 +145,8 @@ const HeroScoreCalculator = props => {
           </Row>
           <Row>
             <Row.Column>
-              <label htmlFor='coefficient'>Coefficient factor</label>
-              <select
+              <Select
+                label='Coefficient factor'
                 name='coefficient'
                 id='coefficient'
                 value={coefficient}
@@ -155,7 +156,7 @@ const HeroScoreCalculator = props => {
                 <option value='40'>40 (first 30 ranked matches)</option>
                 <option value='20'>20 (scoring below 2400)</option>
                 <option value='10'>10 (once scored above 2400)</option>
-              </select>
+              </Select>
             </Row.Column>
           </Row>
           <Row>

@@ -4,6 +4,7 @@ import { RESTRICTIONS, TYPES } from '../../constants/puzzles'
 import Checkbox from '../Checkbox'
 import Input from '../Input'
 import Row from '../Row'
+import Select from '../Select'
 import TogglableContent from '../TogglableContent'
 import styles from './styles'
 
@@ -19,8 +20,8 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
     <form onSubmit={event => event.preventDefault()}>
       <Row>
         <Row.Column>
-          <label htmlFor='difficulty'>Difficulty</label>
-          <select
+          <Select
+            label='Difficulty'
             data-testid='difficulty-select'
             id='difficulty'
             name='difficulty'
@@ -31,12 +32,12 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
             <option value='1'>1</option>
             <option value='2'>2</option>
             <option value='3'>3</option>
-          </select>
+          </Select>
         </Row.Column>
 
         <Row.Column>
-          <label htmlFor='type'>Type</label>
-          <select
+          <Select
+            label='Type'
             data-testid='type-select'
             id='type'
             name='type'
@@ -49,7 +50,7 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
                 {type.slice(0, 1) + type.toLowerCase().slice(1)}
               </option>
             ))}
-          </select>
+          </Select>
         </Row.Column>
       </Row>
 

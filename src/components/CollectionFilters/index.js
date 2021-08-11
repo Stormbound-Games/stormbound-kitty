@@ -8,6 +8,7 @@ import Icon from '../Icon'
 import Input from '../Input'
 import Only from '../Only'
 import MobileTogglableContent from '../MobileTogglableContent'
+import Select from '../Select'
 import Row from '../Row'
 import capitalise from '../../helpers/capitalise'
 import styles from './styles'
@@ -63,8 +64,8 @@ export default React.memo(function CollectionFilters(props) {
                 />
               </Row.Column>
               <Row.Column>
-                <label htmlFor='type'>Type</label>
-                <select
+                <Select
+                  label='Type'
                   name='type'
                   id='type'
                   value={props.type}
@@ -77,15 +78,15 @@ export default React.memo(function CollectionFilters(props) {
                       {capitalise(type)}
                     </option>
                   ))}
-                </select>
+                </Select>
               </Row.Column>
             </Row>
           </Row.Column>
           <Row.Column>
             <Row extend={styles.row}>
               <Row.Column>
-                <label htmlFor='status'>Status</label>
-                <select
+                <Select
+                  label='Status'
                   name='status'
                   id='status'
                   value={props.status}
@@ -96,11 +97,11 @@ export default React.memo(function CollectionFilters(props) {
                   <option value='MISSING'>Missing</option>
                   <option value='UPGRADABLE'>Upgradable</option>
                   <option value='EXCESS'>Excess copies</option>
-                </select>
+                </Select>
               </Row.Column>
               <Row.Column>
-                <label htmlFor='level'>Level</label>
-                <select
+                <Select
+                  label='Level'
                   name='level'
                   id='level'
                   value={props.level}
@@ -113,7 +114,7 @@ export default React.memo(function CollectionFilters(props) {
                   <option value='3'>3</option>
                   <option value='4'>4</option>
                   <option value='5'>5</option>
-                </select>
+                </Select>
               </Row.Column>
             </Row>
           </Row.Column>
@@ -123,8 +124,8 @@ export default React.memo(function CollectionFilters(props) {
           <Row.Column>
             <Row extend={styles.row}>
               <Row.Column>
-                <label htmlFor='rarity'>Rarity</label>
-                <select
+                <Select
+                  label='Rarity'
                   name='rarity'
                   id='rarity'
                   value={props.rarity}
@@ -137,11 +138,11 @@ export default React.memo(function CollectionFilters(props) {
                       {capitalise(rarity)}
                     </option>
                   ))}
-                </select>
+                </Select>
               </Row.Column>
               <Row.Column>
-                <label htmlFor='race'>Race</label>
-                <select
+                <Select
+                  label='Race'
                   name='race'
                   id='race'
                   value={props.race}
@@ -154,7 +155,7 @@ export default React.memo(function CollectionFilters(props) {
                       {capitalise(race)}
                     </option>
                   ))}
-                </select>
+                </Select>
               </Row.Column>
             </Row>
           </Row.Column>
@@ -162,8 +163,8 @@ export default React.memo(function CollectionFilters(props) {
             <Row extend={styles.row}>
               <Row.Column>
                 <Only.CustomCollection>
-                  <label htmlFor='order'>Order</label>
-                  <select
+                  <Select
+                    label='Order'
                     name='order'
                     id='order'
                     value={props.order}
@@ -173,7 +174,7 @@ export default React.memo(function CollectionFilters(props) {
                   >
                     <option value='NATURAL'>Natural</option>
                     <option value='VALUE'>Value</option>
-                  </select>
+                  </Select>
                 </Only.CustomCollection>
               </Row.Column>
               <Row.Column>

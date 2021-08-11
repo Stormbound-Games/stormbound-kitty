@@ -8,6 +8,7 @@ import Guide from '../Guide'
 import Info from '../Info'
 import Only from '../Only'
 import Row from '../Row'
+import Select from '../Select'
 import Table from '../Table'
 import Title from '../Title'
 import CardLink from '../CardLink'
@@ -261,8 +262,8 @@ export default React.memo(function GuideD1SFCommons(props) {
             <thead>
               <tr>
                 <th>
-                  <label htmlFor='level'>Level</label>
-                  <select
+                  <Select
+                    label='Level'
                     id='level'
                     name='level'
                     className={css(styles.select)}
@@ -274,7 +275,7 @@ export default React.memo(function GuideD1SFCommons(props) {
                     <option value='3'>3</option>
                     <option value='4'>4</option>
                     <option value='5'>5</option>
-                  </select>
+                  </Select>
                 </th>
                 <th className={css({ color: '#a28668' })}>First Mutineer</th>
                 <th className={css({ color: '#66b8b0' })}>Warfront Runners</th>

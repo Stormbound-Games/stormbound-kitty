@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Checkbox from '../Checkbox'
+import Select from '../Select'
 import ShareDialog from '../ShareDialog'
 import styles from './styles'
 
@@ -43,8 +44,8 @@ export default React.memo(function CardBuilderShareButton(props) {
         with the button below.
       </p>
 
-      <label htmlFor='mode'>What to copy</label>
-      <select
+      <Select
+        label='What to copy'
         id='mode'
         name='mode'
         required
@@ -54,7 +55,7 @@ export default React.memo(function CardBuilderShareButton(props) {
         <option value='LINK'>Link only</option>
         <option value='LINK_AND_STATS'>Link and stats as text</option>
         <option value='STATS'>Stats as text only</option>
-      </select>
+      </Select>
 
       <div className={css(styles.checkbox)}>
         <Checkbox

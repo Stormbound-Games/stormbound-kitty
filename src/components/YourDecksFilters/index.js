@@ -5,6 +5,7 @@ import Input from '../Input'
 import FactionSelect from '../FactionSelect'
 import MobileTogglableContent from '../MobileTogglableContent'
 import Row from '../Row'
+import Select from '../Select'
 import TagsSelect from '../TagsSelect'
 
 export default React.memo(function YourDecksFilters(props) {
@@ -69,8 +70,8 @@ export default React.memo(function YourDecksFilters(props) {
             />
           </Row.Column>
           <Row.Column>
-            <label htmlFor='order'>Order</label>
-            <select
+            <Select
+              label='Order'
               id='order'
               name='order'
               value={props.order}
@@ -79,7 +80,7 @@ export default React.memo(function YourDecksFilters(props) {
               <option value='DATE'>Chronological</option>
               <option value='FACTION'>Faction</option>
               <option value='NAME'>Name</option>
-            </select>
+            </Select>
           </Row.Column>
         </Row>
       </form>

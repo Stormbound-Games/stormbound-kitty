@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { BrawlContext } from '../BrawlProvider'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
+import Select from '../Select'
 import VisuallyHidden from '../VisuallyHidden'
 import useViewportSize from '../../hooks/useViewportSize'
 import { VICTORY_BONUSES } from '../../constants/brawl'
@@ -87,10 +88,9 @@ export default React.memo(function BrawlMatchForm(props) {
           />
         </td>
         <td data-label='Match outcome'>
-          <VisuallyHidden htmlFor='status' as='label'>
-            Status
-          </VisuallyHidden>
-          <select
+          <Select
+            isLabelHidden
+            label='Status'
             id='status'
             name='status'
             required
@@ -106,13 +106,12 @@ export default React.memo(function BrawlMatchForm(props) {
             <option value='DRAW'>Draw</option>
             <option value='SURRENDERED'>Forfeited</option>
             <option value='LOST'>Lost</option>
-          </select>
+          </Select>
         </td>
         <td>
-          <VisuallyHidden as='label' htmlFor='bonus'>
-            Victory bonus
-          </VisuallyHidden>
-          <select
+          <Select
+            isLabelHidden
+            label='Victory bonus'
             id='bonus'
             name='bonus'
             form='add-match-form'
@@ -133,7 +132,7 @@ export default React.memo(function BrawlMatchForm(props) {
                 {VICTORY_BONUSES[bonus].label}
               </option>
             ))}
-          </select>
+          </Select>
         </td>
       </motion.tr>
     </AnimatePresence>

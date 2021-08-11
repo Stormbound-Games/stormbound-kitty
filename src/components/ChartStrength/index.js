@@ -10,6 +10,7 @@ import {
 } from 'recharts'
 import FactionSelect from '../FactionSelect'
 import Row from '../Row'
+import Select from '../Select'
 import Title from '../Title'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import CARDS from '../../data/cards'
@@ -20,12 +21,17 @@ export default React.memo(function ChartStrength(props) {
   const [level, setLevel] = React.useState(5)
 
   const factions = faction.split(',')
-  const mainFaction = factions.length > 1 ? factions.filter(faction => faction !== 'neutral') : factions[0]
-  
+  const mainFaction =
+    factions.length > 1
+      ? factions.filter(faction => faction !== 'neutral')
+      : factions[0]
+
   const cards = React.useMemo(
     () =>
       CARDS.filter(
-        card => !card.token && (factions[0] === '*' || factions.includes(card.faction))
+        card =>
+          !card.token &&
+          (factions[0] === '*' || factions.includes(card.faction))
       ).map(card => getResolvedCardData({ ...card, level })),
     [level, factions]
   )
@@ -62,8 +68,8 @@ export default React.memo(function ChartStrength(props) {
           />
         </Row.Column>
         <Row.Column>
-          <label htmlFor='cs-level'>Level</label>
-          <select
+          <Select
+            label='Level'
             name='cs-level'
             id='cs-level'
             value={level}
@@ -74,7 +80,7 @@ export default React.memo(function ChartStrength(props) {
             <option value='3'>3</option>
             <option value='4'>4</option>
             <option value='5'>5</option>
-          </select>
+          </Select>
         </Row.Column>
       </Row>
       <ResponsiveContainer width='100%' height={350}>

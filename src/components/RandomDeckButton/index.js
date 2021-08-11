@@ -7,6 +7,7 @@ import Dialog from '../Dialog'
 import FactionSelect from '../FactionSelect'
 import LearnMoreIcon from '../LearnMoreIcon'
 import Row from '../Row'
+import Select from '../Select'
 import getRandomDeck from '../../helpers/getRandomDeck'
 import arrayRandom from '../../helpers/arrayRandom'
 
@@ -88,8 +89,8 @@ class RandomDeckButton extends React.Component {
               />
             </Row.Column>
             <Row.Column>
-              <label htmlFor='factionCards'>Min faction cards</label>
-              <select
+              <Select
+                label='Min faction cards'
                 data-testid='random-min-faction-select'
                 name='factionCards'
                 id='factionCards'
@@ -102,13 +103,13 @@ class RandomDeckButton extends React.Component {
                 <option value={2}>2</option>
                 <option value={4}>4</option>
                 <option value={6}>6</option>
-              </select>
+              </Select>
             </Row.Column>
           </Row>
           <Row>
             <Row.Column>
-              <label htmlFor='maxEpicCards'>Max epic cards</label>
-              <select
+              <Select
+                label='Max epic cards'
                 data-testid='random-max-epic-select'
                 name='maxEpicCards'
                 id='maxEpicCards'
@@ -125,11 +126,11 @@ class RandomDeckButton extends React.Component {
                 <option value={1}>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>
-              </select>
+              </Select>
             </Row.Column>
             <Row.Column>
-              <label htmlFor='maxLegendaryCards'>Max legendary cards</label>
-              <select
+              <Select
+                label='Max legendary cards'
                 data-testid='random-max-legendary-select'
                 name='maxLegendaryCards'
                 id='maxLegendaryCards'
@@ -145,7 +146,7 @@ class RandomDeckButton extends React.Component {
                 <option value={0}>0</option>
                 <option value={1}>1</option>
                 <option value={2}>2</option>
-              </select>
+              </Select>
             </Row.Column>
           </Row>
         </Dialog>

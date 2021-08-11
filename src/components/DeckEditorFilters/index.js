@@ -7,6 +7,7 @@ import Icon from '../Icon'
 import Input from '../Input'
 import FactionSelect from '../FactionSelect'
 import Row from '../Row'
+import Select from '../Select'
 import MobileTogglableContent from '../MobileTogglableContent'
 import capitalise from '../../helpers/capitalise'
 import styles from './styles'
@@ -64,8 +65,8 @@ export default React.memo(function DeckEditorFilters(props) {
               </Row.Column>
 
               <Row.Column>
-                <label htmlFor='type'>Type</label>
-                <select
+                <Select
+                  label='Type'
                   name='type'
                   id='type'
                   value={props.type}
@@ -78,15 +79,15 @@ export default React.memo(function DeckEditorFilters(props) {
                       {capitalise(type)}
                     </option>
                   ))}
-                </select>
+                </Select>
               </Row.Column>
             </Row>
           </Row.Column>
           <Row.Column>
             <Row extend={styles.row}>
               <Row.Column>
-                <label htmlFor='mana'>Mana</label>
-                <select
+                <Select
+                  label='Mana'
                   name='mana'
                   id='mana'
                   value={props.mana}
@@ -98,12 +99,12 @@ export default React.memo(function DeckEditorFilters(props) {
                   <option value='4-5'>4 or 5</option>
                   <option value='6-7'>6 or 7</option>
                   <option value='8-Infinity'>8 or plus</option>
-                </select>
+                </Select>
               </Row.Column>
 
               <Row.Column>
-                <label htmlFor='movement'>Movement</label>
-                <select
+                <Select
+                  label='Movement'
                   name='movement'
                   id='movement'
                   value={props.movement}
@@ -115,7 +116,7 @@ export default React.memo(function DeckEditorFilters(props) {
                   <option value='1'>1</option>
                   <option value='2'>2</option>
                   <option value='3'>3</option>
-                </select>
+                </Select>
               </Row.Column>
             </Row>
           </Row.Column>
@@ -125,8 +126,8 @@ export default React.memo(function DeckEditorFilters(props) {
           <Row.Column>
             <Row extend={styles.row}>
               <Row.Column>
-                <label htmlFor='rarity'>Rarity</label>
-                <select
+                <Select
+                  label='Rarity'
                   name='rarity'
                   id='rarity'
                   value={props.rarity}
@@ -139,12 +140,12 @@ export default React.memo(function DeckEditorFilters(props) {
                       {capitalise(rarity)}
                     </option>
                   ))}
-                </select>
+                </Select>
               </Row.Column>
 
               <Row.Column>
-                <label htmlFor='race'>Race</label>
-                <select
+                <Select
+                  label='Race'
                   name='race'
                   id='race'
                   value={props.race}
@@ -157,15 +158,15 @@ export default React.memo(function DeckEditorFilters(props) {
                       {capitalise(race)}
                     </option>
                   ))}
-                </select>
+                </Select>
               </Row.Column>
             </Row>
           </Row.Column>
           <Row.Column>
             <Row extend={styles.row}>
               <Row.Column>
-                <label htmlFor='ability'>Ability</label>
-                <select
+                <Select
+                  label='Ability'
                   name='ability'
                   id='ability'
                   value={props.ability}
@@ -186,7 +187,7 @@ export default React.memo(function DeckEditorFilters(props) {
                   <option value='SPAWN'>Spawn</option>
                   <option value='SURVIVING'>Surviving Effect</option>
                   <option value='VITALITY'>Vitality</option>
-                </select>
+                </Select>
               </Row.Column>
 
               <Row.Column>

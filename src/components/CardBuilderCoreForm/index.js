@@ -6,6 +6,7 @@ import FactionSelect from '../FactionSelect'
 import ImageErrorDialog from '../CardBuilderImageErrorDialog'
 import Input from '../Input'
 import Row from '../Row'
+import Select from '../Select'
 import capitalise from '../../helpers/capitalise'
 
 export default React.memo(function CardBuilderCardForm(props) {
@@ -45,8 +46,8 @@ export default React.memo(function CardBuilderCardForm(props) {
 
         <Row>
           <Row.Column>
-            <label htmlFor='rarity'>Rarity</label>
-            <select
+            <Select
+              label='Rarity'
               name='rarity'
               id='rarity'
               required
@@ -59,11 +60,11 @@ export default React.memo(function CardBuilderCardForm(props) {
                   {capitalise(rarity)}
                 </option>
               ))}
-            </select>
+            </Select>
           </Row.Column>
           <Row.Column>
-            <label htmlFor='type'>Type</label>
-            <select
+            <Select
+              label='Type'
               name='type'
               id='type'
               required
@@ -76,7 +77,7 @@ export default React.memo(function CardBuilderCardForm(props) {
                   {capitalise(type)}
                 </option>
               ))}
-            </select>
+            </Select>
           </Row.Column>
         </Row>
 
@@ -91,8 +92,8 @@ export default React.memo(function CardBuilderCardForm(props) {
             />
           </Row.Column>
           <Row.Column>
-            <label htmlFor='race'>Race</label>
-            <select
+            <Select
+              label='Race'
               name='race'
               id='race'
               required
@@ -107,7 +108,7 @@ export default React.memo(function CardBuilderCardForm(props) {
                   {capitalise(race)}
                 </option>
               ))}
-            </select>
+            </Select>
           </Row.Column>
         </Row>
 

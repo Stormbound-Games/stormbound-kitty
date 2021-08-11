@@ -11,6 +11,7 @@ import NumberInput from '../NumberInput'
 import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import Select from '../Select'
 import Title from '../Title'
 import TogglableContent from '../TogglableContent'
 import CardLink from '../CardLink'
@@ -85,8 +86,8 @@ export default React.memo(function BooksCalculator(props) {
           <form className={css(styles.form)}>
             <Row>
               <Row.Column>
-                <label htmlFor='book'>Book type</label>
-                <select
+                <Select
+                  label='Book type'
                   id='book'
                   name='book'
                   value={bookType}
@@ -98,12 +99,12 @@ export default React.memo(function BooksCalculator(props) {
                       {getBookName(bookType)}
                     </option>
                   ))}
-                </select>
+                </Select>
               </Row.Column>
 
               <Row.Column>
-                <label htmlFor='target'>Looking for</label>
-                <select
+                <Select
+                  label='Looking for'
                   id='target'
                   name='target'
                   value={target}
@@ -116,7 +117,7 @@ export default React.memo(function BooksCalculator(props) {
                       {EXPECTATIONS[option].label}
                     </option>
                   ))}
-                </select>
+                </Select>
               </Row.Column>
             </Row>
 

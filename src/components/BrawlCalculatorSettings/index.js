@@ -1,6 +1,7 @@
 import React from 'react'
 import NumberInput from '../NumberInput'
 import Row from '../Row'
+import Select from '../Select'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import { BRAWL_MILESTONES } from '../../constants/brawl'
 
@@ -62,26 +63,24 @@ export default React.memo(function BrawlCalculatorSettings(props) {
               />
             </>
           ) : props.mode === 'GOAL' ? (
-            <>
-              <label htmlFor='milestone'>Milestone</label>
-              <select
-                name='milestone'
-                id='milestone'
-                value={props.milestone}
-                onChange={event => props.setMilestone(+event.target.value)}
-              >
-                <option value=''>Select a milestone</option>
-                {milestones.map((milestone, index) => (
-                  <option
-                    key={milestone.crowns}
-                    value={index}
-                    disabled={milestone.crowns <= props.crowns}
-                  >
-                    {index + 1}. {getRewardLabel(milestone)}
-                  </option>
-                ))}
-              </select>
-            </>
+            <Select
+              label='Milestone'
+              name='milestone'
+              id='milestone'
+              value={props.milestone}
+              onChange={event => props.setMilestone(+event.target.value)}
+            >
+              <option value=''>Select a milestone</option>
+              {milestones.map((milestone, index) => (
+                <option
+                  key={milestone.crowns}
+                  value={index}
+                  disabled={milestone.crowns <= props.crowns}
+                >
+                  {index + 1}. {getRewardLabel(milestone)}
+                </option>
+              ))}
+            </Select>
           ) : null}
         </Row.Column>
       </Row>

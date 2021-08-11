@@ -6,6 +6,7 @@ import MemberListEntry from '../MemberListEntry'
 import MemberTagYourself from '../MemberTagYourself'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import Select from '../Select'
 import { StoriesContext } from '../StoriesProvider'
 import artworks from '../../data/artworks'
 import contributions from '../../data/contributions'
@@ -111,8 +112,8 @@ export default React.memo(function Members(props) {
               />
             </Row.Column>
             <Row.Column>
-              <label htmlFor='type'>Type</label>
-              <select
+              <Select
+                label='Type'
                 name='type'
                 id='type'
                 value={type}
@@ -131,7 +132,7 @@ export default React.memo(function Members(props) {
                 <option value='PUZZLE'>Puzzles</option>
                 <option value='STORY'>Stories</option>
                 <option value='VIDEO'>Videos</option>
-              </select>
+              </Select>
             </Row.Column>
           </Row>
 

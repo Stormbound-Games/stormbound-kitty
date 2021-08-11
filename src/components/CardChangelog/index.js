@@ -5,6 +5,7 @@ import Article from '../Article'
 import Info from '../Info'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
+import Select from '../Select'
 import Title from '../Title'
 import FeedCardChange from '../FeedCardChange'
 import changelog from '../../data/changelog'
@@ -50,8 +51,8 @@ export default function CardChangelog(props) {
         <Title>Filters</Title>
         <Row>
           <Row.Column>
-            <label htmlFor='sorting'>Sort by</label>
-            <select
+            <Select
+              label='Sort by'
               id='sorting'
               name='sorting'
               value={sorting}
@@ -59,11 +60,11 @@ export default function CardChangelog(props) {
             >
               <option value='DATE'>Date</option>
               <option value='CARD'>Card</option>
-            </select>
+            </Select>
           </Row.Column>
           <Row.Column>
-            <label htmlFor='type'>Types of changes</label>
-            <select
+            <Select
+              label='Types of changes'
               id='type'
               name='type'
               value={type}
@@ -74,7 +75,7 @@ export default function CardChangelog(props) {
               <option value='INFO'>Info</option>
               <option value='MIXED'>Mixed</option>
               <option value='NERF'>Nerf</option>
-            </select>
+            </Select>
           </Row.Column>
         </Row>
 
