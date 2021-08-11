@@ -1,9 +1,17 @@
 import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
-const Link = props => {
+const Link = ({ inNewTab, ...props }) => {
   if (props.href) {
-    return <a {...props}>{props.children}</a>
+    return (
+      <a
+        {...props}
+        target={inNewTab ? '_blank' : undefined}
+        rel={inNewTab ? 'noopener noreferrer' : undefined}
+      >
+        {props.children}
+      </a>
+    )
   }
 
   if (props.to) {

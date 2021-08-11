@@ -203,8 +203,7 @@ class BattleSimAppMobile extends React.Component {
                     href={
                       `/deck/` + serialisation.deck.serialise(this.props.cards)
                     }
-                    target='_blank'
-                    rel='noopener noreferrer'
+                    inNewTab
                   >
                     Open deck
                   </Link>{' '}

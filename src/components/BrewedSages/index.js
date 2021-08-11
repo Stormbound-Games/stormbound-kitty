@@ -45,8 +45,7 @@ export default React.memo(function BrewedSages(props) {
             <Link
               className={css(styles.cta)}
               href='https://gumroad.com/l/KuFWl'
-              target='_blank'
-              rel='noopener noreferrer'
+              inNewTab
             >
               Support Brewed Sages
             </Link>
@@ -103,11 +102,7 @@ export default React.memo(function BrewedSages(props) {
         <ul>
           <li>
             On{' '}
-            <Link
-              href='https://freeloader.podbean.com/'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
+            <Link href='https://freeloader.podbean.com/' inNewTab>
               Podbean,
             </Link>
           </li>
@@ -115,8 +110,7 @@ export default React.memo(function BrewedSages(props) {
             On{' '}
             <Link
               href='https://podcasts.apple.com/us/podcast/the-brewed-sages/id1530313986'
-              target='_blank'
-              rel='noopener noreferrer'
+              inNewTab
             >
               Apple Podcasts,
             </Link>
@@ -125,8 +119,7 @@ export default React.memo(function BrewedSages(props) {
             On{' '}
             <Link
               href='https://www.google.com/podcasts?feed=aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL2ZyZWVsb2FkZXIvZmVlZC54bWw%3D'
-              target='_blank'
-              rel='noopener noreferrer'
+              inNewTab
             >
               Google Podcasts,
             </Link>
@@ -135,8 +128,7 @@ export default React.memo(function BrewedSages(props) {
             On{' '}
             <Link
               href='https://open.spotify.com/show/0zPLDrVZesb2Xr8RzVNfmF?nd=1'
-              target='_blank'
-              rel='noopener noreferrer'
+              inNewTab
             >
               Spotify,
             </Link>
@@ -145,8 +137,7 @@ export default React.memo(function BrewedSages(props) {
             On{' '}
             <Link
               href='https://tunein.com/podcasts/Media--Entertainment-Podcasts/The-Brewed-Sages-p1363569/?topicId=157030692'
-              target='_blank'
-              rel='noopener noreferrer'
+              inNewTab
             >
               TuneIn,
             </Link>
@@ -155,8 +146,7 @@ export default React.memo(function BrewedSages(props) {
             On{' '}
             <Link
               href='https://www.pandora.com/podcast/the-brewed-sages-of-stormbound/PC:47351'
-              target='_blank'
-              rel='noopener noreferrer'
+              inNewTab
             >
               Pandora,
             </Link>
@@ -165,8 +155,7 @@ export default React.memo(function BrewedSages(props) {
             On{' '}
             <Link
               href='https://www.youtube.com/channel/UCTEax9JOxhsvDkY8rP-hqJg'
-              target='_blank'
-              rel='noopener noreferrer'
+              inNewTab
             >
               YouTube,
             </Link>

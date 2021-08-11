@@ -20,19 +20,11 @@ export const VIDEOS = [
         The Popular Eagle (TPE for short) is a long time Stormbound Youtuber,
         having created content and guides since as far back as 2018. TPE is also
         on{' '}
-        <Link
-          href='https://twitter.com/ThePopularEagle'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
+        <Link href='https://twitter.com/ThePopularEagle' inNewTab>
           Twitter
         </Link>{' '}
         and{' '}
-        <Link
-          href='https://discord.gg/zmkuDU'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
+        <Link href='https://discord.gg/zmkuDU' inNewTab>
           Discord
         </Link>
         .
@@ -167,8 +159,7 @@ export default React.memo(function Videos(props) {
                       <Icon icon='arrow-right' extend={styles.icon} />
                       <Link
                         href={video.href}
-                        target='_blank'
-                        rel='noopener noreferrer'
+                        inNewTab
                         className={css(styles.link)}
                       >
                         Visit {video.author}’s channel

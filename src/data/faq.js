@@ -146,16 +146,14 @@ export default [
               (Kitty#1909). The only constraint is that your puzzle need to
               respect the rules in place. It needs to be one of{' '}
               <Link
-                target='_blank'
-                rel='noopener noreferrer'
+                inNewTab
                 href='https://github.com/KittySparkles/stormbound-kitty/blob/master/src/constants/puzzles.js#L39-L47'
               >
                 these types
               </Link>{' '}
               and can include any of{' '}
               <Link
-                target='_blank'
-                rel='noopener noreferrer'
+                inNewTab
                 href='https://github.com/KittySparkles/stormbound-kitty/blob/master/src/constants/puzzles.js#L1-L37'
               >
                 these restrictions
@@ -187,8 +185,7 @@ export default [
               development and have a GitHub account, you can{' '}
               <Link
                 href='https://github.com/KittySparkles/stormbound-kitty/blob/master/docs/ADDING_A_DECK.md'
-                target='_blank'
-                rel='noopener noreferrer'
+                inNewTab
               >
                 follow the guide
               </Link>{' '}

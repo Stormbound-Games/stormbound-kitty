@@ -69,12 +69,7 @@ const Article = React.memo(function Article(props) {
               <span>{action.children}</span>
             </Link>
           ) : action.href ? (
-            <Link
-              href={action.href}
-              target='_blank'
-              rel='noopener noreferrer'
-              className={css(styles.action)}
-            >
+            <Link href={action.href} inNewTab className={css(styles.action)}>
               <span>{action.children}</span>
               <Icon
                 icon={action.icon || 'arrow-right'}

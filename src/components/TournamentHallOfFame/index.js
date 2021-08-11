@@ -104,11 +104,7 @@ export default React.memo(function TournamentHallOfFame(props) {
             answer: (
               <>
                 The <Link to='/deck'>deck builder</Link> to compose decks,{' '}
-                <Link
-                  href='https://challonge.com/'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
+                <Link href='https://challonge.com/' inNewTab>
                   Challonge
                 </Link>{' '}
                 to create and display brackets, Google Forms for the
@@ -128,11 +124,7 @@ export default React.memo(function TournamentHallOfFame(props) {
       <Notice icon='crown'>
         For more information about ongoing tournaments and how to participate,
         join the{' '}
-        <Link
-          href='https://discord.gg/stormbound'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
+        <Link href='https://discord.gg/stormbound' inNewTab>
           official Discord server
         </Link>
         .

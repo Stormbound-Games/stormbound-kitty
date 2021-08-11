@@ -351,11 +351,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <p>
           The formula used to update a player A’s Hero Score (<var>S</var>) is a
           variation of the{' '}
-          <Link
-            href='https://en.wikipedia.org/wiki/Elo_rating_system'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
+          <Link href='https://en.wikipedia.org/wiki/Elo_rating_system' inNewTab>
             Elo rating system
           </Link>{' '}
           used in chess, amongst other games. It looks like this:

@@ -39,11 +39,7 @@ export default React.memo(function Error(props) {
             </p>
             <p>
               What you can do is report it to Kitty#1909 on the{' '}
-              <Link
-                href='https://discord.gg/stormbound'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
+              <Link href='https://discord.gg/stormbound' inNewTab>
                 Stormbound Discord
               </Link>
               , along with the URL of this page and the following error:

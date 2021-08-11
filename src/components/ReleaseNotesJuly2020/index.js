@@ -58,11 +58,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
         <p>
           Back in April, Paladin Studios announced they would hand over
           Stormbound to a Polish game development studio called{' '}
-          <Link
-            href='https://www.sheepyard.pl/'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
+          <Link href='https://www.sheepyard.pl/' inNewTab>
             Sheepyard
           </Link>
           . A few months later, Sheepyard is ready to{' '}

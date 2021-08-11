@@ -25,11 +25,7 @@ export default React.memo(function Footer(props) {
             </p>
             <p className={css(styles.info)}>
               Official Stormbound game content courtesy of{' '}
-              <Link
-                href='https://www.sheepyard.pl/'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
+              <Link href='https://www.sheepyard.pl/' inNewTab>
                 Sheepyard
               </Link>
               .
@@ -38,17 +34,12 @@ export default React.memo(function Footer(props) {
               This site is hosted on{' '}
               <Link
                 href='https://github.com/KittySparkles/stormbound-kitty'
-                target='_blank'
-                rel='noopener noreferrer'
+                inNewTab
               >
                 GitHub
               </Link>{' '}
               and{' '}
-              <Link
-                href='https://www.netlify.com'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
+              <Link href='https://www.netlify.com' inNewTab>
                 Netlify
               </Link>
               .
@@ -63,26 +54,20 @@ export default React.memo(function Footer(props) {
                     <li className={css(styles.item)}>
                       <Link
                         href='https://paladinstudios.com/stormbound/'
-                        target='_blank'
-                        rel='noopener noreferrer'
+                        inNewTab
                       >
                         Official site
                       </Link>
                     </li>
                     <li className={css(styles.item)}>
-                      <Link
-                        href='https://twitter.com/stormboundccg'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                      >
+                      <Link href='https://twitter.com/stormboundccg' inNewTab>
                         Twitter
                       </Link>
                     </li>
                     <li className={css(styles.item)}>
                       <Link
                         href='https://www.facebook.com/stormboundccg'
-                        target='_blank'
-                        rel='noopener noreferrer'
+                        inNewTab
                       >
                         Facebook
                       </Link>
@@ -90,8 +75,7 @@ export default React.memo(function Footer(props) {
                     <li className={css(styles.item)}>
                       <Link
                         href='https://www.instagram.com/stormboundccg/'
-                        target='_blank'
-                        rel='noopener noreferrer'
+                        inNewTab
                       >
                         Instagram
                       </Link>
@@ -99,8 +83,7 @@ export default React.memo(function Footer(props) {
                     <li className={css(styles.item)}>
                       <Link
                         href='https://store.steampowered.com/app/790600/Stormbound/'
-                        target='_blank'
-                        rel='noopener noreferrer'
+                        inNewTab
                       >
                         Steam
                       </Link>
@@ -132,21 +115,13 @@ export default React.memo(function Footer(props) {
                   <span className={css(styles.heading)}>Community</span>
                   <ul className={css(styles.list)}>
                     <li className={css(styles.item)}>
-                      <Link
-                        href='https://reddit.com/r/stormbound'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                      >
+                      <Link href='https://reddit.com/r/stormbound' inNewTab>
                         Reddit
                       </Link>
                     </li>
 
                     <li className={css(styles.item)}>
-                      <Link
-                        href='https://discord.gg/stormbound'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                      >
+                      <Link href='https://discord.gg/stormbound' inNewTab>
                         Discord
                       </Link>
                     </li>
@@ -154,8 +129,7 @@ export default React.memo(function Footer(props) {
                     <li className={css(styles.item)}>
                       <Link
                         href='https://stormboundkingdomwars.fandom.com'
-                        target='_blank'
-                        rel='noopener noreferrer'
+                        inNewTab
                       >
                         Wiki
                       </Link>
@@ -164,19 +138,14 @@ export default React.memo(function Footer(props) {
                     <li className={css(styles.item)}>
                       <Link
                         href='https://www.youtube.com/results?search_query=stormbound&sp=CAI%253D'
-                        target='_blank'
-                        rel='noopener noreferrer'
+                        inNewTab
                       >
                         Youtube
                       </Link>
                     </li>
 
                     <li className={css(styles.item)}>
-                      <Link
-                        href='https://www.twitch.tv/stormboundccg'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                      >
+                      <Link href='https://www.twitch.tv/stormboundccg' inNewTab>
                         Twitch
                       </Link>
                     </li>

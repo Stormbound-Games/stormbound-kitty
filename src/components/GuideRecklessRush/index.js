@@ -1578,8 +1578,7 @@ export default React.memo(function GuideRecklessRush(props) {
         guide—if you liked what you saw, feel free to subscribe to{' '}
         <Link
           href='https://www.youtube.com/channel/UCqc9ONUhTVQ3WnTRci3dYXQ'
-          target='_blank'
-          rel='noopener noreferrer'
+          inNewTab
         >
           my Youtube channel
         </Link>{' '}

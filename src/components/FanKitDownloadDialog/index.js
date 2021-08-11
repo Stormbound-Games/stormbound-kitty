@@ -26,7 +26,7 @@ export default React.memo(function FanKitDownloadDialog(props) {
     >
       {props.image ? (
         <p>
-          <Link href={props.image} target='_blank' rel='noopener noreferrer'>
+          <Link href={props.image} inNewTab>
             Open image in new tab
           </Link>{' '}
           or download it as:

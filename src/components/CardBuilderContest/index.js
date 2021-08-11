@@ -31,11 +31,7 @@ export default React.memo(function CardBuilderContest(props) {
             have any questions or{' '}
             <strong className='Highlight'>want to be a judge</strong>, feel free
             to message @TaKo_G#0373 on the{' '}
-            <Link
-              href='https://discord.gg/stormbound'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
+            <Link href='https://discord.gg/stormbound' inNewTab>
               Stormbound Discord
             </Link>
             .
