@@ -58,10 +58,7 @@ export default React.memo(function CardBuilderImageErrorDialog(props) {
           <p>
             You can either pick another image, or try to save it and upload it
             to an image sharing service such as{' '}
-            <Link href='https://imgur.com/upload' inNewTab>
-              imgur
-            </Link>
-            .
+            <Link href='https://imgur.com/upload'>imgur</Link>.
           </p>
         </>
       )}

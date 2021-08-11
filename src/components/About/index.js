@@ -63,14 +63,12 @@ export default React.memo(function About(props) {
           <p>
             If you would like to help, you can make one-time donations via
             credit card through{' '}
-            <Link href='https://gumroad.com/l/stormbound-kitty' inNewTab>
-              Gumroad
-            </Link>
+            <Link href='https://gumroad.com/l/stormbound-kitty'>Gumroad</Link>
             —a secure platform for online purchases (PayPal is unfortunately no
             longer supported, I’m sorry 😔). The amount is totally up to you,
             from $4 and up. Don’t ruin yourself, donate as little or as much as
             you feel like or can. You can visit my{' '}
-            <Link href='https://gumroad.com/l/stormbound-kitty' inNewTab>
+            <Link href='https://gumroad.com/l/stormbound-kitty'>
               Gumroad page
             </Link>{' '}
             or click the “Support Stormbound-Kitty” link below.
@@ -82,7 +80,6 @@ export default React.memo(function About(props) {
                 <Link
                   extend={styles.cta}
                   href='https://gum.co/stormbound-kitty?wanted=true'
-                  inNewTab
                 >
                   Support Stormbound-Kitty
                 </Link>

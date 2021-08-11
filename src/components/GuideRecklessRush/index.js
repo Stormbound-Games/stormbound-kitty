@@ -1576,10 +1576,7 @@ export default React.memo(function GuideRecklessRush(props) {
         up until the very end, hope you learned some things you can apply not
         only to this deck but also your own decks. Hope you enjoyed reading this
         guide—if you liked what you saw, feel free to subscribe to{' '}
-        <Link
-          href='https://www.youtube.com/channel/UCqc9ONUhTVQ3WnTRci3dYXQ'
-          inNewTab
-        >
+        <Link href='https://www.youtube.com/channel/UCqc9ONUhTVQ3WnTRci3dYXQ'>
           my Youtube channel
         </Link>{' '}
         to see how I actually play the deck and see what you can improve on.

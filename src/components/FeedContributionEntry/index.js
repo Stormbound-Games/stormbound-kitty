@@ -18,7 +18,6 @@ export default React.memo(function FeedContributionEntry(props) {
             {index !== 0 ? ', ' : ''}
             <Link
               href={`https://github.com/KittySparkles/stormbound-kitty/pull/${pr}`}
-              inNewTab
             >
               #{pr}
             </Link>

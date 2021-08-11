@@ -25,24 +25,14 @@ export default React.memo(function Footer(props) {
             </p>
             <p className={css(styles.info)}>
               Official Stormbound game content courtesy of{' '}
-              <Link href='https://www.sheepyard.pl/' inNewTab>
-                Sheepyard
-              </Link>
-              .
+              <Link href='https://www.sheepyard.pl/'>Sheepyard</Link>.
             </p>
             <p className={css(styles.info)}>
               This site is hosted on{' '}
-              <Link
-                href='https://github.com/KittySparkles/stormbound-kitty'
-                inNewTab
-              >
+              <Link href='https://github.com/KittySparkles/stormbound-kitty'>
                 GitHub
               </Link>{' '}
-              and{' '}
-              <Link href='https://www.netlify.com' inNewTab>
-                Netlify
-              </Link>
-              .
+              and <Link href='https://www.netlify.com'>Netlify</Link>.
             </p>
           </Row.Column>
           <Only.Desktop>
@@ -52,39 +42,27 @@ export default React.memo(function Footer(props) {
                   <span className={css(styles.heading)}>Stormbound</span>
                   <ul className={css(styles.list)}>
                     <li className={css(styles.item)}>
-                      <Link
-                        href='https://paladinstudios.com/stormbound/'
-                        inNewTab
-                      >
+                      <Link href='https://paladinstudios.com/stormbound/'>
                         Official site
                       </Link>
                     </li>
                     <li className={css(styles.item)}>
-                      <Link href='https://twitter.com/stormboundccg' inNewTab>
+                      <Link href='https://twitter.com/stormboundccg'>
                         Twitter
                       </Link>
                     </li>
                     <li className={css(styles.item)}>
-                      <Link
-                        href='https://www.facebook.com/stormboundccg'
-                        inNewTab
-                      >
+                      <Link href='https://www.facebook.com/stormboundccg'>
                         Facebook
                       </Link>
                     </li>
                     <li className={css(styles.item)}>
-                      <Link
-                        href='https://www.instagram.com/stormboundccg/'
-                        inNewTab
-                      >
+                      <Link href='https://www.instagram.com/stormboundccg/'>
                         Instagram
                       </Link>
                     </li>
                     <li className={css(styles.item)}>
-                      <Link
-                        href='https://store.steampowered.com/app/790600/Stormbound/'
-                        inNewTab
-                      >
+                      <Link href='https://store.steampowered.com/app/790600/Stormbound/'>
                         Steam
                       </Link>
                     </li>
@@ -115,37 +93,27 @@ export default React.memo(function Footer(props) {
                   <span className={css(styles.heading)}>Community</span>
                   <ul className={css(styles.list)}>
                     <li className={css(styles.item)}>
-                      <Link href='https://reddit.com/r/stormbound' inNewTab>
-                        Reddit
-                      </Link>
+                      <Link href='https://reddit.com/r/stormbound'>Reddit</Link>
                     </li>
 
                     <li className={css(styles.item)}>
-                      <Link href='https://discord.gg/stormbound' inNewTab>
-                        Discord
-                      </Link>
+                      <Link href='https://discord.gg/stormbound'>Discord</Link>
                     </li>
 
                     <li className={css(styles.item)}>
-                      <Link
-                        href='https://stormboundkingdomwars.fandom.com'
-                        inNewTab
-                      >
+                      <Link href='https://stormboundkingdomwars.fandom.com'>
                         Wiki
                       </Link>
                     </li>
 
                     <li className={css(styles.item)}>
-                      <Link
-                        href='https://www.youtube.com/results?search_query=stormbound&sp=CAI%253D'
-                        inNewTab
-                      >
+                      <Link href='https://www.youtube.com/results?search_query=stormbound&sp=CAI%253D'>
                         Youtube
                       </Link>
                     </li>
 
                     <li className={css(styles.item)}>
-                      <Link href='https://www.twitch.tv/stormboundccg' inNewTab>
+                      <Link href='https://www.twitch.tv/stormboundccg'>
                         Twitch
                       </Link>
                     </li>

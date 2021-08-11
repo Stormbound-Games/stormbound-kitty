@@ -76,7 +76,7 @@ const Article = React.memo(function Article(props) {
             <Link
               to={action.to}
               href={action.href}
-              inNewTab={action.href}
+              inNewTab={!!action.href}
               extend={styles.action}
             >
               {action.to && (

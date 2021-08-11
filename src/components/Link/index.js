@@ -7,12 +7,16 @@ const Link = ({ inNewTab, extend, ...props }) => {
   const { css } = useFela()
 
   if (props.href) {
+    const shouldUseNewTab =
+      (typeof inNewTab === 'undefined' && props.href.startsWith('http')) ||
+      inNewTab
+
     return (
       <a
         {...props}
         className={css(styles.link, extend)}
-        target={inNewTab ? '_blank' : undefined}
-        rel={inNewTab ? 'noopener noreferrer' : undefined}
+        target={shouldUseNewTab ? '_blank' : undefined}
+        rel={shouldUseNewTab ? 'noopener noreferrer' : undefined}
       >
         {props.children}
       </a>

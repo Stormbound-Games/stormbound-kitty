@@ -6,10 +6,7 @@ export default React.memo(function FeedSWCCEntry(props) {
   return (
     <FeedEntry icon='youtube' date='External channel'>
       {props.author} is a{' '}
-      <Link href={props.href} inNewTab>
-        content creator on YouTube
-      </Link>
-      .
+      <Link href={props.href}>content creator on YouTube</Link>.
     </FeedEntry>
   )
 })

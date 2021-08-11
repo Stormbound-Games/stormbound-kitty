@@ -29,10 +29,7 @@ export default React.memo(function GuideKnownBugs(props) {
         This is <span className='Highlight'>not</span> a bug report page. If you
         are experiencing an issue with your account, please kindly open a
         support ticket within the game, or visit the{' '}
-        <Link href='https://paladinstudios.zendesk.com/hc/en-us' inNewTab>
-          Zendesk
-        </Link>
-        .
+        <Link href='https://paladinstudios.zendesk.com/hc/en-us'>Zendesk</Link>.
       </Info>
 
       <TableOfContents>

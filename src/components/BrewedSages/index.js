@@ -42,11 +42,7 @@ export default React.memo(function BrewedSages(props) {
 
         <div className={css(styles.container)}>
           <Sparkles>
-            <Link
-              extend={styles.cta}
-              href='https://gumroad.com/l/KuFWl'
-              inNewTab
-            >
+            <Link extend={styles.cta} href='https://gumroad.com/l/KuFWl'>
               Support Brewed Sages
             </Link>
           </Sparkles>
@@ -101,62 +97,41 @@ export default React.memo(function BrewedSages(props) {
         <p>There are many ways for you to listen to Brewed Sages podcast:</p>
         <ul>
           <li>
-            On{' '}
-            <Link href='https://freeloader.podbean.com/' inNewTab>
-              Podbean,
-            </Link>
+            On <Link href='https://freeloader.podbean.com/'>Podbean,</Link>
           </li>
           <li>
             On{' '}
-            <Link
-              href='https://podcasts.apple.com/us/podcast/the-brewed-sages/id1530313986'
-              inNewTab
-            >
+            <Link href='https://podcasts.apple.com/us/podcast/the-brewed-sages/id1530313986'>
               Apple Podcasts,
             </Link>
           </li>
           <li>
             On{' '}
-            <Link
-              href='https://www.google.com/podcasts?feed=aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL2ZyZWVsb2FkZXIvZmVlZC54bWw%3D'
-              inNewTab
-            >
+            <Link href='https://www.google.com/podcasts?feed=aHR0cHM6Ly9mZWVkLnBvZGJlYW4uY29tL2ZyZWVsb2FkZXIvZmVlZC54bWw%3D'>
               Google Podcasts,
             </Link>
           </li>
           <li>
             On{' '}
-            <Link
-              href='https://open.spotify.com/show/0zPLDrVZesb2Xr8RzVNfmF?nd=1'
-              inNewTab
-            >
+            <Link href='https://open.spotify.com/show/0zPLDrVZesb2Xr8RzVNfmF?nd=1'>
               Spotify,
             </Link>
           </li>
           <li>
             On{' '}
-            <Link
-              href='https://tunein.com/podcasts/Media--Entertainment-Podcasts/The-Brewed-Sages-p1363569/?topicId=157030692'
-              inNewTab
-            >
+            <Link href='https://tunein.com/podcasts/Media--Entertainment-Podcasts/The-Brewed-Sages-p1363569/?topicId=157030692'>
               TuneIn,
             </Link>
           </li>
           <li>
             On{' '}
-            <Link
-              href='https://www.pandora.com/podcast/the-brewed-sages-of-stormbound/PC:47351'
-              inNewTab
-            >
+            <Link href='https://www.pandora.com/podcast/the-brewed-sages-of-stormbound/PC:47351'>
               Pandora,
             </Link>
           </li>
           <li>
             On{' '}
-            <Link
-              href='https://www.youtube.com/channel/UCTEax9JOxhsvDkY8rP-hqJg'
-              inNewTab
-            >
+            <Link href='https://www.youtube.com/channel/UCTEax9JOxhsvDkY8rP-hqJg'>
               YouTube,
             </Link>
           </li>

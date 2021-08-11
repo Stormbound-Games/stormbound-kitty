@@ -55,7 +55,7 @@ export default React.memo(function HeaderMegaMenu(props) {
                   <Link
                     href={item.href}
                     to={item.to}
-                    inNewTab={item.href}
+                    inNewTab={!!item.href}
                     extend={styles.link({
                       isActive: props.active.includes(item.id),
                     })}
