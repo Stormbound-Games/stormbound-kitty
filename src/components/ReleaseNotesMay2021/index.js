@@ -12,6 +12,7 @@ import NerfCompensationInfo from '../NerfCompensationInfo'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
 import Table from '../Table'
+import VisuallyHidden from '../VisuallyHidden'
 import { Coins, Rubies, Stones, HeroCrowns } from '../Resource'
 import ResourceIcon from '../ResourceIcon'
 import TogglableContent from '../TogglableContent'
@@ -303,9 +304,9 @@ export default React.memo(function ReleaseNotesMay2021(props) {
         />
 
         <footer className={css({ fontSize: '80%' })}>
-          <h2 className='VisuallyHidden' id='footnotes'>
+          <VisuallyHidden as='h2' id='footnotes'>
             Footnotes
-          </h2>
+          </VisuallyHidden>
           <p id='friend-list'>
             (*) Any friends above 100 when the Premium Pass at the end of the
             month remains in the friend list, but it is no longer possible to

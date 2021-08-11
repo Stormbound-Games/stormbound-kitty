@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import { Link } from 'react-router-dom'
 import QuestionMark from '../QuestionMark'
+import VisuallyHidden from '../VisuallyHidden'
 
 export default React.memo(function LearnMoreIcon(props) {
   const { css } = useFela()
@@ -10,9 +11,9 @@ export default React.memo(function LearnMoreIcon(props) {
       to={{ pathname: '/faq', hash: props.anchor }}
       className={css({ textDecoration: 'none' })}
     >
-      <span className='VisuallyHidden'>
+      <VisuallyHidden>
         {props.children || 'Learn more in the FAQ'}
-      </span>
+      </VisuallyHidden>
       <QuestionMark />
     </Link>
   )

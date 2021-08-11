@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import { BRAWL_MILESTONES } from '../../constants/brawl'
 import { BrawlContext } from '../BrawlProvider'
+import VisuallyHidden from '../VisuallyHidden'
 import styles from './styles'
 
 export default React.memo(function BrawlProgress(props) {
@@ -28,7 +29,7 @@ export default React.memo(function BrawlProgress(props) {
             className={'ButtonAsLink ' + css(styles.button)}
             data-testid='milestone-diamond'
           >
-            <span className='VisuallyHidden'>Select milestone {index + 1}</span>
+            <VisuallyHidden>Select milestone {index + 1}</VisuallyHidden>
           </button>
         </li>
       ))}

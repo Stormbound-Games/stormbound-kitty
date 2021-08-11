@@ -5,6 +5,7 @@ import ButtonIcon from '../ButtonIcon'
 import CTA from '../CTA'
 import Image from '../Image'
 import Title from '../Title'
+import VisuallyHidden from '../VisuallyHidden'
 import styles from './styles'
 
 export default React.memo(function Dialog(props) {
@@ -57,11 +58,17 @@ export default React.memo(function Dialog(props) {
         &times;
       </ButtonIcon>
 
-      <header className={hideHeader ? 'VisuallyHidden' : css(styles.header)}>
-        <Title extend={styles.title} data-testid={`${props.id}-title`}>
-          {props.title}
-        </Title>
-      </header>
+      {hideHeader ? (
+        <VisuallyHidden as='header'>
+          <Title data-testid={`${props.id}-title`}>{props.title}</Title>
+        </VisuallyHidden>
+      ) : (
+        <header className={css(styles.header)}>
+          <Title extend={styles.title} data-testid={`${props.id}-title`}>
+            {props.title}
+          </Title>
+        </header>
+      )}
 
       {image !== null && (
         <Image extend={styles.image} src={image} alt='' withAvif />

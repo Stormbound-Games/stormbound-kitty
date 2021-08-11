@@ -7,6 +7,7 @@ import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
+import VisuallyHidden from '../VisuallyHidden'
 import styles from './styles'
 
 export default React.memo(() => {
@@ -14,7 +15,7 @@ export default React.memo(() => {
 
   return (
     <>
-      <h1 className='VisuallyHidden'>Stormbound Kitty</h1>
+      <VisuallyHidden as='h1'>Stormbound Kitty</VisuallyHidden>
 
       <div className={css(styles.home)}>
         <aside className={css(styles.news)}>

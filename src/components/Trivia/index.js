@@ -12,6 +12,7 @@ import Radio from '../Radio'
 import Row from '../Row'
 import Sparkles from '../Sparkles'
 import Strikethrough from '../Strikethrough'
+import VisuallyHidden from '../VisuallyHidden'
 import getRandomQuestion from '../../helpers/getRandomQuestion'
 import microMarkdown from '../../helpers/microMarkdown'
 import styles from './styles'
@@ -136,7 +137,7 @@ const Trivia = () => {
             className={css(styles.legend)}
             disabled={status !== 'UNANSWERED'}
           >
-            <legend className='VisuallyHidden'>{question.question}</legend>
+            <VisuallyHidden as='legend'>{question.question}</VisuallyHidden>
             {Object.keys(choices).map(letter => (
               <Radio
                 key={letter}

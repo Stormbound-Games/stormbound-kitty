@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Card from '../Card'
+import VisuallyHidden from '../VisuallyHidden'
 import isCard from '../../helpers/isCard'
 import styles from './styles'
 
@@ -18,9 +19,9 @@ export default React.memo(function DryRunnerCard(props) {
         type='button'
         onClick={() => props.selectCard(props.card)}
       >
-        <span className='VisuallyHidden'>
+        <VisuallyHidden>
           {isActive ? 'Unselect card' : 'Select card'}
-        </span>
+        </VisuallyHidden>
       </button>
       <Card
         {...cardData}

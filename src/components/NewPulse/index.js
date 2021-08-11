@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import VisuallyHidden from '../VisuallyHidden'
 import styles from './styles'
 
 const NewPulse = props => {
@@ -7,7 +8,7 @@ const NewPulse = props => {
 
   return (
     <span className={css(styles.newPulse, props.extend)}>
-      <span className='VisuallyHidden'>New</span>
+      <VisuallyHidden>New</VisuallyHidden>
     </span>
   )
 }

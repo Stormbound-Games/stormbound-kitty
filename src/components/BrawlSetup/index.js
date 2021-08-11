@@ -5,6 +5,7 @@ import BrawlImport from '../BrawlImport'
 import PremiumPassCheckbox from '../PremiumPassCheckbox'
 import Radio from '../Radio'
 import Row from '../Row'
+import VisuallyHidden from '../VisuallyHidden'
 
 export default React.memo(function BrawlSetup(props) {
   const { css } = useFela()
@@ -12,7 +13,7 @@ export default React.memo(function BrawlSetup(props) {
   return (
     <div className={css({ marginTop: '1em' })}>
       <fieldset>
-        <legend className='VisuallyHidden'>Setup</legend>
+        <VisuallyHidden as='legend'>Setup</VisuallyHidden>
         <Radio
           name='setup'
           id='MOBILE_WITHOUT_ADS'

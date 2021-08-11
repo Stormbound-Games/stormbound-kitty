@@ -5,6 +5,7 @@ import Downshift from 'downshift'
 import { StoriesContext } from '../StoriesProvider'
 import Dialog from '../Dialog'
 import Icon from '../Icon'
+import VisuallyHidden from '../VisuallyHidden'
 import searcher, { SEARCH_INDEX } from './searcher'
 import capitalise from '../../helpers/capitalise'
 import styles from './styles'
@@ -150,9 +151,9 @@ export default React.memo(function SearchDialog(props) {
             selectedItem,
           }) => (
             <div className={css(styles.wrapper)}>
-              <label {...getLabelProps()} className='VisuallyHidden'>
+              <VisuallyHidden as='label' {...getLabelProps()}>
                 Search Stormbound-Kitty
-              </label>
+              </VisuallyHidden>
               <div
                 className={css(styles.inputWrapper)}
                 {...getRootProps({}, { suppressRefError: true })}
