@@ -92,7 +92,7 @@ export default React.memo(function GuideBrawl(props) {
             href={`#draw`}
             aria-describedby='footnotes'
             id={`draw-ref`}
-            className={css({ textDecoration: 'none' })}
+            extend={{ textDecoration: 'none' }}
           >
             draw
             <span

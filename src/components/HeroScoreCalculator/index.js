@@ -85,7 +85,7 @@ const HeroScoreCalculator = props => {
                     href='#matches-30'
                     aria-describedby='footnotes'
                     id='matches-30-ref'
-                    className={css({ textDecoration: 'none' })}
+                    extend={{ textDecoration: 'none' }}
                   >
                     30 matches in Diamond and then 30 matches in Heroes League
                     <Asterisk />

@@ -80,7 +80,7 @@ export default React.memo(function About(props) {
             <div className={css({ textAlign: 'center' })}>
               <Sparkles>
                 <Link
-                  className={css(styles.cta)}
+                  extend={styles.cta}
                   href='https://gum.co/stormbound-kitty?wanted=true'
                   inNewTab
                 >
@@ -161,7 +161,7 @@ export default React.memo(function About(props) {
               href='#anonymous-donations'
               aria-describedby='footnotes'
               id='anonymous-donations-ref'
-              className={css({ textDecoration: 'none' })}
+              extend={{ textDecoration: 'none' }}
             >
               their generous and kind donations
               <Asterisk />

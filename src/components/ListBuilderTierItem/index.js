@@ -17,9 +17,8 @@ export default React.memo(function ListBuilderTierItem(props) {
     return (
       <Link
         to={'/card/' + props.card.id + '/display'}
-        className={css(styles.item, {
-          '--faction': `var(--${props.card.faction})`,
-        })}
+        extend={styles.item}
+        style={{ '--faction': `var(--${props.card.faction})` }}
         title={props.card.name}
       >
         <Image

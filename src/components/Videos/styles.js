@@ -21,7 +21,6 @@ const image = {
 }
 
 const link = {
-  display: 'inline-block',
   color: 'var(--beige)',
   textDecoration: 'none',
   borderBottom: '1px solid transparent',

@@ -198,7 +198,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
               href='#most-played-cards'
               aria-describedby='footnotes'
               id='edriks-army'
-              className={css({ textDecoration: 'none' })}
+              extend={{ textDecoration: 'none' }}
             >
               amongst the most played across the last 3 months globally
               <span

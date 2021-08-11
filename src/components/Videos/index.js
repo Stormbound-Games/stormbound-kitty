@@ -157,11 +157,7 @@ export default React.memo(function Videos(props) {
                     {video.description}
                     <p>
                       <Icon icon='arrow-right' extend={styles.icon} />
-                      <Link
-                        href={video.href}
-                        inNewTab
-                        className={css(styles.link)}
-                      >
+                      <Link href={video.href} inNewTab extend={styles.link}>
                         Visit {video.author}’s channel
                       </Link>
                     </p>

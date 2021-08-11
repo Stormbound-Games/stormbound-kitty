@@ -184,7 +184,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
               href='#friend-list'
               aria-describedby='footnotes'
               id='friend-list-ref'
-              className={css({ textDecoration: 'none' })}
+              extend={{ textDecoration: 'none' }}
             >
               for the month
               <Asterisk />

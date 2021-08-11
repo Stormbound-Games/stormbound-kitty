@@ -43,7 +43,7 @@ export default React.memo(function BrewedSages(props) {
         <div className={css(styles.container)}>
           <Sparkles>
             <Link
-              className={css(styles.cta)}
+              extend={styles.cta}
               href='https://gumroad.com/l/KuFWl'
               inNewTab
             >

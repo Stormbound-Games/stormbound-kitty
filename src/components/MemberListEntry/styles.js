@@ -32,10 +32,9 @@ const entry = ({ isYou }) => ({
 
 const name = {
   textDecoration: 'none',
-  borderBottom: '1px solid transparent',
 
   ':hover': {
-    borderBottomColor: 'currentColor',
+    borderBottom: '1px solid',
   },
 }
 

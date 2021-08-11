@@ -55,13 +55,10 @@ export default React.memo(function HeaderMegaMenu(props) {
                   <Link
                     href={item.href}
                     to={item.to}
-                    className={css(
-                      styles.link({
-                        isActive: props.active.includes(item.id),
-                      })
-                    )}
-                    rel={item.href ? 'noopener noreferrer' : undefined}
-                    target={item.href ? '_blank' : undefined}
+                    inNewTab={item.href}
+                    extend={styles.link({
+                      isActive: props.active.includes(item.id),
+                    })}
                   >
                     {item.label}
                     {item.href && (

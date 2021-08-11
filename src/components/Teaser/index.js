@@ -27,7 +27,7 @@ export default React.memo(function Teaser(props) {
         <h2 className={css(styles.title)}>
           {props.to || props.href ? (
             <Link
-              className={css(styles.link)}
+              extend={styles.link}
               to={props.to}
               href={props.href}
               target={props.href ? '_blank' : undefined}

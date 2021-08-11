@@ -60,23 +60,7 @@ const Article = React.memo(function Article(props) {
         )}
         {props.meta}
         {Object.keys(action).length > 0 &&
-          (action.to ? (
-            <Link to={action.to} className={css(styles.action)}>
-              <Icon
-                icon={action.icon || 'arrow-left'}
-                extend={styles.actionIcon}
-              />
-              <span>{action.children}</span>
-            </Link>
-          ) : action.href ? (
-            <Link href={action.href} inNewTab className={css(styles.action)}>
-              <span>{action.children}</span>
-              <Icon
-                icon={action.icon || 'arrow-right'}
-                extend={styles.actionIcon}
-              />
-            </Link>
-          ) : action.onClick ? (
+          (action.onClick ? (
             <button
               type='button'
               onClick={action.onClick}
@@ -88,7 +72,28 @@ const Article = React.memo(function Article(props) {
               )}
               <span>{action.children}</span>
             </button>
-          ) : null)}
+          ) : (
+            <Link
+              to={action.to}
+              href={action.href}
+              inNewTab={action.href}
+              extend={styles.action}
+            >
+              {action.to && (
+                <Icon
+                  icon={action.icon || 'arrow-left'}
+                  extend={styles.actionIcon}
+                />
+              )}
+              <span>{action.children}</span>
+              {action.href && (
+                <Icon
+                  icon={action.icon || 'arrow-right'}
+                  extend={styles.actionIcon}
+                />
+              )}
+            </Link>
+          ))}
       </p>
 
       <ArticleContext.Provider

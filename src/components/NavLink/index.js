@@ -33,7 +33,7 @@ export default React.memo(
         target={target}
         rel={rel}
         children={children}
-        className={css(styles.action({ isActive: active, isWithinSubList }))}
+        extend={styles.action({ isActive: active, isWithinSubList })}
       />
     )
   }

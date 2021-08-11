@@ -40,19 +40,13 @@ export default React.memo(function GuideWinter(props) {
           <Link href='#how-to-use'>How to use</Link>
           <ul>
             <li>
-              <Link href='#broken-earth-drakes'>
-                <CardLink id='W15' />
-              </Link>
+              <Link href='#broken-earth-drakes'>Broken Earth Drakes</Link>
             </li>
             <li>
-              <Link href='#yowling-weavers'>
-                <CardLink id='W5' />
-              </Link>
+              <Link href='#yowling-weavers'>Yowling Weavers</Link>
             </li>
             <li>
-              <Link href="#<CardLink id='W13' />">
-                <CardLink id='W13' />
-              </Link>
+              <Link href='#rockworkers'>Rockworkers</Link>
             </li>
             <li>
               <Link href='#lady-rime'>Lady Rime</Link>
