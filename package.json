@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@loadable/component": "^5.15.0",
-    "@reach/tooltip": "^0.15.3",
+    "@reach/tooltip": "^0.16.0",
     "abort-controller": "^3.0.0",
     "canvas": "^2.8.0",
     "comlink": "^4.3.1",
