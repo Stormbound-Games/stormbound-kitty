@@ -1,6 +1,7 @@
 import React from 'react'
 import { CollectionContext } from '../CollectionProvider'
 import useViewportSize from '../../hooks/useViewportSize'
+import { BREAKPOINTS } from '../../styles/variables'
 
 const Only = React.memo(function Only(props) {
   const { viewportWidth } = useViewportSize()
@@ -8,9 +9,13 @@ const Only = React.memo(function Only(props) {
 
   switch (props.when) {
     case 'MOBILE':
-      return viewportWidth < 700 ? props.children : null
+      return viewportWidth <= BREAKPOINTS.small.breakpoint
+        ? props.children
+        : null
     case 'DESKTOP':
-      return viewportWidth >= 700 ? props.children : null
+      return viewportWidth >= BREAKPOINTS.medium.breakpoint
+        ? props.children
+        : null
     case 'DEFAULT_COLLECTION':
       return hasDefaultCollection ? props.children : null
     case 'CUSTOM_COLLECTION':

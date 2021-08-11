@@ -8,3 +8,8 @@ export const SPACING_TOKENS = {
   LARGER: '3rem',
   LARGEST: '4rem',
 }
+
+export const BREAKPOINTS = {
+  medium: { query: '@media (min-width: 700px)', breakpoint: 700 },
+  small: { query: '@media (max-width: 699px)', breakpoint: 699 },
+}

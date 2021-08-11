@@ -5,6 +5,7 @@ import { BrawlContext } from '../BrawlProvider'
 import BrawlLossCounter from '../BrawlLossCounter'
 import BrawlMatchForm from '../BrawlMatchForm'
 import Icon from '../Icon'
+import Only from '../Only'
 import Table from '../Table'
 import Title from '../Title'
 import {
@@ -13,7 +14,6 @@ import {
   VICTORY_BONUSES,
 } from '../../constants/brawl'
 import capitalise from '../../helpers/capitalise'
-import useViewportSize from '../../hooks/useViewportSize'
 import styles from './styles'
 
 const getDefaultFaction = id => {
@@ -33,7 +33,6 @@ const getDefaultFaction = id => {
 
 export default React.memo(function BrawlMatches(props) {
   const { css } = useFela()
-  const { viewportWidth } = useViewportSize()
   const [editedMatch, setEditedMatch] = React.useState(null)
   const { brawl, meta, addMatch, updateMatch } = React.useContext(BrawlContext)
 
@@ -124,7 +123,7 @@ export default React.memo(function BrawlMatches(props) {
               >
                 <td data-label='Match #'>
                   {brawl.matches.length - index}
-                  {viewportWidth >= 700 ? '.' : ''}
+                  <Only.Desktop>.</Only.Desktop>
                   <button
                     className={'ButtonAsLink ' + css(styles.edit)}
                     type='button'
