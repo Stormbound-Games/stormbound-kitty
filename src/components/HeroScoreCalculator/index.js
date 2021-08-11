@@ -10,6 +10,7 @@ import NumberInput from '../NumberInput'
 import PageMeta from '../PageMeta'
 import { HeroCrowns } from '../Resource'
 import Row from '../Row'
+import VisuallyHidden from '../VisuallyHidden'
 import getHeroScore from '../../helpers/getHeroScore'
 import styles from './styles'
 
@@ -212,9 +213,9 @@ const HeroScoreCalculator = props => {
       </Row>
 
       <footer className={css({ fontSize: '80%' })}>
-        <h2 className='VisuallyHidden' id='footnotes'>
+        <VisuallyHidden as='h2' id='footnotes'>
           Footnotes
-        </h2>
+        </VisuallyHidden>
         <p id='matches-30'>
           (*) The coefficient factor (K) is 40 until the player has done at
           least 30 matches in Diamond—regardless of their outcome—or if they

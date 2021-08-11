@@ -9,6 +9,7 @@ import Notice from '../Notice'
 import PageMeta from '../PageMeta'
 import Spacing from '../Spacing'
 import Sparkles from '../Sparkles'
+import VisuallyHidden from '../VisuallyHidden'
 import contributions from '../../data/contributions'
 import donations from '../../data/donations'
 import styles from './styles'
@@ -205,9 +206,9 @@ export default React.memo(function About(props) {
         </Notice>
 
         <footer className={css({ marginTop: '4em', fontSize: '90%' })}>
-          <h2 className='VisuallyHidden' id='footnotes'>
+          <VisuallyHidden as='h2' id='footnotes'>
             Footnotes
-          </h2>
+          </VisuallyHidden>
           <p id='anonymous-donations'>
             (*) Donations being anonymous, I might have missed some. If you have
             issued a donation but are not mentioned, please kindly let me know

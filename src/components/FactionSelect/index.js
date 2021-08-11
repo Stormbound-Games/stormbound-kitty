@@ -1,17 +1,24 @@
 import React from 'react'
+import VisuallyHidden from '../VisuallyHidden'
 import { FACTIONS } from '../../constants/game'
 import capitalise from '../../helpers/capitalise'
 
 export default React.memo(function FactionSelect(props) {
+  const label = props.label || 'Faction'
+  const id = props.id || 'faction'
   return (
     <>
-      <label htmlFor={props.id || 'faction'} className={props.labelClassName}>
-        {props.label || 'Faction'}
-      </label>
+      {props.isLabelHidden ? (
+        <VisuallyHidden htmlFor={id} as='label'>
+          {label}
+        </VisuallyHidden>
+      ) : (
+        <label htmlFor={id}>{label}</label>
+      )}
       <select
         form={props.form}
-        name={props.name || 'faction'}
-        id={props.id || 'faction'}
+        name={props.name || id}
+        id={id}
         required={props.required}
         value={props.value}
         defaultValue={props.defaultValue}

@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Card from '../Card'
 import CTA from '../CTA'
+import VisuallyHidden from '../VisuallyHidden'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import indexArray from '../../helpers/indexArray'
 import styles from './styles'
@@ -59,7 +60,7 @@ export default React.memo(function BattleSimCards(props) {
                     }
                   }}
                 >
-                  <span className='VisuallyHidden'>{buttonLabel}</span>
+                  <VisuallyHidden>{buttonLabel}</VisuallyHidden>
                 </button>
               )}
 

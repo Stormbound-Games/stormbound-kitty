@@ -8,6 +8,7 @@ import ResourceIcon from '../ResourceIcon'
 import { Coins, Rubies, Stones } from '../Resource'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
+import VisuallyHidden from '../VisuallyHidden'
 import { RARITY_COPIES } from '../../constants/game'
 import cards from '../../data/cards'
 import getGuide from '../../helpers/getGuide'
@@ -416,9 +417,9 @@ export default React.memo(function GuideResources(props) {
       </p>
 
       <footer className={css({ marginTop: '4em', fontSize: '90%' })}>
-        <h2 className='VisuallyHidden' id='footnotes'>
+        <VisuallyHidden as='h2' id='footnotes'>
           Footnotes
-        </h2>
+        </VisuallyHidden>
         <p id='coins-tip'>
           (*) It is technically possible to earn <Coins amount={415} /> from
           battles per day despite the coins cap. To do so, reach{' '}

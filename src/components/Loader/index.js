@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Title from '../Title'
+import VisuallyHidden from '../VisuallyHidden'
 import styles from './styles'
 
 export default React.memo(function Loader(props) {
@@ -62,12 +63,11 @@ export default React.memo(function Loader(props) {
           </circle>
         </g>
       </svg>
-      <Title
-        element='p'
-        extend={props.hideLabel ? 'VisuallyHidden' : undefined}
-      >
-        Loading content…
-      </Title>
+      {props.hideLabel ? (
+        <VisuallyHidden as='p'>Loading content…</VisuallyHidden>
+      ) : (
+        <Title element='p'>Loading content…</Title>
+      )}
     </div>
   )
 })

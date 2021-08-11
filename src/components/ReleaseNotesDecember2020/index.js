@@ -12,6 +12,7 @@ import TogglableContent from '../TogglableContent'
 import Table from '../Table'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
+import VisuallyHidden from '../VisuallyHidden'
 import displayBundle from '../../helpers/displayBundle'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getCalendarValue from '../../helpers/getCalendarValue'
@@ -251,9 +252,9 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
         <hr />
 
         <footer className={css({ fontSize: '80%' })}>
-          <h2 className='VisuallyHidden' id='footnotes'>
+          <VisuallyHidden as='h2' id='footnotes'>
             Footnotes
-          </h2>
+          </VisuallyHidden>
           <p id='most-played-cards'>
             (*) The most played cards globally across the last 3 months are:
             Execution, Gifted Recruits, Veterans of War, Felflares, Dreadfauns,

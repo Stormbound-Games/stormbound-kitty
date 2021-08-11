@@ -12,6 +12,7 @@ import PremiumPassCheckbox from '../PremiumPassCheckbox'
 import ResourceIcon from '../ResourceIcon'
 import Row from '../Row'
 import Title from '../Title'
+import VisuallyHidden from '../VisuallyHidden'
 import { BRAWL_MILESTONES } from '../../constants/brawl'
 import { BOOKS } from '../../constants/books'
 import {
@@ -369,9 +370,9 @@ export default React.memo(function IncomeCalculator(props) {
                 '--multiplier': SELECT_LENGTH_MULTIPLIER[period],
               }}
             >
-              <label htmlFor='period' className='VisuallyHidden'>
+              <VisuallyHidden as='label' htmlFor='period'>
                 Period
-              </label>
+              </VisuallyHidden>
               <select
                 name='period'
                 id='period'

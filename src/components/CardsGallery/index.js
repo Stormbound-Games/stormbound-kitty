@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import { motion } from 'framer-motion'
 import Card from '../Card'
 import CTA from '../CTA'
+import VisuallyHidden from '../VisuallyHidden'
 import chunk from '../../helpers/chunk'
 import styles from './styles'
 
@@ -112,7 +113,7 @@ export default React.memo(function CardsGallery(props) {
                   type='button'
                   onClick={() => props.onCardClick(card.id)}
                 >
-                  <span className='VisuallyHidden'>Add card to deck</span>
+                  <VisuallyHidden>Add card to deck</VisuallyHidden>
                 </button>
               )}
 

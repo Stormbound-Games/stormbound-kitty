@@ -12,6 +12,7 @@ import Only from '../Only'
 import PageMeta from '../PageMeta'
 import Row from '../Row'
 import Title from '../Title'
+import VisuallyHidden from '../VisuallyHidden'
 import isCard from '../../helpers/isCard'
 import useViewportSize from '../../hooks/useViewportSize'
 
@@ -20,7 +21,7 @@ export default React.memo(function DryRunner(props) {
 
   return (
     <>
-      <h1 className='VisuallyHidden'>Deck Dry-run</h1>
+      <VisuallyHidden as='h1'>Deck Dry-run</VisuallyHidden>
 
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>

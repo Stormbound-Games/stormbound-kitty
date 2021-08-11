@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Image from '../Image'
+import VisuallyHidden from '../VisuallyHidden'
 import useFluidSizing from '../../hooks/useFluidSizing'
 import styles from './styles'
 
@@ -16,7 +17,7 @@ export default React.memo(function Quest(props) {
     >
       <div className={css(styles.inner)}>
         <span className={css(styles.difficulty)}>
-          <span className='VisuallyHidden'>Difficulty {props.difficulty}</span>
+          <VisuallyHidden>Difficulty {props.difficulty}</VisuallyHidden>
           <span
             className={css(
               styles.difficultyDiamond({ level: props.difficulty })

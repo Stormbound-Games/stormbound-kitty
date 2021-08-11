@@ -5,6 +5,7 @@ import Image from '../Image'
 import Mana from '../Mana'
 import Card from '../Card'
 import Tooltip from '../Tooltip'
+import VisuallyHidden from '../VisuallyHidden'
 import sortByMana from '../../helpers/sortByMana'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import isCard from '../../helpers/isCard'
@@ -28,7 +29,7 @@ const DeckEmptySlot = React.memo(function DeckEmptySlot(props) {
   return (
     <li className={css(styles.card)} data-testid='deck-slot'>
       <Mana extend={styles.mana({ orientation: props.orientation })} mana='' />
-      <span className='VisuallyHidden'>Empty deck slot</span>
+      <VisuallyHidden>Empty deck slot</VisuallyHidden>
     </li>
   )
 })
@@ -87,7 +88,7 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
           onClick={() => props.onClick(card)}
           disabled={props.isCardDisabled ? props.isCardDisabled(card) : false}
         >
-          <span className='VisuallyHidden'>{props.onClickLabel}</span>
+          <VisuallyHidden>{props.onClickLabel}</VisuallyHidden>
         </button>
       )}
 

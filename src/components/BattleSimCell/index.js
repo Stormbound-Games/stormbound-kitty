@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Image from '../Image'
+import VisuallyHidden from '../VisuallyHidden'
 import styles from './styles'
 
 const getTitle = props => {
@@ -60,9 +61,9 @@ export default React.memo(function BattleSimCell(props) {
           data-testid='cell-image'
         />
       ) : (
-        <span className='VisuallyHidden'>
+        <VisuallyHidden>
           {props.mode === 'DISPLAY' ? '' : 'Select cell'}
-        </span>
+        </VisuallyHidden>
       )}
 
       {!!(props.poisoned || props.vitalised) && (

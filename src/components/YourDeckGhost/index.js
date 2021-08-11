@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Deck from '../Deck'
+import VisuallyHidden from '../VisuallyHidden'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import styles from './styles'
 
@@ -16,7 +17,7 @@ export default React.memo(function YourDeckGhost(props) {
         onClick={props.onClick}
         data-testid='ghost-deck-btn'
       >
-        <span className='VisuallyHidden'>{label}</span>
+        <VisuallyHidden>{label}</VisuallyHidden>
       </button>
       <Deck deck={[]} orientation='horizontal' />
       <span className={css(styles.name)} aria-hidden>

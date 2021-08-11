@@ -14,6 +14,7 @@ import Row from '../Row'
 import Table from '../Table'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
+import VisuallyHidden from '../VisuallyHidden'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import getCurrentBrawl from '../../helpers/getCurrentBrawl'
 import getGuide from '../../helpers/getGuide'
@@ -393,9 +394,9 @@ export default React.memo(function GuideBrawl(props) {
       </p>
 
       <footer className={css({ marginTop: '4em', fontSize: '80%' })}>
-        <h2 className='VisuallyHidden' id='footnotes'>
+        <VisuallyHidden as='h2' id='footnotes'>
           Footnotes
-        </h2>
+        </VisuallyHidden>
         <p id='draw'>
           (*) A draw can happen when both players have the same amount of health
           by the end of the last turn (10th in Casual, 15th in Warrior and 20th
