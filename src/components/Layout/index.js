@@ -1,9 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import EyeCatcher from '../EyeCatcher'
 import Footer from '../Footer'
 import Header from '../Header'
+import Link from '../Link'
 import load from '../../helpers/load'
 import styles from './styles'
 
