@@ -73,7 +73,7 @@
     "cypress": "^6.9.1",
     "eslint": "^7.32.0",
     "husky": "^7.0.1",
-    "lint-staged": "^11.1.1",
+    "lint-staged": "^11.1.2",
     "nodemon": "^2.0.12",
     "prettier": "^2.3.2",
     "sitemap": "^7.0.0",
