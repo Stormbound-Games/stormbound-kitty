@@ -39,7 +39,6 @@ export default React.memo(function Story(props) {
               ? { textAlign: 'center', fontSize: '120%' }
               : undefined
           }
-          noDropCap={story.type === 'poem'}
           title={story.title}
           author={story.author}
           background={background}
@@ -49,7 +48,8 @@ export default React.memo(function Story(props) {
             children: 'Back to stories',
           }}
           withAvif
-          withEditorialContent
+          isEditorialContent
+          withDropCap={story.type !== 'poem'}
         >
           <Article.Narrow>
             <MicroMarkdown content={story.content} />

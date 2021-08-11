@@ -15,7 +15,7 @@ export default React.memo(function FAQ() {
   const { css } = useFela()
 
   return (
-    <Article title='FAQ' withEditorialContent>
+    <Article title='FAQ' isEditorialContent>
       <Article.Narrow>
         <Title>Topics</Title>
 

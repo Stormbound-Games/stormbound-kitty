@@ -25,7 +25,8 @@ const Guide = React.memo(function Guide(props) {
         }}
         ratio={props.ratio}
         withAvif
-        withEditorialContent
+        isEditorialContent
+        withDropCap
       >
         <Article.Narrow>{props.children}</Article.Narrow>
       </Article>

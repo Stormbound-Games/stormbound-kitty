@@ -19,7 +19,6 @@ export default React.memo(function CardBuilderContest(props) {
         title='Weekly Card Contest'
         authors={['TaKo_G']}
         action={{ to: '/card', children: 'Card builder' }}
-        noDropCap
         meta={isWeekEnd ? 'Voting phase' : 'Ongoing'}
       >
         <Article.Narrow>

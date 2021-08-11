@@ -8,7 +8,7 @@ import styles from './styles'
 
 export const ArticleContext = React.createContext({
   isEditorialContent: false,
-  withDropCap: true,
+  withDropCap: false,
 })
 
 export const renderAuthorsLinks = (acc, author, index, authors) => {
@@ -32,14 +32,14 @@ const Article = React.memo(function Article(props) {
   const authors = (props.authors || [props.author]).filter(Boolean)
   const { css } = useFela({
     smallFontSize: props.smallFontSize,
-    noDropCap: props.noDropCap,
+    withDropCap: props.withDropCap,
   })
 
   return (
     <article
       className={[
         css(styles.article, props.extend),
-        props.withEditorialContent && 'EditorialContent',
+        props.isEditorialContent && 'EditorialContent',
       ]
         .filter(Boolean)
         .join(' ')}
@@ -99,8 +99,8 @@ const Article = React.memo(function Article(props) {
 
       <ArticleContext.Provider
         value={{
-          isEditorialContent: props.withEditorialContent,
-          withDropCap: !props.noDropCap,
+          isEditorialContent: props.isEditorialContent,
+          withDropCap: props.withDropCap,
         }}
       >
         <div className={css(styles.content)}>{props.children}</div>

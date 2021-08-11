@@ -69,7 +69,7 @@ const actionIcon = {
  *    size. For pages which need to benefit from the `Article` layout but need
  *    the original small font size, the `smallFontSize` prop can be used.
  */
-const content = ({ smallFontSize, noDropCap }) => ({
+const content = ({ smallFontSize }) => ({
   hyphens: 'auto',
   fontSize: smallFontSize ? undefined : '125%' /* 1 */,
 })
