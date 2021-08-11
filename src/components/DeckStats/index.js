@@ -78,7 +78,7 @@ export default function DeckStats(props) {
   )
 
   return (
-    <Spacing top={['BASE', null]}>
+    <Spacing top={['BASE', 'NONE']}>
       <Title>Statistics</Title>
 
       <Row>

@@ -153,7 +153,7 @@ export default React.memo(function IncomeCalculator(props) {
     >
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>
-          <Title>What is this?</Title>
+          <Title>What is this</Title>
           <p>
             This income calculator helps you figure out how many{' '}
             <ResourceIcon resource='STONE' /> stones,{' '}

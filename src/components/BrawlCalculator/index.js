@@ -41,6 +41,7 @@ export default React.memo(function BrawlCalculator(props) {
     <Page
       title='Brawl Calculator'
       description='Find a calculator for making the best out of the Brawl based on your current savins or your objectives'
+      action={{ to: '/brawl', children: 'Brawl tracker', icon: 'arrow-right' }}
     >
       <Row desktopOnly wideGutter>
         <Row.Column width='1/3'>

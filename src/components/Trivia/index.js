@@ -6,6 +6,7 @@ import Confetti from 'react-dom-confetti'
 import Page from '../Page'
 import CTA from '../CTA'
 import Info from '../Info'
+import Input from '../Input'
 import Notice from '../Notice'
 import Radio from '../Radio'
 import Row from '../Row'
@@ -134,11 +135,11 @@ const Trivia = () => {
           you’re your own opponent.
         </p>
 
-        <Spacing bottom='LARGEST'>
+        <Spacing top='LARGE' bottom='LARGEST'>
           <form onSubmit={handleSubmit} className={css(styles.form)} ref={form}>
             <Notice>{microMarkdown(question.question)}</Notice>
 
-            <Spacing bottom='LARGE'>
+            <Spacing top='BASE' bottom='LARGE'>
               <fieldset
                 className={css(styles.legend)}
                 disabled={status !== 'UNANSWERED'}
@@ -208,12 +209,10 @@ const Trivia = () => {
           </div>
           <Row desktopOnly>
             <Row.Column>
-              <label htmlFor='question'>Your question</label>
-              <input type='text' name='question' id='question' required />
+              <Input label='Your question' id='question' required />
             </Row.Column>
             <Row.Column>
-              <label htmlFor='answer'>The answer</label>
-              <input type='text' name='answer' id='answer' required />
+              <Input label='The answer' id='answer' required />
             </Row.Column>
           </Row>
           <CTA type='submit'>Submit</CTA>
