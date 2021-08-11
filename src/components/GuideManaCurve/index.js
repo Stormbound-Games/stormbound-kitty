@@ -110,10 +110,8 @@ export default React.memo(function GuideManaCurve(props) {
           <Row.Column>
             <p>
               A mana curve graph is made of two lines: the{' '}
-              <span className={css({ color: 'rgb(57, 133, 175)' })}>
-                mana line
-              </span>
-              , which represents the{' '}
+              <span className={css({ color: '#3985af' })}>mana line</span>,
+              which represents the{' '}
               <span className='Highlight'>
                 likelihood of spending all the available mana
               </span>{' '}
@@ -145,11 +143,11 @@ export default React.memo(function GuideManaCurve(props) {
 
       <p>
         The mana line (in{' '}
-        <span className={css({ color: 'rgb(57, 133, 175)' })}>blue</span>)
-        represents the likelihood of spending all the available mana. As the
-        game progresses and the allocated mana becomes greater, it becomes less
-        and less likely to be able to spend it all. This is because at some
-        point, one has too much mana for the cards in hand.
+        <span className={css({ color: '#3985af' })}>blue</span>) represents the
+        likelihood of spending all the available mana. As the game progresses
+        and the allocated mana becomes greater, it becomes less and less likely
+        to be able to spend it all. This is because at some point, one has too
+        much mana for the cards in hand.
       </p>
 
       <p>

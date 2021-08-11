@@ -23,7 +23,7 @@ const notification = {
   right: '1.5em',
   bottom: '1.5em',
   padding: '1em',
-  boxShadow: '0 0 0.25em 0.5em rgba(0, 0, 0, 0.1)',
+  boxShadow: '0 0 0.25em 0.5em #0000001a',
   margin: 0,
   zIndex: 20,
 
@@ -48,7 +48,7 @@ const notification = {
     width: '100%',
     fontSize: '90%',
     borderRadius: 0,
-    boxShadow: '0 -0.2em 0 0.25em rgba(0, 0, 0, 0.1)',
+    boxShadow: '0 -0.2em 0 0.25em #0000001a',
 
     '::after': { content: 'none' },
     '::before': { content: 'none' },

@@ -61,7 +61,7 @@ const cell = ({ isDragging, isDisplay, isFrozen, activePlayer }) => ({
   },
 
   ':not([disabled]):hover': !isDisplay && {
-    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+    backgroundColor: '#ffffffb3',
   },
 })
 
@@ -193,7 +193,7 @@ const disabled = {
   position: 'absolute',
   bottom: '-0.1em',
   right: 0,
-  '-webkit-text-stroke': '1px rgb(0 0 0 / 0.5)',
+  '-webkit-text-stroke': '1px #00000080',
 }
 
 const dots = {

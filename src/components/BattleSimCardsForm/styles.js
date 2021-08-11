@@ -10,7 +10,7 @@ const row = {
 
 const handButton = {
   padding: 0,
-  border: '1px solid rgba(222, 215, 164, 0.5)',
+  border: '1px solid #ded7a480',
   borderRadius: '0.15em',
   backgroundColor: 'transparent',
   color: 'var(--beige)',

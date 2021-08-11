@@ -26,7 +26,7 @@ const card = ({ isAffordable, isUpgradable, player }) => ({
   fontSize: 'var(--font-size)',
   textAlign: 'center',
   borderRadius: '2.25em',
-  filter: 'drop-shadow(0 1em 0.75em rgba(0, 0, 0, 0.25))',
+  filter: 'drop-shadow(0 1em 0.75em #00000040)',
   transition: 'box-shadow 250ms, transform 250ms',
 
   ...(isUpgradable && {
@@ -38,13 +38,11 @@ const card = ({ isAffordable, isUpgradable, player }) => ({
   }),
 
   ...(player === 'RED' && {
-    boxShadow:
-      '0 0 0 0.5em var(--player-red), 0 0 4em 0.8em rgba(203, 43, 67, 0.3)',
+    boxShadow: '0 0 0 0.5em var(--player-red), 0 0 4em 0.8em #cb2b434d',
   }),
 
   ...(player === 'BLUE' && {
-    boxShadow:
-      '0 0 0 0.5em var(--player-blue), 0 0 4em 0.8em rgba(25, 93, 156, 0.3)',
+    boxShadow: '0 0 0 0.5em var(--player-blue), 0 0 4em 0.8em #195d9c4d',
   }),
 
   '::before': {
@@ -86,12 +84,12 @@ const mana = ({ isAffordable, isMissing, isUpgradable, player }) => ({
 
   ...(player === 'RED' && {
     filter:
-      'drop-shadow(0 -0.4em var(--player-red)) drop-shadow(0 0 10px rgba(203, 43, 67, 0.3))',
+      'drop-shadow(0 -0.4em var(--player-red)) drop-shadow(0 0 10px #cb2b434d)',
   }),
 
   ...(player === 'BLUE' && {
     filter:
-      'drop-shadow(0 -0.4em var(--player-blue)) drop-shadow(0 0 10px rgba(25, 93, 156, 0.3))',
+      'drop-shadow(0 -0.4em var(--player-blue)) drop-shadow(0 0 10px #195d9c4d)',
   }),
 })
 
@@ -128,7 +126,7 @@ const content = ({ isMissing }) => ({
   backgroundRepeat: 'no-repeat',
 
   ...(isMissing && {
-    backgroundColor: 'rgb(23, 38, 48)' /* 1 */,
+    backgroundColor: '#172630' /* 1 */,
     borderRadius: '2.15em' /* 2 */,
   }),
 })
@@ -139,7 +137,7 @@ const content = ({ isMissing }) => ({
  * 3. Not quite the same as the image itself, but somewhat works.
  */
 const missing = {
-  backgroundColor: 'rgb(14, 24, 31)' /* 1 */,
+  backgroundColor: '#0e181f' /* 1 */,
   display: 'block',
   '-webkit-mask-repeat': 'no-repeat',
   '-webkit-mask-size': 'contain',

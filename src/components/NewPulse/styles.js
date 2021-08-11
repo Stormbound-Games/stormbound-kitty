@@ -1,5 +1,5 @@
 const pulse = {
-  from: { boxShadow: '0 0 0 0 rgba(203, 43, 67, 0.6)' },
+  from: { boxShadow: '0 0 0 0 #cb2b4399' },
 
   '50%': {
     transform: 'scale(1.05)',
@@ -20,7 +20,7 @@ const newPulse = {
     width: '0.5em',
     height: '0.5em',
     borderRadius: '50%',
-    backgroundColor: 'rgba(203, 43, 67, 1)',
+    backgroundColor: '#cb2b43',
     animationName: pulse,
     animationDuration: '2s',
     animationIterationCount: 'infinite',

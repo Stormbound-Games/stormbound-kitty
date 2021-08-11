@@ -67,14 +67,13 @@ const innerPseudo = {
   width: '18.384776310850235px' /* 1 */,
   height: '18.384776310850235px' /* 1 */,
   transform: 'translate(50%, -50%) rotate(45deg)',
-  background:
-    'linear-gradient(to bottom left, rgb(141, 178, 44) 50%, transparent 50%)',
+  background: 'linear-gradient(to bottom left, #8db22c 50%, transparent 50%)',
   zIndex: 2,
 }
 
 const inner = {
   height: '100%',
-  backgroundColor: 'rgb(141, 178, 44)',
+  backgroundColor: '#8db22c',
   position: 'relative',
   transition: '250ms',
 
@@ -87,7 +86,7 @@ const inner = {
     left: 0,
     transform: 'translate(-50%, -50%) rotate(-45deg)',
     background:
-      'linear-gradient(to bottom right, rgb(141, 178, 44) 50%, transparent 50%)',
+      'linear-gradient(to bottom right, #8db22c 50%, transparent 50%)',
   },
 
   "[aria-valuenow='0']::before": {

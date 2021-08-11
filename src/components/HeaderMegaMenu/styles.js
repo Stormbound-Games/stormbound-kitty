@@ -13,7 +13,7 @@ const menu = ({ isOpen }) => ({
   pointerEvents: isOpen ? 'auto' : 'none',
   transition: '250ms 150ms',
   transform: isOpen ? 'translateY(0)' : 'translateY(-10px)',
-  boxShadow: '0 1.5em 1em -1em rgba(0, 0, 0, 0.3)',
+  boxShadow: '0 1.5em 1em -1em #0000004d',
 
   '::after': {
     content: '""',

@@ -11,7 +11,7 @@ const ghost = {
     width: '1.5em',
     height: '1.5em',
     position: 'absolute',
-    color: 'rgba(255, 255, 255, 0.7)',
+    color: '#ffffffb3',
     lineHeight: 1,
     textAlign: 'center',
     transform: 'translate(-50%, -50%)',

@@ -63,8 +63,8 @@ const card = ({
   type,
 }) => ({
   color: 'var(--white)',
-  backgroundColor: 'rgb(78, 86, 89)',
-  border: '2px solid rgba(255, 255, 255, 0.1)',
+  backgroundColor: '#4e5659',
+  border: '2px solid #ffffff1a',
   borderRadius: '0.2em',
   position: 'relative',
   transition: '250ms',
@@ -81,7 +81,7 @@ const card = ({
   ...(isEmpty && {
     minHeight: '2.5em',
     backgroundColor: 'transparent',
-    border: '2px dotted rgba(255, 255, 255, 0.3)',
+    border: '2px dotted #ffffff4d',
     opacity: 0.5,
   }),
 
@@ -107,54 +107,54 @@ const card = ({
   }),
 
   ...(type === 'spell' && {
-    backgroundColor: 'rgb(137, 140, 149)',
+    backgroundColor: '#898c95',
   }),
 
   ...(type === 'structure' && {
-    backgroundColor: 'rgb(55, 63, 67)',
+    backgroundColor: '#373f43',
   }),
 
   ...(isLegendary && {
-    backgroundColor: 'rgb(25, 25, 25)',
+    backgroundColor: '#191919',
   }),
 
   ...(faction === 'swarm' && {
     backgroundColor: isLegendary
-      ? 'rgb(34, 27, 4)'
+      ? '#221b04'
       : type === 'structure'
-      ? 'rgb(60, 45, 28)'
+      ? '#3c2d1c'
       : type === 'spell'
-      ? 'rgb(157, 125, 95)'
+      ? '#9d7d5f'
       : 'var(--swarm)',
   }),
 
   ...(faction === 'ironclad' && {
     backgroundColor: isLegendary
-      ? 'rgb(48, 27, 32)'
+      ? '#301b20'
       : type === 'structure'
-      ? 'rgb(91, 51, 50)'
+      ? '#5b3332'
       : type === 'spell'
-      ? 'rgb(179, 111, 120)'
+      ? '#b36f78'
       : 'var(--ironclad)',
   }),
 
   ...(faction === 'shadowfen' && {
     backgroundColor: isLegendary
-      ? 'rgb(11, 33, 29)'
+      ? '#0b211d'
       : type === 'structure'
-      ? 'rgb(28, 65, 60)'
+      ? '#1c413c'
       : type === 'spell'
-      ? 'rgb(91, 152, 143)'
+      ? '#5b988f'
       : 'var(--shadowfen)',
   }),
 
   ...(faction === 'winter' && {
     backgroundColor: isLegendary
-      ? 'rgb(9, 25, 42)'
+      ? '#09192a'
       : type === 'structure'
-      ? 'rgb(32, 40, 60)'
+      ? '#20283c'
       : type === 'spell'
-      ? 'rgb(81, 95, 128)'
+      ? '#515f80'
       : 'var(--winter)',
   }),
 })
@@ -236,7 +236,7 @@ const button = {
 
   ':not(:disabled):hover': {
     cursor: 'pointer',
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: '#ffffff1a',
   },
 }
 

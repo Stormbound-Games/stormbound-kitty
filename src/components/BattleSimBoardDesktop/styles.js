@@ -8,7 +8,7 @@ const root = {
   position: 'relative' /* 1 */,
   overflow: 'hidden',
   width: '100%',
-  border: '1px solid rgba(255, 255, 255, 0.2)',
+  border: '1px solid #ffffff33',
 
   /**
    * 1. Ensure proper ratio based on background size

@@ -9,7 +9,7 @@ const panel = ({ type, isActive }) => ({
   display: 'flex',
   height: '100%',
   flexDirection: 'column',
-  backgroundColor: 'rgba(0, 0, 0, 0.9)',
+  backgroundColor: '#000000e6',
   position: 'fixed',
   top: 0,
   bottom: 0,

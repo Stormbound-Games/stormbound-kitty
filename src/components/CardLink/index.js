@@ -30,7 +30,7 @@ export default React.memo(function CardLink(props) {
         border: 0,
         whiteSpace: 'normal',
         boxShadow: 'none',
-        filter: 'drop-shadow(0 1em 2em rgba(0, 0, 0, 0.2))',
+        filter: 'drop-shadow(0 1em 2em #00000033)',
       }}
     >
       {trigger => (

@@ -1,6 +1,6 @@
 const footer = {
   padding: '1em',
-  background: 'linear-gradient(to top, transparent, rgba(222, 215, 164, 0.08))',
+  background: 'linear-gradient(to top, transparent, #ded7a414)',
   position: 'relative',
 
   '::before': {

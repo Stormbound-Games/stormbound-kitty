@@ -33,12 +33,12 @@ import { TOOLTIP_STYLES } from '../../constants/stats'
 import styles from './styles'
 
 const COLORS = [
-  'rgb(222, 215, 164)',
-  'rgb(202, 210, 170)',
-  'rgb(182, 205, 176)',
-  'rgb(162, 200, 182)',
-  'rgb(142, 195, 188)',
-  'rgb(122, 190, 194)',
+  '#ded7a4',
+  '#cad2aa',
+  '#b6cdb0',
+  '#a2c8b6',
+  '#8ec3bc',
+  '#7abec2',
 ]
 
 const getLevelData = collection => {
@@ -112,11 +112,11 @@ const getStatusData = collection => {
     upgradable: { name: 'Upgradable', color: 'var(--upgradable)', value: 0 },
     notUpgradable: {
       name: 'Not upgradable',
-      color: 'rgb(162, 185, 182)',
+      color: '#a2b9b6',
       value: 0,
     },
-    missing: { name: 'Missing', color: 'rgb(222, 215, 164)', value: 0 },
-    maxedOut: { name: 'Maxed out', color: 'rgb(122, 190, 194)', value: 0 },
+    missing: { name: 'Missing', color: '#ded7a4', value: 0 },
+    maxedOut: { name: 'Maxed out', color: '#7abec2', value: 0 },
   }
 
   collection.forEach(card => {
@@ -390,7 +390,7 @@ export default function CollectionStats(props) {
                     <YAxis />
                     <Tooltip
                       {...TOOLTIP_STYLES}
-                      cursor={{ fill: 'rgba(255, 255, 255, 0.1)' }}
+                      cursor={{ fill: '#ffffff1a' }}
                       formatter={(value, name, props) =>
                         `${value} copies (${(
                           (value / props.payload.total) *

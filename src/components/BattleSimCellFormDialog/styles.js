@@ -18,7 +18,7 @@ const dialog = {
   transform: 'translateX(-50%)',
   animationName: cellFormDialogAppear,
   animationDuration: '400ms',
-  boxShadow: '0 0 0 3px var(--dark-blue), 0 0 2em 1em rgba(0, 0, 0, 0.2)',
+  boxShadow: '0 0 0 3px var(--dark-blue), 0 0 2em 1em #00000033',
 }
 
 const body = {

@@ -4,7 +4,7 @@ const table = ({ isZebra }) => ({
   maxWidth: '100%',
   width: '100%',
   borderCollapse: 'collapse',
-  color: isZebra ? 'rgb(159, 212, 231)' : undefined,
+  color: isZebra ? '#9fd4e7' : undefined,
   overflow: isZebra ? 'hidden' : undefined,
   position: isZebra ? 'relative' : undefined,
 
@@ -43,7 +43,7 @@ const table = ({ isZebra }) => ({
 
   '> tbody': {
     '> tr:nth-child(even)': {
-      backgroundColor: isZebra ? 'rgb(30, 72, 88)' : undefined,
+      backgroundColor: isZebra ? '#1e4858' : undefined,
     },
 
     '> tr:nth-child(odd)': {
@@ -86,7 +86,7 @@ const table = ({ isZebra }) => ({
     position: 'relative',
 
     ':not(:empty)': {
-      border: isZebra ? undefined : '1px solid rgba(255, 255, 255, 0.2)',
+      border: isZebra ? undefined : '1px solid #ffffff33',
       small: { border: 0 },
     },
 

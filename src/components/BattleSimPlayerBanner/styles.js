@@ -4,8 +4,7 @@
  *    based on the viewport width
  */
 const banner = {
-  backgroundImage:
-    'linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0))',
+  backgroundImage: 'linear-gradient(to right, #00000000, #00000099, #00000000)',
   padding: '0.3em 2.25em',
   display: 'flex' /* 1 */,
   alignItems: 'center' /* 1 */,

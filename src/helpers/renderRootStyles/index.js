@@ -17,37 +17,37 @@ const renderRootStyles = renderer => {
     scroll-padding-top: 2em;
 
     /* Game colors */
-    --beige: rgb(226, 215, 175);
-    --dark-beige: rgb(155, 142, 112);
-    --light-blue: rgb(46, 86, 98);
-    --dark-blue: rgb(32, 53, 63);
-    --green: rgb(54, 120, 109);
-    --black: rgb(16, 31, 38);
-    --white: rgb(245, 242, 229);
-    --yellow: rgb(208, 184, 76);
+    --beige: #e2d7af;
+    --dark-beige: #9b8e70;
+    --light-blue: #2e5662;
+    --dark-blue: #20353f;
+    --green: #36786d;
+    --black: #101f26;
+    --white: #f5f2e5;
+    --yellow: #d0b84c;
 
     /* Faction colors */
-    --swarm: rgb(96, 72, 48);
-    --ironclad: rgb(130, 70, 72);
-    --shadowfen: rgb(48, 101, 93);
-    --winter: rgb(64, 84, 119);
-    --light-swarm: rgb(184, 149, 113);
-    --light-ironclad: rgb(182, 120, 122);
-    --light-shadowfen: rgb(86, 175, 161);
-    --light-winter: rgb(102, 128, 173);
+    --swarm: #604830;
+    --ironclad: #824648;
+    --shadowfen: #30655d;
+    --winter: #405477;
+    --light-swarm: #b89571;
+    --light-ironclad: #b6787a;
+    --light-shadowfen: #56afa1;
+    --light-winter: #6680ad;
 
     /* Card colors */
-    --affordable: rgb(107, 231, 156);
-    --upgradable: rgb(231, 209, 70);
+    --affordable: #6be79c;
+    --upgradable: #e7d146;
 
     /* Battle sim colors */
-    --player-red: rgb(203, 43, 67);
-    --player-blue: rgb(25, 93, 156);
-    --poison: rgb(112, 4, 112);
-    --freeze: rgb(96, 173, 199);
-    --confused: rgb(197, 153, 72);
-    --vitalised: rgb(36, 224, 113);
-    --disabled: rgb(165, 32, 134);
+    --player-red: #cb2b43;
+    --player-blue: #195d9c;
+    --poison: #700470;
+    --freeze: #60adc7;
+    --confused: #c59948;
+    --vitalised: #24e071;
+    --disabled: #a52086;
 
     /* League colors */
     --starter: currentcolor;
@@ -144,7 +144,7 @@ const renderRootStyles = renderer => {
     padding: 0.65em;
     border-radius: 0.3em;
     background-color: transparent;
-    border: 1px solid rgba(222, 215, 164, 0.5);
+    border: 1px solid #ded7a480;
     color: var(--white);
   }
 

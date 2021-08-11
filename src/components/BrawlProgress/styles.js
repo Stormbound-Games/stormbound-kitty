@@ -21,7 +21,7 @@ const item = ({ isActive, isPassed }) => ({
   transform: 'rotate(45deg)',
   margin: '0 0.5em',
   position: 'relative',
-  backgroundColor: isPassed ? 'rgb(141, 178, 44)' : undefined,
+  backgroundColor: isPassed ? '#8db22c' : undefined,
 
   /**
    * 1. Beige filling of the currently active item while making it possible to

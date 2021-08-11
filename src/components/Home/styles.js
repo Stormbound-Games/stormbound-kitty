@@ -65,7 +65,7 @@ const newsBox = {
   background: 'url("../../background.png") repeat var(--black)',
   border: '1px solid var(--beige)',
   padding: '1em',
-  boxShadow: '0 0 2em 1em rgba(0, 0, 0, 0.2)',
+  boxShadow: '0 0 2em 1em #00000033',
   marginBottom: '2em',
   marginTop: '-2.5em' /* 1 */,
 
