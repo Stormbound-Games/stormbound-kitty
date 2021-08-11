@@ -1,11 +1,6 @@
-import React from 'react'
-import { ImageSupportContext } from '../components/ImageSupportProvider'
 import getRawCardData from '../helpers/getRawCardData'
 
 export default ({ noBorder, withClear } = {}) => {
-  const { supportsWebp } = React.useContext(ImageSupportContext)
-  const ext = supportsWebp ? 'webp' : 'png'
-
   return {
     input: provided => ({ ...provided, color: 'var(--white)' }),
 
@@ -84,9 +79,9 @@ export default ({ noBorder, withClear } = {}) => {
         backgroundColor: isDisabled ? 'transparent' : 'var(--green)',
       },
       color: 'var(--white)',
-      background: `url("/assets/images/card/rarity-${
+      background: `url("/assets/images/card/rarity_${
         getRawCardData(data.value).rarity
-      }.${ext}") ${
+      }_4.png") ${
         isFocused ? 'var(--light-blue)' : 'transparent'
       } no-repeat center left 1em`,
       opacity: isDisabled ? 0.7 : 1,
