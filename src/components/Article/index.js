@@ -1,8 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '../Link'
+import ArticleMeta from '../ArticleMeta'
 import HeaderBanner from '../HeaderBanner'
-import Icon from '../Icon'
 import Spacing from '../Spacing'
 import styles from './styles'
 
@@ -10,22 +9,6 @@ export const ArticleContext = React.createContext({
   isEditorialContent: false,
   withDropCap: false,
 })
-
-export const renderAuthorsLinks = (acc, author, index, authors) => {
-  if (authors.length > 1 && index === authors.length - 1) {
-    acc.push(' and ')
-  } else if (index !== 0) {
-    acc.push(', ')
-  }
-
-  acc.push(
-    <Link to={`/member/${author}`} key={author}>
-      {author}
-    </Link>
-  )
-
-  return acc
-}
 
 const Article = React.memo(function Article(props) {
   const action = props.action || {}
@@ -52,50 +35,7 @@ const Article = React.memo(function Article(props) {
         withoutWebp={props.withoutWebp}
       />
 
-      <p className={css(styles.meta)}>
-        {authors.length > 0 && (
-          <span>
-            By&nbsp;{authors.reduce(renderAuthorsLinks, [])}
-            {props.meta && <>&nbsp;·&nbsp;</>}
-          </span>
-        )}
-        {props.meta}
-        {Object.keys(action).length > 0 &&
-          (action.onClick ? (
-            <button
-              type='button'
-              onClick={action.onClick}
-              disabled={action.disabled}
-              className={css(styles.action) + ' ButtonAsLink'}
-            >
-              {action.icon && (
-                <Icon icon={action.icon} extend={styles.actionIcon} />
-              )}
-              <span>{action.children}</span>
-            </button>
-          ) : (
-            <Link
-              to={action.to}
-              href={action.href}
-              inNewTab={!!action.href}
-              extend={styles.action}
-            >
-              {action.to && (
-                <Icon
-                  icon={action.icon || 'arrow-left'}
-                  extend={styles.actionIcon}
-                />
-              )}
-              <span>{action.children}</span>
-              {action.href && (
-                <Icon
-                  icon={action.icon || 'arrow-right'}
-                  extend={styles.actionIcon}
-                />
-              )}
-            </Link>
-          ))}
-      </p>
+      <ArticleMeta authors={authors} meta={props.meta} action={action} />
 
       <ArticleContext.Provider
         value={{

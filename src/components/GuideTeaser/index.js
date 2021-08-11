@@ -1,6 +1,6 @@
 import React from 'react'
 import Teaser from '../Teaser'
-import { renderAuthorsLinks } from '../Article'
+import { renderAuthorsLinks } from '../ArticleMeta'
 
 export default React.memo(function GuideTeaser(props) {
   const authors = props.authors.reduce(renderAuthorsLinks, [])
