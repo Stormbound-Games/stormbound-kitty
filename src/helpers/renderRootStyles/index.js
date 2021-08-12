@@ -131,7 +131,6 @@ const renderRootStyles = renderer => {
     color: var(--black);
   }
 
-  label,
   legend {
     text-transform: uppercase;
     font-size: 90%;
