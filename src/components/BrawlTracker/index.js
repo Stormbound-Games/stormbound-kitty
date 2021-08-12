@@ -8,13 +8,14 @@ import BrawlOutcome from '../BrawlOutcome'
 import BrawlRecommendedDecks from '../BrawlRecommendedDecks'
 import BrawlReset from '../BrawlReset'
 import BrawlSetup from '../BrawlSetup'
-import GuideTeaser from '../GuideTeaser'
+import Teaser from '../Teaser'
 import Row from '../Row'
 import Spacing from '../Spacing'
 import Title from '../Title'
 import { BRAWL_INDEX } from '../../constants/brawl'
 import getGuide from '../../helpers/getGuide'
 import getDailyCoinsCounter from '../../helpers/getDailyCoinsCounter'
+import renderAuthorsLinks from '../../helpers/renderAuthorsLinks'
 
 export default React.memo(function BrawlTracker(props) {
   const [withPremiumPass, setWithPremiumPass] = React.useState(false)
@@ -67,7 +68,14 @@ export default React.memo(function BrawlTracker(props) {
         <Row.Column width='1/3'>
           {guide ? (
             <div>
-              <GuideTeaser {...guide} />
+              <Teaser
+                {...guide}
+                title={guide.name}
+                meta={
+                  <>Written by {guide.authors.reduce(renderAuthorsLinks, [])}</>
+                }
+                to={'/guides/' + props.slug}
+              />
             </div>
           ) : (
             <BrawlRecommendedDecks limit={1} columns={1} />

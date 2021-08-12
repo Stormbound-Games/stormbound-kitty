@@ -1,24 +1,19 @@
 import React from 'react'
 import Page from '../Page'
-import Row from '../Row'
-import Teaser from '../Teaser'
-import chunk from '../../helpers/chunk'
+import Teasers from '../Teasers'
 import getBrawlDescription from '../../helpers/getBrawlDescription'
+import microMarkdown from '../../helpers/microMarkdown'
 import { BRAWLS } from '../../constants/brawl'
 
-const BrawlTeaser = React.memo(function BrawlTeaser(props) {
-  return (
-    <Teaser
-      large={props.large}
-      data-testid='teaser'
-      meta={props.label}
-      title={props.title}
-      cardId={props.cardId}
-      excerpt={props.description}
-      to={`/brawl/${props.id.toLowerCase().replace(/_/g, '-')}`}
-    />
-  )
-})
+const ITEMS = BRAWLS.map(brawl => ({
+  large: brawl.large,
+  'data-testid': 'teaser',
+  meta: brawl.label,
+  title: brawl.title,
+  cardId: brawl.cardId,
+  excerpt: microMarkdown(getBrawlDescription(brawl.id)),
+  to: `/brawl/${brawl.id.toLowerCase().replace(/_/g, '-')}`,
+}))
 
 export default React.memo(function BrawlIndex() {
   return (
@@ -26,34 +21,7 @@ export default React.memo(function BrawlIndex() {
       title='Brawl Tracker'
       description='Find all the Brawl modes from Stormbound and their ideal decks'
     >
-      {chunk(BRAWLS, 3).map((row, index) => (
-        <Row key={index} desktopOnly wideGutter>
-          <Row.Column width='1/3'>
-            {row[0] && (
-              <BrawlTeaser
-                {...row[0]}
-                description={getBrawlDescription(row[0].id)}
-              />
-            )}
-          </Row.Column>
-          <Row.Column width='1/3'>
-            {row[1] && (
-              <BrawlTeaser
-                {...row[1]}
-                description={getBrawlDescription(row[1].id)}
-              />
-            )}
-          </Row.Column>
-          <Row.Column width='1/3'>
-            {row[2] && (
-              <BrawlTeaser
-                {...row[2]}
-                description={getBrawlDescription(row[2].id)}
-              />
-            )}
-          </Row.Column>
-        </Row>
-      ))}
+      <Teasers items={ITEMS} />
     </Page>
   )
 })
