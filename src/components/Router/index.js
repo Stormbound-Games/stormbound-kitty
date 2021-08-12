@@ -152,7 +152,7 @@ export default function Router(props) {
             <CardsStats />
           </PageRoute>
 
-          <PageRoute exact path='/trivia' active={['GAME', 'TRIVIA']}>
+          <PageRoute exact path='/trivia' active={['COMMUNITY', 'TRIVIA']}>
             <Trivia />
           </PageRoute>
 

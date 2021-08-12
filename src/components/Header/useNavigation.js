@@ -32,7 +32,7 @@ export default () => {
       label: 'Official',
       items: [
         {
-          title: 'Updates',
+          title: 'Release Notes',
           icon: 'bullhorn',
           items: [
             {
@@ -47,14 +47,9 @@ export default () => {
               id: '07_2021',
             },
             {
-              label: 'Brawl update',
+              label: 'Update Brawl',
               to: '/releases/brawl-2021',
               id: 'brawl_2021',
-            },
-            {
-              label: 'Update 06-2021',
-              to: '/releases/06-2021',
-              id: '06_2021',
             },
             {
               label: 'All Releases',
@@ -69,47 +64,15 @@ export default () => {
           ],
         },
         {
-          title: 'Fan-Kit',
-          to: '/fan-kit',
-          icon: 'image',
-          items: [
-            {
-              label: 'Card Images',
-              to: '/fan-kit/cards',
-              id: 'CARDS',
-            },
-            {
-              label: 'Book Images',
-              to: '/fan-kit/books',
-              id: 'BOOKS',
-            },
-            {
-              label: 'Avatar Images',
-              to: '/fan-kit/avatars',
-              id: 'AVATARS',
-            },
-            {
-              label: 'Wallpapers',
-              to: '/fan-kit/wallpapers',
-              id: 'WALLPAPERS',
-            },
-            {
-              label: 'Backgrounds',
-              to: '/fan-kit/backgrounds',
-              id: 'BACKGROUNDS',
-            },
-            {
-              label: 'Sounds',
-              href: 'https://drive.google.com/drive/folders/1L94gIEyj0BEoIQWd7vS3NdKUg0W1uXI5',
-            },
-          ],
-        },
-        {
-          title: 'Miscellaneous',
+          title: 'Information',
           icon: 'star',
           items: [
+            {
+              label: 'Fan-Kit',
+              to: '/fan-kit',
+              id: 'FAN_KIT',
+            },
             { label: 'Known Bugs', to: '/guides/known-bugs', id: 'KNOWN_BUGS' },
-            { label: 'Trivia Game', to: '/trivia', id: 'TRIVIA' },
             { label: 'Cards Statistics', to: '/card/stats', id: 'CARD_STATS' },
             { label: 'Lexicon', to: '/guides/lexicon', id: 'LEXICON' },
             {
@@ -172,30 +135,6 @@ export default () => {
           ],
         },
         {
-          title: 'Your Content',
-          icon: 'user',
-          items: [
-            name && {
-              label: 'Personal feed',
-              to: '/member/' + name,
-              id: 'FEED',
-            },
-            { label: 'Card Collection', to: '/collection', id: 'COLLECTION' },
-            {
-              label: 'Collection Stats',
-              to: '/collection/stats',
-              id: 'COLLECTION_STATS',
-            },
-            {
-              label: 'Personal Decks',
-              to: '/deck/collection',
-              id: 'DECK_COLLECTION',
-              new: isUnseen,
-            },
-            { label: 'Brawl Tracker', to: '/brawl', id: 'BRAWL' },
-          ].filter(Boolean),
-        },
-        {
           title: 'Calculators',
           icon: 'equalizer',
           items: [
@@ -225,6 +164,30 @@ export default () => {
               id: 'VALUE_CALCULATOR',
             },
           ],
+        },
+        {
+          title: 'Your Content',
+          icon: 'user',
+          items: [
+            name && {
+              label: 'Personal Feed',
+              to: '/member/' + name,
+              id: 'FEED',
+            },
+            { label: 'Card Collection', to: '/collection', id: 'COLLECTION' },
+            {
+              label: 'Collection Stats',
+              to: '/collection/stats',
+              id: 'COLLECTION_STATS',
+            },
+            {
+              label: 'Personal Decks',
+              to: '/deck/collection',
+              id: 'DECK_COLLECTION',
+              new: isUnseen,
+            },
+            { label: 'Brawl Tracker', to: '/brawl', id: 'BRAWL' },
+          ].filter(Boolean),
         },
       ],
     },
@@ -274,10 +237,11 @@ export default () => {
               id: 'CARD_CONTEST',
             },
             { label: 'Battle Puzzles', to: '/sim/puzzles', id: 'PUZZLES' },
+            { label: 'Trivia Game', to: '/trivia', id: 'TRIVIA' },
           ],
         },
         {
-          title: 'Miscellaneous',
+          title: 'Discover',
           icon: 'star',
           items: [
             {
