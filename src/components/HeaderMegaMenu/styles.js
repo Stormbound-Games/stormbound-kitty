@@ -58,11 +58,6 @@ const icon = {
   stroke: 'none',
 }
 
-const newTab = {
-  fontSize: '80%',
-  marginLeft: '0.75ch',
-}
-
 const list = {
   listStyle: 'none',
   padding: 0,
@@ -111,7 +106,6 @@ export default {
   menu,
   title,
   icon,
-  newTab,
   list,
   item,
   link,

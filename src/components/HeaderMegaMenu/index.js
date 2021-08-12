@@ -61,9 +61,6 @@ export default React.memo(function HeaderMegaMenu(props) {
                     })}
                   >
                     {item.label}
-                    {item.href && (
-                      <Icon icon='arrow-top-right' extend={styles.newTab} />
-                    )}
                   </Link>
                   {item.new && <NewPulse />}
                 </li>

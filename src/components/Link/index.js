@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { Link as RouterLink } from 'react-router-dom'
+import Icon from '../Icon'
 import styles from './styles'
 
 const Link = ({ inNewTab, extend, ...props }, ref) => {
@@ -20,6 +21,9 @@ const Link = ({ inNewTab, extend, ...props }, ref) => {
         rel={shouldUseNewTab ? 'noopener noreferrer' : undefined}
       >
         {props.children}
+        {shouldUseNewTab && (
+          <Icon icon='arrow-top-right' extend={styles.newTab} />
+        )}
       </a>
     )
   }
