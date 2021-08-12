@@ -36,12 +36,11 @@ export const RESTRICTIONS = {
   },
 }
 
-export const TYPES = {
+export const CATEGORIES = {
   LETHAL: 'Destroy the enemy base this turn.',
   SURVIVE: 'Make sure your base survives until the next turn.',
   BASELOCK: 'Fill up all tiles on the enemy’s base line.',
   BOARDCLEAR: 'Kill all enemy units and structures.',
-  VIP:
-    'Make sure a specific unit or structure survives after you press "End Turn".',
+  VIP: 'Make sure a specific unit or structure survives after you press "End Turn".',
   TARGET: 'Destroy a specific unit or structure.',
 }

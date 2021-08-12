@@ -6,15 +6,16 @@ import Link from '../Link'
 import puzzles from '../../data/puzzles'
 import EmptySearch from '../EmptySearch'
 import Notice from '../Notice'
-import Puzzle from '../BattleSimPuzzle'
+import Title from '../Title'
 import PuzzlesFilters from '../BattleSimPuzzlesFilters'
 import Row from '../Row'
-import styles from './styles'
+import Teasers from '../Teasers'
+import { getCardForPuzzle, getExcerptForPuzzle } from '../BattleSimPuzzle'
 
 class BattleSimPuzzles extends React.Component {
   state = {
     difficulty: '*',
-    type: '*',
+    category: '*',
     restrictions: [],
     name: '',
   }
@@ -22,7 +23,7 @@ class BattleSimPuzzles extends React.Component {
   resetFilters = () =>
     this.setState({
       difficulty: '*',
-      type: '*',
+      category: '*',
       restrictions: [],
       name: '',
     })
@@ -35,8 +36,8 @@ class BattleSimPuzzles extends React.Component {
       .toLowerCase()
       .replace('’', "'")
       .includes(this.state.name.toLowerCase())
-  matchesType = puzzle =>
-    this.state.type === '*' || puzzle.type === this.state.type
+  matchesCategory = puzzle =>
+    this.state.category === '*' || puzzle.category === this.state.category
   matchesDifficulty = puzzle =>
     this.state.difficulty === '*' ||
     puzzle.difficulty === +this.state.difficulty
@@ -51,7 +52,7 @@ class BattleSimPuzzles extends React.Component {
       .filter(this.matchesName)
       .filter(this.matchesDifficulty)
       .filter(this.matchesRestriction)
-      .filter(this.matchesType)
+      .filter(this.matchesCategory)
       .reverse()
 
   render() {
@@ -64,31 +65,35 @@ class BattleSimPuzzles extends React.Component {
       >
         <Row desktopOnly wideGutter>
           <Row.Column width='1/3'>
+            <Title>Filters</Title>
             <PuzzlesFilters {...this.state} updateFilter={this.updateFilter} />
           </Row.Column>
           <Row.Column width='2/3'>
+            <Title>Puzzles</Title>
             {puzzles.length > 0 ? (
-              <ul className={this.props.css(styles.list)}>
-                {puzzles.map(puzzle => (
-                  <li className={this.props.css(styles.item)} key={puzzle.name}>
-                    <Puzzle {...puzzle} key={puzzle.name} />
-                  </li>
-                ))}
-              </ul>
+              <Teasers
+                columns={2}
+                items={puzzles.map(puzzle => ({
+                  card: getCardForPuzzle(puzzle),
+                  title: puzzle.name,
+                  meta: `Made by ${puzzle.author}`,
+                  to: `/sim/${puzzle.board}/display`,
+                  excerpt: getExcerptForPuzzle(puzzle),
+                  'data-testid': `puzzle ${puzzle.name} ${puzzle.category} ${
+                    puzzle.difficulty
+                  }/3 ${puzzle.restrictions.join(' ')}`,
+                }))}
+              />
             ) : (
               <EmptySearch
                 title='No puzzles found'
                 resetFilters={this.resetFilters}
               />
             )}
+
             <Notice icon='sword'>
               Design your own puzzles and{' '}
-              <Link
-                to={{
-                  pathname: '/faq',
-                  hash: '#adding-a-puzzle',
-                }}
-              >
+              <Link to={{ pathname: '/faq', hash: '#adding-a-puzzle' }}>
                 have them added
               </Link>{' '}
               to the list!

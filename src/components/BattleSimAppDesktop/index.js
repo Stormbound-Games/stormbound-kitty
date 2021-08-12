@@ -7,10 +7,10 @@ import CellFormDialog from '../BattleSimCellFormDialog'
 import Deck from '../Deck'
 import GameForm from '../BattleSimGameForm'
 import PlayerForm from '../BattleSimPlayerForm'
-import Puzzle from '../BattleSimPuzzle'
 import Row from '../Row'
 import Spacing from '../Spacing'
 import Title from '../Title'
+import Puzzle from '../BattleSimPuzzle'
 import styles from './styles'
 
 class BattleSimAppDesktop extends React.Component {
@@ -94,7 +94,7 @@ class BattleSimAppDesktop extends React.Component {
 
         {this.props.mode === 'DISPLAY' && !!this.props.puzzle && (
           <div className={this.props.styles.puzzle}>
-            <Puzzle {...this.props.puzzle} noImage />
+            <Puzzle {...this.props.puzzle} withoutLink />
           </div>
         )}
 
