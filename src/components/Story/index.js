@@ -3,6 +3,7 @@ import { useRouteMatch } from 'react-router-dom'
 import { useInView } from 'react-intersection-observer'
 import Page from '../Page'
 import Error from '../Error'
+import HorizontalRule from '../HorizontalRule'
 import Notice from '../Notice'
 import Only from '../Only'
 import Link from '../Link'
@@ -60,7 +61,7 @@ export default React.memo(function Story(props) {
 
       <div ref={ref}>{inView && <StoriesMore {...story} />}</div>
 
-      <hr />
+      <HorizontalRule />
 
       <Notice icon='quill'>
         Looking to contribute to the Stormbound lore?

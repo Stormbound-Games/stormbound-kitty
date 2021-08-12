@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Card from '../Card'
 import Guide from '../Guide'
+import HorizontalRule from '../HorizontalRule'
 import Link from '../Link'
 import Row from '../Row'
 import TableOfContents from '../TableOfContents'
@@ -35,7 +36,7 @@ export default React.memo(function GuideDeck(props) {
         </li>
       </ul>
 
-      <hr />
+      <HorizontalRule />
 
       <TableOfContents>
         <li>
@@ -357,7 +358,7 @@ export default React.memo(function GuideDeck(props) {
         cards need a close enough front to run from for instance).
       </p>
 
-      <hr />
+      <HorizontalRule />
 
       <p>
         Most important advice for last… Have Fun! This is a game. One we play to

@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
+import HorizontalRule from '../HorizontalRule'
 import Info from '../Info'
 import Notice from '../Notice'
 import Row from '../Row'
@@ -24,7 +25,7 @@ export default React.memo(function GuideGoddessBoon(props) {
         this week’s challenge.
       </p>
 
-      <hr />
+      <HorizontalRule />
 
       <p
         className={css({
@@ -37,7 +38,7 @@ export default React.memo(function GuideGoddessBoon(props) {
         of their initial strength.
       </p>
 
-      <hr />
+      <HorizontalRule />
 
       <p>
         The +4 strength buff is significant enough to give all other factions

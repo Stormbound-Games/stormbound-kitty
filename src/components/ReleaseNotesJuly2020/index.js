@@ -6,6 +6,7 @@ import BattleSimApp from '../BattleSimApp'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Checkbox from '../Checkbox'
 import FAQSection from '../FAQSection'
+import HorizontalRule from '../HorizontalRule'
 import Image from '../Image'
 import Info from '../Info'
 import NerfCompensationInfo from '../NerfCompensationInfo'
@@ -510,7 +511,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           ]}
         />
 
-        <hr />
+        <HorizontalRule />
 
         <p>
           That’s it for this update, which is not trivial for the first one from

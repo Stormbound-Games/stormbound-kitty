@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import DeckStatsChart from '../DeckStatsChart'
 import Guide from '../Guide'
+import HorizontalRule from '../HorizontalRule'
 import Info from '../Info'
 import Only from '../Only'
 import Row from '../Row'
@@ -88,7 +89,7 @@ export default React.memo(function GuideManaCurve(props) {
         </li>
       </TableOfContents>
 
-      <hr />
+      <HorizontalRule />
 
       <Info icon='stack' title='Deck Details'>
         <p>
@@ -295,7 +296,7 @@ export default React.memo(function GuideManaCurve(props) {
         </Row>
       </Guide.FullWidth>
 
-      <hr />
+      <HorizontalRule />
 
       <p>
         Both the following graphs are for the{' '}

@@ -5,6 +5,7 @@ import BattleSimApp from '../BattleSimApp'
 import DeckStatsChart from '../DeckStatsChart'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
+import HorizontalRule from '../HorizontalRule'
 import Info from '../Info'
 import Only from '../Only'
 import Row from '../Row'
@@ -392,7 +393,7 @@ export default React.memo(function GuideD1SFCommons(props) {
         can start passing heavy runners in.
       </p>
 
-      <hr />
+      <HorizontalRule />
 
       <p>
         When facing a Winter freeze deck, we might be facing difficulty moving

@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
+import HorizontalRule from '../HorizontalRule'
 import Info from '../Info'
 import Notice from '../Notice'
 import Row from '../Row'
@@ -23,7 +24,8 @@ export default React.memo(function GuideFreedomFight(props) {
         with this week’s challenge.
       </p>
 
-      <hr />
+      <HorizontalRule />
+
       <p
         className={css({
           fontSize: '135%',
@@ -34,7 +36,8 @@ export default React.memo(function GuideFreedomFight(props) {
         This week, all Toad units cost 2 mana, regardless of their initial mana
         cost.
       </p>
-      <hr />
+
+      <HorizontalRule />
 
       <p>
         Like all cost-reduction Brawls, this œne is all about timing and combos

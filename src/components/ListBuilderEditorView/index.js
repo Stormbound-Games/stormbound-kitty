@@ -11,6 +11,7 @@ import {
 } from '../../constants/list'
 import Page from '../Page'
 import CTA from '../CTA'
+import HorizontalRule from '../HorizontalRule'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
 import ShareButton from '../ListBuilderShareButton'
@@ -232,7 +233,9 @@ class ListBuilderEditorView extends React.Component {
                 onMouseUp={this.onMouseUp}
               />
             ))}
-            <hr />
+
+            <HorizontalRule />
+
             <CTA
               onClick={this.addTier}
               disabled={this.state.tiers.length === MAX_TIERS}

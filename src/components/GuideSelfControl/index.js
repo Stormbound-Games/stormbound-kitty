@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
+import HorizontalRule from '../HorizontalRule'
 import Info from '../Info'
 import Notice from '../Notice'
 import Row from '../Row'
@@ -24,7 +25,8 @@ export default React.memo(function GuideSelfControl(props) {
         with this week’s challenge.
       </p>
 
-      <hr />
+      <HorizontalRule />
+
       <p
         className={css({
           fontSize: '135%',
@@ -36,7 +38,7 @@ export default React.memo(function GuideSelfControl(props) {
         their initial movement.
       </p>
 
-      <hr />
+      <HorizontalRule />
 
       <p>
         The “Self Control” Brawl is a very cheap and fast one. Most games are

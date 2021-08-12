@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
+import HorizontalRule from '../HorizontalRule'
 import Info from '../Info'
 import Notice from '../Notice'
 import Only from '../Only'
@@ -25,7 +26,8 @@ export default React.memo(function GuideNobleCoalition(props) {
         moving on with this week’s challenge.
       </p>
 
-      <hr />
+      <HorizontalRule />
+
       <p
         className={css({
           fontSize: '135%',
@@ -36,7 +38,8 @@ export default React.memo(function GuideNobleCoalition(props) {
         This week, all Feline units benefit from an extra +2 strength on top of
         their initial strength.
       </p>
-      <hr />
+
+      <HorizontalRule />
 
       <p>
         Felines are still somewhat new, so the last time around only very few

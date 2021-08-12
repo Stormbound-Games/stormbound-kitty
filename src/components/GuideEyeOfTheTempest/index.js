@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
+import HorizontalRule from '../HorizontalRule'
 import Info from '../Info'
 import Notice from '../Notice'
 import Row from '../Row'
@@ -25,7 +26,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
         this week’s challenge.
       </p>
 
-      <hr />
+      <HorizontalRule />
 
       <p
         className={css({
@@ -38,7 +39,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
         minimum of 0.
       </p>
 
-      <hr />
+      <HorizontalRule />
 
       <p>
         This Brawl has a lot of different approaches and is a community

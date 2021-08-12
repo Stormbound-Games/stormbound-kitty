@@ -1,10 +1,11 @@
+import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '../Link'
 import { TIER_COLORS } from '../../constants/list'
 import getInitialListData from '../../helpers/getInitialListData'
-import React from 'react'
 import Info from '../Info'
 import Guide from '../Guide'
+import HorizontalRule from '../HorizontalRule'
+import Link from '../Link'
 import ListBuilderTier from '../ListBuilderTier'
 import Title from '../Title'
 import CardLink from '../CardLink'
@@ -30,7 +31,8 @@ export default React.memo(function GuideLegendaries(props) {
 
       <p>This guide aims to give a definite answer to the question:</p>
 
-      <hr />
+      <HorizontalRule />
+
       <p
         className={css({
           fontSize: '135%',
@@ -40,7 +42,8 @@ export default React.memo(function GuideLegendaries(props) {
       >
         Should I use this level 1 legendary?
       </p>
-      <hr />
+
+      <HorizontalRule />
 
       <Info icon='info' title='About Equals Meta'>
         <p>

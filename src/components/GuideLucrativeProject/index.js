@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
+import HorizontalRule from '../HorizontalRule'
 import Info from '../Info'
 import Notice from '../Notice'
 import Row from '../Row'
@@ -24,7 +25,8 @@ export default React.memo(function GuideLucrativeProject(props) {
         moving on with this week’s challenge.
       </p>
 
-      <hr />
+      <HorizontalRule />
+
       <p
         className={css({
           fontSize: '135%',
@@ -35,7 +37,8 @@ export default React.memo(function GuideLucrativeProject(props) {
         This week, all Construct units have 2 movement, regardless of their
         initial movement.
       </p>
-      <hr />
+
+      <HorizontalRule />
 
       <p>
         I don’t think there’s a lot of nuance to deckbuilding this week, so I’ll
