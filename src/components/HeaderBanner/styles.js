@@ -38,18 +38,21 @@ const title = {
   position: 'absolute',
   bottom: 0,
   margin: 0,
+  width: '100%',
   lineHeight: 1,
   transform: 'translateY(30%)',
-  marginLeft: '30px',
+  paddingLeft: '30px',
   '-webkit-text-stroke': '1px var(--black)',
   letterSpacing: '-1px',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
 
   small: {
     fontSize: '225%',
     left: '50%',
     transform: 'translate(-50%, 30%)',
-    marginLeft: 0,
-    whiteSpace: 'nowrap',
+    paddingLeft: 0,
   },
 }
 
