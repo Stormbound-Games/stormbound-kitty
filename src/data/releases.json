@@ -7,7 +7,7 @@
     "date": "08/2021",
     "excerpt": "August is already there, and with it new Stormbound release with new Brawls, a new card and balance tweaks!",
     "slug": "08-2021",
-    "background": "/assets/images/releases/sheepyard_first_anniversary.jpg",
+    "background": "/assets/images/banners/sheepyard_first_anniversary.jpg",
     "id": "08_2021",
     "ratio": "50%"
   },
@@ -19,7 +19,7 @@
     "date": "07/2021",
     "excerpt": "July is already there, and with it new Stormbound release with new Brawls, a new card and balance tweaks!",
     "slug": "07-2021",
-    "background": "/assets/images/releases/temple_of_the_mind.jpg",
+    "background": "/assets/images/banners/temple_of_the_mind.jpg",
     "id": "07_2021",
     "ratio": "50%"
   },
@@ -31,7 +31,7 @@
     "date": "06/2021",
     "excerpt": "Summer is here and so is a little surprise release to revamp the Brawl mode to make it more welcome to all players!",
     "slug": "brawl-2021",
-    "background": "/assets/images/releases/brawl.jpg",
+    "background": "/assets/images/banners/brawl.jpg",
     "id": "brawl_2021"
   },
   {
@@ -54,7 +54,7 @@
     "date": "05/2021",
     "excerpt": "May is already there, and with it new Stormbound release with new cards, balance tweaks, Heroes League improvements and a brand new Premium Pass!",
     "slug": "05-2021",
-    "background": "/assets/images/releases/premium_pass.jpg",
+    "background": "/assets/images/banners/premium_pass.jpg",
     "id": "05_2021",
     "ratio": "50%"
   },
@@ -66,7 +66,7 @@
     "date": "04/2021",
     "excerpt": "It’s about Easter, and with it a new Stormbound release with new cards, balance tweaks, Heroes League improvements and some exclusive offers!",
     "slug": "04-2021",
-    "background": "/assets/images/releases/temple_of_life.jpg",
+    "background": "/assets/images/banners/temple_of_life.jpg",
     "id": "04_2021",
     "ratio": "50%"
   },
@@ -78,7 +78,7 @@
     "date": "03/2021",
     "excerpt": "Heroes, assemble! The Heroes League is about to open its doors, and with it endless rewards and battles!",
     "slug": "03-2021",
-    "background": "/assets/images/releases/heroes_league.jpg",
+    "background": "/assets/images/banners/heroes_league.jpg",
     "id": "03_2021",
     "ratio": "50%"
   },
@@ -90,7 +90,7 @@
     "date": "02/2021",
     "excerpt": "Valentine’s Day is around the corner, and so is a new release with balance changes, a new card and player profiles!",
     "slug": "02-2021",
-    "background": "/assets/images/releases/banner_valentine.png",
+    "background": "/assets/images/banners/valentine.png",
     "id": "02_2021",
     "ratio": "50%"
   },
@@ -102,7 +102,7 @@
     "date": "01/2021",
     "excerpt": "A new Swarm of the East epic structure is making its entrance: the Temple of Focus!",
     "slug": "temple-of-focus",
-    "background": "/assets/images/releases/banner_structures_1.png",
+    "background": "/assets/images/banners/structures_1.png",
     "id": "temple_of_focus"
   },
   {
@@ -124,7 +124,7 @@
     "date": "12/2020",
     "excerpt": "The year is almost over, but Stormbound is not! Balance changes, new offers and some UI updates are around the corner!",
     "slug": "end-of-2020",
-    "background": "/assets/images/releases/christmas.png",
+    "background": "/assets/images/banners/christmas.png",
     "id": "end_of_2020"
   },
   {
@@ -135,7 +135,7 @@
     "date": "12/2020",
     "excerpt": "Christmas is around the corner and Sheepyard is releasing a small Advent Calendar patch, including some balance changes and exclusive offers.",
     "slug": "12-2020",
-    "background": "/assets/images/releases/black_friday.png",
+    "background": "/assets/images/banners/black_friday.png",
     "id": "12_2020"
   },
   {
@@ -170,7 +170,7 @@
     "date": "09/2020",
     "excerpt": "A minor promotional update to celebrate Stormbound’s 3rd anniversary with offers (for paying and non-paying players) and gifts.",
     "slug": "3rd-anniversary",
-    "background": "/assets/images/releases/third-anniversary.png",
+    "background": "/assets/images/banners/third-anniversary.png",
     "ratio": "57.5%",
     "id": "3RD_ANNIVERSARY"
   },
