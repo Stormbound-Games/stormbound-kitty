@@ -3,7 +3,7 @@ const title = ({ isEditorialContent }) => ({
   textTransform: 'uppercase',
   textAlign: 'center',
   marginTop: isEditorialContent ? 'var(--s-largest)' : 0,
-  marginBottom: 'var(--s-base)',
+  marginBottom: 'var(--s-large)',
   fontWeight: 'normal',
   color: 'var(--beige)',
   overflow: 'hidden',
