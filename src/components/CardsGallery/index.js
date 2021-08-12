@@ -72,7 +72,7 @@ export default React.memo(function CardsGallery(props) {
       // experience purposes (selected card), we replace the color in that
       // context so that both outlines are different enough to be discernible.
       style={{
-        '--affordable': '#FF1493',
+        '--affordable': props.isCardAffordable ? '#FF1493' : undefined,
         '--cards-per-row': props.cardsPerPage / 2,
       }}
     >
