@@ -94,7 +94,7 @@ class BattleSimAppDesktop extends React.Component {
 
         {this.props.mode === 'DISPLAY' && !!this.props.puzzle && (
           <div className={this.props.styles.puzzle}>
-            <Puzzle {...this.props.puzzle} noLink />
+            <Puzzle {...this.props.puzzle} withoutLink />
           </div>
         )}
 
