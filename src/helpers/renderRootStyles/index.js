@@ -111,21 +111,6 @@ const renderRootStyles = renderer => {
     margin-bottom: 1em;
   }
 
-  a {
-    color: currentColor;
-    text-decoration-skip: skip;
-    text-decoration-skip-ink: auto;
-  }
-
-  a:not([class]) {
-    transition: 250ms;
-  }
-
-  a:not([class]):active,
-  a:not([class]):hover {
-    color: var(--beige);
-  }
-
   /**
    * This will hide the focus indicator if the element receives focus via the mouse,
    * but it will still show up on keyboard focus.
