@@ -385,17 +385,30 @@ function getCollectorMirzToken(deck, level) {
 }
 
 function getHarvestersOfSoulsPossibleCards(state, level) {
-  const possibleCards = Array.from(
-    { length: HARVESTERS_OF_SOULS_RNG.POTENTIAL_CARDS[state.RNG] },
-    () => getHarvestersOfSoulsCopiedCard(state, level)
-  ).filter(Boolean)
-  return modifyDeck(possibleCards, state.modifier, state.equalsMode)
+  const count = HARVESTERS_OF_SOULS_RNG.POTENTIAL_CARDS[state.RNG]
+  const pool = state.opponentDeck.filter(card => card.type === 'unit')
+  const acc = Array.from({ length: count }).reduce(
+    acc => {
+      const card = getHarvestersOfSoulsCopiedCard(state, acc.pool, level)
+
+      // If Harvesters of Souls did not manage to copy a card, move along.
+      return !card
+        ? acc
+        : {
+            cards: acc.cards.concat(card),
+            pool: acc.pool.filter(isNotCard(card)),
+          }
+    },
+    { cards: [], pool }
+  )
+
+  return modifyDeck(acc.cards, state.modifier, state.equalsMode)
 }
 
-function getHarvestersOfSoulsCopiedCard(state, harvestersLevel) {
-  // The RNG for Harvesters of Souls is determined by first choosing a level for the
-  // created copy and then creating the copy if the level is greater than 1 (otherwise
-  // Harvesters weren't able to copy the card)
+function getHarvestersOfSoulsCopiedCard(state, pool, harvestersLevel) {
+  // The RNG for Harvesters of Souls is determined by first choosing a level for
+  // the created copy and then creating the copy if the level is greater than 1
+  // (otherwise Harvesters weren’t able to copy the card).
   const lowestPossibleLevel =
     harvestersLevel +
     HARVESTERS_OF_SOULS_RNG.LEVEL_BONUS[state.RNG] -
@@ -405,13 +418,10 @@ function getHarvestersOfSoulsCopiedCard(state, harvestersLevel) {
     (_, i) => lowestPossibleLevel + i
   )
   const level = Math.min(arrayRandom(possibleLevelValues), 5)
-  const enemyUnits = state.opponentDeck.filter(
-    cardInDeck => cardInDeck.type === 'unit'
-  )
 
-  if (level <= 0 || enemyUnits.length === 0) return
+  if (level <= 0 || pool.length === 0) return null
 
-  const id = arrayRandom(enemyUnits).id
+  const { id } = arrayRandom(pool)
   const copiedCard = getResolvedCardData({ id, level })
   const copiedCardStrength = [5, 6, 7, 8, 10][harvestersLevel - 1]
 
@@ -425,26 +435,24 @@ function getHarvestersOfSoulsCopiedCard(state, harvestersLevel) {
 
   if (copiedCard.token) {
     copiedCard.level = copiedCardStrength
-    if (copiedCard.id === 'T5') {
-      // A Token Raven was created - by Dubious Hags, High Priestess Klaxi,
-      // Marked as Prey, Avian Stalkers or Call for Aid on a Raven
-      if (Math.random() < PROBABILITIES.NO_MOVEMENT_RAVEN_TOKEN) {
-        // High Priestess Klaxi spawns tokens with no movement
-        copiedCard.movement = 0
-        copiedCard.movementDecreased = true
-      }
-    } else if (copiedCard.id === 'T8') {
-      // A Token Toad was created - by Azure Hatchers, Brood Sages,
-      // Rain of Frogs, Call for Aid on a Toad
-      if (Math.random() < PROBABILITIES.NO_MOVEMENT_TOAD_TOKEN) {
-        // Brood Sages and Rain of Frogs spawn tokens with no movement
-        copiedCard.movement = 0
-        copiedCard.movementDecreased = true
-      }
+
+    if (
+      // A Token Raven was created by Dubious Hags, High Priestess Klaxi, Marked
+      // as Prey, Avian Stalkers or Call for Aid on a raven.
+      (copiedCard.id === 'T5' &&
+        Math.random() < PROBABILITIES.NO_MOVEMENT_RAVEN_TOKEN) ||
+      // A Token Toad was created by Azure Hatchers, Brood Sages, Rain of Frogs,
+      // Call for Aid on a Toad.
+      (copiedCard.id === 'T8' &&
+        Math.random() < PROBABILITIES.NO_MOVEMENT_TOAD_TOKEN)
+    ) {
+      copiedCard.movement = 0
+      copiedCard.movementDecreased = true
     }
   } else {
     copiedCard.strength = copiedCardStrength
   }
+
   return copiedCard
 }
 
