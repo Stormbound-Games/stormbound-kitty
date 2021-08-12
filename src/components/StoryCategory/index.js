@@ -31,7 +31,7 @@ export default React.memo(function StoryCategory(props) {
       action={{ to: '/stories', children: 'Back to stories' }}
       withAvif
     >
-      <Stories stories={items} columns={3} />
+      <Stories stories={items} />
       {loadingMore && <Loader />}
       <div ref={ref} />
 

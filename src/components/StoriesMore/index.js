@@ -21,7 +21,7 @@ export default React.memo(function StoriesMore(props) {
     return (
       <>
         <Title>Other chapters from this saga</Title>
-        <Stories stories={chapters.filter(isNotCurrent)} columns={3} />
+        <Stories stories={chapters.filter(isNotCurrent)} />
       </>
     )
   }
@@ -37,7 +37,7 @@ export default React.memo(function StoriesMore(props) {
           Other stories by{' '}
           <Link to={`/member/${props.author}`}>{props.author}</Link>
         </Title>
-        <Stories stories={storiesFromAuthor.filter(isNotCurrent)} columns={3} />
+        <Stories stories={storiesFromAuthor.filter(isNotCurrent)} />
       </>
     )
   }

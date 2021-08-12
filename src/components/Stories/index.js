@@ -1,19 +1,38 @@
 import React from 'react'
-import Row from '../Row'
-import StoryTeaser from '../StoryTeaser'
-import chunk from '../../helpers/chunk'
+import Teasers from '../Teasers'
+import Link from '../Link'
+import getExcerpt from '../../helpers/getExcerpt'
+import getResolvedCardData from '../../helpers/getResolvedCardData'
+import capitalise from '../../helpers/capitalise'
+
+const StoryAuthor = React.memo(function StoryAuthor(props) {
+  return (
+    <>
+      {capitalise(props.type || 'story')} by{' '}
+      <Link to={'/member/' + props.author}>{props.author}</Link>{' '}
+    </>
+  )
+})
+
+const getStoryTeaser = story => {
+  const id =
+    story.id ||
+    window.btoa(encodeURIComponent(story.title + '-' + story.author))
+  const excerpt = getExcerpt(story.content, 150)
+  const meta = <StoryAuthor {...story} />
+
+  return {
+    ...story,
+    card: {
+      ...getResolvedCardData({ id: story.cardId, level: 1 }),
+      ...story.card,
+    },
+    meta: meta,
+    excerpt: excerpt,
+    to: `/stories/${id}`,
+  }
+}
 
 export default React.memo(function Stories(props) {
-  return chunk(props.stories || [], props.columns).map((row, index) => (
-    <Row key={index} desktopOnly wideGutter>
-      {Array.from({ length: props.columns }, (_, index) => (
-        <Row.Column
-          key={index}
-          width={props.columns === 2 ? undefined : `1/${props.columns}`}
-        >
-          {row[index] && <StoryTeaser {...row[index]} />}
-        </Row.Column>
-      ))}
-    </Row>
-  ))
+  return <Teasers items={props.stories.map(getStoryTeaser)} />
 })
