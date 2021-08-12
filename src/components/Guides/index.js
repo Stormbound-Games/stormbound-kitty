@@ -24,7 +24,7 @@ export default React.memo(function Guides(props) {
           title: guide.name,
           meta: <>Written by {guide.authors.reduce(renderAuthorsLinks, [])}</>,
           excerpt: guide.excerpt,
-          to: '/guides/' + props.slug,
+          to: '/guides/' + guide.slug,
         }))}
       />
 
