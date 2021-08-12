@@ -32,9 +32,11 @@ export default React.memo(function Card(props) {
   const styleProps = {
     ...props,
     hasDecreasedMana: props.manaDecreased,
+    hasDecreasedMovement: props.movementDecreased,
     hasDecreasedStrength: props.strengthDecreased,
     hasFixedMovement: props.ability?.includes('fixed'),
     hasIncreasedMana: props.manaIncreased,
+    hasIncreasedMovement: props.movementIncreased,
     hasIncreasedStrength: props.strengthIncreased,
     hasNoRarity: !props.rarity,
     isAffordable: props.affordable,
