@@ -95,8 +95,8 @@ export default React.memo(function DeckSuggestionsFilters(props) {
             />
           </Row.Column>
           <Row.Column>
-            <label htmlFor='including'>Including card</label>
             <CardSelect
+              label='Including card'
               name='including'
               id='including'
               current={props.including}

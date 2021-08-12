@@ -6,7 +6,6 @@ import DeckImport from '../BattleSimDeckImport'
 import NumberInput from '../NumberInput'
 import Row from '../Row'
 import Select from '../Select'
-import VisuallyHidden from '../VisuallyHidden'
 import getRawCardData from '../../helpers/getRawCardData'
 import styles from './styles'
 
@@ -21,10 +20,9 @@ const CardsFormRow = React.memo(({ index, ...props }) => {
     >
       <Row extend={{ marginBottom: 0 }}>
         <Row.Column width='2/3'>
-          <VisuallyHidden as='label' htmlFor={`card-${index}`}>
-            Slot #{index + 1}’s card
-          </VisuallyHidden>
           <CardSelect
+            hideLabel
+            label={`Slot #${index + 1}’s card`}
             id={`card-${index}`}
             name={`card-${index}`}
             current={props.cards[index] ? props.cards[index].id : ''}

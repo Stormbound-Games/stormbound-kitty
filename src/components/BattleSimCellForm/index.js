@@ -86,9 +86,8 @@ export default React.memo(function BattleSimCellForm(props) {
       <div className={css(styles.row)}>
         <Row>
           <Row.Column width='3/4'>
-            <label htmlFor='card'>Card</label>
-
             <CardSelect
+              label='Card'
               name='card'
               id='card'
               required

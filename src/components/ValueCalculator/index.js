@@ -36,17 +36,15 @@ const LevelSelect = React.memo(function LevelSelect(props) {
 
 const SlotSelect = React.memo(function SlotSelect(props) {
   return (
-    <>
-      <label htmlFor={'card-' + props.slot}>Card</label>
-      <CardSelect
-        id={'card-' + props.slot}
-        name={'card-' + props.slot}
-        current={props.value}
-        onChange={option => props.setCard(option ? option.value : null)}
-        withSpells
-        disabledOptions={props.disabledOptions}
-      />
-    </>
+    <CardSelect
+      label='Card'
+      id={'card-' + props.slot}
+      name={'card-' + props.slot}
+      current={props.value}
+      onChange={option => props.setCard(option ? option.value : null)}
+      withSpells
+      disabledOptions={props.disabledOptions}
+    />
   )
 })
 

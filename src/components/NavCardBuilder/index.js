@@ -18,6 +18,7 @@ export default React.memo(function NavCardBuilder(props) {
       <ul className={css(styles.list)}>
         <li className={css(styles.item({ isSelect: true }))}>
           <CardSelect
+            hideLabel
             label='Load Card'
             id='card-select'
             name='card-select'

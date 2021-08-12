@@ -116,8 +116,8 @@ export default React.memo(function CardBuilderCardForm(props) {
                 : undefined
             }
           >
-            <label htmlFor='imageCardId'>Existing card image</label>
             <CardSelect
+              label='Existing card image'
               id='imageCardId'
               name='imageCardId'
               current={props.imageCardId}

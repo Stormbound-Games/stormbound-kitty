@@ -49,7 +49,6 @@ const move = {
 export default {
   header,
   name,
-
   item,
   move,
 }

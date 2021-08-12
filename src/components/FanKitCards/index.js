@@ -42,6 +42,7 @@ export default React.memo(function FanKit(props) {
         <Row.Column width='1/4' />
         <Row.Column>
           <CardSelect
+            hideLabel
             label='Search for a card'
             name='card'
             id='card'

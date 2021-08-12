@@ -31,10 +31,8 @@ export default React.memo(function ListBuilderTierHeader(props) {
       <div className={'ListBuilderTierHeader__item ' + css(styles.item)}>
         {props.isEditable ? (
           <>
-            <label className={css(styles.label)} htmlFor='newCard'>
-              Add card to tier
-            </label>
             <CardSelect
+              label='Add card to tier'
               name='newCard'
               id={`${props.prefix}listName`}
               current=''
