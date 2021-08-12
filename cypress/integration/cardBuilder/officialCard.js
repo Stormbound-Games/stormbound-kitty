@@ -6,7 +6,7 @@ describe('Card Builder — Official card', () => {
   it('should be possible to load an official card', () => {
     cy.get(s.CARD_SELECT)
       .find('.CardSelect__single-value')
-      .should('have.text', 'Load Card')
+      .should('have.text', 'Pick a card')
       .get(s.CARD_SELECT)
       .find('input')
       .first()
@@ -24,7 +24,7 @@ describe('Card Builder — Official card', () => {
 
       .get(s.CARD_SELECT)
       .find('.CardSelect__single-value')
-      .should('have.text', 'Load Card')
+      .should('have.text', 'Pick a card')
 
       .get(s.CARD_NAME)
       .should('be.empty')
