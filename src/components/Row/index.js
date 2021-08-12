@@ -1,7 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Only from '../Only'
-import Spacing from '../Spacing'
 import useSpacing from '../../hooks/useSpacing'
 import styles from './styles'
 
@@ -15,23 +14,22 @@ const Row = React.memo(function Row(props) {
     isWide: props.wideGutter,
     isDesktop: props.desktopOnly,
   })
+  const margin = useSpacing(props.spacing || { bottom: 'BASE' })
 
   return (
-    <Spacing {...(props.spacing || { bottom: 'BASE' })}>
-      <div
-        className={css(styles.row, props.extend)}
-        data-testid={props['data-testid']}
+    <div
+      className={css(margin, styles.row, props.extend)}
+      data-testid={props['data-testid']}
+    >
+      <RowContext.Provider
+        value={{
+          wideGutter: props.wideGutter,
+          desktopOnly: props.desktopOnly,
+        }}
       >
-        <RowContext.Provider
-          value={{
-            wideGutter: props.wideGutter,
-            desktopOnly: props.desktopOnly,
-          }}
-        >
-          {props.children}
-        </RowContext.Provider>
-      </div>
-    </Spacing>
+        {props.children}
+      </RowContext.Provider>
+    </div>
   )
 })
 
