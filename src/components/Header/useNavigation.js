@@ -4,10 +4,8 @@ import { PersonalDecksContext } from '../PersonalDecksProvider'
 import { UserContext } from '../UserProvider'
 import { CATEGORIES } from '../../constants/guides'
 import { STORY_CATEGORIES } from '../../constants/stories'
-import { StoriesContext } from '../StoriesProvider'
 
 export default () => {
-  const stories = React.useContext(StoriesContext)
   const { isUnseen } = React.useContext(PersonalDecksContext)
   const { name } = React.useContext(UserContext)
 
@@ -310,66 +308,48 @@ export default () => {
       id: 'STORIES',
       icon: 'quill',
       label: 'Stories',
-      to: '/stories',
       items: [
         {
-          title: 'Categories',
+          title: 'General',
           icon: 'folder-open',
-          items: Object.keys(STORY_CATEGORIES)
-            .filter(
-              category => !['eastern-heat', 'march-of-fauns'].includes(category)
-            )
-            .map(category => ({
-              label: STORY_CATEGORIES[category].title,
-              to: '/stories/' + category,
-              id: category,
-            })),
+          items: [
+            {
+              label: STORY_CATEGORIES.lore.title,
+              to: '/stories/lore',
+              id: 'lore',
+            },
+            {
+              label: STORY_CATEGORIES.neutral.title,
+              to: '/stories/neutral',
+              id: 'neutral',
+            },
+            { label: 'All categories', to: '/stories', id: 'STORIES' },
+          ],
         },
         {
-          title: 'Eastern Heat',
+          title: 'Factions',
+          icon: 'sword',
+          items: ['winter', 'ironclad', 'shadowfen', 'swarm'].map(category => ({
+            label: STORY_CATEGORIES[category].title,
+            to: '/stories/' + category,
+            id: category,
+          })),
+        },
+        {
+          title: 'Sagas',
           icon: 'fire',
-          to: '/stories/eastern-heat',
-          items: stories
-            .filter(story => story.category === 'eastern-heat')
-            .sort((a, b) => {
-              const indexA = parseInt(a.title, 10)
-              const indexB = parseInt(b.title, 10)
-
-              return isNaN(indexA) || isNaN(indexB) ? 0 : indexA - indexB
-            })
-            .slice(0, 5)
-            .map(story => ({
-              label: story.title,
-              to: '/stories/' + story.id,
-              id: story.id,
-            }))
-            .concat({
-              label: 'Read all Eastern Heat',
-              to: '/stories/eastern-heat',
-            }),
-        },
-        {
-          title: 'March of Fauns',
-          icon: 'drop',
-          to: '/stories/march-of-fauns',
-          items: stories
-            .filter(story => story.category === 'march-of-fauns')
-            .sort((a, b) => {
-              const indexA = parseInt(a.title, 10)
-              const indexB = parseInt(b.title, 10)
-
-              return isNaN(indexA) || isNaN(indexB) ? 0 : indexA - indexB
-            })
-            .slice(0, 5)
-            .map(story => ({
-              label: story.title,
-              to: '/stories/' + story.id,
-              id: story.id,
-            }))
-            .concat({
-              label: 'Read all of March of Fauns',
-              to: '/stories/march-of-fauns',
-            }),
+          items: [
+            {
+              label: STORY_CATEGORIES['eastern-heat'].title,
+              to: `/stories/eastern-heat`,
+              id: 'eastern-heat',
+            },
+            {
+              label: STORY_CATEGORIES['march-of-fauns'].title,
+              to: `/stories/march-of-fauns`,
+              id: 'march-of-fauns',
+            },
+          ],
         },
       ],
     },
