@@ -4,6 +4,7 @@ import Card from '../Card'
 import Guide from '../Guide'
 import HorizontalRule from '../HorizontalRule'
 import Link from '../Link'
+import Notice from '../Notice'
 import Row from '../Row'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
@@ -358,13 +359,11 @@ export default React.memo(function GuideDeck(props) {
         cards need a close enough front to run from for instance).
       </p>
 
-      <HorizontalRule />
-
-      <p>
+      <Notice spacing={{ top: 'LARGEST', bottom: 'NONE' }}>
         Most important advice for last… Have Fun! This is a game. One we play to
         have fun. One with a pleasing aesthetic and strategy. Don’t take it too
         seriously. Just have fun.&nbsp;:)
-      </p>
+      </Notice>
     </Guide>
   )
 })

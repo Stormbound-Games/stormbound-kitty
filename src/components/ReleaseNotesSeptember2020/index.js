@@ -2,7 +2,6 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Page from '../Page'
 import CardLink from '../CardLink'
-import Notice from '../Notice'
 import ReleaseNotes from '../ReleaseNotes'
 import Title from '../Title'
 
@@ -94,11 +93,6 @@ export default React.memo(function ReleaseNotesSeptember2020(props) {
           4/5/6/7/8), and its ability is 1/1-2/1-2/2/2 (instead of 1 at every
           level).
         </p>
-
-        <Notice>
-          <span className='Highlight'>Meow</span> and happy fighting, fellow
-          Stormbounders!
-        </Notice>
       </Page.Narrow>
     </ReleaseNotes>
   )

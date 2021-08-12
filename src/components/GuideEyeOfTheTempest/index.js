@@ -3,7 +3,7 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
-import HorizontalRule from '../HorizontalRule'
+import BrawlGuideDisclaimer from '../BrawlGuideDisclaimer'
 import Info from '../Info'
 import Notice from '../Notice'
 import Row from '../Row'
@@ -26,20 +26,10 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
         this week’s challenge.
       </p>
 
-      <HorizontalRule />
-
-      <p
-        className={css({
-          fontSize: '135%',
-          textAlign: 'center',
-          color: 'var(--beige)',
-        })}
-      >
+      <BrawlGuideDisclaimer>
         This week, all spells cost -2 mana from their initial mana cost, for a
         minimum of 0.
-      </p>
-
-      <HorizontalRule />
+      </BrawlGuideDisclaimer>
 
       <p>
         This Brawl has a lot of different approaches and is a community
@@ -169,7 +159,16 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
         </Row>
       </Guide.FullWidth>
 
-      <Notice>
+      <Info icon='crown' title='Brawl Tracker'>
+        <p>
+          Use the <Link to='/calculators/brawl'>Brawl calculator</Link> to plan
+          your journey. To monitor your progress and keep track of your expenses
+          during the Brawl, be sure to use{' '}
+          <Link to='/brawl/construct-movement'>the Brawl tracker</Link>.
+        </p>
+      </Info>
+
+      <Notice spacing={{ top: 'LARGEST', bottom: 'NONE' }}>
         See you on the battlefield! If you have any comment or suggestion, get
         in touch with oeni#7266 on Discord.
       </Notice>

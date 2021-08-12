@@ -3,7 +3,7 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
-import HorizontalRule from '../HorizontalRule'
+import BrawlGuideDisclaimer from '../BrawlGuideDisclaimer'
 import Info from '../Info'
 import Notice from '../Notice'
 import Only from '../Only'
@@ -26,20 +26,10 @@ export default React.memo(function GuideNobleCoalition(props) {
         moving on with this week’s challenge.
       </p>
 
-      <HorizontalRule />
-
-      <p
-        className={css({
-          fontSize: '135%',
-          textAlign: 'center',
-          color: 'var(--beige)',
-        })}
-      >
+      <BrawlGuideDisclaimer>
         This week, all Feline units benefit from an extra +2 strength on top of
         their initial strength.
-      </p>
-
-      <HorizontalRule />
+      </BrawlGuideDisclaimer>
 
       <p>
         Felines are still somewhat new, so the last time around only very few
@@ -140,7 +130,7 @@ export default React.memo(function GuideNobleCoalition(props) {
         </p>
       </Info>
 
-      <Notice>
+      <Notice spacing={{ top: 'LARGEST', bottom: 'NONE' }}>
         See you on the battlefield! If you have any comment or suggestion, get
         in touch with oeni#7266 on Discord.
       </Notice>

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Page from '../Page'
-import HorizontalRule from '../HorizontalRule'
 import Image from '../Image'
 import Info from '../Info'
 import Notice from '../Notice'
@@ -207,8 +206,6 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
           withAvif
         />
       </Page.Embed>
-
-      <HorizontalRule />
 
       <Notice>
         <span className='Highlight'>Meow</span> and happy fighting, fellow

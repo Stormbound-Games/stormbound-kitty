@@ -3,7 +3,6 @@ import Link from '../Link'
 import CardLink from '../CardLink'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
-import HorizontalRule from '../HorizontalRule'
 import Info from '../Info'
 import Notice from '../Notice'
 import Row from '../Row'
@@ -227,9 +226,7 @@ export default React.memo(function GuideEqualsIntro(props) {
         </li>
       </ul>
 
-      <HorizontalRule />
-
-      <Notice>
+      <Notice spacing={{ top: 'LARGEST', bottom: 'NONE' }}>
         That’s it friends, short and sweet! Nevertheless, I hope this helps.
         <br /> See you on the battlefield!
       </Notice>

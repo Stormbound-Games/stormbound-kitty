@@ -6,11 +6,9 @@ import BattleSimApp from '../BattleSimApp'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import Checkbox from '../Checkbox'
 import FAQSection from '../FAQSection'
-import HorizontalRule from '../HorizontalRule'
 import Image from '../Image'
 import Info from '../Info'
 import NerfCompensationInfo from '../NerfCompensationInfo'
-import Notice from '../Notice'
 import Quest from '../Quest'
 import ReleaseNotes from '../ReleaseNotes'
 import Row from '../Row'
@@ -511,7 +509,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           ]}
         />
 
-        <HorizontalRule />
+        <Title>Final words</Title>
 
         <p>
           That’s it for this update, which is not trivial for the first one from
@@ -534,11 +532,6 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           </li>
           <li>More options when it comes to friendly matches.</li>
         </ul>
-
-        <Notice>
-          <span className='Highlight'>Meow</span> and happy fighting, fellow
-          Stormbounders!
-        </Notice>
       </Page.Narrow>
     </ReleaseNotes>
   )

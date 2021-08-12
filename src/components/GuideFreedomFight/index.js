@@ -3,7 +3,7 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
-import HorizontalRule from '../HorizontalRule'
+import BrawlGuideDisclaimer from '../BrawlGuideDisclaimer'
 import Info from '../Info'
 import Notice from '../Notice'
 import Row from '../Row'
@@ -24,20 +24,10 @@ export default React.memo(function GuideFreedomFight(props) {
         with this week’s challenge.
       </p>
 
-      <HorizontalRule />
-
-      <p
-        className={css({
-          fontSize: '135%',
-          textAlign: 'center',
-          color: 'var(--beige)',
-        })}
-      >
+      <BrawlGuideDisclaimer>
         This week, all Toad units cost 2 mana, regardless of their initial mana
         cost.
-      </p>
-
-      <HorizontalRule />
+      </BrawlGuideDisclaimer>
 
       <p>
         Like all cost-reduction Brawls, this œne is all about timing and combos
@@ -199,17 +189,13 @@ export default React.memo(function GuideFreedomFight(props) {
         </p>
       </Info>
 
-      <Notice>
+      <Notice spacing={{ top: 'LARGEST', bottom: 'NONE' }}>
         Make sure to liberate the toads
         <br />
         Whichever tech you wield
         <br />
         Please don’t use satyrs or goats
         <br />I will see you on the battlefield!
-      </Notice>
-      <Notice>
-        If you have any comment or suggestion, get in touch with oeni#7266 on
-        Discord.
       </Notice>
     </Guide>
   )

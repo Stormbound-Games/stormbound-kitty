@@ -3,7 +3,7 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
-import HorizontalRule from '../HorizontalRule'
+import BrawlGuideDisclaimer from '../BrawlGuideDisclaimer'
 import Info from '../Info'
 import Notice from '../Notice'
 import Row from '../Row'
@@ -25,20 +25,10 @@ export default React.memo(function GuideSelfControl(props) {
         with this week’s challenge.
       </p>
 
-      <HorizontalRule />
-
-      <p
-        className={css({
-          fontSize: '135%',
-          textAlign: 'center',
-          color: 'var(--beige)',
-        })}
-      >
+      <BrawlGuideDisclaimer>
         This week, all Satyr units benefit from an extra +1 movement on top of
         their initial movement.
-      </p>
-
-      <HorizontalRule />
+      </BrawlGuideDisclaimer>
 
       <p>
         The “Self Control” Brawl is a very cheap and fast one. Most games are
@@ -252,7 +242,7 @@ export default React.memo(function GuideSelfControl(props) {
         </p>
       </Info>
 
-      <Notice>
+      <Notice spacing={{ top: 'LARGEST', bottom: 'NONE' }}>
         See you on the battlefield! If you have any comment or suggestion, get
         in touch with Kitty#7266 on Discord.
       </Notice>

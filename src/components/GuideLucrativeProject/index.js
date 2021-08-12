@@ -3,7 +3,7 @@ import { useFela } from 'react-fela'
 import Link from '../Link'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
-import HorizontalRule from '../HorizontalRule'
+import BrawlGuideDisclaimer from '../BrawlGuideDisclaimer'
 import Info from '../Info'
 import Notice from '../Notice'
 import Row from '../Row'
@@ -25,20 +25,10 @@ export default React.memo(function GuideLucrativeProject(props) {
         moving on with this week’s challenge.
       </p>
 
-      <HorizontalRule />
-
-      <p
-        className={css({
-          fontSize: '135%',
-          textAlign: 'center',
-          color: 'var(--beige)',
-        })}
-      >
+      <BrawlGuideDisclaimer>
         This week, all Construct units have 2 movement, regardless of their
         initial movement.
-      </p>
-
-      <HorizontalRule />
+      </BrawlGuideDisclaimer>
 
       <p>
         I don’t think there’s a lot of nuance to deckbuilding this week, so I’ll
@@ -152,7 +142,7 @@ export default React.memo(function GuideLucrativeProject(props) {
         </p>
       </Info>
 
-      <Notice>
+      <Notice spacing={{ top: 'LARGEST', bottom: 'NONE' }}>
         See you on the battlefield! If you have any comment or suggestion, get
         in touch with oeni#7266 on Discord.
       </Notice>
