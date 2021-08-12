@@ -185,10 +185,6 @@ const renderRootStyles = renderer => {
     cursor: help;
   }
 
-  img {
-    aspect-ratio: attr(width) / attr(height);
-  }
-
   summary {
     cursor: pointer;
     border-bottom: 1px solid transparent;
