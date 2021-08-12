@@ -25,6 +25,7 @@ export default React.memo(function TournamentHallOfFame(props) {
     <Page
       title='Tournaments'
       description='Find the list of all past Stormbound tournaments and the hall of fame.'
+      isEditorialContent
     >
       <Spacing bottom='LARGEST'>
         <TournamentPodium />
