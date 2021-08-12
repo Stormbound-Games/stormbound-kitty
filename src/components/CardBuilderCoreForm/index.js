@@ -158,9 +158,9 @@ export default React.memo(function CardBuilderCardForm(props) {
           <Row.Column>
             <fieldset>
               <legend>Unit-specific modifiers</legend>
-              <Row>
-                <Row.Column>
-                  <Spacing top='SMALL'>
+              <Spacing top={['SMALL', 'NONE']}>
+                <Row>
+                  <Row.Column>
                     <Checkbox
                       id='elder'
                       checked={props.elder}
@@ -170,20 +170,20 @@ export default React.memo(function CardBuilderCardForm(props) {
                     >
                       Elder
                     </Checkbox>
-                  </Spacing>
-                </Row.Column>
-                <Row.Column>
-                  <Checkbox
-                    id='hero'
-                    checked={props.hero}
-                    onChange={event => props.setHero(event.target.checked)}
-                    disabled={props.type !== 'unit'}
-                    data-testid='cb-hero-checkbox'
-                  >
-                    Hero
-                  </Checkbox>
-                </Row.Column>
-              </Row>
+                  </Row.Column>
+                  <Row.Column>
+                    <Checkbox
+                      id='hero'
+                      checked={props.hero}
+                      onChange={event => props.setHero(event.target.checked)}
+                      disabled={props.type !== 'unit'}
+                      data-testid='cb-hero-checkbox'
+                    >
+                      Hero
+                    </Checkbox>
+                  </Row.Column>
+                </Row>
+              </Spacing>
             </fieldset>
           </Row.Column>
           <Row.Column />
