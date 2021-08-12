@@ -1,9 +1,12 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Select from 'react-select'
+import inputStyles from '../Input/styles'
 import useSelectStyles from '../../hooks/useSelectStyles'
 import { TAGS } from '../../constants/deck'
 
 const TagsSelect = props => {
+  const { css } = useFela()
   const styles = useSelectStyles()
   const value = props.tags.map(value => ({ value, label: TAGS[value] }))
   const isAvailable = props.isTagAvailable || (() => true)
@@ -18,7 +21,9 @@ const TagsSelect = props => {
 
   return (
     <>
-      <label htmlFor={id}>{props.label || 'Tags'}</label>
+      <label htmlFor={id} className={css(inputStyles.label)}>
+        {props.label || 'Tags'}
+      </label>
       <Select
         styles={styles}
         id={id}
