@@ -3,6 +3,7 @@ import { CollectionContext } from '../CollectionProvider'
 import { NotificationContext } from '../NotificationProvider'
 import CTA from '../CTA'
 import Info from '../Info'
+import Link from '../Link'
 import Only from '../Only'
 import download from '../../helpers/download'
 import getRawCardData from '../../helpers/getRawCardData'
@@ -60,14 +61,8 @@ export default React.memo(function CollectionClearHint(props) {
         <p>
           A locally saved card collection was found and loaded. If you would
           like to remove it and start fresh, you can{' '}
-          <button
-            type='button'
-            onClick={resetCollection}
-            className='ButtonAsLink'
-          >
-            clear the local data
-          </button>{' '}
-          (you will be asked to confirm).
+          <Link onClick={resetCollection}>clear the local data</Link> (you will
+          be asked to confirm).
         </p>
       </Info>
     </Only.CustomCollection>

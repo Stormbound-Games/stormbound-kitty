@@ -6,6 +6,7 @@ import Checkbox from '../Checkbox'
 import FactionSelect from '../FactionSelect'
 import Icon from '../Icon'
 import Input from '../Input'
+import Link from '../Link'
 import Only from '../Only'
 import MobileTogglableContent from '../MobileTogglableContent'
 import Select from '../Select'
@@ -213,19 +214,13 @@ export default React.memo(function CollectionFilters(props) {
             <Row.Column spacing={{ bottom: 'NONE' }}>
               <Row>
                 <Row.Column extend={{ justifyContent: 'center' }}>
-                  <button
-                    type='button'
-                    onClick={props.toggleAdvancedSearch}
-                    className='ButtonAsLink'
-                  >
+                  <Link onClick={props.toggleAdvancedSearch}>
                     <Icon icon='search' extend={styles.icon} /> Advanced search
-                  </button>
+                  </Link>
                 </Row.Column>
                 <Row.Column extend={{ alignSelf: 'flex-end' }}>
-                  <button
+                  <Link
                     onClick={props.resetFilters}
-                    type='button'
-                    className='ButtonAsLink'
                     data-testid='reset-btn'
                     disabled={isButtonDisabled(props)}
                   >
@@ -233,7 +228,7 @@ export default React.memo(function CollectionFilters(props) {
                       &times;
                     </span>{' '}
                     Reset filters
-                  </button>
+                  </Link>
                 </Row.Column>
               </Row>
             </Row.Column>

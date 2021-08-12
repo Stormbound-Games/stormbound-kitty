@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import Link from '../Link'
 import styles from './styles'
 
 const hasBeenShownYet = key => {
@@ -29,13 +30,9 @@ export default function EyeCatcher(props) {
         ✨
       </span>{' '}
       {props.children}
-      <button
-        className={'ButtonAsLink ' + css(styles.close)}
-        type='button'
-        onClick={() => setIsVisible(false)}
-      >
+      <Link extend={styles.close} onClick={() => setIsVisible(false)}>
         (Dismiss)
-      </button>
+      </Link>
     </p>
   )
 }

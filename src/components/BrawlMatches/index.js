@@ -5,6 +5,7 @@ import { BrawlContext } from '../BrawlProvider'
 import BrawlLossCounter from '../BrawlLossCounter'
 import BrawlMatchForm from '../BrawlMatchForm'
 import Icon from '../Icon'
+import Link from '../Link'
 import Only from '../Only'
 import Spacing from '../Spacing'
 import Table from '../Table'
@@ -126,14 +127,13 @@ export default React.memo(function BrawlMatches(props) {
                   <td data-label='Match #'>
                     {brawl.matches.length - index}
                     <Only.Desktop>.</Only.Desktop>
-                    <button
-                      className={'ButtonAsLink ' + css(styles.edit)}
-                      type='button'
+                    <Link
+                      extend={styles.edit}
                       onClick={() => setEditedMatch(reversedIndex)}
                       data-testid='edit-btn'
                     >
                       <Icon icon='pencil' />
-                    </button>
+                    </Link>
                   </td>
                   <td data-label='Opponent’s health'>
                     {match.opponentHealth

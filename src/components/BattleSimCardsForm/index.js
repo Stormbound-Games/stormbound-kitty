@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import { DEFAULT_CARD } from '../../constants/deck'
 import CardSelect from '../CardSelect'
 import DeckImport from '../BattleSimDeckImport'
+import Link from '../Link'
 import NumberInput from '../NumberInput'
 import Row from '../Row'
 import Select from '../Select'
@@ -118,13 +119,12 @@ export default React.memo(function BattleSimCardsForm(props) {
       <fieldset className={css(styles.form)} data-testid='cards-form'>
         <legend className={css(styles.legend)}>
           Cards
-          <button
-            type='button'
+          <Link
             onClick={() => setExpanded(e => !e)}
-            className={'ButtonAsLink ' + css(styles.expandButton)}
+            extend={styles.expandButton}
           >
             {expanded ? 'Collapse deck' : 'Expand deck'}
-          </button>
+          </Link>
         </legend>
 
         {props.cards.map((card, index) => (

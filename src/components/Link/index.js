@@ -40,10 +40,15 @@ const Link = ({ inNewTab, extend, ...props }, ref) => {
     )
   }
 
-  // eslint-disable-next-line
-  console.warn('Broken link', props)
-
-  return null
+  return (
+    <button
+      {...props}
+      type={props.type || 'button'}
+      className={css(styles.link, styles.buttonAsLink, extend)}
+    >
+      {props.children}
+    </button>
+  )
 }
 
 export default React.memo(React.forwardRef(Link))

@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import TogglableContent from '../TogglableContent'
 import CardLink from '../CardLink'
+import Link from '../Link'
 import { PROBABILITIES } from '../../constants/dryRunner'
 import styles from './styles'
 
@@ -86,9 +87,9 @@ export default function DryRunnerExplanation(props) {
                 isExpanded={expanded.includes(categoryTitle)}
                 id={categoryTitle}
                 renderToggle={toggleProps => (
-                  <button
+                  <Link
                     {...toggleProps}
-                    className={'ButtonAsLink ' + css(styles.toggle)}
+                    extend={styles.toggle}
                     onClick={() => toggle(categoryTitle)}
                   >
                     (
@@ -96,7 +97,7 @@ export default function DryRunnerExplanation(props) {
                       ? '- collapse'
                       : '+ expand'}
                     )
-                  </button>
+                  </Link>
                 )}
               >
                 <ul className={css(styles.list)}>

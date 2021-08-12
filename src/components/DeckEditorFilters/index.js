@@ -6,6 +6,7 @@ import Checkbox from '../Checkbox'
 import Icon from '../Icon'
 import Input from '../Input'
 import FactionSelect from '../FactionSelect'
+import Link from '../Link'
 import Row from '../Row'
 import Select from '../Select'
 import Spacing from '../Spacing'
@@ -229,19 +230,13 @@ export default React.memo(function DeckEditorFilters(props) {
             <Row.Column spacing={{ bottom: 'NONE' }}>
               <Row>
                 <Row.Column extend={{ justifyContent: 'center' }}>
-                  <button
-                    type='button'
-                    onClick={props.toggleAdvancedSearch}
-                    className='ButtonAsLink'
-                  >
+                  <Link onClick={props.toggleAdvancedSearch}>
                     <Icon icon='search' extend={styles.icon} /> Advanced search
-                  </button>
+                  </Link>
                 </Row.Column>
                 <Row.Column extend={{ alignSelf: 'flex-end' }}>
-                  <button
+                  <Link
                     onClick={props.resetFilters}
-                    type='button'
-                    className='ButtonAsLink'
                     data-testid='reset-filters-btn'
                     disabled={isButtonDisabled(props)}
                   >
@@ -249,7 +244,7 @@ export default React.memo(function DeckEditorFilters(props) {
                       &times;
                     </span>{' '}
                     Reset filters
-                  </button>
+                  </Link>
                 </Row.Column>
               </Row>
             </Row.Column>

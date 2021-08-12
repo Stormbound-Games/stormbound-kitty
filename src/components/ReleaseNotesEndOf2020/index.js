@@ -159,16 +159,14 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
           renderToggle={toggleProps => (
             <p>
               Refer to the following table to get the rewards breakdown per day.{' '}
-              <button
+              <Link
                 {...toggleProps}
-                type='button'
-                className='ButtonAsLink'
                 onClick={() => expandTable(isExpanded => !isExpanded)}
               >
                 {isTableExpanded
                   ? '- Hide table breakdown'
                   : '+ Show table breakdown'}
-              </button>
+              </Link>
             </p>
           )}
         >

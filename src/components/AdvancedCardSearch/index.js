@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import CTA from '../CTA'
 import LearnMoreIcon from '../LearnMoreIcon'
+import Link from '../Link'
 import Input from '../Input'
 import Only from '../Only'
 import Row from '../Row'
@@ -24,14 +25,10 @@ export default React.memo(function AdvancedCardSearch(props) {
                 <span>
                   Advanced search <LearnMoreIcon anchor='#advanced-search' />
                 </span>
-                <button
-                  type='button'
-                  onClick={props.cancel}
-                  className={'ButtonAsLink ' + css({ marginBottom: '0.5em' })}
-                >
+                <Link onClick={props.cancel} extend={{ marginBottom: '0.5em' }}>
                   <Only.Desktop>Back to regular search</Only.Desktop>
                   <Only.Mobile>Regular search</Only.Mobile>
-                </button>
+                </Link>
               </div>
             }
             type='search'
