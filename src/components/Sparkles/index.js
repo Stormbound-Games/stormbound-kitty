@@ -42,8 +42,9 @@ const Sparkles = props => {
 
 const Sparkle = props => {
   const { css } = useFela()
+
   return (
-    <span className={css(styles.sparkle, props.extend)}>
+    <span className={css(styles.sparkle, props.extend)} style={props.style}>
       <svg
         className={css(styles.svg)}
         width={props.size}
