@@ -46,9 +46,9 @@ export default [
             </p>
 
             <p>
-              You can deactivate that feature in Chrome’s Settings &lt;
-              Appearance &lt; Customise Fonts &lt; Minimum font size. Set it to
-              “tiny”, and everything should look good!
+              You can deactivate that feature in Chrome’s Settings → Appearance
+              → Customise Fonts → Minimum font size. Set it to “tiny”, and
+              everything should look good!
             </p>
           </>
         ),
