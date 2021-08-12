@@ -20,7 +20,7 @@ const Page = React.memo(function Page(props) {
   })
 
   return (
-    <article
+    <div
       className={[
         css(styles.article, props.extend),
         props.isEditorialContent && 'EditorialContent',
@@ -48,7 +48,7 @@ const Page = React.memo(function Page(props) {
       </PageContext.Provider>
 
       <PageMeta {...props} authors={authors.join(',')} />
-    </article>
+    </div>
   )
 })
 
