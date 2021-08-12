@@ -12,7 +12,7 @@ const useArticleProps = (id, mode, puzzle) =>
     ? {
         title: puzzle.name,
         author: puzzle.author,
-        meta: puzzle.type,
+        meta: puzzle.category,
         action: { to: '/sim/puzzles', children: 'Back to puzzles' },
       }
     : {

@@ -294,7 +294,7 @@ class BattleSimAppMobile extends React.Component {
                 }
                 isPanelOpen={this.state.mode === BattleSimAppMobile.MODES.CELL}
               >
-                <Puzzle {...this.props.puzzle} noImage />
+                <Puzzle {...this.props.puzzle} noLink />
               </Panel>
             )}
           </div>

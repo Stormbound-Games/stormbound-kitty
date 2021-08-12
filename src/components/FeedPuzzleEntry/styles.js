@@ -1,7 +1,6 @@
 const container = {
-  position: 'relative',
-  padding: '1em 0',
-  fontSize: '80%',
+  maxWidth: '400px',
+  marginTop: 'var(--s-base)',
 }
 
 export default { container }

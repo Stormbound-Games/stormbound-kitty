@@ -1,7 +1,7 @@
 [
   {
     "name": "A Different Exam",
-    "type": "LETHAL",
+    "category": "LETHAL",
     "difficulty": 1,
     "restrictions": [
       "ANTI_RNG",
@@ -14,7 +14,7 @@
   },
   {
     "name": "Broken Movement",
-    "type": "BOARDCLEAR",
+    "category": "BOARDCLEAR",
     "difficulty": 1,
     "restrictions": [
       "LEVEL_5"
@@ -26,7 +26,7 @@
   },
   {
     "name": "VIP – Frozen Core",
-    "type": "VIP",
+    "category": "VIP",
     "difficulty": 1,
     "restrictions": [
       "LEVEL_5"
@@ -39,7 +39,7 @@
   },
   {
     "name": "Hammer’s Wrath",
-    "type": "SURVIVE",
+    "category": "SURVIVE",
     "difficulty": 1,
     "restrictions": [
       "LEVEL_1"
@@ -51,7 +51,7 @@
   },
   {
     "name": "Devastating Keepers",
-    "type": "LETHAL",
+    "category": "LETHAL",
     "difficulty": 3,
     "restrictions": [
       "LEVEL_1",
@@ -64,7 +64,7 @@
   },
   {
     "name": "Lord of Flight",
-    "type": "LETHAL",
+    "category": "LETHAL",
     "difficulty": 3,
     "restrictions": [
       "LEVEL_1",
@@ -77,7 +77,7 @@
   },
   {
     "name": "Plentiful Harvest",
-    "type": "LETHAL",
+    "category": "LETHAL",
     "difficulty": 2,
     "restrictions": [
       "LEVEL_1",
@@ -90,7 +90,7 @@
   },
   {
     "name": "Lasting Advice",
-    "type": "LETHAL",
+    "category": "LETHAL",
     "difficulty": 3,
     "restrictions": [
       "LEVEL_5",
@@ -103,7 +103,7 @@
   },
   {
     "name": "Sneaky Outcasts",
-    "type": "LETHAL",
+    "category": "LETHAL",
     "difficulty": 2,
     "restrictions": [
       "ANTI_RNG"
@@ -115,7 +115,7 @@
   },
   {
     "name": "Alternate Solution",
-    "type": "LETHAL",
+    "category": "LETHAL",
     "difficulty": 2,
     "restrictions": [
       "LEVEL_1",
@@ -128,7 +128,7 @@
   },
   {
     "name": "Traitorous Knights",
-    "type": "TARGET",
+    "category": "TARGET",
     "difficulty": 3,
     "restrictions": [
       "DETAILED",
@@ -142,7 +142,7 @@
   },
   {
     "name": "The Doctor’s Degree",
-    "type": "LETHAL",
+    "category": "LETHAL",
     "difficulty": 3,
     "restrictions": [
       "DETAILED",
@@ -155,7 +155,7 @@
   },
   {
     "name": "Feeble Resistance",
-    "type": "SURVIVE",
+    "category": "SURVIVE",
     "difficulty": 3,
     "restrictions": [
       "LEVEL_5",
@@ -168,7 +168,7 @@
   },
   {
     "name": "False Alarm",
-    "type": "LETHAL",
+    "category": "LETHAL",
     "difficulty": 2,
     "restrictions": [
       "LEVEL_5",
@@ -181,7 +181,7 @@
   },
   {
     "name": "Devastated Decimation",
-    "type": "LETHAL",
+    "category": "LETHAL",
     "difficulty": 2,
     "restrictions": [
       "LEVEL_5",
@@ -194,7 +194,7 @@
   },
   {
     "name": "Toad Revolution",
-    "type": "LETHAL",
+    "category": "LETHAL",
     "difficulty": 2,
     "restrictions": [],
     "author": "Zethes",
@@ -204,7 +204,7 @@
   },
   {
     "name": "Unhelpful Cards",
-    "type": "LETHAL",
+    "category": "LETHAL",
     "difficulty": 2,
     "restrictions": [
       "LEVEL_1"
@@ -216,7 +216,7 @@
   },
   {
     "name": "Area Denial",
-    "type": "LETHAL",
+    "category": "LETHAL",
     "difficulty": 3,
     "restrictions": [],
     "author": "FierySalient",
@@ -226,7 +226,7 @@
   },
   {
     "name": "Impending Doom",
-    "type": "LETHAL",
+    "category": "LETHAL",
     "difficulty": 1,
     "restrictions": [],
     "author": "FierySalient",
@@ -236,7 +236,7 @@
   },
   {
     "name": "Obnoxious Vindicators",
-    "type": "LETHAL",
+    "category": "LETHAL",
     "difficulty": 3,
     "restrictions": [],
     "author": "Mathematica",
@@ -246,7 +246,7 @@
   },
   {
     "name": "Elusive Runners",
-    "type": "LETHAL",
+    "category": "LETHAL",
     "difficulty": 3,
     "restrictions": [
       "ANTI_RNG"
