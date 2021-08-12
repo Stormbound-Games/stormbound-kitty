@@ -20,6 +20,11 @@ export default React.memo(function BrawlIndex() {
     <Page
       title='Brawl Tracker'
       description='Find all the Brawl modes from Stormbound and their ideal decks'
+      action={{
+        to: '/calculators/brawl',
+        children: 'Brawl calculator',
+        icon: 'arrow-right',
+      }}
     >
       <Teasers items={ITEMS} />
     </Page>
