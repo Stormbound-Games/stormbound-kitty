@@ -8,22 +8,21 @@ describe('Puzzles — Search', () => {
   it('should be able to filter by difficulty', () => {
     cy.get(s.DIFFICULTY_SELECT)
       .select('3')
-      .get(s.PUZZLE_DIFFICULTY)
-      .should('contain', '3/3')
+      .get(s.PUZZLE)
+      .should($puzzle => expect($puzzle.attr('data-testid')).to.include('3/3'))
   })
 
   it('should be able to filter by type', () => {
-    cy.get(s.TYPE_SELECT)
+    cy.get(s.CATEGORY_SELECT)
       .select('SURVIVE')
-      .get(s.PUZZLE_TYPE)
-      .should('contain', 'survive')
+      .get(s.PUZZLE)
+      .should($puzzle =>
+        expect($puzzle.attr('data-testid')).to.include('SURVIVE')
+      )
   })
 
   it('should be able to filter by name', () => {
-    cy.get(s.NAME_INPUT)
-      .type('brok')
-      .get(s.PUZZLE_TYPE)
-      .should('have.length', '1')
+    cy.get(s.NAME_INPUT).type('brok').get(s.PUZZLE).should('have.length', '1')
   })
 
   it('should be able to filter by restrictions', () => {
@@ -37,19 +36,21 @@ describe('Puzzles — Search', () => {
       .filter('#RNG_FRIENDLY')
       .check()
 
-      .get(s.PUZZLE_RESTRICTIONS)
-      .then($restrictions => {
-        expect($restrictions.text()).to.contain('RNG-friendly')
+      .get(s.PUZZLE)
+      .then($puzzle => {
+        expect($puzzle.attr('data-testid')).to.include('RNG_FRIENDLY')
       })
   })
 
   it('should be possible to navigate to the sim', () => {
-    cy.get(s.PUZZLE_LINK)
+    cy.get(s.PUZZLE)
+      .first()
+      .find('a')
       .first()
       .click()
       .url()
       .should('match', /\/sim\/[a-zA-Z=+]+/)
-      .get(s.PUZZLE_LINK)
+      .get(s.PUZZLE)
       .should('be.visible')
   })
 })

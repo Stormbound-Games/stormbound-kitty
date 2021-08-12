@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { RESTRICTIONS, TYPES } from '../../constants/puzzles'
+import { RESTRICTIONS, CATEGORIES } from '../../constants/puzzles'
 import Checkbox from '../Checkbox'
 import Input from '../Input'
 import Row from '../Row'
@@ -13,7 +13,7 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
   const [areFiltersExpanded, expandFilters] = React.useState(false)
   const updateDifficulty = props.updateFilter('difficulty')
   const updateName = props.updateFilter('name')
-  const updateType = props.updateFilter('type')
+  const updateCategory = props.updateFilter('category')
   const updateRestrictions = props.updateFilter('restrictions')
 
   return (
@@ -36,14 +36,14 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
 
         <Row.Column>
           <Select
-            label='Type'
-            data-testid='type-select'
-            id='type'
-            value={props.type}
-            onChange={event => updateType(event.target.value)}
+            label='Category'
+            data-testid='category-select'
+            id='category'
+            value={props.category}
+            onChange={event => updateCategory(event.target.value)}
           >
             <option value='*'>Any</option>
-            {Object.keys(TYPES).map(type => (
+            {Object.keys(CATEGORIES).map(type => (
               <option value={type} key={type}>
                 {type.slice(0, 1) + type.toLowerCase().slice(1)}
               </option>

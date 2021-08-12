@@ -51,6 +51,7 @@ export default React.memo(function BattleSimPuzzle(props) {
       meta={`Made in ${formatDate(date)}`}
       to={props.withoutLink ? undefined : `/sim/${props.board}/display`}
       excerpt={getExcerptForPuzzle(props)}
+      data-testid='puzzle'
     />
   )
 })

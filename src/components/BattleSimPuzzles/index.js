@@ -79,6 +79,9 @@ class BattleSimPuzzles extends React.Component {
                   meta: `Made by ${puzzle.author}`,
                   to: `/sim/${puzzle.board}/display`,
                   excerpt: getExcerptForPuzzle(puzzle),
+                  'data-testid': `puzzle ${puzzle.name} ${puzzle.category} ${
+                    puzzle.difficulty
+                  }/3 ${puzzle.restrictions.join(' ')}`,
                 }))}
               />
             ) : (
