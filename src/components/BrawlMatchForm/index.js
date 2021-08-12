@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import { AnimatePresence, motion } from 'framer-motion'
 import { BrawlContext } from '../BrawlProvider'
+import Link from '../Link'
 import Only from '../Only'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
@@ -38,14 +39,14 @@ export default React.memo(function BrawlMatchForm(props) {
       >
         <td>
           <Only.Desktop>
-            <button
+            <Link
               form='add-match-form'
               type='submit'
-              className={css(styles.button) + ' ButtonAsLink'}
+              extend={styles.button}
               data-testid='match-btn'
             >
               ✔
-            </button>
+            </Link>
           </Only.Desktop>
           <Only.Mobile>
             <CTA

@@ -1,6 +1,7 @@
 import React from 'react'
 import CTA from '../CTA'
 import Input from '../Input'
+import Link from '../Link'
 import Row from '../Row'
 import TagsSelect from '../TagsSelect'
 import serialisation from '../../helpers/serialisation'
@@ -69,9 +70,7 @@ export default React.memo(function YourDeckForm(props) {
           </CTA>
         </Row.Column>
         <Row.Column extend={{ justifyContent: 'center' }}>
-          <button type='button' onClick={props.cancel} className='ButtonAsLink'>
-            Nevermind
-          </button>
+          <Link onClick={props.cancel}>Nevermind</Link>
         </Row.Column>
       </Row>
     </form>

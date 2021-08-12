@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from '../Link'
 import Only from '../Only'
 import TogglableContent from '../TogglableContent'
 
@@ -15,18 +16,9 @@ export default React.memo(function (props) {
           id={props.id}
           isExpanded={isExpanded}
           renderToggle={toggleProps => (
-            <>
-              <button
-                {...toggleProps}
-                type='button'
-                onClick={() => expand(s => !s)}
-                className={['ButtonAsLink', props.className]
-                  .filter(Boolean)
-                  .join(' ')}
-              >
-                {isExpanded ? labelExpanded : labelCollapsed}
-              </button>
-            </>
+            <Link {...toggleProps} onClick={() => expand(s => !s)}>
+              {isExpanded ? labelExpanded : labelCollapsed}
+            </Link>
           )}
         >
           {props.children}

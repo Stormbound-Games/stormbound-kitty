@@ -1,5 +1,4 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import Link from '../Link'
 import { RARITIES } from '../../constants/game'
 import { BOOKS, EXPECTATIONS } from '../../constants/books'
@@ -22,7 +21,6 @@ import styles from './styles'
 const clamp = (min, value, max) => Math.min(Math.max(Number(value), 0), max)
 
 export default React.memo(function BooksCalculator(props) {
-  const { css } = useFela()
   const [isAdvancedMode, setIsAdvancedMode] = React.useState(false)
   const [bookType, setBookType] = React.useState('MYTHIC')
   const [target, setTarget] = React.useState('FUSION_STONES')
@@ -124,16 +122,15 @@ export default React.memo(function BooksCalculator(props) {
                 isExpanded={isAdvancedMode}
                 id='advanced-mode'
                 renderToggle={toggleProps => (
-                  <button
+                  <Link
                     {...toggleProps}
-                    type='button'
-                    className={css(styles.toggle) + ' ButtonAsLink'}
+                    extend={styles.toggle}
                     onClick={() => setIsAdvancedMode(mode => !mode)}
                   >
                     {isAdvancedMode
                       ? '- Collapse advanced mode'
                       : '+ Expand advanced mode'}
-                  </button>
+                  </Link>
                 )}
               >
                 <p>

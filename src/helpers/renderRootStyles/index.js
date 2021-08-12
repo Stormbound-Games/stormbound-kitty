@@ -145,30 +145,6 @@ const renderRootStyles = renderer => {
     border: 0;
   }
 
-  .ButtonAsLink {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
-    color: inherit;
-    font: inherit;
-    display: inline;
-    text-decoration: underline;
-    text-decoration-skip: skip;
-    text-decoration-skip-ink: auto;
-    cursor: pointer;
-    transition: 250ms;
-  }
-
-  .ButtonAsLink:not(:disabled):hover {
-    color: var(--beige);
-  }
-
-  .ButtonAsLink[disabled] {
-    opacity: 0.7;
-    filter: grayscale(1);
-    cursor: default;
-  }
-
   .Highlight {
     color: var(--beige);
     font-weight: normal;

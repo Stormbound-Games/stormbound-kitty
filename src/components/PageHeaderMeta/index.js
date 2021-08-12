@@ -21,17 +21,16 @@ const PageHeaderMeta = ({ action, authors, meta }) => {
 
       {Object.keys(action).length > 0 &&
         (action.onClick ? (
-          <button
-            type='button'
+          <Link
             onClick={action.onClick}
             disabled={action.disabled}
-            className={css(styles.action) + ' ButtonAsLink'}
+            extend={styles.action}
           >
             {action.icon && (
               <Icon icon={action.icon} extend={styles.actionIcon} />
             )}
             <span>{action.children}</span>
-          </button>
+          </Link>
         ) : (
           <Link
             to={action.to}
