@@ -17,7 +17,7 @@ export default [
         answer: (
           <>
             <p>
-              First of all, thank you for using Stormbound Kitty, it means a
+              First of all, thank you for using Stormbound-Kitty, it means a
               lot. If you’d like to help, please kindly report any bug or oddity
               you find, and suggest features to me on Discord (Kitty#1909).
               Finally, consider <Link to='/about'>buying me a coffee</Link>! Any

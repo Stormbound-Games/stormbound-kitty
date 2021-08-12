@@ -1,6 +1,6 @@
-# Stormbound Kitty
+# Stormbound-Kitty
 
-Source code for [Stormbound Kitty](https://stormbound-kitty.com/).
+Source code for [Stormbound-Kitty](https://stormbound-kitty.com/).
 
 ## Documentation
 

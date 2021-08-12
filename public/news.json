@@ -336,17 +336,17 @@
   },
   {
     "intro": "Card Changelog",
-    "description": "Stormbound Kitty now provides a changelog of all cards additions and updates, courtesy of the official Wiki.",
+    "description": "Stormbound-Kitty now provides a changelog of all cards additions and updates, courtesy of the official Wiki.",
     "link": "/changelog"
   },
   {
     "intro": "Cards Stats",
-    "description": "Stormbound Kitty now provides some data visualisation about the Stormbound card collection.",
+    "description": "Stormbound-Kitty now provides some data visualisation about the Stormbound card collection.",
     "link": "/cards-stats"
   },
   {
     "intro": "Fan-kit",
-    "description": "Stormbound Kitty now provides a fan-kit with all the images from the game.",
+    "description": "Stormbound-Kitty now provides a fan-kit with all the images from the game.",
     "link": "/fan-kit/cards"
   },
   {
@@ -390,7 +390,7 @@
     "link": "/collection"
   },
   {
-    "intro": "Stormbound Kitty",
+    "intro": "Stormbound-Kitty",
     "description": "The Elders and the Brawl update balance changes are here!",
     "link": "/brawl"
   },
@@ -405,7 +405,7 @@
     "link": "/stories"
   },
   {
-    "intro": "Stormbound Kitty",
+    "intro": "Stormbound-Kitty",
     "description": "The site’s code is now available on GitHub (under GPL-3.0)."
   },
   {
@@ -420,7 +420,7 @@
   },
   {
     "intro": "Stormbound News",
-    "description": "Discover the new feline card exclusively on Stormbound Kitty! 🐱"
+    "description": "Discover the new feline card exclusively on Stormbound-Kitty! 🐱"
   },
   {
     "intro": "Guides",
@@ -433,7 +433,7 @@
     "link": "/card/contest"
   },
   {
-    "intro": "Stormbound Kitty",
+    "intro": "Stormbound-Kitty",
     "description": "All 5 new feline cards have been added to the site."
   },
   {
@@ -447,7 +447,7 @@
     "link": "/stories"
   },
   {
-    "intro": "Stormbound Kitty",
+    "intro": "Stormbound-Kitty",
     "description": "All changes from the May update are now published: new cards, existing cards’ update, new upgrade costs, new copies requirements."
   },
   {
@@ -471,7 +471,7 @@
     "link": "/deck"
   },
   {
-    "intro": "Stormbound Kitty",
+    "intro": "Stormbound-Kitty",
     "description": "The complete Stormbound guide by Arikrat is now available on the site!",
     "link": "/guides"
   },
@@ -501,7 +501,7 @@
     "link": "/sim"
   },
   {
-    "intro": "Stormbound Kitty",
+    "intro": "Stormbound-Kitty",
     "description": "The site’s footer has been redesigned to provide more information and offer a way to make a small donation."
   },
   {

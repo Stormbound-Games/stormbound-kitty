@@ -7,7 +7,7 @@ const getEmbed = ({ withHeader = true } = {}) => {
 
   if (withHeader) {
     embed.setAuthor(
-      'Stormbound Kitty',
+      'Stormbound-Kitty',
       'https://stormbound-kitty.com/assets/images/kitty.png',
       'https://stormbound-kitty.com'
     )

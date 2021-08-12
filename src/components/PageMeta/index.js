@@ -5,13 +5,13 @@ const SITE_URL = 'https://stormbound-kitty.com'
 
 export default React.memo(function PageMeta(props) {
   return (
-    <Helmet titleTemplate='%s – Stormbound Kitty'>
+    <Helmet titleTemplate='%s – Stormbound-Kitty'>
       <title>{props.title}</title>
       <link rel='canonical' href={window.location.href} />
-      <meta property='og:title' content={props.title + ' – Stormbound Kitty'} />
+      <meta property='og:title' content={props.title + ' – Stormbound-Kitty'} />
       <meta
         property='twitter:title'
-        content={props.title + ' – Stormbound Kitty'}
+        content={props.title + ' – Stormbound-Kitty'}
       />
       <meta name='description' content={props.description} />
       {!!props.author && <meta name='author' content={props.author} />}

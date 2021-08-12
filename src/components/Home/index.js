@@ -16,7 +16,7 @@ export default React.memo(() => {
 
   return (
     <>
-      <VisuallyHidden as='h1'>Stormbound Kitty</VisuallyHidden>
+      <VisuallyHidden as='h1'>Stormbound-Kitty</VisuallyHidden>
 
       <div className={css(styles.home)}>
         <aside className={css(styles.news)}>
@@ -233,7 +233,7 @@ export default React.memo(() => {
 
       <PageMeta
         title='Home'
-        description='Stormbound Kitty aims at providing tools and information about Sheepyard’s great game, and extending its players’ experience outside the game'
+        description='Stormbound-Kitty aims at providing tools and information about Sheepyard’s great game, and extending its players’ experience outside the game'
       />
     </>
   )

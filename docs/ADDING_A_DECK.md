@@ -1,6 +1,6 @@
 # Adding a deck
 
-Here is how your could add a deck on your own to Stormbound Kitty. It consists on 2 main steps: adding your deck to the storage file and submitting it for review.
+Here is how your could add a deck on your own to Stormbound-Kitty. It consists on 2 main steps: adding your deck to the storage file and submitting it for review.
 
 - [Logging into GitHub](#logging-into-github)
 - [Adding your deck](#adding-your-deck)

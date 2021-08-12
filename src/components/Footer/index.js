@@ -18,7 +18,7 @@ export default React.memo(function Footer(props) {
               Dedicated to the community
             </span>
             <p className={css(styles.info)}>
-              Stormbound Kitty is made with{' '}
+              Stormbound-Kitty is made with{' '}
               <Icon icon='heart' aria-label='love' extend={styles.icon} /> by
               Kitty and the vibrant Stormbound community.{' '}
               <Link to='/about'>Want to help?</Link>
