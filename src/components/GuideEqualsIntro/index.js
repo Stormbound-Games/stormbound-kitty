@@ -3,6 +3,7 @@ import Link from '../Link'
 import CardLink from '../CardLink'
 import FeaturedDeck from '../FeaturedDeck'
 import Guide from '../Guide'
+import HorizontalRule from '../HorizontalRule'
 import Info from '../Info'
 import Notice from '../Notice'
 import Row from '../Row'
@@ -226,7 +227,7 @@ export default React.memo(function GuideEqualsIntro(props) {
         </li>
       </ul>
 
-      <hr />
+      <HorizontalRule />
 
       <Notice>
         That’s it friends, short and sweet! Nevertheless, I hope this helps.

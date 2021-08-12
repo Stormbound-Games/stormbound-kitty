@@ -5,6 +5,7 @@ import serialize from 'form-serialize'
 import Confetti from 'react-dom-confetti'
 import Page from '../Page'
 import CTA from '../CTA'
+import HorizontalRule from '../HorizontalRule'
 import Info from '../Info'
 import Input from '../Input'
 import Notice from '../Notice'
@@ -180,7 +181,7 @@ const Trivia = () => {
           </p>
         </Info>
 
-        <hr />
+        <HorizontalRule />
 
         <form name='trivia' method='POST'>
           <p>

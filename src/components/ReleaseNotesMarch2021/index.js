@@ -6,6 +6,7 @@ import CardLink from '../CardLink'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
 import CheapenedBrawl from '../CheapenedBrawl'
 import FAQSection from '../FAQSection'
+import HorizontalRule from '../HorizontalRule'
 import Image from '../Image'
 import Info from '../Info'
 import NerfCompensationInfo from '../NerfCompensationInfo'
@@ -347,7 +348,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           </p>
         </Info>
 
-        <hr />
+        <HorizontalRule />
 
         <p>
           The formula used to update a player A’s Hero Score (<var>S</var>) is a

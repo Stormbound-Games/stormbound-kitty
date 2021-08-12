@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { UserContext } from '../UserProvider'
+import HorizontalRule from '../HorizontalRule'
 import Link from '../Link'
 import Page from '../Page'
 import Footnotes, { Footnote } from '../Footnotes'
@@ -181,7 +182,7 @@ export default React.memo(function About(props) {
           </p>
         </Spacing>
 
-        <hr />
+        <HorizontalRule />
 
         <Notice>
           To everyone who has been supportive, kind and patient and helped

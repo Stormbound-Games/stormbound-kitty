@@ -4,6 +4,7 @@ import Page from '../Page'
 import CardLink from '../CardLink'
 import FAQSection from '../FAQSection'
 import Footnotes, { Footnote } from '../Footnotes'
+import HorizontalRule from '../HorizontalRule'
 import Image from '../Image'
 import Info from '../Info'
 import Link from '../Link'
@@ -234,7 +235,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
           ]}
         />
 
-        <hr />
+        <HorizontalRule />
 
         <Footnotes>
           <p id='most-played-cards'>

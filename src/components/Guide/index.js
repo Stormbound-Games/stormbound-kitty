@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import HorizontalRule from '../HorizontalRule'
 import Link from '../Link'
 import Page from '../Page'
 import Notice from '../Notice'
@@ -31,7 +32,7 @@ const Guide = React.memo(function Guide(props) {
         <Page.Narrow>{props.children}</Page.Narrow>
       </Page>
 
-      <hr />
+      <HorizontalRule />
 
       <Notice icon='compass'>
         Looking to teach others and guide them towards glorious battles?

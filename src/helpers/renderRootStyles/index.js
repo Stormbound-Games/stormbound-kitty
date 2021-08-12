@@ -119,14 +119,6 @@ const renderRootStyles = renderer => {
     outline: none;
   }
 
-  hr {
-    width: 50%;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--dark-beige), transparent);
-    border: 0;
-    margin: 3em auto;
-  }
-
   option {
     color: var(--black);
   }
