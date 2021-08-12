@@ -2,13 +2,15 @@ import React from 'react'
 import CardsGallery from '../CardsGallery'
 import Dialog from '../Dialog'
 import styles from './styles'
+import useViewportSize from '../../hooks/useViewportSize'
 
 export default React.memo(function HarvestersDialog(props) {
+  const { viewportWidth } = useViewportSize()
   return (
     <Dialog
       id='harvesters-dialog'
       extend={{
-        dialog: styles.dialog,
+        dialog: styles.content,
         body: styles.body,
       }}
       role='alertdialog'
@@ -25,7 +27,7 @@ export default React.memo(function HarvestersDialog(props) {
           item: styles.item,
         }}
         cards={props.cards}
-        cardsPerPage={props.cards.length}
+        cardsPerPage={viewportWidth < 850 ? 4 : 6}
         hideNavButtons
         onCardClick={id => {
           const chosenCard = props.cards.find(
