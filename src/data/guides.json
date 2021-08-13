@@ -286,20 +286,6 @@
     "date": "07/2021"
   },
   {
-    "id": "KNOWN_BUGS",
-    "name": "Known Bugs",
-    "authors": [
-      "Kitty"
-    ],
-    "excerpt": "Find a list of the (in)famous Stormbound known bugs, their cause (when known) and their workaround or solution. Note that this is not a bug report page.",
-    "slug": "known-bugs",
-    "faction": "ironclad",
-    "cardId": "I16",
-    "background": "/assets/images/banners/environment_ironclad.png",
-    "category": "IN_DEPTH",
-    "date": "07/2020"
-  },
-  {
     "id": "GREEN_PROTOTYPES_GUIDE",
     "name": "Green Prototypes",
     "authors": [

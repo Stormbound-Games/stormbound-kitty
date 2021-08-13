@@ -25,7 +25,6 @@ const GUIDE_COMPONENTS = {
   FREEDOM_FIGHT_GUIDE: load('GuideFreedomFight'),
   GODDESS_BOON_GUIDE: load('GuideGoddessBoon'),
   GREEN_PROTOTYPES_GUIDE: load('GuideGreenPrototypes'),
-  KNOWN_BUGS: load('GuideKnownBugs'),
   LEGENDARIES_GUIDE: load('GuideLegendaries'),
   LUCRATIVE_PROJECT_GUIDE: load('GuideLucrativeProject'),
   MANA_CURVE_GUIDE: load('GuideManaCurve'),
@@ -95,6 +94,7 @@ const Guides = load('Guides')
 const HeroScoreCalculator = load('HeroScoreCalculator')
 const Home = load('Home')
 const IncomeCalculator = load('IncomeCalculator')
+const KnownBugs = load('KnownBugs')
 const Lexicon = load('Lexicon')
 const ListBuilderDisplayView = load('ListBuilderDisplayView')
 const ListBuilderEditorView = load('ListBuilderEditorView')
@@ -159,6 +159,11 @@ export default function Router(props) {
           <Redirect from='/guides/lexicon' to='/lexicon' />
           <PageRoute exact path='/lexicon' active={['GAME', 'LEXICON']}>
             <Lexicon />
+          </PageRoute>
+
+          <Redirect from='/guides/known-bugs' to='/known-bugs' />
+          <PageRoute exact path='/known-bugs' active={['GAME', 'KNOWN_BUGS']}>
+            <KnownBugs />
           </PageRoute>
 
           <PageRoute

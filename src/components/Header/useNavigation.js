@@ -72,9 +72,9 @@ export default () => {
               to: '/fan-kit',
               id: 'FAN_KIT',
             },
-            { label: 'Known Bugs', to: '/guides/known-bugs', id: 'KNOWN_BUGS' },
+            { label: 'Known Bugs', to: '/known-bugs', id: 'KNOWN_BUGS' },
             { label: 'Cards Statistics', to: '/card/stats', id: 'CARD_STATS' },
-            { label: 'Lexicon', to: '/guides/lexicon', id: 'LEXICON' },
+            { label: 'Lexicon', to: '/lexicon', id: 'LEXICON' },
             {
               label: 'Soundtrack',
               href: 'https://www.tonyteoli.com/stormbound',
