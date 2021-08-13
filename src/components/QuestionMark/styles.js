@@ -1,27 +1,28 @@
 const mark = {
   margin: '0 0.25em',
   color: 'var(--beige)',
-  transition: '250ms',
-  cursor: 'help',
+  transition: '0ms',
 
   '::before': {
     content: '"("',
     opacity: 0.5,
     fontFamily: 'monospace',
-    transform: 'translateY(-2px)',
+    transform: 'scale(1.2) translateX(-1px) translateY(-2px)',
     display: 'inline-block',
     position: 'relative',
     transition: 'inherit',
+    willChange: 'opacity',
   },
 
   '::after': {
     content: '")"',
     opacity: 0.5,
     fontFamily: 'monospace',
-    transform: 'translateY(-2px)',
+    transform: 'scale(1.2) translateX(1px) translateY(-2px)',
     display: 'inline-block',
     position: 'relative',
     transition: 'inherit',
+    willChange: 'opacity',
   },
 
   ':hover': {
