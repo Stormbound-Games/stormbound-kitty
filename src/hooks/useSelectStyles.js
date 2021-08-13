@@ -44,7 +44,7 @@ export default ({ noBorder, withClear } = {}) => {
       // currently selected value.
       width: noBorder
         ? `calc(${selectProps.value.label.length}ch + ${
-            selectProps.value.id ? '36px' : 0
+            selectProps.value.id ? '25px' : 0
           })`
         : provided.width,
       backgroundColor: 'transparent',
