@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import { RESTRICTIONS, CATEGORIES } from '../../constants/puzzles'
 import Checkbox from '../Checkbox'
 import Input from '../Input'
+import Link from '../Link'
 import Row from '../Row'
 import Select from '../Select'
 import TogglableContent from '../TogglableContent'
@@ -74,16 +75,15 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
               id='puzzles-filters'
               renderToggle={toggleProps => (
                 <legend>
-                  <button
+                  <Link
                     {...toggleProps}
-                    type='button'
-                    className={css(styles.toggle)}
+                    extend={styles.toggle}
                     onClick={() => expandFilters(s => !s)}
                   >
                     {areFiltersExpanded
                       ? '- Hide restrictions'
                       : '+ Show restrictions'}
-                  </button>
+                  </Link>
                 </legend>
               )}
             >
