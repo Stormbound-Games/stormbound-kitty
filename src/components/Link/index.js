@@ -4,7 +4,7 @@ import { Link as RouterLink } from 'react-router-dom'
 import Icon from '../Icon'
 import styles from './styles'
 
-const Link = ({ inNewTab, extend, ...props }, ref) => {
+const Link = ({ extend, inNewTab, hideNewTabIndicator, ...props }, ref) => {
   const { css } = useFela()
 
   if (props.href) {
@@ -21,7 +21,7 @@ const Link = ({ inNewTab, extend, ...props }, ref) => {
         rel={shouldUseNewTab ? 'noopener noreferrer' : undefined}
       >
         {props.children}
-        {shouldUseNewTab && !props.hideNewTabIndicator && (
+        {shouldUseNewTab && !hideNewTabIndicator && (
           <Icon icon='arrow-top-right' extend={styles.newTab} />
         )}
       </a>
