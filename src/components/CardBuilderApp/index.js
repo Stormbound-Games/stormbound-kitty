@@ -133,7 +133,9 @@ export default React.memo(function CardBuilderApp(props) {
 
   return (
     <Page {...articleProps} {...getCardBuilderMetaTags(props.cardData)}>
-      <CardDisplay mode={props.mode} {...cardData} />
+      <Spacing bottom='LARGEST'>
+        <CardDisplay mode={props.mode} {...cardData} />
+      </Spacing>
 
       {isOfficial && (
         <Spacing bottom='LARGEST'>
