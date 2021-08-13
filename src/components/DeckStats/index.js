@@ -58,7 +58,7 @@ const getPlayableCards = (mana, cards) =>
 
 const getRaces = cards => [...new Set(cards.map(c => c.race).filter(Boolean))]
 
-export default function DeckStats(props) {
+export default React.memo(function DeckStats(props) {
   const { css } = useFela()
   const cards = props.deck.map(getResolvedCardData)
   const averageMana = getAverageManaCost(cards)
@@ -154,4 +154,4 @@ export default function DeckStats(props) {
       </Row>
     </Spacing>
   )
-}
+})

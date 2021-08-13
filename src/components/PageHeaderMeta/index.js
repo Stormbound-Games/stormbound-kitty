@@ -5,7 +5,7 @@ import Link from '../Link'
 import renderAuthorsLinks from '../../helpers/renderAuthorsLinks'
 import styles from './styles'
 
-const PageHeaderMeta = ({ action, authors, meta }) => {
+export default React.memo(function PageHeaderMeta({ action, authors, meta }) {
   const { css } = useFela()
 
   return (
@@ -56,6 +56,4 @@ const PageHeaderMeta = ({ action, authors, meta }) => {
         ))}
     </p>
   )
-}
-
-export default React.memo(PageHeaderMeta)
+})

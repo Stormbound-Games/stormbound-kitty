@@ -49,7 +49,7 @@ const getInitialCollectionData = () => {
   }
 }
 
-export default function CollectionProvider(props) {
+export default React.memo(function CollectionProvider(props) {
   // Since there is no server-side rendering, we can read from local storage
   // to populate the state with the correct value right away. This saves from
   // having to wait for the mount to update the data, leading to a flash of
@@ -103,9 +103,10 @@ export default function CollectionProvider(props) {
     )
   }
 
-  const indexedCollection = React.useMemo(() => indexArray(collection), [
-    collection,
-  ])
+  const indexedCollection = React.useMemo(
+    () => indexArray(collection),
+    [collection]
+  )
 
   return (
     <CollectionContext.Provider
@@ -120,4 +121,4 @@ export default function CollectionProvider(props) {
       {props.children}
     </CollectionContext.Provider>
   )
-}
+})

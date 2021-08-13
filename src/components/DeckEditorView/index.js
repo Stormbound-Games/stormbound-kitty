@@ -112,7 +112,7 @@ const getStoredTooltipsSetting = () => {
   }
 }
 
-const DeckEditorView = React.memo(function DeckEditorView(props) {
+export default React.memo(function DeckEditorView(props) {
   const { viewportWidth } = useViewportSize()
   const { deckId } = useRouteMatch().params
   const history = useHistory()
@@ -454,5 +454,3 @@ export const CollectionInfo = React.memo(function CollectionInfo(props) {
     </Info>
   )
 })
-
-export default DeckEditorView

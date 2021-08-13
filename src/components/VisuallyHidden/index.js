@@ -18,10 +18,11 @@ export const visuallyHidden = {
   width: '1px',
 }
 
-const VisuallyHidden = ({ as: Component = 'span', ...props }, ref) => {
+export default React.memo(function VisuallyHidden({
+  as: Component = 'span',
+  ...props
+}) {
   const { css } = useFela()
 
-  return <Component {...props} ref={ref} className={css(visuallyHidden)} />
-}
-
-export default React.memo(React.forwardRef(VisuallyHidden))
+  return <Component {...props} className={css(visuallyHidden)} />
+})

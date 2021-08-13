@@ -26,7 +26,7 @@ const useArticleProps = (id, mode, puzzle) =>
           : undefined,
       }
 
-const BattleSimPage = React.memo(function BattleSimPage(props) {
+export default React.memo(function BattleSimPage(props) {
   const { params } = useRouteMatch()
   const simId = props.simId || params.simId
   const puzzle = PUZZLES_INDEX[simId]
@@ -41,5 +41,3 @@ const BattleSimPage = React.memo(function BattleSimPage(props) {
     </Page>
   )
 })
-
-export default BattleSimPage

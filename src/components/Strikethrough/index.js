@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 
-const Strikethrough = props => {
+export default React.memo(function Strikethrough(props) {
   const { css } = useFela()
 
   return (
@@ -9,6 +9,4 @@ const Strikethrough = props => {
       {props.children}
     </s>
   )
-}
-
-export default React.memo(Strikethrough)
+})

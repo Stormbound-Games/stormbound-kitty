@@ -6,7 +6,7 @@ import Spacing from '../Spacing'
 import Title from '../Title'
 import styles from './styles'
 
-const HomeNews = props => {
+export default React.memo(function HomeNews(props) {
   const { css } = useFela()
 
   return (
@@ -21,6 +21,4 @@ const HomeNews = props => {
       </Spacing>
     </aside>
   )
-}
-
-export default React.memo(HomeNews)
+})

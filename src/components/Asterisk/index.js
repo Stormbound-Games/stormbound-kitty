@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 
-const Asterisk = props => {
+export default React.memo(function Asterisk(props) {
   const { css } = useFela()
 
   return (
@@ -15,6 +15,4 @@ const Asterisk = props => {
       *
     </span>
   )
-}
-
-export default React.memo(Asterisk)
+})

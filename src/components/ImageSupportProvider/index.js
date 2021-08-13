@@ -11,7 +11,7 @@ const getStoredSupport = format => {
   }
 }
 
-export default function ImageSupportProvider(props) {
+export default React.memo(function ImageSupportProvider(props) {
   const [webp, setWebp] = React.useState(getStoredSupport('webp'))
   const [avif, setAvif] = React.useState(getStoredSupport('avif'))
 
@@ -54,4 +54,4 @@ export default function ImageSupportProvider(props) {
       {props.children}
     </ImageSupportContext.Provider>
   )
-}
+})

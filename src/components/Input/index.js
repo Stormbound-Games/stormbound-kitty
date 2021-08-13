@@ -3,7 +3,12 @@ import { useFela } from 'react-fela'
 import VisuallyHidden from '../VisuallyHidden'
 import styles from './styles'
 
-const Input = ({ hideLabel, extend, label, ...props }, ref) => {
+export default React.memo(function Input({
+  hideLabel,
+  extend,
+  label,
+  ...props
+}) {
   const { css } = useFela()
   const name = props.name || props.id
 
@@ -23,10 +28,7 @@ const Input = ({ hideLabel, extend, label, ...props }, ref) => {
         {...props}
         name={name}
         className={css(styles.input, extend)}
-        ref={ref}
       />
     </>
   )
-}
-
-export default React.memo(React.forwardRef(Input))
+})

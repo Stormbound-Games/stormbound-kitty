@@ -2,7 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import useSpacing from '../../hooks/useSpacing'
 
-const Spacing = ({
+export default React.memo(function Spacing({
   as: Component = 'div',
   all,
   vertical,
@@ -13,7 +13,7 @@ const Spacing = ({
   left,
   isBlock,
   ...props
-}) => {
+}) {
   const { css } = useFela()
   const spacing = useSpacing({
     all,
@@ -33,6 +33,4 @@ const Spacing = ({
       {props.children}
     </Component>
   )
-}
-
-export default Spacing
+})

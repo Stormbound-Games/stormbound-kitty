@@ -5,19 +5,21 @@ import Link from '../Link'
 import Spacing from '../Spacing'
 import VisuallyHidden from '../VisuallyHidden'
 
-export const Footnote = props => (
-  <Link
-    href={'#' + props.id}
-    aria-describedby='footnotes'
-    id={`${props.id}-ref`}
-    extend={{ textDecoration: 'none' }}
-  >
-    {props.children}
-    <Asterisk />
-  </Link>
-)
+export const Footnote = React.memo(function Footnote(props) {
+  return (
+    <Link
+      href={'#' + props.id}
+      aria-describedby='footnotes'
+      id={`${props.id}-ref`}
+      extend={{ textDecoration: 'none' }}
+    >
+      {props.children}
+      <Asterisk />
+    </Link>
+  )
+})
 
-const Footnotes = props => {
+export default React.memo(function Footnotes(props) {
   const { css } = useFela()
 
   return (
@@ -30,6 +32,4 @@ const Footnotes = props => {
       </footer>
     </Spacing>
   )
-}
-
-export default React.memo(Footnotes)
+})

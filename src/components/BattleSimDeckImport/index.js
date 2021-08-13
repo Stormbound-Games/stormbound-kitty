@@ -1,6 +1,4 @@
 import React from 'react'
-import { useFela } from 'react-fela'
-import hookIntoProps from 'hook-into-props'
 import CTA from '../CTA'
 import Input from '../Input'
 import Deck from '../Deck'
@@ -122,6 +120,4 @@ class BattleSimDeckImport extends React.Component {
   }
 }
 
-export default hookIntoProps(props => ({
-  ...useFela(),
-}))(BattleSimDeckImport)
+export default BattleSimDeckImport

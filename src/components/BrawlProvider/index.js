@@ -23,7 +23,7 @@ const getInitialBrawlData = id => {
   }
 }
 
-export default function BrawlProvider(props) {
+export default React.memo(function BrawlProvider(props) {
   const STORAGE_KEY = 'sk.brawl.' + props.id
   const [brawls, setBrawls] = React.useState(getInitialBrawlData(props.id))
   const brawl = React.useMemo(() => brawls[brawls.length - 1] || {}, [brawls])
@@ -144,4 +144,4 @@ export default function BrawlProvider(props) {
       {props.children}
     </BrawlContext.Provider>
   )
-}
+})

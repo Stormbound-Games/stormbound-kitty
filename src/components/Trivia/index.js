@@ -89,7 +89,7 @@ const Failure = ({ answer }) => {
   )
 }
 
-const Trivia = () => {
+export default React.memo(function Trivia() {
   const { css } = useFela()
   const form = React.useRef()
   const [{ question, choices }, setQuestion] = React.useState(
@@ -221,6 +221,4 @@ const Trivia = () => {
       </Page.Narrow>
     </Page>
   )
-}
-
-export default Trivia
+})

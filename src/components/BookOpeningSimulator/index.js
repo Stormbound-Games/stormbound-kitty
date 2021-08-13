@@ -152,7 +152,7 @@ const CustomBookFields = ({
   )
 }
 
-const BookOpeningSimulator = props => {
+export default React.memo(function BookOpeningSimulator(props) {
   const { css } = useFela()
   const history = useHistory()
   const { params } = useRouteMatch()
@@ -314,6 +314,4 @@ const BookOpeningSimulator = props => {
       </Row>
     </Page>
   )
-}
-
-export default React.memo(BookOpeningSimulator)
+})

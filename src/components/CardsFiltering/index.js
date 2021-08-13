@@ -38,7 +38,7 @@ const normaliseText = name =>
     // Reduce multiple consecutive spaces into 1.
     .replace(/\s+/g, ' ')
 
-const CardsFiltering = React.memo(function CardsFiltering(props) {
+export default React.memo(function CardsFiltering(props) {
   const { viewportWidth } = useViewportSize()
   // All filters are within the same state object for convenience, otherwise we
   // would need a dozen of individual setters, which is pretty cumbersome.
@@ -297,5 +297,3 @@ const CardsFiltering = React.memo(function CardsFiltering(props) {
     cardsPerPage: viewportWidth < 850 ? 4 : viewportWidth < 1100 ? 6 : 8,
   })
 })
-
-export default CardsFiltering

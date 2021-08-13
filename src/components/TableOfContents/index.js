@@ -2,11 +2,11 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Spacing from '../Spacing'
 
-const TableOfContents = ({
+export default React.memo(function TableOfContents({
   spacing = { vertical: 'LARGE' },
   extend,
   ...props
-}) => {
+}) {
   const { css } = useFela()
   return (
     <Spacing {...spacing}>
@@ -23,6 +23,4 @@ const TableOfContents = ({
       />
     </Spacing>
   )
-}
-
-export default React.memo(TableOfContents)
+})

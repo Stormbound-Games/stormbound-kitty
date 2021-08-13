@@ -61,7 +61,7 @@ const CARD_ATTRIBUTES = {
   F8: 'May fill up your base line on turn one, restricting the cards you can play after',
 }
 
-export default function DryRunnerExplanation(props) {
+export default React.memo(function DryRunnerExplanation(props) {
   const { css } = useFela()
   const [expanded, setExpanded] = React.useState([])
 
@@ -118,4 +118,4 @@ export default function DryRunnerExplanation(props) {
       </ul>
     </>
   )
-}
+})

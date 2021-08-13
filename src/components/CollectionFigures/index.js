@@ -164,7 +164,7 @@ const useFortressDisplay = collection => {
     .join('')
 }
 
-export default function CollectionFigures(props) {
+export default React.memo(function CollectionFigures(props) {
   const { css } = useFela()
   const [expectedCardLevel, setExpectedCardLevel] = React.useState(5)
   const ownedCards = React.useMemo(
@@ -308,4 +308,4 @@ export default function CollectionFigures(props) {
       </Info>
     </>
   )
-}
+})

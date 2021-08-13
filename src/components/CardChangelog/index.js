@@ -17,7 +17,7 @@ import styles from './styles'
 
 const getCardName = id => getRawCardData(id).name
 
-export default function CardChangelog(props) {
+export default React.memo(function CardChangelog(props) {
   const { css } = useFela()
   const [sorting, setSorting] = React.useState('DATE')
   const [type, setType] = React.useState('*')
@@ -141,4 +141,4 @@ export default function CardChangelog(props) {
       </Page.Narrow>
     </Page>
   )
-}
+})
