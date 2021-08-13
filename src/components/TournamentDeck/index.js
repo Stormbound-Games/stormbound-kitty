@@ -79,12 +79,12 @@ export default React.memo(function TournamentDeck(props) {
         actions={[
           index > 0 && {
             icon: 'arrow-left',
-            'aria-label': 'Go to next deck',
+            label: 'Go to next deck',
             onClick: () => setIndex(index - 1),
           },
           index < decks.length - 1 && {
             icon: 'arrow-right',
-            'aria-label': 'Go to previous deck',
+            label: 'Go to previous deck',
             onClick: () => setIndex(index + 1),
           },
         ].filter(Boolean)}

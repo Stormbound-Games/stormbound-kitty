@@ -126,7 +126,7 @@ export default React.memo(function FeaturedDeck(props) {
               action['$$typeof'] ? (
                 <React.Fragment key={index}>{action}</React.Fragment>
               ) : (
-                <DiamondButton key={index} {...action} label={action} />
+                <DiamondButton key={index} {...action} />
               )
             )}
           </div>

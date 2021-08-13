@@ -25,7 +25,7 @@ export default React.memo(function YourDeck(props) {
       author={null}
       actions={[
         {
-          'aria-label': 'Edit deck',
+          label: 'Edit deck',
           onClick: () => props.onEdit(props.uuid),
           icon: 'pencil',
           'data-testid': 'edit-deck-btn',
