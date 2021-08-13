@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import CardSelect from '../CardSelect'
+import DiamondButton from '../DiamondButton'
 import Input from '../Input'
 import Only from '../Only'
 import generateId from '../../helpers/generateId'
@@ -11,7 +12,7 @@ export default React.memo(function ListBuilderTierHeader(props) {
 
   return (
     <header className={css(styles.header)}>
-      <div className={'ListBuilderTierHeader__item ' + css(styles.item)}>
+      <div className={css(styles.item)}>
         {props.isEditable ? (
           <Input
             label='Tier name'
@@ -28,7 +29,7 @@ export default React.memo(function ListBuilderTierHeader(props) {
         )}
       </div>
 
-      <div className={'ListBuilderTierHeader__item ' + css(styles.item)}>
+      <div className={css(styles.item)}>
         {props.isEditable ? (
           <>
             <CardSelect
@@ -47,28 +48,21 @@ export default React.memo(function ListBuilderTierHeader(props) {
 
       {props.isEditable && (
         <Only.Desktop>
-          <div className={'ListBuilderTierHeader__item ' + css(styles.item)}>
-            <button
-              type='button'
+          <div className={css(styles.item, styles.buttons)}>
+            <DiamondButton
               onClick={props.moveUp}
-              title='Move tier up'
-              aria-label='Move tier up'
-              className={css(styles.move)}
+              label='Move tier up'
               disabled={!props.isEditable || !props.canMoveUp}
-            >
-              ↑
-            </button>
-
-            <button
-              type='button'
+              icon='arrow-up'
+              extend={styles.move}
+            />
+            <DiamondButton
               onClick={props.moveDown}
-              title='Move tier down'
-              aria-label='Move tier down'
-              className={css(styles.move)}
+              label='Move tier down'
               disabled={!props.isEditable || !props.canMoveDown}
-            >
-              ↓
-            </button>
+              icon='arrow-down'
+              extend={styles.move}
+            />
           </div>
         </Only.Desktop>
       )}

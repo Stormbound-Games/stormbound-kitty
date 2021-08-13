@@ -28,22 +28,14 @@ const item = {
 }
 
 const move = {
-  padding: '0.55em',
-  backgroundColor: 'transparent',
-  border: '1px solid var(--dark-beige)',
-  color: 'var(--white)',
-  borderRadius: '0.25em',
-  height: '100%',
-  cursor: 'pointer',
+  display: 'inline-block',
+  ':last-child': { marginLeft: '1.5em' },
+}
 
-  ':disabled': {
-    opacity: 0.5,
-    cursor: 'not-allowed',
-  },
-
-  ':last-of-type': {
-    marginLeft: '0.5em',
-  },
+const buttons = {
+  display: 'flex',
+  marginBottom: '0.4em',
+  marginLeft: 'var(--s-smaller)',
 }
 
 export default {
@@ -51,4 +43,5 @@ export default {
   name,
   item,
   move,
+  buttons,
 }
