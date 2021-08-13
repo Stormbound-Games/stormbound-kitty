@@ -125,7 +125,7 @@ export default React.memo(function DeckSuggestionsFilters(props) {
             </Select>
           </Row.Column>
           <Row.Column extend={{ alignSelf: 'flex-end' }}>
-            <Spacing bottom='LARGE'>
+            <Spacing bottom={['LARGE', 'NONE']}>
               <CTA
                 disabled={
                   props.author === '*' &&
