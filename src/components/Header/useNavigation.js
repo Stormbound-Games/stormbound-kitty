@@ -19,7 +19,7 @@ export default () => {
           title: 'Stormbound-Kitty',
           icon: 'cat',
           items: [
-            { label: 'Kitty News', to: '/', id: 'HOME' },
+            { label: 'Kitty News', to: '/', id: 'NEWS' },
             { label: 'Frequently Asked Questions', to: '/faq', id: 'FAQ' },
             { label: 'About Kitty', to: '/about', id: 'ABOUT' },
           ],
