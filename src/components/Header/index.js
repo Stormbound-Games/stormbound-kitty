@@ -14,7 +14,7 @@ const SubNav = React.memo(function (props) {
 
   if (topActive === 'TOOLS' && midActive === 'CARD_BUILDER') {
     const NavCardBuilder = load('NavCardBuilder')
-    return <NavCardBuilder active={bottomActive} />
+    return <NavCardBuilder />
   }
 
   if (topActive === 'TOOLS' && midActive === 'DECK_BUILDER') {
