@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import ButtonIcon from '../ButtonIcon'
+import DiamondButton from '../DiamondButton'
 import Title from '../Title'
 import styles from './styles'
 
@@ -14,14 +14,15 @@ export default React.memo(function BattleSimPanel(props) {
       {props.children}
 
       {props.isMobile && props.isPanelOpen && (
-        <ButtonIcon
+        <DiamondButton
           extend={styles.boardButton({ side: props.side })}
           onClick={props.closePanel}
-          aria-label='Go to board'
+          label='Go to board'
           data-testid='panel-close-btn'
-        >
-          {props.side === 'left' ? '→' : '←'}
-        </ButtonIcon>
+          isActive
+          aria-pressed={false}
+          icon={props.side === 'left' ? 'arrow-right' : 'arrow-left'}
+        />
       )}
     </div>
   )

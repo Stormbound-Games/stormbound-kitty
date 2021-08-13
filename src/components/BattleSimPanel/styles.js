@@ -6,9 +6,9 @@ const panel = {
 
 const boardButton = ({ side }) => ({
   position: 'absolute',
-  top: '0.5em',
-  right: side === 'left' ? '0.5em' : undefined,
-  left: side === 'right' ? '0.5em' : undefined,
+  top: 'var(--s-large)',
+  right: side === 'left' ? 'var(--s-large)' : undefined,
+  left: side === 'right' ? 'var(--s-large)' : undefined,
 })
 
 export default { panel, boardButton }

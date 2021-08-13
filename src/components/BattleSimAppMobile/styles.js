@@ -36,9 +36,10 @@ const board = {
 
 const button = ({ side }) => ({
   position: 'absolute',
-  top: '0.5em',
-  right: side === 'RIGHT' ? '0.5em' : undefined,
-  left: side === 'LEFT' ? '0.5em' : undefined,
+  top: 'var(--s-base)',
+  right: side === 'RIGHT' ? 'var(--s-base)' : undefined,
+  left: side === 'LEFT' ? 'var(--s-base)' : undefined,
+  zIndex: 2,
 })
 
 export default {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { A11yDialog } from 'react-a11y-dialog'
-import ButtonIcon from '../ButtonIcon'
+import DiamondButton from '../DiamondButton'
 import CTA from '../CTA'
 import Image from '../Image'
 import Title from '../Title'
@@ -47,16 +47,18 @@ export default React.memo(function Dialog(props) {
         closeButton: css({ display: 'none' }, props.extend?.closeButton),
       }}
     >
-      <ButtonIcon
+      <DiamondButton
         type='button'
         onClick={props.close}
-        title='Close dialog'
-        aria-label='Close dialog'
+        label='Close dialog'
         extend={styles.button}
+        isActive
+        aria-pressed={undefined}
+        icon='cross'
         data-testid={`${props.id}-close`}
       >
         &times;
-      </ButtonIcon>
+      </DiamondButton>
 
       {hideHeader ? (
         <VisuallyHidden as='header'>

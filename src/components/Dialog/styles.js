@@ -74,7 +74,6 @@ const button = {
   top: 0,
   right: 0,
   transform: 'translate(50%, -50%)',
-  color: 'var(--dark-blue)',
 }
 
 const cta = {

@@ -17,7 +17,8 @@ const button = ({ isActive }) => ({
     position: 'absolute',
     width: '100%',
     height: '100%',
-    border: '1px solid var(--beige)',
+    border: '1px solid var(--black)',
+    boxShadow: '0 0 0 1px var(--beige)',
     transform: 'translate(-50%, -55%) rotate(45deg)',
     left: '50%',
     top: '50%',
@@ -26,8 +27,13 @@ const button = ({ isActive }) => ({
     backgroundColor: isActive ? 'var(--beige)' : undefined,
   },
 
-  ':hover': { color: 'var(--black)' },
-  ':hover::before': { backgroundColor: 'var(--beige)' },
+  ':hover': {
+    color: isActive ? 'var(--beige)' : 'var(--black)',
+  },
+
+  ':hover::before': {
+    backgroundColor: isActive ? 'var(--black)' : 'var(--beige)',
+  },
 })
 
 export default { button }

@@ -14,8 +14,8 @@ export default React.memo(function DiamondButton({
 
   return (
     <button
-      {...props}
       aria-pressed={isActive}
+      {...props}
       className={css(styles.button, extend)}
       title={label}
     >

@@ -3,7 +3,7 @@ import { useFela } from 'react-fela'
 import hookIntoProps from 'hook-into-props'
 import isEqual from 'lodash.isequal'
 import Board from '../BattleSimBoardMobile'
-import ButtonIcon from '../ButtonIcon'
+import DiamondButton from '../DiamondButton'
 import CardsForm from '../BattleSimCardsForm'
 import CellForm from '../BattleSimCellForm'
 import Deck from '../Deck'
@@ -225,30 +225,32 @@ class BattleSimAppMobile extends React.Component {
 
           {this.props.shouldRenderLeftPanel &&
             this.state.mode !== BattleSimAppMobile.MODES.SETTINGS && (
-              <ButtonIcon
+              <DiamondButton
                 extend={styles.button({ side: 'LEFT' })}
                 onClick={() =>
                   this.setState({ mode: BattleSimAppMobile.MODES.SETTINGS })
                 }
-                aria-label='Open settings panel'
+                label='Open settings panel'
                 data-testid='settings-panel-btn'
-              >
-                ←
-              </ButtonIcon>
+                isActive
+                aria-pressed={false}
+                icon='arrow-left'
+              />
             )}
 
           {shouldRenderRightPanel &&
             this.state.mode !== BattleSimAppMobile.MODES.CELL && (
-              <ButtonIcon
+              <DiamondButton
                 extend={styles.button({ side: 'RIGHT' })}
                 onClick={() =>
                   this.setState({ mode: BattleSimAppMobile.MODES.CELL })
                 }
-                aria-label='Open cell panel'
+                label='Open cell panel'
                 data-testid='cell-panel-btn'
-              >
-                →
-              </ButtonIcon>
+                isActive
+                aria-pressed={false}
+                icon='arrow-right'
+              />
             )}
         </div>
 
