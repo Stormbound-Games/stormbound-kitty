@@ -33,6 +33,7 @@ const newTab = {
   fontSize: '80%',
   marginLeft: '0.5ch',
   transform: 'translateY(10%)',
+  opacity: 0.75,
 }
 
 export default { link, newTab, buttonAsLink }
