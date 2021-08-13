@@ -68,7 +68,7 @@ export default React.memo(function BooksCalculator(props) {
       title='Books Calculator'
       description='Maximise the use of your resources and calculate the odds of finding a specific Stormbound card or fusion stones in a specific book'
     >
-      <Row desktopOnly wideGutter>
+      <Row isDesktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>What is this</Title>
           <p>

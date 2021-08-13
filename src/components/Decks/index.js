@@ -26,7 +26,7 @@ export default React.memo(function Decks(props) {
   return (
     <>
       {rows.map((row, rowIndex) => (
-        <Row desktopOnly key={rowIndex}>
+        <Row isDesktopOnly key={rowIndex}>
           {Array.from({ length: columns }, (_, index) => (
             <Row.Column
               key={index}

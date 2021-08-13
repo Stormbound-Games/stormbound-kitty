@@ -208,7 +208,7 @@ export default React.memo(function Trivia() {
             <label htmlFor='beartrap'>Do not fill you’re a human</label>
             <input type='text' name='beartrap' id='beartrap' />
           </div>
-          <Row desktopOnly>
+          <Row isDesktopOnly>
             <Row.Column>
               <Input label='Your question' id='question' required />
             </Row.Column>

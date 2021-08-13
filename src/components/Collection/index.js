@@ -106,7 +106,7 @@ class Collection extends React.Component {
           icon: 'arrow-right',
         }}
       >
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column width='1/3'>
             <Spacing bottom='LARGE'>
               <Title>What is this</Title>

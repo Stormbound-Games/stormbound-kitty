@@ -12,7 +12,7 @@ export default React.memo(function HomeSection(props) {
   return (
     <section className={css(styles.section, { '--color': props.color })}>
       <div className={css(styles.inner)}>
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column>
             {props.image && (
               <Only.Desktop>

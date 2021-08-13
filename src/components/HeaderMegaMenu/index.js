@@ -36,7 +36,7 @@ export default React.memo(function HeaderMegaMenu(props) {
       onMouseOver={props.onMouseOver}
       onMouseOut={props.onMouseOut}
     >
-      <Row desktopOnly>
+      <Row isDesktopOnly>
         {props.columns.map((column, index) => (
           <Row.Column width={`1/${props.columns.length}`} key={index}>
             <h2 className={css(styles.title)}>

@@ -216,7 +216,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
         </ul>
       </Page.Narrow>
       <Page.Embed>
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column width='1/3'>
             <Image
               src='/assets/images/releases/christmas_pack_1.png'
@@ -246,7 +246,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
 
         <Title id='ui-improvements'>UI improvements</Title>
 
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column>
             <Spacing top='LARGE'>
               <p>

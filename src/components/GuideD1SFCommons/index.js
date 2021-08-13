@@ -82,7 +82,7 @@ export default React.memo(function GuideD1SFCommons(props) {
       </p>
 
       <Guide.FullWidth>
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column>
             <FeaturedDeck
               id={DECK_ID}
@@ -117,7 +117,7 @@ export default React.memo(function GuideD1SFCommons(props) {
       </Guide.FullWidth>
 
       <Guide.FullWidth>
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column>
             <p>
               Looking at the mana curve graph, we can see that the first few

@@ -52,7 +52,7 @@ export default React.memo(function ChartMana(props) {
   return (
     <>
       <Title>Card Mana cost</Title>
-      <Row desktopOnly>
+      <Row isDesktopOnly>
         <Row.Column>
           <FactionSelect
             value={faction}

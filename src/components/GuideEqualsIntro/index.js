@@ -111,7 +111,7 @@ export default React.memo(function GuideEqualsIntro(props) {
       </Info>
 
       <Guide.FullWidth>
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column>
             <FeaturedDeck
               id='1xn1f3n6f7f9n25f12n60n69f21n46n68'
@@ -131,7 +131,7 @@ export default React.memo(function GuideEqualsIntro(props) {
             />
           </Row.Column>
         </Row>
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column>
             <FeaturedDeck
               id='1xn1i1n6i5n67i8i9i13i27n25i12n39'

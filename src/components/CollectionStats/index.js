@@ -225,9 +225,9 @@ export default React.memo(function CollectionStats(props) {
         children: 'Back to collection',
       }}
     >
-      <Row desktopOnly>
+      <Row isDesktopOnly>
         <Row.Column width='1/3'>
-          <Row desktopOnly>
+          <Row isDesktopOnly>
             <Row.Column>
               <Title>What is this</Title>
               <p>
@@ -248,14 +248,14 @@ export default React.memo(function CollectionStats(props) {
               </p>
             </Row.Column>
           </Row>
-          <Row desktopOnly>
+          <Row isDesktopOnly>
             <Row.Column>
               <CollectionFigures collection={collection} />
             </Row.Column>
           </Row>
         </Row.Column>
         <Row.Column width='2/3'>
-          <Row desktopOnly>
+          <Row isDesktopOnly>
             <Row.Column>
               <Spacing bottom='LARGER'>
                 <Title extend={styles.title}>Level repartition</Title>
@@ -317,7 +317,7 @@ export default React.memo(function CollectionStats(props) {
               </Spacing>
             </Row.Column>
           </Row>
-          <Row desktopOnly>
+          <Row isDesktopOnly>
             <Row.Column>
               <Spacing bottom='LARGER'>
                 <Title extend={styles.title}>Rarity (stones)</Title>
@@ -374,7 +374,7 @@ export default React.memo(function CollectionStats(props) {
             </Row.Column>
           </Row>
 
-          <Row desktopOnly>
+          <Row isDesktopOnly>
             <Row.Column>
               <Spacing bottom='LARGER'>
                 <Title extend={styles.title}>Card copies</Title>

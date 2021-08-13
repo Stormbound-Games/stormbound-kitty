@@ -61,7 +61,7 @@ export default React.memo(function FanKitBooks(props) {
       />
 
       {items.map((row, rowIndex) => (
-        <Row desktopOnly key={rowIndex}>
+        <Row isDesktopOnly key={rowIndex}>
           {Array.from({ length: columns }, (_, index) => (
             <Row.Column
               width={'1/' + columns}

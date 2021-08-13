@@ -29,7 +29,7 @@ export default React.memo(function GuideBroodmotherQordia(props) {
 
       <Title id='eggs'>It’s all in the eggs</Title>
 
-      <Row desktopOnly wideGutter>
+      <Row isDesktopOnly wideGutter>
         <Row.Column width='2/3'>
           <p>
             The main power and weakness of Qordia is her eggs. She lays 3 of

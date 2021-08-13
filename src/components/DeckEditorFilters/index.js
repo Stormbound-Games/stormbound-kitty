@@ -53,7 +53,7 @@ export default React.memo(function DeckEditorFilters(props) {
         onSubmit={event => event.preventDefault()}
       >
         <Spacing bottom='BASE'>
-          <Row desktopOnly spacing={{ bottom: 'NONE' }}>
+          <Row isDesktopOnly spacing={{ bottom: 'NONE' }}>
             <Row.Column spacing={{ bottom: 'NONE' }}>
               <Row>
                 <Row.Column>
@@ -122,7 +122,7 @@ export default React.memo(function DeckEditorFilters(props) {
             </Row.Column>
           </Row>
 
-          <Row desktopOnly spacing={{ bottom: 'NONE' }}>
+          <Row isDesktopOnly spacing={{ bottom: 'NONE' }}>
             <Row.Column spacing={{ bottom: 'NONE' }}>
               <Row>
                 <Row.Column>
@@ -202,7 +202,7 @@ export default React.memo(function DeckEditorFilters(props) {
             </Row.Column>
           </Row>
 
-          <Row desktopOnly spacing={{ bottom: 'NONE' }}>
+          <Row isDesktopOnly spacing={{ bottom: 'NONE' }}>
             <Row.Column spacing={{ bottom: 'NONE' }}>
               <Row>
                 <Row.Column>

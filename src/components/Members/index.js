@@ -84,7 +84,7 @@ export default React.memo(function Members(props) {
       title='Members'
       description='Find an index of all Stormbound-Kitty community members having contributed, one way or another, to the site with content'
     >
-      <Row desktopOnly wideGutter>
+      <Row isDesktopOnly wideGutter>
         <Row.Column width='1/3'>
           <p>
             Find on this page all contributing members to Stormbound-Kitty,
@@ -139,7 +139,7 @@ export default React.memo(function Members(props) {
         </Row.Column>
         <Row.Column width='2/3'>
           {rows.map(([a, b, c], index) => (
-            <Row desktopOnly key={index}>
+            <Row isDesktopOnly key={index}>
               <Row.Column width='1/3'>
                 {a && <MemberListEntry key={a.member} member={a.member} />}
               </Row.Column>

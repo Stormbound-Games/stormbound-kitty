@@ -151,7 +151,7 @@ export default React.memo(function IncomeCalculator(props) {
       title='Income Calculator'
       description='Compute how many resources you can get during a certain period of time to get most out of your resources.'
     >
-      <Row desktopOnly wideGutter>
+      <Row isDesktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>What is this</Title>
           <p>
@@ -189,7 +189,7 @@ export default React.memo(function IncomeCalculator(props) {
         </Row.Column>
         <Row.Column width='1/3'>
           <Title>Configuration</Title>
-          <Row desktopOnly>
+          <Row isDesktopOnly>
             <Row.Column>
               <Select
                 label='Game setup'
@@ -214,7 +214,7 @@ export default React.memo(function IncomeCalculator(props) {
               />
             </Row.Column>
           </Row>
-          <Row desktopOnly>
+          <Row isDesktopOnly>
             <Row.Column>
               <LeagueSelect
                 label='Monthly league'
@@ -239,7 +239,7 @@ export default React.memo(function IncomeCalculator(props) {
               </Select>
             </Row.Column>
           </Row>
-          <Row desktopOnly>
+          <Row isDesktopOnly>
             <Row.Column>
               <Select
                 label='Casual milestone'
@@ -271,7 +271,7 @@ export default React.memo(function IncomeCalculator(props) {
               </Select>
             </Row.Column>
           </Row>
-          <Row desktopOnly>
+          <Row isDesktopOnly>
             <Row.Column>
               <Select
                 label='Ultimate milestone'
@@ -298,7 +298,7 @@ export default React.memo(function IncomeCalculator(props) {
               />
             </Row.Column>
           </Row>
-          <Row desktopOnly>
+          <Row isDesktopOnly>
             <Row.Column>
               <Select
                 label='Heroes Position'

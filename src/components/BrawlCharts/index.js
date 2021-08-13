@@ -13,7 +13,7 @@ export default React.memo(function BrawlCharts(props) {
 
   return (
     <div data-testid='charts'>
-      <Row desktopOnly>
+      <Row isDesktopOnly>
         <Row.Column>
           <BrawlStatusChart />
         </Row.Column>

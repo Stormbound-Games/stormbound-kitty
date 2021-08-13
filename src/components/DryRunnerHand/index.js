@@ -9,7 +9,7 @@ export default React.memo(function DryRunnerHand(props) {
   const paddedHand = arrayPad(hand, 4, null, +1)
 
   return (
-    <Row data-testid='hand' desktopOnly spacing={{ bottom: 'LARGEST' }}>
+    <Row data-testid='hand' isDesktopOnly spacing={{ bottom: 'LARGEST' }}>
       {chunk(paddedHand, 2).map(([cardA, cardB], index) => (
         <Row.Column key={cardA ? cardA.id + '_' + cardA.idx : index}>
           <Row>

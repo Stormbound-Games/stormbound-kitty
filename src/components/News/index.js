@@ -56,7 +56,7 @@ export default React.memo(function News(props) {
       </ul>
 
       <Spacing top='BASE'>
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column align='center'>
             <CTA
               type='button'

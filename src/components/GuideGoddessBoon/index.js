@@ -59,7 +59,7 @@ export default React.memo(function GuideGoddessBoon(props) {
       <Title>Possible Decks</Title>
 
       <Guide.FullWidth>
-        <Row desktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
+        <Row isDesktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
             <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               Frostkhan’s Goddess Boon
@@ -87,7 +87,7 @@ export default React.memo(function GuideGoddessBoon(props) {
             />
           </Row.Column>
         </Row>
-        <Row desktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
+        <Row isDesktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
             <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               CriticalPancake’s Frost Deck
@@ -119,7 +119,7 @@ export default React.memo(function GuideGoddessBoon(props) {
             />
           </Row.Column>
         </Row>
-        <Row desktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
+        <Row isDesktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
             <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               Adig’s Frosty Feline Dwarf

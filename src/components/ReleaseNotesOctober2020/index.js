@@ -66,7 +66,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
       </Page.Embed>
 
       <Page.Narrow>
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column>
             <Image
               src='/assets/images/releases/slyboots_pack.png'
@@ -194,7 +194,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
         </p>
       </Page.Narrow>
 
-      <Row desktopOnly wideGutter>
+      <Row isDesktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Image
             src='/assets/images/releases/friendly_matches_2.png'
@@ -226,7 +226,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
       <Page.Narrow>
         <Title id='social-panel'>Social panel</Title>
 
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column>
             <p>
               The “social panel” has been hyped a few times on Discord over the
@@ -261,7 +261,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
 
         <Title id='vanishing-packs'>Vanishing Packs</Title>
 
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column>
             <Image
               src='/assets/images/releases/vanishing_packs.png'

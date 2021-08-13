@@ -33,7 +33,7 @@ export default React.memo(function GuideDrawing(props) {
       </p>
 
       <Guide.FullWidth>
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column>
             <Row>
               <Row.Column>
@@ -264,7 +264,7 @@ export default React.memo(function GuideDrawing(props) {
       </p>
 
       <Guide.FullWidth>
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column>
             <Row>
               <Row.Column>

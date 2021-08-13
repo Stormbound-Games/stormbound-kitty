@@ -12,7 +12,7 @@ export default React.memo(function AdvancedCardSearch(props) {
 
   return (
     <form onSubmit={props.onSubmit}>
-      <Row desktopOnly>
+      <Row isDesktopOnly>
         <Row.Column width='3/4'>
           <Input
             label={

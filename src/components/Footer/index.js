@@ -12,7 +12,7 @@ export default React.memo(function Footer(props) {
   return (
     <footer className={css(styles.footer)} role='contentinfo'>
       <div className={css(styles.inner)}>
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column>
             <span className={css(styles.heading)}>
               Dedicated to the community
@@ -37,7 +37,7 @@ export default React.memo(function Footer(props) {
           </Row.Column>
           <Only.Desktop>
             <Row.Column>
-              <Row desktopOnly>
+              <Row isDesktopOnly>
                 <Row.Column width='1/3'>
                   <span className={css(styles.heading)}>Stormbound</span>
                   <ul className={css(styles.list)}>

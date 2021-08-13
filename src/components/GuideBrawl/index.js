@@ -195,7 +195,7 @@ export default React.memo(function GuideBrawl(props) {
 
       <Title id='what-are-victory-bonuses'>What are victory bonuses?</Title>
 
-      <Row desktopOnly>
+      <Row isDesktopOnly>
         <Row.Column>
           <p>
             The idea is that after{' '}

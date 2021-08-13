@@ -71,7 +71,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
       <Title>Possible Decks</Title>
 
       <Guide.FullWidth>
-        <Row desktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
+        <Row isDesktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
             <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               CriticalPancake’s Die Die Die
@@ -101,7 +101,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
             />
           </Row.Column>
         </Row>
-        <Row desktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
+        <Row isDesktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
             <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               OneC’s Toad Spam
@@ -128,7 +128,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
             />
           </Row.Column>
         </Row>
-        <Row desktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
+        <Row isDesktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
             <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               Frostkhan’s Eye of the Tempest

@@ -50,7 +50,7 @@ export default React.memo(function CardsStats() {
           </Info>
         </Only.CustomCollection>
 
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
               <ChartType />
@@ -62,7 +62,7 @@ export default React.memo(function CardsStats() {
             </Spacing>
           </Row.Column>
         </Row>
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
               <ChartMovement />
@@ -74,7 +74,7 @@ export default React.memo(function CardsStats() {
             </Spacing>
           </Row.Column>
         </Row>
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
               <ChartModifier />
@@ -82,21 +82,21 @@ export default React.memo(function CardsStats() {
           </Row.Column>
           <Row.Column />
         </Row>
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
               <ChartMana />
             </Spacing>
           </Row.Column>
         </Row>
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
               <ChartStrength />
             </Spacing>
           </Row.Column>
         </Row>
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
               <ChartStrengthMana />

@@ -133,7 +133,7 @@ export default React.memo(function DeckCollection(props) {
         icon: 'arrow-right',
       }}
     >
-      <Row desktopOnly wideGutter>
+      <Row isDesktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>What is this</Title>
           <p>

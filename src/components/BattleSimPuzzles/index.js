@@ -61,7 +61,7 @@ class BattleSimPuzzles extends React.Component {
         title='Puzzles'
         description='Test your skills and resolve interesting and creative puzzles made by the Stormbound community'
       >
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column width='1/3'>
             <Title>Filters</Title>
             <PuzzlesFilters {...this.state} updateFilter={this.updateFilter} />

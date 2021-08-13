@@ -35,7 +35,7 @@ export default React.memo(function DryRunnerHeader(props) {
 
   return (
     <Spacing bottom='LARGER'>
-      <Row desktopOnly>
+      <Row isDesktopOnly>
         <Row.Column width='1/3' align='center'>
           <ResetButton
             label='Reset game'

@@ -117,7 +117,7 @@ export default React.memo(function ValueCalculator(props) {
       title='Value Calculator'
       description='Find an experimental and simplified card value calculator helping determine the numeric value of a given card based on its properties'
     >
-      <Row desktopOnly wideGutter>
+      <Row isDesktopOnly wideGutter>
         <Row.Column width='1/3'>
           <Title>What is this</Title>
           <p>
@@ -217,7 +217,7 @@ export default React.memo(function ValueCalculator(props) {
           )}
         </Row.Column>
       </Row>
-      <Row desktopOnly>
+      <Row isDesktopOnly>
         <Row.Column width='1/3'></Row.Column>
         <Row.Column width='2/3'>
           <p className={css(styles.hint)}>

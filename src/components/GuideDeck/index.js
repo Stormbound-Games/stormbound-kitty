@@ -89,7 +89,7 @@ export default React.memo(function GuideDeck(props) {
       </p>
 
       <Guide.FullWidth>
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column>
             <Row>
               <Row.Column>
@@ -195,7 +195,7 @@ export default React.memo(function GuideDeck(props) {
       </p>
 
       <Guide.FullWidth>
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column>
             <Row>
               <Row.Column>
@@ -217,7 +217,7 @@ export default React.memo(function GuideDeck(props) {
             </Row>
           </Row.Column>
         </Row>
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column>
             <Row>
               <Row.Column>

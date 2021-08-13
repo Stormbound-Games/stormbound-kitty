@@ -143,7 +143,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
       </Page.Narrow>
 
       <Page.Embed>
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column>
             <Image
               src='/assets/images/releases/flameless_lizards_pack.png'
@@ -159,7 +159,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         </Row>
         <Title id='new-books'>New books</Title>
 
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column width='1/5'>
             <Image
               src='/assets/images/books/book-pirate.png'
@@ -436,7 +436,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
 
         <Title id='ui-improvements'>UI improvements</Title>
 
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column>
             <Image
               src='/assets/images/releases/add_a_friend.png'

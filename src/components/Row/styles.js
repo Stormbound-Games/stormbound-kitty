@@ -1,4 +1,4 @@
-const row = ({ isDesktop, isWide }) => ({
+const row = ({ isDesktopOnly, isWide }) => ({
   display: 'flex',
   marginLeft: isWide ? '-1.25em' : '-0.5em',
   marginRight: isWide ? '-1.25em' : '-0.5em',
@@ -6,7 +6,7 @@ const row = ({ isDesktop, isWide }) => ({
   /**
    * 1. If the row is “desktop only”, it should be treated as a column on mobile.
    */
-  small: isDesktop
+  small: isDesktopOnly
     ? {
         flexDirection: 'column' /* 1 */,
         marginLeft: 0,

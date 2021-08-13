@@ -24,7 +24,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
         children: 'Edit list',
       }}
     >
-      <Row wideGutter desktopOnly>
+      <Row wideGutter isDesktopOnly>
         <Row.Column width='1/3'>
           <Title>Information</Title>
 

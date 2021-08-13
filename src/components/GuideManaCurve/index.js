@@ -104,7 +104,7 @@ export default React.memo(function GuideManaCurve(props) {
       <Title id='anatomy-of-the-graph'>Anatomy of the graph</Title>
 
       <Guide.FullWidth>
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column>
             <Graph id='5xn1n2i1n3n6i5n13i7n18i13i20n39' />{' '}
           </Row.Column>
@@ -170,7 +170,7 @@ export default React.memo(function GuideManaCurve(props) {
       </p>
 
       <Guide.FullWidth>
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column>
             <p>
               In the graph <Only.Desktop>on the right</Only.Desktop>
@@ -196,7 +196,7 @@ export default React.memo(function GuideManaCurve(props) {
       </Guide.FullWidth>
 
       <Guide.FullWidth>
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column>
             <Graph id='1xf2n62n19f24n21n22n41n25n69n44n72n54' />
           </Row.Column>
@@ -247,7 +247,7 @@ export default React.memo(function GuideManaCurve(props) {
       </p>
 
       <Guide.FullWidth>
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column>
             <p>
               In the graph <Only.Desktop>on the right</Only.Desktop>
@@ -273,7 +273,7 @@ export default React.memo(function GuideManaCurve(props) {
       </Guide.FullWidth>
 
       <Guide.FullWidth>
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column>
             <Graph id='5xn1n2w2n3n4n14n18w13w16w15w19n58' />
           </Row.Column>
@@ -321,7 +321,7 @@ export default React.memo(function GuideManaCurve(props) {
       </p>
 
       <Guide.FullWidth>
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column>
             <Graph
               id='1xn3n4n5n11n12n13n16n28n30n32n34n52'
@@ -395,7 +395,7 @@ export default React.memo(function GuideManaCurve(props) {
       </p>
 
       <Guide.FullWidth>
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column>
             <Graph
               id='5xn1n2n23n14w5n18n29n44n48w19w21w23'
@@ -424,7 +424,7 @@ export default React.memo(function GuideManaCurve(props) {
       </Guide.FullWidth>
 
       <Guide.FullWidth>
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column>
             <p>
               In the graph <Only.Desktop>on the right</Only.Desktop>

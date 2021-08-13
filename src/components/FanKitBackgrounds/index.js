@@ -90,7 +90,7 @@ export default React.memo(function FanKitBackgrounds(props) {
       />
 
       {chunk(desktopBackgrounds, 2).map((row, index) => (
-        <Row desktopOnly key={index}>
+        <Row isDesktopOnly key={index}>
           <Row.Column>
             {row[0] && (
               <FanKitItem {...row[0]} setActive={setActive} withAvif />

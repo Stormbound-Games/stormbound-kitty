@@ -19,7 +19,7 @@ export default React.memo(function YourDecks(props) {
   return (
     <>
       {rows.map((row, index) => (
-        <Row desktopOnly key={index}>
+        <Row isDesktopOnly key={index}>
           <Row.Column>
             <YourDeck
               {...row[0]}
@@ -52,7 +52,7 @@ export default React.memo(function YourDecks(props) {
       ))}
 
       {props.decks.length % 2 === 0 && (
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column>
             <NewDeck
               editedDeckUUID={props.editedDeckUUID}

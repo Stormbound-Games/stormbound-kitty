@@ -181,7 +181,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
         </p>
 
         <Guide.FullWidth>
-          <Row desktopOnly wideGutter>
+          <Row isDesktopOnly wideGutter>
             <Row.Column width='1/3'>
               <Image
                 src='/assets/images/releases/pack_sheepyard.png'
@@ -271,7 +271,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           July in the form of Brawl winning bonuses.
         </p>
 
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column>
             <p>
               The idea is that after{' '}
@@ -549,7 +549,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
 
         <Title id='daily-check-in-redeeming'>Daily check-in redeeming</Title>
 
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column>
             <p>
               We are introducing a way to redeem some skipped days from the

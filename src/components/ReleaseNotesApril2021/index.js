@@ -104,7 +104,7 @@ export default React.memo(function ReleaseNotesApril2021(props) {
       </Page.Embed>
 
       <Page.Narrow>
-        <Row desktopOnly extend={{ alignItems: 'center' }}>
+        <Row isDesktopOnly extend={{ alignItems: 'center' }}>
           <Row.Column>
             <Image
               src='/assets/images/releases/pack_temple_of_life.png'
@@ -228,7 +228,7 @@ export default React.memo(function ReleaseNotesApril2021(props) {
       </Page.Narrow>
 
       <Page.Embed>
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column width='1/3'>
             <Image
               src='/assets/images/releases/easter_pack_1.png'

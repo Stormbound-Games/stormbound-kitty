@@ -179,7 +179,7 @@ class ListBuilderEditorView extends React.Component {
           }
         }
       >
-        <Row wideGutter desktopOnly>
+        <Row wideGutter isDesktopOnly>
           <Row.Column width='1/3'>
             <Title>Settings</Title>
 

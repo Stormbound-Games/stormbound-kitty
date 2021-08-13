@@ -60,7 +60,7 @@ export default React.memo(function FanKitWallpapers(props) {
       />
 
       {chunk(desktopWallpapers, 2).map((row, index) => (
-        <Row desktopOnly key={index}>
+        <Row isDesktopOnly key={index}>
           <Row.Column>
             {row[0] && (
               <FanKitItem {...row[0]} setActive={setActive} withAvif />
@@ -75,7 +75,7 @@ export default React.memo(function FanKitWallpapers(props) {
       ))}
 
       {chunk(mobileWallpapers, 3).map((row, index) => (
-        <Row desktopOnly key={index}>
+        <Row isDesktopOnly key={index}>
           <Row.Column width='1/3'>
             {row[0] && (
               <FanKitItem {...row[0]} setActive={setActive} withAvif />

@@ -180,7 +180,7 @@ export default React.memo(function BattleSimCellForm(props) {
       <fieldset>
         <legend>Statuses</legend>
         <Spacing bottom='BASE'>
-          <Row desktopOnly>
+          <Row isDesktopOnly>
             <Row.Column width='1/3'>
               <Checkbox
                 id='poisoned'
@@ -221,7 +221,7 @@ export default React.memo(function BattleSimCellForm(props) {
               </Checkbox>
             </Row.Column>
           </Row>
-          <Row desktopOnly extend={{ marginTop: '-1em' }}>
+          <Row isDesktopOnly extend={{ marginTop: '-1em' }}>
             <Row.Column width='1/3'>
               <Checkbox
                 id='confused'

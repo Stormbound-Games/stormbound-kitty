@@ -8,7 +8,7 @@ export default React.memo(function DryRunnerActions(props) {
 
   return (
     <Spacing top='LARGER'>
-      <Row desktopOnly>
+      <Row isDesktopOnly>
         <Row.Column align='center'>
           <CTA
             type='button'

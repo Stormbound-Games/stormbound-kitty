@@ -155,7 +155,7 @@ class DeckSuggestions extends React.Component {
           icon: 'arrow-right',
         }}
       >
-        <Row desktopOnly wideGutter>
+        <Row isDesktopOnly wideGutter>
           <Row.Column width='1/3'>
             <Title>Filters</Title>
 

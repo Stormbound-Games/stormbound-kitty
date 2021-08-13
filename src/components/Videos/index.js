@@ -135,12 +135,12 @@ export default React.memo(function Videos(props) {
       isEditorialContent
     >
       {chunk(VIDEOS, 2).map((row, index) => (
-        <Row key={index} desktopOnly wideGutter>
+        <Row key={index} isDesktopOnly wideGutter>
           {row.map((video, index, array) => (
             <React.Fragment key={video.author}>
               <Row.Column>
                 <Spacing bottom='LARGER'>
-                  <Row desktopOnly wideGutter>
+                  <Row isDesktopOnly wideGutter>
                     <Row.Column width='1/3' extend={styles.column}>
                       <Image
                         src={video.thumbnail}

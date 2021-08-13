@@ -54,7 +54,7 @@ export default React.memo(function ChartStrengthMana(props) {
   return (
     <>
       <Title>Strength to mana ratio</Title>
-      <Row desktopOnly>
+      <Row isDesktopOnly>
         <Row.Column>
           <FactionSelect
             value={faction}

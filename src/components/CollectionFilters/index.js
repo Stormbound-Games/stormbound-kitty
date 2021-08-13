@@ -51,7 +51,7 @@ export default React.memo(function CollectionFilters(props) {
     >
       <Spacing bottom='BASE'>
         <form onSubmit={event => event.preventDefault()}>
-          <Row desktopOnly spacing={{ bottom: 'NONE' }}>
+          <Row isDesktopOnly spacing={{ bottom: 'NONE' }}>
             <Row.Column spacing={{ bottom: 'NONE' }}>
               <Row>
                 <Row.Column>
@@ -117,7 +117,7 @@ export default React.memo(function CollectionFilters(props) {
             </Row.Column>
           </Row>
 
-          <Row desktopOnly spacing={{ bottom: 'NONE' }}>
+          <Row isDesktopOnly spacing={{ bottom: 'NONE' }}>
             <Row.Column spacing={{ bottom: 'NONE' }}>
               <Row>
                 <Row.Column>
@@ -186,7 +186,7 @@ export default React.memo(function CollectionFilters(props) {
             </Row.Column>
           </Row>
 
-          <Row desktopOnly spacing={{ bottom: 'NONE' }}>
+          <Row isDesktopOnly spacing={{ bottom: 'NONE' }}>
             <Row.Column spacing={{ bottom: 'NONE' }}>
               <Row>
                 <Row.Column>

@@ -55,7 +55,7 @@ export default React.memo(function ChartStrength(props) {
   return (
     <>
       <Title>Unit &amp; structure Strength</Title>
-      <Row desktopOnly>
+      <Row isDesktopOnly>
         <Row.Column>
           <FactionSelect
             value={faction}

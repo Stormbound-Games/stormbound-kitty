@@ -27,7 +27,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
       <Only.Desktop>
         <Spacing bottom='LARGE'>
           <Row
-            desktopOnly
+            isDesktopOnly
             wideGutter={
               // If rendering a card from the collection, use a wider gutter than
               // normal as the green highlight for available levels takes some

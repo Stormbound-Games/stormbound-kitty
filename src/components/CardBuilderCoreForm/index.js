@@ -154,7 +154,7 @@ export default React.memo(function CardBuilderCardForm(props) {
             />
           </Row.Column>
         </Row>
-        <Row desktopOnly>
+        <Row isDesktopOnly>
           <Row.Column>
             <fieldset>
               <legend>Unit-specific modifiers</legend>
