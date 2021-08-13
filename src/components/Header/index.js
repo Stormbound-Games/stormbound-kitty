@@ -2,7 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import { useLocation } from 'react-router-dom'
 import HeaderMegaMenu from '../HeaderMegaMenu'
-import NavLink from '../NavLink'
+import Link from '../Link'
 import NewPulse from '../NewPulse'
 import Icon from '../Icon'
 import load from '../../helpers/load'
@@ -42,25 +42,26 @@ export default React.memo(function Header(props) {
             <React.Fragment key={item.label}>
               <li className={css(styles.item)}>
                 {item.to ? (
-                  <NavLink isActive={topActive === item.id} to={item.to}>
+                  <Link
+                    isActive={topActive === item.id}
+                    to={item.to}
+                    extend={styles.action({ isActive: topActive === item.id })}
+                  >
                     <Icon icon={item.icon} extend={styles.icon} /> {item.label}
-                  </NavLink>
+                  </Link>
                 ) : (
-                  <button
-                    type='button'
+                  <Link
                     aria-expanded={open === item.id}
                     onClick={() => setOpen(open === item.id ? null : item.id)}
                     onMouseOver={() => setOpen(item.id)}
                     onMouseOut={() => setOpen(null)}
-                    className={css(
-                      styles.action({
-                        isActive: topActive === item.id,
-                        isOpen: open === item.id,
-                      })
-                    )}
+                    extend={styles.action({
+                      isActive: topActive === item.id,
+                      isOpen: open === item.id,
+                    })}
                   >
                     <Icon icon={item.icon} extend={styles.icon} /> {item.label}
-                  </button>
+                  </Link>
                 )}
                 {item.items.length > 0 ? (
                   <HeaderMegaMenu
@@ -79,13 +80,14 @@ export default React.memo(function Header(props) {
             </React.Fragment>
           ))}
           <li className={css(styles.item({ isRight: true }))}>
-            <NavLink
+            <Link
               disabled={!props.isSearchReady}
               onClick={props.openSearch}
               isActive={topActive === 'SEARCH'}
+              extend={styles.action({ isActive: props.isSearchOpen })}
             >
               <Icon extend={styles.icon} icon='search' /> Search
-            </NavLink>
+            </Link>
           </li>
         </ul>
       </nav>

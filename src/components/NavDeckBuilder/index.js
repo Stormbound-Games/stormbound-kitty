@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { useRouteMatch } from 'react-router-dom'
-import NavLink from '../NavLink'
+import Link from '../Link'
 import serialisation from '../../helpers/serialisation'
 import styles from '../Header/styles'
 
@@ -19,23 +19,27 @@ export default React.memo(function NavDeckBuilder(props) {
     <nav className={css(styles.nav({ isSubNav: true }))}>
       <ul className={css(styles.list)}>
         <li className={css(styles.item)}>
-          <NavLink
+          <Link
             to={id ? `/deck/${id}` : '/deck'}
-            isActive={props.active === 'EDITOR'}
-            isWithinSubList
+            extend={styles.action({
+              isActive: props.active === 'EDITOR',
+              isWithinSubList: true,
+            })}
           >
             Editor
-          </NavLink>
+          </Link>
         </li>
         <li className={css(styles.item)}>
           {hasBigEnoughDeck ? (
-            <NavLink
+            <Link
               to={`/deck/${id}/detail`}
-              isActive={props.active === 'DETAIL'}
-              isWithinSubList
+              extend={styles.action({
+                isActive: props.active === 'DETAIL',
+                isWithinSubList: true,
+              })}
             >
               Insights
-            </NavLink>
+            </Link>
           ) : (
             <span
               className={css(
@@ -49,13 +53,15 @@ export default React.memo(function NavDeckBuilder(props) {
         </li>
         <li className={css(styles.item)}>
           {hasBigEnoughDeck ? (
-            <NavLink
+            <Link
               to={`/deck/${id}/dry-run`}
-              isActive={props.active === 'DRY_RUN'}
-              isWithinSubList
+              extend={styles.action({
+                isActive: props.active === 'DRY_RUN',
+                isWithinSubList: true,
+              })}
             >
               Practice
-            </NavLink>
+            </Link>
           ) : (
             <span
               className={css(
