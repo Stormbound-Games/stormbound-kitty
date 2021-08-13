@@ -37,6 +37,7 @@ const PageHeaderMeta = ({ action, authors, meta }) => {
             href={action.href}
             inNewTab={!!action.href}
             extend={styles.action}
+            hideNewTabIndicator
           >
             {action.to && action.icon !== 'arrow-right' && (
               <Icon

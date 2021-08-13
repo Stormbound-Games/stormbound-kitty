@@ -21,7 +21,7 @@ const Link = ({ inNewTab, extend, ...props }, ref) => {
         rel={shouldUseNewTab ? 'noopener noreferrer' : undefined}
       >
         {props.children}
-        {shouldUseNewTab && (
+        {shouldUseNewTab && !props.hideNewTabIndicator && (
           <Icon icon='arrow-top-right' extend={styles.newTab} />
         )}
       </a>
