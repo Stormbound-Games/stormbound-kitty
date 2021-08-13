@@ -5,13 +5,13 @@ import useSpacing from '../../hooks/useSpacing'
 import styles from './styles'
 
 const RowContext = React.createContext({
-  wideGutter: false,
+  withWideGutter: false,
   isDesktopOnly: false,
 })
 
 const Row = React.memo(function Row(props) {
   const { css } = useFela({
-    isWide: props.wideGutter,
+    withWideGutter: props.withWideGutter,
     isDesktopOnly: props.isDesktopOnly,
   })
   const margin = useSpacing(props.spacing || { bottom: 'BASE' })
@@ -23,7 +23,7 @@ const Row = React.memo(function Row(props) {
     >
       <RowContext.Provider
         value={{
-          wideGutter: props.wideGutter,
+          withWideGutter: props.withWideGutter,
           isDesktopOnly: props.isDesktopOnly,
         }}
       >
@@ -34,10 +34,10 @@ const Row = React.memo(function Row(props) {
 })
 
 Row.Column = React.memo(function Column(props) {
-  const { wideGutter, isDesktopOnly } = React.useContext(RowContext)
+  const { withWideGutter, isDesktopOnly } = React.useContext(RowContext)
   const [spread, columns] = (props.width || '1/2').split('/').map(Number)
   const { css } = useFela({
-    isWide: wideGutter,
+    withWideGutter: withWideGutter,
     isDesktopOnly: isDesktopOnly,
     align: props.align,
   })
@@ -50,7 +50,9 @@ Row.Column = React.memo(function Column(props) {
       className={css(styles.column, margin, props.extend)}
       style={{ '--columns': columns, '--spread': spread }}
     >
-      <RowContext.Provider value={{ wideGutter: false, isDesktopOnly: false }}>
+      <RowContext.Provider
+        value={{ withWideGutter: false, isDesktopOnly: false }}
+      >
         {props.children}
       </RowContext.Provider>
     </div>

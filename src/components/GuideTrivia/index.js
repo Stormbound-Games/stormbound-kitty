@@ -229,7 +229,7 @@ export default React.memo(function GuideWinter(props) {
       </p>
 
       <Guide.FullWidth>
-        <Row isDesktopOnly wideGutter>
+        <Row isDesktopOnly withWideGutter>
           <Row.Column>
             <p>
               To do so, they used some in-game graphics as a scale, such as the
@@ -261,7 +261,7 @@ export default React.memo(function GuideWinter(props) {
         </Row>
       </Guide.FullWidth>
 
-      <Row isDesktopOnly wideGutter>
+      <Row isDesktopOnly withWideGutter>
         <Row.Column>
           <Image
             src='/assets/images/guides/toad_fall.gif'

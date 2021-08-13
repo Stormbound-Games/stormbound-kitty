@@ -45,7 +45,7 @@ export default React.memo(function Member(props) {
       }
       isEditorialContent
     >
-      <Row isDesktopOnly wideGutter>
+      <Row isDesktopOnly withWideGutter>
         <Row.Column width='1/3'>
           <p>
             <span className='Highlight'>{displayName}</span> is a member of the

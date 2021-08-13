@@ -151,7 +151,7 @@ export default React.memo(function IncomeCalculator(props) {
       title='Income Calculator'
       description='Compute how many resources you can get during a certain period of time to get most out of your resources.'
     >
-      <Row isDesktopOnly wideGutter>
+      <Row isDesktopOnly withWideGutter>
         <Row.Column width='1/3'>
           <Title>What is this</Title>
           <p>

@@ -111,7 +111,7 @@ class BattleSimAppDesktop extends React.Component {
 
         {this.props.mode === 'EDITOR' && (
           <Spacing top='LARGEST'>
-            <Row wideGutter>
+            <Row withWideGutter>
               <Row.Column width='1/3'>
                 <Title>Game settings</Title>
                 <GameForm {...this.props} />

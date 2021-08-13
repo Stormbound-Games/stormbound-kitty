@@ -38,7 +38,7 @@ export default React.memo(function FanKit(props) {
       description='Find all the cards assets from Stormbound used on Stormbound-Kitty, courtesy of Sheepyard'
       action={{ to: '/fan-kit', children: 'Back to fan-kit' }}
     >
-      <Row isDesktopOnly wideGutter>
+      <Row isDesktopOnly withWideGutter>
         <Row.Column width='1/4' />
         <Row.Column>
           <CardSelect

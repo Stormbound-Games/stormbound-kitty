@@ -73,7 +73,7 @@ export default React.memo(function KnownBugs(props) {
         </Info>
 
         <Title id='displayed-debug-view'>Displayed debug view</Title>
-        <Row wideGutter isDesktopOnly>
+        <Row withWideGutter isDesktopOnly>
           <Row.Column>
             <Image
               src='/assets/images/guides/brawl_debug_view.jpg'
@@ -118,7 +118,7 @@ export default React.memo(function KnownBugs(props) {
         </Row>
 
         <Title id='double-animations'>Double animations</Title>
-        <Row wideGutter isDesktopOnly>
+        <Row withWideGutter isDesktopOnly>
           <Row.Column>
             <div>
               <h3>Problem</h3>
@@ -159,7 +159,7 @@ export default React.memo(function KnownBugs(props) {
         </Row>
 
         <Title id='missing-resources'>Missing resources</Title>
-        <Row wideGutter isDesktopOnly>
+        <Row withWideGutter isDesktopOnly>
           <Row.Column>
             <Image
               src='/assets/images/guides/fusion_stone_reward.jpeg'
@@ -199,7 +199,7 @@ export default React.memo(function KnownBugs(props) {
         </Row>
 
         <Title id='three-cards-in-hand'>Three-cards in hand</Title>
-        <Row wideGutter isDesktopOnly>
+        <Row withWideGutter isDesktopOnly>
           <Row.Column>
             <div>
               <h3>Problem</h3>
@@ -238,7 +238,7 @@ export default React.memo(function KnownBugs(props) {
         </Row>
 
         <Title id='misplaced-game-invite'>Misplaced game invite</Title>
-        <Row wideGutter isDesktopOnly>
+        <Row withWideGutter isDesktopOnly>
           <Row.Column>
             <Image
               src='/assets/images/guides/challenge_in_deck_selection.jpg'
@@ -282,7 +282,7 @@ export default React.memo(function KnownBugs(props) {
         </Row>
 
         <Title id='unwatchable-ads'>Unwatchable ads</Title>
-        <Row wideGutter isDesktopOnly>
+        <Row withWideGutter isDesktopOnly>
           <Row.Column>
             <div>
               <h3>Problem</h3>
@@ -335,7 +335,7 @@ export default React.memo(function KnownBugs(props) {
         </Row>
 
         <Title id='glitchy-friend-list'>Glitchy friend list</Title>
-        <Row wideGutter isDesktopOnly>
+        <Row withWideGutter isDesktopOnly>
           <Row.Column>
             <Image
               src='/assets/images/guides/friend-list-gaps.jpg'
@@ -365,7 +365,7 @@ export default React.memo(function KnownBugs(props) {
         </Row>
 
         <Title id='tegor-ever-lasting-skull'>Tegor’s ever-lasting skull</Title>
-        <Row wideGutter isDesktopOnly>
+        <Row withWideGutter isDesktopOnly>
           <Row.Column>
             <div>
               <h3>Problem</h3>

@@ -215,7 +215,7 @@ export default React.memo(function DeckEditorView(props) {
 
   return (
     <Page {...articleProps} {...getDeckBuilderMetaTags(deck, 'Deck Builder')}>
-      <Row isDesktopOnly wideGutter>
+      <Row isDesktopOnly withWideGutter>
         <Row.Column width='1/3'>
           <Title>Deck</Title>
 

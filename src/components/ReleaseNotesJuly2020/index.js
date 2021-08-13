@@ -137,7 +137,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
       </Page.Narrow>
 
       <Page.Embed>
-        <Row isDesktopOnly wideGutter>
+        <Row isDesktopOnly withWideGutter>
           <Row.Column width='1/3'>
             <Quest
               difficulty={1}
@@ -191,7 +191,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
 
       <Page.Embed>
         <Spacing bottom='LARGER'>
-          <Row isDesktopOnly wideGutter>
+          <Row isDesktopOnly withWideGutter>
             <Row.Column width='1/2'>
               <h3 className={css({ marginTop: 0 })}>
                 Sketches & illustrations
@@ -431,7 +431,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
 
       <Page.Embed>
         <Title id='ui-improvements'>UI improvements</Title>
-        <Row isDesktopOnly wideGutter>
+        <Row isDesktopOnly withWideGutter>
           <Row.Column width='1/3'>
             <Spacing top='LARGE'>
               <p>

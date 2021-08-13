@@ -84,7 +84,7 @@ export default React.memo(function Members(props) {
       title='Members'
       description='Find an index of all Stormbound-Kitty community members having contributed, one way or another, to the site with content'
     >
-      <Row isDesktopOnly wideGutter>
+      <Row isDesktopOnly withWideGutter>
         <Row.Column width='1/3'>
           <p>
             Find on this page all contributing members to Stormbound-Kitty,

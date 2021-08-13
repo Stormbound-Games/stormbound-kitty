@@ -144,7 +144,7 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
       </Page.Narrow>
 
       <Page.Embed>
-        <Row isDesktopOnly wideGutter>
+        <Row isDesktopOnly withWideGutter>
           <Row.Column>
             <Image
               extend={{ margin: 'auto' }}
@@ -160,7 +160,7 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
             />
           </Row.Column>
         </Row>
-        <Row isDesktopOnly wideGutter>
+        <Row isDesktopOnly withWideGutter>
           <Row.Column>
             <Image
               extend={{ margin: 'auto' }}

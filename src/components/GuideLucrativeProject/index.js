@@ -81,7 +81,7 @@ export default React.memo(function GuideLucrativeProject(props) {
       <Title>Possible Decks</Title>
 
       <Guide.FullWidth>
-        <Row isDesktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
+        <Row isDesktopOnly withWideGutter spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
             <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               CriticalPancake’s Iron Movement
@@ -108,7 +108,7 @@ export default React.memo(function GuideLucrativeProject(props) {
             />
           </Row.Column>
         </Row>
-        <Row isDesktopOnly wideGutter spacing={{ vertical: 'LARGE' }}>
+        <Row isDesktopOnly withWideGutter spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
             <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               OneC’s Small Ball

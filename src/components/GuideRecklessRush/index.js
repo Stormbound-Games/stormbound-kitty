@@ -106,7 +106,7 @@ export default React.memo(function GuideRecklessRush(props) {
       <Guide.FullWidth>
         <Title id='the-decks'>The Decks</Title>
 
-        <Row isDesktopOnly wideGutter spacing={{ bottom: 'LARGE' }}>
+        <Row isDesktopOnly withWideGutter spacing={{ bottom: 'LARGE' }}>
           <Row.Column>
             <FeaturedDeck
               id='2xn1n2s1n3s24s2n67s6n24n15s8s11'
@@ -136,7 +136,7 @@ export default React.memo(function GuideRecklessRush(props) {
           </Row.Column>
         </Row>
 
-        <Row isDesktopOnly wideGutter spacing={{ bottom: 'LARGE' }}>
+        <Row isDesktopOnly withWideGutter spacing={{ bottom: 'LARGE' }}>
           <Row.Column>
             <p>
               For Diamond and above, if you feel like the enemies are
@@ -168,7 +168,7 @@ export default React.memo(function GuideRecklessRush(props) {
           </Row.Column>
         </Row>
 
-        <Row isDesktopOnly wideGutter>
+        <Row isDesktopOnly withWideGutter>
           <Row.Column>
             <FeaturedDeck
               id='5xn1s1n3s24s2n67s6n24n15s8n81s11'
@@ -198,7 +198,7 @@ export default React.memo(function GuideRecklessRush(props) {
       </Guide.FullWidth>
 
       <Guide.FullWidth>
-        <Row isDesktopOnly wideGutter>
+        <Row isDesktopOnly withWideGutter>
           <Row.Column>
             <p>
               As you might have noticed by now, Reckless Rush decks consist of

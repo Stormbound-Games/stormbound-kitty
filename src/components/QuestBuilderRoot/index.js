@@ -71,7 +71,7 @@ class QuestBuilderRoot extends React.Component {
             margin: '0 auto',
           })}
         >
-          <Row isDesktopOnly wideGutter>
+          <Row isDesktopOnly withWideGutter>
             <Row.Column extend={{ justifyContent: 'center' }}>
               <Quest {...this.state} />
             </Row.Column>

@@ -38,7 +38,7 @@ export default React.memo(function TournamentHallOfFame(props) {
           .reverse()
           .map(tournament => (
             <Spacing key={tournament.name} bottom='LARGE'>
-              <Row isDesktopOnly wideGutter>
+              <Row isDesktopOnly withWideGutter>
                 <Row.Column>
                   <h2 className={css(styles.name)}>{tournament.name}</h2>
                   <p className={css(styles.meta)}>

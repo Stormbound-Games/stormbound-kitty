@@ -156,7 +156,7 @@ export default React.memo(function ReleaseNotesJune2021(props) {
           </p>
         </Info>
 
-        <Row isDesktopOnly wideGutter extend={{ alignItems: 'center' }}>
+        <Row isDesktopOnly withWideGutter extend={{ alignItems: 'center' }}>
           <Row.Column>
             <Image
               src='/assets/images/releases/june_pack_ethereals.png'

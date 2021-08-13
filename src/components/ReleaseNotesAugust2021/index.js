@@ -181,7 +181,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
         </p>
 
         <Guide.FullWidth>
-          <Row isDesktopOnly wideGutter>
+          <Row isDesktopOnly withWideGutter>
             <Row.Column width='1/3'>
               <Image
                 src='/assets/images/releases/pack_sheepyard.png'
@@ -549,7 +549,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
 
         <Title id='daily-check-in-redeeming'>Daily check-in redeeming</Title>
 
-        <Row isDesktopOnly wideGutter>
+        <Row isDesktopOnly withWideGutter>
           <Row.Column>
             <p>
               We are introducing a way to redeem some skipped days from the

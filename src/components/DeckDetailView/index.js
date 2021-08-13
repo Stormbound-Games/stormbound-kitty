@@ -63,7 +63,7 @@ export default React.memo(function DeckDetailView(props) {
       }
       action={{ to: '/deck/' + props.deckId, children: 'Edit deck' }}
     >
-      <Row isDesktopOnly wideGutter>
+      <Row isDesktopOnly withWideGutter>
         <Row.Column width='1/3'>
           <Title>Deck</Title>
           <Deck

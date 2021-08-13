@@ -201,7 +201,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
       </Page.Narrow>
 
       <Page.Embed>
-        <Row isDesktopOnly wideGutter>
+        <Row isDesktopOnly withWideGutter>
           <Row.Column width='1/3'>
             <Image
               src='/assets/images/releases/temple_of_heart_pack.png'
