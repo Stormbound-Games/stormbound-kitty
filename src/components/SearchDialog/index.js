@@ -47,7 +47,7 @@ const Option = props => {
               acc.push(
                 <Icon
                   icon='arrow-right'
-                  className={css(styles.arrow)}
+                  extend={styles.arrow}
                   key={index + '-icon'}
                 />
               )

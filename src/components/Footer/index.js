@@ -4,6 +4,7 @@ import Link from '../Link'
 import Icon from '../Icon'
 import Only from '../Only'
 import Row from '../Row'
+import VisuallyHidden from '../VisuallyHidden'
 import styles from './styles'
 
 export default React.memo(function Footer(props) {
@@ -19,9 +20,9 @@ export default React.memo(function Footer(props) {
             </span>
             <p className={css(styles.info)}>
               Stormbound-Kitty is made with{' '}
-              <Icon icon='heart' aria-label='love' extend={styles.icon} /> by
-              Kitty and the vibrant Stormbound community.{' '}
-              <Link to='/about'>Want to help?</Link>
+              <Icon icon='heart' extend={styles.icon} />
+              <VisuallyHidden>love</VisuallyHidden> by Kitty and the vibrant
+              Stormbound community. <Link to='/about'>Want to help?</Link>
             </p>
             <p className={css(styles.info)}>
               Official Stormbound game content courtesy of{' '}

@@ -7,9 +7,7 @@ export default React.memo(function Icon(props) {
 
   return (
     <svg
-      className={[css(styles.icon, props.extend), props.className]
-        .filter(Boolean)
-        .join(' ')}
+      className={css(styles.icon, props.extend)}
       aria-hidden
       focusable='false'
       viewBox='0 0 32 32'
