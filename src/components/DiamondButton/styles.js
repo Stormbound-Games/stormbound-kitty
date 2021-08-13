@@ -12,6 +12,12 @@ const button = ({ isActive }) => ({
   position: 'relative',
   cursor: 'pointer',
 
+  ':disabled': {
+    opacity: 0.5,
+    cursor: 'not-allowed',
+    filter: 'grayscale(1)',
+  },
+
   '::before': {
     content: '""',
     position: 'absolute',
@@ -27,11 +33,11 @@ const button = ({ isActive }) => ({
     backgroundColor: isActive ? 'var(--beige)' : undefined,
   },
 
-  ':hover': {
+  ':not(:disabled):hover': {
     color: isActive ? 'var(--beige)' : 'var(--black)',
   },
 
-  ':hover::before': {
+  ':not(:disabled):hover::before': {
     backgroundColor: isActive ? 'var(--black)' : 'var(--beige)',
   },
 })
