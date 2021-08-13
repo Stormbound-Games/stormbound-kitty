@@ -5,6 +5,7 @@ import CTA from '../CTA'
 import Error from '../Error'
 import Loader from '../Loader'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import chunk from '../../helpers/chunk'
 import useFetch from '../../hooks/useFetch'
 import styles from './styles'
@@ -53,28 +54,31 @@ export default React.memo(function News(props) {
           </li>
         ))}
       </ul>
-      <Row desktopOnly>
-        <Row.Column align='center'>
-          <CTA
-            type='button'
-            data-testid='news-recent-btn'
-            onClick={loadNext}
-            disabled={activePage === 0}
-          >
-            Recent news
-          </CTA>
-        </Row.Column>
-        <Row.Column align='center'>
-          <CTA
-            type='button'
-            data-testid='news-older-btn'
-            onClick={loadPrev}
-            disabled={activePage === pages.length - 1}
-          >
-            Older news
-          </CTA>
-        </Row.Column>
-      </Row>
+
+      <Spacing top='BASE'>
+        <Row desktopOnly>
+          <Row.Column align='center'>
+            <CTA
+              type='button'
+              data-testid='news-recent-btn'
+              onClick={loadNext}
+              disabled={activePage === 0}
+            >
+              Recent news
+            </CTA>
+          </Row.Column>
+          <Row.Column align='center'>
+            <CTA
+              type='button'
+              data-testid='news-older-btn'
+              onClick={loadPrev}
+              disabled={activePage === pages.length - 1}
+            >
+              Older news
+            </CTA>
+          </Row.Column>
+        </Row>
+      </Spacing>
     </>
   )
 })
