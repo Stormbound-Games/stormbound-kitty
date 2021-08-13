@@ -3,7 +3,7 @@ import { useFela } from 'react-fela'
 import { Link as RouterLink } from 'react-router-dom'
 import styles from './styles'
 
-export default React.memo(({ as: Component, extend, ...props }) => {
+export default React.memo(function CTA({ as: Component, extend, ...props }) {
   const { css } = useFela({ isNew: props.new, isDisabled: props.disabled })
 
   if (Component) {

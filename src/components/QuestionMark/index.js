@@ -2,11 +2,11 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import styles from './styles'
 
-export default React.forwardRef(function QuestionMark(props, ref) {
+export default React.memo(function QuestionMark(props) {
   const { css } = useFela()
 
   return (
-    <span ref={ref} {...props} className={css(styles.mark)}>
+    <span {...props} className={css(styles.mark)}>
       ?
     </span>
   )

@@ -11,13 +11,13 @@ import getMilestoneCost from '../../helpers/getMilestoneCost'
 import getRewardLabel from '../../helpers/getRewardLabel'
 import styles from './styles'
 
-const CheapenedBrawl = ({
+export default React.memo(function CheapenedBrawl({
   ratio = 1,
   children,
   difficulty,
   id = 'cheapened-brawl',
   title = 'Cheapened Brawl',
-}) => {
+}) {
   const { css } = useFela()
   const [active, setActive] = React.useState(difficulty || 'CASUAL')
 
@@ -98,5 +98,4 @@ const CheapenedBrawl = ({
       </Info>
     </>
   )
-}
-export default React.memo(CheapenedBrawl)
+})

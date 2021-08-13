@@ -3,7 +3,7 @@ import Link from '../Link'
 import Only from '../Only'
 import TogglableContent from '../TogglableContent'
 
-export default React.memo(function (props) {
+export default React.memo(function MobileTogglableContent(props) {
   const [isExpanded, expand] = React.useState(false)
   const labelExpanded = (props.withSymbols ? '+ ' : '') + props.labelExpanded
   const labelCollapsed = (props.withSymbols ? '+ ' : '') + props.labelCollapsed

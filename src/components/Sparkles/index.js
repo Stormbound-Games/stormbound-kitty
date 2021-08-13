@@ -40,7 +40,7 @@ const Sparkles = props => {
   )
 }
 
-const Sparkle = props => {
+const Sparkle = React.memo(function Sparkle(props) {
   const { css } = useFela()
 
   return (
@@ -59,6 +59,6 @@ const Sparkle = props => {
       </svg>
     </span>
   )
-}
+})
 
 export default Sparkles

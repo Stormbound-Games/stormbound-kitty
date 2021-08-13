@@ -34,7 +34,7 @@ const SelfHidingNotification = React.memo(function SelfHidingNotification(
   )
 })
 
-export default function NotificationProvider(props) {
+export default React.memo(function NotificationProvider(props) {
   const [{ notification, key }, notify] = React.useReducer(reducer, {
     notification: null,
     key: 0,
@@ -50,4 +50,4 @@ export default function NotificationProvider(props) {
       )}
     </>
   )
-}
+})

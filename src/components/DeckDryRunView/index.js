@@ -8,75 +8,7 @@ import { BRAWL_INDEX } from '../../constants/brawl'
 import isCard from '../../helpers/isCard'
 import getDeckPresets from '../../helpers/getDeckPresets'
 
-export default props => {
-  const params = new URLSearchParams(window.location.search)
-  // The mode is theoretically not quite supposed to be changed at run time, but
-  // this is a workaround to be able to pick an initial hand for testing
-  // purposes. The mode is restored to `AUTOMATIC` as soon as the 4th card has
-  // been picked.
-  const { notify } = React.useContext(NotificationContext)
-  const sendNotification = React.useCallback(
-    message => notify({ icon: 'sword', children: message }),
-    [notify]
-  )
-  const [mode, setMode] = React.useState(params.get('mode') || 'AUTOMATIC')
-  const [modifier, setModifier] = React.useState('NONE')
-  const [equalsMode, setEqualsMode] = React.useState(false)
-  const [harvestersCards, setHarvestersCards] = React.useState([])
-  const harvestersDialogRef = React.useRef()
-  const HoS = {
-    cards: harvestersCards,
-    setCards: setHarvestersCards,
-    dialog: harvestersDialogRef,
-  }
-
-  // If the deck is saved as brawl/tournament, load the dry-runner in the correct mode
-  React.useEffect(() => {
-    const preset = getDeckPresets(props.deck)
-
-    if (preset.modifier.includes('MANA')) {
-      const brawlLabel = BRAWL_INDEX[preset.modifier].label
-      setModifier(preset.modifier)
-      sendNotification(`Brawl deck found. Loaded with modifier ${brawlLabel}.`)
-    }
-
-    if (preset.equals) {
-      setEqualsMode(preset.equals)
-      sendNotification('Tournament deck found. Loaded in equals mode.')
-    }
-  }, [sendNotification, props.deck])
-
-  const addIdx = card => ({ idx: '0', ...card })
-  const deck = modifyDeck(props.deck, modifier, equalsMode).map(addIdx)
-
-  return (
-    <DeckMechanisms
-      deck={deck}
-      mode={mode}
-      equalsMode={equalsMode}
-      modifier={modifier}
-      HoS={HoS}
-    >
-      {state => (
-        <DeckDryRunView
-          {...props}
-          {...state}
-          mode={mode}
-          setMode={setMode}
-          equalsMode={equalsMode}
-          setEqualsMode={setEqualsMode}
-          modifier={modifier}
-          setModifier={setModifier}
-          playedCards={state.playedCards}
-          cardsThisTurn={state.cardsThisTurn}
-          HoS={HoS}
-        />
-      )}
-    </DeckMechanisms>
-  )
-}
-
-class DeckDryRunView extends React.Component {
+class View extends React.Component {
   constructor(props) {
     super(props)
 
@@ -313,3 +245,71 @@ class DeckDryRunView extends React.Component {
     )
   }
 }
+
+export default React.memo(function DeckDryRunView(props) {
+  const params = new URLSearchParams(window.location.search)
+  // The mode is theoretically not quite supposed to be changed at run time, but
+  // this is a workaround to be able to pick an initial hand for testing
+  // purposes. The mode is restored to `AUTOMATIC` as soon as the 4th card has
+  // been picked.
+  const { notify } = React.useContext(NotificationContext)
+  const sendNotification = React.useCallback(
+    message => notify({ icon: 'sword', children: message }),
+    [notify]
+  )
+  const [mode, setMode] = React.useState(params.get('mode') || 'AUTOMATIC')
+  const [modifier, setModifier] = React.useState('NONE')
+  const [equalsMode, setEqualsMode] = React.useState(false)
+  const [harvestersCards, setHarvestersCards] = React.useState([])
+  const harvestersDialogRef = React.useRef()
+  const HoS = {
+    cards: harvestersCards,
+    setCards: setHarvestersCards,
+    dialog: harvestersDialogRef,
+  }
+
+  // If the deck is saved as brawl/tournament, load the dry-runner in the correct mode
+  React.useEffect(() => {
+    const preset = getDeckPresets(props.deck)
+
+    if (preset.modifier.includes('MANA')) {
+      const brawlLabel = BRAWL_INDEX[preset.modifier].label
+      setModifier(preset.modifier)
+      sendNotification(`Brawl deck found. Loaded with modifier ${brawlLabel}.`)
+    }
+
+    if (preset.equals) {
+      setEqualsMode(preset.equals)
+      sendNotification('Tournament deck found. Loaded in equals mode.')
+    }
+  }, [sendNotification, props.deck])
+
+  const addIdx = card => ({ idx: '0', ...card })
+  const deck = modifyDeck(props.deck, modifier, equalsMode).map(addIdx)
+
+  return (
+    <DeckMechanisms
+      deck={deck}
+      mode={mode}
+      equalsMode={equalsMode}
+      modifier={modifier}
+      HoS={HoS}
+    >
+      {state => (
+        <View
+          {...props}
+          {...state}
+          mode={mode}
+          setMode={setMode}
+          equalsMode={equalsMode}
+          setEqualsMode={setEqualsMode}
+          modifier={modifier}
+          setModifier={setModifier}
+          playedCards={state.playedCards}
+          cardsThisTurn={state.cardsThisTurn}
+          HoS={HoS}
+        />
+      )}
+    </DeckMechanisms>
+  )
+})

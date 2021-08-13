@@ -6,7 +6,7 @@ import Only from '../Only'
 import Row from '../Row'
 import styles from './styles'
 
-const HomeSection = props => {
+export default React.memo(function HomeSection(props) {
   const { css } = useFela()
 
   return (
@@ -37,6 +37,4 @@ const HomeSection = props => {
       </div>
     </section>
   )
-}
-
-export default React.memo(HomeSection)
+})

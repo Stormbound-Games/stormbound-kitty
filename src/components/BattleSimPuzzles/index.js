@@ -1,6 +1,4 @@
 import React from 'react'
-import hookIntoProps from 'hook-into-props'
-import { useFela } from 'react-fela'
 import Page from '../Page'
 import Link from '../Link'
 import puzzles from '../../data/puzzles'
@@ -105,6 +103,4 @@ class BattleSimPuzzles extends React.Component {
   }
 }
 
-export default hookIntoProps(props => ({
-  ...useFela(),
-}))(BattleSimPuzzles)
+export default BattleSimPuzzles

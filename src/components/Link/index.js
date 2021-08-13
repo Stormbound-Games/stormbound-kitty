@@ -4,7 +4,12 @@ import { Link as RouterLink } from 'react-router-dom'
 import Icon from '../Icon'
 import styles from './styles'
 
-const Link = ({ inNewTab, extend, ...props }, ref) => {
+export default React.memo(function Link({
+  extend,
+  inNewTab,
+  hideNewTabIndicator,
+  ...props
+}) {
   const { css } = useFela()
 
   if (props.href) {
@@ -15,13 +20,12 @@ const Link = ({ inNewTab, extend, ...props }, ref) => {
     return (
       <a
         {...props}
-        ref={ref}
         className={css(styles.link, extend)}
         target={shouldUseNewTab ? '_blank' : undefined}
         rel={shouldUseNewTab ? 'noopener noreferrer' : undefined}
       >
         {props.children}
-        {shouldUseNewTab && !props.hideNewTabIndicator && (
+        {shouldUseNewTab && !hideNewTabIndicator && (
           <Icon icon='arrow-top-right' extend={styles.newTab} />
         )}
       </a>
@@ -30,11 +34,7 @@ const Link = ({ inNewTab, extend, ...props }, ref) => {
 
   if (props.to) {
     return (
-      <RouterLink
-        {...props}
-        innerRef={ref}
-        className={css(styles.link, extend)}
-      >
+      <RouterLink {...props} className={css(styles.link, extend)}>
         {props.children}
       </RouterLink>
     )
@@ -49,6 +49,4 @@ const Link = ({ inNewTab, extend, ...props }, ref) => {
       {props.children}
     </button>
   )
-}
-
-export default React.memo(React.forwardRef(Link))
+})

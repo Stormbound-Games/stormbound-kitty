@@ -6,7 +6,7 @@ import PageMeta from '../PageMeta'
 import VisuallyHidden from '../VisuallyHidden'
 import styles from './styles'
 
-export default React.memo(() => {
+export default React.memo(function Home() {
   const { css } = useFela()
 
   return (

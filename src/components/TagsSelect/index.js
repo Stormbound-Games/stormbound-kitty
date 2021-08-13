@@ -5,7 +5,7 @@ import inputStyles from '../Input/styles'
 import useSelectStyles from '../../hooks/useSelectStyles'
 import { TAGS } from '../../constants/deck'
 
-const TagsSelect = props => {
+export default React.memo(function TagsSelect(props) {
   const { css } = useFela()
   const styles = useSelectStyles()
   const value = props.tags.map(value => ({ value, label: TAGS[value] }))
@@ -39,6 +39,4 @@ const TagsSelect = props => {
       />
     </>
   )
-}
-
-export default React.memo(TagsSelect)
+})

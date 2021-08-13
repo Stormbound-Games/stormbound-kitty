@@ -3,7 +3,7 @@ import { useFela } from 'react-fela'
 import VisuallyHidden from '../VisuallyHidden'
 import styles from './styles'
 
-const NewPulse = props => {
+export default React.memo(function NewPulse(props) {
   const { css } = useFela()
 
   return (
@@ -11,6 +11,4 @@ const NewPulse = props => {
       <VisuallyHidden>New</VisuallyHidden>
     </span>
   )
-}
-
-export default React.memo(NewPulse)
+})

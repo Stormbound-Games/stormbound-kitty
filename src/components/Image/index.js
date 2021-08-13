@@ -15,7 +15,7 @@ const useFileExtension = ({ withAvif, withoutWebp }) => {
   return 'png'
 }
 
-const Image = props => {
+export default React.memo(function Image(props) {
   const { css } = useFela()
   const { isEditorialContent } = React.useContext(PageContext)
   const ext = useFileExtension({
@@ -44,6 +44,4 @@ const Image = props => {
       onContextMenu={props.onContextMenu}
     />
   )
-}
-
-export default React.memo(Image)
+})

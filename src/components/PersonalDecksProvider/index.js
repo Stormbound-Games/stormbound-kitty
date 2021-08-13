@@ -31,7 +31,7 @@ const getInitialDecks = () => {
   }
 }
 
-export default function PersonalDecksProvider(props) {
+export default React.memo(function PersonalDecksProvider(props) {
   const [decks, setDecks] = React.useState(getInitialDecks)
   const [isUnseen, toggleUnseen] = React.useState(false)
   const { notify: sendNotification } = React.useContext(NotificationContext)
@@ -123,4 +123,4 @@ export default function PersonalDecksProvider(props) {
       {props.children}
     </PersonalDecksContext.Provider>
   )
-}
+})

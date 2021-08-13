@@ -3,7 +3,7 @@ import { RARITIES } from '../../constants/game'
 import { BOOKS } from '../../constants/books'
 import getBookName from '../../helpers/getBookName'
 
-export default React.memo(({ book }) => {
+export default React.memo(function BookExplanation({ book }) {
   const { percentiles, draws, only = {} } = BOOKS[book]
   const qualifier = [
     only.rarity,

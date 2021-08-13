@@ -14,7 +14,7 @@ import Spacing from '../Spacing'
 import getHeroScore from '../../helpers/getHeroScore'
 import styles from './styles'
 
-const HeroScoreCalculator = props => {
+export default React.memo(function HeroScoreCalculator(props) {
   const { css } = useFela()
   const [current, setCurrent] = React.useState(1000)
   const [opponent, setOpponent] = React.useState(1000)
@@ -222,6 +222,4 @@ const HeroScoreCalculator = props => {
       </Footnotes>
     </Page>
   )
-}
-
-export default React.memo(HeroScoreCalculator)
+})

@@ -15,7 +15,7 @@ import Only from '../Only'
 import Row from '../Row'
 import Spacing from '../Spacing'
 
-export default React.memo(() => {
+export default React.memo(function CardsStats() {
   const { hasDefaultCollection } = React.useContext(CollectionContext)
   return (
     <Page

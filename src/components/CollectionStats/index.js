@@ -187,7 +187,7 @@ const getProgressData = collection => {
     .flat()
 }
 
-export default function CollectionStats(props) {
+export default React.memo(function CollectionStats(props) {
   const { css } = useFela()
   const { collection } = React.useContext(CollectionContext)
   const [ignoreNeutral, setIgnoreNeutral] = React.useState(false)
@@ -471,4 +471,4 @@ export default function CollectionStats(props) {
       </Row>
     </Page>
   )
-}
+})
