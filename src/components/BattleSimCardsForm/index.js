@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { DEFAULT_CARD } from '../../constants/deck'
+import DiamondButton from '../DiamondButton'
 import CardSelect from '../CardSelect'
 import DeckImport from '../BattleSimDeckImport'
 import Link from '../Link'
@@ -76,32 +77,23 @@ const CardsFormRow = React.memo(({ index, ...props }) => {
                 </Select>
               )}
             </Row.Column>
-            <Row.Column>
-              <button
-                type='button'
-                className={css(styles.handButton)}
-                aria-pressed={props.hand.includes(props.cards[index].id)}
+            <Row.Column align='center'>
+              <DiamondButton
+                extend={styles.handButton}
+                isActive={props.hand.includes(props.cards[index].id)}
                 disabled={
                   !props.cards[index].id ||
                   (props.hand.length === 4 &&
                     !props.hand.includes(props.cards[index].id))
                 }
                 onClick={() => props.addToHand({ id: props.cards[index].id })}
-                title={
-                  !props.cards[index].id
-                    ? ''
-                    : props.hand.includes(props.cards[index].id)
-                    ? 'Remove card from hand'
-                    : 'Add card to hand'
-                }
-                aria-label={
+                label='Card in hand'
+                icon={
                   props.hand.includes(props.cards[index].id)
-                    ? 'Remove card from hand'
-                    : 'Add card to hand'
+                    ? 'cross'
+                    : 'page-plus'
                 }
-              >
-                {props.hand.includes(props.cards[index].id) ? '-' : '+'}
-              </button>
+              />
             </Row.Column>
           </Row>
         </Row.Column>
