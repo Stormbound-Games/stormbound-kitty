@@ -92,10 +92,11 @@ const useTeasers = podium => {
       card: getCard(index, user),
       excerpt: (
         <>
-          {user} has won {nGold} 🥇 gold medal
-          {nGold === 1 ? '' : 's'} ({sGold} points), 🥈 {nSilver} silver medal
-          {nSilver === 1 ? '' : 's'} ({sSilver} points) and 🥉 {nBronze} bronze
+          {user} has won {nGold} 🥇&nbsp;gold medal
+          {nGold === 1 ? '' : 's'} ({sGold} points), 🥈&nbsp;{nSilver} silver
           medal
+          {nSilver === 1 ? '' : 's'} ({sSilver} points) and 🥉&nbsp;{nBronze}{' '}
+          bronze medal
           {nBronze === 1 ? '' : 's'} ({sBronze} points).
         </>
       ),
@@ -120,7 +121,7 @@ export default React.memo(function Podium(props) {
           .sort((a, b) => +b - +a)
           .slice(0, 6)
           .map(points => (
-            <li>
+            <li key={points}>
               <MemberList members={pointGroups[points]} /> ({points} point
               {points === 1 ? '' : 's'})
             </li>

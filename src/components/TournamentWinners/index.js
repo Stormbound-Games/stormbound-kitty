@@ -10,26 +10,20 @@ export default React.memo(function TournamentWinners(props) {
   if (isTeamTournament) {
     return (
       <p>
-        The team tournament was won by 🥇{' '}
-        <span className='Highlight'>
-          <MemberList members={gold} />
-        </span>
+        The team tournament was won by 🥇&nbsp;
+        <MemberList members={gold} />
         {silver ? (
           <>
-            , with 🥈{' '}
-            <span className='Highlight'>
-              <MemberList members={silver} />
-            </span>{' '}
+            , with 🥈&nbsp;
+            <MemberList members={silver} />
             {bronze ? (
               <>
-                and 🥉{' '}
-                <span className='Highlight'>
-                  <MemberList members={bronze} />
-                </span>{' '}
+                {' '}
+                and 🥉&nbsp;
+                <MemberList members={bronze} />
               </>
-            ) : null}
-            as {bronze ? 'respective' : ''} runner-up
-            {bronze ? 's' : ''}
+            ) : null}{' '}
+            as {bronze ? 'respective runner-ups' : 'runner-up'}
           </>
         ) : null}
         .
