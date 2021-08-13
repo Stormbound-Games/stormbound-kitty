@@ -67,7 +67,8 @@
     "cardId": "I22",
     "background": "/assets/images/banners/environment_ironclad.png",
     "category": "BRAWL_MODE",
-    "date": "10/2020"
+    "date": "10/2020",
+    "skipNav": true
   },
   {
     "id": "FREEDOM_FIGHT_GUIDE",
@@ -283,7 +284,8 @@
     "cardId": "N42",
     "background": "/assets/images/banners/environment_neutral.png",
     "category": "PLAYSTYLE",
-    "date": "07/2021"
+    "date": "07/2021",
+    "skipNav": true
   },
   {
     "id": "GREEN_PROTOTYPES_GUIDE",
