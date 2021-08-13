@@ -227,20 +227,6 @@
     "date": "07/2020"
   },
   {
-    "id": "LEXICON",
-    "name": "Lexicon",
-    "authors": [
-      "Kitty"
-    ],
-    "excerpt": "Stormbound discussions are full of acronyms and shortened names. Tired of not being able to follow what’s going on on Discord and Reddit? This guide is for you.",
-    "slug": "lexicon",
-    "faction": "neutral",
-    "cardId": "F1",
-    "background": "/assets/images/wallpapers/lite/wp-d-1.png",
-    "category": "ESSENTIALS",
-    "date": "05/2019"
-  },
-  {
     "id": "RECKLESS_RUSH_GUIDE",
     "name": "Reckless Rush",
     "authors": [

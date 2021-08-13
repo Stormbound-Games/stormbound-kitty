@@ -3,7 +3,6 @@ import { useFela } from 'react-fela'
 import Masonry from 'react-masonry-css'
 import Page from '../Page'
 import Spacing from '../Spacing'
-import { CATEGORIES } from '../../constants/guides'
 import getTermsForLetter from '../../helpers/getTermsForLetter'
 import getLexiconTerms from '../../helpers/getLexiconTerms'
 import styles from './styles'
@@ -37,12 +36,6 @@ export default React.memo(function Lexicon(props) {
     <Page
       title='Lexicon'
       description='Find a list of terms and abbreviations for Stormbound'
-      author='Kitty'
-      meta={CATEGORIES.ESSENTIALS.name.short}
-      action={{
-        to: '/guides/' + CATEGORIES.ESSENTIALS.slug,
-        children: 'Back to guides',
-      }}
       isEditorialContent
     >
       <Masonry

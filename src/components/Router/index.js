@@ -27,7 +27,6 @@ const GUIDE_COMPONENTS = {
   GREEN_PROTOTYPES_GUIDE: load('GuideGreenPrototypes'),
   KNOWN_BUGS: load('GuideKnownBugs'),
   LEGENDARIES_GUIDE: load('GuideLegendaries'),
-  LEXICON: load('Lexicon'),
   LUCRATIVE_PROJECT_GUIDE: load('GuideLucrativeProject'),
   MANA_CURVE_GUIDE: load('GuideManaCurve'),
   NOBLE_COALITION_GUIDE: load('GuideNobleCoalition'),
@@ -96,6 +95,7 @@ const Guides = load('Guides')
 const HeroScoreCalculator = load('HeroScoreCalculator')
 const Home = load('Home')
 const IncomeCalculator = load('IncomeCalculator')
+const Lexicon = load('Lexicon')
 const ListBuilderDisplayView = load('ListBuilderDisplayView')
 const ListBuilderEditorView = load('ListBuilderEditorView')
 const Member = load('Member')
@@ -154,6 +154,11 @@ export default function Router(props) {
 
           <PageRoute exact path='/trivia' active={['COMMUNITY', 'TRIVIA']}>
             <Trivia />
+          </PageRoute>
+
+          <Redirect from='/guides/lexicon' to='/lexicon' />
+          <PageRoute exact path='/lexicon' active={['GAME', 'LEXICON']}>
+            <Lexicon />
           </PageRoute>
 
           <PageRoute
