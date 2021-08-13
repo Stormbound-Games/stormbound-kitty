@@ -42,7 +42,7 @@ export default React.memo(function Header(props) {
             <React.Fragment key={item.label}>
               <li className={css(styles.item)}>
                 {item.to ? (
-                  <NavLink active={topActive === item.id} to={item.to}>
+                  <NavLink isActive={topActive === item.id} to={item.to}>
                     <Icon icon={item.icon} extend={styles.icon} /> {item.label}
                   </NavLink>
                 ) : (
@@ -82,7 +82,7 @@ export default React.memo(function Header(props) {
             <NavLink
               disabled={!props.isSearchReady}
               onClick={props.openSearch}
-              active={topActive === 'SEARCH'}
+              isActive={topActive === 'SEARCH'}
             >
               <Icon extend={styles.icon} icon='search' /> Search
             </NavLink>

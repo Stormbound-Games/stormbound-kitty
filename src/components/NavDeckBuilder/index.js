@@ -21,7 +21,7 @@ export default React.memo(function NavDeckBuilder(props) {
         <li className={css(styles.item)}>
           <NavLink
             to={id ? `/deck/${id}` : '/deck'}
-            active={props.active === 'EDITOR'}
+            isActive={props.active === 'EDITOR'}
             isWithinSubList
           >
             Editor
@@ -31,7 +31,7 @@ export default React.memo(function NavDeckBuilder(props) {
           {hasBigEnoughDeck ? (
             <NavLink
               to={`/deck/${id}/detail`}
-              active={props.active === 'DETAIL'}
+              isActive={props.active === 'DETAIL'}
               isWithinSubList
             >
               Insights
@@ -51,7 +51,7 @@ export default React.memo(function NavDeckBuilder(props) {
           {hasBigEnoughDeck ? (
             <NavLink
               to={`/deck/${id}/dry-run`}
-              active={props.active === 'DRY_RUN'}
+              isActive={props.active === 'DRY_RUN'}
               isWithinSubList
             >
               Practice

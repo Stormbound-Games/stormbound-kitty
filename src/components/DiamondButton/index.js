@@ -5,17 +5,17 @@ import VisuallyHidden from '../VisuallyHidden'
 import styles from './styles'
 
 export default React.memo(function DiamondButton({
-  active,
+  isActive,
   extend,
   label,
   ...props
 }) {
-  const { css } = useFela({ isActive: !!active })
+  const { css } = useFela({ isActive })
 
   return (
     <button
       {...props}
-      aria-pressed={!!active}
+      aria-pressed={isActive}
       className={css(styles.button, extend)}
       title={label}
     >

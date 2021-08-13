@@ -4,7 +4,7 @@ import Link from '../Link'
 import styles from '../Header/styles'
 
 export default React.memo(function NavLink({
-  active,
+  isActive,
   children,
   to,
   href,
@@ -30,7 +30,7 @@ export default React.memo(function NavLink({
       target={target}
       rel={rel}
       children={children}
-      extend={styles.action({ isActive: active, isWithinSubList })}
+      extend={styles.action({ isActive, isWithinSubList })}
     />
   )
 })

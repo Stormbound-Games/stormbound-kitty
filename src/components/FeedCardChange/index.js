@@ -26,7 +26,7 @@ export default React.memo(function FeedCardChange(props) {
         shouldRenderPreviewer && (
           <DiamondButton
             icon='eye'
-            active={isActive}
+            isActive={isActive}
             onClick={() => props.setVersionId(isActive ? null : versionId)}
             label='Preview card *before* this change happened'
           />

@@ -19,7 +19,7 @@ export default React.memo(function BookmarkDeckButton(props) {
       icon='star'
       data-testid='bookmark-btn'
       label='Bookmark deck'
-      active={bookmark}
+      isActive={Boolean(bookmark)}
       extend={props.extend}
     />
   )
