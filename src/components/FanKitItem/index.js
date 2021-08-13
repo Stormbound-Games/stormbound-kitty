@@ -17,7 +17,7 @@ export default React.memo(function FanKitItem(props) {
         <DiamondButton
           data-testid='fan-kit-download-btn'
           onClick={() => props.setActive(props.id)}
-          title={'Download asset ' + props.name}
+          label={'Download asset ' + props.name}
           icon='download'
         />
       </span>

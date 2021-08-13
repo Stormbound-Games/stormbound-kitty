@@ -14,7 +14,7 @@ export default React.memo(function ResetButton(props) {
   return (
     <>
       <DiamondButton
-        aria-label='Delete deck'
+        label='Delete deck'
         onClick={open}
         icon='bin'
         data-testid='delete-deck-btn'

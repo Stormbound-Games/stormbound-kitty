@@ -18,8 +18,7 @@ export default React.memo(function BookmarkDeckButton(props) {
       }}
       icon='star'
       data-testid='bookmark-btn'
-      aria-label='Bookmark deck'
-      title='Bookmark deck'
+      label='Bookmark deck'
       active={bookmark}
       extend={props.extend}
     />
