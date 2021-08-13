@@ -158,7 +158,7 @@
   },
   {
     "id": "DRAWING_GUIDE",
-    "name": "Drawing Guide",
+    "name": "Drawing Mechanics",
     "authors": [
       "Kitty"
     ],
@@ -186,7 +186,7 @@
   },
   {
     "id": "MANA_CURVE_GUIDE",
-    "name": "Mana Curve Guide",
+    "name": "Mana Curve Analysis",
     "authors": [
       "Kitty"
     ],
@@ -303,7 +303,7 @@
   },
   {
     "id": "LEGENDARIES_GUIDE",
-    "name": "Legendaries Guide",
+    "name": "Legendaries Level 1",
     "authors": [
       "ArthisRoo"
     ],
