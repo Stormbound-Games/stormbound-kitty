@@ -27,7 +27,7 @@ const HomeSection = props => {
 
             <div className={css(styles.actions)}>
               {props.actions.map(action => (
-                <CTA extend={styles.action} to={action.to}>
+                <CTA key={action.to} extend={styles.action} to={action.to}>
                   {action.children}
                 </CTA>
               ))}
