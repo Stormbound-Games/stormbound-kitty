@@ -10,9 +10,7 @@ export default React.memo(function Mana(props) {
   return (
     <motion.div
       animate={props.controls}
-      className={[css(styles.mana, props.extend), props.className]
-        .filter(Boolean)
-        .join(' ')}
+      className={css(styles.mana, props.extend)}
       data-testid={props['data-testid'] || 'mana'}
     >
       <Image
