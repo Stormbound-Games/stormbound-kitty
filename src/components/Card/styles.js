@@ -50,6 +50,13 @@ const card = ({ isAffordable, isUpgradable, player }) => ({
     display: 'block',
     paddingTop: '168.6%',
   },
+
+  '> *': {
+    animationName: { from: { opacity: 0 } },
+    animationDuration: '200ms',
+    animationDelay: '100ms',
+    animationFillMode: 'both',
+  },
 })
 
 const mana = ({ isAffordable, isMissing, isUpgradable, player }) => ({
@@ -316,17 +323,6 @@ const level = ({ isCreated, isMissing, hasNoRarity }) => ({
   marginTop: hasNoRarity ? 'var(--s-large)' : undefined /* 2 */,
 })
 
-/*
-.Card * {
-  animation: fade-in 200ms 100ms both,
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0,
-  }
-}
-*/
 export default {
   card,
   mana,
