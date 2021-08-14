@@ -7,10 +7,30 @@ import cards from '../../data/cards'
 import guides from '../../data/guides'
 import puzzles from '../../data/puzzles'
 import releases from '../../data/releases'
+import getMembersList from '../../hooks/useMembersList'
+
+// Retrieve all the stories in a synchronous fashion. When executed via the
+// sitemap Node script, simply read the file synchronously from the file system.
+// When executed from Cypress during route tests, perform a synchronous XHR to
+// get the JSON file.
+const getStories = () => {
+  if (process.title === 'node') {
+    return JSON.parse(
+      require('fs').readFileSync('./public/stories.json', 'utf8')
+    )
+  }
+
+  var request = new XMLHttpRequest()
+  request.open('GET', '/stories.json', false)
+  request.send(null)
+
+  return request.status === 200 ? JSON.parse(request.responseText) : undefined
+}
 
 export default mode => {
   const contests = swcc.flat().filter(contest => !!contest.winner)
-
+  const stories = getStories()
+  const members = getMembersList(stories).map(entry => entry.member)
   const links = [
     '/',
     '/about',
@@ -88,6 +108,14 @@ export default mode => {
   })
 
   if (mode === 'LIGHT') {
+    links.push('/stories/' + stories[0].id)
+  } else {
+    stories.forEach(story => {
+      links.push('/stories/' + story.id)
+    })
+  }
+
+  if (mode === 'LIGHT') {
     links.push('/sim/' + puzzles[0].board + '/display')
   } else {
     puzzles.forEach(puzzle => {
@@ -112,6 +140,14 @@ export default mode => {
   } else {
     cards.forEach(card => {
       links.push('/card/' + card.id + '/display')
+    })
+  }
+
+  if (mode === 'LIGHT') {
+    links.push('/member/' + members[0])
+  } else {
+    members.forEach(member => {
+      links.push('/member/' + member)
     })
   }
 

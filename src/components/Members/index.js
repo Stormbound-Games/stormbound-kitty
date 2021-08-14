@@ -7,77 +7,17 @@ import MemberTagYourself from '../MemberTagYourself'
 import Row from '../Row'
 import Select from '../Select'
 import { StoriesContext } from '../StoriesProvider'
-import artworks from '../../data/artworks'
-import contributions from '../../data/contributions'
-import decks from '../../data/decks'
-import donations from '../../data/donations'
-import events from '../../data/events'
-import guides from '../../data/guides'
-import puzzles from '../../data/puzzles'
-import tournaments from '../../data/tournaments'
-import swcc from '../../data/swcc'
-import videos from '../../data/videos'
 import chunk from '../../helpers/chunk'
-
-const uniq = (myArr, prop) =>
-  myArr.filter(
-    (obj, pos, arr) =>
-      arr.map(mapObj => mapObj[prop]).indexOf(obj[prop]) === pos
-  )
-
-const addType = type => entity => ({ member: entity?.author ?? entity, type })
-
-const sortAlphabetically = (a, b) =>
-  b.member.toLowerCase() > a.member.toLowerCase()
-    ? -1
-    : b.member.toLowerCase() < a.member.toLowerCase()
-    ? +1
-    : 0
-
-const useMemberList = ({ name, type }) => {
-  const stories = React.useContext(StoriesContext)
-
-  return [
-    ...videos.map(addType('VIDEO')),
-    ...stories.map(addType('STORY')),
-    ...guides
-      .map(guide => guide.authors)
-      .flat()
-      .map(addType('GUIDE')),
-    ...contributions.map(addType('CONTRIBUTION')),
-    ...donations.map(addType('DONATION')),
-    ...decks.map(addType('DECK')),
-    ...artworks.map(addType('ARTWORK')),
-    ...tournaments
-      .map(tournament => tournament.hosts)
-      .flat()
-      .map(addType('HOST')),
-    ...tournaments
-      .map(tournament => tournament.podium)
-      .flat(2)
-      .map(addType('PODIUM')),
-    ...swcc
-      .flat()
-      .filter(week => week.winner)
-      .map(week => week.winner.author)
-      .map(addType('CARD')),
-    ...puzzles.map(addType('PUZZLE')),
-    ...events
-      .map(event => event.authors)
-      .flat()
-      .map(addType('EVENT')),
-  ]
-    .filter(({ member }) => name === '' || member.toLowerCase().includes(name))
-    .filter(({ type: cType }) => type === '*' || type === cType)
-    .sort(sortAlphabetically)
-}
+import useMembersList from '../../hooks/useMembersList'
 
 export default React.memo(function Members(props) {
   const [name, setName] = React.useState('')
   const [type, setType] = React.useState('*')
-  const members = useMemberList({ name, type })
-  const uniqMembers = uniq(members, 'member')
-  const rows = chunk(uniqMembers, 3)
+  const stories = React.useContext(StoriesContext)
+  const members = useMembersList(stories)
+    .filter(({ member }) => name === '' || member.toLowerCase().includes(name))
+    .filter(({ type: cType }) => type === '*' || type === cType)
+  const rows = chunk(members, 3)
 
   return (
     <Page
@@ -135,7 +75,7 @@ export default React.memo(function Members(props) {
             </Row.Column>
           </Row>
 
-          <MemberTagYourself members={uniqMembers.map(a => a.member)} />
+          <MemberTagYourself members={members.map(a => a.member)} />
         </Row.Column>
         <Row.Column width='2/3'>
           {rows.map(([a, b, c], index) => (
