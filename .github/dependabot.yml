@@ -5,6 +5,8 @@ updates:
     schedule:
       interval: 'weekly'
     ignore:
+      - dependency-name: 'discord.js'
+        versions: ['13.x']
       - dependency-name: 'cypress'
         versions: ['7.x', '8.x']
       - dependency-name: '@cypress/react'
