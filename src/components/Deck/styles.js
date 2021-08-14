@@ -1,3 +1,36 @@
+const BACKGROUNDS = {
+  neutral: {
+    unit: 'var(--neutral)',
+    spell: '#898c95',
+    structure: '#373f43',
+    hero: '#191919',
+  },
+  ironclad: {
+    unit: 'var(--ironclad)',
+    spell: '#b36f78',
+    structure: '#5b3332',
+    hero: '#301b20',
+  },
+  shadowfen: {
+    unit: 'var(--shadowfen)',
+    spell: '#5b988f',
+    structure: '#1c413c',
+    hero: '#0b211d',
+  },
+  swarm: {
+    unit: 'var(--swarm)',
+    spell: '#9d7d5f',
+    structure: '#3c2d1c',
+    hero: '#221b04',
+  },
+  winter: {
+    unit: 'var(--winter)',
+    spell: '#515f80',
+    structure: '#20283c',
+    hero: '#09192a',
+  },
+}
+
 /**
  * 1. When a deck is displayed on the desktop version, it is within a 1/3
  *    column. By setting the computed width in CSS directly, we can avoid a
@@ -42,7 +75,7 @@ const list = ({ orientation }) => ({
     position: 'absolute',
     top: 0,
     left: 0,
-    width: '100%',
+    right: 0,
     display: 'flex',
     bottom: 0,
   }),
@@ -63,7 +96,11 @@ const card = ({
   type,
 }) => ({
   color: 'var(--white)',
-  backgroundColor: '#4e5659',
+  backgroundColor: !faction
+    ? BACKGROUNDS.neutral.unit
+    : isLegendary
+    ? BACKGROUNDS[faction].hero
+    : BACKGROUNDS[faction][type],
   border: '2px solid #ffffff1a',
   borderRadius: '0.2em',
   position: 'relative',
@@ -104,58 +141,6 @@ const card = ({
     display: 'flex',
     alignItems: 'center',
     margin: '0.25em 0',
-  }),
-
-  ...(type === 'spell' && {
-    backgroundColor: '#898c95',
-  }),
-
-  ...(type === 'structure' && {
-    backgroundColor: '#373f43',
-  }),
-
-  ...(isLegendary && {
-    backgroundColor: '#191919',
-  }),
-
-  ...(faction === 'swarm' && {
-    backgroundColor: isLegendary
-      ? '#221b04'
-      : type === 'structure'
-      ? '#3c2d1c'
-      : type === 'spell'
-      ? '#9d7d5f'
-      : 'var(--swarm)',
-  }),
-
-  ...(faction === 'ironclad' && {
-    backgroundColor: isLegendary
-      ? '#301b20'
-      : type === 'structure'
-      ? '#5b3332'
-      : type === 'spell'
-      ? '#b36f78'
-      : 'var(--ironclad)',
-  }),
-
-  ...(faction === 'shadowfen' && {
-    backgroundColor: isLegendary
-      ? '#0b211d'
-      : type === 'structure'
-      ? '#1c413c'
-      : type === 'spell'
-      ? '#5b988f'
-      : 'var(--shadowfen)',
-  }),
-
-  ...(faction === 'winter' && {
-    backgroundColor: isLegendary
-      ? '#09192a'
-      : type === 'structure'
-      ? '#20283c'
-      : type === 'spell'
-      ? '#515f80'
-      : 'var(--winter)',
   }),
 })
 

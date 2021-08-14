@@ -29,6 +29,7 @@ const renderRootStyles = renderer => {
     --yellow: #d0b84c;
 
     /* Faction colors */
+    --neutral: #4e5659;
     --swarm: #604830;
     --ironclad: #824648;
     --shadowfen: #30655d;
