@@ -3,11 +3,11 @@ import { BrowserRouter, Redirect, Switch } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Error from '../Error'
 import PageRoute from '../PageRoute'
-import { StoriesContext } from '../StoriesProvider'
 import load from '../../helpers/load'
 import { STORY_CATEGORIES } from '../../constants/stories'
 import guides from '../../data/guides'
 import releases from '../../data/releases'
+import stories from '../../data/stories'
 import { CATEGORIES } from '../../constants/guides'
 
 const GUIDE_COMPONENTS = {
@@ -112,8 +112,6 @@ const ValueCalculator = load('ValueCalculator')
 const Videos = load('Videos')
 
 export default function Router(props) {
-  const stories = React.useContext(StoriesContext)
-
   return (
     <AnimatePresence exitBeforeEnter>
       <BrowserRouter>

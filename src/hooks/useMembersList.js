@@ -5,6 +5,7 @@ import donations from '../data/donations'
 import events from '../data/events'
 import guides from '../data/guides'
 import puzzles from '../data/puzzles'
+import stories from '../data/stories'
 import tournaments from '../data/tournaments'
 import videos from '../data/videos'
 import swcc from '../data/swcc'
@@ -24,10 +25,7 @@ const sortAlphabetically = (a, b) =>
     ? +1
     : 0
 
-// Stories live in a file outside of the `src` directory (because generated) and
-// therefore cannot be imported. It has to be passed from the surrounding
-// context (React within the app, or the sitemap script).
-const useMembersList = (stories = []) =>
+const useMembersList = () =>
   uniq(
     [
       ...stories.map(addType('STORY')),

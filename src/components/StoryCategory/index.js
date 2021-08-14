@@ -8,11 +8,11 @@ import Loader from '../Loader'
 import Stories from '../Stories'
 import useLazyLoad from '../../hooks/useLazyLoad'
 import useViewportSize from '../../hooks/useViewportSize'
-import { StoriesContext } from '../StoriesProvider'
+import stories from '../../data/stories'
 
 export default React.memo(function StoryCategory(props) {
   const { viewportWidth } = useViewportSize()
-  const stories = React.useContext(StoriesContext)
+  const categoryStories = stories
     .filter(story => story.category === props.category)
     .sort((a, b) => {
       const indexA = parseInt(a.title, 10)
@@ -20,7 +20,11 @@ export default React.memo(function StoryCategory(props) {
 
       return isNaN(indexA) || isNaN(indexB) ? 0 : indexA - indexB
     })
-  const { loading: loadingMore, items, ref } = useLazyLoad(stories, 3 * 2)
+  const {
+    loading: loadingMore,
+    items,
+    ref,
+  } = useLazyLoad(categoryStories, 3 * 2)
   const { title, background, shortName } = STORY_CATEGORIES[props.category]
 
   return (

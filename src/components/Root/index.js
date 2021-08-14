@@ -6,7 +6,6 @@ import ErrorBoundary from '../ErrorBoundary'
 import NotificationProvider from '../NotificationProvider'
 import PersonalDecksProvider from '../PersonalDecksProvider'
 import ImageSupportProvider from '../ImageSupportProvider'
-import StoriesProvider from '../StoriesProvider'
 import UserProvider from '../UserProvider'
 import Router from '../Router'
 import createFelaRenderer from '../../helpers/createFelaRenderer'
@@ -24,14 +23,12 @@ export default function Root(props) {
             <NotificationProvider>
               <CollectionProvider>
                 <PersonalDecksProvider>
-                  <StoriesProvider>
-                    <UserProvider>
-                      <Router />
-                      <Helmet>
-                        <meta name='author' content='Kitty' />
-                      </Helmet>
-                    </UserProvider>
-                  </StoriesProvider>
+                  <UserProvider>
+                    <Router />
+                    <Helmet>
+                      <meta name='author' content='Kitty' />
+                    </Helmet>
+                  </UserProvider>
                 </PersonalDecksProvider>
               </CollectionProvider>
             </NotificationProvider>

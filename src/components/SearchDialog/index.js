@@ -2,13 +2,11 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import { useHistory } from 'react-router-dom'
 import Downshift from 'downshift'
-import { StoriesContext } from '../StoriesProvider'
 import Dialog from '../Dialog'
 import Icon from '../Icon'
 import Input from '../Input'
 import VisuallyHidden from '../VisuallyHidden'
-import searcher, { SEARCH_INDEX } from './searcher'
-import capitalise from '../../helpers/capitalise'
+import searcher from './searcher'
 import styles from './styles'
 
 const isSearchShortcut = event => {
@@ -67,43 +65,12 @@ const Option = props => {
 
 export default React.memo(function SearchDialog(props) {
   const { css } = useFela()
-  const [storiesAdded, setStoriesAdded] = React.useState(false)
   const [inputValue, setInputValue] = React.useState('')
   const history = useHistory()
   const input = React.useRef(null)
   const { setIsSearchReady } = props
-  const stories = React.useContext(StoriesContext)
   const metaKeyName =
     navigator.platform.toUpperCase().indexOf('MAC') >= 0 ? 'CMD' : 'CTRL'
-
-  React.useEffect(() => {
-    if (storiesAdded || stories.length === 0) return
-
-    stories.forEach(story => {
-      const path = `/stories/${story.id}`
-      const isStoryFound = SEARCH_INDEX.find(entry => entry.path === path)
-      const isMemberFound = SEARCH_INDEX.find(
-        entry => entry.path === '/member/' + story.author
-      )
-
-      if (!isStoryFound) {
-        SEARCH_INDEX.push({
-          path: `/stories/${story.id}`,
-          label: story.title + ' by ' + story.author,
-          breadcrumbs: ['Stories', capitalise(story.category)],
-        })
-      }
-      if (!isMemberFound) {
-        SEARCH_INDEX.push({
-          path: `/member/${story.member}`,
-          label: story.member,
-          breadcrumbs: ['Home', 'Member'],
-        })
-      }
-    })
-
-    setStoriesAdded(true)
-  }, [storiesAdded, stories])
 
   const registerDialog = instance => {
     props.dialogRef.current = instance
