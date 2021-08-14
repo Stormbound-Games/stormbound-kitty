@@ -2,7 +2,6 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Image from '../Image'
 import { ImageSupportContext } from '../ImageSupportProvider'
-import { getRarityColor } from '../../helpers/getRarity'
 import microMarkdown from '../../helpers/microMarkdown'
 import clamp from '../../helpers/clamp'
 import useFluidSizing from '../../hooks/useFluidSizing'
@@ -38,7 +37,6 @@ export default React.memo(function Card(props) {
     hasIncreasedMana: props.manaIncreased,
     hasIncreasedMovement: props.movementIncreased,
     hasIncreasedStrength: props.strengthIncreased,
-    hasNoRarity: !props.rarity,
     isAffordable: props.affordable,
     isCreated: props.created,
     isHero: props.hero,
@@ -66,15 +64,7 @@ export default React.memo(function Card(props) {
       <div className={css(styles.content)} style={{ backgroundImage }}>
         <div className={css(styles.header)}>
           <div className={css(styles.mana)}>
-            <span
-              className={css(
-                styles.manaContent({
-                  isIncreased: props.manaIncreased,
-                  isDecreased: props.manaDecreased,
-                })
-              )}
-              data-testid='card-mana'
-            >
+            <span className={css(styles.manaContent)} data-testid='card-mana'>
               {props.mana}
             </span>
           </div>
@@ -147,15 +137,7 @@ export default React.memo(function Card(props) {
             </div>
           )}
 
-          <span
-            className={css(styles.level)}
-            style={{
-              // Token cards do not have a rarity, but should be displayed as
-              // “common” cards.
-              color: getRarityColor(props.rarity || 'common', 'light'),
-            }}
-            data-testid='card-level'
-          >
+          <span className={css(styles.level)} data-testid='card-level'>
             Level{' '}
             {
               // Token cards carry their strength in their level but they should

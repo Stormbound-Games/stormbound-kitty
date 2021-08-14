@@ -1,3 +1,6 @@
+import { getRarityColor } from '../../helpers/getRarity'
+
+const MISSING_FILTER = 'contrast(200%) saturate(0.5) grayscale(0.5)'
 const IMAGES = {
   mana: "url('data:image/png;base64,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')",
   movement: {
@@ -15,109 +18,87 @@ const IMAGES = {
   },
 }
 
-const rainbow = {
-  from: { filter: 'hue-rotate(0deg)' },
-  to: { filter: 'hue-rotate(360deg)' },
+const getOutlineColor = ({ isAffordable, isUpgradable, player }) => {
+  if (isUpgradable) return 'var(--upgradable)'
+  if (isAffordable) return 'var(--affordable)'
+  if (player === 'RED') return 'var(--player-red)'
+  if (player === 'BLUE') return 'var(--player-blue)'
+  return 'transparent'
 }
 
+/**
+ * 1. Relative positioning for absolutely positioning mana.
+ * 2. The `--font-size` CSS custom property is computed at runtime in JS.
+ * 3. The color of the outline is relevant when the card is in a particular
+ *    state (affordable, upgradable, owned by a player…). A CSS custom property
+ *    is used so it can be inherited by the child mana element which also needs
+ *    to know about the outline color.
+ * 4. Prevent the ability from being hyphenated.
+ * 5. Pseudo-element padding hack used to enforce a certain aspect ratio
+ *    regardless of the content of the card (or lack thereof).
+ */
 const card = ({ isAffordable, isUpgradable, player }) => ({
-  position: 'relative',
-  color: 'var(--white)',
-  fontSize: 'var(--font-size)',
-  textAlign: 'center',
+  position: 'relative' /* 1 */,
+  fontSize: 'var(--font-size)' /* 2 */,
   borderRadius: '2.25em',
-  filter: 'drop-shadow(0 1em 0.75em #00000040)',
   transition: 'box-shadow 250ms, transform 250ms',
-
-  ...(isUpgradable && {
-    boxShadow: '0 0 0 0.5em var(--upgradable)',
-  }),
-
-  ...(isAffordable && {
-    boxShadow: '0 0 0 0.5em var(--affordable)',
-  }),
-
-  ...(player === 'RED' && {
-    boxShadow: '0 0 0 0.5em var(--player-red), 0 0 4em 0.8em #cb2b434d',
-  }),
-
-  ...(player === 'BLUE' && {
-    boxShadow: '0 0 0 0.5em var(--player-blue), 0 0 4em 0.8em #195d9c4d',
-  }),
+  '--outline-color': getOutlineColor({ isAffordable, isUpgradable, player }),
+  boxShadow: '0 1em 0.75em #00000040, 0 0 0 0.5em var(--outline-color)' /* 3 */,
+  hyphens: 'none' /* 4 */,
 
   '::before': {
-    content: '""',
+    content: '""' /* 5 */,
     display: 'block',
     paddingTop: '168.6%',
   },
-
-  '> *': {
-    animationName: { from: { opacity: 0 } },
-    animationDuration: '200ms',
-    animationDelay: '100ms',
-    animationFillMode: 'both',
-  },
 })
 
-const mana = ({ isAffordable, isMissing, isUpgradable, player }) => ({
+/**
+ * 1. Slightly offset the mana diamond from the card so it shows from the top.
+ */
+const mana = ({ hasDecreasedMana, hasIncreasedMana, isMissing }) => ({
   position: 'absolute',
   top: 0,
   left: '50%',
-  transform: 'translate(-50%, -30%)',
+  transform: 'translate(-50%, -30%)' /* 1 */,
   width: '20%',
   backgroundImage: IMAGES.mana,
   backgroundSize: 'cover',
   transition: 'filter 250ms',
+  filter: [
+    isMissing && MISSING_FILTER,
+    'drop-shadow(0 -0.15em var(--outline-color))',
+  ]
+    .filter(Boolean)
+    .join(' '),
+  fontSize: '250%',
+  color: hasDecreasedMana
+    ? 'var(--affordable)'
+    : hasIncreasedMana
+    ? 'var(--light-ironclad)'
+    : 'var(--white)',
 
   '::before': {
     content: '""',
     display: 'block',
     paddingTop: '80%',
   },
-
-  ...(isMissing && {
-    filter: 'contrast(200%) saturate(0.5) grayscale(0.5)',
-  }),
-
-  ...(isUpgradable && {
-    filter: isMissing
-      ? 'contrast(200%) saturate(0.5) grayscale(0.5) drop-shadow(0 -0.4em var(--upgradable))'
-      : 'drop-shadow(0 -0.4em var(--upgradable))' /* 1 */,
-  }),
-
-  ...(isAffordable && {
-    filter: 'drop-shadow(0 -0.4em var(--affordable))' /* 1 */,
-  }),
-
-  ...(player === 'RED' && {
-    filter:
-      'drop-shadow(0 -0.4em var(--player-red)) drop-shadow(0 0 10px #cb2b434d)',
-  }),
-
-  ...(player === 'BLUE' && {
-    filter:
-      'drop-shadow(0 -0.4em var(--player-blue)) drop-shadow(0 0 10px #195d9c4d)',
-  }),
 })
 
-const manaContent = ({ hasDecreasedMana, hasIncreasedMana }) => ({
+/**
+ * 1. Improve vertical alignment of the mana cost within the diamond.
+ */
+const manaContent = {
   position: 'absolute',
   top: 0,
   right: 0,
   left: 0,
   bottom: 0,
-  fontSize: '250%',
-  transform: 'translateY(-0.1em)',
-  color: hasDecreasedMana
-    ? 'var(--affordable)'
-    : hasIncreasedMana
-    ? 'var(--light-ironclad)'
-    : undefined,
-})
+  transform: 'translateY(-0.08em)' /* 1 */,
+}
 
 /**
  * 1. Static background color for missing cards.
- * 2. Mimick rounded corners normally coming from background image.
  */
 const content = ({ isMissing }) => ({
   position: 'absolute',
@@ -125,102 +106,122 @@ const content = ({ isMissing }) => ({
   right: 0,
   bottom: 0,
   left: 0,
+
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  paddingTop: '4em',
+
+  textAlign: 'center',
+  color: isMissing ? '#7d7d7d' : 'var(--white)',
+
+  borderRadius: 'inherit',
+  backgroundColor: isMissing ? '#172630' : undefined /* 1 */,
   backgroundSize: 'contain',
   backgroundRepeat: 'no-repeat',
 
-  ...(isMissing && {
-    backgroundColor: '#172630' /* 1 */,
-    borderRadius: '2.15em' /* 2 */,
-  }),
+  animationName: { from: { opacity: 0 } },
+  animationDuration: '200ms',
+  animationDelay: '100ms',
+  animationFillMode: 'both',
 })
 
 /**
- * 1. Color used through the mask, effectively being the color of the image.
- * 2. The element has no content, therefore needs a height.
- * 3. Not quite the same as the image itself, but somewhat works.
+ * 1. The element has no content, therefore needs a height.
+ * 2. Not quite the same as the image itself, but somewhat works.
+ * 3. Color used through the mask, effectively being the color of the image.
  */
 const missing = {
-  backgroundColor: '#0e181f' /* 1 */,
   display: 'block',
-  '-webkit-mask-repeat': 'no-repeat',
-  '-webkit-mask-size': 'contain',
-  '-webkit-mask-position': 'center',
   flexGrow: 1 /* 2 */,
   width: '70%' /* 3 */,
   margin: 'auto',
+  backgroundColor: '#0e181f' /* 1 */,
+  '-webkit-mask-repeat': 'no-repeat',
+  '-webkit-mask-size': 'contain',
+  '-webkit-mask-position': 'center',
 }
 
+/**
+ * 1. Leave some room at the top of the card, below the mana diamond.
+ */
 const header = {
   display: 'flex',
   flexDirection: 'column',
+  marginTop: '4em' /* 1 */,
+  padding: '0 2em',
+  textTransform: 'uppercase',
 }
 
-const name = ({ isMissing }) => ({
+const name = {
   fontSize: '170%',
   marginBottom: 'var(--s-smallest)',
-  textTransform: 'uppercase',
-  padding: '0 1em',
-  opacity: isMissing ? 0.5 : undefined,
-})
+}
 
-const race = ({ isMissing }) => ({
+/**
+ * 1. Make the race a little less prominent than the header without harcoding
+ *    a color as it would need to vary from faction to faction.
+ * 2. Make sure the element always take the same amount of room regardless of
+ *    whether or not the card has a race.
+ */
+const race = {
   fontSize: '135%',
-  opacity: isMissing ? 0.5 : 0.7,
-  textTransform: 'uppercase',
-  minHeight: '1.25em',
-})
+  opacity: 0.7 /* 1 */,
+  minHeight: '1.25em' /* 2 */,
+}
 
+/**
+ * 1. Add a hue animation to hero cards like in the game.
+ */
 const imageWrapper = ({ rarity }) => ({
   width: '80%',
   margin: 'auto',
   maxHeight: '45%',
-  display: 'flex',
 
   ...(rarity === 'legendary' && {
-    animationName: rainbow,
+    animationName: { to: { filter: 'hue-rotate(360deg)' } } /* 1 */,
     animationDuration: '8000ms',
     animationIterationCount: 'infinite',
   }),
 })
 
+/**
+ * 1. Make sure the card doesn’t get distorded despite occupying all available
+ *    space.
+ */
 const image = {
   width: '100%',
-  objectFit: 'contain',
+  objectFit: 'contain' /* 1 */,
   maxHeight: '100%',
-  margin: 'auto',
 }
 
-const ability = ({ isMissing }) => ({
+const ability = {
   fontSize: '130%',
-  padding: '0 2em',
-  hyphens: 'none',
-  opacity: isMissing ? 0.5 : undefined,
-  marginBottom: 'var(--s-base)',
-})
-
-const footer = {
-  position: 'relative',
-  textAlign: 'center',
-  paddingBottom: '0.4em',
+  marginBottom: 'var(--s-small)',
 }
 
 /**
- * 1. “Created” cards (tokens created by Collector Mirz or Harvesters of Souls
+ * 1. Relative positioning for the absolutely positioned strength and movement
+ *    markers.
+ */
+const footer = {
+  position: 'relative' /* 1 */,
+  padding: '0 2em',
+}
+
+/**
+ * 1. Every card rarity icon is slightly off-scale and needs to be adjusted,
+ *    with scale to avoid messing with the card layout.
+ * 2. “Created” cards (tokens created by Collector Mirz or Harvesters of Souls
  *    should not render the rarity however the card layout should remain
  *    unchanged, hence why the image is still rendered but visually hidden.
  */
-const rarity = ({ isCreated, isMissing, level }) => ({
+const rarity = ({ isCreated, level }) => ({
   display: 'inline-block',
   objectFit: 'contain',
   margin: '0 auto 0.25em',
   maxHeight: '2em',
-  opacity: isMissing ? 0.5 : undefined,
-  transform: `scale(${[0.71, 1.05, 0.85, 1.15, 1.05][level - 1]})`,
-  visibility: isCreated ? 'hidden' : 'visible' /* 1 */,
+  transform: `scale(${[0.71, 1.05, 0.85, 1.15, 1.05][level - 1]})` /* 1 */,
+  visibility: isCreated ? 'hidden' : 'visible' /* 2 */,
 })
 
 const strengthAndMovement = ({ isMissing }) => ({
@@ -231,7 +232,7 @@ const strengthAndMovement = ({ isMissing }) => ({
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center',
   backgroundSize: 'contain',
-  filter: isMissing ? 'contrast(200%) saturate(0.5) grayscale(0.5)' : undefined,
+  filter: isMissing ? MISSING_FILTER : undefined,
 })
 
 const movement = ({
@@ -292,7 +293,6 @@ const strengthAndMovementContent = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   fontSize: '270%',
-  textAlign: 'center',
 }
 
 const strengthContent = {
@@ -310,17 +310,18 @@ const movementContent = ({ hasFixedMovement }) => ({
  * 1. “Created” cards (tokens created by Collector Mirz or Harvesters of Souls
  *    should not render the rarity however the card layout should remain
  *    unchanged, hence why the image is still rendered but visually hidden.
- * 2. When there is no rarity between the ability and the strength, such as for
- *    token cards, some space should be left for the image to remain centered.
+ * 2. Make sure the element always take the same amount of room regardless of
+ *    whether or not the card has a race.
  */
-const level = ({ isCreated, isMissing, hasNoRarity }) => ({
-  textTransform: 'uppercase',
+const level = ({ isCreated, rarity, isMissing }) => ({
   fontSize: '140%',
-  display: 'block',
-  transform: 'translateY(-1px)',
+  textTransform: 'uppercase',
+  color: getRarityColor(rarity || 'common', 'light'),
   opacity: isMissing ? 0.5 : undefined,
+  display: 'block',
   visibility: isCreated ? 'hidden' : 'visible' /* 1 */,
-  marginTop: hasNoRarity ? 'var(--s-large)' : undefined /* 2 */,
+  minHeight: '1em' /* 2 */,
+  marginBottom: '0.3em',
 })
 
 export default {
