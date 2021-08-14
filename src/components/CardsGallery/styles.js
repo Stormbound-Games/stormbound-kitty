@@ -47,13 +47,9 @@ const button = ({ isInDeck }) => ({
   left: 0,
   right: 0,
   bottom: 0,
-  padding: 0,
-  border: 0,
-  backgroundColor: 'transparent',
   width: '100%',
   height: '100%',
   zIndex: 2,
-  cursor: 'pointer',
 
   ':hover + *': !isInDeck && {
     transform: 'scale(1.08)',

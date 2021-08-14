@@ -48,7 +48,6 @@ export default React.memo(function Layout(props) {
         active={props.active}
         isSearchReady={isSearchReady}
         openSearch={() => searchDialog.current.show()}
-        isSearchOpen={searchDialog.current?.shown}
       />
 
       <main className={css(styles.body)}>{props.children}</main>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { CollectionContext } from '../CollectionProvider'
+import BlankButton from '../BlankButton'
 import Image from '../Image'
 import Mana from '../Mana'
 import Card from '../Card'
@@ -82,14 +83,12 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
       data-testid={[card.id, card.idx].filter(Boolean).join('_') + ' deck-slot'}
     >
       {props.onClick && (
-        <button
-          type='button'
-          className={css(styles.button)}
+        <BlankButton
+          extend={styles.button}
           onClick={() => props.onClick(card)}
           disabled={props.isCardDisabled ? props.isCardDisabled(card) : false}
-        >
-          <VisuallyHidden>{props.onClickLabel}</VisuallyHidden>
-        </button>
+          label={props.onClickLabel}
+        />
       )}
 
       <Mana

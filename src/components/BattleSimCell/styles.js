@@ -1,10 +1,4 @@
-/**
- * 1. Reset <button> default styling
- */
 const cell = ({ isDragging, isDisplay, isFrozen, activePlayer }) => ({
-  border: 0 /* 1 */,
-  backgroundColor: 'transparent' /* 1 */,
-  padding: 0 /* 1 */,
   borderRadius: '4px',
   width: '100%',
   height: '100%',

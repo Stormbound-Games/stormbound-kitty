@@ -2,7 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Card from '../Card'
 import CTA from '../CTA'
-import VisuallyHidden from '../VisuallyHidden'
+import BlankButton from '../BlankButton'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import indexArray from '../../helpers/indexArray'
 import styles from './styles'
@@ -43,10 +43,9 @@ export default React.memo(function BattleSimCards(props) {
               data-testid={`card-slot-${index}`}
             >
               {!card && !props.canDrawCard ? null : (
-                <button
-                  type='button'
+                <BlankButton
                   data-testid='card-slot-button'
-                  className={css(styles.button({ isEmpty: !card }))}
+                  extend={styles.button({ isEmpty: !card })}
                   onClick={() => {
                     if (!card && props.canDrawCard) {
                       return props.drawCard()
@@ -59,9 +58,8 @@ export default React.memo(function BattleSimCards(props) {
                       props.zoom({ id: card.id, level: card.level })
                     }
                   }}
-                >
-                  <VisuallyHidden>{buttonLabel}</VisuallyHidden>
-                </button>
+                  label={buttonLabel}
+                />
               )}
 
               <div

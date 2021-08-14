@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { motion } from 'framer-motion'
+import BlankButton from '../BlankButton'
 import Card from '../Card'
 import CTA from '../CTA'
 import Spacing from '../Spacing'
-import VisuallyHidden from '../VisuallyHidden'
 import chunk from '../../helpers/chunk'
 import styles from './styles'
 
@@ -104,18 +104,13 @@ export default React.memo(function CardsGallery(props) {
               }}
             >
               {props.onCardClick && (
-                <button
-                  className={css(
-                    styles.button({
-                      isInDeck:
-                        props.isCardInDeck && props.isCardInDeck(card.id),
-                    })
-                  )}
-                  type='button'
+                <BlankButton
+                  extend={styles.button({
+                    isInDeck: props.isCardInDeck && props.isCardInDeck(card.id),
+                  })}
                   onClick={() => props.onCardClick(card.id)}
-                >
-                  <VisuallyHidden>Add card to deck</VisuallyHidden>
-                </button>
+                  label='Add card to deck'
+                />
               )}
 
               <Card

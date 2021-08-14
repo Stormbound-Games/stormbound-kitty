@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import BlankButton from '../BlankButton'
 import Link from '../Link'
 import Info from '../Info'
 import Only from '../Only'
@@ -32,31 +33,24 @@ export default React.memo(function CheapenedBrawl({
 
         {difficulty !== 'LEGACY' && (
           <div className={css(styles.controls)}>
-            <button
-              type='button'
-              className={css(styles.control({ isActive: active === 'CASUAL' }))}
+            <BlankButton
+              extend={styles.control({ isActive: active === 'CASUAL' })}
               onClick={() => setActive('CASUAL')}
             >
               Casual
-            </button>
-            <button
-              type='button'
-              className={css(
-                styles.control({ isActive: active === 'WARRIOR' })
-              )}
+            </BlankButton>
+            <BlankButton
+              extend={styles.control({ isActive: active === 'WARRIOR' })}
               onClick={() => setActive('WARRIOR')}
             >
               Warrior
-            </button>
-            <button
-              type='button'
-              className={css(
-                styles.control({ isActive: active === 'ULTIMATE' })
-              )}
+            </BlankButton>
+            <BlankButton
+              extend={styles.control({ isActive: active === 'ULTIMATE' })}
               onClick={() => setActive('ULTIMATE')}
             >
               Ultimate
-            </button>
+            </BlankButton>
           </div>
         )}
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Image from '../Image'
-import VisuallyHidden from '../VisuallyHidden'
+import BlankButton from '../BlankButton'
 import styles from './styles'
 
 const getTitle = props => {
@@ -18,7 +18,7 @@ const getTitle = props => {
   return `${strength}-strength ${side} ${name} (lvl ${level}) (${statuses})`
 }
 
-export default React.memo(function BattleSimCell(props) {
+const CellContent = props => {
   const { css } = useFela({
     activePlayer: props.activePlayer,
     player: props.player,
@@ -32,17 +32,7 @@ export default React.memo(function BattleSimCell(props) {
   })
 
   return (
-    <button
-      className={css(styles.cell)}
-      type='button'
-      aria-pressed={props.isActive}
-      onClick={props.onClick}
-      onMouseDown={props.onMouseDown}
-      onMouseUp={props.onMouseUp}
-      onMouseOver={props.onMouseOver}
-      data-testid={props['data-testid']}
-      title={getTitle(props)}
-    >
+    <>
       {props.strength > 0 && (
         <span
           data-testid='cell-strength'
@@ -60,11 +50,7 @@ export default React.memo(function BattleSimCell(props) {
           alt={props.card.name}
           data-testid='cell-image'
         />
-      ) : (
-        <VisuallyHidden>
-          {props.mode === 'DISPLAY' ? '' : 'Select cell'}
-        </VisuallyHidden>
-      )}
+      ) : null}
 
       {!!(props.poisoned || props.vitalised) && (
         <div
@@ -108,6 +94,26 @@ export default React.memo(function BattleSimCell(props) {
           &times;
         </span>
       )}
-    </button>
+    </>
+  )
+}
+
+export default React.memo(function BattleSimCell(props) {
+  if (props.mode === 'DISPLAY') return <CellContent {...props} />
+
+  return (
+    <BlankButton
+      extend={styles.cell}
+      aria-pressed={props.isActive}
+      onClick={props.onClick}
+      onMouseDown={props.onMouseDown}
+      onMouseUp={props.onMouseUp}
+      onMouseOver={props.onMouseOver}
+      data-testid={props['data-testid']}
+      title={getTitle(props)}
+      label={props.mode === 'DISPLAY' ? '' : 'Select cell'}
+    >
+      <CellContent {...props} />
+    </BlankButton>
   )
 })

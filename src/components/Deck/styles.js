@@ -226,16 +226,12 @@ const button = {
   left: 0,
   right: 0,
   bottom: 0,
-  padding: 0,
-  border: 0,
-  backgroundColor: 'transparent',
   width: '100%',
   height: '100%',
   transition: 'background-color 250ms',
   zIndex: 2,
 
   ':not(:disabled):hover': {
-    cursor: 'pointer',
     backgroundColor: '#ffffff1a',
   },
 }

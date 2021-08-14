@@ -2,6 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
 import Image from '../Image'
+import BlankButton from '../BlankButton'
 import styles from './styles'
 
 export default React.memo(function ListBuilderTierItem(props) {
@@ -66,7 +67,7 @@ export default React.memo(function ListBuilderTierItem(props) {
         </span>
       )}
 
-      <button
+      <BlankButton
         onMouseDown={
           props.onMouseDown ? () => props.onMouseDown(props.index) : undefined
         }
@@ -76,11 +77,10 @@ export default React.memo(function ListBuilderTierItem(props) {
         onMouseUp={
           props.onMouseUp ? () => props.onMouseUp(props.index) : undefined
         }
-        type='button'
         onClick={() => props.removeCard(props.card.id)}
-        className={css(styles.item, {
-          '--color': `var(--${props.card.faction})`,
-        })}
+        extend={styles.item}
+        style={{ '--color': `var(--${props.card.faction})` }}
+        label={'Remove ' + props.card.name + ' from list'}
         title={'Remove ' + props.card.name + ' from list'}
       >
         <Image
@@ -89,7 +89,7 @@ export default React.memo(function ListBuilderTierItem(props) {
           extend={styles.image}
           withAvif
         />
-      </button>
+      </BlankButton>
 
       {shouldDisplayPlaceholderAfter && (
         <span className={css(styles.item({ isPlaceholder: true }))}>

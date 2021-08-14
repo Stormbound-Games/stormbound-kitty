@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import BlankButton from '../BlankButton'
 import Link from '../Link'
 import Icon from '../Icon'
 import NewPulse from '../NewPulse'
@@ -71,14 +72,13 @@ export default React.memo(
           ))}
         </Row>
         {props.close && (
-          <button
-            type='button'
+          <BlankButton
             onClick={props.close}
-            aria-label='Close menu'
-            className={css(styles.close)}
+            label='Close menu'
+            extend={styles.close}
           >
-            &times;
-          </button>
+            <Icon icon='cross' />
+          </BlankButton>
         )}
       </div>
     )

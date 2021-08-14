@@ -43,7 +43,6 @@ export default React.memo(function Header(props) {
               <li className={css(styles.item)}>
                 {item.to ? (
                   <Link
-                    isActive={topActive === item.id}
                     to={item.to}
                     extend={styles.action({ isActive: topActive === item.id })}
                   >
@@ -83,8 +82,7 @@ export default React.memo(function Header(props) {
             <Link
               disabled={!props.isSearchReady}
               onClick={props.openSearch}
-              isActive={topActive === 'SEARCH'}
-              extend={styles.action({ isActive: props.isSearchOpen })}
+              extend={styles.action({ isActive: topActive === 'SEARCH' })}
             >
               <Icon extend={styles.icon} icon='search' /> Search
             </Link>

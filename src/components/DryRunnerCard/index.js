@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import BlankButton from '../BlankButton'
 import Card from '../Card'
-import VisuallyHidden from '../VisuallyHidden'
 import isCard from '../../helpers/isCard'
 import styles from './styles'
 
@@ -14,15 +14,11 @@ export default React.memo(function DryRunnerCard(props) {
 
   return (
     <div className={css(styles.wrapper)} data-active={isActive || undefined}>
-      <button
-        className={css(styles.button)}
-        type='button'
+      <BlankButton
+        extend={styles.button}
         onClick={() => props.selectCard(props.card)}
-      >
-        <VisuallyHidden>
-          {isActive ? 'Unselect card' : 'Select card'}
-        </VisuallyHidden>
-      </button>
+        label={isActive ? 'Unselect card' : 'Select card'}
+      />
       <Card
         {...cardData}
         missing={!!props.activeCard && !isActive}

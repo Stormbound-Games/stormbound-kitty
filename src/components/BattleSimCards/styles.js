@@ -10,11 +10,7 @@ const button = ({ isEmpty }) => ({
   right: 0,
   bottom: 0,
   left: 0,
-  backgroundColor: 'transparent',
-  border: 0,
-  padding: 0,
   zIndex: 2,
-  cursor: 'pointer',
   width: '100%',
   height: '100%',
 

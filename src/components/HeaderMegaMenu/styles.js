@@ -83,19 +83,9 @@ const link = ({ isActive, isNew }) => ({
 })
 
 const close = {
-  display: 'block',
-  backgroundColor: 'transparent',
-  padding: 0,
-  border: 0,
   position: 'absolute',
-  top: '0.1em',
-  right: '0.25em',
-  width: '1.5em',
-  height: '1.5em',
-  lineHeight: '1.5em',
-  color: 'inherit',
-  font: 'inherit',
-  fontSize: '200%',
+  top: '1.5em',
+  right: '1.5em',
 
   medium: {
     display: 'none',
