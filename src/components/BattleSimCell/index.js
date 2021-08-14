@@ -32,7 +32,11 @@ const CellContent = props => {
   })
 
   return (
-    <>
+    <div
+      data-testid={props['data-testid']}
+      className={css(styles.cell)}
+      title={props.title}
+    >
       {props.strength > 0 && (
         <span
           data-testid='cell-strength'
@@ -94,7 +98,7 @@ const CellContent = props => {
           &times;
         </span>
       )}
-    </>
+    </div>
   )
 }
 

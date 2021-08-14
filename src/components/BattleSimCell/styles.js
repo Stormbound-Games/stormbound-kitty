@@ -1,4 +1,7 @@
 const cell = ({ isDragging, isDisplay, isFrozen, activePlayer }) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
   borderRadius: '4px',
   width: '100%',
   height: '100%',
