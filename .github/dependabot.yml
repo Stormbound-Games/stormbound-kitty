@@ -6,7 +6,7 @@ updates:
       interval: 'weekly'
     ignore:
       - dependency-name: 'cypress'
-        versions: ['7.x']
+        versions: ['7.x', '8.x']
       - dependency-name: '@cypress/react'
         versions: ['5.x']
       - dependency-name: 'framer-motion'
