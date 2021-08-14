@@ -18,8 +18,8 @@ class BattleSimAppDesktop extends React.Component {
     coords: {},
   }
 
-  open = () => this.dialog.show()
-  close = () => this.dialog.hide()
+  open = () => this.dialog && this.dialog.show()
+  close = () => this.dialog && this.dialog.hide()
 
   componentDidUpdate(prevProps) {
     if (!isEqual(prevProps.activeCell, this.props.activeCell)) {
