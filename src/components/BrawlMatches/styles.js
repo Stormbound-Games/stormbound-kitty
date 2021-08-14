@@ -41,7 +41,7 @@ const milestone = ({ isActive }) => ({
     position: 'absolute',
     width: '130%',
     height: '1px',
-    background:
+    backgroundImage:
       'linear-gradient(to right, transparent, var(--dark-beige), transparent)',
     left: '50%',
     transform: 'translateX(-50%)',

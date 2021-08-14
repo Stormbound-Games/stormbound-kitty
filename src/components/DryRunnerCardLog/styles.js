@@ -35,7 +35,7 @@ const imageWrapper = ({ isTurn }) => ({
     top: '50%',
     width: '1px',
     transform: 'translateY(-50%)',
-    background:
+    backgroundImage:
       'linear-gradient(to bottom, transparent, var(--dark-beige), transparent)',
   },
 })

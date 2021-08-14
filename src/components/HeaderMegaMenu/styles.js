@@ -59,7 +59,7 @@ const icon = {
 }
 
 const list = {
-  listStyle: 'none',
+  listStyleType: 'none',
   padding: 0,
   margin: 0,
 }

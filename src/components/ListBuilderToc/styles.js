@@ -2,7 +2,7 @@ const list = {
   marginTop: 0,
   marginBottom: 0,
   paddingLeft: '2.5em',
-  listStyle: 'none',
+  listStyleType: 'none',
   counterReset: 'toc',
 }
 

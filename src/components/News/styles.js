@@ -1,5 +1,5 @@
 const news = {
-  listStyle: 'none',
+  listStyleType: 'none',
   margin: 0,
   padding: 0,
 }

@@ -1,6 +1,6 @@
 const footer = {
   padding: '1em',
-  background: 'linear-gradient(to top, transparent, #ded7a414)',
+  backgroundImage: 'linear-gradient(to top, transparent, #ded7a414)',
   position: 'relative',
 
   '::before': {
@@ -10,7 +10,7 @@ const footer = {
     left: 0,
     right: 0,
     height: '1px',
-    background:
+    backgroundImage:
       'linear-gradient(to right, transparent, var(--beige), transparent)',
   },
 }

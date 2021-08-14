@@ -17,7 +17,8 @@ const cell = ({ type }) => ({
   }),
 
   ...(type === 'guardians' && {
-    background: 'linear-gradient(to top left, #3498db99 50%, #2ecc7199 50%)',
+    backgroundImage:
+      'linear-gradient(to top left, #3498db99 50%, #2ecc7199 50%)',
   }),
 })
 

@@ -20,7 +20,7 @@ const inputWwrapper = {
 }
 
 const list = {
-  listStyle: 'none',
+  listStyleType: 'none',
   padding: 0,
   position: 'absolute',
   left: 0,

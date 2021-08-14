@@ -4,7 +4,7 @@ const controls = {
 
 const control = ({ isActive }) => ({
   '--color': isActive ? '#9b8e7033' : '#9b8e701a',
-  background:
+  backgroundImage:
     'repeating-linear-gradient(-45deg, var(--color), var(--color) 4px, transparent 4px, transparent 8px)',
   border: 0,
   borderBottom:

@@ -12,7 +12,7 @@ const barPseudo = {
   top: '50%',
   width: '24.041630560342615px' /* 1 */,
   height: '24.041630560342615px' /* 1 */,
-  background:
+  backgroundImage:
     'linear-gradient(to bottom left, var(--black) 50%, transparent 50%)',
   borderRight: '1px solid var(--dark-beige)',
   borderTop: '1px solid var(--dark-beige)',
@@ -49,7 +49,7 @@ const bar = {
     borderRadius: '0 1px 0 1px' /* 2 */,
     borderRight: 0,
     borderLeft: '1px solid var(--dark-beige)',
-    background:
+    backgroundImage:
       'linear-gradient(to bottom right, var(--black) 50%, transparent 50%)',
   },
 }
@@ -67,7 +67,8 @@ const innerPseudo = {
   width: '18.384776310850235px' /* 1 */,
   height: '18.384776310850235px' /* 1 */,
   transform: 'translate(50%, -50%) rotate(45deg)',
-  background: 'linear-gradient(to bottom left, #8db22c 50%, transparent 50%)',
+  backgroundImage:
+    'linear-gradient(to bottom left, #8db22c 50%, transparent 50%)',
   zIndex: 2,
 }
 
@@ -85,7 +86,7 @@ const inner = {
     ...innerPseudo,
     left: 0,
     transform: 'translate(-50%, -50%) rotate(-45deg)',
-    background:
+    backgroundImage:
       'linear-gradient(to bottom right, #8db22c 50%, transparent 50%)',
   },
 

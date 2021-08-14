@@ -14,7 +14,7 @@ const body = ({ isDragging }) => ({
     top: '50%',
     '-webkit-mask-image': 'linear-gradient(35deg, var(--black), transparent)',
     maskImage: 'linear-gradient(35deg, var(--black), transparent)',
-    background:
+    backgroundImage:
       'repeating-linear-gradient(80deg, var(--color), var(--color) 4px, transparent 4px, transparent 8px)',
     zIndex: -1,
 

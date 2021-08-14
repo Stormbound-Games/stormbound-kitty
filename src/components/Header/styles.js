@@ -22,14 +22,14 @@ const nav = ({ isSubNav }) => ({
       transform: 'translateX(-50%)',
       width: '100%',
       height: '1px',
-      background:
+      backgroundImage:
         'linear-gradient(to right, transparent, var(--dark-beige), transparent)',
     },
   },
 })
 
 const list = {
-  listStyle: 'none',
+  listStyleType: 'none',
   padding: 0,
   margin: 0,
   display: 'flex',

@@ -6,7 +6,7 @@ const milestonesPseudo = {
   content: '""' /* 1 */,
   width: '2px',
   height: '100%',
-  background:
+  backgroundImage:
     'linear-gradient(to bottom, transparent, var(--beige), transparent)',
   position: 'absolute',
   zIndex: 3,

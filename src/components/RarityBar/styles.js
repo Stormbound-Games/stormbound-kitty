@@ -29,7 +29,7 @@ const count = {
   top: '50%',
   transform: 'translate(-50%, -50%)',
   transition: '200ms ease-out',
-  background: 'transparent',
+  backgroundColor: 'transparent',
   fontSize: '90%',
   opacity: 0,
 
