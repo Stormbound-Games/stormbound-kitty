@@ -85,6 +85,13 @@ const list = ({ orientation }) => ({
   }),
 })
 
+const getSlotColor = ({ faction, isLegendary, type }) =>
+  !faction
+    ? BACKGROUNDS.neutral.unit
+    : isLegendary
+    ? BACKGROUNDS[faction].hero
+    : BACKGROUNDS[faction][type]
+
 const card = ({
   faction,
   isEmpty,
@@ -95,13 +102,11 @@ const card = ({
   orientation,
   type,
 }) => ({
+  display: 'flex',
+  alignItems: 'center',
   color: 'var(--white)',
-  backgroundColor: !faction
-    ? BACKGROUNDS.neutral.unit
-    : isLegendary
-    ? BACKGROUNDS[faction].hero
-    : BACKGROUNDS[faction][type],
-  border: '2px solid #ffffff1a',
+  backgroundColor: getSlotColor({ faction, isLegendary, type }),
+  border: '2px solid #ffffff33',
   borderRadius: '0.2em',
   position: 'relative',
   transition: '250ms',
@@ -118,7 +123,7 @@ const card = ({
   ...(isEmpty && {
     minHeight: '2.5em',
     backgroundColor: 'transparent',
-    border: '2px dotted #ffffff4d',
+    border: '2px dotted #ffffff80',
     opacity: 0.5,
   }),
 
@@ -128,18 +133,14 @@ const card = ({
 
   ...(orientation === 'horizontal' && {
     margin: '0 0.15em',
-    display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    alignItems: 'center',
     height: '100%',
     flex: '1 1 calc(100% / 12)',
   }),
 
   ...(orientation === 'vertical' && {
     padding: '0.25em 1em',
-    display: 'flex',
-    alignItems: 'center',
     margin: '0.25em 0',
   }),
 })
