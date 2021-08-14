@@ -377,6 +377,7 @@ function getCollectorMirzToken(deck, level) {
   const token = getResolvedCardData({ id })
   token.level = [5, 6, 6, 8, 10][level - 1]
   token.weight = 0
+  token.mana = 0
   token.id = id
   token.idx = deck.filter(card => card.id === id).length.toString()
   token.created = true
