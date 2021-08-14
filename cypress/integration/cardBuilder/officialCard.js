@@ -63,7 +63,7 @@ describe('Card Builder — Official card', () => {
       .visit('/card/N1/display')
 
       .get(s.PREV_BTN)
-      .should('not.exist')
+      .should('be.disabled')
 
       .get(s.NEXT_BTN)
       .click()
