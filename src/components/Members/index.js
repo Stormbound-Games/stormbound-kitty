@@ -16,8 +16,8 @@ import guides from '../../data/guides'
 import puzzles from '../../data/puzzles'
 import tournaments from '../../data/tournaments'
 import swcc from '../../data/swcc'
+import videos from '../../data/videos'
 import chunk from '../../helpers/chunk'
-import { VIDEOS } from '../Videos'
 
 const uniq = (myArr, prop) =>
   myArr.filter(
@@ -38,7 +38,7 @@ const useMemberList = ({ name, type }) => {
   const stories = React.useContext(StoriesContext)
 
   return [
-    ...VIDEOS.map(addType('VIDEO')),
+    ...videos.map(addType('VIDEO')),
     ...stories.map(addType('STORY')),
     ...guides
       .map(guide => guide.authors)
