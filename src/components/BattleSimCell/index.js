@@ -18,25 +18,23 @@ const getTitle = props => {
   return `${strength}-strength ${side} ${name} (lvl ${level}) (${statuses})`
 }
 
+const getStyleProps = props => ({
+  activePlayer: props.activePlayer,
+  player: props.player,
+  isDragging: props.isDragging,
+  isDisplay: props.mode === 'DISPLAY',
+  isPoisoned: props.poisoned,
+  isVitalised: props.vitalised,
+  isFrozen: props.frozen,
+  isConfused: props.confused,
+  isDisabled: props.disabled,
+})
+
 const CellContent = props => {
-  const { css } = useFela({
-    activePlayer: props.activePlayer,
-    player: props.player,
-    isDragging: props.isDragging,
-    isDisplay: props.mode === 'DISPLAY',
-    isPoisoned: props.poisoned,
-    isVitalised: props.vitalised,
-    isFrozen: props.frozen,
-    isConfused: props.confused,
-    isDisabled: props.disabled,
-  })
+  const { css } = useFela(getStyleProps(props))
 
   return (
-    <div
-      data-testid={props['data-testid']}
-      className={css(styles.cell)}
-      title={props.title}
-    >
+    <>
       {props.strength > 0 && (
         <span
           data-testid='cell-strength'
@@ -98,16 +96,29 @@ const CellContent = props => {
           &times;
         </span>
       )}
-    </div>
+    </>
   )
 }
 
 export default React.memo(function BattleSimCell(props) {
-  if (props.mode === 'DISPLAY') return <CellContent {...props} />
+  const styleProps = getStyleProps(props)
+  const { css } = useFela(styleProps)
+
+  if (props.mode === 'DISPLAY') {
+    return (
+      <div
+        data-testid={props['data-testid']}
+        className={css(styles.cell)}
+        title={props.title}
+      >
+        <CellContent {...props} />
+      </div>
+    )
+  }
 
   return (
     <BlankButton
-      extend={styles.cell}
+      extend={styles.cell(styleProps)}
       aria-pressed={props.isActive}
       onClick={props.onClick}
       onMouseDown={props.onMouseDown}
