@@ -1,11 +1,8 @@
 import fs from 'fs'
 import { SitemapStream, streamToPromise } from 'sitemap'
 import getSitemap from '../src/helpers/getSitemap'
-import stories from '../public/stories'
 
-const links = getSitemap('FULL').concat(
-  stories.map(story => '/stories/' + story.id)
-)
+const links = getSitemap('FULL')
 
 const stream = new SitemapStream({ hostname: 'https://stormbound-kitty.com' })
 

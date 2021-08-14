@@ -2,10 +2,9 @@ import React from 'react'
 import Link from '../Link'
 import Title from '../Title'
 import Stories from '../Stories'
-import { StoriesContext } from '../StoriesProvider'
+import stories from '../../data/stories'
 
 export default React.memo(function StoriesMore(props) {
-  const stories = React.useContext(StoriesContext)
   const isNotCurrent = story => props.title !== story.title
 
   if (props.saga) {

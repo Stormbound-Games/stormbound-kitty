@@ -1,6 +1,6 @@
 import Fuse from 'fuse.js'
 import searchCards from '../searchCards'
-import stories from '../../../public/stories'
+import stories from '../../data/stories'
 
 export const searcher = new Fuse(stories, {
   keys: [

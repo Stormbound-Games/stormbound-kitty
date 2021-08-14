@@ -1,11 +1,10 @@
-import React from 'react'
-import { StoriesContext } from '../components/StoriesProvider'
 import capitalise from '../helpers/capitalise'
 import parseDate from '../helpers/parseDate'
 import decks from '../data/decks'
 import contributions from '../data/contributions'
 import donations from '../data/donations'
 import guides from '../data/guides'
+import stories from '../data/stories'
 import tournaments from '../data/tournaments'
 import artworks from '../data/artworks'
 import puzzles from '../data/puzzles'
@@ -19,20 +18,8 @@ const formatEntryWithDate = entry => ({
   date: entry.date ? parseDate(entry.date) : entry.date,
 })
 
-// The `_stories` argument is only provided when used via the Discord bot
-// `!member` command since it cannot access the React context and this hook
-// cannot asynchronously fetch stories either.
-const useUserStories = (id, _stories) =>
-  (
-    _stories ||
-    // Hooks should technically never be called conditionally because they
-    // should always be called in the same order at every single render. That
-    // being said, `_stories` will never be defined on the client, which means
-    // the hook will *always* be called, no matter what. It probably is fine to
-    // keep the condition in that case.
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    React.useContext(StoriesContext)
-  )
+const useUserStories = id =>
+  stories
     .filter(story => story.date && story.author.toLowerCase() === id)
     .map(formatEntryWithDate)
 
@@ -112,11 +99,8 @@ const useUserEvents = id =>
 
 const addType = type => entry => ({ ...entry, type })
 
-// This hook is being used a regular function by the `member` command from the
-// Discord bot. The latter cannot rely on the React context, so the stories are
-// provided to the function itself in that case.
-const useMemberContent = (id, _stories) => {
-  const stories = useUserStories(id, _stories)
+const useMemberContent = id => {
+  const stories = useUserStories(id)
   const decks = useUserDecks(id)
   const guides = useUserGuides(id)
   const hosts = useUserHosts(id)

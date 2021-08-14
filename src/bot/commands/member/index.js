@@ -1,4 +1,3 @@
-import fetch from 'node-fetch'
 import getEmbed from '../../../helpers/getEmbed'
 import capitalise from '../../../helpers/capitalise'
 import isKATMember from '../../../helpers/isKATMember'
@@ -32,9 +31,7 @@ export default {
     }
 
     const id = message.toLowerCase()
-    const response = await fetch(BASE_URL + '/stories.json')
-    const stories = await response.json()
-    const { count, details, displayName } = getMemberContent(id, stories)
+    const { count, details, displayName } = getMemberContent(id)
     const embed = getEmbed()
       .setTitle(`${this.label}: ${displayName}`)
       .setURL(BASE_URL + `/member/${id}`)
