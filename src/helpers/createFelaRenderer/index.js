@@ -1,5 +1,4 @@
 import { createRenderer } from 'fela'
-import logger from 'fela-logger'
 import embedded from 'fela-plugin-embedded'
 import extend from 'fela-plugin-extend'
 import enforceLongHands from 'fela-enforce-longhands'
@@ -37,7 +36,6 @@ function createFelaRenderer() {
       }),
     ],
     enhancers: [
-      logger({ logCSS: true, formatCSS: true }),
       sortClassNames(),
       sortMediaQueryMobileFirst(),
       enforceLongHands(),
