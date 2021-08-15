@@ -6,7 +6,6 @@ import Page from '../Page'
 import Card from '../Card'
 import CTA from '../CTA'
 import Info from '../Info'
-import Input from '../Input'
 import Link from '../Link'
 import Notice from '../Notice'
 import NumberInput from '../NumberInput'
@@ -88,9 +87,8 @@ const CustomBookFields = ({
     <>
       <Row>
         <Row.Column>
-          <Input
+          <NumberInput
             label='Amount of cards'
-            type='number'
             id='amount'
             required
             min={1}
