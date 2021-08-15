@@ -1,7 +1,7 @@
 const item = ({ isPlaceholder }) => ({
   display: 'inline-block',
   width: 'calc(20% - 0.5em)',
-  border: '1px solid var(--faction, #ffffff4d)',
+  border: '1px solid var(--faction)',
   margin: '0.07em 0.25em',
   backgroundColor: '#00000099',
   borderRadius: '0.2em',
@@ -11,10 +11,6 @@ const item = ({ isPlaceholder }) => ({
   borderColor: isPlaceholder ? '#ffffff4d' : undefined,
   opacity: isPlaceholder ? 0.7 : undefined,
 
-  "[style*='--neutral']": {
-    backgroundColor: '#0000004d',
-  },
-
   '::after': {
     content: '""',
     position: 'absolute',
@@ -23,7 +19,6 @@ const item = ({ isPlaceholder }) => ({
     bottom: 0,
     left: 0,
     backgroundColor: 'var(--faction)',
-    opacity: 1,
     zIndex: -1,
   },
 
