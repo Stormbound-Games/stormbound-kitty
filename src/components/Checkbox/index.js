@@ -2,7 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import styles from './styles'
 
-export default React.memo(function Checkbox(props) {
+export default React.memo(function Checkbox({ extend, ...props }) {
   const name = props.name || props.id
   const { css } = useFela({
     isDisabled: props.disabled,
@@ -10,9 +10,8 @@ export default React.memo(function Checkbox(props) {
   })
 
   return (
-    <label className={css(styles.checkbox, props.extend)} htmlFor={props.id}>
+    <label className={css(styles.checkbox, extend)} htmlFor={props.id}>
       <input
-        form={props.form}
         type='checkbox'
         {...props}
         name={name}
