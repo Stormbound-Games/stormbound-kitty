@@ -17,6 +17,7 @@ const icon = ({ isChecked, isDisabled }) => ({
   transform: 'translate(25%, -50%) rotate(45deg)' /* 1 */,
   display: 'inline-block',
   position: 'absolute',
+  borderRadius: '0.25em',
   top: '50%',
   left: 0,
   cursor: isDisabled ? 'not-allowed' : undefined,
