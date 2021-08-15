@@ -1,6 +1,5 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { useRouteMatch, useHistory } from 'react-router-dom'
 import Card from '../Card'
 import CardSelect from '../CardSelect'
 import Page from '../Page'
@@ -15,6 +14,7 @@ import CARDS from '../../data/cards'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import getCardValue from '../../helpers/getCardValue'
 import serialisation from '../../helpers/serialisation'
+import useRouter from '../../hooks/useRouter'
 import styles from './styles'
 
 const LevelSelect = React.memo(function LevelSelect(props) {
@@ -93,8 +93,7 @@ const getCardsFromURL = id => {
 
 export default React.memo(function ValueCalculator(props) {
   const { css } = useFela()
-  const history = useHistory()
-  const { params } = useRouteMatch()
+  const { params, history } = useRouter()
   const initialCards = getCardsFromURL(params.id?.toUpperCase())
   const [A, setA] = React.useState(initialCards[0])
   const [B, setB] = React.useState(initialCards[1])

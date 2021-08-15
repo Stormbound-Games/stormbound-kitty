@@ -1,6 +1,5 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import Form from '../QuestBuilderForm'
 import Row from '../Row'
@@ -8,6 +7,7 @@ import Quest from '../Quest'
 import Page from '../Page'
 import serialisation from '../../helpers/serialisation'
 import getInitialQuestData from '../../helpers/getInitialQuestData'
+import useRouter from '../../hooks/useRouter'
 
 class QuestBuilderRoot extends React.Component {
   constructor(props) {
@@ -95,6 +95,6 @@ class QuestBuilderRoot extends React.Component {
 
 export default hookIntoProps(() => ({
   ...useFela(),
-  history: useHistory(),
-  questId: useRouteMatch().params.questId,
+  history: useRouter().history,
+  questId: useRouter().params.questId,
 }))(QuestBuilderRoot)

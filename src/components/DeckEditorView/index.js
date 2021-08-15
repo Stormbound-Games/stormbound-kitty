@@ -1,5 +1,4 @@
 import React from 'react'
-import { useRouteMatch, useHistory } from 'react-router-dom'
 import { CollectionContext } from '../CollectionProvider'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import Page from '../Page'
@@ -32,6 +31,7 @@ import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
 import toSentence from '../../helpers/toSentence'
 import useViewportSize from '../../hooks/useViewportSize'
 import usePrevious from '../../hooks/usePrevious'
+import useRouter from '../../hooks/useRouter'
 import { TAGS } from '../../constants/deck'
 import { BRAWL_INDEX } from '../../constants/brawl'
 
@@ -114,8 +114,8 @@ const getStoredTooltipsSetting = () => {
 
 export default React.memo(function DeckEditorView(props) {
   const { viewportWidth } = useViewportSize()
-  const { deckId } = useRouteMatch().params
-  const history = useHistory()
+  const { history, params } = useRouter()
+  const { deckId } = params
   const { collection, indexedCollection, hasDefaultCollection } =
     React.useContext(CollectionContext)
   // `cardLevel` is set to `0` when the user has a custom collection loaded and

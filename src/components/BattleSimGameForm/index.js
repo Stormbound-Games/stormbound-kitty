@@ -1,6 +1,5 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { useRouteMatch } from 'react-router-dom'
 import Checkbox from '../Checkbox'
 import NumberInput from '../NumberInput'
 import ResetButton from '../ResetButton'
@@ -8,12 +7,13 @@ import Row from '../Row'
 import ShareButton from '../BattleSimShareButton'
 import Spacing from '../Spacing'
 import VisuallyHidden from '../VisuallyHidden'
+import useRouter from '../../hooks/useRouter'
 import styles from './styles'
 
 export default React.memo(function BattleSimGameForm(props) {
   const { css } = useFela()
-  const match = useRouteMatch()
-  const isPristine = !match.params.simId
+  const { params } = useRouter()
+  const isPristine = !params.simId
 
   return (
     <div className={css(styles.form)}>

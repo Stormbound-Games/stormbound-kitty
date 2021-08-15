@@ -1,15 +1,15 @@
 import React from 'react'
-import { useRouteMatch } from 'react-router-dom'
 import { BRAWL_INDEX } from '../../constants/brawl'
 import Page from '../Page'
 import BrawlProvider from '../BrawlProvider'
 import BrawlTracker from '../BrawlTracker'
 import { getLongFaction } from '../../helpers/encoding'
+import useRouter from '../../hooks/useRouter'
 
 export default React.memo(function BrawlPage(props) {
   const [difficulty, setDifficulty] = React.useState('CASUAL')
-  const match = useRouteMatch()
-  const id = match.params.id.toUpperCase().replace(/-/g, '_')
+  const { params } = useRouter()
+  const id = params.id.toUpperCase().replace(/-/g, '_')
   const brawl = BRAWL_INDEX[id]
   const faction = getLongFaction(brawl.cardId.slice(0, 1))
 

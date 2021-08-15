@@ -1,18 +1,18 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { useLocation } from 'react-router-dom'
 import EyeCatcher from '../EyeCatcher'
 import Footer from '../Footer'
 import Header from '../Header'
 import Link from '../Link'
 import load from '../../helpers/load'
+import useRouter from '../../hooks/useRouter'
 import styles from './styles'
 
 const SearchDialog = load('SearchDialog')
 
 export default React.memo(function Layout(props) {
   const { css } = useFela()
-  const { hash } = useLocation()
+  const { location } = useRouter()
   const searchDialog = React.useRef(null)
   const [isSearchReady, setIsSearchReady] = React.useState(false)
 
@@ -36,7 +36,7 @@ export default React.memo(function Layout(props) {
         window.scrollTo(0, 0)
       }
     }, 500)
-  }, [hash])
+  }, [location.hash])
 
   return (
     <div className={css(styles.layout)}>

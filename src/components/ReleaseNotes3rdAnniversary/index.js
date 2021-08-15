@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from '../Link'
 import Page from '../Page'
 import Image from '../Image'
 import Info from '../Info'

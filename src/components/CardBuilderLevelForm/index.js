@@ -1,15 +1,15 @@
 import React from 'react'
-import { useRouteMatch } from 'react-router-dom'
 import Input from '../Input'
 import ResetButton from '../ResetButton'
 import Row from '../Row'
 import ShareButton from '../CardBuilderShareButton'
 import Spacing from '../Spacing'
 import formatCardStats from '../../helpers/formatCardStats'
+import useRouter from '../../hooks/useRouter'
 
 export default React.memo(function CardBuilderCardForm(props) {
-  const match = useRouteMatch()
-  const isPristine = !match.params.cardId
+  const { params } = useRouter()
+  const isPristine = !params.cardId
 
   return (
     <>

@@ -1,5 +1,4 @@
 import React from 'react'
-import { useRouteMatch } from 'react-router-dom'
 import { useInView } from 'react-intersection-observer'
 import Page from '../Page'
 import Error from '../Error'
@@ -15,11 +14,12 @@ import getRawCardData from '../../helpers/getRawCardData'
 import getExcerpt from '../../helpers/getExcerpt'
 import getReadingTime from '../../helpers/getReadingTime'
 import useFetch from '../../hooks/useFetch'
+import useRouter from '../../hooks/useRouter'
 
 export default React.memo(function Story(props) {
   const [ref, inView] = useInView()
-  const match = useRouteMatch()
-  const { storyId: id } = match.params
+  const { params } = useRouter()
+  const { storyId: id } = params
   const path = '/stories/' + id + '.json'
   const { data: story, error, loading } = useFetch(path)
   const card = story ? getRawCardData(story.cardId) : {}

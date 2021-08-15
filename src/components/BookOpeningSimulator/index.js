@@ -1,6 +1,5 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { useRouteMatch, useHistory } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Page from '../Page'
 import Card from '../Card'
@@ -20,6 +19,7 @@ import getBookName from '../../helpers/getBookName'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import serialisation from '../../helpers/serialisation'
 import useViewportSize from '../../hooks/useViewportSize'
+import useRouter from '../../hooks/useRouter'
 import { BOOKS } from '../../constants/books'
 import styles from './styles'
 
@@ -152,8 +152,7 @@ const CustomBookFields = ({
 
 export default React.memo(function BookOpeningSimulator(props) {
   const { css } = useFela()
-  const history = useHistory()
-  const { params } = useRouteMatch()
+  const { params, history } = useRouter()
   const { viewportWidth } = useViewportSize()
   const container = React.useRef(null)
   const [bookType, setBookType] = React.useState('')

@@ -1,17 +1,16 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { useRouteMatch, useHistory } from 'react-router-dom'
 import CardSelect from '../CardSelect'
 import getRawCardData from '../../helpers/getRawCardData'
 import useViewportSize from '../../hooks/useViewportSize'
+import useRouter from '../../hooks/useRouter'
 import styles from '../Header/styles'
 
 export default React.memo(function NavCardBuilder(props) {
   const { css } = useFela()
   const { viewportWidth } = useViewportSize()
-  const history = useHistory()
-  const match = useRouteMatch()
-  const id = match.params.cardId
+  const { params, history } = useRouter()
+  const id = params.cardId
 
   return (
     <nav className={css(styles.nav({ isSubNav: true }))}>

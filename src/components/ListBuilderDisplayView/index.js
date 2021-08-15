@@ -1,5 +1,4 @@
 import React from 'react'
-import { useRouteMatch } from 'react-router-dom'
 import { TIER_COLORS, MAX_TIERS } from '../../constants/list'
 import Page from '../Page'
 import CTA from '../CTA'
@@ -9,10 +8,11 @@ import ListBuilderTier from '../ListBuilderTier'
 import ListBuilderToc from '../ListBuilderToc'
 import Title from '../Title'
 import getInitialListData from '../../helpers/getInitialListData'
+import useRouter from '../../hooks/useRouter'
 
 export default React.memo(function ListBuilderDisplayView(props) {
-  const match = useRouteMatch()
-  const id = match.params.listId
+  const { params } = useRouter()
+  const id = params.listId
   const tiers = getInitialListData(id)
 
   return (

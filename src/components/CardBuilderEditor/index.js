@@ -1,5 +1,4 @@
 import React from 'react'
-import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import App from '../CardBuilderApp'
 import serialisation from '../../helpers/serialisation'
@@ -9,6 +8,7 @@ import getInitialCardData, {
 } from '../../helpers/getInitialCardData'
 import resolveAbility from '../../helpers/resolveAbility'
 import getCardFromSlug from '../../helpers/getCardFromSlug'
+import useRouter from '../../hooks/useRouter'
 
 const formatLevelProp = value => ({
   values: [null, null, null, null, null].fill(value),
@@ -216,6 +216,6 @@ class CardBuilderEditor extends React.Component {
 }
 
 export default hookIntoProps(() => ({
-  history: useHistory(),
-  cardId: useRouteMatch().params.cardId,
+  history: useRouter().history,
+  cardId: useRouter().params.cardId,
 }))(CardBuilderEditor)

@@ -1,14 +1,14 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { useRouteMatch } from 'react-router-dom'
 import Link from '../Link'
 import serialisation from '../../helpers/serialisation'
+import useRouter from '../../hooks/useRouter'
 import styles from '../Header/styles'
 
 export default React.memo(function NavDeckBuilder(props) {
   const { css } = useFela()
-  const match = useRouteMatch()
-  const id = match.params.deckId
+  const { params } = useRouter()
+  const id = params.deckId
   const deck = React.useMemo(
     () => (id ? serialisation.deck.deserialise(id) : []),
     [id]

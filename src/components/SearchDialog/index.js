@@ -1,11 +1,11 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { useHistory } from 'react-router-dom'
 import Downshift from 'downshift'
 import Dialog from '../Dialog'
 import Icon from '../Icon'
 import Input from '../Input'
 import VisuallyHidden from '../VisuallyHidden'
+import useRouter from '../../hooks/useRouter'
 import searcher from './searcher'
 import styles from './styles'
 
@@ -66,7 +66,7 @@ const Option = props => {
 export default React.memo(function SearchDialog(props) {
   const { css } = useFela()
   const [inputValue, setInputValue] = React.useState('')
-  const history = useHistory()
+  const { history } = useRouter()
   const input = React.useRef(null)
   const { setIsSearchReady } = props
   const metaKeyName =

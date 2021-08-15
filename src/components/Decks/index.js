@@ -1,5 +1,4 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 import FeaturedDeck from '../FeaturedDeck'
 import CTA from '../CTA'
 import Loader from '../Loader'
@@ -7,11 +6,12 @@ import Row from '../Row'
 import chunk from '../../helpers/chunk'
 import useLazyLoad from '../../hooks/useLazyLoad'
 import useViewportSize from '../../hooks/useViewportSize'
+import useRouter from '../../hooks/useRouter'
 
 export default React.memo(function Decks(props) {
   const { viewportWidth } = useViewportSize()
   const columns = viewportWidth < 700 ? 1 : props.columns || 2
-  const history = useHistory()
+  const { history } = useRouter()
   const { loadMore, loading, items } = useLazyLoad(
     props.decks,
     columns * 3,

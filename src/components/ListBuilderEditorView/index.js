@@ -1,6 +1,5 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import isEqual from 'lodash.isequal'
 import {
@@ -20,6 +19,7 @@ import Title from '../Title'
 import serialisation from '../../helpers/serialisation'
 import getInitialListData from '../../helpers/getInitialListData'
 import reorder from '../../helpers/reorder'
+import useRouter from '../../hooks/useRouter'
 
 class ListBuilderEditorView extends React.Component {
   constructor(props) {
@@ -252,6 +252,6 @@ class ListBuilderEditorView extends React.Component {
 
 export default hookIntoProps(() => ({
   ...useFela(),
-  history: useHistory(),
-  listId: useRouteMatch().params.listId,
+  history: useRouter().history,
+  listId: useRouter().params.listId,
 }))(ListBuilderEditorView)

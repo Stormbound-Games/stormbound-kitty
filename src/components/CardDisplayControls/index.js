@@ -1,12 +1,12 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { useRouteMatch } from 'react-router-dom'
 import { CollectionContext } from '../CollectionProvider'
 import CardProgress from '../CardProgress'
 import CTA from '../CTA'
 import Only from '../Only'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import sortCards from '../../helpers/sortCards'
+import useRouter from '../../hooks/useRouter'
 import styles from './styles'
 
 const sortCollection = (a, b) =>
@@ -14,8 +14,8 @@ const sortCollection = (a, b) =>
 
 export default React.memo(function CardDisplayControls(props) {
   const { css } = useFela()
-  const match = useRouteMatch()
-  const { cardId } = match.params
+  const { params } = useRouter()
+  const { cardId } = params
   const { collection } = React.useContext(CollectionContext)
   const orderedCollection = React.useMemo(
     () => collection.sort(sortCollection),
