@@ -17,7 +17,7 @@ export default React.memo(function PageHeaderMeta({ action, authors, meta }) {
         </span>
       )}
 
-      {meta}
+      <span>{meta}</span>
 
       {Object.keys(action).length > 0 &&
         (action.onClick ? (
