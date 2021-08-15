@@ -7,11 +7,12 @@ import styles from './styles'
 export default React.memo(function Notice(props) {
   const { css } = useFela()
   const margin = useSpacing(props.spacing || 'NONE')
+  const Component = props.as || 'p'
 
   return (
-    <p className={css(styles.notice, margin, props.extend)}>
+    <Component className={css(styles.notice, margin, props.extend)}>
       {props.icon && <Icon extend={styles.icon} icon={props.icon} />}{' '}
       {props.children}
-    </p>
+    </Component>
   )
 })
