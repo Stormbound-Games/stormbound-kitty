@@ -34,6 +34,28 @@ export default [
         ),
       },
       {
+        id: 'are-you-from-sheepyard',
+        question: 'Are you working for Sheepyard?',
+        answer: (
+          <>
+            <p>
+              Yes and no. I am contracting for Sheepyard on a monthly basis for
+              authoring and publishing the{' '}
+              <Link to='/releases'>release notes</Link> for the game. It is a
+              mutually beneficial partnership: Sheepyard gets to use this
+              relatively well-known site for official announcements, and I get
+              paid for the work I do on official communication.
+            </p>
+            <p>
+              That being said, Sheepyard only pays for the work I do on release
+              notes. Literally everything else on the site is pro-bono work from
+              my side. You can learn more about it and how to help in the{' '}
+              <Link to='/about'>about page</Link>.
+            </p>
+          </>
+        ),
+      },
+      {
         id: 'chrome-cards-rendering',
         question: 'The cards look odd/broken on Chrome. Why is that?',
         answer: (
