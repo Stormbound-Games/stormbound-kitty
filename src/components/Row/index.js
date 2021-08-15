@@ -63,6 +63,7 @@ const ALLOWED_CHILDREN_TYPES = {
   'Row.Column': Row.Column,
   'Only.Desktop': Only.Desktop,
   'Only.Mobile': Only.Mobile,
+  'React.Fragment': React.Fragment,
 }
 
 Row.propTypes = {
