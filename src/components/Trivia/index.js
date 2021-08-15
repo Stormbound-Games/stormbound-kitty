@@ -73,7 +73,7 @@ const Failure = ({ answer }) => {
 
   return (
     <Spacing bottom='LARGE'>
-      <Notice icon='fire'>
+      <Notice icon='fire' as='div'>
         <span className='Highlight'>Oh no!</span> Unfortunately the answer is
         not correct.
         <details>
