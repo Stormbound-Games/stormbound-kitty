@@ -4,6 +4,6 @@ import Layout from '../../../components/Layout'
 
 export default () => (
   <Layout active={['TOOLS', 'BOOK_SIMULATOR']}>
-    <BookOpeningSimulator />
+    <BookOpeningSimulator cards={[]} />
   </Layout>
 )

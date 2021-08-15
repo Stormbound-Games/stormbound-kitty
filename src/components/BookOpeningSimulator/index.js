@@ -19,6 +19,7 @@ import getBookName from '../../helpers/getBookName'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import serialisation from '../../helpers/serialisation'
 import useViewportSize from '../../hooks/useViewportSize'
+import usePrevious from '../../hooks/usePrevious'
 import useRouter from '../../hooks/useRouter'
 import { BOOKS } from '../../constants/books'
 import styles from './styles'
@@ -41,14 +42,6 @@ const ShareButton = ({ disabled }) => (
     </p>
   </ShareDialog>
 )
-
-const getCardsFromURL = id => {
-  try {
-    return serialisation.cards.deserialise(id).map(getResolvedCardData)
-  } catch (error) {
-    return []
-  }
-}
 
 const CustomBookFields = ({
   amount,
@@ -152,13 +145,14 @@ const CustomBookFields = ({
 
 export default React.memo(function BookOpeningSimulator(props) {
   const { css } = useFela()
-  const { params, history } = useRouter()
+  const { history } = useRouter()
   const { viewportWidth } = useViewportSize()
   const container = React.useRef(null)
   const [bookType, setBookType] = React.useState('')
-  const [cards, setCards] = React.useState(getCardsFromURL(params.id))
+  const [cards, setCards] = React.useState(props.cards || [])
   const [amount, setAmount] = React.useState(1)
   const [expectations, setExpectations] = React.useState([25, 25, 25, 25])
+  const id = serialisation.cards.serialise(cards)
 
   const isFormValid = React.useMemo(
     () =>
@@ -194,13 +188,12 @@ export default React.memo(function BookOpeningSimulator(props) {
 
   React.useEffect(() => {
     history.replace(
-      ['/simulators/books', serialisation.cards.serialise(cards)]
-        .filter(Boolean)
-        .join('/')
-        .toLowerCase()
+      ['/simulators/books', id].filter(Boolean).join('/').toLowerCase(),
+      undefined,
+      { scroll: false }
     )
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cards])
+  }, [id])
 
   return (
     <Page
