@@ -69,8 +69,6 @@ export default React.memo(function SearchDialog(props) {
   const { history } = useRouter()
   const input = React.useRef(null)
   const { setIsSearchReady } = props
-  const metaKeyName =
-    navigator.platform.toUpperCase().indexOf('MAC') >= 0 ? 'CMD' : 'CTRL'
 
   const registerDialog = instance => {
     props.dialogRef.current = instance
@@ -172,8 +170,9 @@ export default React.memo(function SearchDialog(props) {
         </Downshift>
 
         <p className={css(styles.hint)}>
-          Psst! Next time, you can use <kbd>/</kbd> or <kbd>{metaKeyName}</kbd>{' '}
-          + <kbd>k</kbd> to quickly open the search from anywhere.
+          Psst! Next time, you can use <kbd>/</kbd> or <kbd>CMD</kbd>/
+          <kbd>CTRL</kbd> + <kbd>k</kbd> to quickly open the search from
+          anywhere.
         </p>
       </div>
     </Dialog>
