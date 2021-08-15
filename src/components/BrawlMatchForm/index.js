@@ -6,7 +6,7 @@ import Link from '../Link'
 import Only from '../Only'
 import CTA from '../CTA'
 import FactionSelect from '../FactionSelect'
-import NumberInput from '../NumberInput'
+import Input from '../Input'
 import Select from '../Select'
 import { VICTORY_BONUSES } from '../../constants/brawl'
 import styles from './styles'
@@ -60,7 +60,8 @@ export default React.memo(function BrawlMatchForm(props) {
           </Only.Mobile>
         </td>
         <td data-label='Opponent’s health'>
-          <NumberInput
+          <Input
+            type='number'
             hideLabel
             label='Opponent’s health'
             form='add-match-form'
