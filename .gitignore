@@ -13,3 +13,4 @@ public/sitemap.xml
 .eslintcache
 .netlify
 .husky/_
+.next
