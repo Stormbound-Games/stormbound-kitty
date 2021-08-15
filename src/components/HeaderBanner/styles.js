@@ -42,7 +42,7 @@ const title = {
   lineHeight: 1,
   transform: 'translateY(30%)',
   paddingLeft: '30px',
-  '-webkit-text-stroke': '1px var(--black)',
+  WebkitTextStroke: '1px var(--black)',
   letterSpacing: '-1px',
   overflow: 'hidden',
   textOverflow: 'ellipsis',

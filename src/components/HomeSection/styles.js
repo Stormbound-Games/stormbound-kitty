@@ -24,7 +24,7 @@ const section = {
       transform: 'translate(-20%, -50%) rotate(45deg)',
       left: 0,
       top: '50%',
-      '-webkit-mask-image': 'linear-gradient(35deg, var(--black), transparent)',
+      WebkitMaskImage: 'linear-gradient(35deg, var(--black), transparent)',
       maskImage: 'linear-gradient(35deg, var(--black), transparent)',
       backgroundImage:
         'repeating-linear-gradient(80deg, var(--color), var(--color) 4px, transparent 4px, transparent 8px)',

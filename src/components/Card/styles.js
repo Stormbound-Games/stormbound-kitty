@@ -136,9 +136,9 @@ const missing = {
   width: '70%' /* 3 */,
   margin: 'auto',
   backgroundColor: '#0e181f' /* 1 */,
-  '-webkit-mask-repeat': 'no-repeat',
-  '-webkit-mask-size': 'contain',
-  '-webkit-mask-position': 'center',
+  WebkitMaskRepeat: 'no-repeat',
+  WebkitMaskSize: 'contain',
+  WebkitMaskPosition: 'center',
 }
 
 /**

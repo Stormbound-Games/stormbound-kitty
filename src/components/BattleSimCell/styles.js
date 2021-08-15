@@ -190,7 +190,7 @@ const disabled = {
   position: 'absolute',
   bottom: '-0.1em',
   right: 0,
-  '-webkit-text-stroke': '1px #00000080',
+  WebkitTextStroke: '1px #00000080',
 }
 
 const dots = {

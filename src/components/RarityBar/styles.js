@@ -43,7 +43,7 @@ const count = {
     position: 'absolute',
     left: 0,
     zIndex: -1,
-    '-webkit-text-stroke': '2px var(--black)',
+    WebkitTextStroke: '2px var(--black)',
   },
 }
 

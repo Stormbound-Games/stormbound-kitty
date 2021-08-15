@@ -1,7 +1,7 @@
 const link = {
   color: 'currentcolor',
-  'text-decoration-skip': 'skip',
-  'text-decoration-skip-ink': 'auto',
+  textDecorationSkip: 'skip',
+  textDecorationSkipInk: 'auto',
   transition: '250ms',
 
   ':active': { color: 'var(--beige)' },
