@@ -11,12 +11,13 @@ import styles from './styles'
 const SearchDialog = dynamic(() => import('../SearchDialog'))
 
 export default React.memo(function Layout(props) {
+  const router = useRouter()
   const { css } = useFela()
   const { location } = useRouter()
   const searchDialog = React.useRef(null)
   const [isSearchReady, setIsSearchReady] = React.useState(false)
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     const hash = window.location.hash
 
     // react-router and @loadable/component are making it incredibly hard to use
@@ -37,6 +38,8 @@ export default React.memo(function Layout(props) {
       }
     }, 500)
   }, [location.hash])
+
+  if (router.isFallback) return null
 
   return (
     <div className={css(styles.layout)}>
