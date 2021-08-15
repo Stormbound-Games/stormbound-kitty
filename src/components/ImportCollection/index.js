@@ -1,50 +1,11 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import { CollectionContext } from '../CollectionProvider'
 import { NotificationContext } from '../NotificationProvider'
 import CTA from '../CTA'
+import FileUpload from '../FileUpload'
 import Only from '../Only'
 import CARDS from '../../data/cards'
 import chunk from '../../helpers/chunk'
-import styles from './styles'
-
-const useFileUpload = onChange => {
-  const { updateCollection } = React.useContext(CollectionContext)
-  const { notify } = React.useContext(NotificationContext)
-
-  return event => {
-    const { nativeEvent } = event
-    const file = nativeEvent.file
-      ? new File([nativeEvent.file.data], nativeEvent.file.name, {
-          type: nativeEvent.file.type,
-        })
-      : event.target.files[0]
-
-    if (!file) return
-
-    const reader = new FileReader()
-
-    try {
-      reader.readAsText(file)
-    } catch (error) {
-      if (onChange) onChange(null)
-    }
-
-    reader.onload = event => {
-      try {
-        const data = parseCSVData(event.target.result)
-        updateCollection(data)
-        notify({
-          icon: 'books',
-          children: 'Your collection has been successfully imported.',
-        })
-        if (onChange) onChange(data)
-      } catch (error) {
-        if (onChange) onChange(null)
-      }
-    }
-  }
-}
 
 const parseCSVData = data => {
   // The former CSV exporting didn’t use line breaks to split lines, therefore
@@ -82,24 +43,35 @@ const parseCSVData = data => {
   })
 }
 
+const notification = {
+  icon: 'books',
+  children: 'Your collection has been successfully imported.',
+}
+
 export default React.memo(function ImportCollection(props) {
-  const { css } = useFela()
-  const onFileUpload = useFileUpload(props.onChange)
+  const { updateCollection } = React.useContext(CollectionContext)
+  const { notify } = React.useContext(NotificationContext)
+  const { onChange } = props
+
+  const handleSuccess = React.useCallback(
+    data => {
+      updateCollection(data)
+      notify(notification)
+      if (typeof onChange === 'function') onChange(data)
+    },
+    [onChange, notify, updateCollection]
+  )
 
   return (
-    <div className={css(styles.container)}>
+    <FileUpload
+      id='import'
+      process={parseCSVData}
+      onSuccess={handleSuccess}
+      data-testid='import-btn'
+    >
       <CTA as='label' htmlFor='import'>
         Import<Only.Desktop> collection</Only.Desktop>
       </CTA>
-      <input
-        id='import'
-        name='import'
-        type='file'
-        accept='.csv'
-        onChange={onFileUpload}
-        className={css(styles.file)}
-        data-testid='import-btn'
-      />
-    </div>
+    </FileUpload>
   )
 })
