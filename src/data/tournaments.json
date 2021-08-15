@@ -843,5 +843,36 @@
         "id": "1xn1w2n8n24n63n21n65n60n38n44w17n57"
       }
     ]
+  },
+  {
+    "name": "Collector’s Joust",
+    "type": "JOUST",
+    "hosts": [
+      "theSINGULARITY"
+    ],
+    "podium": [
+      "DenisNaStulePovis",
+      "Garbage",
+      "Wakita"
+    ],
+    "date": "06/2021",
+    "description": ""
+  },
+  {
+    "name": "Faction Heroes Tournament",
+    "type": "TOURNAMENT",
+    "hosts": [
+      "Roman"
+    ],
+    "podium": [
+      [
+        "Vox",
+        "Ajmm",
+        "Dracqi",
+        "Wolf"
+      ]
+    ],
+    "date": "06/2021",
+    "description": ""
   }
 ]
