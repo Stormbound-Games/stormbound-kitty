@@ -252,14 +252,13 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           passing beyond Diamond 1.
         </p>
 
-        <Image
-          src='/assets/images/releases/rank_hero.png'
-          alt='Heroes League badge'
-          extend={css({
-            maxWidth: '300px',
-            margin: '3em auto',
-          })}
-        />
+        <Spacing vertical='LARGER'>
+          <Image
+            src='/assets/images/releases/rank_hero.png'
+            alt='Heroes League badge'
+            extend={css({ maxWidth: '300px', margin: 'auto' })}
+          />
+        </Spacing>
 
         <p>
           This league does not have the same ranking system as the

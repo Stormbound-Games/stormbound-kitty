@@ -1,11 +1,11 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import Card from '../Card'
 import Guide from '../Guide'
 import HorizontalRule from '../HorizontalRule'
 import Link from '../Link'
 import Notice from '../Notice'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import CardLink from '../CardLink'
@@ -15,7 +15,6 @@ import getGuide from '../../helpers/getGuide'
 const guide = getGuide('DECK_GUIDE')
 
 export default React.memo(function GuideDeck(props) {
-  const { css } = useFela()
   return (
     <Guide {...guide}>
       <p>
@@ -131,7 +130,7 @@ export default React.memo(function GuideDeck(props) {
         victory!
       </p>
 
-      <div className={css({ margin: '2em auto 2.5em' })}>
+      <Spacing vertical='LARGE'>
         <Row>
           <Row.Column width='1/3'>
             <Card {...getResolvedCardData({ id: 'S13', level: 5 })} />
@@ -143,7 +142,7 @@ export default React.memo(function GuideDeck(props) {
             <Card {...getResolvedCardData({ id: 'N54', level: 5 })} />
           </Row.Column>
         </Row>
-      </div>
+      </Spacing>
 
       <Title id='capabilities'>Capabilities</Title>
 

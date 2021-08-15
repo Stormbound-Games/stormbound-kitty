@@ -1,8 +1,3 @@
-const toggle = {
-  display: 'block',
-  margin: '0 auto var(--s-small)',
-}
-
 const icon = {
   fontSize: '80%',
   position: 'relative',
@@ -14,7 +9,6 @@ const cross = {
 }
 
 export default {
-  toggle,
   icon,
   cross,
 }

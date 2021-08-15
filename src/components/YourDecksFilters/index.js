@@ -1,5 +1,4 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import { PersonalDecksContext } from '../PersonalDecksProvider'
 import Input from '../Input'
 import FactionSelect from '../FactionSelect'
@@ -9,7 +8,6 @@ import Select from '../Select'
 import TagsSelect from '../TagsSelect'
 
 export default React.memo(function YourDecksFilters(props) {
-  const { css } = useFela()
   const { decks } = React.useContext(PersonalDecksContext)
   const updateTags = tags => props.setFilters(filters => ({ ...filters, tags }))
   const updateName = name => props.setFilters(filters => ({ ...filters, name }))
@@ -26,10 +24,6 @@ export default React.memo(function YourDecksFilters(props) {
       withSymbols
       labelCollapsed='Expand deck filters'
       labelExpanded='Collapse deck filters'
-      className={css({
-        display: 'block',
-        margin: '0 auto 0.75em',
-      })}
     >
       <form onSubmit={event => event.preventDefault()}>
         <Row>

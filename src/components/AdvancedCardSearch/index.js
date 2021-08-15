@@ -6,6 +6,7 @@ import Link from '../Link'
 import Input from '../Input'
 import Only from '../Only'
 import Row from '../Row'
+import Spacing from '../Spacing'
 
 export default React.memo(function AdvancedCardSearch(props) {
   const { css } = useFela()
@@ -40,9 +41,9 @@ export default React.memo(function AdvancedCardSearch(props) {
           />
         </Row.Column>
         <Row.Column width='1/4' extend={{ justifyContent: 'flex-end' }}>
-          <span className={css({ marginBottom: '0.2em' })}>
+          <Spacing bottom='SMALLEST'>
             <CTA type='submit'>Search</CTA>
-          </span>
+          </Spacing>
         </Row.Column>
       </Row>
     </form>

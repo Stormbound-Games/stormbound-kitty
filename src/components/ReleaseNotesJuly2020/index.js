@@ -205,11 +205,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
             <Row.Column width='1/2'>
               <h3 className={css({ marginTop: 0 })}>In-game 3D model</h3>
               <video
-                className={css({
-                  marginTop: 0,
-                  maxWidth: '100%',
-                  display: 'block',
-                })}
+                className={css({ maxWidth: '100%', display: 'block' })}
                 src='/assets/videos/sheep_hero.mp4'
                 muted
                 controls

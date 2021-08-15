@@ -47,7 +47,6 @@ export default React.memo(function CollectionFilters(props) {
       withSymbols
       labelCollapsed='Expand collection filters'
       labelExpanded='Collapse collection filters'
-      className={css(styles.toggle)}
     >
       <Spacing bottom='BASE'>
         <form onSubmit={event => event.preventDefault()}>

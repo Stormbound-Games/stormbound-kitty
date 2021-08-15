@@ -1,5 +1,4 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import Link from '../Link'
 import Card from '../Card'
 import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
@@ -8,6 +7,7 @@ import Image from '../Image'
 import Info from '../Info'
 import Only from '../Only'
 import Row from '../Row'
+import Spacing from '../Spacing'
 import Title from '../Title'
 import CardLink from '../CardLink'
 import getInitialCardData from '../../helpers/getInitialCardData'
@@ -18,8 +18,6 @@ import styles from './styles'
 const guide = getGuide('DRAWING_GUIDE')
 
 export default React.memo(function GuideDrawing(props) {
-  const { css } = useFela()
-
   return (
     <Guide {...guide}>
       <p>
@@ -230,7 +228,7 @@ export default React.memo(function GuideDrawing(props) {
       </p>
 
       <Only.Desktop>
-        <div className={css({ margin: '2em auto 2.5em' })}>
+        <Spacing vertical='LARGE'>
           <Row>
             <Row.Column width='1/3'>
               <Card {...getResolvedCardData({ id: 'S3', level: 1 })} />
@@ -242,7 +240,7 @@ export default React.memo(function GuideDrawing(props) {
               <Card {...getResolvedCardData({ id: 'N8', level: 1 })} />
             </Row.Column>
           </Row>
-        </div>
+        </Spacing>
       </Only.Desktop>
 
       <p>

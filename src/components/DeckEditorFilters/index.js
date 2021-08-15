@@ -46,7 +46,6 @@ export default React.memo(function DeckEditorFilters(props) {
       withSymbols
       labelCollapsed='Expand collection filters'
       labelExpanded='Collapse collection filters'
-      className={css(styles.toggle)}
     >
       <div
         className={css(styles.filters)}

@@ -1,5 +1,4 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import DECKS from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
 import CardSelect from '../CardSelect'
@@ -11,7 +10,6 @@ import Row from '../Row'
 import Select from '../Select'
 import Spacing from '../Spacing'
 import TagsSelect from '../TagsSelect'
-import styles from './styles'
 
 const getAuthors = () => {
   const authors = []
@@ -30,7 +28,6 @@ const getAuthors = () => {
 }
 
 export default React.memo(function DeckSuggestionsFilters(props) {
-  const { css } = useFela()
   const { hasDefaultCollection } = React.useContext(CollectionContext)
   const [name, updateName] = React.useState(props.name)
   const authors = React.useMemo(getAuthors, [])
@@ -41,7 +38,6 @@ export default React.memo(function DeckSuggestionsFilters(props) {
       withSymbols
       labelCollapsed='Expand deck filters'
       labelExpanded='Collapse deck filters'
-      className={css(styles.toggle)}
     >
       <form onSubmit={event => event.preventDefault()}>
         <Row>

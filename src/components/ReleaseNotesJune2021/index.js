@@ -259,13 +259,14 @@ export default React.memo(function ReleaseNotesJune2021(props) {
 
         <ul>
           <li>
-            The <span className={css({ color: '#caf9ff' })}>Heroes</span> chest
-            now contains <Coins amount={2000} /> (down from 3,000) and{' '}
+            The <span className={css({ color: 'var(--heroes)' })}>Heroes</span>{' '}
+            chest now contains <Coins amount={2000} /> (down from 3,000) and{' '}
             <Rubies amount={70} /> (down from 100).
           </li>
           <li>
-            The <span className={css({ color: '#c8c0df' })}>Diamond</span> chest
-            now contains <Coins amount={1500} /> (down from 1,800). Rubies
+            The{' '}
+            <span className={css({ color: 'var(--diamond)' })}>Diamond</span>{' '}
+            chest now contains <Coins amount={1500} /> (down from 1,800). Rubies
             untouched.
           </li>
           <li>The chest for all the other leagues remain untouched.</li>

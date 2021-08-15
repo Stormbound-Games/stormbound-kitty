@@ -26,10 +26,7 @@ export default React.memo(function Spacing({
   })
 
   return (
-    <Component
-      {...props}
-      className={css({ display: isBlock ? 'block' : undefined }, spacing)}
-    >
+    <Component {...props} className={css(spacing)}>
       {props.children}
     </Component>
   )
