@@ -10,7 +10,7 @@ const radio = {
 /**
  * 1. Arbitrary translate to align the radio icon with its accompanying label.
  */
-const icon = ({ isChecked, isDisabled }) => ({
+const icon = ({ isDisabled }) => ({
   width: '1.25em',
   height: '1.25em',
   border: '1px solid var(--dark-beige)',
@@ -18,22 +18,14 @@ const icon = ({ isChecked, isDisabled }) => ({
   display: 'inline-block',
   position: 'absolute',
   borderRadius: '0.25em',
+  cursor: 'pointer',
   top: '50%',
   left: 0,
-  cursor: isDisabled ? 'not-allowed' : undefined,
-  opacity: isDisabled ? 0.5 : undefined,
 
-  '::before': isChecked
-    ? {
-        content: '""',
-        position: 'absolute',
-        backgroundColor: 'var(--beige)',
-        top: '20%',
-        right: '20%',
-        bottom: '20%',
-        left: '20%',
-      }
-    : undefined,
+  ':disabled': {
+    cursor: 'not-allowed',
+    opacity: 0.5,
+  },
 })
 
 const input = {
@@ -57,6 +49,16 @@ const input = {
       'auto 2px Highlight' /* 1 */,
       'auto 5px -webkit-focus-ring-color',
     ] /* 1 */,
+  },
+
+  ':checked + *::before': {
+    content: '""',
+    position: 'absolute',
+    backgroundColor: 'var(--beige)',
+    top: '20%',
+    right: '20%',
+    bottom: '20%',
+    left: '20%',
   },
 }
 

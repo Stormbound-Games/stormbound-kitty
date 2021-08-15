@@ -2,14 +2,14 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import styles from './styles'
 
-export default React.memo(function Radio(props) {
+export default React.memo(function Radio({ extend, ...props }) {
   const { css } = useFela({
     isChecked: props.checked,
     isDisabled: props.disabled,
   })
 
   return (
-    <label className={css(styles.radio, props.extend)} htmlFor={props.id}>
+    <label className={css(styles.radio, extend)} htmlFor={props.id}>
       <input
         type='radio'
         {...props}
