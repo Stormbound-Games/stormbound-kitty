@@ -167,11 +167,11 @@ export default [
               your own and have them added, just get in touch with me on Discord
               (Kitty#1909). The only constraint is that your puzzle need to
               respect the rules in place. It needs to be one of{' '}
-              <Link href='https://github.com/KittySparkles/stormbound-kitty/blob/master/src/constants/puzzles.js#L39-L47'>
+              <Link href='https://github.com/KittySparkles/stormbound-kitty/blob/main/src/constants/puzzles.js#L39-L47'>
                 these types
               </Link>{' '}
               and can include any of{' '}
-              <Link href='https://github.com/KittySparkles/stormbound-kitty/blob/master/src/constants/puzzles.js#L1-L37'>
+              <Link href='https://github.com/KittySparkles/stormbound-kitty/blob/main/src/constants/puzzles.js#L1-L37'>
                 these restrictions
               </Link>{' '}
               (or none).
@@ -199,7 +199,7 @@ export default [
             <p>
               Alternatively, if you happen to have basic knowledge of web
               development and have a GitHub account, you can{' '}
-              <Link href='https://github.com/KittySparkles/stormbound-kitty/blob/master/docs/ADDING_A_DECK.md'>
+              <Link href='https://github.com/KittySparkles/stormbound-kitty/blob/main/docs/ADDING_A_DECK.md'>
                 follow the guide
               </Link>{' '}
               and do it yourself.
