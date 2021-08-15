@@ -1,11 +1,25 @@
 const toc = {
   listStyleType: 'none',
-  padding: '0 0 0 1em',
+  marginLeft: 'var(--s-smaller)',
+  paddingLeft: 0,
   borderLeft: '2px solid var(--dark-beige)',
 }
 
-const icon = {
-  marginRight: '1ch',
+const item = {
+  position: 'relative',
+  paddingLeft: 'var(--s-large)',
+  marginTop: 'var(--s-small)',
+  marginBottom: 'var(--s-small)',
 }
 
-export default { toc, icon }
+const icon = {
+  position: 'absolute',
+  right: '100%',
+  top: '50%',
+  backgroundColor: 'var(--black)',
+  transform: 'translateX(50%) translateY(-50%)',
+  fontSize: '150%',
+  padding: '0.2em',
+}
+
+export default { toc, item, icon }

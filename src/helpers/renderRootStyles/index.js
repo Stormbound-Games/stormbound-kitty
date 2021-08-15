@@ -173,10 +173,6 @@ const renderRootStyles = renderer => {
     color: var(--beige);
   }
 
-  .EditorialContent .Info + .Info {
-    margin-top: 0;
-  }
-
   .EditorialContent h3:not([class]) {
     color: var(--beige);
     margin-top: 2em;
