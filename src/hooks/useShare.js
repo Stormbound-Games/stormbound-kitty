@@ -11,6 +11,8 @@ const useShare = ({
   const [hasCopied, setHasCopied] = React.useState(false)
 
   const canUseShareAPI = React.useCallback(() => {
+    if (typeof navigator === 'undefined') return false
+
     const isShareAPISupported = typeof navigator.share === 'function'
     const isMobile = window.matchMedia('(max-width: 700px)').matches
 
