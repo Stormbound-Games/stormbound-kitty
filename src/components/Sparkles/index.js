@@ -17,10 +17,11 @@ const Sparkles = props => {
   const color = props.color || '#FFC700'
   const count = props.count || 3
   const interval = props.interval || [40, 450]
+  const [sparkles, setSparkles] = React.useState([])
 
-  const [sparkles, setSparkles] = React.useState(() =>
-    Array.from({ length: count }, () => generateSparkle(color))
-  )
+  React.useEffect(() => {
+    setSparkles(Array.from({ length: count }, () => generateSparkle(color)))
+  }, [color, count])
 
   useRandomInterval(() => {
     const now = Date.now()
