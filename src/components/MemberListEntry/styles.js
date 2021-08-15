@@ -8,7 +8,7 @@ const entryPseudo = {
 }
 
 const entry = ({ isYou }) => ({
-  padding: '0.5em 0',
+  padding: '0.5em 0.25em',
   fontSize: '120%',
   display: 'flex',
   border: isYou ? '1px solid var(--dark-beige)' : undefined,
@@ -38,12 +38,6 @@ const name = {
   },
 }
 
-const toc = {
-  paddingLeft: '1.4em',
-  margin: 0,
-  fontSize: '80%',
-}
-
 const content = {
   marginLeft: '1em',
 }
@@ -58,14 +52,15 @@ const icon = {
 
 const summary = {
   textTransform: 'uppercase',
-  color: 'var(--beige)',
+  color: 'var(--dark-beige)',
   fontSize: '75%',
+  marginBottom: 0,
+  marginTop: 'var(--s-smallest)',
 }
 
 export default {
   entry,
   name,
-  toc,
   content,
   icon,
   summary,
