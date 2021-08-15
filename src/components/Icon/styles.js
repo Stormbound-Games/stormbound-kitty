@@ -2,8 +2,8 @@ const icon = ({ type }) => ({
   display: 'inline-block',
   width: '1em',
   height: '1em',
-  stroke: 'currentColor',
-  fill: 'currentColor',
+  stroke: 'currentcolor',
+  fill: 'currentcolor',
 
   /**
    * 1. The ‘sword’ icon is in fact a ‘pipette’ icon that needs to be rotated so

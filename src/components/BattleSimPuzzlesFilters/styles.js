@@ -15,7 +15,7 @@ const toggle = {
   borderBottom: '1px solid transparent',
 
   ':hover': {
-    borderBottomColor: 'currentColor',
+    borderBottomColor: 'currentcolor',
   },
 }
 

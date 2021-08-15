@@ -22,7 +22,7 @@ const link = {
   borderBottom: '1px solid transparent',
 
   ':hover': {
-    borderBottomColor: 'currentColor',
+    borderBottomColor: 'currentcolor',
   },
 }
 

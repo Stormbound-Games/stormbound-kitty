@@ -16,7 +16,7 @@ const innerPseudo = {
   position: 'absolute',
   top: '50%',
   transform: 'translateY(-50%)',
-  backgroundColor: 'currentColor',
+  backgroundColor: 'currentcolor',
 }
 
 const inner = {

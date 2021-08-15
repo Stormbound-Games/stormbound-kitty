@@ -165,7 +165,7 @@ const renderRootStyles = renderer => {
 
   summary:hover {
     color: var(--beige);
-    border-bottom-color: currentColor;
+    border-bottom-color: currentcolor;
   }
 
   .EditorialContent p:not([class]) strong,
