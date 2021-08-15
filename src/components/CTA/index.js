@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link as RouterLink } from 'react-router-dom'
+import RouterLink from 'next/link'
 import styles from './styles'
 
 export default React.memo(function CTA({ as: Component, extend, ...props }) {
@@ -27,13 +27,14 @@ export default React.memo(function CTA({ as: Component, extend, ...props }) {
       <span className={css(styles.content)}>{props.children}</span>
     </a>
   ) : props.to ? (
-    <RouterLink
-      data-testid={props['data-testid']}
-      to={props.to}
-      className={css(styles.cta, extend)}
-      aria-label={props['aria-label']}
-    >
-      <span className={css(styles.content)}>{props.children}</span>
+    <RouterLink href={props.to} passHref>
+      <a
+        data-testid={props['data-testid']}
+        className={css(styles.cta, extend)}
+        aria-label={props['aria-label']}
+      >
+        <span className={css(styles.content)}>{props.children}</span>
+      </a>
     </RouterLink>
   ) : (
     <button {...props} className={css(styles.cta, extend)}>
