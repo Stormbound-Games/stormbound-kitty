@@ -5,7 +5,7 @@ import MemberList from '../MemberList'
 import Teasers from '../Teasers'
 import Title from '../Title'
 import getRawCardData from '../../helpers/getRawCardData'
-import tournaments from '../../data/tournaments.json'
+import TOURNAMENTS from '../../data/tournaments.json'
 
 const POINT_VALUE = {
   TOURNAMENT: [9, 6, 3],
@@ -15,7 +15,7 @@ const POINT_VALUE = {
 const getPodiumData = () => {
   const data = {}
 
-  tournaments.forEach(tournament => {
+  TOURNAMENTS.forEach(tournament => {
     tournament.podium.forEach((user, index) => {
       const users = Array.isArray(user) ? user : [user]
 

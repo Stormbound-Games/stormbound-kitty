@@ -6,7 +6,7 @@ import Spacing from '../Spacing'
 import Sparkles from '../Sparkles'
 import Teasers from '../Teasers'
 import Title from '../Title'
-import podcasts from '../../data/podcasts'
+import PODCASTS from '../../data/podcasts'
 import styles from './styles'
 
 const CARD = {
@@ -17,14 +17,13 @@ const CARD = {
   faction: 'shadowfen',
 }
 
-const ITEMS = podcasts
-  .slice(0)
+const ITEMS = PODCASTS.slice(0)
   .reverse()
   .map((entry, index) => ({
     ...entry,
     card: {
       ...CARD,
-      mana: podcasts.length - index,
+      mana: PODCASTS.length - index,
       ability: entry.excerpt,
     },
   }))

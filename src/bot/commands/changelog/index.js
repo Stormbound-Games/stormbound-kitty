@@ -1,5 +1,5 @@
 import dateFormat from 'dateformat'
-import changelog from '../../../data/changelog'
+import CHANGELOG from '../../../data/changelog'
 import getEmbed from '../../../helpers/getEmbed'
 import searchCards from '../../../helpers/searchCards'
 import parseDate from '../../../helpers/parseDate'
@@ -33,7 +33,7 @@ export default {
       .setTitle(`${this.label}: ${card.name}`)
       .setURL(`https://stormbound-kitty.com/card/${card.id}/display`)
 
-    const cardChanges = changelog.filter(change => change.id === card.id)
+    const cardChanges = CHANGELOG.filter(change => change.id === card.id)
     const changesByDate = cardChanges.reduce(groupByDate, {})
     const hasChanges = Object.keys(changesByDate).length > 0
 

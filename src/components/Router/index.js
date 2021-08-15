@@ -5,9 +5,9 @@ import Error from '../Error'
 import PageRoute from '../PageRoute'
 import load from '../../helpers/load'
 import { STORY_CATEGORIES } from '../../constants/stories'
-import guides from '../../data/guides'
-import releases from '../../data/releases'
-import stories from '../../data/stories'
+import GUIDES from '../../data/guides'
+import RELEASES from '../../data/releases'
+import STORIES from '../../data/stories'
 import { CATEGORIES } from '../../constants/guides'
 
 const GUIDE_COMPONENTS = {
@@ -250,7 +250,7 @@ export default function Router(props) {
             <QuestBuilderRoot />
           </PageRoute>
 
-          {stories.map(story => (
+          {STORIES.map(story => (
             <Redirect
               key={story.oldId}
               path={`/stories/${story.oldId}`}
@@ -277,7 +277,7 @@ export default function Router(props) {
             <StoryIndex />
           </PageRoute>
 
-          {guides.map(guide => {
+          {GUIDES.map(guide => {
             const Component = GUIDE_COMPONENTS[guide.id]
 
             return (
@@ -472,7 +472,7 @@ export default function Router(props) {
             <BookOpeningSimulator />
           </PageRoute>
 
-          {releases.map(release => {
+          {RELEASES.map(release => {
             const Component = RELEASE_COMPONENTS[release.id]
 
             return (
@@ -487,7 +487,7 @@ export default function Router(props) {
             )
           })}
 
-          {releases.map(release => (
+          {RELEASES.map(release => (
             <Redirect
               key={release.id}
               from={'/changelog/' + release.slug}

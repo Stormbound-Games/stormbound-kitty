@@ -2,7 +2,7 @@ import getStoriesForSearch from '../../../helpers/getStoriesForSearch'
 import getEmbed from '../../../helpers/getEmbed'
 import getRawCardData from '../../../helpers/getRawCardData'
 import arrayRandom from '../../../helpers/arrayRandom'
-import stories from '../../../data/stories'
+import STORIES from '../../../data/stories'
 
 const getEmbedForStory = (label, story) => {
   return getEmbed()
@@ -28,7 +28,7 @@ export default {
   },
   handler: function (message) {
     if (message === 'random' || message === '') {
-      return getEmbedForStory(this.label, arrayRandom(stories))
+      return getEmbedForStory(this.label, arrayRandom(STORIES))
     }
 
     return getEmbedForStory(this.label, getStoriesForSearch(message)[0])

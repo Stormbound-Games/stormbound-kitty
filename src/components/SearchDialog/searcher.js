@@ -1,8 +1,8 @@
 import Fuse from 'fuse.js'
-import cards from '../../data/cards'
-import decks from '../../data/decks'
-import guides from '../../data/guides'
-import stories from '../../data/stories'
+import CARDS from '../../data/cards'
+import DECKS from '../../data/decks'
+import GUIDES from '../../data/guides'
+import STORIES from '../../data/stories'
 import { BRAWLS } from '../../constants/brawl'
 import { CATEGORIES } from '../../constants/guides'
 import { STORY_CATEGORIES } from '../../constants/stories'
@@ -19,15 +19,13 @@ const recordMember = member => {
   })
 }
 
-cards
-  .filter(card => !card.token)
-  .forEach(card => {
-    SEARCH_INDEX.push({
-      path: `/card/${card.id}/display`,
-      label: card.name,
-      breadcrumbs: ['Tools', 'Card Builder'],
-    })
+CARDS.filter(card => !card.token).forEach(card => {
+  SEARCH_INDEX.push({
+    path: `/card/${card.id}/display`,
+    label: card.name,
+    breadcrumbs: ['Tools', 'Card Builder'],
   })
+})
 
 SEARCH_INDEX.push({
   path: '/members',
@@ -47,7 +45,7 @@ SEARCH_INDEX.push({
   breadcrumbs: ['Official'],
 })
 
-decks.forEach(deck => {
+DECKS.forEach(deck => {
   recordMember(deck.author)
   SEARCH_INDEX.push({
     path: `/deck/${deck.id}/detail`,
@@ -64,7 +62,7 @@ Object.keys(CATEGORIES).forEach(id => {
   })
 })
 
-guides.forEach(guide => {
+GUIDES.forEach(guide => {
   SEARCH_INDEX.push({
     path: `/guides/${guide.slug}`,
     label: guide.name,
@@ -253,7 +251,7 @@ Object.keys(STORY_CATEGORIES).forEach(id => {
   })
 })
 
-stories.forEach(story => {
+STORIES.forEach(story => {
   SEARCH_INDEX.push({
     path: `/stories/${story.id}`,
     label: story.title,

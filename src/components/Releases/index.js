@@ -3,9 +3,9 @@ import Link from '../Link'
 import Page from '../Page'
 import Notice from '../Notice'
 import Teasers from '../Teasers'
-import releases from '../../data/releases'
+import RELEASES from '../../data/releases'
 
-const ITEMS = releases.map(release => ({
+const ITEMS = RELEASES.map(release => ({
   ...release,
   title: release.name,
   to: `/releases/${release.slug}`,

@@ -1,12 +1,12 @@
 import Fuse from 'fuse.js'
-import cards from '../../data/cards'
+import CARDS from '../../data/cards'
 import getRawCardData from '../getRawCardData'
 import getAbbreviations from '../getAbbreviations'
 
 const ABBREVIATIONS = getAbbreviations('LOWERCASE')
 
 export const searcher = new Fuse(
-  cards.filter(card => !card.token),
+  CARDS.filter(card => !card.token),
   {
     keys: ['name'],
     minMatchCharLength: 3,

@@ -10,14 +10,14 @@ import Row from '../Row'
 import isKATMember from '../../helpers/isKATMember'
 import useMemberContent from '../../hooks/useMemberContent'
 import styles from './styles'
-import videos from '../../data/videos'
+import VIDEOS from '../../data/videos'
 
 export default React.memo(function Member(props) {
   const { css } = useFela()
   const match = useRouteMatch()
   const id = match.params.memberId.toLowerCase()
   const { count, content, details, displayName: name } = useMemberContent(id)
-  const channel = videos.find(channel => channel.author.toLowerCase() === id)
+  const channel = VIDEOS.find(channel => channel.author.toLowerCase() === id)
   // This is basically a hack for people listed as video content creators, but
   // without any contributions to the site itself.
   const displayName = channel ? channel.author : name

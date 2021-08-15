@@ -3,7 +3,7 @@ import { useFela } from 'react-fela'
 import { useHistory, useLocation } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import debounce from 'lodash.debounce'
-import decks from '../../data/decks'
+import DECKS from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
 import BookmarkDeckButton from '../BookmarkDeckButton'
 import Decks from '../Decks'
@@ -115,7 +115,7 @@ class DeckSuggestions extends React.Component {
 
   getDecks = () => {
     return (
-      [...decks]
+      [...DECKS]
         // New decks are added at the end of the JSON file, but should be
         // displayed first, therefore we reverse the array before filtering and
         // sorting it.

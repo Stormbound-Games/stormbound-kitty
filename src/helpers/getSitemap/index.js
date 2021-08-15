@@ -1,17 +1,17 @@
 import { BRAWLS } from '../../constants/brawl'
 import { STORY_CATEGORIES } from '../../constants/stories'
 import { CATEGORIES as GUIDE_CATEGORIES } from '../../constants/guides'
-import decks from '../../data/decks'
-import swcc from '../../data/swcc'
-import cards from '../../data/cards'
-import guides from '../../data/guides'
-import puzzles from '../../data/puzzles'
-import releases from '../../data/releases'
-import stories from '../../data/stories'
+import DECKS from '../../data/decks'
+import SWCC from '../../data/swcc'
+import CARDS from '../../data/cards'
+import GUIDES from '../../data/guides'
+import PUZZLES from '../../data/puzzles'
+import RELEASES from '../../data/releases'
+import STORIES from '../../data/stories'
 import getMembersList from '../../hooks/useMembersList'
 
 export default mode => {
-  const contests = swcc.flat().filter(contest => !!contest.winner)
+  const contests = SWCC.flat().filter(contest => !!contest.winner)
   const members = getMembersList().map(entry => entry.member)
   const links = [
     '/',
@@ -69,11 +69,11 @@ export default mode => {
     links.push('/guide/' + category)
   })
 
-  guides.forEach(guide => {
+  GUIDES.forEach(guide => {
     links.push('/guides/' + guide.slug)
   })
 
-  releases.forEach(release => {
+  RELEASES.forEach(release => {
     links.push('/releases/' + release.slug)
   })
 
@@ -90,27 +90,27 @@ export default mode => {
   })
 
   if (mode === 'LIGHT') {
-    links.push('/stories/' + stories[0].id)
+    links.push('/stories/' + STORIES[0].id)
   } else {
-    stories.forEach(story => {
+    STORIES.forEach(story => {
       links.push('/stories/' + story.id)
     })
   }
 
   if (mode === 'LIGHT') {
-    links.push('/sim/' + puzzles[0].board + '/display')
+    links.push('/sim/' + PUZZLES[0].board + '/display')
   } else {
-    puzzles.forEach(puzzle => {
+    PUZZLES.forEach(puzzle => {
       links.push('/sim/' + puzzle.board + '/display')
     })
   }
 
   if (mode === 'LIGHT') {
-    links.push('/deck/' + decks[0].id)
-    links.push('/deck/' + decks[0].id + '/detail')
-    links.push('/deck/' + decks[0].id + '/dry-run')
+    links.push('/deck/' + DECKS[0].id)
+    links.push('/deck/' + DECKS[0].id + '/detail')
+    links.push('/deck/' + DECKS[0].id + '/dry-run')
   } else {
-    decks.forEach(deck => {
+    DECKS.forEach(deck => {
       links.push('/deck/' + deck.id)
       links.push('/deck/' + deck.id + '/detail')
       links.push('/deck/' + deck.id + '/dry-run')
@@ -118,9 +118,9 @@ export default mode => {
   }
 
   if (mode === 'LIGHT') {
-    links.push('/card/' + cards[0].id + '/display')
+    links.push('/card/' + CARDS[0].id + '/display')
   } else {
-    cards.forEach(card => {
+    CARDS.forEach(card => {
       links.push('/card/' + card.id + '/display')
     })
   }

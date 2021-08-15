@@ -13,7 +13,7 @@ import getResolvedCardData from '../../helpers/getResolvedCardData'
 import getBaseHealth from '../../helpers/getBaseHealth'
 import isLevelAvailable from '../../helpers/isLevelAvailable'
 import { getRarityColor } from '../../helpers/getRarity'
-import cards from '../../data/cards'
+import CARDS from '../../data/cards'
 import { RARITY_COPIES, UPGRADE_COST } from '../../constants/game'
 import styles from './styles'
 
@@ -63,16 +63,14 @@ const getCopiesData = (collection, expectedCardLevel) => {
     )
 
     // Total amount of copies of this rarity needed to reach `cardLevel`
-    const total = cards
-      .filter(card => card.rarity === rarity)
-      .reduce(
-        (acc, card) =>
-          acc +
-          RARITY_COPIES[card.rarity].copies
-            .slice(0, expectedCardLevel - 1)
-            .reduce((a, b) => a + b, 1),
-        0
-      )
+    const total = CARDS.filter(card => card.rarity === rarity).reduce(
+      (acc, card) =>
+        acc +
+        RARITY_COPIES[card.rarity].copies
+          .slice(0, expectedCardLevel - 1)
+          .reduce((a, b) => a + b, 1),
+      0
+    )
 
     const coins = cardsFromRarity.reduce((total, card) => {
       if (card.missing || card.level >= expectedCardLevel) return total
@@ -208,9 +206,11 @@ export default React.memo(function CollectionFigures(props) {
   const totalCost = React.useMemo(
     () =>
       getCollectionCost(
-        cards
-          .filter(card => !card.token)
-          .map(card => ({ id: card.id, level: 5, copies: 0 }))
+        CARDS.filter(card => !card.token).map(card => ({
+          id: card.id,
+          level: 5,
+          copies: 0,
+        }))
       ),
     []
   )

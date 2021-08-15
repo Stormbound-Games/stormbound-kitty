@@ -12,7 +12,7 @@ import TournamentDeck from '../TournamentDeck'
 import TournamentPodium from '../TournamentPodium'
 import TournamentWinners from '../TournamentWinners'
 import { Rubies } from '../Resource'
-import tournaments from '../../data/tournaments.json'
+import TOURNAMENTS from '../../data/tournaments.json'
 import MemberList from '../MemberList'
 import { formatDate } from '../../helpers/formatDate'
 import parseDate from '../../helpers/parseDate'
@@ -33,8 +33,7 @@ export default React.memo(function TournamentHallOfFame(props) {
 
       <Title>Tournaments</Title>
       <Spacing top='LARGE' bottom='LARGEST'>
-        {tournaments
-          .slice(0)
+        {TOURNAMENTS.slice(0)
           .reverse()
           .map(tournament => (
             <Spacing key={tournament.name} bottom='LARGE'>

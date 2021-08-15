@@ -7,7 +7,7 @@ import Image from '../Image'
 import Row from '../Row'
 import Spacing from '../Spacing'
 import chunk from '../../helpers/chunk'
-import videos from '../../data/videos'
+import VIDEOS from '../../data/videos'
 import styles from './styles'
 
 export default React.memo(function Videos(props) {
@@ -19,7 +19,7 @@ export default React.memo(function Videos(props) {
       description='Find here a list of popular and active Stormbound video content creators and their YouTube channels.'
       isEditorialContent
     >
-      {chunk(videos, 2).map((row, index) => (
+      {chunk(VIDEOS, 2).map((row, index) => (
         <Row key={index} isDesktopOnly withWideGutter>
           {row.map((video, index, array) => (
             <React.Fragment key={video.author}>
@@ -53,7 +53,7 @@ export default React.memo(function Videos(props) {
                   </Row>
                 </Spacing>
               </Row.Column>
-              {videos.length % 2 !== 0 && index === array.length - 1 && (
+              {VIDEOS.length % 2 !== 0 && index === array.length - 1 && (
                 <Row.Column />
               )}
             </React.Fragment>

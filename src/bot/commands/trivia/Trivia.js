@@ -10,7 +10,7 @@ import parseCardGuess from '../../../helpers/parseCardGuess'
 import parseTriviaSettings from '../../../helpers/parseTriviaSettings'
 import searchCards from '../../../helpers/searchCards'
 import getOrdinalSuffix from '../../../helpers/getOrdinalSuffix'
-import cards from '../../../data/cards'
+import CARDS from '../../../data/cards'
 import Canvas from './Canvas'
 
 const KITTY_ID = '368097495605182483'
@@ -97,7 +97,7 @@ export default class Trivia {
 
   defineAnswer() {
     if (this.mode === 'IMAGE' || this.mode === 'CARD') {
-      return arrayRandom(cards.filter(card => !card.token))
+      return arrayRandom(CARDS.filter(card => !card.token))
     } else if (this.mode === 'QUESTION') {
       const { question, choices } = getRandomQuestion(true)
       return { ...question, choices, name: String(question.answer) }

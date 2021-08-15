@@ -1,4 +1,4 @@
-import decks from '../../../data/decks'
+import DECKS from '../../../data/decks'
 import arrayRandom from '../../../helpers/arrayRandom'
 import capitalise from '../../../helpers/capitalise'
 import getEmbed from '../../../helpers/getEmbed'
@@ -27,7 +27,7 @@ export default {
         // If the tags are not provided, assume the expectation is to have a
         // deck that works and is competitive under normal circumstances (so
         // ranking and Diamond) and therefore discard any Brawl/Equals deck.
-        decks.filter(
+        DECKS.filter(
           deck => !deck.tags.includes('BRAWL') && !deck.tags.includes('EQUALS')
         )
       )
@@ -51,7 +51,7 @@ export default {
       return embed
     }
 
-    const results = decks.filter(deck => {
+    const results = DECKS.filter(deck => {
       if (params.faction && getFactionFromDeckID(deck.id) !== params.faction) {
         return false
       }

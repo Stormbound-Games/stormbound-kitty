@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import changelog from '../../data/changelog'
+import CHANGELOG from '../../data/changelog'
 import parseDate from '../../helpers/parseDate'
 import FeedCardChange from '../FeedCardChange'
 import Spacing from '../Spacing'
@@ -9,7 +9,7 @@ import styles from './styles'
 
 export default React.memo(function CardChangeFeed(props) {
   const { css } = useFela()
-  const changes = changelog.filter(change => change.id === props.id)
+  const changes = CHANGELOG.filter(change => change.id === props.id)
   const hasReleaseChange = changes.some(
     change =>
       change.description === 'Added to the game' ||

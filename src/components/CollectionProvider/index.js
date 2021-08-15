@@ -1,10 +1,10 @@
 import React from 'react'
 import { NotificationContext } from '../NotificationProvider'
-import cards from '../../data/cards'
+import CARDS from '../../data/cards'
 import indexArray from '../../helpers/indexArray'
 
 export const CollectionContext = React.createContext([])
-const cardsWithoutTokens = cards.filter(card => !card.token)
+const cardsWithoutTokens = CARDS.filter(card => !card.token)
 
 // Note that it is important not to check the status (whether missing or not) in
 // that condition because due to a bug introduced when Rogue Sheep was added to
@@ -23,7 +23,7 @@ const normaliseCard = card => ({
 const normaliseCollection = collection =>
   collection.filter(card => !card.token).map(normaliseCard)
 
-const DEFAULT_COLLECTION = normaliseCollection(cards)
+const DEFAULT_COLLECTION = normaliseCollection(CARDS)
 const STORAGE_KEY = 'sk.collection'
 
 const getInitialCollectionData = () => {

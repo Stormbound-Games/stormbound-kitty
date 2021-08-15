@@ -1,10 +1,10 @@
-import cards from '../../data/cards'
+import CARDS from '../../data/cards'
 import indexArray from '../indexArray'
 import FUSION_STONES from './fs'
 
 const INDEXES = {
-  id: indexArray(cards, 'id'),
-  name: indexArray(cards, 'name'),
+  id: indexArray(CARDS, 'id'),
+  name: indexArray(CARDS, 'name'),
 }
 
 FUSION_STONES.forEach(fs => {

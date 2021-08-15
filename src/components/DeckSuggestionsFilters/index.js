@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import decks from '../../data/decks'
+import DECKS from '../../data/decks'
 import { CollectionContext } from '../CollectionProvider'
 import CardSelect from '../CardSelect'
 import CTA from '../CTA'
@@ -16,7 +16,7 @@ import styles from './styles'
 const getAuthors = () => {
   const authors = []
 
-  decks.forEach(deck => {
+  DECKS.forEach(deck => {
     if (!authors.includes(deck.author)) authors.push(deck.author)
   })
 

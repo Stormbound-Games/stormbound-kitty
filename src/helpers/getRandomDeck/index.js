@@ -1,4 +1,4 @@
-import cards from '../../data/cards'
+import CARDS from '../../data/cards'
 import arrayRandom from '../arrayRandom'
 import getResolvedCardData from '../getResolvedCardData'
 import CONFUSION from '../getDeckAdvice/advice/CONFUSION'
@@ -27,7 +27,7 @@ import UBASS_THE_HUNTER from '../getDeckAdvice/advice/UBASS_THE_HUNTER'
 import SLOW_DECK from '../getDeckAdvice/advice/SLOW_DECK'
 
 const DEFAULT_OPTIONS = {
-  availableCards: cards,
+  availableCards: CARDS,
   faction: null,
   initialCards: [],
   maxEpicCards: 4,

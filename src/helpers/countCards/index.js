@@ -1,5 +1,5 @@
 import isCardMatchingCriteria from '../isCardMatchingCriteria'
-import cards from '../../data/cards'
+import CARDS from '../../data/cards'
 
 const cache = new Map()
 
@@ -9,7 +9,7 @@ const countCards = (criteria, countFusionStones = true) => {
   if (cache.has(key)) return cache.get(key)
 
   const count =
-    cards.filter(isCardMatchingCriteria(criteria)).length +
+    CARDS.filter(isCardMatchingCriteria(criteria)).length +
     Number(countFusionStones)
 
   cache.set(key, count)

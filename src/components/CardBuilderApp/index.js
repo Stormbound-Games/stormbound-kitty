@@ -18,8 +18,8 @@ import getCardBuilderMetaTags from '../../helpers/getCardBuilderMetaTags'
 import parseDate from '../../helpers/parseDate'
 import serialisation from '../../helpers/serialisation'
 import { formatPreciseDate } from '../../helpers/formatDate'
-import swcc from '../../data/swcc'
-import changelog from '../../data/changelog'
+import SWCC from '../../data/swcc'
+import CHANGELOG from '../../data/changelog'
 
 const getWikiUrl = name =>
   'https://stormboundkingdomwars.fandom.com/' +
@@ -27,9 +27,9 @@ const getWikiUrl = name =>
 
 const useArticleProps = (props, versionId) => {
   const isOfficial = Boolean(getRawCardData(props.cardId).name)
-  const contest = swcc
-    .flat()
-    .find(contest => contest.winner && contest.winner.id === props.cardId)
+  const contest = SWCC.flat().find(
+    contest => contest.winner && contest.winner.id === props.cardId
+  )
   const properties = {}
   const { name, faction, type, race } = props.cardData
 
@@ -53,7 +53,7 @@ const useArticleProps = (props, versionId) => {
       children: 'Open in wiki',
     }
   } else if (contest) {
-    const season = parseDate(contest.date) > parseDate(swcc[1][0].date) ? 2 : 1
+    const season = parseDate(contest.date) > parseDate(SWCC[1][0].date) ? 2 : 1
 
     properties.meta = `Week #${contest.id} (season ${season})`
     properties.author = contest.winner.author
@@ -81,8 +81,7 @@ const isCardOfficial = cardId => Boolean(getRawCardData(cardId).name)
 const useCardVersions = cardId => {
   if (!isCardOfficial(cardId)) return []
 
-  return changelog
-    .filter(change => change.id === cardId)
+  return CHANGELOG.filter(change => change.id === cardId)
     .map(change => ({ ...change, timestamp: parseDate(change.date) }))
     .sort((a, b) => b.timestamp - a.timestamp)
 }

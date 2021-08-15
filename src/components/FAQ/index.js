@@ -7,10 +7,10 @@ import Link from '../Link'
 import Spacing from '../Spacing'
 import StructuredData from '../StructuredData'
 import Title from '../Title'
-import categories from '../../data/faq'
+import FAQ from '../../data/faq'
 import styles from './styles'
 
-export default React.memo(function FAQ() {
+export default React.memo(function FrequentlyAskedQuestions() {
   const { css } = useFela()
 
   return (
@@ -23,7 +23,7 @@ export default React.memo(function FAQ() {
         <Title>Topics</Title>
 
         <ul className={css(styles.toc)}>
-          {categories.map(category => (
+          {FAQ.map(category => (
             <li key={category.id}>
               <Link href={'#' + category.id} extend={styles.link}>
                 {category.title}
@@ -47,9 +47,9 @@ export default React.memo(function FAQ() {
           extend={{ margin: 'auto' }}
         />
 
-        {categories.map((category, index) => (
+        {FAQ.map((category, index) => (
           <Spacing
-            bottom={index !== categories.length - 1 ? 'LARGEST' : 'NONE'}
+            bottom={index !== FAQ.length - 1 ? 'LARGEST' : 'NONE'}
             id={category.id}
             key={category.id}
           >

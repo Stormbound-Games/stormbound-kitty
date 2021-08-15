@@ -1,17 +1,17 @@
 import capitalise from '../helpers/capitalise'
 import parseDate from '../helpers/parseDate'
-import decks from '../data/decks'
-import contributions from '../data/contributions'
-import donations from '../data/donations'
-import guides from '../data/guides'
-import stories from '../data/stories'
-import tournaments from '../data/tournaments'
-import artworks from '../data/artworks'
-import puzzles from '../data/puzzles'
-import events from '../data/events'
-import releases from '../data/releases'
-import podcasts from '../data/podcasts'
-import swcc from '../data/swcc'
+import DECKS from '../data/decks'
+import CONTRIBUTIONS from '../data/contributions'
+import DONATIONS from '../data/donations'
+import GUIDES from '../data/guides'
+import STORIES from '../data/stories'
+import TOURNAMENTS from '../data/tournaments'
+import ARTWORKS from '../data/artworks'
+import PUZZLES from '../data/puzzles'
+import EVENTS from '../data/events'
+import RELEASES from '../data/releases'
+import PODCASTS from '../data/podcasts'
+import SWCC from '../data/swcc'
 
 const formatEntryWithDate = entry => ({
   ...entry,
@@ -19,57 +19,50 @@ const formatEntryWithDate = entry => ({
 })
 
 const useUserStories = id =>
-  stories
-    .filter(story => story.date && story.author.toLowerCase() === id)
-    .map(formatEntryWithDate)
+  STORIES.filter(story => story.date && story.author.toLowerCase() === id).map(
+    formatEntryWithDate
+  )
 
 const useUserDecks = id =>
-  decks
-    .filter(deck => deck.author.toLowerCase() === id)
-    .map(formatEntryWithDate)
+  DECKS.filter(deck => deck.author.toLowerCase() === id).map(
+    formatEntryWithDate
+  )
 
 const useUserGuides = id =>
-  guides
-    .filter(guide => guide.authors.map(host => host.toLowerCase()).includes(id))
-    .map(formatEntryWithDate)
+  GUIDES.filter(guide =>
+    guide.authors.map(host => host.toLowerCase()).includes(id)
+  ).map(formatEntryWithDate)
 
 const useUserHosts = id =>
-  tournaments
-    .filter(tournament =>
-      tournament.hosts.map(host => host.toLowerCase()).includes(id)
-    )
-    .map(formatEntryWithDate)
+  TOURNAMENTS.filter(tournament =>
+    tournament.hosts.map(host => host.toLowerCase()).includes(id)
+  ).map(formatEntryWithDate)
 
 const useUserPodcasts = id =>
-  podcasts
-    .filter(episode =>
-      episode.hosts.map(host => host.toLocaleLowerCase()).includes(id)
-    )
-    .map(formatEntryWithDate)
+  PODCASTS.filter(episode =>
+    episode.hosts.map(host => host.toLocaleLowerCase()).includes(id)
+  ).map(formatEntryWithDate)
 
 const useUserPodiums = id =>
-  tournaments
-    .filter(tournament =>
-      tournament.podium
-        .flat()
-        .map(winner => winner.toLowerCase())
-        .includes(id)
-    )
-    .map(formatEntryWithDate)
+  TOURNAMENTS.filter(tournament =>
+    tournament.podium
+      .flat()
+      .map(winner => winner.toLowerCase())
+      .includes(id)
+  ).map(formatEntryWithDate)
 
 const useUserArtworks = id =>
-  artworks
-    .filter(artwork => artwork.author.toLowerCase() === id)
-    .map(formatEntryWithDate)
+  ARTWORKS.filter(artwork => artwork.author.toLowerCase() === id).map(
+    formatEntryWithDate
+  )
 
 const useUserPuzzles = id =>
-  puzzles
-    .filter(puzzle => puzzle.author.toLowerCase() === id)
-    .map(formatEntryWithDate)
+  PUZZLES.filter(puzzle => puzzle.author.toLowerCase() === id).map(
+    formatEntryWithDate
+  )
 
 const useUserCards = id =>
-  swcc
-    .flat()
+  SWCC.flat()
     .filter(
       contest => contest.winner && contest.winner.author.toLowerCase() === id
     )
@@ -80,21 +73,20 @@ const useUserCards = id =>
     })
 
 const useUserDonations = id =>
-  donations
-    .filter(donation => donation.author.toLowerCase() === id)
-    .map(formatEntryWithDate)
+  DONATIONS.filter(donation => donation.author.toLowerCase() === id).map(
+    formatEntryWithDate
+  )
 
 const useUserContributions = id =>
-  contributions
-    .filter(contribution => contribution.author.toLowerCase() === id)
-    .map(formatEntryWithDate)
+  CONTRIBUTIONS.filter(
+    contribution => contribution.author.toLowerCase() === id
+  ).map(formatEntryWithDate)
 
 const useUserEvents = id =>
-  events
-    .filter(event =>
-      event.authors.map(author => author.toLowerCase()).includes(id)
-    )
-    .concat(id === 'kitty' ? releases.map(addType('RELEASE')) : [])
+  EVENTS.filter(event =>
+    event.authors.map(author => author.toLowerCase()).includes(id)
+  )
+    .concat(id === 'kitty' ? RELEASES.map(addType('RELEASE')) : [])
     .map(formatEntryWithDate)
 
 const addType = type => entry => ({ ...entry, type })

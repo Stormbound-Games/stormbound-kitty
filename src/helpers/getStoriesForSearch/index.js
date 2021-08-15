@@ -1,8 +1,8 @@
 import Fuse from 'fuse.js'
 import searchCards from '../searchCards'
-import stories from '../../data/stories'
+import STORIES from '../../data/stories'
 
-export const searcher = new Fuse(stories, {
+export const searcher = new Fuse(STORIES, {
   keys: [
     { name: 'title', weight: 0.7 },
     { name: 'author', weight: 0.3 },
@@ -18,5 +18,5 @@ export default search => {
 
   const result = searchCards(search).map(card => card.id)[0]
 
-  return stories.filter(story => result === story.cardId)
+  return STORIES.filter(story => result === story.cardId)
 }

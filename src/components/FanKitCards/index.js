@@ -5,7 +5,7 @@ import FanKitItem from '../FanKitItem'
 import Page from '../Page'
 import Loader from '../Loader'
 import Row from '../Row'
-import cards from '../../data/cards'
+import CARDS from '../../data/cards'
 import chunk from '../../helpers/chunk'
 import sortCards from '../../helpers/sortCards'
 import getRawCardData from '../../helpers/getRawCardData'
@@ -17,7 +17,9 @@ export default React.memo(function FanKit(props) {
   const dialogRef = React.useRef(null)
   const [active, setActive] = React.useState(null)
   const activeCard = getRawCardData(active)
-  const assets = search ? [getRawCardData(search)] : cards.sort(sortCards())
+  const assets = search
+    ? [getRawCardData(search)]
+    : [...CARDS].sort(sortCards())
   const {
     loading,
     items: displayedItems,

@@ -11,7 +11,7 @@ import Link from '../Link'
 import Row from '../Row'
 import Select from '../Select'
 import Title from '../Title'
-import cards from '../../data/cards'
+import CARDS from '../../data/cards'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
 import getCardValue from '../../helpers/getCardValue'
 import serialisation from '../../helpers/serialisation'
@@ -98,9 +98,9 @@ export default React.memo(function ValueCalculator(props) {
   const initialCards = getCardsFromURL(params.id?.toUpperCase())
   const [A, setA] = React.useState(initialCards[0])
   const [B, setB] = React.useState(initialCards[1])
-  const disabledOptions = cards
-    .filter(card => getCardValue(card.id) === null)
-    .map(card => card.id)
+  const disabledOptions = CARDS.filter(
+    card => getCardValue(card.id) === null
+  ).map(card => card.id)
 
   React.useEffect(() => {
     history.replace(

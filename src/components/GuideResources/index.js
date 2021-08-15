@@ -8,7 +8,7 @@ import { Coins, Rubies, Stones } from '../Resource'
 import TableOfContents from '../TableOfContents'
 import Title from '../Title'
 import { RARITY_COPIES } from '../../constants/game'
-import cards from '../../data/cards'
+import CARDS from '../../data/cards'
 import getGuide from '../../helpers/getGuide'
 
 const guide = getGuide('RESOURCES_GUIDE')
@@ -16,7 +16,7 @@ const THOUSANDS = /\B(?=(\d{3})+(?!\d))/g
 
 const countCopiesForRarity = rarity =>
   (
-    cards.filter(card => card.rarity === rarity).length *
+    CARDS.filter(card => card.rarity === rarity).length *
     RARITY_COPIES[rarity].copies.reduce((a, b) => a + b, 1)
   )
     .toString()
@@ -381,7 +381,7 @@ export default React.memo(function GuideResources(props) {
 
       <p>
         Upgrading your full collection to level 5 costs{' '}
-        <Coins amount={cards.filter(card => !card.token).length * 1450} />,
+        <Coins amount={CARDS.filter(card => !card.token).length * 1450} />,
         which would take you at least a year of max grind to save up, including
         in-game rewards and no Brawl.
       </p>

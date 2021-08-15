@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '../Link'
-import decks from '../../data/decks'
+import DECKS from '../../data/decks'
 import { BrawlContext } from '../BrawlProvider'
 import { CollectionContext } from '../CollectionProvider'
 import Decks from '../Decks'
@@ -14,8 +14,7 @@ export default React.memo(function BrawlRecommendedDecks(props) {
   const { id } = React.useContext(BrawlContext)
   const { hasDefaultCollection, collection } =
     React.useContext(CollectionContext)
-  const brawlDecks = decks
-    .filter(deck => deck.tags.includes(id))
+  const brawlDecks = DECKS.filter(deck => deck.tags.includes(id))
     .sort(
       sortDeckSuggestions(
         { hasDefaultCollection, collection },

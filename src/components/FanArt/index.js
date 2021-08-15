@@ -6,14 +6,14 @@ import Image from '../Image'
 import Page from '../Page'
 import Loader from '../Loader'
 import Spacing from '../Spacing'
-import artworks from '../../data/artworks'
+import ARTWORKS from '../../data/artworks'
 import shuffle from '../../helpers/shuffle'
 import useLazyLoad from '../../hooks/useLazyLoad'
 import styles from './styles'
 
 export default React.memo(function FanArt(props) {
   const { css } = useFela()
-  const entries = React.useMemo(() => shuffle(artworks), [])
+  const entries = React.useMemo(() => shuffle(ARTWORKS), [])
   const { loading, items, ref } = useLazyLoad(entries, 3)
 
   return (

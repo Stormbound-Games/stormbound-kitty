@@ -8,24 +8,22 @@ import {
   Tooltip,
 } from 'recharts'
 import Title from '../Title'
-import cards from '../../data/cards'
+import CARDS from '../../data/cards'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 
 export default React.memo(function ChartType(props) {
   const types = ['unit', 'spell', 'structure']
-  const data = cards
-    .filter(card => !card.token)
-    .reduce(
-      (acc, card) => {
-        acc[types.indexOf(card.type)].value++
-        return acc
-      },
-      [
-        { name: 'Units', value: 0, color: 'var(--green)' },
-        { name: 'Spells', value: 0, color: 'var(--light-blue)' },
-        { name: 'Structures', value: 0, color: 'var(--dark-blue)' },
-      ]
-    )
+  const data = CARDS.filter(card => !card.token).reduce(
+    (acc, card) => {
+      acc[types.indexOf(card.type)].value++
+      return acc
+    },
+    [
+      { name: 'Units', value: 0, color: 'var(--green)' },
+      { name: 'Spells', value: 0, color: 'var(--light-blue)' },
+      { name: 'Structures', value: 0, color: 'var(--dark-blue)' },
+    ]
+  )
 
   return (
     <>

@@ -1,9 +1,9 @@
 import indexArray from '../indexArray'
-import guides from '../../data/guides'
+import GUIDES from '../../data/guides'
 
 const INDEXES = {
-  id: indexArray(guides, 'id'),
-  name: indexArray(guides, 'name'),
+  id: indexArray(GUIDES, 'id'),
+  name: indexArray(GUIDES, 'name'),
 }
 
 export default (needle, key = 'id') =>

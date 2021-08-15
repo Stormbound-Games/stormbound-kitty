@@ -8,7 +8,7 @@ import {
   Tooltip,
 } from 'recharts'
 import Title from '../Title'
-import cards from '../../data/cards'
+import CARDS from '../../data/cards'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 import { CHIP_CARDS } from '../../constants/game'
 
@@ -28,7 +28,7 @@ export default React.memo(function ChartAbility(props) {
   }
   const regex = new RegExp('(' + Object.keys(abilities).join('|') + ')', 'i')
   const data = Object.values(
-    cards.reduce((acc, card) => {
+    CARDS.reduce((acc, card) => {
       if (!card.ability) return acc
 
       const isChip = CHIP_CARDS.includes(card.id)

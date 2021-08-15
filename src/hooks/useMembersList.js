@@ -1,14 +1,14 @@
-import artworks from '../data/artworks'
-import contributions from '../data/contributions'
-import decks from '../data/decks'
-import donations from '../data/donations'
-import events from '../data/events'
-import guides from '../data/guides'
-import puzzles from '../data/puzzles'
-import stories from '../data/stories'
-import tournaments from '../data/tournaments'
-import videos from '../data/videos'
-import swcc from '../data/swcc'
+import ARTWORKS from '../data/artworks'
+import CONTRIBUTIONS from '../data/contributions'
+import DECKS from '../data/decks'
+import DONATIONS from '../data/donations'
+import EVENTS from '../data/events'
+import GUIDES from '../data/guides'
+import PUZZLES from '../data/puzzles'
+import STORIES from '../data/stories'
+import TOURNAMENTS from '../data/tournaments'
+import VIDEOS from '../data/videos'
+import SWCC from '../data/swcc'
 
 const uniq = (myArr, prop) =>
   myArr.filter(
@@ -28,32 +28,27 @@ const sortAlphabetically = (a, b) =>
 const useMembersList = () =>
   uniq(
     [
-      ...stories.map(addType('STORY')),
-      ...videos.map(addType('VIDEO')),
-      ...guides
-        .map(guide => guide.authors)
+      ...STORIES.map(addType('STORY')),
+      ...VIDEOS.map(addType('VIDEO')),
+      ...GUIDES.map(guide => guide.authors)
         .flat()
         .map(addType('GUIDE')),
-      ...contributions.map(addType('CONTRIBUTION')),
-      ...donations.map(addType('DONATION')),
-      ...decks.map(addType('DECK')),
-      ...artworks.map(addType('ARTWORK')),
-      ...tournaments
-        .map(tournament => tournament.hosts)
+      ...CONTRIBUTIONS.map(addType('CONTRIBUTION')),
+      ...DONATIONS.map(addType('DONATION')),
+      ...DECKS.map(addType('DECK')),
+      ...ARTWORKS.map(addType('ARTWORK')),
+      ...TOURNAMENTS.map(tournament => tournament.hosts)
         .flat()
         .map(addType('HOST')),
-      ...tournaments
-        .map(tournament => tournament.podium)
+      ...TOURNAMENTS.map(tournament => tournament.podium)
         .flat(2)
         .map(addType('PODIUM')),
-      ...swcc
-        .flat()
+      ...SWCC.flat()
         .filter(week => week.winner)
         .map(week => week.winner.author)
         .map(addType('CARD')),
-      ...puzzles.map(addType('PUZZLE')),
-      ...events
-        .map(event => event.authors)
+      ...PUZZLES.map(addType('PUZZLE')),
+      ...EVENTS.map(event => event.authors)
         .flat()
         .map(addType('EVENT')),
     ],

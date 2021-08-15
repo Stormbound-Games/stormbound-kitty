@@ -1,4 +1,4 @@
-import cards from '../../data/cards'
+import CARDS from '../../data/cards'
 import abbreviate from '../abbreviate'
 
 const COMMON_ABBREVIATIONS = {
@@ -51,22 +51,20 @@ const COMMON_ABBREVIATIONS = {
 export default (casing = 'NATURAL') => {
   const abbreviations = {}
 
-  cards
-    .filter(card => !card.token)
-    .forEach(card => {
-      const abbreviatedName = abbreviate(card.name)
+  CARDS.filter(card => !card.token).forEach(card => {
+    const abbreviatedName = abbreviate(card.name)
 
-      if (abbreviatedName.length === 1) return
+    if (abbreviatedName.length === 1) return
 
-      const key =
-        casing === 'NATURAL' ? abbreviatedName : abbreviatedName.toLowerCase()
+    const key =
+      casing === 'NATURAL' ? abbreviatedName : abbreviatedName.toLowerCase()
 
-      if (typeof abbreviations[key] === 'undefined') {
-        abbreviations[key] = []
-      }
+    if (typeof abbreviations[key] === 'undefined') {
+      abbreviations[key] = []
+    }
 
-      abbreviations[key].push(card.name)
-    })
+    abbreviations[key].push(card.name)
+  })
 
   for (const abbreviation in COMMON_ABBREVIATIONS) {
     const value = COMMON_ABBREVIATIONS[abbreviation]

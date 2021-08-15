@@ -21,7 +21,7 @@ import Only from '../Only'
 import Row from '../Row'
 import Spacing from '../Spacing'
 import Title from '../Title'
-import cards from '../../data/cards'
+import CARDS from '../../data/cards'
 import getRawCardData from '../../helpers/getRawCardData'
 import capitalise from '../../helpers/capitalise'
 import getResolvedCardData from '../../helpers/getResolvedCardData'
@@ -148,7 +148,7 @@ const getCopiesData = collection => {
       .filter(card => getRawCardData(card.id).rarity === rarity)
       .reduce((acc, card) => acc + getTotalCopiesForCard(card), 0)
     const total =
-      cards.filter(card => card.rarity === rarity).length *
+      CARDS.filter(card => card.rarity === rarity).length *
       RARITY_COPIES[rarity].copies.reduce((a, b) => a + b, 1)
 
     return {

@@ -1,8 +1,8 @@
 import sortCards from '../sortCards'
-import cards from '../../data/cards'
+import CARDS from '../../data/cards'
 
 export default () =>
-  cards.reduce((acc, card) => {
+  CARDS.reduce((acc, card) => {
     const group = card.token ? 'tokens' : card.faction
 
     if (typeof acc[group] === 'undefined') {

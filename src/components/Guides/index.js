@@ -4,12 +4,12 @@ import Page from '../Page'
 import Notice from '../Notice'
 import Only from '../Only'
 import Teasers from '../Teasers'
-import guides from '../../data/guides'
+import GUIDES from '../../data/guides'
 import renderAuthorsLinks from '../../helpers/renderAuthorsLinks'
 import { CATEGORIES } from '../../constants/guides'
 
 export default React.memo(function Guides(props) {
-  const relevantGuides = guides.filter(
+  const relevantGuides = GUIDES.filter(
     guide => guide.category === props.category
   )
 

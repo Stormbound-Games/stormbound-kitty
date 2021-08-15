@@ -7,8 +7,8 @@ import {
   RARITIES,
 } from '../../constants/game'
 import { BRAWLS } from '../../constants/brawl'
-import cards from '../../data/cards'
-import decks from '../../data/decks'
+import CARDS from '../../data/cards'
+import DECKS from '../../data/decks'
 import arrayRandom from '../arrayRandom'
 import capitalise from '../capitalise'
 import getRawCardData from '../getRawCardData'
@@ -17,15 +17,16 @@ import abbreviate from '../abbreviate'
 import shuffle from '../shuffle'
 import sortCards from '../sortCards'
 
-const SORTED_CARDS = cards.sort(sortCards())
-const CARD_NAMES = cards.filter(card => !card.token).map(card => card.name)
+const SORTED_CARDS = CARDS.sort(sortCards())
+const CARD_NAMES = CARDS.filter(card => !card.token).map(card => card.name)
 const unique = (value, index, array) => array.indexOf(value) === index
 const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 const range = (min, max) => [...Array(max - min).keys()].map(n => n + min)
 const rangeAround = (value, delta) => range(value - delta, value + delta)
 const NEVER_UPDATED = 'N11,N28,N32,N30,N22,N19,N16,S18'.split(',')
-const racesWithOnDeath = cards
-  .filter(card => (card.ability || '').includes('n death'))
+const racesWithOnDeath = CARDS.filter(card =>
+  (card.ability || '').includes('n death')
+)
   .map(card => card.race)
   .filter(unique)
 const racesWithoutOnDeath = Object.keys(RACES).filter(
@@ -33,7 +34,7 @@ const racesWithoutOnDeath = Object.keys(RACES).filter(
 )
 const cardsPerFaction = Object.keys(FACTIONS)
   .filter(faction => faction !== 'neutral')
-  .map(faction => cards.filter(card => card.faction === faction).length)
+  .map(faction => CARDS.filter(card => card.faction === faction).length)
 const maxCardsPerFaction = Math.max(...cardsPerFaction)
 
 export default [
@@ -60,9 +61,9 @@ export default [
     question:
       'Which legendary card was in the deck of the Clash of the Generals tournament’s champion?',
     answer: 'Doctor Mia',
-    options: cards
-      .filter(card => card.rarity === 'legendary')
-      .map(card => card.name),
+    options: CARDS.filter(card => card.rarity === 'legendary').map(
+      card => card.name
+    ),
   },
 
   {
@@ -84,13 +85,13 @@ export default [
     question:
       'Who won the first drawing-based contest hosted in the Discord server?',
     answer: 'YoungestMammal',
-    options: decks.map(story => story.author).filter(unique),
+    options: DECKS.map(story => story.author).filter(unique),
   },
 
   {
     question: 'With whom did Kepp first started hosting tournaments?',
     answer: 'Derpyologist',
-    options: decks.map(deck => deck.author).filter(unique),
+    options: DECKS.map(deck => deck.author).filter(unique),
   },
 
   {
@@ -119,7 +120,7 @@ export default [
   },
 
   () => {
-    const randomCard = arrayRandom(cards.filter(card => card.type === 'unit'))
+    const randomCard = arrayRandom(CARDS.filter(card => card.type === 'unit'))
 
     return {
       question: `What is the race of ${randomCard.name}?`,
@@ -129,7 +130,7 @@ export default [
   },
 
   () => {
-    const randomCard = arrayRandom(cards.filter(card => !card.token))
+    const randomCard = arrayRandom(CARDS.filter(card => !card.token))
 
     return {
       question: `What is the faction of ${randomCard.name}?`,
@@ -139,7 +140,7 @@ export default [
   },
 
   () => {
-    const randomCard = arrayRandom(cards)
+    const randomCard = arrayRandom(CARDS)
     const level = arrayRandom([1, 2, 3, 4, 5])
     const cardData = getResolvedCardData({ id: randomCard.id, level })
 
@@ -151,7 +152,7 @@ export default [
   },
 
   () => {
-    const randomCard = arrayRandom(cards.filter(card => card.type !== 'spell'))
+    const randomCard = arrayRandom(CARDS.filter(card => card.type !== 'spell'))
     const level = arrayRandom([1, 2, 3, 4, 5])
     const cardData = getResolvedCardData({ id: randomCard.id, level })
 
@@ -235,13 +236,13 @@ export default [
   {
     question: 'Which hero was Edrik’s predecessor on the home menu?',
     answer: 'Wolfcloaks',
-    options: cards.filter(card => card.hero).map(card => card.name),
+    options: CARDS.filter(card => card.hero).map(card => card.name),
   },
 
   {
     question: 'Which hero is guiding new players?',
     answer: 'Edrik the Fierce',
-    options: cards.filter(card => card.hero).map(card => card.name),
+    options: CARDS.filter(card => card.hero).map(card => card.name),
   },
 
   {
@@ -251,7 +252,7 @@ export default [
   },
 
   () => {
-    const randomCard = arrayRandom(cards)
+    const randomCard = arrayRandom(CARDS)
 
     return {
       question: `Of which card is this an anagram: “${shuffle(
@@ -350,9 +351,9 @@ export default [
     question:
       'What legendary card does one get from buying the Collector’s Edition bundle in the shop?',
     answer: 'Collector Mirz',
-    options: cards
-      .filter(card => card.rarity === 'legendary')
-      .map(card => card.name),
+    options: CARDS.filter(card => card.rarity === 'legendary').map(
+      card => card.name
+    ),
   },
 
   {
@@ -566,9 +567,9 @@ export default [
   {
     question: 'Which feline was illustrated after internet legend Grumpy Cat?',
     answer: 'Razor-Sharp Lynxes',
-    options: cards
-      .filter(card => card.race === 'feline')
-      .map(card => card.name),
+    options: CARDS.filter(card => card.race === 'feline').map(
+      card => card.name
+    ),
   },
 
   {
@@ -597,7 +598,7 @@ export default [
 
   () => ({
     question: 'Which card cannot do direct damage to the base?',
-    answer: arrayRandom(cards.filter(card => !CHIP_CARDS.includes(card.id)))
+    answer: arrayRandom(CARDS.filter(card => !CHIP_CARDS.includes(card.id)))
       .name,
     options: CHIP_CARDS.map(getRawCardData).map(card => card.name),
   }),
@@ -605,24 +606,24 @@ export default [
   () => ({
     question: 'Which card can do direct damage to the base?',
     answer: getRawCardData(arrayRandom(CHIP_CARDS)).name,
-    options: cards
-      .filter(card => !CHIP_CARDS.includes(card.id))
-      .map(card => card.name),
+    options: CARDS.filter(card => !CHIP_CARDS.includes(card.id)).map(
+      card => card.name
+    ),
   }),
 
   {
     question: 'How many Elders are there?',
-    answer: cards.filter(card => !card.token && card.elder).length,
+    answer: CARDS.filter(card => !card.token && card.elder).length,
     options: rangeAround(
-      cards.filter(card => !card.token && card.elder).length,
+      CARDS.filter(card => !card.token && card.elder).length,
       10
     ),
   },
 
   {
     question: 'How many heroes are there?',
-    answer: cards.filter(card => card.hero).length,
-    options: rangeAround(cards.filter(card => card.hero).length, 5),
+    answer: CARDS.filter(card => card.hero).length,
+    options: rangeAround(CARDS.filter(card => card.hero).length, 5),
   },
 
   {
@@ -778,13 +779,13 @@ export default [
   {
     question: 'What is the name of the Shadowfen premade deck?',
     answer: 'Counter Deck',
-    options: decks.map(deck => deck.name + ' Deck'),
+    options: DECKS.map(deck => deck.name + ' Deck'),
   },
 
   {
     question: 'What is the name of the Ironclad premade deck?',
     answer: 'Operator’s Deck',
-    options: decks.map(deck => deck.name + ' Deck'),
+    options: DECKS.map(deck => deck.name + ' Deck'),
   },
 
   {
@@ -863,11 +864,11 @@ export default [
 
   {
     question: 'How many neutral spells are there?',
-    answer: cards.filter(
+    answer: CARDS.filter(
       card => card.faction === 'neutral' && card.type === 'spell'
     ).length,
     options: rangeAround(
-      cards.filter(card => card.faction === 'neutral' && card.type === 'spell')
+      CARDS.filter(card => card.faction === 'neutral' && card.type === 'spell')
         .length,
       5
     ),
@@ -875,18 +876,18 @@ export default [
 
   {
     question: 'How many structures are in the game?',
-    answer: cards.filter(card => card.type === 'structure').length,
+    answer: CARDS.filter(card => card.type === 'structure').length,
     options: rangeAround(
-      cards.filter(card => card.type === 'structure').length,
+      CARDS.filter(card => card.type === 'structure').length,
       5
     ),
   },
 
   {
     question: 'How many cards have a drain ability?',
-    answer: cards.filter(card => (card.ability || '').includes('drain')).length,
+    answer: CARDS.filter(card => (card.ability || '').includes('drain')).length,
     options: rangeAround(
-      cards.filter(card => (card.ability || '').includes('drain')).length,
+      CARDS.filter(card => (card.ability || '').includes('drain')).length,
       3
     ),
   },
@@ -894,9 +895,9 @@ export default [
   {
     question: 'Which of these cards was revealed by Kitty on Stormbound-Kitty?',
     answer: 'Bigthrust Tigers',
-    options: cards
-      .filter(card => card.race === 'feline')
-      .map(card => card.name),
+    options: CARDS.filter(card => card.race === 'feline').map(
+      card => card.name
+    ),
   },
 
   {
@@ -909,7 +910,7 @@ export default [
     question:
       'Which one of these cards was updated at least once since released?',
     answer: arrayRandom(
-      cards.filter(card => !card.token && !NEVER_UPDATED.includes(card.id))
+      CARDS.filter(card => !card.token && !NEVER_UPDATED.includes(card.id))
     ).name,
     options: NEVER_UPDATED.map(getRawCardData).map(card => card.name),
   }),
@@ -923,9 +924,9 @@ export default [
 
   {
     question: 'How many cards have “FS” as initials?',
-    answer: cards.filter(card => abbreviate(card.name) === 'FS').length,
+    answer: CARDS.filter(card => abbreviate(card.name) === 'FS').length,
     options: rangeAround(
-      cards.filter(card => abbreviate(card.name) === 'FS').length,
+      CARDS.filter(card => abbreviate(card.name) === 'FS').length,
       2
     ),
   },
@@ -974,13 +975,13 @@ export default [
   },
 
   () => {
-    const cardsWithFullStop = cards
-      .filter(card => card.ability)
-      .filter(card => card.ability.includes('. '))
+    const cardsWithFullStop = CARDS.filter(card => card.ability).filter(card =>
+      card.ability.includes('. ')
+    )
     const randomCard = arrayRandom(
-      cards
-        .filter(card => card.ability)
-        .filter(card => !card.ability.includes('. '))
+      CARDS.filter(card => card.ability).filter(
+        card => !card.ability.includes('. ')
+      )
     )
 
     return {
@@ -995,7 +996,7 @@ export default [
     question:
       'Which legendary card was originally fetured in the Stormbound app icon?',
     answer: 'Olf the Hammer',
-    options: cards.filter(card => card.hero).map(card => card.name),
+    options: CARDS.filter(card => card.hero).map(card => card.name),
   },
 
   {
@@ -1035,7 +1036,7 @@ export default [
   },
 
   () => {
-    const authors = decks.map(deck => deck.author).filter(unique)
+    const authors = DECKS.map(deck => deck.author).filter(unique)
 
     return {
       question:
@@ -1095,9 +1096,9 @@ export default [
   {
     question: 'What was the first Swarm vanilla unit?',
     answer: 'Grim Couriers',
-    options: cards
-      .filter(card => card.faction === 'swarm' && card.type === 'unit')
-      .map(card => card.name),
+    options: CARDS.filter(
+      card => card.faction === 'swarm' && card.type === 'unit'
+    ).map(card => card.name),
   },
 
   {
@@ -1135,7 +1136,7 @@ export default [
     question:
       'Which card is theoretically able to get the most on-play movement, disregarding Command?',
     answer: 'Bigthrust Tigers',
-    options: cards.filter(card => card.movement >= 2).map(card => card.name),
+    options: CARDS.filter(card => card.movement >= 2).map(card => card.name),
   },
 
   () => ({
@@ -1158,9 +1159,9 @@ export default [
     question:
       'Which Shadowfen card can have 24 strength value in total at Level 5 at max?',
     answer: 'Amberhides',
-    options: cards
-      .filter(card => card.faction === 'shadowfen')
-      .map(card => card.name),
+    options: CARDS.filter(card => card.faction === 'shadowfen').map(
+      card => card.name
+    ),
   },
 
   {
@@ -1181,9 +1182,9 @@ export default [
     question:
       'Which structure shares its name with a Kongregate forum moderator?',
     answer: 'Trueshot Post',
-    options: cards
-      .filter(card => card.type === 'structure' && card.id !== 'T12')
-      .map(card => card.name),
+    options: CARDS.filter(
+      card => card.type === 'structure' && card.id !== 'T12'
+    ).map(card => card.name),
   },
 
   {
@@ -1207,8 +1208,7 @@ export default [
     question:
       'Who did Shades beat in the finals of a DGL Stormbound tournament?',
     answer: 'Emkaem',
-    options: decks
-      .filter(deck => deck.author !== 'Shades')
+    options: DECKS.filter(deck => deck.author !== 'Shades')
       .filter(unique)
       .map(deck => deck.author),
   },
@@ -1271,9 +1271,9 @@ export default [
     question:
       'Which card’s art features a leaf despite it *not* giving strength?',
     answer: 'Lich Summoners',
-    options: cards
-      .filter(card => !card.token && !(card.ability || '').includes('give'))
-      .map(card => card.name),
+    options: CARDS.filter(
+      card => !card.token && !(card.ability || '').includes('give')
+    ).map(card => card.name),
   },
 
   {
@@ -1293,13 +1293,12 @@ export default [
   {
     question: 'Which was the first Elder to be revealed?',
     answer: 'Trekking Aldermen',
-    options: cards.filter(card => card.elder).map(card => card.name),
+    options: CARDS.filter(card => card.elder).map(card => card.name),
   },
 
   {
     question: 'Which of these cards has the longest ability?',
-    answer: cards
-      .filter(card => card.ability)
+    answer: CARDS.filter(card => card.ability)
       .map(card => getResolvedCardData({ id: card.id, level: 5 }))
       .reduce((a, b) =>
         a.ability.replace(/\*/g, '').length >
@@ -1307,15 +1306,14 @@ export default [
           ? a
           : b
       ).name,
-    options: cards.filter(card => card.ability).map(card => card.name),
+    options: CARDS.filter(card => card.ability).map(card => card.name),
   },
 
   () => {
     const level = arrayRandom([1, 2, 3, 4, 5])
-    const cardsByStrength = cards
-      .filter(
-        card => card.id !== 'W20' && card.id !== 'I26' && card.type !== 'spell'
-      )
+    const cardsByStrength = CARDS.filter(
+      card => card.id !== 'W20' && card.id !== 'I26' && card.type !== 'spell'
+    )
       .map(card => getResolvedCardData({ id: card.id, level }))
       .sort((a, b) =>
         a.strength > b.strength ? -1 : a.strength < b.strength ? +1 : 0
@@ -1356,7 +1354,7 @@ export default [
 
   () => {
     const rarity = arrayRandom(Object.keys(RARITIES))
-    const count = cards.filter(
+    const count = CARDS.filter(
       card => card.faction === 'winter' && card.rarity === rarity
     ).length
 
@@ -1407,9 +1405,9 @@ export default [
   {
     question: 'Which undead does *not* have red horns on their head?',
     answer: 'Lasting Remains',
-    options: cards
-      .filter(card => card.race === 'undead' && card.id !== 'N38')
-      .map(card => card.name),
+    options: CARDS.filter(
+      card => card.race === 'undead' && card.id !== 'N38'
+    ).map(card => card.name),
   },
 
   {
@@ -1421,7 +1419,7 @@ export default [
   {
     question: 'Which hero’s loading screen text rhymes?',
     answer: 'Lady Rime',
-    options: cards.filter(card => card.hero).map(card => card.name),
+    options: CARDS.filter(card => card.hero).map(card => card.name),
   },
 
   {
@@ -1453,7 +1451,7 @@ export default [
   () => {
     const mana = random(1, 9)
     const level = random(1, 5)
-    const count = cards.filter(
+    const count = CARDS.filter(
       card => getResolvedCardData({ id: card.id, level }).mana === mana
     ).length
 
@@ -1563,9 +1561,9 @@ export default [
   {
     question: 'Which was the first temple to be released?',
     answer: 'Temple of Focus',
-    options: cards
-      .filter(card => card.name.startsWith('Temple'))
-      .map(card => card.name),
+    options: CARDS.filter(card => card.name.startsWith('Temple')).map(
+      card => card.name
+    ),
   },
 
   {

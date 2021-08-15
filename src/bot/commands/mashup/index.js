@@ -1,4 +1,4 @@
-import cards from '../../../data/cards'
+import CARDS from '../../../data/cards'
 import arrayRandom from '../../../helpers/arrayRandom'
 import getEmbed from '../../../helpers/getEmbed'
 
@@ -7,7 +7,7 @@ const [STARTS, ENDS, NAMES] = (() => {
   const ends = []
   const names = []
 
-  cards.forEach(card => {
+  CARDS.forEach(card => {
     names.push(card.name)
     const [start, ...rest] = card.name.split(/\s+/g)
     if (card.token) return

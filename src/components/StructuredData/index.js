@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import faq from '../../data/faq'
+import FAQ from '../../data/faq'
 import getRawCardData from '../../helpers/getRawCardData'
 
 const Script = props => (
@@ -34,8 +34,7 @@ const getTextFromTree = tree => {
 }
 
 const getFAQData = () => {
-  const formattedEntries = faq
-    .map(category => category.entries)
+  const formattedEntries = FAQ.map(category => category.entries)
     .reduce((a, b) => a.concat(b), [])
     .map(entry => {
       const answer = getTextFromTree(entry.answer)

@@ -1,5 +1,5 @@
-import cards from '../../data/cards'
-import decks from '../../data/decks'
+import CARDS from '../../data/cards'
+import DECKS from '../../data/decks'
 import serialisation from '../serialisation'
 import getFactionFromDeckID from '../getFactionFromDeckID'
 import { getLongFaction } from '../encoding'
@@ -31,7 +31,7 @@ const getLiveTierList = () => {
 
   // Go through each deck, and for each one increment the amount of decks of
   // this faction by 1 and go through the cards and mark them as found
-  decks.forEach(({ id, tags }) => {
+  DECKS.forEach(({ id, tags }) => {
     // Do not take Brawl and Tournament decks into account as they would be
     // incorrectly skewing the popularity of cards
     if (tags.includes('BRAWL') || tags.includes('EQUALS')) return
@@ -64,7 +64,7 @@ const getLiveTierList = () => {
   tiers = tiers.filter(({ cards }) => cards.length > 0)
 
   // Add an extra tier at the end with all cards that have not been found in any deck
-  const unusedCards = cards.filter(card => !found[card.id]).map(card => card.id)
+  const unusedCards = CARDS.filter(card => !found[card.id]).map(card => card.id)
 
   if (unusedCards.length > 0) {
     tiers.push({ name: 'Unused', cards: unusedCards })

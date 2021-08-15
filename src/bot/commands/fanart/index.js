@@ -1,6 +1,6 @@
 import getEmbed from '../../../helpers/getEmbed'
 import arrayRandom from '../../../helpers/arrayRandom'
-import artworks from '../../../data/artworks'
+import ARTWORKS from '../../../data/artworks'
 
 export default {
   command: 'fanart',
@@ -15,7 +15,7 @@ export default {
   },
   handler: function (message) {
     const embed = getEmbed()
-    const { image, author, date } = arrayRandom(artworks)
+    const { image, author, date } = arrayRandom(ARTWORKS)
 
     embed
       .setTitle(`${this.label}`)

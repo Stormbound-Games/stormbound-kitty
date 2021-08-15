@@ -9,8 +9,8 @@ import MemberList from '../MemberList'
 import Notice from '../Notice'
 import Spacing from '../Spacing'
 import Sparkles from '../Sparkles'
-import contributions from '../../data/contributions'
-import donations from '../../data/donations'
+import CONTRIBUTIONS from '../../data/contributions'
+import DONATIONS from '../../data/donations'
 import styles from './styles'
 
 export default React.memo(function About(props) {
@@ -154,7 +154,7 @@ export default React.memo(function About(props) {
           <p>
             My gratitude to (in alphabetical order)
             <MemberList
-              members={[...new Set(donations.map(donation => donation.author))]}
+              members={[...new Set(DONATIONS.map(donation => donation.author))]}
             />{' '}
             for{' '}
             <Footnote id='anonymous-donations'>
@@ -169,7 +169,7 @@ export default React.memo(function About(props) {
             <MemberList
               members={[
                 ...new Set(
-                  contributions.map(contribution => contribution.author).sort()
+                  CONTRIBUTIONS.map(contribution => contribution.author).sort()
                 ),
               ]}
             />

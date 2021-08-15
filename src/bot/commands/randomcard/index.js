@@ -1,4 +1,4 @@
-import cards from '../../../data/cards'
+import CARDS from '../../../data/cards'
 import { FACTIONS, RACES, RARITIES, TYPES } from '../../../constants/game'
 import arrayRandom from '../../../helpers/arrayRandom'
 import getEmbed from '../../../helpers/getEmbed'
@@ -64,23 +64,21 @@ export default {
   },
   handler: function (message) {
     if (message.length === 0) {
-      return linkify(arrayRandom(cards))
+      return linkify(arrayRandom(CARDS))
     }
 
     const { filters, ignored } = parseMessage(message.toLowerCase())
 
     if (filters.length === 0) return
 
-    const results = cards
-      .filter(card => !card.token)
-      .filter(card => {
-        for (const { key, method, value } of filters) {
-          if (method === 'INC' && card[key] !== value) return false
-          if (method === 'EXC' && card[key] === value) return false
-        }
+    const results = CARDS.filter(card => !card.token).filter(card => {
+      for (const { key, method, value } of filters) {
+        if (method === 'INC' && card[key] !== value) return false
+        if (method === 'EXC' && card[key] === value) return false
+      }
 
-        return true
-      })
+      return true
+    })
 
     if (results.length === 0) return
 

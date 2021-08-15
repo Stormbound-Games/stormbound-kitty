@@ -1,11 +1,11 @@
-import decks from '../../../data/decks'
+import DECKS from '../../../data/decks'
 import getFactionFromDeckID from '../../../helpers/getFactionFromDeckID'
 import indexArray from '../../../helpers/indexArray'
 import { TAGS } from '../../../constants/deck'
 import command from './'
 const suggestdeck = command.handler.bind(command)
 
-const DECKS_INDEX = indexArray(decks)
+const DECKS_INDEX = indexArray(DECKS)
 const BASE_URL = 'https://stormbound-kitty.com/deck/'
 
 describe('Bot — !suggestdeck', () => {

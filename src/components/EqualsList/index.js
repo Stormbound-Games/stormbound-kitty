@@ -11,7 +11,7 @@ import getInitialListData from '../../helpers/getInitialListData'
 import getRawCardData from '../../helpers/getRawCardData'
 import parseDate from '../../helpers/parseDate'
 import { formatDate } from '../../helpers/formatDate'
-import RELEASES from '../../data/releases.json'
+import RELEASES from '../../data/releases'
 
 export default React.memo(function ListBuilderDisplayView(props) {
   const { date, value: id } = EQUALS_TIER_LIST

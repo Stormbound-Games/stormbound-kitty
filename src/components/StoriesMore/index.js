@@ -2,20 +2,20 @@ import React from 'react'
 import Link from '../Link'
 import Title from '../Title'
 import Stories from '../Stories'
-import stories from '../../data/stories'
+import STORIES from '../../data/stories'
 
 export default React.memo(function StoriesMore(props) {
   const isNotCurrent = story => props.title !== story.title
 
   if (props.saga) {
-    const chapters = stories
-      .filter(story => story.saga === props.saga)
-      .sort((a, b) => {
+    const chapters = STORIES.filter(story => story.saga === props.saga).sort(
+      (a, b) => {
         const indexA = parseInt(a.title, 10)
         const indexB = parseInt(b.title, 10)
 
         return isNaN(indexA) || isNaN(indexB) ? 0 : indexA - indexB
-      })
+      }
+    )
 
     return (
       <>
@@ -25,7 +25,7 @@ export default React.memo(function StoriesMore(props) {
     )
   }
 
-  const storiesFromAuthor = stories.filter(
+  const storiesFromAuthor = STORIES.filter(
     story => story.author === props.author && !story.saga
   )
 

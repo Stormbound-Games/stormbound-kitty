@@ -1,7 +1,7 @@
 import React from 'react'
 import Page from '../Page'
 import Link from '../Link'
-import puzzles from '../../data/puzzles'
+import PUZZLES from '../../data/puzzles'
 import EmptySearch from '../EmptySearch'
 import Notice from '../Notice'
 import Title from '../Title'
@@ -46,8 +46,7 @@ class BattleSimPuzzles extends React.Component {
     )
 
   getPuzzles = () =>
-    puzzles
-      .filter(this.matchesName)
+    PUZZLES.filter(this.matchesName)
       .filter(this.matchesDifficulty)
       .filter(this.matchesRestriction)
       .filter(this.matchesCategory)

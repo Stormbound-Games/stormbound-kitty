@@ -1,9 +1,9 @@
 import React from 'react'
 import Page from '../Page'
 import indexArray from '../../helpers/indexArray'
-import releases from '../../data/releases'
+import RELEASES from '../../data/releases'
 
-const RELEASES_INDEX = indexArray(releases)
+const RELEASES_INDEX = indexArray(RELEASES)
 
 export default React.memo(function ReleaseNotes(props) {
   const release = RELEASES_INDEX[props.id]

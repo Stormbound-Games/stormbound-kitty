@@ -2,10 +2,10 @@ import React from 'react'
 import { useRouteMatch } from 'react-router-dom'
 import Page from '../Page'
 import BattleSimApp from '../BattleSimApp'
-import puzzles from '../../data/puzzles'
+import PUZZLES from '../../data/puzzles'
 import indexArray from '../../helpers/indexArray'
 
-const PUZZLES_INDEX = indexArray(puzzles, 'board')
+const PUZZLES_INDEX = indexArray(PUZZLES, 'board')
 
 const useArticleProps = (id, mode, puzzle) =>
   puzzle

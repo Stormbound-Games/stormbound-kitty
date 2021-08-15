@@ -4,7 +4,7 @@ import { CollectionContext } from '../CollectionProvider'
 import { NotificationContext } from '../NotificationProvider'
 import CTA from '../CTA'
 import Only from '../Only'
-import cards from '../../data/cards'
+import CARDS from '../../data/cards'
 import chunk from '../../helpers/chunk'
 import styles from './styles'
 
@@ -62,26 +62,24 @@ const parseCSVData = data => {
 
   // To make sure the collection is complete, the source of truth is the data
   // from the constant file
-  return cards
-    .filter(card => !card.token)
-    .map(card => {
-      const item = items.find(item => item[0] === card.id)
+  return CARDS.filter(card => !card.token).map(card => {
+    const item = items.find(item => item[0] === card.id)
 
-      // The card has not been found in the CSV data, which might mean it’s a
-      // new card, therefore consider it missing
-      if (!item) {
-        return { id: card.id, level: 1, copies: 0, missing: true }
-      }
+    // The card has not been found in the CSV data, which might mean it’s a
+    // new card, therefore consider it missing
+    if (!item) {
+      return { id: card.id, level: 1, copies: 0, missing: true }
+    }
 
-      const level = hasCollectionCardNames ? +item[2] : +item[1]
-      const copies = hasCollectionCardNames ? +item[3] : +item[2]
+    const level = hasCollectionCardNames ? +item[2] : +item[1]
+    const copies = hasCollectionCardNames ? +item[3] : +item[2]
 
-      if (level === 0) {
-        return { id: card.id, level: 1, copies: 0, missing: true }
-      }
+    if (level === 0) {
+      return { id: card.id, level: 1, copies: 0, missing: true }
+    }
 
-      return { id: card.id, level, copies, missing: false }
-    })
+    return { id: card.id, level, copies, missing: false }
+  })
 }
 
 export default React.memo(function ImportCollection(props) {

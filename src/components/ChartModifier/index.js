@@ -8,27 +8,25 @@ import {
   Tooltip,
 } from 'recharts'
 import Title from '../Title'
-import cards from '../../data/cards'
+import CARDS from '../../data/cards'
 import { TOOLTIP_STYLES } from '../../constants/stats'
 
 export default React.memo(function ChartModifier(props) {
-  const data = cards
-    .filter(card => !card.token)
-    .reduce(
-      (acc, card) => {
-        if (card.type !== 'unit') return acc
-        if (card.hero) acc[0].value++
-        if (card.elder) acc[1].value++
-        if (!card.elder && !card.hero) acc[2].value++
+  const data = CARDS.filter(card => !card.token).reduce(
+    (acc, card) => {
+      if (card.type !== 'unit') return acc
+      if (card.hero) acc[0].value++
+      if (card.elder) acc[1].value++
+      if (!card.elder && !card.hero) acc[2].value++
 
-        return acc
-      },
-      [
-        { name: 'Hero', value: 0, color: 'var(--ironclad)' },
-        { name: 'Elder', value: 0, color: 'var(--shadowfen)' },
-        { name: 'None', value: 0, color: 'var(--beige)' },
-      ]
-    )
+      return acc
+    },
+    [
+      { name: 'Hero', value: 0, color: 'var(--ironclad)' },
+      { name: 'Elder', value: 0, color: 'var(--shadowfen)' },
+      { name: 'None', value: 0, color: 'var(--beige)' },
+    ]
+  )
 
   return (
     <>

@@ -8,7 +8,7 @@ import Select from '../Select'
 import Spacing from '../Spacing'
 import Title from '../Title'
 import FeedCardChange from '../FeedCardChange'
-import changelog from '../../data/changelog'
+import CHANGELOG from '../../data/changelog'
 import sortCards from '../../helpers/sortCards'
 import getRawCardData from '../../helpers/getRawCardData'
 import parseDate from '../../helpers/parseDate'
@@ -22,27 +22,27 @@ export default React.memo(function CardChangelog(props) {
   const [sorting, setSorting] = React.useState('DATE')
   const [type, setType] = React.useState('*')
   const changesByDate = React.useMemo(() => {
-    return changelog
-      .filter(change => type === '*' || change.type === type)
-      .reduce((acc, change) => {
-        const chunks = change.date.split('/')
-        const key = chunks[1] + '/' + chunks[2]
+    return CHANGELOG.filter(
+      change => type === '*' || change.type === type
+    ).reduce((acc, change) => {
+      const chunks = change.date.split('/')
+      const key = chunks[1] + '/' + chunks[2]
 
-        if (!acc[key]) acc[key] = []
-        acc[key].push(change)
-        return acc
-      }, {})
+      if (!acc[key]) acc[key] = []
+      acc[key].push(change)
+      return acc
+    }, {})
   }, [type])
   const changesByCard = React.useMemo(() => {
-    return changelog
-      .filter(change => type === '*' || change.type === type)
-      .reduce((acc, change) => {
-        if (!acc[change.id]) {
-          acc[change.id] = []
-        }
-        acc[change.id].push(change)
-        return acc
-      }, {})
+    return CHANGELOG.filter(
+      change => type === '*' || change.type === type
+    ).reduce((acc, change) => {
+      if (!acc[change.id]) {
+        acc[change.id] = []
+      }
+      acc[change.id].push(change)
+      return acc
+    }, {})
   }, [type])
 
   return (

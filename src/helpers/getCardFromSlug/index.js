@@ -1,10 +1,10 @@
-import cards from '../../data/cards'
+import CARDS from '../../data/cards'
 import getRawCardData from '../getRawCardData'
 
 const slugify = name =>
   name.replace(/\s/g, '_').replace(/[’',]/g, '').toLowerCase()
 
-const SLUGS_INDEX = cards.reduce(
+const SLUGS_INDEX = CARDS.reduce(
   (acc, card) => ({ ...acc, [slugify(card.name)]: card }),
   {}
 )
