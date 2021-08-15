@@ -7,11 +7,15 @@ import Link from '../Link'
 import Row from '../Row'
 import Select from '../Select'
 import TogglableContent from '../TogglableContent'
+import useViewportSize from '../../hooks/useViewportSize'
 import styles from './styles'
 
 export default React.memo(function BattleSimPuzzlesFilters(props) {
   const { css } = useFela()
-  const [areFiltersExpanded, expandFilters] = React.useState(false)
+  const { viewportWidth } = useViewportSize()
+  const [areFiltersExpanded, expandFilters] = React.useState(
+    viewportWidth > 700
+  )
   const updateDifficulty = props.updateFilter('difficulty')
   const updateName = props.updateFilter('name')
   const updateCategory = props.updateFilter('category')
