@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link as RouterLink } from 'react-router-dom'
+import RouterLink from 'next/link'
 import Icon from '../Icon'
 import styles from './styles'
 
@@ -34,12 +34,10 @@ export default React.memo(
 
     if (props.to) {
       return (
-        <RouterLink
-          {...props}
-          innerRef={ref}
-          className={css(styles.link, extend)}
-        >
-          {props.children}
+        <RouterLink href={props.to} passHref>
+          <a {...props} ref={ref} className={css(styles.link, extend)}>
+            {props.children}
+          </a>
         </RouterLink>
       )
     }
