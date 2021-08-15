@@ -48,7 +48,6 @@ export default React.memo(function YourDecksFilters(props) {
                 decks.some(deck => deck.tags.includes(tag))
               }
               id='tags'
-              name='tags'
             />
           </Row.Column>
         </Row>
