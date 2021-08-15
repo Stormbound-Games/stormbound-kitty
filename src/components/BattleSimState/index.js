@@ -1,5 +1,4 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import clone from 'lodash.clonedeep'
 import isEqual from 'lodash.isequal'
@@ -15,6 +14,7 @@ import getRawCardData from '../../helpers/getRawCardData'
 import getInitialBattleData from '../../helpers/getInitialBattleData'
 import serialisation from '../../helpers/serialisation'
 import arrayRandom from '../../helpers/arrayRandom'
+import useRouter from '../../hooks/useRouter'
 
 class BattleSimState extends React.Component {
   constructor(props) {
@@ -351,30 +351,34 @@ class BattleSimState extends React.Component {
     })
   }
 
-  setCard = index => ({ id, level }) => {
-    this.setState(prevState => {
-      const cards = [
-        ...prevState.cards.slice(0, index),
-        {
-          id: typeof id !== 'undefined' ? id : prevState.cards[index].id,
-          level:
-            typeof level !== 'undefined' ? level : prevState.cards[index].level,
-        },
-        ...prevState.cards.slice(index + 1),
-      ]
+  setCard =
+    index =>
+    ({ id, level }) => {
+      this.setState(prevState => {
+        const cards = [
+          ...prevState.cards.slice(0, index),
+          {
+            id: typeof id !== 'undefined' ? id : prevState.cards[index].id,
+            level:
+              typeof level !== 'undefined'
+                ? level
+                : prevState.cards[index].level,
+          },
+          ...prevState.cards.slice(index + 1),
+        ]
 
-      // Make sure not to keep in hand cards that have been updated
-      const hand = prevState.hand.filter(cardId =>
-        cards.map(c => c.id).includes(cardId)
-      )
+        // Make sure not to keep in hand cards that have been updated
+        const hand = prevState.hand.filter(cardId =>
+          cards.map(c => c.id).includes(cardId)
+        )
 
-      if (id && hand.length < 4) {
-        hand.push(id)
-      }
+        if (id && hand.length < 4) {
+          hand.push(id)
+        }
 
-      return { cards, hand }
-    })
-  }
+        return { cards, hand }
+      })
+    }
 
   addToHand = ({ id }) => {
     if (this.state.hand.includes(id)) {
@@ -509,5 +513,5 @@ class BattleSimState extends React.Component {
 }
 
 export default hookIntoProps(props => ({
-  history: useHistory(),
+  history: useRouter().history,
 }))(BattleSimState)

@@ -1,5 +1,4 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 import Advice from '../DeckAdvice'
 import Page from '../Page'
 import Deck from '../Deck'
@@ -17,6 +16,7 @@ import getDeckPresets from '../../helpers/getDeckPresets'
 import isSuggestedDeck from '../../helpers/isSuggestedDeck'
 import toSentence from '../../helpers/toSentence'
 import useViewportSize from '../../hooks/useViewportSize'
+import useRouter from '../../hooks/useRouter'
 import { BRAWL_INDEX } from '../../constants/brawl'
 
 const getDefaultBrawlModifier = deck => {
@@ -28,7 +28,7 @@ const getDefaultBrawlModifier = deck => {
 export default React.memo(function DeckDetailView(props) {
   const { viewportWidth } = useViewportSize()
   const { notify } = React.useContext(NotificationContext)
-  const history = useHistory()
+  const { history } = useRouter()
   const defaultModifier = getDefaultBrawlModifier(props.deck)
   const [modifier, setModifier] = React.useState(defaultModifier)
   const deck = React.useMemo(

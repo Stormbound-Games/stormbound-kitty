@@ -1,6 +1,5 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { useRouteMatch } from 'react-router-dom'
 import { CollectionContext } from '../CollectionProvider'
 import Card from '../Card'
 import CTA from '../CTA'
@@ -9,18 +8,19 @@ import Row from '../Row'
 import Spacing from '../Spacing'
 import getRawCardData from '../../helpers/getRawCardData'
 import isLevelAvailable from '../../helpers/isLevelAvailable'
+import useRouter from '../../hooks/useRouter'
 import styles from './styles'
 
 export default React.memo(function CardBuilderCardDisplay(props) {
   const { css } = useFela()
-  const match = useRouteMatch()
+  const { params } = useRouter()
   const [activeLevel, setActiveLevel] = React.useState(props.level || 1)
   const { hasDefaultCollection, indexedCollection } =
     React.useContext(CollectionContext)
   const cardInCollection =
-    hasDefaultCollection || !match.params.cardId || props.mode === 'EDITOR'
+    hasDefaultCollection || !params.cardId || props.mode === 'EDITOR'
       ? { level: 5 }
-      : indexedCollection[match.params.cardId] || { level: 5 }
+      : indexedCollection[params.cardId] || { level: 5 }
 
   return (
     <>

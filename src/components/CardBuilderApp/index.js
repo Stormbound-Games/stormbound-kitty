@@ -1,6 +1,5 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { useHistory } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import CardChangeFeed from '../CardChangeFeed'
 import CardDisplay from '../CardBuilderCardDisplay'
@@ -13,6 +12,7 @@ import Row from '../Row'
 import Spacing from '../Spacing'
 import Title from '../Title'
 import usePrevious from '../../hooks/usePrevious'
+import useRouter from '../../hooks/useRouter'
 import getRawCardData from '../../helpers/getRawCardData'
 import getCardBuilderMetaTags from '../../helpers/getCardBuilderMetaTags'
 import parseDate from '../../helpers/parseDate'
@@ -112,7 +112,7 @@ const useCardData = (props, versionId) => {
 
 export default React.memo(function CardBuilderApp(props) {
   const { css } = useFela()
-  const history = useHistory()
+  const { history } = useRouter()
   const isOfficial = isCardOfficial(props.cardId)
   const [versionId, setVersionId] = React.useState(getVersionIdFromURL())
   const cardData = useCardData(props, versionId)

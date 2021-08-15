@@ -1,9 +1,9 @@
 import React from 'react'
-import { useHistory, useRouteMatch } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import serialisation from '../../helpers/serialisation'
 import getInitialDeckData from '../../helpers/getInitialDeckData'
 import sortByMana from '../../helpers/sortByMana'
+import useRouter from '../../hooks/useRouter'
 
 class DeckBuilderRoot extends React.Component {
   constructor(props) {
@@ -91,6 +91,6 @@ class DeckBuilderRoot extends React.Component {
 }
 
 export default hookIntoProps(() => ({
-  history: useHistory(),
-  deckId: useRouteMatch().params.deckId,
+  history: useRouter().history,
+  deckId: useRouter().params.deckId,
 }))(DeckBuilderRoot)

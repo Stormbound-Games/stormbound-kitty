@@ -1,9 +1,9 @@
 import React from 'react'
-import { useRouteMatch } from 'react-router-dom'
 import Page from '../Page'
 import BattleSimApp from '../BattleSimApp'
 import PUZZLES from '../../data/puzzles'
 import indexArray from '../../helpers/indexArray'
+import useRouter from '../../hooks/useRouter'
 
 const PUZZLES_INDEX = indexArray(PUZZLES, 'board')
 
@@ -27,7 +27,7 @@ const useArticleProps = (id, mode, puzzle) =>
       }
 
 export default React.memo(function BattleSimPage(props) {
-  const { params } = useRouteMatch()
+  const { params } = useRouter()
   const simId = props.simId || params.simId
   const puzzle = PUZZLES_INDEX[simId]
   const articleProps = useArticleProps(simId, props.mode, puzzle)

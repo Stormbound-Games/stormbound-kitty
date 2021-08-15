@@ -1,6 +1,5 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { useHistory, useLocation } from 'react-router-dom'
 import hookIntoProps from 'hook-into-props'
 import debounce from 'lodash.debounce'
 import DECKS from '../../data/decks'
@@ -18,6 +17,7 @@ import Spacing from '../Spacing'
 import SuggestionsFilters from '../DeckSuggestionsFilters'
 import Title from '../Title'
 import useViewportSize from '../../hooks/useViewportSize'
+import useRouter from '../../hooks/useRouter'
 import sortDeckSuggestions from '../../helpers/sortDeckSuggestions'
 import getDeckSearchDescription from '../../helpers/getDeckSearchDescription'
 import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
@@ -231,7 +231,7 @@ class DeckSuggestions extends React.Component {
 export default hookIntoProps(() => ({
   ...useFela(),
   viewportWidth: useViewportSize().viewportWidth,
-  history: useHistory(),
-  location: useLocation(),
+  history: useRouter().history,
+  location: useRouter().location,
   ...React.useContext(CollectionContext),
 }))(DeckSuggestions)
