@@ -40,5 +40,13 @@ export default card => {
     : null
   const ability = unfoldedAbility[level - 1] || unfoldedAbility[0]
 
-  return { ...cardData, copies, missing, mana, strength, ability, level }
+  return {
+    ...cardData,
+    copies: typeof copies === 'undefined' ? null : copies,
+    missing: missing || null,
+    mana,
+    strength,
+    ability,
+    level,
+  }
 }
