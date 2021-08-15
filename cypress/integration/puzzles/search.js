@@ -27,12 +27,6 @@ describe('Puzzles — Search', () => {
 
   it('should be able to filter by restrictions', () => {
     cy.get(s.RESTRICTION_CHECKBOXES)
-      .should('not.be.visible')
-
-      .get(s.RESTRICTION_TOGGLE)
-      .click()
-
-      .get(s.RESTRICTION_CHECKBOXES)
       .filter('#RNG_FRIENDLY')
       .check()
 
