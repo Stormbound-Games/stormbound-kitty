@@ -1,11 +1,14 @@
-import { useRouteMatch, useHistory, useLocation } from 'react-router-dom'
+import { useRouter } from 'next/router'
 
-const useRouter = () => {
-  const { params } = useRouteMatch()
-  const history = useHistory()
-  const location = useLocation()
+export default () => {
+  const router = useRouter()
 
-  return { params, history, location }
+  return {
+    params: {},
+    history: {
+      push: router.push.bind(router),
+      replace: router.replace.bind(router),
+    },
+    location: { pathname: router.asPath },
+  }
 }
-
-export default useRouter
