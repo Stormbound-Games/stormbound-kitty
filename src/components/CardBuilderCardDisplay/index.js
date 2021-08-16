@@ -8,12 +8,11 @@ import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import getRawCardData from '~/helpers/getRawCardData'
 import isLevelAvailable from '~/helpers/isLevelAvailable'
-import useQueryParams from '~/hooks/useQueryParams'
 import styles from './styles'
 
 export default React.memo(function CardBuilderCardDisplay(props) {
   const { css } = useFela()
-  const { cardId } = useQueryParams()
+  const cardId = props.id
   const [activeLevel, setActiveLevel] = React.useState(props.level || 1)
   const { hasDefaultCollection, indexedCollection } =
     React.useContext(CollectionContext)

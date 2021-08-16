@@ -1,6 +1,6 @@
 import React from 'react'
 import hookIntoProps from 'hook-into-props'
-import App from '~/components/CardBuilderApp'
+import CardBuilderApp from '~/components/CardBuilderApp'
 import serialisation from '~/helpers/serialisation'
 import areAllValuesEqual from '~/helpers/areAllValuesEqual'
 import getInitialCardData, {
@@ -192,8 +192,8 @@ class CardBuilderEditor extends React.Component {
 
   render() {
     return (
-      <App
-        cardData={this.state}
+      <CardBuilderApp
+        card={this.state}
         cardId={this.props.cardId}
         setName={this.setName}
         setImageCardId={this.setImageCardId}

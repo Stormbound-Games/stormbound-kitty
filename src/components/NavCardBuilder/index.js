@@ -10,7 +10,8 @@ import styles from '~/components/Header/styles'
 export default React.memo(function NavCardBuilder() {
   const { css } = useFela()
   const { viewportWidth } = useViewportSize()
-  const { id } = useQueryParams()
+  const { rest } = useQueryParams()
+  const [id] = rest || []
   const navigator = useNavigator()
 
   return (

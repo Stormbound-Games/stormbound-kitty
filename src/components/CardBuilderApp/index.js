@@ -2,7 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Head from 'next/head'
 import CardChangeFeed from '~/components/CardChangeFeed'
-import CardDisplay from '~/components/CardBuilderCardDisplay'
+import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
 import CardDisplayControls from '~/components/CardDisplayControls'
 import Page from '~/components/Page'
 import CoreForm from '~/components/CardBuilderCoreForm'
@@ -32,7 +32,7 @@ const useArticleProps = (props, versionId) => {
     contest => contest.winner && contest.winner.id === props.cardId
   )
   const properties = {}
-  const { name, faction, type, race } = props.cardData
+  const { name, faction, type, race } = props.card
 
   if (name && props.mode === 'DISPLAY') {
     properties.title = name
@@ -93,7 +93,7 @@ const resolveCardData = data =>
 const useCardData = (props, versionId) => {
   const versions = useCardVersions(props.cardId)
 
-  if (!versionId || versions.length === 0) return props.cardData
+  if (!versionId || versions.length === 0) return props.card
 
   const cardData = versions
     .filter(version => version.timestamp >= +versionId)
@@ -109,7 +109,7 @@ export default React.memo(function CardBuilderApp(props) {
   const { css } = useFela()
   const navigator = useNavigator()
   const query = useQueryParams()
-  const { cardId } = props
+  const { cardId, mode } = props
   const isOfficial = isCardOfficial(cardId)
   const [versionId, setVersionId] = React.useState(+query.v || null)
   const cardData = useCardData(props, versionId)
@@ -117,27 +117,28 @@ export default React.memo(function CardBuilderApp(props) {
   const previousCardId = usePrevious(cardId)
 
   React.useEffect(() => {
-    const path = versionId
-      ? `/card/${cardId}/display?v=${versionId}`
-      : `/card/${cardId}/display`
+    const path = ['/card', cardId, mode === 'DISPLAY' ? 'display' : undefined]
+      .filter(Boolean)
+      .join('/')
+    const query = versionId ? `?v=${versionId}` : ''
 
-    navigator.replace(path)
+    navigator.replace(path + query)
     // eslint-disable-next-line
-  }, [versionId, cardId])
+  }, [versionId, mode])
 
   React.useEffect(() => {
     if (previousCardId && previousCardId !== cardId) setVersionId(null)
   }, [previousCardId, cardId])
 
   return (
-    <Page {...articleProps} {...getCardBuilderMetaTags(props.cardData)}>
+    <Page {...articleProps} {...getCardBuilderMetaTags(cardData)}>
       <Spacing bottom='LARGEST'>
-        <CardDisplay mode={props.mode} {...cardData} />
+        <CardBuilderCardDisplay mode={props.mode} {...cardData} />
       </Spacing>
 
       {isOfficial && (
         <Spacing bottom='LARGEST'>
-          <CardDisplayControls />
+          <CardDisplayControls cardId={cardId} />
         </Spacing>
       )}
 
