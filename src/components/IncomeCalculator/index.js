@@ -1,5 +1,4 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import Link from '../Link'
 import Checkbox from '../Checkbox'
 import Page from '../Page'
@@ -101,7 +100,6 @@ const useIncomeOverPeriod = (settings, period, rubiesConversion) => {
 }
 
 export default React.memo(function IncomeCalculator(props) {
-  const { css } = useFela()
   const [withPremiumPass, setWithPremiumPass] = React.useState(false)
   const [period, setPeriod] = React.useState(PERIODS[0])
   const [setup, setSetup] = React.useState('MOBILE_WITHOUT_ADS')
@@ -371,7 +369,7 @@ export default React.memo(function IncomeCalculator(props) {
                 id='period'
                 value={period}
                 onChange={event => setPeriod(event.target.value)}
-                className={css(styles.period)}
+                extend={styles.period}
               >
                 {PERIODS.map(period => (
                   <option key={period} value={period}>
