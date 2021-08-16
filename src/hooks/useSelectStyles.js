@@ -6,8 +6,8 @@ export default ({ noBorder, withClear } = {}) => {
 
     // The dropdown indicator and its separator are a little superfluous
     // and can be safely hidden at all time.
-    dropdownIndicator: provided => ({ display: 'none' }),
-    indicatorSeparator: provided => ({ display: 'none' }),
+    dropdownIndicator: () => ({ display: 'none' }),
+    indicatorSeparator: () => ({ display: 'none' }),
 
     singleValue: provided => ({
       ...provided,
@@ -73,14 +73,14 @@ export default ({ noBorder, withClear } = {}) => {
 
     groupHeading: provided => ({ ...provided, color: 'var(--beige)' }),
 
-    option: (provided, { data, isFocused, isDisabled, ...rest }) => ({
+    option: (provided, { data, isFocused, isDisabled }) => ({
       ...provided,
       ':active': {
         backgroundColor: isDisabled ? 'transparent' : 'var(--green)',
       },
       color: 'var(--white)',
       background: `url("/assets/images/card/rarity_${
-        getRawCardData(data.value).rarity
+        getRawCardData(data.value).rarity || 'common'
       }_4.png") ${
         isFocused ? 'var(--light-blue)' : 'transparent'
       } no-repeat center left 1em`,
