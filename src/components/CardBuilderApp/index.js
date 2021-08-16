@@ -86,12 +86,6 @@ const useCardVersions = cardId => {
     .sort((a, b) => b.timestamp - a.timestamp)
 }
 
-const getVersionIdFromURL = () => {
-  const parameters = new URLSearchParams(window.location.search)
-
-  return +parameters.get('v') || null
-}
-
 const resolveCardData = data =>
   serialisation.card.deserialise(serialisation.card.serialise(data))
 
@@ -112,23 +106,26 @@ const useCardData = (props, versionId) => {
 
 export default React.memo(function CardBuilderApp(props) {
   const { css } = useFela()
-  const { history } = useRouter()
-  const isOfficial = isCardOfficial(props.cardId)
-  const [versionId, setVersionId] = React.useState(getVersionIdFromURL())
+  const { history, query } = useRouter()
+  const { cardId } = props
+  const isOfficial = isCardOfficial(cardId)
+  const [versionId, setVersionId] = React.useState(+query.v || null)
   const cardData = useCardData(props, versionId)
   const articleProps = useArticleProps(props, versionId)
-  const previousCardId = usePrevious(props.cardId)
+  const previousCardId = usePrevious(cardId)
 
   React.useEffect(() => {
-    const parameters = new URLSearchParams(window.location.search)
-    if (versionId) parameters.set('v', versionId)
-    else parameters.delete('v')
-    history.replace('?' + parameters.toString())
-  }, [versionId, history])
+    const path = versionId
+      ? `/card/${cardId}/display?v=${versionId}`
+      : `/card/${cardId}/display`
+
+    history.replace(path, undefined, { scroll: false })
+    // eslint-disable-next-line
+  }, [versionId, cardId])
 
   React.useEffect(() => {
-    if (previousCardId && previousCardId !== props.cardId) setVersionId(null)
-  }, [previousCardId, props.cardId])
+    if (previousCardId && previousCardId !== cardId) setVersionId(null)
+  }, [previousCardId, cardId])
 
   return (
     <Page {...articleProps} {...getCardBuilderMetaTags(props.cardData)}>

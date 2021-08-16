@@ -14,8 +14,8 @@ const sortCollection = (a, b) =>
 
 export default React.memo(function CardDisplayControls(props) {
   const { css } = useFela()
-  const { params } = useRouter()
-  const { cardId } = params
+  const { query } = useRouter()
+  const { id: cardId } = query
   const { collection } = React.useContext(CollectionContext)
   const orderedCollection = React.useMemo(
     () => collection.sort(sortCollection),

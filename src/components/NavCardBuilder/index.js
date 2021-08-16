@@ -9,8 +9,8 @@ import styles from '../Header/styles'
 export default React.memo(function NavCardBuilder(props) {
   const { css } = useFela()
   const { viewportWidth } = useViewportSize()
-  const { params, history } = useRouter()
-  const id = params.cardId
+  const { query, history } = useRouter()
+  const id = query.id
 
   return (
     <nav className={css(styles.nav({ isSubNav: true }))}>

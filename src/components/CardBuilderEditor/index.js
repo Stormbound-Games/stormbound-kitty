@@ -35,17 +35,18 @@ class CardBuilderEditor extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      ...INITIAL_STATE,
-      ...getInitialCardData(props.cardId),
-    }
+    this.state = { ...INITIAL_STATE, ...props.card }
   }
 
   componentDidMount() {
     const state = getInitialCardDataFromQuery()
 
     if (Object.keys(state).length > 0) {
-      this.props.history.replace('/card/' + serialisation.card.serialise(state))
+      this.props.history.replace(
+        '/card/' + serialisation.card.serialise(state),
+        undefined,
+        { scroll: false }
+      )
     }
   }
 
@@ -73,13 +74,17 @@ class CardBuilderEditor extends React.Component {
             strength: this.state.strength.display,
             mana: this.state.mana.display,
             ability: this.state.ability.display,
-          })
+          }),
+        undefined,
+        { scroll: false }
       )
     } catch {}
   }
 
   reset = () => {
-    this.setState({ ...INITIAL_STATE }, () => this.props.history.push('/card'))
+    this.setState({ ...INITIAL_STATE }, () =>
+      this.props.history.push('/card', undefined, { scroll: false })
+    )
   }
 
   resolveLevels = (value = '') => {
@@ -217,5 +222,4 @@ class CardBuilderEditor extends React.Component {
 
 export default hookIntoProps(() => ({
   history: useRouter().history,
-  cardId: useRouter().params.cardId,
 }))(CardBuilderEditor)
