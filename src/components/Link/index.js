@@ -6,7 +6,7 @@ import styles from './styles'
 
 export default React.memo(
   React.forwardRef(function Link(
-    { extend, inNewTab, hideNewTabIndicator, ...props },
+    { extend, inNewTab, hideNewTabIndicator, scroll, ...props },
     ref
   ) {
     const { css } = useFela()
@@ -34,7 +34,7 @@ export default React.memo(
 
     if (props.to) {
       return (
-        <RouterLink href={props.to} passHref>
+        <RouterLink href={props.to} passHref scroll={scroll}>
           <a {...props} ref={ref} className={css(styles.link, extend)}>
             {props.children}
           </a>
