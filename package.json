@@ -52,7 +52,6 @@
     "start": "react-scripts start",
     "build:cra": "CI=false react-scripts build",
     "test": "cypress run",
-    "eject": "react-scripts eject",
     "audit": "NODE_ENV=production node bin/audit.js",
     "icons": "spritesh --input public/assets/icons --output sprite.svg --prefix 'icon-'",
     "bot": "node -r esm bin/bot.js",
