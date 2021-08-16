@@ -26,7 +26,7 @@ class ListBuilderEditorView extends React.Component {
     super(props)
 
     this.state = {
-      tiers: getInitialListData(props.listId),
+      tiers: props.tiers,
       dndTierIndex: null,
       dndSource: null,
       dndTarget: null,
@@ -42,7 +42,9 @@ class ListBuilderEditorView extends React.Component {
 
     if (hasAnyTierChanged) {
       this.props.history.replace(
-        '/list/' + serialisation.list.serialise(this.state.tiers)
+        '/list/' + serialisation.list.serialise(this.state.tiers),
+        undefined,
+        { scroll: false }
       )
     }
 
@@ -253,5 +255,4 @@ class ListBuilderEditorView extends React.Component {
 export default hookIntoProps(() => ({
   ...useFela(),
   history: useRouter().history,
-  listId: useRouter().params.listId,
 }))(ListBuilderEditorView)
