@@ -7,6 +7,7 @@ import CardLink from '../CardLink'
 import { BRAWL_INDEX } from '../../constants/brawl'
 import isCard from '../../helpers/isCard'
 import getDeckPresets from '../../helpers/getDeckPresets'
+import useRouter from '../../hooks/useRouter'
 
 class View extends React.Component {
   constructor(props) {
@@ -247,7 +248,7 @@ class View extends React.Component {
 }
 
 export default React.memo(function DeckDryRunView(props) {
-  const params = new URLSearchParams(window.location.search)
+  const { query } = useRouter()
   // The mode is theoretically not quite supposed to be changed at run time, but
   // this is a workaround to be able to pick an initial hand for testing
   // purposes. The mode is restored to `AUTOMATIC` as soon as the 4th card has
@@ -257,7 +258,7 @@ export default React.memo(function DeckDryRunView(props) {
     message => notify({ icon: 'sword', children: message }),
     [notify]
   )
-  const [mode, setMode] = React.useState(params.get('mode') || 'AUTOMATIC')
+  const [mode, setMode] = React.useState(query.mode || 'AUTOMATIC')
   const [modifier, setModifier] = React.useState('NONE')
   const [equalsMode, setEqualsMode] = React.useState(false)
   const [harvestersCards, setHarvestersCards] = React.useState([])

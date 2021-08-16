@@ -7,7 +7,6 @@ import NotificationProvider from '../NotificationProvider'
 import PersonalDecksProvider from '../PersonalDecksProvider'
 import ImageSupportProvider from '../ImageSupportProvider'
 import UserProvider from '../UserProvider'
-import Router from '../Router'
 import createFelaRenderer from '../../helpers/createFelaRenderer'
 import renderRootStyles from '../../helpers/renderRootStyles'
 
@@ -24,7 +23,6 @@ export default function Root(props) {
               <CollectionProvider>
                 <PersonalDecksProvider>
                   <UserProvider>
-                    <Router />
                     <Helmet>
                       <meta name='author' content='Kitty' />
                     </Helmet>

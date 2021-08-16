@@ -7,8 +7,8 @@ import styles from '../Header/styles'
 
 export default React.memo(function NavDeckBuilder(props) {
   const { css } = useFela()
-  const { params } = useRouter()
-  const id = params.deckId
+  const { query } = useRouter()
+  const id = query.id
   const deck = React.useMemo(
     () => (id ? serialisation.deck.deserialise(id) : []),
     [id]

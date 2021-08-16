@@ -1,13 +1,8 @@
 import React from 'react'
 import Page from '../Page'
 import BattleSimApp from '../BattleSimApp'
-import PUZZLES from '../../data/puzzles'
-import indexArray from '../../helpers/indexArray'
-import useRouter from '../../hooks/useRouter'
 
-const PUZZLES_INDEX = indexArray(PUZZLES, 'board')
-
-const useArticleProps = (id, mode, puzzle) =>
+const useArticleProps = ({ simId, mode, puzzle }) =>
   puzzle
     ? {
         title: puzzle.name,
@@ -17,27 +12,24 @@ const useArticleProps = (id, mode, puzzle) =>
       }
     : {
         title: 'Battle simulator',
-        action: id
+        action: simId
           ? {
-              to: mode === 'EDITOR' ? `/sim/${id}/display` : `/sim/${id}`,
+              to: mode === 'EDITOR' ? `/sim/${simId}/display` : `/sim/${simId}`,
               children: mode === 'EDITOR' ? 'Display view' : 'Edit sim',
               icon: mode === 'EDITOR' ? 'eye' : undefined,
             }
           : undefined,
       }
 
-export default React.memo(function BattleSimPage(props) {
-  const { params } = useRouter()
-  const simId = props.simId || params.simId
-  const puzzle = PUZZLES_INDEX[simId]
-  const articleProps = useArticleProps(simId, props.mode, puzzle)
+export default function BattleSimPage(props) {
+  const articleProps = useArticleProps(props)
 
   return (
     <Page
       {...articleProps}
       description='Create your own Stormbound battles, reproducing static in-game situations in this simulator'
     >
-      <BattleSimApp {...props} simId={simId} puzzle={puzzle} />
+      <BattleSimApp {...props} />
     </Page>
   )
-})
+}

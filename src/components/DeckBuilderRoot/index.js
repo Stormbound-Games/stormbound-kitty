@@ -11,7 +11,7 @@ class DeckBuilderRoot extends React.Component {
 
     this.state = {
       highlightedCards: [],
-      deck: getInitialDeckData(props.deckId),
+      deck: props.deck,
     }
   }
 
@@ -22,18 +22,21 @@ class DeckBuilderRoot extends React.Component {
     if (prevStrDeck !== currStrDeck) {
       const { history, view } = this.props
       const id = serialisation.deck.serialise(this.state.deck)
-      const { search } = window.location
 
       switch (view) {
         case 'DETAIL':
-          history.replace(`/deck/${id}/detail` + search)
+          history.replace(`/deck/${id}/detail`, undefined, {
+            scroll: false,
+          })
           break
         case 'DRY_RUN':
-          history.replace(`/deck/${id}/dry-run` + search)
+          history.replace(`/deck/${id}/dry-run`, undefined, {
+            scroll: false,
+          })
           break
         default:
         case 'EDITOR':
-          history.replace(`/deck/${id}` + search)
+          history.replace(`/deck/${id}`, undefined, { scroll: false })
           break
       }
     }
@@ -92,5 +95,4 @@ class DeckBuilderRoot extends React.Component {
 
 export default hookIntoProps(() => ({
   history: useRouter().history,
-  deckId: useRouter().params.deckId,
 }))(DeckBuilderRoot)

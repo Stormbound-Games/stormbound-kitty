@@ -12,8 +12,8 @@ import styles from './styles'
 
 export default React.memo(function BattleSimGameForm(props) {
   const { css } = useFela()
-  const { params } = useRouter()
-  const isPristine = !params.simId
+  const { query } = useRouter()
+  const isPristine = !query.id
 
   return (
     <div className={css(styles.form)}>

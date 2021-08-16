@@ -40,13 +40,6 @@ class BattleSimState extends React.Component {
   }
 
   componentDidMount() {
-    if (
-      this.props.mode === 'EDITOR' &&
-      window.location.href.includes('?ro=1')
-    ) {
-      this.props.history.push('/sim/' + this.props.simId + '/display')
-    }
-
     document.addEventListener('keydown', this.registerShortcuts)
   }
 
@@ -233,7 +226,7 @@ class BattleSimState extends React.Component {
         { cards: this.state.cards, hand: this.state.hand }
       )
 
-      this.props.history.replace('/sim/' + id)
+      this.props.history.replace('/sim/' + id, undefined, { scroll: false })
 
       // If the update was caused by an undo, do not add a new entry into the
       // history and simply mark undo as `false` for the next state update
@@ -512,6 +505,6 @@ class BattleSimState extends React.Component {
   }
 }
 
-export default hookIntoProps(props => ({
+export default hookIntoProps(() => ({
   history: useRouter().history,
 }))(BattleSimState)
