@@ -1,4 +1,14 @@
 {
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
   "env": {
     "browser": true,
     "node": true,
@@ -15,10 +25,6 @@
     "prettier",
     "cypress"
   ],
-  "parserOptions": {
-    "ecmaVersion": 12,
-    "sourceType": "module",
-  },
   "overrides": [
     {
       "files": [
