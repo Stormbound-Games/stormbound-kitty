@@ -18,10 +18,12 @@ export async function getStaticProps(context) {
   return { props: { deck, id } }
 }
 
-export default props => (
+const DeckBuilderPage = props => (
   <Layout active={['TOOLS', 'DECK_BUILDER', 'EDITOR']}>
     <DeckBuilderRoot view='EDITOR' deckId={props.id} deck={props.deck}>
       {state => <DeckEditorView {...state} />}
     </DeckBuilderRoot>
   </Layout>
 )
+
+export default DeckBuilderPage

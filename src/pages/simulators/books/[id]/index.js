@@ -16,8 +16,10 @@ export async function getStaticProps(context) {
   return { props: { cards } }
 }
 
-export default props => (
+const BookOpeningSimulatorPage = props => (
   <Layout active={['TOOLS', 'BOOK_SIMULATOR']}>
     <BookOpeningSimulator cards={props.cards} />
   </Layout>
 )
+
+export default BookOpeningSimulatorPage

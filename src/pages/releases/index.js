@@ -2,8 +2,10 @@ import React from 'react'
 import Releases from '~/components/Releases'
 import Layout from '~/components/Layout'
 
-export default () => (
+const ReleasesPage = () => (
   <Layout active={['GAME', 'RELEASES']}>
     <Releases />
   </Layout>
 )
+
+export default ReleasesPage

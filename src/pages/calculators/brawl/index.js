@@ -2,8 +2,10 @@ import React from 'react'
 import BrawlCalculator from '~/components/BrawlCalculator'
 import Layout from '~/components/Layout'
 
-export default () => (
+const BrawlCalculatorPage = () => (
   <Layout active={['TOOLS', 'BRAWL_CALCULATOR']}>
     <BrawlCalculator />
   </Layout>
 )
+
+export default BrawlCalculatorPage

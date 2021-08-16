@@ -10,8 +10,10 @@ export async function getStaticProps(context) {
   return { props: { card, id: context.params.id } }
 }
 
-export default props => (
+const CardDisplayPage = props => (
   <Layout active={['TOOLS', 'CARD_BUILDER', 'DISPLAY']}>
     <CardBuilderApp cardData={props.card} cardId={props.id} mode='DISPLAY' />
   </Layout>
 )
+
+export default CardDisplayPage

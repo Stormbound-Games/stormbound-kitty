@@ -4,10 +4,12 @@ import DeckBuilderRoot from '~/components/DeckBuilderRoot'
 import Layout from '~/components/Layout'
 export { getStaticPaths, getStaticProps } from '../'
 
-export default props => (
+const DeckDetailPage = props => (
   <Layout active={['TOOLS', 'DECK_BUILDER', 'DETAIL']}>
     <DeckBuilderRoot view='DETAIL' deckId={props.id} deck={props.deck}>
       {state => <DeckDetailView {...state} />}
     </DeckBuilderRoot>
   </Layout>
 )
+
+export default DeckDetailPage

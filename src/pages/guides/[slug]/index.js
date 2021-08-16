@@ -57,7 +57,7 @@ export const getStaticProps = ({ params }) => {
   }
 }
 
-export default props => {
+const GuidePage = props => {
   const Component = GUIDE_COMPONENTS[props.id]
 
   return (
@@ -66,3 +66,5 @@ export default props => {
     </Layout>
   )
 }
+
+export default GuidePage

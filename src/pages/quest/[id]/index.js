@@ -13,8 +13,10 @@ export async function getStaticProps(context) {
   return { props: { quest, id: context.params.id } }
 }
 
-export default props => (
+const QuestBuilderPage = props => (
   <Layout active={['TOOLS', 'QUEST_BUILDER']}>
     <QuestBuilderRoot quest={props.quest} questId={props.id} />
   </Layout>
 )
+
+export default QuestBuilderPage

@@ -2,8 +2,10 @@ import React from 'react'
 import QuestBuilderRoot from '~/components/QuestBuilderRoot'
 import Layout from '~/components/Layout'
 
-export default () => (
+const QuestBuilderPage = () => (
   <Layout active={['TOOLS', 'QUEST_BUILDER']}>
     <QuestBuilderRoot />
   </Layout>
 )
+
+export default QuestBuilderPage

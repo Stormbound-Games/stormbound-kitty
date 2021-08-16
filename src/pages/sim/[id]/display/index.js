@@ -15,8 +15,10 @@ export async function getStaticProps(context) {
   return { props: { id: context.params.id, puzzle: puzzle || null } }
 }
 
-export default props => (
+const BattleSim = props => (
   <Layout active={['TOOLS', 'BATTLE_SIM', 'DISPLAY']}>
     <BattleSimPage mode='DISPLAY' simId={props.id} puzzle={props.puzzle} />
   </Layout>
 )
+
+export default BattleSim

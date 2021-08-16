@@ -15,8 +15,10 @@ export async function getStaticProps(context) {
   return { props: { id: context.params.id.toLowerCase() } }
 }
 
-export default props => (
+const MemberPage = props => (
   <Layout active={['COMMUNITY', 'MEMBERS']}>
     <Member memberId={props.id} />
   </Layout>
 )
+
+export default MemberPage

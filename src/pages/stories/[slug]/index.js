@@ -20,8 +20,10 @@ export async function getStaticProps(context) {
   return { props: { story } }
 }
 
-export default props => (
+const StoryPage = props => (
   <Layout active={['STORIES', 'STORY']}>
     <Story story={props.story} />
   </Layout>
 )
+
+export default StoryPage

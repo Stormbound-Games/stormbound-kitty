@@ -20,8 +20,10 @@ export async function getStaticProps(context) {
   }
 }
 
-export default props => (
+const ValueCalculatorPage = props => (
   <Layout active={['TOOLS', 'VALUE_CALCULATOR']}>
     <ValueCalculator cards={props.cards} />
   </Layout>
 )
+
+export default ValueCalculatorPage

@@ -2,8 +2,10 @@ import React from 'react'
 import About from '~/components/About'
 import Layout from '~/components/Layout'
 
-export default () => (
+const AboutPage = () => (
   <Layout active={['HOME', 'ABOUT']}>
     <About />
   </Layout>
 )
+
+export default AboutPage

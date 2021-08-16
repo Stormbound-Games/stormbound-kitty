@@ -7,8 +7,10 @@ export async function getStaticProps() {
   return { props: { news: NEWS } }
 }
 
-export default props => (
+const Index = props => (
   <Layout active={['HOME', 'NEWS']}>
     <Home news={props.news} />
   </Layout>
 )
+
+export default Index

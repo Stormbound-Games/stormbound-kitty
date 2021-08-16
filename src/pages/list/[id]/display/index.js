@@ -13,8 +13,10 @@ export async function getStaticProps(context) {
   return { props: { tiers, id: context.params.id } }
 }
 
-export default props => (
+const ListDisplayPage = props => (
   <Layout active={['TOOLS', 'LIST_BUILDER', 'DISPLAY']}>
     <ListBuilderDisplayView tiers={props.tiers} listId={props.id} />
   </Layout>
 )
+
+export default ListDisplayPage

@@ -40,7 +40,7 @@ export const getStaticProps = ({ params }) => {
   }
 }
 
-export default props => {
+const ReleasePage = props => {
   const Component = RELEASE_COMPONENTS[props.id]
 
   return (
@@ -49,3 +49,5 @@ export default props => {
     </Layout>
   )
 }
+
+export default ReleasePage

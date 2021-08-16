@@ -2,7 +2,7 @@ import React from 'react'
 import ValueCalculator from '~/components/ValueCalculator'
 import Layout from '~/components/Layout'
 
-export default () => (
+const ValueCalculatorPage = () => (
   <Layout active={['TOOLS', 'VALUE_CALCULATOR']}>
     <ValueCalculator
       cards={[
@@ -12,3 +12,5 @@ export default () => (
     />
   </Layout>
 )
+
+export default ValueCalculatorPage

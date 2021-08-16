@@ -3,10 +3,12 @@ import DeckEditorView from '~/components/DeckEditorView'
 import DeckBuilderRoot from '~/components/DeckBuilderRoot'
 import Layout from '~/components/Layout'
 
-export default () => (
+const DeckBuilderPage = () => (
   <Layout active={['TOOLS', 'DECK_BUILDER', 'EDITOR']}>
     <DeckBuilderRoot view='EDITOR' deckId='' deck={[]}>
       {state => <DeckEditorView {...state} />}
     </DeckBuilderRoot>
   </Layout>
 )
+
+export default DeckBuilderPage

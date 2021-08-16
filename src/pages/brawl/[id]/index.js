@@ -15,8 +15,10 @@ export async function getStaticProps(context) {
   return { props: { id: context.params.id } }
 }
 
-export default props => (
+const BrawlTrackerPage = props => (
   <Layout active={['TOOLS', 'BRAWL', 'TRACKER']}>
     <BrawlPage id={props.id} />
   </Layout>
 )
+
+export default BrawlTrackerPage
