@@ -40,7 +40,7 @@ const SlotSelect = React.memo(function SlotSelect(props) {
       label='Card'
       id={'card-' + props.slot}
       name={'card-' + props.slot}
-      current={props.value}
+      current={props.value?.toUpperCase() ?? null}
       onChange={option => props.setCard(option ? option.value : null)}
       withSpells
       disabledOptions={props.disabledOptions}
@@ -80,23 +80,11 @@ const CardValue = React.memo(function CardValue(props) {
   )
 })
 
-const getCardsFromURL = id => {
-  const defaultCard = { id: null, level: 1 }
-
-  try {
-    const cards = serialisation.cards.deserialise(id)
-    return [cards[0] || defaultCard, cards[1] || defaultCard]
-  } catch (error) {
-    return [defaultCard, defaultCard]
-  }
-}
-
 export default React.memo(function ValueCalculator(props) {
   const { css } = useFela()
-  const { params, history } = useRouter()
-  const initialCards = getCardsFromURL(params.id?.toUpperCase())
-  const [A, setA] = React.useState(initialCards[0])
-  const [B, setB] = React.useState(initialCards[1])
+  const { history } = useRouter()
+  const [A, setA] = React.useState(props.cards[0])
+  const [B, setB] = React.useState(props.cards[1])
   const disabledOptions = CARDS.filter(
     card => getCardValue(card.id) === null
   ).map(card => card.id)
@@ -106,7 +94,9 @@ export default React.memo(function ValueCalculator(props) {
       ['/calculators/value', serialisation.cards.serialise([A, B])]
         .filter(Boolean)
         .join('/')
-        .toLowerCase()
+        .toLowerCase(),
+      undefined,
+      { scroll: false }
     )
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [A, B])
