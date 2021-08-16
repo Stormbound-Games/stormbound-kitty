@@ -2,39 +2,19 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '~/components/Link'
 import CTA from '~/components/CTA'
-import Error from '~/components/Error'
-import Loader from '~/components/Loader'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import chunk from '~/helpers/chunk'
-import useFetch from '~/hooks/useFetch'
 import styles from './styles'
 
 const MAX_NEWS = 7
 
 export default React.memo(function News(props) {
   const { css } = useFela()
-  const { loading, error, data: news = [] } = useFetch('/news.json')
-  const pages = chunk(news, MAX_NEWS)
+  const pages = chunk(props.items, MAX_NEWS)
   const [activePage, setActivePage] = React.useState(0)
   const loadPrev = () => setActivePage(page => page + 1)
   const loadNext = () => setActivePage(page => page - 1)
-
-  if (loading) {
-    return (
-      <div className={css(styles.news)} data-testid='news'>
-        <Loader hideLabel />
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className={css(styles.news)} data-testid='news'>
-        <Error error='Error fetching latest news.' noTitle noImage />
-      </div>
-    )
-  }
 
   if (!pages[activePage]) return null
 
