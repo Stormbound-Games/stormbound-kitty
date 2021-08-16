@@ -7,7 +7,7 @@ import Quest from '~/components/Quest'
 import Page from '~/components/Page'
 import serialisation from '~/helpers/serialisation'
 import getInitialQuestData from '~/helpers/getInitialQuestData'
-import useRouter from '~/hooks/useRouter'
+import useNavigator from '~/hooks/useNavigator'
 
 class QuestBuilderRoot extends React.Component {
   constructor(props) {
@@ -33,10 +33,8 @@ class QuestBuilderRoot extends React.Component {
     ].some(prop => this.state[prop] !== prevState[prop])
 
     if (hasAnyPropChanged) {
-      this.props.history.replace(
-        '/quest/' + serialisation.quest.serialise(this.state),
-        undefined,
-        { scroll: false }
+      this.props.navigator.replace(
+        '/quest/' + serialisation.quest.serialise(this.state)
       )
     } else if (prevProps.questId !== this.props.questId) {
       if (this.props.questId) {
@@ -56,7 +54,7 @@ class QuestBuilderRoot extends React.Component {
         description: '',
         difficulty: 1,
       },
-      () => this.props.history.push('/quest', undefined, { scroll: false })
+      () => this.props.navigator.push('/quest')
     )
   }
 
@@ -97,5 +95,5 @@ class QuestBuilderRoot extends React.Component {
 
 export default hookIntoProps(() => ({
   ...useFela(),
-  history: useRouter().history,
+  navigator: useNavigator(),
 }))(QuestBuilderRoot)

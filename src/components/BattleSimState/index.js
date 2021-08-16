@@ -14,7 +14,7 @@ import getRawCardData from '~/helpers/getRawCardData'
 import getInitialBattleData from '~/helpers/getInitialBattleData'
 import serialisation from '~/helpers/serialisation'
 import arrayRandom from '~/helpers/arrayRandom'
-import useRouter from '~/hooks/useRouter'
+import useNavigator from '~/hooks/useNavigator'
 
 class BattleSimState extends React.Component {
   constructor(props) {
@@ -186,7 +186,7 @@ class BattleSimState extends React.Component {
         // If it’s not a combat scenario, simply swap the two cells.
         this.copyCell(targetCell, sourceCellCopy)
 
-        if (!!targetCell.card.id) {
+        if (targetCell.card.id) {
           this.copyCell(sourceCell, targetCellCopy)
         } else {
           this.copyCell(sourceCell, DEFAULT_CELL)
@@ -226,7 +226,7 @@ class BattleSimState extends React.Component {
         { cards: this.state.cards, hand: this.state.hand }
       )
 
-      this.props.history.replace('/sim/' + id, undefined, { scroll: false })
+      this.props.navigator.replace('/sim/' + id)
 
       // If the update was caused by an undo, do not add a new entry into the
       // history and simply mark undo as `false` for the next state update
@@ -305,7 +305,7 @@ class BattleSimState extends React.Component {
       strength: +formData.strength,
       level: +(formData.level || 1),
       player: this.state.activePlayer,
-      card: card,
+      card,
       poisoned: !!formData.poisoned,
       vitalised: !!formData.vitalised,
       frozen: !!formData.frozen,
@@ -381,7 +381,7 @@ class BattleSimState extends React.Component {
     }
   }
 
-  onCellClick = (x, y) => event => {
+  onCellClick = (x, y) => () => {
     const cell = this.state.board[x][y]
     const isActiveCell =
       this.state.activeCell &&
@@ -506,5 +506,5 @@ class BattleSimState extends React.Component {
 }
 
 export default hookIntoProps(() => ({
-  history: useRouter().history,
+  navigator: useNavigator(),
 }))(BattleSimState)

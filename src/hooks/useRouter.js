@@ -9,6 +9,9 @@ export default () => {
   }
 
   return {
+    push: router.push.bind(router),
+    replace: router.replace.bind(router),
+
     params: {},
     query,
     history: {

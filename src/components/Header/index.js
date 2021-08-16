@@ -1,12 +1,12 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import HeaderMegaMenu from '~/components/HeaderMegaMenu'
 import Link from '~/components/Link'
 import NewPulse from '~/components/NewPulse'
 import Icon from '~/components/Icon'
 import useNavigation from './useNavigation'
-import useRouter from '~/hooks/useRouter'
 import styles from './styles'
 
 const SubNav = React.memo(function (props) {
@@ -29,10 +29,10 @@ export default React.memo(function Header(props) {
   const { css } = useFela()
   const [topActive] = props.active || []
   const [open, setOpen] = React.useState(null)
-  const { location } = useRouter()
+  const { asPath } = useRouter()
   const navigation = useNavigation()
 
-  React.useEffect(() => setOpen(null), [location.pathname])
+  React.useEffect(() => setOpen(null), [asPath])
 
   return (
     <header role='banner' className={css(styles.header)}>

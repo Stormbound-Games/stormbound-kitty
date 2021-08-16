@@ -16,11 +16,9 @@ import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import openBook from '~/helpers/openBook'
 import getBookName from '~/helpers/getBookName'
-import getResolvedCardData from '~/helpers/getResolvedCardData'
 import serialisation from '~/helpers/serialisation'
+import useNavigator from '~/hooks/useNavigator'
 import useViewportSize from '~/hooks/useViewportSize'
-import usePrevious from '~/hooks/usePrevious'
-import useRouter from '~/hooks/useRouter'
 import { BOOKS } from '~/constants/books'
 import styles from './styles'
 
@@ -145,7 +143,7 @@ const CustomBookFields = ({
 
 export default React.memo(function BookOpeningSimulator(props) {
   const { css } = useFela()
-  const { history } = useRouter()
+  const navigator = useNavigator()
   const { viewportWidth } = useViewportSize()
   const container = React.useRef(null)
   const [bookType, setBookType] = React.useState('')
@@ -187,10 +185,8 @@ export default React.memo(function BookOpeningSimulator(props) {
   )
 
   React.useEffect(() => {
-    history.replace(
-      ['/simulators/books', id].filter(Boolean).join('/').toLowerCase(),
-      undefined,
-      { scroll: false }
+    navigator.replace(
+      ['/simulators/books', id].filter(Boolean).join('/').toLowerCase()
     )
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])

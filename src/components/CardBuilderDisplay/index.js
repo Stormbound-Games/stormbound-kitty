@@ -1,11 +1,10 @@
 import React from 'react'
 import App from '~/components/CardBuilderApp'
 import getInitialCardData from '~/helpers/getInitialCardData'
-import useRouter from '~/hooks/useRouter'
+import useQueryParams from '~/hooks/useQueryParams'
 
-export default React.memo(function CardBuilderDisplay(props) {
-  const { params } = useRouter()
-  const id = params.cardId
+export default React.memo(function CardBuilderDisplay() {
+  const { cardId: id } = useQueryParams()
   const cardData = getInitialCardData(id)
 
   return <App cardData={cardData} cardId={id} mode='DISPLAY' />

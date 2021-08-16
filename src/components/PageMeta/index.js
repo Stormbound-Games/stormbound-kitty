@@ -1,11 +1,11 @@
 import React from 'react'
 import Head from 'next/head'
-import useRouter from '~/hooks/useRouter'
+import { useRouter } from 'next/router'
 
 const SITE_URL = 'https://stormbound-kitty.com'
 
 export default React.memo(function PageMeta(props) {
-  const { location } = useRouter()
+  const { asPath: location } = useRouter()
 
   return (
     <Head titleTemplate='%s – Stormbound-Kitty'>
@@ -27,7 +27,7 @@ export default React.memo(function PageMeta(props) {
         property='og:url'
         content={'https://stormbound-kitty.com' + location.pathname}
       />
-      {!!props.image ? (
+      {props.image ? (
         <meta
           property='og:image'
           content={

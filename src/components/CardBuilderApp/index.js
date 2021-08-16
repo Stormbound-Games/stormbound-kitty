@@ -12,7 +12,8 @@ import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import usePrevious from '~/hooks/usePrevious'
-import useRouter from '~/hooks/useRouter'
+import useQueryParams from '~/hooks/useQueryParams'
+import useNavigator from '~/hooks/useNavigator'
 import getRawCardData from '~/helpers/getRawCardData'
 import getCardBuilderMetaTags from '~/helpers/getCardBuilderMetaTags'
 import parseDate from '~/helpers/parseDate'
@@ -106,7 +107,8 @@ const useCardData = (props, versionId) => {
 
 export default React.memo(function CardBuilderApp(props) {
   const { css } = useFela()
-  const { history, query } = useRouter()
+  const navigator = useNavigator()
+  const query = useQueryParams()
   const { cardId } = props
   const isOfficial = isCardOfficial(cardId)
   const [versionId, setVersionId] = React.useState(+query.v || null)
@@ -119,7 +121,7 @@ export default React.memo(function CardBuilderApp(props) {
       ? `/card/${cardId}/display?v=${versionId}`
       : `/card/${cardId}/display`
 
-    history.replace(path, undefined, { scroll: false })
+    navigator.replace(path)
     // eslint-disable-next-line
   }, [versionId, cardId])
 

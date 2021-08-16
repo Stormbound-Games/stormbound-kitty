@@ -6,16 +6,15 @@ import CTA from '~/components/CTA'
 import Only from '~/components/Only'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import sortCards from '~/helpers/sortCards'
-import useRouter from '~/hooks/useRouter'
+import useQueryParams from '~/hooks/useQueryParams'
 import styles from './styles'
 
 const sortCollection = (a, b) =>
   sortCards()(getResolvedCardData(a), getResolvedCardData(b))
 
-export default React.memo(function CardDisplayControls(props) {
+export default React.memo(function CardDisplayControls() {
   const { css } = useFela()
-  const { query } = useRouter()
-  const { id: cardId } = query
+  const { id: cardId } = useQueryParams()
   const { collection } = React.useContext(CollectionContext)
   const orderedCollection = React.useMemo(
     () => collection.sort(sortCollection),

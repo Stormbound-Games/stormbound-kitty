@@ -18,8 +18,8 @@ import ListBuilderTier from '~/components/ListBuilderTier'
 import Title from '~/components/Title'
 import serialisation from '~/helpers/serialisation'
 import getInitialListData from '~/helpers/getInitialListData'
+import useNavigator from '~/hooks/useNavigator'
 import reorder from '~/helpers/reorder'
-import useRouter from '~/hooks/useRouter'
 
 class ListBuilderEditorView extends React.Component {
   constructor(props) {
@@ -41,10 +41,8 @@ class ListBuilderEditorView extends React.Component {
     )
 
     if (hasAnyTierChanged) {
-      this.props.history.replace(
-        '/list/' + serialisation.list.serialise(this.state.tiers),
-        undefined,
-        { scroll: false }
+      this.props.navigator.replace(
+        '/list/' + serialisation.list.serialise(this.state.tiers)
       )
     }
 
@@ -254,5 +252,5 @@ class ListBuilderEditorView extends React.Component {
 
 export default hookIntoProps(() => ({
   ...useFela(),
-  history: useRouter().history,
+  navigator: useNavigator(),
 }))(ListBuilderEditorView)

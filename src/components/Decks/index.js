@@ -5,13 +5,13 @@ import Loader from '~/components/Loader'
 import Row from '~/components/Row'
 import chunk from '~/helpers/chunk'
 import useLazyLoad from '~/hooks/useLazyLoad'
+import useNavigator from '~/hooks/useNavigator'
 import useViewportSize from '~/hooks/useViewportSize'
-import useRouter from '~/hooks/useRouter'
 
 export default React.memo(function Decks(props) {
   const { viewportWidth } = useViewportSize()
   const columns = viewportWidth < 700 ? 1 : props.columns || 2
-  const { history } = useRouter()
+  const navigator = useNavigator()
   const { loadMore, loading, items } = useLazyLoad(
     props.decks,
     columns * 3,
@@ -20,7 +20,7 @@ export default React.memo(function Decks(props) {
 
   if (props.decks.length === 0) return null
 
-  const navigateToCard = card => history.push('/card/' + card.id + '/display')
+  const navigateToCard = card => navigator.push('/card/' + card.id + '/display')
   const rows = chunk(items, columns)
 
   return (

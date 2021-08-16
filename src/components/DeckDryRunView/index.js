@@ -7,7 +7,7 @@ import CardLink from '~/components/CardLink'
 import { BRAWL_INDEX } from '~/constants/brawl'
 import isCard from '~/helpers/isCard'
 import getDeckPresets from '~/helpers/getDeckPresets'
-import useRouter from '~/hooks/useRouter'
+import useQueryParams from '~/hooks/useQueryParams'
 
 class View extends React.Component {
   constructor(props) {
@@ -72,7 +72,7 @@ class View extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     if (!prevProps.HoS.cards.length && this.props.HoS.cards.length) {
       this.props.HoS.dialog.current.show()
       document.removeEventListener('keydown', this.registerShortcuts)
@@ -248,7 +248,7 @@ class View extends React.Component {
 }
 
 export default React.memo(function DeckDryRunView(props) {
-  const { query } = useRouter()
+  const query = useQueryParams()
   // The mode is theoretically not quite supposed to be changed at run time, but
   // this is a workaround to be able to pick an initial hand for testing
   // purposes. The mode is restored to `AUTOMATIC` as soon as the 4th card has

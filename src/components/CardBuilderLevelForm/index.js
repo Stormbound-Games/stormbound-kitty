@@ -5,11 +5,11 @@ import Row from '~/components/Row'
 import ShareButton from '~/components/CardBuilderShareButton'
 import Spacing from '~/components/Spacing'
 import formatCardStats from '~/helpers/formatCardStats'
-import useRouter from '~/hooks/useRouter'
+import useQueryParams from '~/hooks/useQueryParams'
 
 export default React.memo(function CardBuilderCardForm(props) {
-  const { params } = useRouter()
-  const isPristine = !params.cardId
+  const { cardId } = useQueryParams()
+  const isPristine = !cardId
 
   return (
     <>

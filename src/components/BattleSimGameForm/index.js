@@ -7,13 +7,13 @@ import Row from '~/components/Row'
 import ShareButton from '~/components/BattleSimShareButton'
 import Spacing from '~/components/Spacing'
 import VisuallyHidden from '~/components/VisuallyHidden'
-import useRouter from '~/hooks/useRouter'
+import useQueryParams from '~/hooks/useQueryParams'
 import styles from './styles'
 
 export default React.memo(function BattleSimGameForm(props) {
   const { css } = useFela()
-  const { query } = useRouter()
-  const isPristine = !query.id
+  const { id } = useQueryParams()
+  const isPristine = !id
 
   return (
     <div className={css(styles.form)}>

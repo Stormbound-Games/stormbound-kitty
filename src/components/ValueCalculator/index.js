@@ -14,7 +14,7 @@ import CARDS from '~/data/cards'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getCardValue from '~/helpers/getCardValue'
 import serialisation from '~/helpers/serialisation'
-import useRouter from '~/hooks/useRouter'
+import useNavigator from '~/hooks/useNavigator'
 import styles from './styles'
 
 const LevelSelect = React.memo(function LevelSelect(props) {
@@ -82,7 +82,7 @@ const CardValue = React.memo(function CardValue(props) {
 
 export default React.memo(function ValueCalculator(props) {
   const { css } = useFela()
-  const { history } = useRouter()
+  const navigator = useNavigator()
   const [A, setA] = React.useState(props.cards[0])
   const [B, setB] = React.useState(props.cards[1])
   const disabledOptions = CARDS.filter(
@@ -90,13 +90,11 @@ export default React.memo(function ValueCalculator(props) {
   ).map(card => card.id)
 
   React.useEffect(() => {
-    history.replace(
+    navigator.replace(
       ['/calculators/value', serialisation.cards.serialise([A, B])]
         .filter(Boolean)
         .join('/')
-        .toLowerCase(),
-      undefined,
-      { scroll: false }
+        .toLowerCase()
     )
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [A, B])

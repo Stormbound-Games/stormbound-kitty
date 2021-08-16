@@ -30,8 +30,9 @@ import serialisation from '~/helpers/serialisation'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import toSentence from '~/helpers/toSentence'
 import useViewportSize from '~/hooks/useViewportSize'
+import useNavigator from '~/hooks/useNavigator'
+import useQueryParams from '~/hooks/useQueryParams'
 import usePrevious from '~/hooks/usePrevious'
-import useRouter from '~/hooks/useRouter'
 import { TAGS } from '~/constants/deck'
 import { BRAWL_INDEX } from '~/constants/brawl'
 
@@ -114,8 +115,8 @@ const getStoredTooltipsSetting = () => {
 
 export default React.memo(function DeckEditorView(props) {
   const { viewportWidth } = useViewportSize()
-  const { history, params } = useRouter()
-  const { deckId } = params
+  const navigator = useNavigator()
+  const { deckId } = useQueryParams()
   const { collection, indexedCollection, hasDefaultCollection } =
     React.useContext(CollectionContext)
   // `cardLevel` is set to `0` when the user has a custom collection loaded and
@@ -177,7 +178,7 @@ export default React.memo(function DeckEditorView(props) {
   React.useEffect(() => {
     if (shouldAdjustDeckToCollection) {
       setOriginalDeckId(deckId)
-      history.push(adjustedRedirectPath)
+      navigator.push(adjustedRedirectPath)
     }
     // There is no need for `history`, `deckId` and `adjustedRedirectPath` to be
     // passed as dependencies.
@@ -381,6 +382,7 @@ const CardTooltipsCheckbox = React.memo(function CardTooltipsCheckbox(props) {
   React.useEffect(() => {
     try {
       localStorage.setItem('sk.db.card_tooltips', JSON.stringify(props.value))
+      // eslint-disable-next-line
     } catch {}
   }, [props.value])
 

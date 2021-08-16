@@ -8,19 +8,19 @@ import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import getRawCardData from '~/helpers/getRawCardData'
 import isLevelAvailable from '~/helpers/isLevelAvailable'
-import useRouter from '~/hooks/useRouter'
+import useQueryParams from '~/hooks/useQueryParams'
 import styles from './styles'
 
 export default React.memo(function CardBuilderCardDisplay(props) {
   const { css } = useFela()
-  const { params } = useRouter()
+  const { cardId } = useQueryParams()
   const [activeLevel, setActiveLevel] = React.useState(props.level || 1)
   const { hasDefaultCollection, indexedCollection } =
     React.useContext(CollectionContext)
   const cardInCollection =
-    hasDefaultCollection || !params.cardId || props.mode === 'EDITOR'
+    hasDefaultCollection || !cardId || props.mode === 'EDITOR'
       ? { level: 5 }
-      : indexedCollection[params.cardId] || { level: 5 }
+      : indexedCollection[cardId] || { level: 5 }
 
   return (
     <>

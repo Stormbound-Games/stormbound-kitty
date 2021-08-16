@@ -8,7 +8,7 @@ import getInitialCardData, {
 } from '~/helpers/getInitialCardData'
 import resolveAbility from '~/helpers/resolveAbility'
 import getCardFromSlug from '~/helpers/getCardFromSlug'
-import useRouter from '~/hooks/useRouter'
+import useNavigator from '~/hooks/useNavigator'
 
 const formatLevelProp = value => ({
   values: [null, null, null, null, null].fill(value),
@@ -42,15 +42,13 @@ class CardBuilderEditor extends React.Component {
     const state = getInitialCardDataFromQuery()
 
     if (Object.keys(state).length > 0) {
-      this.props.history.replace(
-        '/card/' + serialisation.card.serialise(state),
-        undefined,
-        { scroll: false }
+      this.props.navigator.replace(
+        '/card/' + serialisation.card.serialise(state)
       )
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     // Handle initial query parameters
     if (!prevProps.cardId && this.props.cardId) {
       this.setState({ ...getInitialCardData(this.props.cardId) })
@@ -67,23 +65,22 @@ class CardBuilderEditor extends React.Component {
     // Safari has a limit of 100 `history.pushState()` per 30 seconds window, so
     // we should fail silently if it’s not possible to update the URL anymore.
     try {
-      this.props.history.replace(
+      this.props.navigator.replace(
         '/card/' +
           serialisation.card.serialise({
             ...this.state,
             strength: this.state.strength.display,
             mana: this.state.mana.display,
             ability: this.state.ability.display,
-          }),
-        undefined,
-        { scroll: false }
+          })
       )
+      // eslint-disable-next-line
     } catch {}
   }
 
   reset = () => {
     this.setState({ ...INITIAL_STATE }, () =>
-      this.props.history.push('/card', undefined, { scroll: false })
+      this.props.navigator.push('/card')
     )
   }
 
@@ -221,5 +218,5 @@ class CardBuilderEditor extends React.Component {
 }
 
 export default hookIntoProps(() => ({
-  history: useRouter().history,
+  navigator: useNavigator(),
 }))(CardBuilderEditor)
