@@ -8,14 +8,12 @@ import MemberToC from '../MemberToC'
 import Row from '../Row'
 import isKATMember from '../../helpers/isKATMember'
 import useMemberContent from '../../hooks/useMemberContent'
-import useRouter from '../../hooks/useRouter'
 import styles from './styles'
 import VIDEOS from '../../data/videos'
 
 export default React.memo(function Member(props) {
   const { css } = useFela()
-  const { params } = useRouter()
-  const id = params.memberId.toLowerCase()
+  const id = props.memberId
   const { count, content, details, displayName: name } = useMemberContent(id)
   const channel = VIDEOS.find(channel => channel.author.toLowerCase() === id)
   // This is basically a hack for people listed as video content creators, but
