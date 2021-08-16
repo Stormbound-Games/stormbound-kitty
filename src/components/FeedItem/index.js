@@ -1,21 +1,21 @@
 import React from 'react'
-import load from '~/helpers/load'
+import dynamic from 'next/dynamic'
 
 const COMPONENTS = {
-  ART: load('FeedArtEntry'),
-  CARD: load('FeedCardEntry'),
-  CONTRIBUTION: load('FeedContributionEntry'),
-  DECK: load('FeedDeckEntry'),
-  DONATION: load('FeedDonationEntry'),
-  GUIDE: load('FeedGuideEntry'),
-  HOST: load('FeedHostEntry'),
-  PODCAST: load('FeedPodcastEntry'),
-  PODIUM: load('FeedPodiumEntry'),
-  PUZZLE: load('FeedPuzzleEntry'),
-  RELEASE: load('FeedReleaseEntry'),
-  STORY: load('FeedStoryEntry'),
-  SWCC: load('FeedSWCCEntry'),
-  YOUTUBE: load('FeedYouTubeEntry'),
+  ART: dynamic(() => import('~/components/FeedArtEntry')),
+  CARD: dynamic(() => import('~/components/FeedCardEntry')),
+  CONTRIBUTION: dynamic(() => import('~/components/FeedContributionEntry')),
+  DECK: dynamic(() => import('~/components/FeedDeckEntry')),
+  DONATION: dynamic(() => import('~/components/FeedDonationEntry')),
+  GUIDE: dynamic(() => import('~/components/FeedGuideEntry')),
+  HOST: dynamic(() => import('~/components/FeedHostEntry')),
+  PODCAST: dynamic(() => import('~/components/FeedPodcastEntry')),
+  PODIUM: dynamic(() => import('~/components/FeedPodiumEntry')),
+  PUZZLE: dynamic(() => import('~/components/FeedPuzzleEntry')),
+  RELEASE: dynamic(() => import('~/components/FeedReleaseEntry')),
+  STORY: dynamic(() => import('~/components/FeedStoryEntry')),
+  SWCC: dynamic(() => import('~/components/FeedSWCCEntry')),
+  YOUTUBE: dynamic(() => import('~/components/FeedYouTubeEntry')),
 }
 
 export default React.memo(function MemberFeedItem(props) {

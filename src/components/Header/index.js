@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import dynamic from 'next/dynamic'
 import HeaderMegaMenu from '~/components/HeaderMegaMenu'
 import Link from '~/components/Link'
 import NewPulse from '~/components/NewPulse'
 import Icon from '~/components/Icon'
-import load from '~/helpers/load'
 import useNavigation from './useNavigation'
 import useRouter from '~/hooks/useRouter'
 import styles from './styles'
@@ -13,12 +13,12 @@ const SubNav = React.memo(function (props) {
   const [topActive, midActive, bottomActive] = props.active || []
 
   if (topActive === 'TOOLS' && midActive === 'CARD_BUILDER') {
-    const NavCardBuilder = load('NavCardBuilder')
+    const NavCardBuilder = dynamic(() => import('~/components/NavCardBuilder'))
     return <NavCardBuilder />
   }
 
   if (topActive === 'TOOLS' && midActive === 'DECK_BUILDER') {
-    const NavDeckBuilder = load('NavDeckBuilder')
+    const NavDeckBuilder = dynamic(() => import('~/components/NavDeckBuilder'))
     return <NavDeckBuilder active={bottomActive} />
   }
 
