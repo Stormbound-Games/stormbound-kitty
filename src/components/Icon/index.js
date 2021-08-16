@@ -1,53 +1,96 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import load from '../../helpers/load'
+import ArrowDown from '../Icons/ArrowDown'
+import ArrowLeft from '../Icons/ArrowLeft'
+import ArrowRight from '../Icons/ArrowRight'
+import ArrowTopRight from '../Icons/ArrowTopRight'
+import ArrowUp from '../Icons/ArrowUp'
+import Bin from '../Icons/Bin'
+import Books from '../Icons/Books'
+import Bubbles from '../Icons/Bubbles'
+import Bullhorn from '../Icons/Bullhorn'
+import Cat from '../Icons/Cat'
+import Compass from '../Icons/Compass'
+import Cross from '../Icons/Cross'
+import Crown from '../Icons/Crown'
+import Download from '../Icons/Download'
+import Equalizer from '../Icons/Equalizer'
+import Eye from '../Icons/Eye'
+import Fire from '../Icons/Fire'
+import FolderOpen from '../Icons/FolderOpen'
+import Gift from '../Icons/Gift'
+import Hammer from '../Icons/Hammer'
+import Heart from '../Icons/Heart'
+import Home from '../Icons/Home'
+import Image from '../Icons/Image'
+import Info from '../Icons/Info'
+import Library from '../Icons/Library'
+import PagePlus from '../Icons/PagePlus'
+import Pencil from '../Icons/Pencil'
+import Power from '../Icons/Power'
+import Quill from '../Icons/Quill'
+import Search from '../Icons/Search'
+import Shield from '../Icons/Shield'
+import Shuffle from '../Icons/Shuffle'
+import Stack from '../Icons/Stack'
+import Star from '../Icons/Star'
+import SuperStar from '../Icons/SuperStar'
+import Sword from '../Icons/Sword'
+import Target from '../Icons/Target'
+import Template from '../Icons/Template'
+import Trophy from '../Icons/Trophy'
+import User from '../Icons/User'
+import Users from '../Icons/Users'
+import Wand from '../Icons/Wand'
+import Warning from '../Icons/Warning'
+import YouTube from '../Icons/YouTube'
 import styles from './styles'
 
 const MAP = {
-  'arrow-down': load('Icons/ArrowDown'),
-  'arrow-left': load('Icons/ArrowLeft'),
-  'arrow-right': load('Icons/ArrowRight'),
-  'arrow-top-right': load('Icons/ArrowTopRight'),
-  'arrow-up': load('Icons/ArrowUp'),
-  bin: load('Icons/Bin'),
-  books: load('Icons/Books'),
-  bubbles: load('Icons/Bubbles'),
-  bullhorn: load('Icons/Bullhorn'),
-  cat: load('Icons/Cat'),
-  compass: load('Icons/Compass'),
-  cross: load('Icons/Cross'),
-  crown: load('Icons/Crown'),
-  download: load('Icons/Download'),
-  equalizer: load('Icons/Equalizer'),
-  eye: load('Icons/Eye'),
-  fire: load('Icons/Fire'),
-  'folder-open': load('Icons/FolderOpen'),
-  gift: load('Icons/Gift'),
-  hammer: load('Icons/Hammer'),
-  heart: load('Icons/Heart'),
-  home: load('Icons/Home'),
-  image: load('Icons/Image'),
-  info: load('Icons/Info'),
-  library: load('Icons/Library'),
-  'page-plus': load('Icons/PagePlus'),
-  pencil: load('Icons/Pencil'),
-  power: load('Icons/Power'),
-  quill: load('Icons/Quill'),
-  search: load('Icons/Search'),
-  shield: load('Icons/Shield'),
-  shuffle: load('Icons/Shuffle'),
-  stack: load('Icons/Stack'),
-  star: load('Icons/Star'),
-  'super-star': load('Icons/SuperStar'),
-  sword: load('Icons/Sword'),
-  target: load('Icons/Target'),
-  template: load('Icons/Template'),
-  trophy: load('Icons/Trophy'),
-  user: load('Icons/User'),
-  users: load('Icons/Users'),
-  wand: load('Icons/Wand'),
-  warning: load('Icons/Warning'),
-  youtube: load('Icons/YouTube'),
+  'arrow-down': ArrowDown,
+  'arrow-left': ArrowLeft,
+  'arrow-right': ArrowRight,
+  'arrow-top-right': ArrowTopRight,
+  'arrow-up': ArrowUp,
+  bin: Bin,
+  books: Books,
+  bubbles: Bubbles,
+  bullhorn: Bullhorn,
+  cat: Cat,
+  compass: Compass,
+  cross: Cross,
+  crown: Crown,
+  download: Download,
+  equalizer: Equalizer,
+  eye: Eye,
+  fire: Fire,
+  'folder-open': FolderOpen,
+  gift: Gift,
+  hammer: Hammer,
+  heart: Heart,
+  home: Home,
+  image: Image,
+  info: Info,
+  library: Library,
+  'page-plus': PagePlus,
+  pencil: Pencil,
+  power: Power,
+  quill: Quill,
+  search: Search,
+  shield: Shield,
+  shuffle: Shuffle,
+  stack: Stack,
+  star: Star,
+  'super-star': SuperStar,
+  sword: Sword,
+  target: Target,
+  template: Template,
+  trophy: Trophy,
+  user: User,
+  users: Users,
+  wand: Wand,
+  warning: Warning,
+  youtube: YouTube,
 }
 
 export default React.memo(function Icon(props) {
