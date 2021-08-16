@@ -11,7 +11,7 @@ import sortCards from '../../helpers/sortCards'
 import getRawCardData from '../../helpers/getRawCardData'
 import useLazyLoad from '../../hooks/useLazyLoad'
 
-export default React.memo(function FanKit(props) {
+export default React.memo(function FanKitCards() {
   const [search, setSearch] = React.useState(null)
   const columns = 4
   const dialogRef = React.useRef(null)
@@ -60,9 +60,9 @@ export default React.memo(function FanKit(props) {
       </Row>
 
       <FanKitDownloadDialog
-        name={activeCard ? activeCard.name : undefined}
+        name={activeCard.name}
         image={
-          activeCard
+          activeCard.image
             ? '/assets/images/cards/full/' + activeCard.image
             : undefined
         }
