@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { ImageSupportContext } from '../ImageSupportProvider'
-import Spacing from '../Spacing'
+import { ImageSupportContext } from '~/components/ImageSupportProvider'
+import Spacing from '~/components/Spacing'
 import styles from './styles'
 
 const DEFAULT_BANNER = '/assets/images/banners/default_banner.jpg'

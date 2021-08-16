@@ -1,13 +1,13 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import hookIntoProps from 'hook-into-props'
-import Form from '../QuestBuilderForm'
-import Row from '../Row'
-import Quest from '../Quest'
-import Page from '../Page'
-import serialisation from '../../helpers/serialisation'
-import getInitialQuestData from '../../helpers/getInitialQuestData'
-import useRouter from '../../hooks/useRouter'
+import Form from '~/components/QuestBuilderForm'
+import Row from '~/components/Row'
+import Quest from '~/components/Quest'
+import Page from '~/components/Page'
+import serialisation from '~/helpers/serialisation'
+import getInitialQuestData from '~/helpers/getInitialQuestData'
+import useRouter from '~/hooks/useRouter'
 
 class QuestBuilderRoot extends React.Component {
   constructor(props) {

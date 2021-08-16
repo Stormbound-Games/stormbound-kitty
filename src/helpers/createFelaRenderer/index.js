@@ -6,7 +6,7 @@ import sortClassNames from 'fela-sort-classnames'
 import sortMediaQueryMobileFirst from 'fela-sort-media-query-mobile-first'
 import responsiveValue from 'fela-plugin-responsive-value'
 import namedKeys from 'fela-plugin-named-keys'
-import { BREAKPOINTS } from '../../styles/variables'
+import { BREAKPOINTS } from '~/styles/variables'
 
 const toObject = (acc, prop) => ({ ...acc, [prop]: true })
 

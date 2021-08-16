@@ -1,7 +1,7 @@
 import React from 'react'
-import Page from '../Page'
-import indexArray from '../../helpers/indexArray'
-import RELEASES from '../../data/releases'
+import Page from '~/components/Page'
+import indexArray from '~/helpers/indexArray'
+import RELEASES from '~/data/releases'
 
 const RELEASES_INDEX = indexArray(RELEASES)
 

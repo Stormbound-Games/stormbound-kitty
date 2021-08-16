@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import CardSelect from '../CardSelect'
-import getRawCardData from '../../helpers/getRawCardData'
-import useViewportSize from '../../hooks/useViewportSize'
-import useRouter from '../../hooks/useRouter'
-import styles from '../Header/styles'
+import CardSelect from '~/components/CardSelect'
+import getRawCardData from '~/helpers/getRawCardData'
+import useViewportSize from '~/hooks/useViewportSize'
+import useRouter from '~/hooks/useRouter'
+import styles from '~/components/Header/styles'
 
 export default React.memo(function NavCardBuilder(props) {
   const { css } = useFela()

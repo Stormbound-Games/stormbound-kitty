@@ -1,6 +1,6 @@
-import { BRAWL_MILESTONES } from '../../constants/brawl'
-import getDailyCoinsCounter from '../getDailyCoinsCounter'
-import getMilestoneForCrowns from '../getMilestoneForCrowns'
+import { BRAWL_MILESTONES } from '~/constants/brawl'
+import getDailyCoinsCounter from '~/helpers/getDailyCoinsCounter'
+import getMilestoneForCrowns from '~/helpers/getMilestoneForCrowns'
 
 // @param {String} difficulty - Brawl difficulty
 // @param {String} league - Current league

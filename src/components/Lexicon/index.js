@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Masonry from 'react-masonry-css'
-import Page from '../Page'
-import Spacing from '../Spacing'
-import getTermsForLetter from '../../helpers/getTermsForLetter'
-import getLexiconTerms from '../../helpers/getLexiconTerms'
+import Page from '~/components/Page'
+import Spacing from '~/components/Spacing'
+import getTermsForLetter from '~/helpers/getTermsForLetter'
+import getLexiconTerms from '~/helpers/getLexiconTerms'
 import styles from './styles'
 
 const Terms = React.memo(function Terms(props) {

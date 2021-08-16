@@ -1,7 +1,7 @@
 import React from 'react'
-import CTA from '../CTA'
-import Dialog from '../Dialog'
-import useShare from '../../hooks/useShare'
+import CTA from '~/components/CTA'
+import Dialog from '~/components/Dialog'
+import useShare from '~/hooks/useShare'
 
 export default React.memo(function ShareDialog(props) {
   const dialog = React.useRef(null)

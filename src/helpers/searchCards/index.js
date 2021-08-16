@@ -1,7 +1,7 @@
 import Fuse from 'fuse.js'
-import CARDS from '../../data/cards'
-import getRawCardData from '../getRawCardData'
-import getAbbreviations from '../getAbbreviations'
+import CARDS from '~/data/cards'
+import getRawCardData from '~/helpers/getRawCardData'
+import getAbbreviations from '~/helpers/getAbbreviations'
 
 const ABBREVIATIONS = getAbbreviations('LOWERCASE')
 

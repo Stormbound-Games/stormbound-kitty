@@ -1,4 +1,4 @@
-import { RARITIES } from '../../constants/game'
+import { RARITIES } from '~/constants/game'
 
 const getRewardFromMilestone = milestone => {
   const { reward, rewardAmount } = milestone

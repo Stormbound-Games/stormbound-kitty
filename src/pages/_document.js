@@ -1,7 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { renderToNodeList } from 'react-fela'
-import createFelaRenderer from '../helpers/createFelaRenderer'
-import renderRootStyles from '../helpers/renderRootStyles'
+import createFelaRenderer from '~/helpers/createFelaRenderer'
+import renderRootStyles from '~/helpers/renderRootStyles'
 
 export default class MyDocument extends Document {
   static async getInitialProps(context) {

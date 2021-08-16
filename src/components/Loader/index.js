@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Title from '../Title'
-import VisuallyHidden from '../VisuallyHidden'
+import Title from '~/components/Title'
+import VisuallyHidden from '~/components/VisuallyHidden'
 import styles from './styles'
 
 export default React.memo(function Loader(props) {

@@ -1,4 +1,4 @@
-import { DEFAULT_MANA } from '../../constants/battle'
+import { DEFAULT_MANA } from '~/constants/battle'
 import resolveManaRNG from './resolveManaRNG'
 
 /**

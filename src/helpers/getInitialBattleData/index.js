@@ -1,10 +1,6 @@
-import serialisation from '../serialisation'
-import {
-  DEFAULT_PLAYER,
-  DEFAULT_BOARD,
-  DEFAULT_MANA,
-} from '../../constants/battle'
-import { DEFAULT_DECK } from '../../constants/deck'
+import serialisation from '~/helpers/serialisation'
+import { DEFAULT_PLAYER, DEFAULT_BOARD, DEFAULT_MANA } from '~/constants/battle'
+import { DEFAULT_DECK } from '~/constants/deck'
 
 export default sim => {
   if (!sim) {

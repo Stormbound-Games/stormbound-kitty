@@ -1,9 +1,9 @@
 import React from 'react'
-import CTA from '../CTA'
-import Input from '../Input'
-import Deck from '../Deck'
-import Dialog from '../Dialog'
-import serialisation from '../../helpers/serialisation'
+import CTA from '~/components/CTA'
+import Input from '~/components/Input'
+import Deck from '~/components/Deck'
+import Dialog from '~/components/Dialog'
+import serialisation from '~/helpers/serialisation'
 
 class BattleSimDeckImport extends React.Component {
   state = {

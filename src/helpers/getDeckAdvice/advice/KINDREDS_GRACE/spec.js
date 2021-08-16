@@ -1,8 +1,8 @@
 import advice from './'
-import getResolvedCardData from '../../../getResolvedCardData'
-import getRawCardData from '../../../getRawCardData'
-import serialisation from '../../../serialisation'
-import modifyDeck from '../../../modifyDeck'
+import getResolvedCardData from '~/getResolvedCardData'
+import getRawCardData from '~/getRawCardData'
+import serialisation from '~/serialisation'
+import modifyDeck from '~/modifyDeck'
 import { SPAWNS } from './index'
 
 const SPAWNS_ARRAY = Object.keys(SPAWNS)

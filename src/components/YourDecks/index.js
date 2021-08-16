@@ -1,9 +1,9 @@
 import React from 'react'
-import Row from '../Row'
-import YourDeck from '../YourDeck'
-import YourDeckForm from '../YourDeckForm'
-import YourDeckGhost from '../YourDeckGhost'
-import chunk from '../../helpers/chunk'
+import Row from '~/components/Row'
+import YourDeck from '~/components/YourDeck'
+import YourDeckForm from '~/components/YourDeckForm'
+import YourDeckGhost from '~/components/YourDeckGhost'
+import chunk from '~/helpers/chunk'
 
 const NewDeck = React.memo(function NewDeck(props) {
   return props.mode === 'INITIAL' || !!props.editedDeckUUID ? (

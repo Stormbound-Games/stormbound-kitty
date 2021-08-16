@@ -1,5 +1,5 @@
-import { RARITIES } from '../../constants/game'
-import arrayPad from '../arrayPad'
+import { RARITIES } from '~/constants/game'
+import arrayPad from '~/helpers/arrayPad'
 
 const rarities = Object.keys(RARITIES).length
 

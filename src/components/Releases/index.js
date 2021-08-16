@@ -1,9 +1,9 @@
 import React from 'react'
-import Link from '../Link'
-import Page from '../Page'
-import Notice from '../Notice'
-import Teasers from '../Teasers'
-import RELEASES from '../../data/releases'
+import Link from '~/components/Link'
+import Page from '~/components/Page'
+import Notice from '~/components/Notice'
+import Teasers from '~/components/Teasers'
+import RELEASES from '~/data/releases'
 
 const ITEMS = RELEASES.map(release => ({
   ...release,

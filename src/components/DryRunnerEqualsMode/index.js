@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Checkbox from '../Checkbox'
-import Dialog from '../Dialog'
-import Spacing from '../Spacing'
+import Checkbox from '~/components/Checkbox'
+import Dialog from '~/components/Dialog'
+import Spacing from '~/components/Spacing'
 import styles from './styles'
 
 export default React.memo(function DryRunnerEqualsMode(props) {

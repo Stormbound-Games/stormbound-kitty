@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Image from '../Image'
-import FeedEntry from '../FeedEntry'
-import Only from '../Only'
+import Image from '~/components/Image'
+import FeedEntry from '~/components/FeedEntry'
+import Only from '~/components/Only'
 
 export default React.memo(function FeedArtEntry(props) {
   const { css } = useFela()

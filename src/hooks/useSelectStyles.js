@@ -1,4 +1,4 @@
-import getRawCardData from '../helpers/getRawCardData'
+import getRawCardData from '~/helpers/getRawCardData'
 
 export default ({ noBorder, withClear } = {}) => {
   return {

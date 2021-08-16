@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Icon from '../Icon'
-import VisuallyHidden from '../VisuallyHidden'
+import Icon from '~/components/Icon'
+import VisuallyHidden from '~/components/VisuallyHidden'
 import styles from './styles'
 
 export default React.memo(function DiamondButton({

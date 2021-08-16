@@ -1,6 +1,6 @@
 import React from 'react'
-import Page from '../Page'
-import BattleSimApp from '../BattleSimApp'
+import Page from '~/components/Page'
+import BattleSimApp from '~/components/BattleSimApp'
 
 const useArticleProps = ({ simId, mode, puzzle }) =>
   puzzle

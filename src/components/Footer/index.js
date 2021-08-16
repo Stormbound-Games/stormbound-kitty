@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '../Link'
-import Icon from '../Icon'
-import Only from '../Only'
-import Row from '../Row'
-import VisuallyHidden from '../VisuallyHidden'
+import Link from '~/components/Link'
+import Icon from '~/components/Icon'
+import Only from '~/components/Only'
+import Row from '~/components/Row'
+import VisuallyHidden from '~/components/VisuallyHidden'
 import styles from './styles'
 
 export default React.memo(function Footer(props) {

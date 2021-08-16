@@ -1,5 +1,5 @@
 import React from 'react'
-import load from '../../helpers/load'
+import load from '~/helpers/load'
 
 const COMPONENTS = {
   ART: load('FeedArtEntry'),

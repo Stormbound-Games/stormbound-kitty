@@ -1,9 +1,9 @@
 import advice, { POISON_CONSUMERS } from './'
-import getResolvedCardData from '../../../getResolvedCardData'
-import getRawCardData from '../../../getRawCardData'
-import serialisation from '../../../serialisation'
-import modifyDeck from '../../../modifyDeck'
-import toSentence from '../../../toSentence'
+import getResolvedCardData from '~/getResolvedCardData'
+import getRawCardData from '~/getRawCardData'
+import serialisation from '~/serialisation'
+import modifyDeck from '~/modifyDeck'
+import toSentence from '~/toSentence'
 
 const getCards = (id, modifier = 'NONE') =>
   modifyDeck(serialisation.deck.deserialise(id), modifier).map(

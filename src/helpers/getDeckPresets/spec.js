@@ -1,6 +1,6 @@
 import getDeckPresets from './'
-import serialisation from '../serialisation'
-import getResolvedCardData from '../getResolvedCardData'
+import serialisation from '~/serialisation'
+import getResolvedCardData from '~/getResolvedCardData'
 
 describe('The `getDeckPresets` helper', () => {
   it('should return default presets for a non-suggested deck', () => {

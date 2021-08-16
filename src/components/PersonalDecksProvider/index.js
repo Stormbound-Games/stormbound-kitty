@@ -1,7 +1,7 @@
 import React from 'react'
-import { NotificationContext } from '../NotificationProvider'
-import serialisation from '../../helpers/serialisation'
-import uuid from '../../helpers/uuid'
+import { NotificationContext } from '~/components/NotificationProvider'
+import serialisation from '~/helpers/serialisation'
+import uuid from '~/helpers/uuid'
 
 export const PersonalDecksContext = React.createContext([])
 

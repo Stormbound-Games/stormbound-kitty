@@ -1,12 +1,12 @@
 import React from 'react'
-import { TIER_COLORS, MAX_TIERS } from '../../constants/list'
-import Page from '../Page'
-import CTA from '../CTA'
-import Row from '../Row'
-import ShareButton from '../ListBuilderShareButton'
-import ListBuilderTier from '../ListBuilderTier'
-import ListBuilderToc from '../ListBuilderToc'
-import Title from '../Title'
+import { TIER_COLORS, MAX_TIERS } from '~/constants/list'
+import Page from '~/components/Page'
+import CTA from '~/components/CTA'
+import Row from '~/components/Row'
+import ShareButton from '~/components/ListBuilderShareButton'
+import ListBuilderTier from '~/components/ListBuilderTier'
+import ListBuilderToc from '~/components/ListBuilderToc'
+import Title from '~/components/Title'
 
 export default React.memo(function ListBuilderDisplayView(props) {
   return (

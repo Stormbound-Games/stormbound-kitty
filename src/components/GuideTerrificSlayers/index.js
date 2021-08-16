@@ -1,12 +1,12 @@
 import React from 'react'
-import Link from '../Link'
-import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
-import Guide from '../Guide'
-import CardLink from '../CardLink'
-import TableOfContents from '../TableOfContents'
-import Title from '../Title'
-import getInitialCardData from '../../helpers/getInitialCardData'
-import getGuide from '../../helpers/getGuide'
+import Link from '~/components/Link'
+import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
+import Guide from '~/components/Guide'
+import CardLink from '~/components/CardLink'
+import TableOfContents from '~/components/TableOfContents'
+import Title from '~/components/Title'
+import getInitialCardData from '~/helpers/getInitialCardData'
+import getGuide from '~/helpers/getGuide'
 
 const guide = getGuide('TERRIFIC_SLAYERS_GUIDE')
 

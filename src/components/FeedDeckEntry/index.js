@@ -1,11 +1,11 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '../Link'
-import FeaturedDeck from '../FeaturedDeck'
-import FeedEntry from '../FeedEntry'
-import Tags from '../Tags'
-import capitalise from '../../helpers/capitalise'
-import getFactionFromDeckID from '../../helpers/getFactionFromDeckID'
+import Link from '~/components/Link'
+import FeaturedDeck from '~/components/FeaturedDeck'
+import FeedEntry from '~/components/FeedEntry'
+import Tags from '~/components/Tags'
+import capitalise from '~/helpers/capitalise'
+import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 
 export default React.memo(function FeedDeckEntry(props) {
   const { css } = useFela()

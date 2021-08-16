@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { motion } from 'framer-motion'
-import Image from '../Image'
+import Image from '~/components/Image'
 import styles from './styles'
 
 export default React.memo(function Mana(props) {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '../Link'
+import Link from '~/components/Link'
 import styles from './styles'
 
 export default React.memo(function FAQEntry(props) {

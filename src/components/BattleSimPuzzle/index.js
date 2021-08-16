@@ -1,10 +1,10 @@
 import React from 'react'
-import Link from '../Link'
-import { RESTRICTIONS } from '../../constants/puzzles'
-import Teaser from '../Teaser'
-import { formatDate } from '../../helpers/formatDate'
-import parseDate from '../../helpers/parseDate'
-import capitalise from '../../helpers/capitalise'
+import Link from '~/components/Link'
+import { RESTRICTIONS } from '~/constants/puzzles'
+import Teaser from '~/components/Teaser'
+import { formatDate } from '~/helpers/formatDate'
+import parseDate from '~/helpers/parseDate'
+import capitalise from '~/helpers/capitalise'
 
 export const getCardForPuzzle = puzzle => ({
   name: puzzle.name,

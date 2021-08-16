@@ -1,7 +1,7 @@
 import advice from './'
-import getResolvedCardData from '../../../getResolvedCardData'
-import serialisation from '../../../serialisation'
-import modifyDeck from '../../../modifyDeck'
+import getResolvedCardData from '~/getResolvedCardData'
+import serialisation from '~/serialisation'
+import modifyDeck from '~/modifyDeck'
 
 const getCards = (id, modifier = 'NONE') =>
   modifyDeck(serialisation.deck.deserialise(id), modifier).map(

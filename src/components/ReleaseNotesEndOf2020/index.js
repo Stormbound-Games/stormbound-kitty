@@ -1,23 +1,30 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '../Link'
-import Page from '../Page'
-import CardLink from '../CardLink'
-import CheapenedBrawl from '../CheapenedBrawl'
-import FAQSection from '../FAQSection'
-import Image from '../Image'
-import Info from '../Info'
-import ReleaseNotes from '../ReleaseNotes'
-import { Rare, Epic, Legendary, Coins, Rubies, Stones } from '../Resource'
-import Row from '../Row'
-import Spacing from '../Spacing'
-import Table from '../Table'
-import TableOfContents from '../TableOfContents'
-import Title from '../Title'
-import TogglableContent from '../TogglableContent'
-import displayBundle from '../../helpers/displayBundle'
-import getRewardLabel from '../../helpers/getRewardLabel'
-import getCalendarValue from '../../helpers/getCalendarValue'
+import Link from '~/components/Link'
+import Page from '~/components/Page'
+import CardLink from '~/components/CardLink'
+import CheapenedBrawl from '~/components/CheapenedBrawl'
+import FAQSection from '~/components/FAQSection'
+import Image from '~/components/Image'
+import Info from '~/components/Info'
+import ReleaseNotes from '~/components/ReleaseNotes'
+import {
+  Rare,
+  Epic,
+  Legendary,
+  Coins,
+  Rubies,
+  Stones,
+} from '~/components/Resource'
+import Row from '~/components/Row'
+import Spacing from '~/components/Spacing'
+import Table from '~/components/Table'
+import TableOfContents from '~/components/TableOfContents'
+import Title from '~/components/Title'
+import TogglableContent from '~/components/TogglableContent'
+import displayBundle from '~/helpers/displayBundle'
+import getRewardLabel from '~/helpers/getRewardLabel'
+import getCalendarValue from '~/helpers/getCalendarValue'
 import rewards from './rewards'
 
 export default React.memo(function ReleaseNotesEndOf2020(props) {

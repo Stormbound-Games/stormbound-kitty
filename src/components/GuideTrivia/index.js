@@ -1,13 +1,13 @@
 import React from 'react'
-import Link from '../Link'
-import Guide from '../Guide'
-import Image from '../Image'
-import Notice from '../Notice'
-import Row from '../Row'
-import TableOfContents from '../TableOfContents'
-import Title from '../Title'
-import CardLink from '../CardLink'
-import getGuide from '../../helpers/getGuide'
+import Link from '~/components/Link'
+import Guide from '~/components/Guide'
+import Image from '~/components/Image'
+import Notice from '~/components/Notice'
+import Row from '~/components/Row'
+import TableOfContents from '~/components/TableOfContents'
+import Title from '~/components/Title'
+import CardLink from '~/components/CardLink'
+import getGuide from '~/helpers/getGuide'
 
 const guide = getGuide('TRIVIA_GUIDE')
 

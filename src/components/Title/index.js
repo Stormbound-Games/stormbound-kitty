@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { PageContext } from '../Page'
+import { PageContext } from '~/components/Page'
 import styles from './styles'
 
 export default React.memo(function Title(props) {

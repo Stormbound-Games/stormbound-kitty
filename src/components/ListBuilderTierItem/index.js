@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '../Link'
-import Image from '../Image'
-import BlankButton from '../BlankButton'
+import Link from '~/components/Link'
+import Image from '~/components/Image'
+import BlankButton from '~/components/BlankButton'
 import styles from './styles'
 
 export default React.memo(function ListBuilderTierItem(props) {

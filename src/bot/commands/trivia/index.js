@@ -1,5 +1,5 @@
-import getChannelId from '../../../helpers/getChannelId'
-import getEmbed from '../../../helpers/getEmbed'
+import getChannelId from '~/helpers/getChannelId'
+import getEmbed from '~/helpers/getEmbed'
 import Trivia from './Trivia'
 
 const cache = new Map()

@@ -7,9 +7,9 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts'
-import Title from '../Title'
-import { BrawlContext } from '../BrawlProvider'
-import { TOOLTIP_STYLES } from '../../constants/stats'
+import Title from '~/components/Title'
+import { BrawlContext } from '~/components/BrawlProvider'
+import { TOOLTIP_STYLES } from '~/constants/stats'
 
 export default React.memo(function BrawlCharts(props) {
   const { meta } = React.useContext(BrawlContext)

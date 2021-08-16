@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import RouterLink from 'next/link'
-import Icon from '../Icon'
+import Icon from '~/components/Icon'
 import styles from './styles'
 
 export default React.memo(

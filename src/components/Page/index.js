@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import PageHeaderMeta from '../PageHeaderMeta'
-import HeaderBanner from '../HeaderBanner'
-import PageMeta from '../PageMeta'
-import Spacing from '../Spacing'
+import PageHeaderMeta from '~/components/PageHeaderMeta'
+import HeaderBanner from '~/components/HeaderBanner'
+import PageMeta from '~/components/PageMeta'
+import Spacing from '~/components/Spacing'
 import styles from './styles'
 
 export const PageContext = React.createContext({

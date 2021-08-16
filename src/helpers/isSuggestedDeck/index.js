@@ -1,5 +1,5 @@
-import DECKS from '../../data/decks'
-import serialisation from '../serialisation'
+import DECKS from '~/data/decks'
+import serialisation from '~/helpers/serialisation'
 
 const deckIndex = DECKS.reduce((acc, deck) => {
   const cards = serialisation.deck.deserialise(deck.id)

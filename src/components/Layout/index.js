@@ -2,13 +2,13 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
-import EyeCatcher from '../EyeCatcher'
-import Footer from '../Footer'
-import Header from '../Header'
-import Link from '../Link'
+import EyeCatcher from '~/components/EyeCatcher'
+import Footer from '~/components/Footer'
+import Header from '~/components/Header'
+import Link from '~/components/Link'
 import styles from './styles'
 
-const SearchDialog = dynamic(() => import('../SearchDialog'))
+const SearchDialog = dynamic(() => import('~/components/SearchDialog'))
 
 export default React.memo(function Layout(props) {
   const router = useRouter()

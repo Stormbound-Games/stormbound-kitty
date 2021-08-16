@@ -1,5 +1,5 @@
 import parse from './'
-import { RACES, TYPES, FACTIONS, RARITIES } from '../../constants/game'
+import { RACES, TYPES, FACTIONS, RARITIES } from '~/constants/game'
 
 describe('The `parseAdvancedSearch` helper', () => {
   it('should handle empty searches', () => {

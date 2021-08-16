@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { motion } from 'framer-motion'
-import { BRAWL_INDEX, BRAWL_MILESTONES } from '../../constants/brawl'
-import { BrawlContext } from '../BrawlProvider'
-import BrawlMilestone from '../BrawlMilestone'
-import BrawlProgress from '../BrawlProgress'
+import { BRAWL_INDEX, BRAWL_MILESTONES } from '~/constants/brawl'
+import { BrawlContext } from '~/components/BrawlProvider'
+import BrawlMilestone from '~/components/BrawlMilestone'
+import BrawlProgress from '~/components/BrawlProgress'
 import styles from './styles'
 
 export default React.memo(function BrawlMilestones(props) {

@@ -1,5 +1,5 @@
 import React from 'react'
-import ShareDialog from '../ShareDialog'
+import ShareDialog from '~/components/ShareDialog'
 
 export default React.memo(function QuestBuilderShareButton(props) {
   return (

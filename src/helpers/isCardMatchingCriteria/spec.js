@@ -1,4 +1,4 @@
-import getResolvedCardData from '../getResolvedCardData'
+import getResolvedCardData from '~/getResolvedCardData'
 import isCardMatchingCriteria from './'
 
 describe('The `isCardMatchingCriteria` helper', () => {

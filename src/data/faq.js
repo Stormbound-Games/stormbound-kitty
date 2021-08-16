@@ -1,10 +1,10 @@
 import React from 'react'
-import Link from '../components/Link'
-import CardLink from '../components/CardLink'
-import Image from '../components/Image'
-import DryRunnerExplanation from '../components/DryRunnerExplanation'
-import getRawCardData from '../helpers/getRawCardData'
-import { UNVALUED_CARDS } from '../constants/misc'
+import Link from '~/components/Link'
+import CardLink from '~/components/CardLink'
+import Image from '~/components/Image'
+import DryRunnerExplanation from '~/components/DryRunnerExplanation'
+import getRawCardData from '~/helpers/getRawCardData'
+import { UNVALUED_CARDS } from '~/constants/misc'
 
 export default [
   {

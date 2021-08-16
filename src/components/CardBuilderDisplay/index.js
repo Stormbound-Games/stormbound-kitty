@@ -1,7 +1,7 @@
 import React from 'react'
-import App from '../CardBuilderApp'
-import getInitialCardData from '../../helpers/getInitialCardData'
-import useRouter from '../../hooks/useRouter'
+import App from '~/components/CardBuilderApp'
+import getInitialCardData from '~/helpers/getInitialCardData'
+import useRouter from '~/hooks/useRouter'
 
 export default React.memo(function CardBuilderDisplay(props) {
   const { params } = useRouter()

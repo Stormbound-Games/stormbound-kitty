@@ -1,4 +1,4 @@
-import { RACES } from '../../constants/game'
+import { RACES } from '~/constants/game'
 import getCardValue, { MAX_TILES, MAX_MANA } from './'
 
 describe('The `getCardValue` helper', () => {

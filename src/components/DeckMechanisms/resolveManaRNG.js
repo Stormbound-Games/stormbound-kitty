@@ -1,5 +1,5 @@
-import getBinomialRandomVariableResult from '../../helpers/getBinomialRandomVariableResult'
-import { PROBABILITIES } from '../../constants/dryRunner'
+import getBinomialRandomVariableResult from '~/helpers/getBinomialRandomVariableResult'
+import { PROBABILITIES } from '~/constants/dryRunner'
 
 /**
  * Mutate the given state to handle the RNG for Frozen Core and Dawnsparks.

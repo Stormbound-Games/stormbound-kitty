@@ -1,11 +1,11 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { A11yDialog } from 'react-a11y-dialog'
-import DiamondButton from '../DiamondButton'
-import CTA from '../CTA'
-import Image from '../Image'
-import Title from '../Title'
-import VisuallyHidden from '../VisuallyHidden'
+import DiamondButton from '~/components/DiamondButton'
+import CTA from '~/components/CTA'
+import Image from '~/components/Image'
+import Title from '~/components/Title'
+import VisuallyHidden from '~/components/VisuallyHidden'
 import styles from './styles'
 
 export default React.memo(function Dialog(props) {

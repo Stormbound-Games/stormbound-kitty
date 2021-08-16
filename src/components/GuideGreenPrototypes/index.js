@@ -1,12 +1,12 @@
 import React from 'react'
-import BattleSimApp from '../BattleSimApp'
-import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
-import Notice from '../Notice'
-import Guide from '../Guide'
-import CardLink from '../CardLink'
-import Title from '../Title'
-import getInitialCardData from '../../helpers/getInitialCardData'
-import getGuide from '../../helpers/getGuide'
+import BattleSimApp from '~/components/BattleSimApp'
+import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
+import Notice from '~/components/Notice'
+import Guide from '~/components/Guide'
+import CardLink from '~/components/CardLink'
+import Title from '~/components/Title'
+import getInitialCardData from '~/helpers/getInitialCardData'
+import getGuide from '~/helpers/getGuide'
 
 const guide = getGuide('GREEN_PROTOTYPES_GUIDE')
 

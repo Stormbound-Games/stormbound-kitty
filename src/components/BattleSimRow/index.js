@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import findFrontRow from '../../helpers/findFrontRow'
+import findFrontRow from '~/helpers/findFrontRow'
 import styles from './styles'
 
 export default React.memo(function BattleSimRow(props) {

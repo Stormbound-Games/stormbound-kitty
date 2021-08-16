@@ -1,5 +1,5 @@
-import getEmbed from '../../../helpers/getEmbed'
-import toSentence from '../../../helpers/toSentence'
+import getEmbed from '~/helpers/getEmbed'
+import toSentence from '~/helpers/toSentence'
 
 const LEAGUE_ROLES = [
   'Heroes',

@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '../Link'
-import Page from '../Page'
-import HallOfFame from '../CardBuilderHallOfFame'
-import { Rubies } from '../Resource'
-import Title from '../Title'
+import Link from '~/components/Link'
+import Page from '~/components/Page'
+import HallOfFame from '~/components/CardBuilderHallOfFame'
+import { Rubies } from '~/components/Resource'
+import Title from '~/components/Title'
 import styles from './styles'
 
 export default React.memo(function CardBuilderContest(props) {

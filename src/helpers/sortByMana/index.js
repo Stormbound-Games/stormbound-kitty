@@ -1,4 +1,4 @@
-import getResolvedCardData from '../getResolvedCardData'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
 
 export default (a, b) => {
   if (!a) return +1

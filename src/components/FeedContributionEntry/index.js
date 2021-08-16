@@ -1,7 +1,7 @@
 import React from 'react'
-import FeedEntry from '../FeedEntry'
-import Link from '../Link'
-import CONTRIBUTIONS from '../../data/contributions'
+import FeedEntry from '~/components/FeedEntry'
+import Link from '~/components/Link'
+import CONTRIBUTIONS from '~/data/contributions'
 
 export default React.memo(function FeedContributionEntry(props) {
   const { author: name } = CONTRIBUTIONS.find(

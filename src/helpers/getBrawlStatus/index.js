@@ -1,4 +1,4 @@
-import { BRAWL_MILESTONES, CROWN_REWARDS } from '../../constants/brawl'
+import { BRAWL_MILESTONES, CROWN_REWARDS } from '~/constants/brawl'
 
 const DEFAULT_HEART = { isFull: true, isPermanent: true, isProtected: false }
 

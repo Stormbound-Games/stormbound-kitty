@@ -8,13 +8,13 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts'
-import FactionSelect from '../FactionSelect'
-import Row from '../Row'
-import Select from '../Select'
-import Title from '../Title'
-import getResolvedCardData from '../../helpers/getResolvedCardData'
-import CARDS from '../../data/cards'
-import { TOOLTIP_STYLES } from '../../constants/stats'
+import FactionSelect from '~/components/FactionSelect'
+import Row from '~/components/Row'
+import Select from '~/components/Select'
+import Title from '~/components/Title'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
+import CARDS from '~/data/cards'
+import { TOOLTIP_STYLES } from '~/constants/stats'
 
 export default React.memo(function ChartStrength(props) {
   const [faction, setFaction] = React.useState('*')

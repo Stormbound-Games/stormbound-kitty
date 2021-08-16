@@ -1,6 +1,6 @@
-import CARDS from '../../../data/cards'
-import arrayRandom from '../../../helpers/arrayRandom'
-import getEmbed from '../../../helpers/getEmbed'
+import CARDS from '~/data/cards'
+import arrayRandom from '~/helpers/arrayRandom'
+import getEmbed from '~/helpers/getEmbed'
 
 const [STARTS, ENDS, NAMES] = (() => {
   const starts = []

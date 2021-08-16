@@ -1,4 +1,4 @@
-import { BRAWL_MILESTONES } from '../../constants/brawl'
+import { BRAWL_MILESTONES } from '~/constants/brawl'
 import getMilestoneForCrowns from './'
 
 describe('The `getMilestoneForCrowns` helper', () => {

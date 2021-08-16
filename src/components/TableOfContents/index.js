@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Spacing from '../Spacing'
+import Spacing from '~/components/Spacing'
 
 export default React.memo(function TableOfContents({
   spacing = { vertical: 'LARGE' },

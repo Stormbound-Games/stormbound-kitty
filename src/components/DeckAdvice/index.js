@@ -1,9 +1,9 @@
 import React from 'react'
-import DeckSingleAdvice from '../DeckSingleAdvice'
-import LearnMoreIcon from '../LearnMoreIcon'
-import Title from '../Title'
-import getResolvedCardData from '../../helpers/getResolvedCardData'
-import getDeckAdvice from '../../helpers/getDeckAdvice'
+import DeckSingleAdvice from '~/components/DeckSingleAdvice'
+import LearnMoreIcon from '~/components/LearnMoreIcon'
+import Title from '~/components/Title'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
+import getDeckAdvice from '~/helpers/getDeckAdvice'
 
 export default React.memo(function DeckAdvice(props) {
   const [isEmpty, setIsEmpty] = React.useState(false)

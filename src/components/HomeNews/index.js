@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Image from '../Image'
-import News from '../News'
-import Spacing from '../Spacing'
-import Title from '../Title'
+import Image from '~/components/Image'
+import News from '~/components/News'
+import Spacing from '~/components/Spacing'
+import Title from '~/components/Title'
 import styles from './styles'
 
 export default React.memo(function HomeNews(props) {

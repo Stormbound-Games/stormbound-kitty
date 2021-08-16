@@ -1,4 +1,4 @@
-import { BRAWL_MILESTONES } from '../../constants/brawl'
+import { BRAWL_MILESTONES } from '~/constants/brawl'
 
 export default (crowns = 0, difficulty = 'LEGACY') => {
   const milestones = BRAWL_MILESTONES[difficulty]

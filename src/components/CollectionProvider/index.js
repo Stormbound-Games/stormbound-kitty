@@ -1,7 +1,7 @@
 import React from 'react'
-import { NotificationContext } from '../NotificationProvider'
-import CARDS from '../../data/cards'
-import indexArray from '../../helpers/indexArray'
+import { NotificationContext } from '~/components/NotificationProvider'
+import CARDS from '~/data/cards'
+import indexArray from '~/helpers/indexArray'
 
 export const CollectionContext = React.createContext([])
 const cardsWithoutTokens = CARDS.filter(card => !card.token)

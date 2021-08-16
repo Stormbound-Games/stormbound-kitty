@@ -1,4 +1,4 @@
-import getEmbed from '../../../helpers/getEmbed'
+import getEmbed from '~/helpers/getEmbed'
 
 export default {
   command: 'help',

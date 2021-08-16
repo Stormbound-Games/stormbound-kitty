@@ -1,11 +1,11 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { motion } from 'framer-motion'
-import BlankButton from '../BlankButton'
-import Card from '../Card'
-import CTA from '../CTA'
-import Spacing from '../Spacing'
-import chunk from '../../helpers/chunk'
+import BlankButton from '~/components/BlankButton'
+import Card from '~/components/Card'
+import CTA from '~/components/CTA'
+import Spacing from '~/components/Spacing'
+import chunk from '~/helpers/chunk'
 import styles from './styles'
 
 export default React.memo(function CardsGallery(props) {

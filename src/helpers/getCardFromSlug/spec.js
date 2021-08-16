@@ -1,4 +1,4 @@
-import getCardFromSlug from '../../../src/helpers/getCardFromSlug'
+import getCardFromSlug from '~/src/helpers/getCardFromSlug'
 
 describe('The `getCardFromSlug` helper', () => {
   it('should find a card from its ID', () => {

@@ -1,5 +1,5 @@
-import getRawCardData from '../getRawCardData'
-import getCostForLevel from '../getCostForLevel'
+import getRawCardData from '~/helpers/getRawCardData'
+import getCostForLevel from '~/helpers/getCostForLevel'
 
 export default ({ id, level, copies, missing }) => {
   if (level === 5) return false

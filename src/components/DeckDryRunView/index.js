@@ -1,13 +1,13 @@
 import React from 'react'
-import modifyDeck from '../../helpers/modifyDeck'
-import DryRunner from '../DryRunner'
-import DeckMechanisms from '../DeckMechanisms'
-import { NotificationContext } from '../NotificationProvider'
-import CardLink from '../CardLink'
-import { BRAWL_INDEX } from '../../constants/brawl'
-import isCard from '../../helpers/isCard'
-import getDeckPresets from '../../helpers/getDeckPresets'
-import useRouter from '../../hooks/useRouter'
+import modifyDeck from '~/helpers/modifyDeck'
+import DryRunner from '~/components/DryRunner'
+import DeckMechanisms from '~/components/DeckMechanisms'
+import { NotificationContext } from '~/components/NotificationProvider'
+import CardLink from '~/components/CardLink'
+import { BRAWL_INDEX } from '~/constants/brawl'
+import isCard from '~/helpers/isCard'
+import getDeckPresets from '~/helpers/getDeckPresets'
+import useRouter from '~/hooks/useRouter'
 
 class View extends React.Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React from 'react'
-import { RARITIES } from '../../constants/game'
-import { BOOKS } from '../../constants/books'
-import getBookName from '../../helpers/getBookName'
+import { RARITIES } from '~/constants/game'
+import { BOOKS } from '~/constants/books'
+import getBookName from '~/helpers/getBookName'
 
 export default React.memo(function BookExplanation({ book }) {
   const { percentiles, draws, only = {} } = BOOKS[book]

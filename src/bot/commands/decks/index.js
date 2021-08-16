@@ -1,9 +1,9 @@
-import { FACTIONS } from '../../../constants/game'
-import { TAGS } from '../../../constants/deck'
-import getDeckSearchDescription from '../../../helpers/getDeckSearchDescription'
-import getEmbed from '../../../helpers/getEmbed'
-import handleSearchAlias from '../../../helpers/handleSearchAlias'
-import searchCards from '../../../helpers/searchCards'
+import { FACTIONS } from '~/constants/game'
+import { TAGS } from '~/constants/deck'
+import getDeckSearchDescription from '~/helpers/getDeckSearchDescription'
+import getEmbed from '~/helpers/getEmbed'
+import handleSearchAlias from '~/helpers/handleSearchAlias'
+import searchCards from '~/helpers/searchCards'
 
 export const parseMessage = content => {
   const terms = content.split(/\s+/g)

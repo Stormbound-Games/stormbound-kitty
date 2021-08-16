@@ -1,8 +1,8 @@
 import React from 'react'
-import { BrawlContext } from '../BrawlProvider'
-import BrawlCoinsChart from '../BrawlCoinsChart'
-import BrawlStatusChart from '../BrawlStatusChart'
-import Row from '../Row'
+import { BrawlContext } from '~/components/BrawlProvider'
+import BrawlCoinsChart from '~/components/BrawlCoinsChart'
+import BrawlStatusChart from '~/components/BrawlStatusChart'
+import Row from '~/components/Row'
 
 export default React.memo(function BrawlCharts(props) {
   const { brawl } = React.useContext(BrawlContext)

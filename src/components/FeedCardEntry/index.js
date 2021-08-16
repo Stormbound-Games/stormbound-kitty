@@ -1,11 +1,11 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '../Link'
-import FeedEntry from '../FeedEntry'
-import Teaser from '../Teaser'
-import Spacing from '../Spacing'
-import { getCardData } from '../CardBuilderHallOfFame'
-import serialisation from '../../helpers/serialisation'
+import Link from '~/components/Link'
+import FeedEntry from '~/components/FeedEntry'
+import Teaser from '~/components/Teaser'
+import Spacing from '~/components/Spacing'
+import { getCardData } from '~/components/CardBuilderHallOfFame'
+import serialisation from '~/helpers/serialisation'
 import styles from './styles'
 
 export default React.memo(function FeedCardEntry(props) {

@@ -1,8 +1,8 @@
 import React from 'react'
-import DryRunnerCard from '../DryRunnerCard'
-import Row from '../Row'
-import chunk from '../../helpers/chunk'
-import arrayPad from '../../helpers/arrayPad'
+import DryRunnerCard from '~/components/DryRunnerCard'
+import Row from '~/components/Row'
+import chunk from '~/helpers/chunk'
+import arrayPad from '~/helpers/arrayPad'
 
 export default React.memo(function DryRunnerHand(props) {
   const hand = props.hand.slice(0)

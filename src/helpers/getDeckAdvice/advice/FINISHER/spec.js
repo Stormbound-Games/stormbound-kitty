@@ -4,10 +4,10 @@ import advice, {
   LOW_LEVEL_FINISHERS,
   HIGH_LEVEL_FINISHERS,
 } from './'
-import getResolvedCardData from '../../../getResolvedCardData'
-import serialisation from '../../../serialisation'
-import modifyDeck from '../../../modifyDeck'
-import getRawCardData from '../../../getRawCardData'
+import getResolvedCardData from '~/getResolvedCardData'
+import serialisation from '~/serialisation'
+import modifyDeck from '~/modifyDeck'
+import getRawCardData from '~/getRawCardData'
 
 const getCards = (id, modifier = 'NONE') =>
   modifyDeck(serialisation.deck.deserialise(id), modifier).map(

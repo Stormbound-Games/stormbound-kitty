@@ -1,12 +1,12 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Select from 'react-select'
-import inputStyles from '../Input/styles'
-import VisuallyHidden from '../VisuallyHidden'
-import { FACTIONS } from '../../constants/game'
-import getCardsByFaction from '../../helpers/getCardsByFaction'
-import getRawCardData from '../../helpers/getRawCardData'
-import useSelectStyles from '../../hooks/useSelectStyles'
+import inputStyles from '~/components/Input/styles'
+import VisuallyHidden from '~/components/VisuallyHidden'
+import { FACTIONS } from '~/constants/game'
+import getCardsByFaction from '~/helpers/getCardsByFaction'
+import getRawCardData from '~/helpers/getRawCardData'
+import useSelectStyles from '~/hooks/useSelectStyles'
 
 const ORDER = [...Object.keys(FACTIONS), 'tokens']
 const cardsByFaction = getCardsByFaction()

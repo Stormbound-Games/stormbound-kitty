@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import useRouter from '../../hooks/useRouter'
+import useRouter from '~/hooks/useRouter'
 
 const SITE_URL = 'https://stormbound-kitty.com'
 

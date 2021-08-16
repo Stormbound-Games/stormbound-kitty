@@ -1,14 +1,14 @@
 import React from 'react'
 import hookIntoProps from 'hook-into-props'
-import App from '../CardBuilderApp'
-import serialisation from '../../helpers/serialisation'
-import areAllValuesEqual from '../../helpers/areAllValuesEqual'
+import App from '~/components/CardBuilderApp'
+import serialisation from '~/helpers/serialisation'
+import areAllValuesEqual from '~/helpers/areAllValuesEqual'
 import getInitialCardData, {
   getInitialCardDataFromQuery,
-} from '../../helpers/getInitialCardData'
-import resolveAbility from '../../helpers/resolveAbility'
-import getCardFromSlug from '../../helpers/getCardFromSlug'
-import useRouter from '../../hooks/useRouter'
+} from '~/helpers/getInitialCardData'
+import resolveAbility from '~/helpers/resolveAbility'
+import getCardFromSlug from '~/helpers/getCardFromSlug'
+import useRouter from '~/hooks/useRouter'
 
 const formatLevelProp = value => ({
   values: [null, null, null, null, null].fill(value),

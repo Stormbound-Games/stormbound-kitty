@@ -1,11 +1,11 @@
 import React from 'react'
-import Link from '../Link'
-import Guide from '../Guide'
-import Info from '../Info'
-import { Coins, Rubies } from '../Resource'
-import Title from '../Title'
-import CardLink from '../CardLink'
-import getGuide from '../../helpers/getGuide'
+import Link from '~/components/Link'
+import Guide from '~/components/Guide'
+import Info from '~/components/Info'
+import { Coins, Rubies } from '~/components/Resource'
+import Title from '~/components/Title'
+import CardLink from '~/components/CardLink'
+import getGuide from '~/helpers/getGuide'
 
 const guide = getGuide('CARD_SHOP_GUIDE')
 
