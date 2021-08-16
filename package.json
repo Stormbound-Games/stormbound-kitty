@@ -57,7 +57,6 @@
     "icons": "spritesh --input public/assets/icons --output sprite.svg --prefix 'icon-'",
     "bot": "node -r esm bin/bot.js",
     "bot:dev": "nodemon -x \"node -r esm\" bin/bot.js --watch src",
-    "changelog": "npm install puppeteer --no-save && node bin/changes.js",
     "prepare": "husky install"
   },
   "browserslist": [
