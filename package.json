@@ -45,9 +45,8 @@
     "worker-loader": "^3.0.8"
   },
   "scripts": {
-    "prebuild:cra": "node -r esm bin/sitemap.js",
     "start": "next dev",
-    "build:cra": "CI=false next export",
+    "build:cra": "next build && next-sitemap && next export",
     "test": "cypress run",
     "bot": "node -r esm bin/bot.js",
     "bot:dev": "nodemon -x \"node -r esm\" bin/bot.js --watch src",
@@ -74,6 +73,7 @@
     "husky": "^7.0.1",
     "lint-staged": "^11.1.2",
     "mathjax-node": "^2.1.1",
+    "next-sitemap": "^1.6.157",
     "nodemon": "^2.0.12",
     "prettier": "^2.3.2",
     "sitemap": "^7.0.0"
