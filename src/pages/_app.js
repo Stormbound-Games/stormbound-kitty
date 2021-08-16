@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { RendererProvider } from 'react-fela'
-import createFelaRenderer from '../helpers/createFelaRenderer'
+import createFelaRenderer from '~/helpers/createFelaRenderer'
+import CollectionProvider from '~/components/CollectionProvider'
 
 const fallbackRenderer = createFelaRenderer()
 
@@ -14,7 +15,9 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
         />
       </Head>
       <RendererProvider renderer={renderer}>
-        <Component {...pageProps} />
+        <CollectionProvider>
+          <Component {...pageProps} />
+        </CollectionProvider>
       </RendererProvider>
     </>
   )
