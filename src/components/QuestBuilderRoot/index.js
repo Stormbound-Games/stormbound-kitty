@@ -19,7 +19,7 @@ class QuestBuilderRoot extends React.Component {
       name: '',
       description: '',
       difficulty: 1,
-      ...getInitialQuestData(props.questId),
+      ...props.quest,
     }
   }
 
@@ -34,7 +34,9 @@ class QuestBuilderRoot extends React.Component {
 
     if (hasAnyPropChanged) {
       this.props.history.replace(
-        '/quest/' + serialisation.quest.serialise(this.state)
+        '/quest/' + serialisation.quest.serialise(this.state),
+        undefined,
+        { scroll: false }
       )
     } else if (prevProps.questId !== this.props.questId) {
       if (this.props.questId) {
@@ -54,7 +56,7 @@ class QuestBuilderRoot extends React.Component {
         description: '',
         difficulty: 1,
       },
-      () => this.props.history.push('/quest')
+      () => this.props.history.push('/quest', undefined, { scroll: false })
     )
   }
 
@@ -96,5 +98,4 @@ class QuestBuilderRoot extends React.Component {
 export default hookIntoProps(() => ({
   ...useFela(),
   history: useRouter().history,
-  questId: useRouter().params.questId,
 }))(QuestBuilderRoot)
