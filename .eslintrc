@@ -1,8 +1,30 @@
 {
-  "extends": ["react-app"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true,
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier",
+  ],
+  "plugins": [
+    "react",
+    "prettier",
+    "cypress"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module",
+  },
   "overrides": [
     {
-      "files": ["cypress/**/*.js", "spec.js"],
+      "files": [
+        "cypress/**/*.js",
+        "spec.js"
+      ],
       "globals": {
         "cy": "readonly",
         "Cypress": "readonly",
@@ -11,18 +33,50 @@
       }
     },
     {
-      "files": ["src/**/*.js"],
-      "excludedFiles": ["src/bot/**/*.js"],
-      "rules": { "no-console": "warn" }
+      "files": [
+        "src/**/*.js"
+      ],
+      "excludedFiles": [
+        "src/bot/**/*.js"
+      ],
+      "rules": {
+        "no-console": "warn"
+      }
     },
     {
-      "files": ["**/*.js"],
+      "files": [
+        "**/*.js"
+      ],
       "rules": {
         "import/no-anonymous-default-export": 0,
         "padding-line-between-statements": [
           "error",
-          { "blankLine": "always", "prev": "var", "next": "return" }
-        ]
+          {
+            "blankLine": "always",
+            "prev": "var",
+            "next": "return"
+          }
+        ],
+        "radix": 2,
+        "object-shorthand": [
+          2,
+          "properties"
+        ],
+        "no-implicit-coercion": 2,
+        "react/jsx-curly-brace-presence": 2,
+        "react/jsx-fragments": 2,
+        "react-hooks/rules-of-hooks": 2,
+        "react-hooks/exhaustive-deps": 2,
+        "react/jsx-handler-names": 0,
+        "react/display-name": 0,
+        "react/jsx-pascal-case": [
+          2,
+          {
+            "allowAllCaps": true
+          }
+        ],
+        "react/prop-types": 0,
+        "react/react-in-jsx-scope": 0,
       }
     }
   ]
