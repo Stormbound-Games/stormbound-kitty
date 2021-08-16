@@ -6,7 +6,6 @@ import Row from '~/components/Row'
 import Quest from '~/components/Quest'
 import Page from '~/components/Page'
 import serialisation from '~/helpers/serialisation'
-import getInitialQuestData from '~/helpers/getInitialQuestData'
 import useNavigator from '~/hooks/useNavigator'
 
 class QuestBuilderRoot extends React.Component {
@@ -23,27 +22,10 @@ class QuestBuilderRoot extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    const hasAnyPropChanged = [
-      'currency',
-      'amount',
-      'name',
-      'description',
-      'difficulty',
-    ].some(prop => this.state[prop] !== prevState[prop])
-
-    if (hasAnyPropChanged) {
-      this.props.navigator.replace(
-        '/quest/' + serialisation.quest.serialise(this.state)
-      )
-    } else if (prevProps.questId !== this.props.questId) {
-      if (this.props.questId) {
-        this.setState({ ...getInitialQuestData(this.props.questId) })
-      } else {
-        this.reset()
-      }
-    }
-  }
+  updateURL = () =>
+    this.props.navigator.replace(
+      '/quest/' + serialisation.quest.serialise(this.state)
+    )
 
   reset = () => {
     this.setState(
@@ -78,11 +60,17 @@ class QuestBuilderRoot extends React.Component {
             <Row.Column>
               <Form
                 {...this.state}
-                setCurrency={currency => this.setState({ currency })}
-                setAmount={amount => this.setState({ amount })}
-                setName={name => this.setState({ name })}
-                setDescription={description => this.setState({ description })}
-                setDifficulty={difficulty => this.setState({ difficulty })}
+                setCurrency={currency =>
+                  this.setState({ currency }, this.updateURL)
+                }
+                setAmount={amount => this.setState({ amount }, this.updateURL)}
+                setName={name => this.setState({ name }, this.updateURL)}
+                setDescription={description =>
+                  this.setState({ description }, this.updateURL)
+                }
+                setDifficulty={difficulty =>
+                  this.setState({ difficulty }, this.updateURL)
+                }
                 reset={this.reset}
               />
             </Row.Column>

@@ -8,9 +8,17 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const quest = getInitialQuestData(context.params.id)
+  try {
+    const [id] = context.params.rest || []
 
-  return { props: { quest, id: context.params.id } }
+    if (!id) {
+      return { props: { quest: {}, id: null } }
+    }
+
+    return { props: { quest: getInitialQuestData(id), id } }
+  } catch (error) {
+    return { props: { quest: {}, id: null } }
+  }
 }
 
 const QuestBuilderPage = props => (
