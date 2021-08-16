@@ -9,11 +9,15 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const cards = serialisation.cards
-    .deserialise(context.params.id)
-    .map(getResolvedCardData)
+  const [id] = context.params.id
 
-  return { props: { cards } }
+  try {
+    const cards = serialisation.cards.deserialise(id).map(getResolvedCardData)
+
+    return { props: { cards } }
+  } catch (error) {
+    return { props: { cards: [] } }
+  }
 }
 
 const BookOpeningSimulatorPage = props => (

@@ -8,10 +8,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
+  const [id] = context.params.id
   const defaultCard = { id: null, level: 1 }
 
   try {
-    const cards = serialisation.cards.deserialise(context.params.id)
+    const cards = serialisation.cards.deserialise(id)
     return {
       props: { cards: [cards[0] || defaultCard, cards[1] || defaultCard] },
     }
