@@ -29,8 +29,8 @@ export async function getStaticProps(context) {
 
     return {
       props: {
-        card: getInitialCardData(id.toUpperCase()),
-        id: id.toUpperCase(),
+        id,
+        card: getInitialCardData(id),
         mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
       },
     }
