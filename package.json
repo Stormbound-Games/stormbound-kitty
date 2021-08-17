@@ -46,7 +46,7 @@
   },
   "scripts": {
     "start": "next dev",
-    "build:cra": "next build && next-sitemap && next export",
+    "build:cra": "next build && next-sitemap",
     "test": "cypress run",
     "bot": "node -r esm bin/bot.js",
     "bot:dev": "nodemon -x \"node -r esm\" bin/bot.js --watch src",
