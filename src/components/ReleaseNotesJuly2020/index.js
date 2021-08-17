@@ -21,9 +21,12 @@ import { Coins, Rubies, Stones } from '~/components/Resource'
 import getInitialCardData from '~/helpers/getInitialCardData'
 import styles from './styles'
 
-export default React.memo(function ReleaseNotesJuly2020(props) {
+export default React.memo(function ReleaseNotesJuly2020() {
   const { css } = useFela()
   const [withConfusionFix, setConfusionFix] = React.useState(true)
+  const [isMounted, setIsMounted] = React.useState(false)
+
+  React.useEffect(() => setIsMounted(true), [])
 
   React.useEffect(() => {
     const ODDS = [
@@ -356,14 +359,17 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
 
       <Page.Embed>
         <div className={css({ position: 'relative' })}>
-          <Checkbox
-            checked={withConfusionFix}
-            onChange={event => setConfusionFix(event.target.checked)}
-            id='confusion-fix'
-            extend={styles.fix}
-          >
-            Apply the confusion fix
-          </Checkbox>
+          {isMounted && (
+            <Checkbox
+              checked={withConfusionFix}
+              onChange={event => setConfusionFix(event.target.checked)}
+              id='confusion-fix'
+              extend={styles.fix}
+            >
+              Apply the confusion fix
+            </Checkbox>
+          )}
+
           <BattleSimApp
             environment='winter'
             mode='DISPLAY'
