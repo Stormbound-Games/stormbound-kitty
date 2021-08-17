@@ -52,7 +52,6 @@
     "start": "react-scripts start",
     "build:cra": "CI=false react-scripts build",
     "test": "cypress run",
-    "icons": "spritesh --input public/assets/icons --output sprite.svg --prefix 'icon-'",
     "bot": "node -r esm bin/bot.js",
     "bot:dev": "nodemon -x \"node -r esm\" bin/bot.js --watch src",
     "prepare": "husky install"
@@ -73,8 +72,7 @@
     "mathjax-node": "^2.1.1",
     "nodemon": "^2.0.12",
     "prettier": "^2.3.2",
-    "sitemap": "^7.0.0",
-    "spritesh": "^1.2.1"
+    "sitemap": "^7.0.0"
   },
   "lint-staged": {
     "*.js": [
