@@ -8,7 +8,7 @@ import GUIDES from '../../data/guides'
 import PUZZLES from '../../data/puzzles'
 import RELEASES from '../../data/releases'
 import STORIES from '../../data/stories'
-import getMembersList from '../../hooks/useMembersList'
+import getMembersList from '../../helpers/getMembersList'
 
 export default mode => {
   const contests = SWCC.flat().filter(contest => !!contest.winner)

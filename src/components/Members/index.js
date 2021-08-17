@@ -7,12 +7,12 @@ import MemberTagYourself from '../MemberTagYourself'
 import Row from '../Row'
 import Select from '../Select'
 import chunk from '../../helpers/chunk'
-import useMembersList from '../../hooks/useMembersList'
+import getMembersList from '../../helpers/getMembersList'
 
 export default React.memo(function Members(props) {
   const [name, setName] = React.useState('')
   const [type, setType] = React.useState('*')
-  const members = useMembersList()
+  const members = getMembersList()
     .filter(({ member }) => name === '' || member.toLowerCase().includes(name))
     .filter(({ type: cType }) => type === '*' || type === cType)
   const rows = chunk(members, 3)

@@ -25,7 +25,7 @@ const sortAlphabetically = (a, b) =>
     ? +1
     : 0
 
-const useMembersList = () =>
+const getMembersList = () =>
   uniq(
     [
       ...STORIES.map(addType('STORY')),
@@ -55,4 +55,4 @@ const useMembersList = () =>
     'member'
   ).sort(sortAlphabetically)
 
-export default useMembersList
+export default getMembersList
