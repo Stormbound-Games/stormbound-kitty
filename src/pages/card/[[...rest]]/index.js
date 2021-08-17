@@ -4,15 +4,11 @@ import CardBuilderApp from '~/components/CardBuilderApp'
 import Layout from '~/components/Layout'
 import getInitialCardData from '~/helpers/getInitialCardData'
 import CARDS from '~/data/cards'
-import SWCC from '~/data/swcc'
 
 export async function getStaticPaths() {
-  const officialCards = CARDS.filter(card => !card.token).map(card => card.id)
-  const customCards = SWCC.flat().map(week => week.winner.id)
-
-  const paths = [...officialCards, ...customCards].filter(Boolean).map(id => ({
-    params: { rest: [id] },
-  }))
+  const paths = CARDS.filter(card => !card.token)
+    .map(card => card.id)
+    .map(id => ({ params: { rest: [id, 'display'] } }))
 
   return { paths, fallback: true }
 }
