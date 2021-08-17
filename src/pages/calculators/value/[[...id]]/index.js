@@ -8,7 +8,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const [id] = context.params.id
+  const [id] = context.params.id || []
   const defaultCard = { id: null, level: 1 }
 
   try {
