@@ -49,8 +49,8 @@
   },
   "scripts": {
     "prebuild:cra": "node -r esm bin/sitemap.js",
-    "start": "react-scripts start",
-    "build:cra": "CI=false react-scripts build",
+    "start": "craco start",
+    "build:cra": "CI=false craco build",
     "test": "cypress run",
     "bot": "node -r esm bin/bot.js",
     "bot:dev": "nodemon -x \"node -r esm\" bin/bot.js --watch src",
