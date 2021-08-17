@@ -1,6 +1,8 @@
-import fs from 'fs'
-import { SitemapStream, streamToPromise } from 'sitemap'
-import getSitemap from '../src/helpers/getSitemap'
+require('module-alias').addAlias('~', __dirname + '/../src')
+
+const fs = require('fs')
+const { SitemapStream, streamToPromise } = require('sitemap')
+const getSitemap = require('~/helpers/getSitemap').default
 
 const links = getSitemap('FULL')
 
