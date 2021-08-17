@@ -9,7 +9,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const [id] = context.params.id
+  const [id] = context.params.id || []
 
   try {
     const cards = serialisation.cards.deserialise(id).map(getResolvedCardData)
