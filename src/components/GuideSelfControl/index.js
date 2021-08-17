@@ -9,15 +9,12 @@ import Notice from '~/components/Notice'
 import Row from '~/components/Row'
 import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
-import getGuide from '~/helpers/getGuide'
 
-const guide = getGuide('SELF_CONTROL_GUIDE')
-
-export default React.memo(function GuideSelfControl(props) {
+export default React.memo(function GuideSelfControl() {
   const { css } = useFela()
 
   return (
-    <Guide {...guide}>
+    <>
       <p>
         Welcome to the <span className='Highlight'>Brawl Gazette</span>, “Self
         Control” edition! If you are completely new to the Brawl, be sure to
@@ -246,6 +243,6 @@ export default React.memo(function GuideSelfControl(props) {
         See you on the battlefield! If you have any comment or suggestion, get
         in touch with Kitty#7266 on Discord.
       </Notice>
-    </Guide>
+    </>
   )
 })

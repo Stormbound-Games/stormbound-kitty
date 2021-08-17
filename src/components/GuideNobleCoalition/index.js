@@ -10,15 +10,12 @@ import Only from '~/components/Only'
 import Row from '~/components/Row'
 import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
-import getGuide from '~/helpers/getGuide'
 
-const guide = getGuide('NOBLE_COALITION_GUIDE')
-
-export default React.memo(function GuideNobleCoalition(props) {
+export default React.memo(function GuideNobleCoalition() {
   const { css } = useFela()
 
   return (
-    <Guide {...guide}>
+    <>
       <p>
         Welcome to <span className='Highlight'>Oeni’s Brawl Gazette</span>,
         “Noble Coalition” edition! If you are completely new to the Brawl, be
@@ -103,7 +100,7 @@ export default React.memo(function GuideNobleCoalition(props) {
               ladder decks with <CardLink id='N67' />, normal Swarm and
               Shadowfen rush decks or the now nerfed <CardLink id='S21' /> and
               not really worth mentioning. Not to say they are not viable
-              (except for Queen, the Queen is dead), I'm just hoping we see more
+              (except for Queen, the Queen is dead), I’m just hoping we see more
               interesting cat decks this time around, maybe even utilizing the
               recently buffed <CardLink id='N60' /> which ought to finally get
               some time in the spotlight.
@@ -134,6 +131,6 @@ export default React.memo(function GuideNobleCoalition(props) {
         See you on the battlefield! If you have any comment or suggestion, get
         in touch with oeni#7266 on Discord.
       </Notice>
-    </Guide>
+    </>
   )
 })

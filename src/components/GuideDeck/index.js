@@ -10,13 +10,10 @@ import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import getGuide from '~/helpers/getGuide'
 
-const guide = getGuide('DECK_GUIDE')
-
-export default React.memo(function GuideDeck(props) {
+export default React.memo(function GuideDeck() {
   return (
-    <Guide {...guide}>
+    <>
       <p>
         So, you want to build or improve your deck! You came to the right place.
         In this guide, I will explain everything you need to know to compose
@@ -148,7 +145,7 @@ export default React.memo(function GuideDeck(props) {
 
       <p>
         First and foremost, you need some units who can advance the front
-        line—if they don't on play, they will on the next. Structures can’t
+        line—if they don’t on play, they will on the next. Structures can’t
         walk, and take up available space on the board. Advancing the front line
         gives more space to play more cards.
       </p>
@@ -363,6 +360,6 @@ export default React.memo(function GuideDeck(props) {
         have fun. One with a pleasing aesthetic and strategy. Don’t take it too
         seriously. Just have fun.&nbsp;:)
       </Notice>
-    </Guide>
+    </>
   )
 })

@@ -8,13 +8,10 @@ import Link from '~/components/Link'
 import Notice from '~/components/Notice'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
-import getGuide from '~/helpers/getGuide'
 
-const guide = getGuide('COMPLETE_GUIDE')
-
-export default React.memo(function GuideComplete(props) {
+export default React.memo(function GuideComplete() {
   return (
-    <Guide {...guide}>
+    <>
       <p>
         So, you are new to Stormbound and would like to progress quickly. You
         came to the right place. This is a complete guide to the game and its
@@ -908,6 +905,6 @@ export default React.memo(function GuideComplete(props) {
         contact me (u/Arikrat) or to add me ingame (ID 1001572357). Thank you
         for your time reading this.
       </p>
-    </Guide>
+    </>
   )
 })

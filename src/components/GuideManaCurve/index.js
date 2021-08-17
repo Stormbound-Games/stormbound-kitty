@@ -15,10 +15,8 @@ import serialisation from '~/helpers/serialisation'
 import toSentence from '~/helpers/toSentence'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import modifyDeck from '~/helpers/modifyDeck'
-import getGuide from '~/helpers/getGuide'
 import { BRAWLS } from '~/constants/brawl'
 
-const guide = getGuide('MANA_CURVE_GUIDE')
 const manaBrawls = BRAWLS.filter(brawl => brawl.id.includes('MANA')).map(
   brawl => brawl.label
 )
@@ -38,11 +36,11 @@ const Graph = props => {
   )
 }
 
-export default React.memo(function GuideManaCurve(props) {
+export default React.memo(function GuideManaCurve() {
   const { css } = useFela()
 
   return (
-    <Guide {...guide}>
+    <>
       <p>
         <span className='Highlight'>Mana</span>. As explained at length in the{' '}
         <Link to='/guides/complete'>complete guide</Link> and the{' '}
@@ -482,6 +480,6 @@ export default React.memo(function GuideManaCurve(props) {
           </em>
         </p>
       </Spacing>
-    </Guide>
+    </>
   )
 })

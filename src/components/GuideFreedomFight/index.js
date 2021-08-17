@@ -9,14 +9,11 @@ import Notice from '~/components/Notice'
 import Row from '~/components/Row'
 import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
-import getGuide from '~/helpers/getGuide'
 
-const guide = getGuide('FREEDOM_FIGHT_GUIDE')
-
-export default React.memo(function GuideFreedomFight(props) {
+export default React.memo(function GuideFreedomFight() {
   const { css } = useFela()
   return (
-    <Guide {...guide}>
+    <>
       <p>
         Welcome to <span className='Highlight'>Oeni’s Brawl Gazette</span>,
         “Freedom Fight” edition! If you are completely new to the Brawl, be sure
@@ -197,6 +194,6 @@ export default React.memo(function GuideFreedomFight(props) {
         Please don’t use satyrs or goats
         <br />I will see you on the battlefield!
       </Notice>
-    </Guide>
+    </>
   )
 })

@@ -1,5 +1,6 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
+import Guide from '~/components/Guide'
 import Layout from '~/components/Layout'
 import GUIDES from '~/data/guides'
 
@@ -53,7 +54,7 @@ export const getStaticPaths = () => {
 
 export const getStaticProps = ({ params }) => {
   return {
-    props: { id: GUIDES.find(release => release.slug === params.slug).id },
+    props: GUIDES.find(release => release.slug === params.slug),
   }
 }
 
@@ -62,7 +63,9 @@ const GuidePage = props => {
 
   return (
     <Layout active={['GUIDES', props.id]}>
-      <Component />
+      <Guide {...props}>
+        <Component />
+      </Guide>
     </Layout>
   )
 }

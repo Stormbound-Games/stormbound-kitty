@@ -2,17 +2,13 @@ import React from 'react'
 import Link from '~/components/Link'
 import Image from '~/components/Image'
 import Info from '~/components/Info'
-import Guide from '~/components/Guide'
 import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
-import getGuide from '~/helpers/getGuide'
 import styles from './styles'
 
-const guide = getGuide('BEGINNER_GUIDE')
-
-export default React.memo(function GuideBeginner(props) {
+export default React.memo(function GuideBeginner() {
   return (
-    <Guide {...guide}>
+    <>
       <p>
         In this straightforward guide, we will cover the basics of the game such
         what are the different abilities, as well as all the little pieces of
@@ -444,6 +440,6 @@ export default React.memo(function GuideBeginner(props) {
         target unit dies and then Laurus will move into its tile, or all
         bordering units have attacked it.
       </p>
-    </Guide>
+    </>
   )
 })

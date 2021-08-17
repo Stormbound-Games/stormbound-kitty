@@ -12,14 +12,11 @@ import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
 import getInitialCardData from '~/helpers/getInitialCardData'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import getGuide from '~/helpers/getGuide'
 import styles from './styles'
 
-const guide = getGuide('DRAWING_GUIDE')
-
-export default React.memo(function GuideDrawing(props) {
+export default React.memo(function GuideDrawing() {
   return (
-    <Guide {...guide}>
+    <>
       <p>
         In a card game, the algorithm that determines how cards are drawn is
         extremely important. Take a physical card game as an example: if after
@@ -318,6 +315,6 @@ export default React.memo(function GuideDrawing(props) {
           “Practice” in the navigation to start.
         </p>
       </Info>
-    </Guide>
+    </>
   )
 })

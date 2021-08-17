@@ -1,17 +1,13 @@
 import React from 'react'
 import Link from '~/components/Link'
-import Guide from '~/components/Guide'
 import Info from '~/components/Info'
 import { Coins, Rubies } from '~/components/Resource'
 import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
-import getGuide from '~/helpers/getGuide'
 
-const guide = getGuide('CARD_SHOP_GUIDE')
-
-export default React.memo(function GuideCardShop(props) {
+export default React.memo(function GuideCardShop() {
   return (
-    <Guide {...guide}>
+    <>
       <p>
         Buying cards in the shop is a bit less efficient than getting 3 random
         cards from a Noble book, but can be a good way to forgo randomness and
@@ -303,6 +299,6 @@ export default React.memo(function GuideCardShop(props) {
         At the end of the day, you have to figure out what you want from the
         game to know how to best spend your resources!
       </p>
-    </Guide>
+    </>
   )
 })

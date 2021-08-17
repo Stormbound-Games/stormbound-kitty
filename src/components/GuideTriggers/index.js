@@ -7,13 +7,10 @@ import Row from '~/components/Row'
 import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import getGuide from '~/helpers/getGuide'
 
-const guide = getGuide('TRIGGER_GUIDE')
-
-export default React.memo(function GuideDrawing(props) {
+export default React.memo(function GuideDrawing() {
   return (
-    <Guide {...guide}>
+    <>
       <p>
         Unlike other famous card games like Magic: the Gathering, Stormbound
         does not come with a rulebook explaining in excruciating details how the
@@ -340,6 +337,6 @@ export default React.memo(function GuideDrawing(props) {
           efficient.
         </li>
       </ul>
-    </Guide>
+    </>
   )
 })

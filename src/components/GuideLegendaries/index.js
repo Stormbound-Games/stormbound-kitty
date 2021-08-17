@@ -2,23 +2,20 @@ import React from 'react'
 import { TIER_COLORS } from '~/constants/list'
 import getInitialListData from '~/helpers/getInitialListData'
 import Info from '~/components/Info'
-import Guide from '~/components/Guide'
 import BrawlGuideDisclaimer from '~/components/BrawlGuideDisclaimer'
 import Link from '~/components/Link'
 import ListBuilderTier from '~/components/ListBuilderTier'
 import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
-import getGuide from '~/helpers/getGuide'
 
-const guide = getGuide('LEGENDARIES_GUIDE')
 const TIER_LIST =
   'S - Always Usable,N8N59N69N46S19F21;A - Usable in Most%2FSome Decks,N58I2I17I22W8W23F12;B - Usable in Very Few Decks,N35N48S21W10F23;C - Never Use,N77N76S3I29/display'
 
-export default React.memo(function GuideLegendaries(props) {
+export default React.memo(function GuideLegendaries() {
   const tiers = getInitialListData(TIER_LIST)
 
   return (
-    <Guide {...guide}>
+    <>
       <p>
         Legendaries are shiny, very rare, and may often look good at first
         sight. Most new players tend to automatically include their new
@@ -179,7 +176,7 @@ export default React.memo(function GuideLegendaries(props) {
         tiles and trigger orders (visit the{' '}
         <Link to='/guides/triggers'>Triggers Guide</Link>). With a massive power
         spike at level 2, it is worth investing in Mia for a couple more copies
-        that will easily elevate her to S tier later down the road. And let's
+        that will easily elevate her to S tier later down the road. And let’s
         not forget the insane power spike at level 4 that makes level 5
         completely unnecessary to reach her full potential as a powerful
         Ironclad legendary.
@@ -194,7 +191,7 @@ export default React.memo(function GuideLegendaries(props) {
         well as delaying large/high-threat enemy units. At level 1, he can hold
         his own against opponents with slightly higher levels. Unfortunately, he
         cannot defend horizontally at all so reserve some card slots for more
-        dire defense. But with the relatively new change to Eloth's ability
+        dire defense. But with the relatively new change to Eloth’s ability
         which allows him to move forward after destroying a unit, he can still
         help clear from your baseline.
       </p>
@@ -234,7 +231,7 @@ export default React.memo(function GuideLegendaries(props) {
         <CardLink id='W23' />: A
       </h3>
       <p>
-        Olf's powerful base healing ability is unmatched even when compared to{' '}
+        Olf’s powerful base healing ability is unmatched even when compared to{' '}
         <CardLink id='W24' />. On top of that, his heavy strength serves as a
         powerful baseline clearer and a heavy runner to secure long games. Olf
         is the perfect tool to extend your games and reach those abundant mana
@@ -356,7 +353,7 @@ export default React.memo(function GuideLegendaries(props) {
         much and you will have trouble triggering it. If you can set it up to
         buff its own strength it becomes much better but is a very unreliable
         game plan. Not to mention, low level toad spam is not great at
-        capitalizing on Bragda's power. Level 3 is good, and level 4+ is very
+        capitalizing on Bragda’s power. Level 3 is good, and level 4+ is very
         powerful. Use Klaxi if you have her (and play Shadowfen) until you get
         Bragda at level 3+.
       </p>
@@ -365,7 +362,7 @@ export default React.memo(function GuideLegendaries(props) {
         <CardLink id='S3' />: C
       </h3>
       <p>
-        Despite Ahmi's uncapped potential strength, it is incredibly difficult
+        Despite Ahmi’s uncapped potential strength, it is incredibly difficult
         to ramp up quick enough at level 1 while finding the space on the board
         to do so. Most of the time, this card is simply not worth playing for 3
         mana because by the time you played Ahmi several times, you are already
@@ -404,6 +401,6 @@ export default React.memo(function GuideLegendaries(props) {
         Special thanks to <Link to='/member/Derk'>Derk</Link> for helping with
         the tier list as well as a few of the entries and their polishing!
       </p>
-    </Guide>
+    </>
   )
 })

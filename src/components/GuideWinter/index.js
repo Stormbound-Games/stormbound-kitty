@@ -9,13 +9,10 @@ import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
-import getGuide from '~/helpers/getGuide'
 
-const guide = getGuide('WINTER_GUIDE')
-
-export default React.memo(function GuideWinter(props) {
+export default React.memo(function GuideWinter() {
   return (
-    <Guide {...guide}>
+    <>
       <p>
         Welcome to this beginner’s guide to Winter Pact. Note that this was
         authored before the elders and ancients were introduced to the game, so
@@ -468,9 +465,9 @@ export default React.memo(function GuideWinter(props) {
 
       <Notice spacing={{ top: 'LARGER' }}>
         For more detailed advices &amp; responses, please check out the
-        Stormbound Discord and we'll be happy to help. Best of luck in your
+        Stormbound Discord and we’ll be happy to help. Best of luck in your
         matches!
       </Notice>
-    </Guide>
+    </>
   )
 })

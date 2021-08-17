@@ -16,10 +16,7 @@ import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import serialisation from '~/helpers/serialisation'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import getGuide from '~/helpers/getGuide'
 import styles from './styles'
-
-const guide = getGuide('RECKLESS_RUSH_GUIDE')
 
 const Board = props => {
   const { css } = useFela()
@@ -48,7 +45,7 @@ const colorCells = css => (cells, type) => {
   )
 }
 
-export default React.memo(function GuideRecklessRush(props) {
+export default React.memo(function GuideRecklessRush() {
   const { css } = useFela()
 
   React.useEffect(() => {
@@ -59,7 +56,7 @@ export default React.memo(function GuideRecklessRush(props) {
   }, [css])
 
   return (
-    <Guide {...guide}>
+    <>
       <p>
         So you want to learn the hidden arts of Reckless Rush (
         <abbr title='Reckless Rush'>RR</abbr>)? Well who better to teach you
@@ -144,7 +141,7 @@ export default React.memo(function GuideRecklessRush(props) {
               <CardLink id='S11' />, a great variation is the Flameless Rush
               variation where <CardLink id='N82' /> replaces{' '}
               <CardLink id='S11' />. <CardLink id='N82' /> provides great stats
-              for it's mana cost and can often hold the front-line simply on its
+              for it’s mana cost and can often hold the front-line simply on its
               own.
             </p>
             <p>
@@ -1104,7 +1101,7 @@ export default React.memo(function GuideRecklessRush(props) {
 
       <p>
         In cases where your hand is relatively good and the chances to draw an
-        even better hand is extremely low, then it's safe to ignore PVO and
+        even better hand is extremely low, then it’s safe to ignore PVO and
         focus on FVO. Now you want to cycle in such a way that the cycle either
         cuts in between the order you play your cards or is used up at the end.
       </p>
@@ -1210,7 +1207,7 @@ export default React.memo(function GuideRecklessRush(props) {
         the same column as Shady Ghoul—IF (and this works only in this RNG
         situation) the token bounces back meaning it stays in the same column
         but one tile separating the enemy unit, you could play snowmasons on
-        centre right and then on your opponent's turn, the board looks like
+        centre right and then on your opponent’s turn, the board looks like
         this:
       </p>
 
@@ -1598,6 +1595,6 @@ export default React.memo(function GuideRecklessRush(props) {
       <Notice icon='sword' spacing={{ top: 'LARGEST' }}>
         <Sparkles>Rush to victory!</Sparkles>
       </Notice>
-    </Guide>
+    </>
   )
 })
