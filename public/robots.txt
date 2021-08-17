@@ -1,2 +1,9 @@
+# *
 User-agent: *
 Allow: /
+
+# Host
+Host: https://stormbound-kitty.com
+
+# Sitemaps
+Sitemap: https://stormbound-kitty.com/sitemap.xml
