@@ -47,7 +47,7 @@ const Page = React.memo(function Page(props) {
         <div className={css(styles.content)}>{props.children}</div>
       </PageContext.Provider>
 
-      <PageMeta {...props} authors={authors.join(',')} />
+      <PageMeta {...props} author={authors.join(',')} />
     </div>
   )
 })
