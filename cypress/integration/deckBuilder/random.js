@@ -1,5 +1,5 @@
 import s from './selectors'
-import getRawCardData from '../../../src/helpers/getRawCardData'
+import getRawCardData from '~/helpers/getRawCardData'
 
 describe('Deck Builder — Random deck', () => {
   before(() => {

@@ -1,4 +1,4 @@
-import getSitemap from '../../../src/helpers/getSitemap'
+import getSitemap from '~/helpers/getSitemap'
 
 const links = getSitemap('LIGHT')
 

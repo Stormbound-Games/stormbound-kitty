@@ -1,5 +1,5 @@
 import s from '../../integration/dryRunner/selectors'
-import getRawCardData from '../../../src/helpers/getRawCardData'
+import getRawCardData from '~/helpers/getRawCardData'
 
 const play = id => {
   if (typeof id === 'number') {

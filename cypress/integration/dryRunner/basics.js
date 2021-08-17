@@ -1,5 +1,5 @@
 import s from './selectors'
-import getResolvedCardData from '../../../src/helpers/getResolvedCardData'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
 
 const showsDrawingChance = value => {
   return /\(in hand\)/.test(value) || /\([\d.]+%\)/.test(value)
