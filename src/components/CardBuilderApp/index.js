@@ -117,6 +117,10 @@ export default React.memo(function CardBuilderApp(props) {
   const previousCardId = usePrevious(cardId)
 
   React.useEffect(() => {
+    // Only official card have a concept of versions, so do not redirect if the
+    // card is not an official one.
+    if (!isOfficial) return
+
     const path = ['/card', cardId, mode === 'DISPLAY' ? 'display' : undefined]
       .filter(Boolean)
       .join('/')
@@ -124,7 +128,7 @@ export default React.memo(function CardBuilderApp(props) {
 
     navigator.replace(path + query)
     // eslint-disable-next-line
-  }, [versionId, mode])
+  }, [versionId, mode, isOfficial])
 
   React.useEffect(() => {
     if (previousCardId && previousCardId !== cardId) setVersionId(null)
