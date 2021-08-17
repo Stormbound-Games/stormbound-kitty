@@ -5,6 +5,12 @@ import serialisation from '~/helpers/serialisation'
 
 export const BrawlContext = React.createContext([])
 
+const getDefaultBrawlData = id => {
+  const now = Date.now()
+
+  return [{ createdAt: now, updatedAt: now, id, matches: [] }]
+}
+
 const getInitialBrawlData = id => {
   try {
     const deserialise = brawl => ({
@@ -14,18 +20,17 @@ const getInitialBrawlData = id => {
 
     return JSON.parse(localStorage.getItem('sk.brawl.' + id)).map(deserialise)
   } catch (error) {
-    const now = Date.now()
     // Every type of Brawl is stored separately as an array. Each entry in that
     // array constitutes a weekly Brawl of the given type (e.g. construct =2
     // movement). The last item in the array is the currently displayed Brawl;
     // the other ones are only maintained to be able to do comparison stats.
-    return [{ createdAt: now, updatedAt: now, id, matches: [] }]
+    return getDefaultBrawlData(id)
   }
 }
 
 export default React.memo(function BrawlProvider(props) {
   const STORAGE_KEY = 'sk.brawl.' + props.id
-  const [brawls, setBrawls] = React.useState([])
+  const [brawls, setBrawls] = React.useState(getDefaultBrawlData(props.id))
   const brawl = React.useMemo(() => brawls[brawls.length - 1] || {}, [brawls])
   const { notify: sendNotification } = React.useContext(NotificationContext)
   const notify = React.useCallback(
