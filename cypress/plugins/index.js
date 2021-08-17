@@ -17,7 +17,9 @@ module.exports = (on, config) => {
 
   on(
     'file:preprocessor',
-    preprocessor({ webpackOptions: { resolve: { alias: ALIASES } } })
+    preprocessor({
+      webpackOptions: { resolve: { alias: ALIASES }, node: { fs: 'empty' } },
+    })
   )
 
   return config
