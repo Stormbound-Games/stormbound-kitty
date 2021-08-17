@@ -13,3 +13,4 @@ public/sitemap.xml
 .netlify
 .husky/_
 .next
+.vercel
