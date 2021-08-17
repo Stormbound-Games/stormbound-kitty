@@ -94,7 +94,7 @@ const CustomBookFields = ({
             min={1}
             max={10}
             value={amount}
-            onChange={event => setAmount(+event.target.value)}
+            onChange={setAmount}
           />
         </Row.Column>
       </Row>
