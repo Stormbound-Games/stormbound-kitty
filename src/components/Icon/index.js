@@ -18,7 +18,6 @@ const MAP = {
   cross: dynamic(() => import('~/components/Icons/Cross')),
   crown: dynamic(() => import('~/components/Icons/Crown')),
   download: dynamic(() => import('~/components/Icons/Download')),
-  drop: dynamic(() => import('~/components/Icons/Drop')),
   equalizer: dynamic(() => import('~/components/Icons/Equalizer')),
   eye: dynamic(() => import('~/components/Icons/Eye')),
   fire: dynamic(() => import('~/components/Icons/Fire')),
