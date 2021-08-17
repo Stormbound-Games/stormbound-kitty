@@ -26,7 +26,7 @@ describe('Card Builder — Type', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.reload()
+    cy.wait(1000).reload()
     cy.get(s.TYPE_SELECT).should('have.value', type)
     for (let i = 0; i < 5; i++) assertCardType(i)
   })

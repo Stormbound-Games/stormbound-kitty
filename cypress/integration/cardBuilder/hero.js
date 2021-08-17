@@ -21,7 +21,7 @@ describe('Card Builder — Hero', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.reload()
+    cy.wait(1000).reload()
     cy.get(s.HERO_CHECKBOX).should('be.checked')
     for (let i = 0; i < 5; i++) assertCardHero(i)
   })

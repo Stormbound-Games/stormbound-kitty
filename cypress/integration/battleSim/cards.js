@@ -63,7 +63,8 @@ describe('Battle Sim — Cards', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.reload()
+    cy.wait(1000)
+      .reload()
       .get(s.CARD_SLOT_1)
       .should('not.be.empty')
       .get(s.CARDS_FORM_DISPLAY_1)

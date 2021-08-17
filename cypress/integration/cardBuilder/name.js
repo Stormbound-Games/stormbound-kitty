@@ -22,7 +22,7 @@ describe('Card Builder — Name', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.reload()
+    cy.wait(1000).reload()
     cy.get(s.NAME_INPUT).should('have.value', name)
     for (let i = 0; i < 5; i++) assertCardName(i)
   })

@@ -36,7 +36,8 @@ describe('Battle Sim — Players', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.reload()
+    cy.wait(1000)
+      .reload()
       .get(s.RED_HEALTH)
       .should('have.text', '9')
       .get(s.BLUE_HEALTH)

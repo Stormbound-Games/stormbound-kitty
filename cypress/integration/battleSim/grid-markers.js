@@ -17,7 +17,8 @@ describe('Battle Sim — Grid Markers', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.reload()
+    cy.wait(1000)
+      .reload()
       .get(s.GRID_MARKERS)
       .should('not.exist')
       .get(s.GRID_MARKERS_CHECKBOX)

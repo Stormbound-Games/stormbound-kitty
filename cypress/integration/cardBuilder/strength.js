@@ -26,7 +26,7 @@ describe('Card Builder — Strength', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.reload()
+    cy.wait(1000).reload()
     cy.get(s.STRENGTH_INPUT).should('have.value', strength)
     for (let i = 0; i < 5; i++) assertCardStrength(i)
   })

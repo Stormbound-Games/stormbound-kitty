@@ -22,7 +22,7 @@ describe('Card Builder — Race', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.reload()
+    cy.wait(1000).reload()
     cy.get(s.RACE_SELECT).should('have.value', race)
     for (let i = 0; i < 5; i++) assertCardRace(i)
   })

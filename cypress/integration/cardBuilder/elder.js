@@ -25,7 +25,7 @@ describe('Card Builder — Elder', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.reload()
+    cy.wait(1000).reload()
     cy.get(s.ELDER_CHECKBOX).should('be.checked')
     for (let i = 0; i < 5; i++) assertCardElder(i)
   })

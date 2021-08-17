@@ -18,6 +18,6 @@ describe('Battle Sim — Mana', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.reload().get(s.MANA).eq(0).should('have.text', '9')
+    cy.wait(1000).reload().get(s.MANA).eq(0).should('have.text', '9')
   })
 })

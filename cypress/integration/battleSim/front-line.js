@@ -43,7 +43,8 @@ describe('Battle Sim — Front lines', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.reload()
+    cy.wait(1000)
+      .reload()
       .get(s.ROWS)
       .eq(4)
       .should('have.attr', 'data-battle-sim-row', 'BLUE-1')

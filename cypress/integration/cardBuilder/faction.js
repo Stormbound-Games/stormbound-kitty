@@ -26,7 +26,7 @@ describe('Card Builder — Faction', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.reload()
+    cy.wait(1000).reload()
     cy.get(s.FACTION_SELECT).should('have.value', faction)
     for (let i = 0; i < 5; i++) assertCardFaction(i)
   })
