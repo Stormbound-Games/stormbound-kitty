@@ -20,12 +20,14 @@ const storeName = name => {
     } else {
       localStorage.removeItem('sk.user_name')
     }
+    // eslint-disable-next-line
   } catch {}
 }
 
 export default React.memo(function UserProvider(props) {
-  const [name, setName] = React.useState(getStoredName())
+  const [name, setName] = React.useState(null)
 
+  React.useEffect(() => setName(getStoredName()), [])
   React.useEffect(() => storeName(name), [name])
 
   return (

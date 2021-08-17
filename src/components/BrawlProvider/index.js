@@ -19,13 +19,13 @@ const getInitialBrawlData = id => {
     // array constitutes a weekly Brawl of the given type (e.g. construct =2
     // movement). The last item in the array is the currently displayed Brawl;
     // the other ones are only maintained to be able to do comparison stats.
-    return [{ createdAt: now, updatedAt: now, id: id, matches: [] }]
+    return [{ createdAt: now, updatedAt: now, id, matches: [] }]
   }
 }
 
 export default React.memo(function BrawlProvider(props) {
   const STORAGE_KEY = 'sk.brawl.' + props.id
-  const [brawls, setBrawls] = React.useState(getInitialBrawlData(props.id))
+  const [brawls, setBrawls] = React.useState([])
   const brawl = React.useMemo(() => brawls[brawls.length - 1] || {}, [brawls])
   const { notify: sendNotification } = React.useContext(NotificationContext)
   const notify = React.useCallback(
@@ -34,14 +34,14 @@ export default React.memo(function BrawlProvider(props) {
   )
 
   React.useEffect(() => {
+    const brawls = getInitialBrawlData(props.id)
+
+    setBrawls(brawls)
+
     if (brawls.length > 1) {
       notify('Locally saved Brawl data found and loaded.')
     }
-    // We only want to run that once on page load if there were locally saved
-    // Brawls, so we need to make sure not to pass `brawls` as a dependency,
-    // otherwise this is going to run every time the Brawl data gets updated.
-    // eslint-disable-next-line
-  }, [notify])
+  }, [props.id, notify])
 
   React.useEffect(() => {
     const data = brawls.map(brawl => ({
@@ -114,7 +114,7 @@ export default React.memo(function BrawlProvider(props) {
 
     // If there were saved entries from the current Brawl, update the state so
     // the view re-renders.
-    if (typeof groups[props.id].length) {
+    if (groups[props.id].length) {
       setBrawls(
         groups[props.id].map(brawl => ({
           ...brawl,
