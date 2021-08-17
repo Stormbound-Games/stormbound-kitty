@@ -7,7 +7,8 @@ import useQueryParams from '~/hooks/useQueryParams'
 
 export default React.memo(function NavDeckBuilder(props) {
   const { css } = useFela()
-  const { id } = useQueryParams()
+  const { rest } = useQueryParams()
+  const [id] = rest || []
   const deck = React.useMemo(
     () => (id ? serialisation.deck.deserialise(id) : []),
     [id]
