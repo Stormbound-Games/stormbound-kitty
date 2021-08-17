@@ -1,8 +1,8 @@
 import React from 'react'
-import Link from '../Link'
-import FeedEntry from '../FeedEntry'
-import MemberList from '../MemberList'
-import { CATEGORIES } from '../../constants/guides'
+import Link from '~/components/Link'
+import FeedEntry from '~/components/FeedEntry'
+import MemberList from '~/components/MemberList'
+import { CATEGORIES } from '~/constants/guides'
 
 export default React.memo(function FeedGuideEntry(props) {
   const category = CATEGORIES[props.category].name.short.toLowerCase()

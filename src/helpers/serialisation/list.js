@@ -1,4 +1,4 @@
-import { base64Decode } from '../base64'
+import { base64Decode } from '~/helpers/base64'
 
 export const serialiseList = tiers =>
   tiers

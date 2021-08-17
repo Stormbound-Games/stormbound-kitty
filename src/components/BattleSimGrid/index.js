@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Cell from '../BattleSimCell'
-import Row from '../BattleSimRow'
+import Cell from '~/components/BattleSimCell'
+import Row from '~/components/BattleSimRow'
 import styles from './styles'
 
 const GridRow = props => {

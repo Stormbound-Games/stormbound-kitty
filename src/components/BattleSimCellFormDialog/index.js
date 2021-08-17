@@ -1,6 +1,6 @@
 import React from 'react'
-import CellForm from '../BattleSimCellForm'
-import Dialog from '../Dialog'
+import CellForm from '~/components/BattleSimCellForm'
+import Dialog from '~/components/Dialog'
 import styles from './styles'
 
 export default React.memo(function BattleSimCellFormDialog(props) {

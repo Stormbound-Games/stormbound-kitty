@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import CTA from '../CTA'
-import Image from '../Image'
+import CTA from '~/components/CTA'
+import Image from '~/components/Image'
 import styles from './styles'
 
 export default React.memo(function EmptySearch(props) {

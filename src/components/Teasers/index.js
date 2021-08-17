@@ -1,7 +1,7 @@
 import React from 'react'
-import Row from '../Row'
-import Teaser from '../Teaser'
-import chunk from '../../helpers/chunk'
+import Row from '~/components/Row'
+import Teaser from '~/components/Teaser'
+import chunk from '~/helpers/chunk'
 
 export default React.memo(function Teasers(props) {
   const columns = props.columns || 3

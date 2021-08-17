@@ -1,13 +1,13 @@
 import React from 'react'
-import BattleSimApp from '../BattleSimApp'
-import Card from '../Card'
-import Guide from '../Guide'
-import Info from '../Info'
-import Row from '../Row'
-import Title from '../Title'
-import CardLink from '../CardLink'
-import getResolvedCardData from '../../helpers/getResolvedCardData'
-import getGuide from '../../helpers/getGuide'
+import BattleSimApp from '~/components/BattleSimApp'
+import Card from '~/components/Card'
+import Guide from '~/components/Guide'
+import Info from '~/components/Info'
+import Row from '~/components/Row'
+import Title from '~/components/Title'
+import CardLink from '~/components/CardLink'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
+import getGuide from '~/helpers/getGuide'
 
 const guide = getGuide('TRIGGER_GUIDE')
 

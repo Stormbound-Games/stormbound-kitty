@@ -1,8 +1,8 @@
-import serialisation from '../../../helpers/serialisation'
-import searchCards from '../../../helpers/searchCards'
-import getEmbed from '../../../helpers/getEmbed'
-import getRawCardData from '../../../helpers/getRawCardData'
-import clamp from '../../../helpers/clamp'
+import serialisation from '~/helpers/serialisation'
+import searchCards from '~/helpers/searchCards'
+import getEmbed from '~/helpers/getEmbed'
+import getRawCardData from '~/helpers/getRawCardData'
+import clamp from '~/helpers/clamp'
 
 const getLevelOut = term => {
   term = term.trim()

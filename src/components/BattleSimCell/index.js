@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Image from '../Image'
-import BlankButton from '../BlankButton'
+import Image from '~/components/Image'
+import BlankButton from '~/components/BlankButton'
 import styles from './styles'
 
 const getTitle = props => {

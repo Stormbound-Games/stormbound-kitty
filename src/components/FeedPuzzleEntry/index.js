@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '../Link'
-import FeedEntry from '../FeedEntry'
-import BattleSimPuzzle from '../BattleSimPuzzle'
+import Link from '~/components/Link'
+import FeedEntry from '~/components/FeedEntry'
+import BattleSimPuzzle from '~/components/BattleSimPuzzle'
 import styles from './styles'
 
 export default React.memo(function FeedPuzzleEntry(props) {

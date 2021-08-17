@@ -8,13 +8,13 @@ import {
   DEFAULT_CELL,
   DEFAULT_PLAYER,
   DEFAULT_BOARD,
-} from '../../constants/battle'
-import { DEFAULT_DECK } from '../../constants/deck'
-import getRawCardData from '../../helpers/getRawCardData'
-import getInitialBattleData from '../../helpers/getInitialBattleData'
-import serialisation from '../../helpers/serialisation'
-import arrayRandom from '../../helpers/arrayRandom'
-import useRouter from '../../hooks/useRouter'
+} from '~/constants/battle'
+import { DEFAULT_DECK } from '~/constants/deck'
+import getRawCardData from '~/helpers/getRawCardData'
+import getInitialBattleData from '~/helpers/getInitialBattleData'
+import serialisation from '~/helpers/serialisation'
+import arrayRandom from '~/helpers/arrayRandom'
+import useRouter from '~/hooks/useRouter'
 
 class BattleSimState extends React.Component {
   constructor(props) {

@@ -1,5 +1,5 @@
-import rwcDuplicates from '../../helpers/rwcDuplicates'
-import isCard from '../../helpers/isCard'
+import rwcDuplicates from '~/helpers/rwcDuplicates'
+import isCard from '~/helpers/isCard'
 
 /**
  * Mutate the given state following a draw.

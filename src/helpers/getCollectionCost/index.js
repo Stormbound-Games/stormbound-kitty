@@ -1,5 +1,5 @@
-import { RARITY_COPIES } from '../../constants/game'
-import getResolvedCardData from '../getResolvedCardData'
+import { RARITY_COPIES } from '~/constants/game'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
 
 const sum = (a, b) => a + b
 

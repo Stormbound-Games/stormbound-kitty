@@ -1,5 +1,5 @@
-import getResolvedCardData from '../getResolvedCardData'
-import shuffle from '../shuffle'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
+import shuffle from '~/helpers/shuffle'
 
 export const increaseCardWeight = weight => Math.floor(weight * 1.6) + 1
 

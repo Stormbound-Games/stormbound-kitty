@@ -1,8 +1,8 @@
 import React from 'react'
-import DryRunnerSettings from '../DryRunnerSettings'
-import Row from '../Row'
-import Spacing from '../Spacing'
-import Title from '../Title'
+import DryRunnerSettings from '~/components/DryRunnerSettings'
+import Row from '~/components/Row'
+import Spacing from '~/components/Spacing'
+import Title from '~/components/Title'
 
 export default React.memo(function DryRunnerInfo(props) {
   const deckIds = props.deck.map(card => card.id)

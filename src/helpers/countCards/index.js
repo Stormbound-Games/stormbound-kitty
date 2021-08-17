@@ -1,5 +1,5 @@
-import isCardMatchingCriteria from '../isCardMatchingCriteria'
-import CARDS from '../../data/cards'
+import isCardMatchingCriteria from '~/helpers/isCardMatchingCriteria'
+import CARDS from '~/data/cards'
 
 const cache = new Map()
 

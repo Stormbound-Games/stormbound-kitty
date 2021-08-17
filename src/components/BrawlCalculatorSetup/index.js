@@ -1,6 +1,6 @@
 import React from 'react'
-import Radio from '../Radio'
-import Spacing from '../Spacing'
+import Radio from '~/components/Radio'
+import Spacing from '~/components/Spacing'
 
 export default React.memo(function BrawlCalculatorSetup(props) {
   return (

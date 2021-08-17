@@ -1,9 +1,9 @@
 import React from 'react'
-import Page from '../Page'
-import BattleSimApp from '../BattleSimApp'
-import PUZZLES from '../../data/puzzles'
-import indexArray from '../../helpers/indexArray'
-import useRouter from '../../hooks/useRouter'
+import Page from '~/components/Page'
+import BattleSimApp from '~/components/BattleSimApp'
+import PUZZLES from '~/data/puzzles'
+import indexArray from '~/helpers/indexArray'
+import useRouter from '~/hooks/useRouter'
 
 const PUZZLES_INDEX = indexArray(PUZZLES, 'board')
 

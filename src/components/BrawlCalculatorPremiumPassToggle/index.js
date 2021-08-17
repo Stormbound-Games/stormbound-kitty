@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Checkbox from '../Checkbox'
-import Spacing from '../Spacing'
-import { Coins } from '../Resource'
+import Checkbox from '~/components/Checkbox'
+import Spacing from '~/components/Spacing'
+import { Coins } from '~/components/Resource'
 import styles from './styles'
 
 export default React.memo(function BrawlCalculatorPremiumPassToggle(props) {

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Image from '../Image'
-import VisuallyHidden from '../VisuallyHidden'
-import useFluidSizing from '../../hooks/useFluidSizing'
+import Image from '~/components/Image'
+import VisuallyHidden from '~/components/VisuallyHidden'
+import useFluidSizing from '~/hooks/useFluidSizing'
 import styles from './styles'
 
 export default React.memo(function Quest(props) {

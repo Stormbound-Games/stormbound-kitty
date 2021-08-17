@@ -1,11 +1,11 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '../Link'
-import MemberList from '../MemberList'
-import Teasers from '../Teasers'
-import Title from '../Title'
-import getRawCardData from '../../helpers/getRawCardData'
-import TOURNAMENTS from '../../data/tournaments.json'
+import Link from '~/components/Link'
+import MemberList from '~/components/MemberList'
+import Teasers from '~/components/Teasers'
+import Title from '~/components/Title'
+import getRawCardData from '~/helpers/getRawCardData'
+import TOURNAMENTS from '~/data/tournaments.json'
 
 const POINT_VALUE = {
   TOURNAMENT: [9, 6, 3],

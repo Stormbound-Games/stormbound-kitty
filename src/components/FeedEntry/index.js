@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Icon from '../Icon'
-import { formatDate, formatPreciseDate } from '../../helpers/formatDate'
+import Icon from '~/components/Icon'
+import { formatDate, formatPreciseDate } from '~/helpers/formatDate'
 import styles from './styles'
 
 const pad = value => String(value).padStart(2, '0')

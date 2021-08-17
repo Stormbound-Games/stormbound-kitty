@@ -1,4 +1,4 @@
-import serialisation from '../serialisation'
+import serialisation from '~/helpers/serialisation'
 
 export default deck => {
   if (!deck) {

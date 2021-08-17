@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import VisuallyHidden from '../VisuallyHidden'
+import VisuallyHidden from '~/components/VisuallyHidden'
 import styles from './styles'
 
 export default React.memo(function BlankButton({ extend, label, ...props }) {

@@ -1,5 +1,5 @@
 import serialisation from './'
-import { base64Decode } from '../base64'
+import { base64Decode } from '~/helpers/base64'
 
 const serialiseDeck = cards => {
   // Do not en/decode to base64 as the hash ends up being longer than the

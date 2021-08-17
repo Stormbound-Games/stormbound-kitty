@@ -1,7 +1,7 @@
-import getEmbed from '../../../helpers/getEmbed'
-import capitalise from '../../../helpers/capitalise'
-import isKATMember from '../../../helpers/isKATMember'
-import getMemberContent from '../../../hooks/useMemberContent'
+import getEmbed from '~/helpers/getEmbed'
+import capitalise from '~/helpers/capitalise'
+import isKATMember from '~/helpers/isKATMember'
+import getMemberContent from '~/hooks/useMemberContent'
 
 const BASE_URL = 'https://stormbound-kitty.com'
 const aggregate = (acc, { entries }) => acc + entries.length

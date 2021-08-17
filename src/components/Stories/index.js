@@ -1,9 +1,9 @@
 import React from 'react'
-import Teasers from '../Teasers'
-import Link from '../Link'
-import getExcerpt from '../../helpers/getExcerpt'
-import getResolvedCardData from '../../helpers/getResolvedCardData'
-import capitalise from '../../helpers/capitalise'
+import Teasers from '~/components/Teasers'
+import Link from '~/components/Link'
+import getExcerpt from '~/helpers/getExcerpt'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
+import capitalise from '~/helpers/capitalise'
 
 const StoryAuthor = React.memo(function StoryAuthor(props) {
   return (

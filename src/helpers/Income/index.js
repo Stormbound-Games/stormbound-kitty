@@ -1,6 +1,6 @@
-import { BOOKS } from '../../constants/books'
-import getAverageStonesPerBook from '../../helpers/getAverageStonesPerBook'
-import getPeriodMultiplier from '../../helpers/getPeriodMultiplier'
+import { BOOKS } from '~/constants/books'
+import getAverageStonesPerBook from '~/helpers/getAverageStonesPerBook'
+import getPeriodMultiplier from '~/helpers/getPeriodMultiplier'
 
 const RUBY_CONVERSION_MAP = {
   CARD_SHOP: 20,

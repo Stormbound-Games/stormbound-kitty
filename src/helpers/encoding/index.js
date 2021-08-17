@@ -1,11 +1,5 @@
-import {
-  FACTIONS,
-  TYPES,
-  RARITIES,
-  RACES,
-  CURRENCIES,
-} from '../../constants/game'
-import { MATCH_STATUSES, VICTORY_BONUSES } from '../../constants/brawl'
+import { FACTIONS, TYPES, RARITIES, RACES, CURRENCIES } from '~/constants/game'
+import { MATCH_STATUSES, VICTORY_BONUSES } from '~/constants/brawl'
 
 const RACES_LONG = Object.keys(RACES)
 const RACES_SHORT = Object.values(RACES)

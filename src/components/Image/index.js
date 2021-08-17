@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { PageContext } from '../Page'
-import { ImageSupportContext } from '../ImageSupportProvider'
+import { PageContext } from '~/components/Page'
+import { ImageSupportContext } from '~/components/ImageSupportProvider'
 
 // The reason AVIF is opt-in but WEBP is opt-out is because the WEBP version is
 // automatically generated for all files with a script (although is sometimes

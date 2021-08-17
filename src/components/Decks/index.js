@@ -1,12 +1,12 @@
 import React from 'react'
-import FeaturedDeck from '../FeaturedDeck'
-import CTA from '../CTA'
-import Loader from '../Loader'
-import Row from '../Row'
-import chunk from '../../helpers/chunk'
-import useLazyLoad from '../../hooks/useLazyLoad'
-import useViewportSize from '../../hooks/useViewportSize'
-import useRouter from '../../hooks/useRouter'
+import FeaturedDeck from '~/components/FeaturedDeck'
+import CTA from '~/components/CTA'
+import Loader from '~/components/Loader'
+import Row from '~/components/Row'
+import chunk from '~/helpers/chunk'
+import useLazyLoad from '~/hooks/useLazyLoad'
+import useViewportSize from '~/hooks/useViewportSize'
+import useRouter from '~/hooks/useRouter'
 
 export default React.memo(function Decks(props) {
   const { viewportWidth } = useViewportSize()

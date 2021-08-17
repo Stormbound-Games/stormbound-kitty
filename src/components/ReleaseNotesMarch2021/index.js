@@ -1,17 +1,17 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '../Link'
-import Page from '../Page'
-import CardLink from '../CardLink'
-import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
-import CheapenedBrawl from '../CheapenedBrawl'
-import FAQSection from '../FAQSection'
-import HorizontalRule from '../HorizontalRule'
-import Image from '../Image'
-import Info from '../Info'
-import NerfCompensationInfo from '../NerfCompensationInfo'
-import ReleaseNotes from '../ReleaseNotes'
-import Row from '../Row'
+import Link from '~/components/Link'
+import Page from '~/components/Page'
+import CardLink from '~/components/CardLink'
+import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
+import CheapenedBrawl from '~/components/CheapenedBrawl'
+import FAQSection from '~/components/FAQSection'
+import HorizontalRule from '~/components/HorizontalRule'
+import Image from '~/components/Image'
+import Info from '~/components/Info'
+import NerfCompensationInfo from '~/components/NerfCompensationInfo'
+import ReleaseNotes from '~/components/ReleaseNotes'
+import Row from '~/components/Row'
 import {
   Common,
   Rare,
@@ -21,13 +21,13 @@ import {
   HeroCrowns,
   Rubies,
   Stones,
-} from '../Resource'
-import Spacing from '../Spacing'
-import TableOfContents from '../TableOfContents'
-import Title from '../Title'
-import getBookName from '../../helpers/getBookName'
-import getInitialCardData from '../../helpers/getInitialCardData'
-import { getRarityColor } from '../../helpers/getRarity'
+} from '~/components/Resource'
+import Spacing from '~/components/Spacing'
+import TableOfContents from '~/components/TableOfContents'
+import Title from '~/components/Title'
+import getBookName from '~/helpers/getBookName'
+import getInitialCardData from '~/helpers/getInitialCardData'
+import { getRarityColor } from '~/helpers/getRarity'
 
 export default React.memo(function ReleaseNotesMarch2021(props) {
   const { css } = useFela()

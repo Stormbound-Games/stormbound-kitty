@@ -1,8 +1,8 @@
-import getDeckAdvice from '../../../helpers/getDeckAdvice'
-import getEmbed from '../../../helpers/getEmbed'
-import getResolvedCardData from '../../../helpers/getResolvedCardData'
-import serialisation from '../../../helpers/serialisation'
-import getDeckIDFromURL from '../../../helpers/getDeckIDFromURL'
+import getDeckAdvice from '~/helpers/getDeckAdvice'
+import getEmbed from '~/helpers/getEmbed'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
+import serialisation from '~/helpers/serialisation'
+import getDeckIDFromURL from '~/helpers/getDeckIDFromURL'
 
 export default {
   command: 'deckadvice',

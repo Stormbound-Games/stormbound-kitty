@@ -1,4 +1,4 @@
-import getLexiconTerms from '../getLexiconTerms'
+import getLexiconTerms from '~/helpers/getLexiconTerms'
 
 export default letter => {
   const terms = getLexiconTerms()

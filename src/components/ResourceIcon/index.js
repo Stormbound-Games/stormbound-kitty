@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from '../Image'
+import Image from '~/components/Image'
 import styles from './styles'
 
 export default React.memo(function ResourceIcon(props) {

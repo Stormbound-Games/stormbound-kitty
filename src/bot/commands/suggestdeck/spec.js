@@ -1,7 +1,7 @@
-import DECKS from '../../../data/decks'
-import getFactionFromDeckID from '../../../helpers/getFactionFromDeckID'
-import indexArray from '../../../helpers/indexArray'
-import { TAGS } from '../../../constants/deck'
+import DECKS from '~/data/decks'
+import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
+import indexArray from '~/helpers/indexArray'
+import { TAGS } from '~/constants/deck'
 import command from './'
 const suggestdeck = command.handler.bind(command)
 

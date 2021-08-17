@@ -1,5 +1,5 @@
-import toSentence from '../../../toSentence'
-import getRawCardData from '../../../getRawCardData'
+import toSentence from '~/helpers/toSentence'
+import getRawCardData from '~/helpers/getRawCardData'
 
 const getDragons = cards => cards.filter(card => card.race === 'dragon')
 export const DRAGON_CONSUMERS = ['N6', 'N43', 'N51', 'F9', 'F19', 'S4']

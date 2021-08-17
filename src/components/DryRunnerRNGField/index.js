@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Radio from '../Radio'
-import CardLink from '../CardLink'
-import { FRIENDLY_CHANCES } from '../../constants/dryRunner'
+import Radio from '~/components/Radio'
+import CardLink from '~/components/CardLink'
+import { FRIENDLY_CHANCES } from '~/constants/dryRunner'
 import styles from './styles'
 
 const RNG_SENSITIVE_CARDS = {

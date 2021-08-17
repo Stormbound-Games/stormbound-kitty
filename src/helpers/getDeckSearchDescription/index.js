@@ -1,7 +1,7 @@
-import capitalise from '../capitalise'
-import getRawCardData from '../getRawCardData'
-import toSentence from '../toSentence'
-import { TAGS } from '../../constants/deck'
+import capitalise from '~/helpers/capitalise'
+import getRawCardData from '~/helpers/getRawCardData'
+import toSentence from '~/helpers/toSentence'
+import { TAGS } from '~/constants/deck'
 
 const getDeckSearchDescription = (state = {}) => {
   const cardData = getRawCardData(state.including)

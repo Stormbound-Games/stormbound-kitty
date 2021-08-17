@@ -1,5 +1,5 @@
-import { DailyIncome } from '../Income'
-import getDailyCoinsCounter from '../getDailyCoinsCounter'
+import { DailyIncome } from '~/helpers/Income'
+import getDailyCoinsCounter from '~/helpers/getDailyCoinsCounter'
 
 const getActivityRewards = ({
   league,

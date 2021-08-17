@@ -1,6 +1,6 @@
-import getAbbreviations from '../../../helpers/getAbbreviations'
-import toSentence from '../../../helpers/toSentence'
-import getEmbed from '../../../helpers/getEmbed'
+import getAbbreviations from '~/helpers/getAbbreviations'
+import toSentence from '~/helpers/toSentence'
+import getEmbed from '~/helpers/getEmbed'
 
 const ABBREVIATIONS = getAbbreviations('LOWERCASE')
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import ListBuilderTierHeader from '../ListBuilderTierHeader'
-import ListBuilderTierItem from '../ListBuilderTierItem'
-import getRawCardData from '../../helpers/getRawCardData'
+import ListBuilderTierHeader from '~/components/ListBuilderTierHeader'
+import ListBuilderTierItem from '~/components/ListBuilderTierItem'
+import getRawCardData from '~/helpers/getRawCardData'
 import styles from './styles'
 
 export default React.memo(function ListBuilderTier(props) {

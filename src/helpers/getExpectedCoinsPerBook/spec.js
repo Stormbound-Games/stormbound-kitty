@@ -1,4 +1,4 @@
-import CARDS from '../../data/cards'
+import CARDS from '~/data/cards'
 import getExpectedCoinsPerBook from './'
 
 const LEVEL_5_COLLECTION = CARDS.map(card => ({

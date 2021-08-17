@@ -1,8 +1,8 @@
-import CARDS from '../../data/cards'
-import DECKS from '../../data/decks'
-import serialisation from '../serialisation'
-import getFactionFromDeckID from '../getFactionFromDeckID'
-import { getLongFaction } from '../encoding'
+import CARDS from '~/data/cards'
+import DECKS from '~/data/decks'
+import serialisation from '~/helpers/serialisation'
+import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
+import { getLongFaction } from '~/helpers/encoding'
 
 const getLiveTierList = () => {
   // Amount of decks of each type (computed in a single loop for performance)

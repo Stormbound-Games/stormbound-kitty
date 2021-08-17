@@ -1,5 +1,5 @@
-import CARDS from '../../data/cards'
-import getRawCardData from '../getRawCardData'
+import CARDS from '~/data/cards'
+import getRawCardData from '~/helpers/getRawCardData'
 
 const slugify = name =>
   name.replace(/\s/g, '_').replace(/[’',]/g, '').toLowerCase()

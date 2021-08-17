@@ -1,4 +1,4 @@
-import styles from '../HorizontalRule/styles'
+import styles from '~/components/HorizontalRule/styles'
 
 const disclaimer = {
   color: 'var(--beige)',

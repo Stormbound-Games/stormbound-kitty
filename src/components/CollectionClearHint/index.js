@@ -1,12 +1,12 @@
 import React from 'react'
-import { CollectionContext } from '../CollectionProvider'
-import { NotificationContext } from '../NotificationProvider'
-import CTA from '../CTA'
-import Info from '../Info'
-import Link from '../Link'
-import Only from '../Only'
-import download from '../../helpers/download'
-import getRawCardData from '../../helpers/getRawCardData'
+import { CollectionContext } from '~/components/CollectionProvider'
+import { NotificationContext } from '~/components/NotificationProvider'
+import CTA from '~/components/CTA'
+import Info from '~/components/Info'
+import Link from '~/components/Link'
+import Only from '~/components/Only'
+import download from '~/helpers/download'
+import getRawCardData from '~/helpers/getRawCardData'
 
 const formatCollectionAsCSV = cards => {
   const headers = ['id', 'name', 'level', 'copies']

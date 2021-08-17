@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import CTA from '../CTA'
-import Image from '../Image'
-import Only from '../Only'
-import Row from '../Row'
+import CTA from '~/components/CTA'
+import Image from '~/components/Image'
+import Only from '~/components/Only'
+import Row from '~/components/Row'
 import styles from './styles'
 
 export default React.memo(function HomeSection(props) {

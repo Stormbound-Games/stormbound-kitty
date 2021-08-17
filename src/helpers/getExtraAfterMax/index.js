@@ -1,5 +1,5 @@
-import { RARITY_COPIES } from '../../constants/game'
-import getCostForLevel from '../getCostForLevel'
+import { RARITY_COPIES } from '~/constants/game'
+import getCostForLevel from '~/helpers/getCostForLevel'
 
 export default ({ rarity, level, copies }) => {
   const costForMax = getCostForLevel(5)({ rarity, level, copies })

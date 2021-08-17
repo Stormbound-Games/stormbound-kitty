@@ -1,5 +1,5 @@
 import React from 'react'
-import Select from '../Select'
+import Select from '~/components/Select'
 
 export default React.memo(function LeagueSelect(props) {
   return (

@@ -1,6 +1,6 @@
-import serialisation from '../serialisation'
-import getCardFromSlug from '../getCardFromSlug'
-import getRawCardData from '../getRawCardData'
+import serialisation from '~/helpers/serialisation'
+import getCardFromSlug from '~/helpers/getCardFromSlug'
+import getRawCardData from '~/helpers/getRawCardData'
 
 export default card => {
   if (!card) {

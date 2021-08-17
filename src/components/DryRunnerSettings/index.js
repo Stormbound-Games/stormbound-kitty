@@ -1,11 +1,11 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Checkbox from '../Checkbox'
-import DryRunnerEqualsMode from '../DryRunnerEqualsMode'
-import DryRunnerBrawlModifiers from '../DryRunnerBrawlModifiers'
-import DryRunnerRNGField from '../DryRunnerRNGField'
-import Spacing from '../Spacing'
-import Title from '../Title'
+import Checkbox from '~/components/Checkbox'
+import DryRunnerEqualsMode from '~/components/DryRunnerEqualsMode'
+import DryRunnerBrawlModifiers from '~/components/DryRunnerBrawlModifiers'
+import DryRunnerRNGField from '~/components/DryRunnerRNGField'
+import Spacing from '~/components/Spacing'
+import Title from '~/components/Title'
 import styles from './styles'
 
 export default React.memo(function DryRunnerSettings(props) {

@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Asterisk from '../Asterisk'
-import Link from '../Link'
-import Spacing from '../Spacing'
-import VisuallyHidden from '../VisuallyHidden'
+import Asterisk from '~/components/Asterisk'
+import Link from '~/components/Link'
+import Spacing from '~/components/Spacing'
+import VisuallyHidden from '~/components/VisuallyHidden'
 
 export const Footnote = React.memo(function Footnote(props) {
   return (

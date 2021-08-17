@@ -1,7 +1,7 @@
 import React from 'react'
-import CTA from '../CTA'
-import Row from '../Row'
-import Spacing from '../Spacing'
+import CTA from '~/components/CTA'
+import Row from '~/components/Row'
+import Spacing from '~/components/Spacing'
 
 export default React.memo(function DryRunnerActions(props) {
   if (!props.activeCard) return null

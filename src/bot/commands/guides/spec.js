@@ -1,4 +1,4 @@
-import GUIDES from '../../../data/guides'
+import GUIDES from '~/data/guides'
 import command from './'
 const guides = command.handler.bind(command)
 

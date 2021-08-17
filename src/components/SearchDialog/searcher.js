@@ -1,11 +1,11 @@
 import Fuse from 'fuse.js'
-import CARDS from '../../data/cards'
-import DECKS from '../../data/decks'
-import GUIDES from '../../data/guides'
-import STORIES from '../../data/stories'
-import { BRAWLS } from '../../constants/brawl'
-import { CATEGORIES } from '../../constants/guides'
-import { STORY_CATEGORIES } from '../../constants/stories'
+import CARDS from '~/data/cards'
+import DECKS from '~/data/decks'
+import GUIDES from '~/data/guides'
+import STORIES from '~/data/stories'
+import { BRAWLS } from '~/constants/brawl'
+import { CATEGORIES } from '~/constants/guides'
+import { STORY_CATEGORIES } from '~/constants/stories'
 
 export const SEARCH_INDEX = []
 

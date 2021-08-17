@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import random from '../../helpers/random'
-import useRandomInterval from '../../hooks/useRandomInterval'
+import random from '~/helpers/random'
+import useRandomInterval from '~/hooks/useRandomInterval'
 import styles from './styles'
 
 const generateSparkle = color => ({

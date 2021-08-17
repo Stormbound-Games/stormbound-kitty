@@ -1,6 +1,6 @@
 import React from 'react'
-import CTA from '../CTA'
-import Dialog from '../Dialog'
+import CTA from '~/components/CTA'
+import Dialog from '~/components/Dialog'
 
 export default React.memo(function ResetButton(props) {
   const label = props.label || 'Reset'

@@ -1,6 +1,6 @@
 import React from 'react'
 import copy from 'copy-to-clipboard'
-import minifyUrl from '../helpers/minifyUrl'
+import minifyUrl from '~/helpers/minifyUrl'
 
 const useShare = ({
   processURL = url => url,

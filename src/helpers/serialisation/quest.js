@@ -1,6 +1,6 @@
-import { getLongCurrency } from '../encoding'
-import { getShortCurrency } from '../encoding'
-import { base64Decode, base64Encode } from '../base64'
+import { getLongCurrency } from '~/helpers/encoding'
+import { getShortCurrency } from '~/helpers/encoding'
+import { base64Decode, base64Encode } from '~/helpers/base64'
 
 const QUEST_PROPERTIES = [
   { name: 'name', resolve: value => decodeURIComponent(value) },

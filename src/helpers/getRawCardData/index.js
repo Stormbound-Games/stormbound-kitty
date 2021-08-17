@@ -1,5 +1,5 @@
-import CARDS from '../../data/cards'
-import indexArray from '../indexArray'
+import CARDS from '~/data/cards'
+import indexArray from '~/helpers/indexArray'
 import FUSION_STONES from './fs'
 
 const INDEXES = {

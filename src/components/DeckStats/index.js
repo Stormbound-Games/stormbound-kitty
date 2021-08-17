@@ -1,11 +1,11 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Row from '../Row'
-import Spacing from '../Spacing'
-import Title from '../Title'
-import getResolvedCardData from '../../helpers/getResolvedCardData'
-import canCardBePlayed from '../../helpers/canCardBePlayed'
-import canDeployUnits from '../../helpers/canDeployUnits'
+import Row from '~/components/Row'
+import Spacing from '~/components/Spacing'
+import Title from '~/components/Title'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
+import canCardBePlayed from '~/helpers/canCardBePlayed'
+import canDeployUnits from '~/helpers/canDeployUnits'
 import styles from './styles'
 
 const getEffectiveSpeed = card => {

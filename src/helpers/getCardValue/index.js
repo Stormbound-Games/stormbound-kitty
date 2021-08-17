@@ -1,6 +1,6 @@
-import getResolvedCardData from '../getResolvedCardData'
-import { RACES } from '../../constants/game'
-import { UNVALUED_CARDS } from '../../constants/misc'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
+import { RACES } from '~/constants/game'
+import { UNVALUED_CARDS } from '~/constants/misc'
 
 export const MAX_MANA = 30
 export const MAX_TILES = 10

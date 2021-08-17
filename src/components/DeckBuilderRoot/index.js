@@ -1,9 +1,9 @@
 import React from 'react'
 import hookIntoProps from 'hook-into-props'
-import serialisation from '../../helpers/serialisation'
-import getInitialDeckData from '../../helpers/getInitialDeckData'
-import sortByMana from '../../helpers/sortByMana'
-import useRouter from '../../hooks/useRouter'
+import serialisation from '~/helpers/serialisation'
+import getInitialDeckData from '~/helpers/getInitialDeckData'
+import sortByMana from '~/helpers/sortByMana'
+import useRouter from '~/hooks/useRouter'
 
 class DeckBuilderRoot extends React.Component {
   constructor(props) {

@@ -1,12 +1,12 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import CTA from '../CTA'
-import LearnMoreIcon from '../LearnMoreIcon'
-import Link from '../Link'
-import Input from '../Input'
-import Only from '../Only'
-import Row from '../Row'
-import Spacing from '../Spacing'
+import CTA from '~/components/CTA'
+import LearnMoreIcon from '~/components/LearnMoreIcon'
+import Link from '~/components/Link'
+import Input from '~/components/Input'
+import Only from '~/components/Only'
+import Row from '~/components/Row'
+import Spacing from '~/components/Spacing'
 
 export default React.memo(function AdvancedCardSearch(props) {
   const { css } = useFela()

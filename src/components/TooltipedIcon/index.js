@@ -1,6 +1,6 @@
 import React from 'react'
-import Icon from '../Icon'
-import Tooltip from '../Tooltip'
+import Icon from '~/components/Icon'
+import Tooltip from '~/components/Tooltip'
 
 const tooltipStyles = {
   backgroundColor: 'var(--dark-blue)',

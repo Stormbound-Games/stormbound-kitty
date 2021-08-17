@@ -1,4 +1,4 @@
-import getRewardLabel from '../getRewardLabel'
+import getRewardLabel from '~/helpers/getRewardLabel'
 
 const displayBundle = value => {
   const keys = Object.keys(value)

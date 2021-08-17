@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { BrawlContext } from '../BrawlProvider'
-import Info from '../Info'
-import { Coins } from '../Resource'
+import { BrawlContext } from '~/components/BrawlProvider'
+import Info from '~/components/Info'
+import { Coins } from '~/components/Resource'
 import styles from './styles'
 
 export default React.memo(function BrawlOutcome(props) {

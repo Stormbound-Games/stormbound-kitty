@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import HomeNews from '../HomeNews'
-import HomeSection from '../HomeSection'
-import PageMeta from '../PageMeta'
-import VisuallyHidden from '../VisuallyHidden'
+import HomeNews from '~/components/HomeNews'
+import HomeSection from '~/components/HomeSection'
+import PageMeta from '~/components/PageMeta'
+import VisuallyHidden from '~/components/VisuallyHidden'
 import styles from './styles'
 
 export default React.memo(function Home() {

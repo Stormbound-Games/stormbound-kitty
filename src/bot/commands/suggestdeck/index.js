@@ -1,11 +1,11 @@
-import DECKS from '../../../data/decks'
-import arrayRandom from '../../../helpers/arrayRandom'
-import capitalise from '../../../helpers/capitalise'
-import getEmbed from '../../../helpers/getEmbed'
-import getFactionFromDeckID from '../../../helpers/getFactionFromDeckID'
-import serialisation from '../../../helpers/serialisation'
+import DECKS from '~/data/decks'
+import arrayRandom from '~/helpers/arrayRandom'
+import capitalise from '~/helpers/capitalise'
+import getEmbed from '~/helpers/getEmbed'
+import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
+import serialisation from '~/helpers/serialisation'
+import { TAGS } from '~/constants/deck'
 import { parseMessage } from '../decks'
-import { TAGS } from '../../../constants/deck'
 
 export default {
   command: 'suggestdeck',

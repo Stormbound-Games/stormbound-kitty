@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Checkbox from '../Checkbox'
-import { Coins } from '../Resource'
+import Checkbox from '~/components/Checkbox'
+import { Coins } from '~/components/Resource'
 
 export default React.memo(function PremiumPassCheckbox({
   withExplanation = true,

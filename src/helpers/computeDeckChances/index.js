@@ -1,7 +1,7 @@
-import serialisation from '../serialisation'
-import canCardBePlayed from '../canCardBePlayed'
-import canDeployUnits from '../canDeployUnits'
-import getCombinations from '../getCombinations'
+import serialisation from '~/helpers/serialisation'
+import canCardBePlayed from '~/helpers/canCardBePlayed'
+import canDeployUnits from '~/helpers/canDeployUnits'
+import getCombinations from '~/helpers/getCombinations'
 
 export const getEffectiveManaCost = availableMana => card => {
   // If the card is GotW and it can be played, reduced its mana cost by the

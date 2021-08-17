@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import BlankButton from '../BlankButton'
-import Card from '../Card'
-import isCard from '../../helpers/isCard'
+import BlankButton from '~/components/BlankButton'
+import Card from '~/components/Card'
+import isCard from '~/helpers/isCard'
 import styles from './styles'
 
 export default React.memo(function DryRunnerCard(props) {

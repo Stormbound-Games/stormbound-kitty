@@ -1,5 +1,5 @@
-import arrayRandom from '../arrayRandom'
-import shuffle from '../shuffle'
+import arrayRandom from '~/helpers/arrayRandom'
+import shuffle from '~/helpers/shuffle'
 import questions from './questions'
 
 const MAX_CHOICES = 5

@@ -1,9 +1,9 @@
 import React from 'react'
-import CTA from '../CTA'
-import Only from '../Only'
-import { NotificationContext } from '../NotificationProvider'
-import { PersonalDecksContext } from '../PersonalDecksProvider'
-import download from '../../helpers/download'
+import CTA from '~/components/CTA'
+import Only from '~/components/Only'
+import { NotificationContext } from '~/components/NotificationProvider'
+import { PersonalDecksContext } from '~/components/PersonalDecksProvider'
+import download from '~/helpers/download'
 
 export default React.memo(function BrawlExport(props) {
   const { brawl } = React.useContext(PersonalDecksContext)

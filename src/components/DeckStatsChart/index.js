@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '../Link'
+import Link from '~/components/Link'
 import {
   Legend,
   Line,
@@ -10,12 +10,12 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
-import Loader from '../Loader'
-import Select from '../Select'
-import Spacing from '../Spacing'
-import computeDeckChances from '../../helpers/computeDeckChances'
-import { TOOLTIP_STYLES } from '../../constants/stats'
-import { BRAWLS } from '../../constants/brawl'
+import Loader from '~/components/Loader'
+import Select from '~/components/Select'
+import Spacing from '~/components/Spacing'
+import computeDeckChances from '~/helpers/computeDeckChances'
+import { TOOLTIP_STYLES } from '~/constants/stats'
+import { BRAWLS } from '~/constants/brawl'
 import styles from './styles'
 
 const computeData = async (deck, modifier) => {

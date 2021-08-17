@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { BRAWL_MILESTONES } from '../../constants/brawl'
-import { BrawlContext } from '../BrawlProvider'
-import Link from '../Link'
-import VisuallyHidden from '../VisuallyHidden'
+import { BRAWL_MILESTONES } from '~/constants/brawl'
+import { BrawlContext } from '~/components/BrawlProvider'
+import Link from '~/components/Link'
+import VisuallyHidden from '~/components/VisuallyHidden'
 import styles from './styles'
 
 export default React.memo(function BrawlProgress(props) {

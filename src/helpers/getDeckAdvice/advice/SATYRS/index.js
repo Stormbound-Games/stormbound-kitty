@@ -1,5 +1,5 @@
-import toSentence from '../../../toSentence'
-import getRawCardData from '../../../getRawCardData'
+import toSentence from '~/helpers/toSentence'
+import getRawCardData from '~/helpers/getRawCardData'
 
 const getSatyrs = cards =>
   cards.filter(card => card.race === 'satyr' || card.id === 'S24')

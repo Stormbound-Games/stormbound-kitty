@@ -1,12 +1,12 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import HeaderMegaMenu from '../HeaderMegaMenu'
-import Link from '../Link'
-import NewPulse from '../NewPulse'
-import Icon from '../Icon'
-import load from '../../helpers/load'
+import HeaderMegaMenu from '~/components/HeaderMegaMenu'
+import Link from '~/components/Link'
+import NewPulse from '~/components/NewPulse'
+import Icon from '~/components/Icon'
+import load from '~/helpers/load'
 import useNavigation from './useNavigation'
-import useRouter from '../../hooks/useRouter'
+import useRouter from '~/hooks/useRouter'
 import styles from './styles'
 
 const SubNav = React.memo(function (props) {

@@ -1,7 +1,7 @@
 import React from 'react'
-import { STORY_CATEGORIES } from '../../constants/stories'
-import Page from '../Page'
-import Teasers from '../Teasers'
+import { STORY_CATEGORIES } from '~/constants/stories'
+import Page from '~/components/Page'
+import Teasers from '~/components/Teasers'
 
 const ITEMS = Object.keys(STORY_CATEGORIES).map(name => {
   const category = STORY_CATEGORIES[name]

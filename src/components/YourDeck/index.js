@@ -1,8 +1,8 @@
 import React from 'react'
-import { PersonalDecksContext } from '../PersonalDecksProvider'
-import FeaturedDeck from '../FeaturedDeck'
-import YourDeckDeleteButton from '../YourDeckDeleteButton'
-import YourDeckForm from '../YourDeckForm'
+import { PersonalDecksContext } from '~/components/PersonalDecksProvider'
+import FeaturedDeck from '~/components/FeaturedDeck'
+import YourDeckDeleteButton from '~/components/YourDeckDeleteButton'
+import YourDeckForm from '~/components/YourDeckForm'
 
 export default React.memo(function YourDeck(props) {
   const { removeDeck } = React.useContext(PersonalDecksContext)

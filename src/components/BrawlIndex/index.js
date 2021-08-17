@@ -1,9 +1,9 @@
 import React from 'react'
-import Page from '../Page'
-import Teasers from '../Teasers'
-import getBrawlDescription from '../../helpers/getBrawlDescription'
-import microMarkdown from '../../helpers/microMarkdown'
-import { BRAWLS } from '../../constants/brawl'
+import Page from '~/components/Page'
+import Teasers from '~/components/Teasers'
+import getBrawlDescription from '~/helpers/getBrawlDescription'
+import microMarkdown from '~/helpers/microMarkdown'
+import { BRAWLS } from '~/constants/brawl'
 
 const ITEMS = BRAWLS.map(brawl => ({
   large: brawl.large,

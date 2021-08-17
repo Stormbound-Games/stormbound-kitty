@@ -1,12 +1,12 @@
 import React from 'react'
-import CTA from '../CTA'
-import Input from '../Input'
-import Link from '../Link'
-import Row from '../Row'
-import TagsSelect from '../TagsSelect'
-import serialisation from '../../helpers/serialisation'
-import getRawCardData from '../../helpers/getRawCardData'
-import getDeckIDFromURL from '../../helpers/getDeckIDFromURL'
+import CTA from '~/components/CTA'
+import Input from '~/components/Input'
+import Link from '~/components/Link'
+import Row from '~/components/Row'
+import TagsSelect from '~/components/TagsSelect'
+import serialisation from '~/helpers/serialisation'
+import getRawCardData from '~/helpers/getRawCardData'
+import getDeckIDFromURL from '~/helpers/getDeckIDFromURL'
 
 const isValidCard = card => Boolean(getRawCardData(card.id).id)
 const validateDeckId = id =>

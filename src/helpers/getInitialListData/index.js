@@ -1,5 +1,5 @@
-import serialisation from '../serialisation'
-import { DEFAULT_LIST } from '../../constants/list'
+import serialisation from '~/helpers/serialisation'
+import { DEFAULT_LIST } from '~/constants/list'
 
 export default list => {
   if (!list) {

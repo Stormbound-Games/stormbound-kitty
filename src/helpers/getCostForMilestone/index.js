@@ -1,8 +1,8 @@
-import { RARITY_COPIES } from '../../constants/game'
-import { BRAWL_MILESTONES } from '../../constants/brawl'
-import getMilestoneCost from '../getMilestoneCost'
-import getDailyCoinsCounter from '../getDailyCoinsCounter'
-import getMilestoneForCrowns from '../getMilestoneForCrowns'
+import { RARITY_COPIES } from '~/constants/game'
+import { BRAWL_MILESTONES } from '~/constants/brawl'
+import getMilestoneCost from '~/helpers/getMilestoneCost'
+import getDailyCoinsCounter from '~/helpers/getDailyCoinsCounter'
+import getMilestoneForCrowns from '~/helpers/getMilestoneForCrowns'
 
 // @param {String} difficulty - Brawl difficulty
 // @param {String} league - Current league

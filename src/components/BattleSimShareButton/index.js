@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Checkbox from '../Checkbox'
-import ShareDialog from '../ShareDialog'
-import Spacing from '../Spacing'
+import Checkbox from '~/components/Checkbox'
+import ShareDialog from '~/components/ShareDialog'
+import Spacing from '~/components/Spacing'
 import styles from './styles'
 
 export default React.memo(function BattleSimShareButton(props) {

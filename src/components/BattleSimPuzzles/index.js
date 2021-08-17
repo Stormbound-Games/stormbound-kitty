@@ -1,14 +1,17 @@
 import React from 'react'
-import Page from '../Page'
-import Link from '../Link'
-import PUZZLES from '../../data/puzzles'
-import EmptySearch from '../EmptySearch'
-import Notice from '../Notice'
-import Title from '../Title'
-import PuzzlesFilters from '../BattleSimPuzzlesFilters'
-import Row from '../Row'
-import Teasers from '../Teasers'
-import { getCardForPuzzle, getExcerptForPuzzle } from '../BattleSimPuzzle'
+import Page from '~/components/Page'
+import Link from '~/components/Link'
+import PUZZLES from '~/data/puzzles'
+import EmptySearch from '~/components/EmptySearch'
+import Notice from '~/components/Notice'
+import Title from '~/components/Title'
+import PuzzlesFilters from '~/components/BattleSimPuzzlesFilters'
+import Row from '~/components/Row'
+import Teasers from '~/components/Teasers'
+import {
+  getCardForPuzzle,
+  getExcerptForPuzzle,
+} from '~/components/BattleSimPuzzle'
 
 class BattleSimPuzzles extends React.Component {
   state = {

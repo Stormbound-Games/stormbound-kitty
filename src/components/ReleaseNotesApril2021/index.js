@@ -1,20 +1,27 @@
 import React from 'react'
-import Link from '../Link'
-import Page from '../Page'
-import CardLink from '../CardLink'
-import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
-import CheapenedBrawl from '../CheapenedBrawl'
-import FAQSection from '../FAQSection'
-import Image from '../Image'
-import Info from '../Info'
-import NerfCompensationInfo from '../NerfCompensationInfo'
-import ReleaseNotes from '../ReleaseNotes'
-import Row from '../Row'
-import { Rare, Epic, Legendary, Coins, Rubies, Stones } from '../Resource'
-import ResourceIcon from '../ResourceIcon'
-import TableOfContents from '../TableOfContents'
-import Title from '../Title'
-import getInitialCardData from '../../helpers/getInitialCardData'
+import Link from '~/components/Link'
+import Page from '~/components/Page'
+import CardLink from '~/components/CardLink'
+import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
+import CheapenedBrawl from '~/components/CheapenedBrawl'
+import FAQSection from '~/components/FAQSection'
+import Image from '~/components/Image'
+import Info from '~/components/Info'
+import NerfCompensationInfo from '~/components/NerfCompensationInfo'
+import ReleaseNotes from '~/components/ReleaseNotes'
+import Row from '~/components/Row'
+import {
+  Rare,
+  Epic,
+  Legendary,
+  Coins,
+  Rubies,
+  Stones,
+} from '~/components/Resource'
+import ResourceIcon from '~/components/ResourceIcon'
+import TableOfContents from '~/components/TableOfContents'
+import Title from '~/components/Title'
+import getInitialCardData from '~/helpers/getInitialCardData'
 
 export default React.memo(function ReleaseNotesApril2021(props) {
   return (

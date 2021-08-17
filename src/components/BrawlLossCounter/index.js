@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { BrawlContext } from '../BrawlProvider'
-import Image from '../Image'
+import { BrawlContext } from '~/components/BrawlProvider'
+import Image from '~/components/Image'
 import styles from './styles'
 
 const getImageProps = heart => {

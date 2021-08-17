@@ -1,9 +1,9 @@
 import React from 'react'
-import Link from '../Link'
-import FeedEntry from '../FeedEntry'
-import MemberList from '../MemberList'
-import PODCASTS from '../../data/podcasts'
-import indexArray from '../../helpers/indexArray'
+import Link from '~/components/Link'
+import FeedEntry from '~/components/FeedEntry'
+import MemberList from '~/components/MemberList'
+import PODCASTS from '~/data/podcasts'
+import indexArray from '~/helpers/indexArray'
 
 const PODCASTS_INDEX = indexArray(PODCASTS, 'title')
 

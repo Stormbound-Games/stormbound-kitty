@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '../Link'
-import Icon from '../Icon'
-import { UserContext } from '../UserProvider'
-import isKATMember from '../../helpers/isKATMember'
-import useMemberContent from '../../hooks/useMemberContent'
+import Link from '~/components/Link'
+import Icon from '~/components/Icon'
+import { UserContext } from '~/components/UserProvider'
+import isKATMember from '~/helpers/isKATMember'
+import useMemberContent from '~/hooks/useMemberContent'
 import styles from './styles'
 
 export default React.memo(function MemberListEntry(props) {

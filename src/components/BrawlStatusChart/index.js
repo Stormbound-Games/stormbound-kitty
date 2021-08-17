@@ -8,10 +8,10 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts'
-import Title from '../Title'
-import { BrawlContext } from '../BrawlProvider'
-import { TOOLTIP_STYLES } from '../../constants/stats'
-import FactionSelect from '../FactionSelect'
+import Title from '~/components/Title'
+import { BrawlContext } from '~/components/BrawlProvider'
+import { TOOLTIP_STYLES } from '~/constants/stats'
+import FactionSelect from '~/components/FactionSelect'
 import styles from './styles'
 
 const SELECT_LENGTH_MULTIPLIER = {
