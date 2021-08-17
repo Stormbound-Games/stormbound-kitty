@@ -876,23 +876,25 @@
     "author": "ArthisRoo",
     "tags": [
       "HIGH_LEVELS",
-      "CONTROL"
-    ],
-    "date": "05/2021"
-  },
-  {
-    "name": "Easy Chonkbeam",
-    "id": "5xn1n3n6n67f25n15f9n18n59f14f19f21",
-    "author": "ArthisRoo",
-    "tags": [
-      "HIGH_LEVELS",
+      "CONTROL",
       "MIDRANGE"
     ],
     "date": "05/2021"
   },
   {
+    "name": "Chonkbeam Lite",
+    "id": "5xn1n3n6n67f25n15f9n18n59f14f19f21",
+    "author": "ArthisRoo",
+    "tags": [
+      "HIGH_LEVELS",
+      "MIDRANGE",
+      "RUSH"
+    ],
+    "date": "05/2021"
+  },
+  {
     "name": "Kinbreads",
-    "id": "5xn1n3f8n6n23f25n18n59f12f19f21n40",
+    "id": "5xn2n3f8n6f25n18n59f12n82f19f21n40",
     "author": "ArthisRoo",
     "tags": [
       "HIGH_LEVELS",
@@ -1105,7 +1107,8 @@
     "author": "ArthisRoo",
     "tags": [
       "HIGH_LEVELS",
-      "CONTROL"
+      "CONTROL",
+      "MIDRANGE"
     ],
     "date": "07/2021"
   },
@@ -1121,12 +1124,23 @@
   },
   {
     "name": "Powderpuff Girl",
-    "id": "5xn1i1i2n3n67i7i8n18n25n69i19n45",
+    "id": "5xn1i1i2n3n67i7i8n18i20n69i19n45",
     "author": "ArthisRoo",
     "tags": [
       "HIGH_LEVELS",
       "CONTROL"
     ],
     "date": "07/2021"
+  },
+  {
+    "name": "Chronobreak",
+    "id": "5xn1n3n6n67f7f29n18f14n82f19f21n45",
+    "author": "ArthisRoo",
+    "tags": [
+      "HIGH_LEVELS",
+      "CONTROL",
+      "MIDRANGE"
+    ],
+    "date": "08/2021"
   }
 ]
