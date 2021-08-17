@@ -50,11 +50,7 @@ const getInitialCollectionData = () => {
 }
 
 export default React.memo(function CollectionProvider(props) {
-  // Since there is no server-side rendering, we can read from local storage
-  // to populate the state with the correct value right away. This saves from
-  // having to wait for the mount to update the data, leading to a flash of
-  // unknown data before mounting.
-  const [collection, setCollection] = React.useState([])
+  const [collection, setCollection] = React.useState(DEFAULT_COLLECTION)
   const { notify: sendNotification } = React.useContext(NotificationContext)
   const notify = React.useCallback(
     message => sendNotification({ icon: 'books', children: message }),
