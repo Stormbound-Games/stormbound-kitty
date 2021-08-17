@@ -1,5 +1,4 @@
 import React from 'react'
-import { BRAWL_INDEX } from '~/constants/brawl'
 import Page from '~/components/Page'
 import BrawlProvider from '~/components/BrawlProvider'
 import BrawlTracker from '~/components/BrawlTracker'
@@ -7,8 +6,7 @@ import { getLongFaction } from '~/helpers/encoding'
 
 export default React.memo(function BrawlPage(props) {
   const [difficulty, setDifficulty] = React.useState('CASUAL')
-  const id = props.id.toUpperCase().replace(/-/g, '_')
-  const brawl = BRAWL_INDEX[id]
+  const { id, brawl } = props
   const faction = getLongFaction(brawl.cardId.slice(0, 1))
 
   return (
