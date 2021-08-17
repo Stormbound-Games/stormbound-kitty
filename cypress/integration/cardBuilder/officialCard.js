@@ -22,6 +22,9 @@ describe('Card Builder — Official card', () => {
       .find('.CardSelect__clear-indicator')
       .click({ force: true })
 
+      .url()
+      .should('match', /\/card$/)
+
       .get(s.CARD_SELECT)
       .find('.CardSelect__single-value')
       .should('have.text', 'Pick a card')
