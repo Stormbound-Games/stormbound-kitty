@@ -35,9 +35,11 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
         <meta name='description' content={description} />
         <meta name='og:description' content={description} />
         <meta name='twitter:description' content={description} />
-        <script>
-          {`if (!Object.values) Object.values = o => Object.keys(o).map(k => o[k])`}
-        </script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if (!Object.values) Object.values = o => Object.keys(o).map(k => o[k])`,
+          }}
+        />
       </Head>
       <RendererProvider renderer={renderer}>
         <ErrorBoundary>
