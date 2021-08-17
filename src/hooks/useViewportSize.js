@@ -3,8 +3,8 @@ import getViewportSize from '~/helpers/getViewportSize'
 
 const useViewportSize = () => {
   const [dimensions, setDimensions] = React.useState({
-    width: Infinity,
-    height: Infinity,
+    viewportWidth: Infinity,
+    viewportHeight: Infinity,
   })
   const recordViewportWidth = React.useCallback(
     () => setDimensions(getViewportSize()),
