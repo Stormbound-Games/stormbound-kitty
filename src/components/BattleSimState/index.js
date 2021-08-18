@@ -186,7 +186,7 @@ class BattleSimState extends React.Component {
         // If it’s not a combat scenario, simply swap the two cells.
         this.copyCell(targetCell, sourceCellCopy)
 
-        if (targetCell.card.id) {
+        if (!!targetCell.card.id) {
           this.copyCell(sourceCell, targetCellCopy)
         } else {
           this.copyCell(sourceCell, DEFAULT_CELL)
@@ -305,7 +305,7 @@ class BattleSimState extends React.Component {
       strength: +formData.strength,
       level: +(formData.level || 1),
       player: this.state.activePlayer,
-      card,
+      card: card,
       poisoned: !!formData.poisoned,
       vitalised: !!formData.vitalised,
       frozen: !!formData.frozen,
@@ -381,7 +381,7 @@ class BattleSimState extends React.Component {
     }
   }
 
-  onCellClick = (x, y) => () => {
+  onCellClick = (x, y) => event => {
     const cell = this.state.board[x][y]
     const isActiveCell =
       this.state.activeCell &&

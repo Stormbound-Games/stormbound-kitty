@@ -106,7 +106,7 @@ export default React.memo(function CollectionProvider(props) {
   return (
     <CollectionContext.Provider
       value={{
-        collection,
+        collection: collection,
         indexedCollection,
         hasDefaultCollection: isDefaultCollection(collection),
         resetCollection,

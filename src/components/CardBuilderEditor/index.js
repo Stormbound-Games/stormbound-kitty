@@ -48,7 +48,7 @@ class CardBuilderEditor extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     // Handle initial query parameters
     if (!prevProps.cardId && this.props.cardId) {
       this.setState({ ...getInitialCardData(this.props.cardId) })
@@ -74,7 +74,6 @@ class CardBuilderEditor extends React.Component {
             ability: this.state.ability.display,
           })
       )
-      // eslint-disable-next-line
     } catch {}
   }
 

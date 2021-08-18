@@ -25,14 +25,13 @@ const Only = React.memo(function Only(props) {
   }
 })
 
-const Mobile = props => <Only {...props} when='MOBILE' />
-const Desktop = props => <Only {...props} when='DESKTOP' />
-const DefaultCollection = props => <Only {...props} when='DEFAULT_COLLECTION' />
-const CustomCollection = props => <Only {...props} when='CUSTOM_COLLECTION' />
-
 export default {
-  Mobile: React.memo(Mobile),
-  Desktop: React.memo(Desktop),
-  DefaultCollection: React.memo(DefaultCollection),
-  CustomCollection: React.memo(CustomCollection),
+  Mobile: React.memo(props => <Only {...props} when='MOBILE' />),
+  Desktop: React.memo(props => <Only {...props} when='DESKTOP' />),
+  DefaultCollection: React.memo(props => (
+    <Only {...props} when='DEFAULT_COLLECTION' />
+  )),
+  CustomCollection: React.memo(props => (
+    <Only {...props} when='CUSTOM_COLLECTION' />
+  )),
 }

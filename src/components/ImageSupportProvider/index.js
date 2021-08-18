@@ -24,7 +24,6 @@ export default React.memo(function ImageSupportProvider(props) {
       // always be safeguarded to avoid a runtime JavaScript error.
       storedWebp = getStoredSupport('webp')
       storedAvif = getStoredSupport('avif')
-      // eslint-disable-next-line
     } catch (error) {}
 
     if (storedWebp === null) {

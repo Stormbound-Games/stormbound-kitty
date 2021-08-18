@@ -9,12 +9,14 @@ import ListBuilderToc from '~/components/ListBuilderToc'
 import Title from '~/components/Title'
 
 export default React.memo(function ListBuilderDisplayView(props) {
+  const { tiers, listId: id } = props
+
   return (
     <Page
       title='List builder'
       description='Compose your own tier lists from the Stormbound cards, ranking them the way you see fit'
       action={{
-        to: `/list/${props.listId}`,
+        to: `/list/${id}`,
         children: 'Edit list',
       }}
     >
@@ -28,11 +30,11 @@ export default React.memo(function ListBuilderDisplayView(props) {
             make sure to report any bug, oddity or desired features.
           </p>
 
-          <ListBuilderToc tiers={props.tiers} />
+          <ListBuilderToc tiers={tiers} />
 
           <Row>
             <Row.Column>
-              <CTA to={`/list/${props.listId}`}>Edit list</CTA>
+              <CTA to={`/list/${id}`}>Edit list</CTA>
             </Row.Column>
             <Row.Column>
               <ShareButton title='Share tier list' />
@@ -42,7 +44,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
         <Row.Column width='2/3'>
           <Title>Tier list</Title>
 
-          {props.tiers.map((tier, index) => (
+          {tiers.map((tier, index) => (
             <ListBuilderTier
               {...tier}
               color={TIER_COLORS[index]}

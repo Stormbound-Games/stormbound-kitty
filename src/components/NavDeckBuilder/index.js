@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '~/components/Link'
-import styles from '~/components/Header/styles'
 import serialisation from '~/helpers/serialisation'
 import useQueryParams from '~/hooks/useQueryParams'
+import styles from '~/components/Header/styles'
 
 export default React.memo(function NavDeckBuilder(props) {
   const { css } = useFela()

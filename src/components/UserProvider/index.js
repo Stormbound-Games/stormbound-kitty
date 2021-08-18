@@ -20,7 +20,6 @@ const storeName = name => {
     } else {
       localStorage.removeItem('sk.user_name')
     }
-    // eslint-disable-next-line
   } catch {}
 }
 

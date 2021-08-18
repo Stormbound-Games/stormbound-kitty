@@ -44,11 +44,13 @@ class DeckSuggestions extends React.Component {
   }
 
   getURLParameters = () => {
+    const parameters = { ...this.props.queryParams }
+
     return {
-      tags: this.props.queryParams.tags?.split(',') ?? [],
-      faction: this.props.queryParams.faction || '*',
-      author: this.props.queryParams.author || '*',
-      including: this.props.queryParams.including || null,
+      tags: parameters.tags?.split(',') ?? [],
+      faction: parameters.faction || '*',
+      author: parameters.author || '*',
+      including: parameters.including || null,
     }
   }
 

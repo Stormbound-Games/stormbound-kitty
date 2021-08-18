@@ -72,7 +72,7 @@ class View extends React.Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if (!prevProps.HoS.cards.length && this.props.HoS.cards.length) {
       this.props.HoS.dialog.current.show()
       document.removeEventListener('keydown', this.registerShortcuts)

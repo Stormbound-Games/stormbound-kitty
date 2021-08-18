@@ -384,7 +384,6 @@ const CardTooltipsCheckbox = React.memo(function CardTooltipsCheckbox(props) {
   React.useEffect(() => {
     try {
       localStorage.setItem('sk.db.card_tooltips', JSON.stringify(props.value))
-      // eslint-disable-next-line
     } catch {}
   }, [props.value])
 
