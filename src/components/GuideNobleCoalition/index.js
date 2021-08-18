@@ -103,7 +103,7 @@ export default React.memo(function GuideNobleCoalition(props) {
               ladder decks with <CardLink id='N67' />, normal Swarm and
               Shadowfen rush decks or the now nerfed <CardLink id='S21' /> and
               not really worth mentioning. Not to say they are not viable
-              (except for Queen, the Queen is dead), I'm just hoping we see more
+              (except for Queen, the Queen is dead), I’m just hoping we see more
               interesting cat decks this time around, maybe even utilizing the
               recently buffed <CardLink id='N60' /> which ought to finally get
               some time in the spotlight.

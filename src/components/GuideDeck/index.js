@@ -148,7 +148,7 @@ export default React.memo(function GuideDeck(props) {
 
       <p>
         First and foremost, you need some units who can advance the front
-        line—if they don't on play, they will on the next. Structures can’t
+        line—if they don’t on play, they will on the next. Structures can’t
         walk, and take up available space on the board. Advancing the front line
         gives more space to play more cards.
       </p>

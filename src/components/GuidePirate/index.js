@@ -318,7 +318,7 @@ export default React.memo(function GuidePirate(props) {
         “Pure” pirate decks tend to have at least 8 or more pirate cards in
         them. The reason is to maximise the value and reliability of Lucky
         Charmers, which is the main focus of a “pure” pirate deck. Pirates tend
-        to have rather high costs, so when making a deck with so many, it's
+        to have rather high costs, so when making a deck with so many, it’s
         important that you make your non-pirate cards fill in the early curve
         and push your frontline in preparation for later turns (examples include
         Dopplebocks, Gifted Recruits, Green Prototypes, Destructobots, Wild
@@ -376,8 +376,8 @@ export default React.memo(function GuidePirate(props) {
         If attacking may cost you your life, you might choose to defend instead.
       </p>
       <p>
-        If you can't put it on the base, or don't have a full hand of pirates
-        that's fine, although you might consider waiting another turn. Do
+        If you can’t put it on the base, or don’t have a full hand of pirates
+        that’s fine, although you might consider waiting another turn. Do
         remember though: playing other cards and waiting may result in drawing
         some of your non-Pirates back into your hand.
       </p>

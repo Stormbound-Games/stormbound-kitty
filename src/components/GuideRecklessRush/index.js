@@ -144,7 +144,7 @@ export default React.memo(function GuideRecklessRush(props) {
               <CardLink id='S11' />, a great variation is the Flameless Rush
               variation where <CardLink id='N82' /> replaces{' '}
               <CardLink id='S11' />. <CardLink id='N82' /> provides great stats
-              for it's mana cost and can often hold the front-line simply on its
+              for it’s mana cost and can often hold the front-line simply on its
               own.
             </p>
             <p>
@@ -1104,7 +1104,7 @@ export default React.memo(function GuideRecklessRush(props) {
 
       <p>
         In cases where your hand is relatively good and the chances to draw an
-        even better hand is extremely low, then it's safe to ignore PVO and
+        even better hand is extremely low, then it’s safe to ignore PVO and
         focus on FVO. Now you want to cycle in such a way that the cycle either
         cuts in between the order you play your cards or is used up at the end.
       </p>
@@ -1210,7 +1210,7 @@ export default React.memo(function GuideRecklessRush(props) {
         the same column as Shady Ghoul—IF (and this works only in this RNG
         situation) the token bounces back meaning it stays in the same column
         but one tile separating the enemy unit, you could play snowmasons on
-        centre right and then on your opponent's turn, the board looks like
+        centre right and then on your opponent’s turn, the board looks like
         this:
       </p>
 

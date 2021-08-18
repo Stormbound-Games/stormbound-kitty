@@ -468,7 +468,7 @@ export default React.memo(function GuideWinter(props) {
 
       <Notice spacing={{ top: 'LARGER' }}>
         For more detailed advices &amp; responses, please check out the
-        Stormbound Discord and we'll be happy to help. Best of luck in your
+        Stormbound Discord and we’ll be happy to help. Best of luck in your
         matches!
       </Notice>
     </Guide>

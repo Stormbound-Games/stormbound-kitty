@@ -49,7 +49,7 @@ export default React.memo(function GuideGreenPrototypes(props) {
 
       <p>
         While not very impressive on its own, at 1 mana it’s extremely cheap.
-        It's basically the <span className='Highlight'>ultimate</span> support
+        It’s basically the <span className='Highlight'>ultimate</span> support
         unit… the list of benefits is long.
       </p>
 
@@ -210,7 +210,7 @@ export default React.memo(function GuideGreenPrototypes(props) {
       <h3>Play Blessed With Brawn on them</h3>
 
       <p>
-        Let’s say your Green Prototypes make it to the enemy base (it's not a
+        Let’s say your Green Prototypes make it to the enemy base (it’s not a
         high prio target anyway) now play <CardLink id='W14' /> on it. Unless
         they happen to have <CardLink id='N9' /> on hand, they’ll have to invest
         plenty of resources to kill the blessed Green Prototypes… or lose the
@@ -278,7 +278,7 @@ export default React.memo(function GuideGreenPrototypes(props) {
       </p>
 
       <Notice>
-        I’m pretty sure there are even more benefits, but for a 1 mana card, I'd
+        I’m pretty sure there are even more benefits, but for a 1 mana card, I’d
         say that’s already pretty impressive!
       </Notice>
     </Guide>

@@ -11,7 +11,7 @@ import getGuide from '~/helpers/getGuide'
 
 const guide = getGuide('TRIVIA_GUIDE')
 
-export default React.memo(function GuideWinter(props) {
+export default React.memo(function GuideTrivia(props) {
   return (
     <Guide {...guide}>
       <p>
@@ -146,7 +146,7 @@ export default React.memo(function GuideWinter(props) {
         </li>
         <li>
           <CardLink id='I2' />: Her full title is Doctor of Science, Arts,
-          Ministry, and Education. It's all the same to her.
+          Ministry, and Education. It’s all the same to her.
         </li>
         <li>
           <CardLink id='I17' />: Rodents can upgrade anything, even a mighty
@@ -154,7 +154,7 @@ export default React.memo(function GuideWinter(props) {
         </li>
         <li>
           <CardLink id='I22' />: Originally called Prolonged Hero 03, his
-          creators added "nix" when they found out his renewal doesn't always
+          creators added “nix” when they found out his renewal doesn’t always
           work.
         </li>
         <li>
@@ -165,14 +165,14 @@ export default React.memo(function GuideWinter(props) {
           Shadowfen, as they also love hatching eggs and plans.
         </li>
         <li>
-          <CardLink id='F23' />: So...who of you will be today's offering?
+          <CardLink id='F23' />: So… who of you will be today‘s offering?
         </li>
         <li>
           <CardLink id='S3' />: Want my advice? Simply do everything I tell you
           to as fast as possible.
         </li>
         <li>
-          <CardLink id='S19' />: Who's better to lead an army of Undead than the
+          <CardLink id='S19' />: Who’s better to lead an army of Undead than the
           Lord of Life?
         </li>
         <li>
@@ -185,7 +185,7 @@ export default React.memo(function GuideWinter(props) {
         </li>
         <li>
           <CardLink id='W10' />: When singing to a crescent moon, the lady gains
-          the goddess' boon.
+          the goddess’ boon.
         </li>
         <li>
           <CardLink id='W23' />: He uses his mighty twin hammers for everything:

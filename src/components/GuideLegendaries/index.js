@@ -179,7 +179,7 @@ export default React.memo(function GuideLegendaries(props) {
         tiles and trigger orders (visit the{' '}
         <Link to='/guides/triggers'>Triggers Guide</Link>). With a massive power
         spike at level 2, it is worth investing in Mia for a couple more copies
-        that will easily elevate her to S tier later down the road. And let's
+        that will easily elevate her to S tier later down the road. And let’s
         not forget the insane power spike at level 4 that makes level 5
         completely unnecessary to reach her full potential as a powerful
         Ironclad legendary.
@@ -194,7 +194,7 @@ export default React.memo(function GuideLegendaries(props) {
         well as delaying large/high-threat enemy units. At level 1, he can hold
         his own against opponents with slightly higher levels. Unfortunately, he
         cannot defend horizontally at all so reserve some card slots for more
-        dire defense. But with the relatively new change to Eloth's ability
+        dire defense. But with the relatively new change to Eloth’s ability
         which allows him to move forward after destroying a unit, he can still
         help clear from your baseline.
       </p>
@@ -234,7 +234,7 @@ export default React.memo(function GuideLegendaries(props) {
         <CardLink id='W23' />: A
       </h3>
       <p>
-        Olf's powerful base healing ability is unmatched even when compared to{' '}
+        Olf’s powerful base healing ability is unmatched even when compared to{' '}
         <CardLink id='W24' />. On top of that, his heavy strength serves as a
         powerful baseline clearer and a heavy runner to secure long games. Olf
         is the perfect tool to extend your games and reach those abundant mana
@@ -356,7 +356,7 @@ export default React.memo(function GuideLegendaries(props) {
         much and you will have trouble triggering it. If you can set it up to
         buff its own strength it becomes much better but is a very unreliable
         game plan. Not to mention, low level toad spam is not great at
-        capitalizing on Bragda's power. Level 3 is good, and level 4+ is very
+        capitalizing on Bragda’s power. Level 3 is good, and level 4+ is very
         powerful. Use Klaxi if you have her (and play Shadowfen) until you get
         Bragda at level 3+.
       </p>
@@ -365,7 +365,7 @@ export default React.memo(function GuideLegendaries(props) {
         <CardLink id='S3' />: C
       </h3>
       <p>
-        Despite Ahmi's uncapped potential strength, it is incredibly difficult
+        Despite Ahmi’s uncapped potential strength, it is incredibly difficult
         to ramp up quick enough at level 1 while finding the space on the board
         to do so. Most of the time, this card is simply not worth playing for 3
         mana because by the time you played Ahmi several times, you are already
