@@ -1,8 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Head from 'next/head'
 import CardChangeFeed from '~/components/CardChangeFeed'
-import CardDisplay from '~/components/CardBuilderCardDisplay'
+import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
 import CardDisplayControls from '~/components/CardDisplayControls'
 import Page from '~/components/Page'
 import CoreForm from '~/components/CardBuilderCoreForm'
@@ -12,7 +11,8 @@ import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import usePrevious from '~/hooks/usePrevious'
-import useRouter from '~/hooks/useRouter'
+import useNavigator from '~/hooks/useNavigator'
+import useQueryParams from '~/hooks/useQueryParams'
 import getRawCardData from '~/helpers/getRawCardData'
 import getCardBuilderMetaTags from '~/helpers/getCardBuilderMetaTags'
 import parseDate from '~/helpers/parseDate'
@@ -31,7 +31,7 @@ const useArticleProps = (props, versionId) => {
     contest => contest.winner && contest.winner.id === props.cardId
   )
   const properties = {}
-  const { name, faction, type, race } = props.cardData
+  const { name, faction, type, race } = props.card
 
   if (name && props.mode === 'DISPLAY') {
     properties.title = name
@@ -86,19 +86,13 @@ const useCardVersions = cardId => {
     .sort((a, b) => b.timestamp - a.timestamp)
 }
 
-const getVersionIdFromURL = () => {
-  const parameters = new URLSearchParams(window.location.search)
-
-  return +parameters.get('v') || null
-}
-
 const resolveCardData = data =>
   serialisation.card.deserialise(serialisation.card.serialise(data))
 
 const useCardData = (props, versionId) => {
   const versions = useCardVersions(props.cardId)
 
-  if (!versionId || versions.length === 0) return props.cardData
+  if (!versionId || versions.length === 0) return props.card
 
   const cardData = versions
     .filter(version => version.timestamp >= +versionId)
@@ -112,33 +106,42 @@ const useCardData = (props, versionId) => {
 
 export default React.memo(function CardBuilderApp(props) {
   const { css } = useFela()
-  const { history } = useRouter()
-  const isOfficial = isCardOfficial(props.cardId)
-  const [versionId, setVersionId] = React.useState(getVersionIdFromURL())
+  const navigator = useNavigator()
+  const query = useQueryParams()
+  const { cardId, mode } = props
+  const isOfficial = isCardOfficial(cardId)
+  const [versionId, setVersionId] = React.useState(+query.v || null)
   const cardData = useCardData(props, versionId)
   const articleProps = useArticleProps(props, versionId)
-  const previousCardId = usePrevious(props.cardId)
+  const previousCardId = usePrevious(cardId)
 
   React.useEffect(() => {
-    const parameters = new URLSearchParams(window.location.search)
-    if (versionId) parameters.set('v', versionId)
-    else parameters.delete('v')
-    history.replace('?' + parameters.toString())
-  }, [versionId, history])
+    // Only official card have a concept of versions, so do not redirect if the
+    // card is not an official one.
+    if (!isOfficial) return
+
+    const path = ['/card', cardId, mode === 'DISPLAY' ? 'display' : undefined]
+      .filter(Boolean)
+      .join('/')
+    const query = versionId ? `?v=${versionId}` : ''
+
+    navigator.replace(path + query)
+    // eslint-disable-next-line
+  }, [versionId, mode, isOfficial])
 
   React.useEffect(() => {
-    if (previousCardId && previousCardId !== props.cardId) setVersionId(null)
-  }, [previousCardId, props.cardId])
+    if (previousCardId && previousCardId !== cardId) setVersionId(null)
+  }, [previousCardId, cardId])
 
   return (
-    <Page {...articleProps} {...getCardBuilderMetaTags(props.cardData)}>
+    <Page {...articleProps} {...getCardBuilderMetaTags(cardData)}>
       <Spacing bottom='LARGEST'>
-        <CardDisplay mode={props.mode} {...cardData} />
+        <CardBuilderCardDisplay mode={props.mode} {...cardData} id={cardId} />
       </Spacing>
 
       {isOfficial && (
         <Spacing bottom='LARGEST'>
-          <CardDisplayControls />
+          <CardDisplayControls cardId={cardId} />
         </Spacing>
       )}
 
