@@ -8,8 +8,7 @@ import formatCardStats from '~/helpers/formatCardStats'
 import useQueryParams from '~/hooks/useQueryParams'
 
 export default React.memo(function CardBuilderCardForm(props) {
-  const { rest } = useQueryParams()
-  const [cardId] = rest || []
+  const { id: cardId } = useQueryParams()
   const isPristine = !cardId
 
   return (
