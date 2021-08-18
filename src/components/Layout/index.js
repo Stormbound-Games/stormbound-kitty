@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import EyeCatcher from '~/components/EyeCatcher'
 import Footer from '~/components/Footer'
@@ -10,9 +11,12 @@ import styles from './styles'
 const SearchDialog = dynamic(() => import('~/components/SearchDialog'))
 
 export default React.memo(function Layout(props) {
+  const router = useRouter()
   const { css } = useFela()
   const searchDialog = React.useRef(null)
   const [isSearchReady, setIsSearchReady] = React.useState(false)
+
+  if (router.isFallback) return null
 
   return (
     <div className={css(styles.layout)}>
