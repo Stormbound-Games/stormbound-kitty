@@ -1,11 +1,11 @@
 import serialisation from '~/helpers/serialisation'
 
-export default quest => {
-  if (!quest) {
+export default card => {
+  if (!card) {
     return {}
   }
 
-  const decodedData = decodeURIComponent(quest)
+  const decodedData = decodeURIComponent(card)
 
   return serialisation.quest.deserialise(decodedData)
 }

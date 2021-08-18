@@ -1,7 +1,6 @@
 import getRawCardData from '~/helpers/getRawCardData'
 
 /* Experience to reach fortress level… */
-// prettier-ignore
 const EXPERIENCE_TABLE = [
   /* 20 */ 8000, /* 19 */ 6000, /* 18 */ 4400, /* 17 */ 3000, /* 16 */ 1900,
   /* 15 */ 1200, /* 14 */ 650, /* 13 */ 400, /* 12 */ 200, /* 11 */ 100,

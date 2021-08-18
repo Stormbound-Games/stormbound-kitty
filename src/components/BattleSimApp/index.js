@@ -4,7 +4,7 @@ import AppMobile from '~/components/BattleSimAppMobile'
 import Only from '~/components/Only'
 import State from '~/components/BattleSimState'
 
-const BattleSimPage = function BattleSimPage(props) {
+const BattleSimPage = React.memo(function BattleSimPage(props) {
   const shouldRenderLeftPanel =
     props.mode === 'EDITOR' ||
     (props.mode === 'DISPLAY' && props.cards.filter(c => !!c.id).length > 0)
@@ -39,9 +39,9 @@ const BattleSimPage = function BattleSimPage(props) {
       </Only.Mobile>
     </>
   )
-}
+})
 
-export default function BattleSimApp(props) {
+export default React.memo(function BattleSimApp(props) {
   return (
     <State {...props}>
       {state => (
@@ -53,4 +53,4 @@ export default function BattleSimApp(props) {
       )}
     </State>
   )
-}
+})
