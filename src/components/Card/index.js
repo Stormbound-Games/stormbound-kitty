@@ -27,7 +27,7 @@ export default React.memo(function Card(props) {
   const { fontSize, ref } = useFluidSizing(0.03902439024)
   const ext = supportsWebp ? 'webp' : 'png'
   const backgroundImage = useCardBackground(props)
-  const level = clamp(props.level, 1, 5)
+  const level = clamp(props.level || 1, 1, 5)
   const styleProps = {
     ...props,
     hasDecreasedMana: props.manaDecreased,
