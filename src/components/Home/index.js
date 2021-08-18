@@ -6,7 +6,7 @@ import PageMeta from '~/components/PageMeta'
 import VisuallyHidden from '~/components/VisuallyHidden'
 import styles from './styles'
 
-export default React.memo(function Home() {
+export default React.memo(function Home(props) {
   const { css } = useFela()
 
   return (
@@ -14,7 +14,7 @@ export default React.memo(function Home() {
       <VisuallyHidden as='h1'>Stormbound-Kitty</VisuallyHidden>
 
       <div className={css(styles.home)}>
-        <HomeNews />
+        <HomeNews news={props.news} />
 
         <HomeSection
           color='var(--shadowfen)'
