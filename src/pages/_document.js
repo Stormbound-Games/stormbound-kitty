@@ -31,7 +31,7 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <div id='notification-root'></div>
+          <div id='notification-root' role='status' aria-live='polite'></div>
         </body>
       </Html>
     )
