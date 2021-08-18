@@ -11,6 +11,7 @@ import Info from '~/components/Info'
 import Only from '~/components/Only'
 import Page from '~/components/Page'
 import Row from '~/components/Row'
+import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import isCard from '~/helpers/isCard'
 import useViewportSize from '~/hooks/useViewportSize'
@@ -70,8 +71,10 @@ export default React.memo(function DryRunner(props) {
         <Row.Column width='2/3'>
           <Title>Your hand</Title>
           <DryRunnerHeader {...props} />
-          <DryRunnerHand {...props} />
-          <DryRunnerActions {...props} />
+          <Spacing bottom='LARGEST'>
+            <DryRunnerHand {...props} />
+            <DryRunnerActions {...props} />
+          </Spacing>
           <DryRunnerInfo {...props} />
         </Row.Column>
       </Row>
