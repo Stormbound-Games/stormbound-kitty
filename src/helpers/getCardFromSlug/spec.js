@@ -5,6 +5,10 @@ describe('The `getCardFromSlug` helper', () => {
     expect(getCardFromSlug('N1').name).to.equal('Green Prototypes')
   })
 
+  it('should find a card from its lowercase ID', () => {
+    expect(getCardFromSlug('n1').name).to.equal('Green Prototypes')
+  })
+
   it('should from its slugified name', () => {
     expect(getCardFromSlug('green_prototypes').id).to.equal('N1')
   })
