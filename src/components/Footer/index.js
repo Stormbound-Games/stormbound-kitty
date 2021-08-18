@@ -75,17 +75,18 @@ export default React.memo(function Footer(props) {
                       <Link to='/faq'>FAQ</Link>
                     </li>
                     <li className={css(styles.item)}>
-                      <Link to='/calculators/books'>Books calculator</Link>
-                    </li>
-                    <li className={css(styles.item)}>
                       <Link to='/fan-kit'>Fan-kit</Link>
                     </li>
                     <li className={css(styles.item)}>
                       <Link to='/sim'>Battle sim</Link>
                     </li>
-
                     <li className={css(styles.item)}>
                       <Link to='/about'>Donate</Link>
+                    </li>
+                    <li className={css(styles.item)}>
+                      <Link href='https://github.com/KittySparkles/stormbound-kitty'>
+                        GitHub
+                      </Link>
                     </li>
                   </ul>
                 </Row.Column>
