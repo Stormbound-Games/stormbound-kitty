@@ -6,6 +6,7 @@ import EyeCatcher from '~/components/EyeCatcher'
 import Footer from '~/components/Footer'
 import Header from '~/components/Header'
 import Link from '~/components/Link'
+import Loader from '~/components/Loader'
 import styles from './styles'
 
 const SearchDialog = dynamic(() => import('~/components/SearchDialog'))
@@ -15,8 +16,6 @@ export default React.memo(function Layout(props) {
   const { css } = useFela()
   const searchDialog = React.useRef(null)
   const [isSearchReady, setIsSearchReady] = React.useState(false)
-
-  if (router.isFallback) return null
 
   return (
     <div className={css(styles.layout)}>
@@ -30,7 +29,9 @@ export default React.memo(function Layout(props) {
         openSearch={() => searchDialog.current.show()}
       />
 
-      <main className={css(styles.body)}>{props.children}</main>
+      <main className={css(styles.body)}>
+        {router.isFallback ? <Loader /> : props.children}
+      </main>
 
       <Footer />
 
