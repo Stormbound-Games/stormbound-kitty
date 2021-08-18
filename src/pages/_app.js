@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Script from 'next/script'
 import { RendererProvider } from 'react-fela'
 import CollectionProvider from '~/components/CollectionProvider'
 import ErrorBoundary from '~/components/ErrorBoundary'
@@ -56,6 +57,7 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
           </ImageSupportProvider>
         </ErrorBoundary>
       </RendererProvider>
+      <Script async src='/focus-visible.min.js' />
     </>
   )
 }
