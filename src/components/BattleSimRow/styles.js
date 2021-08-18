@@ -49,21 +49,25 @@ const row = ({ player, frontRowIndex = 0 }) => ({
         ? [undefined, '400%', '300%', '200%', '100%'][frontRowIndex]
         : undefined,
 
-    ...(player === 'BLUE' && {
-      left: 'calc(100% - 1px)',
-      color: 'var(--player-blue)',
-      borderTop: '1px solid',
-      borderLeft: '1px solid',
-      transformOrigin: 'bottom left',
-    }),
+    ...(player === 'BLUE'
+      ? {
+          left: 'calc(100% - 1px)',
+          color: 'var(--player-blue)',
+          borderTop: '1px solid',
+          borderLeft: '1px solid',
+          transformOrigin: 'bottom left',
+        }
+      : {}),
 
-    ...(player === 'RED' && {
-      right: 'calc(100% - 1px)',
-      color: 'var(--player-red)',
-      borderBottom: '1px solid',
-      borderRight: '1px solid',
-      transformOrigin: 'top right',
-    }),
+    ...(player === 'RED'
+      ? {
+          right: 'calc(100% - 1px)',
+          color: 'var(--player-red)',
+          borderBottom: '1px solid',
+          borderRight: '1px solid',
+          transformOrigin: 'top right',
+        }
+      : {}),
   },
 })
 

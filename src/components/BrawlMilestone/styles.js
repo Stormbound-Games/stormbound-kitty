@@ -10,12 +10,8 @@ const milestone = ({ isCollected }) => ({
   height: '20em' /* 1 */,
   backgroundImage: 'linear-gradient(45deg, #1c4352 50%, #1e4858 50%)' /* 2 */,
   border: '1px solid var(--dark-beige)',
-  boxShadow: '0 0 0 5px #1c4352',
+  boxShadow: '0 0 0 5px ' + isCollected ? '#1c435280' : '#1c4352',
   margin: 'auto',
-
-  ...(isCollected && {
-    boxShadow: '0 0 0 5px #1c435280',
-  }),
 })
 
 const header = {

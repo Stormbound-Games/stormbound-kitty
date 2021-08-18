@@ -8,18 +8,24 @@ const cell = ({ type }) => ({
   backgroundClip: 'content-box',
   borderRadius: '8px',
 
-  ...(type === 'Devastators' && {
-    backgroundColor: '#e74c3c99',
-  }),
+  ...(type === 'Devastators'
+    ? {
+        backgroundColor: '#e74c3c99',
+      }
+    : {}),
 
-  ...(type === 'Snowmasons' && {
-    backgroundColor: '#2ecc7199',
-  }),
+  ...(type === 'Snowmasons'
+    ? {
+        backgroundColor: '#2ecc7199',
+      }
+    : {}),
 
-  ...(type === 'guardians' && {
-    backgroundImage:
-      'linear-gradient(to top left, #3498db99 50%, #2ecc7199 50%)',
-  }),
+  ...(type === 'guardians'
+    ? {
+        backgroundImage:
+          'linear-gradient(to top left, #3498db99 50%, #2ecc7199 50%)',
+      }
+    : {}),
 })
 
 const legend = {

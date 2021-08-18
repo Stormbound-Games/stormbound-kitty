@@ -44,8 +44,8 @@ const item = ({ isActive, isPassed }) => ({
    * 1. Small connector between passed milestones.
    * 2. Matches the thickness of the parent’s border.
    */
-  ':not(:last-child)::after': isPassed && {
-    content: '""' /* 1 */,
+  ':not(:last-child)::after': {
+    content: isPassed ? '""' : undefined /* 1 */,
     height: '2px' /* 2 */,
     width: '1em',
     left: '100%',

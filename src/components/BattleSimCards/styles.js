@@ -14,8 +14,8 @@ const button = ({ isEmpty }) => ({
   width: '100%',
   height: '100%',
 
-  '::after': isEmpty && {
-    content: '"+"',
+  '::after': {
+    content: isEmpty ? '"+"' : undefined,
     opacity: 0,
     fontSize: '350%',
     left: '50%',
@@ -27,8 +27,8 @@ const button = ({ isEmpty }) => ({
     transition: 'opacity 500ms',
   },
 
-  ':hover::after': isEmpty && {
-    opacity: 1,
+  ':hover::after': {
+    opacity: isEmpty ? 1 : undefined,
   },
 })
 

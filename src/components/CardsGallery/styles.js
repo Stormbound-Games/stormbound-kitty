@@ -51,8 +51,8 @@ const button = ({ isInDeck }) => ({
   height: '100%',
   zIndex: 2,
 
-  ':hover + *': !isInDeck && {
-    transform: 'scale(1.08)',
+  ':hover + *': {
+    transform: !isInDeck ? 'scale(1.08)' : undefined,
   },
 })
 

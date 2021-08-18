@@ -32,16 +32,18 @@ const narrow = ({ withDropCap }) => ({
   maxWidth: '65ch' /* 1 */,
   margin: 'auto',
 
-  ':first-child > p:first-child::first-letter': /* 2 */ withDropCap && {
-    color: 'var(--beige)',
-    float: 'left',
-    fontFamily: 'Georgia, serif',
-    fontSize: '81px',
-    lineHeight: '60px',
-    paddingTop: '8px',
-    paddingRight: '8px',
-    paddingLeft: '3px',
-  },
+  ':first-child > p:first-child::first-letter': /* 2 */ withDropCap
+    ? {
+        color: 'var(--beige)',
+        float: 'left',
+        fontFamily: 'Georgia, serif',
+        fontSize: '81px',
+        lineHeight: '60px',
+        paddingTop: '8px',
+        paddingRight: '8px',
+        paddingLeft: '3px',
+      }
+    : {},
 })
 
 export default { article, content, narrow }

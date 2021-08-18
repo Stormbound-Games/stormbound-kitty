@@ -8,11 +8,13 @@ const cell = ({ isDragging, isDisplay, isFrozen, activePlayer }) => ({
   transition: 'background-color 0.25s',
   cursor: isDragging ? 'move' : isDisplay ? 'default' : 'pointer',
 
-  ...(isFrozen && {
-    perspective: '1000px',
-    backgroundImage:
-      'radial-gradient(closest-side, var(--freeze), transparent)',
-  }),
+  ...(isFrozen
+    ? {
+        perspective: '1000px',
+        backgroundImage:
+          'radial-gradient(closest-side, var(--freeze), transparent)',
+      }
+    : undefined),
 
   /**
    * 1. Position context for active state pseudo-element
@@ -57,9 +59,11 @@ const cell = ({ isDragging, isDisplay, isFrozen, activePlayer }) => ({
     },
   },
 
-  ':not([disabled]):hover': !isDisplay && {
-    backgroundColor: '#ffffffb3',
-  },
+  ':not([disabled]):hover': !isDisplay
+    ? {
+        backgroundColor: '#ffffffb3',
+      }
+    : undefined,
 })
 
 /**
@@ -244,31 +248,41 @@ const dot = ({ isBubble, isConfused, isPoisoned, isVitalised }) => ({
   animationIterationCount: 'infinite',
   zIndex: 2,
 
-  ...(isConfused && {
-    backgroundColor: 'var(--confused)',
-    borderRadius: '50%',
-    animationDirection: 'alternate',
-  }),
+  ...(isConfused
+    ? {
+        backgroundColor: 'var(--confused)',
+        borderRadius: '50%',
+        animationDirection: 'alternate',
+      }
+    : {}),
 
-  ...(isPoisoned && {
-    backgroundColor: isBubble ? 'greenyellow' : 'var(--poison)',
-    animationDirection: 'reverse',
+  ...(isPoisoned
+    ? {
+        backgroundColor: isBubble ? 'greenyellow' : 'var(--poison)',
+        animationDirection: 'reverse',
 
-    ...(isBubble && {
-      borderRadius: '50%',
-      width: '0.4em',
-      height: '0.4em',
-    }),
-  }),
+        ...(isBubble
+          ? {
+              borderRadius: '50%',
+              width: '0.4em',
+              height: '0.4em',
+            }
+          : {}),
+      }
+    : {}),
 
-  ...(isVitalised && {
-    backgroundColor: isBubble ? 'darkgreen' : 'var(--vitalised)',
-    ...(isBubble && {
-      borderRadius: '50%',
-      width: '0.4em',
-      height: '0.4em',
-    }),
-  }),
+  ...(isVitalised
+    ? {
+        backgroundColor: isBubble ? 'darkgreen' : 'var(--vitalised)',
+        ...(isBubble
+          ? {
+              borderRadius: '50%',
+              width: '0.4em',
+              height: '0.4em',
+            }
+          : undefined),
+      }
+    : undefined),
 
   ':nth-child(1)': {
     animationDelay: '250ms',

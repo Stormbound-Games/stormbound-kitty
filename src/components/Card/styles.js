@@ -177,11 +177,13 @@ const imageWrapper = ({ rarity }) => ({
   margin: 'auto',
   maxHeight: '45%',
 
-  ...(rarity === 'legendary' && {
-    animationName: { to: { filter: 'hue-rotate(360deg)' } } /* 1 */,
-    animationDuration: '8000ms',
-    animationIterationCount: 'infinite',
-  }),
+  ...(rarity === 'legendary'
+    ? {
+        animationName: { to: { filter: 'hue-rotate(360deg)' } } /* 1 */,
+        animationDuration: '8000ms',
+        animationIterationCount: 'infinite',
+      }
+    : {}),
 })
 
 /**

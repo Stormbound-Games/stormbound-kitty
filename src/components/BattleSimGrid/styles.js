@@ -63,20 +63,28 @@ const cell = ({ withGridMarkers, rowIndex }) => ({
   /**
    * 1. Every cell of the first row should increment the column counter
    */
-  ...(rowIndex === 0 && {
-    counterIncrement: 'column' /* 1 */,
-  }),
+  ...(rowIndex === 0
+    ? {
+        counterIncrement: 'column' /* 1 */,
+      }
+    : {}),
 
   /**
    * 1. Readjust the horizontal centering of the column marker in the cell
    */
-  ':nth-child(3) > *::after': rowIndex === 0 && {
-    transform: 'translateX(-50%) translateX(10%)' /* 1 */,
-  },
+  ':nth-child(3) > *::after':
+    rowIndex === 0
+      ? {
+          transform: 'translateX(-50%) translateX(10%)' /* 1 */,
+        }
+      : {},
 
-  ':nth-child(4) > *::after': rowIndex === 0 && {
-    transform: 'translateX(-50%) translateX(20%)' /* 1 */,
-  },
+  ':nth-child(4) > *::after':
+    rowIndex === 0
+      ? {
+          transform: 'translateX(-50%) translateX(20%)' /* 1 */,
+        }
+      : {},
 })
 
 /**
@@ -94,10 +102,11 @@ const cellContent = ({ withGridMarkers, rowIndex }) => ({
    * 2. Horizontal centering of the marker in the column
    * 3. Spacing of the marker from the column’s top edge
    */
-  '::after': rowIndex === 0 && {
-    content: withGridMarkers
-      ? 'counter(column, upper-alpha)'
-      : undefined /* 1 */,
+  '::after': {
+    content:
+      rowIndex === 0 && withGridMarkers
+        ? 'counter(column, upper-alpha)'
+        : undefined /* 1 */,
     position: 'absolute',
     fontSize: '5vw',
     opacity: 0.7,

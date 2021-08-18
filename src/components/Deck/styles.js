@@ -39,31 +39,35 @@ const BACKGROUNDS = {
 const deck = ({ orientation }) => ({
   fontSize: 'var(--font-size)',
 
-  ...(orientation === 'horizontal' && {
-    position: 'relative',
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 'var(--s-base)',
-    marginTop: 'var(--s-small)',
+  ...(orientation === 'horizontal'
+    ? {
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        marginBottom: 'var(--s-base)',
+        marginTop: 'var(--s-small)',
 
-    medium: {
-      fontSize: 'var(--font-size, 13.8137px)' /* 1 */,
-    },
+        medium: {
+          fontSize: 'var(--font-size, 13.8137px)' /* 1 */,
+        },
 
-    '::before': {
-      content: '""',
-      display: 'block',
-      paddingTop: '50%',
-    },
-  }),
+        '::before': {
+          content: '""',
+          display: 'block',
+          paddingTop: '50%',
+        },
+      }
+    : {}),
 
-  ...(orientation === 'vertical' && {
-    marginBottom: 'var(--s-large)',
+  ...(orientation === 'vertical'
+    ? {
+        marginBottom: 'var(--s-large)',
 
-    medium: {
-      fontSize: 'var(--font-size, 13.4085px)' /* 1 */,
-    },
-  }),
+        medium: {
+          fontSize: 'var(--font-size, 13.4085px)' /* 1 */,
+        },
+      }
+    : {}),
 })
 
 const list = ({ orientation }) => ({
@@ -71,18 +75,22 @@ const list = ({ orientation }) => ({
   padding: 0,
   margin: 0,
 
-  ...(orientation === 'horizontal' && {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    display: 'flex',
-    bottom: 0,
-  }),
+  ...(orientation === 'horizontal'
+    ? {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        display: 'flex',
+        bottom: 0,
+      }
+    : {}),
 
-  ...(orientation === 'vertical' && {
-    marginLeft: '1em',
-  }),
+  ...(orientation === 'vertical'
+    ? {
+        marginLeft: '1em',
+      }
+    : {}),
 })
 
 const getSlotColor = ({ faction, isLegendary, type }) =>
@@ -111,99 +119,125 @@ const card = ({
   position: 'relative',
   transition: '250ms',
 
-  ...(isExcluded && {
-    opacity: isExcluded ? 0.6 : undefined,
-  }),
+  ...(isExcluded
+    ? {
+        opacity: isExcluded ? 0.6 : undefined,
+      }
+    : {}),
 
-  ...(isMissing && {
-    opacity: 0.3,
-    filter: 'grayscale(1) contrast(200%)',
-  }),
+  ...(isMissing
+    ? {
+        opacity: 0.3,
+        filter: 'grayscale(1) contrast(200%)',
+      }
+    : {}),
 
-  ...(isEmpty && {
-    minHeight: '2.5em',
-    backgroundColor: 'transparent',
-    border: '2px dotted #ffffff80',
-    opacity: 0.5,
-  }),
+  ...(isEmpty
+    ? {
+        minHeight: '2.5em',
+        backgroundColor: 'transparent',
+        border: '2px dotted #ffffff80',
+        opacity: 0.5,
+      }
+    : {}),
 
-  ...(isUpgradable && {
-    borderColor: 'var(--upgradable)',
-  }),
+  ...(isUpgradable
+    ? {
+        borderColor: 'var(--upgradable)',
+      }
+    : {}),
 
-  ...(orientation === 'horizontal' && {
-    margin: '0 0.15em',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    height: '100%',
-    flex: '1 1 calc(100% / 12)',
-  }),
+  ...(orientation === 'horizontal'
+    ? {
+        margin: '0 0.15em',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        height: '100%',
+        flex: '1 1 calc(100% / 12)',
+      }
+    : {}),
 
-  ...(orientation === 'vertical' && {
-    padding: '0.25em 1em',
-    margin: '0.25em 0',
-  }),
+  ...(orientation === 'vertical'
+    ? {
+        padding: '0.25em 1em',
+        margin: '0.25em 0',
+      }
+    : {}),
 })
 
 const mana = ({ isDecreased, isIncreased, orientation }) => ({
-  ...(orientation === 'vertical' && {
-    transform: 'scale(1.2)',
-    left: '-2em',
-  }),
+  ...(orientation === 'vertical'
+    ? {
+        transform: 'scale(1.2)',
+        left: '-2em',
+      }
+    : {}),
 
-  ...(orientation === 'horizontal' && {
-    fontSize: '80%',
-    position: 'absolute',
-    left: '50%',
-    transform: 'translateX(-50%)',
-    top: '-0.7em',
-  }),
+  ...(orientation === 'horizontal'
+    ? {
+        fontSize: '80%',
+        position: 'absolute',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        top: '-0.7em',
+      }
+    : {}),
 
-  ...(isDecreased && {
-    color: 'var(--affordable)',
-  }),
+  ...(isDecreased
+    ? {
+        color: 'var(--affordable)',
+      }
+    : {}),
 
-  ...(isIncreased && {
-    color: 'var(--light-ironclad)',
-  }),
+  ...(isIncreased
+    ? {
+        color: 'var(--light-ironclad)',
+      }
+    : {}),
 })
 
 const name = ({ orientation }) => ({
   textTransform: 'uppercase',
 
-  ...(orientation === 'horizontal' && {
-    transformOrigin: 'top left',
-    transform: 'rotate(90deg) translateY(-50%)',
-    whiteSpace: 'nowrap',
-    position: 'absolute',
-    left: '50%',
-    top: '1.5em',
-    maxWidth: '500%',
-    textOverflow: 'ellipsis',
-    overflow: 'hidden',
-    fontSize: '85%',
-  }),
+  ...(orientation === 'horizontal'
+    ? {
+        transformOrigin: 'top left',
+        transform: 'rotate(90deg) translateY(-50%)',
+        whiteSpace: 'nowrap',
+        position: 'absolute',
+        left: '50%',
+        top: '1.5em',
+        maxWidth: '500%',
+        textOverflow: 'ellipsis',
+        overflow: 'hidden',
+        fontSize: '85%',
+      }
+    : {}),
 })
 
 const image = ({ orientation }) => ({
   display: 'inline-block',
 
-  ...(orientation === 'vertical' && {
-    maxWidth: '1.5em',
-    maxHeight: '1.6em',
-    marginTop: 0,
-    marginBottom: 0,
-    marginRight: '1em',
-    marginLeft: 'auto',
-    objectFit: 'contain',
-  }),
+  ...(orientation === 'vertical'
+    ? {
+        maxWidth: '1.5em',
+        maxHeight: '1.6em',
+        marginTop: 0,
+        marginBottom: 0,
+        marginRight: '1em',
+        marginLeft: 'auto',
+        objectFit: 'contain',
+      }
+    : {}),
 
-  ...(orientation === 'horizontal' && {
-    width: 'auto',
-    maxWidth: '100%',
-    maxHeight: '1.75em',
-    margin: 'auto auto 0.25em',
-  }),
+  ...(orientation === 'horizontal'
+    ? {
+        width: 'auto',
+        maxWidth: '100%',
+        maxHeight: '1.75em',
+        margin: 'auto auto 0.25em',
+      }
+    : {}),
 })
 
 const button = {
