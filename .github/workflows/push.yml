@@ -26,6 +26,6 @@ jobs:
           browser: chrome
           group: 'Integration tests'
         env:
-          CYPRESS_BASE_URL: https://stormbound-kitty.com
+          CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
