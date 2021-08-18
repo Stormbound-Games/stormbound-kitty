@@ -8,13 +8,7 @@ Source code for [Stormbound-Kitty](https://stormbound-kitty.com/).
 
 ## Development
 
-The site is a fully client-side [create-react-app](https://create-react-app.dev/) application. Therefore, it uses Node.js (version 14). It is recommended to install [nvm](https://github.com/nvm-sh/nvm) (or [nvm-windows](https://github.com/coreybutler/nvm-windows)) to manage Node versions, but it’s not mandatory, as long as Node 14 is installed on the machine.
-
-After having cloned the project locally, create a `.env` file at the root of the project, and set the following content inside it:
-
-```
-NODE_ENV=development
-```
+The site runs with Next [Next](https://nextjs.org/) application. Therefore, it uses Node.js (version 14). It is recommended to install [nvm](https://github.com/nvm-sh/nvm) (or [nvm-windows](https://github.com/coreybutler/nvm-windows)) to manage Node versions, but it’s not mandatory, as long as Node 14 is installed on the machine.
 
 Then run the following commands to install the local dependencies and start the development server:
 
