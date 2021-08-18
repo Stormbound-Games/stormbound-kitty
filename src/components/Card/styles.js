@@ -119,7 +119,7 @@ const content = ({ isMissing }) => ({
   backgroundSize: 'contain',
   backgroundRepeat: 'no-repeat',
 
-  animationName: { from: { opacity: 0 } },
+  animationName: { from: { opacity: 0 }, to: { opacity: 1 } },
   animationDuration: '200ms',
   animationDelay: '100ms',
   animationFillMode: 'both',
