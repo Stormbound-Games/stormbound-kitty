@@ -32,7 +32,7 @@ const getInitialDecks = () => {
 }
 
 export default React.memo(function PersonalDecksProvider(props) {
-  const [decks, setDecks] = React.useState(getInitialDecks)
+  const [decks, setDecks] = React.useState([])
   const [isUnseen, toggleUnseen] = React.useState(false)
   const { notify: sendNotification } = React.useContext(NotificationContext)
   const notify = React.useCallback(
@@ -41,13 +41,13 @@ export default React.memo(function PersonalDecksProvider(props) {
   )
 
   React.useEffect(() => {
+    const decks = getInitialDecks()
+
+    setDecks(decks)
+
     if (decks.length > 0) {
       notify('Locally saved decks found and loaded.')
     }
-    // We only want to run that once on page load if there are decks, so we need
-    // to make sure not to pass `decks` as a dependency, otherwise this is going
-    // to run every time the decks get updated.
-    // eslint-disable-next-line
   }, [notify])
 
   React.useEffect(() => {
