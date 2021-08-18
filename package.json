@@ -44,7 +44,6 @@
     "react-scripts": "^4.0.3",
     "react-select": "^4.3.1",
     "recharts": "^2.1.0",
-    "svg2png": "^4.1.1",
     "worker-loader": "^3.0.8"
   },
   "scripts": {
@@ -74,7 +73,8 @@
     "next-sitemap": "^1.6.157",
     "nodemon": "^2.0.12",
     "prettier": "^2.3.2",
-    "sitemap": "^7.0.0"
+    "sitemap": "^7.0.0",
+    "svg2png": "^4.1.1"
   },
   "lint-staged": {
     "*.js": [
