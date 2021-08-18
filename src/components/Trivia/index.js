@@ -5,12 +5,9 @@ import serialize from 'form-serialize'
 import Confetti from 'react-dom-confetti'
 import Page from '~/components/Page'
 import CTA from '~/components/CTA'
-import HorizontalRule from '~/components/HorizontalRule'
 import Info from '~/components/Info'
-import Input from '~/components/Input'
 import Notice from '~/components/Notice'
 import Radio from '~/components/Radio'
-import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Sparkles from '~/components/Sparkles'
 import Strikethrough from '~/components/Strikethrough'
@@ -180,44 +177,6 @@ export default React.memo(function Trivia() {
             in the shattered world of Stormbound.
           </p>
         </Info>
-
-        <HorizontalRule />
-
-        <form name='trivia' method='POST'>
-          <p>
-            <span
-              className={
-                'Highlight ' +
-                css({
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
-                  fontSize: '90%',
-                })
-              }
-            >
-              Want to suggest a question?
-            </span>{' '}
-            Fantastic! Fill the form below (please be considerate, don’t spam).
-            You can also get in touch with Kitty#1909 on Discord to discuss it
-            if you would rather.
-          </p>
-
-          <input type='hidden' name='form-name' value='trivia' />
-
-          <div hidden>
-            <label htmlFor='beartrap'>Do not fill you’re a human</label>
-            <input type='text' name='beartrap' id='beartrap' />
-          </div>
-          <Row isDesktopOnly>
-            <Row.Column>
-              <Input label='Your question' id='question' required />
-            </Row.Column>
-            <Row.Column>
-              <Input label='The answer' id='answer' required />
-            </Row.Column>
-          </Row>
-          <CTA type='submit'>Submit</CTA>
-        </form>
       </Page.Narrow>
     </Page>
   )
