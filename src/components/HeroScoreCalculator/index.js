@@ -66,7 +66,7 @@ export default React.memo(function HeroScoreCalculator(props) {
             <ul>
               <li>
                 <var className='Highlight'>
-                  S'<sub>A</sub>
+                  S’<sub>A</sub>
                 </var>{' '}
                 is the new Hero Score
               </li>

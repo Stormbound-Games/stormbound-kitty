@@ -369,7 +369,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           <ul>
             <li>
               <var className='Highlight'>
-                S'<sub>A</sub>
+                S’<sub>A</sub>
               </var>{' '}
               is the new Hero Score
             </li>
