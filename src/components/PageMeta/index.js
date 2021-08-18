@@ -1,13 +1,16 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 const SITE_URL = 'https://stormbound-kitty.com'
 
 export default React.memo(function PageMeta(props) {
+  const { asPath: location } = useRouter()
+
   return (
-    <Helmet titleTemplate='%s – Stormbound-Kitty'>
+    <Head>
       <title>{props.title}</title>
-      <link rel='canonical' href={window.location.href} />
+      <link rel='canonical' href={SITE_URL + location} />
       <meta property='og:title' content={props.title + ' – Stormbound-Kitty'} />
       <meta
         property='twitter:title'
@@ -17,7 +20,7 @@ export default React.memo(function PageMeta(props) {
       {!!props.author && <meta name='author' content={props.author} />}
       <meta property='og:description' content={props.description} />
       <meta property='twitter:description' content={props.description} />
-      <meta property='og:url' content={window.location.href} />
+      <meta property='og:url' content={SITE_URL + location} />
       {!!props.image ? (
         <meta
           property='og:image'
@@ -31,6 +34,6 @@ export default React.memo(function PageMeta(props) {
         <meta property='og:image' content={SITE_URL + '/favicon.png'} />
       )}
       {props.noIndex && <meta name='robots' content='noindex, nofollow' />}
-    </Helmet>
+    </Head>
   )
 })
