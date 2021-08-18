@@ -7,16 +7,9 @@ import CardZoom from '~/components/CardZoom'
 import Grid from '~/components/BattleSimGrid'
 import PlayerBanner from '~/components/BattleSimPlayerBanner'
 import arrayRandom from '~/helpers/arrayRandom'
+import useIsMounted from '~/hooks/useIsMounted'
 import { FACTIONS } from '~/constants/game'
 import styles from './styles'
-
-// Because the faction is picked at random, it needs to be defined outside of
-// the memoised component.
-const faction = arrayRandom(
-  Object.keys(FACTIONS)
-    .filter(f => f !== 'neutral')
-    .concat(['dragon', 'neutral', 'feline'])
-)
 
 const POSITIONS = {
   dragon: [['3.25%'], ['66.3%']],
@@ -33,9 +26,10 @@ const POSITIONS = {
 
 export default React.memo(function BattleSimBoardDesktop(props) {
   const { css } = useFela()
+  const isMounted = useIsMounted()
   const { supportsAvif, supportsWebp } = React.useContext(ImageSupportContext)
   const ext = supportsAvif ? 'avif' : supportsWebp ? 'webp' : 'png'
-  const environment = props.environment || faction
+  const environment = props.environment || 'swarm'
   const [redHealth, blueHealth] = POSITIONS[environment]
 
   return (
@@ -88,18 +82,20 @@ export default React.memo(function BattleSimBoardDesktop(props) {
         />
       </div>
 
-      <div className={css(styles.cards)}>
-        <Cards
-          hand={props.hand}
-          cards={props.cards}
-          zoom={props.zoom}
-          mana={props.mana}
-          drawCard={props.drawCard}
-          canDrawCard={props.mode !== 'DISPLAY' && props.canDrawCard}
-          cycleCard={props.cycleCard}
-          canCycleCard={props.mode !== 'DISPLAY' && props.canCycleCard}
-        />
-      </div>
+      {isMounted && (
+        <div className={css(styles.cards)}>
+          <Cards
+            hand={props.hand}
+            cards={props.cards}
+            zoom={props.zoom}
+            mana={props.mana}
+            drawCard={props.drawCard}
+            canDrawCard={props.mode !== 'DISPLAY' && props.canDrawCard}
+            cycleCard={props.cycleCard}
+            canCycleCard={props.mode !== 'DISPLAY' && props.canCycleCard}
+          />
+        </div>
+      )}
     </div>
   )
 })

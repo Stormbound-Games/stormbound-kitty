@@ -22,6 +22,7 @@ export default React.memo(function BattleSimCell(props) {
   const styleProps = {
     activePlayer: props.activePlayer,
     player: props.player,
+    isActive: props.isActive,
     isDragging: props.isDragging,
     isDisplay: props.mode === 'DISPLAY',
     isPoisoned: props.poisoned,

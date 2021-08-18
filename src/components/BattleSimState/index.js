@@ -1,5 +1,4 @@
 import React from 'react'
-import hookIntoProps from 'hook-into-props'
 import clone from 'lodash.clonedeep'
 import isEqual from 'lodash.isequal'
 import serialize from 'form-serialize'
@@ -14,15 +13,14 @@ import getRawCardData from '~/helpers/getRawCardData'
 import getInitialBattleData from '~/helpers/getInitialBattleData'
 import serialisation from '~/helpers/serialisation'
 import arrayRandom from '~/helpers/arrayRandom'
-import useNavigator from '~/hooks/useNavigator'
 
-class BattleSimState extends React.Component {
+export default class BattleSimState extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
       // Data from URL
-      ...getInitialBattleData(props.simId),
+      ...props.sim,
 
       // Local unsaved data
       activeCell: null,
@@ -504,7 +502,3 @@ class BattleSimState extends React.Component {
     })
   }
 }
-
-export default hookIntoProps(props => ({
-  navigator: useNavigator(),
-}))(BattleSimState)
