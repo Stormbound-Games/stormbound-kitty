@@ -66,7 +66,7 @@ export default mode => {
   }
 
   Object.keys(GUIDE_CATEGORIES).forEach(category => {
-    links.push('/guides/' + category.toLowerCase())
+    links.push('/guides/' + GUIDE_CATEGORIES[category].slug)
   })
 
   GUIDES.forEach(guide => {
