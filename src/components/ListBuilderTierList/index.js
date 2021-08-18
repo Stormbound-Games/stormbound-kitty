@@ -5,11 +5,10 @@ import Spacing from '~/components/Spacing'
 
 export default React.memo(function ListBuilderTierList(props) {
   return props.tiers.map((tier, index) => (
-    <Spacing bottom='BASE'>
+    <Spacing bottom='BASE' key={index}>
       <ListBuilderTier
         {...tier}
         color={TIER_COLORS[index]}
-        key={index}
         prefix={`tier-${index}-`}
         isEditable={false}
       />

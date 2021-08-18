@@ -7,13 +7,9 @@ import ShareButton from '~/components/ListBuilderShareButton'
 import ListBuilderTier from '~/components/ListBuilderTier'
 import ListBuilderToc from '~/components/ListBuilderToc'
 import Title from '~/components/Title'
-import getInitialListData from '~/helpers/getInitialListData'
-import useRouter from '~/hooks/useRouter'
 
 export default React.memo(function ListBuilderDisplayView(props) {
-  const { params } = useRouter()
-  const id = params.listId
-  const tiers = getInitialListData(id)
+  const { tiers, listId: id } = props
 
   return (
     <Page
