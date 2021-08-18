@@ -175,6 +175,7 @@ describe('Battle Sim — Cells', () => {
       disabled: true,
       confused: true,
     })
+      .wait(3000)
       .reload()
       .get(s.CELL_B1)
       .find(s.CELL_POISONED)

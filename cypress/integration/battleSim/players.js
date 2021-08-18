@@ -36,8 +36,7 @@ describe('Battle Sim — Players', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.url()
-      .should('not.match', /\/sim$/)
+    cy.wait(3000)
       .reload()
       .get(s.RED_HEALTH)
       .should('have.text', '9')

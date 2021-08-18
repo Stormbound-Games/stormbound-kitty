@@ -43,8 +43,7 @@ describe('Battle Sim — Front lines', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.url()
-      .should('not.match', /\/sim$/)
+    cy.wait(3000)
       .reload()
       .get(s.ROWS)
       .eq(4)
