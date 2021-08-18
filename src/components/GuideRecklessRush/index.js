@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import BattleSimApp from '~/components/BattleSimApp'
+import BattleSimEmbed from '~/components/BattleSimEmbed'
 import CardLink from '~/components/CardLink'
 import DeckStatsChart from '~/components/DeckStatsChart'
 import FeaturedDeck from '~/components/FeaturedDeck'
@@ -23,7 +23,7 @@ const Board = props => {
 
   return (
     <Guide.FullWidth>
-      <BattleSimApp environment='swarm' mode='DISPLAY' simId={props.id} />
+      <BattleSimEmbed environment='swarm' id={props.id} />
       {props.caption ? (
         <Spacing top='BASE'>
           <p className={css(styles.caption)}>{props.caption}</p>

@@ -1,5 +1,5 @@
 import React from 'react'
-import BattleSimApp from '~/components/BattleSimApp'
+import BattleSimEmbed from '~/components/BattleSimEmbed'
 import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
 import Guide from '~/components/Guide'
 import CardLink from '~/components/CardLink'
@@ -106,10 +106,9 @@ export default React.memo(function GuideChillbeards(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
+        <BattleSimEmbed
           environment='winter'
-          mode='DISPLAY'
-          simId='LDJOOEIzLCwsLCw4TjEzQjUsLCwsOFcxM0I1LCwsLCwsLCwsO1IxME4tQjEwVzs4TTA7Ow=='
+          id='LDJOOEIzLCwsLCw4TjEzQjUsLCwsOFcxM0I1LCwsLCwsLCwsO1IxME4tQjEwVzs4TTA7Ow=='
         />
       </Guide.FullWidth>
 
@@ -144,10 +143,9 @@ export default React.memo(function GuideChillbeards(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
+        <BattleSimEmbed
           environment='winter'
-          mode='DISPLAY'
-          simId='NU4zQjUsLDhGNlI1Riw5VzdCMywsLDVXMkI1LCwsLCwsLCwsLCwsLDtSMjBGLUIyMFc7OE0wOzs='
+          id='NU4zQjUsLDhGNlI1Riw5VzdCMywsLDVXMkI1LCwsLCwsLCwsLCwsLDtSMjBGLUIyMFc7OE0wOzs='
         />
       </Guide.FullWidth>
     </>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '~/components/Link'
-import BattleSimApp from '~/components/BattleSimApp'
+import BattleSimEmbed from '~/components/BattleSimEmbed'
 import DeckStatsChart from '~/components/DeckStatsChart'
 import FeaturedDeck from '~/components/FeaturedDeck'
 import Guide from '~/components/Guide'
@@ -336,10 +336,9 @@ export default React.memo(function GuideD1SFCommons(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
+        <BattleSimEmbed
           environment='shadowfen'
-          mode='DISPLAY'
-          simId='LCwsLCwsLCwsLDZGM0I1LCw1TjFCNSwsLCwsLCw7UjIwUy1CMThGOzBNMDs1TjE1TjI1RjQ1RjM1TjM1Tjk1TjEyNU4xNjVOMjg1RjE0NU4zMDVONTI7TjksTjI4'
+          id='LCwsLCwsLCwsLDZGM0I1LCw1TjFCNSwsLCwsLCw7UjIwUy1CMThGOzBNMDs1TjE1TjI1RjQ1RjM1TjM1Tjk1TjEyNU4xNjVOMjg1RjE0NU4zMDVONTI7TjksTjI4'
         />
       </Guide.FullWidth>
 
@@ -404,10 +403,9 @@ export default React.memo(function GuideD1SFCommons(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
+        <BattleSimEmbed
           environment='winter'
-          mode='DISPLAY'
-          simId='NU4zQjVGLDE2VzlSNSwsLCwzVzEzUjUsLDhOMTNSNSwsLCwsLCwsLCwsLDtSMTBXLUIxOEY7OE0wOzVOMTVOMjVGNDVGMzVOMzVOOTVOMTI1TjE2NU4yODVGMTQ1TjMwNU41MjtGNCxONTIsTjI4LE4y'
+          id='NU4zQjVGLDE2VzlSNSwsLCwzVzEzUjUsLDhOMTNSNSwsLCwsLCwsLCwsLDtSMTBXLUIxOEY7OE0wOzVOMTVOMjVGNDVGMzVOMzVOOTVOMTI1TjE2NU4yODVGMTQ1TjMwNU41MjtGNCxONTIsTjI4LE4y'
         />
       </Guide.FullWidth>
 
@@ -463,10 +461,9 @@ export default React.memo(function GuideD1SFCommons(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
+        <BattleSimEmbed
           environment='ironclad'
-          mode='DISPLAY'
-          simId='NU4zQjUsLCw2RjNCNSwsLCwsLCwsLCwsLCwsLCw7UjIwSS1CMThGOzVNMDs1TjE1TjI1RjQ1RjM1TjM1Tjk1TjEyNU4xNjVOMjg1RjE0NU4zMDVONTI7'
+          id='NU4zQjUsLCw2RjNCNSwsLCwsLCwsLCwsLCwsLCw7UjIwSS1CMThGOzVNMDs1TjE1TjI1RjQ1RjM1TjM1Tjk1TjEyNU4xNjVOMjg1RjE0NU4zMDVONTI7'
         />
       </Guide.FullWidth>
 
@@ -510,10 +507,9 @@ export default React.memo(function GuideD1SFCommons(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
+        <BattleSimEmbed
           environment='shadowfen'
-          mode='DISPLAY'
-          simId='LCwsNkYzQjUsLDVOM0I1LCwsLCwsLCwsLCwsLCw7UjIwRi1CMThGOzVNMDs1TjE1TjI1RjQ1RjM1TjM1Tjk1TjEyNU4xNjVOMjg1RjE0NU4zMDVONTI7'
+          id='LCwsNkYzQjUsLDVOM0I1LCwsLCwsLCwsLCwsLCw7UjIwRi1CMThGOzVNMDs1TjE1TjI1RjQ1RjM1TjM1Tjk1TjEyNU4xNjVOMjg1RjE0NU4zMDVONTI7'
         />
       </Guide.FullWidth>
 

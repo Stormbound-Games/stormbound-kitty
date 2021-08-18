@@ -1,5 +1,5 @@
 import React from 'react'
-import BattleSimApp from '~/components/BattleSimApp'
+import BattleSimEmbed from '~/components/BattleSimEmbed'
 import Card from '~/components/Card'
 import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
 import Guide from '~/components/Guide'
@@ -82,10 +82,9 @@ export default React.memo(function GuideBroodmotherQordia(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
+        <BattleSimEmbed
           environment='shadowfen'
-          mode='DISPLAY'
-          simId='LCwsLCwsLCwsMVQxMkIxLCwsLCw1RjIxQjEsMVQxMkIxLCwxVDEyQjEsLDtSMTBOLUIxMEY7M00wOzs='
+          id='LCwsLCwsLCwsMVQxMkIxLCwsLCw1RjIxQjEsMVQxMkIxLCwxVDEyQjEsLDtSMTBOLUIxMEY7M00wOzs='
         />
       </Guide.FullWidth>
 
@@ -113,10 +112,9 @@ export default React.memo(function GuideBroodmotherQordia(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
+        <BattleSimEmbed
           environment='shadowfen'
-          mode='DISPLAY'
-          simId='MVQxMkIxLDFUMTJCMSwsLCw1RjIxQjEsLCwxVDEyQjEsLCwsLCwsLCwsLDtSMTBOLUIxMEY7M00wOzs='
+          id='MVQxMkIxLDFUMTJCMSwsLCw1RjIxQjEsLCwxVDEyQjEsLCwsLCwsLCwsLDtSMTBOLUIxMEY7M00wOzs='
         />
       </Guide.FullWidth>
 
@@ -132,10 +130,9 @@ export default React.memo(function GuideBroodmotherQordia(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
+        <BattleSimEmbed
           environment='shadowfen'
-          mode='DISPLAY'
-          simId='LCwsLCwsLCwsLDFUMTJCMSwsLCw1RjIxQjEsMVQxMkIxLCwxVDEyQjEsLDNOMjBCMTtSMTBOLUIxMEY7M00wOzs='
+          id='LCwsLCwsLCwsLDFUMTJCMSwsLCw1RjIxQjEsMVQxMkIxLCwxVDEyQjEsLDNOMjBCMTtSMTBOLUIxMEY7M00wOzs='
         />
       </Guide.FullWidth>
 

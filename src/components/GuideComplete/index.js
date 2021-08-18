@@ -1,5 +1,5 @@
 import React from 'react'
-import BattleSimApp from '~/components/BattleSimApp'
+import BattleSimEmbed from '~/components/BattleSimEmbed'
 import CardLink from '~/components/CardLink'
 import Guide from '~/components/Guide'
 import Image from '~/components/Image'
@@ -171,10 +171,7 @@ export default React.memo(function GuideComplete(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
-          mode='DISPLAY'
-          simId='M04zMkIxLCwyVDNCMSwzTjMyQjEsLDFOM0IxLCwsLCwsLCwsLCwsLCw7UjEwTi1CMTBOOzNNMDs7'
-        />
+        <BattleSimEmbed id='M04zMkIxLCwyVDNCMSwzTjMyQjEsLDFOM0IxLCwsLCwsLCwsLCwsLCw7UjEwTi1CMTBOOzNNMDs7' />
       </Guide.FullWidth>
 
       <p>
@@ -578,10 +575,7 @@ export default React.memo(function GuideComplete(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
-          mode='DISPLAY'
-          simId='MlQ0QjEsMU4xM1IxLCwsLCwsLCwsLCwsLCwsLCwsO1IxME4tQjEwTjszTTA7Ow=='
-        />
+        <BattleSimEmbed id='MlQ0QjEsMU4xM1IxLCwsLCwsLCwsLCwsLCwsLCwsO1IxME4tQjEwTjszTTA7Ow==' />
       </Guide.FullWidth>
 
       <p>

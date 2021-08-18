@@ -1,5 +1,5 @@
 import React from 'react'
-import BattleSimApp from '~/components/BattleSimApp'
+import BattleSimEmbed from '~/components/BattleSimEmbed'
 import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
 import Notice from '~/components/Notice'
 import Guide from '~/components/Guide'
@@ -77,10 +77,9 @@ export default React.memo(function GuideGreenPrototypes(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
+        <BattleSimEmbed
           environment='swarm'
-          mode='DISPLAY'
-          simId='LCwsLCwsLCwsLCwsLCwsNU4xQjUsLCwsOE4zNEI1O1IxME4tQjEwTjs2TTA7NU4xNU4zNDs='
+          id='LCwsLCwsLCwsLCwsLCwsNU4xQjUsLCwsOE4zNEI1O1IxME4tQjEwTjs2TTA7NU4xNU4zNDs='
         />
       </Guide.FullWidth>
 
@@ -95,10 +94,9 @@ export default React.memo(function GuideGreenPrototypes(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
+        <BattleSimEmbed
           environment='winter'
-          mode='DISPLAY'
-          simId='LCwsOE4zNFI1LCwsLCwsNU4xQjUsLCwsMTFXN0I1LCwsLCwsNlczQjU7UjEwTi1CMTBXOzhNMDs1TjE1VzM1Vzc7'
+          id='LCwsOE4zNFI1LCwsLCwsNU4xQjUsLCwsMTFXN0I1LCwsLCwsNlczQjU7UjEwTi1CMTBXOzhNMDs1TjE1VzM1Vzc7'
         />
       </Guide.FullWidth>
 
@@ -113,10 +111,9 @@ export default React.memo(function GuideGreenPrototypes(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
+        <BattleSimEmbed
           environment='swarm'
-          mode='DISPLAY'
-          simId='LCwsLCwsLCwsLCwsLDVOMUI1LCwsLCwsOE4zNEI1O1IxME4tQjEwTjs2TTA7NU4xNU4zNDs='
+          id='LCwsLCwsLCwsLCwsLDVOMUI1LCwsLCwsOE4zNEI1O1IxME4tQjEwTjs2TTA7NU4xNU4zNDs='
         />
       </Guide.FullWidth>
 
@@ -129,10 +126,9 @@ export default React.memo(function GuideGreenPrototypes(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
+        <BattleSimEmbed
           environment='swarm'
-          mode='DISPLAY'
-          simId='LCwsNkkxOVI1LCwsLCwsLCwsLCwsNU4xQjUsLCwsO1IxMEktQjEwTjs2TTA7NU4xOw=='
+          id='LCwsNkkxOVI1LCwsLCwsLCwsLCwsNU4xQjUsLCwsO1IxMEktQjEwTjs2TTA7NU4xOw=='
         />
       </Guide.FullWidth>
 
@@ -238,10 +234,7 @@ export default React.memo(function GuideGreenPrototypes(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
-          mode='DISPLAY'
-          simId='LCwsLCwsLCwsN1MxOUI1LCwsLDEyTjFCNSwsLCwsLDtSMTBOLUIxMFM7Nk0wOzVOMTVTMTk7'
-        />
+        <BattleSimEmbed id='LCwsLCwsLCwsN1MxOUI1LCwsLDEyTjFCNSwsLCwsLDtSMTBOLUIxMFM7Nk0wOzVOMTVTMTk7' />
       </Guide.FullWidth>
 
       <h3>Combine with Dark Harvest</h3>

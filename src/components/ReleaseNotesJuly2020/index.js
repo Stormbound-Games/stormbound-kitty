@@ -2,7 +2,7 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '~/components/Link'
 import Page from '~/components/Page'
-import BattleSimApp from '~/components/BattleSimApp'
+import BattleSimEmbed from '~/components/BattleSimEmbed'
 import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
 import Checkbox from '~/components/Checkbox'
 import FAQSection from '~/components/FAQSection'
@@ -364,10 +364,9 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           >
             Apply the confusion fix
           </Checkbox>
-          <BattleSimApp
+          <BattleSimEmbed
             environment='winter'
-            mode='DISPLAY'
-            simId='MU42MlIxLCwsLCwsMU4xNkI1QywsLCwsLCwsLCwxTjFCMUMsLCw7UjEwTi1CMTBOOzNNMDs7'
+            id='MU42MlIxLCwsLCwsMU4xNkI1QywsLCwsLCwsLCwxTjFCMUMsLCw7UjEwTi1CMTBOOzNNMDs7'
           />
         </div>
       </Page.Embed>

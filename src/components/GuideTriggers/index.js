@@ -1,5 +1,5 @@
 import React from 'react'
-import BattleSimApp from '~/components/BattleSimApp'
+import BattleSimEmbed from '~/components/BattleSimEmbed'
 import Card from '~/components/Card'
 import Guide from '~/components/Guide'
 import Info from '~/components/Info'
@@ -106,10 +106,9 @@ export default React.memo(function GuideDrawing(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
+        <BattleSimEmbed
           environment='shadowfen'
-          mode='DISPLAY'
-          simId='LCwsLCw1STIyUjEsLDRJNlIxLCwzTjI2QjEsMU4zQjEsLCwsMk42QjEsMU4xUjEsLCwsO1IxMEktQjEwRjszTTA7NUY0O0Y0 '
+          id='LCwsLCw1STIyUjEsLDRJNlIxLCwzTjI2QjEsMU4zQjEsLCwsMk42QjEsMU4xUjEsLCwsO1IxMEktQjEwRjszTTA7NUY0O0Y0 '
         />
       </Guide.FullWidth>
 
@@ -147,10 +146,9 @@ export default React.memo(function GuideDrawing(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
+        <BattleSimEmbed
           environment='shadowfen'
-          mode='DISPLAY'
-          simId='LCwsLCw0STIyUjEsLCwzTjQ2QjEsLDJOMVIxLCwsMU42QjEsLCwsLCw7UjEwSS1CMTBGOzNNMDs1RjU7RjU='
+          id='LCwsLCw0STIyUjEsLCwzTjQ2QjEsLDJOMVIxLCwsMU42QjEsLCwsLCw7UjEwSS1CMTBGOzNNMDs1RjU7RjU='
         />
       </Guide.FullWidth>
 
@@ -191,10 +189,9 @@ export default React.memo(function GuideDrawing(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
+        <BattleSimEmbed
           environment='shadowfen'
-          mode='DISPLAY'
-          simId='LCwsLCw0TjQ2QjEsLCwzSTIyUjEsMUY1QjMsMk4xUjEsLCwxTjZCMSwsLCwsLDtSMTBJLUIxMEY7M00wOzVGNDtGNA=='
+          id='LCwsLCw0TjQ2QjEsLCwzSTIyUjEsMUY1QjMsMk4xUjEsLCwxTjZCMSwsLCwsLDtSMTBJLUIxMEY7M00wOzVGNDtGNA=='
         />
       </Guide.FullWidth>
 
@@ -233,10 +230,9 @@ export default React.memo(function GuideDrawing(props) {
       </p>
 
       <Guide.FullWidth>
-        <BattleSimApp
+        <BattleSimEmbed
           environment='shadowfen'
-          mode='DISPLAY'
-          simId='LCwsLCwsLCwzUzJSNSwxRjNCMSwyTjFCMSwsLDFONkIxLCwsLCwsO1IxMFMtQjEwRjszTTA7NUY0O0Y0'
+          id='LCwsLCwsLCwzUzJSNSwxRjNCMSwyTjFCMSwsLDFONkIxLCwsLCwsO1IxMFMtQjEwRjszTTA7NUY0O0Y0'
         />
       </Guide.FullWidth>
 

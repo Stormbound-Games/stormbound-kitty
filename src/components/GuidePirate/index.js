@@ -1,5 +1,5 @@
 import React from 'react'
-import BattleSimApp from '~/components/BattleSimApp'
+import BattleSimEmbed from '~/components/BattleSimEmbed'
 import CardLink from '~/components/CardLink'
 import Guide from '~/components/Guide'
 import Link from '~/components/Link'
@@ -8,7 +8,7 @@ import Title from '~/components/Title'
 
 const Board = props => (
   <Guide.FullWidth>
-    <BattleSimApp environment='neutral' mode='DISPLAY' simId={props.id} />
+    <BattleSimEmbed environment='neutral' id={props.id} />
     {props.caption ? <p>{props.caption}</p> : null}
   </Guide.FullWidth>
 )
