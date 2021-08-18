@@ -63,7 +63,8 @@ describe('Battle Sim — Cards', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.wait(1000)
+    cy.url()
+      .should('not.match', /\/sim$/)
       .reload()
       .get(s.CARD_SLOT_1)
       .should('not.be.empty')

@@ -27,7 +27,9 @@ describe('Card Builder — Movement', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.wait(1000).reload()
+    cy.url()
+      .should('not.match', /\/card$/)
+      .reload()
     cy.get(s.MOVEMENT_INPUT).should('have.value', movement)
     for (let i = 0; i < 5; i++) assertCardMovement(i)
   })

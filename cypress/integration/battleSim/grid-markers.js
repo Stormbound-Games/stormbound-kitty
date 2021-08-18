@@ -17,7 +17,8 @@ describe('Battle Sim — Grid Markers', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.wait(1000)
+    cy.url()
+      .should('not.match', /\/sim$/)
       .reload()
       .get(s.GRID_MARKERS)
       .should('not.exist')

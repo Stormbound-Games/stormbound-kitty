@@ -36,7 +36,9 @@ describe('Card Builder — Image', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.wait(1000).reload()
+    cy.url()
+      .should('not.match', /\/card$/)
+      .reload()
     for (let i = 0; i < 5; i++)
       assertCardImage(i, '/assets/images/cards/restless_goats.avif')
   })

@@ -26,6 +26,10 @@ describe('Card Builder — Reset', () => {
       .check()
       .get(s.HERO_CHECKBOX)
       .check()
+
+      .url()
+      .should('not.match', /\/card$/)
+
       .get(s.RESET_BTN)
       .click()
       .get(s.RESET_CONFIRM_BTN)

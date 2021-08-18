@@ -25,7 +25,9 @@ describe('Card Builder — Ability', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.wait(1000).reload()
+    cy.url()
+      .should('not.match', /\/card$/)
+      .reload()
     cy.get(s.ABILITY_INPUT).should('have.value', 'Sparkles')
     for (let i = 0; i < 5; i++) assertCardAbility(i, 'Sparkles')
   })

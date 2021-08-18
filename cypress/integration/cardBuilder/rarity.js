@@ -26,7 +26,9 @@ describe('Card Builder — Rarity', () => {
   })
 
   it('should be preserved upon reload', () => {
-    cy.wait(1000).reload()
+    cy.url()
+      .should('not.match', /\/card$/)
+      .reload()
     cy.get(s.RARITY_SELECT).should('have.value', rarity)
     for (let i = 0; i < 5; i++) assertCardRarity(i)
   })
