@@ -1,12 +1,12 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Link as RouterLink } from 'react-router-dom'
+import RouterLink from 'next/link'
 import Icon from '~/components/Icon'
 import styles from './styles'
 
 export default React.memo(
   React.forwardRef(function Link(
-    { extend, inNewTab, hideNewTabIndicator, ...props },
+    { extend, inNewTab, hideNewTabIndicator, scroll, ...props },
     ref
   ) {
     const { css } = useFela()
@@ -34,12 +34,10 @@ export default React.memo(
 
     if (props.to) {
       return (
-        <RouterLink
-          {...props}
-          innerRef={ref}
-          className={css(styles.link, extend)}
-        >
-          {props.children}
+        <RouterLink href={props.to} passHref scroll={scroll}>
+          <a {...props} ref={ref} className={css(styles.link, extend)}>
+            {props.children}
+          </a>
         </RouterLink>
       )
     }
