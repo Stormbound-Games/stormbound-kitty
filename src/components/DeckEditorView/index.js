@@ -31,7 +31,8 @@ import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import toSentence from '~/helpers/toSentence'
 import useViewportSize from '~/hooks/useViewportSize'
 import usePrevious from '~/hooks/usePrevious'
-import useRouter from '~/hooks/useRouter'
+import useQueryParams from '~/hooks/useQueryParams'
+import useNavigator from '~/hooks/useNavigator'
 import { TAGS } from '~/constants/deck'
 import { BRAWL_INDEX } from '~/constants/brawl'
 
@@ -114,8 +115,8 @@ const getStoredTooltipsSetting = () => {
 
 export default React.memo(function DeckEditorView(props) {
   const { viewportWidth } = useViewportSize()
-  const { history, params } = useRouter()
-  const { deckId } = params
+  const navigator = useNavigator()
+  const { id: deckId } = useQueryParams()
   const { collection, indexedCollection, hasDefaultCollection } =
     React.useContext(CollectionContext)
   // `cardLevel` is set to `0` when the user has a custom collection loaded and
@@ -123,9 +124,7 @@ export default React.memo(function DeckEditorView(props) {
   // always have a number (0 for custom levels, 1 to 5 for static levels). Note
   // that this is for the card gallery, and not the cards of the deck itself.
   const [cardLevel, setCardLevel] = React.useState(hasDefaultCollection ? 1 : 0)
-  const [cardTooltips, setCardTooltips] = React.useState(
-    getStoredTooltipsSetting()
-  )
+  const [cardTooltips, setCardTooltips] = React.useState(false)
   const [adjustCardLevels, setAdjustCardLevels] = React.useState(false)
   const previousAdjustCardLevels = usePrevious(adjustCardLevels)
   // The `originalDeckId` contains the deck ID as loaded from the URL before it
@@ -133,6 +132,8 @@ export default React.memo(function DeckEditorView(props) {
   // associated checkbox: this is necessary to be able to restore the original
   // deck when the user unchecks said checkbox.
   const [originalDeckId, setOriginalDeckId] = React.useState(null)
+
+  React.useEffect(() => setCardTooltips(getStoredTooltipsSetting()), [])
 
   const captureKeyboardEvents = React.useCallback(
     event => {
@@ -177,7 +178,7 @@ export default React.memo(function DeckEditorView(props) {
   React.useEffect(() => {
     if (shouldAdjustDeckToCollection) {
       setOriginalDeckId(deckId)
-      history.push(adjustedRedirectPath)
+      navigator.push(adjustedRedirectPath)
     }
     // There is no need for `history`, `deckId` and `adjustedRedirectPath` to be
     // passed as dependencies.

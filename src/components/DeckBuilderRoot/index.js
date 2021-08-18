@@ -3,7 +3,7 @@ import hookIntoProps from 'hook-into-props'
 import serialisation from '~/helpers/serialisation'
 import getInitialDeckData from '~/helpers/getInitialDeckData'
 import sortByMana from '~/helpers/sortByMana'
-import useRouter from '~/hooks/useRouter'
+import useNavigator from '~/hooks/useNavigator'
 
 class DeckBuilderRoot extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class DeckBuilderRoot extends React.Component {
 
     this.state = {
       highlightedCards: [],
-      deck: getInitialDeckData(props.deckId),
+      deck: props.deck,
     }
   }
 
@@ -20,20 +20,20 @@ class DeckBuilderRoot extends React.Component {
     const currStrDeck = this.state.deck.map(c => c.id + c.level).join(',')
 
     if (prevStrDeck !== currStrDeck) {
-      const { history, view } = this.props
+      const { navigator, view } = this.props
       const id = serialisation.deck.serialise(this.state.deck)
       const { search } = window.location
 
       switch (view) {
         case 'DETAIL':
-          history.replace(`/deck/${id}/detail` + search)
+          navigator.replace(`/deck/${id}/detail` + search)
           break
         case 'DRY_RUN':
-          history.replace(`/deck/${id}/dry-run` + search)
+          navigator.replace(`/deck/${id}/dry-run` + search)
           break
         default:
         case 'EDITOR':
-          history.replace(`/deck/${id}` + search)
+          navigator.replace(`/deck/${id}` + search)
           break
       }
     }
@@ -91,6 +91,5 @@ class DeckBuilderRoot extends React.Component {
 }
 
 export default hookIntoProps(() => ({
-  history: useRouter().history,
-  deckId: useRouter().params.deckId,
+  navigator: useNavigator(),
 }))(DeckBuilderRoot)
