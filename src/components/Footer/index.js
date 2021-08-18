@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '~/components/Link'
+import Image from '~/components/Image'
 import Icon from '~/components/Icon'
 import Only from '~/components/Only'
 import Row from '~/components/Row'
@@ -28,13 +29,11 @@ export default React.memo(function Footer(props) {
               Official Stormbound game content courtesy of{' '}
               <Link href='https://www.sheepyard.pl/'>Sheepyard</Link>.
             </p>
-            <p className={css(styles.info)}>
-              This site is hosted on{' '}
-              <Link href='https://github.com/KittySparkles/stormbound-kitty'>
-                GitHub
-              </Link>{' '}
-              and <Link href='https://vercel.com/'>Vercel</Link>.
-            </p>
+            <Image
+              src='https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg'
+              alt='Powered by Vercel'
+              extend={styles.vercel}
+            />
           </Row.Column>
           <Only.Desktop>
             <Row.Column>

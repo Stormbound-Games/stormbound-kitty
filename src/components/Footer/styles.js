@@ -50,10 +50,17 @@ const item = {
   '> a': { textDecoration: 'none' },
 }
 
+const vercel = {
+  maxHeight: '2em',
+  marginRight: 'auto',
+  marginTop: 'var(--s-smaller)',
+}
+
 export default {
   footer,
   inner,
   info,
+  vercel,
   icon,
   list,
   heading,
