@@ -48,9 +48,8 @@
     "worker-loader": "^3.0.8"
   },
   "scripts": {
-    "prebuild:cra": "node -r esm bin/sitemap.js",
-    "start": "craco start",
-    "build:cra": "CI=false craco build",
+    "start": "next dev",
+    "build:cra": "next build && next-sitemap",
     "test": "cypress run",
     "bot": "node -r esm bin/bot.js",
     "bot:dev": "nodemon -x \"node -r esm\" bin/bot.js --watch src",
@@ -63,7 +62,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@craco/craco": "^6.2.0",
     "@cypress/react": "^4.16.4",
     "@cypress/webpack-preprocessor": "^5.5.0",
     "asyncro": "^3.0.0",
