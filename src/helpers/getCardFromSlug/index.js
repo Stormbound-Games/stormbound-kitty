@@ -14,7 +14,7 @@ const getCardFromSlug = slug => {
     return SLUGS_INDEX[slug.toLowerCase()]
   }
 
-  const card = getRawCardData(slug)
+  const card = getRawCardData(slug.toUpperCase())
 
   return card.id ? card : undefined
 }
