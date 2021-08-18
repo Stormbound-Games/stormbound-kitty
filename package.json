@@ -74,6 +74,7 @@
     "husky": "^7.0.1",
     "lint-staged": "^11.1.2",
     "mathjax-node": "^2.1.1",
+    "next-sitemap": "^1.6.157",
     "nodemon": "^2.0.12",
     "prettier": "^2.3.2",
     "sitemap": "^7.0.0"
