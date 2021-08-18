@@ -5,15 +5,12 @@ import { useRouter } from 'next/router'
 const SITE_URL = 'https://stormbound-kitty.com'
 
 export default React.memo(function PageMeta(props) {
-  const { asPath: location } = useRouter()
+  const { asPath: pathname } = useRouter()
 
   return (
     <Head titleTemplate='%s – Stormbound-Kitty'>
       <title>{props.title}</title>
-      <link
-        rel='canonical'
-        href={'https://stormbound-kitty.com' + location.pathname}
-      />
+      <link rel='canonical' href={'https://stormbound-kitty.com' + pathname} />
       <meta property='og:title' content={props.title + ' – Stormbound-Kitty'} />
       <meta
         property='twitter:title'
@@ -25,7 +22,7 @@ export default React.memo(function PageMeta(props) {
       <meta property='twitter:description' content={props.description} />
       <meta
         property='og:url'
-        content={'https://stormbound-kitty.com' + location.pathname}
+        content={'https://stormbound-kitty.com' + pathname}
       />
       {props.image ? (
         <meta
