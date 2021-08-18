@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { Helmet } from 'react-helmet-async'
+import Head from 'next/head'
 import CardChangeFeed from '~/components/CardChangeFeed'
 import CardDisplay from '~/components/CardBuilderCardDisplay'
 import CardDisplayControls from '~/components/CardDisplayControls'
@@ -175,12 +175,6 @@ export default React.memo(function CardBuilderApp(props) {
             setVersionId={setVersionId}
           />
         </Page.Narrow>
-      )}
-
-      {articleProps.author && (
-        <Helmet>
-          <meta name='author' content={articleProps.author} />
-        </Helmet>
       )}
     </Page>
   )
