@@ -7,12 +7,11 @@ import MemberTagYourself from '~/components/MemberTagYourself'
 import Row from '~/components/Row'
 import Select from '~/components/Select'
 import chunk from '~/helpers/chunk'
-import getMembersList from '~/helpers/getMembersList'
 
 export default React.memo(function Members(props) {
   const [name, setName] = React.useState('')
   const [type, setType] = React.useState('*')
-  const members = getMembersList()
+  const members = props.members
     .filter(({ member }) => name === '' || member.toLowerCase().includes(name))
     .filter(({ type: cType }) => type === '*' || type === cType)
   const rows = chunk(members, 3)
@@ -79,13 +78,13 @@ export default React.memo(function Members(props) {
           {rows.map(([a, b, c], index) => (
             <Row isDesktopOnly key={index}>
               <Row.Column width='1/3'>
-                {a && <MemberListEntry key={a.member} member={a.member} />}
+                {a && <MemberListEntry key={a.member} {...a} />}
               </Row.Column>
               <Row.Column width='1/3'>
-                {b && <MemberListEntry key={b.member} member={b.member} />}
+                {b && <MemberListEntry key={b.member} {...b} />}
               </Row.Column>
               <Row.Column width='1/3'>
-                {c && <MemberListEntry key={c.member} member={c.member} />}
+                {c && <MemberListEntry key={c.member} {...c} />}
               </Row.Column>
             </Row>
           ))}
