@@ -12,8 +12,8 @@ const getStoredSupport = format => {
 }
 
 export default React.memo(function ImageSupportProvider(props) {
-  const [webp, setWebp] = React.useState(getStoredSupport('webp'))
-  const [avif, setAvif] = React.useState(getStoredSupport('avif'))
+  const [webp, setWebp] = React.useState(true)
+  const [avif, setAvif] = React.useState(false)
 
   React.useEffect(() => {
     let storedWebp = null
@@ -34,6 +34,7 @@ export default React.memo(function ImageSupportProvider(props) {
       })
     } else if (storedWebp) {
       document.documentElement.classList.add('webp')
+      setWebp(true)
     }
 
     if (storedAvif === null) {
@@ -44,6 +45,7 @@ export default React.memo(function ImageSupportProvider(props) {
       })
     } else if (storedAvif) {
       document.documentElement.classList.add('avif')
+      setAvif(true)
     }
   }, [])
 
