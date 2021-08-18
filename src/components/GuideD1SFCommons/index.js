@@ -15,10 +15,7 @@ import CardLink from '~/components/CardLink'
 import { Common, Rare } from '~/components/Resource'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import serialisation from '~/helpers/serialisation'
-import getGuide from '~/helpers/getGuide'
 import styles from './styles'
-
-const guide = getGuide('D1_SF_COMMONS_GUIDE')
 
 const DECK_ID = '5xn1n2f3n3f4n9n12n16n28f14n30n52'
 
@@ -50,7 +47,7 @@ export default React.memo(function GuideD1SFCommons(props) {
     } damage`
 
   return (
-    <Guide {...guide}>
+    <>
       <p>
         Fair disclaimer: I am by no mean the most talented player. I have been
         playing on and off since late 2018 and reached Diamond 1 in May 2019,
@@ -529,6 +526,6 @@ export default React.memo(function GuideD1SFCommons(props) {
           💖
         </span>
       </p>
-    </Guide>
+    </>
   )
 })

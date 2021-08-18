@@ -6,13 +6,10 @@ import Guide from '~/components/Guide'
 import CardLink from '~/components/CardLink'
 import Title from '~/components/Title'
 import getInitialCardData from '~/helpers/getInitialCardData'
-import getGuide from '~/helpers/getGuide'
-
-const guide = getGuide('GREEN_PROTOTYPES_GUIDE')
 
 export default React.memo(function GuideGreenPrototypes(props) {
   return (
-    <Guide {...guide}>
+    <>
       <p>
         <CardLink id='N1' /> is a card that confuses almost all new players.
         Myself as well, back in the days. How can a card be good if it gives
@@ -281,6 +278,6 @@ export default React.memo(function GuideGreenPrototypes(props) {
         I’m pretty sure there are even more benefits, but for a 1 mana card, I’d
         say that’s already pretty impressive!
       </Notice>
-    </Guide>
+    </>
   )
 })

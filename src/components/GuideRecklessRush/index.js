@@ -16,10 +16,7 @@ import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import serialisation from '~/helpers/serialisation'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import getGuide from '~/helpers/getGuide'
 import styles from './styles'
-
-const guide = getGuide('RECKLESS_RUSH_GUIDE')
 
 const Board = props => {
   const { css } = useFela()
@@ -59,7 +56,7 @@ export default React.memo(function GuideRecklessRush(props) {
   }, [css])
 
   return (
-    <Guide {...guide}>
+    <>
       <p>
         So you want to learn the hidden arts of Reckless Rush (
         <abbr title='Reckless Rush'>RR</abbr>)? Well who better to teach you
@@ -1598,6 +1595,6 @@ export default React.memo(function GuideRecklessRush(props) {
       <Notice icon='sword' spacing={{ top: 'LARGEST' }}>
         <Sparkles>Rush to victory!</Sparkles>
       </Notice>
-    </Guide>
+    </>
   )
 })

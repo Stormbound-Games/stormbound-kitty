@@ -9,15 +9,12 @@ import Notice from '~/components/Notice'
 import Row from '~/components/Row'
 import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
-import getGuide from '~/helpers/getGuide'
-
-const guide = getGuide('EYE_OF_THE_TEMPEST_GUIDE')
 
 export default React.memo(function GuideEyeOfTheTempest(props) {
   const { css } = useFela()
 
   return (
-    <Guide {...guide}>
+    <>
       <p>
         Welcome to <Link to='/member/Oeni'>Oeni</Link>’s{' '}
         <span className='Highlight'>Brawl Gazette</span>, “Eye of the Tempest”
@@ -172,6 +169,6 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
         See you on the battlefield! If you have any comment or suggestion, get
         in touch with oeni#7266 on Discord.
       </Notice>
-    </Guide>
+    </>
   )
 })

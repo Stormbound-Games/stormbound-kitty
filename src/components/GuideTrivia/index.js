@@ -7,13 +7,10 @@ import Row from '~/components/Row'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
-import getGuide from '~/helpers/getGuide'
-
-const guide = getGuide('TRIVIA_GUIDE')
 
 export default React.memo(function GuideTrivia(props) {
   return (
-    <Guide {...guide}>
+    <>
       <p>
         Stormbound, like many games is full of a little pieces of trivia. Some
         are very well known like which cards refer to whom, and some are a bit
@@ -285,6 +282,6 @@ export default React.memo(function GuideTrivia(props) {
       <Notice>
         The acceleration due to gravity is 843m/s^2 in the Stormbound universe.
       </Notice>
-    </Guide>
+    </>
   )
 })

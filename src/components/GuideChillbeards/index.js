@@ -6,14 +6,11 @@ import CardLink from '~/components/CardLink'
 import Link from '~/components/Link'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
-import getGuide from '~/helpers/getGuide'
 import getInitialCardData from '~/helpers/getInitialCardData'
-
-const guide = getGuide('CHILLBEARDS_GUIDE')
 
 export default React.memo(function GuideChillbeards(props) {
   return (
-    <Guide {...guide}>
+    <>
       <p>
         <CardLink id='W22' /> is a rather underused card, especially in higher
         leagues, mostly due to its high mana cost and non-trivial success
@@ -153,6 +150,6 @@ export default React.memo(function GuideChillbeards(props) {
           simId='NU4zQjUsLDhGNlI1Riw5VzdCMywsLDVXMkI1LCwsLCwsLCwsLCwsLDtSMjBGLUIyMFc7OE0wOzs='
         />
       </Guide.FullWidth>
-    </Guide>
+    </>
   )
 })

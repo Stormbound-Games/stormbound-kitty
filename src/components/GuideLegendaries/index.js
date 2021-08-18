@@ -8,9 +8,7 @@ import Link from '~/components/Link'
 import ListBuilderTier from '~/components/ListBuilderTier'
 import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
-import getGuide from '~/helpers/getGuide'
 
-const guide = getGuide('LEGENDARIES_GUIDE')
 const TIER_LIST =
   'S - Always Usable,N8N59N69N46S19F21;A - Usable in Most%2FSome Decks,N58I2I17I22W8W23F12;B - Usable in Very Few Decks,N35N48S21W10F23;C - Never Use,N77N76S3I29/display'
 
@@ -18,7 +16,7 @@ export default React.memo(function GuideLegendaries(props) {
   const tiers = getInitialListData(TIER_LIST)
 
   return (
-    <Guide {...guide}>
+    <>
       <p>
         Legendaries are shiny, very rare, and may often look good at first
         sight. Most new players tend to automatically include their new
@@ -404,6 +402,6 @@ export default React.memo(function GuideLegendaries(props) {
         Special thanks to <Link to='/member/Derk'>Derk</Link> for helping with
         the tier list as well as a few of the entries and their polishing!
       </p>
-    </Guide>
+    </>
   )
 })
