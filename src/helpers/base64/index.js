@@ -16,7 +16,7 @@ export function isBase64(string) {
   }
 
   try {
-    return base64Encode(base64Decode(string)) == string
+    return base64Encode(base64Decode(string)) === string
   } catch (error) {
     return false
   }
