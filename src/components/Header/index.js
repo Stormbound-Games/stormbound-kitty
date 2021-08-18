@@ -9,7 +9,7 @@ import Icon from '~/components/Icon'
 import useNavigation from './useNavigation'
 import styles from './styles'
 
-const SubNav = React.memo(function (props) {
+const SubNav = React.memo(function SubNav(props) {
   const [topActive, midActive, bottomActive] = props.active || []
 
   if (topActive === 'TOOLS' && midActive === 'CARD_BUILDER') {

@@ -30,7 +30,10 @@ export default React.memo(function YourDeck(props) {
           icon: 'pencil',
           'data-testid': 'edit-deck-btn',
         },
-        <YourDeckDeleteButton delete={() => removeDeck(props.uuid)} />,
+        <YourDeckDeleteButton
+          key='remove-btn'
+          delete={() => removeDeck(props.uuid)}
+        />,
       ]}
     />
   )

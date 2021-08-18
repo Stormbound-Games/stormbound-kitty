@@ -1,89 +1,10 @@
 {
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "ecmaVersion": 12,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true,
-      "modules": true,
-      "experimentalObjectRestSpread": true
-    }
-  },
-  "env": {
-    "browser": true,
-    "node": true,
-    "es2021": true,
-    "cypress/globals": true
-  },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "prettier",
-  ],
-  "plugins": [
-    "react",
-    "prettier",
-    "cypress"
-  ],
-  "overrides": [
-    {
-      "files": [
-        "cypress/**/*.js",
-        "spec.js"
-      ],
-      "globals": {
-        "cy": "readonly",
-        "Cypress": "readonly",
-        "before": "readonly",
-        "beforeEach": "readonly"
-      }
-    },
-    {
-      "files": [
-        "src/**/*.js"
-      ],
-      "excludedFiles": [
-        "src/bot/**/*.js"
-      ],
-      "rules": {
-        "no-console": "warn"
-      }
-    },
-    {
-      "files": [
-        "**/*.js"
-      ],
-      "rules": {
-        "import/no-anonymous-default-export": 0,
-        "padding-line-between-statements": [
-          "error",
-          {
-            "blankLine": "always",
-            "prev": "var",
-            "next": "return"
-          }
-        ],
-        "radix": 2,
-        "object-shorthand": [
-          2,
-          "properties"
-        ],
-        "react/jsx-curly-brace-presence": 2,
-        "react/jsx-fragments": 2,
-        "react-hooks/rules-of-hooks": 2,
-        "react-hooks/exhaustive-deps": 2,
-        "react/jsx-handler-names": 0,
-        "react/display-name": 0,
-        "react/jsx-pascal-case": [
-          2,
-          {
-            "allowAllCaps": true
-          }
-        ],
-        "react/prop-types": 0,
-        "react/react-in-jsx-scope": 0,
-      }
-    }
-  ]
+  "extends": "next",
+  "rules": {
+    "import/no-anonymous-default-export": "off",
+    "react/no-children-prop": "off",
+    "react/display-name": "off",
+    "jsx-a11y/alt-text": "off",
+    "@next/next/no-img-element": "off"
+  }
 }
