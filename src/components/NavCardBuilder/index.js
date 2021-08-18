@@ -3,14 +3,15 @@ import { useFela } from 'react-fela'
 import CardSelect from '~/components/CardSelect'
 import getRawCardData from '~/helpers/getRawCardData'
 import useViewportSize from '~/hooks/useViewportSize'
-import useRouter from '~/hooks/useRouter'
+import useQueryParams from '~/hooks/useQueryParams'
+import useNavigator from '~/hooks/useNavigator'
 import styles from '~/components/Header/styles'
 
 export default React.memo(function NavCardBuilder(props) {
   const { css } = useFela()
   const { viewportWidth } = useViewportSize()
-  const { params, history } = useRouter()
-  const id = params.cardId
+  const { id } = useQueryParams()
+  const navigator = useNavigator()
 
   return (
     <nav className={css(styles.nav({ isSubNav: true }))}>
@@ -26,9 +27,7 @@ export default React.memo(function NavCardBuilder(props) {
             withClear={Boolean(getRawCardData(id).id)}
             disabledOptions={id ? [id] : undefined}
             onChange={option =>
-              option
-                ? history.push(`/card/${option.value}/display`)
-                : history.push('/card')
+              navigator.push(option ? `/card/${option.value}/display` : '/card')
             }
             withSpells
           />
