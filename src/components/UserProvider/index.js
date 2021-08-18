@@ -24,8 +24,9 @@ const storeName = name => {
 }
 
 export default React.memo(function UserProvider(props) {
-  const [name, setName] = React.useState(getStoredName())
+  const [name, setName] = React.useState(null)
 
+  React.useEffect(() => setName(getStoredName()), [])
   React.useEffect(() => storeName(name), [name])
 
   return (
