@@ -116,7 +116,7 @@ const getStoredTooltipsSetting = () => {
 export default React.memo(function DeckEditorView(props) {
   const { viewportWidth } = useViewportSize()
   const navigator = useNavigator()
-  const { deckId } = useQueryParams()
+  const { id: deckId } = useQueryParams()
   const { collection, indexedCollection, hasDefaultCollection } =
     React.useContext(CollectionContext)
   // `cardLevel` is set to `0` when the user has a custom collection loaded and
