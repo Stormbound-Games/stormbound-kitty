@@ -54,7 +54,7 @@ export default React.memo(function CollectionProvider(props) {
   // to populate the state with the correct value right away. This saves from
   // having to wait for the mount to update the data, leading to a flash of
   // unknown data before mounting.
-  const [collection, setCollection] = React.useState(getInitialCollectionData)
+  const [collection, setCollection] = React.useState(DEFAULT_COLLECTION)
   const { notify: sendNotification } = React.useContext(NotificationContext)
   const notify = React.useCallback(
     message => sendNotification({ icon: 'books', children: message }),
@@ -62,14 +62,13 @@ export default React.memo(function CollectionProvider(props) {
   )
 
   React.useEffect(() => {
+    const collection = getInitialCollectionData()
+
+    setCollection(collection)
+
     if (!isDefaultCollection(collection)) {
       notify('Locally saved collection found and loaded.')
     }
-    // We only want to run that once on page load if the collection is not the
-    // default one, so we need to make sure not to pass `collection` as a
-    // dependency, otherwise this is going to run every time the collection gets
-    // updated.
-    // eslint-disable-next-line
   }, [notify])
 
   React.useEffect(() => {
