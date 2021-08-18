@@ -114,7 +114,7 @@ export default React.memo(function BrawlProvider(props) {
 
     // If there were saved entries from the current Brawl, update the state so
     // the view re-renders.
-    if (typeof groups[props.id].length) {
+    if (groups[props.id].length) {
       setBrawls(
         groups[props.id].map(brawl => ({
           ...brawl,
