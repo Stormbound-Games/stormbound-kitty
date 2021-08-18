@@ -4,20 +4,19 @@ import Link from '~/components/Link'
 import Icon from '~/components/Icon'
 import { UserContext } from '~/components/UserProvider'
 import isKATMember from '~/helpers/isKATMember'
-import useMemberContent from '~/hooks/useMemberContent'
+import getMemberContent from '~/helpers/getMemberContent'
 import styles from './styles'
 
 export default React.memo(function MemberListEntry(props) {
+  const { member, count, roles } = props
   const { name } = React.useContext(UserContext)
-  const { count, details } = useMemberContent(props.member.toLowerCase())
-  const { isKAT, isSuperKAT } = isKATMember(details)
-  const isCurrentUser = name === props.member
+  const isCurrentUser = name === member
   const { css } = useFela({ isYou: isCurrentUser })
 
   return (
     <div className={css(styles.entry)}>
       <Icon
-        icon={isSuperKAT ? 'super-star' : isKAT ? 'star' : 'user'}
+        icon={roles.isSuperKAT ? 'super-star' : roles.isKAT ? 'star' : 'user'}
         extend={styles.icon}
       />
       <div className={css(styles.content)}>

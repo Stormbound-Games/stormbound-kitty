@@ -1,7 +1,7 @@
 import getEmbed from '~/helpers/getEmbed'
 import capitalise from '~/helpers/capitalise'
 import isKATMember from '~/helpers/isKATMember'
-import getMemberContent from '~/hooks/useMemberContent'
+import getMemberContent from '~/helpers/getMemberContent'
 
 const BASE_URL = 'https://stormbound-kitty.com'
 const aggregate = (acc, { entries }) => acc + entries.length
@@ -31,7 +31,7 @@ export default {
     }
 
     const id = message.toLowerCase()
-    const { count, details, displayName } = getMemberContent(id)
+    const { count, details, displayName, roles } = getMemberContent(id)
     const embed = getEmbed()
       .setTitle(`${this.label}: ${displayName}`)
       .setURL(BASE_URL + `/member/${id}`)
@@ -42,7 +42,7 @@ export default {
       )
     }
 
-    const { isKAT, isSuperKAT } = isKATMember(details)
+    const { isKAT, isSuperKAT } = roles
     const KATMessage = isKAT
       ? `\n**They are also a ${isSuperKAT ? 'super' : ''} KAT member!**`
       : ''

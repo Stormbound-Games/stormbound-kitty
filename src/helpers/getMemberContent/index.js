@@ -1,5 +1,6 @@
 import capitalise from '~/helpers/capitalise'
 import parseDate from '~/helpers/parseDate'
+import isKATMember from '~/helpers/isKATMember'
 import DECKS from '~/data/decks'
 import CONTRIBUTIONS from '~/data/contributions'
 import DONATIONS from '~/data/donations'
@@ -12,38 +13,43 @@ import EVENTS from '~/data/events'
 import RELEASES from '~/data/releases'
 import PODCASTS from '~/data/podcasts'
 import SWCC from '~/data/swcc'
+import VIDEOS from '~/data/videos'
 
 const formatEntryWithDate = entry => ({
   ...entry,
-  date: entry.date ? parseDate(entry.date) : entry.date,
+  date: entry.date ? parseDate(entry.date).valueOf() : entry.date,
 })
 
-const useUserStories = id =>
+const getUserChannel = id =>
+  VIDEOS.find(channel => channel.date && channel.author.toLowerCase() === id) ||
+  null
+
+const getUserStories = id =>
   STORIES.filter(story => story.date && story.author.toLowerCase() === id).map(
     formatEntryWithDate
   )
 
-const useUserDecks = id =>
+const getUserDecks = id =>
   DECKS.filter(deck => deck.author.toLowerCase() === id).map(
     formatEntryWithDate
   )
 
-const useUserGuides = id =>
+const getUserGuides = id =>
   GUIDES.filter(guide =>
     guide.authors.map(host => host.toLowerCase()).includes(id)
   ).map(formatEntryWithDate)
 
-const useUserHosts = id =>
+const getUserHosts = id =>
   TOURNAMENTS.filter(tournament =>
     tournament.hosts.map(host => host.toLowerCase()).includes(id)
   ).map(formatEntryWithDate)
 
-const useUserPodcasts = id =>
+const getUserPodcasts = id =>
   PODCASTS.filter(episode =>
     episode.hosts.map(host => host.toLocaleLowerCase()).includes(id)
   ).map(formatEntryWithDate)
 
-const useUserPodiums = id =>
+const getUserPodiums = id =>
   TOURNAMENTS.filter(tournament =>
     tournament.podium
       .flat()
@@ -51,17 +57,17 @@ const useUserPodiums = id =>
       .includes(id)
   ).map(formatEntryWithDate)
 
-const useUserArtworks = id =>
+const getUserArtworks = id =>
   ARTWORKS.filter(artwork => artwork.author.toLowerCase() === id).map(
     formatEntryWithDate
   )
 
-const useUserPuzzles = id =>
+const getUserPuzzles = id =>
   PUZZLES.filter(puzzle => puzzle.author.toLowerCase() === id).map(
     formatEntryWithDate
   )
 
-const useUserCards = id =>
+const getUserCards = id =>
   SWCC.flat()
     .filter(
       contest => contest.winner && contest.winner.author.toLowerCase() === id
@@ -69,20 +75,20 @@ const useUserCards = id =>
     .map(entry => {
       const [day, month, year] = entry.date.split('/').map(Number)
 
-      return { ...entry, date: new Date(year, month - 1, day) }
+      return { ...entry, date: new Date(year, month - 1, day).valueOf() }
     })
 
-const useUserDonations = id =>
+const getUserDonations = id =>
   DONATIONS.filter(donation => donation.author.toLowerCase() === id).map(
     formatEntryWithDate
   )
 
-const useUserContributions = id =>
+const getUserContributions = id =>
   CONTRIBUTIONS.filter(
     contribution => contribution.author.toLowerCase() === id
   ).map(formatEntryWithDate)
 
-const useUserEvents = id =>
+const getUserEvents = id =>
   EVENTS.filter(event =>
     event.authors.map(author => author.toLowerCase()).includes(id)
   )
@@ -91,19 +97,20 @@ const useUserEvents = id =>
 
 const addType = type => entry => ({ ...entry, type })
 
-const useMemberContent = id => {
-  const stories = useUserStories(id)
-  const decks = useUserDecks(id)
-  const guides = useUserGuides(id)
-  const hosts = useUserHosts(id)
-  const podiums = useUserPodiums(id)
-  const artworks = useUserArtworks(id)
-  const puzzles = useUserPuzzles(id)
-  const cards = useUserCards(id)
-  const contributions = useUserContributions(id)
-  const donations = useUserDonations(id)
-  const events = useUserEvents(id)
-  const podcasts = useUserPodcasts(id)
+const getMemberContent = id => {
+  const channel = getUserChannel(id)
+  const stories = getUserStories(id)
+  const decks = getUserDecks(id)
+  const guides = getUserGuides(id)
+  const hosts = getUserHosts(id)
+  const podiums = getUserPodiums(id)
+  const artworks = getUserArtworks(id)
+  const puzzles = getUserPuzzles(id)
+  const cards = getUserCards(id)
+  const contributions = getUserContributions(id)
+  const donations = getUserDonations(id)
+  const events = getUserEvents(id)
+  const podcasts = getUserPodcasts(id)
 
   const content = [
     ...stories.map(addType('STORY')),
@@ -124,13 +131,14 @@ const useMemberContent = id => {
   // This is incredibly ugly, but this is kind of the only way to find the
   // correct capitalisation since it cannot be retrieved from the URL parameter
   // unfortunately.
-  const displayName =
-    content.map(
-      ({ author, authors = [], hosts = [], podium = [], winner = {} }) =>
-        author ||
-        [...authors, ...hosts, ...podium.flat()].find(findDisplayName) ||
-        winner.author
-    )[0] || capitalise(id)
+  const displayName = channel
+    ? channel.name
+    : content.map(
+        ({ author, authors = [], hosts = [], podium = [], winner = {} }) =>
+          author ||
+          [...authors, ...hosts, ...podium.flat()].find(findDisplayName) ||
+          winner.author
+      )[0] || capitalise(id)
 
   // The count is not quite the length of the `content` array as some entries
   // such as code updates can hold multiple contributions (e.g. one per PR).
@@ -140,6 +148,8 @@ const useMemberContent = id => {
   )
 
   return {
+    roles: isKATMember({ donations, contributions }),
+    channel,
     displayName,
     content,
     count,
@@ -160,4 +170,4 @@ const useMemberContent = id => {
   }
 }
 
-export default useMemberContent
+export default getMemberContent

@@ -7,19 +7,19 @@ import Info from '~/components/Info'
 import MemberToC from '~/components/MemberToC'
 import Row from '~/components/Row'
 import isKATMember from '~/helpers/isKATMember'
-import useMemberContent from '~/hooks/useMemberContent'
 import styles from './styles'
-import VIDEOS from '~/data/videos'
 
 export default React.memo(function Member(props) {
   const { css } = useFela()
-  const id = props.memberId
-  const { count, content, details, displayName: name } = useMemberContent(id)
-  const channel = VIDEOS.find(channel => channel.author.toLowerCase() === id)
-  // This is basically a hack for people listed as video content creators, but
-  // without any contributions to the site itself.
-  const displayName = channel ? channel.author : name
-  const { isKAT, isSuperKAT } = isKATMember(details)
+  const {
+    memberId: id,
+    channel,
+    content,
+    count,
+    details,
+    displayName,
+    roles,
+  } = props
 
   return (
     <Page
@@ -30,10 +30,10 @@ export default React.memo(function Member(props) {
       meta={
         <>
           {count} contribution{count === 1 ? '' : 's'}
-          {isKAT ? (
+          {roles.isKAT ? (
             <>
               {' '}
-              · {isSuperKAT ? 'Super ' : null}
+              · {roles.isSuperKAT ? 'Super ' : null}
               <abbr title='Kitty Appreciation Team'>KAT</abbr> member
             </>
           ) : (
@@ -54,7 +54,7 @@ export default React.memo(function Member(props) {
 
           {details.donations.length > 0 && (
             <Info
-              icon={isSuperKAT ? 'super-star' : 'star'}
+              icon={roles.isSuperKAT ? 'super-star' : 'star'}
               title='Financial contributor'
             >
               <p>
@@ -85,7 +85,7 @@ export default React.memo(function Member(props) {
               )}
               {content.map((entry, index) => (
                 <li key={index} className={css(styles.item)}>
-                  <FeedItem {...entry} user={id} />
+                  <FeedItem {...entry} date={new Date(entry.date)} user={id} />
                 </li>
               ))}
             </ul>
