@@ -9,3 +9,15 @@ export const base64Decode = string => {
     return Buffer.from(string, 'base64').toString('ascii')
   else return window.atob(string)
 }
+
+export function isBase64(string) {
+  if (string === '' || string.trim() === '') {
+    return false
+  }
+
+  try {
+    return base64Encode(base64Decode(string)) === string
+  } catch (error) {
+    return false
+  }
+}
