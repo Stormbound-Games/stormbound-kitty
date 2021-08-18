@@ -14,7 +14,7 @@ import CARDS from '~/data/cards'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getCardValue from '~/helpers/getCardValue'
 import serialisation from '~/helpers/serialisation'
-import useRouter from '~/hooks/useRouter'
+import useNavigator from '~/hooks/useNavigator'
 import styles from './styles'
 
 const LevelSelect = React.memo(function LevelSelect(props) {
@@ -40,7 +40,7 @@ const SlotSelect = React.memo(function SlotSelect(props) {
       label='Card'
       id={'card-' + props.slot}
       name={'card-' + props.slot}
-      current={props.value}
+      current={props.value?.toUpperCase() ?? null}
       onChange={option => props.setCard(option ? option.value : null)}
       withSpells
       disabledOptions={props.disabledOptions}
@@ -80,29 +80,17 @@ const CardValue = React.memo(function CardValue(props) {
   )
 })
 
-const getCardsFromURL = id => {
-  const defaultCard = { id: null, level: 1 }
-
-  try {
-    const cards = serialisation.cards.deserialise(id)
-    return [cards[0] || defaultCard, cards[1] || defaultCard]
-  } catch (error) {
-    return [defaultCard, defaultCard]
-  }
-}
-
 export default React.memo(function ValueCalculator(props) {
   const { css } = useFela()
-  const { params, history } = useRouter()
-  const initialCards = getCardsFromURL(params.id?.toUpperCase())
-  const [A, setA] = React.useState(initialCards[0])
-  const [B, setB] = React.useState(initialCards[1])
+  const navigator = useNavigator()
+  const [A, setA] = React.useState(props.cards[0])
+  const [B, setB] = React.useState(props.cards[1])
   const disabledOptions = CARDS.filter(
     card => getCardValue(card.id) === null
   ).map(card => card.id)
 
   React.useEffect(() => {
-    history.replace(
+    navigator.replace(
       ['/calculators/value', serialisation.cards.serialise([A, B])]
         .filter(Boolean)
         .join('/')
