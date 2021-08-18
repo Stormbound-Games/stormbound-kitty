@@ -60,7 +60,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@craco/craco": "^6.2.0",
     "@cypress/react": "^4.16.4",
     "@cypress/webpack-preprocessor": "^5.5.0",
     "asyncro": "^3.0.0",
