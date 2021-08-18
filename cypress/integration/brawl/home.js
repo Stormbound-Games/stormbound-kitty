@@ -1,5 +1,5 @@
 import s from './selectors'
-import { BRAWLS } from '../../../src/constants/brawl'
+import { BRAWLS } from '~/constants/brawl'
 
 describe('Brawl — Home', () => {
   it('should display a teaser per Brawl', () => {

@@ -5,8 +5,8 @@ import {
   getEffectiveManaCost,
   getHandCost,
 } from './'
-import serialisation from '~/serialisation'
-import getResolvedCardData from '~/getResolvedCardData'
+import serialisation from '~/helpers/serialisation'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
 
 describe('The `getEffectiveManaCost` helper', () => {
   it('should handle Gift of the Wise', () => {

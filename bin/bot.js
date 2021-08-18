@@ -1,13 +1,15 @@
-import fs from 'fs'
-import 'dotenv/config'
-import Discord from 'discord.js'
-import handleMessage from '../src/bot/handle'
+require('module-alias').addAlias('~', __dirname + '/../src')
+require('dotenv').config()
+
+const fs = require('fs')
+const Discord = require('discord.js')
+const handleMessage = require('~/bot/handle').default
 
 const client = new Discord.Client()
 client.commands = new Discord.Collection()
 
 fs.readdirSync('./src/bot/commands').forEach(name => {
-  const { default: command } = require('../src/bot/commands/' + name)
+  const { default: command } = require('~/bot/commands/' + name)
   client.commands.set(command.command, command)
 })
 

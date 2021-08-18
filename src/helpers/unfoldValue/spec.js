@@ -1,4 +1,4 @@
-import unfoldValue from '~/src/helpers/unfoldValue'
+import unfoldValue from './'
 
 describe('The `unfoldValue` helper', () => {
   it('should stringify and split on slashes', () => {

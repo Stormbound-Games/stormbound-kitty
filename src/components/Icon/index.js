@@ -1,53 +1,96 @@
 import React from 'react'
-import dynamic from 'next/dynamic'
 import { useFela } from 'react-fela'
+import ArrowDown from '~/components/Icons/ArrowDown'
+import ArrowLeft from '~/components/Icons/ArrowLeft'
+import ArrowRight from '~/components/Icons/ArrowRight'
+import ArrowTopRight from '~/components/Icons/ArrowTopRight'
+import ArrowUp from '~/components/Icons/ArrowUp'
+import Bin from '~/components/Icons/Bin'
+import Books from '~/components/Icons/Books'
+import Bubbles from '~/components/Icons/Bubbles'
+import Bullhorn from '~/components/Icons/Bullhorn'
+import Cat from '~/components/Icons/Cat'
+import Compass from '~/components/Icons/Compass'
+import Cross from '~/components/Icons/Cross'
+import Crown from '~/components/Icons/Crown'
+import Download from '~/components/Icons/Download'
+import Equalizer from '~/components/Icons/Equalizer'
+import Eye from '~/components/Icons/Eye'
+import Fire from '~/components/Icons/Fire'
+import FolderOpen from '~/components/Icons/FolderOpen'
+import Gift from '~/components/Icons/Gift'
+import Hammer from '~/components/Icons/Hammer'
+import Heart from '~/components/Icons/Heart'
+import Home from '~/components/Icons/Home'
+import Image from '~/components/Icons/Image'
+import Info from '~/components/Icons/Info'
+import Library from '~/components/Icons/Library'
+import PagePlus from '~/components/Icons/PagePlus'
+import Pencil from '~/components/Icons/Pencil'
+import Power from '~/components/Icons/Power'
+import Quill from '~/components/Icons/Quill'
+import Search from '~/components/Icons/Search'
+import Shield from '~/components/Icons/Shield'
+import Shuffle from '~/components/Icons/Shuffle'
+import Stack from '~/components/Icons/Stack'
+import Star from '~/components/Icons/Star'
+import SuperStar from '~/components/Icons/SuperStar'
+import Sword from '~/components/Icons/Sword'
+import Target from '~/components/Icons/Target'
+import Template from '~/components/Icons/Template'
+import Trophy from '~/components/Icons/Trophy'
+import User from '~/components/Icons/User'
+import Users from '~/components/Icons/Users'
+import Wand from '~/components/Icons/Wand'
+import Warning from '~/components/Icons/Warning'
+import YouTube from '~/components/Icons/YouTube'
 import styles from './styles'
 
 const MAP = {
-  'arrow-down': dynamic(() => import('~/components/Icons/ArrowDown')),
-  'arrow-left': dynamic(() => import('~/components/Icons/ArrowLeft')),
-  'arrow-right': dynamic(() => import('~/components/Icons/ArrowRight')),
-  'arrow-top-right': dynamic(() => import('~/components/Icons/ArrowTopRight')),
-  'arrow-up': dynamic(() => import('~/components/Icons/ArrowUp')),
-  bin: dynamic(() => import('~/components/Icons/Bin')),
-  books: dynamic(() => import('~/components/Icons/Books')),
-  bubbles: dynamic(() => import('~/components/Icons/Bubbles')),
-  bullhorn: dynamic(() => import('~/components/Icons/Bullhorn')),
-  cat: dynamic(() => import('~/components/Icons/Cat')),
-  compass: dynamic(() => import('~/components/Icons/Compass')),
-  cross: dynamic(() => import('~/components/Icons/Cross')),
-  crown: dynamic(() => import('~/components/Icons/Crown')),
-  download: dynamic(() => import('~/components/Icons/Download')),
-  equalizer: dynamic(() => import('~/components/Icons/Equalizer')),
-  eye: dynamic(() => import('~/components/Icons/Eye')),
-  fire: dynamic(() => import('~/components/Icons/Fire')),
-  'folder-open': dynamic(() => import('~/components/Icons/FolderOpen')),
-  gift: dynamic(() => import('~/components/Icons/Gift')),
-  hammer: dynamic(() => import('~/components/Icons/Hammer')),
-  heart: dynamic(() => import('~/components/Icons/Heart')),
-  home: dynamic(() => import('~/components/Icons/Home')),
-  image: dynamic(() => import('~/components/Icons/Image')),
-  info: dynamic(() => import('~/components/Icons/Info')),
-  library: dynamic(() => import('~/components/Icons/Library')),
-  'page-plus': dynamic(() => import('~/components/Icons/PagePlus')),
-  pencil: dynamic(() => import('~/components/Icons/Pencil')),
-  power: dynamic(() => import('~/components/Icons/Power')),
-  quill: dynamic(() => import('~/components/Icons/Quill')),
-  search: dynamic(() => import('~/components/Icons/Search')),
-  shield: dynamic(() => import('~/components/Icons/Shield')),
-  shuffle: dynamic(() => import('~/components/Icons/Shuffle')),
-  stack: dynamic(() => import('~/components/Icons/Stack')),
-  star: dynamic(() => import('~/components/Icons/Star')),
-  'super-star': dynamic(() => import('~/components/Icons/SuperStar')),
-  sword: dynamic(() => import('~/components/Icons/Sword')),
-  target: dynamic(() => import('~/components/Icons/Target')),
-  template: dynamic(() => import('~/components/Icons/Template')),
-  trophy: dynamic(() => import('~/components/Icons/Trophy')),
-  user: dynamic(() => import('~/components/Icons/User')),
-  users: dynamic(() => import('~/components/Icons/Users')),
-  wand: dynamic(() => import('~/components/Icons/Wand')),
-  warning: dynamic(() => import('~/components/Icons/Warning')),
-  youtube: dynamic(() => import('~/components/Icons/YouTube')),
+  'arrow-down': ArrowDown,
+  'arrow-left': ArrowLeft,
+  'arrow-right': ArrowRight,
+  'arrow-top-right': ArrowTopRight,
+  'arrow-up': ArrowUp,
+  bin: Bin,
+  books: Books,
+  bubbles: Bubbles,
+  bullhorn: Bullhorn,
+  cat: Cat,
+  compass: Compass,
+  cross: Cross,
+  crown: Crown,
+  download: Download,
+  equalizer: Equalizer,
+  eye: Eye,
+  fire: Fire,
+  'folder-open': FolderOpen,
+  gift: Gift,
+  hammer: Hammer,
+  heart: Heart,
+  home: Home,
+  image: Image,
+  info: Info,
+  library: Library,
+  'page-plus': PagePlus,
+  pencil: Pencil,
+  power: Power,
+  quill: Quill,
+  search: Search,
+  shield: Shield,
+  shuffle: Shuffle,
+  stack: Stack,
+  star: Star,
+  'super-star': SuperStar,
+  sword: Sword,
+  target: Target,
+  template: Template,
+  trophy: Trophy,
+  user: User,
+  users: Users,
+  wand: Wand,
+  warning: Warning,
+  youtube: YouTube,
 }
 
 export default React.memo(function Icon(props) {

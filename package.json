@@ -29,6 +29,7 @@
     "lodash.clonedeep": "^4.5.0",
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
+    "module-alias": "^2.2.2",
     "next": "^11.1.0",
     "node-fetch": "^2.6.1",
     "random-weighted-choice": "^0.1.4",
@@ -59,6 +60,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@craco/craco": "^6.2.0",
     "@cypress/react": "^4.16.4",
     "@cypress/webpack-preprocessor": "^5.5.0",
     "asyncro": "^3.0.0",
@@ -71,6 +73,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "find-webpack": "^2.2.0",
     "husky": "^7.0.1",
     "lint-staged": "^11.1.2",
     "mathjax-node": "^2.1.1",

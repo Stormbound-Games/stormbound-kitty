@@ -1,5 +1,5 @@
 import canCardBePlayed from './'
-import getRawCardData from '~/getRawCardData'
+import getRawCardData from '~/helpers/getRawCardData'
 
 describe('The `canCardBePlayed` helper', () => {
   it('should return false if the card costs too much mana', () => {

@@ -1,5 +1,5 @@
+import getResolvedCardData from '~/helpers/getResolvedCardData'
 import modifyDeck from './'
-import getResolvedCardData from '~/getResolvedCardData'
 
 describe('The `modifyDeck` helper', () => {
   it('should resolve all cards in deck', () => {

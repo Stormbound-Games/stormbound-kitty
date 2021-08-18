@@ -8,7 +8,7 @@ import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
 
-export default React.memo(function GuideWinter() {
+export default React.memo(function GuideTrivia() {
   return (
     <>
       <p>
