@@ -14,7 +14,9 @@ const hasBeenShownYet = key => {
 export default React.memo(function EyeCatcher(props) {
   const { css } = useFela()
   const key = 'sb.eye_catcher.' + props.id
-  const [isVisible, setIsVisible] = React.useState(!hasBeenShownYet(key))
+  const [isVisible, setIsVisible] = React.useState(false)
+
+  React.useEffect(() => setIsVisible(!hasBeenShownYet(key)), [key])
 
   React.useEffect(() => {
     localStorage.setItem(key, !isVisible)
