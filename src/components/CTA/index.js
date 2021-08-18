@@ -32,7 +32,7 @@ export default React.memo(function CTA({
       <span className={css(styles.content)}>{props.children}</span>
     </a>
   ) : props.to ? (
-    <RouterLink href={props.to} passHref scroll={scroll}>
+    <RouterLink href={props.to} passHref scroll={scroll} prefetch={false}>
       <a
         data-testid={props['data-testid']}
         className={css(styles.cta, extend)}

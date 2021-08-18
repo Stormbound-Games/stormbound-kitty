@@ -34,7 +34,7 @@ export default React.memo(
 
     if (props.to) {
       return (
-        <RouterLink href={props.to} passHref scroll={scroll}>
+        <RouterLink href={props.to} passHref scroll={scroll} prefetch={false}>
           <a {...props} ref={ref} className={css(styles.link, extend)}>
             {props.children}
           </a>
