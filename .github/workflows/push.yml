@@ -4,7 +4,7 @@ on: [deployment_status]
 
 jobs:
   tests:
-    if: github.event.deployment_status.state == 'success'
+    if: ${{ github.event.deployment_status.state == 'success' && contains(github.event.deployment_status.target_url, 'heroku') != true }}
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.16.0-chrome89-ff86
     strategy:
