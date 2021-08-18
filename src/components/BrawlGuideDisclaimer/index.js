@@ -1,5 +1,5 @@
 import React from 'react'
-import Notice from '../Notice'
+import Notice from '~/components/Notice'
 import styles from './styles'
 
 export default React.memo(function BrawlGuideDisclaimer(props) {

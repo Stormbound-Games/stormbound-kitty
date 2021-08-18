@@ -1,4 +1,4 @@
-import { MonthlyIncome } from '../Income'
+import { MonthlyIncome } from '~/helpers/Income'
 
 const CLIMBING_CARDS = {
   HEROES: [],

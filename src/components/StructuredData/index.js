@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import FAQ from '../../data/faq'
-import getRawCardData from '../../helpers/getRawCardData'
+import FAQ from '~/data/faq'
+import getRawCardData from '~/helpers/getRawCardData'
 
 const Script = props => (
   <Helmet>

@@ -1,5 +1,5 @@
 import React from 'react'
-import random from '../helpers/random'
+import random from '~/helpers/random'
 
 const useRandomInterval = (callback, minDelay, maxDelay) => {
   const timeoutId = React.useRef(null)

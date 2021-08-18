@@ -1,9 +1,9 @@
 import React from 'react'
-import Teasers from '../Teasers'
-import Title from '../Title'
-import SWCC from '../../data/swcc'
-import getRawCardData from '../../helpers/getRawCardData'
-import serialisation from '../../helpers/serialisation'
+import Teasers from '~/components/Teasers'
+import Title from '~/components/Title'
+import SWCC from '~/data/swcc'
+import getRawCardData from '~/helpers/getRawCardData'
+import serialisation from '~/helpers/serialisation'
 
 export const getCardData = id => {
   const data = serialisation.card.deserialise(id)

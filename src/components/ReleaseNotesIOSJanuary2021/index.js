@@ -1,7 +1,7 @@
 import React from 'react'
-import Page from '../Page'
-import Info from '../Info'
-import ReleaseNotes from '../ReleaseNotes'
+import Page from '~/components/Page'
+import Info from '~/components/Info'
+import ReleaseNotes from '~/components/ReleaseNotes'
 
 export default React.memo(function ReleaseNotesIOSJanuary2021(props) {
   return (

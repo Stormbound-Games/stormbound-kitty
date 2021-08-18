@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import ResourceIcon from '../ResourceIcon'
+import ResourceIcon from '~/components/ResourceIcon'
 
 const THOUSANDS = /\B(?=(\d{3})+(?!\d))/g
 

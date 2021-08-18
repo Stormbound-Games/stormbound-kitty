@@ -1,8 +1,8 @@
 import React from 'react'
-import CardLink from '../CardLink'
-import DiamondButton from '../DiamondButton'
-import FeedEntry from '../FeedEntry'
-import parseDate from '../../helpers/parseDate'
+import CardLink from '~/components/CardLink'
+import DiamondButton from '~/components/DiamondButton'
+import FeedEntry from '~/components/FeedEntry'
+import parseDate from '~/helpers/parseDate'
 
 const ICONS = {
   INFO: { icon: 'info', color: 'var(--freeze)' },

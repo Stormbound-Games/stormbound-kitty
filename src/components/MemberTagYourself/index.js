@@ -1,8 +1,8 @@
 import React from 'react'
 import Select from 'react-select'
-import { UserContext } from '../UserProvider'
-import Info from '../Info'
-import useSelectStyles from '../../hooks/useSelectStyles'
+import { UserContext } from '~/components/UserProvider'
+import Info from '~/components/Info'
+import useSelectStyles from '~/hooks/useSelectStyles'
 
 const UserSelect = props => {
   const styles = useSelectStyles({ withClear: true })

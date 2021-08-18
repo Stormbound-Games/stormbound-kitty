@@ -1,6 +1,6 @@
 import React from 'react'
-import Title from '../Title'
-import FAQEntry from '../FAQEntry'
+import Title from '~/components/Title'
+import FAQEntry from '~/components/FAQEntry'
 
 export default React.memo(function FAQSection(props) {
   return (

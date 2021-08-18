@@ -1,6 +1,6 @@
 import React from 'react'
-import DiamondButton from '../DiamondButton'
-import Dialog from '../Dialog'
+import DiamondButton from '~/components/DiamondButton'
+import Dialog from '~/components/Dialog'
 
 export default React.memo(function ResetButton(props) {
   const dialog = React.useRef(null)

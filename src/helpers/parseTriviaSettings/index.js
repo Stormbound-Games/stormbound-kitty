@@ -1,4 +1,4 @@
-import clamp from '../clamp'
+import clamp from '~/helpers/clamp'
 
 const parseTriviaSettings = message => {
   const params = {}

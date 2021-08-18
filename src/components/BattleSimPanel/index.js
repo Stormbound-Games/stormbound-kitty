@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import DiamondButton from '../DiamondButton'
-import Title from '../Title'
+import DiamondButton from '~/components/DiamondButton'
+import Title from '~/components/Title'
 import styles from './styles'
 
 export default React.memo(function BattleSimPanel(props) {

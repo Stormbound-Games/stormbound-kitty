@@ -1,7 +1,7 @@
 import React from 'react'
-import Link from '../Link'
-import Only from '../Only'
-import TogglableContent from '../TogglableContent'
+import Link from '~/components/Link'
+import Only from '~/components/Only'
+import TogglableContent from '~/components/TogglableContent'
 
 export default React.memo(function MobileTogglableContent(props) {
   const [isExpanded, expand] = React.useState(false)

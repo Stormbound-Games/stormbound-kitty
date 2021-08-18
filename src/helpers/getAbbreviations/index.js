@@ -1,5 +1,5 @@
-import CARDS from '../../data/cards'
-import abbreviate from '../abbreviate'
+import CARDS from '~/data/cards'
+import abbreviate from '~/helpers/abbreviate'
 
 const COMMON_ABBREVIATIONS = {
   AH: 'Amberhides',

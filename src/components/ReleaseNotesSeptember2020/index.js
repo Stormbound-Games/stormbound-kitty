@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Page from '../Page'
-import CardLink from '../CardLink'
-import ReleaseNotes from '../ReleaseNotes'
-import Title from '../Title'
+import Page from '~/components/Page'
+import CardLink from '~/components/CardLink'
+import ReleaseNotes from '~/components/ReleaseNotes'
+import Title from '~/components/Title'
 
 export default React.memo(function ReleaseNotesSeptember2020(props) {
   const { css } = useFela()

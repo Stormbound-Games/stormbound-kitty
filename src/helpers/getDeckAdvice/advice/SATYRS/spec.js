@@ -1,9 +1,9 @@
 import advice, { SATYR_CONSUMERS } from './'
-import getResolvedCardData from '../../../getResolvedCardData'
-import getRawCardData from '../../../getRawCardData'
-import serialisation from '../../../serialisation'
-import modifyDeck from '../../../modifyDeck'
-import toSentence from '../../../toSentence'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
+import getRawCardData from '~/helpers/getRawCardData'
+import serialisation from '~/helpers/serialisation'
+import modifyDeck from '~/helpers/modifyDeck'
+import toSentence from '~/helpers/toSentence'
 
 const getCards = (id, modifier = 'NONE') =>
   modifyDeck(serialisation.deck.deserialise(id), modifier).map(

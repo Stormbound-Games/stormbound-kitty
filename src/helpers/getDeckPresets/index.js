@@ -1,5 +1,5 @@
-import { BRAWL_INDEX } from '../../constants/brawl'
-import isSuggestedDeck from '../isSuggestedDeck'
+import { BRAWL_INDEX } from '~/constants/brawl'
+import isSuggestedDeck from '~/helpers/isSuggestedDeck'
 
 const BRAWLS = Object.keys(BRAWL_INDEX)
 

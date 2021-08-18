@@ -1,5 +1,5 @@
-import sortCards from '../sortCards'
-import CARDS from '../../data/cards'
+import sortCards from '~/helpers/sortCards'
+import CARDS from '~/data/cards'
 
 export default () =>
   CARDS.reduce((acc, card) => {

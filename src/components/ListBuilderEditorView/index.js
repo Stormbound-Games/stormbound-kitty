@@ -7,19 +7,19 @@ import {
   DEFAULT_LIST,
   DEFAULT_TIER,
   MAX_TIERS,
-} from '../../constants/list'
-import Page from '../Page'
-import CTA from '../CTA'
-import HorizontalRule from '../HorizontalRule'
-import ResetButton from '../ResetButton'
-import Row from '../Row'
-import ShareButton from '../ListBuilderShareButton'
-import ListBuilderTier from '../ListBuilderTier'
-import Title from '../Title'
-import serialisation from '../../helpers/serialisation'
-import getInitialListData from '../../helpers/getInitialListData'
-import reorder from '../../helpers/reorder'
-import useRouter from '../../hooks/useRouter'
+} from '~/constants/list'
+import Page from '~/components/Page'
+import CTA from '~/components/CTA'
+import HorizontalRule from '~/components/HorizontalRule'
+import ResetButton from '~/components/ResetButton'
+import Row from '~/components/Row'
+import ShareButton from '~/components/ListBuilderShareButton'
+import ListBuilderTier from '~/components/ListBuilderTier'
+import Title from '~/components/Title'
+import serialisation from '~/helpers/serialisation'
+import getInitialListData from '~/helpers/getInitialListData'
+import reorder from '~/helpers/reorder'
+import useRouter from '~/hooks/useRouter'
 
 class ListBuilderEditorView extends React.Component {
   constructor(props) {

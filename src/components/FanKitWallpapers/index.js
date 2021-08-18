@@ -1,10 +1,10 @@
 import React from 'react'
-import FanKitDownloadDialog from '../FanKitDownloadDialog'
-import FanKitItem from '../FanKitItem'
-import Page from '../Page'
-import Row from '../Row'
-import chunk from '../../helpers/chunk'
-import indexArray from '../../helpers/indexArray'
+import FanKitDownloadDialog from '~/components/FanKitDownloadDialog'
+import FanKitItem from '~/components/FanKitItem'
+import Page from '~/components/Page'
+import Row from '~/components/Row'
+import chunk from '~/helpers/chunk'
+import indexArray from '~/helpers/indexArray'
 
 const resolveAsset = idPrefix => (wallpaper, index) => ({
   name: `Stormbound ${idPrefix.toLowerCase()} wallpaper ${index + 1}`,

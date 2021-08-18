@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Notification from '../Notification'
+import Notification from '~/components/Notification'
 
 export const NotificationContext = React.createContext({})
 

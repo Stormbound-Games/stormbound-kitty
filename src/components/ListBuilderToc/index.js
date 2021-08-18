@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '../Link'
-import Spacing from '../Spacing'
-import generateId from '../../helpers/generateId'
-import { TIER_COLORS } from '../../constants/list'
+import Link from '~/components/Link'
+import Spacing from '~/components/Spacing'
+import generateId from '~/helpers/generateId'
+import { TIER_COLORS } from '~/constants/list'
 import styles from './styles'
 
 export default React.memo(function ListBuilderToc(props) {

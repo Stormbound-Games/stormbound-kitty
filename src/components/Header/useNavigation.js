@@ -1,9 +1,9 @@
 import React from 'react'
-import GUIDES from '../../data/guides'
-import { PersonalDecksContext } from '../PersonalDecksProvider'
-import { UserContext } from '../UserProvider'
-import { CATEGORIES } from '../../constants/guides'
-import { STORY_CATEGORIES } from '../../constants/stories'
+import GUIDES from '~/data/guides'
+import { PersonalDecksContext } from '~/components/PersonalDecksProvider'
+import { UserContext } from '~/components/UserProvider'
+import { CATEGORIES } from '~/constants/guides'
+import { STORY_CATEGORIES } from '~/constants/stories'
 
 export default () => {
   const { isUnseen } = React.useContext(PersonalDecksContext)

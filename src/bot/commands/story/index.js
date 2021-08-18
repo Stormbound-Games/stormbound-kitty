@@ -1,8 +1,8 @@
-import getStoriesForSearch from '../../../helpers/getStoriesForSearch'
-import getEmbed from '../../../helpers/getEmbed'
-import getRawCardData from '../../../helpers/getRawCardData'
-import arrayRandom from '../../../helpers/arrayRandom'
-import STORIES from '../../../data/stories'
+import getStoriesForSearch from '~/helpers/getStoriesForSearch'
+import getEmbed from '~/helpers/getEmbed'
+import getRawCardData from '~/helpers/getRawCardData'
+import arrayRandom from '~/helpers/arrayRandom'
+import STORIES from '~/data/stories'
 
 const getEmbedForStory = (label, story) => {
   return getEmbed()

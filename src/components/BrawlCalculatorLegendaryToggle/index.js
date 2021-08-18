@@ -1,6 +1,6 @@
 import React from 'react'
-import Checkbox from '../Checkbox'
-import Spacing from '../Spacing'
+import Checkbox from '~/components/Checkbox'
+import Spacing from '~/components/Spacing'
 
 export default React.memo(function BrawlCalculatorLegendaryToggle(props) {
   if (props.mode !== 'GOAL' || props.milestone < 5) return null

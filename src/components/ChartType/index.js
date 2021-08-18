@@ -7,9 +7,9 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts'
-import Title from '../Title'
-import CARDS from '../../data/cards'
-import { TOOLTIP_STYLES } from '../../constants/stats'
+import Title from '~/components/Title'
+import CARDS from '~/data/cards'
+import { TOOLTIP_STYLES } from '~/constants/stats'
 
 export default React.memo(function ChartType(props) {
   const types = ['unit', 'spell', 'structure']

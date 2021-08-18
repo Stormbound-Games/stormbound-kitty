@@ -1,6 +1,6 @@
 import React from 'react'
-import microMarkdown from '../../helpers/microMarkdown'
-import HorizontalRule from '../HorizontalRule'
+import microMarkdown from '~/helpers/microMarkdown'
+import HorizontalRule from '~/components/HorizontalRule'
 
 export default React.memo(function MicroMarkdown(props) {
   return props.content.split('\n').map((paragraph, index) => {

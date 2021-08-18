@@ -1,7 +1,7 @@
-import getEmbed from '../../../helpers/getEmbed'
-import clamp from '../../../helpers/clamp'
-import getCardValue from '../../../helpers/getCardValue'
-import searchCards from '../../../helpers/searchCards'
+import getEmbed from '~/helpers/getEmbed'
+import clamp from '~/helpers/clamp'
+import getCardValue from '~/helpers/getCardValue'
+import searchCards from '~/helpers/searchCards'
 
 const getLevel = message => {
   message = message.trim()

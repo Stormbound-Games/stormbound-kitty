@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import Select from 'react-select'
-import inputStyles from '../Input/styles'
-import useSelectStyles from '../../hooks/useSelectStyles'
-import { TAGS } from '../../constants/deck'
+import inputStyles from '~/components/Input/styles'
+import useSelectStyles from '~/hooks/useSelectStyles'
+import { TAGS } from '~/constants/deck'
 
 export default React.memo(function TagsSelect(props) {
   const { css } = useFela()

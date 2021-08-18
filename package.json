@@ -30,6 +30,7 @@
     "lodash.clonedeep": "^4.5.0",
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
+    "module-alias": "^2.2.2",
     "node-fetch": "^2.6.1",
     "random-weighted-choice": "^0.1.4",
     "react": "^17.0.2",
@@ -49,8 +50,8 @@
   },
   "scripts": {
     "prebuild:cra": "node -r esm bin/sitemap.js",
-    "start": "react-scripts start",
-    "build:cra": "CI=false react-scripts build",
+    "start": "craco start",
+    "build:cra": "CI=false craco build",
     "test": "cypress run",
     "bot": "node -r esm bin/bot.js",
     "bot:dev": "nodemon -x \"node -r esm\" bin/bot.js --watch src",
@@ -63,10 +64,13 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@craco/craco": "^6.2.0",
     "@cypress/react": "^4.16.4",
+    "@cypress/webpack-preprocessor": "^5.5.0",
     "asyncro": "^3.0.0",
     "cypress": "^6.9.1",
     "eslint": "^7.32.0",
+    "find-webpack": "^2.2.0",
     "husky": "^7.0.1",
     "lint-staged": "^11.1.2",
     "mathjax-node": "^2.1.1",

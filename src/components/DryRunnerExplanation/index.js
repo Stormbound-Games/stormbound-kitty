@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import TogglableContent from '../TogglableContent'
-import CardLink from '../CardLink'
-import Link from '../Link'
-import { PROBABILITIES } from '../../constants/dryRunner'
+import TogglableContent from '~/components/TogglableContent'
+import CardLink from '~/components/CardLink'
+import Link from '~/components/Link'
+import { PROBABILITIES } from '~/constants/dryRunner'
 import styles from './styles'
 
 const CARD_MECHANICS = {

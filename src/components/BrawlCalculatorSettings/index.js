@@ -1,9 +1,9 @@
 import React from 'react'
-import NumberInput from '../NumberInput'
-import Row from '../Row'
-import Select from '../Select'
-import getRewardLabel from '../../helpers/getRewardLabel'
-import { BRAWL_MILESTONES } from '../../constants/brawl'
+import NumberInput from '~/components/NumberInput'
+import Row from '~/components/Row'
+import Select from '~/components/Select'
+import getRewardLabel from '~/helpers/getRewardLabel'
+import { BRAWL_MILESTONES } from '~/constants/brawl'
 
 export default React.memo(function BrawlCalculatorSettings(props) {
   const { setMilestone } = props

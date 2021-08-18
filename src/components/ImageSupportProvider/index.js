@@ -1,5 +1,5 @@
 import React from 'react'
-import supportsImageFormat from '../../helpers/supportsImageFormat'
+import supportsImageFormat from '~/helpers/supportsImageFormat'
 
 export const ImageSupportContext = React.createContext(false)
 

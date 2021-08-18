@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Card from '../Card'
-import CTA from '../CTA'
-import BlankButton from '../BlankButton'
-import getResolvedCardData from '../../helpers/getResolvedCardData'
-import indexArray from '../../helpers/indexArray'
+import Card from '~/components/Card'
+import CTA from '~/components/CTA'
+import BlankButton from '~/components/BlankButton'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
+import indexArray from '~/helpers/indexArray'
 import styles from './styles'
 
 export default React.memo(function BattleSimCards(props) {

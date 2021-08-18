@@ -1,7 +1,7 @@
-import { RARITIES } from '../../constants/game'
-import unfoldValue from '../unfoldValue'
-import { getCardCost } from '../getCollectionCost'
-import getExtraAfterMax from '../getExtraAfterMax'
+import { RARITIES } from '~/constants/game'
+import unfoldValue from '~/helpers/unfoldValue'
+import { getCardCost } from '~/helpers/getCollectionCost'
+import getExtraAfterMax from '~/helpers/getExtraAfterMax'
 
 const FACTIONS_ORDER = ['neutral', 'winter', 'ironclad', 'shadowfen', 'swarm']
 const factions = FACTIONS_ORDER
@@ -45,23 +45,25 @@ export const sortByValue = (a, b) => {
   return sortNaturally()(a, b)
 }
 
-const sortNaturally = ({ withFaction = true } = {}) => (a, b) => {
-  const factionIndexA = FACTIONS_ORDER.indexOf(a.faction)
-  const factionIndexB = FACTIONS_ORDER.indexOf(b.faction)
+const sortNaturally =
+  ({ withFaction = true } = {}) =>
+  (a, b) => {
+    const factionIndexA = FACTIONS_ORDER.indexOf(a.faction)
+    const factionIndexB = FACTIONS_ORDER.indexOf(b.faction)
 
-  if (withFaction && factionIndexA > factionIndexB) return +1
-  if (withFaction && factionIndexA < factionIndexB) return -1
+    if (withFaction && factionIndexA > factionIndexB) return +1
+    if (withFaction && factionIndexA < factionIndexB) return -1
 
-  const manaA = +unfoldValue(a.mana)[0]
-  const manaB = +unfoldValue(b.mana)[0]
+    const manaA = +unfoldValue(a.mana)[0]
+    const manaB = +unfoldValue(b.mana)[0]
 
-  if (a.token && !b.token) return +1
-  if (!a.token && b.token) return -1
+    if (a.token && !b.token) return +1
+    if (!a.token && b.token) return -1
 
-  if (manaA > manaB) return +1
-  if (manaA < manaB) return -1
+    if (manaA > manaB) return +1
+    if (manaA < manaB) return -1
 
-  return a.name > b.name ? +1 : -1
-}
+    return a.name > b.name ? +1 : -1
+  }
 
 export default sortNaturally

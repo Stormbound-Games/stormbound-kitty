@@ -1,5 +1,5 @@
 import React from 'react'
-import Input from '../Input'
+import Input from '~/components/Input'
 
 export default React.memo(function NumberInput(props) {
   const { min, max, onChange } = props

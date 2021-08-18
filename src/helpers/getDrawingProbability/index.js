@@ -1,7 +1,7 @@
-import { RARITIES } from '../../constants/game'
-import { BOOKS } from '../../constants/books'
-import countCards from '../countCards'
-import getDrawingSequences from '../getDrawingSequences'
+import { RARITIES } from '~/constants/game'
+import { BOOKS } from '~/constants/books'
+import countCards from '~/helpers/countCards'
+import getDrawingSequences from '~/helpers/getDrawingSequences'
 
 /**
  * Get the probability of pulling the given sequence

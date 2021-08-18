@@ -1,5 +1,5 @@
-import indexArray from '../helpers/indexArray'
-import getMilestoneForCrowns from '../helpers/getMilestoneForCrowns'
+import indexArray from '~/helpers/indexArray'
+import getMilestoneForCrowns from '~/helpers/getMilestoneForCrowns'
 
 export const BRAWLS = [
   {

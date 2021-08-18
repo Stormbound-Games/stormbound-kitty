@@ -1,5 +1,5 @@
-import getEmbed from '../../../helpers/getEmbed'
-import searchCards from '../../../helpers/searchCards'
+import getEmbed from '~/helpers/getEmbed'
+import searchCards from '~/helpers/searchCards'
 
 export default {
   command: 'cardinfo',

@@ -1,7 +1,7 @@
 import React from 'react'
-import CardLink from '../../components/CardLink'
-import CARDS from '../../data/cards'
-import getAbbreviations from '../../helpers/getAbbreviations'
+import CardLink from '~/components/CardLink'
+import CARDS from '~/data/cards'
+import getAbbreviations from '~/helpers/getAbbreviations'
 
 const INDEX = CARDS.reduce((acc, card) => {
   acc[card.name] = <CardLink id={card.id} />

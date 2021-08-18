@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Only from '../Only'
-import useSpacing from '../../hooks/useSpacing'
+import Only from '~/components/Only'
+import useSpacing from '~/hooks/useSpacing'
 import styles from './styles'
 
 const RowContext = React.createContext({

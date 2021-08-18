@@ -1,8 +1,8 @@
 import React from 'react'
-import CardsGallery from '../CardsGallery'
-import Dialog from '../Dialog'
+import CardsGallery from '~/components/CardsGallery'
+import Dialog from '~/components/Dialog'
 import styles from './styles'
-import useViewportSize from '../../hooks/useViewportSize'
+import useViewportSize from '~/hooks/useViewportSize'
 
 export default React.memo(function HarvestersDialog(props) {
   const { viewportWidth } = useViewportSize()

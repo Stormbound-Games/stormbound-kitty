@@ -1,5 +1,5 @@
-import formatCardStats from '../formatCardStats'
-import getRawCardData from '../getRawCardData'
+import formatCardStats from '~/helpers/formatCardStats'
+import getRawCardData from '~/helpers/getRawCardData'
 
 const isIncomplete = state => {
   if (!state.name) return true

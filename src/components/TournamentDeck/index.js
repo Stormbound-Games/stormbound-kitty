@@ -1,8 +1,8 @@
 import React from 'react'
-import FeaturedDeck from '../FeaturedDeck'
-import MemberList from '../MemberList'
-import parseDate from '../../helpers/parseDate'
-import toSentence from '../../helpers/toSentence'
+import FeaturedDeck from '~/components/FeaturedDeck'
+import MemberList from '~/components/MemberList'
+import parseDate from '~/helpers/parseDate'
+import toSentence from '~/helpers/toSentence'
 
 const toArray = value => (Array.isArray(value) ? value : [value])
 

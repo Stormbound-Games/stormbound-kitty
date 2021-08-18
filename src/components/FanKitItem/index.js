@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import DiamondButton from '../DiamondButton'
-import Image from '../Image'
+import DiamondButton from '~/components/DiamondButton'
+import Image from '~/components/Image'
 import styles from './styles'
 
 export default React.memo(function FanKitItem(props) {

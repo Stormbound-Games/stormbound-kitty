@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from '../../components/Link'
+import Link from '~/components/Link'
 
 const renderAuthorsLinks = (acc, author, index, authors) => {
   if (authors.length > 1 && index === authors.length - 1) {

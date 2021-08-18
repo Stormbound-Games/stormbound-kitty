@@ -1,22 +1,22 @@
 import React from 'react'
-import Link from '../Link'
-import Page from '../Page'
-import Image from '../Image'
-import Info from '../Info'
-import FAQSection from '../FAQSection'
-import Spacing from '../Spacing'
-import Title from '../Title'
-import Table from '../Table'
-import ReleaseNotes from '../ReleaseNotes'
-import Row from '../Row'
-import { Coins, Crowns } from '../Resource'
-import getMilestoneCost from '../../helpers/getMilestoneCost'
-import getRewardLabel from '../../helpers/getRewardLabel'
+import Link from '~/components/Link'
+import Page from '~/components/Page'
+import Image from '~/components/Image'
+import Info from '~/components/Info'
+import FAQSection from '~/components/FAQSection'
+import Spacing from '~/components/Spacing'
+import Title from '~/components/Title'
+import Table from '~/components/Table'
+import ReleaseNotes from '~/components/ReleaseNotes'
+import Row from '~/components/Row'
+import { Coins, Crowns } from '~/components/Resource'
+import getMilestoneCost from '~/helpers/getMilestoneCost'
+import getRewardLabel from '~/helpers/getRewardLabel'
 import {
   MILESTONES_CASUAL,
   MILESTONES_WARRIOR,
   MILESTONES_ULTIMATE,
-} from '../../constants/brawl'
+} from '~/constants/brawl'
 
 const BrawlTable = ({ data }) => (
   <Table>

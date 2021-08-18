@@ -1,8 +1,8 @@
 import React from 'react'
-import Link from '../Link'
-import Title from '../Title'
-import Stories from '../Stories'
-import STORIES from '../../data/stories'
+import Link from '~/components/Link'
+import Title from '~/components/Title'
+import Stories from '~/components/Stories'
+import STORIES from '~/data/stories'
 
 export default React.memo(function StoriesMore(props) {
   const isNotCurrent = story => props.title !== story.title

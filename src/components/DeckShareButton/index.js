@@ -1,9 +1,9 @@
 import React from 'react'
-import CTA from '../CTA'
-import Only from '../Only'
-import ShareDialog from '../ShareDialog'
-import Spacing from '../Spacing'
-import download from '../../helpers/download'
+import CTA from '~/components/CTA'
+import Only from '~/components/Only'
+import ShareDialog from '~/components/ShareDialog'
+import Spacing from '~/components/Spacing'
+import download from '~/helpers/download'
 
 const exportAsImage = () => {
   const deck = document.querySelector('#deck')

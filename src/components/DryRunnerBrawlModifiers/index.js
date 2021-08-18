@@ -1,9 +1,9 @@
 import React from 'react'
-import Dialog from '../Dialog'
-import Select from '../Select'
-import Spacing from '../Spacing'
-import getRawCardData from '../../helpers/getRawCardData'
-import { BRAWLS, BRAWL_INDEX } from '../../constants/brawl'
+import Dialog from '~/components/Dialog'
+import Select from '~/components/Select'
+import Spacing from '~/components/Spacing'
+import getRawCardData from '~/helpers/getRawCardData'
+import { BRAWLS, BRAWL_INDEX } from '~/constants/brawl'
 
 const getDialogImage = modifier => {
   if (!modifier || modifier === 'NONE') {

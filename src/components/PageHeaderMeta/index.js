@@ -1,8 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Icon from '../Icon'
-import Link from '../Link'
-import renderAuthorsLinks from '../../helpers/renderAuthorsLinks'
+import Icon from '~/components/Icon'
+import Link from '~/components/Link'
+import renderAuthorsLinks from '~/helpers/renderAuthorsLinks'
 import styles from './styles'
 
 export default React.memo(function PageHeaderMeta({ action, authors, meta }) {

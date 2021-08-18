@@ -1,5 +1,5 @@
-import indexArray from '../indexArray'
-import GUIDES from '../../data/guides'
+import indexArray from '~/helpers/indexArray'
+import GUIDES from '~/data/guides'
 
 const INDEXES = {
   id: indexArray(GUIDES, 'id'),

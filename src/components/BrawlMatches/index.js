@@ -1,21 +1,21 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import serialize from 'form-serialize'
-import { BrawlContext } from '../BrawlProvider'
-import BrawlLossCounter from '../BrawlLossCounter'
-import BrawlMatchForm from '../BrawlMatchForm'
-import Icon from '../Icon'
-import Link from '../Link'
-import Only from '../Only'
-import Spacing from '../Spacing'
-import Table from '../Table'
-import Title from '../Title'
+import { BrawlContext } from '~/components/BrawlProvider'
+import BrawlLossCounter from '~/components/BrawlLossCounter'
+import BrawlMatchForm from '~/components/BrawlMatchForm'
+import Icon from '~/components/Icon'
+import Link from '~/components/Link'
+import Only from '~/components/Only'
+import Spacing from '~/components/Spacing'
+import Table from '~/components/Table'
+import Title from '~/components/Title'
 import {
   BRAWL_MILESTONES,
   CROWN_REWARDS,
   VICTORY_BONUSES,
-} from '../../constants/brawl'
-import capitalise from '../../helpers/capitalise'
+} from '~/constants/brawl'
+import capitalise from '~/helpers/capitalise'
 import styles from './styles'
 
 const getDefaultFaction = id => {

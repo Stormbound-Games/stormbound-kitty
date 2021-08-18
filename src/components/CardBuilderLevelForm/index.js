@@ -1,11 +1,11 @@
 import React from 'react'
-import Input from '../Input'
-import ResetButton from '../ResetButton'
-import Row from '../Row'
-import ShareButton from '../CardBuilderShareButton'
-import Spacing from '../Spacing'
-import formatCardStats from '../../helpers/formatCardStats'
-import useRouter from '../../hooks/useRouter'
+import Input from '~/components/Input'
+import ResetButton from '~/components/ResetButton'
+import Row from '~/components/Row'
+import ShareButton from '~/components/CardBuilderShareButton'
+import Spacing from '~/components/Spacing'
+import formatCardStats from '~/helpers/formatCardStats'
+import useRouter from '~/hooks/useRouter'
 
 export default React.memo(function CardBuilderCardForm(props) {
   const { params } = useRouter()

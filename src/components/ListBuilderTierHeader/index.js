@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import CardSelect from '../CardSelect'
-import DiamondButton from '../DiamondButton'
-import Input from '../Input'
-import Only from '../Only'
-import generateId from '../../helpers/generateId'
+import CardSelect from '~/components/CardSelect'
+import DiamondButton from '~/components/DiamondButton'
+import Input from '~/components/Input'
+import Only from '~/components/Only'
+import generateId from '~/helpers/generateId'
 import styles from './styles'
 
 export default React.memo(function ListBuilderTierHeader(props) {

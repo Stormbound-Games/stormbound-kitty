@@ -1,5 +1,5 @@
-import toSentence from '../../../toSentence'
-import getRawCardData from '../../../getRawCardData'
+import toSentence from '~/helpers/toSentence'
+import getRawCardData from '~/helpers/getRawCardData'
 
 const MANA_CONSUMERS = ['W10', 'W21']
 const MANA_PRODUCERS = ['W9', 'W19']

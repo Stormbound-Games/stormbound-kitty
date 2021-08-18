@@ -1,11 +1,11 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import EyeCatcher from '../EyeCatcher'
-import Footer from '../Footer'
-import Header from '../Header'
-import Link from '../Link'
-import load from '../../helpers/load'
-import useRouter from '../../hooks/useRouter'
+import EyeCatcher from '~/components/EyeCatcher'
+import Footer from '~/components/Footer'
+import Header from '~/components/Header'
+import Link from '~/components/Link'
+import load from '~/helpers/load'
+import useRouter from '~/hooks/useRouter'
 import styles from './styles'
 
 const SearchDialog = load('SearchDialog')

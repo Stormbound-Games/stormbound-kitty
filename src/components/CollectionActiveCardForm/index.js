@@ -1,11 +1,11 @@
 import React from 'react'
-import Link from '../Link'
-import CardUpgradeStats from '../CardUpgradeStats'
-import Checkbox from '../Checkbox'
-import NumberInput from '../NumberInput'
-import Row from '../Row'
-import Select from '../Select'
-import Title from '../Title'
+import Link from '~/components/Link'
+import CardUpgradeStats from '~/components/CardUpgradeStats'
+import Checkbox from '~/components/Checkbox'
+import NumberInput from '~/components/NumberInput'
+import Row from '~/components/Row'
+import Select from '~/components/Select'
+import Title from '~/components/Title'
 
 export default React.memo(function CollectionActiveCardForm(props) {
   return (

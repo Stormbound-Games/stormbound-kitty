@@ -1,8 +1,8 @@
 import React from 'react'
-import { Coins, Stones } from '../Resource'
-import getCostForLevel from '../../helpers/getCostForLevel'
-import getExtraAfterMax from '../../helpers/getExtraAfterMax'
-import getResolvedCardData from '../../helpers/getResolvedCardData'
+import { Coins, Stones } from '~/components/Resource'
+import getCostForLevel from '~/helpers/getCostForLevel'
+import getExtraAfterMax from '~/helpers/getExtraAfterMax'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
 
 export default React.memo(function CardUpgradeStats(props) {
   const card = getResolvedCardData(props)

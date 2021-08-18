@@ -1,13 +1,13 @@
 import React from 'react'
-import BattleSimApp from '../BattleSimApp'
-import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
-import Guide from '../Guide'
-import CardLink from '../CardLink'
-import Link from '../Link'
-import TableOfContents from '../TableOfContents'
-import Title from '../Title'
-import getGuide from '../../helpers/getGuide'
-import getInitialCardData from '../../helpers/getInitialCardData'
+import BattleSimApp from '~/components/BattleSimApp'
+import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
+import Guide from '~/components/Guide'
+import CardLink from '~/components/CardLink'
+import Link from '~/components/Link'
+import TableOfContents from '~/components/TableOfContents'
+import Title from '~/components/Title'
+import getGuide from '~/helpers/getGuide'
+import getInitialCardData from '~/helpers/getInitialCardData'
 
 const guide = getGuide('CHILLBEARDS_GUIDE')
 

@@ -1,4 +1,4 @@
-import capitalise from '../capitalise'
+import capitalise from '~/helpers/capitalise'
 
 export default state => {
   const faction = capitalise(state.faction)

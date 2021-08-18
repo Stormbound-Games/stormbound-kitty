@@ -1,13 +1,13 @@
 import React from 'react'
-import Page from '../Page'
-import Icon from '../Icon'
-import Input from '../Input'
-import MemberListEntry from '../MemberListEntry'
-import MemberTagYourself from '../MemberTagYourself'
-import Row from '../Row'
-import Select from '../Select'
-import chunk from '../../helpers/chunk'
-import getMembersList from '../../helpers/getMembersList'
+import Page from '~/components/Page'
+import Icon from '~/components/Icon'
+import Input from '~/components/Input'
+import MemberListEntry from '~/components/MemberListEntry'
+import MemberTagYourself from '~/components/MemberTagYourself'
+import Row from '~/components/Row'
+import Select from '~/components/Select'
+import chunk from '~/helpers/chunk'
+import getMembersList from '~/helpers/getMembersList'
 
 export default React.memo(function Members(props) {
   const [name, setName] = React.useState('')

@@ -1,6 +1,6 @@
 import React from 'react'
-import Link from '../Link'
-import Dialog from '../Dialog'
+import Link from '~/components/Link'
+import Dialog from '~/components/Dialog'
 
 export default React.memo(function CardBuilderImageErrorDialog(props) {
   const dialog = React.useRef(null)

@@ -1,4 +1,4 @@
-import countCards from '../helpers/countCards'
+import countCards from '~/helpers/countCards'
 
 export const BOOKS = {
   MYTHIC: {

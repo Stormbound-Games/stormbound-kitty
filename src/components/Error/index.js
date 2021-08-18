@@ -1,9 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import CTA from '../CTA'
-import Image from '../Image'
-import Link from '../Link'
-import Title from '../Title'
+import CTA from '~/components/CTA'
+import Image from '~/components/Image'
+import Link from '~/components/Link'
+import Title from '~/components/Title'
 import styles from './styles'
 
 export default React.memo(function Error(props) {

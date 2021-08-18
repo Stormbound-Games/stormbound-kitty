@@ -1,9 +1,9 @@
-import { RARITIES } from '../../../constants/game'
-import { BOOKS, EXPECTATIONS } from '../../../constants/books'
-import getDrawingProbability from '../../../helpers/getDrawingProbability'
-import searchCards from '../../../helpers/searchCards'
-import getEmbed from '../../../helpers/getEmbed'
-import getBookName from '../../../helpers/getBookName'
+import { RARITIES } from '~/constants/game'
+import { BOOKS, EXPECTATIONS } from '~/constants/books'
+import getDrawingProbability from '~/helpers/getDrawingProbability'
+import searchCards from '~/helpers/searchCards'
+import getEmbed from '~/helpers/getEmbed'
+import getBookName from '~/helpers/getBookName'
 
 const getEmbedFields = book => {
   const stoneOdds = EXPECTATIONS.FUSION_STONES.getExpectations()

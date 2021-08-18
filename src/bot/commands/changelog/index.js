@@ -1,8 +1,8 @@
 import dateFormat from 'dateformat'
-import CHANGELOG from '../../../data/changelog'
-import getEmbed from '../../../helpers/getEmbed'
-import searchCards from '../../../helpers/searchCards'
-import parseDate from '../../../helpers/parseDate'
+import CHANGELOG from '~/data/changelog'
+import getEmbed from '~/helpers/getEmbed'
+import searchCards from '~/helpers/searchCards'
+import parseDate from '~/helpers/parseDate'
 
 const groupByDate = (acc, change) => {
   if (typeof acc[change.date] === 'undefined') {

@@ -1,4 +1,4 @@
-import CARDS from '../../data/cards'
+import CARDS from '~/data/cards'
 import countCards from './'
 
 describe('The `countCards` helper', () => {

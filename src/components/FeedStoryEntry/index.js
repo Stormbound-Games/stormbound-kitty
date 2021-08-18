@@ -1,7 +1,7 @@
 import React from 'react'
-import Link from '../Link'
-import FeedEntry from '../FeedEntry'
-import { STORY_CATEGORIES } from '../../constants/stories'
+import Link from '~/components/Link'
+import FeedEntry from '~/components/FeedEntry'
+import { STORY_CATEGORIES } from '~/constants/stories'
 
 export default React.memo(function FeedStoryEntry(props) {
   const category = STORY_CATEGORIES[props.category].shortName

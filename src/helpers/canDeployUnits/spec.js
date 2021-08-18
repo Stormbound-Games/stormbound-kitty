@@ -1,5 +1,5 @@
-import getRawCardData from '../getRawCardData'
-import getResolvedCardData from '../getResolvedCardData'
+import getRawCardData from '~/helpers/getRawCardData'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
 import canDeployUnits from './'
 
 describe('The `canDeployUnits` helper', () => {

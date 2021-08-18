@@ -1,5 +1,5 @@
 import React from 'react'
-import getViewportSize from '../helpers/getViewportSize'
+import getViewportSize from '~/helpers/getViewportSize'
 
 const useViewportSize = () => {
   const [dimensions, setDimensions] = React.useState(getViewportSize())

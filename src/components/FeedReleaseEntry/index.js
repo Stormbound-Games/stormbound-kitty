@@ -1,6 +1,6 @@
 import React from 'react'
-import Link from '../Link'
-import FeedEntry from '../FeedEntry'
+import Link from '~/components/Link'
+import FeedEntry from '~/components/FeedEntry'
 
 export default React.memo(function FeedReleaseEntry(props) {
   return (

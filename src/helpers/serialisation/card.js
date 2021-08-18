@@ -1,5 +1,5 @@
-import getRawCardData from '../getRawCardData'
-import resolveAbility from '../resolveAbility'
+import getRawCardData from '~/helpers/getRawCardData'
+import resolveAbility from '~/helpers/resolveAbility'
 import {
   getLongFaction,
   getLongRace,
@@ -9,8 +9,8 @@ import {
   getShortRace,
   getShortRarity,
   getShortType,
-} from '../encoding'
-import { base64Decode, base64Encode } from '../base64'
+} from '~/helpers/encoding'
+import { base64Decode, base64Encode } from '~/helpers/base64'
 
 const resolveMana = value => {
   const chunks = value.split('/')

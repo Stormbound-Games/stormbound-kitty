@@ -1,11 +1,11 @@
 import React from 'react'
-import Page from '../Page'
-import CardLink from '../CardLink'
-import CardBuilderCardDisplay from '../CardBuilderCardDisplay'
-import Image from '../Image'
-import ReleaseNotes from '../ReleaseNotes'
-import { Coins, Stones } from '../Resource'
-import getInitialCardData from '../../helpers/getInitialCardData'
+import Page from '~/components/Page'
+import CardLink from '~/components/CardLink'
+import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
+import Image from '~/components/Image'
+import ReleaseNotes from '~/components/ReleaseNotes'
+import { Coins, Stones } from '~/components/Resource'
+import getInitialCardData from '~/helpers/getInitialCardData'
 
 export default React.memo(function ReleaseNotesTempleOfFocus(props) {
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
-import Page from '../Page'
-import Teasers from '../Teasers'
+import Page from '~/components/Page'
+import Teasers from '~/components/Teasers'
 
 const ITEMS = [
   {

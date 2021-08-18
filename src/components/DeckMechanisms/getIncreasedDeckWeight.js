@@ -1,5 +1,5 @@
-import { increaseCardWeight } from '../../helpers/resolveDeckWeight'
-import isCard from '../../helpers/isCard'
+import { increaseCardWeight } from '~/helpers/resolveDeckWeight'
+import isCard from '~/helpers/isCard'
 
 const getIncreasedDeckWeight = ({ deck, hand, reset }) => {
   const isReset = card => reset.find(isCard(card))

@@ -7,12 +7,12 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts'
-import Title from '../Title'
-import { RARITIES } from '../../constants/game'
-import { TOOLTIP_STYLES } from '../../constants/stats'
-import capitalise from '../../helpers/capitalise'
-import countCards from '../../helpers/countCards'
-import { getRarityColor } from '../../helpers/getRarity'
+import Title from '~/components/Title'
+import { RARITIES } from '~/constants/game'
+import { TOOLTIP_STYLES } from '~/constants/stats'
+import capitalise from '~/helpers/capitalise'
+import countCards from '~/helpers/countCards'
+import { getRarityColor } from '~/helpers/getRarity'
 
 export default React.memo(function ChartRarity(props) {
   const data = Object.keys(RARITIES).map(rarity => ({

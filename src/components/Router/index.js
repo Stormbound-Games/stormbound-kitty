@@ -1,14 +1,14 @@
 import React from 'react'
 import { BrowserRouter, Redirect, Switch } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
-import Error from '../Error'
-import PageRoute from '../PageRoute'
-import load from '../../helpers/load'
-import { STORY_CATEGORIES } from '../../constants/stories'
-import GUIDES from '../../data/guides'
-import RELEASES from '../../data/releases'
-import STORIES from '../../data/stories'
-import { CATEGORIES } from '../../constants/guides'
+import Error from '~/components/Error'
+import PageRoute from '~/components/PageRoute'
+import load from '~/helpers/load'
+import { STORY_CATEGORIES } from '~/constants/stories'
+import GUIDES from '~/data/guides'
+import RELEASES from '~/data/releases'
+import STORIES from '~/data/stories'
+import { CATEGORIES } from '~/constants/guides'
 
 const GUIDE_COMPONENTS = {
   BEGINNER_GUIDE: load('GuideBeginner'),

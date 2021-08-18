@@ -1,19 +1,19 @@
 import React from 'react'
-import Link from '../Link'
-import Checkbox from '../Checkbox'
-import Page from '../Page'
-import Info from '../Info'
-import LeagueSelect from '../LeagueSelect'
-import NumberInput from '../NumberInput'
-import Only from '../Only'
-import PremiumPassCheckbox from '../PremiumPassCheckbox'
-import ResourceIcon from '../ResourceIcon'
-import Row from '../Row'
-import Select from '../Select'
-import Spacing from '../Spacing'
-import Title from '../Title'
-import { BRAWL_MILESTONES } from '../../constants/brawl'
-import { BOOKS } from '../../constants/books'
+import Link from '~/components/Link'
+import Checkbox from '~/components/Checkbox'
+import Page from '~/components/Page'
+import Info from '~/components/Info'
+import LeagueSelect from '~/components/LeagueSelect'
+import NumberInput from '~/components/NumberInput'
+import Only from '~/components/Only'
+import PremiumPassCheckbox from '~/components/PremiumPassCheckbox'
+import ResourceIcon from '~/components/ResourceIcon'
+import Row from '~/components/Row'
+import Select from '~/components/Select'
+import Spacing from '~/components/Spacing'
+import Title from '~/components/Title'
+import { BRAWL_MILESTONES } from '~/constants/brawl'
+import { BOOKS } from '~/constants/books'
 import {
   Common,
   Rare,
@@ -22,22 +22,22 @@ import {
   Coins,
   Rubies,
   Stones,
-} from '../Resource'
-import capitalise from '../../helpers/capitalise'
-import getActivityRewards from '../../helpers/getActivityRewards'
-import getBookName from '../../helpers/getBookName'
-import getBrawlRewards from '../../helpers/getBrawlRewards'
-import getClimbingRewards from '../../helpers/getClimbingRewards'
-import getHeroesLeagueRewards from '../../helpers/getHeroesLeagueRewards'
-import getLeagueChestRewards from '../../helpers/getLeagueChestRewards'
-import getRewardLabel from '../../helpers/getRewardLabel'
-import getVictoryCoins from '../../helpers/getVictoryCoins'
+} from '~/components/Resource'
+import capitalise from '~/helpers/capitalise'
+import getActivityRewards from '~/helpers/getActivityRewards'
+import getBookName from '~/helpers/getBookName'
+import getBrawlRewards from '~/helpers/getBrawlRewards'
+import getClimbingRewards from '~/helpers/getClimbingRewards'
+import getHeroesLeagueRewards from '~/helpers/getHeroesLeagueRewards'
+import getLeagueChestRewards from '~/helpers/getLeagueChestRewards'
+import getRewardLabel from '~/helpers/getRewardLabel'
+import getVictoryCoins from '~/helpers/getVictoryCoins'
 import {
   DailyIncome,
   WeeklyIncome,
   MonthlyIncome,
   YearlyIncome,
-} from '../../helpers/Income'
+} from '~/helpers/Income'
 import styles from './styles'
 
 const PERIODS = ['DAILY', 'WEEKLY', 'MONTHLY', 'YEARLY']

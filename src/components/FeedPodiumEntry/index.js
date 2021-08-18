@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Deck from '../Deck'
-import FeedEntry from '../FeedEntry'
-import MemberList from '../MemberList'
-import Only from '../Only'
-import serialisation from '../../helpers/serialisation'
+import Deck from '~/components/Deck'
+import FeedEntry from '~/components/FeedEntry'
+import MemberList from '~/components/MemberList'
+import Only from '~/components/Only'
+import serialisation from '~/helpers/serialisation'
 
 export default React.memo(function FeedPodiumEntry(props) {
   const { css } = useFela()

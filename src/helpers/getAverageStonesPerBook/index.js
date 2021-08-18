@@ -1,5 +1,5 @@
-import getDrawingProbability from '../getDrawingProbability'
-import { EXPECTATIONS } from '../../constants/books'
+import getDrawingProbability from '~/helpers/getDrawingProbability'
+import { EXPECTATIONS } from '~/constants/books'
 
 const RARITY_STONES = {
   COMMON: 5,

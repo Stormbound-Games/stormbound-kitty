@@ -1,12 +1,12 @@
 import React from 'react'
-import Link from '../Link'
-import Page from '../Page'
-import Notice from '../Notice'
-import Only from '../Only'
-import Teasers from '../Teasers'
-import GUIDES from '../../data/guides'
-import renderAuthorsLinks from '../../helpers/renderAuthorsLinks'
-import { CATEGORIES } from '../../constants/guides'
+import Link from '~/components/Link'
+import Page from '~/components/Page'
+import Notice from '~/components/Notice'
+import Only from '~/components/Only'
+import Teasers from '~/components/Teasers'
+import GUIDES from '~/data/guides'
+import renderAuthorsLinks from '~/helpers/renderAuthorsLinks'
+import { CATEGORIES } from '~/constants/guides'
 
 export default React.memo(function Guides(props) {
   const relevantGuides = GUIDES.filter(

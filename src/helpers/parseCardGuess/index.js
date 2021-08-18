@@ -1,6 +1,6 @@
-import { FACTIONS, RACES, RARITIES, TYPES } from '../../constants/game'
-import handleSearchAlias from '../handleSearchAlias'
-import getRawCardData from '../getRawCardData'
+import { FACTIONS, RACES, RARITIES, TYPES } from '~/constants/game'
+import handleSearchAlias from '~/helpers/handleSearchAlias'
+import getRawCardData from '~/helpers/getRawCardData'
 
 const SAMPLE_CARD = getRawCardData('N1')
 

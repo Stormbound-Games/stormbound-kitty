@@ -1,6 +1,6 @@
-import isSuggestedDeck from '../isSuggestedDeck'
-import getResolvedCardData from '../getResolvedCardData'
-import sortByMana from '../sortByMana'
+import isSuggestedDeck from '~/helpers/isSuggestedDeck'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
+import sortByMana from '~/helpers/sortByMana'
 
 const getDeckBuilderMetaTags = (deck, defaultTitle = 'Deck') => {
   const suggestedDeck = isSuggestedDeck(deck)

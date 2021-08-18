@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Image from '../Image'
-import Mana from '../Mana'
+import Image from '~/components/Image'
+import Mana from '~/components/Mana'
 import styles from './styles'
 
 export default React.memo(function BattleSimPlayerBanner(props) {

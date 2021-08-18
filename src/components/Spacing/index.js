@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import useSpacing from '../../hooks/useSpacing'
+import useSpacing from '~/hooks/useSpacing'
 
 export default React.memo(function Spacing({
   as: Component = 'div',

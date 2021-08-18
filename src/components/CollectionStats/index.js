@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Link from '../Link'
+import Link from '~/components/Link'
 import {
   ResponsiveContainer,
   Bar,
@@ -13,23 +13,23 @@ import {
   PieChart,
   Pie,
 } from 'recharts'
-import { CollectionContext } from '../CollectionProvider'
-import Page from '../Page'
-import Checkbox from '../Checkbox'
-import CollectionFigures from '../CollectionFigures'
-import Only from '../Only'
-import Row from '../Row'
-import Spacing from '../Spacing'
-import Title from '../Title'
-import CARDS from '../../data/cards'
-import getRawCardData from '../../helpers/getRawCardData'
-import capitalise from '../../helpers/capitalise'
-import getResolvedCardData from '../../helpers/getResolvedCardData'
-import isCardUpgradable from '../../helpers/isCardUpgradable'
-import { getCardCost } from '../../helpers/getCollectionCost'
-import { getRarityColor } from '../../helpers/getRarity'
-import { RARITIES, RARITY_COPIES } from '../../constants/game'
-import { TOOLTIP_STYLES } from '../../constants/stats'
+import { CollectionContext } from '~/components/CollectionProvider'
+import Page from '~/components/Page'
+import Checkbox from '~/components/Checkbox'
+import CollectionFigures from '~/components/CollectionFigures'
+import Only from '~/components/Only'
+import Row from '~/components/Row'
+import Spacing from '~/components/Spacing'
+import Title from '~/components/Title'
+import CARDS from '~/data/cards'
+import getRawCardData from '~/helpers/getRawCardData'
+import capitalise from '~/helpers/capitalise'
+import getResolvedCardData from '~/helpers/getResolvedCardData'
+import isCardUpgradable from '~/helpers/isCardUpgradable'
+import { getCardCost } from '~/helpers/getCollectionCost'
+import { getRarityColor } from '~/helpers/getRarity'
+import { RARITIES, RARITY_COPIES } from '~/constants/game'
+import { TOOLTIP_STYLES } from '~/constants/stats'
 import styles from './styles'
 
 const COLORS = [

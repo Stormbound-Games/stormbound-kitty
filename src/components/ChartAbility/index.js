@@ -7,10 +7,10 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from 'recharts'
-import Title from '../Title'
-import CARDS from '../../data/cards'
-import { TOOLTIP_STYLES } from '../../constants/stats'
-import { CHIP_CARDS } from '../../constants/game'
+import Title from '~/components/Title'
+import CARDS from '~/data/cards'
+import { TOOLTIP_STYLES } from '~/constants/stats'
+import { CHIP_CARDS } from '~/constants/game'
 
 export default React.memo(function ChartAbility(props) {
   const abilities = {

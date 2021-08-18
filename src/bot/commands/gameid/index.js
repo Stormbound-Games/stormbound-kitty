@@ -1,5 +1,5 @@
-import getEmbed from '../../../helpers/getEmbed'
-import api from '../../../helpers/api'
+import getEmbed from '~/helpers/getEmbed'
+import api from '~/helpers/api'
 
 export default {
   command: 'gameid',

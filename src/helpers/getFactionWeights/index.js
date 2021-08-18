@@ -1,6 +1,6 @@
-import { BRAWL_INDEX } from '../../constants/brawl'
-import { FACTIONS } from '../../constants/game'
-import { getLongFaction } from '../encoding'
+import { BRAWL_INDEX } from '~/constants/brawl'
+import { FACTIONS } from '~/constants/game'
+import { getLongFaction } from '~/helpers/encoding'
 
 export default modifier => {
   const factions = Object.keys(FACTIONS).filter(

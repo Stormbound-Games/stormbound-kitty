@@ -1,6 +1,6 @@
-import GUIDES from '../../../data/guides'
-import getEmbed from '../../../helpers/getEmbed'
-import { CATEGORIES } from '../../../constants/guides'
+import GUIDES from '~/data/guides'
+import getEmbed from '~/helpers/getEmbed'
+import { CATEGORIES } from '~/constants/guides'
 
 export default {
   command: 'guides',

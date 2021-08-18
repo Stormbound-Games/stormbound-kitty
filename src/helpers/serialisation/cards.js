@@ -1,5 +1,5 @@
-import indexOf from '../indexOf'
-import areAllValuesEqual from '../areAllValuesEqual'
+import indexOf from '~/helpers/indexOf'
+import areAllValuesEqual from '~/helpers/areAllValuesEqual'
 
 // Exported for testing purposes
 export const serialiseCards = cards => {

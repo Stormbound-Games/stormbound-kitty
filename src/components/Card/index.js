@@ -1,10 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Image from '../Image'
-import { ImageSupportContext } from '../ImageSupportProvider'
-import microMarkdown from '../../helpers/microMarkdown'
-import clamp from '../../helpers/clamp'
-import useFluidSizing from '../../hooks/useFluidSizing'
+import Image from '~/components/Image'
+import { ImageSupportContext } from '~/components/ImageSupportProvider'
+import microMarkdown from '~/helpers/microMarkdown'
+import clamp from '~/helpers/clamp'
+import useFluidSizing from '~/hooks/useFluidSizing'
 import styles from './styles'
 
 const useCardBackground = ({ missing, rarity, type, faction }) => {

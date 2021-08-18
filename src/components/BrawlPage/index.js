@@ -1,10 +1,10 @@
 import React from 'react'
-import { BRAWL_INDEX } from '../../constants/brawl'
-import Page from '../Page'
-import BrawlProvider from '../BrawlProvider'
-import BrawlTracker from '../BrawlTracker'
-import { getLongFaction } from '../../helpers/encoding'
-import useRouter from '../../hooks/useRouter'
+import { BRAWL_INDEX } from '~/constants/brawl'
+import Page from '~/components/Page'
+import BrawlProvider from '~/components/BrawlProvider'
+import BrawlTracker from '~/components/BrawlTracker'
+import { getLongFaction } from '~/helpers/encoding'
+import useRouter from '~/hooks/useRouter'
 
 export default React.memo(function BrawlPage(props) {
   const [difficulty, setDifficulty] = React.useState('CASUAL')

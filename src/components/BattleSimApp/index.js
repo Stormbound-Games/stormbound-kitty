@@ -1,8 +1,8 @@
 import React from 'react'
-import AppDesktop from '../BattleSimAppDesktop'
-import AppMobile from '../BattleSimAppMobile'
-import Only from '../Only'
-import State from '../BattleSimState'
+import AppDesktop from '~/components/BattleSimAppDesktop'
+import AppMobile from '~/components/BattleSimAppMobile'
+import Only from '~/components/Only'
+import State from '~/components/BattleSimState'
 
 const BattleSimPage = React.memo(function BattleSimPage(props) {
   const shouldRenderLeftPanel =

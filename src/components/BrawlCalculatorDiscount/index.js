@@ -1,5 +1,5 @@
 import React from 'react'
-import NumberInput from '../NumberInput'
+import NumberInput from '~/components/NumberInput'
 
 export default React.memo(function BrawlCalculatorDiscount(props) {
   return (

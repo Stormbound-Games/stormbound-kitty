@@ -1,11 +1,11 @@
 import React from 'react'
-import BattleSimApp from '../BattleSimApp'
-import CardLink from '../CardLink'
-import Guide from '../Guide'
-import Link from '../Link'
-import TableOfContents from '../TableOfContents'
-import Title from '../Title'
-import getGuide from '../../helpers/getGuide'
+import BattleSimApp from '~/components/BattleSimApp'
+import CardLink from '~/components/CardLink'
+import Guide from '~/components/Guide'
+import Link from '~/components/Link'
+import TableOfContents from '~/components/TableOfContents'
+import Title from '~/components/Title'
+import getGuide from '~/helpers/getGuide'
 
 const guide = getGuide('PIRATE_GUIDE')
 
