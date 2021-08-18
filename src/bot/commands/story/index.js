@@ -1,8 +1,14 @@
+import fs from 'fs'
+import path from 'path'
 import getStoriesForSearch from '~/helpers/getStoriesForSearch'
 import getEmbed from '~/helpers/getEmbed'
 import getRawCardData from '~/helpers/getRawCardData'
 import arrayRandom from '~/helpers/arrayRandom'
-import STORIES from '~/data/stories'
+
+const dir = path.join(process.cwd(), 'src', 'data', 'stories')
+const STORIES = fs
+  .readdirSync(dir)
+  .map(fileName => require('~/data/stories/' + fileName))
 
 const getEmbedForStory = (label, story) => {
   return getEmbed()
