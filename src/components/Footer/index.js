@@ -78,7 +78,7 @@ export default React.memo(function Footer(props) {
                       <Link to='/fan-kit'>Fan-kit</Link>
                     </li>
                     <li className={css(styles.item)}>
-                      <Link to='/sim'>Battle sim</Link>
+                      <Link to='/deck/suggestions'>Decks</Link>
                     </li>
                     <li className={css(styles.item)}>
                       <Link to='/about'>Donate</Link>
