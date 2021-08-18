@@ -1,6 +1,0 @@
-[build]
-  command = "npm run build:cra"
-  publish = "build/"
-
-[dev]
-  autoLaunch = false

@@ -16,7 +16,7 @@ export default React.memo(function HomeNews(props) {
       <Spacing bottom='LARGE'>
         <div className={css(styles.box)}>
           <Title extend={styles.title}>News</Title>
-          <News />
+          <News items={props.news} />
         </div>
       </Spacing>
     </aside>

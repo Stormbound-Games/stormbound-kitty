@@ -16,7 +16,7 @@ import getDeckPresets from '~/helpers/getDeckPresets'
 import isSuggestedDeck from '~/helpers/isSuggestedDeck'
 import toSentence from '~/helpers/toSentence'
 import useViewportSize from '~/hooks/useViewportSize'
-import useRouter from '~/hooks/useRouter'
+import useNavigator from '~/hooks/useNavigator'
 import { BRAWL_INDEX } from '~/constants/brawl'
 
 const getDefaultBrawlModifier = deck => {
@@ -28,7 +28,7 @@ const getDefaultBrawlModifier = deck => {
 export default React.memo(function DeckDetailView(props) {
   const { viewportWidth } = useViewportSize()
   const { notify } = React.useContext(NotificationContext)
-  const { history } = useRouter()
+  const navigator = useNavigator()
   const defaultModifier = getDefaultBrawlModifier(props.deck)
   const [modifier, setModifier] = React.useState(defaultModifier)
   const deck = React.useMemo(
@@ -71,7 +71,7 @@ export default React.memo(function DeckDetailView(props) {
             deck={deck}
             orientation={viewportWidth >= 700 ? 'vertical' : 'horizontal'}
             highlightedCards={props.highlightedCards}
-            onClick={card => history.push('/card/' + card.id + '/display')}
+            onClick={card => navigator.push('/card/' + card.id + '/display')}
             onClickLabel='Open card in card builder'
           />
           {suggestedDeck.name === 'Reckless Rush' && (

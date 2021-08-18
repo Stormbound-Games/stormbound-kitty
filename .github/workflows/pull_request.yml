@@ -22,20 +22,28 @@ jobs:
         with:
           runTests: false
 
-      - name: App build
-        run: npm run build:cra
+      - name: Deploy preview
+        run: 'npx vercel --token ${VERCEL_TOKEN} > preview-url.txt'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Expose deploy URL
+        run: |
+          export PREVIEW_URL=$(cat preview-url.txt)
+          echo "PREVIEW_URL=${PREVIEW_URL}" >> $GITHUB_ENV
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
           install: false
-          start: npx serve -s build -p 3000
-          wait-on: http://localhost:3000
           record: true
           parallel: true
           browser: chrome
           group: 'Integration tests'
         env:
+          CYPRESS_BASE_URL: ${{ env.PREVIEW_URL }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}

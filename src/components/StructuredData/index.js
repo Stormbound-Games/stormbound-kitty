@@ -1,12 +1,12 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import Head from 'next/head'
 import FAQ from '~/data/faq'
 import getRawCardData from '~/helpers/getRawCardData'
 
 const Script = props => (
-  <Helmet>
+  <Head>
     <script type='application/ld+json'>{props.children}</script>
-  </Helmet>
+  </Head>
 )
 
 const getLogoData = () => ({

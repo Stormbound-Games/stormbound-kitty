@@ -9,13 +9,10 @@ import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getInitialCardData from '~/helpers/getInitialCardData'
-import getGuide from '~/helpers/getGuide'
-
-const guide = getGuide('BROODMOTHER_QORDIA_GUIDE')
 
 export default React.memo(function GuideBroodmotherQordia(props) {
   return (
-    <Guide {...guide}>
+    <>
       <p>
         Broodmother Qordia is a pretty under-appreciated card because she costs
         a lot of mana and is essentially random, which means hard to pull off.
@@ -152,6 +149,6 @@ export default React.memo(function GuideBroodmotherQordia(props) {
       <Notice>
         And now, go practice and explore your own Qordia strategies and builds!
       </Notice>
-    </Guide>
+    </>
   )
 })

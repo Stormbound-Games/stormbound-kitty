@@ -8,7 +8,7 @@
     "selectors.js",
     "**/src/*.*",
     "**/src/{bot,helpers}/**/!(spec).js",
-    "**/src/{components,constants,data,fonts,hooks,styles}/**/*"
+    "**/src/{components,constants,data,hooks,pages,styles}/**/*"
   ],
   "projectId": "h321g2",
   "env": {

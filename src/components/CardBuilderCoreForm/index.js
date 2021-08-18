@@ -10,7 +10,7 @@ import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
 import capitalise from '~/helpers/capitalise'
 
-export default React.memo(function CardBuilderCardForm(props) {
+export default React.memo(function CardBuilderCoreForm(props) {
   const [imageFocusedColumn, setImageFocusedColumn] = React.useState(null)
 
   return (

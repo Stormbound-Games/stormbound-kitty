@@ -6,13 +6,10 @@ import CardLink from '~/components/CardLink'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import getInitialCardData from '~/helpers/getInitialCardData'
-import getGuide from '~/helpers/getGuide'
-
-const guide = getGuide('TERRIFIC_SLAYERS_GUIDE')
 
 export default React.memo(function GuideTerrificSlayers(props) {
   return (
-    <Guide {...guide}>
+    <>
       <p>
         <CardLink id='N27' /> is a rather underused card outside of the{' '}
         <Link to='/brawl/knight-mana'>Heavy Metal</Link> Brawl focusing on
@@ -108,6 +105,6 @@ export default React.memo(function GuideTerrificSlayers(props) {
         first usage reflects that (use <CardLink id='N1' /> to buff the enemy
         dragon when you can’t go without buffing a unit for a pro gamer move).
       </p>
-    </Guide>
+    </>
   )
 })

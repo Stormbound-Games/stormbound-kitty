@@ -5,7 +5,7 @@ import Dialog from '~/components/Dialog'
 import Icon from '~/components/Icon'
 import Input from '~/components/Input'
 import VisuallyHidden from '~/components/VisuallyHidden'
-import useRouter from '~/hooks/useRouter'
+import useNavigator from '~/hooks/useNavigator'
 import searcher from './searcher'
 import styles from './styles'
 
@@ -66,11 +66,9 @@ const Option = props => {
 export default React.memo(function SearchDialog(props) {
   const { css } = useFela()
   const [inputValue, setInputValue] = React.useState('')
-  const { history } = useRouter()
+  const navigator = useNavigator()
   const input = React.useRef(null)
   const { setIsSearchReady } = props
-  const metaKeyName =
-    navigator.platform.toUpperCase().indexOf('MAC') >= 0 ? 'CMD' : 'CTRL'
 
   const registerDialog = instance => {
     props.dialogRef.current = instance
@@ -87,7 +85,7 @@ export default React.memo(function SearchDialog(props) {
 
   const handleSearch = event => {
     if (!event) return
-    history.push(event.path)
+    navigator.push(event.path)
     props.dialogRef.current.hide()
   }
 
@@ -147,8 +145,8 @@ export default React.memo(function SearchDialog(props) {
                         return (
                           <li
                             className={css(styles.item)}
+                            key={item.path}
                             {...getItemProps({
-                              key: item.path,
                               index,
                               item,
                               style: {
@@ -172,8 +170,8 @@ export default React.memo(function SearchDialog(props) {
         </Downshift>
 
         <p className={css(styles.hint)}>
-          Psst! Next time, you can use <kbd>/</kbd> or <kbd>{metaKeyName}</kbd>{' '}
-          + <kbd>k</kbd> to quickly open the search from anywhere.
+          Psst! Next time, you can use <kbd>/</kbd> or <kbd>CTRL</kbd> +{' '}
+          <kbd>k</kbd> to quickly open the search from anywhere.
         </p>
       </div>
     </Dialog>

@@ -26,4 +26,4 @@ const extract = (dir, out) => {
   fs.writeFileSync(path.resolve(out), JSON.stringify(data), 'utf8')
 }
 
-extract('public/stories', './src/data/stories.json')
+extract('./src/data/stories', './src/data/stories.json')

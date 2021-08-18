@@ -8,13 +8,10 @@ import Notice from '~/components/Notice'
 import Row from '~/components/Row'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
-import getGuide from '~/helpers/getGuide'
-
-const guide = getGuide('EQUALS_INTRO_GUIDE')
 
 export default React.memo(function GuideEqualsIntro(props) {
   return (
-    <Guide {...guide}>
+    <>
       <TableOfContents>
         <li>
           <Link href='#what-to-expect'>What to expect</Link>
@@ -230,6 +227,6 @@ export default React.memo(function GuideEqualsIntro(props) {
         That’s it friends, short and sweet! Nevertheless, I hope this helps.
         <br /> See you on the battlefield!
       </Notice>
-    </Guide>
+    </>
   )
 })

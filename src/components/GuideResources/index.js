@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from '~/components/Link'
 import Footnotes, { Footnote } from '~/components/Footnotes'
-import Guide from '~/components/Guide'
 import Info from '~/components/Info'
 import ResourceIcon from '~/components/ResourceIcon'
 import { Coins, Rubies, Stones } from '~/components/Resource'
@@ -9,9 +8,7 @@ import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import { RARITY_COPIES } from '~/constants/game'
 import CARDS from '~/data/cards'
-import getGuide from '~/helpers/getGuide'
 
-const guide = getGuide('RESOURCES_GUIDE')
 const THOUSANDS = /\B(?=(\d{3})+(?!\d))/g
 
 const countCopiesForRarity = rarity =>
@@ -24,7 +21,7 @@ const countCopiesForRarity = rarity =>
 
 export default React.memo(function GuideResources(props) {
   return (
-    <Guide {...guide}>
+    <>
       <p>
         In this guide, I would like to give some insights on how to best manage
         the resources in this game. This is a work-in-progress and will be
@@ -424,6 +421,6 @@ export default React.memo(function GuideResources(props) {
           </Link>
         </p>
       </Footnotes>
-    </Guide>
+    </>
   )
 })

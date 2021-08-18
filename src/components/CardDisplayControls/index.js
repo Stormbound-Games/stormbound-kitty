@@ -6,7 +6,6 @@ import CTA from '~/components/CTA'
 import Only from '~/components/Only'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import sortCards from '~/helpers/sortCards'
-import useRouter from '~/hooks/useRouter'
 import styles from './styles'
 
 const sortCollection = (a, b) =>
@@ -14,8 +13,7 @@ const sortCollection = (a, b) =>
 
 export default React.memo(function CardDisplayControls(props) {
   const { css } = useFela()
-  const { params } = useRouter()
-  const { cardId } = params
+  const { cardId } = props
   const { collection } = React.useContext(CollectionContext)
   const orderedCollection = React.useMemo(
     () => collection.sort(sortCollection),
@@ -36,6 +34,7 @@ export default React.memo(function CardDisplayControls(props) {
         <CTA
           disabled={!previousCard}
           to={previousCard ? `/card/${previousCard.id}/display` : undefined}
+          scroll={false}
           data-testid='prev-btn'
         >
           Previous card
@@ -50,6 +49,7 @@ export default React.memo(function CardDisplayControls(props) {
         <CTA
           disabled={!nextCard}
           to={nextCard ? `/card/${nextCard.id}/display` : undefined}
+          scroll={false}
           data-testid='next-btn'
         >
           Next card

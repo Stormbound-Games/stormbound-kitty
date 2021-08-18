@@ -1,29 +1,10 @@
 {
-  "extends": ["react-app"],
-  "overrides": [
-    {
-      "files": ["cypress/**/*.js", "spec.js"],
-      "globals": {
-        "cy": "readonly",
-        "Cypress": "readonly",
-        "before": "readonly",
-        "beforeEach": "readonly"
-      }
-    },
-    {
-      "files": ["src/**/*.js"],
-      "excludedFiles": ["src/bot/**/*.js"],
-      "rules": { "no-console": "warn" }
-    },
-    {
-      "files": ["**/*.js"],
-      "rules": {
-        "import/no-anonymous-default-export": 0,
-        "padding-line-between-statements": [
-          "error",
-          { "blankLine": "always", "prev": "var", "next": "return" }
-        ]
-      }
-    }
-  ]
+  "extends": "next",
+  "rules": {
+    "import/no-anonymous-default-export": "off",
+    "react/no-children-prop": "off",
+    "react/display-name": "off",
+    "jsx-a11y/alt-text": "off",
+    "@next/next/no-img-element": "off"
+  }
 }

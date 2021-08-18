@@ -1,12 +1,10 @@
 name: End-to-end tests (Push)
 
-on:
-  push:
-    branches:
-      - main
+on: [deployment_status]
 
 jobs:
   tests:
+    if: github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.16.0-chrome89-ff86
     strategy:
@@ -20,24 +18,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Cypress install
-        uses: cypress-io/github-action@v2
-        with:
-          runTests: false
-
-      - name: App build
-        run: npm run build:cra
-
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          install: false
-          start: npx serve -s build -p 3000
-          wait-on: http://localhost:3000
           record: true
           parallel: true
           browser: chrome
           group: 'Integration tests'
         env:
+          CYPRESS_BASE_URL: https://stormbound-kitty.com
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

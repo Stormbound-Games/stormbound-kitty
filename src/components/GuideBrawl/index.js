@@ -17,10 +17,7 @@ import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import getRewardLabel from '~/helpers/getRewardLabel'
 import getCurrentBrawl from '~/helpers/getCurrentBrawl'
-import getGuide from '~/helpers/getGuide'
 import { BRAWLS, BRAWL_MILESTONES } from '~/constants/brawl'
-
-const guide = getGuide('BRAWL_GUIDE')
 
 export default React.memo(function GuideBrawl(props) {
   const { css } = useFela()
@@ -29,7 +26,7 @@ export default React.memo(function GuideBrawl(props) {
   const currentBrawl = getCurrentBrawl()
 
   return (
-    <Guide {...guide}>
+    <>
       <p>
         Brawl was added late 2019 as an end-game platform for relatively
         high-level players to spend their coins in exchange for other resources,
@@ -392,6 +389,6 @@ export default React.memo(function GuideBrawl(props) {
           </Link>
         </p>
       </Footnotes>
-    </Guide>
+    </>
   )
 })

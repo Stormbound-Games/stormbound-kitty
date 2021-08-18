@@ -5,9 +5,6 @@ import Guide from '~/components/Guide'
 import Link from '~/components/Link'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
-import getGuide from '~/helpers/getGuide'
-
-const guide = getGuide('PIRATE_GUIDE')
 
 const Board = props => (
   <Guide.FullWidth>
@@ -18,7 +15,7 @@ const Board = props => (
 
 export default React.memo(function GuidePirate(props) {
   return (
-    <Guide {...guide}>
+    <>
       <p>
         Welcome to the Pirate Guide! It is recommended that you read the{' '}
         <Link to='/guides/complete'>complete guide by Arikrat</Link> as well as
@@ -426,6 +423,6 @@ export default React.memo(function GuidePirate(props) {
         cycling, and subvert the expectations of your opponent to your own
         benefit.
       </p>
-    </Guide>
+    </>
   )
 })

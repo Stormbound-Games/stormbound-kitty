@@ -9,15 +9,12 @@ import Notice from '~/components/Notice'
 import Row from '~/components/Row'
 import Title from '~/components/Title'
 import CardLink from '~/components/CardLink'
-import getGuide from '~/helpers/getGuide'
-
-const guide = getGuide('LUCRATIVE_PROJECT_GUIDE')
 
 export default React.memo(function GuideLucrativeProject(props) {
   const { css } = useFela()
 
   return (
-    <Guide {...guide}>
+    <>
       <p>
         Welcome to <span className='Highlight'>Oeni’s Brawl Gazette</span>,
         “Lucrative Project” edition! If you are completely new to the Brawl, be
@@ -146,6 +143,6 @@ export default React.memo(function GuideLucrativeProject(props) {
         See you on the battlefield! If you have any comment or suggestion, get
         in touch with oeni#7266 on Discord.
       </Notice>
-    </Guide>
+    </>
   )
 })

@@ -19,14 +19,14 @@ import Title from '~/components/Title'
 import serialisation from '~/helpers/serialisation'
 import getInitialListData from '~/helpers/getInitialListData'
 import reorder from '~/helpers/reorder'
-import useRouter from '~/hooks/useRouter'
+import useNavigator from '~/hooks/useNavigator'
 
 class ListBuilderEditorView extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      tiers: getInitialListData(props.listId),
+      tiers: props.tiers,
       dndTierIndex: null,
       dndSource: null,
       dndTarget: null,
@@ -41,7 +41,7 @@ class ListBuilderEditorView extends React.Component {
     )
 
     if (hasAnyTierChanged) {
-      this.props.history.replace(
+      this.props.navigator.replace(
         '/list/' + serialisation.list.serialise(this.state.tiers)
       )
     }
@@ -252,6 +252,5 @@ class ListBuilderEditorView extends React.Component {
 
 export default hookIntoProps(() => ({
   ...useFela(),
-  history: useRouter().history,
-  listId: useRouter().params.listId,
+  navigator: useNavigator(),
 }))(ListBuilderEditorView)

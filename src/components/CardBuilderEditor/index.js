@@ -1,6 +1,6 @@
 import React from 'react'
 import hookIntoProps from 'hook-into-props'
-import App from '~/components/CardBuilderApp'
+import CardBuilderApp from '~/components/CardBuilderApp'
 import serialisation from '~/helpers/serialisation'
 import areAllValuesEqual from '~/helpers/areAllValuesEqual'
 import getInitialCardData, {
@@ -8,7 +8,7 @@ import getInitialCardData, {
 } from '~/helpers/getInitialCardData'
 import resolveAbility from '~/helpers/resolveAbility'
 import getCardFromSlug from '~/helpers/getCardFromSlug'
-import useRouter from '~/hooks/useRouter'
+import useNavigator from '~/hooks/useNavigator'
 
 const formatLevelProp = value => ({
   values: [null, null, null, null, null].fill(value),
@@ -37,7 +37,7 @@ class CardBuilderEditor extends React.Component {
 
     this.state = {
       ...INITIAL_STATE,
-      ...getInitialCardData(props.cardId),
+      ...props.card,
     }
   }
 
@@ -45,7 +45,9 @@ class CardBuilderEditor extends React.Component {
     const state = getInitialCardDataFromQuery()
 
     if (Object.keys(state).length > 0) {
-      this.props.history.replace('/card/' + serialisation.card.serialise(state))
+      this.props.navigator.replace(
+        '/card/' + serialisation.card.serialise(state)
+      )
     }
   }
 
@@ -66,7 +68,7 @@ class CardBuilderEditor extends React.Component {
     // Safari has a limit of 100 `history.pushState()` per 30 seconds window, so
     // we should fail silently if it’s not possible to update the URL anymore.
     try {
-      this.props.history.replace(
+      this.props.navigator.replace(
         '/card/' +
           serialisation.card.serialise({
             ...this.state,
@@ -79,7 +81,9 @@ class CardBuilderEditor extends React.Component {
   }
 
   reset = () => {
-    this.setState({ ...INITIAL_STATE }, () => this.props.history.push('/card'))
+    this.setState({ ...INITIAL_STATE }, () =>
+      this.props.navigator.push('/card')
+    )
   }
 
   resolveLevels = (value = '') => {
@@ -190,8 +194,8 @@ class CardBuilderEditor extends React.Component {
 
   render() {
     return (
-      <App
-        cardData={this.state}
+      <CardBuilderApp
+        card={this.state}
         cardId={this.props.cardId}
         setName={this.setName}
         setImageCardId={this.setImageCardId}
@@ -216,6 +220,5 @@ class CardBuilderEditor extends React.Component {
 }
 
 export default hookIntoProps(() => ({
-  history: useRouter().history,
-  cardId: useRouter().params.cardId,
+  navigator: useNavigator(),
 }))(CardBuilderEditor)

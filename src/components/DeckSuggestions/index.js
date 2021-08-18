@@ -1,6 +1,8 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { useRouter } from 'next/router'
 import hookIntoProps from 'hook-into-props'
+import querystring from 'querystring'
 import debounce from 'lodash.debounce'
 import DECKS from '~/data/decks'
 import { CollectionContext } from '~/components/CollectionProvider'
@@ -17,7 +19,8 @@ import Spacing from '~/components/Spacing'
 import SuggestionsFilters from '~/components/DeckSuggestionsFilters'
 import Title from '~/components/Title'
 import useViewportSize from '~/hooks/useViewportSize'
-import useRouter from '~/hooks/useRouter'
+import useQueryParams from '~/hooks/useQueryParams'
+import useNavigator from '~/hooks/useNavigator'
 import sortDeckSuggestions from '~/helpers/sortDeckSuggestions'
 import getDeckSearchDescription from '~/helpers/getDeckSearchDescription'
 import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
@@ -35,39 +38,43 @@ class DeckSuggestions extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.location.search !== this.props.location.search) {
+    if (prevProps.asPath !== this.props.asPath) {
       this.setState(this.getURLParameters())
     }
   }
 
   getURLParameters = () => {
-    const parameters = new URLSearchParams(window.location.search)
-    const tags = parameters.get('tags')?.split(',') ?? []
+    const parameters = { ...this.props.queryParams }
 
     return {
-      tags,
-      faction: parameters.get('faction') || '*',
-      author: parameters.get('author') || '*',
-      including: parameters.get('including') || null,
+      tags: parameters.tags?.split(',') ?? [],
+      faction: parameters.faction || '*',
+      author: parameters.author || '*',
+      including: parameters.including || null,
     }
   }
 
   updateURLParameters = event => {
-    const parameters = new URLSearchParams(window.location.search)
+    const parameters = { ...this.props.queryParams }
 
-    if (this.state.tags.length === 0) parameters.delete('tags')
-    else parameters.set('tags', this.state.tags.join(','))
+    if (this.state.tags.length === 0) delete parameters.tags
+    else parameters.tags = this.state.tags.join(',')
 
-    if (this.state.faction === '*') parameters.delete('faction')
-    else parameters.set('faction', this.state.faction)
+    if (this.state.faction === '*') delete parameters.faction
+    else parameters.faction = this.state.faction
 
-    if (this.state.author === '*') parameters.delete('author')
-    else parameters.set('author', this.state.author)
+    if (this.state.author === '*') delete parameters.author
+    else parameters.author = this.state.author
 
-    if (this.state.including === null) parameters.delete('including')
-    else parameters.set('including', this.state.including)
+    if (this.state.including === null) delete parameters.including
+    else parameters.including = this.state.including
 
-    this.props.history.replace('?' + parameters.toString())
+    const path =
+      Object.keys(parameters).length > 0
+        ? '/deck/suggestions?' + querystring.stringify(parameters)
+        : '/deck/suggestions'
+
+    this.props.navigator.replace(path)
   }
 
   updateTags = tags => this.setState({ tags }, this.updateURLParameters)
@@ -213,7 +220,9 @@ class DeckSuggestions extends React.Component {
                 decks={decks}
                 withBookmarking
                 showUpgrades
-                actions={deck => [<BookmarkDeckButton {...deck} />]}
+                actions={deck => [
+                  <BookmarkDeckButton key={deck.id} {...deck} />,
+                ]}
               />
             ) : (
               <EmptySearch
@@ -231,7 +240,8 @@ class DeckSuggestions extends React.Component {
 export default hookIntoProps(() => ({
   ...useFela(),
   viewportWidth: useViewportSize().viewportWidth,
-  history: useRouter().history,
-  location: useRouter().location,
+  asPath: useRouter().asPath,
+  navigator: useNavigator(),
+  queryParams: useQueryParams(),
   ...React.useContext(CollectionContext),
 }))(DeckSuggestions)

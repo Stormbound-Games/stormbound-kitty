@@ -33,7 +33,7 @@ export default React.memo(function Footer(props) {
               <Link href='https://github.com/KittySparkles/stormbound-kitty'>
                 GitHub
               </Link>{' '}
-              and <Link href='https://www.netlify.com'>Netlify</Link>.
+              and <Link href='https://vercel.com/'>Vercel</Link>.
             </p>
           </Row.Column>
           <Only.Desktop>
