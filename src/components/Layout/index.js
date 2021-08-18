@@ -1,14 +1,14 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import dynamic from 'next/dynamic'
 import EyeCatcher from '~/components/EyeCatcher'
 import Footer from '~/components/Footer'
 import Header from '~/components/Header'
 import Link from '~/components/Link'
-import load from '~/helpers/load'
 import useRouter from '~/hooks/useRouter'
 import styles from './styles'
 
-const SearchDialog = load('SearchDialog')
+const SearchDialog = dynamic(() => import('~/components/SearchDialog'))
 
 export default React.memo(function Layout(props) {
   const { css } = useFela()
