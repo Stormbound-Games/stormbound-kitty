@@ -5,13 +5,12 @@ import FanKitItem from '~/components/FanKitItem'
 import Page from '~/components/Page'
 import Loader from '~/components/Loader'
 import Row from '~/components/Row'
-import CARDS from '~/data/cards'
 import chunk from '~/helpers/chunk'
 import sortCards from '~/helpers/sortCards'
 import getRawCardData from '~/helpers/getRawCardData'
 import useLazyLoad from '~/hooks/useLazyLoad'
 
-export default React.memo(function FanKitCards() {
+export default React.memo(function FanKitCards(props) {
   const [search, setSearch] = React.useState(null)
   const columns = 4
   const dialogRef = React.useRef(null)
@@ -19,7 +18,7 @@ export default React.memo(function FanKitCards() {
   const activeCard = getRawCardData(active)
   const assets = search
     ? [getRawCardData(search)]
-    : [...CARDS].sort(sortCards())
+    : props.cards.slice(0).sort(sortCards())
   const {
     loading,
     items: displayedItems,

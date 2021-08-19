@@ -1,10 +1,15 @@
 import React from 'react'
 import FanKitCards from '~/components/FanKitCards'
 import Layout from '~/components/Layout'
+import CARDS from '~/data/cards'
 
-const FanKitCardsPage = () => (
+export async function getStaticProps() {
+  return { props: { cards: CARDS } }
+}
+
+const FanKitCardsPage = props => (
   <Layout active={['GAME', 'FAN_KIT', 'CARDS']}>
-    <FanKitCards />
+    <FanKitCards cards={props.cards} />
   </Layout>
 )
 
