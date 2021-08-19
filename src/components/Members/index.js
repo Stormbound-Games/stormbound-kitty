@@ -1,11 +1,10 @@
 import React from 'react'
 import Page from '~/components/Page'
 import Icon from '~/components/Icon'
-import Input from '~/components/Input'
 import MemberListEntry from '~/components/MemberListEntry'
 import MemberTagYourself from '~/components/MemberTagYourself'
+import MembersSearchForm from '~/components/MembersSearchForm'
 import Row from '~/components/Row'
-import Select from '~/components/Select'
 import chunk from '~/helpers/chunk'
 
 export default React.memo(function Members(props) {
@@ -37,41 +36,13 @@ export default React.memo(function Members(props) {
             <Icon icon='super-star' /> are Super KAT members for having issued{' '}
             <span className='Highlight'>multiple</span> donations!
           </p>
-          <Row>
-            <Row.Column>
-              <Input
-                label='Name'
-                type='search'
-                id='name'
-                placeholder='e.g. Kitty'
-                value={name}
-                onChange={event => setName(event.target.value)}
-              />
-            </Row.Column>
-            <Row.Column>
-              <Select
-                label='Type'
-                id='type'
-                value={type}
-                onChange={event => setType(event.target.value)}
-              >
-                <option value='*'>Any</option>
-                <option value='ARTWORK'>Artworks</option>
-                <option value='CARD'>Card Contests</option>
-                <option value='CONTRIBUTION'>Code Updates</option>
-                <option value='DECK'>Decks</option>
-                <option value='DONATION'>Donations</option>
-                <option value='EVENT'>Events</option>
-                <option value='GUIDE'>Guides</option>
-                <option value='HOST'>Tournament Hosts</option>
-                <option value='PODIUM'>Podiums</option>
-                <option value='PUZZLE'>Puzzles</option>
-                <option value='STORY'>Stories</option>
-                <option value='VIDEO'>Videos</option>
-              </Select>
-            </Row.Column>
-          </Row>
 
+          <MembersSearchForm
+            name={name}
+            type={type}
+            setName={setName}
+            setType={setType}
+          />
           <MemberTagYourself members={members.map(a => a.member)} />
         </Row.Column>
         <Row.Column width='2/3'>
