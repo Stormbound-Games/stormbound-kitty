@@ -15,8 +15,9 @@ import Only from '~/components/Only'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 
-export default React.memo(function CardsStats() {
+export default React.memo(function CardsStats(props) {
   const { hasDefaultCollection } = React.useContext(CollectionContext)
+
   return (
     <Page
       title='Cards Statistics'
@@ -53,31 +54,31 @@ export default React.memo(function CardsStats() {
         <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
-              <ChartType />
+              <ChartType cards={props.cards} />
             </Spacing>
           </Row.Column>
           <Row.Column>
             <Spacing vertical='BASE'>
-              <ChartRarity />
-            </Spacing>
-          </Row.Column>
-        </Row>
-        <Row isDesktopOnly>
-          <Row.Column>
-            <Spacing vertical='BASE'>
-              <ChartMovement />
-            </Spacing>
-          </Row.Column>
-          <Row.Column>
-            <Spacing vertical='BASE'>
-              <ChartAbility />
+              <ChartRarity cards={props.cards} />
             </Spacing>
           </Row.Column>
         </Row>
         <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
-              <ChartModifier />
+              <ChartMovement cards={props.cards} />
+            </Spacing>
+          </Row.Column>
+          <Row.Column>
+            <Spacing vertical='BASE'>
+              <ChartAbility cards={props.cards} />
+            </Spacing>
+          </Row.Column>
+        </Row>
+        <Row isDesktopOnly>
+          <Row.Column>
+            <Spacing vertical='BASE'>
+              <ChartModifier cards={props.cards} />
             </Spacing>
           </Row.Column>
           <Row.Column />
@@ -85,21 +86,21 @@ export default React.memo(function CardsStats() {
         <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
-              <ChartMana />
+              <ChartMana cards={props.cards} />
             </Spacing>
           </Row.Column>
         </Row>
         <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
-              <ChartStrength />
+              <ChartStrength cards={props.cards} />
             </Spacing>
           </Row.Column>
         </Row>
         <Row isDesktopOnly>
           <Row.Column>
             <Spacing vertical='BASE'>
-              <ChartStrengthMana />
+              <ChartStrengthMana cards={props.cards} />
             </Spacing>
           </Row.Column>
         </Row>

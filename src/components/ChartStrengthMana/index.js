@@ -14,7 +14,6 @@ import Row from '~/components/Row'
 import Select from '~/components/Select'
 import Title from '~/components/Title'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import CARDS from '~/data/cards'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 
 export default React.memo(function ChartStrengthMana(props) {
@@ -29,13 +28,15 @@ export default React.memo(function ChartStrengthMana(props) {
 
   const cards = React.useMemo(
     () =>
-      CARDS.filter(
-        card =>
-          !card.token &&
-          factions.includes(card.faction) &&
-          card.type !== 'spell'
-      ).map(card => getResolvedCardData({ ...card, level })),
-    [level, factions]
+      props.cards
+        .filter(
+          card =>
+            !card.token &&
+            factions.includes(card.faction) &&
+            card.type !== 'spell'
+        )
+        .map(card => getResolvedCardData({ ...card, level })),
+    [props.cards, level, factions]
   )
   const getFactionData = React.useCallback(
     faction => {

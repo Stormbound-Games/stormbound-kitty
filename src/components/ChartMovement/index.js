@@ -8,23 +8,24 @@ import {
   Tooltip,
 } from 'recharts'
 import Title from '~/components/Title'
-import CARDS from '~/data/cards'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 
 export default React.memo(function ChartMovement(props) {
-  const data = CARDS.filter(card => !card.token).reduce(
-    (acc, card) => {
-      if (card.type !== 'unit') return acc
-      acc[card.movement].value++
-      return acc
-    },
-    [
-      { name: 'No movement', value: 0, color: 'var(--swarm)' },
-      { name: '1 movement', value: 0, color: '#605c44' },
-      { name: '2 movement', value: 0, color: '#607058' },
-      { name: '3 movement', value: 0, color: '#60846c' },
-    ]
-  )
+  const data = props.cards
+    .filter(card => !card.token)
+    .reduce(
+      (acc, card) => {
+        if (card.type !== 'unit') return acc
+        acc[card.movement].value++
+        return acc
+      },
+      [
+        { name: 'No movement', value: 0, color: 'var(--swarm)' },
+        { name: '1 movement', value: 0, color: '#605c44' },
+        { name: '2 movement', value: 0, color: '#607058' },
+        { name: '3 movement', value: 0, color: '#60846c' },
+      ]
+    )
 
   return (
     <>
