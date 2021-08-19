@@ -132,7 +132,11 @@ export default React.memo(function CardBuilderApp(props) {
 
       {isOfficial && (
         <Page.Narrow>
-          <CardChangeFeed id={props.cardId} versionId={versionId} />
+          <CardChangeFeed
+            id={props.cardId}
+            versionId={versionId}
+            changes={props.versions}
+          />
         </Page.Narrow>
       )}
     </Page>
