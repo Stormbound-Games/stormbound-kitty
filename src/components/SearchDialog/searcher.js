@@ -2,7 +2,6 @@ import Fuse from 'fuse.js'
 import CARDS from '~/data/cards'
 import DECKS from '~/data/decks'
 import GUIDES from '~/data/guides'
-import STORIES from '~/data/stories'
 import { BRAWLS } from '~/constants/brawl'
 import { CATEGORIES } from '~/constants/guides'
 import { STORY_CATEGORIES } from '~/constants/stories'
@@ -261,15 +260,6 @@ Object.keys(STORY_CATEGORIES).forEach(id => {
     label: STORY_CATEGORIES[id].title,
     breadcrumbs: ['Stories'],
   })
-})
-
-STORIES.forEach(story => {
-  SEARCH_INDEX.push({
-    path: `/stories/${story.id}`,
-    label: story.title,
-    breadcrumbs: ['Stories'],
-  })
-  recordMember(story.author)
 })
 
 SEARCH_INDEX.push({
