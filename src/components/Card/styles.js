@@ -1,4 +1,4 @@
-import { getRarityColor } from '~/helpers/getRarity'
+import getRarityColor from '~/helpers/getRarityColor'
 
 const MISSING_FILTER = 'contrast(200%) saturate(0.5) grayscale(0.5)'
 const IMAGES = {

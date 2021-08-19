@@ -1,6 +1,6 @@
 import serialisation from '~/helpers/serialisation'
 
-export default deck => {
+const getInitialDeckData = deck => {
   if (!deck) {
     return []
   }
@@ -9,3 +9,5 @@ export default deck => {
 
   return serialisation.deck.deserialise(decodedData)
 }
+
+export default getInitialDeckData

@@ -2,7 +2,7 @@ import { BRAWL_INDEX } from '~/constants/brawl'
 import { FACTIONS } from '~/constants/game'
 import { getLongFaction } from '~/helpers/encoding'
 
-export default modifier => {
+const getFactionWeights = modifier => {
   const factions = Object.keys(FACTIONS).filter(
     faction => faction !== 'neutral'
   )
@@ -17,3 +17,5 @@ export default modifier => {
     weight: faction === brawlFaction ? 12 : 1,
   }))
 }
+
+export default getFactionWeights

@@ -1,4 +1,4 @@
-export default term => {
+const handleSearchAlias = term => {
   switch (term.toLowerCase()) {
     case 'struct':
       return ['type', 'structure']
@@ -93,3 +93,5 @@ export default term => {
       return []
   }
 }
+
+export default handleSearchAlias

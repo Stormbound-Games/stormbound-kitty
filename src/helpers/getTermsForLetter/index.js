@@ -1,6 +1,6 @@
 import getLexiconTerms from '~/helpers/getLexiconTerms'
 
-export default letter => {
+const getTermsForLetter = letter => {
   const terms = getLexiconTerms()
 
   return Object.keys(terms)
@@ -11,3 +11,5 @@ export default letter => {
       return acc
     }, {})
 }
+
+export default getTermsForLetter

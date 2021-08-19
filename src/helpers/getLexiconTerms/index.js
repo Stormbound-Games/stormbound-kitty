@@ -19,4 +19,6 @@ const LINKIFIED_ABBREVIATIONS = Object.keys(ABBREVIATIONS).reduce(
   {}
 )
 
-export default () => LINKIFIED_ABBREVIATIONS
+const getLexiconTerms = () => LINKIFIED_ABBREVIATIONS
+
+export default getLexiconTerms

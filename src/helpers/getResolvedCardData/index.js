@@ -3,7 +3,7 @@ import unfoldValue from '~/helpers/unfoldValue'
 import resolveAbility from '~/helpers/resolveAbility'
 import isCardLevelResolved from '~/helpers/isCardLevelResolved'
 
-export default card => {
+const getResolvedCardData = card => {
   const { id, level, copies, missing } = card || {}
 
   // If no `id` is given, return early
@@ -50,3 +50,5 @@ export default card => {
     level,
   }
 }
+
+export default getResolvedCardData

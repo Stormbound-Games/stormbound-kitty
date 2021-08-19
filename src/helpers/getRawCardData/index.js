@@ -13,7 +13,7 @@ FUSION_STONES.forEach(fs => {
   // card searches.
 })
 
-export default (needle, key = 'id') => {
+const getRawCardData = (needle, key = 'id') => {
   // `getRawCardData` is sometimes used as a direct callback in
   // `Array.prototype.map`, for which the 2nd argument is a number (the loop
   // index). In that case, reset the `key` to the default value (`id`).
@@ -25,3 +25,5 @@ export default (needle, key = 'id') => {
 
   return INDEXES[key][needle] || {}
 }
+
+export default getRawCardData

@@ -25,6 +25,8 @@ export const getCardCost = card => {
   return craftingCost + Math.min(copies, maxCopies) * stonesPerCopy
 }
 
-export default collection => {
+const getCollectionCost = collection => {
   return collection.map(getCardCost).reduce(sum, 0)
 }
+
+export default getCollectionCost

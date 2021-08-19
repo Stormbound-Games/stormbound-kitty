@@ -9,10 +9,12 @@ const deckIndex = DECKS.reduce((acc, deck) => {
   return acc
 }, {})
 
-export default deckCards =>
+const isSuggestedDeck = deckCards =>
   deckIndex[
     deckCards
       .map(card => card.id)
       .sort()
       .join(',')
   ]
+
+export default isSuggestedDeck

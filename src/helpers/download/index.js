@@ -1,4 +1,4 @@
-export default ({
+const download = ({
   content,
   fileName,
   mimeType = 'application/octet-stream',
@@ -28,3 +28,5 @@ export default ({
       'data:application/octet-stream,' + encodeURIComponent(content)
   }
 }
+
+export default download

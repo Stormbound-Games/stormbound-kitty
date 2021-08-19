@@ -1,6 +1,6 @@
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 
-export default (a, b) => {
+const sortByMana = (a, b) => {
   if (!a) return +1
   if (!b) return -1
 
@@ -21,3 +21,5 @@ export default (a, b) => {
   if (cardA.name > cardB.name) return +1
   if (cardA.name < cardB.name) return -1
 }
+
+export default sortByMana

@@ -3,7 +3,7 @@ import shuffle from '~/helpers/shuffle'
 
 export const increaseCardWeight = weight => Math.floor(weight * 1.6) + 1
 
-export default deck => {
+const resolveDeckWeight = deck => {
   // Store the order of the deck before starting to weight id
   const deckIds = deck.map(card => card.id)
   // Resolve the cards’ data (although that could be done elsewhere)
@@ -21,3 +21,5 @@ export default deck => {
     []
   )
 }
+
+export default resolveDeckWeight

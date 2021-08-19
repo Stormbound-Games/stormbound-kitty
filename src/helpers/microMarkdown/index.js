@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default string => {
+const microMarkdown = string => {
   if (typeof string !== 'string') {
     return string
   }
@@ -42,3 +42,5 @@ export default string => {
 
   return result
 }
+
+export default microMarkdown

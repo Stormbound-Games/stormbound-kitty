@@ -2,7 +2,7 @@ import serialisation from '~/helpers/serialisation'
 import { DEFAULT_PLAYER, DEFAULT_BOARD, DEFAULT_MANA } from '~/constants/battle'
 import { DEFAULT_DECK } from '~/constants/deck'
 
-export default sim => {
+const getInitialBattleData = sim => {
   if (!sim) {
     return {
       board: DEFAULT_BOARD,
@@ -20,3 +20,5 @@ export default sim => {
 
   return { ...serialisation.battle.deserialise(decodedData) }
 }
+
+export default getInitialBattleData

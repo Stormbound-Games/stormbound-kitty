@@ -1,4 +1,4 @@
-export default () => {
+const getViewportSize = () => {
   const html = document.documentElement
 
   return {
@@ -6,3 +6,5 @@ export default () => {
     viewportHeight: Math.max(html.clientHeight || 0, window.innerHeight || 0),
   }
 }
+
+export default getViewportSize

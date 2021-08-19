@@ -2,7 +2,7 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 
 const setToLevel1 = card => ({ ...card, level: card.token ? card.level : 1 })
 
-export default (deck, modifier, equalsMode) => {
+const modifyDeck = (deck, modifier, equalsMode) => {
   const fullDeck = equalsMode
     ? deck.map(setToLevel1).map(getResolvedCardData)
     : deck.map(getResolvedCardData)
@@ -135,3 +135,5 @@ export default (deck, modifier, equalsMode) => {
       return fullDeck
   }
 }
+
+export default modifyDeck

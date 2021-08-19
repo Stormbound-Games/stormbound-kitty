@@ -48,7 +48,7 @@ const COMMON_ABBREVIATIONS = {
   WP: 'Winter Pact',
 }
 
-export default (casing = 'NATURAL') => {
+const getAbbreviations = (casing = 'NATURAL') => {
   const abbreviations = {}
 
   CARDS.filter(card => !card.token).forEach(card => {
@@ -84,3 +84,5 @@ export default (casing = 'NATURAL') => {
 
   return abbreviations
 }
+
+export default getAbbreviations

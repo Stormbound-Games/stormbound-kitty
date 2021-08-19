@@ -1,4 +1,4 @@
-export default (array, connector = 'or') => {
+const toSentence = (array, connector = 'or') => {
   if (array.length < 2) return array.join('')
 
   if (array.length === 2) return array.join(` ${connector} `)
@@ -7,3 +7,5 @@ export default (array, connector = 'or') => {
     .slice(0, array.length - 1)
     .join(', ')}, ${connector} ${array.slice(-1)}`
 }
+
+export default toSentence

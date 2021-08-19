@@ -1,4 +1,4 @@
-export default (board, player) => {
+const findFrontRow = (board, player) => {
   if (player === 'RED') {
     const row = [...board]
       .reverse()
@@ -35,3 +35,5 @@ export default (board, player) => {
     return index
   }
 }
+
+export default findFrontRow

@@ -1,4 +1,4 @@
-export default (array = [], size = 1) => {
+const chunk = (array = [], size = 1) => {
   const clone = [...array]
 
   if (size < 1) return []
@@ -7,3 +7,5 @@ export default (array = [], size = 1) => {
     .fill()
     .map(_ => clone.splice(0, size))
 }
+
+export default chunk
