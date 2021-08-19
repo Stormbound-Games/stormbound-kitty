@@ -70,11 +70,11 @@ const ADVICE = [
  * @param {String} modifier - Optional Brawl modifier
  * @return {Promise[]}
  */
-const getDeckAdvice = (deck, modifier) => {
-  // Some advice could be asynchronous, so we make them all asynchronous by
-  // wrapping them with `Promise.resolve`.
-  // See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve
-  return ADVICE.map(advice => Promise.resolve(advice(deck, modifier)))
+const getDeckAdvice = async (deck, modifier) => {
+  const promises = ADVICE.map(advice => advice(deck, modifier))
+  const advice = await Promise.all(promises)
+
+  return advice.filter(Boolean)
 }
 
 export default getDeckAdvice

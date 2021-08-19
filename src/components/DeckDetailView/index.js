@@ -1,5 +1,5 @@
 import React from 'react'
-import Advice from '~/components/DeckAdvice'
+import DeckAdvice from '~/components/DeckAdvice'
 import Page from '~/components/Page'
 import Deck from '~/components/Deck'
 import DeckStatsChart from '~/components/DeckStatsChart'
@@ -97,7 +97,12 @@ export default React.memo(function DeckDetailView(props) {
         </Row.Column>
 
         <Row.Column width='1/3'>
-          <Advice deck={deck} highlight={props.highlight} modifier={modifier} />
+          <DeckAdvice
+            deck={deck}
+            modifier={modifier}
+            highlight={props.highlight}
+            advice={props.advice}
+          />
         </Row.Column>
       </Row>
     </Page>

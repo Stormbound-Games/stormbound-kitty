@@ -26,8 +26,7 @@ export default {
 
     try {
       const cards = serialisation.deck.deserialise(id).map(getResolvedCardData)
-      const promises = getDeckAdvice(cards)
-      const advice = (await Promise.all(promises)).filter(Boolean)
+      const advice = await getDeckAdvice(cards)
 
       if (advice.length === 0) {
         embed.setDescription(
