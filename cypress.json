@@ -1,4 +1,5 @@
 {
+  "numTestsKeptInMemory": 10,
   "experimentalComponentTesting": true,
   "componentFolder": "src",
   "coverage": false,
