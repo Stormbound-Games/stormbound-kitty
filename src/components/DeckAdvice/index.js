@@ -1,6 +1,7 @@
 import React from 'react'
 import LearnMoreIcon from '~/components/LearnMoreIcon'
 import Title from '~/components/Title'
+import getDeckAdvice from '~/helpers/getDeckAdvice'
 
 const Advice = props => (
   <p
@@ -15,14 +16,20 @@ const Advice = props => (
 )
 
 export default React.memo(function DeckAdvice(props) {
+  const [advice, setAdvice] = React.useState(props.advice)
+
+  React.useEffect(() => {
+    getDeckAdvice(props.deck, props.modifier).then(advice => setAdvice(advice))
+  }, [props.deck, props.modifier])
+
   return (
     <>
       <Title>
         Suggestions <LearnMoreIcon anchor='#incorrect-deck-advice' />
       </Title>
 
-      {props.advice.length > 0 ? (
-        props.advice.map(advice => (
+      {advice.length > 0 ? (
+        advice.map(advice => (
           <Advice
             {...advice}
             key={advice.name}
