@@ -3,11 +3,11 @@
  */
 const quest = {
   border: '1px solid var(--beige)',
-  maxWidth: '400px',
   position: 'relative',
   width: '100%',
   backgroundImage:
     'linear-gradient(45deg, var(--dark-blue) 50%, var(--light-blue) 50%)' /* 1 */,
+  marginTop: 'var(--s-smallest)',
   marginBottom: 'var(--s-large)',
   fontSize: 'var(--fontSize)',
 

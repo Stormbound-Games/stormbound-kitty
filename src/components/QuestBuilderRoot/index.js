@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import hookIntoProps from 'hook-into-props'
 import Form from '~/components/QuestBuilderForm'
 import Row from '~/components/Row'
+import Title from '~/components/Title'
 import Quest from '~/components/Quest'
 import Page from '~/components/Page'
 import serialisation from '~/helpers/serialisation'
@@ -72,10 +73,12 @@ class QuestBuilderRoot extends React.Component {
           })}
         >
           <Row isDesktopOnly withWideGutter>
-            <Row.Column extend={{ justifyContent: 'center' }}>
+            <Row.Column>
+              <Title>Your Quest</Title>
               <Quest {...this.state} />
             </Row.Column>
             <Row.Column>
+              <Title>Settings</Title>
               <Form
                 {...this.state}
                 setCurrency={currency => this.setState({ currency })}
