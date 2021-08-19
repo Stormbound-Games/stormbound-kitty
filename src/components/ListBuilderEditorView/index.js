@@ -26,6 +26,7 @@ class ListBuilderEditorView extends React.Component {
     super(props)
 
     this.state = {
+      isMounted: false,
       tiers: props.tiers,
       dndTierIndex: null,
       dndSource: null,
@@ -33,6 +34,10 @@ class ListBuilderEditorView extends React.Component {
       dndDirection: null,
       preventRemoval: false,
     }
+  }
+
+  componentDidMount() {
+    this.setState({ isMounted: true })
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -238,7 +243,9 @@ class ListBuilderEditorView extends React.Component {
 
             <CTA
               onClick={this.addTier}
-              disabled={this.state.tiers.length === MAX_TIERS}
+              disabled={
+                !this.state.isMounted || this.state.tiers.length === MAX_TIERS
+              }
               extend={{ margin: '0 auto' }}
             >
               Add a new tier
