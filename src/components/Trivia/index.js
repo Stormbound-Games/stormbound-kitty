@@ -86,19 +86,22 @@ const Failure = ({ answer }) => {
   )
 }
 
-export default React.memo(function Trivia() {
+export default React.memo(function Trivia(props) {
   const { css } = useFela()
   const form = React.useRef()
-  const [{ question, choices }, setQuestion] = React.useState(
-    getRandomQuestion()
-  )
+  const [{ question, choices }, setQuestion] = React.useState({})
   const [status, setStatus] = React.useState('UNANSWERED')
 
+  React.useEffect(
+    () => setQuestion(getRandomQuestion(props.questions)),
+    [props.questions]
+  )
+
   const askAgain = React.useCallback(() => {
-    setQuestion(getRandomQuestion())
+    setQuestion(getRandomQuestion(props.questions))
     setStatus('UNANSWERED')
     form.current.reset()
-  }, [])
+  }, [props.questions])
 
   const handleSubmit = React.useCallback(
     event => {
@@ -116,7 +119,7 @@ export default React.memo(function Trivia() {
 
       setStatus(proposition === answer ? 'SUCCESS' : 'FAILURE')
     },
-    [question.answer, choices]
+    [question, choices]
   )
 
   return (
@@ -134,39 +137,49 @@ export default React.memo(function Trivia() {
         </p>
 
         <Spacing top='LARGE' bottom='LARGEST'>
-          <form onSubmit={handleSubmit} className={css(styles.form)} ref={form}>
-            <Notice>{microMarkdown(question.question)}</Notice>
+          {question ? (
+            <form
+              onSubmit={handleSubmit}
+              className={css(styles.form)}
+              ref={form}
+            >
+              <Notice>{microMarkdown(question.question)}</Notice>
 
-            <Spacing top='BASE' bottom='LARGE'>
-              <fieldset
-                className={css(styles.legend)}
-                disabled={status !== 'UNANSWERED'}
-              >
-                <VisuallyHidden as='legend'>{question.question}</VisuallyHidden>
-                {Object.keys(choices).map(letter => (
-                  <Radio
-                    key={letter}
-                    id={'try-' + letter}
-                    name='try'
-                    value={letter}
-                    extend={styles.radio}
-                  >
-                    {choices[letter]}
-                  </Radio>
-                ))}
-              </fieldset>
-            </Spacing>
+              <Spacing top='BASE' bottom='LARGE'>
+                <fieldset
+                  className={css(styles.legend)}
+                  disabled={status !== 'UNANSWERED'}
+                >
+                  <VisuallyHidden as='legend'>
+                    {question.question}
+                  </VisuallyHidden>
+                  {Object.keys(choices).map(letter => (
+                    <Radio
+                      key={letter}
+                      id={'try-' + letter}
+                      name='try'
+                      value={letter}
+                      extend={styles.radio}
+                    >
+                      {choices[letter]}
+                    </Radio>
+                  ))}
+                </fieldset>
+              </Spacing>
 
-            {status === 'FAILURE' && <Failure {...question} />}
-            {status === 'SUCCESS' && <Success />}
-            {status === 'UNANSWERED' ? (
-              <CTA type='submit'>Confirm</CTA>
-            ) : (
-              <CTA type='button' onClick={askAgain}>
-                New question
-              </CTA>
-            )}
-          </form>
+              {status === 'FAILURE' && <Failure {...question} />}
+              {status === 'SUCCESS' && <Success />}
+              {status === 'UNANSWERED' ? (
+                <CTA type='submit'>Confirm</CTA>
+              ) : (
+                <CTA type='button' onClick={askAgain}>
+                  New question
+                </CTA>
+              )}
+            </form>
+          ) : (
+            <Notice>Enable JavaScript to play the Trivia game.</Notice>
+          )}
         </Spacing>
 
         <Info icon='compass' title='Fun facts'>

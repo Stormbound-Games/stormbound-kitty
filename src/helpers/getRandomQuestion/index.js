@@ -1,6 +1,5 @@
 import arrayRandom from '~/helpers/arrayRandom'
 import shuffle from '~/helpers/shuffle'
-import questions from './questions'
 
 const MAX_CHOICES = 5
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
@@ -21,7 +20,7 @@ const getLetters = (amount, useRandomLetters = false) => {
   return letters
 }
 
-const getRandomQuestion = (useRandomLetters = true) => {
+const getRandomQuestion = (questions, useRandomLetters = true) => {
   // Pick a question at random.
   let question = arrayRandom(questions)
 

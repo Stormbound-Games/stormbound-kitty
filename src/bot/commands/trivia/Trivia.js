@@ -6,6 +6,7 @@ import formatTriviaScores, {
 } from '~/helpers/formatTriviaScores'
 import getEmbed from '~/helpers/getEmbed'
 import getRandomQuestion from '~/helpers/getRandomQuestion'
+import QUESTIONS from '~/helpers/getRandomQuestion/questions'
 import parseCardGuess from '~/helpers/parseCardGuess'
 import parseTriviaSettings from '~/helpers/parseTriviaSettings'
 import searchCards from '~/helpers/searchCards'
@@ -99,7 +100,7 @@ export default class Trivia {
     if (this.mode === 'IMAGE' || this.mode === 'CARD') {
       return arrayRandom(CARDS.filter(card => !card.token))
     } else if (this.mode === 'QUESTION') {
-      const { question, choices } = getRandomQuestion(true)
+      const { question, choices } = getRandomQuestion(QUESTIONS, true)
       return { ...question, choices, name: String(question.answer) }
     }
   }
