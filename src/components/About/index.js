@@ -9,8 +9,6 @@ import MemberList from '~/components/MemberList'
 import Notice from '~/components/Notice'
 import Spacing from '~/components/Spacing'
 import Sparkles from '~/components/Sparkles'
-import CONTRIBUTIONS from '~/data/contributions'
-import DONATIONS from '~/data/donations'
 import styles from './styles'
 
 export default React.memo(function About(props) {
@@ -153,10 +151,7 @@ export default React.memo(function About(props) {
           </p>
           <p>
             My gratitude to (in alphabetical order)
-            <MemberList
-              members={[...new Set(DONATIONS.map(donation => donation.author))]}
-            />{' '}
-            for{' '}
+            <MemberList members={props.donators} /> for{' '}
             <Footnote id='anonymous-donations'>
               their generous and kind donations
             </Footnote>
@@ -166,14 +161,7 @@ export default React.memo(function About(props) {
           <p>
             Additionally, special thanks to the following contributors for
             issuing code updates, whether small or large:{' '}
-            <MemberList
-              members={[
-                ...new Set(
-                  CONTRIBUTIONS.map(contribution => contribution.author).sort()
-                ),
-              ]}
-            />
-            .
+            <MemberList members={props.contributors} />.
           </p>
 
           <p>
