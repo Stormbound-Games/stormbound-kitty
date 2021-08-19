@@ -47,6 +47,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
                 >
                   <Card
                     {...props}
+                    containerWidth={220}
                     mana={props.mana.values[level]}
                     strength={props.strength.values[level]}
                     ability={props.ability.values[level]}
@@ -70,6 +71,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
         <Spacing horizontal='BASE' top='BASE'>
           <Card
             {...props}
+            containerWidth={400}
             mana={props.mana.values[activeLevel - 1]}
             strength={props.strength.values[activeLevel - 1]}
             ability={props.ability.values[activeLevel - 1]}
