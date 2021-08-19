@@ -20,7 +20,7 @@ export default React.memo(function MemberListEntry(props) {
         extend={styles.icon}
       />
       <div className={css(styles.content)}>
-        <Link to={`/member/${props.member}`} extend={styles.name}>
+        <Link to={`/members/${props.member}`} extend={styles.name}>
           {props.member}{' '}
           <span className={css({ opacity: 0.6 })}>
             {isCurrentUser ? '(you)' : null}

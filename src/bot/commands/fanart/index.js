@@ -19,7 +19,7 @@ export default {
 
     embed
       .setTitle(`${this.label}`)
-      .setURL('https://stormbound-kitty.com/member/' + author)
+      .setURL('https://stormbound-kitty.com/members/' + author)
       .addFields([
         { name: 'author', value: author, inline: true },
         { name: 'date', value: date, inline: true },

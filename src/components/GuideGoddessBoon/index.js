@@ -16,7 +16,7 @@ export default React.memo(function GuideGoddessBoon(props) {
   return (
     <>
       <p>
-        Welcome to <Link to='/member/Oeni'>Oeni</Link>’s{' '}
+        Welcome to <Link to='/members/Oeni'>Oeni</Link>’s{' '}
         <span className='Highlight'>Brawl Gazette</span>, “Goddess Boon”
         edition! If you are completely new to the Brawl, be sure to read{' '}
         <Link to='/guides/brawl'>the Brawl guide</Link> before moving on with
@@ -100,7 +100,7 @@ export default React.memo(function GuideGoddessBoon(props) {
             </p>
 
             <p>
-              <Link to='/member/SeveralPeople'>SeveralPeople</Link> runs a very
+              <Link to='/members/SeveralPeople'>SeveralPeople</Link> runs a very
               similar deck with <CardLink id='N1' /> and <CardLink id='N67' />{' '}
               instead of <CardLink id='N9' /> and <CardLink id='W10' />, which
               can be interesting to have cheaper options and potentially more

@@ -171,7 +171,7 @@ export default () => {
           items: [
             name && {
               label: 'Personal Feed',
-              to: '/member/' + name,
+              to: '/members/' + name,
               id: 'FEED',
             },
             { label: 'Card Collection', to: '/collection', id: 'COLLECTION' },

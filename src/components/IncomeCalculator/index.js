@@ -169,8 +169,8 @@ export default React.memo(function IncomeCalculator(props) {
 
           <Spacing bottom='LARGE'>
             <p>
-              Special thanks to <Link to='/member/Oeni'>Oeni</Link> (oeni#7266)
-              and <Link to='/member/Roman'>Roman</Link> (Roman_NFP#6918) for
+              Special thanks to <Link to='/members/Oeni'>Oeni</Link> (oeni#7266)
+              and <Link to='/members/Roman'>Roman</Link> (Roman_NFP#6918) for
               their help in designing and making this simulator possible.
             </p>
           </Spacing>
@@ -178,7 +178,7 @@ export default React.memo(function IncomeCalculator(props) {
           <Info icon='compass' title='Resources Guide'>
             <p>
               To learn about the best way to spend resources based on your
-              play-style, <Link to='/member/Roman'>Roman</Link> has authored a
+              play-style, <Link to='/members/Roman'>Roman</Link> has authored a
               fantastic{' '}
               <Link to='/guides/resources'>guides on Stormbound resources</Link>
               .

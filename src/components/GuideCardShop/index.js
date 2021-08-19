@@ -28,7 +28,7 @@ export default React.memo(function GuideCardShop(props) {
           For a complete guide on Stormbound resources, how to get them and how
           to make the most of them, please refer to the{' '}
           <Link to='/guides/resources'>dedicated resources guide</Link> by{' '}
-          <Link to='/member/Roman'>Roman</Link>.
+          <Link to='/members/Roman'>Roman</Link>.
         </p>
       </Info>
 

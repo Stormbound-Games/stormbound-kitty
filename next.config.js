@@ -39,6 +39,11 @@ module.exports = {
         permanent: true,
       },
       { source: '/donate', destination: '/about', permanent: true },
+      {
+        source: '/member/:id*',
+        destination: '/members/:id*',
+        permanent: true,
+      },
     ]
   },
 }

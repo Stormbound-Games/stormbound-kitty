@@ -219,8 +219,8 @@ export default React.memo(function GuideTrivia(props) {
       <Title id='gravity-acceleration'>Gravity acceleration</Title>
 
       <p>
-        <Link to='/member/ArthisRoo'>ArthisRoo</Link> and{' '}
-        <Link to='/member/Troxyz'>Troxyz</Link> from Discord took some time to
+        <Link to='/members/ArthisRoo'>ArthisRoo</Link> and{' '}
+        <Link to='/members/Troxyz'>Troxyz</Link> from Discord took some time to
         calculate the acceleration due to gravity in Stormbound (or rather, on
         Stormbound islands).
       </p>

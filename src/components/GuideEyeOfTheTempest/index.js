@@ -16,7 +16,7 @@ export default React.memo(function GuideEyeOfTheTempest(props) {
   return (
     <>
       <p>
-        Welcome to <Link to='/member/Oeni'>Oeni</Link>’s{' '}
+        Welcome to <Link to='/members/Oeni'>Oeni</Link>’s{' '}
         <span className='Highlight'>Brawl Gazette</span>, “Eye of the Tempest”
         edition! If you are completely new to the Brawl, be sure to read{' '}
         <Link to='/guides/brawl'>the Brawl guide</Link> before moving on with

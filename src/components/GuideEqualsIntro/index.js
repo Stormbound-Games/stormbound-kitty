@@ -102,7 +102,7 @@ export default React.memo(function GuideEqualsIntro(props) {
           If you are unfamiliar with the concept of{' '}
           <span className='Highlight'>mana curve</span>, refer to the{' '}
           <Link to='/guides/mana-curve'>dedicated guide</Link> by{' '}
-          <Link to='/member/Kitty'>Kitty</Link>. It covers the basics of mana
+          <Link to='/members/Kitty'>Kitty</Link>. It covers the basics of mana
           curve, how to analyze it and features some cute graphs. ✨
         </p>
       </Info>

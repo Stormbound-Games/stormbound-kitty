@@ -33,13 +33,13 @@ export default React.memo(function TournamentWinners(props) {
 
   return (
     <p>
-      The tournament was won by 🥇 <Link to={'/member/' + gold}>{gold}</Link>
+      The tournament was won by 🥇 <Link to={'/members/' + gold}>{gold}</Link>
       {silver ? (
         <>
-          , with 🥈 <Link to={'/member/' + silver}>{silver}</Link>{' '}
+          , with 🥈 <Link to={'/members/' + silver}>{silver}</Link>{' '}
           {bronze ? (
             <>
-              and 🥉 <Link to={'/member/' + bronze}>{bronze}</Link>{' '}
+              and 🥉 <Link to={'/members/' + bronze}>{bronze}</Link>{' '}
             </>
           ) : null}
           as {bronze ? 'respective' : ''} runner-up

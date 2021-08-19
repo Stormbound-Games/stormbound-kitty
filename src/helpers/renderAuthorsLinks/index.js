@@ -9,7 +9,7 @@ const renderAuthorsLinks = (acc, author, index, authors) => {
   }
 
   acc.push(
-    <Link to={`/member/${author}`} key={author}>
+    <Link to={`/members/${author}`} key={author}>
       {author}
     </Link>
   )

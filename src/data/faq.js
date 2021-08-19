@@ -24,9 +24,9 @@ export default [
               small contribution counts. 💖
             </p>
             <p>
-              Special thanks <Link to='/member/Neicigam'>Neicigam</Link>{' '}
-              (Neicigam#0095), <Link to='/member/Jumboduck'>Jumboduck</Link>{' '}
-              (Jumboduck#8771), <Link to='/member/ArthisRoo'>ArthisRoo</Link>{' '}
+              Special thanks <Link to='/members/Neicigam'>Neicigam</Link>{' '}
+              (Neicigam#0095), <Link to='/members/Jumboduck'>Jumboduck</Link>{' '}
+              (Jumboduck#8771), <Link to='/members/ArthisRoo'>ArthisRoo</Link>{' '}
               (ArthisRoo#7189) for their kind and valuable help with the
               dry-runner, the deck advice and overall maintenance respectively.
             </p>
@@ -90,7 +90,7 @@ export default [
               I maintain from GitHub. It contains all cards in the game in their
               current state in a rather digestible format. Values varying across
               levels such as strength are authored as strings and might have to
-              be unpacked manually (e.g. <code>"1/2/3/4/5"</code>).
+              be unpacked manually (e.g. <code>1/2/3/4/5</code>).
             </p>
             <p>
               Regarding{' '}
@@ -441,7 +441,7 @@ export default [
           <>
             <p>
               The <Link to='/calculators/value'>value calculator</Link>, despite
-              efforts from <Link to='/member/Derk'>Derk</Link> (Derk#7109), is
+              efforts from <Link to='/members/Derk'>Derk</Link> (Derk#7109), is
               not an accurate representation of cards’ value. First of all, they
               are evaluated in isolation instead of as part of a deck.
               Additionally, their value is based on a single turn so structures

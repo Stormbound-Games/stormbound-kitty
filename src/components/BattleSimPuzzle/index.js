@@ -22,7 +22,7 @@ export const getCardForPuzzle = puzzle => ({
 export const getExcerptForPuzzle = puzzle => (
   <>
     {capitalise(puzzle.category.toLowerCase())} puzzle created by{' '}
-    <Link to={`/member/${puzzle.author}`}>{puzzle.author}</Link> in{' '}
+    <Link to={`/members/${puzzle.author}`}>{puzzle.author}</Link> in{' '}
     {formatDate(parseDate(puzzle.date))}. Difficulty: {puzzle.difficulty}/3.{' '}
     {puzzle.restrictions.length > 0
       ? puzzle.restrictions

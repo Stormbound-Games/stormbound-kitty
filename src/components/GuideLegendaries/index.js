@@ -399,7 +399,7 @@ export default React.memo(function GuideLegendaries(props) {
       </p>
 
       <p>
-        Special thanks to <Link to='/member/Derk'>Derk</Link> for helping with
+        Special thanks to <Link to='/members/Derk'>Derk</Link> for helping with
         the tier list as well as a few of the entries and their polishing!
       </p>
     </>
