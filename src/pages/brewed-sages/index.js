@@ -1,10 +1,15 @@
 import React from 'react'
 import BrewedSages from '~/components/BrewedSages'
 import Layout from '~/components/Layout'
+import PODCASTS from '~/data/podcasts'
 
-const BrewedSagesPage = () => (
+export async function getStaticProps() {
+  return { props: { episodes: PODCASTS } }
+}
+
+const BrewedSagesPage = props => (
   <Layout active={['COMMUNITY', 'BREWED_SAGES']}>
-    <BrewedSages />
+    <BrewedSages episodes={props.episodes} />
   </Layout>
 )
 

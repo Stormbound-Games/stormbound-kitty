@@ -6,7 +6,6 @@ import Spacing from '~/components/Spacing'
 import Sparkles from '~/components/Sparkles'
 import Teasers from '~/components/Teasers'
 import Title from '~/components/Title'
-import PODCASTS from '~/data/podcasts'
 import styles from './styles'
 
 const CARD = {
@@ -17,19 +16,19 @@ const CARD = {
   faction: 'shadowfen',
 }
 
-const ITEMS = PODCASTS.slice(0)
-  .reverse()
-  .map((entry, index) => ({
-    ...entry,
-    card: {
-      ...CARD,
-      mana: PODCASTS.length - index,
-      ability: entry.excerpt,
-    },
-  }))
-
 export default React.memo(function BrewedSages(props) {
   const { css } = useFela()
+  const items = props.episodes
+    .slice(0)
+    .reverse()
+    .map((entry, index) => ({
+      ...entry,
+      card: {
+        ...CARD,
+        mana: props.episodes.length - index,
+        ability: entry.excerpt,
+      },
+    }))
 
   return (
     <Page
@@ -63,7 +62,7 @@ export default React.memo(function BrewedSages(props) {
 
       <Spacing vertical='LARGER'>
         <Title>Episodes</Title>
-        <Teasers items={ITEMS} />
+        <Teasers items={items} />
       </Spacing>
 
       <Page.Narrow>
