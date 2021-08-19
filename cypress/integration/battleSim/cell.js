@@ -155,8 +155,7 @@ describe('Battle Sim — Cells', () => {
 
   it('should save a unit', () => {
     cy.bsFill('A1', { card: 'Zhev', strength: 5, player: 'RED' })
-      .url()
-      .should('not.match', /\sim$/)
+      .wait(3000)
       .reload()
       .get(s.CELL_A1)
       .should($cell => expect($cell.attr('title')).to.match(/Zhev/))
