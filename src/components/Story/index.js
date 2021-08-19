@@ -6,7 +6,8 @@ import Notice from '~/components/Notice'
 import Only from '~/components/Only'
 import Link from '~/components/Link'
 import MicroMarkdown from '~/components/MicroMarkdown'
-import StoriesMore from '~/components/StoriesMore'
+import Stories from '~/components/Stories'
+import Title from '~/components/Title'
 import { STORY_CATEGORIES } from '~/constants/stories'
 import getRawCardData from '~/helpers/getRawCardData'
 import getExcerpt from '~/helpers/getExcerpt'
@@ -14,7 +15,7 @@ import getReadingTime from '~/helpers/getReadingTime'
 
 export default React.memo(function Story(props) {
   const [ref, inView] = useInView()
-  const { story } = props
+  const { story, moreStories } = props
 
   return (
     <>
@@ -43,7 +44,23 @@ export default React.memo(function Story(props) {
         </Page.Narrow>
       </Page>
 
-      <div ref={ref}>{inView && <StoriesMore {...story} />}</div>
+      <div ref={ref}>
+        {inView && moreStories.length > 0 && (
+          <>
+            <Title>
+              {story.saga ? (
+                'Other chapters from this saga'
+              ) : (
+                <>
+                  Other stories by{' '}
+                  <Link to={`/members/${story.author}`}>{story.author}</Link>
+                </>
+              )}
+            </Title>
+            <Stories stories={moreStories} />
+          </>
+        )}
+      </div>
 
       <HorizontalRule />
 

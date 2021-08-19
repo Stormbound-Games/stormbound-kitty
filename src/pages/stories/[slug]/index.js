@@ -4,25 +4,50 @@ import fs from 'fs/promises'
 import Story from '~/components/Story'
 import Layout from '~/components/Layout'
 
-export async function getStaticPaths() {
+const getStories = async () => {
   const dir = path.join(process.cwd(), 'src', 'data', 'stories')
   const slugs = await fs.readdir(dir)
-  const paths = slugs.map(slug => ({
-    params: { slug: slug.replace('.json', '') },
+
+  return slugs.map(slug => ({
+    ...require('~/data/stories/' + slug),
+    slug: slug.replace('.json', ''),
   }))
+}
+
+export async function getStaticPaths() {
+  const stories = await getStories()
+  const paths = stories.map(story => ({ params: { slug: story.slug } }))
 
   return { paths, fallback: false }
 }
 
 export async function getStaticProps(context) {
-  const story = require('~/data/stories/' + context.params.slug)
+  const { slug } = context.params
+  const stories = await getStories()
+  const currentStory = stories.find(story => story.slug === slug)
+  const moreStories = stories.filter(story => {
+    if (story.title === currentStory.title) return false
+    if (currentStory.saga) return story.saga === currentStory.saga
+    return story.author === currentStory.author
+  })
 
-  return { props: { story } }
+  if (currentStory.saga) {
+    moreStories.sort((a, b) => {
+      const indexA = parseInt(a.title, 10)
+      const indexB = parseInt(b.title, 10)
+
+      return isNaN(indexA) || isNaN(indexB) ? 0 : indexA - indexB
+    })
+  }
+
+  return {
+    props: { story: currentStory, moreStories: moreStories.slice(0, 3) },
+  }
 }
 
 const StoryPage = props => (
   <Layout active={['STORIES', 'STORY']}>
-    <Story story={props.story} />
+    <Story story={props.story} moreStories={props.moreStories} />
   </Layout>
 )
 
