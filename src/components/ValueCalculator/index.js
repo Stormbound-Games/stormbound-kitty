@@ -10,7 +10,6 @@ import Link from '~/components/Link'
 import Row from '~/components/Row'
 import Select from '~/components/Select'
 import Title from '~/components/Title'
-import CARDS from '~/data/cards'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getCardValue from '~/helpers/getCardValue'
 import serialisation from '~/helpers/serialisation'
@@ -85,9 +84,6 @@ export default React.memo(function ValueCalculator(props) {
   const navigator = useNavigator()
   const [A, setA] = React.useState(props.cards[0])
   const [B, setB] = React.useState(props.cards[1])
-  const disabledOptions = CARDS.filter(
-    card => getCardValue(card.id) === null
-  ).map(card => card.id)
 
   React.useEffect(() => {
     navigator.replace(
@@ -155,7 +151,7 @@ export default React.memo(function ValueCalculator(props) {
                 slot='A'
                 value={A.id}
                 setCard={id => setA(A => ({ id, level: A.level }))}
-                disabledOptions={disabledOptions}
+                disabledOptions={props.disabledOptions}
               />
             </Row.Column>
             <Row.Column width='1/4'>
@@ -183,7 +179,7 @@ export default React.memo(function ValueCalculator(props) {
                 slot='B'
                 value={B.id}
                 setCard={id => setB(B => ({ id, level: B.level }))}
-                disabledOptions={disabledOptions}
+                disabledOptions={props.disabledOptions}
               />
             </Row.Column>
             <Row.Column width='1/4'>
