@@ -33,4 +33,6 @@ export default {
 
   PREV_BTN: '[data-testid="prev-btn"]',
   NEXT_BTN: '[data-testid="next-btn"]',
+
+  VERSION_BTN: '[data-testid="version-btn"]',
 }

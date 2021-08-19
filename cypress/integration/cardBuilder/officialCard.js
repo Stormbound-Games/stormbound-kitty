@@ -17,6 +17,38 @@ describe('Card Builder — Official card', () => {
       .should('contain', 'Sweetcap Kittens')
   })
 
+  it('should be possible to load previous version', () => {
+    cy.get(s.CARD_ABILITY)
+      .first()
+      .invoke('text')
+      .then(ability => {
+        cy.get(s.VERSION_BTN)
+          .last()
+          .click()
+          .url()
+          // Do not test for the full timestamp as the conversion is done on the
+          // client, which can result in some subtle timezone differences.
+          .should('include', '?v=156936')
+        cy.get(s.CARD_ABILITY)
+          .first()
+          .invoke('text')
+          .should('not.equal', ability)
+      })
+  })
+
+  it('should be possible to unload previous version', () => {
+    cy.get(s.CARD_ABILITY)
+      .first()
+      .invoke('text')
+      .then(ability => {
+        cy.get(s.VERSION_BTN).last().click().url().should('not.include', '?v=')
+        cy.get(s.CARD_ABILITY)
+          .first()
+          .invoke('text')
+          .should('not.equal', ability)
+      })
+  })
+
   it('should be possible to unload an official card', () => {
     cy.get(s.CARD_SELECT)
       .find('.CardSelect__clear-indicator')

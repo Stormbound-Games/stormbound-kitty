@@ -40,11 +40,7 @@ export default React.memo(function CardChangeFeed(props) {
           .map((entry, index) => (
             <li key={index}>
               <Spacing bottom='BASE'>
-                <FeedCardChange
-                  {...entry}
-                  versionId={props.versionId}
-                  setVersionId={props.setVersionId}
-                />
+                <FeedCardChange {...entry} versionId={props.versionId} />
               </Spacing>
             </li>
           ))}

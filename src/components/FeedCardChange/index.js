@@ -13,7 +13,6 @@ const ICONS = {
 
 export default React.memo(function FeedCardChange(props) {
   const versionId = props.date ? parseDate(props.date).valueOf() : null
-  const shouldRenderPreviewer = props.setVersionId && props.from
   const isActive = props.versionId === versionId
 
   return (
@@ -23,12 +22,22 @@ export default React.memo(function FeedCardChange(props) {
       dateFormat='LONG'
       iconColor={ICONS[props.type].color}
       right={
-        shouldRenderPreviewer && (
+        Boolean(props.from) && (
           <DiamondButton
+            data-testid='version-btn'
             icon='eye'
             isActive={isActive}
-            onClick={() => props.setVersionId(isActive ? null : versionId)}
-            label='Preview card *before* this change happened'
+            scroll={false}
+            to={
+              isActive
+                ? `/card/${props.id}/display`
+                : `/card/${props.id}/display?v=${versionId}`
+            }
+            label={
+              isActive
+                ? 'Deactivate these changes'
+                : 'Preview card *before* this change happened'
+            }
           />
         )
       }
