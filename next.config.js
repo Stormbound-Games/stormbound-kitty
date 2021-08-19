@@ -1,4 +1,6 @@
 module.exports = {
+  poweredByHeader: false,
+  reactStrictMode: true,
   async redirects() {
     return [
       { source: '/guides', destination: '/guides/essentials', permanent: true },
