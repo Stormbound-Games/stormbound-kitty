@@ -1,10 +1,15 @@
 import React from 'react'
 import Videos from '~/components/Videos'
 import Layout from '~/components/Layout'
+import CHANNELS from '~/data/channels'
 
-const VideosPage = () => (
+export async function getStaticProps() {
+  return { props: { channels: CHANNELS } }
+}
+
+const VideosPage = props => (
   <Layout active={['COMMUNITY', 'VIDEOS']}>
-    <Videos />
+    <Videos channels={props.channels} />
   </Layout>
 )
 

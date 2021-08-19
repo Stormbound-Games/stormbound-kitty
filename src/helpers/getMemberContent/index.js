@@ -13,7 +13,7 @@ import EVENTS from '~/data/events'
 import RELEASES from '~/data/releases'
 import PODCASTS from '~/data/podcasts'
 import SWCC from '~/data/swcc'
-import VIDEOS from '~/data/videos'
+import CHANNELS from '~/data/channels'
 
 const formatEntryWithDate = entry => ({
   ...entry,
@@ -21,8 +21,9 @@ const formatEntryWithDate = entry => ({
 })
 
 const getUserChannel = id =>
-  VIDEOS.find(channel => channel.date && channel.author.toLowerCase() === id) ||
-  null
+  CHANNELS.find(
+    channel => channel.date && channel.author.toLowerCase() === id
+  ) || null
 
 const getUserStories = id =>
   STORIES.filter(story => story.date && story.author.toLowerCase() === id).map(

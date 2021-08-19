@@ -7,7 +7,6 @@ import Image from '~/components/Image'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import chunk from '~/helpers/chunk'
-import VIDEOS from '~/data/videos'
 import styles from './styles'
 
 export default React.memo(function Videos(props) {
@@ -19,17 +18,17 @@ export default React.memo(function Videos(props) {
       description='Find here a list of popular and active Stormbound video content creators and their YouTube channels.'
       isEditorialContent
     >
-      {chunk(VIDEOS, 2).map((row, index) => (
+      {chunk(props.channels, 2).map((row, index) => (
         <Row key={index} isDesktopOnly withWideGutter>
-          {row.map((video, index, array) => (
-            <React.Fragment key={video.author}>
+          {row.map((channel, index, array) => (
+            <React.Fragment key={channel.author}>
               <Row.Column>
                 <Spacing bottom='LARGER'>
                   <Row isDesktopOnly withWideGutter>
                     <Row.Column width='1/3' extend={styles.column}>
                       <Image
-                        src={video.thumbnail}
-                        alt={`${video.author}’s avatar`}
+                        src={channel.thumbnail}
+                        alt={`${channel.author}’s avatar`}
                         extend={styles.image}
                       />
                     </Row.Column>
@@ -38,24 +37,23 @@ export default React.memo(function Videos(props) {
                       extend={{ justifyContent: 'center' }}
                     >
                       <h2 className={css(styles.title)}>
-                        <Link to={`/members/${video.author}`}>
-                          {video.author}
+                        <Link to={`/members/${channel.author}`}>
+                          {channel.author}
                         </Link>
                       </h2>
-                      {video.description}
+                      {channel.description}
                       <p>
                         <Icon icon='arrow-right' extend={styles.icon} />
-                        <Link href={video.href} extend={styles.link}>
-                          Visit {video.author}’s channel
+                        <Link href={channel.href} extend={styles.link}>
+                          Visit {channel.author}’s channel
                         </Link>
                       </p>
                     </Row.Column>
                   </Row>
                 </Spacing>
               </Row.Column>
-              {VIDEOS.length % 2 !== 0 && index === array.length - 1 && (
-                <Row.Column />
-              )}
+              {props.channels.length % 2 !== 0 &&
+                index === array.length - 1 && <Row.Column />}
             </React.Fragment>
           ))}
         </Row>
