@@ -12,8 +12,6 @@ import Teaser from '~/components/Teaser'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
-import { BRAWL_INDEX } from '~/constants/brawl'
-import getGuide from '~/helpers/getGuide'
 import getDailyCoinsCounter from '~/helpers/getDailyCoinsCounter'
 import renderAuthorsLinks from '~/helpers/renderAuthorsLinks'
 
@@ -21,8 +19,7 @@ export default React.memo(function BrawlTracker(props) {
   const [withPremiumPass, setWithPremiumPass] = React.useState(false)
   const [setup, setSetup] = React.useState('MOBILE_WITHOUT_ADS')
   const { brawl: currentBrawl } = React.useContext(BrawlContext)
-  const { title } = BRAWL_INDEX[currentBrawl.id] || {}
-  const guide = getGuide(title, 'name')
+  const { guide } = props
 
   const wonMatches = currentBrawl.matches.filter(match =>
     ['WON', 'FORFEIT'].includes(match.status)
@@ -74,7 +71,7 @@ export default React.memo(function BrawlTracker(props) {
                 meta={
                   <>Written by {guide.authors.reduce(renderAuthorsLinks, [])}</>
                 }
-                to={'/guides/' + props.slug}
+                to={'/guides/' + guide.slug}
               />
             </div>
           ) : (

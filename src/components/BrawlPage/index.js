@@ -19,7 +19,11 @@ export default React.memo(function BrawlPage(props) {
       withAvif
     >
       <BrawlProvider id={id} difficulty={difficulty}>
-        <BrawlTracker difficulty={difficulty} setDifficulty={setDifficulty} />
+        <BrawlTracker
+          {...props}
+          difficulty={difficulty}
+          setDifficulty={setDifficulty}
+        />
       </BrawlProvider>
     </Page>
   )
