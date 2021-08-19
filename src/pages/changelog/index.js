@@ -1,10 +1,15 @@
 import React from 'react'
 import CardChangelog from '~/components/CardChangelog'
 import Layout from '~/components/Layout'
+import CHANGELOG from '~/data/changelog'
 
-const CardChangelogPage = () => (
+export async function getStaticProps() {
+  return { props: { changelog: CHANGELOG } }
+}
+
+const CardChangelogPage = props => (
   <Layout active={['GAME', 'CARD_CHANGELOG']}>
-    <CardChangelog />
+    <CardChangelog changelog={props.changelog} />
   </Layout>
 )
 
