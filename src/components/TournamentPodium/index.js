@@ -5,17 +5,16 @@ import MemberList from '~/components/MemberList'
 import Teasers from '~/components/Teasers'
 import Title from '~/components/Title'
 import getRawCardData from '~/helpers/getRawCardData'
-import TOURNAMENTS from '~/data/tournaments.json'
 
 const POINT_VALUE = {
   TOURNAMENT: [9, 6, 3],
   JOUST: [6, 4, 2],
 }
 
-const getPodiumData = () => {
+const getPodiumData = tournaments => {
   const data = {}
 
-  TOURNAMENTS.forEach(tournament => {
+  tournaments.forEach(tournament => {
     tournament.podium.forEach((user, index) => {
       const users = Array.isArray(user) ? user : [user]
 
@@ -37,8 +36,8 @@ const getPodiumData = () => {
   return data
 }
 
-const getOverallPodium = () => {
-  const medals = getPodiumData()
+const getOverallPodium = tournaments => {
+  const medals = getPodiumData(tournaments)
   const users = Object.keys(medals)
 
   return users
@@ -106,7 +105,7 @@ const useTeasers = podium => {
 
 export default React.memo(function Podium(props) {
   const { css } = useFela()
-  const podium = getOverallPodium()
+  const podium = getOverallPodium(props.tournaments)
   const pointGroups = React.useMemo(() => getPointGroups(podium), [podium])
   const teasers = useTeasers(podium)
 

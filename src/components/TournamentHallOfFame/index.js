@@ -12,7 +12,6 @@ import TournamentDeck from '~/components/TournamentDeck'
 import TournamentPodium from '~/components/TournamentPodium'
 import TournamentWinners from '~/components/TournamentWinners'
 import { Rubies } from '~/components/Resource'
-import TOURNAMENTS from '~/data/tournaments.json'
 import MemberList from '~/components/MemberList'
 import { formatDate } from '~/helpers/formatDate'
 import parseDate from '~/helpers/parseDate'
@@ -28,33 +27,31 @@ export default React.memo(function TournamentHallOfFame(props) {
       isEditorialContent
     >
       <Spacing bottom='LARGEST'>
-        <TournamentPodium />
+        <TournamentPodium tournaments={props.tournaments} />
       </Spacing>
 
       <Title>Tournaments</Title>
       <Spacing top='LARGE' bottom='LARGEST'>
-        {TOURNAMENTS.slice(0)
-          .reverse()
-          .map(tournament => (
-            <Spacing key={tournament.name} bottom='LARGE'>
-              <Row isDesktopOnly withWideGutter>
-                <Row.Column>
-                  <h2 className={css(styles.name)}>{tournament.name}</h2>
-                  <p className={css(styles.meta)}>
-                    {formatDate(parseDate(tournament.date))} · By{' '}
-                    <MemberList members={tournament.hosts} />
-                  </p>
-                  {Boolean(tournament.description) && (
-                    <p>{tournament.description}</p>
-                  )}
-                  <TournamentWinners podium={tournament.podium} />
-                </Row.Column>
-                <Row.Column>
-                  <TournamentDeck {...tournament} />
-                </Row.Column>
-              </Row>
-            </Spacing>
-          ))}
+        {props.tournaments.reverse().map(tournament => (
+          <Spacing key={tournament.name} bottom='LARGE'>
+            <Row isDesktopOnly withWideGutter>
+              <Row.Column>
+                <h2 className={css(styles.name)}>{tournament.name}</h2>
+                <p className={css(styles.meta)}>
+                  {formatDate(parseDate(tournament.date))} · By{' '}
+                  <MemberList members={tournament.hosts} />
+                </p>
+                {Boolean(tournament.description) && (
+                  <p>{tournament.description}</p>
+                )}
+                <TournamentWinners podium={tournament.podium} />
+              </Row.Column>
+              <Row.Column>
+                <TournamentDeck {...tournament} />
+              </Row.Column>
+            </Row>
+          </Spacing>
+        ))}
       </Spacing>
 
       <Page.Narrow>
