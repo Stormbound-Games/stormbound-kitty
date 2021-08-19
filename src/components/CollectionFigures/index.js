@@ -13,7 +13,6 @@ import isCardUpgradable from '~/helpers/isCardUpgradable'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getBaseHealth from '~/helpers/getBaseHealth'
 import isLevelAvailable from '~/helpers/isLevelAvailable'
-import getRarityColor from '~/helpers/getRarityColor'
 import { RARITY_COPIES, UPGRADE_COST } from '~/constants/game'
 import styles from './styles'
 
@@ -267,7 +266,7 @@ export default React.memo(function CollectionFigures(props) {
           return (
             <li key={rarity}>
               {missing}{' '}
-              <span className={css({ color: getRarityColor(rarity) })}>
+              <span className={css({ color: `var(--${rarity})` })}>
                 {rarity}
               </span>{' '}
               {missing === 1 ? 'copy' : 'copies'} out of {total} (

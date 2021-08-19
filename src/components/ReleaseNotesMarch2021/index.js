@@ -26,7 +26,6 @@ import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import getBookName from '~/helpers/getBookName'
 import getInitialCardData from '~/helpers/getInitialCardData'
-import getRarityColor from '~/helpers/getRarityColor'
 
 export default React.memo(function ReleaseNotesMarch2021(props) {
   const { css } = useFela()
@@ -99,11 +98,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <p>
           On February 26th, the next temple card will be released—Temple of
           Space, a new{' '}
-          <span
-            className={css({ color: getRarityColor('legendary', 'bright') })}
-          >
-            legendary
-          </span>{' '}
+          <span className={css({ color: 'var(--legendary)' })}>legendary</span>{' '}
           Ironclad structure with an interesting teleportation mechanic.
         </p>
       </Page.Narrow>

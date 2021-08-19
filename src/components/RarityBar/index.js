@@ -1,6 +1,5 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import getRarityColor from '~/helpers/getRarityColor'
 import styles from './styles'
 
 export default React.memo(function RarityBar(props) {
@@ -18,7 +17,7 @@ export default React.memo(function RarityBar(props) {
         <div
           className={css(styles.slice)}
           style={{
-            '--color': getRarityColor('common', 'bright'),
+            '--color': `var(--common-bright)`,
             '--count': commons,
           }}
         >
@@ -31,7 +30,7 @@ export default React.memo(function RarityBar(props) {
         <div
           className={css(styles.slice)}
           style={{
-            '--color': getRarityColor('rare', 'bright'),
+            '--color': `var(--rare-bright)`,
             '--count': rares,
           }}
         >
@@ -44,7 +43,7 @@ export default React.memo(function RarityBar(props) {
         <div
           className={css(styles.slice)}
           style={{
-            '--color': getRarityColor('epic', 'bright'),
+            '--color': `var(--epic-bright)`,
             '--count': epics,
           }}
         >
@@ -57,7 +56,7 @@ export default React.memo(function RarityBar(props) {
         <div
           className={css(styles.slice)}
           style={{
-            '--color': getRarityColor('legendary', 'bright'),
+            '--color': `var(--legendary-bright)`,
             '--count': legendaries,
           }}
         >

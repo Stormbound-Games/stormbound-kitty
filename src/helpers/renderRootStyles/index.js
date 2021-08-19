@@ -62,6 +62,16 @@ const renderRootStyles = renderer => {
     --diamond: #c8c0df;
     --heroes: #caf9ff;
 
+    /* Rarity colors */
+    --common: #f5f1e5;
+    --common-bright: #97927b;
+    --rare: #95d7f9;
+    --rare-bright: #1faee0;
+    --epic: #dba8f5;
+    --epic-bright: #c45de6;
+    --legendary: #f5c79f;
+    --legendary-bright: #e88931;
+
     /* Spacing variables */
     --s-smallest: ${SPACING_TOKENS.SMALLEST};
     --s-smaller: ${SPACING_TOKENS.SMALLER};

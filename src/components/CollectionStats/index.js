@@ -27,7 +27,6 @@ import countCards from '~/helpers/countCards'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import isCardUpgradable from '~/helpers/isCardUpgradable'
 import { getCardCost } from '~/helpers/getCollectionCost'
-import getRarityColor from '~/helpers/getRarityColor'
 import { RARITIES, RARITY_COPIES } from '~/constants/game'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 import styles from './styles'
@@ -172,12 +171,12 @@ const getProgressData = collection => {
           },
           [
             {
-              color: getRarityColor(rarity, 'bright'),
+              color: `var(--${rarity}-bright)`,
               name: 'Maxed out ' + capitalise(rarity),
               value: 0,
             },
             {
-              color: getRarityColor(rarity, 'light'),
+              color: `var(--${rarity})`,
               name: 'In progress ' + capitalise(rarity),
               value: 0,
             },
@@ -340,10 +339,7 @@ export default React.memo(function CollectionStats(props) {
                       {rarityData.map(rarity => (
                         <Cell
                           key={`cell-${rarity}`}
-                          fill={getRarityColor(
-                            rarity.name.toLowerCase(),
-                            'light'
-                          )}
+                          fill={`var(--${rarity.name.toLowerCase()})`}
                         />
                       ))}
                     </Pie>
