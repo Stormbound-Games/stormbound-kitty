@@ -73,6 +73,18 @@ GUIDES.forEach(guide => {
 })
 
 SEARCH_INDEX.push({
+  path: '/known-bugs',
+  label: 'Known Bugs',
+  breadcrumbs: ['Official'],
+})
+
+SEARCH_INDEX.push({
+  path: '/lexicon',
+  label: 'Lexicon',
+  breadcrumbs: ['Official'],
+})
+
+SEARCH_INDEX.push({
   path: `/sim`,
   label: 'Battle Sim',
   breadcrumbs: ['Tools', 'Builders'],
