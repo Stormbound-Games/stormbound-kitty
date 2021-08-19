@@ -35,6 +35,7 @@ export async function getStaticPaths() {
   const paths = CARDS.filter(card => !card.token)
     .map(card => card.id)
     .map(id => ({ params: { rest: [id, 'display'] } }))
+    .concat([{ params: { rest: [] } }])
 
   return { paths, fallback: true }
 }

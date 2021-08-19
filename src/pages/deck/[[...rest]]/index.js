@@ -8,7 +8,9 @@ import getInitialDeckData from '~/helpers/getInitialDeckData'
 import DECKS from '~/data/decks'
 
 export async function getStaticPaths() {
-  const paths = DECKS.map(deck => ({ params: { rest: [deck.id, 'detail'] } }))
+  const paths = DECKS.map(deck => ({
+    params: { rest: [deck.id, 'detail'] },
+  })).concat([{ params: { rest: [] } }])
 
   return { paths, fallback: true }
 }

@@ -9,7 +9,7 @@ import PUZZLES from '~/data/puzzles'
 export async function getStaticPaths() {
   const paths = PUZZLES.map(puzzle => ({
     params: { rest: [puzzle.board, 'display'] },
-  }))
+  })).concat([{ params: { rest: [] } }])
 
   return { paths, fallback: true }
 }

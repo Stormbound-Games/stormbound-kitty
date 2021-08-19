@@ -5,7 +5,7 @@ import Layout from '~/components/Layout'
 import getInitialListData from '~/helpers/getInitialListData'
 
 export async function getStaticPaths() {
-  return { paths: [], fallback: true }
+  return { paths: [{ params: { rest: [] } }], fallback: true }
 }
 
 export async function getStaticProps(context) {

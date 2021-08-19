@@ -6,7 +6,7 @@ import serialisation from '~/helpers/serialisation'
 import CARDS from '~/data/cards'
 
 export async function getStaticPaths() {
-  return { paths: [], fallback: true }
+  return { paths: [{ params: { id: null } }], fallback: true }
 }
 
 export async function getStaticProps(context) {
