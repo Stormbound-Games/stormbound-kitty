@@ -21,6 +21,8 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
         <meta name='theme-color' content='#101F26' />
         <link rel='manifest' href='/manifest.json' />
         <meta name='og:type' content='website' />
+        <meta name='og:site_name' content='Stormbound-Kitty' />
+
         <script
           dangerouslySetInnerHTML={{
             __html: `if (!Object.values) Object.values = o => Object.keys(o).map(k => o[k])`,
