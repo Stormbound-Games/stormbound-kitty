@@ -2,14 +2,9 @@ import React from 'react'
 import Link from '~/components/Link'
 import FeedEntry from '~/components/FeedEntry'
 import MemberList from '~/components/MemberList'
-import PODCASTS from '~/data/podcasts'
-import indexArray from '~/helpers/indexArray'
-
-const PODCASTS_INDEX = indexArray(PODCASTS, 'title')
 
 export default React.memo(function FeedPodcastEntry(props) {
-  const episode = PODCASTS_INDEX[props.title]
-  const name = props.hosts.find(host => host.toLowerCase() === props.user)
+  const name = props.displayName
 
   return (
     <FeedEntry icon='bubbles' date={props.date}>
@@ -21,9 +16,9 @@ export default React.memo(function FeedPodcastEntry(props) {
         </>
       ) : null}{' '}
       an episode of the Brewed Sages podcast named{' '}
-      <Link to='/brewed-sages'>{episode.title}</Link> ({episode.meta}
+      <Link to='/brewed-sages'>{props.title}</Link> ({props.meta}
       ).
-      <blockquote>{episode.excerpt}</blockquote>
+      <blockquote>{props.excerpt}</blockquote>
     </FeedEntry>
   )
 })

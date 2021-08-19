@@ -80,12 +80,21 @@ export default React.memo(function Member(props) {
             <ul className={css(styles.feed)}>
               {channel && (
                 <li className={css(styles.item)}>
-                  <FeedItem {...channel} type='YOUTUBE' />
+                  <FeedItem
+                    {...channel}
+                    type='YOUTUBE'
+                    displayName={displayName}
+                  />
                 </li>
               )}
               {content.map((entry, index) => (
                 <li key={index} className={css(styles.item)}>
-                  <FeedItem {...entry} date={new Date(entry.date)} user={id} />
+                  <FeedItem
+                    {...entry}
+                    date={new Date(entry.date)}
+                    user={id}
+                    displayName={displayName}
+                  />
                 </li>
               ))}
             </ul>
