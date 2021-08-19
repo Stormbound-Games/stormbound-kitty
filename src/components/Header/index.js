@@ -4,6 +4,8 @@ import { useRouter } from 'next/router'
 import { useFela } from 'react-fela'
 import HeaderMegaMenu from '~/components/HeaderMegaMenu'
 import Link from '~/components/Link'
+import NavCardBuilder from '~/components/NavCardBuilder'
+import NavDeckBuilder from '~/components/NavDeckBuilder'
 import NewPulse from '~/components/NewPulse'
 import Icon from '~/components/Icon'
 import useIsMounted from '~/hooks/useIsMounted'
@@ -14,12 +16,10 @@ const SubNav = React.memo(function (props) {
   const [topActive, midActive, bottomActive] = props.active || []
 
   if (topActive === 'TOOLS' && midActive === 'CARD_BUILDER') {
-    const NavCardBuilder = dynamic(() => import('~/components/NavCardBuilder'))
     return <NavCardBuilder />
   }
 
   if (topActive === 'TOOLS' && midActive === 'DECK_BUILDER') {
-    const NavDeckBuilder = dynamic(() => import('~/components/NavDeckBuilder'))
     return <NavDeckBuilder active={bottomActive} />
   }
 
