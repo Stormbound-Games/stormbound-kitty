@@ -10,8 +10,6 @@ import LevelForm from '~/components/CardBuilderLevelForm'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
-import usePrevious from '~/hooks/usePrevious'
-import useNavigator from '~/hooks/useNavigator'
 import useQueryParams from '~/hooks/useQueryParams'
 import getRawCardData from '~/helpers/getRawCardData'
 import getCardBuilderMetaTags from '~/helpers/getCardBuilderMetaTags'
@@ -106,32 +104,11 @@ const useCardData = (props, versionId) => {
 
 export default React.memo(function CardBuilderApp(props) {
   const { css } = useFela()
-  const navigator = useNavigator()
-  const query = useQueryParams()
-  const { cardId, mode } = props
+  const versionId = +useQueryParams().v
+  const { cardId } = props
   const isOfficial = isCardOfficial(cardId)
-  const [versionId, setVersionId] = React.useState(+query.v || null)
   const cardData = useCardData(props, versionId)
   const articleProps = useArticleProps(props, versionId)
-  const previousCardId = usePrevious(cardId)
-
-  React.useEffect(() => {
-    // Only official card have a concept of versions, so do not redirect if the
-    // card is not an official one.
-    if (!isOfficial) return
-
-    const path = ['/card', cardId, mode === 'DISPLAY' ? 'display' : undefined]
-      .filter(Boolean)
-      .join('/')
-    const query = versionId ? `?v=${versionId}` : ''
-
-    navigator.replace(path + query)
-    // eslint-disable-next-line
-  }, [versionId, mode, isOfficial])
-
-  React.useEffect(() => {
-    if (previousCardId && previousCardId !== cardId) setVersionId(null)
-  }, [previousCardId, cardId])
 
   return (
     <Page {...articleProps} {...getCardBuilderMetaTags(cardData)}>
@@ -172,11 +149,7 @@ export default React.memo(function CardBuilderApp(props) {
 
       {isOfficial && (
         <Page.Narrow>
-          <CardChangeFeed
-            id={props.cardId}
-            versionId={versionId}
-            setVersionId={setVersionId}
-          />
+          <CardChangeFeed id={props.cardId} versionId={versionId} />
         </Page.Narrow>
       )}
     </Page>
