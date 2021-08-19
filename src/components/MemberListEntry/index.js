@@ -3,8 +3,6 @@ import { useFela } from 'react-fela'
 import Link from '~/components/Link'
 import Icon from '~/components/Icon'
 import { UserContext } from '~/components/UserProvider'
-import isKATMember from '~/helpers/isKATMember'
-import getMemberContent from '~/helpers/getMemberContent'
 import styles from './styles'
 
 export default React.memo(function MemberListEntry(props) {
