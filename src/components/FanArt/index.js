@@ -6,21 +6,22 @@ import Image from '~/components/Image'
 import Page from '~/components/Page'
 import Loader from '~/components/Loader'
 import Spacing from '~/components/Spacing'
-import ARTWORKS from '~/data/artworks'
-import shuffle from '~/helpers/shuffle'
 import useLazyLoad from '~/hooks/useLazyLoad'
 import styles from './styles'
 
 export default React.memo(function FanArt(props) {
   const { css } = useFela()
-  const entries = React.useMemo(() => shuffle(ARTWORKS), [])
-  const { loading, items, ref } = useLazyLoad(entries, 3)
+  const { loading, items, ref } = useLazyLoad(props.artworks, 3)
 
   return (
     <Page
       title='Fan Art'
       description='Find the amazing visual artwork created by the Stormbound community'
-      meta={entries.length === 1 ? '1 artwork' : entries.length + ' artworks'}
+      meta={
+        props.artworks.length === 1
+          ? '1 artwork'
+          : props.artworks.length + ' artworks'
+      }
       action={{ to: '/fan-kit', children: 'Back to fan-kit' }}
       isEditorialContent
     >
