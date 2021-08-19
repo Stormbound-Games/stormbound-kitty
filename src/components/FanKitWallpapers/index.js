@@ -78,17 +78,38 @@ export default React.memo(function FanKitWallpapers(props) {
         <Row isDesktopOnly key={index}>
           <Row.Column width='1/3'>
             {row[0] && (
-              <FanKitItem {...row[0]} setActive={setActive} withAvif />
+              <FanKitItem
+                {...row[0]}
+                setActive={setActive}
+                withAvif
+                width={575}
+                height={323}
+                lazy
+              />
             )}
           </Row.Column>
           <Row.Column width='1/3'>
             {row[1] && (
-              <FanKitItem {...row[1]} setActive={setActive} withAvif />
+              <FanKitItem
+                {...row[1]}
+                setActive={setActive}
+                withAvif
+                width={575}
+                height={323}
+                lazy
+              />
             )}
           </Row.Column>
           <Row.Column width='1/3'>
             {row[2] && (
-              <FanKitItem {...row[2]} setActive={setActive} withAvif />
+              <FanKitItem
+                {...row[2]}
+                setActive={setActive}
+                withAvif
+                width={575}
+                height={323}
+                lazy
+              />
             )}
           </Row.Column>
         </Row>

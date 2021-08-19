@@ -31,6 +31,8 @@ export default React.memo(function FanKitItem(props) {
         }}
         withoutWebp={props.withoutWebp}
         withAvif={props.withAvif}
+        width={props.width}
+        height={props.height}
         lazy
       />
     </div>

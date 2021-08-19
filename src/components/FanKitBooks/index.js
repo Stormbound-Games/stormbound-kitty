@@ -72,8 +72,9 @@ export default React.memo(function FanKitBooks(props) {
                   {...row[index]}
                   key={row[index].id}
                   setActive={setActive}
-                  width='300px'
-                  height='300px'
+                  width={280}
+                  height={300}
+                  lazy
                   withAvif
                 />
               )}

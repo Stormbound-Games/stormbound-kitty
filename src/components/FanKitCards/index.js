@@ -88,8 +88,9 @@ export default React.memo(function FanKitCards(props) {
                   image={'/assets/images/cards/' + row[index].image}
                   key={row[index].id}
                   setActive={setActive}
-                  width='300px'
-                  height='300px'
+                  width={280}
+                  height={280}
+                  lazy
                   withAvif
                 />
               )}

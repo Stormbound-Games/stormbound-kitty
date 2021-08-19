@@ -114,8 +114,9 @@ export default React.memo(function FanKitAvatars(props) {
                   {...row[index]}
                   key={row[index].id}
                   setActive={setActive}
-                  width='300px'
-                  height='300px'
+                  width={114}
+                  height={138}
+                  lazy
                   withAvif={false}
                   withoutWebp={true}
                 />
