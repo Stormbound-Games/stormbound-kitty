@@ -7,7 +7,7 @@ import styles from './styles'
 
 export default React.memo(function Quest(props) {
   const { css } = useFela()
-  const { fontSize, ref } = useFluidSizing(0.04114285714)
+  const { fontSize, ref } = useFluidSizing(0.04114285714, props.containerWidth)
 
   return (
     <div

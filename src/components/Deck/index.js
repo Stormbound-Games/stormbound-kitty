@@ -125,7 +125,7 @@ export default React.memo(function Deck(props) {
     typeof props.showEmptySlots === 'undefined' ? true : props.showEmptySlots
   const sort = props.sort || sortByMana
   const slots = props.deck.map(getResolvedCardData).sort(sort)
-  const { fontSize, ref } = useFluidSizing(0.03683665247)
+  const { fontSize, ref } = useFluidSizing(0.03683665247, props.containerWidth)
 
   if (showEmptySlots && props.deck.length < 12) {
     const extraSlots = Array.from({ length: 12 - props.deck.length }, _ => null)

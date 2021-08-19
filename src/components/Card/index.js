@@ -24,7 +24,7 @@ const useCardBackground = ({ missing, rarity, type, faction }) => {
 
 export default React.memo(function Card(props) {
   const { supportsWebp } = React.useContext(ImageSupportContext)
-  const { fontSize, ref } = useFluidSizing(0.03902439024)
+  const { fontSize, ref } = useFluidSizing(0.03902439024, props.containerWidth)
   const ext = supportsWebp ? 'webp' : 'png'
   const backgroundImage = useCardBackground(props)
   const level = clamp(props.level || 1, 1, 5)
