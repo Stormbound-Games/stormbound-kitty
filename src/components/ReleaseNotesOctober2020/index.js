@@ -7,7 +7,6 @@ import Image from '~/components/Image'
 import FAQSection from '~/components/FAQSection'
 import NerfCompensationInfo from '~/components/NerfCompensationInfo'
 import { Coins, Rubies, Stones } from '~/components/Resource'
-import ReleaseNotes from '~/components/ReleaseNotes'
 import Row from '~/components/Row'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
@@ -18,7 +17,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
   const { css } = useFela()
 
   return (
-    <ReleaseNotes id='10_2020'>
+    <>
       <Page.Narrow>
         <p>
           The long awaited “Friendly Matches update” from Sheepyard is finally
@@ -328,6 +327,6 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
           ]}
         />
       </Page.Narrow>
-    </ReleaseNotes>
+    </>
   )
 })

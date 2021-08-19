@@ -9,7 +9,6 @@ import Image from '~/components/Image'
 import Info from '~/components/Info'
 import Link from '~/components/Link'
 import NerfCompensationInfo from '~/components/NerfCompensationInfo'
-import ReleaseNotes from '~/components/ReleaseNotes'
 import { Coins, Rubies } from '~/components/Resource'
 import TogglableContent from '~/components/TogglableContent'
 import Table from '~/components/Table'
@@ -25,7 +24,7 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
   const [isTableExpanded, expandTable] = React.useState(false)
 
   return (
-    <ReleaseNotes id='12_2020'>
+    <>
       <Page.Narrow>
         <p>
           It’s almost holiday season already, and Sheepyard is gifting us of a
@@ -250,6 +249,6 @@ export default React.memo(function ReleaseNotesDecember2020(props) {
           </p>
         </Footnotes>
       </Page.Narrow>
-    </ReleaseNotes>
+    </>
   )
 })

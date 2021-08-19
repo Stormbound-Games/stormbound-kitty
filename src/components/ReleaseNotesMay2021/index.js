@@ -9,7 +9,6 @@ import Footnotes, { Footnote } from '~/components/Footnotes'
 import Image from '~/components/Image'
 import Info from '~/components/Info'
 import NerfCompensationInfo from '~/components/NerfCompensationInfo'
-import ReleaseNotes from '~/components/ReleaseNotes'
 import Row from '~/components/Row'
 import Table from '~/components/Table'
 import { Coins, Rubies, Stones, HeroCrowns } from '~/components/Resource'
@@ -28,7 +27,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
   const [isTableExpanded, expandTable] = React.useState(false)
 
   return (
-    <ReleaseNotes id='05_2021'>
+    <>
       <Page.Narrow>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early May,
@@ -304,6 +303,6 @@ export default React.memo(function ReleaseNotesMay2021(props) {
           </p>
         </Footnotes>
       </Page.Narrow>
-    </ReleaseNotes>
+    </>
   )
 })

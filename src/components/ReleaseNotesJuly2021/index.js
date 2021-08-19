@@ -7,7 +7,6 @@ import FAQSection from '~/components/FAQSection'
 import Image from '~/components/Image'
 import Info from '~/components/Info'
 import NerfCompensationInfo from '~/components/NerfCompensationInfo'
-import ReleaseNotes from '~/components/ReleaseNotes'
 import { Coins, Rubies, Stones } from '~/components/Resource'
 import ResourceIcon from '~/components/ResourceIcon'
 import Spacing from '~/components/Spacing'
@@ -17,7 +16,7 @@ import getInitialCardData from '~/helpers/getInitialCardData'
 
 export default React.memo(function ReleaseNotesJuly2021(props) {
   return (
-    <ReleaseNotes id='07_2021'>
+    <>
       <Page.Narrow>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early July,
@@ -227,6 +226,6 @@ export default React.memo(function ReleaseNotesJuly2021(props) {
           ]}
         />
       </Page.Narrow>
-    </ReleaseNotes>
+    </>
   )
 })

@@ -1,11 +1,10 @@
 import React from 'react'
 import Page from '~/components/Page'
 import Info from '~/components/Info'
-import ReleaseNotes from '~/components/ReleaseNotes'
 
 export default React.memo(function ReleaseNotesIOSJanuary2021(props) {
   return (
-    <ReleaseNotes id='ios_01_2021'>
+    <>
       <Page.Narrow>
         <p>
           Important notice for{' '}
@@ -42,6 +41,6 @@ export default React.memo(function ReleaseNotesIOSJanuary2021(props) {
           </p>
         </Info>
       </Page.Narrow>
-    </ReleaseNotes>
+    </>
   )
 })

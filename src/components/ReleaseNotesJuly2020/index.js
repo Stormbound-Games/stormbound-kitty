@@ -10,7 +10,6 @@ import Image from '~/components/Image'
 import Info from '~/components/Info'
 import NerfCompensationInfo from '~/components/NerfCompensationInfo'
 import Quest from '~/components/Quest'
-import ReleaseNotes from '~/components/ReleaseNotes'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Strikethrough from '~/components/Strikethrough'
@@ -52,7 +51,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
   }, [withConfusionFix, css])
 
   return (
-    <ReleaseNotes id='07_2020'>
+    <>
       <Page.Narrow>
         <p>
           Back in April, Paladin Studios announced they would hand over
@@ -528,6 +527,6 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           <li>More options when it comes to friendly matches.</li>
         </ul>
       </Page.Narrow>
-    </ReleaseNotes>
+    </>
   )
 })

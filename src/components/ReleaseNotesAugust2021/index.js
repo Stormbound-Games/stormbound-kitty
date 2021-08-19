@@ -10,7 +10,6 @@ import Guide from '~/components/Guide'
 import Image from '~/components/Image'
 import Info from '~/components/Info'
 import NerfCompensationInfo from '~/components/NerfCompensationInfo'
-import ReleaseNotes from '~/components/ReleaseNotes'
 import Row from '~/components/Row'
 import { Coins, Crowns, Rubies, Stones, Legendary } from '~/components/Resource'
 import ResourceIcon from '~/components/ResourceIcon'
@@ -26,7 +25,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
   const CardsContainer = viewportWidth >= 700 ? Guide.FullWidth : React.Fragment
 
   return (
-    <ReleaseNotes id='08_2021'>
+    <>
       <Page.Narrow>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
@@ -669,6 +668,6 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
           ]}
         />
       </Page.Narrow>
-    </ReleaseNotes>
+    </>
   )
 })

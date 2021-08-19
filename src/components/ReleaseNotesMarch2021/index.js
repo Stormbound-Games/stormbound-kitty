@@ -10,7 +10,6 @@ import HorizontalRule from '~/components/HorizontalRule'
 import Image from '~/components/Image'
 import Info from '~/components/Info'
 import NerfCompensationInfo from '~/components/NerfCompensationInfo'
-import ReleaseNotes from '~/components/ReleaseNotes'
 import Row from '~/components/Row'
 import {
   Common,
@@ -32,7 +31,7 @@ import { getRarityColor } from '~/helpers/getRarity'
 export default React.memo(function ReleaseNotesMarch2021(props) {
   const { css } = useFela()
   return (
-    <ReleaseNotes id='03_2021'>
+    <>
       <Page.Narrow>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
@@ -512,6 +511,6 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           ]}
         />
       </Page.Narrow>
-    </ReleaseNotes>
+    </>
   )
 })

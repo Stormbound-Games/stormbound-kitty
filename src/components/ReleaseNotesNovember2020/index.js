@@ -6,7 +6,6 @@ import CardLink from '~/components/CardLink'
 import FAQSection from '~/components/FAQSection'
 import Image from '~/components/Image'
 import Info from '~/components/Info'
-import ReleaseNotes from '~/components/ReleaseNotes'
 import { Coins, Rubies, Stones } from '~/components/Resource'
 import Row from '~/components/Row'
 import TableOfContents from '~/components/TableOfContents'
@@ -16,7 +15,7 @@ import CheapenedBrawl from '~/components/CheapenedBrawl'
 
 export default React.memo(function ReleaseNotesNovember2020(props) {
   return (
-    <ReleaseNotes id='11_2020' withAvif={false}>
+    <>
       <Page.Narrow>
         <p>
           It’s spooky season, and Sheepyard is releasing a small update. The
@@ -248,6 +247,6 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
           ]}
         />
       </Page.Narrow>
-    </ReleaseNotes>
+    </>
   )
 })

@@ -8,7 +8,6 @@ import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
 import FAQSection from '~/components/FAQSection'
 import Image from '~/components/Image'
 import Info from '~/components/Info'
-import ReleaseNotes from '~/components/ReleaseNotes'
 import Row from '~/components/Row'
 import { Coins, Rubies, Stones } from '~/components/Resource'
 import Strikethrough from '~/components/Strikethrough'
@@ -27,7 +26,7 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
   const [isTableExpanded, expandTable] = React.useState(false)
 
   return (
-    <ReleaseNotes id='02_2021'>
+    <>
       <Page.Narrow>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
@@ -259,6 +258,6 @@ export default React.memo(function ReleaseNotesFebruary2021(props) {
           ]}
         />
       </Page.Narrow>
-    </ReleaseNotes>
+    </>
   )
 })

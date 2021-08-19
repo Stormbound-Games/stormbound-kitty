@@ -1,23 +1,17 @@
 import React from 'react'
 import Page from '~/components/Page'
-import indexArray from '~/helpers/indexArray'
-import RELEASES from '~/data/releases'
-
-const RELEASES_INDEX = indexArray(RELEASES)
 
 export default React.memo(function ReleaseNotes(props) {
-  const release = RELEASES_INDEX[props.id]
-
   return (
     <Page
-      title={release.title}
-      description={release.excerpt}
+      title={props.title}
+      description={props.excerpt}
       author='Kitty'
-      image={release.background}
+      image={props.background}
       action={{ to: '/releases', children: 'Back to releases' }}
-      meta={'Official · ' + release.date}
-      background={release.background}
-      ratio={release.ratio}
+      meta={'Official · ' + props.date}
+      background={props.background}
+      ratio={props.ratio}
       withAvif={typeof props.withAvif === 'undefined' ? true : props.withAvif}
       isEditorialContent
       withDropCap

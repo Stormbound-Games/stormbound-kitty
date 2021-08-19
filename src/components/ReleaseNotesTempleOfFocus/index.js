@@ -3,13 +3,12 @@ import Page from '~/components/Page'
 import CardLink from '~/components/CardLink'
 import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
 import Image from '~/components/Image'
-import ReleaseNotes from '~/components/ReleaseNotes'
 import { Coins, Stones } from '~/components/Resource'
 import getInitialCardData from '~/helpers/getInitialCardData'
 
 export default React.memo(function ReleaseNotesTempleOfFocus(props) {
   return (
-    <ReleaseNotes id='temple_of_focus'>
+    <>
       <Page.Narrow>
         <p>
           On January 17th, a new card will make its entrance! It’s a structure
@@ -36,6 +35,6 @@ export default React.memo(function ReleaseNotesTempleOfFocus(props) {
           alt='3 copies of Temple of Focus + 5 Fusion Stones + 750 coins for $9.99'
         />
       </Page.Narrow>
-    </ReleaseNotes>
+    </>
   )
 })

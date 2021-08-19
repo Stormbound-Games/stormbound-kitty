@@ -7,7 +7,6 @@ import FAQSection from '~/components/FAQSection'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import Table from '~/components/Table'
-import ReleaseNotes from '~/components/ReleaseNotes'
 import Row from '~/components/Row'
 import { Coins, Crowns } from '~/components/Resource'
 import getMilestoneCost from '~/helpers/getMilestoneCost'
@@ -49,7 +48,7 @@ const BrawlTable = ({ data }) => (
 
 export default React.memo(function ReleaseNotesBrawl2021(props) {
   return (
-    <ReleaseNotes id='brawl_2021'>
+    <>
       <Page.Narrow>
         <p>
           On June 17th, a Stormbound update will be released to revamp the Brawl
@@ -244,6 +243,6 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
           ]}
         />
       </Page.Narrow>
-    </ReleaseNotes>
+    </>
   )
 })

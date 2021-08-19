@@ -2,14 +2,13 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Page from '~/components/Page'
 import CardLink from '~/components/CardLink'
-import ReleaseNotes from '~/components/ReleaseNotes'
 import Title from '~/components/Title'
 
 export default React.memo(function ReleaseNotesSeptember2020(props) {
   const { css } = useFela()
 
   return (
-    <ReleaseNotes id='09_2020'>
+    <>
       <Page.Narrow>
         <p>
           On the 1st of September, a small balance patch will{' '}
@@ -94,6 +93,6 @@ export default React.memo(function ReleaseNotesSeptember2020(props) {
           level).
         </p>
       </Page.Narrow>
-    </ReleaseNotes>
+    </>
   )
 })

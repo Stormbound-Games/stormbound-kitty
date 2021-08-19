@@ -1,6 +1,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import Layout from '~/components/Layout'
+import ReleaseNotes from '~/components/ReleaseNotes'
 import RELEASES from '~/data/releases'
 
 const RELEASE_COMPONENTS = {
@@ -36,7 +37,7 @@ export const getStaticPaths = () => {
 
 export const getStaticProps = ({ params }) => {
   return {
-    props: { id: RELEASES.find(release => release.slug === params.slug).id },
+    props: RELEASES.find(release => release.slug === params.slug) || null,
   }
 }
 
@@ -45,7 +46,9 @@ const ReleasePage = props => {
 
   return (
     <Layout active={['GAME', props.id]}>
-      <Component />
+      <ReleaseNotes {...props}>
+        <Component />
+      </ReleaseNotes>
     </Layout>
   )
 }

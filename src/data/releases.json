@@ -148,7 +148,8 @@
     "slug": "11-2020",
     "background": "/assets/images/banners/halloween.png",
     "ratio": "25%",
-    "id": "11_2020"
+    "id": "11_2020",
+    "withAvif": false
   },
   {
     "cardId": "N78",
@@ -172,7 +173,8 @@
     "slug": "3rd-anniversary",
     "background": "/assets/images/banners/third-anniversary.png",
     "ratio": "57.5%",
-    "id": "3RD_ANNIVERSARY"
+    "id": "3RD_ANNIVERSARY",
+    "withAvif": false
   },
   {
     "cardId": "N57",

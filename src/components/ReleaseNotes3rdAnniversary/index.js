@@ -5,7 +5,6 @@ import Image from '~/components/Image'
 import Info from '~/components/Info'
 import Notice from '~/components/Notice'
 import Only from '~/components/Only'
-import ReleaseNotes from '~/components/ReleaseNotes'
 import ResourceIcon from '~/components/ResourceIcon'
 import { Legendary, Coins, Crowns, Stones, Rubies } from '~/components/Resource'
 import Row from '~/components/Row'
@@ -17,7 +16,7 @@ import getRewardLabel from '~/helpers/getRewardLabel'
 
 export default React.memo(function ReleaseNotes3rdAnniversary(props) {
   return (
-    <ReleaseNotes id='3RD_ANNIVERSARY' withAvif={false}>
+    <>
       <Page.Narrow>
         <p>
           On September 18th, Stormbound is turning 3 years old. That’s
@@ -211,6 +210,6 @@ export default React.memo(function ReleaseNotes3rdAnniversary(props) {
         <span className='Highlight'>Meow</span> and happy fighting, fellow
         Stormbounders!
       </Notice>
-    </ReleaseNotes>
+    </>
   )
 })

@@ -7,7 +7,6 @@ import CheapenedBrawl from '~/components/CheapenedBrawl'
 import FAQSection from '~/components/FAQSection'
 import Image from '~/components/Image'
 import Info from '~/components/Info'
-import ReleaseNotes from '~/components/ReleaseNotes'
 import {
   Rare,
   Epic,
@@ -32,7 +31,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
   const [isTableExpanded, expandTable] = React.useState(false)
 
   return (
-    <ReleaseNotes id='end_of_2020'>
+    <>
       <Page.Narrow>
         <p>
           It’s almost the end of the year already (and what a year it’s been,
@@ -293,6 +292,6 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
           ]}
         />
       </Page.Narrow>
-    </ReleaseNotes>
+    </>
   )
 })

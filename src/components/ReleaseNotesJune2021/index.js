@@ -8,7 +8,6 @@ import FAQSection from '~/components/FAQSection'
 import Image from '~/components/Image'
 import Info from '~/components/Info'
 import NerfCompensationInfo from '~/components/NerfCompensationInfo'
-import ReleaseNotes from '~/components/ReleaseNotes'
 import Row from '~/components/Row'
 import Table from '~/components/Table'
 import TableOfContents from '~/components/TableOfContents'
@@ -27,7 +26,7 @@ export default React.memo(function ReleaseNotesJune2021(props) {
   const [isTableExpanded, expandTable] = React.useState(false)
 
   return (
-    <ReleaseNotes id='06_2021'>
+    <>
       <Page.Narrow>
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early June,
@@ -437,6 +436,6 @@ export default React.memo(function ReleaseNotesJune2021(props) {
           ]}
         />
       </Page.Narrow>
-    </ReleaseNotes>
+    </>
   )
 })
