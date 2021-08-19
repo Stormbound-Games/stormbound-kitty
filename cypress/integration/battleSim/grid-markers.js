@@ -23,6 +23,7 @@ describe('Battle Sim — Grid Markers', () => {
       .should('not.exist')
       .get(s.GRID_MARKERS_CHECKBOX)
       .click()
+      .wait(3000)
       .reload()
       .get(s.GRID_MARKERS)
       .should('exist')
