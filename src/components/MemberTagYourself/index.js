@@ -3,6 +3,7 @@ import Select from 'react-select'
 import { UserContext } from '~/components/UserProvider'
 import Info from '~/components/Info'
 import useSelectStyles from '~/hooks/useSelectStyles'
+import useIsMounted from '~/hooks/useIsMounted'
 
 const UserSelect = props => {
   const styles = useSelectStyles({ withClear: true })
@@ -20,7 +21,10 @@ const UserSelect = props => {
 }
 
 export default React.memo(function MemberTagYourself(props) {
+  const isMounted = useIsMounted()
   const { name, setName } = React.useContext(UserContext)
+
+  if (!isMounted) return null
 
   return (
     <Info icon='user' title='Tag yourself!'>
