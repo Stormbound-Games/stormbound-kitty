@@ -58,7 +58,7 @@ export default React.memo(function GuideD1SFCommons(props) {
         originally reached Diamond with a Winter rush deck, and kept playing
         Winter for a long while. Eventually I switched to Shadowfen for a change
         of pace, but did not have a lot of options. So thanks to kind help from{' '}
-        <Link to='/members/the_mirc'>The_mirc</Link>, I came up with a deck made
+        <Link to='/members/The_mirc'>The_mirc</Link>, I came up with a deck made
         of <Common amount={11} /> and <Rare amount={1} />.
       </p>
       <p>
