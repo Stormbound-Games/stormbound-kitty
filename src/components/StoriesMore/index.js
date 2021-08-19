@@ -34,7 +34,7 @@ export default React.memo(function StoriesMore(props) {
       <>
         <Title>
           Other stories by{' '}
-          <Link to={`/member/${props.author}`}>{props.author}</Link>
+          <Link to={`/members/${props.author}`}>{props.author}</Link>
         </Title>
         <Stories stories={storiesFromAuthor.filter(isNotCurrent)} />
       </>

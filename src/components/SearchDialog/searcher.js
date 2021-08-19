@@ -13,7 +13,7 @@ const recordMember = member => {
   const exists = SEARCH_INDEX.find(entry => entry.label === member)
   if (exists) return
   SEARCH_INDEX.push({
-    path: `/member/${member}`,
+    path: `/members/${member}`,
     label: member,
     breadcrumbs: ['Community', 'Members'],
   })

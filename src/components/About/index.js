@@ -93,7 +93,7 @@ export default React.memo(function About(props) {
           <p>
             If you do donate, please do let me know on Discord so I can add a
             donation entry to{' '}
-            <Link to={name ? `/member/${name}` : '/members'}>
+            <Link to={name ? `/members/${name}` : '/members'}>
               your page on Stormbound-Kitty
             </Link>
             , or will create one if you don’t have one yet. Thank you so much!

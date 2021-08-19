@@ -34,7 +34,7 @@ export default {
     const { count, details, displayName, roles } = getMemberContent(id)
     const embed = getEmbed()
       .setTitle(`${this.label}: ${displayName}`)
-      .setURL(BASE_URL + `/member/${id}`)
+      .setURL(BASE_URL + `/members/${id}`)
 
     if (count === 0) {
       return embed.setDescription(

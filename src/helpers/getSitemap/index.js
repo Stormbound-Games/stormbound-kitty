@@ -126,10 +126,10 @@ export default mode => {
   }
 
   if (mode === 'LIGHT') {
-    links.push('/member/' + members[0])
+    links.push('/members/' + members[0])
   } else {
     members.forEach(member => {
-      links.push('/member/' + member)
+      links.push('/members/' + member)
     })
   }
 

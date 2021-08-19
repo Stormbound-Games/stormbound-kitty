@@ -142,8 +142,8 @@ export default React.memo(function ValueCalculator(props) {
                 experimental and incomplete
               </Link>
               . If you would like to help, please get in touch with{' '}
-              <Link to='/member/Kitty'>Kitty#1909</Link> or{' '}
-              <Link to='/member/Derk'>Derk#7109</Link> on Discord.
+              <Link to='/members/Kitty'>Kitty#1909</Link> or{' '}
+              <Link to='/members/Derk'>Derk#7109</Link> on Discord.
             </p>
           </Info>
         </Row.Column>
