@@ -6,6 +6,7 @@ import FileUpload from '~/components/FileUpload'
 import Only from '~/components/Only'
 import CARDS from '~/data/cards'
 import chunk from '~/helpers/chunk'
+import useIsMounted from '~/hooks/useIsMounted'
 
 const parseCSVData = data => {
   // The former CSV exporting didn’t use line breaks to split lines, therefore
@@ -49,6 +50,7 @@ const notification = {
 }
 
 export default React.memo(function ImportCollection(props) {
+  const isMounted = useIsMounted()
   const { updateCollection } = React.useContext(CollectionContext)
   const { notify } = React.useContext(NotificationContext)
   const { onChange } = props
@@ -61,6 +63,14 @@ export default React.memo(function ImportCollection(props) {
     },
     [onChange, notify, updateCollection]
   )
+
+  if (!isMounted) {
+    return (
+      <CTA disabled type='button'>
+        Import<Only.Desktop> collection</Only.Desktop>
+      </CTA>
+    )
+  }
 
   return (
     <FileUpload
