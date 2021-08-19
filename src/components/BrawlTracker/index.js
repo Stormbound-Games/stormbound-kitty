@@ -74,9 +74,12 @@ export default React.memo(function BrawlTracker(props) {
                 to={'/guides/' + guide.slug}
               />
             </div>
-          ) : (
-            <BrawlRecommendedDecks limit={1} columns={1} />
-          )}
+          ) : props.recommendedDeck ? (
+            <BrawlRecommendedDecks
+              decks={[props.recommendedDeck]}
+              columns={1}
+            />
+          ) : null}
         </Row.Column>
       </Row>
 
