@@ -21,9 +21,9 @@ import Only from '~/components/Only'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
-import CARDS from '~/data/cards'
 import getRawCardData from '~/helpers/getRawCardData'
 import capitalise from '~/helpers/capitalise'
+import countCards from '~/helpers/countCards'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import isCardUpgradable from '~/helpers/isCardUpgradable'
 import { getCardCost } from '~/helpers/getCollectionCost'
@@ -148,7 +148,7 @@ const getCopiesData = collection => {
       .filter(card => getRawCardData(card.id).rarity === rarity)
       .reduce((acc, card) => acc + getTotalCopiesForCard(card), 0)
     const total =
-      CARDS.filter(card => card.rarity === rarity).length *
+      countCards({ rarity }, false) *
       RARITY_COPIES[rarity].copies.reduce((a, b) => a + b, 1)
 
     return {
