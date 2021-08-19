@@ -169,7 +169,7 @@ export default React.memo(function ValueCalculator(props) {
             <>
               <CardValue {...A} />
               <div className={css(styles.cardHolder)}>
-                <Card {...getResolvedCardData(A)} />
+                <Card {...getResolvedCardData(A)} containerWidth={220} />
               </div>
             </>
           )}
@@ -197,7 +197,7 @@ export default React.memo(function ValueCalculator(props) {
             <>
               <CardValue {...B} />
               <div className={css(styles.cardHolder)}>
-                <Card {...getResolvedCardData(B)} />
+                <Card {...getResolvedCardData(B)} containerWidth={220} />
               </div>
             </>
           )}
