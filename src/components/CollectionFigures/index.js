@@ -5,6 +5,7 @@ import Info from '~/components/Info'
 import LearnMoreIcon from '~/components/LearnMoreIcon'
 import Select from '~/components/Select'
 import { Coins, Stones } from '~/components/Resource'
+import countCards from '~/helpers/countCards'
 import getCollectionCost from '~/helpers/getCollectionCost'
 import getExtraAfterMax from '~/helpers/getExtraAfterMax'
 import getRawCardData from '~/helpers/getRawCardData'
@@ -13,7 +14,6 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getBaseHealth from '~/helpers/getBaseHealth'
 import isLevelAvailable from '~/helpers/isLevelAvailable'
 import { getRarityColor } from '~/helpers/getRarity'
-import CARDS from '~/data/cards'
 import { RARITY_COPIES, UPGRADE_COST } from '~/constants/game'
 import styles from './styles'
 
@@ -63,14 +63,11 @@ const getCopiesData = (collection, expectedCardLevel) => {
     )
 
     // Total amount of copies of this rarity needed to reach `cardLevel`
-    const total = CARDS.filter(card => card.rarity === rarity).reduce(
-      (acc, card) =>
-        acc +
-        RARITY_COPIES[card.rarity].copies
-          .slice(0, expectedCardLevel - 1)
-          .reduce((a, b) => a + b, 1),
-      0
-    )
+    const total =
+      countCards({ rarity }, false) *
+      RARITY_COPIES[rarity].copies
+        .slice(0, expectedCardLevel - 1)
+        .reduce((a, b) => a + b, 1)
 
     const coins = cardsFromRarity.reduce((total, card) => {
       if (card.missing || card.level >= expectedCardLevel) return total
@@ -203,17 +200,6 @@ export default React.memo(function CollectionFigures(props) {
     [expectedCardLevel, props.collection]
   )
   const fortressDisplay = useFortressDisplay(props.collection)
-  const totalCost = React.useMemo(
-    () =>
-      getCollectionCost(
-        CARDS.filter(card => !card.token).map(card => ({
-          id: card.id,
-          level: 5,
-          copies: 0,
-        }))
-      ),
-    []
-  )
 
   return (
     <>
@@ -228,7 +214,7 @@ export default React.memo(function CollectionFigures(props) {
           <span className={css(styles.item)}>
             <Stones amount={collectionCost} />
           </span>{' '}
-          ({((collectionCost / totalCost) * 100).toFixed(2)}%)
+          ({((collectionCost / props.maxCollectionCost) * 100).toFixed(2)}%)
         </li>
         <li>
           Average card level:{' '}

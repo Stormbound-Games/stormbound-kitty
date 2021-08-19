@@ -250,7 +250,10 @@ export default React.memo(function CollectionStats(props) {
           </Row>
           <Row isDesktopOnly>
             <Row.Column>
-              <CollectionFigures collection={collection} />
+              <CollectionFigures
+                collection={collection}
+                maxCollectionCost={props.maxCollectionCost}
+              />
             </Row.Column>
           </Row>
         </Row.Column>
