@@ -1,7 +1,6 @@
 import React from 'react'
 import Teasers from '~/components/Teasers'
 import Title from '~/components/Title'
-import SWCC from '~/data/swcc'
 import getRawCardData from '~/helpers/getRawCardData'
 import serialisation from '~/helpers/serialisation'
 
@@ -40,12 +39,12 @@ export default React.memo(function CardBuilderHallOfFame(props) {
     <>
       <Title>Season 2</Title>
       <CardBuilderHallOfFameSeason
-        weeks={SWCC[0].filter(week => !!week.winner)}
+        weeks={props.seasons[0].filter(week => !!week.winner)}
       />
 
       <Title>Season 1</Title>
       <CardBuilderHallOfFameSeason
-        weeks={SWCC[1].filter(week => !!week.winner)}
+        weeks={props.seasons[1].filter(week => !!week.winner)}
       />
     </>
   )

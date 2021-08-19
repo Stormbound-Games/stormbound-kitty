@@ -108,7 +108,7 @@ export default React.memo(function CardBuilderContest(props) {
         </Page.Narrow>
       </Page>
 
-      <HallOfFame />
+      <HallOfFame seasons={props.seasons} />
     </>
   )
 })
