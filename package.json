@@ -73,7 +73,6 @@
     "next-sitemap": "^1.6.157",
     "nodemon": "^2.0.12",
     "prettier": "^2.3.2",
-    "sitemap": "^7.0.0",
     "svg2png": "^4.1.1"
   },
   "lint-staged": {
