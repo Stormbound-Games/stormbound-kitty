@@ -14,201 +14,263 @@ const renderRootStyles = renderer => {
       'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD',
   })
 
-  renderer.renderStatic(`
-  :root {
-    scroll-padding-top: 2em;
+  renderer.renderStatic(
+    {
+      scrollPaddingTop: '2em',
 
-    /* Game colors */
-    --beige: #e2d7af;
-    --dark-beige: #9b8e70;
-    --light-blue: #2e5662;
-    --dark-blue: #20353f;
-    --green: #36786d;
-    --black: #101f26;
-    --white: #f5f2e5;
-    --yellow: #d0b84c;
+      // Game colors
+      '--beige': '#e2d7af',
+      '--dark-beige': '#9b8e70',
+      '--light-blue': '#2e5662',
+      '--dark-blue': '#20353f',
+      '--green': '#36786d',
+      '--black': '#101f26',
+      '--white': '#f5f2e5',
+      '--yellow': '#d0b84c',
 
-    /* Faction colors */
-    --neutral: #4e5659;
-    --swarm: #604830;
-    --ironclad: #824648;
-    --shadowfen: #30655d;
-    --winter: #405477;
-    --light-swarm: #b89571;
-    --light-ironclad: #b6787a;
-    --light-shadowfen: #56afa1;
-    --light-winter: #6680ad;
+      // Faction colors
+      '--neutral': '#4e5659',
+      '--swarm': '#604830',
+      '--ironclad': '#824648',
+      '--shadowfen': '#30655d',
+      '--winter': '#405477',
+      '--light-swarm': '#b89571',
+      '--light-ironclad': '#b6787a',
+      '--light-shadowfen': '#56afa1',
+      '--light-winter': '#6680ad',
 
-    /* Card colors */
-    --affordable: #6be79c;
-    --upgradable: #e7d146;
+      // Card colors
+      '--affordable': '#6be79c',
+      '--upgradable': '#e7d146',
 
-    /* Battle sim colors */
-    --player-red: #cb2b43;
-    --player-blue: #195d9c;
-    --poison: #700470;
-    --freeze: #60adc7;
-    --confused: #c59948;
-    --vitalised: #24e071;
-    --disabled: #a52086;
+      // Battle sim colors
+      '--player-red': '#cb2b43',
+      '--player-blue': '#195d9c',
+      '--poison': '#700470',
+      '--freeze': '#60adc7',
+      '--confused': '#c59948',
+      '--vitalised': '#24e071',
+      '--disabled': '#a52086',
 
-    /* League colors */
-    --starter: currentcolor;
-    --iron: #d3d1cc;
-    --bronze: #e2c3b7;
-    --silver: #d6d9e2;
-    --gold: #f1e0be;
-    --platinum: #c0e0cf;
-    --diamond: #c8c0df;
-    --heroes: #caf9ff;
+      // League colors
+      '--starter': 'currentcolor',
+      '--iron': '#d3d1cc',
+      '--bronze': '#e2c3b7',
+      '--silver': '#d6d9e2',
+      '--gold': '#f1e0be',
+      '--platinum': '#c0e0cf',
+      '--diamond': '#c8c0df',
+      '--heroes': '#caf9ff',
 
-    /* Rarity colors */
-    --common: #f5f1e5;
-    --common-bright: #97927b;
-    --rare: #95d7f9;
-    --rare-bright: #1faee0;
-    --epic: #dba8f5;
-    --epic-bright: #c45de6;
-    --legendary: #f5c79f;
-    --legendary-bright: #e88931;
+      // Rarity colors
+      '--common': '#f5f1e5',
+      '--common-bright': '#97927b',
+      '--rare': '#95d7f9',
+      '--rare-bright': '#1faee0',
+      '--epic': '#dba8f5',
+      '--epic-bright': '#c45de6',
+      '--legendary': '#f5c79f',
+      '--legendary-bright': '#e88931',
 
-    /* Spacing variables */
-    --s-smallest: ${SPACING_TOKENS.SMALLEST};
-    --s-smaller: ${SPACING_TOKENS.SMALLER};
-    --s-small: ${SPACING_TOKENS.SMALL};
-    --s-base: ${SPACING_TOKENS.BASE};
-    --s-large: ${SPACING_TOKENS.LARGE};
-    --s-larger: ${SPACING_TOKENS.LARGER};
-    --s-largest: ${SPACING_TOKENS.LARGEST};
-  }
+      // Spacing variables
+      '--s-smallest': SPACING_TOKENS.SMALLEST,
+      '--s-smaller': SPACING_TOKENS.SMALLER,
+      '--s-small': SPACING_TOKENS.SMALL,
+      '--s-base': SPACING_TOKENS.BASE,
+      '--s-large': SPACING_TOKENS.LARGE,
+      '--s-larger': SPACING_TOKENS.LARGER,
+      '--s-largest': SPACING_TOKENS.LARGEST,
+    },
+    ':root'
+  )
 
-  * {
-    box-sizing: border-box;
-  }
+  renderer.renderStatic(
+    {
+      boxSizing: 'border-box',
+    },
+    '*'
+  )
 
-  body {
-    margin: 0;
-    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-image: url('/assets/images/background.png');
-    background-repeat: repeat;
-    background-color: var(--black);
-    color: var(--white);
-  }
+  renderer.renderStatic(
+    {
+      margin: 0,
+      fontFamily:
+        "'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+      WebkitFontSmoothing: 'antialiased',
+      MozOsxFontSmoothing: 'grayscale',
+      backgroundImage: "url('/assets/images/background.png')",
+      backgroundRepeat: 'repeat',
+      backgroundColor: 'var(--black)',
+      color: 'var(--white)',
+    },
+    'body'
+  )
 
-  html {
-    min-height: 100%;
-    overflow-x: hidden;
-  }
+  renderer.renderStatic(
+    {
+      minHeight: '100%',
+      overflowX: 'hidden',
+    },
+    'html'
+  )
 
-  button {
-    font: inherit;
-  }
+  renderer.renderStatic(
+    {
+      font: 'inherit',
+    },
+    'button'
+  )
 
-  html,
-  body,
-  #root {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-  }
+  renderer.renderStatic(
+    {
+      display: 'flex',
+      flexDirection: 'column',
+      flex: '1 1 auto',
+    },
+    'html, body, #__next'
+  )
 
-  [hidden] {
-    display: none !important;
-  }
+  renderer.renderStatic(
+    {
+      display: 'none !important',
+    },
+    '[hidden]'
+  )
 
-  p {
-    margin-top: 0;
-    margin-bottom: 1em;
-  }
+  renderer.renderStatic(
+    {
+      marginTop: 0,
+      marginBottom: '1em',
+    },
+    'p'
+  )
 
-  /**
-   * This will hide the focus indicator if the element receives focus via the mouse,
-   * but it will still show up on keyboard focus.
-   */
-  .js-focus-visible :focus:not(.focus-visible) {
-    outline: none;
-  }
+  // This will hide the focus indicator if the element receives focus via the
+  // mouse, but it will still show up on keyboard focus.
+  renderer.renderStatic(
+    {
+      outline: 'none',
+    },
+    '.js-focus-visible :focus:not(.focus-visible)'
+  )
 
-  option {
-    color: var(--black);
-  }
+  renderer.renderStatic(
+    {
+      color: 'var(--black)',
+    },
+    'option'
+  )
 
-  legend {
-    text-transform: uppercase;
-    font-size: 90%;
-    color: var(--beige);
-    display: inline-block;
-    margin-bottom: 0.25em;
-  }
+  renderer.renderStatic(
+    {
+      textTransform: 'uppercase',
+      fontSize: '90%',
+      color: 'var(--beige)',
+      display: 'inline-block',
+      marginBottom: '0.25em',
+    },
+    'legend'
+  )
 
-  fieldset {
-    padding: 0;
-    margin: 0;
-    border: 0;
-  }
+  renderer.renderStatic(
+    {
+      padding: 0,
+      margin: 0,
+      border: 0,
+    },
+    'fieldset'
+  )
 
-  .Highlight {
-    color: var(--beige);
-    font-weight: normal;
-  }
+  renderer.renderStatic(
+    {
+      color: 'var(--beige)',
+      fontWeight: 'normal',
+    },
+    '.Highlight'
+  )
 
-  code {
-    color: var(--beige);
-    font-size: 110%;
-  }
+  renderer.renderStatic(
+    {
+      color: 'var(--beige)',
+      fontSize: '110%',
+    },
+    'code'
+  )
 
-  abbr[title] {
-    border-bottom: 1px dotted;
-    text-decoration: none;
-    cursor: help;
-  }
+  renderer.renderStatic(
+    {
+      borderBottom: '1px dotted',
+      textDecoration: 'none',
+      cursor: 'help',
+    },
+    'abbr[title]'
+  )
 
-  summary {
-    cursor: pointer;
-    border-bottom: 1px solid transparent;
-    display: inline-block;
-    transition: 250ms;
-  }
+  renderer.renderStatic(
+    {
+      cursor: 'pointer',
+      borderBottom: '1px solid transparent',
+      display: 'inline-block',
+      transition: '250ms',
+    },
+    'summary'
+  )
 
-  summary:hover {
-    color: var(--beige);
-    border-bottom-color: currentcolor;
-  }
+  renderer.renderStatic(
+    {
+      color: 'var(--beige)',
+      borderBottomColor: 'currentcolor',
+    },
+    'summary:hover'
+  )
 
-  .EditorialContent p:not([class]) strong,
-  .EditorialContent li:not([class]) strong {
-    color: var(--beige);
-  }
+  renderer.renderStatic(
+    {
+      color: 'var(--beige)',
+    },
+    '.EditorialContent p:not([class]) strong, .EditorialContent li:not([class]) strong'
+  )
 
-  .EditorialContent h3:not([class]) {
-    color: var(--beige);
-    margin-top: 2em;
-  }
+  renderer.renderStatic(
+    {
+      color: 'var(--beige)',
+      marginTop: '2em',
+    },
+    '.EditorialContent h3:not([class])'
+  )
 
-  .EditorialContent ol ul:not([class]) {
-    margin-top: 0.5em;
-    margin-bottom: 0;
-  }
+  renderer.renderStatic(
+    {
+      marginTop: '0.5em',
+      marginBottom: 0,
+    },
+    '.EditorialContent ol ul:not([class])'
+  )
 
-  .EditorialContent ol:not([class]),
-  .EditorialContent ul:not([class]) {
-    padding: 0;
-    list-style-position: inside;
-  }
+  renderer.renderStatic(
+    {
+      padding: 0,
+      listStylePosition: 'inside',
+    },
+    '.EditorialContent ol ul:not([class])'
+  )
 
-  .EditorialContent li:not([class]) {
-    padding-left: 1.4em;
-    text-indent: -1.4em;
-    margin-bottom: 0.5em;
-  }
+  renderer.renderStatic(
+    {
+      paddingLeft: '1.4em',
+      textIndent: '-1.4em',
+      marginBottom: '0.5em',
+    },
+    '.EditorialContent li:not([class])'
+  )
 
-  .EditorialContent li ul {
-    margin-top: 0.5em;
-    margin-bottom: 0;
-  }
-`)
+  renderer.renderStatic(
+    {
+      marginTop: '0.5em',
+      marginBottom: 0,
+    },
+    '.EditorialContent li ul'
+  )
 }
 
 export default renderRootStyles
