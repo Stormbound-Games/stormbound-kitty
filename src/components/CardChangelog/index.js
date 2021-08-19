@@ -1,10 +1,9 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import CardChangelogForm from '~/components/CardChangelogForm'
 import Link from '~/components/Link'
 import Page from '~/components/Page'
 import Info from '~/components/Info'
-import Row from '~/components/Row'
-import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import FeedCardChange from '~/components/FeedCardChange'
@@ -52,34 +51,12 @@ export default React.memo(function CardChangelog(props) {
       isEditorialContent
     >
       <Page.Narrow>
-        <Title>Filters</Title>
-        <Row>
-          <Row.Column>
-            <Select
-              label='Sort by'
-              id='sorting'
-              value={sorting}
-              onChange={event => setSorting(event.target.value)}
-            >
-              <option value='DATE'>Date</option>
-              <option value='CARD'>Card</option>
-            </Select>
-          </Row.Column>
-          <Row.Column>
-            <Select
-              label='Types of changes'
-              id='type'
-              value={type}
-              onChange={event => setType(event.target.value)}
-            >
-              <option value='*'>Any</option>
-              <option value='BUFF'>Buff</option>
-              <option value='INFO'>Info</option>
-              <option value='MIXED'>Mixed</option>
-              <option value='NERF'>Nerf</option>
-            </Select>
-          </Row.Column>
-        </Row>
+        <CardChangelogForm
+          sorting={sorting}
+          setSorting={setSorting}
+          type={type}
+          setType={setType}
+        />
 
         <Info icon='compass' title='Release notes'>
           <p>
