@@ -10,7 +10,7 @@
 const VARIABLES_RE = /([^*\s/]*)\/([^/]*)\/([^/]*)\/([^/]*)\/([^*\s,]*|$)/g
 const SLOTS = [null, null, null, null, null]
 
-export default string => {
+const resolveAbility = string => {
   if (string === null) {
     return { values: SLOTS, display: null }
   }
@@ -32,3 +32,5 @@ export default string => {
 
   return { values, display: decoded }
 }
+
+export default resolveAbility

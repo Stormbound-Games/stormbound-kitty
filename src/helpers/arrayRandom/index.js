@@ -1,1 +1,3 @@
-export default items => items[Math.floor(Math.random() * items.length)]
+const arrayRandom = items => items[Math.floor(Math.random() * items.length)]
+
+export default arrayRandom

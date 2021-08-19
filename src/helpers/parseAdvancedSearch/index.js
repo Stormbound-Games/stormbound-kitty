@@ -33,7 +33,7 @@ const parseToRange = value => {
   if (!isNaN(+value)) return +value
 }
 
-export default value => {
+const parseAdvancedSearch = value => {
   const accumulator = {}
   const chunks = value.split(/\s+/g)
   const is = chunks.filter(chunk => chunk.match(IS_TOKEN))
@@ -92,3 +92,5 @@ export const serialiseFilters = filters => {
 
   return search.join(' ')
 }
+
+export default parseAdvancedSearch

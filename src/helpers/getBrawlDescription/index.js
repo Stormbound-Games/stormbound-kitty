@@ -1,4 +1,4 @@
-export default id => {
+const getBrawlDescription = id => {
   switch (id) {
     case 'DWARF_MANA':
       return 'All *Dwarf* units cost *-2 mana* from their initial mana cost, for a minimum of 0.'
@@ -46,3 +46,5 @@ export default id => {
       return null
   }
 }
+
+export default getBrawlDescription

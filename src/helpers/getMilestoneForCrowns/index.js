@@ -1,6 +1,6 @@
 import { BRAWL_MILESTONES } from '~/constants/brawl'
 
-export default (crowns = 0, difficulty = 'LEGACY') => {
+const getMilestoneForCrowns = (crowns = 0, difficulty = 'LEGACY') => {
   const milestones = BRAWL_MILESTONES[difficulty]
   const nextIndex = milestones.findIndex(milestone => milestone.crowns > crowns)
 
@@ -20,3 +20,5 @@ export default (crowns = 0, difficulty = 'LEGACY') => {
     nextIndex,
   }
 }
+
+export default getMilestoneForCrowns

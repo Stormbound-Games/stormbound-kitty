@@ -7,11 +7,13 @@ import rwc from 'random-weighted-choice'
  * @param {Object[]} cards - Cards to choose from
  * @return {Object} Chosen card
  */
-export default cards => {
+const rwcDuplicates = cards => {
   if (!cards.every(card => card.hasOwnProperty('idx'))) {
     const pickId = rwc(cards)
-    return cards.find(card => pick.id === pickId)
+
+    return cards.find(card => card.id === pickId)
   }
+
   const mergeIds = (id, idx) => id + '_' + idx
   const mergeCardIds = card => ({ ...card, id: mergeIds(card.id, card.idx) })
   const extractIds = longId => longId.split('_')
@@ -26,3 +28,5 @@ export default cards => {
 
   return extractCardIds(pick)
 }
+
+export default rwcDuplicates

@@ -1,4 +1,4 @@
-export default card =>
+const isCardLevelResolved = card =>
   // Name is there
   !!card.name &&
   // And if there is a strength, it doesn’t contain slashes
@@ -9,3 +9,5 @@ export default card =>
   // And if there is a stringified mana, it doesn’t contain slashes
   (typeof card.mana === 'number' ||
     (typeof card.mana === 'string' && !card.mana.includes('/')))
+
+export default isCardLevelResolved

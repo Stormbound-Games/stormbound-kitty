@@ -13,7 +13,7 @@ import isCardUpgradable from '~/helpers/isCardUpgradable'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getBaseHealth from '~/helpers/getBaseHealth'
 import isLevelAvailable from '~/helpers/isLevelAvailable'
-import { getRarityColor } from '~/helpers/getRarity'
+import getRarityColor from '~/helpers/getRarityColor'
 import { RARITY_COPIES, UPGRADE_COST } from '~/constants/game'
 import styles from './styles'
 

@@ -1,7 +1,7 @@
 import sortCards from '~/helpers/sortCards'
 import CARDS from '~/data/cards'
 
-export default () =>
+const getCardsByFaction = () =>
   CARDS.reduce((acc, card) => {
     const group = card.token ? 'tokens' : card.faction
 
@@ -19,3 +19,5 @@ export default () =>
 
     return acc
   }, {})
+
+export default getCardsByFaction

@@ -1,7 +1,7 @@
 import { RARITY_COPIES } from '~/constants/game'
 import getCostForLevel from '~/helpers/getCostForLevel'
 
-export default ({ rarity, level, copies }) => {
+const getExtraAfterMax = ({ rarity, level, copies }) => {
   const costForMax = getCostForLevel(5)({ rarity, level, copies })
 
   if (costForMax.copies > 0) {
@@ -13,3 +13,5 @@ export default ({ rarity, level, copies }) => {
     coins: costForMax.extraCopies * RARITY_COPIES[rarity].coinsPerExtraCopy,
   }
 }
+
+export default getExtraAfterMax

@@ -1,6 +1,6 @@
 import getRawCardData from '~/helpers/getRawCardData'
 
-export default ({ noBorder, withClear } = {}) => {
+const useSelectStyles = ({ noBorder, withClear } = {}) => {
   return {
     input: provided => ({ ...provided, color: 'var(--white)' }),
 
@@ -108,3 +108,5 @@ export default ({ noBorder, withClear } = {}) => {
     }),
   }
 }
+
+export default useSelectStyles

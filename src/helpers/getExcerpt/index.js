@@ -1,4 +1,4 @@
-export default (string, length) => {
+const getExcerpt = (string, length) => {
   if (string.length <= length) return string
   let excerpt = string.slice(0, length)
 
@@ -8,3 +8,5 @@ export default (string, length) => {
 
   return excerpt + '…'
 }
+
+export default getExcerpt

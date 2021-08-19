@@ -2,7 +2,7 @@ import serialisation from '~/helpers/serialisation'
 import getCardFromSlug from '~/helpers/getCardFromSlug'
 import getRawCardData from '~/helpers/getRawCardData'
 
-export default card => {
+const getInitialCardData = card => {
   if (!card) {
     return {}
   }
@@ -46,3 +46,5 @@ export const getInitialCardDataFromQuery = () => {
 
   return state
 }
+
+export default getInitialCardData

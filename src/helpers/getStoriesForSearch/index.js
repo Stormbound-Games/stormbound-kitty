@@ -9,7 +9,7 @@ export const searcher = new Fuse(STORIES, {
   ],
 })
 
-export default search => {
+const getStoriesForSearch = search => {
   if (search.length < 2) return []
 
   const results = searcher.search(search).map(result => result.item)
@@ -20,3 +20,5 @@ export default search => {
 
   return STORIES.filter(story => result === story.cardId)
 }
+
+export default getStoriesForSearch

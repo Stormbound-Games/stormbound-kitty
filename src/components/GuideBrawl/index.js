@@ -16,14 +16,12 @@ import Table from '~/components/Table'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import getRewardLabel from '~/helpers/getRewardLabel'
-import getCurrentBrawl from '~/helpers/getCurrentBrawl'
 import { BRAWLS, BRAWL_MILESTONES } from '~/constants/brawl'
 
 export default React.memo(function GuideBrawl(props) {
   const { css } = useFela()
   const [difficulty, setDifficulty] = React.useState('ULTIMATE')
   const milestones = BRAWL_MILESTONES[difficulty]
-  const currentBrawl = getCurrentBrawl()
 
   return (
     <>
@@ -176,13 +174,13 @@ export default React.memo(function GuideBrawl(props) {
         </ul>
       </Only.Mobile>
 
-      <Only.Mobile>
+      <Only.Desktop>
         <div className={css({ fontSize: '80%' })}>
-          <BrawlProvider id={currentBrawl.id} difficulty={difficulty}>
+          <BrawlProvider id='SPELL_MANA' difficulty={difficulty}>
             <BrawlMilestones difficulty={difficulty} />
           </BrawlProvider>
         </div>
-      </Only.Mobile>
+      </Only.Desktop>
 
       <p>
         Crowns are reset every week, and there is no way to skip a milestone or
@@ -372,14 +370,11 @@ export default React.memo(function GuideBrawl(props) {
       </p>
 
       <p>
-        The site offers a{' '}
-        <Link to={'/brawl/' + currentBrawl.id.replace(/_/g, '-').toLowerCase()}>
-          Brawl tracker
-        </Link>{' '}
-        where you can record the outcome of your matches as you play them. In
-        return, it gives you the amount of coins you spent in fees, the amount
-        of coins and rewards you received, and even gives you handy statistics
-        on your win/rate ratio.
+        The site offers a <Link to='/brawl'>Brawl tracker</Link> where you can
+        record the outcome of your matches as you play them. In return, it gives
+        you the amount of coins you spent in fees, the amount of coins and
+        rewards you received, and even gives you handy statistics on your
+        win/rate ratio.
       </p>
 
       <Footnotes>

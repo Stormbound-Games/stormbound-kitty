@@ -1,4 +1,4 @@
-function getOrdinalSuffix(i) {
+const getOrdinalSuffix = i => {
   const j = i % 10
   const k = i % 100
 

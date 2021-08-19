@@ -1,6 +1,6 @@
 import capitalise from '~/helpers/capitalise'
 
-export default state => {
+const formatCardStats = state => {
   const faction = capitalise(state.faction)
   const type = capitalise(state.type)
   const name = capitalise(state.name)
@@ -25,3 +25,5 @@ export default state => {
     .filter(Boolean)
     .join('\n')
 }
+
+export default formatCardStats

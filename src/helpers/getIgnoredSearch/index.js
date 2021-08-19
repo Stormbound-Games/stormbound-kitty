@@ -3,7 +3,7 @@ const STRATEGIES = {
   SPACE: { regex: /\s+/g, connector: ' ' },
 }
 
-export default (search, ignored, strategy = 'SPACE') =>
+const getIgnoredSearch = (search, ignored, strategy = 'SPACE') =>
   ignored.length > 0
     ? '*Search: ' +
       search
@@ -13,3 +13,5 @@ export default (search, ignored, strategy = 'SPACE') =>
         .join(STRATEGIES[strategy].connector) +
       '*'
     : ''
+
+export default getIgnoredSearch

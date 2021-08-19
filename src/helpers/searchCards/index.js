@@ -15,7 +15,7 @@ export const searcher = new Fuse(
   }
 )
 
-export default search => {
+const searchCards = search => {
   const needle = search.trim()
 
   if (needle.length < 2) return []
@@ -36,3 +36,5 @@ export default search => {
 
   return searcher.search(needle).map(result => result.item)
 }
+
+export default searchCards

@@ -1,7 +1,7 @@
 import React from 'react'
 import useViewportSize from './useViewportSize'
 
-export default (ratio, defaultWidth = undefined) => {
+const useFluidSizing = (ratio, defaultWidth = undefined) => {
   const { viewportWidth } = useViewportSize()
   const ref = React.createRef()
   const [fontSize, setFontSize] = React.useState(
@@ -14,3 +14,5 @@ export default (ratio, defaultWidth = undefined) => {
 
   return { fontSize, ref }
 }
+
+export default useFluidSizing

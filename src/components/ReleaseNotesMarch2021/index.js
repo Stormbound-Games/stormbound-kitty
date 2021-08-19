@@ -26,7 +26,7 @@ import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import getBookName from '~/helpers/getBookName'
 import getInitialCardData from '~/helpers/getInitialCardData'
-import { getRarityColor } from '~/helpers/getRarity'
+import getRarityColor from '~/helpers/getRarityColor'
 
 export default React.memo(function ReleaseNotesMarch2021(props) {
   const { css } = useFela()

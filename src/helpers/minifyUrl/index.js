@@ -4,7 +4,7 @@ const QUERY = '?format=json&url='
 
 const cache = new Map()
 
-export default url => {
+const minifyUrl = url => {
   if (cache.has(url)) {
     return cache.get(url)
   }
@@ -22,3 +22,5 @@ export default url => {
     })
     .catch(() => url)
 }
+
+export default minifyUrl
