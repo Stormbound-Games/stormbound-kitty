@@ -29,7 +29,7 @@ export default React.memo(function BrawlRecommendedDecks(props) {
     <>
       <Title>Recommended deck{props.limit === 1 ? '' : 's'}</Title>
       <Decks showUpgrades columns={props.columns} decks={brawlDecks} />
-      <p className={css({ marginTop: '-2em' })}>
+      <p>
         <Icon icon='arrow-right' extend={{ transform: 'translateY(2px)' }} />{' '}
         Check more{' '}
         <Link to={'/deck/suggestions?tags=BRAWL%2C' + id}>
