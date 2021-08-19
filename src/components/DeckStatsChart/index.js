@@ -14,6 +14,7 @@ import Loader from '~/components/Loader'
 import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
 import computeDeckChances from '~/helpers/computeDeckChances'
+import useIsMounted from '~/hooks/useIsMounted'
 import { TOOLTIP_STYLES } from '~/constants/stats'
 import { BRAWLS } from '~/constants/brawl'
 import styles from './styles'
@@ -48,6 +49,7 @@ const computeData = async (deck, modifier) => {
 }
 
 export default React.memo(function DeckStatsChart(props) {
+  const isMounted = useIsMounted()
   const { css } = useFela()
   const [data, setData] = React.useState([])
   const [loading, setLoading] = React.useState(false)
@@ -59,6 +61,8 @@ export default React.memo(function DeckStatsChart(props) {
       .then(response => setData(response))
       .finally(() => setLoading(false))
   }, [props.deck, props.modifier])
+
+  if (!isMounted) return null
 
   // Only enable the loading state when there is no data to begin with, but
   // not when re-rendering the chart, so the visualisation animates from the
