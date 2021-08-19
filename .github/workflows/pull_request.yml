@@ -40,7 +40,6 @@ jobs:
           install: false
           record: true
           parallel: true
-          browser: chrome
           group: 'Integration tests'
         env:
           CYPRESS_BASE_URL: ${{ env.PREVIEW_URL }}
