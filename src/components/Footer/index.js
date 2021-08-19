@@ -33,6 +33,9 @@ export default React.memo(function Footer(props) {
               src='https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg'
               alt='Powered by Vercel'
               extend={styles.vercel}
+              width={154}
+              height={32}
+              lazy
             />
           </Row.Column>
           <Only.Desktop>

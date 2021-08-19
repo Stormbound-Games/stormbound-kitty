@@ -13,6 +13,9 @@ export default React.memo(function EmptySearch(props) {
         extend={styles.image}
         src='/assets/images/cards/sweetcap_kittens.png'
         withAvif
+        width={250}
+        height={280}
+        lazy
       />
       <span className={css(styles.title)}>
         {props.title || 'No results found'}

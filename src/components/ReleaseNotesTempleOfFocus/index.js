@@ -33,6 +33,9 @@ export default React.memo(function ReleaseNotesTempleOfFocus(props) {
         <Image
           src='/assets/images/releases/promotion_temple_of_focus.png'
           alt='3 copies of Temple of Focus + 5 Fusion Stones + 750 coins for $9.99'
+          width={500}
+          height={280}
+          lazy
         />
       </Page.Narrow>
     </>

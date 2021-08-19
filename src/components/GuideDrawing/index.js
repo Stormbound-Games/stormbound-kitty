@@ -77,6 +77,9 @@ export default React.memo(function GuideDrawing(props) {
         extend={styles.formula}
         src='/assets/images/guides/formula.png'
         alt='f(w) = floor(w * 1.6) + 1'
+        width={500}
+        height={58}
+        lazy
       />
 
       <p>

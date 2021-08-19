@@ -73,7 +73,15 @@ export default React.memo(function Dialog(props) {
       )}
 
       {image !== null && (
-        <Image extend={styles.image} src={image} alt='' withAvif />
+        <Image
+          extend={styles.image}
+          src={image}
+          alt=''
+          withAvif
+          width={200}
+          height={200}
+          lazy
+        />
       )}
 
       <div className={css(styles.body, props.extend?.body)}>

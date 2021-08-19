@@ -11,7 +11,14 @@ export default React.memo(function HomeNews(props) {
 
   return (
     <aside className={css(styles.container)}>
-      <Image extend={styles.image} src='/assets/images/kitty.png' withoutWebp />
+      <Image
+        extend={styles.image}
+        src='/assets/images/kitty.png'
+        withoutWebp
+        width={446}
+        height={339}
+        lazy
+      />
 
       <Spacing bottom='LARGE'>
         <div className={css(styles.box)}>

@@ -25,6 +25,7 @@ export default React.memo(function Image(props) {
 
   return (
     <img
+      loading={props.lazy ? 'lazy' : undefined}
       width={props.width}
       height={props.height}
       src={props.src.replace('png', ext)}

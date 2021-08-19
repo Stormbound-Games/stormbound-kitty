@@ -253,6 +253,9 @@ export default React.memo(function GuideTrivia(props) {
               src='/assets/images/guides/scales.png'
               alt='A human knight and hippo used as measurement scales'
               extend={{ marginTop: 0 }}
+              width={513}
+              height={231}
+              lazy
             />
           </Row.Column>
         </Row>
@@ -264,6 +267,9 @@ export default React.memo(function GuideTrivia(props) {
             src='/assets/images/guides/toad_fall.gif'
             alt='The fall of a toad at 0.25x speed'
             extend={{ marginTop: 0 }}
+            width={328}
+            height={245}
+            lazy
           />
         </Row.Column>
         <Row.Column>

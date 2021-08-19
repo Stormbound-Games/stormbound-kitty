@@ -220,6 +220,9 @@ export default React.memo(function BooksCalculator(props) {
               extend={styles.book}
               alt={getBookName(bookType)}
               withAvif
+              width={219}
+              height={340}
+              lazy
             />
           </Row.Column>
         </Only.Desktop>

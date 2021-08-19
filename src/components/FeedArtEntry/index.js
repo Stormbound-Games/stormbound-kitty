@@ -18,6 +18,8 @@ export default React.memo(function FeedArtEntry(props) {
           src={'/assets/images/art/' + props.image}
           alt={'Artwork by' + props.author}
           extend={{ maxWidth: '450px', width: '100%' }}
+          width={450}
+          lazy
           withoutWebp
         />
       </details>

@@ -118,7 +118,6 @@ const strengthContent = {
 const image = {
   display: 'block',
   height: '100%',
-  width: '100%',
   objectFit: 'contain',
   pointerEvents: 'none',
   transition: 'filter 1s',

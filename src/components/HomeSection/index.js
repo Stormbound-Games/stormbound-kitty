@@ -16,7 +16,14 @@ export default React.memo(function HomeSection(props) {
           <Row.Column>
             {props.image && (
               <Only.Desktop>
-                <Image extend={styles.image} src={props.image} withAvif />
+                <Image
+                  extend={styles.image}
+                  src={props.image}
+                  withAvif
+                  width={270}
+                  height={270}
+                  lazy
+                />
               </Only.Desktop>
             )}
           </Row.Column>

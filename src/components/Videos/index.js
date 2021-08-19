@@ -30,6 +30,9 @@ export default React.memo(function Videos(props) {
                         src={channel.thumbnail}
                         alt={`${channel.author}’s avatar`}
                         extend={styles.image}
+                        width={200}
+                        height={200}
+                        lazy
                       />
                     </Row.Column>
                     <Row.Column

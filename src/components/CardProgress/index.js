@@ -36,6 +36,9 @@ export default React.memo(function CardProgress(props) {
             : '/assets/images/iconography/cards.png'
         }
         extend={styles.image}
+        width={41}
+        height={missing ? 52 : 38}
+        lazy
       />
       <ProgressBar value={current} min={0} max={max} />
       <span className={css(styles.label)}>{current + '/' + max}</span>

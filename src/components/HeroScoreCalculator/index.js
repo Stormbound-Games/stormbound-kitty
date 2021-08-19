@@ -51,6 +51,9 @@ export default React.memo(function HeroScoreCalculator(props) {
             <Image
               src='/assets/images/releases/hero_score_formula.png'
               alt='Hero Score computing formula'
+              width={364}
+              height={47}
+              lazy
             />
           </Spacing>
 
@@ -202,6 +205,9 @@ export default React.memo(function HeroScoreCalculator(props) {
               src='/assets/images/releases/rank_hero.png'
               alt=''
               withoutWebp
+              width={364}
+              height={192}
+              lazy
             />
             <span className={css(styles.score)}>{Math.round(newScore)}</span>
           </div>

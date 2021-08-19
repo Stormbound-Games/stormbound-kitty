@@ -170,6 +170,9 @@ export default React.memo(function GuideBeginner(props) {
         extend={styles.image}
         src='/assets/images/guides/guide_ozone_purifiers.png'
         alt='Ozone Purifiers pushing the front unit instead of the side one which is blocked between Ozone Purifiers and the edge and thus cannot move'
+        width={150}
+        height={194}
+        lazy
       />
 
       <p>

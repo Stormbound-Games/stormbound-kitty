@@ -106,6 +106,7 @@ const DeckSlotContent = React.memo(function DeckSlotContent(props) {
         alt={card.name}
         width={24}
         height={24}
+        lazy
       />
       <span
         className={css(styles.level)}

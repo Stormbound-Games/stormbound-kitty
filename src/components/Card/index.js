@@ -88,6 +88,9 @@ export default React.memo(function Card(props) {
               }
               extend={styles.image}
               data-testid='card-image'
+              lazy
+              width={props.image ? 300 : undefined}
+              height={props.image ? 300 : undefined}
               withAvif
             />
           </div>
@@ -118,6 +121,9 @@ export default React.memo(function Card(props) {
               alt={props.rarity}
               data-testid='card-rarity'
               withoutWebp
+              width={45}
+              height={45}
+              lazy
             />
           )}
 

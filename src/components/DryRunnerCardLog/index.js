@@ -51,6 +51,9 @@ export default React.memo(function DryRunnerCardLog(props) {
                       onClick={() => setZoomedCard(card)}
                       data-testid='card-log-image'
                       withAvif
+                      width={45}
+                      height={45}
+                      lazy
                     />
                   </motion.div>
                 )}

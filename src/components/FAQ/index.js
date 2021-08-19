@@ -45,6 +45,9 @@ export default React.memo(function FrequentlyAskedQuestions() {
           src='/assets/images/kitty.png'
           alt='Kitty Sparkles by Hurricane Sunny'
           extend={{ margin: 'auto' }}
+          lazy
+          width={500}
+          height={364}
         />
 
         {FAQ.map((category, index) => (

@@ -214,6 +214,9 @@ export default React.memo(function GuideBrawl(props) {
             extend={{ marginTop: 0 }}
             src='/assets/images/releases/brawl_bonuses_choice.jpg'
             alt=''
+            width={310}
+            height={467}
+            lazy
           />
         </Row.Column>
       </Row>

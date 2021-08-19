@@ -122,7 +122,10 @@ export default React.memo(function ValueCalculator(props) {
           <Image
             src='/assets/images/card_value.png'
             alt='v(c) = s / m * f'
+            width={300}
+            height={48}
             extend={styles.formula}
+            lazy
           />
           <Info
             icon='equalizer'

@@ -154,6 +154,9 @@ export default React.memo(function GuideComplete(props) {
       <Image
         src='https://i.ibb.co/KmX0R1p/Attack-pattern.jpg'
         alt='Attack pattern'
+        width={506}
+        height={550}
+        lazy
       />
 
       <p>

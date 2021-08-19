@@ -52,6 +52,8 @@ export default React.memo(function FanArt(props) {
                 alt={'Artwork by ' + entry.author}
                 extend={styles.image}
                 withoutWebp
+                lazy
+                width={500}
               />
               <figcaption className={css(styles.caption)}>
                 Artwork by{' '}
