@@ -11,6 +11,9 @@ export default React.memo(function ResourceIcon(props) {
           src='/assets/images/card/rarity_common_4.png'
           alt='common card'
           withoutWebp
+          width={11}
+          height={14}
+          lazy
         />
       )
     case 'RARE':
@@ -20,6 +23,9 @@ export default React.memo(function ResourceIcon(props) {
           src='/assets/images/card/rarity_rare_4.png'
           alt='rare card'
           withoutWebp
+          width={11}
+          height={14}
+          lazy
         />
       )
     case 'EPIC':
@@ -29,6 +35,9 @@ export default React.memo(function ResourceIcon(props) {
           src='/assets/images/card/rarity_epic_4.png'
           alt='epic card'
           withoutWebp
+          width={11}
+          height={14}
+          lazy
         />
       )
     case 'LEGENDARY':
@@ -38,6 +47,9 @@ export default React.memo(function ResourceIcon(props) {
           src='/assets/images/card/rarity_legendary_4.png'
           alt='legendary card'
           withoutWebp
+          width={11}
+          height={14}
+          lazy
         />
       )
     case 'COIN':
@@ -46,6 +58,9 @@ export default React.memo(function ResourceIcon(props) {
           extend={styles.icon}
           src='/assets/images/iconography/coin.png'
           alt='coin'
+          width={18}
+          height={18}
+          lazy
         />
       )
     case 'STONE':
@@ -54,6 +69,9 @@ export default React.memo(function ResourceIcon(props) {
           extend={styles.icon}
           src='/assets/images/iconography/stones.png'
           alt='fusion stone'
+          width={14}
+          height={18}
+          lazy
         />
       )
     case 'RUBY':
@@ -62,6 +80,9 @@ export default React.memo(function ResourceIcon(props) {
           extend={styles.icon}
           src='/assets/images/iconography/ruby.png'
           alt='ruby'
+          width={18}
+          height={18}
+          lazy
         />
       )
     case 'CROWN':
@@ -70,6 +91,9 @@ export default React.memo(function ResourceIcon(props) {
           extend={styles.icon}
           src='/assets/images/iconography/crown_icon.png'
           alt='crown'
+          width={18}
+          height={18}
+          lazy
         />
       )
     case 'HERO_CROWN':
@@ -78,6 +102,9 @@ export default React.memo(function ResourceIcon(props) {
           extend={styles.icon}
           src='/assets/images/iconography/elo_icon.png'
           alt='elo crown'
+          width={14}
+          height={14}
+          lazy
         />
       )
     default:

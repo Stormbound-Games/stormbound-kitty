@@ -95,6 +95,9 @@ export default React.memo(function Member(props) {
                 src='/assets/images/cards/sweetcap_kittens.png'
                 extend={styles.image}
                 withAvif
+                width={250}
+                height={280}
+                lazy
               />
               <p>
                 No ‘{displayName}’ user could be found, or no content was

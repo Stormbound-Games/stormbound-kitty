@@ -78,6 +78,9 @@ export default React.memo(function KnownBugs(props) {
             <Image
               src='/assets/images/guides/brawl_debug_view.jpg'
               alt='Debug Brawl view with infinite resources, test name and missing UI elements'
+              width={328}
+              height={584}
+              lazy
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span> open
@@ -150,6 +153,9 @@ export default React.memo(function KnownBugs(props) {
             <Image
               src='/assets/images/guides/double_animation_bug.jpg'
               alt='All in-game animations are doubled'
+              width={329}
+              height={675}
+              lazy
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span>{' '}
@@ -164,6 +170,9 @@ export default React.memo(function KnownBugs(props) {
             <Image
               src='/assets/images/guides/fusion_stone_reward.jpeg'
               alt='Animation when being rewarded with fusion stones'
+              width={328}
+              height={584}
+              lazy
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span> open
@@ -229,6 +238,9 @@ export default React.memo(function KnownBugs(props) {
             <Image
               src='/assets/images/guides/three_cards_bug.jpg'
               alt='Stormbound hand with only 3 cards despite having cycled'
+              width={328}
+              height={670}
+              lazy
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span>{' '}
@@ -243,6 +255,9 @@ export default React.memo(function KnownBugs(props) {
             <Image
               src='/assets/images/guides/challenge_in_deck_selection.jpg'
               alt='Friendly challenge dialog being displayed in the deck view'
+              width={329}
+              height={687}
+              lazy
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span> open
@@ -327,6 +342,9 @@ export default React.memo(function KnownBugs(props) {
             <Image
               src='/assets/images/guides/unwatchable_ads.jpg'
               alt='The reward screen does not allow watching an ad'
+              width={329}
+              height={669}
+              lazy
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span> open
@@ -340,6 +358,9 @@ export default React.memo(function KnownBugs(props) {
             <Image
               src='/assets/images/guides/friend-list-gaps.jpg'
               alt='Friend list having odd empty gaps'
+              width={329}
+              height={675}
+              lazy
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span> fixed
@@ -394,6 +415,9 @@ export default React.memo(function KnownBugs(props) {
             <Image
               src='/assets/images/guides/tegor_ever_lasting_skull.png'
               alt='Tegor’s on-death skull floating at the bottom left of the board'
+              width={329}
+              height={338}
+              lazy
             />
             <p>
               <span className='Highlight'>Status as of August 2021:</span> fixed

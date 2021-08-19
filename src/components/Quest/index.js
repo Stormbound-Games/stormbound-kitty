@@ -47,6 +47,9 @@ export default React.memo(function Quest(props) {
             extend={styles.currencyImage}
             src={`/assets/images/iconography/${props.currency}.png`}
             alt={props.currency}
+            width={60}
+            height={60}
+            lazy
           />
           <span className={css(styles.amount)}>
             <span className={css(styles.number)}>{props.amount}</span>{' '}
