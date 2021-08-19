@@ -9,8 +9,10 @@ import Spacing from '~/components/Spacing'
 import getRawCardData from '~/helpers/getRawCardData'
 import parseDate from '~/helpers/parseDate'
 import { formatDate } from '~/helpers/formatDate'
+import useIsMounted from '~/hooks/useIsMounted'
 
 export default React.memo(function ListBuilderDisplayView(props) {
+  const isMounted = useIsMounted()
   const [faction, setFaction] = React.useState('*')
   const tiers = props.list
     .map(tier => ({
@@ -59,22 +61,24 @@ export default React.memo(function ListBuilderDisplayView(props) {
 
           <ListBuilderToc tiers={tiers} />
 
-          <Spacing bottom='LARGE'>
-            <Select
-              label='Display factions'
-              id='factions'
-              value={faction}
-              onChange={event => setFaction(event.target.value)}
-            >
-              <option value='*'>All</option>
-              <option value='NOT_NEUTRAL'>All but neutral</option>
-              <option value='NEUTRAL'>Neutral only</option>
-              <option value='IRONCLAD'>Ironclad only</option>
-              <option value='SHADOWFEN'>Shadowfen only</option>
-              <option value='SWARM'>Swarm only</option>
-              <option value='WINTER'>Winter only</option>
-            </Select>
-          </Spacing>
+          {isMounted && (
+            <Spacing bottom='LARGE'>
+              <Select
+                label='Display factions'
+                id='factions'
+                value={faction}
+                onChange={event => setFaction(event.target.value)}
+              >
+                <option value='*'>All</option>
+                <option value='NOT_NEUTRAL'>All but neutral</option>
+                <option value='NEUTRAL'>Neutral only</option>
+                <option value='IRONCLAD'>Ironclad only</option>
+                <option value='SHADOWFEN'>Shadowfen only</option>
+                <option value='SWARM'>Swarm only</option>
+                <option value='WINTER'>Winter only</option>
+              </Select>
+            </Spacing>
+          )}
         </Row.Column>
 
         <Row.Column width='2/3'>
