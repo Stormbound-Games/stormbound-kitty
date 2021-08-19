@@ -24,3 +24,7 @@ For the bot to work properly on a Discord server, it requires:
 - A #trivia channel for the `!trivia` command.
 - A #stormbot channel for all the other commands.
 - Ideally some of the roles: Diamond, Platinum, Gold, Silver, Bronze, Iron, Starter, Swarm, Shadowfen, Ironclad, Winter, Neutral, Tournamentee, Artist and Streambound.
+
+## Acknowledgements
+
+![Powered by Vercel](https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg)
