@@ -1,22 +1,18 @@
 import React from 'react'
 import Link from '~/components/Link'
-import { EQUALS_TIER_LIST } from '~/constants/list'
 import Page from '~/components/Page'
 import Row from '~/components/Row'
 import ListBuilderTierList from '~/components/ListBuilderTierList'
 import ListBuilderToc from '~/components/ListBuilderToc'
 import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
-import getInitialListData from '~/helpers/getInitialListData'
 import getRawCardData from '~/helpers/getRawCardData'
 import parseDate from '~/helpers/parseDate'
 import { formatDate } from '~/helpers/formatDate'
-import RELEASES from '~/data/releases'
 
 export default React.memo(function ListBuilderDisplayView(props) {
-  const { date, value: id } = EQUALS_TIER_LIST
   const [faction, setFaction] = React.useState('*')
-  const tiers = getInitialListData(id)
+  const tiers = props.list
     .map(tier => ({
       name: tier.name,
       cards: tier.cards.filter(id => {
@@ -33,8 +29,8 @@ export default React.memo(function ListBuilderDisplayView(props) {
       }),
     }))
     .filter(tier => tier.cards.length > 0)
-  const lastUpdate = parseDate(date)
-  const release = RELEASES.find(release => release.date === date)
+  const lastUpdate = parseDate(props.date)
+  const release = props.release
 
   return (
     <Page
