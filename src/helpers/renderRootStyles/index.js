@@ -83,7 +83,7 @@ const renderRootStyles = renderer => {
   }
 
   * {
-    box-sizing: inherit;
+    box-sizing: border-box;
   }
 
   body {
@@ -100,7 +100,6 @@ const renderRootStyles = renderer => {
   html {
     min-height: 100%;
     overflow-x: hidden;
-    box-sizing: border-box;
   }
 
   button {
