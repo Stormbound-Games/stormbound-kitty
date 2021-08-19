@@ -1,5 +1,4 @@
 import React from 'react'
-import DECKS from '~/data/decks'
 import { CollectionContext } from '~/components/CollectionProvider'
 import CardSelect from '~/components/CardSelect'
 import CTA from '~/components/CTA'
@@ -11,10 +10,10 @@ import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
 import TagsSelect from '~/components/TagsSelect'
 
-const getAuthors = () => {
+const getAuthors = decks => {
   const authors = []
 
-  DECKS.forEach(deck => {
+  decks.forEach(deck => {
     if (!authors.includes(deck.author)) authors.push(deck.author)
   })
 
@@ -30,7 +29,7 @@ const getAuthors = () => {
 export default React.memo(function DeckSuggestionsFilters(props) {
   const { hasDefaultCollection } = React.useContext(CollectionContext)
   const [name, updateName] = React.useState(props.name)
-  const authors = React.useMemo(getAuthors, [])
+  const authors = React.useMemo(() => getAuthors(props.decks), [props.decks])
 
   return (
     <MobileTogglableContent

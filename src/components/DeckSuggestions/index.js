@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 import hookIntoProps from 'hook-into-props'
 import querystring from 'querystring'
 import debounce from 'lodash.debounce'
-import DECKS from '~/data/decks'
 import { CollectionContext } from '~/components/CollectionProvider'
 import BookmarkDeckButton from '~/components/BookmarkDeckButton'
 import Decks from '~/components/Decks'
@@ -122,7 +121,7 @@ class DeckSuggestions extends React.Component {
 
   getDecks = () => {
     return (
-      [...DECKS]
+      [...this.props.decks]
         // New decks are added at the end of the JSON file, but should be
         // displayed first, therefore we reverse the array before filtering and
         // sorting it.
@@ -168,6 +167,7 @@ class DeckSuggestions extends React.Component {
 
             <SuggestionsFilters
               {...this.state}
+              decks={decks}
               updateTags={this.updateTags}
               updateFaction={this.updateFaction}
               updateAuthor={this.updateAuthor}
