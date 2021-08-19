@@ -16,8 +16,6 @@ import getCardBuilderMetaTags from '~/helpers/getCardBuilderMetaTags'
 import parseDate from '~/helpers/parseDate'
 import serialisation from '~/helpers/serialisation'
 import { formatPreciseDate } from '~/helpers/formatDate'
-import SWCC from '~/data/swcc'
-import CHANGELOG from '~/data/changelog'
 
 const getWikiUrl = name =>
   'https://stormboundkingdomwars.fandom.com/' +
@@ -25,9 +23,6 @@ const getWikiUrl = name =>
 
 const useArticleProps = (props, versionId) => {
   const isOfficial = Boolean(getRawCardData(props.cardId).name)
-  const contest = SWCC.flat().find(
-    contest => contest.winner && contest.winner.id === props.cardId
-  )
   const properties = {}
   const { name, faction, type, race } = props.card
 
@@ -50,11 +45,9 @@ const useArticleProps = (props, versionId) => {
       href: getWikiUrl(name),
       children: 'Open in wiki',
     }
-  } else if (contest) {
-    const season = parseDate(contest.date) > parseDate(SWCC[1][0].date) ? 2 : 1
-
-    properties.meta = `Week #${contest.id} (season ${season})`
-    properties.author = contest.winner.author
+  } else if (props.contest) {
+    properties.meta = `Week #${props.contest.id} (season ${props.contest.season})`
+    properties.author = props.contest.winner.author
     properties.action = { to: '/card/contest', children: 'Back to SWCC' }
   } else if (props.cardId) {
     properties.meta = [faction, type, race].filter(Boolean).join(' · ')
@@ -76,24 +69,14 @@ const useArticleProps = (props, versionId) => {
 
 const isCardOfficial = cardId => Boolean(getRawCardData(cardId).name)
 
-const useCardVersions = cardId => {
-  if (!isCardOfficial(cardId)) return []
-
-  return CHANGELOG.filter(change => change.id === cardId)
-    .map(change => ({ ...change, timestamp: parseDate(change.date) }))
-    .sort((a, b) => b.timestamp - a.timestamp)
-}
-
 const resolveCardData = data =>
   serialisation.card.deserialise(serialisation.card.serialise(data))
 
 const useCardData = (props, versionId) => {
-  const versions = useCardVersions(props.cardId)
+  if (!versionId || props.versions.length === 0) return props.card
 
-  if (!versionId || versions.length === 0) return props.card
-
-  const cardData = versions
-    .filter(version => version.timestamp >= +versionId)
+  const cardData = props.versions
+    .filter(version => parseDate(version.date) >= +versionId)
     .reduce(
       (acc, version) => ({ ...acc, ...version.from }),
       getRawCardData(props.cardId)

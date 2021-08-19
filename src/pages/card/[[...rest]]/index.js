@@ -3,7 +3,33 @@ import CardBuilderEditor from '~/components/CardBuilderEditor'
 import CardBuilderApp from '~/components/CardBuilderApp'
 import Layout from '~/components/Layout'
 import getInitialCardData from '~/helpers/getInitialCardData'
+import getRawCardData from '~/helpers/getRawCardData'
+import parseDate from '~/helpers/parseDate'
 import CARDS from '~/data/cards'
+import CHANGELOG from '~/data/changelog'
+import SWCC from '~/data/swcc'
+
+const getContest = id => {
+  const contest = SWCC.flat().find(
+    contest => contest.winner && contest.winner.id === id
+  )
+
+  if (!contest) return null
+
+  contest.season = parseDate(contest.date) > parseDate(SWCC[1][0].date) ? 2 : 1
+
+  return contest
+}
+
+const getChangelog = id => {
+  const isOfficial = Boolean(getRawCardData(id).name)
+
+  if (!isOfficial) return []
+
+  return CHANGELOG.filter(change => change.id === id).sort(
+    (a, b) => b.timestamp - a.timestamp
+  )
+}
 
 export async function getStaticPaths() {
   const paths = CARDS.filter(card => !card.token)
@@ -11,6 +37,13 @@ export async function getStaticPaths() {
     .map(id => ({ params: { rest: [id, 'display'] } }))
 
   return { paths, fallback: true }
+}
+
+const DEFAULT_PROPS = {
+  cardId: null,
+  card: {},
+  contest: null,
+  mode: 'EDITOR',
 }
 
 export async function getStaticProps(context) {
@@ -24,27 +57,33 @@ export async function getStaticProps(context) {
     }
 
     if (!id) {
-      return { props: { card: {}, id: null, mode: 'EDITOR' } }
+      return {
+        props: DEFAULT_PROPS,
+      }
     }
 
     return {
       props: {
-        id,
+        cardId: id,
         card: getInitialCardData(id),
+        contest: getContest(id),
+        versions: getChangelog(id),
         mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
       },
     }
   } catch (error) {
-    return { props: { card: {}, id: null, mode: 'EDITOR' } }
+    return {
+      props: DEFAULT_PROPS,
+    }
   }
 }
 
 const CardBuilderPage = props => (
-  <Layout active={['TOOLS', 'CARD_BUILDER', 'EDITOR']}>
+  <Layout active={['TOOLS', 'CARD_BUILDER', props.mode]}>
     {props.mode === 'DISPLAY' ? (
-      <CardBuilderApp card={props.card} cardId={props.id} mode='DISPLAY' />
+      <CardBuilderApp {...props} />
     ) : (
-      <CardBuilderEditor card={props.card} cardId={props.id} mode='EDITOR' />
+      <CardBuilderEditor {...props} />
     )}
   </Layout>
 )
