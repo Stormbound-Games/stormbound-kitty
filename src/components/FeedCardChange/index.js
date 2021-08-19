@@ -22,7 +22,7 @@ export default React.memo(function FeedCardChange(props) {
       dateFormat='LONG'
       iconColor={ICONS[props.type].color}
       right={
-        Boolean(props.from) && (
+        Boolean(props.from && props.withVersioning) && (
           <DiamondButton
             data-testid='version-btn'
             icon='eye'
