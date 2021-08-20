@@ -28,11 +28,11 @@ describe('The `isCard` helper', () => {
       result ? '' : 'not'
     } equal`, () => {
       if (result) {
-        expect(isCard(card1)(card2)).to.equal(true)
-        expect(isCard(card2)(card1)).to.equal(true)
+        expect(isCard(card1)(card2)).toEqual(true)
+        expect(isCard(card2)(card1)).toEqual(true)
       } else {
-        expect(isCard(card1)(card2)).to.equal(false)
-        expect(isCard(card2)(card1)).to.equal(false)
+        expect(isCard(card1)(card2)).toEqual(false)
+        expect(isCard(card2)(card1)).toEqual(false)
       }
     })
   })

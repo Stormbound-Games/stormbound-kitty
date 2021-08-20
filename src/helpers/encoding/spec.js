@@ -15,184 +15,184 @@ import {
 
 describe('The `getShortFaction` helper', () => {
   it('should return single-letter faction', () => {
-    expect(getShortFaction('neutral')).to.equal('N')
-    expect(getShortFaction('ironclad')).to.equal('I')
-    expect(getShortFaction('swarm')).to.equal('S')
-    expect(getShortFaction('shadowfen')).to.equal('F')
-    expect(getShortFaction('winter')).to.equal('W')
+    expect(getShortFaction('neutral')).toEqual('N')
+    expect(getShortFaction('ironclad')).toEqual('I')
+    expect(getShortFaction('swarm')).toEqual('S')
+    expect(getShortFaction('shadowfen')).toEqual('F')
+    expect(getShortFaction('winter')).toEqual('W')
   })
 
   it('should default to neutral', () => {
-    expect(getShortFaction()).to.equal('N')
-    expect(getShortFaction('mldsffkmsd')).to.equal('N')
+    expect(getShortFaction()).toEqual('N')
+    expect(getShortFaction('mldsffkmsd')).toEqual('N')
   })
 })
 
 describe('The `getLongFaction` helper', () => {
   it('should return full faction', () => {
-    expect(getLongFaction('N')).to.equal('neutral')
-    expect(getLongFaction('I')).to.equal('ironclad')
-    expect(getLongFaction('S')).to.equal('swarm')
-    expect(getLongFaction('F')).to.equal('shadowfen')
-    expect(getLongFaction('W')).to.equal('winter')
+    expect(getLongFaction('N')).toEqual('neutral')
+    expect(getLongFaction('I')).toEqual('ironclad')
+    expect(getLongFaction('S')).toEqual('swarm')
+    expect(getLongFaction('F')).toEqual('shadowfen')
+    expect(getLongFaction('W')).toEqual('winter')
   })
 
   it('should default to neutral', () => {
-    expect(getLongFaction()).to.equal('neutral')
-    expect(getLongFaction('mldsffkmsd')).to.equal('neutral')
+    expect(getLongFaction()).toEqual('neutral')
+    expect(getLongFaction('mldsffkmsd')).toEqual('neutral')
   })
 })
 
 describe('The `getShortType` helper', () => {
   it('should return single-letter type', () => {
-    expect(getShortType('unit')).to.equal('U')
-    expect(getShortType('spell')).to.equal('C')
-    expect(getShortType('structure')).to.equal('S')
+    expect(getShortType('unit')).toEqual('U')
+    expect(getShortType('spell')).toEqual('C')
+    expect(getShortType('structure')).toEqual('S')
   })
 
   it('should default to unit', () => {
-    expect(getShortType()).to.equal('U')
-    expect(getShortType('mldsffkmsd')).to.equal('U')
+    expect(getShortType()).toEqual('U')
+    expect(getShortType('mldsffkmsd')).toEqual('U')
   })
 })
 
 describe('The `getLongType` helper', () => {
   it('should return full type', () => {
-    expect(getLongType('U')).to.equal('unit')
-    expect(getLongType('C')).to.equal('spell')
-    expect(getLongType('S')).to.equal('structure')
+    expect(getLongType('U')).toEqual('unit')
+    expect(getLongType('C')).toEqual('spell')
+    expect(getLongType('S')).toEqual('structure')
   })
 
   it('should default to unit', () => {
-    expect(getLongType()).to.equal('unit')
-    expect(getLongType('mldsffkmsd')).to.equal('unit')
+    expect(getLongType()).toEqual('unit')
+    expect(getLongType('mldsffkmsd')).toEqual('unit')
   })
 })
 
 describe('The `getShortRarity` helper', () => {
   it('should return single-letter rarity', () => {
-    expect(getShortRarity('legendary')).to.equal('L')
-    expect(getShortRarity('epic')).to.equal('E')
-    expect(getShortRarity('rare')).to.equal('R')
-    expect(getShortRarity('common')).to.equal('C')
+    expect(getShortRarity('legendary')).toEqual('L')
+    expect(getShortRarity('epic')).toEqual('E')
+    expect(getShortRarity('rare')).toEqual('R')
+    expect(getShortRarity('common')).toEqual('C')
   })
 
   it('should default to common', () => {
-    expect(getShortRarity()).to.equal('C')
-    expect(getShortRarity('mldsffkmsd')).to.equal('C')
+    expect(getShortRarity()).toEqual('C')
+    expect(getShortRarity('mldsffkmsd')).toEqual('C')
   })
 })
 
 describe('The `getLongRarity` helper', () => {
   it('should return full rarity', () => {
-    expect(getLongRarity('L')).to.equal('legendary')
-    expect(getLongRarity('E')).to.equal('epic')
-    expect(getLongRarity('R')).to.equal('rare')
-    expect(getLongRarity('C')).to.equal('common')
+    expect(getLongRarity('L')).toEqual('legendary')
+    expect(getLongRarity('E')).toEqual('epic')
+    expect(getLongRarity('R')).toEqual('rare')
+    expect(getLongRarity('C')).toEqual('common')
   })
 
   it('should default to common', () => {
-    expect(getLongRarity()).to.equal('common')
-    expect(getLongRarity('mldsffkmsd')).to.equal('common')
+    expect(getLongRarity()).toEqual('common')
+    expect(getLongRarity('mldsffkmsd')).toEqual('common')
   })
 })
 
 describe('The `getShortRace` helper', () => {
   it('should return single-letter race', () => {
-    expect(getShortRace('construct')).to.equal('C')
-    expect(getShortRace('dragon')).to.equal('D')
-    expect(getShortRace('dwarf')).to.equal('W')
-    expect(getShortRace('frostling')).to.equal('F')
-    expect(getShortRace('feline')).to.equal('E')
-    expect(getShortRace('knight')).to.equal('K')
-    expect(getShortRace('pirate')).to.equal('P')
-    expect(getShortRace('raven')).to.equal('R')
-    expect(getShortRace('rodent')).to.equal('O')
-    expect(getShortRace('satyr')).to.equal('S')
-    expect(getShortRace('toad')).to.equal('T')
-    expect(getShortRace('undead')).to.equal('U')
+    expect(getShortRace('construct')).toEqual('C')
+    expect(getShortRace('dragon')).toEqual('D')
+    expect(getShortRace('dwarf')).toEqual('W')
+    expect(getShortRace('frostling')).toEqual('F')
+    expect(getShortRace('feline')).toEqual('E')
+    expect(getShortRace('knight')).toEqual('K')
+    expect(getShortRace('pirate')).toEqual('P')
+    expect(getShortRace('raven')).toEqual('R')
+    expect(getShortRace('rodent')).toEqual('O')
+    expect(getShortRace('satyr')).toEqual('S')
+    expect(getShortRace('toad')).toEqual('T')
+    expect(getShortRace('undead')).toEqual('U')
   })
 
   it('should default to empty', () => {
-    expect(getShortRace()).to.equal('')
-    expect(getShortRace('mldsffkmsd')).to.equal('')
+    expect(getShortRace()).toEqual('')
+    expect(getShortRace('mldsffkmsd')).toEqual('')
   })
 })
 
 describe('The `getLongRace` helper', () => {
   it('should return full race', () => {
-    expect(getLongRace('C')).to.equal('construct')
-    expect(getLongRace('D')).to.equal('dragon')
-    expect(getLongRace('W')).to.equal('dwarf')
-    expect(getLongRace('F')).to.equal('frostling')
-    expect(getLongRace('E')).to.equal('feline')
-    expect(getLongRace('K')).to.equal('knight')
-    expect(getLongRace('P')).to.equal('pirate')
-    expect(getLongRace('R')).to.equal('raven')
-    expect(getLongRace('O')).to.equal('rodent')
-    expect(getLongRace('S')).to.equal('satyr')
-    expect(getLongRace('T')).to.equal('toad')
-    expect(getLongRace('U')).to.equal('undead')
+    expect(getLongRace('C')).toEqual('construct')
+    expect(getLongRace('D')).toEqual('dragon')
+    expect(getLongRace('W')).toEqual('dwarf')
+    expect(getLongRace('F')).toEqual('frostling')
+    expect(getLongRace('E')).toEqual('feline')
+    expect(getLongRace('K')).toEqual('knight')
+    expect(getLongRace('P')).toEqual('pirate')
+    expect(getLongRace('R')).toEqual('raven')
+    expect(getLongRace('O')).toEqual('rodent')
+    expect(getLongRace('S')).toEqual('satyr')
+    expect(getLongRace('T')).toEqual('toad')
+    expect(getLongRace('U')).toEqual('undead')
   })
 
   it('should default to empty', () => {
-    expect(getLongRace()).to.equal('')
-    expect(getLongRace('mldsffkmsd')).to.equal('')
+    expect(getLongRace()).toEqual('')
+    expect(getLongRace('mldsffkmsd')).toEqual('')
   })
 })
 
 describe('The `getShortCurrency` helper', () => {
   it('should return single-letter currency', () => {
-    expect(getShortCurrency('coins')).to.equal('C')
-    expect(getShortCurrency('rubies')).to.equal('R')
-    expect(getShortCurrency('stones')).to.equal('S')
+    expect(getShortCurrency('coins')).toEqual('C')
+    expect(getShortCurrency('rubies')).toEqual('R')
+    expect(getShortCurrency('stones')).toEqual('S')
   })
 
   it('should default to coins', () => {
-    expect(getShortCurrency()).to.equal('C')
-    expect(getShortCurrency('mldsffkmsd')).to.equal('C')
+    expect(getShortCurrency()).toEqual('C')
+    expect(getShortCurrency('mldsffkmsd')).toEqual('C')
   })
 })
 
 describe('The `getLongCurrency` helper', () => {
   it('should return full currency', () => {
-    expect(getLongCurrency('C')).to.equal('coins')
-    expect(getLongCurrency('R')).to.equal('rubies')
-    expect(getLongCurrency('S')).to.equal('stones')
+    expect(getLongCurrency('C')).toEqual('coins')
+    expect(getLongCurrency('R')).toEqual('rubies')
+    expect(getLongCurrency('S')).toEqual('stones')
   })
 
   it('should default to coins', () => {
-    expect(getLongCurrency()).to.equal('coins')
-    expect(getLongCurrency('mldsffkmsd')).to.equal('coins')
+    expect(getLongCurrency()).toEqual('coins')
+    expect(getLongCurrency('mldsffkmsd')).toEqual('coins')
   })
 })
 
 describe('The `getShortMatchStatus` helper', () => {
   it('should return single-letter currency', () => {
-    expect(getShortMatchStatus('WON')).to.equal('W')
-    expect(getShortMatchStatus('FORFEIT')).to.equal('F')
-    expect(getShortMatchStatus('DRAW')).to.equal('D')
-    expect(getShortMatchStatus('SURRENDERED')).to.equal('S')
-    expect(getShortMatchStatus('LOST')).to.equal('L')
+    expect(getShortMatchStatus('WON')).toEqual('W')
+    expect(getShortMatchStatus('FORFEIT')).toEqual('F')
+    expect(getShortMatchStatus('DRAW')).toEqual('D')
+    expect(getShortMatchStatus('SURRENDERED')).toEqual('S')
+    expect(getShortMatchStatus('LOST')).toEqual('L')
   })
 
   it('should default to an empty string', () => {
-    expect(getShortMatchStatus()).to.equal('')
-    expect(getShortMatchStatus('mldsffkmsd')).to.equal('')
+    expect(getShortMatchStatus()).toEqual('')
+    expect(getShortMatchStatus('mldsffkmsd')).toEqual('')
   })
 })
 
 describe('The `getLongMatchStatus` helper', () => {
   it('should return full currency', () => {
-    expect(getLongMatchStatus('W')).to.equal('WON')
-    expect(getLongMatchStatus('F')).to.equal('FORFEIT')
-    expect(getLongMatchStatus('D')).to.equal('DRAW')
-    expect(getLongMatchStatus('S')).to.equal('SURRENDERED')
-    expect(getLongMatchStatus('L')).to.equal('LOST')
+    expect(getLongMatchStatus('W')).toEqual('WON')
+    expect(getLongMatchStatus('F')).toEqual('FORFEIT')
+    expect(getLongMatchStatus('D')).toEqual('DRAW')
+    expect(getLongMatchStatus('S')).toEqual('SURRENDERED')
+    expect(getLongMatchStatus('L')).toEqual('LOST')
   })
 
   it('should default to an empty string', () => {
-    expect(getLongMatchStatus()).to.equal('')
-    expect(getLongMatchStatus('mldsffkmsd')).to.equal('')
+    expect(getLongMatchStatus()).toEqual('')
+    expect(getLongMatchStatus('mldsffkmsd')).toEqual('')
   })
 })

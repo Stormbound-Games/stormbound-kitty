@@ -7,9 +7,9 @@ describe('The `getDailyCoinsCounter` helper', () => {
       league: 'STARTER',
     })
     for (let i = 0; i < 400 / 20; i += 1) {
-      expect(getCoins()).to.equal(20)
+      expect(getCoins()).toEqual(20)
     }
-    expect(getCoins()).to.equal(0)
+    expect(getCoins()).toEqual(0)
   })
 
   it('should cap gains at 400 (without ads)', () => {
@@ -18,9 +18,9 @@ describe('The `getDailyCoinsCounter` helper', () => {
       league: 'STARTER',
     })
     for (let i = 0; i < 400 / 10; i += 1) {
-      expect(getCoins()).to.equal(10)
+      expect(getCoins()).toEqual(10)
     }
-    expect(getCoins()).to.equal(0)
+    expect(getCoins()).toEqual(0)
   })
 
   it('should cap gains at 400 (steam)', () => {
@@ -29,9 +29,9 @@ describe('The `getDailyCoinsCounter` helper', () => {
       league: 'STARTER',
     })
     for (let i = 0; i < 400 / 10; i += 1) {
-      expect(getCoins()).to.equal(10)
+      expect(getCoins()).toEqual(10)
     }
-    expect(getCoins()).to.equal(0)
+    expect(getCoins()).toEqual(0)
   })
 
   it('should cap gains at 700 with premium pass', () => {
@@ -41,8 +41,8 @@ describe('The `getDailyCoinsCounter` helper', () => {
       withPremiumPass: true,
     })
     for (let i = 0; i < 700 / 20; i += 1) {
-      expect(getCoins()).to.equal(20)
+      expect(getCoins()).toEqual(20)
     }
-    expect(getCoins()).to.equal(0)
+    expect(getCoins()).toEqual(0)
   })
 })

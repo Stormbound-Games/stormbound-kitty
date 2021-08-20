@@ -48,7 +48,7 @@
   "scripts": {
     "start": "next dev",
     "build:cra": "next build && next-sitemap",
-    "test": "cypress run",
+    "test": "jest --forceExit",
     "bot": "node -r esm bin/bot.js",
     "bot:dev": "nodemon -x \"node -r esm\" bin/bot.js --watch src",
     "prepare": "husky install"
@@ -60,13 +60,13 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@cypress/react": "^4.16.4",
     "@cypress/webpack-preprocessor": "^5.5.0",
     "cypress": "^6.9.1",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.0",
     "find-webpack": "^2.2.0",
     "husky": "^7.0.1",
+    "jest": "^26.6.0",
     "lint-staged": "^11.1.2",
     "mathjax-node": "^2.1.1",
     "next-sitemap": "^1.6.157",

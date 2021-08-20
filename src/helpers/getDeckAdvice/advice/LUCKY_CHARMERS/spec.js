@@ -11,6 +11,6 @@ const getCards = (id, modifier = 'NONE') =>
 describe('The `LUCKY_CHARMERS` advice', () => {
   it('should be returned if there are not enough pirates', () => {
     const cards = getCards('1n11n21f41f11n31f91n161n591n221f201n421n56')
-    expect(advice(cards)).to.not.equal(null)
+    expect(advice(cards)).not.toEqual(null)
   })
 })

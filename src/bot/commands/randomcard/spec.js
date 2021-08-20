@@ -22,34 +22,34 @@ const getCardId = url =>
 
 describe('Bot — !randomcard', () => {
   it('should return a random card for an empty search', () => {
-    expect(randomcard('')).to.contain(BASE_URL)
+    expect(randomcard('')).toContain(BASE_URL)
   })
 
   it('should handle factions', () => {
     Object.keys(FACTIONS).forEach(faction => {
       const id = getCardId(randomcard(faction))
-      expect(getRawCardData(id).faction).to.equal(faction)
+      expect(getRawCardData(id).faction).toEqual(faction)
     })
   })
 
   it('should handle negative factions', () => {
     Object.keys(FACTIONS).forEach(faction => {
       const id = getCardId(randomcard('!' + faction))
-      expect(getRawCardData(id).faction).to.not.equal(faction)
+      expect(getRawCardData(id).faction).not.toEqual(faction)
     })
   })
 
   it('should handle types', () => {
     Object.keys(TYPES).forEach(type => {
       const id = getCardId(randomcard(type))
-      expect(getRawCardData(id).type).to.equal(type)
+      expect(getRawCardData(id).type).toEqual(type)
     })
   })
 
   it('should handle negative types', () => {
     Object.keys(TYPES).forEach(type => {
       const id = getCardId(randomcard('!' + type))
-      expect(getRawCardData(id).type).to.not.equal(type)
+      expect(getRawCardData(id).type).not.toEqual(type)
     })
   })
 
@@ -58,62 +58,62 @@ describe('Bot — !randomcard', () => {
       .filter(race => race === 'Ancient')
       .forEach(race => {
         const id = getCardId(randomcard(race))
-        expect(getRawCardData(id).race).to.equal(race)
+        expect(getRawCardData(id).race).toEqual(race)
       })
   })
 
   it('should handle negative races', () => {
     Object.keys(RACES).forEach(race => {
       const id = getCardId(randomcard('!' + race))
-      expect(getRawCardData(id).race).to.not.equal(race)
+      expect(getRawCardData(id).race).not.toEqual(race)
     })
   })
 
   it('should handle rarities', () => {
     Object.keys(RARITIES).forEach(rarity => {
       const id = getCardId(randomcard(rarity))
-      expect(getRawCardData(id).rarity).to.equal(rarity)
+      expect(getRawCardData(id).rarity).toEqual(rarity)
     })
   })
 
   it('should handle negative rarities', () => {
     Object.keys(RARITIES).forEach(rarity => {
       const id = getCardId(randomcard('!' + rarity))
-      expect(getRawCardData(id).rarity).to.not.equal(rarity)
+      expect(getRawCardData(id).rarity).not.toEqual(rarity)
     })
   })
 
   it('should handle hero', () => {
     const id = getCardId(randomcard('hero'))
-    expect(getRawCardData(id).hero).to.equal(true)
+    expect(getRawCardData(id).hero).toEqual(true)
   })
 
   it('should handle negative hero', () => {
     const id = getCardId(randomcard('!hero'))
-    expect(getRawCardData(id).hero).to.equal(undefined)
+    expect(getRawCardData(id).hero).toEqual(undefined)
   })
 
   it('should handle elder', () => {
     const id = getCardId(randomcard('elder'))
-    expect(getRawCardData(id).elder).to.equal(true)
+    expect(getRawCardData(id).elder).toEqual(true)
   })
 
   it('should handle negative elder', () => {
     const id = getCardId(randomcard('!elder'))
-    expect(getRawCardData(id).elder).to.equal(undefined)
+    expect(getRawCardData(id).elder).toEqual(undefined)
   })
 
   it('should handle aliases', () => {
     ALIASES.forEach(test => {
       const id = getCardId(randomcard(test.keyword))
-      expect(getRawCardData(id)[test.key]).to.equal(test.value)
+      expect(getRawCardData(id)[test.key]).toEqual(test.value)
     })
   })
 
   it('should handle negative aliases', () => {
     ALIASES.forEach(test => {
       const id = getCardId(randomcard('!' + test.keyword))
-      expect(getRawCardData(id)[test.key]).to.not.equal(test.value)
+      expect(getRawCardData(id)[test.key]).not.toEqual(test.value)
     })
   })
 
@@ -121,20 +121,20 @@ describe('Bot — !randomcard', () => {
     const id = getCardId(randomcard('ic spell rare'))
     const card = getRawCardData(id)
 
-    expect(card.faction).to.equal('ironclad')
-    expect(card.type).to.equal('spell')
-    expect(card.rarity).to.equal('rare')
+    expect(card.faction).toEqual('ironclad')
+    expect(card.type).toEqual('spell')
+    expect(card.rarity).toEqual('rare')
   })
 
   it('should ignore unknown terms', () => {
     const output = getCardId(randomcard('ic foo spell bar rare'))
 
-    expect(output).to.contain('~~foo~~')
-    expect(output).to.contain('~~bar~~')
+    expect(output).toContain('~~foo~~')
+    expect(output).toContain('~~bar~~')
   })
 
   it('should return nothing for unknown search', () => {
-    expect(getCardId(randomcard('foo bar'))).to.equal(undefined)
-    expect(getCardId(randomcard('foo bar'))).to.equal(undefined)
+    expect(getCardId(randomcard('foo bar'))).toEqual(undefined)
+    expect(getCardId(randomcard('foo bar'))).toEqual(undefined)
   })
 })

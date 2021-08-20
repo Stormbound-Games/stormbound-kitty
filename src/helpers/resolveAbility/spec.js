@@ -4,7 +4,7 @@ describe('The `resolveAbility` helper', () => {
   it('should handle null case', () => {
     const ability = null
 
-    expect(resolveAbility(ability)).to.deep.equal({
+    expect(resolveAbility(ability)).toEqual({
       values: [ability, ability, ability, ability, ability],
       display: ability,
     })
@@ -14,7 +14,7 @@ describe('The `resolveAbility` helper', () => {
     const ability = 'This%20is%20nice'
     const decoded = decodeURIComponent(ability)
 
-    expect(resolveAbility(ability)).to.deep.equal({
+    expect(resolveAbility(ability)).toEqual({
       values: [decoded, decoded, decoded, decoded, decoded],
       display: decoded,
     })
@@ -23,7 +23,7 @@ describe('The `resolveAbility` helper', () => {
   it('should leave untouched a simple ability', () => {
     const ability = 'This is the ability'
 
-    expect(resolveAbility(ability)).to.deep.equal({
+    expect(resolveAbility(ability)).toEqual({
       values: [ability, ability, ability, ability, ability],
       display: ability,
     })
@@ -31,8 +31,8 @@ describe('The `resolveAbility` helper', () => {
 
   it('should unfold values surrounded by spaces', () => {
     const resolved = resolveAbility('Deals 1/2/3/4/5 damage')
-    expect(resolved.display).to.equal('Deals 1/2/3/4/5 damage')
-    expect(resolved.values).to.deep.equal([
+    expect(resolved.display).toEqual('Deals 1/2/3/4/5 damage')
+    expect(resolved.values).toEqual([
       'Deals 1 damage',
       'Deals 2 damage',
       'Deals 3 damage',
@@ -43,8 +43,8 @@ describe('The `resolveAbility` helper', () => {
 
   it('should unfold values surrounded by commas', () => {
     const resolved = resolveAbility('Deals 1/2/3/4/5, damage')
-    expect(resolved.display).to.equal('Deals 1/2/3/4/5, damage')
-    expect(resolved.values).to.deep.equal([
+    expect(resolved.display).toEqual('Deals 1/2/3/4/5, damage')
+    expect(resolved.values).toEqual([
       'Deals 1, damage',
       'Deals 2, damage',
       'Deals 3, damage',
@@ -55,8 +55,8 @@ describe('The `resolveAbility` helper', () => {
 
   it('should unfold values surrounded by *', () => {
     const resolved = resolveAbility('Deals *1/2/3/4/5* damage')
-    expect(resolved.display).to.equal('Deals *1/2/3/4/5* damage')
-    expect(resolved.values).to.deep.equal([
+    expect(resolved.display).toEqual('Deals *1/2/3/4/5* damage')
+    expect(resolved.values).toEqual([
       'Deals *1* damage',
       'Deals *2* damage',
       'Deals *3* damage',
@@ -69,10 +69,10 @@ describe('The `resolveAbility` helper', () => {
     const resolved = resolveAbility(
       'Deals 1/2/3/4/5 damage, and gain 2/3/4/5/6 strength'
     )
-    expect(resolved.display).to.equal(
+    expect(resolved.display).toEqual(
       'Deals 1/2/3/4/5 damage, and gain 2/3/4/5/6 strength'
     )
-    expect(resolved.values).to.deep.equal([
+    expect(resolved.values).toEqual([
       'Deals 1 damage, and gain 2 strength',
       'Deals 2 damage, and gain 3 strength',
       'Deals 3 damage, and gain 4 strength',

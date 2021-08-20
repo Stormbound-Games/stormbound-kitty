@@ -12,7 +12,7 @@ describe.skip('The `getAverageStonesPerBook` helper', () => {
 
   Object.keys(FUSION_STONES).forEach(bookType => {
     it(`should return ${FUSION_STONES[bookType]}% for a ${bookType} book`, () => {
-      expect(getAverageStonesPerBook(bookType, 'FUSION_STONES')).to.equal(
+      expect(getAverageStonesPerBook(bookType, 'FUSION_STONES')).toEqual(
         FUSION_STONES[bookType]
       )
     })

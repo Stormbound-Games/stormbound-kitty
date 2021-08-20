@@ -3,20 +3,20 @@ const bookodds = command.handler.bind(command)
 
 describe('Bot — !bookodds', () => {
   it('should return nothing for a missing term', () => {
-    expect(bookodds('')).to.equal(undefined)
+    expect(bookodds('')).toEqual(undefined)
   })
 
   it('should return nothing for a missing book', () => {
-    expect(bookodds('rare')).to.equal(undefined)
-    expect(bookodds('rof')).to.equal(undefined)
+    expect(bookodds('rare')).toEqual(undefined)
+    expect(bookodds('rof')).toEqual(undefined)
   })
 
   it('should return odds for fusion stones', () => {
-    expect(bookodds('mythic fs').description).to.contain('Fusion stones')
-    expect(bookodds('classic fs').description).to.contain('Fusion stones')
-    expect(bookodds('heroic fs').description).to.contain('Fusion stones')
-    expect(bookodds('noble fs').description).to.contain('Fusion stones')
-    expect(bookodds('humble fs').description).to.contain('Fusion stones')
+    expect(bookodds('mythic fs').description).toContain('Fusion stones')
+    expect(bookodds('classic fs').description).toContain('Fusion stones')
+    expect(bookodds('heroic fs').description).toContain('Fusion stones')
+    expect(bookodds('noble fs').description).toContain('Fusion stones')
+    expect(bookodds('humble fs').description).toContain('Fusion stones')
   })
 
   it('should return odds for a rarity', () => {
@@ -24,56 +24,56 @@ describe('Bot — !bookodds', () => {
       bookodds('mythic common')
         .fields.map(field => field.name)
         .join(' ')
-    ).to.contain('Any common card')
+    ).toContain('Any common card')
     expect(
       bookodds('mythic common')
         .fields.map(field => field.name)
         .join(' ')
-    ).to.contain('Specific common card')
+    ).toContain('Specific common card')
     expect(
       bookodds('mythic rare')
         .fields.map(field => field.name)
         .join(' ')
-    ).to.contain('Any rare card')
+    ).toContain('Any rare card')
     expect(
       bookodds('mythic rare')
         .fields.map(field => field.name)
         .join(' ')
-    ).to.contain('Specific rare card')
+    ).toContain('Specific rare card')
     expect(
       bookodds('mythic epic')
         .fields.map(field => field.name)
         .join(' ')
-    ).to.contain('Any epic card')
+    ).toContain('Any epic card')
     expect(
       bookodds('mythic epic')
         .fields.map(field => field.name)
         .join(' ')
-    ).to.contain('Specific epic card')
+    ).toContain('Specific epic card')
     expect(
       bookodds('mythic legendary')
         .fields.map(field => field.name)
         .join(' ')
-    ).to.contain('Any legendary card')
+    ).toContain('Any legendary card')
     expect(
       bookodds('mythic legendary')
         .fields.map(field => field.name)
         .join(' ')
-    ).to.contain('Specific legendary card')
+    ).toContain('Specific legendary card')
   })
 
   it('should return odds for a specific card', () => {
-    expect(bookodds('mythic N1').title).to.contain('Green Prototypes')
-    expect(bookodds('mythic gifted').title).to.contain('Gifted Recruits')
-    expect(bookodds('mythic rof').title).to.contain('Rain of Frogs')
-    expect(bookodds('mythic QoH').title).to.contain('Queen of Herds')
+    expect(bookodds('mythic N1').title).toContain('Green Prototypes')
+    expect(bookodds('mythic gifted').title).toContain('Gifted Recruits')
+    expect(bookodds('mythic rof').title).toContain('Rain of Frogs')
+    expect(bookodds('mythic QoH').title).toContain('Queen of Herds')
   })
 
   it('should ignore casing', () => {
-    expect(bookodds('MytHiC fS').title).to.contain('Fusion stones')
+    expect(bookodds('MytHiC fS').title).toContain('Fusion stones')
   })
 
   it('should ignore order', () => {
-    expect(bookodds('fs classic').title).to.contain('Fusion stones')
+    expect(bookodds('fs classic').title).toContain('Fusion stones')
   })
 })

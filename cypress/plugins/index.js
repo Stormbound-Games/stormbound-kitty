@@ -3,8 +3,6 @@ const findWebpack = require('find-webpack')
 const preprocessor = require('@cypress/webpack-preprocessor')
 
 module.exports = (on, config) => {
-  require('@cypress/react/plugins/react-scripts')(on, config)
-
   // Find the Webpack configuration used by `react-scripts`.
   const webpackOptions = findWebpack.getWebpackOptions()
 
