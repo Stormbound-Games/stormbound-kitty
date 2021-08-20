@@ -17,7 +17,8 @@ const ALIASES = [
   { keyword: 'yellow', key: 'faction', value: 'swarm' },
 ]
 
-const getCardId = url => url.replace(BASE_URL, '').replace('/detail', '')
+const getCardId = url =>
+  url ? url.replace(BASE_URL, '').replace('/display', '') : url
 
 describe('Bot — !randomcard', () => {
   it('should return a random card for an empty search', () => {
@@ -93,31 +94,31 @@ describe('Bot — !randomcard', () => {
   })
 
   it('should handle elder', () => {
-    const id = randomcard('elder').replace(BASE_URL, '')
+    const id = getCardId(randomcard('elder'))
     expect(getRawCardData(id).elder).to.equal(true)
   })
 
   it('should handle negative elder', () => {
-    const id = randomcard('!elder').replace(BASE_URL, '')
+    const id = getCardId(randomcard('!elder'))
     expect(getRawCardData(id).elder).to.equal(undefined)
   })
 
   it('should handle aliases', () => {
     ALIASES.forEach(test => {
-      const id = randomcard(test.keyword).replace(BASE_URL, '')
+      const id = getCardId(randomcard(test.keyword))
       expect(getRawCardData(id)[test.key]).to.equal(test.value)
     })
   })
 
   it('should handle negative aliases', () => {
     ALIASES.forEach(test => {
-      const id = randomcard('!' + test.keyword).replace(BASE_URL, '')
+      const id = getCardId(randomcard('!' + test.keyword))
       expect(getRawCardData(id)[test.key]).to.not.equal(test.value)
     })
   })
 
   it('should handle multi-searches', () => {
-    const id = randomcard('ic spell rare').replace(BASE_URL, '')
+    const id = getCardId(randomcard('ic spell rare'))
     const card = getRawCardData(id)
 
     expect(card.faction).to.equal('ironclad')
@@ -126,14 +127,14 @@ describe('Bot — !randomcard', () => {
   })
 
   it('should ignore unknown terms', () => {
-    const output = randomcard('ic foo spell bar rare')
+    const output = getCardId(randomcard('ic foo spell bar rare'))
 
     expect(output).to.contain('~~foo~~')
     expect(output).to.contain('~~bar~~')
   })
 
   it('should return nothing for unknown search', () => {
-    expect(randomcard('foo bar')).to.equal(undefined)
-    expect(randomcard('foo bar')).to.equal(undefined)
+    expect(getCardId(randomcard('foo bar'))).to.equal(undefined)
+    expect(getCardId(randomcard('foo bar'))).to.equal(undefined)
   })
 })
