@@ -68,8 +68,6 @@ const button = {
   height: '100%',
 }
 
-export default {
-  progress,
-  item,
-  button,
-}
+const styles = { progress, item, button }
+
+export default styles

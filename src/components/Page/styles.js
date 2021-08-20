@@ -46,4 +46,6 @@ const narrow = ({ withDropCap }) => ({
     : {},
 })
 
-export default { article, content, narrow }
+const styles = { article, content, narrow }
+
+export default styles

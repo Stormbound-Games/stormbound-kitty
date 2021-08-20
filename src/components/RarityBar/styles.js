@@ -47,8 +47,6 @@ const count = {
   },
 }
 
-export default {
-  bar,
-  slice,
-  count,
-}
+const styles = { bar, slice, count }
+
+export default styles

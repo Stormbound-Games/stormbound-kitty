@@ -4,4 +4,6 @@ const info = {
   textTransform: 'initial',
 }
 
-export default { info }
+const styles = { info }
+
+export default styles

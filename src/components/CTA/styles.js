@@ -67,4 +67,6 @@ const content = ({ isDisabled }) => ({
   ':hover::before': { transform: 'translate(-50%, -50%) rotate(45deg)' },
 })
 
-export default { cta, content }
+const styles = { cta, content }
+
+export default styles

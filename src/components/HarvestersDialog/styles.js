@@ -29,9 +29,6 @@ const item = {
   maxWidth: '160px' /* 1 */,
 }
 
-export default {
-  content,
-  body,
-  list,
-  item,
-}
+const styles = { content, body, list, item }
+
+export default styles

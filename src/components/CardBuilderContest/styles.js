@@ -10,7 +10,6 @@ const item = {
   textIndent: '-1.5em',
 }
 
-export default {
-  rules,
-  item,
-}
+const styles = { rules, item }
+
+export default styles

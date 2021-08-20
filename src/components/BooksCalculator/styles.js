@@ -8,7 +8,6 @@ const toggle = {
   marginBottom: 'var(--s-smaller)',
 }
 
-export default {
-  book,
-  toggle,
-}
+const styles = { book, toggle }
+
+export default styles

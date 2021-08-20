@@ -67,4 +67,6 @@ const inner = {
   },
 }
 
-export default { progress, inner }
+const styles = { progress, inner }
+
+export default styles

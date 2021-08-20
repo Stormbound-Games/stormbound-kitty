@@ -7,4 +7,6 @@ const period = {
   width: 'calc(var(--length) * var(--multiplier))',
 }
 
-export default { period }
+const styles = { period }
+
+export default styles

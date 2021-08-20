@@ -5,4 +5,6 @@ const checkbox = {
   alignItems: 'center',
 }
 
-export default { checkbox }
+const styles = { checkbox }
+
+export default styles

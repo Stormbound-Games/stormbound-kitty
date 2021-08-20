@@ -15,4 +15,6 @@ const select = {
   width: 'calc(var(--length) * var(--multiplier))',
 }
 
-export default { title, select }
+const styles = { title, select }
+
+export default styles

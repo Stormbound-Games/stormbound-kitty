@@ -25,4 +25,6 @@ const body = {
   },
 }
 
-export default { layout, body }
+const styles = { layout, body }
+
+export default styles

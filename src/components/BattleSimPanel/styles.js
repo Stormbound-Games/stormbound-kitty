@@ -11,4 +11,6 @@ const boardButton = ({ side }) => ({
   left: side === 'right' ? 'var(--s-large)' : undefined,
 })
 
-export default { panel, boardButton }
+const styles = { panel, boardButton }
+
+export default styles

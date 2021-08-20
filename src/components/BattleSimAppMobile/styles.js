@@ -42,9 +42,6 @@ const button = ({ side }) => ({
   zIndex: 2,
 })
 
-export default {
-  root,
-  panel,
-  board,
-  button,
-}
+const styles = { root, panel, board, button }
+
+export default styles

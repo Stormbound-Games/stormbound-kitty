@@ -43,4 +43,6 @@ const button = ({ isActive }) => ({
   },
 })
 
-export default { button }
+const styles = { button }
+
+export default styles

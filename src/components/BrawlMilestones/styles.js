@@ -53,9 +53,6 @@ const item = {
   padding: '1.5em',
 }
 
-export default {
-  milestones,
-  inner,
-  wrapper,
-  item,
-}
+const styles = { milestones, inner, wrapper, item }
+
+export default styles

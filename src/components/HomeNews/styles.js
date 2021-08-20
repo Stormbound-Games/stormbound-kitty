@@ -72,9 +72,6 @@ const box = {
   },
 }
 
-export default {
-  container,
-  image,
-  title,
-  box,
-}
+const styles = { container, image, title, box }
+
+export default styles

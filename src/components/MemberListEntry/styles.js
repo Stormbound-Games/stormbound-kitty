@@ -58,10 +58,6 @@ const summary = {
   marginTop: 'var(--s-smallest)',
 }
 
-export default {
-  entry,
-  name,
-  content,
-  icon,
-  summary,
-}
+const styles = { entry, name, content, icon, summary }
+
+export default styles

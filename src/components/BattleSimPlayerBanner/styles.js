@@ -45,9 +45,6 @@ const factionIcon = {
   margin: '0 0.4em',
 }
 
-export default {
-  banner,
-  meta,
-  faction,
-  factionIcon,
-}
+const styles = { banner, meta, faction, factionIcon }
+
+export default styles

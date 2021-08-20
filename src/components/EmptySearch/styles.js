@@ -20,4 +20,6 @@ const copy = {
   margin: '0 auto 2em',
 }
 
-export default { container, title, image, copy }
+const styles = { container, title, image, copy }
+
+export default styles

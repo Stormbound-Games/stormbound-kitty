@@ -17,4 +17,6 @@ const control = ({ isActive }) => ({
   ':focus': { color: 'var(--beige)' },
 })
 
-export default { controls, control }
+const styles = { controls, control }
+
+export default styles

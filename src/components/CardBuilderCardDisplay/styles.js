@@ -3,6 +3,6 @@ const card = ({ isIrrelevant }) => ({
   filter: isIrrelevant ? 'grayscale(1)' : undefined,
 })
 
-export default {
-  card,
-}
+const styles = { card }
+
+export default styles

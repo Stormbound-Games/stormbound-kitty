@@ -105,7 +105,7 @@ const footer = {
   zIndex: 2,
 }
 
-export default {
+const styles = {
   milestone,
   header,
   body,
@@ -118,3 +118,5 @@ export default {
   resourceImage,
   footer,
 }
+
+export default styles

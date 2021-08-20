@@ -19,4 +19,6 @@ const select = {
   ':disabled': { opacity: 0.5 },
 }
 
-export default { label, select }
+const styles = { label, select }
+
+export default styles

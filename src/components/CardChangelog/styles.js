@@ -12,8 +12,6 @@ const item = {
   margin: 'var(--s-smaller) 0',
 }
 
-export default {
-  title,
-  list,
-  item,
-}
+const styles = { title, list, item }
+
+export default styles

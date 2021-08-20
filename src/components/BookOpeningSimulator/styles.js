@@ -14,4 +14,6 @@ const item = {
   position: 'relative',
 }
 
-export default { list, item }
+const styles = { list, item }
+
+export default styles

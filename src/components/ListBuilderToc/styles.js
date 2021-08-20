@@ -37,4 +37,6 @@ const item = {
   },
 }
 
-export default { list, item }
+const styles = { list, item }
+
+export default styles

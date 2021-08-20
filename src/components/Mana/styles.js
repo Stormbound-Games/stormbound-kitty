@@ -43,4 +43,6 @@ const value = {
   transform: 'translate(-50%, -50%) translateY(-10%)' /* 1 */,
 }
 
-export default { mana, image, value }
+const styles = { mana, image, value }
+
+export default styles

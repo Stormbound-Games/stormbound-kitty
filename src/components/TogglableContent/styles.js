@@ -14,4 +14,6 @@ const target = ({ isHidden }) => ({
       },
 })
 
-export default { target }
+const styles = { target }
+
+export default styles

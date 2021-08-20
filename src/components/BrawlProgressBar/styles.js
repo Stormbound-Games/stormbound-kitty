@@ -106,4 +106,6 @@ const label = {
   transform: 'translate(-50%, -50%)',
 }
 
-export default { bar, inner, label }
+const styles = { bar, inner, label }
+
+export default styles

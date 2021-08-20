@@ -20,4 +20,6 @@ const image = {
   maxWidth: '250px',
 }
 
-export default { feed, item, empty, image }
+const styles = { feed, item, empty, image }
+
+export default styles

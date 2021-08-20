@@ -37,4 +37,6 @@ const wrapper = {
   },
 }
 
-export default { overlay, wrapper }
+const styles = { overlay, wrapper }
+
+export default styles

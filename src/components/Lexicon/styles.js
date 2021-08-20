@@ -33,10 +33,12 @@ const item = {
   margin: 'var(--s-smaller) 0',
 }
 
-export default {
+const styles = {
   lexicon,
   column,
   title,
   terms,
   item,
 }
+
+export default styles

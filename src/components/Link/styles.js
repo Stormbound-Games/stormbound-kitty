@@ -36,4 +36,6 @@ const newTab = {
   opacity: 0.75,
 }
 
-export default { link, newTab, buttonAsLink }
+const styles = { link, newTab, buttonAsLink }
+
+export default styles

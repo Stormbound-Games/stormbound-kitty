@@ -19,4 +19,6 @@ const input = {
   ':disabled': { opacity: 0.5 },
 }
 
-export default { label, input }
+const styles = { label, input }
+
+export default styles

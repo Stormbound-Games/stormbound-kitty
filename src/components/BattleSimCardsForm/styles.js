@@ -18,9 +18,11 @@ const expandButton = {
   textTransform: 'uppercase',
 }
 
-export default {
+const styles = {
   legend,
   row,
   handButton,
   expandButton,
 }
+
+export default styles

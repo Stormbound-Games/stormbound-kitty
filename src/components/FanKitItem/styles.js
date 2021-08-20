@@ -25,8 +25,6 @@ const download = {
   zIndex: 10,
 }
 
-export default {
-  item,
-  image,
-  download,
-}
+const styles = { item, image, download }
+
+export default styles

@@ -32,4 +32,6 @@ const column = ({ align, isDesktopOnly, withWideGutter }) => ({
     : undefined,
 })
 
-export default { row, column }
+const styles = { row, column }
+
+export default styles

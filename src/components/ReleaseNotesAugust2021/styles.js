@@ -20,4 +20,6 @@ const card = {
   },
 }
 
-export default { cards, card }
+const styles = { cards, card }
+
+export default styles

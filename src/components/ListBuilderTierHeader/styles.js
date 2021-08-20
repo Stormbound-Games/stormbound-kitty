@@ -38,10 +38,6 @@ const buttons = {
   marginLeft: 'var(--s-smaller)',
 }
 
-export default {
-  header,
-  name,
-  item,
-  move,
-  buttons,
-}
+const styles = { header, name, item, move, buttons }
+
+export default styles

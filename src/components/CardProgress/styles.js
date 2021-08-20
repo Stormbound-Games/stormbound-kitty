@@ -19,8 +19,6 @@ const image = ({ isStone }) => ({
   zIndex: 2,
 })
 
-export default {
-  progress,
-  label,
-  image,
-}
+const styles = { progress, label, image }
+
+export default styles

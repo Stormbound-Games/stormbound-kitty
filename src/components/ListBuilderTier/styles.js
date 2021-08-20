@@ -32,4 +32,6 @@ const empty = {
   margin: 0,
 }
 
-export default { body, empty }
+const styles = { body, empty }
+
+export default styles

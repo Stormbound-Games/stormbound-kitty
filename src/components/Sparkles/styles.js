@@ -23,4 +23,6 @@ const svg = {
   animationTimingFunction: 'linear',
 }
 
-export default { sparkles, sparkle, svg }
+const styles = { sparkles, sparkle, svg }
+
+export default styles

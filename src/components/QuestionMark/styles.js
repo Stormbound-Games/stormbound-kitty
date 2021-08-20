@@ -33,4 +33,6 @@ const mark = {
   },
 }
 
-export default { mark }
+const styles = { mark }
+
+export default styles

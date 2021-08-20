@@ -12,4 +12,6 @@ const svg = {
   transform: 'scale(1.5)',
 }
 
-export default { loader, svg }
+const styles = { loader, svg }
+
+export default styles

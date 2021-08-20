@@ -3,4 +3,6 @@ const container = {
   marginTop: 'var(--s-base)',
 }
 
-export default { container }
+const styles = { container }
+
+export default styles

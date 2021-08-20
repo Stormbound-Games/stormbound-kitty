@@ -24,4 +24,6 @@ const value = {
   },
 }
 
-export default { container, value }
+const styles = { container, value }
+
+export default styles

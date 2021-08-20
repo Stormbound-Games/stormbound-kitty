@@ -6,7 +6,6 @@ const gridMarkers = {
   marginTop: 'var(--s-small)',
 }
 
-export default {
-  form,
-  gridMarkers,
-}
+const styles = { form, gridMarkers }
+
+export default styles

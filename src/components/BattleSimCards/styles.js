@@ -69,10 +69,12 @@ const cycleButton = {
   marginBottom: 'var(--s-large)',
 }
 
-export default {
+const styles = {
   cards,
   button,
   slot,
   slotContent,
   cycleButton,
 }
+
+export default styles

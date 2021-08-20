@@ -17,8 +17,6 @@ const radio = {
   ':last-child': { marginLeft: '2em' },
 }
 
-export default {
-  container,
-  score,
-  radio,
-}
+const styles = { container, score, radio }
+
+export default styles

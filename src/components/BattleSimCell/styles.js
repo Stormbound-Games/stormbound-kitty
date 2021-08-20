@@ -325,7 +325,7 @@ const dot = ({ isBubble, isConfused, isPoisoned, isVitalised }) => ({
   },
 })
 
-export default {
+const styles = {
   cell,
   strength,
   strengthContent,
@@ -335,3 +335,5 @@ export default {
   dots,
   dot,
 }
+
+export default styles

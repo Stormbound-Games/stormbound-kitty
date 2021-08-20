@@ -5,4 +5,6 @@ const cta = {
   medium: { fontSize: '180%' },
 }
 
-export default { cta }
+const styles = { cta }
+
+export default styles

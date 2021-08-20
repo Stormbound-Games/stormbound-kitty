@@ -5,4 +5,6 @@ const feed = {
   fontSize: '125%',
 }
 
-export default { feed }
+const styles = { feed }
+
+export default styles

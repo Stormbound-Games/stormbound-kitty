@@ -70,4 +70,6 @@ const navButton = {
   medium: { width: '150px' },
 }
 
-export default { gallery, list, item, inDeck, button, nav, navButton }
+const styles = { gallery, list, item, inDeck, button, nav, navButton }
+
+export default styles

@@ -7,4 +7,6 @@ const button = {
   cursor: 'pointer',
 }
 
-export default { button }
+const styles = { button }
+
+export default styles

@@ -38,10 +38,6 @@ const hint = {
   },
 }
 
-export default {
-  controls,
-  cardHolder,
-  table,
-  formula,
-  hint,
-}
+const styles = { controls, cardHolder, table, formula, hint }
+
+export default styles

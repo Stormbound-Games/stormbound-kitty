@@ -4,4 +4,6 @@ const list = {
   marginTop: 0,
 }
 
-export default { list }
+const styles = { list }
+
+export default styles

@@ -101,7 +101,7 @@ const currency = {
   fontSize: '70%',
 }
 
-export default {
+const styles = {
   quest,
   inner,
   difficulty,
@@ -115,3 +115,5 @@ export default {
   number,
   currency,
 }
+
+export default styles

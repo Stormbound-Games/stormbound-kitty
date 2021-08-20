@@ -8,6 +8,6 @@ const home = {
   position: 'relative' /* 2 */,
 }
 
-export default {
-  home,
-}
+const styles = { home }
+
+export default styles

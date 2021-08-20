@@ -25,8 +25,6 @@ const deck = {
   width: '25%',
 }
 
-export default {
-  root,
-  puzzle,
-  deck,
-}
+const styles = { root, puzzle, deck }
+
+export default styles

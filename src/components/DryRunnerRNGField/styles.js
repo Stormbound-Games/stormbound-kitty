@@ -8,4 +8,6 @@ const infoInner = {
   display: 'block',
 }
 
-export default { info, infoInner }
+const styles = { info, infoInner }
+
+export default styles

@@ -256,7 +256,7 @@ const button = {
   },
 }
 
-export default {
+const styles = {
   deck,
   list,
   card,
@@ -265,3 +265,5 @@ export default {
   image,
   button,
 }
+
+export default styles

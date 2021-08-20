@@ -4,4 +4,6 @@ const checkbox = {
   justifyContent: 'center',
 }
 
-export default { checkbox }
+const styles = { checkbox }
+
+export default styles

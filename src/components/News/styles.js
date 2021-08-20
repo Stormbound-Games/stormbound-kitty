@@ -30,4 +30,6 @@ const item = {
   },
 }
 
-export default { news, item }
+const styles = { news, item }
+
+export default styles

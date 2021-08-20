@@ -62,4 +62,6 @@ const content = {
   },
 }
 
-export default { title, inner, content }
+const styles = { title, inner, content }
+
+export default styles

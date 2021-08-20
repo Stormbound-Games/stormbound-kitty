@@ -1,7 +1,6 @@
 {
   "extends": "next",
   "rules": {
-    "import/no-anonymous-default-export": "off",
     "react/no-children-prop": "off",
     "react/display-name": "off",
     "jsx-a11y/alt-text": "off",

@@ -60,4 +60,6 @@ const icon = {
   top: '1.5px',
 }
 
-export default { notification, icon }
+const styles = { notification, icon }
+
+export default styles

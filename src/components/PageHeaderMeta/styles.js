@@ -54,4 +54,6 @@ const actionIcon = {
   },
 }
 
-export default { meta, action, actionIcon }
+const styles = { meta, action, actionIcon }
+
+export default styles

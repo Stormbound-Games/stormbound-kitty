@@ -13,4 +13,6 @@ const list = {
   paddingLeft: 0,
 }
 
-export default { toc, link, list }
+const styles = { toc, link, list }
+
+export default styles

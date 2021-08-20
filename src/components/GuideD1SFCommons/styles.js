@@ -9,4 +9,6 @@ const select = {
   marginLeft: '1ch',
 }
 
-export default { select }
+const styles = { select }
+
+export default styles

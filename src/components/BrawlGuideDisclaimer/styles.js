@@ -1,21 +1,23 @@
-import styles from '~/components/HorizontalRule/styles'
+import hrStyles from '~/components/HorizontalRule/styles'
 
 const disclaimer = {
   color: 'var(--beige)',
 
   '::before': {
-    ...styles.rule,
+    ...hrStyles.rule,
     content: '""',
     display: 'block',
     marginBottom: 'var(--s-large)',
   },
 
   '::after': {
-    ...styles.rule,
+    ...hrStyles.rule,
     content: '""',
     display: 'block',
     marginTop: 'var(--s-large)',
   },
 }
 
-export default { disclaimer }
+const styles = { disclaimer }
+
+export default styles

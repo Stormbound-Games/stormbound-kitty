@@ -37,7 +37,7 @@ const right = {
   paddingLeft: '2ch',
 }
 
-export default {
+const styles = {
   entry,
   left,
   icon,
@@ -45,3 +45,5 @@ export default {
   date,
   right,
 }
+
+export default styles

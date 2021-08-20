@@ -6,4 +6,6 @@ const trigger = {
   cursor: 'help',
 }
 
-export default { trigger }
+const styles = { trigger }
+
+export default styles

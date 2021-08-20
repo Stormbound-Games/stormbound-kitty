@@ -17,4 +17,6 @@ const radio = {
   margin: 'var(--s-small) var(--s-base)',
 }
 
-export default { form, legend, radio }
+const styles = { form, legend, radio }
+
+export default styles

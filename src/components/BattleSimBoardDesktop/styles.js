@@ -64,10 +64,12 @@ const cards = {
   width: '40%',
 }
 
-export default {
+const styles = {
   root,
   health,
   player,
   grid,
   cards,
 }
+
+export default styles

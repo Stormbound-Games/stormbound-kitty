@@ -324,7 +324,7 @@ const level = ({ isCreated, rarity, isMissing }) => ({
   marginBottom: '0.3em',
 })
 
-export default {
+const styles = {
   card,
   mana,
   manaContent,
@@ -344,3 +344,5 @@ export default {
   movementContent,
   level,
 }
+
+export default styles

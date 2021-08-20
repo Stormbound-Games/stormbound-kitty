@@ -9,7 +9,6 @@ const radios = {
   paddingRight: '1em',
 }
 
-export default {
-  button,
-  radios,
-}
+const styles = { button, radios }
+
+export default styles

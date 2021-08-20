@@ -56,4 +56,6 @@ const title = {
   },
 }
 
-export default { banner, title }
+const styles = { banner, title }
+
+export default styles

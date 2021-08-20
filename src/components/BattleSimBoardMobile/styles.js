@@ -87,10 +87,12 @@ const cards = {
   width: '100%',
 }
 
-export default {
+const styles = {
   board,
   health,
   player,
   grid,
   cards,
 }
+
+export default styles

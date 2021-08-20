@@ -12,4 +12,6 @@ const cta = {
   },
 }
 
-export default { container, cta }
+const styles = { container, cta }
+
+export default styles

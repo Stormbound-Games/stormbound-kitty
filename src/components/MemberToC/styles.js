@@ -22,4 +22,6 @@ const icon = {
   padding: '0.2em',
 }
 
-export default { toc, item, icon }
+const styles = { toc, item, icon }
+
+export default styles

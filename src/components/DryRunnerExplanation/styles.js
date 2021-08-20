@@ -24,9 +24,6 @@ const toggle = {
   ':hover': { color: 'var(--white)' },
 }
 
-export default {
-  explanation,
-  list,
-  item,
-  toggle,
-}
+const styles = { explanation, list, item, toggle }
+
+export default styles

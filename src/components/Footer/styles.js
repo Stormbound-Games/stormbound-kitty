@@ -56,7 +56,7 @@ const vercel = {
   marginTop: 'var(--s-smaller)',
 }
 
-export default {
+const styles = {
   footer,
   inner,
   info,
@@ -66,3 +66,5 @@ export default {
   heading,
   item,
 }
+
+export default styles

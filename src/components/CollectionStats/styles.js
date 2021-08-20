@@ -13,7 +13,6 @@ const title = {
   marginBottom: 0 /* 1 */,
 }
 
-export default {
-  checkbox,
-  title,
-}
+const styles = { checkbox, title }
+
+export default styles

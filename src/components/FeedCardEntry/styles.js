@@ -4,4 +4,6 @@ const container = {
   '> *': { marginBottom: 'var(--s-smaller)' },
 }
 
-export default { container }
+const styles = { container }
+
+export default styles

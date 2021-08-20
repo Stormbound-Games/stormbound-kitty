@@ -64,9 +64,6 @@ const input = {
 
 const label = ({ isDisabled }) => ({ opacity: isDisabled ? 0.5 : undefined })
 
-export default {
-  radio,
-  icon,
-  input,
-  label,
-}
+const styles = { radio, icon, input, label }
+
+export default styles

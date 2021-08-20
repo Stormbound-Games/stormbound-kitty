@@ -16,4 +16,6 @@ const odd = {
   "[data-position='middle']": { color: '#473062', opacity: 0.8 },
 }
 
-export default { fix, odd }
+const styles = { fix, odd }
+
+export default styles

@@ -29,4 +29,6 @@ const overlay = {
   backgroundColor: 'initial',
 }
 
-export default { container, dialog, body, overlay }
+const styles = { container, dialog, body, overlay }
+
+export default styles

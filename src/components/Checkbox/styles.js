@@ -59,9 +59,6 @@ const label = ({ isDisabled }) => ({
   cursor: isDisabled ? 'not-allowed' : 'pointer',
 })
 
-export default {
-  checkbox,
-  icon,
-  input,
-  label,
-}
+const styles = { checkbox, icon, input, label }
+
+export default styles

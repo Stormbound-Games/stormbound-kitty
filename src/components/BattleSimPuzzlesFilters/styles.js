@@ -19,7 +19,6 @@ const toggle = {
   },
 }
 
-export default {
-  info,
-  toggle,
-}
+const styles = { info, toggle }
+
+export default styles

@@ -45,4 +45,6 @@ const legend = {
   ':nth-of-type(3)::before': { backgroundColor: '#2ecc71' },
 }
 
-export default { caption, legend, cell }
+const styles = { caption, legend, cell }
+
+export default styles

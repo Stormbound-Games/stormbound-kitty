@@ -124,4 +124,6 @@ const cellContent = ({ withGridMarkers, rowIndex }) => ({
   },
 })
 
-export default { grid, cell, cellContent }
+const styles = { grid, cell, cellContent }
+
+export default styles

@@ -92,7 +92,7 @@ const close = {
   },
 }
 
-export default {
+const styles = {
   menu,
   title,
   icon,
@@ -101,3 +101,5 @@ export default {
   link,
   close,
 }
+
+export default styles

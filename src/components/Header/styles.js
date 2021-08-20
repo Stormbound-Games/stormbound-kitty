@@ -144,7 +144,7 @@ const icon = {
   },
 }
 
-export default {
+const styles = {
   header,
   nav,
   list,
@@ -152,3 +152,5 @@ export default {
   action,
   icon,
 }
+
+export default styles

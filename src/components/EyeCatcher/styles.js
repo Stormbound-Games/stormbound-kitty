@@ -28,4 +28,6 @@ const close = {
   },
 }
 
-export default { container, close }
+const styles = { container, close }
+
+export default styles

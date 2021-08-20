@@ -17,4 +17,6 @@ const icon = ({ type }) => ({
       : undefined /* 1 */,
 })
 
-export default { icon }
+const styles = { icon }
+
+export default styles

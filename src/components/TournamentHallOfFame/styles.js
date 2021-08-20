@@ -9,4 +9,6 @@ const meta = {
   fontSize: '80%',
 }
 
-export default { name, meta }
+const styles = { name, meta }
+
+export default styles

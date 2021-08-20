@@ -71,4 +71,6 @@ const row = ({ player, frontRowIndex = 0 }) => ({
   },
 })
 
-export default { row }
+const styles = { row }
+
+export default styles

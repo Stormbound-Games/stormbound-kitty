@@ -38,7 +38,7 @@ const actions = {
   '> *': { margin: '0 0.5em 0 0.75em' },
 }
 
-export default {
+const styles = {
   deck,
   info,
   meta,
@@ -46,3 +46,5 @@ export default {
   rarityBar,
   actions,
 }
+
+export default styles

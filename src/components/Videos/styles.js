@@ -38,10 +38,6 @@ const column = {
   '@media (min-width: 1200px)': { display: 'block' },
 }
 
-export default {
-  title,
-  image,
-  link,
-  icon,
-  column,
-}
+const styles = { title, image, link, icon, column }
+
+export default styles

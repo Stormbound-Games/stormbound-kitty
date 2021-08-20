@@ -14,4 +14,6 @@ const button = {
   zIndex: 2,
 }
 
-export default { wrapper, button }
+const styles = { wrapper, button }
+
+export default styles

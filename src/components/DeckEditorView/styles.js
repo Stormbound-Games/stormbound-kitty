@@ -3,4 +3,6 @@ const checkbox = {
   small: { marginTop: '-1em' },
 }
 
-export default { checkbox }
+const styles = { checkbox }
+
+export default styles

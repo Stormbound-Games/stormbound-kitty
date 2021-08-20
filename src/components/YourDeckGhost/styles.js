@@ -44,8 +44,6 @@ const name = {
   opacity: 0.5,
 }
 
-export default {
-  ghost,
-  button,
-  name,
-}
+const styles = { ghost, button, name }
+
+export default styles

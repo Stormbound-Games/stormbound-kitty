@@ -15,4 +15,6 @@ const fullWidth = {
   },
 }
 
-export default { fullWidth }
+const styles = { fullWidth }
+
+export default styles

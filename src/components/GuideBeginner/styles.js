@@ -10,4 +10,6 @@ const image = {
   },
 }
 
-export default { image }
+const styles = { image }
+
+export default styles

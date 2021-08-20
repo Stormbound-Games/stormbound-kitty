@@ -42,9 +42,11 @@ const answer = {
   margin: '0 0 2.5em',
 }
 
-export default {
+const styles = {
   pulse,
   entry,
   link,
   answer,
 }
+
+export default styles

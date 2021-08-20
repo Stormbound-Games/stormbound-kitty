@@ -25,4 +25,6 @@ const hint = {
   display: 'block',
 }
 
-export default { field, label, hint, select }
+const styles = { field, label, hint, select }
+
+export default styles

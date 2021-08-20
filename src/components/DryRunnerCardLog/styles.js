@@ -48,10 +48,12 @@ const image = {
   margin: 'auto',
 }
 
-export default {
+const styles = {
   title,
   container,
   row,
   imageWrapper,
   image,
 }
+
+export default styles

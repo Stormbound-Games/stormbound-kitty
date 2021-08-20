@@ -5,7 +5,7 @@ import { UserContext } from '~/components/UserProvider'
 import { CATEGORIES } from '~/constants/guides'
 import { STORY_CATEGORIES } from '~/constants/stories'
 
-export default () => {
+const useNavigation = () => {
   const { isUnseen } = React.useContext(PersonalDecksContext)
   const { name } = React.useContext(UserContext)
 
@@ -319,3 +319,5 @@ export default () => {
     },
   ]
 }
+
+export default useNavigation

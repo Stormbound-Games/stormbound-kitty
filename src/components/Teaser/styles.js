@@ -171,7 +171,7 @@ const excerpt = {
   marginBottom: 0,
 }
 
-export default {
+const styles = {
   teaser,
   header,
   card,
@@ -182,3 +182,5 @@ export default {
   link,
   excerpt,
 }
+
+export default styles

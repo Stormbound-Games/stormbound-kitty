@@ -33,4 +33,6 @@ const cta = {
   textAlign: 'center',
 }
 
-export default { info, title, icon, cta }
+const styles = { info, title, icon, cta }
+
+export default styles

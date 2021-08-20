@@ -8,4 +8,6 @@ const rule = {
   marginRight: 'auto',
 }
 
-export default { rule }
+const styles = { rule }
+
+export default styles

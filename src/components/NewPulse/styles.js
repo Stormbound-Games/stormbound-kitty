@@ -28,4 +28,6 @@ const newPulse = {
   },
 }
 
-export default { newPulse }
+const styles = { newPulse }
+
+export default styles

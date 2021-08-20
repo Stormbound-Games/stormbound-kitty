@@ -14,4 +14,6 @@ const file = {
   height: 0 /* 1 */,
 }
 
-export default { container, file }
+const styles = { container, file }
+
+export default styles

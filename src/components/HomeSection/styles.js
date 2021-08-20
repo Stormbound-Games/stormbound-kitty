@@ -85,7 +85,7 @@ const action = {
   },
 }
 
-export default {
+const styles = {
   section,
   inner,
   title,
@@ -93,3 +93,5 @@ export default {
   actions,
   action,
 }
+
+export default styles

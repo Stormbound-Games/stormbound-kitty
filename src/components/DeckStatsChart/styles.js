@@ -11,4 +11,6 @@ const howTo = {
   fontSize: '90%',
 }
 
-export default { chart, howTo }
+const styles = { chart, howTo }
+
+export default styles

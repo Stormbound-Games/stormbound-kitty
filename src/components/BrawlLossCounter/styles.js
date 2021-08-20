@@ -10,4 +10,6 @@ const heart = {
   margin: '0 0.25em',
 }
 
-export default { counter, heart }
+const styles = { counter, heart }
+
+export default styles

@@ -46,7 +46,7 @@ const body = {
   fontSize: '120%',
 }
 
-export default {
+const styles = {
   arrow,
   meta,
   wrapper,
@@ -56,3 +56,5 @@ export default {
   hint,
   body,
 }
+
+export default styles

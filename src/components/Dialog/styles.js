@@ -84,7 +84,7 @@ const cta = {
   width: '50%',
 }
 
-export default {
+const styles = {
   container,
   overlay,
   image,
@@ -95,3 +95,5 @@ export default {
   button,
   cta,
 }
+
+export default styles

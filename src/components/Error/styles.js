@@ -20,4 +20,6 @@ const pre = {
   color: 'var(--beige)',
 }
 
-export default { error, title, image, pre }
+const styles = { error, title, image, pre }
+
+export default styles

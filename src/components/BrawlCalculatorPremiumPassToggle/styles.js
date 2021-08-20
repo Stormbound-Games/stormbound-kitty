@@ -8,4 +8,6 @@ const checkbox = {
   display: 'inline-flex',
 }
 
-export default { toggle, checkbox }
+const styles = { toggle, checkbox }
+
+export default styles

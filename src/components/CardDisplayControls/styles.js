@@ -3,4 +3,6 @@ const container = {
   justifyContent: 'space-between',
 }
 
-export default { container }
+const styles = { container }
+
+export default styles

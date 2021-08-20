@@ -65,10 +65,12 @@ const status = ({ status }) => ({
   color: STATUS_COLOR[status],
 })
 
-export default {
+const styles = {
   matches,
   table,
   edit,
   milestone,
   status,
 }
+
+export default styles

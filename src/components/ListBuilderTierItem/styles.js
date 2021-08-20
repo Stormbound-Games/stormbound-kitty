@@ -55,8 +55,6 @@ const name = {
   bottom: 0,
 }
 
-export default {
-  item,
-  image,
-  name,
-}
+const styles = { item, image, name }
+
+export default styles

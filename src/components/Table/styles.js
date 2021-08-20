@@ -110,4 +110,6 @@ const table = ({ isZebra }) => ({
   },
 })
 
-export default { table }
+const styles = { table }
+
+export default styles

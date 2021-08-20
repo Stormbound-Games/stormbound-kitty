@@ -9,4 +9,6 @@ const icon = {
   margin: 0,
 }
 
-export default { icon }
+const styles = { icon }
+
+export default styles

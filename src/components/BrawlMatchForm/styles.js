@@ -53,4 +53,6 @@ const button = {
   textDecoration: 'none',
 }
 
-export default { form, field, button }
+const styles = { form, field, button }
+
+export default styles

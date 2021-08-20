@@ -17,8 +17,6 @@ const select = {
   borderRadius: 0,
 }
 
-export default {
-  item,
-  list,
-  select,
-}
+const styles = { item, list, select }
+
+export default styles

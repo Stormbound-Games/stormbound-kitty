@@ -36,7 +36,7 @@ const caption = {
   marginTop: 'var(--s-base)',
 }
 
-export default {
+const styles = {
   disclaimerWrapper,
   disclaimer,
   wrapper,
@@ -45,3 +45,5 @@ export default {
   image,
   caption,
 }
+
+export default styles

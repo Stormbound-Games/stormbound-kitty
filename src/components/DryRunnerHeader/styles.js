@@ -5,4 +5,6 @@ const mana = {
   fontSize: '125%',
 }
 
-export default { mana }
+const styles = { mana }
+
+export default styles

@@ -8,7 +8,6 @@ const cross = {
   fontSize: '120%',
 }
 
-export default {
-  icon,
-  cross,
-}
+const styles = { icon, cross }
+
+export default styles
