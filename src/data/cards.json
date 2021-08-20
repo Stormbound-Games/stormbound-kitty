@@ -1119,6 +1119,19 @@
     "ability": "At the start of your turn, give (or remove) fixedly forward movement to the leftmost unit card in your hand, then destroy the weakest confused unit"
   },
   {
+    "name": "Sparkly Kitties",
+    "id": "N86",
+    "type": "unit",
+    "faction": "neutral",
+    "race": "feline",
+    "rarity": "epic",
+    "image": "sparkly_kitties.png",
+    "mana": 2,
+    "strength": "2/3/4/5/6",
+    "movement": 2,
+    "ability": "On play, confuse itself"
+  },
+  {
     "name": "Destructobots",
     "id": "I1",
     "type": "unit",
