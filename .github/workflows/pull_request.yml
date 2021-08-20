@@ -1,4 +1,4 @@
-name: End-to-end tests (PR)
+name: Continuous Integration (PR)
 
 on: [pull_request]
 

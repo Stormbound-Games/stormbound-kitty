@@ -1,4 +1,4 @@
-name: End-to-end tests (Push)
+name: Continuous Integration (main)
 
 on: [deployment_status]
 
