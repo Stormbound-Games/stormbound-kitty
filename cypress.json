@@ -1,20 +1,21 @@
 {
-  "numTestsKeptInMemory": 10,
+  "baseUrl": "https://stormbound-kitty-3bwh3uqn0-kittysparkles.vercel.app",
+  "chromeWebSecurity": false,
   "coverage": false,
-  "baseUrl": "http://localhost:3000",
-  "video": false,
-  "ignoreTestFiles": [
-    "selectors.js"
-  ],
-  "projectId": "h321g2",
+  "defaultCommandTimeout": 10000,
   "env": {
     "coverage": false
   },
+  "ignoreTestFiles": [
+    "selectors.js"
+  ],
+  "numTestsKeptInMemory": 10,
+  "projectId": "h321g2",
   "retries": {
     "runMode": 2,
     "openMode": 0
   },
-  "viewportWidth": 1200,
+  "video": false,
   "viewportHeight": 768,
-  "defaultCommandTimeout": 10000
+  "viewportWidth": 1200
 }
