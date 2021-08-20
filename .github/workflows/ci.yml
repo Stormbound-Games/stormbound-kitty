@@ -11,16 +11,8 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
-      - name: Set up caching
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.cache/Cypress
-            ~/.npm
-            .next/cache
-          key: ${{ runner.os }}-cache-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-cache-
+      - name: Print URL
+        run: echo ${{ github.event.deployment_status.target_url }}
 
       - name: Install dependencies
         uses: cypress-io/github-action@v2
@@ -45,17 +37,6 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
-
-      - name: Set up caching
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.cache/Cypress
-            ~/.npm
-            .next/cache
-          key: ${{ runner.os }}-cache-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-cache-
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
