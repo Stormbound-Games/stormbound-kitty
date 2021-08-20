@@ -22,19 +22,18 @@ export default React.memo(function PageMeta(props) {
   return (
     <Head>
       <title>{title}</title>
-      <meta property='og:title' content={title} />
-      <meta property='twitter:title' content={title} />
-
       <link rel='canonical' href={SITE_URL + location} />
+      <meta name='author' content={author} />
+      <meta name='description' content={description} />
+
+      <meta property='og:title' content={title} />
+      <meta property='og:description' content={description} />
+      <meta property='og:image' content={image} />
       <meta property='og:url' content={SITE_URL + location} />
 
-      <meta name='author' content={author} />
-
-      <meta name='description' content={description} />
-      <meta property='og:description' content={description} />
+      <meta property='twitter:title' content={title} />
       <meta property='twitter:description' content={description} />
-
-      <meta property='og:image' content={image} />
+      <meta property='twitter:image' content={image} />
 
       {props.noIndex && <meta name='robots' content='noindex, nofollow' />}
     </Head>

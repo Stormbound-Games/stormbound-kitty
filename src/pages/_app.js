@@ -17,11 +17,15 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
       <Head>
         <link rel='shortcut icon' href='/favicon.png' />
         <link rel='apple-touch-icon' href='/favicon.png' />
+
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <meta name='theme-color' content='#101F26' />
         <link rel='manifest' href='/manifest.json' />
-        <meta name='og:type' content='website' />
-        <meta name='og:site_name' content='Stormbound-Kitty' />
+
+        <meta property='og:type' content='website' />
+        <meta property='og:site_name' content='Stormbound-Kitty' />
+        <meta name='twitter:site' content='@stormboundccg' />
+        <meta name='twitter:card' content='summary_large_image' />
 
         <script
           dangerouslySetInnerHTML={{
