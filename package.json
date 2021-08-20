@@ -48,7 +48,7 @@
   "scripts": {
     "start": "next dev",
     "build:cra": "next build && next-sitemap",
-    "test": "cypress run",
+    "test": "jest",
     "bot": "node -r esm bin/bot.js",
     "bot:dev": "nodemon -x \"node -r esm\" bin/bot.js --watch src",
     "prepare": "husky install"
@@ -67,6 +67,7 @@
     "eslint-config-next": "^11.1.0",
     "find-webpack": "^2.2.0",
     "husky": "^7.0.1",
+    "jest": "^26.6.0",
     "lint-staged": "^11.1.2",
     "mathjax-node": "^2.1.1",
     "next-sitemap": "^1.6.157",
