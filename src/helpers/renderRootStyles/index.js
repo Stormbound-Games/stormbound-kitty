@@ -252,7 +252,7 @@ const renderRootStyles = renderer => {
       padding: 0,
       listStylePosition: 'inside',
     },
-    '.EditorialContent ol ul:not([class])'
+    '.EditorialContent ol:not([class]), .EditorialContent ul:not([class])'
   )
 
   renderer.renderStatic(
