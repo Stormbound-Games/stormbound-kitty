@@ -1,6 +1,15 @@
 [
   {
     "date": "01/09/2021",
+    "description": "Ability decreased by 1 but made to trigger before attacking a unit regardless of position",
+    "id": "W22",
+    "type": "BUFF",
+    "from": {
+      "ability": "When played with an enemy on the tile in front, *gain 4/5/6/7/8* strength"
+    }
+  },
+  {
+    "date": "01/09/2021",
     "description": "Movement and strength increased by 1 and ability made to trigger before moving as well as surrounding at all levels",
     "id": "N80",
     "type": "BUFF",
