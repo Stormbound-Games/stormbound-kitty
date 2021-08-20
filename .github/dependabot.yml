@@ -7,7 +7,5 @@ updates:
     ignore:
       - dependency-name: 'discord.js'
         versions: ['13.x']
-      - dependency-name: 'cypress'
-        versions: ['7.x', '8.x']
       - dependency-name: 'framer-motion'
         versions: ['2.x', '3.x', '4.x']
