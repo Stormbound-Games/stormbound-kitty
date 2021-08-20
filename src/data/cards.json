@@ -558,7 +558,7 @@
     "mana": 6,
     "strength": "5/7/7/9/10",
     "movement": 0,
-    "ability": "When played bordering *exactly 1* friendly Dragon, *spawn 1/1/2/2/3* strength Dragons on all tiles bordering either"
+    "ability": "When played bordering a friendly Dragon, *spawn 1/1/2/2/3* strength Dragons on all tiles bordering either"
   },
   {
     "name": "Needle Blast",

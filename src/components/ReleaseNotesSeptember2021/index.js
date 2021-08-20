@@ -84,6 +84,11 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
             4/5/6/7/8) but is made to trigger when attacking a{' '}
             <span className='Highlight'>unit</span>, regardless of position.
           </li>
+          <li>
+            <CardLink id='N43' />’ ability now triggers when played borderding a
+            friendly dragon, instead of only one bordering exactly 1 friendly
+            dragon.
+          </li>
         </ul>
 
         <NerfCompensationInfo ids={['N77']} />

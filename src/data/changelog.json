@@ -1,6 +1,15 @@
 [
   {
     "date": "01/09/2021",
+    "description": "Ability made to trigger when played bordering at least a friendly dragon",
+    "id": "N43",
+    "type": "BUFF",
+    "from": {
+      "ability": "When played bordering *exactly 1* friendly Dragon, *spawn 1/1/2/2/3* strength Dragons on all tiles bordering either"
+    }
+  },
+  {
+    "date": "01/09/2021",
     "description": "Ability decreased by 1 but made to trigger before attacking a unit regardless of position",
     "id": "W22",
     "type": "BUFF",
