@@ -11,7 +11,7 @@ import Select from '~/components/Select'
 import getRawCardData from '~/helpers/getRawCardData'
 import styles from './styles'
 
-const CardsFormRow = React.memo(({ index, ...props }) => {
+const CardsFormRow = React.memo(function CardsFormRow({ index, ...props }) {
   const { css } = useFela()
 
   return (

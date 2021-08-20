@@ -7,52 +7,68 @@ import styles from './styles'
 
 const RNG_SENSITIVE_CARDS = {
   S3: {
-    FRIENDLY: () => (
-      <>
-        <CardLink id='S3' /> comes back in hand
-      </>
-    ),
-    UNFRIENDLY: () => (
-      <>
-        <CardLink id='S3' /> doesn’t come back to hand
-      </>
-    ),
+    FRIENDLY: function FriendlyS3() {
+      return (
+        <>
+          <CardLink id='S3' /> comes back in hand
+        </>
+      )
+    },
+    UNFRIENDLY: function UnfriendlyS3() {
+      return (
+        <>
+          <CardLink id='S3' /> doesn’t come back to hand
+        </>
+      )
+    },
   },
   I29: {
-    FRIENDLY: () => (
-      <>
-        <CardLink id='I29' /> comes back in hand
-      </>
-    ),
-    UNFRIENDLY: () => (
-      <>
-        <CardLink id='I29' /> doesn’t come back to hand
-      </>
-    ),
+    FRIENDLY: function FriendlyI29() {
+      return (
+        <>
+          <CardLink id='I29' /> comes back in hand
+        </>
+      )
+    },
+    UNFRIENDLY: function UnfriendlyI29() {
+      return (
+        <>
+          <CardLink id='I29' /> doesn’t come back to hand
+        </>
+      )
+    },
   },
   W9: {
-    FRIENDLY: () => (
-      <>
-        <CardLink id='W9' /> stays
-      </>
-    ),
-    UNFRIENDLY: () => (
-      <>
-        <CardLink id='W9' /> gets destroyed
-      </>
-    ),
+    FRIENDLY: function FriendlyW9() {
+      return (
+        <>
+          <CardLink id='W9' /> stays
+        </>
+      )
+    },
+    UNFRIENDLY: function UnfriendlyW9() {
+      return (
+        <>
+          <CardLink id='W9' /> gets destroyed
+        </>
+      )
+    },
   },
   W16: {
-    FRIENDLY: () => (
-      <>
-        <CardLink id='W16' /> hits and stays on the board
-      </>
-    ),
-    UNFRIENDLY: () => (
-      <>
-        <CardLink id='W16' /> dies
-      </>
-    ),
+    FRIENDLY: function FriendlyW16() {
+      return (
+        <>
+          <CardLink id='W16' /> hits and stays on the board
+        </>
+      )
+    },
+    UNFRIENDLY: function UnfriendlyW16() {
+      return (
+        <>
+          <CardLink id='W16' /> dies
+        </>
+      )
+    },
   },
 }
 

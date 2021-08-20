@@ -14,25 +14,27 @@ export const getCardData = id => {
   return data
 }
 
-export const CardBuilderHallOfFameSeason = React.memo(props => {
-  const ITEMS = props.weeks.map(week => {
-    const cardData = getCardData(week.winner.id)
+export const CardBuilderHallOfFameSeason = React.memo(
+  function CardBuilderHallOfFameSeason(props) {
+    const ITEMS = props.weeks.map(week => {
+      const cardData = getCardData(week.winner.id)
 
-    return {
-      card: cardData,
-      title: 'Card by ' + week.winner.author,
-      meta: `Week #${week.id} – ${week.name}`,
-      to: `/card/${week.winner.id}/display`,
-      excerpt: (
-        <>
-          <strong className='Highlight'>Ability:</strong> {cardData.ability}
-        </>
-      ),
-    }
-  })
+      return {
+        card: cardData,
+        title: 'Card by ' + week.winner.author,
+        meta: `Week #${week.id} – ${week.name}`,
+        to: `/card/${week.winner.id}/display`,
+        excerpt: (
+          <>
+            <strong className='Highlight'>Ability:</strong> {cardData.ability}
+          </>
+        ),
+      }
+    })
 
-  return <Teasers items={ITEMS} />
-})
+    return <Teasers items={ITEMS} />
+  }
+)
 
 export default React.memo(function CardBuilderHallOfFame(props) {
   return (
