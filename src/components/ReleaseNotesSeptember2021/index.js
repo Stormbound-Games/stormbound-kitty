@@ -27,10 +27,10 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
 
         <p>
           Before we begin, let’s take a short moment to remember that the
-          development team was quite fragmented due to well-deserved holidays in
-          August and September, hence the releases being a little superficial.
-          It will pick up some steam in September to deliver new exciting
-          content soon!
+          development team is currently quite fragmented due to well-deserved
+          holidays in August and September, hence the releases being a little
+          superficial. It will pick up some steam in October to deliver new
+          exciting content soon!
         </p>
 
         <TableOfContents>
