@@ -17,6 +17,8 @@ const ALIASES = [
   { keyword: 'yellow', key: 'faction', value: 'swarm' },
 ]
 
+const getCardId = url => url.replace(BASE_URL, '').replace('/detail', '')
+
 describe('Bot — !randomcard', () => {
   it('should return a random card for an empty search', () => {
     expect(randomcard('')).to.contain(BASE_URL)
@@ -24,28 +26,28 @@ describe('Bot — !randomcard', () => {
 
   it('should handle factions', () => {
     Object.keys(FACTIONS).forEach(faction => {
-      const id = randomcard(faction).replace(BASE_URL, '')
+      const id = getCardId(randomcard(faction))
       expect(getRawCardData(id).faction).to.equal(faction)
     })
   })
 
   it('should handle negative factions', () => {
     Object.keys(FACTIONS).forEach(faction => {
-      const id = randomcard('!' + faction).replace(BASE_URL, '')
+      const id = getCardId(randomcard('!' + faction))
       expect(getRawCardData(id).faction).to.not.equal(faction)
     })
   })
 
   it('should handle types', () => {
     Object.keys(TYPES).forEach(type => {
-      const id = randomcard(type).replace(BASE_URL, '')
+      const id = getCardId(randomcard(type))
       expect(getRawCardData(id).type).to.equal(type)
     })
   })
 
   it('should handle negative types', () => {
     Object.keys(TYPES).forEach(type => {
-      const id = randomcard('!' + type).replace(BASE_URL, '')
+      const id = getCardId(randomcard('!' + type))
       expect(getRawCardData(id).type).to.not.equal(type)
     })
   })
@@ -54,39 +56,39 @@ describe('Bot — !randomcard', () => {
     Object.keys(RACES)
       .filter(race => race === 'Ancient')
       .forEach(race => {
-        const id = randomcard(race).replace(BASE_URL, '')
+        const id = getCardId(randomcard(race))
         expect(getRawCardData(id).race).to.equal(race)
       })
   })
 
   it('should handle negative races', () => {
     Object.keys(RACES).forEach(race => {
-      const id = randomcard('!' + race).replace(BASE_URL, '')
+      const id = getCardId(randomcard('!' + race))
       expect(getRawCardData(id).race).to.not.equal(race)
     })
   })
 
   it('should handle rarities', () => {
     Object.keys(RARITIES).forEach(rarity => {
-      const id = randomcard(rarity).replace(BASE_URL, '')
+      const id = getCardId(randomcard(rarity))
       expect(getRawCardData(id).rarity).to.equal(rarity)
     })
   })
 
   it('should handle negative rarities', () => {
     Object.keys(RARITIES).forEach(rarity => {
-      const id = randomcard('!' + rarity).replace(BASE_URL, '')
+      const id = getCardId(randomcard('!' + rarity))
       expect(getRawCardData(id).rarity).to.not.equal(rarity)
     })
   })
 
   it('should handle hero', () => {
-    const id = randomcard('hero').replace(BASE_URL, '')
+    const id = getCardId(randomcard('hero'))
     expect(getRawCardData(id).hero).to.equal(true)
   })
 
   it('should handle negative hero', () => {
-    const id = randomcard('!hero').replace(BASE_URL, '')
+    const id = getCardId(randomcard('!hero'))
     expect(getRawCardData(id).hero).to.equal(undefined)
   })
 

@@ -15,7 +15,7 @@ export default {
   handler: function (message) {
     return (
       searchCards(message)
-        .map(card => 'https://stormbound-kitty.com/card/' + card.id)
+        .map(card => `https://stormbound-kitty.com/card/${card.id}/display`)
         .slice(0, 3)
         .join('\n') || undefined
     )

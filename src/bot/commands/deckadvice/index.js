@@ -22,7 +22,7 @@ export default {
 
     const embed = getEmbed()
       .setTitle(`${this.label}: ` + id)
-      .setURL('https://stormbound-kitty.com/deck/' + id)
+      .setURL(`https://stormbound-kitty.com/deck/${id}/detail`)
 
     try {
       const cards = serialisation.deck.deserialise(id).map(getResolvedCardData)
