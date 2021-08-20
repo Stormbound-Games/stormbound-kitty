@@ -1,5 +1,11 @@
 [
   {
+    "date": "01/09/2021",
+    "description": "Added to the game",
+    "id": "N86",
+    "type": "INFO"
+  },
+  {
     "date": "01/08/2021",
     "description": "Strength increased by 2",
     "id": "F20",
