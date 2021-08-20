@@ -3,6 +3,7 @@ import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
 import CardLink from '~/components/CardLink'
 import CheapenedBrawl from '~/components/CheapenedBrawl'
 import Image from '~/components/Image'
+import FAQSection from '~/components/FAQSection'
 import Link from '~/components/Link'
 import NerfCompensationInfo from '~/components/NerfCompensationInfo'
 import Page from '~/components/Page'
@@ -162,7 +163,8 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
         <p>
           For those of you willing to put a few bucks into the game and
           supporting the creators, this anniversary event will introduce 4
-          special in-app purchases:
+          special in-app purchases. They will all be available for a week from
+          September 13th.
         </p>
 
         <Image
@@ -239,7 +241,24 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
           bundle has been bought once.
         </p>
 
-        <Title id='faq'>FAQ</Title>
+        <FAQSection
+          id='faq'
+          title='FAQ'
+          entries={[
+            {
+              id: 'release-date',
+              question: 'When is the update going to be released?',
+              answer: (
+                <>
+                  The balance changes will be deployed with the season reset as
+                  usual along with the compensation for Rogue Sheep. The offers
+                  and gifts will come around the 18th of September since this is
+                  the anniversary day. The new card will come on September 23rd.
+                </>
+              ),
+            },
+          ]}
+        />
       </Page.Narrow>
     </>
   )
