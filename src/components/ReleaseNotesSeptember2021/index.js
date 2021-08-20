@@ -93,6 +93,14 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
             <CardLink id='I24' />’ strength is now 5/6/7/8/9 (up from
             4/5/6/7/8).
           </li>
+          <li>
+            <CardLink id='N77' />
+            ’s ability has been revamped to synergize with pirate cards in the
+            hand of both players. The new ability at level 5 reads as such: “On
+            play, draw 3 single-use non-pirate card copies from the enemy’s
+            hand. If you have a pirate card in hand, reduce their mana cost by
+            1.”
+          </li>
         </ul>
 
         <NerfCompensationInfo ids={['N77']} />

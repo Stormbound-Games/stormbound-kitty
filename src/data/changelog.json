@@ -1,6 +1,15 @@
 [
   {
     "date": "01/09/2021",
+    "description": "Ability made to synergize with in-hand pirates",
+    "id": "N77",
+    "type": "NERF",
+    "from": {
+      "ability": "On play, *draw* up to *1/1/2/2/3* card copy/copy/copies/copies/copies from the enemy’s hand with *1* mana cheaper cost"
+    }
+  },
+  {
+    "date": "01/09/2021",
     "description": "Strength increased by 1",
     "id": "I24",
     "type": "BUFF",
