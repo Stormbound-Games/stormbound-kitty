@@ -1,10 +1,17 @@
 import React from 'react'
+import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
+import CheapenedBrawl from '~/components/CheapenedBrawl'
+import Image from '~/components/Image'
 import Link from '~/components/Link'
+import NerfCompensationInfo from '~/components/NerfCompensationInfo'
 import Page from '~/components/Page'
 import Info from '~/components/Info'
+import Row from '~/components/Row'
+import Spacing from '~/components/Spacing'
 import TableOfContents from '~/components/TableOfContents'
-import CardLink from '~/components/CardLink'
+import { Coins, Rubies, Stones, Legendary } from '~/components/Resource'
 import Title from '~/components/Title'
+import getInitialCardData from '~/helpers/getInitialCardData'
 
 export default React.memo(function ReleaseNotesSeptember2021(props) {
   return (
@@ -59,10 +66,151 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
         </Info>
 
         <Title id='balance-changes'>Balance changes</Title>
+
+        <p>
+          This release, just like any other, will bring some balance changes.
+        </p>
+
+        <ul>
+          <li></li>
+        </ul>
+
+        <NerfCompensationInfo ids={['N77']} />
+
         <Title id='new-card'>New card</Title>
+
+        <p>
+          A new card will be introduced on September 23rd:{' '}
+          <span className='Highlight'>Sparkly Kitties</span>. I am beyond
+          humbled getting a card dedicated to me in the game, especially on the
+          4 years anniversary mark, almost 2.5 years to the day after I launched
+          Stormbound-Kitty. Thank you to the team, and thank you to the
+          incredible Stormbound community.
+        </p>
+      </Page.Narrow>
+
+      <Page.Embed>
+        <CardBuilderCardDisplay {...getInitialCardData('N86')} />
+      </Page.Embed>
+
+      <Page.Narrow>
         <Title id='anniversary-gifts'>Anniversary gifts</Title>
-        <Title id='cheapened-brawl'>Cheapened Brawl</Title>
+
+        <p>
+          To celebrate this special event, anyone logging into the game on
+          September 18th (and only that day) will receive the following bundle:{' '}
+          <Coins amount={400} />, <Rubies amount={40} />, <Stones amount={4} />{' '}
+          and <Legendary amount={1}>1 random legendary car</Legendary>.
+        </p>
+
+        <p>
+          On top of that,{' '}
+          <span className='Highlight'>all coin gains will be doubled</span>{' '}
+          between September 17th and September 20th , except for quests. The
+          coin cap will also be doubled for that timeframe, reaching{' '}
+          <Coins amount={800} /> for all players, and <Coins amount={1400} />{' '}
+          for Premium Pass holders.
+        </p>
+
+        <p>
+          Last but not leasts,{' '}
+          <span className='Highlight'>all books will contain more cards</span>{' '}
+          between September 17th and September 20th. Books normally holding 3
+          cards will be contain 4, and books usually containing 6 cards (Mythic,
+          Heroic and Classic) will yield 8!
+        </p>
+
+        <CheapenedBrawl ratio={0.5}>
+          <p>
+            Similar to previous events, the Brawl starting on September 16th
+            (and only that one) is going to be cheaper. All fights will be 50%
+            off. Owners of the Premium Pass will also have their usual discount
+            applied, leading to a 60% reduction.
+          </p>
+        </CheapenedBrawl>
+
         <Title id='exclusive-offers'>Exclusive offers</Title>
+
+        <p>
+          For those of you willing to put a few bucks into the game and
+          supporting the creators, this anniversary event will introduce 4
+          special in-app purchases:
+        </p>
+
+        <Image
+          src='/assets/images/releases/4th_anniversary_packs.png'
+          alt='For $4.99: 1 Mythic Tome + 100 Coins; For $19.99: 4 Mythic Tome + 4 Heroic Tomes + 500 coins; For $49.99: 10 Mythic Tomes + 10 Heroic Tomes + 10 Classic Tomes + 1500 coins; For $99.99: 20 Mythic Tomes + 20 Heroic Tomes + 20 Classic Tomes + 5000 coins + 50 fusion stones'
+          withAvif
+        />
+      </Page.Narrow>
+
+      <Page.Embed>
+        <Row isDesktopOnly isWideGutter>
+          <Row.Column width='1/4'>
+            <Spacing vertical='BASE'>
+              <p>The $4.99 pack will yield:</p>
+              <ul>
+                <li>1 Mythic Tome</li>
+                <li>
+                  <Coins amount={100} />
+                </li>
+              </ul>
+            </Spacing>
+          </Row.Column>
+          <Row.Column width='1/4'>
+            <Spacing vertical='BASE'>
+              <p>The $49.99 pack will yield:</p>
+              <ul>
+                <li>10 Mythic Tomes</li>
+                <li>10 Heroic Tomes</li>
+                <li>10 Classic Tomes</li>
+                <li>
+                  <Coins amount={1500} />
+                </li>
+              </ul>
+            </Spacing>
+          </Row.Column>
+          <Row.Column width='1/4'>
+            <Spacing vertical='BASE'>
+              <p>The $19.99 pack will yield:</p>
+              <ul>
+                <li>4 Mythic Tomes</li>
+                <li>4 Heroic Tomes</li>
+                <li>
+                  <Coins amount={500} />
+                </li>
+              </ul>
+            </Spacing>
+          </Row.Column>
+          <Row.Column width='1/4'>
+            <Spacing vertical='BASE'>
+              <p>The $99.99 pack will yield:</p>
+              <ul>
+                <li>20 Mythic Tomes</li>
+                <li>20 Heroic Tomes</li>
+                <li>20 Classic Tomes</li>
+                <li>
+                  <Coins amount={5000} />
+                </li>
+                <li>
+                  <Stones amount={50} />
+                </li>
+              </ul>
+            </Spacing>
+          </Row.Column>
+        </Row>
+      </Page.Embed>
+
+      <Page.Narrow>
+        <p>
+          On top of that,{' '}
+          <span className='Highlight'>
+            every Ruby bundle will yield double the original amount of rubies
+          </span>
+          . This is not time-bound, and effectively lasts forever until every
+          bundle has been bought once.
+        </p>
+
         <Title id='faq'>FAQ</Title>
       </Page.Narrow>
     </>
