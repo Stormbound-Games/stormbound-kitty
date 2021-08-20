@@ -1,5 +1,6 @@
 import React from 'react'
 import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
+import CardLink from '~/components/CardLink'
 import CheapenedBrawl from '~/components/CheapenedBrawl'
 import Image from '~/components/Image'
 import Link from '~/components/Link'
@@ -72,7 +73,12 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
         </p>
 
         <ul>
-          <li></li>
+          <li>
+            <CardLink id='N80' />’ movement is now 1 (up from 0), strength is
+            now 4/5/6/7/8 (up from 3/4/5/6/7) and their ability is now
+            surrounding at all levels and triggers before moving instead of on
+            play only.
+          </li>
         </ul>
 
         <NerfCompensationInfo ids={['N77']} />

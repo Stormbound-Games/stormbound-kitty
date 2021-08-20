@@ -1,6 +1,17 @@
 [
   {
     "date": "01/09/2021",
+    "description": "Movement and strength increased by 1 and ability made to trigger before moving as well as surrounding at all levels",
+    "id": "N80",
+    "type": "BUFF",
+    "from": {
+      "movement": 0,
+      "strength": "3/4/5/6/7",
+      "ability": "On play, disable up to 1/2/2/3/4 bordering/bordering/surrounding/surrounding/surrounding enemy unit’s/units’/units’/units’/units’ ability"
+    }
+  },
+  {
+    "date": "01/09/2021",
     "description": "Added to the game",
     "id": "N86",
     "type": "INFO"
