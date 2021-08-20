@@ -18,9 +18,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Cypress install
+        uses: cypress-io/github-action@v2
+        with:
+          runTests: false
+
+      - name: Run unit tests
+        run: npm test
+
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          install: false
           record: true
           parallel: true
           group: 'Integration tests'
