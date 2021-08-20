@@ -17,7 +17,8 @@ import Canvas from './Canvas'
 const KITTY_ID = '368097495605182483'
 
 export default class Trivia {
-  constructor({ guildId }) {
+  constructor({ guildId, withScores = true }) {
+    this.withScores = withScores
     this.mode =
       this.difficulty =
       this.duration =
@@ -200,7 +201,7 @@ export default class Trivia {
       .addField('Points', '+' + increment, true)
 
     this.streaks[author.id] = (this.streaks[author.id] || 0) + 1
-    this.updateScore(author, increment)
+    this.withScores && this.updateScore(author, increment)
     this.stop('SUCCESS')
 
     return embed
@@ -222,7 +223,7 @@ export default class Trivia {
     }
 
     delete this.streaks[author.id]
-    this.updateScore(author, -1)
+    this.withScores && this.updateScore(author, -1)
     this.stop('FAILURE')
 
     return embed
