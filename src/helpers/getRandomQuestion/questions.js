@@ -120,9 +120,7 @@ export default [
   },
 
   () => {
-    const randomCard = arrayRandom(
-      CARDS.filter(card => card.type === 'unit' && !card.token)
-    )
+    const randomCard = arrayRandom(CARDS.filter(card => Boolean(card.race)))
 
     return {
       question: `What is the race of ${randomCard.name}?`,
