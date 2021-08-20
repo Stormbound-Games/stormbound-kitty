@@ -189,6 +189,18 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
           </Row.Column>
           <Row.Column width='1/4'>
             <Spacing vertical='BASE'>
+              <p>The $19.99 pack will yield:</p>
+              <ul>
+                <li>4 Mythic Tomes</li>
+                <li>4 Heroic Tomes</li>
+                <li>
+                  <Coins amount={500} />
+                </li>
+              </ul>
+            </Spacing>
+          </Row.Column>
+          <Row.Column width='1/4'>
+            <Spacing vertical='BASE'>
               <p>The $49.99 pack will yield:</p>
               <ul>
                 <li>10 Mythic Tomes</li>
@@ -196,18 +208,6 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
                 <li>10 Classic Tomes</li>
                 <li>
                   <Coins amount={1500} />
-                </li>
-              </ul>
-            </Spacing>
-          </Row.Column>
-          <Row.Column width='1/4'>
-            <Spacing vertical='BASE'>
-              <p>The $19.99 pack will yield:</p>
-              <ul>
-                <li>4 Mythic Tomes</li>
-                <li>4 Heroic Tomes</li>
-                <li>
-                  <Coins amount={500} />
                 </li>
               </ul>
             </Spacing>
