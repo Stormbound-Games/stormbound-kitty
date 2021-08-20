@@ -89,6 +89,10 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
             friendly dragon, instead of only one bordering exactly 1 friendly
             dragon.
           </li>
+          <li>
+            <CardLink id='I24' />’ strength is now 5/6/7/8/9 (up from
+            4/5/6/7/8).
+          </li>
         </ul>
 
         <NerfCompensationInfo ids={['N77']} />

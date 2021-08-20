@@ -1442,7 +1442,7 @@
     "rarity": "rare",
     "image": "mechanical_workers.png",
     "mana": 6,
-    "strength": "4/5/6/7/8",
+    "strength": "5/6/7/8/9",
     "movement": 1,
     "ability": "On play, on the tile behind *build* a *3/3/4/5/6* strength workshop which *spawn 2/3/4/5/6* strength Constructs each turn"
   },
