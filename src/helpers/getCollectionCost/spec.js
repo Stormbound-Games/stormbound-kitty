@@ -29,7 +29,7 @@ describe('The `getCardCost` helper', () => {
       const cost = results[index][rarityIndex]
 
       it(`should check that a ${cardDescription} card with ${requirement.copies} copies has a value of ${cost}`, () => {
-        expect(getCardCost({ id, ...requirement })).to.equal(cost)
+        expect(getCardCost({ id, ...requirement })).toEqual(cost)
       })
     })
   })

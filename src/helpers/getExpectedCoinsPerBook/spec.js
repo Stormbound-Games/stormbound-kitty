@@ -25,7 +25,7 @@ describe.skip('The `getExpectedCoinsPerBook` helper', () => {
 
   Object.keys(COINS).forEach(bookType => {
     it(`should return ${COINS[bookType]} coins for a ${bookType} book with a level 5 collection`, () => {
-      expect(getExpectedCoinsPerBook(LEVEL_5_COLLECTION, bookType)).to.equal(
+      expect(getExpectedCoinsPerBook(LEVEL_5_COLLECTION, bookType)).toEqual(
         COINS[bookType]
       )
     })
@@ -33,7 +33,7 @@ describe.skip('The `getExpectedCoinsPerBook` helper', () => {
 
   Object.keys(COINS).forEach(bookType => {
     it(`should return 0 coins for a ${bookType} book with a level 1 collection`, () => {
-      expect(getExpectedCoinsPerBook(LEVEL_1_COLLECTION, bookType)).to.equal(0)
+      expect(getExpectedCoinsPerBook(LEVEL_1_COLLECTION, bookType)).toEqual(0)
     })
   })
 })

@@ -11,16 +11,16 @@ const getCards = (id, modifier = 'NONE') =>
 describe('The `STRUCTURE` advice', () => {
   it('should be returned if it contains more than 3 structures', () => {
     const cards = getCards('1n31i51n131n231i101n161n591n221n641n601n451n57')
-    expect(advice(cards)).to.not.equal(null)
+    expect(advice(cards)).not.toEqual(null)
   })
 
   it('should not be returned for structure brawls', () => {
     const cards = getCards('1n31i51n131n231i101n161n591n221n641n601n451n57')
-    expect(advice(cards, 'STRUCTURE_MANA')).to.equal(null)
+    expect(advice(cards, 'STRUCTURE_MANA')).toEqual(null)
   })
 
   it('should not be returned if it has 3 structures', () => {
     const cards = getCards('1n11n31i51n131n231n161n591n221n641n601n451n57')
-    expect(advice(cards)).to.equal(null)
+    expect(advice(cards)).toEqual(null)
   })
 })

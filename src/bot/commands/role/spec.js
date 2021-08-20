@@ -46,41 +46,41 @@ const cmd = message => {
 
 describe('Bot — !role', () => {
   it('should return nothing for a missing term', () => {
-    return cmd('').then(output => expect(output).to.equal(undefined))
+    return cmd('').then(output => expect(output).toEqual(undefined))
   })
 
   it('should return nothing for a no-match', () => {
-    return cmd('flksdjf').then(output => expect(output).to.equal(undefined))
+    return cmd('flksdjf').then(output => expect(output).toEqual(undefined))
   })
 
   it('should be possible to add a role', () => {
     return cmd('diamond').then(output => {
-      expect(output.description).to.contain('“Diamond” role added')
+      expect(output.description).toContain('“Diamond” role added')
     })
   })
 
   it('should be possible to update one’s role', () => {
     return cmd('platinum').then(output => {
-      expect(output.description).to.contain('“Diamond” role removed')
-      expect(output.description).to.contain('“Platinum” role added')
+      expect(output.description).toContain('“Diamond” role removed')
+      expect(output.description).toContain('“Platinum” role added')
     })
   })
 
   it('should be possible to remove one’s role', () => {
     return cmd('platinum').then(output =>
-      expect(output.description).to.contain('“Platinum” role removed')
+      expect(output.description).toContain('“Platinum” role removed')
     )
   })
 
   it('should be possible to assign tournamentee role', () => {
     return cmd('tournamentee').then(output =>
-      expect(output.description).to.contain('“Tournamentee” role added')
+      expect(output.description).toContain('“Tournamentee” role added')
     )
   })
 
   it('should be possible to assign streambound role', () => {
     return cmd('streambound').then(output =>
-      expect(output.description).to.contain('“Streambound” role added')
+      expect(output.description).toContain('“Streambound” role added')
     )
   })
 })

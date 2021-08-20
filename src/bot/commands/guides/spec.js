@@ -6,8 +6,8 @@ describe('Bot — !guides', () => {
   it('should return all guides', () => {
     const embed = guides()
     GUIDES.forEach(guide => {
-      expect(embed.description).to.contain(guide.name)
-      expect(embed.description).to.contain(guide.slug)
+      expect(embed.description).toContain(guide.name)
+      expect(embed.description).toContain(guide.slug)
     })
   })
 })

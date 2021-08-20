@@ -9,7 +9,7 @@ describe('The `getMilestoneIndexFromCoins` helper', () => {
         winRatio: 0.75,
         crowns: 0,
       })
-    ).to.equal(0)
+    ).toEqual(0)
   })
 
   it('should return last milestone with enough coins', () => {
@@ -20,6 +20,6 @@ describe('The `getMilestoneIndexFromCoins` helper', () => {
         winRatio: 1,
         crowns: 0,
       })
-    ).to.equal(9)
+    ).toEqual(9)
   })
 })

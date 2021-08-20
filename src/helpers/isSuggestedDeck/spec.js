@@ -16,7 +16,7 @@ describe('The `isSuggestedDeck` helper', () => {
       { id: 'N11', level: 5 },
       { id: 'N12', level: 5 },
     ]
-    expect(isSuggestedDeck(deck)).to.equal(undefined)
+    expect(isSuggestedDeck(deck)).toEqual(undefined)
   })
 
   it('should return suggested deck if found', () => {
@@ -34,6 +34,6 @@ describe('The `isSuggestedDeck` helper', () => {
       { level: 5, id: 'N69' },
       { level: 5, id: 'S21' },
     ]
-    expect(isSuggestedDeck(deck).name).to.equal('Queen of Hearts')
+    expect(isSuggestedDeck(deck).name).toEqual('Queen of Hearts')
   })
 })

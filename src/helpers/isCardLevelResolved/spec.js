@@ -14,13 +14,13 @@ export default card =>
 
 describe('The `isCardLevelResolved` helper', () => {
   it('should return false if there is no card name', () => {
-    expect(isCardLevelResolved({})).to.equal(false)
+    expect(isCardLevelResolved({})).toEqual(false)
   })
 
   it('should return false if the strength contains slashes', () => {
-    expect(
-      isCardLevelResolved({ name: 'Foo', strength: '1/2/3/4/5' })
-    ).to.equal(false)
+    expect(isCardLevelResolved({ name: 'Foo', strength: '1/2/3/4/5' })).toEqual(
+      false
+    )
   })
 
   it('should return false if the ability contains slashes', () => {
@@ -30,7 +30,7 @@ describe('The `isCardLevelResolved` helper', () => {
         strength: 4,
         ability: 'Foo a/b/c/d/e',
       })
-    ).to.equal(false)
+    ).toEqual(false)
   })
 
   it('should return false if the mana contains slashes', () => {
@@ -41,7 +41,7 @@ describe('The `isCardLevelResolved` helper', () => {
         ability: 'Foo d',
         mana: '1/2/3/4/5',
       })
-    ).to.equal(false)
+    ).toEqual(false)
   })
 
   it('should return true otherwise', () => {
@@ -52,6 +52,6 @@ describe('The `isCardLevelResolved` helper', () => {
         ability: 'Foo d',
         mana: 0,
       })
-    ).to.equal(true)
+    ).toEqual(true)
   })
 })

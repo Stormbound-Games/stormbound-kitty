@@ -13,7 +13,7 @@ describe('The `getFactionWeights` helper', () => {
     Object.keys(expectedResults).forEach(faction =>
       expect(
         result.find(factionData => factionData.id === faction).weight
-      ).to.equal(expectedResults[faction])
+      ).toEqual(expectedResults[faction])
     )
   })
 
@@ -30,7 +30,7 @@ describe('The `getFactionWeights` helper', () => {
     Object.keys(expectedResults).forEach(faction =>
       expect(
         result.find(factionData => factionData.id === faction).weight
-      ).to.equal(expectedResults[faction])
+      ).toEqual(expectedResults[faction])
     )
   })
 })

@@ -17,24 +17,24 @@ describe('The `getChannelId` helper', () => {
   it('should return null for a trivia command outside of the trivia channel', () => {
     const message = getMessage()
     message.channel.name = 'general'
-    expect(getChannelId(message, { command: 'trivia' })).to.equal(null)
+    expect(getChannelId(message, { command: 'trivia' })).toEqual(null)
   })
 
   it('should return null for a non-trivia command in the trivia channel', () => {
     const message = getMessage()
     message.channel.name = 'trivia'
-    expect(getChannelId(message, { command: 'deckid' })).to.equal(null)
+    expect(getChannelId(message, { command: 'deckid' })).toEqual(null)
   })
 
   it('should return the trivia channel ID for a trivia command', () => {
     const message = getMessage()
     message.channel.name = 'trivia'
-    expect(getChannelId(message, { command: 'trivia' })).to.equal('trid')
+    expect(getChannelId(message, { command: 'trivia' })).toEqual('trid')
   })
 
   it('should return the bot channel ID otherwise', () => {
     const message = getMessage()
     message.channel.name = 'general'
-    expect(getChannelId(message, { command: 'deckid' })).to.equal('stid')
+    expect(getChannelId(message, { command: 'deckid' })).toEqual('stid')
   })
 })

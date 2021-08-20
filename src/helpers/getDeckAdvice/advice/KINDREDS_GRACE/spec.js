@@ -22,7 +22,7 @@ const getCards = (id, modifier = 'NONE') =>
 describe('The `KINDREDS_GRACE` advice', () => {
   it('should be returned if too many races are represented', () => {
     const cards = getCards('1n11n21f31n31n41n51n621n631n81n111n131n40')
-    expect(advice(cards)).to.not.equal(null)
+    expect(advice(cards)).not.toEqual(null)
   })
 
   SPAWNS_ARRAY.forEach(cardId => {
@@ -34,13 +34,13 @@ describe('The `KINDREDS_GRACE` advice', () => {
         getRawCardData(cardId).name,
       () => {
         const cards = getCards(testDeck)
-        expect(advice(cards)).to.equal(null)
+        expect(advice(cards)).toEqual(null)
       }
     )
   })
 
   it('should not be returned if the deck enough units of the same race are represented', () => {
     const cards = getCards('1n11i11n51n81n111i81i61n241i271i161i211n40')
-    expect(advice(cards)).to.equal(null)
+    expect(advice(cards)).toEqual(null)
   })
 })

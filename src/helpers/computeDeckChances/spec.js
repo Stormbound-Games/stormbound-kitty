@@ -12,25 +12,25 @@ describe('The `getEffectiveManaCost` helper', () => {
   it('should handle Gift of the Wise', () => {
     expect(
       getEffectiveManaCost(7)(getResolvedCardData({ id: 'W19', level: 1 }))
-    ).to.equal(8)
+    ).toEqual(8)
     expect(
       getEffectiveManaCost(8)(getResolvedCardData({ id: 'W19', level: 1 }))
-    ).to.equal(-1)
+    ).toEqual(-1)
   })
 
   it('should handle Rimelings', () => {
     expect(
       getEffectiveManaCost(4)(getResolvedCardData({ id: 'W12', level: 1 }))
-    ).to.equal(5)
+    ).toEqual(5)
     expect(
       getEffectiveManaCost(5)(getResolvedCardData({ id: 'W12', level: 1 }))
-    ).to.equal(2)
+    ).toEqual(2)
   })
 
   it('should return mana cost otherwise', () => {
     expect(
       getEffectiveManaCost(4)(getResolvedCardData({ id: 'N1', level: 1 }))
-    ).to.equal(1)
+    ).toEqual(1)
   })
 })
 
@@ -41,7 +41,7 @@ describe('The `getCycledHands` helper', () => {
   const hand = deck.slice(0, 3).concat(deck.slice(-1))
 
   it('should return 8 hands', () => {
-    expect(getCycledHands({ deck, hand, availableMana: 5 }).length).to.equal(8)
+    expect(getCycledHands({ deck, hand, availableMana: 5 }).length).toEqual(8)
   })
 
   it('should cycle the most expensive card', () => {
@@ -49,7 +49,7 @@ describe('The `getCycledHands` helper', () => {
 
     expect(
       hands.every(hand => !hand.map(card => card.id).includes('N58'))
-    ).to.equal(true)
+    ).toEqual(true)
   })
 
   it('should take effective mana in consideration when cycling', () => {
@@ -61,7 +61,7 @@ describe('The `getCycledHands` helper', () => {
 
     expect(
       hands.some(hand => hand.map(card => card.id).includes('W19'))
-    ).to.equal(true)
+    ).toEqual(true)
   })
 })
 
@@ -72,17 +72,17 @@ describe('The `canSpendAllMana` helper', () => {
 
   it('should return false if there is too much mana', () => {
     const hand = deck.slice(0, 4)
-    expect(canSpendAllMana({ availableMana: 20, hand })).to.equal(false)
+    expect(canSpendAllMana({ availableMana: 20, hand })).toEqual(false)
   })
 
   it('should return true if there is not enough mana', () => {
     const hand = deck.slice(0, 4)
-    expect(canSpendAllMana({ availableMana: 3, hand })).to.equal(true)
+    expect(canSpendAllMana({ availableMana: 3, hand })).toEqual(true)
   })
 
   it('should return true if there is just enough mana', () => {
     const hand = deck.slice(0, 4)
-    expect(canSpendAllMana({ availableMana: 6, hand })).to.equal(true)
+    expect(canSpendAllMana({ availableMana: 6, hand })).toEqual(true)
   })
 })
 
@@ -93,12 +93,12 @@ describe('The `canPlayAllCards` helper', () => {
 
   it('should return false if there is not enough mana', () => {
     const hand = deck.slice(0, 4)
-    expect(canPlayAllCards({ availableMana: 3, hand })).to.equal(false)
+    expect(canPlayAllCards({ availableMana: 3, hand })).toEqual(false)
   })
 
   it('should return true if the full hand can be played', () => {
     const hand = deck.slice(0, 4)
-    expect(canPlayAllCards({ availableMana: 6, hand })).to.equal(true)
+    expect(canPlayAllCards({ availableMana: 6, hand })).toEqual(true)
   })
 })
 
@@ -109,11 +109,11 @@ describe('The `getHandCost` helper', () => {
 
   it('should return the cost of a full hand', () => {
     const hand = deck.slice(0, 4)
-    expect(getHandCost({ availableMana: 10, hand })).to.equal(6)
+    expect(getHandCost({ availableMana: 10, hand })).toEqual(6)
   })
 
   it('should consider effective mana when computing hand cost', () => {
     const hand = deck.slice(0, 3).concat(deck.slice(-1))
-    expect(getHandCost({ availableMana: 11, hand })).to.equal(1)
+    expect(getHandCost({ availableMana: 11, hand })).toEqual(1)
   })
 })
