@@ -177,7 +177,7 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
       <Page.Embed>
         <Row isDesktopOnly isWideGutter>
           <Row.Column width='1/4'>
-            <Spacing vertical='BASE'>
+            <Spacing vertical={['NONE', 'SMALLEST']}>
               <p>The $4.99 pack will yield:</p>
               <ul>
                 <li>1 Mythic Tome</li>
@@ -188,7 +188,7 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
             </Spacing>
           </Row.Column>
           <Row.Column width='1/4'>
-            <Spacing vertical='BASE'>
+            <Spacing vertical={['NONE', 'SMALLEST']}>
               <p>The $19.99 pack will yield:</p>
               <ul>
                 <li>4 Mythic Tomes</li>
@@ -200,7 +200,7 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
             </Spacing>
           </Row.Column>
           <Row.Column width='1/4'>
-            <Spacing vertical='BASE'>
+            <Spacing vertical={['NONE', 'SMALLEST']}>
               <p>The $49.99 pack will yield:</p>
               <ul>
                 <li>10 Mythic Tomes</li>
@@ -213,7 +213,7 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
             </Spacing>
           </Row.Column>
           <Row.Column width='1/4'>
-            <Spacing vertical='BASE'>
+            <Spacing vertical={['NONE', 'SMALLEST']}>
               <p>The $99.99 pack will yield:</p>
               <ul>
                 <li>20 Mythic Tomes</li>
