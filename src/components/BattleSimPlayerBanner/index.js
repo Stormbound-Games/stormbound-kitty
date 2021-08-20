@@ -23,6 +23,7 @@ export default React.memo(function BattleSimPlayerBanner(props) {
               (props.faction || 'neutral') +
               '.png'
             }
+            alt=''
           />
 
           {props.faction || 'Neutral'}

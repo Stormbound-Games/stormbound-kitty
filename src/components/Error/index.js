@@ -21,6 +21,7 @@ export default React.memo(function Error(props) {
         {!props.noImage && (
           <Image
             src='/assets/images/cards/sweetcap_kittens.png'
+            alt=''
             extend={styles.image}
             withAvif
             width={250}

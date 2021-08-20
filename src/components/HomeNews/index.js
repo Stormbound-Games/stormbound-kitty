@@ -14,6 +14,7 @@ export default React.memo(function HomeNews(props) {
       <Image
         extend={styles.image}
         src='/assets/images/kitty.png'
+        alt='Kitty Sparkles by Hurricane Sunny'
         withoutWebp
         width={446}
         height={339}
