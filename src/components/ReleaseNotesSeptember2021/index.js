@@ -103,7 +103,7 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
           </li>
         </ul>
 
-        <NerfCompensationInfo ids={['N77']} />
+        <NerfCompensationInfo ids={['N77']} spacing={{ top: 'LARGEST' }} />
 
         <Title id='new-card'>New card</Title>
 
