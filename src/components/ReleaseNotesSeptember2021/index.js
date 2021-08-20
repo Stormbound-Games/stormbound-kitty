@@ -50,6 +50,9 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
             <Link href='#exclusive-offers'>Exclusive offers</Link>
           </li>
           <li>
+            <Link href='#qol-improvements'>Quality of life improvements</Link>
+          </li>
+          <li>
             <Link href='#faq'>FAQ</Link>
           </li>
         </TableOfContents>
@@ -247,6 +250,32 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
           . This is not time-bound, and effectively lasts forever until every
           bundle has been bought once.
         </p>
+
+        <Title id='qol-improvements'>Quality of life improvements</Title>
+
+        <p>
+          This release will bring 3 neat little quality of life improvements:
+        </p>
+
+        <ul>
+          <li>
+            <span className='Highlight'>Search bar</span>: the deck building and
+            collection screens will now have a small search bar to filter cards
+            by name, ability or type. This should make it easier to compose new
+            decks, especially for the Brawl.
+          </li>
+          <li>
+            <span className='Highlight'>Shop refresh</span>: it will now be
+            possible to reroll the offers from the card shop once a day by
+            watching an ad (or for free for Premium Pass holders). Note that
+            only the cards that have not been bought would be refreshed.
+          </li>
+          <li>
+            <span className='Highlight'>Upcoming Brawls</span>: the Brawl mode
+            will now showcase which Brawls are coming, alongside their modifiers
+            and rewards to better prepare from week to the next.
+          </li>
+        </ul>
 
         <FAQSection
           id='faq'
