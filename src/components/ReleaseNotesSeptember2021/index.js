@@ -123,6 +123,13 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
       </Page.Embed>
 
       <Page.Narrow>
+        <p>
+          The reason the card is marked as having 0 movement only to gain it on
+          play is to avoid a confusing (no pun intended) movement tooltip
+          in-game. If it had initial movement, the arrow would show moving
+          forward twice, while this would not be the outcome.
+        </p>
+
         <Title id='anniversary-gifts'>Anniversary gifts</Title>
 
         <p>

@@ -1128,8 +1128,8 @@
     "image": "sparkly_kitties.png",
     "mana": 2,
     "strength": "2/3/4/5/6",
-    "movement": 2,
-    "ability": "On play, confuse itself"
+    "movement": 0,
+    "ability": "On play, confuse itself then gain 2 speed"
   },
   {
     "name": "Destructobots",
