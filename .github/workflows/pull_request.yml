@@ -60,9 +60,6 @@ jobs:
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.16.0-chrome89-ff86
     needs: deploy
-    concurrency:
-      group: tests-${{ github.ref }}-${{ matrix.containers }}
-      cancel-in-progress: true
     strategy:
       fail-fast: false
       matrix:
