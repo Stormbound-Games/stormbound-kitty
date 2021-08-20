@@ -45,6 +45,7 @@ const DEFAULT_PROPS = {
   card: {},
   contest: null,
   mode: 'EDITOR',
+  versions: [],
 }
 
 export async function getStaticProps(context) {
