@@ -1,4 +1,3 @@
-import '@cypress/react/support'
 import './commands'
 
 Cypress.on(
