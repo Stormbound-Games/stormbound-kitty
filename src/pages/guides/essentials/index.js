@@ -3,6 +3,7 @@ import Guides from '~/components/Guides'
 import Layout from '~/components/Layout'
 import { CATEGORIES } from '~/constants/guides'
 import GUIDES from '~/data/guides'
+import getNavigation from '~/helpers/getNavigation'
 
 export async function getStaticProps() {
   const category = 'ESSENTIALS'
@@ -10,6 +11,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      navigation: getNavigation(),
       guides,
       category: { ...CATEGORIES[category], id: category },
     },
@@ -17,7 +19,7 @@ export async function getStaticProps() {
 }
 
 const GuidesPage = props => (
-  <Layout active={['GUIDES', props.category.id]}>
+  <Layout active={['GUIDES', props.category.id]} navigation={props.navigation}>
     <Guides category={props.category} guides={props.guides} />
   </Layout>
 )

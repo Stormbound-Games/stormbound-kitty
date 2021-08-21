@@ -1,9 +1,14 @@
 import React from 'react'
 import StoryIndex from '~/components/StoryIndex'
 import Layout from '~/components/Layout'
+import getNavigation from '~/helpers/getNavigation'
 
-const StoriesPage = () => (
-  <Layout active={['STORIES']}>
+export async function getStaticProps() {
+  return { props: { navigation: getNavigation() } }
+}
+
+const StoriesPage = props => (
+  <Layout active={['STORIES']} navigation={props.navigation}>
     <StoryIndex />
   </Layout>
 )

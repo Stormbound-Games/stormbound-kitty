@@ -34,21 +34,21 @@ const menu = ({ isOpen }) => ({
   },
 })
 
-const title = {
+const title = ({ isActive }) => ({
   fontSize: '90%',
   textTransform: 'uppercase',
   letterSpacing: '1px',
   color: 'var(--beige)',
   marginTop: 0,
   marginBottom: 'var(--s-smaller)',
-  fontWeight: 'normal',
+  fontWeight: isActive ? 'bold' : 'normal',
   borderBottom: '1px solid var(--dark-beige)',
   paddingBottom: '0.5em',
 
   '> a': {
     textDecoration: 'none',
   },
-}
+})
 
 const icon = {
   fontSize: '90%',

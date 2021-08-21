@@ -6,7 +6,7 @@ import DryRunnerExplanation from '~/components/DryRunnerExplanation'
 import getRawCardData from '~/helpers/getRawCardData'
 import { UNVALUED_CARDS } from '~/constants/misc'
 
-export default [
+const getFAQ = () => [
   {
     id: 'general',
     title: 'General',
@@ -565,3 +565,5 @@ export default [
     ],
   },
 ]
+
+export default getFAQ

@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 import Guide from '~/components/Guide'
 import Layout from '~/components/Layout'
 import GUIDES from '~/data/guides'
+import getNavigation from '~/helpers/getNavigation'
 
 const GUIDE_COMPONENTS = {
   BEGINNER_GUIDE: dynamic(() => import('~/components/GuideBeginner')),
@@ -54,7 +55,10 @@ export const getStaticPaths = () => {
 
 export const getStaticProps = ({ params }) => {
   return {
-    props: GUIDES.find(release => release.slug === params.slug),
+    props: {
+      navigation: getNavigation(),
+      ...GUIDES.find(release => release.slug === params.slug),
+    },
   }
 }
 
@@ -62,7 +66,10 @@ const GuidePage = props => {
   const Component = GUIDE_COMPONENTS[props.id]
 
   return (
-    <Layout active={['GUIDES', props.id]}>
+    <Layout
+      active={['GUIDES', props.category, props.id]}
+      navigation={props.navigation}
+    >
       <Guide {...props}>
         <Component />
       </Guide>

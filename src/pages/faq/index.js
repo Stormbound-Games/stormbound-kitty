@@ -1,11 +1,18 @@
 import React from 'react'
 import FAQ from '~/components/FAQ'
 import Layout from '~/components/Layout'
-import data from './data'
+import getNavigation from '~/helpers/getNavigation'
+import getFAQ from '~/helpers/getFAQ'
 
-const FAQPage = () => (
-  <Layout active={['HOME', 'FAQ']}>
-    <FAQ data={data} />
+const DATA = getFAQ()
+
+export async function getStaticProps() {
+  return { props: { navigation: getNavigation() } }
+}
+
+const FAQPage = props => (
+  <Layout active={['HOME', 'HOME', 'FAQ']} navigation={props.navigation}>
+    <FAQ data={DATA} />
   </Layout>
 )
 

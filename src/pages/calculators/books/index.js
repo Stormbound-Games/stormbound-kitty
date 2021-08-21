@@ -1,9 +1,17 @@
 import React from 'react'
 import BooksCalculator from '~/components/BooksCalculator'
 import Layout from '~/components/Layout'
+import getNavigation from '~/helpers/getNavigation'
 
-const BooksCalculatorPage = () => (
-  <Layout active={['TOOLS', 'BOOKS_CALCULATOR']}>
+export async function getStaticProps() {
+  return { props: { navigation: getNavigation() } }
+}
+
+const BooksCalculatorPage = props => (
+  <Layout
+    active={['TOOLS', 'CALCULATORS', 'BOOKS_CALCULATOR']}
+    navigation={props.navigation}
+  >
     <BooksCalculator />
   </Layout>
 )

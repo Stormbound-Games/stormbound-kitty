@@ -3,6 +3,7 @@ import BattleSimPage from '~/components/BattleSimPage'
 import BattleSimState from '~/components/BattleSimState'
 import Layout from '~/components/Layout'
 import getInitialBattleData from '~/helpers/getInitialBattleData'
+import getNavigation from '~/helpers/getNavigation'
 import useNavigator from '~/hooks/useNavigator'
 import PUZZLES from '~/data/puzzles'
 
@@ -15,7 +16,15 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
+  const navigation = getNavigation()
   const params = context.params.rest || []
+  const DEFAULT_PROPS = {
+    navigation,
+    simId: null,
+    sim: getInitialBattleData(),
+    mode: 'EDITOR',
+    puzzle: null,
+  }
 
   try {
     const [id, display] = params
@@ -26,17 +35,13 @@ export async function getStaticProps(context) {
 
     if (!id) {
       return {
-        props: {
-          simId: null,
-          sim: getInitialBattleData(),
-          mode: 'EDITOR',
-          puzzle: null,
-        },
+        props: DEFAULT_PROPS,
       }
     }
 
     return {
       props: {
+        navigation,
         simId: id,
         sim: getInitialBattleData(id),
         mode: display === 'display' ? 'DISPLAY' : 'EDITOR',
@@ -44,7 +49,9 @@ export async function getStaticProps(context) {
       },
     }
   } catch (error) {
-    return { props: { simId: null, sim: {}, mode: 'EDITOR', puzzle: null } }
+    return {
+      props: DEFAULT_PROPS,
+    }
   }
 }
 
@@ -52,7 +59,10 @@ const BattleSim = props => {
   const navigator = useNavigator()
 
   return (
-    <Layout active={['TOOLS', 'BATTLE_SIM', props.mode]}>
+    <Layout
+      active={['TOOLS', 'BUILDERS', 'BATTLE_SIM']}
+      navigation={props.navigation}
+    >
       <BattleSimState {...props} navigator={navigator}>
         {state => <BattleSimPage {...state} {...props} />}
       </BattleSimState>

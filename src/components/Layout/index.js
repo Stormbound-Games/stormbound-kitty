@@ -23,6 +23,7 @@ export default React.memo(function Layout(props) {
         project for over 2 years now. <Link to='/about'>Consider helping</Link>!
       </EyeCatcher>
       <Header
+        navigation={props.navigation}
         active={props.active}
         openSearch={() => searchDialog.current.show()}
       />

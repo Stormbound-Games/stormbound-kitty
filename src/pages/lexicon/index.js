@@ -1,9 +1,17 @@
 import React from 'react'
 import Lexicon from '~/components/Lexicon'
 import Layout from '~/components/Layout'
+import getNavigation from '~/helpers/getNavigation'
 
-const LexiconPage = () => (
-  <Layout active={['GAME', 'LEXICON']}>
+export async function getStaticProps() {
+  return { props: { navigation: getNavigation() } }
+}
+
+const LexiconPage = props => (
+  <Layout
+    active={['GAME', 'INFORMATION', 'LEXICON']}
+    navigation={props.navigation}
+  >
     <Lexicon />
   </Layout>
 )
