@@ -117,7 +117,7 @@ export default React.memo(function SearchDialog(props) {
       close={() => props.dialogRef.current.hide()}
       image='/assets/images/cards/trekking_aldermen.png'
     >
-      <form onSubmit={handleSubmit} className={css(styles.body)}>
+      <form onSubmit={handleSubmit} className={css(styles.body)} name='search'>
         <Downshift
           inputValue={inputValue}
           onChange={handleSearch}
@@ -150,6 +150,7 @@ export default React.memo(function SearchDialog(props) {
                     id: 'search',
                     ref: input,
                     value: inputValue,
+                    'data-testid': 'search-input',
                     onChange: event => setInputValue(event.target.value),
                   })}
                 />
@@ -165,6 +166,7 @@ export default React.memo(function SearchDialog(props) {
                       })
                     )}
                     {...getItemProps({ index, item })}
+                    data-testid='search-result'
                   >
                     <Option {...item} />
                   </li>

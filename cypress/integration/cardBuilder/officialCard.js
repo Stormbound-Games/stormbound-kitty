@@ -67,7 +67,7 @@ describe('Card Builder — Official card', () => {
 
   it('should hide the editing interface', () => {
     cy.visit('/card/N1/display')
-      .get('form:not([name="trivia"])')
+      .get('form:not([name="search"])')
       .should('not.exist')
 
       .get(s.CARD_NAME)

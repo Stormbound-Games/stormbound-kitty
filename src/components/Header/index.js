@@ -107,6 +107,7 @@ export default React.memo(function Header(props) {
               <Link
                 onClick={props.openSearch}
                 extend={styles.action({ isActive: topActive === 'SEARCH' })}
+                data-testid='search-button'
               >
                 <Icon extend={styles.icon} icon='search' /> Search
               </Link>
