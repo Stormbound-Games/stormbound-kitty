@@ -105,7 +105,6 @@ export default React.memo(function Header(props) {
           {isMounted && (
             <li className={css(styles.item({ isRight: true }))}>
               <Link
-                disabled={!props.isSearchReady}
                 onClick={props.openSearch}
                 extend={styles.action({ isActive: topActive === 'SEARCH' })}
               >
