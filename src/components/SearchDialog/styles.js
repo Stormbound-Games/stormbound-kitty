@@ -12,6 +12,8 @@ const meta = {
 const wrapper = {
   textAlign: 'left',
   position: 'relative',
+  flex: '1 1 auto',
+  marginRight: '1em',
 }
 
 const inputWwrapper = {
@@ -19,31 +21,31 @@ const inputWwrapper = {
   width: '100%',
 }
 
-const list = {
+const list = ({ isOpen }) => ({
   listStyleType: 'none',
   padding: 0,
   position: 'absolute',
   left: 0,
   right: 0,
   zIndex: 10,
+  border: '1px solid' + isOpen ? 'var(--dark-beige)' : 'transparent',
   backgroundColor: 'var(--dark-blue)',
   borderRadius: '4px',
   top: 'calc(100% - 0.5em)',
   boxShadow: '0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 11px hsla(0, 0%, 0%, 0.1)',
-}
+})
 
-const item = {
+const item = ({ isHighlighted, isSelected }) => ({
   padding: '0.5em',
-}
-
-const hint = {
-  margin: '1.5em auto 0',
-  maxWidth: '40ch',
-  fontSize: '80%',
-}
+  backgroundColor: isHighlighted ? '#0000001a' : 'transparent',
+  fontWeight: isSelected ? 'bold' : 'normal',
+})
 
 const body = {
   fontSize: '120%',
+  display: 'flex',
+  alignItems: 'center',
+  marginBottom: 'var(--s-base)',
 }
 
 const styles = {
@@ -53,7 +55,6 @@ const styles = {
   inputWwrapper,
   list,
   item,
-  hint,
   body,
 }
 

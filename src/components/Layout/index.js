@@ -15,7 +15,6 @@ export default React.memo(function Layout(props) {
   const router = useRouter()
   const { css } = useFela()
   const searchDialog = React.useRef(null)
-  const [isSearchReady, setIsSearchReady] = React.useState(false)
 
   return (
     <div className={css(styles.layout)}>
@@ -25,7 +24,6 @@ export default React.memo(function Layout(props) {
       </EyeCatcher>
       <Header
         active={props.active}
-        isSearchReady={isSearchReady}
         openSearch={() => searchDialog.current.show()}
       />
 
@@ -35,10 +33,7 @@ export default React.memo(function Layout(props) {
 
       <Footer />
 
-      <SearchDialog
-        dialogRef={searchDialog}
-        setIsSearchReady={setIsSearchReady}
-      />
+      <SearchDialog dialogRef={searchDialog} />
     </div>
   )
 })
