@@ -1,6 +1,5 @@
 import React from 'react'
 import Head from 'next/head'
-import FAQ from '~/data/faq'
 import getRawCardData from '~/helpers/getRawCardData'
 
 const Script = props => (
@@ -33,8 +32,9 @@ const getTextFromTree = tree => {
   return text
 }
 
-const getFAQData = () => {
-  const formattedEntries = FAQ.map(category => category.entries)
+const getFAQData = data => {
+  const formattedEntries = data
+    .map(category => category.entries)
     .reduce((a, b) => a.concat(b), [])
     .map(entry => {
       const answer = getTextFromTree(entry.answer)
@@ -58,9 +58,9 @@ export default React.memo(function StructuredData(props) {
   try {
     switch (props.type) {
       case 'LOGO':
-        return <Script>{JSON.stringify(getLogoData())}</Script>
+        return <Script>{JSON.stringify(getLogoData(props.data))}</Script>
       case 'FAQ':
-        return <Script>{JSON.stringify(getFAQData())}</Script>
+        return <Script>{JSON.stringify(getFAQData(props.data))}</Script>
       default:
         return null
     }

@@ -7,10 +7,9 @@ import Link from '~/components/Link'
 import Spacing from '~/components/Spacing'
 import StructuredData from '~/components/StructuredData'
 import Title from '~/components/Title'
-import FAQ from '~/data/faq'
 import styles from './styles'
 
-export default React.memo(function FrequentlyAskedQuestions() {
+export default React.memo(function FrequentlyAskedQuestions(props) {
   const { css } = useFela()
 
   return (
@@ -23,7 +22,7 @@ export default React.memo(function FrequentlyAskedQuestions() {
         <Title>Topics</Title>
 
         <ul className={css(styles.toc)}>
-          {FAQ.map(category => (
+          {props.data.map(category => (
             <li key={category.id}>
               <Link href={'#' + category.id} extend={styles.link}>
                 {category.title}
@@ -50,9 +49,9 @@ export default React.memo(function FrequentlyAskedQuestions() {
           height={364}
         />
 
-        {FAQ.map((category, index) => (
+        {props.data.map((category, index) => (
           <Spacing
-            bottom={index !== FAQ.length - 1 ? 'LARGEST' : 'NONE'}
+            bottom={index !== props.data.length - 1 ? 'LARGEST' : 'NONE'}
             id={category.id}
             key={category.id}
           >
@@ -60,7 +59,7 @@ export default React.memo(function FrequentlyAskedQuestions() {
           </Spacing>
         ))}
 
-        <StructuredData type='FAQ' />
+        <StructuredData type='FAQ' data={props.data} />
       </Page.Narrow>
     </Page>
   )
