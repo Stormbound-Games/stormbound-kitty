@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://stormbound-kitty-3bwh3uqn0-kittysparkles.vercel.app",
+  "baseUrl": "http://localhost:3000",
   "chromeWebSecurity": false,
   "coverage": false,
   "defaultCommandTimeout": 10000,
