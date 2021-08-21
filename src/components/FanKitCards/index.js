@@ -90,6 +90,7 @@ export default React.memo(function FanKitCards(props) {
                   setActive={setActive}
                   width={280}
                   height={280}
+                  aspectRatio='1 / 1'
                   lazy
                   withAvif
                 />

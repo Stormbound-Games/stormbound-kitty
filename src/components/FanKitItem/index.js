@@ -11,7 +11,7 @@ export default React.memo(function FanKitItem(props) {
     <div
       className={css(styles.item)}
       data-testid='fan-kit-item'
-      style={{ '--width': props.width, '--height': props.height }}
+      style={{ aspectRatio: props.aspectRatio }}
     >
       <span className={css(styles.download)}>
         <DiamondButton
