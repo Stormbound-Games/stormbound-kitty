@@ -94,6 +94,9 @@ export default React.memo(function GuideTrivia(props) {
           and main Wiki author.
         </li>
         <li>
+          <CardLink id='N86' /> was named after Kitty, yours truly.
+        </li>
+        <li>
           <CardLink id='N77' /> is the first and only sheep in the game and was
           introduced by Sheepyard when they took over Stormbound development as
           an effigy to the studio.
