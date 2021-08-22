@@ -1,12 +1,12 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { useRouter } from 'next/router'
+import debounce from 'lodash.debounce'
 import querystring from 'querystring'
-import Downshift from 'downshift'
-import DiamondButton from '~/components/DiamondButton'
+import { useCombobox } from 'downshift'
 import Dialog from '~/components/Dialog'
 import Icon from '~/components/Icon'
 import Input from '~/components/Input'
-import VisuallyHidden from '~/components/VisuallyHidden'
 import useNavigator from '~/hooks/useNavigator'
 import styles from './styles'
 
@@ -64,28 +64,58 @@ const Option = React.memo(function Option(props) {
   )
 })
 
+async function runSearch(search) {
+  const query = querystring.stringify({ s: search })
+  const response = await fetch('/api/search?' + query)
+  return response.json()
+}
+
 export default React.memo(function SearchDialog(props) {
   const { css } = useFela()
-  const [inputValue, setInputValue] = React.useState('')
-  const [options, setOptions] = React.useState([])
+  const router = useRouter()
+  const debouncedSetSearch = React.useRef(null)
   const navigator = useNavigator()
   const input = React.useRef(null)
+  const [search, setSearch] = React.useState('')
+  const [results, setResults] = React.useState([])
+  const dialog = props.dialogRef.current
 
-  const search = React.useCallback(async search => {
-    const query = querystring.stringify({ s: search })
-    const response = await fetch('/api/search?' + query)
-    const data = await response.json()
+  useSearchKeyboardShortcut(() => dialog.show())
 
-    setOptions(data)
-  }, [])
+  // Update search results when the search term changes.
+  React.useEffect(() => runSearch(search).then(setResults), [search])
 
-  const handleSubmit = React.useCallback(
-    event => {
-      event.preventDefault()
-      search(inputValue)
-    },
-    [search, inputValue]
+  // Hide the dialog when the URL changes (after navigating to a result).
+  React.useEffect(() => dialog?.hide(), [dialog, router.asPath])
+
+  // Function executed when selecting a result to navigate to its path.
+  const handleNavigation = React.useCallback(
+    ({ selectedItem }) => navigator.push(selectedItem.path),
+    [navigator]
   )
+
+  // Store a debounced function to update the search term at most one per second
+  // so it is persisted across renders.
+  if (!debouncedSetSearch.current) {
+    const setInputValue = ({ inputValue }) => setSearch(inputValue)
+    debouncedSetSearch.current = debounce(setInputValue, 1000)
+  }
+
+  const {
+    getComboboxProps,
+    getInputProps,
+    getItemProps,
+    getMenuProps,
+    highlightedIndex,
+    isOpen,
+    selectedItem,
+    reset,
+  } = useCombobox({
+    items: results,
+    onInputValueChange: debouncedSetSearch.current,
+    onSelectedItemChange: handleNavigation,
+    itemToString: item => (item ? item.label : ''),
+  })
 
   const registerDialog = instance => {
     props.dialogRef.current = instance
@@ -94,94 +124,58 @@ export default React.memo(function SearchDialog(props) {
       // Push the focus at the end of the event queue to avoid having `/` being
       // filled inside the field when opening the search dialog with `/`.
       instance.on('show', () => setTimeout(() => input.current.focus(), 0))
-      instance.on('hide', () => {
-        setOptions([])
-        setInputValue('')
-      })
+      // Clean up the local state when closing the dialog (either manually or
+      // after having navigated to a result).
+      instance.on('hide', () => reset())
     }
   }
 
-  const handleSearch = event => {
-    if (!event) return
-    navigator.push(event.path)
-    props.dialogRef.current.hide()
-  }
-
-  useSearchKeyboardShortcut(() => props.dialogRef.current.show())
+  const comboboxProps = getComboboxProps({}, { suppressRefError: true })
+  const menuProps = getMenuProps({}, { suppressRefError: true })
+  const inputProps = getInputProps(
+    {
+      hideLabel: true,
+      label: 'Search Stormbound-Kitty',
+      placeholder: 'e.g. calculator',
+      type: 'text',
+      id: 'search',
+      ref: input,
+      'data-testid': 'search-input',
+    },
+    { suppressRefError: true }
+  )
 
   return (
     <Dialog
       id='search-dialog'
       title='Search'
       dialogRef={registerDialog}
-      close={() => props.dialogRef.current.hide()}
+      close={() => dialog.hide()}
       image='/assets/images/cards/trekking_aldermen.png'
     >
-      <form onSubmit={handleSubmit} className={css(styles.body)} name='search'>
-        <Downshift
-          inputValue={inputValue}
-          onChange={handleSearch}
-          itemToString={item => (item ? item.label : '')}
-        >
-          {({
-            getInputProps,
-            getItemProps,
-            getLabelProps,
-            getMenuProps,
-            getRootProps,
-            highlightedIndex,
-            inputValue,
-            isOpen,
-            selectedItem,
-          }) => (
-            <div className={css(styles.wrapper)}>
-              <VisuallyHidden as='label' {...getLabelProps()}>
-                Search Stormbound-Kitty
-              </VisuallyHidden>
-              <div
-                className={css(styles.inputWrapper)}
-                {...getRootProps({}, { suppressRefError: true })}
+      <div className={css(styles.body)}>
+        <div {...comboboxProps}>
+          <Input {...inputProps} />
+        </div>
+        <ul {...menuProps} className={css(styles.list({ isOpen }))}>
+          {isOpen &&
+            results.map((item, index) => (
+              <li
+                key={item.path}
+                className={css(
+                  styles.item({
+                    isHighlighted: highlightedIndex === index,
+                    isSelected: selectedItem === item,
+                  })
+                )}
+                {...getItemProps({ index, item })}
+                data-testid='search-result'
               >
-                <Input
-                  {...getInputProps({
-                    extend: styles.input,
-                    placeholder: 'e.g. calculator',
-                    type: 'text',
-                    id: 'search',
-                    ref: input,
-                    value: inputValue,
-                    'data-testid': 'search-input',
-                    onChange: event => setInputValue(event.target.value),
-                  })}
-                />
-              </div>
-              <ul {...getMenuProps()} className={css(styles.list({ isOpen }))}>
-                {options.map(({ item }, index) => (
-                  <li
-                    key={item.path}
-                    className={css(
-                      styles.item({
-                        isHighlighted: highlightedIndex === index,
-                        isSelected: selectedItem === item,
-                      })
-                    )}
-                    {...getItemProps({ index, item })}
-                    data-testid='search-result'
-                  >
-                    <Option {...item} />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </Downshift>
-        <DiamondButton
-          type='submit'
-          icon='search'
-          label='Search'
-          extend={{ zIndex: 2 }}
-        />
-      </form>
+                <Option {...item} />
+              </li>
+            ))}
+        </ul>
+      </div>
 
       <p className={css({ marginBottom: 0 })}>
         Psst! Next time, you can use <kbd>/</kbd> or <kbd>CTRL</kbd> +{' '}

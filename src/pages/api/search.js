@@ -14,7 +14,7 @@ const getIP = request =>
   request.ip || request.headers['x-real-ip'] || request.connection.remoteAddress
 
 async function applyRateLimit(request, response) {
-  const limitPerWindow = 10
+  const limitPerWindow = 20
   const config = {
     headers: true,
     windowMs: 60 * 1000,
@@ -37,5 +37,10 @@ async function applyRateLimit(request, response) {
 export default async function handler(request, response) {
   await applyRateLimit(request, response)
 
-  return response.status(200).json(index.search(request.query.s).slice(0, 5))
+  return response.status(200).json(
+    index
+      .search(request.query.s)
+      .slice(0, 5)
+      .map(entry => entry.item)
+  )
 }
