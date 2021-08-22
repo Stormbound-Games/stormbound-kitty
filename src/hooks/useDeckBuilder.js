@@ -48,7 +48,8 @@ const useDeckBuilder = props => {
     [deck]
   )
 
-  React.useEffect(() => navigator.replace(path), [path, navigator])
+  // eslint-disable-next-line
+  React.useEffect(() => navigator.replace(path), [path])
 
   React.useEffect(
     () => setDeck(props.id ? getInitialDeckData(props.id) : []),
