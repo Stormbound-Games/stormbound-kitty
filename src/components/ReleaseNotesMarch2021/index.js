@@ -251,6 +251,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
             src='/assets/images/releases/rank_hero.png'
             alt='Heroes League badge'
             extend={css({ maxWidth: '300px', margin: 'auto' })}
+            withoutWebp
           />
         </Spacing>
 
@@ -280,6 +281,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
           src='/assets/images/releases/chest_hero.png'
           alt='Heroes League chest'
           extend={{ maxWidth: '300px', margin: '3em auto' }}
+          withoutWebp
         />
 
         <p>
