@@ -6,16 +6,13 @@ import Select from '~/components/Select'
 import Spacing from '~/components/Spacing'
 import ListBuilderTierList from '~/components/ListBuilderTierList'
 import ListBuilderToc from '~/components/ListBuilderToc'
-import getInitialListData from '~/helpers/getInitialListData'
-import getLiveTierList from '~/helpers/getLiveTierList'
 import getRawCardData from '~/helpers/getRawCardData'
 import useIsMounted from '~/hooks/useIsMounted'
 
 export default React.memo(function ListBuilderDisplayView(props) {
   const isMounted = useIsMounted()
   const [faction, setFaction] = React.useState('*')
-  const id = React.useMemo(() => getLiveTierList(), [])
-  const tiers = getInitialListData(id)
+  const tiers = props.list
     .map(tier => ({
       name: tier.name,
       cards: tier.cards.filter(id => {
