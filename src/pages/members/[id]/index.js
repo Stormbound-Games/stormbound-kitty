@@ -10,7 +10,7 @@ export async function getStaticPaths() {
     params: { id: member },
   }))
 
-  return { paths, fallback: true }
+  return { paths, fallback: 'blocking' }
 }
 
 export async function getStaticProps(context) {

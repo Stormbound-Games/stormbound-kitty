@@ -18,7 +18,7 @@ export async function getStaticPaths() {
     .flat()
     .concat([{ params: { rest: [] } }])
 
-  return { paths, fallback: true }
+  return { paths, fallback: 'blocking' }
 }
 
 export async function getStaticProps(context) {

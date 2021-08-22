@@ -12,7 +12,7 @@ export async function getStaticPaths() {
     params: { rest: [puzzle.board, 'display'] },
   })).concat([{ params: { rest: [] } }])
 
-  return { paths, fallback: true }
+  return { paths, fallback: 'blocking' }
 }
 
 export async function getStaticProps(context) {

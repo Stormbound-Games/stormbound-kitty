@@ -5,7 +5,7 @@ import getInitialQuestData from '~/helpers/getInitialQuestData'
 import getNavigation from '~/helpers/getNavigation'
 
 export async function getStaticPaths() {
-  return { paths: [{ params: { rest: [] } }], fallback: true }
+  return { paths: [{ params: { rest: [] } }], fallback: 'blocking' }
 }
 
 export async function getStaticProps(context) {

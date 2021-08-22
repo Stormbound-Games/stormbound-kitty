@@ -38,7 +38,7 @@ export async function getStaticPaths() {
     .map(id => ({ params: { rest: [id, 'display'] } }))
     .concat([{ params: { rest: [] } }])
 
-  return { paths, fallback: true }
+  return { paths, fallback: 'blocking' }
 }
 
 export async function getStaticProps(context) {
