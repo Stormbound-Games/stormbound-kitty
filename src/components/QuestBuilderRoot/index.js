@@ -1,102 +1,90 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import hookIntoProps from 'hook-into-props'
 import Form from '~/components/QuestBuilderForm'
 import Row from '~/components/Row'
 import Title from '~/components/Title'
 import Quest from '~/components/Quest'
 import Page from '~/components/Page'
 import serialisation from '~/helpers/serialisation'
-import getInitialQuestData from '~/helpers/getInitialQuestData'
 import useNavigator from '~/hooks/useNavigator'
 
-class QuestBuilderRoot extends React.Component {
-  constructor(props) {
-    super(props)
+export default React.memo(function QuestBuilderRoot(props) {
+  const { css } = useFela()
+  const navigator = useNavigator()
+  const { quest } = props
+  const [currency, setCurrency] = React.useState(quest.currency || 'coins')
+  const [amount, setAmount] = React.useState(quest.amount || 0)
+  const [name, setName] = React.useState(quest.name || '')
+  const [description, setDescription] = React.useState(quest.description || '')
+  const [difficulty, setDifficulty] = React.useState(quest.difficulty || 1)
 
-    this.state = {
-      currency: 'coins',
-      amount: 0,
-      name: '',
-      description: '',
-      difficulty: 1,
-      ...props.quest,
-    }
-  }
+  const reset = React.useCallback(() => {
+    setCurrency('coins')
+    setAmount(0)
+    setName('')
+    setDescription('')
+    setDifficulty(1)
+  }, [])
 
-  componentDidUpdate(prevProps, prevState) {
-    const hasAnyPropChanged = [
-      'currency',
-      'amount',
-      'name',
-      'description',
-      'difficulty',
-    ].some(prop => this.state[prop] !== prevState[prop])
-
-    if (hasAnyPropChanged) {
-      this.props.navigator.replace(
-        '/quest/' + serialisation.quest.serialise(this.state)
+  React.useEffect(() => {
+    if (
+      currency === 'coins' &&
+      !amount &&
+      !name &&
+      !description &&
+      difficulty === 1
+    )
+      navigator.replace('/quest')
+    else
+      navigator.replace(
+        '/quest/' +
+          serialisation.quest.serialise({
+            currency,
+            amount,
+            name,
+            description,
+            difficulty,
+          })
       )
-    } else if (prevProps.questId !== this.props.questId) {
-      if (this.props.questId) {
-        this.setState({ ...getInitialQuestData(this.props.questId) })
-      } else {
-        this.reset()
-      }
-    }
-  }
+  }, [currency, amount, name, description, difficulty, navigator])
 
-  reset = () => {
-    this.setState(
-      {
-        currency: 'coins',
-        amount: 0,
-        name: '',
-        description: '',
-        difficulty: 1,
-      },
-      () => this.props.navigator.push('/quest')
-    )
-  }
-
-  render() {
-    return (
-      <Page
-        title='Create Your Quest'
-        description='Design your very own Stormbound quest'
+  return (
+    <Page
+      title='Create Your Quest'
+      description='Design your very own Stormbound quest'
+    >
+      <div
+        className={css({ maxWidth: '100%', width: '900px', margin: '0 auto' })}
       >
-        <div
-          className={this.props.css({
-            maxWidth: '100%',
-            width: '900px',
-            margin: '0 auto',
-          })}
-        >
-          <Row isDesktopOnly withWideGutter>
-            <Row.Column>
-              <Title>Your Quest</Title>
-              <Quest {...this.state} />
-            </Row.Column>
-            <Row.Column>
-              <Title>Settings</Title>
-              <Form
-                {...this.state}
-                setCurrency={currency => this.setState({ currency })}
-                setAmount={amount => this.setState({ amount })}
-                setName={name => this.setState({ name })}
-                setDescription={description => this.setState({ description })}
-                setDifficulty={difficulty => this.setState({ difficulty })}
-                reset={this.reset}
-              />
-            </Row.Column>
-          </Row>
-        </div>
-      </Page>
-    )
-  }
-}
-
-export default hookIntoProps(() => ({
-  ...useFela(),
-  navigator: useNavigator(),
-}))(QuestBuilderRoot)
+        <Row isDesktopOnly withWideGutter>
+          <Row.Column>
+            <Title>Your Quest</Title>
+            <Quest
+              currency={currency}
+              amount={amount}
+              name={name}
+              description={description}
+              difficulty={difficulty}
+            />
+          </Row.Column>
+          <Row.Column>
+            <Title>Settings</Title>
+            <Form
+              currency={currency}
+              amount={amount}
+              name={name}
+              description={description}
+              difficulty={difficulty}
+              setCurrency={setCurrency}
+              setAmount={setAmount}
+              setName={setName}
+              setDescription={setDescription}
+              setDifficulty={setDifficulty}
+              reset={reset}
+            />
+          </Row.Column>
+        </Row>
+      </div>
+    </Page>
+  )
+})
