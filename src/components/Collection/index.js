@@ -1,7 +1,5 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import Link from '~/components/Link'
-import hookIntoProps from 'hook-into-props'
 import Page from '~/components/Page'
 import ActiveCardForm from '~/components/CollectionActiveCardForm'
 import CardsGallery from '~/components/CardsGallery'
@@ -18,178 +16,154 @@ import Title from '~/components/Title'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import isCardUpgradable from '~/helpers/isCardUpgradable'
 
-class Collection extends React.Component {
-  constructor(props) {
-    super(props)
+export default React.memo(function Collection(props) {
+  const { collection, indexedCollection, updateCollection } =
+    React.useContext(CollectionContext)
+  const [activeCardId, setActiveCardId] = React.useState(null)
+  const levelField = React.useRef(null)
 
-    this.state = { activeCard: null }
+  React.useEffect(() => {
+    if (activeCardId) setTimeout(() => levelField.current.focus(), 0)
+  }, [activeCardId])
 
-    this.levelField = React.createRef()
-  }
+  const onActiveCardFormSubmit = React.useCallback(
+    event => {
+      event.preventDefault()
+      const id = activeCardId
+      setActiveCardId(null)
+      document.querySelector(`#${id}`).previousElementSibling?.focus()
+    },
+    [activeCardId]
+  )
 
-  setActiveCard = id => {
-    this.setState(
-      state => ({
-        activeCard: state.activeCard === id ? null : id,
+  const updateActiveCardInCollection = React.useCallback(
+    (key, value) =>
+      updateCollection(collection => {
+        const ids = collection.map(card => card.id)
+        const index = ids.indexOf(activeCardId)
+        const card = { ...collection[index], [key]: value }
+
+        return [
+          ...collection.slice(0, index),
+          card,
+          ...collection.slice(index + 1),
+        ]
       }),
-      () => {
-        if (this.state.activeCard) {
-          this.levelField.current.focus()
-        }
-      }
-    )
-  }
+    [activeCardId, updateCollection]
+  )
 
-  onActiveCardFormSubmit = event => {
-    const { activeCard: id } = this.state
-    event.preventDefault()
+  const setActiveCardLevel = React.useCallback(
+    event => updateActiveCardInCollection('level', +event.target.value),
+    [updateActiveCardInCollection]
+  )
 
-    this.setState({ activeCard: null }, () => {
-      const $button = document.querySelector(`#card-${id} > button`)
+  const setActiveCardCopies = React.useCallback(
+    value => updateActiveCardInCollection('copies', value || null),
+    [updateActiveCardInCollection]
+  )
 
-      if ($button) $button.focus()
-    })
-  }
+  const setActiveCardMissing = React.useCallback(
+    event => updateActiveCardInCollection('missing', event.target.checked),
+    [updateActiveCardInCollection]
+  )
 
-  updateActiveCardInCollection = (key, value) => {
-    this.props.updateCollection(collection => {
-      const { activeCard } = this.state
-      const ids = collection.map(card => card.id)
-      const index = ids.indexOf(activeCard)
-      const card = collection.find(card => card.id === activeCard)
-      const newCard = { ...card, [key]: value }
+  const canCardBeUpgraded = React.useCallback(
+    id => isCardUpgradable(indexedCollection[id]),
+    [indexedCollection]
+  )
 
-      return [
-        ...collection.slice(0, index),
-        newCard,
-        ...collection.slice(index + 1),
-      ]
-    })
-  }
+  const isCardMissing = React.useCallback(
+    id => indexedCollection[id].missing,
+    [indexedCollection]
+  )
 
-  setActiveCardLevel = event =>
-    this.updateActiveCardInCollection('level', +event.target.value)
+  const activeCard = getResolvedCardData(indexedCollection[activeCardId])
 
-  setActiveCardCopies = value =>
-    this.updateActiveCardInCollection('copies', value || null)
+  return (
+    <Page
+      title='Card Collection'
+      description='Manage your own card collection and keep track of your cards'
+      action={{
+        to: '/collection/stats',
+        children: 'Collection stats',
+        icon: 'arrow-right',
+      }}
+    >
+      <Row isDesktopOnly withWideGutter>
+        <Row.Column width='1/3'>
+          <Spacing bottom='LARGE'>
+            <Title>What is this</Title>
 
-  setActiveCardMissing = event =>
-    this.updateActiveCardInCollection('missing', event.target.checked)
+            <p>
+              If you take the time to mark the level of all your cards, as well
+              as the amount of copies you have for each, you can get{' '}
+              <Link to='/collection/stats'>handy stats</Link> such as the amount
+              of fusion stones or gold you need to upgrade your cards.
+            </p>
 
-  getActiveCardData = () => {
-    const activeCard = this.props.indexedCollection[this.state.activeCard]
-
-    return (
-      activeCard &&
-      getResolvedCardData({
-        id: this.state.activeCard,
-        level: activeCard.level,
-      })
-    )
-  }
-
-  isCardUpgradable = id => isCardUpgradable(this.props.indexedCollection[id])
-
-  isCardMissing = id => this.props.indexedCollection[id].missing
-
-  render() {
-    const activeCard = this.props.indexedCollection[this.state.activeCard]
-    const resolvedActiveCard = this.getActiveCardData()
-
-    return (
-      <Page
-        title='Card Collection'
-        description='Manage your own card collection and keep track of your cards'
-        action={{
-          to: '/collection/stats',
-          children: 'Collection stats',
-          icon: 'arrow-right',
-        }}
-      >
-        <Row isDesktopOnly withWideGutter>
-          <Row.Column width='1/3'>
             <Spacing bottom='LARGE'>
-              <Title>What is this</Title>
-
               <p>
-                If you take the time to mark the level of all your cards, as
-                well as the amount of copies you have for each, you can get{' '}
-                <Link to='/collection/stats'>handy stats</Link> such as the
-                amount of fusion stones or gold you need to upgrade your cards.
+                The collection is locally saved in your browser as you update it
+                so you can safely leave or refresh the page. If you want to save
+                it more permanently and synchronise it between device, you can
+                export it as a CSV.
               </p>
-
-              <Spacing bottom='LARGE'>
-                <p>
-                  The collection is locally saved in your browser as you update
-                  it so you can safely leave or refresh the page. If you want to
-                  save it more permanently and synchronise it between device,
-                  you can export it as a CSV.
-                </p>
-              </Spacing>
-
-              <CollectionClearHint />
-
-              <Only.DefaultCollection>
-                <Row>
-                  <Row.Column>
-                    <ImportCollection />
-                  </Row.Column>
-                  <Row.Column />
-                </Row>
-              </Only.DefaultCollection>
             </Spacing>
 
-            {this.state.activeCard && (
-              <ActiveCardForm
-                activeCard={activeCard}
-                resolvedActiveCard={resolvedActiveCard}
-                onActiveCardFormSubmit={this.onActiveCardFormSubmit}
-                setActiveCardLevel={this.setActiveCardLevel}
-                setActiveCardCopies={this.setActiveCardCopies}
-                setActiveCardMissing={this.setActiveCardMissing}
-                levelFieldRef={this.levelField}
-              />
+            <CollectionClearHint />
+
+            <Only.DefaultCollection>
+              <Row>
+                <Row.Column>
+                  <ImportCollection />
+                </Row.Column>
+                <Row.Column />
+              </Row>
+            </Only.DefaultCollection>
+          </Spacing>
+
+          {activeCardId && (
+            <ActiveCardForm
+              activeCard={activeCard}
+              onActiveCardFormSubmit={onActiveCardFormSubmit}
+              setActiveCardLevel={setActiveCardLevel}
+              setActiveCardCopies={setActiveCardCopies}
+              setActiveCardMissing={setActiveCardMissing}
+              levelFieldRef={levelField}
+            />
+          )}
+        </Row.Column>
+
+        <Row.Column width='2/3'>
+          <Title>Card Collection</Title>
+
+          <CardsFiltering cards={collection.map(getResolvedCardData)}>
+            {({ filters, actions, collection, cardsPerPage }) => (
+              <>
+                <Filters {...filters} {...actions} />
+
+                {collection.length > 0 ? (
+                  <CardsGallery
+                    filters={filters}
+                    cards={collection}
+                    cardsPerPage={cardsPerPage}
+                    onCardClick={setActiveCardId}
+                    isCardAffordable={id => id === activeCardId}
+                    isCardUpgradable={canCardBeUpgraded}
+                    isCardMissing={isCardMissing}
+                    onPageChange={() => setActiveCardId(null)}
+                  />
+                ) : (
+                  <EmptySearch
+                    title='No cards found'
+                    resetFilters={actions.resetFilters}
+                  />
+                )}
+              </>
             )}
-          </Row.Column>
-
-          <Row.Column width='2/3'>
-            <Title>Card Collection</Title>
-
-            <CardsFiltering
-              cards={this.props.collection.map(getResolvedCardData)}
-            >
-              {({ filters, actions, collection, cardsPerPage }) => (
-                <>
-                  <Filters {...filters} {...actions} />
-
-                  {collection.length > 0 ? (
-                    <CardsGallery
-                      filters={filters}
-                      cards={collection}
-                      cardsPerPage={cardsPerPage}
-                      onCardClick={this.setActiveCard}
-                      isCardAffordable={id => id === this.state.activeCard}
-                      isCardUpgradable={this.isCardUpgradable}
-                      isCardMissing={this.isCardMissing}
-                      onPageChange={() => this.setState({ activeCard: null })}
-                    />
-                  ) : (
-                    <EmptySearch
-                      title='No cards found'
-                      resetFilters={actions.resetFilters}
-                    />
-                  )}
-                </>
-              )}
-            </CardsFiltering>
-          </Row.Column>
-        </Row>
-      </Page>
-    )
-  }
-}
-
-export default hookIntoProps(() => ({
-  ...useFela(),
-  ...React.useContext(CollectionContext),
-}))(Collection)
+          </CardsFiltering>
+        </Row.Column>
+      </Row>
+    </Page>
+  )
+})

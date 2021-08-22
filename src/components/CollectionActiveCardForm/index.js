@@ -10,7 +10,7 @@ import Title from '~/components/Title'
 export default React.memo(function CollectionActiveCardForm(props) {
   return (
     <>
-      <Title>{props.resolvedActiveCard.name}</Title>
+      <Title>{props.activeCard.name}</Title>
 
       <form onSubmit={props.onActiveCardFormSubmit}>
         <Row>
