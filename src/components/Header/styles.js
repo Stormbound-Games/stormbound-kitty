@@ -1,9 +1,12 @@
 /**
  * 1. Make sure the header sits over the content.
+ * 2. Opaque color to cover the underlying image on the home page.
  */
 const header = {
-  padding: '1em',
   zIndex: 10 /* 1 */,
+  backgroundColor: 'var(--black)' /* 2 */,
+  padding: '1em',
+  paddingBottom: 0,
 }
 
 /**

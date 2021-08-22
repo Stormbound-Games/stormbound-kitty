@@ -20,7 +20,7 @@ const body = {
   margin: '0 auto',
 
   medium: {
-    paddingTop: '3.5em',
+    paddingTop: '4.5em',
     paddingBottom: '3.5em',
   },
 }
