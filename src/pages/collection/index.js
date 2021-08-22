@@ -7,12 +7,12 @@ export async function getStaticProps() {
   return { props: { navigation: getNavigation() } }
 }
 
-const CollectionPage = props => (
+const CollectionPage = ({ navigation, ...props }) => (
   <Layout
     active={['TOOLS', 'YOUR_CONTENT', 'COLLECTION']}
-    navigation={props.navigation}
+    navigation={navigation}
   >
-    <Collection />
+    <Collection {...props} />
   </Layout>
 )
 

@@ -22,12 +22,12 @@ export async function getStaticProps(context) {
   }
 }
 
-const BookOpeningSimulatorPage = props => (
+const BookOpeningSimulatorPage = ({ navigation, ...props }) => (
   <Layout
     active={['TOOLS', 'BUILDERS', 'BOOK_SIMULATOR']}
-    navigation={props.navigation}
+    navigation={navigation}
   >
-    <BookOpeningSimulator cards={props.cards} />
+    <BookOpeningSimulator {...props} />
   </Layout>
 )
 

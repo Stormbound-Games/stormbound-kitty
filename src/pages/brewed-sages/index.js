@@ -8,12 +8,12 @@ export async function getStaticProps() {
   return { props: { navigation: getNavigation(), episodes: PODCASTS } }
 }
 
-const BrewedSagesPage = props => (
+const BrewedSagesPage = ({ navigation, ...props }) => (
   <Layout
     active={['COMMUNITY', 'DISCOVER', 'BREWED_SAGES']}
-    navigation={props.navigation}
+    navigation={navigation}
   >
-    <BrewedSages episodes={props.episodes} />
+    <BrewedSages {...props} />
   </Layout>
 )
 

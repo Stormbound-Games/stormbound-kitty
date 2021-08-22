@@ -45,14 +45,11 @@ export const getStaticProps = ({ params }) => {
   }
 }
 
-const ReleasePage = props => {
+const ReleasePage = ({ navigation, ...props }) => {
   const Component = RELEASE_COMPONENTS[props.id]
 
   return (
-    <Layout
-      active={['GAME', 'UPDATES', props.id]}
-      navigation={props.navigation}
-    >
+    <Layout active={['GAME', 'UPDATES', props.id]} navigation={navigation}>
       <ReleaseNotes {...props}>
         <Component />
       </ReleaseNotes>

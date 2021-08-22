@@ -40,15 +40,15 @@ export async function getStaticProps(context) {
   }
 }
 
-const ListBuilderPage = props => (
+const ListBuilderPage = ({ navigation, ...props }) => (
   <Layout
     active={['TOOLS', 'BUILDERS', 'LIST_BUILDER']}
-    navigation={props.navigation}
+    navigation={navigation}
   >
     {props.mode === 'DISPLAY' ? (
-      <ListBuilderDisplayView tiers={props.tiers} listId={props.id} />
+      <ListBuilderDisplayView {...props} listId={props.id} />
     ) : (
-      <ListBuilderEditorView tiers={props.tiers} listId={props.id} />
+      <ListBuilderEditorView {...props} listId={props.id} />
     )}
   </Layout>
 )

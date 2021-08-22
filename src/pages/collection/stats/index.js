@@ -14,12 +14,12 @@ export async function getStaticProps() {
   return { props: { navigation: getNavigation(), maxCollectionCost } }
 }
 
-const CollectionStatsPage = props => (
+const CollectionStatsPage = ({ navigation, ...props }) => (
   <Layout
     active={['TOOLS', 'YOUR_CONTENT', 'COLLECTION_STATS']}
-    navigation={props.navigation}
+    navigation={navigation}
   >
-    <CollectionStats maxCollectionCost={props.maxCollectionCost} />
+    <CollectionStats {...props} />
   </Layout>
 )
 

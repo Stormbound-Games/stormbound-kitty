@@ -7,12 +7,12 @@ export async function getStaticProps() {
   return { props: { navigation: getNavigation() } }
 }
 
-const KnownBugsPage = props => (
+const KnownBugsPage = ({ navigation, ...props }) => (
   <Layout
     active={['GAME', 'INFORMATION', 'KNOWN_BUGS']}
-    navigation={props.navigation}
+    navigation={navigation}
   >
-    <KnownBugs />
+    <KnownBugs {...props} />
   </Layout>
 )
 

@@ -8,12 +8,12 @@ export async function getStaticProps() {
   return { props: { tournaments: TOURNAMENTS, navigation: getNavigation() } }
 }
 
-const TournamentHallOfFamePage = props => (
+const TournamentHallOfFamePage = ({ navigation, ...props }) => (
   <Layout
     active={['COMMUNITY', 'CONTESTS', 'HALL_OF_FAME']}
-    navigation={props.navigation}
+    navigation={navigation}
   >
-    <TournamentHallOfFame tournaments={props.tournaments} />
+    <TournamentHallOfFame {...props} />
   </Layout>
 )
 

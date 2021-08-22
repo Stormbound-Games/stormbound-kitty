@@ -13,8 +13,8 @@ export async function getStaticProps() {
   return { props: { navigation: getNavigation(), contributors, donators } }
 }
 
-const AboutPage = props => (
-  <Layout active={['HOME', 'HOME', 'ABOUT']} navigation={props.navigation}>
+const AboutPage = ({ navigation, ...props }) => (
+  <Layout active={['HOME', 'HOME', 'ABOUT']} navigation={navigation}>
     <About {...props} />
   </Layout>
 )

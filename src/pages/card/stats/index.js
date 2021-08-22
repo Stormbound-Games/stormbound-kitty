@@ -8,12 +8,12 @@ export async function getStaticProps() {
   return { props: { navigation: getNavigation(), cards: CARDS } }
 }
 
-const CardStatsPage = props => (
+const CardStatsPage = ({ navigation, ...props }) => (
   <Layout
     active={['GAME', 'INFORMATION', 'CARD_STATS']}
-    navigation={props.navigation}
+    navigation={navigation}
   >
-    <CardsStats cards={props.cards} />
+    <CardsStats {...props} />
   </Layout>
 )
 

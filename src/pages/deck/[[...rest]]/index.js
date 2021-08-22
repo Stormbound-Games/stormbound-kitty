@@ -63,13 +63,13 @@ const COMPONENTS = {
   EDITOR: DeckEditorView,
 }
 
-const DeckBuilderPage = props => {
+const DeckBuilderPage = ({ navigation, ...props }) => {
   const Component = COMPONENTS[props.view]
 
   return (
     <Layout
       active={['TOOLS', 'BUILDERS', 'DECK_BUILDER', props.view]}
-      navigation={props.navigation}
+      navigation={navigation}
     >
       <DeckBuilderRoot view={props.view} deckId={props.id} deck={props.deck}>
         {state => <Component {...state} advice={props.advice} />}

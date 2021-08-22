@@ -8,12 +8,12 @@ export async function getStaticProps() {
   return { props: { navigation: getNavigation(), seasons: SWCC } }
 }
 
-const CardContestPage = props => (
+const CardContestPage = ({ navigation, ...props }) => (
   <Layout
     active={['COMMUNITY', 'CONTESTS', 'CARD_CONTEST']}
-    navigation={props.navigation}
+    navigation={navigation}
   >
-    <CardBuilderContest seasons={props.seasons} />
+    <CardBuilderContest {...props} />
   </Layout>
 )
 

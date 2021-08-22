@@ -32,11 +32,8 @@ export async function getStaticProps(context) {
   }
 }
 
-const MemberPage = props => (
-  <Layout
-    active={['COMMUNITY', 'DISCOVER', 'MEMBERS']}
-    navigation={props.navigation}
-  >
+const MemberPage = ({ navigation, ...props }) => (
+  <Layout active={['COMMUNITY', 'DISCOVER', 'MEMBERS']} navigation={navigation}>
     <Member memberId={props.id} {...props} />
   </Layout>
 )

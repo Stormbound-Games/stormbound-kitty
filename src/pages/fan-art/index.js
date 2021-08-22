@@ -9,12 +9,9 @@ export async function getStaticProps() {
   return { props: { navigation: getNavigation(), artworks: shuffle(ARTWORKS) } }
 }
 
-const FanArtPage = props => (
-  <Layout
-    active={['COMMUNITY', 'DISCOVER', 'FAN_ART']}
-    navigation={props.navigation}
-  >
-    <FanArt artworks={props.artworks} />
+const FanArtPage = ({ navigation, ...props }) => (
+  <Layout active={['COMMUNITY', 'DISCOVER', 'FAN_ART']} navigation={navigation}>
+    <FanArt {...props} />
   </Layout>
 )
 

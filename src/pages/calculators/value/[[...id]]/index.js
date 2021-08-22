@@ -34,15 +34,12 @@ export async function getStaticProps(context) {
   }
 }
 
-const ValueCalculatorPage = props => (
+const ValueCalculatorPage = ({ navigation, ...props }) => (
   <Layout
     active={['TOOLS', 'CALCULATORS', 'VALUE_CALCULATOR']}
-    navigation={props.navigation}
+    navigation={navigation}
   >
-    <ValueCalculator
-      cards={props.cards}
-      disabledOptions={props.disabledOptions}
-    />
+    <ValueCalculator {...props} />
   </Layout>
 )
 

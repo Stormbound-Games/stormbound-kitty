@@ -7,9 +7,9 @@ export async function getStaticProps() {
   return { props: { navigation: getNavigation() } }
 }
 
-const StoriesPage = props => (
-  <Layout active={['STORIES']} navigation={props.navigation}>
-    <StoryIndex />
+const StoriesPage = ({ navigation, ...props }) => (
+  <Layout active={['STORIES']} navigation={navigation}>
+    <StoryIndex {...props} />
   </Layout>
 )
 

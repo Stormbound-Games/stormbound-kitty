@@ -19,11 +19,8 @@ export async function getStaticProps() {
   }
 }
 
-const EqualsListPage = props => (
-  <Layout
-    active={['COMMUNITY', 'META', 'EQUALS_LIST']}
-    navigation={props.navigation}
-  >
+const EqualsListPage = ({ navigation, ...props }) => (
+  <Layout active={['COMMUNITY', 'META', 'EQUALS_LIST']} navigation={navigation}>
     <EqualsList {...props} />
   </Layout>
 )

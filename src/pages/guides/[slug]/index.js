@@ -62,13 +62,13 @@ export const getStaticProps = ({ params }) => {
   }
 }
 
-const GuidePage = props => {
+const GuidePage = ({ navigation, ...props }) => {
   const Component = GUIDE_COMPONENTS[props.id]
 
   return (
     <Layout
       active={['GUIDES', props.category, props.id]}
-      navigation={props.navigation}
+      navigation={navigation}
     >
       <Guide {...props}>
         <Component />

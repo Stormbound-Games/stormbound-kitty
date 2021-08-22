@@ -15,12 +15,9 @@ export async function getStaticProps() {
   }
 }
 
-const TriviaPage = props => (
-  <Layout
-    active={['COMMUNITY', 'CONTESTS', 'TRIVIA']}
-    navigation={props.navigation}
-  >
-    <Trivia questions={props.questions} />
+const TriviaPage = ({ navigation, ...props }) => (
+  <Layout active={['COMMUNITY', 'CONTESTS', 'TRIVIA']} navigation={navigation}>
+    <Trivia {...props} />
   </Layout>
 )
 
