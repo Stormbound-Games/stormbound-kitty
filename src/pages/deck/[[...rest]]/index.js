@@ -2,12 +2,12 @@ import React from 'react'
 import DeckEditorView from '~/components/DeckEditorView'
 import DeckDetailView from '~/components/DeckDetailView'
 import DeckDryRunView from '~/components/DeckDryRunView'
-import DeckBuilderRoot from '~/components/DeckBuilderRoot'
 import Layout from '~/components/Layout'
 import getDeckAdvice from '~/helpers/getDeckAdvice'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getInitialDeckData from '~/helpers/getInitialDeckData'
 import getNavigation from '~/helpers/getNavigation'
+import useDeckBuilder from '~/hooks/useDeckBuilder'
 import DECKS from '~/data/decks'
 
 export async function getStaticPaths() {
@@ -65,15 +65,14 @@ const COMPONENTS = {
 
 const DeckBuilderPage = ({ navigation, ...props }) => {
   const Component = COMPONENTS[props.view]
+  const state = useDeckBuilder(props)
 
   return (
     <Layout
       active={['TOOLS', 'BUILDERS', 'DECK_BUILDER', props.view]}
       navigation={navigation}
     >
-      <DeckBuilderRoot view={props.view} deckId={props.id} deck={props.deck}>
-        {state => <Component {...state} advice={props.advice} />}
-      </DeckBuilderRoot>
+      <Component {...state} advice={props.advice} />
     </Layout>
   )
 }
