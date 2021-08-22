@@ -29,24 +29,16 @@ export default React.memo(function ImageSupportProvider(props) {
     if (storedWebp === null) {
       supportsImageFormat('webp').then(supports => {
         setWebp(supports)
-        if (supports) document.documentElement.classList.add('webp')
         localStorage.setItem('sk.webp', supports)
       })
-    } else if (storedWebp) {
-      document.documentElement.classList.add('webp')
-      setWebp(true)
-    }
+    } else if (storedWebp) setWebp(true)
 
     if (storedAvif === null) {
       supportsImageFormat('avif').then(supports => {
         setAvif(supports)
-        if (supports) document.documentElement.classList.add('avif')
         localStorage.setItem('sk.avif', supports)
       })
-    } else if (storedAvif) {
-      document.documentElement.classList.add('avif')
-      setAvif(true)
-    }
+    } else if (storedAvif) setAvif(true)
   }, [])
 
   return (

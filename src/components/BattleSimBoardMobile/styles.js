@@ -5,7 +5,7 @@
  */
 const board = {
   position: 'relative' /* 1 */,
-  backgroundImage: "url('/assets/images/bg-swarm.png')" /* 1 */,
+  backgroundImage: "url('/assets/images/bg-swarm.png')" /* 2 */,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center',
   backgroundSize: 'cover',
@@ -33,16 +33,6 @@ const board = {
     width: '400px',
   },
 }
-
-/*
-@TODO: fix
-.webp:not(.avif) .BattleSimBoardMobile {
-  background-image: url('/assets/images/bg-swarm.webp'),
-}
-.avif .BattleSimBoardMobile {
-  background-image: url('/assets/images/bg-swarm.avif'),
-}
-*/
 
 /**
  * 1. Absolute positioning based on background

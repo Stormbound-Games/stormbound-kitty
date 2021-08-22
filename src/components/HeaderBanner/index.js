@@ -6,10 +6,6 @@ import styles from './styles'
 
 const DEFAULT_BANNER = '/assets/images/banners/default_banner.jpg'
 
-// The reason AVIF is opt-in but WEBP is opt-out is because the WEBP version is
-// automatically generated for all files with a script (although is sometimes
-// larger than PNG, hence the need for a way out), while the AVIF version needs
-// to be done by hand for every image.
 const useFileExtension = ({ fileType, withAvif, withoutWebp }) => {
   const { supportsWebp, supportsAvif } = React.useContext(ImageSupportContext)
 
