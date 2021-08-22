@@ -41,7 +41,11 @@ export default React.memo(
         <Row isDesktopOnly>
           {props.columns.map((column, index) => (
             <Row.Column width={`1/${props.columns.length}`} key={index}>
-              <h2 className={css(styles.title)}>
+              <h2
+                className={css(
+                  styles.title({ isActive: props.active[0] === column.id })
+                )}
+              >
                 {column.icon ? (
                   <Icon icon={column.icon} extend={styles.icon} />
                 ) : null}
@@ -59,7 +63,7 @@ export default React.memo(
                       to={item.to}
                       inNewTab={!!item.href}
                       extend={styles.link({
-                        isActive: props.active.includes(item.id),
+                        isActive: props.active[1] === item.id,
                       })}
                     >
                       {item.label}

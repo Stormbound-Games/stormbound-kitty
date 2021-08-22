@@ -3,13 +3,14 @@ import Member from '~/components/Member'
 import Layout from '~/components/Layout'
 import getMemberContent from '~/helpers/getMemberContent'
 import getMembersList from '~/helpers/getMembersList'
+import getNavigation from '~/helpers/getNavigation'
 
 export async function getStaticPaths() {
   const paths = getMembersList().map(({ member }) => ({
     params: { id: member },
   }))
 
-  return { paths, fallback: true }
+  return { paths, fallback: 'blocking' }
 }
 
 export async function getStaticProps(context) {
@@ -19,6 +20,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
+      navigation: getNavigation(),
       id,
       channel,
       content,
@@ -31,7 +33,10 @@ export async function getStaticProps(context) {
 }
 
 const MemberPage = props => (
-  <Layout active={['COMMUNITY', 'MEMBERS']}>
+  <Layout
+    active={['COMMUNITY', 'DISCOVER', 'MEMBERS']}
+    navigation={props.navigation}
+  >
     <Member memberId={props.id} {...props} />
   </Layout>
 )

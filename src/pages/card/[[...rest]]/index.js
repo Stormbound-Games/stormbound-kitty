@@ -3,6 +3,7 @@ import CardBuilderEditor from '~/components/CardBuilderEditor'
 import CardBuilderApp from '~/components/CardBuilderApp'
 import Layout from '~/components/Layout'
 import getInitialCardData from '~/helpers/getInitialCardData'
+import getNavigation from '~/helpers/getNavigation'
 import getRawCardData from '~/helpers/getRawCardData'
 import parseDate from '~/helpers/parseDate'
 import CARDS from '~/data/cards'
@@ -37,19 +38,20 @@ export async function getStaticPaths() {
     .map(id => ({ params: { rest: [id, 'display'] } }))
     .concat([{ params: { rest: [] } }])
 
-  return { paths, fallback: true }
-}
-
-const DEFAULT_PROPS = {
-  cardId: null,
-  card: {},
-  contest: null,
-  mode: 'EDITOR',
-  versions: [],
+  return { paths, fallback: 'blocking' }
 }
 
 export async function getStaticProps(context) {
   const params = context.params.rest || []
+  const navigation = getNavigation()
+  const DEFAULT_PROPS = {
+    navigation,
+    cardId: null,
+    card: {},
+    contest: null,
+    mode: 'EDITOR',
+    versions: [],
+  }
 
   try {
     const [id, display] = params
@@ -66,6 +68,7 @@ export async function getStaticProps(context) {
 
     return {
       props: {
+        navigation,
         cardId: id,
         card: getInitialCardData(id),
         contest: getContest(id),
@@ -81,7 +84,10 @@ export async function getStaticProps(context) {
 }
 
 const CardBuilderPage = props => (
-  <Layout active={['TOOLS', 'CARD_BUILDER', props.mode]}>
+  <Layout
+    active={['TOOLS', 'BUILDERS', 'CARD_BUILDER']}
+    navigation={props.navigation}
+  >
     {props.mode === 'DISPLAY' ? (
       <CardBuilderApp {...props} />
     ) : (

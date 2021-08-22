@@ -3,6 +3,8 @@ import path from 'path'
 import fs from 'fs/promises'
 import Story from '~/components/Story'
 import Layout from '~/components/Layout'
+import getNavigation from '~/helpers/getNavigation'
+import { STORY_CATEGORIES } from '~/constants/stories'
 
 const getStories = async () => {
   const dir = path.join(process.cwd(), 'src', 'data', 'stories')
@@ -25,6 +27,7 @@ export async function getStaticProps(context) {
   const { slug } = context.params
   const stories = await getStories()
   const currentStory = stories.find(story => story.slug === slug)
+  const { category } = currentStory
   const moreStories = stories.filter(story => {
     if (story.title === currentStory.title) return false
     if (currentStory.saga) return story.saga === currentStory.saga
@@ -41,12 +44,17 @@ export async function getStaticProps(context) {
   }
 
   return {
-    props: { story: currentStory, moreStories: moreStories.slice(0, 3) },
+    props: {
+      active: ['STORIES', STORY_CATEGORIES[category].category, category],
+      story: currentStory,
+      moreStories: moreStories.slice(0, 3),
+      navigation: getNavigation(),
+    },
   }
 }
 
 const StoryPage = props => (
-  <Layout active={['STORIES', 'STORY']}>
+  <Layout active={props.active} navigation={props.navigation}>
     <Story story={props.story} moreStories={props.moreStories} />
   </Layout>
 )

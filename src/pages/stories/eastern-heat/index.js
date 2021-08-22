@@ -3,6 +3,7 @@ import StoryCategory from '~/components/StoryCategory'
 import Layout from '~/components/Layout'
 import STORIES from '~/data/stories'
 import { STORY_CATEGORIES } from '~/constants/stories'
+import getNavigation from '~/helpers/getNavigation'
 
 export async function getStaticProps() {
   const category = 'eastern-heat'
@@ -19,12 +20,16 @@ export async function getStaticProps() {
     props: {
       stories,
       category: { ...STORY_CATEGORIES[category], id: category },
+      navigation: getNavigation(),
     },
   }
 }
 
 const StoriesPage = props => (
-  <Layout active={['STORIES', props.category.id]}>
+  <Layout
+    active={['STORIES', 'SAGAS', props.category.id]}
+    navigation={props.navigation}
+  >
     <StoryCategory {...props} />
   </Layout>
 )

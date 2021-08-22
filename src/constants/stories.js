@@ -6,6 +6,7 @@ export const STORY_CATEGORIES = {
     title: 'Bound by the Storm',
     shortName: 'Lore',
     cardId: 'N59',
+    category: 'GENERAL',
   },
   ironclad: {
     background: '/assets/images/banners/environment_ironclad.png',
@@ -14,6 +15,7 @@ export const STORY_CATEGORIES = {
     title: 'Ironclad Union',
     shortName: 'Ironclad',
     cardId: 'I17',
+    category: 'FACTIONS',
   },
   shadowfen: {
     background: '/assets/images/banners/environment_shadowfen.png',
@@ -22,6 +24,7 @@ export const STORY_CATEGORIES = {
     title: 'Tribes of the Shadowfen',
     shortName: 'Shadowfen',
     cardId: 'F21',
+    category: 'FACTIONS',
   },
   winter: {
     background: '/assets/images/banners/environment_winter.png',
@@ -30,6 +33,7 @@ export const STORY_CATEGORIES = {
     title: 'Winter Pact',
     shortName: 'Winter',
     cardId: 'W8',
+    category: 'FACTIONS',
   },
   swarm: {
     background: '/assets/images/banners/environment_swarm.png',
@@ -38,6 +42,7 @@ export const STORY_CATEGORIES = {
     title: 'Swarm of the East',
     shortName: 'Swarm',
     cardId: 'S19',
+    category: 'FACTIONS',
   },
   neutral: {
     background: '/assets/images/banners/environment_neutral.png',
@@ -45,6 +50,7 @@ export const STORY_CATEGORIES = {
     title: 'Always Neutral',
     shortName: 'Neutral',
     cardId: 'N46',
+    category: 'GENERAL',
   },
   'eastern-heat': {
     background: '/assets/images/banners/dragons.jpg',
@@ -52,6 +58,7 @@ export const STORY_CATEGORIES = {
     title: 'Eastern Heat',
     shortName: 'Eastern Heat',
     cardId: 'S4',
+    category: 'SAGAS',
   },
   'march-of-fauns': {
     background: '/assets/images/banners/factions.png',
@@ -59,5 +66,6 @@ export const STORY_CATEGORIES = {
     title: 'March of Fauns',
     shortName: 'March of Fauns',
     cardId: 'S25',
+    category: 'SAGAS',
   },
 }

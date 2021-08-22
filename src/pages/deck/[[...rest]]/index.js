@@ -7,6 +7,7 @@ import Layout from '~/components/Layout'
 import getDeckAdvice from '~/helpers/getDeckAdvice'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getInitialDeckData from '~/helpers/getInitialDeckData'
+import getNavigation from '~/helpers/getNavigation'
 import DECKS from '~/data/decks'
 
 export async function getStaticPaths() {
@@ -17,18 +18,19 @@ export async function getStaticPaths() {
     .flat()
     .concat([{ params: { rest: [] } }])
 
-  return { paths, fallback: true }
-}
-
-const DEFAULT_PROPS = {
-  id: null,
-  deck: [],
-  advice: [],
-  view: 'EDITOR',
+  return { paths, fallback: 'blocking' }
 }
 
 export async function getStaticProps(context) {
   const params = context.params.rest || []
+  const navigation = getNavigation()
+  const DEFAULT_PROPS = {
+    navigation,
+    id: null,
+    deck: [],
+    advice: [],
+    view: 'EDITOR',
+  }
 
   try {
     const [id, view] = params
@@ -48,7 +50,7 @@ export async function getStaticProps(context) {
       view === 'dry-run' ? 'DRY_RUN' : view === 'detail' ? 'DETAIL' : 'EDITOR'
 
     return {
-      props: { id, deck, advice, view: resolvedView },
+      props: { navigation, id, deck, advice, view: resolvedView },
     }
   } catch (error) {
     return { props: DEFAULT_PROPS }
@@ -65,7 +67,10 @@ const DeckBuilderPage = props => {
   const Component = COMPONENTS[props.view]
 
   return (
-    <Layout active={['TOOLS', 'DECK_BUILDER', props.view]}>
+    <Layout
+      active={['TOOLS', 'BUILDERS', 'DECK_BUILDER', props.view]}
+      navigation={props.navigation}
+    >
       <DeckBuilderRoot view={props.view} deckId={props.id} deck={props.deck}>
         {state => <Component {...state} advice={props.advice} />}
       </DeckBuilderRoot>

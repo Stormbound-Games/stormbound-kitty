@@ -1,7 +1,8 @@
 import React from 'react'
-import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { useFela } from 'react-fela'
+import { PersonalDecksContext } from '~/components/PersonalDecksProvider'
+import { UserContext } from '~/components/UserProvider'
 import HeaderMegaMenu from '~/components/HeaderMegaMenu'
 import Link from '~/components/Link'
 import NavCardBuilder from '~/components/NavCardBuilder'
@@ -9,20 +10,13 @@ import NavDeckBuilder from '~/components/NavDeckBuilder'
 import NewPulse from '~/components/NewPulse'
 import Icon from '~/components/Icon'
 import useIsMounted from '~/hooks/useIsMounted'
-import useNavigation from './useNavigation'
 import styles from './styles'
 
 const SubNav = React.memo(function SubNav(props) {
-  const [topActive, midActive, bottomActive] = props.active || []
+  const [item, sub] = props.active
 
-  if (topActive === 'TOOLS' && midActive === 'CARD_BUILDER') {
-    return <NavCardBuilder />
-  }
-
-  if (topActive === 'TOOLS' && midActive === 'DECK_BUILDER') {
-    return <NavDeckBuilder active={bottomActive} />
-  }
-
+  if (item === 'CARD_BUILDER') return <NavCardBuilder />
+  if (item === 'DECK_BUILDER') return <NavDeckBuilder active={sub} />
   return null
 })
 
@@ -75,13 +69,43 @@ const HeaderItem = props => {
   )
 }
 
+const useNavigation = (navigation = []) => {
+  const { isUnseen } = React.useContext(PersonalDecksContext)
+  const { name } = React.useContext(UserContext)
+
+  if (!name && !isUnseen) return navigation
+
+  const feed = name && {
+    label: 'Personal Feed',
+    to: `/members/${name}`,
+    id: 'FEED',
+  }
+
+  return navigation.map(category => {
+    if (category.id !== 'TOOLS') return category
+
+    const items = category.items.map(column => {
+      if (column.id !== 'YOUR_CONTENT') return column
+
+      const items = column.items.map(item => {
+        if (item.id !== 'DECK_COLLECTION') return item
+
+        return { ...item, new: isUnseen }
+      })
+
+      return { ...column, items: [feed, ...items].filter(Boolean) }
+    })
+
+    return { ...category, new: isUnseen, items }
+  })
+}
+
 export default React.memo(function Header(props) {
   const isMounted = useIsMounted()
   const { css } = useFela()
-  const [topActive] = props.active || []
   const [open, setOpen] = React.useState(null)
   const { asPath } = useRouter()
-  const navigation = useNavigation()
+  const navigation = useNavigation(props.navigation)
 
   React.useEffect(() => setOpen(null), [asPath])
 
@@ -95,7 +119,7 @@ export default React.memo(function Header(props) {
                 <HeaderItem
                   {...item}
                   active={props.active.slice(1)}
-                  isActive={topActive === item.id}
+                  isActive={props.active[0] === item.id}
                   isOpen={open === item.id}
                   setOpen={setOpen}
                 />
@@ -106,7 +130,7 @@ export default React.memo(function Header(props) {
             <li className={css(styles.item({ isRight: true }))}>
               <Link
                 onClick={props.openSearch}
-                extend={styles.action({ isActive: topActive === 'SEARCH' })}
+                extend={styles.action}
                 data-testid='search-button'
               >
                 <Icon extend={styles.icon} icon='search' /> Search
@@ -115,7 +139,7 @@ export default React.memo(function Header(props) {
           )}
         </ul>
       </nav>
-      <SubNav active={props.active} />
+      <SubNav active={props.active.slice(2)} />
     </header>
   )
 })

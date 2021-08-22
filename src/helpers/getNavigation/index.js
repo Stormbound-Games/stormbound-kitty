@@ -1,14 +1,8 @@
-import React from 'react'
 import GUIDES from '~/data/guides'
-import { PersonalDecksContext } from '~/components/PersonalDecksProvider'
-import { UserContext } from '~/components/UserProvider'
 import { CATEGORIES } from '~/constants/guides'
 import { STORY_CATEGORIES } from '~/constants/stories'
 
-const useNavigation = () => {
-  const { isUnseen } = React.useContext(PersonalDecksContext)
-  const { name } = React.useContext(UserContext)
-
+const getNavigation = () => {
   return [
     {
       id: 'HOME',
@@ -16,6 +10,7 @@ const useNavigation = () => {
       label: 'Home',
       items: [
         {
+          id: 'HOME',
           title: 'Stormbound-Kitty',
           icon: 'cat',
           items: [
@@ -32,6 +27,7 @@ const useNavigation = () => {
       label: 'Official',
       items: [
         {
+          id: 'UPDATES',
           title: 'Release Notes',
           icon: 'bullhorn',
           items: [
@@ -64,6 +60,7 @@ const useNavigation = () => {
           ],
         },
         {
+          id: 'INFORMATION',
           title: 'Information',
           icon: 'star',
           items: [
@@ -105,6 +102,7 @@ const useNavigation = () => {
         }
 
         return {
+          id: category,
           title: CATEGORIES[category].name.long,
           icon: CATEGORIES[category].icon,
           to: '/guides/' + CATEGORIES[category].slug,
@@ -116,9 +114,9 @@ const useNavigation = () => {
       id: 'TOOLS',
       icon: 'hammer',
       label: 'Tools',
-      new: isUnseen,
       items: [
         {
+          id: 'BUILDERS',
           title: 'Builders',
           icon: 'wand',
           items: [
@@ -135,6 +133,7 @@ const useNavigation = () => {
           ],
         },
         {
+          id: 'CALCULATORS',
           title: 'Calculators',
           icon: 'equalizer',
           items: [
@@ -166,14 +165,10 @@ const useNavigation = () => {
           ],
         },
         {
+          id: 'YOUR_CONTENT',
           title: 'Your Content',
           icon: 'user',
           items: [
-            name && {
-              label: 'Personal Feed',
-              to: '/members/' + name,
-              id: 'FEED',
-            },
             { label: 'Card Collection', to: '/collection', id: 'COLLECTION' },
             {
               label: 'Collection Stats',
@@ -184,10 +179,9 @@ const useNavigation = () => {
               label: 'Personal Decks',
               to: '/deck/collection',
               id: 'DECK_COLLECTION',
-              new: isUnseen,
             },
-            { label: 'Brawl Tracker', to: '/brawl', id: 'BRAWL' },
-          ].filter(Boolean),
+            { label: 'Brawl Tracker', to: '/brawl', id: 'BRAWL_TRACKER' },
+          ],
         },
       ],
     },
@@ -197,6 +191,7 @@ const useNavigation = () => {
       label: 'Community',
       items: [
         {
+          id: 'META',
           title: 'Meta',
           icon: 'stack',
           items: [
@@ -223,6 +218,7 @@ const useNavigation = () => {
           ],
         },
         {
+          id: 'CONTESTS',
           title: 'Contests',
           icon: 'trophy',
           items: [
@@ -241,6 +237,7 @@ const useNavigation = () => {
           ],
         },
         {
+          id: 'DISCOVER',
           title: 'Discover',
           icon: 'star',
           items: [
@@ -274,6 +271,7 @@ const useNavigation = () => {
       label: 'Stories',
       items: [
         {
+          id: 'GENERAL',
           title: 'General',
           icon: 'folder-open',
           items: [
@@ -300,6 +298,7 @@ const useNavigation = () => {
           })),
         },
         {
+          id: 'SAGAS',
           title: 'Sagas',
           icon: 'fire',
           items: [
@@ -320,4 +319,4 @@ const useNavigation = () => {
   ]
 }
 
-export default useNavigation
+export default getNavigation
