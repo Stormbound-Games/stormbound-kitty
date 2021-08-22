@@ -48,7 +48,7 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
           </ImageSupportProvider>
         </ErrorBoundary>
       </RendererProvider>
-      <Script async src='/focus-visible.min.js' />
+      <Script lazyOnload src='/focus-visible.min.js' />
     </>
   )
 }
