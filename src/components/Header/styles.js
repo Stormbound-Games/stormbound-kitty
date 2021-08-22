@@ -6,7 +6,14 @@ const header = {
   zIndex: 10 /* 1 */,
 }
 
+/**
+ * 1. CSS hack to avoid the page content from shifting when the header finally
+ *    loads. This really is only needed in development where `getStaticProps`
+ *    (which holds the navigation data) is fetched with every request. This is
+ *    unneeded (although safe) in production.
+ */
 const nav = ({ isSubNav }) => ({
+  minHeight: '54px' /* 1 */,
   margin: '0 1em',
   borderBottom: isSubNav ? undefined : '1px solid var(--dark-beige)',
 
