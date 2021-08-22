@@ -8,12 +8,9 @@ export async function getStaticProps() {
   return { props: { channels: CHANNELS, navigation: getNavigation() } }
 }
 
-const VideosPage = props => (
-  <Layout
-    active={['COMMUNITY', 'DISCOVER', 'VIDEOS']}
-    navigation={props.navigation}
-  >
-    <Videos channels={props.channels} />
+const VideosPage = ({ navigation, ...props }) => (
+  <Layout active={['COMMUNITY', 'DISCOVER', 'VIDEOS']} navigation={navigation}>
+    <Videos {...props} />
   </Layout>
 )
 

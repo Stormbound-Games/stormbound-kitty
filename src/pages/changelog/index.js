@@ -8,12 +8,12 @@ export async function getStaticProps() {
   return { props: { navigation: getNavigation(), changelog: CHANGELOG } }
 }
 
-const CardChangelogPage = props => (
+const CardChangelogPage = ({ navigation, ...props }) => (
   <Layout
     active={['GAME', 'UPDATES', 'CARD_CHANGELOG']}
-    navigation={props.navigation}
+    navigation={navigation}
   >
-    <CardChangelog changelog={props.changelog} />
+    <CardChangelog {...props} />
   </Layout>
 )
 

@@ -7,12 +7,12 @@ export async function getStaticProps() {
   return { props: { navigation: getNavigation() } }
 }
 
-const HeroScoreCalculatorPage = props => (
+const HeroScoreCalculatorPage = ({ navigation, ...props }) => (
   <Layout
     active={['TOOLS', 'CALCULATORS', 'HERO_CALCULATOR']}
-    navigation={props.navigation}
+    navigation={navigation}
   >
-    <HeroScoreCalculator />
+    <HeroScoreCalculator {...props} />
   </Layout>
 )
 

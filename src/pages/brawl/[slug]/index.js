@@ -31,10 +31,10 @@ export async function getStaticProps(context) {
   }
 }
 
-const BrawlTrackerPage = props => (
+const BrawlTrackerPage = ({ navigation, ...props }) => (
   <Layout
     active={['TOOLS', 'YOUR_CONTENT', 'BRAWL_TRACKER']}
-    navigation={props.navigation}
+    navigation={navigation}
   >
     <BrawlPage {...props} />
   </Layout>

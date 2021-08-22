@@ -8,12 +8,9 @@ export async function getStaticProps() {
   return { props: { navigation: getNavigation(), cards: CARDS } }
 }
 
-const FanKitCardsPage = props => (
-  <Layout
-    active={['GAME', 'INFORMATION', 'FAN_KIT']}
-    navigation={props.navigation}
-  >
-    <FanKitCards cards={props.cards} />
+const FanKitCardsPage = ({ navigation, ...props }) => (
+  <Layout active={['GAME', 'INFORMATION', 'FAN_KIT']} navigation={navigation}>
+    <FanKitCards {...props} />
   </Layout>
 )
 

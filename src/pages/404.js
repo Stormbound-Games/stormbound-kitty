@@ -7,10 +7,10 @@ export async function getStaticProps() {
   return { props: { navigation: getNavigation() } }
 }
 
-export default function Custom404(props) {
+export default function Custom404({ navigation, ...props }) {
   return (
-    <Layout active={[]} navigation={props.navigation}>
-      <Error error='404 — Page Not Found' />
+    <Layout active={[]} navigation={navigation}>
+      <Error {...props} error='404 — Page Not Found' />
     </Layout>
   )
 }

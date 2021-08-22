@@ -18,9 +18,9 @@ export async function getStaticProps() {
   }
 }
 
-const GuidesPage = props => (
-  <Layout active={['GUIDES', props.category.id]} navigation={props.navigation}>
-    <Guides category={props.category} guides={props.guides} />
+const GuidesPage = ({ navigation, ...props }) => (
+  <Layout active={['GUIDES', props.category.id]} navigation={navigation}>
+    <Guides {...props} />
   </Layout>
 )
 

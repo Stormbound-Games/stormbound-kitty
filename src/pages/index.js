@@ -8,9 +8,9 @@ export async function getStaticProps() {
   return { props: { news: NEWS, navigation: getNavigation() } }
 }
 
-const Index = props => (
-  <Layout active={['HOME', 'HOME', 'NEWS']} navigation={props.navigation}>
-    <Home news={props.news} />
+const Index = ({ navigation, ...props }) => (
+  <Layout active={['HOME', 'HOME', 'NEWS']} navigation={navigation}>
+    <Home {...props} />
   </Layout>
 )
 

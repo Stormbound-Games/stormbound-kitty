@@ -83,10 +83,10 @@ export async function getStaticProps(context) {
   }
 }
 
-const CardBuilderPage = props => (
+const CardBuilderPage = ({ navigation, ...props }) => (
   <Layout
     active={['TOOLS', 'BUILDERS', 'CARD_BUILDER']}
-    navigation={props.navigation}
+    navigation={navigation}
   >
     {props.mode === 'DISPLAY' ? (
       <CardBuilderApp {...props} />

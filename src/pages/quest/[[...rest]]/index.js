@@ -24,12 +24,12 @@ export async function getStaticProps(context) {
   }
 }
 
-const QuestBuilderPage = props => (
+const QuestBuilderPage = ({ navigation, ...props }) => (
   <Layout
     active={['TOOLS', 'BUILDERS', 'QUEST_BUILDER']}
-    navigation={props.navigation}
+    navigation={navigation}
   >
-    <QuestBuilderRoot quest={props.quest} questId={props.id} />
+    <QuestBuilderRoot {...props} questId={props.id} />
   </Layout>
 )
 

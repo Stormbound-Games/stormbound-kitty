@@ -7,12 +7,9 @@ export async function getStaticProps() {
   return { props: { navigation: getNavigation() } }
 }
 
-const RankedListPage = props => (
-  <Layout
-    active={['COMMUNITY', 'META', 'RANKED_LIST']}
-    navigation={props.navigation}
-  >
-    <RankedList />
+const RankedListPage = ({ navigation, ...props }) => (
+  <Layout active={['COMMUNITY', 'META', 'RANKED_LIST']} navigation={navigation}>
+    <RankedList {...props} />
   </Layout>
 )
 

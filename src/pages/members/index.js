@@ -11,12 +11,9 @@ export async function getStaticProps() {
   return { props: { navigation, members } }
 }
 
-const MembersPage = props => (
-  <Layout
-    active={['COMMUNITY', 'DISCOVER', 'MEMBERS']}
-    navigation={props.navigation}
-  >
-    <Members members={props.members} />
+const MembersPage = ({ navigation, ...props }) => (
+  <Layout active={['COMMUNITY', 'DISCOVER', 'MEMBERS']} navigation={navigation}>
+    <Members {...props} />
   </Layout>
 )
 

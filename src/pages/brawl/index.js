@@ -7,12 +7,12 @@ export async function getStaticProps() {
   return { props: { navigation: getNavigation() } }
 }
 
-const BrawlIndexPage = props => (
+const BrawlIndexPage = ({ navigation, ...props }) => (
   <Layout
     active={['TOOLS', 'YOUR_CONTENT', 'BRAWL_TRACKER']}
-    navigation={props.navigation}
+    navigation={navigation}
   >
-    <BrawlIndex />
+    <BrawlIndex {...props} />
   </Layout>
 )
 

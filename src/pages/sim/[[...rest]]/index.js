@@ -55,13 +55,13 @@ export async function getStaticProps(context) {
   }
 }
 
-const BattleSim = props => {
+const BattleSim = ({ navigation, ...props }) => {
   const navigator = useNavigator()
 
   return (
     <Layout
       active={['TOOLS', 'BUILDERS', 'BATTLE_SIM']}
-      navigation={props.navigation}
+      navigation={navigation}
     >
       <BattleSimState {...props} navigator={navigator}>
         {state => <BattleSimPage {...state} {...props} />}

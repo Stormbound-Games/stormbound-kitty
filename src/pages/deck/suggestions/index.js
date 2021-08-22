@@ -8,12 +8,12 @@ export async function getStaticProps() {
   return { props: { navigation: getNavigation(), decks: DECKS } }
 }
 
-const DeckSuggestionsPage = props => (
+const DeckSuggestionsPage = ({ navigation, ...props }) => (
   <Layout
     active={['COMMUNITY', 'META', 'DECK_SUGGESTIONS']}
-    navigation={props.navigation}
+    navigation={navigation}
   >
-    <DeckSuggestions decks={props.decks} />
+    <DeckSuggestions {...props} />
   </Layout>
 )
 
