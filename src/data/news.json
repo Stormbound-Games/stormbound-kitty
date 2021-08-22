@@ -20,6 +20,11 @@
     "link": "/releases/08-2021"
   },
   {
+    "intro": "Legendaries Guide",
+    "description": "ArthisRoo creates a tier list of all legendary cards at level 1 and briefly examines each one.",
+    "link": "/guides/legendaries"
+  },
+  {
     "intro": "July Update",
     "description": "July is already there, and with it new Stormbound release with new Brawls, a new card and balance tweaks!",
     "link": "/releases/07-2021"
@@ -108,11 +113,6 @@
     "intro": "Halloween Event",
     "description": "Halloween is around the corner and with it a new small patch with goodies!",
     "link": "/releases/11-2020"
-  },
-  {
-    "intro": "Legendaries Guide",
-    "description": "VultureMadAtTheOx goes through all legendary cards to discuss their power at low level.",
-    "link": "/guides/legendaries"
   },
   {
     "intro": "Advanced Card Search",
