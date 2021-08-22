@@ -1,5 +1,4 @@
 import React from 'react'
-import hookIntoProps from 'hook-into-props'
 import { FACTIONS } from '~/constants/game'
 import { CollectionContext } from '~/components/CollectionProvider'
 import CTA from '~/components/CTA'
@@ -11,147 +10,126 @@ import Select from '~/components/Select'
 import getRandomDeck from '~/helpers/getRandomDeck'
 import arrayRandom from '~/helpers/arrayRandom'
 
-class RandomDeckButton extends React.Component {
-  state = {
-    faction: '*',
-    minFactionCards: 0,
-    maxLegendaryCards: '',
-    maxEpicCards: '',
-  }
+const getRandomFaction = () =>
+  arrayRandom(Object.keys(FACTIONS).filter(faction => faction !== 'neutral'))
 
-  open = () => this.dialog.show()
-  close = () => this.dialog.hide()
+export default React.memo(function RandomDeckButton(props) {
+  const dialog = React.useRef(null)
+  const { collection } = React.useContext(CollectionContext)
+  const [faction, setFaction] = React.useState('*')
+  const [minFactionCards, setMinFactionCards] = React.useState(0)
+  const [maxLegendaryCards, setMaxLegendaryCards] = React.useState('')
+  const [maxEpicCards, setMaxEpicCards] = React.useState('')
+  const { defineDeck } = props
 
-  getRandomFaction = () => {
-    return arrayRandom(
-      Object.keys(FACTIONS).filter(faction => faction !== 'neutral')
-    )
-  }
-
-  generateDeck = () => {
-    const faction =
-      this.state.faction === '*' ? this.getRandomFaction() : this.state.faction
-    const maxLegendaryCards =
-      typeof this.state.maxLegendaryCards === 'number'
-        ? this.state.maxLegendaryCards
-        : undefined
-    const maxEpicCards =
-      typeof this.state.maxEpicCards === 'number'
-        ? this.state.maxEpicCards
-        : undefined
+  const generateDeck = React.useCallback(() => {
     const deck = getRandomDeck({
-      availableCards: this.props.collection,
-      faction,
-      maxEpicCards,
-      maxLegendaryCards,
-      minFactionCards: this.state.minFactionCards,
+      availableCards: collection,
+      faction: faction === '*' ? getRandomFaction() : faction,
+      maxEpicCards: typeof maxEpicCards === 'number' ? maxEpicCards : undefined,
+      maxLegendaryCards:
+        typeof maxLegendaryCards === 'number' ? maxLegendaryCards : undefined,
+      minFactionCards: minFactionCards,
     })
 
-    this.props.defineDeck(deck)
-    this.close()
-  }
+    defineDeck(deck)
+    dialog.current.hide()
+  }, [
+    defineDeck,
+    faction,
+    minFactionCards,
+    maxEpicCards,
+    maxLegendaryCards,
+    collection,
+  ])
 
-  render() {
-    return (
-      <>
-        <CTA onClick={this.open} type='button' data-testid='random-deck-btn'>
-          {this.props.label || 'Random deck'}
-        </CTA>
-        <Dialog
-          id='random-deck-dialog'
-          title={
-            <>
-              Generate random deck{' '}
-              <LearnMoreIcon anchor='#random-deck'>
-                Learn more about random decks
-              </LearnMoreIcon>
-            </>
-          }
-          dialogRef={dialog => (this.dialog = dialog)}
-          image='/assets/images/cards/archdruid_earyn.png'
-          close={this.close}
-          ctaProps={{
-            onClick: this.generateDeck,
-            type: 'button',
-            children: 'Generate',
-            'data-testid': 'random-deck-dialog-confirm-btn',
-          }}
-        >
-          <Row>
-            <Row.Column>
-              <FactionSelect
-                data-testid='random-faction-select'
-                value={this.state.faction}
-                onChange={event =>
-                  this.setState({ faction: event.target.value })
-                }
-                withAny
-              />
-            </Row.Column>
-            <Row.Column>
-              <Select
-                label='Min faction cards'
-                data-testid='random-min-faction-select'
-                id='factionCards'
-                value={this.state.minFactionCards}
-                onChange={event =>
-                  this.setState({ minFactionCards: +event.target.value })
-                }
-              >
-                <option value={0}>0</option>
-                <option value={2}>2</option>
-                <option value={4}>4</option>
-                <option value={6}>6</option>
-              </Select>
-            </Row.Column>
-          </Row>
-          <Row>
-            <Row.Column>
-              <Select
-                label='Max epic cards'
-                data-testid='random-max-epic-select'
-                id='maxEpicCards'
-                value={this.state.maxEpicCards}
-                onChange={event =>
-                  this.setState({
-                    maxEpicCards:
-                      event.target.value === '' ? '' : +event.target.value,
-                  })
-                }
-              >
-                <option value=''>Any</option>
-                <option value={0}>0</option>
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-              </Select>
-            </Row.Column>
-            <Row.Column>
-              <Select
-                label='Max legendary cards'
-                data-testid='random-max-legendary-select'
-                id='maxLegendaryCards'
-                value={this.state.maxLegendaryCards}
-                onChange={event =>
-                  this.setState({
-                    maxLegendaryCards:
-                      event.target.value === '' ? '' : +event.target.value,
-                  })
-                }
-              >
-                <option value=''>Any</option>
-                <option value={0}>0</option>
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-              </Select>
-            </Row.Column>
-          </Row>
-        </Dialog>
-      </>
-    )
-  }
-}
-
-export default hookIntoProps(() => ({
-  ...React.useContext(CollectionContext),
-}))(RandomDeckButton)
+  return (
+    <>
+      <CTA
+        onClick={() => dialog.current.show()}
+        type='button'
+        data-testid='random-deck-btn'
+      >
+        {props.label || 'Random deck'}
+      </CTA>
+      <Dialog
+        id='random-deck-dialog'
+        title={
+          <>
+            Generate random deck{' '}
+            <LearnMoreIcon anchor='#random-deck'>
+              Learn more about random decks
+            </LearnMoreIcon>
+          </>
+        }
+        dialogRef={instance => (dialog.current = instance)}
+        image='/assets/images/cards/archdruid_earyn.png'
+        close={() => dialog.current.hide()}
+        ctaProps={{
+          onClick: generateDeck,
+          type: 'button',
+          children: 'Generate',
+          'data-testid': 'random-deck-dialog-confirm-btn',
+        }}
+      >
+        <Row>
+          <Row.Column>
+            <FactionSelect
+              data-testid='random-faction-select'
+              value={faction}
+              onChange={event => setFaction(event.target.value)}
+              withAny
+            />
+          </Row.Column>
+          <Row.Column>
+            <Select
+              label='Min faction cards'
+              data-testid='random-min-faction-select'
+              id='factionCards'
+              value={minFactionCards}
+              onChange={event => setMinFactionCards(+event.target.value)}
+            >
+              <option value={0}>0</option>
+              <option value={2}>2</option>
+              <option value={4}>4</option>
+              <option value={6}>6</option>
+            </Select>
+          </Row.Column>
+        </Row>
+        <Row>
+          <Row.Column>
+            <Select
+              label='Max epic cards'
+              data-testid='random-max-epic-select'
+              id='maxEpicCards'
+              value={maxEpicCards}
+              onChange={event => setMaxEpicCards(+event.target.value || '')}
+            >
+              <option value=''>Any</option>
+              <option value={0}>0</option>
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+            </Select>
+          </Row.Column>
+          <Row.Column>
+            <Select
+              label='Max legendary cards'
+              data-testid='random-max-legendary-select'
+              id='maxLegendaryCards'
+              value={maxLegendaryCards}
+              onChange={event =>
+                setMaxLegendaryCards(+event.target.value || '')
+              }
+            >
+              <option value=''>Any</option>
+              <option value={0}>0</option>
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+            </Select>
+          </Row.Column>
+        </Row>
+      </Dialog>
+    </>
+  )
+})
