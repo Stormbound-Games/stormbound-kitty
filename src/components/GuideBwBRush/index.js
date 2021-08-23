@@ -60,27 +60,29 @@ export default React.memo(function GuideBwBRush(props) {
         power like other similar-style decks.
       </p>
 
-      <Row isDesktopOnly withWideGutter>
-        <Row.Column>
-          <p>
-            This deck can have a lot of variations, but there is a template for
-            it. These 8 cards are the foundation for any BwB Rush deck and
-            depending on your leveling of cards and the goals that you want to
-            achieve from this deck, you finish the deck the way you want. I
-            personally recommend 2 variations of this deck: Zhevana variant and
-            Felflares variant.
-          </p>
-        </Row.Column>
-        <Row.Column>
-          <FeaturedDeck
-            id='5xn1w1n2w2n3n4w7w14'
-            name='BwB Rush Template'
-            author='Pepegak'
-            tags={['HIGH_LEVELS', 'RUSH']}
-            staticLevels
-          />
-        </Row.Column>
-      </Row>
+      <Guide.FullWidth>
+        <Row isDesktopOnly withWideGutter>
+          <Row.Column>
+            <p>
+              This deck can have a lot of variations, but there is a template
+              for it. These 8 cards are the foundation for any BwB Rush deck and
+              depending on your leveling of cards and the goals that you want to
+              achieve from this deck, you finish the deck the way you want. I
+              personally recommend 2 variations of this deck: Zhevana variant
+              and Felflares variant.
+            </p>
+          </Row.Column>
+          <Row.Column>
+            <FeaturedDeck
+              id='5xn1w1n2w2n3n4w7w14'
+              name='BwB Rush Template'
+              author='Pepegak'
+              tags={['HIGH_LEVELS', 'RUSH']}
+              staticLevels
+            />
+          </Row.Column>
+        </Row>
+      </Guide.FullWidth>
 
       <Info icon='info' title='Disclaimer'>
         Due to some cards in the deck, it is desirable to have the level of all
@@ -88,28 +90,30 @@ export default React.memo(function GuideBwBRush(props) {
         modify it the way you want.
       </Info>
 
-      <h3 id='zhevana-variant' align='center'>
-        Zhevana Variant
-      </h3>
-      <Row isDesktopOnly withWideGutter>
-        <Row.Column>
-          <FeaturedDeck
-            id='5xn1w1n2w2n3n4n12n16w7w8n27w14'
-            name='Brawn Zhevana Variant'
-            author='Pepegak'
-            tags={['HIGH_LEVELS', 'RUSH']}
-            staticLevels
-          />
-        </Row.Column>
-        <Row.Column>
-          <DeckStatsChart
-            deck={serialisation.deck
-              .deserialise('5xn1w1n2w2n3n4n12n16w7w8n27w14')
-              .map(getResolvedCardData)}
-            modifier='NONE'
-          />
-        </Row.Column>
-      </Row>
+      <Guide.FullWidth>
+        <h3 id='zhevana-variant' align='center'>
+          Zhevana Variant
+        </h3>
+        <Row isDesktopOnly withWideGutter>
+          <Row.Column>
+            <FeaturedDeck
+              id='5xn1w1n2w2n3n4n12n16w7w8n27w14'
+              name='Brawn Zhevana Variant'
+              author='Pepegak'
+              tags={['HIGH_LEVELS', 'RUSH']}
+              staticLevels
+            />
+          </Row.Column>
+          <Row.Column>
+            <DeckStatsChart
+              deck={serialisation.deck
+                .deserialise('5xn1w1n2w2n3n4n12n16w7w8n27w14')
+                .map(getResolvedCardData)}
+              modifier='NONE'
+            />
+          </Row.Column>
+        </Row>
+      </Guide.FullWidth>
 
       <p>
         Classic and main deck variation for me, suitable for those with{' '}
@@ -125,26 +129,28 @@ export default React.memo(function GuideBwBRush(props) {
         all for some reason.
       </p>
 
-      <h3 align='center'>Felflares Variant</h3>
-      <Row isDesktopOnly withWideGutter>
-        <Row.Column>
-          <FeaturedDeck
-            id='5xn1w1n2w2n3n4n11n12n21w7n27w14'
-            name='Brawn Felflares Variant'
-            author='Pepegak'
-            tags={['HIGH_LEVELS', 'RUSH']}
-            staticLevels
-          />
-        </Row.Column>
-        <Row.Column>
-          <DeckStatsChart
-            deck={serialisation.deck
-              .deserialise('5xn1w1n2w2n3n4n11n12n21w7n27w14')
-              .map(getResolvedCardData)}
-            modifier='NONE'
-          />
-        </Row.Column>
-      </Row>
+      <Guide.FullWidth>
+        <h3 align='center'>Felflares Variant</h3>
+        <Row isDesktopOnly withWideGutter>
+          <Row.Column>
+            <FeaturedDeck
+              id='5xn1w1n2w2n3n4n11n12n21w7n27w14'
+              name='Brawn Felflares Variant'
+              author='Pepegak'
+              tags={['HIGH_LEVELS', 'RUSH']}
+              staticLevels
+            />
+          </Row.Column>
+          <Row.Column>
+            <DeckStatsChart
+              deck={serialisation.deck
+                .deserialise('5xn1w1n2w2n3n4n11n12n21w7n27w14')
+                .map(getResolvedCardData)}
+              modifier='NONE'
+            />
+          </Row.Column>
+        </Row>
+      </Guide.FullWidth>
 
       <p>
         Even less, but still the same aggressive deck, suitable for players
@@ -285,7 +291,6 @@ export default React.memo(function GuideBwBRush(props) {
         will have a deadly impact on them in the future.
       </p>
 
-      <h3 align='center'>Other Cards / Slot Fillers</h3>
       <h3>
         <CardLink id='N11' />
       </h3>
