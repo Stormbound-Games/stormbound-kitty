@@ -7,6 +7,7 @@ const label = {
 }
 
 const input = {
+  WebkitAppearance: 'none',
   appearance: 'none',
   font: 'inherit',
   width: '100%',

@@ -7,6 +7,7 @@ const label = {
 }
 
 const select = {
+  WebkitAppearance: 'none',
   appearance: 'none',
   font: 'inherit',
   width: '100%',
