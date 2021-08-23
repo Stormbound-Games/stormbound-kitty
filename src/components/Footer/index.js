@@ -29,14 +29,19 @@ export default React.memo(function Footer(props) {
               Official Stormbound game content courtesy of{' '}
               <Link href='https://www.sheepyard.pl/'>Sheepyard</Link>.
             </p>
-            <Image
-              src='https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg'
-              alt='Powered by Vercel'
-              extend={styles.vercel}
-              width={154}
-              height={32}
-              lazy
-            />
+            <Link
+              href='https://vercel.com/?utm_source=stormbound&utm_campaign=oss'
+              hideNewTabIndicator
+            >
+              <Image
+                src='https://www.datocms-assets.com/31049/1618983297-powered-by-vercel.svg'
+                alt='Powered by Vercel'
+                extend={styles.vercel}
+                width={154}
+                height={32}
+                lazy
+              />
+            </Link>
           </Row.Column>
           <Only.Desktop>
             <Row.Column>
