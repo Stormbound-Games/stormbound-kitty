@@ -5,7 +5,7 @@ const fs = require('fs/promises')
 const path = require('path')
 
 async function applyPatches() {
-  const patchesDir = path.join('bin', 'patches')
+  const patchesDir = path.join('cypress', 'support', 'patches')
   const patchesAbsDir = path.join(process.cwd(), patchesDir)
   const patches = await fs.readdir(patchesAbsDir)
   const installDir = getVersionDir()

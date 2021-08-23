@@ -53,7 +53,7 @@
     "test": "jest --forceExit",
     "bot": "node -r esm bin/bot.js",
     "bot:dev": "nodemon -x \"node -r esm\" bin/bot.js --watch src",
-    "prepare": "husky install && node bin/apply-patches.js"
+    "prepare": "husky install && node cypress/support/apply-patches.js"
   },
   "browserslist": [
     ">0.2%",
