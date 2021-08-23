@@ -83,7 +83,7 @@ export default React.memo(function SearchDialog(props) {
   useSearchKeyboardShortcut(() => dialog.show())
 
   // Update search results when the search term changes.
-  React.useEffect(() => runSearch(search).then(setResults), [search])
+  React.useEffect(() => search && runSearch(search).then(setResults), [search])
 
   // Hide the dialog when the URL changes (after navigating to a result).
   React.useEffect(() => dialog?.hide(), [dialog, router.asPath])
