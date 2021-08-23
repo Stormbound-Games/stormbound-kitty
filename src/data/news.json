@@ -1,5 +1,10 @@
 [
   {
+    "intro": "BwB Rush Guide",
+    "description": "Pepegak wrote a complete guide to master the art of Blessed with Brawn Rush.",
+    "link": "/guides/bwb-rush"
+  },
+  {
     "intro": "Stories Index",
     "description": "The stories now has an index page to list all the various categories from the section.",
     "link": "/stories"
@@ -13,6 +18,11 @@
     "intro": "August Update",
     "description": "August is already there, and with it new Stormbound release with new Brawls, a new card and balance tweaks!",
     "link": "/releases/08-2021"
+  },
+  {
+    "intro": "Legendaries Guide",
+    "description": "ArthisRoo creates a tier list of all legendary cards at level 1 and briefly examines each one.",
+    "link": "/guides/legendaries"
   },
   {
     "intro": "July Update",
@@ -103,11 +113,6 @@
     "intro": "Halloween Event",
     "description": "Halloween is around the corner and with it a new small patch with goodies!",
     "link": "/releases/11-2020"
-  },
-  {
-    "intro": "Legendaries Guide",
-    "description": "VultureMadAtTheOx goes through all legendary cards to discuss their power at low level.",
-    "link": "/guides/legendaries"
   },
   {
     "intro": "Advanced Card Search",

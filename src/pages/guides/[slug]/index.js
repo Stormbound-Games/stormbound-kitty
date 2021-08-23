@@ -11,6 +11,7 @@ const GUIDE_COMPONENTS = {
   BROODMOTHER_QORDIA_GUIDE: dynamic(() =>
     import('~/components/GuideBroodmotherQordia')
   ),
+  BWBRUSH_GUIDE: dynamic(() => import('~/components/GuideBwBRush')),
   CARD_SHOP_GUIDE: dynamic(() => import('~/components/GuideCardShop')),
   CHILLBEARDS_GUIDE: dynamic(() => import('~/components/GuideChillbeards')),
   COMPLETE_GUIDE: dynamic(() => import('~/components/GuideComplete')),

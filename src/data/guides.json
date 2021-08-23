@@ -313,7 +313,22 @@
     "cardId": "N46",
     "background": "/assets/images/wallpapers/lite/wp-d-3.png",
     "category": "PLAYSTYLE",
-    "date": "07/2021"
+    "date": "07/2021",
+    "skipNav": true
+  },
+  {
+    "id": "BWBRUSH_GUIDE",
+    "name": "Blessed with Brawn Rush",
+    "authors": [
+      "Pepegak"
+    ],
+    "excerpt": "In this comprehensive guide, Pepegak teaches us how to play Blessed With Brawn Rush as well as its counters.",
+    "slug": "bwb-rush",
+    "faction": "winter",
+    "cardId": "W14",
+    "background": "/assets/images/banners/environment_winter.png",
+    "category": "PLAYSTYLE",
+    "date": "08/2021"
   },
   {
     "id": "CHILLBEARDS_GUIDE",
