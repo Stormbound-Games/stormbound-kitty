@@ -49,10 +49,11 @@ export default React.memo(function HeroScoreCalculator(props) {
 
           <Spacing bottom='LARGE'>
             <Image
-              src='/assets/images/releases/hero_score_formula.png'
+              src='/assets/images/formulas/hero.png'
               alt='Hero Score computing formula'
               width={364}
               height={47}
+              withoutWebp
               lazy
             />
           </Spacing>

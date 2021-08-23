@@ -355,8 +355,12 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         </p>
 
         <Image
-          src='/assets/images/releases/hero_score_formula.png'
+          src='/assets/images/formulas/hero.png'
           alt='Hero Score computing formula'
+          width={702}
+          height={90}
+          withoutWebp
+          lazy
         />
 
         <p>Here are the terms:</p>
