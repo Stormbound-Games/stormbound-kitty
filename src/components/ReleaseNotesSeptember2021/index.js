@@ -276,7 +276,33 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
             and rewards to better prepare from week to the next.
           </li>
         </ul>
+      </Page.Narrow>
 
+      <Row isDesktopOnly>
+        <Row.Column width='1/3'>
+          <Image
+            src='/assets/images/releases/next_brawls.png'
+            withoutWebp
+            alt=''
+          />
+        </Row.Column>
+        <Row.Column width='1/3'>
+          <Image
+            src='/assets/images/releases/double_income.png'
+            withoutWebp
+            alt=''
+          />
+        </Row.Column>
+        <Row.Column width='1/3'>
+          <Image
+            src='/assets/images/releases/shop_reroll.png'
+            withoutWebp
+            alt=''
+          />
+        </Row.Column>
+      </Row>
+
+      <Page.Narrow>
         <FAQSection
           id='faq'
           title='FAQ'
