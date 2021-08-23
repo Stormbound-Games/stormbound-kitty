@@ -1,9 +1,11 @@
 import React from 'react'
+import path from 'path'
 import dynamic from 'next/dynamic'
 import Guide from '~/components/Guide'
 import Layout from '~/components/Layout'
 import GUIDES from '~/data/guides'
 import getNavigation from '~/helpers/getNavigation'
+import generateFormulaImage from '~/helpers/generateFormulaImage'
 
 const GUIDE_COMPONENTS = {
   BEGINNER_GUIDE: dynamic(() => import('~/components/GuideBeginner')),
@@ -54,7 +56,14 @@ export const getStaticPaths = () => {
   }
 }
 
-export const getStaticProps = ({ params }) => {
+export async function getStaticProps({ params }) {
+  if (params.slug === 'drawing') {
+    await generateFormulaImage(
+      'f(w) = ⌊ w × 1.6 + 1',
+      path.resolve('./public/assets/images/formulas/drawing.png')
+    )
+  }
+
   return {
     props: {
       navigation: getNavigation(),

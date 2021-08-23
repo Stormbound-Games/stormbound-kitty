@@ -1,9 +1,10 @@
 import React from 'react'
+import { useFela } from 'react-fela'
+import Image from 'next/image'
 import Link from '~/components/Link'
 import Card from '~/components/Card'
 import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
 import Guide from '~/components/Guide'
-import Image from '~/components/Image'
 import Info from '~/components/Info'
 import Only from '~/components/Only'
 import Row from '~/components/Row'
@@ -15,6 +16,8 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 import styles from './styles'
 
 export default React.memo(function GuideDrawing(props) {
+  const { css } = useFela()
+
   return (
     <>
       <p>
@@ -73,14 +76,15 @@ export default React.memo(function GuideDrawing(props) {
         </li>
       </ol>
 
-      <Image
-        extend={styles.formula}
-        src='/assets/images/guides/formula.png'
-        alt='f(w) = floor(w * 1.6) + 1'
-        width={500}
-        height={58}
-        lazy
-      />
+      <div className={css(styles.formula)}>
+        <Image
+          src='/assets/images/formulas/drawing.png'
+          alt='f(w) = floor(w * 1.6) + 1'
+          width={500}
+          height={58}
+          layout='intrinsic'
+        />
+      </div>
 
       <p>
         From there, 4 cards are drawn with the weighted random to compose the
