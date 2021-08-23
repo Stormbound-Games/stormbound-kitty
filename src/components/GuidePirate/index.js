@@ -1,17 +1,9 @@
 import React from 'react'
 import BattleSimEmbed from '~/components/BattleSimEmbed'
 import CardLink from '~/components/CardLink'
-import Guide from '~/components/Guide'
 import Link from '~/components/Link'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
-
-const Board = props => (
-  <Guide.FullWidth>
-    <BattleSimEmbed environment='neutral' id={props.id} />
-    {props.caption ? <p>{props.caption}</p> : null}
-  </Guide.FullWidth>
-)
 
 export default React.memo(function GuidePirate(props) {
   return (
@@ -345,7 +337,7 @@ export default React.memo(function GuidePirate(props) {
         <li>Have units in any of the following positions:</li>
       </ul>
 
-      <Board id='LCwsLCwyTjE0QjEsNVQzQjEsLCwxTjVCMSw0TjNCMSwsLCwsLCwsLDtSMTBOLUIxME47M00wOzs=' />
+      <BattleSimEmbed id='LCwsLCwyTjE0QjEsNVQzQjEsLCwxTjVCMSw0TjNCMSwsLCwsLCwsLDtSMTBOLUIxME47M00wOzs=' />
 
       <p>All of this is in preparation for the next turn.</p>
 

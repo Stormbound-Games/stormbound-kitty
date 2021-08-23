@@ -3,4 +3,6 @@ const caption = {
   color: 'var(--beige)',
 }
 
-export default { caption }
+const styles = { caption }
+
+export default styles

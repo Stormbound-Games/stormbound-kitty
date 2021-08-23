@@ -105,12 +105,10 @@ export default React.memo(function GuideDrawing(props) {
         as well.
       </p>
 
-      <Guide.FullWidth>
-        <BattleSimEmbed
-          environment='shadowfen'
-          id='LCwsLCw1STIyUjEsLDRJNlIxLCwzTjI2QjEsMU4zQjEsLCwsMk42QjEsMU4xUjEsLCwsO1IxMEktQjEwRjszTTA7NUY0O0Y0 '
-        />
-      </Guide.FullWidth>
+      <BattleSimEmbed
+        environment='shadowfen'
+        id='LCwsLCw1STIyUjEsLDRJNlIxLCwzTjI2QjEsMU4zQjEsLCwsMk42QjEsMU4xUjEsLCwsO1IxMEktQjEwRjszTTA7NUY0O0Y0 '
+      />
 
       <p>
         The DTE are resolved right-to-left, front-to-back for the active player.
@@ -145,12 +143,10 @@ export default React.memo(function GuideDrawing(props) {
         well.
       </p>
 
-      <Guide.FullWidth>
-        <BattleSimEmbed
-          environment='shadowfen'
-          id='LCwsLCw0STIyUjEsLCwzTjQ2QjEsLDJOMVIxLCwsMU42QjEsLCwsLCw7UjEwSS1CMTBGOzNNMDs1RjU7RjU='
-        />
-      </Guide.FullWidth>
+      <BattleSimEmbed
+        environment='shadowfen'
+        id='LCwsLCw0STIyUjEsLCwzTjQ2QjEsLDJOMVIxLCwsMU42QjEsLCwsLCw7UjEwSS1CMTBGOzNNMDs1RjU7RjU='
+      />
 
       <p>The DTE are resolved right-to-left, front-to-back. That means:</p>
       <ol>
@@ -188,12 +184,10 @@ export default React.memo(function GuideDrawing(props) {
         the effective strength as well.
       </p>
 
-      <Guide.FullWidth>
-        <BattleSimEmbed
-          environment='shadowfen'
-          id='LCwsLCw0TjQ2QjEsLCwzSTIyUjEsMUY1QjMsMk4xUjEsLCwxTjZCMSwsLCwsLDtSMTBJLUIxMEY7M00wOzVGNDtGNA=='
-        />
-      </Guide.FullWidth>
+      <BattleSimEmbed
+        environment='shadowfen'
+        id='LCwsLCw0TjQ2QjEsLCwzSTIyUjEsMUY1QjMsMk4xUjEsLCwxTjZCMSwsLCwsLDtSMTBJLUIxMEY7M00wOzVGNDtGNA=='
+      />
 
       <ol>
         <li>
@@ -229,12 +223,10 @@ export default React.memo(function GuideDrawing(props) {
         as well.
       </p>
 
-      <Guide.FullWidth>
-        <BattleSimEmbed
-          environment='shadowfen'
-          id='LCwsLCwsLCwzUzJSNSwxRjNCMSwyTjFCMSwsLDFONkIxLCwsLCwsO1IxMFMtQjEwRjszTTA7NUY0O0Y0'
-        />
-      </Guide.FullWidth>
+      <BattleSimEmbed
+        environment='shadowfen'
+        id='LCwsLCwsLCwzUzJSNSwxRjNCMSwyTjFCMSwsLDFONkIxLCwsLCwsO1IxMFMtQjEwRjszTTA7NUY0O0Y0'
+      />
 
       <p>
         In this example, because the sacrificed unit resolves its DTE first (as

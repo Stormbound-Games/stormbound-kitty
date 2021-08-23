@@ -81,12 +81,10 @@ export default React.memo(function GuideBroodmotherQordia(props) {
         runners to rush through your baseline and into your base.{' '}
       </p>
 
-      <Guide.FullWidth>
-        <BattleSimEmbed
-          environment='shadowfen'
-          id='LCwsLCwsLCwsMVQxMkIxLCwsLCw1RjIxQjEsMVQxMkIxLCwxVDEyQjEsLDtSMTBOLUIxMEY7M00wOzs='
-        />
-      </Guide.FullWidth>
+      <BattleSimEmbed
+        environment='shadowfen'
+        id='LCwsLCwsLCwsMVQxMkIxLCwsLCw1RjIxQjEsMVQxMkIxLCwxVDEyQjEsLDtSMTBOLUIxMEY7M00wOzs='
+      />
 
       <Title id='offensive-usage'>Offensive usage</Title>
 
@@ -111,12 +109,10 @@ export default React.memo(function GuideBroodmotherQordia(props) {
         of luck, she lays eggs on the side, and moves forward.
       </p>
 
-      <Guide.FullWidth>
-        <BattleSimEmbed
-          environment='shadowfen'
-          id='MVQxMkIxLDFUMTJCMSwsLCw1RjIxQjEsLCwxVDEyQjEsLCwsLCwsLCwsLDtSMTBOLUIxMEY7M00wOzs='
-        />
-      </Guide.FullWidth>
+      <BattleSimEmbed
+        environment='shadowfen'
+        id='MVQxMkIxLDFUMTJCMSwsLCw1RjIxQjEsLCwxVDEyQjEsLCwsLCwsLCwsLDtSMTBOLUIxMEY7M00wOzs='
+      />
 
       <Title id='alternative-usage'>Alternative usages</Title>
 
@@ -129,12 +125,10 @@ export default React.memo(function GuideBroodmotherQordia(props) {
         combo.
       </p>
 
-      <Guide.FullWidth>
-        <BattleSimEmbed
-          environment='shadowfen'
-          id='LCwsLCwsLCwsLDFUMTJCMSwsLCw1RjIxQjEsMVQxMkIxLCwxVDEyQjEsLDNOMjBCMTtSMTBOLUIxMEY7M00wOzs='
-        />
-      </Guide.FullWidth>
+      <BattleSimEmbed
+        environment='shadowfen'
+        id='LCwsLCwsLCwsLDFUMTJCMSwsLCw1RjIxQjEsMVQxMkIxLCwxVDEyQjEsLDNOMjBCMTtSMTBOLUIxMEY7M00wOzs='
+      />
 
       <p>
         Another interesting use of Broodmother Qordia is when paired with{' '}

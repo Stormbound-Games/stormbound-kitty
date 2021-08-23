@@ -173,9 +173,7 @@ export default React.memo(function GuideComplete(props) {
         like Potion of Growth.
       </p>
 
-      <Guide.FullWidth>
-        <BattleSimEmbed id='M04zMkIxLCwyVDNCMSwzTjMyQjEsLDFOM0IxLCwsLCwsLCwsLCwsLCw7UjEwTi1CMTBOOzNNMDs7' />
-      </Guide.FullWidth>
+      <BattleSimEmbed id='M04zMkIxLCwyVDNCMSwzTjMyQjEsLDFOM0IxLCwsLCwsLCwsLCwsLCw7UjEwTi1CMTBOOzNNMDs7' />
 
       <p>
         To be able to make a good push, your biggest units are to be on the
@@ -577,9 +575,7 @@ export default React.memo(function GuideComplete(props) {
         positions:
       </p>
 
-      <Guide.FullWidth>
-        <BattleSimEmbed id='MlQ0QjEsMU4xM1IxLCwsLCwsLCwsLCwsLCwsLCwsO1IxME4tQjEwTjszTTA7Ow==' />
-      </Guide.FullWidth>
+      <BattleSimEmbed id='MlQ0QjEsMU4xM1IxLCwsLCwsLCwsLCwsLCwsLCwsO1IxME4tQjEwTjszTTA7Ow==' />
 
       <p>
         If the enemy placed a structure on 1, they will not be able to attack

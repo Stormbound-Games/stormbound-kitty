@@ -76,12 +76,10 @@ export default React.memo(function GuideGreenPrototypes(props) {
         structure.
       </p>
 
-      <Guide.FullWidth>
-        <BattleSimEmbed
-          environment='swarm'
-          id='LCwsLCwsLCwsLCwsLCwsNU4xQjUsLCwsOE4zNEI1O1IxME4tQjEwTjs2TTA7NU4xNU4zNDs='
-        />
-      </Guide.FullWidth>
+      <BattleSimEmbed
+        environment='swarm'
+        id='LCwsLCwsLCwsLCwsLCwsNU4xQjUsLCwsOE4zNEI1O1IxME4tQjEwTjs2TTA7NU4xNU4zNDs='
+      />
 
       <h3>Trueshot Post sacrifice</h3>
 
@@ -93,12 +91,10 @@ export default React.memo(function GuideGreenPrototypes(props) {
         gives them negative value.
       </p>
 
-      <Guide.FullWidth>
-        <BattleSimEmbed
-          environment='winter'
-          id='LCwsOE4zNFI1LCwsLCwsNU4xQjUsLCwsMTFXN0I1LCwsLCwsNlczQjU7UjEwTi1CMTBXOzhNMDs1TjE1VzM1Vzc7'
-        />
-      </Guide.FullWidth>
+      <BattleSimEmbed
+        environment='winter'
+        id='LCwsOE4zNFI1LCwsLCwsNU4xQjUsLCwsMTFXN0I1LCwsLCwsNlczQjU7UjEwTi1CMTBXOzhNMDs1TjE1VzM1Vzc7'
+      />
 
       <h3>Defend your base</h3>
 
@@ -110,12 +106,10 @@ export default React.memo(function GuideGreenPrototypes(props) {
         the runner.
       </p>
 
-      <Guide.FullWidth>
-        <BattleSimEmbed
-          environment='swarm'
-          id='LCwsLCwsLCwsLCwsLDVOMUI1LCwsLCwsOE4zNEI1O1IxME4tQjEwTjs2TTA7NU4xNU4zNDs='
-        />
-      </Guide.FullWidth>
+      <BattleSimEmbed
+        environment='swarm'
+        id='LCwsLCwsLCwsLCwsLDVOMUI1LCwsLCwsOE4zNEI1O1IxME4tQjEwTjs2TTA7NU4xNU4zNDs='
+      />
 
       <h3>Protection from chip</h3>
 
@@ -125,12 +119,10 @@ export default React.memo(function GuideGreenPrototypes(props) {
         than to have that damage be dealt to your base!
       </p>
 
-      <Guide.FullWidth>
-        <BattleSimEmbed
-          environment='swarm'
-          id='LCwsNkkxOVI1LCwsLCwsLCwsLCwsNU4xQjUsLCwsO1IxMEktQjEwTjs2TTA7NU4xOw=='
-        />
-      </Guide.FullWidth>
+      <BattleSimEmbed
+        environment='swarm'
+        id='LCwsNkkxOVI1LCwsLCwsLCwsLCwsNU4xQjUsLCwsO1IxMEktQjEwTjs2TTA7NU4xOw=='
+      />
 
       <h3>Kill an equally strong unit</h3>
 
@@ -233,9 +225,7 @@ export default React.memo(function GuideGreenPrototypes(props) {
         extra strength for 1 mana.
       </p>
 
-      <Guide.FullWidth>
-        <BattleSimEmbed id='LCwsLCwsLCwsN1MxOUI1LCwsLDEyTjFCNSwsLCwsLDtSMTBOLUIxMFM7Nk0wOzVOMTVTMTk7' />
-      </Guide.FullWidth>
+      <BattleSimEmbed id='LCwsLCwsLCwsN1MxOUI1LCwsLDEyTjFCNSwsLCwsLDtSMTBOLUIxMFM7Nk0wOzVOMTVTMTk7' />
 
       <h3>Combine with Dark Harvest</h3>
 

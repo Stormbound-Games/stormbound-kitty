@@ -1,5 +1,4 @@
 import React from 'react'
-import { useFela } from 'react-fela'
 import BattleSimEmbed from '~/components/BattleSimEmbed'
 import CardBuilderCardDisplay from '~/components/CardBuilderCardDisplay'
 import DeckStatsChart from '~/components/DeckStatsChart'
@@ -8,29 +7,12 @@ import Info from '~/components/Info'
 import Guide from '~/components/Guide'
 import Link from '~/components/Link'
 import Row from '~/components/Row'
-import Spacing from '~/components/Spacing'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import serialisation from '~/helpers/serialisation'
 import CardLink from '~/components/CardLink'
 import getInitialCardData from '~/helpers/getInitialCardData'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
-import styles from './styles'
-
-const Board = props => {
-  const { css } = useFela()
-
-  return (
-    <Guide.FullWidth>
-      <BattleSimEmbed environment={props.environment} id={props.id} />
-      {props.caption ? (
-        <Spacing top='BASE'>
-          <p className={css(styles.caption)}>{props.caption}</p>
-        </Spacing>
-      ) : null}
-    </Guide.FullWidth>
-  )
-}
 
 export default React.memo(function GuideBwBRush(props) {
   return (
@@ -491,34 +473,43 @@ export default React.memo(function GuideBwBRush(props) {
         examples of playing opening combinations:
       </p>
 
-      <Board
+      <BattleSimEmbed
         environment='winter'
         id='LCwsLCwsLCwsNU4zQjUsLCwsLCw1TjFCNSwsLCw7UjEwTi1CMTBXOzNNMDs1TjE1VzE1TjIxVzI1TjM1TjQ1TjEyNU4xNjVXNzVXODVOMjc1VzE0Ow'
-        caption='Example 1: Green Prototypes + Gifted Recruits. Be sure to play Green Prototypes first.'
-      />
+      >
+        Example 1: Green Prototypes + Gifted Recruits. Be sure to play Green
+        Prototypes first.
+      </BattleSimEmbed>
 
-      <Board
+      <BattleSimEmbed
         environment='winter'
         id='LCwsLCwsNU4xUjUsLCwsLCwsNk40QjUsLDVOM0I1LCwsLDtSMTBOLUIxMFc7NE0wOzV4TjFXMU4yVzJOM040TjEyTjE2VzdXOE4yN1cxNDs'
-        caption='Example 2: Gifted Recruits + Lawless Herd. Be sure not to put them next to each other.'
-      />
+      >
+        Example 2: Gifted Recruits + Lawless Herd. Be sure not to put them next
+        to each other.
+      </BattleSimEmbed>
 
       <p>
         In these positions, the main thing is not to place units next to each
         other, so that there is more space for <CardLink id='W7' /> to play:
       </p>
 
-      <Board
+      <BattleSimEmbed
         environment='winter'
         id='LCwsLCwsLCwsLDZONEI1LDVOMUI1LCwsLCwsLCw7UjEwTi1CMTBXOzRNMTs1eE4xVzFOMlcyTjNONE4xMk4xNlc3VzhOMjdXMTQ7Vzc'
-        caption='Example 3: The only convenient tile for Mystwives is the tile on the left, adjacent to Lawless Herd (B3).'
-      />
+      >
+        Example 3: The only convenient tile for Mystwives is the tile on the
+        left, adjacent to Lawless Herd (B3).
+      </BattleSimEmbed>
 
-      <Board
+      <BattleSimEmbed
         environment='winter'
         id='LCwsLCwsLCwsNk40QjUsLDVOMUI1LCwsLCwsLCw7UjEwTi1CMTBXOzRNMTs1eE4xVzFOMlcyTjNONE4xMk4xNlc3VzhOMjdXMTQ7Vzc'
-        caption='Example 4: There are 2 tiles where you can play Mystwives (A3 and C3), which makes your position more flexible to attack than the first position.'
-      />
+      >
+        Example 4: There are 2 tiles where you can play Mystwives (A3 and C3),
+        which makes your position more flexible to attack than the first
+        position.
+      </BattleSimEmbed>
 
       <p>
         When you have already placed your units on the board after the opponent
@@ -528,11 +519,13 @@ export default React.memo(function GuideBwBRush(props) {
         <CardLink id='W14' /> combinations:
       </p>
 
-      <Board
+      <BattleSimEmbed
         environment='winter'
         id='LCwsLCw1TjNCNSwsNkkxUjUsLCwsNU4xQjUsLCwsLCwsLDtSMTBJLUIxMFc7NE0xOzV4TjFXMU4yVzJOM040TjEyTjE2VzdXOE4yN1cxNDtXNw'
-        caption='Example 5: There are 2 potential Mystwives plays that have different impacts explained below.'
-      />
+      >
+        Example 5: There are 2 potential Mystwives plays that have different
+        impacts explained below.
+      </BattleSimEmbed>
 
       <p>
         If you want a more aggressive attack, then play <CardLink id='W7' /> to
@@ -565,11 +558,13 @@ export default React.memo(function GuideBwBRush(props) {
         destroying Gifted Recruits:
       </p>
 
-      <Board
+      <BattleSimEmbed
         environment='winter'
         id='LCwxMVc3QjUsLCw1TjNCNSwsLCwsLCwsLCwsLCwsO1IxME4tQjEwVzs3TTE7NXhOMVcxTjJXMk4zTjROMTJOMTZXN1c4TjI3VzE0O04xLFcxNA'
-        caption='Example 6: Unlike the aggressive variation, Mystwives are played on C4, not A4, which is a trap for the opponent.'
-      />
+      >
+        Example 6: Unlike the aggressive variation, Mystwives are played on C4,
+        not A4, which is a trap for the opponent.
+      </BattleSimEmbed>
 
       <p>
         It is also possible and necessary to play several cards on the 4th row
@@ -578,11 +573,15 @@ export default React.memo(function GuideBwBRush(props) {
         plays:
       </p>
 
-      <Board
+      <BattleSimEmbed
         environment='winter'
         id='Nk4xNkI1LCwsLCw1VzJCNSwsLCwsLDhXOEI1LCwsLCwsLCw7UjEwTi1CMTBXOzhNMTs1eE4xVzFOMlcyTjNONE4xMk4xNlc3VzhOMjdXMTQ7VzE0LE40'
-        caption='Example 7: Here, you need to play Lawless Herd on C4 or D4. Once the enemy spends his main units and spells on Westwind Sailors and Frosthexers, you play Blessed with Brawn on the previously placed Lawless Herd next turn.'
-      />
+      >
+        Example 7: Here, you need to play Lawless Herd on C4 or D4. Once the
+        enemy spends his main units and spells on Westwind Sailors and
+        Frosthexers, you play Blessed with Brawn on the previously placed
+        Lawless Herd next turn.
+      </BattleSimEmbed>
 
       <p>
         <CardLink id='W1' /> and <CardLink id='W2' /> are useful freeze cards in
@@ -591,11 +590,15 @@ export default React.memo(function GuideBwBRush(props) {
         possible, I personally experience them):
       </p>
 
-      <Board
+      <BattleSimEmbed
         environment='winter'
         id='LCwzUzFSNSw1TjFCNSw4VzhCNSwsM1Q3UjEsLCwsLCwsLCwsLCwsO1IxMFMtQjEwVzs4TTE7NXhOMVcxTjJXMk4zTjROMTJOMTZXN1c4TjI3VzE0O1cxLFcyLFcxNA'
-        caption='Example 8: You can use Frosthexers or Icicle Burst to freeze Token Satyr on C4 followed by Blessed with Brawn on Green Prototypes. This attack can only be neutralized with Confinement, which makes the attack incredibly dangerous.'
-      />
+      >
+        Example 8: You can use Frosthexers or Icicle Burst to freeze Token Satyr
+        on C4 followed by Blessed with Brawn on Green Prototypes. This attack
+        can only be neutralized with Confinement, which makes the attack
+        incredibly dangerous.
+      </BattleSimEmbed>
 
       <Title id='against-every-faction'>Against Every Faction</Title>
 
@@ -618,11 +621,14 @@ export default React.memo(function GuideBwBRush(props) {
         <CardLink id='W7' />. The solution is to eliminate enemy units that are
         close to your main attacking units.
       </p>
-      <Board
+
+      <BattleSimEmbed
         environment='swarm'
         id='LDRUN1IxLDZTMTZSNSw0VDdSMSwsLCw1TjFCNSwsLCwsLCwsLCwsLDtSMTBTLUIxMFc7OE0xOzV4TjFXMU4yVzJOM040TjEyTjE2VzdXOE4yN1cxNDtXMSxXOCxXNyxONA'
-        caption='Swarm of the East Matchup: Destroy Dreadfauns before your opponent plays Dark Harvest'
-      />
+      >
+        Swarm of the East Matchup: Destroy Dreadfauns before your opponent plays
+        Dark Harvest
+      </BattleSimEmbed>
 
       <h3>Ironclad Union</h3>
       <p>
@@ -645,11 +651,14 @@ export default React.memo(function GuideBwBRush(props) {
         <Link to='/guides/reckless-rush'>Reckless Rush</Link>. I have already
         described how to deal with this above.
       </p>
-      <Board
+
+      <BattleSimEmbed
         environment='ironclad'
         id='LCwxMVc3QjUsOE4zNFI1LCwsLDVOM0I1LCwsLCwsLCwsLCwsO1IxMEktQjEwVzs4TTE7NXhOMVcxTjJXMk4zTjROMTJOMTZXN1c4TjI3VzE0O04x'
-        caption='Ironclad Union Matchup: Play Green Prototypes on A4 tile to try to distract Trueshot Post from Mystwives.'
-      />
+      >
+        Ironclad Union Matchup: Play Green Prototypes on A4 tile to try to
+        distract Trueshot Post from Mystwives.
+      </BattleSimEmbed>
 
       <h3>Tribes of Shadowfen</h3>
       <p>
@@ -661,11 +670,14 @@ export default React.memo(function GuideBwBRush(props) {
         is to encircle the main attacking cards with your troops and actively
         use runners to destroy the enemy base as quickly as possible.
       </p>
-      <Board
+
+      <BattleSimEmbed
         environment='shadowfen'
         id='LDVOM0I1UCwxMVc3QjUsOEYxM1I1LCwsNk40QjVQLDVOMUI1LDhGNlI1LCwsNVQzQjFQLCwsLCwsLCw7UjEwRi1CMTBXOzhNMTs1eE4xVzFOMlcyTjNONE4xMk4xNlc3VzhOMjdXMTQ7'
-        caption='Tribes of Shadowfen Matchup: Do not let the opponent destroy your Mystwives by blocking.'
-      />
+      >
+        Tribes of Shadowfen Matchup: Do not let the opponent destroy your
+        Mystwives by blocking.
+      </BattleSimEmbed>
 
       <h3>Winter Pact</h3>
       <p>
@@ -678,11 +690,14 @@ export default React.memo(function GuideBwBRush(props) {
         to destroy the enemy base as soon as possible, before his Olf heals all
         the damage done to the base.
       </p>
-      <Board
+
+      <BattleSimEmbed
         environment='winter'
         id='LCwsMjNOMUI1LCwsNk4xNkI1LCwsLCwsLCwsLCwsLDtSMTBXLUIxMFc7OE0xOzV4TjFXMU4yVzJOM040TjEyTjE2VzdXOE4yN1cxNDtOMTIsTjI3'
-        caption='Winter Pact Matchup: Destroy the enemy base while the opponent has less than 8 mana, otherwise difficulties and problems may arise.'
-      />
+      >
+        Winter Pact Matchup: Destroy the enemy base while the opponent has less
+        than 8 mana, otherwise difficulties and problems may arise.
+      </BattleSimEmbed>
 
       <Title id='closing-remarks'>Closing Remarks</Title>
 

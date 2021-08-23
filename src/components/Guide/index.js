@@ -10,6 +10,10 @@ import getExcerpt from '~/helpers/getExcerpt'
 import { CATEGORIES } from '~/constants/guides'
 import styles from './styles'
 
+export const GuideRenderingContext = React.createContext({
+  isWithinGuide: false,
+})
+
 const Guide = React.memo(function Guide(props) {
   return (
     <>
@@ -29,7 +33,11 @@ const Guide = React.memo(function Guide(props) {
         isEditorialContent
         withDropCap
       >
-        <Page.Narrow>{props.children}</Page.Narrow>
+        <Page.Narrow>
+          <GuideRenderingContext.Provider value={{ isWithinGuide: true }}>
+            {props.children}
+          </GuideRenderingContext.Provider>
+        </Page.Narrow>
       </Page>
 
       <HorizontalRule />

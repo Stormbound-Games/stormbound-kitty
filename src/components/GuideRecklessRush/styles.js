@@ -1,8 +1,3 @@
-const caption = {
-  fontSize: '80%',
-  color: 'var(--beige)',
-}
-
 const cell = ({ type }) => ({
   padding: '3px',
   backgroundClip: 'content-box',
@@ -45,6 +40,6 @@ const legend = {
   ':nth-of-type(3)::before': { backgroundColor: '#2ecc71' },
 }
 
-const styles = { caption, legend, cell }
+const styles = { legend, cell }
 
 export default styles

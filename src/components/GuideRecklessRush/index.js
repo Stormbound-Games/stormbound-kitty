@@ -10,28 +10,12 @@ import Link from '~/components/Link'
 import Notice from '~/components/Notice'
 import { Stones } from '~/components/Resource'
 import Row from '~/components/Row'
-import Spacing from '~/components/Spacing'
 import Sparkles from '~/components/Sparkles'
 import TableOfContents from '~/components/TableOfContents'
 import Title from '~/components/Title'
 import serialisation from '~/helpers/serialisation'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import styles from './styles'
-
-const Board = props => {
-  const { css } = useFela()
-
-  return (
-    <Guide.FullWidth>
-      <BattleSimEmbed environment='swarm' id={props.id} />
-      {props.caption ? (
-        <Spacing top='BASE'>
-          <p className={css(styles.caption)}>{props.caption}</p>
-        </Spacing>
-      ) : null}
-    </Guide.FullWidth>
-  )
-}
 
 const colorCells = css => (cells, type) => {
   const container = document.querySelector("[data-selector='placement']")
@@ -677,18 +661,17 @@ export default React.memo(function GuideRecklessRush(props) {
         </li>
       </ul>
 
-      <Board
-        id='LDJOMTBSMSwsLDNOMUIzLCwsLCwsMVM4QjMsLCwsLCwsLCw7UjEwTi1CMTBTOzNNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExOw=='
-        caption='Trinity opener example 1: Shady Ghoul + Green Prototypes'
-      />
-      <Board
-        id='LCwsLCwsM04xQjMsLCwzUzJCMywsLCwsLCwsLCw7UjEwTi1CMTBTOzNNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExOw=='
-        caption='Trinity opener example 2: Restless Goats + Green Prototypes'
-      />
-      <Board
-        id='LCwsLCwsM04xQjMsLCwzTjY3QjMsLCwsLCwsLCwsO1IxME4tQjEwUzszTTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTs='
-        caption='Trinity opener example 3: Wild Saberpaws + Green Prototypes'
-      />
+      <BattleSimEmbed id='LDJOMTBSMSwsLDNOMUIzLCwsLCwsMVM4QjMsLCwsLCwsLCw7UjEwTi1CMTBTOzNNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExOw=='>
+        Trinity opener example 1: Shady Ghoul + Green Prototypes
+      </BattleSimEmbed>
+
+      <BattleSimEmbed id='LCwsLCwsM04xQjMsLCwzUzJCMywsLCwsLCwsLCw7UjEwTi1CMTBTOzNNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExOw=='>
+        Trinity opener example 2: Restless Goats + Green Prototypes
+      </BattleSimEmbed>
+
+      <BattleSimEmbed id='LCwsLCwsM04xQjMsLCwzTjY3QjMsLCwsLCwsLCwsO1IxME4tQjEwUzszTTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTs='>
+        Trinity opener example 3: Wild Saberpaws + Green Prototypes
+      </BattleSimEmbed>
 
       <Info icon='equalizer' title='Best value'>
         <p>
@@ -724,7 +707,7 @@ export default React.memo(function GuideRecklessRush(props) {
         Ghoul).
       </p>
 
-      <Board id='LCwsLCwsLCwzVDNCMSwzUzJCMywsLCwsLCwsLCw7UjEwTi1CMTBTOzNNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExOw==' />
+      <BattleSimEmbed id='LCwsLCwsLCwzVDNCMSwzUzJCMywsLCwsLCwsLCw7UjEwTi1CMTBTOzNNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExOw==' />
 
       <p>Two reasons as to why Trinity Openers are so important:</p>
 
@@ -774,14 +757,17 @@ export default React.memo(function GuideRecklessRush(props) {
         easy Devastators + Forgotten Souls combo straight into the enemy base.
       </p>
 
-      <Board
-        id='NFczUjMsM1MyQjMsM04xQjMsMlMxQjMsLCwsLCwsLCwsLCwsLCwsO1IxMFctQjEwUzszTTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTs='
-        caption='Using the enemy’s structure as a way to baselock them.'
-      />
-      <Board
-        id='NFczUjMsLCwsNFMxMUIzLDNOMVIzLDRXMTJSMywzVDNCMSwsLDNTMkIzLCwsLCwsLCwsO1IxMFctQjEwUzszTTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTs='
-        caption='In this case, Devastators would usually attack towards the centre, but because the structure is in front, Devastators will attack forward instead. With boards exactly like this in the late game, Devastators + Forgotten Souls combo is brutal because the enemy does not expect the Devastators to go through the structure.'
-      />
+      <BattleSimEmbed id='NFczUjMsM1MyQjMsM04xQjMsMlMxQjMsLCwsLCwsLCwsLCwsLCwsO1IxMFctQjEwUzszTTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTs='>
+        Using the enemy’s structure as a way to baselock them.
+      </BattleSimEmbed>
+
+      <BattleSimEmbed id='NFczUjMsLCwsNFMxMUIzLDNOMVIzLDRXMTJSMywzVDNCMSwsLDNTMkIzLCwsLCwsLCwsO1IxMFctQjEwUzszTTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTs='>
+        In this case, Devastators would usually attack towards the centre, but
+        because the structure is in front, Devastators will attack forward
+        instead. With boards exactly like this in the late game, Devastators +
+        Forgotten Souls combo is brutal because the enemy does not expect the
+        Devastators to go through the structure.
+      </BattleSimEmbed>
 
       <p>
         Since a large portion of the extra damage comes from its effect, you can
@@ -811,10 +797,9 @@ export default React.memo(function GuideRecklessRush(props) {
         are Devastators’ two favourite tiles on the board.
       </p>
 
-      <Board
-        id='NFMxMUIzLDNOMUIzLCwsLCwzUzJCMywsLCwsLDRGM1IzLCwsLCwsLDtSMTBXLUIxMFM7M00wOzN4TjFOMlMxTjNTMjRTMk42N1M2TjI0TjE1UzhTMTE7'
-        caption='Extremely aggressive second turn swing with 5 mana.'
-      />
+      <BattleSimEmbed id='NFMxMUIzLDNOMUIzLCwsLCwzUzJCMywsLCwsLDRGM1IzLCwsLCwsLDtSMTBXLUIxMFM7M00wOzN4TjFOMlMxTjNTMjRTMk42N1M2TjI0TjE1UzhTMTE7'>
+        Extremely aggressive second turn swing with 5 mana.
+      </BattleSimEmbed>
 
       <p>
         In a situation like above, the enemy needs to find a way to clear the
@@ -835,10 +820,12 @@ export default React.memo(function GuideRecklessRush(props) {
         setting down a high priority target for the enemy to deal with.
       </p>
 
-      <Board
-        id='OE4zQjMsLDNTMkIzLCwsLCwzVDNCMSwsLCwsLCwsLDRGM1IzLDNOMVIzLCw7UjEwVy1CMTBTOzNNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExOw=='
-        caption='In most cases, playing Gifted Recruits top right would have been the better play, but I specifically played Gifted Recruits top left here to avoid 2 movement units from defending. The Restless Goats from last turn is still acting as a defender for another high priority target.'
-      />
+      <BattleSimEmbed id='OE4zQjMsLDNTMkIzLCwsLCwzVDNCMSwsLCwsLCwsLDRGM1IzLDNOMVIzLCw7UjEwVy1CMTBTOzNNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExOw=='>
+        In most cases, playing Gifted Recruits top right would have been the
+        better play, but I specifically played Gifted Recruits top left here to
+        avoid 2 movement units from defending. The Restless Goats from last turn
+        is still acting as a defender for another high priority target.
+      </BattleSimEmbed>
 
       <p>
         By applying pressure every turn you snowball your early game lead in
@@ -979,15 +966,16 @@ export default React.memo(function GuideRecklessRush(props) {
         should be played first, second, third or fourth.
       </p>
 
-      <Board
-        id='LCwsLCwsM04zUjMsM1QzQjEsLCwsLCwsLCwsLCw7UjZOLUIxMFM7Nk0wOzN4TjFOMlMxTjNTMjRTMk42N1M2TjI0TjE1UzhTMTE7TjEsTjY3LFM2LFMxMQ=='
-        caption='In this case, there is only one proper order for lethal: Wild Saberpaws > Green Prototypes > Forgotten Souls.'
-      />
+      <BattleSimEmbed id='LCwsLCwsM04zUjMsM1QzQjEsLCwsLCwsLCwsLCw7UjZOLUIxMFM7Nk0wOzN4TjFOMlMxTjNTMjRTMk42N1M2TjI0TjE1UzhTMTE7TjEsTjY3LFM2LFMxMQ=='>
+        In this case, there is only one proper order for lethal: Wild Saberpaws
+        → Green Prototypes → Forgotten Souls.
+      </BattleSimEmbed>
 
-      <Board
-        id='LCwxUzhCMywyUzFCMywsLCwsM04zUjMsLCwsLDNOMVIzLCwsLCwsO1I2Ti1CMTBTOzZNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExO04xLE42NyxTMixTMjQ='
-        caption='In this case, Green Prototypes need to clear Gifted Recruits first so Wild Saberpaws can have 2-movement.'
-      />
+      <BattleSimEmbed id='LCwxUzhCMywyUzFCMywsLCwsM04zUjMsLCwsLDNOMVIzLCwsLCwsO1I2Ti1CMTBTOzZNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExO04xLE42NyxTMixTMjQ='>
+        In this case, Green Prototypes need to clear Gifted Recruits first so
+        Wild Saberpaws can have 2-movement.
+      </BattleSimEmbed>
+
       <p>There are two parts behind the concept of order:</p>
       <ol>
         <li>
@@ -1017,10 +1005,10 @@ export default React.memo(function GuideRecklessRush(props) {
         Summon Militia and Head Start.
       </p>
 
-      <Board
-        id='MVQ4UjEsN1Q3QjEsMVQ4UjEsLDFUOFIxLDJTMUIzLDNUM0IxLCwxVDhSMSwsLDFUOFIxLCwsLCwsLCw7UjEwVy1CMTBTOzZNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExO1MxMSxTMjQ='
-        caption='Devastators must be played first, before playing Head Start, otherwise Head Start token will block off access to the top right corner tile.'
-      />
+      <BattleSimEmbed id='MVQ4UjEsN1Q3QjEsMVQ4UjEsLDFUOFIxLDJTMUIzLDNUM0IxLCwxVDhSMSwsLDFUOFIxLCwsLCwsLCw7UjEwVy1CMTBTOzZNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExO1MxMSxTMjQ='>
+        Devastators must be played first, before playing Head Start, otherwise
+        Head Start token will block off access to the top right corner tile.
+      </BattleSimEmbed>
 
       <p>
         Since RNG-based cards like Summon Militia and Head Start have a certain
@@ -1030,10 +1018,10 @@ export default React.memo(function GuideRecklessRush(props) {
         of them landing there by occupying the other tiles.
       </p>
 
-      <Board
-        id='LCwzVDNCMSwsM04zUjMsLCw3VDdSMSwsLCwsLCwsLCwsLDtSNk4tQjEwUzs2TTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTtONjcsUzI0'
-        caption='I want the Head Start token to land on the left, so I play Wild Saberpaws on the right first.'
-      />
+      <BattleSimEmbed id='LCwzVDNCMSwsM04zUjMsLCw3VDdSMSwsLCwsLCwsLCwsLDtSNk4tQjEwUzs2TTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTtONjcsUzI0'>
+        I want the Head Start token to land on the left, so I play Wild
+        Saberpaws on the right first.
+      </BattleSimEmbed>
 
       <p>
         You don’t always want to play your RNG cards last—sometimes your move
@@ -1049,11 +1037,13 @@ export default React.memo(function GuideRecklessRush(props) {
         to buff with Potion of Growth.
       </p>
 
-      <Board id='M04xQjMsLCwzTjNCMywsLCwsLDNOMVIzLDNXMlIzLCwsLCwsLCwsO1I2Vy1CMTBTOzlNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExO1MyNCxOMTUsUzgsTjI=' />
-      <Board
-        id='OE4xQjMsLCwzTjNCMywsLCw1VDdCMSwsM04xUjMsM1cyUjMsLCwsLCwsM1QzQjEsLDtSNlctQjEwUzszTTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTtTOA=='
-        caption='The Summon Militia token did not land where I wanted it to, however this order was still correct. Since my right hand column is pretty powerful, I want to distribute the strength evenly across the board so I use Potion of Growth on the Green Prototypes.'
-      />
+      <BattleSimEmbed id='M04xQjMsLCwzTjNCMywsLCwsLDNOMVIzLDNXMlIzLCwsLCwsLCwsO1I2Vy1CMTBTOzlNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExO1MyNCxOMTUsUzgsTjI=' />
+      <BattleSimEmbed id='OE4xQjMsLCwzTjNCMywsLCw1VDdCMSwsM04xUjMsM1cyUjMsLCwsLCwsM1QzQjEsLDtSNlctQjEwUzszTTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTtTOA=='>
+        The Summon Militia token did not land where I wanted it to, however this
+        order was still correct. Since my right hand column is pretty powerful,
+        I want to distribute the strength evenly across the board so I use
+        Potion of Growth on the Green Prototypes.
+      </BattleSimEmbed>
 
       <p>
         Now that PVO has been covered, let’s talk about FVO which has everything
@@ -1094,10 +1084,12 @@ export default React.memo(function GuideRecklessRush(props) {
         chance that you can draw a better card which makes for a better play.
       </p>
 
-      <Board
-        id='M1QzUjEsM1QzUjEsMlMxQjMsLCwsM04zQjMsLCw1TjU5UjMsLDROMTZSMywsLCwsLCwsO1IxME4tQjEwUzs1TTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTtOMSxOMTUsUzgsUzI0'
-        caption='Shady Ghoul does not see any play here and therefore is a liability and is worth cycling first to see if I can draw for a better play. For example a Devastators or Gifted Recruits draw here is much better than Shady Ghoul.'
-      />
+      <BattleSimEmbed id='M1QzUjEsM1QzUjEsMlMxQjMsLCwsM04zQjMsLCw1TjU5UjMsLDROMTZSMywsLCwsLCwsO1IxME4tQjEwUzs1TTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTtOMSxOMTUsUzgsUzI0'>
+        Shady Ghoul does not see any play here and therefore is a liability and
+        is worth cycling first to see if I can draw for a better play. For
+        example a Devastators or Gifted Recruits draw here is much better than
+        Shady Ghoul.
+      </BattleSimEmbed>
 
       <p>
         In cases where your hand is relatively good and the chances to draw an
@@ -1106,10 +1098,14 @@ export default React.memo(function GuideRecklessRush(props) {
         cuts in between the order you play your cards or is used up at the end.
       </p>
 
-      <Board
-        id='M04zQjMsNlc4UjMsNE4xNFIzLDZXOVIzLCwsLCwsLDNUM0IxLCwsLCwsLCwsO1IxMFctQjEwUzs2TTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTtOMSxTMjQsUzExLE42Nw=='
-        caption='Since Devastators is such a high priority card here, it’s worth playing first before cycling. Afterwards I can determine whether I want to play Head Start first and then cycle, or cycle first to see if I can draw a better play. The chances of me drawing an even better play than this is low, so I cycle last specifically because I would rather draw back Head Start sooner than Wild Saberpaws.'
-      />
+      <BattleSimEmbed id='M04zQjMsNlc4UjMsNE4xNFIzLDZXOVIzLCwsLCwsLDNUM0IxLCwsLCwsLCwsO1IxMFctQjEwUzs2TTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTtOMSxTMjQsUzExLE42Nw=='>
+        Since Devastators is such a high priority card here, it’s worth playing
+        first before cycling. Afterwards I can determine whether I want to play
+        Head Start first and then cycle, or cycle first to see if I can draw a
+        better play. The chances of me drawing an even better play than this is
+        low, so I cycle last specifically because I would rather draw back Head
+        Start sooner than Wild Saberpaws.
+      </BattleSimEmbed>
 
       <p>
         When using cycling to impact the FVO, you can use it to “link” cards
@@ -1121,7 +1117,7 @@ export default React.memo(function GuideRecklessRush(props) {
         around the same time for the future.
       </p>
 
-      <Board id='NFczUjMsLCwsLDNOMVIzLDRXMTJSMywzVDNCMSwsLDNTMkIzLCwsLCwsLCwsO1IxMFctQjEwUzs1TTA7M04xM04yM1MxM04zM1MyNDNTMjNONjMzTjY3M1M2M04xNTNTODNTMTE7UzYsUzExLE4xLE42Nw==' />
+      <BattleSimEmbed id='NFczUjMsLCwsLDNOMVIzLDRXMTJSMywzVDNCMSwsLDNTMkIzLCwsLCwsLCwsO1IxMFctQjEwUzs1TTA7M04xM04yM1MxM04zM1MyNDNTMjNONjMzTjY3M1M2M04xNTNTODNTMTE7UzYsUzExLE4xLE42Nw==' />
 
       <p>
         The most important takeaway from this section is to look at how the
@@ -1190,7 +1186,7 @@ export default React.memo(function GuideRecklessRush(props) {
         essentially buffs the next unit, needing more mana to take care of it.
       </p>
 
-      <Board id='LCwyTjI2QjMsM04zQjMsLCwsLCwsLCwsLCwsLCwsO1IxME4tQjEwTjszTTA7Ow==' />
+      <BattleSimEmbed id='LCwyTjI2QjMsM04zQjMsLCwsLCwsLCwsLCwsLCwsO1IxME4tQjEwTjszTTA7Ow==' />
 
       <p>
         If, on the other hand, we recreate this situation on the left side of
@@ -1211,7 +1207,7 @@ export default React.memo(function GuideRecklessRush(props) {
         this:
       </p>
 
-      <Board id='LCwsLCwsLCwsNE4xOFIzLDJOMjZCMywsLDNUN0IxLCwsLCwsO1IxME4tQjEwTjszTTA7Ow==' />
+      <BattleSimEmbed id='LCwsLCwsLCwsNE4xOFIzLDJOMjZCMywsLDNUN0IxLCwsLCwsO1IxME4tQjEwTjszTTA7Ow==' />
 
       <p>
         With this setup the opponent might have a lot of trouble thinking of the
@@ -1238,7 +1234,7 @@ export default React.memo(function GuideRecklessRush(props) {
       </p>
 
       <div data-selector='placement'>
-        <Board
+        <BattleSimEmbed
           id='LCwsLCwsLCwsLCwsLCwsLCwsLDtSMTBOLUIxME47M00wOzs='
           caption={
             <>
@@ -1267,10 +1263,10 @@ export default React.memo(function GuideRecklessRush(props) {
         cards nearly useless.
       </p>
 
-      <Board
-        id='OE4zQjMsMlQ3QjEsLCwzUzJCMywyUzFCMywsLCwsLCwsLCwsLCwsO1IxME4tQjEwUzs2TTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTs='
-        caption='Example of a square attack formation, particularly efficient against Shadowfen.'
-      />
+      <BattleSimEmbed id='OE4zQjMsMlQ3QjEsLCwzUzJCMywyUzFCMywsLCwsLCwsLCwsLCwsO1IxME4tQjEwUzs2TTA7M3hOMU4yUzFOM1MyNFMyTjY3UzZOMjROMTVTOFMxMTs='>
+        Example of a square attack formation, particularly efficient against
+        Shadowfen.
+      </BattleSimEmbed>
 
       <p>
         Assuming the Shadowfen player uses Toxic Sacrifice, an even better idea
@@ -1278,10 +1274,9 @@ export default React.memo(function GuideRecklessRush(props) {
         right side columns to avoid surrounding AoE damages.
       </p>
 
-      <Board
-        id='OE4zQjMsLCwyVDdCMSwzUzJCMywsLDJTMUIzLCwsLCwsLCwsLCwsO1IxME4tQjEwUzs2TTA7Ow=='
-        caption='Example of a side attack formation to avoid AoE damage.'
-      />
+      <BattleSimEmbed id='OE4zQjMsLCwyVDdCMSwzUzJCMywsLDJTMUIzLCwsLCwsLCwsLCwsO1IxME4tQjEwUzs2TTA7Ow=='>
+        Example of a side attack formation to avoid AoE damage.
+      </BattleSimEmbed>
 
       <p>
         On the other hand, you have line formation which is also very good at
@@ -1291,10 +1286,10 @@ export default React.memo(function GuideRecklessRush(props) {
         Windmakers.
       </p>
 
-      <Board
-        id='NFMxMUIzLDJTMUIzLDNTMkIzLCwsLCwsLCwsLCwsLCwsLCw7UjEwVy1CMTBTOzZNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExOw=='
-        caption='Example of a horizontal attack formation, effecient against decks without too many runners.'
-      />
+      <BattleSimEmbed id='NFMxMUIzLDJTMUIzLDNTMkIzLCwsLCwsLCwsLCwsLCwsLCw7UjEwVy1CMTBTOzZNMDszeE4xTjJTMU4zUzI0UzJONjdTNk4yNE4xNVM4UzExOw=='>
+        Example of a horizontal attack formation, effecient against decks
+        without too many runners.
+      </BattleSimEmbed>
 
       <p>
         Next we have the traditional diagonal formation, this will be your most
@@ -1304,10 +1299,9 @@ export default React.memo(function GuideRecklessRush(props) {
         for them.
       </p>
 
-      <Board
-        id='NFMxMUIzLCwsLCwzUzJCMywsLCwsM042N1IzLCwsLCwsLCwsO1IxMFctQjEwUzs2TTA7M04xM04yM1MxM04zM1MyNDNTMjNONjMzTjY3M1M2M04xNTNTODNTMTE7'
-        caption='Example of a typical early on diagonal attack formation.'
-      />
+      <BattleSimEmbed id='NFMxMUIzLCwsLCwzUzJCMywsLCwsM042N1IzLCwsLCwsLCwsO1IxMFctQjEwUzs2TTA7M04xM04yM1MxM04zM1MyNDNTMjNONjMzTjY3M1M2M04xNTNTODNTMTE7'>
+        Example of a typical early on diagonal attack formation.
+      </BattleSimEmbed>
 
       <p>
         Positioning plays a key role in how the board will look in the future. I
@@ -1388,7 +1382,7 @@ export default React.memo(function GuideRecklessRush(props) {
         tile.
       </p>
 
-      <Board id='NFM3UjMsLCwsLCwyVDdCMSwsLDNTMkIzLDJTMUIzLCwsLCwsLCwsO1IxMFMtQjEwUzs0TTA7Ow==' />
+      <BattleSimEmbed id='NFM3UjMsLCwsLCwyVDdCMSwsLDNTMkIzLDJTMUIzLCwsLCwsLCwsO1IxMFMtQjEwUzs0TTA7Ow==' />
 
       <p>
         Essentially, this will bait the enemy into defending the right hand side
@@ -1399,7 +1393,7 @@ export default React.memo(function GuideRecklessRush(props) {
         unit on the bordering column.{' '}
       </p>
 
-      <Board id='LCw0UzdSMywsMlQ3QjEsLCwsMlMxQjMsM1MyQjMsLCwsLCwsLCwsO1IxMFMtQjEwUzs0TTA7Ow==' />
+      <BattleSimEmbed id='LCw0UzdSMywsMlQ3QjEsLCwsMlMxQjMsM1MyQjMsLCwsLCwsLCwsO1IxMFMtQjEwUzs0TTA7Ow==' />
 
       <p>
         The goal here is not to destroy the structure, but rather keep it there
@@ -1413,7 +1407,7 @@ export default React.memo(function GuideRecklessRush(props) {
         tile bordering it.
       </p>
 
-      <Board id='LCwsNE4xNFIzLCwsM04zQjMsLCwzUzJCMywsLCwsLCwsLCw7UjEwUy1CMTBTOzRNMDs7' />
+      <BattleSimEmbed id='LCwsNE4xNFIzLCwsM04zQjMsLCwzUzJCMywsLCwsLCwsLCw7UjEwUy1CMTBTOzRNMDs7' />
 
       <p>
         Applying the first assumption, the enemy will likely defend against the
@@ -1425,7 +1419,7 @@ export default React.memo(function GuideRecklessRush(props) {
         previously.
       </p>
 
-      <Board id='LCw0TjE0UjMsLCwsLDNOM0IzLCwzUzJCMywsLCwsLCwsLCw7UjEwUy1CMTBTOzRNMDs7' />
+      <BattleSimEmbed id='LCw0TjE0UjMsLCwsLDNOM0IzLCwzUzJCMywsLCwsLCwsLCw7UjEwUy1CMTBTOzRNMDs7' />
 
       <p>
         The most common enemy first turn play will be opening with a 1 movement
@@ -1434,7 +1428,7 @@ export default React.memo(function GuideRecklessRush(props) {
         mentioned before as well.
       </p>
 
-      <Board id='LCwsLCwsM04zUjMsM04zQjMsLDNTMkIzLCwsLCwsLCwsLDtSMTBTLUIxMFM7NE0wOzs=' />
+      <BattleSimEmbed id='LCwsLCwsM04zUjMsM04zQjMsLDNTMkIzLCwsLCwsLCwsLDtSMTBTLUIxMFM7NE0wOzs=' />
 
       <p>
         There is one very tricky and rare case Trinity Opener that can be
@@ -1448,7 +1442,7 @@ export default React.memo(function GuideRecklessRush(props) {
         play all our units on one side like so.
       </p>
 
-      <Board id='LCwsLDNOM0IzLCwzTjNSMywsLDNTMkIzLCwsLCwsLCwsLDtSMTBTLUIxMFM7NE0wOzs=' />
+      <BattleSimEmbed id='LCwsLDNOM0IzLCwzTjNSMywsLDNTMkIzLCwsLCwsLCwsLDtSMTBTLUIxMFM7NE0wOzs=' />
 
       <p>
         Assuming your most forward unit is attacked but your trinity runner is
@@ -1456,7 +1450,7 @@ export default React.memo(function GuideRecklessRush(props) {
         capitalize on the forward unit by accompanying it with two other units.
       </p>
 
-      <Board id='LCwzTjFCMyw0UzExQjMsLDNTMkIzLCwsMk4yOFIxLCwzTjNSMywsLCwsLCwsLDtSMTBTLUIxMFM7NE0wOzs=' />
+      <BattleSimEmbed id='LCwzTjFCMyw0UzExQjMsLDNTMkIzLCwsMk4yOFIxLCwzTjNSMywsLCwsLCwsLDtSMTBTLUIxMFM7NE0wOzs=' />
 
       <p>
         What you are seeing here is one of the most powerful 5 mana turns for RR
