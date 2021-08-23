@@ -7,9 +7,10 @@
     "date": "09/2021",
     "excerpt": "September is already there, and with it new Stormbound release with plenty offers, a new card and balance tweaks!",
     "slug": "09-2021",
-    "background": "/assets/images/banners/sheepyard_first_anniversary.jpg",
+    "background": "/assets/images/banners/third-anniversary.png",
     "id": "09_2021",
-    "ratio": "50%"
+    "ratio": "50%",
+    "withAvif": false
   },
   {
     "cardId": "N77",
