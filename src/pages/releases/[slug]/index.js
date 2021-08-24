@@ -6,6 +6,7 @@ import getNavigation from '~/helpers/getNavigation'
 import RELEASES from '~/data/releases'
 
 const RELEASE_COMPONENTS = {
+  '09_2021': dynamic(() => import('~/components/ReleaseNotesSeptember2021')),
   '08_2021': dynamic(() => import('~/components/ReleaseNotesAugust2021')),
   '07_2021': dynamic(() => import('~/components/ReleaseNotesJuly2021')),
   brawl_2021: dynamic(() => import('~/components/ReleaseNotesBrawl2021')),
@@ -46,6 +47,7 @@ export const getStaticProps = ({ params }) => {
 }
 
 const ReleasePage = ({ navigation, ...props }) => {
+  if (!(props.id in RELEASE_COMPONENTS)) return null
   const Component = RELEASE_COMPONENTS[props.id]
 
   return (

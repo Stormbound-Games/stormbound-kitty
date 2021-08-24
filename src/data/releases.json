@@ -1,5 +1,18 @@
 [
   {
+    "cardId": "N86",
+    "title": "Update 09-2021",
+    "name": "September Update",
+    "meta": "September 1st, 2021",
+    "date": "09/2021",
+    "excerpt": "September is already there, and with it new Stormbound release with plenty offers, a new card and balance tweaks!",
+    "slug": "09-2021",
+    "background": "/assets/images/banners/fourth-anniversary.jpg",
+    "id": "09_2021",
+    "ratio": "50%",
+    "withAvif": false
+  },
+  {
     "cardId": "N77",
     "title": "Update 08-2021",
     "name": "August Update",

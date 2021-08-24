@@ -215,7 +215,7 @@ const getCardValue = (id, level = 1) => {
     case 'N43': /* Ludic Matriarchs */ {
       return [
         (strength / mana) * speed,
-        ((strength + parseAbility(ability, 1) * 6) / mana) * speed,
+        ((strength + parseAbility(ability) * 6) / mana) * speed,
       ]
     }
     case 'F14': /* Witches of the Wild */

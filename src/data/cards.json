@@ -558,7 +558,7 @@
     "mana": 6,
     "strength": "5/7/7/9/10",
     "movement": 0,
-    "ability": "When played bordering *exactly 1* friendly Dragon, *spawn 1/1/2/2/3* strength Dragons on all tiles bordering either"
+    "ability": "When played bordering a friendly Dragon, *spawn 1/1/2/2/3* strength Dragons on all tiles bordering either"
   },
   {
     "name": "Needle Blast",
@@ -1011,7 +1011,7 @@
     "mana": 4,
     "strength": "3/4/5/6/7",
     "movement": 0,
-    "ability": "On play, *draw* up to *1/1/2/2/3* card copy/copy/copies/copies/copies from the enemy’s hand with *1* mana cheaper cost",
+    "ability": "On play, *draw 1/1/2/2/3* single-use non-pirate card copy/copy/copies/copies/copies from the enemy’s hand. If you have a pirate card in hand, reduce its/its/their/their/their mana cost by 1.",
     "hero": true
   },
   {
@@ -1049,9 +1049,9 @@
     "rarity": "epic",
     "image": "stoic_protectors.png",
     "mana": 4,
-    "strength": "3/4/5/6/7",
-    "movement": 0,
-    "ability": "On play, disable up to 1/2/2/3/4 bordering/bordering/surrounding/surrounding/surrounding enemy unit’s/units’/units’/units’/units’ ability"
+    "strength": "4/5/6/7/8",
+    "movement": 1,
+    "ability": "Before moving, disable the ability of 1/2/2/3/4 surrounding enemy unit/units/units/units/units"
   },
   {
     "name": "Temple of the Heart",
@@ -1117,6 +1117,19 @@
     "strength": "2/3/4/5/6",
     "movement": null,
     "ability": "At the start of your turn, give (or remove) fixedly forward movement to the leftmost unit card in your hand, then destroy the weakest confused unit"
+  },
+  {
+    "name": "Sparkly Kitties",
+    "id": "N86",
+    "type": "unit",
+    "faction": "neutral",
+    "race": "feline",
+    "rarity": "epic",
+    "image": "sparkly_kitties.png",
+    "mana": 2,
+    "strength": "2/3/4/5/6",
+    "movement": 0,
+    "ability": "On play, confuse itself then gain 2 speed"
   },
   {
     "name": "Destructobots",
@@ -1429,7 +1442,7 @@
     "rarity": "rare",
     "image": "mechanical_workers.png",
     "mana": 6,
-    "strength": "4/5/6/7/8",
+    "strength": "5/6/7/8/9",
     "movement": 1,
     "ability": "On play, on the tile behind *build* a *3/3/4/5/6* strength workshop which *spawn 2/3/4/5/6* strength Constructs each turn"
   },
@@ -2550,7 +2563,7 @@
     "mana": 9,
     "strength": "4/5/6/7/8",
     "movement": 2,
-    "ability": "When played with an enemy on the tile in front, *gain 4/5/6/7/8* strength"
+    "ability": "Before attacking a unit, *gain 3/4/5/6/7* strength"
   },
   {
     "name": "Olf the Hammer",

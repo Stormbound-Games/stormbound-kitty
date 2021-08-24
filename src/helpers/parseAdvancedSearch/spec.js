@@ -107,6 +107,7 @@ describe('The `parseAdvancedSearch` helper', () => {
     expect(parse('has:vitality')).toEqual({ ability: 'VITALITY' })
     expect(parse('has:disable')).toEqual({ ability: 'DISABLE' })
     expect(parse('has:attacking')).toEqual({ ability: 'ATTACKING' })
+    expect(parse('has:moving')).toEqual({ ability: 'MOVING' })
     expect(parse('has:on_death')).toEqual({ ability: 'ON_DEATH' })
     expect(parse('has:push_pull')).toEqual({ ability: 'PUSH_PULL' })
     expect(parse('has:push')).toEqual({ ability: 'PUSH' })

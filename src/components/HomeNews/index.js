@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import Image from '~/components/Image'
+import Image from 'next/image'
 import News from '~/components/News'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
@@ -11,15 +11,15 @@ export default React.memo(function HomeNews(props) {
 
   return (
     <aside className={css(styles.container)}>
-      <Image
-        extend={styles.image}
-        src='/assets/images/kitty.png'
-        alt='Kitty Sparkles by Hurricane Sunny'
-        withoutWebp
-        width={446}
-        height={339}
-        lazy
-      />
+      <div className={css(styles.image)}>
+        <Image
+          src='/assets/images/cards/full/sparkly_kitties.png'
+          alt='Sparkly Kitties'
+          width={390}
+          height={390}
+          layout='intrinsic'
+        />
+      </div>
 
       <Spacing bottom='LARGE'>
         <div className={css(styles.box)}>

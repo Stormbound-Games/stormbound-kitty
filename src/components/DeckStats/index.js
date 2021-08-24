@@ -3,41 +3,12 @@ import { useFela } from 'react-fela'
 import Row from '~/components/Row'
 import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
+import getEffectiveSpeed from '~/helpers/getEffectiveSpeed'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import canCardBePlayed from '~/helpers/canCardBePlayed'
 import canDeployUnits from '~/helpers/canDeployUnits'
 import styles from './styles'
 
-const getEffectiveSpeed = card => {
-  switch (card.id) {
-    // Doppelbocks effectively advances the frontline.
-    case 'S1':
-      return 1
-    case 'W31':
-      // Iceflakes not only does not have initial movement, but it’s also frozen
-      // for a turn, which essentially negate its natural movement from the next
-      // turn.
-      return -0.5
-    case 'S16':
-      // Dreadfauns has an average speed of about 0.5. Out of the 16 slots it
-      // can be played, 2 of them always move the line (corners), 8 of them have
-      // 2 chances out of 3 to move the line (edges), and the 6 remaining ones
-      // have 1 chance out of 2 to move the line (middle).
-      return 0.625
-    case 'N67':
-      // Wild Saberpaws can have 0, 1 or 2 speed based on whether they are
-      // played with bordering or surrounding units, so we consider an average
-      // speed of 1.
-      return 1
-    case 'I17':
-      // Eloth the Ignited has 0 base movement, but can be used to move in front
-      // of the first enemy (and then 1 extra tile if it kills it), so we
-      // consider an average of 2.
-      return 2
-    default:
-      return card.movement || 0
-  }
-}
 const sum = (a, b) => a + b
 const getAverageManaCost = cards =>
   (cards.map(c => c.mana).reduce(sum, 0) / cards.length).toFixed(2)

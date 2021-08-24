@@ -11,20 +11,16 @@ const container = {
   },
 }
 
-/**
- * 1. The image has quite a lot of spacing at the top which is negated by a
- *    negative top margin to bring it closer to the header.
- */
 const image = {
+  width: 'max-content',
   maxWidth: '100%',
-  marginTop: '-2em' /* 1 */,
 
   medium: {
     position: 'absolute',
     bottom: '100%',
     zIndex: -1,
     left: '50%',
-    transform: 'translate(-50%, 8%)',
+    transform: 'translate(-50%, 11%)',
   },
 }
 
