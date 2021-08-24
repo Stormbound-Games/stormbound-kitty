@@ -7,7 +7,6 @@ import Input from '~/components/Input'
 import MobileTogglableContent from '~/components/MobileTogglableContent'
 import Row from '~/components/Row'
 import Select from '~/components/Select'
-import Spacing from '~/components/Spacing'
 import TagsSelect from '~/components/TagsSelect'
 
 const getAuthors = decks => {
@@ -120,20 +119,18 @@ export default React.memo(function DeckSuggestionsFilters(props) {
             </Select>
           </Row.Column>
           <Row.Column extend={{ alignSelf: 'flex-end' }}>
-            <Spacing bottom={['LARGE', 'NONE']}>
-              <CTA
-                disabled={
-                  props.author === '*' &&
-                  props.tags.length === 0 &&
-                  props.faction === '*' &&
-                  !props.including &&
-                  !props.name
-                }
-                onClick={props.resetFilters}
-              >
-                Reset
-              </CTA>
-            </Spacing>
+            <CTA
+              disabled={
+                props.author === '*' &&
+                props.tags.length === 0 &&
+                props.faction === '*' &&
+                !props.including &&
+                !props.name
+              }
+              onClick={props.resetFilters}
+            >
+              Reset
+            </CTA>
           </Row.Column>
         </Row>
       </form>
