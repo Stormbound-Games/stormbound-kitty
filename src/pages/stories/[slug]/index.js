@@ -1,20 +1,9 @@
 import React from 'react'
-import path from 'path'
-import fs from 'fs/promises'
 import Story from '~/components/Story'
 import Layout from '~/components/Layout'
 import getNavigation from '~/helpers/getNavigation'
+import getStories from '~/helpers/getStories'
 import { STORY_CATEGORIES } from '~/constants/stories'
-
-const getStories = async () => {
-  const dir = path.join(process.cwd(), 'src', 'data', 'stories')
-  const slugs = await fs.readdir(dir)
-
-  return slugs.map(slug => ({
-    ...require('~/data/stories/' + slug),
-    slug: slug.replace('.json', ''),
-  }))
-}
 
 export async function getStaticPaths() {
   const stories = await getStories()
