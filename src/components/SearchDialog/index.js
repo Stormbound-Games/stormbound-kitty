@@ -151,7 +151,7 @@ export default React.memo(function SearchDialog(props) {
       id='search-dialog'
       title='Search'
       dialogRef={registerDialog}
-      close={() => dialog.hide()}
+      close={() => dialog?.hide()}
       image='/assets/images/cards/trekking_aldermen.png'
     >
       <div className={css(styles.body)}>
