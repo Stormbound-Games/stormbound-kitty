@@ -3,6 +3,7 @@ import { useFela } from 'react-fela'
 import { UserContext } from '~/components/UserProvider'
 import HorizontalRule from '~/components/HorizontalRule'
 import Link from '~/components/Link'
+import Only from '~/components/Only'
 import Page from '~/components/Page'
 import Footnotes, { Footnote } from '~/components/Footnotes'
 import MemberList from '~/components/MemberList'
@@ -82,7 +83,11 @@ export default React.memo(function About(props) {
                   extend={styles.cta}
                   href='https://gum.co/stormbound-kitty?wanted=true'
                 >
-                  Support Stormbound-Kitty
+                  Support
+                  <Only.Mobile>
+                    <br />
+                  </Only.Mobile>
+                  Stormbound-Kitty
                 </Link>
               </Sparkles>
             </div>
