@@ -1,20 +1,15 @@
 const fs = require('fs')
 const path = require('path')
 
-const btoa = a => Buffer.from(a).toString('base64')
 const removeJsonExtension = fileName => fileName.replace('.json', '')
-const getOldId = story =>
-  btoa(encodeURIComponent(story.title + '-' + story.author))
 
 const getFileData = dir => fileName => {
   const story = require(path.resolve(dir + '/' + fileName))
 
   return {
-    oldId: getOldId(story),
     ...story,
     id: removeJsonExtension(fileName),
     content: story.content.slice(0, 150) + '…',
-    type: story.type,
   }
 }
 
