@@ -17,7 +17,7 @@ export default React.memo(function TogglableContent(props) {
       })}
 
       <div
-        className={css(styles.target)}
+        className={css(styles.target, props.extend)}
         id={props.id + '-target'}
         aria-labelledby={props.id}
         aria-hidden={!isExpanded}
