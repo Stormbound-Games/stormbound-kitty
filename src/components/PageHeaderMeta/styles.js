@@ -3,8 +3,7 @@
  *    component.
  */
 const meta = {
-  marginTop: '-2em' /* 1 */,
-  marginBottom: '5em',
+  marginBottom: '3em',
   textTransform: 'uppercase',
   color: 'var(--beige)',
   display: 'flex',
@@ -16,6 +15,8 @@ const meta = {
     display: 'flex',
     fontSize: '120%',
     justifyContent: 'space-between',
+    marginTop: '-2em' /* 1 */,
+    marginBottom: '5em',
   },
 }
 
