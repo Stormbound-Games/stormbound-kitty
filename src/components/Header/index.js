@@ -114,17 +114,15 @@ export default React.memo(function Header(props) {
       <nav className={css(styles.nav)}>
         <ul className={css(styles.list)}>
           {navigation.map(item => (
-            <React.Fragment key={item.label}>
-              <li className={css(styles.item)}>
-                <HeaderItem
-                  {...item}
-                  active={props.active.slice(1)}
-                  isActive={props.active[0] === item.id}
-                  isOpen={open === item.id}
-                  setOpen={setOpen}
-                />
-              </li>
-            </React.Fragment>
+            <li key={item.label} className={css(styles.item)}>
+              <HeaderItem
+                {...item}
+                active={props.active.slice(1)}
+                isActive={props.active[0] === item.id}
+                isOpen={open === item.id}
+                setOpen={setOpen}
+              />
+            </li>
           ))}
           <li className={css(styles.item({ isRight: true }))}>
             <Link
