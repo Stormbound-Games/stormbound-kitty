@@ -51,7 +51,7 @@ export default React.memo(function Decks(props) {
 
       {loading && <Loader />}
       {loadMore && (
-        <Row>
+        <Row spacing={{ top: 'LARGE' }}>
           <Row.Column align='center'>
             <CTA onClick={loadMore} type='button' disabled={loading}>
               Load more
