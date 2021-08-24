@@ -86,7 +86,8 @@ export default React.memo(function SearchDialog(props) {
   React.useEffect(() => search && runSearch(search).then(setResults), [search])
 
   // Hide the dialog when the URL changes (after navigating to a result).
-  React.useEffect(() => dialog?.hide(), [dialog, router.asPath])
+  // eslint-disable-next-line
+  React.useEffect(() => dialog?.hide(), [router.asPath])
 
   // Function executed when selecting a result to navigate to its path.
   const handleNavigation = React.useCallback(

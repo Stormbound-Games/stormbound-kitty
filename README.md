@@ -17,6 +17,15 @@ npm install
 npm start
 ```
 
+## Tests
+
+Unit tests are authored and ran with Jest, while end-to-end tests are executed via Cypress.
+
+```
+npm test
+npx cypress open
+```
+
 ## Bot
 
 For the bot to work properly on a Discord server, it requires:
