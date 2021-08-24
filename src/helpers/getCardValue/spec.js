@@ -946,10 +946,10 @@ describe('The `getCardValue` helper', () => {
   it('should return value for Mechanical Workers', () => {
     const value1 = getCardValue('I24', 1)
     const value5 = getCardValue('I24', 5)
-    expect(value1[0]).toEqual((4 / 6) * 1)
-    expect(value1[1]).toEqual(((4 + 3 + 2) / 6) * 1)
-    expect(value5[0]).toEqual((8 / 6) * 1)
-    expect(value5[1]).toEqual(((8 + 6 + 6) / 6) * 1)
+    expect(value1[0]).toEqual((5 / 6) * 1)
+    expect(value1[1]).toEqual(((5 + 3 + 2) / 6) * 1)
+    expect(value5[0]).toEqual((9 / 6) * 1)
+    expect(value5[1]).toEqual(((9 + 6 + 6) / 6) * 1)
   })
 
   it('should return value for Agents in Charge', () => {
@@ -1685,9 +1685,9 @@ describe('The `getCardValue` helper', () => {
     const value1 = getCardValue('W22', 1)
     const value5 = getCardValue('W22', 5)
     expect(value1[0]).toEqual((4 / 9) * 1.5)
-    expect(value1[1]).toEqual(((4 + 4) / 9) * 1.5)
+    expect(value1[1]).toEqual(((4 + 3) / 9) * 1.5)
     expect(value5[0]).toEqual((8 / 9) * 1.5)
-    expect(value5[1]).toEqual(((8 + 8) / 9) * 1.5)
+    expect(value5[1]).toEqual(((8 + 7) / 9) * 1.5)
   })
 
   it('should return value for Olf the Hammer', () => {
