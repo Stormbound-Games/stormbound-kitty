@@ -186,32 +186,14 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
           sheep! Meanwhile, Siren is crying in the corner seeing her hopes and
           dreams of becoming a pirate hero crushed.
         </p>
+
+        <Image
+          src='/assets/images/releases/banner_rogue_sheep.png'
+          alt='New Rogue Sheep card'
+        />
       </Page.Narrow>
 
       <Page.Embed>
-        <Spacing bottom='LARGER'>
-          <Row isDesktopOnly withWideGutter>
-            <Row.Column width='1/2'>
-              <h3 className={css({ marginTop: 0 })}>
-                Sketches & illustrations
-              </h3>
-              <Image
-                extend={{ marginTop: 0 }}
-                src='/assets/images/releases/banner_rogue_sheep.png'
-                alt='New Rogue Sheep card'
-              />
-            </Row.Column>
-            <Row.Column width='1/2'>
-              <h3 className={css({ marginTop: 0 })}>In-game 3D model</h3>
-              <video
-                className={css({ maxWidth: '100%', display: 'block' })}
-                src='/assets/videos/sheep_hero.mp4'
-                muted
-                controls
-              ></video>
-            </Row.Column>
-          </Row>
-        </Spacing>
         <CardBuilderCardDisplay {...getInitialCardData('N77')} />
       </Page.Embed>
 
