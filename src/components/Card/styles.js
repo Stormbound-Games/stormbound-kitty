@@ -192,6 +192,7 @@ const image = {
   width: '100%',
   objectFit: 'contain' /* 1 */,
   maxHeight: '100%',
+  margin: 0,
 }
 
 const ability = {
