@@ -47,6 +47,8 @@ export default React.memo(function FrequentlyAskedQuestions(props) {
           lazy
           width={500}
           height={364}
+          // Webp happens to be significantly heavier than PNG on that image
+          withoutWebp
         />
 
         {props.data.map((category, index) => (
