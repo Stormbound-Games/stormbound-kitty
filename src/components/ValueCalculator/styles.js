@@ -25,19 +25,12 @@ const table = {
   },
 }
 
-const formula = {
-  maxWidth: '80%',
-  display: 'block',
-  height: 'auto',
-  margin: '1em auto 3em',
-}
-
 const hint = {
   medium: {
     textAlign: 'center',
   },
 }
 
-const styles = { controls, cardHolder, table, formula, hint }
+const styles = { controls, cardHolder, table, hint }
 
 export default styles

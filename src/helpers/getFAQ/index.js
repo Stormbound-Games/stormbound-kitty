@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from '~/components/Link'
 import CardLink from '~/components/CardLink'
-import Image from '~/components/Image'
 import DryRunnerExplanation from '~/components/DryRunnerExplanation'
 import getRawCardData from '~/helpers/getRawCardData'
 import { UNVALUED_CARDS } from '~/constants/misc'
@@ -452,15 +451,9 @@ const getFAQ = () => [
             <p>
               The basic formula for estimating the value of a card is to take
               its strength or damage divided by its mana cost time its speed
-              factor, as illustrated below. The speed factor is either 0.5, 1,
-              1.5, 1.75 or 2 depending on the effective movement of a card
-              between 0 and 4.
+              factor. The speed factor is either 0.5, 1, 1.5, 1.75 or 2
+              depending on the effective movement of a card between 0 and 4.
             </p>
-            <Image
-              src='/assets/images/card_value.png'
-              alt='v(c) = s / m * f'
-              extend={{ maxWidth: '200px', margin: '1.5em 0' }}
-            />
             <p>
               For sake of simplicity and/or realism, some liberties have been
               taken which are relevant when understanding the value output:

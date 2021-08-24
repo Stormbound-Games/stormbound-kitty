@@ -9,6 +9,7 @@ import LearnMoreIcon from '~/components/LearnMoreIcon'
 import Link from '~/components/Link'
 import Row from '~/components/Row'
 import Select from '~/components/Select'
+import Spacing from '~/components/Spacing'
 import Title from '~/components/Title'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import getCardValue from '~/helpers/getCardValue'
@@ -119,14 +120,19 @@ export default React.memo(function ValueCalculator(props) {
             speed factor. The speed factor is 0.5, 1, 1.5, 1.75 or 2 depending
             on the card’s effective movement between 0 and 4.
           </p>
-          <Image
-            src='/assets/images/card_value.png'
-            alt='v(c) = s / m * f'
-            width={300}
-            height={48}
-            extend={styles.formula}
-            lazy
-          />
+
+          <Spacing top='BASE' bottom='LARGER'>
+            <Image
+              src='/assets/images/formulas/value.png'
+              alt='v(c) = s / m * f'
+              width={300}
+              height={50}
+              withoutWebp
+              lazy
+              extend={{ margin: 'auto' }}
+            />
+          </Spacing>
+
           <Info
             icon='equalizer'
             title={
