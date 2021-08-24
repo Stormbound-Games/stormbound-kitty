@@ -18,7 +18,7 @@ const getEmbedForStory = (label, story) => {
       { name: 'Author', value: story.author, inline: true },
       { name: 'Card', value: getRawCardData(story.cardId).name, inline: true }
     )
-    .setDescription(story.content.replace('\n', ' '))
+    .setDescription(story.content.replace(/\n/g, ' '))
 }
 
 export default {
