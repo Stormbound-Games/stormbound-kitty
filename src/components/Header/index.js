@@ -126,17 +126,16 @@ export default React.memo(function Header(props) {
               </li>
             </React.Fragment>
           ))}
-          {isMounted && (
-            <li className={css(styles.item({ isRight: true }))}>
-              <Link
-                onClick={props.openSearch}
-                extend={styles.action}
-                data-testid='search-button'
-              >
-                <Icon extend={styles.icon} icon='search' /> Search
-              </Link>
-            </li>
-          )}
+          <li className={css(styles.item({ isRight: true }))}>
+            <Link
+              disabled={!isMounted}
+              onClick={props.openSearch}
+              extend={styles.action}
+              data-testid='search-button'
+            >
+              <Icon extend={styles.icon} icon='search' /> Search
+            </Link>
+          </li>
         </ul>
       </nav>
       <SubNav active={props.active.slice(2)} />
