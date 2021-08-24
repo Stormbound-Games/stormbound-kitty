@@ -1,12 +1,11 @@
 /**
  * 1. Make sure the header sits over the content.
- * 2. Opaque color to cover the underlying image on the home page.
+ * 2. Relative positioning for the absolutely positioned mobile navigation.
  */
 const header = {
   zIndex: 10 /* 1 */,
-  backgroundColor: 'var(--black)' /* 2 */,
-  padding: '1em',
-  paddingBottom: 0,
+  position: 'relative' /* 2 */,
+  padding: '0 var(--s-base)',
 }
 
 /**
@@ -14,29 +13,32 @@ const header = {
  *    loads. This really is only needed in development where `getStaticProps`
  *    (which holds the navigation data) is fetched with every request. This is
  *    unneeded (although safe) in production.
+ * 2. Opaque color to cover the underlying image on the home page.
+ * 3. Use the height of the mobile header instead of `100%` to have the nav menu
+ *    overlap the subnav is there is one.
+ * 4. Use padding instead of margin as the element has a solid background color
+ *    which is not rendered behind margin.
  */
-const nav = ({ isSubNav }) => ({
+const nav = {
   minHeight: '54px' /* 1 */,
+  backgroundColor: 'var(--black)' /* 2 */,
   margin: '0 1em',
-  borderBottom: isSubNav ? undefined : '1px solid var(--dark-beige)',
+  borderBottom: '1px solid var(--dark-beige)',
+  paddingTop: '1em',
 
   small: {
-    borderBottom: 0,
-    position: 'relative',
-
-    ':first-of-type::after': {
-      content: '""',
-      position: 'absolute',
-      bottom: '-0.5em',
-      left: '50%',
-      transform: 'translateX(-50%)',
-      width: '100%',
-      height: '1px',
-      backgroundImage:
-        'linear-gradient(to right, transparent, var(--dark-beige), transparent)',
-    },
+    position: 'absolute',
+    top: '54px' /* 3 */,
+    left: 0,
+    right: 0,
+    margin: 0 /* 4 */,
+    paddingLeft: '1em' /* 4 */,
+    paddingRight: '1em' /* 4 */,
+    paddingTop: 0,
+    zIndex: 20,
+    boxShadow: '0 1.5em 1em -1em #0000004d',
   },
-})
+}
 
 const list = {
   listStyleType: 'none',
@@ -88,18 +90,13 @@ const item = ({ isRight, isSelect }) => ({
  * 1. Make sure the open action sits on top of its mega menu so the pseudo-
  *    element looks like it belongs to the menu itself.
  */
-const action = ({ isDisabled, isActive, isOpen, isWithinSubList }) => ({
-  backgroundColor: 'transparent',
-  border: 0,
+const action = ({ isActive, isOpen }) => ({
   color: isActive ? 'var(--beige)' : 'inherit',
   display: 'inline-block',
-  font: 'inherit',
   outline: 0,
   padding: '1em',
   position: 'relative',
   textDecoration: 'none',
-  opacity: isDisabled ? 0.5 : undefined,
-  cursor: isDisabled ? 'help' : 'pointer',
   zIndex: isOpen ? 20 : undefined /* 1 */,
 
   small: {
@@ -118,28 +115,22 @@ const action = ({ isDisabled, isActive, isOpen, isWithinSubList }) => ({
     width: '1em',
     height: '1em',
     position: 'absolute',
-    transform: `translate(-50%, ${
-      isWithinSubList ? '50%' : '-50%'
-    }) rotate(45deg)`,
-    top: isWithinSubList ? 'auto' : 'calc(100% + 0.5em)',
-    bottom: isWithinSubList ? '100%' : 'auto',
+    transform: 'translate(-50%, -50%) rotate(45deg)',
+    top: 'calc(100% + 0.5em)',
     left: '50%',
     border: '1px solid var(--dark-beige)',
-    borderBottom: isWithinSubList ? undefined : 0,
-    borderRight: isWithinSubList ? undefined : 0,
-    borderTop: isWithinSubList ? 0 : undefined,
-    borderLeft: isWithinSubList ? 0 : undefined,
+    borderBottom: 0,
+    borderRight: 0,
     backgroundColor: 'var(--black)',
     opacity: isOpen ? 1 : 0,
     transition: 'opacity 250ms 150ms',
-    backgroundImage: isWithinSubList
-      ? 'linear-gradient(135deg, var(--black) 50%, var(--dark-beige) 50%)'
-      : isActive && !isOpen
-      ? 'linear-gradient(135deg, var(--dark-beige) 50%, var(--black) 50%)' /* 2 */
-      : undefined,
+    backgroundImage:
+      isActive && !isOpen
+        ? 'linear-gradient(135deg, var(--dark-beige) 50%, var(--black) 50%)' /* 2 */
+        : undefined,
 
     medium: {
-      top: isWithinSubList ? 'auto' : '100%',
+      top: '100%',
       opacity: isActive ? 1 : undefined,
     },
   },

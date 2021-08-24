@@ -5,6 +5,7 @@ import { PersonalDecksContext } from '~/components/PersonalDecksProvider'
 import { UserContext } from '~/components/UserProvider'
 import HeaderMegaMenu from '~/components/HeaderMegaMenu'
 import Link from '~/components/Link'
+import MobileHeader from '~/components/MobileHeader'
 import NavCardBuilder from '~/components/NavCardBuilder'
 import NavDeckBuilder from '~/components/NavDeckBuilder'
 import NewPulse from '~/components/NewPulse'
@@ -111,6 +112,8 @@ export default React.memo(function Header(props) {
 
   return (
     <header role='banner' className={css(styles.header)}>
+      <MobileHeader />
+
       <nav className={css(styles.nav)}>
         <ul className={css(styles.list)}>
           {navigation.map(item => (
