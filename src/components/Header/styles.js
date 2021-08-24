@@ -103,7 +103,7 @@ const action = ({ isDisabled, isActive, isOpen, isWithinSubList }) => ({
   zIndex: isOpen ? 20 : undefined /* 1 */,
 
   small: {
-    padding: isWithinSubList ? '0.5em 0' : '0 0 1em',
+    padding: '0.5em 0',
   },
 
   ':focus': { color: 'var(--light-swarm)' },
@@ -121,7 +121,7 @@ const action = ({ isDisabled, isActive, isOpen, isWithinSubList }) => ({
     transform: `translate(-50%, ${
       isWithinSubList ? '50%' : '-50%'
     }) rotate(45deg)`,
-    top: isWithinSubList ? 'auto' : '100%',
+    top: isWithinSubList ? 'auto' : 'calc(100% + 0.5em)',
     bottom: isWithinSubList ? '100%' : 'auto',
     left: '50%',
     border: '1px solid var(--dark-beige)',
@@ -138,7 +138,10 @@ const action = ({ isDisabled, isActive, isOpen, isWithinSubList }) => ({
       ? 'linear-gradient(135deg, var(--dark-beige) 50%, var(--black) 50%)' /* 2 */
       : undefined,
 
-    medium: { opacity: isActive ? 1 : undefined },
+    medium: {
+      top: isWithinSubList ? 'auto' : '100%',
+      opacity: isActive ? 1 : undefined,
+    },
   },
 })
 

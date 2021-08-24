@@ -30,7 +30,7 @@ const menu = ({ isOpen }) => ({
   small: {
     minWidth: 0,
     width: 'calc(100vw - 2em)',
-    top: '100%',
+    top: 'calc(100% + 0.5em)',
   },
 })
 
