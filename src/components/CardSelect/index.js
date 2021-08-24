@@ -33,6 +33,7 @@ export default React.memo(function CardSelect(props) {
       <Select
         name={props.name}
         id={props.id}
+        isDisabled={props.disabled}
         required={props.required}
         isClearable={props.withClear}
         value={{

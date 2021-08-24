@@ -5,10 +5,12 @@ import getRawCardData from '~/helpers/getRawCardData'
 import useViewportSize from '~/hooks/useViewportSize'
 import useQueryParams from '~/hooks/useQueryParams'
 import useNavigator from '~/hooks/useNavigator'
+import useIsMounted from '~/hooks/useIsMounted'
 import styles from '~/components/Header/styles'
 
 export default React.memo(function NavCardBuilder(props) {
   const { css } = useFela()
+  const isMounted = useIsMounted()
   const { viewportWidth } = useViewportSize()
   const { id } = useQueryParams()
   const navigator = useNavigator()
@@ -19,6 +21,7 @@ export default React.memo(function NavCardBuilder(props) {
         <li className={css(styles.item({ isSelect: true }))}>
           <CardSelect
             hideLabel
+            disabled={!isMounted}
             label='Load Card'
             id='card-select'
             name='card-select'
