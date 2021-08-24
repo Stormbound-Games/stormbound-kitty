@@ -46,7 +46,7 @@ const action = {
 const actionIcon = {
   marginRight: '1ch',
   position: 'relative',
-  top: '0.2em',
+  top: '0.1em',
 
   ':last-child': {
     marginLeft: '1ch',
