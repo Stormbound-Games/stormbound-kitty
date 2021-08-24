@@ -134,9 +134,9 @@ const action = ({ isDisabled, isActive, isOpen, isWithinSubList }) => ({
     transition: 'opacity 250ms 150ms',
     backgroundImage: isWithinSubList
       ? 'linear-gradient(135deg, var(--black) 50%, var(--dark-beige) 50%)'
-      : isActive &&
-        !isOpen &&
-        'linear-gradient(135deg, var(--dark-beige) 50%, var(--black) 50%)' /* 2 */,
+      : isActive && !isOpen
+      ? 'linear-gradient(135deg, var(--dark-beige) 50%, var(--black) 50%)' /* 2 */
+      : undefined,
 
     medium: { opacity: isActive ? 1 : undefined },
   },
