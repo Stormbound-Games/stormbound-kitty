@@ -19,6 +19,7 @@ import Eye from '~/components/Icons/Eye'
 import Fire from '~/components/Icons/Fire'
 import FolderOpen from '~/components/Icons/FolderOpen'
 import Gift from '~/components/Icons/Gift'
+import Hamburger from '~/components/Icons/Hamburger'
 import Hammer from '~/components/Icons/Hammer'
 import Heart from '~/components/Icons/Heart'
 import Home from '~/components/Icons/Home'
@@ -66,6 +67,7 @@ const MAP = {
   fire: Fire,
   'folder-open': FolderOpen,
   gift: Gift,
+  hamburger: Hamburger,
   hammer: Hammer,
   heart: Heart,
   home: Home,
