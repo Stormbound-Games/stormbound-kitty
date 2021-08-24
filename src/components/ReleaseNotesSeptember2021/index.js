@@ -22,7 +22,7 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
         <p>
           Hello Stormbounders! A new version of Stormbound is coming early
           September, bringing balance changes, a new card, and a lot of generous
-          offers to celebrate Stormbound’s 4th nniversary!
+          offers to celebrate Stormbound’s 4th anniversary!
         </p>
 
         <p>
