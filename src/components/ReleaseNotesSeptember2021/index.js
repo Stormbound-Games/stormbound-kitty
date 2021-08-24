@@ -81,7 +81,10 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
             <CardLink id='N80' />’ movement is now 1 (up from 0), strength is
             now 4/5/6/7/8 (up from 3/4/5/6/7) and their ability is now
             surrounding at all levels and triggers before moving instead of on
-            play only.
+            play only. This introduces the{' '}
+            <span className='Highlight'>before moving</span> mechanic, now
+            available for search in deck builder and collection manager on the
+            site.
           </li>
           <li>
             <CardLink id='W22' />’ ability now grants 3/4/5/6/7 (down from
