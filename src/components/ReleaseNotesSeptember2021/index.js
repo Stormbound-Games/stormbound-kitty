@@ -152,7 +152,7 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
         </p>
 
         <p>
-          Last but not leasts,{' '}
+          Last but not least,{' '}
           <span className='Highlight'>all books will contain more cards</span>{' '}
           between September 17th and September 20th. Books normally holding 3
           cards will be contain 4, and books usually containing 6 cards (Mythic,
