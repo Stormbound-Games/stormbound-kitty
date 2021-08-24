@@ -57,7 +57,7 @@ const parseMessage = search => {
   return params
 }
 
-export default {
+const bookodds = {
   command: 'bookodds',
   label: '📕  Book Drawing Odds',
   help: function () {
@@ -129,3 +129,5 @@ export default {
     return embed
   },
 }
+
+export default bookodds

@@ -42,7 +42,7 @@ const hasRole = (member, role) => {
   return member.roles.cache.find(r => r.name === role.name)
 }
 
-export default {
+const role = {
   command: 'role',
   label: '🌟  Role Assignment',
   help: function (message, client, messageObject) {
@@ -114,3 +114,5 @@ export default {
     return embed
   },
 }
+
+export default role

@@ -1,7 +1,7 @@
 import getEmbed from '~/helpers/getEmbed'
 import searchCards from '~/helpers/searchCards'
 
-export default {
+const cardinfo = {
   command: 'cardinfo',
   label: '⚡️  Card Info',
   help: function () {
@@ -21,3 +21,5 @@ export default {
     )
   },
 }
+
+export default cardinfo

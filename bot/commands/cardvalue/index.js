@@ -15,7 +15,7 @@ const getLevel = message => {
   return [hasLevel ? level : 1, message]
 }
 
-export default {
+const cardvalue = {
   command: 'cardvalue',
   label: '⚖️  Card value',
   help: function () {
@@ -54,3 +54,5 @@ export default {
     )
   },
 }
+
+export default cardvalue

@@ -2,7 +2,7 @@ import GUIDES from '~/data/guides'
 import getEmbed from '~/helpers/getEmbed'
 import { CATEGORIES } from '~/constants/guides'
 
-export default {
+const guides = {
   command: 'guides',
   label: '🧭  Guides',
   help: function () {
@@ -43,3 +43,5 @@ export default {
     }
   },
 }
+
+export default guides

@@ -21,7 +21,7 @@ const getEmbedForStory = (label, story) => {
     .setDescription(story.content.replace(/\n/g, ' '))
 }
 
-export default {
+const story = {
   command: 'story',
   label: '📝  Story',
   help: function () {
@@ -40,3 +40,5 @@ export default {
     return getEmbedForStory(this.label, getStoriesForSearch(message)[0])
   },
 }
+
+export default story

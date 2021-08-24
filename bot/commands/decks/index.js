@@ -44,7 +44,7 @@ export const parseMessage = content => {
   return { params, ignored }
 }
 
-export default {
+const decks = {
   command: 'decks',
   label: '🔍  Deck Search',
   help: function () {
@@ -94,3 +94,5 @@ export default {
     return embed
   },
 }
+
+export default decks

@@ -1,6 +1,5 @@
 import getEmbed from '~/helpers/getEmbed'
 import capitalise from '~/helpers/capitalise'
-import isKATMember from '~/helpers/isKATMember'
 import getMemberContent from '~/helpers/getMemberContent'
 
 const BASE_URL = 'https://stormbound-kitty.com'
@@ -14,7 +13,7 @@ const getEmbedField = details => type => ({
   inline: true,
 })
 
-export default {
+const member = {
   command: 'member',
   label: '😻  SK member',
   help: function () {
@@ -60,3 +59,5 @@ export default {
       .addFields(...fields)
   },
 }
+
+export default member

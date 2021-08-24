@@ -1,6 +1,6 @@
 import getChannelId from '~/helpers/getChannelId'
 
-export default client => async message => {
+const handle = client => async message => {
   const isCommand = message.content.startsWith('!')
 
   // If the message comes from a bot (or itself), do not process any further.
@@ -42,3 +42,5 @@ export default client => async message => {
     }
   }
 }
+
+export default handle

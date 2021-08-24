@@ -16,7 +16,7 @@ const getLevelOut = term => {
   return [hasLevel ? level : null, term]
 }
 
-export default {
+const deckid = {
   command: 'deckid',
   label: '⚙️  Deck ID',
   help: function () {
@@ -71,3 +71,5 @@ export default {
     return embed
   },
 }
+
+export default deckid

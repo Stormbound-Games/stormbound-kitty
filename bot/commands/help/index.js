@@ -1,6 +1,6 @@
 import getEmbed from '~/helpers/getEmbed'
 
-export default {
+const help = {
   command: 'help',
   label: '🤖  Help',
   help: function (content, client, messageObject) {
@@ -26,3 +26,5 @@ export default {
     return this.help(message, client, messageObject)
   },
 }
+
+export default help

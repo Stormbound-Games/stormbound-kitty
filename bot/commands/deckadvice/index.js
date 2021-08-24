@@ -4,7 +4,7 @@ import getResolvedCardData from '~/helpers/getResolvedCardData'
 import serialisation from '~/helpers/serialisation'
 import getDeckIDFromURL from '~/helpers/getDeckIDFromURL'
 
-export default {
+const deckadvice = {
   command: 'deckadvice',
   label: '💎  Deck Advice',
   help: function () {
@@ -47,3 +47,5 @@ export default {
     } catch (error) {}
   },
 }
+
+export default deckadvice

@@ -30,7 +30,7 @@ const getRandomCardName = () => {
   return NAMES.includes(name) ? getRandomCardName() : name
 }
 
-export default {
+const mashup = {
   command: 'mashup',
   label: '🤪  Card Mashup',
   help: function () {
@@ -45,3 +45,5 @@ export default {
     return getEmbed().setTitle(this.label + ': ' + getRandomCardName())
   },
 }
+
+export default mashup

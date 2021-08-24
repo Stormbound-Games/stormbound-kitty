@@ -2,7 +2,7 @@ import getEmbed from '~/helpers/getEmbed'
 import arrayRandom from '~/helpers/arrayRandom'
 import ARTWORKS from '~/data/artworks'
 
-export default {
+const fanart = {
   command: 'fanart',
   label: '👩‍🎨  Fan-art',
   help: function () {
@@ -29,3 +29,5 @@ export default {
     return embed
   },
 }
+
+export default fanart

@@ -51,7 +51,7 @@ const parseMessage = content => {
   return { filters, ignored }
 }
 
-export default {
+const randomcard = {
   command: 'randomcard',
   label: '🃏  Random Card',
   help: function () {
@@ -87,3 +87,5 @@ export default {
       .join('\n')
   },
 }
+
+export default randomcard

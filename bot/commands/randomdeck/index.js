@@ -5,7 +5,6 @@ import searchCards from '~/helpers/searchCards'
 import getEmbed from '~/helpers/getEmbed'
 import getRandomDeck from '~/helpers/getRandomDeck'
 import handleSearchAlias from '~/helpers/handleSearchAlias'
-import sortCards from '~/helpers/sortCards'
 import serialisation from '~/helpers/serialisation'
 
 const ALLOWED_FACTIONS = Object.keys(FACTIONS).filter(
@@ -90,7 +89,7 @@ export const validateFaction = (faction, including = []) => {
   return faction || factions[0] || randomFaction
 }
 
-export default {
+const randomdeck = {
   command: 'randomdeck',
   label: '🎲  Random Deck',
   help: function () {
@@ -124,3 +123,5 @@ export default {
     return 'https://stormbound-kitty.com/deck/' + id
   },
 }
+
+export default randomdeck

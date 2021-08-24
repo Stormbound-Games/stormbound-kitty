@@ -1,7 +1,7 @@
 import getEmbed from '~/helpers/getEmbed'
 import api from '~/helpers/api'
 
-export default {
+const gameid = {
   command: 'gameid',
   label: '🎮  Game ID',
   help: function (message, client, messageObject) {
@@ -63,3 +63,5 @@ export default {
     }
   },
 }
+
+export default gameid

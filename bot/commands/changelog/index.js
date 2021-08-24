@@ -12,7 +12,7 @@ const groupByDate = (acc, change) => {
   return acc
 }
 
-export default {
+const changelog = {
   command: 'changelog',
   label: '🛠  Card Changelog',
   help: function () {
@@ -61,3 +61,5 @@ export default {
     return embed
   },
 }
+
+export default changelog

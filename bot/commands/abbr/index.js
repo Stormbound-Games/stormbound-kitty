@@ -6,7 +6,7 @@ const ABBREVIATIONS = getAbbreviations('LOWERCASE')
 
 const quotify = value => `“${value}”`
 
-export default {
+const abbr = {
   command: 'abbr',
   label: '❔  Abbreviation',
   help: function () {
@@ -34,3 +34,5 @@ export default {
     return embed
   },
 }
+
+export default abbr

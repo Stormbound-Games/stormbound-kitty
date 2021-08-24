@@ -7,7 +7,7 @@ import serialisation from '~/helpers/serialisation'
 import { TAGS } from '~/constants/deck'
 import { parseMessage } from '../decks'
 
-export default {
+const suggestdeck = {
   command: 'suggestdeck',
   label: '✅  Deck Suggestion',
   help: function () {
@@ -109,3 +109,5 @@ export default {
     }
   },
 }
+
+export default suggestdeck

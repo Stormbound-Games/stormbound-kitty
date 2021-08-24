@@ -4,7 +4,7 @@ import Trivia from './Trivia'
 
 const cache = new Map()
 
-export default {
+const trivia = {
   command: 'trivia',
   label: '🔮  Trivia',
   ping: false,
@@ -54,3 +54,5 @@ export default {
     }
   },
 }
+
+export default trivia
