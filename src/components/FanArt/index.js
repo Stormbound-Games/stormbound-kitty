@@ -1,17 +1,14 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import Image from 'next/image'
 import Link from '~/components/Link'
 import Masonry from 'react-masonry-css'
-import Image from '~/components/Image'
 import Page from '~/components/Page'
-import Loader from '~/components/Loader'
 import Spacing from '~/components/Spacing'
-import useLazyLoad from '~/hooks/useLazyLoad'
 import styles from './styles'
 
 export default React.memo(function FanArt(props) {
   const { css } = useFela()
-  const { loading, items, ref } = useLazyLoad(props.artworks, 3)
 
   return (
     <Page
@@ -38,34 +35,35 @@ export default React.memo(function FanArt(props) {
         <Masonry
           breakpointCols={{
             default: 3,
-            1100: 3,
-            700: 2,
+            900: 2,
             500: 1,
           }}
           className={css(styles.wrapper)}
           columnClassName={css(styles.item)}
         >
-          {items.map(entry => (
-            <figure className={css(styles.art)} key={entry.image}>
-              <Image
-                src={'/assets/images/art/' + entry.image}
-                alt={'Artwork by ' + entry.author}
-                extend={styles.image}
-                withoutWebp
-                lazy
-                width={500}
-              />
-              <figcaption className={css(styles.caption)}>
-                Artwork by{' '}
-                <Link to={'/members/' + entry.author}>{entry.author}</Link>
-              </figcaption>
-            </figure>
-          ))}
+          {props.artworks.map(entry => {
+            const [width, height] = entry.dimensions.split('x').map(Number)
+            const displayWidth = 400
+            const displayHeight = Math.round((displayWidth / width) * height)
+
+            return (
+              <figure className={css(styles.art)} key={entry.image}>
+                <Image
+                  src={'/assets/images/art/' + entry.image}
+                  alt={'Artwork by ' + entry.author}
+                  layout='intrinsic'
+                  width={displayWidth}
+                  height={displayHeight}
+                />
+                <figcaption className={css(styles.caption)}>
+                  Artwork by{' '}
+                  <Link to={'/members/' + entry.author}>{entry.author}</Link>
+                </figcaption>
+              </figure>
+            )
+          })}
         </Masonry>
       </Spacing>
-
-      {loading && <Loader />}
-      <div ref={ref} />
     </Page>
   )
 })

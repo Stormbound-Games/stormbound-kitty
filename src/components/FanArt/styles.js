@@ -21,13 +21,6 @@ const art = {
   margin: '0 0 3em',
 }
 
-const image = {
-  height: 'auto',
-  maxWidth: '100%',
-  margin: 'auto',
-  display: 'block',
-}
-
 const caption = {
   color: 'var(--beige)',
   textTransform: 'uppercase',
@@ -42,7 +35,6 @@ const styles = {
   wrapper,
   item,
   art,
-  image,
   caption,
 }
 
