@@ -92,9 +92,8 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
             <span className='Highlight'>unit</span>, regardless of position.
           </li>
           <li>
-            <CardLink id='N43' />’ ability now triggers when played borderding a
-            friendly dragon, instead of only one bordering exactly 1 friendly
-            dragon.
+            <CardLink id='N43' />’ ability now triggers when played borderding
+            at least 1 friendly dragon, instead of exactly 1 friendly dragon.
           </li>
           <li>
             <CardLink id='I24' />’ strength is now 5/6/7/8/9 (up from
