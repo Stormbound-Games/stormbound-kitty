@@ -281,26 +281,32 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
         </ul>
       </Page.Narrow>
 
-      <Row isDesktopOnly>
-        <Row.Column width='1/3'>
-          <Image
-            src='/assets/images/releases/next_brawls.png'
-            withoutWebp
-            alt='Brawl tab now displaying the upcoming Brawls'
-          />
-        </Row.Column>
+      <Row isDesktopOnly withWideGutter>
         <Row.Column width='1/3'>
           <Image
             src='/assets/images/releases/double_income.png'
-            withoutWebp
             alt='Anniversary event information dialog about all coins being doubled'
+            width={358}
+            height={640}
+            lazy
           />
         </Row.Column>
         <Row.Column width='1/3'>
           <Image
             src='/assets/images/releases/shop_reroll.png'
-            withoutWebp
             alt='Card shop tab information dialog offering to reroll the cards by watching an ad'
+            width={358}
+            height={640}
+            lazy
+          />
+        </Row.Column>
+        <Row.Column width='1/3'>
+          <Image
+            src='/assets/images/releases/next_brawls.png'
+            alt='Brawl tab now displaying the upcoming Brawls'
+            width={358}
+            height={640}
+            lazy
           />
         </Row.Column>
       </Row>
