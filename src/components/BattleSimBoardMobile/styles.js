@@ -1,14 +1,8 @@
 /**
  * 1. Position context for actual grid
- * 2. Explicitly no Webp background here as the Webp version is way heavier than
- *    the original PNG.
  */
 const board = {
   position: 'relative' /* 1 */,
-  backgroundImage: "url('/assets/images/bg-swarm.png')" /* 2 */,
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
   overflow: 'hidden',
   border: '1px solid #ffffff33',
 

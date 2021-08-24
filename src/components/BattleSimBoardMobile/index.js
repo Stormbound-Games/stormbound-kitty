@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import Image from 'next/image'
 import BaseHealth from '~/components/BattleSimBaseHealth'
 import Cards from '~/components/BattleSimCards'
 import CardZoom from '~/components/CardZoom'
@@ -11,6 +12,14 @@ export default React.memo(function BattleSimBoardMobile(props) {
   const { css } = useFela()
   return (
     <div className={css(styles.board)} data-testid='board'>
+      <Image
+        src='/assets/images/bg-swarm.png'
+        alt=''
+        layout='fill'
+        objectFit='cover'
+        priority
+      />
+
       <div className={css(styles.health({ player: 'RED' }))}>
         <BaseHealth player='RED' health={props.players.RED.health} />
       </div>
