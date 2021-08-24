@@ -5,7 +5,7 @@ import styles from './styles'
 
 export default React.memo(function HorizontalRule(props) {
   const { css } = useFela()
-  const margin = useSpacing(props.spacing || { vertical: 'LARGER' })
+  const margin = useSpacing(props.spacing || { vertical: ['LARGE', 'LARGER'] })
 
   return <hr className={css(margin, styles.rule)} />
 })
