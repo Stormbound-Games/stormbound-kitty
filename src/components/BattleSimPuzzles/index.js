@@ -86,7 +86,7 @@ export default React.memo(function BattleSimPuzzles(props) {
       title='Puzzles'
       description='Test your skills and resolve interesting and creative puzzles made by the Stormbound community'
     >
-      <Row isDesktopOnly withWideGutter>
+      <Row isDesktopOnly>
         <Row.Column width='1/3'>
           <Title>Filters</Title>
           <PuzzlesFilters

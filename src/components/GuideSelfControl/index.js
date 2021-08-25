@@ -53,7 +53,7 @@ export default React.memo(function GuideSelfControl(props) {
       <Title>Possible Decks</Title>
 
       <Guide.FullWidth>
-        <Row isDesktopOnly withWideGutter spacing={{ vertical: 'LARGE' }}>
+        <Row isDesktopOnly spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
             <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               Basic Swarm Rush
@@ -82,7 +82,7 @@ export default React.memo(function GuideSelfControl(props) {
             />
           </Row.Column>
         </Row>
-        <Row isDesktopOnly withWideGutter spacing={{ vertical: 'LARGE' }}>
+        <Row isDesktopOnly spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
             <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               CriticalPancake’s Satyr’s Demise

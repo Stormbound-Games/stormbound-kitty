@@ -252,7 +252,7 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
 
         <Title id='ui-improvements'>UI improvements</Title>
 
-        <Row isDesktopOnly withWideGutter>
+        <Row isDesktopOnly>
           <Row.Column>
             <Spacing top='LARGE'>
               <p>

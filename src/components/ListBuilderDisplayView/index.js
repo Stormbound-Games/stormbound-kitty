@@ -20,7 +20,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
         children: 'Edit list',
       }}
     >
-      <Row withWideGutter isDesktopOnly>
+      <Row isDesktopOnly>
         <Row.Column width='1/3'>
           <Title>Information</Title>
 

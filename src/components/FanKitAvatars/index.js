@@ -103,7 +103,7 @@ export default React.memo(function FanKitAvatars(props) {
       />
 
       {items.map((row, rowIndex) => (
-        <Row withWideGutter={viewportWidth >= 700} key={rowIndex}>
+        <Row key={rowIndex}>
           {Array.from({ length: columns }, (_, index) => (
             <Row.Column
               width={'1/' + columns}

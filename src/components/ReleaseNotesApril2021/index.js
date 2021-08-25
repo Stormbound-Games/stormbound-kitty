@@ -234,7 +234,7 @@ export default React.memo(function ReleaseNotesApril2021(props) {
       </Page.Narrow>
 
       <Page.Embed>
-        <Row isDesktopOnly withWideGutter>
+        <Row isDesktopOnly>
           <Row.Column width='1/3'>
             <Image
               src='/assets/images/releases/easter_pack_1.png'

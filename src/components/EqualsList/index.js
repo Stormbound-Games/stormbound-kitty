@@ -40,7 +40,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
       description='Find a Tier List for ‘Equals Mode’ of all the Stormbound cards, ranked by effectiveness and popularity'
       meta={'Updated in ' + formatDate(lastUpdate)}
     >
-      <Row withWideGutter isDesktopOnly>
+      <Row isDesktopOnly>
         <Row.Column width='1/3'>
           <p>
             This tier list was made by the Stormbound community, with strong

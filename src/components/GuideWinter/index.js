@@ -162,7 +162,7 @@ export default React.memo(function GuideWinter(props) {
       </ul>
 
       <Guide.FullWidth>
-        <Row isDesktopOnly withWideGutter>
+        <Row isDesktopOnly>
           <Row.Column>
             <FeaturedDeck
               id='3xn3n11n12n16w5n18n28w12w13w15w19w21'

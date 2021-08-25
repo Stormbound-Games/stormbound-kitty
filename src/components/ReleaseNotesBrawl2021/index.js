@@ -95,7 +95,7 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
 
         <Title>Three difficulties</Title>
 
-        <Row isDesktopOnly withWideGutter>
+        <Row isDesktopOnly>
           <Row.Column>
             <Spacing top='LARGE'>
               <p>
@@ -161,7 +161,7 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
 
         <Title id='crowns-and-milestones'>Crowns &amp; milestones</Title>
 
-        <Row isDesktopOnly withWideGutter>
+        <Row isDesktopOnly>
           <Row.Column>
             <Spacing top='LARGE'>
               <p>

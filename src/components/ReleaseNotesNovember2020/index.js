@@ -197,7 +197,7 @@ export default React.memo(function ReleaseNotesNovember2020(props) {
       </Page.Narrow>
 
       <Page.Embed>
-        <Row isDesktopOnly withWideGutter>
+        <Row isDesktopOnly>
           <Row.Column>
             <Image
               src='/assets/images/releases/stoic_protectors_pack.png'

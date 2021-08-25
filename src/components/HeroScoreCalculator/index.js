@@ -32,7 +32,7 @@ export default React.memo(function HeroScoreCalculator(props) {
       title='Hero Calculator'
       description='Figure out how to optimize your Hero Score in the Heroes League with this elo rating inspired calculator!'
     >
-      <Row isDesktopOnly withWideGutter>
+      <Row isDesktopOnly>
         <Row.Column width='1/3'>
           <Title>What is this</Title>
 

@@ -61,7 +61,7 @@ export default React.memo(function GuideBwBRush(props) {
       </p>
 
       <Guide.FullWidth>
-        <Row isDesktopOnly withWideGutter>
+        <Row isDesktopOnly>
           <Row.Column>
             <p>
               This deck can have a lot of variations, but there is a template
@@ -94,7 +94,7 @@ export default React.memo(function GuideBwBRush(props) {
         <h3 id='zhevana-variant' align='center'>
           Zhevana Variant
         </h3>
-        <Row isDesktopOnly withWideGutter>
+        <Row isDesktopOnly>
           <Row.Column>
             <FeaturedDeck
               id='5xn1w1n2w2n3n4n12n16w7w8n27w14'
@@ -131,7 +131,7 @@ export default React.memo(function GuideBwBRush(props) {
 
       <Guide.FullWidth>
         <h3 align='center'>Felflares Variant</h3>
-        <Row isDesktopOnly withWideGutter>
+        <Row isDesktopOnly>
           <Row.Column>
             <FeaturedDeck
               id='5xn1w1n2w2n3n4n11n12n21w7n27w14'

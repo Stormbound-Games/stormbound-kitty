@@ -19,12 +19,12 @@ export default React.memo(function Videos(props) {
       isEditorialContent
     >
       {chunk(props.channels, 2).map((row, index) => (
-        <Row key={index} isDesktopOnly withWideGutter>
+        <Row key={index} isDesktopOnly>
           {row.map((channel, index, array) => (
             <React.Fragment key={channel.author}>
               <Row.Column>
                 <Spacing bottom='LARGER'>
-                  <Row isDesktopOnly withWideGutter>
+                  <Row isDesktopOnly>
                     <Row.Column width='1/3' extend={styles.column}>
                       <Image
                         src={channel.thumbnail}
