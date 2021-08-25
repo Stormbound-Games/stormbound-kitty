@@ -19,8 +19,6 @@ export default React.memo(function BattleSimPanel(props) {
           onClick={props.closePanel}
           label='Go to board'
           data-testid='panel-close-btn'
-          isActive
-          aria-pressed={false}
           icon='cross'
         />
       )}

@@ -12,6 +12,7 @@ const button = ({ isActive }) => ({
   padding: 0,
   position: 'relative',
   cursor: 'pointer',
+  outline: 0,
 
   ':disabled': {
     opacity: 0.5,
@@ -34,12 +35,14 @@ const button = ({ isActive }) => ({
     backgroundColor: isActive ? 'var(--beige)' : undefined,
   },
 
-  ':not(:disabled):hover': {
-    color: isActive ? 'var(--beige)' : 'var(--black)',
+  ':not(:disabled):hover::before': {
+    boxShadow:
+      '0 0 0 1px var(--beige), 0 0 0 3px var(--black), 0 0 0 4px var(--beige)',
   },
 
-  ':not(:disabled):hover::before': {
-    backgroundColor: isActive ? 'var(--black)' : 'var(--beige)',
+  ':focus::before': {
+    boxShadow:
+      '0 0 0 1px var(--beige), 0 0 0 3px var(--black), 0 0 0 4px var(--beige)',
   },
 })
 

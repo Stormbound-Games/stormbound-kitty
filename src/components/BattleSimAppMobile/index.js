@@ -232,8 +232,6 @@ class BattleSimAppMobile extends React.Component {
                 }
                 label='Open settings panel'
                 data-testid='settings-panel-btn'
-                isActive
-                aria-pressed={false}
                 icon='hamburger'
               />
             )}
@@ -247,8 +245,6 @@ class BattleSimAppMobile extends React.Component {
                 }
                 label='Open cell panel'
                 data-testid='cell-panel-btn'
-                isActive
-                aria-pressed={false}
                 icon='target'
               />
             )}
