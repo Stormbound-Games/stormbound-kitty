@@ -10,28 +10,28 @@ import styles from './styles'
 export default React.memo(function MobileHeader(props) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
   const isMounted = useIsMounted()
-  const router = useRouter()
+  const { asPath } = useRouter()
   const { css } = useFela({ isMenuOpen })
 
-  React.useEffect(() => setIsMenuOpen(false), [router.asPath])
+  React.useEffect(() => setIsMenuOpen(false), [asPath])
 
   return (
     <div className={css(styles.nav)}>
       <BlankButton
         extend={styles.left}
-        disabled={!isMounted}
-        onClick={() => router.back()}
+        onClick={() => setIsMenuOpen(open => !open)}
       >
-        <Icon icon='arrow-left' />
+        <Icon icon={isMenuOpen ? 'cross' : 'hamburger'} />
       </BlankButton>
       <Link to='/' extend={styles.middle}>
         Stormbound-Kitty
       </Link>
       <BlankButton
         extend={styles.right}
-        onClick={() => setIsMenuOpen(open => !open)}
+        disabled={!isMounted}
+        onClick={props.openSearch}
       >
-        <Icon icon={isMenuOpen ? 'cross' : 'hamburger'} />
+        <Icon icon='search' />
       </BlankButton>
     </div>
   )

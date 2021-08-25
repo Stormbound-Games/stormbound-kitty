@@ -112,7 +112,7 @@ export default React.memo(function Header(props) {
 
   return (
     <header role='banner' className={css(styles.header)}>
-      <MobileHeader />
+      <MobileHeader openSearch={props.openSearch} />
 
       <nav className={css(styles.nav)}>
         <ul className={css(styles.list)}>
