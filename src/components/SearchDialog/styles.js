@@ -29,6 +29,8 @@ const list = ({ isOpen }) => ({
   boxShadow: isOpen
     ? '0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 11px hsla(0, 0%, 0%, 0.1)'
     : undefined,
+
+  ':empty': { borderColor: 'transparent' },
 })
 
 const item = ({ isHighlighted, isSelected }) => ({
