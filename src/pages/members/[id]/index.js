@@ -18,6 +18,12 @@ export async function getStaticProps(context) {
   const { channel, count, content, details, displayName, roles } =
     getMemberContent(id)
 
+  // This is a bit of a hack, in case there is a link to a member page that is
+  // missing the ID and gets serialised as `undefined`.
+  if (id === 'undefined') {
+    return { notFound: true }
+  }
+
   return {
     props: {
       navigation: getNavigation(),
