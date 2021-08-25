@@ -9,25 +9,16 @@ const gradientLine = {
     'linear-gradient(to right, transparent, var(--dark-beige), transparent)',
 }
 
-/**
- * 1. Negate the spacing from the header to avoid duplicate spacing all around.
- * 2. Hide the navigation (from the `Header` component) when the menu is not
- *    open.
- */
-const nav = ({ isMenuOpen }) => ({
+const nav = {
   display: 'flex',
   zIndex: 10,
-  margin: '0 calc(var(--s-base) * -1)' /* 1 */,
   position: 'relative',
-
-  small: {
-    '& + nav': { display: isMenuOpen ? 'block' : 'none' /* 2 */ },
-  },
+  paddingTop: '0.5em',
 
   '::after': gradientLine,
 
   medium: { display: 'none' },
-})
+}
 
 const left = {
   padding: 'var(--s-base)',

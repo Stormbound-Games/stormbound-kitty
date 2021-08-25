@@ -19,7 +19,7 @@ const header = {
  * 4. Use padding instead of margin as the element has a solid background color
  *    which is not rendered behind margin.
  */
-const nav = {
+const nav = ({ isMobileNavOpen }) => ({
   minHeight: '54px' /* 1 */,
   backgroundColor: 'var(--black)' /* 2 */,
   margin: '0 1em',
@@ -28,7 +28,7 @@ const nav = {
 
   small: {
     position: 'absolute',
-    top: '54px' /* 3 */,
+    top: '62px' /* 3 */,
     left: 0,
     right: 0,
     margin: 0 /* 4 */,
@@ -37,8 +37,9 @@ const nav = {
     paddingTop: 0,
     zIndex: 20,
     boxShadow: '0 1.5em 1em -1em #0000004d',
+    display: isMobileNavOpen ? 'block' : 'none',
   },
-}
+})
 
 const list = {
   listStyleType: 'none',

@@ -102,17 +102,25 @@ const useNavigation = (navigation = []) => {
 }
 
 export default React.memo(function Header(props) {
+  const [isMobileNavOpen, setIsMobileNavOpen] = React.useState(false)
   const isMounted = useIsMounted()
-  const { css } = useFela()
+  const { css } = useFela({ isMobileNavOpen })
   const [open, setOpen] = React.useState(null)
   const { asPath } = useRouter()
   const navigation = useNavigation(props.navigation)
 
-  React.useEffect(() => setOpen(null), [asPath])
+  React.useEffect(() => {
+    setOpen(null)
+    setIsMobileNavOpen(false)
+  }, [asPath])
 
   return (
     <header role='banner' className={css(styles.header)}>
-      <MobileHeader openSearch={props.openSearch} />
+      <MobileHeader
+        openSearch={props.openSearch}
+        isMenuOpen={isMobileNavOpen}
+        setIsMenuOpen={setIsMobileNavOpen}
+      />
 
       <nav className={css(styles.nav)}>
         <ul className={css(styles.list)}>
