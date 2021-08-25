@@ -1,9 +1,4 @@
-/**
- * 1. Align horizontal spacing with top-level navigation.
- */
-const nav = {
-  margin: '0 var(--s-base)' /* 1 */,
-}
+const nav = {}
 
 const list = {
   listStyleType: 'none',
@@ -65,13 +60,18 @@ const action = ({ isActive, isDisabled, isOpen }) => ({
   '::after': getInteractiveState({ isActive, isOpen }),
 })
 
+/**
+ * 1. Negate some of the inner spacing of the card select component.
+ */
 const component = {
   padding: 'var(--s-base)',
   textAlign: 'left',
   minWidth: '250px',
 
   medium: {
-    padding: 'var(--s-smaller) var(--s-base)',
+    paddingTop: 'var(--s-smaller)',
+    paddingBottom: 'var(--s-smaller)',
+    paddingLeft: 'calc(var(--s-base) - 3px)' /* 1 */,
   },
 }
 
