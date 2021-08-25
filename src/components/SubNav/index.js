@@ -12,9 +12,9 @@ export default React.memo(function SubNav(props) {
         {props.items.map(item => (
           <li className={css(styles.item)} key={item.label}>
             {item.type === 'COMPONENT' ? (
-              <span className={css({ textAlign: 'left' })}>
+              <div className={css({ padding: '1em', textAlign: 'left' })}>
                 {item.children}
-              </span>
+              </div>
             ) : item.to ? (
               <Link to={item.to} extend={styles.action(item)}>
                 {item.label}
