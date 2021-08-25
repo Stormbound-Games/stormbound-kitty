@@ -1,12 +1,9 @@
 import React from 'react'
-import { useFela } from 'react-fela'
-import Link from '~/components/Link'
+import SubNav from '~/components/SubNav'
 import serialisation from '~/helpers/serialisation'
 import useQueryParams from '~/hooks/useQueryParams'
-import styles from '~/components/Header/styles'
 
 export default React.memo(function NavDeckBuilder(props) {
-  const { css } = useFela()
   const { id } = useQueryParams()
   const deck = React.useMemo(
     () => (id ? serialisation.deck.deserialise(id) : []),
@@ -15,64 +12,34 @@ export default React.memo(function NavDeckBuilder(props) {
   const hasBigEnoughDeck = deck.length === 12
 
   return (
-    <nav className={css(styles.nav({ isSubNav: true }))}>
-      <ul className={css(styles.list)}>
-        <li className={css(styles.item)}>
-          <Link
-            to={id ? `/deck/${id}` : '/deck'}
-            extend={styles.action({
-              isActive: props.active === 'EDITOR',
-              isWithinSubList: true,
-            })}
-          >
-            Editor
-          </Link>
-        </li>
-        <li className={css(styles.item)}>
-          {hasBigEnoughDeck ? (
-            <Link
-              to={`/deck/${id}/detail`}
-              extend={styles.action({
-                isActive: props.active === 'DETAIL',
-                isWithinSubList: true,
-              })}
-            >
-              Insights
-            </Link>
-          ) : (
-            <span
-              className={css(
-                styles.action({ isDisabled: true, isWithinSubList: true })
-              )}
-              title='Your deck is not complete'
-            >
-              Insights
-            </span>
-          )}
-        </li>
-        <li className={css(styles.item)}>
-          {hasBigEnoughDeck ? (
-            <Link
-              to={`/deck/${id}/dry-run`}
-              extend={styles.action({
-                isActive: props.active === 'DRY_RUN',
-                isWithinSubList: true,
-              })}
-            >
-              Practice
-            </Link>
-          ) : (
-            <span
-              className={css(
-                styles.action({ isDisabled: true, isWithinSubList: true })
-              )}
-              title='Your deck is not complete'
-            >
-              Practice
-            </span>
-          )}
-        </li>
-      </ul>
-    </nav>
+    <SubNav
+      items={[
+        {
+          to: id ? `/deck/${id}` : '/deck',
+          label: 'Editor',
+          isActive: props.active === 'EDITOR',
+        },
+        hasBigEnoughDeck
+          ? {
+              to: `/deck/${id}/detail`,
+              label: 'Insights',
+              isActive: props.active === 'DETAIL',
+            }
+          : {
+              label: 'Insights',
+              hint: 'Your deck is not complete',
+            },
+        hasBigEnoughDeck
+          ? {
+              to: `/deck/${id}/dry-run`,
+              label: 'Practice',
+              isActive: props.active === 'DRY_RUN',
+            }
+          : {
+              label: 'Insights',
+              hint: 'Your deck is not complete',
+            },
+      ]}
+    />
   )
 })

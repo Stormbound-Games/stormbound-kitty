@@ -5,9 +5,11 @@ import { PersonalDecksContext } from '~/components/PersonalDecksProvider'
 import { UserContext } from '~/components/UserProvider'
 import HeaderMegaMenu from '~/components/HeaderMegaMenu'
 import Link from '~/components/Link'
+import MobileHeader from '~/components/MobileHeader'
 import NavCardBuilder from '~/components/NavCardBuilder'
 import NavDeckBuilder from '~/components/NavDeckBuilder'
 import NewPulse from '~/components/NewPulse'
+import Only from '~/components/Only'
 import Icon from '~/components/Icon'
 import useIsMounted from '~/hooks/useIsMounted'
 import styles from './styles'
@@ -101,16 +103,26 @@ const useNavigation = (navigation = []) => {
 }
 
 export default React.memo(function Header(props) {
+  const [isMobileNavOpen, setIsMobileNavOpen] = React.useState(false)
   const isMounted = useIsMounted()
-  const { css } = useFela()
+  const { css } = useFela({ isMobileNavOpen })
   const [open, setOpen] = React.useState(null)
   const { asPath } = useRouter()
   const navigation = useNavigation(props.navigation)
 
-  React.useEffect(() => setOpen(null), [asPath])
+  React.useEffect(() => {
+    setOpen(null)
+    setIsMobileNavOpen(false)
+  }, [asPath])
 
   return (
     <header role='banner' className={css(styles.header)}>
+      <MobileHeader
+        openSearch={props.openSearch}
+        isMenuOpen={isMobileNavOpen}
+        setIsMenuOpen={setIsMobileNavOpen}
+      />
+
       <nav className={css(styles.nav)}>
         <ul className={css(styles.list)}>
           {navigation.map(item => (
@@ -124,16 +136,18 @@ export default React.memo(function Header(props) {
               />
             </li>
           ))}
-          <li className={css(styles.item({ isRight: true }))}>
-            <Link
-              disabled={!isMounted}
-              onClick={props.openSearch}
-              extend={styles.action}
-              data-testid='search-button'
-            >
-              <Icon extend={styles.icon} icon='search' /> Search
-            </Link>
-          </li>
+          <Only.Desktop>
+            <li className={css(styles.item({ isRight: true }))}>
+              <Link
+                disabled={!isMounted}
+                onClick={props.openSearch}
+                extend={styles.action}
+                data-testid='search-button'
+              >
+                <Icon extend={styles.icon} icon='search' /> Search
+              </Link>
+            </li>
+          </Only.Desktop>
         </ul>
       </nav>
       <SubNav active={props.active.slice(2)} />
