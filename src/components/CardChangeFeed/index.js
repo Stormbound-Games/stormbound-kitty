@@ -9,6 +9,7 @@ import styles from './styles'
 export default React.memo(function CardChangeFeed(props) {
   const { css } = useFela()
   const changes = props.changes.slice(0)
+  const currentVersionId = props.versionId
   const hasReleaseChange = changes.some(
     change =>
       change.description === 'Added to the game' ||
@@ -36,17 +37,27 @@ export default React.memo(function CardChangeFeed(props) {
             date: parseDate(entry.date),
           }))
           .sort((a, b) => b.date - a.date)
-          .map((entry, index) => (
-            <li key={index}>
-              <Spacing bottom='BASE'>
-                <FeedCardChange
-                  {...entry}
-                  versionId={props.versionId}
-                  withVersioning
-                />
-              </Spacing>
-            </li>
-          ))}
+          .map((entry, index, array) => {
+            const previousEntry = array[index - 1]
+            const previewVersionId = previousEntry?.date.valueOf()
+            const isCurrentlyPreviewed = currentVersionId
+              ? previewVersionId === currentVersionId
+              : index === 0
+
+            return (
+              <li key={index}>
+                <Spacing bottom='BASE'>
+                  <FeedCardChange
+                    {...entry}
+                    isCurrentlyPreviewed={isCurrentlyPreviewed}
+                    previewVersionId={previewVersionId}
+                    currentVersionId={currentVersionId}
+                    withVersioning
+                  />
+                </Spacing>
+              </li>
+            )
+          })}
       </ul>
     </>
   )

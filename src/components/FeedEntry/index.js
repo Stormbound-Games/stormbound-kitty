@@ -22,7 +22,7 @@ export default React.memo(function FeedEntry(props) {
         />
       </span>
       <div className={css(styles.main)}>
-        {props.date instanceof Date ? (
+        {date instanceof Date ? (
           <time
             className={css(styles.date)}
             dateTime={
