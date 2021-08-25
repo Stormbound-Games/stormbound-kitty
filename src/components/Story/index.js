@@ -53,7 +53,9 @@ export default React.memo(function Story(props) {
               ) : (
                 <>
                   Other stories by{' '}
-                  <Link to={`/members/${story.author}`}>{story.author}</Link>
+                  <Link to={`/members/${story.author.toLowerCase()}`}>
+                    {story.author}
+                  </Link>
                 </>
               )}
             </Title>

@@ -19,7 +19,7 @@ const fanart = {
 
     embed
       .setTitle(`${this.label}`)
-      .setURL('https://stormbound-kitty.com/members/' + author)
+      .setURL('https://stormbound-kitty.com/members/' + author.toLowerCase())
       .addFields([
         { name: 'author', value: author, inline: true },
         { name: 'date', value: date, inline: true },

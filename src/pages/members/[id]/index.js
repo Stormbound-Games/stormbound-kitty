@@ -7,10 +7,10 @@ import getNavigation from '~/helpers/getNavigation'
 
 export async function getStaticPaths() {
   const paths = getMembersList().map(({ member }) => ({
-    params: { id: member },
+    params: { id: member.toLowerCase() },
   }))
 
-  return { paths, fallback: 'blocking' }
+  return { paths, fallback: false }
 }
 
 export async function getStaticProps(context) {

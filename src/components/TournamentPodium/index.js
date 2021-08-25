@@ -84,7 +84,7 @@ const useTeasers = podium => {
     return {
       title: (
         <>
-          {index + 1}. <Link to={'/members/' + user}>{user}</Link>
+          {index + 1}. <Link to={'/members/' + user.toLowerCase()}>{user}</Link>
         </>
       ),
       meta: `With ${points} points`,

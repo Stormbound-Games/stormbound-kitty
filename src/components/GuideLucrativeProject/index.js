@@ -43,7 +43,7 @@ export default React.memo(function GuideLucrativeProject(props) {
 
       <p>
         I’m paraphrasing{' '}
-        <Link to='/members/CriticalPancake'>CriticalPancake</Link> for some more
+        <Link to='/members/criticalpancake'>CriticalPancake</Link> for some more
         insightful strategy tips:
       </p>
 
@@ -111,7 +111,7 @@ export default React.memo(function GuideLucrativeProject(props) {
               OneC’s Small Ball
             </h3>
             <p>
-              <Link to='/members/OneC'>OneC</Link> adopts a slower deck with
+              <Link to='/members/onec'>OneC</Link> adopts a slower deck with
               Upgrade Point, and building a mid-to-late game strategy. The idea
               is to block the way from the opponents’ runners while playing in
               the mid- and back-field to slowly buff construct so the tide

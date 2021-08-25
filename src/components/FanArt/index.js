@@ -57,7 +57,9 @@ export default React.memo(function FanArt(props) {
                 />
                 <figcaption className={css(styles.caption)}>
                   Artwork by{' '}
-                  <Link to={'/members/' + entry.author}>{entry.author}</Link>
+                  <Link to={'/members/' + entry.author.toLowerCase()}>
+                    {entry.author}
+                  </Link>
                 </figcaption>
               </figure>
             )

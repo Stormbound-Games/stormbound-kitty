@@ -79,7 +79,7 @@ const useNavigation = (navigation = []) => {
 
   const feed = name && {
     label: 'Personal Feed',
-    to: `/members/${name}`,
+    to: `/members/${name.toLowerCase()}`,
     id: 'FEED',
   }
 

@@ -40,7 +40,7 @@ export default React.memo(function Videos(props) {
                       extend={{ justifyContent: 'center' }}
                     >
                       <h2 className={css(styles.title)}>
-                        <Link to={`/members/${channel.author}`}>
+                        <Link to={`/members/${channel.author.toLowerCase()}`}>
                           {channel.author}
                         </Link>
                       </h2>
