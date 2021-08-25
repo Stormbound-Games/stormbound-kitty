@@ -88,7 +88,7 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
           </li>
           <li>
             <CardLink id='W22' />’ ability now grants 3/4/5/6/7 (down from
-            4/5/6/7/8) but is made to trigger regardless of position.
+            4/5/6/7/8) but is made to trigger on attack, regardless of position.
           </li>
           <li>
             <CardLink id='N43' />’ ability now triggers when played borderding
