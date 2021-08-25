@@ -148,7 +148,7 @@ const header = {
 
 const name = {
   fontSize: '170%',
-  marginBottom: 'var(--s-smallest)',
+  marginBottom: '0.25em',
 }
 
 /**
@@ -193,7 +193,7 @@ const image = {
 
 const ability = {
   fontSize: '130%',
-  marginBottom: 'var(--s-small)',
+  marginBottom: '0.5em',
 }
 
 /**
