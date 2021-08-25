@@ -49,7 +49,8 @@ export default React.memo(function PageHeaderMeta({ action, authors, meta }) {
             {(action.href || action.icon === 'arrow-right') && (
               <Icon
                 icon={
-                  action.icon || action.href ? 'arrow-top-right' : 'arrow-right'
+                  action.icon ||
+                  (action.href ? 'arrow-top-right' : 'arrow-right')
                 }
                 extend={styles.actionIcon}
               />
