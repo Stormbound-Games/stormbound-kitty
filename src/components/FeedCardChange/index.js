@@ -2,7 +2,7 @@ import React from 'react'
 import CardLink from '~/components/CardLink'
 import DiamondButton from '~/components/DiamondButton'
 import FeedEntry from '~/components/FeedEntry'
-import parseDate from '~/helpers/parseDate'
+import { formatPreciseDate } from '~/helpers/formatDate'
 
 const ICONS = {
   INFO: { icon: 'info', color: 'var(--freeze)' },
@@ -11,33 +11,55 @@ const ICONS = {
   NERF: { icon: 'arrow-down', color: 'var(--player-red)' },
 }
 
+const pad = value => String(value).padStart(2, '0')
+
+const Date = props => (
+  <time
+    dateTime={
+      props.date.getFullYear() +
+      '-' +
+      pad(props.date.getMonth()) +
+      ('-' + pad(props.date.getDate()))
+    }
+  >
+    On {formatPreciseDate(props.date)}
+  </time>
+)
+
+const Current = () => (
+  <span style={{ color: 'var(--light-shadowfen)' }}>(currently displayed)</span>
+)
+
 export default React.memo(function FeedCardChange(props) {
-  const versionId = props.date ? parseDate(props.date).valueOf() : null
-  const isActive = props.versionId === versionId
+  const isActive = props.isCurrentlyPreviewed
 
   return (
     <FeedEntry
       icon={ICONS[props.type].icon}
-      date={props.date}
+      date={
+        isActive ? (
+          <>
+            <Date date={props.date} /> <Current />
+          </>
+        ) : (
+          props.date
+        )
+      }
       dateFormat='LONG'
       iconColor={ICONS[props.type].color}
       right={
-        Boolean(props.from && props.withVersioning) && (
+        Boolean(props.previewVersionId && props.withVersioning) && (
           <DiamondButton
             data-testid='version-btn'
-            icon='eye'
+            icon={isActive ? 'cross' : 'eye'}
             isActive={isActive}
             scroll={false}
             to={
               isActive
                 ? `/card/${props.id}/display`
-                : `/card/${props.id}/display?v=${versionId}`
+                : `/card/${props.id}/display?v=${props.previewVersionId}`
             }
-            label={
-              isActive
-                ? 'Deactivate these changes'
-                : 'Preview card *before* this change happened'
-            }
+            label={isActive ? 'Deactivate this change' : 'Preview this change'}
           />
         )
       }
