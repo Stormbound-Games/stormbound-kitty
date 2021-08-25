@@ -1,7 +1,7 @@
 const list = {
   marginTop: 0,
   marginBottom: 0,
-  paddingLeft: '2.5em',
+  paddingLeft: 'var(--s-large)',
   listStyleType: 'none',
   counterReset: 'toc',
 }

@@ -14,7 +14,7 @@ const score = {
 const radio = {
   display: 'inline-block',
 
-  ':last-child': { marginLeft: '2em' },
+  ':last-child': { marginLeft: 'var(--s-large)' },
 }
 
 const styles = { container, score, radio }

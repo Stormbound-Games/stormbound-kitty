@@ -28,7 +28,7 @@ const ShareButton = ({ disabled }) => (
     label='Share book'
     disabled={disabled}
     image='/assets/images/cards/rogue_sheep.png'
-    extend={{ margin: '1em auto 0' }}
+    extend={{ margin: 'var(--s-base) auto 0' }}
   >
     <p>
       Your book is automatically saved to the URL of the page as you open it.

@@ -25,13 +25,13 @@ const inner = {
   '::before': {
     ...innerPseudo,
     right: '100%',
-    marginRight: 'calc(1em + 1.4142135623730951em / 2)',
+    marginRight: 'calc(var(--s-base) + 1.4142135623730951em / 2)',
   },
 
   '::after': {
     ...innerPseudo,
     left: '100%',
-    marginLeft: 'calc(1em + 1.4142135623730951em / 2)',
+    marginLeft: 'calc(var(--s-base) + 1.4142135623730951em / 2)',
   },
 }
 
@@ -52,13 +52,13 @@ const content = {
   '::before': {
     ...contentPseudo,
     right: '100%',
-    marginRight: '1em',
+    marginRight: 'var(--s-base)',
   },
 
   '::after': {
     ...contentPseudo,
     left: '100%',
-    marginLeft: '1em',
+    marginLeft: 'var(--s-base)',
   },
 }
 

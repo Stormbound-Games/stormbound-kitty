@@ -2,7 +2,7 @@
  * 1. Align horizontal spacing with top-level navigation.
  */
 const nav = {
-  margin: '0 1em' /* 1 */,
+  margin: '0 var(--s-base)' /* 1 */,
 }
 
 const list = {
@@ -54,7 +54,7 @@ const action = ({ isActive, isDisabled, isOpen }) => ({
   color: isActive ? 'var(--beige)' : 'inherit',
   display: 'inline-block',
   outline: 0,
-  padding: '1em',
+  padding: 'var(--s-base)',
   position: 'relative',
   textDecoration: 'none',
   opacity: isDisabled ? 0.5 : undefined,
@@ -66,12 +66,12 @@ const action = ({ isActive, isDisabled, isOpen }) => ({
 })
 
 const component = {
-  padding: '1em',
+  padding: 'var(--s-base)',
   textAlign: 'left',
   minWidth: '250px',
 
   medium: {
-    padding: '0.5em 1em',
+    padding: 'var(--s-smaller) var(--s-base)',
   },
 }
 

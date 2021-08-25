@@ -1,11 +1,10 @@
 const lexicon = {
   display: 'flex',
-  marginLeft: '-2em',
   width: 'auto',
 }
 
 const column = {
-  paddingLeft: '2em',
+  paddingLeft: 'var(--s-large)',
   backgroundClip: 'padding-box',
 }
 

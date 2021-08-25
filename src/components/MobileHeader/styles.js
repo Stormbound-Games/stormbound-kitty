@@ -14,6 +14,8 @@ const nav = {
   zIndex: 10,
   position: 'relative',
   paddingTop: 'var(--s-smaller)',
+  marginLeft: 'calc(var(--s-base) * -1)',
+  marginRight: 'calc(var(--s-base) * -1)',
 
   '::after': gradientLine,
 

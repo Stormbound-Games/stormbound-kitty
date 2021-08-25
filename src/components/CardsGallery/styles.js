@@ -1,7 +1,7 @@
 const gallery = {
   display: 'block',
-  marginLeft: '-0.5em',
-  marginRight: '-0.5em',
+  marginLeft: 'calc(var(--s-smaller) * -1)',
+  marginRight: 'calc(var(--s-smaller) * -1)',
 }
 
 const list = {
@@ -16,7 +16,7 @@ const item = {
   flexGrow: 0,
   flexShrink: 1,
   flexBasis: 'calc(100% / var(--cards-per-row))',
-  padding: '1.25em 0.5em',
+  padding: 'var(--s-base) var(--s-smaller)',
   position: 'relative',
 }
 

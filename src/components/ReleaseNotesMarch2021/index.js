@@ -280,7 +280,7 @@ export default React.memo(function ReleaseNotesMarch2021(props) {
         <Image
           src='/assets/images/releases/chest_hero.png'
           alt='Heroes League chest'
-          extend={{ maxWidth: '300px', margin: '3em auto' }}
+          extend={{ maxWidth: '300px', margin: 'var(--s-larger) auto' }}
           withoutWebp
         />
 

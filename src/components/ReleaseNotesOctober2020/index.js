@@ -74,7 +74,7 @@ export default React.memo(function ReleaseNotesOctober2020(props) {
             />
           </Row.Column>
           <Row.Column>
-            <p className={css({ marginTop: '1em' })}>
+            <p className={css({ marginTop: 'var(--s-base)' })}>
               If you would like to put your hands on this card immediately, a
               $9.99 one-time limited pack grants 5 copies of Slyboots, making it
               possible to get it level 2 right away. It also offers{' '}

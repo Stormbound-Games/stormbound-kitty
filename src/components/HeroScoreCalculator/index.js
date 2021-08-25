@@ -84,7 +84,7 @@ export default React.memo(function HeroScoreCalculator(props) {
                 <var className='Highlight'>K</var> is the coefficient factor
                 (sometimes named “K-factor” in elo rating systems) and works
                 like in FIDE:
-                <ul className={css({ margin: '0.5em 0' })}>
+                <ul className={css({ margin: 'var(--s-smaller) 0' })}>
                   <li>
                     K = 40 for players until they have been in{' '}
                     <Footnote id='matches-30'>

@@ -1,13 +1,13 @@
 const counter = {
   textAlign: 'center',
-  margin: '1em auto 2em',
+  margin: 'var(--s-base) auto var(--s-large)',
 }
 
 const heart = {
   display: 'inline-block',
   width: '3em',
   position: 'relative',
-  margin: '0 0.25em',
+  margin: '0 var(--s-smallest)',
 }
 
 const styles = { counter, heart }

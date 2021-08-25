@@ -4,7 +4,7 @@ const item = {
 
 const list = {
   marginTop: 0,
-  paddingLeft: '1.25em',
+  paddingLeft: 'var(--s-base)',
 }
 
 const select = {

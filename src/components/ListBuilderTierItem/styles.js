@@ -2,7 +2,7 @@ const item = ({ isPlaceholder }) => ({
   display: 'inline-block',
   width: 'calc(20% - 0.5em)',
   border: '1px solid var(--faction)',
-  margin: '0.07em 0.25em',
+  margin: '0.07em var(--s-smallest)',
   backgroundColor: '#00000099',
   borderRadius: '0.2em',
   position: 'relative',

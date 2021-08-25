@@ -10,7 +10,7 @@ const tooltipStyles = {
   boxShadow: '0 0 0 2px var(--dark-blue)',
   maxWidth: '15em',
   whiteSpace: 'normal',
-  padding: '0.5em',
+  padding: 'var(--s-smaller)',
 }
 
 const iconStyles = ({ color }) => ({

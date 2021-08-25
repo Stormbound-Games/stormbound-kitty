@@ -59,7 +59,7 @@ const table = ({ isZebra }) => ({
   '> * > tr': {
     small: {
       display: 'block',
-      padding: '0.5em 0',
+      padding: 'var(--s-smaller) 0',
       border: '1px solid var(--dark-beige)',
       ':not(:first-child)': { borderTop: 0 /* 1 */ },
     },
@@ -67,7 +67,7 @@ const table = ({ isZebra }) => ({
 
   '> * > tr > td': {
     small: {
-      padding: '0.25em 1em',
+      padding: 'var(--s-smallest) var(--s-base)',
       textAlign: 'left',
 
       '[data-label]::before': {
@@ -82,7 +82,7 @@ const table = ({ isZebra }) => ({
   },
 
   '> * > tr > *': {
-    padding: '0.75em 0.5em',
+    padding: 'var(--s-small) var(--s-smaller)',
     textAlign: 'center',
     position: 'relative',
 

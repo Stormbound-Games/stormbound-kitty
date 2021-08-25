@@ -1,6 +1,6 @@
 const checkbox = {
-  marginBottom: '2em',
-  small: { marginTop: '-1em' },
+  marginBottom: 'var(--s-large)',
+  small: { marginTop: 'calc(var(--s-base) * -1)' },
 }
 
 const styles = { checkbox }

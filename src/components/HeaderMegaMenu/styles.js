@@ -1,3 +1,7 @@
+/**
+ * 1. `--s-base` feels a little tight, and `--s-large` feels a little too spaced
+ *    out so sticking to arbitrary values here.
+ */
 const menu = ({ isOpen }) => ({
   position: 'absolute',
   top: '100%',
@@ -6,8 +10,8 @@ const menu = ({ isOpen }) => ({
   zIndex: 19,
   border: '1px solid var(--dark-beige)',
   textAlign: 'left',
-  left: '-1em',
-  padding: '1.5em 1.5em 0em',
+  left: 'calc(var(--s-base) * -1)',
+  padding: '1.5rem 1.5rem 0em' /* 1 */,
   visibility: isOpen ? 'visible' : 'hidden',
   opacity: isOpen ? 1 : 0,
   pointerEvents: isOpen ? 'auto' : 'none',
@@ -19,9 +23,9 @@ const menu = ({ isOpen }) => ({
     content: '""',
     position: 'absolute',
     top: '100%',
-    left: '0.5em',
-    right: '0.5em',
-    height: '0.5em',
+    left: 'var(--s-smaller)',
+    right: 'var(--s-smaller)',
+    height: 'var(--s-smaller)',
     backgroundColor: 'inherit',
     border: 'inherit',
     borderTop: 0,
@@ -29,9 +33,9 @@ const menu = ({ isOpen }) => ({
 
   small: {
     minWidth: 0,
-    width: 'calc(100vw - 2em)',
-    top: 'calc(100% + 0.5em)',
-    left: 0,
+    width: 'calc(100vw - var(--s-base) * 2)',
+    top: 'calc(100% + var(--s-smaller))',
+    left: 'var(--s-base)',
   },
 })
 
@@ -44,7 +48,7 @@ const title = ({ isActive }) => ({
   marginBottom: 'var(--s-smaller)',
   fontWeight: isActive ? 'bold' : 'normal',
   borderBottom: '1px solid var(--dark-beige)',
-  paddingBottom: '0.5em',
+  paddingBottom: 'var(--s-smaller)',
 
   '> a': {
     textDecoration: 'none',
@@ -66,7 +70,7 @@ const list = {
 }
 
 const item = {
-  margin: '0.25em 0',
+  margin: 'var(--s-smallest) 0',
 }
 
 const link = ({ isActive, isNew }) => ({

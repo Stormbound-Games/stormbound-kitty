@@ -6,7 +6,7 @@ const progress = {
   display: 'flex' /* 1 */,
   listStyleType: 'none',
   padding: 0,
-  margin: '2em auto',
+  margin: 'var(--s-large) auto',
   width: 'max-content' /* 2 */,
   fontSize: '85%',
 }
@@ -19,7 +19,7 @@ const item = ({ isActive, isPassed }) => ({
   height: '1.25em' /* 1 */,
   border: '2px solid var(--beige)',
   transform: 'rotate(45deg)',
-  margin: '0 0.5em',
+  margin: '0 var(--s-smaller)',
   position: 'relative',
   backgroundColor: isPassed ? '#8db22c' : undefined,
 

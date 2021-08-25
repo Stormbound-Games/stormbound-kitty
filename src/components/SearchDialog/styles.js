@@ -32,7 +32,7 @@ const list = ({ isOpen }) => ({
 })
 
 const item = ({ isHighlighted, isSelected }) => ({
-  padding: '0.5em',
+  padding: 'var(--s-smaller)',
   backgroundColor: isHighlighted ? '#0000001a' : 'transparent',
   fontWeight: isSelected ? 'bold' : 'normal',
   textAlign: 'left',

@@ -22,7 +22,7 @@ const notification = {
   border: '1px double var(--beige)',
   right: '1.5em',
   bottom: '1.5em',
-  padding: '1em',
+  padding: 'var(--s-base)',
   boxShadow: '0 0 0.25em 0.5em #0000001a',
   margin: 0,
   zIndex: 20,

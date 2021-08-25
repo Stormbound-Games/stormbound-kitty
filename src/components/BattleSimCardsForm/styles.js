@@ -6,7 +6,7 @@ const legend = {
 }
 
 const row = {
-  marginBottom: '0.25em',
+  marginBottom: 'var(--s-smallest)',
 }
 
 const handButton = {
@@ -14,7 +14,7 @@ const handButton = {
 }
 
 const expandButton = {
-  marginLeft: '1em',
+  marginLeft: 'var(--s-base)',
   textTransform: 'uppercase',
 }
 

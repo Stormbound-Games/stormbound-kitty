@@ -1,5 +1,5 @@
 const footer = {
-  padding: '1em',
+  padding: 'var(--s-base)',
   backgroundImage: 'linear-gradient(to top, transparent, #ded7a414)',
   position: 'relative',
 
@@ -17,7 +17,7 @@ const footer = {
 
 const inner = {
   margin: '0 auto',
-  padding: '2em 0 1em',
+  padding: 'var(--s-large) 0 var(--s-base)',
   width: '1200px',
   maxWidth: '100%',
 }
@@ -29,7 +29,7 @@ const info = {
 
 const icon = {
   transform: 'translateY(2px)',
-  margin: '0 0.25em',
+  margin: '0 var(--s-smallest)',
   color: 'var(--beige)',
 }
 
@@ -46,7 +46,7 @@ const heading = {
 }
 
 const item = {
-  margin: '0.3em 0',
+  margin: 'var(--s-smallest) 0',
   '> a': { textDecoration: 'none' },
 }
 

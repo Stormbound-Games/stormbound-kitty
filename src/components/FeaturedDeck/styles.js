@@ -7,7 +7,7 @@ const info = {
 }
 
 const meta = {
-  paddingRight: '1em',
+  paddingRight: 'var(--s-base)',
 }
 
 const name = {
@@ -20,7 +20,7 @@ const name = {
  */
 const rarityBar = {
   marginBottom: 'var(--s-smaller)',
-  marginTop: '-0.5em' /* 1 */,
+  marginTop: 'calc(var(--s-smaller) * -1)' /* 1 */,
 }
 
 const actions = {
@@ -35,7 +35,7 @@ const actions = {
     opacity: 1,
   },
 
-  '> *': { margin: '0 0.5em 0 0.75em' },
+  '> *': { margin: '0 var(--s-smaller) 0 var(--s-smallest)' },
 }
 
 const styles = {

@@ -22,7 +22,7 @@ const BrawlCalculatorRewards = React.memo(function BrawlCalculatorRewards(
     <ol
       className={css({
         padding: 0,
-        margin: '0 0 1.5em',
+        margin: '0 0 var(--s-large)',
         listStylePosition: 'inside',
       })}
       start={info.nextIndex + 1}

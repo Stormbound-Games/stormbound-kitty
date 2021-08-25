@@ -11,7 +11,7 @@ const layout = {
  *    meticulously going through everything.
  */
 const body = {
-  padding: '2em 1.25em',
+  padding: 'var(--s-large)',
   fontSize: '90%' /* 1 */,
   display: 'flex',
   flexDirection: 'column',
@@ -20,8 +20,8 @@ const body = {
   margin: '0 auto',
 
   medium: {
-    paddingTop: '4.5em',
-    paddingBottom: '3.5em',
+    paddingTop: 'var(--s-largest)',
+    paddingBottom: 'var(--s-largest)',
   },
 }
 

@@ -52,7 +52,7 @@ export default React.memo(function DryRunnerHeader(props) {
               mana={props.mana}
               data-testid='mana-pool'
               disabled={props.hand.every(card => !props.canCardBePlayed(card))}
-              extend={{ marginLeft: '1em' }}
+              extend={{ marginLeft: 'var(--s-base)' }}
             />
           </span>
         </Row.Column>

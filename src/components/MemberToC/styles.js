@@ -19,7 +19,7 @@ const icon = {
   backgroundColor: 'var(--black)',
   transform: 'translateX(50%) translateY(-50%)',
   fontSize: '150%',
-  padding: '0.2em',
+  padding: 'var(--s-smallest)',
 }
 
 const styles = { toc, item, icon }

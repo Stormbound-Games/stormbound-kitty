@@ -6,7 +6,7 @@ const radios = {
   display: 'flex',
   marginTop: 'var(--s-smallest)',
   justifyContent: 'space-between',
-  paddingRight: '1em',
+  paddingRight: 'var(--s-base)',
 }
 
 const styles = { button, radios }

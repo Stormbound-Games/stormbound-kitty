@@ -1,7 +1,7 @@
 const info = ({ withCta }) => ({
   border: '1px solid var(--dark-beige)',
   borderRadius: '3px',
-  padding: '1em',
+  padding: 'var(--s-base)',
   position: 'relative',
   paddingBottom: withCta ? '2.25em' : undefined,
 })
@@ -10,7 +10,7 @@ const title = {
   position: 'absolute',
   bottom: '100%',
   transform: 'translateY(50%)',
-  padding: '0 0.5em',
+  padding: '0 var(--s-smaller)',
   left: '1em',
   backgroundColor: 'var(--black)',
   color: 'var(--beige)',
@@ -19,7 +19,7 @@ const title = {
 }
 
 const icon = {
-  marginRight: '0.25em',
+  marginRight: 'var(--s-smallest)',
   position: 'relative',
   top: '1.5px',
 }

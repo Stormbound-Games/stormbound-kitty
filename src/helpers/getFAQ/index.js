@@ -287,7 +287,7 @@ const getFAQ = () => [
                 <code>move</code>, <code>movement</code>, <code>spe</code> or{' '}
                 <code>speed</code>) filters:{' '}
               </li>
-              <ul className={{ paddingLeft: '1.5em' }}>
+              <ul>
                 <li>
                   with a static value: <code>mana:4</code>
                 </li>

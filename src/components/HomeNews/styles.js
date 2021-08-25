@@ -51,7 +51,7 @@ const box = {
   backgroundRepeat: 'repeat',
   backgroundColor: 'var(--black)',
   border: '1px solid var(--beige)',
-  padding: '1em 1.5em',
+  padding: 'var(--s-base) var(--s-large)',
   boxShadow: '0 0 2em 1em #00000033',
   marginTop: '-2.5em' /* 1 */,
 

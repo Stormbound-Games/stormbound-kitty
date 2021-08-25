@@ -9,7 +9,7 @@ const news = {
  */
 const item = {
   position: 'relative',
-  padding: '1.25em 0' /* 1 */,
+  padding: 'var(--s-base) 0' /* 1 */,
 
   /**
    * 1. Prevent background color from leaking behind the padding, which is

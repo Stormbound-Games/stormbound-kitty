@@ -67,7 +67,7 @@ export default React.memo(function BookOutcome(props) {
           </p>
           <ul
             className={css({
-              paddingLeft: '0.25em',
+              paddingLeft: 'var(--s-smallest)',
               listStylePosition: 'inside',
             })}
           >

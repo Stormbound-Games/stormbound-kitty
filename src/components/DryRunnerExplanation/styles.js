@@ -1,6 +1,6 @@
 const explanation = {
   listStylePosition: 'inside',
-  paddingLeft: '1em',
+  paddingLeft: 'var(--s-base)',
   marginTop: 'var(--s-smaller)',
 }
 

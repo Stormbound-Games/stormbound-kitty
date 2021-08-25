@@ -21,7 +21,7 @@ const form = {
     '> td:first-child': {
       order: 1 /* 1 */,
       textAlign: 'center',
-      paddingTop: '0.75em',
+      paddingTop: 'var(--s-small)',
     },
   },
 }

@@ -31,7 +31,7 @@ export default React.memo(function Image(props) {
           display: 'block',
           height: 'auto',
           maxWidth: '100%',
-          margin: isEditorialContent ? '2em auto' : undefined,
+          margin: isEditorialContent ? 'var(--s-large) auto' : undefined,
         },
         props.extend
       )}

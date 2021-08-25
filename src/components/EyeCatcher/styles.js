@@ -2,7 +2,7 @@ const container = {
   position: 'relative',
   backgroundColor: 'var(--black)',
   textAlign: 'center',
-  padding: '1em',
+  padding: 'var(--s-base)',
   marginBottom: 0,
 
   '::after': {

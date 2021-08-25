@@ -1,5 +1,5 @@
 const mark = {
-  margin: '0 0.25em',
+  margin: '0 var(--s-smallest)',
   color: 'var(--beige)',
   transition: '0ms',
 
