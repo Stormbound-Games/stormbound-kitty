@@ -2563,7 +2563,7 @@
     "mana": 9,
     "strength": "4/5/6/7/8",
     "movement": 2,
-    "ability": "Before attacking a unit, *gain 3/4/5/6/7* strength"
+    "ability": "Before attacking, *gain 3/4/5/6/7* strength"
   },
   {
     "name": "Olf the Hammer",

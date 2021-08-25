@@ -28,7 +28,7 @@
   },
   {
     "date": "01/09/2021",
-    "description": "Ability decreased by 1 but made to trigger before attacking a unit regardless of position",
+    "description": "Ability decreased by 1 but made to trigger regardless of position",
     "id": "W22",
     "type": "BUFF",
     "from": {
