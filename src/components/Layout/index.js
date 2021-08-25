@@ -18,9 +18,17 @@ export default React.memo(function Layout(props) {
 
   return (
     <div className={css(styles.layout)}>
-      <EyeCatcher id='052021'>
-        Stormbound-Kitty has been a 100% free (no ads, no paywall) one-person
-        project for over 2 years now. <Link to='/about'>Consider helping</Link>!
+      <EyeCatcher id='082021'>
+        {setIsVisible => (
+          <>
+            Hello! ✨ If you like Stormbound-Kitty, I could use{' '}
+            <Link to='/about' onClick={() => setIsVisible(false)}>
+              your help
+            </Link>{' '}
+            with the site if you’d like to contribute (financially or
+            otherwise)!
+          </>
+        )}
       </EyeCatcher>
       <Header
         navigation={props.navigation}

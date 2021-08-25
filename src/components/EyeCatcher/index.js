@@ -1,6 +1,10 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import BlankButton from '~/components/BlankButton'
+import Icon from '~/components/Icon'
 import Link from '~/components/Link'
+import VisuallyHidden from '~/components/VisuallyHidden'
+import Notification from '~/components/Notification'
 import styles from './styles'
 
 const hasBeenShownYet = key => {
@@ -27,14 +31,20 @@ export default React.memo(function EyeCatcher(props) {
   }
 
   return (
-    <p className={css(styles.container)}>
-      <span role='img' aria-label='Sparkles'>
-        ✨
-      </span>{' '}
-      {props.children}
-      <Link extend={styles.close} onClick={() => setIsVisible(false)}>
-        (Dismiss)
-      </Link>
-    </p>
+    <Notification as='div' isVisible={isVisible} extend={styles.container}>
+      <p className={css({ marginBottom: 0 })}>
+        {typeof props.children === 'function'
+          ? props.children(setIsVisible)
+          : props.children}{' '}
+        <Link extend={styles.dismiss} onClick={() => setIsVisible(false)}>
+          (Dismiss)
+        </Link>
+      </p>
+
+      <BlankButton extend={styles.close} onClick={() => setIsVisible(false)}>
+        <Icon icon='cross' />
+        <VisuallyHidden>Dismiss</VisuallyHidden>
+      </BlankButton>
+    </Notification>
   )
 })

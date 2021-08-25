@@ -1,33 +1,21 @@
 const container = {
-  position: 'relative',
-  backgroundColor: 'var(--black)',
-  textAlign: 'center',
-  padding: 'var(--s-base)',
-  marginBottom: 0,
-
-  '::after': {
-    content: '""',
-    position: 'absolute',
-    bottom: 0,
-    left: '50%',
-    width: '50%',
-    height: '1px',
-    transform: 'translateX(-50%)',
-    backgroundImage:
-      'linear-gradient(to right, transparent, hotpink, transparent)',
-  },
+  display: 'flex',
+  medium: { fontSize: '100%' },
 }
 
 const close = {
-  color: 'var(--beige)',
-  marginLeft: '1ch',
-  fontSize: '80%',
+  marginLeft: 'auto',
+  lineHeight: 1,
+  display: 'none',
+  paddingLeft: 'var(--s-base)',
 
-  ':hover': {
-    color: 'var(--white)',
-  },
+  medium: { display: 'block' },
 }
 
-const styles = { container, close }
+const dismiss = {
+  medium: { display: 'none' },
+}
+
+const styles = { container, dismiss, close }
 
 export default styles

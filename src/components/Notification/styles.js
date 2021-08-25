@@ -25,7 +25,7 @@ const notification = {
   fontSize: '90%',
 
   borderTop: '1px solid var(--dark-beige)',
-  padding: 'var(--s-smaller) var(--s-large)',
+  padding: 'var(--s-base) var(--s-large)',
   margin: 0,
 
   backgroundColor: 'var(--black)',
