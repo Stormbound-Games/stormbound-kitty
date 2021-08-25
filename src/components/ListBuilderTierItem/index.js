@@ -19,7 +19,7 @@ export default React.memo(function ListBuilderTierItem(props) {
       <Link
         to={'/card/' + props.card.id + '/display'}
         extend={styles.item}
-        style={{ '--faction': `var(--${props.card.faction})` }}
+        style={{ '--color': `var(--${props.card.faction})` }}
         title={props.card.name}
       >
         <Image
