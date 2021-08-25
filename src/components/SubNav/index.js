@@ -10,7 +10,7 @@ export default React.memo(function SubNav(props) {
     <nav className={css(styles.nav)}>
       <ul className={css(styles.list)}>
         {props.items.map(item => (
-          <li className={css(styles.item)} key={item.label}>
+          <li className={css(styles.item)} key={item.label || item.type}>
             {item.type === 'COMPONENT' ? (
               <div className={css({ padding: '1em', textAlign: 'left' })}>
                 {item.children}
