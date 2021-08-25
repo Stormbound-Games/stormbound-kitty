@@ -65,6 +65,16 @@ const action = ({ isActive, isDisabled, isOpen }) => ({
   '::after': getInteractiveState({ isActive, isOpen }),
 })
 
-const styles = { nav, list, item, action }
+const component = {
+  padding: '1em',
+  textAlign: 'left',
+  minWidth: '250px',
+
+  medium: {
+    padding: '0.5em 1em',
+  },
+}
+
+const styles = { nav, list, item, action, component }
 
 export default styles
