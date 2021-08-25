@@ -36,7 +36,7 @@ export default React.memo(function NavDeckBuilder(props) {
               isActive: props.active === 'DRY_RUN',
             }
           : {
-              label: 'Insights',
+              label: 'Practice',
               hint: 'Your deck is not complete',
             },
       ]}
