@@ -1,5 +1,5 @@
 const footer = {
-  padding: 'var(--s-base) var(--s-large)',
+  padding: 'var(--s-base) 0',
   backgroundImage: 'linear-gradient(to top, transparent, #ded7a414)',
   position: 'relative',
 
@@ -17,7 +17,7 @@ const footer = {
 
 const inner = {
   margin: '0 auto',
-  padding: 'var(--s-large) 0 var(--s-base)',
+  padding: 'var(--s-large) var(--s-large) var(--s-base)',
   width: '1200px',
   maxWidth: '100%',
 }
