@@ -154,7 +154,7 @@ export default React.memo(function ValueCalculator(props) {
         </Row.Column>
         <Row.Column width='1/3'>
           <Title>First card</Title>
-          <Row>
+          <Row withNarrowGutter>
             <Row.Column width='3/4'>
               <SlotSelect
                 slot='A'
@@ -182,7 +182,7 @@ export default React.memo(function ValueCalculator(props) {
         </Row.Column>
         <Row.Column width='1/3'>
           <Title>Second card</Title>
-          <Row>
+          <Row withNarrowGutter>
             <Row.Column width='3/4'>
               <SlotSelect
                 slot='B'

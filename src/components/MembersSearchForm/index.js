@@ -10,7 +10,7 @@ const MembersSearchForm = props => {
   if (!isMounted) return null
 
   return (
-    <Row>
+    <Row withNarrowGutter>
       <Row.Column>
         <Input
           label='Name'

@@ -4,12 +4,11 @@ const panel = {
   flex: '1 1 auto,',
 }
 
-const boardButton = ({ side }) => ({
+const boardButton = {
   position: 'absolute',
   top: 'var(--s-large)',
-  right: side === 'left' ? 'var(--s-large)' : undefined,
-  left: side === 'right' ? 'var(--s-large)' : undefined,
-})
+  right: 'var(--s-large)',
+}
 
 const styles = { panel, boardButton }
 

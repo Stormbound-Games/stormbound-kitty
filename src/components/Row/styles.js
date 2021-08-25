@@ -1,7 +1,7 @@
-const row = ({ isDesktopOnly }) => ({
+const row = ({ isDesktopOnly, withNarrowGutter }) => ({
   display: 'flex',
-  marginLeft: 'calc(var(--s-base) * -1)',
-  marginRight: 'calc(var(--s-base) * -1)',
+  marginLeft: `calc(var(--s-${withNarrowGutter ? 'smaller' : 'base'}) * -1)`,
+  marginRight: `calc(var(--s-${withNarrowGutter ? 'smaller' : 'base'}) * -1)`,
 
   /**
    * 1. If the row is “desktop only”, it should be treated as a column on mobile.
@@ -18,12 +18,12 @@ const row = ({ isDesktopOnly }) => ({
     : undefined,
 })
 
-const column = ({ align, isDesktopOnly }) => ({
+const column = ({ align, isDesktopOnly, withNarrowGutter }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: align,
-  paddingLeft: 'var(--s-base)',
-  paddingRight: 'var(--s-base)',
+  paddingLeft: `var(--s-${withNarrowGutter ? 'smaller' : 'base'})`,
+  paddingRight: `var(--s-${withNarrowGutter ? 'smaller' : 'base'})`,
   transition: '250ms',
   flex: '1 0 calc(100% / var(--columns) * var(--spread, 1))',
 

@@ -67,7 +67,7 @@ export default React.memo(function HeroScoreCalculator(props) {
           <p>Here are the terms:</p>
 
           <Spacing bottom='LARGER'>
-            <ul>
+            <ul className={css(styles.explanation)}>
               <li>
                 <var className='Highlight'>
                   S’<sub>A</sub>
@@ -122,10 +122,10 @@ export default React.memo(function HeroScoreCalculator(props) {
         </Row.Column>
         <Row.Column width='1/3'>
           <Title>Configuration</Title>
-          <Row>
+          <Row withNarrowGutter>
             <Row.Column>
               <NumberInput
-                label='Current Hero Score'
+                label='Current Score'
                 id='current'
                 name='current'
                 value={current}
@@ -135,7 +135,7 @@ export default React.memo(function HeroScoreCalculator(props) {
             </Row.Column>
             <Row.Column>
               <NumberInput
-                label='Opponent’s Hero Score'
+                label='Opponent’s Score'
                 id='opponent'
                 name='opponent'
                 value={opponent}

@@ -5,11 +5,15 @@ import useSpacing from '~/hooks/useSpacing'
 import styles from './styles'
 
 const RowContext = React.createContext({
+  withNarrowGutter: false,
   isDesktopOnly: false,
 })
 
 const Row = React.memo(function Row(props) {
-  const { css } = useFela({ isDesktopOnly: props.isDesktopOnly })
+  const { css } = useFela({
+    isDesktopOnly: props.isDesktopOnly,
+    withNarrowGutter: props.withNarrowGutter,
+  })
   const margin = useSpacing(props.spacing || { bottom: 'BASE' })
 
   return (
@@ -17,7 +21,12 @@ const Row = React.memo(function Row(props) {
       className={css(margin, styles.row, props.extend)}
       data-testid={props['data-testid']}
     >
-      <RowContext.Provider value={{ isDesktopOnly: props.isDesktopOnly }}>
+      <RowContext.Provider
+        value={{
+          isDesktopOnly: props.isDesktopOnly,
+          withNarrowGutter: props.withNarrowGutter,
+        }}
+      >
         {props.children}
       </RowContext.Provider>
     </div>
@@ -25,10 +34,11 @@ const Row = React.memo(function Row(props) {
 })
 
 Row.Column = React.memo(function Column(props) {
-  const { isDesktopOnly } = React.useContext(RowContext)
+  const { isDesktopOnly, withNarrowGutter } = React.useContext(RowContext)
   const [spread, columns] = (props.width || '1/2').split('/').map(Number)
   const { css } = useFela({
-    isDesktopOnly: isDesktopOnly,
+    isDesktopOnly,
+    withNarrowGutter,
     align: props.align,
   })
   const margin = useSpacing(
@@ -40,7 +50,9 @@ Row.Column = React.memo(function Column(props) {
       className={css(styles.column, margin, props.extend)}
       style={{ '--columns': columns, '--spread': spread }}
     >
-      <RowContext.Provider value={{ isDesktopOnly: false }}>
+      <RowContext.Provider
+        value={{ isDesktopOnly: false, withNarrowGutter: false }}
+      >
         {props.children}
       </RowContext.Provider>
     </div>

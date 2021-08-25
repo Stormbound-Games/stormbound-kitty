@@ -1,8 +1,6 @@
 const section = {
-  marginLeft: 'calc(var(--s-base) * -1)',
-  marginRight: 'calc(var(--s-base) * -1)',
-  paddingLeft: 'var(--s-base)',
-  paddingRight: 'var(--s-base)',
+  marginLeft: 'calc(var(--s-large) * -1)',
+  marginRight: 'calc(var(--s-large) * -1)',
   overflow: 'hidden',
   backgroundImage: 'linear-gradient(60deg, var(--color), transparent)',
 
@@ -33,7 +31,7 @@ const section = {
 }
 
 const inner = {
-  padding: 'var(--s-base)',
+  padding: 'var(--s-base) var(--s-large)',
   textAlign: 'center',
 
   medium: {

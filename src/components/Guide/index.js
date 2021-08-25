@@ -40,9 +40,13 @@ const Guide = React.memo(function Guide(props) {
         </Page.Narrow>
       </Page>
 
-      <HorizontalRule />
+      <HorizontalRule
+        // The `Page` component right above this one applies a significant
+        // bottom margin, so there is no need for extra top margin.
+        spacing={{ top: 'NONE', bottom: ['LARGE', 'LARGER'] }}
+      />
 
-      <Notice icon='compass'>
+      <Notice icon='compass' spacing={{ bottom: 'BASE' }}>
         Looking to teach others and guide them towards glorious battles?
         <Only.Desktop>
           <br />

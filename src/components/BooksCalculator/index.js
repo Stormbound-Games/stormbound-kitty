@@ -83,7 +83,7 @@ export default React.memo(function BooksCalculator(props) {
           </p>
           <Spacing top='BASE' bottom='LARGER'>
             <form>
-              <Row>
+              <Row withNarrowGutter>
                 <Row.Column>
                   <Select
                     label='Book type'
@@ -144,7 +144,7 @@ export default React.memo(function BooksCalculator(props) {
                   copy of <CardLink id='N8' />, set 2 for “Common cards” and 1
                   for “Legendary cards”.
                 </p>
-                <Row>
+                <Row withNarrowGutter>
                   <Row.Column>
                     <NumberInput
                       label='Common cards'
@@ -168,7 +168,7 @@ export default React.memo(function BooksCalculator(props) {
                     />
                   </Row.Column>
                 </Row>
-                <Row>
+                <Row withNarrowGutter>
                   <Row.Column>
                     <NumberInput
                       label='Epic cards'

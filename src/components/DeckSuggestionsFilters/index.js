@@ -38,7 +38,7 @@ export default React.memo(function DeckSuggestionsFilters(props) {
       labelExpanded='Collapse deck filters'
     >
       <form onSubmit={event => event.preventDefault()}>
-        <Row>
+        <Row withNarrowGutter>
           <Row.Column>
             <TagsSelect
               tags={props.tags}
@@ -49,7 +49,7 @@ export default React.memo(function DeckSuggestionsFilters(props) {
           </Row.Column>
         </Row>
 
-        <Row>
+        <Row withNarrowGutter>
           <Row.Column>
             <FactionSelect
               value={props.faction}
@@ -74,7 +74,7 @@ export default React.memo(function DeckSuggestionsFilters(props) {
           </Row.Column>
         </Row>
 
-        <Row>
+        <Row withNarrowGutter>
           <Row.Column>
             <Input
               label='Name'
@@ -103,7 +103,7 @@ export default React.memo(function DeckSuggestionsFilters(props) {
           </Row.Column>
         </Row>
 
-        <Row>
+        <Row withNarrowGutter>
           <Row.Column>
             <Select
               label='Order'

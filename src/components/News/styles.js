@@ -5,11 +5,13 @@ const news = {
 }
 
 /**
- * 1. Give some vertical spacing for the visual artifact between news.
+ * 1. Give some vertical spacing for the visual artifact between news. However,
+ *   `--s-base` feels a little tight while `--s-large` feels too wide, so we go
+ *    in between.
  */
 const item = {
   position: 'relative',
-  padding: 'var(--s-base) 0' /* 1 */,
+  padding: '1.5rem 0' /* 1 */,
 
   /**
    * 1. Prevent background color from leaking behind the padding, which is

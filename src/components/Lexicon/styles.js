@@ -6,6 +6,8 @@ const lexicon = {
 const column = {
   paddingLeft: 'var(--s-large)',
   backgroundClip: 'padding-box',
+
+  small: { paddingLeft: 0 },
 }
 
 const title = {

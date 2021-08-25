@@ -15,13 +15,13 @@ export default React.memo(function BattleSimPanel(props) {
 
       {props.isMobile && props.isPanelOpen && (
         <DiamondButton
-          extend={styles.boardButton({ side: props.side })}
+          extend={styles.boardButton}
           onClick={props.closePanel}
           label='Go to board'
           data-testid='panel-close-btn'
           isActive
           aria-pressed={false}
-          icon={props.side === 'left' ? 'arrow-right' : 'arrow-left'}
+          icon='cross'
         />
       )}
     </div>

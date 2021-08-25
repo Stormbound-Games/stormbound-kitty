@@ -21,7 +21,7 @@ export default React.memo(function BrawlCalculatorSettings(props) {
 
   return (
     <>
-      <Row>
+      <Row withNarrowGutter>
         <Row.Column>
           <NumberInput
             label='Win rate (%)'
@@ -47,7 +47,7 @@ export default React.memo(function BrawlCalculatorSettings(props) {
           />
         </Row.Column>
       </Row>
-      <Row>
+      <Row withNarrowGutter>
         <Row.Column>
           {props.mode === 'COINS' ? (
             <>

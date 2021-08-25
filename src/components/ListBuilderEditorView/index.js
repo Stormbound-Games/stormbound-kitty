@@ -239,7 +239,7 @@ class ListBuilderEditorView extends React.Component {
               />
             ))}
 
-            <HorizontalRule />
+            <HorizontalRule spacing={{ bottom: ['LARGE', 'LARGER'] }} />
 
             <CTA
               onClick={this.addTier}

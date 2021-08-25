@@ -23,7 +23,7 @@ export default React.memo(function QuestBuilderForm(props) {
         </Row.Column>
       </Row>
 
-      <Row>
+      <Row withNarrowGutter>
         <Row.Column width='1/3'>
           <NumberInput
             label='Amount'

@@ -1,19 +1,20 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Page from '~/components/Page'
 import Icon from '~/components/Icon'
 import MemberListEntry from '~/components/MemberListEntry'
 import MemberTagYourself from '~/components/MemberTagYourself'
 import MembersSearchForm from '~/components/MembersSearchForm'
 import Row from '~/components/Row'
-import chunk from '~/helpers/chunk'
+import styles from './styles'
 
 export default React.memo(function Members(props) {
+  const { css } = useFela()
   const [name, setName] = React.useState('')
   const [type, setType] = React.useState('*')
   const members = props.members
     .filter(({ member }) => name === '' || member.toLowerCase().includes(name))
     .filter(({ type: cType }) => type === '*' || type === cType)
-  const rows = chunk(members, 3)
 
   return (
     <Page
@@ -46,19 +47,13 @@ export default React.memo(function Members(props) {
           <MemberTagYourself members={members.map(a => a.member)} />
         </Row.Column>
         <Row.Column width='2/3'>
-          {rows.map(([a, b, c], index) => (
-            <Row isDesktopOnly key={index}>
-              <Row.Column width='1/3'>
-                {a && <MemberListEntry key={a.member} {...a} />}
-              </Row.Column>
-              <Row.Column width='1/3'>
-                {b && <MemberListEntry key={b.member} {...b} />}
-              </Row.Column>
-              <Row.Column width='1/3'>
-                {c && <MemberListEntry key={c.member} {...c} />}
-              </Row.Column>
-            </Row>
-          ))}
+          <ul className={css(styles.list)}>
+            {members.map(member => (
+              <li className={css(styles.item)} key={member.member}>
+                <MemberListEntry {...member} />
+              </li>
+            ))}
+          </ul>
         </Row.Column>
       </Row>
     </Page>

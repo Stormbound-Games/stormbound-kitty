@@ -1,5 +1,7 @@
 const article = {
-  marginBottom: 'var(--s-largest)',
+  marginBottom: 'var(--s-base)',
+
+  medium: { marginBottom: 'var(--s-largest)' },
 }
 
 /**

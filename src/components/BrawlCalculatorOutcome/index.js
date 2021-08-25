@@ -22,14 +22,17 @@ const BrawlCalculatorRewards = React.memo(function BrawlCalculatorRewards(
     <ol
       className={css({
         padding: 0,
-        margin: '0 0 var(--s-large)',
+        margin: '0 0 var(--s-base)',
         listStylePosition: 'inside',
       })}
       start={info.nextIndex + 1}
     >
       {milestones.slice(info.nextIndex, props.milestone + 1).map(milestone => {
         return (
-          <li key={milestone.crowns}>
+          <li
+            key={milestone.crowns}
+            className={css({ margin: 'var(--s-smallest) 0' })}
+          >
             {getRewardLabel(milestone, true)}{' '}
             {milestone.reward === 'LEGENDARY_CARD' && props.hasLegendary5
               ? '(exchanged)'
