@@ -69,7 +69,7 @@ class BattleSimDeckImport extends React.Component {
           type='CTA'
           onClick={this.open}
           extend={{
-            margin: '1em auto 2em',
+            margin: 'var(--s-base) auto var(--s-large)',
             display: 'block',
           }}
         >

@@ -11,7 +11,7 @@ const field = {
 
 const label = {
   display: 'block',
-  marginRight: '1em',
+  marginRight: 'var(--s-base)',
   flex: '1 0 auto',
 }
 

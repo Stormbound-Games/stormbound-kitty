@@ -15,7 +15,7 @@ const milestone = ({ isCollected }) => ({
 })
 
 const header = {
-  padding: '0.75em',
+  padding: 'var(--s-small)',
   fontSize: '120%',
   textAlign: 'center',
   textTransform: 'uppercase',
@@ -33,7 +33,7 @@ const body = {
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  padding: '1em 1em 2em' /* 2 */,
+  padding: 'var(--s-base) var(--s-base) var(--s-large)' /* 2 */,
 }
 
 const overlay = {
@@ -54,7 +54,7 @@ const collected = {
   position: 'absolute',
   left: '-6px' /* 1 */,
   right: '-6px' /* 1 */,
-  padding: '0.5em',
+  padding: 'var(--s-smaller)',
   top: '50%',
   zIndex: 2,
   textAlign: 'center',

@@ -3,7 +3,7 @@
  *    component.
  */
 const meta = {
-  marginBottom: '3em',
+  marginBottom: 'var(--s-larger)',
   textTransform: 'uppercase',
   color: 'var(--beige)',
   display: 'flex',

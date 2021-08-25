@@ -30,7 +30,7 @@ const legend = {
     height: '0.8em',
     display: 'inline-block',
     transform: 'rotate(45deg)',
-    margin: '0 0.5em',
+    margin: '0 var(--s-smaller)',
     border: '1px solid var(--beige)',
     boxSizing: 'border-box',
   },

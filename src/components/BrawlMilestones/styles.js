@@ -18,7 +18,7 @@ const milestonesPseudo = {
  *    seen beyond the borders of the container.
  */
 const milestones = {
-  margin: '0 auto 3em',
+  margin: '0 auto var(--s-larger)',
   overflow: 'hidden' /* 1 */,
   position: 'relative',
 

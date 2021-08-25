@@ -14,7 +14,7 @@ const puzzle = {
   position: 'absolute',
   right: 0,
   bottom: '-1.5em',
-  padding: '1em',
+  padding: 'var(--s-base)',
   width: 'calc((100% - 40%) / 2)',
 
   '> * > :first-child': { display: 'none' /* 1 */ },
@@ -26,7 +26,7 @@ const deck = {
   position: 'absolute',
   right: 0,
   top: 0,
-  padding: '1em',
+  padding: 'var(--s-base)',
   width: '25%',
 }
 

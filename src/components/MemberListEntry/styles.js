@@ -8,7 +8,7 @@ const entryPseudo = {
 }
 
 const entry = ({ isYou }) => ({
-  padding: '0.5em 0.25em',
+  padding: 'var(--s-smaller) var(--s-smallest)',
   fontSize: '120%',
   display: 'flex',
   border: isYou ? '1px solid var(--dark-beige)' : undefined,
@@ -39,7 +39,7 @@ const name = {
 }
 
 const content = {
-  marginLeft: '1em',
+  marginLeft: 'var(--s-base)',
 }
 
 const icon = {

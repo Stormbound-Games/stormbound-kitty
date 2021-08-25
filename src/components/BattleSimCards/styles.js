@@ -1,6 +1,6 @@
 const cards = {
   display: 'flex',
-  padding: '0 0.25em',
+  padding: '0 var(--s-smallest)',
   zIndex: 2,
 }
 
@@ -33,9 +33,9 @@ const button = ({ isEmpty }) => ({
 })
 
 const slot = ({ isCycle }) => ({
-  flex: '0 0 calc(25% - 0.5em)',
+  flex: '0 0 calc(25% - var(--s-smaller))',
   position: 'relative',
-  margin: '0 0.25em',
+  margin: '0 var(--s-smallest)',
   transition: '250ms',
   opacity: isCycle ? 0.5 : undefined,
 

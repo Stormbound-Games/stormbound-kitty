@@ -26,7 +26,10 @@ export default React.memo(function AdvancedCardSearch(props) {
                 <span>
                   Advanced search <LearnMoreIcon anchor='#advanced-search' />
                 </span>
-                <Link onClick={props.cancel} extend={{ marginBottom: '0.5em' }}>
+                <Link
+                  onClick={props.cancel}
+                  extend={{ marginBottom: 'var(--s-smaller)' }}
+                >
                   <Only.Desktop>Back to regular search</Only.Desktop>
                   <Only.Mobile>Regular search</Only.Mobile>
                 </Link>

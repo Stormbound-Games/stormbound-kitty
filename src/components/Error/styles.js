@@ -1,5 +1,5 @@
 const error = {
-  margin: '3em auto',
+  margin: 'var(--s-larger) auto',
   maxWidth: '350px',
   textAlign: 'center',
 }
@@ -10,7 +10,7 @@ const title = {
 
 const image = {
   display: 'block',
-  margin: '0 auto 1em',
+  margin: '0 auto var(--s-base)',
   maxWidth: '250px',
 }
 

@@ -11,7 +11,7 @@ const content = {
  *    a bit more spacing than for text content to not look too crowded.
  */
 const body = {
-  padding: '2em' /* 1 */,
+  padding: 'var(--s-large)' /* 1 */,
 }
 
 /**

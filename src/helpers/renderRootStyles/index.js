@@ -140,7 +140,7 @@ const renderRootStyles = renderer => {
   renderer.renderStatic(
     {
       marginTop: 0,
-      marginBottom: '1em',
+      marginBottom: 'var(--s-base)',
     },
     'p'
   )
@@ -167,7 +167,7 @@ const renderRootStyles = renderer => {
       fontSize: '90%',
       color: 'var(--beige)',
       display: 'inline-block',
-      marginBottom: '0.25em',
+      marginBottom: 'var(--s-smallest)',
     },
     'legend'
   )
@@ -234,14 +234,14 @@ const renderRootStyles = renderer => {
   renderer.renderStatic(
     {
       color: 'var(--beige)',
-      marginTop: '2em',
+      marginTop: 'var(--s-large)',
     },
     '.EditorialContent h3:not([class])'
   )
 
   renderer.renderStatic(
     {
-      marginTop: '0.5em',
+      marginTop: 'var(--s-smaller)',
       marginBottom: 0,
     },
     '.EditorialContent ol ul:not([class])'
@@ -257,16 +257,16 @@ const renderRootStyles = renderer => {
 
   renderer.renderStatic(
     {
-      paddingLeft: '1.4em',
-      textIndent: '-1.4em',
-      marginBottom: '0.5em',
+      paddingLeft: '1.5em',
+      textIndent: '-1.5em',
+      marginBottom: 'var(--s-smaller)',
     },
     '.EditorialContent li:not([class])'
   )
 
   renderer.renderStatic(
     {
-      marginTop: '0.5em',
+      marginTop: 'var(--s-smaller)',
       marginBottom: 0,
     },
     '.EditorialContent li ul'

@@ -19,7 +19,7 @@ const table = {
 }
 
 const edit = {
-  marginLeft: '1em',
+  marginLeft: 'var(--s-base)',
   left: '100%',
   top: '50%',
   cursor: 'pointer',

@@ -5,7 +5,7 @@
 const header = {
   zIndex: 10 /* 1 */,
   position: 'relative' /* 2 */,
-  padding: '0 var(--s-base)',
+  padding: '0 var(--s-large)',
 }
 
 /**
@@ -22,18 +22,14 @@ const header = {
 const nav = ({ isMobileNavOpen }) => ({
   minHeight: '54px' /* 1 */,
   backgroundColor: 'var(--black)' /* 2 */,
-  margin: '0 1em',
   borderBottom: '1px solid var(--dark-beige)',
-  paddingTop: '1em',
+  paddingTop: 'var(--s-base)',
 
   small: {
     position: 'absolute',
     top: '62px' /* 3 */,
     left: 0,
     right: 0,
-    margin: 0 /* 4 */,
-    paddingLeft: '1em' /* 4 */,
-    paddingRight: '1em' /* 4 */,
     paddingTop: 0,
     zIndex: 20,
     boxShadow: '0 1.5em 1em -1em #0000004d',
@@ -46,7 +42,7 @@ const list = {
   paddingLeft: 0,
   display: 'flex',
   flexWrap: 'wrap',
-  margin: '1em 0',
+  margin: 'var(--s-base) 0',
 
   medium: {
     margin: 0,
@@ -84,7 +80,7 @@ const getInteractiveState = ({ isActive, isOpen }) => ({
   height: '1em',
   position: 'absolute',
   transform: 'translate(-50%, -50%) rotate(45deg)',
-  top: 'calc(100% + 0.5em)',
+  top: 'calc(100% + var(--s-smaller))',
   left: '50%',
   border: '1px solid var(--dark-beige)',
   borderBottom: 0,
@@ -111,7 +107,7 @@ const action = ({ isActive, isOpen }) => ({
   color: isActive ? 'var(--beige)' : 'inherit',
   display: 'inline-block',
   outline: 0,
-  padding: '0.5em 0',
+  padding: 'var(--s-smaller) var(--s-base)',
   position: 'relative',
   textDecoration: 'none',
   zIndex: isOpen ? 20 : undefined /* 1 */,
@@ -121,13 +117,13 @@ const action = ({ isActive, isOpen }) => ({
   '::after': getInteractiveState({ isActive, isOpen }),
 
   medium: {
-    padding: '1em',
+    padding: 'var(--s-base)',
   },
 })
 
 const icon = {
   fontSize: '80%',
-  marginRight: '0.25em',
+  marginRight: 'var(--s-smallest)',
   verticalAlign: 'baseline',
   position: 'relative',
   top: '1px',

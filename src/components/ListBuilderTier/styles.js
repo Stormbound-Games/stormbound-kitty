@@ -1,7 +1,7 @@
 const body = ({ isDragging }) => ({
   overflow: 'hidden',
   position: 'relative',
-  margin: '0 -0.25em',
+  margin: '0 calc(var(--s-smallest) * -1)',
   cursor: isDragging ? 'move' : undefined,
 
   '::after': {
@@ -22,8 +22,8 @@ const body = ({ isDragging }) => ({
   },
 
   medium: {
-    margin: '1em 0',
-    padding: '1em',
+    margin: 'var(--s-base) 0',
+    padding: 'var(--s-base)',
   },
 })
 

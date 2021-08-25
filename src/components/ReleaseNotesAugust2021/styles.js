@@ -8,7 +8,7 @@ const cards = {
 }
 
 const card = {
-  padding: '0.5em',
+  padding: 'var(--s-smaller)',
   display: 'inline-block',
   maxWidth: '100%',
   height: 'auto',

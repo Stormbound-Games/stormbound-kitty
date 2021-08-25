@@ -3,7 +3,7 @@ const radio = {
   display: 'flex',
   alignItems: 'center',
   paddingLeft: '2.5em',
-  margin: '0.5em 0',
+  margin: 'var(--s-smaller) 0',
   color: 'currentcolor',
 }
 

@@ -1,5 +1,5 @@
 const disclaimerWrapper = {
-  margin: '0 auto 2em',
+  margin: '0 auto var(--s-large)',
 }
 
 const disclaimer = {
@@ -8,17 +8,17 @@ const disclaimer = {
 
 const wrapper = {
   display: 'flex',
-  marginLeft: '-2em',
+  marginLeft: 'calc(var(--s-large) * -1)',
   width: 'auto',
 }
 
 const item = {
-  paddingLeft: '2em',
+  paddingLeft: 'var(--s-large)',
   backgroundClip: 'padding-box',
 }
 
 const art = {
-  margin: '0 0 3em',
+  margin: '0 0 var(--s-larger)',
 }
 
 const caption = {

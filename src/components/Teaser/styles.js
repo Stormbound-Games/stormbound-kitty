@@ -118,7 +118,7 @@ const card = {
  */
 const body = ({ isLarge }) => ({
   position: 'relative',
-  padding: isLarge ? '1.5em' : '0.75em',
+  padding: isLarge ? 'var(--s-large)' : 'var(--s-small)',
   backgroundColor: 'var(--black)',
   flexGrow: 1 /* 1 */,
   fontSize: isLarge ? '150%' : undefined,

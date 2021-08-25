@@ -4,7 +4,7 @@ const notice = {
 }
 
 const icon = {
-  marginRight: '0.5em',
+  marginRight: 'var(--s-smaller)',
   position: 'relative',
   top: '1.5px',
 }

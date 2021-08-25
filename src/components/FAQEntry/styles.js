@@ -20,7 +20,7 @@ const entry = {
     position: 'absolute',
     top: '0.35em',
     right: '100%',
-    marginRight: '0.75em',
+    marginRight: 'var(--s-small)',
     border: '1px solid',
     transform: 'rotate(45deg)',
     animationName: pulse,
@@ -39,7 +39,7 @@ const link = {
 }
 
 const answer = {
-  margin: '0 0 2.5em',
+  margin: '0 0 var(--s-larger)',
 }
 
 const styles = {

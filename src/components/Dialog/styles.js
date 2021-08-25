@@ -52,7 +52,7 @@ const content = {
 }
 
 const header = {
-  padding: '1em',
+  padding: 'var(--s-base)',
   backgroundColor: 'var(--light-blue)',
   borderRadius: '0.3em 0.3em 0 0',
 }
@@ -64,9 +64,9 @@ const title = {
 }
 
 const body = ({ withCTA }) => ({
-  padding: '1em',
+  padding: 'var(--s-base)',
   backgroundColor: 'var(--dark-blue)',
-  paddingBottom: withCTA ? '2em' : '1em',
+  paddingBottom: withCTA ? 'var(--s-large)' : 'var(--s-base)',
 })
 
 const button = {

@@ -8,7 +8,7 @@ const loader = {
 
 const svg = {
   display: 'block',
-  margin: '0 auto 2.5em',
+  margin: '0 auto var(--s-larger)',
   transform: 'scale(1.5)',
 }
 

@@ -4,7 +4,7 @@ const controls = {
 
 const cardHolder = {
   width: '225px',
-  margin: '3em auto',
+  margin: 'var(--s-larger) auto',
 }
 
 const table = {
@@ -18,7 +18,7 @@ const table = {
   },
 
   '> * > tr > *': {
-    padding: '0.75em 0.5em',
+    padding: 'var(--s-small) var(--s-smaller)',
     textAlign: 'center',
     position: 'relative',
     border: '1px solid #ffffff33',

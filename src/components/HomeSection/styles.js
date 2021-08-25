@@ -1,8 +1,8 @@
 const section = {
-  marginLeft: '-1em',
-  marginRight: '-1em',
-  paddingLeft: '1em',
-  paddingRight: '1em',
+  marginLeft: 'calc(var(--s-base) * -1)',
+  marginRight: 'calc(var(--s-base) * -1)',
+  paddingLeft: 'var(--s-base)',
+  paddingRight: 'var(--s-base)',
   overflow: 'hidden',
   backgroundImage: 'linear-gradient(60deg, var(--color), transparent)',
 
@@ -33,7 +33,7 @@ const section = {
 }
 
 const inner = {
-  padding: '1em',
+  padding: 'var(--s-base)',
   textAlign: 'center',
 
   medium: {
@@ -41,7 +41,7 @@ const inner = {
     maxWidth: '100%',
     margin: '0 auto',
     textAlign: 'right',
-    padding: '2em',
+    padding: 'var(--s-large)',
   },
 }
 
@@ -70,7 +70,7 @@ const actions = {
    */
   medium: {
     marginTop: 'var(--s-large)',
-    marginRight: '-0.5em' /* 1 */,
+    marginRight: 'calc(var(--s-smaller) * -1)' /* 1 */,
     marginBottom: 'var(--s-base)',
   },
 }

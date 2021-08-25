@@ -1,5 +1,5 @@
 const container = {
-  margin: '3em auto',
+  margin: 'var(--s-larger) auto',
   textAlign: 'center',
 }
 
@@ -11,13 +11,13 @@ const title = {
 
 const image = {
   display: 'block',
-  margin: '0 auto 1em',
+  margin: '0 auto var(--s-base)',
   maxWidth: '250px',
 }
 
 const copy = {
   maxWidth: '50ch',
-  margin: '0 auto 2em',
+  margin: '0 auto var(--s-large)',
 }
 
 const styles = { container, title, image, copy }

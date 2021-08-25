@@ -22,7 +22,7 @@ const banner = {
 const meta = {
   display: 'flex',
   flexDirection: 'column',
-  margin: '0 0.75em',
+  margin: '0 var(--s-small)',
   textTransform: 'uppercase',
 }
 
@@ -42,7 +42,7 @@ const faction = {
 const factionIcon = {
   width: '1.25em',
   height: '1.25em',
-  margin: '0 0.4em',
+  margin: '0 var(--s-smaller)',
 }
 
 const styles = { banner, meta, faction, factionIcon }

@@ -1,5 +1,5 @@
 const list = {
-  paddingLeft: '0.25em',
+  paddingLeft: 'var(--s-smallest)',
   listStylePosition: 'inside',
   marginTop: 0,
 }

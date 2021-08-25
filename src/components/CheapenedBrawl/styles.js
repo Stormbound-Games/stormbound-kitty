@@ -9,7 +9,7 @@ const control = ({ isActive }) => ({
   border: 0,
   borderBottom:
     '0.2em solid ' + isActive ? 'var(--beige)' : 'var(--dark-beige)',
-  padding: '1em 0',
+  padding: 'var(--s-base) 0',
   color: isActive ? 'var(--beige)' : 'var(--dark-beige)',
   flex: '1 1 calc(100% / 3)',
 
