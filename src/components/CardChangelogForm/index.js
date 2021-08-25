@@ -26,7 +26,7 @@ const CardChangelogForm = props => {
         </Row.Column>
         <Row.Column>
           <Select
-            label='Types of changes'
+            label='Change type'
             id='type'
             value={props.type}
             onChange={event => props.setType(event.target.value)}

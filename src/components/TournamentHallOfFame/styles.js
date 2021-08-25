@@ -1,6 +1,8 @@
 const name = {
   marginTop: 0,
-  marginBottom: 0,
+  marginBottom: 'var(--s-smaller)',
+  lineHeight: 1,
+  medium: { marginBottom: 0 },
 }
 
 const meta = {

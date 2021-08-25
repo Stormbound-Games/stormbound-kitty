@@ -47,24 +47,22 @@ export default React.memo(function ListBuilderTierHeader(props) {
       </div>
 
       {props.isEditable && (
-        <Only.Desktop>
-          <div className={css(styles.item, styles.buttons)}>
-            <DiamondButton
-              onClick={props.moveUp}
-              label='Move tier up'
-              disabled={!props.isEditable || !props.canMoveUp}
-              icon='arrow-up'
-              extend={styles.move}
-            />
-            <DiamondButton
-              onClick={props.moveDown}
-              label='Move tier down'
-              disabled={!props.isEditable || !props.canMoveDown}
-              icon='arrow-down'
-              extend={styles.move}
-            />
-          </div>
-        </Only.Desktop>
+        <div className={css(styles.item, styles.buttons)}>
+          <DiamondButton
+            onClick={props.moveUp}
+            label='Move tier up'
+            disabled={!props.isEditable || !props.canMoveUp}
+            icon='arrow-up'
+            extend={styles.move}
+          />
+          <DiamondButton
+            onClick={props.moveDown}
+            label='Move tier down'
+            disabled={!props.isEditable || !props.canMoveDown}
+            icon='arrow-down'
+            extend={styles.move}
+          />
+        </div>
       )}
     </header>
   )

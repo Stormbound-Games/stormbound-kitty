@@ -17,6 +17,11 @@ const radio = {
   ':last-child': { marginLeft: 'var(--s-large)' },
 }
 
-const styles = { container, score, radio }
+const explanation = {
+  margin: 0,
+  paddingLeft: 'var(--s-base)',
+}
+
+const styles = { container, explanation, score, radio }
 
 export default styles

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import Link from '~/components/Link'
 import Checkbox from '~/components/Checkbox'
 import Page from '~/components/Page'
@@ -100,6 +101,7 @@ const useIncomeOverPeriod = (settings, period, rubiesConversion) => {
 }
 
 export default React.memo(function IncomeCalculator(props) {
+  const { css } = useFela()
   const [withPremiumPass, setWithPremiumPass] = React.useState(false)
   const [period, setPeriod] = React.useState(PERIODS[0])
   const [setup, setSetup] = React.useState('MOBILE_WITHOUT_ADS')
@@ -167,13 +169,11 @@ export default React.memo(function IncomeCalculator(props) {
             <Only.Mobile>tapping</Only.Mobile> “Daily” in the outcome section.
           </p>
 
-          <Spacing bottom='LARGE'>
-            <p>
-              Special thanks to <Link to='/members/Oeni'>Oeni</Link> (oeni#7266)
-              and <Link to='/members/Roman'>Roman</Link> (Roman_NFP#6918) for
-              their help in designing and making this simulator possible.
-            </p>
-          </Spacing>
+          <p>
+            Special thanks to <Link to='/members/Oeni'>Oeni</Link> (oeni#7266)
+            and <Link to='/members/Roman'>Roman</Link> (Roman_NFP#6918) for
+            their help in designing and making this simulator possible.
+          </p>
 
           <Info icon='compass' title='Resources Guide'>
             <p>
@@ -384,7 +384,8 @@ export default React.memo(function IncomeCalculator(props) {
               On a {period.toLowerCase()} basis, and given your current play
               style, you would collect the following resources:
             </p>
-            <ul>
+
+            <ul className={css(styles.outcome)}>
               <li>
                 <Coins amount={parseFloat(income.coins.toFixed(2))} />
               </li>
@@ -397,7 +398,7 @@ export default React.memo(function IncomeCalculator(props) {
             </ul>
 
             <p>As well as:</p>
-            <ul>
+            <ul className={css(styles.outcome)}>
               <li>
                 <Common amount={Number(income.cards[0].toFixed(2))} />
               </li>

@@ -35,15 +35,17 @@ const title = {
 const boxPseudo = {
   content: '""' /* 1 */,
   position: 'absolute',
-  left: '0.5em',
-  height: '0.5em',
-  right: '0.5em',
+  left: 'var(--s-smaller)',
+  height: 'var(--s-smaller)',
+  right: 'var(--s-smaller)',
   border: 'inherit',
   backgroundColor: 'inherit',
 }
 
 /**
- * 1. Partially pull the news box on top of the image.
+ * 1. For the horizontal spacing, `--s-base` feels a little tight while
+ *   `--s-large` feels too wide, so we go in between.
+ * 2. Partially pull the news box on top of the image.
  */
 const box = {
   position: 'relative',
@@ -51,9 +53,9 @@ const box = {
   backgroundRepeat: 'repeat',
   backgroundColor: 'var(--black)',
   border: '1px solid var(--beige)',
-  padding: 'var(--s-base) var(--s-large)',
+  padding: 'var(--s-base) 1.5rem' /* 1 */,
   boxShadow: '0 0 2em 1em #00000033',
-  marginTop: '-2.5em' /* 1 */,
+  marginTop: '-2.5em' /* 2 */,
 
   '::before': {
     ...boxPseudo,

@@ -52,9 +52,9 @@ export default React.memo(function DeckEditorFilters(props) {
         onSubmit={event => event.preventDefault()}
       >
         <Spacing bottom='BASE'>
-          <Row isDesktopOnly spacing={{ bottom: 'NONE' }}>
+          <Row isDesktopOnly withNarrowGutter spacing={{ bottom: 'NONE' }}>
             <Row.Column spacing={{ bottom: 'NONE' }}>
-              <Row>
+              <Row withNarrowGutter>
                 <Row.Column>
                   <FactionSelect
                     value={props.faction}
@@ -85,7 +85,7 @@ export default React.memo(function DeckEditorFilters(props) {
               </Row>
             </Row.Column>
             <Row.Column spacing={{ bottom: 'NONE' }}>
-              <Row>
+              <Row withNarrowGutter>
                 <Row.Column>
                   <Select
                     label='Mana'
@@ -121,9 +121,9 @@ export default React.memo(function DeckEditorFilters(props) {
             </Row.Column>
           </Row>
 
-          <Row isDesktopOnly spacing={{ bottom: 'NONE' }}>
+          <Row isDesktopOnly withNarrowGutter spacing={{ bottom: 'NONE' }}>
             <Row.Column spacing={{ bottom: 'NONE' }}>
-              <Row>
+              <Row withNarrowGutter>
                 <Row.Column>
                   <Select
                     label='Rarity'
@@ -160,7 +160,7 @@ export default React.memo(function DeckEditorFilters(props) {
               </Row>
             </Row.Column>
             <Row.Column spacing={{ bottom: 'NONE' }}>
-              <Row>
+              <Row withNarrowGutter>
                 <Row.Column>
                   <Select
                     label='Ability'
@@ -202,9 +202,9 @@ export default React.memo(function DeckEditorFilters(props) {
             </Row.Column>
           </Row>
 
-          <Row isDesktopOnly spacing={{ bottom: 'NONE' }}>
+          <Row isDesktopOnly withNarrowGutter spacing={{ bottom: 'NONE' }}>
             <Row.Column spacing={{ bottom: 'NONE' }}>
-              <Row>
+              <Row withNarrowGutter>
                 <Row.Column>
                   <Checkbox
                     id='elder'
@@ -228,7 +228,7 @@ export default React.memo(function DeckEditorFilters(props) {
               </Row>
             </Row.Column>
             <Row.Column spacing={{ bottom: 'NONE' }}>
-              <Row>
+              <Row withNarrowGutter>
                 <Row.Column extend={{ justifyContent: 'center' }}>
                   <Link onClick={props.toggleAdvancedSearch}>
                     <Icon icon='search' extend={styles.icon} /> Advanced search
@@ -249,7 +249,7 @@ export default React.memo(function DeckEditorFilters(props) {
               </Row>
             </Row.Column>
           </Row>
-        </Spacing>{' '}
+        </Spacing>
       </div>
     </MobileTogglableContent>
   )

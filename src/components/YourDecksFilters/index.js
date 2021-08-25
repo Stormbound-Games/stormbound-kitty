@@ -26,7 +26,7 @@ export default React.memo(function YourDecksFilters(props) {
       labelExpanded='Collapse deck filters'
     >
       <form onSubmit={event => event.preventDefault()}>
-        <Row>
+        <Row withNarrowGutter>
           <Row.Column>
             <Input
               label='Name'
@@ -52,7 +52,7 @@ export default React.memo(function YourDecksFilters(props) {
           </Row.Column>
         </Row>
 
-        <Row>
+        <Row withNarrowGutter>
           <Row.Column>
             <FactionSelect
               value={props.faction}

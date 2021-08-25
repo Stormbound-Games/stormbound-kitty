@@ -26,7 +26,7 @@ const caption = {
   textTransform: 'uppercase',
   fontSize: '80%',
   letterSpacing: '1px',
-  marginTop: 'var(--s-base)',
+  marginTop: 'var(--s-smaller)',
 }
 
 const styles = {

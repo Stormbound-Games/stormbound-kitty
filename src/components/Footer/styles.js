@@ -1,5 +1,5 @@
 const footer = {
-  padding: 'var(--s-base)',
+  padding: 'var(--s-base) var(--s-large)',
   backgroundImage: 'linear-gradient(to top, transparent, #ded7a414)',
   position: 'relative',
 

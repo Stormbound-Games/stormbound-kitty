@@ -18,7 +18,7 @@ export default React.memo(function Releases(props) {
     >
       <Teasers items={items} />
 
-      <Notice icon='compass' spacing={{ top: 'LARGER' }}>
+      <Notice icon='compass' spacing={{ top: ['LARGE', 'LARGER'] }}>
         If you are looking for all the changes that were ever applied to
         specific cards, refer to <Link to='/changelog'>the card changelog</Link>
         .

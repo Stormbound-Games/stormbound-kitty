@@ -16,7 +16,11 @@ export default React.memo(function MobileTogglableContent(props) {
           id={props.id}
           isExpanded={isExpanded}
           renderToggle={toggleProps => (
-            <Link {...toggleProps} onClick={() => expand(s => !s)}>
+            <Link
+              {...toggleProps}
+              onClick={() => expand(s => !s)}
+              extend={{ marginBottom: 'var(--s-base)' }}
+            >
               {isExpanded ? labelExpanded : labelCollapsed}
             </Link>
           )}

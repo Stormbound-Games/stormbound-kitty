@@ -157,7 +157,7 @@ class BattleSimAppMobile extends React.Component {
             {this.props.mode === 'EDITOR' ? (
               <Panel
                 side='left'
-                title='Game and turn settings'
+                title='Game settings'
                 isMobile={true}
                 isPanelOpen={
                   this.state.mode === BattleSimAppMobile.MODES.SETTINGS
@@ -234,7 +234,7 @@ class BattleSimAppMobile extends React.Component {
                 data-testid='settings-panel-btn'
                 isActive
                 aria-pressed={false}
-                icon='arrow-left'
+                icon='hamburger'
               />
             )}
 
@@ -249,7 +249,7 @@ class BattleSimAppMobile extends React.Component {
                 data-testid='cell-panel-btn'
                 isActive
                 aria-pressed={false}
-                icon='arrow-right'
+                icon='target'
               />
             )}
         </div>

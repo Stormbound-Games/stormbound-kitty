@@ -23,7 +23,7 @@ export default React.memo(function BattleSimPuzzlesFilters(props) {
 
   return (
     <form onSubmit={event => event.preventDefault()}>
-      <Row>
+      <Row withNarrowGutter>
         <Row.Column>
           <Select
             label='Difficulty'

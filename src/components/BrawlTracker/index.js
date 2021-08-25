@@ -40,12 +40,8 @@ export default React.memo(function BrawlTracker(props) {
       <Row isDesktopOnly>
         <Row.Column width='1/3'>
           <Title>About your Brawl</Title>
-          <Spacing bottom='LARGE'>
-            <BrawlOutcome income={income} />
-          </Spacing>
-          <Spacing bottom='LARGEST'>
-            <BrawlReset />
-          </Spacing>
+          <BrawlOutcome income={income} />
+          <BrawlReset />
         </Row.Column>
         <Row.Column width='1/3'>
           <Title>Setup</Title>

@@ -8,7 +8,6 @@ const entryPseudo = {
 }
 
 const entry = ({ isYou }) => ({
-  padding: 'var(--s-smaller) var(--s-smallest)',
   fontSize: '120%',
   display: 'flex',
   border: isYou ? '1px solid var(--dark-beige)' : undefined,
@@ -28,6 +27,10 @@ const entry = ({ isYou }) => ({
         borderRightColor: 'var(--black)',
       }
     : undefined,
+
+  medium: {
+    padding: 'var(--s-smaller) var(--s-smallest)',
+  },
 })
 
 const name = {
@@ -39,7 +42,7 @@ const name = {
 }
 
 const content = {
-  marginLeft: 'var(--s-base)',
+  medium: { marginLeft: 'var(--s-base)' },
 }
 
 const icon = {
@@ -48,6 +51,8 @@ const icon = {
   fontSize: '220%',
   opacity: 0.5,
   color: 'var(--beige)',
+
+  small: { display: 'none' },
 }
 
 const summary = {

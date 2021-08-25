@@ -83,7 +83,7 @@ export default React.memo(function BattleSimCellForm(props) {
       onSubmit={props.onUnitSubmit}
       data-testid='cell-form'
     >
-      <div className={css(styles.row)}>
+      <div>
         <Row>
           <Row.Column width='3/4'>
             <CardSelect
@@ -129,7 +129,7 @@ export default React.memo(function BattleSimCellForm(props) {
         </Row>
       </div>
 
-      <div className={css(styles.row)}>
+      <div>
         <Row>
           <Row.Column>
             <NumberInput
@@ -221,7 +221,7 @@ export default React.memo(function BattleSimCellForm(props) {
               </Checkbox>
             </Row.Column>
           </Row>
-          <Row isDesktopOnly extend={{ marginTop: '-1em' }}>
+          <Row isDesktopOnly extend={{ medium: { marginTop: '-1em' } }}>
             <Row.Column width='1/3'>
               <Checkbox
                 id='confused'

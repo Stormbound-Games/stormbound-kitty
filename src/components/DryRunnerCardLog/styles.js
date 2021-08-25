@@ -26,6 +26,7 @@ const imageWrapper = ({ isTurn }) => ({
   height: '100%',
   display: 'flex',
   flexDirection: 'column',
+  aspectRatio: '1 / 1',
 
   '::after': {
     content: isTurn ? '""' : undefined,

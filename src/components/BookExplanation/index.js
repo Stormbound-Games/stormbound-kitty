@@ -1,9 +1,11 @@
 import React from 'react'
+import { useFela } from 'react-fela'
 import { RARITIES } from '~/constants/game'
 import { BOOKS } from '~/constants/books'
 import getBookName from '~/helpers/getBookName'
 
 export default React.memo(function BookExplanation({ book }) {
+  const { css } = useFela()
   const { percentiles, draws, only = {} } = BOOKS[book]
   const qualifier = [
     only.rarity,
@@ -23,7 +25,7 @@ export default React.memo(function BookExplanation({ book }) {
         cannot yield more than a single copy of a single card.
       </p>
       <p>The chances to draw are as follow:</p>
-      <ul>
+      <ul className={css({ margin: 0, paddingLeft: 'var(--s-base)' })}>
         {Object.keys(RARITIES).map((rarity, index) => (
           <li key={rarity}>
             {(percentiles[index] * 100).toFixed(0)}% chance of pulling a{' '}

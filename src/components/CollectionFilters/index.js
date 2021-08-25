@@ -50,9 +50,9 @@ export default React.memo(function CollectionFilters(props) {
     >
       <Spacing bottom='BASE'>
         <form onSubmit={event => event.preventDefault()}>
-          <Row isDesktopOnly spacing={{ bottom: 'NONE' }}>
+          <Row isDesktopOnly withNarrowGutter spacing={{ bottom: 'NONE' }}>
             <Row.Column spacing={{ bottom: 'NONE' }}>
-              <Row>
+              <Row withNarrowGutter>
                 <Row.Column>
                   <FactionSelect
                     value={props.faction}
@@ -81,7 +81,7 @@ export default React.memo(function CollectionFilters(props) {
               </Row>
             </Row.Column>
             <Row.Column spacing={{ bottom: 'NONE' }}>
-              <Row>
+              <Row withNarrowGutter>
                 <Row.Column>
                   <Select
                     label='Status'
@@ -116,9 +116,9 @@ export default React.memo(function CollectionFilters(props) {
             </Row.Column>
           </Row>
 
-          <Row isDesktopOnly spacing={{ bottom: 'NONE' }}>
+          <Row isDesktopOnly withNarrowGutter spacing={{ bottom: 'NONE' }}>
             <Row.Column spacing={{ bottom: 'NONE' }}>
-              <Row>
+              <Row withNarrowGutter>
                 <Row.Column>
                   <Select
                     label='Rarity'
@@ -154,7 +154,7 @@ export default React.memo(function CollectionFilters(props) {
               </Row>
             </Row.Column>
             <Row.Column spacing={{ bottom: 'NONE' }}>
-              <Row>
+              <Row withNarrowGutter>
                 <Row.Column>
                   <Only.CustomCollection>
                     <Select
@@ -185,9 +185,9 @@ export default React.memo(function CollectionFilters(props) {
             </Row.Column>
           </Row>
 
-          <Row isDesktopOnly spacing={{ bottom: 'NONE' }}>
+          <Row isDesktopOnly withNarrowGutter spacing={{ bottom: 'NONE' }}>
             <Row.Column spacing={{ bottom: 'NONE' }}>
-              <Row>
+              <Row withNarrowGutter>
                 <Row.Column>
                   <Checkbox
                     id='elder'
@@ -211,7 +211,7 @@ export default React.memo(function CollectionFilters(props) {
               </Row>
             </Row.Column>
             <Row.Column spacing={{ bottom: 'NONE' }}>
-              <Row>
+              <Row withNarrowGutter>
                 <Row.Column extend={{ justifyContent: 'center' }}>
                   <Link onClick={props.toggleAdvancedSearch}>
                     <Icon icon='search' extend={styles.icon} /> Advanced search
