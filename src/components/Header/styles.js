@@ -14,8 +14,8 @@ const header = {
  *    (which holds the navigation data) is fetched with every request. This is
  *    unneeded (although safe) in production.
  * 2. Opaque color to cover the underlying image on the home page.
- * 3. Use the height of the mobile header instead of `100%` to have the nav menu
- *    overlap the subnav is there is one.
+ * 3. Use the height of the mobile header (including its top padding) instead of
+ *   `100%` to have the nav menu overlap the subnav is there is one.
  * 4. Use padding instead of margin as the element has a solid background color
  *    which is not rendered behind margin.
  */
@@ -43,47 +43,63 @@ const nav = ({ isMobileNavOpen }) => ({
 
 const list = {
   listStyleType: 'none',
-  padding: 0,
-  margin: 0,
+  paddingLeft: 0,
   display: 'flex',
-
-  small: {
-    margin: '1em 0',
-    flexWrap: 'wrap',
-  },
+  flexWrap: 'wrap',
+  margin: '1em 0',
 
   medium: {
+    margin: 0,
     flexWrap: 'nowrap',
   },
 }
 
 /**
- * 1. Position context for the active state pseudo-element.
+ * 1. Relative positioning for the absolutely positioned mega menus.
+ * 2. Display navigation items in 2 columns on mobile.
  */
-const item = ({ isRight, isSelect }) => ({
-  textAlign: isSelect ? 'left' : 'center',
+const item = ({ isRight }) => ({
   position: 'relative' /* 1 */,
+  textAlign: 'center',
   marginLeft: isRight ? 'auto' : undefined,
-  width: isSelect ? '250px' : undefined,
-  padding: isSelect ? '0.5em 1em' : undefined,
-  overflow: isSelect ? 'visible' : undefined,
+  flex: '0 1 50%' /* 2 */,
 
-  /**
-   * 1. Display navigation items in 2 columns.
-   */
-  small: {
-    flex: '0 1 50%' /* 1 */,
-    marginLeft: isRight ? 0 : undefined,
-    width: isSelect ? '100%' : undefined,
-    flexGrow: isSelect ? 1 : undefined,
-
-    ':nth-of-type(even) > div': {
-      left: 'calc(-50vw + 1em)',
-    },
-  },
+  small: { ':nth-of-type(even) > div': { left: 'calc(-50vw + 1em)' } },
 
   medium: {
+    flex: '0 1 auto',
+    marginLeft: isRight ? 'auto' : undefined,
     whiteSpace: 'nowrap',
+  },
+})
+
+/**
+ * 1. Pseudo-element used for the active state and for when the dropdown is
+ *    open.
+ * 2. Make the triangle dark beige for the active state.
+ */
+const getInteractiveState = ({ isActive, isOpen }) => ({
+  content: '""' /* 1 */,
+  width: '1em',
+  height: '1em',
+  position: 'absolute',
+  transform: 'translate(-50%, -50%) rotate(45deg)',
+  top: 'calc(100% + 0.5em)',
+  left: '50%',
+  border: '1px solid var(--dark-beige)',
+  borderBottom: 0,
+  borderRight: 0,
+  backgroundColor: 'var(--black)',
+  opacity: isOpen ? 1 : 0,
+  transition: 'opacity 250ms 150ms',
+  backgroundImage:
+    isActive && !isOpen
+      ? 'linear-gradient(135deg, var(--dark-beige) 50%, var(--black) 50%)' /* 2 */
+      : undefined,
+
+  medium: {
+    top: '100%',
+    opacity: isActive ? 1 : undefined,
   },
 })
 
@@ -95,45 +111,17 @@ const action = ({ isActive, isOpen }) => ({
   color: isActive ? 'var(--beige)' : 'inherit',
   display: 'inline-block',
   outline: 0,
-  padding: '1em',
+  padding: '0.5em 0',
   position: 'relative',
   textDecoration: 'none',
   zIndex: isOpen ? 20 : undefined /* 1 */,
 
-  small: {
-    padding: '0.5em 0',
-  },
-
   ':focus': { color: 'var(--light-swarm)' },
 
-  /**
-   * 1. Pseudo-element used for the active state and for when the dropdown is
-   *    open (with 2 different classes respectively).
-   * 2. Make the triangle dark beige for the active state.
-   */
-  '::after': {
-    content: '""' /* 1 */,
-    width: '1em',
-    height: '1em',
-    position: 'absolute',
-    transform: 'translate(-50%, -50%) rotate(45deg)',
-    top: 'calc(100% + 0.5em)',
-    left: '50%',
-    border: '1px solid var(--dark-beige)',
-    borderBottom: 0,
-    borderRight: 0,
-    backgroundColor: 'var(--black)',
-    opacity: isOpen ? 1 : 0,
-    transition: 'opacity 250ms 150ms',
-    backgroundImage:
-      isActive && !isOpen
-        ? 'linear-gradient(135deg, var(--dark-beige) 50%, var(--black) 50%)' /* 2 */
-        : undefined,
+  '::after': getInteractiveState({ isActive, isOpen }),
 
-    medium: {
-      top: '100%',
-      opacity: isActive ? 1 : undefined,
-    },
+  medium: {
+    padding: '1em',
   },
 })
 

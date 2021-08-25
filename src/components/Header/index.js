@@ -9,6 +9,7 @@ import MobileHeader from '~/components/MobileHeader'
 import NavCardBuilder from '~/components/NavCardBuilder'
 import NavDeckBuilder from '~/components/NavDeckBuilder'
 import NewPulse from '~/components/NewPulse'
+import Only from '~/components/Only'
 import Icon from '~/components/Icon'
 import useIsMounted from '~/hooks/useIsMounted'
 import styles from './styles'
@@ -135,16 +136,18 @@ export default React.memo(function Header(props) {
               />
             </li>
           ))}
-          <li className={css(styles.item({ isRight: true }))}>
-            <Link
-              disabled={!isMounted}
-              onClick={props.openSearch}
-              extend={styles.action}
-              data-testid='search-button'
-            >
-              <Icon extend={styles.icon} icon='search' /> Search
-            </Link>
-          </li>
+          <Only.Desktop>
+            <li className={css(styles.item({ isRight: true }))}>
+              <Link
+                disabled={!isMounted}
+                onClick={props.openSearch}
+                extend={styles.action}
+                data-testid='search-button'
+              >
+                <Icon extend={styles.icon} icon='search' /> Search
+              </Link>
+            </li>
+          </Only.Desktop>
         </ul>
       </nav>
       <SubNav active={props.active.slice(2)} />

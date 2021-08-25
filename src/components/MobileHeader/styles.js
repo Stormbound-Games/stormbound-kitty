@@ -13,7 +13,7 @@ const nav = {
   display: 'flex',
   zIndex: 10,
   position: 'relative',
-  paddingTop: '0.5em',
+  paddingTop: 'var(--s-smaller)',
 
   '::after': gradientLine,
 
