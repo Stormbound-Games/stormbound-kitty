@@ -80,7 +80,7 @@ export default React.memo(function SearchDialog(props) {
   const [results, setResults] = React.useState([])
   const dialog = props.dialogRef.current
 
-  useSearchKeyboardShortcut(() => dialog.show())
+  useSearchKeyboardShortcut(() => dialog?.show())
 
   // Update search results when the search term changes.
   React.useEffect(() => search && runSearch(search).then(setResults), [search])
