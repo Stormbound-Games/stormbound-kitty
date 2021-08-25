@@ -13,7 +13,7 @@ const useNotificationVisibility = () => {
   const showNotification = React.useCallback(() => {
     setIsVisible(true)
     clearTimeout(timeout.current)
-    timeout.current = setTimeout(() => setIsVisible(false), 5000)
+    timeout.current = setTimeout(() => setIsVisible(false), 8000)
   }, [])
 
   React.useEffect(() => () => clearTimeout(timeout.current), [])
