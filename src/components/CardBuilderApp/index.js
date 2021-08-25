@@ -116,7 +116,7 @@ export default React.memo(function CardBuilderApp(props) {
       {props.mode === 'EDITOR' && (
         <Spacing vertical='LARGEST'>
           <div className={css({ maxWidth: '960px', margin: 'auto' })}>
-            <Row isDesktopOnly withWideGutter>
+            <Row isDesktopOnly>
               <Row.Column>
                 <Title>Core attributes</Title>
                 <CoreForm {...props} {...cardData} />

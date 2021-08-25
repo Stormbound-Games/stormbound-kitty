@@ -89,7 +89,7 @@ export default React.memo(function Collection(props) {
         icon: 'arrow-right',
       }}
     >
-      <Row isDesktopOnly withWideGutter>
+      <Row isDesktopOnly>
         <Row.Column width='1/3'>
           <Spacing bottom='LARGE'>
             <Title>What is this</Title>

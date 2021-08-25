@@ -70,7 +70,7 @@ export default React.memo(function GuideFreedomFight(props) {
       <Title>Possible Decks</Title>
 
       <Guide.FullWidth>
-        <Row isDesktopOnly withWideGutter spacing={{ vertical: 'LARGE' }}>
+        <Row isDesktopOnly spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
             <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               Frostkhan’s Freedom Fight
@@ -94,7 +94,7 @@ export default React.memo(function GuideFreedomFight(props) {
             />
           </Row.Column>
         </Row>
-        <Row isDesktopOnly withWideGutter spacing={{ vertical: 'LARGE' }}>
+        <Row isDesktopOnly spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
             <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               Critical Pancake’s deck
@@ -120,7 +120,7 @@ export default React.memo(function GuideFreedomFight(props) {
             />
           </Row.Column>
         </Row>
-        <Row isDesktopOnly withWideGutter spacing={{ vertical: 'LARGE' }}>
+        <Row isDesktopOnly spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
             <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               SeveralPeople’s deck
@@ -144,7 +144,7 @@ export default React.memo(function GuideFreedomFight(props) {
             />
           </Row.Column>
         </Row>
-        <Row isDesktopOnly withWideGutter spacing={{ vertical: 'LARGE' }}>
+        <Row isDesktopOnly spacing={{ vertical: 'LARGE' }}>
           <Row.Column>
             <h3 className={css({ marginTop: 'var(--s-smaller)' })}>
               Adig’s deck

@@ -56,7 +56,7 @@ export default React.memo(function QuestBuilderRoot(props) {
       <div
         className={css({ maxWidth: '100%', width: '900px', margin: '0 auto' })}
       >
-        <Row isDesktopOnly withWideGutter>
+        <Row isDesktopOnly>
           <Row.Column>
             <Title>Your Quest</Title>
             <Quest

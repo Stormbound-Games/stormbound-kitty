@@ -35,7 +35,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
       title='Ranked Tier List'
       description='Find a Tier List for ‘Ranked Mode’ of all the most  effective and popular Stormbound cards'
     >
-      <Row withWideGutter isDesktopOnly>
+      <Row isDesktopOnly>
         <Row.Column width='1/3'>
           <p>
             This tier list is computed from the{' '}

@@ -107,7 +107,7 @@ export default React.memo(function ReleaseNotesMay2021(props) {
       </Page.Embed>
 
       <Page.Narrow>
-        <Row isDesktopOnly withWideGutter extend={{ alignItems: 'center' }}>
+        <Row isDesktopOnly extend={{ alignItems: 'center' }}>
           <Row.Column>
             <Image
               src='/assets/images/releases/may_cards_packs.png'

@@ -141,7 +141,7 @@ export default React.memo(function DeckSuggestions(props) {
         icon: 'arrow-right',
       }}
     >
-      <Row isDesktopOnly withWideGutter>
+      <Row isDesktopOnly>
         <Row.Column width='1/3'>
           <Title>Filters</Title>
 

@@ -136,7 +136,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
       </Page.Narrow>
 
       <Page.Embed>
-        <Row isDesktopOnly withWideGutter>
+        <Row isDesktopOnly>
           <Row.Column width='1/3'>
             <Quest
               difficulty={1}
@@ -407,7 +407,7 @@ export default React.memo(function ReleaseNotesJuly2020(props) {
 
       <Page.Embed>
         <Title id='ui-improvements'>UI improvements</Title>
-        <Row isDesktopOnly withWideGutter>
+        <Row isDesktopOnly>
           <Row.Column width='1/3'>
             <Spacing top='LARGE'>
               <p>

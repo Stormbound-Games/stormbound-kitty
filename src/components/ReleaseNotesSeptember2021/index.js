@@ -280,7 +280,7 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
         </ul>
       </Page.Narrow>
 
-      <Row isDesktopOnly withWideGutter>
+      <Row isDesktopOnly>
         <Row.Column width='1/3'>
           <Image
             src='/assets/images/releases/double_income.png'
