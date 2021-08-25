@@ -12,7 +12,7 @@ export default React.memo(function DryRunnerInfo(props) {
 
   return (
     <Spacing bottom='LARGER'>
-      <Row isDesktopOnly>
+      <Row isDesktopOnly withWideGutter>
         <Row.Column>
           <DryRunnerSettings {...props} />
         </Row.Column>
