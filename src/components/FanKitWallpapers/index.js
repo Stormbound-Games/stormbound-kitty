@@ -17,7 +17,7 @@ const desktopWallpapers = Array.from(
   (_, i) => 'wp-d-' + (i + 1)
 ).map(resolveAsset('DESKTOP'))
 const mobileWallpapers = Array.from(
-  { length: 8 },
+  { length: 10 },
   (_, i) => 'wp-m-' + (i + 1)
 ).map(resolveAsset('MOBILE'))
 
