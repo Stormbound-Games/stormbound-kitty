@@ -13,7 +13,9 @@ const usePageProps = (props, versionId) => {
     const wiki = getWikiCardLink(name)
 
     properties.meta = [faction, type, race, date].filter(Boolean).join(' · ')
-    properties.action = { href: wiki, children: 'Open in wiki' }
+    properties.action = isEditing
+      ? { to: `/card/${id}/display`, children: 'Display view', icon: 'eye' }
+      : { href: wiki, children: 'Open in wiki' }
   } else if (props.contest) {
     const { id, season, winner } = props.contest
 
