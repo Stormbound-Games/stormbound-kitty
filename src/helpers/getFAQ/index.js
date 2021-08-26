@@ -23,9 +23,9 @@ const getFAQ = () => [
               small contribution counts. 💖
             </p>
             <p>
-              Special thanks <Link to='/members/Neicigam'>Neicigam</Link>{' '}
-              (Neicigam#0095), <Link to='/members/Jumboduck'>Jumboduck</Link>{' '}
-              (Jumboduck#8771), <Link to='/members/ArthisRoo'>ArthisRoo</Link>{' '}
+              Special thanks <Link to='/members/neicigam'>Neicigam</Link>{' '}
+              (Neicigam#0095), <Link to='/members/jumboduck'>Jumboduck</Link>{' '}
+              (Jumboduck#8771), <Link to='/members/arthisroo'>ArthisRoo</Link>{' '}
               (ArthisRoo#7189) for their kind and valuable help with the
               dry-runner, the deck advice and overall maintenance respectively.
             </p>
@@ -440,7 +440,7 @@ const getFAQ = () => [
           <>
             <p>
               The <Link to='/calculators/value'>value calculator</Link>, despite
-              efforts from <Link to='/members/Derk'>Derk</Link> (Derk#7109), is
+              efforts from <Link to='/members/derk'>Derk</Link> (Derk#7109), is
               not an accurate representation of cards’ value. First of all, they
               are evaluated in isolation instead of as part of a deck.
               Additionally, their value is based on a single turn so structures

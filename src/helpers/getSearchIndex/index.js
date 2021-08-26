@@ -272,7 +272,7 @@ const getSearchIndex = (withEverything = true) => {
   MEMBERS.slice(0, limit).forEach(member => {
     links.push({
       label: member,
-      path: '/members/' + member,
+      path: '/members/' + member.toLowerCase(),
       breadcrumbs: ['Community', 'Discover'],
     })
   })

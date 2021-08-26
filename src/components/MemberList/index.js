@@ -7,7 +7,7 @@ export default React.memo(function MemberList(props) {
       <>
         {acc}
         {index === 0 ? '' : index === arr.length - 1 ? ' and' : ','}{' '}
-        <Link to={'/members/' + author}>{author}</Link>
+        <Link to={'/members/' + author.toLowerCase()}>{author}</Link>
       </>
     ),
     <></>
