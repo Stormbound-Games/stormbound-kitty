@@ -24,7 +24,7 @@ const row = {
 const imageWrapper = ({ isTurn }) => ({
   position: 'relative',
   display: 'flex',
-  flex: '1 0 calc(100% / 6)',
+  flex: '0 0 calc(100% / 6)',
 
   '::after': {
     content: isTurn ? '""' : undefined,
