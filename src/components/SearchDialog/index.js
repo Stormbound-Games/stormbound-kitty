@@ -78,16 +78,15 @@ export default React.memo(function SearchDialog(props) {
   const input = React.useRef(null)
   const [search, setSearch] = React.useState('')
   const [results, setResults] = React.useState([])
-  const dialog = props.dialogRef.current
 
-  useSearchKeyboardShortcut(() => dialog?.show())
+  useSearchKeyboardShortcut(() => props.dialogRef.current?.show())
 
   // Update search results when the search term changes.
   React.useEffect(() => search && runSearch(search).then(setResults), [search])
 
   // Hide the dialog when the URL changes (after navigating to a result).
   // eslint-disable-next-line
-  React.useEffect(() => dialog?.hide(), [router.asPath])
+  React.useEffect(() => props.dialogRef.current?.hide(), [router.asPath])
 
   // Function executed when selecting a result to navigate to its path.
   const handleNavigation = React.useCallback(
@@ -151,7 +150,7 @@ export default React.memo(function SearchDialog(props) {
       id='search-dialog'
       title='Search'
       dialogRef={registerDialog}
-      close={() => dialog?.hide()}
+      close={() => props.dialogRef.current?.hide()}
       image='/assets/images/cards/trekking_aldermen.png'
     >
       <div className={css(styles.body)}>
