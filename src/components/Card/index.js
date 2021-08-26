@@ -5,7 +5,7 @@ import { ImageSupportContext } from '~/components/ImageSupportProvider'
 import microMarkdown from '~/helpers/microMarkdown'
 import clamp from '~/helpers/clamp'
 import useFluidSizing from '~/hooks/useFluidSizing'
-import styles from './styles'
+import styles, { getOutlineColor } from './styles'
 
 const useCardBackground = ({ missing, rarity, type, faction }) => {
   const { supportsWebp } = React.useContext(ImageSupportContext)
@@ -57,7 +57,10 @@ export default React.memo(function Card(props) {
       data-race={props.race}
       data-type={props.type}
       ref={ref}
-      style={{ '--font-size': fontSize }}
+      style={{
+        '--font-size': fontSize,
+        '--outline-color': getOutlineColor(styleProps),
+      }}
       data-testid='card'
       id={[props.id, props.idx].filter(Boolean).join('_')}
     >
