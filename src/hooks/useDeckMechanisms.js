@@ -67,10 +67,6 @@ const useDeckMechanisms = props => {
     [props.HoS, mode]
   )
 
-  const completeHand = React.useCallback(() => {
-    if (mode !== 'MANUAL') Array.from({ length: 4 - state.hand.length }, draw)
-  }, [mode, state.hand, draw])
-
   const addCardToDeck = React.useCallback(
     card => setState(state => ({ ...state, deck: [...state.deck, card] })),
     []
@@ -85,10 +81,10 @@ const useDeckMechanisms = props => {
     []
   )
 
-  const endTurn = React.useCallback(() => {
-    setState(state => deckMechanisms.endTurn(clone(state)))
-    completeHand()
-  }, [completeHand])
+  const endTurn = React.useCallback(
+    () => setState(state => deckMechanisms.endTurn(clone(state))),
+    []
+  )
 
   const _canCardBePlayed = React.useCallback(
     card => {
@@ -105,9 +101,15 @@ const useDeckMechanisms = props => {
   )
 
   const reset = React.useCallback(() => {
-    setState(state => getDefaultState({ ...props, RNG: state.RNG }))
-    completeHand()
-  }, [props, completeHand])
+    setState(state => {
+      const newState = getDefaultState({ ...props, RNG: state.RNG })
+      const mode = props.mode || 'AUTOMATIC'
+
+      if (mode !== 'MANUAL') deckMechanisms.refill(newState)
+
+      return newState
+    })
+  }, [props])
 
   const setPlayerOrder = React.useCallback(playerOrder => {
     const turn = playerOrder === 'SECOND' ? 2 : 1
@@ -120,8 +122,11 @@ const useDeckMechanisms = props => {
     }))
   }, [])
 
-  // eslint-disable-next-line
-  React.useEffect(() => completeHand(), [])
+  React.useEffect(() => {
+    setState(state =>
+      mode === 'MANUAL' ? state : deckMechanisms.refill(state)
+    )
+  }, [mode])
 
   return {
     ...state,

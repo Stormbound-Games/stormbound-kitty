@@ -1,5 +1,6 @@
 import { DEFAULT_MANA } from '~/constants/battle'
 import resolveManaRNG from './resolveManaRNG'
+import refill from './refill'
 
 /**
  * Mutate the given state following a turn.
@@ -22,6 +23,9 @@ const endTurn = state => {
 
   // Resolve mana from Dawnsparks/Frozen Cores
   resolveManaRNG(state)
+
+  // Refill the hand up to 4 cards
+  refill(state)
 
   return state
 }
