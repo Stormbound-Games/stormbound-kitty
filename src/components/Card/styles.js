@@ -12,7 +12,7 @@ const IMAGES = {
   },
 }
 
-const getOutlineColor = ({ isAffordable, isUpgradable, player }) => {
+export const getOutlineColor = ({ isAffordable, isUpgradable, player }) => {
   if (isUpgradable) return 'var(--upgradable)'
   if (isAffordable) return 'var(--affordable)'
   if (player === 'RED') return 'var(--player-red)'
@@ -31,12 +31,11 @@ const getOutlineColor = ({ isAffordable, isUpgradable, player }) => {
  * 5. Pseudo-element padding hack used to enforce a certain aspect ratio
  *    regardless of the content of the card (or lack thereof).
  */
-const card = ({ isAffordable, isUpgradable, player }) => ({
+const card = {
   position: 'relative' /* 1 */,
   fontSize: 'var(--font-size)' /* 2 */,
   borderRadius: '2.25em',
   transition: 'box-shadow 250ms, transform 250ms',
-  '--outline-color': getOutlineColor({ isAffordable, isUpgradable, player }),
   boxShadow: '0 1em 0.75em #00000040, 0 0 0 0.5em var(--outline-color)' /* 3 */,
   hyphens: 'none' /* 4 */,
 
@@ -45,7 +44,7 @@ const card = ({ isAffordable, isUpgradable, player }) => ({
     display: 'block',
     paddingTop: '168.6%',
   },
-})
+}
 
 /**
  * 1. Slightly offset the mana diamond from the card so it shows from the top.

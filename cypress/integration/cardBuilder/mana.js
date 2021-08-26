@@ -45,14 +45,4 @@ describe('Card Builder — Mana', () => {
     assertCardMana(3, '4')
     assertCardMana(4, '5')
   })
-
-  it('should be possible to prefill it from the URL', () => {
-    cy.visit('/card?mana=1/2/3/4/5')
-    assertCardMana(0, '1')
-    assertCardMana(1, '2')
-    assertCardMana(2, '3')
-    assertCardMana(3, '4')
-    assertCardMana(4, '5')
-    cy.get(s.MANA_INPUT).should('have.value', '1/2/3/4/5')
-  })
 })

@@ -32,10 +32,4 @@ describe('Card Builder — Rarity', () => {
     cy.get(s.RARITY_SELECT).should('have.value', rarity)
     for (let i = 0; i < 5; i++) assertCardRarity(i)
   })
-
-  it('should be possible to prefill it from the URL', () => {
-    cy.visit('/card?rarity=' + rarity)
-    cy.get(s.RARITY_SELECT).should('have.value', rarity)
-    for (let i = 0; i < 5; i++) assertCardRarity(i)
-  })
 })

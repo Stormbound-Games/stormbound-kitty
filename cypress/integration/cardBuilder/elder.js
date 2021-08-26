@@ -51,9 +51,4 @@ describe('Card Builder — Elder', () => {
       .find(s.CARD_RACE)
       .should('not.contain', 'elder')
   })
-
-  it('should be possible to prefill it from the URL', () => {
-    cy.visit('/card?elder=1').get(s.ELDER_CHECKBOX).should('be.checked')
-    for (let i = 0; i < 5; i++) assertCardElder(i)
-  })
 })

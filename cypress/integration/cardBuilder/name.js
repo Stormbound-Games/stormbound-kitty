@@ -28,11 +28,4 @@ describe('Card Builder — Name', () => {
     cy.get(s.NAME_INPUT).should('have.value', name)
     for (let i = 0; i < 5; i++) assertCardName(i)
   })
-
-  it('should be possible to prefill it from the URL', () => {
-    cy.visit('/card?name=' + encodeURIComponent(name))
-      .get(s.NAME_INPUT)
-      .should('have.value', name)
-    for (let i = 0; i < 5; i++) assertCardName(i)
-  })
 })
