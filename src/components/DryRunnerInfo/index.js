@@ -1,13 +1,70 @@
 import React from 'react'
+import CardLink from '~/components/CardLink'
 import DryRunnerSettings from '~/components/DryRunnerSettings'
 import Row from '~/components/Row'
 import Title from '~/components/Title'
+
+const FREEZE_CARD_IDS = ['W1', 'W2', 'W4', 'W6', 'W8', 'W11']
+
+const containsFreeze = deck =>
+  deck.map(card => card.id).some(id => FREEZE_CARD_IDS.includes(id))
+
+// Display the approximation of the count of frozen enemy units on the board
+const getFrozenEnemiesText = frozenEnemiesLevel => {
+  const frozenStateDescriptionCount = {
+    0: 'no',
+    2: 'a few',
+    3: 'many',
+  }
+  const frozenStateDescription =
+    frozenEnemiesLevel === 4
+      ? 'The whole board is frozen.'
+      : frozenEnemiesLevel === 1
+      ? 'There is a frozen enemy on the board.'
+      : `There are ${frozenStateDescriptionCount[frozenEnemiesLevel]} frozen enemies on the board.`
+
+  return frozenStateDescription
+}
+
+// Get the text that should be displayed to indicate how many Frozen Cores there
+// are on the board
+const getFrozenCoreText = activeFrozenCores => {
+  return (
+    <>
+      There {activeFrozenCores === 1 ? 'is' : 'are'}{' '}
+      {activeFrozenCores ? activeFrozenCores : 'no'}{' '}
+      <CardLink id='W9'>
+        Frozen {activeFrozenCores === 1 ? 'Core' : 'Cores'}
+      </CardLink>{' '}
+      on the board.
+      <br />
+    </>
+  )
+}
+
+// Get the text that should be displayed to indicate how many Dawnsparks there
+// are on the board
+const getDawnsparksText = activeDawnsparks => {
+  return (
+    <>
+      There {activeDawnsparks === 1 ? 'is' : 'are'}{' '}
+      {activeDawnsparks ? activeDawnsparks : 'no'} <CardLink id='W16' />{' '}
+      {activeDawnsparks === 0
+        ? ''
+        : activeDawnsparks === 1
+        ? 'unit '
+        : 'units '}
+      on the board.
+      <br />
+    </>
+  )
+}
 
 export default React.memo(function DryRunnerInfo(props) {
   const deckIds = props.deck.map(card => card.id)
   const containsFrozenCore = deckIds.includes('W9')
   const containsDawnsparks = deckIds.includes('W16')
-  const containsFreeze = props.containsFreeze(props.deck)
+  const deckContainsFreeze = containsFreeze(props.deck)
 
   return (
     <Row isDesktopOnly>
@@ -56,15 +113,18 @@ export default React.memo(function DryRunnerInfo(props) {
               .
             </p>
 
-            {containsFrozenCore ||
+            {(containsFrozenCore ||
               containsDawnsparks ||
-              (containsFreeze && (
-                <p>
-                  {containsFrozenCore && props.getFrozenCoreText()}
-                  {containsDawnsparks && props.getDawnsparksText()}
-                  {containsFreeze && props.getFrozenEnemiesText()}
-                </p>
-              ))}
+              deckContainsFreeze) && (
+              <p>
+                {containsFrozenCore &&
+                  getFrozenCoreText(props.specifics.activeFrozenCores)}
+                {containsDawnsparks &&
+                  getDawnsparksText(props.specifics.activeDawnsparks)}
+                {deckContainsFreeze &&
+                  getFrozenEnemiesText(props.specifics.frozenEnemiesLevel)}
+              </p>
+            )}
           </>
         )}
       </Row.Column>
