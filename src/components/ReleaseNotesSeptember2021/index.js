@@ -87,10 +87,8 @@ export default React.memo(function ReleaseNotesSeptember2021(props) {
             site.
           </li>
           <li>
-            <CardLink id='W22' />’ strength is now 3/4/5/6/7 (down from
-            4/5/6/7/8) and their ability now grants 3/4/5/6/7 (down from
-            4/5/6/7/8) but is made to trigger before attacking, regardless of
-            position.
+            <CardLink id='W22' />’ ability now grants 3/4/5/6/7 (down from
+            4/5/6/7/8) but is made to trigger on attack, regardless of position.
           </li>
           <li>
             <CardLink id='N43' />’ ability now triggers when played borderding
