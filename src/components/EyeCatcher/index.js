@@ -20,7 +20,12 @@ export default React.memo(function EyeCatcher(props) {
   const key = 'sb.eye_catcher.' + props.id
   const [isVisible, setIsVisible] = React.useState(false)
 
-  React.useEffect(() => setIsVisible(!hasBeenShownYet(key)), [key])
+  React.useEffect(() => {
+    const isCypress = window.Cypress
+    const hasBeenSeen = hasBeenShownYet(key)
+
+    setIsVisible(!isCypress & !hasBeenSeen)
+  }, [key])
 
   React.useEffect(() => {
     localStorage.setItem(key, !isVisible)
