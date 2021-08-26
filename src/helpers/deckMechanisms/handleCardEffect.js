@@ -3,10 +3,10 @@ import arrayRandom from '~/helpers/arrayRandom'
 import getResolvedCardData from '~/helpers/getResolvedCardData'
 import isCard, { isNotCard } from '~/helpers/isCard'
 import shuffle from '~/helpers/shuffle'
+import modifyDeck from '~/helpers/modifyDeck'
 import play from './play'
 import cycle from './cycle'
 import draw from './draw'
-import modifyDeck from '~/helpers/modifyDeck'
 
 // Used to get Archdruid’s Earyn mana cost to know whether spells can be played
 // for free by her ability. The level would need to be adjusted accordingly and
