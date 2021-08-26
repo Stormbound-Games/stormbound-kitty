@@ -1,4 +1,4 @@
-import getIncreasedDeckWeight from './getIncreasedDeckWeight'
+import getIncreasedDeckWeight from '~/helpers/getIncreasedDeckWeight'
 import rwcDuplicates from '~/helpers/rwcDuplicates'
 import isCard, { isNotCard } from '~/helpers/isCard'
 

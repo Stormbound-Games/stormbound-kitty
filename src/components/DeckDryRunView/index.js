@@ -1,12 +1,12 @@
 import React from 'react'
 import modifyDeck from '~/helpers/modifyDeck'
 import DryRunner from '~/components/DryRunner'
-import DeckMechanisms from '~/components/DeckMechanisms'
 import { NotificationContext } from '~/components/NotificationProvider'
 import CardLink from '~/components/CardLink'
 import { BRAWL_INDEX } from '~/constants/brawl'
 import isCard from '~/helpers/isCard'
 import getDeckPresets from '~/helpers/getDeckPresets'
+import useDeckMechanisms from '~/hooks/useDeckMechanisms'
 import useQueryParams from '~/hooks/useQueryParams'
 
 class View extends React.Component {
@@ -287,30 +287,19 @@ export default React.memo(function DeckDryRunView(props) {
 
   const addIdx = card => ({ idx: '0', ...card })
   const deck = modifyDeck(props.deck, modifier, equalsMode).map(addIdx)
+  const state = useDeckMechanisms({ deck, mode, equalsMode, modifier, HoS })
 
   return (
-    <DeckMechanisms
-      deck={deck}
+    <View
+      {...props}
+      {...state}
       mode={mode}
+      setMode={setMode}
       equalsMode={equalsMode}
+      setEqualsMode={setEqualsMode}
       modifier={modifier}
+      setModifier={setModifier}
       HoS={HoS}
-    >
-      {state => (
-        <View
-          {...props}
-          {...state}
-          mode={mode}
-          setMode={setMode}
-          equalsMode={equalsMode}
-          setEqualsMode={setEqualsMode}
-          modifier={modifier}
-          setModifier={setModifier}
-          playedCards={state.playedCards}
-          cardsThisTurn={state.cardsThisTurn}
-          HoS={HoS}
-        />
-      )}
-    </DeckMechanisms>
+    />
   )
 })

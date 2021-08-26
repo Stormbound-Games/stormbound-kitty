@@ -1,6 +1,6 @@
 import handleCardEffect from './handleCardEffect'
 import isCard, { isNotCard } from '~/helpers/isCard'
-import getIncreasedDeckWeight from './getIncreasedDeckWeight'
+import getIncreasedDeckWeight from '~/helpers/getIncreasedDeckWeight'
 
 export const DEFAULT_PLAY_OPTIONS = {
   mode: 'AUTOMATIC',

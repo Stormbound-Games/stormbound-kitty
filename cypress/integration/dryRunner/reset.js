@@ -15,8 +15,6 @@ describe('Dry-runner — Reset', () => {
 
       .drReset()
 
-      .get(s.CARD)
-      .should('have.length', 4)
       .get(s.MANA)
       .should('contain', 3)
       .get('.DryRunnerHand__wrapper--active')
