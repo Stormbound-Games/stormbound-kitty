@@ -20,7 +20,7 @@ const BattleSimEmbed = props => {
         mode='DISPLAY'
         sim={getInitialBattleData(props.id)}
       >
-        {state => <BattleSimApp {...state} />}
+        {state => <BattleSimApp withoutGestures {...state} />}
       </BattleSimState>
       {props.children ? (
         <Spacing top='BASE'>

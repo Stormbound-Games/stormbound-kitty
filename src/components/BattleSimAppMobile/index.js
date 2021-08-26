@@ -28,8 +28,10 @@ class BattleSimAppMobile extends React.Component {
     this.xDown = null
     this.yDown = null
 
-    document.addEventListener('touchstart', this.handleTouchStart, false)
-    document.addEventListener('touchend', this.handleTouchMove, false)
+    if (!this.props.withoutGestures) {
+      document.addEventListener('touchstart', this.handleTouchStart, false)
+      document.addEventListener('touchend', this.handleTouchMove, false)
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -114,8 +116,10 @@ class BattleSimAppMobile extends React.Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('touchstart', this.handleTouchStart, false)
-    document.removeEventListener('touchmove', this.handleTouchMove, false)
+    if (!this.props.withoutGestures) {
+      document.removeEventListener('touchstart', this.handleTouchStart, false)
+      document.removeEventListener('touchmove', this.handleTouchMove, false)
+    }
   }
 
   setActivePlayer = player => {
