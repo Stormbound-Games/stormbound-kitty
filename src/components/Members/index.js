@@ -44,7 +44,7 @@ export default React.memo(function Members(props) {
             setName={setName}
             setType={setType}
           />
-          <MemberTagYourself members={members.map(a => a.member)} />
+          <MemberTagYourself members={members} />
         </Row.Column>
         <Row.Column width='2/3'>
           <ul className={css(styles.list)}>

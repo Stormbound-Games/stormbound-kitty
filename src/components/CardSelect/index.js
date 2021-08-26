@@ -62,6 +62,7 @@ export default React.memo(function CardSelect(props) {
               .map(card => ({
                 value: card.id,
                 label: card.name,
+                rarity: card.rarity,
                 disabled: (props.disabledOptions || []).includes(card.id),
               })),
           }))}

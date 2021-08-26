@@ -14,7 +14,15 @@ const UserSelect = props => {
       isClearable
       value={{ id: props.value, label: props.value }}
       onChange={props.onChange}
-      options={props.options.map(value => ({ id: value, label: value }))}
+      options={props.members.map(value => ({
+        value: value.member,
+        label: value.member,
+        rarity: value.roles.isSuperKAT
+          ? 'epic'
+          : value.roles.isKAT
+          ? 'rare'
+          : 'common',
+      }))}
       styles={styles}
     />
   )
@@ -34,10 +42,10 @@ export default React.memo(function MemberTagYourself(props) {
         conveniently and make it easier for you to navigate.
       </p>
       <UserSelect
-        options={props.members}
+        members={props.members}
         value={name}
         onChange={option => {
-          setName(option?.id ?? null)
+          setName(option?.value ?? null)
         }}
       />
     </Info>

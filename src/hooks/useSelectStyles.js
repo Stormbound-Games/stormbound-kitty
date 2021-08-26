@@ -1,5 +1,3 @@
-import getRawCardData from '~/helpers/getRawCardData'
-
 const useSelectStyles = ({ noBorder, withClear } = {}) => {
   return {
     input: provided => ({ ...provided, color: 'var(--white)' }),
@@ -80,7 +78,7 @@ const useSelectStyles = ({ noBorder, withClear } = {}) => {
       },
       color: 'var(--white)',
       background: `url("/assets/images/card/rarity_${
-        getRawCardData(data.value).rarity || 'common'
+        data.rarity || 'common'
       }_4.png") ${
         isFocused ? 'var(--light-blue)' : 'transparent'
       } no-repeat center left 1em`,
