@@ -17,21 +17,19 @@ const container = {
 }
 
 const row = {
-  flexGrow: 1,
-  marginBottom: 0,
+  display: 'flex',
+  width: '100%',
 }
 
 const imageWrapper = ({ isTurn }) => ({
   position: 'relative',
-  height: '100%',
   display: 'flex',
-  flexDirection: 'column',
-  aspectRatio: '1 / 1',
+  flex: '1 0 calc(100% / 6)',
 
   '::after': {
     content: isTurn ? '""' : undefined,
     position: 'absolute',
-    right: '-0.5em',
+    right: 0,
     height: '80%',
     top: '50%',
     width: '1px',
@@ -42,11 +40,9 @@ const imageWrapper = ({ isTurn }) => ({
 })
 
 const image = {
-  display: 'block',
-  height: 'auto',
-  maxHeight: '80%',
-  maxWidth: '100%',
   margin: 'auto',
+  objectFit: 'contain',
+  aspectRatio: '1 / 1',
 }
 
 const styles = {

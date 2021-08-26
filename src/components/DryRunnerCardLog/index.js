@@ -3,7 +3,6 @@ import { useFela } from 'react-fela'
 import { AnimatePresence, motion } from 'framer-motion'
 import CardZoom from '~/components/CardZoom'
 import Image from '~/components/Image'
-import Row from '~/components/Row'
 import arrayPad from '~/helpers/arrayPad'
 import styles from './styles'
 
@@ -23,44 +22,38 @@ export default React.memo(function DryRunnerCardLog(props) {
       )}
       <h2 className={css(styles.title)}>Last played cards</h2>
       <div className={css(styles.container)} data-testid='card-log'>
-        <Row extend={styles.row}>
+        <div className={css(styles.row)}>
           {cards.map((card, index) => (
-            <Row.Column
-              extend={{ opacity: 1 - index / 8 }}
-              width='1/6'
+            <AnimatePresence
               key={(card ? card.id + '_' + card.idx : '') + '_' + index}
             >
-              <AnimatePresence>
-                {card && (
-                  <motion.div
-                    key={card.id + '_' + card.idx}
-                    initial={{ scale: Math.min(index, 1) }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-                    className={css(
-                      styles.imageWrapper({
-                        isTurn:
-                          props.cardsThisTurn === index + 1 && index !== 5,
-                      })
-                    )}
-                  >
-                    <Image
-                      extend={styles.image}
-                      src={'/assets/images/cards/' + card.image}
-                      alt={card.name}
-                      onClick={() => setZoomedCard(card)}
-                      data-testid='card-log-image'
-                      withAvif
-                      width={45}
-                      height={45}
-                      lazy
-                    />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </Row.Column>
+              {card && (
+                <motion.div
+                  initial={{ scale: Math.min(index, 1) }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+                  className={css(
+                    styles.imageWrapper({
+                      isTurn: props.cardsThisTurn === index + 1 && index !== 5,
+                    })
+                  )}
+                >
+                  <Image
+                    extend={styles.image}
+                    src={'/assets/images/cards/' + card.image}
+                    alt={card.name}
+                    onClick={() => setZoomedCard(card)}
+                    data-testid='card-log-image'
+                    withAvif
+                    width={45}
+                    height={45}
+                    lazy
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
           ))}
-        </Row>
+        </div>
       </div>
     </>
   )
