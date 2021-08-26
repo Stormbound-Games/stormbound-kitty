@@ -10,62 +10,6 @@ import useDeckMechanisms from '~/hooks/useDeckMechanisms'
 import useQueryParams from '~/hooks/useQueryParams'
 import usePrevious from '~/hooks/usePrevious'
 
-const FREEZE_CARD_IDS = ['W1', 'W2', 'W4', 'W6', 'W8', 'W11']
-
-const containsFreeze = deck =>
-  deck.map(card => card.id).some(id => FREEZE_CARD_IDS.includes(id))
-
-// Display the approximation of the count of frozen enemy units on the board
-const getFrozenEnemiesText = frozenEnemiesLevel => {
-  const frozenStateDescriptionCount = {
-    0: 'no',
-    2: 'a few',
-    3: 'many',
-  }
-  const frozenStateDescription =
-    frozenEnemiesLevel === 4
-      ? 'The whole board is frozen.'
-      : frozenEnemiesLevel === 1
-      ? 'There is a frozen enemy on the board.'
-      : `There are ${frozenStateDescriptionCount[frozenEnemiesLevel]} frozen enemies on the board.`
-
-  return frozenStateDescription
-}
-
-// Get the text that should be displayed to indicate how many Frozen Cores there
-// are on the board
-const getFrozenCoreText = activeFrozenCores => {
-  return (
-    <>
-      There {activeFrozenCores === 1 ? 'is' : 'are'}{' '}
-      {activeFrozenCores ? activeFrozenCores : 'no'}{' '}
-      <CardLink id='W9'>
-        Frozen {activeFrozenCores === 1 ? 'Core' : 'Cores'}
-      </CardLink>{' '}
-      on the board.
-      <br />
-    </>
-  )
-}
-
-// Get the text that should be displayed to indicate how many Dawnsparks there
-// are on the board
-const getDawnsparksText = activeDawnsparks => {
-  return (
-    <>
-      There {activeDawnsparks === 1 ? 'is' : 'are'}{' '}
-      {activeDawnsparks ? activeDawnsparks : 'no'} <CardLink id='W16' />{' '}
-      {activeDawnsparks === 0
-        ? ''
-        : activeDawnsparks === 1
-        ? 'unit '
-        : 'units '}
-      on the board.
-      <br />
-    </>
-  )
-}
-
 const NewView = props => {
   const { reset, cycle, draw, play, setMode, canCardBePlayed } = props
   const [activeCard, setActiveCard] = React.useState(null)
@@ -220,16 +164,6 @@ const NewView = props => {
       selectCard={selectCard}
       playCard={playCard}
       cycleCard={cycleCard}
-      containsFreeze={containsFreeze}
-      getFrozenCoreText={() =>
-        getFrozenCoreText(props.specifics.activeFrozenCores)
-      }
-      getDawnsparksText={() =>
-        getDawnsparksText(props.specifics.activeDawnsparks)
-      }
-      getFrozenEnemiesText={() =>
-        getFrozenEnemiesText(props.specifics.frozenEnemiesLevel)
-      }
     />
   )
 }
