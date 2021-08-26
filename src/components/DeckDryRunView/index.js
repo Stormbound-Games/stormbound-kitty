@@ -2,7 +2,6 @@ import React from 'react'
 import modifyDeck from '~/helpers/modifyDeck'
 import DryRunner from '~/components/DryRunner'
 import { NotificationContext } from '~/components/NotificationProvider'
-import CardLink from '~/components/CardLink'
 import { BRAWL_INDEX } from '~/constants/brawl'
 import isCard from '~/helpers/isCard'
 import getDeckPresets from '~/helpers/getDeckPresets'
@@ -10,7 +9,7 @@ import useDeckMechanisms from '~/hooks/useDeckMechanisms'
 import useQueryParams from '~/hooks/useQueryParams'
 import usePrevious from '~/hooks/usePrevious'
 
-const NewView = props => {
+const useDryRunner = props => {
   const { reset, cycle, draw, play, setMode, canCardBePlayed } = props
   const [activeCard, setActiveCard] = React.useState(null)
   const [turnsWithLeftOverMana, setTurnsWithLeftOverMana] = React.useState(0)
@@ -148,37 +147,34 @@ const NewView = props => {
     return () => document.removeEventListener('keydown', registerShortcuts)
   }, [registerShortcuts])
 
-  return (
-    <DryRunner
-      {...props}
-      activeCard={activeCard}
-      turnsWithLeftOverMana={turnsWithLeftOverMana}
-      turnsWithoutCycling={turnsWithoutCycling}
-      totalUnspentMana={totalUnspentMana}
-      totalCardsPlayed={totalCardsPlayed}
-      displayChance={displayChance}
-      displayDeck={displayDeck}
-      onDeckCardClick={onDeckCardClick}
-      setDisplayChance={setDisplayChance}
-      resetGame={resetGame}
-      selectCard={selectCard}
-      playCard={playCard}
-      cycleCard={cycleCard}
-    />
-  )
+  return {
+    activeCard,
+    turnsWithLeftOverMana,
+    turnsWithoutCycling,
+    totalUnspentMana,
+    totalCardsPlayed,
+    displayChance,
+    displayDeck,
+    onDeckCardClick,
+    setDisplayChance,
+    resetGame,
+    selectCard,
+    playCard,
+    cycleCard,
+  }
 }
 
 export default React.memo(function DeckDryRunView(props) {
   const query = useQueryParams()
-  // The mode is theoretically not quite supposed to be changed at run time, but
-  // this is a workaround to be able to pick an initial hand for testing
-  // purposes. The mode is restored to `AUTOMATIC` as soon as the 4th card has
-  // been picked.
   const { notify } = React.useContext(NotificationContext)
   const sendNotification = React.useCallback(
     message => notify({ icon: 'sword', children: message }),
     [notify]
   )
+  // The mode is theoretically not quite supposed to be changed at run time, but
+  // this is a workaround to be able to pick an initial hand for testing
+  // purposes. The mode is restored to `AUTOMATIC` as soon as the 4th card has
+  // been picked.
   const [mode, setMode] = React.useState(query.mode || 'AUTOMATIC')
   const [modifier, setModifier] = React.useState('NONE')
   const [equalsMode, setEqualsMode] = React.useState(false)
@@ -208,19 +204,17 @@ export default React.memo(function DeckDryRunView(props) {
 
   const addIdx = card => ({ idx: '0', ...card })
   const deck = modifyDeck(props.deck, modifier, equalsMode).map(addIdx)
-  const state = useDeckMechanisms({ deck, mode, equalsMode, modifier, HoS })
+  // prettier-ignore
+  const settings = {
+    HoS,
+    mode, setMode,
+    equalsMode, setEqualsMode,
+    modifier, setModifier,
+  }
+  const deckMechanisms = useDeckMechanisms({ deck, ...settings })
+  const dryRunner = useDryRunner({ ...props, ...deckMechanisms, ...settings })
 
   return (
-    <NewView
-      {...props}
-      {...state}
-      mode={mode}
-      setMode={setMode}
-      equalsMode={equalsMode}
-      setEqualsMode={setEqualsMode}
-      modifier={modifier}
-      setModifier={setModifier}
-      HoS={HoS}
-    />
+    <DryRunner {...props} {...settings} {...deckMechanisms} {...dryRunner} />
   )
 })
