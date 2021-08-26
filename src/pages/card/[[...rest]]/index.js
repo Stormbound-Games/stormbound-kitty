@@ -4,7 +4,7 @@ import CardBuilderApp from '~/components/CardBuilderApp'
 import Layout from '~/components/Layout'
 import getInitialCardData from '~/helpers/getInitialCardData'
 import getNavigation from '~/helpers/getNavigation'
-import getRawCardData from '~/helpers/getRawCardData'
+import isCardOfficial from '~/helpers/isCardOfficial'
 import parseDate from '~/helpers/parseDate'
 import CARDS from '~/data/cards'
 import CHANGELOG from '~/data/changelog'
@@ -23,9 +23,7 @@ const getContest = id => {
 }
 
 const getChangelog = id => {
-  const isOfficial = Boolean(getRawCardData(id).name)
-
-  if (!isOfficial) return []
+  if (!isCardOfficial(id)) return []
 
   return CHANGELOG.filter(change => change.id === id).sort(
     (a, b) => b.timestamp - a.timestamp
