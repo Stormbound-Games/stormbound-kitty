@@ -1,19 +1,30 @@
 import React from 'react'
-import hookIntoProps from 'hook-into-props'
+import isEqual from 'lodash.isequal'
 import CardBuilderApp from '~/components/CardBuilderApp'
 import serialisation from '~/helpers/serialisation'
 import areAllValuesEqual from '~/helpers/areAllValuesEqual'
-import getInitialCardData, {
-  getInitialCardDataFromQuery,
-} from '~/helpers/getInitialCardData'
+import getInitialCardData from '~/helpers/getInitialCardData'
 import resolveAbility from '~/helpers/resolveAbility'
-import getCardFromSlug from '~/helpers/getCardFromSlug'
 import useNavigator from '~/hooks/useNavigator'
 
 const formatLevelProp = value => ({
   values: [null, null, null, null, null].fill(value),
   display: value,
 })
+
+const resolveLevels = (value = '') => {
+  const chunks = value.split('/')
+  const values = Array.from(
+    { length: 5 },
+    (_, index) => chunks[index] || chunks[0] || null
+  )
+  // If all values are the same, visually shorten it for simplicity
+  // Consider all values to be the same if there are 5 identical of them
+  const allSame = chunks.length === 5 && areAllValuesEqual(chunks)
+  const display = allSame ? chunks[0] : value
+
+  return { values, display }
+}
 
 const INITIAL_STATE = {
   name: '',
@@ -31,196 +42,141 @@ const INITIAL_STATE = {
   ability: formatLevelProp(null),
 }
 
-class CardBuilderEditor extends React.Component {
-  constructor(props) {
-    super(props)
+export default React.memo(function CardBuilderEditor(props) {
+  const navigator = useNavigator()
+  const imageErrorDialog = React.useRef(null)
+  const [cardData, setCardData] = React.useState({
+    ...INITIAL_STATE,
+    ...props.card,
+  })
 
-    this.state = {
-      ...INITIAL_STATE,
-      ...props.card,
-    }
-  }
+  const reset = React.useCallback(() => setCardData(INITIAL_STATE), [])
 
-  componentDidMount() {
-    const state = getInitialCardDataFromQuery()
-
-    if (Object.keys(state).length > 0) {
-      this.props.navigator.replace(
-        '/card/' + serialisation.card.serialise(state)
-      )
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    // Handle initial query parameters
-    if (!prevProps.cardId && this.props.cardId) {
-      this.setState({ ...getInitialCardData(this.props.cardId) })
-    } else if (prevProps.cardId !== this.props.cardId) {
-      if (!this.props.cardId) {
-        this.reset()
-      } else if (getCardFromSlug(this.props.cardId)) {
-        this.setState({ ...getInitialCardData(this.props.cardId) })
-      }
-    }
-  }
-
-  updateURL = () => {
+  React.useEffect(() => {
     // Safari has a limit of 100 `history.pushState()` per 30 seconds window, so
     // we should fail silently if it’s not possible to update the URL anymore.
     try {
-      this.props.navigator.replace(
-        '/card/' +
-          serialisation.card.serialise({
-            ...this.state,
-            strength: this.state.strength.display,
-            mana: this.state.mana.display,
-            ability: this.state.ability.display,
-          })
+      const isDefaultState = isEqual(cardData, INITIAL_STATE)
+      const data = {
+        ...cardData,
+        strength: cardData.strength.display,
+        mana: cardData.mana.display,
+        ability: cardData.ability.display,
+      }
+
+      navigator.replace(
+        ['/card', isDefaultState ? '' : serialisation.card.serialise(data)]
+          .filter(Boolean)
+          .join('/')
       )
     } catch {}
-  }
+    // eslint-disable-next-line
+  }, [cardData])
 
-  reset = () => {
-    this.setState({ ...INITIAL_STATE }, () =>
-      this.props.navigator.push('/card')
-    )
-  }
+  const setProperty =
+    (key, transform = v => v) =>
+    value =>
+      setCardData(cardData => ({ ...cardData, [key]: transform(value) }))
 
-  resolveLevels = (value = '') => {
-    const chunks = value.split('/')
-    const values = Array.from(
-      { length: 5 },
-      (_, index) => chunks[index] || chunks[0] || null
-    )
-    // If all values are the same, visually shorten it for simplicity
-    // Consider all values to be the same if there are 5 identical of them
-    const allSame = chunks.length === 5 && areAllValuesEqual(chunks)
-    const display = allSame ? chunks[0] : value
+  const setName = setProperty('name')
+  const setRarity = setProperty('rarity')
+  const setMovement = setProperty('movement')
+  const setFaction = setProperty('faction')
+  const setMana = setProperty('mana', resolveLevels)
+  const setStrength = setProperty('strength', resolveLevels)
+  const setRace = setProperty('race')
+  const setElder = setProperty('elder')
+  const setHero = setProperty('hero')
+  const setAbility = setProperty('ability', resolveAbility)
 
-    return { values, display }
-  }
-
-  setName = name => this.setState({ name }, this.updateURL)
-
-  setRarity = rarity => this.setState({ rarity }, this.updateURL)
-
-  setMana = mana =>
-    this.setState({ mana: this.resolveLevels(mana) }, this.updateURL)
-
-  setMovement = movement => this.setState({ movement }, this.updateURL)
-
-  setStrength = strength =>
-    this.setState({ strength: this.resolveLevels(strength) }, this.updateURL)
-
-  setFaction = faction => this.setState({ faction }, this.updateURL)
-
-  setType = type => {
+  const setType = React.useCallback(type => {
     // If the new type is a spell, disable movement, strength, race and unit
     // modifiers
     if (type === 'spell') {
-      this.setState(
-        {
-          type,
-          race: null,
-          elder: false,
-          hero: false,
-          movement: null,
-          strength: formatLevelProp(null),
-        },
-        this.updateURL
-      )
+      setCardData(cardData => ({
+        ...cardData,
+        type,
+        race: null,
+        elder: false,
+        hero: false,
+        movement: null,
+        strength: formatLevelProp(null),
+      }))
     }
 
     // If the new type is a structure, disable movement, race and unit modifiers
     // and if the current type is a spell, enable strength
     else if (type === 'structure') {
-      this.setState(
-        {
-          type,
-          race: null,
-          elder: false,
-          hero: false,
-          movement: null,
-          strength:
-            this.state.type === 'spell'
-              ? formatLevelProp(null)
-              : this.state.strength,
-        },
-        this.updateURL
-      )
+      setCardData(cardData => ({
+        ...cardData,
+        type,
+        race: null,
+        elder: false,
+        hero: false,
+        movement: null,
+        strength:
+          cardData.type === 'spell' ? formatLevelProp(null) : cardData.strength,
+      }))
     }
 
     // If the new type is a unit, enable movement and strength
     else {
-      this.setState(
-        {
-          type,
-          movement: this.state.type !== 'unit' ? null : this.state.movement,
-          strength:
-            this.state.type === 'spell'
-              ? formatLevelProp(null)
-              : this.state.strength,
-        },
-        this.updateURL
-      )
+      setCardData(cardData => ({
+        ...cardData,
+        type,
+        movement: cardData.type !== 'unit' ? null : cardData.movement,
+        strength:
+          cardData.type === 'spell' ? formatLevelProp(null) : cardData.strength,
+      }))
     }
-  }
+  }, [])
 
-  setRace = race => this.setState({ race }, this.updateURL)
-  setElder = elder => this.setState({ elder }, this.updateURL)
-  setHero = hero => this.setState({ hero }, this.updateURL)
-
-  setAbility = ability =>
-    this.setState({ ability: resolveAbility(ability) }, this.updateURL)
-
-  setImageCardId = id =>
-    this.setState(
-      {
+  const setImageCardId = React.useCallback(
+    id =>
+      setCardData(cardData => ({
+        ...cardData,
         imageCardId: id,
-        imageURL: id ? '' : this.state.imageURL,
-      },
-      this.updateURL
-    )
+        imageURL: id ? '' : cardData.imageURL,
+      })),
+    []
+  )
 
-  setImageURL = imageURL =>
-    this.setState({ imageURL, imageCardId: null }, this.updateURL)
+  const setImageURL = React.useCallback(
+    imageURL =>
+      setCardData(cardData => ({ ...cardData, imageURL, imageCardId: null })),
+    []
+  )
 
-  onImagePaste = event => {
+  const onImagePaste = React.useCallback(event => {
     const image = new Image()
     const data = event.clipboardData.getData('text')
     image.src = data
-    image.onerror = () => this.imageErrorDialog.show(data)
-  }
+    image.onerror = () => imageErrorDialog.current.show(data)
+  }, [])
 
-  render() {
-    return (
-      <CardBuilderApp
-        card={this.state}
-        cardId={this.props.cardId}
-        contest={this.props.contest}
-        versions={this.props.versions}
-        setName={this.setName}
-        setImageCardId={this.setImageCardId}
-        setImageURL={this.setImageURL}
-        setRarity={this.setRarity}
-        setMana={this.setMana}
-        setFaction={this.setFaction}
-        setType={this.setType}
-        setRace={this.setRace}
-        setElder={this.setElder}
-        setHero={this.setHero}
-        setMovement={this.setMovement}
-        setStrength={this.setStrength}
-        setAbility={this.setAbility}
-        onImagePaste={this.onImagePaste}
-        reset={this.reset}
-        imageErrorDialogRef={dialog => (this.imageErrorDialog = dialog)}
-        mode='EDITOR'
-      />
-    )
-  }
-}
-
-export default hookIntoProps(() => ({
-  navigator: useNavigator(),
-}))(CardBuilderEditor)
+  return (
+    <CardBuilderApp
+      card={cardData}
+      cardId={props.cardId}
+      contest={props.contest}
+      versions={props.versions}
+      setName={setName}
+      setImageCardId={setImageCardId}
+      setImageURL={setImageURL}
+      setRarity={setRarity}
+      setMana={setMana}
+      setFaction={setFaction}
+      setType={setType}
+      setRace={setRace}
+      setElder={setElder}
+      setHero={setHero}
+      setMovement={setMovement}
+      setStrength={setStrength}
+      setAbility={setAbility}
+      onImagePaste={onImagePaste}
+      reset={reset}
+      imageErrorDialogRef={dialog => (imageErrorDialog.current = dialog)}
+      mode='EDITOR'
+    />
+  )
+})

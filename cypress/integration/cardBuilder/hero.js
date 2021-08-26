@@ -44,9 +44,4 @@ describe('Card Builder — Hero', () => {
     cy.get(s.HERO_CHECKBOX).should('not.be.checked').and('be.disabled')
     cy.get(s.CARD_PREVIEW).eq(0).find(s.CARD_RACE).should('not.contain', 'hero')
   })
-
-  it('should be possible to prefill it from the URL', () => {
-    cy.visit('/card?hero=true').get(s.HERO_CHECKBOX).should('be.checked')
-    for (let i = 0; i < 5; i++) assertCardHero(i)
-  })
 })

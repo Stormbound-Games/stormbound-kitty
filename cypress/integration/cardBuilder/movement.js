@@ -47,10 +47,4 @@ describe('Card Builder — Movement', () => {
     cy.get(s.MOVEMENT_INPUT).should('be.empty').and('be.disabled')
     cy.get(s.CARD_PREVIEW).eq(0).find(s.CARD_MOVEMENT).should('not.exist')
   })
-
-  it('should be possible to prefill it from the URL', () => {
-    cy.visit('/card?movement=0')
-    cy.get(s.MOVEMENT_INPUT).should('have.value', '0')
-    for (let i = 0; i < 5; i++) assertCardMovement(i, '0')
-  })
 })

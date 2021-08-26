@@ -51,13 +51,4 @@ describe('Card Builder — Ability', () => {
       .find('strong')
       .should('exist')
   })
-
-  it('should be possible to prefill it from the URL', () => {
-    cy.visit('/card?ability=' + encodeURIComponent('Sparkles 2/3/4/5/6 times'))
-    assertCardAbility(0, 'Sparkles 2 times')
-    assertCardAbility(1, 'Sparkles 3 times')
-    assertCardAbility(2, 'Sparkles 4 times')
-    assertCardAbility(3, 'Sparkles 5 times')
-    assertCardAbility(4, 'Sparkles 6 times')
-  })
 })

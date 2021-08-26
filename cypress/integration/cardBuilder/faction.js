@@ -32,10 +32,4 @@ describe('Card Builder — Faction', () => {
     cy.get(s.FACTION_SELECT).should('have.value', faction)
     for (let i = 0; i < 5; i++) assertCardFaction(i)
   })
-
-  it('should be possible to prefill it from the URL', () => {
-    cy.visit('/card?faction=' + faction)
-    cy.get(s.FACTION_SELECT).should('have.value', faction)
-    for (let i = 0; i < 5; i++) assertCardFaction(i)
-  })
 })
