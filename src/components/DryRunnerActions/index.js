@@ -10,7 +10,7 @@ export default React.memo(function DryRunnerActions(props) {
   return (
     <Spacing top='LARGER'>
       <Row>
-        <Row.Column>
+        <Row.Column align='center'>
           <CTA
             type='button'
             data-testid='cycle-btn'
@@ -23,7 +23,7 @@ export default React.memo(function DryRunnerActions(props) {
             <Only.Mobile>Cycle</Only.Mobile>
           </CTA>
         </Row.Column>
-        <Row.Column>
+        <Row.Column align='center'>
           <CTA
             type='button'
             data-testid='play-btn'
