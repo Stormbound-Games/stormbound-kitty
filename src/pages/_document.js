@@ -39,6 +39,10 @@ export default class MyDocument extends Document {
           <meta name='mobile-web-app-capable' content='yes' />
           <meta name='msapplication-TileColor' content='#2B5797' />
           <meta name='msapplication-tap-highlight' content='no' />
+          <link
+            href='https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&display=swap'
+            rel='stylesheet'
+          />
         </Head>
         <body>
           <Main />
