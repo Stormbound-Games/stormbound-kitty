@@ -3,50 +3,89 @@ import path from 'path'
 import dynamic from 'next/dynamic'
 import Guide from '~/components/Guide'
 import Layout from '~/components/Layout'
+import Loader from '~/components/Loader'
 import GUIDES from '~/data/guides'
 import getNavigation from '~/helpers/getNavigation'
 import generateFormulaImage from '~/helpers/generateFormulaImage'
 
+const options = { loading: Loader }
+
 const GUIDE_COMPONENTS = {
-  BEGINNER_GUIDE: dynamic(() => import('~/components/GuideBeginner')),
-  BRAWL_GUIDE: dynamic(() => import('~/components/GuideBrawl')),
-  BROODMOTHER_QORDIA_GUIDE: dynamic(() =>
-    import('~/components/GuideBroodmotherQordia')
+  BEGINNER_GUIDE: dynamic(() => import('~/components/GuideBeginner'), options),
+  BRAWL_GUIDE: dynamic(() => import('~/components/GuideBrawl'), options),
+  BROODMOTHER_QORDIA_GUIDE: dynamic(
+    () => import('~/components/GuideBroodmotherQordia'),
+    options
   ),
-  BWBRUSH_GUIDE: dynamic(() => import('~/components/GuideBwBRush')),
-  CARD_SHOP_GUIDE: dynamic(() => import('~/components/GuideCardShop')),
-  CHILLBEARDS_GUIDE: dynamic(() => import('~/components/GuideChillbeards')),
-  COMPLETE_GUIDE: dynamic(() => import('~/components/GuideComplete')),
-  D1_SF_COMMONS_GUIDE: dynamic(() => import('~/components/GuideD1SFCommons')),
-  DECK_GUIDE: dynamic(() => import('~/components/GuideDeck')),
-  DRAWING_GUIDE: dynamic(() => import('~/components/GuideDrawing')),
-  EQUALS_INTRO_GUIDE: dynamic(() => import('~/components/GuideEqualsIntro')),
-  EYE_OF_THE_TEMPEST_GUIDE: dynamic(() =>
-    import('~/components/GuideEyeOfTheTempest')
+  BWBRUSH_GUIDE: dynamic(() => import('~/components/GuideBwBRush'), options),
+  CARD_SHOP_GUIDE: dynamic(() => import('~/components/GuideCardShop'), options),
+  CHILLBEARDS_GUIDE: dynamic(
+    () => import('~/components/GuideChillbeards'),
+    options
   ),
-  FREEDOM_FIGHT_GUIDE: dynamic(() => import('~/components/GuideFreedomFight')),
-  GODDESS_BOON_GUIDE: dynamic(() => import('~/components/GuideGoddessBoon')),
-  GREEN_PROTOTYPES_GUIDE: dynamic(() =>
-    import('~/components/GuideGreenPrototypes')
+  COMPLETE_GUIDE: dynamic(() => import('~/components/GuideComplete'), options),
+  D1_SF_COMMONS_GUIDE: dynamic(
+    () => import('~/components/GuideD1SFCommons'),
+    options
   ),
-  LEGENDARIES_GUIDE: dynamic(() => import('~/components/GuideLegendaries')),
-  LUCRATIVE_PROJECT_GUIDE: dynamic(() =>
-    import('~/components/GuideLucrativeProject')
+  DECK_GUIDE: dynamic(() => import('~/components/GuideDeck'), options),
+  DRAWING_GUIDE: dynamic(() => import('~/components/GuideDrawing'), options),
+  EQUALS_INTRO_GUIDE: dynamic(
+    () => import('~/components/GuideEqualsIntro'),
+    options
   ),
-  MANA_CURVE_GUIDE: dynamic(() => import('~/components/GuideManaCurve')),
-  NOBLE_COALITION_GUIDE: dynamic(() =>
-    import('~/components/GuideNobleCoalition')
+  EYE_OF_THE_TEMPEST_GUIDE: dynamic(
+    () => import('~/components/GuideEyeOfTheTempest'),
+    options
   ),
-  PIRATE_GUIDE: dynamic(() => import('~/components/GuidePirate')),
-  RECKLESS_RUSH_GUIDE: dynamic(() => import('~/components/GuideRecklessRush')),
-  RESOURCES_GUIDE: dynamic(() => import('~/components/GuideResources')),
-  SELF_CONTROL_GUIDE: dynamic(() => import('~/components/GuideSelfControl')),
-  TERRIFIC_SLAYERS_GUIDE: dynamic(() =>
-    import('~/components/GuideTerrificSlayers')
+  FREEDOM_FIGHT_GUIDE: dynamic(
+    () => import('~/components/GuideFreedomFight'),
+    options
   ),
-  TRIGGER_GUIDE: dynamic(() => import('~/components/GuideTriggers')),
-  TRIVIA_GUIDE: dynamic(() => import('~/components/GuideTrivia')),
-  WINTER_GUIDE: dynamic(() => import('~/components/GuideWinter')),
+  GODDESS_BOON_GUIDE: dynamic(
+    () => import('~/components/GuideGoddessBoon'),
+    options
+  ),
+  GREEN_PROTOTYPES_GUIDE: dynamic(
+    () => import('~/components/GuideGreenPrototypes'),
+    options
+  ),
+  LEGENDARIES_GUIDE: dynamic(
+    () => import('~/components/GuideLegendaries'),
+    options
+  ),
+  LUCRATIVE_PROJECT_GUIDE: dynamic(
+    () => import('~/components/GuideLucrativeProject'),
+    options
+  ),
+  MANA_CURVE_GUIDE: dynamic(
+    () => import('~/components/GuideManaCurve'),
+    options
+  ),
+  NOBLE_COALITION_GUIDE: dynamic(
+    () => import('~/components/GuideNobleCoalition'),
+    options
+  ),
+  PIRATE_GUIDE: dynamic(() => import('~/components/GuidePirate'), options),
+  RECKLESS_RUSH_GUIDE: dynamic(
+    () => import('~/components/GuideRecklessRush'),
+    options
+  ),
+  RESOURCES_GUIDE: dynamic(
+    () => import('~/components/GuideResources'),
+    options
+  ),
+  SELF_CONTROL_GUIDE: dynamic(
+    () => import('~/components/GuideSelfControl'),
+    options
+  ),
+  TERRIFIC_SLAYERS_GUIDE: dynamic(
+    () => import('~/components/GuideTerrificSlayers'),
+    options
+  ),
+  TRIGGER_GUIDE: dynamic(() => import('~/components/GuideTriggers'), options),
+  TRIVIA_GUIDE: dynamic(() => import('~/components/GuideTrivia'), options),
+  WINTER_GUIDE: dynamic(() => import('~/components/GuideWinter'), options),
 }
 
 export const getStaticPaths = () => {
