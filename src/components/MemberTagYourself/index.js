@@ -17,7 +17,9 @@ const UserSelect = props => {
       options={props.members.map(value => ({
         value: value.member,
         label: value.member,
-        rarity: value.roles.isSuperKAT
+        rarity: value.roles.isActualKAT
+          ? 'legendary'
+          : value.roles.isSuperKAT
           ? 'epic'
           : value.roles.isKAT
           ? 'rare'

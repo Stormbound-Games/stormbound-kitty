@@ -149,7 +149,7 @@ const getMemberContent = id => {
   )
 
   return {
-    roles: isKATMember({ donations, contributions }),
+    roles: isKATMember({ member: id, donations, contributions }),
     channel,
     displayName,
     content,

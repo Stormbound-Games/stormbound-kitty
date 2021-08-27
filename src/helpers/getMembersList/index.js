@@ -89,7 +89,7 @@ const getMembersList = () => {
       return acc.concat({
         member,
         count: entries.length,
-        roles: isKATMember({ contributions, donations }),
+        roles: isKATMember({ member, contributions, donations }),
       })
     }, [])
     .sort(sortAlphabetically)
