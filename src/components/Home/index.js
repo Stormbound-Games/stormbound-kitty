@@ -68,6 +68,7 @@ export default React.memo(function Home(props) {
           color='var(--winter)'
           title='Battle for glory'
           image='/assets/images/cards/olf_the_hammer.png'
+          imageAlt='Olf the Hammer'
           actions={[
             { to: '/simulators/battle', children: 'Simulator' },
             { to: '/simulators/battle/puzzles', children: 'Puzzles' },
@@ -84,6 +85,7 @@ export default React.memo(function Home(props) {
           color='var(--swarm)'
           title='Practice your craft'
           image='/assets/images/cards/archdruid_earyn.png'
+          imageAlt='Archdruid Earyn'
           actions={[
             { to: '/list', children: 'List builder' },
             { to: '/card', children: 'Card builder' },
@@ -100,6 +102,7 @@ export default React.memo(function Home(props) {
           color='var(--shadowfen)'
           title='Listen to tales of the Elders'
           image='/assets/images/cards/prime_oracle_bragda.png'
+          imageAlt='Prime Oracle Bragda'
           actions={[
             { to: '/stories/eastern-heat', children: 'Eastern Heat' },
             { to: '/stories/march-of-fauns', children: 'March of Fauns' },
