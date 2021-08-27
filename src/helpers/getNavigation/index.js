@@ -11,7 +11,7 @@ const getNavigation = () => {
       items: [
         {
           id: 'HOME',
-          title: 'Stormbound-Kitty',
+          title: 'About the site',
           icon: 'cat',
           items: [
             { label: 'Kitty News', to: '/', id: 'NEWS' },
