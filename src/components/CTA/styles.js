@@ -31,10 +31,6 @@ const cta = {
     cursor: 'default',
   },
 
-  ':focus:not(:focus-visible)': {
-    outline: 0,
-  },
-
   '@media (max-width: 400px)': {
     minWidth: 0,
   },

@@ -48,14 +48,11 @@ const getInteractiveState = ({ isActive, isOpen }) => ({
 const action = ({ isActive, isDisabled, isOpen }) => ({
   color: isActive ? 'var(--beige)' : 'inherit',
   display: 'inline-block',
-  outline: 0,
   padding: 'var(--s-base)',
   position: 'relative',
   textDecoration: 'none',
   opacity: isDisabled ? 0.5 : undefined,
   cursor: isDisabled ? 'help' : 'pointer',
-
-  ':focus': { color: 'var(--light-swarm)' },
 
   '::after': getInteractiveState({ isActive, isOpen }),
 })

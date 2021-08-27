@@ -48,7 +48,7 @@ const input = {
    */
   ':focus + *': {
     outline: [
-      'auto 2px Highlight' /* 1 */,
+      'auto 2px Highlight',
       'auto 5px -webkit-focus-ring-color',
     ] /* 1 */,
   },

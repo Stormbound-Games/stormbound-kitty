@@ -14,7 +14,6 @@ const control = ({ isActive }) => ({
   flex: '1 1 calc(100% / 3)',
 
   ':hover': { color: 'var(--beige)' },
-  ':focus': { color: 'var(--beige)' },
 })
 
 const styles = { controls, control }

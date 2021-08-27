@@ -6,6 +6,7 @@ import sortClassNames from 'fela-sort-classnames'
 import sortMediaQueryMobileFirst from 'fela-sort-media-query-mobile-first'
 import responsiveValue from 'fela-plugin-responsive-value'
 import namedKeys from 'fela-plugin-named-keys'
+import fallback from 'fela-plugin-fallback-value'
 import { BREAKPOINTS } from '~/styles/variables'
 
 const toObject = (acc, prop) => ({ ...acc, [prop]: true })
@@ -34,6 +35,7 @@ function createFelaRenderer() {
         medium: BREAKPOINTS.medium.query,
         small: BREAKPOINTS.small.query,
       }),
+      fallback(),
     ],
     enhancers: [
       sortClassNames(),
