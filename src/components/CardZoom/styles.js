@@ -17,7 +17,7 @@ const overlay = {
   left: 0,
   zIndex: 100,
   backgroundColor: '#00000099',
-  animationName: { from: { opacity: 0 }, to: { opacity: 1 } },
+  animationName: { from: { opacity: 0 } },
   animationDuration: '0.5s',
   animationFillMode: 'both',
 }

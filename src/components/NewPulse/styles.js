@@ -17,15 +17,20 @@ const dot = {
  * 1. Use a second pseudo-element that’s scaled up to avoid animating box-shadow
  *    which cannot be hardware-accelerated and is flagged by Lighthouse as an
  *    improvement.
+ * 2. There appears to be an issue with Fela rehydration when animations are
+ *    applied on pseudo-elements somewhat. Defining the animation on the element
+ *    (without running it) and inheriting it seems to do the trick.
  */
 const newPulse = {
   position: 'relative',
+  animationName: pulse,
+  animationDuration: '0ms',
 
   '::before': dot,
 
   '::after': {
     /* 1 */ ...dot,
-    animationName: pulse,
+    animationName: 'inherit' /* 2 */,
     animationDuration: '2s',
     animationIterationCount: 'infinite',
     animationTimingFunction: 'ease-out',
