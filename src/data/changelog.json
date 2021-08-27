@@ -1424,9 +1424,9 @@
   },
   {
     "date": "25/09/2019",
-    "description": "Strength requirement increased by 1",
+    "description": "Maximum strength requirement increased by 1",
     "id": "W8",
-    "type": "NERF",
+    "type": "BUFF",
     "from": {
       "ability": "On play, *destroy* all frozen enemies in front with *3/4/5/6/7 or less strength*. Gain *4 mana* for each unit destroyed."
     }
@@ -2318,9 +2318,9 @@
   },
   {
     "date": "17/12/2018",
-    "description": "Strength requirement decreased by 1",
+    "description": "Maximum strength requirement decreased by 1",
     "id": "W8",
-    "type": "BUFF",
+    "type": "NERF",
     "from": {
       "ability": "On play, *destroy* all frozen enemies in front with *4/5/6/7/8 or less strength*. Gain *4 mana* for each unit destroyed."
     }
