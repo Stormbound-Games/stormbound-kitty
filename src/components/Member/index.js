@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFela } from 'react-fela'
+import { UserContext } from '~/components/UserProvider'
 import Page from '~/components/Page'
 import FeedItem from '~/components/FeedItem'
 import Image from '~/components/Image'
@@ -11,6 +12,7 @@ import styles from './styles'
 
 export default React.memo(function Member(props) {
   const { css } = useFela()
+  const { name } = React.useContext(UserContext)
   const {
     memberId: id,
     channel,
@@ -20,10 +22,11 @@ export default React.memo(function Member(props) {
     displayName,
     roles,
   } = props
+  const isCurrentUser = name === displayName
 
   return (
     <Page
-      title={displayName}
+      title={isCurrentUser ? 'Your feed' : displayName}
       description={`Find all of ${displayName}’s contributions to Stormbound-Kitty such as stories, decks, puzzles or guides.`}
       noIndex={count === 0 && !channel}
       action={{ to: '/members', children: 'Back to Members' }}
@@ -45,10 +48,17 @@ export default React.memo(function Member(props) {
     >
       <Row isDesktopOnly>
         <Row.Column width='1/3'>
-          <p>
-            <span className='Highlight'>{displayName}</span> is a member of the
-            Stormbound community. Their contribution can be found below.
-          </p>
+          {isCurrentUser ? (
+            <p>
+              You are a valuable member of the Stormbound community, thank you!
+              Find your contributions below.
+            </p>
+          ) : (
+            <p>
+              <span className='Highlight'>{displayName}</span> is a member of
+              the Stormbound community. Their contributions can be found below.
+            </p>
+          )}
 
           <MemberToC {...details} />
 
@@ -58,8 +68,9 @@ export default React.memo(function Member(props) {
               title='Financial contributor'
             >
               <p>
-                {displayName} is one of the generous contributors who can make
-                Stormbound-Kitty a reality. Thank you and welcome to the{' '}
+                {isCurrentUser ? 'You are' : <>{displayName} is</>} one of the
+                generous contributors who can make Stormbound-Kitty a reality.
+                Thank you and welcome to the{' '}
                 <abbr title='Kitty Appreciation Team'>KAT</abbr>!
               </p>
             </Info>
@@ -68,8 +79,9 @@ export default React.memo(function Member(props) {
           {details.contributions.length > 0 && (
             <Info icon='hammer' title='Technical contributor'>
               <p>
-                {displayName} is one of the skilled contributors who help make
-                Stormbound-Kitty better every day. Thank you and welcome to the{' '}
+                {isCurrentUser ? 'You are' : <>{displayName} is</>} one of the
+                skilled contributors who help make Stormbound-Kitty better every
+                day. Thank you and welcome to the{' '}
                 <abbr title='Kitty Appreciation Team'>KAT</abbr>!
               </p>
             </Info>
