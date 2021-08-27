@@ -108,7 +108,7 @@ const getFAQ = () => [
 
   {
     id: 'battle-sim',
-    title: 'Battle Sim',
+    title: 'Battle Simulator',
     entries: [
       {
         id: 'custom-cards-in-battle-sim',

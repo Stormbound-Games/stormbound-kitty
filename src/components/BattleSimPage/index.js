@@ -8,13 +8,19 @@ const useArticleProps = ({ simId, mode, puzzle }) =>
         title: puzzle.name,
         author: puzzle.author,
         meta: puzzle.category,
-        action: { to: '/sim/puzzles', children: 'Back to puzzles' },
+        action: {
+          to: '/simulators/battle/puzzles',
+          children: 'Back to puzzles',
+        },
       }
     : {
         title: 'Battle simulator',
         action: simId
           ? {
-              to: mode === 'EDITOR' ? `/sim/${simId}/display` : `/sim/${simId}`,
+              to:
+                mode === 'EDITOR'
+                  ? `/simulators/battle/${simId}/display`
+                  : `/simulators/battle/${simId}`,
               children: mode === 'EDITOR' ? 'Display view' : 'Edit sim',
               icon: mode === 'EDITOR' ? 'eye' : undefined,
             }

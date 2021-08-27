@@ -1,8 +1,8 @@
 import s from './selectors'
 
-describe('Battle Sim — Drag and drop', () => {
+describe('Battle Simulator — Drag and drop', () => {
   before(() => {
-    cy.visit('/sim')
+    cy.visit('/simulators/battle')
   })
 
   it('should be possible to drag a filled cell on an empty slot', () => {

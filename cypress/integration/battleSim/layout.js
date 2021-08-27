@@ -1,8 +1,11 @@
 import s from './selectors'
 
-describe('Battle Sim — Layout', () => {
+describe('Battle Simulator — Layout', () => {
   beforeEach(() => {
-    cy.viewport('iphone-6').visit('/sim').get(s.BOARD).should('be.visible')
+    cy.viewport('iphone-6')
+      .visit('/simulators/battle')
+      .get(s.BOARD)
+      .should('be.visible')
   })
 
   it('should display the board', () => {

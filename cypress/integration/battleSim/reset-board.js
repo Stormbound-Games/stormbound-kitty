@@ -1,8 +1,8 @@
 import s from './selectors'
 
-describe('Battle Sim — Reset', () => {
+describe('Battle Simulator — Reset', () => {
   before(() => {
-    cy.visit('/sim')
+    cy.visit('/simulators/battle')
   })
 
   it('should reset all info', () => {

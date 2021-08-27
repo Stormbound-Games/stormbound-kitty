@@ -124,7 +124,11 @@ const getNavigation = () => {
             { label: 'Deck Builder', to: '/deck', id: 'DECK_BUILDER' },
             { label: 'List Builder', to: '/list', id: 'LIST_BUILDER' },
             { label: 'Quest Builder', to: '/quest', id: 'QUEST_BUILDER' },
-            { label: 'Battle Sim', to: '/sim', id: 'BATTLE_SIM' },
+            {
+              label: 'Battle Simulator',
+              to: '/simulators/battle',
+              id: 'BATTLE_SIM',
+            },
             {
               label: 'Book Simulator',
               to: '/simulators/books',
@@ -232,7 +236,11 @@ const getNavigation = () => {
               to: '/card/contest',
               id: 'CARD_CONTEST',
             },
-            { label: 'Battle Puzzles', to: '/sim/puzzles', id: 'PUZZLES' },
+            {
+              label: 'Battle Puzzles',
+              to: '/simulators/battle/puzzles',
+              id: 'PUZZLES',
+            },
             { label: 'Trivia Game', to: '/trivia', id: 'TRIVIA' },
           ],
         },

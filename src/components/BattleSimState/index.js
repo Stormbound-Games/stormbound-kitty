@@ -224,7 +224,7 @@ export default class BattleSimState extends React.Component {
         { cards: this.state.cards, hand: this.state.hand }
       )
 
-      this.props.navigator.replace('/sim/' + id)
+      this.props.navigator.replace('/simulators/battle/' + id)
 
       // If the update was caused by an undo, do not add a new entry into the
       // history and simply mark undo as `false` for the next state update

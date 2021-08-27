@@ -1,8 +1,8 @@
 import s from './selectors'
 
-describe('Battle Sim — Players', () => {
+describe('Battle Simulator — Players', () => {
   before(() => {
-    cy.visit('/sim')
+    cy.visit('/simulators/battle')
   })
 
   it('should be possible to update RED’s health', () => {

@@ -1,8 +1,8 @@
 import s from './selectors'
 
-describe('Battle Sim — Front lines', () => {
+describe('Battle Simulator — Front lines', () => {
   before(() => {
-    cy.visit('/sim')
+    cy.visit('/simulators/battle')
   })
 
   it('should have initial front lines', () => {

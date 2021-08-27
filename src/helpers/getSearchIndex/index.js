@@ -299,22 +299,22 @@ const getSearchIndex = (withEverything = true) => {
   })
 
   links.push({
-    label: 'Battle Sim',
-    path: '/sim',
+    label: 'Battle Simulator',
+    path: '/simulators/battle',
     breadcrumbs: ['Tools', 'Builders'],
   })
 
   PUZZLES.slice(0, limit).forEach(puzzle => {
     links.push({
       label: puzzle.name,
-      path: `/sim/${puzzle.board}/display`,
+      path: `/simulators/battle/${puzzle.board}/display`,
       breadcrumbs: ['Community', 'Contest'],
     })
   })
 
   links.push({
     label: 'Puzzles',
-    path: '/sim/puzzles',
+    path: '/simulators/battle/puzzles',
     breadcrumbs: ['Community', 'Contest'],
   })
 

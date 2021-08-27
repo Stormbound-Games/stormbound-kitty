@@ -69,8 +69,8 @@ export default React.memo(function Home(props) {
           title='Battle for glory'
           image='/assets/images/cards/olf_the_hammer.png'
           actions={[
-            { to: '/sim', children: 'Simulator' },
-            { to: '/sim/puzzles', children: 'Puzzles' },
+            { to: '/simulators/battle', children: 'Simulator' },
+            { to: '/simulators/battle/puzzles', children: 'Puzzles' },
           ]}
         >
           <p>
