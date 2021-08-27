@@ -1,6 +1,16 @@
-module.exports = {
+const withPwa = require('next-pwa')
+
+module.exports = withPwa({
   poweredByHeader: false,
   reactStrictMode: true,
+  pwa: {
+    dest: 'public',
+    disable: false,
+    register: false,
+    skipWaiting: false,
+    mode: 'production',
+    dynamicStartUrl: false,
+  },
   async redirects() {
     return [
       { source: '/rr', destination: '/guides/reckless-rush', permanent: true },
@@ -103,4 +113,4 @@ module.exports = {
       },
     ]
   },
-}
+})
