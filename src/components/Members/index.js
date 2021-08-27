@@ -10,11 +10,15 @@ import styles from './styles'
 
 export default React.memo(function Members(props) {
   const { css } = useFela()
-  const [name, setName] = React.useState('')
+  const [sort, setSort] = React.useState('ALPHABETICALLY')
   const [type, setType] = React.useState('*')
   const members = props.members
-    .filter(({ member }) => name === '' || member.toLowerCase().includes(name))
     .filter(({ type: cType }) => type === '*' || type === cType)
+    .sort((a, b) => {
+      if (sort === 'CONTRIBUTIONS') return b.count - a.count
+      if (sort === 'ALPHABETICALLY') return a.member - b.member
+      return 0
+    })
 
   return (
     <Page
@@ -39,9 +43,9 @@ export default React.memo(function Members(props) {
           </p>
 
           <MembersSearchForm
-            name={name}
+            sort={sort}
             type={type}
-            setName={setName}
+            setSort={setSort}
             setType={setType}
           />
           <MemberTagYourself members={members} />

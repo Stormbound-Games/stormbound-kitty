@@ -1,6 +1,5 @@
 import React from 'react'
 import Row from '~/components/Row'
-import Input from '~/components/Input'
 import Select from '~/components/Select'
 import useIsMounted from '~/hooks/useIsMounted'
 
@@ -12,14 +11,15 @@ const MembersSearchForm = props => {
   return (
     <Row withNarrowGutter>
       <Row.Column>
-        <Input
-          label='Name'
-          type='search'
-          id='name'
-          placeholder='e.g. Kitty'
-          value={props.name}
-          onChange={event => props.setName(event.target.value)}
-        />
+        <Select
+          label='Sort'
+          id='sort'
+          value={props.sort}
+          onChange={event => props.setSort(event.target.value)}
+        >
+          <option value='ALPHABETICALLY'>Alphabetically</option>
+          <option value='CONTRIBUTIONS'>By contributions</option>
+        </Select>
       </Row.Column>
       <Row.Column>
         <Select
