@@ -1,6 +1,7 @@
 module.exports = {
   poweredByHeader: false,
   reactStrictMode: true,
+  optimizeFonts: true,
   async redirects() {
     return [
       { source: '/rr', destination: '/guides/reckless-rush', permanent: true },
