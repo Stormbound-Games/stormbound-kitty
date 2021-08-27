@@ -2,6 +2,7 @@
   {
     "name": "Green Prototypes",
     "id": "N1",
+    "sid": "u007",
     "type": "unit",
     "faction": "neutral",
     "race": "construct",
@@ -15,6 +16,7 @@
   {
     "name": "Summon Militia",
     "id": "N2",
+    "sid": "s012",
     "type": "spell",
     "faction": "neutral",
     "race": null,
@@ -28,6 +30,7 @@
   {
     "name": "Gifted Recruits",
     "id": "N3",
+    "sid": "u001",
     "type": "unit",
     "faction": "neutral",
     "race": "knight",
@@ -41,6 +44,7 @@
   {
     "name": "Lawless Herd",
     "id": "N4",
+    "sid": "u025",
     "type": "unit",
     "faction": "neutral",
     "race": "satyr",
@@ -54,6 +58,7 @@
   {
     "name": "Northsea Dog",
     "id": "N5",
+    "sid": "u036",
     "type": "unit",
     "faction": "neutral",
     "race": "pirate",
@@ -67,6 +72,7 @@
   {
     "name": "Spare Dragonling",
     "id": "N6",
+    "sid": "ud01",
     "type": "unit",
     "faction": "neutral",
     "race": "dragon",
@@ -80,6 +86,7 @@
   {
     "name": "Brothers in Arms",
     "id": "N7",
+    "sid": "u010",
     "type": "unit",
     "faction": "neutral",
     "race": "knight",
@@ -93,6 +100,7 @@
   {
     "name": "Collector Mirz",
     "id": "N8",
+    "sid": "u014",
     "type": "unit",
     "faction": "neutral",
     "race": null,
@@ -107,6 +115,7 @@
   {
     "name": "Confinement",
     "id": "N9",
+    "sid": "s011",
     "type": "spell",
     "faction": "neutral",
     "race": null,
@@ -120,6 +129,7 @@
   {
     "name": "Conflicted Drakes",
     "id": "N10",
+    "sid": "ud02",
     "type": "unit",
     "faction": "neutral",
     "race": "dragon",
@@ -133,6 +143,7 @@
   {
     "name": "Felflares",
     "id": "N11",
+    "sid": "u005",
     "type": "unit",
     "faction": "neutral",
     "race": "frostling",
@@ -146,6 +157,7 @@
   {
     "name": "First Mutineer",
     "id": "N12",
+    "sid": "u034",
     "type": "unit",
     "faction": "neutral",
     "race": "pirate",
@@ -159,6 +171,7 @@
   {
     "name": "Fort of Ebonrock",
     "id": "N13",
+    "sid": "b001",
     "type": "structure",
     "faction": "neutral",
     "race": null,
@@ -172,6 +185,7 @@
   {
     "name": "Freebooters",
     "id": "N14",
+    "sid": "u033",
     "type": "unit",
     "faction": "neutral",
     "race": "pirate",
@@ -185,6 +199,7 @@
   {
     "name": "Potion of Growth",
     "id": "N15",
+    "sid": "s007",
     "type": "spell",
     "faction": "neutral",
     "race": null,
@@ -198,6 +213,7 @@
   {
     "name": "Westwind Sailors",
     "id": "N16",
+    "sid": "u031",
     "type": "unit",
     "faction": "neutral",
     "race": "pirate",
@@ -211,6 +227,7 @@
   {
     "name": "Wetland Deceivers",
     "id": "N17",
+    "sid": "u041",
     "type": "unit",
     "faction": "neutral",
     "race": "raven",
@@ -224,6 +241,7 @@
   {
     "name": "Beasts of Terror",
     "id": "N18",
+    "sid": "ud05",
     "type": "unit",
     "faction": "neutral",
     "race": "dragon",
@@ -237,6 +255,7 @@
   {
     "name": "Cabin Girls",
     "id": "N19",
+    "sid": "u030",
     "type": "unit",
     "faction": "neutral",
     "race": "pirate",
@@ -250,6 +269,7 @@
   {
     "name": "Emerald Towers",
     "id": "N20",
+    "sid": "b003",
     "type": "structure",
     "faction": "neutral",
     "race": null,
@@ -263,6 +283,7 @@
   {
     "name": "Execution",
     "id": "N21",
+    "sid": "s001",
     "type": "spell",
     "faction": "neutral",
     "race": null,
@@ -276,6 +297,7 @@
   {
     "name": "Goldgrubbers",
     "id": "N22",
+    "sid": "u037",
     "type": "unit",
     "faction": "neutral",
     "race": "pirate",
@@ -289,6 +311,7 @@
   {
     "name": "Hunter’s Vengeance",
     "id": "N23",
+    "sid": "s013",
     "type": "spell",
     "faction": "neutral",
     "race": null,
@@ -302,6 +325,7 @@
   {
     "name": "Personal Servers",
     "id": "N24",
+    "sid": "u021",
     "type": "unit",
     "faction": "neutral",
     "race": "construct",
@@ -315,6 +339,7 @@
   {
     "name": "Siegebreakers",
     "id": "N25",
+    "sid": "u008",
     "type": "unit",
     "faction": "neutral",
     "race": "satyr",
@@ -328,6 +353,7 @@
   {
     "name": "Snowmasons",
     "id": "N26",
+    "sid": "u111",
     "type": "unit",
     "faction": "neutral",
     "race": "dwarf",
@@ -341,6 +367,7 @@
   {
     "name": "Terrific Slayers",
     "id": "N27",
+    "sid": "ud06",
     "type": "unit",
     "faction": "neutral",
     "race": "knight",
@@ -354,6 +381,7 @@
   {
     "name": "Warfront Runners",
     "id": "N28",
+    "sid": "u020",
     "type": "unit",
     "faction": "neutral",
     "race": "knight",
@@ -367,6 +395,7 @@
   {
     "name": "Bladestorm",
     "id": "N29",
+    "sid": "s003",
     "type": "spell",
     "faction": "neutral",
     "race": null,
@@ -380,6 +409,7 @@
   {
     "name": "Bluesail Raiders",
     "id": "N30",
+    "sid": "u032",
     "type": "unit",
     "faction": "neutral",
     "race": "pirate",
@@ -393,6 +423,7 @@
   {
     "name": "Flooding the Gates",
     "id": "N31",
+    "sid": "s009",
     "type": "spell",
     "faction": "neutral",
     "race": null,
@@ -406,6 +437,7 @@
   {
     "name": "Heroic Soldiers",
     "id": "N32",
+    "sid": "u002",
     "type": "unit",
     "faction": "neutral",
     "race": "knight",
@@ -419,6 +451,7 @@
   {
     "name": "Snake Eyes",
     "id": "N33",
+    "sid": "u038",
     "type": "unit",
     "faction": "neutral",
     "race": "pirate",
@@ -432,6 +465,7 @@
   {
     "name": "Trueshot Post",
     "id": "N34",
+    "sid": "b002",
     "type": "structure",
     "faction": "neutral",
     "race": null,
@@ -445,6 +479,7 @@
   {
     "name": "Ubass the Hunter",
     "id": "N35",
+    "sid": "u018",
     "type": "unit",
     "faction": "neutral",
     "race": null,
@@ -459,6 +494,7 @@
   {
     "name": "Voidsurgers",
     "id": "N36",
+    "sid": "u024",
     "type": "unit",
     "faction": "neutral",
     "race": "frostling",
@@ -472,6 +508,7 @@
   {
     "name": "Boomstick Officers",
     "id": "N37",
+    "sid": "u026",
     "type": "unit",
     "faction": "neutral",
     "race": "rodent",
@@ -485,6 +522,7 @@
   {
     "name": "Harvesters of Souls",
     "id": "N38",
+    "sid": "uc01",
     "type": "unit",
     "faction": "neutral",
     "race": "undead",
@@ -498,6 +536,7 @@
   {
     "name": "Hearthguards",
     "id": "N39",
+    "sid": "u106",
     "type": "unit",
     "faction": "neutral",
     "race": "dwarf",
@@ -511,6 +550,7 @@
   {
     "name": "Kindred’s Grace",
     "id": "N40",
+    "sid": "s006",
     "type": "spell",
     "faction": "neutral",
     "race": null,
@@ -524,6 +564,7 @@
   {
     "name": "Lich Summoners",
     "id": "N41",
+    "sid": "u012",
     "type": "unit",
     "faction": "neutral",
     "race": "undead",
@@ -537,6 +578,7 @@
   {
     "name": "Lucky Charmers",
     "id": "N42",
+    "sid": "u035",
     "type": "unit",
     "faction": "neutral",
     "race": "pirate",
@@ -550,6 +592,7 @@
   {
     "name": "Ludic Matriarchs",
     "id": "N43",
+    "sid": "ud04",
     "type": "unit",
     "faction": "neutral",
     "race": "dragon",
@@ -563,6 +606,7 @@
   {
     "name": "Needle Blast",
     "id": "N44",
+    "sid": "s302",
     "type": "spell",
     "faction": "neutral",
     "race": null,
@@ -576,6 +620,7 @@
   {
     "name": "Powder Tower",
     "id": "N45",
+    "sid": "b004",
     "type": "structure",
     "faction": "neutral",
     "race": null,
@@ -589,6 +634,7 @@
   {
     "name": "Tegor the Vengeful",
     "id": "N46",
+    "sid": "u016",
     "type": "unit",
     "faction": "neutral",
     "race": "dragon",
@@ -603,6 +649,7 @@
   {
     "name": "Victors of the Melee",
     "id": "N47",
+    "sid": "u104",
     "type": "unit",
     "faction": "neutral",
     "race": "knight",
@@ -616,6 +663,7 @@
   {
     "name": "Archdruid Earyn",
     "id": "N48",
+    "sid": "u017",
     "type": "unit",
     "faction": "neutral",
     "race": null,
@@ -630,6 +678,7 @@
   {
     "name": "Avian Stalkers",
     "id": "N49",
+    "sid": "u022",
     "type": "unit",
     "faction": "neutral",
     "race": "raven",
@@ -643,6 +692,7 @@
   {
     "name": "Call for Aid",
     "id": "N50",
+    "sid": "s002",
     "type": "spell",
     "faction": "neutral",
     "race": null,
@@ -656,6 +706,7 @@
   {
     "name": "Dangerous Suitors",
     "id": "N51",
+    "sid": "ud03",
     "type": "unit",
     "faction": "neutral",
     "race": "dragon",
@@ -669,6 +720,7 @@
   {
     "name": "Salty Outcasts",
     "id": "N52",
+    "sid": "u027",
     "type": "unit",
     "faction": "neutral",
     "race": "toad",
@@ -682,6 +734,7 @@
   {
     "name": "Sharpfist Exiles",
     "id": "N53",
+    "sid": "u011",
     "type": "unit",
     "faction": "neutral",
     "race": "toad",
@@ -695,6 +748,7 @@
   {
     "name": "Veterans of War",
     "id": "N54",
+    "sid": "u003",
     "type": "unit",
     "faction": "neutral",
     "race": "knight",
@@ -708,6 +762,7 @@
   {
     "name": "Joust Champions",
     "id": "N55",
+    "sid": "u013",
     "type": "unit",
     "faction": "neutral",
     "race": "knight",
@@ -721,6 +776,7 @@
   {
     "name": "Temple Guardians",
     "id": "N56",
+    "sid": "u006",
     "type": "unit",
     "faction": "neutral",
     "race": "knight",
@@ -734,6 +790,7 @@
   {
     "name": "Crazy Bombers",
     "id": "N57",
+    "sid": "u004",
     "type": "unit",
     "faction": "neutral",
     "race": "rodent",
@@ -747,6 +804,7 @@
   {
     "name": "Siren of the Seas",
     "id": "N58",
+    "sid": "u015",
     "type": "unit",
     "faction": "neutral",
     "race": null,
@@ -761,6 +819,7 @@
   {
     "name": "Edrik the Fierce",
     "id": "N59",
+    "sid": "u044",
     "type": "unit",
     "faction": "neutral",
     "race": "knight",
@@ -775,6 +834,7 @@
   {
     "name": "Fluffy Badboxers",
     "id": "N60",
+    "sid": "u056",
     "type": "unit",
     "faction": "neutral",
     "race": "feline",
@@ -788,6 +848,7 @@
   {
     "name": "Hair-Raising Cats",
     "id": "N61",
+    "sid": "u054",
     "type": "unit",
     "faction": "neutral",
     "race": "feline",
@@ -801,6 +862,7 @@
   {
     "name": "Sweetcap Kittens",
     "id": "N62",
+    "sid": "u055",
     "type": "unit",
     "faction": "neutral",
     "race": "feline",
@@ -814,6 +876,7 @@
   {
     "name": "Unhealthy Hysteria",
     "id": "N63",
+    "sid": "s014",
     "type": "spell",
     "faction": "neutral",
     "race": null,
@@ -827,6 +890,7 @@
   {
     "name": "Melodious Sisters",
     "id": "N64",
+    "sid": "u057",
     "type": "unit",
     "faction": "neutral",
     "race": "feline",
@@ -840,6 +904,7 @@
   {
     "name": "Razor-Sharp Lynxes",
     "id": "N65",
+    "sid": "u051",
     "type": "unit",
     "faction": "neutral",
     "race": "feline",
@@ -853,6 +918,7 @@
   {
     "name": "Bigthrust Tigers",
     "id": "N66",
+    "sid": "u052",
     "type": "unit",
     "faction": "neutral",
     "race": "feline",
@@ -866,6 +932,7 @@
   {
     "name": "Wild Saberpaws",
     "id": "N67",
+    "sid": "u053",
     "type": "unit",
     "faction": "neutral",
     "race": "feline",
@@ -879,6 +946,7 @@
   {
     "name": "Twilight Prowlers",
     "id": "N68",
+    "sid": "u050",
     "type": "unit",
     "faction": "neutral",
     "race": "feline",
@@ -892,6 +960,7 @@
   {
     "name": "Laurus, King in Exile",
     "id": "N69",
+    "sid": "u058",
     "type": "unit",
     "faction": "neutral",
     "race": "feline",
@@ -906,6 +975,7 @@
   {
     "name": "Aged Duskbringers",
     "id": "N70",
+    "sid": "ue02",
     "type": "unit",
     "faction": "neutral",
     "race": null,
@@ -920,6 +990,7 @@
   {
     "name": "Rapid Mousers",
     "id": "N71",
+    "sid": "ut02",
     "type": "unit",
     "faction": "neutral",
     "race": "feline",
@@ -933,6 +1004,7 @@
   {
     "name": "Seasick Bouncers",
     "id": "N72",
+    "sid": "ut01",
     "type": "unit",
     "faction": "neutral",
     "race": "pirate",
@@ -946,6 +1018,7 @@
   {
     "name": "Trekking Aldermen",
     "id": "N73",
+    "sid": "ue01",
     "type": "unit",
     "faction": "neutral",
     "race": null,
@@ -960,6 +1033,7 @@
   {
     "name": "Beards of Crowglyph",
     "id": "N74",
+    "sid": "ue03",
     "type": "unit",
     "faction": "neutral",
     "race": null,
@@ -974,6 +1048,7 @@
   {
     "name": "Greenwood Ancients",
     "id": "N75",
+    "sid": "ue04",
     "type": "unit",
     "faction": "neutral",
     "race": null,
@@ -988,6 +1063,7 @@
   {
     "name": "Prime Oracle Bragda",
     "id": "N76",
+    "sid": "ue05",
     "type": "unit",
     "faction": "neutral",
     "race": null,
@@ -1003,6 +1079,7 @@
   {
     "name": "Rogue Sheep",
     "id": "N77",
+    "sid": "u039",
     "type": "unit",
     "faction": "neutral",
     "race": "pirate",
@@ -1017,6 +1094,7 @@
   {
     "name": "Slyboots",
     "id": "N78",
+    "sid": "u059",
     "type": "unit",
     "faction": "neutral",
     "race": "feline",
@@ -1030,6 +1108,7 @@
   {
     "name": "Excited Mousers",
     "id": "N79",
+    "sid": "u060",
     "type": "unit",
     "faction": "neutral",
     "race": "feline",
@@ -1043,6 +1122,7 @@
   {
     "name": "Stoic Protectors",
     "id": "N80",
+    "sid": "ua01",
     "type": "unit",
     "faction": "neutral",
     "race": "ancient",
@@ -1056,6 +1136,7 @@
   {
     "name": "Temple of the Heart",
     "id": "N81",
+    "sid": "b007",
     "type": "structure",
     "faction": "neutral",
     "race": null,
@@ -1069,6 +1150,7 @@
   {
     "name": "Flameless Lizards",
     "id": "N82",
+    "sid": "ud07",
     "type": "unit",
     "faction": "neutral",
     "race": "dragon",
@@ -1082,6 +1164,7 @@
   {
     "name": "Headless Hotheads",
     "id": "N83",
+    "sid": "u019",
     "type": "unit",
     "faction": "neutral",
     "race": "construct",
@@ -1095,6 +1178,7 @@
   {
     "name": "Eternal Ethereals",
     "id": "N84",
+    "sid": "u118",
     "type": "unit",
     "faction": "neutral",
     "race": "ancient",
@@ -1108,6 +1192,7 @@
   {
     "name": "Temple of the Mind",
     "id": "N85",
+    "sid": "b008",
     "type": "structure",
     "faction": "neutral",
     "race": null,
@@ -1121,6 +1206,7 @@
   {
     "name": "Sparkly Kitties",
     "id": "N86",
+    "sid": "u061",
     "type": "unit",
     "faction": "neutral",
     "race": "feline",
@@ -1134,6 +1220,7 @@
   {
     "name": "Destructobots",
     "id": "I1",
+    "sid": "u306",
     "type": "unit",
     "faction": "ironclad",
     "race": "construct",
@@ -1147,6 +1234,7 @@
   {
     "name": "Doctor Mia",
     "id": "I2",
+    "sid": "u309",
     "type": "unit",
     "faction": "ironclad",
     "race": "rodent",
@@ -1161,6 +1249,7 @@
   {
     "name": "Fortification Tonic",
     "id": "I3",
+    "sid": "s304",
     "type": "spell",
     "faction": "ironclad",
     "race": null,
@@ -1174,6 +1263,7 @@
   {
     "name": "Ozone Purifiers",
     "id": "I4",
+    "sid": "u310",
     "type": "unit",
     "faction": "ironclad",
     "race": "rodent",
@@ -1187,6 +1277,7 @@
   {
     "name": "Unstable Build",
     "id": "I5",
+    "sid": "b304",
     "type": "structure",
     "faction": "ironclad",
     "race": null,
@@ -1200,6 +1291,7 @@
   {
     "name": "Finite Loopers",
     "id": "I6",
+    "sid": "u307",
     "type": "unit",
     "faction": "ironclad",
     "race": "construct",
@@ -1213,6 +1305,7 @@
   {
     "name": "Greengale Serpents",
     "id": "I7",
+    "sid": "ud31",
     "type": "unit",
     "faction": "ironclad",
     "race": "dragon",
@@ -1226,6 +1319,7 @@
   {
     "name": "Linked Golems",
     "id": "I8",
+    "sid": "u305",
     "type": "unit",
     "faction": "ironclad",
     "race": "construct",
@@ -1239,6 +1333,7 @@
   {
     "name": "Sound Drivers",
     "id": "I9",
+    "sid": "u314",
     "type": "unit",
     "faction": "ironclad",
     "race": "rodent",
@@ -1252,6 +1347,7 @@
   {
     "name": "Upgrade Point",
     "id": "I10",
+    "sid": "b303",
     "type": "structure",
     "faction": "ironclad",
     "race": null,
@@ -1265,6 +1361,7 @@
   {
     "name": "Boosting Elixir",
     "id": "I11",
+    "sid": "s301",
     "type": "spell",
     "faction": "ironclad",
     "race": null,
@@ -1278,6 +1375,7 @@
   {
     "name": "Chaotic Pupil",
     "id": "I12",
+    "sid": "u301",
     "type": "unit",
     "faction": "ironclad",
     "race": "rodent",
@@ -1291,6 +1389,7 @@
   {
     "name": "Embers of Chaos",
     "id": "I13",
+    "sid": "ud33",
     "type": "unit",
     "faction": "ironclad",
     "race": "dragon",
@@ -1304,6 +1403,7 @@
   {
     "name": "Mech Workshop",
     "id": "I14",
+    "sid": "b302",
     "type": "structure",
     "faction": "ironclad",
     "race": null,
@@ -1317,6 +1417,7 @@
   {
     "name": "Overchargers",
     "id": "I15",
+    "sid": "u303",
     "type": "unit",
     "faction": "ironclad",
     "race": "rodent",
@@ -1330,6 +1431,7 @@
   {
     "name": "Debug Loggers",
     "id": "I16",
+    "sid": "u313",
     "type": "unit",
     "faction": "ironclad",
     "race": "construct",
@@ -1343,6 +1445,7 @@
   {
     "name": "Eloth the Ignited",
     "id": "I17",
+    "sid": "ud32",
     "type": "unit",
     "faction": "ironclad",
     "race": "dragon",
@@ -1357,6 +1460,7 @@
   {
     "name": "Flaming Stream",
     "id": "I18",
+    "sid": "s303",
     "type": "spell",
     "faction": "ironclad",
     "race": null,
@@ -1370,6 +1474,7 @@
   {
     "name": "Siege Assembly",
     "id": "I19",
+    "sid": "b301",
     "type": "structure",
     "faction": "ironclad",
     "race": null,
@@ -1383,6 +1488,7 @@
   {
     "name": "Windmakers",
     "id": "I20",
+    "sid": "u302",
     "type": "unit",
     "faction": "ironclad",
     "race": "rodent",
@@ -1396,6 +1502,7 @@
   {
     "name": "Delegators",
     "id": "I21",
+    "sid": "u311",
     "type": "unit",
     "faction": "ironclad",
     "race": "construct",
@@ -1409,6 +1516,7 @@
   {
     "name": "Project PH03-NIX",
     "id": "I22",
+    "sid": "u308",
     "type": "unit",
     "faction": "ironclad",
     "race": "construct",
@@ -1423,6 +1531,7 @@
   {
     "name": "Armed Schemers",
     "id": "I23",
+    "sid": "u304",
     "type": "unit",
     "faction": "ironclad",
     "race": "rodent",
@@ -1436,6 +1545,7 @@
   {
     "name": "Mechanical Workers",
     "id": "I24",
+    "sid": "u315",
     "type": "unit",
     "faction": "ironclad",
     "race": "rodent",
@@ -1449,6 +1559,7 @@
   {
     "name": "Agents in Charge",
     "id": "I25",
+    "sid": "ut31",
     "type": "unit",
     "faction": "ironclad",
     "race": "rodent",
@@ -1462,6 +1573,7 @@
   {
     "name": "Operators",
     "id": "I26",
+    "sid": "ut32",
     "type": "unit",
     "faction": "ironclad",
     "race": "construct",
@@ -1475,6 +1587,7 @@
   {
     "name": "Scrapped Planners",
     "id": "I27",
+    "sid": "ue31",
     "type": "unit",
     "faction": "ironclad",
     "race": "construct",
@@ -1489,6 +1602,7 @@
   {
     "name": "Booming Professors",
     "id": "I28",
+    "sid": "ue32",
     "type": "unit",
     "faction": "ironclad",
     "race": "rodent",
@@ -1503,6 +1617,7 @@
   {
     "name": "Temple of Space",
     "id": "I29",
+    "sid": "b305",
     "type": "structure",
     "faction": "ironclad",
     "race": null,
@@ -1516,6 +1631,7 @@
   {
     "name": "Brood Sages",
     "id": "F1",
+    "sid": "u403",
     "type": "unit",
     "faction": "shadowfen",
     "race": "toad",
@@ -1529,6 +1645,7 @@
   {
     "name": "Copperskin Ranger",
     "id": "F2",
+    "sid": "u411",
     "type": "unit",
     "faction": "shadowfen",
     "race": "toad",
@@ -1542,6 +1659,7 @@
   {
     "name": "Dubious Hags",
     "id": "F3",
+    "sid": "u406",
     "type": "unit",
     "faction": "shadowfen",
     "race": "raven",
@@ -1555,6 +1673,7 @@
   {
     "name": "Toxic Sacrifice",
     "id": "F4",
+    "sid": "s401",
     "type": "spell",
     "faction": "shadowfen",
     "race": null,
@@ -1568,6 +1687,7 @@
   {
     "name": "Crimson Sentry",
     "id": "F5",
+    "sid": "u401",
     "type": "unit",
     "faction": "shadowfen",
     "race": "toad",
@@ -1581,6 +1701,7 @@
   {
     "name": "Harpies of the Hunt",
     "id": "F6",
+    "sid": "u412",
     "type": "unit",
     "faction": "shadowfen",
     "race": "raven",
@@ -1594,6 +1715,7 @@
   {
     "name": "Heliotroopers",
     "id": "F7",
+    "sid": "u415",
     "type": "unit",
     "faction": "shadowfen",
     "race": "toad",
@@ -1607,6 +1729,7 @@
   {
     "name": "Rain of Frogs",
     "id": "F8",
+    "sid": "s004",
     "type": "spell",
     "faction": "shadowfen",
     "race": null,
@@ -1620,6 +1743,7 @@
   {
     "name": "Wandering Wyrms",
     "id": "F9",
+    "sid": "ud41",
     "type": "unit",
     "faction": "shadowfen",
     "race": "dragon",
@@ -1633,6 +1757,7 @@
   {
     "name": "Azure Hatcher",
     "id": "F10",
+    "sid": "u404",
     "type": "unit",
     "faction": "shadowfen",
     "race": "toad",
@@ -1646,6 +1771,7 @@
   {
     "name": "Marked as Prey",
     "id": "F11",
+    "sid": "s008",
     "type": "spell",
     "faction": "shadowfen",
     "race": null,
@@ -1659,6 +1785,7 @@
   {
     "name": "Tode the Elevated",
     "id": "F12",
+    "sid": "u409",
     "type": "unit",
     "faction": "shadowfen",
     "race": "toad",
@@ -1673,6 +1800,7 @@
   {
     "name": "Venomfall Spire",
     "id": "F13",
+    "sid": "b402",
     "type": "structure",
     "faction": "shadowfen",
     "race": null,
@@ -1686,6 +1814,7 @@
   {
     "name": "Witches of the Wild",
     "id": "F14",
+    "sid": "u405",
     "type": "unit",
     "faction": "shadowfen",
     "race": "raven",
@@ -1699,6 +1828,7 @@
   {
     "name": "Amberhides",
     "id": "F15",
+    "sid": "u402",
     "type": "unit",
     "faction": "shadowfen",
     "race": "toad",
@@ -1712,6 +1842,7 @@
   {
     "name": "Feral Shamans",
     "id": "F16",
+    "sid": "u407",
     "type": "unit",
     "faction": "shadowfen",
     "race": "raven",
@@ -1725,6 +1856,7 @@
   {
     "name": "Obsidian Butchers",
     "id": "F17",
+    "sid": "u414",
     "type": "unit",
     "faction": "shadowfen",
     "race": "toad",
@@ -1738,6 +1870,7 @@
   {
     "name": "Soulcrushers",
     "id": "F18",
+    "sid": "u413",
     "type": "unit",
     "faction": "shadowfen",
     "race": "raven",
@@ -1751,6 +1884,7 @@
   {
     "name": "Sunbeam Serpents",
     "id": "F19",
+    "sid": "ud43",
     "type": "unit",
     "faction": "shadowfen",
     "race": "dragon",
@@ -1764,6 +1898,7 @@
   {
     "name": "Blood Ministers",
     "id": "F20",
+    "sid": "u408",
     "type": "unit",
     "faction": "shadowfen",
     "race": "raven",
@@ -1777,6 +1912,7 @@
   {
     "name": "Broodmother Qordia",
     "id": "F21",
+    "sid": "ud42",
     "type": "unit",
     "faction": "shadowfen",
     "race": "dragon",
@@ -1791,6 +1927,7 @@
   {
     "name": "Curse of Strings",
     "id": "F22",
+    "sid": "s402",
     "type": "spell",
     "faction": "shadowfen",
     "race": null,
@@ -1804,6 +1941,7 @@
   {
     "name": "High Priestess Klaxi",
     "id": "F23",
+    "sid": "u410",
     "type": "unit",
     "faction": "shadowfen",
     "race": "raven",
@@ -1818,6 +1956,7 @@
   {
     "name": "Clerics with Cords",
     "id": "F24",
+    "sid": "u416",
     "type": "unit",
     "faction": "shadowfen",
     "race": "raven",
@@ -1831,6 +1970,7 @@
   {
     "name": "Limelimbs",
     "id": "F25",
+    "sid": "ut41",
     "type": "unit",
     "faction": "shadowfen",
     "race": "toad",
@@ -1844,6 +1984,7 @@
   {
     "name": "Untamed Cultists",
     "id": "F26",
+    "sid": "ut42",
     "type": "unit",
     "faction": "shadowfen",
     "race": "raven",
@@ -1857,6 +1998,7 @@
   {
     "name": "Faithless Prophets",
     "id": "F27",
+    "sid": "ue41",
     "type": "unit",
     "faction": "shadowfen",
     "race": "raven",
@@ -1871,6 +2013,7 @@
   {
     "name": "Hairy Chestnuts",
     "id": "F28",
+    "sid": "ue42",
     "type": "unit",
     "faction": "shadowfen",
     "race": "toad",
@@ -1885,6 +2028,7 @@
   {
     "name": "Temple of Time",
     "id": "F29",
+    "sid": "b005",
     "type": "structure",
     "faction": "shadowfen",
     "race": null,
@@ -1898,6 +2042,7 @@
   {
     "name": "Doppelbocks",
     "id": "S1",
+    "sid": "u211",
     "type": "unit",
     "faction": "swarm",
     "race": "satyr",
@@ -1911,6 +2056,7 @@
   {
     "name": "Restless Goats",
     "id": "S2",
+    "sid": "u206",
     "type": "unit",
     "faction": "swarm",
     "race": "satyr",
@@ -1924,6 +2070,7 @@
   {
     "name": "Counselor Ahmi",
     "id": "S3",
+    "sid": "u209",
     "type": "unit",
     "faction": "swarm",
     "race": "satyr",
@@ -1938,6 +2085,7 @@
   {
     "name": "Dreadful Keepers",
     "id": "S4",
+    "sid": "ud23",
     "type": "unit",
     "faction": "swarm",
     "race": "dragon",
@@ -1951,6 +2099,7 @@
   {
     "name": "Faun Companions",
     "id": "S5",
+    "sid": "u215",
     "type": "unit",
     "faction": "swarm",
     "race": "satyr",
@@ -1964,6 +2113,7 @@
   {
     "name": "Forgotten Souls",
     "id": "S6",
+    "sid": "u201",
     "type": "unit",
     "faction": "swarm",
     "race": "undead",
@@ -1977,6 +2127,7 @@
   {
     "name": "Moonlit Aerie",
     "id": "S7",
+    "sid": "b202",
     "type": "structure",
     "faction": "swarm",
     "race": null,
@@ -1990,6 +2141,7 @@
   {
     "name": "Shady Ghoul",
     "id": "S8",
+    "sid": "u202",
     "type": "unit",
     "faction": "swarm",
     "race": "undead",
@@ -2003,6 +2155,7 @@
   {
     "name": "Swarmcallers",
     "id": "S9",
+    "sid": "u207",
     "type": "unit",
     "faction": "swarm",
     "race": "satyr",
@@ -2016,6 +2169,7 @@
   {
     "name": "Broken Truce",
     "id": "S10",
+    "sid": "s201",
     "type": "spell",
     "faction": "swarm",
     "race": null,
@@ -2029,6 +2183,7 @@
   {
     "name": "Devastators",
     "id": "S11",
+    "sid": "u213",
     "type": "unit",
     "faction": "swarm",
     "race": "undead",
@@ -2042,6 +2197,7 @@
   {
     "name": "Draconic Roamers",
     "id": "S12",
+    "sid": "ud21",
     "type": "unit",
     "faction": "swarm",
     "race": "dragon",
@@ -2055,6 +2211,7 @@
   {
     "name": "Mischiefs",
     "id": "S13",
+    "sid": "u210",
     "type": "unit",
     "faction": "swarm",
     "race": "undead",
@@ -2068,6 +2225,7 @@
   {
     "name": "Pan Heralds",
     "id": "S14",
+    "sid": "u204",
     "type": "unit",
     "faction": "swarm",
     "race": "satyr",
@@ -2081,6 +2239,7 @@
   {
     "name": "Dark Harvest",
     "id": "S15",
+    "sid": "s203",
     "type": "spell",
     "faction": "swarm",
     "race": null,
@@ -2094,6 +2253,7 @@
   {
     "name": "Dreadfauns",
     "id": "S16",
+    "sid": "u205",
     "type": "unit",
     "faction": "swarm",
     "race": "satyr",
@@ -2107,6 +2267,7 @@
   {
     "name": "Grim Couriers",
     "id": "S17",
+    "sid": "u212",
     "type": "unit",
     "faction": "swarm",
     "race": "undead",
@@ -2120,6 +2281,7 @@
   {
     "name": "Pillars of Doom",
     "id": "S18",
+    "sid": "b201",
     "type": "structure",
     "faction": "swarm",
     "race": null,
@@ -2133,6 +2295,7 @@
   {
     "name": "Xuri, Lord of Life",
     "id": "S19",
+    "sid": "ud22",
     "type": "unit",
     "faction": "swarm",
     "race": "dragon",
@@ -2147,6 +2310,7 @@
   {
     "name": "Herald’s Hymn",
     "id": "S20",
+    "sid": "s202",
     "type": "spell",
     "faction": "swarm",
     "race": null,
@@ -2160,6 +2324,7 @@
   {
     "name": "Queen of Herds",
     "id": "S21",
+    "sid": "u208",
     "type": "unit",
     "faction": "swarm",
     "race": "undead",
@@ -2174,6 +2339,7 @@
   {
     "name": "Vindicators",
     "id": "S22",
+    "sid": "u203",
     "type": "unit",
     "faction": "swarm",
     "race": "undead",
@@ -2187,6 +2353,7 @@
   {
     "name": "Lasting Remains",
     "id": "S23",
+    "sid": "u214",
     "type": "unit",
     "faction": "swarm",
     "race": "undead",
@@ -2200,6 +2367,7 @@
   {
     "name": "Head Start",
     "id": "S24",
+    "sid": "s205",
     "type": "spell",
     "faction": "swarm",
     "race": null,
@@ -2213,6 +2381,7 @@
   {
     "name": "Mindless Horde",
     "id": "S25",
+    "sid": "ut22",
     "type": "unit",
     "faction": "swarm",
     "race": "satyr",
@@ -2226,6 +2395,7 @@
   {
     "name": "Obliterators",
     "id": "S26",
+    "sid": "ut21",
     "type": "unit",
     "faction": "swarm",
     "race": "undead",
@@ -2239,6 +2409,7 @@
   {
     "name": "Petrified Fossils",
     "id": "S27",
+    "sid": "ue21",
     "type": "unit",
     "faction": "swarm",
     "race": "undead",
@@ -2253,6 +2424,7 @@
   {
     "name": "Bucks of Wasteland",
     "id": "S28",
+    "sid": "ue22",
     "type": "unit",
     "faction": "swarm",
     "race": "satyr",
@@ -2267,6 +2439,7 @@
   {
     "name": "Temple of Focus",
     "id": "S29",
+    "sid": "b203",
     "type": "structure",
     "faction": "swarm",
     "race": null,
@@ -2280,6 +2453,7 @@
   {
     "name": "Icicle Burst",
     "id": "W1",
+    "sid": "s104",
     "type": "spell",
     "faction": "winter",
     "race": null,
@@ -2293,6 +2467,7 @@
   {
     "name": "Frosthexers",
     "id": "W2",
+    "sid": "u103",
     "type": "unit",
     "faction": "winter",
     "race": "frostling",
@@ -2306,6 +2481,7 @@
   {
     "name": "The Hearth",
     "id": "W3",
+    "sid": "b102",
     "type": "structure",
     "faction": "winter",
     "race": null,
@@ -2319,6 +2495,7 @@
   {
     "name": "Wisp Cloud",
     "id": "W4",
+    "sid": "u101",
     "type": "unit",
     "faction": "winter",
     "race": "frostling",
@@ -2332,6 +2509,7 @@
   {
     "name": "Yowling Weavers",
     "id": "W5",
+    "sid": "ud13",
     "type": "unit",
     "faction": "winter",
     "race": "dragon",
@@ -2345,6 +2523,7 @@
   {
     "name": "Moment’s Peace",
     "id": "W6",
+    "sid": "s103",
     "type": "spell",
     "faction": "winter",
     "race": null,
@@ -2358,6 +2537,7 @@
   {
     "name": "Mystwives",
     "id": "W7",
+    "sid": "u113",
     "type": "unit",
     "faction": "winter",
     "race": "dwarf",
@@ -2371,6 +2551,7 @@
   {
     "name": "Spellbinder Zhevana",
     "id": "W8",
+    "sid": "ud12",
     "type": "unit",
     "faction": "winter",
     "race": "dragon",
@@ -2385,6 +2566,7 @@
   {
     "name": "Frozen Core",
     "id": "W9",
+    "sid": "b101",
     "type": "structure",
     "faction": "winter",
     "race": null,
@@ -2398,6 +2580,7 @@
   {
     "name": "Lady Rime",
     "id": "W10",
+    "sid": "u109",
     "type": "unit",
     "faction": "winter",
     "race": "frostling",
@@ -2412,6 +2595,7 @@
   {
     "name": "Midwinter Chaos",
     "id": "W11",
+    "sid": "s102",
     "type": "spell",
     "faction": "winter",
     "race": null,
@@ -2425,6 +2609,7 @@
   {
     "name": "Rimelings",
     "id": "W12",
+    "sid": "u108",
     "type": "unit",
     "faction": "winter",
     "race": "frostling",
@@ -2438,6 +2623,7 @@
   {
     "name": "Rockworkers",
     "id": "W13",
+    "sid": "u023",
     "type": "unit",
     "faction": "winter",
     "race": "dwarf",
@@ -2451,6 +2637,7 @@
   {
     "name": "Blessed with Brawn",
     "id": "W14",
+    "sid": "s105",
     "type": "spell",
     "faction": "winter",
     "race": null,
@@ -2464,6 +2651,7 @@
   {
     "name": "Broken Earth Drakes",
     "id": "W15",
+    "sid": "ud11",
     "type": "unit",
     "faction": "winter",
     "race": "dragon",
@@ -2477,6 +2665,7 @@
   {
     "name": "Dawnsparks",
     "id": "W16",
+    "sid": "u102",
     "type": "unit",
     "faction": "winter",
     "race": "frostling",
@@ -2490,6 +2679,7 @@
   {
     "name": "Wolfcloaks",
     "id": "W17",
+    "sid": "u105",
     "type": "unit",
     "faction": "winter",
     "race": "dwarf",
@@ -2503,6 +2693,7 @@
   {
     "name": "Fleshmenders",
     "id": "W18",
+    "sid": "u009",
     "type": "unit",
     "faction": "winter",
     "race": "dwarf",
@@ -2516,6 +2707,7 @@
   {
     "name": "Gift of the Wise",
     "id": "W19",
+    "sid": "s101",
     "type": "spell",
     "faction": "winter",
     "race": null,
@@ -2529,6 +2721,7 @@
   {
     "name": "Calming Spirits",
     "id": "W20",
+    "sid": "u112",
     "type": "unit",
     "faction": "winter",
     "race": "frostling",
@@ -2542,6 +2735,7 @@
   {
     "name": "Visions of the Grove",
     "id": "W21",
+    "sid": "u114",
     "type": "unit",
     "faction": "winter",
     "race": "frostling",
@@ -2555,6 +2749,7 @@
   {
     "name": "Chillbeards",
     "id": "W22",
+    "sid": "u110",
     "type": "unit",
     "faction": "winter",
     "race": "dwarf",
@@ -2568,6 +2763,7 @@
   {
     "name": "Olf the Hammer",
     "id": "W23",
+    "sid": "u107",
     "type": "unit",
     "faction": "winter",
     "race": "dwarf",
@@ -2582,6 +2778,7 @@
   {
     "name": "Underground Spring",
     "id": "W24",
+    "sid": "b103",
     "type": "structure",
     "faction": "winter",
     "race": null,
@@ -2595,6 +2792,7 @@
   {
     "name": "Iced Droplings",
     "id": "W25",
+    "sid": "ut11",
     "type": "unit",
     "faction": "winter",
     "race": "frostling",
@@ -2608,6 +2806,7 @@
   {
     "name": "Sleetstompers",
     "id": "W26",
+    "sid": "ut12",
     "type": "unit",
     "faction": "winter",
     "race": "dwarf",
@@ -2621,6 +2820,7 @@
   {
     "name": "Earthfathers",
     "id": "W27",
+    "sid": "ue11",
     "type": "unit",
     "faction": "winter",
     "race": "dwarf",
@@ -2635,6 +2835,7 @@
   {
     "name": "Chilled Stonedames",
     "id": "W28",
+    "sid": "ue12",
     "type": "unit",
     "faction": "winter",
     "race": "frostling",
@@ -2649,6 +2850,7 @@
   {
     "name": "Temple of Life",
     "id": "W29",
+    "sid": "b006",
     "type": "structure",
     "faction": "winter",
     "race": null,
@@ -2662,6 +2864,7 @@
   {
     "name": "Glacier Palace",
     "id": "W30",
+    "sid": "b104",
     "type": "structure",
     "faction": "winter",
     "race": null,
@@ -2675,6 +2878,7 @@
   {
     "name": "Iceflakes",
     "id": "W31",
+    "sid": "u117",
     "type": "unit",
     "faction": "winter",
     "race": "frostling",
@@ -2686,9 +2890,10 @@
     "ability": "On play, freeze itself"
   },
   {
+    "token": true,
     "name": "Token Constructs",
     "id": "T1",
-    "token": true,
+    "sid": "token-construct",
     "type": "unit",
     "faction": "neutral",
     "race": "construct",
@@ -2700,9 +2905,10 @@
     "ability": null
   },
   {
+    "token": true,
     "name": "Token Frostlings",
     "id": "T2",
-    "token": true,
+    "sid": "token-flake",
     "type": "unit",
     "faction": "neutral",
     "race": "frostling",
@@ -2714,9 +2920,10 @@
     "ability": null
   },
   {
+    "token": true,
     "name": "Token Knights",
     "id": "T3",
-    "token": true,
+    "sid": "token-knight",
     "type": "unit",
     "faction": "neutral",
     "race": "knight",
@@ -2728,9 +2935,10 @@
     "ability": null
   },
   {
+    "token": true,
     "name": "Token Pirates",
     "id": "T4",
-    "token": true,
+    "sid": "token-pirate",
     "type": "unit",
     "faction": "neutral",
     "race": "pirate",
@@ -2742,9 +2950,10 @@
     "ability": null
   },
   {
+    "token": true,
     "name": "Token Ravens",
     "id": "T5",
-    "token": true,
+    "sid": "token-raven",
     "type": "unit",
     "faction": "neutral",
     "race": "raven",
@@ -2756,9 +2965,10 @@
     "ability": null
   },
   {
+    "token": true,
     "name": "Token Rodents",
     "id": "T6",
-    "token": true,
+    "sid": "token-rodent",
     "type": "unit",
     "faction": "neutral",
     "race": "rodent",
@@ -2770,9 +2980,10 @@
     "ability": null
   },
   {
+    "token": true,
     "name": "Token Satyrs",
     "id": "T7",
-    "token": true,
+    "sid": "token-satyr",
     "type": "unit",
     "faction": "neutral",
     "race": "satyr",
@@ -2784,9 +2995,10 @@
     "ability": null
   },
   {
+    "token": true,
     "name": "Token Toads",
     "id": "T8",
-    "token": true,
+    "sid": "token-toad",
     "type": "unit",
     "faction": "neutral",
     "race": "toad",
@@ -2798,9 +3010,10 @@
     "ability": null
   },
   {
+    "token": true,
     "name": "Token Undead",
     "id": "T9",
-    "token": true,
+    "sid": "token-undead",
     "type": "unit",
     "faction": "neutral",
     "race": "undead",
@@ -2812,9 +3025,10 @@
     "ability": null
   },
   {
+    "token": true,
     "name": "Token Dwarves",
     "id": "T10",
-    "token": true,
+    "sid": "token-viking",
     "type": "unit",
     "faction": "neutral",
     "race": "dwarf",
@@ -2826,9 +3040,10 @@
     "ability": null
   },
   {
+    "token": true,
     "name": "Token Dragons",
     "id": "T11",
-    "token": true,
+    "sid": "token-dragon",
     "type": "unit",
     "faction": "neutral",
     "race": "dragon",
@@ -2840,9 +3055,10 @@
     "ability": null
   },
   {
+    "token": true,
     "name": "Token Nest (Qordia)",
     "id": "T12",
-    "token": true,
+    "sid": "td00",
     "type": "structure",
     "faction": "neutral",
     "race": null,
@@ -2854,9 +3070,10 @@
     "ability": null
   },
   {
+    "token": true,
     "name": "Token Felines",
     "id": "T13",
-    "token": true,
+    "sid": "token-feline",
     "type": "unit",
     "faction": "neutral",
     "race": "feline",
@@ -2868,9 +3085,10 @@
     "ability": null
   },
   {
+    "token": true,
     "name": "Token Elders",
     "id": "T14",
-    "token": true,
+    "sid": "token-elder",
     "type": "unit",
     "faction": "neutral",
     "race": null,
@@ -2883,9 +3101,10 @@
     "elder": true
   },
   {
+    "token": true,
     "name": "Token Ancients",
     "id": "T15",
-    "token": true,
+    "sid": "token-ancient",
     "type": "unit",
     "faction": "neutral",
     "race": "ancient",
