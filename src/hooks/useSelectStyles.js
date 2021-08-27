@@ -65,7 +65,7 @@ const useSelectStyles = ({ noBorder, withClear } = {}) => {
 
     menu: provided => ({
       ...provided,
-      zIndex: 10,
+      zIndex: 20,
       backgroundColor: 'var(--dark-blue)',
     }),
 
