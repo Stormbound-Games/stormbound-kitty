@@ -33,7 +33,11 @@ const nav = ({ isMobileNavOpen }) => ({
     paddingTop: 0,
     zIndex: 20,
     boxShadow: '0 1.5em 1em -1em #0000004d',
-    display: isMobileNavOpen ? 'block' : 'none',
+    visibility: isMobileNavOpen ? 'visible' : 'hidden',
+    opacity: isMobileNavOpen ? 1 : 0,
+    pointerEvents: isMobileNavOpen ? 'auto' : 'none',
+    transform: isMobileNavOpen ? 'translateY(0)' : 'translateY(-10px)',
+    transition: '250ms 150ms',
   },
 })
 
