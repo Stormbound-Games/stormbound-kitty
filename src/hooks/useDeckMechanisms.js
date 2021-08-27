@@ -88,7 +88,10 @@ const useDeckMechanisms = props => {
 
   const _canCardBePlayed = React.useCallback(
     card => {
-      const cardData = state.deck.find(isCard(card))
+      // Fall back onto the card itself if not found in the deck, which happens
+      // for single-use card copies (for instance the one created by Rogue
+      // Sheep).
+      const cardData = state.deck.find(isCard(card)) || card
 
       return canCardBePlayed(state.mana, cardData, {
         turn: state.turn,

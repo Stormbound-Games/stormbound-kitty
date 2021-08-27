@@ -83,10 +83,13 @@ export default React.memo(function DryRunnerRNGField(props) {
   // Check if there is a freeze card in the deck to show RNG settings
   const freezeCards = ['W2', 'W6', 'W11']
   const freezeCard = deckIds.find(id => freezeCards.includes(id))
-  // Check if Harvesters of Souls are in the deck
   const harvestersInDeck = deckIds.includes('N38')
+  const rogueSheepInDeck = deckIds.includes('N77')
 
-  if (RNGSensitiveCards.length === 0 && !(freezeCard || harvestersInDeck)) {
+  if (
+    RNGSensitiveCards.length === 0 &&
+    !(freezeCard || harvestersInDeck || rogueSheepInDeck)
+  ) {
     return null
   }
 
@@ -107,6 +110,11 @@ export default React.memo(function DryRunnerRNGField(props) {
           {harvestersInDeck ? (
             <span className={css(styles.infoInner)}>
               <CardLink id='N38' /> often create strong copies
+            </span>
+          ) : null}
+          {rogueSheepInDeck ? (
+            <span className={css(styles.infoInner)}>
+              <CardLink id='N77' /> create strong card copies
             </span>
           ) : null}
           {freezeCard ? (
@@ -138,6 +146,11 @@ export default React.memo(function DryRunnerRNGField(props) {
               weak
             </span>
           ) : null}
+          {rogueSheepInDeck ? (
+            <span className={css(styles.infoInner)}>
+              <CardLink id='N77' /> create weak card copies
+            </span>
+          ) : null}
           {freezeCard ? (
             <span className={css(styles.infoInner)}>
               Freeze cards do not manage to freeze many enemies
@@ -165,6 +178,11 @@ export default React.memo(function DryRunnerRNGField(props) {
             {harvestersInDeck ? (
               <span className={css(styles.infoInner)}>
                 <CardLink id='N38' /> sometimes create an average copy
+              </span>
+            ) : null}
+            {rogueSheepInDeck ? (
+              <span className={css(styles.infoInner)}>
+                <CardLink id='N77' /> create average card copies
               </span>
             ) : null}
             {freezeCard ? (
