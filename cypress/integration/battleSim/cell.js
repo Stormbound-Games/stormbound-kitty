@@ -1,8 +1,8 @@
 import s from './selectors'
 
-describe('Battle Sim — Cells', () => {
+describe('Battle Simulator — Cells', () => {
   before(() => {
-    cy.visit('/sim')
+    cy.visit('/simulators/battle')
   })
 
   it('should be possible to select an empty cell', () => {

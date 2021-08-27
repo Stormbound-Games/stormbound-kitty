@@ -140,9 +140,9 @@ export default React.memo(function About(props) {
 
             <li>
               People really like{' '}
-              <Link to='/sim/puzzles'>Stormbound puzzles</Link>, but not many
-              are being added. If you would like to suggest new puzzles, I’m
-              sure that would make a lot of people happy!
+              <Link to='/simulators/battle/puzzles'>Stormbound puzzles</Link>,
+              but not many are being added. If you would like to suggest new
+              puzzles, I’m sure that would make a lot of people happy!
             </li>
           </ul>
         </Spacing>

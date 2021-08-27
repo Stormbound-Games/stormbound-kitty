@@ -106,7 +106,7 @@ export default React.memo(function BattleSimPuzzles(props) {
                 card: getCardForPuzzle(puzzle),
                 title: puzzle.name,
                 meta: `Made by ${puzzle.author}`,
-                to: `/sim/${puzzle.board}/display`,
+                to: `/simulators/battle/${puzzle.board}/display`,
                 excerpt: getExcerptForPuzzle(puzzle),
                 'data-testid': `puzzle ${puzzle.name} ${puzzle.category} ${
                   puzzle.difficulty

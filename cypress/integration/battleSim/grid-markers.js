@@ -1,8 +1,8 @@
 import s from './selectors'
 
-describe('Battle Sim — Grid Markers', () => {
+describe('Battle Simulator — Grid Markers', () => {
   before(() => {
-    cy.visit('/sim')
+    cy.visit('/simulators/battle')
   })
 
   it('should be possible to enable and disable grid markers', () => {

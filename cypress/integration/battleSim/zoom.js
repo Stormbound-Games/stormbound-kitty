@@ -1,8 +1,8 @@
 import s from './selectors'
 
-describe('Battle Sim — Zoom', () => {
+describe('Battle Simulator — Zoom', () => {
   before(() => {
-    cy.visit('/sim')
+    cy.visit('/simulators/battle')
       .bsFill('A1', { card: 'Zhev' })
       .bsDraw({ slot: 1, card: 'Zhev' })
   })

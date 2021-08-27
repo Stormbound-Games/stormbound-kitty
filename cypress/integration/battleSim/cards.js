@@ -1,8 +1,8 @@
 import s from './selectors'
 
-describe('Battle Sim — Cards', () => {
+describe('Battle Simulator — Cards', () => {
   before(() => {
-    cy.visit('/sim')
+    cy.visit('/simulators/battle')
   })
 
   it('should be possible to add a card in hand', () => {

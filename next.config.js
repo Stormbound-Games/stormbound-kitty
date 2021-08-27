@@ -47,6 +47,11 @@ module.exports = {
         destination: '/members/:id*',
         permanent: true,
       },
+      {
+        source: '/sim/:id*',
+        destination: '/simulators/battle/:id*',
+        permanent: true,
+      },
     ]
   },
   async headers() {

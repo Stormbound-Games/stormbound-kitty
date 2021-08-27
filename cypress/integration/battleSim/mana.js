@@ -1,8 +1,8 @@
 import s from './selectors'
 
-describe('Battle Sim — Mana', () => {
+describe('Battle Simulator — Mana', () => {
   before(() => {
-    cy.visit('/sim')
+    cy.visit('/simulators/battle')
   })
 
   it('should be possible to update current mana', () => {
@@ -19,7 +19,7 @@ describe('Battle Sim — Mana', () => {
 
   it('should be preserved upon reload', () => {
     cy.url()
-      .should('not.match', /\/sim$/)
+      .should('not.match', /\/simulators\/battle$/)
       .reload()
       .get(s.MANA)
       .eq(0)
