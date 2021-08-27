@@ -12,7 +12,7 @@ const CardChangelogForm = props => {
   return (
     <>
       <Title>Filters</Title>
-      <Row>
+      <Row withNarrowGutter>
         <Row.Column>
           <Select
             label='Sort by'
