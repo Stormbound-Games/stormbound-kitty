@@ -46,7 +46,7 @@ const title = ({ isActive }) => ({
   color: 'var(--beige)',
   marginTop: 0,
   marginBottom: 'var(--s-smaller)',
-  fontWeight: isActive ? 'bold' : 'normal',
+  fontWeight: isActive ? 900 : 'normal',
   borderBottom: '1px solid var(--dark-beige)',
   paddingBottom: 'var(--s-smaller)',
 

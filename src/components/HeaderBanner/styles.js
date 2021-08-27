@@ -40,6 +40,7 @@ const banner = {
 const title = {
   margin: 0,
   lineHeight: 1,
+  fontWeight: 900,
   WebkitTextStroke: '1px var(--black)',
   letterSpacing: '-1px',
   fontSize: '300%',
