@@ -211,7 +211,7 @@ export default React.memo(function GuideBrawl(props) {
           <Image
             extend={{ marginTop: 0 }}
             src='/assets/images/releases/brawl_bonuses_choice.jpg'
-            alt=''
+            alt='Choice between 2 bonuses after a victory in Brawl'
             width={310}
             height={467}
             lazy

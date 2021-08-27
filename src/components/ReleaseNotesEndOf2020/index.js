@@ -269,7 +269,10 @@ export default React.memo(function ReleaseNotesEndOf2020(props) {
             </p>
           </Row.Column>
           <Row.Column>
-            <Image src='/assets/images/releases/pagination.png' alt='' />
+            <Image
+              src='/assets/images/releases/pagination.png'
+              alt='Pagination of the card collection'
+            />
           </Row.Column>
         </Row>
 

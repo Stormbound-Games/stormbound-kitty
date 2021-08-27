@@ -35,7 +35,7 @@ export default React.memo(function CardProgress(props) {
             ? '/assets/images/iconography/stones.png'
             : '/assets/images/iconography/cards.png'
         }
-        alt=''
+        alt={missing ? 'Fusion stones' : 'Card copies'}
         extend={styles.image}
         width={41}
         height={missing ? 52 : 38}

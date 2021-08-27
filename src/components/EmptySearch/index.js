@@ -11,8 +11,8 @@ export default React.memo(function EmptySearch(props) {
     <div className={css(styles.container)}>
       <Image
         extend={styles.image}
-        alt=''
-        src='/assets/images/cards/sweetcap_kittens.png'
+        alt='Sparkly Kitties'
+        src='/assets/images/cards/sparkly_kitties.png'
         withAvif
         width={250}
         height={280}

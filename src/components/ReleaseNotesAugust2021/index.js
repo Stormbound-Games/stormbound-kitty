@@ -292,7 +292,7 @@ export default React.memo(function ReleaseNotesAugust2021(props) {
             <Image
               extend={{ marginTop: 0 }}
               src='/assets/images/releases/brawl_bonuses_choice.jpg'
-              alt=''
+              alt='Choice between 2 bonuses after a victory in Brawl'
             />
           </Row.Column>
         </Row>

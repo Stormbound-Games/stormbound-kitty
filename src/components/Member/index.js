@@ -113,8 +113,8 @@ export default React.memo(function Member(props) {
           ) : (
             <div className={css(styles.empty)}>
               <Image
-                src='/assets/images/cards/sweetcap_kittens.png'
-                alt=''
+                src='/assets/images/cards/sparkly_kitties.png'
+                alt='Sparkly Kitties'
                 extend={styles.image}
                 withAvif
                 width={250}

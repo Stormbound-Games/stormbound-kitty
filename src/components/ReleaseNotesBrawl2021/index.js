@@ -192,7 +192,10 @@ export default React.memo(function ReleaseNotesBrawl2021(props) {
             </p>
           </Row.Column>
           <Row.Column>
-            <Image src='/assets/images/releases/brawl_3.png' alt='' />
+            <Image
+              src='/assets/images/releases/brawl_3.png'
+              alt='Brawl view now featuring 3 different Brawls'
+            />
           </Row.Column>
         </Row>
 
