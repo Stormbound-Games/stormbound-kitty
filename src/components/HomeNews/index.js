@@ -18,6 +18,7 @@ export default React.memo(function HomeNews(props) {
           width={390}
           height={390}
           layout='intrinsic'
+          loading='eager'
         />
       </div>
 
