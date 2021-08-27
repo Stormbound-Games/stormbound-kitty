@@ -26,12 +26,6 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
         <meta property='og:site_name' content='Stormbound-Kitty' />
         <meta name='twitter:site' content='@stormboundccg' />
         <meta name='twitter:card' content='summary_large_image' />
-
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `if (!Object.values) Object.values = o => Object.keys(o).map(k => o[k])`,
-          }}
-        />
       </Head>
       <RendererProvider renderer={renderer}>
         <ErrorBoundary>
