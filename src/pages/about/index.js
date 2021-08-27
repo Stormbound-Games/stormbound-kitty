@@ -1,16 +1,16 @@
 import React from 'react'
 import About from '~/components/About'
 import Layout from '~/components/Layout'
-import CONTRIBUTIONS from '~/data/contributions'
+import UPDATES from '~/data/updates'
 import DONATIONS from '~/data/donations'
 import getNavigation from '~/helpers/getNavigation'
 
 export async function getStaticProps() {
   const getAuthor = entry => entry.author
-  const contributors = [...new Set(CONTRIBUTIONS.map(getAuthor).sort())]
+  const collaborators = [...new Set(UPDATES.map(getAuthor).sort())]
   const donators = [...new Set(DONATIONS.map(getAuthor))]
 
-  return { props: { navigation: getNavigation(), contributors, donators } }
+  return { props: { navigation: getNavigation(), collaborators, donators } }
 }
 
 const AboutPage = ({ navigation, ...props }) => (

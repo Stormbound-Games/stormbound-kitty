@@ -2,7 +2,7 @@ import capitalise from '~/helpers/capitalise'
 import parseDate from '~/helpers/parseDate'
 import isKATMember from '~/helpers/isKATMember'
 import DECKS from '~/data/decks'
-import CONTRIBUTIONS from '~/data/contributions'
+import UPDATES from '~/data/updates'
 import DONATIONS from '~/data/donations'
 import GUIDES from '~/data/guides'
 import STORIES from '~/data/stories'
@@ -84,10 +84,10 @@ const getUserDonations = id =>
     formatEntryWithDate
   )
 
-const getUserContributions = id =>
-  CONTRIBUTIONS.filter(
-    contribution => contribution.author.toLowerCase() === id
-  ).map(formatEntryWithDate)
+const getUserUpdates = id =>
+  UPDATES.filter(update => update.author.toLowerCase() === id).map(
+    formatEntryWithDate
+  )
 
 const getUserEvents = id =>
   EVENTS.filter(event =>
@@ -108,7 +108,7 @@ const getMemberContent = id => {
   const artworks = getUserArtworks(id)
   const puzzles = getUserPuzzles(id)
   const cards = getUserCards(id)
-  const contributions = getUserContributions(id)
+  const updates = getUserUpdates(id)
   const donations = getUserDonations(id)
   const events = getUserEvents(id)
   const podcasts = getUserPodcasts(id)
@@ -122,7 +122,7 @@ const getMemberContent = id => {
     ...artworks.map(addType('ART')),
     ...puzzles.map(addType('PUZZLE')),
     ...cards.map(addType('CARD')),
-    ...contributions.map(addType('CONTRIBUTION')),
+    ...updates.map(addType('UPDATE')),
     ...donations.map(addType('DONATION')),
     ...podcasts.map(addType('PODCAST')),
     ...events,
@@ -142,14 +142,14 @@ const getMemberContent = id => {
       )[0] || capitalise(id)
 
   // The count is not quite the length of the `content` array as some entries
-  // such as code updates can hold multiple contributions (e.g. one per PR).
+  // such as code updates can hold multiple updates (e.g. one per PR).
   const count = content.reduce(
     (acc, item) => acc + (item.entries ? item.entries.length : 1),
     0
   )
 
   return {
-    roles: isKATMember({ member: id, donations, contributions }),
+    roles: isKATMember({ member: id, donations, updates }),
     channel,
     displayName,
     content,
@@ -157,7 +157,7 @@ const getMemberContent = id => {
     details: {
       artworks,
       cards,
-      contributions,
+      updates,
       decks,
       donations,
       events,

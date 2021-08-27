@@ -7,7 +7,7 @@ const aggregate = (acc, { entries }) => acc + entries.length
 const getEmbedField = details => type => ({
   name: capitalise(type),
   value:
-    type === 'contributions'
+    type === 'updates'
       ? details[type].reduce(aggregate, 0)
       : details[type].length,
   inline: true,

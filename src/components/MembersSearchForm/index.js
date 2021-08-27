@@ -31,7 +31,6 @@ const MembersSearchForm = props => {
           <option value='*'>Any</option>
           <option value='ARTWORK'>Artworks</option>
           <option value='CARD'>Card Contests</option>
-          <option value='CONTRIBUTION'>Code Updates</option>
           <option value='DECK'>Decks</option>
           <option value='DONATION'>Donations</option>
           <option value='EVENT'>Events</option>
@@ -40,6 +39,7 @@ const MembersSearchForm = props => {
           <option value='PODIUM'>Podiums</option>
           <option value='PUZZLE'>Puzzles</option>
           <option value='STORY'>Stories</option>
+          <option value='UPDATE'>Code Updates</option>
           <option value='VIDEO'>Videos</option>
         </Select>
       </Row.Column>
