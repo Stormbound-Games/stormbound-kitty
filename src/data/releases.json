@@ -8,7 +8,7 @@
     "excerpt": "September is already there, and with it new Stormbound release with plenty offers, a new card and balance tweaks!",
     "slug": "09-2021",
     "background": "/assets/images/banners/fourth-anniversary.jpg",
-    "id": "09_2021",
+    "id": "2021_09",
     "ratio": "50%",
     "withAvif": false
   },
@@ -21,7 +21,7 @@
     "excerpt": "August is already there, and with it new Stormbound release with new Brawls, a new card and balance tweaks!",
     "slug": "08-2021",
     "background": "/assets/images/banners/sheepyard_first_anniversary.jpg",
-    "id": "08_2021",
+    "id": "2021_08",
     "ratio": "50%"
   },
   {
@@ -33,7 +33,7 @@
     "excerpt": "July is already there, and with it new Stormbound release with new Brawls, a new card and balance tweaks!",
     "slug": "07-2021",
     "background": "/assets/images/banners/temple_of_the_mind.jpg",
-    "id": "07_2021",
+    "id": "2021_07",
     "ratio": "50%"
   },
   {
@@ -45,7 +45,7 @@
     "excerpt": "Summer is here and so is a little surprise release to revamp the Brawl mode to make it more welcome to all players!",
     "slug": "brawl-2021",
     "background": "/assets/images/banners/brawl.jpg",
-    "id": "brawl_2021"
+    "id": "2021_06_Brawl"
   },
   {
     "cardId": "N83",
@@ -56,7 +56,7 @@
     "excerpt": "June is already there, and with it new Stormbound release with new cards, balance tweaks and economy improvements!",
     "slug": "06-2021",
     "background": "/assets/images/banners/headless_banner.jpg",
-    "id": "06_2021",
+    "id": "2021_06",
     "ratio": "50%"
   },
   {
@@ -68,7 +68,7 @@
     "excerpt": "May is already there, and with it new Stormbound release with new cards, balance tweaks, Heroes League improvements and a brand new Premium Pass!",
     "slug": "05-2021",
     "background": "/assets/images/banners/premium_pass.jpg",
-    "id": "05_2021",
+    "id": "2021_05",
     "ratio": "50%"
   },
   {
@@ -80,7 +80,7 @@
     "excerpt": "It’s about Easter, and with it a new Stormbound release with new cards, balance tweaks, Heroes League improvements and some exclusive offers!",
     "slug": "04-2021",
     "background": "/assets/images/banners/temple_of_life.jpg",
-    "id": "04_2021",
+    "id": "2021_04",
     "ratio": "50%"
   },
   {
@@ -92,7 +92,7 @@
     "excerpt": "Heroes, assemble! The Heroes League is about to open its doors, and with it endless rewards and battles!",
     "slug": "03-2021",
     "background": "/assets/images/banners/heroes_league.jpg",
-    "id": "03_2021",
+    "id": "2021_03",
     "ratio": "50%"
   },
   {
@@ -104,7 +104,7 @@
     "excerpt": "Valentine’s Day is around the corner, and so is a new release with balance changes, a new card and player profiles!",
     "slug": "02-2021",
     "background": "/assets/images/banners/valentine.png",
-    "id": "02_2021",
+    "id": "2021_02",
     "ratio": "50%"
   },
   {
@@ -116,7 +116,7 @@
     "excerpt": "A new Swarm of the East epic structure is making its entrance: the Temple of Focus!",
     "slug": "temple-of-focus",
     "background": "/assets/images/banners/structures_1.png",
-    "id": "temple_of_focus"
+    "id": "2021_01"
   },
   {
     "cardId": "N3",
@@ -127,7 +127,7 @@
     "excerpt": "A critical iOS update impacting guest accounts will happen on January 21st. Make sure to read how to save your progress!",
     "slug": "ios-01-2021",
     "background": "/assets/images/banners/ancients.png",
-    "id": "ios_01_2021"
+    "id": "2021_01_iOS"
   },
   {
     "cardId": "S19",
@@ -138,7 +138,7 @@
     "excerpt": "The year is almost over, but Stormbound is not! Balance changes, new offers and some UI updates are around the corner!",
     "slug": "end-of-2020",
     "background": "/assets/images/banners/christmas.png",
-    "id": "end_of_2020"
+    "id": "2020_12_end_of_year"
   },
   {
     "cardId": "N48",
@@ -149,7 +149,7 @@
     "excerpt": "Christmas is around the corner and Sheepyard is releasing a small Advent Calendar patch, including some balance changes and exclusive offers.",
     "slug": "12-2020",
     "background": "/assets/images/banners/black_friday.png",
-    "id": "12_2020"
+    "id": "2020_12"
   },
   {
     "cardId": "N80",
@@ -161,7 +161,7 @@
     "slug": "11-2020",
     "background": "/assets/images/banners/halloween.png",
     "ratio": "25%",
-    "id": "11_2020",
+    "id": "2020_11",
     "withAvif": false
   },
   {
@@ -174,7 +174,7 @@
     "slug": "10-2020",
     "background": "/assets/images/banners/ancients.png",
     "ratio": "25%",
-    "id": "10_2020"
+    "id": "2020_10"
   },
   {
     "cardId": "N8",
@@ -186,7 +186,7 @@
     "slug": "3rd-anniversary",
     "background": "/assets/images/banners/third-anniversary.png",
     "ratio": "57.5%",
-    "id": "3RD_ANNIVERSARY",
+    "id": "2020_09_3rd_anniversary",
     "withAvif": false
   },
   {
@@ -198,7 +198,7 @@
     "excerpt": "A minor balance patch buffing 12 under-appreciated cards: 9 neutral cards, 2 Ironclad cards and 1 Winter card. Nothing for Shadowfen and Swarm.",
     "slug": "09-2020",
     "background": "/assets/images/banners/environment_dragon.jpg",
-    "id": "09_2020"
+    "id": "2020_09"
   },
   {
     "cardId": "N77",
@@ -210,6 +210,6 @@
     "slug": "07-2020",
     "background": "/assets/images/banners/environment_dragon.jpg",
     "ratio": "50%",
-    "id": "07_2020"
+    "id": "2020_07"
   }
 ]

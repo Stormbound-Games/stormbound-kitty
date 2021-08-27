@@ -1,33 +1,86 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import Layout from '~/components/Layout'
+import Loader from '~/components/Loader'
 import ReleaseNotes from '~/components/ReleaseNotes'
 import getNavigation from '~/helpers/getNavigation'
 import RELEASES from '~/data/releases'
 
+const options = { loading: Loader }
+
 const RELEASE_COMPONENTS = {
-  '09_2021': dynamic(() => import('~/components/ReleaseNotesSeptember2021')),
-  '08_2021': dynamic(() => import('~/components/ReleaseNotesAugust2021')),
-  '07_2021': dynamic(() => import('~/components/ReleaseNotesJuly2021')),
-  brawl_2021: dynamic(() => import('~/components/ReleaseNotesBrawl2021')),
-  '06_2021': dynamic(() => import('~/components/ReleaseNotesJune2021')),
-  '05_2021': dynamic(() => import('~/components/ReleaseNotesMay2021')),
-  '04_2021': dynamic(() => import('~/components/ReleaseNotesApril2021')),
-  '03_2021': dynamic(() => import('~/components/ReleaseNotesMarch2021')),
-  '02_2021': dynamic(() => import('~/components/ReleaseNotesFebruary2021')),
-  temple_of_focus: dynamic(() =>
-    import('~/components/ReleaseNotesTempleOfFocus')
+  '2021_09': dynamic(
+    () => import('~/components/ReleaseNotes/2021_09'),
+    options
   ),
-  ios_01_2021: dynamic(() => import('~/components/ReleaseNotesIOSJanuary2021')),
-  end_of_2020: dynamic(() => import('~/components/ReleaseNotesEndOf2020')),
-  '12_2020': dynamic(() => import('~/components/ReleaseNotesDecember2020')),
-  '11_2020': dynamic(() => import('~/components/ReleaseNotesNovember2020')),
-  '10_2020': dynamic(() => import('~/components/ReleaseNotesOctober2020')),
-  '3RD_ANNIVERSARY': dynamic(() =>
-    import('~/components/ReleaseNotes3rdAnniversary')
+  '2021_08': dynamic(
+    () => import('~/components/ReleaseNotes/2021_08'),
+    options
   ),
-  '09_2020': dynamic(() => import('~/components/ReleaseNotesSeptember2020')),
-  '07_2020': dynamic(() => import('~/components/ReleaseNotesJuly2020')),
+  '2021_07': dynamic(
+    () => import('~/components/ReleaseNotes/2021_07'),
+    options
+  ),
+  '2021_06_Brawl': dynamic(
+    () => import('~/components/ReleaseNotes/2021_06_Brawl'),
+    options
+  ),
+  '2021_06': dynamic(
+    () => import('~/components/ReleaseNotes/2021_06'),
+    options
+  ),
+  '2021_05': dynamic(
+    () => import('~/components/ReleaseNotes/2021_05'),
+    options
+  ),
+  '2021_04': dynamic(
+    () => import('~/components/ReleaseNotes/2021_04'),
+    options
+  ),
+  '2021_03': dynamic(
+    () => import('~/components/ReleaseNotes/2021_03'),
+    options
+  ),
+  '2021_02': dynamic(
+    () => import('~/components/ReleaseNotes/2021_02'),
+    options
+  ),
+  '2021_01_iOS': dynamic(
+    () => import('~/components/ReleaseNotes/2021_01_iOS'),
+    options
+  ),
+  '2021_01': dynamic(
+    () => import('~/components/ReleaseNotes/2021_01'),
+    options
+  ),
+  '2020_12_end_of_year': dynamic(
+    () => import('~/components/ReleaseNotes/2020_12_end_of_year'),
+    options
+  ),
+  '2020_12': dynamic(
+    () => import('~/components/ReleaseNotes/2020_12'),
+    options
+  ),
+  '2020_11': dynamic(
+    () => import('~/components/ReleaseNotes/2020_11'),
+    options
+  ),
+  '2020_10': dynamic(
+    () => import('~/components/ReleaseNotes/2020_10'),
+    options
+  ),
+  '2020_09_3rd_anniversary': dynamic(
+    () => import('~/components/ReleaseNotes/2020_09_3rd_anniversary'),
+    options
+  ),
+  '2020_09': dynamic(
+    () => import('~/components/ReleaseNotes/2020_09'),
+    options
+  ),
+  '2020_07': dynamic(
+    () => import('~/components/ReleaseNotes/2020_07'),
+    options
+  ),
 }
 
 export const getStaticPaths = () => {

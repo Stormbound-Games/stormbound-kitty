@@ -34,18 +34,18 @@ const getNavigation = () => {
             {
               label: 'Update 09-2021',
               to: '/releases/09-2021',
-              id: '09_2021',
+              id: '2021_09',
               new: true,
             },
             {
               label: 'Update 08-2021',
               to: '/releases/08-2021',
-              id: '08_2021',
+              id: '2021_08',
             },
             {
               label: 'Update 07-2021',
               to: '/releases/07-2021',
-              id: '07_2021',
+              id: '2021_07',
             },
             {
               label: 'All Releases',
