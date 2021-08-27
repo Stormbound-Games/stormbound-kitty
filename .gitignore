@@ -16,3 +16,7 @@ public/sitemap.xml
 .vercel
 out
 public/assets/images/formulas/*.png
+public/workbox-*.js
+public/sw.js
+public/fallback-*.js
+*.map
