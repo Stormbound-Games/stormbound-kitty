@@ -152,6 +152,8 @@ export default React.memo(function SearchDialog(props) {
       dialogRef={registerDialog}
       close={() => props.dialogRef.current?.hide()}
       image='/assets/images/cards/trekking_aldermen.png'
+      imageWidth={200}
+      imageHeight={214}
     >
       <div className={css(styles.body)}>
         <div {...comboboxProps}>

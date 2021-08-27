@@ -78,8 +78,8 @@ export default React.memo(function Dialog(props) {
           src={image}
           alt=''
           withAvif
-          width={200}
-          height={200}
+          width={props.imageWidth || 200}
+          height={props.imageHeight || 200}
           lazy
         />
       )}
