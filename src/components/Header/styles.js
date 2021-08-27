@@ -106,6 +106,7 @@ const getInteractiveState = ({ isActive, isOpen }) => ({
 /**
  * 1. Make sure the open action sits on top of its mega menu so the pseudo-
  *    element looks like it belongs to the menu itself.
+ * 2. Needed for the no-JS version where `<summary>` elements have a border.
  */
 const action = ({ isActive, isOpen }) => ({
   color: isActive ? 'var(--beige)' : 'inherit',
@@ -115,6 +116,7 @@ const action = ({ isActive, isOpen }) => ({
   position: 'relative',
   textDecoration: 'none',
   zIndex: isOpen ? 20 : undefined /* 1 */,
+  borderBottom: 0 /* 2 */,
 
   ':focus': { color: 'var(--light-swarm)' },
 
