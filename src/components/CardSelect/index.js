@@ -1,12 +1,14 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import { useFela } from 'react-fela'
-import Select from 'react-select'
 import inputStyles from '~/components/Input/styles'
 import VisuallyHidden from '~/components/VisuallyHidden'
 import { FACTIONS } from '~/constants/game'
 import getCardsByFaction from '~/helpers/getCardsByFaction'
 import getRawCardData from '~/helpers/getRawCardData'
 import useSelectStyles from '~/hooks/useSelectStyles'
+
+const Select = dynamic(() => import('react-select'))
 
 const ORDER = [...Object.keys(FACTIONS), 'tokens']
 const cardsByFaction = getCardsByFaction()

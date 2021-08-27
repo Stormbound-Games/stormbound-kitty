@@ -1,9 +1,11 @@
 import React from 'react'
-import Select from 'react-select'
+import dynamic from 'next/dynamic'
 import { UserContext } from '~/components/UserProvider'
 import Info from '~/components/Info'
 import useSelectStyles from '~/hooks/useSelectStyles'
 import useIsMounted from '~/hooks/useIsMounted'
+
+const Select = dynamic(() => import('react-select'), { ssr: false })
 
 const UserSelect = props => {
   const styles = useSelectStyles({ withClear: true })
