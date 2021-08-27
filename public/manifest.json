@@ -3,10 +3,9 @@
   "name": "Stormbound-Kitty",
   "icons": [
     {
-      "src": "favicon.png",
+      "src": "/favicon.png",
       "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "maskable"
+      "sizes": "256x256"
     }
   ],
   "start_url": ".",
