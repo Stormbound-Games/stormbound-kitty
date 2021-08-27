@@ -10,7 +10,7 @@ export default React.memo(function PageMeta(props) {
   const { asPath: location } = useRouter()
   const description = props.description || DEFAULT_DESCRIPTION
   const title = props.title
-    ? `${props.title} — Stormbound-Kitty`
+    ? `${props.title} – Stormbound-Kitty`
     : 'Stormbound-Kitty'
   const author = props.author || 'Kitty'
   const image = props.image
