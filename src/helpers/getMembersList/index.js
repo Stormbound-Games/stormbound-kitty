@@ -1,6 +1,6 @@
 import isKATMember from '~/helpers/isKATMember'
 import ARTWORKS from '~/data/artworks'
-import CONTRIBUTIONS from '~/data/contributions'
+import UPDATES from '~/data/updates'
 import DECKS from '~/data/decks'
 import DONATIONS from '~/data/donations'
 import EVENTS from '~/data/events'
@@ -25,10 +25,10 @@ const getMembersList = () => {
     members[artwork.author] = members[artwork.author] || []
     members[artwork.author].push('ARTWORK')
   })
-  CONTRIBUTIONS.forEach(contribution => {
-    members[contribution.author] = members[contribution.author] || []
-    contribution.entries.forEach(() => {
-      members[contribution.author].push('CONTRIBUTION')
+  UPDATES.forEach(update => {
+    members[update.author] = members[update.author] || []
+    update.entries.forEach(() => {
+      members[update.author].push('UPDATE')
     })
   })
   DECKS.forEach(deck => {
@@ -83,13 +83,13 @@ const getMembersList = () => {
   return Object.keys(members)
     .reduce((acc, member) => {
       const entries = members[member]
-      const contributions = entries.filter(entry => entry === 'CONTRIBUTION')
+      const updates = entries.filter(entry => entry === 'UPDATE')
       const donations = entries.filter(entry => entry === 'DONATION')
 
       return acc.concat({
         member,
         count: entries.length,
-        roles: isKATMember({ member, contributions, donations }),
+        roles: isKATMember({ member, updates, donations }),
       })
     }, [])
     .sort(sortAlphabetically)

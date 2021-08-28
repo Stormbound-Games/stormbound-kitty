@@ -5,7 +5,7 @@ import styles from './styles'
 
 export default React.memo(function MemberToC(props) {
   const { css } = useFela()
-  const codeUpdatesCount = props.contributions.reduce(
+  const codeUpdatesCount = props.updates.reduce(
     (acc, { entries }) => acc + entries.length,
     0
   )
