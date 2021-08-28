@@ -6,9 +6,7 @@ import Cards from '~/components/BattleSimCards'
 import CardZoom from '~/components/CardZoom'
 import Grid from '~/components/BattleSimGrid'
 import PlayerBanner from '~/components/BattleSimPlayerBanner'
-import arrayRandom from '~/helpers/arrayRandom'
 import useIsMounted from '~/hooks/useIsMounted'
-import { FACTIONS } from '~/constants/game'
 import styles from './styles'
 
 const POSITIONS = {
