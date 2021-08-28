@@ -1,5 +1,3 @@
-export default selectors
-
 const selectors = {
   CARD: '[data-testid="card"]',
   CARD_SELECT: 'header .CardSelect',
@@ -38,3 +36,5 @@ const selectors = {
 
   VERSION_BTN: '[data-testid="version-btn"]',
 }
+
+export default selectors
