@@ -18,6 +18,28 @@ const renderRootStyles = renderer => {
 
   renderer.renderStatic(
     {
+      boxSizing: 'border-box',
+    },
+    '*'
+  )
+
+  renderer.renderStatic(
+    {
+      margin: 0,
+      fontFamily:
+        "'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+      WebkitFontSmoothing: 'antialiased',
+      MozOsxFontSmoothing: 'grayscale',
+      backgroundImage: "url('/assets/images/background.png')",
+      backgroundRepeat: 'repeat',
+      backgroundColor: '#101f26',
+      color: 'var(--white)',
+    },
+    'body'
+  )
+
+  renderer.renderStatic(
+    {
       scrollPaddingTop: '2em',
 
       // Game colors
@@ -84,28 +106,6 @@ const renderRootStyles = renderer => {
       '--s-largest': SPACING_TOKENS.LARGEST,
     },
     ':root'
-  )
-
-  renderer.renderStatic(
-    {
-      boxSizing: 'border-box',
-    },
-    '*'
-  )
-
-  renderer.renderStatic(
-    {
-      margin: 0,
-      fontFamily:
-        "'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-      WebkitFontSmoothing: 'antialiased',
-      MozOsxFontSmoothing: 'grayscale',
-      backgroundImage: "url('/assets/images/background.png')",
-      backgroundRepeat: 'repeat',
-      backgroundColor: 'var(--black)',
-      color: 'var(--white)',
-    },
-    'body'
   )
 
   renderer.renderStatic(
