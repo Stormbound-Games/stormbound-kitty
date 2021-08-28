@@ -1,6 +1,5 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { UserContext } from '~/components/UserProvider'
 import HorizontalRule from '~/components/HorizontalRule'
 import Link from '~/components/Link'
 import Only from '~/components/Only'
@@ -10,10 +9,11 @@ import MemberList from '~/components/MemberList'
 import Notice from '~/components/Notice'
 import Spacing from '~/components/Spacing'
 import Sparkles from '~/components/Sparkles'
+import useMemberName from '~/hooks/useMemberName'
 import styles from './styles'
 
 export default React.memo(function About(props) {
-  const { name } = React.useContext(UserContext)
+  const [name] = useMemberName()
   const { css } = useFela()
 
   return (

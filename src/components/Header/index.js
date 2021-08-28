@@ -2,7 +2,6 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import { useFela } from 'react-fela'
 import { PersonalDecksContext } from '~/components/PersonalDecksProvider'
-import { UserContext } from '~/components/UserProvider'
 import HeaderMegaMenu from '~/components/HeaderMegaMenu'
 import Link from '~/components/Link'
 import MobileHeader from '~/components/MobileHeader'
@@ -12,6 +11,7 @@ import NewPulse from '~/components/NewPulse'
 import Only from '~/components/Only'
 import Icon from '~/components/Icon'
 import useIsMounted from '~/hooks/useIsMounted'
+import useMemberName from '~/hooks/useMemberName'
 import styles from './styles'
 
 const SubNav = React.memo(function SubNav(props) {
@@ -73,7 +73,7 @@ const HeaderItem = props => {
 
 const useNavigation = (navigation = []) => {
   const { isUnseen } = React.useContext(PersonalDecksContext)
-  const { name } = React.useContext(UserContext)
+  const [name] = useMemberName()
 
   if (!name && !isUnseen) return navigation
 

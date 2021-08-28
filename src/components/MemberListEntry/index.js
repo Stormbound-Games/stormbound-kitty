@@ -2,12 +2,12 @@ import React from 'react'
 import { useFela } from 'react-fela'
 import Link from '~/components/Link'
 import Icon from '~/components/Icon'
-import { UserContext } from '~/components/UserProvider'
+import useMemberName from '~/hooks/useMemberName'
 import styles from './styles'
 
 export default React.memo(function MemberListEntry(props) {
   const { member, count, roles } = props
-  const { name } = React.useContext(UserContext)
+  const [name] = useMemberName()
   const isCurrentUser = name === member
   const { css } = useFela({ isYou: isCurrentUser })
 

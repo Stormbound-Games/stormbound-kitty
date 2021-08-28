@@ -1,18 +1,17 @@
 import React from 'react'
 import { useFela } from 'react-fela'
-import { UserContext } from '~/components/UserProvider'
 import Page from '~/components/Page'
 import FeedItem from '~/components/FeedItem'
 import Image from '~/components/Image'
 import Info from '~/components/Info'
 import MemberToC from '~/components/MemberToC'
 import Row from '~/components/Row'
-import isKATMember from '~/helpers/isKATMember'
+import useMemberName from '~/hooks/useMemberName'
 import styles from './styles'
 
 export default React.memo(function Member(props) {
   const { css } = useFela()
-  const { name } = React.useContext(UserContext)
+  const [name] = useMemberName()
   const {
     memberId: id,
     channel,
