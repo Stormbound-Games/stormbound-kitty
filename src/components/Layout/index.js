@@ -8,40 +8,10 @@ import Header from '~/components/Header'
 import Link from '~/components/Link'
 import Loader from '~/components/Loader'
 import UpgradeNotification from '~/components/UpgradeNotification'
+import useServiceWorkerUpdate from '~/hooks/useServiceWorkerUpdate'
 import styles from './styles'
 
 const SearchDialog = dynamic(() => import('~/components/SearchDialog'))
-
-const useServiceWorkerUpdate = () => {
-  console.log('useServiceWorkerUpdate')
-  const isNotInitialPass = React.useRef(null)
-  const [shouldShowUpgrade, setShouldShowUpgrade] = React.useState(false)
-
-  React.useEffect(() => {
-    if (!shouldShowUpgrade && isNotInitialPass.current) {
-      console.log('Setting up controlling listener')
-      const wb = window.workbox
-      wb.addEventListener('controlling', () => window.location.reload())
-      console.log('messageSkipWaiting')
-      wb.messageSkipWaiting()
-    }
-  }, [shouldShowUpgrade])
-
-  React.useEffect(() => {
-    const wb = window.workbox
-    isNotInitialPass.current = true
-
-    if ('serviceWorker' in navigator && wb) {
-      console.log('Setting up waiting listener')
-      wb.addEventListener('waiting', () => setShouldShowUpgrade(true))
-      wb.register()
-    }
-  }, [])
-
-  const upgrade = React.useCallback(() => setShouldShowUpgrade(false), [])
-
-  return [shouldShowUpgrade, upgrade]
-}
 
 export default React.memo(function Layout(props) {
   const router = useRouter()
