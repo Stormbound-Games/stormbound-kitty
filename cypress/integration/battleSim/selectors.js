@@ -1,5 +1,3 @@
-export default selectors
-
 const selectors = {
   BOARD: '[data-testid="board"]',
   SETTINGS_PANEL: '[data-testid="settings-panel"]',
@@ -92,3 +90,5 @@ const selectors = {
 
   ZOOM: '[data-testid="zoom"]',
 }
+
+export default selectors

@@ -1,5 +1,3 @@
-export default selectors
-
 const selectors = {
   TEASER: '[data-testid="teaser"]',
   CHARTS: '[data-testid="charts"]',
@@ -21,3 +19,5 @@ const selectors = {
   IMPORT_BTN: '[data-testid="import-brawl-btn"]',
   EXPORT_BTN: '[data-testid="export-brawl-btn"]',
 }
+
+export default selectors
