@@ -6,7 +6,6 @@ import ErrorBoundary from '~/components/ErrorBoundary'
 import NotificationProvider from '~/components/NotificationProvider'
 import PersonalDecksProvider from '~/components/PersonalDecksProvider'
 import ImageSupportProvider from '~/components/ImageSupportProvider'
-import UserProvider from '~/components/UserProvider'
 import createFelaRenderer from '~/helpers/createFelaRenderer'
 
 const fallbackRenderer = createFelaRenderer()
@@ -33,9 +32,7 @@ function App({ Component, pageProps, renderer = fallbackRenderer }) {
             <NotificationProvider>
               <CollectionProvider>
                 <PersonalDecksProvider>
-                  <UserProvider>
-                    <Component {...pageProps} />
-                  </UserProvider>
+                  <Component {...pageProps} />
                 </PersonalDecksProvider>
               </CollectionProvider>
             </NotificationProvider>
