@@ -1,9 +1,9 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import { UserContext } from '~/components/UserProvider'
 import Info from '~/components/Info'
 import useSelectStyles from '~/hooks/useSelectStyles'
 import useIsMounted from '~/hooks/useIsMounted'
+import useMemberName from '~/hooks/useMemberName'
 
 const Select = dynamic(() => import('react-select'), { ssr: false })
 
@@ -34,7 +34,7 @@ const UserSelect = props => {
 
 export default React.memo(function MemberTagYourself(props) {
   const isMounted = useIsMounted()
-  const { name, setName } = React.useContext(UserContext)
+  const [name, setName] = useMemberName()
 
   if (!isMounted) return null
 
