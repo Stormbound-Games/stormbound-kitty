@@ -24,7 +24,9 @@ export const deserialiseList = hash => {
   })
 }
 
-export default {
+const list = {
   serialise: card => serialiseList(card),
   deserialise: hash => deserialiseList(hash),
 }
+
+export default list

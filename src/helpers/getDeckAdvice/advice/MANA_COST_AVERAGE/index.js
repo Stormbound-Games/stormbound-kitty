@@ -6,7 +6,7 @@ const getAverageManaCost = cards =>
 const LOWER_THRESHOLD = 2.8
 const UPPER_THRESHOLD = 5.5
 
-export default (cards, modifier = '') => {
+const advice = (cards, modifier = '') => {
   const averageManaCost = getAverageManaCost(cards)
 
   // `2.8` is an arbitrary threshold. This check really is only there to mark
@@ -32,3 +32,5 @@ export default (cards, modifier = '') => {
     highlight: cards.filter(card => card.mana < averageManaCost),
   }
 }
+
+export default advice

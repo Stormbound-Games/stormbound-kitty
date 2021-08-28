@@ -31,7 +31,9 @@ const deserialiseMatch = string => {
 const serialiseMatches = matches => matches.map(serialiseMatch)
 const deserialiseMatches = matches => matches.map(deserialiseMatch)
 
-export default {
+const brawl = {
   serialise: matches => serialiseMatches(matches),
   deserialise: matches => deserialiseMatches(matches),
 }
+
+export default brawl

@@ -27,7 +27,9 @@ export const serialiseQuest = formState =>
     encodeURIComponent(formState.description),
   ].join(';')
 
-export default {
+const quest = {
   serialise: quest => base64Encode(serialiseQuest(quest)),
   deserialise: hash => deserialiseQuest(base64Decode(hash)),
 }
+
+export default quest

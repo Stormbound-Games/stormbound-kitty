@@ -1,4 +1,6 @@
-export default {
+export default selectors
+
+const selectors = {
   BOARD: '[data-testid="board"]',
   SETTINGS_PANEL: '[data-testid="settings-panel"]',
   SETTINGS_PANEL_BTN: '[data-testid="settings-panel-btn"]',

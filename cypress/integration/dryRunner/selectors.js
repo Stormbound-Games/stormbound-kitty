@@ -1,4 +1,4 @@
-export default {
+const selectors = {
   MANA: '[data-testid="mana-pool"]',
   CHANCES_CHECKBOX: '[data-testid="display-chance"]',
   DECK_CARD: '[data-testid*="deck-slot"]',
@@ -20,3 +20,5 @@ export default {
   CARD_LOG: '[data-testid="card-log"]',
   RNG_INPUT: '[data-testid="RNG-input"]',
 }
+
+export default selectors

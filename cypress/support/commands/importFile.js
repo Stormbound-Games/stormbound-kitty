@@ -1,4 +1,4 @@
-export default (subject, name) => {
+const importFile = (subject, name) => {
   Cypress.log({
     name: `IMPORT_FILE`,
     message: 'Import file',
@@ -19,3 +19,5 @@ export default (subject, name) => {
       })
     })
 }
+
+export default importFile

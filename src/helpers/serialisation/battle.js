@@ -140,7 +140,9 @@ const deserialiseBattle = encodedString => {
   }
 }
 
-export default {
+const battle = {
   serialise: (...chunks) => base64Encode(serialiseBattle(...chunks)),
   deserialise: hash => deserialiseBattle(base64Decode(hash)),
 }
+
+export default battle

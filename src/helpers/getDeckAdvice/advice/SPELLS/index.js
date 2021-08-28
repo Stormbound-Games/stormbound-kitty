@@ -1,6 +1,6 @@
 const getSpells = cards => cards.filter(c => c.type === 'spell')
 
-export default (cards, modifier) => {
+const advice = (cards, modifier) => {
   const spells = getSpells(cards)
   const cardIds = cards.map(card => card.id)
   const skippedSpells = ['N2', 'S24', 'W19', 'F8'].filter(id =>
@@ -28,3 +28,5 @@ export default (cards, modifier) => {
     highlight: spells,
   }
 }
+
+export default advice

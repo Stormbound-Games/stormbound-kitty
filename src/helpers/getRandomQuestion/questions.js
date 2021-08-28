@@ -37,7 +37,7 @@ const cardsPerFaction = Object.keys(FACTIONS)
   .map(faction => CARDS.filter(card => card.faction === faction).length)
 const maxCardsPerFaction = Math.max(...cardsPerFaction)
 
-export default [
+const questions = [
   {
     question: 'Which was the first prize Kepp ever proposed in his tournament?',
     answer: 'A Steam game',
@@ -1617,3 +1617,5 @@ export default [
     options: [2, 3, 4, 5, 6],
   },
 ]
+
+export default questions

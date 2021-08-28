@@ -65,9 +65,11 @@ const getGameId = async (guildId, userId) => {
     .finally(() => clearTimeout(timeout))
 }
 
-export default {
+const api = {
   getScores,
   setScore,
   setGameId,
   getGameId,
 }
+
+export default api

@@ -80,7 +80,9 @@ export const deserialiseCards = string => {
   return cards
 }
 
-export default {
+const cards = {
   serialise: cards => serialiseCards(cards),
   deserialise: string => deserialiseCards(string),
 }
+
+export default cards

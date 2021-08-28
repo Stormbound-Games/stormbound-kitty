@@ -1,4 +1,6 @@
-export default {
+export default selectors
+
+const selectors = {
   CARD: '[data-testid="card"]',
   CARD_SELECT: 'header .CardSelect',
 

@@ -108,7 +108,9 @@ const serialiseCard = formState =>
     (formState.elder ? 'E' : '') + (formState.hero ? 'H' : ''),
   ].join(';')
 
-export default {
+const card = {
   serialise: card => base64Encode(serialiseCard(card)),
   deserialise: hash => deserialiseCard(base64Decode(hash)),
 }
+
+export default card

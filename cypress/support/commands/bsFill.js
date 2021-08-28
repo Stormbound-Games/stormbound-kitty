@@ -1,6 +1,6 @@
 import s from '../../integration/battleSim/selectors'
 
-export default (
+const bsFill = (
   subject,
   cell,
   {
@@ -116,3 +116,5 @@ export default (
     .get(s.CELL_FORM_BTN, { log: false })
     .click({ log: false })
 }
+
+export default bsFill

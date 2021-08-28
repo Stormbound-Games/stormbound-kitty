@@ -1,7 +1,7 @@
 const getStructures = cards => cards.filter(c => c.type === 'structure')
 const STRUCTURE_THRESHOLD = 3
 
-export default (cards, modifier) => {
+const advice = (cards, modifier) => {
   const structures = getStructures(cards)
 
   // Too many structures in a deck results in a lack of mobility and the possibility of
@@ -16,3 +16,5 @@ export default (cards, modifier) => {
     highlight: structures,
   }
 }
+
+export default advice

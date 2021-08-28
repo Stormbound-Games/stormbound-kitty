@@ -1,6 +1,6 @@
 import s from '../../integration/battleSim/selectors'
 
-export default ({ card, level, slot = 1 }) => {
+const bsDraw = ({ card, level, slot = 1 }) => {
   Cypress.log({
     name: 'DRAW',
     message: `Drawing ${card}`,
@@ -20,3 +20,5 @@ export default ({ card, level, slot = 1 }) => {
       }
     })
 }
+
+export default bsDraw

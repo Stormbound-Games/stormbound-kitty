@@ -1,4 +1,4 @@
-export default {
+const selectors = {
   CARD: '[data-testid="card"]',
   CARD_ABILITY: '[data-testid="card-ability"]',
   CARD_RACE: '[data-testid="card-race"]',
@@ -53,3 +53,5 @@ export default {
   DECK_SUGGESTION: '[data-testid="featured-deck"]',
   BOOKMARK_BTN: '[data-testid="bookmark-btn"]',
 }
+
+export default selectors

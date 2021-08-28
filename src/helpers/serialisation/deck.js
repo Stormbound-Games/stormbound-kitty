@@ -34,7 +34,9 @@ const deserialiseDeck = hash => {
   }
 }
 
-export default {
+const deck = {
   serialise: serialiseDeck,
   deserialise: deserialiseDeck,
 }
+
+export default deck

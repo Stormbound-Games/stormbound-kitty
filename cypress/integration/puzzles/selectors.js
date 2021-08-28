@@ -1,4 +1,4 @@
-export default {
+const selectors = {
   DIFFICULTY_SELECT: '[data-testid="difficulty-select"]',
   CATEGORY_SELECT: '[data-testid="category-select"]',
   NAME_INPUT: '[data-testid="name-input"]',
@@ -6,3 +6,5 @@ export default {
   RESTRICTION_TOGGLE: '[aria-controls="puzzles-filters-target"]',
   RESTRICTION_CHECKBOXES: '[data-testid="restriction-checkbox"]',
 }
+
+export default selectors

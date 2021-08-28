@@ -1,4 +1,6 @@
-export default {
+export default selectors
+
+const selectors = {
   TEASER: '[data-testid="teaser"]',
   CHARTS: '[data-testid="charts"]',
   RESET_BTN: '[data-testid="reset-btn"]',
