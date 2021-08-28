@@ -2,11 +2,9 @@ import React from 'react'
 import CTA from '~/components/CTA'
 import Only from '~/components/Only'
 import { NotificationContext } from '~/components/NotificationProvider'
-import { BrawlContext } from '~/components/BrawlProvider'
 import download from '~/helpers/download'
 
 export default React.memo(function BrawlExport(props) {
-  const { brawl } = React.useContext(BrawlContext)
   const { notify: sendNotification } = React.useContext(NotificationContext)
 
   const notify = React.useCallback(
@@ -37,7 +35,7 @@ export default React.memo(function BrawlExport(props) {
 
   const exportBrawl = () => {
     download({
-      content: formatBrawlAsCSV(brawl),
+      content: formatBrawlAsCSV(),
       fileName: 'stormbound_brawl.csv',
       mimeType: 'text/csv;encoding:utf-8',
     })
