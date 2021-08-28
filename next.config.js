@@ -1,4 +1,5 @@
 const withPwa = require('next-pwa')
+const runtimeCaching = require('next-pwa/cache')
 
 module.exports = withPwa({
   poweredByHeader: false,
@@ -10,6 +11,7 @@ module.exports = withPwa({
     skipWaiting: false,
     mode: 'production',
     dynamicStartUrl: false,
+    runtimeCaching,
   },
   async redirects() {
     return [
