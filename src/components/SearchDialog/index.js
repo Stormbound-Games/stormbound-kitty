@@ -1,12 +1,12 @@
 import React from 'react'
 import { useFela } from 'react-fela'
 import { useRouter } from 'next/router'
-import debounce from 'lodash.debounce'
 import querystring from 'querystring'
 import { useCombobox } from 'downshift'
 import Dialog from '~/components/Dialog'
 import Icon from '~/components/Icon'
 import Input from '~/components/Input'
+import useDebounce from '~/hooks/useDebounce'
 import useNavigator from '~/hooks/useNavigator'
 import styles from './styles'
 
@@ -73,16 +73,19 @@ async function runSearch(search) {
 export default React.memo(function SearchDialog(props) {
   const { css } = useFela()
   const router = useRouter()
-  const debouncedSetSearch = React.useRef(null)
   const navigator = useNavigator()
   const input = React.useRef(null)
   const [search, setSearch] = React.useState('')
+  const debouncedSearch = useDebounce(search, 1000)
   const [results, setResults] = React.useState([])
 
   useSearchKeyboardShortcut(() => props.dialogRef.current?.show())
 
   // Update search results when the search term changes.
-  React.useEffect(() => search && runSearch(search).then(setResults), [search])
+  React.useEffect(
+    () => debouncedSearch && runSearch(debouncedSearch).then(setResults),
+    [debouncedSearch]
+  )
 
   // Hide the dialog when the URL changes (after navigating to a result).
   // eslint-disable-next-line
@@ -93,13 +96,6 @@ export default React.memo(function SearchDialog(props) {
     ({ selectedItem }) => navigator.push(selectedItem.path),
     [navigator]
   )
-
-  // Store a debounced function to update the search term at most one per second
-  // so it is persisted across renders.
-  if (!debouncedSetSearch.current) {
-    const setInputValue = ({ inputValue }) => setSearch(inputValue)
-    debouncedSetSearch.current = debounce(setInputValue, 1000)
-  }
 
   const {
     getComboboxProps,
@@ -112,7 +108,7 @@ export default React.memo(function SearchDialog(props) {
     reset,
   } = useCombobox({
     items: results,
-    onInputValueChange: debouncedSetSearch.current,
+    onInputValueChange: ({ inputValue }) => setSearch(inputValue),
     onSelectedItemChange: handleNavigation,
     itemToString: item => (item ? item.label : ''),
   })
