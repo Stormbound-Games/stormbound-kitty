@@ -9,7 +9,9 @@ import Link from '~/components/Link'
 import Loader from '~/components/Loader'
 import styles from './styles'
 
-const SearchDialog = dynamic(() => import('~/components/SearchDialog'))
+const SearchDialog = dynamic(() => import('~/components/SearchDialog'), {
+  ssr: false,
+})
 
 export default React.memo(function Layout(props) {
   const router = useRouter()
