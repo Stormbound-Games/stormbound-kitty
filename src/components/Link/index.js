@@ -5,7 +5,7 @@ import Icon from '~/components/Icon'
 import styles from './styles'
 
 function Link(
-  { extend, inNewTab, hideNewTabIndicator, scroll, ...props },
+  { extend, inNewTab, hideNewTabIndicator, scroll, to, ...props },
   ref
 ) {
   const { css } = useFela()
@@ -31,9 +31,9 @@ function Link(
     )
   }
 
-  if (props.to) {
+  if (to) {
     return (
-      <RouterLink href={props.to} passHref scroll={scroll} prefetch={false}>
+      <RouterLink href={to} passHref scroll={scroll} prefetch={false}>
         <a {...props} ref={ref} className={css(styles.link, extend)}>
           {props.children}
         </a>
