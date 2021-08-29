@@ -4,6 +4,7 @@ import ListBuilderEditorView from '~/components/ListBuilderEditorView'
 import Layout from '~/components/Layout'
 import getInitialListData from '~/helpers/getInitialListData'
 import getNavigation from '~/helpers/getNavigation'
+import { DEFAULT_LIST } from '~/constants/list'
 
 export async function getStaticPaths() {
   return { paths: [{ params: { rest: [] } }], fallback: 'blocking' }
@@ -12,7 +13,12 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const navigation = getNavigation()
   const params = context.params.rest || []
-  const DEFAULT_PROPS = { navigation, tiers: [], id: null, mode: 'EDITOR' }
+  const DEFAULT_PROPS = {
+    navigation,
+    tiers: DEFAULT_LIST,
+    id: null,
+    mode: 'EDITOR',
+  }
 
   try {
     const [id, display] = params
