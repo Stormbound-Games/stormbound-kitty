@@ -20,7 +20,7 @@ const CardsFormRow = React.memo(function CardsFormRow({ index, ...props }) {
       hidden={!props.expanded && index >= 4}
       data-testid='battle-sim-cards-form'
     >
-      <Row extend={{ marginBottom: 0 }}>
+      <Row withNarrowGutter extend={{ marginBottom: 0 }}>
         <Row.Column width='2/3'>
           <CardSelect
             hideLabel
@@ -42,7 +42,7 @@ const CardsFormRow = React.memo(function CardsFormRow({ index, ...props }) {
           />
         </Row.Column>
         <Row.Column width='1/3'>
-          <Row>
+          <Row withNarrowGutter>
             <Row.Column>
               {getRawCardData(props.cards[index].id).token ? (
                 <NumberInput

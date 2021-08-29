@@ -60,7 +60,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
         </Spacing>
       </Only.Desktop>
       <Only.Mobile>
-        <Spacing horizontal='BASE' top='BASE'>
+        <Spacing top='BASE'>
           <Card
             {...props}
             containerWidth={400}
@@ -73,7 +73,7 @@ export default React.memo(function CardBuilderCardDisplay(props) {
 
           {!props.hasSingleLevel && (
             <Spacing top='LARGER'>
-              <Row>
+              <Row withNarrowGutter>
                 <Row.Column>
                   {activeLevel > 1 && (
                     <CTA

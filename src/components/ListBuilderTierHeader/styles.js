@@ -1,6 +1,6 @@
 const header = {
   display: 'flex',
-  margin: '0 calc(var(--s-base) * -1) var(--s-base)',
+  margin: '0 calc(var(--s-smaller) * -1) var(--s-base)',
   alignItems: 'flex-end',
 }
 
@@ -15,7 +15,7 @@ const name = {
 
 const item = {
   flex: '1 1 100%',
-  padding: '0 var(--s-base)',
+  padding: '0 var(--s-smaller)',
 
   medium: {
     flexBasis: 'auto',

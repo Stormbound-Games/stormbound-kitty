@@ -17,7 +17,7 @@ export default React.memo(function BattleSimGameForm(props) {
 
   return (
     <div className={css(styles.form)}>
-      <Row>
+      <Row withNarrowGutter>
         <Row.Column>
           <NumberInput
             label='Current mana'
@@ -46,8 +46,8 @@ export default React.memo(function BattleSimGameForm(props) {
           </fieldset>
         </Row.Column>
       </Row>
-      <Spacing top='BASE'>
-        <Row>
+      <Spacing top='LARGE'>
+        <Row withNarrowGutter>
           <Row.Column>
             <ResetButton
               label='Reset board'

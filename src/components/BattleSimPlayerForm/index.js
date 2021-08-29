@@ -5,7 +5,7 @@ import Row from '~/components/Row'
 
 export default React.memo(function BattleSimPlayerForm(props) {
   return (
-    <Row>
+    <Row withNarrowGutter>
       <Row.Column width='2/3'>
         <FactionSelect
           name={`faction-${props.player}`}
