@@ -38,15 +38,14 @@ export default React.memo(function ImportDecks(props) {
   )
 
   return (
-    <FileUpload
-      id='import'
-      process={parseCSVData}
-      onSuccess={handleSuccess}
-      data-testid='import-decks-btn'
-    >
-      <CTA as='label' htmlFor='import'>
-        Import<Only.Desktop> decks</Only.Desktop>
-      </CTA>
-    </FileUpload>
+    <CTA as='label' htmlFor='import' isFullWidthOnMobile>
+      Import<Only.Desktop> decks</Only.Desktop>
+      <FileUpload
+        id='import'
+        process={parseCSVData}
+        onSuccess={handleSuccess}
+        data-testid='import-decks-btn'
+      />
+    </CTA>
   )
 })

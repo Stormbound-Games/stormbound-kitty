@@ -1,6 +1,5 @@
 const body = {
   position: 'relative',
-  fontSize: '120%',
   marginBottom: 'var(--s-base)',
 }
 

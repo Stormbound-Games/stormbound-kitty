@@ -1,5 +1,4 @@
 const container = {
-  fontSize: '80%',
   display: 'flex',
   flexDirection: 'column',
   position: 'fixed',
@@ -11,6 +10,8 @@ const container = {
   perspective: 1000,
 
   '[aria-hidden="true"]': { display: 'none' },
+
+  small: { fontSize: '90%' },
 }
 
 const overlay = {
@@ -34,7 +35,7 @@ const image = {
 
 const content = {
   margin: 'auto',
-  width: '350px',
+  width: '400px',
   maxWidth: '85%',
   position: 'relative',
   backgroundColor: 'var(--dark-blue)',
@@ -81,7 +82,6 @@ const cta = {
   left: '50%',
   top: '100%',
   transform: 'translate(-50%, -50%)',
-  width: '50%',
 }
 
 const styles = {

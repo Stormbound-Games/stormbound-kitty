@@ -32,7 +32,7 @@ export default React.memo(function ListBuilderDisplayView(props) {
 
           <ListBuilderToc tiers={tiers} />
 
-          <Row>
+          <Row withNarrowGutter>
             <Row.Column>
               <CTA to={`/list/${id}`}>Edit list</CTA>
             </Row.Column>

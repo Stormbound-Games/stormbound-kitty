@@ -73,15 +73,14 @@ export default React.memo(function ImportCollection(props) {
   }
 
   return (
-    <FileUpload
-      id='import'
-      process={parseCSVData}
-      onSuccess={handleSuccess}
-      data-testid='import-btn'
-    >
-      <CTA as='label' htmlFor='import'>
-        Import<Only.Desktop> collection</Only.Desktop>
-      </CTA>
-    </FileUpload>
+    <CTA as='label' htmlFor='import'>
+      Import collection
+      <FileUpload
+        id='import'
+        process={parseCSVData}
+        onSuccess={handleSuccess}
+        data-testid='import-btn'
+      />
+    </CTA>
   )
 })

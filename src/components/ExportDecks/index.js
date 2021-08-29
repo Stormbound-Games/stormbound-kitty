@@ -40,7 +40,11 @@ export default React.memo(function ExportDecks(props) {
   }
 
   return (
-    <CTA onClick={exportDecks} data-testid='export-decks-btn'>
+    <CTA
+      onClick={exportDecks}
+      data-testid='export-decks-btn'
+      isFullWidthOnMobile
+    >
       Export<Only.Desktop> decks</Only.Desktop>
     </CTA>
   )

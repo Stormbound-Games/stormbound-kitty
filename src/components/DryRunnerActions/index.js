@@ -9,13 +9,14 @@ export default React.memo(function DryRunnerActions(props) {
 
   return (
     <Spacing top='LARGER'>
-      <Row>
+      <Row withNarrowGutter>
         <Row.Column align='center'>
           <CTA
             type='button'
             data-testid='cycle-btn'
             onClick={props.cycleCard}
             disabled={props.hasCycledThisTurn}
+            isFullWidthOnMobile
           >
             <Only.Desktop>
               <u>C</u>ycle card
@@ -31,6 +32,7 @@ export default React.memo(function DryRunnerActions(props) {
             disabled={
               props.activeCard && !props.canCardBePlayed(props.activeCard)
             }
+            isFullWidthOnMobile
           >
             <Only.Desktop>
               <u>P</u>lay card

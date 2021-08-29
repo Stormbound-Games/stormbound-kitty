@@ -74,12 +74,7 @@ const actions = {
 }
 
 const action = {
-  marginTop: 'var(--s-smallest)',
-  marginBottom: 'var(--s-smallest)',
-
-  medium: {
-    margin: '0 var(--s-smallest)',
-  },
+  margin: 'var(--s-smaller) var(--s-smallest)',
 }
 
 const styles = {

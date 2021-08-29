@@ -5,6 +5,15 @@ const radios = {
   paddingRight: 'var(--s-base)',
 }
 
-const styles = { radios }
+const checkboxes = {
+  display: 'flex',
+  flexWrap: 'wrap',
+}
+
+const checkbox = {
+  width: '50%',
+}
+
+const styles = { radios, checkboxes, checkbox }
 
 export default styles

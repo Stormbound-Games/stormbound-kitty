@@ -85,8 +85,10 @@ export default React.memo(function Dialog(props) {
       )}
 
       <div className={css(styles.body, props.extend?.body)}>
-        {props.children}
-        {hasCTA && <CTA {...ctaProps} extend={styles.cta} />}
+        <div className={css({ '> :last-child': { marginBottom: 0 } })}>
+          {props.children}
+        </div>
+        {hasCTA && <CTA {...ctaProps} extend={[styles.cta, ctaProps.extend]} />}
       </div>
     </A11yDialog>
   )

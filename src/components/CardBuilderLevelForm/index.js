@@ -65,7 +65,7 @@ export default React.memo(function CardBuilderLevelForm(props) {
         </Row>
 
         <Spacing top='LARGE'>
-          <Row isDesktopOnly>
+          <Row withNarrowGutter>
             <Row.Column>
               <ResetButton
                 label='Reset form'

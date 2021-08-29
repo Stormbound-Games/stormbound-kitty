@@ -2,10 +2,11 @@
  * 1. `1.45em` is a magic number that gives enough space on both sides to render
  *    the backgrounds. Safari needs 1px less… :eye-roll:
  */
-const cta = ({ isDisabled }) => ({
+const cta = ({ isDisabled, isFullWidthOnMobile }) => ({
   display: 'inline-flex',
   padding: '0 calc(1.45em - 1px)' /* 1 */,
   border: 0,
+  position: 'relative',
 
   textDecoration: 'none',
   color: 'var(--black)',
@@ -25,7 +26,7 @@ const cta = ({ isDisabled }) => ({
 
   ':hover': { filter: isDisabled ? 'grayscale(1)' : 'hue-rotate(60deg)' },
 
-  small: { width: '100%' },
+  small: { width: isFullWidthOnMobile ? '100%' : undefined },
 })
 
 const content = {

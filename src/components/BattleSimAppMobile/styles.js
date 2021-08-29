@@ -41,9 +41,9 @@ const board = {
 
 const button = ({ side }) => ({
   position: 'absolute',
-  top: 'var(--s-base)',
-  right: side === 'RIGHT' ? 'var(--s-base)' : undefined,
-  left: side === 'LEFT' ? 'var(--s-base)' : undefined,
+  bottom: 'var(--s-large)',
+  right: side === 'RIGHT' ? 'var(--s-large)' : undefined,
+  left: side === 'LEFT' ? 'var(--s-large)' : undefined,
   zIndex: 2,
 })
 

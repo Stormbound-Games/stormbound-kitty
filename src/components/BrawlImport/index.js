@@ -39,15 +39,14 @@ export default React.memo(function BrawlImport(props) {
   )
 
   return (
-    <FileUpload
-      id='import'
-      process={parseCSVData}
-      onSuccess={handleSuccess}
-      data-testid='import-brawl-btn'
-    >
-      <CTA htmlFor='import' as='label'>
-        Import<Only.Desktop> Brawl</Only.Desktop>
-      </CTA>
-    </FileUpload>
+    <CTA htmlFor='import' as='label' isFullWidthOnMobile>
+      Import<Only.Desktop> Brawl</Only.Desktop>
+      <FileUpload
+        id='import'
+        process={parseCSVData}
+        onSuccess={handleSuccess}
+        data-testid='import-brawl-btn'
+      />
+    </CTA>
   )
 })

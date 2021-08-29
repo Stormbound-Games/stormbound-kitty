@@ -19,11 +19,11 @@ const name = {
 }
 
 const item = {
-  padding: '0 var(--s-smaller) var(--s-small)',
+  paddingBottom: 'var(--s-small)',
   flex: '1 1 100%',
 
   medium: {
-    padding: '0 var(--s-smaller)',
+    padding: '0 var(--s-smaller) var(--s-smaller)',
     flexBasis: 'auto',
 
     ':last-child': {

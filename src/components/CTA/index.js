@@ -9,7 +9,11 @@ export default React.memo(function CTA({
   scroll,
   ...props
 }) {
-  const { css } = useFela({ isNew: props.new, isDisabled: props.disabled })
+  const { css } = useFela({
+    isNew: props.new,
+    isDisabled: props.disabled,
+    isFullWidthOnMobile: props.isFullWidthOnMobile,
+  })
 
   if (Component) {
     return (

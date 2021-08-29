@@ -83,7 +83,10 @@ export default React.memo(function NerfCompensationInfo(props) {
         {Object.keys(COMPENSATION)
           .filter(rarity => rarities.includes(rarity))
           .map(rarity => (
-            <li key={rarity}>
+            <li
+              key={rarity}
+              className={css({ textIndent: '-1.25em', paddingLeft: '1.25em' })}
+            >
               <ResourceIcon resource={rarity.toUpperCase()} />
               &nbsp; {capitalise(rarity)} card:{' '}
               {COMPENSATION[rarity].reduce((acc, level, index) => {

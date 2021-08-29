@@ -1,5 +1,5 @@
 const panel = {
-  padding: '2.5em 1em',
+  padding: 'var(--s-large)',
   position: 'relative',
   flex: '1 1 auto,',
 }

@@ -180,75 +180,64 @@ export default React.memo(function BattleSimCellForm(props) {
       <fieldset>
         <legend>Statuses</legend>
         <Spacing bottom='BASE'>
-          <Row isDesktopOnly withNarrowGutter>
-            <Row.Column width='1/3'>
-              <Checkbox
-                id='poisoned'
-                disabled={getRawCardData(card).type === 'structure'}
-                checked={poisoned}
-                onChange={event => {
-                  setPoisoned(event.target.checked)
-                  if (event.target.checked) setVitalised(false)
-                }}
-                data-testid='cell-poisoned-checkbox'
-              >
-                Poisoned
-              </Checkbox>
-            </Row.Column>
-            <Row.Column width='1/3'>
-              <Checkbox
-                id='vitalised'
-                disabled={getRawCardData(card).type === 'structure'}
-                checked={vitalised}
-                onChange={event => {
-                  setVitalised(event.target.checked)
-                  if (event.target.checked) setPoisoned(false)
-                }}
-                data-testid='cell-vitalised-checkbox'
-              >
-                Vitalised
-              </Checkbox>
-            </Row.Column>
-            <Row.Column width='1/3'>
-              <Checkbox
-                id='frozen'
-                disabled={getRawCardData(card).type === 'structure'}
-                checked={frozen}
-                onChange={event => setFrozen(event.target.checked)}
-                data-testid='cell-frozen-checkbox'
-              >
-                Frozen
-              </Checkbox>
-            </Row.Column>
-          </Row>
-          <Row
-            withNarrowGutter
-            isDesktopOnly
-            extend={{ medium: { marginTop: '-1em' } }}
-          >
-            <Row.Column width='1/3'>
-              <Checkbox
-                id='confused'
-                disabled={getRawCardData(card).type === 'structure'}
-                checked={confused}
-                onChange={event => setConfused(event.target.checked)}
-                data-testid='cell-confused-checkbox'
-              >
-                Confused
-              </Checkbox>
-            </Row.Column>
-            <Row.Column width='1/3'>
-              <Checkbox
-                id='disabled'
-                disabled={getRawCardData(card).type === 'structure'}
-                checked={disabled}
-                onChange={event => setDisabled(event.target.checked)}
-                data-testid='cell-disabled-checkbox'
-              >
-                Disabled
-              </Checkbox>
-            </Row.Column>
-          </Row>
+          <div className={css(styles.checkboxes)}>
+            <Checkbox
+              extend={styles.checkbox}
+              id='poisoned'
+              disabled={getRawCardData(card).type === 'structure'}
+              checked={poisoned}
+              onChange={event => {
+                setPoisoned(event.target.checked)
+                if (event.target.checked) setVitalised(false)
+              }}
+              data-testid='cell-poisoned-checkbox'
+            >
+              Poisoned
+            </Checkbox>
+            <Checkbox
+              extend={styles.checkbox}
+              id='vitalised'
+              disabled={getRawCardData(card).type === 'structure'}
+              checked={vitalised}
+              onChange={event => {
+                setVitalised(event.target.checked)
+                if (event.target.checked) setPoisoned(false)
+              }}
+              data-testid='cell-vitalised-checkbox'
+            >
+              Vitalised
+            </Checkbox>
+            <Checkbox
+              extend={styles.checkbox}
+              id='frozen'
+              disabled={getRawCardData(card).type === 'structure'}
+              checked={frozen}
+              onChange={event => setFrozen(event.target.checked)}
+              data-testid='cell-frozen-checkbox'
+            >
+              Frozen
+            </Checkbox>
+            <Checkbox
+              extend={styles.checkbox}
+              id='confused'
+              disabled={getRawCardData(card).type === 'structure'}
+              checked={confused}
+              onChange={event => setConfused(event.target.checked)}
+              data-testid='cell-confused-checkbox'
+            >
+              Confused
+            </Checkbox>
+            <Checkbox
+              extend={styles.checkbox}
+              id='disabled'
+              disabled={getRawCardData(card).type === 'structure'}
+              checked={disabled}
+              onChange={event => setDisabled(event.target.checked)}
+              data-testid='cell-disabled-checkbox'
+            >
+              Disabled
+            </Checkbox>
+          </div>
         </Spacing>
       </fieldset>
 

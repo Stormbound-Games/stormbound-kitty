@@ -22,6 +22,7 @@ export default React.memo(function ResetButton(props) {
         onClick={open}
         data-testid='reset-btn'
         disabled={props.disabled}
+        isFullWidthOnMobile={props.isFullWidthOnMobile}
       >
         {label}
       </CTA>
@@ -37,7 +38,7 @@ export default React.memo(function ResetButton(props) {
           type: 'button',
           onClick: confirm,
           'data-testid': 'reset-confirm-btn',
-          children: 'Continue',
+          children: 'Proceed & reset',
         }}
       >
         <p>{confirmText}</p>

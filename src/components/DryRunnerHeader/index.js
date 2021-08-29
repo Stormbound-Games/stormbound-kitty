@@ -35,34 +35,36 @@ export default React.memo(function DryRunnerHeader(props) {
 
   return (
     <Spacing bottom='LARGER'>
-      <Row isDesktopOnly>
-        <Row.Column width='1/3' align='center'>
+      <div className={css(styles.header)}>
+        <div className={css(styles.button)}>
           <ResetButton
             label='Reset game'
             confirm='Are you sure you want to reset the game? Don’t worry, you’ll keep your deck.'
             reset={props.resetGame}
+            isFullWidthOnMobile
           />
-        </Row.Column>
-
-        <Row.Column width='1/3' align='center'>
-          <span className={css(styles.mana)}>
-            Current mana:{' '}
-            <Mana
-              controls={controls}
-              mana={props.mana}
-              data-testid='mana-pool'
-              disabled={props.hand.every(card => !props.canCardBePlayed(card))}
-              extend={{ marginLeft: 'var(--s-base)' }}
-            />
-          </span>
-        </Row.Column>
-
-        <Row.Column width='1/3' align='center'>
-          <CTA type='button' data-testid='end-turn-btn' onClick={endTurn}>
+        </div>
+        <span className={css(styles.mana)}>
+          Current mana:{' '}
+          <Mana
+            controls={controls}
+            mana={props.mana}
+            data-testid='mana-pool'
+            disabled={props.hand.every(card => !props.canCardBePlayed(card))}
+            extend={{ marginLeft: 'var(--s-base)' }}
+          />
+        </span>
+        <div className={css(styles.button)}>
+          <CTA
+            type='button'
+            data-testid='end-turn-btn'
+            onClick={endTurn}
+            isFullWidthOnMobile
+          >
             <u>E</u>nd turn
           </CTA>
-        </Row.Column>
-      </Row>
+        </div>
+      </div>
     </Spacing>
   )
 })

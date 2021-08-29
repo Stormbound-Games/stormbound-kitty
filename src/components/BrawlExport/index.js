@@ -43,7 +43,11 @@ export default React.memo(function BrawlExport(props) {
   }
 
   return (
-    <CTA onClick={exportBrawl} data-testid='export-brawl-btn'>
+    <CTA
+      onClick={exportBrawl}
+      data-testid='export-brawl-btn'
+      isFullWidthOnMobile
+    >
       Export<Only.Desktop> Brawl</Only.Desktop>
     </CTA>
   )

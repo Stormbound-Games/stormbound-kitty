@@ -5,6 +5,7 @@ import CTA from '~/components/CTA'
 import Dialog from '~/components/Dialog'
 import FactionSelect from '~/components/FactionSelect'
 import LearnMoreIcon from '~/components/LearnMoreIcon'
+import Only from '~/components/Only'
 import Row from '~/components/Row'
 import Select from '~/components/Select'
 import getRandomDeck from '~/helpers/getRandomDeck'
@@ -68,11 +69,11 @@ export default React.memo(function RandomDeckButton(props) {
         ctaProps={{
           onClick: generateDeck,
           type: 'button',
-          children: 'Generate',
+          children: 'Generate deck',
           'data-testid': 'random-deck-dialog-confirm-btn',
         }}
       >
-        <Row>
+        <Row withNarrowGutter>
           <Row.Column>
             <FactionSelect
               data-testid='random-faction-select'
@@ -96,7 +97,7 @@ export default React.memo(function RandomDeckButton(props) {
             </Select>
           </Row.Column>
         </Row>
-        <Row>
+        <Row withNarrowGutter>
           <Row.Column>
             <Select
               label='Max epic cards'
@@ -114,7 +115,12 @@ export default React.memo(function RandomDeckButton(props) {
           </Row.Column>
           <Row.Column>
             <Select
-              label='Max legendary cards'
+              label={
+                <>
+                  <Only.Mobile>Max leg. cards</Only.Mobile>
+                  <Only.Desktop>Max legendary cards</Only.Desktop>
+                </>
+              }
               data-testid='random-max-legendary-select'
               id='maxLegendaryCards'
               value={maxLegendaryCards}

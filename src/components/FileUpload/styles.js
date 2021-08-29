@@ -1,7 +1,3 @@
-const container = {
-  position: 'relative',
-}
-
 /**
  * 1. Visually hide the native input while spreading it on top of the button so
  *    it remains clickable.
@@ -14,6 +10,6 @@ const file = {
   height: 0 /* 1 */,
 }
 
-const styles = { container, file }
+const styles = { file }
 
 export default styles

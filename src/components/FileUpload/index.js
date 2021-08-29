@@ -38,17 +38,14 @@ export default React.memo(function FileUpload(props) {
   const id = props.id || 'import'
 
   return (
-    <div className={css(styles.container)}>
-      {props.children}
-      <input
-        id={id}
-        name={props.name || id}
-        type='file'
-        accept={props.accept || '.csv'}
-        onChange={handleFileUpload(props)}
-        className={css(styles.file)}
-        data-testid={props['data-testid']}
-      />
-    </div>
+    <input
+      id={id}
+      name={props.name || id}
+      type='file'
+      accept={props.accept || '.csv'}
+      onChange={handleFileUpload(props)}
+      className={css(styles.file)}
+      data-testid={props['data-testid']}
+    />
   )
 })

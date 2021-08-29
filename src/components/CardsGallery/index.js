@@ -145,6 +145,7 @@ export default React.memo(function CardsGallery(props) {
             <div className={css(styles.navItem)}>
               <CTA
                 type='button'
+                isFullWidthOnMobile
                 extend={styles.navButton}
                 onClick={() => changePage(p => p - 1)}
                 disabled={activePage === 0}
@@ -158,6 +159,7 @@ export default React.memo(function CardsGallery(props) {
             <div className={css(styles.navItem)}>
               <CTA
                 type='button'
+                isFullWidthOnMobile
                 extend={styles.navButton}
                 onClick={() => changePage(p => p + 1)}
                 disabled={pages.length === 0 || activePage === pages.length - 1}

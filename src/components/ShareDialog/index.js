@@ -16,6 +16,7 @@ export default React.memo(function ShareDialog(props) {
         type='button'
         disabled={props.disabled}
         extend={props.extend}
+        isFullWidthOnMobile={props.isFullWidthOnMobile}
       >
         {props.label}
       </CTA>
