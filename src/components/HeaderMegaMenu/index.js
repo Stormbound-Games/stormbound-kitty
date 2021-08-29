@@ -68,7 +68,7 @@ export default React.memo(
                     >
                       {item.label}
                     </Link>
-                    {item.new && <NewPulse />}
+                    {item.isNew && <NewPulse />}
                   </li>
                 ))}
               </ul>

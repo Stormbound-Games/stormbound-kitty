@@ -32,7 +32,7 @@ const HeaderItem = props => {
       <details>
         <summary className={css(styles.action)}>
           <Icon icon={props.icon} extend={styles.icon} /> {props.label}
-          {props.new && <NewPulse extend={{ right: 0, left: 'auto' }} />}
+          {props.isNew && <NewPulse extend={{ right: 0, left: 'auto' }} />}
         </summary>
         <HeaderMegaMenu active={props.active} columns={props.items} open />
       </details>
@@ -66,7 +66,7 @@ const HeaderItem = props => {
           open={props.isOpen}
         />
       ) : null}
-      {props.new && <NewPulse extend={{ right: '1em', left: 'auto' }} />}
+      {props.isNew && <NewPulse extend={{ right: '1em', left: 'auto' }} />}
     </>
   )
 }
