@@ -45,7 +45,9 @@ export default React.memo(function AdvancedCardSearch(props) {
         </Row.Column>
         <Row.Column width='1/4' extend={{ justifyContent: 'flex-end' }}>
           <Spacing bottom='SMALLEST'>
-            <CTA type='submit'>Search</CTA>
+            <CTA type='submit' extend={{ width: '100%' }}>
+              Search
+            </CTA>
           </Spacing>
         </Row.Column>
       </Row>

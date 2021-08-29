@@ -49,10 +49,6 @@ const field = {
   },
 }
 
-const button = {
-  textDecoration: 'none',
-}
-
-const styles = { form, field, button }
+const styles = { form, field }
 
 export default styles

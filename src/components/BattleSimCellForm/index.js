@@ -263,12 +263,7 @@ export default React.memo(function BattleSimCellForm(props) {
           activeCellCard.confused !== confused ||
           activeCellCard.disabled !== disabled ||
           activeCellCard.player !== props.activePlayer ? (
-            <CTA
-              type='submit'
-              extend={styles.button}
-              disabled={!card}
-              data-testid='cell-form-btn'
-            >
+            <CTA type='submit' disabled={!card} data-testid='cell-form-btn'>
               {activeCellCard.card.id
                 ? 'Update ' + activeCellCard.card.type
                 : 'Add ' + (getRawCardData(card).type || '')}
@@ -279,7 +274,6 @@ export default React.memo(function BattleSimCellForm(props) {
           {!!activeCellCard.card.id ? (
             <CTA
               type='button'
-              extend={styles.button}
               disabled={!card}
               onClick={props.emptyActiveCell}
               data-testid='cell-form-remove-btn'

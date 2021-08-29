@@ -57,12 +57,8 @@ export default React.memo(function BattleSimDeckImport(props) {
   return (
     <>
       <CTA
-        type='CTA'
         onClick={() => dialog.current.show()}
-        extend={{
-          margin: 'var(--s-base) auto var(--s-large)',
-          display: 'block',
-        }}
+        extend={{ margin: '0 auto var(--s-large)' }}
       >
         Import deck
       </CTA>

@@ -1,7 +1,3 @@
-const button = {
-  marginTop: 'auto',
-}
-
 const radios = {
   display: 'flex',
   marginTop: 'var(--s-smallest)',
@@ -9,6 +5,6 @@ const radios = {
   paddingRight: 'var(--s-base)',
 }
 
-const styles = { button, radios }
+const styles = { radios }
 
 export default styles
