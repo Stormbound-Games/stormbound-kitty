@@ -239,7 +239,7 @@ export default React.memo(function DeckEditorView(props) {
                 cardTooltips={cardTooltips}
                 setCardTooltips={setCardTooltips}
               />
-              <Spacing top={['BASE', null]} bottom='LARGE'>
+              <Spacing top={['BASE', 'NONE']} bottom='LARGE'>
                 <DeckActions reset={props.reset} />
               </Spacing>
             </>
@@ -357,7 +357,7 @@ const DeckActions = React.memo(function DeckActions(props) {
 
 const DeckSettings = React.memo(function DeckSettings(props) {
   return (
-    <>
+    <Spacing bottom='BASE'>
       <Only.Desktop>
         <CardTooltipsCheckbox
           value={props.cardTooltips}
@@ -366,14 +366,12 @@ const DeckSettings = React.memo(function DeckSettings(props) {
       </Only.Desktop>
 
       {(props.canAdjustCardLevels || props.adjustCardLevels) && (
-        <Spacing bottom='LARGE'>
-          <CardLevelsCheckbox
-            value={props.adjustCardLevels}
-            set={props.setAdjustCardLevels}
-          />
-        </Spacing>
+        <CardLevelsCheckbox
+          value={props.adjustCardLevels}
+          set={props.setAdjustCardLevels}
+        />
       )}
-    </>
+    </Spacing>
   )
 })
 
