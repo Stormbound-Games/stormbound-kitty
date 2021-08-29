@@ -35,7 +35,7 @@ const image = {
 
 const content = {
   margin: 'auto',
-  width: '400px',
+  width: '500px',
   maxWidth: 'calc(100% - var(--s-large) * 2)',
   position: 'relative',
   backgroundColor: 'var(--dark-blue)',
