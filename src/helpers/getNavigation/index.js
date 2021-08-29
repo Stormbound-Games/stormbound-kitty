@@ -35,7 +35,7 @@ const getNavigation = () => {
               label: 'Update 09-2021',
               to: '/releases/09-2021',
               id: '2021_09',
-              new: true,
+              isNew: true,
             },
             {
               label: 'Update 08-2021',

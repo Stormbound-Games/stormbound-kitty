@@ -92,13 +92,13 @@ const useNavigation = (navigation = []) => {
       const items = column.items.map(item => {
         if (item.id !== 'DECK_COLLECTION') return item
 
-        return { ...item, new: isUnseen }
+        return { ...item, isNew: isUnseen }
       })
 
       return { ...column, items: [feed, ...items].filter(Boolean) }
     })
 
-    return { ...category, new: isUnseen, items }
+    return { ...category, isNew: isUnseen, items }
   })
 }
 

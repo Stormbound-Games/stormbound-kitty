@@ -6,13 +6,15 @@ import styles from './styles'
 export default React.memo(function CTA({
   as: Component,
   extend,
+  isFullWidthOnMobile,
+  isNew,
   scroll,
   ...props
 }) {
   const { css } = useFela({
-    isNew: props.new,
     isDisabled: props.disabled,
-    isFullWidthOnMobile: props.isFullWidthOnMobile,
+    isFullWidthOnMobile,
+    isNew,
   })
 
   if (Component) {
