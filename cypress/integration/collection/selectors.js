@@ -1,5 +1,3 @@
-export default selectors
-
 const selectors = {
   CARD: '[data-testid="card"]',
   CARD_RARITY: '[data-testid="card-rarity"]',
@@ -20,3 +18,5 @@ const selectors = {
   IMPORT_BTN: '[data-testid="import-btn"]',
   EXPORT_BTN: '[data-testid="export-btn"]',
 }
+
+export default selectors
