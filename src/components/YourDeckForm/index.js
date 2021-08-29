@@ -58,7 +58,7 @@ export default React.memo(function YourDeckForm(props) {
           />
         </Row.Column>
       </Row>
-      <Row>
+      <Row withNarrowGutter spacing={{ top: 'LARGE' }}>
         <Row.Column>
           <CTA
             type='submit'

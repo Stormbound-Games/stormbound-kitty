@@ -232,7 +232,7 @@ export default React.memo(function BookOpeningSimulator(props) {
                 setExpectations={setExpectations}
               />
             )}
-            <Row>
+            <Row withNarrowGutter>
               <Row.Column>
                 <CTA type='submit' disabled={!isFormValid}>
                   Open

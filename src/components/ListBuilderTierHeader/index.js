@@ -29,22 +29,20 @@ export default React.memo(function ListBuilderTierHeader(props) {
         )}
       </div>
 
-      <div className={css(styles.item)}>
-        {props.isEditable ? (
-          <>
-            <CardSelect
-              label='Add card to tier'
-              name='newCard'
-              id={`${props.prefix}listName`}
-              current=''
-              onChange={option => props.addCard(option ? option.value : null)}
-              disabledOptions={props.cards.map(card => card.id)}
-              withSpells
-              withClear
-            />
-          </>
-        ) : null}
-      </div>
+      {props.isEditable ? (
+        <div className={css(styles.item)}>
+          <CardSelect
+            label='Add card to tier'
+            name='newCard'
+            id={`${props.prefix}listName`}
+            current=''
+            onChange={option => props.addCard(option ? option.value : null)}
+            disabledOptions={props.cards.map(card => card.id)}
+            withSpells
+            withClear
+          />
+        </div>
+      ) : null}
 
       {props.isEditable && (
         <div className={css(styles.item, styles.buttons)}>

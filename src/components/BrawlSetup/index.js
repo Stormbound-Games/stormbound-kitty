@@ -61,7 +61,7 @@ export default React.memo(function BrawlSetup(props) {
       />
 
       <Spacing top='LARGE'>
-        <Row>
+        <Row withNarrowGutter>
           <Row.Column>
             <BrawlImport />
           </Row.Column>

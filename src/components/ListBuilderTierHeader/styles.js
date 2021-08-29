@@ -1,7 +1,12 @@
 const header = {
   display: 'flex',
+  flexDirection: 'column',
   margin: '0 calc(var(--s-smaller) * -1) var(--s-base)',
-  alignItems: 'flex-end',
+
+  medium: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+  },
 }
 
 const name = {
@@ -14,10 +19,11 @@ const name = {
 }
 
 const item = {
+  padding: '0 var(--s-smaller) var(--s-small)',
   flex: '1 1 100%',
-  padding: '0 var(--s-smaller)',
 
   medium: {
+    padding: '0 var(--s-smaller)',
     flexBasis: 'auto',
 
     ':last-child': {

@@ -1,6 +1,6 @@
 const item = ({ isPlaceholder }) => ({
   display: 'inline-block',
-  width: 'calc(20% - var(--s-smaller))',
+  width: 'calc(25% - var(--s-smaller))',
   border: '1px solid var(--color)',
   margin: '0.07em var(--s-smallest)',
   backgroundColor: '#00000099',

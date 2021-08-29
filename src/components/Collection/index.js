@@ -113,12 +113,7 @@ export default React.memo(function Collection(props) {
             <CollectionClearHint />
 
             <Only.DefaultCollection>
-              <Row>
-                <Row.Column>
-                  <ImportCollection />
-                </Row.Column>
-                <Row.Column />
-              </Row>
+              <ImportCollection />
             </Only.DefaultCollection>
           </Spacing>
 

@@ -194,7 +194,7 @@ class ListBuilderEditorView extends React.Component {
               sure to report any bug, oddity or desired features.
             </p>
 
-            <Row withNarrowGutter spacing={{ top: 'BASE' }}>
+            <Row withNarrowGutter spacing={{ vertical: 'BASE' }}>
               <Row.Column>
                 <ResetButton
                   label='Reset list'

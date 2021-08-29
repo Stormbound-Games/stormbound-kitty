@@ -80,7 +80,7 @@ export default React.memo(function QuestBuilderForm(props) {
       </Row>
 
       <Spacing top='LARGE'>
-        <Row>
+        <Row isDesktopOnly>
           <Row.Column>
             <ShareButton />
           </Row.Column>

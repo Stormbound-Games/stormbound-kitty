@@ -149,7 +149,7 @@ export default React.memo(function DeckCollection(props) {
           <YourDecksFilters {...filters} setFilters={setFilters} />
 
           <Spacing top='BASE'>
-            <Row>
+            <Row withNarrowGutter>
               <Row.Column>
                 <ImportDecks />
               </Row.Column>
