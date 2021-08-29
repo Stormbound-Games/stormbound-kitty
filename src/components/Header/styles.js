@@ -107,6 +107,7 @@ const getInteractiveState = ({ isActive, isOpen }) => ({
  * 1. Make sure the open action sits on top of its mega menu so the pseudo-
  *    element looks like it belongs to the menu itself.
  * 2. Needed for the no-JS version where `<summary>` elements have a border.
+ * 3. Safari applies a small margin to all buttons.
  */
 const action = ({ isActive, isOpen }) => ({
   color: isActive ? 'var(--beige)' : 'inherit',
@@ -116,6 +117,7 @@ const action = ({ isActive, isOpen }) => ({
   textDecoration: 'none',
   zIndex: isOpen ? 20 : undefined /* 1 */,
   borderBottom: 0 /* 2 */,
+  margin: 0 /* 3 */,
 
   '::after': getInteractiveState({ isActive, isOpen }),
 
