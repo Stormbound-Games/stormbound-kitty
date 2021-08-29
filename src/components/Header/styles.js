@@ -76,38 +76,52 @@ const item = ({ isRight }) => ({
 /**
  * 1. Pseudo-element used for the active state and for when the dropdown is
  *    open.
- * 2. Make the triangle dark beige for the active state.
+ * 2. On mobile, the open menu is slightly offset from the toggle to avoid it
+ *    being too crowded.
+ * 3. Make the triangle dark beige for the active state.
  */
-const getInteractiveState = ({ isActive, isOpen }) => ({
-  content: '""' /* 1 */,
-  width: '1em',
-  height: '1em',
-  position: 'absolute',
-  transform: 'translate(-50%, -50%) rotate(45deg)',
-  top: 'calc(100% + var(--s-smaller))',
-  left: '50%',
-  border: '1px solid var(--dark-beige)',
-  borderBottom: 0,
-  borderRight: 0,
-  backgroundColor: 'var(--black)',
-  opacity: isOpen ? 1 : 0,
-  transition: 'opacity 250ms 150ms',
-  backgroundImage:
-    isActive && !isOpen
-      ? 'linear-gradient(135deg, var(--dark-beige) 50%, var(--black) 50%)' /* 2 */
-      : undefined,
+const getInteractiveState = ({ isActive, isOpen }) => {
+  // The header mega menu slide-in by 10px to make the apparition a little
+  // smoother. The arrow should do the same to avoid breaking the impression
+  // that it’s detached from the mena. It needs to slide in by half the diagonal
+  // of the square used to render the arrow.
+  const offset = (10 * Math.sqrt(2)) / 2
 
-  medium: {
-    top: '100%',
-    opacity: isActive ? 1 : undefined,
-  },
-})
+  return {
+    content: '""' /* 1 */,
+    width: '1em',
+    height: '1em',
+    position: 'absolute',
+    top: 'calc(100% + var(--s-smaller))' /* 2 */,
+    left: '50%',
+    border: '1px solid var(--dark-beige)',
+    borderBottom: 0,
+    borderRight: 0,
+    backgroundColor: 'var(--black)',
+    opacity: isOpen ? 1 : 0,
+    transition: '250ms 150ms',
+    transform:
+      isOpen || isActive
+        ? 'translate(-50%, -50%) rotate(45deg)'
+        : `translate(-50%, -50%) rotate(45deg) translate(-${offset}px, -${offset}px)`,
+    backgroundImage:
+      isActive && !isOpen
+        ? 'linear-gradient(135deg, var(--dark-beige) 50%, transparent 50%)' /* 3 */
+        : undefined,
+
+    medium: {
+      top: '100%',
+      opacity: isActive ? 1 : undefined,
+    },
+  }
+}
 
 /**
  * 1. Make sure the open action sits on top of its mega menu so the pseudo-
- *    element looks like it belongs to the menu itself.
+ *    element looks like it belongs to the menu itself. This should be done only
+ *    when the menu is open on mobile, otherwise lower items overlap open menus.
  * 2. Needed for the no-JS version where `<summary>` elements have a border.
- * 3. Safari applies a small margin to all buttons.
+ * 3. Remove the small margin that Safari applies to all buttons.
  */
 const action = ({ isActive, isOpen }) => ({
   color: isActive ? 'var(--beige)' : 'inherit',
@@ -122,6 +136,7 @@ const action = ({ isActive, isOpen }) => ({
   '::after': getInteractiveState({ isActive, isOpen }),
 
   medium: {
+    zIndex: 20,
     padding: 'var(--s-base)',
   },
 })
