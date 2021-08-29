@@ -78,8 +78,7 @@ const action = {
   marginBottom: 'var(--s-smallest)',
 
   medium: {
-    width: 'auto',
-    margin: '0 var(--s-smaller)',
+    margin: '0 var(--s-smallest)',
   },
 }
 

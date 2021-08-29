@@ -49,12 +49,7 @@ export default React.memo(function BrawlMatchForm(props) {
             </Link>
           </Only.Desktop>
           <Only.Mobile>
-            <CTA
-              form='add-match-form'
-              type='submit'
-              extend={styles.button}
-              data-testid='match-btn'
-            >
+            <CTA form='add-match-form' type='submit' data-testid='match-btn'>
               {isEdit ? 'Edit match' : 'Record match'}
             </CTA>
           </Only.Mobile>

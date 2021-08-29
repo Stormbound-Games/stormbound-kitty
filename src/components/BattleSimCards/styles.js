@@ -65,7 +65,6 @@ const cycleButton = {
   position: 'absolute',
   bottom: '100%',
   right: 0,
-  minWidth: '35%',
   marginBottom: 'var(--s-large)',
 }
 

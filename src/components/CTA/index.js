@@ -23,7 +23,7 @@ export default React.memo(function CTA({
     <a
       data-testid={props['data-testid']}
       href={props.href}
-      className={css(styles.cta, props.extend)}
+      className={css(styles.cta, extend)}
       target={props.target}
       rel={props.rel}
       aria-label={props['aria-label']}

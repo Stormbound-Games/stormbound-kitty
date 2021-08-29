@@ -48,11 +48,7 @@ export default React.memo(function DeckShareButton(props) {
       </p>
 
       <Spacing top='BASE'>
-        <CTA
-          type='button'
-          onClick={exportAsImage}
-          extend={{ width: 'calc(50% + 1em)' }}
-        >
+        <CTA type='button' onClick={exportAsImage}>
           <Only.Desktop>Download</Only.Desktop> as image
         </CTA>
       </Spacing>

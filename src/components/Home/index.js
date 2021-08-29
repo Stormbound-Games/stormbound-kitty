@@ -106,7 +106,6 @@ export default React.memo(function Home(props) {
           actions={[
             { to: '/stories/eastern-heat', children: 'Eastern Heat' },
             { to: '/stories/march-of-fauns', children: 'March of Fauns' },
-            { to: '/stories', children: 'All stories' },
           ]}
         >
           <p>
