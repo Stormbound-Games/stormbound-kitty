@@ -28,7 +28,6 @@ const ShareButton = ({ disabled }) => (
     label='Share book'
     disabled={disabled}
     image='/assets/images/cards/rogue_sheep.png'
-    extend={{ margin: 'var(--s-base) auto 0' }}
   >
     <p>
       Your book is automatically saved to the URL of the page as you open it.
@@ -232,12 +231,14 @@ export default React.memo(function BookOpeningSimulator(props) {
                 setExpectations={setExpectations}
               />
             )}
-            <Row withNarrowGutter>
+            <Row>
               <Row.Column>
                 <CTA type='submit' disabled={!isFormValid}>
                   Open
                 </CTA>
               </Row.Column>
+            </Row>
+            <Row withNarrowGutter>
               <Row.Column>
                 <ResetButton
                   label='Reset'
@@ -246,8 +247,6 @@ export default React.memo(function BookOpeningSimulator(props) {
                   disabled={cards.length === 0}
                 />
               </Row.Column>
-            </Row>
-            <Row>
               <Row.Column>
                 <ShareButton disabled={cards.length === 0} />
               </Row.Column>
