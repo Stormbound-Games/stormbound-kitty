@@ -403,5 +403,19 @@
     "background": "/assets/images/banners/environment_neutral.png",
     "category": "IN_DEPTH",
     "date": "09/2020"
+  },
+  {
+    "id": "MIAS_METROPOLIS",
+    "name": "Mia’s Metropolis",
+    "authors": [
+      "IMM0RT4L"
+    ],
+    "excerpt": "In this playstyle guide, IMM0RT4L shares insights about their deck ‘Mia’s Metropolis’, helping them reaching high-ranking in Heroes League without maxed out cards.",
+    "slug": "mias-metropolis",
+    "faction": "ironclad",
+    "cardId": "I2",
+    "background": "/assets/images/banners/environment_ironclad.png",
+    "category": "PLAYSTYLE",
+    "date": "08/2021"
   }
 ]
