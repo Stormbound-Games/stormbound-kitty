@@ -9,91 +9,112 @@ import getNavigation from '~/helpers/getNavigation'
 import generateFormulaImage from '~/helpers/generateFormulaImage'
 
 const GUIDE_COMPONENTS = {
-  BEGINNER_GUIDE: dynamic(() => import('~/components/GuideBeginner'), {
+  BEGINNER: dynamic(() => import('~/components/Guide/Beginner'), {
     loading: Loader,
   }),
-  BRAWL_GUIDE: dynamic(() => import('~/components/GuideBrawl'), {
+  BRAWL: dynamic(() => import('~/components/Guide/Brawl'), {
     loading: Loader,
   }),
-  BROODMOTHER_QORDIA_GUIDE: dynamic(
-    () => import('~/components/GuideBroodmotherQordia'),
+  BRAWL_EYE_OF_THE_TEMPEST: dynamic(
+    () => import('~/components/Guide/BrawlEyeOfTheTempest'),
     { loading: Loader }
   ),
-  BWBRUSH_GUIDE: dynamic(() => import('~/components/GuideBwBRush'), {
-    loading: Loader,
-  }),
-  CARD_SHOP_GUIDE: dynamic(() => import('~/components/GuideCardShop'), {
-    loading: Loader,
-  }),
-  CHILLBEARDS_GUIDE: dynamic(() => import('~/components/GuideChillbeards'), {
-    loading: Loader,
-  }),
-  COMPLETE_GUIDE: dynamic(() => import('~/components/GuideComplete'), {
-    loading: Loader,
-  }),
-  D1_SF_COMMONS_GUIDE: dynamic(() => import('~/components/GuideD1SFCommons'), {
-    loading: Loader,
-  }),
-  DECK_GUIDE: dynamic(() => import('~/components/GuideDeck'), {
-    loading: Loader,
-  }),
-  DRAWING_GUIDE: dynamic(() => import('~/components/GuideDrawing'), {
-    loading: Loader,
-  }),
-  EQUALS_INTRO_GUIDE: dynamic(() => import('~/components/GuideEqualsIntro'), {
-    loading: Loader,
-  }),
-  EYE_OF_THE_TEMPEST_GUIDE: dynamic(
-    () => import('~/components/GuideEyeOfTheTempest'),
+  BRAWL_FREEDOM_FIGHT: dynamic(
+    () => import('~/components/Guide/BrawlFreedomFight'),
+    {
+      loading: Loader,
+    }
+  ),
+  BRAWL_GODDESS_BOON: dynamic(
+    () => import('~/components/Guide/BrawlGoddessBoon'),
+    {
+      loading: Loader,
+    }
+  ),
+  BRAWL_LUCRATIVE_PROJECT: dynamic(
+    () => import('~/components/Guide/BrawlLucrativeProject'),
     { loading: Loader }
   ),
-  FREEDOM_FIGHT_GUIDE: dynamic(() => import('~/components/GuideFreedomFight'), {
-    loading: Loader,
-  }),
-  GODDESS_BOON_GUIDE: dynamic(() => import('~/components/GuideGoddessBoon'), {
-    loading: Loader,
-  }),
-  GREEN_PROTOTYPES_GUIDE: dynamic(
-    () => import('~/components/GuideGreenPrototypes'),
+  BRAWL_NOBLE_COALITION: dynamic(
+    () => import('~/components/Guide/BrawlNobleCoalition'),
+    {
+      loading: Loader,
+    }
+  ),
+  BRAWL_SELF_CONTROL: dynamic(
+    () => import('~/components/Guide/BrawlSelfControl'),
+    {
+      loading: Loader,
+    }
+  ),
+  BROODMOTHER_QORDIA: dynamic(
+    () => import('~/components/Guide/BroodmotherQordia'),
     { loading: Loader }
   ),
-  LEGENDARIES_GUIDE: dynamic(() => import('~/components/GuideLegendaries'), {
+  BWB_RUSH: dynamic(() => import('~/components/Guide/BwBRush'), {
     loading: Loader,
   }),
-  LUCRATIVE_PROJECT_GUIDE: dynamic(
-    () => import('~/components/GuideLucrativeProject'),
-    { loading: Loader }
+  CARD_SHOP: dynamic(() => import('~/components/Guide/CardShop'), {
+    loading: Loader,
+  }),
+  CHILLBEARDS: dynamic(() => import('~/components/Guide/Chillbeards'), {
+    loading: Loader,
+  }),
+  COMPLETE: dynamic(() => import('~/components/Guide/Complete'), {
+    loading: Loader,
+  }),
+  D1_SF_COMMONS: dynamic(() => import('~/components/Guide/D1SFCommons'), {
+    loading: Loader,
+  }),
+  DECK_BUILDING: dynamic(() => import('~/components/Guide/DeckBuilding'), {
+    loading: Loader,
+  }),
+  DRAWING_MECHANICS: dynamic(
+    () => import('~/components/Guide/DrawingMechanics'),
+    {
+      loading: Loader,
+    }
   ),
-  MANA_CURVE_GUIDE: dynamic(() => import('~/components/GuideManaCurve'), {
+  INTRO_TO_EQUALS: dynamic(() => import('~/components/Guide/IntroToEquals'), {
     loading: Loader,
   }),
-  NOBLE_COALITION_GUIDE: dynamic(
-    () => import('~/components/GuideNobleCoalition'),
-    { loading: Loader }
+  GREEN_PROTOTYPES: dynamic(
+    () => import('~/components/Guide/GreenPrototypes'),
+    {
+      loading: Loader,
+    }
   ),
-  PIRATE_GUIDE: dynamic(() => import('~/components/GuidePirate'), {
-    loading: Loader,
-  }),
-  RECKLESS_RUSH_GUIDE: dynamic(() => import('~/components/GuideRecklessRush'), {
-    loading: Loader,
-  }),
-  RESOURCES_GUIDE: dynamic(() => import('~/components/GuideResources'), {
-    loading: Loader,
-  }),
-  SELF_CONTROL_GUIDE: dynamic(() => import('~/components/GuideSelfControl'), {
-    loading: Loader,
-  }),
-  TERRIFIC_SLAYERS_GUIDE: dynamic(
-    () => import('~/components/GuideTerrificSlayers'),
-    { loading: Loader }
+  LEGENDARIES_LEVEL_1: dynamic(
+    () => import('~/components/Guide/LegendariesLevel1'),
+    {
+      loading: Loader,
+    }
   ),
-  TRIGGER_GUIDE: dynamic(() => import('~/components/GuideTriggers'), {
+  MANA_CURVE: dynamic(() => import('~/components/Guide/ManaCurve'), {
     loading: Loader,
   }),
-  TRIVIA_GUIDE: dynamic(() => import('~/components/GuideTrivia'), {
+  PIRATE: dynamic(() => import('~/components/Guide/Pirate'), {
     loading: Loader,
   }),
-  WINTER_GUIDE: dynamic(() => import('~/components/GuideWinter'), {
+  RECKLESS_RUSH: dynamic(() => import('~/components/Guide/RecklessRush'), {
+    loading: Loader,
+  }),
+  RESOURCES: dynamic(() => import('~/components/Guide/Resources'), {
+    loading: Loader,
+  }),
+  TERRIFIC_SLAYERS: dynamic(
+    () => import('~/components/Guide/TerrificSlayers'),
+    {
+      loading: Loader,
+    }
+  ),
+  TRIGGERS: dynamic(() => import('~/components/Guide/Triggers'), {
+    loading: Loader,
+  }),
+  TRIVIA: dynamic(() => import('~/components/Guide/Trivia'), {
+    loading: Loader,
+  }),
+  WINTER: dynamic(() => import('~/components/Guide/Winter'), {
     loading: Loader,
   }),
 }
