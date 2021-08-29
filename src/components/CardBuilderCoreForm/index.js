@@ -16,7 +16,7 @@ export default React.memo(function CardBuilderCoreForm(props) {
   return (
     <>
       <form onSubmit={event => event.preventDefault()}>
-        <Row>
+        <Row withNarrowGutter>
           <Row.Column>
             <Input
               label='Name'
@@ -41,7 +41,7 @@ export default React.memo(function CardBuilderCoreForm(props) {
           </Row.Column>
         </Row>
 
-        <Row>
+        <Row withNarrowGutter>
           <Row.Column>
             <Select
               label='Rarity'
@@ -76,7 +76,7 @@ export default React.memo(function CardBuilderCoreForm(props) {
           </Row.Column>
         </Row>
 
-        <Row>
+        <Row withNarrowGutter>
           <Row.Column>
             <FactionSelect
               value={props.faction}
@@ -106,7 +106,7 @@ export default React.memo(function CardBuilderCoreForm(props) {
           </Row.Column>
         </Row>
 
-        <Row>
+        <Row withNarrowGutter>
           <Row.Column
             width={
               imageFocusedColumn === 'imageCardId'
@@ -117,7 +117,7 @@ export default React.memo(function CardBuilderCoreForm(props) {
             }
           >
             <CardSelect
-              label='Existing card image'
+              label='Official image'
               id='imageCardId'
               name='imageCardId'
               current={props.imageCardId}
