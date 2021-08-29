@@ -31,7 +31,6 @@ import getFactionFromDeckID from '~/helpers/getFactionFromDeckID'
 import toSentence from '~/helpers/toSentence'
 import useViewportSize from '~/hooks/useViewportSize'
 import usePrevious from '~/hooks/usePrevious'
-import useQueryParams from '~/hooks/useQueryParams'
 import useNavigator from '~/hooks/useNavigator'
 import { TAGS } from '~/constants/deck'
 import { BRAWL_INDEX } from '~/constants/brawl'
@@ -116,7 +115,7 @@ const getStoredTooltipsSetting = () => {
 export default React.memo(function DeckEditorView(props) {
   const { viewportWidth } = useViewportSize()
   const navigator = useNavigator()
-  const { id: deckId } = useQueryParams()
+  const deckId = serialisation.deck.serialise(props.deck)
   const { collection, indexedCollection, hasDefaultCollection } =
     React.useContext(CollectionContext)
   // `cardLevel` is set to `0` when the user has a custom collection loaded and
@@ -194,10 +193,10 @@ export default React.memo(function DeckEditorView(props) {
 
   React.useEffect(() => {
     if (shouldRestoreOriginalDeck) {
-      history.push(restoredRedirectPath)
+      navigator.push(restoredRedirectPath)
     }
-    // There is no need for `history` and `restoredRedirectPath` to be passed as
-    // dependencies.
+    // There is no need for `navigator` and `restoredRedirectPath` to be passed
+    // as dependencies.
     // eslint-disable-next-line
   }, [shouldRestoreOriginalDeck])
 
