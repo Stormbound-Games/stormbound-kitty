@@ -1,6 +1,6 @@
 [
   {
-    "id": "BEGINNER_GUIDE",
+    "id": "BEGINNER",
     "name": "Beginner’s Guide",
     "authors": [
       "Buggz"
@@ -14,7 +14,7 @@
     "date": "06/2020"
   },
   {
-    "id": "EQUALS_INTRO_GUIDE",
+    "id": "INTRO_TO_EQUALS",
     "name": "Intro to Equals",
     "authors": [
       "Derk"
@@ -28,7 +28,7 @@
     "date": "04/2021"
   },
   {
-    "id": "COMPLETE_GUIDE",
+    "id": "COMPLETE",
     "name": "Complete Guide",
     "authors": [
       "Arikrat"
@@ -42,7 +42,7 @@
     "date": "04/2019"
   },
   {
-    "id": "BRAWL_GUIDE",
+    "id": "BRAWL",
     "name": "Brawl Guide",
     "authors": [
       "Kitty"
@@ -56,7 +56,7 @@
     "date": "07/2020"
   },
   {
-    "id": "LUCRATIVE_PROJECT_GUIDE",
+    "id": "BRAWL_LUCRATIVE_PROJECT",
     "name": "Lucrative Project",
     "authors": [
       "Oeni"
@@ -71,7 +71,7 @@
     "skipNav": true
   },
   {
-    "id": "FREEDOM_FIGHT_GUIDE",
+    "id": "BRAWL_FREEDOM_FIGHT",
     "name": "Freedom Fight",
     "authors": [
       "Oeni"
@@ -85,7 +85,7 @@
     "date": "10/2020"
   },
   {
-    "id": "GODDESS_BOON_GUIDE",
+    "id": "BRAWL_GODDESS_BOON",
     "name": "Goddess Boon",
     "authors": [
       "Oeni"
@@ -99,7 +99,7 @@
     "date": "10/2020"
   },
   {
-    "id": "EYE_OF_THE_TEMPEST_GUIDE",
+    "id": "BRAWL_EYE_OF_THE_TEMPEST",
     "name": "Eye of the Tempest",
     "authors": [
       "Oeni"
@@ -113,7 +113,7 @@
     "date": "09/2020"
   },
   {
-    "id": "NOBLE_COALITION_GUIDE",
+    "id": "BRAWL_NOBLE_COALITION",
     "name": "Noble Coalition",
     "authors": [
       "Oeni"
@@ -128,7 +128,7 @@
     "skipNav": true
   },
   {
-    "id": "SELF_CONTROL_GUIDE",
+    "id": "BRAWL_SELF_CONTROL",
     "name": "Self-control",
     "authors": [
       "Kitty"
@@ -143,8 +143,8 @@
     "skipNav": true
   },
   {
-    "id": "DECK_GUIDE",
-    "name": "Deck Building Guide",
+    "id": "DECK_BUILDING",
+    "name": "Deck Building",
     "authors": [
       "Zemeu"
     ],
@@ -157,7 +157,7 @@
     "date": "04/2019"
   },
   {
-    "id": "DRAWING_GUIDE",
+    "id": "DRAWING_MECHANICS",
     "name": "Drawing Mechanics",
     "authors": [
       "Kitty"
@@ -171,8 +171,8 @@
     "date": "05/2020"
   },
   {
-    "id": "RESOURCES_GUIDE",
-    "name": "Resources Guide",
+    "id": "RESOURCES",
+    "name": "Resources",
     "authors": [
       "Roman"
     ],
@@ -185,7 +185,7 @@
     "date": "05/2020"
   },
   {
-    "id": "MANA_CURVE_GUIDE",
+    "id": "MANA_CURVE",
     "name": "Mana Curve Analysis",
     "authors": [
       "Kitty"
@@ -199,8 +199,8 @@
     "date": "06/2020"
   },
   {
-    "id": "TRIGGER_GUIDE",
-    "name": "Triggers Guide",
+    "id": "TRIGGERS",
+    "name": "Triggers",
     "authors": [
       "Kitty",
       "Derk"
@@ -214,8 +214,8 @@
     "date": "06/2020"
   },
   {
-    "id": "CARD_SHOP_GUIDE",
-    "name": "Card Shop Guide",
+    "id": "CARD_SHOP",
+    "name": "Card Shop",
     "authors": [
       "Oeni"
     ],
@@ -228,7 +228,7 @@
     "date": "07/2020"
   },
   {
-    "id": "RECKLESS_RUSH_GUIDE",
+    "id": "RECKLESS_RUSH",
     "name": "Reckless Rush",
     "authors": [
       "RecklessRush"
@@ -243,7 +243,7 @@
     "ratio": "56%"
   },
   {
-    "id": "D1_SF_COMMONS_GUIDE",
+    "id": "D1_SF_COMMONS",
     "name": "D1 with SF Commons",
     "authors": [
       "Kitty"
@@ -257,7 +257,7 @@
     "date": "06/2020"
   },
   {
-    "id": "WINTER_GUIDE",
+    "id": "WINTER",
     "name": "Winter Guide",
     "authors": [
       "WinterBoii",
@@ -273,7 +273,7 @@
     "skipNav": true
   },
   {
-    "id": "PIRATE_GUIDE",
+    "id": "PIRATE",
     "name": "Pirate Guide",
     "authors": [
       "MooreFunn"
@@ -288,7 +288,7 @@
     "skipNav": true
   },
   {
-    "id": "GREEN_PROTOTYPES_GUIDE",
+    "id": "GREEN_PROTOTYPES",
     "name": "Green Prototypes",
     "authors": [
       "Stratadox"
@@ -302,7 +302,7 @@
     "date": "10/2020"
   },
   {
-    "id": "LEGENDARIES_GUIDE",
+    "id": "LEGENDARIES_LEVEL_1",
     "name": "Legendaries Level 1",
     "authors": [
       "ArthisRoo"
@@ -317,7 +317,7 @@
     "skipNav": true
   },
   {
-    "id": "BWBRUSH_GUIDE",
+    "id": "BWB_RUSH",
     "name": "Blessed with Brawn Rush",
     "authors": [
       "Pepegak"
@@ -331,7 +331,7 @@
     "date": "08/2021"
   },
   {
-    "id": "CHILLBEARDS_GUIDE",
+    "id": "CHILLBEARDS",
     "name": "Chillbeards",
     "authors": [
       "Dracqi"
@@ -346,7 +346,7 @@
     "skipNav": true
   },
   {
-    "id": "TERRIFIC_SLAYERS_GUIDE",
+    "id": "TERRIFIC_SLAYERS",
     "name": "Terrific Slayers",
     "authors": [
       "Dracqi"
@@ -361,7 +361,7 @@
     "skipNav": true
   },
   {
-    "id": "BROODMOTHER_QORDIA_GUIDE",
+    "id": "BROODMOTHER_QORDIA",
     "name": "Broodmother Qordia",
     "authors": [
       "HyperScrub"
@@ -376,7 +376,7 @@
     "skipNav": true
   },
   {
-    "id": "TRIVIA_GUIDE",
+    "id": "TRIVIA",
     "name": "Stormbound Trivia",
     "authors": [
       "Kitty"
