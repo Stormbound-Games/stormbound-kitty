@@ -42,6 +42,7 @@ export default React.memo(function Decks(props) {
                       ? props.actions(row[index])
                       : undefined
                   }
+                  spacing={{ bottom: 'SMALL' }}
                 />
               ) : null}
             </Row.Column>

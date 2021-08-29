@@ -35,6 +35,7 @@ export default React.memo(function YourDeck(props) {
           delete={() => removeDeck(props.uuid)}
         />,
       ]}
+      spacing={{ bottom: 'SMALL' }}
     />
   )
 })

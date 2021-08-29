@@ -56,7 +56,7 @@ export default React.memo(function FeaturedDeck(props) {
   const { css } = useFela()
   const { id, deck, distance } = useAdjustedDeck(props)
   const actions = props.actions || []
-  const margin = useSpacing('NONE')
+  const margin = useSpacing(props.spacing || 'NONE')
 
   return (
     <div className={css(styles.deck, margin)} data-testid='featured-deck'>
