@@ -64,12 +64,14 @@ const nav = {
   medium: { justifyContent: 'space-between' },
 }
 
-const navButton = {
-  width: 'calc(50% - 1em)',
-
-  medium: { width: '150px' },
+const navItem = {
+  small: { width: 'calc(50% - 1em)' },
 }
 
-const styles = { gallery, list, item, inDeck, button, nav, navButton }
+const navButton = {
+  medium: { minWidth: '150px' },
+}
+
+const styles = { gallery, list, item, inDeck, button, nav, navItem, navButton }
 
 export default styles

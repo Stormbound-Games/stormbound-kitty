@@ -20,7 +20,7 @@ export default React.memo(function CardBuilderLevelForm(props) {
           Exactly one or five values need to be expressed for it to be valid.
         </p>
 
-        <Row>
+        <Row isDesktopOnly>
           <Row.Column>
             <Input
               label='Strength'
@@ -65,7 +65,7 @@ export default React.memo(function CardBuilderLevelForm(props) {
         </Row>
 
         <Spacing top='LARGE'>
-          <Row>
+          <Row isDesktopOnly>
             <Row.Column>
               <ResetButton
                 label='Reset form'

@@ -84,7 +84,7 @@ export default React.memo(function BattleSimCellForm(props) {
       data-testid='cell-form'
     >
       <div>
-        <Row>
+        <Row withNarrowGutter>
           <Row.Column width='3/4'>
             <CardSelect
               label='Card'
@@ -130,7 +130,7 @@ export default React.memo(function BattleSimCellForm(props) {
       </div>
 
       <div>
-        <Row>
+        <Row withNarrowGutter>
           <Row.Column>
             <NumberInput
               label='Strength'
@@ -180,7 +180,7 @@ export default React.memo(function BattleSimCellForm(props) {
       <fieldset>
         <legend>Statuses</legend>
         <Spacing bottom='BASE'>
-          <Row isDesktopOnly>
+          <Row isDesktopOnly withNarrowGutter>
             <Row.Column width='1/3'>
               <Checkbox
                 id='poisoned'
@@ -221,7 +221,11 @@ export default React.memo(function BattleSimCellForm(props) {
               </Checkbox>
             </Row.Column>
           </Row>
-          <Row isDesktopOnly extend={{ medium: { marginTop: '-1em' } }}>
+          <Row
+            withNarrowGutter
+            isDesktopOnly
+            extend={{ medium: { marginTop: '-1em' } }}
+          >
             <Row.Column width='1/3'>
               <Checkbox
                 id='confused'
@@ -248,7 +252,7 @@ export default React.memo(function BattleSimCellForm(props) {
         </Spacing>
       </fieldset>
 
-      <Row>
+      <Row withNarrowGutter>
         <Row.Column>
           {activeCellCard.card.id !== card ||
           activeCellCard.strength !== +strength ||

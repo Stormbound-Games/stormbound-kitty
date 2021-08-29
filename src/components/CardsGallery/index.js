@@ -142,25 +142,29 @@ export default React.memo(function CardsGallery(props) {
       {!props.hideNavButtons && (
         <Spacing top='LARGER'>
           <div className={css(styles.nav)}>
-            <CTA
-              type='button'
-              extend={styles.navButton}
-              onClick={() => changePage(p => p - 1)}
-              disabled={activePage === 0}
-            >
-              Previous
-            </CTA>
+            <div className={css(styles.navItem)}>
+              <CTA
+                type='button'
+                extend={styles.navButton}
+                onClick={() => changePage(p => p - 1)}
+                disabled={activePage === 0}
+              >
+                Previous
+              </CTA>
+            </div>
 
             {props.navChildren || null}
 
-            <CTA
-              type='button'
-              extend={styles.navButton}
-              onClick={() => changePage(p => p + 1)}
-              disabled={pages.length === 0 || activePage === pages.length - 1}
-            >
-              Next
-            </CTA>
+            <div className={css(styles.navItem)}>
+              <CTA
+                type='button'
+                extend={styles.navButton}
+                onClick={() => changePage(p => p + 1)}
+                disabled={pages.length === 0 || activePage === pages.length - 1}
+              >
+                Next
+              </CTA>
+            </div>
           </div>
         </Spacing>
       )}
