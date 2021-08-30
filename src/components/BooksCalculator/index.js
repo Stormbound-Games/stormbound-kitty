@@ -16,6 +16,7 @@ import TogglableContent from '~/components/TogglableContent'
 import CardLink from '~/components/CardLink'
 import { Rubies } from '~/components/Resource'
 import countCards from '~/helpers/countCards'
+import getRewardLabel from '~/helpers/getRewardLabel'
 import getBookName from '~/helpers/getBookName'
 import styles from './styles'
 
@@ -227,7 +228,13 @@ export default React.memo(function BooksCalculator(props) {
                     <tr key={book}>
                       <td data-label='Book name'>{getBookName(book)}</td>
                       <td data-label='Book cost'>
-                        <Rubies amount={BOOKS[book].cost} />
+                        {getRewardLabel(
+                          {
+                            reward: BOOKS[book].cost.type,
+                            amount: BOOKS[book].cost.amount,
+                          },
+                          true
+                        )}
                       </td>
                     </tr>
                   ))}
