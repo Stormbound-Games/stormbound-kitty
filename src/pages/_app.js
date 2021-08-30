@@ -10,6 +10,16 @@ import createFelaRenderer from '~/helpers/createFelaRenderer'
 
 const fallbackRenderer = createFelaRenderer()
 
+export function reportWebVitals(metric) {
+  const VERCEL_ENV = process.env.VERCEL_ENV || 'development'
+  const IS_DEV = VERCEL_ENV === 'development'
+  const WITH_WEB_VITALS = Boolean(Number(process.env.NEXT_PUBLIC_WV))
+
+  if (IS_DEV && WITH_WEB_VITALS && metric.label === 'web-vital') {
+    console.log(metric)
+  }
+}
+
 function App({ Component, pageProps, renderer = fallbackRenderer }) {
   return (
     <>
